@@ -1,101 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795192251;
-	b=b+Os3Kw8ImKgMaZPM455qARvs6tbG481lKYFCDf2IbpZyztMMeojkizHubo0Zr8SnSez
-	 bkdmtA1HoPUYBdG3WpTGhT3UfQU5scvNMz3V3wAgEoh0gOG8i0Q/HJWsIYK7cTG4ySTG1
-	 rZYDzZfQqsXSiG12WyF8Amaeiygv+iMyKxuBmQuAXA+RoacrlDyR8esB6yGbnIB8GIEgn
-	 z0rqSxml7Blwz76RcP1M/Pau7WQXmAdUoXODlUQMLRQXSZhSwiQqkzScbJ0we/QPX2Z/a
-	 BSwR6X8oruzVgcnL0kcG69r7xuHEjlTeYVhJUPfkuCbawfiDzmL6yRgTWm1vEPVy0Zg==
+	t=1795192263;
+	b=nlTDCEZ2HDDAyMN2yRWq6aXlvk0+2ALUyXOLgGQ6K//7Ir/ZLlnGyGUUEKmychZTQ6r0
+	 gjEWGxbM12Unulj5dwph7Sk+uYp6d37OC6WsHCgNKg7imCijgUKjUrnTSMj3K54/BjtFX
+	 YBgNjIpnidR56B1fuXGcXUH34rqv1mXLrHm6wapXYOy0HzLcZO9+6OtjiEAomsE+RysZL
+	 RWYDvwyatrH58JO5gGMf3216+St+G0NhejVF3nJykAsWdtCMBucPHdkRj5d8KRrKA5SVt
+	 X5Zl9d+YtEwdXJxsrXMchkWT5ID2JIylQjMtYNoORM6JzSn7Lywu0isf40NFq/K4DMA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192251;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
-	b=3s7vsqfQaMMQ/Vd7AQ1FIWBPBbKCKVDyscC1Vd9O/A59IJCXhRVfIPGUig1YbLU9L1Ur
-	 qEP34NVCVnsh56krrHqd0mtnCY5kiyRnkPia5v9BlbL4zJyUDnTMhvH+3pQ5Oz02ZDt2K
-	 yDMpl/BQMHwjFmMYhGTl1vpleSrTIgYiN9tGd9Yf8WiddoWMywtL3tDAScaSRWM8hHeUn
-	 RlIpha96Z4ze76oS8etVn4LH09Dro0Med34d9I8elNPdblZJZqHMWSygD79ZxCaMBZXgT
-	 MWnPOoWp2a7lEQOp4aIkNddz2KWGQDLUJ1JFH7c/Nu6Lr90Y/71zVww/6jrd0anUNgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192263;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
+	 Received:Received:X-MS-Exchange-Authentication-Results:Received-SPF:
+	 Received:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Reason;
+	bh=N0hrCcvyKOlQoYhlUjP2utAw/nprjpoIWdHNvfBgYyM=;
+	b=t6wtQi5P5jaomkJnsyqUXixvzgC6B5BIGkcRmPLXDVbPnXkcEHo7mdcz254f2W6jqswW
+	 MVWxXJ8JQEFm3kE91TWSOAge8nMWTgm1R4DrkT0SkDfzc4eQXHNZ/Z8U4KMpufnH2m4Bf
+	 BNanWOfHHiCKD6RKii/0+yCdnAtmcILS3l+w1Zjypd6u5vpFgYGwLWMF2TVgh3+hBF44v
+	 5wC/GKGtD20LxyZ/j3nEHIskCIRKcvmxP16LpIQqtLFLHlUx4T96lnoR/V9F0Ino1DSsk
+	 IXVCSArLOnUHz9IGUtBMcml4zsRvmWFksXcHHhdLKoUF92kgVkFXw5UEQNtj4NtH+xA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkFR55X7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=opensource.cirrus.com;
+	spf=pass smtp.mailfrom=opensource.cirrus.com;
+	dkim=pass header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b="GAvsS/rk";
+	dkim=pass header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=TOc481dw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.149.25
+Received: from mx0b-001ae601.pphosted.com (mx0a-001ae601.pphosted.com [67.231.149.25])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE9A60A262A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:30:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EE9A60A262A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CE4E60A2625;
+	Fri, 20 Nov 2026 16:30:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CE4E60A2625
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=opensource.cirrus.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=opensource.cirrus.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkFR55X7
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so8502735e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:30:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795192247; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TRbzfY0FESEcs3GrMwA4v4zgAKkt8JVYu4l7jR++U0QTPlByUHhlMes+/FjokiCIWK
-         +7s/elWY7gg7ZP3UI8KCH7k9w+7BAFXBdRKz7EZglYFge7IZURltZUH6V56R76jcgH9y
-         tr+dzHCgfzGHErMZNjUHmgUuGzznyX6w9sSvJhFToadRDk/UUhiRIKuXhX+5idCN1BzD
-         F44kCFkAx2V7LDZEIeKqY8/OVScflHgpyvzZUsrFx8niY6Zt4l1Zr8xIzKJCEpTiD00S
-         gQC9mqa93PC8GilbJaWgzaqVm0V5CK9kflU8PZuM55MaOownEM17FfRzfCLzbEt2Nikm
-         QpMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
-        fh=YvbZZS1VXbEEHwdUG9Iv1gUsmhMTRIwTcZTh5rFmggs=;
-        b=I+0/rNxBW+us7qGOz/gv+75DWKp2i4AYl9MMVWz1f5owDz53vIISJnmFgyFDt2wwlk
-         2DYVdU/SGHnHIjCIfP8p9/yq6pcMSCjEXhD5vowW707MFE3P/yHznjWuaiLfip7IwvqG
-         w7HbPeHfWoFRbsxkxc9g4kW4+W9uE+Dahm5OrsHRtmpxr+UThRwBHiiPP5OhyEwVj6iT
-         BBcV5Nyp3P1VCUcgeTG9L/I6ZlLZ9v3lTOrV+mlzgzMKUYGmT+1EXg8RPZ2/Ph48uGA/
-         xeItcr3TPGbg20naSdjfAFBcuVC+BoMsbZAsYD0IubZZ2sTpdWxQrZPHxu4mf2fhZVvD
-         WxFA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=cirrus.com header.i=@cirrus.com header.a=rsa-sha256 header.s=PODMain02222019 header.b=GAvsS/rk;
+	dkim=pass (1024-bit key) header.d=cirrus4.onmicrosoft.com header.i=@cirrus4.onmicrosoft.com header.a=rsa-sha256 header.s=selector2-cirrus4-onmicrosoft-com header.b=TOc481dw
+Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
+	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKFbwo43095345;
+	Fri, 20 Nov 2026 10:30:33 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=PODMain02222019; bh=N0hrCcvyKOlQoYhl
+	UjP2utAw/nprjpoIWdHNvfBgYyM=; b=GAvsS/rk2rkeoXpfcPWqKZXMUKYE/Pvm
+	s30BeOnwpjVAK/uhf7GDeLFnc38yQANabd0mnwPTgwIj+W1AP1K8KXggqIvpuf8W
+	d0ynacnivnW5GIm2axCY4KSt5JpEGiPW7WmTNqWoadbDsna6MCLEGFagZgnkWNsP
+	E0yoNSXrFFJUMQZ+8h7ehVsWU4LnFdicX5K1IKxi0l+QfRzjYZNsTV9h53912Ocd
+	B8Nmby9wjwOLR+8w2GFHBW9mPvp8dEu7pJiwnbBCrNqBNovNIW/9bL9zM0dEOnXI
+	ySgmCrsLng2SNbFESkohtcyrYv4kMXWCVDA+Og3HSvW/0Exweg16wA==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11022100.outbound.protection.outlook.com [40.93.195.100])
+	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4j24prhvx2-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 10:30:33 -0600 (CST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VoMm846WRicfRhWryMzoW+LX9hEUzVkWjtZ9vaJbQ20jngJYMly/9yEBG03ozUkh4zmh+hBIgNLpklXhGC8tGOoPoOYmF5G1RBXPESOX58lXcHLNJe+F9/6Ui4KVfXei7idFVcMKXkyhhgM7rypnoO55lyEOQU0mgVw/oMhMHCHmMsgkomfykQmIzdtTIe5GB4elz2fSfy9V4Z2MyoseWMris+B0hh3qoixpqqKXB+dh+WpifX0aN2FU9eDncDxWsHSNvRt7KHEYch3LjffqDbptxQCd3tE7b3b9e89Hs5KpGhfq/soCgKQB+ZFifk1W2sJ6ace2WfcMUhzRAfhOYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=N0hrCcvyKOlQoYhlUjP2utAw/nprjpoIWdHNvfBgYyM=;
+ b=hBv04k8RTQoCS0jwNGDUCBBNBl46Wzf8SRu+6QRoTQbLkJUn+tuGeX7mvhTLW156cZ8NlYb1Rv+rUHlTJH4KUtYEUc81xYdGs4kiOGzXL5KE6lct/ViQRKoO7OcQpp6PT3JmKEGmRbbwrKmew0meaCXKwosrobfAPKi+DUQATxosYF/MQCSHSRIWKpVfdOxZ4lCSQyN/7nnhGTyCVRzUDTxwwQll19iHsUh9DyBFfs4QzXqO53SsGQRxc30bZnP9s7b1vH6nIhf/5sb3bONLk2NSAJX7uCT1jb3cNLHgthgZuNISrAHBM5iaJSbKuSX/h4GydZRWDOmejaVG2M5DOQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 84.19.233.75) smtp.rcpttodomain=cirrus.com
+ smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
+ action=oreject header.from=opensource.cirrus.com; dkim=none (message not
+ signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795192247; x=1795797047; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
-        b=hkFR55X7tHxCv67GbrOSqM2bPtx+GkeIUPQLEHomrHxzgFa82hZAB2RX2T0iI/PZgg
-         hptGCk5mOaRyI2iibg04Zzw8JbtTGfYGS47JYazV4ocpaVqSqKnb587cJdqkKekDERx2
-         HwzYJ6EaGHRQVezBfSSutZgSoHivL+TmiPk8FYJ92/ziEExu/nH2hVDnnJ5ZY/Hm4SbP
-         GDIpghhBZQH1YhgkcqaRyuXx1HoyHiDv6t6e5vUxPVnAwJjOlO83uIqkllYwj/ycZ9LC
-         SekPR1aEx9s/uzYKrXaZvObY13ti1zAnUX5aR1Ol0P2eKGFSDQN9nUM08uSHWcIEUg+P
-         SWfg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795192247; x=1795797047;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
-        b=A+nzdcS2jW3psscgeY1DcKd22BdsDSgZtoS27cjsG2u+lQibhPOj2wqM620QMEhtNC
-         RtCPeuctZYO8NryF+4DWprx7GU5xAo+7sDJq73ad48CvGurMmswk0a/UDMrJK4M/4tkc
-         nQJRkENijsWvzHK9JaYoYkgbEEm0LpH5DB035d2d11BKXQ3ZCak3vMBD9fYIS+VOaj4b
-         0SldgpjfpvN5lAzbTMofh8ih9IIJOQnFt8WkUXi3MV08QExH2xCVIVETewaUKtxS8cHA
-         J/+NfhpOX3bTgNZO5yIcc0rlGefvgdch45p1xSR0ejpcb4qan2+rWfwDJ/eD9NXEIk/S
-         0QNA==
-X-Forwarded-Encrypted: i=1; AL+hErEhzXd15RR7/CJDS+KAka7vV7iskb/e17Gp8hChVa7ejjXDA/RmkwQYkQri81BB2nqiwOEozKVI7nKh9Z8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83mgTSGS6N7LoVHKx8f4BRSfwpz+v1hPzK0PNrMpgdNRkrhHXW
-	m7KcTfHW5BJswRvDWx7LAVhVZy0SUvuMK+FapQBAJurRnNLTcI02OomL7n3feWkajFtMZgrvgaI
-	4S+XWq9xn3VZuEEt3R1oucuRgUqO/RSY=
-X-Gm-Gg: AYBFou0Gx8hHo6BmHJ+QizJBq/eCM5dereC90W68ZZ6cP4UibTOn8zg3kr+0R7O6u1s
-	Ynp7yb4zvk+x9USFFI+N5O9Qg8BBiCtLf0j9wrBghrpz8j+PfHCpeSVA4S6iGtRDyh6WFHvQqf2
-	nPdnOqFz3JcNfqMFHwxUKGJLmYImVX7fdtvAFHAw3mrHHnIm1pSQzFLeoqM4bPolSPwQ7nQX81o
-	R8ER+NyoEEB91+ub7mfdVXk1pzo56r2pjB765Vb5mO48py1eSasWSEwUVgHK6BWADY6nUVreq/p
-	X+bKhOmS/y63lCXilgGtQm/oNtT7o3HhV54QdyrR8bFT9LjDlrtqOXAybmBC3ZwpFMkfJjyjzbg
-	iApQDlpVXHSTRiEL3lWUaNVuZh3Hk/D6JdUJIeHLiSMyhO/h1W3d/dBTHxu6AD3LR9IHN9MtoE7
-	P/Ofku9gQ3CDKkoYHMOAc=
-X-Received: by 2002:a05:600c:a08b:b0:4bb:6651:9eda with SMTP id
- 5b1f17b1804b1-4bb88922ca4mr75440565e9.14.1795192245903; Fri, 20 Nov 2026
- 08:30:45 -0800 (PST)
+ d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=N0hrCcvyKOlQoYhlUjP2utAw/nprjpoIWdHNvfBgYyM=;
+ b=TOc481dwEc5Bxw+waQlKgJ0y4JuFOr5e2t77Y9R/iLhkJmw0qpV3Mzy/LZEhNEWVCHuhxjcU/SlAwPmSq+4BjOGqKFe3ZT5Gk04VD1sOFKvQ9WU0Y4ajEU3+yELumJCmBwHTtITJ6ryZJn2oSmZf54bM6x8i3nYNGJMYwGdicQY=
+Received: from PH8PR15CA0010.namprd15.prod.outlook.com (2603:10b6:510:2d2::6)
+ by LV9PR19MB9157.namprd19.prod.outlook.com (2603:10b6:408:2f4::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 16:28:26 +0000
+Received: from CY7PEPF000000EE.namprd04.prod.outlook.com
+ (2603:10b6:510:2d2:cafe::23) by PH8PR15CA0010.outlook.office365.com
+ (2603:10b6:510:2d2::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 16:28:26 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=softfail (sender
+ IP is 84.19.233.75) smtp.mailfrom=opensource.cirrus.com; dkim=none (message
+ not signed) header.d=none;dmarc=fail action=oreject
+ header.from=opensource.cirrus.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
+Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
+ CY7PEPF000000EE.mail.protection.outlook.com (10.167.247.170) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.5
+ via Frontend Transport; Fri, 20 Nov 2026 16:28:25 +0000
+Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
+	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id C768D406545;
+	Fri, 20 Nov 2026 16:28:23 +0000 (UTC)
+Received: from ediswws03.ad.cirrus.com (ediswws03.ad.cirrus.com [198.90.251.17])
+	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id B735B822540;
+	Fri, 20 Nov 2026 16:28:23 +0000 (UTC)
+From: Maciej Strozek <mstrozek@opensource.cirrus.com>
+To: broonie@kernel.org
+Cc: lgirdwood@gmail.com, yung-chuan.liao@linux.intel.com,
+        pierre-louis.bossart@linux.dev, perex@perex.cz, tiwai@suse.com,
+        linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
+        linux-kernel@vger.kernel.org,
+        Maciej Strozek <mstrozek@opensource.cirrus.com>
+Subject: [PATCH v2] ASoC: SDCA: Use Function Extension info for FDL
+Date: Fri, 20 Nov 2026 16:28:07 +0000
+Message-ID: <20261120162807.1568409-1-mstrozek@opensource.cirrus.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,455 +131,275 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-15-9eee2fe97a2d@tencent.com> <CAN_Opa8jGstV=s9S=c842XFJ_H8m5txc6eJDH2AF=KuJSHAe6Q@mail.gmail.com>
- <CAMgjq7C+7=k9f9HVtYn_VwB96TZAJ=D8cbMh0mV7wCsW3m0ZWA@mail.gmail.com>
-In-Reply-To: <CAMgjq7C+7=k9f9HVtYn_VwB96TZAJ=D8cbMh0mV7wCsW3m0ZWA@mail.gmail.com>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Sat, 21 Nov 2026 00:30:33 +0800
-X-Gm-Features: Aa3M54q95jyZhEq-i_M7PwZnXUeHoRjlmXeb1GTLAqkufRChUjHRglY7D5BoOUY
-Message-ID: <CAN_Opa_+xnmx7JTYxSRyn+itcfJZqeZz2mgBjTTKF13UKqO8rQ@mail.gmail.com>
-Subject: Re: [PATCH v5 15/17] mm/mglru: folio LRU refs based active/inactive
- number accounting
-To: Kairui Song <ryncsn@gmail.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
-	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
-	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
-	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, 
-	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY7PEPF000000EE:EE_|LV9PR19MB9157:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 87dedd62-4066-429d-43d4-08df47234d2a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|36860700016|23010399003|61400799027|82310400026|10067099003|11063799006|56012099006|261021123027099003|261021121427099003|261009223027099003|261102130727099003|261102123227099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261028144727099003|18002099003|16102099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	RciWov9+o5QRyGFVTfct0jSQ5+dlaKFfTG/WGanY1kUAY3KLM8SdNK5s7j8+GzYyQua8p4vlqaXPnPUczsV2uw7Xzu2sA90xO8QtLMFTknlb0x6xe1ELJeBwTGbZwyEyssvDHNZNTsqo5CJtzprnkf0xr1ML2R5lFCWZYho7KSt5hDnx3K8Rf4pbLsTFMTMvOcwnUFO0hGiAUvQe4R5gJkh07Pt39MD7zORv7yOLaSdsfwCeg4nduJ/+k8rEGlNViVY2osCHIJQQ8gPCbuq0gDgWWHij9pY+klqn+/UrXLaJ5ogr+vkrbgV1GYXbV7EZec5cihHLj8m0sbPZh/9TRO2cafqNmDz/Cy9YNfItO3uQfJvO3fuFOjwcnhLluoYqz6mvXX2JbITF7rPW+RMrAMF4019VJEIvvWrXDoJbLgistwRqf+kuiLZ5aQ5W7ZH7aQfUDfgV5LhAjMpI2wqutp9yByKNgvdYWZkSTdClIvI4WthKKD0c9iu7zMMywHi/of6GFfEQH5S04yrA0H/zi1Vbg4iSOrTkcpNWmzmMV6BRxxRI+6k4zdSuoDmiocP+WNKiEAqNWKVpleTTQD2BZs3ex8hH5lts/yNXG6nQxztNQhjG/LAOc3LWdmkItJs2fTNNOOntxww7edFU04zB2PbCcii0WGTFsI+NHyMscnlYIPiJvyBFSZVHk/6wLLzirMItPCV2CAjq2bFp+pohtg==
+X-Forefront-Antispam-Report:
+	CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(61400799027)(82310400026)(10067099003)(11063799006)(56012099006)(261021123027099003)(261021121427099003)(261009223027099003)(261102130727099003)(261102123227099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261028144727099003)(18002099003)(16102099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	VfAyZufe8YmysyijPe2UeQNxaBRyYHwkMsRTfhvwJ795rxLBerR+1LPtbM3Z/cbWqCijKDVebSLt8glVb2HRNS1IyRjXrv7cMtXxwaRrc0EnBe/pOGzjz3Gls2A2Ax1WtGHqG8bd3bA3hASqO3I5sXUakHVeoyCC3sD4V8ghxoIyjJkd1Y9YTVYHoubzBbVPT/dlsyqWxbum2WfIqWeq9y4r/QNE5VfgtzcuJ3Br7bg4t+qH0mZDKp40+eNkW46xWJWHzPaRFUI5uGrSS3zp2IxMnljZ2EQ9X27YN9kMmogJtnUlpQQTfXETST5uuUGELzVcYVVnZcYunm1pDHzjzjOWrIG2afv6N30LINEWGAlSQZ2ADkf2Sjj3sVHDvzSBAAGM1HvuCw0MBC53MuO2y1JkD6lShGhwVsdQc3PhuZyVD2TfnKh59qBCVCVQR0C3
+X-Exchange-RoutingPolicyChecked:
+	PXHTlCXF3qFwgRubFM9xqAKOW/9uKJXv0QqT4GXFJ1r6p8HAI0pGBVLSW9xVbzQGX5sIuleKSbrJhXeGT+qVUqmlPzvgkdM/gLTcZL94Quugg1UsYr3bz7lxx0JLQJ88MIAQNFEACdDeA0bcLfUQrQIwZPmD6Abk0Sh6y/G1Z7f1HxpbWADmaY+YaGBLi/DmJ+jZZXXEpZSzUmK5BrRhQMYAeT9xBOSviF8NhQCO7dEK4go1cfAfJ7VHunpbd+F9j8sKLI+tSrdp9nA2Ze4JOm7przKY8B+vzTuaxRzSD0/a40OeIe++Z9HnKnzCy5hKRsdosCmx6oQlrF5LqYSyXA==
+X-OriginatorOrg: opensource.cirrus.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:28:25.0994
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87dedd62-4066-429d-43d4-08df47234d2a
+X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CY7PEPF000000EE.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV9PR19MB9157
+X-Proofpoint-GUID: v0QZsbDRngChy8UdLQK-DkMM8PGzT1YE
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA2NSBTYWx0ZWRfX23/eXOVvtvjM
+ LGPeu6IAWfioEkPWFBO95MKOz2/JSChrzGB90/uzm0sKb5VYSr4cI5Q1ftwVHqaSMOfpjI+KFWe
+ bg8cjyjHdcOEMLUgSZg/+Dl1Nk5Dn4s=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA2NSBTYWx0ZWRfX4VYXuKo7iHb7
+ gN8VZQRc/M/sFzaXmonFDoImdI7i4E3nPrHexWRu7GGlW7kaB+hW15x6EsMI/UZh9K/kIvlGYy2
+ dm4UFeBv8Kwvg2QOtjCFMt2k5MTuqco45w6rJ+IRbexxX7mFYk4gDENIdjNsuDKFfOQpSB04JVk
+ 3VWVoKcTSs4j+3Pb1/M+rDOF6odl5rJAMh4ur5g70LfykUu8xcSjrTuvKecDjv/sNCzQyZAdlsX
+ SQeFBbj3ILq5V5oCPQZU7mVKY3s6aVjk83wjoTBZxP5CqzBIEm8XhCGX9DIpVKr5OPvYJFrpfYh
+ PQz1QTCVNQkrVaNpoa8NA6zDhwWcK1vkZbgN24vjLKWwOlUCJSIFi/xQQGkEx35mVVwgOlA35id
+ Kzv2/Yq9k2nY8U5tVx8GMGaYNR4HGjYnZM/olqKylm+f9Nwwz5o9DQXPJKgZ5elo0rUXlsaWgmk
+ v6A1ck+ugqZsg1sDlcA==
+X-Authority-Analysis: v=2.4 cv=afr0Dhot c=1 sm=1 tr=0 ts=6b0075a9 cx=c_pps
+ a=NdJUlaw63gEkhoowhPQriw==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=zJRp6_cAMcgA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
+ a=w1d2syhTAAAA:8 a=NI2tKjdqt5RRJgUe-90A:9
+X-Proofpoint-ORIG-GUID: v0QZsbDRngChy8UdLQK-DkMM8PGzT1YE
+X-Proofpoint-Spam-Reason: safe
 
-On Fri, Nov 20, 2026 at 7:21=E2=80=AFPM Kairui Song <ryncsn@gmail.com> wrot=
-e:
->
-> On Fri, Nov 20, 2026 at 5:30=E2=80=AFPM KunWu Chan <kunwu.chan@gmail.com>=
- wrote:
-> >
-> > On Thu, Nov 19, 2026 at 5:04=E2=80=AFAM Kairui Song via B4 Relay
-> > <devnull+kasong.tencent.com@kernel.org> wrote:
-> > >
-> > > From: Kairui Song <kasong@tencent.com>
-> > >
-> > > Currently the active/inactive LRU sizes exported through /proc/vmstat
-> > > and memory.stat are derived from the generation window: folios in the
-> > > two newest generations are accounted as active, the rest as inactive.
-> > > This causes several problems:
-> > >
-> > > - Unmapped file folios can stay in older gens despite repeated use,
-> > >   so active files can be under-reported, unlike classical LRU.
-> > >
-> > > - The reading is jumpy: on aging, the second-newest gen, previously
-> > >   active, becomes inactive all at once, causing a huge drop of active
-> > >   folios without any change in use.
-> > >
-> > > - The reading is reversed on swapless machines. When swapping is
-> > >   disabled or unavailable, MGLRU ages anon by moving the gens directl=
-y
-> > >   without walking or touching any folio, to reduce the overhead. So
-> > >   inactive anon folios can suddenly count as active, or vice versa,
-> > >   despite no change in their hotness.
-> > >
-> > > With frequency guided promotion, hotness is already tracked per folio=
- by
-> > > its referenced count, so we can do folio level accounting instead: a
-> > > folio is active once its refs reach LRU_REFS_ACTIVATED (currently
-> > > LRU_REFS_PROTECTED).
-> > >
-> > > On reaching this threshold, folios are accounted to the active part.
-> > > On forced per-folio aging or PID protection, refs are capped at
-> > > LRU_REFS_WORKINGSET, dropping active folios to the inactive part.
-> > > Note that on swapless machines anon refs are not reset by aging (the
-> > > shortcut skips the per-folio walk), but the counts no longer oscillat=
-e
-> > > as the generation indices wrap.
-> > >
-> > > The accounting is now per folio and lruvec independent, so no size
-> > > adjustment is needed when reparenting a dying memcg: the hierarchical
-> > > stats keep the counts in the parent automatically.
-> > >
-> > > folio_migrate_lru_refs() also gains off-LRU VM_WARN_ON_ONCE checks an=
-d
-> > > __folio_set_lru_refs() warns when the folio is still on an LRU list.
-> > >
-> > > The latter uses lru_get_gen_flags(), so that helper now has to move o=
-ut of
-> > > the CONFIG_LRU_GEN block and is built with the option off, where
-> > > LRU_GEN_WIDTH is 0 and LRU_GEN_MASK is zero.  Keep the decoded value =
-in
-> > > int so the subtraction of the one-off encoding cannot fold to ULONG_M=
-AX
-> > > before it happens: that is -Woverflow, and fatal with CONFIG_WERROR.
-> > >
-> > > Signed-off-by: Kairui Song <kasong@tencent.com>
-> > > ---
-> > >  Documentation/admin-guide/mm/multigen_lru.rst |   4 +-
-> > >  include/linux/mm_inline.h                     | 118 +++++++-------
-> > >  include/linux/mmzone.h                        |  23 ++-
-> > >  mm/folio.c                                    |  39 +----
-> > >  mm/madvise.c                                  |   2 +-
-> > >  mm/vmscan.c                                   | 218 ++++++++++++++++=
-+---------
-> > >  mm/workingset.c                               |   2 +-
-> > >  7 files changed, 230 insertions(+), 176 deletions(-)
-> > >
-> > > diff --git a/Documentation/admin-guide/mm/multigen_lru.rst b/Document=
-ation/admin-guide/mm/multigen_lru.rst
-> > > index 9cb54b4ff5d9..808d2e97b3f3 100644
-> > > --- a/Documentation/admin-guide/mm/multigen_lru.rst
-> > > +++ b/Documentation/admin-guide/mm/multigen_lru.rst
-> > > @@ -149,8 +149,8 @@ generations less than or equal to ``min_gen_nr``.
-> > >      ``- memcg_id node_id min_gen_nr [swappiness [nr_to_reclaim]]``
-> > >
-> > >  ``min_gen_nr`` should be less than ``max_gen_nr-1``, since
-> > > -``max_gen_nr`` and ``max_gen_nr-1`` are not fully aged (equivalent t=
-o
-> > > -the active list) and therefore cannot be evicted. ``swappiness``
-> > > +``max_gen_nr`` and ``max_gen_nr-1`` are not fully aged and therefore
-> > > +cannot be evicted. ``swappiness``
-> > >  overrides the default value in ``/proc/sys/vm/swappiness`` and the v=
-alid
-> > >  range is [0-200, max], with max being exclusively used for the recla=
-mation
-> > >  of anonymous memory. ``nr_to_reclaim`` limits the number of pages to=
- evict.
-> > > diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> > > index 14aab2b1ed08..77f514143266 100644
-> > > --- a/include/linux/mm_inline.h
-> > > +++ b/include/linux/mm_inline.h
-> > > @@ -105,6 +105,22 @@ static __always_inline enum lru_list folio_lru_l=
-ist(const struct folio *folio)
-> > >         return lru;
-> > >  }
-> > >
-> > > +/**
-> > > + * lru_get_gen_flags - Return the LRU generation number from folio f=
-lags.
-> > > + * @flags: folio flags
-> > > + *
-> > > + * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Ret=
-urns
-> > > + * -1 if the flags indicate the folio is off the list (e.g., isolate=
-d).
-> > > + */
-> > > +static inline int lru_get_gen_flags(unsigned long flags)
-> > > +{
-> > > +       int gen =3D (int)((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF);
-> > > +
-> > > +       /* The gen is stored offset by one, so zero means off-list */
-> > > +       VM_WARN_ON_ONCE(gen > MAX_NR_GENS);
-> > > +       return gen - 1;
-> > > +}
-> > > +
-> > >  #ifdef CONFIG_LRU_GEN
-> > >
-> > >  static inline bool lru_gen_switching(void)
-> > > @@ -168,22 +184,6 @@ static inline void lru_set_gen_flags(unsigned lo=
-ng *flags, int gen)
-> > >         *flags |=3D (gen + 1UL) << LRU_GEN_PGOFF;
-> > >  }
-> > >
-> > > -/**
-> > > - * lru_get_gen_flags - Return the LRU generation number from folio f=
-lags.
-> > > - * @flags: folio flags
-> > > - *
-> > > - * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Ret=
-urns
-> > > - * -1 if the flags indicate the folio is off the list (e.g., isolate=
-d).
-> > > - */
-> > > -static inline int lru_get_gen_flags(unsigned long flags)
-> > > -{
-> > > -       int gen =3D ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
-> > > -
-> > > -       /* Exclude the legal -1 from the unsigned MAX_NR_GENS compari=
-son */
-> > > -       VM_WARN_ON_ONCE(gen !=3D -1 && gen >=3D MAX_NR_GENS);
-> > > -       return gen;
-> > > -}
-> > > -
-> > >  static inline int folio_lru_gen(const struct folio *folio)
-> > >  {
-> > >         return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, =
-0)));
-> > > @@ -247,12 +247,21 @@ static inline bool lru_refs_is_workingset(unsig=
-ned int refs)
-> > >         return refs >=3D LRU_REFS_WORKINGSET;
-> > >  }
-> > >
-> > > -static inline void folio_set_lru_refs(struct folio *folio, unsigned =
-int refs)
-> > > +/**
-> > > + * __folio_set_lru_refs - Set a folio's LRU refs.
-> > > + * @folio: the folio
-> > > + * @refs: the new referenced count (0 .. LRU_REFS_MAX)
-> > > + *
-> > > + * Set the folio's LRU refs.  The folio must be off the LRU list (e.=
-g.,
-> > > + * isolated), or use folio_inc_lru_refs or folio_reset_lru_refs inst=
-ead.
-> > > + */
-> > > +static inline void __folio_set_lru_refs(struct folio *folio, unsigne=
-d int refs)
-> > >  {
-> > >         unsigned long new_flags, old_flags =3D READ_ONCE(*folio_flags=
-(folio, 0));
-> > >
-> > >         do {
-> > >                 new_flags =3D old_flags;
-> > > +               VM_WARN_ON_ONCE(lru_get_gen_flags(old_flags) !=3D -1)=
-;
-> > >                 lru_set_refs_flags(&new_flags, refs);
-> > >                 if (new_flags =3D=3D old_flags)
-> > >                         break;
-> > > @@ -261,12 +270,18 @@ static inline void folio_set_lru_refs(struct fo=
-lio *folio, unsigned int refs)
-> > >
-> > >  #ifdef CONFIG_LRU_GEN
-> > >  void folio_inc_lru_refs(struct folio *folio, unsigned int flags);
-> > > +bool folio_reset_lru_refs(struct folio *folio);
-> > >  #else
-> > >  static inline void folio_inc_lru_refs(struct folio *folio, unsigned =
-int flags)
-> > >  {
-> > >         /* Should not be called with !CONFIG_LRU_GEN */
-> > >         WARN_ON_ONCE(1);
-> > >  }
-> > > +
-> > > +static inline bool folio_reset_lru_refs(struct folio *folio)
-> > > +{
-> > > +       return false;
-> > > +}
-> > >  #endif
-> > >
-> > >  /**
-> > > @@ -280,10 +295,18 @@ static inline void folio_inc_lru_refs(struct fo=
-lio *folio, unsigned int flags)
-> > >   */
-> > >  static inline void folio_migrate_lru_refs(struct folio *new, const s=
-truct folio *old)
-> > >  {
-> > > -       folio_set_lru_refs(new, folio_lru_refs(old));
-> > > +       VM_WARN_ON_ONCE_FOLIO(folio_test_lru(old), old);
-> > > +       VM_WARN_ON_ONCE_FOLIO(folio_test_lru(new), new);
-> > > +       __folio_set_lru_refs(new, folio_lru_refs(old));
-> > >  }
-> > >
-> > >  #ifdef CONFIG_LRU_GEN
-> > > +static inline bool lru_refs_is_active(unsigned int refs)
-> > > +{
-> > > +       VM_WARN_ON_ONCE(refs > LRU_REFS_MAX);
-> > > +       return refs >=3D LRU_REFS_ACTIVATED;
-> > > +}
-> > > +
-> > >  static inline bool lru_gen_is_old(struct lruvec *lruvec, int type, i=
-nt gen)
-> > >  {
-> > >         unsigned long min_seq =3D READ_ONCE(lruvec->lrugen.min_seq[ty=
-pe]);
-> > > @@ -294,23 +317,12 @@ static inline bool lru_gen_is_old(struct lruvec=
- *lruvec, int type, int gen)
-> > >                gen =3D=3D lru_gen_from_seq(min_seq + 1);
-> > >  }
-> > >
-> > > -static inline bool lru_gen_is_active(const struct lruvec *lruvec, in=
-t gen)
-> > > -{
-> > > -       unsigned long max_seq =3D READ_ONCE(lruvec->lrugen.max_seq);
-> > > -
-> > > -       VM_WARN_ON_ONCE(gen >=3D MAX_NR_GENS);
-> > > -
-> > > -       /* see the comment on MIN_NR_GENS */
-> > > -       return gen =3D=3D lru_gen_from_seq(max_seq) || gen =3D=3D lru=
-_gen_from_seq(max_seq - 1);
-> > > -}
-> > > -
-> > >  static inline void lru_gen_update_size(struct lruvec *lruvec, struct=
- folio *folio,
-> > >                                        int old_gen, int new_gen)
-> > >  {
-> > >         int type =3D folio_is_file_lru(folio);
-> > >         int zone =3D folio_zonenum(folio);
-> > >         int delta =3D folio_nr_pages(folio);
-> > > -       enum lru_list lru =3D type * LRU_INACTIVE_FILE;
-> > >         struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
-> > >
-> > >         VM_WARN_ON_ONCE(old_gen !=3D -1 && old_gen >=3D MAX_NR_GENS);
-> > > @@ -321,19 +333,6 @@ static inline void lru_gen_update_size(struct lr=
-uvec *lruvec, struct folio *foli
-> > >                 atomic_long_sub(delta, &lrugen->nr_pages[old_gen][typ=
-e][zone]);
-> > >         if (new_gen >=3D 0)
-> > >                 atomic_long_add(delta, &lrugen->nr_pages[new_gen][typ=
-e][zone]);
-> > > -
-> > > -       /* return now if not a promotion */
-> > > -       if (old_gen < 0 || new_gen < 0)
-> > > -               return;
-> > > -
-> > > -       /* promotion */
-> > > -       if (!lru_gen_is_active(lruvec, old_gen) && lru_gen_is_active(=
-lruvec, new_gen)) {
-> > > -               __update_lru_size(lruvec, lru, zone, -delta);
-> > > -               __update_lru_size(lruvec, lru + LRU_ACTIVE, zone, del=
-ta);
-> > > -       }
-> > > -
-> > > -       /* demotion requires isolation, e.g., lru_deactivate_fn() */
-> > > -       VM_WARN_ON_ONCE(lru_gen_is_active(lruvec, old_gen) && !lru_ge=
-n_is_active(lruvec, new_gen));
-> > >  }
-> > >
-> > >  static inline unsigned long lru_gen_folio_seq(const struct lruvec *l=
-ruvec,
-> > > @@ -376,7 +375,8 @@ static inline bool __lru_gen_add_folio(struct lru=
-vec *lruvec, struct folio *foli
-> > >  {
-> > >         unsigned long seq;
-> > >         unsigned long flags;
-> > > -       int gen =3D folio_lru_gen(folio);
-> > > +       unsigned int refs;
-> > > +       int gen;
-> > >         int type =3D folio_is_file_lru(folio);
-> > >         int zone =3D folio_zonenum(folio);
-> > >         int delta =3D folio_nr_pages(folio);
-> > > @@ -384,7 +384,7 @@ static inline bool __lru_gen_add_folio(struct lru=
-vec *lruvec, struct folio *foli
-> > >         struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
-> > >
-> > >         BUILD_BUG_ON(BIT(LRU_GEN_WIDTH - 1) !=3D MAX_NR_GENS);
-> > > -       VM_WARN_ON_ONCE_FOLIO(gen !=3D -1, folio);
-> > > +       VM_WARN_ON_ONCE_FOLIO(folio_lru_gen(folio) !=3D -1, folio);
-> > >
-> > >         if (folio_test_unevictable(folio) || !lrugen->enabled)
-> > >                 return false;
-> > > @@ -395,10 +395,12 @@ static inline bool __lru_gen_add_folio(struct l=
-ruvec *lruvec, struct folio *foli
-> > >         gen =3D lru_gen_from_seq(seq);
-> > >         flags =3D (gen + 1UL) << LRU_GEN_PGOFF;
-> > >         /* see the comment on MIN_NR_GENS about PG_active */
-> > > -       set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK | BIT(PG_ac=
-tive), flags);
-> > > +       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK |=
- BIT(PG_active), flags);
-> > > +       /* use the refs from the atomic snapshot to avoid raced updat=
-e */
-> > > +       refs =3D lru_get_refs_flags(flags);
-> > >
-> > >         lru_gen_update_size(lruvec, folio, -1, gen);
-> > > -       if (lru_gen_is_active(lruvec, gen))
-> > > +       if (lru_refs_is_active(refs))
-> > >                 lru +=3D LRU_ACTIVE;
-> > >         __update_lru_size(lruvec, lru, zone, delta);
-> > >
-> > > @@ -425,24 +427,33 @@ static inline bool lru_gen_add_rejected_folio(s=
-truct lruvec *lruvec, struct foli
-> > >  static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct f=
-olio *folio, bool reclaiming)
-> > >  {
-> > >         unsigned long flags;
-> > > -       int gen =3D folio_lru_gen(folio);
-> > > +       unsigned int refs;
-> > > +       int gen;
-> > >         int zone =3D folio_zonenum(folio);
-> > >         int delta =3D folio_nr_pages(folio);
-> > >         enum lru_list lru =3D folio_is_file_lru(folio) * LRU_INACTIVE=
-_FILE;
-> > > +       unsigned long max_seq =3D READ_ONCE(lruvec->lrugen.max_seq);
-> > >
-> > > +       /* Keep LRU_REFS_FLAGS: refs carry access history across isol=
-ation */
-> > > +       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK, =
-0);
-> > > +       gen =3D lru_get_gen_flags(flags);
-> > > +       refs =3D lru_get_refs_flags(flags);
-> > >         if (gen < 0)
-> > >                 return false;
-> > >
-> > >         VM_WARN_ON_ONCE_FOLIO(folio_test_active(folio), folio);
-> > >         VM_WARN_ON_ONCE_FOLIO(folio_test_unevictable(folio), folio);
-> > >
-> > > -       /* for folio_migrate_flags() */
-> > > -       flags =3D !reclaiming && lru_gen_is_active(lruvec, gen) ? BIT=
-(PG_active) : 0;
-> > > -       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK, =
-flags);
-> > > -       gen =3D ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
-> > > +       /*
-> > > +        * See the comment in lru_gen_folio_seq.  For migration, comp=
-action,
-> > > +        * or any other isolation of a hot folio, try best to retain =
-its gen
-> > > +        * info. Ideally we would keep the full gen info.
-> > > +        */
-> > > +       if (!reclaiming && ((max_seq - gen) % MAX_NR_GENS) < MIN_NR_G=
-ENS)
-> > > +               folio_set_active(folio);
-> > >
-> > >         lru_gen_update_size(lruvec, folio, gen, -1);
-> > > -       if (lru_gen_is_active(lruvec, gen))
-> > > +       if (lru_refs_is_active(refs))
-> > >                 lru +=3D LRU_ACTIVE;
-> > >         __update_lru_size(lruvec, lru, zone, -delta);
-> > >         list_del(&folio->lru);
-> > > @@ -499,6 +510,7 @@ static __always_inline void folio_inc_lru_refs_fa=
-st(struct folio *folio)
-> > >                 return;
-> > >         }
-> > >
-> > > +       BUILD_BUG_ON(LRU_REFS_REFERENCED >=3D LRU_REFS_ACTIVATED);
-> > >         old_flags =3D READ_ONCE(*folio_flags(folio, 0));
-> > >         do {
-> > >                 if (lru_get_refs_flags(old_flags))
-> > > @@ -534,7 +546,7 @@ static inline bool folio_check_lru_refs(const str=
-uct folio *folio)
-> > >  static inline void folio_clear_lru_refs(struct folio *folio)
-> > >  {
-> > >         if (lru_gen_enabled())
-> > > -               folio_set_lru_refs(folio, 0);
-> > > +               folio_reset_lru_refs(folio);
-> > >         else
-> > >                 folio_clear_referenced(folio);
-> > >  }
-> >
-> > Can clear_refs race with disabling MGLRU? Once the static key is
-> > off, it can drop refs from 3 to 2 on a folio still on a gen list.
-> > The drain then subtracts it from inactive, though it was counted
-> > as active.
->
-> Thanks for the very careful review!
->
-> I think we are fine, folio_reset_lru_refs checks gen >=3D 0 before
-> touching things, gen >=3D 0 means the folio is manged by MGLRU, right?
-> The worst could happen is we clear PG_workingset for CLRU, which
-> really doesn't matter, one metric off by one folio for a very short
-> period and self healing, not a measurable thing even if you do that on
-> purpose.
+Add additional way of selecting files for FDL using Function Extension
+ID and Function Extension Version, following Windows' SDCA driver usage
+of those controls for FDL.
+Make sure the introduced FEID/FEV search path is separate from the
+'legacy' SSID-only search path in case some vendors choose to re-use
+SSIDs for different SKUs and identify them by Function Extension
+controls instead.
 
-Thanks, Kairui. The refs-based accounting makes sense to me.
+Signed-off-by: Maciej Strozek <mstrozek@opensource.cirrus.com>
+---
+v2: Removed goto from error handling, moved dbg prints into the err print
+---
+ sound/soc/sdca/sdca_fdl.c | 150 +++++++++++++++++++++++---------------
+ 1 file changed, 92 insertions(+), 58 deletions(-)
 
-I meant the else branch in folio_clear_lru_refs(). The static key
-can already be off while the folio is still on a gen list. If
-clear_refs drops refs from 3 to 2 there, where do we subtract
-those pages from the active count?
+diff --git a/sound/soc/sdca/sdca_fdl.c b/sound/soc/sdca/sdca_fdl.c
+index 7fc809707944d..6c34e68fe729d 100644
+--- a/sound/soc/sdca/sdca_fdl.c
++++ b/sound/soc/sdca/sdca_fdl.c
+@@ -147,47 +147,77 @@ int sdca_fdl_sync(struct device *dev, struct sdca_function_data *function,
+ }
+ EXPORT_SYMBOL_NS_GPL(sdca_fdl_sync, "SND_SOC_SDCA");
+ 
+-static char *fdl_get_sku_filename(struct device *dev,
+-				  struct sdca_fdl_file *fdl_file)
++static int fdl_get_sku_filename(struct sdca_interrupt *interrupt,
++				struct sdca_fdl_file *fdl_file,
++				char **disk_filename,
++				char **fallback_filename)
+ {
+-	struct device *parent = dev;
++	unsigned int adr = interrupt->function->desc->adr;
++	char extension[sizeof("fe0000v00/")] = "";
++	struct device *parent = interrupt->dev;
+ 	const char *product_vendor;
+ 	const char *product_sku;
++	unsigned int id = 0, version = 0;
++
++	regmap_read(interrupt->function_regmap,
++		    SDW_SDCA_CTL(adr, SDCA_ENTITY_TYPE_ENTITY_0,
++				 SDCA_CTL_ENTITY_0_FUNCTION_EXTENSION_ID, 0),
++		    &id);
++	regmap_read(interrupt->function_regmap,
++		    SDW_SDCA_CTL(adr, SDCA_ENTITY_TYPE_ENTITY_0,
++				 SDCA_CTL_ENTITY_0_FUNCTION_EXTENSION_VERSION, 0),
++		    &version);
++
++	if (id || version)
++		snprintf(extension, sizeof(extension), "fe%xv%x/", id, version);
+ 
+ 	/*
+ 	 * Try to find pci_dev manually because the card may not be ready to be
+ 	 * used for snd_soc_card_get_pci_ssid yet
+ 	 */
+-	while (parent) {
+-		if (dev_is_pci(parent)) {
+-			struct pci_dev *pci_dev = to_pci_dev(parent);
+-
+-			return kasprintf(GFP_KERNEL, "sdca/%x/%x/%x/%x.bin",
+-					 fdl_file->vendor_id,
+-					 pci_dev->subsystem_vendor,
+-					 pci_dev->subsystem_device,
+-					 fdl_file->file_id);
+-		} else {
+-			parent = parent->parent;
+-		}
++	while (parent && !dev_is_pci(parent))
++		parent = parent->parent;
++
++	if (parent) {
++		struct pci_dev *pci_dev = to_pci_dev(parent);
++
++		*disk_filename = kasprintf(GFP_KERNEL, "sdca/%x/%x/%x/%s%x.bin",
++					   fdl_file->vendor_id,
++					   pci_dev->subsystem_vendor,
++					   pci_dev->subsystem_device,
++					   extension, fdl_file->file_id);
++	} else {
++		product_vendor = dmi_get_system_info(DMI_SYS_VENDOR);
++		if (!product_vendor || !strcmp(product_vendor, "Default string"))
++			product_vendor = dmi_get_system_info(DMI_BOARD_VENDOR);
++		if (!product_vendor || !strcmp(product_vendor, "Default string"))
++			product_vendor = dmi_get_system_info(DMI_CHASSIS_VENDOR);
++		if (!product_vendor)
++			product_vendor = "unknown";
++
++		product_sku = dmi_get_system_info(DMI_PRODUCT_SKU);
++		if (!product_sku || !strcmp(product_sku, "Default string"))
++			product_sku = dmi_get_system_info(DMI_PRODUCT_NAME);
++		if (!product_sku)
++			product_sku = "unknown";
++
++		*disk_filename = kasprintf(GFP_KERNEL, "sdca/%x/%s/%s/%s%x.bin",
++					   fdl_file->vendor_id, product_vendor,
++					   product_sku, extension,
++					   fdl_file->file_id);
++	}
++
++	*fallback_filename = kasprintf(GFP_KERNEL, "sdca/%x/%s%x.bin",
++				       fdl_file->vendor_id, extension,
++				       fdl_file->file_id);
++
++	if (!*disk_filename || !*fallback_filename) {
++		kfree(*disk_filename);
++		kfree(*fallback_filename);
++		return -ENOMEM;
+ 	}
+ 
+-	product_vendor = dmi_get_system_info(DMI_SYS_VENDOR);
+-	if (!product_vendor || !strcmp(product_vendor, "Default string"))
+-		product_vendor = dmi_get_system_info(DMI_BOARD_VENDOR);
+-	if (!product_vendor || !strcmp(product_vendor, "Default string"))
+-		product_vendor = dmi_get_system_info(DMI_CHASSIS_VENDOR);
+-	if (!product_vendor)
+-		product_vendor = "unknown";
+-
+-	product_sku = dmi_get_system_info(DMI_PRODUCT_SKU);
+-	if (!product_sku || !strcmp(product_sku, "Default string"))
+-		product_sku = dmi_get_system_info(DMI_PRODUCT_NAME);
+-	if (!product_sku)
+-		product_sku = "unknown";
+-
+-	return kasprintf(GFP_KERNEL, "sdca/%x/%s/%s/%x.bin", fdl_file->vendor_id,
+-			 product_vendor, product_sku, fdl_file->file_id);
++	return 0;
+ }
+ 
+ static int fdl_load_file(struct sdca_interrupt *interrupt,
+@@ -197,7 +227,9 @@ static int fdl_load_file(struct sdca_interrupt *interrupt,
+ 	struct sdca_fdl_data *fdl_data = &interrupt->function->fdl_data;
+ 	struct acpi_sw_file *swf = NULL, *tmp;
+ 	struct sdca_fdl_file *fdl_file;
+-	char *disk_filename;
++	const char *source = "ACPI SWFT";
++	const char *disk_source;
++	char *disk_filename, *fallback_filename;
+ 	int ret;
+ 
+ 	if (!set) {
+@@ -231,25 +263,17 @@ static int fdl_load_file(struct sdca_interrupt *interrupt,
+ 		}
+ 	}
+ 
+-	disk_filename = fdl_get_sku_filename(dev, fdl_file);
+-	if (!disk_filename)
+-		return -ENOMEM;
+-
+-	dev_dbg(dev, "FDL disk filename: %s\n", disk_filename);
++	ret = fdl_get_sku_filename(interrupt, fdl_file,
++				   &disk_filename, &fallback_filename);
++	if (ret)
++		return ret;
+ 
+ 	const struct firmware *firmware __free(firmware) = NULL;
++	disk_source = disk_filename;
+ 	ret = firmware_request_nowarn(&firmware, disk_filename, dev);
+-	kfree(disk_filename);
+ 	if (ret) {
+-		disk_filename = kasprintf(GFP_KERNEL, "sdca/%x/%x.bin",
+-					  fdl_file->vendor_id, fdl_file->file_id);
+-		if (!disk_filename)
+-			return -ENOMEM;
+-
+-		dev_dbg(dev, "FDL disk filename: %s\n", disk_filename);
+-
+-		ret = firmware_request_nowarn(&firmware, disk_filename, dev);
+-		kfree(disk_filename);
++		disk_source = fallback_filename;
++		ret = firmware_request_nowarn(&firmware, fallback_filename, dev);
+ 	}
+ 
+ 	if (!ret) {
+@@ -259,25 +283,35 @@ static int fdl_load_file(struct sdca_interrupt *interrupt,
+ 		    tmp->file_length != firmware->size) {
+ 			dev_err(dev, "bad disk SWF size\n");
+ 		} else if (!swf || swf->file_version <= tmp->file_version) {
+-			dev_dbg(dev, "using SWF from disk\n");
+ 			swf = tmp;
++			source = disk_source;
+ 		}
+ 	}
+ 
+ 	if (!swf) {
+-		dev_err(dev, "failed to locate SWF\n");
+-		return -ENOENT;
++		dev_err(dev, "failed to locate SWF: %x-%x\n"
++			     "Attempted FDL disk filename: %s\n"
++			     "Attempted FDL fallback filename: %s\n",
++			fdl_file->vendor_id, fdl_file->file_id,
++			disk_filename, fallback_filename);
++		ret = -ENOENT;
++	} else {
++		dev_info(dev, "loading SWF: %x-%x-%x from %s\n",
++			 swf->vendor_id, swf->file_id, swf->file_version, source);
++
++		ret = sdca_ump_write_message(dev, interrupt->device_regmap,
++					     interrupt->function_regmap,
++					     interrupt->function, interrupt->entity,
++					     SDCA_CTL_XU_FDL_MESSAGEOFFSET,
++					     fdl_file->fdl_offset,
++					     SDCA_CTL_XU_FDL_MESSAGELENGTH, swf->data,
++					     swf->file_length -
++					     offsetof(struct acpi_sw_file, data));
+ 	}
+ 
+-	dev_info(dev, "loading SWF: %x-%x-%x\n",
+-		 swf->vendor_id, swf->file_id, swf->file_version);
++	kfree(disk_filename);
++	kfree(fallback_filename);
+ 
+-	ret = sdca_ump_write_message(dev, interrupt->device_regmap,
+-				     interrupt->function_regmap,
+-				     interrupt->function, interrupt->entity,
+-				     SDCA_CTL_XU_FDL_MESSAGEOFFSET, fdl_file->fdl_offset,
+-				     SDCA_CTL_XU_FDL_MESSAGELENGTH, swf->data,
+-				     swf->file_length - offsetof(struct acpi_sw_file, data));
+ 	return ret;
+ }
+ 
+-- 
+2.47.3
 
-Thanks,
-Kunwu
