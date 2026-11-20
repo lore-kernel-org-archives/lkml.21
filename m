@@ -1,192 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795211065;
-	b=YK1HKvAiNOEW4Fe7q45eSiwy/Rb8IzEfchD9byrE9iMs8Yuqc2p9a38SYOdU8tbz6UQU
-	 hVGAthfCxzGX/QUFnwHIhCweUGjmPR6I73/Bv2s0jEkP/ngY4zvzYUllh80GRv8kNacFS
-	 ek5082ZNR5OwNwa1Wt26P/vxgQYywg0RRTu9yHJLQB0RK8+A6TS3RyADBrJw4IA3rNYHs
-	 U8JOL8+w1o4aXOyFYZu4AM9El2CNOxVWYS5vxE21WikTZGSxty0801mFosq2QPeR1nXC9
-	 dju+ZKtB/cYGWiEj2TevYfU4lfdeDPplAl4zIalj7esp8bu2EJO8gTMi6DVm1uqsRDw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211065;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=fF9B1USe3xW8JGjS6vwUwtFiylROVUZk4lEwhRnfJhk=;
-	b=ap17QesEShej7BQ8rMVHziOApIlwA5burkP0UlRBHx6QgBaaaIP9pLuTdd6VHGYLvVZl
-	 IcGmk8nC59TL7tH2AEPQcLBsV6g5DtZonDh1KUSDePTncqkOZfqJu2gI4W59zS7y2sHhf
-	 XGI3BHo6yAfvKZUdN8yHFQKq2Dtr7fIztOUTwIo2zUk6OGAtS3Xf8JndH44tNB6t7Hya8
-	 KnBbJ/5S7LmmqrdqAKW7HgzzDKv4CHnuiTqfPlipgu5P7DqkoNkQwuInmlCncZIsY/yLj
-	 fEUBROK+hShl43FE1ZFle44/Vc22NNqKgXMmQHdmjLq5NJ0C73WJ5FCybz1sKMID5bQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mSTgXM7a;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=S4BPLBjw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.18
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795211067;
+	b=PTndyHcduoExFINztcay6TVz81EpTRMm2fj3jLokvpPFZcc/wh3wM/W1KT5tQEtct72v
+	 l30im3JPBfJDsScbh3ij30lTvQ/MKL7BKFHFc6NW6YqwOuCKuphQzgzwpnNRkdoHFl+1n
+	 WTwoke5N8j1I6QKYBTR9mwRE4f+so7ImADDocM8CoJQWZ5fKuXhxhaUhgAAzb3tCfGQTM
+	 ryN64AAVgIRr49upjv/fIyPfNAb/KaoweEKNDe1lTO404VOsavJImU0BCUD5wIKPEPMaO
+	 nfMap62leH/V9YYuoaNNA1FYFPLE/K5qiTFVsjOe2y0vozaFFl6ewup+pZfOhGqNqCw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211067;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=rXcNRQCIOSxwLtGXJnstBt6P3fFtFAxQQPTFjcsDhnA=;
+	b=glFx0SyZED1y2siwtfSgIMhRS4Y1tiXj9YzBPAKYFHIisoMQyN/Y+pvsO47FJka2BK27
+	 n2hCr8Atyu8KmuMvIjaO84iogtN8+KYcIsfPeN2xRSKMIv+dstaa0zBgJ/PsGbXezjGpZ
+	 sEJhME0lTtrXJh31PDW516LUdp5UDbfPOZp92IeUkxTLtBSa/YnLs1yHNmjINAT4xUgx5
+	 OmBhFUw+WdOdQmSzZrT829p6GAh/8AY17gQ9SrHPhTyohfuaEOk8V3mVTNiSiyF+tAb6+
+	 iaRkFIhXZvr2PatC+OGXZCd8rOPL+uU1SuSL1IFj2SfBELg5bOyCLTRXGaFksI8cNvA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aaE2m7Do;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA034606A6A8;
-	Fri, 20 Nov 2026 21:44:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA034606A6A8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16FB3606A6A9
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:44:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16FB3606A6A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mSTgXM7a;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=S4BPLBjw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795211065; x=1826747065;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=fF9B1USe3xW8JGjS6vwUwtFiylROVUZk4lEwhRnfJhk=;
-  b=mSTgXM7a6VjRRwJa8/Tj34tA4nBQLAzJ5xj5ZOCO9D5zVdkus3cI+8Q8
-   gn83awpJdC6l0uLVE8bRSzm4c2b5VQ78fJP4d4Nht/3fhj3m5EWY8LK51
-   kJLtubHULfu9BI45gqoBl72oh5za2+9Hv0Cvb+hWpz6xl7Fn1Y7psjRzP
-   1V9XbM/QJQ7ifijk+BPJjg1ghUhbvJ7aC/HhwA+TaTH1Yjshj9A22A0gF
-   uFroindnhl7UvD6QAFjeqCi0pCEniOjcZtWjlU4R1dWxwMr1bUZcA/mNt
-   dFS4HYRNsKs2z0E0fotwzowGDkcc6zJN/OqBIEZX+MIecCTpAPFuO0qpl
-   Q==;
-X-CSE-ConnectionGUID: 4c5KUx82R6OJlVwyRu+/Ag==
-X-CSE-MsgGUID: sLGrN1FlS46LVi0NYAXXbg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4111268"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4111268"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:44:24 -0800
-X-CSE-ConnectionGUID: jQBCzPPFRXiDdNCb7OnfCA==
-X-CSE-MsgGUID: GkiA4KTRRvK3uvYEQhQgOg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10737252"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:44:24 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 13:44:23 -0800
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 13:44:23 -0800
-Received: from PH7PR06CU001.outbound.protection.outlook.com (52.101.201.65) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 13:44:23 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dT6i2DUKC2BA6mMqeDRmRtqVcgrw0dIdJt9zckLwCCeoqnt8uyYviGzBno/3nHe7Fc0cydNn6R6vqmaN7o1jVaIJ79eBLa6g5+eLykleV8Im9/sMibx6WnpCRmUjaIVHFpMjt3Iw2j/BSQSmU4sOCo6Bf1PDFohw1n+oA+z+y6itWsM45vnDVuT+vnzVlOpvCPg/Ph8CoWWCp6Sxdu8Vsr8AvceD2ARX/OK2ajX+67++RpgELWX67NryZpCFfA+4+QX7Wj901KMyFQaqINcP2NPSdEJKRwPYKE3qX+5wi8bkDN273lRHISMIOE6UIu7IkRHLzFSmCpBhNLVQfmewAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fF9B1USe3xW8JGjS6vwUwtFiylROVUZk4lEwhRnfJhk=;
- b=xdUEc7nueyIjiiLBKY1bO3JDnU3RppLb+9S2ZONhbyHUNQ/MNlKGCBroEZVH47dkp/2P2fd6LZ9Nd1+UOXnS2vOu4CRKbViDia8ciP/pwaH6u7h2bSVLV7oBBi3M2ewFgkSUETebNCPzo5XEMVAqdxL8X4uR09oigZE+8MYvGROU3YUz4xWchu5I6oVMedbWqzgIKDdFohlGZamBqLqzaZ5C5wyKcj235KyQ7SY2JxSAFBLxfvZQ3pCjGqyMCVs5YQypcGx8nG3v/kePSUvF0NuX43CDbBEmVQa1boCZObOYm/VIs28GzzUAZIOjg+Gpho3rsCZH3Wy2n5IkepYOSg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fF9B1USe3xW8JGjS6vwUwtFiylROVUZk4lEwhRnfJhk=;
- b=S4BPLBjwTmHxaPy2trTkuOa7RRjLzhQx2gUG5BnqVITUPYlpgsMgf7WVwFKKxHW7oZQSNqPVZ8pQJqyu2DwAmcMa+LJwB+2ptHutunQl6ardmSFv21Xm3o6nsCXzIAv/+mONuqJyF42lmuefazdGCxcLpJkSfyzAtiJ39sS4xMA=
-Received: from LV2PR11MB6070.namprd11.prod.outlook.com (2603:10b6:408:179::22)
- by CH3PR11MB7940.namprd11.prod.outlook.com (2603:10b6:610:130::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 21:44:20 +0000
-Received: from LV2PR11MB6070.namprd11.prod.outlook.com
- ([fe80::4c84:af62:dc60:fd9]) by LV2PR11MB6070.namprd11.prod.outlook.com
- ([fe80::4c84:af62:dc60:fd9%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 21:44:20 +0000
-From: "Popov, Pavel E" <pavel.e.popov@intel.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, Logan Gunthorpe
-	<logang@deltatee.com>, Arnd Bergmann <arnd@arndb.de>
-CC: Leon Romanovsky <leon@kernel.org>, Lukas Wunner <lukas@wunner.de>, "Thomas
- Gleixner" <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, Jim Chow <jim.chow@broadcom.com>, Radu Rugina
-	<radu.rugina@broadcom.com>, Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Wei Liu <wei.liu@kernel.org>, Michael Kelley <mhklinux@outlook.com>, "Nathan
- Ciobanu" <nathan.d.ciobanu@linux.intel.com>,
-	"bcm-kernel-feedback-list@broadcom.com"
-	<bcm-kernel-feedback-list@broadcom.com>, "virtualization@lists.linux.dev"
-	<virtualization@lists.linux.dev>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 0/3] PCI/P2PDMA: Allow P2PDMA on Intel Xeon server CPUs
-Thread-Topic: [PATCH v5 0/3] PCI/P2PDMA: Allow P2PDMA on Intel Xeon server
- CPUs
-Thread-Index: AQHdcjam2A3Q4odg002rEagcyXnfx7c3iKlw
-Date: Fri, 20 Nov 2026 21:44:20 +0000
-Message-ID: <LV2PR11MB60707F72BFE00F5FF18CAD5AB2782@LV2PR11MB6070.namprd11.prod.outlook.com>
-References: <20261111234439.4098-1-pavel.e.popov@intel.com>
-In-Reply-To: <20261111234439.4098-1-pavel.e.popov@intel.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: LV2PR11MB6070:EE_|CH3PR11MB7940:EE_
-x-ms-office365-filtering-correlation-id: 1b3037f4-7422-469e-11e5-08df474f6f30
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|38070700021|10067099003|56012099006|11063799006|18002099003|22082099003;
-x-microsoft-antispam-message-info: PGnN6SuFDv2HSzlnOayVGSJbcOKpVV61SyPTaZ2btV09G9HFJTzVhM/uJofIIjaV3tbvKsuTrOGR+UZc6whuxiDoi++hqdud0p+RKpdKAStqG5mFx1SZtAan7NwFoA8BLgD2+9H7ZJYmvb44ftyUQgE16EB6X5qp0G0EOQsHDHa+/lwtq9oA10QQvihj+c9As0zCa5gteJGm/Z2x6TNPlvQjPef3wCi5JX9VdtM3pQJh8BzleqKzXbXMGIKT2mHASkpckzgaiTnMcquv0y6FcEjnFRgRWefqlEiHdbXQivluY9eBKbpku+4MRZp4e2nEUm41/0QhTneVv1ijXyh3Xx5csumn91ypWFYe9MzOOF89lIN//Sr1k5M/X70UoSF06bvstaFxg4865TMIyNNgRvze96k7cm8u4KpE+T4RCuk784WFUln1IvYCX0gQI59uoAV2e7ajIdj4DnTjoy8i+XHDVYShvvKUjVTIqwHVYUdNbcQjfPpeJVys+WRrajhHCiYKB0V5LdGMX/4+g8RFRTafoQvNw8O2jKpjxmsRLe5SApqzTfirqDftQzfAqfy5s2r0Ym960tI07bQKxsRFbgbmoaOTLJ7vPqmMPzcJjlpwejETBSgRVrMEXMvTKnvcNMszQJU6RUp/KkbBTB+Mnu7hhhWq0r1bjtyDkcpKcXY/2yWtCJgd+d8i8WLHWVNg2WwM7EBdD9cRhMQNyonKyejJ16rv0pIp9sK6MXe/Wqo=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB6070.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(38070700021)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ivlybsIlDKZCJuqnOqLySu4+91MgInYJ+OG0GP/3a+t5FAETocdhi5I+vHE/?=
- =?us-ascii?Q?JgTZFPEKU1cf6Nag7ZHe/L7CIYUBavILheo4cfOodAtPFyzGyRgf70coKiE5?=
- =?us-ascii?Q?5otuTX2p4uMjtq23Hwn8/EQbs1wU4Z4RbHy+B0ZWrOn4zuoTTOgbN8p67ppy?=
- =?us-ascii?Q?nqVI+8vnP5h+Bb8We8UnUbJ5gJcwmWysFEtbJbXjnj8vlOlQ0DQ4RZsTYZLz?=
- =?us-ascii?Q?1HvUobPU4Jxbr9w57KJEa7+jMCUTvwflKgaIiFbgQLl1wZzNl9qx0hupL5h+?=
- =?us-ascii?Q?RDKCmrWk8ebEK+FoolH3uAs/RWrmm3tat45zOHoinnQUu3pdWwZ/Q5ut5JG2?=
- =?us-ascii?Q?6Y3JY3S4skhXXdHLPua4XrjLGaxbMW1D8e76bjFnGRN7xeUQOK2f2gKuS5cA?=
- =?us-ascii?Q?kdrB3/gKy3sLdOIcI5FryzYzpKNkh+U5Qd89PDPftMWeF/1z7fIQT1LowmfY?=
- =?us-ascii?Q?g5nDUDSgutIfO4pK/u9uttIMjaeoXdbgT8Uf5/tpy/7KZ6Bb52vz2D/YYXgO?=
- =?us-ascii?Q?XWbszSzjmY/kqh039ZXnEJPuM50UGO3lsIQSgKyTxfFbwECOsOcukJG55Gvc?=
- =?us-ascii?Q?7eepccTwiI1s3S6zGr42Uq21JHvwvCvq/cWu7xXmGgoBeeaQDq1PlkZmCCet?=
- =?us-ascii?Q?aiKLqYcXwaX3lCdyCmst6asfrK+fxK/0bWSAFhyzuqEZOZBQcnljEBRoWyNn?=
- =?us-ascii?Q?FbmWkHpO14AMgaARCq6Z1r4u59dApr6Quvt7MMu4cKjVs5AmVdbu0GvO5YrX?=
- =?us-ascii?Q?TeeM2bwsvidxonzf+/++ft7Kf2P4+xo/xhoBKIXB404BJljFyEWSe+46Xm5g?=
- =?us-ascii?Q?7f1kQ+Eheo9mJ1LQi55AB0BEsrmD2I10c4HNL+HXlbrlVWWjEsWN3r1359eM?=
- =?us-ascii?Q?cvNf7W+bOimd1fVC7IcnSf6XzC0pvcMgbtWxdSrkCOUetfDgYtGEHbNVbR2i?=
- =?us-ascii?Q?3airccIzyNvXHpKwz6vwuEBIKDf3zte/a4HDX4FLqLb5yDEKUUSwfzAbuKRk?=
- =?us-ascii?Q?GTLPEhgMYr41YFmfxlo+8vOaAG+kF+K5D8rYOux5SPPM5u5uBlqUdnxaNbwf?=
- =?us-ascii?Q?/2zF+MjUCO6CxYXF1H36QUkoBZwzzcTYGLVkl65eETp3cjvp+O3c+VmBXivK?=
- =?us-ascii?Q?Y42lXdKfQNIraFXWDR7E3equNo0XHcioIUBAQymMFgkkwEwdKFM2gsHlCNDI?=
- =?us-ascii?Q?droMajraV1UiitWZ7nnB9wVVUYuP3PSczg4aOTiDiBi5H0vbm6rD9vIidl5G?=
- =?us-ascii?Q?PODuhrSuD4Jb4yh82Ex7OFhIgdU+E1iL+ZH0TS+DkdYvIMXpQp15eDezX5oC?=
- =?us-ascii?Q?eTbNYGXfYc9VxJYuj02/ubLXN0lBpJ762KubaO0ZZT4UapcUfM7lmv+IAc1/?=
- =?us-ascii?Q?iCLjwvLOIaoDo+11F2chyc9nS0txGaSm0W92x8fWQpTlVCPK1lrUbK5ZGT5x?=
- =?us-ascii?Q?RYbCIs66L4wG+oUkzexce5c05GHBkKK1W6SLbFAbswGhQDJ1XUebGR94/URk?=
- =?us-ascii?Q?hBxRfCvB8xSR/zzDy7LKSUAKZ2VSb35LLw4M1dI2r39hgXIpOAyy2NTyxr0F?=
- =?us-ascii?Q?rTzZnbS5jtomg7x3T9rNjAETdQbxvpsaFlXUh81Yh2Ka4lkqALpdWg0RhN0u?=
- =?us-ascii?Q?1k7YWdMniJ4fIA8kO40f0+q6PJvJQ+nRDIGJqo+8v8Ne6DKXHmNPkOGywEac?=
- =?us-ascii?Q?GB6nYN97Y+fl6n/4IDnEt66pMLCXy+qTiyPl0sgkxL3phhSqNHTPdykgSsq5?=
- =?us-ascii?Q?6e2cwvN1/w=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aaE2m7Do
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-49d05d51553so10118175e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:44:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795211057; x=1795815857; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rXcNRQCIOSxwLtGXJnstBt6P3fFtFAxQQPTFjcsDhnA=;
+        b=aaE2m7DoQJh6eGOLhWM+gaySpD+JUViVs4QmPHM0Tflg42yuhXUtK5vy+yVVlAF2/O
+         kx/lsqWZcJ+bpbs10W1S+FpvIZ28/Fem6m967lymXET9nK++93s1F0GOQV9rLAKQddx5
+         KGQ1R8/JrutIbsYZfJ9kaMMk9nppMXkxZh7Kg9cxcwiUPQQKrDrwRd+z0tNqN5b0bS/G
+         /D7lMV0n7I3CwSsa5TbVyP8vqCsVyPewShsyoctg/xJkV93nrbByiEgf3GvBsAdk70K1
+         hcpPgIW3VqzVJ0k+twihaDcxmO4jyvV7XLMyglH81bQGeF2uNTpwLeEbQ43xsR9I0k2r
+         qUxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795211057; x=1795815857;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rXcNRQCIOSxwLtGXJnstBt6P3fFtFAxQQPTFjcsDhnA=;
+        b=clWbG+4QkBerQTlbcpo7lKbKguw6aDN22nE7v8Q7ezoNtjkfULDM+LOdZD3tPSehFq
+         eVwTuZQguMdpJAVD5z5yuLHJgvERUTBm2MUkoaM7HFZYnL4oUvXvDB9QW+yova9+8gEi
+         qfzutGKHTzottXnGuO4df6C0ouw7ZfzxqVkXLZ8QDNhVvkiKnWS4ctX5D0o4g51kaQzN
+         ZhPLf6uXDdYhlmnMU0mSPKZ4mNE6b9cNwPafDtb6fpIT4EbT3/8BX2wITf6+DDhui5rB
+         lSpnt+hWqgwTPYWAyXpZaykXPat3SQ5XSeAbbUsm++qK6UroMDNURql599m2KUHOeIwp
+         ONUg==
+X-Forwarded-Encrypted: i=1; AL+hErHDn9qZaDISEQV5qKjaHlOjqrLek6LnaV2NdOw5JXtJ+zOSSZFsf3hkjYFgY8RZ8e8dSgGJTQaOnqKsQhM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eR0pekkuEfjz5KILdmccrxDKBwG7iRHwwVEZIkJw4Xst+zxba
+	o/AjhBEKTu5lxT/com8zWk+GG69/bBbJS1XYLfmsvqd9Qy2iOQbYGzCD
+X-Gm-Gg: AYBFou07AIZOKVvgHBCDX8mJLzHMnieRO8I64VNSQRV60J/bUiT25A6Mjn33FofFXZY
+	zBP76KgG6gIy3vfarPdZa9nQjkFGLA3uIsfq0NFZDXobwty/zB9cMG8149DWqDB6Rp0yaOotf/D
+	ZY80aIbALR1JjWSEZMRAsWM02cmhat0DzLyAzTrglkYfPIA9nlJpuLewYe6NoHFveAqUwX8IGex
+	xUvFhR+XQK7pLqHwMn6gKrGfI4+dcHg+EFOP+pp6hXS2aGFMxmDNKIqCMaUx8b+wKNhuCxktiyi
+	CulA1qa2QkWovuSScVJdlil8ax44b4XqlgA3iCNAdcLPMT2uGWQFDayn8337+V7hoxWvFE6lVQn
+	P7P+jTqrRuvVySHXNUjwOeglWcsYETWbW9I4WPeISQqzcBfyYDiyXj7jRL1vqr1UzGprTWCkCD2
+	e/zGEVEmXPalDPHVF5D8uH3XaYGW9IksbcXUsZNFvyTEBbxaZb5bklImZ5kCirmGicOwVYz0lxE
+	GITkarsoxy713xnBvqsJyjWOU8zMwQndxdP7ok09shfn6JzVg6lKozdGF0E2XUcSqd6NnLbVKZp
+	eP0Kxl4+OUfy8K1j80WEYODvdMQ+IrVM//pQJBn7kLk3Z3M3F9WSfKvz9P9BuHBu9RHvd9AnzeG
+	S8LJLB0UmdLI=
+X-Received: by 2002:a05:600c:820d:b0:4bb:6cef:d14b with SMTP id 5b1f17b1804b1-4bb887c34f1mr109184455e9.2.1795211057153;
+        Fri, 20 Nov 2026 13:44:17 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853c9170sm161429175e9.14.2026.11.20.13.44.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 13:44:16 -0800 (PST)
+Date: Fri, 20 Nov 2026 21:44:15 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Usama Arif <usama.arif@linux.dev>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, tglx@kernel.org,
+ mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
+ x86@kernel.org, kees@kernel.org, hpa@zytor.com, gustavoars@kernel.org,
+ ardb@kernel.org, hca@linux.ibm.com, nathan@kernel.org, morbo@google.com,
+ justinstitt@google.com, linux-hardening@vger.kernel.org,
+ llvm@lists.linux.dev, linux-kernel@vger.kernel.org, riel@surriel.com,
+ shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com,
+ atish.patra@linux.dev, dgreid@meta.com
+Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack
+ fills
+Message-ID: <20261120214415.060e8375@pumpkin>
+In-Reply-To: <97e94491-ce19-45a1-8737-b30b49e997e8@linux.dev>
+References: <20261119213147.1094488-1-usama.arif@linux.dev>
+	<20261119213147.1094488-3-usama.arif@linux.dev>
+	<CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
+	<20261120113825.234bee1c@pumpkin>
+	<20261120124252.14ff8a74@pumpkin>
+	<97e94491-ce19-45a1-8737-b30b49e997e8@linux.dev>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -196,30 +111,210 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: flJiGWZPGV4DQKza1Oty2c2Za9IyvM3PDl/CNE/zhyPBXE2G1GtEcXoZWATGpcUDqdgmRRZovsAZj2+opag8FQ8OiQpiRspaV9TKog+u1f5IcU/lpltW9Prm/YY5F+6AnYKiE5HbLYESfDUyw4U2NuOGIm4vSYX9GAajjMDmFZyJkd5BW/PVoLpcByTwegz1Wu+h/ScQlLB5LxkC2N27zs6h19mA9wEa0R++OeIALkgw56MF8oxIt7VB4G7agg1FAzPbByUNTcQQNUD68MxTj5Dyw6VY/1ORsEJ2Z+FryK4yIvbCgxTm3h+wQOaIzKs0zXIJQzmkXpSOuL9sUtK/9w==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB6070.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1b3037f4-7422-469e-11e5-08df474f6f30
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 21:44:20.2665
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hMTCkMYEvMVM2C3+NKQbeqvrwIRn2k/oouQDJz6Jq0WD/DRyTCeea60fh/pMvT2h8JyHh4bRD+DMLgVIMKvduQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR11MB7940
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Bjorn,
+On Fri, 20 Nov 2026 18:46:01 +0000
+Usama Arif <usama.arif@linux.dev> wrote:
 
-A gentle reminder about this series. All three patches are reviewed by
-Logan, 1/3 and 2/3 also by Leon, and 1/3 has Arnd's ack and Sohil's
-review.
+> On 20/11/2026 04:42, David Laight wrote:
+> > On Fri, 20 Nov 2026 11:38:25 +0000
+> > David Laight <david.laight.linux@gmail.com> wrote:
+> >  =20
+> >> On Thu, 19 Nov 2026 14:28:04 -0800
+> >> Nick Desaulniers <ndesaulniers@google.com> wrote:
+> >> =20
+> >>> On Thu, Nov 19, 2026 at 1:32=E2=80=AFPM Usama Arif <usama.arif@linux.=
+dev> wrote:   =20
+> >>>>
+> >>>> With KSTACK_ERASE, every return to user space poisons the part of the
+> >>>> task stack that was used since the previous return. The generic
+> >>>> __stackleak_poison() does that one word per loop iteration, so a sys=
+call
+> >>>> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hos=
+ts
+> >>>> running many small VMs, stackleak_erase() accounts for about 1.5% of
+> >>>> non-idle host kernel cycles.
+> >>>>
+> >>>> Override __stackleak_poison() on x86-64, as s390 already does, throu=
+gh
+> >>>> the hook added by commit 491a78663e03 ("stackleak: allow to specify =
+arch
+> >>>> specific stackleak poison function"). Fill spans larger than 512 byt=
+es
+> >>>> with REP STOSQ and keep the word loop for shorter ones, where the fi=
+xed
+> >>>> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win =
+at
+> >>>> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span ge=
+ts
+> >>>> slower.
+> >>>>
+> >>>> The fill is inline asm, so the noinstr function still makes no calls.
+> >>>> memset64() would be the same instruction, but it is only static inli=
+ne,
+> >>>> and with KMSAN it is an out-of-line function.
+> >>>>
+> >>>> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per r=
+eturn
+> >>>> to user space (71 ns to 46 ns, scan included) over a futex, epoll, p=
+rocfs
+> >>>> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix sock=
+et
+> >>>> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
+> >>>>
+> >>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> >>>> ---
+> >>>>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
+> >>>>  1 file changed, 25 insertions(+)
+> >>>>
+> >>>> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm=
+/processor.h
+> >>>> index 77488ff5eb8c7c..049231d484ad0e 100644
+> >>>> --- a/arch/x86/include/asm/processor.h
+> >>>> +++ b/arch/x86/include/asm/processor.h
+> >>>> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(voi=
+d)
+> >>>>                                current_stack_pointer) < THREAD_SIZE;
+> >>>>  }
+> >>>>
+> >>>> +#ifdef CONFIG_X86_64
+> >>>> +#define __stackleak_poison __stackleak_poison
+> >>>> +static __always_inline void __stackleak_poison(unsigned long erase_=
+low,
+> >>>> +                                              unsigned long erase_h=
+igh,
+> >>>> +                                              unsigned long poison)
+> >>>> +{
+> >>>> +       unsigned long count;
+> >>>> +
+> >>>> +       /* Short spans do not amortize the startup cost of REP STOSQ=
+. */
+> >>>> +       if (erase_high <=3D erase_low + 512) {
+> >>>> +               while (erase_low < erase_high) {
+> >>>> +                       *(unsigned long *)erase_low =3D poison;
+> >>>> +                       erase_low +=3D sizeof(unsigned long);
+> >>>> +               }
+> >>>> +               return;   =20
+> >>
+> >> gcc 13 onwards makes a meal of that - https://godbolt.org/z/KPP4h8xz6
+> >> It does manage to unroll the loop once - which is good because the int=
+el
+> >> cpu (I've got) won't execute a 'one clock loop' (the zen5 will); but t=
+he
+> >> setup code is horrid.
+> >> But I also think some of the more recent cpu can execute more than
+> >> one write per clock.
+> >> If you unroll the loop 4 times it may run a lot faster.
+> >> Perhaps:
+> >> 	long count =3D (erase_high - erase_low) / sizeof(unsigned long);
+> >> 	if (count <=3D 64) {
+> >> 		while ((count -=3D 4) >=3D 0) {
+> >> 			*(unsigned long *)erase_low =3D poison;
+> >> 			*(unsigned long *)(erase_low + 8) =3D poison; =20
+> >=20
+> > The add (probably) needs to be in the middle...
+> >  			erase_low +=3D 32; =20
+> >> 			*(unsigned long *)(erase_low - 32 + 16) =3D poison;
+> >> 			*(unsigned long *)(erase_low - 32 + 24) =3D poison;
+> >> 		}
+> >> 		if (count & 2) {
+> >> 			*(unsigned long *)erase_low =3D poison;
+> >> 			*(unsigned long *)(erase_low + 8) =3D poison;
+> >> 			erase_low +=3D 16;
+> >> 		}
+> >> 		if (count & 1)
+> >> 			*(unsigned long *)erase_low =3D poison;
+> >> 	} else {
+> >> 		...
+> >> 	}
+> >>
+> >> Except that gcc makes a mess of it again.
+> >> I don't think the 'erase_low +=3D 32' is going to execute at the
+> >> same time as the last (two probably) writes so costs a clock.
+> >> So it may need to be asm. =20
+> >=20
+> > I threw in enough OPTIMIZER_HIDE_VAR() to stop the optimiser breaking
+> > the code. https://godbolt.org/z/nx477T4M1
+> > gcc then generates:
+> >         movq    %rdx, (%rdi)
+> >         movq    %rdx, 8(%rdi)
+> >         addq    $32, %rdi
+> >         movq    %rdx, -16(%rdi)
+> >         movq    %rdx, -8(%rdi)
+> > .L32:
+> >         subq    $4, %rcx
+> >         jns     .L22
+> > for the code loop (clang is a bit worse - but should be ok).
+> > I think that will be a 'two clock loop' on cpu that can do
+> > two writes/clock; zen3 and ice lake).
+> > For 'stack splatting' rounding up to a multiple of 32 bytes
+> > will save all the 'remainder' code. =20
+>=20
+>=20
+> The range can't be rounded: erase_low is wherever the poison search
+> stopped, and erase_high is the stack pointer or the bottom of pt_regs
+> (168 bytes, so only 8-byte aligned). Rounding up writes live stack,
+> rounding down can write STACK_END_MAGIC when the stack was used to the
+> end.
 
-It applies on pci/next as is. 2/3 and 3/3 have context conflicts with
-pci/p2pdma. I can send a rebased version if you want it on top of that
-branch.
+If the stack down by STACK_END_MAGIC has been written you are almost in
+'deep do-do land' so task_low_bound() could return an aligned address
+and that would let you align down the low address.
+(So leaving the very last few words alone.)
+It also probably doesn't really matter about the top few words.
+So the length could be rounded down.
 
-Is anything else needed to get it queued?
+Alternatively, do STACK_END_MAGIC and STACK_ERASE_POISON even need
+to have different values?
+(And aren't stacks now allocated with a guard page - so you get a
+fault on overflow much earlier than any check for STACK_END_MAGIC.)
 
-Thanks,
-Pavel
+But does this code even work in a useful manner.
+It seems to stop scanning after finding 128 bytes of KSTACK_ERASE_POISON.
+Isn't that going to stop on a function with a large on-stack buffer
+(especially since one is likely to be on the deepest part of the stack).
+I'd have thought you'd jump down the stack in larger lumps than that
+just looking for an unwritten word before even trying to decide if it
+was the boundary.
+
+David
+
+>=20
+>=20
+> >=20
+> > David
+> >  =20
+> >> =20
+> >>>> +       }
+> >>>> +
+> >>>> +       count =3D (erase_high - erase_low) / sizeof(unsigned long);
+> >>>> +       asm volatile("rep stosq"
+> >>>> +                    : "+D" (erase_low), "+c" (count)
+> >>>> +                    : "a" (poison)
+> >>>> +                    : "memory");     =20
+> >>>
+> >>> Surely this isn't the only place using `rep stosq` in the tree, right?
+> >>> It's not, see memset64 in arch/x86/include/asm/string_64.h.   =20
+> >>
+> >> Which seems to have very few users.
+> >> memset_p() and memset_l() have almost no users.
+> >>
+> >> David
+> >> =20
+> >>>    =20
+> >>>> +}
+> >>>> +#endif
+> >>>> +
+> >>>>  #ifdef CONFIG_PARAVIRT_XXL
+> >>>>  #include <asm/paravirt.h>
+> >>>>  #else
+> >>>> --
+> >>>> 2.53.1-Meta
+> >>>>     =20
+> >>>
+> >>>    =20
+> >> =20
+> >  =20
+>=20
+
