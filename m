@@ -1,61 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142083;
-	b=X01ntDRQ1qtAiiipgWgcaRq1Hcb2nqHVqNioczT7l8w88QoKMxZ3povWezLEfNXQXlQG
-	 C/qd/4DvBf0OFp9OKw3/i+axw7x/9ESJWCyGI9qjQJVRASmjQCkXU9N4AVNbYBW1WsPux
-	 Zey5i0H1cSHIrljYYBZ5K2RZ4nfkRBayCtmncP+7knWT533fjZGqMNkQ14U6HrNEk0thZ
-	 /X9WgxKtToncbNgGbsXsHT7Qox7YoNQXBZ4KePeFcrkgB/MZRBGmGE/pFnkGrPTPLO1tB
-	 x4DaWE9QrAjAUYezpdq0sTTYJR5bJTMIzZUp5hNa+RU6/BaaMvrh1jjFqXX4OsgXi/w==
+	t=1795142095;
+	b=n1rb+0GNfbG+rbeGi/i1BQFFEf48OZiJu2zHuRJTXWZ76+XNK8MUytLWA65V95UTSDrJ
+	 Uls8usWjzzjqMeEKl2RHMsjxZehFINNdJ5euhbgEDgUeftjNpek4+O4g04U67f0jIHlIf
+	 qhKQNZ02C0uub41QDeS7mKoIGOZAe0RtFPbL/TPOo8K0CmH68xKBcgztJtfEPg+aN78dm
+	 svLh8M7tMNUbj46zHlTO2cZnYs82S1Y5hUjywSd3vpD4iYg7ej3JAEHS7Ix21m5mTVc1T
+	 V/v6hVYrIKtRdSRNTmAIDlPwE1iwGnP2tdx75VfZ/P1daqv5MZA7HFQkqJfCPYsCUTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142083;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=bsyFVMK9dFqWOkB43a1AxHjsuAULzPU/rFR5mzwJ39Y=;
-	b=iU9bSsZtG9GDIX6I3LfUeVItDPU9T5mZR/q5viChQGJE/ZMbg/gwTfIgksaqIMuKzA5I
-	 3RkuNeiBm37y3chIVZAuYolfK/nod3xE3UFPOW1Rhi7uOGlzzjNrZtz3cx1eg67cirrvs
-	 YB7DLJyKIRFD4S8LJwlOzKLrT/fGF42ZugcEJUrHwS2wRT4iwnJc0gNhAnYOTO9WDnajn
-	 /tupmFgZB1k/KkBN4gngOJBqjeeuudFMKSbNClTtSo7x1/SJ2E+x4tFVe4YXprwHp9Xun
-	 W8H+OUDA4y5Mk6xqPZUyid4eDS62n55w1Ygv5hlA24pyVGxtX6tG+cxLp2nrE/WZdhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142095;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
+	b=lJeBKp8YOQGUUjYysBX+TdxWrSMb+IZpzIB+zTLynQQIUW1FWUYiA47fn8qCBBfveC0V
+	 bpRijTKpqdndgmKT5KwYPIMEo0nUEuCEOhOI0vQYy+PuPsYXRjdyrGmjf5QusE8BOksnu
+	 /NY2lO0fK3zjT8JODVJrk/wjBxtpg1zucmBToPMkxrzfIsu855lKbLeZaKIsbGF9w4r+w
+	 LSnxhg9puJ5W6jaFSrSphuci5iaDb7YykXLa/IIPkucLWgiqfA9JyU9ls0ALtSzxD3J2h
+	 dBt/o0NJQ881qiVvG9Bh/k8j3mjXpOXh8eJf8ZCjraQ6sG54/yBH7BZexQ9EPe958QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="cD/djRuj";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=riscstar.com;
+	spf=pass smtp.mailfrom=riscstar.com;
+	dkim=pass header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b="NZnp+S/m";
+	arc=none smtp.remote-ip=209.85.210.51
+Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com [209.85.210.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D435760A262E;
-	Fri, 20 Nov 2026 02:34:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3A7F606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:34:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3A7F606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=riscstar.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=riscstar.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cD/djRuj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA3931F000CA;
-	Fri, 20 Nov 2026 02:34:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795142083;
-	bh=bsyFVMK9dFqWOkB43a1AxHjsuAULzPU/rFR5mzwJ39Y=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cD/djRujLwBRg/D6dSNumVPRZnbX4TLQniZaSZ2Aut94V39Zkm0A2n7Y1Sgeep/YJ
-	 U2O3Lvj2mgiQqSiwlfxUVaJwjh54QfHlJRMTtvd24Jr52E22x2IEBUTXrd0FbI0b5C
-	 V2ZsLmXoPf6YFp4ExBwIie1L6+zsmYYJr7CP0Dyxhd0z8nJ2c6X+2Tt3LlCIPWtJPL
-	 +/22JAHsHHD6ZHBkL8eOXoz8t+/tghIxWH8J8OF3hIwwHUuwfp47+0qZZZv1J+DjOB
-	 1J5AzZtuj3V2PLKC8972MKhWSiYNBDXGtQpB4RmCBMAFbgPhmtCoY2J8RY7A5sLwHy
-	 2ZMocnvoPW4Iw==
-Subject:
- Re: [PATCH net-next v3 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, nb@tipi-net.de, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-Date: Fri, 20 Nov 2026 02:34:42 +0000
-Message-ID: <179514208239.3136.3516165434506848044@kernel.org>
-In-Reply-To: <20261117233149.1693881-5-florian.fainelli@broadcom.com>
-References: <20261117233149.1693881-5-florian.fainelli@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=riscstar.com header.i=@riscstar.com header.a=rsa-sha256 header.s=google header.b=NZnp+S/m
+Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-8629c7cc36eso286855a34.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:34:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar.com; s=google; t=1795142093; x=1795746893; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
+        b=NZnp+S/meNOaBGWdtK7a/pkoDLtbtjidskkoHwg7/OAlScQbdib9NL6f75SQ2eHi06
+         woMTSCn3X8t2Mtyi9CuiA60jrgdGB6YDZ8k/oJXrgL263dFg+2SPiCddNIxntayjveIO
+         CtIPbRDOLI1icnVVLJE6x5YyOYsXGOD7MbzwOLXTnoQcnGuB4zuju+qRlVtuYXN0Sq+2
+         YhrjuLDRElEtmcnZPDPNDzsDdNBaUMNJl5RynX9LDSVHL7m8zHC4XOzMy3q83ZHe1Qn9
+         Wxve7HLztqi2j4r6c0WgkpT6G41M5ZDB/TI6qjkqlW7l2TZXtjG7eJA1EHoaincAIRAr
+         rlaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795142093; x=1795746893;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0V9CXOY6Hd0cNFJGkaNeeNKN0eook5Wz71BB41Yzhac=;
+        b=f0mXo5eX3Zalq9zQhC0Ex0R44v1AZD3Uf3LtidBfmSMxnRMWqOeu6UVWCdy+9qIirW
+         v1c4I6ykKKzrRkIIemwcPmITwNHgWrr2RW7P1JmunXS/aRFniVfojddwiax9h3Ja+LUc
+         VdEWymsFLxpY+PUtDwTT0jF9nhEbpKyfoXUGJ6DWDa7emhycP/ieLFV7hd2+lChvmo9F
+         eE8zkq+jDS07URBjCUhxay1JjrO1n86jop/FjNdQubA4j+e+7zyJgth/b3wm4hxdhZwj
+         NDH1OcBarcO9VZlQmFrP44+0PwpZY40IW3dU/BrSAnv6AzY/gzMZ7DpcuPfM+J4KFvB5
+         Ca6g==
+X-Forwarded-Encrypted: i=1; AL+hErG3HZh0rE6SX/w3OeGSxgxsUb/ZofiiBIb81N1YLC5ovAqJOT5XX+me+yLQReokKS62mU5tEjCDAIKju/Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Llt9VLo4t6BaxOPvKhFIgDyUpkyXJFMwjYZYWSxvgIHpoe6/i
+	wiRTFG8mcPxeG5v2XywUDqinIe0InCerA3ZOs3IbjpbHGNoWaJD1WmI8bzr0yL303tc=
+X-Gm-Gg: AYBFou0gHn1A/xfMp/pz5PEZjZZqx/7//YqMUsJujmuGFQQVbwq4eTQ/7S+jUem5LhC
+	09CvIZkq2ADjzk926+M6H+oPaNPWDaJl23098IgMvRbCIMtcvKLj4ocWenlS11ZupPSGeh2jEfq
+	S9f4/kUnyd5wuPr5LUgk0lxaU9+Qz5efjlcknSvtoyY7+vkr4eVzbSEOSuPrewureFem34cyFjO
+	3328rlkkrVrGZ7Mgt4TjwMZc3Up4/u1eU956TAu3VEY/TvwC67aDTPjFKV++LWPRenpw88U83HM
+	leDAvPwEn25rQqVLviLKAzgiKQ7RxeWYHtfPbjn2eyVp/AK3ClbNdlk3She82mrcTTGKJLX7Ewj
+	Tllji9sXRlocXSJ26cbLM6qqCn7DtGAWMpzz+MgcNFAnOPQn2WRJol17ODyrdtw+KUe1yrGJ+lA
+	Z15Cj3tn3LgaE3zbfM32ZHkso4DxFJtQ3eigAU/VtobpFjXJH7pdUg+Qmj2BWasCwHLZBsceTxQ
+	WquF9R2gGsOVqGk/G0yKhiA+yh677BoYsNcC/zjpXoT/oqsmMiiJFLirWplBJ/cB5KdnBZsH2A+
+	aN6kU9eStwdogsoBEoneiKi3vfV49w==
+X-Received: by 2002:a05:6808:178e:b0:4f5:1cd4:d2be with SMTP id 5614622812f47-57a035c3e91mr2546223b6e.0.1795142093323;
+        Thu, 19 Nov 2026 18:34:53 -0800 (PST)
+Received: from [172.22.22.28] ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a2eb50d63sm1145363b6e.0.2026.11.19.18.34.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 18:34:53 -0800 (PST)
+Message-ID: <14556676-77ea-48d9-b135-2d77c615f3cd@riscstar.com>
+Date: Thu, 19 Nov 2026 20:34:52 -0600
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,153 +92,458 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] clk: toshiba: introduce a TC9564 SoC clock driver
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
+ p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, daniel@riscstar.com, mohd.anwar@oss.qualcomm.com,
+ lorenzo.bianconi@oss.qualcomm.com, fabrice.gasnier@foss.st.com,
+ alexandre.torgue@foss.st.com, marex@nabladev.com,
+ changhuang.liang@starfivetech.com, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104004332.2141282-1-elder@riscstar.com>
+ <20261104004332.2141282-4-elder@riscstar.com>
+ <179459694822.2573818.15451444985369018378.b4-review@b4>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <179459694822.2573818.15451444985369018378.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 11/13/26 1:09 PM, Jerome Brunet wrote:
+>> Define a new platform driver that manages clocks implemented by the
+>> Toshiba TC9564 SoC.  There are 21 gate clocks that can be enabled
+>> and disabled, but currently only the clocks that are (or will soon
+>> be) used are defined to be controllable.
+>>
+>> Two registers manage the state of the clocks.  The registers are
+>> accessed via a regmap supplied by a system controller.  Access to
+>> the memory region is provided via a BAR on a PCIe endpoint function
+>> embedded in the TC9564 SoC.
+>>
+>> Co-developed-by: Daniel Thompson <daniel@riscstar.com>
+>> Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Sorry for the delayed response.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+>> ---
+>>   MAINTAINERS              |   7 +
+>>   drivers/clk/Kconfig      |  12 ++
+>>   drivers/clk/Makefile     |   1 +
+>>   drivers/clk/clk-tc9564.c | 288 +++++++++++++++++++++++++++++++++++++++
+>>   4 files changed, 308 insertions(+)
+>>   create mode 100644 drivers/clk/clk-tc9564.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index c25ee6e0f1c6..ee01aed56508 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -28332,6 +28332,13 @@ F:	Documentation/devicetree/bindings/media/i2c/toshiba,tc358743.yaml
+>>   F:	drivers/media/i2c/tc358743*
+>>   F:	include/media/i2c/tc358743.h
+>>   
+>> +TOSHIBA TC9564 CLOCK DRIVER
+>> +M:	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+>> +M:	Alex Elder <elder@kernel.org>
+>> +M:	Daniel Thompson <danielt@kernel.org>
+>> +S:	Maintained
+>> +F:	drivers/clk/clk-tc9564.c
+>> +
+>>   TOSHIBA TC9564 PCI DRIVER
+>>   M:	Alex Elder <elder@kernel.org>
+>>   M:	Daniel Thompson <danielt@kernel.org>
+>> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+>> index 37a8e35d4178..0d186150d0c7 100644
+>> --- a/drivers/clk/Kconfig
+>> +++ b/drivers/clk/Kconfig
+>> @@ -293,6 +293,18 @@ config COMMON_CLK_S2MPS11
+>>   	  clock. These multi-function devices have two (S2MPS14) or three
+>>   	  (S2MPS11, S5M8767) fixed-rate oscillators, clocked at 32KHz each.
+>>   
+>> +config COMMON_CLK_TC9564
+>> +	tristate "Toshiba TC9564 clock support"
+>> +	depends on SOC_TOSHIBA_TC9564_SYSCON
+> 
+> You agreed to add COMPILE_TEST on v3 but it is still missing now.
 
-- [Medium] In drivers/net/mdio/mdio-bcm-unimac.c, the patch's own comment
-  in unimac_mdio_addr_c45() says some wait_func implementations…
-- [Low] The commit message does not mention the change to
-  unimac_mdio_resume() in drivers/net/mdio/mdio-bcm-unimac.c.
+Yes I did agree to that, and I'm sorry I didn't mention that it
+had not been done yet.  I have now done some additional testing
+with cross-compiling a few other architectures and have more
+confidence "COMPILE_TEST" will work correctly.  This will be
+included in the next version of this code.  (Really!)
 
---
+> If have a good reason to ignore or disregard something we agreed on,
+> it should be clearly flagged.
+> 
+>> +	select MFD_SYSCON
+>> +	default SOC_TOSHIBA_TC9564_SYSCON
+>> +	help
+>> +	  This enables support for the clock controller embedded in the
+>> +	  Toshiba TC9564 SoC.  The state of each clock is controlled via
+>> +	  MMIO to a region managed by a system controller; this ensures
+>> +	  access to the region is coordinated between this and the reset
+>> +	  and XGMAC (stmmac) drivers.
+> 
+> As Philipp said, the 2nd part of description is not appropriate as a config
+> description.
 
-net: mdio: mdio-bcm-unimac: Add Clause 45 support
+I will simplify this help text.
 
-This adds Clause 45 read and write callbacks to the UniMAC MDIO driver.
-Each access does an ADDR cycle followed by a READ or WRITE cycle, and
-MDIO_CFG is switched between C22 and C45 mode as needed. It also skips the
-BMSR workaround read for children compatible with
-"ethernet-phy-ieee802.3-c45".
+> 
+>> +
+>>   config CLK_TWL
+>>   	tristate "Clock driver for the TWL PMIC family"
+>>   	depends on TWL4030_CORE
+>> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+>> index 52d138d4ffc8..a11a8326d79c 100644
+>> --- a/drivers/clk/Makefile
+>> +++ b/drivers/clk/Makefile
+>> @@ -111,6 +111,7 @@ obj-$(CONFIG_COMMON_CLK_SI570)		+= clk-si570.o
+>>   obj-$(CONFIG_COMMON_CLK_SP7021)		+= clk-sp7021.o
+>>   obj-$(CONFIG_COMMON_CLK_STM32F)		+= clk-stm32f4.o
+>>   obj-$(CONFIG_COMMON_CLK_STM32H7)	+= clk-stm32h7.o
+>> +obj-$(CONFIG_COMMON_CLK_TC9564)		+= clk-tc9564.o
+>>   obj-$(CONFIG_COMMON_CLK_TPS68470)      += clk-tps68470.o
+>>   obj-$(CONFIG_CLK_TWL6040)		+= clk-twl6040.o
+>>   obj-$(CONFIG_CLK_TWL)			+= clk-twl.o
+>> diff --git a/drivers/clk/clk-tc9564.c b/drivers/clk/clk-tc9564.c
+>> new file mode 100644
+>> index 000000000000..8eeba8591970
+>> --- /dev/null
+>> +++ b/drivers/clk/clk-tc9564.c
+>> @@ -0,0 +1,288 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +
+>> +/*
+>> + * Copyright (C) 2026 by RISCstar Solutions Corporation.  All rights reserved.
+>> + */
+>> +
+>> +#include <linux/bits.h>
+>> +#include <linux/clk.h>
+> 
+> Not needed, this driver does not use the consumer API.
 
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index df267bb826966..ec0f2e8070eeb 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
+OK.
 
-[ ... ]
+> 
+>> +#include <linux/clk-provider.h>
+>> +#include <linux/mfd/syscon.h>
+>> +#include <linux/module.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/regmap.h>
+>> +
+>> +#include <dt-bindings/soc/toshiba,tc9564.h>
+>> +
+>> +/*
+>> + * The full name of every clock has a prefix "tc9564" followed by a single
+>> + * character ('a', 'b', etc.) that differs for each chip/device number.
+>> + * Each clock's "name" defines the unique portion of the clock's full name.
+>> + */
+>> +#define FULL_NAME_SIZE	24	/* Enough for formatted full name */
+>> +#define NAME_SIZE	12	/* Unique portion of the clock name */
+>> +#define FORMAT_FULL_NAME(_full_name, _id, _name)		\
+>> +	snprintf(_full_name, FULL_NAME_SIZE, "tc9564%c_%.*s",	\
+>> +		'a' + (_id), NAME_SIZE, _name)
+> 
+> dev->id will always be zero coming from a platform driver and this code is a lot of churn
+> hidden in a macro. If you must factorize this (I don't think you do) make it a function
 
-> @@ -96,7 +102,53 @@ static int unimac_mdio_poll(void *wait_func_data)
+Sashiko also pointed out the dev->id being always 0.
 
-[ ... ]
+> something like snprintf(name, sizeof(name), "%s-%s", dev_name(dev), init->name)
+> should be enough. use kasprintf if you can't predict the size.
 
-> +	/* Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0
-> +	 * even when they timed out with the controller still busy. The data
-> +	 * cycle must not be started before the ADDR cycle has completed, so
-> +	 * make sure the controller is idle.
-> +	 */
-> +	return unimac_mdio_poll(priv);
-> +}
+That's a lot simpler and almost certainly won't fail.  I'll do
+what you suggest.
 
-[ ... ]
+>> +
+>> +/* Two registers control whether gate clocks are enabled */
+>> +#define CLK_CTRL0_OFFSET	0x1004	/* Common and MAC0 gate clocks */
+>> +#define CLK_CTRL1_OFFSET	0x100c	/* MAC1 gate clocks */
+>> +
+>> +enum clock_type { PLL, FIXED, GATE };
+>> +
+>> +struct tc9564_clock {
+>> +	struct regmap *regmap;
+>> +	struct clk_hw_onecell_data *clk_data;
+>> +};
+>> +
+>> +struct gate_clock {
+>> +	struct clk_hw hw;
+>> +	const struct clock_init *init;
+>> +};
+>> +
+>> +struct clock_init {
+>> +	const char name[NAME_SIZE];
+> 
+> just const char *name ... you are asking for trouble with this.
 
-> @@ -107,8 +159,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  
->  	/* Prepare the read operation */
-> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) |
-> +			(reg & MDIO_C45_REG_MASK);
+Right, this can happen once using kasprintf() for the name.
 
-[Severity: Medium]
-The comment in unimac_mdio_addr_c45() says bcmgenet_mii_wait() can return
-0 while MDIO_START_BUSY is still set. The extra unimac_mdio_poll() runs
-only after the ADDR cycle. Can the same early return happen on the C45
-READ data cycle?
+> 
+>> +	enum clock_type type;
+>> +	union {
+>> +		u32 mult;	/* PLL rate multiplier */
+>> +
+>> +		u32 div;	/* Fixed rate clock divider */
+>> +
+>> +		struct {	/* Gate clock */
+>> +			u16 parent;	/* Parent clock ID, e.g. CLOCK_50M */
+>> +			u16 offset;	/* CLK_CTRL0_OFFSET/CLK_CTRL1_OFFSET */
+>> +			u32 mask;
+>> +		};
+>> +	};
+>> +};
+>> +
+>> +/* There is only one PLL */
+>> +#define PLL_INIT(_name, _mult)				\
+>> +	[CLOCK_##_name] = {				\
+>> +		.name = #_name,				\
+>> +		.type = PLL,				\
+>> +		.mult = (_mult),			\
+>> +	}
+>> +
+>> +/* The PLL is the parent of all the fixed rate clocks */
+>> +#define FIXED_INIT(_name, _div)				\
+>> +	[CLOCK_##_name] = {				\
+>> +		.name = #_name,				\
+>> +		.type = FIXED,				\
+>> +		.div = (_div),				\
+>> +	}
+>> +
+>> +#define GATE_INIT0(_name, _bit, _pname)	__GATE_INIT(_name, 0, _bit, _pname)
+>> +#define GATE_INIT1(_name, _bit, _pname)	__GATE_INIT(_name, 1, _bit, _pname)
+> 
+> So you are writing the param in the name  ? what is the point of that ?
 
-bcmgenet_mii_wait() returns 0 every time:
+I'm not sure I understand this, but my next response below might
+address it.
 
-drivers/net/ethernet/broadcom/genet/bcmmii.c:bcmgenet_mii_wait() {
-	wait_event_timeout(priv->wq,
-			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-			   & MDIO_START_BUSY),
-			   HZ / 100);
-	return 0;
-}
+> 
+>> +#define __GATE_INIT(_name, _reg, _bit, _pname)		\
+>> +	[CLOCK_##_name] = {				\
+>> +		.name = #_name,				\
+>> +		.type = GATE,				\
+>> +		.parent = CLOCK_##_pname,		\
+>> +		.offset = CLK_CTRL ## _reg ## _OFFSET,	\
+>> +		.mask = BIT(_bit),			\
+>> +	}
+>> +
+>> +/*
+>> + * Clocks are initialized and registered in the order of their IDs.
+>> + * Parent clocks must be registered before their children.
+>> + */
+>> +static const struct clock_init clock_init[] = {
+>> +	PLL_INIT(PLL, 50),
+>> +
+>> +	FIXED_INIT(62_5M, 20),
+> 
+> Just pass literals here, and show it the table. you can then pass real name, not 125M which is very
+> much tied to your ids.
 
-At probe time, the GENET ISR that calls wake_up(&priv->wq) is not
-installed yet, because request_irq() happens later in bcmgenet_open().
-On v1/v2, UMAC_IRQ_MDIO_EVENT is not enabled at all. In both cases these
-waits depend only on the timeout. With HZ=100 the timeout is one jiffy,
-which can expire at the next tick.
+Well, the IDs are fixed and named meaningfully.  But I *think*
+you are suggesting not to use macros in initialization (and to
+not make the formatted name depend on the symbolic name).
+I think that's pretty reasonable, so that's what I will do.
 
-The RD_C45 command places reg in MDIO_CMD[15:0]. After wait_func(),
-unimac_mdio_do_read() does this without checking MDIO_START_BUSY:
+> 
+>> +	FIXED_INIT(125M, 10),
+>> +	FIXED_INIT(250M, 5),
+>> +	FIXED_INIT(312_5M, 4),
+>> +
+>> +	GATE_INIT0(MSIGEN, 18, 62_5M),
+>> +
+>> +	GATE_INIT0(MAC0_TX, 7, 250M),
+>> +	GATE_INIT0(MAC0_RX, 14, 250M),
+>> +	GATE_INIT0(MAC0_125M, 29, 125M),
+>> +	GATE_INIT0(MAC0_312_5M, 30, 312_5M),
+>> +	GATE_INIT0(MAC0_ALL, 31, 250M),
+>> +
+>> +	GATE_INIT1(MAC1_TX, 7, 250M),
+>> +	GATE_INIT1(MAC1_RX, 14, 250M),
+>> +	GATE_INIT1(MAC1_125M, 29, 125M),
+>> +	GATE_INIT1(MAC1_312_5M, 30, 312_5M),
+>> +	GATE_INIT1(MAC1_ALL, 31, 250M),
+>> +	GATE_INIT1(MAC1_RMII, 15, 125M),
+>> +};
+> 
+> Could you explain why clock PCIe and I2C that where critical
+> in the previous version have been left out ? they are not critical anymore ?
 
-	cmd = unimac_mdio_readl(priv, MDIO_CMD);
-	...
-	ret = cmd & 0xffff;
+I pulled out support for all clocks whose ID was never
+used in software, including these two.  They're never
+actually used in practice, which means they never got
+modified (and therefore never disabled).
 
-If MDIO_CMD[15:0] still holds reg until the hardware writes the read
-data, could an early return give the caller reg as the PHY data? This
-would also happen before MDIO_READ_FAIL is latched. For example, a read
-of MDIO_DEVS2 would return 6 and a read of MDIO_DEVS1 would return 5.
-get_phy_c45_devs_in_pkg() could accept that as a plausible devs_in_pkg.
+That said, I don't mind adding these two back again
+and marking them CLK_IS_CRITICAL as you suggested.
+(Unfortunately I haven't found a comparable flag
+for resets.)
 
-read_c45 is now set, and the non-DT GENET path leaves bus->phy_mask at 0.
-So __mdiobus_register()->mdiobus_scan_bus_c45() issues these reads on
-every address that has no C22 device. Could get_phy_c45_ids() then
-register a bogus C45 PHY?
+I said this elsewhere, but I do not have a real clock
+tree that explains what rates some of these even use.
+For those that aren't referenced in code, it might
+not matter anyway, but regardless, I'm trying to just
+avoid claiming anything about the unused clocks, so
+I'd rather leave them out.
 
-The write side looks similar. unimac_mdio_do_write() returns 0 after
-wait_func() even if the C45 WRITE is still in flight. Could the next
-access's unimac_mdio_set_clause() then flip the MDIO_C22 bit in MDIO_CFG,
-or write its ADDR command to MDIO_CMD, while the previous frame is still
-going out?
+So again, I'll plan to define and support the PCIe and
+I2C clocks in the next version, but the others I plan
+to just leave out until we get better information.
 
-The C22 data cycle already returned early in the same way before this
-patch. The reg-as-data result and the MDIO_CFG switch mid-frame are new,
-though.
+>> +#define CLOCK_COUNT	ARRAY_SIZE(clock_init)
+>> +
+>> +/* Parent is the input oscillator running at 25 MHz; PLL runs at 1250 MHz */
+>> +static struct clk_hw *pll_register(struct device *dev,
+>> +				   const struct clock_init *init)
+>> +{
+>> +	char full_name[FULL_NAME_SIZE];
+>> +
+>> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
+>> +
+>> +	return devm_clk_hw_register_fixed_factor_index(dev, full_name, 0, 0,
+>> +						       init->mult, 1);
+>> +}
+>> +
+>> +/* The PLL is the parent of all fixed clocks */
+>> +static struct clk_hw *fixed_register(struct device *dev,
+>> +				     const struct clock_init *init)
+>> +{
+>> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(dev);
+>> +	char full_name[FULL_NAME_SIZE];
+>> +	struct clk_hw *pll_hw;
+>> +
+>> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
+>> +
+>> +	pll_hw = tc9564_clock->clk_data->hws[CLOCK_PLL];
+>> +
+>> +	return devm_clk_hw_register_fixed_factor_parent_hw(dev, full_name,
+>> +							   pll_hw, 0,
+>> +							   1, init->div);
+>> +}
+>> +
+>> +static const struct gate_clock *hw_to_gate_clock(struct clk_hw *hw)
+>> +{
+>> +	return container_of_const(hw, struct gate_clock, hw);
+>> +}
+>> +
+>> +static void gate_clk_manage(struct clk_hw *hw, bool enable)
+>> +{
+>> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(clk_hw_get_dev(hw));
+>> +	const struct gate_clock *clock = hw_to_gate_clock(hw);
+>> +	u32 mask = clock->init->mask;
+>> +
+>> +	regmap_update_bits(tc9564_clock->regmap, clock->init->offset, mask,
+>> +			   enable ? mask : 0);
+> 
+> how about returning the error if any ?
 
-Would it make sense to have bcmgenet_mii_wait() return -ETIMEDOUT on
-timeout, or to run the idle poll after every cycle and not only between
-ADDR and DATA?
+I'll no longer be using a regmap in the next version, but I think
+I understand your point (gate_clk_enable() below can return what
+this returns) and will implement it that way.
 
-[ ... ]
+> 
+>> +}
+>> +
+>> +static int gate_clk_enable(struct clk_hw *hw)
+>> +{
+>> +	gate_clk_manage(hw, true);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void gate_clk_disable(struct clk_hw *hw)
+>> +{
+>> +	gate_clk_manage(hw, false);
+>> +}
+>> +
+>> +static int gate_clk_is_enabled(struct clk_hw *hw)
+>> +{
+>> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(clk_hw_get_dev(hw));
+>> +	const struct gate_clock *clock = hw_to_gate_clock(hw);
+>> +	u32 val;
+>> +
+>> +	regmap_read(tc9564_clock->regmap, clock->init->offset, &val);
+> 
+> here too
+> 
+>> +
+>> +	return val & clock->init->mask ? 1 : 0;
+> 
+> you might be using val uninitialised here.
 
-> @@ -336,8 +437,16 @@ static void unimac_mdio_remove(struct platform_device *pdev)
->  static int __maybe_unused unimac_mdio_resume(struct device *d)
->  {
->  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
-> +	int ret;
-> +
-> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
-> +	 * Clause 22 and Clause 45, which run under the bus lock.
-> +	 */
-> +	mutex_lock(&priv->mii_bus->mdio_lock);
-> +	ret = unimac_mdio_clk_set(priv);
-> +	mutex_unlock(&priv->mii_bus->mdio_lock);
+The next version will not be using regmap (it will use readl()
+here), so this is moot.
 
-[Severity: Low]
-This isn't a bug, but the commit message doesn't mention this change to
-unimac_mdio_resume(). The resume callback now holds
-priv->mii_bus->mdio_lock around unimac_mdio_clk_set(), because
-unimac_mdio_set_clause() does a read-modify-write of MDIO_CFG, the same
-register that holds the clock divider.
+>> +}
+>> +
+>> +static const struct clk_ops gate_clk_ops = {
+>> +	.enable = gate_clk_enable,
+>> +	.disable = gate_clk_disable,
+>> +	.is_enabled = gate_clk_is_enabled,
+>> +};
+>> +
+>> +static struct clk_hw *gate_register(struct device *dev,
+>> +				    const struct clock_init *init)
+>> +{
+>> +	struct tc9564_clock *tc9564_clock = dev_get_drvdata(dev);
+>> +	struct clk_init_data clk_init = { };
+>> +	const struct clk_hw *parent_hw;
+>> +	char full_name[FULL_NAME_SIZE];
+>> +	struct gate_clock *clock;
+>> +	int ret;
+>> +
+>> +	clock = devm_kzalloc_obj(dev, *clock);
+>> +	if (!clock)
+>> +		return ERR_PTR(-ENOMEM);
+>> +
+>> +	FORMAT_FULL_NAME(full_name, dev->id, init->name);
+>> +
+>> +	parent_hw = tc9564_clock->clk_data->hws[init->parent];
+>> +
+>> +	clk_init.name = full_name;
+>> +	clk_init.ops = &gate_clk_ops;
+>> +	clk_init.parent_hws = &parent_hw;
+>> +	clk_init.num_parents = 1;
+>> +
+>> +	clock->hw.init = &clk_init;
+>> +	clock->init = init;
+>> +
+>> +	ret = devm_clk_hw_register(dev, &clock->hw);
+>> +	if (ret)
+>> +		return ERR_PTR(ret);
+>> +
+>> +	return &clock->hw;
+>> +}
+>> +
+>> +static int tc9564_clk_probe(struct platform_device *pdev)
+>> +{
+>> +	struct clk_hw_onecell_data *clk_data;
+>> +	struct tc9564_clock *tc9564_clock;
+>> +	struct device *dev = &pdev->dev;
+>> +	struct device_node *parent_np;
+>> +	int ret;
+>> +
+>> +	parent_np = dev_of_node(dev->parent);
+>> +	if (!parent_np)
+>> +		return dev_err_probe(dev, -EINVAL, "no devicetree node\n");
+>> +
+>> +	tc9564_clock = devm_kzalloc_obj(dev, *tc9564_clock);
+>> +	if (!tc9564_clock)
+>> +		return -ENOMEM;
+>> +
+>> +	/* Note: MMIO regmap (no error checking needed when used) */
+>> +	tc9564_clock->regmap = device_node_to_regmap(parent_np);
+>> +	if (IS_ERR(tc9564_clock->regmap))
+>> +		return dev_err_probe(dev, PTR_ERR(tc9564_clock->regmap),
+>> +				     "failed to get config regmap\n");
+> 
+> If the parent registers the regmap you can get it with dev_get_regmap(dev->parent, NULL)
+> with no syscon dep.
 
-The message covers the C45 accessors, the BMSR workaround skip and the
-C45 scan. Could it also describe this locking change in the resume path?
+Thank you very much for your review.
 
->  
-> -	return unimac_mdio_clk_set(priv);
-> +	return ret;
->  }
+					-Alex
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117233149.1693881-1-florian.fainelli%40broadcom.com
