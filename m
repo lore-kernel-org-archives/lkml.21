@@ -1,103 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795217767;
-	b=UocHdIU+WdWnXyOfMwDIfnKzlzuDPxEo4Du5RuW/fH1sCEsCzDuSLcU5RTENozvMS2DP
-	 GvYmDZe+9hpbdA4DEVpPLn1eHLWD6Ddr7x18kRRnQ1rbq3tlx+5DqvH0bo9VWwZAiaJJv
-	 FV6URK1DhtmiFl0RLEjTjiQil5crHpULuIWU95dXPH8cT2FPNfhrwj7mdaXKhiGJc2rMM
-	 XC9lkp6exOdGjBC5Qc2md8wqFZwyGfr9eWvsYRwiJz2U3u5dlXKZNW9LCSlXaqgZVcTDp
-	 C2B4LoNTXNk8D4jwYNGk341BJYCVi+j/Z/bBquDpp8TT6tg5eftS9lj7D0u1P1aWZhw==
+	t=1795217771;
+	b=qhbJLEDTEvuupaOZK5jP2m6HBGjdNp/hw5PCbAq25hKN3C5yImo2yr7eLP1259YOFlKT
+	 T1/40xhF0qj62FbiPMHoiiHY1PifxqEx67G3jy0/0F+m+wfoL9GVsiWgbzC3HbY/OY5Mw
+	 z6RTymVBPz3/VK9sK0UQAB6F+Hz5ikkhSvgu8yE/aAf4hMpfTq4oBVJ4He1b3HfPJmSLf
+	 49UfuEZF1HZfFaJuyfj510uo+DvA+eCTz9HiLx7jNJ/0n5mOlz60bEXxuIvf7WleFGs8j
+	 9QAemEpTC6u/v6/wqge6F+EDi/fpHr+UPzR9y1Yf3boRVj3xuD1K6uCn0C8xG+s9l0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795217767;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795217771;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=nGdOTRTWIKU5py+dFr3WWwlKf2vxuD9kUskG5e6bK1I=;
-	b=RXs1tcdq6P4up0iUgQo42L6T8tpMMt/2dew9hQ5RfMzHHhcc+MAV3QmXN7dJnifuBysT
-	 1M2vKbzPBf+7d3NOkHFWqHZr3+E/VcSPNDkhREx8+T+WXkOub6L70uQe32K8lQcgv7/M8
-	 qbthYjx9gaLbn+bZRuPsvWNkzNCoRwf/LTb1lZUs0mMfm3ykcN2iAjr9sMF9PEqJsOnD+
-	 6Mmjyp9CU92utX3Il0jlD3wqJt+LIN5bkGRV7NyLlOQ54wKEFR/XNppP3B/GJvrdUxW2m
-	 Pws/GvunWQNdoT7rmS1muWYdvmcWIczWDA9hYcxApiBF5Gb5RaT4iwdMWfIsp23s6ig==
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 From:To:Cc:Subject:X-Mailer:References:In-Reply-To;
+	bh=6fq/GPepzkTLXxM8Wn2MMXhIXKeiLSAPdWNcRYRGgzY=;
+	b=pGKjkCL3uH7b/9Syqi+LWbfyVSwRBymaj4Z1leIMpzgGsM7/Zmlt9oDaoPhJiWnypV8o
+	 x3OTzF0Uih1ujT6Mzb++46+9tq5D9OgEJOQe92gmNCobUSr5btHOCtI3M3Kr/396kgC9Z
+	 fTHdAyoLYUFnHNLqrfNtYAr7lMzrdQIAuV6QI5eISdfFoc95h/R92DGTeHLgtrWOAR8Iu
+	 eHn6E15csLQ+JMsHbIKQGk0WmCbE7zO14HbNJJ26ninp9JGrLZqB0taA02CKcADMphQHv
+	 PuUSyOWXSFgCerT5GQ0clB9h6aqXsjbwRfAgEoXZky3HLMuuY1737KHW93ZvGDMbzUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VRF+4gQq;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZUEGUCqZ;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3414606A33C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:35:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3414606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28C82606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:36:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C82606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VRF+4gQq
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a140e7405dso13865325e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:35:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZUEGUCqZ
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3b44bdcea8aso168091a91.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:36:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795217755; x=1795822555; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nGdOTRTWIKU5py+dFr3WWwlKf2vxuD9kUskG5e6bK1I=;
-        b=VRF+4gQq/DsUfw6+IRpgZ4aSpvTB9u6m+rhUmV0VTSRgpAthsI4uITtP3SJgvEwa9N
-         YFdjn5C7MOR+Ma7vvWPTbPwCoTbAawVEhStzZ1+XtDir9LJAxXiYJP9kGF0Bb2lTo6fv
-         Di2cyTe5GqRtGYylu5W9rzm05QgbWjT9+CO/Icn22BVWpV2wc/ZZI5QzE39XpfcrXAWK
-         81Fx/oARUanrR9L22Vl5KZKAcjN0rKKmS5hEdT+U3mm856RWd/ejwU35WeP1AaQ88QVP
-         G6ob1IUFwT/oyOkWe05FfAsm9+ipN3dL2x8p0Y75ag1x3rcSDsvJpsHhh4ar1Dtuz1me
-         +ciA==
+        d=google.com; s=20260707; t=1795217764; x=1795822564; darn=vger.kernel.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=6fq/GPepzkTLXxM8Wn2MMXhIXKeiLSAPdWNcRYRGgzY=;
+        b=ZUEGUCqZymxkARwzk95LE3pgK+mrs5V87KClzu2C/4i2e94GQT1MbI+MbTVBgRKNOH
+         17ybFXvvumVHByvme28ZSzFcDjpoAVkhXWAP+KDijkz4vI6PHG1xFVBqmaNup1qjwjEx
+         11erjN7uCO8yYl05ArJuIRZFAgOFFUY6N2KLCTzTngQlfdNgXXOGkh63mrPwXBtVxIk5
+         e4KDSmIm8nYU5VkSR9qvtGttANhVHorZunH41tMMXAs8nbGLOeZBTPR5dewhxUOb1pnp
+         ObY4IZwwOSSfqAapfxOrLH52IxyNUgqcve6ko9VSWLqjTzRvJK2YE5w6ClfAzcsw9nzy
+         Xzuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795217755; x=1795822555;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nGdOTRTWIKU5py+dFr3WWwlKf2vxuD9kUskG5e6bK1I=;
-        b=nDUk9EuOzOpUOCz+jrzNNljZVzWwWyJOOuDzTLhF+XIfNjagj9Wu90NpQmUdwkp3Nv
-         cydwQ1iHlWASc2mIdLdpltsUsQ4uFmeSorkG4/pWGhF75/u7HjxLfpi0mhHEfU5dtxU+
-         R9FL5FTppcXqcUgrUoxULgMIbt9aw8feK5v7vnmF8busTykwxwDa8+p/JpOXYOlJGMtR
-         9VhrAcrTJG+okBLMixRvbfmKkuHuOOi8A6tbrFJF9ZqOmlCwrdFZYpFgvXrTn8Zem76a
-         XxWGGaYGVA2SuwMFOfSpQyjBWSWNUEA4Yo7ejltjzVgxZGEawFkJNpfXe6IUVq0m0u5d
-         Dd9Q==
-X-Forwarded-Encrypted: i=1; AL+hErHJ9obTVgDHLhd2Nwp0PPVvAISHhMgulzCHQ/128fkdOnsPeYWVsBCezJkF/NT3p3JpvEN4p3N/WK8nYp0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JP6seboVJlpPnyzPSA8eNymHxRhuit4k579h2x0/Z59BAv4x/
-	ngop4fUgURwDoHhFKsRAPe2Th8afsyuGNlfIFPmeAG3bvUYAl6E2lnuU
-X-Gm-Gg: AYBFou3RZKRoBUjLzeMH/qjUwyMwAdHhVOftRvNheUdHSK0Wz81uN+j6qPWlldn0md+
-	9MDZi/qBgq7CJCOuJ1DVDBfLwKvRG4JqatKDNrClBrcMrXm63rwuf0WHwRb//mF8/ZXkTuUEcBE
-	221JCiu35h4cXD9VfTcX9bqmZxIUt+oDEIQjLHcxsrkvlHlvsGM//5rAxzViL5ax/dx4zkOp2i3
-	mqpYwObT9R+8EZY0LgT745IKXgWuhiWzjCra0ZDmk7B0kPwplInA8Jy++bWS4SLIhZiV8/mWkdh
-	x5qztjO+1/46g48/Qk+TbNVYl399J9B9m7UhSZLp2oO6BQ6aR2L3OyRQSzoG55EEMJWs02n8z2J
-	LD1a6zqSXAnZN3gPlRqROcrdoxxmXCysBPxcQRBhCQpUqwBV/DfrqWZniDl6aOEWbr65GUXaYc9
-	FtkWdMZSeyNfjlrMMyiefUdVp5RlyhmRQjJXN03Xb2qVYUO9CEPHXB36JvNkm9U352gUiz7TlHo
-	gd3tIwup1zTbZzP8u2c8E01LUZo4LWvdzOqErJMPj8Vn1M1g0TX1A0d0heVol6D44N8LY8VVhUq
-	NnSMEV/7KIvyv4Ci+zIBTSHvSDf1pbOo8e0LQO3Sb0d6oRZkWykXF6FI4Jt+0pQjUPkRYdFQnKD
-	S4fvVxkM4sPdLqXL9y+5W5hRdFSoGPtOhfdg/Mpm5zVmJ8+PgZsbo
-X-Received: by 2002:a05:600c:6219:b0:4a1:d087:f6ab with SMTP id 5b1f17b1804b1-4bb8880badfmr103587615e9.18.1795217755114;
-        Fri, 20 Nov 2026 15:35:55 -0800 (PST)
-Received: from Ansuel-XPS24.localdomain (host-95-234-253-103.retail.telecomitalia.it. [95.234.253.103])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-4ab6bb98b4dsm8672390f8f.53.2026.11.20.15.35.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:35:54 -0800 (PST)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v14 4/5] clk: en7523: generalize register clocks function
-Date: Sat, 21 Nov 2026 00:35:32 +0100
-Message-ID: <20261120233535.164885-5-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261120233535.164885-1-ansuelsmth@gmail.com>
-References: <20261120233535.164885-1-ansuelsmth@gmail.com>
+        d=1e100.net; s=20260707; t=1795217764; x=1795822564;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6fq/GPepzkTLXxM8Wn2MMXhIXKeiLSAPdWNcRYRGgzY=;
+        b=uYeBPMVY0V9JXWocUgn6xQs/oyZhKTaeWyY8MxhQXo6vMzVayeu/dRqQJ4Bt8MIBuu
+         o6byUmpiA9u63zg53fw+l0q+e/pjPkCeiW7rhYmfVRgf7NEg3KWiMlI7vC8Phl9Eagl/
+         1fYjrYLmLpxGy22hAuRVPjLrAQTGm/eZBaIVnbJBjpOfgAwGyMf0HOOFT3FHJlmDmA6G
+         XJZc5dEhSsc3LThrLiqezlUVnyNvWBKydbZ7RKV2xeE1ZNEWXJa53jRzYfg9iS+bxXQU
+         jtFfAa+5SfqulBl/Dkmp4ey+30vt04FLYadR8R9XstAtqehQ23P/gluKFNhXGvdnj47h
+         a4Wg==
+X-Forwarded-Encrypted: i=1; AL+hErENp9qui/SfVQD+1WFyk8AKXkyePeHmP9SaveMNqRfWVadAsOLyWj75Y+95h6//m9a/i8NugMnMfDhUK5c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ShwimFUKZR565kmfX7BcTITjSe/AMhXXx0to7U5szICnkpTMp
+	G9n9gdCKf4/MQ3mjXhhs/NpWs/E9it3rkyb23StDgxA3UUH+CP8wNs01y+o3j3k4Kw==
+X-Gm-Gg: AZFdTZfNXyMse3+mxLnZXClLuNEynxeke9PNSj5nwuPX1TFuCRhSGXBxxMonkj0F1Ci
+	54RcS0XDqYcAggLqea/M99n4LHbNLZtlNURFV+VESHldT5etmrO2cBM+FTlGCQ4D4Rapz0vPL8t
+	9G6Nf1VmP10k8+02fyLzzEU7bMTd8PePpCJNkY4tR00LWppTWIdKAMtTODSph3uLtSOMV8QatBH
+	OY5Nb5t0vPYbwea7O9IJNYPJpzmv3P9NUbeJbBU6oUV4tYpKJr+rcgib1yUjwfaZnpr98JzNuRg
+	/h7a7fmZO0cVm5R1H1vFtIL/c1mncwV6jB6NkFUqsy320ykELQ3Noei4MtmTpTvfNxS7yF64pjB
+	C5OsV580KQBDeqoqfCFsOLM5slnGNO1mnBOmh9/jMGQEWp1CgXEcJthtJaBOjLDdPUTh7T6ZNN4
+	IwbaLRETaoQCI8TqB2N14EK+bVg69YIf4Y7rVPtcbUBcUfgf7gReehH7bdmPDZqBiRiG/VzGBtB
+	tA8WjBw7KeQmQpQIPy/GnhJ1ShyfYM+1/rWICI3zJG+h3bI9CMoNqncDMsgauavNezReP+KEq0b
+	WkqkcgFfOinECXhbofA4iFHsRlJdvWrgof2i9Q4VXTBVb9f/03LA8XYDf5kBaK29
+X-Received: by 2002:a17:90b:3c11:b0:3a7:9ec3:ea0e with SMTP id 98e67ed59e1d1-3b41c908114mr2771810a91.22.1795217763469;
+        Fri, 20 Nov 2026 15:36:03 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm5906545a91.0.2026.11.20.15.35.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 15:36:00 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,115 +87,148 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 20 Nov 2026 15:35:58 -0800
+Message-Id: <DN0FL1752MH5.1FSZE620OJBM0@google.com>
+From: "David Matlack" <dmatlack@google.com>
+To: "David Matlack" <dmatlack@google.com>, <kexec@lists.infradead.org>,
+ <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-mm@kvack.org>, <linux-pci@vger.kernel.org>
+Cc: "Adithya Jayachandran" <ajayachandra@nvidia.com>, "Alexander Graf"
+ <graf@amazon.com>, "Alex Williamson" <alex@shazbot.org>, "Alex Williamson"
+ <alex.williamson@nvidia.com>, "Bjorn Helgaas" <bhelgaas@google.com>, "Chris
+ Down" <chris@chrisdown.name>, "Chris Li" <chrisl@kernel.org>, "David
+ Rientjes" <rientjes@google.com>, "Jacob Pan"
+ <jacob.pan@linux.microsoft.com>, "Jason Gunthorpe" <jgg@nvidia.com>,
+ "Jonathan Corbet" <corbet@lwn.net>, "Josh Hilke" <jrhilke@google.com>,
+ "Leon Romanovsky" <leonro@nvidia.com>, "Lukas Wunner" <lukas@wunner.de>,
+ "Mike Rapoport" <rppt@kernel.org>, "Parav Pandit" <parav@nvidia.com>,
+ "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Pranjal Shrivastava"
+ <praan@google.com>, "Pratyush Yadav" <pratyush@kernel.org>, "Randy Dunlap"
+ <rdunlap@infradead.org>, "Saeed Mahameed" <saeedm@nvidia.com>, "Samiullah
+ Khawaja" <skhawaja@google.com>, "Shuah Khan" <skhan@linuxfoundation.org>,
+ "Vipin Sharma" <vipinsh@google.com>, "William Tu" <witu@nvidia.com>, "Yi
+ Liu" <yi.l.liu@intel.com>
+Subject: Re: [PATCH v11 00/13] PCI: liveupdate: PCI core support for Live
+ Update
+X-Mailer: aerc 0.21.0
+References: <20261118223704.3286085-1-dmatlack@google.com>
+In-Reply-To: <20261118223704.3286085-1-dmatlack@google.com>
 
-Airoha AN7583 SoC will use the same logic used by Airoha EN7581 SoC to
-register clocks. Generalize it to register clocks defined in soc_data.
+On Wed Nov 18, 2026 at 2:36 PM PST, David Matlack wrote:
+> Merge Plan
+> ----------
+>
+> This series is intended to go through liveupdate.git, the tree listed in
+> the new PCI LIVE UPDATE MAINTAINERS entry.
+>
+> v10 and a follow-up patch were applied to the lu-pci-preservation branch
+> of liveupdate.git. This version is meant to replace them, and applies on
+> v7.4-rc1, the base of that branch.
 
-Add the clocks definition in EN7581 SoC to support this new implementation.
+Patches 08 and 09 have Reviewed-by tags from Alex now. I have a v12
+prepped with some small fixes from Sashiko and a comment cleanup from
+Pranjal.
 
-Rework the .num_clocks value to declare the number of base clocks and
-increase internally if PCIe OPs is_enabled is defined.
+Mike do you want me to send a v12 with these changes or send separate
+fixes for you to apply on top?
 
-EN751221 is updated to address the new num_clocks meaning.
+Here is the diff from v11 to v12:
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/clk/clk-en7523.c | 29 +++++++++++++++++++----------
- 1 file changed, 19 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
-index 12a43562929b..a4a75b8063a5 100644
---- a/drivers/clk/clk-en7523.c
-+++ b/drivers/clk/clk-en7523.c
-@@ -147,6 +147,7 @@ struct en_clk_priv {
- 
- struct en_clk_soc_data {
- 	u32 num_clocks;
-+	const struct en_clk_desc *base_clks;
- 	const struct clk_ops pcie_ops;
- 	int (*hw_init)(struct platform_device *pdev,
- 		       struct clk_hw_onecell_data *clk_data);
-@@ -799,12 +800,15 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
- static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
- 				   struct regmap *map, void __iomem *base)
+diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
+index 493576119a76..76e939ea52eb 100644
+--- a/drivers/pci/liveupdate.c
++++ b/drivers/pci/liveupdate.c
+@@ -127,7 +127,7 @@
+  *    Control Services (ACS).
+  *
+  * In addition, a device cannot be preserved or unpreserved once the PCI c=
+ore
+- * has started shutting it down (pci_device_shutdown()).
++ * has started shutting it down for kexec (pci_device_shutdown()).
+  *
+  * Driver Binding
+  * =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+@@ -409,7 +409,8 @@ static void pci_flb_finish(struct liveupdate_flb_op_arg=
+s *args)
  {
-+	const struct en_clk_soc_data *soc_data;
- 	struct clk_hw *hw;
- 	u32 rate;
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(en7581_base_clks); i++) {
--		const struct en_clk_desc *desc = &en7581_base_clks[i];
-+	soc_data = device_get_match_data(dev);
-+
-+	for (i = 0; i < soc_data->num_clocks; i++) {
-+		const struct en_clk_desc *desc = &soc_data->base_clks[i];
- 		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
- 		int err;
- 
-@@ -1245,7 +1249,7 @@ static int en7523_clk_probe(struct platform_device *pdev)
- 	const struct en_clk_soc_data *soc_data;
- 	struct clk_hw_onecell_data *clk_data;
- 	struct en_clk_priv *priv;
--	int r;
-+	int num_clocks, r;
- 
- 	soc_data = device_get_match_data(&pdev->dev);
- 
-@@ -1255,14 +1259,18 @@ static int en7523_clk_probe(struct platform_device *pdev)
- 
- 	spin_lock_init(&priv->lock);
- 
--	clk_data = devm_kzalloc_flex(&pdev->dev, *clk_data, hws,
--				     soc_data->num_clocks);
-+	num_clocks = soc_data->num_clocks;
-+	/* Num clocks are incremented by 1 if PCIe clock is supported */
-+	if (soc_data->pcie_ops.is_enabled)
-+		num_clocks++;
-+
-+	clk_data = devm_kzalloc_flex(&pdev->dev, *clk_data, hws, num_clocks);
- 	if (!clk_data)
- 		return -ENOMEM;
- 
- 	platform_set_drvdata(pdev, priv);
- 
--	clk_data->num = soc_data->num_clocks;
-+	clk_data->num = num_clocks;
- 	r = soc_data->hw_init(pdev, clk_data);
- 	if (r)
- 		return r;
-@@ -1271,7 +1279,7 @@ static int en7523_clk_probe(struct platform_device *pdev)
- }
- 
- static const struct en_clk_soc_data en7523_data = {
--	.num_clocks = ARRAY_SIZE(en7523_base_clks) + 1,
-+	.num_clocks = ARRAY_SIZE(en7523_base_clks),
- 	.pcie_ops = {
- 		.is_enabled = en7523_pci_is_enabled,
- 		.prepare = en7523_pci_prepare,
-@@ -1282,8 +1290,8 @@ static const struct en_clk_soc_data en7523_data = {
- };
- 
- static const struct en_clk_soc_data en7581_data = {
--	/* We increment num_clocks by 1 to account for additional PCIe clock */
--	.num_clocks = ARRAY_SIZE(en7581_base_clks) + 1,
-+	.base_clks = en7581_base_clks,
-+	.num_clocks = ARRAY_SIZE(en7581_base_clks),
- 	.pcie_ops = {
- 		.is_enabled = en7581_pci_is_enabled,
- 		.enable = en7581_pci_enable,
-@@ -1293,7 +1301,8 @@ static const struct en_clk_soc_data en7581_data = {
- };
- 
- static const struct en_clk_soc_data en751221_data = {
--	.num_clocks = EN751221_MAX_CLKS,
-+	/* Decrease of one as PCIe is incremented internally with PCIe OPs */
-+	.num_clocks = EN751221_MAX_CLKS - 1,
- 	.pcie_ops = {
- 		.is_enabled = en7523_pci_is_enabled,
- 		.prepare = en7523_pci_prepare,
--- 
-2.55.0
+        struct pci_flb_incoming *incoming =3D args->obj;
+
+-       pr_debug("Finished struct pci_ser (0x%llx)\n", args->data);
++       pr_debug("Finished struct pci_ser (0x%llx)\n",
++                (u64)virt_to_phys(incoming->ser));
+        pci_check_all_devices_released(incoming->ser, &incoming->block_set)=
+;
+
+        xa_destroy(&incoming->xa);
+@@ -937,9 +938,14 @@ int pci_liveupdate_adopt_ari(struct pci_dev *dev)
+
+        /*
+         * Unlike ACS, only adopt ARI while the bridge is incoming-preserve=
+d.
+-        * Once all devices below the bridge have finished, recomputing ARI
+-        * Forwarding Enable yields the same result for the same device, an=
+d
+-        * must be allowed to change if a different device is hot-plugged.
++        * Once all devices below the bridge have finished, pci_configure_a=
+ri()
++        * configures ARI Forwarding Enable as usual the next time a device=
+ is
++        * added below the bridge, e.g. if a different device is hot-plugge=
+d.
++        *
++        * The exception is pci=3Dnoari, where pci_configure_ari() does not=
+ touch
++        * the bridge, so the adopted ARI Forwarding Enable persists after =
+the
++        * preserved devices finish, even if a device without ARI is later
++        * hot-plugged below the bridge.
+         */
+        if (!dev->liveupdate.incoming)
+                return -EINVAL;
+diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+index 08b768b9e905..2748ca22e9cf 100644
+--- a/drivers/pci/pci-driver.c
++++ b/drivers/pci/pci-driver.c
+@@ -560,7 +560,8 @@ static void pci_device_shutdown(struct device *dev)
+        struct pci_dev *pci_dev =3D to_pci_dev(dev);
+        struct pci_driver *drv =3D pci_dev->driver;
+
+-       pci_liveupdate_freeze(pci_dev);
++       if (kexec_in_progress)
++               pci_liveupdate_freeze(pci_dev);
+        pm_runtime_resume(dev);
+
+        if (drv && drv->shutdown)
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index b5b578355a1b..f3d58b5e7a5d 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -1073,10 +1073,14 @@ static void pci_allocate_acs_save_buffer(struct pci=
+_dev *dev)
+        /*
+         * Devices that rely on device-specific quirks to enable an ACS
+         * equivalent keep that configuration outside of the ACS Control
+-        * register, so they are configured from scratch on restore. The
+-        * exception is devices preserved across a Live Update, which alway=
+s
+-        * adopt the ACS controls established by the previous kernel and ne=
+ed
+-        * the buffer to keep them across resets.
++        * register, so they are configured from scratch on restore.
++        *
++        * The exception is devices preserved across a Live Update. The
++        * previous kernel refuses to preserve devices that need such a qui=
+rk,
++        * so a quirk can only match here if the previous kernel did not ap=
+ply
++        * it (e.g. the quirk is new in this kernel). The previous kernel t=
+hen
++        * programmed the standard ACS Control register, so save it to keep
++        * the adopted controls across resets.
+         */
+        if (pci_need_dev_specific_enable_acs(dev) &&
+            !pci_liveupdate_was_incoming(dev))
 
