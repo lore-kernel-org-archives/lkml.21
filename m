@@ -1,54 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.245.251.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165188;
-	b=H0tcQaUlh1GimW8WMVEFbfHxuvL+mA4mzNnZKOAAFNt7JzDTx0E7MteWzDmJnqpE5DDB
-	 6oTghz6csDB6ALLhy8hEyn4QQFq3bUIx43IGDvCfbto41xnMagLF356U1fyp7tTcTxfHS
-	 NajzDrbY9r2alvlHrXz2V72bPW6Fr7d7w1/BsE8p5rP1IdEyTjc6vtx0HyLPRZ7WZFfvH
-	 CbFL+GtDiCdOgXkataG3MhR7IPfZPflBm9MxR/npnA2nYD8l+ZklfRcbETuO8JQ+dj7ZT
-	 iqEn8kUNe06paztp5fFUgSA7uhGKTm31chLw31B8JywerQFnsF2Evz4eiZBdluvSgkQ==
+	t=1795165189;
+	b=N7AipskX7t5Y/J48ppxbiSNopUv7oBmcJbqASUPilY0/jvrnjsOXcZKEat7YBr7wtrLB
+	 fme9JOMoyNCPUOYzzxB04d6DDtTHHsJJOROCQMDlm7q/t/0/4kzSbD/7OBiQ4v/SVloGH
+	 san62Q1rdaILXxTlR/1Lovl4zybEzgISpyJx6Lj2zXpBydRY/eeQOHrm74To0tXGnMLWx
+	 fhMVTNVkbm+Ht9pweXuD1807OuxySXjbqZu8Ho0hnzYcgHkgpPw8jowWCPRg5clYcAi7G
+	 GXgYMNNjnw+SWNx5RYTL8W+FljQkt+9Tto4gfDmCKcKfRZip/WSjAwUVsYIsqs+U+lA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165188;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Yc9PKLM1TRlGBdAGztoHr3hWSYWm+6yS6vAIXll0IPg=;
-	b=iYeJQrvToFdMkfWlfJPUkZ0r3Dp+xtP0GBH+0EixpJ7bjZ+rGXY9A+PS1bZil/AfF0P+
-	 tzNAKrjIk/UmDAct78sFZC4zg4ea9WrX+SBUyu8jxjdauYzz3oNg/McC/fiq+IB5MxW22
-	 XJYCdgDq1jVwzTBiQboLfFAB4bkGNm5LeTsVaI78EYgpkz5lWloFAYJzu/+TLoumT72lT
-	 fa7VWLyFzLc428l4xRpHDhYRwVIIGzJDxSWn92mEAzVx2c6xHrLMSZBe900aSbtjBQKzY
-	 tyomlffB48Gjx0znaJFZ8gUBdWz5HjY4h8KDdjWUbSg+sIyfI+g4nuqRMfwHSNHJVUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165189;
+	h=DMARC-Filter:From:DKIM-Signature:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Developer-Signature:X-Developer-Key;
+	bh=huwLZXOgqNprnOJiV2f34ZUBxS8NJ6q/uGT1VaqAvzA=;
+	b=NIdxkoRhjjJE15n/B2QWXgo7nHh27RjNV5iYkxUYTt2f/0Pc2AxPZWMfAlyTWgP1Mm2A
+	 VgpvG5k0uLyH0blx2kWwKV3kXc7IPN8D61pO1SOP+hIzk5qhFs9jcZJWlAzo/g5VELIE9
+	 yhc8KMbaT200W/r4rA0Atg4kZOiNVhtrCRaDgnrTtSlcdJczJiwgOYa0sC5+qGIRIP1PF
+	 TslZvYUWTxh5Ll2YnMoJE3VWxtIdRM59EPUFS6NrWeBZq/w0N7r6lhAlwex+14O7P9IQ5
+	 nBLb0P2BlUvGBRJe6lpkTVy9cYsE4zEJFA1eLeLLb3OSc+Un+Tz8z0lID07ZxW2zIKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="ZTuu+/kE";
-	arc=none smtp.remote-ip=91.218.175.116
-Received: from mta0.migadu.com (out-116.mta0.migadu.com [91.218.175.116])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=fhannenheim.net;
+	spf=pass smtp.mailfrom=fhannenheim.net;
+	dkim=pass header.d=fhannenheim.net header.i=@fhannenheim.net header.a=rsa-sha256 header.s=mail header.b=2PNQyj8N;
+	arc=none smtp.remote-ip=188.245.251.181
+Received: from mail.fhannenheim.net (mail.fhannenheim.net [188.245.251.181])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 064D4606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 064D4606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8438606A326;
+	Fri, 20 Nov 2026 08:59:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8438606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fhannenheim.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fhannenheim.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ZTuu+/kE
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=j5sy5dx6lTWHNP91V+IG2oaea8AWB1IF7PeLayynPtU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795165186; v=1; x=1795769986;
- b=ZTuu+/kErGbrYo2EAUfdxPsJCulCf/mPmE+cx+8a/P4Szyb57xHYVvLt47wm0vx3T4zDn6sx
- 8FYBuQIOQv4YIq1Uy8gwodwX4PMKEtuks16140GAL9kQ5PUPmIU6yxlaAmXtHUyq9jkd/a/cKGR
- 970u3E1iYGzwaNsILxITdGjY=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id ff20ff19d5265770;
-	Fri, 20 Nov 2026 08:59:46 +0000
-X-Mizu-Trace-ID: ff20ff19d5265770
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <18eed3f7-1403-4738-b8f8-f11551e1cd7c@linux.dev>
-Date: Fri, 20 Nov 2026 16:59:41 +0800
+	dkim=pass (1024-bit key) header.d=fhannenheim.net header.i=@fhannenheim.net header.a=rsa-sha256 header.s=mail header.b=2PNQyj8N
+From: Frieder Hannenheim <git@fhannenheim.net>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fhannenheim.net;
+	s=mail; t=1795165178;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=huwLZXOgqNprnOJiV2f34ZUBxS8NJ6q/uGT1VaqAvzA=;
+	b=2PNQyj8NhOg6Fc0Z5YQCI42cuZK0zSd7jSL+y6/8kUFD4mhJiPqZ0dVKh2c6fk1FCiCdfa
+	0MuO7EFTLIy6BISJj/XjO2BCnIQb8lOKv38rGNc0nCywvf01Pd8H5RUqq+lEHYrKEcF0I4
+	ygrxSVIjAAefemDyw4n6XhRYdzlcVgE=
+Subject: [PATCH v6 0/3] Add OnePlus 8T
+Date: Fri, 20 Nov 2026 09:58:20 +0100
+Message-Id: <20261120-kebab_dts-v6-0-b7ec55f3d04f@fhannenheim.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,122 +55,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: hugetlb: allocate larger early CMA pages first
-To: "David Hildenbrand (Arm)" <david@kernel.org>, muchun.song@linux.dev,
- osalvador@suse.de, akpm@linux-foundation.org, fvdl@google.com,
- Qi Zheng <zhengqi.arch@bytedance.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261120074701.48298-1-qi.zheng@linux.dev>
- <8a43c25e-0828-492b-90cf-beeb72ecdbb3@kernel.org>
-From: Qi Zheng <qi.zheng@linux.dev>
-In-Reply-To: <8a43c25e-0828-492b-90cf-beeb72ecdbb3@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XPTU7DMBAF4KtUXmOU8cROwop7VAj5Z4YYhIviN
+ AJVuTt2WRBEunzS+97YF5FpipTFw+EiJlpijqdUgrk7CD/a9EIyhpKFapSBBrR8I2fdc5izZEA
+ ejNE0sBel/zERx8/r1vHpJ+ezeyU/14HaGGOeT9PX9dgCtbe3u4BsJDARqKa10LtHLi9JlEaK7
+ /eJZlHXF3XTq+Kp67E16JgD7nvc+m7rsXjNHr3VymJ/w7dbP2x9W7xzJri+YwbN+17/evh7X1c
+ fyv/9wIQa/vt1Xb8BgqJ0mLoBAAA=
+X-Change-ID: 20261015-kebab_dts-f13f9665e9fc
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Robert Oscilowski <drgitx@gmail.com>, 
+ Casey Connonly <casey.connolly@linaro.org>, 
+ =?utf-8?q?Jean-Fran=C3=A7ois_Bobier?= <jf.bobier@gmail.com>, 
+ phone-devel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Frieder Hannenheim <git@fhannenheim.net>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2653; i=git@fhannenheim.net;
+ h=from:subject:message-id; bh=qMEViD5fdzTULOf6f+oSM0kqZXSvWaah6bWH4B9dDHk=;
+ b=owGbwMvMwCWWw1h8YvtkuWDG02pJDNkM3I+KZv6ZmL5Qvfzog+WXvk3vK0iJa/XIvPxyuvF+v
+ jyvWk+7jlIWBjEuBlkxRRbn6ZI/7CuFdfTD/ynCzGFlAhnCwMUpABPRMmJkuCq3UD7T5qtccChH
+ YcRt08TDC7I0ea41SqyT4NvY/kK2guGfzez3R07qrJayv/ez5IRqhgiLymmxmOQvuUpfv1/35Lj
+ LDwA=
+X-Developer-Key: i=git@fhannenheim.net; a=openpgp;
+ fpr=439719F83F79132C2F57FE216C0173C8B7931E53
 
+Adds a basic device tree for the OnePlus 8T (kebab). Common
+values for OnePlus devices using the sm8250 SOC are defined in
+sm8250-oneplus-common.
 
+This basic device tree brings up a framebuffer, UFS, battery monitoring,
+volume keys and UART. Further functionality will be brought up in
+subsequent patch sets.
 
-On 11/20/26 4:55 PM, David Hildenbrand (Arm) wrote:
-> On 11/20/26 08:47, Qi Zheng wrote:
->> From: Qi Zheng <zhengqi.arch@bytedance.com>
->>
->> With hugetlb_cma_only=1, early HugeTLB CMA allocations follow hstate
->> registration order, which can depend on the order of hugepagesz= and
->> default_hugepagesz= parameters. cma_reserve_early() advances early_pfn by
->> the requested size without aligning the start of each allocation.
->>
->> On arm64 with 4 KiB base pages, 32 MiB and 1 GiB pages share a CMA pool
->> aligned to 1 GiB. In a 2 GiB CMA range starting at 4 GiB, allocating a
->> 32 MiB page followed by a 1 GiB page places the latter at 4 GiB + 32 MiB,
->> violating its required 1 GiB physical alignment.
->>
->> Simply rounding early_pfn up before the 1 GiB allocation would leave a
->> 992 MiB gap and advance the cursor to 6 GiB. cma_activate_area() marks the
->> entire prefix below early_pfn as allocated and only frees pageblocks after
->> it. The gap would remain reserved with its bitmap bits set, and releasing
->> the two HugeTLB folios would not reclaim it, permanently losing 992 MiB
->> of usable CMA capacity. An alignment-only fix would therefore also need
->> to track and reclaim such gaps.
->>
->> The same alignment issue can affect non-LPAR PowerPC64 hash MMU systems
->> supporting 16 MiB and 16 GiB pages, with 64 KiB base pages and
->> CONFIG_ARCH_FORCE_MAX_ORDER=7. The 16 MiB size then has order 8 and is
->> also gigantic, sharing the 16 GiB-aligned CMA pool.
->>
->> Allocate early CMA hstates in descending order. Each range starts aligned
->> to the largest supported size, so this preserves alignment for subsequent
->> smaller allocations without creating gaps.
->>
->> Fixes: d2d786714080 ("mm/hugetlb: enable bootmem allocation from CMA areas")
->> Cc: stable@vger.kernel.org
->> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
->> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
->> ---
->>   mm/hugetlb.c | 28 +++++++++++++++++++++++++++-
->>   1 file changed, 27 insertions(+), 1 deletion(-)
->>
->> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->> index 4a448c5909d36..d69a9532ad5ef 100644
->> --- a/mm/hugetlb.c
->> +++ b/mm/hugetlb.c
->> @@ -4600,6 +4600,22 @@ void __init hugetlb_bootmem_set_nodes(void)
->>   		node_set(nid, hugetlb_bootmem_nodes);
->>   }
->>   
->> +/* Return the largest early-CMA hstate below the given order. */
->> +static struct hstate *__init hugetlb_next_early_cma_hstate(unsigned int order)
->> +{
->> +	struct hstate *h, *next = NULL;
->> +
->> +	for_each_hstate(h) {
->> +		if (!hugetlb_early_cma(h) || huge_page_order(h) >= order)
->> +			continue;
->> +
->> +		if (!next || huge_page_order(h) > huge_page_order(next))
->> +			next = h;
->> +	}
->> +
->> +	return next;
->> +}
->> +
->>   void __init hugetlb_bootmem_alloc(void)
->>   {
->>   	struct hstate *h;
->> @@ -4615,9 +4631,19 @@ void __init hugetlb_bootmem_alloc(void)
->>   	for_each_hstate(h) {
->>   		h->next_nid_to_alloc = first_online_node;
->>   
->> -		if (hstate_is_gigantic(h))
->> +		if (hstate_is_gigantic(h) && !hugetlb_early_cma(h))
->>   			hugetlb_hstate_alloc_pages(h);
->>   	}
->> +
->> +	/*
->> +	 * CMA ranges are aligned to the largest supported size. Allocate larger
->> +	 * sizes first to keep the early reservation cursor aligned without gaps.
->> +	 */
->> +	h = hugetlb_next_early_cma_hstate(MAX_FOLIO_ORDER + 1);
->> +	while (h) {
->> +		hugetlb_hstate_alloc_pages(h);
->> +		h = hugetlb_next_early_cma_hstate(huge_page_order(h));
-> 
-> Was thinking that this could be written in a neater way, but it really can't.
-> Best we could do is issue a single hugetlb_next_early_cma_hstate().
-> 
-> order = MAX_ORDER - 1;
-> while (h = hugetlb_next_early_cma_hstate(order)) {
-> 	hugetlb_hstate_alloc_pages(h);
-> 	order = huge_page_order(h);
-> }
+Signed-off-by: Frieder Hannenheim <git@fhannenheim.net>
+---
+Changes in v6:
+- Add Co-developed-by: Casey Connonly
+- Link to v5: https://patch.msgid.link/20261117-kebab_dts-v5-0-bdee1c9fe351@fhannenheim.net
 
-Yeah, that is indeed simpler — will rework it and send v2.
+Changes in v5:
+- add Acked-By to dt-binding commit
+- drop pon_resin node as it doesn't trigger keypresses (David)
+- drop smpc6-regulator (sashiko)
+- pm8008: use interrupts-extended (Konrad)
+- remove vreg_f from -common as it's not used on all devices (Konrad)
+- Link to v4: https://patch.msgid.link/20261019-kebab_dts-v4-0-bb6db87ff15f@fhannenheim.net
 
-> 
-> Thanks!
-> 
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Changes in v4:
+- Order my signoff last in commits
+- correct sorting of dt-binding
+- Link to v3: https://patch.msgid.link/20261017-kebab_dts-v3-0-5fc3ca52a383@fhannenheim.net
 
-Thanks!
+Changes in v3:
+- create a new commit for dt-binding addition
+- reorder /delete-node/s in sm8250-oneplus-common.dtsi
+- remove prototype revision msm id
+- remove zero-value board id
+- reorder pinctrl properies with name at the end
+- alphabetically order volume button nodes
+- rename vol-down-n -> vol-down-l
+- remove zero ecc size in ramoops
+- add comments describing reserved gpio ranges
+- correct pm8008 pinctrl
+- Link to v2: https://patch.msgid.link/20261015-kebab_dts-v2-0-e783463bffd3@fhannenheim.net
 
-> 
+Changes in v2:
+- Add dt-binding for oneplus,kebab
+- rename power button gpios to match sm8250-samsung-common
+- remove unnecessary qup_i2c7_default and qup_i2c7_default nodes
+- remove qcom,kona from top-level compatible
+- enable i2c2 and add pinctrl to pm8008
+- remove unused pinctrl node in pm8008
+- Link to v1: https://patch.msgid.link/20261015-kebab_dts-v1-0-1fee1204a18b@fhannenheim.net
+
+---
+Frieder Hannenheim (3):
+      dt-bindings: arm: qcom: Document OnePlus 8T
+      arm64: dts: qcom: Add sm8250-oneplus-common.dtsi
+      arm64: dts: qcom: oneplus-kebab: new device
+
+ Documentation/devicetree/bindings/arm/qcom.yaml    |   1 +
+ arch/arm64/boot/dts/qcom/Makefile                  |   1 +
+ .../arm64/boot/dts/qcom/sm8250-oneplus-common.dtsi | 525 +++++++++++++++++++++
+ arch/arm64/boot/dts/qcom/sm8250-oneplus-kebab.dts  | 125 +++++
+ 4 files changed, 652 insertions(+)
+---
+base-commit: 330fcc4f3d0bd303fbd9e2461dfc10ba893768fc
+change-id: 20261015-kebab_dts-f13f9665e9fc
+
+Best regards,
+--  
+Frieder Hannenheim <git@fhannenheim.net>
 
