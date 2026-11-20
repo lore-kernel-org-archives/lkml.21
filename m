@@ -1,71 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191800;
-	b=YvcGHqqwOz2wjw3xn216pRMD6sLmOlnPoCkv7TQ92ud9P7RQceUCZrOHa8UlS6NyFC02
-	 mqE2dCAhA5lQ8IG1IrWG1e73WWtU4d/69UUY3hVxnrWpSPZhFQx0y0uiJ8figMLqwk8eB
-	 D0D2WsmFCy1eSgx5BaDCeBEboVQrTm/kNry8hjf7V14o1BjAx/qH44Pi5CkDT/P86qJq9
-	 yCgCLGZawbmblthudqPPoKyvV2vP66Wh4+LdzyxMWjHmPp6iO+wLYguSj5SmAoE7N1bCG
-	 DbBLSr37vcNfDqmcVaMPYazKKNxI3lLU2HtQdzdS8jX6Makrtry4v9DWTp+pfg5byLA==
+	t=1795191827;
+	b=L00fIRrceNg7A3exYrgTjOwbdQt8XAgLpeIu9Qcws7/4NmXfRt2NFijlIsYbqYwUgxcU
+	 A5r75rGJ6BLOxKJM81E4yD//JYxFYEJFXY+bQhVxkIGV3L1+2jmG1krqw9qLHumBqM8is
+	 JWi7rCGyVxJYBiBv3KzLF1vbwLPw38ifd/5RxO5wooiPE1RrI4xNpmDWogf0WG1v0PxxG
+	 ewLW31fdUJ8QqkAfbznwEjmYFEk/Wub/QQ45nXaKyMAUMilHjibgOZfHjQp146pfejgHA
+	 rCaC1dL7Z2UanBYDsfYThNlzEgm4eDdAVw3Di6WNtq3AyehXv2BBH9/L+5+NdhkKVcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191800;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=W+TpxS1i+J9I/NKJ3cSN+tLGKZHGRM6TY2QWiTn+Pqw=;
-	b=DNfaWustBveXnfQxvS7/44Y3gdifONn0CtsNADDear77rhd/bi9IzMrztGEBup/TKBsQ
-	 938Y3VqJnolkUjsgYL+WnS6G3GzCyX/8MUKJTh9NlFLKGcFBf4LxEynsueCBVmzkEttp8
-	 NpOfB7UUuWU3qdDg8It2+zPtVItgkrRFSWFT9drXHkQ4Q7U9DKcIGeBmKXypvLPchsJ0F
-	 COAWMVJpCJ15WXu2twag2U7wJdftwQidux02BrQ2+xsTp9xMujcUFcwJJwsWxDUWvl2d0
-	 UNwl0jy6uUoKAhAMlL6+t6MN23Q9JGNE0HFpDs7WNlK5Af60S2qK7GYx5b3jeR701Iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191827;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=d3QBEP8dRM7vxwDgY9cDJ9vgtjYUzyf7+KDqMUm8lZE=;
+	b=mlGL9klgApJsv2G0aE3U6bc7WP1BSeKVw0mtW1oJD82SeB1sNv5hIzee9ttudFuFK6Ec
+	 E83kfL9insJTAET23N52LDjLfi+c1UQ3GFMkMlg2wRHUzWgzwdarTVpIJAczpSXN1q7E7
+	 UHWJomthZ/sL2RWE+b1lI5PUwQXFeUbyyk3CF/7NyH7RQJ3+coj6aoiLvav6LLn5MtE/r
+	 Hdei/oFUtNmZh7IRUKehdIi7mOq9pQdp1buTzqWIolre5P4yIMUE9cktNVNvZ19QhgVEz
+	 H6sii0XmKIyiRPX4jeanxYOJvPhdxH2f+JgJzsUs7/AovCIN1SSvoooouEHzySXh0VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=inria.fr;
-	spf=pass smtp.mailfrom=inria.fr;
-	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=YDaM9KU6;
-	arc=none smtp.remote-ip=192.134.164.83
-Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JSRXDky8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C71606A320;
-	Fri, 20 Nov 2026 16:23:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C71606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 8C45A606A325;
+	Fri, 20 Nov 2026 16:23:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=YDaM9KU6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=W+TpxS1i+J9I/NKJ3cSN+tLGKZHGRM6TY2QWiTn+Pqw=;
-  b=YDaM9KU6/kXBvD6g49Wx5jS4NOymnKZuz69pkB3lGxpPAlej1Sy6vLUn
-   JyGASBlcmBuAuIWHtbDFDY3CYOYw5UrbD6+7micLm6C/Cis51ZbGI/aXA
-   e5BhfK7lwNyeBzNbJ6xAqI7uUcWX1VQK2MftcH7E2C66y7LR7/Unx+FsK
-   w=;
-X-CSE-ConnectionGUID: PUjWxCQKTyq/W1N/uAkTuQ==
-X-CSE-MsgGUID: VcX/fQEXTbeOvkyefUMb3A==
-Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=zakaria.belkadi@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.27,223,1787004000"; 
-   d="scan'208";a="306591356"
-Received: from unknown (HELO Dellisimo.rennes.centralesupelec.fr) ([192.70.40.1])
-  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 17:23:06 +0100
-From: Zakaria Belkadi <zakaria.belkadi@inria.fr>
-To: Christoph Hellwig <hch@infradead.org>,
-	Caleb Sander Mateos <csander@purestorage.com>
-Cc: Jens Axboe <axboe@kernel.dk>,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kanchan Joshi <joshi.k@samsung.com>,
-	Anuj Gupta <anuj20.g@samsung.com>,
-	florence.schadle@ssi.gouv.fr,
-	frederic.tronel@centralesupelec.fr,
-	louis.rilling@irisa.fr,
-	stable@vger.kernel.org
-Subject: Re: [PATCH RESEND] block: pin user PI pages for writing when ref tags are remapped
-Date: Fri, 20 Nov 2026 17:22:57 +0100
-Message-Id: <20261120162257.498238-1-zakaria.belkadi@inria.fr>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <awBnB-55HQ54C1x6@infradead.org>
-References: <awBnB-55HQ54C1x6@infradead.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JSRXDky8
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1134F1F000CA;
+	Fri, 20 Nov 2026 16:23:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795191826;
+	bh=d3QBEP8dRM7vxwDgY9cDJ9vgtjYUzyf7+KDqMUm8lZE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JSRXDky8awBoFyMHc2ZYa/qstsTfmMod7yUu3hMwHzq+8DKmkTeiCyZEcZ2j8whmN
+	 hyM0IVbMfSGnvfxxYmC76qRFIYVtAtiENd9M1Y65PPno2ppTtiPinrnAGC/r4yQHel
+	 XIIsnEP3XhLf1OoF6YOqX+xvU9JDF7ybMY7ZRmFJP5mLtmsT2NT5XygkNQznbJXwLk
+	 mwG7JM3V2OlHRFpzFWalUd/ZQq5j5XS0HwDo9keZXUjGkpPhksWaCuNmIALDzCYpEt
+	 H3tI2DOXwDzcPXA6UYHPpq4ukXbZlLmbky6KCTSGD+fiU0TWmlzvzC8gIWGOZ+gh1P
+	 Gq3cytlfMhlzw==
+Date: Fri, 20 Nov 2026 17:23:43 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-pwm@vger.kernel.org, linux-tegra@vger.kernel.org, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH 0/2] driver: core: Allow drivers to opt out of
+ driver_override
+Message-ID: <awByB3M1qPiye8JL@monoceros>
+References: <20260922-driver-override-opt-out-v1-0-58c35ded3b83@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,21 +59,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tc46iwcpupwpxjlw"
+Content-Disposition: inline
+In-Reply-To: <20260922-driver-override-opt-out-v1-0-58c35ded3b83@nvidia.com>
 
-Christoph, Caleb,
 
-Thanks to both of you for the review.
+--tc46iwcpupwpxjlw
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/2] driver: core: Allow drivers to opt out of
+ driver_override
+MIME-Version: 1.0
 
-On Fri, Nov 20, 2026 at 07:28:07AM -0800, Christoph Hellwig wrote:
-> I don't think we can just pin memory as writable that wasn't given to
-> us as writable.  So this needs to force bounce buffering, at least when
-> remapping might be required.
+Hello Thierry,
 
-Agreed. I'll keep the PI iterator as ITER_SOURCE. In v2,
-bio_integrity_map_user() will bounce the user PI buffer for REQ_OP_WRITE
-when the integrity profile has BLK_INTEGRITY_REF_TAG. That way the
-block layer can remap the tags in its own copy.
+On Tue, Sep 22, 2026 at 01:38:27PM +0200, Thierry Reding wrote:
+> Overriding the driver to bind to may not make sense for some drivers.
+> One example of this is platform drivers that use device data obtained
+> through device ID matching (such as OF or ACPI) and they cannot work
+> without that device data.
+>=20
+> Usually the device ID matching is the only way that such drivers can
+> match against a device, so drivers shouldn't need to check that their
+> device data is valid. For such drivers, driver_override is the only
+> corner case that can lead to a case where no device data is found.
+> Instead of requiring each and every driver to handle this case, move
+> handling into the core and let drivers opt out of this override
+> mechanism if it doesn't make any sense for them.
+>=20
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
 
-Thanks,
-Zakaria
+https://lore.kernel.org/all/cover.1795171088.git.u.kleine-koenig@baylibre.c=
+om/
+is the more promising approach that doesn't require each driver to
+opt-out of force-binding, so I'm discarding this series from my patch
+queue.
+
+Thanks
+Uwe
+
+--tc46iwcpupwpxjlw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAdAsACgkQj4D7WH0S
+/k5q8Af9E9OuIg4RQEWxGrl1pehojKPkNhbBi8UGoCLQMXxGjsSvtcgWWUo+BI4d
+v74CAyb8WsBYczaaPkLSzdh5E7iRRhOsAa2hmTc/Ck5QL6uTnuti1gmDEr1+zaht
+BsqkGSM3SQ4tsXEmpAoX19LHNupGCVhb9kDCIFrOeqpgDmTCdM4qbD5hELo4OQyv
+acs+1UmnlaCJFe6WywMiNA2nq08jhd90FnVuKAVb3bleyoRx+fh40lSWmc0Kuhxp
+M5/w288ljlxEFphCHgycl8JKGg7Mj4u7DXRzh93GMJxHhpDeAILJLvsRn73FPWDd
+92wzxVeeR+jUBALI2fFoh64AI1IJfg==
+=9Efd
+-----END PGP SIGNATURE-----
+
+--tc46iwcpupwpxjlw--
