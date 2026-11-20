@@ -1,74 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.6.0.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163294;
-	b=yBv317M/WTG+iRlf2brNIuRnDauA+/5mJU2Zz32bbRlfHvbQgQh9k6/8TSOItUujWD09
-	 pvI6ZGfi1rsV0fvSEzyW5wYM8os3UE1PiIG0pKLh40MPl/263AWXW6xwRyIZsvMY6RBux
-	 NwwXb6EB1vNcKp6AXpQtG6/nxoiRwHjBaft8e2VNXLlEfvA5ooeHBCyFcolt5bv7xVbU3
-	 XBaQdpleAzogSXDRCLKO3RaYVlIg9yaZ4ZMZVJEb0JoXO9RcqyHCRfOPGhSiyy5s3F/1h
-	 Of3o5gIhRGVwQmr3SQCJQx8rvuuc8bueRpakyMvLhhVzGhNPxhH3WOvGw8d06LoL4KQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163294;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
-	 Received:Received:Received:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=w1NBOfFgAQPG5zy7sPw/S7Tffv2N+YgwkyeadfXG7Og=;
-	b=B2UUvvS9yWfpR35xXY4+eYPqukwowYY3j7Sk/BbMbKc5UPL24q6w2G9hQ+GGopacswvQ
-	 tiX8Zi/MKbWDz+SeRXlNNmC2yKQQG+iR4JC1nOPd2Dmk5+pcWjEUkP+Q+9ZvglCBKcBqr
-	 gJsfEsj2oxvSb6dZzSHtz2Fp/g8n7kz6JtPgU6FdzAbxbyzAk+Lw4E1FXJkiCurQJdDcM
-	 Dj17ZVaNoyCCrMEcgmvcQ8LxfVfO9E96ZdhbwZgXlzxln0F5sPUvgRAuPzXVSR56WzTlR
-	 1NgjPyH+jSt3c1XDBupItQMWK7/WudFzPJm0xSK4+Z0TO4RwQKoELczAvjA5suc0XhA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=blackhole.kfki.hu;
-	spf=pass smtp.mailfrom=blackhole.kfki.hu;
-	dkim=pass header.d=blackhole.kfki.hu header.i=@blackhole.kfki.hu header.a=rsa-sha256 header.s=20151130 header.b=JIRfFghO;
-	arc=none smtp.remote-ip=148.6.0.51
-Received: from smtp-out.kfki.hu (smtp-out.kfki.hu [148.6.0.51])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.51.81
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795163426;
+	b=2UxPuzdVIRwgVeZFvWzNyNhmKuWl3YBIdkjOET9auAJEPJR3vGSgD6kCdU8Zl+cEoijd
+	 k4GXMuPWRe4bdbMT3wDokBrmuh7L5WJyZtNDmuWyKEDwoUnfw3weLuf6amDIkRzlDk/hY
+	 8HLG/fcrY1cxk0Xx8cHkjk62rqNle2MEqd+Py5y/VMDCsl4O/aBKD+/Frv2Kn2BObaQNz
+	 ur9KonqW7pqcCHNnMIW/XW3BodJEjT7fPqJkL8bPMpXY1X0l3K6MIUw4Kdlj7MQ7dpfDw
+	 EiF8RyoJy+Kiz3H9ekyveXx3DIxWnkg06dE1QSvIzMig7YiHipnI2ENmjAuIx+XGbjg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163426;
+	h=DMARC-Filter:Received:Received:From:To:CC:Subject:Thread-Topic:
+	 Thread-Index:Date:Message-ID:References:In-Reply-To:Accept-Language:
+	 Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:msip_labels:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ld-processed:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=x8z+3zaZ4ztUDzhDD12LYNxcRRBKG2txY9fgrkc54GA=;
+	b=TuGxMfIjYeWFcqFI6P4rbEjOmHNyk/sR8pnMwghU7Wp9ARUHPKAavZaHFnGezu1toQAE
+	 XGfDzjbJBlfoOGQ92rZBB8kfiMq2PZqK63r2E9qVF0T93TaC9idNa8ANVpLH0pGQsuCWI
+	 wSrXPeKfVrkoUsx8GoMwNC6zUhPOpKnI3AIkbUDi2HhNNI327g0rzBeMUpXuMJG9m73iC
+	 n8HEVXE5Ckeq4Qa8nBsw5z2ebxiaw2xbCyH2Yedr0CtkxnKc//gqiE4xrSkhF+XMi6CdG
+	 rF6etfdo+SGeTKtavTYaHRjjlCBHPF3igmOjId6r2W1Jehq7sM3MlvHKKiPJWUoWiSg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=siliconsignals.io;
+	spf=pass smtp.mailfrom=siliconsignals.io;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.51.81
+Received: from PNZPR01CU001.outbound.protection.outlook.com (mail-centralindiaazon11021081.outbound.protection.outlook.com [40.107.51.81])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E090606A320;
-	Fri, 20 Nov 2026 08:28:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E090606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=blackhole.kfki.hu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blackhole.kfki.hu
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=blackhole.kfki.hu header.i=@blackhole.kfki.hu header.a=rsa-sha256 header.s=20151130 header.b=JIRfFghO
-Received: from localhost (localhost [127.0.0.1])
-	by smtp2.kfki.hu (Postfix) with ESMTP id 4jW7ks22b6z7s7wl;
-	Fri, 20 Nov 2026 09:28:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	blackhole.kfki.hu; h=mime-version:references:message-id
-	:in-reply-to:from:from:date:date:received:received:received
-	:received; s=20151130; t=1795163283; x=1796977684; bh=w1NBOfFgAQ
-	PG5zy7sPw/S7Tffv2N+YgwkyeadfXG7Og=; b=JIRfFghOwDK+N3vff3fkg2Cbz0
-	GzZti7EfaDB3Jh0YVCmCKA5BsiiNn4fPJRZIocHNvHqdcAOmSm/9YD/ffyBxTYup
-	zynU2Bq9pd8/eBcu2EFydNBY14i9y+A0o0jmLow/PR9qR0svH5kSSiORKvfDYnM9
-	zKeG2CcD8+D4fuCqE=
-X-Virus-Scanned: Debian amavis at smtp2.kfki.hu
-Received: from smtp2.kfki.hu ([127.0.0.1])
- by localhost (smtp2.kfki.hu [127.0.0.1]) (amavis, port 10026) with ESMTP
- id eH7u2McxOSrm; Fri, 20 Nov 2026 09:28:03 +0100 (CET)
-Received: from blackhole.kfki.hu (blackhole.szhk.kfki.hu [IPv6:2001:738:5001:1::240:2])
-	by smtp2.kfki.hu (Postfix) with ESMTP id 4jW7kp6kRdz7s7wc;
-	Fri, 20 Nov 2026 09:28:02 +0100 (CET)
-Received: by blackhole.kfki.hu (Postfix, from userid 1000)
-	id D7112340D0D; Fri, 20 Nov 2026 09:28:02 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by blackhole.kfki.hu (Postfix) with ESMTP id D55C7340CFB;
-	Fri, 20 Nov 2026 09:28:02 +0100 (CET)
-Date: Fri, 20 Nov 2026 09:28:02 +0100 (CET)
-From: Jozsef Kadlecsik <kadlec@blackhole.kfki.hu>
-To: Willy Tarreau <w@1wt.eu>
-cc: n3rd <18670333770@163.com>, 
-    "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>, 
-    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-    Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>, 
-    "security@kernel.org" <security@kernel.org>
-Subject: Re: [SECURITY] netfilter: ipset: double free in hash resize vs inline
- gc
-In-Reply-To: <av_cqPmvrh5iT8Tw@1wt.eu>
-Message-ID: <3a321704-59ad-7756-102c-a5c6ae77be88@blackhole.kfki.hu>
-References: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com> <av_cqPmvrh5iT8Tw@1wt.eu>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A249606A320;
+	Fri, 20 Nov 2026 08:30:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A249606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=siliconsignals.io
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=siliconsignals.io
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dMItFwJpHIFgtyqQDjSU0IB7Rrn6ZCN3OQyj4LbllPZ9Ko6LfEwF7N06OD10IO8HUlpjjoIORTRWgdFOIm2NHpy43P25hUzqNsFpnQMDXwJkgCMt/nKEUTmm+TY/zIoMSIVJdyNL6JqWoe5HClw5ZJ1UTrWSNx8GmI98hFKTEykD76msv/IMxwWhttMoKtKTwRCS5sf+Zrztd8JXzs8P27D09vrRyI1FzZwo7iNtp0O3wb51Jbjt0hcfptZLDgC6NmZONqQUIA9MVBmNDMwFo/tg2RDpFTqlt/sKqN/JH/zZ+7J4Qdv0u5+9tQDdsCiHyvx6gtfHX4JR47uI8AiWUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x8z+3zaZ4ztUDzhDD12LYNxcRRBKG2txY9fgrkc54GA=;
+ b=BtiAv5Q0XvgxY3h+NFwbnA79kmSL9r1ou2deiTsB7ejtxE29s2CG50uI8l2r57eUpMNGLYnkTvEykUFDa880rJtb3sMRO0Z0xslenoCJKnak0zwwdjwHRONmGQsRAqsr0snNcxGguA/iodA2OZGPQDGW87duBZTRGLeji/j0scfqOXi2gJIq8SZHVaXJq5Sq0PHWqOBN2xHc56ZmNmplvfCwpdguO+fZ++TsQHl65kspnG1x6X+COqtKMUrJXSrESpgtzaHHzYyq32V1dfCk4tydcXKxpGdIMm1nMsS5Y/wqvcbQmk3iOgVcBBE8XOg4lmiB4jSlv4K+QlmqtbJvXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:199::7)
+ by MAUP287MB5859.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:1f5::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 08:30:21 +0000
+Received: from PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ce63:5749:b390:508b]) by PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ce63:5749:b390:508b%4]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 08:30:21 +0000
+From: Tarang Raval <tarang.raval@siliconsignals.io>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+CC: "jai.luthra" <jai.luthra@ideasonboard.com>, Himanshu Bhavani
+	<himanshu.bhavani@siliconsignals.io>, Elgin Perumbilly
+	<elgin.perumbilly@siliconsignals.io>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>, Mehdi Djait <mehdi.djait@linux.intel.com>, Vladimir
+ Zapolskiy <vladimir.zapolskiy@linaro.org>, Hans Verkuil
+	<hverkuil+cisco@kernel.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 09/15] media: i2c: os05b10: Add H/V flip support
+Thread-Topic: [PATCH v5 09/15] media: i2c: os05b10: Add H/V flip support
+Thread-Index: AQHdaFxD8WzAGIoTaUKi+Hq2WsWPB7cavBoAgBvvXdqAABFSgIAAA7eH
+Date: Fri, 20 Nov 2026 08:30:21 +0000
+Message-ID:
+ <PN3P287MB182975720FFCB48386F1B5878B782@PN3P287MB1829.INDP287.PROD.OUTLOOK.COM>
+References: <20261030104806.1223991-1-tarang.raval@siliconsignals.io>
+ <20261030104806.1223991-10-tarang.raval@siliconsignals.io>
+ <auiDLo73gQgslsvL@kekkonen.localdomain>
+ <PN3P287MB18299C133C2D2A56237D85828B782@PN3P287MB1829.INDP287.PROD.OUTLOOK.COM>
+ <awAAtT8qt9RwuCTb@kekkonen.localdomain>
+In-Reply-To: <awAAtT8qt9RwuCTb@kekkonen.localdomain>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+msip_labels:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PN3P287MB1829:EE_|MAUP287MB5859:EE_
+x-ms-office365-filtering-correlation-id: 21b3b86a-1460-4f3d-25c4-08df46e0841d
+x-ld-processed: 7ec5089e-a433-4bd1-a638-82ee62e21d37,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|38070700021|10067099003|261021123027099003|4143699003|56012099006|261022075727099003|261026121527099003|261009223027099003|18002099003|22082099003;
+x-microsoft-antispam-message-info:
+ Hox4vXSvpwRFCIEBElgBNeqtkWyBE9b8341VQEIhsTy0P/Z3p/GpRfEKSht7JHeU8hmQt1LHIwGfxUe8wfJcUpnABeHci3L3Pb48CM29VEmnIr8F7tv6VASyqlWAnL2gS5q9rHsK4qz59J0Kd8VwJ07sYeIdVESlr2JoUQUQ8Mu2bFXaueZiPpbQNW6si11xaURfzPgc0OzYAd4mepmexJ/2aLlkjnAeDy0en36jZF037cQUXrgQEGVSMPS3DUqvg6BJTNOkdlMoOy9ZhCf83KgZYwaouck0gcpQjpkaCLQKDfWsTj5L3/2kFmpNIpArIlVPZTVKIyR13xPEsqOorKtHHq7BItXc9KNUBJH9YbMHxliL7h0xWR/FHcsWdQhQUfTy+fvWt9nOCnL6jYzoESKfMwPTKKxNeKg0MYSgHHXCo6PGJGmji/d5ZYHKDaZZ2+wpTpiPczDjEXu/TJB/9T0aAJjhsqQU6KLgRoXfhtOS5shIi8IVAmeTiNHfT+EXw3Jr3/lqLhzg/56Ptz+8YCGYUv7EQEkHol2xvoCr9J/NN6ZxwJ9bbwEDpUAH+SYGtJCIwqstmeSIyRISm4UTvoLWEOOxsWDwE8MRVzamLhJM3STjDx+GXUPG9UddwzFF6HQBPdnfzjSESHavLliMFlbHfckH6aD7SpsmTl6tolc2tmhAco+sqrY5ab76nihcpX3qX1AZx0wY4Bcj2yEgqRJpuWV0QmAXXODlyoLFvC8=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN3P287MB1829.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(38070700021)(10067099003)(261021123027099003)(4143699003)(56012099006)(261022075727099003)(261026121527099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?iso-8859-1?Q?hV5I+9q+9c6iGS2AApdO19tYhc/kqrPHZkK/79Ifr8V/bywCRe/qepALd3?=
+ =?iso-8859-1?Q?UF74Wyk2moP2ZptOEM5HQYXNJfgZnkog89+pe9KyvBSL2UBkpRtMx/qawq?=
+ =?iso-8859-1?Q?fS/sdJg37I8SZuQ22PdLdJP4HRdije38jSSfITJZa3EbArEyKaqhofqAPg?=
+ =?iso-8859-1?Q?7mUCwVDwU5gUn0fjJoi+AVEpNvhTUA5TWceO+3JKckXe84r1nuSzTabhJv?=
+ =?iso-8859-1?Q?eTo0On6id+DCwdFzTKysCIHlAs/CLXSRJMx94sgUDCygwnf+kcm4VSkbj+?=
+ =?iso-8859-1?Q?JLbqNHN9/Vx3JWCH/QmP3siPv+lnw5dECZeo9ZF9aID8VKwPSTnHNaC2cX?=
+ =?iso-8859-1?Q?TkyXlReTwlrtCe+5Aq9cUA+aCedNhtnlH3lnUjbEG88Yxkq1mIHykAvi28?=
+ =?iso-8859-1?Q?I7w35VujNFqupOemm3ikizTBLKLLLakSD1HpyjSZuOEqMBWAI4jFfPy5wD?=
+ =?iso-8859-1?Q?oSiUGeWLI0i39hovmjsd0VD2boPnsC/iZjYIaAld3vT06psE/lAZXedG+D?=
+ =?iso-8859-1?Q?F072G3syvmXP4i0MZVVTgYKM948KUXgjzwIr9TdbRIyNZiVhffAoLkBFCQ?=
+ =?iso-8859-1?Q?Nt+fCrf4MRCoDM1yLJ/X57vod0Ukq7305hQPAJy9XCEM+9/NL5539xUZNZ?=
+ =?iso-8859-1?Q?HAvn9OSfznXHGCnRQjQN4ATSNlfuCuicG5l4GKr7siRBt0O33WBHpH57wv?=
+ =?iso-8859-1?Q?LuVWcY1IM+AKw3BTpp/77ZfpLQsOx9SEwhdY1DuPmG2mViGXc5vakRXq6U?=
+ =?iso-8859-1?Q?/Oa/pLfkf9AWSP9nLvpeWydHB/A48i6JLq17d4Tuiqe+0tvBcfe2aGRd4o?=
+ =?iso-8859-1?Q?jQ70dJOElj94A2IhM+aPntYXq50w4e8Do9ZQVwNOk6kz0GCc7o/dND2ows?=
+ =?iso-8859-1?Q?ut/+Wg/ujqqTHTOi0Dj5lxqk8hxKBMjmwzEMHSn8MQgFOAAudLz66FIWEN?=
+ =?iso-8859-1?Q?T96djdl9bpwaVmWu3voinKz9KC8qTphlA8e6w4atYONcfdD+r/51z/un59?=
+ =?iso-8859-1?Q?na3zP7S1rZ5rtohb8v7Hi0VU8dBC2y8yNVQrkk4f1iWn8QfIj2licmGSvr?=
+ =?iso-8859-1?Q?dUetf9XgBkr37VHVhlS3E0CY7g9L16ZKxdK82AmWZ5KExXOopYg0+y+QCf?=
+ =?iso-8859-1?Q?wm8BTR4jZWWXspFfOZgiASTR5KRG/nbbDXx06sRY4LPJIuw+IuGzQY2x7B?=
+ =?iso-8859-1?Q?fCUdc3oFkngyh7azGQBzn3W/nPSxJ2BWWON+9UkHp1PVQMABIXtvqyXf0J?=
+ =?iso-8859-1?Q?iuHYcHY9PlZEM6at6PsdolP5Fd/hMaMEHH8o3OG9TTj5iB3Nrj0Dc4MYvG?=
+ =?iso-8859-1?Q?t5cVMDOKZuc3mEDeRJM0drfuoFxjLoAXFlc98jWn3mpWreBxaiwudpyks5?=
+ =?iso-8859-1?Q?ecKoU2ePcrdCzOVeikd68LMvLz034CGqjDxCDXs06WUicUqGpWW71PTLsj?=
+ =?iso-8859-1?Q?carPsgr3MIfHRJFjS6DV2R62Mau5w6Z4Yfv0KXN7+AY0te12GrvJnQixqE?=
+ =?iso-8859-1?Q?cYL+X/IQwG/Av/xh882wsj04qcpVwA2NYfMfpIV5e5g7UAjg2fovHFMjBf?=
+ =?iso-8859-1?Q?qV1guj58OFEkM6pZEG0znSN8xjVN32XrcgPKUjXWjLsw03bB7sa6NasxoO?=
+ =?iso-8859-1?Q?70+ZGOxEm6k+1P9vydK/7Ll6Ub7UAfqozkr+3SgAz20nhpTL1aYf9MGYfT?=
+ =?iso-8859-1?Q?nmhBtESv0Q3fbD80/HSYlwBe5P21UDVag5eWJ9m3d7pkY4t9VBvAQWCKRX?=
+ =?iso-8859-1?Q?2dOD3ajCxmizpcubvrUCrNcEmToaP8UBolm9p4vSrnUeol9oq4TgjrP0j9?=
+ =?iso-8859-1?Q?yVnFT8mWirGSrxECnaO3A8TbhQdEv3Y=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,146 +149,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="110363376-192711993-1795163282=:2836"
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PN3P287MB1829.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 21b3b86a-1460-4f3d-25c4-08df46e0841d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 08:30:21.2400
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: VwwXxNmgyAsknekEZ3a9U0JnmETm/rBuHK6pob65Rx/fVT0JJQy7IXCLG/thIW9anKYw+E9L00hVIgoxCdO3cYgndAA7/qe1McmxazsgKkI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MAUP287MB5859
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---110363376-192711993-1795163282=:2836
-Content-Type: text/plain; charset=US-ASCII; format=flowed
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-On Fri, 20 Nov 2026, Willy Tarreau wrote:
-
-> On Fri, Nov 20, 2026 at 10:13:34AM +0800, n3rd wrote:
->>
->> I am reporting a security bug in the Linux kernel.
->>
->>
->> 1. Affected kernel versions
->> Linux v7.3-rc7 (mainline, tested as 7.3.0-rc7) is affected and was rep=
-roduced twice on fresh QEMU guests. The same unguarded call site is prese=
-nt unchanged in v7.2.9 (stable) and in the v7.3-rc series; those were che=
-cked at source level only and were not re-run dynamically. No bisection w=
-as performed, so the affected range is stated from the source of the call=
- site rather than from a tested lower bound.
->>
->>
->> 2. Problem description
->> ipset hash sets are generated from one template, net/netfilter/ipset/i=
-p_set_hash_gen.h. mtype_gc_do() has two callers. The workqueue caller mty=
-pe_gc() takes gc.lock and checks t->resizing before the sweep. The second=
- caller is at the top of mtype_add(), which is the insertion routine shar=
-ed by the control plane (hash_ip4_uadt) and the packet path (xt_set SET t=
-arget, then hash_ip4_kadt), and it neither takes gc.lock nor reads t->res=
-izing. On the other side, mtype_resize() copies every element of the old =
-table into a new doubled table while holding only rcu_read_lock_bh(); it =
-never takes t->hregion[r].lock, which is the one lock the inline sweep ta=
-kes. The copy is a memcpy of the element extension area, and the comment =
-extension in that area is only an 8-byte pointer to a separately allocate=
-d struct ip_set_comment_rcu that has no reference count. So when an eleme=
-nt X expires while the copy loop is still running, the packet path can sw=
-eep X as expired, free X's comment on the old tab
- le via ip_set_comment_free() and clear the pointer there, while the new =
-table already holds the same pointer. When the set is destroyed later, th=
-e new table walks the same element and frees that comment a second time. =
-Observed on a KASAN kernel: BUG: KASAN: double-free in rcu_free_sheaf, Fr=
-ee of addr ffff8881069f1900 by task ips03v2, and the Allocated-by stack i=
-s the kasan kmalloc helper, then ip_set_init_comment, hash_ip4_add, hash_=
-ip4_uadt, call_ad, ip_set_ad, ip_set_uadd, nfnetlink_rcv_msg. The object =
-is in cache kmalloc-32. The same object is also read after it was freed: =
-BUG: KASAN: slab-use-after-free in strlen, Read of size 1, with strlen, i=
-p_set_comment_free, hash_ip4_ext_cleanup, hash_ip4_ahash_destroy, hash_ip=
-4_destroy, ip_set_destroy_set_work. Two fresh runs produced 16 plus 14 an=
-d 30 plus 14 of those reports; a control run with the packet path disable=
-d produced zero reports while performing exactly the same 15 resizes.
->>
->>
->> 3. Reproducer
->> A static x86-64 trigger program speaks the ipset nfnetlink protocol di=
-rectly. It creates a hash:ip set with the timeout and comment extensions,=
- installs an iptables OUTPUT rule with the SET target and --add-set, send=
-s UDP packets to 127.0.0.1 from a bound source address so that the packet=
- path enters mtype_add on every packet, and arranges the timeouts of 1500=
- filler elements so that their deadlines fall inside a table resize. The =
-complete reproducer, the guest initramfs scripts and the full console log=
-s are available on request; I did not post them publicly.
->>
->>
->> 4. Conditions
->> Local attacker with CAP_NET_ADMIN inside a user namespace. No init-nam=
-espace capability, no CAP_NET_RAW (the packets are UDP to 127.0.0.1) and =
-no special filesystem are needed. The kernel must have CONFIG_IP_SET, CON=
-FIG_IP_SET_HASH_IP and CONFIG_NETFILTER_XT_SET, and the set must use the =
-timeout and comment extensions. This is a race, so the trigger runs sever=
-al attempts per boot; on TCG it hit within the first one to three of five=
- attempts. KASAN with kasan_multi_shot is required to see it, because sto=
-ck KASAN stops reporting after the first finding.
->>
->>
->> 5. Suspected location
->> net/netfilter/ipset/ip_set_hash_gen.h: the inline mtype_gc_do() call a=
-t the top of mtype_add(), versus the guarded call inside mtype_gc(). Also=
- mtype_resize() and the memcpy of the element extension area that carries=
- the comment pointer. net/netfilter/ipset/ip_set_core.c: ip_set_comment_f=
-ree() and ip_set_init_comment().
->>
->>
->> 6. Suggested fix
->> Give the inline sweep the same exclusion the workqueue sweep already h=
-as: take h->gc.lock and skip the sweep when t->resizing is set. A more co=
-mplete variant is to take t->hregion[r].lock around the per-region copy i=
-n mtype_resize(), so both sweep entry points are serialized with the resi=
-ze. For context, cffcf57bf03c only fixed the workqueue caller, and f30415=
-929be8 and a442c8a89fb9 fixed other sites.
->>
->>
->> 7. Mitigation
->> Do not create ipset sets that use the comment extension on affected ke=
-rnels, or leave CONFIG_NETFILTER_XT_SET off so the packet path cannot ent=
-er mtype_add. Restricting unprivileged user namespaces removes the unpriv=
-ileged reachability but does not fix the bug.
->>
->>
->> 8. Disclosure
->> Public. This report is being sent to the public netfilter list; no emb=
-argo is requested. The reproducer is not posted publicly; it is available=
- on request.
->>
->>
->> 9. AI-assistance note
->> This report was prepared with an AI coding assistant. Per the kernel s=
-ecurity process I treat the issue as public and am not posting the reprod=
-ucer publicly.
->
-> If you used AI assistance, your LLM ought to have told you that our doc
-> requests that:
->  - a tested fix is always provided, and in a format that can be applied
->  - the security list isn't CCed when the message is posted to public li=
-sts
->
-> Can you please propose patches for your different reports ? This is gen=
-erally
-> trivial to do for LLMs after they find a bug because they have a comple=
-te
-> view of the problem.
-
-The current custom hash implementation backend suffers major internal=20
-issues which cannot properly be solved without a complete redesign.
-
-Florian worked really hard and rewroted the custom hash implementation=20
-with an rhashtable based one which fixes the issue in question and other=20
-issues lurking in the current ipset code as well, without loosing any=20
-functionality.
-
-It is heading into nf-next and at the end going to be backported to the=20
-stable branches too. Thus all known/reported ipset related issues will be=
-=20
-fixed in "one step".
-
-Best regards,
-Jozsef
-
---110363376-192711993-1795163282=:2836--
+Hi Sakari,=0A=
+=0A=
+> On Fri, Nov 20, 2026 at 07:47:58AM +0000, Tarang Raval wrote:=0A=
+> > Hi Sakari,=0A=
+> >=0A=
+> > Apologies for the delayed reply. I was on leave during the Diwali holid=
+ays.=0A=
+> >=0A=
+> > > On Fri, Oct 30, 2026 at 04:17:58PM +0530, Tarang Raval wrote:=0A=
+> > > > Add HFLIP and VFLIP controls, lock them while streaming, and update=
+=0A=
+> > > > the reported Bayer format based on the flip state.=0A=
+> > > >=0A=
+> > > > Signed-off-by: Tarang Raval <tarang.raval@siliconsignals.io>=0A=
+> > > > ---=0A=
+> >=0A=
+> > ...=0A=
+> >=0A=
+> > > > +static u32 os05b10_get_format_code(struct os05b10 *os05b10)=0A=
+> > > > +{=0A=
+> > > > +     static const u32 codes[2][2] =3D {=0A=
+> > > > +             { MEDIA_BUS_FMT_SBGGR10_1X10, MEDIA_BUS_FMT_SGBRG10_1=
+X10, },=0A=
+> > > > +             { MEDIA_BUS_FMT_SGRBG10_1X10, MEDIA_BUS_FMT_SRGGB10_1=
+X10, },=0A=
+> > > > +     };=0A=
+> > > > +=0A=
+> > > > +     return codes[os05b10->vflip->val][os05b10->hflip->val];=0A=
+> > >=0A=
+> > > Note that accessing the control values requires holding the handler's=
+ mutex=0A=
+> > > here. That's not the case when called from enum_mbus_code() I think.=
+=0A=
+> >=0A=
+> > I checked this, and the handler's mutex is held in all three callers.=
+=0A=
+> >=0A=
+> > The driver sets sd.state_lock =3D handler.lock before calling=0A=
+> > v4l2_subdev_init_finalize() (this has been there since the initial driv=
+er=0A=
+> > patch). With that set, __v4l2_subdev_state_alloc() makes every state=0A=
+> > (active and per-file-handle TRY) use the handler's mutex:=0A=
+> >=0A=
+> >     if (sd->state_lock)=0A=
+> >             state->lock =3D sd->state_lock;=0A=
+> >=0A=
+> > The callers then lock that state:=0A=
+> >=0A=
+> >  - enum_mbus_code(): subdev_do_ioctl_lock() calls=0A=
+> >    v4l2_subdev_lock_state(state) before subdev_do_ioctl(), which calls=
+=0A=
+> >    the op, and unlocks it afterwards.=0A=
+> >  - init_state(): __v4l2_subdev_state_alloc() calls=0A=
+> >    v4l2_subdev_lock_state(state) around ->init_state().=0A=
+> >  - set_ctrl(): called with the handler's mutex held by the control core=
+.=0A=
+> >=0A=
+> > So the control values are read under the handler's lock and no extra=0A=
+> > locking is needed in os05b10_get_format_code(). Please let me know if I=
+=0A=
+> > missed a path where the state is not locked.=0A=
+>=0A=
+> Ack, thanks for checking!=0A=
+>=0A=
+> Can you post a fixup patch to the issue in the second-last patch that I c=
+an=0A=
+> squash to it? (I'd just print the frequency in Hz, there's no reason to u=
+se=0A=
+> MHz here.)=0A=
+=0A=
+I'll send v6 today, including all the requested fixes and the fix for the=
+=0A=
+Kernel Test Robot error.=0A=
+=0A=
+Best regards,=0A=
+Tarang=
