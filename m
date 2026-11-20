@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186688;
-	b=TrL2h1E9LdLHFI/PWwhMWdGAy+nxI97PnnNgioobEIB/sdc26OsWBvNvGo5RCQoCFD6+
-	 ykQC3nAjqstmZvzIsYVAuwj/dix5gKN2EZIld5Xs8bZpdahB9SIl+SW0ZdYxC9DykW91T
-	 zOYRb3HlWW05ki3MLTAxB0+WSkj7Z/toZHPC0ivvjLnntd5RwK8ixAOc/Hg1xKxGdxvhV
-	 YS3t8Dwtk8NyzGvZpn3jrtAefgwvjGYZnX0PhSTvpstMebu5S6RPUJNnIGPzYY4wZb8pd
-	 wWEZyZOTye+1PTIQYj7/ae6D0v+hpb3LnFTdABGOJZmaphJzioVJeYb6WCRzktVeP1Q==
+	t=1795186691;
+	b=VJn+UAbFwcoU1Q7u1wCK64HlFa/6xi+kZK6tiPEP0LDprNs0kRUCzeAH1vD3zZ2aAR9r
+	 Rlxk+ofrhpaZNr/n/b3pvxSeQX3GiBsvC1ANURr/jQADMLQoJ3C8pJYxLmatXQOl+FOGI
+	 RZdBiHG2cfwHtywVF2S+6p94Ni0ov+kdhFJ9cZb7d7M+hHG5CwvloZMzhkJH3r9h8l8sK
+	 kkOIRrVTToay1t1L54kYgGtJTe8uCcW87iCkroQ7sONkUzyEl7ZYzpAMn19CasBqdoONh
+	 +H45q/6KZNnrwyK/HcTNJx6xsBI6dp3F+Dl2SRzwCUiwRRuxr6f1R9vPnSlyErlnxpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186688;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186691;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer;
-	bh=OsDmDSuXIeI4Gt+DPJ5jUIsjpvJ19K8lSFk9Nw4dHLE=;
-	b=muy9dwbP/L2AhLTZVFNajkXOnSK3r6JniKEZX4S2jcRyOUOSnwlj1XCsztOcyyJ8CVxE
-	 2CfFa6ToSS3loEqTiIF9Lw9oOF/WNVMaQ8fuKcCk5uejLzmMeHxg+8DncmZVPqGeLF9pA
-	 nZB0CT/nrrUoXjILljUIychfYwflELnTouCPsvhCx9LUVzVTp2ipb5tu5+E/3GZx3ovHI
-	 EyCrrr/2STMP+EDLjJXdlwN1GSdmOLwZeyKgufsriwONSV/0+Higkvk/nwLH6doE876BE
-	 QoSxcwwFujYCu+cLkZDAj/TLGgYhGm6ftNPfrsJPk8gA2sSZkv1yoqd+hG6TsvNXepQ==
+	bh=cbzB2LZxRa8KlJ7L448ZxVbc856NNpuuZnTJ2XHUAX4=;
+	b=ju1oPqCPly/5nNj6lPWfdJEWe91t0gs7n5Gdt4/bEDRBAqBzCDPFSJ3F7z00y7opwjoh
+	 P28NWuJ5MwYh7ZwHUOohXX60kiXYoAzMVOnYuj8vV3e3SCECptKXm5D7kyCu2du7YX4Gy
+	 Q84G5beH22j10BXPyQZHvh5F7FYbyChCyBuVe5ooYFkPsb5SeXrrTtPkhFfEHMM/rNYqc
+	 Do3D5Vs1foo1l0G2yN4zaJ190zVSIMxVgtvwUSbKEmxG1jJHDDo5AtRXUS4A8PiORFc8e
+	 LkS7ZFbIWSVlX2SODB31i7JcFayKfIrX4a0SrMEEm9H5q68CzvuDnTCQbiNwsRurlXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L8RTJFx9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JOY1pNTN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90130606A336
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C61606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L8RTJFx9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD5321F000CA;
-	Fri, 20 Nov 2026 14:58:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JOY1pNTN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCC6D1F000C6;
+	Fri, 20 Nov 2026 14:58:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186688;
-	bh=OsDmDSuXIeI4Gt+DPJ5jUIsjpvJ19K8lSFk9Nw4dHLE=;
+	s=k20260515; t=1795186691;
+	bh=cbzB2LZxRa8KlJ7L448ZxVbc856NNpuuZnTJ2XHUAX4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=L8RTJFx9SGYtOGuk/ZJOY1uvPzmlh/mAs66N6bYOyuCC1uyNnzMz2z4cBouCsgZZ2
-	 W9SPtUaddXqYPV7l1ytP2nxVAypCrzbGG51h6aO0io1Q6n3BqAMkfKicZrv82x1bMG
-	 GpBapWPylTU4wVx2XpOoscm7nedWJTdqKdjwthutJdYX80bvT0wCJq7870Zdy6hdFv
-	 0rm7/c3BkDu/aZAdDEtOT4uFvJSg2f1XL/+m+Z1q2Eg/LA+R+iF/ut0ozE7iArXtqw
-	 FwLnUG64se7yBQXoQLQs7Oyl3HBn/rgtJhkJdKtTXa5WsMf8ofEoO3uSMXXDGseM8b
-	 cQ1WPUkeaNUUw==
+	b=JOY1pNTNYwmYbCn3T95tQ1G6rg9Gqsu7GBll229Z0x7uwIvgIg76x58M6muj85Ngt
+	 beYZGov1027RIvCDqmVUWnuKkhLrCwDksk5fAt3i9eOFjs2EFbV6YlPg5dSKDf6NwP
+	 qPG7uHd6ALc7WmJRZdZn7d0LhGYX3in+tgnVh7ok0I7Ix6zEsQr3DLkTTTCkFuuyJx
+	 GKA0XuhFp4Jrpjtp5v1A7v48025yGIQJJr7FwvHKMVVO9vRM+8NEO4+evfkz9KlpfB
+	 dhwei6jhtHftIQ+PxyO+CJStJhm9WBSVfdrtvML506cWfX7U/GCDKnqMrqqqnEHlRm
+	 WA2dvOj5xlfWg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Fri, 20 Nov 2026 08:57:28 -0600
-Subject: [PATCH v5 04/19] accel: ethosu: Factor buffer bounds checks
+Date: Fri, 20 Nov 2026 08:57:29 -0600
+Subject: [PATCH v5 05/19] accel: ethosu: Fix NHCWB16 bounds calculation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,91 +54,50 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-ethosu-fixes-v5-4-52d459acdb84@kernel.org>
+Message-Id: <20261120-ethosu-fixes-v5-5-52d459acdb84@kernel.org>
 References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
 In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
  Frank Li <Frank.Li@nxp.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ sashiko-bot@kernel.org
 X-Mailer: b4 0.16-dev
 
-Move the repeated command-stream buffer range validation into a
-helper in preparation for validating all weight and scale streams.
+The Ethos-U NPU inherently processes NHCWB16 data in 16-channel bricks.
+The NHCWB16 address calculation uses the final channel of the last
+accessed brick. If the channel depth modulo 16 is less than 15, the
+hardware will still read or write the full 16-element brick.
 
+Fixes: 5a5e9c0228e6 ("accel: Add Arm Ethos-U NPU driver")
+Reported-by: sashiko-bot@kernel.org
+Closes: https://lore.kernel.org/all/20260905010523.866411F00A3D@smtp.kernel.org/
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
 v5:
  - No changes.
 
-v2:
- - Adjust due to previous patch
+v3:
+ - new patch
 ---
- drivers/accel/ethosu/ethosu_gem.c | 37 +++++++++++++++++++++++++------------
- 1 file changed, 25 insertions(+), 12 deletions(-)
+ drivers/accel/ethosu/ethosu_gem.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/ethosu_gem.c
-index 75f6901d19e5..24f88696c18b 100644
+index 24f88696c18b..67c7cbbd39b8 100644
 --- a/drivers/accel/ethosu/ethosu_gem.c
 +++ b/drivers/accel/ethosu/ethosu_gem.c
-@@ -433,6 +433,25 @@ static u64 feat_matrix_length(struct ethosu_device *edev,
- 	return addr;
- }
+@@ -415,9 +415,10 @@ static u64 feat_matrix_length(struct ethosu_device *edev,
+ 	case 1: //nhcwb16:
+ 		element_size = BIT((fm->precision >> (ofm ? 1 : 2)) & 0x3);
  
-+static int buffer_size(struct ethosu_validated_cmdstream_info *info,
-+		       struct cmd_state *st, struct buffer *buf, s8 region,
-+		       u16 region_cmd, u16 base_cmd, u16 length_cmd)
-+{
-+	u64 end;
-+
-+	if (region < 0 || !cmd_state_reg_is_set(st, region_cmd) ||
-+	    !cmd_state_reg_is_set(st, base_cmd) ||
-+	    !cmd_state_reg_is_set(st, length_cmd))
-+		return -EINVAL;
-+
-+	if (check_add_overflow(buf->base, (u64)buf->length, &end))
-+		return -EINVAL;
-+
-+	info->region_size[region] = max(info->region_size[region], end);
-+
-+	return 0;
-+}
-+
- static int calc_sizes(struct drm_device *ddev,
- 		      struct ethosu_validated_cmdstream_info *info,
- 		      u16 op, struct cmd_state *st,
-@@ -485,26 +504,20 @@ static int calc_sizes(struct drm_device *ddev,
- 		dev_dbg(ddev->dev, "op %d: W:%d:0x%llx-0x%llx\n",
- 			op, st->weight[0].region, st->weight[0].base,
- 			st->weight[0].base + st->weight[0].length - 1);
--		if (!cmd_state_reg_is_set(st, NPU_SET_WEIGHT_REGION) ||
--		    !cmd_state_reg_is_set(st, NPU_SET_WEIGHT_BASE) ||
--		    !cmd_state_reg_is_set(st, NPU_SET_WEIGHT_LENGTH))
-+		if (buffer_size(info, st, &st->weight[0], st->weight[0].region,
-+				NPU_SET_WEIGHT_REGION, NPU_SET_WEIGHT_BASE,
-+				NPU_SET_WEIGHT_LENGTH))
- 			return -EINVAL;
--		info->region_size[st->weight[0].region] =
--			max(info->region_size[st->weight[0].region],
--			    st->weight[0].base + st->weight[0].length);
- 	}
- 
- 	if (scale) {
- 		dev_dbg(ddev->dev, "op %d: S:%d:0x%llx-0x%llx\n",
- 			op, st->scale[0].region, st->scale[0].base,
- 			st->scale[0].base + st->scale[0].length - 1);
--		if (!cmd_state_reg_is_set(st, NPU_SET_SCALE_REGION) ||
--		    !cmd_state_reg_is_set(st, NPU_SET_SCALE_BASE) ||
--		    !cmd_state_reg_is_set(st, NPU_SET_SCALE_LENGTH))
-+		if (buffer_size(info, st, &st->scale[0], st->scale[0].region,
-+				NPU_SET_SCALE_REGION, NPU_SET_SCALE_BASE,
-+				NPU_SET_SCALE_LENGTH))
- 			return -EINVAL;
--		info->region_size[st->scale[0].region] =
--			max(info->region_size[st->scale[0].region],
--			    st->scale[0].base + st->scale[0].length);
- 	}
- 
- 	len = feat_matrix_length(edev, info, st, &st->ofm, FEAT_MATRIX_OFM,
++		/* NHCWB16 accesses the complete final channel brick. */
+ 		if (check_mul_overflow(c / 16, (u64)fm->stride_c, &offset) ||
+ 		    check_add_overflow(addr, offset, &addr) ||
+-		    check_mul_overflow(16 * x + (c & 0xf), element_size, &offset) ||
++		    check_mul_overflow(16 * x + 15, element_size, &offset) ||
+ 		    check_add_overflow(addr, offset, &addr))
+ 			return U64_MAX;
+ 		break;
 
 -- 
 2.53.0
