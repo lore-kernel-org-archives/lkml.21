@@ -1,97 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204036;
-	b=uhtuzaAGkO6/wo1TbZf2gEIKJ+ni81zqYrR0DcIoTq+BBtqWhusCPu6da4UwQ1BirNGQ
-	 aNOaB8WQLgDB4hV99RD8+00zJ37Zz5epTgEyLxksL+fHakG/sGAASeW/vkKYScEFrsdaD
-	 TlUUvBZoFTMLaMWHESU91/9529N2OkhPIzpl1wkGDt7x45WQhFGLz/KqTMpJQbpCCFsqw
-	 tO43qlkjv2vulnQ47ETJHk2nRI3zIi6gHJNyP3hqBmUqGU5WF7ddd5L0GQ0fXDzEQ6Op1
-	 hU/nZQ+FS7LzW0qNOHoMqX9XoqXu5CYz26BC8EdkRHSVXvlYM9qi4pRZfS4QPqTGD5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204036;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=klNUj0mCBfOOb/rIIQtEdnzdvHp4cxJXFctmuxUH578=;
-	b=f9CTgd0QiGk/rnNgp+0M6Ayj3nDne03vsSAVTwCTU7IL5kcgBhVmTF/R6k24g5a/rIF/
-	 mmLnM7YRrWIlZsLr+8IZhZjHICeFn5BPc+ExaOwjTcPM1wDwDKlW/2AINAO/JijJ/vMqA
-	 L6U7VXVqUSsoky8d4LxHDYBB5AtG0wkY+s8feKClJWJWk79492K/Fxnimgnnk+uIZK8jq
-	 hk0TCaBljnmquo13Tn609SdNFhMLv0Orxmof/p663gq4s4GHUUeAJzkZSEgNBPyWTd1YN
-	 MHZAGTQcZY/fA0+xKwjSGwXqX/UwtQHV1ifBKhPXAgftRfk2VaK7L4ptPUrIGfuPhww==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pAPcsBsj;
-	arc=none smtp.remote-ip=209.85.161.49
-Received: from mail-oo1-f49.google.com (mail-oo1-f49.google.com [209.85.161.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.10.95
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795204059;
+	b=jDw9lFLZi5+X1kPq1oA5lG4EpwBQD/SkaPaRXjlFi+nsL9Z3YAq/3tspqXO7w3yXFnDx
+	 YS4rVkt523XyKd1tusscuP3pCL7D76S1ibrhULP+sfRn8QM7roXRzrf5z+lq+xo42uNA8
+	 fIqBYJ2Fy7oaeAwGfNuJobooB39eU8DPOD92rhFgzDpkiskOBOBq1Sl8Qta5NDrOuJEib
+	 so9N+N1aB+8QJdCdk+BeYAYFitLWhIzc7LyJc+UKZ/u3lBVkamAVyz80dVaZTwEB2u9rR
+	 Cw1ihz6TPZhFnEl6mCencYC4B5DBIqigFDtKPT71ci3X/L2aDNowHNYZof22SxVlykg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204059;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SLBlob-MailProps:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=gfzlifsapb6Z49pHdNTizjN5CiM2clHNHuO6Tf3er28=;
+	b=4NaA0+rB+fbx8EgnkUAFAfdG9869lc1NOpcZjmFcxyK/DuG95UhTpTTRGBTnBGW81Sb7
+	 2PDqA0EYC6TsKLFFPWW7zuo68klWSaV0okttx1Qkl60QBIPyEOWEFstr4llnCuPWdPikn
+	 I7aXWIfSYlytX7lCpGDRw/aYG4dzTnaSTEFlK77PxrA9Edxt+Sz0gUMMMbd+C/bmSz4Y3
+	 8IO3mbSY5bdxMcv+MR2Dj508ePe7Xt5LaWvwdwA4Vk/U09bMfpZO9f9rV16iqjKlNPK0G
+	 70lRxwLrJMYXMz0r0aaoLz8l5EXCe5uxg7aLdNu9nAl0nlJ/94tQ+/uFuAQ2W8E063g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=ha3vkGoE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.10.95
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azolkn19010095.outbound.protection.outlook.com [52.103.10.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C391C606A6C0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:47:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C391C606A6C0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1AA9606A6F4;
+	Fri, 20 Nov 2026 19:47:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1AA9606A6F4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pAPcsBsj
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-717080a2d50so1187581eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:47:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795204031; x=1795808831; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=klNUj0mCBfOOb/rIIQtEdnzdvHp4cxJXFctmuxUH578=;
-        b=pAPcsBsj3SaRl6TCz9RR3uwmfFe4dDwwxyp6VSwwjXqtLgI+X2TAYxx1HVFyFfsu1G
-         ISU3qKnJ4ICxWcubM9Qoum0XORbuadMXHJ+XzlT9UUV8E5dZA03vPES8nVnYwpg0NZSP
-         Px8ykrAsZK0xznbKUZKH/10OLg1XYOZZYxWOV5YX55+Ln8V5iPU6ToARRd7u6DMRmRMm
-         UXgLiOuHCHzUBEOXxCKskVnuNsiLHMHzxvhP4k0786iVc8Q7RnUp0FPurToQTJ1Hwk7B
-         2raDOIpZXnEkb9m85pefXpjgfgGkE44mA9LeZhE4nPi2cnwTXDZDrL87aupiaxvO0kBV
-         Xpiw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795204031; x=1795808831;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=klNUj0mCBfOOb/rIIQtEdnzdvHp4cxJXFctmuxUH578=;
-        b=ZHJMD4ADNG47i2Sl3Hwjh6TbjNWLL7BmESH+4CjucRX6ChIn1Cif4bKakouCiHK0Rl
-         CZr7pQxvbYqEPEoAAIN/n5EuEwz7m4je6+Syv+eZSJYOIRhM1Kxwr9pJJALBfY0pxknV
-         Cb2FHH5QF8Yh6BTU0p1j0ZjzLD3h3p6I/H+Mv5DDzeN3yDwNPMtBywRHrsDdzitxrJHY
-         CERGdP7iOrgWzs1JEswaPQB9bIjExy6B1JELIlOUQ/Y/88WqPYUvbcXskTvD02TRmm1F
-         niB5Y5PDawL+Iz9Z1/PFvva1Bc9dKxNyLNy/Fq+zC0CXDFk5JbzMGCXtdpUzc1reBIQs
-         h+hQ==
-X-Forwarded-Encrypted: i=1; AL+hErHl3eDpDmcCdOHZ4GgzkvMgPPO7A1qSj80DCl4PIloUUnRfg4M1TuDangq60Ffnv4fAGWfHp4lPBHt2FYs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AVJ/mifc3mkdAnbBBLJSIg3eeJ4sL1ylMcH58vvPADGJgTX0Z
-	ATHf2HqAElBVAYcDLlKwzvs8KG3Oom3PRLQAaHdNaRWY49sm9lzXG3jXfPEAd3G6pws=
-X-Gm-Gg: AYBFou1pPgOhZjsiGl5qFlN3aK1w0XLADOkNJv+volZa+habFx364ibR/czbBQGQMJG
-	NlTIabjvRF10jDZLt9uS/0vIPUCtXeQgICKbvCNR0F90Zh399s4aYZwWuDHTLBYjE7lk4lsZTKH
-	K2iGVfanl8HJSY9avFu/85ebDMUsNfI3b9/6qvuNbOyJd2QxcHGEzzFINLNdB6n9d2OzahDX8V5
-	9TgImZKkzS1Y9AcDU/pypKR3CbiuQbu1RPsz0gRGlPzlZwOmOBO5yDzLfAOfOU6PilMirNfUTfa
-	tDLlHpEBtM7J0qJUvtOsSnfoxOatqOQ8A7ZMt54lWrxlargiNG7azLt175q652UqSkegiALFdoK
-	h8QF4Sjk5XdDKVfJgMQKdeXellMxYaLH9xIVL78ibapkxkY5yUn5pXrKGJlW+NASmCCqmcpbTPa
-	TNB8Vq3BVK+g/2ewSXlxXYdR6K1N9Kf/va4SnmkZTQxKbM1nr+MygIcxzNlDZc0EKPfNtoGSAPo
-	tScOiv/O8Rm0LiQDNDgrQKmMEDdHYyLSXVxtSDN7cOjnGw0umsa0yc2HO+VAn5IVAkg0iDR5DD0
-	VF0dner8q1p5G7Ay02T4yJ3Xt/O2YWdb64oZNvweCLII5MXJie4YswVrMyMStYtnX6MqBUHHmtE
-	eL67i6DAOhpu7+lU1R2KjmMAXOUQzzDIV9vgJA2u5H6SRazPP9Hztd3j9pH2G4vlzVOYgo+ooPF
-	e/FfpaSh49x5oTD4a+7tw4iGEyC5RnKP9OSFzpxPdVdo6H72R1XsHDcnxqTXbVArBgtkMU
-X-Received: by 2002:a05:6820:1990:b0:71b:187f:1d05 with SMTP id 006d021491bc7-71b395557e8mr3175251eaf.68.1795204030591;
-        Fri, 20 Nov 2026 11:47:10 -0800 (PST)
-Received: from node0.jspace.cloudfaas-pg0.wisc.cloudlab.us ([128.105.146.42])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380bdff9sm2583069eaf.11.2026.11.20.11.47.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 11:47:09 -0800 (PST)
-From: Mohammad Mosafer <mohsafer@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: linux-usb@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=ha3vkGoE
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qXCAIN3wvZyLlhSeLVtkv4GTTbnSCxkYacYIIO9oJMDbikPJSDyCAnKl/KB6F5vlD3yLgu033usiIIFKxx24XGbezIEacoxJCipBMlAp7k+cChcfuzgHo+daHrwtpPeSujbEFbxwdT5OqDVqhIG+mR+jp+q2VJGSiZrHJm+T3vVppEsA/QOqyw7VyQN59VxqfhRO8HoJzTMjRDKfTm9Hb0lVTrglgSVkwc/K7sn6fxFgOQJEzlbijjf/GxtURnGzZwvlqRZ4rHsfcO+yXhEGiJjmSs80rEDbrO27XdctoiVEWkwfVqU7xSbhF5x4iPxFgzTsyd0qMSJwSf1O5IPjhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gfzlifsapb6Z49pHdNTizjN5CiM2clHNHuO6Tf3er28=;
+ b=uKt9xgmD8Ythe/Pz9dJd7N33NRH9DSMeLYRjfvpHGW2xtiPpQMpqIyJtD1KAYXiuBuWogTnLCk2cTZHhCjQETzkxXxOHANbybaq3zIvwjAqG6hTOkCKEl5psT7AmPOYIQBd7xHrM1FgKxSCweRJMsQo6NnUBUP43spznMZyVIQYGKzxIlrXSammG20tF1a1+sBgWd99gxwAww/Z2oy/6dAxL0axcuq+vfcIC4gWTuc3Hs12WS9lvuK/5MWMEF2fJRweBh8BysBpjuRjT9CwdC99p4VwCvevIwKeWzjcshjsP3D8kpaepH5jGLB8AIkju16RtI+rxzEYdn9KQljPINg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gfzlifsapb6Z49pHdNTizjN5CiM2clHNHuO6Tf3er28=;
+ b=ha3vkGoEeASP6q4B0t0z4ti9A8mVFiMOgpFEWvKP9NOt6wNELM4MnZhnu/zlJzElWfZvM3WNytWqstz8DYh3vTKP7lYia3rhBch+qU+aLsd0YpJC56tEc8Jj7Hl2z08o1Ygao3YVgFPuuGDMEYeItMsR1AA0Bj9tMaM5yGIH2DJVxx5GCdlaAs62GotM3t8XnQslbt4oOZS6eChFtcLh8BT5t0/GAc2uwuPsUmO0w4+3DJ0ljrmSL3SnmD2hqifwlNrAqKM/uPw1ejHwcyXE26zufpWMYwNVXMyV/xBGzMIVwNNOONKIUaOy51mMGzdcpqoYPZJBG6/A0wwIcuSEFg==
+Received: from LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM (2603:10b6:408:2fb::15)
+ by MW5PR84MB1665.NAMPRD84.PROD.OUTLOOK.COM (2603:10b6:303:1c0::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 19:47:35 +0000
+Received: from LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM
+ ([fe80::9151:9e8:f98a:99e5]) by LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM
+ ([fe80::9151:9e8:f98a:99e5%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 19:47:35 +0000
+From: Perry Dale <techluddite@outlook.com>
+To: Srinivas Kandagatla <srini@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com,
-	Mohammad Mosafer <mohsafer@gmail.com>
-Subject: [PATCH v4] usb: gadget: f_fs: fix use-after-free in ffs_closed() on umount
-Date: Fri, 20 Nov 2026 13:46:56 -0600
-Message-Id: <20261120194656.336875-1-mohsafer@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <sashiko-outbox-225940@kernel.org>
-References: <sashiko-outbox-225940@kernel.org>
+	Perry Dale <techluddite@outlook.com>
+Subject: [PATCH 0/2] ASoC: qcom: q6apm-dai: stop the playback queue from wedging the DSP
+Date: Fri, 20 Nov 2026 11:47:23 -0800
+Message-ID:
+ <LV5PR84MB40268B01B9F458296BE453ACA7782@LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM>
+X-Mailer: git-send-email 2.56.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0205.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::30) To LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM
+ (2603:10b6:408:2fb::15)
+X-Microsoft-Original-Message-ID:
+ <20261120194725.4088815-1-techluddite@outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,155 +100,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR84MB4026:EE_|MW5PR84MB1665:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba77a788-0980-422b-401a-08df473f1ffb
+X-MS-Exchange-SLBlob-MailProps:
+	laRBL560oLSPhlJ95/U7v6W/AahuugGaon7iDtAQz38DyRJypkAXw1R7OfeaoVBfOIxgO7oznr9WwsMOHTbFvPs3QBwRpFdqcwq7LDYX44yvEspnWUsuIIQaoTDIijuk9ToKGJb+YMdayc8kYLwEy2uikWcmCKp5tYb4JYz6Dk+jxSEsu6X3jmUEK+jNohVw9q0+SO0GOj8IQaKYVQENoRnNbHCkDIwnRMx5qaZQgwPHzjTL/Un/boAvkgjPk1DVG5yR+7n8ihKUcNbWvZcPDclR+jWORueNSlJ62Ukwj7/zjdq8LeForGOdj8fhmHZcynG1mVa8BLESJhX+1sA4ynT0DepFm/QOWEx441PDVP5ki2EBhfBCyJFMUyT0yCj8UZWuIyxLDxk99/BS2hYey0c6UKTu7D6TjqETFjvn0GHJX/wpl4bbFogzhLMetz5svD74nIU0z/L/oUGftotJF5VFOaaTpnZxNqiKbCKoQtSaDjTOoDMuqa5XK5Dd6AmFdQ+Vhj2No+i0O9TaSoC/iYBAsVxJhZSrADgRZhWDfXotn6PhUPDk6KlNCUneygViKCO2xVxxigxM3PcMg6QxFVFoE/4V3x0JUzTgrBT1nPJsU02IgTde14SLPJpKM9Eyul70FVOwmhouk9kUZIVSGP1q+z94s6vjIg0ikezQPEaJp7m24xzf3LtcRGUAf8O/xVwab3Nb9KkyJD1+j2yi3eV5Y4LINDZYTMO4Zv2nLRAwtwMhtZ5gnNtLd5hOCrPZ0laXtqUSLmHOovxWfrV4AUKSjJvVniHK
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|8060799015|5072599009|51005399006|25010399006|23021999003|15080799012|24021099003|19110799012|260925184616899003|40105399003|3412199025|440099028|1710799026;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?KBWpagtdOLh6YTBLiydTS9qv6yu4VdrfH/i7NY2s/Nc0otieE14CSDe6pmqR?=
+ =?us-ascii?Q?Xz1P36jnHLyaz8/Z0+FD/kZBE61hpg7mnacWUj7zO3BWWdT5oZQ8mjOewALy?=
+ =?us-ascii?Q?8CXOGxkQVawbh/TaT6f479+/k3EaThjOMAOFw67j8gsiJ6zcNkdiqwirQsiH?=
+ =?us-ascii?Q?SQGijj+EH0QyY8Pm3p1zwZm8HWuGzOrG/ksr+LM5R+C5HniHxTiwsVqiKeac?=
+ =?us-ascii?Q?Up98Dn/gIEN1lPUFs8jkcvioPfMvLhc5UeumhYHmcRHyV2lQSEKNLIeljp6e?=
+ =?us-ascii?Q?mpFcPcejTd9qND4kkakK45V2cSQ8cwBohEhiHoeatOJ8Yhy7NmevsFLgi3aY?=
+ =?us-ascii?Q?qZF8ubl4Rj7feMwCJqPtyoCoHT1+GoKjtu8NNyhJEwq6TiUHI1t2i37kCCUI?=
+ =?us-ascii?Q?KTxIUckH11UnK8El/Lvn+RPeYo1LDEUtQ+sbmqXS68b7PlSmyhqmmkgzmxt+?=
+ =?us-ascii?Q?4W9Kl1yKNYJ97OvqaBT9iSMLVMrg5ZT6h6lRxQFNm5JMLYo9Td56aA70HTJ+?=
+ =?us-ascii?Q?+/bd+XPGWgDMnI9sZJgCi0CHa3m4liedeRTERsDAuUh7YV0+rbbK1/HcBOvW?=
+ =?us-ascii?Q?O+8oettWSeIJEGcRJ7gF71SARTyhgSc05/q7oU7xUE/3yxx0kmO5GDBAVhjW?=
+ =?us-ascii?Q?0SZnvAoiSLODS+zm4gzqluQ7yVaEXucWhR8AfRyp7iqaty27/rPfXfrBwbYG?=
+ =?us-ascii?Q?gP8+vB8k3b/1N37mWYIyAIF2INcsO5feXcAkxkfpJ3+DKdIKQzUPXfr4idsW?=
+ =?us-ascii?Q?0o31y7RgZd8rLMxJqBs4Abnu48KYbAMhCXkDuhm1XJYv7pn9qkXnA0UVQx2t?=
+ =?us-ascii?Q?ui2YnG719rcvVT749HDt9wfbzPovKi1FU1Kh4o7GDqPIK2L8eJsqv6XjEjcz?=
+ =?us-ascii?Q?vB6ZVTWN+FITpm+0izbilOdYsRSs54S8y70zkxnLK/wRJiYoCEBaUiKtjBD4?=
+ =?us-ascii?Q?Mz2HJj8GIQMZezlDu/x9gQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?hlnxM2l4HG3ZxkmNKXgGDbf+zrhVRSIUNupAkcibPUL57F1n9+mfj4DopLXW?=
+ =?us-ascii?Q?EtFlOBd+kHVardK6VdSu8CTgPdevSmRx+o7isT+JFHoyq/NxJbkya9VQSkpS?=
+ =?us-ascii?Q?UppsO/tQwN1h92E7rb7j2vJmtjepSAG0AvBY3uWj3inigh5ZkkUGRkEO0GMB?=
+ =?us-ascii?Q?sX5+YvB+nAq6OKwphN71wpuvoIlmqe9U5wYvACz364XlnzD1ftGHmsBCafFe?=
+ =?us-ascii?Q?SpTu1ossRsmTEBPK7Vb2SIvmG0ho/fADuqPaC4BC9QCM0dNMBLkeQP3KqRju?=
+ =?us-ascii?Q?WtjMkZEsbGWiw04sgIReirC9qv6Usaq+lnbGO4aP+gKpTqfySVuL8k1KxBSl?=
+ =?us-ascii?Q?30fBogi9hFiu96MHp7sb/73OyW81DxEs/CxBjEXef/bDFwJHxodizXhKJkNx?=
+ =?us-ascii?Q?BieiyIByLidKmI4yiAWPB/RUW5G4RbIWBa20gtgyNRtN2f82zr5gjr2u0UvQ?=
+ =?us-ascii?Q?StV8bOoCkaInBDyWBHNjujHJWV6uCE35vdpSIekMM99lKowm25PmytCzlf61?=
+ =?us-ascii?Q?2QXzuISH3PpgP0Hfe4rwsriOjykdNpfxEV48uMo7ol9dsemGSmF6kPSuVloC?=
+ =?us-ascii?Q?EOXIsemMbWHOSPp61mh7W0O2fa0y4TFyDWw3DH6HJyi7ySrrXCXrXHqfppom?=
+ =?us-ascii?Q?wU4fVM1P48hXOIgqAjwTkMJ/zqoJLFNiIq/gKbOdVejbvwfnDeD/SKC0flTl?=
+ =?us-ascii?Q?TNyfVgxVnviIrjKTBrwgWsV7ZT8oBCl7KD1529mQvKTZ2+9/pigP8GolGNzM?=
+ =?us-ascii?Q?sYxU8g5ODoLWHMxxc+l7BlZO5uMOt92Jz9ZJ68lP1KPN8Q3CzsitYsUA6joy?=
+ =?us-ascii?Q?cF7edwpoLb9FCvmlsolQf0rwMmIoKeJ1bbidexGw0bCFGoYzdeDExgcR4Kpf?=
+ =?us-ascii?Q?xlgV9TCwQuufNPNA4bQnFewmiQb9DqCMBaZJvNKFw5PP/DzSJjuePsv3uWk3?=
+ =?us-ascii?Q?BhYRQqxPVal13j+2P5kZW4YTj3BvLYg0pNk1a9hxi1q9TrwK1LF5YI4BPXvB?=
+ =?us-ascii?Q?mHMiQtyIGUSS6niR6/S9VG+4vsQUvrEJaq7NnTKDnFz9iDBa7VZx4itqACMp?=
+ =?us-ascii?Q?6zYZGA6FU/QYqGw0ceShfIOHHiZ6AEmg2imnj4E/Xu12+vpsG5OWhDQCnS+S?=
+ =?us-ascii?Q?NEqNtUOtl7LylVRzK+v4TefUII/s55qgLiOuDbGLwRMbqRnUyC7Yyb82RxE5?=
+ =?us-ascii?Q?UW7NeGWrOw/D1x9eMgLGI5eBM9Dwxjp8p/Bz3Y6HHv4uMmUNE7uwxj4UO/lW?=
+ =?us-ascii?Q?h12Wu6RJfx98gu0rOYS9OUDq9gRe6hAXhu0tseGG1QStXh3mFnUD3KuzGhwm?=
+ =?us-ascii?Q?RR+NIkONbJT96//ilsIZls/kARFWLA7lUc1C0SKO3u5oCzTIoKH25MKB9wwE?=
+ =?us-ascii?Q?XLmesGRCgZ3+DJv/1PSAOkx7D/n0?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba77a788-0980-422b-401a-08df473f1ffb
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR84MB4026.NAMPRD84.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:47:35.6345
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR84MB1665
 
-ffs_free_inst() releases the ffs_dev with ffs_release_dev() and only
-then re-acquires ffs_dev_lock to free it with _ffs_free_dev().  In
-between, the dev is still linked on the ffs_devices list while already
-marked unmounted, so a concurrent mount(2) of functionfs finds it by
-name in ffs_acquire_dev() and links a fresh ffs_data to the doomed dev
-(ffs_data->private_data = dev).  _ffs_free_dev() then kfrees the dev,
-and when that mount is torn down, ffs_closed() dereferences the stale
-ffs->private_data:
+On the AYN Odin 2 Portal (SM8550) the audio DSP stops answering GPR
+commands when a game pauses its stream, and every later prepare times
+out until a reboot. q6apm_dai_ack() queues one write per period of the
+whole appl_ptr after a trigger stop has reset queue_ptr.
 
-  BUG: KASAN: slab-use-after-free in ffs_data_clear+0x438/0x530
-  Write of size 1 at addr ffff88810594664a by task repro/116
-    ffs_data_clear+0x438/0x530
-    ffs_fs_kill_sb+0x7b/0x510
-    deactivate_locked_super+0xa9/0x200
-    cleanup_mnt+0x255/0x380
-    ... reached via umount(2)
-  Freed by task 112:
-    kfree+0x127/0x3b0
-    ffs_free_inst+0x10c/0x1a0
-    usb_put_function_instance+0x8a/0xc0
-    configfs_rmdir+0x773/0x9c0
-  Allocated by task 113:
-    ffs_alloc_inst+0x109/0x360
-    function_make+0x138/0x330
-    configfs_mkdir+0x48b/0x1090
+Patch 1 is the fix and is marked for stable. It queues only while the
+graph runs and bounds what one call can queue. With it alone, a PCM
+reset on a running stream past the first ring stops that stream until
+its next prepare, and the DSP keeps answering.
 
-Hold ffs_dev_lock across the release and the free so that a released
-dev is never findable, splitting ffs_release_dev() into a lock-assuming
-_ffs_release_dev() (matching the _ffs_* convention in this file) and
-enforcing its caller-holds-the-lock contract with lockdep_assert_held().
-For the same reason, re-read ffs->private_data under ffs_dev_lock in
-ffs_data_put(): the argument read there was unlocked, so a concurrent
-ffs_free_inst() could unlink and free the dev while the putter waited
-on the mutex, and the subsequent ffs_release_dev() would dereference
-the freed dev.  The now unreached ffs_release_dev() wrapper is dropped;
-its remaining callers use _ffs_release_dev() with the lock held.
+Patch 2 carries a running stream across a PCM reset. It counts the
+buffers the DSP holds, queues from the write-done event as well as from
+.ack, and stops the stream with an xrun when a send fails. It is not
+needed for stable.
 
-The race was reproduced with a multi-threaded harness racing configfs
-mkdir/rmdir of the ffs instance against mount/umount of functionfs on
-a KASAN kernel: the unpatched kernel reports the use-after-free
-reliably (2/2 runs), the patched kernel survives an extended soak with
-identical churn (2/2 runs clean).
+Both were built as a module for 7.4-rc1 and run on the Portal with a
+test program of ten cases. The unpatched driver fails the first drop
+round of that program. Each changelog lists what was run and what was
+not, and describes the use of AI coding tools.
 
-Reported-by: syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=6227549bd2c8a1ec8ba0
-Fixes: ecfbd7b9054b ("usb: gadget: f_fs: Fix setting of device and driver data cross-references")
-Signed-off-by: Mohammad Mosafer <mohsafer@gmail.com>
----
+Perry Dale (2):
+  ASoC: qcom: q6apm-dai: queue playback buffers only while the graph
+    runs
+  ASoC: qcom: q6apm-dai: keep a playback stream running across a PCM
+    reset
 
-Hi Greg,
+ sound/soc/qcom/qdsp6/q6apm-dai.c | 166 ++++++++++++++++++++++++++++---
+ 1 file changed, 152 insertions(+), 14 deletions(-)
 
-Right - the comment duplicated the commit message, so it is gone.  The
-lock contract is now enforced with lockdep_assert_held(&ffs_lock)
-instead of the comment; ffs_lock is the mutex behind the
-ffs_dev_lock()/ffs_dev_unlock() wrappers.
 
-The Fixes tag is corrected in this version: the release-then-free
-window in ffs_free_inst() and the unlocked ffs->private_data read in
-ffs_data_put() were introduced by ecfbd7b9054b, not by 5920cda627688c
-which predates the bug.
-
-Changes in v4:
-- Fix the Fixes tag: the defective shape (the release-then-free window
-  in ffs_free_inst() and the unlocked ffs->private_data read in
-  ffs_data_put()) was introduced by ecfbd7b9054b ("usb: gadget: f_fs:
-  Fix setting of device and driver data cross-references"), not by
-  5920cda627688c, which predates the bug (Sashiko review bot).
-
-Link to v3: https://lore.kernel.org/r/20261120192415.335646-1-mohsafer@gmail.com
-
-Changes in v3:
-- Drop the explanatory comment in ffs_free_inst(); it duplicated the
-  commit message (Greg KH).
-- Enforce the caller-holds-the-lock contract of _ffs_release_dev()
-  with lockdep_assert_held(&ffs_lock) instead of a comment (Greg KH).
-
-Link to v2: https://lore.kernel.org/r/20261006214940.158352-1-mohsafer@gmail.com
-
-Changes in v2:
-- Re-read ffs->private_data under ffs_dev_lock in ffs_data_put(): the
-  unlocked argument read raced with a concurrent ffs_free_inst() freeing
-  the dev while the putter waited on ffs_dev_lock (flagged by the
-  Sashiko review bot).
-- Drop the now-unused ffs_release_dev() wrapper.
-
- drivers/usb/gadget/function/f_fs.c | 19 +++++++++++++-------
- 1 file changed, 12 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-index c64a268e98a4..3aab4c28e310 100644
---- a/drivers/usb/gadget/function/f_fs.c
-+++ b/drivers/usb/gadget/function/f_fs.c
-@@ -288,7 +288,7 @@ static struct ffs_dev *_ffs_find_dev(const char *name);
- static struct ffs_dev *_ffs_alloc_dev(void);
- static void _ffs_free_dev(struct ffs_dev *dev);
- static int ffs_acquire_dev(const char *dev_name, struct ffs_data *ffs_data);
--static void ffs_release_dev(struct ffs_dev *ffs_dev);
-+static void _ffs_release_dev(struct ffs_dev *ffs_dev);
- static int ffs_ready(struct ffs_data *ffs);
- static void ffs_closed(struct ffs_data *ffs);
- static void ffs_reset_work(struct work_struct *work);
-@@ -2231,7 +2231,14 @@ static void ffs_data_put(struct ffs_data *ffs)
- 	if (refcount_dec_and_test(&ffs->ref)) {
- 		pr_info("%s(): freeing\n", __func__);
- 		ffs_data_clear(ffs);
--		ffs_release_dev(ffs->private_data);
-+		/*
-+		 * ffs->private_data must be re-read under ffs_dev_lock:
-+		 * a concurrent ffs_free_inst() may have NULLed it and
-+		 * freed the dev it pointed to.
-+		 */
-+		ffs_dev_lock();
-+		_ffs_release_dev(ffs->private_data);
-+		ffs_dev_unlock();
- 		BUG_ON(waitqueue_active(&ffs->ev.waitq) ||
- 		       swait_active(&ffs->ep0req_completion.wait) ||
- 		       waitqueue_active(&ffs->wait));
-@@ -4147,8 +4154,8 @@ static void ffs_free_inst(struct usb_function_instance *f)
- 	struct f_fs_opts *opts;
- 
- 	opts = to_f_fs_opts(f);
--	ffs_release_dev(opts->dev);
- 	ffs_dev_lock();
-+	_ffs_release_dev(opts->dev);
- 	_ffs_free_dev(opts->dev);
- 	ffs_dev_unlock();
- 	kfree(opts);
-@@ -4363,9 +4370,9 @@ static int ffs_acquire_dev(const char *dev_name, struct ffs_data *ffs_data)
- 	return ret;
- }
- 
--static void ffs_release_dev(struct ffs_dev *ffs_dev)
-+static void _ffs_release_dev(struct ffs_dev *ffs_dev)
- {
--	ffs_dev_lock();
-+	lockdep_assert_held(&ffs_lock);
- 
- 	if (ffs_dev && ffs_dev->mounted) {
- 		ffs_dev->mounted = false;
-@@ -4377,8 +4384,6 @@ static void ffs_release_dev(struct ffs_dev *ffs_dev)
- 		if (ffs_dev->ffs_release_dev_callback)
- 			ffs_dev->ffs_release_dev_callback(ffs_dev);
- 	}
--
--	ffs_dev_unlock();
- }
- 
- static int ffs_ready(struct ffs_data *ffs)
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-2.34.1
+2.56.0
+
