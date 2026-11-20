@@ -1,55 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198285;
-	b=u13roWx/ZSuG/C5TSn1RyaBctFr8z0ZC6C7w7B8ET7tPx6B0yHEAeKzX1faPkjVyfxRL
-	 xN5sX6xOx9wEPbDf4AiwfuyUJXPm1k37JrQN3B7Z+NM+v0eZW5TJLdKcOZltenSSfONUI
-	 WeFgGvwYkb9YGSRzSvCTVp0/lN9U6CXpjotE7tN06s+fgRj4Qc9z4hXZunmX6XuIDRwnL
-	 Fnzxcn41VFQEAYsbyPke3+upLc8kYHHe/7UjYXvu+XElnQyQwd4DauSEUJjMLpihWw0Jv
-	 8BINfz2Glz+QTQVz6Sb5P+JikGzFkkyfRHUoVZepuN8MJhrnAyRPHEOr/iV3aJe4hXw==
+	t=1795198286;
+	b=lQSLLGoMflPSpzpNlf1II/pmkM3BhE+FsuZhgtlM7pCNkoSExHT4sSKKbnGe6A+f3/kj
+	 mYKMrUe2kixX9EbCclLwjH3eQC8EKVX+KSpAYHDr23QcMJgvzdWeS+ivTvwiUkFL/AjEN
+	 NAECqPAne2omi5Iw5VuzCJJ5irqdIWpYGUapBuHRyyCZCsduuLF4+QtEG0VF512DrPDou
+	 0K/fXKHUetlyWjgCWco+5by4nFwNrck36YRer9rIA3yD75treiGE5pxRUWss+ythF4FG+
+	 mO7oLVhgK14d2LRVCZu90PZNkEpMtrw4MRktBrlYE6nr8NMLi49KFUcKV2FlGHE59Kw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198285;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=i8sHlRmLCw9x4WoZ3gUYCUwiZxteiqEBuV7/4Z5ttKw=;
-	b=AurBU/6MyLVIv4/MmAhU74hdhhxZ6sX29GNEyqi6URbp8YramPwibF2JaAeBgen8TzVm
-	 kW8fb9h4BsK6rD7n4sIIBdExNj1KxEXCK8ihkQ7JAM64BRX+X9VMTgNktPZghsWcf/Ku0
-	 0+zEj3kRLGgQjb1jVy8E2hBvoA42C5XV2aw4BlYa0/85d6QIEsKnAcLVFfkugVw1Fildm
-	 UWqpmYgHkroY1xzHcwssRluB0HVpputqZyY6XblsOq1XJpK5Uxg1O0VfJQ596LUhsn4PB
-	 DZFRnv62KPPZ6sdOtdULmLYNV0JvjQYvU9FZ9UmZ/6FHUAKPpotr3ot0mqRh9+xoSFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198286;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=JDzbhiCoFBsB1LUGSE+FNJ8fs+B+4L9p62TVlpx0yJ4=;
+	b=bZol2uFKxCVHWaUp+KuXT+mxGufk3Sv0RQUfiUEtCIiR0lzZzCtGquorCJ47QkHqBTDG
+	 M54oNSznayYdKypEFbdXLItwS72f9GFtNU7wJlrB9QBk5qasK7+RQbZC70lTnWpbglVQ6
+	 enrhVcd5lGSL+zadC6164DORSKCXNZGqAdLrGnNpC5AEDNNG8fbvJNeUYDiaquTJidOUl
+	 mBDE22l7QpIwh7BU+XqxArgM/LBaU/WnTCb8VlGZdSZ6kVmQ7A23OmGU3KGhwTdSkC93e
+	 20F6t5LnFIuTlE9QzH/dpEn+cie71cXg8gQ5zVxeiz/f7ak6AsSJxa8FYB8L6ELGx+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ohEkGtAx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVGHrCoa;
+	arc=none smtp.remote-ip=209.85.214.200
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D18536078DF0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7BD2607A0DA
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:11:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7BD2607A0DA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ohEkGtAx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 993FC1F00A01
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:11:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795198285;
-	bh=i8sHlRmLCw9x4WoZ3gUYCUwiZxteiqEBuV7/4Z5ttKw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ohEkGtAx0gOyl38+5ZG1I+BkNGCr7Jy2YZSmOBeJFbXlHIBuHae9STS1k7CawbTVp
-	 biMJDp3XWwxfKXumpdpKad/eaSUm7N2FA7WraEfgN0g443mqmd53v9cXWYNx0EQGXJ
-	 oW2Rqt8pB7jfcz0+uRIpoL076crTznSRwuOiH9hEfflsumJZJ2DM+xnClfXJB1/VaT
-	 v+7EEiExdHlFVTfqmog7xwqNSSOWdvajsPWrNOVUDKDMHCpqmrJmm9NPfWs0vdmA/b
-	 nPWyJDgKSuKA0YPW65X1QdFSNhEDXhjlNIUimWzZI6RqJF7tU0UcFIGTJytSEHQi1y
-	 TARvSuuLe3hbg==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5c15ccd7fb5so692888e87.2
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PVGHrCoa
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2efad644688so11438515ad.3
         for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:11:25 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHzxmqAifqNUXFJLuCfD3nCLeVAGaQACCVGlTx4ki4M8laP70SpsEFtzNl7luiPnPWIFSHmhZ9tzVD/NRU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+pwlc8tFIJ9skoAKOINLmCCRDRazfr3xxsDQ7Rh+838OzgO0GM
-	ym2r10QubpQ8MdIIwSwkMtXGKkR7ERPjJhwm3I4BtK3aH+qUek3yKn4J95+cehcV3zui5gsbDUb
-	6umBXNa/pO8SM2AK/jDJcUh/y1Yf+17o=
-X-Received: by 2002:a05:6512:1153:b0:5ba:3443:aa2e with SMTP id
- 2adb3069b0e04-5c1bc7c3484mr1402731e87.21.1795198283827; Fri, 20 Nov 2026
- 10:11:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795198285; x=1795803085; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JDzbhiCoFBsB1LUGSE+FNJ8fs+B+4L9p62TVlpx0yJ4=;
+        b=PVGHrCoaAP/5w1paicQ+hrt9379ckz/YstH15fDT/2OfPNc3NuS+VgVBK31Y4KWR1c
+         6PEILfGm8mXVSYnE+ShXHiGg2+cjwadNYr6CVRAtBkojKCy3wAzMBHiN/hgp9Fr8I0rw
+         pVTVrnraiWylu9/TACtXKP/yfxDi0m6zABmX4xVo2kPJHlkl/y54aRsSc9U/9fMEB2PJ
+         esMW2rw0ckWd4dJpkMIpx7R4IXIDSCQJYl5yEpK1fzu07+gEa1XoH+hwVcUZ/VsnRp4j
+         ChOPqNE4+HHfBFewHGbf5rwxwTNCY+3Zt+DtgYKz0OqIEnlWRHpodKCpTGesETGHl6Vc
+         6OIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795198285; x=1795803085;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JDzbhiCoFBsB1LUGSE+FNJ8fs+B+4L9p62TVlpx0yJ4=;
+        b=skLYrKZbYNYOpU6efYnJypQPupeRYhHSrfO44l47Yy/YJN1gClTL20FQEDLAZDyiYg
+         d9exWIklcaVpGSACOhUtimNrREClEl0afXKXKVyGnwuoeCkEL+RO8nz9MpRjpLctZ9j6
+         +wRb8tNkIRs9eWP/paGI8MYqb4AhXzN4LOz/FIVIk3T6NkSD0G3CjSSa4aVOtdobfwbZ
+         JMGTB3oAqTA9o0iyZueo05DUYYC5uWThW9f6nXzDca32FjAna+u0o/XeJ0romPoax9y6
+         Ji2IptKXcMuV/Zs8+2r2cQT5W1IJtu9jMLkCrkzYyxTEZXNFfiWJ5+XsSOt+GelfZ5En
+         GaNQ==
+X-Forwarded-Encrypted: i=1; AL+hErFh0z1jQGlh+3pagmXlgmBJhCfGDhGog5Jg67svEkqlZSUzDL0b0P77c+X85yKHlj92jpZj++fUNZz1ARY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+bL8M9Rms9d2BmuO2OZINPYXXiWQmrGUZaL9tJwWGEur1dtYge
+	Fi8qulLtGXK+aAWL4skyW/LDPvrOO2jhkxYmdvDPAa7ZKY2q8kiqAtEOhK3P6DgG1FlHc8oobpC
+	+sg4gYw==
+X-Received: from plup11.prod.google.com ([2002:a17:903:4b2b:b0:2ed:e056:7a80])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:cf08:b0:2f0:59dd:4d07
+ with SMTP id d9443c01a7336-2f059dd50f7mr8708795ad.38.1795198285056; Fri, 20
+ Nov 2026 10:11:25 -0800 (PST)
+Date: Fri, 20 Nov 2026 10:11:24 -0800
+In-Reply-To: <5F8F490B-BC93-41EA-B77E-9EC108C09DBE@infradead.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,160 +77,70 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261117-cpuidle-pause-fix-v1-1-b2789fce4c16@gmail.com>
-In-Reply-To: <20261117-cpuidle-pause-fix-v1-1-b2789fce4c16@gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 19:11:11 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gd77wq8EwfpoFaUBYECtscXLaiFjCjTtt0s3EnXPjmgw@mail.gmail.com>
-X-Gm-Features: Aa3M54oqxRk2jPVR1pLYKwDFb8DTzssxQAcbD8yfHEbG87CkJ2JyLftSL6-uQ9k
-Message-ID: <CAJZ5v0gd77wq8EwfpoFaUBYECtscXLaiFjCjTtt0s3EnXPjmgw@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: Do not reinstall the idle handler while paused
-To: hlibwondertan@gmail.com
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Thorsten Leemhuis <linux@leemhuis.info>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+References: <20261113170535.79246-1-dwmw2@infradead.org> <avdEkNbqPWamMErl@google.com>
+ <5F8F490B-BC93-41EA-B77E-9EC108C09DBE@infradead.org>
+Message-ID: <awCNTITOOiS1JEod@seanjc-mac.roam.internal>
+Subject: Re: [PATCH v2 0/4] KVM: x86: hyper-v: Forward unimplemented
+ hypercalls to userspace
+From: Sean Christopherson <seanjc@google.com>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-hyperv@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-doc@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>, 
+	Vitaly Kuznetsov <vkuznets@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>, 
+	Joerg Roedel <joro@8bytes.org>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	James Bottomley <James.Bottomley@hansenpartnership.com>, 
+	Thara Gopinath <tgopinath@linux.microsoft.com>, Wei Liu <wei.liu@kernel.org>, 
+	Michael Kelley <mhklinux@outlook.com>, Nicolas Saenz Julienne <nsaenz@amazon.com>, 
+	Nikolas Wipper <nik.wipper@gmx.de>, Mushahid Hussain <hmushi@amazon.co.uk>, 
+	Sriram Nambakam <snambakam@linux.microsoft.com>, Zack Rusin <zack.rusin@broadcom.com>, 
+	Doug Covelli <doug.covelli@broadcom.com>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H . Peter Anvin" <hpa@zytor.com>, Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>, 
+	Shuah Khan <shuah@kernel.org>, Paul Durrant <paul@xen.org>, Xin Li <xin@zytor.com>, 
+	Francesco Lavra <flavra@baylibre.com>, 
+	"Radim =?utf-8?B?S3LEjW3DocWZ?=" <rkrcmar@ventanamicro.com>, Liran Alon <liran.alon@oracle.com>, 
+	Arbel Moshe <arbel.moshe@oracle.com>, David Woodhouse <dwmw@amazon.co.uk>
+Content-Type: text/plain; charset="us-ascii"
 
-On Tue, Nov 17, 2026 at 8:01=E2=80=AFPM Wondertan via B4 Relay
-<devnull+hlibwondertan.gmail.com@kernel.org> wrote:
->
-> From: Wondertan <hlibwondertan@gmail.com>
->
-> The PM core pauses cpuidle before taking secondary CPUs offline during
-> system-wide transitions and resumes it after bringing them back online
-> (pm_sleep_disable_secondary_cpus()/pm_sleep_enable_secondary_cpus()), so
-> that CPUs do not enter cpuidle-managed idle states in that window.
->
-> However, with acpi_idle, acpi_soft_cpu_online() calls
-> acpi_processor_hotplug() for every CPU brought back online, and that
-> function brackets its update with cpuidle_pause_and_lock() and
-> cpuidle_resume_and_unlock().  The latter reinstalls the idle handler
-> unconditionally, so cpuidle is effectively resumed as soon as the first
-> secondary CPU is back online.  The remaining CPUs are then brought up,
-> and cache_aps_init() runs stop_machine(), with idle CPUs entering deep
-> ACPI C-states.  cpuidle_register_device() and cpuidle_switch_governor()
-> can undo the pause in the same way.
->
-> On a Framework Laptop 16 (AMD Ryzen AI 9 HX 370, BIOS 04.01), whose
-> _CST exposes C2/C3 with the SystemIO entry method, this intermittently
-> hangs hibernation after the image has been created: a CPU idling in
-> io_idle() does not respond to an IPI and another CPU soft-locks waiting
-> for it, either in smp_call_function_many_cond() (text poking from
-> sched_cpu_activate() while an SMT sibling is onlined) or in
-> multi_cpu_stop() (the MTRR rendezvous in cache_aps_init()).  The image is
-> never written and the next boot reports "PM: Image not found (code -22)":
->
->   watchdog: BUG: soft lockup - CPU#12 stuck for 22s! [cpuhp/12:89]
->   RIP: 0010:smp_call_function_many_cond+0x147/0x520
->    on_each_cpu_cond_mask+0x24/0x40
->    smp_text_poke_batch_finish+0xe2/0x380
->    arch_jump_label_transform_apply+0x1a/0x30
->    static_key_slow_inc_cpuslocked+0x4f/0xa0
->    sched_cpu_activate+0x13c/0x150
->   ...
->    thaw_secondary_cpus.cold+0x5e/0xd2
->    hibernation_snapshot+0x231/0x530
->   NMI backtrace for cpu 0 skipped: idling at io_idle+0x3/0x30
->
->   watchdog: BUG: soft lockup - CPU#3 stuck for 22s! [migration/3:37]
->   Stopper: multi_cpu_stop+0x0/0x140 <- __stop_cpus.constprop.0+0x6d/0xb0
->   (23 CPUs in multi_cpu_stop)
->   NMI backtrace for cpu 2 skipped: idling at io_idle+0x3/0x30
->
-> Online CPUs can only be in io_idle() via cpuidle, so cpuidle was not
-> paused at that point.  Tracing power:cpu_idle across the transition on
-> 6.18.59 confirms it: while CPUs 1-23 were being brought online (between
-> the first and the last CPU_ON "end" events, about 35 ms), idle CPUs
-> entered C2 263 times and C3 305 times on all 24 CPUs, the first C3 entry
-> coming 0.6 ms after CPU1 was onlined.  The failure rate was about one in
-> four hibernations, higher on battery; disabling C2/C3 via sysfs around
-> hibernation made it go away.
->
-> Fix this by recording that cpuidle has been paused by cpuidle_pause()
-> and not reinstalling the idle handler until cpuidle_resume() is called.
-> All callers of cpuidle_install_idle_handler() hold cpuidle_lock, which
-> also protects the new flag.
->
-> With this change on top of 6.18.62 and 7.3.4, the same trace across a
-> real hibernation and resume with C2/C3 enabled shows no C2/C3 entries
-> in that window (only C1), hibernation completes, and C2/C3 are used
-> again once the transition is over.
->
-> The root cause analysis, the fix, the tracing used to verify it and
-> this changelog were produced with an AI coding assistant (Claude Code,
-> model claude-opus-5-5), working from pstore dumps, ftrace captures and
-> the kernel sources.  All builds and tests were run on the affected
-> machine as described above.
->
-> Fixes: 8651f97bd951 ("PM / cpuidle: System resume hang fix with cpuidle")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wondertan <hlibwondertan@gmail.com>
-> ---
-> Tested only on the one affected machine (AMD, acpi_idle, BIOS 04.01
-> and 04.02): built and run-tested on 6.18.62 and 7.3.4 (Arch linux-lts
-> and linux configs, x86_64).  drivers/cpuidle/cpuidle.c in 7.3.4 is
-> identical to mainline apart from this change.  On mainline
-> (141b164bbe18) drivers/cpuidle/ was only built (W=3D1, no warnings), not
-> booted.  Not tested with intel_idle or other cpuidle drivers.
->
-> Earlier report of the hangs, before the root cause was known:
-> "[REGRESSION?] hibernation soft lockup in migration/0 after image
-> creation", linux-pm, 2026-07-09.
-> ---
->  drivers/cpuidle/cpuidle.c | 10 +++++++++-
->  1 file changed, 9 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/cpuidle/cpuidle.c b/drivers/cpuidle/cpuidle.c
-> index 2d2f40a2c..3e26b1760 100644
-> --- a/drivers/cpuidle/cpuidle.c
-> +++ b/drivers/cpuidle/cpuidle.c
-> @@ -39,6 +39,7 @@ LIST_HEAD(cpuidle_detected_devices);
->  static int enabled_devices;
->  static int off __read_mostly;
->  static int initialized __read_mostly;
-> +static bool paused;    /* Protected by cpuidle_lock */
->
->  int cpuidle_disabled(void)
->  {
-> @@ -465,7 +466,12 @@ __cpuidle u64 cpuidle_poll_time(struct cpuidle_drive=
-r *drv,
->   */
->  void cpuidle_install_idle_handler(void)
->  {
-> -       if (enabled_devices) {
-> +       /*
-> +        * Do not reinstall the idle handler while cpuidle is paused for =
-a
-> +        * system transition, even if a nested cpuidle_resume_and_unlock(=
-)
-> +        * (e.g. from the ACPI processor CPU online callback) asks for it=
-.
-> +        */
-> +       if (enabled_devices && !paused) {
->                 /* Make sure all changes finished before we switch to new=
- idle */
->                 smp_wmb();
->                 initialized =3D 1;
-> @@ -515,6 +521,7 @@ EXPORT_SYMBOL_GPL(cpuidle_resume_and_unlock);
->  void cpuidle_pause(void)
->  {
->         mutex_lock(&cpuidle_lock);
-> +       paused =3D true;
->         cpuidle_uninstall_idle_handler();
->         mutex_unlock(&cpuidle_lock);
->  }
-> @@ -523,6 +530,7 @@ void cpuidle_pause(void)
->  void cpuidle_resume(void)
->  {
->         mutex_lock(&cpuidle_lock);
-> +       paused =3D false;
->         cpuidle_install_idle_handler();
->         mutex_unlock(&cpuidle_lock);
->  }
->
-> ---
+On Fri, Nov 13, 2026, David Woodhouse wrote:
+> On 13 November 2026 10:10:40 GMT-07:00, Sean Christopherson <seanjc@google.com> wrote:
+> >On Fri, Nov 13, 2026, David Woodhouse wrote:
+> >> From: David Woodhouse <dwmw@amazon.co.uk>
+> >> 
+> >> KVM implements a fixed set of Hyper-V hypercalls and fails every other
+> >> code with HV_STATUS_INVALID_HYPERCALL_CODE. A VMM that wants to
+> >> implement more of the TLFS, such as the VSM hypercalls Windows uses for
+> >> Virtualization Based Security, never sees them.
+> >> 
+> >> This series adds KVM_CAP_HYPERV_FORWARD_HCALL. As with KVM_CAP_XEN_HVM
+> >> and KVM_CAP_EXIT_HYPERCALL, KVM_CHECK_EXTENSION returns a bitmask of
+> >> features and KVM_ENABLE_CAP takes the subset to enable, rejecting any
+> >> bit the kernel does not report. The first feature,
+> >> KVM_HYPERV_HCALL_FORWARD_UNKNOWN, sends the hypercalls KVM does not
+> >> implement, and extended hypercalls in fast form, out through the
+> >> existing KVM_EXIT_HYPERV_HCALL exit, whose format does not change at
+> >> all.
+> >
+> >I'm not a fan of fowarding unknown hypercalls.  It seems like it would be quite
+> >easy to end up with a mess where it's difficult for KVM to implement "native"
+> >support without breaking userspace.
+> >
+> >How much code (and ongoing churn) would it be to add an allowlist of hypercalls
+> >to forward to userspace?  And then obviously require userspace to configure its
+> >forwarding "intercepts".
+> 
+> I'm following the model we used for Xen support, where the default assumption
+> is that we do everything in userspace, then accelerate only what's absolutely
+> necessary in the kernel.
 
-Applied as 7.5 material, thanks!
+Oh, right.  I was worried about people getting clever and abusing the Hyper-V
+handling to implement bespoke, out-of-tree hypercalls, but that ship has sailed.
+
+> Userspace can opt *in* to having the kernel support certain hypercalls, and
+> later patches waiting in the wings already add the in-kernel VTL switching
+> enabled via a bitmask when enabling the capability. 
+
+Oh yeah, duh.  We need a capability either way.
