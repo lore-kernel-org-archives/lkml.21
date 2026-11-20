@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156915;
-	b=Z88s5fqVHIr31pif+a+ie64jTZKK9nR/dFf8LNomPEunwLqQ4gTxcvyax+8II/tx8woj
-	 IqZvN3XlSIQlOZGnLtxgyEAYdvBAr1xXUBCWXsn4lHjPINmxzuv0Yy29WNU5NSKkSTCrW
-	 KeQsZbj801xPl6XoDdVs7VJVFo+nZ/uFJIlH8zc0ARm3JDDRs60OtIRysNarSOtRc20Yn
-	 o92f0IR8/ocLH6cT7+UIVuBXQSuc0J2rLX9d30cYB3z4rW/X+orXImLYPJ8K8fGSe/YE+
-	 qHQuz7FqD3kw14B76O4tBLe1ANScgS8Lwshq+aConxR1hQiLp0+xlhb3gejoq2NsHZw==
+	t=1795156912;
+	b=TBOHztlC0KWgmNLYhD3wVk4U5IBluyX7RHvZm8umo0uRT1nPXYVssovzIIGtsKIOZj/I
+	 dpQ2+xoEL0PeV74I8lQcZw5sfVYVypDPruBAIEDleXX0OEokx/72NWFauxG17NrjvWhdF
+	 Do01E2lL3BZcikcPSGjuQ6i481M8atBEZgYOCxkEs6rfJyRQaAqTKhg8DEo0v/CH7DZJT
+	 vz+3dznoTH/UjXRTRNWnphnIdKoeGTyL2lmwM1QUXDH2xbWouMKwkZxdJMeJNx8W5lLjm
+	 E4O6g5tTHuXAyA3ESIE94/4wmj7nYzBFEjBqArAqSDfsvYePyP8yeeV/ztE9mYU2Kbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156915;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156912;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=O7nLJpHLhC9VkFtCHhEbGKZwa8Q+BdlNhtTNSULE8pE=;
-	b=xdfemrgP9qwIVe9UNEn2Gn859jMLpFF2w0r9HBoZVyWG8YoA5YgECvmE7CsFrW+6r8NY
-	 mmfGlHEyfLtEGahvzYdhqAnIpLHNHTQJW42Ua9zWBb/Gcnd6iJRNfhU51jC57FXwDMAg4
-	 jQckRaMjrl4njAepOJFdm5PF7hB1tOiE6ThIEmpXWbUETIEvmw3I3iIK1MV171XAfk8lk
-	 zihBLuyevD1p64vbuNknAVnoJ/cb0bax9FDBiyKiS0KWb0DtxDLd/XAiAN18msPxSONj/
-	 kRYs2TM+PDgUxUel4H2kG3KSUs7ufbPEzfXMUSxC0l51D8wvRBFMoEQIDGIQ8Ja11LA==
+	bh=Mgw3XWwCWgtLNqGSpBZksw7IgPVhXJGfoOp08HyVngA=;
+	b=XjEWjY0PdoKturETkobFXYPxirHL67qomUPLnFl9Oxc/l2tzeHvsGnbS5zvajEMcy1oy
+	 H9sQcDHcGKk75fbVtDN0VZXAE1kKjvEaXjrr1JbZSt6czUVH+rsdNUVATu71LvbExgtlc
+	 Ui8Cr05m6ZoUIeDocW3CJmwrAKWMvfn6WoCQQPMLhZQPB1KnalF3EFoUiQiuVWrPSq9DI
+	 D9xIiECow8culwFO3TmBiDHSYH+iUwHOOnQPYopRI+TyyJILgpF4ve7BLD/D3ZTlDEMQs
+	 UR3ModWICtaNxzagdkqHWixjWD9ckxDiaJhYXE5h1HqAqq0xoZvwXSIepwugCmYPm9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="F4FCb/RK";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XtBnsxK6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EEA560A2633;
-	Fri, 20 Nov 2026 06:41:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B14660A2607;
+	Fri, 20 Nov 2026 06:41:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F4FCb/RK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADF011F000D1;
-	Fri, 20 Nov 2026 06:41:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XtBnsxK6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4BEC1F000C4;
+	Fri, 20 Nov 2026 06:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795156914;
-	bh=O7nLJpHLhC9VkFtCHhEbGKZwa8Q+BdlNhtTNSULE8pE=;
+	s=k20260515; t=1795156911;
+	bh=Mgw3XWwCWgtLNqGSpBZksw7IgPVhXJGfoOp08HyVngA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=F4FCb/RKVMNlVK0KD7AJZLMZEpvz7blP8O9iq4v6i0YgkrXPzLCY7zVoawbr32Rbk
-	 HIXm4gWyKKAR0iaDN71zxXwM7TDgoQLrE94TBXTkK0yZ7XA7a1NZ2LwgN3zWQRWVqZ
-	 tcpwRhjA4XTG0VI/LDnRYiLJO0FkO6M89nhrdLbc8jqkpHDvlMPpYRFlVqhUxTEft9
-	 t+ZNizwjSnuuk22OVFsVISVi8siJCK5uGz0MM/pjBbIFrcbIepCIF/dwEMq5V92INO
-	 Muk1f8UkiIGH/Szm8VVpyN0RkSftjO2Pojyftg4li0ENW73k6VafH2Nrd2RoIOriHD
-	 WzlWqNfyYBRoQ==
-Subject: Re: [PATCH net v5 08/14] net: pse-pd: stop async event sources before
- freeing PI data in unregister
+	b=XtBnsxK6HMOE3b3Xlla7URoLK6E2FCScr1ttMwqYI5yBAltelAiqZt1kEYLiikXsx
+	 CghSyBu0Fao5GFjHd95qWNMigi2Z8C5c3h90jRwShqgWnuGEhbJyvxoexmldoIJCry
+	 sKXS8Qg0Syp9aWsjKTYfv6ODQOJQKqzpQ538hbP0iNYr/qenoVe5lJsTQQHz/MUm5x
+	 ez2tdYmxj/776MGBmduwZ5q1M6YkuJ0nQoCjJ1gXhYcZkUYvNCoGshl9OoeNKIz6t/
+	 ETQdBA7ofQXO+uM4Y3yeuqD7zj+rnf2kiZubYFdxe/MQEfnmyFIQFlQlHqiW71VkW5
+	 CV/lzfxnksuog==
+Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
+ lock when setting a power limit
 From: netdev-bot+sashiko@kernel.org
 To: github@szelinsky.de
 Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
@@ -50,11 +50,11 @@ Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
  maxime.chevallier@bootlin.com, kyle.swenson@est.tech, ross@r-sc.ca,
  netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 06:41:53 +0000
-Message-ID: <179515691327.3136.4761180533573430766@kernel.org>
-In-Reply-To: <20261118183957.2031311-9-github@szelinsky.de>
-References: <20261118183957.2031311-9-github@szelinsky.de>
-X-sashiko-severity: Low
+Date: Fri, 20 Nov 2026 06:41:50 +0000
+Message-ID: <179515691045.3136.13671979747174463292@kernel.org>
+In-Reply-To: <20261118183957.2031311-7-github@szelinsky.de>
+References: <20261118183957.2031311-7-github@szelinsky.de>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -67,182 +67,136 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-- [Low] pse_controller_unregister() sets pcdev->unregistering = true and
-  nothing ever clears it.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Pre-existing issues:
-- [High] At this commit, pse_controller_unregister() still calls
-  pse_release_pis(), which does kfree(pcdev->pi), at line 1188.
-- [Medium] At this commit, pse_controller_register() returns directly
-  after kfifo_alloc() on several failures and leaks ntf_fifo: missing…
+- [High] The patch moves the PI-state check into
+  pse_pi_update_pw_budget(), under pcdev->lock, but the predicate is…
 
 --
 
-net: pse-pd: stop async event sources before freeing PI data in unregister
+net: pse-pd: check the PI state under the lock when setting a power limit
 
-This patch reorders pse_controller_unregister() so that the IRQ is
-disabled and the notification worker is drained before the power domains
-are flushed and the PI array is freed. It also adds a
-pcdev->unregistering flag, set under pcdev->lock. After it is set,
-pse_pi_enable() and _pse_pi_delivery_power_sw_pw_ctrl() return -ENODEV,
-so the worker can't be queued again after the drain.
+This patch moves the "PI is enabled and has a PD detected" check from
+pse_ethtool_set_pw_limit() into pse_pi_update_pw_budget(), so it runs
+under pcdev->lock. It also adds an updated flag, so the rollback after a
+failed regulator_set_current_limit() only runs when the budget was
+actually changed.
 
 > diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-> index 8041ad3e330b9..22f2d8041bd4b 100644
+> index b8cba6f86a7fd..342fb27e38319 100644
 > --- a/drivers/net/pse-pd/pse_core.c
 > +++ b/drivers/net/pse-pd/pse_core.c
 
 [ ... ]
 
-> @@ -1158,11 +1170,22 @@ EXPORT_SYMBOL_GPL(pse_controller_register);
->   */
->  void pse_controller_unregister(struct pse_controller_dev *pcdev)
->  {
-> -	pse_flush_pw_ds(pcdev);
-> -	pse_release_pis(pcdev);
-> +	/* From now on the PSE core must not power a PI, so nothing queues
-> +	 * a new notification once the worker is drained below.
+>  	/* We don't want pw_allocated_mW value change in the middle of an
+>  	 * power budget update
+>  	 */
+>  	mutex_lock(&pcdev->lock);
+> +	/* Only a PI under software power control that is enabled and has a
+> +	 * PD detected gets a budget. Check this here, as pse_isr() changes
+> +	 * it under the same lock.
 > +	 */
-> +	mutex_lock(&pcdev->lock);
-> +	pcdev->unregistering = true;
-> +	mutex_unlock(&pcdev->lock);
-
-[Severity: Low]
-This is the only write to pcdev->unregistering, and nothing clears it
-again. pse_controller_register() doesn't reset it either. It only
-initializes these:
-
-pse_controller_register() {
-	mutex_init(&pcdev->lock);
-	INIT_LIST_HEAD(&pcdev->pse_control_head);
-	spin_lock_init(&pcdev->ntf_fifo_lock);
-	...
-}
-
-If the same pse_controller_dev were registered again, wouldn't
-pse_pi_enable() and _pse_pi_delivery_power_sw_pw_ctrl() always return
--ENODEV? pse_set_config_isr() would then never power a PI.
-
-No in-tree caller does this. pd692x0, pse_regulator, realtek-pse-mcu,
-si3474 and tps23881 all call devm_pse_controller_register() on a struct
-allocated with devm_kzalloc. So each bind gets a zeroed pcdev. Other
-fields are not reset on register either, for example no_of_pse_pi and
-irq.
-
-Could the flag be cleared in pse_controller_register()? Or could the
-kernel-doc say that the core expects a zeroed pcdev for each
-registration?
-
+> +	if (!pse_pw_d_is_sw_pw_control(pcdev, pi->pw_d) ||
+> +	    !pi->admin_state_enabled || !pi->isr_pd_detected)
+> +		goto out;
 > +
-> +	/* Stop the IRQ and the notification worker first: pse_isr() uses
-> +	 * pcdev->pi and the power domains that pse_flush_pw_ds() drops,
-> +	 * and the worker reads the kfifo that is freed below.
-> +	 */
->  	if (pcdev->irq)
->  		disable_irq(pcdev->irq);
->  	cancel_work_sync(&pcdev->ntf_work);
-> +	pse_flush_pw_ds(pcdev);
-> +	pse_release_pis(pcdev);
 
 [Severity: High]
-This is a pre-existing issue and was not introduced by this patch.
-pse_release_pis() still does kfree(pcdev->pi) while other code can
-still reach the array.
 
-The PI regulators were registered with devm_pse_pi_regulator_register().
-Devres removes them only after this function returns. pcdev also stays
-on pse_controller_list until the list_del() further down.
+The check now runs under the lock. Is admin_state_enabled &&
+isr_pd_detected enough to show that the PI is powered and has a budget?
 
-In that window, can these read or write the freed pcdev->pi[]?
+pse_pi_is_admin_enable_pending() describes a state where both flags are
+set but the PI is off in hardware and pw_allocated_mW is 0:
 
-  pse_pi_is_enabled()
-  pse_pi_disable()->_pse_pi_disable()
-  __pse_control_release()
-  of_pse_control_get()->of_pse_match_pi()
+pse_pi_is_admin_enable_pending() {
+	if (!pcdev->pi[id].admin_state_enabled ||
+	    !pcdev->pi[id].isr_pd_detected)
+		return false;
 
-For example:
+	ret = pse_pi_is_hw_enabled(pcdev, id);
+	if (ret == 1)
+		return false;
 
-of_pse_control_get() {
-	...
-	list_for_each_entry(r, &pse_controller_list, list) {
-		if (!r->no_of_pse_pi) {
-			ret = of_pse_match_pi(r, args.np);
-	...
+	return true;
 }
 
-__pse_control_release() {
-	...
-	if (psec->pcdev->pi[psec->id].admin_state_enabled)
-		regulator_disable(psec->ps);
-	...
-}
+It looks like this state can be reached without any race:
 
-pse_release_pis() also doesn't take pcdev->lock, and it leaves
-pcdev->pi pointing at freed memory.
+- On classification, pse_set_config_isr() sets isr_pd_detected = true.
+  If the static allocation then fails, it turns -ERANGE into 0.
+  pse_pi_enable() also sets admin_state_enabled = 1 on -ERANGE.
 
-This patch only moves the free after the IRQ and worker drain. It
-doesn't make the window wider.
+- pse_disable_pi_pol()->_pse_pi_disable() sheds a lower priority PI and
+  frees its budget, but leaves both flags set.
 
-Later patches in this series fix it:
+- If ops->pi_enable() fails after the budget was allocated, the budget
+  is freed but the flags stay set.
 
-  "net: pse-pd: unregister from the controller list before freeing PI
-  data" moves list_del() ahead of the drain and the frees.
+In that state, pse_ethtool_set_pw_limit()->pse_pi_update_pw_budget()
+passes the new check. pw_diff = pw_limit - 0 is positive, so
+regulator_request_power_budget() is called and pi->pw_allocated_mW =
+pw_limit is recorded for a port that is not powered.
 
-  "net: pse-pd: keep the PI data until the PI regulators are gone"
-  removes pse_release_pis() from unregister. The array is then freed
-  from a devm_pse_release_pis devres action, which runs after the PI
-  regulators are gone.
+The voltage == 0 early return in pse_ethtool_set_pw_limit() doesn't
+seem to stop this on tps23881, because tps23881_pi_get_voltage() reads
+the controller input voltage.
 
-That later commit also says the series does not fix a consumer that
-still holds a pse_control after the controller unbinds.
+Later, pse_ethtool_set_prio() calls pse_pw_d_retry_power_delivery(), as
+does the disable or disconnect of another PI in the same domain. That
+function picks exactly these admin enable pending PIs:
 
->  	kfifo_free(&pcdev->ntf_fifo);
+pse_pw_d_retry_power_delivery()
+  _pse_pi_delivery_power_sw_pw_ctrl()
+    pse_pi_allocate_pw_budget_static_prio()
 
-[Severity: Medium]
-This is also a pre-existing issue and was not introduced by this patch.
-Is ntf_fifo leaked when pse_controller_register() fails after
-kfifo_alloc()? Several error paths there return directly without
-calling kfifo_free():
+pse_pi_allocate_pw_budget_static_prio() then requests pw_req again and
+does:
 
-pse_controller_register() {
-	...
-	if (!pcdev->ops->pi_get_admin_state ||
-	    !pcdev->ops->pi_get_pw_status) {
-		dev_err(pcdev->dev,
-			"Mandatory status report callbacks are missing");
-		return -EINVAL;
-	}
-	...
-	ret = pse_register_pw_ds(pcdev);
-	if (ret)
-		return ret;
-	...
-}
+	pi->pw_allocated_mW = pw_req;
+	return 0;
 
-The failures of of_load_pse_pis(), setup_pi_matrix(), devm_kzalloc()
-and devm_pse_pi_regulator_register() return directly too. The later
-failures leak pcdev->pi as well. These paths can be hit repeatedly
-during -EPROBE_DEFER retries.
+It does not free the reservation made by set_pw_limit first. Doesn't
+this leak the power budget on the supply until the controller is bound
+again? That is the same leak the commit message describes.
 
-Later patches in this series fix it:
+Until that retry runs, shedding can't reclaim the reservation either:
+pse_disable_pi_prio() skips PIs where pse_pi_is_hw_enabled() <= 0. As a
+result, powered ports could be shed or refused power.
 
-  "net: pse-pd: free the notification kfifo when registration fails"
-  sends every error path to a free_kfifo label, which calls
-  cancel_work_sync() and kfifo_free().
+The later patches in the series, such as "use each PI's own supply
+handle for the power budget", only change the supply handle in these
+functions. The predicate and the overwrite still appear to be there at
+the end of the series.
 
-  "net: pse-pd: keep the PI data until the PI regulators are gone"
-  registers devm_pse_release_pis right after of_load_pse_pis()
-  succeeds. of_load_pse_pis() already frees the PI array on its own
-  errors.
+Would it work to check under the lock that the PI is actually powered
+or budgeted, for example pse_pi_is_hw_enabled(pcdev, id) == 1 or
+pw_allocated_mW != 0? Another option is for
+pse_pi_allocate_pw_budget_static_prio() to free an existing
+pw_allocated_mW before overwriting it.
 
->  	mutex_lock(&pse_list_mutex);
->  	list_del(&pcdev->list);
+>  	previous_pw_allocated = pi->pw_allocated_mW;
+>  	pw_diff = pw_req - previous_pw_allocated;
+>  	if (!pw_diff) {
+
+[ ... ]
+
+> @@ -1846,6 +1859,7 @@ static int pse_pi_update_pw_budget(struct pse_controller_dev *pcdev, int id,
+>  		regulator_free_power_budget(pi->pw_d->supply, -pw_diff);
+>  	}
+>  	pi->pw_allocated_mW = pw_req;
+> +	*updated = true;
+>  	ret = previous_pw_allocated;
 
 [ ... ]
 
