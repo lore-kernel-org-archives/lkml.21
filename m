@@ -1,88 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.204
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149297;
-	b=v8/7yZ6+qkdnqQz1vMC1SrGAZ1cPw1o7sKDR1TWKdFSuLTtN5xP6Q18Kdnalujo/J6Pi
-	 NWTdRNdYvQAMUnR6ridjeyMx5pojZg6AeOmavSA9UZaq4zv37uM4MiyUD4dYx86EoGub5
-	 G5azUh62OaAll+fy1dZ7O6jOX06Ni0I6YuwJzqXrTQ6dKAX0YfyMVWUL2jiim5+/uj4VV
-	 8YR2nOyUZAzkmjwQjJX6OlYmIGtblCPtVtaOFFDxVNJxNDYvT9Bnw2fGcoS1FN4ApueK8
-	 eZuY51lGBPbR4tLRg8ToIJdQEI1JvFqLf1RP95rckeza8VcXRq2jlw6dyMFifiPARUw==
+	t=1795149405;
+	b=YeTkskQit1hTSLS3l9yBL6F0AAOCr497bzp566OAhhKaNvyT6QjSXX6bn+pMsm6yEWcw
+	 fJfZcRA8+huUHaZcGUefcS1My/MSzAeWOAwjiQvNmHNFHDGfGxYFj2dRLfkrJ5Af1CN+C
+	 0OQB3yBFf9SoYt4YpPxzCWik/F6KiaqkSQp/xyejKC7cwZI1mdOw5mrCC9QyiAhzn80jO
+	 +CMW3ViFh7HRdAmLinUSaNqrGsJD+CbNSsccYIuC5zNVPLN7bcFIyDPg0EzPcP4hEA8Ci
+	 t4n1nSQA5MfwyuBZZSMSW3AO+Rm9ThZzGMhUo0m6+I7k7lBo+JYKwO0j8fkwusU/U2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149297;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
-	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=o5cbZa/CKFNHwxxN/1udfnU91JGStNmWV5mTiYbwbH8=;
-	b=fYoxkMN0WPZdItrPGitru6dvOAbTgx3TaZWF59kswnY4EMFXCuo0bjjLAZN3RLL5vlzv
-	 it0y2aHRyci70NNQoqY+95kN5bHq+VvQtNF1scvgw3Inb1h9pPS/QGCq/wC+dR4mIonU5
-	 9GBC34gKE19DRXbeWeDIr44KoqojDL1UEtYDIB02n6deucO1JvV6jvf7GqprGGlqmS7Ns
-	 ZpJVRAVN70p84dOjkzNPHmyH7DXUntClWGY96G/yj16dky8OfNUaHi/VVReLq2gCA4Jvt
-	 P0eEw/yyIrSssrpbHtLzak1Kqo7SYHM19IZ1Vx8fCz1Z8cRkYcMHIbYpFpBk46uq/7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149405;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=kXl1nUu33uWwxOKNxp2etrsx1DfSrs/u7Ukst+7XTH8=;
+	b=bDiopkduay4Ed64DG+55UQagpneQlt4/Yzsz1ajVSBnp9iTpefs/TY6/CpTms6QhaqYf
+	 epnai8o5w62fNHZlEGw9dkOiSp/S5r43zvUMIM3+MuKUIwOmsVlgKJoQSFne0gfSSpwi/
+	 Ovke7rdmXtxgO6aplwoJQ8bjj15gi1vOFT8sa1Y3QJ9SYPdlW3ZklGhqnvem/Is8mAjrw
+	 GZVG3jUWniMTWvZ5w/WTl00WyDj57XowkgQcF/GL0+PTtAMdmWus50C9F1xNu7QkzITED
+	 wr8inIGw42YJwKVluPdQWTpmLCkJ1l3lW7J3Pt3JfhKKjPVbMNnPW3lMj3Phox55Kcw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=none smtp.mailfrom=linux-m68k.org;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=i3TqCscb;
-	arc=none smtp.remote-ip=202.12.124.152
-Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sfODo8Cv;
+	arc=none smtp.remote-ip=91.218.175.204
+Received: from mta0.migadu.com (out-204.mta0.migadu.com [91.218.175.204])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDA46606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:34:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDA46606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A294C606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:36:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A294C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=i3TqCscb
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id EBBCC7A02D0;
-	Thu, 19 Nov 2026 23:34:55 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-03.internal (MEProxy); Thu, 19 Nov 2026 23:34:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795149295; x=1795235695; bh=o5cbZa/CKFNHwxxN/1udfnU91JGStNmWV5m
-	TiYbwbH8=; b=i3TqCscbjVXP5n2Orc2v3h/SulVyzFaTPKNh2qCBegB+hVK/FX3
-	vlMZKDVYrJIX33o6poUsclWSO4kUWNqHl2fclnAYUD2zuKVLgjIhMF3fA63/YbpD
-	Yfd2KB0KjLXEReeMSkTkc29oYmn0ljhxFGIDdzhe6CV6PVdyZDxX8+yiVM2prvr7
-	8eRplxbz8fg9QFKrMhYU00fwqyh5xXGr8s+wcFeUMmfVY99y2AGIySyDuP5y0Zzm
-	8YEzerog3h8i9+B8/EFk8Lq+/HziNQdnWWnlGQy3TpK612pdlT3VUCgFTtuxwkzC
-	OeWCJDT5BLPo2Jk/oGgdKOITyJUssM4k1Sg==
-X-ME-Sender: <xms:783_ajm_yMABFRz-D4atqAzJIzy50cKiOHYRcoiLbCLzNQqUUEJxWw>
-    <xme:783_akqv8gBxgwCVvGxdH3uFg5zsHPufHOdYe3lq6DeInjWQtlcv69XneENwyJkJt
-    _orP90zlqFX0Au6CQj0GFfwnO8uW-tg7D0aONXRmew2-XWAinpspFI6>
-X-ME-Received: <xmr:783_akFUSuJ5YPs-mpTRvOoh907PEGgu230uI9Ohkes9ct8fgknQg12i6Z4-XFdw52MoArSilfbEqFXLMryjCjTdUWzChHzjT6Q>
-X-ME-Proxy-Cause: dmFkZTGybfOZ/ba/ZfyqCqdfL0Ctmmyy3a2Bizjne4AAbm+ofzWPmXJVFODUxt2CI7oJkp
-    0eFtIFnu0BNygqwr5YYld+oGgrdbHWYHCy2N+0O7OmABzwDvX8MoQXZRZQqjU4U/KrublA
-    n+0YotKw0QcrHu1XOK7/N1xQw85TRIjnmt1WDhPq7Gt/TSp+f/G7JPQXdA58Y/bKCAgwAP
-    CTfxeVB1stDX30yEh1LrZwUR6qLVwpd4376spwf4MXuAuSjNhoTpQ7POymUGyGUNZExkLJ
-    qyUGUmdAPVVWlKrzXiVBtEQIdFRVaxI5UBlpvl/LnYt6/vQ83VoYXU6cFkaTOmebkTperk
-    D6CcjvgnpsdUzUYxXb7wuYccNeWqMWPAVYtAgfwR6qnE9LpuEfAdorObZU+5+Ns4sqSuLc
-    t7tAZSmlhM9752bSon5E5/Tacz3eHePwMyu/eXCS7/i7I/WcBMOSqGDbtAs/6hViZQKUYh
-    VnxI+8aRRb0HEERp0upN03HZg/z1VuEJySSV0LVE7F7ACXI5dfgaUZZGsjQCXwIwM4+XFZ
-    Oe7hGN2dLEo0Aa9og2txQSf2MjXrk7Ytkw3lMjru5/k9lNU7GarPEkh9N4OeDy5/DxI2Xd
-    L2A+Dp2JoWk3aD6YVY5KjO/adrGdPOvODSviotaIgOunfDw9bWYAvNyW0HaQ
-X-ME-Proxy: <xmx:783_aoyT2nl2Y7lOePg7f7b3rXB-NTTupTUnELcPhWWD-wMIdNseWQ>
-    <xmx:783_ahqumzc-4QYyDwQs-6ImuVlRHZgOa3Ws1aGVNBWP-3mwdzaUvg>
-    <xmx:783_aqhj2bI30KSedJ_q5ywST5vWD1qoRczqDsZrXMyLiy9Cd9hxpA>
-    <xmx:783_amjxCqhAFvShyoS0UtnfyErH-zfb8t6f0S5T5zoTsWuD9ZjQ3w>
-    <xmx:783_akHDITlynDGaNaSAS6H6eMJgkoaZZVeif2mFvhWz3QBqfFk3zXQJ>
-Feedback-ID: i58a146ae:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 23:34:52 -0500 (EST)
-Date: Fri, 20 Nov 2026 15:34:46 +1100 (AEDT)
-From: Finn Thain <fthain@linux-m68k.org>
-To: Graeme Harker <graeme.harker@gmail.com>
-cc: geert@linux-m68k.org, linux-m68k@lists.linux-m68k.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and
- ndelay()
-In-Reply-To: <20261118210008.927764-1-graeme.harker@gmail.com>
-Message-ID: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org>
-References: <ae768ed3-a517-3223-5c86-a1599ff6c8e5@linux-m68k.org> <20261118210008.927764-1-graeme.harker@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=sfODo8Cv
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=jUHEmy5aQrelaM46tN2mShBpZvbPpUeJMifUGNUAsDE=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795149402; v=1; x=1795754202;
+ b=sfODo8CvSBBbBSrJldEm5C4CYxSgbttnosD2RcS4sBpbUXOvyZlsOxBHrAORj0D99oPOu+NP
+ UMpra4YbB85pfpL6YDQwmzrsTTk14+m3RPAy6n4gT6eA1INoHrPBdC27cl0t67zRVM/WnKLmmaM
+ gGmttq7jogVn0DCT0oOovuwc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 81e24f6d10068c4f;
+	Fri, 20 Nov 2026 04:36:42 +0000
+X-Mizu-Trace-ID: 81e24f6d10068c4f
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,169 +56,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Date: Fri, 20 Nov 2026 04:36:42 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: "Kunwu Chan" <kunwu.chan@linux.dev>
+Message-ID: <13f1e8fe71c2de81b9d87b824561414f48b41c00@linux.dev>
+TLS-Required: No
+Subject: Re: [RFC PATCH v4 11/18] mm/swap: remove available list
+To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
+ <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
+ <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
+ Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
+ "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
+ A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, linux-hardening@vger.kernel.org
+In-Reply-To: <3bb9571ebf783db7a86a0ee2e7b00883c1de850b.1794666741.git.lianux.mm@gmail.com>
+References: <cover.1794666741.git.lianux.mm@gmail.com>
+ <3bb9571ebf783db7a86a0ee2e7b00883c1de850b.1794666741.git.lianux.mm@gmail.com>
 
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 
-On Wed, 18 Nov 2026, Graeme Harker wrote:
+Thanks,
+Kunwu
 
-> 
-> > Which clocksource driver are you using for jiffies?
-> 
-> The jiffies clocksource itself; the board has no sub-tick clocksource 
-> yet. The tick is a periodic clock_event_device on the DUART's 
-> counter/timer (GENERIC_CLOCKEVENTS, not LEGACY_TIMER_TICK), and my 
-> figures were 1 s of each call timed by jiffies with interrupts on, so 
-> they include the tick's own cost. Yours are the better numbers.
-> 
-
-Maybe. But this clock oscillator is running at some frequency which I 
-haven't actually measured. Also, I'm measuring wallclock time, which may 
-be inappropriate if the udelay() interval is derived from loops_per_jiffy.
-
-> > ndelay(400) 536E-09 -> 239E-09 seconds
-> 
-> I think the patched ndelay() count has wrapped your 16-bit timer. The 
-> patched ndelay(400) asks __delay() for at least 466 ns of calibrated 
-> loops whatever loops_per_jiffy is (8000 * loops_per_jiffy * 25 / 2^32 
-> loops, plus the one __delay() adds), and it now does a mulu.l on every 
-> call, which the old code did not (its arithmetic is plain C, so GCC can 
-> hoist it out of your unrolled loop). If a call takes about 1.08 us, 
-> 100000 calls take 107.6 ms, more than the 83.7 ms that T2 can count at 
-> 783360 Hz, and what is left after one wrap is 23.9 ms, or 239 ns a call.
-> 
-> Could you try ndelay(400) with 40000 invocations instead of 100000?
-
-Here's what I measured with interrupts disabled:
-
-test_udelay(10)	     11.0E-06 -> 11.7E-06
-test_udelay(20)	     19.7E-06 -> 21.5E-06
-test_udelay(50)	     47.0E-06 -> 50.8E-06
-test_udelay(100)     92.3E-06 -> 99.7E-06
-test_udelay(1000)     973E-06 ->  979E-06
-test_ndelay(40)	      191E-09 -> 17.0E-09
-test_ndelay(400)      673E-09 -> 1.49E-06
-test_ndelay(4000)    6.03E-06 -> 5.58E-06
-test_ndelay(40000)   38.7E-06 -> 46.5E-06
-test_ndelay(400000)   366E-06 ->  456E-06
-
-ndelay(400) and ndelay(40) seem to be anomalous. I don't know why.
-
-> If I'm right it should come out at about 1.08 us. That would mean it is 
-> longer than before, not shorter. As the commit message says, ndelay() 
-> now pays for the 64-bit multiply, so very short ndelay()s cost more. If 
-> that cost matters on the 040, I could keep the old ndelay() and only fix 
-> udelay().
-> 
-> Your udelay(1000) at 978 us is still 2 % short with interrupts off. I 
-> believe that is calibrate_delay() running with the tick enabled, so the 
-> tick's time is counted as loop time. That is separate from this patch, 
-> and I have left it alone.
-> 
-
-Here's the same thing, but interrupts were enabled this time:
-
-test_udelay(10)      11.4E-06 -> 12.2E-06
-test_udelay(20)      20.5E-06 -> 22.3E-06
-test_udelay(50)      48.8E-06 -> 52.7E-06
-test_udelay(100)     96.1E-06 ->  103E-06
-test_udelay(1000)    1.01E-03 -> 1.02E-03
-test_ndelay(40)      77.5E-09 -> 57.1E-09
-test_ndelay(400)      776E-09 -> 1.55E-06
-test_ndelay(4000)    6.23E-06 -> 5.77E-06
-test_ndelay(40000)   40.7E-06 -> 48.5E-06
-test_ndelay(400000)   384E-06 ->  476E-06
-
-In general, delays are about 4% longer when interrupts are enabled. I 
-think that's just the overhead associated with a bunch of VIA chip 
-accesses every 10 ms. Other platforms should fare better.
-
----
-
-diff --git a/arch/m68k/mac/config.c b/arch/m68k/mac/config.c
-index b745cf20a71f..66e80aa230ff 100644
---- a/arch/m68k/mac/config.c
-+++ b/arch/m68k/mac/config.c
-@@ -65,6 +65,83 @@ static void __init mac_sched_init(void)
- 	via_init_clock();
- }
- 
-+#define GET_VIA1_TIMER2() \
-+({ \
-+	unsigned long flags; \
-+	local_irq_save(flags); \
-+	u8 high = via1[vT2CH]; \
-+	u8 low = via1[vT2CL]; \
-+	torn = via1[vT2CH] != high; \
-+	local_irq_restore(flags); \
-+	1 + low + (high << 8); \
-+})
-+
-+#define DELAY_LOOP(n, arg) \
-+do { \
-+	int d, i, I = n / 40; \
-+	u16 t1, t2; \
-+	bool torn; \
-+	do { t1 = GET_VIA1_TIMER2(); } while (torn); \
-+	for (i = 0; i < I; ++i) { \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+		arg; arg; arg; arg; arg; arg; arg; arg; arg; arg; \
-+	} \
-+	t2 = GET_VIA1_TIMER2(); \
-+	d = t1 - t2; \
-+	if (d < 0) d += 0x10000; \
-+	if (torn) pr_info("torn\n"); \
-+	else pr_info("%10d, %20s, %10d\n", I * 40 , #arg, d); \
-+} while (0)
-+
-+static inline void test_udelay(unsigned long t)
-+{
-+	volatile unsigned long vt = t;
-+
-+	udelay(vt);
-+}
-+
-+static inline void test_ndelay(unsigned long t)
-+{
-+	volatile unsigned long vt = t;
-+
-+	ndelay(vt);
-+}
-+
-+static void measure_delays(void)
-+{
-+	// Given ECLK is 783360 Hz, the 16 bit counter can measure up to 80 ms.
-+	// Loops of 40ms of udelay() calls:
-+	DELAY_LOOP(4000, test_udelay(10));
-+	DELAY_LOOP(2000, test_udelay(20));
-+	DELAY_LOOP( 800, test_udelay(50));
-+	DELAY_LOOP( 400, test_udelay(100));
-+	DELAY_LOOP(  40, test_udelay(1000));
-+	// Loops of 16ms of ndelay() calls:
-+	DELAY_LOOP(400000, test_ndelay(40));
-+	DELAY_LOOP( 40000, test_ndelay(400));
-+	DELAY_LOOP(  4000, test_ndelay(4000));
-+	DELAY_LOOP(   400, test_ndelay(40000));
-+	DELAY_LOOP(    40, test_ndelay(400000));
-+}
-+
-+static int __init measure_delays_init(void)
-+{
-+	unsigned long flags;
-+
-+	via1[vACR] &= ~0x20; // free running T2 with no port B output
-+
-+	local_irq_save(flags);
-+	measure_delays();
-+	local_irq_restore(flags);
-+	measure_delays();
-+
-+	return 0;
-+}
-+
-+subsys_initcall(measure_delays_init);
-+
- /*
-  * Parse a Macintosh-specific record in the bootinfo
-  */
+>=20
+>=20From: Kairui Song <kasong@tencent.com>
+>=20
+>=20The allocator now selects devices from the priority queue. Move the
+> remaining block-cgroup throttle traversal from swap_avail_head to
+> swap_active_head under swapon_rwsem. Check SWP_WRITEOK, the off-list
+> state and the backing block device to retain priority-ordered target
+> selection.
+>=20
+>=20Remove swap_avail_head, swap_avail_lock, the per-device avail_list fi=
+eld
+> and their maintenance now that no consumer needs the available plist.
+> Queue masking and the embedded availability state remain serialized by
+> swap_queue_update_lock.
+>=20
+>=20Signed-off-by: Kairui Song <kasong@tencent.com>
+> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+> ---
+>  include/linux/swap.h | 1 -
+>  mm/swapfile.c | 33 ++++++---------------------------
+>  2 files changed, 6 insertions(+), 28 deletions(-)
+>=20
+>=20diff --git a/include/linux/swap.h b/include/linux/swap.h
+> index 6f32de173fb9..d31f3f023d36 100644
+> --- a/include/linux/swap.h
+> +++ b/include/linux/swap.h
+> @@ -289,7 +289,6 @@ struct swap_info_struct {
+>  struct work_struct discard_work; /* discard worker */
+>  struct work_struct reclaim_work; /* reclaim worker */
+>  struct list_head discard_clusters; /* discard clusters list */
+> - struct plist_node avail_list; /* entry in swap_avail_head */
+>  const struct swap_ops *ops;
+>  };
+>=20=20
+>=20diff --git a/mm/swapfile.c b/mm/swapfile.c
+> index 21d27da95898..5c5e449e9da3 100644
+> --- a/mm/swapfile.c
+> +++ b/mm/swapfile.c
+> @@ -96,21 +96,6 @@ static const char Bad_offset[] =3D "Bad swap offset =
+entry ";
+>  */
+>  static PLIST_HEAD(swap_active_head);
+>=20=20
+>=20-/*
+> - * all available (active, not full) swap_info_structs
+> - * protected with swap_avail_lock, ordered by priority.
+> - * This is used by folio_alloc_swap() instead of swap_active_head
+> - * because swap_active_head includes all swap_info_structs,
+> - * but folio_alloc_swap() doesn't need to look at full ones.
+> - * This uses its own lock instead of swapon_rwsem because when a
+> - * swap_info_struct changes between not-full/full, it needs to
+> - * add/remove itself to/from this list, but the swap_info_struct->lock
+> - * is held and the locking order requires swapon_rwsem to be taken
+> - * before any swap_info_struct->lock.
+> - */
+> -static PLIST_HEAD(swap_avail_head);
+> -static DEFINE_SPINLOCK(swap_avail_lock);
+> -
+>  static inline struct swap_info_struct *__swap_iter(int *i, unsigned lo=
+ng flag)
+>  {
+>  lockdep_assert_held(&swapon_rwsem);
+> @@ -1713,7 +1698,6 @@ static void del_from_avail_list(struct swap_info_=
+struct *si, bool swapoff)
+>  {
+>  unsigned long pages;
+>=20=20
+>=20- spin_lock(&swap_avail_lock);
+>  spin_lock(&swap_queue_update_lock);
+>=20=20
+>=20 /*
+> @@ -1736,10 +1720,8 @@ static void del_from_avail_list(struct swap_info=
+_struct *si, bool swapoff)
+>  }
+>=20=20
+>=20 swap_queue_mask(si);
+> - plist_del(&si->avail_list, &swap_avail_head);
+>  skip:
+>  spin_unlock(&swap_queue_update_lock);
+> - spin_unlock(&swap_avail_lock);
+>  }
+>=20=20
+>=20 /* SWAP_USAGE_OFFLIST_BIT can only be cleared by this helper. */
+> @@ -1748,7 +1730,6 @@ static void add_to_avail_list(struct swap_info_st=
+ruct *si)
+>  long val;
+>  unsigned long pages;
+>=20=20
+>=20- spin_lock(&swap_avail_lock);
+>  spin_lock(&swap_queue_update_lock);
+>=20=20
+>=20 /*
+> @@ -1779,10 +1760,8 @@ static void add_to_avail_list(struct swap_info_s=
+truct *si)
+>  }
+>=20=20
+>=20 swap_queue_unmask(si);
+> - plist_add(&si->avail_list, &swap_avail_head);
+>  skip:
+>  spin_unlock(&swap_queue_update_lock);
+> - spin_unlock(&swap_avail_lock);
+>  }
+>=20=20
+>=20 /*
+> @@ -3910,7 +3889,6 @@ static struct swap_info_struct *alloc_swap_info(v=
+oid)
+>  }
+>  p->swap_extent_root =3D RB_ROOT;
+>  plist_node_init(&p->list, 0);
+> - plist_node_init(&p->avail_list, 0);
+>  p->flags =3D SWP_USED;
+>  percpu_up_write(&swapon_rwsem);
+>  if (defer) {
+> @@ -4326,7 +4304,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
+ialfile, int, swap_flags)
+>  */
+>  si->prio =3D prio;
+>  si->list.prio =3D -si->prio;
+> - si->avail_list.prio =3D -si->prio;
+>=20=20
+>=20 /*
+>  * Publish swap_file before making the percpu ref live, then add the de=
+vice
+> @@ -4475,14 +4452,16 @@ void __folio_throttle_swaprate(struct folio *fo=
+lio, gfp_t gfp)
+>  if (current->throttle_disk)
+>  return;
+>=20=20
+>=20- spin_lock(&swap_avail_lock);
+> - plist_for_each_entry(si, &swap_avail_head, avail_list) {
+> - if (si->bdev) {
+> + percpu_down_read(&swapon_rwsem);
+> + plist_for_each_entry(si, &swap_active_head, list) {
+> + if ((si->flags & SWP_WRITEOK) &&
+> + !(atomic_long_read(&si->inuse_pages) &
+> + SWAP_USAGE_OFFLIST_BIT) && si->bdev) {
+>  blkcg_schedule_throttle(si->bdev->bd_disk, true);
+>  break;
+>  }
+>  }
+> - spin_unlock(&swap_avail_lock);
+> + percpu_up_read(&swapon_rwsem);
+>  }
+>  #endif
+>
