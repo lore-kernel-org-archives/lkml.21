@@ -1,70 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795157872;
-	b=JhU9lyS40MpRq8sWYahHtb1C+fhSO2gpaW+mcr+0bSdLQYuNN/W380wjOLIw1tmOHVNi
-	 9Uv9vFSHbyFqHWH3fx3CpO6ZcB7rmo5z7Bp7cTM1HqRIfxJME/g1eLLAllb2MEhFt5GzL
-	 piSxESOVqCrirxohsnSz8qyV9Bd/fZ2WnyynaLj1DkIkNO35+hnUVeguhYKfJ8iClWuus
-	 Zwp8WozYCdNSiyPR46VPMf6623LWX14ysdDPdrlBW9hVqYvQ88SEmzFkn5JpFfwzi7EhA
-	 0GrTi9TUbIIsy0F0Ycb1uG2XEwDlkuEn2inPiaUXShyxdXbLdH6PjOWE/RxALF89EXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157872;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=vZjFpfz4MT2X5iNvRBWjE2aF1ANIw7Nj7MOizwY18Mg=;
-	b=H/ggN6utO2GR2GxtJkE1MRgkODeKVg9ezCBBMxgDzbyDje3jsA45QoT9btBhPnrodoD+
-	 IWRXLxOoEcEhAIDcl7E5dBuqkyh8Xi6R2t/+SAPBKfAWoJGHQR3OUl4/ICXzzGUxDJKZw
-	 6+IXFbWQe/jzAEqrIvB7OKIXPrVYcZSun3rs2Zf/RW9hUMBAKpdG51SfvNYWX9svM8nK2
-	 dPlN9NlcMTaan1K0huj87TAWT3k4mQi/9haekUYbnEX6Rt0riGDNfl9+CkFhNNBzR4Qnk
-	 PU2VbnL/ysFetpGoLZQR4UoDfK4rw3PyWH9nA1b53Kf0rQ++iGpvrGfApxKBxVZbzpA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=GsO93gPb;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2675B60A2602;
-	Fri, 20 Nov 2026 06:57:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2675B60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795157868;
+	b=T6+bpklfb4jaeAvjfEKEsfAEBar0PFwOQZJisoHM2OyDCusgm52JasXReo8WEhtUDAhh
+	 ym/2Pkgl14DlGDAv0Pz8k/9d+TIMl2vZrYrAH6r96Ecp/srq0d6YfEOBAOKbMDfAfQ2Yp
+	 VA6PyOFqiChx4gGEbAi2a/k0wz2sEfLOzvVWfM/IJWVRZlOtlQ7MOs0wtmw5c+XlSSg1d
+	 guI7uTPJJ/RTL7x1ZIW3++dmyt9kBuEaTJyOBAYZSHLzrAFVmb2Z93p3R6Awjt+9zd1cp
+	 Bm/FoD1767xefdgWXTyEtCM8Hlyz1ODX63UpGCfcBkEIt37IfktMplsldPW4OnupSEQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157868;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=MCFzwAdz6Pwr2Tc3TlblVGA5vcUZ6EAjb+fDF9tvqSw=;
+	b=UTa/dMOa09zHfTeZZZYudsl4G1a0ct8GPaisEByFLtG7f5u/LYjRLIPv5qGlBVUVV4g1
+	 0Y72k/vWzixrGX0aqzkGhoqxsWVb0p7nqAcH71kqSaGiy9vKvt/q2JDbs/aCyttxE4Pim
+	 IhOwniTF0jK9tPGNnRL56ykb2KEutIziRI+R8WrP3BoT1AdGrntdW5Iow/3LN5XhZ7C1z
+	 n3gNJpcXzyd6uX0XFdvLiu4Ft6sLS2bMBAUbcU36NFFDDP3dRpXGMLJApK60AuxxJdMBE
+	 IjtTwclZJ2efqy6QmMuJN73OUakXiUaSrBWY+d8VDBqRxTJP7yA1LtDb8dZWqMap/tw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G91ObbCQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D537A606A320;
+	Fri, 20 Nov 2026 06:57:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=GsO93gPb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=GsO93gPbSPfKMTHQq8hZGgKh5K/CGkLAkSCMo9U8uB2tSw6YjAbEtgiWKdlZKivPwNDwuEaAOGL3Y
-	 6trizUucdWT9YVgzSDxhIRZt66NPnhdlT26NK7tolUJAk0kkSvAg5jpKLicSU1sIx1CZoY/IfVz2zr
-	 AhlKbvqOWpPVQTUw=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app03-12003 (RichMail) with SMTP id 2ee36affef17702-f16f8;
-	Fri, 20 Nov 2026 14:56:23 +0800 (CST)
-X-RM-TRANSID:2ee36affef17702-f16f8
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[223.112.32.189])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86affef156a0-821dd;
-	Fri, 20 Nov 2026 14:56:23 +0800 (CST)
-X-RM-TRANSID:2ee86affef156a0-821dd
-From: guohongyu <guohongyu@cmss.chinamobile.com>
-To: lachlan.hodges@morsemicro.com,
-	dan.callaghan@morsemicro.com,
-	arien.judge@morsemicro.com,
-	johannes@sipsolutions.net
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	13057616121@163.com
-Subject: [PATCH v2 2/2] wifi: mm81x: bound disabled-channel loop to the allocated response
-Date: Fri, 20 Nov 2026 14:49:05 +0800
-Message-ID: <20261120064905.192045-2-guohongyu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
-References: <20261117032227.154874-1-guohongyu@cmss.chinamobile.com>
- <20261120064905.192045-1-guohongyu@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G91ObbCQ
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795157868;
+	b=cEHS1OBa9Ul+BGSC95L0xkXE5guuHTlkRaIQx8QzbnyWiKvqGIo/qNaAJaXpGAEMi6wd
+	 MJg+Zdst1WwCGtoVq1dwRkOk6IbW65JG/5j6D6Jn+7amZn/BcCVlYDYWVXTpnvraajSMx
+	 50CDSgMtXY9vbPfrzpGvGCiIYyTEM+mwNmMMoU9HaDbPMxpjG2Zlgug5mSRxSWmk0KxO+
+	 5ZJ8irk7zt4bDya0Abs8j4ySF/6ZX0o0faQmvFGgt/cr1r2ZQyU2ehVpq6bXl05aJX5ME
+	 vykIN7PIz2Lq0sMJA4OzQ4dVA+Vb2miW9SzXAWc9JMjZaG2ScL5I7Y/fN2gwd478bnQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795157868;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=MCFzwAdz6Pwr2Tc3TlblVGA5vcUZ6EAjb+fDF9tvqSw=;
+	b=WqW7CqBCqYS9pZuhTE8ZeMZKkyF6pIUOhZx7SIHoN0z9lF24Fs7HRdXd+UTsO7FfXD2A
+	 rBMGgHOgjYk/YDPMx2n2YYWiz5WyAB/KJn1IM2+xoNRAngtFxRTT4c03xqgP0zNdikQRE
+	 ZQAQfm7H5vwkKVBOZC8IHH+XuqmANZIDU2bbzd0CqgSOXamEH/D0PHrLtYC+un999f5qb
+	 DbvygGX7z8S73Mk3/ozvhat5m249Sl3NhfGsZ0fIlS0KedMIZKpedqfKxgcZR0pkR+RlS
+	 odImvASoXcPk2WloEmbE2EhNj27rHNrXKQI8Zc13waIhaNT88RjJIYhBXA3/d/JqXUQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id BE74E1F000D0;
+	Fri, 20 Nov 2026 06:57:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795157868;
+	bh=MCFzwAdz6Pwr2Tc3TlblVGA5vcUZ6EAjb+fDF9tvqSw=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=G91ObbCQKPGUTDQ7zHjmn4d6ccKyuDeBAlH3LsSVIXdzulxIEIP/CdX91Wxqmuixv
+	 HvuKEaTf4shI1QRvWdiLUgnbTkddf5eyEDHc23mSMkPROB77exeKHdUeFE3iV2y3Vd
+	 7vvjZxO71P28rifzWevVf6FvvCAmjmWID34o2VNYIQvZrw05NCocALkedMCHKdVTVI
+	 Tp7QGmuv2ufojF/oVkO7Qq6N30QHS+v9rG4zoQPPFMvWF7LcwwrX7mgnQgBtV7PIuJ
+	 9aEBTgyexxKvchjhMAp3zfeKBNNUxzNKyE+GLZdW9tkZ8ZnfB+OqJXp5NnI2rImYgP
+	 2GExyh1b+yswA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 40B2649716;
+	Fri, 20 Nov 2026 06:57:47 +0000 (UTC)
+From: Seonghyeon Lim via B4 Relay <devnull+forfortuna.naver.com@kernel.org>
+Subject: [PATCH v2 0/2] can: virtio: fix NAPI stall and virtqueue use
+ before DRIVER_OK
+Date: Fri, 20 Nov 2026 15:56:02 +0900
+Message-Id: <20261120-virtio-can-ready-v2-0-0defda2af8cb@naver.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,51 +84,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAALv/2oC/32NwQrCMBBEf0X27EoSaime/A/pIU02dgUT2dRgK
+ f1303p3bg9m3iyQSZgyXA4LCBXOnGIFczyAG228E7KvDEaZVtdgYZk4obMRhayfsTs7CiGo1nY
+ N1NlLKPBnV976H+f38CA3bZ6tMXKeksz7Z9Fb74++aNSohsZ7ZZQNarhGW0hOLj2hX9f1C7bTZ
+ 8XCAAAA
+X-Change-ID: 20261111-virtio-can-ready-85cefff06a84
+To: Harald Mommer <harald.mommer@oss.qualcomm.com>, 
+ Matias Ezequiel Vara Larsen <mvaralar@redhat.com>, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, 
+ Mikhail Golubev-Ciuchea <mikhail.golubev-ciuchea@oss.qualcomm.com>, 
+ Francesco Valla <francesco@valla.it>, "Michael S. Tsirkin" <mst@redhat.com>
+Cc: virtualization@lists.linux.dev, linux-can@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jason Wang <jasowangio@gmail.com>, 
+ stable@vger.kernel.org, Seonghyeon Lim <forfortuna@naver.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795157866; l=1990;
+ i=forfortuna@naver.com; s=20261110; h=from:subject:message-id;
+ bh=7UHNUXHJc6SuRgb037ZK+F81kJ4BMtFKgcLw6ppT8Iw=;
+ b=3Q0gUda1kTefGJ42u+omhUSG5N2sIBN/ExfcRfS/TewBnuFYwV25TljYIRqMwqwe22X7twi7U
+ txOLek6KmiZD2QbBypeEgxrwEDsB7WNDUchgVqdSlbDJBPUd1ybvXL0
+X-Developer-Key: i=forfortuna@naver.com; a=ed25519;
+ pk=NSzj4ReyzmE01C4q/f+7jqXzWqsN5NwQK5UsSI6ufiE=
+X-Endpoint-Received: by B4 Relay for forfortuna@naver.com/20261110 with
+ auth_id=1481
+X-Original-From: Seonghyeon Lim <forfortuna@naver.com>
+Reply-To: forfortuna@naver.com
 
-mm81x_mac_check_fw_disabled_chans() allocates a response buffer sized
-for ARRAY_SIZE(mors_s1ghz_channels) (26) channel entries plus the
-fixed header, but then iterates the entries with the firmware-provided
-count alone:
+This series fixes two issues in the virtio CAN driver.
 
-	for (i = 0; i < le32_to_cpu(resp->n_channels); i++) {
-		struct host_cmd_disabled_channel_entry *entry =
-			&resp->channels[i];
+Patch 1 fixes an RX/TX stall when an interrupt arrives after the START
+command but before NAPI is enabled in virtio_can_open().
 
-n_channels is a __le32 filled by the firmware response and is not
-validated against the buffer size in any way.  A firmware that reports
-more than 26 channels makes the loop read past the end of the
-kzalloc()ed buffer into adjacent heap memory and interpret it as
-channel entries.
+Patch 2 calls virtio_device_ready() before the first virtqueue use in
+probe and restore. Without it, resume hangs if the interface was up.
 
-Bound the loop to the number of entries the buffer was actually
-allocated for.
+Patch 1 goes first: without patch 2, restore hangs waiting for the
+START reply before it reaches that window, so patch 2 alone would
+expose the stall.
 
-Fixes: b1906cea00b0 ("wifi: mm81x: add mm81x Wi-Fi HaLow driver")
-Signed-off-by: guohongyu <guohongyu@cmss.chinamobile.com>
+The interrupt handlers could also use virtqueue_napi_schedule() like
+virtio-net does. I left that for a follow-up cleanup.
+
+Tested with QEMU 8.2 and vhost-device-can:
+- With the interface up, suspend/resume (pm_test=devices) hangs
+  without patch 2 and completes with the series.
+- With a temporary delay before napi_enable() and continuous traffic,
+  RX interrupts arrive while NAPI is disabled and napi_schedule_prep()
+  fails. With patch 1, NAPI is scheduled right after napi_enable() and
+  the RX poll runs without waiting for another interrupt.
+  vhost-device-can keeps sending interrupts, which hides the stall
+  without patch 1.
+- RX traffic and repeated down/up work. No lockdep warnings.
+
 ---
 Changes in v2:
-- Drop the Cc: stable tag. No code change.
+- Add patch 1 for the NAPI stall reported by sashiko-bot. With patch 2
+  the restore path can reach it (Michael's question about callbacks
+  after virtio_device_ready()).
+- Patch 2: describe the callbacks, add the hung task trace and
+  Cc: stable.
+- Link to v1: https://patch.msgid.link/20261111-virtio-can-ready-v1-1-0b4dd020af0b@naver.com
 
- drivers/net/wireless/morsemicro/mm81x/mac.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+---
+Seonghyeon Lim (2):
+      can: virtio: fix RX/TX stall on interrupt before NAPI is enabled
+      can: virtio: fix virtqueue use before DRIVER_OK
 
-diff --git a/drivers/net/wireless/morsemicro/mm81x/mac.c b/drivers/net/wireless/morsemicro/mm81x/mac.c
-index 0fa80b1488aa..953958bf1241 100644
---- a/drivers/net/wireless/morsemicro/mm81x/mac.c
-+++ b/drivers/net/wireless/morsemicro/mm81x/mac.c
-@@ -288,7 +288,8 @@ static void mm81x_mac_check_fw_disabled_chans(struct ieee80211_hw *hw)
- 		ch->flags &= ~IEEE80211_CHAN_S1G_NO_PRIMARY;
- 	}
- 
--	for (i = 0; i < le32_to_cpu(resp->n_channels); i++) {
-+	for (i = 0; i < le32_to_cpu(resp->n_channels) &&
-+		   i < ARRAY_SIZE(mors_s1ghz_channels); i++) {
- 		struct ieee80211_channel *ch;
- 		struct host_cmd_disabled_channel_entry *entry =
- 			&resp->channels[i];
--- 
-2.43.0
+ drivers/net/can/virtio_can.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+---
+base-commit: ddfe51b0a0f5dc9e415cc2c8ad8db17532dd426b
+change-id: 20261111-virtio-can-ready-85cefff06a84
 
+Best regards,
+--  
+Seonghyeon Lim <forfortuna@naver.com>
 
 
