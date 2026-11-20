@@ -1,85 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209931;
-	b=GguKI4uomQ72JivDQ7JP2BDbzk4oFxqNb00W5neSfM+bS24B3k8eg7zqmuMQtbkcFFiP
-	 xXKOJR8JJ1AAkFaLAdgE7WEfnzCUSnZwf+GtqeKrJpc0goYpjm/q7tPgXExiB84BS5Eno
-	 vJ+hI5lQyh8SgiMavEFtdmdgvTUVhhKhE9DjWvlYsAg5uZaGXRKUr/iJn0QjUmolsv9f7
-	 nXZLvaov3mNjl6xGMlCCEr/AaSPsV2dJn/x7oTCJY1toO5kn6alkMCI1lRbv/UG9X7/Ar
-	 JZRWwITgRHc19HOX3SQFHeVQxAJy5ks5vNRviD2rYNHVxDMGGtSYwZsH5zocJetfxnQ==
+	t=1795209968;
+	b=ReAm0t944G82wVAKtp/E17rPh3XIKfKrLpnrUDEYsBbth7IY0ekm5ybfAOgjfv3Fy+F6
+	 FEjbbkdSOceWungAg6yuIQ4Yfo2QOhTABqCS5vhk2nkwTCPUQoFGs09zcKSyyY3On5KNs
+	 tkjE6GngtMer6KneJJNkVM5eZLmqusl6xAvIucuomdzOePZ/PcT8gHGcinnzn43TEnGa1
+	 sRSkmH4hYgRXH+U1CuIrj9bhFFc6s6GZoaUVdjfsxH/BEVgO8lSR0ekS+Bxwk8ZP/S4so
+	 BcIKfP+wW/6MO39ma3qb17uuaVq+Ps1lpBV6tVlcGdOSN4wU//8QfqlTDcEIy50SO7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209931;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=jWKBSzdAzzsDzCt82X+8X/qIHu6aYSXAuHqMqEPQGho=;
-	b=AjxDD5Zh2AQvYq7mNqlF1/Dc4GEc+Jzq+4thX36/gp8u3Sc+f0oj6sE6+iND7+QoMLXi
-	 mFnRZStkNtYtjv3K+ykhT2ADpjYjMgWsF+Tmh8dGV+HOwoWFFYU8z7c9fzIt7QeNzRUhM
-	 7STVpCPcZGu3O42fT9TxFrDF2lW1tG6zHiIUy2J/aTKNZ4biYjYeg7mIRq6Qjy6Ya0mh/
-	 szcDgJPxRhpG2ZLrgeGee18jxcKUA8PRJOJorz2uVdHIfZJEh+cHBIrKNUhZuVDS9ovdi
-	 13OLvVKjkK2PewqckDNBrS13oohkvcJ6143EXR3NMvGgUhzDC6P8y2b8QOrDd4Z8SXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209968;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=8amswnvtInzqviW6zxh+hTO3qU8xY1vLKgxSB28EODo=;
+	b=IClky61PKgpRHesLawm6xW4jduL6f2uOVwd6YdUWToDeOClaBF/4D3peqQftA/LRmUYW
+	 fMQMvn5bJSGds1efcGNMX/dyKwAYOzue4khQ3MF4Z+IWziIEFpoVAxKNb+V4CBnvk+40y
+	 YwWFWjJs+U+lab95MKPfoSRswkoXKsUJpc/azl8osh2s/MVUog+al3KXPAgfWcOWIWG2V
+	 F7z56pTmfe47tE/UqUnu0aUH3DJyEV8Jy2b0qbwieu3ELI4W7mUhvn1Hdr81Za3cJOWXy
+	 iiSiZ1hZdH8AFiV3JWULg+lpTxLstZIGreXvqPTYXFZHlVsMdh6l4WqzPMbR/myO9GQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=HX+yBOqx;
-	arc=none smtp.remote-ip=212.227.17.20
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRAhB2Ip;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6AC1606A687
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:25:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6AC1606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39421606A334;
+	Fri, 20 Nov 2026 21:26:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=HX+yBOqx
-DKIM2-Signature:  i=1; m=1; t=1795209925;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:Ovb7gYoCvyTzGhjegztTxzmCvaDp
-   79ovg2ODduLksQGzJ4cDi4KCq3nWUMLVowqAGizUfbDMVFDm/83wgKqgmwJLxQjwgehAtvybXly
-   QVyoVJxzw8UQSj/LNiv0j44hC3/5RB/owjMSmv18sk8xDoFJreSrlPV1R0qYXsr/0Su90wV4UJh
-   hoHzqa4GmqtvzIXACFExwUvZWf5v0qnic5uykYvewoGX9gUELKz66rmQIF5HwSBkSCM7tx4DvJr
-   juT839TkwzICXpKL9SqOTax8QlL662efIP25QNDRcuDsHuSAo4PKxjc1ITKpzxAFRFjAHcAR9vS
-   UVPSXlDkVLI73g==;
-Message-Instance:  m=1;
- h=sha256:
-   G7jN/YsF7zA/e0eo8k1w/wSENyqNp8rcBnyz71iljRo=:
-   h3fdsL54NEfP0jAYDQXAp2+cphLmYjEzMCj4tm5gBds=,
-  sha512:
-   MDSPwMbVKyruJGbvw9w7jxbJAV6TzVYND7na5d825oaFIl7QA4QR7TGYVIpZFv0B6cC2G5UYAFqA12CdkubhUA==:
-   mPwPxeK4hKStXrxy7Rc4YOgr2/IKc6101hAlTu2KH5/s4wy0LgSfjZX8BfD/NzNYqZ54yqR41mGy5CRZW27bHg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795209886; x=1795814686; i=w_armin@gmx.de;
-	bh=jWKBSzdAzzsDzCt82X+8X/qIHu6aYSXAuHqMqEPQGho=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=HX+yBOqxLudojF9iMyJU7+0Az9yaE+TxiGYwUyg357MRTjZAqwwri9TGrl1tayLf
-	 Vl0QTJEUPOT5uFYEYdsFqLj6Olb8xBSqxlcOPgLbSDp+HWMO9MTHJWdSIlvv5gIr7
-	 5EaF7q8R1CyD6Y6X+60PZzRiosyr36R1Hl7nWp5PrrVlmeUPOAQ3ub/5NNZR5YCX/
-	 mSzLdq4NlWORiS14EU/XM3v7Yy63ybPp/jnkMjAbX8vj+c7LRsD8yIcAxH5wzTwV3
-	 LmCqVXe1hV9A1irWVBfbPUfr16O0OKz6ICDVgmFaLym26bX68jNtiSJlZRtMAlMYi
-	 5gMdBQZgaUNFD58mNw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MtwUm-1yOXWj1dTo-014QEm; Fri, 20
- Nov 2026 22:24:45 +0100
-From: Armin Wolf <W_Armin@gmx.de>
-To: lee@kernel.org,
-	pavel@kernel.org
-Cc: linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	i@rong.moe
-Subject: [PATCH v3 05/11] leds: class: Fix race condition when creating the device
-Date: Fri, 20 Nov 2026 22:22:22 +0100
-Message-ID: <20261120212431.152081-6-W_Armin@gmx.de>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
-References: <20261120212431.152081-1-W_Armin@gmx.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRAhB2Ip
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8398F1F000C6;
+	Fri, 20 Nov 2026 21:26:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795209967;
+	bh=8amswnvtInzqviW6zxh+hTO3qU8xY1vLKgxSB28EODo=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=mRAhB2Ip1/OZxYH82O+wOg44IcbFfm0Zfk/m7gLtpW7uUjSlhPbmb5kbmbfVmRZAn
+	 yG6Ot9ecs4cO7gGBKwa5t6c5BAz6d7nhqSeWoR5rOfx0S5409Ut84WTY2WJhLg3ON+
+	 QXzUzp0L4Kus5M6gOQO8IbcfJoKzT7+vK81C6a2O/7EKQj11mjRbBMY25moYQ7hlOm
+	 Uf9ko2WTIgMt4toHi+2+JnJPTXQDSAs+OIqOSxKf5tQ5CG6h/Yfvx6t+Nmxp2Wn0Ge
+	 WsCjIW4pdgLV/701bRTP4KVOL1Jf/kUtq+BSnp2ODDH5FhDNcIK4R5R4uWadHVWvbs
+	 4O/RzL2vk8FIg==
+Message-ID: <sashiko-outbox-226175@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v10 25/40] sched/deadline: Reset the donor's runtime at
+ a deboost in the class
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <a16410b68dd594967dd00f2b2bd03f1ac458c1a7.1795207232.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <a16410b68dd594967dd00f2b2bd03f1ac458c1a7.1795207232.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 21:26:07 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,196 +60,93 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:IX7HB0rZpwpaVJ04PyghGaDlIvTehy3V/agOIWBfsx9ipMs/h5Y
- ayfcbWL81s9S1drK6vjFydd7DB1CfiPnuqgg5KS75zG/8g0cYUDlulIZHbj9g5FDHIegl5E
- jlXxnwUynWKzOADjg3HOaA82AEwkp+fGamrw6INJMzT4nLzNvxAwWFJZcVRZccfCZshPVra
- UK8c70qOcWUvbhBDJ9TMQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:kE27ah4ggn8=;L4TE2EEdGkJkTCedL97lIrK8ynX
- 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
- uwWIFHFzTad5KZHLnw==
 
-Userspace applications can access the sysfs attributes as soon as
-device_create_with_groups() has returned. Two of those sysfs
-attributes ("brightness_hw_changed" and "max_brightness") access
-fields that are not properly initialized at this point, with only
-"max_brightness" guarding against this by taking the LED access lock.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: dl_deboost() starts period for sleeping
+  constrained task
+--
 
-Fix the race condition affecting "brightness_hw_changed" by creating
-the device after the associated fields have been properly initialized.
-This also allows us to drop the LED access lock inside
-max_brightness_show(), as the maximum brightness does not change after
-initialization.
+commit 280104d364cfcdeb61df32b73bafd44ef91c8ae1
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Signed-off-by: Armin Wolf <W_Armin@gmx.de>
-=2D--
- drivers/leds/led-class.c | 32 ++++++++++++++------------------
- 1 file changed, 14 insertions(+), 18 deletions(-)
+sched/deadline: Reset the donor's runtime at a deboost in the class
 
-diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
-index 00532437cc45..fa9803e2ae6d 100644
-=2D-- a/drivers/leds/led-class.c
-+++ b/drivers/leds/led-class.c
-@@ -81,13 +81,8 @@ static ssize_t max_brightness_show(struct device *dev, =
-const struct device_attri
- 				   char *buf)
- {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
--	unsigned int max_brightness;
-=20
--	mutex_lock(&led_cdev->led_access);
--	max_brightness =3D led_cdev->max_brightness;
--	mutex_unlock(&led_cdev->led_access);
--
--	return sysfs_emit(buf, "%u\n", max_brightness);
-+	return sysfs_emit(buf, "%u\n", led_cdev->max_brightness);
- }
-=20
- static const DEVICE_ATTR_RO(max_brightness);
-@@ -555,6 +550,18 @@ int led_classdev_register_ext(struct device *parent,
- 	init_rwsem(&led_cdev->trigger_lock);
- #endif
- 	mutex_init(&led_cdev->led_access);
-+	led_cdev->work_flags =3D 0;
-+#ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
-+	led_cdev->brightness_hw_changed =3D -1;
-+#endif
-+#ifdef CONFIG_LEDS_TRIGGERS_HW_CHANGED
-+	if (led_cdev->flags & LED_TRIG_HW_CHANGED)
-+		INIT_WORK(&led_cdev->trigger_hw_changed_work,
-+			  led_trigger_hw_control_changed_worker);
-+#endif
-+	if (!led_cdev->max_brightness)
-+		led_cdev->max_brightness =3D LED_FULL;
-+
- 	mutex_lock(&led_cdev->led_access);
- 	led_cdev->dev =3D device_create_with_groups(&leds_class, parent, 0,
- 						  led_cdev, led_cdev->groups, "%s", final_name);
-@@ -562,6 +569,7 @@ int led_classdev_register_ext(struct device *parent,
- 		mutex_unlock(&led_cdev->led_access);
- 		return PTR_ERR(led_cdev->dev);
- 	}
-+
- 	if (init_data && init_data->fwnode)
- 		device_set_node(led_cdev->dev, init_data->fwnode);
-=20
-@@ -576,18 +584,6 @@ int led_classdev_register_ext(struct device *parent,
- 		}
- 	}
-=20
--	led_cdev->work_flags =3D 0;
--#ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
--	led_cdev->brightness_hw_changed =3D -1;
--#endif
--#ifdef CONFIG_LEDS_TRIGGERS_HW_CHANGED
--	if (led_cdev->flags & LED_TRIG_HW_CHANGED)
--		INIT_WORK(&led_cdev->trigger_hw_changed_work,
--			  led_trigger_hw_control_changed_worker);
--#endif
--	if (!led_cdev->max_brightness)
--		led_cdev->max_brightness =3D LED_FULL;
--
- 	led_update_brightness(led_cdev);
-=20
- 	led_cdev->wq =3D leds_wq;
-=2D-=20
-2.56.1
+This commit records whether a boosted deadline entity had its runtime
+refilled from its donor's parameters in dl_donor_refill, and starts a new
+period from the entity's own reservation when deboosting within
+SCHED_DEADLINE if that flag is set.
 
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index a566e9252a418..2912d13b60d60 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+> @@ -93,12 +93,62 @@ static inline bool is_dl_boosted(struct sched_dl_enti=
+ty *dl_se)
+>  {
+>  	return pi_of(dl_se) !=3D dl_se;
+>  }
+> +
+> +/*
+> + * Record that @dl_se had its runtime refilled from the parameters of its
+> + * donor, if it is boosted.
+> + */
+> +static inline void dl_note_donor_refill(struct sched_dl_entity *dl_se)
+> +{
+> +	if (is_dl_boosted(dl_se))
+> +		dl_se->dl_donor_refill =3D 1;
+> +}
+> +
+> +static void task_non_contending(struct sched_dl_entity *dl_se, bool dl_t=
+ask);
+> +
+> +/*
+> + * End the boost of @dl_se, whose task stays in the class. If the boost
+> + * refilled its runtime from the donor's parameters, start a new period
+> + * now. The next enqueue is too late for a task blocked on another
+> + * rt_mutex: the chain walk copies its deadline into its waiter node
+> + * first. Without a refill, the task keeps the runtime and the deadline
+> + * of its own reservation.
+> + *
+> + * The caller holds the rq lock and the pi_lock of the task, and has
+> + * updated the rq clock.
+> + */
+> +void dl_deboost(struct sched_dl_entity *dl_se)
+> +{
+> +	struct rq *rq =3D rq_of_dl_se(dl_se);
+> +
+> +	if (dl_se->dl_donor_refill) {
+> +		dl_se->deadline =3D rq_clock(rq) + dl_se->dl_deadline;
+> +		dl_se->runtime =3D dl_se->dl_runtime;
+
+[Severity: Medium]
+Does starting a new period in dl_deboost() while the task is asleep cause
+a constrained-deadline task (dl_deadline < dl_period) to lose runtime or
+be throttled when it later wakes up?
+
+If a deadline waiter times out on an rt_mutex held by a sleeping
+constrained-deadline task with dl_donor_refill set (and not blocked on
+another rt_mutex), dl_deboost() sets dl_se->deadline =3D t_deboost +
+dl_deadline and dl_se->runtime =3D dl_runtime while the task sleeps.  When
+the task later wakes up at t_wake:
+
+- if t_deboost < t_wake <=3D t_deboost + dl_deadline, dl_entity_overflow()
+  is true because dl_se->runtime =3D=3D dl_runtime while remaining time to
+  deadline is less than dl_deadline, so update_dl_entity() calls
+  update_dl_revised_wakeup() and scales down dl_se->runtime for the time
+  spent sleeping since t_deboost;
+- if t_deboost + dl_deadline < t_wake < t_deboost + dl_period,
+  enqueue_dl_entity() -> dl_check_constrained_dl() sees deadline < t_wake
+  < dl_next_period(dl_se) and throttles the waking task until t_deboost +
+  dl_period, even though it did not run during that period.
+
+Later in this series, commit "sched/deadline: Check the runtime of a task
+whose parameters change" avoids starting a period at deboost for
+dl_new_params when the task is neither queued nor pi-blocked, and commit
+"sched/deadline: Boost an owner that cannot run on its own reservation"
+restores the task's saved reservation when dl_boost_held is set, but the
+dl_donor_refill path in dl_deboost() still starts a period while asleep.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
+t.mathieu.desnoyers@efficios.com?part=3D25
