@@ -1,98 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186914;
-	b=VeKXQJh8O0N/mJQiGq6ldRapCtE5oRrJlEHbOPsfz2vv0qGjjvXQYSzo9+clpd1KngBZ
-	 KYPZZBEgBRvwzn41fX0m0z6PvRHPNy4Az47EBGAu/ghhH7RIZRf1twjSi3CDPrMMMzHoI
-	 jTxY02o0EzqgR6wrtDlEvLeAtTBN4sCLMHiYtKC6jb25yo4AfnN4Cn6o3PBoJ/zuUUywW
-	 PdFuq2OhANvegJVSLMw//xpjzZVAHpnZzxcCDldj7D+bg0Cp0aThcxDodBiSLIQcpkUBv
-	 0PFUq4qK9DnoSH5k6uPnr/Nkx898KLxkKSW4/GNirBznOK1xDQcBBmD4iApd4+hv8Pw==
+	t=1795186920;
+	b=JrcY/llP4Tw/ohHFWF9iFuqzHdk9q3UJ34KKYSH9Y/gFoUAqU/56soQL7NB65IglWDdz
+	 hmrAVGZF6A1Xm/GemFqkldYY13nIuvIIAWq67sVwRxHhWxLyosygMyAPuUONhv4DAGpII
+	 tyVQnomfrTSzJrHWrjZDDKxRLCxkV/ujADCUO0J1GaM54ITG58/g1HD+2TVbMsdJLJsfU
+	 Hlwutjkaq3/tnRP9wIXlrUwTIrLFhPUwbR9yV6gGhLolctJcVNpnjijlAX2LC5o+HlsGh
+	 zy4qL6vLlMU15y3HRzbYNDDlbuUY4JAqMSxiGi1fIjUdgK9lPGM4+rPNBW4Q8VO3DtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186914;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186920;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=jJEKPitTmspiZgBtv0fmRLCqGp7B3w2kyTO0lmVWhjs=;
-	b=114eV0DEBJP2yl8wM14Z+4FQLDoYpkTQcMBm2EPrhypV9c29e8GU5I0xjUt2X8q3bAon
-	 eVNFYfYlS0sRmyNXvFpbY8aXOAmda1xcejiZN5JzXqelYjD+mlhavZlqVyqhhdDvG6+LV
-	 HPj1wIXFYr2WS5xribJUMemNka7k17Gg8wbzWztvuDCQHxy/ZQQ7Vo8tiA5QoVuOwAkXe
-	 fGtlVh+FhVK8qEMeolMemtjB06dE0EMA8/bzYF0FAOJed6rdGKY3ctJmJv7IELHnUVJCp
-	 VwfnKkCmQcRXqv4yJKJNvLcMuurSWvHaby1Tqea4zWcKUazLPtpAEjedRN3TMSzgcLQ==
+	bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
+	b=Lj2tYgfyjH7MM7c8PotjFLSQH3ZlRUEcStTfcRu0ngNORMGrEIQpg6ZVUJ8N16S+e4rg
+	 SPXkZ5ana/89WTR/7qKDiVcAHcV9RBxMEO8rlhFS6yY4I6lWfXObYvfR/F0h3r+OOaex0
+	 VeAOGKYqvzd1nAVwQ1mD1N+195+lyK1SDklOK3UAXapPjwuRRkkkmYtI7W6B9kwJYMoDp
+	 6uygvvf0seXMkv1qNHxUBA3dK/5O4qqMyvviOHpMaZh/glUXGQ+vK5syj50GxSHVxAjj2
+	 dT7+WzdOt5grHeDPPhnxGjRZk+9ECOHE5MOTzxxC+PzM61hMmUjpxpQefxi8dF5xyjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=isslab.korea.ac.kr;
 	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=U4s8W1Jm;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=V1muv4aO;
+	arc=none smtp.remote-ip=209.85.215.171
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0856606C84A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:01:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0856606C84A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43352606C869
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:02:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43352606C869
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=U4s8W1Jm
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b0e0e65adbso491122a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:01:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=V1muv4aO
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cddc597d062so584419a12.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:02:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186913; x=1795791713; darn=vger.kernel.org;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186920; x=1795791720; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=jJEKPitTmspiZgBtv0fmRLCqGp7B3w2kyTO0lmVWhjs=;
-        b=U4s8W1Jm3lFPfs5+wrNBLswuiF5CaYpfjnOxkfOInBFakmkhpYm0C9r/dy1VhXq1MO
-         wdrWuDs/Mi96lfOYZFvrI4u1zIz5qwvc3TxAqyGS1wMcYe4XMvV4WIi00Z1lW/XLLn0J
-         4t53eku5S4V0IDuURxyQofa7YrieQ8NQ+1mX/vKJtkpqaZXM31QTx25qfHENw7SHniuj
-         7sUwMxR0LiudslXaIdockcUbtvPmsafW5FTn3C+pOSoPD3OTrZXcg0WQ7SCuPNl0qT7c
-         B2Tr9bxR0ui+0N87wRF1bOsGkrYI1orBRgfj11SQX2kbWZsyEOTiTsxA1PogtHPpGBJK
-         Uhvg==
+        bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
+        b=V1muv4aOu02L+yE4GAaHN7SP6R+7IjUh8YEh5nx82Yg5Xh8xNHmJDgjDfvfC/ucUjm
+         cTr8PmTaextdDJKUU+q20INEYhzxAv8g3wboLhaDeINx8UCor5YAwwfK3r77RL79gQUL
+         nvI9YZpWdyh4i1CUrh+3BxYlWTNXbRfdNSO/7PjTlU9qOGYrLTO1FJDWavGJgG5lbgQl
+         86hOm/3Bj2KivYZhXFdAWXugZftf1SFw1aWrWS5Ft9/E+N4aUJJyvGimLbMVvTQ83pOD
+         yL0DzPzHx9IrRc1eprEVMr9D5trEf9y2Nc0wwM69675ETUuocc7UKxOOAj6El/tge0l3
+         aC6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186913; x=1795791713;
+        d=1e100.net; s=20260707; t=1795186920; x=1795791720;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=jJEKPitTmspiZgBtv0fmRLCqGp7B3w2kyTO0lmVWhjs=;
-        b=T25Db8v1mlAu1gY/kJ+ar9N1HD1k2U9IukWV1PH9Ionu+AGOOU2eIj19e9d2jnDagk
-         ugZxT4owyfrttiWxu5JoOuDvkyxJYHNELPGbFRcd7m3CXO2QHLFdpssyhw/EThcyU7du
-         AKPW3qgHz9pjGMvBP8E3KHMcuFCjOLI0OWb/3gtn40As/gEgE5vDWEES9ZG41QY3aJR1
-         luf8wUGCeXBnEA5iXAeLovTYvzPkPTsMAMzYz/T4tv3+Mw7UMDTwzetE1YUBm3QNqf80
-         pSOL+TKDt0f24B4Bs3Ki/ecCVUSDPNftCSvjkY+UPBDq+OT4I1a+qBp8uCYp3lE82k2u
-         b/1w==
-X-Forwarded-Encrypted: i=1; AL+hErF8hsfXH2IkiPqfnOVDAswZxtTZQ9fXvczn4/P6nlkuIVjzvjvhZ16R6zdXaQYbu82ZGtQa349Ye6cX3jo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CQI0G01sJI9vIZy3PNXcj3FBVfEg7rtMJy4fc8CCuKGV9xntR
-	74fnyBhCrzZNiVVmtmPJyoQlWeYMpqlrDhLtHvBISMyP/HzfsuYlStMLGrY0i1VKDHI=
-X-Gm-Gg: AZFdTZcBT66GrRCXCcNnmqRkj21cCvYJ51AgBwiCbN4eoMHI7bdyTxvBDA98CaAP46g
-	g7UflLXbIFPvCdVeuP01lR6OKCfcrDm+gUIeNKot1X9vd7G+3srAMxaKUc0yMWsqxXpm4vDpkIQ
-	LL6UMzhstXWZ8xazQ81xJBimM2a/EaM0suYSpzwYlanQ21oBQnEyWR3pkOjMiqWcFlEbp/OE+/5
-	uozSwZwdr16aLl9+vLuEyGPfkG6NDYwNIDARu0sqzO5N2rHag+rwnplu/vssFl6gbiaGork+89B
-	+hRrScL8AoHVgG53Pw52fctHSQ/vOL9dIe88vQFvjKhtA+PzCrTBxJPInY6SNS5bBRzy2aaY88X
-	OYm9hWpX9yW2wjSOcipT6+CzHO6Fq8RfFceLuktPcsvooFHLvsmUAyyK+Dd3JPvqM21o0ZnrOuE
-	9MTaOQSBmhJiygAlQxKc3IfUDapWsDu4oSGVvO6kbhFNJy92SZXVMzfVMfQY79JYmTm4vRwrbWi
-	TvcLMPXRpYJsas2xA+FgzY4WxvfTRV5QysUz3vH7geybMcRWrKCcC6KJfUjA1LbIMiJdTuBXFdW
-	za7gG6FA91T3gB8NuKNP1SqhK7mMuqy24Dve4NV1vJCUqls6z0XHTxp4nx53LGShl4wt39G8ogb
-	HcR542zssZOALF+I0JuuvrpDjJBirbKyUfStt
-X-Received: by 2002:a17:90b:3d4d:b0:3b4:691:d073 with SMTP id 98e67ed59e1d1-3b41c95b0c2mr3210879a91.55.1795186913056;
-        Fri, 20 Nov 2026 07:01:53 -0800 (PST)
+        bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
+        b=HovpANgABoRfkm2UlyqyM/krXmI9zOgAdBE3wKwPYZMShCYBvsuB8fwWPYMvvWunIK
+         QnJpFi8OWEMdbXhJhxoDVaTkZvE3rLNzzsK5sQw413EbV2EyXgVRr+BO1a69FK+T4yO6
+         Qg1q9o+g53X9e4a1bFe86zjG6VL2MoSP5OdvoXSuIpSbHhQbejU6gmyOvI38kjKJSlGZ
+         Xrrtb++7g2GAnBF7U7GoukrhkLhO+2FKnzZYBuM/u0R1stYMmDoJFLP8WDNJ36jEe8x5
+         SySQgyQGmIxIAv1De8zkAtHX1aBG0krxh/QMNDt8oqZ0IpdEljWf4P1cdoUQUL4qxISi
+         G4Qw==
+X-Forwarded-Encrypted: i=1; AL+hErEHPz6qlDocJN6xOiXpFYyNTY2UFWVuYK24JMKBYCLGHan2tTPC2EwQjojqLsCJMyk0L7DmWugGkM4Tz24=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8SW8ywWPskPehvH4MGUL16hXyZd6Jmmej/HdgJgomTHmyHH17c
+	tft6PyFRYosNUajedAegbPEvEU2fWrlYO0yhJ/uDkRUuXZozsavxod+u7yefDYnrPS4=
+X-Gm-Gg: AYBFou08QpqT5IWoAjp8UGz9gRisvYuBnzOhTcxP6S/7x1BDkQhsOGSKtuHpcWsl0Ma
+	JIj9ya4vO25esgi7AUEHIw9NuKNsViy3LG8FytAHYwxHSYFZQ3Yj//wZxy/BIUTEjQgI0F/XFd/
+	Aus437WSaiuaVcHqVDPfrcGlveVnxjInZSkjT1XXuSmoYRQEWnyn/fsvrkLUExLKAO+VHDUqGwF
+	2wLTe26VmR8EA0nAi9Z8LKgV/B9Qa+4MqGwCZyfm3uOPQf+lAeEblkXC5AMeI+PITpPDNUygzAe
+	hktJVlNV67UFaEd3i7vISWaZBNS9IoZxol6NFvp3o80Y0UrpDapKj4SOx9mTE12IvgvpODdCZqr
+	KoeR5GDzthBsLheKtZecf3fD/BLx9GyLeXnTinPhcfu2dILPWnNrEvrqQE7XouNysg6Sy72m7vI
+	0a3Qg+GosSWA4r4TDKjonpQfLqczbfINmo3mStDCn04CD90oNJX9riGfFTyMiladKkoartAembQ
+	gt7xG8BSmAg86t44BiFEut8Zk8789VhxyFD3USa/sKIinQFzLHzXdbssLhUpijlcFGq2PyKPLeF
+	CAOCeXytHAp2LuUCgzwPRCCltkVEHiIrNgyMyFr1tG46w5nwPM9RYsMEEaGddMkRqRnKF83r/Re
+	NmtM83aiwYPHSer629NH8vaqIrIZoMGR3LOC6ug==
+X-Received: by 2002:a05:6a20:c887:b0:3ff:f20b:d2ec with SMTP id adf61e73a8af0-4014dd66078mr3640804637.52.1795186919522;
+        Fri, 20 Nov 2026 07:01:59 -0800 (PST)
 Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm4733348a91.17.2026.11.20.07.01.50
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d06503dsm1398731a12.27.2026.11.20.07.01.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:01:52 -0800 (PST)
+        Fri, 20 Nov 2026 07:01:59 -0800 (PST)
 From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: gregkh@linuxfoundation.org
-Cc: linux-usb@vger.kernel.org,
-	Thinh.Nguyen@synopsys.com,
+To: gregkh@linuxfoundation.org,
+	nkapron@google.com,
+	linux-usb@vger.kernel.org
+Cc: Thinh.Nguyen@synopsys.com,
 	bigeasy@linutronix.de,
 	target-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 0/2] usb: gadget: f_tcm: fix a short write infoleak and a completion-path sleep
-Date: Sat, 21 Nov 2026 00:01:48 +0900
-Message-ID: <20261120150148.3128435-1-yhlee@isslab.korea.ac.kr>
+	sashiko-reviews@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	lgs201920130244@gmail.com
+Subject: Re: [PATCH] usb: gadget: f_tcm: put the overlapped command's request back on ep_cmd
+Date: Sat, 21 Nov 2026 00:01:53 +0900
+Message-ID: <20261120150153.3128458-1-yhlee@isslab.korea.ac.kr>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261013062129.2568405-1-yhlee@isslab.korea.ac.kr>
-References: <20261013062129.2568405-1-yhlee@isslab.korea.ac.kr>
+In-Reply-To: <sashiko-outbox-223285@kernel.org>
+References: <20261119140641.2768465-1-yhlee@isslab.korea.ac.kr> <sashiko-outbox-223285@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,12 +108,24 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Tue, Oct 13, 2026 at 03:21:27PM +0900, Yehyeong Lee wrote:
-> Two fixes in the f_tcm BOT completion path, both reachable from a remote
-> USB host.
+On Thu, Nov 19, 2026 at 02:21:37PM +0000, sashiko-bot@kernel.org wrote:
+> [Severity: Critical]
+> This problem wasn't introduced by this patch, but can usbg_aborted_task()
+> dereference a NULL stream->req_out pointer in Bulk-Only Transport (BOT)
+> mode [1]?
+>
+> Aborting a task in BOT mode therefore causes a NULL pointer dereference and
+> kernel panic.
 
-This is superseded by v8:
-  https://lore.kernel.org/all/20261118124005.2428068-1-yhlee@isslab.korea.ac.kr/
+Right, this is a real bug, but it needs a non-default setup.  With
+emulate_tas at its default of 1 the core sends TASK ABORTED instead of
+calling .aborted_task(), and a BOT session can't send a TMF itself.  So
+it takes a LUN RESET from a second fabric sharing the backstore, with
+emulate_tas set to 0.  It's an Oops in the target_completion worker, not
+a panic.
+
+Fixed in a separate patch:
+  https://lore.kernel.org/all/20261120113956.3071640-1-yhlee@isslab.korea.ac.kr/
 
 Best regards,
 Yehyeong Lee
