@@ -1,63 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795152922;
-	b=dgX7UCY4rxm7xRUYo9aMxXQzWgjPb6tgV7P2sj0IrSBz8XMhWgkHdyqoSVmc1BgJt5f1
-	 hOtvPbIJcMqgB9AsJiJk69ZuSJ+fQCzlAgm9yIso9Dv2TNntZcMf+pNoCExx8RDnF1Kdm
-	 aN4Mj/mJRjc0jm4SeZzfxK03Us9SJnSkxVkNAGcIOs9zLeto+MSZkJs1bWK2HyhMClg25
-	 eV34OspKJOYWNE+VpMnvZkg0Z3Tq1JoCEN1J2VyxVKZFCBEFitihsOah8z6DCaOvPoRb/
-	 Rgfw2rQBvQ77+6WaGNlwL/5qlWDWMkbQQNzRW/MDaerY5JZuE55xVo3LosHWC5brSPQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795152922;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=6NmKnHRU/piT4HLG2fbbtf+VrhiQ2Ne2vhyFekILWNQ=;
-	b=HHWK1Pm0BYzsQkgg/54puDdcHi4V0ZaeiMmy5WdfavebaL+dkmX6FcoLo9vnyhz+KO6i
-	 J9KebPX2dAn1jVAtI6sv8eBaV65kqNPjtp3kWcvk40mcqljAj5SuwS9gHZECysXqtWYpz
-	 +5Aj9DcDdgKXfepZMshIv30ILt1cXBOr4VV337R7GTJbcH+8XZSR+VIt/Z9/Upi5qQD/y
-	 eyB5bJz14svHMeQmhwLa5L4i78caBIAvMQ2BnaKKyQeyLA4bxSOHBNJI2FQFXFLCSgV8i
-	 nbOXbCRlvv9MOC4YPdPQRdQrCHEb8YZSt4shm7qlOfj5RluksUDi3ah+1nZMJSf0f1g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PyfVUj5V;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795152937;
+	b=QASNVJAiT+BrSLzqZKP2de9k3YBeDteFitxrYJLbcA2y3rhVeMNTdOm3Y3DZNBW2ZBmZ
+	 PymLyK1DaspvyiMotUIWvdbwoDEkZkmvXqtYLr71s34kovXQ3jeALef2+QY0eHOm/fC0d
+	 MnOdyMiymzdCq3KVm7BHFC2oejE5Mfk26v2jIThSViGC+UoLZqhFJn3l2povTA3hT9lNL
+	 VO1ndtaeewd3yJzPBnzvi6z7U+t/1tV4SmnltNglNP3pPw4G3NPau1w3VlsIcLbOIbs4S
+	 SYyyUo+W9pEBb2xTu0xOmJwSKGQ5nUkEfY85A5sAOb/zG+PhiAz7IkSSfq8EOpyFDVQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795152937;
+	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
+	 Received-SPF:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=mWfstaRer0RTfn2VrC9V9A/Lzibw8SdWkutm1jijA/Y=;
+	b=BcVLgW+jb7+gfAvyaVTavgc85Xm+6/4hU+BTRVBtuLdz+xZ9oIzsDiaC+6V0DtLRk6/E
+	 Z1F8XiiU4toq7nWXr2EXfzJeXX2TnmEYt6hgt/hRN+xYFSPlWfQqDx/BtqcM9MALtKrDV
+	 B3xtJr6UcavIwXf0wswxSV4ntiWgqM8vdkXOhjJkj1mNRfifiO4D/M/AdYlQXBJx2i77o
+	 m4CgvK8Ssb9EnRkGWFOwhonS2cHepXMYzkXveMd9ZBpl8iHJl6w01LhLFkh9H3tOihLAh
+	 gV6Y7WAGTMiahNArIOWOcJaeppBBNzLSx33jsB3JqbrmpiwYOTHr0+6izAgg6yCcJrg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=cixtech.com;
+	spf=pass smtp.mailfrom=cixtech.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.97
+Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023097.outbound.protection.outlook.com [40.107.44.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A52B606A33A;
-	Fri, 20 Nov 2026 05:35:21 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PyfVUj5V
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE1811F000C4;
-	Fri, 20 Nov 2026 05:35:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795152921;
-	bh=6NmKnHRU/piT4HLG2fbbtf+VrhiQ2Ne2vhyFekILWNQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PyfVUj5VjogeatR3yXagNs4L7nS8GfD4rcRQWCafelU0Mz6dsJ4HshJGKc4iphgy4
-	 PMVr4YhtnK75HUhGJowOzhWIUlmRcQUasW8ai5h1mn9TYGl07gDaXPtZ/azxLeIuKQ
-	 T3NOXdo9x0JzvukzSZkc24OQCX3FzUC4Eq5uPERLUjJpiWSFWe/vjyktPnq+/nhrue
-	 Uhy7azpqO6OtV+yx7WIBSGJ+zstqGddvowK7G3+Zn3Osb5c4+pT3uyr9avDod9zqSu
-	 wNdtwtolUVzekPfPUJtSpDEJ0RSXxOwFCrilKCYckAsXCb9+7mLhm3pe8TBvM9UunL
-	 XnWFFq7MWbARQ==
-Subject: Re: [PATCH net V2 2/2] net/mlx5: DR, Fix out-of-bounds write when
- sync to HW fails
-From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- acassen@corp.free.fr, valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com,
- kees+treewide@kernel.org, leon@kernel.org, linux-kernel@vger.kernel.org,
- linux-rdma@vger.kernel.org, mbloch@nvidia.com, moshe@nvidia.com,
- prathameshdeshpande7@gmail.com, saeedm@nvidia.com, horms@kernel.org,
- william@theesfeld.net, kliteyn@nvidia.com
-Date: Fri, 20 Nov 2026 05:35:20 +0000
-Message-ID: <179515292029.3136.16137473377101738953@kernel.org>
-In-Reply-To: <20261118173227.1957670-3-tariqt@nvidia.com>
-References: <20261118173227.1957670-3-tariqt@nvidia.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D2F6606A336;
+	Fri, 20 Nov 2026 05:35:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D2F6606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dnzNUa0zGoJ5jKtqLvxhasNfVJ4pj/54Lglej+/WasnKeE4pRMje3QDXLIPo5OlxEUBleL3/tsWL6XrShxtIaySPRim4RlnHZ3ylsXqxv9IeaSgCuBFAncqzFjVhT82QEAa/Y+0M6lvmFnpkfGkpFqknkkRr7a0TLBSC0NphmzdDQIycDAVOzIFF0oM4rNj1iUU4IVrCeX2jHuR29iAGv38r6GK0Ct/DiH/VHIPAfteEUjr50mphnsY2QefqCv844JNJNpTlmJObVpVnacfGMcUxXniK1yf5HnR+dlBt3j89CHzAlLEj7iHd5kil3mC+bJ2ZCsaqMA9HJee2f8KrPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mWfstaRer0RTfn2VrC9V9A/Lzibw8SdWkutm1jijA/Y=;
+ b=eAY89L5GCQHvcK+pzkK07NtNmv5x/+6h+CtA0AmAMa/c9QCYOGn8aZ3CNxOaheFjjAoLl3IDRVHKW1heh3bDhc/CIv4eTj96tvSSF9n4XXNUJVyHToFCWbB+krgfZOch1pLjltlGzXc6BO9jIvfRF8GSSxPVJI+BtvdY8s6rKJ23dWzKZxrZdx8rpP6kSaYNtrXAS73nhjC0qQk0SwEBXAQMl5FLRTyA5gOAI/uhSxERij8u8IwCO5x1WtTPT22vP+i38bd1b5JQ4vfFLgJFbuvJEsJ+x4LOjjBJ0ZC65Rqpcvo2D9lrPO7kLyQtuPfyghN6nyKFhMvxjz0uhGCG3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2P153CA0017.APCP153.PROD.OUTLOOK.COM (2603:1096::27) by
+ OSNPR06MB9292.apcprd06.prod.outlook.com (2603:1096:604:481::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.2; Fri, 20 Nov
+ 2026 05:35:33 +0000
+Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
+ (2603:1096::cafe:0:0:1) by SG2P153CA0017.outlook.office365.com
+ (2603:1096::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.2 via Frontend Transport; Fri, 20
+ Nov 2026 05:35:32 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.4) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 05:35:32 +0000
+Received: from ubuntu (unknown [172.20.64.99])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 0996A427EFC4;
+	Fri, 20 Nov 2026 13:35:30 +0800 (CST)
+From: Jelly Jia <Jelly.Jia@cixtech.com>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	robin.murphy@arm.com,
+	sboyd@kernel.org,
+	bmasney+clk@redhat.com,
+	jbrunet+clk@baylibre.com,
+	tglx@kernel.org
+Cc: devicetree@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jelly.Jia@cixtech.com,
+	linux-clk@vger.kernel.org,
+	joakim.zhang@cixtech.com,
+	radu@rendec.net
+Subject: [PATCH v5 1/6] dt-bindings: soc: cix: Describe the Sky1 AUDSS DMA IRQ controller
+Date: Fri, 20 Nov 2026 13:35:24 +0800
+Message-ID: <20261120053529.371923-2-Jelly.Jia@cixtech.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261120053529.371923-1-Jelly.Jia@cixtech.com>
+References: <20261120053529.371923-1-Jelly.Jia@cixtech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,136 +113,116 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|OSNPR06MB9292:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 28250cdb-452c-443f-dd61-08df46c81825
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|7416014|376014|1800799024|82310400026|921020|10067099003|261022105027099003|56012099006|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261021123027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	nCBeLKKX7KAJ2PPqXF82Gob7Rd4RVXbR/zEIlysa4PlWr6Ss2367LN9BX48bnN5nHxUY9QZecuBo1azo0kmr4iEqvVtg3ERML44qIxXphYa/PM8ypdO4n5zvnFxQfaKWGMRQgwBLeqDTCK0W2gX+aHzBUokjYiN1/6WesjEBW2T1mTrq8iV8jAaaODYkUAHpjOpB9bY0kIPg9cM/1MbKvxa7j7iwFF6S7Q/zsDWrfZT1nL77mRN4O/JpmexuvGEamkSmeVQZMZ13Kmawu2f+uHzikS25getd0E6X1/5mKJbnK+R8jHiONFtKsOdgmW/behFNjbj/pgvJJfhEFO+IIXouKZmypvLHTZ0KaCunLlqR7lOwYsoNg8i/leQiUdy72FLNbW6TgADtQ1UqrOLxwtYr7/NwfS7L/94Ho/S2H2zEwtMgbRLFcCw1+heTlIuUdPs6ZYlVHydITq/hfucR8JdZ0a/KBdXsaq6qPM/PYgnInOWVwHa1dqz+tBPXkuLAQHMnKRAUE3YJkeTNaOd7WzSbCAgkt7cSsKT7XFmr0K3kZSj4z5q1L5FBfxOJRAJ0ooXmEodHE/hq16NC1JcaIRhWpozhAHzmf6AaaYdYnJ7t54ZD934F1ru3XhJAw0zpq2ESwCI924CDd9yPz7a9ZLqWuyiqTEnqrWURp7KBmd4lYLhoqfKkfLvqp+sLj7wlVIJV1VMgWlaMPx+oWAAF2CXSBFRX7oJCQiJ7QjQNizdSyYGvMEV/1XFCsuo6wpoR
+X-Forefront-Antispam-Report:
+	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(376014)(1800799024)(82310400026)(921020)(10067099003)(261022105027099003)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	7HK6h7Bf4eCK3YQThsZRo8CLCPZyvsBlQGArCC0D8pTT49tQ8cp/o7oeJ6oatwS5sCCV/BxIrMKeui0lJt6XcyTeWnVTBgqdrnnEqT1KKL0JyhXXLYvZ+drXs/gWLL3X0CsL7UK6k3UhyLzUtnm16kCN7m9I0V0kSja2FVcq3iW7iZ8CxY2N4x6OosILQPwyPK7ZrnIAgWS6hkCf6YTNy7fPeRuc7rfsqdNZegtJC5GWdPDX/cFRzwpxfqz8wthNdZ4g3zXtgaYc5EOY4G6ts35AKoe3tfEtXW7BliAP6xCPnhQoGOjYjJLfXIvQzftiQqfz6U1B/xnD2luUMSPchh/ygIJ+MSNnvWL7+kcqF4L6kD7qLta7CgUbyi8udsyPRmHo9S/5dE7JX6fBzg1fbEEZha0p+XXgvXI4ED4cqt5Ae9+oaTMSTEivgYJ9Qe5p
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 05:35:32.0760
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 28250cdb-452c-443f-dd61-08df46c81825
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SG1PEPF000082E4.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSNPR06MB9292
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The AUDSS CRU contains a separate AP interrupt gate for each of the eight
+DMA-350 channels. The enabled inputs are combined onto one GIC interrupt.
+These gates are part of the CRU register block, not the DMA controller.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Describe the CRU as an interrupt-controller in addition to its clock and
+reset functions. A child interrupt specifier contains the DMA channel
+index, matching the corresponding gate bit; the parent interrupt is the
+combined GIC line.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Jelly Jia <Jelly.Jia@cixtech.com>
+---
+ .../bindings/soc/cix/cix,sky1-audss-cru.yaml  | 31 +++++++++++++++++--
+ 1 file changed, 29 insertions(+), 2 deletions(-)
 
-- [Medium] One SYNC_STEERING failure now disables the ICM pool
-  permanently.
-- [Low] The 'KASAN log excerpt' in the commit message is not real KASAN
-  output.
-
---
-
-net/mlx5: DR, Fix out-of-bounds write when sync to HW fails
-
-This patch adds an error_state flag to struct mlx5dr_icm_pool. The flag
-is set when SYNC_STEERING fails in dr_icm_pool_sync_all_buddy_pools().
-While it is set, mlx5dr_icm_free_chunk() stops queuing chunks into
-hot_chunks_arr, which prevents the out-of-bounds write, and
-mlx5dr_icm_alloc_chunk() returns NULL.
-
-> The issue was discovered by a fuzzer that repeatedly triggered sync
-> failure, at which point the out-of-bounds write was reported by KASAN:
->
->    KASAN log excerpt: BUG:
->      slab-out-of-bounds in mlx5dr_icm_free_chunk+0x4cd at call 2
->      (hot_chunks_num=3 > cap=2).
-
-[Severity: Low]
-Is this excerpt from an actual KASAN report? A real splat starts with
-"BUG: KASAN: slab-out-of-bounds in func+0xoff/0xsize". It is followed
-by "Write of size N at addr ... by task ..." and a stack trace. KASAN
-doesn't print "at call N" or notes like "(hot_chunks_num=3 > cap=2)".
-
-A capacity of 2 also looks hard to reach on real hardware.
-mlx5dr_icm_pool_create() sizes the array like this:
-
-	num_of_chunks = DIV_ROUND_UP(max_hot_size, entry_size) + 1;
-	pool->th = max_hot_size;
-
-Here max_hot_size is a percentage of the byte size of the largest chunk.
-A capacity of 2 would need max_hot_size <= entry_size. Real device caps
-make the array thousands of entries long.
-
-The overflow itself looks real. Before this patch, a failed sync left
-hot_chunks_num and hot_memory_size unchanged.
-
-Could the commit message include the real KASAN splat? Or could it say
-plainly that the overflow was found by injecting sync failures in a
-test harness, and describe how they were injected?
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-> index 1b928b40686e5..a906a72601c4f 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_icm_pool.c
-
-[ ... ]
-
-> @@ -368,7 +373,15 @@ static int dr_icm_pool_sync_all_buddy_pools(struct mlx5dr_icm_pool *pool)
->  
->  	err = mlx5dr_cmd_sync_steering(pool->dmn->mdev);
->  	if (err) {
-> -		mlx5dr_err(pool->dmn, "Failed to sync to HW (err: %d)\n", err);
-> +		/* The hot chunks could not be flushed. Put the pool in an
-> +		 * error state so that no further chunks are queued (which
-> +		 * would overflow hot_chunks_arr), and no new chunks are
-> +		 * served. The sync is not retried.
-> +		 */
-> +		mlx5dr_err(pool->dmn,
-> +			   "Failed to sync to HW (err: %d), disabling ICM pool\n",
-> +			   err);
-> +		pool->error_state = true;
-                ^^^^
-
-[Severity: Medium]
-Does one SYNC_STEERING failure now disable this pool for good? Only
-mlx5dr_icm_pool_destroy() clears error_state, and the sync is never
-retried.
-
-After that, every mlx5dr_icm_alloc_chunk() call returns NULL. STE hash
-table allocation in mlx5dr_ste_htbl_alloc(), modify action allocation
-and pattern allocation in dr_ptrn.c all fail. No new steering rules can
-be inserted until the domain is torn down by an eswitch mode change,
-driver reload or health recovery. Each later mlx5dr_icm_free_chunk()
-also leaves its segment reserved in the buddy.
-
-mlx5dr_cmd_sync_steering() only skips the device internal error state:
-
-	if (mdev->state == MLX5_DEVICE_STATE_INTERNAL_ERROR)
-		return 0;
-	...
-	return mlx5_cmd_exec_in(mdev, sync_steering, in);
-
-That means transient host-side errors also set the flag. For example,
-the SYNC_STEERING inbox is at most 16 bytes, so alloc_msg() in cmd.c
-skips the message cache:
-
-	if (in_size <= 16)
-		goto cache_miss;
-
-It then allocates with GFP_KERNEL, which can fail with -ENOMEM under
-memory pressure. Command timeouts and the -ENXIO paths are passed up
-the same way.
-
-Also, error_state is per pool (STE, MODIFY_ACTION, MODIFY_HDR_PTRN), but
-the sync is device-wide. A later successful sync from another pool won't
-re-enable this one.
-
-The commit message says a chunk may only return to the buddy after a
-sync confirms HW no longer references it. That explains not recycling
-the queued hot chunks. Does it also justify refusing to allocate from
-segments that are already in the buddy free lists? Those were either
-freed after an earlier successful sync or never used.
-
-Would it work to stop queuing only when hot_chunks_num reaches the array
-capacity, leaving those segments reserved, and to retry the sync on
-later frees? That avoids the overflow and keeps the no-recycle rule
-without disabling the pool permanently.
-
->  		return err;
->  	}
->  
-
-[ ... ]
-
+diff --git a/Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml b/Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml
+index 50dd0593e1d9..01fa22a5dd72 100644
+--- a/Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml
++++ b/Documentation/devicetree/bindings/soc/cix/cix,sky1-audss-cru.yaml
+@@ -28,6 +28,12 @@ description: |
+   The SoC syscon NoC (or bus) reset is described via resets. The audio
+   subsystem power domain is described via power-domains.
+ 
++  The same register block contains the eight DMA-350 channel interrupt
++  gates at offset 0x54. When the node is an interrupt-controller, the
++  cell is the DMA channel index (0 through 7). The corresponding gate
++  bit is unmasked while that interrupt is requested, and the eight
++  inputs are combined onto the parent GIC interrupt.
++
+ properties:
+   compatible:
+     const: cix,sky1-audss-cru
+@@ -45,6 +51,18 @@ properties:
+     description:
+       Reset indices are defined in include/dt-bindings/reset/cix,sky1-audss-cru.h.
+ 
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 1
++    description:
++      The cell is the DMA-350 channel index, 0 through 7.
++
++  interrupts:
++    maxItems: 1
++    description:
++      Combined DMA-350 channel interrupt after the CRU gates.
++
+   clocks:
+     items:
+       - description: I2S parent clock for sampling rates multiple of 8kHz.
+@@ -75,18 +93,27 @@ required:
+   - power-domains
+   - resets
+ 
++dependentRequired:
++  interrupt-controller: [ interrupts ]
++
+ additionalProperties: false
+ 
+ examples:
+   - |
+-    audss_cru: clock-controller@7110000 {
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    clock-controller@7110000 {
+         compatible = "cix,sky1-audss-cru";
+         reg = <0x7110000 0x10000>;
+         #clock-cells = <1>;
+-        #reset-cells = <1>;
+         clocks = <&scmi_clk 76>, <&scmi_clk 78>,
+                  <&scmi_clk 70>, <&scmi_clk 71>;
+         clock-names = "x8k", "x11k", "sys", "48m";
++        #interrupt-cells = <1>;
++        interrupt-controller;
++        interrupts = <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH 0>;
+         power-domains = <&smc_devpd 0>;
++        #reset-cells = <1>;
+         resets = <&s5_syscon 31>;
+     };
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118173227.1957670-1-tariqt%40nvidia.com
+2.54.0
+
