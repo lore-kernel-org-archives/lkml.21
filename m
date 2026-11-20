@@ -1,73 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.237
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177589;
-	b=u6YFvCu8ybL77KxtTMcVX1NhvnxyXhmxevuoRk2mvu6kl21mIjApElAOnT39QmCa3RJO
-	 +vK/FmlyNzBBIcV04O0G6HbIBTSxdxcje53XTjnTBBlgSa0hkxVv6/lwseeAjNW+qod2B
-	 LCBpCtosdyZtX65RjaENNfuRi9PJScWorC2N88L4Li5MAZEWY9dsaysCYYJVZh7QNMHG2
-	 /f68tya0t+25HNBGz8wjIDor6aRoAJjeISfd6+jEzqtb6M7/+njhSIfW68N2qAZgKh69R
-	 jYS48czS8zgDJUd7BBsrZus97+zTQhogt3bz2EDHiM+UND8f2vvhJ6nHaUZ+ghRlb5w==
+	t=1795177597;
+	b=JcKiNSA9I981ppZvlxn/RxgpVZM7IWRG3PbhO5cJrmhSI6tXKLybZohAzk+mIt7nTaoq
+	 hyh+8MEEZl4xdoGW743/3dEOWbvxGr6ao/mWHljskexyKqiD5OyrxX+M9SSFku6lUxMrX
+	 nRC6sFhJenRI59TzDvKVrPImInBJcnvSxAQNbI+wvJT6k2CgKUS5RyPJVayjMFsutiWJW
+	 3Qtxs7vvVX+pP9AbFvt3iD1DAfaytW+WZtGqe4Pmdxe0qh9+l4LEzJHTInfA+eKjiuySb
+	 uRYQDIvL2Wqt+sOtYI0xVAXZ3hlxi5KNI1JgBCtjv+z8chutm00tUyBc82tfkNjf9cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177589;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:MIME-Version:Content-Type:Content-Disposition;
-	bh=+HH7gi0yfMPztn37065eA+37h3DOW9VaQBnJwrLQVfA=;
-	b=SWkoYRvZPJvg5cKWoIsq3sznlGoYSpWmenvZC7BqKlq71PvlcdZs/20Rw9Y+H3iymSka
-	 KV6qjCor0JHUFB6DY1nu51jaXGkDx3fbSvBqC5eWRus/REeWc+OkylNY/4I0OV7ohhWER
-	 CE2ujCHGK/sNH9/TGds3AOvNk1jRFxXUVMIJ41PmlC5hXDn2VK0TQATErIE4ARE3mwA1Y
-	 EQIb6L5qw9gPLMcaqxpLFhNIP5Otd5/04mwy9hZZel7LgEMKBy+IfM0FkoIfF2oYb6JJL
-	 MYTeLAucbKPy9Az0koXHGjqxYb2uwSmrZtxUCy18eEaHYr662OaFwnbcdL7bL+GiepQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177597;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=I3G768SLhqBwcqMXJfbPX0ci4T8MgwSXdL6Wve6YoBU=;
+	b=uqxqG0KdcdkifqRSnSLBcf2YAKeINtxHyfgjR3QzrDOUPW78bx/YFqyuQgoyx+UUIkBK
+	 V8jeMHsJ0qjPM7qn2OH/s4r/gcA27yCG76O4cwzSPJKTGnKiAdcLNBJncReZ/o8X1SIJN
+	 KYYlREUdj3na02xjiyF9F/pfcaz/kW+E5pLArFmXP6mTaV76JYlsVCyr2Qd1D1Tx/aHSr
+	 B6Aw7w/6ICPw78oGZHSGj4eN4a3LE00nCJseJnhhF29oGm9CyotXmZ+yRwLiqqpZ/T+Wl
+	 pHrb7OU5n2F1c0k65ZGSH24t4NNJS998zlp3PJ9JPa9xEdFsB60uMYkQAAkLKy2e1AQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	arc=none smtp.remote-ip=95.215.58.237
-Received: from mta1.migadu.com (out-237.mta1.migadu.com [95.215.58.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TKcab7C1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B916606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:26:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B916606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ez1RQL5NworJu9CWx+UmwiOgtLYQW5cBqtLbCyEA2f0=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795177586; v=1; x=1795782386;
- b=l3FSCO/WPCG6oPOH5dcGurkHL56k1dnh4Cp9tvvErYOok1b7qixuv8kgyyYqQi+5iduc4sV0
- 0S8Fyv2WKJqBDFDttH3baU2nPMxvlzF3cdpqdH5ii07PfHaFccfsT48+k+W3OSYsosJWHMfgVpv
- fH7yPl15eVdWwIhtqgK5cdqM=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 5fe399ac5fab81d2;
-	Fri, 20 Nov 2026 12:26:26 +0000
-X-Mizu-Trace-ID: 5fe399ac5fab81d2
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 20 Nov 2026 14:26:20 +0200
-From: Matti Vaittinen <matti.vaittinen@linux.dev>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] Support ROHM BD79111 ADC/GPIO
-Message-ID: <cover.1795176984.git.mazziesaccount@gmail.com>
-Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57E02606A33A;
+	Fri, 20 Nov 2026 12:26:37 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TKcab7C1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB12E1F000C4;
+	Fri, 20 Nov 2026 12:26:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795177596;
+	bh=I3G768SLhqBwcqMXJfbPX0ci4T8MgwSXdL6Wve6YoBU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=TKcab7C1R9cGiTnawXGCIuQ4YfvOE8xeZpbqHAh8PRhcxQDF/zSOOT9ntUkuCTOAZ
+	 2anxMbpo3Ok8rAZmg2et4tx8PaHSkQ6LEb3DbFhjefmIVXdwRy1z7yCMyMzSESwNmr
+	 E0vf+bjVfGT45e6Q+lBkkkeNA6uvtAZhfRjrx7LyGXSRFKvLrf+PwmKeIGeUQv3Iem
+	 HaN660JjvcTr3hLRC+pTEW+Wvs9buXOa2LtpFEtjZZw/pyQZ0dT4/dd+mCTnvYku4o
+	 7+zhkU+gdMgpR+QyR4SrAPBEGlypiLqSkrVhdTQns4i24mrtp2/uh8UebHq7l8uxgv
+	 zrQn7c/fLhwMg==
+From: Michael Walle <mwalle@kernel.org>
+To: Pratyush Yadav <pratyush@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ haibo.chen@oss.nxp.com
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, michael@walle.cc, Haibo Chen <haibo.chen@nxp.com>, 
+ stable@vger.kernel.org
+In-Reply-To: <20261023-spi-nor-fix-v5-1-bb6e0ce21169@nxp.com>
+References: <20261023-spi-nor-fix-v5-1-bb6e0ce21169@nxp.com>
+Subject: Re: [PATCH v5] mtd: spi-nor: clear the default read_sr2 opcode for
+ Octal DTR flashes
+Message-Id: <179517759444.1010165.14064662323338062426.b4-ty@b4>
+Date: Fri, 20 Nov 2026 13:26:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,61 +64,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JUTYPu/IdrS5Phws"
-Content-Disposition: inline
-
---JUTYPu/IdrS5Phws
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Support ROHM BD79111 ADC/GPIO
-
-The ROHM BD79111 is a 12-bit, 16 channel SAR ADC / GPIO IC. Or, a "Signal
-Monitor Hub IC" as data-sheet describes it. The key difference compared
-to already supported BD79112 is the reduced number of channels (16,
-BD79112 had 32) and halved sampling rate (500 KSPS when BD79112
-data-sheet stated 1 MSPS).
-
-Revision history:
- v1 =3D> v2:
-  dt-bindings:
-   - Don't drop the 'root-level' additionalProperties: false
-  driver + Kconfig:
-   - Styling as suggested by Andy / Jonathan
-   - Split to two patches as suggested by Andy
-   - Return -ENODATA instead of -ENODEV when no SPI match data is found
-
-Matti Vaittinen (3):
-  dt-bindings: iio: Support ROHM BD79111
-  iio: adc: rohm-bd79112: Add chip info structure
-  iio: adc: rohm-bd79112: Support ROHM BD79111
-
- .../bindings/iio/adc/rohm,bd79112.yaml        |  29 ++++-
- drivers/iio/adc/Kconfig                       |  10 +-
- drivers/iio/adc/rohm-bd79112.c                | 112 ++++++++++++++----
- 3 files changed, 121 insertions(+), 30 deletions(-)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16.0
 
 
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
---=20
-2.56.1
+On Fri, 23 Oct 2026 15:11:54 +0800, haibo.chen@oss.nxp.com wrote:
+> The core defaults opcodes.read_sr2 to the legacy RDCR opcode (0x35), and
+> spi_nor_cache_sr_lock_bits() reads SR2 during spi_nor_init(), i.e. after
+> the flash has been switched to its runtime protocol. On an octal flash
+> running in 8D-8D-8D mode the opcode is extended per cmd_ext_type (e.g.
+> 0x3535), but RDCR is not a valid register read there: these parts access
+> their status/configuration registers through a vendor-specific indirect
+> space, if at all. The flash does not answer, the register read times out
+> and probe (or resume) fails (on i.MX FlexSPI: -ETIMEDOUT and a controller
+> WARN(), seen with a Micron MT35XU01G and a Macronix MX25UW51345G).
+> 
+> [...]
 
+Applied, thanks!
 
---JUTYPu/IdrS5Phws
-Content-Type: application/pgp-signature; name=signature.asc
+[1/1] mtd: spi-nor: clear the default read_sr2 opcode for Octal DTR flashes
+      commit: d4d6fbd84fe7cb60f8fce048dbb8362b69704078
 
------BEGIN PGP SIGNATURE-----
+Best regards,
+-- 
+Michael Walle <mwalle@kernel.org>
 
-iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmsAPGwACgkQeFA3/03a
-ocVW6Qf7BO0yz0aB0nC6Rge45+70gIK6iVugWXA9uPjwP93NkVY1b4JhP9wzsb30
-LDADT6zV+LzZ8IniB7lI8oFTDzjVKg66ol/8lTC+4LfLy5qH6uznHhzW0DG2ZrC1
-6NdsIeBU4OzsNYQV3HiCAWEPsF4ZCvDfWPx/4g66zqgm2cpBMhS/v55J5xwEMgnK
-dz5UYM27B9ZteWHYxLlRv1I90PurrMUEVWBjdbcmlJ8UNsfZ/UmLxEDgISUysat2
-Wg4HLugx4O313k054X2TEaxa1CBgAd6xfT9NnAr41g8PCsqw1BcIcntFyBGi3gjd
-ZCEbloQja15PpiGLVM1lgs7DFar/vw==
-=eJ/L
------END PGP SIGNATURE-----
-
---JUTYPu/IdrS5Phws--
