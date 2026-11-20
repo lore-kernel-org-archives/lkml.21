@@ -1,94 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175409;
-	b=jHB3ZptgmX/10RTfwvb5z+hGAmfXSfYY56zwm+QHVnS45jW8XEEOg3/jrgwwQu65vosc
-	 4IZLXHW6f+kpslGUigw/egSHGUeaw/6EXcm1xcrAvL4/zYd+40+fRk26JR/5hoz6Pvtwg
-	 OtXXrsyBHu4k2D3tWVBWoThi95odUUBOfL81LXVKPXkMOSkUcxkf9wzNftt76iQxvCybK
-	 4dCJyuDYCYrlau4WkLmYug//uOy8Ab9razBFUJcD1hBvhUnPymHU1sRoEQg5eWPy2Yec+
-	 L1aKRgUo/6hiCciroHOs138yV3Ozrsh7Hyz5IS1r5CTqDDswunnpHg82uibAXBarL6w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175409;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=kFk5eznRZq7/AJ5Jj6TSnaF46M7WBKrQitEuh1eIf2M=;
-	b=L3l+skPrZWip89Mf+oa49MlUpp3Z9vqHKTCqxZihI0hbAprOZo3OxP/6s/dOmZfpDhxQ
-	 3r5VRXt2MY+dnTCbYFVQ7aXumNs1YZBhxwbECsc/+Ryoo2LRTvM5DTfs3ZZooN6OgWSmk
-	 8x0rzAVXchzJV7dlOWKjgbXysss2jtlbd7A0VcCn3UoIn+/KPRjfMKiJCwXWMSKIpwXTR
-	 OrZX5T30iI74Ah80Z7iHk+Z9A4EiK7PeoZrIeYnuOsxkdhvXlYDlWdeV/fVVq+LYBmRg8
-	 vq6GoPlas2wbcxFtdOmyM52cGRMR2zJm4O2Y5RWAP7yztUXkA2+PJcMPsb2MXc9DScg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b="cuvL/oB1";
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6D04A606A32A;
-	Fri, 20 Nov 2026 11:50:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D04A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795175440;
+	b=5PmeZCL2VMvGfjs5J/NRZzwDRhS4T9OUV1qQR2qLhO2XtlI7a1ASAxib20ssOOjx8r11
+	 RmvvXuT5hDrqS7kNV1nvy3FxZVBsLpEADJBR3hqarWfHxDRqNnUuLcNuBX6HQpBosI7gh
+	 BwHnLHit7d/jjCXuXc6e2cJ0qPqXonHRjd1fhOp6koF4Bnb1bn1vwFqxHEgWZgWR11Pni
+	 JAuaXImyESbmodsnjSnXS8BkMNiffnJhKQg3vYCZ/ExPrgMkzlziqzZUhFRdh7WtutwCj
+	 tGe6VLxBdDr/UNBVWfiEEypRPdUIeo149le/BzBHY1Vov0Uk9MtXj/1owHI+7+xK4OA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175440;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
+	b=eQgyVZ9KgjLHsKaQLbR9nXa3mBEjgwCMbyYVSMJ+znY4RBjQd6PwZCAcF5WGrL9tzmaF
+	 2ibsX4P4xIZRBwj7lJy9OTauXzcsPukpOFI3U4ScKkAO/8PZ2y76J4pkocP4VGjrRoEvt
+	 GdIBhU3Cg57RPPGIYz8cnkevPIDPAO8owBZJ9X1Agg0g81dpfToBbxbBoCrKEveqIwajV
+	 w9KkV3oQTbFyebxpbZUev9PONfJXzo23Pk3X7qwrsZpXA5Kw76Di0TT9anUA2CxW3hU+c
+	 aLa5Ir+vIpmDTKfU1ExNLEGpv9DNogqvPk7VxnGMPqYxI2p6vDxyzOWn8aXAg3okn3w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4mMmrRA7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.31
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012031.outbound.protection.outlook.com [52.101.43.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 863C9606A32A;
+	Fri, 20 Nov 2026 11:50:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 863C9606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=cuvL/oB1
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83A791596;
-	Fri, 20 Nov 2026 03:50:03 -0800 (PST)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1387F3F882;
-	Fri, 20 Nov 2026 03:49:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795175406; bh=Ig7LJX3a+UkFR/7wjk9zeIV/7tzEcwoCqXxyrMDkhnI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cuvL/oB1VjOpyD4zi/RcAx8YEy1FcSXbPjhK8DPls4WYh5/RLr9cjgozXdcn2ciTI
-	 kjkvkdynnztLpeUmXPkh37VuryHY7RgJRDZpfXb/4jdathQYVun9qNdjxIGmB5nUHu
-	 4dJq1tZPBfSmJerCN/EDrTDKQykDuE4xZZgBV42o=
-Date: Fri, 20 Nov 2026 11:49:57 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, Russell King <linux@armlinux.org.uk>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Hocko <mhocko@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atish.patra@linux.dev>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-openrisc@vger.kernel.org,
-	Muhammad Usama Anjum <usama.anjum@arm.com>,
-	Sohil Mehta <sohil.mehta@intel.com>
-Subject: Re: [PATCH RESEND v2 00/21] mm: change behavior of
- pXdp_get()/pXd_page() in compile-time folded pgtable
-Message-ID: <awAz5W6daF5HQFPS@e129823.arm.com>
-References: <20261102-dummy_ptxp3-v2-0-78840b2ec73c@arm.com>
- <64b74093-541c-4f32-8ea4-c8007067eeea@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=4mMmrRA7
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wJMNsTypYRn0KMUAq1G/H15u2jTOEt5jlJ+5JnsSCKva4SzhUbZaiPkvmfRcRpth+qJ8fdUVaboONiw+jEVgZiYiqS6VVajjrERiXtka+XLICIXz4FyfEvn/zG5rquabQ6xa5sfEaK01c9n17ifeQH0YdA2OQHU5bOZnvSbCmhU1R56Im68xjdn9WZ1eqVod8KVgSpHC0ISjGU5umJHWOuW4sRF0+JIk2uAhf0VL6gnkl9H4AB8qTSVPUzdpl3W6gXsZLA42SHeyZbxPuBLKQc2eYQa5bE9vOAb0gOwLHvkhS0/Xa2aZztYxLzeR9CIUBIQGCi3PLoZvUV+E/SNpog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
+ b=ELQRhNgi0pahnYpdZWe+p/U7E2hQyHixpbXqkJMuIgLF8cPhkkAWtZOMtGZdH+itdREcdNFJZF6Mg4zvFx/24ObM0GERvuslCO5tB4rwZzXr/ImkptKhxVO+FZ+PPIvejZfMKrIEUK4077X5BMQ1oDTow5VF4MlhOastCtJtzVhZB/CvEFzuagGI9UkNOGZ+wZmCTZjF2tFuh1UwaEh3zgmRIJNEGmAa3On8s0F5kpB0uA8U2WKnKFzGqXsKyY/xBDPQUG6w2W/KUIlJJu5nTM+LDbLNIxIjxAb8+nefnx3mHVshtbVi8Xjif7f8QRp2VAJMSJoVkZVKn60Zk++ckQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/kqSB7gYtIU39EqOKcoNyONxEkdZXtSzm+zChb+W0To=;
+ b=4mMmrRA7/WC3bs7Z7KzWa8m37apuR+0XHyO6/jmndIgLhHqgnbFJ4w52PZW+gGQFh4lkVYlsMwj3rJ/cncm57OehTE9mZonbziBDV7eSME1/00dd9QJQwspA8yRwbDWNoy8gxR1Dn6/tOjey/rjHoLtFDylqXp4hSShVg/+eFjA=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8817.namprd12.prod.outlook.com (2603:10b6:806:347::8)
+ by SN7PR12MB6715.namprd12.prod.outlook.com (2603:10b6:806:271::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 11:50:33 +0000
+Received: from SN7PR12MB8817.namprd12.prod.outlook.com
+ ([fe80::2315:726d:7ec3:416e]) by SN7PR12MB8817.namprd12.prod.outlook.com
+ ([fe80::2315:726d:7ec3:416e%6]) with mapi id 15.21.0615.013; Fri, 20 Nov 2026
+ 11:50:33 +0000
+Message-ID: <f17bcfed-9b35-4f87-bf3b-c99fb823c0b5@amd.com>
+Date: Fri, 20 Nov 2026 11:50:28 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] sfc: create PPS workqueue before registering phc
+To: Alex Austin <alex.austin@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Richard Cochran <richardcochran@gmail.com>
+Cc: netdev@vger.kernel.org, linux-net-drivers@amd.com,
+ linux-kernel@vger.kernel.org
+References: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
+Content-Language: en-US
+From: Andy Moreton <andy.moreton@amd.com>
+In-Reply-To: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0666.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:316::17) To SN7PR12MB8817.namprd12.prod.outlook.com
+ (2603:10b6:806:347::8)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,213 +99,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <64b74093-541c-4f32-8ea4-c8007067eeea@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8817:EE_|SN7PR12MB6715:EE_
+X-MS-Office365-Filtering-Correlation-Id: b632ccd1-49bd-49ea-7069-08df46fc7bb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|366016|23010399003|1800799024|22082099003|18002099003|11063799006|56012099006|261022105027099003|261026121527099003|261026140227099003|261028144727099003|261021135927099003|261021123027099003|261021121427099003|261009223027099003|261009221227099003|261009221727099003|261009223327099003|261009220027099003|261102123227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	1226t9FPhWvyhm7fvHtxdEKId6EZTraFD/xj0TqSIn/D6txwogPV7pQZmU4jZDJ9aar41UVjljv+mUgWQqM8Fr+F/5Kkfv+Z75Dg/SCxLvD4BzfSP62QFhylcrERy6c8Ev1eW2w5MwQNbOJePRWDgIiyaW1fWwg8eOokXGQtmeIF+74L9nrHJdovekP9XMkYjq24iNrUPLeGTOr+eRULYCXl5n+xDGjmT3kpNA9I449/mwF2n0waApfPXgsiPS+/OHlrvOnW/dRrgVBMyNf3ApDeCNMAjxV3txxOYMnc1FVw/A75XhnsCLEQoJ5/wH6xnxpt8TqjQ69wAfZcbxwU8DiRL9c57O15bCdbEPW8GOwcynuNUP914aMIDEQa4+vs3OPGmRxare6PjoccJAvaBecT0W3eKRU0+l3rMicyx7AyzZxhiut6+njUDiMVofKF7EWEgGilIRwg2oxJjmBO5Fr0s3tfCBUjULNL7z315faRJcgE6xpTe9g74ZKZhXM8i/B0Uru9wdo8NJD3YuVWljD4b25n4lUEdfTcY6c7nGkeFecWjhoQJjg0rUF2vK07iBBmzS9DhPn+7+BOKKfg1+x9o5qOaEaviaYAYzceJJQjisW3NemqWnPqPgRJhJIdR7yBpqgxE3ZhgWNs9KopWQWd5g5qwEJgjdPg0eMzaoA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8817.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(261022105027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021135927099003)(261021123027099003)(261021121427099003)(261009223027099003)(261009221227099003)(261009221727099003)(261009223327099003)(261009220027099003)(261102123227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?NUFsbTVEc3NxenAvdXUwSlVPOVZFWWc1M3VnYVZPQjBTVFlHaE1saks1czFy?=
+ =?utf-8?B?Qm9yNHFsODYzNXFybVI0bkRDWE1leVhmalVZSW5VR2R3UURlRzlvazg1MGRV?=
+ =?utf-8?B?SFJlSXpNY29WWXFGaHRSU1MyaUpDZlVRZDFyWW9FNFZBMGtQYndpVHBYeDBo?=
+ =?utf-8?B?UTVXNTlSd2Y1YVJCOE5MVmZBR2o0Z1pZMmJ0WnJzU044ZXFMUGluVWpjcisz?=
+ =?utf-8?B?eGNlKzRKSitIcFpzb0w4eVZrNnVaOXdIUldobjFPNyswc2UvQzQ4Nk5venV1?=
+ =?utf-8?B?VXJ3NDRnREtNUmpLQkNBWmNYeFlSTThRa0xFbVd3VEZZSDJwRFBDTGVrZDFk?=
+ =?utf-8?B?SUc0YSt1UmE5OHhabitmak5GOGhZZGRYa1VHMWd6MzRxbXhXak13RWFjY3Zj?=
+ =?utf-8?B?RU8va1grZnBiQmxtNkJaSWkvMXA3dFVybWdDa3Fma0RLYjlESDUvMXA5Qkp5?=
+ =?utf-8?B?V2tlK05McC9JM1ZjVlQyaW9qeTdnL0VuUGh6L3ZIaUlwNWdoWmlHSkVLWlJp?=
+ =?utf-8?B?U09aWGZuams3R2VNSFhZQStIUzlYY0hVemhRTERVSC9QYjZhK0pQSnpqdWs5?=
+ =?utf-8?B?b0JOZi9NTCtEb0ZPOW51a0dQcEdZN2YvZ0YvZ1lqR2dydXVsQkRlQWJZWVIy?=
+ =?utf-8?B?aUUwWXpSVUY0WHExWENVeTA1eWxXdThBNDBEaTlLVHArWnN5UHZTVytQcXFB?=
+ =?utf-8?B?RFlmeHQ3bUZRQlhDY283aWJWdU5sdytEZVk0YU1NTVp6UmIzVUFpY1hIdFlx?=
+ =?utf-8?B?YlFpTU0vZTFWdmVOUmRrcVhLTFdJRHdvL0hWL0FhcThMTDZQWkpCSnY5Vk5V?=
+ =?utf-8?B?VSs0Qm1TSkFMV0gzc3JQT3p4VEIraitxUEpVaUxZNm1WYzZVVERCby9TT0Jv?=
+ =?utf-8?B?RzQwaisxQ2JXUWQwZmVVSmYvd3ROWXFUYU81UE4wczRNNzlnWWI3VDNPSUZx?=
+ =?utf-8?B?QkkzTWVBbkRMWHFsbUhlcE5rWDAvcXlpbEh0V2J6dFVWVzA3Wm5USjdMaEI3?=
+ =?utf-8?B?MU40T3BzNk56N3B6bVBSdjNVaEVNczlySUJaaEs3T3BnMXFreWV1LzhjNFlk?=
+ =?utf-8?B?RVFjSjVYeVJyYXRrRlVzSldDTFk0NzZjRy9vY2g4Ym1BQnJZTzl2a1hKUWtB?=
+ =?utf-8?B?TTVyK0pHWkp4ck1SZDlKZ2VHdXpFN3UyZHF5RW1YN1hTSmZGanRzeXFFVFBj?=
+ =?utf-8?B?MEdwRUI4UVowcytjWlVMZkdMSlJxVVZqak51bWhtWUQ0bXl1SFN1dHYwTXRz?=
+ =?utf-8?B?ckdRVTU0YXdWdFpGOTVVSjBwRWJNamcxMUpGeHdxS1l3aEtjSXJhTlRLNmdu?=
+ =?utf-8?B?UVdMeE0rNzZWb3Y2UTlwTHhmd3FycWNpVlVVQ0RmSTZHNHVtV05pQWVCVTNC?=
+ =?utf-8?B?cjRYZ0loaE4xWGtwLytaZmxmZjJBRHZ2dS92NXk1SXlyMEZXTXpYMVNjR01q?=
+ =?utf-8?B?WHJtdkRYYWhIaWs0ZGZRRjJ0SklkS2V5dVVVcHZhM3Irczd3dHFkcE5Ea2ZT?=
+ =?utf-8?B?MUxYeHpIdllQcXI5WlBNYkx0ZWF5bXl6S0FVdGRheXpGS1RKM29Pek1tUWNV?=
+ =?utf-8?B?OExhc3g0TncvWEdIS3pRUVNPOWQ1RDdqK3JML2RrbExJSnVBM2U0engrOFZE?=
+ =?utf-8?B?am5iVWkzdms5RG43M0RadGpUdlM2WVNWaVVacW52ejVMZk1kZzJwcitzNkJQ?=
+ =?utf-8?B?V0MvMWNJOHBIMXVDaXpvMDc3QmxKNk14ZUIvUkFJQVRCYlNHUXE0Tyt1ckQy?=
+ =?utf-8?B?QVpRZVVkOHBJODAveWpwc1IzQU4rN080eDhubU9oQmlsT0ZFbDJPYWxvZ1VO?=
+ =?utf-8?B?aWJHU1d4Q1kvM1k2aVJ4bjhHdzdGKzJPcWJCUUVubUIyalh4Ungzb3phVmp4?=
+ =?utf-8?B?UGcxci90VzRlUm5rbkZqaysvNkhidHNpd0E5VGU5WUtkdmpkc3BvWnlsdmxK?=
+ =?utf-8?B?UVIxeG90TE1zZU1iUlFQZ3k5Wm1rQTU1VHdyemxkYnI2V1JHaHBlZFZ1YmlJ?=
+ =?utf-8?B?bm5MTUl5UGhIQ1E1ckFsYktGNmVNQkFyMnhLNURUM2NhR1NBNlVZd3BQZWlH?=
+ =?utf-8?B?K2tnNjRjNVhjalRvN3A0VHIwdWl2a3N0R0tYZnJhVGlMeWxKR1lhOFJ2TVc0?=
+ =?utf-8?B?bHppVENOVkpHdk8xMkVBeHJBblZhVnhJVXBFL1pRVUpMR3hUT1N4ckxYbTRr?=
+ =?utf-8?B?cW0vS2NsWG1KMnFZa0g4OEFCZEhPZEtER2NWOVAvQjhUekpZZmNJUzBpakZk?=
+ =?utf-8?B?OHZ0eWl4MTY5U1h0R1h2TUVXT21qRXNlWlBqS2lkQW9EUFlUZFhFOTRaVXdR?=
+ =?utf-8?B?cFQ2VFZRQTM2U0lyNEQySm0zdG1uMGttTjMrUmtFOEg4b0ljeFlYdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b632ccd1-49bd-49ea-7069-08df46fc7bb3
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8817.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 11:50:33.3547
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O3m5OtyEtPkL3LARF2xoNJh1cTUlXOqtPS5GgqY4VzOBSjGRvCUtlJQGBcDVdNtUYk1Rywj677YRK4Yqz9tURQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6715
 
-On Wed, Nov 04, 2026 at 03:07:16PM +0100, David Hildenbrand (Arm) wrote:
-> On 11/2/26 12:21, Yeoreum Yun wrote:
-> > Using ptep_get() and its counterparts in common code is suboptimal on
-> > kernel configurations with generic compile-time folded page tables.
-> > By default, ptep_get() and its friends expands to READ_ONCE(),
-> > forcing the compiler to emit a load even when the value is not used afterwards.
-> > 
-> > This issue was recently reported by Christophe Leroy [1] for ppc32
-> > preventing futher code conversion to ptep_get()/pmdp_get()/... helper
-> > and the same behavior can also be observed on arm64 when built with
-> > 2- or 3-level page tables
-> > 
-> > e.g) perf_get_page_size() in arm64 with CONFIG_PGTABLE_LEVEL=3:
-> > 
-> > 00000000000052a0 <perf_get_page_size>:
-> >     ...
-> >     52dc: d53b4234     	mrs	x20, DAIF
-> >     52e0: d50343df     	msr	DAIFSet, #0x3
-> >     ...
-> >     52fc: d35e9a69     	ubfx	x9, x19, #30, #9        /* pud_offset_lockless() */
-> >     5300: f9403508     	ldr	x8, [x8, #0x68]
-> >     5304: f869790a     	ldr	x10, [x8, x9, lsl #3]   /* pudp_get() */
-> >     5308: f90007ea     	str	x10, [sp, #0x8]
-> >     530c: f8697908     	ldr	x8, [x8, x9, lsl #3]    /* pudp_get() */
-> >     ...
-> >     5360: 90000009     	adrp	x9, 0x5000 <perf_prepare_sample+0x548>
-> >     5364: 92746908     	and	x8, x8, #0x7ffffff000
-> >     5368: d3557675     	ubfx	x21, x19, #21, #9       /* pmd_offset_lockless() */
-> >     ...
-> >     5394: f8757ac8     	ldr	x8, [x22, x21, lsl #3]  /* pmdp_get() */
-> > 
-> > Though PGTABLE_LEVEL=3, since the pudp_get() still remain with
-> > READ_ONCE(), there's redundant load for the pud which is folded.
-> > 
-> > To prevent generating suboptimal code, make pXdp_get() return a dummy
-> > entry for compile-time folded page tables, make the helpers such as
-> > pXd_offset()/pXd_offset_lockless(), set_pXd() validate dummy entries
-> > at compile time to catch the wrong usage and prohibit calls to
-> > pXd_page() in pgtable-nopXd.h.
-> > 
-> > This series does not change the behaviour of existing code that directly
-> > manipulates folded page-table levels using set_pgd(), pgd_page_vaddr(), and
-> > related helpers. Those helpers continue to behave as before.
-> > 
-> > The new restrictions only apply to code that adopts the pXdp_get()-based
-> > access model for compile-time folded page tables.
-> > 
-> > As the pXdp_get() can return *dummy* entry, some of code using
-> > the stack value where saves the pXdp_get() could be a problematic:
-> > 
-> >   1. Passing address of stack value where saves the pXdp_get() result
-> >      to pXd_offset() for example:
-> > 
-> >        pud_t *pudp, pud;
-> >        pmd_t *pmdp;
-> > 
-> >        pud = pudp_get(pudp, address);
-> >        pmdp = pmd_offset(&pud, pud, address);
-> > 
-> >      (e.g. host_pfn_mapping_level() in loongarch).
-> > 
-> >   2. Using the pXdp_get() result to use as argument of pXd_val() and
-> >      to check prot without checking pgtable is folded.
-> >      for example, x86's effective_prot().
-> > 
-> >   3. Using set_pXd() with pXdp_get() will set problematic dummy entry
-> >      in folded page table like:
-> > 
-> >        set_pXd(pxdp, pXdp_get(pxdp_k));
-> > 
-> >   4. Using pgd_page_vaddr() to get the first-level pgtable.
-> >      passing dummy pxdp_get() for pgd_page_vaddr() will return wrong
-> >      address. Therefore, make pgd_page_vaddr() and pXd_pgtable() to
-> >      trigger the error for improper usage with folded dummy entry in the
-> >      generic compile-time folded pgtable.
-> > 
-> > Thanksfully, above cases are rare since (1) most of usage using
-> > pXd_offset() with result of upper pXd_offset(), (2) it's extreamely
-> > rare to use pXd_val() for non-leaf entry in the kernel,
-> > (3) is to handle the vmalloc_fault or set the first level of page table
-> > and (4) to setup early page table and etc.
-> > 
-> > Therefore, properly handle this uncommon and problematic pattern, and
-> > document the current design of compile-time folded page tables.
-> > 
-> > This patch is based on mm-unstable.
-> > 
-> > Future work
-> > ===========
-> >  - print_bad_page_map() and show_pte() still prints dummy values
-> >    instead of printing the same content for all generic compile-time
-> >    folded page tables. We might want to skip printing dummy values later.
-> > 
-> >  - We currently catch abuse of dummy values on the stack at compile-time by
-> >    relying on constant propagation by the compiler. Usama's work [3] on using
-> >    distinct types for sw vs. hw PTEs could help here as well."
-> > 
-> >  - Clean up vmalloc fault handling by synchronizing the vmalloc entry on
-> >    32-bit architectures. This code is almost identical across architectures.
-> > 
-> >  - Unfortunately, the current design of compile-time folded page tables appears
-> >    to be internally consistent but confusing. For example,
-> >    when CONFIG_PGTABLE_LEVELS is 2, p4d, pud, and pmd are expected to
-> >    be folded into pgd. However, the architecture code uses set_pmd()
-> >    to update the top-level page-table entry, even though it includes pgtable-nopmd.h.
-> > 
-> >    In the future, it would be good to eliminate this source of confusion,
-> >    possibly by treating all folded upper levels consistently as dummy wrappers
-> >    around the highest real page-table level:
-> > 
-> >          NOPGD
-> >    --> +------+           P4D
-> >        | ptr0 |-------> +------+           PUD
-> >        +------+         | ptr0 |-------> +-----+
-> >                         | ptr1 |-        | ptr | -------> ...
-> >                         | ptr2 | \       | ptr |
-> >                         | ptr3 |  \        ...
-> >                           ...      \
-> >                                     \        PUD
-> >                                      +----> +-----+
-> >                                             | ptr | -------> ...
-> >                                             | ptr |
-> >                                               ...
-> > 
-> > Link: [1] https://lore.kernel.org/all/0019d675-ce3d-4a5c-89ed-f126c45145c9@kernel.org/
-> > Link: [2] https://lore.kernel.org/all/20251113014656.2605447-1-samuel.holland@sifive.com/
-> > Link: [3] https://lore.kernel.org/r/74182e50-b54f-4d2d-a27f-3a59a538d6bc@arm.com
-> > 
-> > Patch History
-> > =============
-> > from v1 to v2:
-> >   - fix docutils warning.
-> >   - Link to v1: https://lore.kernel.org/r/20260921-dummy_ptxp3-v1-0-cd40cf68242e@arm.com
-> > 
-> > from RFC v3 to v1:
-> >   - Drop and rebase for CONFIG_X86_DIRECT_GBPAGES and use the Dave's
-> >     patch (https://lore.kernel.org/all/20260902194718.E1FF3041@davehans-spike.ostc.intel.com/)
-> >   - Link to RFC v3: https://lore.kernel.org/r/20260902-dummy_ptxp3-v3-0-5d8f5b17c25c@arm.com
-> > 
-> > from RFC v2 to RFC v3:
-> >   - repasre commit message
-> >   - move ptdump_pgtable_first_level() into pgalloc.h
-> >   - skip the huge pud operation when CONFIG_X86_DIRECT_GBPAGES is disabled
-> >   - docuemtns compile-time folded page table
-> >   - drop the applied patch.
-> >   - Link to RFC v2: https://lore.kernel.org/all/20260722-dummy_ptxp3-v2-0-d9e4bad31e0a@arm.com/
-> > 
-> > from RFC v1 to RFC v2:
-> >   - Restore slient fallback to next pXd in set_pXd() and pXd_pgtable()
-> >     and add check whether they're called with dummy entry.
-> >   - Add some comment for returning first entry of pgd in arm with
-> >     2 pgtable-level
-> >   - Link to RFC v1: https://lore.kernel.org/all/20260713135614.1618183-1-yeoreum.yun@arm.com/
-> > 
-> > ---
-> > Dave Hansen (1):
-> >       x86/mm: Introduce helper for checking direct map 1G page support
-> > 
-> > David Hildenbrand (Arm) (13):
-> >       ARM: mm: make nommu pgd_t a scalar
-> >       ARM: mm: make 2-level pgd_t a scalar
-> >       ARM: mm: remove custom pgdp_get()
-> >       LoongArch: mm: define pud_leaf() only when PUD exists
-> >       MIPS: mm: define pud_leaf() only when PUD exists
-> >       mm/pgtable: define (pgd|p4d|pud)_leaf() for folded page tables
-> >       mm/pgtable: define (pgd|p4d|pud)_offset_lockless() for folded page tables
-> >       openrisc/pgtable: drop __pmd_offset()
-> >       mm/pgtable: optimize pmdp_get() and friends for folded pagetable levels
-> >       mm/pgtable: catch abuse of folded dummy pgd_t/p4d_t/pud_t
-> >       mm/pgtable: disallow calling (pgd|p4d|pud)_page, pgd_page_vaddr() and (p4d|pud)_pgtable with dummy
-> >       mm/pgtable: disallow calling folded set_pgd/set_p4d/set_pud with dummy
-> >       Documentation: mm: clarify behaviour of compile-time folded page tables
-> > 
-> > Yeoreum Yun (7):
-> >       mm: vmscan: remove stack copy address of pud/pmd pass in walk_pud/pmd_range()
-> >       loongarch: kvm: remove stack copy address of pXd in pXd_offset()
-> >       riscv: kvm: remove stack copy address of pXd in pXd_offset()
-> >       riscv: mm: use proper set_pXd() for generic compile-time folded patable in vmalloc_fault()
-> >       mm/pgtable: redefine PGTABLE_LEVEL enum with ascend order from PGD
-> >       x86: mm: use pgtable_level enum in effective_prot_pXd()
-> >       x86: mm: carve out the generic compile-time folded pgtable case in effective_prot()
-> > 
-> >  Documentation/mm/page_tables.rst            | 84 +++++++++++++++++++++++++----
-> >  arch/arm/include/asm/page-nommu.h           |  4 +-
-> >  arch/arm/include/asm/pgtable-2level-types.h | 20 +++++--
-> >  arch/arm/include/asm/pgtable.h              |  2 -
-> >  arch/arm64/include/asm/pgtable.h            | 23 --------
-> >  arch/loongarch/include/asm/pgtable.h        |  2 +
-> >  arch/loongarch/kvm/mmu.c                    | 20 ++++---
-> >  arch/mips/include/asm/pgtable.h             |  2 +
-> >  arch/openrisc/include/asm/pgtable.h         |  3 --
-> >  arch/riscv/kvm/mmu.c                        | 20 ++++---
-> >  arch/riscv/mm/fault.c                       | 52 +++++++++++-------
+On 11/20/26 08:44, Alex Austin wrote:
+> Registering the PHC before creating the PPS workqueue leaves a small
+> window for PTP_CLK_REQ_PPS to be requested and a NIC generated PPS event
+> to arrive before the workqueue exists. Create the PPS workqueue before
+> registering the PHC.
 > 
-> To move forward with this we need an ACK from riscv folks. All other arch
-> changes are fairly trivial.
+> Fixes: 7c236c43b838 ("sfc: Add support for IEEE-1588 PTP")
+> Signed-off-by: Alex Austin <alex.austin@amd.com>
+> ---
+>  drivers/net/ethernet/sfc/ptp.c | 26 +++++++++++++-------------
+>  1 file changed, 13 insertions(+), 13 deletions(-)
 > 
-> @Riscv people, any comments?
-
-Gentle ping for @risc-v people...
-
-Thanks!
-
--- 
-Sincerely,
-Yeoreum Yun
+> diff --git a/drivers/net/ethernet/sfc/ptp.c b/drivers/net/ethernet/sfc/ptp.c
+> index 37511f234d76..ad6a4e7d990f 100644
+> --- a/drivers/net/ethernet/sfc/ptp.c
+> +++ b/drivers/net/ethernet/sfc/ptp.c
+> @@ -1633,26 +1633,26 @@ int efx_ptp_probe(struct efx_nic *efx, struct efx_channel *channel)
+>  
+>  	if (efx->mcdi->fn_flags &
+>  	    (1 << MC_CMD_DRV_ATTACH_EXT_OUT_FLAG_PRIMARY)) {
+> +		INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
+> +		ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
+> +		if (!ptp->pps_workwq) {
+> +			rc = -ENOMEM;
+> +			goto fail3;
+> +		}
+> +
+>  		ptp->phc_clock_info = efx_phc_clock_info;
+>  		ptp->phc_clock = ptp_clock_register(&ptp->phc_clock_info,
+>  						    &efx->pci_dev->dev);
+>  		if (IS_ERR(ptp->phc_clock)) {
+>  			rc = PTR_ERR(ptp->phc_clock);
+> -			goto fail3;
+> -		} else if (ptp->phc_clock) {
+> -			INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
+> -			ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
+> -			if (!ptp->pps_workwq) {
+> -				rc = -ENOMEM;
+> -				goto fail4;
+> -			}
+> +			goto fail4;
+>  		}
+>  	}
+>  	ptp->nic_ts_enabled = false;
+>  
+>  	return 0;
+>  fail4:
+> -	ptp_clock_unregister(efx->ptp_data->phc_clock);
+> +	destroy_workqueue(efx->ptp_data->pps_workwq);
+>  
+>  fail3:
+>  	destroy_workqueue(efx->ptp_data->workwq);
+> @@ -1702,16 +1702,16 @@ void efx_ptp_remove(struct efx_nic *efx)
+>  
+>  	cancel_work_sync(&efx->ptp_data->work);
+>  	cancel_delayed_work_sync(&efx->ptp_data->cleanup_work);
+> -	if (efx->ptp_data->pps_workwq)
+> +	if (efx->ptp_data->pps_workwq) {
+>  		cancel_work_sync(&efx->ptp_data->pps_work);
+> +		destroy_workqueue(efx->ptp_data->pps_workwq);
+> +	}
+>  
+>  	skb_queue_purge(&efx->ptp_data->rxq);
+>  	skb_queue_purge(&efx->ptp_data->txq);
+>  
+> -	if (efx->ptp_data->phc_clock) {
+> -		destroy_workqueue(efx->ptp_data->pps_workwq);
+> +	if (efx->ptp_data->phc_clock)
+>  		ptp_clock_unregister(efx->ptp_data->phc_clock);
+> -	}
+>  
+>  	destroy_workqueue(efx->ptp_data->workwq);
+>  
+> 
+> ---
+> base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
+> change-id: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
+> 
+> Best regards,
+> --  
+> Alex Austin <alex.austin@amd.com>
+> 
+Reviewed-by: Andy Moreton <andy.moreton@amd.com>
