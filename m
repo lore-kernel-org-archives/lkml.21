@@ -1,70 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179473;
-	b=ZMuhPl8QtkuF6JbEbBYaQ2536taVl2Glmax1A4PO0bdcst+bLhY1g7YIsBoyM/dFXycj
-	 WLZsxyAfBXRznggZSl2/qL7+SKHS+ukHIXBlpVtNMZzxaCrIF+c8mlNILIRnllL1Vgia7
-	 USE7KxZiY42PjNCA3YIKGkmU/mFholciAdO+8+fc82DYW4XnqzI5F4QC+MZyODcup/4SO
-	 AD5q3/ft3rg01yKSghwGR5lsoiu63K9BqVUN3yhf8ZWB5k6arrYFqNTtYmUOCr5WM6EuJ
-	 agjTStntPmT4v5BAl50teE/xsUv45ZTlEdgNxnzc1qgtsGMMeBZHtLgMR91u+2lRgng==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179473;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=ZyG1HJB9CouJ88jrHvgbdE74CmzL9EWfbpLK4lLbZB8=;
-	b=mSEGxYEmQHNRVF0O6zpI/uVtrO6h8l5OmEAbsr4zaiFrR24DXcNplk/p48ro4qI2OFuD
-	 xItzygd8Ss5o71fCR8F50YCDEF/Pj1TaJb7v0v8HNnkriEDiuyFRdKjOmIEjVvplplIPz
-	 tXtRxHoPfqT6A27OxLuk8Jy4Qc2mmB5M7Wu5EDNqOoNm8NzfClT4hvBGuMTImtYZgZUBY
-	 dZAqantqbyHdOrUgglMeuWZH8PTcoHdib+jDndOKwrazfPxpO9dozE3js7Uljfhhjvd+F
-	 MQ3DojmVauxYKTUTrDhVdlIgWURRByPXBxTMNvoFdtlwdZJlRkXxwbfnZuOwQEnKPZw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CIwpj3XN;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795179480;
+	b=wgDc73AZcTaFGndiaStQh+9zn4kK9SZiiV+5+qb51fLQuyXTCRJZXRAH3hdC+bSX+KxR
+	 HV/52aAg4xK/7WVIt0LQ75yQ1WoHYmHXm6Ov+1+APnk0X4AMaI/SAh9K7bAmJCfwM9g2J
+	 cEYJDtWClyNcNq7thXBzftxYqkVNJT5SoVWmjBX9q2lH1+jWom2KGlxEF6t7t+RrOivYa
+	 b5CvhWVTatocSJlGD98Cx2t63+Jm9NlL3aAGjRxEDQvHiRFGixIcSK99ldbs2pU+7RZSH
+	 +ixda2EnzuTYYhkxW0AUeSNYmo0MKzzuV9gwSnXYf7upJSk2Cbfwldd/0HvqYLf54iw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179480;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=kAjfZmpoMLius2h0qf7UyM5X6PZN8hIm4whLsR5o7qk=;
+	b=N69hOKX5FSeOpEUy5BOpH/dBteREcTnT+8KNxr1JLpbMMJiorM6knJBvty3xiELAe975
+	 8JQGa0/afDEnrSAgCl/3Il7YbrF8hBkVhvazACcwCrRSZ/51wbtTmX6+596zry78y0XXa
+	 UpggdBnKJMZEl4lpy6mj6RHvd4cECz1k26fTESpnI1ogVpBqKJZWzM2iAdQuXRVdC7Nuq
+	 jUQZz+CEIgzJCMppkZI+KLmpyD4P0+l4I5jdMduh7Sc2QH3UrTt09IH0VKqbcWGNUVOml
+	 fvot0WmjVsaHAeiUsH1BQ5wqKy9EbXGZTqhDmS30ynkrsYBAgXdMTAinP7shsBD0Jsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=foss.st.com;
+	spf=pass smtp.mailfrom=foss.st.com;
+	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=J4zidpMg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.41
+Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013041.outbound.protection.outlook.com [52.101.72.41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2C2560A260A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:57:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2C2560A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CIwpj3XN
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 25E67C6221C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0771D606A334;
 	Fri, 20 Nov 2026 12:57:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7388A601B9;
-	Fri, 20 Nov 2026 12:57:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 54E9211BC01AF;
-	Fri, 20 Nov 2026 13:57:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795179470; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ZyG1HJB9CouJ88jrHvgbdE74CmzL9EWfbpLK4lLbZB8=;
-	b=CIwpj3XNGPVEq7IVMCfxfiYb0wfXVtbYAk7LTFhg1uGiNPczfzmjyDddimswPr9U/wH4ss
-	Fs5+f/3LdbyXLDkfXHRw6gmUoLa4neaHD2mwVcKgxIYERAvILbd6o8PI+wWc84Ghjax9Y0
-	Le2FGDnbNK+riJ1rvzW7nhgBpRCfz1JYV1Bb0FdVqlgI9rLy9FT2XNrvxUM31iQ66aPYyl
-	ZimLXdN708HBxTTuuyY+KIlHXDekR7R2xUX2wVdxfMto0C5rmh8Y8aEBAjZMoREU7XHadz
-	f6eNDNc+MPs0ablm2dQmMffOI8MkCdQweByyM+IZC0/BX++R9fdEWRb7d0BOgQ==
-From: Paul Cercueil <paul.cercueil@bootlin.com>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Cc: linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Paul Cercueil <paul.cercueil@bootlin.com>
-Subject: [PATCH v4 2/2] ACPI: platform: Add basic support for ACPI 6.5 fixed clock resources
-Date: Fri, 20 Nov 2026 13:57:22 +0100
-Message-ID: <20261120125722.209609-3-paul.cercueil@bootlin.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120125722.209609-1-paul.cercueil@bootlin.com>
-References: <20261120125722.209609-1-paul.cercueil@bootlin.com>
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0771D606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=J4zidpMg
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AXTnM9PlmRqt6Dog00SVKQH+Kx+dQG5pt/u/m80tYPT+9OgJoSWW2jvo7SQhcV+E8PUMp+ZyHPwCyv91dQb8ON3Ceid1FhSFbTD960lSQCYTYYxF5WD5OFmiPoMQD2Xh1qLcsO6ovg8+DSzEzcCVjnQCx76jotytz09eGH+seRqxekpy6/U7kOTfjN9Y8L86ANwC2y0UpvF+UhxQGUOVNivAbRpNNoKZ9xzNRjIK5EXO0C/6Xf2lXRmjc7mMyjLTHZusVkbM77Ynf/Sx3ugjWeb1jtb7AkUYIP9Xlv5XrdX5NnzJgMJBtoOrijXQKZ9e/4Hpm+rbUGrMUaY/7WEqYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kAjfZmpoMLius2h0qf7UyM5X6PZN8hIm4whLsR5o7qk=;
+ b=uOhw2nb1TO3+f1R1Rz/JNag6cWzaYpho+nZQOJyx8s6VEjod5ltIJCVE3LJDW8SjKr+ajQS+xddbU2KXPk6m47AIx8HfuuzSGhhbgTI5xkKNyyQAP7lnNM+wgtVJZ8+j27b10OUtBw6WExz4f89EjTzFAUleMYRpgW/77MfE8bhB6DkXr9v2pb0KKF1ZY/9AfYOw7fMTLogqtDEDRZCqfBQcOX0u2HsGaVRlAYed3ZzHGmJx0wtFeQ2W4JiNCmIP+afMg7b2aMa6alGkRIP5XyO9P/sVoVVw7QbJWf2JS4eP5nJXW16k+OR7A168vRJ9YTk7usDUiUJT/BD0FlkNZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kAjfZmpoMLius2h0qf7UyM5X6PZN8hIm4whLsR5o7qk=;
+ b=J4zidpMgX99PaAzjsjUG0AQap/FjBlC1PrdkOMTFNMcirrbaoxQkyYquqLnTGL+c7jyJx1BP3MiE9TZrjtHfiIpS9BkYbE39a7nfG0pcyJZa5QtOpo8SpOsi61Gr1a0krM6BQLhit0ndFwM/HW1ZOt1pMbUvL+LAzsfQiUpbcmEvwvdoEggMcov9cK+HKZZprdDEnpfHwxq4Wyop4GXOa83ya2JhENiUUfYzh30iMJux4nZkjTbnmlVXu1A/9BtuEXV7yQTztt+mw8g7nK9gFCLLq9jx0w/KfDbjcR/+dYzNeTrKj7OUKvi5yqI7AjVQaXxAiEGBTxYxOu3mGNYLKA==
+Received: from OS6P279CA0008.NORP279.PROD.OUTLOOK.COM (2603:10a6:e10:30::9) by
+ PAVPR10MB7306.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:31d::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.2; Fri, 20 Nov 2026 12:57:53 +0000
+Received: from CPH1EPF0000052A.eurprd05.prod.outlook.com
+ (2603:10a6:e10:30:cafe::a7) by OS6P279CA0008.outlook.office365.com
+ (2603:10a6:e10:30::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 12:57:53 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
+ is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ CPH1EPF0000052A.mail.protection.outlook.com (10.167.241.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 12:57:53 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
+ 2026 13:58:39 +0100
+Received: from [10.48.87.222] (10.48.87.222) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 20 Nov
+ 2026 13:57:52 +0100
+Message-ID: <9be9dfec-50ea-456e-8c70-61e4bd9d338b@foss.st.com>
+Date: Fri, 20 Nov 2026 13:57:51 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,142 +103,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: st: mark STM32MP23 timer as stopping in
+ suspend
+To: Patrick Delaunay <patrick.delaunay@foss.st.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	"Alexandre Torgue" <alexandre.torgue@foss.st.com>
+CC: Linux STM32 <linux-stm32@st-md-mailman.stormreply.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261030102907.1.I0ef2a7ac525ef18fa683368382d93e98cc36ee25@changeid>
+Content-Language: en-US
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+In-Reply-To: <20261030102907.1.I0ef2a7ac525ef18fa683368382d93e98cc36ee25@changeid>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CPH1EPF0000052A:EE_|PAVPR10MB7306:EE_
+X-MS-Office365-Filtering-Correlation-Id: d603dc6e-23ff-4a0b-2c53-08df4705e3d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|376014|36860700016|23010399003|18002099003|6133799003|22082099003|261009223027099003|56012099006|11063799006|261022075727099003|261102123227099003|261021121427099003|261021123027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	XI5yZjqwgJOgFa/vuQf0SWej8k1XfVairC/K5RO+xIaQzh07Kev0E0PnuJZE+Ow9SbNxE+3C5DtlUh1LBUBCkk6QvlxZK0ir48eZFhpOQ+MPErM9/0NQD0+gDIOgfs8o9maZ5QbwkQuPCtyOyM2ogQl7qY546GyJPspG6a0GQatyEGL4qsGRODW4azqUeKAxrg6aVTczLExiBWO5TXW9qZccMM4EleLIDqCOYn1S7TL+h8I36S/qSvmeTQ4POBk2rInU+3coNvGmPPufUrFb8e21PzrHISoph7apMeGO7AbX0n3dWJV+OzaB56/HlqTuckOFpfYVFSRvOwmCBI71+IQwsJTNwFweTeD8KKVDLmruauiHr+/eSyNAv9XTUdiimcE/8qCMKenLJpN7Zmqgjpmc1fwATLNEf0E7kV0DKPSWjy0EAPPgCS/tkebZlY0cMx2qUj4nilG4HXD45q8cEd2FvivLiXs8R7IORt6Dv0+zPBvuGVrYBIY8m5hfzoNOwrvAcxbcx+CTVVxG46xCtdQ4xDnozHWr4Qn0UdcNPqSQdEv42PJ41HufjThm8DeAKZ1wlm7NS6WL16l+FY/VQytmTBHjTNP5USZhzfSMBj9yJeZrXARtTttiEfmghrNitvQmHeWXtA93usm6E8eZF5PPlI7/RBegbangNRiPSydhS7Xc9W/NNZyaDftjP2oEItvWxedjuB78JJc37osetA==
+X-Forefront-Antispam-Report:
+	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(36860700016)(23010399003)(18002099003)(6133799003)(22082099003)(261009223027099003)(56012099006)(11063799006)(261022075727099003)(261102123227099003)(261021121427099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	p/jDrmYU+T1aKMoLPdPyNe/2lMVoqJwcHil+DNyiXbai7gG8fFj1b2XFLp4PZbX9yUsUdVCRMYPidEHQYy7B65v00+NqFfGoX4PIsWQSoScifPrPDLFQDyfIa/fIW69uetPS2idzmaJ8hFK2SpoY94AsndRuxZNhg0phS8CGQRWupwkJ1mxGux6p8yRQtEodkOWoL7P7JhjxixaBGbdm+xpprU6N8Bm8kr+xJXUnpez2l+mdSwWTGDtNz7uPHS3COhza0uiNCvXdQIxsk5gwlWw09mKqaQj95bH0ZkMyoBppqLZdjdQHmVULGgoqyIyOSgVXdkucqRLlMRTO9iRm9fPGiNno3syQBlwclHR212/gV4d51YF/TR3isGZj9gPCCAhVKO0SbQNCnVAB/+hK4c888o+CASbTJbq62Zq2uzyAYxAAj5f4vvMUmdT8TQBC
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 12:57:53.1927
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d603dc6e-23ff-4a0b-2c53-08df4705e3d9
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CPH1EPF0000052A.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR10MB7306
 
-ACPI 6.5 introduced a clock input resource descriptor, which allows to
-specify in the ACPI tables what clocks are connected to a given device.
+On 10/30/26 10:29, Patrick Delaunay wrote:
+> The generic ARM timer, based on STGEN, stops ticking in low-power
+> states such as Stop1. Replace the always-on property with
+> arm,no-tick-in-suspend in the STM32MP23 timer node, matching the
+> STM32MP25 configuration.
+> 
+> Fixes: e9b03ef21386 ("arm64: dts: st: introduce stm32mp23 SoCs family")
+> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
 
-This patch adds support for the most basic clock resource, which is the
-one that represents a fixed clock. The new code will then create a
-clk_hw for each fixed clock resource, which is then made available to
-the device drivers, that can obtain it through a regular call to
-clk_get(NULL).
+Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 
-Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
----
-
-v4: Change clock names to "acpi-clkX", because ACPI devices names can be
-    up to 17 characters long, and our clock name must be 16 characters
-    max.
-
-v3: No change
-
-v2:
-- Use the calculated clock name in devm_clk_hw_register_fixed_rate()
-  instead of the device name
-- Make sure clkres->scale is <= 2. The field is 2 bits but the value
-  clkres->scale == 3 is not defined in the spec.
-- Compute the fraction numerator using 64-bit math, to make sure it
-  won't overflow on 32-bit systems.
-- Initialize clocks only when the device_type matches
-  ACPI_BUS_TYPE_DEVICE.
-- Use a shorter name for clocks as the hard limit is 16 characters
-  including the terminator.
----
- drivers/acpi/acpi_platform.c | 64 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
-
-diff --git a/drivers/acpi/acpi_platform.c b/drivers/acpi/acpi_platform.c
-index 80ea7121744d..4e8824cc042d 100644
---- a/drivers/acpi/acpi_platform.c
-+++ b/drivers/acpi/acpi_platform.c
-@@ -10,17 +10,27 @@
- 
- #include <linux/acpi.h>
- #include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/clkdev.h>
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/ioport.h>
-+#include <linux/kconfig.h>
- #include <linux/kernel.h>
-+#include <linux/list.h>
- #include <linux/module.h>
- #include <linux/dma-mapping.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
-+#include <linux/units.h>
- 
- #include "internal.h"
- 
-+struct acpi_clk_data {
-+	struct device *dev;
-+	unsigned int idx;
-+};
-+
- /* Exclude devices that have no _CRS resources provided */
- #define ACPI_ALLOW_WO_RESOURCES		BIT(0)
- 
-@@ -130,6 +140,57 @@ static unsigned int acpi_platform_resource_count(struct acpi_resource *ares, voi
- 	return AE_CTRL_TERMINATE;
- }
- 
-+static int acpi_add_fixed_clock(struct acpi_resource *res, void *d)
-+{
-+	static const unsigned long clk_scale[] = { 1, HZ_PER_KHZ, HZ_PER_MHZ };
-+	struct acpi_resource_clock_input *clkres;
-+	struct acpi_clk_data *data = d;
-+	struct device *dev = data->dev;
-+	struct clk_hw *clk;
-+	unsigned long rate;
-+	char name[64];
-+	int err;
-+
-+	if (res->type == ACPI_RESOURCE_TYPE_CLOCK_INPUT) {
-+		clkres = &res->data.clock_input;
-+
-+		if (clkres->mode) {
-+			dev_warn(dev, "Only fixed rate clocks supported for now.\n");
-+			return 1; /* keep going */
-+		}
-+
-+		if (clkres->frequency_divisor == 0 || clkres->scale > 2)
-+			return -EINVAL;
-+
-+		rate = DIV_ROUND_UP_ULL((u64)clkres->frequency_numerator * clk_scale[clkres->scale],
-+					clkres->frequency_divisor);
-+
-+		snprintf(name, sizeof(name), "acpi-clk%u", data->idx++);
-+
-+		clk = devm_clk_hw_register_fixed_rate(dev, name, NULL, 0, rate);
-+		if (IS_ERR(clk))
-+			return PTR_ERR(clk);
-+
-+		err = devm_clk_hw_register_clkdev(dev, clk, name, dev_name(dev));
-+		if (err)
-+			return err;
-+	}
-+
-+	return 1;
-+}
-+
-+static void acpi_platform_init_clocks(struct acpi_device *adev)
-+{
-+	struct device *dev = &adev->dev;
-+	struct acpi_clk_data data = { .dev = dev };
-+	LIST_HEAD(list);
-+	int ret;
-+
-+	ret = acpi_dev_get_resources(adev, &list, acpi_add_fixed_clock, &data);
-+	if (ret < 0)
-+		dev_err(dev, "Failed to add clock resources: %d\n", ret);
-+}
-+
- /**
-  * acpi_create_platform_device - Create platform device for ACPI device node
-  * @adev: ACPI device node to create a platform device for.
-@@ -196,6 +257,9 @@ struct platform_device *acpi_create_platform_device(struct acpi_device *adev,
- 			}
- 			acpi_dev_free_resource_list(&resource_list);
- 		}
-+
-+		if (IS_ENABLED(CONFIG_COMMON_CLK))
-+			acpi_platform_init_clocks(adev);
- 	}
- 
- 	memset(&pdevinfo, 0, sizeof(pdevinfo));
--- 
-2.47.3
+> ---
+> 
+>   arch/arm64/boot/dts/st/stm32mp231.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+> index fefbf6f4f153..a7970fdebec7 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+> @@ -143,7 +143,7 @@ timer {
+>   			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>   			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>   			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+> -		always-on;
+> +		arm,no-tick-in-suspend;
+>   	};
+>   
+>   	soc@0 {
+> ---
+> base-commit: c339f4010dea8b0d754f84ace70cd1b089878ef8
+> branch: sdfsdfssfdfsd
+> 
 
