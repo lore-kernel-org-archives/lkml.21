@@ -1,45 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199214;
-	b=Hv7fldF4o8AgAcpVnLUOpSPFTc3TTzeWflP0UgYnHOhcjyIPS+z4iCUCH3UzXvnpa5/t
-	 midSbHk3GRgYgAxTLmzSRap23s3u10Tq3C1I3GP8jtpVYqlau/EK29uJ/1PCPkIm0tXeB
-	 H9+tv7RSnDrsYQjo4Mop692B/9fkkzGBkv75vwz9Mv1+U8/JZPzc7p3GpVerdtcn6xHkL
-	 Hh6T5DD6qm0NWlBbcrZzST5hN0pvsFWzkDgzVwivSewz6dcrQBhza47aUzXI4r/15CZzs
-	 vUzwkyiMrQWYMtNOeS2+lWk2eNv/qGw7wPOQ9wPqYWOBuD7kXcw2NV62TCLOnyQqRXw==
+	t=1795199255;
+	b=BTUBreHPHE29w2iRKlJBCwdPE8einbpyFYbKMnl6lNsIFb1zgjYijGv7C1hFUelgANL2
+	 mKOs9Mlcv67bRgNdiiJuVOl+QdD0/rIwHWvZg87VcwUXzAUBYuaVYau5zp+psilysmzfd
+	 oCfc+X7Nacr9BhqfoqH0WZv8Yz9tVoF4O5Cte0VWQPraDS8YIA4cv1p0958b+nsZDoHCz
+	 TBJgq4e/+WgqtSv1nm0SL5N0qTbYEFDvAPn7mzXXjwskUJUwjB/DuuLP6FXu7wmNaL+Lu
+	 psOTm9iA81Ig0R+BL+q/BzphIRlOhaT7CFYoM/JW2rwF22JpZAnuuNHjprrUmtjiBAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199214;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=19/rJLdqgzkfioz5z77MWazyV2zGFDrwOkdLp6n6ci4=;
-	b=1mzwkrPc8nhr1V2CDGXjo6l3e+F7fQtcrsVR9IVqU7lmgEY3/Rv5gJhBvz4nCQPAE9Y8
-	 960XUqfEvI6KnmCCWaT+AQJG1leisgoIyX/SZij/Ex2aYzSCWK1JfN2wjZEYxtF9MrU1T
-	 I+v9B3SoX9kyrYIwTcph/MNdvWsm0BPNGqAei5iQTR/z5jxqrDjZxDxRKh+p5lSsjgigw
-	 KWwEuOhMUq3+DHEP0/eTwI8LiCDTr3TR9NU6iuGVTZLtQn0aylh6tZspwcWcpwdOdjLmX
-	 Wgs0q5oO6d/phQUpuRxLf5QGyxUBdEnI1Tb4ELhP+cYAfridx2d8xKdAfnrZgDObLPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199255;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=GIz15JgjnK5uTt8nm2/0a0kIukD9hLXTrgL/HU55oaU=;
+	b=hkiAP5MGcdz52rYhVJMdAz1Sts96GFacp9svWET0nPr9dVnK1Sh5Ms0tYJz0Pb1Bp45n
+	 qL8Ek+XENZ0pEWYvxTYRpuFvX9z304oL4OOcYEvyHJOMVx5arERoMxQ4pHg6rsfi/j7Zp
+	 uO3hMmY9NRbIdwcEh3ZC+nLmTuhkdS7tihPtCbkxEdFv8WYSQOI06al27T+QHoTNSSEeN
+	 JoEvfX49+ca8TvfPYxUJx1LXZFmVzAiUKrsrGfI9m1hTXFta5FLaizYJW7OPnEjxlAHNE
+	 6C12rNrobZzY5pqhwTTU8Dubt+lXIV7+kSQPeOVub/JZByCGCi/Eyi4GLXTkBkIuTwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IEegjj8z;
+	arc=none smtp.remote-ip=209.85.222.173
+Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55748606A32A;
-	Fri, 20 Nov 2026 18:26:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55748606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id EF17E6732A; Fri, 20 Nov 2026 19:26:48 +0100 (CET)
-Date: Fri, 20 Nov 2026 19:26:48 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Viacheslav Dubeyko <slava@dubeyko.com>
-Cc: glaubitz@physik.fu-berlin.de, frank.li@vivo.com, hch@lst.de,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	vdubeyko@coreweave.com, brauner@kernel.org,
-	linux-xfs@vger.kernel.org
-Subject: Re: [PATCH v5 5/5] hfsplus: convert regular file I/O to iomap
-Message-ID: <20261120182648.GE2183@lst.de>
-References: <20261118004844.3849979-1-slava@dubeyko.com> <20261118004844.3849979-6-slava@dubeyko.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C66D606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:27:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C66D606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IEegjj8z
+Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-949657a20d7so147130585a.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:27:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795199254; x=1795804054; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=GIz15JgjnK5uTt8nm2/0a0kIukD9hLXTrgL/HU55oaU=;
+        b=IEegjj8z97epEN0jfTn7VXYwngNMROpE2hFS1s8D7vzRzDq7JD/qHN8DSMBKXQpmQd
+         THS5XLRBZo8uRS6rwBUFjPt+lx5+ArEMg9+rGiK+9M7RLRm8ePYiGZvhQ6X+zfX/lJbR
+         hkPMb75itGmvPPO04re8FXrrrMBUn4Uu49IyDGqjtK8uBoTkByGEMGZoP+8lJSoBnLhH
+         vrBREKw2V17TToN7eh4F7sSxjzgIZA3o7JSCisDpmhUm7wQ0opbf/LroA9vN69jQMRsH
+         JiVU5QoXYUyR/2CHUuct+heqtcXa/SCIoLuNLtl0X09dpK1xy703+A42R4JFQ7m21mOT
+         QYbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795199254; x=1795804054;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=GIz15JgjnK5uTt8nm2/0a0kIukD9hLXTrgL/HU55oaU=;
+        b=UmRhNKsM8QwZYWQ7xe16HqQqDqrpPtjkeqLuQzD5YCEziyxLmBuzFxSInyvUbVI43C
+         WmkvxQvydE44/eZepJy/oyKxeq91hrOa3kv3HTpNU5NTmTkrficyEbh/+pNjhcCw6xZI
+         UTiydIoiyW4NmKkyke71XGeZ5kC/PA/ibNF6P5kUROxXx2X3qk0/Xkqvgs8mQPqgPncx
+         C0tifESNObitP6Q1ruP3D4XAggk51Lxe1SXWnXruuMqhRyjvix6MsjnAgBrUVdzN7Z0l
+         gTaJ0s5CHf3/lISyxfrptRluWH5zVvsmp7rIa4P/UuAmW6L6m0aztPxZDa4zukpmKVFJ
+         zNxg==
+X-Forwarded-Encrypted: i=1; AL+hErEDblI4lJ6pTkt+9YTqd3hGk+JvuuAEv39th8DFvqi15sbYlnhXaOh1Vis2NdYvB9Ihq+vVOM410BURAQI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BV1XDOpagm0pUXc4eCNsyROrYCwD13PHCUU4tp7goSiJ1kPxO
+	4HG0ORbvTuifDsdBe9o6baw2wOm9Msr2QNiJN/o4W8ZrWaHZrfhejrnA
+X-Gm-Gg: AYBFou0MzfPXX6UnniNhwn0alPFJgzBnr7mo8fIAvwPG4Yty2nXff9UvbuaHwf8WxXW
+	hv/VcfORwf0cigf0lcT1hKM2Yqeovxl2vTJyxSHEeAiZO0z7oZQ/RkBPQ9jQFYvhHDSAtkRYzPf
+	G1es9Tb4x4aoPMF6cZT3N1xJ0x8tQEYNOIWsdw15URyOiZYJOmtJRbeyArbs/UOO/sd8ro/JJuy
+	RBo4ng+ZZpw48ctpsBZJH3fDd/WOMno2yJbCS2Y8J9iqouNsJY2OqqkGBtJ23fOO21EQhQ+ePsW
+	GviCZ+z6hIw7Tb/w7wB9x+siSvyqDhilCZMWvyYUPYtk0t1qdYIeWABgC/MmuejSRsDVrBihjUi
+	zYWKZropptu4Zrk45ja9DQLa5AnyqoJIj8AiRtoRNuztnb3tqve+UO9yguTXGJMLeG7Z1HJatTr
+	B1yJ5UyHV4RgJd8IiDrlBif5qo6Nd0w5Ese4ui0Dy7j3PuflFqw1GMvRUMP1rvAgYhI9G90s9/q
+	+Z6+Fj8P9PGZJH7Tdcc4ew47t2ZJZtjJDsSY/vBi8uSFhMIK4DLDzYOaj7FHt1R5ZaPIkZlw5Jd
+	xV89wbwOLioFqJ/p5c8NyQPgCmSAkH4uAmOrZKu1xdyZFCAc8Pkgl2qF
+X-Received: by 2002:a05:620a:28d6:b0:949:7656:ca0a with SMTP id af79cd13be357-949ba99ab2fmr687727585a.35.1795199254069;
+        Fri, 20 Nov 2026 10:27:34 -0800 (PST)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb4219c4sm253599985a.41.2026.11.20.10.27.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 10:27:33 -0800 (PST)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Luka Gejak <luka.gejak@linux.dev>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>
+Cc: Ping-Ke Shih <pkshih@realtek.com>,
+	Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>,
+	Brian Norris <briannorris@chromium.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v3 3/5] wifi: rtw88: do not drop stations when collecting them for an iteration
+Date: Fri, 20 Nov 2026 19:27:30 +0100
+Message-ID: <20261120182730.467748-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <0f2520cdfcb86395317a39637bd0b535844e34b2@linux.dev>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,226 +105,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118004844.3849979-6-slava@dubeyko.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 04:48:44PM -0800, Viacheslav Dubeyko wrote:
-> Switch the HFS+ regular file data path from buffer heads and
-> blockdev_direct_IO() to iomap.
-> 
-> Add iomap.h and iomap.c with hfsplus_iomap_ops,
-> hfsplus_write_iomap_ops, hfsplus_writeback_ops and
-> hfsplus_write_dio_ops. iomap.c implements __hfsplus_iomap_begin(),
-> hfsplus_write_iomap_end(), hfsplus_iomap_cont_expand() and
-> hfsplus_writeback_range(), which are the basis of the HFS+ iomap
-> operations. Direct write completion uses the generic
-> iomap_dio_end_io() helper.
-> 
-> Implement iomap-based hfsplus_file_llseek(), hfsplus_file_read_iter()
-> and hfsplus_file_write_iter(). The volume capacity limit for writes is
-> enforced by generic_write_checks(), since s_maxbytes is already set
-> from the volume capacity.
-> 
-> Redefine hfsplus_aops as iomap-based operations for regular files.
-> As a result, hfsplus_direct_IO() is removed as a user of
-> blockdev_direct_IO(), and the LEGACY_DIRECT_IO dependency is dropped
-> from Kconfig. hfsplus_file_truncate() extends regular files by means
-> of hfsplus_iomap_cont_expand(), while other inodes still use the
-> write_begin/write_end path.
-> 
-> HFS+ does not support holes, so a write or truncate that extends a
-> file first zero-fills the range between the old end-of-file and the
-> new one by means of hfsplus_iomap_cont_expand(). Introduce
-> hfsplus_iomap_extend_size() that grows i_size, zero-fills the gap and
-> rolls back on failure, and use it in hfsplus_file_write_iter() and
-> hfsplus_setattr(). Introduce hfsplus_iomap_size_rollback() that waits
-> for in-flight direct I/O, sets i_size, truncates the page cache beyond
-> it and calls hfsplus_file_truncate() to release the blocks allocated
-> past it. It is not called when phys_size is below the new size, since
-> hfsplus_file_truncate() would zero-fill again in that case.
-> 
-> In hfsplus_file_write_iter(), roll back after the data write if fewer
-> bytes than requested were written: to the original size if nothing
-> was written, or to the current i_size after a short write. Queued
-> asynchronous direct I/O is skipped, because direct I/O beyond
-> phys_size is forced to be synchronous, so a queued request never
-> extends the file.
-> 
-> cc: Christoph Hellwig <hch@lst.de>
-> cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> cc: Yangtao Li <frank.li@vivo.com>
-> cc: linux-fsdevel@vger.kernel.org
-> Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
-> ---
->  fs/hfsplus/Kconfig      |   2 +-
->  fs/hfsplus/Makefile     |   6 +-
->  fs/hfsplus/extents.c    |  40 +++++--
->  fs/hfsplus/file.c       | 187 ++++++++++++++++++++++++++++-
->  fs/hfsplus/hfsplus_fs.h |  17 +++
->  fs/hfsplus/inode.c      | 155 ++++++++++++------------
->  fs/hfsplus/iomap.c      | 254 ++++++++++++++++++++++++++++++++++++++++
->  fs/hfsplus/iomap.h      |  17 +++
->  8 files changed, 583 insertions(+), 95 deletions(-)
->  create mode 100644 fs/hfsplus/iomap.c
->  create mode 100644 fs/hfsplus/iomap.h
-> 
-> diff --git a/fs/hfsplus/Kconfig b/fs/hfsplus/Kconfig
-> index ca8401cb6954..b4432c64db3b 100644
-> --- a/fs/hfsplus/Kconfig
-> +++ b/fs/hfsplus/Kconfig
-> @@ -5,7 +5,7 @@ config HFSPLUS_FS
->  	select BUFFER_HEAD
->  	select NLS
->  	select NLS_UTF8
-> -	select LEGACY_DIRECT_IO
-> +	select FS_IOMAP
->  	help
->  	  If you say Y here, you will be able to mount extended format
->  	  Macintosh-formatted hard drive partitions with full read-write access.
-> diff --git a/fs/hfsplus/Makefile b/fs/hfsplus/Makefile
-> index 82738ce7ca4d..3ddea69a9c69 100644
-> --- a/fs/hfsplus/Makefile
-> +++ b/fs/hfsplus/Makefile
-> @@ -5,9 +5,9 @@
->  
->  obj-$(CONFIG_HFSPLUS_FS) += hfsplus.o
->  
-> -hfsplus-objs := super.o options.o inode.o file.o ioctl.o extents.o catalog.o dir.o \
-> -		btree.o bnode.o brec.o bfind.o tables.o unicode.o wrapper.o bitmap.o \
-> -		part_tbl.o \
-> +hfsplus-objs := super.o options.o inode.o file.o iomap.o ioctl.o extents.o \
-> +		catalog.o dir.o btree.o bnode.o brec.o bfind.o tables.o \
-> +		unicode.o wrapper.o bitmap.o part_tbl.o \
->  		attributes.o xattr.o xattr_user.o xattr_security.o xattr_trusted.o
->  
->  # KUnit tests
-> diff --git a/fs/hfsplus/extents.c b/fs/hfsplus/extents.c
-> index bb5a1508498d..0928d64684aa 100644
-> --- a/fs/hfsplus/extents.c
-> +++ b/fs/hfsplus/extents.c
-> @@ -15,6 +15,7 @@
->  
->  #include "hfsplus_fs.h"
->  #include "hfsplus_raw.h"
-> +#include "iomap.h"
->  
->  /* Compare two extents keys, returns 0 on same, pos/neg for difference */
->  int hfsplus_ext_cmp_key(const hfsplus_btree_key *k1,
-> @@ -610,20 +611,33 @@ void hfsplus_file_truncate(struct inode *inode)
->  		inode->i_ino, (long long)hip->phys_size, inode->i_size);
->  
->  	if (inode->i_size > hip->phys_size) {
-> -		struct address_space *mapping = inode->i_mapping;
-> -		struct folio *folio;
-> -		void *fsdata = NULL;
-> -		loff_t size = inode->i_size;
-> +		if (S_ISREG(inode->i_mode)) {
-> +			res = hfsplus_iomap_cont_expand(inode, hip->phys_size,
-> +							inode->i_size);
-> +			if (res)
-> +				return;
-> +
-> +			mark_inode_dirty(inode);
-> +		} else {
-> +			struct address_space *mapping = inode->i_mapping;
-> +			struct folio *folio;
-> +			void *fsdata = NULL;
-> +
-> +			res = hfsplus_write_begin(NULL, mapping,
-> +						  inode->i_size, 0,
-> +						  &folio, &fsdata);
-> +			if (res)
-> +				return;
-> +
-> +			res = generic_write_end(NULL, mapping,
-> +						inode->i_size, 0, 0,
-> +						folio, fsdata);
-> +			if (res < 0)
-> +				return;
-> +
-> +			mark_inode_dirty(inode);
-> +		}
->  
-> -		res = hfsplus_write_begin(NULL, mapping, size, 0,
-> -					  &folio, &fsdata);
-> -		if (res)
-> -			return;
-> -		res = generic_write_end(NULL, mapping, size, 0, 0,
-> -					folio, fsdata);
-> -		if (res < 0)
-> -			return;
-> -		mark_inode_dirty(inode);
->  		return;
->  	}
->  
-> diff --git a/fs/hfsplus/file.c b/fs/hfsplus/file.c
-> index 6b14095b2aa6..f34cd80351e5 100644
-> --- a/fs/hfsplus/file.c
-> +++ b/fs/hfsplus/file.c
-> @@ -3,9 +3,11 @@
->  #include <linux/fs.h>
->  #include <linux/uio.h>
->  #include <linux/mount.h>
-> +#include <linux/iomap.h>
->  
->  #include "hfsplus_fs.h"
->  #include "hfsplus_raw.h"
-> +#include "iomap.h"
->  
->  static int hfsplus_file_open(struct inode *inode, struct file *file)
->  {
-> @@ -14,6 +16,7 @@ static int hfsplus_file_open(struct inode *inode, struct file *file)
->  	if (!(file->f_flags & O_LARGEFILE) && i_size_read(inode) > MAX_NON_LFS)
->  		return -EOVERFLOW;
->  	atomic_inc(&HFSPLUS_I(inode)->opencnt);
-> +	file->f_mode |= FMODE_CAN_ODIRECT;
->  	return 0;
->  }
->  
-> @@ -113,10 +116,188 @@ int hfsplus_file_fsync(struct file *file, loff_t start, loff_t end,
->  	return error;
->  }
->  
-> +/*
-> + * Fall back to buffered I/O for the tail of a write that
-> + * iomap_dio_rw() could not perform directly (unaligned tail,
-> + * or no blocks could be mapped without allocation
-> + * outside the direct path).
-> + */
+Hi Luka,
 
-Here you can use up the entire 80 characters as well.
+> Thanks for reproducing this. I was looking at 0bdc579dbfc2, which
+> already has b719e9bced93 clearing si->vif in rtw_sta_remove().
 
-> +static ssize_t hfsplus_fallback_buffered_write(struct kiocb *iocb,
-> +						struct iov_iter *from)
-> +{
-> +	loff_t offset = iocb->ki_pos, end;
-> +	ssize_t written;
-> +	int ret;
-> +
-> +	iocb->ki_flags &= ~IOCB_DIRECT;
+Right, my test tree was older than that commit, so what I wrote about
+rtw_sta_remove() was wrong.
 
-Does this need to wait for a zero i_dio_count just as it has been fixed
-in various files recently?
+> Could you rebase v4 on rtw-next and keep the si->vif check in
+> rtw_collect_sta_iter()? That should cover the case you reproduced.
 
-It would be kinda nice to factor all this fallback logic into a helper
-so that we have one maintained set of this logic instead of a copy in
-various file systems.
+Yes. On rtw-next 0bdc579dbfc2 with v3, the client was collected with
+si->vif NULL and was gone from mac80211 after the held collection in 2
+of 3 runs; in the third the watchdog did not collect it in time. With
+the check in v4 it was skipped in 3 of 4 runs. In the fourth the
+collection came before the client went back to AUTH, and the removal
+waited for it.
 
-> +	ret = iomap_dio_rw(iocb, from,
-> +			   &hfsplus_write_iomap_ops,
-> +			   &hfsplus_write_dio_ops,
-> +			   dio_flags, NULL, 0);
-
-You can use up the space available:
-
-	ret = iomap_dio_rw(iocb, from, &hfsplus_write_iomap_ops,
-			&hfsplus_write_dio_ops, dio_flags, NULL, 0);
-
-> +		if (iocb->ki_pos + iov_iter_count(iter) >
-> +		    HFSPLUS_I(inode)->phys_size)
-> +			dio_flags |= IOMAP_DIO_FORCE_WAIT;
-
-Add a comment on why the wait is forced?
-
+Mehmet
