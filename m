@@ -1,98 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795137170;
-	b=SitODI4agmaWXARL7ORFgyNDiv2Ea2gEfzp2LOo2lGkslCCG2hMZwQtJwDQk6OUyZUEZ
-	 1rETpjr3yyBFikYgigB+6SAKpwwbODZyN3NGW9MeZbD7ODU6/7QbeB1vx8sMRPd+kq/25
-	 0pLIDzrhn/IF2DKCfTqeA5zVqJco9k/zPdUt0sOHNOySg5HjDV24aHT8ZoksvWNbcEyMm
-	 UsT/je9yNxO+KxF06lVJtLvdqwNWQaGXOPf7DDbkOWkJpf9i09QoYFYsVSpPaHN5fV031
-	 AOEqj99rliaVsOwnGVozZdlZPIMv9jdVnnyYWlbjU4idYWOWlpBme6CCFkgCJ1XSynw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795137170;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=IKiui00sZpK3mphypQDVWhEvLK6XpJy0oUns+l1zzec=;
-	b=sX1ua/LDG8NEITRMlqgMqlZ4Qo6YJNr2LKos51X69rWtQeSe/sPTun39lI+laXN2IDVD
-	 1ky6h0EMNjYDwXlszm+YtJjJM0t7xB7sNt8pJobHIG/wfLdPNMM/j4eC5yoE0hgPnV033
-	 n2a0M8qgjetfdZrNJNFdXs24CzsfzTTaXQ3aVrHAw/umo6PD5/ABBTO8hqxRgWskO92ck
-	 sTumv2WiSJvU53t5GYcYpIZg0n5ERN2KbS9KRSVtabLxkpbNe2Aa0A8F9XJOzF88bXyOO
-	 s7E+VAwGmL9iJJoPKEJV8hmg3dMuUK2s2BldO+KuMfS9jAh9FoS9bqnTIyPUjoaz5bA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dubeyko.com;
-	spf=pass smtp.mailfrom=dubeyko.com;
-	dkim=pass header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nZ9WVmPk;
-	arc=none smtp.remote-ip=209.85.128.175
-Received: from mail-yw1-f175.google.com (mail-yw1-f175.google.com [209.85.128.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795137197;
+	b=yIEdcG5F4ps439CIoKuw9gT+c0dmaymQmO3/S3S/kIaNPBSH5E2wX4zKqSdXQtCIRqin
+	 qdMBlIotMu0J3JJA6BVp3vo/MnffPaGycYOYJDAliTfbl2PKozR313jcRbCytCs9JwrqA
+	 AZ9AfWAEfmi4IXOoUwbNmrzQVRE+eJAlmg2uAT6gALIV+NxsNwT6d26dKq0d5ClFHWSoH
+	 KkbdcivdRyfkwlmcRWWFCbRfUguIkT4Q6E8qG7f6ePnmcEa7Nl7TWLRYoN2bK9mTUGC9Z
+	 7iiLFQlL5NpDrASKoqEZVIzFY4du3HOHq16gWklfkyTsxUnodv+nVNXpzWrEkfGJxhw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137197;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0Sd6i+zrFVYtSL2eAJrD9qXfzhUKkx6ndMdVVrjruSY=;
+	b=jtCLHn4QYvFaPWvRV1lvhNuejplgSBL10kTOaFm+7fj4Ds/oGclENUrEtoPDMdwgyx0f
+	 POHLvacxjYX9SRuG5Lcc9yK5bYjwXNPlvWCi2k9GwqNHVaDbphjpvI6vJCiYesPUEy9n9
+	 BwaB9Xo8mcqOS0zzT0pJJFAA4UoHKVNRfPDdRc29pVMZPlZye9ZxFPk0iWnE61lxLHbvR
+	 /Atko/2MQXY6yVCyVXq6mG6GCdESawHjsWPz/aAa20Qooxzd20ugudpLrWagveCeaUs7w
+	 s6UUsuggnmY/nGlfSHYB2Hv3AhcjD1SyYAzGM4oqhQrGuWQeMpONkB64uveWpzbe7WQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCGACtfj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B200606A325;
+	Fri, 20 Nov 2026 01:13:17 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PCGACtfj
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795137197;
+	b=fmi+w6w1aSQzn1OBN+5yVKl1uPURvWhd3A5KxPUpdKNxh+ToOnJAglhNGIIQCWfh+5nV
+	 zb6NN8Qox838nCcAd+GXp0+rcpya6jJb83vl9tdVWugMGVx5N4gIW3J3+lwdg0iFFBSLH
+	 fuZY3C4giJxPErjwKZNWRfHV+ASsDW6xweE3jW0DUbm9E1yz7h+kVmT+r1WzMB0MO0ogT
+	 cMe33vEEZN8Xm9HwOSdS+9fzPz13rhnhpSHrxLMUMkeXMXvIsgAqbEqWrxmPnjw9XejzN
+	 ucRLmk4zIM+kXGaQ5dVbRoj4GSm1VbAnoXujeGssGsuntNrNQCpmmZ0AlumpGHelHkQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795137197;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0Sd6i+zrFVYtSL2eAJrD9qXfzhUKkx6ndMdVVrjruSY=;
+	b=O8X6A2ivBp6IV3R4UTJB7BpelsF2RmvFUb5RfXmcA5VEU5xBxw/3OaCibdP+OqKkpLUR
+	 7gXypJJu6emXUfhVvJpZiYYkHH9TyvYpil5y7XnKIWV6vFbcrcWYTFCaY4uq3p+RLWuZR
+	 j1fDMDc76pYndIBz18YHuEVilzZ8OhrX2TmG8RDeEHrCIdsh5V3YrTi0A/EGRtmow0AFM
+	 XQATnpwwoAy73Pwb9mXcwwGcfXTExtLtHIHbO1tZVKWkDy1fZGJw86SENrfgIQFoJ4xIM
+	 GGt82m/6MMimdI+MrvjcaJ9IF4w6bO8rzxWNBZ3vC1+qBveljUjfbi201L2Eh/rskJw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E96606A5CB
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:12:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38E96606A5CB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dubeyko.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dubeyko-com.20260707.gappssmtp.com header.i=@dubeyko-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nZ9WVmPk
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-8b335eeb340so3763667b3.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:12:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dubeyko-com.20260707.gappssmtp.com; s=20260707; t=1795137169; x=1795741969; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IKiui00sZpK3mphypQDVWhEvLK6XpJy0oUns+l1zzec=;
-        b=nZ9WVmPkRlbut646d2uPQaN9NxDRGl2O3xfOUUqFwT9gqn/24aeHss8k4VImEspg35
-         UT9RMx6gsAnvjvM4g82M3pWvf9Jm2ED5J0tk0IUH/myHS/f+ENuPIP7AV/GhE7hnYmIW
-         CECLE4XgmM38t3CG0+q7dGDwun70BZakB89sJz7ie3PqAfk/REYF9JXQDRtcK963PgCB
-         Rgfy5rYyBSiqSgTt7oQGDxZjmT4LQiOKx7MY1yPgnZzYMQMjsZFn1wDQ5mUy9hLylUAZ
-         cC4bcJoVK+l/9i3NHTtZV7roewVg984MVkIZfiqdMeLmP4C4mc0tm4tbROhjTNS9jb1n
-         2PcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795137169; x=1795741969;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IKiui00sZpK3mphypQDVWhEvLK6XpJy0oUns+l1zzec=;
-        b=AS1C7B6bAJ2K43tJrgZh6ZAzwevl+XGX992MuozjNBVyNSwPdO00vbZgr+zKisRtCL
-         cL+r4jWRjLDU1+4O9ZPiGnePNMw+M40fn5p/SjXWjZSKxcu1ynb33GQWuRAziBqD7Otk
-         C+sDNn6E9dvvfHKSciabmt0wsOYW9qFW8d5dY8DJLz+WevbUzKXkqJJeLR8aja9dR6j/
-         GyYk0websUAd7YZCutYf5QXzAdqbJZFe1H/X8ULRqw6sV3Y66b6k8arCb4tDy6Y+QAo/
-         JOCqYS4QMmqSGrhZZuqkqK6yJLWj8tddD2RrQcmm/3oCVMVqEx9+jH5gw7B+Yze5j4To
-         aOPA==
-X-Forwarded-Encrypted: i=1; AL+hErGCksARd83kbTcRQReVqyyp8idIWLDAGeuAZ9VjQZWnF/993m5snr+EzzRGyoFzW/TIJWWEUNfk+Lh9aQI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ztC9izQ+xkb4uRW+2OJxs/xiRP7qf4/hFG9KEtHdaqUsN54gP
-	Rsq7ExlFlzRTkzy2JoOtSQpcjj56ikAoAshKtEWO7cc18s9+KW750+NgXuLej/3m44Q=
-X-Gm-Gg: AZFdTZfQ7jisb7KMYZY4Nx1O7J8YoTBD7bziQO+Z2iwOiS0LfZY1fj6o9JpPW95GuUU
-	+fHC4wjgHUVhdrzozelsHlQVS9H71ouPQLXJ3mj3zqwUoUqw1eluUKj5isX1oniquuhFslvM6UY
-	draYaWIHZOtGTM6zQk5X7lhRYaXpV334IaYbP8mSUnibOrCal/azqC/DGL1OHrnnzwXweyky8/+
-	qExlG61xwfbo3chyegr4pQPBsdoMKGwfUgssEZcHOJGKTD+XwdF39S582RIOtxFdKWDmlw6TSBI
-	UcV81LgWR/zPB8fIQ5YV79Kedoy/YKyy6dLuInrMWv8WP/+Oj0hyCX+paKXnG3tly7U0gdtTux7
-	PT0TrC3sWx0Fjt+GHCfQzyAw671Vng50ee0E/XvbRXw7btCoMRZVUoXldH6W47piLQTuE+mBsI2
-	y5gJSQ6NdkRPE0iuKceml1SYjgvqFFu/qPzYt6x9H4FyQOCtDTm4CVihkyWad/nYs1FVg6icDof
-	bRzMKaz90sYbgvwW7yqs6GQUP5+/QwwqJVSpiZg/ZgZtU84KK3wdrH/bXjVwf4BkyAJHP+A/pML
-	mjCmqk0PSbvgGnJ8F1B5JClfuq42dTJ1XJ7kM1Q96TFYPkDB4algYToIfZhN3sHVFPqei4qmdGu
-	xbwbsdU1VB2kDkWxqhMCTFWZmI2tv7sineyQyqWWlP0kp1341KoSf7Cr626eOAHSTWz8dHPSpK5
-	ebBobUVHPwKDwk0A==
-X-Received: by 2002:a05:690c:d83:b0:8b4:d8c6:4da7 with SMTP id 00721157ae682-8b5205141ecmr7386737b3.103.1795137169046;
-        Thu, 19 Nov 2026 17:12:49 -0800 (PST)
-Received: from system76-laptop.attlocal.net ([2600:1700:6476:1430:a9a8:c05:b82:7f12])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5202fb08csm7461207b3.24.2026.11.19.17.12.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:12:48 -0800 (PST)
-From: Viacheslav Dubeyko <slava@dubeyko.com>
-To: glaubitz@physik.fu-berlin.de,
-	frank.li@vivo.com
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	vdubeyko@coreweave.com,
-	Viacheslav Dubeyko <slava@dubeyko.com>
-Subject: [PATCH v4 3/3] hfsplus: add KUnit tests for date/time conversion
-Date: Thu, 19 Nov 2026 17:12:37 -0800
-Message-ID: <20261120011238.789758-4-slava@dubeyko.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120011238.789758-1-slava@dubeyko.com>
-References: <20261120011238.789758-1-slava@dubeyko.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id A6E191F000CA;
+	Fri, 20 Nov 2026 01:13:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795137197;
+	bh=0Sd6i+zrFVYtSL2eAJrD9qXfzhUKkx6ndMdVVrjruSY=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=PCGACtfjOqN3uwAUMZzTjIZWG4ks71DtrR2Eg/nclQynWhFw13N2w07rADvWsOLtg
+	 fJjEUGhcANDq1z87sNaFQIovYe9vZteQ9ZTNIjZJe/+OqbwzCurZfEXsZ5mUOcbDKh
+	 QCRHEnCguLFh6nTmDgZotI7cES8S/u949PFXt/v3rlXcoKGGZuZidK7IxIgLBas2JZ
+	 iMA0Jg/JC68SFlNzswhzBKmBuSgLj47144YGSMn2ed2tgrCOALDECdrCrVUr1O0a0r
+	 E3IN1tIekCYCOwbtBlYJliQ8jAcyPjPVsuwe79raiFdf27fvoK17NHkoJdewpcPE15
+	 eNOldK/quj9AA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3A217425FF;
+	Fri, 20 Nov 2026 01:13:16 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 01:13:16 +0000
+Subject: [PATCH] tee: optee: check for the supplicant under supp->mutex
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,455 +82,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-optee-supp-toctou-v1-1-d9a2bdea1c90@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBG4auQWTsJU6MGrmJcYPnRYUGbTmtMC
+ Hen6PJbvLeSISmM+malhI+ahqVCTg3597C8wDpWk2vdVUQ6DjEDbCVGzsHnUHgcnL9MbXfDWah
+ 2MWHS7+95f/xt5TnD52NE27YDbTJKYnUAAAA=
+X-Change-ID: 20261119-optee-supp-toctou-da2c5f097e31
+To: Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>
+Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795137196; l=2397;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=r+DQHxCOjcjVvvLW4z3rrN6VNbrbMcD//gJUMsCvQXA=;
+ b=irKeG1tS1xjH2e5wZixMtRgpxVJnRQ42nvZOXhZQvcCjRW+s/qZsKt4qjlzxguZIhsC7zCLaY
+ M6C+ScbZGmkAimKTGANjsQOXkqKi7IURLIKJZ756ptsYLTjbLFW2Hkr
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Add the hfsplus_time KUnit test suite that checks
-the date/time conversion logic and the extended timestamp support:
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-(1) hfsplus_time_constants_test: the supported time range
-    and HFSPLUS_EXT_TIMESTAMP_MARK value;
-(2) hfsplus_mt2ut_test, hfsplus_ut2mt_test: conversion of
-    the known dates (1904, 1970, 2000, 2026, 2038, 2040);
-(3) hfsplus_ut2mt_before_1970_test: timestamps before
-    January 1, 1970 (xfstests generic/258 issue);
-(4) hfsplus_ut2mt_clamp_test: out-of-range timestamps are
-    clamped instead of wrapped;
-(5) hfsplus_time_roundtrip_test: representable timestamps
-    survive the round trip;
-(6) hfsplus_ut_needs_xattr_test, hfsplus_mt_is_ext_timestamp_test:
-    the decision to keep the timestamp in xattr;
-(7) hfsplus_read_timestamp_regular_test,
-    hfsplus_read_timestamp_mark_no_xattr_test: reading of
-    the regular on-disk timestamp and HFSPLUS_EXT_TIMESTAMP_MARK
-    without xattr;
-(8) hfsplus_timestamp_xattr_names_test: names of internal
-    xattrs fit the name buffer.
+optee_supp_thrd_req() checks supp->ctx without supp->mutex. If the
+supplicant is released between the check and queueing, a supp_nowait
+request is queued after optee_supp_release() aborted the queue and
+waits until a new supplicant opens. For in-kernel clients that can
+be forever.
 
-The hfsplus_read_timestamp() is exported by means of
-EXPORT_SYMBOL_IF_KUNIT().
+Do the check under supp->mutex, together with queueing the request.
 
-./tools/testing/kunit/kunit.py run --kunitconfig=fs/hfsplus/.kunitconfig
-
-[PASSED] hfsplus_time_constants_test
-[PASSED] hfsplus_mt2ut_test
-[PASSED] hfsplus_ut2mt_test
-[PASSED] hfsplus_ut2mt_before_1970_test
-[PASSED] hfsplus_ut2mt_clamp_test
-[PASSED] hfsplus_time_roundtrip_test
-[PASSED] hfsplus_ut_needs_xattr_test
-[PASSED] hfsplus_mt_is_ext_timestamp_test
-[PASSED] hfsplus_read_timestamp_regular_test
-[PASSED] hfsplus_read_timestamp_mark_no_xattr_test
-[PASSED] hfsplus_timestamp_xattr_names_test
-================== [PASSED] hfsplus_time ===================
-
-cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-cc: Yangtao Li <frank.li@vivo.com>
-cc: linux-fsdevel@vger.kernel.org
-Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
+Fixes: 42bf4152d8a7 ("tee: add supp_nowait flag in tee_context struct")
+Cc: stable@vger.kernel.org
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
- fs/hfsplus/Makefile                           |   2 +-
- fs/hfsplus/hfsplus_time_test.c                | 354 ++++++++++++++++++
- ...{unicode_test.c => hfsplus_unicode_test.c} |   0
- fs/hfsplus/inode.c                            |   2 +
- 4 files changed, 357 insertions(+), 1 deletion(-)
- create mode 100644 fs/hfsplus/hfsplus_time_test.c
- rename fs/hfsplus/{unicode_test.c => hfsplus_unicode_test.c} (100%)
+Found by Sashiko in its review of [1]; the race is older than that patch.
+Tested on an Orange Pi 5 (7.3-based, KASAN and lockdep) with a test-only
+2 ms delay between the check and queueing; 1242 of 2000 supp_nowait
+requests stranded without this patch, none with it. A real
+tee-supplicant was not tested.
 
-diff --git a/fs/hfsplus/Makefile b/fs/hfsplus/Makefile
-index f2a9ae697e81..7cb0a5ef9831 100644
---- a/fs/hfsplus/Makefile
-+++ b/fs/hfsplus/Makefile
-@@ -10,4 +10,4 @@ hfsplus-objs := super.o options.o inode.o ioctl.o extents.o catalog.o dir.o btre
- 		attributes.o xattr.o xattr_user.o xattr_security.o xattr_trusted.o
+Developed with Claude (Anthropic), which wrote the code and the commit
+message. I reviewed it.
+
+[1] https://lore.kernel.org/r/20261115-optee-supp-close-v1-1-4e0b14f3a97c@gmail.com
+---
+ drivers/tee/optee/supp.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/tee/optee/supp.c b/drivers/tee/optee/supp.c
+index 06747e90c230..fd8d1f363f2f 100644
+--- a/drivers/tee/optee/supp.c
++++ b/drivers/tee/optee/supp.c
+@@ -91,13 +91,6 @@ u32 optee_supp_thrd_req(struct tee_context *ctx, u32 func, size_t num_params,
+ 	struct optee_supp_req *req;
+ 	u32 ret;
  
- # KUnit tests
--obj-$(CONFIG_HFSPLUS_KUNIT_TEST) += unicode_test.o
-+obj-$(CONFIG_HFSPLUS_KUNIT_TEST) += hfsplus_unicode_test.o hfsplus_time_test.o
-diff --git a/fs/hfsplus/hfsplus_time_test.c b/fs/hfsplus/hfsplus_time_test.c
-new file mode 100644
-index 000000000000..4b3312dc0048
---- /dev/null
-+++ b/fs/hfsplus/hfsplus_time_test.c
-@@ -0,0 +1,354 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * KUnit tests for HFS+ date/time conversion
-+ *
-+ * Copyright (C) 2026 Viacheslav Dubeyko <slava@dubeyko.com>
-+ */
-+
-+#include <kunit/test.h>
-+#include "hfsplus_fs.h"
-+#include "xattr.h"
-+
-+/* January 1, 1970, 00:00:00 UTC */
-+#define TEST_UNIX_EPOCH_SECS		0LL
-+/* December 31, 1969, 23:59:59 UTC */
-+#define TEST_BEFORE_UNIX_EPOCH_SECS	-1LL
-+/* January 1, 2000, 00:00:00 UTC */
-+#define TEST_Y2000_SECS			946684800LL
-+/* January 19, 2038, 03:14:08 UTC (signed 32-bit overflow) */
-+#define TEST_Y2038_SECS			2147483648LL
-+/* January 1, 2026, 00:00:00 UTC */
-+#define TEST_Y2026_SECS			1767225600LL
-+/* January 1, 2100, 00:00:00 UTC */
-+#define TEST_Y2100_SECS			4102444800LL
-+/* January 1, 1900, 00:00:00 UTC */
-+#define TEST_Y1900_SECS			-2208988800LL
-+
-+static u32 mt_raw(__be32 mt)
-+{
-+	return be32_to_cpu(mt);
-+}
-+
-+/* Test the time range constants */
-+static void hfsplus_time_constants_test(struct kunit *test)
-+{
-+	/* 32-bit unsigned on-disk field covers exactly U32_MAX seconds */
-+	KUNIT_EXPECT_EQ(test, (s64)U32_MAX,
-+			HFS_MAX_TIMESTAMP_SECS - HFS_MIN_TIMESTAMP_SECS);
-+	KUNIT_EXPECT_EQ(test, -(s64)HFS_UTC_OFFSET, HFS_MIN_TIMESTAMP_SECS);
-+
-+	/* xattrs extend the supported range beyond February 2040 */
-+	KUNIT_EXPECT_GT(test, (s64)HFSPLUS_MAX_TIMESTAMP_SECS,
-+			(s64)HFS_MAX_TIMESTAMP_SECS);
-+
-+	/* the extended timestamp mark is the maximal on-disk value */
-+	KUNIT_EXPECT_EQ(test, U32_MAX, mt_raw(HFSPLUS_EXT_TIMESTAMP_MARK));
-+}
-+
-+/* Test conversion of on-disk (1904-based) timestamp into 1970-based one */
-+static void hfsplus_mt2ut_test(struct kunit *test)
-+{
-+	KUNIT_EXPECT_EQ(test, HFS_MIN_TIMESTAMP_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(0)));
-+	KUNIT_EXPECT_EQ(test, TEST_UNIX_EPOCH_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(HFS_UTC_OFFSET)));
-+	KUNIT_EXPECT_EQ(test, TEST_BEFORE_UNIX_EPOCH_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(HFS_UTC_OFFSET - 1)));
-+	KUNIT_EXPECT_EQ(test, TEST_Y2000_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(3029529600U)));
-+	KUNIT_EXPECT_EQ(test, TEST_Y2026_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(3850070400U)));
-+	KUNIT_EXPECT_EQ(test, TEST_Y2038_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(4230328448U)));
-+	KUNIT_EXPECT_EQ(test, HFS_MAX_TIMESTAMP_SECS,
-+			__hfsp_mt2ut(cpu_to_be32(U32_MAX)));
-+	KUNIT_EXPECT_EQ(test, HFS_MAX_TIMESTAMP_SECS,
-+			__hfsp_mt2ut(HFSPLUS_EXT_TIMESTAMP_MARK));
-+}
-+
-+/* Test conversion of 1970-based timestamp into on-disk (1904-based) one */
-+static void hfsplus_ut2mt_test(struct kunit *test)
-+{
-+	KUNIT_EXPECT_EQ(test, 0U,
-+			mt_raw(__hfsp_ut2mt(HFS_MIN_TIMESTAMP_SECS)));
-+	KUNIT_EXPECT_EQ(test, HFS_UTC_OFFSET,
-+			mt_raw(__hfsp_ut2mt(TEST_UNIX_EPOCH_SECS)));
-+	KUNIT_EXPECT_EQ(test, 3029529600U,
-+			mt_raw(__hfsp_ut2mt(TEST_Y2000_SECS)));
-+	KUNIT_EXPECT_EQ(test, 3850070400U,
-+			mt_raw(__hfsp_ut2mt(TEST_Y2026_SECS)));
-+	KUNIT_EXPECT_EQ(test, 4230328448U,
-+			mt_raw(__hfsp_ut2mt(TEST_Y2038_SECS)));
-+	KUNIT_EXPECT_EQ(test, U32_MAX - 1,
-+			mt_raw(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS - 1)));
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS)));
-+}
-+
-+/*
-+ * Test timestamps before January 1, 1970 (xfstests generic/258).
-+ * The old logic added HFS_UTC_OFFSET to lower 32 bits of negative
-+ * value and produced completely wrong result.
-+ */
-+static void hfsplus_ut2mt_before_1970_test(struct kunit *test)
-+{
-+	time64_t ut;
-+
-+	KUNIT_EXPECT_EQ(test, HFS_UTC_OFFSET - 1,
-+			mt_raw(__hfsp_ut2mt(TEST_BEFORE_UNIX_EPOCH_SECS)));
-+
-+	/* January 1, 1960, 00:00:00 UTC */
-+	ut = -315619200LL;
-+	KUNIT_EXPECT_EQ(test, ut, __hfsp_mt2ut(__hfsp_ut2mt(ut)));
-+
-+	/* January 1, 1904, 00:00:01 UTC */
-+	ut = HFS_MIN_TIMESTAMP_SECS + 1;
-+	KUNIT_EXPECT_EQ(test, 1U, mt_raw(__hfsp_ut2mt(ut)));
-+	KUNIT_EXPECT_EQ(test, ut, __hfsp_mt2ut(__hfsp_ut2mt(ut)));
-+}
-+
-+/* Test that out-of-range timestamps are clamped instead of wrapped */
-+static void hfsplus_ut2mt_clamp_test(struct kunit *test)
-+{
-+	/* below January 1, 1904 */
-+	KUNIT_EXPECT_EQ(test, 0U,
-+			mt_raw(__hfsp_ut2mt(HFS_MIN_TIMESTAMP_SECS - 1)));
-+	KUNIT_EXPECT_EQ(test, 0U,
-+			mt_raw(__hfsp_ut2mt(TEST_Y1900_SECS)));
-+	KUNIT_EXPECT_EQ(test, 0U,
-+			mt_raw(__hfsp_ut2mt(TIME64_MIN)));
-+
-+	/* after February 6, 2040 */
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS + 1)));
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(TEST_Y2100_SECS)));
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(HFSPLUS_MAX_TIMESTAMP_SECS)));
-+
-+	/* lower 32 bits of these values would wrap into small dates */
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS +
-+					    (s64)U32_MAX + 1)));
-+	KUNIT_EXPECT_EQ(test, U32_MAX,
-+			mt_raw(__hfsp_ut2mt(1LL << 32)));
-+}
-+
-+/* Test that representable timestamps survive the round trip */
-+static void hfsplus_time_roundtrip_test(struct kunit *test)
-+{
-+	static const time64_t values[] = {
-+		HFS_MIN_TIMESTAMP_SECS,
-+		HFS_MIN_TIMESTAMP_SECS + 1,
-+		TEST_BEFORE_UNIX_EPOCH_SECS,
-+		TEST_UNIX_EPOCH_SECS,
-+		1,
-+		TEST_Y2000_SECS,
-+		TEST_Y2026_SECS,
-+		(s64)S32_MAX,
-+		TEST_Y2038_SECS,
-+		HFS_MAX_TIMESTAMP_SECS - 1,
-+		HFS_MAX_TIMESTAMP_SECS,
-+	};
-+	time64_t ut;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(values); i++) {
-+		KUNIT_EXPECT_EQ_MSG(test, values[i],
-+				    __hfsp_mt2ut(__hfsp_ut2mt(values[i])),
-+				    "round trip failed: index %d", i);
-+	}
-+
-+	/* sweep the whole range with a large prime step */
-+	for (ut = HFS_MIN_TIMESTAMP_SECS; ut <= HFS_MAX_TIMESTAMP_SECS;
-+	     ut += 999983) {
-+		if (__hfsp_mt2ut(__hfsp_ut2mt(ut)) != ut) {
-+			KUNIT_FAIL(test, "round trip failed: ut %lld", ut);
-+			break;
-+		}
-+	}
-+
-+	/* every on-disk value maps back to itself */
-+	for (i = 0; i < 32; i++) {
-+		u32 raw = (u32)BIT_ULL(i);
-+
-+		KUNIT_EXPECT_EQ(test, raw,
-+				mt_raw(__hfsp_ut2mt(__hfsp_mt2ut(cpu_to_be32(raw)))));
-+	}
-+}
-+
-+/* Test the decision to keep timestamp in xattr */
-+static void hfsplus_ut_needs_xattr_test(struct kunit *test)
-+{
-+	KUNIT_EXPECT_FALSE(test, hfsp_ut_needs_xattr(HFS_MIN_TIMESTAMP_SECS));
-+	KUNIT_EXPECT_FALSE(test, hfsp_ut_needs_xattr(TEST_BEFORE_UNIX_EPOCH_SECS));
-+	KUNIT_EXPECT_FALSE(test, hfsp_ut_needs_xattr(TEST_UNIX_EPOCH_SECS));
-+	KUNIT_EXPECT_FALSE(test, hfsp_ut_needs_xattr(TEST_Y2026_SECS));
-+	KUNIT_EXPECT_FALSE(test, hfsp_ut_needs_xattr(TEST_Y2038_SECS));
-+	KUNIT_EXPECT_FALSE(test,
-+			   hfsp_ut_needs_xattr(HFS_MAX_TIMESTAMP_SECS - 1));
-+
-+	KUNIT_EXPECT_TRUE(test, hfsp_ut_needs_xattr(HFS_MAX_TIMESTAMP_SECS));
-+	KUNIT_EXPECT_TRUE(test,
-+			  hfsp_ut_needs_xattr(HFS_MAX_TIMESTAMP_SECS + 1));
-+	KUNIT_EXPECT_TRUE(test, hfsp_ut_needs_xattr(TEST_Y2100_SECS));
-+	KUNIT_EXPECT_TRUE(test,
-+			  hfsp_ut_needs_xattr(HFSPLUS_MAX_TIMESTAMP_SECS));
-+}
-+
-+/* Test detection of the extended timestamp mark */
-+static void hfsplus_mt_is_ext_timestamp_test(struct kunit *test)
-+{
-+	KUNIT_EXPECT_TRUE(test,
-+		hfsp_mt_is_ext_timestamp(HFSPLUS_EXT_TIMESTAMP_MARK));
-+	KUNIT_EXPECT_TRUE(test,
-+		hfsp_mt_is_ext_timestamp(cpu_to_be32(U32_MAX)));
-+
-+	KUNIT_EXPECT_FALSE(test, hfsp_mt_is_ext_timestamp(cpu_to_be32(0)));
-+	KUNIT_EXPECT_FALSE(test,
-+		hfsp_mt_is_ext_timestamp(cpu_to_be32(U32_MAX - 1)));
-+	KUNIT_EXPECT_FALSE(test,
-+		hfsp_mt_is_ext_timestamp(cpu_to_be32(HFS_UTC_OFFSET)));
-+
-+	/* every timestamp that needs xattr is stored as the mark */
-+	KUNIT_EXPECT_TRUE(test,
-+		hfsp_mt_is_ext_timestamp(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS)));
-+	KUNIT_EXPECT_TRUE(test,
-+		hfsp_mt_is_ext_timestamp(__hfsp_ut2mt(TEST_Y2100_SECS)));
-+	KUNIT_EXPECT_FALSE(test,
-+		hfsp_mt_is_ext_timestamp(__hfsp_ut2mt(HFS_MAX_TIMESTAMP_SECS - 1)));
-+}
-+
-+static struct super_block *alloc_mock_sb(struct kunit *test)
-+{
-+	struct super_block *sb;
-+	struct hfsplus_sb_info *sbi;
-+
-+	sb = kunit_kzalloc(test, sizeof(*sb), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, sb);
-+
-+	sbi = kunit_kzalloc(test, sizeof(*sbi), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, sbi);
-+
-+	/* no attributes tree: xattr lookup returns -EOPNOTSUPP */
-+	sbi->attr_tree = NULL;
-+	sb->s_fs_info = sbi;
-+
-+	return sb;
-+}
-+
-+/*
-+ * Test reading of the on-disk timestamp that doesn't need xattr.
-+ * The superblock must not be touched in such case.
-+ */
-+static void hfsplus_read_timestamp_regular_test(struct kunit *test)
-+{
-+	static const time64_t values[] = {
-+		HFS_MIN_TIMESTAMP_SECS,
-+		TEST_BEFORE_UNIX_EPOCH_SECS,
-+		TEST_UNIX_EPOCH_SECS,
-+		TEST_Y2026_SECS,
-+		HFS_MAX_TIMESTAMP_SECS - 1,
-+	};
-+	time64_t ut;
-+	bool has_xattr;
-+	int err;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(values); i++) {
-+		ut = 0;
-+		has_xattr = true;
-+
-+		err = hfsplus_read_timestamp(NULL, HFSPLUS_FIRSTUSER_CNID,
-+					     XATTR_LINUX_ACCESS_DATE_NAME,
-+					     __hfsp_ut2mt(values[i]),
-+					     &ut, &has_xattr);
-+		KUNIT_EXPECT_EQ(test, 0, err);
-+		KUNIT_EXPECT_EQ(test, values[i], ut);
-+		KUNIT_EXPECT_FALSE(test, has_xattr);
-+	}
-+}
-+
-+/*
-+ * Test reading of the extended timestamp mark without xattr
-+ * (for example, the record has been created by Mac OS X or
-+ * the volume has no attributes tree). The timestamp must be
-+ * HFS_MAX_TIMESTAMP_SECS without any error.
-+ */
-+static void hfsplus_read_timestamp_mark_no_xattr_test(struct kunit *test)
-+{
-+	struct super_block *sb = alloc_mock_sb(test);
-+	static const char * const names[] = {
-+		XATTR_LINUX_CREATE_DATE_NAME,
-+		XATTR_LINUX_CONTENT_MOD_DATE_NAME,
-+		XATTR_LINUX_ATTRIBUTE_MOD_DATE_NAME,
-+		XATTR_LINUX_ACCESS_DATE_NAME,
-+	};
-+	time64_t ut;
-+	bool has_xattr;
-+	int err;
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(names); i++) {
-+		ut = 0;
-+		has_xattr = true;
-+
-+		err = hfsplus_read_timestamp(sb, HFSPLUS_FIRSTUSER_CNID,
-+					     names[i],
-+					     HFSPLUS_EXT_TIMESTAMP_MARK,
-+					     &ut, &has_xattr);
-+		KUNIT_EXPECT_EQ(test, 0, err);
-+		KUNIT_EXPECT_EQ(test, HFS_MAX_TIMESTAMP_SECS, ut);
-+		KUNIT_EXPECT_FALSE(test, has_xattr);
-+	}
-+}
-+
-+/* Test that names of internal xattrs fit the name buffer */
-+static void hfsplus_timestamp_xattr_names_test(struct kunit *test)
-+{
-+	static const char * const names[] = {
-+		XATTR_LINUX_CREATE_DATE_NAME,
-+		XATTR_LINUX_CONTENT_MOD_DATE_NAME,
-+		XATTR_LINUX_ATTRIBUTE_MOD_DATE_NAME,
-+		XATTR_LINUX_ACCESS_DATE_NAME,
-+		XATTR_LINUX_BACKUP_DATE_NAME,
-+	};
-+	int i;
-+
-+	KUNIT_EXPECT_EQ(test, strlen(XATTR_LINUX_HFS_PREFIX),
-+			(size_t)XATTR_LINUX_HFS_PREFIX_LEN);
-+
-+	for (i = 0; i < ARRAY_SIZE(names); i++) {
-+		size_t len = XATTR_LINUX_HFS_PREFIX_LEN + strlen(names[i]);
-+
-+		KUNIT_EXPECT_LT_MSG(test, len, (size_t)XATTR_LINUX_HFS_NAME_MAX,
-+				    "name %s is too long", names[i]);
-+		KUNIT_EXPECT_LE(test, len, (size_t)HFSPLUS_ATTR_MAX_STRLEN);
-+	}
-+}
-+
-+static struct kunit_case hfsplus_time_test_cases[] = {
-+	KUNIT_CASE(hfsplus_time_constants_test),
-+	KUNIT_CASE(hfsplus_mt2ut_test),
-+	KUNIT_CASE(hfsplus_ut2mt_test),
-+	KUNIT_CASE(hfsplus_ut2mt_before_1970_test),
-+	KUNIT_CASE(hfsplus_ut2mt_clamp_test),
-+	KUNIT_CASE(hfsplus_time_roundtrip_test),
-+	KUNIT_CASE(hfsplus_ut_needs_xattr_test),
-+	KUNIT_CASE(hfsplus_mt_is_ext_timestamp_test),
-+	KUNIT_CASE(hfsplus_read_timestamp_regular_test),
-+	KUNIT_CASE(hfsplus_read_timestamp_mark_no_xattr_test),
-+	KUNIT_CASE(hfsplus_timestamp_xattr_names_test),
-+	{}
-+};
-+
-+static struct kunit_suite hfsplus_time_test_suite = {
-+	.name = "hfsplus_time",
-+	.test_cases = hfsplus_time_test_cases,
-+};
-+
-+kunit_test_suite(hfsplus_time_test_suite);
-+
-+MODULE_DESCRIPTION("KUnit tests for HFS+ date/time conversion");
-+MODULE_LICENSE("GPL");
-+MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
-diff --git a/fs/hfsplus/unicode_test.c b/fs/hfsplus/hfsplus_unicode_test.c
-similarity index 100%
-rename from fs/hfsplus/unicode_test.c
-rename to fs/hfsplus/hfsplus_unicode_test.c
-diff --git a/fs/hfsplus/inode.c b/fs/hfsplus/inode.c
-index 8d0c10266e56..faed3e34856a 100644
---- a/fs/hfsplus/inode.c
-+++ b/fs/hfsplus/inode.c
-@@ -18,6 +18,7 @@
- #include <linux/cred.h>
- #include <linux/uio.h>
- #include <linux/fileattr.h>
-+#include <kunit/visibility.h>
+-	/*
+-	 * Return in case there is no supplicant available and
+-	 * non-blocking request.
+-	 */
+-	if (!supp->ctx && ctx->supp_nowait)
+-		return TEEC_ERROR_COMMUNICATION;
+-
+ 	req = kzalloc_obj(*req);
+ 	if (!req)
+ 		return TEEC_ERROR_OUT_OF_MEMORY;
+@@ -109,6 +102,16 @@ u32 optee_supp_thrd_req(struct tee_context *ctx, u32 func, size_t num_params,
  
- #include "hfsplus_fs.h"
- #include "hfsplus_raw.h"
-@@ -638,6 +639,7 @@ int hfsplus_read_timestamp(struct super_block *sb, u32 cnid,
- 
- 	return 0;
- }
-+EXPORT_SYMBOL_IF_KUNIT(hfsplus_read_timestamp);
- 
- static int hfsplus_inode_read_timestamps(struct inode *inode,
- 					 struct hfsplus_timestamps *timestamps)
--- 
-2.53.0
+ 	/* Insert the request in the request list */
+ 	mutex_lock(&supp->mutex);
++	/*
++	 * Return in case there is no supplicant available and
++	 * non-blocking request.
++	 */
++	if (!supp->ctx && ctx->supp_nowait) {
++		mutex_unlock(&supp->mutex);
++		kfree(req);
++		return TEEC_ERROR_COMMUNICATION;
++	}
++
+ 	req->id = idr_alloc(&supp->idr, req, 1, 0, GFP_KERNEL);
+ 	if (req->id < 0) {
+ 		mutex_unlock(&supp->mutex);
+
+---
+base-commit: e21989d08e0d6abacfff71387d0cb36dd96a4079
+change-id: 20261119-optee-supp-toctou-da2c5f097e31
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
 
