@@ -1,78 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168457;
-	b=GaRh0LMyjk/MKZqNjVk/cGfOspss7L9ZEGPON7SBwpMMOdRk2UQcZ+vrKYkBw0F5kh5n
-	 7j0ts+pNIX/ldJ4yC/DtbtF8+XZywp+PAWzAyDsURzLv2cu48Fc/5BDpmVfP0G+EZiUAJ
-	 JK+Xum6THIyblKzTQJYId2ZQnNLurZElyBxPH/sBNsv49NXuX3z7hGcojuZ3eWsLPgfds
-	 wodb/M8wi9GlUXq2PO9/u/5zsYOdmGmYSvAcVCBGqjkD4gmnfKs4sFRPN4oAvReXsA/+O
-	 OhQsqq079nTPLBGYJsC17uSGbiHtvYGyoAoy/HFWS4j2JF8MrQK7jVMb9ijovHbacYQ==
+	t=1795168460;
+	b=PqylpGQtdIY2j3st4vYVT0YjR4SoEsbpA9rBbwCL/pL7WVTybxUUTFT3ic/e9k84Io+w
+	 2a0akPo4nYu4BeZE1uPuw5kk1zl8s0qNdLasVIUTOri5jSZsSXd/B9MFs1XFI+0NIW6Cn
+	 JLkvWnZKGSXkNI4nWhMf1AYJtac8BBbwTOyNHdhO1+p58zuT+miza3UK31a9EPT6FIgvG
+	 tpa8xjEW2O78O7/3EcU2yRmaOgo4LtM8JQ82Zb/AXI+t5gjlVH/3tGyWrkkM14AYLY36M
+	 stxCMQ0G0TV9mK/X+bnYwBlhC7ehmkfmDVIB8+1FHYGTXudVzNATr95NW/5p/hEII7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168457;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Organization:From:To:cc:
-	 Subject:MIME-Version:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:Date:Message-ID:X-Scanned-By;
-	bh=qpRttPPBlZ4X69dgUQaNkCKtIP7rRP0bzyjnS47bzfE=;
-	b=Vuv/O2+K8ImUIzWonxCljeF908u8y3R78x+NzK3On/XxYyt+Nm6fc9k+LmmYqEmXz8AZ
-	 6n1MT2e4EYMFmUDmnueUX9sZ4ffnhTt15TlzQpp3RXGqSEbAlhG6KFFtdvqdBOZYr+Ysh
-	 qikN7WzDX7fMK2vqx5rWKJaIrJ1dq6+2NRXvWrchbwJDFZdY60J0VCBZ+nLS+K/SdppHQ
-	 qwbhBVci/ifvmDOK32Wt2epbw1s4qWX+v3Cqknskqs5V0v83rFmXna0AN+CwDXYzy02f6
-	 v9NrbfB/znpB/VIQ0a+PSkmCKww8uQZvee9gMlHg5pXVnSXQlHT3wc8NHU2XK8KgMlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168460;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
+	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
+	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
+	b=hc57/UPqdlZIVLPGmp3riiJ7n7NGidPgzI/lvM7Ek5ZP0mOJuxiP+mwR8z6sPA1qRPEE
+	 41jtU54xH3bt29r0bvNpCjr9YYC7YdW44o4TwUni8oU8pJpcLNWwiQEMTjDVgjpfpgpYV
+	 Hz6uGGEEw3OVa+1dAJe8MBcQI90rvJQc57RsxDzGS1Wo4TxtWXY6a3LNvg408LSywOAL5
+	 S906e+N6kLB9vVocuvKNOjl91VdwoMk4LxbGf0oj08L5lYItwhwSXccfBfvuKqxd3co7v
+	 b/zxGXsoLC99PhjdLnMv0HM2rl1WpSpn04mKPr8iS+vFoKpCMFCiUtJlkem8kui+vWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=cMm8liy4;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YDnOWLrE;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Hl8aSTTs;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NuOn9MTZ;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=O4Hv3Wo5;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44746606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:54:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44746606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D915B60A2615;
+	Fri, 20 Nov 2026 09:54:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D915B60A2615
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=cMm8liy4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795168456;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qpRttPPBlZ4X69dgUQaNkCKtIP7rRP0bzyjnS47bzfE=;
-	b=cMm8liy4rNcAfNX5p4nACye3t0joVtKE1Q4oM0jdleVKrKVyGZBBfjmSqwwmuS6mDyLZSC
-	Lmr3U1UrKTB8EMGmgkcA51HytcJrv/gGbh9PYEEP0g6PmJGSkLKDiF+qfQyfCV0LIf6GEh
-	1qjltLikeC2BDiEWG1Q+WUZdisJzceA=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-518-8jolAHOtPRWZMoEA0u-KZg-1; Fri,
- 20 Nov 2026 09:54:11 +0000
-X-MC-Unique: 8jolAHOtPRWZMoEA0u-KZg-1
-X-Mimecast-MFC-AGG-ID: 8jolAHOtPRWZMoEA0u-KZg_1795168450
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YDnOWLrE;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Hl8aSTTs;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NuOn9MTZ;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=O4Hv3Wo5
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9965C1800540;
-	Fri, 20 Nov 2026 09:54:09 +0000 (UTC)
-Received: from dhowells-thinkpadp1gen8.rmtgb.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A09EE30000D3;
-	Fri, 20 Nov 2026 09:54:06 +0000 (UTC)
-Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
-	Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
-	Kingdom.
-	Registered in England and Wales under Company Registration No. 3798903
-From: David Howells <dhowells@redhat.com>
-To: netdev@vger.kernel.org
-cc: dhowells@redhat.com, Marc Dionne <marc.dionne@auristor.com>,
-    Jeffrey Altman <jaltman@auristor.com>,
-    Eric Dumazet <edumazet@google.com>,
-    "David S. Miller" <davem@davemloft.net>,
-    Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-    Simon Horman <horms@kernel.org>, linux-afs@lists.infradead.org,
-    linux-kernel@vger.kernel.org
-Subject: [PATCH net-next] rxrpc: Fix the comments saying RFC8958 to be RFC8985
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BE2471FB70;
+	Fri, 20 Nov 2026 09:54:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795168458; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
+	b=YDnOWLrEQ1GyjOb7spHxMuLUiMbJWJ/9UZ7xRmZVW+ddDiPblnWf50j+sVNlQJl6iPwgC5
+	layiTbgtvaJOieRADqAv+td+fzBzTPRoV2v7DoxRZZ22lJwF/61mA9jXL7uEuaB1YNwURG
+	NHVYDupx3jjc32hzjNkDtxHYOX1Yn/A=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795168458;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
+	b=Hl8aSTTsH8bxVNYcmdcTxg0jaz6qeFkF/7uA6Qm6aGaAfaSay7EDzOZLVs1+YJACdTwAi4
+	6mdNl2GeliP6CXDg==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=NuOn9MTZ;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=O4Hv3Wo5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795168456; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
+	b=NuOn9MTZ477iqxcuG3N9ne1uK4SAqYb2pvwxht77Qqlcesfwl9yk/j7ln/ypDyo5f+/iug
+	jLY/ZyAaTH7YM30yU6pa89esewECTcsjBult1FTIVxTYOF/NWRbFTak4NbKKFcfRtr4zlP
+	7Iwbiofe0Hsesgu3nFZN+pvzRaO6xi0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795168456;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
+	b=O4Hv3Wo5VUUtcaMg+nxx17Em53mfEpXzARyPUEFitAll7Y5BJ2kkNcSMYiWaFSS+BEjv/L
+	45hj2bQVck0M06BA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 972CD1348F;
+	Fri, 20 Nov 2026 09:54:16 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id NuXKG8gYAGt/EgAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 09:54:16 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 2252025EF6; Fri, 20 Nov 2026 10:54:16 +0100 (CET)
+Date: Fri, 20 Nov 2026 10:54:16 +0100
+From: Jan Kara <jack@suse.cz>
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Amir Goldstein <amir73il@gmail.com>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
+	Jake Edge <jake@lwn.net>
+Subject: Re: [PATCH v5 3/5] fsnotify: don't hold i_lock while walking
+ d_children in  fsnotify_set_children_dentry_flags()
+Message-ID: <ht3jmmlbvijg75kvpdv7rnjcytw2ndnlikg3n5qveekaqr55em@oivgxe27lhmu>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+ <20261119025942.2848130-4-neilb@ownmail.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,159 +115,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <3457199.1795168445.1@dhowells-thinkpadp1gen8.rmtgb.csb>
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 09:54:05 +0000
-Message-ID: <3457200.1795168445@dhowells-thinkpadp1gen8.rmtgb.csb>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119025942.2848130-4-neilb@ownmail.net>
+X-Rspamd-Queue-Id: BE2471FB70
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_THREE(0.00)[3];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_CC(0.00)[zeniv.linux.org.uk,kernel.org,suse.cz,gmail.com,vger.kernel.org,themaw.net,lwn.net];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,brown.name:email,suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -13.01
 
-Fix the comments saying RFC8958 to be RFC8985 - ie. The RACK-TLP Loss
-Detection Algorithm for TCP.
+On Thu 19-11-26 13:57:03, NeilBrown wrote:
+> From: NeilBrown <neil@brown.name>
+> 
+> Rather than hold i_lock across a d_children walk, dget() a reference to
+> the dentry and drop the i_lock before the walk.  This is easily done
+> with d_find_alias().
+> 
+> This requires that we dput() which can sleep.  Now that no locks are
+> held across calls to fsnotify_set_children_dentry_flags(), this is safe.
+> 
+> Signed-off-by: NeilBrown <neil@brown.name>
 
-Fixes: 7c482665931b ("rxrpc: Implement RACK/TLP to deal with transmission =
-stalls [RFC8985]")
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Marc Dionne <marc.dionne@auristor.com>
-cc: Jeffrey Altman <jaltman@auristor.com>
-cc: Eric Dumazet <edumazet@google.com>
-cc: "David S. Miller" <davem@davemloft.net>
-cc: Jakub Kicinski <kuba@kernel.org>
-cc: Paolo Abeni <pabeni@redhat.com>
-cc: Simon Horman <horms@kernel.org>
-cc: linux-afs@lists.infradead.org
----
- ar-internal.h |    2 +-
- input_rack.c  |   20 ++++++++++----------
- 2 files changed, 11 insertions(+), 11 deletions(-)
+Looks good. Feel free to add:
 
-diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
-index 865f05fe37ab..f0c8cbcc5dd5 100644
---- a/net/rxrpc/ar-internal.h
-+++ b/net/rxrpc/ar-internal.h
-@@ -1264,7 +1264,7 @@ void rxrpc_tlp_send_probe(struct rxrpc_call *call);
- void rxrpc_tlp_process_ack(struct rxrpc_call *call, struct rxrpc_ack_summ=
-ary *summary);
- void rxrpc_rack_timer_expired(struct rxrpc_call *call, ktime_t overran_by=
-);
- =
+Reviewed-by: Jan Kara <jack@suse.cz>
 
--/* Initialise TLP state [RFC8958 7.1]. */
-+/* Initialise TLP state [RFC8985 7.1]. */
- static inline void rxrpc_tlp_init(struct rxrpc_call *call)
- {
- 	call->tlp_serial =3D 0;
-diff --git a/net/rxrpc/input_rack.c b/net/rxrpc/input_rack.c
-index 9eb109ffba56..072e1d9ecb2e 100644
---- a/net/rxrpc/input_rack.c
-+++ b/net/rxrpc/input_rack.c
-@@ -1,5 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
--/* RACK-TLP [RFC8958] Implementation
-+/* RACK-TLP [RFC8985] Implementation
-  *
-  * Copyright (C) 2024 Red Hat, Inc. All Rights Reserved.
-  * Written by David Howells (dhowells@redhat.com)
-@@ -57,7 +57,7 @@ static unsigned long rxrpc_tq_nacks(const struct rxrpc_t=
-xqueue *tq)
- =
+								Honza
 
- /*
-  * Update the RACK state for the most recently sent packet that has been
-- * delivered [RFC8958 6.2 Step 2].
-+ * delivered [RFC8985 6.2 Step 2].
-  */
- static void rxrpc_rack_update(struct rxrpc_call *call,
- 			      struct rxrpc_ack_summary *summary,
-@@ -98,7 +98,7 @@ static void rxrpc_rack_update(struct rxrpc_call *call,
- }
- =
-
- /*
-- * Detect data segment reordering [RFC8958 6.2 Step 3].
-+ * Detect data segment reordering [RFC8985 6.2 Step 3].
-  */
- static void rxrpc_rack_detect_reordering(struct rxrpc_call *call,
- 					 struct rxrpc_ack_summary *summary,
-@@ -143,7 +143,7 @@ void rxrpc_input_rack(struct rxrpc_call *call,
- }
- =
-
- /*
-- * Update the reordering window [RFC8958 6.2 Step 4].  Returns the update=
-d
-+ * Update the reordering window [RFC8985 6.2 Step 4].  Returns the update=
-d
-  * duration of the reordering window.
-  *
-  * Note that the Rx protocol doesn't have a 'DSACK option' per se, but AC=
-Ks can
-@@ -192,7 +192,7 @@ static ktime_t rxrpc_rack_update_reo_wnd(struct rxrpc_=
-call *call,
- }
- =
-
- /*
-- * Detect losses [RFC8958 6.2 Step 5].
-+ * Detect losses [RFC8985 6.2 Step 5].
-  */
- static ktime_t rxrpc_rack_detect_loss(struct rxrpc_call *call,
- 				      struct rxrpc_ack_summary *summary)
-@@ -239,7 +239,7 @@ static ktime_t rxrpc_rack_detect_loss(struct rxrpc_cal=
-l *call,
- }
- =
-
- /*
-- * Detect losses and set a timer to retry the detection [RFC8958 6.2 Step=
- 5].
-+ * Detect losses and set a timer to retry the detection [RFC8985 6.2 Step=
- 5].
-  */
- void rxrpc_rack_detect_loss_and_arm_timer(struct rxrpc_call *call,
- 					  struct rxrpc_ack_summary *summary)
-@@ -255,7 +255,7 @@ void rxrpc_rack_detect_loss_and_arm_timer(struct rxrpc=
-_call *call,
- }
- =
-
- /*
-- * Handle RACK-TLP RTO expiration [RFC8958 6.3].
-+ * Handle RACK-TLP RTO expiration [RFC8985 6.3].
-  */
- static void rxrpc_rack_mark_losses_on_rto(struct rxrpc_call *call)
- {
-@@ -285,7 +285,7 @@ static void rxrpc_rack_mark_losses_on_rto(struct rxrpc=
-_call *call)
- }
- =
-
- /*
-- * Calculate the TLP loss probe timeout (PTO) [RFC8958 7.2].
-+ * Calculate the TLP loss probe timeout (PTO) [RFC8985 7.2].
-  */
- ktime_t rxrpc_tlp_calc_pto(struct rxrpc_call *call, ktime_t now)
- {
-@@ -309,7 +309,7 @@ ktime_t rxrpc_tlp_calc_pto(struct rxrpc_call *call, kt=
-ime_t now)
- }
- =
-
- /*
-- * Send a TLP loss probe on PTO expiration [RFC8958 7.3].
-+ * Send a TLP loss probe on PTO expiration [RFC8985 7.3].
-  */
- void rxrpc_tlp_send_probe(struct rxrpc_call *call)
- {
-@@ -356,7 +356,7 @@ void rxrpc_tlp_send_probe(struct rxrpc_call *call)
- }
- =
-
- /*
-- * Detect losses using the ACK of a TLP loss probe [RFC8958 7.4].
-+ * Detect losses using the ACK of a TLP loss probe [RFC8985 7.4].
-  */
- void rxrpc_tlp_process_ack(struct rxrpc_call *call, struct rxrpc_ack_summ=
-ary *summary)
- {
-
+> ---
+>  fs/notify/fsnotify.c | 40 ++++++++++++++++++++--------------------
+>  1 file changed, 20 insertions(+), 20 deletions(-)
+> 
+> diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
+> index 8657bb94dfa8..58566e6b9679 100644
+> --- a/fs/notify/fsnotify.c
+> +++ b/fs/notify/fsnotify.c
+> @@ -71,32 +71,32 @@ void fsnotify_sb_free(struct super_block *sb)
+>   */
+>  void fsnotify_set_children_dentry_flags(struct inode *inode)
+>  {
+> -	struct dentry *alias;
+> +	struct dentry *alias, *child;
+>  
+>  	if (!S_ISDIR(inode->i_mode))
+>  		return;
+>  
+> -	spin_lock(&inode->i_lock);
+> -	/* run all of the dentries associated with this inode.  Since this is a
+> -	 * directory, there damn well better only be one item on this list */
+> -	for_each_alias(alias, inode) {
+> -		struct dentry *child;
+> -
+> -		/* run all of the children of the original inode and fix their
+> -		 * d_flags to indicate parental interest (their parent is the
+> -		 * original inode) */
+> -		spin_lock(&alias->d_lock);
+> -		hlist_for_each_entry(child, &alias->d_children, d_sib) {
+> -			if (!child->d_inode)
+> -				continue;
+> +	/* Find the dentry for inode - there can only be one */
+> +	alias = d_find_alias(inode);
+> +	if (!alias)
+> +		return;
+>  
+> -			spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
+> -			child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
+> -			spin_unlock(&child->d_lock);
+> -		}
+> -		spin_unlock(&alias->d_lock);
+> +	/*
+> +	 * run through all of the children of the original inode and fix
+> +	 * their d_flags to indicate parental interest (their parent is
+> +	 * the original inode)
+> +	 */
+> +	spin_lock(&alias->d_lock);
+> +	hlist_for_each_entry(child, &alias->d_children, d_sib) {
+> +		if (!child->d_inode)
+> +			continue;
+> +
+> +		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
+> +		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
+> +		spin_unlock(&child->d_lock);
+>  	}
+> -	spin_unlock(&inode->i_lock);
+> +	spin_unlock(&alias->d_lock);
+> +	dput(alias);
+>  }
+>  
+>  /*
+> -- 
+> 2.50.0.107.gf914562f5916.dirty
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
