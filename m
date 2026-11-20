@@ -1,55 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196122;
-	b=Up4wz0qTaqbsLWDIz6LmtO02SIoIrdCVtzUrLmLvixpb3B5zIiOiKO0UZS9wedZ4okbc
-	 BXFOhVfc68egJGZ0Byvi+8njPG1sLo5ptXL6aZ46P688ZggmtCJXsgBWjCWwaCT+1OQe5
-	 4kTKjZNPpNLQrC9lxlPHyyauKmRWXhl86LsAnwcCPNJzoqDmsyHwlm3GXf0KoOFrkG7l4
-	 BvsfOEaCUwhsAWSsUSQ6XG3FWuQb0E23ofXQtV6G5FISZMiHf5GqfGQbdtNqcXAEaKl+O
-	 LwjYrQPGNgRdK+eoAc87PkGE/noJ5IupXACSzNXdFCaIAauqEm4FCe9LbexZJ8pxphQ==
+	t=1795196126;
+	b=PR88ubfRR0kJ/N0NCNbJTyRb6BH4Tq0W0h5NLoaO6KMm3c2hwhmtMaBbb9WXBnQDjqEm
+	 dVtBu/tk/J8xe9uae53UnG+2FwTpwVM9UnWUrMG/ABAQ5Uzz5mKfQgmldWcxjj7wJouBd
+	 qYPTmHZ5SnmWgdKXuzFniFWfpSW7JiootwuPCGez7kFHL/Gfy0eSYonU7+GM9HlzJi4vv
+	 tSsF4AozsXL0Lnt4YPcJKcogEFjOUqdbjL3JxDLQP47za7k1pwFlS++gx2O56ARxr3aAw
+	 zTf4E6l2NTg8KI3RfUjx8td5TP9wGmDiL/ROMZZC660XarrKawYI6hMWAhmiGAbIvwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196122;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196126;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
 	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=1xpwcbGxuPT3tXpkx6Mf8RyX6Dzo36GFZ6Dp9E4sqss=;
-	b=5jYfIg7EAWpk2dbMzIWtxPQmNtk53T6dxbKEq48NRfiPKtga3UVvVSns7NT520PE9Qh1
-	 ODts2hHeZEzNemzG7SON1BcM4KCAu7x0SHlOofgHPqL7aGPlawURQy4t5WMnxhmsYs2fT
-	 T1/iYj+kt6KmKfeDMuXUAMAfC3pN8xyX/aVK2xZExzBmgspw+pLw3n6t7xVyfWSYjzvRr
-	 B677sZTuC3blEbKfJ7Htqe2IeWk/u87GXnuOeZ8ltONOO7mTDioR/5imGC3d44cavv1go
-	 P4g/rBHKuZ2FeDBDLqX7B77UnEmKJUBRbMLgfHR6BryxmrlfAcPVdETbcKGhjiJol4A==
+	bh=4fqyV+IxCSlliAT75SUkyH3zRm7PqSfjFRkVtWXmgZM=;
+	b=n0rY29nvgp+uMX5cbASmMUhxtZKIFMDOAJ0WiSSQzxS6acbNUG6UuQporLBTejYbBR7t
+	 o1PSVbhqz7zkSGbEgejvXFC25R4T4Dr33FCrQbb3jF3hS0nFr6lqOvwTBz72Ve14DATbR
+	 wgtNlzy34pmAZKE2IJ3iF0vt7J/RHCG924SpjnrDqo66tBg2LCRCGoi706KGdDXDAWjSE
+	 AttGPVUwPF/WkWehqV/OP9j+/HUGEO3o/c4Brk+nQ47vAPI3A/AWxaZTpR3zXmrUvbd9B
+	 PrrV120gODWSgXGrxDkpctODkbYuS5Lcok59nZBGPkpuN0ximJJd1QBb1+xk1/h30iA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.sdu.edu.cn;
 	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=di7sQHpA;
-	arc=none smtp.remote-ip=45.254.49.198
-Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=hItw551M;
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A08E260A2601;
-	Fri, 20 Nov 2026 17:35:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A08E260A2601
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 011BA60A2602;
+	Fri, 20 Nov 2026 17:35:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 011BA60A2602
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=di7sQHpA
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=hItw551M
 Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5573c0ab8;
-	Sat, 21 Nov 2026 01:35:09 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5573c0abb;
+	Sat, 21 Nov 2026 01:35:18 +0800 (GMT+08:00)
 From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: dmaengine@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] dmaengine: imx-sdma: Fix potential memory leak on channel zero failure
-Date: Sat, 21 Nov 2026 01:35:05 +0800
-Message-ID: <20261120173507.3923720-1-liguangshuo@mail.sdu.edu.cn>
+To: linux-wireless@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Subject: [PATCH] wifi: ath6kl: Fix potential firmware leaks on initialization failure
+Date: Sat, 21 Nov 2026 01:35:15 +0800
+Message-ID: <20261120173516.3923881-1-liguangshuo@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -62,60 +54,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1fa06c2dc03a1kunm78995cb0238b67
+X-HM-Tid: 0aa1fa06e40303a1kunme848b2bf238b70
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSEJDVkNNGR9MTUNLGhlOSlYeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSkpIVk0aHh9NS0gfTBgdTVYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
 	NMVUpLS1VLWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=di7sQHpAD8ER8mZMsdEsxG3xOKw3SToAXE/uzh+u0doycz1U3OG8GiwwJwRtNTGQseu8jgdZ6olOP2coJtXNZkfCoDmKRW2YYPs8seXd27n/X/+DGFagHzti4HydpHEnFlpL7BrqJfgiHKxpnqWvmm8DCutL0pNSEw57HBHjOIg=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=1xpwcbGxuPT3tXpkx6Mf8RyX6Dzo36GFZ6Dp9E4sqss=;
+	b=hItw551M9tjpHakqQ/ocqdgQdO1oZPXKMS26kpaXejLrYaJs67r1BZh+YBE/ti0TroQi7eqO8SSW33X7IsGSaVJjETW5zDKbPAEGoXllgSfTQGhTwrPEyyHlTRP+HOpMpCEjzZetheE2nyJjhjY0de0HGAcL3HSGeY8Brz5NU+A=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=4fqyV+IxCSlliAT75SUkyH3zRm7PqSfjFRkVtWXmgZM=;
 	h=date:mime-version:subject:message-id:from;
 
-If allocating the channel zero descriptor fails, sdma_init() disables
-the clocks without releasing the already allocated channel control and
-context storage. Free that storage with the matching allocator before
-returning the error.
+Firmware loading can leave allocated images in the core before a later
+initialization step fails. The initialization error path destroys the
+core without releasing these images.
+
+Share firmware cleanup between the initialization error path and normal
+teardown.
 
 This issue was found by our static analysis tool under development.
 
-Fixes: 1ec1e82f2510 ("dmaengine: Add Freescale i.MX SDMA support")
-Cc: stable@vger.kernel.org
+Fixes: bdcd81707973 ("Add ath6kl cleaned up driver")
 Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 ---
- drivers/dma/imx-sdma.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/net/wireless/ath/ath6kl/core.c | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/dma/imx-sdma.c b/drivers/dma/imx-sdma.c
-index 36368835a845..9c0087b3b805 100644
---- a/drivers/dma/imx-sdma.c
-+++ b/drivers/dma/imx-sdma.c
-@@ -2161,7 +2161,7 @@ static int sdma_init(struct sdma_engine *sdma)
+diff --git a/drivers/net/wireless/ath/ath6kl/core.c b/drivers/net/wireless/ath/ath6kl/core.c
+index 648110cd313f..fec0e1ad9752 100644
+--- a/drivers/net/wireless/ath/ath6kl/core.c
++++ b/drivers/net/wireless/ath/ath6kl/core.c
+@@ -63,6 +63,15 @@ void ath6kl_core_rx_complete(struct ath6kl *ar, struct sk_buff *skb, u8 pipe)
+ }
+ EXPORT_SYMBOL(ath6kl_core_rx_complete);
  
- 	ret = sdma_request_channel0(sdma);
++static void ath6kl_core_free_firmwares(struct ath6kl *ar)
++{
++	kfree(ar->fw_board);
++	kfree(ar->fw_otp);
++	vfree(ar->fw);
++	kfree(ar->fw_patch);
++	kfree(ar->fw_testscript);
++}
++
+ int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
+ {
+ 	struct ath6kl_bmi_target_info targ_info;
+@@ -123,8 +132,6 @@ int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
  	if (ret)
--		goto err_dma_alloc;
-+		goto free_channel_control;
+ 		goto err_htc_cleanup;
  
- 	sdma_config_ownership(&sdma->channel[0], false, true, false);
+-	/* FIXME: we should free all firmwares in the error cases below */
+-
+ 	/*
+ 	 * Backwards compatibility support for older ar6004 firmware images
+ 	 * which do not set these feature flags.
+@@ -252,6 +259,7 @@ int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
+ 	clear_bit(WMI_ENABLED, &ar->flag);
+ 	ar->wmi = NULL;
+ err_htc_cleanup:
++	ath6kl_core_free_firmwares(ar);
+ 	ath6kl_htc_cleanup(ar->htc_target);
+ err_power_off:
+ 	ath6kl_hif_power_off(ar);
+@@ -346,11 +354,7 @@ void ath6kl_core_cleanup(struct ath6kl *ar)
  
-@@ -2184,6 +2184,13 @@ static int sdma_init(struct sdma_engine *sdma)
+ 	ath6kl_debug_cleanup(ar);
  
- 	return 0;
+-	kfree(ar->fw_board);
+-	kfree(ar->fw_otp);
+-	vfree(ar->fw);
+-	kfree(ar->fw_patch);
+-	kfree(ar->fw_testscript);
++	ath6kl_core_free_firmwares(ar);
  
-+free_channel_control:
-+	if (sdma->iram_pool)
-+		gen_pool_free(sdma->iram_pool,
-+			      (unsigned long)sdma->channel_control, ccbsize);
-+	else
-+		dma_free_coherent(sdma->dev, ccbsize, sdma->channel_control,
-+				  ccb_phys);
- err_dma_alloc:
- 	clk_disable(sdma->clk_ahb);
- disable_clk_ipg:
+ 	ath6kl_cfg80211_cleanup(ar);
+ }
 
 base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
--- 
-2.43.0
-
