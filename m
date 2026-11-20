@@ -1,96 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156472;
-	b=iJnxj9ARhOJoNSQfVb0TcuxqWMsZFh5dQQwu/KgBGTsWvFLU7f2dgsA9u+71qlMRI3Pp
-	 uQvu0ddBhP1XAdWHcMKaed2Ex4uST8JCj+9iUvKHVSAdBBpHXDhQMsOog/24lTRMrW806
-	 9CTRKUFvmhGFUWJ/xTI6DMcSyFaCuR0QIksdBCRrwhODuzlF2FGz0DHfLgYCmFfv/1zmh
-	 xRlfLDbjHhSYC9b9QEDqKj/h3v0ivZN5AKhED+BzXoNHDWWIW3HMno8kRv+DldXPBYyA4
-	 0gTEj0vuVC0gnc2WV/d9zh0QUj4oL9EF0YTkCeH3uF7zzIQUvCxGMWidbqR3mRbdOOA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156472;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795156501;
+	b=MOdpjiVLeQbR0SlVf3asf/udtx23Ro1JIQ2VZ1ixjCdFE8aWbeFt8bdnalJetj/2qKg0
+	 zLXraXQPDb3EmbjC0E0HcaDyRnnFFVYApkNPs4CrM1Xp0ZJyQ9NmFoRtDJ8Tv/9l1uHZs
+	 bsh0+VUfDbc8dwwFSf7mrOrT8j+icupGHaggMi4EFB4wMYtX2/SXdL0gmiHOp7wuP/RZW
+	 wZBez5jfoLdjjH2ESsJmOEXPipgkx8IN8f86eI2yf5UhzD5L6AryvtzKmFtInT+50oZeS
+	 h2OoVr+pdUs95i7z3AIK3DiOs8a21IcobZ8YrugHcBTjmK24RFdZ/LZUwrP0f0OgQxA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156501;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=l2nH2XTb5frL3IcF+3+XVhqdfkR4kPSpm/fGUJr6SFY=;
-	b=s5aVWHreDCmSzMa4v7CYeR3+JZSGNbx0Y6rnK96lBHOrAX0XD6pOV+HeeRAI1Va4A6Vn
-	 7qqpLP4wxEzIo2WBi+V1rQ5yXQpTzR+/BqjVUQgNqoRRbR6FAJ6DhiF70l37L8aFnYlDA
-	 xtfFJI9aih2l2wrgiypDJS+snvc/yTUfgjRZebqv8DxcQ9FDzwBFBXD6ALnSi2VYZ+6r2
-	 OD8N+zQWAxad6sSrtJtQyyEEbb5HqnH3UuC9UkxJMP2vSxEHTeX1PVbk5A0hcjIrikeID
-	 5XKl52/KPh9oi7Efl6j1iQV10ype0w1R+5fnC/vqpXT4hgLTh6zzeiVNNj0S9L5XZ8g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
+	b=EdKrVRYtFaQ/0Cw0SQ/xlDh2RVA88mBuk++I+vLqFlz8tWW+oHudn6xgr0MRwJLQ5ZuY
+	 e5oManeAYr7rK/nFrnXptki/3eBx/Q2pPFOOj35rfqkUQQsoI0Eov57tddXUtokzkEVpi
+	 Jit6NJ7Fn8wgkighkbNOmlDhoNsKVudpMFvhfEb7287wmO18w98rWQvcSOR2JlfX6EeUb
+	 oSfQTjhatjfOfRIYbNnT+mYmJDvnoiVu4aBjVVvrb5CT9aupyQ61gsqWwnlmidjaMasVB
+	 YUu5vBn4A+ONzFH/mkJEighVnoc4pGYa21mleniSep40UqlRF6tUBjgojwy07q0ofPQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C0qrljRq;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kHtdayeo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
+Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE2BF606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:34:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE2BF606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65F05606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:35:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65F05606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C0qrljRq
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3712b6d9843so464763eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:34:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kHtdayeo
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso644210a12.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:35:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795156500; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JoeBdLoj25XtdpdMIEpIpWcvL6PRIy+0W0XwfAU3RXdQZ1CCnJUL9Tt3n00CQnKWic
+         MdHIV8EZzToU6yCvoOhOEgQbuA44onxBQDzcZ881lz647QXJ1Ly/Y7Ie8KQymAfgzyrJ
+         zsMrtyF/uO6qIqvIM4Uih7YGBFoFEcPedwzUPo7gnj6BPvCpPQCWi/j+AYX38hUqwjov
+         1PHgKstEoH9zWlVNGZlLYgc0cZZRywkloRTpKoow25VgLCb5GG0f6H3yM8WsyNTLAGtb
+         voSLUv6Sjc0hfZ27KFhpazXiKL2DLgqHWESlGpiHmBnHhPN8QNQ3b4+3U9dN9La8vsy2
+         QdwA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
+        fh=A2KM/XfHSXkFLVzAnhtEYReeE9uN2TohsZAeU8qbqaA=;
+        b=D9f9RZI0tYV2UNSSlhQbpHmHh/e3hLI5eEscjznSt+z1WQ/ixcEh7W9JW3aOcgUiLC
+         NcP5rmazEjnGDY0ZaExwM6X4hqkJQgJp9WeklmJKsiO7wjBVxxQElH/Ttwv1gQObC8dm
+         3jn5ZiusD3G+qMqkSPRnaneHiuZEYz54WPVN0/iAXh0dezpN9xDBTQA/3FEgEyq+Lrcs
+         YQ9SoNu2VPQL3Xqc238ZOwA8uifIK85UplAxzl0gndB2f1VAdsOgsrQWZJG70wRuj+nI
+         8zwRILAwOejjx7fjWp869OKxUT00t16G4JJ53p7mKoR2dAI6UjPF1i3ntxWX2aMvpm+b
+         IjTA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795156471; x=1795761271; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=l2nH2XTb5frL3IcF+3+XVhqdfkR4kPSpm/fGUJr6SFY=;
-        b=C0qrljRqr6WB5mcG2FJbWz0ZpX9xYi9k13zz9r6fJw7gy4F+Ayk/9gAIFz9swn8N9A
-         qDjZXXGtcj0FZFKkzL+1NzcNDsO5LoPqkgJ0oW7b1Bhgqc1wZKyOaIiQVvkFz+MCqQNJ
-         vH4a6+2RxDKcRA9eM2kHGdplYeHgqCM4yXDrnSCaCTnV78oGu5Srgcp1amxaui2zAXdl
-         r01hCXvD/Fl0Kja049jzB1A6rIlgG03lKD/dsY31annm+LRUDzeKvTburg+a15/l28+p
-         oQv0XBoiQBQUv9GAeSAzesTFbCvR9lMwEhZI7UgVlpGkTPHz0SaBWUw7NdzHOQKRM1+S
-         UHTA==
+        d=gmail.com; s=20260707; t=1795156500; x=1795761300; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
+        b=kHtdayeoZb3A+OaLbnmqCkK0p6jhbv47enjyrbzYNOD1BZ7n2KftkamwqB7+QPeamc
+         QCUcZq6rH2/Zmc2Cu0dV75FzWvOsA7kJk2Svb+lzzBDh4MvMLXHPJFzaONzKrlQip3qE
+         VoiDVuyg8E3e4+z0V4Si6oHrEBGQ2m2Gp72Lboryv7Hge5nrTsIZv28qnAN/5GQ46NC7
+         k9FfbcxZZWjtQH7vZm5457JuUnKr0o5ApojT4O48z2MTx2mWdc0wq2jQglp67Ix9rIaW
+         kWjlH62Q5X2wmrOKylIC3wHr+EF540hvntb7YjcCEhgfBcRxzlJz2GFk29G79zRoSASR
+         zYJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795156471; x=1795761271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=l2nH2XTb5frL3IcF+3+XVhqdfkR4kPSpm/fGUJr6SFY=;
-        b=Af7t+1LXpYuUYDwPntnym0xB/ckLd5mTl3VoT3i7Al0FZS+6PztHLS1GJEi+wLIj+5
-         8ErRfTFsfAnjuPIAMkojpuyIho8dhDy0RhPE3gP5KZZs/zHDhfB6sdIi4nwi6Nqf1QE7
-         FYHSxs1IsA3JuGTTFeYUAk2dHunpRwjX+ka9Qrf90JJP9wYK/M2GC16SLYDk5GBp4zrv
-         C23WmOltmLLll8icJpzbg2Tfj1LLwj+V/IjDdooe0TRhyQIsXPu6U6+IJlN4ZwYT08kt
-         z8PToIim9Qw95l4DXVJO4x89awx72kvUootEJGhDHjsbqSnxke6dsxVEqeXuqEJSP5FU
-         6YJg==
-X-Forwarded-Encrypted: i=1; AL+hErE53YlOB/7EGnMtD1nVDNbjcrBMVysAF46uGGvPqAIr11a12PNGAo1sncOMlFTyRfRm97t+xzBZnWjtHhs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FQmnloeRal953OiMTQ2Q5Idt0G8I8ms4obIQoEoQV/wtFtwZS
-	EcnWlU49zdH2e2wExLumOPF0PONj23CfvyaeReExjYf6M3zyKdD7JaqE
-X-Gm-Gg: AZFdTZe38yDZOuzFEdboNzmA8nGeRGc2gpS5ysIWIci2Wc2VGfsCUw13flWxNCE7+Vf
-	Qnl+ops1k9lK0DB7xiD6K1tMknpAq7h14ecM5DqJdcvz5tiqZnYgqdQVkkmCeTqVRIywlXPqO2f
-	YfJ7N2zmY/vT7Mz3WgVE3cix3aVV8jp+sqk3ZkGS//XxBvH3Um69JwpNWtv40stUH/KfrdwMBCm
-	9MDJIpMY2sKdgrv+bKSXKZddriVe2eGzVPebsldpX/zn8g97ytdoq+Zf/EQjUSQ0lD1qQasvjQc
-	zcPOlpTwI+PFJFpt/yJOpPKJLNNTnk6e0/H9/sY93u8/LtrWKCZBA9aKLG90xznGAp0ghctCwpW
-	a43+mlEa54TU0bgIY7rIQGWmkyZciWUfEt+6fO7NQ2SltFKwlbv6uqywJTLC5DxpwbOWqeTUwc5
-	UdOIMbkzRxVcE2/FTTiVqQjDK26JqZK3wKd8yppHrQkHiIpzBRMvUDxYW/cHhEjlaWtm2rRIo5c
-	Ds/6JQ7mkPx8YQx4j4ZFOUcb4ZHhpSwThJbr0Woc3hURTJGJUDVe0/O63RVUl3NlF0rmmnt2GHa
-	kNFjyYSceMDiR5COlA8zpQPFMlM0FplawRY4YYnoFHA3jVcSAP8=
-X-Received: by 2002:a05:7300:c01b:20b0:385:4b9:18ea with SMTP id 5a478bee46e88-38571027a68mr2036926eec.35.1795156470715;
-        Thu, 19 Nov 2026 22:34:30 -0800 (PST)
-Received: from annie-ProLiant-DL380-Gen11.. ([119.204.109.68])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm4821319eec.14.2026.11.19.22.34.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 22:34:30 -0800 (PST)
-From: Annie Kim <pulpannie@gmail.com>
-To: "Michael S . Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowangio@gmail.com>
-Cc: Jens Axboe <axboe@kernel.dk>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	virtualization@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyokyung Kim <pulpannie@gmail.com>
-Subject: [PATCH] virtio_blk: validate zone append sector from device
-Date: Fri, 20 Nov 2026 15:30:39 +0900
-Message-ID: <20261120063039.4155597-1-pulpannie@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795156500; x=1795761300;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
+        b=iGUc2XJX00khTTGYO0XMxHHmEjFgchPsDU1QKEtNxmZ8eO9BSAGON9Ohru0E025d7Z
+         O6Abdq1GJjOI6r4NEvrQuXvg1hmKC+Ud0Eq6AVvBzJ78gX8DjAGBgUKKm21zC3Pcq5cJ
+         h6x8roN5gyLdJbC6tnsdlGd5n7h1vRltEgUZsY5EMwNR/ATfdc+wk86dOUMA6Cp5Q+Y8
+         e+or/gWGsMt1teCHUbaFTlEkv2+aUNU1/XUIHzKSxuS/sOR5kY66lq8OTmqjQM/dbVmZ
+         VIV9wW7f0VV/7Btv3QvXL5fSQzb2IJMG8eotXmxXb/0Qb7IKoSNFibO1NGx/YJdkiKie
+         wlIQ==
+X-Forwarded-Encrypted: i=1; AL+hErFG+v5d5KFb3ww1/US26sJPeW3elIKCAD51jriYWRAkvG1dboz5bfDGNK+YdQ+K3esTHzYgdcWOUuVqZlM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fdSQoZFeJ7AQDcSIg6Rjnr629FVqf/MAc3kn3WFdxaQSz287A
+	FmfsGi46nXiE56gzl242PbT0IujyhD960Ig5xK9qv4/l5PeC/zrmIcnj2zqoQ1m+iz5q3qYGCi/
+	YTypxOG6AolAW5VrVDDKp4mH8qv+Fcs8=
+X-Gm-Gg: AZFdTZetEYckn2Pj2Fa/J6I3QTKTJomYpxnN//kAyy05d6U7u5VV9I9HjmA5jgYMgAS
+	vpepZ16zdi7Tis3gyA2VoEwUFXSa/o3O11z93UJGzUSXH2Bn96go2n5XtCQSc3sYAnE3NYM9Isd
+	6Y75tnopnIqcl0elh9KqswJTlvhO8uIwCeJNoA/ujFfb46pbLegZD6pEOXmQ8oT21iR++Ma7HmA
+	9cy9l/8n6LgRerKSBpVSm9tdb5IW0FczdEiL3bKGjnqfI20lVvkv6Hqr9y+Tc+v3aP1FFJqzyvR
+	4pqAzQJ19XVRspDiLpkQ8EmHFW5fKXbLGBPwQRMiT5BcT60liLtRHQ7ieDBh+4c2B508YJfv68g
+	Zm2Mzg7dqMOliS0UpQTO1mxTTnVp99dqu1yYy5JWPdjTkqrcaSihfsEIupjNO49k/7YlhfFQ=
+X-Received: by 2002:a05:6402:280e:b0:6b7:9290:dc59 with SMTP id
+ 4fb4d7f45d1cf-6ba37ed95d3mr1090284a12.37.1795156499250; Thu, 19 Nov 2026
+ 22:34:59 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,125 +104,327 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-11-koray.fra@gmail.com>
+ <CAOQ4uxg2gpC99ohuvKm-SgPzuffJy1fSvXorbuBnYZ=OFSxT3w@mail.gmail.com> <DMZIZ05H7MMB.1WYNR4X44BPGR@gmail.com>
+In-Reply-To: <DMZIZ05H7MMB.1WYNR4X44BPGR@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 20 Nov 2026 07:34:46 +0100
+X-Gm-Features: Aa3M54pFpwXClfOUj4X0Ca6dDK3QavsSpzMcSRLuAsiSgUTDoLGicUfCWGHnj0M
+Message-ID: <CAOQ4uxg8aVcWyNiFDk8djdn-M3xJcu_7-kRxVq9jjFsbcGp1ew@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 10/10] cifs: add provenance time (ptime) and map it
+ to SMB's CreationTime
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>, 
+	Sungjong Seo <sj1557.seo@samsung.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Trond Myklebust <trondmy@kernel.org>, 
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
+	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
+	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	linux-api@vger.kernel.org, Miklos Szeredi <miklos@szeredi.hu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Hyokyung Kim <pulpannie@gmail.com>
+On Thu, Nov 19, 2026 at 11:02=E2=80=AFPM koraynilay <koray.fra@gmail.com> w=
+rote:
+>
+> On Thu Nov 19, 2026 at 7:32 PM CET, Amir Goldstein wrote:
+> > On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> Implement provenance time (ptime) in cifs, as introduced in a
+> >> previous commit ("vfs: add provenance time (ptime)").
+> >>
+> >> Map it to SMB's CreationTime, making it settable from userspace and
+> >> propagating it to the SMB server via FILE_BASIC_INFO.
+> >>
+> >> Support reading ptime via statx(2) and fileattr_get() from the cached
+> >> CreationTime.
+> >>
+> >> Update cifs_fileattr_set() to check xflags instead of only legacy flag=
+s
+> >> and add the cifs_set_file_crtime() helper to wrap the RPC call to the
+> >> SMB server.
+> >>
+> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
+> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >> ---
+> >>  fs/smb/client/cifsfs.c |   8 +++
+> >>  fs/smb/client/inode.c  |   7 ++-
+> >>  fs/smb/client/ioctl.c  | 109 ++++++++++++++++++++++++++++++----------=
+-
+> >>  3 files changed, 94 insertions(+), 30 deletions(-)
+> >>
+> >> diff --git a/fs/smb/client/cifsfs.c b/fs/smb/client/cifsfs.c
+> >> index 8cff7857b450..c2f557e406d3 100644
+> >> --- a/fs/smb/client/cifsfs.c
+> >> +++ b/fs/smb/client/cifsfs.c
+> >> @@ -1307,6 +1307,14 @@ int cifs_fileattr_get(struct dentry *dentry, st=
+ruct file_kattr *fa)
+> >>         if (READ_ONCE(CIFS_I(inode)->cifsAttrs) & ATTR_COMPRESSED)
+> >>                 fa->flags |=3D FS_COMPR_FL;
+> >>
+> >> +       /* Report provenance time (ptime) to userspace */
+> >> +       if (CIFS_I(inode)->createtime) {
+> >> +               fa->fsx_xflags |=3D FS_XFLAG_PTIME;
+> >> +               fa->fsx_xflags_mask |=3D FS_XFLAG_PTIME;
+> >> +               fa->fsx_ptime =3D
+> >> +                     cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
+atetime));
+> >> +       }
+> >> +
+> >>         /*
+> >>          * FS_CASEFOLD_FL is defined by UAPI as a folder attribute,
+> >>          * and userspace tools (e.g., lsattr) display it only on
+> >> diff --git a/fs/smb/client/inode.c b/fs/smb/client/inode.c
+> >> index 2647785ec1e4..f0b20a72b9c2 100644
+> >> --- a/fs/smb/client/inode.c
+> >> +++ b/fs/smb/client/inode.c
+> >> @@ -222,6 +222,7 @@ cifs_fattr_to_inode(struct inode *inode, struct ci=
+fs_fattr *fattr,
+> >>
+> >>         cifs_i->cifsAttrs =3D fattr->cf_cifsattrs;
+> >>         cifs_i->reparse_tag =3D fattr->cf_cifstag;
+> >> +       cifs_i->createtime =3D fattr->cf_createtime;
+> >>
+> >>         if (fattr->cf_flags & CIFS_FATTR_NEED_REVAL)
+> >>                 cifs_i->time =3D 0;
+> >> @@ -2958,7 +2959,8 @@ int cifs_getattr(const struct mnt_idmap *idmap, =
+const struct path *path,
+> >>          * We need to be sure that all dirty pages are written and the=
+ server
+> >>          * has actual ctime, mtime and file length.
+> >>          */
+> >> -       if ((request_mask & (STATX_CTIME | STATX_MTIME | STATX_SIZE | =
+STATX_BLOCKS)) &&
+> >> +       if ((request_mask & (STATX_CTIME | STATX_MTIME | STATX_PTIME
+> >> +                            | STATX_SIZE | STATX_BLOCKS)) &&
+> >>             !CIFS_CACHE_READ(CIFS_I(inode)) &&
+> >>             inode->i_mapping && inode->i_mapping->nrpages !=3D 0) {
+> >>                 rc =3D filemap_fdatawait(inode->i_mapping);
+> >> @@ -2992,6 +2994,9 @@ int cifs_getattr(const struct mnt_idmap *idmap, =
+const struct path *path,
+> >>                 stat->result_mask |=3D STATX_BTIME;
+> >>                 stat->btime =3D
+> >>                       cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
+atetime));
+> >> +               stat->result_mask |=3D STATX_PTIME;
+> >> +               stat->ptime =3D
+> >> +                     cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
+atetime));
+> >>         }
+> >>
+> >>         stat->attributes_mask |=3D (STATX_ATTR_COMPRESSED | STATX_ATTR=
+_ENCRYPTED);
+> >> diff --git a/fs/smb/client/ioctl.c b/fs/smb/client/ioctl.c
+> >> index bb8808289a46..19a9556d39b4 100644
+> >> --- a/fs/smb/client/ioctl.c
+> >> +++ b/fs/smb/client/ioctl.c
+> >> @@ -181,6 +181,41 @@ static int cifs_set_compression(unsigned int xid,=
+ struct dentry *dentry,
+> >>                                             compression_state);
+> >>  }
+> >>
+> >> +static int cifs_set_file_crtime(unsigned int xid, struct dentry *dent=
+ry,
+> >> +                               struct cifs_tcon *tcon, u64 crtime)
+> >> +{
+> >> +       struct inode *inode =3D d_inode(dentry);
+> >> +       struct TCP_Server_Info *server =3D tcon->ses->server;
+> >> +       FILE_BASIC_INFO info_buf =3D {};
+> >> +       const char *full_path;
+> >> +       void *page;
+> >> +       int rc;
+> >> +
+> >> +       if (!server->ops->set_file_info)
+> >> +               return -EOPNOTSUPP;
+> >> +
+> >> +       info_buf.CreationTime =3D cpu_to_le64(crtime);
+> >> +
+> >> +       page =3D alloc_dentry_path();
+> >> +       full_path =3D build_path_from_dentry(dentry, page);
+> >> +       if (IS_ERR(full_path)) {
+> >> +               rc =3D PTR_ERR(full_path);
+> >> +               goto out;
+> >> +       }
+> >> +
+> >> +       rc =3D server->ops->set_file_info(inode, full_path, &info_buf,=
+ xid);
+> >> +       if (rc =3D=3D 0) {
+> >> +               CIFS_I(inode)->createtime =3D crtime;
+> >> +               CIFS_I(inode)->time =3D 0;
+> >> +               inode_set_ctime_current(inode);
+> >> +       }
+> >> +
+> >> +out:
+> >> +       free_dentry_path(page);
+> >> +       return rc;
+> >> +}
+> >> +
+> >> +#define CIFS_SUPPORTED_XFLAGS (FS_XFLAG_PTIME)
+> >>  int cifs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *d=
+entry,
+> >>                       struct file_kattr *fa)
+> >>  {
+> >> @@ -193,49 +228,65 @@ int cifs_fileattr_set(const struct mnt_idmap *id=
+map, struct dentry *dentry,
+> >>         bool enable_compression;
+> >>         struct cifs_tcon *tcon;
+> >>         unsigned int xid;
+> >> -       int rc;
+> >> +       int rc =3D 0;
+> >>
+> >> -       if (!fa->flags_valid)
+> >> +       if (fileattr_has_fsx_mask(fa, CIFS_SUPPORTED_XFLAGS))
+> >>                 return -EOPNOTSUPP;
+> >
+> > What is this supposed to check that is not already checked
+> > explicitly with fsx_xflags_mask below?
+>
+> It should work for FS_IOC_FSSETXATTR, where mask is 0... but it's also
+> there because when I started writing the various filesystems code I
+> hadn't added _mask yet, so I'll need to take a little step back and
+> revisit.
+>
 
-The device reports the starting sector for REQ_OP_ZONE_APPEND completions,
-and virtio_blk copies it into req->__sector without checking that it
-still refers to the requested zone. A buggy or malicious device can
-therefore make upper layers believe the append landed at an arbitrary
-location.
+Yes, I see.
+I think the helper may still have value for fs that still parse the
+two types of flags.
 
-Validate successful zone append completions before updating
-req->__sector. The returned sector must not precede the request start
-and the entire request must fit within the zone writable capacity.
-Reject invalid completions with BLK_STS_IOERR.
+To reduce the scope of your patch set this may be better.
 
-The polling path may batch successful completions, so perform the same
-validation before admitting a request to the batch. Invalid append
-completions then fall back to the normal completion path and are
-completed with an error instead of being reported as successful.
+> >>
+> >> -       /*
+> >> -        * chattr writes back all flags returned by fileattr_get(). Ac=
+cept
+> >> -        * FS_CASEFOLD_FL only when it reflects the share's casefold s=
+tate.
+> >> -        */
+> >> -       if (fa->flags & FS_CASEFOLD_FL) {
+> >> -               rc =3D cifs_fileattr_get(dentry, &current_fa);
+> >> -               if (rc)
+> >> -                       return rc;
+> >> -               if (current_fa.flags & FS_CASEFOLD_FL)
+> >> -                       allowed |=3D FS_CASEFOLD_FL;
+> >> -       }
+> >> -       if (fa->flags & ~allowed)
+> >> +       if (fa->fsx_xflags_mask & ~CIFS_SUPPORTED_XFLAGS)
+> >>                 return -EOPNOTSUPP;
+> >>
+> >> -       enable_compression =3D fa->flags & FS_COMPR_FL;
+> >> -       compression_state =3D enable_compression ? COMPRESSION_FORMAT_=
+DEFAULT :
+> >> -                                                COMPRESSION_FORMAT_NO=
+NE;
+> >> +       if (fa->flags_valid) {
+> >> +               /*
+> >> +                * chattr writes back all flags returned by fileattr_g=
+et(). Accept
+> >> +                * FS_CASEFOLD_FL only when it reflects the share's ca=
+sefold state.
+> >> +                */
+> >> +               if (fa->flags & FS_CASEFOLD_FL) {
+> >> +                       rc =3D cifs_fileattr_get(dentry, &current_fa);
+> >> +                       if (rc)
+> >> +                               return rc;
+> >> +                       if (current_fa.flags & FS_CASEFOLD_FL)
+> >> +                               allowed |=3D FS_CASEFOLD_FL;
+> >> +               }
+> >> +               if (fa->flags & ~allowed)
+> >> +                       return -EOPNOTSUPP;
+> >
+> > This whole mess could be sorted out by switching the cifs
+> > implementation to the new API
+>
+> ("new API" you mean _mask right?)
+>
 
-Fixes: 95bfec41bd3d ("virtio-blk: add support for zoned block devices")
-Assisted-by: Codex:GPT-5
-Signed-off-by: Hyokyung Kim <pulpannie@gmail.com>
----
-Tested on v7.4-rc3+ using modified QEMU backend that returned incorrect
-zone-append sectors on a memory-backed null_blk zoned device.
+Yes and ro_mask, but it probably also means converting all the
+read-only CASEFOLD fs to new api, so that FS_XFLAG_CASEFOLD
+could be taken out of FS_XFLAG_RDONLY_MASK
 
- drivers/block/virtio_blk.c | 50 +++++++++++++++++++++++++++++++-------
- 1 file changed, 41 insertions(+), 9 deletions(-)
+> > and implementing a generic vfs
+> > helper which does something like the above code to handle the
+> > old ioctls.
+> > FS_XFLAG_CASEFOLD would then be removed from
+> > FS_XFLAG_RDONLY_MASK and set explicitly in xflags_ro_mask
+> > by fs which don't allow to set if (e.g. nfs) and added to
+> > FS_COMMON_FL/FS_XFLAG_COMMON
+> >
+> > cifs would advertise FS_XFLAG_CASEFOLD in its ro_mask
+> > and then the generic helper would mask it and the new syscall
+> > will not allow it.
+> >
+> >> +       }
+> >> [...]
+> >> +               cifs_dbg(FYI, "set compress flag rc %d\n", rc);
+> >
+> > I think that the roadmap should be to slowly define all the old FS_*_FL
+> > flags as FS_XFLAGS_* and let the generic helpers deal with the conversi=
+on.
+>
+> > But it is not so hard to convert one filesystem at a time in a way that
+> > fa->fsx_valid will have to be true, because, for example, here
+> > all the relevant flags would be supported by the new xflags API.
+>
+> So, something like what fileattr_fill_{x,}flags() do now, but for
+> file_attr_to_fileattr()?
+>
 
-diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
-index 2b462005c..8f88570b4 100644
---- a/drivers/block/virtio_blk.c
-+++ b/drivers/block/virtio_blk.c
-@@ -331,15 +331,45 @@ static inline u8 virtblk_vbr_status(struct virtblk_req *vbr)
- 	return *((u8 *)&vbr->in_hdr + vbr->in_hdr_len - 1);
- }
- 
--static inline void virtblk_update_zone_append_sector(struct request *req,
--						     struct virtblk_req *vbr)
-+#ifdef CONFIG_BLK_DEV_ZONED
-+static inline blk_status_t
-+virtblk_update_zone_append_sector(struct request *req,
-+				  struct virtblk_req *vbr,
-+				  blk_status_t status)
+Yes, something like this (maybe)
+
+ void fileattr_fill_flags(struct file_kattr *fa, u32 flags)
  {
- 	struct virtio_blk *vblk = req->mq_hctx->queue->queuedata;
-+	sector_t req_start, sector, zone_end;
-+	unsigned int nr_sectors;
-+
-+	if (req_op(req) != REQ_OP_ZONE_APPEND || status != BLK_STS_OK)
-+		return status;
-+
-+	req_start = blk_rq_pos(req);
-+	sector = virtio64_to_cpu(vblk->vdev, vbr->in_hdr.zone_append.sector);
-+	nr_sectors = blk_rq_sectors(req);
-+	zone_end = req_start + disk_zone_capacity(vblk->disk, req_start);
-+
-+	if (zone_end < req_start || sector < req_start || sector >= zone_end ||
-+	    nr_sectors > zone_end - sector) {
-+		dev_err_ratelimited(&vblk->vdev->dev,
-+				    "zone append sector %llu + %u outside valid range [%llu, %llu)\n",
-+				    (u64)sector, nr_sectors,
-+				    (u64)req_start, (u64)zone_end);
-+		return BLK_STS_IOERR;
-+	}
- 
--	if (req_op(req) == REQ_OP_ZONE_APPEND)
--		req->__sector = virtio64_to_cpu(vblk->vdev,
--						vbr->in_hdr.zone_append.sector);
-+	req->__sector = sector;
-+	return status;
- }
-+#else
-+static inline blk_status_t
-+virtblk_update_zone_append_sector(struct request *req,
-+				  struct virtblk_req *vbr,
-+				  blk_status_t status)
-+{
-+	return status;
-+}
-+#endif
- 
- static inline void virtblk_request_done(struct request *req)
- {
-@@ -349,7 +379,7 @@ static inline void virtblk_request_done(struct request *req)
- 	virtblk_unmap_data(req, vbr);
- 	virtblk_cleanup_cmd(req);
- 
--	virtblk_update_zone_append_sector(req, vbr);
-+	status = virtblk_update_zone_append_sector(req, vbr, status);
- 
- 	blk_mq_end_request(req, status);
- }
-@@ -1242,7 +1272,6 @@ static void virtblk_complete_batch(struct io_comp_batch *iob)
- 
- 		virtblk_unmap_data(req, vbr);
- 		virtblk_cleanup_cmd(req);
--		virtblk_update_zone_append_sector(req, vbr);
- 	}
- 	blk_mq_end_request_batch(iob);
- }
-@@ -1260,11 +1289,14 @@ static int virtblk_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
- 
- 	while ((vbr = virtqueue_get_buf(vq->vq, &len)) != NULL) {
- 		struct request *req = blk_mq_rq_from_pdu(vbr);
--		u8 status = virtblk_vbr_status(vbr);
-+		blk_status_t status;
-+
-+		status = virtblk_result(virtblk_vbr_status(vbr));
-+		status = virtblk_update_zone_append_sector(req, vbr, status);
- 
- 		found++;
- 		if (!blk_mq_complete_request_remote(req) &&
--		    !blk_mq_add_to_batch(req, iob, status != VIRTIO_BLK_S_OK,
-+		    !blk_mq_add_to_batch(req, iob, status != BLK_STS_OK,
- 					 virtblk_complete_batch))
- 			virtblk_request_done(req);
- 	}
--- 
-2.53.0
+        fa->flags_valid =3D true;
++       fa->fsx_valid =3D !(flags & ~FS_COMMON_FL);
++       fa->fsx_xflags_mask =3D FS_XFLAG_COMMON;
+        fa->flags =3D flags;
 
+But in this model FS_XFLAG_COMMON are only the ones that
+are mutable from the old ioctl.
+
+We would need to define FS_READONLY_FL to deal with the
+group of read-only legacy flags, if some fs needs them and wants
+to use the new API.
+
+> > No need to do that now, as part of this patch set which is complicated
+> > enough, just need to see the road ahead of us that we have a way
+> > forward out of this messy flags_valid/fsx_valid inside filesystem
+> > implementations.
+>
+> I think it's probably better to clean up the API now, before introducing
+> new flags (like FS_XFLAG_BTIME/PTIME or the shared extent one in the
+> other thread) and as I'll say in that reply (I'll write it in a bit) I
+> think it's even better to first split the _mask changes into their own
+> RFC PATCH series, then have a separate one for ptime/btime.
+>
+
+Agree.
+
+It's even two different changes -
+The vfs internal _mask change and the UAPI _mask change.
+chattr -p implementation with new API would be the perfect
+champion to drive this UAPI change IMO.
+
+> > My understanding is that Miklos introduced those hints to reduce the
+> > work needed per filesystem for the initial implementation of the
+> > vfs methods.
+>
+> Ah yeah that would make sense.
+>
+
+BTW the trigger for the vfs interface was ovl_copy_fileattr()
+so this is a user of the new vfs _mask API that we need to
+pay attention to.
+
+Thanks,
+Amir.
