@@ -1,89 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795148910;
-	b=az761uFRKZU53HSamULf7XvZzl15RlPZcCiMKqEWq5bCFSnKjEaFhgdhSTev1nV+Hmsx
-	 GMbDRidtHeAbtmujVA33QJtykoeviSe4atK7kO7SW+HLBk3NJY30L3mm0fo5agvoo/5+Y
-	 zk2POtTUkqShUAqgoeASgy7hKvoEY03xjeFwSJ2XJkzIejL6prFR6R6oBYTeafo5qRhAu
-	 MZYyb/s4s9BfV2xZ9BWmFbr5U+ytLSLkO15biAcHIB3Rx0bBQXuVU0FZE9XoBv7QG8X42
-	 WzSDZs3/pFXvxJ5Eu5R5/ixy61oh1y1yvnPX/s4+JiFn6N5ha1OzA50N1f1zo1mQP5g==
+	t=1795148924;
+	b=BEswBE6VxMzIvQXjPqyoM26GxafUqWkbuHnmpVl2C++IdyvZ2kXxSTeLcCwhIxB0nfb/
+	 QKzGLdoPS8Ur/xaM28rSybsbUxZnJkqSKQ/5xQWDkyq8XASloUK8wzX+bAAb2DFv0VucC
+	 0EoZTSzHB+agQKwknE8LpW47i7UPH4nh60nRN0DZTbyrxCojXszI5Klq7QtZvlyAaP0Lh
+	 94sW2AB/DSVjGgkEZzx4QQhZF2x1WXa7Ys9Cn4+OGkCIGT1dhBaLsGE2i9mm7G6cZaxV3
+	 SR6c1t0Ew2SsC/wOaAJ7JVPBCRTtNwimGHsu9MHQyQuiVCQ3l3KVjYrEp7I8f2jP2aQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795148910;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=nLedZFBA7pqqAsbPKZ7gcKV3+oeuaHEN21qa0HYf6XM=;
-	b=krPnzyi7YJfDUe7v5TdnHCfj5ICT9MAPJRA2fQoUkpsTOjEXYa4Uw7J7Stj0iHSAglRp
-	 Ma9g7MJvtu9ytPJoBk31wfWnmVN1wDYt72BXyFijvA2eLT2YO/Ji562FetksSAdYkaMm7
-	 5UdszHjtczQgOiWnGpKWX/3W2kTNv2D77wQIAiPn1ADt0GoeG/FROCMOxVC8iQk4zZmeo
-	 x7Vwvy4Ke8MFJbGzrH/LS1oES3NiQODqT+rWjCYVV8INBeRBCmL6ZomllLHJs5B8CtggF
-	 gwkO1S9xK55se6AfDJHLYkVvXAKChf5bQIxMipcNcBpek9afFXF2TviQIzo0RVodBPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795148924;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 X-B4-Tracking:X-Change-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Disposition;
+	bh=fOEWrJZtywxHqIC6enC++RBPtKCtrgZZJPePAFSlkWM=;
+	b=AC10y32bf7p7hjFA10HKIy9MFc6sVIFGteeEY3QXtH5nyANL3D4rdFs5KR8kaYR/msSs
+	 jZ5YC2yhLsN2hiem3wCSkpLa+pvN8fCV4Eyddl6bkKMw59Uk8U1Od7u+zfYyVOkB0Y3hM
+	 5ZX38/MIBRrLYKQ/QtU5yoex678njIwsvXrsqmzu3rIonzM4RXKuT4TSwjKW1QBT250et
+	 RCw2niOhzX1A86fvtxa68nyAQX//oN0k60Wb08/CTRoMX2b3XpNo/ZcpsQcbx+1bK0nBW
+	 G+asuf5pdIqs9NTrBQfbKm19okEwOIgD+KtYqhnP3NhHiHVjdvrs/PvQdd7Ms2XL3hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=FzyVJj7c;
-	arc=none smtp.remote-ip=35.89.44.35
-Received: from omta36.uswest2.a.cloudfilter.net (omta36.uswest2.a.cloudfilter.net [35.89.44.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NEwhAfZz;
+	arc=none smtp.remote-ip=95.215.58.239
+Received: from mta1.migadu.com (out-239.mta1.migadu.com [95.215.58.239])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C34E606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:28:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C34E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1851C606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:28:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1851C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=FzyVJj7c
-Received: from eig-obgw-5006b.ext.cloudfilter.net ([10.0.29.217])
-	by cmsmtp with ESMTPS
-	id UDv2xgMuwRiNxUGEaxzUKx; Fri, 20 Nov 2026 04:28:24 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UGEZxu6GgSeuLUGEaxXoyK; Fri, 20 Nov 2026 04:28:24 +0000
-X-Authority-Analysis: v=2.4 cv=NYvm13D4 c=1 sm=1 tr=0 ts=6affcc68
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=zpOVymEVAAAA:8
- a=sfOm8-O8AAAA:8 a=VwQbUJbxAAAA:8 a=hcTXbwEjzvrjQ1zhnm8A:9 a=CjuIK1q_8ugA:10
- a=LCD48ZUe64JR9pieE8wa:22 a=TvTJqdcANYtsRzA46cdi:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=nLedZFBA7pqqAsbPKZ7gcKV3+oeuaHEN21qa0HYf6XM=; b=FzyVJj7cPvl7dEzz9yFaq4vsUh
-	vV8Mtn7m3ZT1wQ+TyHistVMiLvQQiaVc93lEZehmwmIZVDjKlVAegoI/Bi1Q3DVjhrAqiPaZ23QOj
-	UDpbQU4rSzBP6QCymIRj+WZgGmJVbAR0U7SI1WO867eMPhV/54DmMbc3ze3U1k/GlQGdxxC7yGS/F
-	2PeoUhwh6NO3vETtwcEc8gX6GcLdSBZ061df7JkOC/4gT5KgMYHGSBm9i6Vw9B3nmAiomi71E15IC
-	NMeEt27xdyds8cipmdI8jjiusi+LufINp3B2qLNLx++tTxEcghAlJvosRWbgs5M7W0gmWZoft6YAj
-	Fua7BaKw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:33778 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUGEY-00000003dBr-1qLm;
-	Fri, 20 Nov 2026 09:58:22 +0530
-Date: Thu, 19 Nov 2026 20:28:21 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Ben Grisdale <bengris32@protonmail.ch>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 1/3] dt-bindings: watchdog: mediatek,mtk-wdt: fix mt6797
- compatible
-Message-ID: <6002e935-199e-4d0c-adb9-d0c83162994a@roeck-us.net>
-References: <20261110-6797-wdt-v1-0-7f07755b6074@protonmail.com>
- <20261110-6797-wdt-v1-1-7f07755b6074@protonmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NEwhAfZz
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=9qFmDBtDjKXXhxRLQFA5L7yZm0Cyx68K1IIN39IpzpM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795148921; v=1; x=1795753721;
+ b=NEwhAfZzOW1pwYal/oZ/PjWYWOYECnIJmgLiaJuX5lrZnXuet3ap7hF73a1BR4lPXeshCsus
+ CouNYjpkqkUhFWIwSDwR0ke94iEqe8nmG0xM4Z5mbiSy/dSn7/45xHjDaINfPuvTbhMhGt0PHXo
+ byWUrRjLTb6jIjSF2G0gL8KY=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 1fdff059cb70f213;
+	Fri, 20 Nov 2026 04:28:41 +0000
+X-Mizu-Trace-ID: 1fdff059cb70f213
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 20 Nov 2026 04:28:36 +0000
+From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+To: KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Anton Protopopov <a.s.protopopov@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	"Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Subject: [PATCH bpf-next] bpf, lsm: Make bpf_lsm_get_retval_range() return
+ void
+Message-ID: <20261120-jf-bpf-lsm-retval-range-v1-1-d712e4090907@linux.dev>
+X-B4-Tracking: v=1; b=H4sIAFCO/2oC/yWMQQqDMBBFryKz7kAStASvUrqIdtKOaCozUQTx7
+ o12+fj/vR2UhEmhrXYQWln5mwrYWwX9J6Q3Ib8KgzPubq31OETs5oijTiiU1zCiXDcfTG1cQ1Q
+ 3Hoo9C0XervIDTiPRluH5X3TpBurzGYbj+AGFyV7thQAAAA==
+X-Change-ID: 20261118-jf-bpf-lsm-retval-range-8a04025ee458
+X-Mailer: b4 0.15.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,43 +74,113 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261110-6797-wdt-v1-1-7f07755b6074@protonmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUGEY-00000003dBr-1qLm
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:33778
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 3
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfDgigy7SSSiVLUt910aXKnsA0yzrhqJJ0jGIiDHT6lC+MD1dGE6og5Zppb93yeNPwscSZy44b7w5CS7fKka8unCIUx7RgsCRvhSUHKFhhTzukUg9oCB5
- 7iCuCPEyweo5BBGNBwkKpV6hDZS/z2IOhIwYnvpODXUZj2AKkZZF+2DyM/TYFuWXaHRB9TI1lKdIe7KbHQQ++bq1b7j0b0KV8IocAakWOlQaGB9Z6zKOdHbu
 
-On Tue, Nov 10, 2026 at 09:22:21PM +0200, Roman Vivchar wrote:
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> The TOPRGU reset bits on the mt6797 SoC do not match that of mt6589,
-> therefore they are not compatible [1].
-> 
-> Deprecate the mt6589 fallback for mt6797 and add its own compatible
-> string. Also add a new binding header for the actual watchdog resets on
-> the SoC.
-> 
-> Link: https://www.96boards.org/documentation/consumer/mediatekx20/additional-docs/docs/MT6797_Register_Table_Part_1.pdf [1]
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+With CONFIG_BPF_FMODRET_SCAN=y, fmod_ret programs can attach to tagged
+functions, so a program on bpf_lsm_get_retval_range() can make it fail
+for an LSM hook that returns a value. get_func_retval_range() then
+reports no range, and do_refine_retval_range() and check_helper_call()
+ignore the error and use a range the call did not set.
 
-Applied.
+The function fails only for a void hook, which every caller but
+get_func_retval_range() already rules out. Check for a void hook there
+and make the function return void, so resolve_btfids no longer tags
+it and no fmod_ret program can attach to it.
 
-Thanks,
-Guenter
+Fixes: bc45414d1690 ("bpf: Allow fmod_ret on tagged functions and check the return value")
+Signed-off-by: Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+---
+Built with W=1 on x86_64 and arm64, with gcc and clang, with and
+without CONFIG_BPF_LSM. With CONFIG_BPF_FMODRET_SCAN=y, the BPF LSM
+selftests give the same results with and without this patch. They ran
+under QEMU emulation only, not on real hardware, and we have no
+reproducer for the failure.
+
+AI coding agents found the bug by reading the code, wrote this patch
+and its changelog, and ran the builds and tests above.
+---
+ include/linux/bpf_lsm.h |  9 ++++-----
+ kernel/bpf/bpf_lsm.c    | 10 +++-------
+ kernel/bpf/verifier.c   |  5 +++--
+ 3 files changed, 10 insertions(+), 14 deletions(-)
+
+diff --git a/include/linux/bpf_lsm.h b/include/linux/bpf_lsm.h
+index eb4a38eef87e..14b8bb6cc25f 100644
+--- a/include/linux/bpf_lsm.h
++++ b/include/linux/bpf_lsm.h
+@@ -55,8 +55,8 @@ void bpf_inode_storage_free(struct inode *inode);
+
+ void bpf_lsm_find_cgroup_shim(const struct bpf_prog *prog, bpf_func_t *bpf_func);
+
+-int bpf_lsm_get_retval_range(const struct bpf_prog *prog,
+-			     struct bpf_retval_range *range);
++void bpf_lsm_get_retval_range(const struct bpf_prog *prog,
++			      struct bpf_retval_range *range);
+ int bpf_set_dentry_xattr_locked(struct dentry *dentry, const char *name__str,
+ 				const struct bpf_dynptr *value_p, int flags);
+ int bpf_remove_dentry_xattr_locked(struct dentry *dentry, const char *name__str);
+@@ -98,10 +98,9 @@ static inline void bpf_lsm_find_cgroup_shim(const struct bpf_prog *prog,
+ {
+ }
+
+-static inline int bpf_lsm_get_retval_range(const struct bpf_prog *prog,
+-					   struct bpf_retval_range *range)
++static inline void bpf_lsm_get_retval_range(const struct bpf_prog *prog,
++					    struct bpf_retval_range *range)
+ {
+-	return -EOPNOTSUPP;
+ }
+ static inline int bpf_set_dentry_xattr_locked(struct dentry *dentry, const char *name__str,
+ 					      const struct bpf_dynptr *value_p, int flags)
+diff --git a/kernel/bpf/bpf_lsm.c b/kernel/bpf/bpf_lsm.c
+index 0aa2fd61daba..f28754e8ac72 100644
+--- a/kernel/bpf/bpf_lsm.c
++++ b/kernel/bpf/bpf_lsm.c
+@@ -478,13 +478,10 @@ bool bpf_lsm_hook_returns_errno(u32 btf_id)
+ 	return true;
+ }
+
+-int bpf_lsm_get_retval_range(const struct bpf_prog *prog,
+-			     struct bpf_retval_range *retval_range)
++/* Callers must skip void hooks, which have no return value range. */
++void bpf_lsm_get_retval_range(const struct bpf_prog *prog,
++			      struct bpf_retval_range *retval_range)
+ {
+-	/* no return value range for void hooks */
+-	if (!prog->aux->attach_func_proto->type)
+-		return -EINVAL;
+-
+ 	if (btf_id_set_contains(&bool_lsm_hooks, prog->aux->attach_btf_id)) {
+ 		retval_range->minval = 0;
+ 		retval_range->maxval = 1;
+@@ -497,5 +494,4 @@ int bpf_lsm_get_retval_range(const struct bpf_prog *prog,
+ 		retval_range->minval = -MAX_ERRNO;
+ 		retval_range->maxval = 0;
+ 	}
+-	return 0;
+ }
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 1a8e5a108a68..3ebd5106358a 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -6978,9 +6978,10 @@ static int check_stack_access_within_bounds(
+ static bool get_func_retval_range(struct bpf_prog *prog,
+ 				  struct bpf_retval_range *range)
+ {
+-	if (prog->type == BPF_PROG_TYPE_LSM &&
++	if (IS_ENABLED(CONFIG_BPF_LSM) && prog->type == BPF_PROG_TYPE_LSM &&
+ 		prog->expected_attach_type == BPF_LSM_MAC &&
+-		!bpf_lsm_get_retval_range(prog, range)) {
++		prog->aux->attach_func_proto->type) {
++		bpf_lsm_get_retval_range(prog, range);
+ 		return true;
+ 	}
+ 	return false;
+
+---
+base-commit: 32b66b94c86f009b49668de7340f2ed65aad2dc5
+change-id: 20261118-jf-bpf-lsm-retval-range-8a04025ee458
+
+Best regards,
+--
+Jose Fernandez (Anthropic) <jose.fernandez@linux.dev>
+
