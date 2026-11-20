@@ -1,45 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193060;
-	b=awiyw/CDEOFPHVRfmg5sCQac/PWLZsi0MVIBCWW8hCGkDsqOO3Flt5NFd/Tnor94RUHA
-	 IJ8r1Hdu+gXqlQsq7/a3n3DOGxtt4WUl0/E/56HUq59/zkY/ChgfH6ZL0f/IRnre1OvEM
-	 zvj6D0uZ4tz8NLeGCAF+1uF/xEMU14eEjSXFOiTpMWyDnCZ/O/Srs8YVPGKHPtpsqnOAb
-	 2sVWKa69htcC0N0TzdY/58q3tJTvZAsYwnmBBAX+l6Ufy/BZHJM6W8DwDtl4oUyjOCYEc
-	 6GDzXATD4luzeTkCgPb6gyZl9j3XwarZ65BfNmWCQNkDEyWmcyuRzezQrcVQ1L8OkXA==
+	t=1795193063;
+	b=FhjRAK5YmCgQkoeAvrcQFrcHkkIneTd+PuVsIHItjm/6wgpcEM0fm//ITpEfG9bW9A8b
+	 ExXRO2aRx9UzenUa0Ll/ZDAy9HvdX/M5z704Z3avkM0Qoabk8wFzhORNoFoLduX2L6/Qo
+	 QIE+I/a80t3FmhfQuornLzVNHdidbJeLB8I3uRBjV0WfX7dD16WgoOt8oUKDZ61xUyZ+A
+	 y1Y8h/+U3FoK2kC0a5kpUPtFacOFQ85a3yZZHERyjqbwMTmi0HeVfp3rtVDf4o7sonp6H
+	 PaSfFc6s1/RlI8j2Unwz8XOxlGIYG3dVYIdRjNcaNmLnR49fH4ksHWANxy4jtyD4fqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193060;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=iFnY1r7VPZMvfsmIdgKeHitSyOhWnW2d8B1Ry5abjKs=;
-	b=lrH5VKmcHkQ6wV1X9B2eVwINeyJmFUXbt8fQPn52nW5LsgBbp7DIMbYjzARUNoben64Q
-	 nLTZcnxarSvVOVZAbRSthZsseGZgPO+R94NXPRwWrSzADa/bdH9mY194txtsuI906zVh8
-	 FnIeTIAHjN9hNnCpCx9HdMS56hm0+kugn26k5zmM/I/kji3hCSYXZYXUvHZ2EosVayfky
-	 a8l/pJEpTK8cfFbXl4zx4wXlqw1lVqNbRyJSwOKx3uyChQdorXrcTX0pOJMdDdgFe0RP6
-	 qPQfYF2OCvude/J/ZlJAi9qK45tQ13DAQE4+4MEoeOrAkEPB9KvJZdBLbjXxuvL3VZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193063;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=FuLu2+fMG1j9rQrc9nXEfPdssX85+2pyJ3lybGhChTU=;
+	b=voycZw6DxVDGGHNaxemljm5XXCD5y9jxzS9DSIKUS4ADal3OoufA/uDQuSq+jzZUpdcx
+	 ouohVC39rgenKV6ZNYNtBkAMxuP0gP5EGcM0zG13Wyap/e7+Ns6HJUG1/RmXbV7/cs0Ha
+	 nrxnlpW3NvLHK5Xfn9Y1/WsMWQ82dw7/66iQTfc+MlYNv0MbO2JKqHEztNsg4TYiGmIYt
+	 k07dSMcth5NXX89DFLSLItK1iwnnVSb0n0Het/G8zvChIf86kfrpIVhToXV6hJPFRGs0w
+	 z84VpFzq9LViB9dwhVcgY1BVPZ9CwkPbjJYUadkPsOq0iaPmaunffCWPI064XA4tqYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DBCB606A33C;
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id DD75C606A604;
 	Fri, 20 Nov 2026 16:44:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DBCB606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id BBAFB6732A; Fri, 20 Nov 2026 17:44:16 +0100 (CET)
-Date: Fri, 20 Nov 2026 17:44:16 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: linux-block@vger.kernel.org, Md Haris Iqbal <haris.iqbal@linux.dev>,
-	linux-kernel@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
-	Keith Busch <kbusch@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-doc@vger.kernel.org
-Subject: Re: [v4 0/3] block: delay support for error injection
-Message-ID: <20261120164416.GA32719@lst.de>
-References: <20261111215838.103356-1-haris.iqbal@linux.dev> <179501806989.17649.3138860274842922761.b4-ty@b4>
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD75C606A604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:
+	Content-Transfer-Encoding; bh=FuLu2+fMG1j9rQrc9nXEfPdssX85+2pyJ3
+	lybGhChTU=; b=D878DwE4R7woQcKC1tVUj9Lv4kx0Ker9GcGZ/0kgW9l96GvdwA
+	p05UB+lzVD/WqG1Tyqn+eEA+LqfSY78ANMR7lcueDsqQCUJ57Vk7AJV9mbk5Rtix
+	40AAYudisjlZGWnI37K6OY9pfwsMq9j+H0sRDEnviaTShXECf7nXgFjdA=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.41])
+	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkB2vwTUeABrJ6_0AQ--.6051S2;
+	Sat, 21 Nov 2026 00:44:05 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v2] iio: buffer: kfifo: reject lengths exceeding the kmalloc limit
+Date: Sat, 21 Nov 2026 00:44:03 +0800
+Message-Id: <20261120164403.5691-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <awBz8LVSYVBFOANe@ashevche-desk.local>
+References: <awBz8LVSYVBFOANe@ashevche-desk.local>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,30 +62,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179501806989.17649.3138860274842922761.b4-ty@b4>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BLQMCkB2vwTUeABrJ6_0AQ--.6051S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXFWfZF1DKrWxuFyDCFyrXrb_yoW5GFykpr
+	W3K3WjyrZrXFnrKw1UAw43ta4rXws3Xas8GayfX345Zr45Xan5ua4qkrWrZr18Ar1F93W7
+	tF9xKFWrWr1UAaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
+	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15Mc
+	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l
+	c7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUs1xRUUUUU
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUDD2sAYlgUOwABs3
 
-On Wed, Nov 18, 2026 at 09:07:49AM -0700, Jens Axboe wrote:
-> 
-> On Wed, 11 Nov 2026 22:58:35 +0100, Md Haris Iqbal wrote:
-> > Error injection can only fail a bio today.  This adds a delay_us option so
-> > that a rule can hold a bio back first, to model a slow device.  The delay
-> > happens above the driver, so it tests the code waiting above the block
-> > layer, not the blk-mq timeout handler.
-> > 
-> > A delayed bio is marked with a new BIO_ERROR_INJECTED flag so the rules
-> > are not applied to it again, even after a split.  Christoph asked on v2
-> > to avoid the flag by allowing a delay only together with an error.  I kept
-> > delay-only rules, as a slow device that succeeds is the more useful case,
-> > so the flag question is still open.
-> > 
-> > [...]
-> 
-> Applied, thanks!
-> 
+__iio_allocate_kfifo() only rejects lengths that would overflow an
+unsigned int after kfifo rounds them up to the next power of two, but
+the byte size handed to __kfifo_alloc() can still be beyond what
+kmalloc() can serve.
 
-Hmm.  This still has rela issues as pointed out by Sashiko.  I'd very
-much expect a resend to address them.
+The kfifo buffer is allocated with kmalloc(), which is limited to
+KMALLOC_MAX_SIZE.  A larger request has an allocation order above
+MAX_PAGE_ORDER, so the page allocator's order sanity check fires and
+enabling the buffer ends with a WARNING instead of a clean error.
+
+The buffer length is set through buffer/length, which accepts any value
+up to UINT_MAX.  With the voltage and timestamp scan channels enabled,
+a length of 262349 makes the rounded up size exceed KMALLOC_MAX_SIZE
+and triggers the warning on buffer/enable.
+
+Reject lengths whose rounded up size does not fit into KMALLOC_MAX_SIZE
+so that enabling the buffer fails with -EINVAL.  This bound is stricter
+than the unsigned int overflow check it replaces, because
+KMALLOC_MAX_SIZE is far below UINT_MAX, so that check is removed.
+
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+---
+v2:
+- Drop the unsigned int overflow check.  It is subsumed by the new
+  KMALLOC_MAX_SIZE bound: a length that would overflow the kfifo
+  element counter exceeds KMALLOC_MAX_SIZE as well (Andy Shevchenko).
+---
+ drivers/iio/buffer/kfifo_buf.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/iio/buffer/kfifo_buf.c b/drivers/iio/buffer/kfifo_buf.c
+index b67ea6468226..65906dfffc04 100644
+--- a/drivers/iio/buffer/kfifo_buf.c
++++ b/drivers/iio/buffer/kfifo_buf.c
+@@ -29,10 +29,14 @@ static inline int __iio_allocate_kfifo(struct iio_kfifo *buf,
+ 		return -EINVAL;
+ 
+ 	/*
+-	 * Make sure we don't overflow an unsigned int after kfifo rounds up to
+-	 * the next power of 2.
++	 * The kfifo memory is allocated with kmalloc(), which cannot serve
++	 * more than KMALLOC_MAX_SIZE.  A larger request needs an allocation
++	 * order above MAX_PAGE_ORDER and is refused by the page allocator
++	 * with a warning.  KMALLOC_MAX_SIZE is far below UINT_MAX, so this
++	 * also keeps the element count rounded up by kfifo within an
++	 * unsigned int.
+ 	 */
+-	if (roundup_pow_of_two(length) > UINT_MAX / bytes_per_datum)
++	if (roundup_pow_of_two(length) > KMALLOC_MAX_SIZE / bytes_per_datum)
+ 		return -EINVAL;
+ 
+ 	return __kfifo_alloc((struct __kfifo *)&buf->kf, length,
+-- 
+2.34.1
 
