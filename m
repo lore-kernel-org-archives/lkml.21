@@ -1,98 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174935;
-	b=ZbR5033Vg6FzXjfD1miIlxcbrcoFwTf++yuamiZQn63e7v5OWC/QO5mjSY4MWwnguBF3
-	 EzzIzPlveGG3CRCengQcmsSNWSp84H6krBUlQCF6fC/YMqUORuuxZAdYhvceG9YeLo8NL
-	 qdH5RrwnU4AXhSqTUwMFA7Q8QF+HdFKacdtjOY3DN2F2NamoN6i+WWMbAEAjB1S7fjTs7
-	 1TmRgwU6cHtEXe2qoa2IaAFYALgAZ8OpohgmmiviA1KQRujV/xG8Osyt0Tsy9z2jfSVSx
-	 73tkBJTpxKGTgUBQRRhrart95odpIRuqrJnq/wnjXbe9cWbydTuaaglfELwHsJbbhWg==
+	t=1795174920;
+	b=PC1g8Yr5ZyCubo6D4KLYqFJCKXO/+4hpPq0C7ps4gNRhsW8xG6UQa5raTaU5t/ejfPbU
+	 kP5Fxv+lW8blMi7j+2L4Amfld5Q2XBmA25Lp+pLaKTpd11pIn4y3a63CS7Q9MGcKglg9U
+	 1mvtTcI/QGTCH0a8DBIUC9isJjXd8ORa5epjsmCUndhKphSx4DTRM+HHCW7jvd9IcZ6fY
+	 B5+kQEQh2O7EoTXD6R65uOuYQALUT3XfnVFlnbVHm5m0czUecTFyAYdvtQ4g6hosRf6ac
+	 S3yTVxLgWuHh6fBLwgFwTEHM5fgrWlHxruxmVgcE5koeGCfBonpdJs8X6woItdLqOQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174935;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=p4UdC3jB35AUdbv2e6iqz1BWlhdEhYwpd/LGSbiSPto=;
-	b=vCgQ01gWOFLa1sQECxRLwaaql3B+52Obf6Q8ZUJ2S+h8PUejltlclaQys1ElFVCE6N88
-	 MubevXhX2i0UIy+I6K/5+kmOutsaCR5E54wFJA9vPjc4L1md6U4k6COQWhpwEETVM6cso
-	 lLUSWysz6SdmSQfyA4EOOdSb5qWWJSr/gQz2d+OGrRw3gBJoW54+KJQhJfXHgsoVVrmzN
-	 5aDxzDnGHXcl5oNsH6BN4vfV6KGCP/ciRyT2fhqoH2QVMuT3730it5OT4xR7xPKpWdTYC
-	 48QfLDS6MP39/4UJ4ea/2gy/SnJaVZdQ4Shf1kZZTnFIQC6fk+Dg6IUgjhmpuuKAp8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174920;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Kjkpv7+kdy5HQMKEXDMpyYQv6ROXdmu/Zx/GFXnn8Ws=;
+	b=j/Wla9k2FXcZHCOROUtTzt8CgQ11dkfVcUcj65exdqfxpGE3xBhqrqAOQlt2jcvPhECZ
+	 0kkrlLFNx+gEVjkN0AqzDanClDkRetH1fwbGWaiY/tF5M5KAfOETcOZPnXs01OvsdJP3N
+	 AvThd2pO5wPsbepWqWdGvtsWTdUSgVSy9RMSaLgwXHu9EPQLxVs7kZ49YtSh92ZO24W/m
+	 UT7ILbFbU23R/3HwEC0FoMWuaL3ACltxuCj5lZHt4T75pXD2v4X0e+Vh7nlv1eGGTykfT
+	 Hn9Cw/AFIBNKqvfmW7cnFrDxeQaJeY1PmtpT8h3aMYJkY8tLtZVPQELjxn6KwHR7sxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=q0EPZbJj;
-	arc=none smtp.remote-ip=209.85.215.179
-Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=IkbDIgQY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C47E6606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:42:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C47E6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5069D606A320;
+	Fri, 20 Nov 2026 11:42:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=q0EPZbJj
-Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cc147d86bebso451532a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:42:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795174934; x=1795779734; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=p4UdC3jB35AUdbv2e6iqz1BWlhdEhYwpd/LGSbiSPto=;
-        b=q0EPZbJjt+GMdN0GULFcmOIJOxL7/rNjEiw36j/wq4gouA/cRJtwM8Ueaq43GdKqYO
-         +tRlzWt/jkkvOFKI6jPn3IqzIdCB/Y1GOqV5TR/YznbrA++0viMvM8Sq6TB2t1dO0BaY
-         Y1F1/H9Yplf45Y/MO3H1DeByqScsJ5J2MwJ46u5M2mS8X3XuJGE+PnaouCN4lpL+w6I6
-         YVXIXSNUBYMg4qjzryelmsQclKurwinnB6OtloSXT1LyUQ8IIJ1Wgbj6v/1QblV9yqXH
-         NRPbHHhOc/vTJCwQPwycOmN+64HM5TOMnNk4XvYXRPjrYEbcOtBwY1U3mmDGQsGZ6pqp
-         RXZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795174934; x=1795779734;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p4UdC3jB35AUdbv2e6iqz1BWlhdEhYwpd/LGSbiSPto=;
-        b=cEGPmLdZVOJ+I6cA61dXd3PlAc/WQDmPD9pkM/Rjm4axwvFK+u9URdVaNZMf2ih9WI
-         IH8nlUPpTaUZBurF4OpHFETod4KhgGJkvIDv8yld47oDoEKlOK9JA5kQujVtf7Ih/92E
-         BT5Qq5Ucmsa3ghzKxW4eEsMUqZtracnhKv6vno5jeuO3zteE191UQivXiopp7SgHHrJn
-         QJyWjFoEmqhOPrMyq6EtLwWEXKKotdVS3d8NrO23JiEGjMunoo1GCjPOEEdKyCcHwYf0
-         wzCxYFzlM9Bhm6VL7Dh631cdGdiA9bx88j51/SV7ECHivkgSRmWxpTp+AII4sZh7WwII
-         7MKA==
-X-Forwarded-Encrypted: i=1; AL+hErEkCDjPS+uZ9NROZIryZjpN62QV+PSp9+7fgV/ZUSzkFDFdOcjwVX10xXO29Xw2yGeZl0J5YGRdsQJ/tes=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+tLf3Wnm/5X35sGI2+T180BmnugqmLI86zfVYjYUE2rOVHPrgo
-	3gn8gAbDc+5hxmLGgUXkpyYKe4+wzWIdauy3EOSWw8UiA6ocQkIWapreRCfKjcsQENP5n018ek8
-	VFJ/Y
-X-Gm-Gg: AZFdTZcJ/HNhKq11nkA1HzKczT8+ZYgWGhL4ac3UuZ0REdSphZpk92zkCHVyvlcb5kl
-	k464QmpkewSoGNnAMW+z6zhl8srJL8zmaGaaLLlwjDR8qDzYMRXoLcOrqFmbXql5y1zeIZXFdY0
-	nrlPPMjpEpi9D0Xoio8281VQ9b4uSAM3pHC9pU2/OoQCwEkpKviHf+kASuSOyOkBy+3N5bgPY0k
-	6g/ZWieqUBgxDSpGngYHnHaqTjaHJN3T51xUc1TcFtUm7OLdant5UdqCsnOAmdrelg9cjkktQxg
-	MrDKIU/lIaTAAObCv4XHClRDGpIDzFMaka3/lY7seHglCNz/00bsMDBlYYgPwfRXOr8zJ1i/hlg
-	HjX648lwhaNN8mazT537NdRmrDcr4Fod5y1LTzN1uYgwAs0j/Fh1EHgy5xf/HMdmfTylPnWFPVG
-	G1GCGH0xq7N3UfmTErBqOxcqNmtUXrfJ1UJbp0v7Zu9xFCvODV45ji8fGBffMiAzz1bkFNUa+ca
-	RgB8ynFYCWUGoE2nPqyVajQAItKwRomAtE288gtTblZsygQeQ5gqj9SVe7aaAMORTqWDT58h/jg
-	ZWuZjjmHe9aOB43nET9O5sPkpwEVQLP/wB/Am7Yk+PrdlGLKatCeHmPrmUFEwAcIJ0PZvXiKdUr
-	k4ZOLaWBbMnihKVsJpmT51Ywne+33Pxl6V4Aj
-X-Received: by 2002:a17:90a:dfc3:b0:3ae:6e7d:7fa4 with SMTP id 98e67ed59e1d1-3b40a634979mr3235082a91.50.1795174934087;
-        Fri, 20 Nov 2026 03:42:14 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfe9bb9sm1149168a12.12.2026.11.20.03.42.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:42:13 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: linux-rdma@vger.kernel.org
-Cc: bvanassche@acm.org,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RDMA/srp: fix use-after-free of a request in srp_destroy_qp()
-Date: Fri, 20 Nov 2026 20:42:09 +0900
-Message-ID: <20261120114209.3072101-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260812190418.200337-1-yhlee@isslab.korea.ac.kr>
-References: <20260812190418.200337-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=IkbDIgQY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE3C1F000CA;
+	Fri, 20 Nov 2026 11:41:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795174919;
+	bh=Kjkpv7+kdy5HQMKEXDMpyYQv6ROXdmu/Zx/GFXnn8Ws=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IkbDIgQYNDOPpHk78cvUK8JxGuf18TP3UHvIZa0v3dBO9+kBaIooCVvHpj5nnIWwa
+	 OAgSH6mrOVHjtWnFZpnwHjMW6wMll6IfBwJdau9oPYs4GC9tE5DdDmzmU4WpkjOiOi
+	 q/kwVFx6y7YSPlcDLEVKQsPw38xCu45p/LkBSxps=
+Date: Fri, 20 Nov 2026 12:41:57 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Herman Semenoff <germanaizek0@gmail.com>
+Cc: Alan Stern <stern@rowland.harvard.edu>, linux-usb@vger.kernel.org,
+	usb-storage@lists.one-eyed-alien.net, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb-storage: add US_FL_MAX_SECTORS_2048 and quirk for
+ USB Disk 2.0 (346d:5678)
+Message-ID: <2026112039-dribble-crushable-8692@gregkh>
+References: <CAMnMt5ZQe6HvLBWuc4fcF=pcatqUD4bZff6QSj2FxaKjpGWXiQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,11 +54,160 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMnMt5ZQe6HvLBWuc4fcF=pcatqUD4bZff6QSj2FxaKjpGWXiQ@mail.gmail.com>
 
-This is superseded by v2:
-  https://lore.kernel.org/all/20260818035229.505098-1-yhlee@isslab.korea.ac.kr/
+On Tue, Nov 03, 2026 at 06:07:31AM +0300, Herman Semenoff wrote:
+> In drivers/usb/storage/scsiglue.c, the host template sets
+> .max_sectors = 240 (120 KB) for USB Mass Storage devices. While USB3
+> devices are granted up to 2048 sectors (1024 KB), USB 2.0 devices
+> unconditionally inherit the conservative 240 sectors limit dating back
+> to early IDE bridge quirks.
+> 
+> For modern high-speed USB 2.0 flash drives such as 346d:5678
+> (USB Disk 2.0), this 120 KB ceiling unnecessarily fragments I/O
+> requests. For example, a 1 MB sequential transfer is broken into 9
+> separate SCSI commands and URBs, incurring excessive interrupt overhead
+> and preventing flash controllers from utilizing larger erase/page write
+> buffers.
+> 
+> Introduce the US_FL_MAX_SECTORS_2048 quirk flag (and quirk character 'z')
+> which allows setting max_hw_sectors to 2048 (1024 KB) on verified
+> capable devices. Add an unusual_devs entry for ID 346d:5678.
+> 
+> Non-quirked USB 2.0 devices continue to use their default 240 sectors
+> limit, and USB 3.0 devices continue to receive 2048 sectors via their
+> speed check, ensuring no performance impact or regression on other
+> devices.
+> 
+> Im tested on very common cheap USB 2.0 128GB (chipset FC2279 BA7 - price 4$)
+> 
+> Benchmark fio results on actual device (346d:5678) on Linux kernel:
+> - Sequential write (1M bs): 10.2 MiB/s -> 13.2 MiB/s (+29.4% improvement)
+> - Sequential read  (1M bs): 24.4 MiB/s -> 26.4 MiB/s (+8.2% improvement)
+> - Average write latency:    97.8 ms   -> 75.9 ms   (-22.4% reduction)
+> - I/O requests / interrupts: 556       -> 60        (~89% reduction)
+> - 4K random read / write:   unaffected, zero regression
+> 
+> Signed-off-by: Herman Semenoff <GermanAizek@aizekgroup.ru>
+> Signed-off-by: Herman Semenoff <GermanAizek@yandex.ru>
+> ---
+>  drivers/usb/storage/scsiglue.c     | 6 ++++--
+>  drivers/usb/storage/unusual_devs.h | 7 +++++++
+>  drivers/usb/storage/usb.c          | 6 +++++-
+>  include/linux/usb_usual.h          | 2 ++
+>  4 files changed, 18 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/storage/scsiglue.c b/drivers/usb/storage/scsiglue.c
+> index 97de28e85562..2a732e6354e5 100644
+> --- a/drivers/usb/storage/scsiglue.c
+> +++ b/drivers/usb/storage/scsiglue.c
+> @@ -111,10 +111,12 @@ static int sdev_configure(struct scsi_device
+> *sdev, struct queue_limits *lim)
+>   * let the queue segment size sort out the real limit.
+>   */
+>   lim->max_hw_sectors = 0x7FFFFF;
+> - } else if (us->pusb_dev->speed >= USB_SPEED_SUPER) {
+> + } else if (us->pusb_dev->speed >= USB_SPEED_SUPER ||
+> +   (us->fflags & US_FL_MAX_SECTORS_2048)) {
+>   /*
+>   * USB3 devices will be limited to 2048 sectors. This gives us
+> - * better throughput on most devices.
+> + * better throughput on most devices. High-speed devices with
+> + * the MAX_SECTORS_2048 quirk also use 2048 sectors.
+>   */
+>   lim->max_hw_sectors = 2048;
+>   }
+> diff --git a/drivers/usb/storage/unusual_devs.h
+> b/drivers/usb/storage/unusual_devs.h
+> index ac22fa318734..b3ff758d4e9c 100644
+> --- a/drivers/usb/storage/unusual_devs.h
+> +++ b/drivers/usb/storage/unusual_devs.h
+> @@ -2418,6 +2418,13 @@ UNUSUAL_DEV(  0x3340, 0xffff, 0x0000, 0x0000,
+>   USB_SC_DEVICE,USB_PR_DEVICE,NULL,
+>   US_FL_MAX_SECTORS_64 ),
+> 
+> +/* Reported by Herman Semenoff <GermanAizek@aizekgroup.ru>
+> <GermanAizek@yandex.ru> */
+> +UNUSUAL_DEV(0x346d, 0x5678, 0x0000, 0x9999,
+> + "USB",
+> + "Disk 2.0",
+> + USB_SC_DEVICE, USB_PR_DEVICE, NULL,
+> + US_FL_MAX_SECTORS_2048),
+> +
+>  /* Reported by Cyril Roelandt <tipecaml@gmail.com> */
+>  UNUSUAL_DEV(  0x357d, 0x7788, 0x0114, 0x0114,
+>   "JMicron",
+> diff --git a/drivers/usb/storage/usb.c b/drivers/usb/storage/usb.c
+> index 823a4b2e9033..2577db523208 100644
+> --- a/drivers/usb/storage/usb.c
+> +++ b/drivers/usb/storage/usb.c
+> @@ -570,7 +570,8 @@ void usb_stor_adjust_quirks(struct usb_device
+> *udev, u64 *fflags)
+>   US_FL_INITIAL_READ10 | US_FL_WRITE_CACHE |
+>   US_FL_NO_ATA_1X | US_FL_NO_REPORT_OPCODES |
+>   US_FL_MAX_SECTORS_240 | US_FL_NO_REPORT_LUNS |
+> - US_FL_ALWAYS_SYNC | US_FL_NO_SAME);
+> + US_FL_ALWAYS_SYNC | US_FL_NO_SAME |
+> + US_FL_MAX_SECTORS_2048);
+> 
+>   p = quirks;
+>   while (*p) {
+> @@ -659,6 +660,9 @@ void usb_stor_adjust_quirks(struct usb_device
+> *udev, u64 *fflags)
+>   case 'y':
+>   f |= US_FL_ALWAYS_SYNC;
+>   break;
+> + case 'z':
+> + f |= US_FL_MAX_SECTORS_2048;
+> + break;
+>   /* Ignore unrecognized flag characters */
+>   }
+>   }
+> diff --git a/include/linux/usb_usual.h b/include/linux/usb_usual.h
+> index 712363c7a2e8..cd246a42e603 100644
+> --- a/include/linux/usb_usual.h
+> +++ b/include/linux/usb_usual.h
+> @@ -88,6 +88,8 @@
+>   /* Cannot handle WRITE_SAME */ \
+>   US_FLAG(SENSE_AFTER_SYNC, 0x80000000) \
+>   /* Do REQUEST_SENSE after SYNCHRONIZE_CACHE */ \
+> + US_FLAG(MAX_SECTORS_2048, 0x0000000100000000ULL) \
+> + /* Sets max_sectors to 2048 */ \
+> 
+>  #define US_FLAG(name, value) US_FL_##name = value ,
+>  enum { US_DO_ALL_FLAGS };
+> -- 
+> 2.55.0
+> 
+> base-commit: af5f12805e5cefa4fe68d6127c7e1fb78cd5535c
+> 
 
-Best regards,
-Yehyeong Lee
+
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- Your patch is malformed (tabs converted to spaces, linewrapped, etc.)
+  and can not be applied.  Please read the file,
+  Documentation/process/email-clients.rst in order to fix this.
+
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
