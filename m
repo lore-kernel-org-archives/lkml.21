@@ -1,91 +1,90 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205331;
-	b=vsL3EuR+sGNFZScWiyfRgyuIWdAmdBriRNZFwAkSj/Y37pA8t52fYWQLDG9h0YVX9q39
-	 erW8YxC+3HkvhyD6uucrmFqlx2tWaSBV/zDIUyYptvuTfBjPpC22/ywf1ENPu96mPwKUP
-	 +rOtOVEtFsRUCdIqzklBg3y5dOXEFMXCNKzYiKr+SfRlFVAdNyPTmG0KGjopFNxlkjevx
-	 WpwToHRYD/CPJqnZ7t3IZvSUKds8C5UdQVCBn9uxhtLB3o8LI1iMPafmEQkeeJxmXFPk7
-	 yqF8JtwOvnzqUKX89UNNsVJorOUUNBGUvIfHvDmOXAlVcjnqfGVbH7wM0GzNJRKLWvg==
+	t=1795205336;
+	b=3eeYJk2CeG6FqRs072rw6dp6PHeWS1518vQ9cckK4JIpS7tCDrnOOSV3b3Qj1q/rfm3W
+	 +FiZAEglL/OnvG03jNEv1rWh4tqgWZ+VFh+frYOw+sd3BYz78guE0+4oNSQy0HXNGke7L
+	 u2/ytiBtdIqirC8cgsIi7Dacr4aNm+nN2UuiAIEd7rj7Flawli9VnvbAov17L9Xmd8Yjn
+	 5Z2EuROAfI3Y9tl8fupiwi7kN74tVcONkpHAT0mhvD7WcmAPgkRhkmBU17NG9RNgH4Tq5
+	 Gy02Q+WZ5kY+0dXzVmRTVesF6/x6ezEmoqzIBsYKHlC759HBZ0lsL8TfmKtrFMIVdSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205331;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
-	b=nscKo4j7VOb+UQ9ZrdWEfUx6muE5k7nVWJl7nYegrETbQjOAVOgnP4UiKBpxQJz2Ocxv
-	 7fvr3gDBNxq5rm79/GlXtOUi44C9TjzB2dNyxEe2v5eQRf3by/xktLFKR9HiyR8HWBnet
-	 EB2YbaAqrLAPT1snQDxPv5Gn1IgOLvyFNmCtQUe2FiVYxnziF9zgueRFGJC8d2QparP8A
-	 XCWMSwkyU2/GLaaeHqKFUkJ9ErPme2hzQ7ae9YnJYKRGA2eNJjjb47hw4lWQOcbIki2ds
-	 A+MDloYpxLAJ1klYC4ESTdE6WIHi2qKjfLMqRGbAFhVr7TSvYoF5wZVedp44c7wpUkA==
+	bh=4c2tomY78ENRH0Ja91CkTFAAwqmDM/gzLGOxCRtSTus=;
+	b=Zequ2ivnor1YgheONXjMX58V/D01s6hXIAdkDmnLM9N3fJ1HxELa9lCmOR8p2AM9UvVr
+	 7kWR1/YXXVc4We7Fd+25JdyPyH2m3hKPfv5cKHBPa5b7QrAtHgpXAwagUhF5TJRUr6WF0
+	 4nGin5Zpq/9pTSmI5fSXa8/PKBnR6UuP5/yFGoeIQUKjdWGCDIcVzXrmuUzmoo1jQsie4
+	 JmY9WE/1+p7UQK2oJRl/BJDkhHOW5V8U/yj+uvLnxVn7xgpzvw6q4RJ2kzDcUGGEM0CTY
+	 XuLoOiYzEu72p1Qk/vDqJgAtRgeFLg/WH087OArYhmAIwRUzpk50ZsDXsTlzAPHvGNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=svqos5rq;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kPhJgUNe;
 	arc=none smtp.remote-ip=209.85.210.49
 Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com [209.85.210.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB3FB60A2636
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:08:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB3FB60A2636
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA42E606A6C2
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:08:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA42E606A6C2
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=svqos5rq
-Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-862b3938d98so662665a34.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:08:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kPhJgUNe
+Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-8631e07b756so483259a34.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:08:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795205328; x=1795810128; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
-        b=svqos5rqjNX2lI77EqzOolQKXTy+0jVL6mdVS3N6fA6YoiuJWuLW9UwAJxEpePYXrV
-         2+3dg8azfy1NwgA3X+w6g2BIHW4t32REnbwmrqEbWxgYlaeax0eZO5iye8+ZTE0CXeds
-         I0sVYgC3Fsqc9YXpdp2qqRwVg2EEJYImoyyZPwLXq+tLTLpeANGMyqteMotdzlNGt9CZ
-         CI+JiTaj0uBfpXg+NSLe78KOJcc95IqXXc91fkOEuoyYXgGCkLWlRTVQY+fJgFZWzZbP
-         RIYoC1M1qt9GPFmRUCpHWcLBp3MZE+kzR+HvjV2PaV5uuRc1h9+x5JFWS8fuznszZ3vG
-         w6Zw==
+        bh=4c2tomY78ENRH0Ja91CkTFAAwqmDM/gzLGOxCRtSTus=;
+        b=kPhJgUNellhycDbtC89h4S2cNeoJ0fdRWJl+AfN7lrYIOsdYZZAuKk1JEPHv8wGsv4
+         /hUFpTg0ge+Z9wJ+gCxeUTQxAnP6RxrZy2P3wdaBim3DM77m6IfSXeGIISpdCeMsPFKl
+         laDhPSK+kpKgf6xZzHCwxHEqvzongYhyBX4Zt7if8dnFEAp8yVknlSrQAzQ2k/KawvsE
+         cCQ3W1nSVODO/ZH2vnyRizqvdSpRG4YyzJxBfbbHCvTgexN5k39vDawxGfr39i4WaiZQ
+         JVvcOsVDMK4yfo4896vUVrOe3ikB23IYtasg40WwuE6ux1Aabbd3cCKoinqEXo+Z3ExL
+         A8jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205328; x=1795810128;
+        d=1e100.net; s=20260707; t=1795205329; x=1795810129;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=G1EaTywtJ0ZaLtfLHyxoBdWpieG6YjnInrIP+X97zOM=;
-        b=lkEDs3Brl3/DJ//qS4HNKR6ZiQXDyqoenQcqspaKrqpUsOGcIMGEdEHbPA44TnR3+Y
-         oMi3ckvpV5N3SHvufEEkBiXgIz4MfN3UGWn0s5vBFDYee40Zlsa3HSBajyWHEDSaiD6w
-         rVbDYQA++IkqrMn9ayUg8Lrt0uVxd+qZnMG1gwWnNzxSk0avc4ksjK+pV5Pidr6PXv1d
-         Ks9OHdsJhC8sTBPFawXlnwR7I3G0vd5BUDHEp1VU6tlioXJh+JCjDoLXDYTBtdRpG2AV
-         9nAU4wZ4fQOokvkw/augxBuI5+Hixsibi4tU9rTHpMlQaZJiKM93Lx6n3OdMovjYWxJr
-         IAWQ==
-X-Forwarded-Encrypted: i=1; AL+hErGVI6e14HtCmLBu+ESVdwnNbK+Th8/1gkAaguNHk+926pCn6YNi24Hmm3PZ9Kx4Gkg57Hqs6ClOpiP6X2o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8nuaXp4zz1f2HB2Z5spXqL34HNzYPsQ1cf59HATZwAKWRp9CJA
-	GOc4eD20G2smFE7Y/VfpIp5ZxcJiHJloVz+qsJCFFHNep3p4Me0+e7SI
-X-Gm-Gg: AYBFou0dAlNWqpGV3h6t+gBvWDQkWhQWb3aT+lNXnNkduEkWr0JyRtEX0WGto9o5719
-	3pXARb/Q33jMgPAyfPQa8fDxsCjLXrCmjV5Us3z2GCu1I4v56sEGJMAp2NoFtMNkqAxNkK2fyQY
-	nPNVdxWdmVDr2idp8T/44xxyh67Qv0l2cPLJp7SbRniz9lpLUffps0TaBVrTD/6HFQwyBFZi26V
-	x8sGVSmAsZqqFv+vkJb8zenAHO8CWdKuOTb2y6PC+vTZcN6Z7PbGjojZ8FybSaew9tfrWsdQa+B
-	EQ6RdZiK7W6bpzVSrSbFhCynDLp3EBy7Qda5+16g7gTGYPJtGUFtVrGtiGpxnh6X8dxrYkGqb3X
-	lwJXffrP+89y0byJfF80UMUxSutP0AsP5a50h2L+qIDv/L35BxEOVG0VjFnc35xErOohAoFFPYo
-	7FUSZZgl1hzg0y8HOhGYB1J/UMlGfidRiGOO20qoN1urc7nYzHyL62lZs3xltTvf21hYa1CTBxE
-	KIHX1vYmdniZXIu9xbXRHw9Fp9oZey4A7nIwvLW9sLb1YWoa9BpqRkYb2VeCy0PHNgGu5tK5qyW
-	D+/L1zXT23FRNzQKJ0LL8zOJx+uCbrXuOMYX5O70KefjPqEYk1SCDcsNsmLhBpcNAlX+ogeZb0X
-	Oa78lAeBojsrda+uFOLsQXX1qBJ+EJGs+BnbsPCmj4fYVRluW/DRWBVRTSQTHxrtY0TLnmM/bxy
-	6uyysZDx5zE+J3ctDBYBiQti67tud4gZ/EpsaoHnfoAinx9cat2lT2V9rynj66o5JrGoIjGHjUS
-	w==
-X-Received: by 2002:a05:6830:2709:b0:862:c9e8:576e with SMTP id 46e09a7af769-863158eca20mr4709854a34.21.1795205327698;
-        Fri, 20 Nov 2026 12:08:47 -0800 (PST)
+        bh=4c2tomY78ENRH0Ja91CkTFAAwqmDM/gzLGOxCRtSTus=;
+        b=wzIkZw+CrrNlqk22ISezebI9NBwvOmcGSyiVsk9cMxzhcFFEfF/PEeJ4yGJdlythlh
+         +I2Jo3UtSM/MVg96Dwg8qJEwMJmDbSWCfGYLTu+CnCwcebGdH+Zzx7f7FffMpngYln5i
+         eTKBz+hDry1TZE7b74GbY2rrH/cXKJsNjJl6mi/v8Fg7n8Jy+onWEMWyhfKYUREbtESb
+         1ehKQjcHEHNcGn1a2XCnBm61O/rZP+117xQDApRPv3a7fwcktogn/tVyxaSM63DLTFfj
+         Q0UYPZ76e6PTrMSDHT97iy35EY9bhKbnRfkvuZPOdDnGF57v5TT2p2m8L8/mQDIA6+mb
+         Alww==
+X-Forwarded-Encrypted: i=1; AL+hErHdFlCKJ7feTW4OHB6qzKos1T/WnbwhrdmGvt9+oWzsmrBUZQQGERn7QUTY234YuhDC9FEScGrbck7WVnw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8E3tUc7hMmATS1lcWQ4PG/PSROorPCOn+su6oAandGmYYfb6T8
+	0EmrcvV6uu24VYeAeOpgHCCfU9xdDyl8Cok0UXNLhg3SFX65IyBLDOZN
+X-Gm-Gg: AYBFou2Dm3SeLMBi8ticEClGomq88flF6OPaxlkgm6si8wNbhbGkhRAbVn/IdOEWXy5
+	57LZWH7DsrwihpH3wsucRIU6FagcfgMH/+Do9k32lSsLdSGy6I7JOo1p2MYhLEvJtCIkudKv7lD
+	/FXzGDNJCzOJeJpAHQn3vJVuNsxiTi9d3V4Qi8rbm/vdFYSSaZkuN9qKJ6II+fkG9u2EHWhXqvz
+	OB0ifleWV0YhOvEGtaLI0k702faMFUORvOBLSByjhsikR9yLiurYyf0AuDBKaNX8cvDv2LLXzUl
+	XSF5wHwmNDum6KYPzNZsxju7Jgza/+g6Un8mk7WET7a39X5WNIi00m+YWfqVHAGI9xjgwVo3Ach
+	Ye/FJeyH+ZQz9zcPw4iP8tLpHUOdL5R71fPCBY2ROfsU5tGqOF2WtYGZGhZZn0uJ7Zl0qQMF7nk
+	vvhLZhC6Kj8tjNEcemuabQ88TgEXJh2Xrl8m5UKjDy9Usc1izJV81M12QU69ibcgdQvGY0YmLdS
+	Murl7ksSmg0nKAymdXdXhhoP+7mQyb+Jdn/hCiOSWPn1WxWUnqSA+x/+jlfCK9jQ6C6IIffq/mU
+	sO5xsBDnDryb2gv6r8IsjAHg9C/kacvMppqFNfgP1X7D2i2+32r/54SbzYseOdRuch2KblRZG65
+	DbAbCMNBZkpHEC5akRR1vfv3zaVVIRKwVV67ZXTcSg+kIVpQv4gTxKW9KWLVcFAEqLojctX/CkK
+	dHBom+V0Ep3zxF5d2OD3ibQ6Hjm19ItB2z0BOw6rVB7xx9VIfBQ5aA
+X-Received: by 2002:a05:6830:719f:b0:862:c6cb:2df2 with SMTP id 46e09a7af769-8631593a225mr4802462a34.5.1795205328580;
+        Fri, 20 Nov 2026 12:08:48 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-86316822ad4sm2746249a34.3.2026.11.20.12.08.46
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-86316822ad4sm2746249a34.3.2026.11.20.12.08.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:08:47 -0800 (PST)
+        Fri, 20 Nov 2026 12:08:48 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 20 Nov 2026 13:08:40 -0700
-Subject: [PATCH v3 10/11] nvmem: u-boot-env: propagate cell registration
- errors
+Date: Fri, 20 Nov 2026 13:08:41 -0700
+Subject: [PATCH v3 11/11] nvmem: allow providers to specify an explicit
+ NULL owner
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-submit-nvmem-provider-lifetime-v1-v3-10-523610652402@gmail.com>
+Message-Id: <20261120-submit-nvmem-provider-lifetime-v1-v3-11-523610652402@gmail.com>
 References: <20261120-submit-nvmem-provider-lifetime-v1-v3-0-523610652402@gmail.com>
 In-Reply-To: <20261120-submit-nvmem-provider-lifetime-v1-v3-0-523610652402@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -113,50 +112,56 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-The environment parser ignores cell registration failures, so allocation
-failures can leave a partially populated layout reported as successfully
-registered. The OF node reference obtained for a rejected cell is also
-leaked.
+The owner fallback treats NULL as an unspecified module. A provider whose
+operations belong to built-in subsystem code therefore cannot distinguish
+its deliberate NULL owner from a request to use the parent driver module.
 
-Return the registration error and release the node reference that was
-not transferred to a cell.
+Add owner_is_explicit so such providers can select their actual callback
+owner. Leave existing callers on the parent-module fallback. Unregister
+still disconnects and drains callbacks before the provider releases its
+state.
 
-Fixes: 7c8979b42b1a ("nvmem: u-boot-env: use nvmem_add_one_cell() nvmem subsystem helper")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/nvmem/layouts/u-boot-env.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/nvmem/core.c           | 2 +-
+ include/linux/nvmem-provider.h | 3 +++
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/nvmem/layouts/u-boot-env.c b/drivers/nvmem/layouts/u-boot-env.c
-index f1fb206846ff..83c687e43e5a 100644
---- a/drivers/nvmem/layouts/u-boot-env.c
-+++ b/drivers/nvmem/layouts/u-boot-env.c
-@@ -55,6 +55,7 @@ static int u_boot_env_parse_cells(struct device *dev, struct nvmem_device *nvmem
- {
- 	char *data = buf + data_offset;
- 	char *var, *value, *eq;
-+	int ret;
+diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
+index e878931f375f..bf6f2cd50970 100644
+--- a/drivers/nvmem/core.c
++++ b/drivers/nvmem/core.c
+@@ -1111,7 +1111,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	ops->reg_write = config->reg_write;
  
- 	for (var = data;
- 	     var < data + data_len && *var;
-@@ -79,10 +80,12 @@ static int u_boot_env_parse_cells(struct device *dev, struct nvmem_device *nvmem
- 			info.read_post_process = u_boot_env_read_post_process_ethaddr;
- 		}
- 
--		if (layout)
--			nvmem_layout_add_cell(layout, &info);
--		else
--			nvmem_add_one_cell(nvmem, &info);
-+		ret = layout ? nvmem_layout_add_cell(layout, &info) :
-+			       nvmem_add_one_cell(nvmem, &info);
-+		if (ret) {
-+			of_node_put(info.np);
-+			return ret;
-+		}
- 	}
- 
- 	return 0;
+ 	nvmem->owner = config->owner;
+-	if (!nvmem->owner && config->dev->driver)
++	if (!nvmem->owner && !config->owner_is_explicit && config->dev->driver)
+ 		nvmem->owner = config->dev->driver->owner;
+ 	nvmem->stride = config->stride ?: 1;
+ 	nvmem->word_size = config->word_size ?: 1;
+diff --git a/include/linux/nvmem-provider.h b/include/linux/nvmem-provider.h
+index ba11c807593b..019fdf04cafb 100644
+--- a/include/linux/nvmem-provider.h
++++ b/include/linux/nvmem-provider.h
+@@ -81,6 +81,8 @@ struct nvmem_cell_info {
+  * @name:	Optional name.
+  * @id:		Optional device ID used in full name. Ignored if name is NULL.
+  * @owner:	Pointer to exporter module. Used for refcounting.
++ * @owner_is_explicit: Use @owner even when NULL, without defaulting to the
++ *		parent driver's module.
+  * @cells:	Optional array of pre-defined NVMEM cells.
+  * @ncells:	Number of elements in cells.
+  * @add_legacy_fixed_of_cells:	Read fixed NVMEM cells from old OF syntax.
+@@ -116,6 +118,7 @@ struct nvmem_config {
+ 	const char		*name;
+ 	int			id;
+ 	struct module		*owner;
++	bool			owner_is_explicit;
+ 	const struct nvmem_cell_info	*cells;
+ 	int			ncells;
+ 	bool			add_legacy_fixed_of_cells;
 
 -- 
 2.53.0
