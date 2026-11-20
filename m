@@ -1,54 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145564;
-	b=kBn4GDZ8Z/d0d5Zs4erU9FeVAm+138sMavFKzrfv79/DZ7tfbVK6AzoLhsYgH/r4o8jI
-	 Ec3HhsWIYN3S9Ix7EUhYnXZ/mgmdNnbn50q1RJ6hysAPvDv/J1jrMXzyAtbPLl3wUHknl
-	 TPxzikpgInqmubZzz/x1nx9zD9FEM5wXJLDf/OZVZ1GDkcMtKIekugN8qNtfWc4/FLiyS
-	 Py0XMWpA512lKDo/idrFw2SHHlzXcGBNr6qa2Cu8ndVxFH0tS/RUXI2RGwjwVV3x5Cdhi
-	 Xpl60lIitVKw1uPtB/yYdoUgkc3ibTfv2xm3wnwn1lPBruWv5zpC4y/JR1Afw8LpPGQ==
+	t=1795145812;
+	b=3BP6liACapQtSn4PdxoICWgiu5AuuNst9chKivf155+wPhjE7KEq978+HpSRxHCsb6JT
+	 2C1uRbatJ0/iRB8x7hzxJ2m/u5YboVsOEdWBwIPBeSpo1dKPTDe0fw2W6nIjtugZUkUQH
+	 klYTyE9A0e13QY1qfXtg/cCRjLuuu9DccuaDP65Ezqt5sKgxYh+mMYVDb+fYiQsdz4m29
+	 IWI6PETcSnZjM85L7Rj6QJGHYZKVW4Zvhw7z85q53AwEv1zMc3pAr5QrUWcq/z8O5fnGw
+	 WncEtL6S++ZQVrQLg5O6a7rsjD8TYX7WSgOKPe8v3KroGJoI1Fn1IZUZ4plURRazdJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145564;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=0fECNG54n/Lw7Y7dKtGt1E6g844G0gDaHuevu60/s64=;
-	b=p8oRF52S0WxrUICngblrk4IACdWpXFwZKou+mGmSqudsmQv/ej6poqUylqaoG47Hz2t/
-	 IGVSwzuhPvfNH6VR5C9F6/e74tFFsVznB9XjCBzKTq4ofegLJYI0ckmdVdv3aAydTz5Jm
-	 4PGHIzQTI5TidKNkB6VVyBuLlBtKVDWRKPhh/37FxWfuDjtxrp1VZ+BdsuC0Vwzt8HpLD
-	 OW553ZEGkERAN37DmzTMxS/VllD+pDaN/2rRmdo2uKfcxEIxeNeeiolD8n424Ocbr1zmG
-	 nuRJjusPHC24ztcxf9ENYukhGj9qtL1xIGW1tYuJ9+PUqxTjHnOsfjc/RK1nhnyCbPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145812;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
+	b=ZH/ZyEn+ckx9vYh0E+U1D1kF67cJuoIeLEJN8e8pSW2amTfQCt3CKtcAJaD65H38cB8/
+	 LAKqKN7nNQJ0GnXqOSUdZ6BrAs4AlEc7ca45mTJrq3CENmSxYJljYBi9zpmok9LFtgF77
+	 Z7yJ5v3U2OqSezltL7i/r/sS04WvQ2LUZt3oJTiwIIeZfsVzuNmUiKXPo5v+qH3dBfNvb
+	 9f5jFFCTopeXw07Cmaez7zd9ytKQbahvskX8+RGsTaaJHmX11kUIPrXyu0mAT2HdKZjiB
+	 TW11H+IcqHFHQdkCCPKZnle3NsfLQxnpFxTgY5N4QuLDq061G0J0NmEn9XSvwmjrJ0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="gO2FpF/f";
-	arc=none smtp.remote-ip=95.215.58.148
-Received: from mta1.migadu.com (out-148.mta1.migadu.com [95.215.58.148])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WWLQQSFC;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4A4D606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:32:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4A4D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 603C9606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:36:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 603C9606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=gO2FpF/f
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=RTGjO70kQTAFrOBvzmLzPFg5yur4DkRsk7Mr2E4IJY8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795145561; v=1; x=1795750361;
- b=gO2FpF/ffEFAVnc1mnDDF77r/aKWTt7jnIQeCvgm6qU+pdYnpnxpWhZQ+eA11DOW6D1TiQWI
- OaxH+3De3KiV2AxLJ8Ykef8WA3En20VikE4NWWpRF22ZRk/pcPDVlJTp9wV0yvuF2gQLgLPHwNR
- DDQtw3FRwAmq2dcuo9X+jxyg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d9dbb3b872ea00c7;
-	Fri, 20 Nov 2026 03:32:41 +0000
-X-Mizu-Trace-ID: d9dbb3b872ea00c7
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8c25083c-dfbe-4fdb-80b8-bb42f0394de4@linux.dev>
-Date: Thu, 19 Nov 2026 20:32:37 -0700
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WWLQQSFC
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-385c497bf94so456104eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:36:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795145811; x=1795750611; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
+        b=WWLQQSFCS4ynPz3MDQQN+2srUsJXfSACEjDNn4aPY5yuqJIeJgXXOkH9JZnRHWQERS
+         FAHDuBj+ASqN9RwgLxGLAqFDY+KRkly5fAsnRiDtdYsGNeIsh824wjAN6hPCIeOftw6Q
+         L+fsf9Lk/uv9YJRyxARVncHptGi56d59adUqa4tuKJ52ZOXAOdUj1vnqGHQwyGZ1SXzc
+         N7h65crNW192X60Y6CA1P+Xio1+fVJWLlCX2aP0tLabCNuBzZPVyGmldtusx8kIiQT/2
+         5Pwx+BUPG1ozLCkVf42X8RkFZ9nmlNO0jpjURUyEmVkiFy9z5cZiweyo0NhihzztUsBU
+         UuMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795145811; x=1795750611;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
+        b=wbEmrdJMcrBfV3bWkIQmGK9LMzo+/DtkE8G+vs91SFN0uMhB5zKxL3Akzw2BrVxL2C
+         l43l/WkuM/ztanYAQ5XmDW9HRuuC5rxrMiEdcsKL1ooJCOr84jxb4lNQlKbcynngTQvf
+         37n2+rAOizMz59XVSvJh91Q1KZatMS34xFuPnA1iC74+vtNT9BusRQpJU8RhkjhT+L61
+         uRV3rM4ZD/sONDmYUeLB5UYBFFT6tSy72z8DPkC8FSwyHVYdYY73PwVnGkeNr/0bLwaI
+         a/nkPtKY0XTUzHzAphnO8DrdkPdE8BOxmMArQNoV5FHUc52rzMrVhIEL62/6v9pPmjkA
+         j5vw==
+X-Forwarded-Encrypted: i=1; AL+hErE04jfceKQ4xPjpFw4Gqn6XdxXY2kK6qVZYWr2kQiGKNhX2g3z1Sz3ItAyOEFPRYdcBP/Ab5YckJZcZtU8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+waCmv3Hq5Nbmqoe2gz8OAm6RmWEOFpi+Yv8TA+I913peXAoV0
+	2ThyKInBy+zDOQDAWXt2RZgpi7yq+Pa67LH9vKARcC6snMnSSMxULbF1
+X-Gm-Gg: AYBFou3duKCsDKutDzW5MO4/NCVaS6Tjh16Y2s4FcFmUsBCTpstwMqnxuppoDiVwkkY
+	4N1SH5A6hdmcInqzFLNAYRowLdlaaTJPm9M65mZ3n+f61twzcIi5u653o7bruwPlSd/lrGoPmh3
+	AIPZqrfc9CjbkeWBSv6RfWm1czjy7PNtgJjM5tW5MH6R9W5kr4fIJaNriaY2rTDtipPqXciIYOD
+	iwjMzALIMNz7CUXYO7C5Q1wjFLNdRTrcB2zMQVNAqzEOU6EFGAphO/vlYIHN30FRCdxQZkyVmNo
+	bz2QwW9HNx8BUZ4CnZ31tH6unVYKUdYe7KmXIolRwvcXmf29fpRFHRBGFb2d2/zgMFF1bxKev+o
+	J3m4HIz5taokF6331PTPfHcoplOgmLz6DP1T7lmpnWcT0K1mBQ8MAJmAEIYvFspGD4qFiv8+ipB
+	CYen0mRsdZx8sYvChZSz2735ieXJokYu0hHPzJ+z4hIfqNhP6MoNxm9+51QJoQXlFQ0tSxkei5D
+	46kvuWs82fNtWyJCVmV2HLk3mbhzbwtpoVA0i/rIhUjpdae6AYYtOFJNV4WWDilVklUhyyEn51i
+	qvNVm67JrcuLZXjY3U+ZBgJTHpfCGArT2l+s6CvBz8pkcTV+SQEGfkrkeeXaoUqw5w==
+X-Received: by 2002:a05:7300:108:b0:375:50d9:474e with SMTP id 5a478bee46e88-3856c0d0bb4mr1785949eec.4.1795145811208;
+        Thu, 19 Nov 2026 19:36:51 -0800 (PST)
+Received: from MacBook-Pro-8.lan ([27.125.146.195])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm2982064eec.16.2026.11.19.19.36.48
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 19 Nov 2026 19:36:50 -0800 (PST)
+From: Ding Feng <dingf3ng@gmail.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Ding Feng <dingf3ng@gmail.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Jan Kara <jack@suse.cz>,
+	Ian Kent <raven@themaw.net>,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] statmount: retry an overflowed string before reporting -EOVERFLOW
+Date: Fri, 20 Nov 2026 11:36:44 +0800
+Message-ID: <20261120033644.99834-1-dingf3ng@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,128 +98,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v1 0/4] libbpf: Support kernel-side kfunc flavors
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-To: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Eduard Zingerman
- <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Alan Maguire <alan.maguire@oracle.com>,
- Emil Tsalapatis <emil@etsalapatis.com>, Jiri Olsa <jolsa@kernel.org>,
- Song Liu <song@kernel.org>, Tejun Heo <tj@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, sched-ext@lists.linux.dev
-References: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
-Content-Language: en-US
-In-Reply-To: <20261117192153.3384031-1-ihor.solodrai@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
+statmount_string() compares the seq_file count with the caller's buffer
+size before it checks whether the seq_file overflowed. After an
+overflow, seq->count equals seq->size, so every buffer of up to
+sizeof(struct statmount) + seq->size bytes gets -EOVERFLOW, and the
+retry with a larger seq buffer never runs.
 
+The result can still fit in such a buffer. statmount_mnt_root() and
+statmount_sb_source() write escaped strings and unescape them in place,
+so the escaped form can overflow the 3 * PATH_MAX seq buffer while the
+final string is much shorter. A bind mount whose root is a 3765-byte
+path of spaces needs a 4.3 KiB buffer, but STATMOUNT_MNT_ROOT fails
+with -EOVERFLOW for every buffer up to 12800 bytes and succeeds from
+12801.
 
-On 11/17/26 12:21 PM, Ihor Solodrai wrote:
-> An incompatible change to a kfunc's prototype, such as an added
-> parameter, breaks BPF programs built against the old one. libbpf
-> ignores the ___<flavor> suffix of a kfunc declared in a BPF program,
-> but makes an exact name look up on the kernel side, so the kernel
-> can't keep the old prototype available under the kfunc's name.
-> 
-> sched_ext ran into this. cded46d97159 ("sched_ext: Make
-> scx_bpf_dsq_insert*() return bool") kept the old prototype as
-> scx_bpf_dsq_insert___compat, expecting libbpf to bind old binaries to
-> it, and broke them. 2dbbdeda77a6 ("sched_ext: Fix scx_bpf_dsq_insert()
-> backward binary compatibility") reversed the naming. A ___v2 kfunc
-> declared as vmlinux.h spells it doesn't bind: 56bbc91219c0
-> ("sched_ext: Fix scx_bpf_dsq_move_to_local___v2 compat detection")
-> fixed a compat macro that silently dropped enq_flags because of this.
-> 
-> With this series, if the kernel's bpf_foo kfunc is missing or its
-> prototype is incompatible with the declaration, libbpf binds the
-> bpf_foo___<flavor> that has a compatible prototype. So a changed kfunc
-> can keep its name, and the old prototype stays available as foo___v1.
-> 
-> resolve_btfids fails the build if two of bpf_foo and its flavors have
-> compatible prototypes, unless both have foo's exact prototype
-> (aliases), so the fallback finds at most one match.  This ensures at
-> kernel / module build time that no ambigous kfunc flavors exist.
-> Documentation/bpf/kfuncs.rst describes the rules.
-> 
-> Compatibility is determined by bpf_core_types_are_compat(), the check
-> libbpf already applies to kfuncs. Of the 70 same-name kfunc prototype
-> changes between v6.6 and bpf-next, it finds 8 incompatible (arity,
-> return kind, callback prototype). The other 62 (const, typedefs,
-> parameter names, integer widths, pointee struct names, annotation
-> suffixes) were made in place without breaking old callers.
-> 
-> The flavors feature is backwards compatible: declarations that resolve
-> today bind the same kernel function. The exact name lookup is
-> attempted first. Declarations rejected today for an incompatible
-> prototype, or left unresolved if __weak, may now bind to a flavor, for
-> example scx_bpf_dsq_insert___v2 as vmlinux.h declares it. Older libbpf
-> and light skeletons don't get the fallback.
+Check for the overflow first, so the string is regenerated in a larger
+seq buffer and the size check sees its final length.
 
-We had an off-list discussion with Eduard and Andrii today.  We agreed
-on the implementation as described below, which I plan to submit as v2
-of this series (soon).
+Fixes: 68385d77c05b ("statmount: simplify string option retrieval")
+Assisted-by: Claude:claude-opus-5-5 Frama-C
+Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+---
 
-Writing from memory, please correct me if I forgot or misremembered
-anything.
+Notes:
+    Tested on v7.4-rc3 (65e4fd942), arm64 tinyconfig in QEMU. The test bind
+    mounts a tmpfs directory whose path below the tmpfs root is 15 names of
+    250 spaces (3765 bytes, about 15000 bytes escaped) and calls statmount()
+    with STATMOUNT_MNT_ROOT; the result needs 4279 bytes:
+    
+      bufsize   unpatched    patched
+      1024      EOVERFLOW    EOVERFLOW
+      4096      EOVERFLOW    EOVERFLOW
+      8192      EOVERFLOW    ok
+      12800     EOVERFLOW    ok
+      12801     ok           ok
+    
+    A plain mount gives the same results on both kernels (1024 ok, 512
+    EOVERFLOW).
+    
+    With this order, a buffer too small for a string longer than the seq
+    buffer now costs one or more retries before -EOVERFLOW, instead of
+    failing at once.
+    
+    This came up while proving statmount(2) against its man page with
+    Frama-C/WP.
 
-A single kfunc selection mechanism in libbpf:
+ fs/namespace.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-   1. Find all functions in kernel BTF with the essential name (the
-      name before the first ___ separator) that matches target kfunc's
-      essential name. "bpf_kfunc" decl tag is ignored.
-      This gives a candidate list.
+diff --git a/fs/namespace.c b/fs/namespace.c
+index aecd05ac0..2c4987942 100644
+--- a/fs/namespace.c
++++ b/fs/namespace.c
+@@ -5813,15 +5813,15 @@ static int statmount_string(struct kstatmount *s, u64 flag)
+ 	 */
+ 	if (seq->count == start)
+ 		return ret;
++	/* signal a retry */
++	if (unlikely(seq_has_overflowed(seq)))
++		return -EAGAIN;
++
+ 	if (unlikely(check_add_overflow(sizeof(*sm), seq->count, &kbufsize)))
+ 		return -EOVERFLOW;
+ 	if (kbufsize >= s->bufsize)
+ 		return -EOVERFLOW;
+ 
+-	/* signal a retry */
+-	if (unlikely(seq_has_overflowed(seq)))
+-		return -EAGAIN;
+-
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.47.3
 
-   2. From the candidate list, find the one with a compatible
-      prototype. Error on ambiguity.
-
-No exceptions for "exact name" match (as in v1) or anything like that.
-
-A function prototype compatibility check here will be a little
-stricter than bpf_core_types_are_compat(). But it's also not going to
-be a type traversal as done by bpf_core_types_match(). It will be a
-new check specifically for func prototype comparison.
-
-In particular, for pointers to structs, unions or typedefs *the name*
-of the type will also be checked. And the typedefs won't "skipped"
-anymore, but shallowly compared. For example:
-
-    void kfunc(struct foo *arg);
-vs
-    void kfunc(struct bar *arg);
-
-become incompatible now. And
-
-    typedef struct foo {...} foo_t;
-    void kfunc(foo_t *arg);
-vs
-    void kfunc(struct foo *arg);
-
-become incompatible now.
-
-However:
-
-    typedef struct foo_v1 {...} foo_t;
-    void kfunc(foo_t *arg);
-vs
-    typedef struct foo_v2 {...} foo_t;
-    void kfunc(foo_t *arg);
-
-are compatible, because the name "foo_t" matches.
-
-resolve_btfids built-time "no ambiguity" enforcement remains.
-
-The consequence of this approach is that a BPF program expecting a
-kfunc that changed its prototype in the past in a CO-RE compatible
-way, will now get an error if loaded with new libbpf. The fix is
-simple: use an up-to-date kfunc prototype in the BPF program.
-
-A notable recent example is bpf_cpumask_populate() change [1].
-
-[1] https://lore.kernel.org/bpf/20260709182800.2037938-2-main.kalliope@gmail.com/
-
-
-> 
-> [...]
