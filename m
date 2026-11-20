@@ -1,102 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795173654;
-	b=tSVzjqb+7e2faAPcttHR5qLvMz5EX7e3r6/5PScfIwy9OQ8rGYwO69cRedrhoXbmMpV7
-	 aODj6nKReKHlwJwL382pNzkJ3K7WhC+VSiC62GEnsREhadKpCM9IFpx5DwXbTddj9g89l
-	 joq2Nd4iz20uCO2FH8fcPvr1TQ5wlkhjvF/EsZVeohwCA9s4jy6XkiY/63sU+udvfMLLt
-	 A/rhoonO8OUyaC8D/0f4NZ0wCzZQXBhwutRtjdsn38tP2PX3KyTq8MgBk+L3D9mHqA8Ew
-	 69Z0wxzS1v8IeSqOMwipLaJ4cOMg3Bob3E+7ylyjJU7qSWv0zbeG68RThvToQdrPdaA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173654;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=UQX9LAKDbJv63O+oyEMBZ5zmGCeTuL/tuyPPcUZ7zkY=;
-	b=AdiwU5FV4NW1ycut0qQfF0ca0bWrwNoI1E1VcSPmfyhIwtWOQzm8V9oMMXnmf4GoSF5c
-	 zSSxbcc7vBkolS7sJD2vhC8daoaT9D8W+fJ93cFoHn2Bbwyv16NWNevkFlFfHu2q/mBOs
-	 lEUgfzA9wyWgmYQGdoTLZrHEoRTPQPu1NYY0zCM86tKf2VkLeee1hl2T+gD9rCEb/8IOr
-	 GSkG4dBkyqTJ5Rp3sTXNqyqiS6GAgiepnx7j3Pk13StUXYZ6EnXqtyl765Mk2J1Dnj0EA
-	 DnLOriiOB+QoKvv4hdr23jWMVRxQOxwR1CXQIHkmRBj3uC2BWIKFIocIt4SWtHKpmCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloud.ionos.com;
-	spf=pass smtp.mailfrom=ionos.com;
-	dkim=pass header.d=cloud.ionos.com header.i=@cloud.ionos.com header.a=rsa-sha256 header.s=google header.b=HGhCt+cg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795173659;
+	b=Fm/i7HeZ57viXUcyr/IzmoK+HiU7dKdZScdLaLEoykV+ifq+nTvzQ9XCtEwDAG90AqET
+	 AImxxJs8NN3aXY334U7U6Gye0GxZgAPo8sBDJWhEOW+R/XVlsr2NDKF7TKDvhRmxmdrsM
+	 i//9plwP5HG0XvZObAmvtM6swO/NQdFs5301WxGkc6BQK8Sit5HPCxQOklTRVQldMb4pK
+	 9Ul+8KGF38vGfTM4XGsxdh3FMfw3PQHagf9K0X2vgUc0YgagR1EaEp0961aGm4dLhHOLd
+	 zuayENIOa0QV0dJaKPOHjUp5EJMzrzdmJJzZUJWM+2RQ+zXzhxBuOqCcGmnuCugJ06g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173659;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=t3IK+6RZWNtPak6+wEGWEUH2Q0VnpjhDdVRL8yHWQZQ=;
+	b=Kd+KsCnEY7X3IvCsRf1cfkTi5A78V8lYETDS2gxsTkOA0cBdoW/Ob3bq6ujjV/EjBVhE
+	 yZmWH436aTrziuEeeIlmvXPy2rF9Y604/Nxhm6PRuRd5rNYl3yH+tH+jDF4EaUUD/8MaB
+	 MiSePtzXWN6uF6rEWePsq3CtRaI/ju1XzyjV441CxG9nsgD3JYW3AwxPaWwI0jwwcAfAd
+	 RK4tCu6P0KsMmCzu8i9f0K2YwFzkjQ0xXls9P7SgFUSAVYrQHH5c/DPQt+mlWrJkNajEI
+	 yTHxv8pQcLUJnEaqXaaJ6xuzxUSE50QTfKchzOrToOuASFwakv4eRSCLB5KWfCFsP9Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b="T9fn/AeZ";
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B26B606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:20:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B26B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cloud.ionos.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ionos.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34A86606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:20:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34A86606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloud.ionos.com header.i=@cloud.ionos.com header.a=rsa-sha256 header.s=google header.b=HGhCt+cg
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6ba1e22ff4dso878422a12.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:20:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795173652; cv=none;
-        d=google.com; s=arc-20260327;
-        b=py9AxWpohe6hl2+PhhWupqhzcd6yOg0xhp7CmFYCcbb0YRfUwdDzqdJKrlmWzd9tqn
-         OGuUenSWF25N8ElLdZYyiSBFFBHm95WRw98KlRa+HQUwwyXo+fLiWUIN/k6K4cBS3hQ3
-         gEwM9ex85rsfWnztb9ugxxSW00zK1rX5tlSGhaWdFRG0rpfWP01bd3lyDX+Q2R1lPG3S
-         ph506yX7w3JlbUZUDrnlWlWj/jalU6U70wCiFd1GlAKGk0V5SoYFOcvnxvM5gvmIbeus
-         cIMMPnuI7prWpBM1B/pdH4yaUzg6QaMb9m+ZKPJ5JhX/DTBu4gTftP/f6IuzFIDRxx/p
-         8w1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=UQX9LAKDbJv63O+oyEMBZ5zmGCeTuL/tuyPPcUZ7zkY=;
-        fh=bEo5ItGU4mur0Y+qdzrOzRd21zzEerCxOgTLEL9ufwk=;
-        b=ZP8qu0L/Js92v8xBQT7o1/n9k6THYwYtkAlUQY4AF+Oo1HF+1IDDztZMjuyckTIrIh
-         UnSi+yfsBh5Lw2Dxi7gSbj9VYYtN6qZJR9T/rQxgU8jmuA8bwibQQWKWgC0MLeB38YFv
-         eZ9KR0aJICAuVsPOtnd/q42owH1JACO8xGjbIAI5ndFQKQNwU7y8H+NXZtfeqhpqE4yE
-         W9BuR1eXoiFrTKiIZOlR5J+kLT7PSyksF0M4mx/+HZHcqY7lzpIm4iYzUopzXprAQb0G
-         PbA3m+EyqMaB8SEj59GRH75qGGO1+F6wnKhiAUcB0NT9qFmxIH35DegNw3JXzzAZsZv1
-         ei8A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloud.ionos.com; s=google; t=1795173652; x=1795778452; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UQX9LAKDbJv63O+oyEMBZ5zmGCeTuL/tuyPPcUZ7zkY=;
-        b=HGhCt+cgkHkc+fYj57YSXT8KfrPye31SP3vljt5ItUBjXF3Fqo0UyNq75R9e+gAovQ
-         IrtVWcmnUlJq+NKn2fDamVFR1PZ5acmH5nkWFsrEeIIFGWddYEWc0NgKW5BvnZYKqeU/
-         gczdBt84+rPVxAm4+Za3dVZ5hRCbWYPyc7Ggwz1AvyO0r39Yyyd/QFFaepNZgLcnmByv
-         DLzGQM/RUg8Z/1XarC7itZWKS8J+sTUHGy9774gP272p4W82Z+zyRTZltQ/hLx9T7j5a
-         bB2drpitti9W1X7N8msti2nogmIiiKGBpk9y7qMSmFZ4y2xJTJYeYnUzApyI0kNYF4Kq
-         +pMw==
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=T9fn/AeZ
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id A678F3F97D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:20:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795173656;
+	bh=t3IK+6RZWNtPak6+wEGWEUH2Q0VnpjhDdVRL8yHWQZQ=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version;
+	b=T9fn/AeZtTue6NcjDE7lHbAtWL5yyP6flbvBTqTK/SbUyHmn5x4YEkIsdeS0wIA6G
+	 lom9eaOUPfwj8hU4w0KLXwBX2+t4aAgqboOKn3af9RJUsG0YsGrVbYN/9A3vIA8bOe
+	 LD1+/ULYNbvVE3Wi8af6M24AdG4b919tYiF5B5uP73doHW/Qdmy/3mp78MVJiZ2dLb
+	 Qsj9Ws8dUod3rb8/4OXFedhQhwm8Kh3GLEbxHzc0mJHIISUUKkkpUsfHVgptMy3Z+r
+	 cwJOfnp417ueFyeUE25hQMVMReOerwuuIqv2Ec6Sfsj8tybhc3ElIXiYC9fxnePhcB
+	 UMlrUrVp8gQxS7b/nYexZDCRiLCzzJ43/wiyWayV4V4MPgbwHEbGPbC3kgf7MSKfG4
+	 RYenR9GbWS/hqEFWWXdCSCMp5czw5Su6lBoJxOVB/n/b7MRB5jpz9pvTGxeEyLjjr1
+	 JXqcDgpejO6xLU1qr/dUdsCh0D3tpQHg5QAjLpylLMUIHki+l/D5BGK0tgLmrOlmlX
+	 CCo80dsZNJr+Upxk7ur3bGz2elxYc3/SKH3HcvU6bzMXhthWnU4tRbD20JPrYV2HkK
+	 5VFJnPjWdpAX7bIpVyJToWy+votpdqirKWZ9OaMjHKI1jDxXLBlav+4aJkirSWJEcq
+	 ozYv86hlrO6IyNk0/XdXuY44=
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b40e7f4fa2so1562575a91.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:20:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795173652; x=1795778452;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UQX9LAKDbJv63O+oyEMBZ5zmGCeTuL/tuyPPcUZ7zkY=;
-        b=1efoe+8X6pyRlDLsgxBJOaA66N0MFnM+prf2cy/ADn+qy5zEC3ykp8XH/LKWDAGxSa
-         ZYpchxrtZyfA7SWFP3gGGkwjnQHuUfCj/qWDNuHUr2tdpct3+k1ZUC1h8gfWmNO837Na
-         SqBhJPVb546nn4tgCGlAVs0tZUBPBboVnU5iZ46/WdTk6KMfmAPq2L79QJP7Csre+Kb1
-         nSt+rBoizNKK/LXTWji0ts38nkCIlAEjouJGIRf3gVDp8m008tEvbzsWy6RfZKztCaK2
-         Jv2LkeU11O4yeAYFzL/mVIh1aI+d7ePYcauth1dR8gdO4KhjEWN47cyWxmxkvEAXmMBT
-         sM/Q==
-X-Forwarded-Encrypted: i=1; AL+hErGq2FsLt4heZuAhf6dBpWA3iJbiyg7LIN8JgHptR4SdKSEX9hb1/sNOUv3VeuHAfiqDpB2nqqJ+Ds9gqEE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9OgysKCGBbzyW2f60oVKT+B4m4n4cmszbS7GTYHY7dEw1u6tDc
-	TlvDXZyevor6McaxpMFGhoXkOwHrrJo1dp1bRm+zDvHqjP5Ipgk+JZyiKh/C/k9g7bNwfHZUQYV
-	15Zfv75S3ShQyz97X4pfaGgHK+r1DarIX0ojxRqWkrg==
-X-Gm-Gg: AZFdTZfkF5qXCFgjLb2DxIuFii3Tn/hjnuJR3f+SDMlfQ0naimEhiJ8zPzkv9BGp6rU
-	pAwjrNggHPqKS2gxaUl5Gg9NATTqRjQv5sQFPldbaYhruxXZzeww57G1uo2IxHHItBB2lsoREh5
-	efvfMl8CVYkll9wflqy6eIBDZzqPueMOFijeubhPsyiu7rtHiUKXAZ7eM6Z8NTS8EUxffVpjRBH
-	A6+Xm+RhB5pYAgadloTfNcRRwlNHvvJk1b2qeppsUDOuNtq4dToObDWlLaACK+B8r8/IcnKfKXp
-	M/mrhQXoj3eqgDsVckg81LDAJ50Ko/BCZ2zbOYLiQvR+3CXD9DYMCj8WbNtXkzou5Sz3mEU3HOC
-	vz5IVfFkkoKghGfGguL4sxyHYHbQrgHSbd1wXtjlf+YoRdbJjqq8CLy/ZXVe6ydrBhqZs9esIwD
-	btxHGiHX/C+ib6aFQGym2VA8h31DMVd5XhB/2PIFBtBoj3BitqlI7m9IPsgBLJ75I7nyKFOT8+8
-	msbt81mGBAzszInz1oZzMBxsFQIqgjZCvNJWTxskhU00vQ8CCtPPhxcAhw=
-X-Received: by 2002:aa7:d351:0:b0:6b4:86e1:cc67 with SMTP id
- 4fb4d7f45d1cf-6ba37ea0b91mr1306429a12.27.1795173651526; Fri, 20 Nov 2026
- 03:20:51 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795173655; x=1795778455;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t3IK+6RZWNtPak6+wEGWEUH2Q0VnpjhDdVRL8yHWQZQ=;
+        b=z9nKFC3Q4kpWxeOZvMR7jQUJYCO56+AlBEiANc2VCfbm+GrNLdRFjaZZz2+3vASo/r
+         E3iK9WFBVme7qGitFTynwUDzM8gdbGVYZLYU9lG2PMmBqE1Gz0HPWFEVky22cw/5b7ig
+         ZiB70zBwQupCsdiqF73HECbaY2HnyrqrWpPz9LZJgczvZ0xJ5BkrL8DVIgXLB26wmZ2Q
+         O+BLwJp3Wf8EE6oc5OYxvbdq99t98YGzAbTEaZlEpM8t99+QyO7m4afBQFXmTFW7WyEW
+         2lG4Ut2b3kyznlTm5KVtv3jw5i7vgK7zmL2zy3fl4dqSF/UdN6/7aulfmkH7GjrQpi+3
+         ll7w==
+X-Forwarded-Encrypted: i=1; AL+hErFVhRA1ZtjpJnzAm5oMZYTx4djEo0BaEVGDgmkLq0hRw1p1q+czKXqOCwJ7j3vcFJIHbYcT7KJsb8IXEM8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YX8s4QAg5IO6601U9+iRvLvpFO40yw4gyQMiJLqbJb55JfqNI
+	63xMXieQslGDvfF5fwzXnDRuGUQUwNPizBPH+Sw3FnvJTQxHWHBjqqPQMOpPVbkrrmn6aRcKx1O
+	KKOn2O3CgoBZ5fpEZwyCrUBBJV7ege6oTi69J0ImsZkVm0A+sYf7jWh7jqhnEsWqk0L6uPA/TuK
+	gALDZHTA==
+X-Gm-Gg: AZFdTZcebksL+GO/rJHGP/q6y/6x1AIrOVn7wcacFOdHuZDDNySJsjqWmO5cS/Ekxpw
+	ZPUr+5wSVW9d23dJkE9ruQY93DJSLcVkTpBuRJi+4T7wRelQaXMzZqwIkHONEODutZpPCjox/w6
+	Ua3Xv8cFCa53stHUAX9qdjLhcBzYIpIa7E5bWLIdqyj5lthiOYCv3jDMCQtfNoczwIxfUY6IMmF
+	2l+jRlaLcqHCFkUnPuyi434icw7sL0vH2ckUWTPzl6EI/focPBEQYlDyd06UcY5GhQCddojE2Ik
+	ih0/RydaHNo3Xf5cmhWa6wt1VU3cp3TOr6FvOpUfj19i9VsRzNaQrkVFKxFE5sU8kdRxGOfQoxC
+	+vEJM6eqipWs+n1IN8tvS4wUk+tXYtLGtUSLhNHubP+fHO3I2x2QZWkykJsc=
+X-Received: by 2002:a17:90b:4d10:b0:3b3:c4dd:5437 with SMTP id 98e67ed59e1d1-3b41c852d1dmr2916566a91.5.1795173655160;
+        Fri, 20 Nov 2026 03:20:55 -0800 (PST)
+X-Received: by 2002:a17:90b:4d10:b0:3b3:c4dd:5437 with SMTP id 98e67ed59e1d1-3b41c852d1dmr2916533a91.5.1795173654661;
+        Fri, 20 Nov 2026 03:20:54 -0800 (PST)
+Received: from ZBook.gateway ([123.208.39.53])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40285cf3fsm3994767a91.4.2026.11.20.03.20.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:20:54 -0800 (PST)
+From: Changwei Zou <changwei.zou@canonical.com>
+To: herbert@gondor.apana.org.au
+Cc: changwei.zou@canonical.com,
+	davem@davemloft.net,
+	gaurav.jain@nxp.com,
+	horia.geanta@nxp.com,
+	iuliana.prodan@nxp.com,
+	jeffbarnes@linux.microsoft.com,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	lukas@wunner.de,
+	martin.kepplinger-novakovic@ginzinger.com,
+	pankaj.gupta@nxp.com,
+	sahil.malhotra@nxp.com,
+	sahil.malhotra@oss.nxp.com,
+	stephane.debusne@cynove.com
+Subject: [PATCH v6 0/2] crypto: caam - Fix RSA error-path unmap and unaligned dst buffers
+Date: Fri, 20 Nov 2026 22:20:44 +1100
+Message-ID: <20261120112044.1174236-1-changwei.zou@canonical.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <awAS_kKAVkL2uWKT@gondor.apana.org.au>
+References: <awAS_kKAVkL2uWKT@gondor.apana.org.au>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,87 +121,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260802031350.1468599-1-shuangpeng.kernel@gmail.com>
-In-Reply-To: <20260802031350.1468599-1-shuangpeng.kernel@gmail.com>
-From: Haris Iqbal <haris.iqbal@cloud.ionos.com>
-Date: Fri, 20 Nov 2026 12:20:39 +0100
-X-Gm-Features: Aa3M54plvx9H83qo4LJ7Ae2TaDMpFtDwJLUnuLmm5c3StPpYcDm0-SgN5HSqv5Q
-Message-ID: <CAJpMwyjS_sCanPxHJAP7d_j4x8m9FQ4a8zq_nCc13jBZdXmVRw@mail.gmail.com>
-Subject: Re: [PATCH] rnbd-clt: fix use-after-free on device sysfs creation failure
-To: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
-Cc: Jack Wang <jinpu.wang@ionos.com>, Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Sun, Aug 2, 2026 at 5:15=E2=80=AFAM Shuangpeng Bai
-<shuangpeng.kernel@gmail.com> wrote:
->
-> rnbd_clt_add_dev_kobj() initializes dev->kobj and adds it below the
-> gendisk kobject after rnbd_clt_map_device() has returned a live
-> rnbd_clt_dev to rnbd_clt_map_device_store().
->
-> If kobject_init_and_add() fails, the helper currently calls
-> kobject_put() on the embedded kobject. That put can drop the initial
-> kobject reference and run rnbd_dev_release(), freeing dev. The caller
-> then continues through the normal error path and calls
-> rnbd_clt_unmap_device(dev, true, NULL), dereferencing the freed device.
->
-> Leave the initialized kobject alive until the normal device teardown has
-> completed and rnbd_clt_put_dev() drops the final device reference. Since
-> kobject_init_and_add() failure can leave the kobject initialized but not
-> present in sysfs, only call kobject_del() from rnbd_destroy_sysfs() when
-> state_in_sysfs is set.
->
-> Fixes: 581cf833cac4 ("block: rnbd: add .release to rnbd_dev_ktype")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
+Hi Herbert,
 
-LGTM!
-Acked-by: Md Haris Iqbal <haris.iqbal@ionos.com>
+Thank you very much for your reviews across these versions, and for
+pointing out the apply failure. v6 no longer applied after the upstream
+caam_rsa_set_priv_key_form() changes (a91d9346a70b, 828c3b265b6d).
 
-> ---
->  drivers/block/rnbd/rnbd-clt-sysfs.c | 2 +-
->  drivers/block/rnbd/rnbd-clt.c       | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/block/rnbd/rnbd-clt-sysfs.c b/drivers/block/rnbd/rnb=
-d-clt-sysfs.c
-> index eb485e4c12e2..9f5d30659f3d 100644
-> --- a/drivers/block/rnbd/rnbd-clt-sysfs.c
-> +++ b/drivers/block/rnbd/rnbd-clt-sysfs.c
-> @@ -498,7 +498,7 @@ static int rnbd_clt_add_dev_kobj(struct rnbd_clt_dev =
-*dev)
->         if (ret) {
->                 rnbd_clt_err(dev, "Failed to create device sysfs dir, err=
-: %d\n",
->                               ret);
-> -               kobject_put(&dev->kobj);
-> +               return ret;
->         }
->         kobject_uevent(gd_kobj, KOBJ_ONLINE);
->
-> diff --git a/drivers/block/rnbd/rnbd-clt.c b/drivers/block/rnbd/rnbd-clt.=
-c
-> index 4d6725a0035e..5fe5c7e259b7 100644
-> --- a/drivers/block/rnbd/rnbd-clt.c
-> +++ b/drivers/block/rnbd/rnbd-clt.c
-> @@ -1658,7 +1658,7 @@ static void rnbd_destroy_sysfs(struct rnbd_clt_dev =
-*dev,
->                           const struct attribute *sysfs_self)
->  {
->         rnbd_clt_remove_dev_symlink(dev);
-> -       if (dev->kobj.state_initialized) {
-> +       if (dev->kobj.state_in_sysfs) {
->                 if (sysfs_self)
->                         /* To avoid deadlock firstly remove itself */
->                         sysfs_remove_file_self(&dev->kobj, sysfs_self);
-> --
-> 2.43.0
->
+I have rebased the series onto the current tree and resubmitted as v7:
 
+https://lore.kernel.org/linux-crypto/20261120110525.1170175-1-changwei.zou@canonical.com/
 
---=20
+It is a rebase-only respin (no code changes); it also drops the
+non-standard "Assisted-by:" trailer and carries Sahil Malhotra's
+Reviewed-by on both patches.
 
-Regards
--Haris
+Kind regards,
+Changwei
+
