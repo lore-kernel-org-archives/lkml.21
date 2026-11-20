@@ -1,101 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795209387;
-	b=ya5mIEb/O/n945zpNkEqJ3pRNoo7V3fLtj7AIwe/lP6xOMy+c+Fn3RYdtu4u20rGQ1/e
-	 4FOwumdglq8CNt65j5kKFQwjt6LM3NrzGS6tqLL7D1sgcJ4UUe1a/LCLf3KgjmdkTlAAT
-	 X2HLtoLF5vLtrW2uJGGTvOWXwhwS0O0ZBxlr/44YGHOSpaZWxBZKVycV/QokclxXEUx0K
-	 PRnQQhMl2bGKSC2NZUxyxGuNzCjHq9Hm2WLYiUdgFW93dlZOBxDbjmQtj78HEJ3G9Ng0x
-	 kuSYuByYQ/DX5IOzPpjqeOCyx/Lsa4AnkPOLsz4UL+IA8SbhhDXQaE80BsxRUPFn9KA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209387;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795209439;
+	b=Rk21iYciJOTZ4wO2ONpoLGwf0Ej93pECrK5/7hl8raZr0uLU5C8EmzQusYjtk2iSKiu0
+	 vxwVueow0TpjP5vlUw1QcOw7ITg+4kadWOpRf+qxwVqvsSm1tUklVPydgN9EjcIxqTNz5
+	 xSP2LEDpOdOXou0pv9/8VSpY6NgJOWBzSH4C0NC+2S9BNpgetD3EGL4Qo0hsedVuPemyK
+	 uhCFCIvieSK/GJAT2yWP+EmorwWtL+QMaqJH4/W5gHYsMNwdk+fGyygjjctECqZ+L8gnr
+	 fs2VxWiLIysbUJorCfo2o6CAOZG7KWN7d0o6drT56cSi4avoLQ7TtUhG9xjFWMx8Z2A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209439;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
-	b=zS6/OnhvcHagO+Y/oOHHF4Jwj8sYYCgc6UkAsDbpS7QJxSlL4REUKmnvutFZUyXYdqkX
-	 K4MN1i6mpa2PBVIhjSQW2+etTT4QEUfZmByWAvj3t7nsSdkOL1CzBdrIpPC4HrL3wz9kv
-	 gYGcKRQswD9tooy5O7/d982CKZwQUThAy+285Q3SCTbOnLRFuFA3U6FFFtC9tGfqxBv5D
-	 8saMdAeixMXlwMJeJnipgiY6Spp2hFMwacduTNOMhFZbiYblXD9RPMlvDqsC0fcrLrrgL
-	 UnhP7wC+QZpwvBhrN9CRGlmimlbtO98aLXhhHKR68Bzd7AFPh0UGBSXe2jlqID4HV3w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
+	b=QsRyln7ilC3xDVWt9+FJSUwDd3vRRzsIRbXBuMUDAD7OGAFe/dhUsaX94OjLIFWZxDtp
+	 sLHDkPwFZN62vSq8cQq4HPuxoRz4xqp9rUqiTbp/s8fva4L48m+ZMVzG0vt9dYTZyxDgs
+	 vJcQlJQvqpXNmLnp9riIsGFJEShDGsb1zZ63B+43puxo90oC81gYKDLUI45rSN2OqgpvW
+	 rnE2eo8AI5neXS9jujWpSX5nzlZ6WDCVbV4KAsHFLogkD2jA0yjm5llaRwgvqzTKZXHnB
+	 TU0Fd297QQCx+t54CHzFmFfznbhiE6ZtnAM9iKlpjkBCd04Mt5OmxiUr66s8Qq3bXGg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q0ezxby9;
-	arc=fail smtp.remote-ip=209.85.208.169
-Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FtOhGXQO;
+	arc=none smtp.remote-ip=209.85.222.45
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95E72606A33E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:16:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95E72606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE8A0606A338
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:17:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE8A0606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q0ezxby9
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3acd239776cso11200601fa.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:16:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795209384; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kS171bOl5Lcvy89WKhX+Ld9WHRHUZT3f8xn3LmsTfWFbv0GVcwDjGyO+mlvVTHlFda
-         vr22deQhZCmthNUe4BXKCE6I7dJ3MggDyw6XbbuF0qGm0t4SDASHFGWhGgS0F3sJ/oI/
-         kaoUQBaRijAhEAVsnYi8yXQoFazOSEkdYevbS+iFbNV1GWoTP5iTZITApw620ZHJHjwf
-         wHOXxyRUh2CjVIOgdfZ2V70wgVDZdJ5YeQmNY858k3UcTFUTqK6fKVrOym3iL13HNuKD
-         EvJ4rBfacN5iNi1mUpqwklyYHmw8kVUhvYZFLHspL92A/l8lXco7WSuKaLL1cFAmTkiK
-         s7gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
-        fh=SRD1Z9Hhnr//yG5bSgbwtiV5xwDZNABo18x6l6gHxiA=;
-        b=qa/KCFi6Ady3ZbkeNMG3MMmDOmaDzhEYeA8AIFeiGN7RIJdl/albxzIAIuDkyKMm6w
-         YoofF28xkulY8c/2ckAI4A0a/OCmXVPVtRLaE53ZCC7qqtd1zANdz3yrRZbVTEp1us15
-         ND0d/VbqkZNgJ5oqG/E7xAiTqZgCUG7jIH7solHs95HcE0t9J8oosrFmmqVtDlFYzxfl
-         Tg1CRUbyASQRnuvmOwkiMA6gFw3EiJSxy5Zvu6M/BEkPRRqPMX8tLm0FdEh/muXzv25b
-         YNSZzI9s8n9oehla9fethKNnhG5KLE+OVRcIOyvigWdTwe8M/SObmTg8HUTdUeum86lN
-         0STg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FtOhGXQO
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-99075306daaso652646241.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:17:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795209384; x=1795814184; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
-        b=q0ezxby914XfUpGLrhzfA6E1/m4QOv5ChuIclloI+bpZwI7pSVyRELveWg3VGGlf8x
-         0ah6sTes6aaFJBTBqrSDmqmK8zeRZLPStCECxFt4dPRObKQN4NTxhbUgf3PGooeUOUoB
-         V5av6Vxqu1RodwnduQCs/LIC06FqUqHLGVoQtRi+YpYNQcegi2LayeGPBGDYKO6k1HUs
-         6RZ1441EVAo+jHUIpmaivLDV9OyMZm0rjt2rU/q4wkvtqqvqzDkPC3MwrwPjX0KgP+16
-         rLdHJKs5CsP5+/40QnppnK2xzVaxqA9fxCMguzrsuioWYq+InT3/FAxG9QpEr4OyP9Bo
-         bKkg==
+        d=gmail.com; s=20260707; t=1795209434; x=1795814234; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
+        b=FtOhGXQO4DDshDXKuW9oigsknLqGFMD8hCYMjFTqU2WYid504+6aIQX1eqKHL7CmDg
+         gUtnYtM6ms89BeBuQp/9x8gAPZ2VFrj0VsBe118dKAiNucD1nmpYy19qKfnuBDO/flHb
+         3w5yJoJpOzEE+oUL7TvcmOLHapBnAiO5H3gJb1RVmSa2iK8HvWco27ylJ+OM1dbJT6Qu
+         i+H5szKG0a5Jt2dgZeVcbRqxsMwovkZyE+077iPBQTMYUq2arHXhawK4mi4BYjhfFTzk
+         BP97aD9bwca0s2TYrfvtiazG7osKrCHJD3Ygld4k5w4n3Tj8537luhQ25sHlz/E1e5dv
+         0gaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795209384; x=1795814184;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
-        b=E2meoeRuYzgz4oafH4e1bzU1xLW+1p0OG1gXkNl4idM+UR6B1M0Dwched8H6aOLf/R
-         uQRPbCQzey2MoOx4dujNuzEgZ37RQnNqcobXqL6dL1F+eBLuafQsvw2tyGPFygQUQXF3
-         VphSoekTJGJVOFuoYFuHe+13A9GClXraA7e0LKF/Jpv+vkLyV3cONhxrHQghwdh2Qt5L
-         1Gwx038otq0h6WSYAVhpxFGf4RhD2xAtanTXonvuWyR6jwfKnwMrJ36qcBxXsGVZ2SPl
-         G7HOS96UlZrK3vacdsk6G2f1zBAchFOBMO21ot6LRvix8bhB/GLwfCEAtZObRJTa+Pe3
-         1Wfg==
-X-Forwarded-Encrypted: i=1; AL+hErEilvk2iHZ4SDvb+F4B0W9XkKpo3FhgY4za948Z4ooQnZiiYHGuuJuYm7lb7xvIw+q+ujpO0MZwkcclnqw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+95lwF/RaHXCILMu50LeiKewk3bgmt5NYRyZQwaMmMy2jviQV1
-	YR9eXvL5CaWCyFl0TJCWtq09rp8iN9Bp2MdlQFHJRaK5vIpBJR0ZGlzdnRZjhytRXJFejiNDh+X
-	VA1so1p26z1jiS6T3bgmHWn+0V1Til6g=
-X-Gm-Gg: AZFdTZcxmBFOWCWYAUkB9VGv5Oa7CsV6QqZY1UsVjIIzGlY/e6gfyLvLOPmgM1aTz5S
-	RUBLwkkySINAEK4Ndgm2xhJQ4AWmb6RxcO5Z0loduBPcZLdgcaGfqM4K7pIDpOycCexm35wKN02
-	MN0x6PzHcQj8Ojnyj4q9Pi2EPxPt15Db70ObPQrC6OEwDklnb41y4l7yj8zIiX+UpZamRTMSL0A
-	FQun62MFsRFeF+ybadPLr1TxFPxv6We5/gQJ6wMg/92hwwXQ5uDXyKzkz/uIZ+l6HoZOEWoASxb
-	cBIwXBksqWdIPdcRrXNbB9BAO1GIetD+TF+aw18eH1k6YcYQG0D3lLn5GRT1zF38+cJ4XNCWFnd
-	BQL7oG2er1YM2GTILE9tMIayq9umfmA7X2clgC2GOAZ3JSYhx2ssD9TyN5NTBFDEgUTZR/tq3NQ
-	yjFQywCQlhnakGt7ICA3kMpIlJ
-X-Received: by 2002:a05:651c:1595:b0:3ad:f0bb:344c with SMTP id
- 38308e7fff4ca-3ae7f9def47mr12754941fa.10.1795209383639; Fri, 20 Nov 2026
- 13:16:23 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795209434; x=1795814234;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RmOzl6V8lBE6K4Kw59v7KS2vxDmVEr8c61I3ZbKSz3I=;
+        b=nrixd9AGpdUB6E1qu3xHEv/LumlQgYgqROcNLLn8hpBMKJWnty+sP5QEzVO/Gux80M
+         9S2X8AvdaA3icjqKrO4qjzTMBz26LfinXF6DjzTXSQmntqNZyBRRMGaUGcCkYOGmrGm/
+         /Jv/swYvWJIEac2mwPZ3kYb8EciR/H+xn9V39nlOpAq4EQFgO5Qnh1TyEVwUBKjswMKL
+         UPgf4ZlxZ0EvgC8SKuWzN99qUM3yB8foMj2OtzQjEGxxhb4ZOFAUYIgCrw8DI6x6etsW
+         m8vNgNdOc2pqdU+iQOPR7f5t8n0KyeGhq0HZtUXbSGDxAK4p+FW1Iv5FklQ6KhMWz7c7
+         yfBA==
+X-Forwarded-Encrypted: i=1; AL+hErFsgGW0ARZVi4ma6EXs0FJrPZxM0S3POsE4G7bzL9Z7MxRXjqtZ3c74HBCERc4q/0jr78WlwtYasw6O7fI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+UHOuj+JFweR+H04SrmJitKXdHt3xMOfKM0Lfp/o5T1lhB8rwN
+	foNjYmb6yedY2lh6WKlmHWJXg52b2UNLNGdRmeSPyZS/Jw/bClw2H7LW
+X-Gm-Gg: AZFdTZfQBGgylI161uxCXSIwHHu1mv6mFala2sHbsIcwzl42Zv/Ultu9MrA7meg+wnD
+	1VPPqwUnr29U5nqzm75DqCmCNu0eWJgVGQs1xL5FGLKm9wmWvBezN89tM4pfZsKLEcu0J4p/cTT
+	Rdx1TxHtwh8cJ0Q/xjy02r3ts0RPfnDgTICyUR337hcNtPKLsE9r8T0/25qpvN0EDrAPx08wd1h
+	JBfCZ4Z2tzIQEnQRKcmNpgHVtJT5Cn5iLve3cXxkm/676/4Z6xN1fGodP7zYyT/Qoc32BJr/qeP
+	qxPeaCwFKux8Bo0y1160CQQ5QvqetpxLnof/xk0chlFCyJPRyG/QqKLU6+CUBAqC8KdLHBD4gnd
+	nj3Ov6Fn0hW769/CeNDdVZrs/prVa6Z3e4Nur+r0gx3aZD2EyZ7aVW7CyUwR/Cqf8xUDZH0cnrE
+	EMsDPmSDsuNFOBLpmsGhBeimiE4RB9bSawVEfbGyEqXuFaawm7XzC6xiheipoOQQSjXic2X/fAL
+	inKgFpd5oYK4AgJNyNh9A58t35vnTphb2nGPkMk51bZ3YccK6ssQL9KImz4/QSC2tOXtnnwxpFF
+	Tu8cHHRsTzFInICfbqx3JSLjz/sraTw5i4IOwL3OtyvyLrWijNLfT1XLMiW/lYY2RMC8
+X-Received: by 2002:a05:6102:441a:b0:7c3:f36:c7b with SMTP id ada2fe7eead31-7d739460f73mr2283411137.14.1795209433597;
+        Fri, 20 Nov 2026 13:17:13 -0800 (PST)
+Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e80cb440sm4075996137.7.2026.11.20.13.17.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 13:17:13 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3] tcp_metrics: hash the destination address with SipHash
+Date: Fri, 20 Nov 2026 16:17:11 -0500
+Message-ID: <20261120211711.75786-1-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,159 +101,328 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261004121931.6746-1-festevam@gmail.com> <20261004121931.6746-2-festevam@gmail.com>
-In-Reply-To: <20261004121931.6746-2-festevam@gmail.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Fri, 20 Nov 2026 18:16:12 -0300
-X-Gm-Features: Aa3M54oHDOEQ22OODjmPc2GutyOvkFljPYhxfBAHn2qECiQinM-o8DAEKa4qfsg
-Message-ID: <CAOMZO5DFgk66C=+eNepzWwrNHa-t8KQ47wstPZRGW+tf548rOQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] media: rc: Add keymap for Ruwido Z3 RC-34 remote
-To: sean@mess.org
-Cc: mchehab@kernel.org, linux-media@vger.kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi Sean,
+The tcp_metrics bucket is derived from a fold of the peer address.
+For IPv4 the fold is ipv4_addr_hash(), which returns the address
+unchanged. For IPv6 it is ipv6_addr_hash(), which XORs the four
+32-bit words of the address. net_hash_mix() is only XORed in after
+that fold, so two addresses of either family with the same fold share
+a bucket in every netns.
 
-On Sun, Oct 4, 2026 at 9:19=E2=80=AFAM Fabio Estevam <festevam@gmail.com> w=
-rote:
->
-> From: Fabio Estevam <festevam@nabladev.com>
->
-> Add keymap for the Ruwido Z3 RC-34 remote control.
->
-> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
-> ---
-> Changes since v2:
-> - None.
+A remote attacker with an IPv6 /64 can thus compute, without knowing
+net_hash_mix(), addresses that collide with a chosen IPv4 or IPv6 address:
 
-A gentle ping.
+  w3 = w2 ^ p0 ^ p1 ^ target    /* p0, p1: prefix, w2: free */
 
+A bucket holds six entries and the seventh insert replaces the oldest.
+tcp_init_metrics() seeds the initial RTO from the cached RTT, so the
+attacker can tell whether an entry it planted was evicted, and thus
+whether another address in that bucket closed a connection since.
+
+This primitive, with six entries of one fold and a seventh of another,
+shows whether two folds share a bucket. Each answer rules out values
+of net_hash_mix(), the only unknown, and since XOR and multiply is not
+a PRF a few hundred answers recover it. The attacker can then fill
+every bucket and see which one any client's connection evicts from.
+The multiplication in hash_32() is invertible, so with net_hash_mix()
+known, each observed eviction leaks 14 bits of the client's address.
+
+Remote net_hash_mix() recovery followed by remote bucket eviction
+observation was tested under different levels of legitimate traffic
+and with the attacker machine and victim server being in different
+continents:
+
+ legit      attacker    evictions         false or
+ conn/s     conn/s      detected          misclassified
+ -----      ------      ---------         -------------
+ 1          944         214 / 214         0
+ 10         927         2146 / 2165       0
+ 100        864         22356 / 23576     0
+ 999        1239        167213 / 286754   0
+ 2974       1412        118665 / 809618   0
+
+Measurements began after the attacker had recovered net_hash_mix()
+and planted entries; the legitimate connections were present
+throughout. net_hash_mix() recovery was successful in all cases and
+took 28-936 seconds. Note that while the attacker must send many
+connections, these are very efficient to process and caused negligible
+load on the victim server as measured by latency and memory.
+
+Fix this by hashing the address with SipHash and a random key, as commit
+2ee66e948717 ("inetpeer: randomize RB-tree node comparison using SipHash")
+did for inet_peer. net_hash_mix() is fed into the SipHash input, as
+inet_ehashfn() feeds it into its seed, so each netns gets its own bucket
+map. hash_32() is kept to reduce the result to the table size.
+
+Fixes: 51c5d0c4b169 ("tcp: Maintain dynamic metrics in local cache.")
+Cc: stable@vger.kernel.org
+Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+---
+v3: - add testing numbers to changelog (Eric)
+    - fix patch formatting issues (Eric)
+    - feed net_hash_mix() into the SipHash input instead of XORing it
+      in afterwards to protect from potential local attacks (Sashiko)
+v2: https://lore.kernel.org/netdev/20261117041029.80543-1-juanagusnicco@gmail.com/
+    - use siphash_1u32() for IPv4, a4.vif is always zero in tcp_metrics
+      (Kuniyuki)
+    - call tcpm_addr_hash() once after the address family branches
+    - changelog: explain more clearly why net_hash_mix() and addresses
+      are recoverable
+v1: https://lore.kernel.org/netdev/20261112064624.15245-1-juanagusnicco@gmail.com/
+
+Reproducer: github.com/agusnicco/tcp-side-channel
+
+I address the questions Eric asked on v2 below:
+
+> How many connections does your reproducer need, for each phase ?
 >
-> Changes since v1:
-> - Use RC_PROTO_NECX. (Sean)
-> - Use media prefix in the Subject.
+> 1) Recovering net_hash_mix().
 >
->  drivers/media/rc/keymaps/Makefile             |  1 +
->  .../media/rc/keymaps/rc-nec-ruwido-z3-rc34.c  | 80 +++++++++++++++++++
->  include/media/rc-map.h                        |  1 +
->  3 files changed, 82 insertions(+)
->  create mode 100644 drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
+> 2) Filling the table (16384 * 6 flows with the default size ?),
+>    then each sweep to find which bucket was hit.
 >
-> diff --git a/drivers/media/rc/keymaps/Makefile b/drivers/media/rc/keymaps=
-/Makefile
-> index 38b84e34b225..525d203c0a94 100644
-> --- a/drivers/media/rc/keymaps/Makefile
-> +++ b/drivers/media/rc/keymaps/Makefile
-> @@ -86,6 +86,7 @@ obj-$(CONFIG_RC_MAP) +=3D \
->                         rc-msi-tvanywhere-plus.o \
->                         rc-mygica-utv3.o \
->                         rc-nebula.o \
-> +                       rc-nec-ruwido-z3-rc34.o \
->                         rc-nec-terratec-cinergy-xs.o \
->                         rc-norwood.o \
->                         rc-npgtech.o \
-> diff --git a/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c b/drivers/m=
-edia/rc/keymaps/rc-nec-ruwido-z3-rc34.c
-> new file mode 100644
-> index 000000000000..8a090772446d
-> --- /dev/null
-> +++ b/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
-> @@ -0,0 +1,80 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +//
-> +// Keytable for the Ruwido Z3 RC-34 remote
-> +
-> +#include <media/rc-map.h>
-> +#include <linux/module.h>
-> +
-> +static struct rc_map_table nec_ruwido_z3_rc34[] =3D {
-> +       /* Ruwido Z3 RC-34, NECX address 0xe310 */
-> +       { 0xe3100f, KEY_POWER },
-> +       { 0xe31016, KEY_MENU },
-> +       { 0xe3100a, KEY_UP },
-> +       { 0xe3100b, KEY_DOWN },
-> +       { 0xe3100d, KEY_LEFT },
-> +       { 0xe3100c, KEY_RIGHT },
-> +       { 0xe31019, KEY_OK },
-> +       { 0xe3106a, KEY_BACK },
-> +       { 0xe31033, KEY_INFO },
-> +       { 0xe31066, KEY_DISPLAYTOGGLE },
-> +       { 0xe3101a, KEY_VOLUMEUP },
-> +       { 0xe31010, KEY_VOLUMEDOWN },
-> +       { 0xe31013, KEY_MUTE },
-> +       { 0xe31032, KEY_CHANNELUP },
-> +       { 0xe31031, KEY_CHANNELDOWN },
-> +       { 0xe31069, KEY_HP },
-> +       { 0xe31000, KEY_NUMERIC_1 },
-> +       { 0xe31001, KEY_NUMERIC_2 },
-> +       { 0xe31002, KEY_NUMERIC_3 },
-> +       { 0xe31003, KEY_NUMERIC_4 },
-> +       { 0xe31004, KEY_NUMERIC_5 },
-> +       { 0xe31005, KEY_NUMERIC_6 },
-> +       { 0xe31006, KEY_NUMERIC_7 },
-> +       { 0xe31007, KEY_NUMERIC_8 },
-> +       { 0xe31008, KEY_NUMERIC_9 },
-> +       { 0xe31030, KEY_NUMERIC_0 },
-> +       { 0xe31065, KEY_RED },
-> +       { 0xe31063, KEY_GREEN },
-> +       { 0xe31064, KEY_YELLOW },
-> +       { 0xe3106b, KEY_OPTION },
-> +       { 0xe31050, KEY_PLAY },
-> +       { 0xe31057, KEY_REWIND },
-> +       { 0xe31058, KEY_FASTFORWARD },
-> +       { 0xe31060, KEY_PROG1 },
-> +       { 0xe31061, KEY_PROG2 },
-> +       { 0xe31062, KEY_PROG3 },
-> +
-> +       /* RC-34 remote volume keys */
-> +       { 0x3506, KEY_VOLUMEUP },
-> +       { 0x3507, KEY_VOLUMEDOWN },
-> +
-> +       /* McIntosh HR070 remote volume keys */
-> +       { 0xca5542, KEY_VOLUMEUP },
-> +       { 0xca5543, KEY_VOLUMEDOWN },
-> +};
-> +
-> +static struct rc_map_list nec_ruwido_z3_rc34_map =3D {
-> +       .map =3D {
-> +               .scan     =3D nec_ruwido_z3_rc34,
-> +               .size     =3D ARRAY_SIZE(nec_ruwido_z3_rc34),
-> +               .rc_proto =3D RC_PROTO_NECX,
-> +               .name     =3D RC_MAP_NEC_RUWIDO_Z3_RC34,
-> +       }
-> +};
-> +
-> +static int __init init_rc_map_nec_ruwido_z3_rc34(void)
-> +{
-> +       return rc_map_register(&nec_ruwido_z3_rc34_map);
-> +}
-> +
-> +static void __exit exit_rc_map_nec_ruwido_z3_rc34(void)
-> +{
-> +       rc_map_unregister(&nec_ruwido_z3_rc34_map);
-> +}
-> +
-> +module_init(init_rc_map_nec_ruwido_z3_rc34)
-> +module_exit(exit_rc_map_nec_ruwido_z3_rc34)
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Fabio Estevam <festevam@gmail.com>");
-> +MODULE_DESCRIPTION("Ruwido Z3 RC-34 remote keytable");
-> diff --git a/include/media/rc-map.h b/include/media/rc-map.h
-> index f167c37179c8..290919a7247e 100644
-> --- a/include/media/rc-map.h
-> +++ b/include/media/rc-map.h
-> @@ -289,6 +289,7 @@ struct rc_map *rc_map_get(const char *name);
->  #define RC_MAP_MSI_TVANYWHERE_PLUS       "rc-msi-tvanywhere-plus"
->  #define RC_MAP_MYGICA_UTV3               "rc-mygica-utv3"
->  #define RC_MAP_NEBULA                    "rc-nebula"
-> +#define RC_MAP_NEC_RUWIDO_Z3_RC34        "rc-nec-ruwido-z3-rc34"
->  #define RC_MAP_NEC_TERRATEC_CINERGY_XS   "rc-nec-terratec-cinergy-xs"
->  #define RC_MAP_NORWOOD                   "rc-norwood"
->  #define RC_MAP_NPGTECH                   "rc-npgtech"
-> --
-> 2.43.0
->
+
+1) I measured this to be 191 to 677 connections per attempt. The reproducer
+verifies the recovered value against collisions it has not tested yet,
+and starts over if they do not hold. The most it took was 15 attempts,
+on a server receiving 800 new connections per second, 936s total.
+
+2) You guessed it: 16384 * 6 = 98,304 connections. The attack would be
+infeasible if they had to be sequential but concurrency can be as high
+as the number of buckets. On my tests plants sustained 1000 conn/s
+with zero target degradation. Filling the whole table took a median of
+43s with victim server and attacker machine being across the Atlantic.
+
+Each sweep is one read per bucket, 16384 connections, plus one more
+for every eviction found. Sweeps took a median of 24s in my tests.
+
+> Each probe also has to wait for an RTO, so wall time matters too.
+
+Planting does not wait for an RTO since the attacker echoes an old
+TCP timestamp, and the server records a large RTT immediately (see
+reproducer). Reading takes about 0.3s per probe, a little over rto_min,
+no matter how large the cached value is. Probes run in parallel.
+
+> Also, how does this behave on a server with real traffic ? Every
+> other client closing a flow evicts entries as well. You mention
+> a test against Ubuntu 24.04 over the internet, was this host
+> serving anything else ?
+
+My original test had an idle host but I tested high traffic today
+(see table in the commit message). I performed the attack on an nginx
+server on Ubuntu 24.04 that was receiving legitimate connections while
+the attack happened. The victim server was in a Virginia datacenter,
+the attacker machine in Ireland.
+
+The attacker needs to perform hundreds to thousands of connections per
+second if the victim server is high traffic but these are extremely
+cheap to handle. I tested this separately. Even an unproxied uvicorn
+server could handle 200/s before degradation. nginx handled 1000/s
+without degradation of any kind being observed. And they could do it
+on a t3.micro EC2 instance (AWS) which has 2 vCPUs and 1 GiB of memory.
+I measured degradation using latency and memory readings while the
+attack happened.
+
+I also reproduced the case where the attacker intersects buckets
+from multiple hosts to recover the full 32 bits of each address.
+This is possible under many common scenarios, the one I tested
+involves client browsers loading a site and hence making many
+connections to eight hosts simultaneously. 47/50 addresses were
+recovered while the victim servers received 100 legitimate connections
+per second. Also done across the Atlantic.
+
+All tests were done on my own infrastructure.
+
+> Note that many servers (including Google ones) have tcp_no_metrics_save=1
+
+Many probably do but I haven't come across one yet. All distros ship
+tcp_no_metrics_save=0. I also rented 5 AWS, Azure, and GCP VMs and
+they all came with tcp_no_metrics_save=0.
+
+This bug was discovered during an LLM-based code review.
+
+The patch was tested on a QEMU guest. Addresses built to share a
+fold no longer share a bucket, in either netns. Entries are still
+found when a peer reconnects and by "ip tcp_metrics show/delete".
+
+For stable: 5.10 and 5.15 lack siphash_aligned_key_t;
+"static siphash_key_t tcpm_hash_key __read_mostly __aligned(16);" can
+be used there.
+
+ net/ipv4/tcp_metrics.c | 49 ++++++++++++++++++++++++++----------------
+ 1 file changed, 30 insertions(+), 19 deletions(-)
+
+diff --git a/net/ipv4/tcp_metrics.c b/net/ipv4/tcp_metrics.c
+index ae551546422f..fc976f61217d 100644
+--- a/net/ipv4/tcp_metrics.c
++++ b/net/ipv4/tcp_metrics.c
+@@ -8,6 +8,7 @@
+ #include <linux/init.h>
+ #include <linux/tcp.h>
+ #include <linux/hash.h>
++#include <linux/siphash.h>
+ #include <linux/tcp_metrics.h>
+ #include <linux/vmalloc.h>
+ 
+@@ -95,6 +96,25 @@ static unsigned int		tcp_metrics_hash_log __read_mostly;
+ static DEFINE_SPINLOCK(tcp_metrics_lock);
+ static DEFINE_SEQLOCK(fastopen_seqlock);
+ 
++static siphash_aligned_key_t tcpm_hash_key __read_mostly;
++
++static u32 tcpm_addr_hash(const struct inetpeer_addr *a, const struct net *net)
++{
++	u32 mix = net_hash_mix(net);
++
++	net_get_random_once(&tcpm_hash_key, sizeof(tcpm_hash_key));
++
++	if (a->family == AF_INET)
++		return siphash_2u32((__force u32)a->a4.addr, mix,
++				    &tcpm_hash_key);
++
++	return siphash_3u64(((u64)(__force u32)a->a6.s6_addr32[1] << 32) |
++			    (__force u32)a->a6.s6_addr32[0],
++			    ((u64)(__force u32)a->a6.s6_addr32[3] << 32) |
++			    (__force u32)a->a6.s6_addr32[2],
++			    mix, &tcpm_hash_key);
++}
++
+ static void tcpm_suck_dst(struct tcp_metrics_block *tm,
+ 			  const struct dst_entry *dst,
+ 			  bool fastopen_clear)
+@@ -270,13 +290,11 @@ static struct tcp_metrics_block *__tcp_get_metrics_req(struct request_sock *req,
+ 	case AF_INET:
+ 		inetpeer_set_addr_v4(&saddr, inet_rsk(req)->ir_loc_addr);
+ 		inetpeer_set_addr_v4(&daddr, inet_rsk(req)->ir_rmt_addr);
+-		hash = ipv4_addr_hash(inet_rsk(req)->ir_rmt_addr);
+ 		break;
+ #if IS_ENABLED(CONFIG_IPV6)
+ 	case AF_INET6:
+ 		inetpeer_set_addr_v6(&saddr, &inet_rsk(req)->ir_v6_loc_addr);
+ 		inetpeer_set_addr_v6(&daddr, &inet_rsk(req)->ir_v6_rmt_addr);
+-		hash = ipv6_addr_hash(&inet_rsk(req)->ir_v6_rmt_addr);
+ 		break;
+ #endif
+ 	default:
+@@ -284,7 +302,7 @@ static struct tcp_metrics_block *__tcp_get_metrics_req(struct request_sock *req,
+ 	}
+ 
+ 	net = sock_net(req_to_sk(req));
+-	hash ^= net_hash_mix(net);
++	hash = tcpm_addr_hash(&daddr, net);
+ 	hash = hash_32(hash, tcp_metrics_hash_log);
+ 
+ 	for (tm = rcu_dereference(tcp_metrics_hash[hash].chain); tm;
+@@ -310,18 +328,15 @@ static struct tcp_metrics_block *tcp_get_metrics(struct sock *sk,
+ 	if (sk->sk_family == AF_INET) {
+ 		inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_saddr);
+ 		inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_daddr);
+-		hash = ipv4_addr_hash(inet_sk(sk)->inet_daddr);
+ 	}
+ #if IS_ENABLED(CONFIG_IPV6)
+ 	else if (sk->sk_family == AF_INET6) {
+ 		if (ipv6_addr_v4mapped(&sk->sk_v6_daddr)) {
+ 			inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_saddr);
+ 			inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_daddr);
+-			hash = ipv4_addr_hash(inet_sk(sk)->inet_daddr);
+ 		} else {
+ 			inetpeer_set_addr_v6(&saddr, &sk->sk_v6_rcv_saddr);
+ 			inetpeer_set_addr_v6(&daddr, &sk->sk_v6_daddr);
+-			hash = ipv6_addr_hash(&sk->sk_v6_daddr);
+ 		}
+ 	}
+ #endif
+@@ -329,7 +344,7 @@ static struct tcp_metrics_block *tcp_get_metrics(struct sock *sk,
+ 		return NULL;
+ 
+ 	net = sock_net(sk);
+-	hash ^= net_hash_mix(net);
++	hash = tcpm_addr_hash(&daddr, net);
+ 	hash = hash_32(hash, tcp_metrics_hash_log);
+ 
+ 	tm = __tcp_get_metrics(&saddr, &daddr, net, hash);
+@@ -811,15 +826,13 @@ static int tcp_metrics_nl_dump(struct sk_buff *skb,
+ }
+ 
+ static int __parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
+-			   unsigned int *hash, int optional, int v4, int v6)
++			   int optional, int v4, int v6)
+ {
+ 	struct nlattr *a;
+ 
+ 	a = info->attrs[v4];
+ 	if (a) {
+ 		inetpeer_set_addr_v4(addr, nla_get_in_addr(a));
+-		if (hash)
+-			*hash = ipv4_addr_hash(inetpeer_get_addr_v4(addr));
+ 		return 0;
+ 	}
+ 	a = info->attrs[v6];
+@@ -828,24 +841,22 @@ static int __parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
+ 
+ 		in6 = nla_get_in6_addr(a);
+ 		inetpeer_set_addr_v6(addr, &in6);
+-		if (hash)
+-			*hash = ipv6_addr_hash(inetpeer_get_addr_v6(addr));
+ 		return 0;
+ 	}
+ 	return optional ? 1 : -EAFNOSUPPORT;
+ }
+ 
+ static int parse_nl_addr(struct genl_info *info, struct inetpeer_addr *addr,
+-			 unsigned int *hash, int optional)
++			 int optional)
+ {
+-	return __parse_nl_addr(info, addr, hash, optional,
++	return __parse_nl_addr(info, addr, optional,
+ 			       TCP_METRICS_ATTR_ADDR_IPV4,
+ 			       TCP_METRICS_ATTR_ADDR_IPV6);
+ }
+ 
+ static int parse_nl_saddr(struct genl_info *info, struct inetpeer_addr *addr)
+ {
+-	return __parse_nl_addr(info, addr, NULL, 0,
++	return __parse_nl_addr(info, addr, 0,
+ 			       TCP_METRICS_ATTR_SADDR_IPV4,
+ 			       TCP_METRICS_ATTR_SADDR_IPV6);
+ }
+@@ -861,7 +872,7 @@ static int tcp_metrics_nl_cmd_get(struct sk_buff *skb, struct genl_info *info)
+ 	int ret;
+ 	bool src = true;
+ 
+-	ret = parse_nl_addr(info, &daddr, &hash, 0);
++	ret = parse_nl_addr(info, &daddr, 0);
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -878,7 +889,7 @@ static int tcp_metrics_nl_cmd_get(struct sk_buff *skb, struct genl_info *info)
+ 	if (!reply)
+ 		goto nla_put_failure;
+ 
+-	hash ^= net_hash_mix(net);
++	hash = tcpm_addr_hash(&daddr, net);
+ 	hash = hash_32(hash, tcp_metrics_hash_log);
+ 	ret = -ESRCH;
+ 	rcu_read_lock();
+@@ -947,7 +958,7 @@ static int tcp_metrics_nl_cmd_del(struct sk_buff *skb, struct genl_info *info)
+ 	int ret;
+ 	bool src = true, found = false;
+ 
+-	ret = parse_nl_addr(info, &daddr, &hash, 1);
++	ret = parse_nl_addr(info, &daddr, 1);
+ 	if (ret < 0)
+ 		return ret;
+ 	if (ret > 0) {
+@@ -958,7 +969,7 @@ static int tcp_metrics_nl_cmd_del(struct sk_buff *skb, struct genl_info *info)
+ 	if (ret < 0)
+ 		src = false;
+ 
+-	hash ^= net_hash_mix(net);
++	hash = tcpm_addr_hash(&daddr, net);
+ 	hash = hash_32(hash, tcp_metrics_hash_log);
+ 	hb = tcp_metrics_hash + hash;
+ 	pp = &hb->chain;
+-- 
+2.53.0
+
