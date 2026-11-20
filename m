@@ -1,60 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176879;
-	b=U+InQlfWuljJCFuS1uMmrIiNH1y0qagAINVkOrf/GjoPEacbZN5xWsHzXVl5yaw7LWx2
-	 A2NyR7tEYdhf0W04brHQVSZpn24nU0GbYwSP2wogs8LTU+Ha/QljUGypzjdwDN2nvCGiI
-	 MwX9sPU+jSS+GnfKgUtYPAUQOlvaeE5ARj5TSu0ZK2lgQ9CYtYsqQuRNtSrlSyFnUrvcK
-	 k0C/5C/zG+oNiU5UXDLwyJ3N9tuilG7w+W0DgTmmuCVpI7kuvfqBDs6/Dp8w/i/qF6sUR
-	 QperBQUtQ+PBO0vYlcEUyP2sYe3NzDEzE73a9xfioAVwWnwGblkli5ZBOc430474L6g==
+	t=1795176886;
+	b=MA+GyVshtPFwQwStnoTscDUQacVBwACSW92qp6ipoAlOdEGcGbIAx3r9P6WTmLfRrpK+
+	 CNH1cKFSZbBHoHFymHtRL7ZhrV6WNT9dq41Ab4LrQi3OmrY0lxKdlxUARU8Q590/HJNBg
+	 0LCrO+6AODAnnvxGv84O8YPegS4EeVap7Prqxy+zzA7xa/aeR5y7XIRsHUWE3Ls2Qashy
+	 ki/djZOKocxgJ+MljAYpJ3LmNcDx8IrY2oaCZxS0loMe4fZixtq8ZyX81hO9gw68ovYDs
+	 xp9M+9MQYc0qDH/0nm33a0aSEgJM+l6p7RdkCva16CtIPS5GxvL8JH8QBX6jbg4tXCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176879;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=Ha8zkTWC2HAZsZH1ysWg6RQBM+8k4G0SyVqAcNU/Xl4=;
-	b=rEsodgBqvuhelOE96NcxCSZr8fEkV6wgvNX93JbhxhtR7z6o7pqCOpzO+Qt1JJxbiFMo
-	 RzuWfr+l6PcWGu1U5HJLdUk6wK7LFc7KrdVjwmbt6hyWoPQnNIWjzp1FazBaMfjsqrSo7
-	 7F3E8Sc+dB4jFVy46NUJdiEa8Yds0hYFr7X0hosK7r+YnE/Wwb0QPUk3frMoiGv14Cy6f
-	 231HWsziKGccVWwuO0L4C22Ot6o2C9EOKI3hvztQuR4yEuPuVuCZciWxWNBxBiMd5I0jR
-	 ZPLZa6+sirMiIM0bCb/bKs8xKL7IbMiWIV+yxjbKJfBqbcsmyyvOjGeseuwNvOy+kag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176886;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ks69R9NPZfJ4GC/YK4A/goNrzJgpxmPlFkxdUltPR50=;
+	b=RdweMeRQx5kfrfRQTIvbGFLq8XEMFvZdFphLcBmWx9UzdmP9D0ZV7tOfeNxUoafbunPM
+	 uQhHOPeehU70AhABnPu1PrgJ80X0Ru35R9nua8O6koTOOuWbRXPa/KIGHlgMFHlT86pul
+	 K1u8F3cgLg8ky91h1r2T0+RSWK6KLDuyb1Nfp9SAeQ7FUQWTGWHhroDgr3GcJ2m1AfGqI
+	 Qsm6XWVnoaWFt7O+8kLbZHxIjqEl76R7ZH6NB1Poo+wlD3fkyngQ56h5IcjRvpAyMm0aE
+	 pJm1XTyrafro1t6nAFQevizRl3tq6wWvFA9M+DPZjleSyCKY2+KcRiZDTCbTqwnbPvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JD+Ukgig;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b="LG4/zxRq";
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA3D3606A320;
-	Fri, 20 Nov 2026 12:14:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32F2A606A33E;
+	Fri, 20 Nov 2026 12:14:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32F2A606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JD+Ukgig
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBEE1F000CA;
-	Fri, 20 Nov 2026 12:14:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795176879;
-	bh=Ha8zkTWC2HAZsZH1ysWg6RQBM+8k4G0SyVqAcNU/Xl4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=JD+Ukgig+peffsDwZRufMTiOxT8Pyuw1j/eYoX44Niwwwd1dptOqK6EHeozzaCNop
-	 Y+qIcDp7iG0WqMtWdDaOxzyFLlYl4aaaf1H9TZERh29UjNRxiUO/PBVSzwxOfSuIy6
-	 T+8lDuJ00W/VdYQKXaQV4PigLrD4CDrYUfW6TqSwnLLk2GW1lsj9K2szzu4SJMyRNn
-	 BerF342oi2WRzwAx1KWASQ67Ukw6ee8Q45ynfxMJe1T/u83RpyZy8n0BpDFsz9+ST7
-	 ISLBROzwDmhXumTFCboz29gfO2lhacX9cqAzV0t2LcM+x4QyEekEle0mtCFF5InA2O
-	 K3Lza26VVdCEg==
-Date: Fri, 20 Nov 2026 13:14:36 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-cc: Benjamin Tissoires <bentiss@kernel.org>, 
-    Gideon Heinz <gideonheinz02@gmail.com>, 
-    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
-    Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
-    Edwin Velds <e.velds@gmail.com>, 
-    Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
-    Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
-    linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 00/18] HID: logitech-hidpp: G920 force-feedback rework
- and driver cleanups
-In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-Message-ID: <n0029p80-479p-ssrr-rp33-ooo5r674n92o@xreary.bet>
-References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=LG4/zxRq
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ks69R9NPZfJ4GC/YK4A/goNrzJgpxmPlFkxdUltPR50=; b=LG4/zxRql26TO0jcV2kfpawi3e
+	qtsAW5G8w8A8JevFOo0siJFdOlmvQEO5sf/hlMkbve1bLeEFG2eR108UotgdW8zj60yvoYmt0iuCW
+	XcfhYYaxAbwgEf6n6CspTRRn217eZEDw1T5wvCZM+rbwe4IdvRag9VP/kL6LNZbZ+JVVledlBF6d9
+	dqtODRV46QoK/5PbQZCnxVv3w7Ki+yAECBr7BgoCV3rZkVoZSZPfyk0Wu7Q1DgZ1wg09m5CwYQS2g
+	XXpIkr+fPpbO/WYBP0MT3+z1a5dRYdK+bfx5G/6maCEdncR1+0ty+hzCAoBi0ecxlxsAqf68o0EHW
+	bqB10JCA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUNVl-00000000kCY-2zbE;
+	Fri, 20 Nov 2026 12:14:37 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 91BE33008D6; Fri, 20 Nov 2026 13:14:36 +0100 (CET)
+Date: Fri, 20 Nov 2026 13:14:36 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,57 +76,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
 
-On Fri, 20 Nov 2026, Dmitry Torokhov wrote:
+On Thu, Nov 19, 2026 at 09:51:00AM +0000, Tengda Wu wrote:
+> The sigtrap handling in __perf_event_overflow() checks
+> event->pending_work before calling task_work_add(), but only sets
+> pending_work after the task work has been queued.
+> 
+> This leaves a window where an NMI can interrupt task_work_add()
+> and re-enter __perf_event_overflow() for the same event. Since
+> pending_work is still zero, the nested invocation can enqueue
+> the same pending_task again.
+> 
+> The re-entrant call path looks like this:
+> 
+>   __perf_event_overflow()
+>     task_work_add()
+>       kasan_record_aux_stack()
+>         <NMI>
+>           __perf_event_overflow()
+>             task_work_add()
+> 
+> The nested invocation may enqueue pending_task before the
+> outer invocation does. When the outer invocation resumes, it
+> inserts the same task work entry again, potentially creating
+> a cycle in the task work list.
+> 
+> As a result, perf_pending_task() may be executed repeatedly,
+> leading to unbalanced event reference counting.
+> 
+> Fix this by atomically claiming pending_work with
+> cmpxchg_acquire() before calling task_work_add(). This ensures
+> that only one invocation can enqueue the task work, even when
+> another overflow occurs re-entrantly from an NMI.
+> 
+> If task_work_add() fails, clear the claim with
+> smp_store_release() to allow a subsequent overflow to retry.
+> 
+> In perf_pending_task(), defer clearing pending_work until
+> after perf_sigtrap() has completed. Use smp_store_release()
+> to ensure that a subsequent overflow cannot re-queue the task
+> work before the previous invocation has finished handling it.
+> 
+> Also use smp_load_acquire() when checking pending_work in
+> the exclude_kernel warning path to ensure the read is properly
+> ordered.
 
-> Per Jiri Kosina's request, this 18-patch series for v7.5 is split out
-> from v2 and applies on top of:
-> [PATCH v3 00/14] HID: logitech-hidpp: G920 force-feedback and battery fixes
-> 
-> Note that v2 patch 22/33 ("HID: logitech-hidpp: shut down G920 force
-> feedback on input unregister") has been dropped in favor of "Input:
-> destroy force-feedback device on input unregistration" in input core.
-> 
-> The first group of patches improves transport handling and error
-> propagation: keeping connect work disabled during probe until
-> hid_connect() completes, preserving transport error codes in
-> __hidpp_send_report(), and translating HID++ protocol errors into
-> standard negative Linux error codes in hidpp_send_message_sync().
-> 
-> The G920 force-feedback rework moves capability discovery back into
-> hidpp_probe() while device I/O is active (excluding generic USB PID
-> force feedback for validated HID++ devices), separates device-level
-> wheel settings from the input FF queue lifetime, moves the G920 range
-> sysfs attribute to driver dev_groups using sysfs_emit(), executes range
-> stores, effect uploads, and effect erases synchronously, indexes FF
-> slot arrays directly by effect ID, and cleans up FF helpers.
-> 
-> The final patches modernize the driver by switching multi-byte protocol
-> fields to unaligned accessors, storing device serials as byte arrays,
-> using guard(mutex), __free(kfree), alloc_ordered_workqueue(),
-> devm_mutex_init(), and devm_device_add_group(), and removing unused
-> kfifo and wtp_data fields and redundant helpers.
-> 
-> Thanks.
-> 
-> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> ---
-> Changes in v3:
-> - Split out from v2 as a separate 18-patch series for v7.5 per Jiri
->   Kosina, applying on top of the v7.4 fixes series.
-> - Dropped "HID: logitech-hidpp: shut down G920 force feedback on input
->   unregister" (v2 patch 22/33) in favor of "Input: destroy
->   force-feedback device on input unregistration" in input core.
-> - Collected Tested-by tags from Gideon Heinz across all patches in this
->   series.
-> - Link to v2: https://patch.msgid.link/20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com
-
-Applied to hid.git#for-7.5/logitech.
-
-Thanks,
-
--- 
-Jiri Kosina
-SUSE Labs
+I am confused by the use of smp_*() and cmpxchg() here. Where is the
+multi-cpu scenario?
 
