@@ -1,92 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.10
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.175
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795215690;
-	b=3yHzRp2nspCLwNf6STH56ASmyHt996KIMwMaBjAQyQvSSDZ2k7Ze1m3zYwdgezx46+kN
-	 Vc684qKIGPQheXrVAap2QmPOqKPUTzU4jemwYOPNh68wy5QnzCoVH3PVqPj4Czf0EqtTZ
-	 29zVvEXEZcI1vPuWUdX/tfa542ttN6ZdqR1vnmWF3A795c7XpC2ACe/qSAEKSVbnKUoEM
-	 ZVVUGFfrFpQZfEzTdiwc0iHgU0VwXDlKhHp7ucRPdnS1NNXbr55cPmIYqb+qchdhxO36O
-	 cCsOgnO451VOrSXZOYhAdixJDrDOOYDYDX4NwhaDZrBQAZ4RfcZbnl7jro8xP6eHTQA==
+	t=1795215726;
+	b=fpg+VhbzvvUQMuib416cZQrf8tFXwXtqZ9NT4me7Mk85VZODaUcdmO38rYTrVCFdgDwL
+	 ng1h/26YMxu1gaUeNatMuIz6vjZU6Pi/SKg0Yq9tZ6v7J3YVGBiuPP4V83IecWbYcm3ip
+	 QTHTmnkLsknM25xSTK/cxKpCaxLV/kSo2UTzNusRU309XDbCt5K1bGShi0S31Q8XfjxC7
+	 81gXQGrHy38psedj6DScgZ/Z4pHKEP3ATR16KPEAvQ1lw6v3pciNnvj82PLhWS2a0oxuv
+	 hu84rgKFhDKvQBPwtpeqz97v4FeL2NIKNMNqNk4NLOPejgcB2xIZp6F2HSu7aw17RKQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795215690;
-	h=DMARC-Filter:DKIM-Signature:Received:DKIM-Signature:Received:From:
-	 Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-Source:X-Source-Args:
-	 X-Source-Dir:X-SGantispam-id:X-AntiAbuse:AntiSpam-DLS:AntiSpam-DLSP:
-	 AntiSpam-DLSRS:AntiSpam-TS:CFBL-Address:CFBL-Feedback-ID;
-	bh=+/q8UfMsulgfhunSD2SWHwqW8QN79mA6TFVEGjC3iw8=;
-	b=BG0CWnVETx2/4InnvGa4CIAs8M78Pa64H28Tq2Fl9LD9LdmPU54l5gdM4Aj52U0CbcMl
-	 n4W0Jda6Cm+q5XhB1wRJJRwb+S6KzpwlLkh2FOtrmC5cEGQl/EQZpd3HdLGlupssH5DgR
-	 iI0WcuUsJrg3eKkdtG6Zzvf6BKYP4licrnzet+i96RxnTZghR5Rsx8D+E96f5g9QRqi2E
-	 Qc/nr5p1ypNJyWfvbZw6cHjrWLIumn7x/JMoFJv0POKepjuj2FbzH4biih+QB+/8fFI5b
-	 2x3yH8W8lGe+JeXGQQmDEkiVcdZLUEWxLx0K0DUbuWFCut86puyMMzEDC3iRW7Ch8eQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795215726;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sB5iWeLIdXSk/z2yiFdp6RKCyaPz4LeSJqW6ibv5E1o=;
+	b=B4QYVYcmRP9wWo5kLOb3i5CWvultl1mYlMmDrK4NZfPCGULxusr1PrMXddShsQdWpiKU
+	 +xibcQXxB22+lPx47tyuB6rALtIB2cs+cmAPO4qZpRx3B+FZHefppyJ8KLzLsIWGuRJ3o
+	 jqJx2HJL/dWLT5BGlMGvM8eZtnXor828cbCDouqh+PVOOKbT7q4LBg1QqsOg6J8bfYi5S
+	 i7AgfYq1UBy6YAqrnElNE0BQTJtCM4pKNMmhQpr6y0vjfeyoEnt1bYwQ/vO2mQ5Ovv+T2
+	 s8KLYhcMFNfbPOwLSDdeS5j7iXQlAY2TrcPEa9PkxQOg7Jsxg+g38iQ5CJaDJwAyjhA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=valla.it;
-	spf=pass smtp.mailfrom=valla.it;
-	dkim=pass header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=bosde401;
-	dkim=pass header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=Nx6S2p6v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.56.87.10
-Received: from delivery.antispam.mailspamprotection.com (delivery.antispam.mailspamprotection.com [185.56.87.10])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PDHhYohU;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.175
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com [209.85.208.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56A86606A68C;
-	Fri, 20 Nov 2026 23:01:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56A86606A68C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valla.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valla.it
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0671A606A686
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:02:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0671A606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=antispam.mailspamprotection.com header.i=@antispam.mailspamprotection.com header.a=rsa-sha256 header.s=default header.b=bosde401;
-	dkim=pass (1024-bit key, unprotected) header.d=valla.it header.i=@valla.it header.a=rsa-sha256 header.s=default header.b=Nx6S2p6v
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-4zq2.prod.antispam.mailspamprotection.com; s=arckey; t=1795215679;
-	 b=PGn0yp6bvV0PxK3ss8u323wwJBQjfGth4JrLa0Wn5N8E+10tuomf95fsm3j7pb1exN/8pBjEmX
-	  Ruiw2ES+eAmbPv6gRBGVF3EtCP/MLZgQt30tqx1HIsrTXsCPYlgN5hsdZeFaZ0QpWyp/jU9NtW
-	  5FzFeXsp05Fz0hj3JpoGPSNYDE3t60tN5A+7+HqUUaqfg//TqSMkTYHziDDTrlFLolB0fJ7zaL
-	  xb6gHvGZCJhcodnrpNYsVycu0RKRNKSYD2Ni5Nt79hdhYy2NrtFVDP6bsfpCiQeMB/0U6lZ4Ar
-	  X89anX6W272T+ZtjP5Zej8ZyOrDe3lT27kKrYYN6WTKWlQ==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-4zq2.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-4zq2.prod.antispam.mailspamprotection.com; s=arckey; t=1795215679;
-	bh=VNss+LZWiP/6qtAqGAFDcCcVAZcFen7nqgJ7Xcd1EuI=;
-	h=Cc:To:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	  Subject:Date:From:DKIM-Signature:DKIM-Signature;
-	b=Ph7gBCU86heUt+D5U0rNhN1j+flS5MuCVAH3Cbv7NFqDXyDMd4wlQC02pmUu11PbAvkeUBSiwW
-	  g9jvkixeNVonpLn0TBfHgqf2RkqV+14Fn1VDTi/CBjwi3LKQKnWCMhszcZL2a706nsKgT18yRI
-	  5j+Z1uAbEvERgrf0CnyimUkTwLfQGYtT+NnPlBNM1dBu9szFG+GNlz/yJj86Ag7tvqNvTStjXn
-	  Xzkz7GiyBjL2HtrolA1qawAEgt/5DDmalMUBskX79ixeV+pX/IjavtZD6BdrcpvDL+2mXXM22T
-	  x4gvCURR3gQCBq3XcVUK9dXSAZwsHpm1cRyv6mZkxGIcZQ==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject
-	:Date:From:Reply-To:List-Unsubscribe;
-	bh=+/q8UfMsulgfhunSD2SWHwqW8QN79mA6TFVEGjC3iw8=; b=bosde401Szk/tHIkDHN15BV9G6
-	SXmyj5VKkmUUEn9YIWzj+myJlEDobhXVxVuChsF8uqRhLJ7WWPFCcGo2Bvh6tbvH3QfDnGddsjyyx
-	vMIyPEx5VVcKw22vttwkc9EsZTm9ZPS6Wb/XkXS4uZTq8x+owSMwLYEr7VJAqs2ITBdU=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-4zq2.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <francesco@valla.it>)
-	id 1xUXbT-0000000DF26-308X;
-	Fri, 20 Nov 2026 23:01:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Cc:To:Subject:Date:From:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=+/q8UfMsulgfhunSD2SWHwqW8QN79mA6TFVEGjC3iw8=; b=Nx6S2p6vKR9ab4/Tqp3u3wnCn7
-	KgIN1vrDDRkjQ3oH6vDGKGkioEcT0fBje5O6IrM89oGshIIjLOAEdb+GANju0LyVlcWHnysEPac1r
-	WkK1VSGirflSbFLQLQtlWlxLqZyMMT1DX3lTFb82B6DUs/+2xVnT2Es8BIzCVwkBi6hw=;
-Received: from [95.251.96.187] (port=60817 helo=[192.168.178.175])
-	by esm19.siteground.biz with essmtpa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <francesco@valla.it>)
-	id 1xUXbP-000000003jY-13Q0;
-	Fri, 20 Nov 2026 23:01:07 +0000
-From: Francesco Valla <francesco@valla.it>
-Date: Sat, 21 Nov 2026 00:01:02 +0100
-Subject: [PATCH v2] virtio_rpmsg: Fix config space alignment
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PDHhYohU
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-3ae25dcbd81so11156591fa.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:02:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795215723; cv=none;
+        d=google.com; s=arc-20260327;
+        b=P4iqa4BRfc+ZQ9+KN06aIlT8udyyI2+RToKOcQNkrh73H5yofuw4vaBQyrZ62EfC5h
+         w8CfHIvIYToV22AevSVxH8pgWj+UtlGWvUX353zb+P9IFTkZuyRxIXlSVAk4ruNC676w
+         ar+UEaquxC9qMSux7eqe2PK8c8U7mdffZIf0mnAp7aTAVOzbOUbBnUWVaZ3IQhkWuIug
+         U1g5X6T6Z/MZfiPXeJaJiYG2/aZdJUwu7UzsN3WAf0zyTD+S6tTP/FuYC7jNa/aQqRdT
+         oLx+Fbd12IFBCVwXlsA/QRxA/hE0bthE5drhw1FJik241jNjyr7QYYHSRNLnh6ABuTx0
+         7oVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sB5iWeLIdXSk/z2yiFdp6RKCyaPz4LeSJqW6ibv5E1o=;
+        fh=k8/xe6ijs+hZcYN8Gzeq3wPNJPknoWrt0e7UFR8aeGQ=;
+        b=PF420/zaL4Uwcaz3qHh+Vi2qa2/jgMFF+d2LM8o0Da0Vpkgm0KEyQ/S/O1BjPuWgc8
+         iVyK94FhdADkEk76SDHNoBV1vYLY1z/Tjrq68cDonag9FussHDLJDGMPNHc7VtRmEMpc
+         b78im/RxXLEYZwmqzqX6mSagw4EAmxnVAT8cFWfJWCJ8qNbUclhBROtjPl6IpHv0qVCp
+         cUchd1n/z3xf0BPO6WXIQskMXxKmrVrG5c7qAboH3yKw9Ldgc1HdI6vLvMYv5+ZXQAYv
+         UFcIt3R1ageXx9pgTqCoF1AZycXm4PJg9fir1JC+h74r5bzZddfm/bemyJCTrNy60lc9
+         VRXg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795215723; x=1795820523; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sB5iWeLIdXSk/z2yiFdp6RKCyaPz4LeSJqW6ibv5E1o=;
+        b=PDHhYohUmZZS+wBX0o8ymsSGC1EY+NXbavNEk6S3+r9zE6NVnZsD2KyqT1bzkPqg68
+         pg6PdsdGVsYrg2Ni87JZTksy4Qt6ICd+DcI/mfWmjM8pyMqNPeo689NFVrzL5w56lDuk
+         ikw2UkL5Mh06+thVf3sQ6l9rvfPmTNAfbOZwrKiDpMofbQyltN3SR+uVImwywLrCHcPh
+         PHG5/mJYCdFUBIbq4FRW0oPM+sJlTcupS0Xq780+IWh6MI5gr8mndOVbIjBvkqbkCgby
+         oufmbhXXXTHevdAWpvfXlDckrWCVqLiCcgDP3WUe+/nvfyTXIYnR1iY1Z3Ik0rG5zxOb
+         GQew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795215723; x=1795820523;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sB5iWeLIdXSk/z2yiFdp6RKCyaPz4LeSJqW6ibv5E1o=;
+        b=ouLAYl7FzMe/jDWVFOIezWfjtqOtzoMjxyQrn3wjsKsJji6pohzc/HtjqEACubHjSG
+         Wbo8SonHd+DI2mamgo4tBuXa0213zfKNCx5rT3/ktvZMlWUqgBmxjWekJSsh9uCIKANR
+         bSLtqfkAVhd9N0s5lG8XVYpuVN1jBJUzlRVlQ7CZL7rHqn4DiYhGTxPYjfeemCOB5kc6
+         ey85k+ovFIEgYORHDtJ2g3Ds2awFwt8I/OdU5KKZvGZ6+rMSueX9opws+NDVnOEnCzUg
+         mypA5W7tzXNZ67J68Guj6zY2FyWYc92Uqh+Igc5IJh2bTezWmxKGtF2+Y2Wms2Dfv593
+         W4Bg==
+X-Forwarded-Encrypted: i=1; AL+hErHMh+u5Z1q6+Y7yuhW7JPk6nPSLpwEnPYUJzDz5rrI7qKNkNBB/qspiiGIEXEwa+vnW0lTD7Vrp7z4UNOM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+GhsgIy9haKMND7hDN8G9qxygc6UuzHXsT5cC/ZUKcTNiGGVI1
+	0hBR6dp9onqE2n1CT8wU1oqA9dOTRfX4OxrOzetvhDSGLdgCzNzCrqkaI5A9iqzV/UmLRZkq5hx
+	7WolP+u6A6r38sMcwxaVsRoJvCx8RuhU=
+X-Gm-Gg: AZFdTZdckFgi85Or41fk8AFm6GIt63zOaEbwifuuRfCHQ0HxONmHai8R/zbeOy4pKPi
+	HdjIm1D4S5AKyh+hvTRNbmKbhCQqDIdU0Lf4EjgmRSeKH7oUveZq71v8exLf4+/H019jHiy0V5z
+	9g5GKOfaIN0lbgtoxaQpyeZSaWlCeEgK2MZpgY6N/b5SA1W4WrB/AiYmDL59mNfiGxEpl0XF5hw
+	KxEWO62wwMAzKT3HGcOKIs8+9QZO9lwADtmnj/UwbMOSUdaW2u1Z4BvWFEgJCU9ZEjlSmaivD0j
+	v1HV0p47Uadl3cFBUgbuKFQZul5OF6XhG3EbOQQ1f89UkP26Ijh0GTvK27usWLA/ayx04V9SpUg
+	QuWJO7X2cfH0X8gU7SWY0dyP6hZ+CdWAIYSNU
+X-Received: by 2002:a05:6512:39c4:b0:5c1:4f00:7b77 with SMTP id
+ 2adb3069b0e04-5c1bc6804cemr1456732e87.1.1795215722461; Fri, 20 Nov 2026
+ 15:02:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,104 +104,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261121-rpmsg-config-size-v2-1-d2fd698b6f76@valla.it>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7RhaoVFX3MOwaMsAYxBIBxuVc
- HcB9y5f8v77MwgFJoFrMkOgyMJDv4I+JOBb2zeEXK0MOtVGqVRhGB/SoB/6mhsU/hCmlaMLWXP
- ypoJ1Nwaq+bU3b+WP5enu5KcttBktyzSE934a1eb960eFCk1uzsZlWe60LqLtOnvkCcplWb63x
- 9QIwwAAAA==
-X-Change-ID: 20261101-rpmsg-config-size-0dbe9ea63c6d
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Tanmay Shah <tanmay.shah@amd.com>, 
- Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, 
- openamp-rp@lists.openampproject.org
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Francesco Valla <francesco@valla.it>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1982; i=francesco@valla.it;
- h=from:subject:message-id; bh=VNss+LZWiP/6qtAqGAFDcCcVAZcFen7nqgJ7Xcd1EuI=;
- b=owGbwMvMwCX2aH1OUIzHTgbG02pJDNkMF40O6L9lEQ4yz9FK5OOI8ytdfKqG770s09Y93YsyG
- p9Kc8zvKGVhEONikBVTZAlZd+Penrnm39I2MD6CmcPKBDKEgYtTACaybAnD/6zA9MpjiyfdYJ56
- yTFF3U7oSem5zsNS03k0WfucD3x8FsHwV+xc2DrjuxaeE39kr3gyI+/N/E9qX7Q4rn8Lbinkvtg
- 8nxsA
-X-Developer-Key: i=francesco@valla.it; a=openpgp;
- fpr=CC70CBC9AA13257C6CCED8669601767CA07CA0EA
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: d7e5a4f9ddf471e0170fd048635fcb83
-X-AntiAbuse: ID - d7e5a4f9ddf471e0170fd048635fcb83
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1xUXbT-0000000DF26-308X-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-4zq2.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com>
+ <20261120041906.5785-6-kanchanapsridhar2026@gmail.com> <CAKEwX=P7To+AV9X3cXLCcuw5yoigdB8w5Ns9c9mDxJf+u5k8xA@mail.gmail.com>
+In-Reply-To: <CAKEwX=P7To+AV9X3cXLCcuw5yoigdB8w5Ns9c9mDxJf+u5k8xA@mail.gmail.com>
+From: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Date: Fri, 20 Nov 2026 15:01:50 -0800
+X-Gm-Features: Aa3M54reRvLfoPZ5kvwPE0ioyJYfTZ8WSgE2duE6U9TLy4oHWqSA0alj0n9Xqgc
+Message-ID: <CACpmpodffHWFu_Zfzx8tb3ghO_PJAMu1+LyaRXtmwK5a5GmzSw@mail.gmail.com>
+Subject: Re: [PATCH v4 5/8] mm: zswap: Store the folio's node id in the zswap_entry.
+To: Nhat Pham <nphamcs@gmail.com>
+Cc: hannes@cmpxchg.org, yosry@kernel.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org, 
+	"Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The comment for virtio_rpmsg_config says that this structure is
-naturally aligned to 32 bits, and this is desirable by some
-architectures that don't get along with unaligned accesses.
-The content of the structure itself however isn't aligned, and the
-__packed attribute prevent the compiler to add this alignment.
+On Fri, Nov 20, 2026 at 2:46=E2=80=AFPM Nhat Pham <nphamcs@gmail.com> wrote=
+:
+>
+> On Thu, Nov 19, 2026 at 8:19=E2=80=AFPM Kanchana P. Sridhar
+> <kanchanapsridhar2026@gmail.com> wrote:
+> >
+> > When storing a folio in zswap, save the folio's node id in the zswap
+> > entry instead of relying on the zswap_entry being allocated on the same
+> > node. This enables optimizations such as batch allocation of zswap
+> > entries for large folios using kmem_cache_alloc_bulk() that does not
+> > support specifying a node id.
+> >
+> > Accordingly, replace the SLUB allocation in zswap_entry_cache_alloc() t=
+o
+> > be node-agnostic.
+> >
+> > The size of the zswap_entry remains unchanged as 'referenced' is lumped
+> > in with the 'length' (as it doesn't need a full unsigned int anyway).
+> > A build time assertion checks for the zswap_entry's 'length' bitfield
+> > being large enough to represent PAGE_SIZE, which can be 256KB on some
+> > architectures.
+> >
+> > Suggested-by: Nhat Pham <nphamcs@gmail.com>
+> > Suggested-by: Yosry Ahmed <yosry.ahmed@linux.dev>
+> > Signed-off-by: Kanchana P Sridhar <kanchana.p.sridhar@intel.com>
+> > Signed-off-by: Kanchana P. Sridhar <kanchanapsridhar2026@gmail.com>
+>
+> LGTM for the most part:
+>
+> Acked-by: Nhat Pham <nphamcs@gmail.com>
 
-Fix this by extending the version field to 16 bits.
+Many thanks, Nhat :) !!
 
-Fixes: ca96ea25e51a ("rpmsg: virtio_rpmsg_bus: Get buffer size from config space")
-Signed-off-by: Francesco Valla <francesco@valla.it>
----
-Changes in v2:
-- version field extended to 16 bits instead of adding a reserved byte.
-- Rebased on current master.
-- Link to v1: https://patch.msgid.link/20261101-rpmsg-config-size-v1-1-65686b445b22@valla.it
----
- drivers/rpmsg/virtio_rpmsg_bus.c   | 2 +-
- include/linux/rpmsg/virtio_rpmsg.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+>
+> > ---
+> > + * nid - NUMA node id of the page for which this is the zswap entry.
+>
+> Maybe "NUMA node id of the original page of this zswap entry"?
 
-diff --git a/drivers/rpmsg/virtio_rpmsg_bus.c b/drivers/rpmsg/virtio_rpmsg_bus.c
-index 23ff6c8b7a20..27282475a732 100644
---- a/drivers/rpmsg/virtio_rpmsg_bus.c
-+++ b/drivers/rpmsg/virtio_rpmsg_bus.c
-@@ -815,7 +815,7 @@ static void rpmsg_virtio_del_ctrl_dev(struct rpmsg_device *rpdev_ctrl)
- static int rpmsg_virtio_get_buf_size(struct virtproc_info *vrp)
- {
- 	struct virtio_device *vdev;
--	u8 version;
-+	u16 version;
- 	u16 size;
- 
- 	vdev = vrp->vdev;
-diff --git a/include/linux/rpmsg/virtio_rpmsg.h b/include/linux/rpmsg/virtio_rpmsg.h
-index 0872cbca4593..57f48d537de9 100644
---- a/include/linux/rpmsg/virtio_rpmsg.h
-+++ b/include/linux/rpmsg/virtio_rpmsg.h
-@@ -31,7 +31,7 @@
-  * the structure is naturally 32-bit aligned.
-  */
- struct virtio_rpmsg_config {
--	u8 version;
-+	__virtio16 version;
- 	__virtio16 size;
- 	/* The tx/rx individual buffer size (if VIRTIO_RPMSG_F_BUFSZ) */
- 	__virtio32 txbuf_size;
+Sure. Will make this change in my next rev/patchlet.
 
----
-base-commit: 5f22fb20497f4983094131f00a734362300d22d2
-change-id: 20261101-rpmsg-config-size-0dbe9ea63c6d
+>
+> >   * handle - zsmalloc allocation handle that stores the compressed page=
+ data
+> >   * objcg - the obj_cgroup that the compressed memory is charged to
+> >   * lru - handle to the pool's lru used to evict pages.
+> >   */
+> >  struct zswap_entry {
+> >         swp_entry_t swpentry;
+> > -       unsigned int length;
+> > -       bool referenced;
+> > -       u8 pool_idx;
+> > +       struct {
+> > +               unsigned int length:ZSWAP_MAX_COMPR_LENGTH_SHIFT;
+>
+> I could have sworn we agreed to just inline this macro.
 
-Best regards,
---  
-Francesco Valla <francesco@valla.it>
+True, however, per Yosry's earlier suggestion, I added a build time
+assertion for whether ZSWAP_MAX_COMPR_LENGTH_SHIFT has enough bits to
+represent the architecture's PAGE_SIZE, and could not determine a
+sizeof/other API that returns a bitfield's size in bits. Hence I
+resorted to the macro.
 
+>
+> (btw how many bits do we still have here? )
+
+We now have 4 bits after "referenced":
+
+struct zswap_entry {
+        swp_entry_t                swpentry;             /*     0     8 */
+        struct {
+                unsigned int       length:19;            /*     8: 0  4 */
+
+                /* Bitfield combined with next fields */
+
+                bool               referenced:1;         /*    10: 3  1 */
+
+                /* XXX 4 bits hole, try to pack */
+
+                u8                 pool_idx;             /*    11     1 */
+        };                                               /*     8     4 */
+        int                        nid;                  /*    12     4 */
+        struct zs_handle           handle;               /*    16     8 */
+        struct obj_cgroup *        objcg;                /*    24     8 */
+        struct list_head           lru;                  /*    32    16 */
+
+        /* size: 48, cachelines: 1, members: 6 */
+        /* last cacheline: 48 bytes */
+};
