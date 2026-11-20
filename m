@@ -1,68 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189681;
-	b=X2afMI5KJCyYi24LW1wcJ0m3V6LzkwT7LPzjtFmoJGDuFmpGd2zUio7ZzE8NwQ3xfbU8
-	 zSmT5qTHc5EgKha1CTU14f50GY4SoR3BBQLVvogJKHrEcBckqeqVq/px62LjCRMV/F3Rx
-	 TvC2y/zvBPRtkynZCovKqI5yyNPc6SsBIcIOgXIo9DynhbOKiZZi09AoWuoghYzglHv88
-	 /cezBTRXXd5/YU7sneUKcanfLuBlxew4O1GVHWZCMyFC3erXEhq/X4giWXME6DNnMQTFl
-	 KY2PVDPpn0td9pqqbg+2MNN1zgMa6kh9MDZYDpJNGJuAouubsq6DaTJZ05/UHJhJXcQ==
+	t=1795189695;
+	b=GFGMPcPave63AgcVpht+H1vnnQtB6Nurv4Sa+J6OjeKZXJYeFLlnfS7cS8ZSP3MJ3FKS
+	 ULV3ZcZG/Vzy8KpkFVUXHhfGpf0MztNLllmS3m30UgWn5TJZpQ1DFTiqcVwPy+DG6ZjdG
+	 Pqc5pv3w4eNgVJlAC2oYqsvEMEdMabH7v50nrgfceBqeo9weKax4x5YVEOQZCO6LJ+bla
+	 nUky2itYSSgW/sbwApTSKtzTQki/1AIyCpw4XVLB4eGWWfOS1+lbiE60jK5By43nNW4n1
+	 /BVYSVNFYfuQh1VRNlouIlJNffSi3sGKVMx0MSqgDAHLmAjihOF5d7NKm3HCcE97KXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189681;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3tRfYT9F+qLYbDdoQJAEbwo5ujW2pwpYQDxQNIxKTwc=;
-	b=VhQf9vfLc8258TieoD4X2T2gvytzFQ6nu651T5TUbRm+idnhzBT+dZ835sMqyzvJrIdT
-	 Q2Oa3YLyy8s6ByBGmi2mQGU35oCZIpGMLMwOLeRP5oCgSUF1yNJ899ofMHPtq6UKG8thG
-	 l89rpKWVmpsoYNeAthODaxSiXdO19vRl4ketNKWT2a0tixJHYGG/+cetEyLSFKdd4uXo0
-	 y9q6AlFwXvLilbFS+UMl1KAcLTILjGstsN67GIqg9CbB5z/suGVjRV59gj7FytOVLB0ZP
-	 1oh4C3ki3PqDPpDlvpv9mxZC5IguSFZwomnC2TWwt8an0T9H/CqwU4fT6X2ycq1PQrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189695;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
+	b=RDHE44dcOOBNJW/RPcddHrRssBOxlLhvPD6IjXx3WS1AGDvZPsWN9BIqqqTgkToB7jH2
+	 kGzK4bT6zUQw3+3blfXrNXDEXCsgPaWvA41OB9x6D7R33UYM/ZgDRBbbPb36bzOmOO4G0
+	 7JYZA3pIyrmABK7PJQPIU0vFY068Rddom9eCYzEIuqk68xhI2UPbyoFmgDpFWfcznNnEY
+	 9Q+SYdswc49hQJ2xH1q9EPs40cXmNIzCKse7cdQHKum1QX5RfN88yr5x5L01xIm270CO3
+	 p+hDNhS+4Cueok85IssFsELFCg/LnadeVuKAMekuhuWpvTvAG4Wgw2I9PRwjPC1KGdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GnLXHqC9;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="z/SryV8c";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=7UXjk8Pu;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54B49606A333;
-	Fri, 20 Nov 2026 15:48:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54B49606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ECB4606A32A;
+	Fri, 20 Nov 2026 15:48:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ECB4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GnLXHqC9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795189680; x=1826725680;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=rY0W6DaBART7hRBtO74JyoGngDhXaNjblf8pvZikVpU=;
-  b=GnLXHqC9OvK2Q58YR0lv6Oh+WHYgLMesxK1DgVtWAsxbBfDx+6+2QMGG
-   z+LbgEeI6NPNrmAnBWswe3/6YZhq0f+LV5//SLsnB8GHZJo89cY6HGBU7
-   K6gaJ09cOHxyz0bdWIcoMKwNwCRu7ptQkcp2ha+xU1p/2jywVaX4hyk7H
-   Dh4wTCEgAtyQBwIfhfncje+QH++a5RTzo8lmbY+U+OSH+RFCIlr1YCXzs
-   C50vRuqIwi73m18mr2CBGVMeWWSaxWpae3lUP8gBj879NbLYPGuewdyvu
-   gJWL/MZcmCpjdl5JPxhkaKpIpWkvSMnk/OrSVu6FWKLboKUjxOyjAJy3/
-   A==;
-X-CSE-ConnectionGUID: q8fQDzN7S4+KEwbccQzotw==
-X-CSE-MsgGUID: iuu+Hi3SQJim4vqHHMM3UA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3916510"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3916510"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:48:00 -0800
-X-CSE-ConnectionGUID: Z8nBTrHcR5uCdm/6cSLbjQ==
-X-CSE-MsgGUID: rLphzEoxS3K7iy31/YVltw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10632751"
-Received: from jjgreens-desk24.amr.corp.intel.com (HELO [10.125.109.138]) ([10.125.109.138])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:47:59 -0800
-Message-ID: <0a0844b4-f0ce-47f2-b6f1-af45ad997155@intel.com>
-Date: Fri, 20 Nov 2026 08:47:58 -0700
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=z/SryV8c;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=7UXjk8Pu
+Date: Fri, 20 Nov 2026 16:48:11 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795189693;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
+	b=z/SryV8c0ojDqvAVOPkgni9WoJZSvqOMNaMkyN+XhTNEROXdR60sZAWQhhvjnT7ov+c44n
+	t/p0aO6SEFLfHIw4FTxRrHeaFCqM8rEj87IRfoducuPHzKG705awosG6JOJ5Cn5lF/STTa
+	Cg3UsbnE4wu0zpLtdEMa7q62LUhHz4br00IY9LkExD0JURm6gLGCbEAXwTL+veReQ/2IVD
+	Tbqnpbxqh+ro87nHLw1jfqIUlHMDq0cNjS2A/MHrQ6eVAPDiso83sofkjsL2S9bLpGs20E
+	TNDqK2S+G2MBcDAKTxLs2Wf5f/hEAespdI1tE0grn771Vx/iRgQ+2vP9lxZ1+g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795189693;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
+	b=7UXjk8Pur15tHS06uYGPYECUOx6EI0Y21J+lV/iKOuN8yUZyIs9bRhPzXgNk3DQaw2zowg
+	O7eCsfrVWZuDnSAg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Zixin Wang <w1355457260@gmail.com>
+Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	clrkwllms@kernel.org, rostedt@goodmis.org, corbet@lwn.net,
+	frederic@kernel.org, wagi@monom.org, atomlin@atomlin.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] Documentation: real-time: Add boot parameters and
+ task isolation section
+Message-ID: <20261120154811.Svr3Wf_j@linutronix.de>
+References: <20261120152836.100638-1-w1355457260@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,48 +74,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] MAINTAINERS: Update CXL, NVDIMM, DAX, and others for djbw
-To: Vinod Koul <vkoul@kernel.org>
-Cc: linux-cxl@vger.kernel.org, nvdimm@lists.linux.dev,
- linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-kernel@vger.kernel.org, Alison Schofield <alison.schofield@intel.com>,
- Vishal Verma <vishal.l.verma@intel.com>, Matthew Wilcox
- <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Davidlohr Bueso <dave@stgolabs.net>, Jonathan Cameron <jic23@kernel.org>,
- Frank Li <Frank.Li@kernel.org>
-References: <20261103201547.4079847-1-dave.jiang@intel.com>
- <awAJxeXEA2yykiV-@parshuram>
-From: Dave Jiang <dave.jiang@intel.com>
-Content-Language: en-US
-In-Reply-To: <awAJxeXEA2yykiV-@parshuram>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120152836.100638-1-w1355457260@gmail.com>
 
+On 2026-11-20 23:28:36 [+0800], Zixin Wang wrote:
+> One open question about the idle state limits section: I could not
+> exercise processor.max_cstate or intel_idle.max_cstate locally.  QEMU
+> exposes no ACPI _CST states, so the kernel registers no cpuidle states,
+> and intel_idle is not built for this AMD test host.  Should the section
+> stay as documentation-only guidance, or would you prefer that I drop or
+> rework it (for example, by pointing to
+> Documentation/admin-guide/pm/cpuidle.rst)?  I am happy to adjust it.
 
+processor.max_cstate should work on AMD unless it does not expose
+certain things. But then it might be an embedded board, not having this?
+Does cpupower report anything?
+And I don't thing this is exposed on qemu since the guest goes only idle
+and the host decides what to do.
 
-On 11/20/26 1:50 AM, Vinod Koul wrote:
-> Hi Dave,
-> 
-> On 03-11-26, 13:15, Dave Jiang wrote:
->> Dan is no longer with us. Removing entries in MAINTAINERS to prevent
->> people from keep emailing his address.
-> 
-> Can you please add the entry in Credits. We will miss Dan, his
-> presence cannot go away, he stays always here.
+The CONFIG_CPU_IDLE section already mentions processor.max_cstate=1 and
+refers to cpupower among other points.
 
-I think Jason has already put those [1] in Credits and I've amended them for any missing entries. I definitely agree.
+I don't know how you want to structure this information but parts of it
+are already there. You could go on an add some settings for i915 for
+instance. But then it feels like it should be within the DRM section
+because it somehow belongs together.
 
-> 
-> 
->>
->> async_tx will be essentially orphaned. There has been discussion of
->> deprecation for the feature on the dmaengine mailing list.
-> 
-> I think we can fold this one into dmaengine entry as well
+And there is a CONFIG_NO_HZ/ CONFIG_NO_HZ_FULL section for instance.
+It also says that the transition is a bit more expensive. This repeated
+again later on.
 
-Guess I'm not understanding how you want this to look. I just replaced with Frank for now as he requested [2].
+Maybe it wouldn't be that bad if the config switches would have a
+suggestion for the comandline argument that might be helpful/
+considered. That way the information pieces stay together.
 
+What do you think?
 
-[1]: https://lore.kernel.org/all/0-v1-52697321555d+14e66-tsm_maintainer_jgg@nvidia.com/
-[2]: https://lore.kernel.org/linux-cxl/d6a3c6a9-71f7-406d-9ae9-33b3566768eb@intel.com/T/#t
+Sebastian
