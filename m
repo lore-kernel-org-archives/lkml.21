@@ -1,66 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.90
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184157;
-	b=mXzQVIA5jPW1lII4QyJJZ3AwRSg3j9cqwd4bCBwknv6tOCbFFjjAvdjoQNuMzrBgvpGj
-	 qfUwWPqV34wu2RYNbB4xphg+Z39yZFl9CcL/T7IgE+26GTUI7WEG3xQgXc8NG2rVBH23l
-	 u5eHoMeVTehKm5QocUrjVtJkk7/HaWEO7S9cQshMbmsaWqa83tQ1eP4p1F8oahkbKtXua
-	 FvDTsxyXttMvBpQHNsniuHrmk3POdKO0PcaOhGgEV5xM9+6p9/dfla+j+NKoSzdlHEaTQ
-	 bS5XaNfbpaiVrjFU+qzv4crBYtPZ/Z5VVUcscpVpJxzyqwX/06cHhRKCOSmLzBjw35g==
+	t=1795184170;
+	b=YViu4RociDF9rwvxBotPVGT2zrolwNkweANJ6+U0Le5SxkOYgvtYRNPx8z57wG3MSm5W
+	 JEN1/AZgFS6fTOBlI9w+HK8HmnHewHFhbwm3PWgWhuOijcWLQ2m+YrMzb8nNyDVUT0Py4
+	 BMdvc5AKp00quHQfEV78IRA6SoSsx1U3hiHh1vS1JBR3YvKwB9kcJpuYjmoWspT4RzOmj
+	 JwLq4YB3eTk5bE+XSUGgiPlvTXh5lkxM+i/kSS4rnVzUIjIBCt6byfHmdmgcLSLIHm8NN
+	 u7HqedLNSsoTcXxrNLQ4xt+Ihp8Ltj/LjVhCjo+HrRPck+On9zw6TtVP8x7Opmg6UvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184157;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=djB2H3+AUQ9UAbVwoV3xtP+1jF+PYLRTPsj+L9Q3i1M=;
-	b=gUkVA7ZaXizflAcwLuDsLB9XSnNeYBpys4EuMi3/udnTxK0IOkTvwrl/QHHeZGpeJIFl
-	 x7cpWrns2tOxIygk6pPktjaqn/QTBe8dfwDtFssjq5EwsuxB7P32sCEqfT1YoPzCtzT2O
-	 0EDIJBXtBkvjimhKMqBHoWuVCv7zSCg1czA3OqyejKt/DZGeavHfdKhDJ7dObkFETf033
-	 pkL3ATM3jchy62NSE8om5hS1vFuE1mZ7tGIjPYFcUHZDuja0vbwZi7v0f2bN8gfE47sho
-	 dasdwlFF83zHFKcfkKSeyALMz38FPKK/TQQY7iGGv0JeGDMk7TiluDNqkWLwmRl/LMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184170;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
+	b=Pl6DXjDINbuAGtClmj9TVkRdbWaYA1idBEphpuukwV5GL5pjdkVobVOI3kAvy7xdmRuB
+	 m2ZSYnpR4LnuXJrjBCFLmmiZSdXv/0rrQpyPPn/LDMSxeraQIUEDIDHtEQK0yh3sRvf0L
+	 1ruAFZEO1sac0kKorLEry31Aag8OrEeNNwQSoHWDRUWxsy5/XfEeaqwdSBHIEQ1ZcYdsO
+	 zRBI3n/bwp3tmtcoTdRNrxgwm1TdTzMIW8yIo03KedWOdWVLYLELh4jrtMj7YnB0rqXSu
+	 gTRt9ARYaV/sHGq0ZNn2tnLc6kBOW0CMCmHXqGJHuC/xAUsSVUXCuzaM6x3bEnN67qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nA4LPU4z;
-	arc=none smtp.remote-ip=91.218.175.90
-Received: from mta0.migadu.com (out-90.mta0.migadu.com [91.218.175.90])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=vqY2SizF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=+Dq8tZ5d;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F208D606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F208D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E2B3606A33D;
+	Fri, 20 Nov 2026 14:16:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E2B3606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nA4LPU4z
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=lE8gxDYPl0F/rxqZxvrtd0Gp/XDxMqiQ0Whg2ioVnuA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795184155; v=1; x=1795788955;
- b=nA4LPU4zgSNZ/8YONIIRsAmATpGC0SV6lZjguc0uHGLMmNC/ZVmIqb2gU7X3a7u6BhX5R+Kj
- adk8TixfE0Umnoia9Xu78YFac8Pte6cGP901GVw3m4+wHyFhU7FwC3xVYycSuWxGOcCURjEzmve
- RYvWIh+bQVVFziSRpqPAJA2Y=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1121a40b1b8ff3b8;
-	Fri, 20 Nov 2026 14:15:55 +0000
-X-Mizu-Trace-ID: 1121a40b1b8ff3b8
-X-Migadu-Flow: FLOW_OUT
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v13 2/3] wifi: rtw88: support channel switch in AP mode
-Date: Fri, 20 Nov 2026 15:15:52 +0100
-Message-ID: <20261120141554.68116-1-luka.gejak@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118231940.3950-3-mehmet.fide@gmail.com>
-References: <20261118231940.3950-1-mehmet.fide@gmail.com> <20261118231940.3950-3-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=vqY2SizF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=+Dq8tZ5d
+Date: Fri, 20 Nov 2026 15:16:06 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795184168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
+	b=vqY2SizFoIEUCCa098XYAAv3YNeSt4AZm705itlAKiagcD1S6b3ONMTnJbV2n+YhTcfkm1
+	GGgjjYxmKAcGT618g1YJJCD71cKiTVak5mvkWhzyfcRpuHEKbVHy9luJTRtOjJecBfqWQq
+	JuLw6Dzi31l0v1cOIv0Cuemc25HmkAxw/BO/LTlkOV2ojeMvvnDWDQ5o1D2WJ8rI2JTOlV
+	Aj+HwFMGbuDcjhgD9DAgHZ7dHYizz0QbZj/klDqC2rzzWm7Nuho34dg9u9Sj7hc7qefbqD
+	6JX56FTzG6Q0tf/spltrwHDPSgSzj3gl4KL3lVF2RiAAKJ9JClZ6cFd//9Yjzg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795184168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
+	b=+Dq8tZ5dyt4Wnm5ctlcJpvCmR5gW0XTGHXCOpzBJ5weC1A76NpVe1BaEFM8d53sSSUIg6n
+	bu1Btrf06Y4xxACA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120141606.zcwyHZ3P@linutronix.de>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,94 +81,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
 
-Hi Mehmet,
+On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
+> > Also use smp_load_acquire() when checking pending_work in
+> > the exclude_kernel warning path to ensure the read is properly
+> > ordered.
+> 
+> I am confused by the use of smp_*() and cmpxchg() here. Where is the
+> multi-cpu scenario?
 
-Thanks for the v13. Four comments below.
+The same event is used in process context and NMI
+|        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
+|        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
 
-On November 19, 2026 12:19:39 AM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
+I don't see how to deal with this without cmpxchg. And the same event is
+also used by other task
 
-> diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
-> index e0f3e1adb13f..9d5df3e65b97 100644
-> --- a/drivers/net/wireless/realtek/rtw88/fw.c
-> +++ b/drivers/net/wireless/realtek/rtw88/fw.c
+|        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
 
-[ ... ]
+which makes me thing that it could be pinned to another CPU (unless
+there is something that impossible and it is strictly per-CPU).
 
-> +	rtwdev->csa_due = ktime_add_us(rtwdev->csa_due, interval);
-> +	delay = ktime_us_delta(rtwdev->csa_due, ktime_get());
-> +	ieee80211_queue_delayed_work(rtwdev->hw, &rtwdev->csa_beacon_work,
-> +				     usecs_to_jiffies(max(delay, 0)));
+The smp load/store macros is my fault as it looked better to do this
+than plain stores (given that we have the cmpxchg already).
 
-I think this can finish before the last count gets a TBTT if the work
-runs a full interval late. With a count of 2, the work installs count 1
-and queues the finish immediately because csa_due has already passed.
-
-Patch 3 measures the next TBTT after the download. Could the countdown
-use that pacing from the commit that enables CSA?
-
-[ ... ]
-
-> +	rtwdev->csa_retry = !!rtw_fw_download_rsvd_page(rtwdev);
-> +	if (!rtwdev->csa_retry)
-> +		rtw_send_rsvd_page_h2c(rtwdev);
-> +	rtw_fw_csa_queue(rtwdev, vif);
-
-What happens if the page can never fit? On RTL8821C the driver has
-eight 128 byte pages. A beacon that fits before the switch can exceed
-that space after adding the CSA element. The builder then returns an
-error every time, so the switch stays pending and a request with
-block_tx keeps the queues stopped.
-
-Could we reject a template that cannot fit before committing to the
-switch, or give up and stop the AP if the download keeps failing?
-
-[ ... ]
-
-> diff --git a/drivers/net/wireless/realtek/rtw88/mac80211.c b/drivers/net/wireless/realtek/rtw88/mac80211.c
-> index 3029fbdb288a..c9ac2685437e 100644
-> --- a/drivers/net/wireless/realtek/rtw88/mac80211.c
-> +++ b/drivers/net/wireless/realtek/rtw88/mac80211.c
-
-[ ... ]
-
->  	if (changed & BSS_CHANGED_BEACON) {
->  		rtw_set_dtim_period(rtwdev, conf->dtim_period);
-> -		rtw_fw_download_rsvd_page(rtwdev);
-> +		ret = rtw_fw_download_rsvd_page(rtwdev);
->  		rtw_send_rsvd_page_h2c(rtwdev);
-
-[ ... ]
-
-> +		if (conf->csa_active)
-> +			rtw_fw_csa_start(rtwdev, vif, !!ret);
-> +		else
-> +			rtw_fw_csa_stop(rtwdev, vif);
-
-Could we retry the first beacon download after the switch too?
-mac80211 has already changed the channel when it hands us that beacon.
-If the page buffer allocation fails here, the old page still holds the
-last CSA beacon. As far as I can see, the switch can be reported complete
-while the new beacon is still waiting for another update.
-
-[ ... ]
-
-> +	} else {
-> +		/* what a countdown may have held back */
-> +		rtw_fw_download_rsvd_page(rtwdev);
-> +		rtw_send_rsvd_page_h2c(rtwdev);
-> +	}
-
-There seems to be a similar case when the AP stops. If the station
-associates during the countdown and the AP stops before the next step,
-this is the first chance to install the station's new reserved page
-contents. A failed allocation here can leave a PS Poll template with
-the AID it had before the association, even though the station stays
-connected.
-
-Could we queue a retry for the station if this refresh fails?
-
-Best regards,
-Luka Gejak
+Sebastian
