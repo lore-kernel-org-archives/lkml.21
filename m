@@ -1,111 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195668;
-	b=thjr5pSMhhVo30htybi/lKNdSIofAXxshoPa2eNCKi3+0s8u63WZhGnlHsj2JIhWvvzF
-	 DnJXpKvk+fOc742x5vOvc+pCUe0psEJVYyZYBl2XrNrMtoJsRxZCdm7NzBh8nFtN1KukC
-	 m3a0fmF2E1rwCF5c8Ee9mXQCh236LOPRS0xp1/f2B0Zyq3VDllZvwe7O7E4O06D0xj9UZ
-	 7biV5b4B91yM4c9MYhp6+IdF6SYp8r1C23JEOcUg+q2a+k1is+F23HFjQ6zG43DfhubG7
-	 caU9ZjIjG3fVcqRI4WIU/TireApEG4Az+g8EGK3WphAsiWc9dV0ikVtLadZF/Q5iQ3A==
+	t=1795195704;
+	b=YckVS1JwKYGhVQXdJVFcvxY4RXK/C+KTfRt6dsm4xHqa67D11cm7pdi8kAZJYO2+uPVo
+	 ZIHEIEnfl3GhguZHaJq0KFUk5m/5KzznlD5fqIpHd8ixNLyR5rkly6RGP/elQXLh8ingv
+	 /QlIE6FT2IBugfy9x5HC5+G9VR80iViTrxd/zd9DKp7Zd7//msmF5Vcd9AXnkzWuguroT
+	 u1Jsfpo+r9z6E/m5c46zBcmOWg4XBnmrIMDPSEW4Da8Nb8aXz3md5LSIINCA+bLTDafE9
+	 NcsKHyQgxpk0Fo1Kt3oSgDn3SsPCvujCafZdVwJum3fQLmy/b/zJF0VTCIJHx0fe2OA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195668;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195704;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=aYJ744NugWVIMiKS0QCbcveofl6d6KXX/uG4XmRzDN4=;
-	b=vT2XZc52lcDdvYvW1IeNAJP7q89nFMJYVh94AHuQl6sh4qI1BcFruEanZqIh0uI3y1lc
-	 AgoDg3lb2y2sNJmGB2UHZLIyC6iOCXT0gBkXD0UR4gH1IcBXEpzvYwe+TIjwI5ImShExK
-	 DWNa+WtUAHSlzRsYgaqxanAK21msm0vsTXxTY9dCjg6BhX559UG+jzKxso9xLrFRbZTqj
-	 lyuTuV7DeSyMBkMrg3kia2kAZEGvt5Ws3pfPgCzuRQIgxpnVx3vMgwE4fgdnDPGkQj2XQ
-	 AQHhJZdI4DsowUGGHnc/RaufdGOOWdI5Ez+bn9sYATNE/IErwCpyMlTFEaz6b4n4AoA==
+	bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
+	b=Qz/BTizDSLlFGNjYtfMEMNQ6dSq4feOck41h33LK5iqQkXjOeEnUurid/jbwyWJrN6p+
+	 LHC6FifjxT20Q39PxmXACSho3ooUl5XwCV58V/V6tmtp/MI10IG639NZh2PCXINVUctLn
+	 dtvDyxcnbTJlVxamvrMMH7bOTHSFwO2L8/EsbP9fv08hxlUzp86f8BD8s/T80t1mQJs+w
+	 r+CIVTH6qBdhGDY9iBHzbN7K7aQzX9lQh7LOf3ssl0zJ8LHJLO4/4yod/oLb3oWKjR5qC
+	 Wih1eBgXr/uWRTzU5tifhtlChpJCd+PY9z0rtlR6k1H2EFuSQJVmj/+lJapsYQinuKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r7d1Z3rc;
-	arc=none smtp.remote-ip=209.85.167.170
-Received: from mail-oi1-f170.google.com (mail-oi1-f170.google.com [209.85.167.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVQm5TnP;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B25B3606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:27:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B25B3606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E96A606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:28:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E96A606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r7d1Z3rc
-Received: by mail-oi1-f170.google.com with SMTP id 5614622812f47-4e4a4d77e5bso1643878b6e.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:27:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVQm5TnP
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a358881793so616050f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:28:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795195666; x=1795800466; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795195703; x=1795800503; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=aYJ744NugWVIMiKS0QCbcveofl6d6KXX/uG4XmRzDN4=;
-        b=r7d1Z3rcU80Ftfsq8u4pPrTWtL5a2QJWqXuQn0sj5yw3f7cL/WZIG5XkJqNSOm7qff
-         Fa8lXfMkaa18EL7CIrW/qCDwpp6ppb7YhXJWhKglUiMkyISqXdbV5etgPGa8r83fq3Wf
-         jaNDGMk9n86YtTvhK54DUNaoGCJB1NSWlmeVo/49RbzwcdruJz0q9d2h8MfFncGLVuOC
-         kNcvMS3t/mU+onD2BPtS1Bx2k6dZsaYrkbzaDUhkoWfsUQjkcUYe9XYWs1p76wbLpqGB
-         5UfF3zsUUnkQEztUqvvSSS/U/rXiO1/8yM/RA1ayotKkQu8k1ljxL9kqhCX84QLJg4p4
-         u0OA==
+        bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
+        b=LVQm5TnPlU/crM9dwG0oHQaaaFDL3Hwe3WtHrCGasduNkPbLU2bx2rIPjQYUlDi4of
+         2biRPi2qIvMR7H8hZPfZW8q0ob16ejPFMqOiVAXiDOTYW+oXPghUkOODA1XVkeRqlk9U
+         4bynLJ+rZqcDrHtg6vg4jPBdn+GQzvzXCT/bf4gXsc/s2s4XuqiqvyEjkxv4ax7rzWmb
+         dFzPyfiqOdYWY2OC5PtlGtFrJrgM9FhbR5S1QUU8uSA87FHfCYZIs940dlIeDUJnJjDY
+         +ffIIM9EjDc/4EJ3NlujMWTzBvfIEDItpw4qChJFQrc0wNVvJtM0F6FgB/Uj7rIse+eA
+         4ytg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795195666; x=1795800466;
+        d=1e100.net; s=20260707; t=1795195703; x=1795800503;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aYJ744NugWVIMiKS0QCbcveofl6d6KXX/uG4XmRzDN4=;
-        b=YWKHA4EUSn0UV5ctNC2lddX0KOWuAdRNr5e/7HjxyOMsjkZkCAAeq6XGGHHC20Ravu
-         bnYuSO0+X4zvrpj0rGUF1MZDIwMajD8gsGtjFK7+vMIklpaHOToOb63fTbM1bEBBTtvH
-         1hk3jOKuy17ksJlgAQcEFTL9qDMELA10ERa9bjZdMuRKgACTZwVQiTx+2na1TBxCuTSJ
-         ZmUMgYXEg+QsK7+Nr6B3xqEfNgwBWmsmjPPZVHnsoe3i1fDxcNt86muPbY73ptJLAd+g
-         VhwHq9hlhA9iLixmxghSltRiGCUQEZ0dYrfG1E63QC52pIb0n/ZHRf6icT7uNFKVYMLm
-         nnTg==
-X-Forwarded-Encrypted: i=1; AL+hErHaYpvfpN/q0jihey+Nb8pajWuWoBeaEFsLhxYnz96mAiNE6NcIBDyW0GdrOnRJyO3ySOdMZFVmxR6dvNU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84adWN4e2An+L6kRkgg0yu2/641UHpJ6vGFIf43DiCCDJ2zVn3
-	pDV/YQJei1fYR+KMhWSWZ9MXLWcHkBnR/bWxC28Jah5VHVoz3HPBb8TD
-X-Gm-Gg: AYBFou197956MvvIsKzfCqs3TfzyxBfjZTMN+ZEL8QUduyM+dnHlYGZsjJiKn0PlFqe
-	dIb4fx6Xn/YP7Y1bB0aum7sh5ufMC/KOfEc2lKzldCYEsG4b+nqmOZ0/qJBsVM91MGVAx4PANOJ
-	7CrYr1KFPYmZGnEyUuSZHrjNXOmWphyWWzgMfYyUHM2dJVXxP4b7JMqFrm4ra2pW7xzuFmtlsmO
-	hs1Eu455pDtXZkfdZ2h6iaNKmIoGN9EqgtVZO/pKdXDYzov6/EJFM+AiBF+6Lfoij7/c/JxtdeZ
-	eSv9yZnx7H76h4Sp53FHBFkFSEAGWqVNCfB/EOiIoq5uWqWVsjL03+RGizi3e3F/073nXwV8z8s
-	NBaDxQemw87MwgNa55BlzC+S0W59t6pKGXCJIGz5w3Y5c+w63eV5bzpx2ehRnOgZI/3QPbXPax+
-	EB1FRJOygVYdAH4DnnmKCEHYTIJ6TRogFyCshTfZpziVuIwCMu0fI+8fMlNpCTf/oBXr+Uu5Ptr
-	fNitY60dfZ1uxXVzD0jSYInPLNYOQ1UkhpGuJZfk/DbojG4t6+UE7TXR+4I26K6set0wihqt7OT
-	7Kz37G1ESXLz1qGUr74lu2s=
-X-Received: by 2002:a05:6808:4f08:b0:4b8:46e3:e223 with SMTP id 5614622812f47-57a0a113076mr2651142b6e.15.1795195666573;
-        Fri, 20 Nov 2026 09:27:46 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:4e::])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a3485e3ecsm2473520b6e.9.2026.11.20.09.27.46
+        bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
+        b=KYx3Ol1SuTvq7oOcB3nFI9R5/LKj4w6WaHWbMBJde1OuA/Gvx7D1nDAyHPjyUuhngn
+         Q7mNygkaT2vYE1GJki8G7VokmYBORXVtTuoiW1JIGfPfiJh6HCuJzA71Dj8JdPDf3aT4
+         awcq8UebhqoBfaocRqrZk4P+9gWb4ze6gXFDmLPzcFaCvvcRtxLqe/B2qlOCxePVbMEf
+         2xMdRrUSETi2tCO2jMPvofNW9e9u7tVT7ILN9PF/i2kqbfGRID5WOEbE8FZ4V+SFx6vO
+         RuWtzSKlOj9BDd4alJZq5wiUVfnvutUGg9MJeWB1PNBfh8Gskx8CqZIfcOjMKhD6fUPt
+         8Eeg==
+X-Forwarded-Encrypted: i=1; AL+hErFbsWemLnjco2alX5ovepqOSuMqHd1he1qVfLJOVQ9DKliy8vae9OVpCLr2G3rMLxv+irfeKNm4Ql+q2Rk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ySMOF11QAigomXFv9/1+3b4IXjkvPvqPXk7daJox9yE7vDYlf
+	Jgq7rDpW15HYdvtkDHY4shkcS7ayN4QippC9ec47KDy6HXMLJwB/kPlH
+X-Gm-Gg: AZFdTZcYGGBw9IhwlfJC6Wex8n8aSqC743bSGoAPnnl1g/nHujKWY7nZeE28akwwHa8
+	dVcbIs2ulHpukjxaq2uFu9TXW96Sk8UgtBo2xyIPyYsW9D/I9qCmOvX7Y5QIkLFgHw+tXKomqg2
+	rjr7+J2kalf9Ca10i5HC3UDOdJqJeFub7dH1z45NMhhdfPoUYiejWbzoHHpBktehly8aSrWw6Tt
+	aGE79wYl9W79CJgnGnqRMCIwG5NCqdJFkaAHhTtH1krOvpj8GpiKwg/iyjh9IIAGc0MjI3EAoUx
+	ZabaBWKrWRS860whr4eliN9APQO93ZXfto3nwNEiRFi+6RTExx//oTVOl5H/Fj0og3oDyqZ6LOY
+	Whe3Cl3xyOcdkq/ZfXOil0rBjgIH1ka0bJNopoP5pvwGJhW2b2pM8YXQQB6QSFYnCdeTZo7XgZw
+	H1GtGhyVYnjlDd4yKFTVu9G8Zwt9v04k4JRdqvqX8tyCLF25zEkFRJXZrNgjXTpAx9k+XuKAbDI
+	p75XHcmOfItCY2c95nIhqQuenelTHAuECFnjxu9AlJxrGcZX/y94RRHpTdjgNn+ghgen4hFoiDa
+	MtSrsJytKLFcpGR+9zrAwQhebrAHAp/f3BrFixjK13GpagRJ5YChj93Hcyp4AEHnzgbvmlNmGGG
+	LesajMBmN5XkBc+hhI7pbLvPxVZKIvhnmp4yHpT4X8djk930Xk15KqPtSRFmlaaSx
+X-Received: by 2002:a05:6000:1788:b0:4a9:1649:9eaf with SMTP id ffacd0b85a97d-4abb86e5099mr7984738f8f.57.1795195702683;
+        Fri, 20 Nov 2026 09:28:22 -0800 (PST)
+Received: from PC-Marco.lan ([151.59.51.41])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm6670524f8f.50.2026.11.20.09.28.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:27:46 -0800 (PST)
-From: Vlad Poenaru <vlad.wing@gmail.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Leo Yan <leo.yan@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Ingo Molnar <mingo@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Suyash Mahar <smahar@meta.com>,
-	Amir Ayupov <aaupov@fb.com>,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 04/25] coresight: perf: End AUX output when an event is throttled
-Date: Fri, 20 Nov 2026 09:27:39 -0800
-Message-ID: <20261120172739.1843303-1-vlad.wing@gmail.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <b851c070-19d2-42b8-b19d-be4b02ad9715@linaro.org>
-References: <b851c070-19d2-42b8-b19d-be4b02ad9715@linaro.org>
+        Fri, 20 Nov 2026 09:28:22 -0800 (PST)
+From: Marco Ziliani <rylos78@gmail.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Daniel Scally <dan.scally@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org,
+	Chris Simpson <chris@nilk.net>,
+	Tony Garcia <tony@loafecho.com>,
+	Simon Kruse <simon0x+git@proton.me>,
+	"D . Manresa" <dmanresa@gmail.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] media: i2c: ov5693: Program the mode registers on stream start
+Date: Fri, 20 Nov 2026 18:28:19 +0100
+Message-ID: <20261120172819.257562-1-rylos78@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <awAUxukyHCqtABs_@kekkonen.localdomain>
+References: <awAUxukyHCqtABs_@kekkonen.localdomain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,14 +106,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On 16/10/2026 14:46, James Clark wrote:
-> Reviewed-by: James Clark <james.clark@linaro.org>
+Hi Sakari,
 
-Hi Suzuki, Mike, James, Leo,
+Thanks for the review.
 
-Could this go in alone as a v7.4 fix, with Cc: stable@vger.kernel.org?
-It does not depend on the rest of the series and applies cleanly to
-v7.4-rc3.
+On Fri, Nov 20, 2026 at 11:37:10AM +0200, Sakari Ailus wrote:
+> This doesn't seem quite right. The static register list should be written
+> on power-on and the rest when they change. Also there shouldn't be overlap
+> between the register list and the registers programmatically determined by
+> the driver.
+
+There are three such overlaps in ov5693_global_regs today: 0x3820 and
+0x3821 (FORMAT1/FORMAT2, whose binning and flip bits the driver sets
+from the format and the flip controls) and 0x350b (the low byte of the
+analogue gain). They predate this series, but I'll fix them in v3 with
+a separate patch: drop 0x350b from the list, and let the driver program
+0x3820/0x3821 whole, including the bits it doesn't manage today.
+
+For the rest, I'd keep writing the mode registers on power-on as
+before, and also write them from set_fmt() and set_selection() on the
+active state when the sensor is powered, instead of on every stream
+start. That needs pm_runtime_get_if_active() rather than the
+pm_runtime_get_if_in_use() the controls use, so that a change made
+during the autosuspend delay is written too. It fixes the same bug:
+today a format change made while the sensor stays powered never reaches
+the hardware.
+
+Does that match what you had in mind?
 
 Thanks,
-Vlad
+Marco
