@@ -1,87 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.12.53.23
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171306;
-	b=uvAPm34SJPwphbSNhsfrrzN3O/rlvDmYeuPOabWcNFtmfLibkmMmisAaZOPvjYl71T/R
-	 JAzjGoNRPj41FAqHglBPmapRdPXJExzIBuVlRG5eGGyrsElJDnvSMC/QLZbs2nzHVrk39
-	 zshw3nHPcVSAnD1zWzp8mLtNvtjiR92sbrfEUUuATFB/k9cEN2FHyBQilTLdwcW9E13Qw
-	 DxABvHhCvdawdTA4Ap49ZmLQDhBn6zNJYZ3ALoKLcToX63gzV6KaKvEyjMC+ar7kvEhs9
-	 4tq+Oi8+zspMhLcM4q68T+aUFfmyEJlejuIPTDO7msvsYCbpQkRLZZJ7/F9T2qNYYdQ==
+	t=1795171342;
+	b=uX1sxAQ4L1DcRwfkkGMe13yvvTx6EsavkOYNKnPe/xaduLiUfRacEYmcpMZ82EVOn1hr
+	 TeP13PloJPxnGiyhEobGm29ttN1+mwdpKucKdMHTKYCBkFuDLcfYhhOzNLu78lSb+b65w
+	 3bEyeRuExtZX63vnWYXGB4nuzGMsdHnFX2DlTnViiUTipARMyuYe1gJpOm1C/EafFRoWC
+	 +3VU3bS98YStIZCVezdEMSlHEhuxA5G8pUagWL56h3JxBb/HxT/7K1dWmZtnrMlZAZ0L7
+	 0HPEKl0cOe1i3v+nirjyI7a5DHe343DdaxuUSD3L+1XxoV2vFwzldorxx9cJ173fWng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171306;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=8ZkH3C7FN+L4lwvS5XXDmqz8WPNr/tnPGV5wnp3bIBU=;
-	b=wrHrbl4JlOU5T2UCoXmaLd0soJ2bdK7/QdqhAwry23EJL0+eWvR8DMhQKa9Jp+jIIcAy
-	 jG9COD2H+fScQIKHU12zcAea+T3pgzjrRgrTOdDr+vtBE81FLU++Ye8QMOzBKSfN5nyeg
-	 YMVMmKXqSVz/7m58yow0ylRsn+0Bb5wqgXjlQZ14L0QQTlr4YSwvFxJRRAng0IM7VoSSK
-	 GiYf+wXrnypUtRaduTEc6/ivBYxnjk79a+L2qIvfoYBqpgUWXg7FIf4RIxTNrgAC4RbfX
-	 pD2kDEwU3ZfgrWZ2mWwnqCyCityRwtblNa8FcTOI/U/NPP5M59Zg3YxogDhLySEv8TA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171342;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition;
+	bh=GA+rgY4utwY9kf5LrkartVA8tfESwwP7tCFlkDbq27U=;
+	b=hdP8DIutKua2jpr0sZiGqIcjEKSMC7PUG17ZwRNTxmcTqLL0tUvnO2sORLevM6pwltUB
+	 lxnPVJvS9AG1HnSNitLrHBoQz3UFQm0Yro/VmH8fZsI+dNNpPJy7imTRpGstD9zH+el1O
+	 xAKdEnhpUpWXqoNdGq/mjZfjjGSy34V7P2mJbGEskyvokEbJhY3u6vIclmke1AVAcytog
+	 0ehEuCO54jHzzB3HVdJhEs9PCyJwgusOMn/z5MZr3WNosNmsCD5BZTnP7/WptM3AHue20
+	 wifuVImvl3f3/nqG0aFSl6h7cP9QeTd4UzAMh6WdDh/+9RXszyEr9TDs6ljiUqm3I5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.de;
-	spf=pass smtp.mailfrom=amazon.de;
-	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=ko1ToMy8;
-	arc=none smtp.remote-ip=52.12.53.23
-Received: from pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.12.53.23])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E69A6606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:41:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E69A6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=W9dfn1oh;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 4AF98606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:42:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF98606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=ko1ToMy8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1795171305; x=1826707305;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=8ZkH3C7FN+L4lwvS5XXDmqz8WPNr/tnPGV5wnp3bIBU=;
-  b=ko1ToMy8GuAJ4RXxhDamjh+3DKFCuHggIImsWStTpleZc64zuKmXsM/m
-   9+/BFxOAP2hO7jA+OU3yJh7U2YQMWkOXiTUxCqbKCztaVKq1fUBeSSxtt
-   PrhBuQOEspmu+7ajmOuOpLkz/zaiDId3QEok1SiTn7DvavKOdPTj8zp9N
-   v9EFfAMkrpEOIUjxYdfDOV9YXkfBd084poE32yPtEMqOMLfYou5tdikfP
-   UqAheBqiMYcYNqD7HpYdbiT4y7yRQG4cOK1uVjKIaoQrxtEUAL0OCRVzY
-   10uH8JhOPBU9Bcbj+olIhnjr+hmcuQ2+mP1fQxJ8HvuEB7o+Z7rcbbymK
-   A==;
-X-CSE-ConnectionGUID: 7uBa8vIPQqeu3VdwDfFA9w==
-X-CSE-MsgGUID: l2BbZ1UHST262PRtRKOlwA==
-X-IronPort-AV: E=Sophos;i="6.27,222,1787011200"; 
-   d="scan'208";a="34510299"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-010.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:41:42 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:9317]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.222:2525] with esmtp (Farcaster)
- id ea3ceb02-7d1f-4be9-82f7-a0b9ecc40b14; Fri, 20 Nov 2026 10:41:42 +0000 (UTC)
-X-Farcaster-Flow-ID: ea3ceb02-7d1f-4be9-82f7-a0b9ecc40b14
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Fri, 20 Nov 2026 10:41:41 +0000
-Received: from dev-dsk-lshahed-1a-d9c3b839.eu-west-1.amazon.com
- (172.19.123.145) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Fri, 20 Nov 2026
- 10:41:39 +0000
-From: Ibrahim Elshahed <lshahed@amazon.de>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann
-	<dietmar.eggemann@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Ben Segall
-	<bsegall@google.com>, Mel Gorman <mgorman@suse.de>, Valentin Schneider
-	<vschneid@redhat.com>, K Prateek Nayak <kprateek.nayak@amd.com>, Josh Don
-	<joshdon@google.com>, <linux-kernel@vger.kernel.org>,
-	<nh-open-source@amazon.com>, Fernand Sieber <sieberf@amazon.com>, Roman Kagan
-	<rkagan@amazon.de>
-Subject: Re: [PATCH 0/2] sched/core: Fix stale core_pick and forced idle after SM_IDLE fast path
-Date: Fri, 20 Nov 2026 10:41:32 +0000
-Message-ID: <20261120104132.74241-1-lshahed@amazon.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118144149.GA1779021@noisy.programming.kicks-ass.net>
-References: <20261118144149.GA1779021@noisy.programming.kicks-ass.net>
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=W9dfn1oh
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 430201477;
+	Fri, 20 Nov 2026 02:42:18 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 402D33F632;
+	Fri, 20 Nov 2026 02:42:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795171341; bh=KZjE07y4SmOyc71lJCM0v3KfRKAEC8tpOiHDkICt3Nc=;
+	h=Date:From:To:Cc:Subject:From;
+	b=W9dfn1oh5FlzZ73WblhD+zWKPJ7uT5LolA/jic0JijGNPiGabqk6eYLevYw1FHokE
+	 LvueUommEyQ/clmqLH0a663hprd6eMCuR+huVn+B/4ytt7i3IFpfCJ73wRkmHQ3nzZ
+	 zaEugB1c7WMtqdqvYsVIaTSiHYV1gaMzmAE5nx0E=
+Date: Fri, 20 Nov 2026 10:42:17 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>
+Subject: [GIT PULL] arm64 fixes for 7.4-rc4
+Message-ID: <awAkCf3K4x8CtoKf@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,12 +59,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWA001.ant.amazon.com (10.13.139.88) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-On Wed, Nov 18, 2026 at 03:41:58PM +0100, Peter Zijlstra wrote:
-> Does it make sense to stick these in the selftests thing?
+Hi Linus,
 
-Yes, will be added in v2.
+Please pull the arm64 fixes below: BBML3 allow-list corrections for
+Cortex-X4 and Neoverse-V3/V3AE following updated errata, a kCFI oops
+during kexec relocation and NEON intrinsics type mismatches causing
+CRC64 and XOR build failures with tip-of-tree Clang.
+
+Thanks.
+
+The following changes since commit ad3fc05c7e65009355effeea06aa629a687acef2:
+
+  arm64: suspend: Only track cpuidle context for idle tasks (2026-11-13 17:12:34 +0000)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+for you to fetch changes up to a041bdbe1f3a8efa8a527a89c84d3771232b4942:
+
+  arm64: Drop stdint.h type overrides from asm/neon-intrinsics.h (2026-11-19 00:10:15 +0000)
+
+----------------------------------------------------------------
+arm64 fixes:
+
+ - Remove Cortex-X4 and Neoverse-V3/V3AE from the BBML3 allow list.
+   Updated errata documents show that revisions previously reported as
+   fixed remain affected by load/store livelocks when changing mapping
+   sizes without break-before-make
+
+ - Fix a kCFI oops during kexec image relocation. Give the relocation
+   routine a type hash and enter the copied code at the correct offset
+
+ - Fix the build with recent Clang versions by removing the stdint.h
+   type overrides for NEON intrinsics. The CRC64 and XOR intrinsics code
+   no longer includes the kernel's type headers
+
+----------------------------------------------------------------
+Ard Biesheuvel (3):
+      lib/crc: Don't include <linux/types.h> in NEON intrinsics code
+      xor: arm/arm64: Move NEON xor_gen() dispatch into the glue code
+      arm64: Drop stdint.h type overrides from asm/neon-intrinsics.h
+
+Ben Cressey (1):
+      arm64: kexec: use a typed entry to fix kCFI oops
+
+Ryan Roberts (2):
+      arm64: cpufeature: Remove Neoverse-V3/AE from the BBML3 allow list
+      arm64: cpufeature: Remove Cortex-X4 from the BBML3 allow list
+
+ Documentation/arch/arm64/silicon-errata.rst |  6 ++++++
+ arch/arm64/include/asm/kexec.h              |  2 ++
+ arch/arm64/include/asm/neon-intrinsics.h    | 24 +++++-----------------
+ arch/arm64/kernel/cpufeature.c              |  3 ---
+ arch/arm64/kernel/machine_kexec.c           |  7 +++++--
+ arch/arm64/kernel/relocate_kernel.S         | 11 ++++++----
+ arch/arm64/kernel/vmlinux.lds.S             |  5 +++--
+ lib/crc/crc64-neon.c                        | 10 +++++-----
+ lib/raid/xor/arm/xor-neon-glue.c            |  3 +++
+ lib/raid/xor/arm/xor-neon.h                 | 16 +++++++++++++--
+ lib/raid/xor/arm64/xor-eor3.c               | 15 +++-----------
+ lib/raid/xor/arm64/xor-neon-glue.c          |  5 +++++
+ lib/raid/xor/arm64/xor-neon.h               | 31 +++++++++++++++++++++++++----
+ lib/raid/xor/xor-neon.c                     | 16 ++++-----------
+ 14 files changed, 89 insertions(+), 65 deletions(-)
+
+-- 
+Catalin
