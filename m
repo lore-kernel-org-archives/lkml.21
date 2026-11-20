@@ -1,70 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171542;
-	b=iTBsbNdXkfnfOJDriFaiEqww1sD8NG9Rnnwp619iZCk4UH7zQ5wKHs9dhYPnRg6K9j5k
-	 882mqGZKf4YR+6dhi7Z3RtQpF7fmWgvY02XLM33af/HH6MOwAeown5G/kEJ21t5N/O80z
-	 Wd7Fpq8r7gq/fh0GT7Hq6Mn0aXFhjjBbKdSOGsdPdoDsP9JXDUvsV/lb7ksB3t7YwYB57
-	 f5Z5vABXdFKT6Ws26ysynxt4DkUHzrUu3If4S2j11k9h42monWd/U4clz/MAwuN5BgX0c
-	 juxcb8dHynZJF1g4qjOYLGtSbrTMhz4pMD3+spf1nTbIhRHhy4sOXDBJR/K45U/StJA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171542;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=6mt0x/WvoPZ8PYKNt3cXfDXfrvC+eykybhxZfVDy/z4=;
-	b=qXfXvMqw1fB9BriB7uoz23kywZqwJ5vB1VwY/In8fZi0fdMlrf4y5bAG+K8LYxLl2zgS
-	 Ax8wUJvap2HtPfAeVns/YMwki1Htz8octFLMR90SLmpaTIO83YJftw9HQBSAF7p49/ZtW
-	 0dP2jbq3B2oRZzbR8NtegJ9P8oABGTf2vpkmiYBjHsHlGupbZZQmcYLlIRuujvFQnCft3
-	 az48rEi0JYoo31Izn6dvY4T5eNJYfBssWsBK/8Fl8fWg7H4CRMXrAJ0POFVPSntECrgGm
-	 NmuLTENa3mwpRT5/7NQP0VwZ6xrru6s48feq6LBxsRYjQCAG9GEPfQSOlwVDx3mB8lg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=msMZFYqp;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795171545;
+	b=PUasISjHeHyZy6D3Z4L0vyaAE9SO4yX3sdCdKjOK+symtidDbPZAZh8vwn7m5xm3UQs1
+	 z2qa2UKBwOkNCunk6hfZzQnGbcNgKilEoC7oYTDxaUqlkVZ+AGoQc5hPmalyMH/p12n+j
+	 rVRrOer1jDFgUpp5uImlhwcFW+IF8Hr9gtQIY1vYP26UYGoqdy4Bd5nDKRVIqK3BHmpWO
+	 J/rF0NmRbF+3jwY4EzsWxJ2AkoyEiIWn4G12bSpn04hTGByQEPg7XBsy+jCocCup6lIh7
+	 qKA1AXxHkePyzawrzYSJQJSQkvcPecbU+NeH8nJiwSFBvFsEDUr6wOPIFGiVT+gVicQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171545;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ahkjr2QjTf459AzIyoEmXwHYbuW/drAV6xi8PB3pHC8=;
+	b=l+rLMquoP6tExVV0v2s5IUMO+4oNPoMyYFjGnfd2Fm3Rra/cUefU7PRuyWP375Zrursu
+	 NJOutv2JpK0KKR5yrzaDBT3DbRxl0VLOEWZhKBjMX1TPnHhcFsDq08EmN3pLaJVdhG7S/
+	 dKEBSoU/kQhass+lZu3zKP4jipGTy/L+uWNaC/OtTvenvQdXmcXPRCzhSz0J8caA+8xLv
+	 iCow+DgY5RU/0B/fpVO2XpFXNJTJYlS4zzQoo/cM5F0OWVSecwdnUvmEopnUQwimbze+M
+	 OvIbibLy/VggDgYpz3OhWV5H4llC7rLrahSBtyS68pcu9SE5SIi/Hf9BLbVr9Q1fwiA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oIajaDUh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8433060A261F;
+	Fri, 20 Nov 2026 10:45:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oIajaDUh
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795171545;
+	b=D64irciVEMczg/LqP/BXbl32fgKpwt9tolgaPtJd/8PKnAZ2iVvdF44gR5tQJF9/MpSl
+	 33r5ehWUecr1nI6jJ0PD73Nui/hrmvLMvI8KNsqbR0tS4hcCvHGKkAxBYKFkUbMvDNiIX
+	 84tI0qLfzHd4jkoUMy1ocMgvNCJdbO9KlHb5GKR4I6wIU4i1B/hLwFYelJ9hj+Hed2xjv
+	 KcHvCG+6DDN6DAGsmfEYUo1omWnX4x8jnqEIoFhzSpWoeWCqnZAM3cd8/xcpYD3Np6djm
+	 mbtEoboSEn2PII275WcZBN4l7kPzohTm5xaC5e0Qm94GR0JIHBFoabZM2sxUvUECLeQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795171545;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=ahkjr2QjTf459AzIyoEmXwHYbuW/drAV6xi8PB3pHC8=;
+	b=oQwcEIoziUwVhOvHuXqDkr/IaxQ9YRcAzFaBKQQ88HJjHJAT94q1cSJdWdsRZDC7jMw7
+	 YIcfQpuiSkZZ7DMjGHSCj9kRhYalCfO0QCLOfgoL9sVknVehMQE6xJzLE7fWzm/TS5uEk
+	 xe6HaONyKXVwmBVN9hlDo8tUKXkbO6TPlXf3yZx520wOKTkCOXaDU+NVya3BSTqIHd+ir
+	 UnsFufdFhK2JMselvrLFMETzG8NdwWVKdzdaOts/BB+0Wp8G9vy2v6su7c3R5MyHZmQ81
+	 ZO54+kXvlK1Ij41VObFFh6VtIJ+2pvDobKQOuNXrIrMZS7Iep17Nm+Se/kPzs3Vh1bA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E676F606A332;
-	Fri, 20 Nov 2026 10:45:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E676F606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=msMZFYqp
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6mt0x/WvoPZ8PYKNt3cXfDXfrvC+eykybhxZfVDy/z4=; b=msMZFYqp+cM8kchkrE5rwCIkHd
-	IvHmeNysPbjbeEiylYZn81RUn/Ht3Hh7xl+3suU+MSipA9y4SARB5e4tkuPwBf/1/JeZ4agcOXwIn
-	lLVkHPW5CbryDzgIS35bR8Nez3cMLlmVcgwa/KZTeHnk7Ej3lmvIdCRuNkCMNu4Z23EolakSlwMmX
-	BcMPg8Ni2fCOT39I0Xyqu1sIPdM1lpWCci2AUBCiW1V9Tp0tft2bq2wJKdUc1Y7djHYxERGcNbVgy
-	d92Un+WIF/OCHbxyBsy+hs5Memaf0dNBmuVzlxz746JgEAU24We4S+2fTtBVEXqnngVR3KT2RBqWm
-	gDb7Rb6A==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUM7b-00000002tO5-1Mbd;
-	Fri, 20 Nov 2026 10:45:35 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 2E1613008D6; Fri, 20 Nov 2026 11:45:34 +0100 (CET)
-Date: Fri, 20 Nov 2026 11:45:34 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org,
-	hpa@zytor.com, gustavoars@kernel.org, ardb@kernel.org,
-	hca@linux.ibm.com, nathan@kernel.org, ndesaulniers@google.com,
-	morbo@google.com, justinstitt@google.com,
-	linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, riel@surriel.com,
-	shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com,
-	atish.patra@linux.dev, dgreid@meta.com
-Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
-Message-ID: <20261120104534.GO2668564@noisy.programming.kicks-ass.net>
-References: <20261119213147.1094488-1-usama.arif@linux.dev>
- <20261119213147.1094488-3-usama.arif@linux.dev>
+	by smtp.kernel.org (Postfix) with ESMTPS id 3A86B1F000EC;
+	Fri, 20 Nov 2026 10:45:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795171545;
+	bh=ahkjr2QjTf459AzIyoEmXwHYbuW/drAV6xi8PB3pHC8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=oIajaDUh7QxVuPYxJaDINddiwMjFOXVuEIEKW7iYSHOhDhQD+xeQqAs9QOJCRUIxP
+	 Y+IxYjc9tpLDyfiXAzd4/4B/Bunsfol0oAsnASdp0yG6WlJOA6nzW9007/S4WiA0y+
+	 APppqiABU/ABb1E7a4Va0PHDM8Qa/VOsfiuIni/CI1y3Zy5UhS9QA3AvLJmgje17Yh
+	 sibminyxbAtKvN2elzl+3mGh6Ntj4uE2R0sYZMa3Q9b7uBTK4jIz/wqk7MjjH1Gakt
+	 62FZMEog4pTbdqTaOaBzNOj3n2CWy7joPFyM8ze3O6J/B0baZqgbGn3DIH3632vyq6
+	 uRhelbv1sAmzA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B97B94980C;
+	Fri, 20 Nov 2026 10:45:32 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 10:45:33 +0000
+Subject: [PATCH net-next v4 2/5] net: stmmac: dwmac-sun8i: Get the EPHY
+ clock and reset before the MAC probe
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,85 +83,152 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119213147.1094488-3-usama.arif@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-sun8i-emac-mux-uaf-v4-2-57eba8915f25@gmail.com>
+References: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
+In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-kernel@vger.kernel.org, Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795171532; l=3805;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=IdMjizPApK7IJxwnRCjJXsAyYZSFVRhsVd8BmZt3Fgs=;
+ b=5BvxnoZxuBiioBsyYI1RdFJonVr9LRE4yUrmIvOeDDsGWqhVxmKiIB8x5qTud5s8kzLFgtSzC
+ vxqVUydt9h4B/Duiy9kNZCXuUjaygHx8I1I/kyOJPIY84a/6IS9Gor9
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 19, 2026 at 01:31:08PM -0800, Usama Arif wrote:
-> +#ifdef CONFIG_X86_64
-> +#define __stackleak_poison __stackleak_poison
-> +static __always_inline void __stackleak_poison(unsigned long erase_low,
-> +					       unsigned long erase_high,
-> +					       unsigned long poison)
-> +{
-> +	unsigned long count;
-> +
-> +	/* Short spans do not amortize the startup cost of REP STOSQ. */
-> +	if (erase_high <= erase_low + 512) {
-> +		while (erase_low < erase_high) {
-> +			*(unsigned long *)erase_low = poison;
-> +			erase_low += sizeof(unsigned long);
-> +		}
-> +		return;
-> +	}
-> +
-> +	count = (erase_high - erase_low) / sizeof(unsigned long);
-> +	asm volatile("rep stosq"
-> +		     : "+D" (erase_low), "+c" (count)
-> +		     : "a" (poison)
-> +		     : "memory");
-> +}
-> +#endif
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-Gemini seems to suggest 16-32 words would be sufficient to amortize the
-REP STOS setup. It was also adamant I try and unroll that earlier loop.
+get_ephy_nodes() runs after stmmac_pltfr_probe() has registered the
+netdev, so its -EPROBE_DEFER comes too late. An EPHY clock that is not
+ready yet does not defer at all: the node is skipped and the probe
+fails with -ENODEV.
 
-How about something like so, does that make sense? Also, I suppose we
-should make memset64() __always_inline if we use it here. I'm not at all
-sold on the unroll here, the asm is pretty horrid for what it does.
+Look up the clock and reset before stmmac_pltfr_probe(), and defer on
+the clock as on the reset.
 
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 ---
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -28,6 +28,7 @@ struct vm86;
- #include <asm/vmxfeatures.h>
- #include <asm/vdso/processor.h>
- #include <asm/shstk.h>
-+#include <asm/string.h>
- 
- #include <linux/personality.h>
- #include <linux/cache.h>
-@@ -580,6 +581,33 @@ static __always_inline bool on_thread_st
- 			       current_stack_pointer) < THREAD_SIZE;
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 34 ++++++++++++++---------
+ 1 file changed, 21 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 9fb398f7cf9e..4acfda235394 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -775,16 +775,15 @@ static void sun8i_dwmac_flow_ctrl(struct mac_device_info *hw,
  }
  
-+#ifdef CONFIG_X86_64
-+#define __stackleak_poison __stackleak_poison
-+static __always_inline void __stackleak_poison(unsigned long erase_low,
-+					       unsigned long erase_high,
-+					       unsigned long poison)
-+{
-+	unsigned long count = (erase_high - erase_low) / sizeof(unsigned long);
-+
-+	/* Amortize the startup cost of REP STOSQ. */
-+	if (count < 32) {
-+		unsigned long *ptr = (unsigned long *)erase_low;
-+
-+		while (count) {
-+			switch ((count-1) % 4) {
-+			case 3: ptr[--count] = poison; fallthrough;
-+			case 2: ptr[--count] = poison; fallthrough;
-+			case 1: ptr[--count] = poison; fallthrough;
-+			case 0: ptr[--count] = poison; break;
+ /* Search in mdio-mux node for internal PHY node and get its clk/reset */
+-static int get_ephy_nodes(struct stmmac_priv *priv)
++static int get_ephy_nodes(struct device *dev, struct sunxi_priv_data *gmac)
+ {
+-	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
+ 	struct device_node *mdio_internal;
+ 	struct device_node *mdio_mux;
+ 	int ret;
+ 
+-	mdio_mux = of_get_child_by_name(priv->device->of_node, "mdio-mux");
++	mdio_mux = of_get_child_by_name(dev->of_node, "mdio-mux");
+ 	if (!mdio_mux) {
+-		dev_err(priv->device, "Cannot get mdio-mux node\n");
++		dev_err(dev, "Cannot get mdio-mux node\n");
+ 		return -ENODEV;
+ 	}
+ 
+@@ -792,7 +791,7 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+ 						"allwinner,sun8i-h3-mdio-internal");
+ 	of_node_put(mdio_mux);
+ 	if (!mdio_internal) {
+-		dev_err(priv->device, "Cannot get internal_mdio node\n");
++		dev_err(dev, "Cannot get internal_mdio node\n");
+ 		return -ENODEV;
+ 	}
+ 
+@@ -801,8 +800,13 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+ 		struct clk *ephy_clk;
+ 
+ 		ephy_clk = of_clk_get(iphynode, 0);
+-		if (IS_ERR(ephy_clk))
++		if (IS_ERR(ephy_clk)) {
++			if (PTR_ERR(ephy_clk) == -EPROBE_DEFER) {
++				of_node_put(mdio_internal);
++				return -EPROBE_DEFER;
 +			}
+ 			continue;
 +		}
-+		return;
+ 		gmac->rst_ephy = of_reset_control_get_exclusive(iphynode, NULL);
+ 		if (IS_ERR(gmac->rst_ephy)) {
+ 			ret = PTR_ERR(gmac->rst_ephy);
+@@ -814,7 +818,7 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+ 			continue;
+ 		}
+ 		gmac->ephy_clk = ephy_clk;
+-		dev_info(priv->device, "Found internal PHY node\n");
++		dev_info(dev, "Found internal PHY node\n");
+ 		of_node_put(mdio_internal);
+ 		return 0;
+ 	}
+@@ -1209,9 +1213,15 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	plat_dat->tx_fifo_size = 4096;
+ 	plat_dat->rx_fifo_size = 16384;
+ 
++	if (gmac->variant->soc_has_internal_phy) {
++		ret = get_ephy_nodes(dev, gmac);
++		if (ret)
++			return ret;
 +	}
 +
-+	memset64((void *)erase_low, poison, count);
-+}
-+#endif
-+
- #ifdef CONFIG_PARAVIRT_XXL
- #include <asm/paravirt.h>
- #else
+ 	ret = sun8i_dwmac_set_syscon(&pdev->dev, plat_dat);
+ 	if (ret)
+-		return ret;
++		goto dwmac_ephy;
+ 
+ 	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
+ 	if (ret)
+@@ -1230,9 +1240,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	 * so after stmmac_dvr_probe()
+ 	 */
+ 	if (gmac->variant->soc_has_internal_phy) {
+-		ret = get_ephy_nodes(priv);
+-		if (ret)
+-			goto dwmac_remove;
+ 		ret = sun8i_dwmac_register_mdio_mux(priv);
+ 		if (ret) {
+ 			dev_err(&pdev->dev, "Failed to register mux\n");
+@@ -1247,10 +1254,11 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ dwmac_remove:
+ 	pm_runtime_put_noidle(&pdev->dev);
+ 	stmmac_pltfr_remove(pdev);
+-	reset_control_put(gmac->rst_ephy);
+-	clk_put(gmac->ephy_clk);
+ dwmac_syscon:
+ 	sun8i_dwmac_unset_syscon(gmac);
++dwmac_ephy:
++	reset_control_put(gmac->rst_ephy);
++	clk_put(gmac->ephy_clk);
+ 
+ 	return ret;
+ }
+
+-- 
+2.55.0
+
+
