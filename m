@@ -1,75 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142668;
-	b=x1AsIRIluMYVkgLLeop1z91TFalnylrUAAWx1AXOGVR/SvuryG/ycm1UH8JWw6evAQA9
-	 SYRbzIfz5ZyD3eFJEm021aPxk6SMP0MjCUno0noNmRlYK1d8sGee+gEKU+00ygVtWu5U7
-	 Z6j02fCfrNV17nQcirChbotEA3jdHiwcPZtpcg7IO6NrWxkOQ+bbEAqAYxKRLbv52wOf2
-	 YwtCb9r7VqAy60aJAH3wRt3DpIb9u/ZAPKma4XMLC0B9YpOM8FH/MCEQ/KmTSaaFRiQFN
-	 aO/BPgKTwLv5u5ZS9TrtNZmJ1wffsp0E/g10RHY/NlptLXo89LbJMgi9wzvAxfAKMDg==
+	t=1795142813;
+	b=Im0qrEg7j1WVjg85/e7pU+3oqzZ/YOU3C2/cwFrUa1y4nwuhLdGzZNwQxYD52aif52k0
+	 ajKMF3TLmxkOjk5BZyx42fq4nywxYDh8thTKIuoad3XPXBaSezSkeRxEaIytB3DGJiN4K
+	 4HqbTs0NkFTwXXqTfMklOsZ3KjgjzhS46D1qD/dn5eOrfH2eD0GabtJXyJSR5ytfe/4JX
+	 jznXP9qwUCFA5q3VYAL1UzUqFLmKdJxp+c8ucmpQ4GKjJEjwZLIjXtdsjXt96x6UYLZ8i
+	 sdOXTm2SgDcv9ahCJYdyLxPaD/WtwHIiN1+iHwOLk71SENMZiTh36hLwZbZonypJ3mQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142668;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=01bqa38GgzDIRjN+9NmcZUUepQ6Tt3tbyMhDUCGMoKQ=;
-	b=3NDPqfNVR/JRPtGYik6U6/af8OsWuXTh4vhde+C5neX2MR9qyU+edTmkCq27UPzBvbyI
-	 UGHpyLkNa6zr91pNxvOO9ObDR9ebdghs5Nl28hQ2LccurhEIaJ1FWuIq4CiBTwkA7qS8E
-	 vZrfJmA+us7BXanpKveElnZ/HgqWEeVnuTsf1MzSB5dBSAr6Ebkc5GLjIiJx3r2KtPzK5
-	 pjfX8zvkxbQviNqKRPWesgcsrW/zVNP6njR0fl8Mbqrn5ixRMDipFvhMBpZ5QNGYZ4h/t
-	 c1FseTwan+96uxEsOfHaRz3SoywKJ+lLsrNYn/FB5YEUL292tql1QmEupk+KFG67Q/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142813;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=ZFuIn7eF+7IrMuyJSWuYqvoJgRL9RzuWtqR/N7Allwo=;
+	b=uBGWz/Bk4YWVbn5aOt1Mv0br/FM99tAm2nDCvX7sMLqOXlHClE/X4oCz/z98Une5IkzJ
+	 ttKSuFD0irUZ+LJjulmyHyxi9uTNYm9FolUMZEeDaa/lhsvccTkD/sNFdr6H7ov3sOLU+
+	 j9SyYlhGStjVNVrh7zV3wc3GEYjHkqZTCHrJWV8Mub8RP6H0cNf6XAq/ShNR7mrCubJ5m
+	 poMw8I4ektnRm6SW8XTDamxtcDT4YKR3rorR31Tp43nrkPMy357wpci4pGQsM0lYlbxK5
+	 2tTcCjBiLZziF5ia/fYwW4zOpSSDJuw6zTyzOgcc7o1CH9IeayyRnO7jySF+ZQW5vBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--akorn.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZjfZ6dm7;
-	arc=none smtp.remote-ip=209.85.215.198
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2152606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:44:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2152606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--akorn.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZjfZ6dm7
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cd5ca3840c5so494715a12.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:44:27 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 29DEC606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:46:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29DEC606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795142667; x=1795747467; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=01bqa38GgzDIRjN+9NmcZUUepQ6Tt3tbyMhDUCGMoKQ=;
-        b=ZjfZ6dm7gJ3l0enKo9GYxmXvMIYGO7NwWTCW9vQqiGv3HGPqVNTavkwyWvSbFEtp7L
-         QdD5j47ODZJyvfpqAkvtIn9ALOpK5UPApzj5FoOBpuPutpqqb6LhO1PEDKTzMuJqhNZd
-         O+DCEAjO/YxIecjrQuvYTHDDfqqvrGvKZjYKWcY4vR4vGdd06EoI6UGaHk3Ei6nxELZO
-         RGSma25trcMfMi4aZL/nhy71GXRPDiVigwRy3rpZ+Xsl8CYSORFcplcihkAhmiH3hEH/
-         CbW6xdNONdeCuwgps/td6oNpvTMp3piCj4Oap0mHfNDDq8D684SbC4K/Rje/O37LQ1s0
-         jbAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795142667; x=1795747467;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=01bqa38GgzDIRjN+9NmcZUUepQ6Tt3tbyMhDUCGMoKQ=;
-        b=eFvburtQ4Gt6XZaxPzukAL6pkT9xc8EMYt0yUfdfbBzX0s1jik6C8a65T2uqwQv5FH
-         AgtViv7lNUqhynKtKlUABePC9lygg5fpAELLafXsx3hCUI6mN3Sr7RN+dkY+p3lYngKq
-         J7M3B3EMXbXUSSxBoLQsuhdhNxE2eKphUz6VlW6FFEHkUb49d65LDaZyQjc04+euuI35
-         ZrBJa2NdSMLjGNfwLkvyOs43FakVYaLDHCUtAzMK9VvzHHc4gUpxxV7cf69bIffYE2mC
-         BGPpY4tETmMrZzDnTd672vaw6Jii705W7qW1mHhcqHrgAreMP91ygmVm0/3rqVvfOM1h
-         Yapw==
-X-Forwarded-Encrypted: i=1; AL+hErE75nwweGWEojpd9quCgBtMnfygNw8paufRkB332FzuwnaGLYj7sSZyNqgcNo1DfTxtc756yNd4j+E3y4E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9L1B+5ybduPUyfwuyYZdPfv72T0N3LaOSIH4ES3xTX/3Gf934r
-	k8/QzIDGxSvnK+5SMMvMq56yf3V1GRviphUcxrdqU7LnfXlA9yNlgsxNOdUFTp2IiqcnTNoCv2h
-	A9Q==
-X-Received: from pgjk26-n1.prod.google.com ([2002:a05:6a02:81da:10b0:cdd:c2f7:a077])
- (user=akorn job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:431a:b0:3fa:6e4a:a311
- with SMTP id adf61e73a8af0-4014d456c75mr1696479637.52.1795142666868; Thu, 19
- Nov 2026 18:44:26 -0800 (PST)
-Date: Fri, 20 Nov 2026 02:44:16 +0000
-In-Reply-To: <20261120024416.338876-1-akorn@google.com>
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
+	Content-Transfer-Encoding; bh=ZFuIn7eF+7IrMuyJSWuYqvoJgRL9RzuWtq
+	R/N7Allwo=; b=rx07YghE7p9a9fDk4Y64F0VlQoYnhjtoj5nyPztn/v6acQPWXM
+	eh/7nWwHrKlmXBdOMQAWDjnCkZpyf91N8GVb/J0VI4b7aZ/D0iBiYX+EciWGupyL
+	8ifsxErBYQRC1WXXBJPlUODT3eWA+8RJfLbp58rvWZQWkF2IEq9u6ukkc=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [2408:8670:ae1:0:bbb2:6215:5dc7:c1f8])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkCmrgGItP9qCYbrAQ--.30261S2;
+	Fri, 20 Nov 2026 10:46:32 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: frederic@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Subject: Re: [PATCH] posix-clock: initialize cdev state before publishing
+Date: Fri, 20 Nov 2026 10:46:29 +0800
+Message-Id: <20261120024629.1145047-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <av8j0vUFpUg2aZyf@localhost.localdomain>
+References: <20261116032853.825-1-26031212468@stu.xidian.edu.cn> <av8j0vUFpUg2aZyf@localhost.localdomain>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,216 +56,40 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120024416.338876-1-akorn@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120024416.338876-2-akorn@google.com>
-Subject: [PATCH v3 2/2] hwmon: (pmbus) Clear only CML command and data faults
- during probe
-From: Arthur Korn <akorn@google.com>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Arthur Korn <akorn@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-CM-TRANSID:BbQMCkCmrgGItP9qCYbrAQ--.30261S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYs7AC8VAFwI0_Jr0_Gr1l1xkIjI8I6I8E
+	6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28Cjx
+	kF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVWUCVW8JwA2z4x0Y4vE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwA2z4x0Y4vEx4A2jsIE14v26F4j6r4UJwA2z4x0Y4vEx4A2js
+	IEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvE
+	ncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I
+	8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I2
+	1c0EjII2zVCS5cI20VAGYxC7MxkIecxEwVA20wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_Jrv_JF1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUj5ku3UUUUU==
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAQUDEWr-ENiBogAAso
 
-During driver initialization, register capability probing, and SMBALERT
-mask setup, pmbus_core and the generic pmbus driver send CLEAR_FAULTS
-(0x03) to clear any communication or command faults triggered while
-probing unsupported commands or out-of-range page/register operands.
-However, CLEAR_FAULTS unconditionally clears all latched fault status
-bits across the device, including hardware power fault registers such as
-STATUS_WORD, STATUS_VOUT, STATUS_IOUT, and STATUS_MFR_SPECIFIC. As a
-result, a BMC reboot or driver re-probe erases pre-existing voltage
-regulator fault telemetry before monitoring or diagnostic tools can
-inspect it.
-
-Simply omitting fault clearing during probe is not viable because
-probing unsupported commands asserts PB_CML_FAULT_INVALID_COMMAND in
-STATUS_CML (causing pmbus_check_status_cml() to fail subsequent checks
-with -EIO), and probing out-of-range PMBUS_PAGE or PMBUS_SMBALERT_MASK
-operands asserts PB_CML_FAULT_INVALID_DATA and PB_STATUS_CML.
-
-Starting with PMBus Revision 1.2, individual bits in STATUS_CML can be
-cleared via Write-1-to-Clear (W1C), a mechanism pmbus_core already uses
-in pmbus_get_boolean(). Introduce pmbus_clear_cml_fault() and export
-pmbus_clear_cml_faults() in the "PMBUS" module namespace to clear
-PB_CML_FAULT_INVALID_COMMAND | PB_CML_FAULT_INVALID_DATA in
-PMBUS_STATUS_CML during device initialization, register probing,
-pmbus_write_smbalert_mask(), and pmbus_identify() while preserving all
-other latched fault bits:
-
-- Verify during pmbus_init_common() that PMBUS_REVISION is valid (>= 1.2
-  and not 0xff), that the driver does not hook write_byte() without
-  write_byte_data(), and that PMBUS_STATUS_CML is readable before
-  enabling STATUS_CML W1C clearing.
-- Fall back to pmbus_clear_fault_page() when STATUS_CML W1C is
-  unavailable or if writing PMBUS_STATUS_CML fails.
-
-Tested on BMC hardware across 130 hwmon devices (105 PMBus devices
-covering tda38740/xdpe1a2g5b, isl68137/raa228234, adm1266,
-ltc4286/ltc4287, and generic pmbus regulators including TI
-tps546e25/tps546b25 and factory write-protected converters), verifying
-clean probing with no -EIO regressions, preservation of non-CML status
-faults across re-binds, and fallback when writing PMBUS_STATUS_CML is
-NACKed.
-
-Signed-off-by: Arthur Korn <akorn@google.com>
----
-Changes in v3:
-- Clear PB_CML_FAULT_INVALID_DATA in addition to
-  PB_CML_FAULT_INVALID_COMMAND so out-of-range PMBUS_PAGE and
-  PMBUS_SMBALERT_MASK operand probes do not leave CML faults latched.
-- Use pmbus_clear_cml_fault() in pmbus_write_smbalert_mask() so IRQ
-  setup during probe also preserves pre-existing non-CML faults.
-- Gate STATUS_CML W1C clearing via data->has_status_cml in
-  pmbus_init_common() (requiring valid PMBUS_REVISION >= 1.2 and != 0xff,
-  no write_byte() hook without write_byte_data(), and readable
-  PMBUS_STATUS_CML != 0xff) so driver write_byte() / read_byte_data()
-  filters are respected.
-
-Changes in v2:
-- Fall back to pmbus_clear_fault_page() if writing PMBUS_STATUS_CML
-  fails (e.g. NACK on devices that do not support W1C on STATUS_CML).
-- Export pmbus_clear_cml_faults() in the "PMBUS" namespace and use it in
-  pmbus_identify() (pmbus.c) so generic pmbus devices also preserve
-  non-CML faults during probe.
-- Re-tested on hardware covering generic pmbus_identify() fault
-  preservation and the STATUS_CML write-failure fallback path.
-
- drivers/hwmon/pmbus/pmbus.c      |  2 +-
- drivers/hwmon/pmbus/pmbus.h      |  1 +
- drivers/hwmon/pmbus/pmbus_core.c | 44 +++++++++++++++++++++++++++-----
- 3 files changed, 39 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/hwmon/pmbus/pmbus.c b/drivers/hwmon/pmbus/pmbus.c
-index f8189c11..f239dafb 100644
---- a/drivers/hwmon/pmbus/pmbus.c
-+++ b/drivers/hwmon/pmbus/pmbus.c
-@@ -113,7 +113,7 @@ static int pmbus_identify(struct i2c_client *client,
- 			info->pages = 1;
- 		}
- 
--		pmbus_clear_faults(client);
-+		pmbus_clear_cml_faults(client);
- 	}
- 
- 	if (pmbus_check_byte_register(client, 0, PMBUS_VOUT_MODE)) {
-diff --git a/drivers/hwmon/pmbus/pmbus.h b/drivers/hwmon/pmbus/pmbus.h
-index 5525c048..8170098f 100644
---- a/drivers/hwmon/pmbus/pmbus.h
-+++ b/drivers/hwmon/pmbus/pmbus.h
-@@ -581,6 +581,7 @@ int pmbus_write_byte_data(struct i2c_client *client, int page, u8 reg,
- int pmbus_update_byte_data(struct i2c_client *client, int page, u8 reg,
- 			   u8 mask, u8 value);
- void pmbus_clear_faults(struct i2c_client *client);
-+void pmbus_clear_cml_faults(struct i2c_client *client);
- void pmbus_check_and_notify_faults(struct i2c_client *client);
- bool pmbus_check_byte_register(struct i2c_client *client, int page, int reg);
- bool pmbus_check_word_register(struct i2c_client *client, int page, int reg);
-diff --git a/drivers/hwmon/pmbus/pmbus_core.c b/drivers/hwmon/pmbus/pmbus_core.c
-index b3aa7f1a..89a96732 100644
---- a/drivers/hwmon/pmbus/pmbus_core.c
-+++ b/drivers/hwmon/pmbus/pmbus_core.c
-@@ -122,6 +122,7 @@ struct pmbus_data {
- #endif
- 
- 	bool has_status_word;		/* device uses STATUS_WORD register */
-+	bool has_status_cml;		/* device supports STATUS_CML W1C */
- 	int (*read_status)(struct i2c_client *client, int page);
- 
- 	s16 currpage;	/* current page, -1 for unknown/unset */
-@@ -717,6 +718,27 @@ void pmbus_clear_faults(struct i2c_client *client)
- }
- EXPORT_SYMBOL_NS_GPL(pmbus_clear_faults, "PMBUS");
- 
-+static void pmbus_clear_cml_fault(struct i2c_client *client, int page)
-+{
-+	struct pmbus_data *data = i2c_get_clientdata(client);
-+
-+	if (!data->has_status_cml ||
-+	    _pmbus_write_byte_data(client, page, PMBUS_STATUS_CML,
-+				   PB_CML_FAULT_INVALID_COMMAND |
-+				   PB_CML_FAULT_INVALID_DATA) < 0)
-+		pmbus_clear_fault_page(client, page);
-+}
-+
-+void pmbus_clear_cml_faults(struct i2c_client *client)
-+{
-+	struct pmbus_data *data = i2c_get_clientdata(client);
-+	int i;
-+
-+	for (i = 0; i < data->info->pages; i++)
-+		pmbus_clear_cml_fault(client, i);
-+}
-+EXPORT_SYMBOL_NS_GPL(pmbus_clear_cml_faults, "PMBUS");
-+
- static int pmbus_check_status_cml(struct i2c_client *client)
- {
- 	struct pmbus_data *data = i2c_get_clientdata(client);
-@@ -745,7 +767,7 @@ static bool pmbus_check_register(struct i2c_client *client,
- 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
- 		data->read_status(client, -1);
- 	if (reg < PMBUS_VIRT_BASE)
--		pmbus_clear_fault_page(client, -1);
-+		pmbus_clear_cml_fault(client, -1);
- 	return rv >= 0;
- }
- 
-@@ -762,7 +784,7 @@ static bool pmbus_check_status_register(struct i2c_client *client, int page)
- 			status = -EIO;
- 	}
- 
--	pmbus_clear_fault_page(client, -1);
-+	pmbus_clear_cml_fault(client, -1);
- 	return status >= 0;
- }
- 
-@@ -790,7 +812,7 @@ static bool __maybe_unused pmbus_check_block_register(struct i2c_client *client,
- 		rv = pmbus_check_status_cml(client);
- 	if (rv < 0 && (data->flags & PMBUS_READ_STATUS_AFTER_FAILED_CHECK))
- 		data->read_status(client, -1);
--	pmbus_clear_fault_page(client, -1);
-+	pmbus_clear_cml_fault(client, -1);
- 	return rv >= 0;
- }
- 
-@@ -3046,16 +3068,24 @@ static int pmbus_init_common(struct i2c_client *client, struct pmbus_data *data,
- 		data->revision = info->pmbus_revision;
- 	} else {
- 		ret = i2c_smbus_read_byte_data(client, PMBUS_REVISION);
--		if (ret >= 0) {
-+		if (ret >= 0 && ret != 0xff) {
- 			data->have_pmbus_revision = true;
- 			data->revision = ret;
- 		}
- 	}
- 
-+	if (data->revision >= PMBUS_REV_12 &&
-+	    (!info->write_byte || info->write_byte_data)) {
-+		ret = _pmbus_read_byte_data(client, info->pages ? 0 : -1,
-+					    PMBUS_STATUS_CML);
-+		if (ret >= 0 && ret != 0xff)
-+			data->has_status_cml = true;
-+	}
-+
- 	if (data->info->pages)
--		pmbus_clear_faults(client);
-+		pmbus_clear_cml_faults(client);
- 	else
--		pmbus_clear_fault_page(client, -1);
-+		pmbus_clear_cml_fault(client, -1);
- 
- 	if (info->identify) {
- 		ret = (*info->identify)(client, info);
-@@ -3703,7 +3733,7 @@ static int pmbus_write_smbalert_mask(struct i2c_client *client, u8 page, u8 reg,
- 	 * Clear fault systematically in case writing PMBUS_SMBALERT_MASK
- 	 * is not supported by the chip.
- 	 */
--	pmbus_clear_fault_page(client, page);
-+	pmbus_clear_cml_fault(client, page);
- 
- 	return ret;
- }
--- 
-2.56.1.703.gf848ed807c-goog
+Hi Frederic,=0D
+=0D
+Yes. cdev_device_add() calls cdev_add() before device_add(). By =E2=80=9Cex=
+pose=0D
+the cdev=E2=80=9D, I mean that the cdev is registered in cdev_map and its f=
+ile=0D
+operations may be invoked before device_add() starts. I do not mean=0D
+that device_add() has already registered the struct device or created=0D
+a devtmpfs node.=0D
+=0D
+The cdev_device_add() documentation requires callers to assume that=0D
+userspace may open the cdev and call its file operations even if the=0D
+helper later fails.=0D
+=0D
+Thanks,=0D
+Haoli=
 
