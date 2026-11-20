@@ -1,91 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181615;
-	b=zZRhCqPtwmcb0EsuA/7YPqkDmgcQ7ani2pJd2SRaSaPpDqlSRUQRBHG5vwlyjLNMJvAm
-	 tGMA8PzLx33H2Z0p44STt3W6a0SnjblA9CMtbb05+6siSJJdby42vT4KFW3J7cGNaG8EP
-	 DQ0UAJO6a5HeCj5wZXA7D8KNtT2Eh/YUnBG1mJkwxjJF5uAxcpvMWx3D3P75ST1rSkROA
-	 gacdu0hnn8iqErOE3HEXnFV1nNh2wM+a5ZwMD9ZAgURv4tyZQmrzPMvfV6bz/u2GtohiB
-	 OorAVmggy1Q6lERNDFdJN5+Md56Vsl+aKIhxFmanEFm0Uo/DecOLUd8Zw6d8sPg04qw==
+	t=1795181641;
+	b=LW4EOgS5iA/tJVQEcv+I4G73ZDuGtpdRr8C5qZPrtabe8Ixe0Lh2N2kPvPmad8ZcL/7R
+	 vWWnBMEUCBwStYwHaDXJ7pYpi5s6zIYs1jzeBe+ENyV2aWgEDnnaIQEPquhOqfgQyqqMq
+	 Krh+NnakGAXm3KaTNaQ4bRG5VnbhGGaKvC7ywnFJdOpy7ThmRBqxKoDi8moX0HtESfGw8
+	 ZypPsvyQjyQRIH8qUrt4efB+ZR+NSCd2HZJOvfyXXRNmrsyrvgWzysrBDxr1M1Mxtjg2f
+	 DkmFTLW3DM23KoWJmcTDbrkg7LzWeNOlR5a9JudhXEQbRvifOCXNkokwjDfy7M9Ilnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181615;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ItqwSvSZ8iuWNx4RiptPGqq6vki5TsQPNC9NH0gHMis=;
-	b=jQZqlEpS2/GjOxW1nRxUu31OMpt4ZE6NbPiGG8aa7Bq8SMOQKaehxkmpftm8IpwK00Qh
-	 feLu2QZ1qs85ybfSALDFu3lWUMxGZkuYCQOl1BFpz2XzLzlkxi5/naGtCGO5l8RDAAv6T
-	 oCkGAUJCba7WoAub8nD+2hfT1+taMU+SFgJipFvqksnTkvhksZbcQF4vn6H+FZa05nlTK
-	 yzZ7u45tz66+9mi1x6YVaEJpfiUjFj5+m+bNOh9UtG7AAtBuGswMNrP6tMqbneOawC58U
-	 mD+mfNMlCII7w1otGf8e2gx5X/+YEu/9pheneKAAMZZOzgfEXqiJduMhypplTW/RgbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181641;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Subject:From:To:Cc:X-Mailer:
+	 References:In-Reply-To;
+	bh=/tgGW37WPbOQT+N8dT1q60bLbw3ltn29ONzKHbalNio=;
+	b=u+u9D0Pnkw84DFpmsBXnguxzf1TYgQzRd1OzEYGO7VhO6z9sagq+7L+a9kRqhrcimake
+	 vcQo1iwx0h2ofjxjcJUo2QqoVtaIrn6Xacd9GxsXiJDwXX/TdjXMA0VvCjfudO04x6tZN
+	 92NdWwqtOPvPhfz0Jce1sJOrwFvPF0inSmMt516tXHICoZAMk8CM+VPXXf7+DGaC8pdu5
+	 dYvya/DlM0tYM1+z9hyY/8vvX4zR8e/h+Ce/iAyh2+zN52QxQ3+Nv5olod1jbNIKZgl+R
+	 whdCHW6bz3xPL2YZB+LGK4sbZlMYISUnpHeEnN9C4l+nXW1pSsdXw9CI6tUlQyZb1mA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kBxvEKJB;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ccq2DSIk;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90BF7606A326;
-	Fri, 20 Nov 2026 13:33:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90BF7606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C657606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:34:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C657606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kBxvEKJB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795181613;
-	bh=ItqwSvSZ8iuWNx4RiptPGqq6vki5TsQPNC9NH0gHMis=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kBxvEKJBd215Yne/GG+BDazUWoNvyOJTQRRzE6NXw/fbnGTVMJczxeKSTyxT5q6ZG
-	 yhuGEDQQ1Vjn3E/oJeHTx0lNHDXJ5Az8KZSu9kx1oLSPRIYDFzQfzSv1meA5A51DyD
-	 8Nb/GjOEgejSvi0vQwAWcmAX7A76WVrS5nAAAwhF//a7MFzGPjZRktenUs96IrVJaz
-	 PAo4jZj++l0YD0B+Pe1G7+62UJrSiH4fRAMV8hoBjtANuPWDxUJNlN97y2rtrU4eus
-	 Y7a3SVAd0H/1jTucMFHlV/GydB24yBN5w6rPncTd7wEFXBAHS1opSWLou1fQJgC+8u
-	 38t/xQ7y1cinA==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWGWK37H0zV0D;
-	Fri, 20 Nov 2026 08:33:33 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v5.1 10/17] sched/deadline: Fix an overflow of the 0-lag time with long periods
-Date: Fri, 20 Nov 2026 08:33:32 -0500
-Message-Id: <d975f317a4f9f79d2300b68ad76664755459ba36.1795181168.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <awBEww33F6yn0MBO@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1795115075.git.mathieu.desnoyers@efficios.com> <2be3813af9e997f5f7d9d3161d0b65b8d4ab917c.1795115075.git.mathieu.desnoyers@efficios.com> <awBEww33F6yn0MBO@jlelli-thinkpadt14gen4.remote.csb>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ccq2DSIk
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-48e3b22e971so467456f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:34:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795181640; x=1795786440; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=/tgGW37WPbOQT+N8dT1q60bLbw3ltn29ONzKHbalNio=;
+        b=Ccq2DSIk5AYhKWEdCbbmLeynuHFYWd7G+3nDfM56GUVqhyNKr0El/copkFTmzoDCFg
+         CvoTEAC8nutwTaalotYAmB+F4Duvy+yynPZ4NUvH0yufc2zY3IvyZj7uVVyfMkMj7hBu
+         a3IYdbCWoEGv3oNxd/wqwcsZ37c9IZEpCbID7w07SgkbQNKzRu4/Z/ya1qeCyyrQMQMH
+         64r7t0Xnx8plj/9iYCfEAapZBqhEFsyLhwaHbdPx3KXyZI5v/sX2VOFCF6BuelXB4pAb
+         cDL41Uhfg3iciUBPscho6bEYwZBnh9CIKTGhn2/9av1tJ8pzfspZuiWitXSWA8ByOXl3
+         ZGoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795181640; x=1795786440;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/tgGW37WPbOQT+N8dT1q60bLbw3ltn29ONzKHbalNio=;
+        b=PXPERYD6TV27WNGTggrXAoHjCUwC2SemB37akajNTrA0YfDunwe7PjpQ9b4kyWVEJE
+         7TGC1xCy1CrG83+yMBwVFOipjG+w1O/76usWY42iLr8wsEuwdZtDNQPdrP6ET3zmM6xu
+         wwFco7xCKJp9H/xzILkcB0fOtafy93ct2qcF8Ovum00G996aR2WrhZEOl9rMNlCZMQlz
+         Oqv+l5Hpc2wxJ0M4zhNrMqtpNzsERlO0olNi77cLq7/zEXS4+F2PZd8CI1+CsKw2tWRp
+         J1yIxMDbUclEvIl70PzTNW15Z1xXjvMUop4ilTojJS1wZ76kJRkuoGM1BRQ1blRauONs
+         19TA==
+X-Forwarded-Encrypted: i=1; AL+hErFuTB/rs1NtdkjV9fI5osFtu98uaae1HFDbO2zGFm/OvZE9DZy6zUmkZEyXC1e8nB2fJ+MjAZpaqT2oYHk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7OLkzdhgbiZAA+QJqRjRU3/vukXawZaqIzN6v+Q06pPKVQopw
+	oCHWXnKABwPiS8WoMDYu98NHxCJGqMj+i4f/KCCwK10Y2S32NuIB9Nuv
+X-Gm-Gg: AZFdTZcob2PrJI+Cyh3QVwcCVf0i8NS0IaSP9sI5tuklme3qX/eyylSk3ZrfDQ6iuki
+	OaWn3jOoATiBY7Ngnr/Mjbz2ctBIR/rC6tE4siZsVQTqgySyV64XVTi/PGSmkIOk/BdvqeSXR2T
+	HyanrHVf5YmYTs4HSU34/JxM6YgyN0K4tmdBwrRDnmNHGbu74moWIiEn2alsJQvEEE/Uye0rYWN
+	4E3idZLTFCl4lik9zuAmeotPNb+Tl4xO8yQ5NOlPmx30R3PQ6RxJbgMKqd/jmb99W1i7NNhS5yg
+	MCJzq4NwqtfzdTV8N4v446KutfoTGZXg9L0QrfrPiVppgKPCqTBPhAifus4gqpmvWMXoG52PyxL
+	/KluQKMVvy41IkIGT9x1lp5i5QVlcgZm67JrTA9U9QK01HK4gpHZIEnPPBRMdYhydGtLVWYhA/j
+	xrnP5yN0JOgE9uK1tEXdHRYRGOOMd87U3JzMDZTD0vOQHj14n5SFenMFIs56TcCnhCZPuqZifzg
+	I5Y1QlXir+/B5AbXyU0xthWXxvaVKqpqhAdWmMHvbATb+AENKvbxqvmQHRU2MBKPCwuDzqqgmnA
+	3VP/WRgzPgv4eh60MG17WCcv46F55dwF/wGk/dF7Ll11dlhvOu3lA65nk+hyEJkqYsP4Nw==
+X-Received: by 2002:a05:6000:299c:20b0:4aa:2bf2:4d98 with SMTP id ffacd0b85a97d-4abb0f3b4b0mr4807067f8f.29.1795181639710;
+        Fri, 20 Nov 2026 05:33:59 -0800 (PST)
+Received: from localhost ([130.192.98.149])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm6332019f8f.24.2026.11.20.05.33.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 05:33:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,193 +86,193 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=d4d0a5d1810b38e9a5b5d406e137fc7cd12d6afa0f1bd49929aebcd96cb5;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 20 Nov 2026 14:33:56 +0100
+Message-Id: <DN02S2XNGRZD.1KNOZJ0GGDJNG@gmail.com>
+Subject: Re: [RFC PATCH v4 08/10] nfs: add provenance time (ptime) via
+ FATTR4_TIME_CREATE
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
+ <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
+ <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
+ Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
+ <jlayton@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
+ <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
+ <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
+ <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
+ <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
+ "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
+ <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ "Pedro Falcato" <pfalcato@suse.de>, =?utf-8?q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
+ <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+ <linux-api@vger.kernel.org>, "Theodore Tso" <tytso@mit.edu>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261115180343.576773-9-koray.fra@gmail.com>
+ <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com>
+ <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com>
+ <CAOQ4uxi6h9BBP7pf4sR+gc2+4XtkEgbxXZha45iZzdB_wGFVgQ@mail.gmail.com>
+In-Reply-To: <CAOQ4uxi6h9BBP7pf4sR+gc2+4XtkEgbxXZha45iZzdB_wGFVgQ@mail.gmail.com>
 
-When a deadline task blocks, task_non_contending() computes its 0-lag
-time:
+--d4d0a5d1810b38e9a5b5d406e137fc7cd12d6afa0f1bd49929aebcd96cb5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-  zerolag_time = deadline - runtime * dl_period / dl_runtime
+On Fri Nov 20, 2026 at 7:45 AM CET, Amir Goldstein wrote:
+> On Thu, Nov 19, 2026 at 11:10=E2=80=AFPM koraynilay <koray.fra@gmail.com>=
+ wrote:
+>>
+>> On Thu Nov 19, 2026 at 7:06 PM CET, Amir Goldstein wrote:
+>> > On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.co=
+m> wrote:
+>> >>
+>> >> Implement provenance time (ptime) in the NFS client, as introduced in=
+ a
+>> >> previous commit ("vfs: add provenance time (ptime)").
+>> >> [...]
+>> >>         if (do_update) {
+>> >> @@ -1061,6 +1061,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, =
+const struct path *path,
+>> >>         if (S_ISDIR(inode->i_mode))
+>> >>                 stat->blksize =3D NFS_SERVER(inode)->dtsize;
+>> >>         stat->btime =3D NFS_I(inode)->btime;
+>> >> +       stat->ptime =3D NFS_I(inode)->btime;
+>> >>
+>> >
+>> > As an example of what would be needed per the mutable btime proposal,
+>> > adding stat->ptime and STATX_PTIME will not be needed...
+>> >
+>> >>         /* Special handling for STATX_DIOALIGN and STATX_DIO_READ_ALI=
+GN
+>> >>          * - NFS doesn't have DIO alignment constraints, avoid gettin=
+g
+>> >> @@ -1092,10 +1093,26 @@ int nfs_fileattr_get(struct dentry *dentry, s=
+truct file_kattr *fa)
+>> >>         }
+>> >>         if (nfs_server_capable(inode, NFS_CAP_CASE_NONPRESERVING))
+>> >>                 fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+>> >
+>> > This would need:
+>> >                   fa->fsx_xflags |=3D FS_XFLAG_CASEFOLD;
+>> > +                fa->fsx_xflags_mask |=3D FS_XFLAG_CASEFOLD;
+>> > +                fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASEFOLD;
+>> > +                /* unlink other fs FS_CASEFOLD_FL is read-only */
+>> (oh, s/unlink/unlike/?)
+>
+> Yeh :)
+> It's a comment for you not for the code
+>
+>>
+>> >                   fa->flags |=3D FS_CASEFOLD_FL;
+>> With the new API and vfs helpers, this would need to get removed, as vfs
+>> would already handle this for legacy ioctls, correct?
+>>
+>> >         }
+>> >                    fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+>> > +                 fa->fsx_xflags_mask |=3D FS_XFLAG_CASENONPRESERVING;
+>> > +                 fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASENONPRESERVI=
+NG;
+>> Uhm, why both in _mask and _ro_mask? If it's a RDONLY flag shouldn't
+>> it *only* be in _ro_mask? (same for CASEFOLD)
+>>
+>
+> Good question. Maybe
+> I guess if you want to follow some percent
+> FS_FL_USER_MODIFIABLE is a subset of FS_FL_USER_VISIBLE
+> but I think that exporting ro_mask and _mask is going to be easier and
+> cleaner than rw_mask but not sure.
 
-A task that ran at its reserved bandwidth would use up its runtime left
-at that time. Until then, the task still counts in running_bw. A task
-that leaves SCHED_DEADLINE also keeps its bandwidth in total_bw until
-then. This comes from commit 209a0cbda7a0 ("sched/deadline: Improve the
-tracking of active utilization"), which adds the inactive timer of the
-GRUB algorithm.
+Hmm I asked that also because you said in the xfs shared extent thread:
 
-The product runtime * dl_period is computed on 64 bits, then divided as
-an s64 by div64_long(). With a period of 4s, it passes S64_MAX once the
-runtime left is above 2.3s. The default limit on the period is about
-4.2s, so no sysctl change is needed. The quotient is then negative, and
-the 0-lag time lands after the deadline.
+> The advantage being that it makes the interface symmetric.
+> User can alway setattr() with the buffer they got from getattr()
+> and instead of randomly ignoring flags in set, the fsx_ro_mask
+> along with fsx_mask defines the behavior exactly.
 
-On 32-bit, div64_long() also truncates dl_runtime to an s32. A
-dl_runtime above about 2.1s then gives a wrong 0-lag time too. If root
-raises the period limit, a dl_runtime that is a multiple of 2^32 ns
-would divide by zero. This was found by reading.
+But by putting the ro flags in _mask too, a user would have to clean
+them out or vfs will reject the call with -EINVAL/something else, since
+in that case the vfs would see the user say "I want to change this [ro]
+flag".
 
-The bandwidth is then released seconds late. Until then, the root domain
-refuses deadline tasks that would fit. In an x86-64 guest, a task took a
-reservation of 3.1s every 4s, then went back to SCHED_OTHER at once.
-Another task asking for the same reservation got EBUSY for 5.95s.
+>> >> +       if (NFS_SERVER(inode)->fattr_valid & NFS_ATTR_FATTR_BTIME) {
+>> >> +               fa->fsx_xflags |=3D FS_XFLAG_PTIME;
+>> >> +               fa->fsx_xflags_mask |=3D FS_XFLAG_PTIME;
+>> >> +               fa->fsx_ptime =3D NFS_I(inode)->btime;
+>> >> +       }
+>> >
+>> > +               fa->fsx_xflags |=3D FS_XFLAG_BTIME;
+>> > +               fa->fsx_xflags_mask |=3D FS_XFLAG_BTIME;
+>> > +               fa->fsx_btime =3D NFS_I(inode)->btime;
+>> >
+>> > Fs with immutable btime could either not advertise the BTIME flag
+>> > in xflags/xflags_mask or advertise the flag also in xflags_ro_mask.
+>>
+>> That makes sense.
+>>
+>> >>         return 0;
+>> >>  }
+>> >>  EXPORT_SYMBOL_GPL(nfs_fileattr_get);
+>> >>
+>> >> +int nfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *d=
+entry,
+>> >> [...]
+>> >> +       if (!(server->fattr_valid & NFS_ATTR_FATTR_BTIME))
+>> >> +               return -EOPNOTSUPP;
+>> >> +
+>> >> +       if (fa->flags_valid)
+>> >> +               return -EOPNOTSUPP;
+>> >> +
+>> >> +       if (fileattr_has_fsx_mask(fa, NFS4_SUPPORTED_XFLAGS))
+>> >> +               return -EOPNOTSUPP;
+>> >> +
+>> >> +       if (fa->fsx_xflags_mask & ~NFS4_SUPPORTED_XFLAGS)
+>> >> +               return -EOPNOTSUPP;
+>> >> +
+>> >
+>> > These two checks look semantically identical.
+>> > I am not sure yet what you intention was with the
+>> > fileattr_has_fsx_mask() helper - I know you had reservations about it
+>> > but at least in this code, it doesn't look like it is needed at all.
+>>
+>> Eh, the name is not the best, but they aren't, _mask & check the _mask
+>> field, has_fsx_mask checks the xflags field (which is why I added the
+>> question of keeping its name as it is or changing it to
+>> "fileattr_has_unsupported_fsx").
+>> But I'm not even sure we still need this helper, so I may just drop it.
+>>
+>
+> I don't care either way as long as the code reads fine.
 
-Fix this by multiplying on 128 bits with mul_u64_u64_div_u64(). Its
-operands are unsigned. So take the magnitude of the runtime, which is
-negative after an overrun, and add or subtract the result. With the fix,
-the second task got its reservation at once.
+Fair.
 
-The quotient must still fit in 64 bits. On x86-64, mul_u64_u64_div_u64()
-traps with a divide error otherwise. After a change of parameters, the
-runtime and the deadline stay those of the old parameters until the
-next period. The 0-lag time uses the new dl_runtime and dl_period. So
-the runtime left can be far above dl_runtime. For example, root can
-raise the period limit and give a task 150s every 300s. The task can
-then shrink its runtime to 1024ns. Before the division, compare the
-runtime left with the runtime that the parameters give until the
-deadline. If it is larger, the 0-lag time has passed, and the bandwidth
-is released at once. Otherwise, the quotient is at most the time to the
-deadline.
+Thanks,
+koraynilay
 
-The new helper dl_time_to_zerolag() computes the 0-lag time, with one
-return per case.
+> Thanks,
+> Amir.
 
-A negative runtime is an overrun. It lasts at most about a tick, unless
-the CPU stalls. A vCPU preempted on the host can stall for seconds. Say
-root raised the period limit to about an hour, and the task has a
-dl_runtime of 1024ns. A stall of a few seconds then pushes the quotient
-past S64_MAX. The 0-lag time would be centuries away. Release the
-bandwidth at once in that case. This was found by reading.
+--d4d0a5d1810b38e9a5b5d406e137fc7cd12d6afa0f1bd49929aebcd96cb5
+Content-Type: application/pgp-signature; name="signature.asc"
 
-The params_switched_asleep and params_shrunk_long_period cases of
-deadline_bw_test, added later in this series, test the check of the
-runtime left. No case tests the overrun, which needs a stall.
+-----BEGIN PGP SIGNATURE-----
 
-Fixes: 209a0cbda7a0 ("sched/deadline: Improve the tracking of active utilization")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
----
-This updates patch 10 of v5 alone, as Juri suggested. Patches 11 to 17
-of v5 apply on top of it unchanged.
+iHUEABYKAB0WIQRJ2XvJtXGwULYEerQ0bnTtJTDoOAUCawBMRQAKCRA0bnTtJTDo
+OAxdAQDZAHDxwrsYEK/NjLvhU9XZYKoNPOA+bHn/PxMRXWrsowEAkLcPoymguHvp
+ICHPpc1SRc0TROj5o6iGwNAiGXHeGgo=
+=NG+4
+-----END PGP SIGNATURE-----
 
-Changes since v5:
-- Move the 0-lag computation into the helper dl_time_to_zerolag() that
-  Juri wrote, with one return per case. Fix a comma in its comment.
-- Add Juri's Reviewed-by.
-
- kernel/sched/deadline.c | 80 ++++++++++++++++++++++++++++++++++++-----
- 1 file changed, 71 insertions(+), 9 deletions(-)
-
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index d6d2657dcddd..a122b6ce1271 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -352,6 +352,76 @@ static void dl_change_utilization(struct task_struct *p, u64 new_bw)
- 
- static void __dl_clear_params(struct sched_dl_entity *dl_se);
- 
-+/*
-+ * Return the time from now to the 0-lag time of @dl_se, or a negative
-+ * value if the 0-lag time has passed.
-+ *
-+ * The 0-lag time is when a task running at its reserved bandwidth would
-+ * use up the runtime it has left:
-+ *
-+ *   0-lag = deadline - runtime * dl_period / dl_runtime
-+ *
-+ * Example: 30ms every 100ms, blocking 10ms into its period with 20ms
-+ * left. 0-lag = 100 - 20 * 100 / 30 = 33ms. From there to the deadline,
-+ * 30% of the CPU is exactly the 20ms left.
-+ *
-+ * The product can overflow 64 bits, so mul_u64_u64_div_u64() multiplies
-+ * on 128 bits. Its quotient must still fit: on x86-64 it traps
-+ * otherwise. Usually |runtime| <= dl_runtime and the quotient is at most
-+ * dl_period.
-+ *
-+ * Each check compares against the bound scaled by dl_runtime / dl_period.
-+ * That quotient cannot overflow, as dl_runtime <= dl_period.
-+ */
-+static s64 dl_time_to_zerolag(struct sched_dl_entity *dl_se, struct rq *rq)
-+{
-+	/* Time to the deadline. Negative if the deadline has passed. */
-+	s64 left = dl_se->deadline - rq_clock(rq);
-+
-+	if (dl_se->runtime < 0) {
-+		/*
-+		 * Overrun: the 0-lag time is after the deadline, by the time
-+		 * needed to pay the overrun back at the reserved bandwidth.
-+		 */
-+		u64 overrun = -dl_se->runtime;
-+		u64 room = S64_MAX - max(left, 0LL);
-+
-+		/*
-+		 * overrun * dl_period / dl_runtime > room: the result would
-+		 * overflow s64. The 0-lag time is centuries away, for a
-+		 * negligible bandwidth. Release it now.
-+		 */
-+		if (overrun > mul_u64_u64_div_u64(room, dl_se->dl_runtime,
-+						  dl_se->dl_period)) {
-+			return -1;
-+		}
-+
-+		return left + mul_u64_u64_div_u64(overrun, dl_se->dl_period,
-+						  dl_se->dl_runtime);
-+	}
-+
-+	/*
-+	 * Runtime left: the 0-lag time is before the deadline. It has
-+	 * passed if the deadline has.
-+	 */
-+	if (left < 0)
-+		return -1;
-+
-+	/*
-+	 * runtime * dl_period / dl_runtime > left: the 0-lag time has
-+	 * passed. The runtime left is more than the bandwidth gives until
-+	 * the deadline, as a wakeup would find with dl_entity_overflow().
-+	 */
-+	if (dl_se->runtime > mul_u64_u64_div_u64(left, dl_se->dl_runtime,
-+						 dl_se->dl_period)) {
-+		return -1;
-+	}
-+
-+	/* The quotient is at most @left here. */
-+	return left - mul_u64_u64_div_u64(dl_se->runtime, dl_se->dl_period,
-+					  dl_se->dl_runtime);
-+}
-+
- /*
-  * The utilization of a task cannot be immediately removed from
-  * the rq active utilization (running_bw) when the task blocks.
-@@ -425,15 +495,7 @@ static void task_non_contending(struct sched_dl_entity *dl_se, bool dl_task)
- 
- 	WARN_ON(dl_se->dl_non_contending);
- 
--	zerolag_time = dl_se->deadline -
--		 div64_long((dl_se->runtime * dl_se->dl_period),
--			dl_se->dl_runtime);
--
--	/*
--	 * Using relative times instead of the absolute "0-lag time"
--	 * allows to simplify the code
--	 */
--	zerolag_time -= rq_clock(rq);
-+	zerolag_time = dl_time_to_zerolag(dl_se, rq);
- 
- 	/*
- 	 * If the "0-lag time" already passed, decrease the active
-
-base-commit: ec6f6731538e0d45872eb279fdeb477bed152d6f
-prerequisite-patch-id: 5e2478ffdfb7583751bf44bdf87fb930bc23551b
-prerequisite-patch-id: d5e5ef986ff2d9bc39a87b56e96a2acbd3158687
-prerequisite-patch-id: 99e47f80396008ee2b2576157d37842481ce52d2
-prerequisite-patch-id: a10824f98c11a4c902dad55cab3ec03b3dbe2c8a
-prerequisite-patch-id: 8959e5a408641b4fa81bc79737cd17d5f1b03389
-prerequisite-patch-id: 16acf1d18f01d20310d6db767dfbec2f072e0372
-prerequisite-patch-id: e1946bb015a7b14ed4e2cd0421e5e30b0c7afdda
-prerequisite-patch-id: 4daf48a89779fbd8c8bc5fc1d7a7d6df9bca2d9d
-prerequisite-patch-id: f8b34127a06e7503c069fb08e275574569aa1663
--- 
-2.47.3
-
+--d4d0a5d1810b38e9a5b5d406e137fc7cd12d6afa0f1bd49929aebcd96cb5--
