@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795180392;
-	b=zscoLKCqCYMYv03cdjowYOq59+ixcjM3WVXUOF/hoMRFkJ6ecC2OP3GcuzRsQdEwQpkt
-	 rQSb0vsaL6j0pZnbKByfcpZSC++6+EHJ0NZ1uJLb8ITyjSIvjq9BH0CRSbJnEv2M4YA/n
-	 VfK8l2G2zesvaDRZpfvFGfTWFvkCCSh5/aVlUexeXvAJKmmTOzOv1JaHwPjpYQUWA7d7Y
-	 HFFSzbKc1Noy6wAcqHluPFXdOXDAvGa/I6DLQN6GTmfOLoGu2f3DUeRKg5zWlWBtf0CE7
-	 U+MOfj7MILkIvmG7xoEuLNxfdPPnKkhqUCPyaatQ+zMEwP4aV2DhaFTEIKnbmBmsaYA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180392;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=A9ldS+40d764zde9QlR/VfxNDRLzrKYiXwhUHC+I/zg=;
-	b=tGovjvX8MMQfPAXFcJHvr898FRL8wwA2KfNpyl0PNNSs9bOW8yNOJgaLB9EfoaWTg1SC
-	 23ipJa5+l2a0XJMq3LEFoclbiMKYpOK8QCy7+S0wnYqmFpw0BaAebTk7jnSohc8f89sgd
-	 KCk07LOm43O9X1ShqAQhKqRUBVimoOwRwFKWOtvMxjoD+nj+A8EaLmOCykG40Khc7zRpv
-	 Mf4xNrBdG54s0qBEEAw/Y3Y7zIDu0zoZ619lbG/EUlj0hUHGBABhMka3ka8VoXPSz85DH
-	 8tYQkiJSM89Q6nsWDDM389MVgVJHprD2WCzbRAbjU89DjlWfCGoRkkblS1C9Et7tLqA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z2IcMwRU;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795180437;
+	b=Wc8L3zjwXZpPmnav5bTci3YxCe2ZUBkYqMboRpmU3iSdAGsrnXRrkY5P0z4UDWnG53nP
+	 XLIKKwj30p5AlivqcCuZGYUajQ/ewz+1CVIYnTENCyMuo4EYivzOx6KO+o8B4ktw53E/3
+	 bdfNb+yMGZ6ukJFBMqkIjfGNsn0l2Ywp48iLd/OI8vfZf8sUpzF4qRMKZVMObPXZFbl5t
+	 P7Gn9Xa6jLFWTZniD0P+qX37gBkRmVEq+u8u78X0lkcXbcK7hNErMjTMS1EZl0x/dBQT/
+	 uJw9vKiq0h6CkSbSBGyBoLnbhOt42lgl0ABWyqhzVLy+vA6lTN/ykcmsAp0JWpG3o3w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180437;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=tlEm898c3RTEH5485EhuXjYcv+V6JoSnqzGBIcz5A3Q=;
+	b=TK6chdW5yi/qT+s5QwDu+B8RUkgbhRVgzBXVmLbF63dbK2avxHN1gjkhRIWzHoPup9Yi
+	 H7hiV+NkIEIO5rJSe3aVP/Me9AeEvdVEdo9xqX1Sj7w6CokoPeOcnjrSqzh9IwKqSY4Hg
+	 ewyTPcKAqvG8s1JeLFOgyKk0MAz0UtBu3VxZMIna342FaFfA2JWLtLo7CHXXSUnRcLu/y
+	 QkQ55hCGVIj1T913EDhJ4FoOocgdWLJGmQec7yokw6SJlyyDr1OzfP/Khlr3ZLchYM4DQ
+	 y1QdED9a/nc4VZcpYJK0vTI2liCGdX7VGq+jt6oLSZuKuOkPAykRsf2Xynf6WjUAClQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=mJO1eOf0;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F959606A32A;
-	Fri, 20 Nov 2026 13:13:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 150DC606A320;
+	Fri, 20 Nov 2026 13:13:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z2IcMwRU
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795180391;
-	b=3BvO8IJDj3ZfRXV+9JhSOEyy2OBN4m4pA2aBf8vDO1OYEEPcMnvCL8VgR1j0V86FY3+H
-	 GUp0lMj+/j7pBkQGC/b1cnN+V5uklh4TomOnlD4DsQdBfstSYwwKPWxSOFWy+vUwXhIqr
-	 DZ3KOf6iEPw1WDpSN1aq+y1jVvp5fDEmWB3EZ4681Q5Gi9zFPmhcJFgGAMm0yAK4ywqIw
-	 JfN1ugn7BN0uIzgBRtoVodFXFhJO/FqkqoZ74BC1OJmWo4CAAxYeAidh4/rM92yz3ddiz
-	 jsdgOUV8XGjSdkfqJLRt83i+66htNPEkx1Ofpnq5JT6DGlKkZ091SXFcn0DgjNZeCdA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795180391;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=A9ldS+40d764zde9QlR/VfxNDRLzrKYiXwhUHC+I/zg=;
-	b=UUjI3VcH2M3O784W7cJnlFvVKIf+Gw6KHLGxSmFBzULqnLLelUvTdvJV3lWEd9nmZH4+
-	 b22JTubjDZzkJ7nHruYhc51WNVwkNBOfGyEHgloOpNjGLzQZpdjoQdatcbgJgQwNJUEEn
-	 d0g3JKMtF/4usVs6DWDxUXN+R7ywBzM3VK1CHDAmexwOBuYdVZY/pEny0qJeU1TD53Wcl
-	 whfCbHDKf7gHYTj/1kEO0QWwT8MfJXrDI3MpdYvt3ns4uW/C1VFhoqTjt7XxYWU4zgBIq
-	 KXgTmygdRAKZsaRMBd19/nEdeR0zvwVT+5K3uVkhdNkeXhhsQWb3tttragJdzYqvAfA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0DFC61F000CA;
-	Fri, 20 Nov 2026 13:13:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180391;
-	bh=A9ldS+40d764zde9QlR/VfxNDRLzrKYiXwhUHC+I/zg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=Z2IcMwRULj6EvT0T4FLdasHIgKDsXEt24XamPaaT9VSEx9pA1yOlCaj1eaztbGqAM
-	 AfHNBVSjg/Io1UBG+2u9ZEU2gyKiEt0BQkyPVioCupTVZ6pF38GBrfn2CbM8YxAHOT
-	 7rWJWNFgWH6vXvaq6U3AKtHeUihy0Ek8wPgRb8V6zfgL3y33DHTMyJcVOi8zgw73hE
-	 jp2hnHwuYDAkOQKDYiPH/LBfiMhP8rZMrPxAjDSO8AzcZnit16Tcgyk4njmETVAdGK
-	 vUZwVmy8Pp1BF+bKGj29zT27OLt4xyV5HE/r3t1IhZcois7FBMdt7Dorq1mvnjIXyQ
-	 JLU8SMVdARliw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 95D3E498A2;
-	Fri, 20 Nov 2026 13:13:00 +0000 (UTC)
-From: yzddMr6 via B4 Relay <devnull+yzddmr6.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 21:12:58 +0800
-Subject: [PATCH] drm/msm/dsi: Fix double put of the PHY device on probe
- deferral
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=mJO1eOf0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA46C1F000CA;
+	Fri, 20 Nov 2026 13:13:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795180436;
+	bh=tlEm898c3RTEH5485EhuXjYcv+V6JoSnqzGBIcz5A3Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mJO1eOf0v04y68J9JZ4bmNrCvSNo2hIOzfJkwVOgV4vurJjv/q+qv/pGfd14CFfKc
+	 2+T8BZ4JL3dccXPO5nO7VCPRRpA3IP+mYA5sUWi1glCjOp2MPjx7Ny25RBzOABCKtX
+	 qyhAk+eRkgauhXG1FouZHeueKDqe3IJUUfyNq0Eo=
+Date: Fri, 20 Nov 2026 14:13:53 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Shihuang Liu <shlomojune6@gmail.com>
+Cc: linux-input@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Ville Syrjala <syrjala@sci.fi>,
+	Henk Vergonet <Henk.Vergonet@gmail.com>,
+	Henrik Rydberg <rydberg@bitmath.org>,
+	Alejandro Colomar <alx+linux-hardening@kernel.org>
+Subject: Re: [PATCH v2 RESEND 1/6] USB: add usb_make_subpath() for formatted
+ device subpaths
+Message-ID: <2026112032-pecan-knoll-4f4c@gregkh>
+References: <20261021123146.17202-1-shlomojune6@gmail.com>
+ <20261022070929.20820-1-shlomojune6@gmail.com>
+ <20261022070929.20820-2-shlomojune6@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,105 +62,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-upstream2-msm-dsi-phy-ref-v1-1-d267b87d545f@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAFlHAGsC/z2MywrCMBBFf6XM2tEmkQr+irjIY2IiJJZMW5TSf
- zep4PLcx1mBqURiuHYrFFoix1euIA4d2KDzgzC6yiB7OQghe5xHngrpJDFxQscRx/DBQh4NeeU
- sKedpgPofaxjfu/t2/zHP5kl2asK2MJoJTdHZhhb91ae9WC7HMxarYNu+Btjip6cAAAA=
-X-Change-ID: 20261120-upstream2-msm-dsi-phy-ref-bef3dce3dfe6
-To: Rob Clark <robin.clark@oss.qualcomm.com>, 
- Dmitry Baryshkov <lumag@kernel.org>
-Cc: Abhinav Kumar <abhinav.kumar@linux.dev>, 
- Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Miaoqian Lin <linmq006@gmail.com>, 
- Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
- linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- yzddMr6 <yzddmr6@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795180379; l=2738;
- i=yzddmr6@gmail.com; s=20261028; h=from:subject:message-id;
- bh=UCVOCZGuxoSVYeQlAgN1/asYu4mtdgFa/QW169bkdC0=;
- b=7QmFwZrvmrODkce+oy/gZC9S60KYzd01Pcnk2A90Mlmot2xKuEHEWd+NWCw/J7sx7fn96rqNt
- 8HLm21FetuqBbfXBNqL78hOjmlhrRxBqtU5JJms6lLdvRn58302t7l3
-X-Developer-Key: i=yzddmr6@gmail.com; a=ed25519;
- pk=QLT2mwairk4R38oU379hkHynqjoLrlqd0Cl1ERUqIqY=
-X-Endpoint-Received: by B4 Relay for yzddmr6@gmail.com/20261028 with
- auth_id=1489
-X-Original-From: yzddMr6 <yzddmr6@gmail.com>
-Reply-To: yzddmr6@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022070929.20820-2-shlomojune6@gmail.com>
 
-From: yzddMr6 <yzddmr6@gmail.com>
+On Thu, Oct 22, 2026 at 03:09:24PM +0800, Shihuang Liu wrote:
+> USB drivers often build device paths by calling usb_make_path() :and
+> then appending a subpath. Several callers use the deprecated strlcat()
+> API for this.
+> 
+> In preparation for removing the deprecated strlcat() API[1], add
+> usb_make_subpath() to format the USB device path.
+> 
+> Link: https://github.com/KSPP/linux/issues/370 [1]
+> Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
+> ---
+>  include/linux/usb.h | 29 +++++++++++++++++++++++++++++
+>  1 file changed, 29 insertions(+)
+> 
+> diff --git a/include/linux/usb.h b/include/linux/usb.h
+> index 1da4ad1610bca..c90ccea0cdbf6 100644
+> --- a/include/linux/usb.h
+> +++ b/include/linux/usb.h
+> @@ -14,6 +14,7 @@
+>  #include <linux/errno.h>        /* for -ENODEV */
+>  #include <linux/delay.h>	/* for mdelay() */
+>  #include <linux/interrupt.h>	/* for in_interrupt() */
+> +#include <linux/stdarg.h>	/* for va_list */
+>  #include <linux/list.h>		/* for struct list_head */
+>  #include <linux/kref.h>		/* for struct kref */
+>  #include <linux/device.h>	/* for struct device */
+> @@ -987,6 +988,34 @@ static inline int usb_make_path(struct usb_device *dev, char *buf, size_t size)
+>  	return (actual >= (int)size) ? -1 : actual;
+>  }
+>  
+> +/**
+> + * usb_make_subpath - returns a stable device path and formatted subpath
+> + * @dev: the device whose path is being constructed
+> + * @buf: where to put the string
+> + * @size: how big is "buf"?
+> + * @fmt: format string for the subpath, without the leading slash
+> + * @...: arguments for @fmt
+> + *
+> + * Return: Length of the string (> 0) or negative if size was too small.
+> + */
+> +static inline __printf(4, 5)
+> +int usb_make_subpath(struct usb_device *dev, char *buf, size_t size,
+> +		     const char *fmt, ...)
+> +{
+> +	struct va_format vaf;
+> +	va_list args;
+> +	int actual;
+> +
+> +	va_start(args, fmt);
+> +	vaf.fmt = fmt;
+> +	vaf.va = &args;
+> +	actual = snprintf(buf, size, "usb-%s-%s/%pV", dev->bus->bus_name,
+> +			  dev->devpath, &vaf);
+> +	va_end(args);
+> +
+> +	return (actual >= (int)size) ? -1 : actual;
 
-Since commit 6977cc89c875 ("drm/msm/dsi: Fix some reference counted
-resource leaks"), dsi_get_phy() stores the PHY device it looked up in
-msm_dsi->phy_dev before it checks whether the PHY driver has bound, and
-dsi_destroy() drops that reference. dsi_init() calls dsi_destroy() when
-dsi_get_phy() fails.
+-1 is not a valid error number.  Please use a real error code, AND spell
+this if statement out.
 
-Commit c04c3148ca12 ("drm/msm/dsi: Fix missing put_device() call in
-dsi_get_phy") then added a put_device() for the case where the PHY
-device exists but has no driver data yet. In that case the reference is
-now dropped twice, once in dsi_get_phy() and again in dsi_destroy(), so
-each probe deferral for this reason takes one reference too many from
-the PHY platform device. Enough deferrals underflow its refcount and
-free it while it is still registered.
+thanks,
 
-fw_devlink normally keeps the DSI host from probing before its PHY has
-bound. The path is reached with fw_devlink=permissive or off, and after
-the deferred probe timeout when no driver matches the PHY device, as
-the device link is relaxed then and every probe retry of the DSI host
-drops another reference.
-
-Drop the put_device() and leave the reference to dsi_destroy(). This
-effectively reverts that commit and brings back the single check that
-it split in two.
-
-The double put was found with the help of an AI coding assistant during
-a review of the driver.
-
-Fixes: c04c3148ca12 ("drm/msm/dsi: Fix missing put_device() call in dsi_get_phy")
-Signed-off-by: yzddMr6 <yzddmr6@gmail.com>
----
-Found by reading the code; I have not hit this on hardware, and there
-is no reproducer. Build-tested only: drivers/gpu/drm/msm/ with W=1
-(arm64 defconfig) on the base commit below, no new warnings.
-
-I used an AI coding assistant for this work. It found the double put
-while reviewing the driver and drafted this patch and changelog. I have
-reviewed the change.
----
- drivers/gpu/drm/msm/dsi/dsi.c | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
-
-diff --git a/drivers/gpu/drm/msm/dsi/dsi.c b/drivers/gpu/drm/msm/dsi/dsi.c
-index 090726be5061..5f9a1409432a 100644
---- a/drivers/gpu/drm/msm/dsi/dsi.c
-+++ b/drivers/gpu/drm/msm/dsi/dsi.c
-@@ -44,12 +44,7 @@ static int dsi_get_phy(struct msm_dsi *msm_dsi)
- 
- 	of_node_put(phy_node);
- 
--	if (!phy_pdev) {
--		DRM_DEV_ERROR(&pdev->dev, "%s: phy driver is not ready\n", __func__);
--		return -EPROBE_DEFER;
--	}
--	if (!msm_dsi->phy) {
--		put_device(&phy_pdev->dev);
-+	if (!phy_pdev || !msm_dsi->phy) {
- 		DRM_DEV_ERROR(&pdev->dev, "%s: phy driver is not ready\n", __func__);
- 		return -EPROBE_DEFER;
- 	}
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261120-upstream2-msm-dsi-phy-ref-bef3dce3dfe6
-
-Best regards,
---  
-yzddMr6 <yzddmr6@gmail.com>
-
-
+greg k-h
