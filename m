@@ -1,48 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.37.83.207
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181039;
-	b=t30WyaQO0SRGXwLI4badCLKCtesNjC4ACOALeqfeQoSVCCrfS3jxIOT1f7DKIG/d8QAz
-	 DDIKG/M/Z4ssBHQxVM4FV2Tp4TbrbaFLcmLROq+Dqt2HImnNdiNRTec0dN25K+0L5I31+
-	 mPTgxsVlPXt01KocW6+TIQryyWdYVtqDBYJ7xrjr0MNJzj5oNi+JbEidDIGPvb2Xm4vjg
-	 1Y3CUHveKpY/0+C5txA5YtbtCyXbywHoUwxGNNKTlXTOguJ0gWrSvdpTvXQfW7NkvM6UD
-	 vN0mc9RX9eQvqkkStgnliO6qirCViycqnXH1cIPK97Br8Jq0+GKfjgmLJdOZF66A3cw==
+	t=1795181101;
+	b=rUMRwMLY27LYNNM3iliGPZ+QTVxLgIVzv9jv9nvRxKnhj1ApERzRUmIKpDhpy9uB3G74
+	 /8YHUo2ymobs7lptZirApWipelZLIr0CF4KCzxLEXgt+2RVRJA1W9ZBBHDYwTFThU/S8v
+	 vFBv03Et9QMsirgZRLzeKsYeoFP9KrRFrlXOfcsNpO7sYw84jm6csGglBXgDV3+aq+201
+	 JJMihXW5Hq7sQ3UeUbDzF3Yc5cOgJC4OIbkG087s54lTSZSH63bnu7umEKqc8wXTXEjcD
+	 x4ssqqfBy+5UZnaQMRZinZ6vTkX0VbwrkA1jKWMuV2tt47hVSYdl1LrHqjr87vSPnFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181039;
-	h=DMARC-Filter:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=hTE6+QRY6OOVR29ouM37g0QVI5C2qsf7YT7gWZCXDrY=;
-	b=vCTDp6vbHJ59voiZHg6NX/ukehxDrR0xoMb/aWxDOfxjJHpNY7P0kpwC/XzDRvQcat47
-	 S6/sl/Fin3sTFRziQCu2tS7Bzxv/HlNaG0iNjG9FO6BPhcKBFqrxEWZvzGIGYpGEKPnlt
-	 9uKkRW0pCCm+mhSwAUbJ2sYsUVZ8ramvXAV5Vp1Y1ANyksn+ZjzGoMPENtxAnNV/8E1nB
-	 AQ7XVvI3VuU5YQd5Cb4PfK5Try9zzQxa7A6hmrYayoEzJEXnYa+LgAVxp0Cn+Si8UK92Y
-	 I0a9hy1vPtF2kfKgdB1ZbLpLEc38wn+jBVZlk+wrMIpS/UTKil/4+PTKLC66olCGhcw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181101;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=EJxOk2iAhlxJO8mQMHPBSXYYr7Hb6Bmk1S6vLMr+MZ8=;
+	b=bgGUzR+Gh/dmoS/tccG//6JYvWO8hFyn/G9gVPRmEX+cf+g8VEmKNyqYllNrxPUEe9XP
+	 5NDFNvw/0itT+SA5cjdH9JqxshIh7oZSnlc+iO8xLWPDuqTwxDlgRROR3QZgk7v59cMyF
+	 7Hvk5RDS36DQ/WkCKsveSC3coA+jCjIePCqEo5qnMcXDl296LSfwAbTI555v9BHwLYP66
+	 XFNwwmYTuMFDS0p9DbQ1vSPQYscQHII9biSEnTDaTZWNZ1lDzJWJUvPcWS0lDsYBQ/3Po
+	 zrBkq2CzvT+SDKD/AuR6w2gaCQlmhNRvLkS9v1CvJ+Y6rbEwxBc0Xy+HsTCiB4cd90g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dfb.sh;
-	spf=pass smtp.mailfrom=dfb.sh;
-	dkim=pass header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=eqXzPxtD;
-	arc=none smtp.remote-ip=54.37.83.207
-Received: from frkn.dfb.sh (frkn.dfb.sh [54.37.83.207])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dCkPrHYz;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6469B606A338;
-	Fri, 20 Nov 2026 13:23:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6469B606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dfb.sh
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dfb.sh
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DE1E606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:25:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DE1E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=eqXzPxtD
-DKIM-Signature: v=1; a=rsa-sha256; s=frkn; d=dfb.sh; c=relaxed/relaxed; r=y;
-	h=To:Message-Id:Subject:Date:From; t=1795181025; bh=hTE6+QRY6OOVR29ouM37g0Q
-	VI5C2qsf7YT7gWZCXDrY=; b=eqXzPxtDg4/jPq8jNmjvD/W2pcF6Sb0y2Y0DaUi1zm9aFy4pxS
-	ZTHIW+FnZPsd+N0709o/wCblCQYkMV6F6JCaoLIed0bJG6y+OO5Ru95JWLiEcVhlWI6pIsu/55E
-	JvS40GT5y1uOnpmh7gDDoo2hsYeT6G2Gxf1aPULzlnVc66lZF9hrNhz5TzhO8B2HbXtdH+IPD/l
-	/4LnDD92Y60FUlIpdfFsiVo9DuXxtslbLz7lydMkUt8w1AN6iqlfMMsZ+GxejP3mxi930pA81l6
-	3JWuxhs7fs+03glw2eFucM/79s8zr6jlipXpWX213vWyermTx0AsHj9w5DalyDUyH1Q==;
-From: Vladimir Petrzhikovskii <vladimir@dfb.sh>
-Date: Fri, 20 Nov 2026 14:23:44 +0100
-Subject: [PATCH v2] vdpa/mlx5: Bound the KLM count of the user MR
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dCkPrHYz
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4b79502c27aso8139705e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:25:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795181100; x=1795785900; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=EJxOk2iAhlxJO8mQMHPBSXYYr7Hb6Bmk1S6vLMr+MZ8=;
+        b=dCkPrHYzS+fdPuPuKwS/olhuHCxYtIb0sFo9PQ+SKkZchMrhIdpW2EL9a0SvblZHZl
+         6Dxb+/8GGtx377OqpkItP5QDaPJL24HSTEooQb1Oh8rqfcLAAQ4L3UeiVwGuYSAOpOcx
+         ZhVg537cx17T2tuC72cgWskMTRuesNMFWD/i3wDku7j8MLPu9G7dWsmjzg9mx1/fiYjm
+         +XjPTHGCtTemoqUoqxYrB+hO6G/npZZ0dVWw26L72Noru2ONn4q+r7RaGKuge2WLE+fU
+         U9uS79+Q1vOGklxtomAQ2OmUTslQ64f/EWs8HLBPSvH7JWiVWjzaumj27CjfBYhRD6qp
+         XWaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795181100; x=1795785900;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EJxOk2iAhlxJO8mQMHPBSXYYr7Hb6Bmk1S6vLMr+MZ8=;
+        b=t16d7oAMaISZ2w7MMCxekhjQOQz1Wfqw5L+fvmxJfPwyIy5NsDKsu11DH5FBYlqt4i
+         NT5dSkBEX57u3IKuZYs1XtyFKPxaPXzU/vvIIPcyiWGYM85TTP7kxRPqKKzX3y9fEn8X
+         bPbIgoy6OcgsmqagfXiuZNb43juRjbjCVZryzZOblxEU40qzPpvn0blF1vOEyVopnMBp
+         i66Tc0tHpWnpJHM5XJhX+au6dr8P1vyoKhFqk9E/4Siahnbx28A7xqoQzmHDO4Dcootz
+         6E7/m+PdTkDcwk6cTtDrbNbc4+pVWcnoqgvOiEiH0mmLcg41qxgj4VvDLV87xWtS2fgL
+         I+/A==
+X-Forwarded-Encrypted: i=1; AL+hErF02UMaB4iy8OSc3CSvu9UjQeMXIqYkcdJ2oK4GbIt2V7ytc/enZnpXZRMWK5KRV8wEMFcnXLzTw+zg0Do=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9eX6vTvVFiw64AHDWfcz6j/uasy75L0ZEUcEJqws3mxKtzdraw
+	AdMC4Qa9tKzrJRILI+NYqiIoKJD386OS2ej/MpPZxHcvhSATxLxSNeoDpGQHgQRQhx+B
+X-Gm-Gg: AYBFou1cyQQ4TP845w7/yerEnZDOjq+MszHuXpHaa9wSCgRoMt+4bS87YanM1g/pjtx
+	1azaDaTaz3hK0FBJuUGZQyQpxkhP9pYP4PqoJ52phHM9JFuhNak1XTpuFBh3VpW4gz6Wn/PaGRD
+	Zqw4hacloPoybWHHYl+uyIh1YK2cqtmz7vO20W3EcdcBc8R0zpS25WR5o67Olt+fizOGVoZ+67+
+	/HpTofTjVVgfSLf0QHVaeGXk0TiNKF2sBTx+wx/4/VQ+HjvHB9IKTv2ZMRwBK5exuYBFxKxY5bz
+	ig5mxyPTfiFFwZei1cVAGnMF+mFwKGxzq7QVm8yWyJlXMgxCOrSsUSGWPJmMvO/ackP6Lv12KzZ
+	SiMJ3cYzyM6FkYf6dEJry9FwKrpfELFBr6c7r3viHQVLkr9a3T0PrtoH2krXC/tyRwzsM4KATcA
+	P77V5aRmeVQOTHL2Cl0wU5VNMozKxklW/xvfp7BpCtvbN+RlBAL9dAwn59hstmGRvh5yV+F6g+o
+	iv70RNtIlxNS+a72gZO5p3eECC7PQMRdT3DqzFQQl5kC9hzGr7hOCLTFGhgbUMwljy8nqk2Gh84
+	9OYnB+I0fCx80zO5DlG8GfH1OH0rQN/mh1amEXPb7b/tHn13THhSwR2jCU/NnFBYHg==
+X-Received: by 2002:a05:600c:46d0:b0:4bb:7987:fbc4 with SMTP id 5b1f17b1804b1-4bb88817eb2mr65637465e9.19.1795181099572;
+        Fri, 20 Nov 2026 05:24:59 -0800 (PST)
+Received: from [10.0.0.233] (tmo-084-188.customers.d1-online.com. [80.187.84.188])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fe75sm6280903f8f.24.2026.11.20.05.24.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 05:24:59 -0800 (PST)
+Message-ID: <1f12636403bb7af3759cd933b2612d8a5d7317a2.camel@amutable.com>
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Andy Lutomirski <luto@amacapital.net>, Josef Bacik
+ <josef@toxicpanda.com>,  Christian Brauner	 <brauner@kernel.org>, Alexander
+ Viro <viro@zeniv.linux.org.uk>, David Howells	 <dhowells@redhat.com>, Jan
+ Kara <jack@suse.cz>, Serge Hallyn <sergeh@kernel.org>,  Kees Cook
+ <kees@kernel.org>, Paul Moore <paul@paul-moore.com>,
+ linux-fsdevel@vger.kernel.org, 	linux-api@vger.kernel.org,
+ linux-security-module@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 14:24:57 +0100
+In-Reply-To: <awBHZO2VwWyJzvBN@kernel.org>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+	 <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
+	 <av3akYFOYaeQZauZ@kernel.org> <av3bkDnwmjunTleX@kernel.org>
+	 <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
+	 <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
+	 <CALCETrXt-Do28BHDpbrA98kEy-tQuorxD8c2XsW24Tt8Vspdtg@mail.gmail.com>
+	 <CALCETrUbe8rBoxrC+Q66AMsrJ8Fow7xt5KJKRAmobtXBvHWdqg@mail.gmail.com>
+	 <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
+	 <awBHZO2VwWyJzvBN@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,149 +113,193 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-b4-mlx5-klm-v2-1-5b37ace483ff@dfb.sh>
-X-B4-Tracking: v=1; b=H4sIAN9JAGsC/22OTRKCMAxGr8J0bRyC1IIr7+GwaCHYKj9OgwwOw
- 91tcesii5cveckqmLwjFpdkFZ5mx24cAmSHRNRWD3cC1wQWWZqdEdMSTA59t0h4dj2ostCnUCh
- LEmHj5al1y267VT/mt3lQPUVFnDCaCYzXQ21jq9c8kY+BdTyN/rP/MWMU/D85IyCoQplcYi4Vl
- temNUe2otq27Qu1etpdzgAAAA==
-X-Change-ID: 20261109-b4-mlx5-klm-798a398a159e
-To: Dragos Tatulea <dtatulea@nvidia.com>, 
- "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>
-Cc: =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
- Xuan Zhuo <xuanzhuo@linux.alibaba.com>, virtualization@lists.linux.dev, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Nikolai Kalinin <nikolai@kalinidze.me>, 
- Vladimir Petrzhikovskii <vladimir@dfb.sh>
-X-Mailer: b4 0.15.2
 
-create_user_mr() builds one indirect MKey that covers the whole vhost
-IOTLB. It fills each gap between two mappings with null KLMs, one per
-GiB, and never checks the total number of KLMs against the device
-limit, MLX5_CAP_GEN(log_max_klm_list_size).
+On Fri, 2026-11-20 at 15:13 +0200, Jarkko Sakkinen wrote:
+> On Fri, Nov 20, 2026 at 01:32:57PM +0100, Alexander Mikhalitsyn
+> wrote:
+> > On Thu, 2026-11-19 at 15:27 -0800, Andy Lutomirski wrote:
+> > > On Thu, Nov 19, 2026 at 2:50=E2=80=AFPM Andy Lutomirski
+> > > <luto@amacapital.net>
+> > > wrote:
+> > > >=20
+> > > > On Thu, Nov 19, 2026 at 9:30=E2=80=AFAM Josef Bacik
+> > > > <josef@toxicpanda.com>
+> > > > wrote:
+> > > > >=20
+> > > > > On Wed, Nov 18, 2026 at 9:46 AM Andy Lutomirski
+> > > > > <luto@amacapital.net> wrote:
+> > > > > > cells: The dance where I create an anonymous mountns, mount
+> > > > > > stuff into
+> > > > > > it, and then attach it to the cell is cute.=C2=A0 But I think
+> > > > > > the
+> > > > > > userns
+> > > > > > interaction is wrong: you are making me assemble all the
+> > > > > > mounts
+> > > > > > in
+> > > > > > *my* userns and then clone the entire tree into a fresh,
+> > > > > > non-
+> > > > > > anonymous
+> > > > > > mountns bound to the current userns.=C2=A0 And that clone
+> > > > > > operation
+> > > > > > is not
+> > > > > > free and serves no actual practical purpose.
+> > > > >=20
+> > > > > The copy buys us nothing, agreed.=C2=A0 That's just what the moun=
+t
+> > > > > API
+> > > > > gives
+> > > > > me to work with today, it's not something cells wants.=C2=A0 If I
+> > > > > could make
+> > > > > an empty mount namespace and fill it by fd I'd use that, the
+> > > > > "root" slot
+> > > > > takes a mount namespace fd already.=C2=A0 Extending the API for
+> > > > > that
+> > > > > makes
+> > > > > sense to me on its own.
+> > > > >=20
+> > > > > The mount namespace staying with the builder's userns is on
+> > > > > purpose
+> > > > > though, that's what keeps the cell from mounting anything no
+> > > > > matter what
+> > > > > capabilities it was given.=C2=A0 The builder sets the tree up and
+> > > > > hands it
+> > > > > over, so the cell only ever has what it was given, and the
+> > > > > mount
+> > > > > code
+> > > > > isn't something it can attack from the inside.
+> > > >=20
+> > > > I don't get it.
+> > > >=20
+> > > > Using the builder's user namespace means that the contained
+> > > > processes
+> > > > can't be ns_capable on mntns->userns.=C2=A0 But this solves very fe=
+w
+> > > > problems unless you also deny the contained processes the
+> > > > ability
+> > > > to
+> > > > unshare userns and make a new mountns, and if you can do that,
+> > > > surely
+> > > > you can also deny the ability to modify the mount namespace.
+> > > >=20
+> > > > As just one example, a mount namespace could have a little flag
+> > > > to
+> > > > say
+> > > > that it's *in* one userns but its owner is a different userns.
+> > > >=20
+> > > > >=20
+> > > > > > cells: I find it *incredibly annoying* that one generally
+> > > > > > cannot put
+> > > > > > new mounts into an existing container using most existing
+> > > > > > container
+> > > > > > managers.=C2=A0 I hit this on a surprisingly regular basis.=C2=
+=A0 You
+> > > > > > seem to be
+> > > > > > baking this into the whole cells design.=C2=A0 Why?
+> > > > >=20
+> > > > > By design.=C2=A0 Allowing changes to a running container is what
+> > > > > causes the
+> > > > > problems.=C2=A0 If you need another mount, tear it down and build
+> > > > > it
+> > > > > again.
+> > > >=20
+> > > > What problems?
+> >=20
+> > Dear friends,
+> >=20
+> > Dear Andy,
+> >=20
+> > >=20
+> > > I'll add:
+> > >=20
+> > > On a non-container Linux system, you can hot-add a removable
+> > > drive.
+> > > On a Linux-hosted VM, you can hot-add all kinds of devices, with
+> > > or
+> > > without the help of the hypervisor.=C2=A0 (The hypervisor can hot-add
+> > > a
+> > > device, and the guest can mount network devices or newly added
+> > > USB
+> > > devices on a port that was already assigned, etc.)
+> > >=20
+> > > For some reason, on Docker and its sort-of-clones, approximately
+> > > the
+> > > best you can do is rbind in a directory and then mount things
+> > > into
+> > > that directory from outside.=C2=A0 This is sad.
+> >=20
+> > +1
+> >=20
+> > I guess the root reason here is what you've mentioned - for VMs we
+> > have
+> > a clear separation of the host-side (hypervisor can hot-plug a
+> > device
+> > to be visible on a PCI bus, for example) and some agent on the
+> > guest
+> > side can react on this change and do something depending on how
+> > VM's
+> > owner has configured it.
+> >=20
+> > For containers, we usually don't have an agent (at least in LXC,
+> > OpenVZ
+> > and Docker too). So it is a container manager's work to figure out
+> > how
+> > to hotplug a new filesystem for example and where to place the
+> > mount.
+> > And this was always a reason for some crazy security issues, when
+> > some
+> > privileged process on the host was entering a container's
+> > namespaces
+> > (partially) and then suddenly become trace-able or bring some host
+> > FDs
+> > (and these FDs could be a way to escape via (struct file*)->f_cred
+> > permission delegation model).
+> >=20
+> > Another reason is that in VM you hotplug a device, while in
+> > container
+> > you can only hotplug a mounted filesystem. And for devices we don't
+> > care under which major/minor they land and so on - again, because
+> > we
+> > have systemd for example and it can figure this out. For filesystem
+> > we
+> > need to know where to place in in a mount namespace tree from the
+> > beginning (we still don't allow mounting a block-device based
+> > filesystems inside user namespaces).
+> >=20
+> > I really like your point and that would be great if we can solve
+> > this
+> > somehow in a new design.
 
-With a virtio-IOMMU the guest chooses the IOVAs: the VMM (QEMU)
-forwards each map the guest makes to the vhost-vDPA device. If the
-guest maps one page at IOVA 0 and one at IOVA 2^58, the driver needs
-more than 2^28 KLMs. create_indirect_key() computes the buffer size in
-an int, which overflows: the driver allocates 336 bytes, and
-fill_indir() then writes 16 bytes per KLM, 4 GiB in total, far past
-the end of the buffer.
+Dear Jarkko,
 
-For a huge gap the count is also wrong: the number of null KLMs of one
-gap does not fit in the int that holds it, and rounding the gap up to
-whole GiB wraps.
+>=20
+> This is for v4 (latest).
+>=20
+> MOVE_MOUNT_T_MNTNS takes any nsfs CLONE_NEWNS fd, and populates
+> CLONE_EMPTY_MNTNS directly and attaches live submounts without
+> setns()
+> and FSCONFIG_SET_ROOTNS mounts FS_USERNS_MOUNT filesystems
+> unprivileged
+> without entering userns.
+>=20
+> The gaps would be open_tree(OPEN_TREE_CLONE) gating (it's now against
+> host), uid_map/gid_map prepopulation and a flag to deny mount table
+> changes inside rootns() container while keeping external hot-mounts
+> enabled.
+>=20
+> Those are totally addressable issues.
 
-Refuse a map that needs more KLMs than the device supports, or more
-than fit in a CREATE_MKEY command, before any key is created. A normal
-guest is unaffected: memory at 0-3 GiB and 4-68 GiB needs 68 KLMs.
+Yeah, detached mounts API solves a security issue here, but it does not
+fully enable the use-case Andy describes (if I understood it
+correctly). My interpretation here is that to fully cover it we need
+some well-isolated communication channel between container and
+container manager (vsock for containers? :-D). And some well-defined
+agreement of how PID 1 inside the container can get an information
+about a hotplugg-ed stuff. [ But it could be that I completely
+misunderstood and Andy meant something much more simple here. ]
 
-Found by an LLM code review agent auditing vhost-vDPA backends. We have
-no mlx5 hardware, so the fix is untested on it.
+Kind regards,
+Alex
 
-Fixes: 94abbccdf291 ("vdpa/mlx5: Add shared memory registration code")
-Cc: stable@vger.kernel.org
-Co-developed-by: Nikolai Kalinin <nikolai@kalinidze.me>
-Signed-off-by: Nikolai Kalinin <nikolai@kalinidze.me>
-Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
----
-The guest kernel change used for the reachability check is available
-on request.
----
-Changes in v2:
-- Shorten the changelog (Dragos).
-- Use DIV_ROUND_UP_POW2() for the gap (Dragos).
-- Use mlx5_vdpa_warn() without rate limiting (Dragos).
-- Drop the kvzalloc() change and the comment on
-  MLX5_VDPA_MAX_KLMS_INLEN (Dragos).
-- Link to v1: https://patch.msgid.link/20261109-b4-mlx5-klm-v1-1-787b45145719@dfb.sh
----
- drivers/vdpa/mlx5/core/mlx5_vdpa.h |  2 +-
- drivers/vdpa/mlx5/core/mr.c        | 23 ++++++++++++++++++++---
- 2 files changed, 21 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/vdpa/mlx5/core/mlx5_vdpa.h b/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-index 42f2f44b383c..1d84824ca429 100644
---- a/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-+++ b/drivers/vdpa/mlx5/core/mlx5_vdpa.h
-@@ -32,7 +32,7 @@ struct mlx5_vdpa_mr {
- 	/* list of direct MRs descendants of this indirect mr */
- 	struct list_head head;
- 	unsigned long num_directs;
--	unsigned long num_klms;
-+	u64 num_klms;
- 
- 	struct vhost_iotlb *iotlb;
- 
-diff --git a/drivers/vdpa/mlx5/core/mr.c b/drivers/vdpa/mlx5/core/mr.c
-index b0c5ff23d022..d902f7ee9ab6 100644
---- a/drivers/vdpa/mlx5/core/mr.c
-+++ b/drivers/vdpa/mlx5/core/mr.c
-@@ -206,6 +206,15 @@ static int klm_byte_size(int nklms)
- 	return 16 * ALIGN(nklms, 4);
- }
- 
-+#define MLX5_VDPA_MAX_KLMS_INLEN \
-+	ALIGN_DOWN((INT_MAX - MLX5_ST_SZ_BYTES(create_mkey_in)) / 16, 4)
-+
-+static u64 max_klms(struct mlx5_vdpa_dev *mvdev)
-+{
-+	return min_t(u64, BIT_ULL(MLX5_CAP_GEN(mvdev->mdev, log_max_klm_list_size)),
-+		     MLX5_VDPA_MAX_KLMS_INLEN);
-+}
-+
- #define MLX5_VDPA_MTT_ALIGN 16
- 
- static int create_direct_keys(struct mlx5_vdpa_dev *mvdev, struct mlx5_vdpa_mr *mr)
-@@ -501,6 +510,7 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
- {
- 	struct mlx5_vdpa_direct_mr *dmr;
- 	struct mlx5_vdpa_direct_mr *n;
-+	u64 klm_limit = max_klms(mvdev);
- 	struct vhost_iotlb_map *map;
- 	u32 pperm = U16_MAX;
- 	u64 last = U64_MAX;
-@@ -508,7 +518,7 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
- 	u64 pe = U64_MAX;
- 	u64 start = 0;
- 	int err = 0;
--	int nnuls;
-+	u64 nnuls;
- 
- 	INIT_LIST_HEAD(&mr->head);
- 	for (map = vhost_iotlb_itree_first(iotlb, start, last); map;
-@@ -522,8 +532,8 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
- 					/* We have a hole in the map. Check how
- 					 * many null keys are required to fill it.
- 					 */
--					nnuls = MLX5_DIV_ROUND_UP_POW2(map->start - pe,
--								       LOG_MAX_KLM_SIZE);
-+					nnuls = DIV_ROUND_UP_POW2(map->start - pe,
-+								  MAX_KLM_SIZE);
- 					mr->num_klms += nnuls;
- 				}
- 				err = add_direct_chain(mvdev, mr, ps, pe - ps, pperm, iotlb);
-@@ -539,6 +549,13 @@ static int create_user_mr(struct mlx5_vdpa_dev *mvdev,
- 	if (err)
- 		goto err_chain;
- 
-+	if (mr->num_klms > klm_limit) {
-+		mlx5_vdpa_warn(mvdev, "map needs %llu KLMs, limit is %llu\n",
-+			       mr->num_klms, klm_limit);
-+		err = -E2BIG;
-+		goto err_chain;
-+	}
-+
- 	err = create_direct_keys(mvdev, mr);
- 	if (err)
- 		goto err_chain;
-
----
-base-commit: d48723711bae9b8cdc56719c448ba42fef28cbee
-change-id: 20261109-b4-mlx5-klm-798a398a159e
-
-Best regards,
---  
-Vladimir Petrzhikovskii <vladimir@dfb.sh>
-
+>=20
+> Br, Jarkko
+> =C2=A0
