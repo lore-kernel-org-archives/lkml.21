@@ -1,93 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209640;
-	b=BLbgd3cr0QK2dau8WhnZNoNwOwIf2IrD1g9K452mE0Bjkuj+wg4DrmHprNiRzhWo6QgC
-	 c1sB/eV9EH49v0pJ9CxlBDwsl3pwBGgw2qe4O3eiz+uoG6suIEYAqp/bBvT3+4WYJSllm
-	 hiozhMtoYJx/m0fXPpEMKVxJ9CWN35d7MDe4Vql09HMTTZnyTESUCpNAv67ZuuHs1K3ct
-	 HoTUlNrCDUOqmgkJr8Ea+mslQN32P0ITLTrnqDIp8dfDdWuANoO5Nr6sSm8hw6P8GZNAd
-	 +flAmnnLQR7Eh2RSJo/jVyifizQzHVL6acckPR0TXbreBOQBwVNunOgTTs4sIajp0og==
+	t=1795209685;
+	b=UNTJ6mhUFjXeJwJOKLK7Ht3SgqSjQoWzWWtTCpXmS/s6X/EmnDItD+dqEgI+2oXAnr20
+	 S/yqNwF4EVjGPjRVG/rclU0YVdNJsczXTfa5ml01QCJqNnwVOkiCxR8snZizwHleKplV7
+	 sPvTgnlNQ6akRcWS/ufL145gJBFZVf2NmPO+LB89FAbWnA3I3RjqVgC7Xe1qUD7uhHk9r
+	 zkg8kKz+NbvNOcWCyIdVTWL3eX6cPuA6p009bTESYHZ2dABWcGcw0xJLw2BKuuyueWjMf
+	 TQAX0S0wLjukDl2mOFlVJpZtWA1h3+nQdxTkrv8r3G3g5y0uasTpjAMf0lXZWbADuFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209640;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
-	 User-Agent:MIME-Version;
-	bh=LmcAi6HEybEAMZVvo4K38uL60nPeQBtPpV5MltW1eac=;
-	b=h7slA2IF08Ob9AlEl7Ti3gqYbieFseAbQcElhKuGO6YygRm8tE61PbF1jSFGTDMzu0WC
-	 Pq7PlU2GEAYRG7vAxPK19miOchP5BuqwUFG8C5SaxglilNof/crsd37fIQ0+1pJasrAEC
-	 ADWc50qyFlvoFBq3f1M096h6IP8mZLBeMgLzn9iM5L3LaICDNDo/2OAjaGbBaES9rP2YM
-	 8z/vS/QU6rHWYxiMIdRsxULLBVKVehQ+ewI3BkgkueidJThl/I4bE4OeK7f9KWT4SVNYD
-	 XF5THLkSgKAlRgCSuxZTwoWMBKaiBiQIuJXdOonvYgvrOf4hY2MEsm0+69ZbijQj9bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209685;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=LcW5LGPLQNlpPABgCM8Lav+Jb0a9Avhy4piIz92GWfI=;
+	b=bH6z5P0fp6PodqymDaL2Il58XXB7xXPDGcV83hRj+gj0V77OsZH/qH4N8OR6/5SUxKp8
+	 I6kBvOmKHNvIr6f8Y7e8RQAL3VxDAlJUq+dp/1XOCFu7i5AMTm4Xma6WtOnuFs5BPWH0p
+	 e18xhCxL55U0NqTZCT/uQBkc5RN6QpvSKfGzTiRE0r3S1MDiHBE2cWRmi7nvkXNTw/yyj
+	 0ex2Hu8jZkoryAOmuYHxFSUFVIArj9s9mz1JspTOuNAQqeT4tEzzswXiALEFM9XnK19Ec
+	 CZEQmlAT7LTRvfX4j0jHEO8M56XTWlS7LY2rB6K8u2perpsDCvOUMDcGZUjwmETBD9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=l8dCeRqd;
-	arc=none smtp.remote-ip=148.251.105.195
-Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bIHWLapb;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF6D6606A6A8;
-	Fri, 20 Nov 2026 21:20:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF6D6606A6A8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2961E606A6AF;
+	Fri, 20 Nov 2026 21:21:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=l8dCeRqd
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1795209636;
-	bh=LmcAi6HEybEAMZVvo4K38uL60nPeQBtPpV5MltW1eac=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=l8dCeRqdGGvDvQZ6PoqXdbpOJ2+fHWxxCuy7aAJ3wsV3nStEcpuZBlfrRlpSY2N3w
-	 kp75T389Dl2TmMOXvOIh4ISZYhHDjk5iD7ViLnd0A34sXeoqUknsWdR7cYp7Oc+hIn
-	 pBe56/3B9KMjtV7WZx3gkQ0tnfAIlsQIg8dUkR9qr0tGjKddwrHudAPm3qgJmFkWNs
-	 n5tIOgBsi8D+TFQnBOPA7qZnQdAHAmRv3EjMfN23Pd5g6xxPn6CTdEtE1PgUr7wC3l
-	 1R1F6KUaGcIqH1MwDscd7s0zLu3GFyUp5s5BFYVJOe5NWVmO3NJiSvIVUqremtdRJa
-	 kkOjH8KNmIsHg==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A965017E0060;
-	Fri, 20 Nov 2026 22:20:33 +0100 (CET)
-Message-ID: <bc777a9772d1dd841d1928421a7881fb57f9d70a.camel@collabora.com>
-Subject: Re: [PATCH v5 3/5] media: rkvdec: vdpu381: Program the read caches
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Daniel Golle <daniel@makrotopia.org>, Detlev Casanova	
- <detlev.casanova@collabora.com>, Ezequiel Garcia
- <ezequiel@vanguardiasur.com.ar>,  Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner	
- <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, Michael Riesch	
- <michael.riesch@collabora.com>, David Heidelberg <david@ixit.cz>, Christian
- Hewitt <christianshewitt@gmail.com>, Marc Zyngier <maz@kernel.org>,
- linux-media@vger.kernel.org, 	linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Hans Verkuil <hverkuil+cisco@kernel.org>, Jonas Karlman
- <jonas@kwiboo.se>,  Diederik de Haas <diederik@cknow-tech.com>, Dang Huynh
- <dang.huynh@mainlining.org>, Piotr Oniszczuk	 <piotr.oniszczuk@gmail.com>
-Date: Fri, 20 Nov 2026 16:20:31 -0500
-In-Reply-To: <57258f1199fdbf24ac57081c6f3df219464e870a.1795191822.git.daniel@makrotopia.org>
-References: <cover.1795191822.git.daniel@makrotopia.org>
-	 <57258f1199fdbf24ac57081c6f3df219464e870a.1795191822.git.daniel@makrotopia.org>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-xMvWOScR5XSmqSVox+1m"
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bIHWLapb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B65DA1F000C4;
+	Fri, 20 Nov 2026 21:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795209685;
+	bh=LcW5LGPLQNlpPABgCM8Lav+Jb0a9Avhy4piIz92GWfI=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=bIHWLapbw9Pqnul7m1Tj39h3iCi1bWWGwic+B2iGhTpv6ocCOXf9YUhLthjgWmVP6
+	 9mfMtXDEsxFrE8FG6xV4cyuGEHwjlNJboiZDkcIAUJ/FPU8lpQi+dhVDEcHR8HjvmD
+	 ZI6Tf/Hy82Zm6Psr2USmSLVICPMmlSVPxNEynhEaVoDpUgl943cbrPvILsZNW+E46n
+	 cwmKNOoFnCOoiFuUo4S9xwSgfpL2bFOjbWUHabWizGvaoxQiqN5P93sGP/2+/5IIhI
+	 TMI0qDID9pFyIgk4L+V5ITjj8nGR5cCR/Esk5GGK1Vh/9XwbRPEsB7j8nvUrnqvbOT
+	 gpj2tMB9x3nDQ==
+Message-ID: <sashiko-outbox-226162@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v10 28/40] sched/deadline: Start a period for a task
+ that enters the class blocked
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <0557a76f35a09f1caa281777e3926d3446a7c74e.1795207232.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <0557a76f35a09f1caa281777e3926d3446a7c74e.1795207232.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 21:21:24 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,43 +60,86 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
 
---=-xMvWOScR5XSmqSVox+1m
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [Medium] sched/deadline: dl_boost_blocked() skips departed tasks with
+  dl_deadline
+--
 
-Le vendredi 20 novembre 2026 =C3=A0 17:41 +0000, Daniel Golle a =C3=A9crit=
-=C2=A0:
-> The VDPU381 and VDPU346 have three read caches, configured through the
-> "cache" register block. The driver leaves them in their reset state,
-> and on the RK3568 some streams then decode with wrong output.
->=20
-> Configure and clear the caches before each H.264 and HEVC run, the way
-> the vendor kernel driver does. The "cache" block, which the binding
-> requires, is now mapped at probe for every variant with named register
-> blocks; the VDPU383 does not use it.
->=20
-> On the RK3568 this fixes the HEVC conformance vectors RAP_B_Bossen_2,
-> WPP_D_ericsson_MAIN_2, WPP_D_ericsson_MAIN10_2 and
-> WPP_E_ericsson_MAIN_2 and the H.264 vectors CAPM3_Sony_D, MR8_BT_B,
-> MR9_BT_B and NRF_MW_E.
->=20
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+commit 83a90ad95f7f2d67e4562e7ef1ff35c08c85da9f
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+sched/deadline: Start a period for a task that enters the class blocked
 
---=-xMvWOScR5XSmqSVox+1m
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+This commit starts a deadline period for a task blocked on an rt_mutex
+when it enters the deadline class or receives a new priority-inheritance
+donor while having no deadline reservation of its own.
 
------BEGIN PGP SIGNATURE-----
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index aa12908aeaeab..ee3a08ff33458 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+[ ... ]
+> @@ -1184,6 +1195,30 @@ static inline void replenish_dl_new_period(struct =
+sched_dl_entity *dl_se,
+>  	trace_sched_dl_replenish_tp(dl_se, cpu_of(rq), dl_get_type(dl_se, rq));
+>  }
+> =20
+> +#ifdef CONFIG_RT_MUTEXES
+> +/*
+> + * Start a period from the new donor of @p, if @p has no reservation of =
+its
+> + * own and waits on an rt_mutex. The enqueue does this for a queued task=
+, in
+> + * replenish_dl_entity(). A blocked task is not enqueued, but the chain =
+walk
+> + * copies its deadline into its waiter.
+> + *
+> + * The caller calls it only when the donor changes. A new period changes=
+ the
+> + * deadline, so the chain walk finds the waiter out of date and goes on.=
+ In a
+> + * ww_mutex cycle, a new period at each step would never let the walk st=
+op.
+> + *
+> + * The caller holds the rq lock and the pi_lock of @p, and has updated t=
+he
+> + * rq clock.
+> + */
+> +void dl_boost_blocked(struct task_struct *p)
+> +{
+> +	struct sched_dl_entity *dl_se =3D &p->dl;
+> +
+> +	if (!dl_se->dl_deadline && !dl_se->dl_throttled &&
+> +	    dl_task_pi_blocked(p))
+> +		replenish_dl_new_period(dl_se, task_rq(p));
+> +}
+> +#endif
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawC5nwAKCRDZQZRRKWBy
-9P8TAQDpyeSu1gXllnkYGeMqRKPvJ8onxEJ+yv2Jv5OBpiybIQEA1uZT2/boTgHm
-weAd02uKsuvt1n9zB+lAaVOMSc3SMgQ=
-=K9qN
------END PGP SIGNATURE-----
+[Severity: Medium]
+Can dl_boost_blocked() skip starting a period for a task that left
+SCHED_DEADLINE before its 0-lag time?
 
---=-xMvWOScR5XSmqSVox+1m--
+When a deadline task switches to a non-deadline policy before its 0-lag
+time, switched_from_dl() arms inactive_timer and leaves dl_se->dl_deadline
+and dl_se->deadline non-zero until that timer fires.  If the task blocks
+on an rt_mutex and is boosted back into dl_sched_class before
+dl_se->deadline passes, switched_to_dl() cancels inactive_timer (so
+__dl_clear_params() never clears dl_se->dl_deadline while the task remains
+boosted) and skips replenish_dl_new_period() because dl_se->deadline has
+not passed yet.
+
+Once dl_se->deadline does pass while the task is still blocked and boosted,
+a subsequent boost by a new donor calls dl_boost_blocked(p), which sees
+dl_se->dl_deadline !=3D 0 and returns without replenishing.  The chain walk
+then requeues the waiter with the expired dl_se->deadline ahead of waiters
+with current deadlines.
+
+Checking !dl_prio(p->normal_prio) (or whether dl_se->deadline has passed)
+instead of !dl_se->dl_deadline would cover tasks still carrying parameters
+from before they left the class.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
+t.mathieu.desnoyers@efficios.com?part=3D28
