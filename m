@@ -1,58 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167134;
-	b=5F0Hra6J9qT5Zee2Rhqcbtlhrsd52iKq45ShRuKcCLHkXZhKebuZBUQn0vQgvN8w2XUq
-	 IionvLE/iuK6ioihxA/2jd4eUEEhC9fWuoWggdC9maxV/1l3Bm82s8j3LqcVd6W+mGpD5
-	 2fk+g87M0/L6fMgZtY/Qhm7ig2aNMg+7D9L8K/0nCg0TWEzi2YvVGqXmvPopmg6fLHHyX
-	 IEP9BuVMRTcehwG+FZr+ymeJGvPhbOYjdFL5VGNwX9w3vzMljIRqhSBKnJHPXijyzlUyn
-	 upJOWdbIwmZMG3nxUvs5mPO4sSnDJQA2e0Ehq/G6gNp9z6KCuvtvYMvBxSA7Wp6CyYQ==
+	t=1795167149;
+	b=R0lXyabnKr9riqdmxenzXhiIql13tATcStt2sGVq8UWoD5hRpOOzFo+1G4PuE+GipQer
+	 dZAhFiHYdMHNvbKazip34QWnO+yBJRA/+5AxlW1ejQQ3qkQ932Q+OZa1SR/ILdOdH6GlE
+	 4DcxvbbxbVpGY9RsANjheBmLTdladSPnsd/o678yAfX4ZQNu0I00xPz37F9lmpQNNgRSp
+	 x1j6jbVTMwnAWiSGpkQeIEW5dIgGREuAwinq3dSwcfUf+HYSZbmJ52rItyIO18EVY8anp
+	 xXWdl3W4c/P2a3GJGIiO4YxBKBx2EKxHiGoJ4SNzGaar9GdC2LwdFN3d+VyEsQNtAKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167134;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
-	b=NekkD4MjZHa7iFRcC/k+dNpj5goNZPFUNnZdUVQLj2kjrUp+j1VrtWFd142Tnn2b+D2/
-	 evGskZMZLYr5zAzCFc1i4e94YK5/1OzbDoGRsNP61z1estwsvzHDvh5u6j36Eig7SJB8S
-	 lRVyXk0OVtHz4pzP6HY2w3YM6tVCzizk4N8H5D7mSQybPKRebSNkL62z9fZ0zYMwTi/Ed
-	 +FyrsLFgGR1EtHCLQMwuW1bOwdTfGrQuRMXWBMfUXa5Ze1w/PJcCCZBRPXqRqkvxteac+
-	 sRD7jqpuFTy6raOCp+ncq5k5+duwQytcTI2X/sr+UXU3Gp7156P4PyMM7tGvMvnxFMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167149;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=N2TX84muOckIlzBgwTaSk5sr6HXNB/fegPx1qDVmWWg=;
+	b=K6IKVrsWYh3FYxIGzMT9b6Ydp802VBKWUuwfUkEV5Rwg1gUhHeUIzEzSrZGV8Do2FkxP
+	 vP0IdGPGzD+tHw2ndSyVq8wZTRYZ8KFv485bu0W42kOBfWRBoWUKFLb6ArWmAU9rdA91n
+	 R2LMFRKa4KwwhCTOjW9mPQV7pCcP+0PGz9ykr8+yacJqIfbEa29RgZWdWD3ADHnjn7QmG
+	 x2ZQ+ka2uDTL6MLOSsSoQL/ZfF7PIJi6peW8CE6WvtbQJ1r/elzsrWpG7t7NvBlefFrh8
+	 Z/oaGv78slB5qRZ0XBY7MRXrPJulpmTT9tG7DWxdDPqyeYslANUHzi4luTbf9Y2rLCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="b+aayWs/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5C70606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:32:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5C70606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF012606A320;
+	Fri, 20 Nov 2026 09:32:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=0xS1lnJG
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 085214E41686;
-	Fri, 20 Nov 2026 09:32:11 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C7E3A6017D;
-	Fri, 20 Nov 2026 09:32:10 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BB32611BC0EC9;
-	Fri, 20 Nov 2026 10:32:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795167129; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=NOdHN8HSi06sDrJLUdjkF+/dA9o+toApfuz7TH64mOw=;
-	b=0xS1lnJGlmwliZy8MMggKiEvVyPYie91pstHyIlVCfKnUZl+K9fiSAoHeuM1sxmGCl/WIL
-	iOeXaqpzFKJ1PBmMXGtDnfeggNgvqyJ4eLiHih72EgzNnvf9YkZzhZcoHPtnfmwbs3Gc7Y
-	6063AIdoqm1KYWamSxnlj4fMf4SR5fllXmmLNvVYYLIAFmudegaicrIyiapkzOCu6Fh6TM
-	4hvBrZafbqnTjhHPYVjS1OIQIw+Nm9eEnLPzdFiNWOEg/lmt59YdZZqRObu989gAr2YocD
-	tSanyMLyCWdvKhJI7fpKykRVtP9XYbM9fLWcRFh5EAsNw9vhLqqSg/Vw1BmTpg==
-Message-ID: <c84543f7-b824-4da8-9f8a-8e15d8f89140@bootlin.com>
-Date: Fri, 20 Nov 2026 10:32:01 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b+aayWs/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 081771F000C6;
+	Fri, 20 Nov 2026 09:32:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795167148;
+	bh=N2TX84muOckIlzBgwTaSk5sr6HXNB/fegPx1qDVmWWg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=b+aayWs/8zNGLRP2GlXUtmz8xp5X+5vLouh0IlkRXw7wkKAbJfTUheIfkHnKomjRy
+	 TXx4/fabragKwGwqDmaGDetXZvXckvRdRTJnmUCDnHn2htfw8xXWbYJbLb/BfzOTkD
+	 yWd89VPKBAtk23Yl6XNHeq/H3mbJfxwAWLiDyNRkBIAqKuxv5mOiT3/JbbuA6rqHUc
+	 FbMLwvet808w+6qZINkn2COvA9CiH4Ggd56c7kmeBn7fA2WIHtQ5lVgedUE5X75phA
+	 tgn1tcExMLn9b/9ULyDBBcf19MFieDjpWD58uQ0Zs3UDeWoEev6d9M7J4XOXtIpV7k
+	 QdhBZFUdSsucw==
+Date: Fri, 20 Nov 2026 15:02:25 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Rui Wang <wr574332525@163.com>
+Cc: Eugeniy.Paltsev@synopsys.com, Frank.Li@kernel.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6] dmaengine: dw-axi-dmac: report paused state and
+ residue in tx_status
+Message-ID: <awATqdO3Ltn5JiLg@parshuram>
+References: <20260928035133.2046-1-wr574332525@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,47 +57,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net v5 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <179515691045.3136.13671979747174463292@kernel.org>
- <20261120083312.2324522-1-github@szelinsky.de>
-From: Kory Maincent <kory.maincent@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120083312.2324522-1-github@szelinsky.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260928035133.2046-1-wr574332525@163.com>
 
-
-
-On 11/20/26 09:33, Carlo Szelinsky wrote:
-> On Fri, 20 Nov 2026 06:41:50 +0000, netdev-bot+sashiko@kernel.org wrote:
->> The check now runs under the lock. Is admin_state_enabled &&
->> isr_pd_detected enough to show that the PI is powered and has a budget?
+On 28-09-26, 11:51, Rui Wang wrote:
+> The driver implements device_pause/device_resume, but device_tx_status
+> keeps reporting DMA_IN_PROGRESS for a paused channel, so clients cannot
+> tell a paused channel apart from a running one. Report DMA_PAUSED when
+> the channel is paused and the cookie is still in flight, including for
+> callers that pass a NULL dma_tx_state, and clear the stale is_paused
+> flag in dma_chan_terminate_all(), which disables the channel and thus
+> implicitly cancels the paused state.
 > 
-> No. This is the same point as on v3 and v4. The patch only moves the
-> old check under the lock. Kory agreed to leave it for a follow-up [1].
-> 
-> Kory, one question: we are at v5 now, and most new findings are older
-> problems outside this series. What do you suggest to get it merged
-> faster? I am happy to fix the older problems in follow-ups.
+> Also, the residue of an in-flight transfer is currently derived from
+> the number of completed LLI blocks, so it only advances in block-size
+> steps and stays stale for the duration of a large block. Read the
+> current hardware pointer (CH_SAR for MEM_TO_DEV and MEM_TO_MEM, CH_DAR
+> for DEV_TO_MEM) and walk the descriptor's LLIs to compute how many
+> bytes have actually been transferred. The 64-bit pointer is sampled
+> with a tearing-safe double read, as the transfer may be running
+> concurrently. The pointer is only consulted for the descriptor most
+> recently programmed into the hardware, tracked in the previously
+> unused chan->desc field; any other descriptor has not been started yet
+> and keeps reporting its full length. When the transfer has just
+> completed but the descriptor has not been reaped yet, the pointer sits
+> at the end of the last block and the residue naturally reads as 0. The
+> pointer registers are pre-loaded with the first block's addresses when
+> the channel is programmed, so a stale pointer left by a previous
+> transfer (e.g. when its buffer is reused) can never be observed before
+> the first LLI fetch completes. Cyclic descriptors keep the
+> block-granular accounting.
 
-You have my R-by on all the series so we can only wait for a net 
-maintainer to take it. Jakub, Paolo, would it be possible to take it?
+This fails on dmaengine/next. Can you please rebase
 
 -- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
-
+~Vinod
