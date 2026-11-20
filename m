@@ -1,82 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190294;
-	b=YvBW5MTkULj32QKzr9QQk4y99pgK/VeLpgOrsbZBOF7VKQQX5OI5okV/S2J4gfx+AeJO
-	 lvsi5+y2PslahL8OlGZcxld6UWw4E40aRcprBMwYOmLv4Z+mW0lD7EczZP6DQ5rByTxE6
-	 Z34Dq2EdVWZ8Ef21zpY32lZqqDJ3YSe1PEfdgN6zzCQY4AlwZoYVx2URa0GwxF86KVLR2
-	 H0CBdO+qoNP9XgGMJJWZQ5YVvFxr3u+fbAcyzRakw+Kw9bnmmhvQ1jKh5+aGhjJzpm/tj
-	 l9XRQSdPOTttdkP2I9AkUqrvNpzIJ+zzbY6Pb+MsVUbjIrXuNIA471lpO589Xq3HN0g==
+	t=1795190309;
+	b=f3U0N5AQNTUZzVrq7aOX6imKoeYbAky1PVqdzcaDxYLweLF600qUmrRg04BZRZH6cvnM
+	 vMT8XnI4SQPkm8yCPbiVSh6DpkcUGLlpNFlCLzCIFJkin6qfmQt5KCHzZOH8fTrZ5RYlX
+	 fjkQ2duiyyHqdr7cY3LTwMR8xRQupoFq65Lm7d9JVPQd4YoKp3gIyJ+u0XNsZ7A+qTqgD
+	 obaELfGaCgIsMrRW7XbG1+oO6+n0RLA0wlyi78xpc1uIWi5eJfWResXdXpZc5jfSx030P
+	 VgVVffmanVoFRcRm0izfv94b2jsxgTLPuqsgADyOtKkBiw7F7U69NQk567RUxXnM15w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190294;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=HshqsJTVQWKzzCpeTZNQ6x3UViMzlSmZnpb8BEfK+Ro=;
-	b=oQFGr4vcFUA9x3EvTH5kqQWa9NXxkSkXj2jFVbADeP28+rP6u7Ow0PVUY+BO5h/Rj0/G
-	 jZQiXen702A3afi7zgGtYiMLS+UgymNypcq2CnvoikFohHnfHXGh/woOgsKEPsofNACYE
-	 TXJIxC3JLMCuKQDEy4fX2xlXXeZQEb99ZjJYN62dDXVUwepMAfDKJly0YZ6uQfi7bkjfI
-	 sT/sllomR/ARcPohG8Qe/3SEVTU2R2ROS6R3GMXBE9W+m9LyBKofW5CBlmk75wXzhg1QI
-	 Zr3j2s3o79I2yfvQFz6WG7GNbLL1j2dyx76MY1LY8qpXe5SscQVa8nUicTpxfX0zt6w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190309;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=UGn2Xr8Ly1HQXZSbSFJcSWI6kH+PUQItBE9t+lSvk3A=;
+	b=OXIlYrksmOSH4zV9GWmdnUz37jOzmt/zTrcM0agXzTlAOqYZ256ujYxd+ap38IoTlQ6h
+	 NLlpDmj7hGHoaa0wlI28FJ4/8OFKuF3NNCZpw9jT20o1sUPoqS39wNrncTtzQzYh34T2O
+	 zvwjiK6hvSzMofrhsrQGwLGY/wqRa8dRPS9J1XeHnPBE4ZGCAUM8PlShhIaCnUXwPZ40S
+	 fgZIqF0bnGZCTmtZ+uGYsRorfodD2JZNC1+ZbF7kQXIyjMoHi/WcsRob13NwYf82dJ3oq
+	 DbUo7Qmhbz+9g+WQ0UZ3Fm73WlAtxLcOHWWpJj0Km8x1CdeS4hZa2F9FiWnxbP9bK8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=PZz3Ur2a;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZKs2toD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95DF8606A325;
-	Fri, 20 Nov 2026 15:58:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95DF8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A131C606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:58:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=PZz3Ur2a
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HshqsJTVQWKzzCpeTZNQ6x3UViMzlSmZnpb8BEfK+Ro=; b=PZz3Ur2a6OdHwfi/J7tRqJKf9c
-	JkB20MtKPZOMm1TsoCDmVdbABbvFgh1EhVDiZpaUhJpTZNOYGkBRAVRz+6dYnh/a9lM8RWeglMFAz
-	K/eyFBbBpcD6e53eMfHFrnLewpMKDbjDz6vkzYRYJ9i83WrYAmGk2lX8WdjsRD+5N37QPcD6rIq05
-	agoYB1y7GZEKf8mIoWsrR5ObRnwu6kQF9KRyddWGskcEsgdJh161/MKbTocHRzDUcWy4ycgu1UiCb
-	PwvTUf0hxXaSuBdtZT5Uewoy/KcD+mOn2BpqaBihQ1GITzP1HRA8zki1cleFXPxPozCnRuyIv6RWe
-	dQZs4rYA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUR04-00000000vlw-0aHt;
-	Fri, 20 Nov 2026 15:58:08 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 7F50E3008D6; Fri, 20 Nov 2026 16:58:06 +0100 (CET)
-Date: Fri, 20 Nov 2026 16:58:06 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	loongarch@lists.linux.dev, Mark Rutland <mark.rutland@arm.com>,
-	Ian Rogers <irogers@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Oleg Nesterov <oleg@redhat.com>, WANG Xuerui <kernel@xen0n.name>,
-	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>,
-	Clark Williams <clrkwllms@kernel.org>,
-	"Luis Claudio R. Goncalves" <lgoncalv@redhat.com>,
-	James Clark <james.clark@linaro.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Subject: Re: [PATCH v5] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP
- notification to task_work()
-Message-ID: <20261120155806.GK2669272@noisy.programming.kicks-ass.net>
-References: <20261120144553.TjgAd_G6@linutronix.de>
- <20261120150320.GQ2668804@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZKs2toD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0457D1F000F2
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:58:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795190309;
+	bh=UGn2Xr8Ly1HQXZSbSFJcSWI6kH+PUQItBE9t+lSvk3A=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cZKs2toD1/1OUcG/OPNE6FqHCbeQFMPDMQmFS1L6pO/rOhbBkwxVxEWLtzv2Ot3sY
+	 4l42Weji6q2kFfJuYdn7D8O0JgnQw+nIDTWx9+Rae/MGyOmfnwNs9j4QUDR6L/MU0M
+	 2V4mA3jT2TACiTybE33y/oZ7170T3ofWrPd/LgIUwiY8nfdKGgUkqr1P/vsYa986f9
+	 KTbR1uV9O6TmhMQL8ExkhBKyU7TduaQTVJvQcnLXDqAsTNQ6k7kuz+gMd3LolCkE7/
+	 gYz2iuucDHb7Ljj0+uIoOF7zq35/2Gih+8MPgU7cU6Kcauf+2dS+q0f/Yt3UjPkchR
+	 4pbyEXzIQNk9A==
+Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ae25c846edso7490051fa.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:58:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFe0y/RPPtL4apnXGJ7yUTzU4AURC0oY2t5ejf4ZyZvWxT+A7ShkgxEMqoI85q8NLpDKO+mLTBwePEUurY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PRnM40iaevqwS1ODYAoaVKtb1Fb3heJkJQwLNzXsr8bHqDDw6
+	r3GR4So/o5XTaUABLEiloCj1VB7/XLC00FwDbc9p+RLdCB+UJ8L1HAzlikeiGpHRl5OLN9LpKlo
+	2dU0lfBV480RE2y+fYJomLHcdTm43qJo=
+X-Received: by 2002:a05:651c:418c:b0:3a9:7f37:9bbc with SMTP id
+ 38308e7fff4ca-3ae7f9f3fcfmr9765561fa.11.1795190307450; Fri, 20 Nov 2026
+ 07:58:27 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,53 +59,73 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120150320.GQ2668804@noisy.programming.kicks-ass.net>
+References: <20261103124336.174919-1-daiyanlong@kylinos.cn> <20261103124336.174919-2-daiyanlong@kylinos.cn>
+In-Reply-To: <20261103124336.174919-2-daiyanlong@kylinos.cn>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 16:58:13 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0iV4Le4PXLrCC13rzqFM_2=NRyZTwgu1wBZC58Q5G7ANA@mail.gmail.com>
+X-Gm-Features: Aa3M54qjT76rAPYzpTB3L78PLC6FJZuEgSB2yRHdvTEKaUyPsh29mykNrakzloY
+Message-ID: <CAJZ5v0iV4Le4PXLrCC13rzqFM_2=NRyZTwgu1wBZC58Q5G7ANA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] tools/thermal/thermometer: Fix missing NULL check
+ after realloc()
+To: YanLong Dai <daiyanlong@kylinos.cn>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 04:03:20PM +0100, Peter Zijlstra wrote:
-> On Fri, Nov 20, 2026 at 03:45:53PM +0100, Sebastian Andrzej Siewior wrote:
-> > Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
-> > "sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
-> > delivered with disabled interrupts and perf intrastrucure expects
-> > disabled interrupts while the overflow callback is invoked.
-> > 
-> > The callback then sends a SIGTRAP signal for which it acquires
-> > sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
-> > must not be acquired in atomic context.
-> > 
-> > Delay the event callback until the return to userland.
-> > Add perf_hwbp_notify(), a generic perf callback which delayes the
-> > actual callback invocation to task_work_add() callback. This callback
-> > invokes the architecture defined callback perf_arch_hwbp_send_sig().
-> > This requires struct callback_head and the functions require
-> > ARCH_NEED_PERF_HW_NOTIFY to be defined.
-> > 
-> > This was reported against ARM64. ARM, LongARCH and Xtensa follow the
-> > same pattern are also converted. Xtensa is the only not supporting
-> > PREEMPT_RT but now we have all architectures using the same pattern.
-> > 
-> > Fixes: d8fccd9ca5f90 ("arm64: Allow to enable PREEMPT_RT.")
-> > Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
-> > Reported-by: Waiman Long <longman@redhat.com>
-> > Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
-> > Reviewed-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> > Tested-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> > Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
-> > Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> > ---
-> 
-> Mark; you was going to stare at this :-)
-> 
-> I'm thinking the archs are doing it wrong and should be sending the
-> signal elsewhere.
+On Tue, Nov 3, 2026 at 1:43=E2=80=AFPM YanLong Dai <daiyanlong@kylinos.cn> =
+wrote:
+>
+> In configuration_init(), the return value of realloc() is assigned
+> directly to config->tz_regex without checking for NULL. If realloc()
+> fails, the original pointer is lost (memory leak) and subsequent
+> dereference causes a NULL pointer crash.
+>
+> Fix by using a temporary variable to receive the realloc() result and
+> checking for NULL before assigning to config->tz_regex.
+>
+> Fixes: 110acbc6a451 ("tools/thermal: Add a temperature capture tool")
+> Signed-off-by: YanLong Dai <daiyanlong@kylinos.cn>
+> ---
+>  tools/thermal/thermometer/thermometer.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
+>
+> diff --git a/tools/thermal/thermometer/thermometer.c b/tools/thermal/ther=
+mometer/thermometer.c
+> index b4f26d49e4c7..cc84540f467a 100644
+> --- a/tools/thermal/thermometer/thermometer.c
+> +++ b/tools/thermal/thermometer/thermometer.c
+> @@ -142,6 +142,7 @@ static int configuration_init(const char *path, struc=
+t configuration *config)
+>         INFO("Found %d thermal zone(s) regular expression\n", length);
+>
+>         for (i =3D 0; i < length; i++) {
+> +               struct tz_regex *tmp;
+>
+>                 config_setting_t *node;
+>                 const char *name;
+> @@ -163,8 +164,13 @@ static int configuration_init(const char *path, stru=
+ct configuration *config)
+>                         return -1;
+>                 }
+>
+> -               config->tz_regex =3D realloc(config->tz_regex, sizeof(*co=
+nfig->tz_regex) *
+> -                                       (config->nr_tz_regex + 1));
+> +               tmp =3D realloc(config->tz_regex, sizeof(*config->tz_rege=
+x) *
+> +                             (config->nr_tz_regex + 1));
+> +               if (!tmp) {
+> +                       ERROR("Failed to allocate memory for thermal zone=
+ regex\n");
+> +                       return -1;
+> +               }
+> +               config->tz_regex =3D tmp;
+>
+>                 if (regcomp(&config->tz_regex[config->nr_tz_regex].regex,=
+ name,
+>                             REG_NOSUB | REG_EXTENDED)) {
+> --
 
-Notably, I'm thinking arm64 should be sending the signal from either
-do_watchpoint()/do_breakpoint(), after it has done perf_bp_event(),
-or from el0_watchpt()/el0_breakpt().
-
-Perf overflow handlers are not the place to send signals from.
-
-That is very much what x86 also does, we send the signal from
-exc_debug_user(); which is roughly equivalent to the above mentioned
-functions.
+Applied as 7.5 material along with the [2/2], thanks!
