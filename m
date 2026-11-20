@@ -1,65 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168805;
-	b=0gkx4D1oRyuLzGX/LSRuDvawAhjqB6jKKBDLcuJkMeOCSaCzfdOfgB9qqq8K4izNLD6Z
-	 +y0oE2fvCYuCgjQcZEmP7le9dg7ARJkI2dAaLEs3yYbpN1ILsNm0EyAKB4F8Q4luFVEcF
-	 7t50GMlubQjyYCU7cN2T2YNbz8mYAwxTMuB4j//FBSo5B43UY8xFdy1TFsJGNtTvgF5pH
-	 aa3fJSSlyDYhQ1kvmHEZ23xMgO2tzt8OHoteyNocLdartKOhaOSep5QMTnWLkhWVv6TvR
-	 z4aMBIMqcXuJLxkUG5NHL9UmIrvx6jIB99WFtlh6h9kxMqcW2N6qOdPmsxaVUtT606g==
+	t=1795168815;
+	b=0T07poaD5RQSmm1CkQ4GZHtukD7AypCmT8wz3hQV9nWCmK/P/uy+0T+GDftkldZXSdAy
+	 YhIh88NryX/kDJq9/xG99NNRpgT77L6yLHe364u8B9Cc6a8ZugntoHHqwJ9ZIdEZdSx+q
+	 NV9dkrPnDexqFiKex/NTasE5ruL3XTFXOGQKiSTXtvLAOOO5j160tv6BMo5BRAVKdIi9z
+	 9LYe5ZIq+bTkfdCkJdNQuGkPeybWxVFUYrcLrqrFnNvKTu+fcSKH9r4tLU2YILKMAXuqB
+	 pSASEQIpPHiOctb3isxFKVq4JhEbUP2fw2CIsEb9LGUfDeXujgYqzam70/v6zbo1e0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168805;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=B7X/qXWT3OY5wBn46qAFt/jPdQNoq2Ryqy9ODRp8mC4=;
-	b=xTWrz7/ManbtiOWdWgSOVbAiz4H/gGdq0BlIn/RM1lCxgr5KV9zKZbyknDIF3QWRjMhP
-	 JWkcOrroueGludVaA7sGyQkWro15kMYKRqRnQmqf/26IR8MH3hdr2odOE2/0yeIiLyVGq
-	 zlsOdda7UqNvGPnrzWSDQTn3xSSywMQBP2cEHjPPXQm7kCyRfydM9L1fCZhe/2Jyoy5Qr
-	 fcGEUKKgzIHSg9DQPA5E2fVA102ocL4qSHso45ccp+oBGsurhAGuZHvqXRL7kJa+C1i/x
-	 8zCuzS0WQXEOlyIuy/JcmKwAl7aDUbmCo7+Rez+qzAGG/fqf+XZKj08i6TFkbK61cQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168815;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status;
+	bh=H2+4IjpS3NjrBbbUM/IZKDZ9xgrxFpc2MbH90tTp3lU=;
+	b=wtnUuf4FJ8Ke5gvZhiHG0ky1TwMbnRcSMk53uNSYbQZZ9jaxRTwmj8V6eMjR8tIs+OR+
+	 +JEHQVuuYJ7UAJobrp3huQ2myN/lzOsc2agH6vN8K11uXR70dgCorixewOGEKdCEG6Rcy
+	 UUbtfwnDP93jFfAXSCb1j8s2A+wdY4C8XfqTO089Ji1gOFCkq/YFfllB21g2a8E8LIKI1
+	 qTEF2SEzDdubcHMtLc1aipip3wh8yzEtq2MCYvMfrRjjGVXV3VsVSt5Di94A+jPnVChGe
+	 6wUJZrZiFve0oUUkDgs9BGeOx3cC1vMA71LqLvulfvrQsEB0ptZbpt1ApwSchkV4S2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b="dJjDihw/";
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dmarc=pass header.from=jmu.edu.cn;
+	spf=pass smtp.mailfrom=jmu.edu.cn;
+	arc=none smtp.remote-ip=45.254.49.198
+Received: from mail-m49198.qiye.163.com (mail-m49198.qiye.163.com [45.254.49.198])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 46958606A332;
-	Fri, 20 Nov 2026 10:00:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46958606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=dJjDihw/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795168801;
-	bh=B7X/qXWT3OY5wBn46qAFt/jPdQNoq2Ryqy9ODRp8mC4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dJjDihw/3iwh/wjy+Uf9CP5hjCBJ4URkzvpXhg8Mx+zfUlj1V/oz4G1IxKbhVOsj4
-	 thNHRG6JBFg7spfr81hKg37MqdMuqhY0jTIVABZeOcQcGRa6jLX3nDUYtSofp5DgT+
-	 PmtBHU497vWvppLplF+sZFfpSSLEJ4n8K4lnKborpAF/lycOYYVhVkb8S/l3exHWTb
-	 VwY49Z+kXbR/jBlqjlsXMJribCWwF6Q6pBrLnuBNH0uV+iQr8uyUK1Jyy6e0pDbV6V
-	 b58MSL9QcEQIGm3VaSlyMG5Zbt4DctRobgqP5k/Wf1+4qxoJ2icI8bDs0johEDWGTy
-	 G6Za2jmxukQzQ==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id B85A760057;
-	Fri, 20 Nov 2026 11:00:01 +0100 (CET)
-Date: Fri, 20 Nov 2026 10:59:58 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Jozsef Kadlecsik <kadlec@blackhole.kfki.hu>
-Cc: Willy Tarreau <w@1wt.eu>, n3rd <18670333770@163.com>,
-	"netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Florian Westphal <fw@strlen.de>,
-	"security@kernel.org" <security@kernel.org>
-Subject: Re: [SECURITY] netfilter: ipset: double free in hash resize vs
- inline gc
-Message-ID: <awAaHlAKHEMyiVi8@chamomile>
-References: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com>
- <av_cqPmvrh5iT8Tw@1wt.eu>
- <3a321704-59ad-7756-102c-a5c6ae77be88@blackhole.kfki.hu>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16C9D606A32A;
+	Fri, 20 Nov 2026 10:00:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16C9D606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jmu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jmu.edu.cn
+Received: from Vostro-3710.. (unknown [14.220.232.40])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 556ad0d2e;
+	Fri, 20 Nov 2026 18:00:07 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Frank <Frank.Sae@motor-comm.com>
+Cc: Andrew Lunn <andrew@lunn.ch>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH v2 1/2] net: phy: motorcomm: add led_brightness_set for YT8521
+Date: Fri, 20 Nov 2026 18:00:00 +0800
+Message-Id: <20261120100001.1568757-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,32 +57,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <3a321704-59ad-7756-102c-a5c6ae77be88@blackhole.kfki.hu>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1f866296d03a2kunm70899e361e148d
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTh4fVk0dH0MaTExPH0xOTlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVU9LWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
 
-Hi,
+Add support for manual brightness setting on YT8521/YT8531 PHY.
+Testing with on/off and heartbeat on the Radxa E20C (YT8531).
 
-On Fri, Nov 20, 2026 at 09:28:02AM +0100, Jozsef Kadlecsik wrote:
-> Hi,
-> 
-> On Fri, 20 Nov 2026, Willy Tarreau wrote:
-[..]
-> > Can you please propose patches for your different reports ? This is generally
-> > trivial to do for LLMs after they find a bug because they have a complete
-> > view of the problem.
-> 
-> The current custom hash implementation backend suffers major internal issues
-> which cannot properly be solved without a complete redesign.
-> 
-> Florian worked really hard and rewroted the custom hash implementation with
-> an rhashtable based one which fixes the issue in question and other issues
-> lurking in the current ipset code as well, without loosing any
-> functionality.
-> 
-> It is heading into nf-next and at the end going to be backported to the
-> stable branches too. Thus all known/reported ipset related issues will be
-> fixed in "one step".
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+Changes in v2:
+  Fix macro definition location
+  Add missing checks for using ytphy_read_ext()
+  Clear force led status in led_hw_control_set()
+---
+ drivers/net/phy/motorcomm.c | 48 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-This is all coming in the next nf-next.git PR for this week, I'm
-working on this.
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index a87e83fdf590..5a0cd4d7d633 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -271,6 +271,10 @@
+  */
+ #define YTPHY_WCR_TYPE_PULSE			BIT(0)
+ 
++#define YTPHY_LED_GENERAL_CFG_REG		0xA00B
++#define YTPHY_LED_FORCE_MODE(x)			BIT((x) * 3)
++#define YTPHY_LED_FORCE_EN(x)			BIT((x) * 3 + 2)
++
+ #define YTPHY_PAD_DRIVE_STRENGTH_REG		0xA010
+ #define YT8531_RGMII_RXC_DS_MASK		GENMASK(15, 13)
+ #define YT8531_RGMII_RXD_DS_HI_MASK		BIT(12)		/* Bit 2 of rxd_ds */
+@@ -1775,6 +1779,43 @@ static int yt8531s_config_init(struct phy_device *phydev)
+ 	return phy_restore_page(phydev, old_page, ret);
+ }
+ 
++static int yt8521_hw_led_on_set(struct phy_device *phydev, u8 index,
++				bool value)
++{
++	int mask, reg, val;
++
++	val = ytphy_read_ext(phydev, YTPHY_LED_GENERAL_CFG_REG);
++	if (val < 0)
++		return val;
++
++	mask = YTPHY_LED_FORCE_EN(index) | YTPHY_LED_FORCE_MODE(index);
++	if (value)
++		reg = val | mask;
++	else
++		reg = val & ~mask;
++
++	if (reg == val)
++		return 0;
++
++	return ytphy_write_ext(phydev, YTPHY_LED_GENERAL_CFG_REG, reg);
++}
++
++static int yt8521_led_brightness_set(struct phy_device *phydev, u8 index,
++				     enum led_brightness value)
++{
++	int ret;
++
++	if (index >= YT8521_MAX_LEDS)
++		return -EINVAL;
++
++	/* clear HW LED setup */
++	ret = ytphy_write_ext(phydev, YT8521_LED0_CFG_REG + index, 0);
++	if (ret < 0)
++		return ret;
++
++	return yt8521_hw_led_on_set(phydev, index, (value != LED_OFF));
++}
++
+ static const unsigned long supported_trgs = (BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
+ 					     BIT(TRIGGER_NETDEV_HALF_DUPLEX) |
+ 					     BIT(TRIGGER_NETDEV_LINK)        |
+@@ -1801,10 +1842,15 @@ static int yt8521_led_hw_control_set(struct phy_device *phydev, u8 index,
+ 				     unsigned long rules)
+ {
+ 	u16 val = 0;
++	int ret;
+ 
+ 	if (index >= YT8521_MAX_LEDS)
+ 		return -EINVAL;
+ 
++	ret = yt8521_hw_led_on_set(phydev, index, false);
++	if (ret < 0)
++		return ret;
++
+ 	if (test_bit(TRIGGER_NETDEV_LINK, &rules)) {
+ 		val |= YT8521_LED_10_ON_EN;
+ 		val |= YT8521_LED_100_ON_EN;
+@@ -3266,6 +3312,7 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 		.soft_reset	= yt8521_soft_reset,
+ 		.suspend	= yt8521_suspend,
+ 		.resume		= yt8521_resume,
++		.led_brightness_set = yt8521_led_brightness_set,
+ 		.led_hw_is_supported = yt8521_led_hw_is_supported,
+ 		.led_hw_control_set = yt8521_led_hw_control_set,
+ 		.led_hw_control_get = yt8521_led_hw_control_get,
+@@ -3288,6 +3335,7 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 		.get_wol	= ytphy_get_wol,
+ 		.set_wol	= yt8531_set_wol,
+ 		.link_change_notify = yt8531_link_change_notify,
++		.led_brightness_set = yt8521_led_brightness_set,
+ 		.led_hw_is_supported = yt8521_led_hw_is_supported,
+ 		.led_hw_control_set = yt8521_led_hw_control_set,
+ 		.led_hw_control_get = yt8521_led_hw_control_get,
+-- 
+2.34.1
+
