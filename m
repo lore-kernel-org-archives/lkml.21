@@ -1,47 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190603;
-	b=kzHHQXjA3c3ILaWWMzKGFYGNMWeSYhiDKyb8Mb7qOacCzurMue6x9VLcKqD2K7CG+5CF
-	 cKOvUTHiy8Ts46kDDkspIJCXl+T07OpHeEqaSGFACQXC5YUDbVeF/kEGw9oAZ2gNpYnAn
-	 r7aeLC/RT2O4/rz0KgsX2UNoJoLtWLwDLXJUVmd1a+T2tRQSetlTF2+O+b5fwaXIXdqUp
-	 A2KETN10fpL42oTXJcVmK8nHQc8zAs4GA5O1ucfsU4KrLuCGmTXHR+QukuNrhtYuiOOtY
-	 /1GOKelvpnhS9FG5pda8URf83NGDyy1YJ2sDYVebTGzKXJXaI6cNyaUD2fsq3/JSTTA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190603;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=0fxeBQWA+Vv42RQyz76WkaDzLZasoMz+I7cHksuH6aY=;
-	b=EKLEjzh0hlLnxinzi9D0ezVevlFd8buIypw/9nHE7PzjU53rL80nNkYDvUqyESvnDCzF
-	 PvHqgGB+/Ni24oJYI8tnWW38XuNvdemZe6QMSEBlaLc5FSTYEcHjHgOB0AFJStnTTt95x
-	 ZdzSmBN3L7Xi+M+NO2qIVpFHrRbdb3p1COc6heoz8JQNJEylcKfgGq4cVVs6OrWvx2QNr
-	 jUaNKbfkR7kV5IEoBkcPcHfEfNWt+fCzsqY5th3nQ3K/bC1KA2atptcdCJc9vgnnoEJi0
-	 smfB/aZbXDfiH6tlKl0gNK4R//NCBlqFn5YkEn9Dyu1jRlR1yQchnTKIgW6iMvCZKLw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUg6glcs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795190608;
+	b=SHzwhhOLRkoCZGyvhHDQAgsluZ34hFZvR7FN8IsKWrd/qXHP1lAESD45X8SvpJH/WHr5
+	 6ysXRGT3c5gQOhE/ybP8dQ+RadqWjA6rc2POUPIlIAL1xY9UKPkmdCrvzicjDsUdTZeLL
+	 2k6e14PEP/XVXSWcdQ0TqdbkZs1Z4hwDzypCQ/vTgENacWH1z4s6K4AKQTBPKLo0NEzaQ
+	 jmjQrLOvbE3ltOwgd13KLRacENiQdPxbpbmBn7G5ym2jggSu7DM5XTnbZZ04nnuMspRqC
+	 nf6aaWVYmBGrnGOyAdWETgFLZWA1FQalsD/W2MDXa1zembYXsd9xVuvLTElTXCgYFKA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190608;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:X-Mailer:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-MS-Reactions:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ETeQz0UISpgvTh2RFFF/IXr7X1r/QpLrPnknQWUoGs4=;
+	b=iNbl1ImMJBlBoZ5qu5yeY2KMvheAkZSesTz5Tt8cOPkMWukYez86bVhARZxyeeDzunqX
+	 9C0OWkfUXGdT3MQvNlOWoym46qejJ3x46S49hT52nBhnc586hwbSJ9Eas1bHmKZkx/OjV
+	 T8ES5uzAPln9iK7oldmNEG3FztJskSf4D9/cOoGa0xCHbUINJkoR5xD7AcJsA3Ghjt/WA
+	 VzYQZToT94LgknYad7UQjdZYIUpj+SH7wyVW7rd7sckxVTS0nMMRj29etABc6qtDMm3vy
+	 VmaxnnNi5Wc+3iMJOsX7fl4QL8TIqqHEWJrroBqUPQBQPPqfhVQSSRvC6xMo0yQDoaA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MpiGm9e8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.43
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011043.outbound.protection.outlook.com [40.93.194.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2918B606A330;
-	Fri, 20 Nov 2026 16:03:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF4FF606A320;
+	Fri, 20 Nov 2026 16:03:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF4FF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZUg6glcs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77BBA1F000CA;
-	Fri, 20 Nov 2026 16:03:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795190602;
-	bh=0fxeBQWA+Vv42RQyz76WkaDzLZasoMz+I7cHksuH6aY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ZUg6glcsCUv515/4tezA+6zALJjR0/Stptxvp4oW+weiR81JS3wMwE8qYPhCQmO4D
-	 zTj0vF+6vmbSSRiz+h4RNTc8txkRUW20HjjfjKEGwZKM3elZbFSIgjeuzPFK8uQ95m
-	 8VjGrSsjrTcoCY0KOyrggVcbaS6NAATQ1h7r3vFsixnIGsF+dyWZ6xe8HLZN0WYvk3
-	 WCse8hY8VEVrf33czVN0zX+dPdAlpuE8d8W1WKeAFj9hT34f3TxkAapG/CD8ApaDfR
-	 xhm9uVxqd7fBcxMEqwkfqNqjN1KlZzMRZrHXqeS3gRUgaxT6GFT8PyF4/0WWNDKT4D
-	 twu84KBRef/Pg==
-Message-ID: <e4b514e1-4b0d-4bb7-a19e-e13518ceb277@kernel.org>
-Date: Fri, 20 Nov 2026 17:03:11 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MpiGm9e8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y6OaO9qCR3APmPO8DJgVYVp3M+AX65BX1cSvvK7PhR8wd1Nv76I2v5qNObmgmqRb3g4AZ78pFBK3biYety3wiGGR+r1dxWdnolnY9/De1u3bomcz2ComGfHTIxChm8H9JfGMe07dhkhhePpN7j/9w/XVKAgPngqI8k3VXf+GDRUk4w9osiSoHs7t6CCpRmEVKfnxg+h9dvCyWuXmJxor60G1YpR8jKhB+YqfNmrOJaAHa+av4PAqOHBoxbxZG61N79qipjwD2W7b1piQrdLSqF0OaRjLMnVac8mO8pPRrlfQeT80JkU1t+rNGibr5hg0d8UAA1z5CjfSTczxZhuVWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ETeQz0UISpgvTh2RFFF/IXr7X1r/QpLrPnknQWUoGs4=;
+ b=dJFT4xna1A/O28NpfU+ZtlohnprkgTIL+F1AaXLMuEEl71XJPh9aaXs+B6l8AtsehpvgrCr7UFdvYpJSzb21unHs1Csmv3lrjVXW2kqAq4TOi6dHWNrtd2xpCBMTxpWajYJUV9bOqstK/LPiX4+ejgxKVghhzzA6ha4mlY4bh69SsvqXGwQ1+8KvH849wcIuCR2kypuGhhM7XO+uBSofXk6Npkyh0r8j82U74g5Yfy3oFzqbhu9IJXhx4eYLYXAJd36RzoxbjHICCD13txMm/yuEUxyT7JtMbnkiTZ9avx/on8+xTFN1DeX4y2z2U1FmJuV4Oc58gxepQtRtJDeljA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ETeQz0UISpgvTh2RFFF/IXr7X1r/QpLrPnknQWUoGs4=;
+ b=MpiGm9e8CbA9RSBlBPXoFm9XtVB/OHZonjcONGetETJVuePNZR6f/Zf1//3UPbV7jDX6iB5jAKJ538t02uVctcnEIOkGTaTonXcnMH4XWsTz1iAMumw/i33uvvCmXTx/vuXm6OqUBclX8pilmUx16vP4jxA0I3epZG2PlQCYYCg7DfWG3h+JwqYSK8cUF2uTz3FvXfahFDpyaXo2L6/CRF+EG2lA2AnaJy6M1SVnj4iKiLHfEDW8HQzzcDO6qRwI8cl/Yfl8gTpBmMeuIdOQ6xSmrhO9s4aXYeBHkerWeQZvmHqlGXGzYvoPUT0kq3oGQGm1TENa0GRs1iXnZMwYtw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com (2603:10b6:208:40e::7)
+ by CY1PR12MB9604.namprd12.prod.outlook.com (2603:10b6:930:108::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Fri, 20 Nov
+ 2026 16:03:19 +0000
+Received: from IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16]) by IA0PR12MB8374.namprd12.prod.outlook.com
+ ([fe80::d85f:4c87:ae84:3f16%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 16:03:16 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Andreas Hindborg <a.hindborg@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Vlastimil Babka <vbabka@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Uladzislau Rezki <urezki@gmail.com>,
+ David Hildenbrand <david@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>,
+ Johannes Weiner <hannes@cmpxchg.org>, Mike Rapoport <rppt@kernel.org>,
+ Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie Kim <rakie.kim@sk.com>,
+ Gregory Price <gourry@gourry.net>, Ying Huang <ying.huang@linux.alibaba.com>,
+ Matthew Wilcox <willy@infradead.org>, Danilo Krummrich <dakr@kernel.org>,
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+ Gary Guo <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Tamir Duberstein <tamird@kernel.org>,
+ Alexandre Courbot <acourbot@nvidia.com>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ =?utf-8?b?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>,
+ Todd Kjos <tkjos@android.com>, Christian Brauner <brauner@kernel.org>,
+ Carlos Llamas <cmllamas@google.com>, Igor B <igor.b@beldev.am>,
+ Vitaly Wool <vitaly.wool@konsulko.se>, linux-mm@kvack.org,
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v22 0/6] rust: page: add page kinds
+Date: Fri, 20 Nov 2026 11:03:13 -0500
+X-Mailer: MailMate (3.0r7038)
+Message-ID: <C1137621-6CF4-4C52-A40A-C2875D37EC6F@nvidia.com>
+In-Reply-To: <87se0vu2ul.fsf@t14s.mail-host-address-is-not-set>
+References: <20261118-page-ownable-v22-0-d63ff73f4075@kernel.org>
+ <37B6D4A8-288E-40E8-9214-EDABBFE49C39@nvidia.com>
+ <871p8iue5y.fsf@t14s.mail-host-address-is-not-set>
+ <3C3421E5-5B7D-42B8-ABD2-185375693D7A@nvidia.com>
+ <87se0vu2ul.fsf@t14s.mail-host-address-is-not-set>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-MS-Reactions: disallow
+X-ClientProxiedBy: BN9PR03CA0775.namprd03.prod.outlook.com
+ (2603:10b6:408:13a::30) To IA0PR12MB8374.namprd12.prod.outlook.com
+ (2603:10b6:208:40e::7)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,113 +123,261 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH mainline-linux 4/4] arm64: dts: renesas:
- r9a08g046l48-smarc: Add RS485 support on RSCI2
-To: Diogo Ivo <diogo.ivo.sx@renesas.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- devicetree@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-References: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-0-a989baae3559@renesas.com>
- <20261120-divo-ssgrlpcsrc-2996-rs485-v1-4-a989baae3559@renesas.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20261120-divo-ssgrlpcsrc-2996-rs485-v1-4-a989baae3559@renesas.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB8374:EE_|CY1PR12MB9604:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1962f0f9-062d-4442-137c-08df471fc9ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|1800799024|376014|366016|23010399003|261022105027099003|5023799004|261026140227099003|261028144727099003|261021123027099003|56012099006|11063799006|4143699003|261021121427099003|10067099003|261102123227099003|261022075727099003|18002099003|261026121527099003|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	D1UTprYju0g9uoB03Ev2+5B8EOOeyQP55u31WodI3ERT58Zy1Usnnz97DTVuGysL1clsypkXOm1nrxO09syI2U/jo6jtQiMen9gSrBE1F2iAD9nCbJ5oFfZx6Rk0hRp87FFopLHxfIkIHbIgMaDKDgs1EQXu3F+P1DXBqr5owHwT+yWqKDUsTPVsTcl3SwuG3zCOtvFSk/6fuGCNL6t1kZdZNR5Dm6B84RtwcT0UcldKp41FkMd66R3Q02qXTlFhqwvncSz+hGh5VtAIhDK70lMDjjGz3YhIX99Srwjp/rkwENJ+m1YrhuLFUVsoU+t1dlFQyI1gn1olMXbByk0Q4QCMpqznCMszCElMNMt66C1E+nD6p7GaphBFUXR+NQgtYlgZLhAdDpSUbSBfoHkI3WxNfyTRQpdmJcOAxUFKm2Geg00hbsxOQJK2aV7+veMXJ2yh3tt19O4NbZzhkPg192c4Th3SN0aidU80/ccp+bDln5yYuptTF72S3gMpdf6IEdjowWS4JnkdyI/WNg9EcHv159OT5A4cfcJ2aDgvi48AY3citqjq9ldJmv8doopRAxTyTTbxFh2dMD2++EmZf0VTAmYS/lAxjr+nj2SJQf3rnXMru3j+OFzg+b6ymZm29EuutxBz5h+W7EY2eHGI5TzSzHhUjDR4Br87I2WPZYc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8374.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(23010399003)(261022105027099003)(5023799004)(261026140227099003)(261028144727099003)(261021123027099003)(56012099006)(11063799006)(4143699003)(261021121427099003)(10067099003)(261102123227099003)(261022075727099003)(18002099003)(261026121527099003)(6133799003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SmhOQXRUa09xeUkxN0NYdWRJTC82dVpzMHZLQzlrR1hudmdMdXlVV2w5ZzVI?=
+ =?utf-8?B?NGR6ajVPeTBIOWp4aktTMjFSSlVNQ29uT1dpVmpWQUNRdTRRUHF3b2dMYWdF?=
+ =?utf-8?B?R2Y0WXpSS2xTZlAwYVA3d01GZ1g1bUdZNHJEWEFSNERRcGJhNkYyZjBGZk4z?=
+ =?utf-8?B?YWkzajBzNzlnOGJLdHBLN1RWa3NtZjUrU29kcDVtWXRJVU9CYWFpLzBUdFd0?=
+ =?utf-8?B?bEUrZ05kVDhsWVJ0cG1abGFwK2Z2VzlYZGVEYWRkelNWTzVPaitnNWZpOVhU?=
+ =?utf-8?B?Q1JTendIZ1F4dlpuMk52a203dUVKZlFjZGs5VVJSUlo4SDJ3WEZiRVZ3cnRw?=
+ =?utf-8?B?NzBJOEE1UUNoNWhrTmd2aUFTZHJkbEhlUkJJZmFxVGhnckdXSlkrOWxpUldq?=
+ =?utf-8?B?Wm9Xb2E1aGhTR1FEVFhmUVpNeFkzZmhFcHBKS1p4QlFOZXZOc3gxanNiVzBY?=
+ =?utf-8?B?aDZVOFNiS1BPemM5VjhneE8vY2MxVmVHVDZzMGVEOHVHa0lOVUJXdFJRMkR6?=
+ =?utf-8?B?ZFRJcVI4UlE1cHFkSyt4OCtGeUtLc01yYXc5UUpLUTV6ZVo5dHlGYTIyRlhr?=
+ =?utf-8?B?b1hKcy8zaXRteGVYNFlHN3F4ZTFyOHY5S3F3UmExWG1OMnh6Ri8zVkdrd0VM?=
+ =?utf-8?B?bzRPMTVJVk5QcUFwVDVDNWoxdjk5TWNGMVhneG1VQTJzTVJNUWJmb1ErR3Rl?=
+ =?utf-8?B?eW51UEg0MDRWNmxsa1hDc1NQdVpIdzRuWnEzRHBrVndsR2hSSHlFS0cvVTBk?=
+ =?utf-8?B?ZG1QWjdRNWhoQ2RGT3ZzZ1I0b3ZXV2xKZzhlR3VhMVNKMCtsa0ZwczBxSm1t?=
+ =?utf-8?B?UHBiclBHeHorUXRjemZraWFTb003U1pJL3RiQmxzWmlqY3RPdUVGblpWeUFC?=
+ =?utf-8?B?ak04TmVyY3VyZzh0NWt6SGFuYW1aRnpMWlB1L0tTWnNDdnk0ZDVHaUR3ZDcx?=
+ =?utf-8?B?MFZtN3BFL3h6Z0kvUXB3L0hUWnVUQ0t6cWVzRzlmeEpRSDVock9hZnE1ams4?=
+ =?utf-8?B?b1JGL0hOd2VTTHVZbndQaXhRaXlBVG1jcDFzdkdUR1YxOGdvakVidHh0ZkVT?=
+ =?utf-8?B?MjZOS1pvS3dEWFdsRmdUM2dNUHM3RHI4bitzZlljbVlsZHBOTFBQSjFwUlRh?=
+ =?utf-8?B?dFZNQVpHUTZKWlpMbHJpeFRJR0lSUUhyM1hHVXJpL01iRVJ5U0Y4VUtXWXpk?=
+ =?utf-8?B?QzNja3g3Z2lvbmVINHQ0bUtERnV2NWY0eHAvckt2dE5VL01ycGtqRHltVGpQ?=
+ =?utf-8?B?VFRXVDlHeDl6WEIxOG5Jcnp3Z29idXpvQnlta2ZaQzFMSFFsU1Z2M0FpUXNU?=
+ =?utf-8?B?WFdVanVaQUV3ZVZlZ2xTb3ovU3NCMFh2L3NyN2NoMWMzKy9BYm9vL0JnV01o?=
+ =?utf-8?B?a3NxQjIwS1lOS3JqWE1NODNycWlYcmlIV2dWalBjclFrOUZwWVo5N1ZoS0Vq?=
+ =?utf-8?B?R2JQYlNnZ3Rla2hjbUluZGlPSEtieHhHTEdySTdVY2FuRTVEenlsRUl0VjV5?=
+ =?utf-8?B?SGJ3NWtBdjV0WCtLUHJHVnpIZjBIbUNIR1lob3pTcGlSS1FoNmsyeVBxcXZ6?=
+ =?utf-8?B?MGNuSS8zSmZ5TjgzRWk1a0JiOHJRbmt4MkpBUVltSjd1Vkl6bitHTENmQ3Bk?=
+ =?utf-8?B?VGpUbXVrb1FKM2JCdG8wNlFxellXMVRLc2cxcDNUOC9yWVh1ZUpXK3Nndmx1?=
+ =?utf-8?B?Y1V4ZXBIcTFVMWk3NDFWWEtNSHBWWk1ETy9PQUh6MG1KZW1RUXErQzczTGtx?=
+ =?utf-8?B?a016YlJiZFVDMFdxYU1UYXp5QXlEdVkrVzRhbnkyQTZ6WC9uUWhrZEU2UzBy?=
+ =?utf-8?B?UFl1R3Z0N1ROWklSSDE4bmpvUk9ydm1ETm5rZVBvZXY5d01qc1lQUngzVGN0?=
+ =?utf-8?B?WXZCdUtEdm9SMjc4ajEzaVlHL1R0Wk1YS1FnUDhwZjByZFNLc3pwTzVQNVND?=
+ =?utf-8?B?U3h6VjFvV0wvNWFBbEJMWmN3TGRUUEVsZHZVd29PMXFtZkc4SHFHSHNrK0VJ?=
+ =?utf-8?B?U0ZIWVVvR29DaENaaWxTQUtLY3ZpZk5CUys0a3czWXlEUTdYSFJiTWt0Tk1I?=
+ =?utf-8?B?ZXBLWFFJUDRpTHg0aGYwMmwxRkNPM3VreERybTArTyt4ZFk1QUttRG9lV1BK?=
+ =?utf-8?B?M2hBTVZUNVZVcU9nZW1lam9EaGNHU0xZQ0FJaEF4ekhlUi9lbGJ1d3htb2Fm?=
+ =?utf-8?B?VmlWYjhJZDNqWmVqVk5vWXJkbzd4OGpNT2EzUmVQNGFGcUtEQTJYeFlHbTJO?=
+ =?utf-8?B?MFlvZXdMWUVDbmxnaHN0YUU0Z001R1JHaWllNGRrMlg0d2lHVUhxdjFRR0VH?=
+ =?utf-8?Q?uBGduTO0j8mXfpIE4e?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1962f0f9-062d-4442-137c-08df471fc9ac
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8374.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:03:16.4618
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OIXy3gNE4EOP7zO911YT2I/pwgexN7JfKSgLaRKF82YH2UDlV+ArjyoWshRLmjv+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9604
 
-On 20/11/2026 16:49, Diogo Ivo wrote:
-> Add an RS485_ENABLE macro (disabled by default) to configure RSCI2
-> for RS485 operation using the RSCI2_DE pinmux instead of RTS/CTS
-> hardware flow control.
-> 
-> Signed-off-by: Diogo Ivo <diogo.ivo.sx@renesas.com>
-> ---
+On 20 Nov 2026, at 7:03, Andreas Hindborg wrote:
 
-Odd subject prefix. :/
+> Zi Yan <ziy@nvidia.com> writes:
+>
+>> On 18 Nov 2026, at 14:34, Andreas Hindborg wrote:
+>>
+>>> Zi Yan <ziy@nvidia.com> writes:
+>>>
+>>>> On 18 Nov 2026, at 11:18, Andreas Hindborg wrote:
+>>>>
+>>>>> Note: The page patches were part of the `Ownable` series [1] until v21.
+>>>>> This series continues the version numbering of that series, and it depends
+>>>>> on v22 of that series for `Ownable`, `Owned` and the split of `RefCounted`
+>>>>> and `AlwaysRefCounted`.
+>>>>>
+>>>>> Not all pages can be treated the same way. A page allocated with
+>>>>> `alloc_pages()` is managed by the page reference count, and kernel C code
+>>>>> routinely takes its own references to such a page. A page owned by the
+>>>>> slab allocator must not have references taken to it, but it can still
+>>>>> show up in places such as a bio vector. A frozen page has a reference
+>>>>> count of zero and is exclusively owned by the party that allocated it.
+>>>>>
+>>>>> A single `Page` type cannot describe all of these. This series makes
+>>>>> `Page` generic over a sealed `PageKind` that describes what is known about
+>>>>> the page:
+>>>>>
+>>>>>  - `Page<Base>` is the base kind. Nothing is known about the page
+>>>>>    beyond the validity of the `struct page`.
+>>>>>  - `Page<RefCounted>` is the default kind. The page is managed by the
+>>>>>    page reference count, and `Page<RefCounted>` implements
+>>>>>    `AlwaysRefCounted`.
+>>>>>  - `Page<Exclusive>` is a uniquely owned frozen page whose data area
+>>>>>    follows standard Rust aliasing rules, so the data is available as
+>>>>>    `&[u8]` and `&mut [u8]`. It is handled through
+>>>>>    `Owned<Page<Exclusive>>` and is the first in-tree user of `Owned`.
+>>>>>  - `Page<Frozen>` is a frozen page whose allocation is uniquely owned.
+>>>>>    Unlike for `Page<Exclusive>`, nothing is known about who accesses the
+>>>>>    data of the page, so the data is only available through the unsafe
+>>>>>    raw accessors.
+>>>>
+>>>> Why do we need to allocate Page<Frozen> when we can allocate Page<Exclusive>?
+>>>> To me, Page<Frozen> is an observed page state from a non-owner point
+>>>> of view.
+>>>
+>>> I'm not sure we need it, which is why I added this note:
+>>>
+>>>  This currently has no users, but I add it here for completeness. Let's
+>>>  discuss if we should keep it or not.
+>>>
+>>> The difference between the `Page<Frozen>` and `Page<Exclusive>` is that
+>>> `Page<Exclusive>` has stronger invariants. Namely that the (physical)
+>>> memory region of the page does not incur data races, and that the page
+>>> not in highmem. From a Rust point of view, this allows us to obtain a
+>>> reference to the page contents without jumping through any hoops.
+>>
+>> But access to memory region of the page is associated with page table
+>> mapping or IOMMU mapping (for device, and I assume devices are accessing
+>> data via virtual addresses instead of physical addresses to avoid further
+>> complication). It seems that you are trying to use page refcount == 0
+>> to infer that no page table mapping exists for the page. But how about
+>> kernel direct map?
+>
+> `Page<Exclusive>` has the invariant that it must not be in highmem, and
+> as such is always accessible in the kernel virtual address space. As far
+> as I understand, this means we do not need `kmap_local` before accessing
+> the contents.
+>
+>> Anyone with struct page can use kmap_local*()
+>> to get kernel direct map and access the page content. kmap_local*()
+>> does not reject frozen pages.
+>
+> `Page<Exclusive>` is a unique handle. Nobody can get a hold of the
+> underlying `struct page` to perform mapping operations on the page.
+>
 
-DTS cannot be combined in this patchset and must be split. Don't mix
-patches from independent subsystems when you send something explicitly
-targeting only one subsystem.
-See also: Documentation/devicetree/bindings/submitting-patches.rst
+Right, but if kernel direct map exists, how can you claim
+“the (physical) memory region of the page does not incur data races”?
+At least, “assuming no one is accessing the region via kernel direct
+map” could be added.
 
+>>
+>>>
+>>> I do not have a user for a frozen page without these invariants, but I
+>>> would assume there are use cases?
+>>
+>> For the above reason, everything is Page<Frozen>?
+>
+> Pages that are part of user space process vmas are not frozen? We see
+> these in system calls for IO.
 
->  arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-> index 68d7b579e352..d583f52e61e7 100644
-> --- a/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-> +++ b/arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts
-> @@ -23,6 +23,8 @@
->  #define KEY_2_GPIO		RZG3L_GPIO(6, 4)
->  #define KEY_3_GPIO		RZG3L_GPIO(6, 5)
->  
-> +#define RS485_ENABLE		0
-> +
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/input/input.h>
->  #include <dt-bindings/pinctrl/renesas,r9a08g046-pinctrl.h>
-> @@ -185,8 +187,12 @@ rsci1_pins: rsci1 {
->  	rsci2_pins: rsci2 {
->  		pinmux = <RZG3L_PORT_PINMUX(7, 6, 5)>, /* RSCI2_RXD_MISO_SCL */
->  			 <RZG3L_PORT_PINMUX(7, 7, 5)>, /* RSCI2_TXD_MOSI_SDA */
-> +#if RS485_ENABLE
-> +			 <RZG3L_PORT_PINMUX(8, 1, 6)>; /* RSCI2_DE */
-> +#else
+Sorry I was too vague. I mean Page<Exclusive> and Page<Frozen> should
+be Page<Frozen> given that kernel direct map exists. Strictly speaking,
+Page<Exclusive> should be pages allocated without kernel direct mapping.
 
-That's dead code.
+>
+>>
+>>>
+>>>> In core-mm, a page is frozen, when its refcount == 0. The code looking
+>>>> at the page knows the page is exclusively owned by others. If the code
+>>>> allocates a frozen page, it will not check its refcount, because
+>>>> the code knows it has the exclusive ownership of the page. To reflect
+>>>> this, the code calling alloc_frozen_pages() should just get
+>>>> Page<Exclusive>
+>>>
+>>> Is it always the case that users of frozen pages will use them in such a
+>>> way that they can guarantee no races to the page contents (physical
+>>> memory)? They cannot be mapped for DMA access or anything like that -
+>>> that always requires a refcount?
+>>
+>> See kmap_local*() case above.
+>
+> Right. Both `Page<Frozen>` and `Page<Exclusive>` are guaranteed to be
+> the only reference the underlying `struct page`, and so nobody can do
+> mapping operations from under us. The difference of the two is that
+> `Page<Exclusive>` provides guarantees about placement out of highmem and
+> no races on the page contents.
+>
 
+Sorry for being pedantic, but IMHO “no races on the page content” is
+too strong. LLM tells me, let me know if it is wrong, that DMA map
+code does not check page refcount and currently gives a dma_addr_t
+for slab and kmalloc pages, which are frozen. This means a Page<Exclusive>
+can be mapped via dma map C code. What is the plan to prevent that?
 
-Best regards,
-Krzysztof
+>>
+>>>
+>>>> and if the code encounters a Page<Base> and finds it has no refcount,
+>>>> it should convert it to Page<Frozen> or there should be a method
+>>>> that accepts PFN and return Page<Frozen> if the page of the PFN has no
+>>>> refcount, for PFN walkers.
+>>>
+>>> We can add conversion functions, that makes sense.
+>>>
+>>>>
+>>>> “the data” mentioned in Page<Exclusive> and Page<Frozen> is struct page
+>>>> data or the data in the physical frame pointed by Page<...>? If it
+>>>> is the former, is it better to use metadata?
+>>>
+>>> I'm referring to the actual physical memory region that the struct page
+>>> describes.
+>>>
+>>>>
+>>>> I am new to Rust, so feel free to correct me. Thanks. :)
+>>>>
+>>>
+>>> I'm new to mm, I really appreciate your eyes on this.
+>>
+>> Do you mind describing the high level workflow around Page in Rust?
+>> From my point of view, exclusive page content access is more related
+>> to page table (including IOMMU page table) than struct page itself.
+>> struct page ownership is more about the metadata stored in struct
+>> page for physical memory maintenance.
+>
+> Just as in C code, there are many workflows around `Page`. Three main
+> ones I have seen in Rust code are:
+>
+> - Pages that are part of io buffers during a syscall. The pages are
+>   mapped in at least one user space process and the kernel may want to
+>   read or write from/to them. These would be `Page<RefCounted>`.
+
+Is RefCounted too broad for this? A refcounted page might or might not
+be mapped and a mapped page might not might not be mapped into userspace.
+Is UserMapped more descriptive?
+
+FYI, I am working on adding PG_folio to distinguish user rmappable
+folios from general mapped pages. In terms of pages mapped into
+userspace process, they can be either rmappable or vm_insert*()
+into userspace.
+
+>
+> - Pages that hit the block device driver API via the block layer. These
+>   can be anything, so we model them as `Page<Base>`.
+
+Even they can be frozen without a refcount?
+
+>
+> - Pages used for backing storage like in the null block driver. These
+>   are modeled as `Page<Exclusive>`.
+
+null_alloc_page() uses alloc_pages() and gets refcount == 1 pages.
+unless you mean struct nullb_page.
+
+>
+> I think for the first one, binder is inserting and removing pages from
+> vmas to do it's IPC thing.
+>
+> If someone were to write an allocator of some kind, they would probably
+> reach for the `Page<Frozen>`, as they would like to have ownership of
+> the metadata, but not the contents.
+
+Probably.
+
+Best Regards,
+Yan, Zi
