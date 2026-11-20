@@ -1,89 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795137137;
-	b=CMPBjRZMlu+boUsidCt88RPYo8vSpkiisCZlCOTLEAWVry6w97KjlAFxNJ66wLPAjn52
-	 HHz3Gtp/s+UAUm1TxlBqxHXZHf8VQJp7eTZu3KcwCzcfDZ1qxff1Tr/2HjxwYK2mLjA7q
-	 jeNDo7Ihyqh6IrmkNSjLqNckarn2VcvpHTzhlUtIlg2lVlMOjK4fhukCaudrs+6RNC7jF
-	 FMjVpGZ9o0NPc72RYoDbmCS8NepdJgMD2HsoOzvcv+RV4VTUGIb1vq+Hz3OB4kFqKHRCY
-	 j7rK4FBfv0kleG7JWFb2I4Nmf7tWnX2/IUJa8UIcFRhBeGmqObjMa3XIsK0V7eJVHwg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795137137;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=7/H/OeHZ3clKH3qdVG9FU0x+z/0lJ0k+l4bKjCHjwmM=;
-	b=Zdgk9vhFu+tANASyy1ryOhTroHAIsWgEG7fNsNe3RQixxl212MpAT9qTjQvkZzmOLzRU
-	 NHqoTC+c5l0ocTAo/EMxZN113YaIikGzdwDCqkj+GhFFRAgtwZGawyWsdyLdBrt3mcU6V
-	 HR+eq1v0KzwSvXMD468Mr7x0FfO0d/v+NSSzo4GjdH2YybukPGDVq3ZADP+gPwW/19Nwj
-	 ANlRSl+wGVo7o2mKw77svVG86DcjiWrwctP10b5/FDN8wr+W1qyFcTXUduOt80I93AWqT
-	 tPfIB5QknrV8dUqhpL39Mv1020d0rQUxvqqyNUKpS3UeqxJH1idBPnQc8y6kvE9rRsQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieylbmUS;
-	arc=none smtp.remote-ip=74.125.227.137
-Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.34
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795137139;
+	b=U9mHJ9InMv3WYcfwqwxs3KMHEEQSrWdbYZLhnzXW5A1K2MLF2yTUOlMIyqKj0hQ6vqYy
+	 pDQwQvmb4mG0n7LvYCh7OtOEy2LPbMMFejk3LJusRs2YsWhnPdap+IoPzOkpPTDVFU+iA
+	 dvI/2t48cPRdFW9um5Mg2TayAMu5N9QW4YGOP05cZVcAKEYBU140i8q838Ar4jXBMvqLl
+	 g8DuifnAlQQctoNOYBmsHkz1mIEG+FdF50H2yngsjO48bev5fe5mBu6ivVUD2kQ6N3mGU
+	 AnerH+M2eAB2Pe8CxdO1wh+EZ08hETsPi46wamnEJ5+5bAad4VIotAiysNInWbMJvMQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137139;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=xVx3hIjIcHwRhFBJMZn8HkYUmAf+3bgBPmnSkOWAKpg=;
+	b=f/9FsH1jj8hQsNeVBP3LME/p+B8I2K78zn02/LXgv5hd+0Pox7b/b5Z0Cq8aD4/gfl9H
+	 cYtnCrVErb+qWBtg2422je9G9XekOaAiY1K/0D2OcdJ9RIAjErB9gU4Zqeb2vvvKfTS2L
+	 dp7YCFe8druEsVHllKyDI9hYrLLcR9H7Mp7Xwed0gG5VJDuAKQ63VdGLZUiPFjPp+3Uv5
+	 wApwXunEeuLJ+9mqL8fupzb4iR7WD/ySm1s4MWiIdUAtlkgUdMZo6+OcAzlwIQuLMjzUa
+	 40fyMnv204cPA6/vY9bGwBh28JLhf4UOF749qJrc3+dcPallB64/kd5j3VrcwM6G5xw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aKmfg2wd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.34
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011034.outbound.protection.outlook.com [52.101.52.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE33B606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:12:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE33B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5479606A331;
+	Fri, 20 Nov 2026 01:12:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5479606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ieylbmUS
-Received: by mail-pj2-f9.google.com with SMTP id 98e67ed59e1d1-3b196fefa1fso191255a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:12:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795137135; x=1795741935; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7/H/OeHZ3clKH3qdVG9FU0x+z/0lJ0k+l4bKjCHjwmM=;
-        b=ieylbmUSrGzbDWtadwnkLRhGRooEklfA1UgdRD/4svCcj+JG5Wvd4LUDqp3F2Z8vBO
-         1yBTNiMbFJL0n2m0bHBhrgVqXIuMSMhPcNyqacCOvxW3ppLk3t7oD+QtK4demjnsKAfs
-         jP7rIoQu4EMpGBVok84vg3ATNeHXcNGrGSq9h91j2DrfX83INw8cYP0nnOKrKj+1xJ76
-         5v1BPSdtRot/6SGZ0bgrfRDBJH+uYnOMcKoMvYPU1XYdPspF4iV6mcczOlz+/XO8q9Rn
-         w0X12q5S942ujttQF4qMBZXva1VON02kYtgz5T4NrIfufjoMCyLUKZMWTYHrKDJ0SCue
-         rVsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795137135; x=1795741935;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7/H/OeHZ3clKH3qdVG9FU0x+z/0lJ0k+l4bKjCHjwmM=;
-        b=RkQKMha4Vu72EHlsdB7XBSa/pkJsp+xmwaFvdegWC21XWUjLtcM2vjKh1/bqbXUSdN
-         SvlDC8re+lnLyGe+zQce0CEpoUtXTGlrHrfOSIogzaVRoteNE8+htf/yooDbrqPo62OO
-         r28kblajdOYGS6pmTR94PsXfOKDUyrD3PiwC+BLKp2S0RjOxKgXrnuSq3kEtns2uMdWH
-         NMpIaoekBI2tkaIao4nsMv8SGuYJ6zzKZEbQp+50r9lNiVa/Wupc1gnwEH8EKI3To5lU
-         yQ5z5Wtzr4X2NQrrgqDL04rXTvGyBsKZXT/KlJvjRCztqtHIj4H3tVEI3dch5NLM875K
-         KotQ==
-X-Forwarded-Encrypted: i=1; AL+hErFEC3GiaJbOF4nf9uOVQUKhuB2IRBGnI0bnoLzKGsobNfT/5I+iDhgIIN7OgmwSJvaxY4uFJLyEfidIQXc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8wlgKUY4ZToRfgQ9AvBDWRtAX9Ykh+jzChl77jlJhJ+CPKQbTl
-	nD2Jhk0BRbvmvO+Ocq4W1CVZQsG1ztMbAy6RYYK/WkV25Z59hOqTk5cp
-X-Gm-Gg: AZFdTZfmQ3RK2Idg22m526nF6E02Bm9s8jQEPOpF3/W3S//FduU2hOLnmq3KnSTgzxH
-	bb2/vwHU+cweBDDay7wpUTJXtTlAvFxAVYR428Q4rh22VmLORr0M2Ykwi3JAlz3rSUFcm6EnMYQ
-	aDCRlHyyiw2Pa5kKxYTES/CboBiI1JCW5mQRzisBhYKeILaTwLwbcuVtcaraPyXOCIgo44DbNwp
-	s9he0Spukez3JBdMEr3sdult+Fjm075f+Ak7AXorcjdl5gmeSg5CVuV7jlb0WZDJGQlSi1SKitF
-	HyYgOdaU4MfVNKIhJlmkjTNmvmt44mp//IwVPz1xB9wsjznLzt4u7JwApGl6FOsJAd+wCwBTR/v
-	kXf+o1/HBAvewY3bFdyI5VUXySx89z1jXJDBT+tJQUPaMukL6VA7z3jsuWfKBcaJwHk6VMie1ZC
-	ysCa5XVLdin50MuJ/5XdCG4d8MCOU/nsE168kk9p4jDw9QlwODe1mgVV9vyU0cvyfUHQW1MYj5v
-	IyJE70+OuixAfnvlMdT5THW/ffr4jiBXrMDzYjCtp7GuBjkcDAEL7UNnptn4conYICdcNirrYWm
-	rfENT9onb7Ey08te/c2Oy56aOYGA4rYxCTsIzS7mvLxDS3Lf7mPmc0QqyQXunZAAZxjHvkS/aCi
-	Iq8rldI3K8coE
-X-Received: by 2002:a17:90b:498c:b0:3ab:be66:ddbe with SMTP id 98e67ed59e1d1-3b41c902f3emr1026135a91.28.1795137135025;
-        Thu, 19 Nov 2026 17:12:15 -0800 (PST)
-Received: from localhost ([50.7.253.42])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm622215a91.3.2026.11.19.17.11.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:12:14 -0800 (PST)
-From: Aveline Noir <jm5905938@gmail.com>
-Date: Fri, 20 Nov 2026 12:05:47 +1100
-Subject: [PATCH RESEND v2 1/2] HID: picolcd: Move output requests out of
- spinlocked sections
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aKmfg2wd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hpocCNVSa9fy1l/m5gGMm2TrBvkoZypeazcn/i937ttzi14ytKicMr6fk1xEXVFfO8O2OYk0rX0uvrVxDoyTVutwRFmsUFFym5mL2/HPaJivwqFpg3o09UCXD8YvmDsWdzsVJ0xWQwxhI9qRBti0wm8lDehk0EhDiQrDuYTkC3mOf0VHnSEsDPhTJmqlSwxS0WtCPjfBNRm+HNk4piyDZ7xzgGjwVWhkciaz9nhMAfNTfjYNS1t96ibUEXZa8AZUKlqGHGjqPUp2E4ujLmIslReDuRBCEkajijAeHvjL0otYQxt0LMiNUNly2ks/q7fkHJT1EtspNd1zjiLmfPrm3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xVx3hIjIcHwRhFBJMZn8HkYUmAf+3bgBPmnSkOWAKpg=;
+ b=y2SWBxH7g7amSW61KSdodsSwaY+G6WnqeEF+Uf+E5M6gqbPtZij7ZvayXBufHhh/Qra15BKeiDWfBT123avhtrUgKIl3k8yFpMQLJsUKFSz2Kj/p2ekR6/kgLF+PaKfVP43I2p2fO7J9H7B1dT9EGnmyX/YbadmBZDkkiQFDxUrH8mzv8gnK7dKgJE0xc2iLBKkhKG/vWtjIRqmLwW/MjLnqrjYIGR6M4L07E1Y3UUqn5b6n+2fMAY5GfgmjLMe94pPLmBWgPPm9zbYiLNF3De2Y3lHpJQnhGalY1JgjqrTNdkz4BBuYcx3Uc4c/l69Z49nqzX3uoNTgZkWKvQFZ6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xVx3hIjIcHwRhFBJMZn8HkYUmAf+3bgBPmnSkOWAKpg=;
+ b=aKmfg2wdakjJDPFWqspiPRwe0Ak5EFdduCeMHwdOFohw9bPW5m7F0xufgbFBDsapNTruGSGRDInA/r4zXBozXi/2kHtODrNt4FUBNnhsZfFL/sM9DuudpK2Vtypv7jABzAocrl0ePgg4QOujDfVSnc17rwopZ4hkLImnwaGCegbWlzbjWLiJifmUjpTEHRNaIloIqbUBbjg9cRCZYa0Y+iAcyA8j4KRSrpkYzV1ps1qO5TIDWCm9eZsSqBBoy4uMUWnuP6tHmjIBtcVoClusfJMMxx9KVaG45RcASQljSLgYnLbEscA6lcC4sqhInvVrkj2rlLqGMuT+tdYpHZVxOA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by SJ2PR12MB8061.namprd12.prod.outlook.com (2603:10b6:a03:4cb::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 01:12:15 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 01:12:14 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: devicetree@vger.kernel.org
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Krzysztof =?UTF-8?B?V2lsY3p5xYRza2k=?= <kwilczynski@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, devicetree@vger.kernel.org,
+ Rob Herring <robh@kernel.org>
+Subject:
+ Re: [PATCH 1/6] dt-bindings: PCI: tegra264: Allow the ats-supported property
+Date: Fri, 20 Nov 2026 10:12:11 +0900
+Message-ID: <meFC-rbZSSu9SGIB4wyt6A@nvidia.com>
+In-Reply-To: <20261119201817.GA119016-robh@kernel.org>
+References:
+ <20261029-b4-t264-igpu-pci-v1-0-4d843dda0b02@nvidia.com>
+ <20261029-b4-t264-igpu-pci-v1-1-4d843dda0b02@nvidia.com>
+ <20261119201817.GA119016-robh@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TY4P301CA0117.JPNP301.PROD.OUTLOOK.COM
+ (2603:1096:405:37e::8) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,447 +108,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <20261120-mail-picolcd-v2-resend-20261120-v2-1-d7531fa8061b@gmail.com>
-References: <20261120-mail-picolcd-v2-resend-20261120-v2-0-d7531fa8061b@gmail.com>
-In-Reply-To: <20261120-mail-picolcd-v2-resend-20261120-v2-0-d7531fa8061b@gmail.com>
-To: Benjamin Tissoires <bentiss@kernel.org>, Jiri Kosina <jikos@kernel.org>
-Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mika Westerberg <mika.westerberg@linux.intel.com>, deller@gmx.de, 
- Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
- =?utf-8?q?Bruno_Pr=C3=A9mont?= <bonbons@linux-vserver.org>, 
- Clark Williams <clrkwllms@kernel.org>, bigeasy@linutronix.de, 
- linux-input@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
- Takashi Iwai <tiwai@suse.de>, 
- syzbot+912222e4cb82423535fa@syzkaller.appspotmail.com, 
- linux-rt-devel@lists.linux.dev, simona@ffwll.ch, 
- Patrik Jakobsson <patrik.r.jakobsson@gmail.com>
-X-Mailer: b4 0.16.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|SJ2PR12MB8061:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5a93f589-b61f-432f-6b50-08df46a34fd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|376014|7416014|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261028144727099003|261102123227099003|4143699003|11063799006|56012099006|10067099003|261009223027099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	QHz+fJV0LFrNsDcDQtkahKk4zdgk0B79XP8KGajQQgTi8mKeNNCKl7jCTpkQYufwLpPnkUA8Tgqn6UAU+MuzQIljejx807BgJAvR6tRtVB/7xLkREmpR6cvDRdg54huZxwvEC5pszyJtonWN3amNpDxFxM2dnisSRakuqjv3cZBe+WM6UbzuXyl0SO4n4RaTi+6qn6QEcIw5ChVTfcqDdm7M9SNkc5rpDUgfRdHNvSDaWk8oUUtymPBwIWtS3rx4RBpGKINIs4Gr2jHWdWr/YxUpD0xv16AbpWjixOWAAZooTdo4O5e3ENLjrURAT8cySD34aBOvkizvpYHJR8ubx9FZHBSeRY448fhoVCGH36+LY4WtHc0UeWTE0f99uoZmzKGLf6nOVMbPFoepRoFhfSNSaS6NU6ksFlJdXvkeEyZv2vIKRJkPei3hAd39EwJYXvyy8miFXfGvP3HD6G/kqxWcSfFldyeJUFL5/FxDEofFTSFwK9gHWQe8X8ZzFSFakoW/6W7BM+T6NDzkN4581vVGRPKg9yET+CTE+V5j/zX9neFj0GqxVztkL0J0ZZg+yIjSsMOk6+82gc/hgsKbc01p8cw82T6JzBjukC2itdpk+r0PG/JC9z9ewmTE8aaMj5LalQWLZZw1wEtluBIr2gYnnNx9wDgBAml1a1LV1QU=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(376014)(7416014)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261028144727099003)(261102123227099003)(4143699003)(11063799006)(56012099006)(10067099003)(261009223027099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SlFjeVdQNm5aVy9HOUtJSUw0dHNyeG9NV21zUEMyMnI5cEx3Vk9uTTNMMEQz?=
+ =?utf-8?B?Yk5ka084bWFFZWRtVXlPSDBkV01nTkRqSVE0UVNDNXNlNTFoN09PRVc1dnVP?=
+ =?utf-8?B?ZjEvSnR0UmprcElCbE10QS80NHl6b084Q1daSUI2QW94MlNDa0hWcGZnS0VU?=
+ =?utf-8?B?M2xjNEtVR1lEODNSQlFkbHJLeWV3VGJxTlFaYVh2ZElzTVBSOVFqWXJRSyt1?=
+ =?utf-8?B?RFg3ZGJBaFdsU3I1bnJBK21sK1hsanlwMXJCSVBpUjNvbldiMXFHM3dRZnpm?=
+ =?utf-8?B?cTRtZHQ4bHJnR245bkpmQ2NIOWhxS1hWSlhjdUtSejk4M0dReGNmL0d4R3JT?=
+ =?utf-8?B?YlhlV2NUY3pOQy9VSmFlN0VQVnA5cVVTcFBzZlRYcmFCbU9vNkoxZUJkcldm?=
+ =?utf-8?B?RUd0TmZvd3NPSExyZlNRV3haNXBtN2ROTzlOVlNBVFFQYk9Qb2R3L1dxVU5F?=
+ =?utf-8?B?akRnVlVtb29SbU1DaVV3SHVJVk55T2ZiSm5ONEFFMUZqRm9BUUw5VzYvekwz?=
+ =?utf-8?B?dWRpK3NpVWNGRGJGVFRLN0IzM0c3QUFnWmp5bnNqM0d2bkFBV3pmUEwxRklX?=
+ =?utf-8?B?VUMyaDdCbDZvMVcvZFh1c0JJeHE3QlZsSzluRG4xQnZxSkQ4VkYxdjlUM3FT?=
+ =?utf-8?B?QllNZmF2M0pzTTAzN0lqQjR6VGdxODhoZjZIbnU1TWJ1ejgzTzd0cG0zK0tZ?=
+ =?utf-8?B?bThoRzhzRWN4Z2dUU0NxTmpkNFBQZW00TGJtaEtJKzNuYU9Fek5XY2VKWk94?=
+ =?utf-8?B?b0h2cmMvSXY4aHJTcE9YQXZHMkg2anBGVDgvZk1SYnQ1RHdaNnl3RkR6Tno5?=
+ =?utf-8?B?S2ROdmZTZmpPdmRHbFpQTFdqQm13d3NMNTZUR1JiZzRYZnlGaE01WjRwdGY1?=
+ =?utf-8?B?ZXpZbVZQY09VNXo0UzhqL05pM1lTNW1FMDQ3WTY4aHdsL21ETE40eUdwU0ZT?=
+ =?utf-8?B?aHBCNm56ek4yVC9NUHVVbGtqNnNNTWJPSFVBWTQ5MDAzODhoYWZFbWhlYWhN?=
+ =?utf-8?B?NmgvSTdNemh1bXNsQzlyNVZocENkWUlLRUpjakNhSVNGMTl2SS95am0vTU16?=
+ =?utf-8?B?dFV3bXFXL3dOSVRYRit5R0ZtMkhwWU5pa2crRnpnZ1FNUEtLQjhmZjJOQkdT?=
+ =?utf-8?B?bzRwNjk2cVpHekRGa2tIS3dCd3VUUHRFc1ZSc1hiUkFTQ0wzZkIwdjg5R0Nt?=
+ =?utf-8?B?alpWQlhCMzVlQkZpYUFNcjRSdit4d0dzQ2ZIRmdjVjdzTVJycnBUZ04zRFEv?=
+ =?utf-8?B?VDZiOUVoTmFXT0xJQlhXanB6YXg5YXdRQlJnTURGajhCWnU2V01MRzBHRmxN?=
+ =?utf-8?B?MWhjTUdENFVyY2xNZG5rYzR6YjBFMTFBcWVQRHdpeUJNTnhjOHFYU05IV1Yy?=
+ =?utf-8?B?TlRaWTRGa2U0aGkrZkp3bWNpTWJTZlFOYWQ0WXV2UXdzVStlL1RXNlE4MnhH?=
+ =?utf-8?B?bW1kMS9YVHlRWVVDdnMzV3ZhOFN1dzVWaGI4b1FvQUM5T2lGbVNoYmVycUkr?=
+ =?utf-8?B?bkxLRzQxTTFZTUhqUUlkUUJmbzJ5N3I3dEtsYTBCY21yVmZ1b2lnRmdMOWRz?=
+ =?utf-8?B?UEk1a2VuLytGcmp3TmI1ekhzNERyS2ladHU1U2RES1pMbHhEZHRycWtsT3hR?=
+ =?utf-8?B?VS9lTlB5VmwyS29LVTl4NGxiSEhEVFM5SGxXVnlaV3Y5TlN4Y0xXVkJVWDdR?=
+ =?utf-8?B?Rytqdjl2UU01NE83RVJpY2xDYVl2ZDF0aFREZVdyZFJWNEhrSE4ydzBYK1hj?=
+ =?utf-8?B?VjlBSXNTRDVKc0NBd2J0Rmo2OHBCQzN2TWp6ZjA4aS9zZXJ6VndkL2dWNXFW?=
+ =?utf-8?B?VTVFWFpUelo4UjQ2cklBWVFSd3UybDVIMzdGTkxMODRpMTFXTjY1K2lFUE9B?=
+ =?utf-8?B?QTkzVkl4TXA2VWk0VU9qR2tibXU2bVkvaExnampWUEVlclNwRGlEOWZMcmtT?=
+ =?utf-8?B?aFpIeC9Pd3ZiQ05ya0R4M1VFTElmbUtKcncwakRjb3pIeW54QVZUbGhmY0hu?=
+ =?utf-8?B?OWdzS1BzNk9SY0VQZmF4WDd2L3plR25pTVBrSWtFVXJUcWN3Vk1yTlp6VXhN?=
+ =?utf-8?B?TmRSRjJHbWtSbjF0SktYR1cyUXdlTm01ZTJ3c2VNUWR5cWR6cFlGVWV6aFBR?=
+ =?utf-8?B?VXhqbzJWZCtNRGRyN29nemtoeXUwQWhUalhSVU03YXpSbFBtdEtWK2VkLzNI?=
+ =?utf-8?B?T2JzNmxZTTFqZU52SFdMUWJqc3cvZXRVQ0xhdUY2c0xqQUYwaDE4Q2l2OSth?=
+ =?utf-8?B?RG15RC9UMnpud1pkdHhSSFJxZWdQTEdDM1VhNEtqOXRtMHBMOVVxbXErRGhH?=
+ =?utf-8?B?cXNhdHFESHorS2xQL0FOcE5DRGRnZDRGdmFJZDZISUtRTDJTR2lrbnlNOEF3?=
+ =?utf-8?Q?D1xgE526pCntyyztav2thJeKHtJE0gS0/GAQVlPJDOKib?=
+X-MS-Exchange-AntiSpam-MessageData-1: 8erKwj98OI6jww==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a93f589-b61f-432f-6b50-08df46a34fd8
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 01:12:14.5768
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FYnoqgUkhTnLuK/Wf11pigiLkJt3r/+fAtQKmD6l1v8A+ry1qs3VNkrmKMtiCMoxjhr/eUMT6Wx3HwNLBo4u0w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8061
 
-Creating a PicoLCD through UHID triggers a sleeping-in-invalid-context
-warning in picolcd_set_contrast(). The driver calls hid_hw_request()
-while holding picolcd_data::lock, which is a spinlock_t.
-hid_hw_request() can allocate with GFP_KERNEL and wait for a reply
-through __hid_request(), so it must not be called from this spinlocked
-section. The same pattern exists in the other output paths.
+On Friday, November 20, 2026 5:18=E2=80=AFAM Rob Herring wrote:
+> On Thu, Oct 29, 2026 at 12:32:03PM +0900, Mikko Perttunen wrote:
+> > The C0 controller on Tegra264 is connected to the integrated GPU, which
+> > issues ATS requests. Add the ats-supported property to allow marking
+> > ATS as supported on the controller.
+> >=20
+> > Signed-off-by: Mikko Perttunen <mperttunen@nvidia.com>
+> > ---
+> >  Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml | 5 ++=
++++
+> >  1 file changed, 5 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie=
+.yaml b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+> > index f0114defc04e..3b4f31a4a4c2 100644
+> > --- a/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+> > +++ b/Documentation/devicetree/bindings/pci/nvidia,tegra264-pcie.yaml
+> > @@ -34,6 +34,11 @@ properties:
+> > =20
+> >    dma-coherent: true
+> > =20
+> > +  ats-supported:
+> > +    description:
+> > +      Indicates that the controller supports ATS.
+> > +    type: boolean
+>=20
+> 2 users of this now. This needs to be moved into pci-host-bridge.yaml.
 
-Serialize output report updates and requests with a separate mutex.
-Keep the spinlock for status and pending replies shared with raw_event(),
-and drop it before submitting requests. Serialize the failed-state
-transition with output requests during removal.
+I have opened a pull request:
 
-Use the blocking LED callback and protect LED state updates with the
-report mutex. Move framebuffer reset outside fbdata->lock so the new
-mutex is never acquired under that spinlock.
+	https://github.com/devicetree-org/dt-schema/pull/215
 
-In a PREEMPT_RT QEMU guest, the original syzkaller reproducer triggered
-six sleep warnings with the baseline module and none with this change
-during a four-second run (214 iterations). Five rounds each of concurrent
-LCD, backlight, two LED and UHID destroy operations, with and without
-persistent-open framebuffer writes, completed without BUG/WARNING.
-Physical hardware and suspend/resume have not been tested.
+Any other changes required on the kernel side?
 
-Fixes: d881427253da ("HID: use hid_hw_request() instead of direct call to u=
-sbhid")
-Reported-by: syzbot+912222e4cb82423535fa@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=3D912222e4cb82423535fa
-Signed-off-by: Aveline Noir <jm5905938@gmail.com>
----
- drivers/hid/hid-picolcd.h           |  2 ++
- drivers/hid/hid-picolcd_backlight.c |  7 +++---
- drivers/hid/hid-picolcd_core.c      | 46 ++++++++++++++++++++++++---------=
-----
- drivers/hid/hid-picolcd_fb.c        | 23 +++++++++++--------
- drivers/hid/hid-picolcd_lcd.c       |  7 +++---
- drivers/hid/hid-picolcd_leds.c      | 31 ++++++++++++++-----------
- 6 files changed, 69 insertions(+), 47 deletions(-)
+If we need to wait for a dt-schema release cycle before the definition=20
+is considered available, can we merge this patch for now and revert=20
+later along with the definition in host-generic-pci? In any case, I can=20
+send a patch to remove the host-generic-pci definition later.
 
-diff --git a/drivers/hid/hid-picolcd.h b/drivers/hid/hid-picolcd.h
-index 57c9d0a675..846a8ceb95 100644
---- a/drivers/hid/hid-picolcd.h
-+++ b/drivers/hid/hid-picolcd.h
-@@ -102,6 +102,8 @@ struct picolcd_data {
- 	/* Housekeeping stuff */
- 	spinlock_t lock;
- 	struct mutex mutex;
-+	/* Serialize updates to output reports and their HID requests. */
-+	struct mutex report_mutex;
- 	struct picolcd_pending *pending;
- 	int status;
- #define PICOLCD_BOOTLOADER 1
-diff --git a/drivers/hid/hid-picolcd_backlight.c b/drivers/hid/hid-picolcd_=
-backlight.c
-index 4b43b64537..9fe27437d2 100644
---- a/drivers/hid/hid-picolcd_backlight.c
-+++ b/drivers/hid/hid-picolcd_backlight.c
-@@ -23,19 +23,18 @@ static int picolcd_set_brightness(struct backlight_devi=
-ce *bdev)
- {
- 	struct picolcd_data *data =3D bl_get_data(bdev);
- 	struct hid_report *report =3D picolcd_out_report(REPORT_BRIGHTNESS, data-=
->hdev);
--	unsigned long flags;
-=20
- 	if (!report || report->maxfield !=3D 1 || report->field[0]->report_count =
-!=3D 1)
- 		return -ENODEV;
-=20
-+	mutex_lock(&data->report_mutex);
- 	data->lcd_brightness =3D bdev->props.brightness & 0x0ff;
- 	data->lcd_power      =3D bdev->props.power;
--	spin_lock_irqsave(&data->lock, flags);
- 	hid_set_field(report->field[0], 0,
- 		      data->lcd_power =3D=3D BACKLIGHT_POWER_ON ? data->lcd_brightness :=
- 0);
--	if (!(data->status & PICOLCD_FAILED))
-+	if (!(READ_ONCE(data->status) & PICOLCD_FAILED))
- 		hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
--	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
- 	return 0;
- }
-=20
-diff --git a/drivers/hid/hid-picolcd_core.c b/drivers/hid/hid-picolcd_core.c
-index d73e97c8b8..9d6bf75aba 100644
---- a/drivers/hid/hid-picolcd_core.c
-+++ b/drivers/hid/hid-picolcd_core.c
-@@ -77,7 +77,7 @@ struct picolcd_pending *picolcd_send_and_wait(struct hid_=
-device *hdev,
-=20
- 	if (!report || !data)
- 		return NULL;
--	if (data->status & PICOLCD_FAILED)
-+	if (READ_ONCE(data->status) & PICOLCD_FAILED)
- 		return NULL;
- 	work =3D kzalloc_obj(*work);
- 	if (!work)
-@@ -89,23 +89,27 @@ struct picolcd_pending *picolcd_send_and_wait(struct hi=
-d_device *hdev,
- 	work->raw_size   =3D 0;
-=20
- 	mutex_lock(&data->mutex);
--	spin_lock_irqsave(&data->lock, flags);
-+	mutex_lock(&data->report_mutex);
- 	for (i =3D k =3D 0; i < report->maxfield; i++)
- 		for (j =3D 0; j < report->field[i]->report_count; j++) {
- 			hid_set_field(report->field[i], j, k < size ? raw_data[k] : 0);
- 			k++;
- 		}
-+	spin_lock_irqsave(&data->lock, flags);
- 	if (data->status & PICOLCD_FAILED) {
--		kfree(work);
--		work =3D NULL;
--	} else {
--		data->pending =3D work;
--		hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
- 		spin_unlock_irqrestore(&data->lock, flags);
--		wait_for_completion_interruptible_timeout(&work->ready, HZ*2);
--		spin_lock_irqsave(&data->lock, flags);
--		data->pending =3D NULL;
-+		mutex_unlock(&data->report_mutex);
-+		mutex_unlock(&data->mutex);
-+		kfree(work);
-+		return NULL;
- 	}
-+	data->pending =3D work;
-+	spin_unlock_irqrestore(&data->lock, flags);
-+	hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
-+	mutex_unlock(&data->report_mutex);
-+	wait_for_completion_interruptible_timeout(&work->ready, HZ*2);
-+	spin_lock_irqsave(&data->lock, flags);
-+	data->pending =3D NULL;
- 	spin_unlock_irqrestore(&data->lock, flags);
- 	mutex_unlock(&data->mutex);
- 	return work;
-@@ -224,18 +228,21 @@ int picolcd_reset(struct hid_device *hdev)
- 	if (!data || !report || report->maxfield !=3D 1)
- 		return -ENODEV;
-=20
-+	mutex_lock(&data->report_mutex);
- 	spin_lock_irqsave(&data->lock, flags);
- 	if (hdev->product =3D=3D USB_DEVICE_ID_PICOLCD_BOOTLOADER)
- 		data->status |=3D PICOLCD_BOOTLOADER;
-=20
--	/* perform the reset */
--	hid_set_field(report->field[0], 0, 1);
- 	if (data->status & PICOLCD_FAILED) {
- 		spin_unlock_irqrestore(&data->lock, flags);
-+		mutex_unlock(&data->report_mutex);
- 		return -ENODEV;
- 	}
--	hid_hw_request(hdev, report, HID_REQ_SET_REPORT);
- 	spin_unlock_irqrestore(&data->lock, flags);
-+	/* perform the reset */
-+	hid_set_field(report->field[0], 0, 1);
-+	hid_hw_request(hdev, report, HID_REQ_SET_REPORT);
-+	mutex_unlock(&data->report_mutex);
-=20
- 	error =3D picolcd_check_version(hdev);
- 	if (error)
-@@ -268,7 +275,6 @@ static ssize_t picolcd_operation_mode_store(struct devi=
-ce *dev,
- 	struct picolcd_data *data =3D dev_get_drvdata(dev);
- 	struct hid_report *report =3D NULL;
- 	int timeout =3D data->opmode_delay;
--	unsigned long flags;
-=20
- 	if (sysfs_streq(buf, "lcd")) {
- 		if (data->status & PICOLCD_BOOTLOADER)
-@@ -283,11 +289,15 @@ static ssize_t picolcd_operation_mode_store(struct de=
-vice *dev,
- 	if (!report || report->maxfield !=3D 1)
- 		return -EINVAL;
-=20
--	spin_lock_irqsave(&data->lock, flags);
-+	mutex_lock(&data->report_mutex);
-+	if (READ_ONCE(data->status) & PICOLCD_FAILED) {
-+		mutex_unlock(&data->report_mutex);
-+		return -ENODEV;
-+	}
- 	hid_set_field(report->field[0], 0, timeout & 0xff);
- 	hid_set_field(report->field[0], 1, (timeout >> 8) & 0xff);
- 	hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
--	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
- 	return count;
- }
-=20
-@@ -537,6 +547,7 @@ static int picolcd_probe(struct hid_device *hdev,
-=20
- 	spin_lock_init(&data->lock);
- 	mutex_init(&data->mutex);
-+	mutex_init(&data->report_mutex);
- 	data->hdev =3D hdev;
- 	data->opmode_delay =3D 5000;
- 	if (hdev->product =3D=3D USB_DEVICE_ID_PICOLCD_BOOTLOADER)
-@@ -603,9 +614,11 @@ static void picolcd_remove(struct hid_device *hdev)
- 	unsigned long flags;
-=20
- 	dbg_hid(PICOLCD_NAME " hardware remove...\n");
-+	mutex_lock(&data->report_mutex);
- 	spin_lock_irqsave(&data->lock, flags);
- 	data->status |=3D PICOLCD_FAILED;
- 	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
-=20
- 	picolcd_exit_devfs(data);
- 	device_remove_file(&hdev->dev, &dev_attr_operation_mode);
-@@ -630,6 +643,7 @@ static void picolcd_remove(struct hid_device *hdev)
- 	picolcd_exit_keys(data);
-=20
- 	mutex_destroy(&data->mutex);
-+	mutex_destroy(&data->report_mutex);
- 	/* Finally, clean up the picolcd data itself */
- 	kfree(data);
- }
-diff --git a/drivers/hid/hid-picolcd_fb.c b/drivers/hid/hid-picolcd_fb.c
-index 8c28e982e0..c17104fd60 100644
---- a/drivers/hid/hid-picolcd_fb.c
-+++ b/drivers/hid/hid-picolcd_fb.c
-@@ -91,7 +91,6 @@ static int picolcd_fb_send_tile(struct picolcd_data *data=
-, u8 *vbitmap,
- 		int chip, int tile)
- {
- 	struct hid_report *report1, *report2;
--	unsigned long flags;
- 	u8 *tdata;
- 	int i;
-=20
-@@ -102,9 +101,9 @@ static int picolcd_fb_send_tile(struct picolcd_data *da=
-ta, u8 *vbitmap,
- 	if (!report2 || report2->maxfield !=3D 1)
- 		return -ENODEV;
-=20
--	spin_lock_irqsave(&data->lock, flags);
--	if ((data->status & PICOLCD_FAILED)) {
--		spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_lock(&data->report_mutex);
-+	if (READ_ONCE(data->status) & PICOLCD_FAILED) {
-+		mutex_unlock(&data->report_mutex);
- 		return -ENODEV;
- 	}
- 	hid_set_field(report1->field[0],  0, chip << 2);
-@@ -133,7 +132,7 @@ static int picolcd_fb_send_tile(struct picolcd_data *da=
-ta, u8 *vbitmap,
-=20
- 	hid_hw_request(data->hdev, report1, HID_REQ_SET_REPORT);
- 	hid_hw_request(data->hdev, report2, HID_REQ_SET_REPORT);
--	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
- 	return 0;
- }
-=20
-@@ -187,13 +186,16 @@ int picolcd_fb_reset(struct picolcd_data *data, int c=
-lear)
- 	struct hid_report *report =3D picolcd_out_report(REPORT_LCD_CMD, data->hd=
-ev);
- 	struct picolcd_fb_data *fbdata =3D data->fb_info->par;
- 	int i, j;
--	unsigned long flags;
- 	static const u8 mapcmd[8] =3D { 0x00, 0x02, 0x00, 0x64, 0x3f, 0x00, 0x64,=
- 0xc0 };
-=20
- 	if (!report || report->maxfield !=3D 1)
- 		return -ENODEV;
-=20
--	spin_lock_irqsave(&data->lock, flags);
-+	mutex_lock(&data->report_mutex);
-+	if (READ_ONCE(data->status) & PICOLCD_FAILED) {
-+		mutex_unlock(&data->report_mutex);
-+		return -ENODEV;
-+	}
- 	for (i =3D 0; i < 4; i++) {
- 		for (j =3D 0; j < report->field[0]->maxusage; j++)
- 			if (j =3D=3D 0)
-@@ -204,7 +206,7 @@ int picolcd_fb_reset(struct picolcd_data *data, int cle=
-ar)
- 				hid_set_field(report->field[0], j, 0);
- 		hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
- 	}
--	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
-=20
- 	if (clear) {
- 		memset(fbdata->vbitmap, 0, PICOLCDFB_SIZE);
-@@ -232,9 +234,10 @@ static void picolcd_fb_update(struct fb_info *info)
- 	mutex_lock(&info->lock);
-=20
- 	spin_lock_irqsave(&fbdata->lock, flags);
--	if (!fbdata->ready && fbdata->picolcd)
--		picolcd_fb_reset(fbdata->picolcd, 0);
-+	data =3D !fbdata->ready ? fbdata->picolcd : NULL;
- 	spin_unlock_irqrestore(&fbdata->lock, flags);
-+	if (data)
-+		picolcd_fb_reset(data, 0);
-=20
- 	/*
- 	 * Translate the framebuffer into the format needed by the PicoLCD.
-diff --git a/drivers/hid/hid-picolcd_lcd.c b/drivers/hid/hid-picolcd_lcd.c
-index 318f19eac0..a1fdbfdfde 100644
---- a/drivers/hid/hid-picolcd_lcd.c
-+++ b/drivers/hid/hid-picolcd_lcd.c
-@@ -27,17 +27,16 @@ static int picolcd_set_contrast(struct lcd_device *ldev=
-, int contrast)
- {
- 	struct picolcd_data *data =3D lcd_get_data(ldev);
- 	struct hid_report *report =3D picolcd_out_report(REPORT_CONTRAST, data->h=
-dev);
--	unsigned long flags;
-=20
- 	if (!report || report->maxfield !=3D 1 || report->field[0]->report_count =
-!=3D 1)
- 		return -ENODEV;
-=20
-+	mutex_lock(&data->report_mutex);
- 	data->lcd_contrast =3D contrast & 0x0ff;
--	spin_lock_irqsave(&data->lock, flags);
- 	hid_set_field(report->field[0], 0, data->lcd_contrast);
--	if (!(data->status & PICOLCD_FAILED))
-+	if (!(READ_ONCE(data->status) & PICOLCD_FAILED))
- 		hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
--	spin_unlock_irqrestore(&data->lock, flags);
-+	mutex_unlock(&data->report_mutex);
- 	return 0;
- }
-=20
-diff --git a/drivers/hid/hid-picolcd_leds.c b/drivers/hid/hid-picolcd_leds.c
-index 6b505a7535..c6ae8ace1d 100644
---- a/drivers/hid/hid-picolcd_leds.c
-+++ b/drivers/hid/hid-picolcd_leds.c
-@@ -29,10 +29,9 @@
- #include "hid-picolcd.h"
-=20
-=20
--void picolcd_leds_set(struct picolcd_data *data)
-+static void picolcd_leds_set_locked(struct picolcd_data *data)
- {
- 	struct hid_report *report;
--	unsigned long flags;
-=20
- 	if (!data->led[0])
- 		return;
-@@ -40,14 +39,19 @@ void picolcd_leds_set(struct picolcd_data *data)
- 	if (!report || report->maxfield !=3D 1 || report->field[0]->report_count =
-!=3D 1)
- 		return;
-=20
--	spin_lock_irqsave(&data->lock, flags);
- 	hid_set_field(report->field[0], 0, data->led_state);
--	if (!(data->status & PICOLCD_FAILED))
-+	if (!(READ_ONCE(data->status) & PICOLCD_FAILED))
- 		hid_hw_request(data->hdev, report, HID_REQ_SET_REPORT);
--	spin_unlock_irqrestore(&data->lock, flags);
- }
-=20
--static void picolcd_led_set_brightness(struct led_classdev *led_cdev,
-+void picolcd_leds_set(struct picolcd_data *data)
-+{
-+	mutex_lock(&data->report_mutex);
-+	picolcd_leds_set_locked(data);
-+	mutex_unlock(&data->report_mutex);
-+}
-+
-+static int picolcd_led_set_brightness(struct led_classdev *led_cdev,
- 			enum led_brightness value)
- {
- 	struct device *dev;
-@@ -59,20 +63,23 @@ static void picolcd_led_set_brightness(struct led_class=
-dev *led_cdev,
- 	hdev =3D to_hid_device(dev);
- 	data =3D hid_get_drvdata(hdev);
- 	if (!data)
--		return;
-+		return -ENODEV;
-+	mutex_lock(&data->report_mutex);
- 	for (i =3D 0; i < 8; i++) {
- 		if (led_cdev !=3D data->led[i])
- 			continue;
- 		state =3D (data->led_state >> i) & 1;
- 		if (value =3D=3D LED_OFF && state) {
- 			data->led_state &=3D ~(1 << i);
--			picolcd_leds_set(data);
-+			picolcd_leds_set_locked(data);
- 		} else if (value !=3D LED_OFF && !state) {
- 			data->led_state |=3D 1 << i;
--			picolcd_leds_set(data);
-+			picolcd_leds_set_locked(data);
- 		}
- 		break;
- 	}
-+	mutex_unlock(&data->report_mutex);
-+	return 0;
- }
-=20
- static enum led_brightness picolcd_led_get_brightness(struct led_classdev =
-*led_cdev)
-@@ -87,7 +94,7 @@ static enum led_brightness picolcd_led_get_brightness(str=
-uct led_classdev *led_c
- 	data =3D hid_get_drvdata(hdev);
- 	for (i =3D 0; i < 8; i++)
- 		if (led_cdev =3D=3D data->led[i]) {
--			value =3D (data->led_state >> i) & 1;
-+			value =3D (READ_ONCE(data->led_state) >> i) & 1;
- 			break;
- 		}
- 	return value ? LED_FULL : LED_OFF;
-@@ -122,7 +129,7 @@ int picolcd_init_leds(struct picolcd_data *data, struct=
- hid_report *report)
- 		led->brightness =3D 0;
- 		led->max_brightness =3D 1;
- 		led->brightness_get =3D picolcd_led_get_brightness;
--		led->brightness_set =3D picolcd_led_set_brightness;
-+		led->brightness_set_blocking =3D picolcd_led_set_brightness;
-=20
- 		data->led[i] =3D led;
- 		ret =3D led_classdev_register(dev, data->led[i]);
-@@ -159,5 +166,3 @@ void picolcd_exit_leds(struct picolcd_data *data)
- 		kfree(led);
- 	}
- }
--
--
+Thanks
+Mikko
 
---=20
-2.56.1
+>=20
+> > +
+> >    nvidia,bpmp:
+> >      $ref: /schemas/types.yaml#/definitions/phandle-array
+> >      description: |
+> >=20
+> > --=20
+> > 2.55.0
+> >=20
+>=20
+
+
+
 
