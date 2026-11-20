@@ -1,143 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795210494;
-	b=s0EVV9s47HOJIgASx+2HhnrH9v5/8YQGdzhQnTpQW7z9ir+pcFtTtXtoKbYPUSpfkBnF
-	 t3cBquPq1eWw7uSKJcXe9KKP1/pMhMr/a/+9pnuDlYtxIXFtbTc+jJ4rQxnw1xavDuihC
-	 Pz3Op+Vcd8SUM+fwO4JCdo0dL86OBQdOBbn+JWySQmL8JFj17BXxSn7KPPolM/eHvI424
-	 zUMYQlHhFGKUcArHqP9SVG7r6lYFlWilhYkAfJtIb+Bv+LXpxCqKUiJLiS9MOGP0uyScf
-	 g8U2WlU2LGl8dsqbPCfUgA0Ws6NxqlbvklXYCyZ2qfgKONLq/k5HhlRqvy+S8onX2bw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210494;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=wI41GWPxU2jM9ILUOM6VnSNkTLsP6oKztunoAj5K+Lg=;
-	b=SkG7ZqymJl1MBTHEMP930kUTZyK0aeSILHS8lm/WrFWgNftmFmgVvUqQr2oYLLcp+/6x
-	 YdHBvNBziFf1IwW48TuYsrTADXMApaOx4CAiMwKrLZ0AuLtssjKOCj4Pz8kiFjezZ1Qoy
-	 VhB/LK4aRwruO7Ti/ZIJjNq98sXBWjiwxvKsO7v+jsJCAQAwEbTyZgsT4YCrTFZlVYcxW
-	 o/gYda6D0jgJlAAKEmwhcX3dfxOUC2ZJzde51sNoUtqEc1s1ChdzK2NqLg0nzpNVJoBw8
-	 jxXbeCIdQguV16AMlTHyuKbHb1tCmQsTPWXQ5JUZCK9jwrlh402t3BGuYzZtjFzptJg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U4TheqaV;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=R53SxyIW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795210735;
+	b=5pg4brsWxoR/bYEmKR8ja2E1vuTHjOHQ7cBipXt4TuIq9AyKy/KdyTPT24FRyDNmnExv
+	 aFaAuiIXjksMh+RSlVSWgADY4Lpcbh2lm0m5Bj2Gvt2E1kOYjQ68G5uU2W/jVyrcBFiT/
+	 4zmQ/X6++GgTlNNqpBKOfFok273mRLpT1aChzeCVppwLMHr6DPVDIP0XgBGNsR1ARUG5X
+	 bxfPkjwVtdhzqL1QDFfWFrtFTonDWX7pzKqmKDLCWOnpdjCZ1MPJMcb4U+Gway4aE5HSE
+	 PVX0AMQ6AXdnLlRoxpm6Qk2jnbJHve9gMPsFWUuX/aOsqqwHfPMAc6mVsq35EDrHLag==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210735;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=H3YGOD4xuDKxYeyRunaEVKbNSGBgrL7HGU/fsPpnD8g=;
+	b=B0UzTCPzhEbc5lFXuUas5wCLBapnhJqUVjWsupqq2ZOWrR+E55+lI406QMXzal0haMgC
+	 LaipxA68VWCJOgIXIwpxQZprIVtRkzGFjPgMsq/slb30KD+X0WMlcx3o2Ds9bZzbWLOE8
+	 wrxrl9RFWXEG3vEIqdmU8POZyCzgpxPAZ0bhRjkHJ1dMSIa44OKSFjKdDIrvPxiKAB4Ds
+	 6uq/7KsE0PmdAudMHJaJjWhDEfXmMcqSKbfqdgSAqzrWRuP8969IzyWiZ/31TOsjq0Sed
+	 BayZs4nL7ssNyInr7xpXRxvz9MBofiSB3nqqAilFU/64hu/WpQPpakCe+oRvNnC9IUw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MUkm8R07;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B884B60A2610
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B884B60A2610
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E50D606A683;
+	Fri, 20 Nov 2026 21:38:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U4TheqaV;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=R53SxyIW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795210492; x=1826746492;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=dsbeMG7K69Dr3RJT3RuPql6l50a63DHkj8AfWFF5RrE=;
-  b=U4TheqaVGat3GG1UR7eo8qxDFwUQDTP4lxKYgPZ0zRSS4GNjgucQrShR
-   hd84kAgTG4ega6ch/kECmDOsOJ/SVzJN+Yecwv0NxNDYNGnBX32fTpuDy
-   BMsja6jyYGE99jsVJe8MwgjDQROhWmYk0bzwlM3+yUuJcIrjZ0f199APQ
-   1S+O4QoG0EKXpex/4EMZjn91IXL6Yk1SnRaEn7VmKp4m3hY+T6PTdaluS
-   SeIOK1Ge3ueskyPmuXJEEYMo/HnWC8NfSAhojlzj4sWElpTmBxsQuknoJ
-   ha8bbHTvd7Xa4ogkUX3bwSLXRvMDJezfuSBTcuXqTaJ1QVkeICohJ9PNr
-   A==;
-X-CSE-ConnectionGUID: GC3w9H3GQSmcXvlDacLfEg==
-X-CSE-MsgGUID: Q8T0ffIxRVqfTEhNpwp+AQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3982586"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3982586"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:34:51 -0800
-X-CSE-ConnectionGUID: aUrd/voJRWepglrqIISqHA==
-X-CSE-MsgGUID: 96M01KQ8TWGjs0qxC7dBvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="12619289"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa011.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:34:51 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 13:34:50 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 13:34:50 -0800
-Received: from CH1PR05CU001.outbound.protection.outlook.com (52.101.193.38) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 13:34:50 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ubEboOUzfCPuCBMUc6AlnwQ8KR2STnKYEicCZBfhT6/fAGGySFsvSnOJIEpE2zBt3TC/nemu6cv9U9p/qa6yQX4trwAtJWYnweS+c5xE6M6y7jww+HjLp82lThAxPUW/v4NlWck168Y2d83zIIQ/BAI/RTEPBSAGpi7UREa0EJlDxN2ems6cIjUixeZHhqjpzh4vns5NMCFNwFSa3aV8O6fY6spblPQYUwjkayAryB/R4C7730qzKrLRQL/VC/AtbvHlYYBceVg2d7aJMMEB2RhERrkOcD/qYklOTtzjQvIyl7tDhRWsFtn4XzdejK5tELyHoor5hLdNR0vCHS1+Ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wI41GWPxU2jM9ILUOM6VnSNkTLsP6oKztunoAj5K+Lg=;
- b=TwaFQ0ywCizDMqZP5kY7QGuTCnd+vD19vyax0sH0dSfO9MWhoS/wLfjQ/xMXjGA9vBo+tHZhbinU7iJpk83v8WEYjYxjVybzlbSIXrXSk36qFyoPKEs/Kw6DY9JskuHUFUuJFdJa5ysoKfd0o67K/yB6hiKQlzOe866sgwL6PoYGQu/mtMM2yt6/3Ew9JKlj0r+5GzaGF+JFhylKUSQA2KXF6yBgVskYUxssJjlDsCWpT2JcCjVN0NMh6P7cvdcHnNtMiBfCsc4H0F/1wxF0JoP/8yaHDK5OHfl2tMs9zQw83jeL372FWZbj96yGNpes5IzMnhF78/56qd9JcPO/6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wI41GWPxU2jM9ILUOM6VnSNkTLsP6oKztunoAj5K+Lg=;
- b=R53SxyIWekTz6pO9AqJtTTMUEWL5NBpKxYmeeBhnqoC45UN1Qd2P8I+DnCY8/cSJopWK8jEsU9piYNrgvfvTz1ryEXpb8kOFtAk0eo8jzV+sgZyA2eyQyJ36eBzmDeyrbLHmxF/Sd5iQ6ULskoO2xA6jzEHaCNQJkvuh0V7AZQQ=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com (2603:10b6:a03:540::20)
- by PH8PR11MB9724.namprd11.prod.outlook.com (2603:10b6:510:3a3::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 21:34:43 +0000
-Received: from SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc]) by SJ2PR11MB8370.namprd11.prod.outlook.com
- ([fe80::b6cf:ce77:3cdf:7cc%5]) with mapi id 15.21.0615.009; Fri, 20 Nov 2026
- 21:34:43 +0000
-Message-ID: <b2fa5415-c41a-45b1-918a-1d49ee4ef9c6@intel.com>
-Date: Fri, 20 Nov 2026 13:34:40 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] x86/msr: Switch users of native_wrmsr() to
- native_wrmsrq()
-To: Juergen Gross <jgross@suse.com>, <linux-kernel@vger.kernel.org>,
-	<x86@kernel.org>
-CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Tony Luck <tony.luck@intel.com>, Ben Horgan
-	<ben.horgan@arm.com>, Dave Martin <Dave.Martin@arm.com>, James Morse
-	<james.morse@arm.com>, Babu Moger <babu.moger@amd.com>, Drew Fustini
-	<fustini@kernel.org>
-References: <20261116160259.1579333-1-jgross@suse.com>
- <20261116160259.1579333-2-jgross@suse.com>
-Content-Language: en-US
-From: Reinette Chatre <reinette.chatre@intel.com>
-In-Reply-To: <20261116160259.1579333-2-jgross@suse.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0036.namprd03.prod.outlook.com
- (2603:10b6:303:8e::11) To SJ2PR11MB8370.namprd11.prod.outlook.com
- (2603:10b6:a03:540::20)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MUkm8R07
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28A2E1F000CF;
+	Fri, 20 Nov 2026 21:38:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795210734;
+	bh=H3YGOD4xuDKxYeyRunaEVKbNSGBgrL7HGU/fsPpnD8g=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=MUkm8R07Zq7ejqqOus4ZZpSpOGC0ztvoGcR8cF/DwNjpQy6MKM4lr2gCdt2b943EK
+	 zMTfInPYGc83TTBboJS5yvt2T6kY6ILDgtmMJPyBOSwZsXMkmz9zhK6nGcr7/Lpn1O
+	 ZrVjKJckBNfnqEuVVGVRqL13OUY1C/4bihZndcujVm3mIrnI7xVSISCSzIy6EDatQC
+	 EvZa6ez3jdHahHmZ+nerY51K8fOUtwtmHZDzTNu7QGzWF0RD5jBqJji2Hw+iged339
+	 ZUwHwmnO5SrOh9/9iuN/aJJz7iIFaesjGqXvYjg1UkHXIK1SnpnN0EN6TsAI5gp6YU
+	 APsYAu8kKtmnw==
+Message-ID: <sashiko-outbox-226204@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v10 35/40] sched/deadline: Check the runtime of a task
+ whose parameters change
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <f0f5e657ac6bccc75297da3739df812adda360b2.1795207233.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <f0f5e657ac6bccc75297da3739df812adda360b2.1795207233.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 21:38:53 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,79 +60,189 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB8370:EE_|PH8PR11MB9724:EE_
-X-MS-Office365-Filtering-Correlation-Id: 254b53c4-9d8b-42c7-94d8-08df474e16de
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|23010399003|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: L0yAgTtLr9hnHx97PKX8wvTZt25G2gryYRF/cKfQvyuHHMRLQ1DX8C/7akxlU0gqoVdfkgfH5y7zdB0NqBTclwUxGJib4f8sF4mePiCGOzO1SgncCRT9EDYNZCZIUiW88QIiJUqt4ZzC3uSM30nAetgAeFrDLPiSSYk5gDczS9YJgJ+prJNt6HNWoabY7TtR3WGDAIH3u6VXN2LFb+8djIkkQLcuZYILHsTRtXjQwav+CTrdtlCK96qOQHosIg0JWYBJVq6L6ptY41yDjhmgOwd6q7G0/pp/xQIg7s6+EJ/bkBy2gO8DIn3tGVY2jOMN/ScrWYCaWOviE34CfMfbMJkrSlXDDW3ztV4YlMl+ekh078mb3TW6tBolgFGBdVUFUea3w3wGMMz/1Gzp6F4ormM4M89q5T37mrP4INiMBQMoLiWF5kNQkbxvtAaiiLtjuVHD59khm9HD0me6wTuhl0C+lDxHSg2a/a9Pv1Q89pFCRO6f+qIJiJH4JMmeOQ/YB6beZwnbnlTHdqrwDl3YY9+BEs8XZPafH6TCzn38ya/1NVovFpEEXU8UYfL9SE7Kn+HQQ9BgJlqms4eUh6u2ZezsXWkOM+pXRDIX1L3MaLSKOGj+RjWcNvDwzsdOQGFSms8SLSulJYMlSwz1DKFNeQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8370.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(23010399003)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?enAwM25MREMwbDAxR2FPa2FQTWxLaG91UDRkSDBoUm8ra0M3TDVrNThwZXdZ?=
- =?utf-8?B?dXNoNzdYNDJqYVh3NlVBVGZicTI0b0p5bU1tMmJZWFB3R2pyQnBiQXN3cGRO?=
- =?utf-8?B?VFJOam94SkM4NTM2cS9RbFZWL285cUUvRW5iZHQ2T2pYdTFmcHRIVExBYVNq?=
- =?utf-8?B?L2plOXhtMWJoVmg0a25oNUtyUUxueFAxWmw0NWUyTXA0aFhOTkFNb0RFelZq?=
- =?utf-8?B?bGRmcUV0TGtub2xrdTVCZXRNVlVQbkpVNWhuU2dDWkQydjZLallZd1FrLy9E?=
- =?utf-8?B?bmFSQU1NOVIyK2lhZDh6Q3ltbUREMzlxNWtuTTU5QlNxY2xxZDcxakN3TzBC?=
- =?utf-8?B?N0ZIL05GOXl2aE5jSzI2Y2VGc05SUy9aMndjdFNZYkhUdS8rZS85R0NSWGto?=
- =?utf-8?B?ZTF0bFY4cVdodHF2ZEtlb3RmUTAzUkIvRFJ0YjNubGhJSUt0UEZWWkU1M2g5?=
- =?utf-8?B?STlKYjF2eHM5d0lmVGkwUVBydjE5VHAvRUU1MlNZN0I5MmZrcTkyL3FCbk51?=
- =?utf-8?B?cGprUHNmT3V3QmZGaDczNmxZc2tYd2RVKzBPN1NIc1EwTVgxSmltUWVJWUxl?=
- =?utf-8?B?TVA4b0pEdHJGRklyL0IrYkVPNTc0Nk5zK2dCaWJiRjJYSFJ5TUdKOExVaGNY?=
- =?utf-8?B?SDdadjlFdkZPRzdFbiticlpZM203NXZ4dTQ3a3I2eitLTnlqQzF4NzdEcGJO?=
- =?utf-8?B?eTN4ZnRGUWIwTjJjaWhYQTZjQnJhVzEvRUwxV0I2Y3FjYmJCVXJ3ZjNmVjh3?=
- =?utf-8?B?cEFYZjNnU2VsMWJXa0tYVFQ5TC8yU2toak41VW9JT3M4d3dERUJaeVY3bXJ6?=
- =?utf-8?B?RWEwZUErY1JmZkhFNmd5S0JsMkpzQVEyUUJkcFhHK1RtUnA2TUlCRVZIcjJh?=
- =?utf-8?B?eElRKzZleGJ0U0V0elhaQVpGRGJQc3grV1N2Z25mWEtWMlFOdG8zOEJjWGZX?=
- =?utf-8?B?Q1c0R2JSMk9qQ0RobVc4Y256Vk8zQWZIamxlZTBDRG81L1BmNkVrU294QUQv?=
- =?utf-8?B?WHNJelQyaDlsZ202ZFBVaXhjUmdmakZZd3NodGEwbGdOUnhqMkpoOE9uOWxN?=
- =?utf-8?B?OWk1VDBSZElnb3lhYVJvZEVUa1VyY1Axd05pNUN4ZkpCd3d1Y1V2aGtHUzdD?=
- =?utf-8?B?TEFBZXQ0b3VGa0pHUWIzTnBrTGZmQ0RGZTU5aVJjTWIxMU1MMURwd0czTjVC?=
- =?utf-8?B?M2kyb0R2TVl3L3ZKVUxhM28xajR3QkVMeU5zMXU4OEtodnpkTDFaNlkzdGs0?=
- =?utf-8?B?SlFJRmMrVm9pV1BjNGJpYmQ4WndIWWJ2a2haZjgvSDBnelplZDZyMUxJN0o0?=
- =?utf-8?B?RVl6dmNzZ0drb0orMUQvZWRvUDZaZTNJWDVtVllvOWlSUGcyb2UrSWtPckRa?=
- =?utf-8?B?KzY2aEd3TE91ajU4ckFiNis1S1hhZ0p2ZzNUK0dxVHVrM0tFUW5KbFBnRGN1?=
- =?utf-8?B?ajZ5YmpZLzJLYTdSdnRKLzZnbjdMZDJvbENXSmZYYlJ2TXZWZ0h2T2E5MEdR?=
- =?utf-8?B?N3BoVUdRWVkwN3ZMWVU4RVlWbTlNRkgvdk43dVVydWRhQnZ0c2ZNMk8yYTRj?=
- =?utf-8?B?M3RDdkRvQ0hCeEFLRUM4Q2h6YjBzaEptU0Y1K3FlMG5INlVPYWhLNG9Qb0lB?=
- =?utf-8?B?YWd4UTFNOGdya1NyVTJ2eFBCQVZLYnZUZ242bm5HSGpaOU5CbVNjNWNyRUZ6?=
- =?utf-8?B?TS9SaXhGVDdIQ0NkWFMxeFRhemxGOFRxRWJ6Smc2cyt0SDZNbjl1ZVA4MWtO?=
- =?utf-8?B?bVIvYnNVMHRDdmZHS2luRThDV3VCbERVaWRac0M2cU9uUlNXUmgrSkZzaVov?=
- =?utf-8?B?Njk4WExBK21UeHhYT2dKWm5xM0FkYThJQXl5UFJzVXp0VzFtOXZ1VC9oYTBn?=
- =?utf-8?B?QmpiN3FNc3ZUUFdZWTNuQ0tSRU41Y1JUcDcwK3FMTG13a3QzVkx0UjRmTHFF?=
- =?utf-8?B?VlpRLzBvdUkyUi9nRUgrY3NmMWdNNFlFcDhvTVpTK0tzUHRjMGhSMDc4RGIr?=
- =?utf-8?B?OUxqUFlhTFR4UGE3c05xYTA5YzZWQzdaOHAyOUVkS2ZoU2prbXBTWDk4cUJJ?=
- =?utf-8?B?NitFdlNuQ2ZQNmVzMUZIUnZUM0lTU3VHNFRXODdIb085NkNXRmk0YmRaa1RY?=
- =?utf-8?B?ZFBYWVk0NS83SGJ3eVJ3Y3Rkd3JadkVNZWc2YzZwMXBwWkgydHY3VFBxMm9U?=
- =?utf-8?B?akljcjR1ekY4cU5NdXZBZGw2dk9vbDkzRkxneWdQb3dPNFF3aXB0a3R2S2hW?=
- =?utf-8?B?VTVwbFBINTVGZ0h5RjBnZGdQUElVRmZQZUluVStISndvTDd5cU5LOTNKY1Zi?=
- =?utf-8?B?RWlFUnZWRGswUXJMS3cyWHRUNWI3b29TREFqTXV1ZDE1ejdJbng0ZVVnWmpu?=
- =?utf-8?Q?Ppm3gma3DjSftMxo=3D?=
-X-Exchange-RoutingPolicyChecked: LMBeIT32h49ecvs0Zj89HfCG/Za9hgK2wW4noGXZkQ9jciozPRUtFV/GJf0LQv9F70OBEYnzOyni3tRDQQj/qqPHDcu4NKhp4L1FlBhBr3Ap920CQiTueFec7WBV7QBF/b+h6PmnM/G2DqWOgxyoBaCTIl5DB1AGwAB/UsPMlskoMIJDzRCBBEiPs7m27a8p/2q0or4Q1jnzbGYaF31Irc79geniSCbsjf7UatWf6lekgHdK7zj+4OoDfynt4vo8ONqa+8NtP/dkVTlGwf8Vcmk0SRqL1p4CvHCtSs4LYd2OcxcmvfSnqsIMjNJJZgwEInH+OYIMqkNETDNyqFCFZw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 254b53c4-9d8b-42c7-94d8-08df474e16de
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8370.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 21:34:42.9608
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SUWvonP1Yssx1bz0IZ4WF+Q8Voja9M0EtsJiGCHkl9SY54+lJqjXPcBMMdN3RqtQds5Xr7X0CB2YIG3nRNjdkRu1qWlalp+xUx0YAg8hb5E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB9724
-X-OriginatorOrg: intel.com
 
-Hi Juergen,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issues to consider:
+- [Medium] sched/deadline: dl_proxy_block() misses dl_new_params check
+  on PI futex requeue
+- [Medium] sched/deadline: missing PI boost when update_dl_entity()
+  pushes owner deadline
+- [Low] sched/deadline: __setparam_dl() skips dl_new_params on
+  same-param re-entry
+--
 
-On 11/16/26 8:02 AM, Juergen Gross wrote:
-> Switch all users of native_wrmsr() to native_wrmsrq() in order to
-> prepare removal of native_wrmsr().
-> 
-> Signed-off-by: Juergen Gross <jgross@suse.com>
-> ---
-Thank you very much for the changes.
+commit a68761d066fed61088f4cef94943c4d4d24b8d1f
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Reviewed-by: Reinette Chatre <reinette.chatre@intel.com> # resctrl
+sched/deadline: Check the runtime of a task whose parameters change
 
-Reinette
+This commit tracks deadline parameter changes in dl_new_params so that
+the remaining runtime is checked against the new reservation at the next
+enqueue, at deboost, or immediately when blocked on an rt_mutex.
+
+> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+> index 83aefe5ab671c..fe48137509ad8 100644
+> --- a/kernel/sched/deadline.c
+> +++ b/kernel/sched/deadline.c
+[ ... ]
+> @@ -145,12 +177,41 @@ void dl_deboost(struct sched_dl_entity *dl_se)
+>  		}
+>  	}
+>  	dl_drop_boost(dl_se);
+> +
+> +	if (!task_on_rq_queued(p) && !dl_task_pi_blocked(p))
+> +		return;
+> +	if (dl_se->dl_new_params && !dl_se->dl_throttled && dl_in_constrained_g=
+ap(dl_se))
+> +		return;
+> +	if (dl_se->dl_new_params) {
+> +		dl_se->dl_new_params =3D 0;
+> +		if (!dl_se->dl_throttled)
+> +			update_dl_entity(dl_se);
+> +	}
+>  }
+> =20
+> -/* Return true if @p waits on an rt_mutex. The caller holds its pi_lock.=
+ */
+> -static inline bool dl_task_pi_blocked(struct task_struct *p)
+> +/*
+> + * Check the runtime of @p against the parameters that sched_setattr() j=
+ust
+> + * gave it, if @p waits on an rt_mutex. Before any wakeup, its waiter no=
+de
+> + * holds its deadline. The caller then calls rt_mutex_adjust_pi(), which
+> + * requeues the waiter with the result. Other changes of @p, such as a
+> + * cgroup move, do not requeue it: leave the check to sched_setattr().
+> + *
+> + * A boosted task, a throttled one, or one past its deadline and before
+> + * its next period keeps the mark. Its deboost or its wakeup checks it.
+> + * The caller holds the rq lock and the pi_lock of @p, and has updated t=
+he
+> + * rq clock.
+> + */
+> +void dl_check_blocked_params(struct task_struct *p)
+>  {
+> -	return p->pi_blocked_on;
+> +	struct sched_dl_entity *dl_se =3D &p->dl;
+> +
+> +	if (!dl_task(p) || task_on_rq_queued(p) || !dl_task_pi_blocked(p))
+> +		return;
+> +	if (dl_se->dl_new_params && !is_dl_boosted(dl_se) &&
+> +	    !dl_se->dl_throttled && !dl_in_constrained_gap(dl_se)) {
+> +		dl_se->dl_new_params =3D 0;
+> +		update_dl_entity(dl_se);
+> +	}
+>  }
+
+[Severity: Medium]
+Should dl_proxy_block() also check and clear dl_se->dl_new_params?
+
+When a task sleeps in futex(FUTEX_WAIT_REQUEUE_PI), p->pi_blocked_on is
+NULL, so dl_check_blocked_params() returns early and leaves
+dl_se->dl_new_params set.  If futex(FUTEX_CMP_REQUEUE_PI) then requeues
+the task onto an rt_mutex before its old deadline expires,
+task_blocks_on_rt_mutex() calls dl_proxy_block() before copying
+p->dl.deadline into the waiter node:
+
+kernel/sched/deadline.c:dl_proxy_block() {
+	...
+	if (!task_on_rq_queued(p) && !dl_se->dl_throttled &&
+	    dl_time_before(dl_se->deadline, rq_clock(rq)) &&
+	    (dl_is_implicit(dl_se) ||
+	     !dl_time_before(rq_clock(rq), dl_next_period(dl_se))))
+		replenish_dl_new_period(dl_se, rq);
+	...
+}
+
+Because dl_proxy_block() only checks whether dl_se->deadline has passed,
+a task whose reservation was shrunk while sleeping in
+FUTEX_WAIT_REQUEUE_PI is queued on the rt_mutex (and boosts the lock
+owner) with its stale earlier deadline, allowing it to acquire the lock
+ahead of waiters with earlier deadlines.  Even when the old deadline has
+passed and dl_proxy_block() starts a new period, it leaves
+dl_se->dl_new_params set, so a later boost and deboost while blocked
+calls update_dl_entity() a second time.
+
+[ ... ]
+
+> @@ -5179,6 +5261,11 @@ void __setparam_dl(struct task_struct *p, const st=
+ruct sched_attr *attr)
+>  	u64 period =3D attr->sched_period ?: attr->sched_deadline;
+>  	bool held;
+> =20
+> +	if (attr->sched_runtime !=3D dl_se->dl_runtime ||
+> +	    attr->sched_deadline !=3D dl_se->dl_deadline ||
+> +	    period !=3D dl_se->dl_period)
+> +		dl_se->dl_new_params =3D 1;
+> +
+
+[Severity: Low]
+Can __setparam_dl() leave dl_se->dl_new_params unset when a task leaves
+SCHED_DEADLINE before its 0-lag time and later re-enters the class with
+the same parameters?
+
+When a task leaves SCHED_DEADLINE before its 0-lag time,
+switched_from_dl() leaves dl_runtime, dl_deadline and dl_period in
+dl_se until inactive_task_timer() runs __dl_clear_params().  If the task
+was PI-boosted back into dl_sched_class before the 0-lag time (without
+refilling from the donor), or if sched_setattr() races with
+inactive_task_timer() right after the 0-lag time while the task is
+blocked on an rt_mutex, calling sched_setattr() to restore
+SCHED_DEADLINE with identical parameters sees no change in dl_runtime,
+dl_deadline or dl_period and does not set dl_se->dl_new_params.
+switched_to_dl() then cancels inactive_timer without starting a new
+period if dl_se->deadline has not passed, and neither
+dl_check_blocked_params() nor dl_deboost() checks the remaining runtime
+against the new reservation.
+
+> diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
+> index 9884fa55538ac..b25504e8748be 100644
+> --- a/kernel/sched/syscalls.c
+> +++ b/kernel/sched/syscalls.c
+> @@ -311,6 +311,9 @@ static inline void __setscheduler_dl_pi(int newprio, =
+int policy,
+>  	 */
+>  	if (!dl_prio(newprio))
+>  		dl_drop_boost(&p->dl);
+> +
+> +	/* rt_mutex_adjust_pi() then requeues the waiter of a blocked task. */
+> +	dl_check_blocked_params(p);
+>  }
+>  #else /* !CONFIG_RT_MUTEXES */
+>  static inline void __setscheduler_dl_pi(int newprio, int policy,
+
+[Severity: Medium]
+What happens if p owns an rt_mutex with a deadline waiter whose deadline
+was later than p's old deadline, and shrinking p's reservation pushes
+p->dl.deadline past that waiter's deadline?
+
+In __setscheduler_dl_pi(), rt_mutex_get_top_task(p) is only checked when
+!dl_policy(policy):
+
+kernel/sched/syscalls.c:__setscheduler_dl_pi() {
+	if (dl_prio(newprio) && !dl_policy(policy)) {
+		struct task_struct *pi_task =3D rt_mutex_get_top_task(p);
+
+		if (pi_task) {
+			dl_set_donor(&p->dl, pi_task);
+			scope->flags |=3D ENQUEUE_REPLENISH;
+		}
+	}
+	...
+}
+
+When an unboosted deadline task p stays in SCHED_DEADLINE and shrinks
+its reservation, update_dl_entity() (in dl_check_blocked_params() or in
+enqueue_dl_entity() during sched_change_end()) can start a new period
+and move p->dl.deadline after its top waiter's deadline.  Unlike
+rt_mutex_setprio(), which rechecks whether pi_task preempts p after
+dl_deboost() updates p->dl, __sched_setscheduler() never boosts p with
+its top waiter.  If p is running, it will throttle when its reduced
+runtime expires while holding the lock instead of running on the
+waiter's donor parameters; if p is blocked on another rt_mutex,
+rt_mutex_adjust_pi() will propagate p's own unboosted deadline up the PI
+chain instead of the waiter's.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
+t.mathieu.desnoyers@efficios.com?part=3D35
