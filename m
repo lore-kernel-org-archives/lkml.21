@@ -1,49 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=31.70.137.218
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198049;
-	b=O4aiNJ6So7gXjwEK9uFtX6U3BBRwAT3Cvq/RaS3pyE4asSFl2U33xu2F6fp3smA3992x
-	 xe1BTVkcSJAAQqsHCSgkbEh1TwUeuZ76VfBou36THclIeu5mlwn8QZ8jTkLOOnrXAcr5n
-	 X+mjONILcnuoHpGBwWMIiXpAzIRBDR9wpXcGrbQ6Bdg6+H+U+BEzRH2L3fkpPXYTT8xUP
-	 nMxUbuZPzOVIVjLvhnnBRbOdl0psNfFAJXUAluA2kP20DEWpm481DXKwC3xJUqUdjE99g
-	 Pzyn1dHoPWews2QxnU9uPG0PJ/Z9y2j5fkHRO5ClJRjjusUEi+n2g1hwXuE7dVx5APQ==
+	t=1795198099;
+	b=29ucsvzd4Wu13ysfTAW6dn+fvMLqPjqNhs4sQuyvWgswd8P8PMZVXYy0jSOwRJig29Nw
+	 OY0CTzwABzC6NM46y+8Fgu2mEx/QsIwG6mZiQ3I6LWKLVUll+SNZt/SD/eUjmTtegZzm2
+	 fSAF7vQiMxUt+/TabtQWPNJeGLzElFmHtAlRXlgdNGB4llEMukV7eMyxeoLCdoY48S7iY
+	 RT4BxAlTodMpkyePaxRUBXCCHS+CrLpfC5QDwndSr2ozioo0KnRf4PtvDEe9K6KEOZk4Q
+	 QaaIvp43wvXeHHT34mijNLGnAhwpBI/fttSBN4afeoT0KH7H5RsGROLGGOvE+eHHHPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198049;
-	h=DMARC-Filter:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Spam-Score:X-Spam-Score:
-	 X-Clacks-Overhead;
-	bh=vLvWjKh1LRnRhnuwrtjU/KRMUpKZP14gigi9j87P640=;
-	b=tkttvnofAWp/XMV+GBdwTa75WqyB0jpe1QS/G4NcOPaH4k6VhS7cw9rEfxUIxHsL+8Ag
-	 sIQV8JlGunWWDB2MfFLG6/r0EE8+uacGB/nESeGbqgEQ7a75JIUNaFYABUTBaTztHHBAO
-	 5UiyW3LABgYMQO9HbiieKOk0H89/G83oabctanpKD5Q+ZdWmREMFJmYsmoFdh/b9DrPRz
-	 LfA16JZsVhdTl3HIZNXBjKedFh0iTU1FoGtM0fzQQMqUaZIiLroAR3Qn28/RiTLEdwI8b
-	 6HaKYppXqUVPZpIS7mJIYcOt+da94yYZXoK/5njGswtS7ppbFAJuEAo7iub2BU9au+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198099;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=QOZNFX/nBMD8dtqCcd1YeGLtmkJUlgcuCtcg/u+IkYk=;
+	b=c3CoBiRBkR4KXCGoB3AjrI1UCdwoqjafRhRzGXgMj+KtJ5iY80U9thAwWp8UwadyV1LH
+	 +1/5zwJ2CsRjSuY6jAfs/5i/hymzTLPbXxn/jTz85W433IBZlFkm3fQmk6J3IVBKCZr0M
+	 dt42r9H/Ehfk0G+z8GLJY/f2nXYFyhNNP3q1thzAPRsSmUkmX9ak4oknOtaw9EJvR+/28
+	 DUR3F7sun2lxoJ9xiV11dDx0vApdxko7kea6+GD9AP7GitHXRvXOU+l2142mLp3jQe50v
+	 1ign7TxUB7V8/I+dlRa4QTPZRnMVREyIZSvrsq+LFi+usWOuZhvMbl9JK64wmcwcTUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cambridgegreys.com;
-	spf=pass smtp.mailfrom=cambridgegreys.com;
-	arc=none smtp.remote-ip=31.70.137.218
-Received: from ns3.kot-begemot.co.uk (ns3.kot-begemot.co.uk [31.70.137.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B7F606A893;
-	Fri, 20 Nov 2026 18:07:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30B7F606A893
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cambridgegreys.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cambridgegreys.com
-Received: from [192.168.19.6] (helo=jain.kot-begemot.co.uk)
-	by ns3.kot-begemot.co.uk with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <anton.ivanov@cambridgegreys.com>)
-	id 1xUT0z-00000002Jix-1yiC;
-	Fri, 20 Nov 2026 18:07:13 +0000
-Received: from [192.168.21.17]
-	by jain.kot-begemot.co.uk with esmtp (Exim 4.98.2)
-	(envelope-from <anton.ivanov@cambridgegreys.com>)
-	id 1xUSmt-0000000ERT6-3f1a;
-	Fri, 20 Nov 2026 18:07:12 +0000
-Message-ID: <4a3531de-35a7-4b2d-a9fc-11a77a8d057f@cambridgegreys.com>
-Date: Fri, 20 Nov 2026 18:07:10 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0427B606A338;
+	Fri, 20 Nov 2026 18:08:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0427B606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 5F7E36732A; Fri, 20 Nov 2026 19:08:14 +0100 (CET)
+Date: Fri, 20 Nov 2026 19:08:14 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Moritz Hiller <m.hiller@pc-heini.de>
+Cc: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	linux-nvme@lists.infradead.org, linux-pci@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [bug report] nvme-pci: NVMe lost after S3 resume, CSTS reads
+ all-ones for a few 100 ms
+Message-ID: <20261120180814.GB1810@lst.de>
+References: <598ee2b4-32aa-4ad3-99c7-db7f9a7e7736@pc-heini.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,57 +52,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] docs: UML: user_mode_linux_howto_v2: Fix bracket
-To: Manuel Ebner <manuelebnerli@mailbox.org>,
- Richard Weinberger <richard@nod.at>,
- Johannes Berg <johannes@sipsolutions.net>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>
-Cc: Renzo Davoli <renzo@cs.unibo.it>, linux-um@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261120175509.1369714-2-manuelebnerli@mailbox.org>
-Content-Language: en-US
-From: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-In-Reply-To: <20261120175509.1369714-2-manuelebnerli@mailbox.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Spam-Score: -1.0
-X-Spam-Score: -1.0
-X-Clacks-Overhead: GNU Terry Pratchett
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <598ee2b4-32aa-4ad3-99c7-db7f9a7e7736@pc-heini.de>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
+> +/*
+> + * A controller that was shut down for suspend may have lost power while the
+> + * PCI core still treats it as D3hot, so nothing waited for it to come back.
+> + * Config space can already answer while MMIO still reads all-ones. Give such
+> + * a controller some time instead of declaring it dead on the first read.
+> + */
+> +#define NVME_RESUME_MMIO_TIMEOUT_MS	10000
+> +#define NVME_RESUME_MMIO_POLL_MS	100
+> +
+> +static bool nvme_pci_wait_mmio_after_suspend(struct nvme_dev *dev)
 
-
-On 20/11/2026 17:55, Manuel Ebner wrote:
-> Add missing ')'.
-> 
-> CC: Renzo Davoli <renzo@cs.unibo.it>
-> Signed-off-by: Manuel Ebner <manuelebnerli@mailbox.org>
-> ---
-> [v2]
->   Correct position of closing bracket (Randy Dunlap)
-> 
-> [v1]
->   https://lore.kernel.org/all/20260909140051.1365758-2-manuelebnerli@mailbox.org/
-> ---
->   Documentation/virt/uml/user_mode_linux_howto_v2.rst | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/virt/uml/user_mode_linux_howto_v2.rst b/Documentation/virt/uml/user_mode_linux_howto_v2.rst
-> index 9224bea5ee..e4b1cb1092 100644
-> --- a/Documentation/virt/uml/user_mode_linux_howto_v2.rst
-> +++ b/Documentation/virt/uml/user_mode_linux_howto_v2.rst
-> @@ -581,7 +581,7 @@ https://github.com/virtualsquare/sshlirp
->   
->   connect to a local area cloud (all the UML nodes using the same
->   multicast address running on hosts in the same multicast domain (LAN)
-> -will be automagically connected together to a virtual LAN.
-> +will be automagically connected together to a virtual LAN.)
->   
->   ***********
->   Running UML
-
-Acked-By: Anton Ivanov <anton.ivanov@cambridgegreys.com>
-
--- 
-Anton R. Ivanov
-Cambridgegreys Limited. Registered in England. Company Number 10273661
+I'd probably rename this function and do the initial read of
+NVME_REG_CSTS inside of the helper as well to keep everything in a
+single place.  Otherwise this does look reasonable to me as it
+automatically takes care of this issue without affecting setups
+that don't have this quirk.
