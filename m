@@ -1,56 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180947;
-	b=mcTbgafcnpG4ZqKsB4IbFN64xSwg+0Zz5MzMlR+IVgpILkvw9bNYZmHV4qnMrsfZrT2Q
-	 vgx/qkEv3aaxl+794mPLdCIulj6guZZu+hBq7F2x2wJPFoXpD9AEzN4854tBevg36zwEq
-	 8yuC2ty2Me6P+WNzRgPjGXwHmCrMCy6XegGY3aylHI2+twjA0t8dgGOfdEPCt44lcf4eH
-	 bU9IO+NNMNtvezsD9EUghL6w4QwyI1U2CDamwkjraKz0uB+lRtd+WKRZBFMCamdP3XCgu
-	 nBKiTjRpwBOr5XYUDHgO7NRVPwSwzCc4hMnDxluwigx/2/FgDnPXbpabCyiHEo9NCMg==
+	t=1795181012;
+	b=Pv9ROy8/8MYAZPgX2HX8cReqGGEdN13Q1W2QQ8s/DjCr+MymVLzFcCIrUMFYxrf89Pip
+	 Kihg5yu3ZIbak2Ap8kBKNRvK9lEskbDSeTjFfOife3hC279O69gDwpvTxR+1W+D7neDY3
+	 K4o+GmR64KaKobALWfCjR8/xSPRT1s/QnkgexNg0f/VoxTK8KAvocmb7qYvf0zFOgeKXr
+	 qFk3OkJgmLnsDG0H32l8Gg+Z1VWH0DB2UrNhqRGDS/UOAKf24YofPLcsP+qvEBY4iYHfX
+	 uiTsvFlWEGFdHBTiX1GFFdKC/qXWTtY6q6L13B2SZwh3pOfk+yaFX2Mue3JitlYeoGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180947;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=CYKzK+afm1UAXOdWN88x2NYVRVihApLSg0ZCPnBXpAE=;
-	b=CkqWD0IfpUdGdT5iCnAdhuWTcZF+kZtKr9SCYO0/B2hQE1htm384V/LrXc1tLFkofwuu
-	 hM2BYYnp7rngjJ+HzNRoJskZGcXDcoPMmxoEtmPYqhY/SNOPvLOu6FvnXXpv7yOGiN3PZ
-	 J2R6fN7wpWjx9xxDvCET9WDU6hMSGvmafHwKToA9xE/5XDPM1NDUrjH5juOA7R9je8xUH
-	 3Pgnv3ro8SBnjJwF4gKAlJY/KGXukT8wzxwr1F48Re3ev9HAyYOXe9maP1uPJt2T7voxZ
-	 2SboWAGpwkdMW6xTPKxJ4xkALiwKW3nBqquuEyGbngfG2Bld3w2LfXCP0ntBitSEQ7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181012;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9Yave6DZDGUUAvsSfmLDal9WFXgDPPi+dD/iYkllA/8=;
+	b=Gk+a9Y8L3gfMjcfFAb5Q84Po5tFD9jE3+gkwzfQW7MrTRcBxNhiW7UlYmba+8fiCYXWK
+	 n+XGNkg0EtgbxxpSbzUZaxwK0up5ZqYA2q5j3RQSDeck5mC+6dEsxi3RvurdNTf3CuwgA
+	 zD+Rfn4GSbqFpdTGRrOzwOcNWwibW6zkiRi05Lgha6kV4fP+lqb5FtDSnGo/QeVKA3E7G
+	 UDKIIhr5gaPw/I6H6xkswYbaO1O0o/jXASfLXytbPqzYdwW9foDxYUqTvHAJLo/B7TR+s
+	 tIm7eiycIuFzHJ+btp+HNrrARWvrVhc3Ic1jCcjllOEpf6wDJe3ZWkVwh44kwoSAAHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=daY6EDy4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Nb99TAm+;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B8A606A326;
-	Fri, 20 Nov 2026 13:22:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8D5A606A330;
+	Fri, 20 Nov 2026 13:23:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8D5A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=daY6EDy4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 417B01F000CA;
-	Fri, 20 Nov 2026 13:22:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180946;
-	bh=CYKzK+afm1UAXOdWN88x2NYVRVihApLSg0ZCPnBXpAE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=daY6EDy4/MYgaj691rc13nwsS7BVt58ckPRvsKOl2i2Hnu4t/DTGBXgBKLWv75LqQ
-	 LyocvI3dr8BHsyaTYk6KWZ+lo8NPMzYhMO4mK05rpvqFVb4ZMKY+Yv+imvPzytoM0p
-	 mJ3OD0foxm16lLw/nD3rzKJr58Gc27/GczEOn2lEEdMQAFagiy38PrrIRl0M0tg7MN
-	 w/UcBT8RLduLhw9YlLeSyxtcYKLXnxIwGf2Yff9jH+iQ6mbq1d5YJxhKbbXDdOJQCB
-	 LqLGvy+B/ya4W91XSznxOTE8c3OZX6TDJD1v01gXWyjzrsGITdeX8h9VoN7bY1RDqk
-	 D51Qrr7L8WkIA==
-Date: Fri, 20 Nov 2026 13:22:21 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	Nico Pache <nico.pache@linux.dev>, Jerrin Shaji George <jerrin.shaji-george@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-mm@kvack.org, virtualization@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/2] vmw_balloon: account 2 MiB pages in NR_BALLOON_PAGES
-Message-ID: <awBJbbFwE7hlEs03@gremlin>
-References: <20261120-b4-balloon_nr_pages-v1-0-d8944b587819@kernel.org>
- <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Nb99TAm+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795181012; x=1826717012;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cJJw5vbcJuFQOpdae3ptvun5p75snXhnCZwChzdLyPk=;
+  b=Nb99TAm+VhGiURfBHECJLBBBu2HJZqt6RDeXbtNVNvfDMVPwYmANlzw0
+   ImJefDIHTbMw9l0dHYp1J/YBMqnZIhpaR/IurvEc05mJdgR7PAa+ZTqqt
+   ijTdTynrDXQQZfLEGvJ1XwFowkkaVmRZmabEaNnI/24VQ8oXtLpg8RqMf
+   nwsLJcVUV+EQp981K0sXrg/qFdQYniLlBf/6s8gOzy+ESeCT7yJZK+R8D
+   bySsdMP32inamWlhV6sR9rpxD67PaQ6l0/8keKi4VzjUj4r353qcKDRj4
+   QX7tKpbN+bKQnAB2FLSu1fCayXTVhmbrdpAZmOOJW3i9nzTBpdTHDWLcP
+   w==;
+X-CSE-ConnectionGUID: wurwfjMgRFuAKOheNybA9Q==
+X-CSE-MsgGUID: 0GBOO7J1Sxq1U92w3PU4Sg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3945340"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3945340"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:23:32 -0800
+X-CSE-ConnectionGUID: +D3uAwM0Ql+ilvQ35dXt6w==
+X-CSE-MsgGUID: LFt9NXU/RaC7A91NKsxlkg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11035886"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Nov 2026 05:23:29 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id 0BF6799; Fri, 20 Nov 2026 14:23:28 +0100 (CET)
+Date: Fri, 20 Nov 2026 14:23:28 +0100
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Keisuke Tsukuda <tkdkei@outlook.jp>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	"asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 2/2] usb: roles: wait for callbacks on unregister
+Message-ID: <awBJ0NDCvbznrBjk@black.igk.intel.com>
+References: <20261117125825.27629-1-tkdkei@outlook.jp>
+ <20261117125825.27629-3-tkdkei@outlook.jp>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,57 +89,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120-b4-balloon_nr_pages-v1-2-d8944b587819@kernel.org>
+In-Reply-To: <20261117125825.27629-3-tkdkei@outlook.jp>
 
-On Fri, Nov 20, 2026 at 11:34:43AM +0100, David Hildenbrand (Arm) wrote:
-> vmw_balloon keeps 2 MiB balloon-inflated pages on its own list, not
-> using balloon core that takes otherwise care of updating NR_BALLOON_PAGES
-> for base pages.
->
-> So far we didn't account 2 MiB pages under the "Balloon" counters, so
-> /proc/meminfo etc. would not reflect them.
->
-> Fix it by updating NR_BALLOON_PAGES when enqueuing and dequeuing for
-> these pages manually.
->
-> This has low urgency.
->
-> Fixes: 4d689474e1b2 ("balloon_compaction: update the NR_BALLOON_PAGES state")
+On Tue, Nov 17, 2026 at 01:00:20PM +0000, Keisuke Tsukuda wrote:
+> usb_role_switch_set_role() and usb_role_switch_get_role() check the
+> registered flag before taking the switch lock. If a provider is
+> unregistered during a role request, unregister can return while its
+> callback is still running. The provider may then free memory used by
+> the callback, causing a use-after-free. A caller that passed the check
+> can also enter a callback after unregister returns.
+> 
+> Move the registered checks under the switch lock and clear the flag while
+> holding the same lock on unregister. This waits for active callbacks and
+> rejects callers that acquire the lock after the flag is cleared. The
+> preceding Apple DWC3 change avoids a lock inversion in its remove path.
+> 
+> Fixes: fde0aa6c175a ("usb: common: Small class for USB role switches")
 > Cc: stable@vger.kernel.org
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> Signed-off-by: Keisuke Tsukuda <tkdkei@outlook.jp>
 
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
 > ---
->  drivers/misc/vmw_balloon.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/drivers/misc/vmw_balloon.c b/drivers/misc/vmw_balloon.c
-> index 3edb934dd7fd5..47dbcb3be6ed6 100644
-> --- a/drivers/misc/vmw_balloon.c
-> +++ b/drivers/misc/vmw_balloon.c
-> @@ -1005,6 +1005,8 @@ static void vmballoon_enqueue_page_list(struct vmballoon *b,
->
->  		list_for_each_entry(page, pages, lru) {
->  			vmballoon_mark_page_offline(page, VMW_BALLOON_2M_PAGE);
-> +			mod_node_page_state(page_pgdat(page), NR_BALLOON_PAGES,
-> +					    1 << VMW_BALLOON_2M_ORDER);
->  		}
->
->  		list_splice_init(pages, &b->huge_pages);
-> @@ -1049,6 +1051,8 @@ static void vmballoon_dequeue_page_list(struct vmballoon *b,
->  	spin_lock(&b->huge_pages_lock);
->  	list_for_each_entry_safe(page, tmp, &b->huge_pages, lru) {
->  		vmballoon_mark_page_online(page, VMW_BALLOON_2M_PAGE);
-> +		mod_node_page_state(page_pgdat(page), NR_BALLOON_PAGES,
-> +				    -(1 << VMW_BALLOON_2M_ORDER));
->
->  		list_move(&page->lru, pages);
->  		if (++i == n_req_pages)
->
-> --
-> 2.56.1
->
+>  drivers/usb/roles/class.c | 18 ++++++++++++++----
+>  1 file changed, 14 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/usb/roles/class.c b/drivers/usb/roles/class.c
+> --- a/drivers/usb/roles/class.c
+> +++ b/drivers/usb/roles/class.c
+> @@ -79,10 +79,11 @@
+>  	if (IS_ERR_OR_NULL(sw))
+>  		return 0;
+>  
+> -	if (!sw->registered)
+> -		return -EOPNOTSUPP;
+> -
+>  	mutex_lock(&sw->lock);
+> +	if (!sw->registered) {
+> +		ret = -EOPNOTSUPP;
+> +		goto unlock;
+> +	}
+>  
+>  	ret = sw->set(sw, role);
+>  	if (!ret) {
+> @@ -90,6 +91,7 @@
+>  		kobject_uevent(&sw->dev.kobj, KOBJ_CHANGE);
+>  	}
+>  
+> +unlock:
+>  	mutex_unlock(&sw->lock);
+>  
+>  	return ret;
+> @@ -107,16 +109,21 @@
+>  {
+>  	enum usb_role role;
+>  
+> -	if (IS_ERR_OR_NULL(sw) || !sw->registered)
+> +	if (IS_ERR_OR_NULL(sw))
+>  		return USB_ROLE_NONE;
+>  
+>  	mutex_lock(&sw->lock);
+> +	if (!sw->registered) {
+> +		role = USB_ROLE_NONE;
+> +		goto unlock;
+> +	}
+>  
+>  	if (sw->get)
+>  		role = sw->get(sw);
+>  	else
+>  		role = sw->role;
+>  
+> +unlock:
+>  	mutex_unlock(&sw->lock);
+>  
+>  	return role;
+> @@ -423,7 +430,10 @@
+>  {
+>  	if (IS_ERR_OR_NULL(sw))
+>  		return;
+> +	/* Wait for in-flight set/get callbacks before unregistering. */
+> +	mutex_lock(&sw->lock);
+>  	sw->registered = false;
+> +	mutex_unlock(&sw->lock);
+>  	if (dev_fwnode(&sw->dev))
+>  		component_del(&sw->dev, &connector_ops);
+>  	device_unregister(&sw->dev);
 
---
-Cheers, Lorenzo
+-- 
+heikki
