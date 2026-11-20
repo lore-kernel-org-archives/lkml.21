@@ -1,90 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207377;
-	b=T71WZrbU/q+0Cg3FCq+V0rMhZbumX8VoVJ0mNJlU5PvLFVPFnUGbJOB5cx5H9vVjesCd
-	 9gA0YNXX+8mMLVuwvHp2fRBMlFo7XDMJzPwht9XUb5cWxpPocFLu4fUwf5vcjtorgFJ8y
-	 syJ+/nw097nvGhZcSXbJM8DyjNak+SMs7Cq6eemJduMWqgr9oHQ5pUnmxQ+rc3WowJ9w4
-	 0jOiAaOGmTFYv9moOHzaE4cZRfRP3RaBeRv2xljcy6Y4XQH1R+LW+61GstmbGdXP9W1eG
-	 dAey5Yq/oEFYydFxaxYRcGWviaKQ8R/FqHn+yN9IUmUHP2GYPXEUDZIL94yhXcUpuXQ==
+	t=1795207422;
+	b=xk3/4FMTWsb77OfnyH7Fao5FS4dORH5pfW+C40Srpob9m5/AdSIx3F7GBXi//ln2pRCC
+	 1uW7cy890OdA8FQm1sF832/REKAfr2v1oWnvSA2vavnE21gqcDYKyX3zFLN/GPt+aSiCV
+	 HBWO5a7dgNV9/pPhjkWtBE2AtT05wiMG2R0ixT2Dqve7yougTSsxOsStluaNcnRdGab7d
+	 52htJQSl5y46M3yyzXX4R6Req84riBAjzslsJ23S5lPv7YesXT4rXw6aGA4wLZnexXlUh
+	 z7d6vpYHYQAlvT19x/A6BoNCoaXxc3cgzw0uiLcSGPPrOXlqIuQqgioksOW3kMX2Oew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207377;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SvI1XBm1i8KazAKI+FmWNyN0gGtjt0x00rWq+csKeoo=;
-	b=CpfAfnSQicGDbBlBiByxhPOjVDyBTJ3wCXEJbXXixkn9/EAq4ajSq/Fp1+yQXxURdaZ1
-	 YZgmFSZrWexs+fECxq+9SClFRikehBS0FNo3MXZ8CZ35CdA2pUnYEfCgf2MUvtfomg3Ki
-	 oPkxgqEpyr72GZ8AHttIyUEz1bTx78O0KUJ7ovoOzxu47ALXfBpdXoeVoaG3ZhP70XOAF
-	 5VlGLzhcEkKjlMZvSxYR++vQ+Tf/r54gN0N1iPCQjG1IWfdZhT6eg9oajsOlCwEDBjGM0
-	 ImwrXkZoSjQdP3ml6E2ay9g2ea7fNXCAk09e23YM1KJ3Cjk6BK3zIRgOddHP4FkQygw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207422;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=FwdJjzqq42M/cPurbBvKsg2cu6LzpoePJSnBK7Qtwvs=;
+	b=IyL5VuLAyvuFPrzRoBUKVL2L+1/Pwtys0Hy1gGXNqeJwLGVLBqasDtVDcU6IHv8UzV+/
+	 3I/Ra9fSERO4EmShQt+1o7/88/SF8fAWKCcG3639sXFQAdsFs1pPkX2u5wEsWeSo+1nrO
+	 dYmp6+qY47AvMNi8ML+u04c4a9trEgogRf41gzBfuVetmo2tKDtMcUj78Doi6OiIw40C2
+	 TkPu1acaOBkPvwU2rzki0kxFPwydf9SURGNyS78Iav2gNtsmHAch6FKcQ0KSt23vFCBR2
+	 KNhG1R3OjjawLT/EgS/DaoW85DaqQBURTJE3/JI4xGzcCUkbqnOkwrdug0nGr9sqbxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=a9AXCErM;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ocVNPuxg;
+	arc=none smtp.remote-ip=212.227.15.15
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2517E60A2627;
-	Fri, 20 Nov 2026 20:42:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2517E60A2627
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28C716073920
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:43:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C716073920
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=a9AXCErM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795207349;
-	bh=SvI1XBm1i8KazAKI+FmWNyN0gGtjt0x00rWq+csKeoo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a9AXCErMaKnimvi3r2J/qFiwauaFY53WP2psvbrOwr91pxQYOVLYwaraj2N7Gq9nx
-	 hF296vGPhgmZ5/Uq+KnrHtoB9ipRosyB7PDJqFEW96gMdZdMFMM7jgd3EcwiFhZiAR
-	 MCuxYYtBtaWXFh1xYDPioMlLxvOHKRrMJ/QKlQdzA5j2u+krLbgX2Er5F5/aq0OWCF
-	 v6HhmFIK63I+0iLyPEQFGbvk/HVg9Hr5QE9k+IvaH8xcUdd/tivI8IsFK1qj80BeCE
-	 uVFKh7dcPWwqcUVVcs2ijS7UY0+0WdkcYRTA5C+FJycGT6UfEIA1OAeVubsNIVRqkP
-	 e7VF3+FsyjNgg==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2F4k8dzTwX;
-	Fri, 20 Nov 2026 15:42:29 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ocVNPuxg
+DKIM2-Signature:  i=1; m=1; t=1795207413;
+ mf=PFdfQXJtaW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:A1w2IUAY7WuHLXHhaTrZncK/g0cE
+   om9rYQUbhq86xMHJYmfl1Bn/qIi05RbPHuOpLKOXtvssqtZv00vgkdMoUJfFvpcgBOQCKzjog/5
+   sC/cmlv/T5xsC06nRCuEIgf22KaUgm83gtDzh7xUJ/TjJ2zQ1OdTj2zFH3lQ8Aw8T77OKFRkRHt
+   1hG7UjPPf9BB/O3KC8dIaqACKE+VEEgto3qe/AE+r8jWyiQNGHLEAdXy8ZACW7oa9CiXmRkJUzU
+   i87jMPBDFS8MqA0imm9R9+S+lpirn16sAviB+ngvQJp/ulW1rK58T9w4TZI9KvuVofkWocQW56R
+   X2QgOEhJibWGrg==;
+Message-Instance:  m=1;
+ h=sha256:
+   VbaDFnKDQ1gf24YQ9PaQPD6IWs2teAVldkNWSCxCsO0=:
+   VEgo1Co1lModFckcW0bCGHjCNbpM81bm9laig2rLt6o=,
+  sha512:
+   htjpfP1Y8yV4PrhyCX6Z7etyqvYntDrIuW/kKOT40bDT72FVC3dhMQOml7ATOqEsIz8gSpKH5LSGN56bAzCfHA==:
+   VY6PvLymUYLsVAP1yzouToojpSDwVWE54e9xBsIRtHDskSaLN04fGj+5wzP6AmGxq/2ZTRXh+Lgu6P9BACpNCA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795207380; x=1795812180; i=w_armin@gmx.de;
+	bh=FwdJjzqq42M/cPurbBvKsg2cu6LzpoePJSnBK7Qtwvs=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ocVNPuxg1MKTBr73lDgfDCA4eqTk+JjlCfFUtM5D46blBwD3Vs1NcAmyVmN4kH+v
+	 6UqWsROT7WWlhPBZWa2FAgth5J1U6LibgyN7KgZ7Dm+FdF6vSjaJLfCajo8nRsQnZ
+	 3il2tRdBNDA8cmQNnnqjC27cN9cyOTp0i26FNHtQOag9VXx0C8wywepdNO/nqJd0q
+	 vUS1ktbO2E5KGXTAbfuzJWSO8aPi0dhi2LWyBvGIN97DbB6y4m7N8KoSWdISpDPRq
+	 BnE5zgwNzxCGxYLKz4bTdgULUskTita+Nk9/rzM2aJSs5i97OwrlkEKwy54bo1KSC
+	 LQHkGTbBSra1daA6Dw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MzyuS-1yRGvl3WpK-00uVce; Fri, 20
+ Nov 2026 21:43:00 +0100
+From: Armin Wolf <W_Armin@gmx.de>
+To: lee@kernel.org,
+	pavel@kernel.org
+Cc: linux-leds@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [PATCH v10 05/40] selftests/sched: Test SCHED_DEADLINE bandwidth across a root domain rebuild
-Date: Fri, 20 Nov 2026 15:41:42 -0500
-Message-Id: <4bfaa652a0e1e4c92a628472be5bc3cefd29484d.1795207232.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+	i@rong.moe
+Subject: [PATCH v2 01/10] leds: class: Constify sysfs attributes
+Date: Fri, 20 Nov 2026 21:35:13 +0100
+Message-ID: <20261120204246.6645-2-W_Armin@gmx.de>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120204246.6645-1-W_Armin@gmx.de>
+References: <20261120204246.6645-1-W_Armin@gmx.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,646 +89,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:BmplDn8VQ+9rv6gm6lw8caYnf9S0fT+UFcryZ7/hRvQIm4H8Dvq
+ xmJdTQhkpX10yp9nN0IGbhBcx5Dd2RGAQad6P6yI/DlJ3vD4P9b905hJlaVI46WlGmROMeS
+ 2FC4aZVKq4bov9z9cHOGFWLlJ/7jbHmKKoQVDTY6nW4hvx0qIVKmD5Xe0YWCc78VhdGBlF0
+ YS1TDRKLKHd87OrQ03BUg==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:dGuuR6cTaO8=;t2Ku5QhipPOr7cnoZX8CAK7y9Xb
+ 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
 
-A task that leaves SCHED_DEADLINE, or dies, keeps its bandwidth until
-its 0-lag time. No selftest checks what happens to this bandwidth
-meanwhile.
+Mark all sysfs attributes as const to ensure that they are placed
+in readonly memory to prevent accidental/malicious modification.
 
-Add deadline_rebuild_test, with three cases. In each case, a task of
-400ms every second runs 380ms, then leaves SCHED_DEADLINE. Its 0-lag
-time is then about 570ms ahead. P is a partition root of one CPU.
-Before the 0-lag time:
-- dies_before_rebuild: the task exits in P. Then a second partition
-  root is made, which rebuilds the accounting of every root domain.
-- switched_out_before_rebuild: the same, but the task switches to
-  SCHED_OTHER and sleeps in P.
-- moved_after_switch_out: the task switches to SCHED_OTHER outside P.
-  Then it moves into P and dies there.
+Signed-off-by: Armin Wolf <W_Armin@gmx.de>
+=2D--
+ drivers/leds/led-class.c | 29 +++++++++++++++--------------
+ 1 file changed, 15 insertions(+), 14 deletions(-)
 
-After the 0-lag time, P must admit one task of 600ms every second, and
-refuse a second one with EBUSY. A kernel with the bug removes the
-bandwidth from P's root domain at the 0-lag time. But the rebuild
-dropped it already, or P never had it. total_bw then wraps around, and
-P admits both tasks.
-
-P and Q take the two highest online CPUs that are not isolated. The
-test skips without root, 3 such CPUs, the cgroup v2 cpuset controller
-or deadline admission control. Admission control is off when
-sched_rt_runtime_us is -1.
-
-On v7.4-rc2, in 8-CPU VMs, the three cases fail. "sched/deadline: Keep
-departing bandwidth across a root domain rebuild" fixes them. With the
-whole series, the three cases pass, with and without PREEMPT_RT.
-
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
----
- .../selftests/sched/deadline/.gitignore       |   1 +
- .../testing/selftests/sched/deadline/Makefile |   2 +-
- .../sched/deadline/deadline_rebuild_test.c    | 574 ++++++++++++++++++
- 3 files changed, 576 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
-
-diff --git a/tools/testing/selftests/sched/deadline/.gitignore b/tools/testing/selftests/sched/deadline/.gitignore
-index 5a572318e1ba..42f6b2945e96 100644
---- a/tools/testing/selftests/sched/deadline/.gitignore
-+++ b/tools/testing/selftests/sched/deadline/.gitignore
-@@ -1,2 +1,3 @@
- deadline_switch_test
-+deadline_rebuild_test
- deadline_bw_test
-diff --git a/tools/testing/selftests/sched/deadline/Makefile b/tools/testing/selftests/sched/deadline/Makefile
-index c3156059bdcf..15f1e96a21e6 100644
---- a/tools/testing/selftests/sched/deadline/Makefile
-+++ b/tools/testing/selftests/sched/deadline/Makefile
-@@ -3,6 +3,6 @@
- CFLAGS += -O2 -Wall -g -I./ $(KHDR_INCLUDES)
- LDLIBS += -lpthread
- 
--TEST_GEN_PROGS := deadline_switch_test deadline_bw_test
-+TEST_GEN_PROGS := deadline_switch_test deadline_rebuild_test deadline_bw_test
- 
- include ../../lib.mk
-diff --git a/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c b/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
-new file mode 100644
-index 000000000000..85b24b868da7
---- /dev/null
-+++ b/tools/testing/selftests/sched/deadline/deadline_rebuild_test.c
-@@ -0,0 +1,574 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Test the bandwidth of a SCHED_DEADLINE task that leaves the policy, or
-+ * dies, before its 0-lag time. The bandwidth stays in the task's root
-+ * domain until the inactive timer removes it. It must be removed once,
-+ * from the root domain that holds it.
-+ *
-+ * P is a partition root of one CPU. In each case the task is a deadline
-+ * task of 400ms every second, which first runs 380ms. The cases are:
-+ * - dies_before_rebuild: the task is in P and exits. Before its 0-lag
-+ *   time, the test makes a second partition root, Q. This rebuilds the
-+ *   accounting of every root domain.
-+ * - switched_out_before_rebuild: the same, but the task switches to
-+ *   SCHED_OTHER and sleeps instead of exiting.
-+ * - moved_after_switch_out: the task is outside P. It switches to
-+ *   SCHED_OTHER and sleeps. Before its 0-lag time, the test moves it into
-+ *   P and kills it there.
-+ *
-+ * Once the inactive timer has fired, P must admit one task of 600ms
-+ * every second, and refuse a second one with EBUSY. A kernel with the
-+ * bug removes the bandwidth from P's root domain after the rebuild
-+ * dropped it, or when P never had it. total_bw of that root domain then
-+ * wraps around, and P admits both tasks.
-+ *
-+ * P and Q take the two highest online CPUs that are not isolated. The
-+ * test needs root, 3 such CPUs, the cgroup v2 cpuset controller and
-+ * deadline admission control.
-+ */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <limits.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/prctl.h>
-+#include <sys/stat.h>
-+#include <sys/syscall.h>
-+#include <sys/wait.h>
-+#include <time.h>
-+#include <unistd.h>
+diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+index c8529003dbe1..135905dba47e 100644
+=2D-- a/drivers/leds/led-class.c
++++ b/drivers/leds/led-class.c
+@@ -27,8 +27,7 @@ static LIST_HEAD(leds_lookup_list);
+=20
+ static struct workqueue_struct *leds_wq;
+=20
+-static ssize_t brightness_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static ssize_t brightness_show(struct device *dev, const struct device_at=
+tribute *attr, char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned int brightness;
+@@ -44,8 +43,8 @@ static ssize_t brightness_show(struct device *dev,
+ 	return sysfs_emit(buf, "%u\n", brightness);
+ }
+=20
+-static ssize_t brightness_store(struct device *dev,
+-		struct device_attribute *attr, const char *buf, size_t size)
++static ssize_t brightness_store(struct device *dev, const struct device_a=
+ttribute *attr,
++				const char *buf, size_t size)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned long state;
+@@ -74,10 +73,11 @@ static ssize_t brightness_store(struct device *dev,
+ 	mutex_unlock(&led_cdev->led_access);
+ 	return ret;
+ }
+-static DEVICE_ATTR_RW(brightness);
+=20
+-static ssize_t max_brightness_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static const DEVICE_ATTR_RW(brightness);
 +
-+#include "../../kselftest.h"
++static ssize_t max_brightness_show(struct device *dev, const struct devic=
+e_attribute *attr,
++				   char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+ 	unsigned int max_brightness;
+@@ -88,19 +88,20 @@ static ssize_t max_brightness_show(struct device *dev,
+=20
+ 	return sysfs_emit(buf, "%u\n", max_brightness);
+ }
+-static DEVICE_ATTR_RO(max_brightness);
+=20
+-static struct attribute *led_class_attrs[] =3D {
++static const DEVICE_ATTR_RO(max_brightness);
 +
-+#ifndef SCHED_DEADLINE
-+#define SCHED_DEADLINE	6
-+#endif
-+
-+#define NSEC_PER_MSEC	1000000ULL
-+#define NSEC_PER_SEC	1000000000ULL
-+
-+struct dl_attr {
-+	uint32_t size;
-+	uint32_t sched_policy;
-+	uint64_t sched_flags;
-+	int32_t sched_nice;
-+	uint32_t sched_priority;
-+	uint64_t sched_runtime;
-+	uint64_t sched_deadline;
-+	uint64_t sched_period;
-+};
-+
-+static char root[PATH_MAX], cg_p[PATH_MAX], cg_q[PATH_MAX];
-+static int cpu_p, cpu_q;
-+static pid_t test_pid;
-+
-+static int set_deadline(pid_t pid, uint64_t runtime)
-+{
-+	struct dl_attr attr = {
-+		.size = sizeof(attr),
-+		.sched_policy = SCHED_DEADLINE,
-+		.sched_runtime = runtime,
-+		.sched_deadline = NSEC_PER_SEC,
-+		.sched_period = NSEC_PER_SEC,
-+	};
-+
-+	return syscall(__NR_sched_setattr, pid, &attr, 0) ? -errno : 0;
-+}
-+
-+static int set_other(pid_t pid)
-+{
-+	struct sched_param sp = { .sched_priority = 0 };
-+
-+	return sched_setscheduler(pid, SCHED_OTHER, &sp) ? -errno : 0;
-+}
-+
-+/*
-+ * Return the CLOCK_MONOTONIC time in ns. clock_gettime() cannot fail: the
-+ * clock is always supported, and the pointer is valid.
-+ */
-+static uint64_t now_ns(void)
-+{
-+	struct timespec ts;
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
-+}
-+
-+static void sleep_ns(uint64_t ns)
-+{
-+	struct timespec ts = { .tv_sec = ns / NSEC_PER_SEC, .tv_nsec = ns % NSEC_PER_SEC };
-+
-+	while (nanosleep(&ts, &ts) && errno == EINTR)
-+		;
-+}
-+
-+static void reap(pid_t pid)
-+{
-+	int status;
-+
-+	if (pid <= 0)
-+		return;
-+	if (kill(pid, SIGKILL) && errno != ESRCH)
-+		ksft_print_msg("kill %d: %s\n", pid, strerror(errno));
-+	/* Ignore the result: the task may be dead already. */
-+	set_other(pid);
-+	while (waitpid(pid, &status, 0) != pid) {
-+		if (errno == EINTR)
-+			continue;
-+		ksft_print_msg("waitpid %d: %s\n", pid, strerror(errno));
-+		break;
-+	}
-+}
-+
-+static int write_file(const char *dir, const char *name, const char *val)
-+{
-+	char path[PATH_MAX];
-+	int fd, err = 0;
-+	ssize_t n;
-+
-+	if (snprintf(path, sizeof(path), "%s/%s", dir, name) >= (int)sizeof(path))
-+		return -ENAMETOOLONG;
-+	fd = open(path, O_WRONLY);
-+	if (fd < 0)
-+		return -errno;
-+	n = write(fd, val, strlen(val));
-+	if (n < 0)
-+		err = -errno;
-+	else if (n != (ssize_t)strlen(val))
-+		err = -EIO;
-+	if (close(fd) && !err)
-+		err = -errno;
-+	return err;
-+}
-+
-+static int read_file(const char *path, char *buf, size_t len)
-+{
-+	int fd = open(path, O_RDONLY);
-+	ssize_t n;
-+
-+	if (fd < 0)
-+		return -1;
-+	do {
-+		n = read(fd, buf, len - 1);
-+	} while (n < 0 && errno == EINTR);
-+	close(fd);
-+	if (n < 0)
-+		return -1;
-+	buf[n] = 0;
-+	return 0;
-+}
-+
-+static int enter(const char *cg, pid_t pid)
-+{
-+	char buf[16];
-+
-+	snprintf(buf, sizeof(buf), "%d", pid);
-+	return write_file(cg, "cgroup.procs", buf);
-+}
-+
-+/* Make @cg a partition root of CPU @cpu alone. Return 0, or -1 on error. */
-+static int make_partition(const char *cg, int cpu)
-+{
-+	char path[PATH_MAX + 32], buf[32];
-+
-+	if (mkdir(cg, 0755) && errno != EEXIST)
-+		return -1;
-+	snprintf(buf, sizeof(buf), "%d", cpu);
-+	if (write_file(cg, "cpuset.cpus", buf) || write_file(cg, "cpuset.cpus.partition", "root"))
-+		return -1;
-+	snprintf(path, sizeof(path), "%s/cpuset.cpus.partition", cg);
-+	if (read_file(path, buf, sizeof(buf)) || strcmp(buf, "root\n"))
-+		return -1;
-+	return 0;
-+}
-+
-+static void remove_partition(const char *cg)
-+{
-+	int err = write_file(cg, "cpuset.cpus.partition", "member");
-+	uint64_t end;
-+
-+	if (err && err != -ENOENT)
-+		ksft_print_msg("%s back to a member: %s\n", cg, strerror(-err));
-+	/* A cgroup whose last task just died takes a moment to empty. */
-+	end = now_ns() + NSEC_PER_SEC;
-+	while (rmdir(cg)) {
-+		if (errno == ENOENT)
-+			return;
-+		if (errno != EBUSY || now_ns() > end) {
-+			ksft_print_msg("rmdir %s: %s\n", cg, strerror(errno));
-+			return;
-+		}
-+		sleep_ns(10 * NSEC_PER_MSEC);
-+	}
-+}
-+
-+/*
-+ * Return the CPU time of the calling thread in ns. clock_gettime() cannot
-+ * fail: the clock is always supported, and the pointer is valid.
-+ */
-+static uint64_t cpu_time_ns(void)
-+{
-+	struct timespec ts;
-+
-+	clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts);
-+	return ts.tv_sec * NSEC_PER_SEC + ts.tv_nsec;
-+}
-+
-+enum depart { DIES, SWITCHED_OUT };
-+
-+/* Kill the calling child if the test exits, so that no deadline task stays. */
-+static void die_with_parent(void)
-+{
-+	if (prctl(PR_SET_PDEATHSIG, SIGKILL) || getppid() != test_pid)
-+		_exit(1);
-+}
-+
-+/*
-+ * Fork a child that enters @cg, if given, then SCHED_DEADLINE at 400ms
-+ * every second. The child runs 380ms of its runtime. Then it dies if @how
-+ * is DIES. Otherwise it switches to SCHED_OTHER, writes a byte to @fd and
-+ * sleeps. Its 0-lag time is then about 570ms ahead. Return the pid of the
-+ * child, or -1. Only the read end of @fd stays open in the caller.
-+ */
-+static pid_t departing(const char *cg, enum depart how, int fd[2])
-+{
-+	pid_t pid = fork();
-+
-+	if (pid < 0)
-+		ksft_print_msg("fork: %s\n", strerror(errno));
-+	if (!pid) {
-+		uint64_t t0;
-+
-+		die_with_parent();
-+		close(fd[0]);
-+		if (cg && enter(cg, getpid()))
-+			_exit(2);
-+		if (set_deadline(0, 400 * NSEC_PER_MSEC))
-+			_exit(3);
-+		t0 = cpu_time_ns();
-+		while (cpu_time_ns() - t0 < 380 * NSEC_PER_MSEC)
-+			;
-+		if (how == DIES)
-+			_exit(0);
-+		if (set_other(0) || write(fd[1], "x", 1) != 1)
-+			_exit(4);
-+		for (;;)
-+			pause();
-+	}
-+	close(fd[1]);
-+	fd[1] = -1;
-+	return pid;
-+}
-+
-+/*
-+ * Wait until the child is out of SCHED_DEADLINE: dead or switched out.
-+ * Return 0 on success. If the child failed, return its exit status, or
-+ * -1. Set *@pid to -1 once the child is reaped.
-+ */
-+static int departed(pid_t *pid, enum depart how, int fd)
-+{
-+	int status;
-+	char c;
-+
-+	if (*pid < 0)
-+		return -1;
-+	/*
-+	 * A child that switches out sends a byte. Without the byte, the
-+	 * child died or failed, and its exit status tells which.
-+	 */
-+	if (how == SWITCHED_OUT) {
-+		ssize_t n;
-+
-+		do {
-+			n = read(fd, &c, 1);
-+		} while (n < 0 && errno == EINTR);
-+		if (n == 1)
-+			return 0;
-+	}
-+	if (waitpid(*pid, &status, 0) != *pid)
-+		return -1;
-+	*pid = -1;
-+	return WIFEXITED(status) ? WEXITSTATUS(status) : -1;
-+}
-+
-+/*
-+ * Fork a child that enters @cg and sleeps there. The child moves itself,
-+ * so that it last ran on a CPU of @cg. Wait until it is there. Return its
-+ * pid, or -1.
-+ */
-+static pid_t sleeper(const char *cg)
-+{
-+	int fd[2];
-+	pid_t pid;
-+	char c;
-+
-+	if (pipe(fd))
-+		return -1;
-+	pid = fork();
-+	if (pid < 0)
-+		ksft_print_msg("fork: %s\n", strerror(errno));
-+	if (!pid) {
-+		die_with_parent();
-+		close(fd[0]);
-+		if (enter(cg, getpid()) || write(fd[1], "x", 1) != 1)
-+			_exit(1);
-+		for (;;)
-+			pause();
-+	}
-+	close(fd[1]);
-+	if (pid > 0 && read(fd[0], &c, 1) != 1) {
-+		reap(pid);
-+		pid = -1;
-+	}
-+	close(fd[0]);
-+	return pid;
-+}
-+
-+/*
-+ * Check that P admits one task of 600ms every second, but not two. The
-+ * caller must wait until every inactive timer has fired.
-+ */
-+static int check_p(void)
-+{
-+	pid_t a = sleeper(cg_p), b = sleeper(cg_p);
-+	int ret = KSFT_FAIL, e1, e2;
-+
-+	if (a < 0 || b < 0) {
-+		ksft_print_msg("no task could enter P\n");
-+		goto out;
-+	}
-+	e1 = set_deadline(a, 600 * NSEC_PER_MSEC);
-+	e2 = set_deadline(b, 600 * NSEC_PER_MSEC);
-+	if (e1)
-+		ksft_print_msg("a first task refused in P: %s\n", strerror(-e1));
-+	else if (!e2)
-+		ksft_print_msg("1.2 CPUs of deadline tasks admitted in a partition of one CPU\n");
-+	else if (e2 != -EBUSY)
-+		ksft_print_msg("the second task refused with %s, not EBUSY\n", strerror(-e2));
-+	else
-+		ret = KSFT_PASS;
-+out:
-+	reap(a);
-+	reap(b);
-+	return ret;
-+}
-+
-+/*
-+ * Have a task of P die or switch out, as @how says. Make Q before its
-+ * 0-lag time, then check P.
-+ */
-+static int test_rebuild(enum depart how)
-+{
-+	int ret = KSFT_FAIL, fd[2], err, ran = 0;
-+	pid_t pid = -1;
-+
-+	if (pipe(fd))
-+		return KSFT_FAIL;
-+	if (make_partition(cg_p, cpu_p)) {
-+		ksft_print_msg("no partition root on CPU %d\n", cpu_p);
-+		ret = KSFT_SKIP;
-+		goto out;
-+	}
-+	pid = departing(cg_p, how, fd);
-+	err = departed(&pid, how, fd[0]);
-+	if (err) {
-+		ksft_print_msg("the deadline task failed (%d)\n", err);
-+		goto out;
-+	}
-+	ran = 1;
-+	if (make_partition(cg_q, cpu_q)) {
-+		ksft_print_msg("no partition root on CPU %d\n", cpu_q);
-+		ret = KSFT_SKIP;
-+		goto out;
-+	}
-+	/*
-+	 * Wait past the 0-lag time. In the SWITCHED_OUT case the task is still
-+	 * alive then: it sleeps in P as a SCHED_OTHER task.
-+	 */
-+	sleep_ns(1500 * NSEC_PER_MSEC);
-+	ran = 0;
-+	ret = check_p();
-+out:
-+	reap(pid);
-+	/* Let the next case start after the 0-lag time of the task. */
-+	if (ran)
-+		sleep_ns(1500 * NSEC_PER_MSEC);
-+	remove_partition(cg_q);
-+	remove_partition(cg_p);
-+	close(fd[0]);
-+	if (fd[1] >= 0)
-+		close(fd[1]);
-+	return ret;
-+}
-+
-+/*
-+ * Have a task outside P switch to SCHED_OTHER and sleep. Before its 0-lag
-+ * time, move it into P and kill it. Then check P.
-+ */
-+static int test_move(void)
-+{
-+	int ret = KSFT_FAIL, fd[2], err, ran = 0;
-+	pid_t pid = -1;
-+
-+	if (pipe(fd))
-+		return KSFT_FAIL;
-+	if (make_partition(cg_p, cpu_p)) {
-+		ksft_print_msg("no partition root on CPU %d\n", cpu_p);
-+		ret = KSFT_SKIP;
-+		goto out;
-+	}
-+	pid = departing(NULL, SWITCHED_OUT, fd);
-+	err = departed(&pid, SWITCHED_OUT, fd[0]);
-+	if (err) {
-+		ksft_print_msg("the deadline task failed (%d)\n", err);
-+		goto out;
-+	}
-+	ran = 1;
-+	if (enter(cg_p, pid)) {
-+		ksft_print_msg("the task cannot move into P\n");
-+		goto out;
-+	}
-+	/* The task wakes up and dies on P's CPU, before its 0-lag time. */
-+	reap(pid);
-+	pid = -1;
-+	sleep_ns(1500 * NSEC_PER_MSEC);
-+	ran = 0;
-+	ret = check_p();
-+out:
-+	reap(pid);
-+	/* Let the next case start after the 0-lag time of the task. */
-+	if (ran)
-+		sleep_ns(1500 * NSEC_PER_MSEC);
-+	remove_partition(cg_p);
-+	close(fd[0]);
-+	if (fd[1] >= 0)
-+		close(fd[1]);
-+	return ret;
-+}
-+
-+/*
-+ * Mark in @set the CPUs of @list. The list has the sysfs form "0-2,5".
-+ * @set has room for @n CPUs.
-+ */
-+static void parse_cpulist(const char *list, char *set, int n)
-+{
-+	const char *s = list;
-+	char *end;
-+	long a, b;
-+
-+	while (*s && *s != '\n') {
-+		a = strtol(s, &end, 10);
-+		if (end == s)
-+			return;
-+		b = a;
-+		s = end;
-+		if (*s == '-') {
-+			b = strtol(s + 1, &end, 10);
-+			s = end;
-+		}
-+		for (; a <= b && a < n; a++)
-+			if (a >= 0)
-+				set[a] = 1;
-+		if (*s == ',')
-+			s++;
-+	}
-+}
-+
-+/*
-+ * Pick the two highest online CPUs that are not isolated, for P and Q.
-+ * Return the number of such CPUs.
-+ */
-+static int pick_cpus(void)
-+{
-+	static char online[CPU_SETSIZE], isol[CPU_SETSIZE];
-+	char buf[4096];
-+	int cpu, n = 0;
-+
-+	if (read_file("/sys/devices/system/cpu/online", buf, sizeof(buf)))
-+		return 0;
-+	parse_cpulist(buf, online, CPU_SETSIZE);
-+	if (!read_file("/sys/devices/system/cpu/isolated", buf, sizeof(buf)))
-+		parse_cpulist(buf, isol, CPU_SETSIZE);
-+	cpu_p = cpu_q = -1;
-+	for (cpu = CPU_SETSIZE - 1; cpu >= 0; cpu--) {
-+		if (!online[cpu] || isol[cpu])
-+			continue;
-+		if (cpu_p < 0)
-+			cpu_p = cpu;
-+		else if (cpu_q < 0)
-+			cpu_q = cpu;
-+		n++;
-+	}
-+	return n;
-+}
-+
-+static int find_cgroup2(void)
-+{
-+	char line[PATH_MAX + 64], dev[64], dir[PATH_MAX], type[64];
-+	FILE *f = fopen("/proc/self/mounts", "r");
-+	int found = 0;
-+
-+	while (f && !found && fgets(line, sizeof(line), f)) {
-+		if (sscanf(line, "%63s %4095s %63s", dev, dir, type) == 3 &&
-+		    !strcmp(type, "cgroup2")) {
-+			snprintf(root, sizeof(root), "%s", dir);
-+			found = 1;
-+		}
-+	}
-+	if (f)
-+		fclose(f);
-+	return found ? 0 : -1;
-+}
-+
-+static void report(const char *name, int ret)
-+{
-+	if (ret == KSFT_PASS)
-+		ksft_test_result_pass("%s\n", name);
-+	else if (ret == KSFT_SKIP)
-+		ksft_test_result_skip("%s\n", name);
-+	else
-+		ksft_test_result_fail("%s\n", name);
-+}
-+
-+int main(void)
-+{
-+	char buf[256], path[PATH_MAX + 32];
-+	int added;
-+
-+	ksft_print_header();
-+	test_pid = getpid();
-+	if (geteuid())
-+		ksft_exit_skip("needs root\n");
-+	if (pick_cpus() < 3)
-+		ksft_exit_skip("needs 3 online CPUs that are not isolated\n");
-+	if (read_file("/proc/sys/kernel/sched_rt_runtime_us", buf, sizeof(buf)) || atol(buf) < 0)
-+		ksft_exit_skip("no deadline admission control\n");
-+	if (find_cgroup2())
-+		ksft_exit_skip("cgroup v2 is not mounted\n");
-+	/*
-+	 * Enable the cpuset controller for the root's children, if it is
-+	 * off. It is turned off again at the end.
-+	 */
-+	snprintf(path, sizeof(path), "%s/cgroup.subtree_control", root);
-+	if (read_file(path, buf, sizeof(buf)))
-+		ksft_exit_skip("no cgroup.subtree_control\n");
-+	added = !strstr(buf, "cpuset");
-+	if (added && write_file(root, "cgroup.subtree_control", "+cpuset"))
-+		ksft_exit_skip("no cpuset controller\n");
-+	if (snprintf(cg_p, sizeof(cg_p), "%s/deadline_rebuild_p", root) >= (int)sizeof(cg_p) ||
-+	    snprintf(cg_q, sizeof(cg_q), "%s/deadline_rebuild_q", root) >= (int)sizeof(cg_q))
-+		ksft_exit_skip("cgroup v2 mount path too long\n");
-+
-+	ksft_set_plan(3);
-+	report("dies_before_rebuild", test_rebuild(DIES));
-+	report("switched_out_before_rebuild", test_rebuild(SWITCHED_OUT));
-+	report("moved_after_switch_out", test_move());
-+	if (added && write_file(root, "cgroup.subtree_control", "-cpuset"))
-+		ksft_print_msg("the cpuset controller stays enabled\n");
-+	ksft_finished();
-+}
--- 
-2.47.3
++static const struct attribute *const led_class_attrs[] =3D {
+ 	&dev_attr_brightness.attr,
+ 	&dev_attr_max_brightness.attr,
+ 	NULL,
+ };
+=20
+ static const struct attribute_group led_group =3D {
+-	.attrs =3D led_class_attrs,
++	.attrs_const =3D led_class_attrs,
+ };
+=20
+-static const struct attribute_group *led_groups[] =3D {
++static const struct attribute_group *const led_groups[] =3D {
+ 	&led_group,
+ #ifdef CONFIG_LEDS_TRIGGERS
+ 	&led_trigger_group,
+@@ -109,8 +110,8 @@ static const struct attribute_group *led_groups[] =3D =
+{
+ };
+=20
+ #ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
+-static ssize_t brightness_hw_changed_show(struct device *dev,
+-		struct device_attribute *attr, char *buf)
++static ssize_t brightness_hw_changed_show(struct device *dev, const struc=
+t device_attribute *attr,
++					  char *buf)
+ {
+ 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
+=20
+@@ -120,7 +121,7 @@ static ssize_t brightness_hw_changed_show(struct devic=
+e *dev,
+ 	return sysfs_emit(buf, "%u\n", led_cdev->brightness_hw_changed);
+ }
+=20
+-static DEVICE_ATTR_RO(brightness_hw_changed);
++static const DEVICE_ATTR_RO(brightness_hw_changed);
+=20
+ static int led_add_brightness_hw_changed(struct led_classdev *led_cdev)
+ {
+=2D-=20
+2.56.1
 
