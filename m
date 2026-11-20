@@ -1,49 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134610;
-	b=jRU9qCsKVhTCykaQRRQhMxodkXGCYIbzbNDDIrMC2bKfRh5Qp0JRpSm6vKzU3GvpDB0K
-	 L+zF6xpntUu9wW7MsHCq3/E0ya89MVyKO8ButgmJ5zh0C7eZUZDRZMdqIpPY7ZYWoG+gd
-	 5h31iLNipFY3UbQjHvMaOJM4m/j8NnS5VHUl7t5ZEfHssxvvPANBYfPdlxRfF/EVso0jU
-	 A3/SbtIBdDh3hrP8Vrcb7EVSHOmqnWT5XJ83ohKmzK0B1EhyIFAp0C/c/jBCFkd22vQNE
-	 f4z/ZRwwiiY+zG/Wn/vdTuII094qLG/y22UwrrPCnW3WeT+QxvixzYDxZJlWapJHjBA==
+	t=1795134651;
+	b=feqCNgbQL3YdEPZEEaMLJMiZmsOvZqOCm7HrD1cBOGq8BYoAtBgY9tmQKFbQnl7wc/Aj
+	 tjQgNXLO9pRLVvHibGe+EM0lS0gMQpt7wxCFtHBIgk8qrwLMjr2ySDD615AKGzSF0go7S
+	 IbU4QtPbxsRiVOv0yJMXNbb5MovmS9YCl+pDGktklmM0QlsoL0b7JAlcgKfq9kF0L+1zm
+	 IlrIa83UNorByle+S/a52znlPqgUCpn4cHrZQEj29VcJKN4U8/AJrGM3ob/UJCdrpoVww
+	 30W/NmfQnzciuqwKfm1doGbXamE0fIlETQqXSAUSjW9T1yXEUq5J6zQriWqFYq+3DQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134610;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=j81a6CYqM4ciq174eNhPfqQfAzQAbu2OK1Ia3w78EoY=;
-	b=ICzIUsa4v21spbb5ESRNoZwRPw67uJ11c/IP2/Oz43CI9FxEs7JFWlnEir6iEDfgsz9K
-	 NPh2fYeIcNSivAJcrbDLFHu/SMOh/+QtBCOira81MEfeNCCeh2ByjNqksSGh+8js7mZYi
-	 yG5f6L3FsiiL1teZZNJyPuFeBQP4yg2gbsw9m6BVUXJZhV1Q4Q5UDB08c6RPVY2T3x438
-	 EVvJ4xgJxDWMWWcTkOowoaE4jPvPdLp7Vb29l3t00kRrUrdW+2VAoji7HnoAaQhDR0pJI
-	 0BGafe4m4FTnMCNMtvPaKHd6w0MDhFKcPKXUwv4vXj1wrGuKMk4xgbVnngapOPyfA2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134651;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
+	b=XwNiWy0E1lez+5wYKuZjzsvsoNEYBrEL49SYFOiKZcczZzC91+sCozUkUjTu0ErJtiXA
+	 u7ovXXO84ruAotNnL7B44pnQXkOJq5aiRIIcFwtSq64HIvUARSkaBguPL+pPG/JC+TYN6
+	 Yj+iNxAYZB8SwDs4wJb6PZCuL82/fiqXiSTa87hHOC5llQJEEJyhTGhA/sZbD1KSvakyR
+	 oFN/0/xMcxdjuBuzy1flynL1drYEE379UXE0098fZtM70wfQmvsWlCPEePM8q8l2YnDBB
+	 F1c0jTRFZ8JlYLa0Zij9eeBmxJLtub/hai+D+IE8KTPhTpXzdNwLPXsP8qPGDzk1Y8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="O/sJDn1z";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QV9Knicy;
+	arc=none smtp.remote-ip=209.85.215.226
+Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2F83606A331;
-	Fri, 20 Nov 2026 00:30:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6355606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:30:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6355606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O/sJDn1z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 058B21F000CF;
-	Fri, 20 Nov 2026 00:30:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795134610;
-	bh=j81a6CYqM4ciq174eNhPfqQfAzQAbu2OK1Ia3w78EoY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=O/sJDn1z7KySfP4y+JvOK1+VbxWSHK63A03oyQSWN+y7qYChmF5xnwo8SVfUacL3F
-	 2LMa61zc3yy997nj2VxHn4oyVZtiCZ0Cccw0V3ZUz4uMb4vQS6pk2kBvwFMDzj8UKR
-	 WvluGLy8BA7WV9P9vScYf/nh5oGZussPmmHX4EY8R/eHBxROOpTlSXgf8QckbP1OF2
-	 saMAu2DcBoOvMgU/WrDolA5Fbg1KflIG+6x9jwUCOkIwNNEfVSgaf39Kwjdf/xtBtz
-	 UfxDam1PMiokSpdx/JkzyLBwmr80fJ62o17VRHCWDZHes3S9zjDmTDdoQktV0d1aDy
-	 SO1cZMAh5MYUQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15D43808209;
-	Fri, 20 Nov 2026 00:30:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QV9Knicy
+Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so333159a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:30:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795134650; x=1795739450;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
+        b=ftyuzgXn9YPOkRJJ8WAnr0CzhPN0h0tFooy5XTLMer5WYgfrYnNiEvteLIRmlLWW+u
+         obTCLVa0K6kC91ZKjhX67avPkQooSTwoxvBVSvg6tXRlgUw/Uae6GKAqLdZ+BHBMtuwp
+         uZutl2vIckR2/D1MwW99/hxH9AmqDUSYVcM4yaB3aqgd3IKT37rkl2CCXbb9G+W59GI/
+         SkhKmAT4MfUR+XfDoz3VpfstnId1lowBenpsvluc61LTVSaOlIiZ3/DSocDuiEzk6s1l
+         B310+j/OXezW+ma5MXcamyUN1AygnNOHjiuSvjZcY8DCHpSgCwwEv9JPtlr2Ht/enGaN
+         hfsQ==
+X-Forwarded-Encrypted: i=1; AL+hErGdOXJotKBbvvAoMPL1kGw6IbgdKMKdulzuUVs84bxnlazjkHIZnhr19RKPrgojwGnXJCAamK8cOpFAQ7Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9RyOmOBwubguSzP90c6ekKzlxvDMVtaa1fO96o4W5++01refzb
+	tl1b4nTkoUHf4ohyVksOAzEV0ewyjCwj73LKqjQ6bScJRrMeSNTlgqgwTH/hRRkaBYpJq7zHuaj
+	bTdmQKoFTMpI8Tk2iTocmXsiFJ+XZyBDcf7P39EyXGcjqSi+fCLgniyJsvFyxHM0IPHXmNJUeOU
+	XpdUpi/jXWu5zkCoJWyiDF9psogBFBUVWK7iagGBdB5eGxwEpLxLHsqTUUEmpF0cnHH+xHy96eH
+	hV8CX+hbR3BmmSiwau3GacH
+X-Gm-Gg: AZFdTZfpXuVoUqLv9FHHnkn2oU7aEUllbO6XaQ9YPL7CUS/vxEKOnfmgl1jwafMntkc
+	A/y2Oa4fcJV3TS81GaXbULQ+igpLV+9C2p9Tu7YHphw6ZjFbiCfh45JnIWkvYV94qTRVre/3joJ
+	AaRvE0L9aeWGQX72zimyygXTg6audATe21Zm/zIB0nTR3joli4cvM7oyMDfamLJGJIboQCkyY/G
+	+KUgNEN4Zq0nSzIsBX0MzRYE4dOZXAj7FuBC3c1XiDiONCFaYsPLv4f4hSxfsOHROpPr4RoCRkd
+	wsKT+TMqmuh85WkfK8MhNerFzTna5Cvgtjj7+UDX83hfq2m878MkTNXzSKROCNrzcBVvLSJNjRk
+	Ky15SFqDAMOj1sPYyXWiqXR+MMxvYi7YCbkyFp/P+EBv29NTdPc/tzJpq7lHhnaAq+3FpVhgRXJ
+	HfpWOKzZjWnxnahP458RGPfYUyBaE2CxJYMtg4F1UU
+X-Received: by 2002:a17:90b:5109:b0:3ac:9c37:942e with SMTP id 98e67ed59e1d1-3b41c953f98mr971057a91.49.1795134650022;
+        Thu, 19 Nov 2026 16:30:50 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062eb7cdsm1981736a91.8.2026.11.19.16.30.49
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 19 Nov 2026 16:30:50 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2ed02a00b24so2594835ad.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:30:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795134648; x=1795739448; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hPlycAUHIGpsb7zDfAw9s4lP79BdcT6PyzBpqKrDoxI=;
+        b=QV9KnicyEfaQj76sJnxi2YQzpcTwpyJUm/TCluleXgKshsJQF0IwK3BSAmPbfOzARD
+         hiLltTC4mbV0DUAdqNC3OILem1qR024965aDhT0DQsOnD/+vkXbXIWAXRVnhDqLV2oG2
+         GZen+XuXhbgME5F9n/O7cZR/mJhWGtrJ42pY4=
+X-Forwarded-Encrypted: i=1; AL+hErH4GEQZKjBWJbeTZ1id5p1qxf9L1Wn61SDXxrsmqDMH/scQHS7FVBM/mvGRrRghjeYhuU66+MkOcuzDFRg=@vger.kernel.org
+X-Received: by 2002:a17:90b:4ccb:b0:3ac:adce:60a9 with SMTP id 98e67ed59e1d1-3b41c7b6038mr1046176a91.9.1795134647830;
+        Thu, 19 Nov 2026 16:30:47 -0800 (PST)
+X-Received: by 2002:a17:90b:4ccb:b0:3ac:adce:60a9 with SMTP id 98e67ed59e1d1-3b41c7b6038mr1046147a91.9.1795134647328;
+        Thu, 19 Nov 2026 16:30:47 -0800 (PST)
+Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm4008003a91.11.2026.11.19.16.30.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 16:30:46 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: rosenp@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH net] net: bgmac: unregister the fixed PHY on probe failure and removal
+Date: Thu, 19 Nov 2026 16:30:44 -0800
+Message-ID: <20261120003044.2366432-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,51 +117,86 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/3] net: don't redirect decrypted skbs to ingress,
- psp time-wait validator
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179513460852.3945374.16984787247285692246.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 00:30:08 +0000
-References: <20261117192411.247117-1-toddfreed@meta.com>
-In-Reply-To: <20261117192411.247117-1-toddfreed@meta.com>
-To: Todd Bert Freed <toddfreed@meta.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, daniel.zahka@gmail.com,
- willemdebruijn.kernel@gmail.com, weiwan@google.com, jhs@mojatatu.com,
- jiri@resnulli.us, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- martin.lau@linux.dev, john.fastabend@gmail.com, sdf@fomichev.me,
- sd@queasysnail.net, borisp@nvidia.com, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Hello:
+bgmac registers a fixed PHY, either for a chip without a PHY with
+bgmac_phy_connect_direct(), or through a fixed-link device tree node with
+of_phy_get_and_connect(). The error path of bgmac_enet_probe() and
+bgmac_enet_remove() only call phy_disconnect(), and
+bgmac_phy_connect_direct() does not release the PHY when connecting to
+it fails. The phy_device is leaked, along with one of the limited number of
+fixed PHY ids, which can make a later probe fail after repeated rebinds.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Unregister the fixed PHY after disconnecting from it, in the same way
+as other drivers do, and when connecting to the PHY fails.
 
-On Tue, 17 Nov 2026 11:24:08 -0800 you wrote:
-> Three fixes that are relevant for the net-next series, "psp: introduce
-> socket-less associations". These were previously patches 6-8 of its v1:
-> 
->   https://lore.kernel.org/netdev/20261111005533.6436-1-toddfreed@meta.com
-> 
-> The first two patches prevent sending decrypted skbs from egress to
-> ingress, since the meaning of skb->decrypted depends on the direction.
-> This affects the packets of kTLS and PSP device offload sockets.
-> 
-> [...]
+Fixes: c25b23b8a387 ("bgmac: register fixed PHY for ARM BCM470X / BCM5301X chipsets")
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ drivers/net/ethernet/broadcom/bgmac.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-Here is the summary with links:
-  - [net,v2,1/3] net/sched: act_mirred: don't send decrypted skbs from egress to ingress
-    (no matching commit)
-  - [net,v2,2/3] bpf: don't redirect decrypted skbs from egress to ingress
-    (no matching commit)
-  - [net,v2,3/3] psp: only give time-wait sockets of PSP connections a validator
-    https://git.kernel.org/netdev/net-next/c/82290fab668c
-
-You are awesome, thank you!
+diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+index 9ef7307edd41..54092bfacd18 100644
+--- a/drivers/net/ethernet/broadcom/bgmac.c
++++ b/drivers/net/ethernet/broadcom/bgmac.c
+@@ -15,6 +15,7 @@
+ #include <linux/bcm47xx_nvram.h>
+ #include <linux/phy.h>
+ #include <linux/phy_fixed.h>
++#include <linux/of_mdio.h>
+ #include <net/dsa.h>
+ #include "bgmac.h"
+ 
+@@ -1475,6 +1476,7 @@ int bgmac_phy_connect_direct(struct bgmac *bgmac)
+ 				 PHY_INTERFACE_MODE_MII);
+ 	if (err) {
+ 		dev_err(bgmac->dev, "Connecting PHY failed\n");
++		fixed_phy_unregister(phy_dev);
+ 		return err;
+ 	}
+ 
+@@ -1482,6 +1484,22 @@ int bgmac_phy_connect_direct(struct bgmac *bgmac)
+ }
+ EXPORT_SYMBOL_GPL(bgmac_phy_connect_direct);
+ 
++/* Disconnect the PHY and release a fixed PHY registered for the connection. */
++static void bgmac_phy_disconnect(struct bgmac *bgmac)
++{
++	struct device_node *np = bgmac->dev->of_node;
++	struct phy_device *phydev = bgmac->net_dev->phydev;
++
++	if (!phydev)
++		return;
++
++	phy_disconnect(phydev);
++	if (np && of_phy_is_fixed_link(np))
++		of_phy_deregister_fixed_link(np);
++	else if (phy_is_pseudo_fixed_link(phydev))
++		fixed_phy_unregister(phydev);
++}
++
+ struct bgmac *bgmac_alloc(struct device *dev)
+ {
+ 	struct net_device *net_dev;
+@@ -1575,7 +1593,7 @@ int bgmac_enet_probe(struct bgmac *bgmac)
+ 	return 0;
+ 
+ err_phy_disconnect:
+-	phy_disconnect(net_dev->phydev);
++	bgmac_phy_disconnect(bgmac);
+ err_dma_free:
+ 	bgmac_dma_free(bgmac);
+ err_out:
+@@ -1587,7 +1605,7 @@ EXPORT_SYMBOL_GPL(bgmac_enet_probe);
+ void bgmac_enet_remove(struct bgmac *bgmac)
+ {
+ 	unregister_netdev(bgmac->net_dev);
+-	phy_disconnect(bgmac->net_dev->phydev);
++	bgmac_phy_disconnect(bgmac);
+ 	netif_napi_del(&bgmac->napi);
+ 	bgmac_dma_free(bgmac);
+ }
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.53.0
 
