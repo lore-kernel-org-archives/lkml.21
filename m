@@ -1,60 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196476;
-	b=uiHrtStB+ziKPpkCOPPyIMEa0Lci+OkcUjr8uluWFEmLCH7X38z/hfqPMMxixClmsMSS
-	 BZev7FHV20sdzVtcbd1jSzcGm4NdbUKiX/N12vOcrYYYuzjgpN4EnpmikwKKH5d1LDkbM
-	 +HEskBdPq/aTM/ic1D2O/RfqgUBBinFH4f68B3VDENByYKMrKYuw8kwPLwtuwTgLx2BJ4
-	 rKOLp+fVDWorDFbY+x7cuAOKLes93HHIjQt3cPoi0pBA8IY0qwEPt1jwhYlxba5gdaS6O
-	 V/1mM+eowg9Panp210hTt8EojDuth+o9HAOp3TRiNWAtZd151TZiNMGWd0NDXjM7zVA==
+	t=1795196477;
+	b=xGH4ijSPRuwUSBqfIoGYV0rj4s5XHD5Db0mTKfYqoxGqrK3zXg6VZPdgfRF/lGCaM5um
+	 eHHILhRI7IHcn2XvG1WlPXR5R9RqicugwMeb8LpKF1YlJUsubZjvqql5WruHnueQKXAMf
+	 i+gJD/H1VB21IYsoiHM3dWcMtEp5V955x5JX8LzTMt0CciB+BnnYZoqj+j7EsjRmM7Vmq
+	 L4SiTWXTt2h6Iuku8XWau3ZUQUq7stSPD93JOJWmf6/KGN+ioOpMebejv1vQV4Ovsk5wD
+	 leitm72znSY/r3XpUod0xsdHG/eB5awwNzDdR6TOGV19sjP+St6wt4IR3XJl9A32xGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196476;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196477;
 	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
 	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=1WZdkvxeLJm91lHWo/o/DfjLIfk7nKrzTkfg8Cp18n4=;
-	b=DkVyablxVbJKlP8ad1DqZ7nzOOGgjujdw7Bmj4sSvjkffWXYgepoXnD8j3eydwPITj8p
-	 0j6O9/Q0H8U6cSjpelhrSkdATwLWN+/Pe0VHHhqe/ZEMxffbhFo3hjXv60o5Qn2d1EM6k
-	 Y41ICe0CHZZ9VpWv8l6W9VOZZtE5SXHA1KS3TV88EUXox4BmBCVHLGvdKTI5mGdYWYcFG
-	 5szXsTN23QzS12D9stE7P7LEfGJ3xcEpWO5H0CaPfaSwVEUrHR57RJLXrilz3nrHjLetS
-	 ETB900yWzrf8zJ73uEeChxWYVPKkmzhQ0R5yUbV2yPUhKDVIL5SeFiIOwAomwW4JqZg==
+	bh=R6BCQFADTO2tH8z7wEzxS9Z0hUp1r6ogl26fNzaJUdI=;
+	b=oqL5LWmyXYOla+lft9PBH4NUK3JP7cqAMzTYUXrjOwE2SkIzRlvLqckHq/CSuwW7MU54
+	 UYiwVhMQP8FShnxV14h6V8I3ye1ophxfT2TLZ1D6IrZkK5YMoCj8rPctF2f1qmu7HTXO3
+	 dIR9ZsAME+cyJprPy2QDeUTkzZEASfHsSaT2huxXp02KaNBb9lxTXwhkNjhDHQDD9fsQ7
+	 NnFr1zeJIX80+2MaK2wZgVoCu80dg9B68Pix3iq+T80r6eC9wWa2+ONmSi2jWWcAx0sJB
+	 fnSVge8XCi9DA0tT3hVCPXa4wg1rRz9Q9PS1NvUnbEuymEpsGhjTw+Tq0/N+htdwCtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fTfJG/HN";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="KRKO/A4Y";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95E5D60A2628;
-	Fri, 20 Nov 2026 17:41:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB98A60A382D;
+	Fri, 20 Nov 2026 17:41:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTfJG/HN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AF211F0156B;
-	Fri, 20 Nov 2026 17:41:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KRKO/A4Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F86D1F000E6;
+	Fri, 20 Nov 2026 17:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196476;
-	bh=1WZdkvxeLJm91lHWo/o/DfjLIfk7nKrzTkfg8Cp18n4=;
+	s=k20260515; t=1795196477;
+	bh=R6BCQFADTO2tH8z7wEzxS9Z0hUp1r6ogl26fNzaJUdI=;
 	h=Date:From:To:Cc:Subject:References;
-	b=fTfJG/HNATarHgmL1H5igxpvjVb7WbgGLSszihC4gv6r4+SvLzKsUAo9ziPAryCBY
-	 zHgfS6Qp6IF7n7dEyAPdc9v085eJrTaySwDNmUP+RnvVacQj1i3zUvx8Mo+Ju8jarF
-	 +4yP/tpZY6YAG6Fg9RXMOopf28Mt+wFWWlzSPWS2fvW/pstlxILHUj2SppvwCCDWVy
-	 +BHA8g57tTIIsDpb3htf/LTy/qDD21t6qAgmW5rL8TTUNxpOKYuNFFBdMxKwIxzykd
-	 RHq9MZXptdmItZMh8KLRkTLcMHRhhLVozHFJksuh0wBDKyKpitFznp3xPxYrU6kYDy
-	 YL/pUT8giKugg==
+	b=KRKO/A4YQl1nIsVlM37mI7fGji2IlEOysc7csU8DSObfKNv1QsFt+x5whvNVPZyHc
+	 ICbN2GpGuJ1CP8NmspnKwv11iEi9A4MMCalvaUVWtlVtknlofBbJoj7JBZFTuFJ4tv
+	 SZJDsMAPrkkMbGP7YEybXQ7ven2nzmwE/Dc/L+R2EI5dwxtNEcDnI6nBGh2gaBcXDs
+	 ubQXFwzg/weDw6QETxblRQrQiGE2hLV1rotSfJz7vT+LNFVA56k7l8IxSvDvEHKieh
+	 FHjFrWMAa9JmykiESRd4csEbcyikZbornw4v4UsxwZAba6AAqOuU5OrdkBi6yLQc5L
+	 9rk9Y27SWnl+Q==
 Received: from rostedt by gandalf with local (Exim 4.100.1)
 	(envelope-from <rostedt@kernel.org>)
-	id 1xUSbr-00000004aIf-39Cy;
-	Fri, 20 Nov 2026 12:41:15 -0500
-Message-ID: <20261120174115.579778502@kernel.org>
+	id 1xUSbs-00000004aLS-2oTC;
+	Fri, 20 Nov 2026 12:41:16 -0500
+Message-ID: <20261120174116.504279783@kernel.org>
 User-Agent: quilt/0.69
-Date: Fri, 20 Nov 2026 12:39:00 -0500
+Date: Fri, 20 Nov 2026 12:39:05 -0500
 From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- stable@vger.kernel.org
-Subject: [for-linus][PATCH 08/32] tracing/filters: Fix MATCH_END_ONLY regex matching for fixed-size
- strings
+ Peter Zijlstra <peterz@infradead.org>,
+ Vineet Gupta <vineet.gupta@linux.dev>,
+ stable@vger.kernel.org,
+ Andrii Nakryiko <andrii@kernel.org>
+Subject: [for-linus][PATCH 13/32] fgraph: Allocate shadow stacks inline with GFP_NOWAIT
 References: <20261120173852.687189370@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -67,102 +69,170 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 
-From: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+From: Vineet Gupta <vineet.gupta@linux.dev>
 
-regex_match_end() calculates string length as "len - 1", assuming @len
-is the string length including trailing '\0'. For dynamic strings
-(filter_pred_strloc) and pointer strings (filter_pchar), this assumption
-holds and allows O(1) constant-time suffix matching.
+When ftrace graphing is turned on, all tasks in the system missing
+return stack page are assigned one. This is done in a simplistic
+multi-sweep loop of FTRACE_RETSTACK_ALLOC_SIZE (currently 32) tasks
+at a time as follows:
 
-However, for fixed-size string fields (FILTER_STATIC_STRING) and "comm"
-(FILTER_COMM), the callers pass the buffer capacity rather than the
-actual string length (field->size for filter_pred_string, and
-TASK_COMM_LEN for filter_pred_comm). Because these buffers hold
-null-terminated strings (e.g. prev_comm in sched_switch holding "bash"
-in a 16-byte buffer), regex_match_end() tests against the tail of the
-buffer capacity (typically trailing '\0' padding at offset 13) rather
-than the actual string end. Consequently, suffix matching like
-comm ~ "*sh" or prev_comm ~ "*sh" fails for all strings shorter than
-the buffer capacity.
+   start_graph_tracing()
+	do {
+		alloc_retstack_tasklist
+	} while (-EAGAIN);
 
-Furthermore, for trace events like ftrace/print (trace_marker), the
-"buf" field is defined with size 0, denoting an unbounded NUL-terminated
-string. regex_match_end() and regex_match_end_str() return 0 when len
-is 0, causing suffix matching to fail on ftrace/print events as well.
+   alloc_retstack_tasklist()
+	alloc x32           # GFP_KERNEL, may sleep
+	rcu_read_lock()     # preempt off
+		for_each_process_thread    walk N_total, no cond_resched
+                     t->ret_stack = new_page
+	rcu_read_unlock()   # preempt enable but no explicit yield
 
-To fix this without penalizing dynamic and pointer strings with an
-unnecessary scan on every event:
-- Introduce regex_match_end_str() using strnlen(str, len) for fixed-size
-  buffers (FILTER_COMM and FILTER_STATIC_STRING with field->size > 0).
-- Introduce regex_match_end_dynstr() using strlen(str) for unbounded
-  strings (FILTER_STATIC_STRING with field->size == 0).
+Each successive iteration of loop invokes for_each_process_thread()
+which doesn't support cursor based resume and always restarts from the
+init_task. Thus each successive loop needs to skip the tasks assigned
+ret_stack in prior sweeps and thus take longer and longer to find the
+candidate 32 tasks. And while the loop end calls rcu unlock,
+and re-enables preemption briefly, there is no explicit yield.
 
-Assign these match callbacks in parse_pred() when MATCH_END_ONLY is
-requested.
+The total number of iterations turn out to be
 
+	N_total * N_null / (2 * FTRACE_RETSTACK_ALLOC_SIZE)
+
+where N_total is the number of threads on the system and N_null the number
+of those whose ret_stack is still NULL. After boot with no fgraph user that
+is every thread.
+
+This is not a tracing-only path. Since commit 4346ba160409 ("fprobe:
+Rewrite fprobe on function-graph tracer") fprobe is built on fgraph,
+so an ordinary kprobe_multi BPF attach that flips ftrace_graph_active
+from 0 to 1 pays the whole cost inside one bpf() syscall. Commit
+2c67dc457bc6 ("tracing: fprobe: optimization for entry only case")
+narrows that to return and session probes but does not remove it.
+
+A host running hundreds of thousands of threads, with the current batch
+size of 32, turns the ftrace_graph_active 0 -> 1 transition into a
+multi-second, and eventually multi-minute, operation which showed up as
+RCU stall and softlockup_panic on heavily loaded Meta Fleet machines
+with preemption disabled.
+
+    rcu: INFO: rcu_sched self-detected stall on CPU
+    rcu: 0-....: (20718 ticks this GP) (t=21000 jiffies g=913 q=8 ncpus=8)
+    CPU: 0 UID: 0 PID: 160141 Comm: bpftrace
+     ___slab_alloc+0x549/0xa20
+     kmem_cache_alloc_noprof+0x16c/0x340
+     register_ftrace_graph+0x3d7/0x6c0
+     register_fprobe_ips+0x2d5/0x310
+     bpf_kprobe_multi_link_attach+0x218/0x7e0
+     __sys_bpf+0x267a/0x27a0
+
+Fix this by allocating inline with GFP_NOWAIT instead of pre-allocating
+a fixed batch. GFP_NOWAIT does not sleep, so it is legal inside the RCU
+read-side critical section.
+
+A single sweep now serves every task, so the walk becomes O(N) rather
+than O(N_total * N_null), and the retry loop is no longer the normal
+path.
+
+The pre-allocated array remains as the fallback when GFP_NOWAIT fails.
+The runs below never needed it, so it was exercised with failslab
+injection: at a 100% failure rate every task falls back and -EAGAIN
+retries ~1560 times for 50000 threads, with no stall or splat.
+
+smp_store_release() is a drop-in replacement for the smp_wmb() and
+plain store it replaces.
+
+Measured on a 60-core Sapphire Rapids machine running a PREEMPT_LAZY
+kernel (CONFIG_PREEMPT_DYNAMIC=y, mode lazy), timing the write that
+drives the ftrace_graph_active 0 -> 1 transition. Threads are spawned
+while fgraph is inactive so every one of them has ret_stack == NULL,
+and the loop was instrumented to count sweeps:
+
+	threads   before              after
+	          sweeps   time       sweeps   time
+	100000     3126     15.3 s      1       0.019 s
+	200000     6253     59.1 s      1       0.047 s
+	400000    12503    227.8 s      1       0.092 s
+
+The sweep count is 1 throughout. Time now scales linearly with the
+thread count at roughly 230 ns per task, which is the allocation and
+initialisation of one shadow stack.
+
+Fixes: f201ae2356c7 ("tracing/function-return-tracer: store return stack into task_struct and allocate it dynamically")
+Suggested-by: Peter Zijlstra <peterz@infradead.org>
+Signed-off-by: Vineet Gupta <vineet.gupta@linux.dev>
+Tested-by: Vineet Gupta <vineet.gupta@linux.dev>
 Cc: stable@vger.kernel.org
-Fixes: a3291c14ecf0 ("tracing/filters: Fix MATCH_END_ONLY filter matching")
-Fixes: 10f20e9f9da9 ("tracing: Have zero size length in filter logic be full string")
-Link: https://patch.msgid.link/179323785497.740114.7643531772387726730.stgit@devnote2
-Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Link: https://patch.msgid.link/20261021174406.2891598-2-vineet.gupta@linux.dev
+Acked-by: Andrii Nakryiko <andrii@kernel.org>
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- kernel/trace/trace_events_filter.c | 32 ++++++++++++++++++++++++++++++
- 1 file changed, 32 insertions(+)
+ kernel/trace/fgraph.c | 39 ++++++++++++++++++++++++---------------
+ 1 file changed, 24 insertions(+), 15 deletions(-)
 
-diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index 62444db0f78b..d2069ef554d6 100644
---- a/kernel/trace/trace_events_filter.c
-+++ b/kernel/trace/trace_events_filter.c
-@@ -1092,6 +1092,30 @@ static int regex_match_end(char *str, struct regex *r, int len)
- 	return 0;
- }
+diff --git a/kernel/trace/fgraph.c b/kernel/trace/fgraph.c
+index 6d87143b3ddb..59c217b06695 100644
+--- a/kernel/trace/fgraph.c
++++ b/kernel/trace/fgraph.c
+@@ -1033,13 +1033,16 @@ void ftrace_stub_graph(struct ftrace_graph_ret *trace, struct fgraph_ops *gops,
+ trace_func_graph_ret_t ftrace_graph_return = ftrace_stub_graph;
+ trace_func_graph_ent_t ftrace_graph_entry = ftrace_graph_entry_stub;
  
-+static int regex_match_end_str(char *str, struct regex *r, int len)
-+{
-+	int slen;
-+
-+	if (len < r->len)
-+		return 0;
-+
-+	slen = strnlen(str, len);
-+	if (slen >= r->len &&
-+	    memcmp(str + slen - r->len, r->pattern, r->len) == 0)
-+		return 1;
-+	return 0;
-+}
-+
-+static int regex_match_end_dynstr(char *str, struct regex *r, int len)
-+{
-+	int slen = strlen(str);
-+
-+	if (slen >= r->len &&
-+	    memcmp(str + slen - r->len, r->pattern, r->len) == 0)
-+		return 1;
-+	return 0;
-+}
-+
- static int regex_match_glob(char *str, struct regex *r, int len)
+-/* Try to assign a return stack array on FTRACE_RETSTACK_ALLOC_SIZE tasks. */
++/*
++ * Loop thru all the tasks in the system and assign ret_stack.
++ * The @ret_stack_list is a small pre-allocated fallback, in case
++ * the GFP_NOWAIT allocations here fail.
++ */
+ static int alloc_retstack_tasklist(unsigned long **ret_stack_list)
  {
- 	return glob_match_len(r->pattern, str, len) ? 1 : 0;
-@@ -2031,10 +2055,18 @@ static int parse_pred(const char *str, void *data,
+-	int i;
+-	int ret = 0;
+ 	int start = 0, end = FTRACE_RETSTACK_ALLOC_SIZE;
+ 	struct task_struct *g, *t;
++	int i, ret = 0;
  
- 		if (field->filter_type == FILTER_COMM) {
- 			pred->fn_num = FILTER_PRED_FN_COMM;
-+			if (pred->regex->match == regex_match_end)
-+				pred->regex->match = regex_match_end_str;
+ 	if (WARN_ON_ONCE(!fgraph_stack_cachep))
+ 		return -ENOMEM;
+@@ -1056,20 +1059,26 @@ static int alloc_retstack_tasklist(unsigned long **ret_stack_list)
  
- 		} else if (field->filter_type == FILTER_STATIC_STRING) {
- 			pred->fn_num = FILTER_PRED_FN_STRING;
- 			pred->regex->field_len = field->size;
-+			if (pred->regex->match == regex_match_end) {
-+				if (!field->size)
-+					pred->regex->match = regex_match_end_dynstr;
-+				else
-+					pred->regex->match = regex_match_end_str;
+ 	rcu_read_lock();
+ 	for_each_process_thread(g, t) {
+-		if (start == end) {
+-			ret = -EAGAIN;
+-			goto unlock;
+-		}
++		unsigned long *rs;
+ 
+-		if (t->ret_stack == NULL) {
+-			atomic_set(&t->trace_overrun, 0);
+-			ret_stack_init_task_vars(ret_stack_list[start]);
+-			t->curr_ret_stack = 0;
+-			t->curr_ret_depth = -1;
+-			/* Make sure the tasks see the 0 first: */
+-			smp_wmb();
+-			t->ret_stack = ret_stack_list[start++];
++		if (t->ret_stack)
++			continue;
++
++		rs = kmem_cache_alloc(fgraph_stack_cachep, GFP_NOWAIT);
++		if (!rs) {
++			if (start == end) {
++				ret = -EAGAIN;
++				goto unlock;
 +			}
++			rs = ret_stack_list[start++];
+ 		}
++
++		atomic_set(&t->trace_overrun, 0);
++		ret_stack_init_task_vars(rs);
++		t->curr_ret_stack = 0;
++		t->curr_ret_depth = -1;
++		/* Make sure the tasks see the 0 first: */
++		smp_store_release(&t->ret_stack, rs);
+ 	}
  
- 		} else if (field->filter_type == FILTER_DYN_STRING) {
- 			pred->fn_num = FILTER_PRED_FN_STRLOC;
+ unlock:
 -- 
 2.53.0
