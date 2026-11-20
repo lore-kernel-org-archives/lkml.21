@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795153035;
-	b=BeyL3IY3Js9ioA7kFOODNGvQOHJZ+fDTqOYz7gIVsBg+K1HMgv2e4a9E1ifMCDwDyzVf
-	 qvkb5QK/CGV0Mw7PsXbf5UU5vCgyrJQBzeZ08sXZz/3ELPCb1mBHIA/hhCnpHt0jfDbsu
-	 7m8Mzq/Zc+Y2t+R++7Fs1XSRUxYTwVc7rE/kz0CsPmAySbdNdLRb2urHLWyF4QMm9qJ+c
-	 5p18vbaRYXUI4CEvXJknYe9U+9p6rhKoQMSH0+t443AH6NiYIshPyxq18nOl2ETZI8+Hz
-	 TB7pXnRdHUxdfCxaha9rPyILJz0/aNTHTm3p38+7r6rIa9OcnUMDppIJ7pq+RTck9hQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153035;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=B/0atRX3itSILPoLTT2jiynyQu/IGk6Wpmy+FZVV2so=;
-	b=4CUb5FNih4+/aO6V2GhXgyFrrjhW/ybikSSPXDgu4MkjOOKzYQKRO7dHofU/EtiREfxf
-	 pZRzm7FKwL4KB+o2JYhYp0rKbP5hYmh/ls0s5kSlcBZ69B5mEjXg2XTVQ3gYqVVjgXnF1
-	 nmtKBv9+X6F4k82BbVgViofng+2vlLslDkPPRNulaQR1C9y59TPFEfCHEohkl+ezg9iVI
-	 ZpF/YsKGhOE1pWg6ZljNKftewBoAZnDpVG4JMjDPLZbx1CpRS1aHQzKBFYOMkHa1EcFuj
-	 zv9VGWbx+4U9KVyLb62ACsv4AWM1Xaw372on01VnLlWZK2ZqG7Zm1yfOJqBfA8U5rJg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="c30wh/Ls";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.182
-Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795153069;
+	b=ZE2h7oPsnBzjKd1A/ny44S02qarTPtyn2fFAD1Oz6gOUf74ybZIdixqWsvOjKQEcmT78
+	 HtKsjpyvqmD9VUj3GA+Fgq/MWg63Q2T4G+rwnNRGCPO9QuEaAX6u/fN9IjAhIJpsPYtrZ
+	 f1wapygTI6/Rd0XDUksR52Q1RRBtllBdTyV/27clV8Vhc2TGSF5riIO3fzkQLd+JItZmH
+	 RKu9KDgTUFMliI8p5TI0GJ6cwEHLToTRWUM58y0uTT3ymxkMbIlpdPOearQlMHk2DAekR
+	 0itO/NINQUteKNZ7u/CR5g8+oeaa5pVZ/JgEaLtacZSuFfLQDlKJpCBMYr9yN3PawEw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153069;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=t/++9kq+HgKKBvu8dsfTWVjPVohzWSlwX7QOayHmTpk=;
+	b=282NafvG9S6jotW+tMzJ1btbzfdschmrs8AiPzjc/FyG6NZGPrtc9NXXscufQlrtbKj6
+	 /4xflWe6I0Pty0Y7RufVhubdKNH6O6ZI/EzeN4/5cDoy4Sk2ewMN1jBP1HO69LM5BsOP/
+	 hr9uOPXPDY1+zSontpeKxLdYLV6HKKVMFsaDJk5+saJhmBpZR2h6zRFBXdN/c5ms9bz+H
+	 Ifxw8j1nPFkdQ2/TcHvx3UKVaB62/+xRjgjzKcbGlTxyW1m+g6m/Rws/NoZyh2/P+4Q4C
+	 P724eMw0YtgKSmFQp+VXjpzv89/xXeQPHguzHkjf/C0u7v9sYpsfOicIMva1RvTCg0w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=1wt.eu;
+	spf=pass smtp.mailfrom=1wt.eu;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=dEdbW+lO;
+	arc=none smtp.remote-ip=51.159.59.229
+Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3363E606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:37:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3363E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB81D606A320;
+	Fri, 20 Nov 2026 05:37:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB81D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c30wh/Ls
-Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-55b8cd4e2abso6154441cf.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:37:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795153034; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TQSSI8aD+JKdX7Xmwr/Uk/tt9SndSFoAfJQSaTwoUm9p6Xb3WF0QYoqNOJJpyaWZ50
-         NHf+2zXKZAUALNqToR3Zn5gYuCfNpE5BrHfyzFjDhGIfDWtQmV7LZa9tcgiu5dc4d4vC
-         eYq41Fe+SiOFyARN+LT+s07mZe5FuomDRNxDQbIP++oLORnoQEMT0z7xbSlsh+ZTzKy9
-         sHim85dF/9Sxs1ZHS8VMItfkpv/Z8iE8LuxcYNOIiRc2PdcxFLq9ndFtr7ztB4DdaVUD
-         fLPeYxjRPwnIeirn1Cov68L+W2Y2+OEF1PFjJhWcTFh2R8qm6rEubwvgkjPpl8hfrUXR
-         H/pg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=B/0atRX3itSILPoLTT2jiynyQu/IGk6Wpmy+FZVV2so=;
-        fh=Q4KRWsZlfTV5ZTDuyDaTtvCc3OMoaJCEUexFVfAkfZE=;
-        b=E3gRjmw+OJx4R65vqXE2mYgDSARqgcM/DE1SFtxSoSVNpD4w32EzApMqq5lXW5OMDW
-         9DwM0LmyZcV+MBbrNZBC9NtihIf07p9ko9AYIcgZ0a404VK+zNCYUQsUWpqD7fNQAfWi
-         LARFSAi2ApDpu3C6yP9kntuG7SgSmQxdmo5+QbA2l/bfD0S1wYlUstzVlnTuBzotOuTB
-         eQN8mvuj6ZbVxQyMfUNO4XY1CndJZ/pBNZr80nk5BsCCfgwVpLyArZQUN5SwqFvQzdj2
-         YuGzWeDO5SY4mjKjaBhU4P0ecJn16tQAmFi+cZKYlNq3TIBj/K71NKWm8yYOqcPglWvu
-         psnA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795153034; x=1795757834; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=B/0atRX3itSILPoLTT2jiynyQu/IGk6Wpmy+FZVV2so=;
-        b=c30wh/LsnCgUxvDQTUrO47ussi+zTbnxgsJfopO3U83soE4j8H8tUFkkD+yANP3HNk
-         N5HmrBLzzjqUQioNE02/AqBvZoNOSWL0ZfcJA/lKvpbZulO25+5Jk//BYIrkOvWNuQ7m
-         XYeKOvsENfQRO1iygLySEEyQZB6Ggzi1aSAcUmFNKRL+GlGrkJfBYkhz9RPqXxrUTlRb
-         IJm3yTfUnR3g8JFnTPovmFppxj/I55LQ6iEARO6b7sIWcS5fefnpeNsqYxlyONwYR/I8
-         jSFG0OgrV8ELInXC8PIPGnzZUVKOJM+YYsRLPPhZ4e/Pq2WdaqZPEsHS9tLqrmHSPfo+
-         1QJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795153034; x=1795757834;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=B/0atRX3itSILPoLTT2jiynyQu/IGk6Wpmy+FZVV2so=;
-        b=X5AnE7gwB3wr7NnOCVRkRhof0asp2g9jrUeIrD3j+IQAoDMYw3FPaMEbasmNvulI2K
-         QSLi237GQ4GkZw40Bja07N5w8DX1wdz+QTfYil+54o7vD76Yh84zCcDwYH3WFc4JGqWI
-         lvg9oWpULZStFPLE1PZW6HTNMj6IqwGqOzIVllUdDdrlXcR+H3BPgPv9BLizs6KXDYhW
-         WN8x+cVxapuNPVnDhvpTvWDoHm3nZucYI2DrhtoTidniGQnmyfjqwqnArZHe0uxR6svw
-         hxZROzi+RGpx6ybwjJ4YcdmvagjENHrcXhlCc4ipkYafS2BLw9qqHhelOYsoGijMSgIR
-         YOPw==
-X-Forwarded-Encrypted: i=1; AL+hErG4XTSfFAY52VHCZZQPUgvEozjuBbRu0XdhFmdbwoYD7y0j+txL4oj3desS7mScaagKF5+Y2fgH8rn1WoQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WwTF6j2fwtOm2JM+XjZ8C2uhWEwtlV9ljWOngrmdD/VKLhzYG
-	8/lJKmKD/jnGXvWMOdcMV3a39+saMmPNBBaSSqazcPwpocJKMgLdXpc0Aq2SvmG43g7uzr9xpfj
-	eZKdgOC54LGLe2eO9oCHign933XCJ4Bt2sKrQ
-X-Gm-Gg: AYBFou3K/9rNfFPt5KeJPIP01/iMLrfNyqU+iuEPf1MGxXnGrEiDW+CyrBsitjf+fsY
-	/xji7+GH0qi4m2a/LfdKbOmrJCnygGuW2PDvjqVwf3zFfZY1R4wIJh3VPvlSdu89mILfFXyzxkK
-	690EDKWwbQcCoDFFyjVLk4yRRFGFYrjtxeaVZrg5jobaGTSh8Wl0wiYJWqzU3ju7XQbTee2w7aS
-	Ht4t4K6Pi+MH4BUBoe7t9HxSZLfflJuj1SBLjQQ80d7alU1JtNcbae8DA4mbvQaIgfIG6soyWZG
-	qYm9ssU3J/E0tLPUMdcYfFZfdZJKadIMnMFkP3fEy4G//FcicZmdCJCfGHAGwjOc3JXqLodmkgi
-	cMtkTYYltqEtaoZQ1tMr0oF3UuaNpwa7NVqiovOU=
-X-Received: by 2002:a05:622a:228b:b0:55d:2caf:ae7c with SMTP id
- d75a77b69052e-55d76a6e947mr36676041cf.19.1795153033968; Thu, 19 Nov 2026
- 21:37:13 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=dEdbW+lO
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
+	t=1795153065; bh=t/++9kq+HgKKBvu8dsfTWVjPVohzWSlwX7QOayHmTpk=;
+	h=From:Message-ID:From;
+	b=dEdbW+lO204v036Omb+vvUs1YY+BCTxSxm9WkJq5baDnIsL7G/zo3ItFguZxUQwO4
+	 1W9BbdpK1iEZSJNMJX+TQwjWWbfhXZSKIc0eLTKG9WwvS6Icb/TmWZg9aRGiQpCveP
+	 MXMwCGKVB8LevxzTTvt4gy3rDiELZD03gfKAn4W0=
+Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
+	by mta1.formilux.org (Postfix) with ESMTP id 19893C094A;
+	Fri, 20 Nov 2026 06:37:45 +0100 (CET)
+Date: Fri, 20 Nov 2026 06:37:44 +0100
+From: Willy Tarreau <w@1wt.eu>
+To: n3rd <18670333770@163.com>
+Cc: "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        Pablo Neira Ayuso <pablo@netfilter.org>,
+        Florian Westphal <fw@strlen.de>,
+        "security@kernel.org" <security@kernel.org>
+Subject: Re: [SECURITY] netfilter: ipset: double free in hash resize vs
+ inline gc
+Message-ID: <av_cqPmvrh5iT8Tw@1wt.eu>
+References: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,78 +63,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118081625.2399247-1-a0282524688@gmail.com>
- <20261118081625.2399247-6-a0282524688@gmail.com> <20261119101233.Z-LmZvya@linutronix.de>
-In-Reply-To: <20261119101233.Z-LmZvya@linutronix.de>
-From: Ming Yu <a0282524688@gmail.com>
-Date: Fri, 20 Nov 2026 13:37:02 +0800
-X-Gm-Features: Aa3M54rJzQMDbjIWqoH0okOv_GH6h7gkNtMRDZ7Tenmh0mHV2sFIdcgXND8rGn4
-Message-ID: <CAOoeyxXMPyG+PWiW5X5NHiH5WMaktCDPjH5-069MwjD-TC=amw@mail.gmail.com>
-Subject: Re: [PATCH v10 05/13] mfd: nct6694: Drop the unused IRQ enable mask
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: lee@kernel.org, Ming Yu <tmyu0@nuvoton.com>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, linux-kernel@vger.kernel.org, 
-	mfd@lists.linux.dev, linux-rt-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com>
 
-Dear Sebastian,
+Hello,
 
-Thank you for the review.
+On Fri, Nov 20, 2026 at 10:13:34AM +0800, n3rd wrote:
+>=20
+>=20
+> Hello,
+>=20
+>=20
+> I am reporting a security bug in the Linux kernel.
+>=20
+>=20
+> 1. Affected kernel versions
+> Linux v7.3-rc7 (mainline, tested as 7.3.0-rc7) is affected and was reprod=
+uced twice on fresh QEMU guests. The same unguarded call site is present un=
+changed in v7.2.9 (stable) and in the v7.3-rc series; those were checked at=
+ source level only and were not re-run dynamically. No bisection was perfor=
+med, so the affected range is stated from the source of the call site rathe=
+r than from a tested lower bound.
+>=20
+>=20
+> 2. Problem description
+> ipset hash sets are generated from one template, net/netfilter/ipset/ip_s=
+et_hash_gen.h. mtype_gc_do() has two callers. The workqueue caller mtype_gc=
+() takes gc.lock and checks t->resizing before the sweep. The second caller=
+ is at the top of mtype_add(), which is the insertion routine shared by the=
+ control plane (hash_ip4_uadt) and the packet path (xt_set SET target, then=
+ hash_ip4_kadt), and it neither takes gc.lock nor reads t->resizing. On the=
+ other side, mtype_resize() copies every element of the old table into a ne=
+w doubled table while holding only rcu_read_lock_bh(); it never takes t->hr=
+egion[r].lock, which is the one lock the inline sweep takes. The copy is a =
+memcpy of the element extension area, and the comment extension in that are=
+a is only an 8-byte pointer to a separately allocated struct ip_set_comment=
+_rcu that has no reference count. So when an element X expires while the co=
+py loop is still running, the packet path can sweep X as expired, free X's =
+comment on the old table via ip_set_comment_free() and clear the pointer th=
+ere, while the new table already holds the same pointer. When the set is de=
+stroyed later, the new table walks the same element and frees that comment =
+a second time. Observed on a KASAN kernel: BUG: KASAN: double-free in rcu_f=
+ree_sheaf, Free of addr ffff8881069f1900 by task ips03v2, and the Allocated=
+-by stack is the kasan kmalloc helper, then ip_set_init_comment, hash_ip4_a=
+dd, hash_ip4_uadt, call_ad, ip_set_ad, ip_set_uadd, nfnetlink_rcv_msg. The =
+object is in cache kmalloc-32. The same object is also read after it was fr=
+eed: BUG: KASAN: slab-use-after-free in strlen, Read of size 1, with strlen=
+, ip_set_comment_free, hash_ip4_ext_cleanup, hash_ip4_ahash_destroy, hash_i=
+p4_destroy, ip_set_destroy_set_work. Two fresh runs produced 16 plus 14 and=
+ 30 plus 14 of those reports; a control run with the packet path disabled p=
+roduced zero reports while performing exactly the same 15 resizes.
+>=20
+>=20
+> 3. Reproducer
+> A static x86-64 trigger program speaks the ipset nfnetlink protocol direc=
+tly. It creates a hash:ip set with the timeout and comment extensions, inst=
+alls an iptables OUTPUT rule with the SET target and --add-set, sends UDP p=
+ackets to 127.0.0.1 from a bound source address so that the packet path ent=
+ers mtype_add on every packet, and arranges the timeouts of 1500 filler ele=
+ments so that their deadlines fall inside a table resize. The complete repr=
+oducer, the guest initramfs scripts and the full console logs are available=
+ on request; I did not post them publicly.
+>=20
+>=20
+> 4. Conditions
+> Local attacker with CAP_NET_ADMIN inside a user namespace. No init-namesp=
+ace capability, no CAP_NET_RAW (the packets are UDP to 127.0.0.1) and no sp=
+ecial filesystem are needed. The kernel must have CONFIG_IP_SET, CONFIG_IP_=
+SET_HASH_IP and CONFIG_NETFILTER_XT_SET, and the set must use the timeout a=
+nd comment extensions. This is a race, so the trigger runs several attempts=
+ per boot; on TCG it hit within the first one to three of five attempts. KA=
+SAN with kasan_multi_shot is required to see it, because stock KASAN stops =
+reporting after the first finding.
+>=20
+>=20
+> 5. Suspected location
+> net/netfilter/ipset/ip_set_hash_gen.h: the inline mtype_gc_do() call at t=
+he top of mtype_add(), versus the guarded call inside mtype_gc(). Also mtyp=
+e_resize() and the memcpy of the element extension area that carries the co=
+mment pointer. net/netfilter/ipset/ip_set_core.c: ip_set_comment_free() and=
+ ip_set_init_comment().
+>=20
+>=20
+> 6. Suggested fix
+> Give the inline sweep the same exclusion the workqueue sweep already has:=
+ take h->gc.lock and skip the sweep when t->resizing is set. A more complet=
+e variant is to take t->hregion[r].lock around the per-region copy in mtype=
+_resize(), so both sweep entry points are serialized with the resize. For c=
+ontext, cffcf57bf03c only fixed the workqueue caller, and f30415929be8 and =
+a442c8a89fb9 fixed other sites.
+>=20
+>=20
+> 7. Mitigation
+> Do not create ipset sets that use the comment extension on affected kerne=
+ls, or leave CONFIG_NETFILTER_XT_SET off so the packet path cannot enter mt=
+ype_add. Restricting unprivileged user namespaces removes the unprivileged =
+reachability but does not fix the bug.
+>=20
+>=20
+> 8. Disclosure
+> Public. This report is being sent to the public netfilter list; no embarg=
+o is requested. The reproducer is not posted publicly; it is available on r=
+equest.
+>=20
+>=20
+> 9. AI-assistance note
+> This report was prepared with an AI coding assistant. Per the kernel secu=
+rity process I treat the issue as public and am not posting the reproducer =
+publicly.
 
-Sebastian Andrzej Siewior <bigeasy@linutronix.de> =E6=96=BC 2026=E5=B9=B411=
-=E6=9C=8819=E6=97=A5=E9=80=B1=E5=9B=9B =E4=B8=8B=E5=8D=886:12=E5=AF=AB=E9=
-=81=93=EF=BC=9A
->
-> On 2026-11-18 16:16:16 [+0800], a0282524688@gmail.com wrote:
-> > From: Ming Yu <a0282524688@gmail.com>
-> >
-> > The .irq_enable and .irq_disable callbacks only update the irq_enable
-> > bitmask under irq_lock, which is a spinlock_t. Nothing ever reads that
-> > bitmask, so the callbacks do not mask anything. They also take irq_lock
-> > while the IRQ core holds desc->lock, a raw spinlock. On PREEMPT_RT this
-> > is an invalid wait context.
-> >
-> > Remove both callbacks, along with irq_enable and irq_lock, and keep
-> > IRQCHIP_SKIP_SET_WAKE. Without .irq_disable, the IRQ core falls back to
-> > lazy disable, and handle_simple_irq() keeps a disabled interrupt pendin=
-g
-> > instead of calling its handler. The behaviour is therefore unchanged.
-> >
-> > Fixes: 51dad33ede63 ("mfd: Add core driver for Nuvoton NCT6694")
-> > Signed-off-by: Ming Yu <a0282524688@gmail.com>
->
-> This sort of makes sense. But how does this work? If the interrupt keeps
-> coming the irq-core will just suppress it?
+If you used AI assistance, your LLM ought to have told you that our doc
+requests that:
+  - a tested fix is always provided, and in a format that can be applied
+  - the security list isn't CCed when the message is posted to public lists
 
-Yes, that is my understanding. The NCT6694 does not provide an interrupt
-mask that the host can program. The firmware reports a 32-bit status
-word, through the interrupt URB on USB and through shared memory on HIF,
-and the transport handles every report and dispatches each set bit.
+Can you please propose patches for your different reports ? This is general=
+ly
+trivial to do for LLMs after they find a bug because they have a complete
+view of the problem.
 
-While a child interrupt is disabled, handle_simple_irq() only marks it
-pending and does not call the handler. When the interrupt is enabled
-again, check_irq_resend() replays it. The parent should not be flooded:
-on USB it is the URB completion, and on HIF the handler clears the
-status on every interrupt.
-
-This is also how the driver behaved before this patch, because the
-callbacks only updated a bitmask that was never read.
-
-> If that is your whole business why not use dummy_irq_chip?
-
-Thank you for the suggestion. I am looking into it now. As far as I can
-see, dummy_irq_chip only provides no-op callbacks and also sets
-IRQCHIP_SKIP_SET_WAKE, so the behaviour should stay the same. It would
-also let me drop the irq_set_chip_data() calls, since nothing reads the
-chip data after this change. The only visible difference I found is the
-chip name shown in /proc/interrupts.
-
-If you agree, I would like to switch to dummy_irq_chip in v11. Since
-this changes the patch, I will not keep your Reviewed-by unless you are
-fine with it.
-
-Please let me know if I missed anything.
-
-Best regards,
-Ming
+Thanks,
+Willy
