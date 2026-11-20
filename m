@@ -1,111 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.240.48.188
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171489;
-	b=ktaDMBv+H9NBvbIUE6afZVNsESKfxERbWFwWPBz9oi2cecKk5a/yiiG7ii/en6h+jWil
-	 uGYpqFv8WmVtZZ0gYDRNoQKdgWyZEFMnHA2/KAZZIegAgrV+aF8OX2tYwMA+IrG2GEKpF
-	 rOlZZdp/7U63HHOj2JsbDLr7c8TVLCLcXdsgKIhLn86J4lRkAQgoj+YS6QXyQ+wg+/2EL
-	 2TuptAH2pW/IiJqJTGemxb5EV04Ak/6X3rQxEvsGiR44kGV6CqDXmAGLWhyegyYaqWqON
-	 ftZbAeKcetgddh1plyfh2l3FTk7P/yxao0y4sjEgT3lWxc3bKlxbhiqhk3ogkfaRB6w==
+	t=1795171497;
+	b=mp0iJgEmCGxrvoFomP3g8/0CBCiJ08q89eMcDfZ1rFmBQgKaIxSxBgvx/inF++7WWAXA
+	 wpn0TpZ3FH0sHoAfHN2xc96ivQVSeVbI/rbzawkr+37NzZ45D+LyaNSCxjoF54WPnO0Hq
+	 bwzOBkvwcrXuk5Q2efRl8xSsNnFerpNya412wF1C7QXlt3UuUyixA+tPS3YqSZDS4N/vX
+	 3QndPdtJ03nx0GIh82hmIWrLc8j67/kxi/+eM+P93CPjRu/KCv+2zDySUAqdIk9yvy17i
+	 w/+gJPkzTsxi9+GzlOeEsIgg4KMGYdaYTkYY4Nz9d/dFfFy73eVss3xPBpMp55rgkEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171489;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=9ga9s4FaYGlFWJhY7GxV3+5LLmF/e6Nq1LhLpotH2LA=;
-	b=jjNM6raUeE4WksoA+mWw3dDWY/svDgeonPLkCxik4RrJmbCEppQbRWfwUGdpW86H4ndz
-	 xqIWarFFGu+hVLA1vYJE7IT8vdSPxUTSS4E7/jAM+PIX0p6LngtQBLuSScpumnkbVt2Bm
-	 v0YLZFYZ4aKgfIV4B727eQ7OpoF0HR0kOLvM1Sv081XSSuU5ZMWJpLHMEIrA8eKlPfmqM
-	 g7PwijzFLzNeUNLNut1a1qLixJ72IYSziFFOCU6r6CKqBUh+OvTtickRs54nhpK+zJxG3
-	 4Vw16+HK8o8wEfuCUOOl1Y13vx5TS326SfizsYA84aXJL+dJ945Yq8h99pAQYrkiYow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171497;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:In-Reply-To:References:
+	 From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:
+	 MIME-Version:Content-Type:Feedback-ID:X-SES-Outgoing;
+	bh=r7NOUwZ7HKbF8wPBcMERXebPtcGnuh6Cp251eU6IQtA=;
+	b=u182zjF71HP4fTUFcLNH+qe2yWcQ3UAGICntaVA8AoXFojwbC0ln/ob/ZaJxKeT1RVf1
+	 Y11g3WuFhfB/4ure5LVXPClghuzB2cZVxG8OaJlKiVVUrsa7UzyL+PByo69UmHKpCHVbv
+	 ENvVSppNwhAPYxU8bj4yYs1o6d+n1BuH/Hpoy9VgA+/QmRfFB9bqzo1rjKk+0JwvU+9D2
+	 YAeWtUboEf5nq7SrlXVB2a4bnMcpu7D13uRscwMtOry8TEMFO0uiFUyfEij2NNmWSS5DO
+	 TMvArLqOmiAc4NvMXE+JF6aN5iZHGmxQA+x+n099oGjJVKuJcxMQd9cy5jBy1A4hNEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=f2HwKWgZ;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RaNbFL8w;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=ahmedabdelfattah.dev;
+	spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev;
+	dkim=pass header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b="n/RJlktx";
+	dkim=pass header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=OjNlWpfU;
+	arc=none smtp.remote-ip=54.240.48.188
+Received: from a48-188.smtp-out.amazonses.com (a48-188.smtp-out.amazonses.com [54.240.48.188])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C7D606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2C7D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2D2C606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2D2C606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ahmedabdelfattah.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=send.ahmedabdelfattah.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=f2HwKWgZ;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=RaNbFL8w
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7eqkp1268338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9ga9s4FaYGlFWJhY7GxV3+5LLmF/e6Nq1LhLpotH2LA=; b=f2HwKWgZcfKld8j1
-	7/QDVrMXeLYD5PCQxG1w6Lq9fq6FORKgSlUx8mkNQvPvxF9qdyVl08tVKzbXVqcq
-	dFRsUkuiFseKmEalVdG013XQ215OVMF+tb/TZKOFTLI43CC2CyaYNTCgEt9WVA8p
-	mT4ltxWHCoJPkWYrZJTf/56tziab125xo4v0XRzBY5kVfCAEiJ/LAjYZMkeT/5Ix
-	6uLKsZkciH5UoxTS7qsvU88eAtsw0QmhMN1G9JuzKMV8ckCx9YOnU4aqlXVdKGgR
-	TQ+Z+k5KN8W2fRVP8HdHT8UP0hh+3UlrRxytQbafS8jYBXApmNk1kiPhmyFTwd/U
-	DAFCWg==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2cd1t16m-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:48 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-370230d93efso2407706eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:44:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795171488; x=1795776288; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9ga9s4FaYGlFWJhY7GxV3+5LLmF/e6Nq1LhLpotH2LA=;
-        b=RaNbFL8w7jeZM5oe3c27mP2nCNKnYzjBTXnLJP2cmss+aazOit/Lsu3EjLaaeX4GKi
-         YbzMn+KIlySD56kp9FLCV6hARj+Z6nSe+6y9CgaRlE+8GVy3CAeLL8bWM0+dUm0Kji0Q
-         Me3dw5ALRMD5jGPWSNBvdUMPHB90KPC6kl0G1hZs1Nq4+zZaDwYtoXJM8Rf9cLDEjvaE
-         ztM/x1G7rHtF1Iga+JbDEhW+3ixM8Iz3JkZmSI4tzMrgpjDCb5Ef/yuBGIb9+vyQWT54
-         cPkcU2dl0bmtMaK5EW8ANvrwT17MvA5I+wgUzEeflm9C6Ly/wx5yNoQOVzW6cv3eb7wx
-         G+ng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795171488; x=1795776288;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9ga9s4FaYGlFWJhY7GxV3+5LLmF/e6Nq1LhLpotH2LA=;
-        b=mqcD3ABeaHM9K7U5FrdjkyRHVSkqJhTbg54bbC/UJGrwPIiJJc+kZFk7ykJUqv2aym
-         I+Tf+1So7BNjpThtIPfQ6OziU+KJ3XcWDEaXjNIX31DYU4aIChdjZbGeVbaTY33hVncP
-         N+f2AVS7hkWeYZYnT8tO15hJB0zJ6LligfPPKKW2c2ACssRVI9ldLq8zxZwYqCaYt8E5
-         ORbZm80LAgEsnJU0tdIYjwapbyQPZjGJ+5AafxSW1L6/fc49Zz3VZpm6rHKuwJQD7uzN
-         XxVcTSM7djUxsknVORtssUtBocgNzJsVROClQ+Mtn8+LC42b7Xu+w9VzrlkPg57J/wgx
-         jMaA==
-X-Forwarded-Encrypted: i=1; AL+hErH/8nBSI1MQ1feyYJLpAlZ8VRDl5dHuqlfCWDEkpn27MnAAM14xXmfkX4oMPPB3YWUPHzoDyw7nqpr1qL0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/3jrZr6tS+o/vLKVAw/nwSirvvNYn1nj9b+sm9gW2/0i2wH+hv
-	egP7qPq84KoBvc2id31pG9d3WNjasOv2k8DyRl4jxq70zXtt+fReTA7ieRU/Wn60YCyOGS/7Qqh
-	rhHJSILDkfddKCnjvQxomvghsva/dkG5muJVO0vv+MtD/aW/F7t+gRUOPvs++A3Ii8ho=
-X-Gm-Gg: AZFdTZdkiLo+BlByCUhPDTBM0IgvrwyhpO/gm4Mu3csjNEcTNci4oPMPxbhBTk/U+KM
-	3wPSOwpiz9QLaKr5GbLy+81mN6ePKLT9lhk5HoZHRw9xb4a4aCYruMLnX6uiYH6NgpANwT34v/I
-	YBAygPLmZgiSTNwYjoPkyxT1f22M2D8FJ71C/XFWv72YURqw5Lm4SaBfK1kg5nQH2nLqYFseM4X
-	WEOIHuDyRmFh1hu09exttNP7jsPAySt3f//Mnf3rHtQD11o0CRalSBRTnDgF4tBfdgmT/HF5EOk
-	Do/uoaC8H27c+IEqZFtzOcuzmVkmC8XiJwoeADpaNCGg5qiYaRT3Kx9ZzYfXYw92fvdkmLM8UXo
-	/a86ayLpD0wPAniOriZTk7P18g5TVUE72s4Oj6U3gUZSOTzJyK/y6ZEy9G81xd/iA7tWmpkcz
-X-Received: by 2002:a05:693c:80ce:b0:36a:12c1:3adb with SMTP id 5a478bee46e88-3856f254a24mr2275360eec.20.1795171487486;
-        Fri, 20 Nov 2026 02:44:47 -0800 (PST)
-X-Received: by 2002:a05:693c:80ce:b0:36a:12c1:3adb with SMTP id 5a478bee46e88-3856f254a24mr2275321eec.20.1795171486791;
-        Fri, 20 Nov 2026 02:44:46 -0800 (PST)
-Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm6097471eec.24.2026.11.20.02.44.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:44:46 -0800 (PST)
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 16:14:21 +0530
-Subject: [PATCH v3 2/2] clk: qcom: segcc-nord: Add I2C and TSC clock
- support
+	dkim=pass (1024-bit key, unprotected) header.d=ahmedabdelfattah.dev header.i=@ahmedabdelfattah.dev header.a=rsa-sha256 header.s=resend header.b=n/RJlktx;
+	dkim=pass (1024-bit key, unprotected) header.d=amazonses.com header.i=@amazonses.com header.a=rsa-sha256 header.s=224i4yxa5dv7c2xz3womw6peuasteono header.b=OjNlWpfU
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=ahmedabdelfattah.dev; t=1795171496;
+	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
+	bh=oEkLVLA5jQok7pN8N7y8xe+lPfTl3Cpro7ZDYwpZPk8=;
+	b=n/RJlktx6LHIUKKvXBxkLNws4YiSqKtl54Sk4jyOcRIKWRuXOGn4tQAvUmShoZb/
+	fdUbDNksFniD4gDLfp+kWF/WyZKUEgB/1hhtZM0ln82S1zeyytzc/lxMLC7/0i5x7HL
+	rg62dqFK6SNPNpnQ/okHB3rfkX8+feIYZ6Dh7oxY=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1795171496;
+	h=In-Reply-To:References:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=oEkLVLA5jQok7pN8N7y8xe+lPfTl3Cpro7ZDYwpZPk8=;
+	b=OjNlWpfUFx6IZ1kOWJ6KV0gthrks5hpOVlKecsFPfrhy11cXT81dZp2Yhp3KIjQ3
+	m45cBP3Il9yj8YqwErwNVIqfueWQHTE6FVKf73WQ94OT09Zm9rPT6IO3TZduLidOsBs
+	uWsYyVdqvi4s9AazNEJ3uOZnxYBwAVdeWt918Oi8=
+In-Reply-To: <awAGxH0bwT1xLNLy@intel.com>
+References:
+ <20261107-x86-apic-lapic-resource-v1-1-28de4cb3fb1e@ahmedabdelfattah.dev>
+ <awAGxH0bwT1xLNLy@intel.com>
+From: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+To: Chao Gao <chao.gao@intel.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] x86/apic: Use the physical address for the local APIC
+ resource
+Message-ID: <010001a1f88f2f58-42fb2639-5ecd-4524-904c-d7d1b108561d-000000@email.amazonses.com>
+Content-Transfer-Encoding: 7bit
+Date: Fri, 20 Nov 2026 10:44:55 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -115,273 +75,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-gcc_i2c_tsc_support-v3-2-e631872e670b@oss.qualcomm.com>
-References: <20261120-gcc_i2c_tsc_support-v3-0-e631872e670b@oss.qualcomm.com>
-In-Reply-To: <20261120-gcc_i2c_tsc_support-v3-0-e631872e670b@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        netdev@vger.kernel.org, Taniya Das <taniya.das@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Authority-Analysis: v=2.4 cv=Dt/Da2/+ c=1 sm=1 tr=0 ts=6b0024a0 cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=dmjuMl4sYXMLEaQzlHIA:9 a=QEXdDO2ut3YA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: HyrH4GL4jLpqSzjd-LDAORuMTp7xnBE-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MiBTYWx0ZWRfX+SS+1PjwWv5a
- pEwDivwBhYL5O7fYsVsSxndxKxBdqkfsKvp/47RrZMxpKoSOG5IboyzgW+z3yG29EZ3sqTKCEtb
- K88UKELrwrFH4/Mo29p3H22LQgPuzbYESTCV2L9wzQbHaTJPVBpfKyI0uC4pxUUU5eddlKWKQc/
- f0g9VpWOq4Tv6k4hQJH7YbyZ7CpPB/Try2jD6YONmuMfH1Uzb6QsyY0dLd2BEWsuElO6hWaX3nP
- 62aknA/Q5kY4fx0svAGicFWqutewwdFXNvny1HZDzYY+CmyqAU0idO+o6+5ztMSuFMVpXY0z/jz
- qTX0/c990MxwWT+DkjTD/M3Kwbb3F3qb10f3js2tOxgjOogwY2rS1KyYV/pPf8elfIf179wb2Up
- 3DN2rUvUDE788csF2yC9Dfo6dzzqdrX4g4qWpFs6VrbzFHAd+yYBUIFOxdWVkjT41rQs8UqFPS/
- OdBBg7eDdkTB2SNt/Iw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MiBTYWx0ZWRfX/7uYurQaZ//C
- qwZNknaHpK7R552H4QF5altZu4bsQQAe/9qU8mhf7E18X91zQ4sQ9FT/BLs9VNF/bUna5KC9qcG
- +a33WygkzgBzqdkhKRCD3s1z7/oboOE=
-X-Proofpoint-ORIG-GUID: HyrH4GL4jLpqSzjd-LDAORuMTp7xnBE-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0 bulkscore=0
- malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200042
+Content-Type: text/plain; charset=utf-8
+Feedback-ID: :1.us-east-1.uCKvsN4fow5iTxhgdfCiLkD52dLS8e5zeZeNIHIyObThYgWj6io55JEpA9Lr59BibvMHOQwybONW0pi/CZ0koY1A1i17AG2yWEV8SeTaUDUkRN5zlcaoQEhviEafOoOqtPZhQs319GE3nsx7+JZeBdmAUyq6td6+kg0Qy2oXHvo=:1.us-east-1.pAEstvQcjyhQNKGKcgSlzI7SVR8ZSG5wSmKwiz/A8Dg=:AmazonSES
+X-SES-Outgoing: 2026.11.20-54.240.48.188
 
-Describe the I2C slave and TSC subsystem clocks, reset lines, and
-parent PLL needed by the Nord SE GCC. This permits consumers to enable
-and reset the hardware through the common clock framework.
+On Fri, Nov 20, 2026 at 04:37:24PM +0800, Chao Gao wrote:
+> What is the impact on end users if this isn't fixed? Please make it clear
+> in the changelog, even if it is minor.
+>
+> No one else has noticed this since v6.6, so it looks to me that nothing
+> depends on this "Local APIC" entry.
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Reviewed-by: Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>
-Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
----
- drivers/clk/qcom/segcc-nord.c | 135 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 135 insertions(+)
+It is minor. Apart from the line missing in /proc/iomem, the page is no
+longer a busy resource, so CONFIG_IO_STRICT_DEVMEM does not keep
+/dev/mem away from it any more. I checked that on v7.4-rc3+ in a guest
+booted with nox2apic: without the patch 0xfee00000 can be mapped
+through /dev/mem, reads return the APIC registers and a write to the
+TPR is accepted. With the patch the mmap() fails with EPERM, as it does
+for the IOAPIC page.
 
-diff --git a/drivers/clk/qcom/segcc-nord.c b/drivers/clk/qcom/segcc-nord.c
-index ef97da3852e3571db5c34676a8f08b9650d1e4c6..256d3c18201b4fd0e48bef9293cdf78fb329ebe2 100644
---- a/drivers/clk/qcom/segcc-nord.c
-+++ b/drivers/clk/qcom/segcc-nord.c
-@@ -29,6 +29,7 @@ enum {
- 	P_BI_TCXO,
- 	P_SE_GCC_GPLL0_OUT_EVEN,
- 	P_SE_GCC_GPLL0_OUT_MAIN,
-+	P_SE_GCC_GPLL1_OUT_MAIN,
- 	P_SE_GCC_GPLL2_OUT_MAIN,
- 	P_SE_GCC_GPLL4_OUT_MAIN,
- 	P_SE_GCC_GPLL5_OUT_MAIN,
-@@ -74,6 +75,23 @@ static struct clk_alpha_pll_postdiv se_gcc_gpll0_out_even = {
- 	},
- };
- 
-+static struct clk_alpha_pll se_gcc_gpll1 = {
-+	.offset = 0x1000,
-+	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-+	.clkr = {
-+		.enable_reg = 0x57010,
-+		.enable_mask = BIT(1),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_gpll1",
-+			.parent_data = &(const struct clk_parent_data) {
-+				.index = DT_BI_TCXO,
-+			},
-+			.num_parents = 1,
-+			.ops = &clk_alpha_pll_fixed_lucid_ole_ops,
-+		},
-+	},
-+};
-+
- static struct clk_alpha_pll se_gcc_gpll2 = {
- 	.offset = 0x2000,
- 	.regs = clk_alpha_pll_regs[CLK_ALPHA_PLL_TYPE_LUCID_OLE],
-@@ -189,6 +207,20 @@ static const struct clk_parent_data se_gcc_parent_data_4[] = {
- 	{ .index = DT_SLEEP_CLK },
- };
- 
-+static const struct parent_map se_gcc_parent_map_5[] = {
-+	{ P_BI_TCXO, 0 },
-+	{ P_SE_GCC_GPLL0_OUT_MAIN, 1 },
-+	{ P_SE_GCC_GPLL5_OUT_MAIN, 3 },
-+	{ P_SE_GCC_GPLL1_OUT_MAIN, 4 },
-+};
-+
-+static const struct clk_parent_data se_gcc_parent_data_5[] = {
-+	{ .index = DT_BI_TCXO },
-+	{ .hw = &se_gcc_gpll0.clkr.hw },
-+	{ .hw = &se_gcc_gpll5.clkr.hw },
-+	{ .hw = &se_gcc_gpll1.clkr.hw },
-+};
-+
- static const struct freq_tbl ftbl_se_gcc_eee_emac0_clk_src[] = {
- 	F(66666667, P_SE_GCC_GPLL0_OUT_MAIN, 9, 0, 0),
- 	F(100000000, P_SE_GCC_GPLL0_OUT_MAIN, 6, 0, 0),
-@@ -670,6 +702,21 @@ static struct clk_rcg2 se_gcc_qupv3_wrap1_s6_clk_src = {
- 	.clkr.hw.init = &se_gcc_qupv3_wrap1_s6_clk_src_init,
- };
- 
-+static struct clk_rcg2 se_gcc_tscss_clk_src = {
-+	.cmd_rcgr = 0x2a010,
-+	.mnd_width = 0,
-+	.hid_width = 5,
-+	.parent_map = se_gcc_parent_map_5,
-+	.freq_tbl = ftbl_se_gcc_emac0_ptp_clk_src,
-+	.clkr.hw.init = &(const struct clk_init_data) {
-+		.name = "se_gcc_tscss_clk_src",
-+		.parent_data = se_gcc_parent_data_5,
-+		.num_parents = ARRAY_SIZE(se_gcc_parent_data_5),
-+		.flags = CLK_SET_RATE_PARENT,
-+		.ops = &clk_rcg2_shared_ops,
-+	},
-+};
-+
- static struct clk_branch se_gcc_eee_emac0_clk = {
- 	.halt_reg = 0x240b4,
- 	.halt_check = BRANCH_HALT,
-@@ -1079,6 +1126,34 @@ static struct clk_branch se_gcc_gp2_clk = {
- 	},
- };
- 
-+static struct clk_branch se_gcc_i2c_slave_ahb_clk = {
-+	.halt_reg = 0x2c008,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x2c008,
-+	.hwcg_bit = 1,
-+	.clkr = {
-+		.enable_reg = 0x2c008,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_i2c_slave_ahb_clk",
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_i2c_slave_xo_clk = {
-+	.halt_reg = 0x2c004,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2c004,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_i2c_slave_xo_clk",
-+			.ops = &clk_branch2_aon_ops,
-+		},
-+	},
-+};
-+
- static struct clk_branch se_gcc_mmu_2_tcu_vote_clk = {
- 	.halt_reg = 0x57040,
- 	.halt_check = BRANCH_HALT_VOTED,
-@@ -1456,6 +1531,57 @@ static struct clk_branch se_gcc_qupv3_wrap1_s_ahb_clk = {
- 	},
- };
- 
-+static struct clk_branch se_gcc_tscss_ahb_clk = {
-+	.halt_reg = 0x2a00c,
-+	.halt_check = BRANCH_HALT_VOTED,
-+	.hwcg_reg = 0x2a00c,
-+	.hwcg_bit = 1,
-+	.clkr = {
-+		.enable_reg = 0x2a00c,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_ahb_clk",
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_tscss_cntr_clk = {
-+	.halt_reg = 0x2a008,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2a008,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_cntr_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&se_gcc_tscss_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
-+static struct clk_branch se_gcc_tscss_etu_clk = {
-+	.halt_reg = 0x2a004,
-+	.halt_check = BRANCH_HALT,
-+	.clkr = {
-+		.enable_reg = 0x2a004,
-+		.enable_mask = BIT(0),
-+		.hw.init = &(const struct clk_init_data) {
-+			.name = "se_gcc_tscss_etu_clk",
-+			.parent_hws = (const struct clk_hw*[]) {
-+				&se_gcc_tscss_clk_src.clkr.hw,
-+			},
-+			.num_parents = 1,
-+			.flags = CLK_SET_RATE_PARENT,
-+			.ops = &clk_branch2_ops,
-+		},
-+	},
-+};
-+
- static struct gdsc se_gcc_emac0_gdsc = {
- 	.gdscr = 0x24004,
- 	.en_rest_wait_val = 0x2,
-@@ -1520,9 +1646,12 @@ static struct clk_regmap *se_gcc_nord_clocks[] = {
- 	[SE_GCC_GP2_CLK_SRC] = &se_gcc_gp2_clk_src.clkr,
- 	[SE_GCC_GPLL0] = &se_gcc_gpll0.clkr,
- 	[SE_GCC_GPLL0_OUT_EVEN] = &se_gcc_gpll0_out_even.clkr,
-+	[SE_GCC_GPLL1] = &se_gcc_gpll1.clkr,
- 	[SE_GCC_GPLL2] = &se_gcc_gpll2.clkr,
- 	[SE_GCC_GPLL4] = &se_gcc_gpll4.clkr,
- 	[SE_GCC_GPLL5] = &se_gcc_gpll5.clkr,
-+	[SE_GCC_I2C_SLAVE_AHB_CLK] = &se_gcc_i2c_slave_ahb_clk.clkr,
-+	[SE_GCC_I2C_SLAVE_XO_CLK] = &se_gcc_i2c_slave_xo_clk.clkr,
- 	[SE_GCC_MMU_2_TCU_VOTE_CLK] = &se_gcc_mmu_2_tcu_vote_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP0_CORE_2X_CLK] = &se_gcc_qupv3_wrap0_core_2x_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP0_CORE_CLK] = &se_gcc_qupv3_wrap0_core_clk.clkr,
-@@ -1560,6 +1689,10 @@ static struct clk_regmap *se_gcc_nord_clocks[] = {
- 	[SE_GCC_QUPV3_WRAP1_S6_CLK] = &se_gcc_qupv3_wrap1_s6_clk.clkr,
- 	[SE_GCC_QUPV3_WRAP1_S6_CLK_SRC] = &se_gcc_qupv3_wrap1_s6_clk_src.clkr,
- 	[SE_GCC_QUPV3_WRAP1_S_AHB_CLK] = &se_gcc_qupv3_wrap1_s_ahb_clk.clkr,
-+	[SE_GCC_TSCSS_AHB_CLK] = &se_gcc_tscss_ahb_clk.clkr,
-+	[SE_GCC_TSCSS_CLK_SRC] = &se_gcc_tscss_clk_src.clkr,
-+	[SE_GCC_TSCSS_CNTR_CLK] = &se_gcc_tscss_cntr_clk.clkr,
-+	[SE_GCC_TSCSS_ETU_CLK] = &se_gcc_tscss_etu_clk.clkr,
- };
- 
- static struct gdsc *se_gcc_nord_gdscs[] = {
-@@ -1570,8 +1703,10 @@ static struct gdsc *se_gcc_nord_gdscs[] = {
- static const struct qcom_reset_map se_gcc_nord_resets[] = {
- 	[SE_GCC_EMAC0_BCR] = { 0x24000 },
- 	[SE_GCC_EMAC1_BCR] = { 0x25000 },
-+	[SE_GCC_I2C_BCR] = { 0x2c000 },
- 	[SE_GCC_QUPV3_WRAPPER_0_BCR] = { 0x26000 },
- 	[SE_GCC_QUPV3_WRAPPER_1_BCR] = { 0x27000 },
-+	[SE_GCC_TSCSS_BCR] = { 0x2a000 },
- };
- 
- static const struct clk_rcg_dfs_data se_gcc_nord_dfs_clocks[] = {
+I'll put that in the changelog.
 
--- 
-2.34.1
+> Using the virtual address is clearly a mistake, so this fix looks good to
+> me. But the Fixes tag is wrong, as "apic_phys" already held the same
+> virtual address before that commit.
 
+You're right, thanks. It was 81287ad65da5 ("x86/apic: Sanitize APIC
+address setup") that replaced
+
+	apic_phys = mp_lapic_addr;
+
+with
+
+	apic_phys = apic_mmio_base = APIC_BASE;
+
+and 78c32000848c only switched to the other variable. I'll fix the tag
+and the description in v2.
+
+Thanks for the review,
+Ahmed
