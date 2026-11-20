@@ -1,93 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.73.201
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795211849;
-	b=VAz+Exz8mxyFS2KYUji/RjIGNG2uo8AaxhWEdYsmIFcJ2q+8xJporQClIm1zG2Fd201z
-	 fuchPr0+QHG+s4eTCDgcJIZL3hhP9OsdcR70ouQys8Mt1ow6CRsup2wKxGJXPF38D8MaG
-	 1boLMPHxxzL3jV6OndS5uUem7hqRQxU6oECHC7b2x1M7U1H/Sv6YXTBm80aqZZLOgq5Qi
-	 ESHlhadsrGt/RsDTuFHxsah7WoyXYJifFIzcwbPgwtNsmnNLAiMSF0Hgyykn4BeJN9zrW
-	 luIBrMATrSTmZkKRKr6xBPVewIcibXprqfUtHi7SjOGSxMbOnPGjHBnvXimBVFRI7mw==
+	t=1795211930;
+	b=P7RdhvXufXDaBlqV0vpMly/HKCK2abiA9GH/G9qPfs9utXE6vdPO3W5iyT+s1GJmtB/X
+	 lNXRDxEmUDb/tHPyjZGT7d6/Th8kbnOi0iA5u/nHXX9cKgtrf09KzcCXiF6MqvHo0jyJD
+	 4EtwHxd6QgU3p8+mGMPBbH5m4ebPWsHExVymu+lUH6uOJkMz89Hk8nYrJbD433xglXJwg
+	 7EB2p/c25piR15mRbEsU1DsnRRHiAN7HPWhZtU/sc+DUGRm0C8ZVHxQySndNZlqnhcsY9
+	 pvx2vj7IcYspIcPQqwJLy4mIZr+WAh/97FXbTE/YF8uAyvqTURX0tCwIolgIsqGU+pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211849;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-	b=b/Rti2ItevhiCakkXhxUk/zFJOpEIc+rz5Vpza7Q+ZdP5/QxR8tBnlvuOhz2XJv6KLDW
-	 cvxzKAaMbVvGDhxsd+HsVu/9GR/cNLGAoSzelP9f7uQ069EKuODMU6qF5w9BsJGiGKvSv
-	 hwz45QmY+vSA/YuqBJ7pB9B0rFxMfZdaAHEkJFiKSBZ3xQO0MKLtM11zn5TBB3Ksrdcrg
-	 0l7CleYeoaY0J36dh7cOL9ryoN2CAbImZ9F/zoUptcBTff3rfaOq7oDCR7pUH5WNY5rKv
-	 8xWH+pE3k7yp7Usy33LzD1w17rNKswza5xHFNq0rpEsbYXRjR+z9JZsBnXycl8fzw3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211930;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Info-Out:
+	 X-Proofpoint-ORIG-GUID:X-JNJ;
+	bh=vO+uPv3zfqiHdkgJ0aAi0xM/4WNzWKzE0aqte+1e/Uw=;
+	b=jDXtUtXgsMGrJxl7lKGVzd8QBAa2hOo1OoB04Gv7ZOzx4xQj2cv2NxBIrgutl5NEw/Fz
+	 L5nFSD/d92Giu4kWUNSRn2TPM+2QDl1WMKq4yQuukXUatgLWky1ThoisMYRJ6vr9iCr5x
+	 cQFDAWq1YgbmSkEnK4nX11apeSeF7WMks79gJkmPBelk4DvZDt+EHVVbGO7g5yOoDdzjT
+	 sJ6LPyqkeDUc0kcBwUY6FuYmvbheJw9mCUOdg17CwHHpoNQcuZzs2vSFX4JfpPd5Ee6tc
+	 nR8FK+O9z92Ft1u6p4Ph4+is+FtDWBdgtducl1SChrtgez6sIsPurRaLw6xUgzVAtBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openai.com;
-	spf=pass smtp.mailfrom=openai.com;
-	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JJAwoK30;
-	arc=none smtp.remote-ip=209.85.167.179
-Received: from mail-oi1-f179.google.com (mail-oi1-f179.google.com [209.85.167.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=shuye.dev;
+	spf=pass smtp.mailfrom=shuye.dev;
+	dkim=pass header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=X+lD4E00;
+	arc=none smtp.remote-ip=57.103.73.201
+Received: from outbound.ms.icloud.com (ms-2001g-snip4-11.eps.apple.com [57.103.73.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 781DA606A6A7
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:57:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 781DA606A6A7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25321606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:58:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25321606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=shuye.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shuye.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JJAwoK30
-Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-4d198f1a591so1293582b6e.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:57:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openai.com; s=google; t=1795211844; x=1795816644; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-        b=JJAwoK30Z1NZo+0BdT3kGKTbsyhKp5l/wQRPEFpuJAUf4wvXTrfuvAsRQLGftwhXCW
-         HZUTPSz5NOyoO5gFt/kRZfjmv+KKl98aEJ5V0unKlYr3cpvh12gaqVuGtlbxMegMakYP
-         m9RRIE87hmvsP4x41we1T51ftahG6tS3jMLhI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795211844; x=1795816644;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=WB5YrOS6lqLstUxpR641Ej+II1QcAH7KNtKBVfA2Css=;
-        b=VHsDuGGyONFomJquMexs7kJUFKUjYw41lbA2pikYkdoECjEPsV77R+HB/lFkOb3OW2
-         l2lzy+uI187X1B3S6/frhL6NhVj+mM+liDred9lcGIKBDTWaL4D2tw8ygNU6comiBYjh
-         nhEstenzVD9tG85ApHvb5FSpYQKGxloIxBxSooyL86nCs9zjH3DbTskA+fxPjzBWlWdw
-         HTKr3w8BnuqPFyWZMXcqCKMjZ2xJTy+Mm4z91k01avajJZ1v7mnTZw89PGckY7dIb3aB
-         wkNRKm5OitmjbQ1ow4P0rgbql7NRN0thLcqtJKNtKoTpCIKyStsg/tQRlTP2E0ptzMY8
-         SVVA==
-X-Forwarded-Encrypted: i=1; AL+hErGNgLaaDdgBW8/CpzfWk9w3VWpq9rA2mUyFJ0KPhVXV+hjJkNKzkfCXpcsyaI73MaT7ysuMhLdXrtxVjgA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aSSWXTQp0tQluFq08DVfIqBE1rd7fd0PU7UiGgQbZo61xuYkz
-	u9Pb+XdjHb0GDb7Rsp/BzEdNdtVZ2hmLCIve9AmeGz9aTJWILQCQM+WFg37egrWO5XU=
-X-Gm-Gg: AYBFou003aR1H0pUysWdrLgw4n4xAaDmJIM/6j3gRqV3i9WZWrVw2+j2Z5xSrGK7IJR
-	KjlsHgbrY1+5ympw+inPzpKzHDP6nwYTxZBypZks+MNyx2rkNJ2bA52F2Fk2RxLGBWm9xD8gdE4
-	AxGCDltlfeRNOwEQybT0mP4giKdA9P3JLiAG7gbPOh+4Di92xL5/8+vAcHP6p2Ra8/38EQ6kdG3
-	aDMTuet1OqXt2aOk4hdEsdof5lAnb2aQE8N355Jdj9ORUOVCuiejhjfzMq8FCpiYXpJ0L0GEW+b
-	UAVUyxuMvrvRiZOqZq/90MZUQ/EbIZJyhk97S1pmlQOnchJzFXP7MOhCXNK1/uPrHJeHUtgfmlu
-	Da2SwBb0ztOJa+pnhmEmqgvT8pgm3+1eErGM2lEbb1cZtIxio7PKYX5PaP6u9NsR9CSnk3MFiSL
-	5CoqZXSrnZKItamHn/Sas7zkWix9V93FA9bF8zJ/4GQHihgJFmytlH+ij/UAjDeCP6IgR6mjg9j
-	n74n2ZH0L1vbLPLZ8oZnAkNzF88OS23YdtW5zk05SfiNiSzQGNIPNoREJk7+Rn/8H3a0MsgtJj/
-	cTRD/NdAHKKr8I5TVnE91XAacB4JeUAIdhkrrUEy703ZCe2HJ/0mhcgt2zML/5JQtNLM3jk24Np
-	0/xF4qjFO
-X-Received: by 2002:a05:6808:6707:b0:573:b33c:1e5f with SMTP id 5614622812f47-57a09504f06mr5047696b6e.12.1795211844221;
-        Fri, 20 Nov 2026 13:57:24 -0800 (PST)
-Received: from com-75606 ([199.47.143.1])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc61659cb8sm4099130fac.17.2026.11.20.13.57.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 13:57:23 -0800 (PST)
-Date: Fri, 20 Nov 2026 13:57:21 -0800
-From: Kyle Zeng <kylebot@openai.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
-	kuba@kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net/sched: serialize autonomous timers with qdisc
- resets
-Message-ID: <awDCQf7I1sG9LTLa@com-75606>
-References: <20261110044450.51921-1-kylebot@openai.com>
- <179465832501.2199510.6314071993812416961@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=shuye.dev header.i=@shuye.dev header.a=rsa-sha256 header.s=sig1 header.b=X+lD4E00
+Received: from outbound.ms.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-3 (Postfix) with ESMTPS id 98ECE18001D6;
+	Fri, 20 Nov 2026 21:58:41 +0000 (UTC)
+X-ICL-RepId: 01a1faf8-085a-7231-b2a8-61b24afaaaa0
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shuye.dev; s=sig1; t=1795211924; x=1826747924; bh=vO+uPv3zfqiHdkgJ0aAi0xM/4WNzWKzE0aqte+1e/Uw=; h=Message-ID:Date:MIME-Version:From:Subject:To:Content-Type:x-icloud-hme; b=X+lD4E00ytGPF4WkKU3RnbaxLiSKVT3ZBLzJuZ3tziFzeigrxHN/KA4IxUqjP1s5htKG0TW8mXld/PsZzJzPlS0H5vHdMHqWriiqqkk80EMJpEw2L7cCbZmagOvchgi3jDCyOpVONaU27MqLDQsbOi8TedQa0aqZ5wmTDT9nBjJ2JlAN32P1jfinsHTPBlfPSp7ZM49pLCRRIug60C6kEIQJD/cSesC8hnYBJJo24FYiZeJgEcl1EpsSy/2AMldgigTqaHPl3rwCAzhg4JV9RXcviDdiInnXfzkzHI4jLE56VHmnWgtLK8hfAAfg4P17KXPy06ciTvi1zXHsDnAU5A==
+mail-alias-created-date: 1658105457252
+Received: from [192.168.1.188] (unknown [17.156.208.39])
+	by p00-icloudmta-asmtp-us-west-3a-60-percent-3 (Postfix) with ESMTPSA id 34AA618000E9;
+	Fri, 20 Nov 2026 21:58:40 +0000 (UTC)
+Message-ID: <1147b1fb-67bd-4e7b-87b6-1ec57987e4cd@shuye.dev>
+Date: Fri, 20 Nov 2026 13:58:38 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,280 +56,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179465832501.2199510.6314071993812416961@kernel.org>
+User-Agent: Mozilla Thunderbird
+From: Ye Shu <hello@shuye.dev>
+Subject: Re: [PATCH v2] ASoC: tas2781: Skip calibration data for other SPI
+ devices
+To: Andreas Axelsson <andreas.axelsson@androscientia.com>,
+ Mark Brown <broonie@kernel.org>
+Cc: lgirdwood@gmail.com, shenghao-ding@ti.com, kevin-lu@ti.com,
+ baojun.xu@ti.com, sen@ti.com, tiwai@suse.com, linux-sound@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <47904337-8887-4623-83df-c370a26adf03@androscientia.com>
+Content-Language: en-US
+In-Reply-To: <47904337-8887-4623-83df-c370a26adf03@androscientia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA4NyBTYWx0ZWRfX3kPrZfTXqMkN
+ xIGpsnkdJb+VchQzCam1iUztQA3GkG2W462dZ7wnlAY5MYVNAmGDo/UUQCOzuLloLsSTiqi1Gng
+ 2lytNvRf2SodtEHS7Hfg9TB26Vn7/mUWoqqi46pqApiZqNyx4wxhW++H34vzwXw1MqA510oeALr
+ CCHY5a+7UGufuw5+iZIPumeE7+64i+KfNTxzGlX2VEWluNALMbqMxZT+nxOuSNIhg2PpayQYw+V
+ ObpML34I6bHKiBbsHSf5vUU+ubdLIGEnkUZPu9H7m4FTXJFcu2zY/qr1ODiSbrwh+kCPyjA6Woo
+ JZYUM0PoV4OWjhFMe3UsvOth7GwfX+xQl+/3kYwSe37VwFS4DuIxSJkHOpOFFI=
+X-Proofpoint-GUID: U7udv1J7ciuooX43dV_1gsDtgddr4q2i
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA4NyBTYWx0ZWRfX/QFUruMcrhUt
+ aoBiwxOt+s1wNHbtyA/5eJWlRX9/i9+UeuPaHF2SPrf8yuu/47bpaKoj4gQoNTAUw6nsKXMvoUe
+ K3hwcQVqzLUOgZeVI+fBRm65ti6xSsI=
+X-Authority-Info-Out: v=2.4 cv=QK791QLL c=1 sm=1 tr=0 ts=6b00c292
+ cx=c_apl:c_pps:t_out a=kRaGL2Q7qLiahLf3O6OaIA==:117
+ a=kRaGL2Q7qLiahLf3O6OaIA==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=kibvr5HLtuNvmma_iept:22 a=n4j2meYs4cM6Nswp5Wgl:22
+ a=cOokbD2-rtt3SIyQlBoA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: U7udv1J7ciuooX43dV_1gsDtgddr4q2i
+X-JNJ: AAAAAAABO5gY+IS858yJG5bqqN4Spw336lymq722/BU2B+Kf9dtEYUXGaCnImmjfQJ3erO
+ 773fvDnF8MqK4xHzqWjxut2llNLFs2CMHeX8mCoqi721FwPMyEIR1ExJZDYxzRd4kL1cFs
+ p+lkrrXueNLAjKAK+JWLEgnbHHUbNSTanfxkl3RVUjanpkoI22I4bv+4QLEGJzY8780rZN
+ eHveEiLscBD/EcE6sy8yfU8bJ61HdyRGuHC18oewuVDgVBcshs1WapqW9k7REHQE+Hdt0j
+ 8fQOqaF1Ig2tIpCb9nZxPSYVrj+bRjMx2Oywg9i0ZrA4/urCxXCnapMcti8707wVY1lBan
+ qM2SzSfdMUCPUmYFuP1sRcvNJZDqKPdV0C+0xHIGguXBGxj1D4kED8cPjnG5wkMWaF9bvq
+ fvamauNKWilXWKLIjaJc1q9dX+ZJtegRRAz0qXTftitt/Ab3yBExWLAmoF7gYIZv9yaa++
+ jfyNjGoJ1i+6DjLVtRqZGXt21Z2krsv5njeQ2J2KD6tFFQG0BSPMW/u0J70/WDRBJmPhIO
+ baYEQGCLY4tJIpoaXLGLwWjFJAPoAr+rhdnov6tSg0Davrr1802kI1gB4nRSQDreSjGSMw
+ ymQpQxRCu8PqDnpNjKoFtiZXjDC95fiDiYHJpjXV6Sn1PVO3eUyyUcG+h/IDI6TWxPqqb/
+ U8qNX01C9n+IVhFLMOjeXNx3mp3VgLuj7kjDqnfwaaxRQsE37ylni9DWunWeAOZBLok8gV
+ ysCu91RJvP1RiGjdP/f80rFHXQTKZLEErElYnu1aKF6UrTuzZrZkBilCWuwRueJKA7ZarX
+ lkcMP7EGohlHVZQBEnc3UHLlMRGawZIyE8UE6MNOmdyrUUcxk0EFBjItIE8JDvLzB4YZMa
+ q2NXpnIb8Uv1IMO4gygIj568eQloihfZOXjggsPjGuyeQMcoOkWXb4E5231YdTAme+kNp0
+ Z2iq/CCUR5I82ZLFCPog5BcrMekkc1b8I+nNVVvzbnAJBExONWZJ7iB32kn3eeli7RpnDf
+ ueJfvhP3DGqo+GmSoXGuHI0EREZP/CvaONeO1FkV5VKzatWzEavYJivC3HtiuFPbexa4a7
+ UD3wyGlmRA/rTYLdMC9w2UAotuR9qHRhXBFnF3aLBsVXv5fqn0W9NyfU0DPHmZn056QRCy
+ 3RH0nQfJ/CcTQX9jh69i6jK852fEY88HECUUEFAgGGmyevJ/resprE0VExaRAhUWRLLCHf
+ pYqo4qDfensaWyRJ1rj485NStSEeY77FEKlmu/IGqsNQ41XT3V4Y709H7/j/BNyWEpBTg5
+ +yx7i6zfNmflVKIv4=
 
-On Sat, Nov 14, 2026 at 12:12:05PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 � High: 2 � Medium: 1 � Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The fix does not cover HTB offload mode.
-> - [High] net/sched: sfq_perturbation() runs on detached child before
->   qdisc_reset()
-> - [Medium] The new qdisc_lock_root_sleeping() relies on a stated
->   invariant: the sleeping root only changes in dev_graft_qdisc(), under...
-> 
-> --
-> 
-> net/sched: serialize autonomous timers with qdisc resets
-> 
-> This adds qdisc_lock_root_sleeping(). The helper takes the sleeping
-> root's lock under RCU and retries if the root changed while it waited.
-> The SFQ, RED, PIE, FQ-PIE and DualPI2 timers now use it.
-> 
-> Default qdisc attach and shutdown now go through dev_graft_qdisc().
-> __qdisc_destroy() holds the tree lock across the final qdisc_reset().
-> The final resets of TAPRIO children move to taprio_destroy().
-> 
-> > diff --git a/include/net/sch_generic.h b/include/net/sch_generic.h
-> > index 1acaadb3e2cf0..e234256e6ae81 100644
-> > --- a/include/net/sch_generic.h
-> > +++ b/include/net/sch_generic.h
-> > @@ -608,6 +608,26 @@ static inline spinlock_t *qdisc_root_sleeping_lock(const struct Qdisc *qdisc)
-> >  	return qdisc_lock(root);
-> >  }
-> >  
-> > +/* The caller must hold rcu_read_lock().  dev_graft_qdisc() changes the
-> > + * sleeping root under the old root's lock, so retry if it changed while
-> > + * we were waiting for that lock.
-> > + */
-> > +static inline spinlock_t *qdisc_lock_root_sleeping(const struct Qdisc *qdisc)
-> > +{
-> > +	struct Qdisc *root;
-> > +	/* Lock of the sleeping root observed under RCU. */
-> > +	spinlock_t *lock;
-> > +
-> > +	for (;;) {
-> > +		root = qdisc_root_sleeping(qdisc);
-> > +		lock = qdisc_lock(root);
-> > +		spin_lock(lock);
-> > +		if (root == qdisc_root_sleeping(qdisc))
-> > +			return lock;
-> > +		spin_unlock(lock);
-> > +	}
-> > +}
-> 
-> [Severity: Medium]
-> Is the invariant in this comment complete? qdisc_root_sleeping() reads
-> qdisc->dev_queue->qdisc_sleeping. qdisc->dev_queue can also change, and
-> there it changes without any root lock held:
-> 
-> net/sched/sch_htb.c:htb_offload_move_qdisc() {
->     ...
-> 	if (!(cl_old->leaf.q->flags & TCQ_F_BUILTIN))
-> 		cl_old->leaf.q->dev_queue = queue_new;
-> 	cl_old->leaf.offload_queue = queue_new;
->     ...
-> }
-> 
-> When destroying is true, both dev_graft_qdisc() calls around this store
-> are skipped.
-> 
-> One possible sequence:
-> 
-> 1. An HTB offload root is replaced by mq. At the same time, an unlocked
->    filter request holds a reference on the old HTB through
->    __tcf_qdisc_find() -> qdisc_refcount_inc_nz().
-> 
-> 2. mq_attach() grafts each txq to its own mq child. queue_old and
->    queue_new now have different sleeping roots, O and N.
-> 
-> 3. The delayed final put calls htb_destroy() ->
->    htb_destroy_class_offload(..., destroying=true). The driver reports
->    a moved classid. htb_offload_move_qdisc() then switches the moved
->    leaf L from queue_old to queue_new with no lock held.
-> 
-> 4. htb_destroy_class(moved_cl) -> qdisc_put(L) -> __qdisc_destroy(L) ->
->    sch_tree_lock(L) now takes N's lock and calls qdisc_reset(L).
-> 
-> 5. Suppose L is an SFQ whose sfq_perturbation() validated O before the
->    switch and still holds O's lock. sfq_rehash() and sfq_reset() would
->    then run at the same time on L.
-> 
-> Can this still reach the final-reset-vs-timer corruption this patch is
-> meant to close?
-> 
-> The two plain reads of qdisc->dev_queue in qdisc_lock_root_sleeping()
-> also race with the plain store in htb_offload_move_qdisc().
-> 
-> The window looks narrow, since the timer has to hold O's lock from
-> before the dev_queue switch until __qdisc_destroy() takes N's lock. It
-> looks reachable on PREEMPT_RT or with vCPU preemption.
-> 
-> [ ... ]
-> 
-> > diff --git a/net/sched/sch_sfq.c b/net/sched/sch_sfq.c
-> > index 8bbcfc9e85d94..2bd3fc65053ac 100644
-> > --- a/net/sched/sch_sfq.c
-> > +++ b/net/sched/sch_sfq.c
-> > @@ -611,8 +611,7 @@ static void sfq_perturbation(struct timer_list *t)
-> >  
-> >  	get_random_bytes(&nkey, sizeof(nkey));
-> >  	rcu_read_lock();
-> > -	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
-> > -	spin_lock(root_lock);
-> > +	root_lock = qdisc_lock_root_sleeping(sch);
-> >  	q->perturbation = nkey;
-> >  	if (!q->filter_list && q->tail)
-> >  		sfq_rehash(sch);
-> 
-> [Severity: High]
-> Does this close the window for a detached tree that still holds
-> packets?
-> 
-> Since 47e8dbb6e763, a root qdisc_graft() calls
-> dev_deactivate(dev, false). The old tree therefore keeps its packets
-> until this qdisc_reset() runs. Several things happen before we get
-> here:
-> 
-> - dev_graft_qdisc() has switched every txq's sleeping root.
-> - qdisc_graft() has done rcu_assign_pointer(dev->qdisc, new ? :
->   &noop_qdisc).
-> - __qdisc_destroy() itself has done qdisc_hash_del().
-> - gen_kill_estimator() has run, and it can block in
->   timer_shutdown_sync().
-> 
-> During that window, an SFQ child C of the old root still has q->tail
-> set and an armed perturb timer. One possible sequence, for example
-> deleting a root prio 1: that has an sfq child with perturb set:
-> 
-> CPU1 (RTNL)                          CPU2 (perturb timer)
-> qdisc_graft(dev, NULL, ...)
->   dev_graft_qdisc() per txq
->   dev->qdisc = &noop_qdisc
->   notify_and_destroy()
->     qdisc_put(old)
->       __qdisc_destroy(old)
->         qdisc_hash_del(old)
->         gen_kill_estimator()
->                                      sfq_perturbation(C)
->                                        qdisc_lock_root_sleeping(C)
->                                          locks new root, passes
->                                        sfq_rehash(C)
->                                          qdisc_tree_reduce_backlog(C)
->         sch_tree_lock(old)
->         qdisc_reset(old)
-> 
-> The timer validates the new sleeping root. That is the same lock
-> sch_tree_lock(old) takes later, so the rehash and the reset are
-> serialized.
-> 
-> However, the tree that C belongs to is no longer reachable.
-> qdisc_tree_reduce_backlog() looks up TC_H_MAJ(C->parent) with
-> qdisc_lookup_rcu() on the live device. The old root is gone from
-> dev->qdisc and from the hash, so the lookup returns NULL and hits
-> WARN_ON_ONCE(parentid != TC_H_ROOT).
-> 
-> If some live qdisc happens to match that major handle, the dropped
-> count and drop_len are subtracted from its q.qlen and
-> qstats.backlog instead. Those packets never belonged to it, so its
-> q.qlen can underflow.
-> 
-> As far as I can tell, qdisc_tree_reduce_backlog() no longer returns
-> early when n and len are both 0. A rehash that drops nothing
-> therefore still walks the parents.
-> 
-> This needs only CAP_NET_ADMIN in a network namespace owned by an
-> unprivileged user namespace. With panic_on_warn, the WARN becomes a
-> panic.
-> 
-> The timer behaviour predates this patch. But the commit message says
-> the validated root remains current until the timer unlocks, and that
-> the final reset is now serialized with autonomous timers. Holding a
-> current root's lock does not mean sch is still part of that root's
-> tree.
-> 
-> Should the old tree be emptied before it is unpublished, as
-> dev_deactivate() did before 47e8dbb6e763? Or should the autonomous
-> timers be stopped, or skip their work on a detached qdisc, before
-> the hierarchy is unlinked?
-> 
-> [Severity: High]
-> Does this cover HTB offload mode?
-> 
-> In offload mode, htb_init() sets TCQ_F_MQROOT on the HTB qdisc, so
-> sch_tree_lock(htb) takes qdisc_lock(htb) itself. Each offloaded leaf is
-> attached directly to its own txq. qdisc_root_sleeping(leaf) is
-> therefore that txq's qdisc_sleeping, never the HTB:
-> 
-> net/sched/sch_htb.c:htb_graft() {
->     ...
-> 	if (q->offload) {
-> 		/* One ref for cl->leaf.q, the other for dev_queue->qdisc. */
-> 		qdisc_refcount_inc(new);
-> 		old_q = htb_graft_helper(dev_queue, new);
-> 	}
-> 
-> 	*old = qdisc_replace(sch, new, &cl->leaf.q);
->     ...
-> }
-> 
-> htb_graft_helper() -> dev_graft_qdisc() sets dev_queue->qdisc_sleeping
-> to new. qdisc_replace() -> sch_tree_lock(sch) then takes the HTB's own
-> lock. Under that lock, qdisc_purge_queue(old) -> qdisc_reset(old) ->
-> sfq_reset() runs.
-> 
-> With an HTB offload capable device (for example mlx5) and an SFQ leaf
-> that has perturb set, can the following happen?
-> 
-> CPU1 (RTNL)                          CPU2 (perturb timer)
-> htb_graft()
->   htb_graft_helper(dev_queue, new)
->                                      sfq_perturbation(old)
->                                        qdisc_lock_root_sleeping(old)
->                                          locks qdisc_lock(new), passes
->   qdisc_replace()
->     sch_tree_lock(htb)
->     qdisc_purge_queue(old)
->       sfq_reset(old)                   sfq_rehash(old)
-> 
-> The reset holds the HTB's lock and the timer holds new's lock, so
-> nothing serializes them. Would this corrupt the slot lists, q->tail,
-> q->ht and the per-slot skb lists that the commit message describes?
-> 
-> htb_delete() in offload mode seems to follow the same pattern. First,
-> htb_destroy_class_offload(..., false, ...) calls
-> htb_graft_helper(dev_queue, NULL). The txq's sleeping root becomes
-> noop_qdisc, or new_q after htb_parent_to_leaf_offload() for a last
-> child. Then:
-> 
-> net/sched/sch_htb.c:htb_delete() {
->     ...
-> 	sch_tree_lock(sch);
-> 
-> 	if (!cl->level)
-> 		qdisc_purge_queue(cl->leaf.q);
->     ...
-> }
-> 
-> Meanwhile the leaf's timer takes noop_qdisc's lock or new_q's lock.
-> 
-> This race existed before this patch. However, the commit message says
-> the patch closes timer races "with queue resets during graft". Should
-> qdisc_replace() and qdisc_purge_queue() under an MQROOT parent also be
-> serialized against the child's sleeping-root lock?
-> 
-> -- 
-> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110044450.51921-1-kylebot%40openai.com
+Hi Andreas and Mark,
 
-Thanks. I agree with these findings.
+I tested this patch on my HP ZBook 8 G2i 14 (subsystem 103C:8ED9), which
+also has two SPI TAS2781 amplifiers, running Fedora kernel
+7.3.4-300.fc45.x86_64.
 
-The patch fixes stale-root lock acquisition and serializes the final
-reset, but it does not establish stable queue ownership for offloaded
-HTB, serialize every offloaded-leaf purge, or prevent detached SFQ
-from accounting against the live hierarchy.
+Before applying the patch, I observed the same errors (r0_reg bulk_wr
+err = -18). They disappeared after applying the change, and both
+speakers continue to work.
 
-These are distinct, pre-existing issues. I would prefer to address
-them in separate patches and keep v2 focused.
+Tested-by: Ye Shu <hello@shuye.dev>
 
-Kyle
+Also, I noticed that the v2 patch could not be applied due to a
+malformed header. Are you planning to resubmit the patch? Or I'd be
+happy to do so.
+
+Best,
+Ye
