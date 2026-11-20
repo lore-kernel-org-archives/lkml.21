@@ -1,96 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795182671;
-	b=MWjrDJzDw2Oz+0QfyA4DRxiG4WgRmTEpLS90KB3vlO0Yh3aCFwoo7ghpO/9TsGp9AJWp
-	 4H3xDGU+M/O2zRLelU0PoRLFEk+F27v5vcCQ7yC/+/+6nUyg9kFeypiAgkGrtakxC1tR8
-	 HFfBb8+Ky5xaFLyIttLx42HkcW+LHqh35ibftwYi8u79bYpLlZK0vcTkg9W/ds39jUgnO
-	 EFlGBPVzXRB3RAwGTAOZiKbo3f9l8MRDuyvfRPK5iCSGzUzhdzsh96Ed9OUwAAryb4iK0
-	 pSwE2+j7Nbm786tMU8/fxbgo55EQah+nAusjsPo0MGO66X9KAadY41YN2ls8ZYJdJ/A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182671;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XUkKOajwat5sqIeSvNL4vQbPXALl0FatN0Get3RPvTA=;
-	b=nlKFln8WG2dHLYWjM0bxEW7rzrRc1lsPmNAZXPJycb/GgmC83Remb/Yy/i2BOvkH23DO
-	 oChu7fhXzOYJ4OLix5DFG2Cu3g1AEbhbXaniwOWq5I7QwTECiMlfbL5d5ObORGyqcAL1g
-	 hoyTpzO+1H1H77smbqj8kst6eg3j1eNsdCvI0Zxh9dz0DTwcgvImXDeRmTFXpC4RStaVj
-	 BTZE2deB6Kd0TNqOGkj4g1IziUxs8KY/AQB66pQCyW0TXjoj1RAjruNHZ4FvSZAnISO6+
-	 gJAHVvZQjUQPJCHkCWm4HUAUKLmqYFmG/G4NnQ44ev6Pd0/LAIGnQdYwGNCsgNw0ezA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=rq2c1fRz;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.124
-Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020124.outbound.protection.outlook.com [52.101.191.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795182692;
+	b=pKCws4QEpW3j9XyEXaw7rrlsxtEeC+vEK7DbKYjPF0J/la3WauyDlD5HlbS/p0iMiqpy
+	 8MsXPIm7QqQvu48HAK2FN+3D8SiY5OnmyDoVcGchqJvI0XyJkHaL1Mq14Hig0NIJ7GMDU
+	 B8lNyobtuMBGdsy2m3AaJyBZ/0h+4ftV3bFQWSShy/QYbGcAorgVRlYfZd5y2D4eMZ3tE
+	 T8JFLwo0aWayGtOJdlcgzcMR3wHgGVS7i2EB/kKP59rLangTPdWHKVOf2NKKL+sBwoVDq
+	 X0wiDLlOixP5sRZKspnOTIrz9BwRYX1wx6x6A4CMYfjftbAT5h9eYx2OqKd2Eqghzvw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182692;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=eSZZxG0LEV34oz1xCRBBHzOv3LcZn+FGQVxEYGfrIKY=;
+	b=ZejJm7JVcdqDDAeKO7Ir8qnbRzl/P7p7jR0SUkb3sYQMJAxTPLNwKxgQDXGn7zsFcB7e
+	 j7qdboiTa3vuRtpJdIYfHR1ODyAuqVuk3hwNedUsD6baqLgftXt5ekesmQ+drcPSoMp8q
+	 U7b/ilhQp9ZI13pVrWgiYvkVHmqSogzwykamDH50B/ArFrZiN779d4mayd8UlIhG+e6ZG
+	 Xagu03azukzRKSOE/VOzVtL4z0bEpOqayIHiOs6dR8bSd9yAEf9biZZBqwutzl2BcRei/
+	 ym8ip6jX64/76q08J+oPCRCsjTVfjpdmb1xJ2tBEo18yYh4sXPWuDsVLhKz5cTIneNQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J4pjZCQg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4B4F606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:51:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4B4F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8DD4606A320;
+	Fri, 20 Nov 2026 13:51:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=rq2c1fRz
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GzNDvB/DOfwaekYCaHR+2RDhpPCISStBc6rMpwySeUUsvzpIOP9IhVsNT0WStM3X62St1OLEnxasmhzGBMzFs8aF6MAEAIZ2EvDk0yLN3FyFeiYGkbL19GRBBHiOtPZrNc7ZPXCr/mTMmYkRHSSXutmjXDL37H2gX3VVYFbnxXoettmWRPjHB6P8A6g9nhwV5vE5IvEipKM/53Umi+sJKeNS8z11WcIBdrKUH+8T6GVG0P3zP8CrMcHlB1Z8dxUPkBc+CGI4RZ5QJLuBYnb/I52yQvI6rgCZGGUlH0rpGMjJl9lkhiSH/zYR6/TE8zouBta/fBnlHwoerTxP6ZLz/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XUkKOajwat5sqIeSvNL4vQbPXALl0FatN0Get3RPvTA=;
- b=WcZKAY7FJ8k93apI6HklDaAi4re2EnU3t33lz/uIypjEbrnVfl5hkjLhQN1vkb8+Kn3hw7TYHdCr7kio5CHWKusOo8EZBpIQokjJofQKzpLuA7tRVmvFzQEPNWCPWtE2ytgFPoTurAFwjp43INcB8kCAP/y2Fd7htNGundeHO3dzU5QHMur/ljBHwO5ZjBiABStS9trgTYhPyA37m3EZ8S0kiTmp6iBvP+P+wsiwfMaUhO0d/fUiu4iSJdiXx6q4ebAwGRya8LMIHEoRJhMOCxBliMwo2TTX0HLhSL7wRk792UHCDYU51UvpZLmMzSsWGLVXrKdGJrvAucgK/6BZCg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XUkKOajwat5sqIeSvNL4vQbPXALl0FatN0Get3RPvTA=;
- b=rq2c1fRzzU5VaswKCl9mXAlB2MycOFh0DJXbScDYWfYzba1NDCwVRqMQ8GCJeIWlCi53BYWYY+D401tRuESrODS6NOmEE8Bt2X0Pm8IQup+YUZ/0CS2fRhkLkk27SDb4Qw06UTDYhCCPbeBrffquJFxhsVQfZWs985aqiWeqKLaD5WG0dJRUGjP+PeOqX/bX59S5Pc+5cj5o/f3Mn+uVQvEMdw2N1wkUZKSL4m3jzr1Ceu0riHSfBlr45lJUZhJRHp9XW+/+jDct5axRGCYRyJeJiIskEG7P+pVEKRadmPDqMRU1CKyTV/dwyQ/4+/jVjTTH4wheXhT0+CDesKNgfA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT6PR01MB165033.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b00:200::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 13:51:09 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 13:51:09 +0000
-Message-ID: <569b0c6c-8273-447e-b0df-2867eff701aa@efficios.com>
-Date: Fri, 20 Nov 2026 08:51:08 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 16/33] sched/deadline: Keep the last CPU a task has in
- its root domain
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
- <6e555ba3ad1013206d77ded129a127dadfd3b983.1795116791.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-224050@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-224050@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR01CA0154.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:7e::12) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J4pjZCQg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE821F000C4;
+	Fri, 20 Nov 2026 13:51:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182692;
+	bh=eSZZxG0LEV34oz1xCRBBHzOv3LcZn+FGQVxEYGfrIKY=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=J4pjZCQga8EDHhusCKr01iE6qWnQ79Z0QJxlf+q5/FNbFh+Ap9fMrN4tnFrpNyU2J
+	 W/TujJqC+cfqH5o3Ya9HEpCmvqCrJn2w99LSwSGt2CrTvBNH6uBZ8sdCpwQz/Tx5Ck
+	 UHDoqc6BniR0SELdJ4mUj+CWyh5jmqL589Aqg9a9LWjVYcjjV1O/Gygh3EejMlc7+x
+	 Xl69pDWcY6eFsoXp2hM5fnC887fqyg6L90eD8RKvJNoHeL0GPNgw0Na6LmVvCQUGPR
+	 w7VBxDApBnp597v7575lZFhMBSj8LM1dL5DA+TnD3mCcTCVZViSAtuipWnLXaqfkaY
+	 4ynVs3AY2hpZA==
+Date: Fri, 20 Nov 2026 14:51:29 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Gideon Heinz <gideonheinz02@gmail.com>, 
+    =?ISO-8859-15?Q?Filipe_La=EDns?= <lains@riseup.net>, 
+    Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+    Edwin Velds <e.velds@gmail.com>, 
+    Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+    Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v3 04/14] HID: logitech-hidpp: disable works before
+ stopping transport
+In-Reply-To: <20261120-hid-logitech-hidpp-v3-4-cfe2caa1d0eb@gmail.com>
+Message-ID: <r078ror3-9q6q-s581-35r4-63pnp1p93s85@xreary.bet>
+References: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com> <20261120-hid-logitech-hidpp-v3-4-cfe2caa1d0eb@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,108 +64,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT6PR01MB165033:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24a74063-e7a4-474c-2c3b-08df470d5494
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|5023799004|4143699003|261009223027099003|261021121427099003|261022075727099003|261102123227099003|56012099006|261026140227099003|261028144727099003|261022105027099003|261026121527099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	VFfZ5iTASEew3lwJ66nS6HRQeFpNEnTWT1BN1m9qtiaNNisrgs9+5cI9DnJbt0RJjCXhstr3mH3OuH76DPVwUjXGUVGn61SMqTHkaoMaLJM+eotQGZeHdLDyRKmivwK4rCe4TiBi/0Arbz88j5qq/kvS/u2E8eWpp5AMTHh79RnOkP5ar803lIDEJbmsUkJ5s2ofB55tLdh+cpQXRVgYeOc05R1DBXJNz1gigH5HHy3vcWegsSyPYm9idw7Eubccv/WR3H0OamKCJmfLR0mBUczRyEF8wSKmxe45kZ20Cm0ZYQFEc14ymiFtrUN+lt/sUbZnLJAsDGs50385HcWbghOudwggobulEqNumU1MpKSY+BZIRUEWO9neVAErYpZmnPAx9xP1uCznZQIuNGn0qR6xhfD/Mh6PCB7b0RBt7rRDPa1kxc3fqmlCHzbYii26vRz136rwQIiqvOjw4xSsbIJ38NCTLPfYY24XnGZ5tgC9odf7UyG06fMPNr3Ftm3BKPNE13gK+6SizQ4a6O0Ip9TS2cTv+9kn7xwh0a/O3cvEwYBFEh5N97/eWyaHLidcrc0tzg4NKiiPI/FAwYdlMzqGCky41ZMuxBlwXBDw9to=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(5023799004)(4143699003)(261009223027099003)(261021121427099003)(261022075727099003)(261102123227099003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261026121527099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RjhEUWlPclpZT25WV2tieHlFWDkyYWk4NURleXJhNVE5dEhWY3lPdTNMbHlC?=
- =?utf-8?B?cW9LbklIcjBTMnNWRlZ5QkhUWkcyU3pvaGovbzhNL0tvTUxJZC90S0NuNUd0?=
- =?utf-8?B?aEZyc1UxbE02N2g3UGYyYkFBMndzSjhFWXlZV1crL3pNTWhFSG1xT2hpY01C?=
- =?utf-8?B?TGVXL01hRlhZeG1Lc0JSUStJcS9UZE5MckZLSWtGZDR4aEczOVVTbnErczhn?=
- =?utf-8?B?S0F1a2dsaHc4Zjd5Z3IxRUJwdjVRY0lCMkFqT1hKdjBMVHVQTVJYS2x6Rk5a?=
- =?utf-8?B?NWxubEV5S3dxZnIvSjErODU1akg5MEVkUVdqMmNFdDQwNkZ5T09FNTNhdFFV?=
- =?utf-8?B?aGovZ3diQldYT2JReUlqanFaYWt1YnJsVEJTaC9mVEZPQjNoVWFOaEp6eEhB?=
- =?utf-8?B?dnpMcFpQRCt0QnV6bUV5Z1JzZStzYWptakdFaXIrbzIrVDNmQ2lObmlPajhS?=
- =?utf-8?B?NDB0ZEF4WDlaOXpaSmpYZEtjQWFUM1YreE1TQ3JkWnpnUWxHVWFXNmJmRURE?=
- =?utf-8?B?YW1nRUZtbUViSWkxNm1senlCTWcybEJtMFVtbHMwb1JqTkthL0E4am9Da0Fj?=
- =?utf-8?B?YW5GMmZKTEZQWUw2OE5aT2d4R1J5RW91aGhWalJtV2lHRTBOUGUyR0dNTUpE?=
- =?utf-8?B?UjFOVzNtMWF5b0RIR2xEenV1MEtXYXVoYkJ4dnhLZS9XdFMrVmh4cEhjQXJ4?=
- =?utf-8?B?azJ0NFFhUlNPY3dOVVBCeEw1MVFWaEtHUDBQZFR6dGtweGhRT3phWW1iNWhU?=
- =?utf-8?B?K1lzeVpadEx5Qzg0aWZJb0NsT1pyTGR6WmFlOXJVMWtsWndtQ1FreFpWbDNE?=
- =?utf-8?B?eTF0QlZLejRyVmk5VUZ6MU5PcHQxZmZhcGg2MCtJMUtEU3hzZ3Z6MWg2TCt6?=
- =?utf-8?B?YUx2MkE4UE01dThZdDBYemtFK1hjek1pbzBPS1ZRLy8yYldEZDhmYk1VTjhR?=
- =?utf-8?B?b1R6SXdYS1R6dkMzcGl1cXNrOGp3T1E2NXBRcjE2VGJHTEFqU3NPVHBJMUtQ?=
- =?utf-8?B?bzVWSWwreGFsZksvSzdJVldjOHYxUDZkYzI1aXJidkVWdmcxUUhqaWFJMDh6?=
- =?utf-8?B?RjZpMENRblpRelNhd3gvbnoram9xUmRRZmpXUG9xdEdCQmFJUzhHQlJOb0dU?=
- =?utf-8?B?dStVMW4rbFVZQVpTREg0MUhTMmFYSHlxc1dqTUl3dzV2Z01aYUlRVVFlelRh?=
- =?utf-8?B?SXRTdG9iL2x2bnpXeEpURUhlSFluUE1yUXQ3UGhWd1RiSnVXckNidmJndmU0?=
- =?utf-8?B?VmVOMVQwZ0VlQnlLeVhRVGlqNXJLYnl5S3RiWGlIWE52clhSTXJxQ1czK0lK?=
- =?utf-8?B?a045aTlHUEwvY2plNVJkOGFSNE1KWk1xYk94aDRLUUh4d0pmdUhhclpXa2o2?=
- =?utf-8?B?WFh3cEZ4dkQ1djZqY2kxbUxHSm9jYkpRbE9RM3lPMm9vcWhxSWRTQ1FtNTRU?=
- =?utf-8?B?b1hQUFBWVFp1dlpZSzE2d2U0Z2M2cUdEL1l6clFKWGxmTCtoczRuaEtKZU9a?=
- =?utf-8?B?TlRZVVFadUhXSkpoUU1jZGhZcG5zTi90Mld6K1hZZTRDYWdQQXdhY01ieGlJ?=
- =?utf-8?B?aGc0M0s4NmRTZkpzSmNDd3VWZldNNEhNRzlkQnR1OTBaUlNnTGw1SWQzc1V1?=
- =?utf-8?B?Y2NGMmdZdnloVGxubnJhQzRrenpTV0wzUmZhdDI0NW1CSzhUUW5LSzE4RGNL?=
- =?utf-8?B?K1J5bVVydnhQNUU1amdld3VsaXNIUHlIZ1AzK1dnYmtTekNMVmtEWnRZMU1S?=
- =?utf-8?B?R0ROU2JSNUQyanZNcTB6Q2tIdnQyczFsZnhRNFN6elNvczZTNThhcFEvdGUz?=
- =?utf-8?B?UmRsQkcwTENyQlFXS2hIelJuZkJWR3pCZjV3dVhXNjcwT3J2cnV5VUFXTEV6?=
- =?utf-8?B?NkE3SUh1eU0vNkFOclRvOXY0NmdUNUpnMWxKYlE1NXM1VXNaVmVZdWphekFv?=
- =?utf-8?B?ajcwWnVWR1FPQ3BGOWg2WUJMSkQxa1hOR0ZmVThvdFVPMUJweUhsN3hsc1p1?=
- =?utf-8?B?c1pyV1hPVjZRa3lMampaY01OTExSVk5hV2pVZ3YvZ1VEOUNOUjZmTTZtL2ov?=
- =?utf-8?B?K3VrNjg0RUZ0WDl5dzErNy9IN01aVTNIOHJNQ2FZb1FjMU9GeE5STVJRYitY?=
- =?utf-8?B?M1BwdGthVjVGM0RObzhnSnJ5SjNqUTBNNGlIbHpnSklqQnlzbloyMk5qelUz?=
- =?utf-8?B?anNVMTBwbUFkd1hQbk11cGsxenJTZE1jOVpXdHJxSDRhaFIzV1FGTENicTJJ?=
- =?utf-8?B?YW8vbXVYYlU1UDhjNUhTemdLdTJ5MHdJRGlvVS8yUWtsSjB0c0ZhK1BlblhW?=
- =?utf-8?B?WG13UGxXVHBLcEJlc3V5djdueXJ3RExZQlR1ZWNJT1B5UGhLU0M4OU8zbWI1?=
- =?utf-8?Q?UEXZl9W4962wV6aUgtBRf3MsQp+gzuNW1/aiX?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24a74063-e7a4-474c-2c3b-08df470d5494
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 13:51:08.9790
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F9zqK8Uf4AT8Ze6wV+bJXxmlrkC4q2KwH68ieDNEzAReRd5aN4y1CNApdaJD0Mm1UP0K/79wtjNIHDZrQgcCPwi+J9wzzdcheUjQ+F4Zz6o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB165033
+Content-Type: text/plain; charset=US-ASCII
 
-> Does cpuset_cpus_allowed_without() leave pmask empty when from reaches
-> top_cpuset and @cpu was the last active CPU in top_cpuset.effective_cpus?
+On Fri, 20 Nov 2026, Dmitry Torokhov wrote:
 
-Yes, by reading. It needs isolcpus=domain, with every housekeeping CPU
-in a partition. When the top cpuset loses its last CPU, v9 will check
-every cpuset, the top one included. v9 will not have a test of this case
-yet.
+> Device removal and the probe error unwind path cancel the connect-event
+> and hi-res-reset work items only after closing and stopping the HID
+> transport, leaving in-flight work handlers able to issue HID++ transfers
+> or register power-supply and input devices while transport teardown is
+> underway. Moving cancel_work_sync() ahead of transport shutdown is not
+> sufficient because incoming reports remain active until the transport
+> stops and can re-schedule the work items before hid_hw_stop() completes.
+> 
+> Disable both work items synchronously before closing or stopping the
+> HID transport on device removal and on the post-I/O probe failure path,
+> and drop the unreachable cancellations from early transport start and
+> open failure paths where incoming packets have not been enabled yet.
+> 
+> On device removal where HID core enters with device I/O stopped and
+> driver_input_lock held, temporarily re-enable device I/O to flush
+> pending work handlers and disconnect input devices before stopping the
+> transport. Clear HID_CLAIMED_INPUT and hidpp->input upfront so incoming
+> reports can still wake synchronous commands without dispatching events
+> to the disconnecting input device.
+> 
+> Fixes: 7bfd2927adca ("HID: hid-logitech-hidpp: Add basic support for Logitech G920")
+> Fixes: ed80cc4667ac ("HID: logitech-hidpp: Add HIDPP_QUIRK_RESET_HI_RES_SCROLL")
+> Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+>  drivers/hid/hid-logitech-hidpp.c | 19 +++++++++++++++----
+>  1 file changed, 15 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
+> index d5f53b35ac6f..0e1a9fd98faf 100644
+> --- a/drivers/hid/hid-logitech-hidpp.c
+> +++ b/drivers/hid/hid-logitech-hidpp.c
+> @@ -4805,13 +4805,13 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+>  	return ret;
+>  
+>  hid_hw_init_fail:
+> +	disable_work_sync(&hidpp->work);
+> +	disable_work_sync(&hidpp->reset_hi_res_work);
+>  	hid_hw_close(hdev);
+>  hid_hw_open_fail:
+>  	hid_hw_stop(hdev);
+>  hid_hw_start_fail:
+>  	sysfs_remove_group(&hdev->dev.kobj, &ps_attribute_group);
+> -	cancel_work_sync(&hidpp->work);
+> -	cancel_work_sync(&hidpp->reset_hi_res_work);
+>  	mutex_destroy(&hidpp->send_mutex);
+>  	return ret;
+>  }
+> @@ -4819,15 +4819,26 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+>  static void hidpp_remove(struct hid_device *hdev)
+>  {
+>  	struct hidpp_device *hidpp = hid_get_drvdata(hdev);
+> +	bool claimed_input;
+>  
+>  	if (!hidpp)
+>  		return hid_hw_stop(hdev);
+>  
+>  	sysfs_remove_group(&hdev->dev.kobj, &ps_attribute_group);
+>  
+> +	claimed_input = hdev->claimed & HID_CLAIMED_INPUT;
+> +	hdev->claimed &= ~HID_CLAIMED_INPUT;
+> +	if (claimed_input)
+> +		hidpp->input = NULL;
+> +
+> +	hid_device_io_start(hdev);
+> +	disable_work_sync(&hidpp->work);
+> +	disable_work_sync(&hidpp->reset_hi_res_work);
+> +	if (claimed_input)
+> +		hidinput_disconnect(hdev);
 
-> Can this loop walk past an unpopulated valid parent partition root that
-> stays valid with an empty effective_cpus mask during hotplug?
+This fails to build, because hidinput_disconnect is defined in hid-core 
+and there is no declaration for it in logitech code.
 
-Maybe. I have not traced it in full. partition_child_lost() does return
-NULL at p_outer, and the walk then goes up to the top cpuset. I have not
-checked how compute_effective_cpumask() treats p_outer. v9 will not
-change this path. I will look at it in a follow-up, with a test.
+I'll drop this series for now, please fix it and resubmit a version that 
+compiles :))
 
-> Can an offline that invalidates an isolated partition (PRS_ISOLATED) still
-> move a deadline task from def_root_domain to a housekeeping root domain
-> without being refused?
-
-Yes. HK_TYPE_DOMAIN_BOOT does not know the CPUs of an isolated
-partition. v9 will record with each task whether def_root_domain counts
-its bandwidth, in a new field, dl_bw_def. The rebuild will keep the
-bandwidth on that side. It will look at the root domain of each CPU, not
-at the boot mask.
-
-Your first example will be a new case,
-hotplug_isolated_partition_falls_back. It fails without the fix, in
-guests booted with isolcpus=domain. With the fix, it passes. Your second
-example loses the last CPU of the top cpuset: the fix for your first
-point covers it.
-
-Thanks,
-
-Mathieu
+Thanks!
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Jiri Kosina
+SUSE Labs
+
