@@ -1,80 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.190.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133171;
-	b=LfL28G2LyG/rkZ/lE/W+89TtdW7TqVgCEm6cCHo7rcPZSMpmI4DQouGx1W2v4QDD5+z7
-	 MVAH92DA++NutR/iH1OqfQpsOv9lJsL4lUYj64T4gwp0AXda83Du8cIaHdby7wRiQo+1q
-	 SHi1RoDN3GEvLg+ZH8BJGUAonaTSTL1cZSzQr0Hc3JcOT6xi8w/E636hghYtCn+x4ZUT6
-	 dGIv/KwO59Sns4s006MiDgkRobH6luRIK5sxPDmPPh2xdyMu2UFFiEXLEr0QVvt6LVhTI
-	 cEikxmDuzZkDXOohJMAEOcjqUccoHCkhzqqd9HMgBuovDn6ZcSjOOfONMu154m0/SSg==
+	t=1795133180;
+	b=HFBN3pLuShLc6xXU5EWUWYG8nw9pX29k3ZgYOb7d7HuedYTnhVCwFRWvEKggU8lv4aLY
+	 FusXXo1fYpfaVRZkqQDmcm+DPW4YuyLFvr3agGDIdeyn1gIMr62C1OkhMPG+G3DzJi+HM
+	 qLUMis1PgAttgTpiDxHOFlPKfqDMs+eLkh9cNoxoMPjNBiasbDLw+febt9+atLsF7DzAk
+	 zyZt/UErNa1uwW/vBKA7NjEb8oq3BGJN8KU0TupOKZdxoDlORYtWQZuQhZ2W3L/xaktiM
+	 PTpn0fO9JaGFkintLa8ujGb1j9UPqZwlItcVZPMG+nwxuq5IejHsoluk8ocGWtgu2bg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133171;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=VY0z4ubjFUO6e0IUf1LwXzebZ/WexTJ9dug5GStdpiM=;
-	b=S3m+s/B5VglfsxlXgNanqXZzv67g+zz3HOyGAiebP62j4UPe5jvoVHRDeC1dpxFIV77V
-	 brTxE8c0Snh9MvH6waiGsOFjZ2tq5XAiz+YqwAVXf36WVzFyIqpB+gRBuiy37i+2sQDbf
-	 9KDixxVdzsQ+ifRIbooua2GO2e9+dJLoorepF6jATW5Tz7xhG20nRjfmyhvtP/54xjHoT
-	 ZYue3qk0sCNVVCyiXJzOMsJCMSF1K6zCI2ImJg2iR9lTvV6kD5GX0oise3THt+zkoBRXV
-	 RIYtOqn6GTVWnrNCF6IO4suK0rbwjapXwjQKyz1uw3x5N3YZ1kKwJMCEUVwBLWW6s9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133180;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=aYRqy107E/bZcHZ0ONbHKq/GiUxqgqad82WyhbncTdM=;
+	b=afjSJS8Zv2FJMsuP8WzJp6vNBr544ujCcmisvChapCMjqOtRVpVxHGafpeusVo2zYMrF
+	 Guxwd09IfQm8uk1HFLo6ARM7/p2E4v1DWWcujIfG0KGK8GD0Cgxjyo2oHpa0YA3pz/3jZ
+	 lRs7ryIuVoXy4kb5LDYEiHo9VBU5yZfbSBaO5djxG1VCNOZlqirMJ+bfEtA8dUSHicgMW
+	 2ecd3QGq390uj3RdQKGBAKZqlFhfSEVXUTxqDbtL3r2ZkKXQzxSe0mn3Bf9rA2u3KtTcu
+	 ziZz/Yv1Nc90RU01U5+47/DanwZLvVmrqf0AiTvPieLu3GvZS2uXHBk4jfrGQLHCNpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=Ssa3Rt0M;
-	arc=none smtp.remote-ip=66.163.190.147
-Received: from sonic315-21.consmr.mail.ne1.yahoo.com (sonic315-21.consmr.mail.ne1.yahoo.com [66.163.190.147])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=makrotopia.org;
+	spf=pass smtp.mailfrom=makrotopia.org;
+	arc=none smtp.remote-ip=185.142.180.65
+Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34B9160A2605
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:06:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34B9160A2605
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=Ssa3Rt0M
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133166; bh=VY0z4ubjFUO6e0IUf1LwXzebZ/WexTJ9dug5GStdpiM=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=Ssa3Rt0Md49oD3afH0++dtczYpjwzHA+Nj1D2sd+j6YG0VjKcEFhaglmfJps89s+3ptgy7IorbF9MgykXcoDxb3aCMmuM4zkxykZeUOTTl7Aa1WpRvqRQFHZ54vbnOB6k5T6KUnsKl/PraokRedCuD3fEwSHoWfcRixUIdv+nujheizbo86Ml4NIUTvmfA4eZk89WexC01RVsw8+TGrDThudZdxDSAO/xEW1UEWFi82F2wa9f3HbE2Bjt0kewvLDDopTwi9KCQ7ml/p3gIo0MZ50wbbr9rWr35ddRp/os+wugKlbynIrM1PzWiF/PWzg6L0fYk3oZf9zlVte2IYaIw==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133166; bh=n0NcWkKEcUmnzVjk9vPgxs2MLd/i6NPLHpwgZOZPsUB=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=I4bmsMp4qfuwyL7HZqHnl4dapWzMgEjQquebjGmZsPsQ93aRtF+c7qsJ8fSJRlPJ1eIHTzkfcE0ZgopKDtZ6Bq+InOfAgJZwL6ClND3mKS2l3f648Z1WzP3ao7m5NnSu9QXjgvP17Zb/96AmT/uXqGBl7l43FFHJXmSr6SGXYwGmQ0abRhE1bA/E5XjNVRVC0pnBq6fGrsQq8EYmRrIePbK3DLTgRyEVEY+N5JhEqcbJ9e4MYoJriIpQxW95/RU6RhC+GaUFdOiUYy2oFBXwRIhJgzNgIk0Mtz+rp46HfIKf2P1OZFyALbBHBLrHTB5saLngVS0cof318VF0CMxGZg==
-X-YMail-OSG: aDTjb3MVM1npGEM1tjJUc1J09jPW7gih0WG9Z3mVpkHNvUxcMayZ9Paml7Vx2k8
- m_OUYg4SOPucnV2LHTdwwOMdMPlS1d20sxHkEeLxwjYNQbok16m_qa5kbbZFXxm4oAZLhvyplkVS
- 2AO6ymff_S1yD50KbUT5lty_qPZ0n77AspA.HfniPZ1i0c5wc1U5_JvVGWXjyOp5ZOz8TUFya9dm
- _NfAIBZpRwQetyuITNCmy.yjXzRamD_ml9Ok4MylBTIGw2fgFtvBPH1O8xZIT.434wOqUk62X2jC
- caKu9hf7oqLQPhwJCC9GVjrrbOeEycqR5LFLCo8EQTqMCQYyxnCHS8N8KvVHQPTE7ElMPz3DKi1c
- DQ9OpX_N2wcdxvQ7If_hWjQ5qk4tV9rubeD7J80nQmR.jGBAtN7Xva40uxX.DBnb2hyo5Il0_xTS
- Hk4a2S_8YLhXbKvy0A3YcAeIM_TVLohO6FNK_qiBKNUUlf4Lu3eoIk.8QbeVb55OjLWDidWZQf8B
- lrTnVZvpmtX.0O5Y.iM3zFgKi4NAEconrIJ0av.u.u.JOAHxINYOwU_TOpJ3wR5MwUjA_HrHPWl2
- iUqBAs70nwUxc91yaVy_d.HkUpJlEwbdTEzKcGW.JdlUH9TmpCLrTng0UituAc1gy5qq.H7R980f
- yHf980Ui0128coEuPseplVPCuL9j.jnhsWzRb665.BrS8z8BdyrV_MrzYjlfdrBplopiLId6T.Qc
- uf245gf76dRAbBQqsAUYvesdEyCHXb27n4bw_QVAmz3bXpBRubCV.l2oFTCa3VLK_gmla9YTfkvY
- 13VI.twhNUIcMF.CiS8AbC4GSBUE6ta3S5xy1edj3vrxFezHhObjR._k2gDtyDppZ_jp9E9EZozK
- 3yLnq1Nm66EiWlX4YvU5uMwgUQR6mAIwlaKxlnAQlUONhhR0gw.gLNgD85NOt6FFW.sSpmyDjLgE
- iuDiWXrFUoAe_i.i1hMK_9tEf9LO_WxeIzfuqFVqLNEcsfzFvEz43sUoAbn8eA3T00XWnuBDE4kp
- 08UplEacS1pNLXmpSdgWIlI7Rn.epFQZmHl7nVYi0ni02cxyuZvNuqssH7MFhBd82AAi6EdjqhRx
- Cu8ZCD9gAawPKYaSnOe7BhrWhSHFbhACGITVLUJgVQzWjyOHC_rvr4k6dAVYXxyL7AZg3TGt111w
- vk8f1EZ76v9s_aaFUtV8K.Sjr5j9bzFESAe7ZAlgzDRArTXijF0oyqacP7t.TxHmv9YFg_CaHuJQ
- hTqgTpvgywRhXSF4qv1Outtmxz9vc.UoFwfzr2pa5fqLVbzP_iROgF8vmA7_Fy6Hm03keVsoTFXI
- _yjWgwMS.ZYZd4gnz3ltkU2FzXOXJ425AzDt8WPgnhX2lLTWcHMioMuIg1.tjXMgEAcFBVRQfMzQ
- q3ehy7YXbMtrOVS6mTqNMFtCphnHle6B.dWPoMg4eqMlgwdykAq256FXZfIpjQKyB_j1DhbQz7Z.
- wTVj19LkT0RL6S76J0PpFYN_1vQ4CWzL5ujPmineeix5V..PhvFbWSFVG2WeD4mUcN5Vqx50UHi1
- 0QSRuoKpPZrEhsLgkbcI4R9Zc3wZzASLktqx3dZlDHby3Qead..09n_8C2BbUfV_UbFZum5cw_t5
- aQ3x.EloGqb5eFWErGc99sfotTkdxRDevtwJW.fnpkN0Ziz2ULPGlKwVl_ikmBJ8_WykHCovDc8w
- _s9lN1dOM0aXhQGAtugVgpYw67zp3h_0zUfKoBeiFhanefNArXba033AMweWE1HlCP.tbsv5EH2K
- Ehy4wn.yBAzCl.9roOaBxuaFAteb_CJ.fB6voLP9hJzKvkjq6BYIKC52Bl2M6YNlqWLONrwjv5n3
- _m_3yXxD2IpdAnJHKcQlfTC6kPa7QZz_qTjHmFboCVlkvi9b2t7HHCjVAmO1xaRL7ev03mbT6OBO
- tHfXxTXAjHGDYgCbwD6PUdg0FL9YLZSz.2Po91VM3EKH5RVjqRb5QlVb86fcgOkcYQIJIZ11gON9
- goY8bUZaepE.pGIe8hdP90CMiW2rC4LGU9R1teGYE7Fgc44HqR5tVvOojTDAFKMtimJKObnNsMfD
- 4Q.2rtjD0gmhhGOB8mYvGqcmkHy.9hMha5rAW9sJLn_dtyQlTld1hRumQnadu3QjBOM_TEAhab7D
- WJBcfYPsBS1O5A2JamMYzg50FdUbDXNiNMsCa.CDHmRO4F4MWc1cziAw9iGlqhv0A7iMtVXJcQcT
- iaKDWjAL40S6PBC30esyEge.rv4CYmNYxKEI66tDxWIAXeonRH2q.QdSeYHfrGc3zwmnzfA4g_ft
- QZ7VdbX26bJKiQQTngZfNEz1fP7FxqibfythzV4QvVVQ9UHc-
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 2efe4084-1c9c-4cf7-9967-ddb56f0f0a85
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic315.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:06:06 +0000
-Received: by hermes--production-ir2-7c4859dc89-9kgzz (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID a0e7d468a15789d24f9b8e28866dea23;
-          Fri, 20 Nov 2026 00:06:04 +0000 (UTC)
-Message-ID: <d966bcfd-1718-43b5-a2cb-ee5932bb361e@yahoo.com>
-Date: Fri, 20 Nov 2026 01:06:01 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813FD60A2616
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:06:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813FD60A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100.1)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xUC8n-000000002Ef-2EHM;
+	Fri, 20 Nov 2026 00:06:10 +0000
+Date: Fri, 20 Nov 2026 00:06:00 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Dmitry Baryshkov <lumag@kernel.org>, Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hermes Wu <hermes.wu@ite.com.tw>,
+	Pin-yen Lin <treapking@chromium.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Jiaxin Yu <jiaxin.yu@mediatek.com>,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v9 13/14] drm/bridge: it6505: Add audio support
+Message-ID: <9fa6e149442b5f7294814762b858ecabc3db4d38.1795132452.git.daniel@makrotopia.org>
+References: <cover.1795132452.git.daniel@makrotopia.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,336 +66,381 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v12 09/13] net: dsa: realtek: rtl8365mb: use raw VID
- for PVID on family D
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Language: pl
-In-Reply-To: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1795132452.git.daniel@makrotopia.org>
 
-Family D has no working VLAN member config (MC) table. Its PVID is a raw
-12-bit VID in a per-port register at 0x0700 + port, whereas family C
-stores a 5-bit MC table index, two ports per register, at
-0x0700 + (port >> 1).
+From: Jiaxin Yu <jiaxin.yu@mediatek.com>
 
-Running the family C code on family D therefore reads an MC table that
-does not exist, and writes an MC index into the VID register of port
-(port >> 1) instead of the one of the port being configured.
+Add audio support for it6505 by bridging to the hdmi-codec: register
+an "hdmi-audio-codec" platform device from probe and wire up the
+previously unused audio helpers via hdmi_codec_ops. This unblocks the
+mt8186-mt6366 sound card which references it6505 as the I2S3 codec.
 
-Add the family D implementations of the PVID helpers,
-rtl8365mb_d_vlan_port_get_pvid(), rtl8365mb_d_vlan_pvid_port_set() and
-rtl8365mb_d_vlan_pvid_port_clear(), which skip the MC table. They keep the
-family C frame filter handling and rollback on error. The shared code
-reaches them through the vlan_port_get_pvid, vlan_pvid_port_set and
-vlan_pvid_port_clear pointers in struct rtl8365mb_family_info, so it
-needs no is_d() check.
+Audio starts out muted and is only enabled once the stream is
+unmuted, since some DP-to-HDMI dongles get into a bad state if the
+InfoFrame is sent without audio data. Enable/disable can race between
+the FIFO-error IRQ, the delayed enable work, the hdmi-codec ops and
+the HPD-low path, so the register sequences, the mute state and the
+cached stream parameters are serialised with a new audio_lock mutex.
+it6505_poweron() and it6505_poweroff() change it6505->powered under
+the same lock, poweron holding it across the logic reset and init
+sequence: the codec ops and the delayed work check the flag before
+writing registers, and the mute and shutdown ops run from ALSA, where
+a work cancel cannot reach them. plugged_cb/codec_dev updates take
+mode_lock, the lock it6505_detect() holds when calling back into the
+codec.
 
-Also clear the family D PVID registers when the VLAN support is set up.
-Unlike on family C, where VLANMC index 0 is the neutral PVID, the
-register holds a raw VID, and after a reset it keeps its hardware (or
-EEPROM) default. Without clearing it an unconfigured port could report
-a stale PVID from rtl8365mb_vlan_port_get_pvid(), and
-rtl8365mb_port_vlan_filtering() would accept untagged frames into it.
-rtl8365mb_c_vlan_port_reset_pvid() does nothing on family C.
-
-No functional change for family C.
-
-Nothing points to the new functions until the family D info is added
-together with the chip table entry in the last patch. Until then they are
-not static and are declared in rtl8365mb_vlan.h, so that the build does
-not warn about unused functions.
-
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Signed-off-by: Jiaxin Yu <jiaxin.yu@mediatek.com>
+Link: https://lore.kernel.org/all/20230730180803.22570-4-jiaxin.yu@mediatek.com/
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
 ---
- drivers/net/dsa/realtek/rtl8365mb_main.c |  11 ++
- drivers/net/dsa/realtek/rtl8365mb_vlan.c | 201 ++++++++++++++++++++++-
- drivers/net/dsa/realtek/rtl8365mb_vlan.h |   6 +
- 3 files changed, 217 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/ite-it6505.c | 168 ++++++++++++++++++++++------
+ 1 file changed, 136 insertions(+), 32 deletions(-)
 
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index bb3d7cd..7ad9ef1 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -2452,11 +2452,22 @@ out_unlock:
-  */
- static int rtl8365mb_vlan_setup(struct dsa_switch *ds)
- {
-+	const struct rtl8365mb_family_info *fi;
- 	struct realtek_priv *priv = ds->priv;
- 	struct dsa_port *dp;
- 	int ret;
+diff --git a/drivers/gpu/drm/bridge/ite-it6505.c b/drivers/gpu/drm/bridge/ite-it6505.c
+index 2da58d94127c3..eedc46eaf974b 100644
+--- a/drivers/gpu/drm/bridge/ite-it6505.c
++++ b/drivers/gpu/drm/bridge/ite-it6505.c
+@@ -407,6 +407,7 @@ struct it6505_audio_data {
+ 	u8 i2s_data_delay;
+ 	u8 i2s_ws_channel;
+ 	u8 i2s_data_sequence;
++	bool mute;
+ };
  
-+	fi = rtl8365mb_get_family_info(priv);
- 	dsa_switch_for_each_available_port(dp, ds) {
-+		/* Put the PVID in its neutral state, if the chip needs it */
-+		ret = fi->vlan_port_reset_pvid(priv, dp->index);
-+		if (ret) {
-+			dev_err(priv->dev,
-+				"Failed to reset PVID on port %d\n",
-+				dp->index);
-+			return ret;
-+		}
-+
- 		/* Disable vlan-filtering for all ports */
- 		ret = rtl8365mb_port_vlan_filtering(ds, dp->index, false, NULL);
- 		if (ret) {
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-index 6c27100..3129517 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-@@ -44,6 +44,10 @@
-  *
-  * VLANMC index 0 is reserved as a neutral PVID, used for standalone ports.
-  *
-+ * Everything above describes chips that have a VLAN membership configuration
-+ * table. RTL8365MB_FAMILY_D chips do not have one: their PVID is a raw 12-bit
-+ * VID in a per-port register, and no VLANMC entries are allocated.
-+ *
-  */
- 
- #include "rtl8365mb_vlan.h"
-@@ -121,6 +125,12 @@
- #define   RTL8365MB_VLAN_PVID_CTRL_PORT_MCIDX_MASK(_p) \
- 		(0x1F << RTL8365MB_VLAN_PVID_CTRL_PORT_MCIDX_OFFSET(_p))
- 
-+/* Family D: the PVID is a raw VID, one register per port */
-+#define RTL8365MB_D_VLAN_PVID_CTRL_BASE			0x0700
-+#define RTL8365MB_D_VLAN_PVID_CTRL_REG(port) \
-+	(RTL8365MB_D_VLAN_PVID_CTRL_BASE + (port))
-+#define RTL8365MB_D_VLAN_PVID_CTRL_MASK			GENMASK(11, 0)
-+
- /* Frame type filtering registers */
- #define RTL8365MB_VLAN_ACCEPT_FRAME_TYPE_BASE	0x07aa
- #define RTL8365MB_VLAN_ACCEPT_FRAME_TYPE_REG(port) \
-@@ -172,7 +182,7 @@ struct rtl8365mb_vlan4k {
-  * This structure is used to get/set entries in the VLAN membership
-  * configuration database. This feature is largely vestigial, but
-  * still needed for at least the following features:
-- *   - PVID configuration
-+ *   - PVID configuration (family C only, family D has no VLAN MC table)
-  *   - ACL configuration
-  *   - selection of VLAN by the CPU tag when VSEL=1, although the switch
-  *     can also select VLAN based on the VLAN tag if VSEL=0
-@@ -1191,3 +1201,192 @@ int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
- 
- 	return fi->vlan_pvid_port_clear(ds, port, vid);
+ struct it6505_audio_sample_rate_map {
+@@ -441,6 +442,7 @@ struct it6505 {
+ 	struct mutex aux_lock; /* used to aux data transfers */
+ 	struct mutex aux_reg_lock; /* protects aux_registered */
+ 	bool aux_registered;
++	struct mutex audio_lock; /* audio enable/disable vs. power on/off */
+ 	struct regmap *regmap;
+ 	struct drm_display_mode source_output_mode;
+ 	struct drm_display_mode video_info;
+@@ -479,6 +481,7 @@ struct it6505 {
+ 	bool enable_enhanced_frame;
+ 	hdmi_codec_plugged_cb plugged_cb;
+ 	struct device *codec_dev;
++	struct platform_device *audio_pdev;
+ 	struct delayed_work delayed_audio;
+ 	struct it6505_audio_data audio;
+ 	struct dentry *debugfs;
+@@ -1601,7 +1604,7 @@ static void it6505_enable_audio_infoframe(struct it6505 *it6505)
+ 			EN_AUD_CTRL_PKT);
  }
-+
-+/**
-+ * rtl8365mb_d_vlan_port_reset_pvid() - Put a port's PVID in its neutral state
-+ * (family D)
-+ * @priv: realtek_priv pointer
-+ * @port: the port number
-+ *
-+ * On family D the PVID is a raw VID in a per-port register whose value after
-+ * reset is not defined by the driver (it may come from the hardware default or
-+ * from an EEPROM), so clear it to 0.
-+ *
-+ * Context: Can sleep. Takes and releases &priv->map_lock.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_port_reset_pvid(struct realtek_priv *priv, int port)
-+{
-+	return regmap_update_bits(priv->map,
-+				  RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				  RTL8365MB_D_VLAN_PVID_CTRL_MASK, 0);
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_port_get_pvid() - Retrieve the port PVID (family D)
-+ * @priv: realtek_priv pointer
-+ * @port: port index
-+ * @pvid: pointer to store the retrieved VLAN ID
-+ *
-+ * Family D has no VLAN MC table: the PVID is read straight from the per-port
-+ * register.
-+ *
-+ * Context: Can sleep. Takes and releases &priv->map_lock.
-+ * Return: 0 on success or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_port_get_pvid(struct realtek_priv *priv, int port,
-+				   u16 *pvid)
-+{
-+	u32 data;
-+	int ret;
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &data);
-+	if (ret)
-+		return ret;
-+
-+	*pvid = data & RTL8365MB_D_VLAN_PVID_CTRL_MASK;
-+	return 0;
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_pvid_port_set() - Configure a port's PVID as a raw VID
-+ * written to its dedicated register (family D)
-+ * @ds: DSA switch instance
-+ * @port: port index
-+ * @vid: target VID
-+ * @extack: netlink extended ACK for error reporting
-+ *
-+ * Reads back the previous PVID and frame filter first so both can be
-+ * restored if enabling the new PVID fails partway through, matching the
-+ * rollback behavior of the family C implementation.
-+ *
-+ * Context: Can sleep. Must be called with &priv->vlan_lock held.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
-+				   struct netlink_ext_ack *extack)
-+{
-+	enum rtl8365mb_frame_ingress prev_accepted_frame;
-+	struct realtek_priv *priv = ds->priv;
-+	u32 prev_pvid;
-+	int ret;
-+
-+	lockdep_assert_held(&priv->vlan_lock);
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &prev_pvid);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to read current PVID\n");
-+		return ret;
-+	}
-+	prev_pvid &= RTL8365MB_D_VLAN_PVID_CTRL_MASK;
-+
-+	ret = rtl8365mb_vlan_port_get_framefilter(priv, port,
-+						  &prev_accepted_frame);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to get current framefilter\n");
-+		return ret;
-+	}
-+
-+	ret = regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK,
-+				 vid & RTL8365MB_D_VLAN_PVID_CTRL_MASK);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port PVID\n");
-+		return ret;
-+	}
-+
-+	/* Changing accept frame is what enables PVID (if not enabled before) */
-+	ret = rtl8365mb_vlan_port_set_framefilter(priv, port,
-+						  RTL8365MB_FRAME_TYPE_ANY_FRAME);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port frame filter\n");
-+		goto undo_pvid_write;
-+	}
-+
-+	return 0;
-+
-+undo_pvid_write:
-+	(void)regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK, prev_pvid);
-+	(void)rtl8365mb_vlan_port_set_framefilter(priv, port,
-+						  prev_accepted_frame);
-+	return ret;
-+}
-+
-+/**
-+ * rtl8365mb_d_vlan_pvid_port_clear() - Remove a port's raw-VID PVID
-+ * configuration (family D)
-+ * @ds: DSA switch instance
-+ * @port: port index
-+ * @vid: VLAN VID for PVID
-+ *
-+ * Reads back the previous frame filter first so it can be restored if
-+ * clearing the PVID register fails.
-+ *
-+ * Context: Can sleep. Must be called with &priv->vlan_lock held.
-+ * Return: 0 on success, or a negative error code on failure.
-+ */
-+int rtl8365mb_d_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid)
-+{
-+	enum rtl8365mb_frame_ingress prev_accepted_frame =
-+		RTL8365MB_FRAME_TYPE_ANY_FRAME;
-+	struct realtek_priv *priv = ds->priv;
-+	bool filtering;
-+	u32 cur_pvid;
-+	int ret;
-+
-+	lockdep_assert_held(&priv->vlan_lock);
-+
-+	ret = regmap_read(priv->map, RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+			  &cur_pvid);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to read current PVID\n");
-+		return ret;
-+	}
-+
-+	/* Port is not using this VID as PVID. Nothing to remove. */
-+	if ((cur_pvid & RTL8365MB_D_VLAN_PVID_CTRL_MASK) != vid)
-+		return 0;
-+
-+	filtering = dsa_port_is_vlan_filtering(dsa_to_port(ds, port));
-+
-+	/* Changing accept frame is what really removes PVID. But only do
-+	 * that if VLAN filtering is enabled.
-+	 */
-+	if (filtering) {
-+		ret = rtl8365mb_vlan_port_get_framefilter(priv, port,
-+							  &prev_accepted_frame);
-+		if (ret) {
-+			dev_err(priv->dev,
-+				"Failed to get current framefilter\n");
-+			return ret;
-+		}
-+
-+		ret = rtl8365mb_vlan_port_set_framefilter(
-+			priv, port, RTL8365MB_FRAME_TYPE_TAGGED_ONLY);
-+		if (ret) {
-+			dev_err(priv->dev, "Failed to set port frame filter\n");
-+			return ret;
-+		}
-+	}
-+
-+	ret = regmap_update_bits(priv->map,
-+				 RTL8365MB_D_VLAN_PVID_CTRL_REG(port),
-+				 RTL8365MB_D_VLAN_PVID_CTRL_MASK, 0);
-+	if (ret) {
-+		dev_err(priv->dev, "Failed to set port PVID to 0\n");
-+		goto undo_set_framefilter;
-+	}
-+
-+	return 0;
-+
-+undo_set_framefilter:
-+	if (filtering)
-+		(void)rtl8365mb_vlan_port_set_framefilter(priv, port,
-+							  prev_accepted_frame);
-+	return ret;
-+}
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-index 62ee59c..d8187bc 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-@@ -34,6 +34,12 @@ int rtl8365mb_c_vlan_port_reset_pvid(struct realtek_priv *priv, int port);
- int rtl8365mb_c_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
- 				   struct netlink_ext_ack *extack);
- int rtl8365mb_c_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
-+int rtl8365mb_d_vlan_port_get_pvid(struct realtek_priv *priv, int port,
-+				   u16 *pvid);
-+int rtl8365mb_d_vlan_port_reset_pvid(struct realtek_priv *priv, int port);
-+int rtl8365mb_d_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
-+				   struct netlink_ext_ack *extack);
-+int rtl8365mb_d_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
  
- int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
- 				 u16 *pvid);
+-static void it6505_disable_audio(struct it6505 *it6505)
++static void __it6505_disable_audio(struct it6505 *it6505)
+ {
+ 	it6505_set_bits(it6505, REG_DATA_MUTE_CTRL, EN_AUD_MUTE, EN_AUD_MUTE);
+ 	it6505_set_bits(it6505, REG_AUDIO_SRC_CTRL, M_AUDIO_I2S_EN, 0x00);
+@@ -1609,12 +1612,20 @@ static void it6505_disable_audio(struct it6505 *it6505)
+ 	it6505_set_bits(it6505, REG_RESET_CTRL, AUDIO_RESET, AUDIO_RESET);
+ }
+ 
+-static void it6505_enable_audio(struct it6505 *it6505)
++static void it6505_disable_audio(struct it6505 *it6505)
++{
++	mutex_lock(&it6505->audio_lock);
++	__it6505_disable_audio(it6505);
++	mutex_unlock(&it6505->audio_lock);
++}
++
++static void __it6505_enable_audio(struct it6505 *it6505)
+ {
+ 	struct device *dev = it6505->dev;
+ 
+ 	DRM_DEV_DEBUG_DRIVER(dev, "start");
+-	it6505_disable_audio(it6505);
++
++	__it6505_disable_audio(it6505);
+ 
+ 	it6505_setup_audio_channel_status(it6505);
+ 	it6505_setup_audio_format(it6505);
+@@ -2326,19 +2337,12 @@ static void it6505_stop_link_train(struct it6505 *it6505)
+ 
+ static void it6505_link_train_ok(struct it6505 *it6505)
+ {
+-	struct device *dev = it6505->dev;
+-
+ 	it6505->link_state = LINK_OK;
+ 	/* disalbe mute enable avi info frame */
+ 	it6505_set_bits(it6505, REG_DATA_MUTE_CTRL, EN_VID_MUTE, 0x00);
+ 	it6505_set_bits(it6505, REG_INFOFRAME_CTRL,
+ 			EN_VID_CTRL_PKT, EN_VID_CTRL_PKT);
+ 
+-	if (it6505_audio_input(it6505)) {
+-		DRM_DEV_DEBUG_DRIVER(dev, "Enable audio!");
+-		it6505_enable_audio(it6505);
+-	}
+-
+ 	if (it6505->hdcp_desired)
+ 		it6505_start_hdcp(it6505);
+ }
+@@ -2630,8 +2634,10 @@ static void it6505_irq_audio_fifo_error(struct it6505 *it6505)
+ 
+ 	DRM_DEV_DEBUG_DRIVER(dev, "audio fifo error Interrupt");
+ 
+-	if (it6505_audio_input(it6505))
+-		it6505_enable_audio(it6505);
++	mutex_lock(&it6505->audio_lock);
++	if (!it6505->audio.mute && it6505_audio_input(it6505))
++		__it6505_enable_audio(it6505);
++	mutex_unlock(&it6505->audio_lock);
+ }
+ 
+ static void it6505_irq_link_train_fail(struct it6505 *it6505)
+@@ -2785,11 +2791,13 @@ static int it6505_poweron(struct it6505 *it6505)
+ 		usleep_range(25000, 35000);
+ 	}
+ 
++	mutex_lock(&it6505->audio_lock);
+ 	it6505->powered = true;
+ 	it6505_reset_logic(it6505);
+ 	it6505_int_mask_enable(it6505);
+ 	it6505_init(it6505);
+ 	it6505_lane_off(it6505);
++	mutex_unlock(&it6505->audio_lock);
+ 
+ 	enable_irq(it6505->irq);
+ 
+@@ -2814,6 +2822,8 @@ static int it6505_poweroff(struct it6505 *it6505)
+ 	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
+ 	cancel_delayed_work_sync(&it6505->hdcp_work);
+ 
++	mutex_lock(&it6505->audio_lock);
++
+ 	if (pdata->gpiod_reset)
+ 		gpiod_set_value_cansleep(pdata->gpiod_reset, 1);
+ 
+@@ -2833,6 +2843,7 @@ static int it6505_poweroff(struct it6505 *it6505)
+ 
+ 	it6505->powered = false;
+ 	it6505->sink_count = 0;
++	mutex_unlock(&it6505->audio_lock);
+ 
+ 	return 0;
+ }
+@@ -2979,25 +2990,28 @@ static void it6505_remove_notifier_module(struct it6505 *it6505)
+ 	flush_work(&it6505->extcon_wq);
+ }
+ 
+-static void __maybe_unused it6505_delayed_audio(struct work_struct *work)
++static void it6505_delayed_audio(struct work_struct *work)
+ {
+ 	struct it6505 *it6505 = container_of(work, struct it6505,
+ 					     delayed_audio.work);
+ 
+ 	DRM_DEV_DEBUG_DRIVER(it6505->dev, "start");
+ 
+-	if (!it6505->powered)
++	if (it6505->enable_drv_hold)
+ 		return;
+ 
+-	if (!it6505->enable_drv_hold)
+-		it6505_enable_audio(it6505);
++	mutex_lock(&it6505->audio_lock);
++	if (it6505->powered && !it6505->audio.mute)
++		__it6505_enable_audio(it6505);
++	mutex_unlock(&it6505->audio_lock);
+ }
+ 
+-static int __maybe_unused it6505_audio_setup_hw_params(struct it6505 *it6505,
+-						       struct hdmi_codec_params
+-						       *params)
++static int it6505_audio_setup_hw_params(struct it6505 *it6505,
++					struct hdmi_codec_params
++					*params)
+ {
+ 	struct device *dev = it6505->dev;
++	u8 word_length;
+ 	int i = 0;
+ 
+ 	DRM_DEV_DEBUG_DRIVER(dev, "%s %d Hz, %d bit, %d channels\n", __func__,
+@@ -3013,8 +3027,6 @@ static int __maybe_unused it6505_audio_setup_hw_params(struct it6505 *it6505,
+ 		return -EINVAL;
+ 	}
+ 
+-	it6505->audio.channel_count = params->cea.channels;
+-
+ 	while (i < ARRAY_SIZE(audio_sample_rate_map) &&
+ 	       params->sample_rate !=
+ 		       audio_sample_rate_map[i].sample_rate_value) {
+@@ -3025,21 +3037,20 @@ static int __maybe_unused it6505_audio_setup_hw_params(struct it6505 *it6505,
+ 				     params->sample_rate);
+ 		return -EINVAL;
+ 	}
+-	it6505->audio.sample_rate = audio_sample_rate_map[i].rate;
+ 
+ 	switch (params->sample_width) {
+ 	case 16:
+-		it6505->audio.word_length = WORD_LENGTH_16BIT;
++		word_length = WORD_LENGTH_16BIT;
+ 		break;
+ 	case 18:
+-		it6505->audio.word_length = WORD_LENGTH_18BIT;
++		word_length = WORD_LENGTH_18BIT;
+ 		break;
+ 	case 20:
+-		it6505->audio.word_length = WORD_LENGTH_20BIT;
++		word_length = WORD_LENGTH_20BIT;
+ 		break;
+ 	case 24:
+ 	case 32:
+-		it6505->audio.word_length = WORD_LENGTH_24BIT;
++		word_length = WORD_LENGTH_24BIT;
+ 		break;
+ 	default:
+ 		DRM_DEV_DEBUG_DRIVER(dev, "wordlength: %d bit not support",
+@@ -3047,27 +3058,111 @@ static int __maybe_unused it6505_audio_setup_hw_params(struct it6505 *it6505,
+ 		return -EINVAL;
+ 	}
+ 
++	mutex_lock(&it6505->audio_lock);
++	it6505->audio.channel_count = params->cea.channels;
++	it6505->audio.sample_rate = audio_sample_rate_map[i].rate;
++	it6505->audio.word_length = word_length;
++	mutex_unlock(&it6505->audio_lock);
++
+ 	return 0;
+ }
+ 
+-static void __maybe_unused it6505_audio_shutdown(struct device *dev, void *data)
++static void it6505_audio_shutdown(struct device *dev, void *data)
+ {
+ 	struct it6505 *it6505 = dev_get_drvdata(dev);
+ 
++	mutex_lock(&it6505->audio_lock);
++	it6505->audio.mute = true;
+ 	if (it6505->powered)
+-		it6505_disable_audio(it6505);
++		__it6505_disable_audio(it6505);
++	mutex_unlock(&it6505->audio_lock);
++	cancel_delayed_work_sync(&it6505->delayed_audio);
++}
++
++static int it6505_audio_hw_params(struct device *dev, void *data,
++				  struct hdmi_codec_daifmt *daifmt,
++				  struct hdmi_codec_params *params)
++{
++	struct it6505 *it6505 = dev_get_drvdata(dev);
++
++	return it6505_audio_setup_hw_params(it6505, params);
++}
++
++static int it6505_audio_mute(struct device *dev, void *data,
++			     bool enable, int direction)
++{
++	struct it6505 *it6505 = dev_get_drvdata(dev);
++
++	DRM_DEV_DEBUG_DRIVER(dev, "mute: %d", enable);
++
++	/*
++	 * Delay enabling audio until the stream is unmuted; InfoFrames
++	 * without audio data upset some DP-to-HDMI dongles.
++	 */
++	if (enable) {
++		mutex_lock(&it6505->audio_lock);
++		it6505->audio.mute = true;
++		if (it6505->powered)
++			__it6505_disable_audio(it6505);
++		mutex_unlock(&it6505->audio_lock);
++		cancel_delayed_work_sync(&it6505->delayed_audio);
++	} else {
++		mutex_lock(&it6505->audio_lock);
++		it6505->audio.mute = false;
++		mutex_unlock(&it6505->audio_lock);
++		queue_delayed_work(system_wq, &it6505->delayed_audio,
++				   msecs_to_jiffies(180));
++	}
++
++	return 0;
+ }
+ 
+-static int __maybe_unused it6505_audio_hook_plugged_cb(struct device *dev,
+-						       void *data,
+-						       hdmi_codec_plugged_cb fn,
+-						       struct device *codec_dev)
++static int it6505_audio_hook_plugged_cb(struct device *dev,
++					void *data,
++					hdmi_codec_plugged_cb fn,
++					struct device *codec_dev)
+ {
+ 	struct it6505 *it6505 = data;
+ 
++	mutex_lock(&it6505->mode_lock);
+ 	it6505->plugged_cb = fn;
+ 	it6505->codec_dev = codec_dev;
+ 	it6505_plugged_status_to_codec(it6505);
++	mutex_unlock(&it6505->mode_lock);
++
++	return 0;
++}
++
++static const struct hdmi_codec_ops it6505_audio_codec_ops = {
++	.hw_params = it6505_audio_hw_params,
++	.mute_stream = it6505_audio_mute,
++	.audio_shutdown = it6505_audio_shutdown,
++	.hook_plugged_cb = it6505_audio_hook_plugged_cb,
++};
++
++static int it6505_register_audio_driver(struct device *dev)
++{
++	struct it6505 *it6505 = dev_get_drvdata(dev);
++	struct hdmi_codec_pdata codec_data = {
++		.ops = &it6505_audio_codec_ops,
++		.max_i2s_channels = 8,
++		.i2s = 1,
++		.no_capture_mute = 1,
++		.data = it6505,
++	};
++	struct platform_device *pdev;
++
++	it6505->audio.mute = true;
++	INIT_DELAYED_WORK(&it6505->delayed_audio, it6505_delayed_audio);
++
++	pdev = platform_device_register_data(dev, HDMI_CODEC_DRV_NAME,
++					     PLATFORM_DEVID_AUTO, &codec_data,
++					     sizeof(codec_data));
++	if (IS_ERR(pdev))
++		return PTR_ERR(pdev);
++
++	it6505->audio_pdev = pdev;
++	DRM_DEV_DEBUG_DRIVER(dev, "bound to %s", HDMI_CODEC_DRV_NAME);
+ 
+ 	return 0;
+ }
+@@ -3606,6 +3701,7 @@ static int it6505_i2c_probe(struct i2c_client *client)
+ 	mutex_init(&it6505->mode_lock);
+ 	mutex_init(&it6505->aux_lock);
+ 	mutex_init(&it6505->aux_reg_lock);
++	mutex_init(&it6505->audio_lock);
+ 
+ 	it6505->bridge.of_node = client->dev.of_node;
+ 	it6505->connector_status = connector_status_disconnected;
+@@ -3654,6 +3750,12 @@ static int it6505_i2c_probe(struct i2c_client *client)
+ 	if (err)
+ 		return err;
+ 
++	err = it6505_register_audio_driver(dev);
++	if (err < 0) {
++		dev_err(dev, "Failed to register audio driver: %d\n", err);
++		return err;
++	}
++
+ 	INIT_WORK(&it6505->link_works, it6505_link_training_work);
+ 	INIT_WORK(&it6505->hdcp_wait_ksv_list, it6505_hdcp_wait_ksv_list);
+ 	INIT_DELAYED_WORK(&it6505->hdcp_work, it6505_hdcp_work);
+@@ -3696,6 +3798,8 @@ static void it6505_i2c_remove(struct i2c_client *client)
+ 	cancel_work_sync(&it6505->hdcp_wait_ksv_list);
+ 	cancel_delayed_work_sync(&it6505->hdcp_work);
+ 	cancel_work_sync(&it6505->extcon_wq);
++	platform_device_unregister(it6505->audio_pdev);
++	cancel_delayed_work_sync(&it6505->delayed_audio);
+ 	if (it6505->extcon_state)
+ 		pm_runtime_put_sync(&client->dev);
+ 	pm_runtime_disable(&client->dev);
 -- 
-2.53.0
+2.56.1
 
