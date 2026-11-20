@@ -1,105 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.68
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134681;
-	b=oAhKda7SZZIf7O1OY8QPg6r/Va/mOO3hfDmrYXFC1PdVQaSzqMR65qE+VZRtXP9Ow+hr
-	 OCs49PbCxQ0hRa0fs7lShwFfjjNx5xXD9gMWddfIW3TVo+dfsgGpWyoISg/KyMOk5gAN2
-	 tJj6tq8VhD1JXtxljhir7q+KgboozsAfNdSAq9LwJz4d2MD3c6o+8Z5iiOuH9/cGQLhqX
-	 yRd4g/E2ld93yJMk2aSd31KNRfyAU7+M3u11u/6UX3ObQIG/HTxD1b9dusqoTNN2K7NR6
-	 4uHh+/V2CkHmTiuXAGtweusOxU1lMumYOwpEMlNGdlDA1JJxzhHXoRAe2PaaPOMST7A==
+	t=1795134721;
+	b=CP6lA5CCJNM6MSvKhw+7ekxStgAuDKIufTQVmmHn8Dxb0nN+l5zMdMJmzfXGF2rmKYCp
+	 zmZgPPKMwHsjRAwiPm6Hg8CBAwBZWzvkFEj84swywzf49jm26QmDS/pQUncblAMzrHrw0
+	 uDTCUpD0IcC620mrrBQwW1L4uZxcMaPxN+FXGjkmQ6qUSEQu+0a5o/mO2A++GmGgrRwYc
+	 qxt11dRri1AV/ZvS2Ok31FHIatZn7jbkP+kImjNZOf6on/jPNJYKDi6y+lpkvyNkTgL0S
+	 7kY4znFFe3YkIx4h97c7RTQoSlPjGsOtVdruzOBLgwn2nsiZoriVaj96Mn/c8ld6kqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134681;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134721;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-	b=YVBB9iMWfGGEb4NuinxJy1Rn6FaHILlHQo4VUfHkB8/DnKiYJNIXJU2kbQmb/GszVpYQ
-	 Y3R/BPMY4g4lo9mJxm9PbBMZZ7J9R8t2iVeOOCpyK/7uvk3Zxsk89je5Cpky7Kq3UfSTo
-	 6oGkkJKnF3PWXX8nynfhtDTXJ5hwqKy+7M/tY0jEeNDmEDwnBIZefunh+9RXAzYarY7DE
-	 7R0oDlsTT7v8jFUMlS6hSdF28PhWsNXjaDiLg79yK2E4GnTzt3yCdH7Ietyza0Ye2DQ0b
-	 IIG68XOrTROW+kk8RnFY4JqhY0EiyBl+HhNJyXtqztnsOY3COeRFNcJ8dZng6WYUBLg==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=6I0dox9mdYstBqG9ky0WjIUXtlB7TLrMdzBHbsE5LOA=;
+	b=f68JDZDASFfrIHEQbBU6CeKCBDlHcGQt2BPxOC+BENjncWC0qP/j6kk8LnXvztPve0Gb
+	 j2S/7vkntoDF+N6jDfn/VAIUsYSU3OjCXaIqjY7zyknBnafSMYNWDc/g6c/Yq5E4S80Eu
+	 Z9JNfaGox3FYL1am2NK8FibVskmfgDfDcHleFcY2epCof3le63FHp2kE2pxNUVvIT8vCC
+	 FD4ozLlJHNZp/So+bir1Qmx87MAl+5yzBcY/tSkyCF7R9J8yKb6Yvc3pkxGcNu/bohBMI
+	 AH+33rCMRg/deCuq4V/v5db1OMehAcGqToMXWWnsIMq60suV/1zkfrTkuFUfggOeuZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=glVrkyNI;
+	arc=none smtp.remote-ip=74.125.82.68
+Received: from mail-dl1-f68.google.com (mail-dl1-f68.google.com [74.125.82.68])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1274B606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:31:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1274B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07A6C606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:32:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07A6C606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JtKGSFFu
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f0464dd6b6so57965ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:31:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=glVrkyNI
+Received: by mail-dl1-f68.google.com with SMTP id a92af1059eb24-18818daa3e7so665313c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:32:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795134680; x=1795739480; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-        b=JtKGSFFuZ37OqBXPbDHC1v8kICm6XKkcO5sFrHNQM4ceEFl4ENKQ66mtQ6mD4AyZNY
-         U5vZo3qQm2BbdPVp24dPvclYKKKU1gbAtsICRk6SeO9YFUOgAczmBy2Om6Lt9vK/OYrm
-         y1kLaGumQITlISvqdrmH84JEcdiq0Rb81AAURpGYrvUxfWKGnDccij2EtTG722TjzC/a
-         0ZRxvc3jn+fsFnGSnV1gycG8QtUmUq9C9OZ904CxWwD5AhVJ3G+gb/TRIDBN3JCyYqdl
-         IybEUtBNhGYaGVB6OWt/Y7EKtv/Bv5sAwX4p777McHQtKOUnToTmo3Y0tL85sLK9M/Py
-         KzNg==
+        d=gmail.com; s=20260707; t=1795134720; x=1795739520; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6I0dox9mdYstBqG9ky0WjIUXtlB7TLrMdzBHbsE5LOA=;
+        b=glVrkyNIyYlm8wVTiuLIn+1R/pE2V9VJN825nkjbnVE7DzI/tklr0XR6PDNFu1OUjc
+         A6P3ZfTwHJQxiHAjmoK4SpQIdS8Ir/katd03VOBvE+4swUu2oA+8IkTyyok1Pjj9/pPY
+         jRHRWeNYDZ3yM5EUWHx+RVw95l+YNdToEWVWMBlDmJCQ5nDUi+lZAkU6M+KCBd+2W1HW
+         fToXfkJkp8+luUW1MITx+x0oH3VnjO0S4X/xzsL89lshkI/VzuYPu9YudzfVuvXLiO7a
+         PI2e6DkQIuvL5sJxpbyOQ9dBGmqKQnp3LSWMA4iJOQsw2EYyE1DA6dSJBL+RP9i6HuS0
+         6Qlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134680; x=1795739480;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20260707; t=1795134720; x=1795739520;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=NJvteZs/7UwxXTsKI+K0BOVZAwYmYsNEfR3sXFomPaM=;
-        b=BCU+xDSqbJkh9pJEjueunTIwxtsihfsh6hzRa/77H8z/V2l502ivR60MyJKOQqieRl
-         ZOYsqogrYz89rpa0Vzc7U0ds3UMBrqfj7zvVpHpcP6Uv7nBejJGk70gEFrawJQHMNSgi
-         kQA9SxZPcwsL9ECzSXvjupVM5ONTUpJQAmdMFfYuoUO2bovrswDgGWzfOPFvCN6oimIh
-         TG0NqlyfUMOrKQmc6xcZzq6I3kTkWTqjYkG/riE1FlYWVcmtV9etK0dvs5YAhqHXGJmZ
-         kMW8yoctcSXl7asKlzg7Ji8x45dzRXVXMifap436qx4s2FVtifbmbu8hmSJwhYLJmhh9
-         dmqQ==
-X-Forwarded-Encrypted: i=1; AL+hErFNpHYO1s4Cys03ErTrA+nY13kPbeg9e80wcyrVvuFmY0y8Cy+xx0qq5lHBh190q42m5h2WTtAnk8+QcDQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z842sHE4Il9mugICfFDuVnq4Po1Kfwuyv8VaEOHnMhEXXK+wYTu
-	9WoTYqJj2d1hpgUJyi/EuKGiqlI97ZXdAmebXWoq10nM00Wfb9BFXScpHNpk4QiY0DU=
-X-Gm-Gg: AZFdTZcoprQrIiaMkVbRyso0C4hC/FWYUC0nOoAJz7ssxzsC9/PFZSuHWv+Za/nzlMv
-	LHZAXfgnouRr3yxt4JE8YViaw7VessHtlOEcX0IbK0nKXrBp9YG7/mk3oZIG8sS1NxkXjlLl+fa
-	A8DJ/9Na+A4EazcsQvfuuIOSjtFDVOHZT7gjPY+tN7K0TPlrV/N/u86qSwRNockxM092DD3TSOi
-	Ep+VPCqBkEmh7SCV8PRl3sKJAMpO8pEFzZ/2OwoHBVuMJlZMCgJz9OdX+kvN2Wc2fauqvSiiNfP
-	s9vZtmLHa3bG83v6+aYBLr4xfc430lIMrgwo4O/JDj4JXaOac+mAABcf9AUGEfT3YprhJ6L/JT6
-	yUgL2fKcK6kJ4zsdBarMUzdDDezWFNBl/5119uut7+UPYxoK8I8KMpSU+bqC7o2S30P8eIj5jXM
-	9cd17NR+1zT50ykjA+aTzTn7eK1xzX4HqFZA+CPSYy0cp536qfl8+md+s7En//NmLM5+4serKUC
-	U8P8qnBHtWI/UPpISUxnfIMnPUVhw8DS6lIjmhB5LxNkFCNlENHFtD3QABM2012Zi1wlSV+UZr+
-	1m6wK5Mwvj3rgqMCFbBYF+8M29jOM+EVa5VwnQlwnlc=
-X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr876819a91.66.1795134680373;
-        Thu, 19 Nov 2026 16:31:20 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:55::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad47091sm1615819a91.10.2026.11.19.16.31.19
+        bh=6I0dox9mdYstBqG9ky0WjIUXtlB7TLrMdzBHbsE5LOA=;
+        b=hsDmdGNG5qOsswdUUfP4cWMJptEqW3OE0eeSdTPagHCiArL63ayzPoejUAqxQvvfYH
+         yyc5xsoP/uTsf5yH6OAFOhohpB8daxyHVD/0265e7H1/h7w5ZyWk3mtNIJyhMyGiwYZR
+         kOYFMKn3WG0HbOQub+VW2cWEcuY9JY5wvMEdhnDrSGVxGjiru/fnt8bIJGVN9zreWiKk
+         7uafKDqsjP2R4IEUluR5YIodN41/gbp0/xDvi9VDHuOkG3KsQFmbDM6eZRux+Aqu7eDO
+         BWuLkuVDmhBnYHGW1ZWN7xUMWaCddDZwZZx7afqsxjSeh5BhKYSxIAllhMrY0Mc3G/Xl
+         lK2g==
+X-Forwarded-Encrypted: i=1; AL+hErHQ4cZX9Y8CgB5IzfNBERIijLCbdQ56ElkdnT1/B50DmJUVeHw2Awupd0TccyDr8wkfiBAQKoH3SyvTyJY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9VyhXqakvON+xiAdeMLZPm8kDF/SPDMif1Vbjfjp8Ni5zVYb0F
+	R4fuN5fXF5LIBhNlmCTsW94OX8aZzc5IXr22rB3DyjI4TqKu8EruHyK5
+X-Gm-Gg: AYBFou3hvih/kCqk4T5JXdJapmSJpvtZjVS/vzNFTSO3RqtCAVJmdwbzvZd+gkITVKz
+	ftFnopBITvIoFROnWT6WKO07MntJOOPpnoM1Tqzuxjh6ZKNyZnUjF/spIsTB/gMDLcVh3CKsfVY
+	5epvAmxZaNM4CsXW7sFRWLe8ZWTvBFP2NZ+i+0/RzYfCcN/l0RBUQNXzuv0lHx3/QTrLca5BaK9
+	XGqyp+bVYEusFt/RjQStP3fbVYLBTQlrZ24DTaKwfngSHtIPabZ12ckfFP2X45WwzSt5ZhIH9ZU
+	xHcwtNuyviVpe8IfTDWHJZiJeycnZLG/9VnuFmlv9s5BNNfsSp1bcA3SBkel6tYPscdQ6Hygjqn
+	yLKyisnHAC/3ETOv1dSDK3gw1YLPJwoXD7j78IQonSfycZiSKYgdeMPN3ii5YKh5/lYGs7ARzNM
+	IUBLshhU1iuU/VisbeKEM7hJqHTISN21qvcDIPxM/MM6GkzUK7aqHpr3D7xDaKnOSWwqdy4nzpW
+	5HoddAPHrGwyn24IpGk65KLKcs/H0AhH3mFr4EhHFISILkqLeAePsK6szOvLJXt8KJQxDyDscgM
+	zCCvVdixbPSbrYg+GE4hq7s=
+X-Received: by 2002:a05:7022:7f19:b0:19f:cc98:f603 with SMTP id a92af1059eb24-1b5520d7d86mr2448430c88.1.1795134719982;
+        Thu, 19 Nov 2026 16:31:59 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:42::])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm2242124c88.8.2026.11.19.16.31.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 16:31:19 -0800 (PST)
-Date: Thu, 19 Nov 2026 16:31:18 -0800
-From: Joe Damato <joe@dama.to>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
-	horms@kernel.org, linux-kernel@vger.kernel.org,
-	daniel.machon@microchip.com
-Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
- doorbell fix
-Message-ID: <av+U1gCrKGy+SuGU@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Jakub Kicinski <kuba@kernel.org>, tariqt@nvidia.com,
-	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, daniel.machon@microchip.com
-References: <20261117155353.2250540-1-joe@dama.to>
- <179493106742.3291.11434436383058043225@kernel.org>
- <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
- <20261119143852.3bca9000@kernel.org>
- <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
- <20261119160559.45b9fc7f@kernel.org>
+        Thu, 19 Nov 2026 16:31:59 -0800 (PST)
+Date: Thu, 19 Nov 2026 16:22:53 -0800
+From: Stanislav Fomichev <sdf.kernel@gmail.com>
+To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Alexander Duyck <alexanderduyck@fb.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Jesper Dangaard Brouer <hawk@kernel.org>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Magnus Karlsson <magnus.karlsson@intel.com>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Pavel Begunkov <asml.silence@gmail.com>, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, Simon Horman <horms@kernel.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, kernel-team@meta.com, 
+	John Fastabend <john.fastabend@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, 
+	Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Weiming Shi <bestswngs@gmail.com>, 
+	Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
+	Bobby Eshleman <bobbyeshleman@meta.com>, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, io-uring@vger.kernel.org, Mina Almasry <almasrymina@google.com>
+Subject: Re: [PATCH net-next 1/7] bpf: Keep XDP helpers within readable data
+Message-ID: <av-SmgwQhAKI5u5P@devvm16445.scu0.facebook.com>
+References: <20261117164700.2157816-1-bjorn@kernel.org>
+ <20261117164700.2157816-2-bjorn@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,61 +114,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261119160559.45b9fc7f@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261117164700.2157816-2-bjorn@kernel.org>
 
-On Thu, Nov 19, 2026 at 04:05:59PM -0800, Jakub Kicinski wrote:
-> On Thu, 19 Nov 2026 15:34:21 -0800 Joe Damato wrote:
-> > On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
-> > > On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:  
-> > > > The only fix in this series is the deferred doorbell flush (patch 5), but I
-> > > > need the other code (patches 1-4) for SW USO support I plan to submit next
-> > > > if this series is applied.  
-> > > 
-> > > Not sure if this is what you meant but this may read as if you were
-> > > sending a fix for net-next for convenience of sending more patches.
-> > > To be clear - that's not a valid excuse. That said, here, we're talking
-> > > about a 10 year old error path bug which nobody apparently have been
-> > > bothered by. We don't have space in net for such things at this point
-> > > of the cycle, anyway :S  
-> > 
-> > I'm probably just being dense and not following what you mean here.
-> > 
-> > I was looking at a local branch that implements SW USO in mlx4 and it was
-> > getting to be quite long with a lot of patches. I thought that breaking it up
-> > and moving some of the patches into a standalone series would make it easier
-> > to review.
-> > 
-> > I suppose you are saying I should have just kept it as one longer series,
-> > instead?
+On 11/17, Björn Töpel wrote:
+> Devmem and io_uring zero-copy RX put payload in fragments that the
+> kernel cannot read. XDP helpers must not treat these fragments as
+> normal pages.
 > 
-> No, not at all. 
-> 
-> You said "The only fix in this series is....I plan to submit next if
-> this series is applied". Which triggers my suspicion that you packed
-> a fix with -next stuff for expedience / not having to wait for a
-> net->net-next merge before you send the rest of USO. I don't think
-> that's what you meant but since I had to ping Tariq anyway I decided
-> to wag a finger at you. 
+> Reject operations that read or write these fragments. Access to the
 
-Oh, OK.
+[..]
 
-To be clear: I was not trying to circumvent the system or the rules and if you
-(or Tariq) prefers, I am happy to peel this apart and send it to net in the
-next cycle.
+> linear part still works. Tail trimming does not read the payload;
+> clear the unreadable flag after it removes every fragment.
 
-I am not trying to rush anything in; I'm happy to wait until the next
-cycle if that is what is preferred.
-
-I included it to net-next because my perception (which is clearly incorrect)
-is that net is much stricter lately and issues which have never been triggered
-IRL or reported by users may not meet the bar required for net.
-
-I'll be more careful in the future; I just legitimately did not think this
-change would be accepted to net.
-
-> IOW I'm commenting purely on packing what can be perceived as a net
-> fix in a net-next series.
-
-Sorry for the confusion I caused :(
+I guess this is technically true, but why allow it at all? Easier/safer
+to reject tail trimming as well?
