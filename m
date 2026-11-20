@@ -1,67 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.185
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.186
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173949;
-	b=ijYxPXszDz9D9q7BNIcv7sduRoHDFhmNS6u2psiFfvc+9Sg+YX/xAb771gpiGUR5v1ak
-	 aANpvNAPL0pNX8nkcxeutFIFkxgVv7elUtOdvyPkaR6dLS05ogiFNggaxHMOVge+jQjMp
-	 bKUgzxgRQ7PfUMw4fOJxnct2R2RCvTeZZnL7aUeZi6cnYbimuIIllX62D8Qc7PA50xpaD
-	 MugggsvM0qDuimCSVYBCDpe0gFe3dqh7Nl8WpP6oys97O59VBp87XZEyaFg3FnfJwquai
-	 w0N8M+SYRq3Ixs3kMmvLNUQhkk+BtOTolRhRdqNBJUII6dZh4Qe4TsUWAgONDQWj7SA==
+	t=1795173950;
+	b=CRBa73S6tO3Zzqa5YBjLwI1APpryOwzprRPkinLnZhEJaysEnyfdRwIv/JwywDxC3+3m
+	 jQkim/V/u3lQf9y7iSF8/r/yXGuHCob/cxOHMZaLDW+RTw4dawQiw8fbvNWShTizbLcl1
+	 idV0zKhhx9VQ47+UfZKmu+cYACpEjud0+dF0bzLNoYXWj/SDX4kVxMDVQ0aKj6vXLsoP+
+	 +9Vn+c6BFQ5XgbnOdb0Qs6k6EN4udGaDSMbH+aWHt9E0sPbeBPgpOv6P71wlt1e8zTMem
+	 TAaLm3NvS8KykdoBjkMbQlWm8PLfZXvNdA1n1YDsEH2wYQbGr9tmMGrD80ecLxhrLWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173949;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173950;
 	h=DMARC-Filter:X-KPN-MessageId:Received:DKIM-Signature:X-KPN-MID:
-	 X-KPN-VerifiedSender:X-CMASSUN:X-Originating-IP:Received:From:Subject:
-	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=BlWEHqUMBfqlYT6RzxZzGtNgrS/B0W45FDa8RWpCMeo=;
-	b=fYIFPQ6GyQiQkfCLGyWtNYsg2rGT6oT0wnELyfxecGrTfxuUEKJMAm6hwopS9OUPqZLr
-	 ZPr7RtOumb1hDrmdU0Xn1yEMTyJv8j9Y6Q3tYxuDbNyKSpNa+GThc1sSUmEu4JiNZ6OCI
-	 poJcjIG2+EEcS98sGPp2D7WPgSCdOJJOYUU8qwbQnBcvbwYcNr1HFxM5XXqVDbncEEBjW
-	 tqjow1HNtHgB0GJlYqeZU7YzI9h1viGUXDfwGZLKkNnMTTpSeYt35KqyiYh3HgAVw0gDO
-	 0sR5nkpy+NuotMrCjtXxkM5Grh31VV259c+1ZQUjgFifIcheoUpdGPQIzca1ie36SJQ==
+	 X-KPN-VerifiedSender:X-CMASSUN:X-Originating-IP:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=WqMA7RWH/tLIlFRV37UGqFGvravE6hhlZ1PRslslaGU=;
+	b=wNzD4fKrSwqrKP+3yKMnjt77UfUb1VBp/mKHj5puvqNMGTeNKFSWl9EiG6CBGnTyplpZ
+	 BUzdRf2wN78OPcAHuBqpR9YJNC0vK6pOIwA/nhgx5ZooLL1b4BXwjD6AODWkUcZpFHxFO
+	 Q8RxQSKrmTxO3GpSU1BE+ixCDSjnTPNxMUDyhY/bCzAZ5kU9FNEfiTRxntK6GfIWsCTIy
+	 SA43MJk4DnCMbHfiyMHe21tV77jLFRg1ufUZuD4FCKV9q97EAV3bePX0NAljfXqZTb+li
+	 p+QJp9W3otCttu83XSBrBmJhOpOtr2CYhKzyFopXwbRH7G7I2lH7d4dA9PITzY72REg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=xs4all.nl;
 	spf=pass smtp.mailfrom=xs4all.nl;
-	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=JVjsovkk;
-	arc=none smtp.remote-ip=195.121.94.185
-Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.185])
+	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=llVSL0CD;
+	arc=none smtp.remote-ip=195.121.94.186
+Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.186])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C3D606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:25:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C3D606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F5C606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:25:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F5C606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=JVjsovkk
-X-KPN-MessageId: 1da285a0-e4d5-11f1-964c-005056999439
+	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=llVSL0CD
+X-KPN-MessageId: 1e5a7bd5-e4d5-11f1-b88c-00505699b430
 Received: from smtp.kpnmail.nl (unknown [10.31.155.7])
 	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
-	id 1da285a0-e4d5-11f1-964c-005056999439;
-	Fri, 20 Nov 2026 12:25:40 +0100 (CET)
+	id 1e5a7bd5-e4d5-11f1-b88c-00505699b430;
+	Fri, 20 Nov 2026 12:25:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=xs4all.nl; s=xs4all01;
-	h=to:content-type:mime-version:message-id:date:subject:from;
-	bh=BlWEHqUMBfqlYT6RzxZzGtNgrS/B0W45FDa8RWpCMeo=;
-	b=JVjsovkk/tx7LHPECwSDZYYUnemGi8NT/PGU4bPD3DWrRCynwCeq5TPWbJqrVUgUaaskjS8RNLyNS
-	 YD05SNq9d2hUK6em6GrxAnQK3N7iI8yxFjUuHYhKy3sIrNy1da4kjM0z1OJm654Dvop0iitrltDV2N
-	 Ve0lvxIVBfdssUTFZe8ajY8EvwPVc7byNEth6eSpT5seYpeqwPh9HT0NDKsiX5eES5x2eRQlz7PVHL
-	 xHP1TnL9QWerToxg1iRck3g79X7N4o4Yx2Hcj0x09e2nu0PF+D5NeqIBRG1sesEcObUu8KNBfHQHar
-	 iyiISq9FSL2oPWHEp+HLUoQvFKYtexw==
-X-KPN-MID: 33|MobqPwOJImcBCc+cLtMGVB255lynkFGkgg5+9Y1LDQhPPLwLda+xj9S/6QarXue
- qwe+L5p+PWNT7eTiMnjv90LV4imoA+q0osGu9DX7/sBs=
+	h=to:message-id:content-type:mime-version:subject:date:from;
+	bh=WqMA7RWH/tLIlFRV37UGqFGvravE6hhlZ1PRslslaGU=;
+	b=llVSL0CDnR7GNlW9vyj/dhFxq3F0Ym+P4ppIoyWd5UuijccBxA2ufIJsPRDSNih++G5z8IU2K1Ali
+	 NTdjCnVfHVtaPexMwrdIF02gXc+LiYPMhM6m6i68soBpn46M4csW3q34UxfP1pEA3MrOsP4mikMf9K
+	 h1uuarn3BBighCPLH3G8ecEFT7r/kX/NHku9ns1iI8zfFr+6qryFbw0n8ox3afOAay3VDNN2Xcazk2
+	 XI/CGc7bUczqd0ud4zVnB40OvtNARsUAbVD5zJiKM1q3uGg9p9Q1ZeBy/tx/jRH2weyZZ9SAb3CMrn
+	 l2xKNPB6VHLPGgqrFH1+aEKGwrUNIIA==
+X-KPN-MID: 33|P7Nxi6PPULmoId54N2bDPC4PodzQBz+CESPhD3Ph/fMHF9fRpPXxmDrRfurT+Ev
+ iGQJfuy0gF0ZUWQlk8Kqb5Z6nPdHAiiPPTmUGr0mNrrM=
 X-KPN-VerifiedSender: Yes
-X-CMASSUN: 33|xvyHc0hgKsCcPYT0JUki7vUYMz0ALynJqrDH53NqU1I6Bo+nCDp+3PKMV7KEtme
- KbUcFRvTqJntQxjq2ehp0rw==
+X-CMASSUN: 33|9ZRuYsmyLjQ4G1beXDf1x7bP3Vx0YSsTgBoT0+s7BK+HCUeRUCt0oZ0sOTCFhDe
+ uhklr3zHVUVXnsK6yD9Iyxw==
 Received: from [192.168.1.167] (unknown [178.226.154.85])
 	by smtp.xs4all.nl (Halon) with ESMTPSA
-	id 1aaf0057-e4d5-11f1-92e0-005056998788;
-	Fri, 20 Nov 2026 12:25:40 +0100 (CET)
+	id 1e3ea4ff-e4d5-11f1-92e0-005056998788;
+	Fri, 20 Nov 2026 12:25:41 +0100 (CET)
 From: "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>
-Subject: [PATCH v2 0/2] selftests: add option to print the time spent per
- test
-Date: Fri, 20 Nov 2026 06:25:27 -0500
-Message-Id: <20261120-kselftest-run-timer-v2-0-9802690a370b@xs4all.nl>
+Date: Fri, 20 Nov 2026 06:25:28 -0500
+Subject: [PATCH v2 1/2] selftests: pass the timeout override to tests run
+ in a netns
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,11 +72,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NQQ6CMBBFr0Jm7RjaChJX3sOwKDDIxFpIpxIM4
- e5WEncu30v++ysIBSaBS7ZCoJmFR59AHzJoB+vvhNwlBp3rUil1xoeQ6yNJxPDyGPlJAbve2LY
- wqiw0QVpOgXpe9uqtTjywxDG895NZfe2vV/3tzQpzLIytTNXortTNdZGTde7oHdTbtn0Aeerlp
- 7YAAAA=
-X-Change-ID: 20261117-kselftest-run-timer-df3ac531652e
+Message-Id: <20261120-kselftest-run-timer-v2-1-9802690a370b@xs4all.nl>
+References: <20261120-kselftest-run-timer-v2-0-9802690a370b@xs4all.nl>
+In-Reply-To: <20261120-kselftest-run-timer-v2-0-9802690a370b@xs4all.nl>
 To: Shuah Khan <shuah@kernel.org>, David Ahern <dsahern@kernel.org>, 
  "David S. Miller" <davem@davemloft.net>, 
  Hangbin Liu <hangbin.liu@linux.dev>, 
@@ -86,41 +83,35 @@ Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
  "Jori Koolstra (CIQ)" <jkoolstra@xs4all.nl>
 X-Mailer: b4 0.14.3
 
-For CI/CD purposes it is useful to know how much time each selftest
-took to complete, for instance, to know which suites to run for a
-quick-fail diagnostic, or what percentage of tests you can expect to
-complete on a paricular --override-timeout value.
+When run_kselftest.sh is invoked with -n, each test is run by in_netns()
+in a new bash process, which sources runner.sh again and then calls
+run_one(). Sourcing runner.sh resets its global settings, which is why
+in_netns() explicitly passes on logfile. kselftest_override_timeout is
+not passed on, so -o/--override-timeout is silently ignored for tests
+that are run in a network namespace and they use the timeout from their
+settings file or the default instead.
 
-Add a -T/--timed option to run_kselftest.sh. When it is set, run_one()
-prints a KTAP diagnostic line with the elapsed wall-clock time just
-before the result line of each test that is actually run, e.g.:
+Pass kselftest_override_timeout to the netns shell as well.
 
-      # selftests: timers: nanosleep
-      # time: 12.34s
-      ok 3 selftests: timers: nanosleep
-
-The other patch of runner.sh fixes a bug when using --netns in
-run_kselftest.sh.
-
+Fixes: 9d0b4ad82d61 ("kselftest/runner.sh: add netns support")
 Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
 ---
-Changes in v2:
-- Dropped convention change from the series (as Shuah requested)
-- Link to v1: https://lore.kernel.org/r/20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl
+ tools/testing/selftests/kselftest/runner.sh | 1 +
+ 1 file changed, 1 insertion(+)
 
----
-Jori Koolstra (CIQ) (2):
-      selftests: pass the timeout override to tests run in a netns
-      selftests: add option to print the time spent per test
+diff --git a/tools/testing/selftests/kselftest/runner.sh b/tools/testing/selftests/kselftest/runner.sh
+index 45fb8ec38493..bbb2e61f323c 100644
+--- a/tools/testing/selftests/kselftest/runner.sh
++++ b/tools/testing/selftests/kselftest/runner.sh
+@@ -169,6 +169,7 @@ in_netns()
+ 		BASE_DIR=$BASE_DIR
+ 		source $BASE_DIR/kselftest/runner.sh
+ 		logfile=$logfile
++		kselftest_override_timeout=$kselftest_override_timeout
+ 		run_one $DIR $TEST
+ 	EOF
+ }
 
- tools/testing/selftests/kselftest/runner.sh | 21 +++++++++++++++++++++
- tools/testing/selftests/run_kselftest.sh    |  8 ++++++++
- 2 files changed, 29 insertions(+)
----
-base-commit: 65e4fd942f72a9dba0e4e257290c4fa1aa756854
-change-id: 20261117-kselftest-run-timer-df3ac531652e
-
-Best regards,
 -- 
-Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
+2.56.1
 
