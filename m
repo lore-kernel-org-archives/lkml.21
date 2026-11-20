@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196478;
-	b=dw10l4mjz+/SBIjJX8XRahKjxf6gM3oAp/Jdf7KTTmTGWA4bMCTutj810HAPVzv2HRsM
-	 jEQYwaLicD18JtJHDkw1qF6aT1HrVQzOstE7HnKSw2SLwnZH+A35jNtJ7tb4OrSyUSQLp
-	 hc/KInYSF7fb0Iuazq6ZIKcuXstU81LQLPaCLS3TTULO/j0x6pwCoQeV/mmma+ofwkAkr
-	 4FSkjxbE6friCxV3WdpSPUOtc0b7jOHowvNkxC9Kzh3bKDY7M584jk8t0uFfXI2U9S+SR
-	 6IrtlxyP02PL7BPVIhS51qxYZFovcebTBfzL5ri4ymKhhsUBUKdCsPFRhSk4ZwbWvXA==
+	t=1795196479;
+	b=TGQ7aJdy1uXqFOJRM6pczWmqTXhX5EIZ6g/iCd7E4E2FYbh8wXmKLRiR7MlYKn8Yn5zD
+	 gyCATeb7ClcS7miEel3yz5/BrEOvcUimVGl1TrlIZbxKoY5v9HcmWlP20PZwtSpYWAr6p
+	 mHfrZEnJbvKLTvvzJO0MN3n7uM3Qfrw2efR1DxX7XvU48JyaPHbDQXD3/u0ejC8Brfcyv
+	 0G3pXQUA+D3pcAEkkuR4TOvO+RZdovLsrpJEVuwxJhT7K8Ss/YWZHnMPNUc/dxN6FKusj
+	 M3EkSzJ01kh3QFHuhuFxkfbCG17a1gwg0jATPvzJxS5UKTCZzr1GxJ/2vOrwqFY2sSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196478;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196479;
 	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
 	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=/JrhOF2XVSdyKgSUnfNnSVf78q5yfZwAkgCYz96RCpU=;
-	b=U5JGLAcUTTrXOl+xJSwj1DFYTn7bu+wDptorMYVTOy5o1S+6YBIFHODla1cS5NR3T18A
-	 JDiiWFvk91LY7PL64oWQKa4CZQ9rNVO5LGOWbBtfUL1+AFu0aRoC8n2UdPKBKoIvfR8x/
-	 7mYOJ3hgIOaiW9Wh4r3ZbvWM4ck8erY4mCT46FqK/qY3TNS6NybPXDsHK2TXi/WMrneW3
-	 NhSb65zLpc4DwJepl72Vlqn1O5h95+P6IeF6Ob0RkgdG2g4daT/1VUq2oA1/AW7NdQdAh
-	 jLRQkTWS5bLaLjjbHbqer5XIV9VULOnyU/auGfqBH2I2ZOtZkJ14alrfkIKTe0o0tPg==
+	bh=7D9cJe1yNWbqh0DJmxweChnohkqptYnNcUKzDoL19jA=;
+	b=UNcJcYk81IwtMAhDmzIVPBN3MoMEQvFoBjtPeO8YuZo2DftwYBLEr1j3rUtT4fNCEqaI
+	 V1YV6QX7iXgpwIGrTMkJxv1144LMYQ9kT+XqoCp3ICyie7FUikn4rvdNHvhBuC7PiZIlQ
+	 JrzY/tUFZCsyTE6JHxBUl0mXD5A2lUN57eSAle7rdmZzJvWmqsJG6iCVbHXZy7J0ihl58
+	 erUT36HXpJWzKb4ZzUz1mqBW5EPMXTxmRTGX5AsQyA+aB3wSmk9GglI8A+02pThZ8u6ut
+	 47MhEFbchabxbh1jY+Cmx+MLp/BiwIqnjWLKJ7s70XZ+LUL6i7hOQcIiIYMGBQ7CHjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8om3HR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4QpB2tl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A9B160A5BCC;
-	Fri, 20 Nov 2026 17:41:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0990160A5BE8;
+	Fri, 20 Nov 2026 17:41:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XU8om3HR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DDB1F000D0;
-	Fri, 20 Nov 2026 17:41:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4QpB2tl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB95B1F01579;
+	Fri, 20 Nov 2026 17:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196477;
-	bh=/JrhOF2XVSdyKgSUnfNnSVf78q5yfZwAkgCYz96RCpU=;
+	s=k20260515; t=1795196478;
+	bh=7D9cJe1yNWbqh0DJmxweChnohkqptYnNcUKzDoL19jA=;
 	h=Date:From:To:Cc:Subject:References;
-	b=XU8om3HRbaRgP/+Tn/jDEM2RJZtGm1NQm5gBiIQiSvkRvTz2d34+bbLovdtCwMNch
-	 DxG6haAO13EFSV4H4pfurc84AQquPnxnNh7F/2QlkKwbIeLG6hRUluq23WNfXb2Brl
-	 GXlHf1cZNqIIR74P8lmYzYztuK+/Wp4Z+HtwyNr6e4YxC24J3idaJlksn+0s9uZvEB
-	 oLfZh9fa0mMOYQcDBVNGMHFCNPijU67sqT1GbaYUmLeEtp7Xe4ZK5JoOQO9JNOOcxa
-	 qnqdnP7PfKmKK+a5Wn7KbC4LcnG9ImJ1DlhX/GyjyiCGcWXkBPq6zALLi9FXctYEwa
-	 olrP0m5ARDr2A==
+	b=m4QpB2tlQYd0EcJshsPTJNHuaxeNs9M7pjDB0Mqw+NXyrwr9U7pEWOy/Uw2e/R06B
+	 7Iv2c9CUhWQdcPWlhO5Y8jan/5w/l2TuU/gBsvYEwDRQ/tLmv75eIGiN6mJ6Jw9waD
+	 RRATx6RIGiXE1y16arNrOUI4kDN98l4LaXQ5njzBAdwODBc+kRmgpppSKWHVAzpXNM
+	 CXjP5ukQZWLf2Vn707oJqDQZacYkkWKPA8mhR7bTtA1CnZX5AdMy3UNYXwgujvFyww
+	 xOJpjuLaRzFmdLr5Uy2nDSd2sCj6ZJcfwmUyw85Bdm9mO0qly9i0FnK1GJA9YSQ3Gz
+	 /n5NLeQK9ukpg==
 Received: from rostedt by gandalf with local (Exim 4.100.1)
 	(envelope-from <rostedt@kernel.org>)
-	id 1xUSbt-00000004aN8-0wBF;
-	Fri, 20 Nov 2026 12:41:17 -0500
-Message-ID: <20261120174117.054583223@kernel.org>
+	id 1xUSbu-00000004aQ2-0cES;
+	Fri, 20 Nov 2026 12:41:18 -0500
+Message-ID: <20261120174117.981511691@kernel.org>
 User-Agent: quilt/0.69
-Date: Fri, 20 Nov 2026 12:39:08 -0500
+Date: Fri, 20 Nov 2026 12:39:13 -0500
 From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Masami Hiramatsu <mhiramat@kernel.org>,
@@ -53,8 +53,8 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Morton <akpm@linux-foundation.org>,
  stable@vger.kernel.org,
- Chaosheng Qu <chaosheng.qu.linux@gmail.com>
-Subject: [for-linus][PATCH 16/32] tracing/osnoise: Dont start a kthread in timerlat user-space mode
+ Vincent Donnefort <vdonnefort@google.com>
+Subject: [for-linus][PATCH 21/32] ring-buffer: Skip remote reader page swap when on tail
 References: <20261120173852.687189370@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -67,90 +67,81 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 
-From: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+From: Vincent Donnefort <vdonnefort@google.com>
 
-In timerlat user-space mode (NO_OSNOISE_WORKLOAD) the workload is a user
-task reading timerlat_fd, so there is no per-CPU kernel thread to run.
-start_kthread() only checks for that in the osnoise branch:
+When the reader page is also the tail, swap should not be permitted or
+it would insert the tail behind the head, breaking the integrity of the
+ring buffer. While __rb_get_reader_page() does correctly prevent this
+situation, the simple_ring_buffer implementation misses it.
 
-	if (timerlat_enabled()) {
-		snprintf(comm, 24, "timerlat/%d", cpu);
-		main = timerlat_main;
-	} else {
-		/* if no workload, just return */
-		if (!test_bit(OSN_WORKLOAD, &osnoise_options)) {
-			...
-			return 0;
-		}
-		...
-	}
+Once the reader catches up with the tail, make
+simple_ring_buffer_swap_reader_page() return 0. The remote reader now
+can expect an unchanged reader. When it is the case, there's nothing
+more to read.
 
-start_per_cpu_kthreads() guards against this mode itself, but
-osnoise_hotplug_workfn() calls start_kthread() directly. Bringing a CPU
-online in user-space mode therefore starts a timerlat/N thread and sets
-its bit in kthread_cpumask while OSN_WORKLOAD is clear.
-
-stop_kthread() uses that bit to decide what the recorded task is:
-
-	if (cpumask_test_and_clear_cpu(cpu, &kthread_cpumask) &&
-	    !WARN_ON(!test_bit(OSN_WORKLOAD, &osnoise_options))) {
-		kthread_stop(kthread);
-	} else if (!WARN_ON(test_bit(OSN_WORKLOAD, &osnoise_options))) {
-		kill_pid(kthread->thread_pid, SIGKILL, 1);
-		put_task_struct(kthread);
-	}
-
-The bit is set but OSN_WORKLOAD is not, so the first WARN_ON() fires and
-the && short-circuits into the user-task branch. A running kernel thread
-is SIGKILLed and its task_struct is put without ever being stopped, so it
-keeps executing until it is freed underneath itself.
-
-Any write to osnoise/options reaches this: osnoise_options_write() stops
-the per-CPU threads before applying the new value, so stop_kthread()
-still sees OSN_WORKLOAD clear. Re-writing the value that is already set
-triggers it just as well as changing it.
-
-  echo NO_OSNOISE_WORKLOAD > osnoise/options
-  echo timerlat > current_tracer
-  echo 0 > /sys/devices/system/cpu/cpu1/online
-  echo 1 > /sys/devices/system/cpu/cpu1/online
-  echo NO_OSNOISE_WORKLOAD > osnoise/options
-
-The offline/online pair is required, otherwise no kthread is recorded and
-no bit is set. Running this on 7.3-rc7 with KASAN gives a WARNING in
-stop_kthread() followed by a slab-use-after-free in update_se(); leaving
-out the hotplug step produces neither.
-
-Keep the check in start_kthread(), where the related hotplug bug was
-fixed in 0bb0a5c12ecf, instead of adding another copy to the callback.
+Also, when the simple_ring_buffer writer moves the tail to a new page,
+it resets the new tail counters and more specifically page::commit. As
+moving the tail unblocks page swap, order the page reset before the
+tail_page update. This ensures the reader can't swap the reader page
+with the new tail and observe a stale commit value.
 
 Cc: stable@vger.kernel.org
-Fixes: e88ed227f639 ("tracing/timerlat: Add user-space interface")
-Link: https://patch.msgid.link/20261014081034.12702-1-chaosheng.qu.linux@gmail.com
-Signed-off-by: Chaosheng Qu <chaosheng.qu.linux@gmail.com>
+Link: https://patch.msgid.link/20261113152729.837429-2-vdonnefort@google.com
+Fixes: 2e67fabd8b77 ("ring-buffer: Introduce ring-buffer remotes")
+Fixes: 34e5b958bdad ("tracing: Introduce simple_ring_buffer")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- kernel/trace/trace_osnoise.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ kernel/trace/ring_buffer.c        |  3 ++-
+ kernel/trace/simple_ring_buffer.c | 15 ++++++++++++++-
+ 2 files changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/trace/trace_osnoise.c b/kernel/trace/trace_osnoise.c
-index 995da9e0b548..fbba42286747 100644
---- a/kernel/trace/trace_osnoise.c
-+++ b/kernel/trace/trace_osnoise.c
-@@ -2039,6 +2039,14 @@ static int start_kthread(unsigned int cpu)
- 		return 0;
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index ed267d628826..15ccb65de35b 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -5848,7 +5848,8 @@ __rb_get_reader_page_from_remote(struct ring_buffer_per_cpu *cpu_buffer)
  
- 	if (timerlat_enabled()) {
-+		/*
-+		 * In timerlat user-space mode the workload is the user task
-+		 * reading timerlat_fd, so there is no kernel thread to start.
-+		 * One started here would set its kthread_cpumask bit, which
-+		 * stop_kthread() reads as "osnoise workload kthread".
-+		 */
-+		if (!test_bit(OSN_WORKLOAD, &osnoise_options))
-+			return 0;
- 		snprintf(comm, 24, "timerlat/%d", cpu);
- 		main = timerlat_main;
- 	} else {
+ 	new_reader = cpu_buffer->subbuf_ids[cpu_buffer->meta_page->reader.id];
+ 
+-	WARN_ON_ONCE(prev_reader == new_reader);
++	if (prev_reader == new_reader)
++		return NULL;
+ 
+ 	prev_head = new_reader;  /* New reader was also the previous head */
+ 	new_head = prev_head;
+diff --git a/kernel/trace/simple_ring_buffer.c b/kernel/trace/simple_ring_buffer.c
+index abfaf9bee12e..d5c84af01925 100644
+--- a/kernel/trace/simple_ring_buffer.c
++++ b/kernel/trace/simple_ring_buffer.c
+@@ -139,6 +139,13 @@ int simple_ring_buffer_swap_reader_page(struct simple_rb_per_cpu *cpu_buffer)
+ 
+ 	reader = cpu_buffer->reader_page;
+ 
++	/*
++	 * The reader is already the tail page. See simple_rb_move_tail() for
++	 * memory ordering.
++	 */
++	if (reader == smp_load_acquire(&cpu_buffer->tail_page))
++		return 0;
++
+ 	do {
+ 		/* Run after the writer to find the head */
+ 		ret = simple_rb_find_head(cpu_buffer);
+@@ -196,7 +203,13 @@ static struct simple_buffer_page *simple_rb_move_tail(struct simple_rb_per_cpu *
+ 	}
+ 
+ 	simple_bpage_reset(new_tail);
+-	cpu_buffer->tail_page = new_tail;
++
++	/*
++	 * Setting a new tail may unblock the swap in
++	 * simple_ring_buffer_swap_reader_page(). Ensure the reader observes the
++	 * page::commit reset.
++	 */
++	smp_store_release(&cpu_buffer->tail_page, new_tail);
+ 
+ 	simple_rb_meta_inc(cpu_buffer->meta->pages_touched, 1);
+ 
 -- 
 2.53.0
