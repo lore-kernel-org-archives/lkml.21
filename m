@@ -1,70 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165989;
-	b=G3332ERgkeDlR2o7EBlwpN/rOTgJaT4ym7v8cL7i/7NZNFCZReYbr5kXEErpjbl4lDi7
-	 tmyDCtxU4ZdZECtzrt0Hs/3zIgZ8qxzHcH8tb3FF314VWlkRCznV5Bg+vdYC4/d9OGUqK
-	 qzmf+iTsg7jzu6iIUNq9eq629nceh7FyUP8ntvbtQJMbMeCRyqA7nESLv8cKjdidOjGE9
-	 +m4mEHhl8RiIYdCetVRM9HkhOvGUPiKVtxpV9rdeeBOS2bMXwI0iXPLzmab//O83SVecQ
-	 ZEXMyEBCyx9Yiu1IbpcbYI912flSFNDBW5eSbrV3QDz9fosQmcOIr43er9c9G7JJvrg==
+	t=1795166040;
+	b=fi/m7SckcVkk+5NFQ4rRx2MYDxJs6gUqrKJqRDagAcCHkbHD1E4EWt7Zl4xo+lWRUxg5
+	 H9Q8ZSc7pB2Wt03qe+NeJAqAC7A9T5zOFj7NKI1sv1gnTaSsZ6YuelLjHuB28CLSDH92M
+	 t0PD77VxN4ZpEkHJkgOtGcX+gR2LNzpqU3inlSXNfS5pqFrEMGLwEHjtLFZkzy1bq87de
+	 WhcfopPMDLPgSG3xcBQw/RnOs1oryR0N+RaiTp/NntwonKNeWqA93IitkHOvXq2jf9q3y
+	 JwdnIS+m2sCd/X4hJ2vcgoOlwPz/yVJNTpatFzkEC7mN8rllho11FS/H0pal1P2Jl7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165989;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=kMfrK4uJJ3SyP08/jJGJsJf6bTnM2XRLHwgjTFafnPI=;
-	b=dU8fGHt9pb+he9u0wsYMyYTlPXZpZs0jgyaRQvkHPbU4jlVb06fnU0H8Wi0O2gVaXKFf
-	 X4tmj3AqbQ3UczulCkR0lXb17x9/Yp+mgjTwYZeOizQJuAo+QtK1nNA9+iWLQYLoweJpv
-	 yJw2gccjqht1ES5BLCEkFfYGXsUeGDliXhuNQiEWcJppnrSW0nBRAGCMozmefOMtP3jwz
-	 dsrFqTtucUb9FdXQqJCZh3mzbT+YbnD4F925C+EHuSibvF7Lhg+HONsRfUETtj073rk8s
-	 WqG23dU7VIbwTjK4xLtHNgTI8GMLAdRirCn6AFyHwSV18i0PUaON5ZHiuW3ASAaKv4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795166040;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:Organization:References:Date:Message-ID:MIME-Version:
+	 Content-Type;
+	bh=GRLtc0zsKWCiRyNINZflpJfE4EpJ+sxnKBRb9r53R+U=;
+	b=ZDKYMfhMOPfaOVjuvY3Lbt23wIGbPyvk6nIuhyqDZmP+iN/XXLMrGcUPxDKAvpk/pHTF
+	 7FVedjkIIC8z63gE4RbR2GgG6XMpdKzZZGEAyVVi7TGBYDsDbjRzkRfuYyXB5O05CCa0C
+	 +BfTYCKAz6PeWMw96ZZwm+rSLfVAyoMWMdeMYu4VX7aBuXZbzZ771OCwoeNMAwRNXtMFK
+	 ZeqKd9/YwNYK0SvLJlH2HwXKI0ikOZXbDywjRrgyCkj+KNmRUuST19XPTceCC3MXG3qUW
+	 ERzfmfsN0jW52Umo5RK9DXKbIRj2n6KDHogT0XWmjAVj2BY51v30jOtfs4fWbDNCVkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=tSL3DFqG;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eq7yMALt;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82C4A606A320;
-	Fri, 20 Nov 2026 09:13:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82C4A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1025C606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:13:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1025C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=tSL3DFqG
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kMfrK4uJJ3SyP08/jJGJsJf6bTnM2XRLHwgjTFafnPI=; b=tSL3DFqGGMBffymevBIBD14598
-	JWD1FNgjRcUinkF2E4igyPbKdmvK/09p6OZB9Lwmw/vMAOoDjdEI8jny0LihN5nmLOBzJzqoa7lcq
-	3ASVI1ggxavKpkX2hk1NCQZDIfzgyzS+1YoRRJSBKBYEHl4TXrewQkEI9aKmmwCkLUgK5xB+ECFMQ
-	ucljUffeP3gs5yIHoflXYqkg87wJpK+qRlZzTkZYq6496/Ww8GeY/jMhmBXgBWaW6kBbh1OdGa5aO
-	/+hOvMCRSdVCVfA9gH0zpVtuPl6uUrz2lPalPyikSmfETMrhoe/7K45h44ARziFc76hRsFKBYQnlc
-	2LfVsGbA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUKfz-00000001jrJ-1JhM;
-	Fri, 20 Nov 2026 09:12:59 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 40F2E300708; Fri, 20 Nov 2026 10:12:58 +0100 (CET)
-Date: Fri, 20 Nov 2026 10:12:58 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, irogers@google.com, adrian.hunter@intel.com,
-	james.clark@linaro.org, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, rkeilty@meta.com,
-	atish.patra@linux.dev, dgreid@meta.com, riel@surriel.com,
-	shakeel.butt@linux.dev, kernel-team@meta.com
-Subject: Re: [PATCH 3/3] perf/core: Don't zero perf_sample_data in
- do_perf_sw_event()
-Message-ID: <20261120091258.GH2669272@noisy.programming.kicks-ass.net>
-References: <20261119211235.99805-1-usama.arif@linux.dev>
- <20261119211235.99805-4-usama.arif@linux.dev>
- <20261120091150.GN2668564@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eq7yMALt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795166039; x=1826702039;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=6u1JnrIesR1G82fQF15PMeN+1EsD+TC0aLsY9JIn0+s=;
+  b=eq7yMALt+OP1ooVClY6u9MKS8H2cF5F8MHBlJhgRUINVHmbvH5G3zq8G
+   y4zo5MopJbCLSoF4vQ/opm0bxXPvK4ByjfZbtjpwyIDN6Q0F4mUr5XKce
+   8P/fnpjzm3UeXqYIKRpvq6XTkQ9Ew18x7rT4ifkgFIzbnX/qSV9QDvRRE
+   d0jT4yHLmh44oenznFEQmDL0y7Kbi0gVchvrHoTmMMfYZ3wyiHHLW0Pud
+   BBBsxeWupXu3UiTzjD1i5q32M57AP2cqSKY7GkGsOvDvMJZATSv5UD1tO
+   LVNjw3tdtVXsDoDGXOuP0NU7G++uEDNAG+mfUXIMl4rVod0uKCcdlEG8I
+   Q==;
+X-CSE-ConnectionGUID: ZbDfdrtpRByqvFxwRwKt1A==
+X-CSE-MsgGUID: Xi/RM1EPRpKckwiKGObkjg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4048900"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4048900"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:13:58 -0800
+X-CSE-ConnectionGUID: BMiW046+RbqUuFRgouMGPQ==
+X-CSE-MsgGUID: 0CUbDhZHTeihwFq+Or78jA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="11088863"
+Received: from abityuts-desk1.ger.corp.intel.com (HELO localhost) ([10.245.245.250])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:13:53 -0800
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Ian Rogers <irogers@google.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin
+ <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, Simona Vetter
+ <simona@ffwll.ch>
+Cc: intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers
+ <irogers@google.com>, Mika Kahola <mika.kahola@intel.com>
+Subject: Re: [PATCH] drm/i915/display: Pass crtc->pipe to
+ intel_pmdemand_update_port_clock()
+In-Reply-To: <20261119170642.1521198-1-irogers@google.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20261119170642.1521198-1-irogers@google.com>
+Date: Fri, 20 Nov 2026 11:13:51 +0200
+Message-ID: <bc01cd57f349fa647fb0e38bfbbcba108ff8289e@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,153 +87,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120091150.GN2668564@noisy.programming.kicks-ass.net>
+Content-Type: text/plain
 
-On Fri, Nov 20, 2026 at 10:11:51AM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 19, 2026 at 01:10:46PM -0800, Usama Arif wrote:
-> 
-> >  kernel/events/core.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/kernel/events/core.c b/kernel/events/core.c
-> > index 57ea7e3c01a025..fa10ad7cfd99af 100644
-> > --- a/kernel/events/core.c
-> > +++ b/kernel/events/core.c
-> > @@ -11212,7 +11212,7 @@ static void do_perf_sw_event(enum perf_type_id type, u32 event_id,
-> >  				    u64 nr, struct pt_regs *regs, u64 addr)
-> >  {
-> >  	struct swevent_htable *swhash = this_cpu_ptr(&swevent_htable);
-> > -	struct perf_sample_data data;
-> > +	struct perf_sample_data data __uninitialized;
-> >  	struct perf_event *event;
-> >  	struct hlist_head *head;
-> >  
-> 
-> I like this one, didn't know about the __uninitialized thing. But I
-> think we wants to be more consistent with this.
-> 
-> A little git-grep seems to suggest we ought to do the same elsewhere.
-> Shall I fold the little something below in this patch?
-> 
+On Thu, 19 Nov 2026, Ian Rogers <irogers@google.com> wrote:
+> In intel_modeset_readout_hw_state(), 'pipe' is only populated inside the
+> earlier for_each_intel_encoder() loop. Later, inside
+> for_each_intel_crtc(), intel_pmdemand_update_port_clock() is called with
+> 'pipe' instead of 'crtc->pipe'.
+>
+> When the encoder list is empty (for example on headless SKUs or VBT
+> configurations with all display outputs disabled), 'pipe' is completely
+> uninitialized and indexes out-of-bounds into pmdemand_state->ddi_clocks[].
+> Even when encoders are present, every CRTC iteration overwrites the slot
+> for the last encoder's pipe rather than updating crtc->pipe.
+>
+> Scope 'pipe' locally to for_each_intel_encoder() and pass crtc->pipe to
+> intel_pmdemand_update_port_clock().
+>
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested for both i915 and xe under LLVM=1 W=1
+> (-Werror) and -Wconditional-uninitialized; not runtime-tested on Intel
+> Xe_LPD+ hardware.
+>
+> Fixes: 4c4cc7ac207f ("drm/i915/mtl: Add support for PM DEMAND")
+> Signed-off-by: Ian Rogers <irogers@google.com>
 
-And this should be a separate patch again I think.
+Cc: <stable@vger.kernel.org> # v6.5+
+Cc: Mika Kahola <mika.kahola@intel.com>
+Reviewed-by: Jani Nikula <jani.nikula@intel.com>
 
----
-diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
-index 49b6b8fce566..db6c87552594 100644
---- a/arch/x86/events/amd/core.c
-+++ b/arch/x86/events/amd/core.c
-@@ -958,7 +958,7 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 	static atomic64_t status_warned = ATOMIC64_INIT(0);
- 	u64 reserved, status, mask, new_bits, prev_bits;
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct hw_perf_event *hwc;
- 	struct perf_event *event;
- 	int handled = 0, idx;
-diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
-index 96c96369480a..cf0eafd67430 100644
---- a/arch/x86/events/amd/ibs.c
-+++ b/arch/x86/events/amd/ibs.c
-@@ -1483,7 +1483,7 @@ static int perf_ibs_handle_irq(struct perf_ibs *perf_ibs, struct pt_regs *iregs)
- 	struct cpu_perf_ibs *pcpu = this_cpu_ptr(perf_ibs->pcpu);
- 	struct perf_event *event = pcpu->event;
- 	struct hw_perf_event *hwc;
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct perf_raw_record raw;
- 	struct pt_regs regs;
- 	struct perf_ibs_data ibs_data;
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index 4e344fb1ae3e..5f8bfc65b256 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -2157,7 +2157,7 @@ void x86_pmu_update_perf_regs(struct perf_event *event,
- 
- int x86_pmu_handle_irq(struct pt_regs *regs)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct cpu_hw_events *cpuc;
- 	struct perf_event *event;
- 	int idx, handled = 0;
-diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
-index 0a34d674df59..5d84c18096a9 100644
---- a/arch/x86/events/intel/core.c
-+++ b/arch/x86/events/intel/core.c
-@@ -3819,7 +3819,7 @@ static int x86_pmu_handle_guest_pebs(struct pt_regs *regs,
- 
- static int handle_pmi_common(struct pt_regs *regs, u64 status)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
- 	int bit;
- 	int handled = 0;
-diff --git a/arch/x86/events/intel/ds.c b/arch/x86/events/intel/ds.c
-index 8444670cee4a..73f6fd66856f 100644
---- a/arch/x86/events/intel/ds.c
-+++ b/arch/x86/events/intel/ds.c
-@@ -1184,7 +1184,7 @@ int intel_pmu_drain_bts_buffer(void)
- 	struct bts_record *at, *base, *top;
- 	struct perf_output_handle handle;
- 	struct perf_event_header header;
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	unsigned long skip = 0;
- 	struct pt_regs regs;
- 
-@@ -1265,7 +1265,7 @@ int intel_pmu_drain_bts_buffer(void)
- void intel_pmu_drain_pebs_buffer(void)
- {
- 	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 
- 	WARN_ON_ONCE(cpuc->enabled);
- 
-diff --git a/arch/x86/events/intel/knc.c b/arch/x86/events/intel/knc.c
-index e887adc108ac..aa38b0ac3c7b 100644
---- a/arch/x86/events/intel/knc.c
-+++ b/arch/x86/events/intel/knc.c
-@@ -213,7 +213,7 @@ static inline void knc_pmu_ack_status(u64 ack)
- 
- static int knc_pmu_handle_irq(struct pt_regs *regs)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct cpu_hw_events *cpuc;
- 	int handled = 0;
- 	int bit, loops;
-diff --git a/arch/x86/events/intel/p4.c b/arch/x86/events/intel/p4.c
-index 5368dc31787c..4ac429e55935 100644
---- a/arch/x86/events/intel/p4.c
-+++ b/arch/x86/events/intel/p4.c
-@@ -1033,7 +1033,7 @@ static int p4_pmu_set_period(struct perf_event *event)
- 
- static int p4_pmu_handle_irq(struct pt_regs *regs)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct cpu_hw_events *cpuc;
- 	struct perf_event *event;
- 	struct hw_perf_event *hwc;
-diff --git a/arch/x86/events/zhaoxin/core.c b/arch/x86/events/zhaoxin/core.c
-index e506f677db57..fc98a7fdd3bc 100644
---- a/arch/x86/events/zhaoxin/core.c
-+++ b/arch/x86/events/zhaoxin/core.c
-@@ -355,7 +355,7 @@ static void zhaoxin_pmu_enable_event(struct perf_event *event)
-  */
- static int zhaoxin_pmu_handle_irq(struct pt_regs *regs)
- {
--	struct perf_sample_data data;
-+	struct perf_sample_data data __uninitialized;
- 	struct cpu_hw_events *cpuc;
- 	int handled = 0;
- 	u64 status;
-diff --git a/arch/x86/include/asm/stop_machine.h b/arch/x86/include/asm/stop_machine.h
-deleted file mode 100644
-index e69de29bb2d1..000000000000
+> ---
+>  drivers/gpu/drm/i915/display/intel_modeset_setup.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/i915/display/intel_modeset_setup.c b/drivers/gpu/drm/i915/display/intel_modeset_setup.c
+> index 6aed88173770..e5d7c05e006a 100644
+> --- a/drivers/gpu/drm/i915/display/intel_modeset_setup.c
+> +++ b/drivers/gpu/drm/i915/display/intel_modeset_setup.c
+> @@ -695,7 +695,6 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
+>  {
+>  	struct intel_pmdemand_state *pmdemand_state =
+>  		to_intel_pmdemand_state(display->pmdemand.obj.state);
+> -	enum pipe pipe;
+>  	struct intel_crtc *crtc;
+>  	struct intel_encoder *encoder;
+>  	struct intel_connector *connector;
+> @@ -726,8 +725,7 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
+>  
+>  	for_each_intel_encoder(display->drm, encoder) {
+>  		struct intel_crtc_state *crtc_state = NULL;
+> -
+> -		pipe = 0;
+> +		enum pipe pipe = PIPE_A;
+>  
+>  		if (encoder->get_hw_state(encoder, &pipe)) {
+>  			crtc = intel_crtc_for_pipe(display, pipe);
+> @@ -869,7 +867,8 @@ static void intel_modeset_readout_hw_state(struct intel_display *display)
+>  		drm_dbg_kms(display->drm, "[CRTC:%d:%s] min_cdclk %d kHz\n",
+>  			    crtc->base.base.id, crtc->base.name, crtc_state->min_cdclk);
+>  
+> -		intel_pmdemand_update_port_clock(display, pmdemand_state, pipe,
+> +		intel_pmdemand_update_port_clock(display, pmdemand_state,
+> +						 crtc->pipe,
+>  						 crtc_state->port_clock);
+>  	}
+
+-- 
+Jani Nikula, Intel
