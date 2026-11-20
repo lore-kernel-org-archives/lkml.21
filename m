@@ -1,110 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795160132;
-	b=nnCcjOjJAe9kFks0cEF8Wx6TxjgkY9heXT8hyV0QfFc6sivmQrwdEvkQAoq+UoxKNVW4
-	 8lKX5NfQNSLiSDMoN6gVr+5HfgJ9lv6m+KR2rWG/b3WL/EPXBXTpcNE4FaJitTIMQQJJ+
-	 c5xPRiIuLCrkKD6YusKCusAKyurXHnayMpBDGl9zFvGcU3roH6F7xW4Yz5N3wlZhrwKkf
-	 YBI9e3JH/cvl96lKx+IFSVbJiprw8g1ozCMX/gxTyxyPd2ru/IsNYTj4ZYPMM85YFX/8K
-	 2oHYYHDnKF2v297vlf7VtIxlz31h63jiBtk5zpkpgXpjGVdPLCq8MVsBqyD5TY2YHOA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160132;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:
-	 X-MS-Exchange-AntiSpam-MessageData-1:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=5lK6B0XsyKNhMWAufpuoXeRSWrFLPFkgn1ShuVei69Y=;
-	b=XC1yqEkmdeBFmj9k/cyrWHfhsrEuAIl+clQ20uAaW95Oo3OCh4p7bjfJRcU670XTJtBA
-	 kZZcoxRO+TQDpqCYA5tLwbs8f7XB3IMwOG/YGUNscuzmEKm4NFfs4FU6jHp1OixLraC8K
-	 jIOMJ+mcXO1RPqTSCaaeb4L+WwlkMZCqMeC9uiw4R1MW7dRV+rL+OiDHNehN89nwXRQr5
-	 b2Tns9zWDn8jJMklfqRdyBg2PK1Dl2paHSCifT+6sD7SfEVPNOrMee3fYxeTTfdJTBc+8
-	 lAyv+pu4NQcmT/IgT58ZlbT+ugyD2RyWkr9L/p1e6hnm8urPuROYRqvoBiVATFBECfg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=windriver.com;
-	spf=pass smtp.mailfrom=windriver.com;
-	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b="n53E6kM/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
-Received: from mx0b-0064b401.pphosted.com (mx0b-0064b401.pphosted.com [205.220.178.238])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795160205;
+	b=OVCNFyUiC/M6kNnVKflsxwWiVz5UIHEbzzMIFxgl4g2FYT3etzfOJomniVjySHRbZk+C
+	 jj90MiJA2viA4EOJeMp/Ub8+AKzCPpFmkfjAnuNiUTEBx1mEdeMxjv6PylUxhZhHaLk3i
+	 Ih5ohvbJyPfe+33xwz4abGhsoDOCYZmGe26bD4R+6fkn6s/vCm5Bwpm2k2KBqeuKxLAO/
+	 JsGjou4CA+odfPXMn3AgETj7oc4K8BZIDFN7hUHWAmxZal01PiTDABsIjjeXHhl1airid
+	 bTPz9MPGpt1uphWdCuyuxMi2zsPlIHC3JT8r9YLjYOpx5o9UOG5lvkG0ravUYJQn0BA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160205;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=Gf79QGlo4p/BT892f1cWSXKitqVR068o7afdf18RiRw=;
+	b=OruByL0zq37lU74LLNK6uq+Vj5ngEok8a+vaC0bmR+2GP46kRoYEYuKyzPDubttv4pHw
+	 2liM+1xav+N6PQYV2d2773h4YQL61bBUTSYIytwIRIN4tVNHyMc2hx7sbJVchKN/+aoqn
+	 m/yFRxELTuGdeTnHPKAm8ir8gK42vlDhkxySLdCoEwVbPAfiOiY3uyDTCsSR14K/aJZiu
+	 jLFnyl2mwllF1JA24dVlw5H2aLhUWwxr8Ht6f3BMG3sFI40KwgQn6CW9nhWOBZKmkxaHH
+	 MMqC0R6KOUKkxnjSWjHD5mD5gOF13by8AuhiBK2svDpAVrMOjJp1BQa2pQkGyPuGbDw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=i9BFe3Nu;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86DEE606A330;
-	Fri, 20 Nov 2026 07:35:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86DEE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=windriver.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=windriver.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 765AD606A326;
+	Fri, 20 Nov 2026 07:36:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 765AD606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=n53E6kM/
-Received: from pps.filterd (m0250812.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3TRQf245230;
-	Fri, 20 Nov 2026 07:35:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=5lK6B0XsyKNhMWAufpuoXeRSWrFLPFkgn1ShuVei69Y=; b=
-	n53E6kM/VOvy9NJ7U/qUav8LmW9nJriwDyS08u2z9GvDcj9mCuqIWnBlf6OSOZYM
-	NurEFYTF8NSUuFsf+dd/rjkUpJMmg8bJvnBbfrftMAy4f/LdRlM7LIAk/WKnI8N/
-	bIDzt4N99NBPDdgphD8eK3WAMlrRH0Lsh9he4PgA8JBirQP3pXznx1HANnxdswut
-	LtiBD2NlexrT4ltsw6ne8HSuoaQ8/3xdbUvtkh9gQViFSE3NFIkVSTbTfcidsc58
-	CFurvwXAUrP0ispIDwR5+H40Xa0MZkH0sgjfPH3An9aSRa6AT19WI125A5qui2VO
-	RZ+8kN1Vke/dq8ogmTbHig==
-Received: from bl0pr03cu003.outbound.protection.outlook.com (mail-eastusazon11022131.outbound.protection.outlook.com [52.101.53.131])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j0yvh8b27-2
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=i9BFe3Nu
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3uL80775758;
+	Fri, 20 Nov 2026 07:36:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Gf79QG
+	lo4p/BT892f1cWSXKitqVR068o7afdf18RiRw=; b=i9BFe3Nu3epmndzVYOz/nQ
+	XROa2C/vCm5xt0rUK8fDuICLmSPYwXwF9Y9Pe/7TB9+H0iqN7Id541gnCYUHYSLO
+	XOj7u5udwdbwfYURs+W3KafRME71fkx83uByl0WFwgthq8TwCoGVLtscvReJA5Hg
+	6HbEmS06Dgno5jnB90sAjgQHa+GqAzpQHnMKNM4mtKUZ3QcQ2juo8VDaOyI6zSg2
+	8BHjVBvsvrsEKRile6345gq4R6+OPzgR5vZUC19EmegDEJ52N9LPzPEb/aP1kdkI
+	oDQLY02Q1w9tdYbOX8jZXxc0epsUyz0OqDd42CBLMnl69GaPKdSjsnKlr3jqdCiQ
+	==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105w6g3s-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:35:05 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Jkgz1wqKKdNm4ha3BXsQsDk3amjxqa7FcoDzz0TrYlXxcUm1Sbj2ebmUD6c/ROVtoIDDdAjq+quFAWNcln483LyY1LYmghZ6MaazpmlWuXfL3517+USOE73CmrbYeCRJSV4KQBaul3Wr1RLFSLvaAkcMVM9/nuZKAdiMJiNBmFvv/FRdnqeFzyk4b6XHmG16bcPosqXJqj/YqFSpHL/Dasl8/ISkeM/PevjFzaSLRIcnorLAwScabhkUHU6nGsn7d2BcTPkR/8nSz9tnswxKnH7vxT1horPAF5XAkHval6XiEBzzIgACqQ4jhpuPUPnfHMtxHY6mdEvWCo0yPNI5Kw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5lK6B0XsyKNhMWAufpuoXeRSWrFLPFkgn1ShuVei69Y=;
- b=Gsvglg+0OtbuRASecvL+x1GLGDKEif+aq3MLkutFTYC5xo2Fgv66t3xN3Khkq3RbJNDn3PdbYCIgU2bsO3mIQWp31rGp4aS3LWZBD3abd9faGzlvuiL3LQZn9t4ONZkEvAMxVbthkUCCuXDSeR27AnaZYkRLmgpIYIaAcnf0kAQrnPp0b1yhJjXm9kKE83KawAPrDZsSChXlfFqYOBncAU6NX8hepw2q8t4oDCKI2gUvMVxbt5QsktjCfW02loyu8nGsQrhEKdkTwdRQMjXzbMKrpnYAKAZxDEicvTLwey1OyCkXB+e+zwE6ZAJ12Wt49vOI9byg9GHTTP9HMoOarg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=windriver.com;
-Received: from SJ2PR11MB7546.namprd11.prod.outlook.com (2603:10b6:a03:4cc::8)
- by DSWPR11MB9821.namprd11.prod.outlook.com (2603:10b6:8:4e1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 07:35:04 +0000
-Received: from SJ2PR11MB7546.namprd11.prod.outlook.com
- ([fe80::ca9b:dcf:8881:bced]) by SJ2PR11MB7546.namprd11.prod.outlook.com
- ([fe80::ca9b:dcf:8881:bced%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 07:35:04 +0000
-From: Ionut Nechita <ionut.nechita@windriver.com>
-To: ceph-devel@vger.kernel.org
-Cc: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>,
-        Viacheslav Dubeyko <slava@dubeyko.com>, Xiubo Li <xiubo.li@clyso.com>,
-        linux-kernel@vger.kernel.org,
-        Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>
-Subject: [PATCH v2 5/7] ceph: set default timeout for MDS requests
-Date: Fri, 20 Nov 2026 09:34:21 +0200
-Message-ID: <20261120073431.53636-6-ionut.nechita@windriver.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261120073431.53636-1-ionut.nechita@windriver.com>
-References: <20261120073431.53636-1-ionut.nechita@windriver.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: VI4PEPF00000142.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:808:1::89c) To SJ2PR11MB7546.namprd11.prod.outlook.com
- (2603:10b6:a03:4cc::8)
+	Fri, 20 Nov 2026 07:36:27 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7FTGN1655863;
+	Fri, 20 Nov 2026 07:36:27 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1m3j0ur1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:36:26 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7aNHc51970426
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 07:36:23 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 051132004E;
+	Fri, 20 Nov 2026 07:36:23 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7331920040;
+	Fri, 20 Nov 2026 07:36:19 +0000 (GMT)
+Received: from [9.124.218.70] (unknown [9.124.218.70])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 07:36:19 +0000 (GMT)
+Message-ID: <1b52c142-116c-4a9e-af19-578a9a71e3f3@linux.ibm.com>
+Date: Fri, 20 Nov 2026 13:06:18 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,133 +86,307 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB7546:EE_|DSWPR11MB9821:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3c710b0-3e69-407a-9017-08df46d8cad3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|10070799003|52116014|366016|1800799024|261022105027099003|10067099003|261022075727099003|11063799006|56012099006|261009223027099003|261102123227099003|261021121427099003|261028144727099003|261026140227099003|261026121527099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	g7cwvHogJAD4EJA8VoYAIDunv5JBSq3R2k0XfgBxQ0MNtZgq6KXTVveSGrca06hbBcsIwu972WXHIUXk62fTHEwb4l1qCsJl6sYXMeL+AmcIiN6agrjTQqjohvnK+grW2bp9duKa/K1hulYEU+XsaDdG6ormPVRBd6ONwCkq37wYvSvDXbXDf3IOnOrN4PBSPQBR02MpYS9m+0JEp9glCAj6UADFBOaYkhwXcZL8MISVDk85jvMPA6BMRe/VTnTGHbqrIIQsaztpEWYH5iyugNtHwc+Nv2fOK08DYze7j4CUyDGK7DL5wPY7tNpAqWt40FQPQ+KyFYfFr9viHpwlKxU5idpYs+urW2yAvXFZRfHMJXUO3juGHUPaJXEAyVIjzOAtqra+2FmPzNgrkxUKQWc9Gm9r2oAaDa5hIA06julneFILaNOGkoKXtDW7xf932kmqm1OmB09ZuK8HJuV2IiEVmTkZ+UzSR9NOjeAV2JROcB4Adya5b45cY/1ieDHF09yGsYlw0bJFIqqEOmSLgUf0AdZ0/X2D1kbpCgwF64cklbXS6FtCqOWAkYgadaiZwiqqTcw1LzuKEwzboO2rj03NhFC/PieOL01xyuapWCPt+ZSlfUVOIBdvluXCW5fhAkWMkdzItNCyN+ZFXDqkJtiF6u2aNq0aM7JyLjAWXWY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(10070799003)(52116014)(366016)(1800799024)(261022105027099003)(10067099003)(261022075727099003)(11063799006)(56012099006)(261009223027099003)(261102123227099003)(261021121427099003)(261028144727099003)(261026140227099003)(261026121527099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?ZT3VnUiTD9iD9oPXZtUXsnwIEMmIxG66XuFcv9vV8/bwPYipZC1SMB3LlyKc?=
- =?us-ascii?Q?VklBuOPtEFSiP6mrmWe7lpJmZJBkxegJCmXmyT2lznustCICLfrfOqBlPByx?=
- =?us-ascii?Q?FxcvesCFfkJO9VQ1YOvKju9mfMvNzcS/bpAtg6iktVp36w0ilI6Tr2EVabOh?=
- =?us-ascii?Q?XKTJsdu49CA3++tC18VffkzC965s0o/tNUWKkwYnMJt2TDCNOprnbty1ozaJ?=
- =?us-ascii?Q?mCSQjt7L1YsHyzQ2e5vNps/SVpDKpOU83S3Ru3+HnDqq2E7lIRvx898Rxl8p?=
- =?us-ascii?Q?G/jx68gvLaD12nSAevETtxyB4awow3qofzy2eOg8OhCNRayrFmY9Qm7NLXGs?=
- =?us-ascii?Q?m28ucHKp1Y+queYaV9JaKBLcRSAMfvX2z+CZrS8YIv7pPKctqrFYsuwI+26J?=
- =?us-ascii?Q?VT2Z1eLu4PDNznF8/z68asDiutCTCvP3xSeLLXesCzmI/oDlKZ8QHoQZiiH6?=
- =?us-ascii?Q?1KpDFXilV1XjM5J7O3N+qvDC8q9CXWcwTHiL9pXSNz/E5bkb5IzJ3o7Bn+99?=
- =?us-ascii?Q?M/qByD2nbUHGyCkDm3HVPEm/XTqVAKZotn9aiQIfc4RjjcRyEkbHwIv8dPRu?=
- =?us-ascii?Q?Vdn4wOaxxRs3VnZqHMcOm0GgNpPKIvPAXWfHEwkdtYZQ0TcfyYoUOnP1dXt7?=
- =?us-ascii?Q?30MOZbB7ApmDDg8NPcPt86jmWXehFEIFqF5aV2eqqtVQKKWAuIrpeYiNPeuJ?=
- =?us-ascii?Q?w08i6mdJwMdT1JQucuucMgDqWYFfGWDArlC+vo2NjVDadNJBmYZ7QKOFBt9N?=
- =?us-ascii?Q?SiALaX3k6aTvhuoOzjgFk16iIUU0yxeP32EC+dNEvVWrmOyg8O75yIIrZogI?=
- =?us-ascii?Q?ZALnbwWgBsEE9GEeb8tPG3o8QasoLJC7//7yt2+mLc1airLHPq+RydUR7J2E?=
- =?us-ascii?Q?yK8lkcXGLiShIgc3SSq2Si3rtnX18VJXTmsq1vFw6+Qjjucz9c0bEZdkkK5e?=
- =?us-ascii?Q?bvX3cL4L7v+FEPDQs3ajApzy+XlY2SA9+NwHFVhXNBFOv683WLvdzYjuCrAi?=
- =?us-ascii?Q?F9j19SymTfty++qYv4C4dOEJhQvDdT8ODcT51SmZRpPz4ZNewfyI7F95rV+B?=
- =?us-ascii?Q?rUtG/o+MSG6V6paYAYyjNmK5WJjTy2kyBI+pkixR90GTnQZcAS4idvtxgZKX?=
- =?us-ascii?Q?BcByuSRoVGwR2sp9Hiazo0IEU/53iIM5+E9lJYxBNbTa1JznGQwraDBk8MxA?=
- =?us-ascii?Q?+4HychNtUHR65x0BQW8w2T3QI+TUX8vUZLNfSa8iX0UI6i02unHCvJQf4Mh1?=
- =?us-ascii?Q?QRg6/qnyyq5jqK9nXEL4fDmeSxm4cy/igzsIeBJ8tSJpJ7QwUdi89BMAA24E?=
- =?us-ascii?Q?osAvVul4GhysXu/hRf/Tbr05bUIRg9BnG80OnCB1wbMgZxn939l80/ATIGoD?=
- =?us-ascii?Q?ncqndXK1FxnJwfBU9nwKZgReQcTfZu31KrGUvyKwtn5FhQIpsYqAXzYpJQh+?=
- =?us-ascii?Q?FhnHgCG4wrJGrrEbAgUaq8a9bzwHVWKaHQudH03ywMzBpX+yEbTW0i0ZZeT4?=
- =?us-ascii?Q?Nh6oQwgVBjBIfmz0bevYnPGwf/9VBJVwMVwLGQE8NOgdRJxwA5tkwSSjX4+T?=
- =?us-ascii?Q?TxjhYB1SwlsnmH8tnYVs3p/+/R9A6htL9wzvPEQsI3zFrMSQKC0lBNauTdCM?=
- =?us-ascii?Q?dlut5E3frOim4sb8cnipcam+KtcfP3uHBaPnmNp1Oft1dvCHahH9bD+XPwCM?=
- =?us-ascii?Q?j33rN1pmVKrt82PsptFmcjK9rsB3FtlFb6D8Gtxz06NPlQHy4apPZM0ttGfD?=
- =?us-ascii?Q?K01aS6l+SwoTVGCwwwDN2A0qUoQOblhQ3PCC4R7lKyvsnlJF2SQENCwhW3u4?=
-X-MS-Exchange-AntiSpam-MessageData-1: qbGv68yB/fH1Pl6Trezr1uggPpfCJdajd+I=
-X-Exchange-RoutingPolicyChecked:
-	bz6tg/LKCMXTzOrIvFebfqdZkSlDNVo+I78S+KDuFbh2bp+LsIvagI/oNqsPUTdWY6nx47Vtbr/smAwwxD9AnMa4e64bR8uzpcJ6JrXOGVQBWjS/oWtms81EXG0z7744nuld4je+w7+XEj28tzdw2Yw1Alldh8xoyIDKH5Xtw30ta0AFRaI/eei3gapzwtMIq0zMbVsP3JEtqoGhu0BCDGkmz/ba4A6OI076DUxU95yMUH+JMg70oCJicu9iTBaEcGYuCX3FGKtwSibkrzpTAM2K0KUnoZfUd+sB/M3IlSV2lmFuE1mSb2BI+V7h2mbmTIk6lW1R5hn50qeh9CYlrQ==
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3c710b0-3e69-407a-9017-08df46d8cad3
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7546.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:35:04.1044
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: a/2yTBnlmIX9JFOJF7SzTPTYuqMJqbg3/Qc4XDgT3Uo74L3pmH3ryK79wn5fGNmIDcaBcw058i7Ifjvqvr3zb6MeRs/YmBkgqkUrfSTTLpg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR11MB9821
-X-Proofpoint-GUID: yQ6q2t8zOAJ7es0F87LVSCT-z91FPuj7
-X-Proofpoint-ORIG-GUID: yQ6q2t8zOAJ7es0F87LVSCT-z91FPuj7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX9Br+ea0bmv8w
- t5ykfBEiAWNnRETskvpruSOFgQR1XxMfQs/q1UqqsseKcxqb5VYWtx+ThAoMY6oHFd2XQZIChsN
- ig7k3qe9uLpjwjY8uj20uGarQQHIHCsq+7bqbJx6cuAfPUth/hSqn6AtllmRQK8jdQeKTLtmCGf
- 9YbeNbouPlvRJ3L5NYWoJ1Uh1+t9MO7jXo6FFWLR5QnjhjcN+rq3J3/xdr7saBBpDJfKVWORxgw
- /f+Uf4OPWN3XrWDLUNvpLZ+FSy9iRM1RBAz/to+lYO2lFcVjEHsAC4jqJjNlWB2N/T0zECgn+sV
- xj+YnOUpSsidHUyzWNbzHxJN5w8hYyAxjpCrSGBMeX2J1hw+rxHODV6faMAHeWrRGyhDd51u7Oi
- g+IJjn1vzLFv3qxav2BPdLB37WVyGsm7hVZ81YkBqupjXDtD2ZvA9CyXam9bebMAqk3itkDNw8P
- +XOwdTAkXtnuJQltJEw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXxM+5m3dDmEXZ
- 3nfpWq6JJn7XnswKfI/Dl2RDoolF/r8BZW5pcu5aeeeJABvBrIE4mum5x3qRzQCZS3fo/I7dpf5
- Y4ypF+M3FK48AzKd6BrOtSDuws2BDrnB8bTT+tpgDp3+gowZiI5j
-X-Authority-Analysis: v=2.4 cv=GNCdgeNK c=1 sm=1 tr=0 ts=6afff829 cx=c_pps
- a=6tOaaN1fXmJE/LdyR88bKQ==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=bi6dqmuHe4P4UrxVR6um:22 a=fTW__CHxibyLmBMfj2wP:22 a=t7CeM3EgAAAA:8
- a=VnNF1IyMAAAA:8 a=1mtySyPCZUFLoRT_7_oA:9 a=FdTzh2GWekK77mhwV6Dw:22
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/5] vfio/spapr_tce: Normalize EEH IOA error injection
+ addresses
+To: Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        "Oliver O'Halloran" <oohall@gmail.com>,
+        Timothy Pearson <tpearson@raptorengineering.com>,
+        Alex Williamson <alex@shazbot.org>
+Cc: Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Ritesh Harjani <ritesh.list@gmail.com>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
+        harshpb@linux.ibm.com
+References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
+ <20261023073642.59657-5-nnmlinux@linux.ibm.com>
+ <518b5813-ab4e-413e-9820-556888216090@linux.ibm.com>
+Content-Language: en-US
+From: Narayana Murty N <nnmlinux@linux.ibm.com>
+In-Reply-To: <518b5813-ab4e-413e-9820-556888216090@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: 1wb5r0GhykOK8MUtHIbS02RWLI06OP1g
+X-Authority-Analysis: v=2.4 cv=Z8x5j3RA c=1 sm=1 tr=0 ts=6afff87b cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8
+ a=ndujvMo2dnuvSWxAOzYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: R-JrSAq6i-WJxETjsmm3DTGCViBCCz3_
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX8Udd4yTQanuo
+ 5pnjkbTLXBZmK6gXnC+N2/a2nuS6egSl+S0EPQz2LzY8Nk3K1E0ffcwUk4NdikbIENDyh6P7rMZ
+ bLFqNNkx0TXEKDXE4qEk/fvyQcKt/cA=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXxFWqblhip4bs
+ gPw3iWEf3DDgY/sHrBuy6Esjx0yYb1XSIhK73i5+Cq1Iq2dBuiFBkIWL8s05wND2T2ZRGp5GARP
+ FKpJp0mr4lv7ys5TYzxBXSRjwsEhcWOFU5Y33czQGtyKr4EOpA9NFnJ/z61AUcSL2qBnOV1UgcA
+ jGQZ5CkFakt8PUBp0Kzv6p79t9JSN6IM+g+E4joN7wFm99xaBq2lqv5ih8+u/N2GtdAIl05f8VC
+ qabHH7cmcpbTB5Cn1ZwcoV47O6aogoMKPv8+rhjbKib0D/BPaXJ2lAi1CISFKI93mIz/uFE2wrb
+ CLwNOHyO6j+xKjG8JTmGwRKLvfU0nHijYpReKDTZz/6tWBlYLawgwPrez07PLjEmS0YsxrPp2KA
+ +EAQLh2KeAY4/t5fixuHzAJVwlwVFTCSXDNHE6zWV7lyvmxJmCwcWKPHLHoPOmATIXMSv33vaWh
+ MOoUt95pA55J8x4g16g==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 adultscore=0 spamscore=0 clxscore=1011 suspectscore=0
- lowpriorityscore=0 phishscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200029
+ suspectscore=0 phishscore=0 lowpriorityscore=0 spamscore=0 malwarescore=0
+ adultscore=0 bulkscore=0 clxscore=1015 impostorscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200029
 
-MDS requests created via ceph_mdsc_create_request() have r_timeout
-initialized to 0 (from kmem_cache_zalloc). When r_timeout is 0,
-ceph_timeout_jiffies() returns MAX_SCHEDULE_TIMEOUT, causing
-ceph_mdsc_wait_request() to wait indefinitely.
 
-This causes hung task warnings when MDS becomes unavailable during
-operations like setattr or truncate:
 
-  INFO: task dd:12345 blocked for more than 122 seconds.
-  Call Trace:
-    ceph_mdsc_wait_request+0x...
-    ceph_mdsc_do_request+0x...
-    __ceph_setattr+0x...
+On 19/11/26 1:05 AM, Sourabh Jain wrote:
+>   I'm finding this commit message a bit difficult to follow.
+> Could you please rework it to make the changes and their purpose clearer?
+> 
+Agreed. I'll rework the commit message to focus on why address
+translation is needed in the VFIO EEH path.
+> On 23/10/26 13:06, Narayana Murty N wrote:
+>> VFIO_EEH_PE_INJECT_ERR receives a target address from userspace.  For
+>> userspace such as QEMU, this address may be derived from the host Linux
+>> BAR resource.  The platform EEH backends, however, expect the PCI/IOA
+>> bus address used by firmware error-injection interfaces.
+>>
+>> Normalize IOA/MMIO error-injection addresses in the sPAPR VFIO EEH
+>> ioctl path before dispatching to eeh_pe_inject_err().  If the supplied
+>> address is already a PCI bus BAR address it is left unchanged.  If it is
+>> a Linux resource address, translate it to the corresponding PCI bus
+>> address using the BAR-relative offset.
+>>
+>> Normalization applies only to EEH_ERR_TYPE_32 and EEH_ERR_TYPE_64 error
+>> types whose error function targets a memory or IO BAR (load/store memory
+>> and load/store IO functions, func 0-3 and 6-9).  Config-space functions
+>> carry PCI config register offsets and DMA functions carry IOVA/TCE
+>> addresses; these address domains are not PCI BAR addresses and must not
+>> be translated.  Applying BAR normalization to them would incorrectly
+>> return -EINVAL, blocking injection entirely for those function codes.
+>>
+>> An address and mask pair of zero represents a no-address injection
+>> (e.g. a function-level error with no specific IOA target) and is passed
+>> through without BAR translation.
+>>
+>> Only standard BARs (BAR0..BAR5) are searched; ROM and bridge resources
+>> are not IOA bus-error targets.  Unassigned or disabled BARs are skipped:
+>> pci_resource_len() returns 0 for zero-initialized BARs, and the
+>> IORESOURCE_UNSET and IORESOURCE_DISABLED flags are checked explicitly to
+>> avoid false matches against unassigned resources.  Hold
+>> pci_rescan_remove_lock while traversing PE devices and their BAR
+>> resources to prevent PCI device removal from racing the lookup.
+>>
+>> A pr_debug() is emitted if the address cannot be matched to any BAR, to
+>> aid debugging without producing noise in the normal path.
+> Which address are you referring to?
+> 
+The target address supplied by userspace through
+VFIO_EEH_PE_INJECT_ERR, which may be a Linux resource address or
+a PCI bus address.
 
-Only the mount path in super.c explicitly sets r_timeout to
-mount_timeout. All other MDS requests (setattr, lookup, mkdir,
-etc.) use the default 0 value, making them wait forever.
+I'll make this explicit in the commit message.
+> 
+>>
+>> Keep the helper local to VFIO so the address semantics of other
+>> in-kernel EEH callers remain unchanged.
+> 
+> Which helper are you referring to?
+> 
+I was referring to vfio_spapr_eeh_normalize_addr().
 
-Fix this by initializing r_timeout to mount_timeout in
-ceph_mdsc_create_request(). This ensures all MDS requests have
-a reasonable timeout and will fail with -ETIMEDOUT rather than
-hanging indefinitely.
+The intention is to keep the resource-to-bus address translation
+local to the VFIO path without changing the address semantics of
+other EEH callers.
+> 
+>>
+>> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
+>> ---
+>>   drivers/vfio/vfio_iommu_spapr_tce.c | 140 ++++++++++++++++++++++++++++
+>>   1 file changed, 140 insertions(+)
+>>
+>> diff --git a/drivers/vfio/vfio_iommu_spapr_tce.c b/drivers/vfio/ 
+>> vfio_iommu_spapr_tce.c
+>> index 1c0eec228cc6..d831adaa69fb 100644
+>> --- a/drivers/vfio/vfio_iommu_spapr_tce.c
+>> +++ b/drivers/vfio/vfio_iommu_spapr_tce.c
+>> @@ -774,6 +774,131 @@ static long 
+>> tce_iommu_create_default_window(struct tce_container *container)
+>>       return ret;
+>>   }
+>> +/*
+>> + * eeh_func_needs_bar_addr - return true for error functions whose addr
+>> + * argument is a PCI MMIO or IO BAR address.
+>> + *
+>> + * Memory and IO load/store functions target specific BAR addresses.
+>> + * Config-space functions carry PCI config register offsets, and DMA
+>> + * functions carry IOVA/TCE addresses; neither requires BAR translation.
+>> + */
+>> +static bool eeh_func_needs_bar_addr(int func)
+>> +{
+>> +    switch (func) {
+>> +    case EEH_ERR_FUNC_LD_MEM_ADDR:
+>> +    case EEH_ERR_FUNC_LD_MEM_DATA:
+>> +    case EEH_ERR_FUNC_LD_IO_ADDR:
+>> +    case EEH_ERR_FUNC_LD_IO_DATA:
+>> +    case EEH_ERR_FUNC_ST_MEM_ADDR:
+>> +    case EEH_ERR_FUNC_ST_MEM_DATA:
+>> +    case EEH_ERR_FUNC_ST_IO_ADDR:
+>> +    case EEH_ERR_FUNC_ST_IO_DATA:
+>> +        return true;
+>> +    default:
+>> +        return false;
+>> +    }
+>> +}
+>> +
+>> +static int vfio_spapr_eeh_normalize_addr(struct eeh_pe *pe,
+>> +                     unsigned long addr,
+>> +                     unsigned long mask,
+> Do we really need mask argument?
+> 
 
-Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
-Reviewed-by: Viacheslav Dubeyko <Slava.Dubeyko@ibm.com>
----
- fs/ceph/mds_client.c | 1 +
- 1 file changed, 1 insertion(+)
+The mask argument is currently used only to identify the no-address
+injection case where both addr and mask are zero.
 
-diff --git a/fs/ceph/mds_client.c b/fs/ceph/mds_client.c
-index d02fe1e34527b..4460f614050e4 100644
---- a/fs/ceph/mds_client.c
-+++ b/fs/ceph/mds_client.c
-@@ -2852,6 +2852,7 @@ ceph_mdsc_create_request(struct ceph_mds_client *mdsc, int op, int mode)
- 	mutex_init(&req->r_fill_mutex);
- 	req->r_mdsc = mdsc;
- 	req->r_started = jiffies;
-+	req->r_timeout = mdsc->fsc->client->options->mount_timeout;
- 	req->r_start_latency = ktime_get();
- 	req->r_resend_mds = -1;
- 	INIT_LIST_HEAD(&req->r_unsafe_dir_item);
--- 
-2.56.0
+I'll move that check to the ioctl caller and remove the mask
+argument from the normalization helper.
+
+>> +                     unsigned long *normalized)
+> 
+> Too much in a single function. Can you split this function as suggested
+> for validate_addr_mask_in_pe() in 2/5.
+> 
+Agreed. I'll separate the per-device BAR matching and address.
+
+> - Sourabh Jain
+> 
+>> +{
+>> +    struct pci_bus_region region;
+>> +    struct eeh_dev *edev, *tmp;
+>> +    struct pci_dev *pdev;
+>> +    struct resource *res;
+>> +    resource_size_t pci_start, pci_len;
+>> +    resource_size_t res_start, res_len;
+>> +    resource_size_t offset;
+>> +    int bar, rc = -EINVAL;
+>> +
+>> +    if (!pe || !normalized)
+>> +        return -EINVAL;
+>> +
+>> +    /*
+>> +     * addr == 0 and mask == 0 indicates a no-address injection (e.g.
+>> +     * function-level error with no specific IOA target).  No BAR
+>> +     * translation needed.
+>> +     */
+>> +    if (!addr && !mask) {
+>> +        *normalized = addr;
+>> +        return 0;
+>> +    }
+>> +
+>> +    /*
+>> +     * Walk standard BARs (BAR0..BAR5) of all devices in the PE.
+>> +     * Hold pci_rescan_remove_lock to protect pdev lifetime during the
+>> +     * traversal: pci_stop_and_remove_bus_device() requires this lock.
+>> +     * ROM and bridge resources are not IOA bus-error targets, so the
+>> +     * search is limited to PCI_STD_NUM_BARS.
+>> +     */
+>> +    pci_lock_rescan_remove();
+>> +    eeh_pe_for_each_dev(pe, edev, tmp) {
+>> +        pdev = eeh_dev_to_pci_dev(edev);
+>> +        if (!pdev)
+>> +            continue;
+>> +
+>> +        for (bar = 0; bar < PCI_STD_NUM_BARS; bar++) {
+>> +            res = &pdev->resource[bar];
+>> +
+>> +            /*
+>> +             * Skip unassigned or disabled BARs.  On pseries,
+>> +             * pcibios_fixup_resources() zero-bases unassigned BARs
+>> +             * (start=0, end=size-1) and sets IORESOURCE_UNSET.
+>> +             * Use pci_resource_len() which returns 0 when end==0.
+>> +             */
+>> +            if (!pci_resource_len(pdev, bar))
+>> +                continue;
+>> +
+>> +            if (!(res->flags & (IORESOURCE_MEM | IORESOURCE_IO)))
+>> +                continue;
+>> +
+>> +            if (res->flags & (IORESOURCE_UNSET | IORESOURCE_DISABLED))
+>> +                continue;
+>> +
+>> +            pcibios_resource_to_bus(pdev->bus, &region, res);
+>> +
+>> +            pci_start = region.start;
+>> +            pci_len = pci_resource_len(pdev, bar);
+>> +
+>> +            /*
+>> +             * Case 1: userspace already supplied PCI/IOA
+>> +             * bus address.
+>> +             */
+>> +            if ((resource_size_t)addr >= pci_start &&
+>> +                ((resource_size_t)addr - pci_start) < pci_len) {
+>> +                *normalized = addr;
+>> +                rc = 0;
+>> +                goto done;
+>> +            }
+>> +
+>> +            /*
+>> +             * Case 2: userspace supplied Linux resource/CPU
+>> +             * address.  Convert it back to PCI/IOA bus address
+>> +             * before calling the platform EEH backend.
+>> +             */
+>> +            res_start = res->start;
+>> +            res_len = pci_resource_len(pdev, bar);
+>> +
+>> +            if ((resource_size_t)addr >= res_start &&
+>> +                ((resource_size_t)addr - res_start) < res_len) {
+>> +                offset = (resource_size_t)addr - res_start;
+>> +                *normalized = region.start + offset;
+>> +                rc = 0;
+>> +                goto done;
+>> +            }
+>> +        }
+>> +    }
+>> +done:
+>> +    pci_unlock_rescan_remove();
+>> +
+>> +    if (rc)
+>> +        pr_debug("vfio EEH: addr=0x%lx not found in any PCI bus BAR 
+>> of PE\n",
+>> +             addr);
+>> +    return rc;
+>> +}
+>> +
+>>   static long vfio_spapr_ioctl_eeh_pe_op(struct iommu_group *group,
+>>                          unsigned long arg)
+>>   {
+>> @@ -818,6 +943,21 @@ static long vfio_spapr_ioctl_eeh_pe_op(struct 
+>> iommu_group *group,
+>>           if (copy_from_user(&op, (void __user *)arg, minsz))
+>>               return -EFAULT;
+>> +        if ((op.err.type == EEH_ERR_TYPE_32 ||
+>> +             op.err.type == EEH_ERR_TYPE_64) &&
+>> +            eeh_func_needs_bar_addr(op.err.func)) {
+>> +            unsigned long normalized;
+>> +            int ret;
+>> +
+>> +            ret = vfio_spapr_eeh_normalize_addr(pe, op.err.addr,
+>> +                                op.err.mask,
+>> +                                &normalized);
+>> +            if (ret)
+>> +                return ret;
+>> +
+>> +            op.err.addr = normalized;
+>> +        }
+>> +
+>>           return eeh_pe_inject_err(pe, op.err.type, op.err.func,
+>>                        op.err.addr, op.err.mask);
+>>       default:
+
+Thanks,
+Narayana Murty.
+> 
 
