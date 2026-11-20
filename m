@@ -1,80 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795155104;
-	b=dC6cc0UX+/QeiuwItO8uJoahWULy7bzPxVWoeFGCz/o6LJdgvylEjH+VnBgZ/zEybpev
-	 jwMVvhAc1qxElcouZm3E2vkc6Fqb+JtKLTDgYbIzuWVtrgGyY8JlGhFNwCwMHxD7eIz8m
-	 gNU5SrHMx3tvd5o8IhLnJ1f4aGhrbfNserMTz1fWkNgG+lFrCWETXW+7vZANTopSCjpOW
-	 VGN0tI2Vp3yFSsEUvs5aHOZdLxZcctLrl1gOqPOFr6bJuUz7NONeR/a/YwKFsZN7DDYx5
-	 bRh8q2JFjpmhF1gxQbbxJUFGJj3mMKtWoV0JVoUNMD9JvYGQ0Cl6VNVRGRCfgwzpLDg==
+	t=1795155145;
+	b=MoxWhyoVa89baDoGzWiASpyz4DW1QlMQuzWk/kLoLT/KuO9VpYdIt7cXYvr/iO3gSW7+
+	 Vk2Fl7kGzwSgtTlPdgy0155PBysa7lC5ODJJ3I3fxtwLp3sneQ5apB8rOFDYcX7mIctHl
+	 q47adbIwxIebg3+EqOlQxI++r4JJqgZfNYaosGgs97Vi+oJ1KQleDeazmHxgrPvPL3v3C
+	 HaN/Y26x6hb+wstcDqfL51NHBFFWPady6MZSwsp8kgSSHYL0Lx8TZZz4rnn34Mld6b3Il
+	 gvCf/4jtZ7e1B0u3vFj6th629pQqCA3hBA2E/mBOMSsUaiVBXoYY3DkxyrWe/e/sZ9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795155104;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=FYeBjzzajzIMomxeTo2zsisJ34xurhqTEFFHes8PBtA=;
-	b=dNZBgUIPvVKJgXYt4zyLNAjYX5ZRn87E+IZR/TueReysJepcD4APfzL1x21a+pfOmKha
-	 fkw/nU7qJhLPjObePY1T1VoJ8Tm0xnnUl6dFeKH6rn18/PVvKvhzSGj9dBwjtoULTmaG4
-	 WvoO/C6PAUiajxsSYxuxZumF7NP1oMGJr23GJT24BW1sAZh7NG/hhR9m7dqWlKUBErieM
-	 4kPzJbaU32zDLh4D/vE/zpwgxbn4slAc2Pqm3v3NXM/3hSFUhxi93O/Eqr6jUH9OjYmcs
-	 TV4tT9GruqhgLSisxYci2ajjdV+11iV8HolAxnaOpWCPx3zwG7nW0tkTfT4Tlh2BUDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795155145;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
+	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
+	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
+	bh=+bNDiqikP4UORmZOWC07ZP3W3L9GbQNvQPbMW+0wf4A=;
+	b=wr7VpLW+nvhANClHEosRaUki1OPjn6AyiUdVOzgl6FzuMsCUE7rG4AcduS30CpEaVKQ9
+	 BVpEj2+6DRGbr6E5rG6FA/yDvE9tGlqKVTa43lyMqcKVYmByWTNfN/OgL2piHlnJbRKRt
+	 Jgbtrhito1XVkcPdt6wgSDwWLzYlsUTgpNVSQT2PYHpEJCg8/pWeEvaforzQh7jLg1PK5
+	 xjF7vrM167k8eYhZw24h3vPcHJr+7W6uxFtoHyNcEiRf0EDuZoahCEc1s4zv32Mw7RiC7
+	 WeyqQf2/tKsbMf3RbWsnuMUBSomrmvs8leH5UDa4LiAj9LIP2Ys2ucIWxppqFUf1Adw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ergzg1M5;
-	arc=none smtp.remote-ip=192.198.163.17
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=0+XYBzVD;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=W2xIEi7M;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE130606A504;
-	Fri, 20 Nov 2026 06:11:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE130606A504
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6276D606A512;
+	Fri, 20 Nov 2026 06:12:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6276D606A512
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Ergzg1M5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795155101; x=1826691101;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=ET3hYaVt3likaMaWJfcVbGlw5rGCcaMf5Eo/QWP0lnU=;
-  b=Ergzg1M5rt/AOYxfnELPnGWf4qFz4Ae/PNjigCLtz9V//NplP4jvlG6u
-   NDqZCDiefM+jbrlzlzSVJbbNLNrHa7Kku3D7xdqir9APy7ySNuQlO+Ya0
-   TS0wCCSG4+iO52uiAUrp+eX1jTtjB4nDbdlchXIPKMr1cjJvqSBCGOlby
-   REwxp78ibvktEe4CczKWKKN1lQiZf9W+Kzf66Dpl5ibJcaFddruun0Ie0
-   K18hOWEOSbko13Vc6nYcXJk06G6Lx/4DLOaWNixdYkw1sHVbuv3tpiWe4
-   IoKLW6CFL3NJdw+I6Cl05VKen85J8+f7z3H4CdQ1ARnmzpOTw5vpjzLUQ
-   g==;
-X-CSE-ConnectionGUID: WCzFodySSPmyGsbscBuV2g==
-X-CSE-MsgGUID: GQ/pXGfPR9+tC30XvBquLg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4020142"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4020142"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:11:40 -0800
-X-CSE-ConnectionGUID: ECHAyj5YRRmtLSXED1Ykkw==
-X-CSE-MsgGUID: 8xwWHaGuRJeLmtqHDFLhnw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10620274"
-Received: from linux-pnp-gnr-1.sh.intel.com ([10.239.83.186])
-  by orviesa006.jf.intel.com with ESMTP; 19 Nov 2026 22:11:38 -0800
-From: Jiebin Sun <jiebin.sun@intel.com>
-To: netdev@vger.kernel.org
-Cc: edumazet@kernel.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	linux-kernel@vger.kernel.org,
-	tim.c.chen@linux.intel.com,
-	tianyou.li@intel.com,
-	wangyang.guo@intel.com
-Subject: [PATCH net-next v2] net: dst: avoid false sharing between tclassid and __rcuref
-Date: Fri, 20 Nov 2026 14:16:04 +0800
-Message-ID: <20261120061604.3676605-1-jiebin.sun@intel.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=0+XYBzVD;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=W2xIEi7M
+Date: Fri, 20 Nov 2026 06:12:17 -0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795155140;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+bNDiqikP4UORmZOWC07ZP3W3L9GbQNvQPbMW+0wf4A=;
+	b=0+XYBzVD+CSFVyJdlogPC/0EGK1uSbsOlmFD6yMFQpJ5hphLIg4DKzRKcXcrm+ZcrwVYyw
+	Fdo5Q15B74MkXhZTs+v656L8LMW/L/RkV18in3uv6Axwtan+4CgdQjMktE8HQGw0329bOH
+	vjJ63hHjlpKi60Y+PH3T5HZCHT56q/m6paF+pZYmPF57Y8VVltlUMLyLXSPWSRXSZ1caxv
+	ah0xBxcvP8mr+3GRrK3PVUCSTsXS+5AhmSTaZcwohD/e9mUqgXp6gA0NGqT+eeF5ren/mw
+	O8Be+pKsTwuQAMuJrsE8n7yA7wTenoPeFQUSDj+9X4mMdkRM3Fs7RheMF8AD9A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795155140;
+	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+bNDiqikP4UORmZOWC07ZP3W3L9GbQNvQPbMW+0wf4A=;
+	b=W2xIEi7MQfkLUBUkiFpVncW5X1D+44EGBf8wrrZs1Lty/57L8NQDFD/QgUhBQuqeCtBAt4
+	hiMY9SNLEsmyOdAg==
+From: "tip-bot2 for Adrian Schlegel" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: x86/urgent] x86/mce: Do not treat cache hierarchy errors as
+ memory errors
+Cc: Adrian Schlegel <me@adrianschlegel.com>,
+ "Borislav Petkov (AMD)" <bp@alien8.de>, Qiuxu Zhuo <qzhuo@nvidia.com>,
+ Tony Luck <tony.luck@intel.com>, Yazen Ghannam <yazen.ghannam@amd.com>,
+ Sohil Mehta <sohil.mehta@intel.com>,  <stable@kernel.org>, x86@kernel.org,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20261012193305.38931-1-me@adrianschlegel.com>
+References: <20261012193305.38931-1-me@adrianschlegel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,113 +81,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Message-ID: <179515513785.3191731.478144865512652784.tip-bot2@tip-bot2>
+Robot-ID: <tip-bot2@linutronix.de>
+Robot-Unsubscribe:
+ Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
+Precedence: bulk
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-On x86-64 with CONFIG_IP_ROUTE_CLASSID=y, ip_rcv_finish_core() reads
-dst_entry::tclassid from the cache line containing __rcuref. Concurrent
-reference updates cause false sharing with this load.
+The following commit has been merged into the x86/urgent branch of tip:
 
-Swap expires with {error, __pad, tclassid} to move tclassid and error
-into the first cache line without growing dst_entry. The structures
-that embed it, including rtable, rt6_info, and metadata_dst, keep
-their sizes.
+Commit-ID:     29b74cf57f432d60da2b79c827f1379125409611
+Gitweb:        https://git.kernel.org/tip/29b74cf57f432d60da2b79c827f13791254=
+09611
+Author:        Adrian Schlegel <me@adrianschlegel.com>
+AuthorDate:    Mon, 12 Oct 2026 21:33:05 +02:00
+Committer:     Borislav Petkov (AMD) <bp@alien8.de>
+CommitterDate: Thu, 19 Nov 2026 21:58:07 -08:00
 
-pahole on x86-64 (sizes and offsets in bytes)
+x86/mce: Do not treat cache hierarchy errors as memory errors
 
-  +----------------------+--------+-------+
-  | Struct or field      | Before | After |
-  +----------------------+--------+-------+
-  | sizeof(dst_entry)    |    136 |   136 |
-  | dst_entry.expires    |     24 |    96 |
-  | dst_entry.__rcuref   |     64 |    64 |
-  | dst_entry.tclassid   |    100 |    28 |
-  +----------------------+--------+-------+
+On Intel and Zhaoxin, mce_is_memory_error() also returns true for cache
+hierarchy errors. All callers expect it to report memory errors only.
 
-The IPv4 loopback paths are shown below.
+The CEC uses it to count corrected DRAM errors. A corrected cache error only
+names the cache line that was affected, not a faulty DRAM page.  With a faulty
+CPU core, the CEC therefore soft-offlines healthy pages.  On an i9-9900K this
+caused about 500 soft-offline attempts per hour.
 
-  TX: __dev_queue_xmit() -> skb_dst_force() -> dst_hold_safe()
-      -> rcuref_get()
-  RX: ip_rcv_finish_core() -> skb_dst(skb)->tclassid
+Report only memory controller errors on Intel and Zhaoxin, as is already done
+for AMD.
 
-At the tclassid load, separate 30-second perf c2c runs recorded:
-
-  +----------+------------+-------------+
-  | Kernel   | Local HITM | Remote HITM |
-  +----------+------------+-------------+
-  | Baseline |       2624 |        2611 |
-  | Swap     |          1 |           0 |
-  +----------+------------+-------------+
-
-Memcached over IPv4 loopback (64 threads each, 5 x 60s,
-20s warmup, mean ops/s)
-Baseline: commit 6628e7d4c6b2 ("Linux 7.4-rc1")
-
-  +-----------+-----------------+
-  | Memcached | Improvement (%) |
-  +-----------+-----------------+
-  | default   |          +32.55 |
-  | hit       |          +45.79 |
-  | balanced  |           -0.12 |
-  | large     |          +45.62 |
-  +-----------+-----------------+
-
-Default client
-
-  memtier_benchmark -s 127.0.0.1 -p 11221 -P memcache_text
-    -t 64 -c 1 --pipeline=16 --test-time=60 --ratio=1:100
-    --data-size=32 --key-maximum=10000000
-
-Server
-
-  memcached -c 4096 -t 64 -u pnp -p 11221 -l 127.0.0.1
-
-Client variants
-
-  hit:      --key-maximum=1000
-  balanced: --key-maximum=1000 --ratio=1:1
-  large:    --key-maximum=1000 --data-size=1024
-
-Suggested-by: Eric Dumazet <edumazet@kernel.org>
-Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
-Reviewed-by: Tianyou Li <tianyou.li@intel.com>
-Reviewed-by: Wangyang Guo <wangyang.guo@intel.com>
-Signed-off-by: Jiebin Sun <jiebin.sun@intel.com>
+Fixes: fa92c5869426 ("x86, mce: Support memory error recovery for both UCNA a=
+nd Deferred error in machine_check_poll")
+Signed-off-by: Adrian Schlegel <me@adrianschlegel.com>
+Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
+Reviewed-by: Qiuxu Zhuo <qzhuo@nvidia.com>
+Reviewed-by: Tony Luck <tony.luck@intel.com>
+Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
+Reviewed-by: Sohil Mehta <sohil.mehta@intel.com>
+Cc: <stable@kernel.org>
+Link: https://patch.msgid.link/20261012193305.38931-1-me@adrianschlegel.com
 ---
-Changes in v2:
-- Swap expires with error/__pad/tclassid and show the pahole results.
-- Clarify the loopback path and keep the memcached and c2c tables.
+ arch/x86/kernel/cpu/mce/core.c | 18 +++++-------------
+ 1 file changed, 5 insertions(+), 13 deletions(-)
 
- include/net/dst.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/include/net/dst.h b/include/net/dst.h
-index dbedfe72e1fd..a692fe85f4bc 100644
---- a/include/net/dst.h
-+++ b/include/net/dst.h
-@@ -30,7 +30,9 @@ struct dst_entry {
- 	};
- 	struct  dst_ops	        *ops;
- 	unsigned long		_metrics;
--	unsigned long           expires;
-+	short			error;
-+	short			__pad;
-+	__u32			tclassid;
- #ifdef CONFIG_XFRM
- 	struct xfrm_state	*xfrm;
- #else
-@@ -74,9 +76,7 @@ struct dst_entry {
- 	int			__use;
- 	unsigned long		lastuse;
- 	struct rcu_head		rcu_head;
--	short			error;
--	short			__pad;
--	__u32			tclassid;
-+	unsigned long		expires;
- #ifndef CONFIG_64BIT
- 	struct lwtunnel_state   *lwtstate;
- 	rcuref_t		__rcuref;	/* 32-bit offset 64 */
-
-base-commit: 66726ba54a01a2951688a56f5eb4d13d063acbea
--- 
-2.52.0
-
+diff --git a/arch/x86/kernel/cpu/mce/core.c b/arch/x86/kernel/cpu/mce/core.c
+index 50b1614..eb0e51a 100644
+--- a/arch/x86/kernel/cpu/mce/core.c
++++ b/arch/x86/kernel/cpu/mce/core.c
+@@ -540,21 +540,13 @@ bool mce_is_memory_error(struct mce *m)
+ 	case X86_VENDOR_INTEL:
+ 	case X86_VENDOR_ZHAOXIN:
+ 		/*
+-		 * Intel SDM Volume 3B - 15.9.2 Compound Error Codes
++		 * Intel SDM Volume 3B "Compound Error Codes".
+ 		 *
+-		 * Bit 7 of the MCACOD field of IA32_MCi_STATUS is used for
+-		 * indicating a memory error. Bit 8 is used for indicating a
+-		 * cache hierarchy error. The combination of bit 2 and bit 3
+-		 * is used for indicating a `generic' cache hierarchy error
+-		 * But we can't just blindly check the above bits, because if
+-		 * bit 11 is set, then it is a bus/interconnect error - and
+-		 * either way the above bits just gives more detail on what
+-		 * bus/interconnect error happened. Note that bit 12 can be
+-		 * ignored, as it's the "filter" bit.
++		 * Memory controller errors have an MCACOD of 000F 0000 1MMM CCCC:
++		 * bit 7 set, bits 8-11 and 13-15 clear. Bit 12 is the "filter"
++		 * bit and is ignored.
+ 		 */
+-		return (m->status & 0xef80) =3D=3D BIT(7) ||
+-		       (m->status & 0xef00) =3D=3D BIT(8) ||
+-		       (m->status & 0xeffc) =3D=3D 0xc;
++		return (m->status & 0xef80) =3D=3D BIT(7);
+=20
+ 	default:
+ 		return false;
