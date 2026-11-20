@@ -1,93 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205442;
-	b=qEnP+3HbC6C68cZIjJnFtwv4l8mHdBOpJS95mCLN21jia6yorLq6JWNkYvOUI0ilRcwh
-	 CRS6rlUF1cABEM1h/jmNS4CY+IUd7zaAVcBqiYZf7chT9L33UyLRbyGwldtqXm40rW8CS
-	 fg5909mmVLlUm+i5gSpTuP4T7xUh7a0h5mup4N9y+luELi+HwVUVTyZR5kZj3ROE5Z9FQ
-	 b9g54qlplzzfWxuBoqXsMnS6Zb9GZG9O5naIwm4QVDMXgJ0Nmwb2OFzJApo1baZPaMM3J
-	 ZT5HtVIZwfxRZQty8qd5+svxNAAZvBF1bKjTqREZEEbxzTd3KO412ZI+3gyx2SRtz0w==
+	t=1795205449;
+	b=p8E8X2GbZe+jsNY8pu2Gy7YY3bCPc/8pdva/bklR6lmUMpVSlga3UgVZ32ScGcMo+4tz
+	 0Z5knrnotvOpcVmk6Skzjg/bTZl5gFfkECnx1watEEgXAeUV7fILGrlz/IAOWzuZ7dTt2
+	 HxnI4phnOfcgp/7LbxUHxYt6Mu8DvgPf2p3lBbdze6GSfoRXahhvSA9FQaHsUYv5Q1aIc
+	 j0lVfhf01mg+VjgvPVCxRrSty5u0Zcj93/g3ghK5XBQipq1CYC70EAnGhISNbm7ZmGPgX
+	 FVR9Pscxol3RaixnOPQqbq3XES+3gOXhEQPv1MG4ad/muDIfk9F1PG4TLdCpzGsmkkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205442;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
-	b=oTU5owgLlBNTB8A0xZrn2K92M5K3DGuyZpAeeYHY+ENU3ieBq/Ywt1QebnmkdfuwPEmj
-	 ClYfO9nb8dUZaO5yW2PNAthWsJQjCr4VJgFqXSQ4SWgrHUT6jpewOq2WZjR7VvoNtAvJL
-	 7NJNDGkf/daNv3MpQJUZyZUz7DfvOszFZua6Q51Uoc+BzIh4oLfdc9S7wWZcmV5EG3WYt
-	 UeHCbO2u1X5wvXd+DPHC8kMuPkc4zoqSN8SgrBjGltbqrIOlDdsI8+ApwlsWM4Ey6ZSXQ
-	 qe58U6cOSyVEIgnTl9rzK662wMprRBRqaSLMxZ0SpAZVB2tLX57ooLt6FbiNc+sJyYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205449;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=iMYeeumlJ6k7W7C1kYBU0zY2YGhgrTr3LdRD0Cz1xDc=;
+	b=BTJKTsc6Zy5NQJ4JDBkO/WAFa6rUiA1mEm0/bScF52IwU5K9rn+W6ODVeZbwSXzX23VE
+	 vrFKADYPvcK0iIGWzUPya7REgctRfS/pn2EosfYYJHgDr1YRHVpjL6ncIJpUAZUibmqcI
+	 uK3OOy+YyJo+MFTYu+3nk/hbR+QfG9+p7hAgxJiwC/5U6+89/1/cBa7qs/pjrjBWmJNCv
+	 N9ZHXRvslPUtTTEkdW1p1R7q8/8hCvoDApc7xX0Jh3OAmpKO80dFzrS26qz8wVmhA/ktE
+	 RBnRT3Np7ujuBE1wN8CQHQz61efSR3HysLctmK/I3rGVUzwDlO3RatCHVuu/WS4bULA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r4Jknyks;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=i82JSpCj;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99ECE606A6F5
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:10:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99ECE606A6F5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1319E606A32A;
+	Fri, 20 Nov 2026 20:10:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1319E606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r4Jknyks
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so873388b3a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:10:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795205437; x=1795810237; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
-        b=r4JknyksnkeFoXBitM2CtrdTAt/WByFNDdLy8fW8o6C+SCZHcfi3haoQwrCcoxrSPQ
-         /thSr3/NDKFBjjugwQ3XfxvkApFm0SR3J6zXBVhDJlv7BN2Y07A4ssVX8yys65ZyaIZ6
-         lBSjfDDHKq50FuHmmchlfoMqcC2sY4pzJhNGwCXu96Tonp/aO5WrpgNPPCQ7Fligl8vF
-         fIRsbh6s2fGkotYFjUEDBYUkglEEAEe3Jv4ArntzTm2mQRU6sjDp3uoOu0FXzhSN+Iyv
-         vww2suKoXeMaqE9r8Yk6vcgwx1LW6Lh7NIV/DtRq3KU+1fxNHNsKhK9KnwWPNN8s8E79
-         5oxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205437; x=1795810237;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
-        b=bL5fXRQE5iXzpO1o2Mq4cph0NjctSlxkRaGT5jLPKtMko072759Zoe/sRtx1x06bXM
-         97wc3r1nzLQGcfzGnuk3Mv36MV1IzHj4mH3kRHcPDeHhFniY+a7uCApCYJztgqlOa6O2
-         u44l1TkjmVieyLCvD8ZXrpzgM7OktSdRDCJeYsJyY86Q+zXrepKnmvTcGtZRKeeh+jJ4
-         lLT6cN+JhflGSyAa/3I2+rpjMqsy5Pu+8gWBkAuco4HWcbSLpJOgFTP+udW5W3BELI/J
-         Dgz/URMjVyOz6jSVpEu6zC2rLKpelNnDrwDqEi3zeXv1KTzl/AlE4hpcXBqWxv2L7YOH
-         QNNQ==
-X-Forwarded-Encrypted: i=1; AL+hErF0Ek4WAUQegw60TsEJ3nnUxJk0MpexodVc4Iy3w14vsrvU6olecYas6lWYbb65jUZObLpBPomilFG60aE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+3xA+MPaGc1IYUqcvZOIW2kZpBxqQr+S9rrTFm1KgLVVViBkOf
-	BE9OAOHGDklnmG0HqIWgEmr5t59YPE5wSul1LqP2FQrpZkzxXH+JAR1G
-X-Gm-Gg: AZFdTZeS1CgkgtvVFVCMct/A+j0N28FtNwlILHrPE1NMlnNZUHJN1tgRcnaqnA6+ZTv
-	jXej7PJoIAbx90Uy/Q7dzfCYNwXpEtzPBM8/+vJxDZjdf9nXbPH/eIq78K6EHQv1BTt651qfmBy
-	fBeRxGcKpG1Bqo1a21HTlLHkECvi9KG3k7FDX7YX/g6JCdnev9wildFPxhS5WpI1S7rWxqC/BPZ
-	1DonPhPwbmN6h8UMj89ZGfBTqDfb0HnqANgQhYUrore4rFXEy+Kqeqm5fLIHCHaB3Ht1jWbhK3S
-	wLix/yFS9D00dIiwPb/k61MdVE5GenpZnOv1M/dIAEg8xnmqDKivu11NNvWkltr2R5tDjdIrYWd
-	V98QRl1aTWyQlPvbq/g8x2qZ3wAogYMbdZkFwYmST80XK17wP3PK5JdqhRJyQ9f+O+3j9l+c1Is
-	Q0TnKRz/FubzL1lerc+PhMpxgfdE2armgR+xzeE/+NZsrohcf7r7nNuqTKkLFbVvvdXvSDj+ctk
-	RR40L+mZS1BV8RXKEaS1H6ru345YataAAzD3OxkdJ3O7KQOH7OZad67mg4nX2mOToNCvhgWt/ct
-	UqJ0X47t6lSnx5+X20qiDRUG99usBX8StjDgi8lcMJbe9Oa1bTWQ/0mKZ40x4aTCIwMBSKuKYQ=
-	=
-X-Received: by 2002:a05:6a00:3d44:b0:8a0:5eff:ad5b with SMTP id d2e1a72fcca58-8c7ddfafeecmr3911362b3a.33.1795205436562;
-        Fri, 20 Nov 2026 12:10:36 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c86d821637sm2075227b3a.0.2026.11.20.12.10.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:10:36 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: linux-watchdog@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=i82JSpCj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795205436;
+	bh=y8WIRtNa9ntKa66hdWT9XNsrnk+I3E36TFv0h428JSk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=i82JSpCjje+GdHGn6r/jQeQkXvDAhhCqdTHvGqlQwIS/9vuqoTzyzSO475QOFjDFQ
+	 RUp+i/kVbCvfMSUok4Qe9iJT4Pg96mRmNrPoYkkZCP2ml+nSJPJ/pMh3LE25FudUju
+	 2KhRahqKpFDQwWytbUrvqGcjzaIJjqQRtEz22j5fLDMemx1l4k2VaO8U9wHsEU78By
+	 dpKcQdp1zONAYmPXUMQUmvUkP4TJ+ICm1LD+OSyfuq6jMksP9vtgLdUOFdUrPeQwP6
+	 ZTtet/bUmYgl5XJR8rLwfLxkcW5qjJw4XlcGd2bw9qMh5vuT4rdqIAdr9wLhx57NRo
+	 YZ7YgyN5kblpg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 07E2517E07B5;
+	Fri, 20 Nov 2026 21:10:34 +0100 (CET)
+Message-ID: <aecaf769d7db9775e695b7d64e5723d9a6b0b17b.camel@collabora.com>
+Subject: Re: [PATCH v2 2/7] media: verisilicon: AV1: Use alloc/free helpers
+ for auxiliary buffers
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Benjamin Gaignard
+	 <benjamin.gaignard@collabora.com>, mchehab@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] watchdog: sp805_wdt: re-enable the clock in the restart handler
-Date: Sat, 21 Nov 2026 04:10:26 +0800
-Message-ID: <20261120201029.1685193-1-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
+Date: Fri, 20 Nov 2026 15:10:32 -0500
+In-Reply-To: <dca17004d6cd81f66ebadc0a227548a4e558f2df.camel@pengutronix.de>
+References: <20261120151345.88802-1-benjamin.gaignard@collabora.com>
+		 <20261120151345.88802-3-benjamin.gaignard@collabora.com>
+	 <dca17004d6cd81f66ebadc0a227548a4e558f2df.camel@pengutronix.de>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-ZKa5jFkrGUs7quLmIcXR"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,34 +89,156 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-wdt_restart() fail to reboot the system if the watchdog counter clock
-was previously disabled: If userspace cleanly stops the watchdog, the
-core calls wdt_disable() which disables wdt->clk. No reset comes.
+--=-ZKa5jFkrGUs7quLmIcXR
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Re-enable the clock in it as in npcm_wdt.
+Le vendredi 20 novembre 2026 =C3=A0 16:56 +0100, Philipp Zabel a =C3=A9crit=
+=C2=A0:
+> On Fr, 2026-11-20 at 16:13 +0100, Benjamin Gaignard wrote:
+> > Simplify and clean up the code by using the helpers.
+> >=20
+> > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > ---
+> >  .../media/platform/verisilicon/hantro_av1.c   | 177 ++++--------------
+> >  1 file changed, 39 insertions(+), 138 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/drivers/=
+media/platform/verisilicon/hantro_av1.c
+> > index 2cde32f0e935..e05816c7dfa3 100644
+> > --- a/drivers/media/platform/verisilicon/hantro_av1.c
+> > +++ b/drivers/media/platform/verisilicon/hantro_av1.c
+> > @@ -235,40 +235,17 @@ size_t hantro_av1_chroma_size(struct hantro_ctx *=
+ctx)
+> > =20
+> >  static void hantro_av1_tiles_free(struct hantro_ctx *ctx)
+> >  {
+> > -=09struct hantro_dev *vpu =3D ctx->dev;
+> >  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> > =20
+> > -=09if (av1_dec->db_data_col.cpu)
+> > -=09=09dma_free_coherent(vpu->dev, av1_dec->db_data_col.size,
+> > -=09=09=09=09  av1_dec->db_data_col.cpu,
+> > -=09=09=09=09  av1_dec->db_data_col.dma);
+> > -=09av1_dec->db_data_col.cpu =3D NULL;
+> > -
+> > -=09if (av1_dec->db_ctrl_col.cpu)
+> > -=09=09dma_free_coherent(vpu->dev, av1_dec->db_ctrl_col.size,
+> > -=09=09=09=09  av1_dec->db_ctrl_col.cpu,
+> > -=09=09=09=09  av1_dec->db_ctrl_col.dma);
+> > -=09av1_dec->db_ctrl_col.cpu =3D NULL;
+> > -
+> > -=09if (av1_dec->cdef_col.cpu)
+> > -=09=09dma_free_coherent(vpu->dev, av1_dec->cdef_col.size,
+> > -=09=09=09=09  av1_dec->cdef_col.cpu, av1_dec->cdef_col.dma);
+> > -=09av1_dec->cdef_col.cpu =3D NULL;
+> > -
+> > -=09if (av1_dec->sr_col.cpu)
+> > -=09=09dma_free_coherent(vpu->dev, av1_dec->sr_col.size,
+> > -=09=09=09=09  av1_dec->sr_col.cpu, av1_dec->sr_col.dma);
+> > -=09av1_dec->sr_col.cpu =3D NULL;
+> > -
+> > -=09if (av1_dec->lr_col.cpu)
+> > -=09=09dma_free_coherent(vpu->dev, av1_dec->lr_col.size,
+> > -=09=09=09=09  av1_dec->lr_col.cpu, av1_dec->lr_col.dma);
+> > -=09av1_dec->lr_col.cpu =3D NULL;
+> > +=09hantro_free_aux_buf(ctx, &av1_dec->db_data_col);
+> > +=09hantro_free_aux_buf(ctx, &av1_dec->db_ctrl_col);
+> > +=09hantro_free_aux_buf(ctx, &av1_dec->cdef_col);
+> > +=09hantro_free_aux_buf(ctx, &av1_dec->sr_col);
+> > +=09hantro_free_aux_buf(ctx, &av1_dec->lr_col);
+> >  }
+> > =20
+> >  static int hantro_av1_tiles_reallocate(struct hantro_ctx *ctx)
+> >  {
+> > -=09struct hantro_dev *vpu =3D ctx->dev;
+> >  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> >  =09struct hantro_av1_dec_ctrls *ctrls =3D &av1_dec->ctrls;
+> >  =09const struct v4l2_av1_tile_info *tile_info =3D &ctrls->frame->tile_=
+info;
+> > @@ -277,6 +254,7 @@ static int hantro_av1_tiles_reallocate(struct hantr=
+o_ctx *ctx)
+> >  =09unsigned int height_in_sb =3D height / 64;
+> >  =09unsigned int stripe_num =3D ((height + 8) + 63) / 64;
+> >  =09size_t size;
+> > +=09int ret;
+> > =20
+> >  =09if (av1_dec->db_data_col.size >=3D
+> >  =09    ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_cols)
+> > @@ -285,44 +263,22 @@ static int hantro_av1_tiles_reallocate(struct han=
+tro_ctx *ctx)
+> >  =09hantro_av1_tiles_free(ctx);
+> > =20
+> >  =09size =3D ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_co=
+ls;
+> > -=09av1_dec->db_data_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> > -=09=09=09=09=09=09      &av1_dec->db_data_col.dma,
+> > -=09=09=09=09=09=09      GFP_KERNEL);
+> > -=09if (!av1_dec->db_data_col.cpu)
+> > -=09=09goto buffer_allocation_error;
+> > -=09av1_dec->db_data_col.size =3D size;
+> > +=09ret =3D hantro_allocate_aux_buf(ctx, &av1_dec->db_data_col, size);
+> > =20
+> >  =09size =3D ALIGN(height * 2 * 16 / 4, 128) * num_tile_cols;
+> > -=09av1_dec->db_ctrl_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> > -=09=09=09=09=09=09      &av1_dec->db_ctrl_col.dma,
+> > -=09=09=09=09=09=09      GFP_KERNEL);
+> > -=09if (!av1_dec->db_ctrl_col.cpu)
+> > -=09=09goto buffer_allocation_error;
+> > -=09av1_dec->db_ctrl_col.size =3D size;
+> > +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->db_ctrl_col, size);
+>=20
+> Please don't |=3D error return values. Even if it happens to work here
+> because hantro_allocate_aux_buf() is guaranteed to return the same
+> error, it may inspire others to copy this in places where it's invalid.
+>=20
+> Further, hantro_allocate_aux_buf() looks like it can return -EINVAL and
+> -ENOMEM, not sure if that can happen inside reallocate. That would
+> combine into -ENOENT, which makes no sense to return.
 
-Link: https://lore.kernel.org/r/20260911031916.A8E051F000FF@smtp.kernel.org
-Signed-off-by: David Yang <mmyangfl@gmail.com>
----
- drivers/watchdog/sp805_wdt.c | 3 +++
- 1 file changed, 3 insertions(+)
+Fair enough, I reviewed too quickly and assumed it was boolean. Not very co=
+mmon,
+but something I've seen in the past:
 
-diff --git a/drivers/watchdog/sp805_wdt.c b/drivers/watchdog/sp805_wdt.c
-index a14ff7ac0db4..20b2fbb7334d 100644
---- a/drivers/watchdog/sp805_wdt.c
-+++ b/drivers/watchdog/sp805_wdt.c
-@@ -138,6 +138,9 @@ wdt_restart(struct watchdog_device *wdd, unsigned long mode, void *cmd)
- {
- 	struct sp805_wdt *wdt = watchdog_get_drvdata(wdd);
- 
-+	/* For reset, we start the WDT clock and leave it running. */
-+	clk_prepare_enable(wdt->clk);
-+
- 	writel_relaxed(UNLOCK, wdt->base + WDTLOCK);
- 	writel_relaxed(0, wdt->base + WDTCONTROL);
- 	writel_relaxed(0, wdt->base + WDTLOAD);
--- 
-2.53.0
+  =09ret =3D func(params1, ret);
+=09ret =3D func(params2, ret);
+=09...
 
+And then:
+
+int func(params, int ret)
+{
+=09if (!ret)
+=09=09return ret;
+=09
+=09...
+
+=09return ret;
+}
+
+That would allow moving the repetitive branch inside hantro_allocate_aux_bu=
+f()
+and keep the proposed simplification.
+
+Nicolas
+
+>=20
+> regards
+> Philipp
+
+--=-ZKa5jFkrGUs7quLmIcXR
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawCpOAAKCRDZQZRRKWBy
+9Mk+AP9rxBt8WJt8L/siIRkqPG4cX8VRHZfapljBbwQquzWw8gD/RMQgkR0xMM5a
+HwF4v+9kCMeurUc+h5VUP/Nz1Ry2iAo=
+=mSPK
+-----END PGP SIGNATURE-----
+
+--=-ZKa5jFkrGUs7quLmIcXR--
