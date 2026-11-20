@@ -1,85 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795167428;
-	b=YVYXVhOh2DiF0WyRu2apDP6khAic+o7pfp+vgNaYFibEqvl+2ZllwfdgqiClvl2dCUD1
-	 3GQ48EG7fIEGqpr7wvO/8t1bid8S4Z0XcvyPD20UM5eDBS9SwDQntcQSp+6CjpOFy+RmB
-	 2BCRsvYwA9AiriTTpIvTVY8bPe/6aOIlEAE0nU/QJsOvV4kVkVqJkZkUOA3tah5AhpYo/
-	 4xIQUKhlGcs3XpcCpHxZTZmfqhbcRkq2b3tfv9xd389ejrVXMmQ8/BH+c1bt6lbl17eR+
-	 gvGqBnlmXDXmT5HggfgdlQx67VyP4e1+SxZ1gTr6nOr6VfUylEi+6HINQwjmmg8WTtA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167428;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
-	b=R+qun2B1RzBHfKLn4gHxYg58HzStwUJsvSL27TIALdfw8C29CCSUGs2H67oQ9R+F85nF
-	 qz+cQ+8X00Qk8tO29X9woUTvvjG62ymYHoLJuOQXkDHv/I59fTdSNjRz2gpk3f2RhX7v0
-	 3EvvkrWeyoaeH3M6mJB+iPIio3M7MfJ6nIgxHBjLBHuDs2yx/TG7IoqrQUqVWi5Jcg3gw
-	 bxFbABAR9QzmKs4X1w9nqMFyx+iK+OiGvvXtWvY5nrmIaN5/ebCpdXEhNcFp/Uq0FHkoi
-	 sT3JKEsOFSvoTaHU6IqbCenOk1/Beuqq4DD2TabF6ueQAwlW39DP9rJpS+72ep6yJZw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=P+OUwZLi;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795167506;
+	b=DJv5CZ6yT6Q1jCjwz87Q0SsFcmuMh4dH3jDzBC5vCI9DV+AMbKCokOKCmajIjaAQECUT
+	 goUEMixl+a+Gz4ZSqjeyENRFa2QihgXRh1Q0cLCiYO7rgMInJuViX2LoUxdeWidps4T4Y
+	 LwweZXTWtwrjquwQ93XCjB82wxFZtczEM/Or9xSe+VIP1BWd9lGN6bvHEpTLkPh7cxfKq
+	 seS5dTCHzdItyG35RNZ2s06M0EfhAeJ1nGTDh6/yxwiVgcP6wDp/Roa/ZhtG3MjSbz7iA
+	 X3lB5UPu498qk5AaFXUKurg8vH70+ozE35ubNzJu+NPapzEe+5yREFIM5z4Luoxv98A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167506;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=kwC0xDuNplkRIWU2CJYnECjtyQYBFzQCnJXU6Th4qBI=;
+	b=Wljn7Jv1sa3Db9hoZhkvCrTlotSb3wND7KtB0ERCeoNlUXN2WMCckIMVcVSFbtulHi48
+	 VtgbtCcre1+DVq6IzX+wBUF1THs+4Xqk0w0IfdCXxCVF3bqvmRnH84+qrH2UWsDPBg9yy
+	 fQ1uNYB5mddbEkifBlV9x3vh8g3Qena4IOLv7ZyBE9TwIBhF1Q2YZGNdOan6akChXeO1Y
+	 aEA/l5Zn8EkobSKGnXcVIIDG1CV5P8MYBNXsXTtdksWGJS/y/2Jshjq9BtN2sUCDUhJMo
+	 VRyq5VldVC7JHU0Y6P2YKk3Ng0oUh/W3fsWv6bvEjKKjhSOGzd8M0Gk2qi7tDplsM1A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DxIP2CdI;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9701606A336;
-	Fri, 20 Nov 2026 09:37:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9701606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8036D606A320;
+	Fri, 20 Nov 2026 09:38:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8036D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=P+OUwZLi
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EA610205B41;
-	Fri, 20 Nov 2026 10:37:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795167425;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
-	b=P+OUwZLiqMnCGXLmYWvt1iZfw82Rk21aiy1iOLrfOT5yQzkLITUknmyO3+nqIb+czQx//o
-	oRmBU4K8KrdrFfkRAzexYS7CY+IV1LAZjNqKvWPQkYhWuCAqEE2VUfZpL5YNl9UjiZmHka
-	2A0F6dvxmWSJsjcGamzkbuyw69GZ+MF/MwXZXPxZrupb57Cr1oCv6qrkuvUM3Mdx2vLfmE
-	2YsMKIpTvbYmroaTgVuaPb8gDB6O2haUU20BUkd08+nTT17N1sE81XLMMe/bU0FGOMotpw
-	qGaTHXeZBHMSQpK5m4YAys7IJF/zQpvN5zMqzt55NiAxJvCGPWegMKIRJTO+yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795167425;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
-	b=fl05Vht4e6739plESL9sVFP94kS5cjxBBI0lRv3FLwzKk+KqvtWfDJdfrQMSpH0jYseF1C
-	2wzAVPA0ThM+X0ThlC6jlbRU5S8byJKQQqBLN9mEyWku5DtTI0a+Njy9n5K2B0IMztxV1+
-	19yy+WSmjgirvoMXRjY7Oe3sCILr35BTaNN6rfmne9S8xBF8vfcwK9dxIUxTh19rjc6zw1
-	NZWlSIVQbSS+lALFBE+KaXH5dPsiqK+PAQfQ25MHVC4mqBmTf2D0WB7Zykk1MsIBM/iKO9
-	x4YwN7oZNbWjeChODEygEIZypeFF3sYPx9C+0YjI4SUkTpE6EHNm8Mj62EF8og==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795167425; a=rsa-sha256;
-	cv=none;
-	b=EWMWytVgopVKw+1nKLwQ33OpYY5zcjexx08gPySa8ODEVsati7+UD1ik9todrKqZoaZjOD
-	/oROixqM6S6RaOhkgBvvLshySbTxaKKZtFmWUroor5L1rALMm/9mOGoAV/7nFjIP9NAfnK
-	aAx/6FJIIjtI3oQIaqEMMyw+TyqH1wKDLAo3T8uWhVeZzNMzbr9WCOB389SNYGB/57JAFn
-	sNymnpZg0MN3ISVm/HZ1Q/y7WvcokVJ8VaBn2WRaQR+qxjtEwUQsozDUV9WcD9H2kLpVpm
-	ihnZUUNd5wAkRj/cjMvS1ILIxgome5ptn9ZIBImm8h41B1qxkT2jTdMV8CFqWA==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.2])
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <f.diener@pengutronix.de>)
-	id 1xUL3J-000dRE-18;
-	Fri, 20 Nov 2026 10:37:05 +0100
-From: Freimut Diener <f.diener@pengutronix.de>
-Date: Fri, 20 Nov 2026 10:37:06 +0100
-Subject: [PATCH 3/5] arm64: dts: freescale: imx93-11x11-frdm: use 8-bit
- eMMC bus
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=DxIP2CdI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795167507; x=1826703507;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=d4z22dbLFF5+izXeibGLiumsowuWVEBFUdQkzbj352Y=;
+  b=DxIP2CdIDg9gfosQQ9lli1K5rAy3KGm2Vb0TDKjpdgCudegej71aFDZ3
+   c528XshTqzEVj/TjZWw7Ufhzc3ukg8uploI5XM7Phr2QiqQiudtdgT0+G
+   zWCyWVx+zcDgR2MrR3sLY6d8QgZ/RrBXmW+uKeGf9yAOylqzVx5YZ8Rz2
+   ElK/WWwAyjAyL2S+oyBIYp+ZlvQkUCNU42IFPJ8uVoswvB/bledEjG3g5
+   vWVlPqwUzgMwyMmeDioAPs+jy9xE8NNjpcvHciHZZU4CYHiUL7/7vfEUj
+   IuNmhVf3N4FYghOVg3MrgNOCvSmThMgVinvw87K+mNdSzi9Glx21pITq+
+   w==;
+X-CSE-ConnectionGUID: EFB+aCMWSp+eccK0Ynsaeg==
+X-CSE-MsgGUID: Q1OhBmBJRVyeSiEmXN9HVw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4046122"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4046122"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:38:26 -0800
+X-CSE-ConnectionGUID: j/h1/qPIQF6kuVUf1Vq8xA==
+X-CSE-MsgGUID: 6CH7eEogRJym2DAYzY9E+w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10654992"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:38:24 -0800
+Date: Fri, 20 Nov 2026 11:38:21 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Siqi Chen <chensiqi@uniontech.com>
+Cc: jagathjog1996@gmail.com, jic23@kernel.org, crofts@kernel.org,
+	dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
+	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iio: imu: bmi323: check i2c_transfer() return value
+Message-ID: <awAVDTwKYxT7v8mL@ashevche-desk.local>
+References: <20261120022143.4065982-1-chensiqi@uniontech.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,50 +79,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-imx93-frdm-fixes-v1-3-78dde22a56fe@pengutronix.de>
-References: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
-In-Reply-To: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Freimut Diener <f.diener@pengutronix.de>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120022143.4065982-1-chensiqi@uniontech.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-The FRDM-i.MX93 eMMC connected to USDHC3 uses an 8-bit data bus.
-Correct the bus width to allow HS400 operation.
+On Fri, Nov 20, 2026 at 10:21:43AM +0800, Siqi Chen wrote:
+> i2c_transfer() returns the number of messages transferred or a negative
+> error code. The BMI323 I2C read path only checks for negative values and
+> maps all errors to -EIO.
+> 
+> If only the register-address message is transferred, the function copies
+> data from the receive buffer and reports success even though the read
+> message was not completed.
+> 
+> Require both messages to be transferred, preserve negative error codes,
+> and return -EIO for a short transfer.
 
-Verified on an FRDM-i.MX93 board. With the corrected bus width,
-the eMMC operates in HS400 Enhanced Strobe mode at 200 MHz.
+> OpenCode was used to identify the issue and draft the code and changelog.
 
-This also avoids a respective warning:
+This line should be in the comment block, behind the '---' line.
+No need to resend (just remember for the future submissions).
 
-     sdhci-esdhc-imx 428b0000.mmc: drop HS400 support since no 8-bit bus
+> Fixes: 8a636db3aa57 ("iio: imu: Add driver for BMI323 IMU")
+> Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
+> ---
+> Changes in v2:
+> - Split the transfer error and short-transfer checks for readability.
+> - Move testing information below the separator.
+> 
+> Compile-tested with CONFIG_BMI323_I2C=m using:
+> 
+>   make O=/tmp/opencode/linux-build-bmi323 W=1 \
+>        drivers/iio/imu/bmi323/bmi323_i2c.o
+> 
+> No hardware or I2C fault-injection testing was performed.
 
-Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-index fbe3543e1ee8c..af674f3f48364 100644
---- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
-@@ -75,7 +75,7 @@ &sai1 {
- };
- 
- &usdhc3 {
--	bus-width = <4>;
-+	bus-width = <8>;
- 	keep-power-in-suspend;
- 	mmc-pwrseq = <&usdhc3_pwrseq>;
- 	non-removable;
+Code wise LGTM.
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
 -- 
-2.56.0
+With Best Regards,
+Andy Shevchenko
+
 
