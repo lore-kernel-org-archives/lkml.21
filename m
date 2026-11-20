@@ -1,78 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177634;
-	b=an5dzxc0NsghC0QR3vgmjSYRbo+xKsfs1chNkWvNCnMnoPRf1P1u11VWt+Cl4pGAWPQd
-	 V4EGrhAYGth9cnl845+nPkCYfQKF0iKPNdenKURzyQsLJMZUJr/9b7yH12JCCM/C3/DyT
-	 k7IpSU5K8RAlKiwwpGwJwhFT3biYUJdEN8TjGGvnmfe16IhBqYL1FI8RGXI+bNfPQ1DzR
-	 HyIwYyBeShlUhVC/+nCySbzIgNEj59g3zbLADQkfrRjYopyXpqXxcvQdOVa0+eNfMYa4N
-	 0NMxH8leGmhUNKY2O4xqXs098szj78PQl8bhDUsfuCrk3X8S/TjqDfrAwgwx9a5c9vw==
+	t=1795177639;
+	b=z7X8wsaNSkEvSuVrx67inmXCIzasU2I8wRT/uyPPZ/BCYfVp/J5KPTXWBhQm6sJ7g4Lr
+	 vGfC7mTgIODXF+Q/pH+LMrlPsaXd8Qvf1tDhrFf5lBUoG+Qiq4hlBmzs9n6qHWaMBVCq3
+	 +K+crcFiRS7XUwdyM03jvU7zfIuB6EGFDtf9u0bWBaVK3rhQrvb8LmMDa/+FCMH9hW2hp
+	 pnr6w4KEUEU88lxhCkuxwZHYmy1o+yOUohhCrDeEBJ/jN7tWmUT6hiEq5o7iIf5dzB84a
+	 zS0GmQhX7NBZxF/4BdHSotcQrmoX8kkF6egsK97MoCBRmvzo95SxJ7w06rWqnerz1ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177634;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=PgbpVfC2b4m1zF42iM6pw9d004VHioJhfQHO1IRaDGk=;
-	b=b7qBWb0jky4NNLF1eFbsw2RNnBY9ez4W0xPZCKvWbcS0PSh7DttZ5hA4ccftC+ccDmWO
-	 ke19r/LeXq/BCvUO9jnIvzW2ZkHZYeV0zHHziMksckOSOCUuQTIW7fM7k7IWasKp3f4r4
-	 g8cS3Q0L7qBRAhoeIz91W0fIQts+X4rY6eb9k7bziSZ8tDnXpmv8QXYjAz8QNx8K0eD5J
-	 b1wKz4uTvVZZNhrtJigmsRTGAMiChyFZ5kEhWtl6/jly6h/q80JI1JR0VGnA0Ha7kDW60
-	 jur6q+PD7BVh/LWM8zQOZpp5mK+Y/BcFL7SFBe+YE2j+tE+o6ojyVlO2yKm1vZj8CsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177639;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=AcAKXow4k7nAsz4NvTf98ZQKCNLbRCZ9q0bbUe/mxCg=;
+	b=ZAUz1aSbnhJR34+oM9hcgg+PSQz3IqH6UrYGWFX5q+r/SwRzv3LhgK6NlnC/wJ5lSrqS
+	 fRL6xODQpnBo7ezdpbeWUxk4ls5lOAsP9RKi3oDw8S3a0UNcH7iXrDdPYeiy9yB3NAFly
+	 o6+OcQ5KiCpBlUmPDNwk363N0gJlPY13gGo/D7jLZase0C/VL2gdtROBFffRlzPPkaxah
+	 Y1zmjzKFNDibGRCNo7ZUZIkrK0xUh1vh1mX5UNKfqeXBkRqe0Mg6uu0zxjYj8gEHp/fME
+	 IjKQxU2cYHO8B3O4HpbFDfdnfIhit9zePKyfhIDlTuXNkcOVpVymjzg+0D7jPzXXXLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=B4BgmABc;
-	arc=none smtp.remote-ip=91.218.175.10
-Received: from mta0.migadu.com (out-10.mta0.migadu.com [91.218.175.10])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b="a+l/+NdJ";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3406F606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:27:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3406F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ED17606A32A;
+	Fri, 20 Nov 2026 12:27:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=B4BgmABc
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=aN66IFFhjAtU9epXvHNsFOX6+rV4ZuUO+flQxejx8x8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795177631; v=1; x=1795782431;
- b=B4BgmABcVMNxEOvQjig7d2ZjG+ggBoo3OAQdFkgFW2lV1GxejeZNHepI/NNjEm69NgoM0hFF
- VuiFw/9cF5Hp8p/P93fKXF2z5JdgWC4pHY0hBW/RrbdMw3bnHTslCPZIK+ouWc7MVAsgY9f3Gzs
- eBzrXNrNyJ9HnrgGdDAgrOw8=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 7e2be00868a1975e;
-	Fri, 20 Nov 2026 12:27:10 +0000
-X-Mizu-Trace-ID: 7e2be00868a1975e
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 20 Nov 2026 14:27:02 +0200
-From: Matti Vaittinen <matti.vaittinen@linux.dev>
-To: Matti Vaittinen <mazziesaccount@gmail.com>,
-	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/3] dt-bindings: iio: Support ROHM BD79111
-Message-ID: <578cd514c24a47ffd5cb3e02b78aeaf2fd3838bc.1795176984.git.mazziesaccount@gmail.com>
-Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
-References: <cover.1795176984.git.mazziesaccount@gmail.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=a+l/+NdJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174611F000C4;
+	Fri, 20 Nov 2026 12:27:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795177638;
+	bh=AcAKXow4k7nAsz4NvTf98ZQKCNLbRCZ9q0bbUe/mxCg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=a+l/+NdJlosvbvrFz8skxFt+7lH/BYqPvJI/SIcdwvR35/YhtHI7xEaNR9/SQwDck
+	 OoIenHKHOWWbZUzANxx/C2LIM3aPEhDag+j8O3HOCKVuRuQ5ofCbLJQGgQsjZzwR+r
+	 ooAKISbCoLcv8rQ3xxP8xWsrEuXt8CeRSaJKKObE=
+Date: Fri, 20 Nov 2026 13:27:16 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Fangwen Deng <fangwen.deng@mediatek.com>
+Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	jarried.lin@mediatek.com, vince-wl.liu@mediatek.com,
+	justin.yeh@mediatek.com
+Subject: Re: [PATCH] usb: mtu3: cancel EP0 requests to prevent use-after-free
+Message-ID: <2026112053-curtain-astound-bf4e@gregkh>
+References: <20261106080140.342107-1-fangwen.deng@mediatek.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,119 +59,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0nDIJTg58eDe1L2J"
-Content-Disposition: inline
-In-Reply-To: <cover.1795176984.git.mazziesaccount@gmail.com>
-
---0nDIJTg58eDe1L2J
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261106080140.342107-1-fangwen.deng@mediatek.com>
 
-=46rom: Matti Vaittinen <mazziesaccount@gmail.com>
+On Fri, Nov 06, 2026 at 04:00:58PM +0800, Fangwen Deng wrote:
+> mtu3_ep0_dequeue() always returns -EINVAL and leaves the request on
+> mep->req_list without unlinking or completing it, so an EP0 request
+> can never be cancelled.
+> 
+> FunctionFS assigns its temporary read buffer to ep0req and waits in
+> __ffs_ep0_queue_wait(). When that wait is interrupted by a signal it
+> calls usb_ep_dequeue(), does not check the return value, and its
+> caller ffs_ep0_read() frees the buffer on every exit path. With
+> -EINVAL returned the request stays queued and MTU3 still owns it.
+> When the host then sends the OUT data stage, ep0_rx_state() writes
+> the received bytes through the stale req->buf, giving the host a
+> content-controlled write into freed kernel memory. That corrupts
+> whichever object reuses the slab and can panic the kernel.
+> 
+> Implement mtu3_ep0_dequeue() following mtu3_gadget_dequeue() but
+> without QMU flush/start since EP0 uses PIO: validate the request
+> under mtu->lock, unlink it once and give it back with -ECONNRESET,
+> so ownership of the buffer returns to FunctionFS before it is freed.
+> 
+> Cancelling the request that backed the data stage also leaves the
+> transfer unable to finish, so retire the aborted transaction with a
+> protocol stall. That returns ep0_state to SETUP and stops a later
+> ep0_queue() from reading this transaction's leftover FIFO data into
+> the next request's buffer. The stall is skipped when the controller
+> is already powered down or no data stage is in flight.
+> 
+> The same stub is why functionfs_unbind() cannot cancel a pending EP0
+> request, which deadlocks against the FunctionFS thread holding
+> ffs->mutex.
+> 
+> Fixes: df2069acb005 ("usb: Add MediaTek USB3 DRD driver")
+> Signed-off-by: Fangwen Deng <fangwen.deng@mediatek.com>
+> ---
+>  drivers/usb/mtu3/mtu3_gadget_ep0.c | 55 ++++++++++++++++++++++++++++--
+>  1 file changed, 53 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/usb/mtu3/mtu3_gadget_ep0.c b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+> index e4fd1bb14a55..73a1af8b6c65 100644
+> --- a/drivers/usb/mtu3/mtu3_gadget_ep0.c
+> +++ b/drivers/usb/mtu3/mtu3_gadget_ep0.c
+> @@ -857,8 +857,59 @@ static int mtu3_ep0_queue(struct usb_ep *ep,
+>  
+>  static int mtu3_ep0_dequeue(struct usb_ep *ep, struct usb_request *req)
+>  {
+> -	/* we just won't support this */
+> -	return -EINVAL;
+> +	struct mtu3_ep *mep;
+> +	struct mtu3_request *mreq = NULL;
+> +	struct mtu3_request *r = NULL;
+> +	struct mtu3 *mtu;
+> +	unsigned long flags;
+> +	int ret = 0;
+> +
+> +	if (!ep || !req)
+> +		return -EINVAL;
+> +
+> +	mep = to_mtu3_ep(ep);
+> +	mtu = mep->mtu;
+> +
+> +	spin_lock_irqsave(&mtu->lock, flags);
+> +
+> +	mreq = to_mtu3_request(req);
+> +
+> +	dev_dbg(mtu->dev, "%s : req=%p\n", __func__, req);
 
-ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
-where pins can be configured to be either used as GPIO or ADC inputs.
-ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
-sources.
+Don't add "trace" calls like this.  And __func__ is NEVER needed for a
+dev_dbg() call.
 
-The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
-for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
-promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
-the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
-clock.
+thanks,
 
-Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-
----
-Revision history:
-v1 =3D> v2:
-Disallow additional properties again
----
- .../bindings/iio/adc/rohm,bd79112.yaml        | 29 +++++++++++++++----
- 1 file changed, 24 insertions(+), 5 deletions(-)
-
-diff --git a/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml b/=
-Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
-index aa8b07c3fac1..a0fd87716611 100644
---- a/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
-@@ -4,18 +4,21 @@
- $id: http://devicetree.org/schemas/iio/adc/rohm,bd79112.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
-=20
--title: ROHM BD79112 ADC/GPO
-+title: ROHM BD79111 and BD79112 ADC/GPIO
-=20
- maintainers:
-   - Matti Vaittinen <mazziesaccount@gmail.com>
-=20
- description: |
--  The ROHM BD79112 is a 12-bit, 32-channel, SAR ADC. ADC input pins can be
--  also configured as general purpose inputs/outputs. SPI should use MODE 3.
-+  The ROHM BD79112 is a 12-bit, 32-channel, SAR ADC. The ROHM BD79111 is
-+  a 12-bit, 16-channel, SAR ADC. ADC input pins can be also configured as
-+  general purpose inputs/outputs. SPI should use MODE 3.
-=20
- properties:
-   compatible:
--    const: rohm,bd79112
-+    enum:
-+      - rohm,bd79111
-+      - rohm,bd79112
-=20
-   reg:
-     maxItems: 1
-@@ -45,7 +48,9 @@ patternProperties:
-=20
-     properties:
-       reg:
--        description: AIN pin number
-+        description:
-+          AIN pin number. The BD79111 has pins 0 - 15, the BD79112 has pins
-+          0 - 31.
-         minimum: 0
-         maximum: 31
-=20
-@@ -64,6 +69,20 @@ required:
-=20
- additionalProperties: false
-=20
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rohm,bd79111
-+    then:
-+      patternProperties:
-+        "^channel@([0-9]|1[0-5])$":
-+          properties:
-+            reg:
-+              maximum: 15
-+        "^channel@(1[6-9]|2[0-9]|3[01])$": false
-+
- examples:
-   - |
-     spi {
---=20
-2.56.1
-
-
---0nDIJTg58eDe1L2J
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmsAPJYACgkQeFA3/03a
-ocUvJQgAufl9aYi0aafoLf5CsiJnobYLdS/usKFwnZpgG+z7/sjekm9pBds4m9F5
-7JRZqOiNFafJk+ZcpCpfpUOf8LT8G2TvgL3qjbfDKWOubBZ16gdCdMxWEAZHNeK5
-4Ltv3ruuwonK113TKJc8NHgnW7j1kqjTJb4v938z6PK53CO5Vl/pOIxwtFVE82Z8
-wa+Cq2+X6WhznqxlwhlDGiiYutzd4lWRjiLsC16GiZv8OTC/PsRmAXA4+o9/dd7q
-Mhu8PaBT6Gtp/kYcVfy8Gu22702XwVOQi/0kUIX1Msh38ZX7+50hqxqmjB7WFe19
-d778okV8brvnKGwD7AFGzZVswCjFjA==
-=mUQA
------END PGP SIGNATURE-----
-
---0nDIJTg58eDe1L2J--
+greg k-h
