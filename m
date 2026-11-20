@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795136967;
-	b=W2udh1nO5cSLrbWwpuB3I0DrJkQ5yfPAxURT2iR/qJfo+PaeGKTlH+Uo6Kb87WmmWIVH
-	 YiFwZ3ObFfV0DsTTtKDFgKW+2t7aAizOppTJC+5PGjZ7GiucTC5ztOkq5pZtDyOETIxQG
-	 WKfnCudlOX5y75PYgagWZA84o8HXrb0HDqgObkufoz2TEuw2NMlR20O4RAe//TcULcHZD
-	 QhJeaJazZca7OyvMLnaeb5Bik2Ax6n4Ambeav9nYMXyb33UJJxbKCnW68YQPMKG6qzDV1
-	 A4hjZ1IWoHJ+t1NCf23yaY1/UgFNmXAuIq38Q5ta/DnCDSICdxgQsoyITs1Vs8dGbew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795136967;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=OvedSYQ7lUHjwd1/LqNlamBagWFIGuwSNrorzUM1QBg=;
-	b=Cr4K5kesRkt86K70cxqOYwu0jTY2QyIf0P8ZumMHlUyjGXLkVTiBZN8Qo1BpD+dD8tDg
-	 0hT3GHkJKQ29UU1xRjIFKe9gBqmPZMRBLQwqOg2+2D6JV2vvQlDStwZItXEJ2XU/0bLg8
-	 I8MoL0p/2pNtcGJ1DJLM277Yiv2abOUTadqLSm+3K5NTlSOwsY0Z/tnJMgEzmZY+l6skB
-	 DzA4f95kO8620u+WasPoVBZdygyUD7iAaAycbs5e+F6I13lllonvvqXMYuVKQdb0q9uoe
-	 UfcTNIJ2Nc/5X7UX8iUecC4036GJh5/6ZccS1Zcqg9tDnhdkFHiBo7o7xX6ln6aseCQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="KaQ/tSGF";
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 25436606A326;
-	Fri, 20 Nov 2026 01:09:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25436606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795137040;
+	b=3VjT9maylznX28OafZIpd+Lttqc7A4TnMeHIAH53eFRVTeGN7ecEHUt+Th+e8cxQWbb0
+	 p9q4fsOqORi34NTjHctvFLYqJm9eOJdHC2KwfeCF13dmnGckJMSzKxcaRkrmD8klZs9bA
+	 rMqN0e9ncCj6sfKwJjqXm7z92QakOHpJJzvsTq5/AIJM5ovUI0LAyOOSRPdG127h3EYvu
+	 Q1rI0weZadFx+rm0BR+iWUNM0yJIahmzw3lJ8qSNiUnlgTEIbCVIpqePQ08Dn2LiX7bnN
+	 u7wBmLLtLHGQd5iW0cmifEwbPW1RNBr8Z1Aogm+SX2aTgDObUVRG9qFSNKc7wAmjzgw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137040;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=OQjk4SN59ydnBMb0in1ObJBuPQ5T8CiyduJaWY6q+TQ=;
+	b=pYuO+4GQil1h7uL7gwjSPUEobIfc+VOijwXjw1DkYvmgKTpEZi1p3xzIyvGelKUNxgbz
+	 8GA0+1+a5N2qUlzTTfeKIt0jWNRv6Y9Bzvk2LJupvjvnfD4H7hBryG/uvxhqzUdsmhlqb
+	 5Y+z/djXAzWUtoAaszFoSNzPuCbZUp8Olb2ZjwuM+aafj166illXtkBldsPJ/uQHX5mTi
+	 xbmzs4S8V6KOv9nKeMrY0LG6NwynME5pqBneDrglcKGrkF5KviYH2ZIpZqLEMcOBODKe8
+	 6qhwwuBL/AQMPB79FFNz7nrVgyuR1fSgS1TQOxptWUPflADUnnkbYUVhesgycF+hr7Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FHONfR8u;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9496C606A325;
+	Fri, 20 Nov 2026 01:10:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=KaQ/tSGF
-Received: by linux.microsoft.com (Postfix, from userid 1249)
-	id 2666320B7169; Thu, 19 Nov 2026 17:09:25 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2666320B7169
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795136965;
-	bh=OvedSYQ7lUHjwd1/LqNlamBagWFIGuwSNrorzUM1QBg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KaQ/tSGFLnzknvAj4BW7+tLEN7ujzTsER1Ilgha19lAuv5uFf7KPGwhfVAuCmAHP7
-	 7SpbPN7gpsopQrelU0wIjGtsCEoK4FqKHJ05XVnUmlqZXnkNhLrGt/sUOiOaAvqgc/
-	 MUsiNylKsZ1avhRYxthQNbpM1PFNoGGGAeeVVNwg=
-From: Snehal Sanghvi <snsanghvi@linux.microsoft.com>
-To: kotaranov@microsoft.com,
-	snsanghvi@microsoft.com,
-	jgg@ziepe.ca,
-	leon@kernel.org
-Cc: linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH rdma-next] RDMA/mana_ib: support enhanced connection establishment
-Date: Thu, 19 Nov 2026 17:08:51 -0800
-Message-ID: <20261120010851.616472-1-snsanghvi@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FHONfR8u
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795137040;
+	b=LFbHlflP+4ern69iDJjG/nuV14JN7+XRzQN8Uv1pGXUPrSExuUGIyW0amYeTVchaa+ut
+	 dYp6c7Q0UDzfmqToLjEn402ZYc27sOKlVwDJaGRiwO1dbMPLAhtGTgfey96SAdsb1UWov
+	 o4aoXcm7MVGGqun9g7vQGYyfHDCJ6kRIj0PZZfFFaK/G6ymqxLjdWQ9IuFCYzHAsOK1re
+	 Q0sxNrm/rk3BmRxwSqdE64eCYBtbSAaOD1PtsFabQGvOT2Ppl0JLjwMdlEOTel0LkdOVC
+	 VS2No8LCxe5p0ALkDpU2AeR847b6dPyIyG0nFtlYZIYn5I5/K6vAGKKBWf1+wQIMjkA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795137040;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=OQjk4SN59ydnBMb0in1ObJBuPQ5T8CiyduJaWY6q+TQ=;
+	b=jP9y+WyHFdsBwYTDQbvylXmFne2BzZaqCeSElQ0Aq4M7nrovzdwVy3NMq+4i6qmRvJ1z
+	 QTLLIBCq17H3WLGC9OfusOdKm3SvIGwoOupz/qz1ck8sCgInsPJu+l/fEA/h0Xfuire1/
+	 gM4vWoLbRk3WdC7QtSelUA/5CcxmoC7fEtubsqBVRkfl2wqMuNujF4ofwaJdD0w2vkt20
+	 EJ2oVx1mszbVREmCeEV002qOA7fPzfrNObsmDI0XmXkPXrFeuMCn/Eb+RyX1yfmNu9Pnc
+	 NZAATH32lF/hP9ewSmnjXyRQitcMp9gTgsZFYsmg/W/yQUW173Ln5vJPc+Dvjd7r6xA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 44E4C1F000C6;
+	Fri, 20 Nov 2026 01:10:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795137040;
+	bh=OQjk4SN59ydnBMb0in1ObJBuPQ5T8CiyduJaWY6q+TQ=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=FHONfR8ukpxgZI6OMo3NK5+UYaZN6lvfuI1e41L1gj1D3DVLApcPVRmyoc/4YLGhq
+	 1enXqyqGL6vCuTn5ynPZJM6YqFPKt6SvY6dYJOL8dAs3lcf8WJEsDhWi/OFqOipS1E
+	 fintp1Yko/y5dWrGf8mptvk75+BMyqP3bhgi/aAQ4jzpIsycGWDVgmY0s2gFIIOShQ
+	 0+qQfVSHDsiNleQnBwwhAxWw6CJYAm7SzL31uXF9C4xoi1rNlbBlmcqhE0LHL5tUom
+	 HyFDmCo2yJRsGIds0fOjBP2yhAQ7m7wTVYwiR/J1Kb5MKSFf+yOLBDRJWLVPcZu9pY
+	 T0UMbE7/f43BQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B9CBB425FF;
+	Fri, 20 Nov 2026 01:10:38 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Subject: [PATCH 0/2] media: rockchip: Decode monochrome H.264 to GREY
+Date: Fri, 20 Nov 2026 01:10:38 +0000
+Message-Id: <20261120-b4-h264-monochrome-grey-v1-0-887102a688fd@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,275 +83,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBA0avIrDvgpEHBq4gLEydmCiYyaUuLe
+ Pem7fIt/j+gsAoXGJoDlJ9SJKcKujTg45xWRlmqwbSmIyKLzmI0ncUtp+yj5o1xVX5jv1CYXbj
+ a1vRQ6105yOt3Hqe/y8Pd2N+/OzjPD5NJivJ7AAAA
+X-Change-ID: 20261114-b4-h264-monochrome-grey-7d1fabf34027
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Detlev Casanova <detlev.casanova@collabora.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795137038; l=2385;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=Kth308z9xet7HD14BaAuot7KC10IQsCGy3sPJ6BL+4w=;
+ b=MD0JLxy134nHpzoALsF9cBnaF8xpguqRYHQBg1VjwtiVZPbB+c6gBF4eTyGUtLou/YFPT0Rh3
+ TwGsKhSbL1wDCYyQd3hyNt/T18K5Y25KnkSnuOZi5dHKI6/9RetzYrL
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
 
-From: Snehal Sanghvi <snsanghvi@microsoft.com>
+The Rockchip Hantro (G1/VDPU2) and rkvdec decoders write no chroma for
+4:0:0 H.264, but the drivers offer only formats with chroma. Offer GREY
+for such streams.
 
-Expose ECE when the firmware supports it. Return the firmware ECE offer
-for RC and UC QPs, and use the RNIC set-state V4 layout for every modify
-so that user ECE options reach the firmware and its current options are
-returned; 0 means no update, and option bits are interpreted by the
-firmware. Without firmware support, requests keep their legacy layout.
+Tested on an Orange Pi 5 (RK3588S: VDPU121 and rkvdec), 7.3-based tree
+(patch 1 there differs in the control ops struct and an out-of-tree AVS+
+format table; build-tested on media next), with GStreamer v4l2codecs
+patched locally to map GREY and to renegotiate on a chroma format
+change: JVT-FR-EXT HPCAMOLQ_BRCM_B and HPCVMOLQ_BRCM_B now pass on both
+decoders, other fluster H.264, HEVC, VP8, VP9 and AV1 results unchanged.
+Other SoCs are untested. Userspace without GREY support no longer gets
+NV12 for these streams: unpatched GStreamer stops with an error instead
+of showing wrong chroma.
 
-Reviewed-by: Konstantin Taranov <kotaranov@microsoft.com>
-Signed-off-by: Snehal Sanghvi <snsanghvi@microsoft.com>
+A change between 4:0:0 and 4:2:0 inside a stream needs new CAPTURE
+buffers: Hantro refuses the new SPS with -EBUSY while CAPTURE streams,
+rkvdec while CAPTURE buffers exist (as before). Unpatched GStreamer
+does not renegotiate for it. With the local patch a 4:0:0 + 4:2:0 +
+4:0:0 concatenation decodes bit-exact on Hantro; on rkvdec it was run
+only with an out-of-tree busy check.
+
+Conflicts in hantro_try_fmt() with my pending "media: verisilicon: Only
+accept formats of the queue's kind in TRY_FMT" [1]; I will rebase
+whichever goes second.
+
+[1] https://lore.kernel.org/r/20261112-hantro-fmt-role-v1-1-e596d6f4828f@gmail.com
+
+Developed with Claude (Anthropic), which wrote the code and the commit
+messages. I reviewed every change.
+
 ---
-Matching rdma-core userspace implementation:
-https://github.com/linux-rdma/rdma-core/pull/1866
+Arun Iyengar (2):
+      media: verisilicon: Decode monochrome H.264 to GREY on Rockchip
+      media: rkvdec: Decode monochrome H.264 to GREY
 
- drivers/infiniband/hw/mana/main.c    | 12 +++++++--
- drivers/infiniband/hw/mana/mana_ib.h | 20 ++++++++++++---
- drivers/infiniband/hw/mana/qp.c      | 38 ++++++++++++++++++++--------
- include/uapi/rdma/mana-abi.h         | 15 +++++++++--
- 4 files changed, 67 insertions(+), 18 deletions(-)
+ .../platform/rockchip/rkvdec/rkvdec-h264-common.c  |  4 ++-
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  4 +++
+ drivers/media/platform/rockchip/rkvdec/rkvdec.h    |  1 +
+ drivers/media/platform/verisilicon/hantro.h        |  4 +++
+ drivers/media/platform/verisilicon/hantro_drv.c    | 40 ++++++++++++++++++++--
+ drivers/media/platform/verisilicon/hantro_v4l2.c   | 27 ++++++++++++---
+ .../media/platform/verisilicon/rockchip_vpu_hw.c   | 39 +++++++++++++++++++++
+ 7 files changed, 111 insertions(+), 8 deletions(-)
+---
+base-commit: aa0f4c41d4870a18e65772a1817af16427200371
+change-id: 20261114-b4-h264-monochrome-grey-7d1fabf34027
 
-diff --git a/drivers/infiniband/hw/mana/main.c b/drivers/infiniband/hw/mana/main.c
-index 8181b0cecd..75403e6bdf 100644
---- a/drivers/infiniband/hw/mana/main.c
-+++ b/drivers/infiniband/hw/mana/main.c
-@@ -250,6 +250,8 @@ int mana_ib_alloc_ucontext(struct ib_ucontext *ibcontext,
- 	ucmd_resp.comp_mask |= MANA_IB_UCNTX_RC_EXT_SUPPORT;
- 	if (mdev->adapter_caps.feature_flags & MANA_IB_FEATURE_RC_QP_SQ_POW2_SUPPORT)
- 		ucmd_resp.comp_mask |= MANA_IB_UCNTX_RC_SQ_POW2_SUPPORT;
-+	if (mana_ib_ece_supported(mdev))
-+		ucmd_resp.comp_mask |= MANA_IB_UCNTX_ECE_SUPPORT;
- 	ret = ib_respond_udata(udata, ucmd_resp);
- 	if (ret)
- 		return ret;
-@@ -1054,7 +1056,8 @@ int mana_ib_gd_destroy_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq)
- }
- 
- int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
--			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags)
-+			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
-+			    u32 *ece_options)
- {
- 	struct mana_ib_cq *send_cq = container_of(qp->ibqp.send_cq, struct mana_ib_cq, ibcq);
- 	struct mana_ib_cq *recv_cq = container_of(qp->ibqp.recv_cq, struct mana_ib_cq, ibcq);
-@@ -1092,11 +1095,14 @@ int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
- 		/* The GDMA regions are now owned by the RNIC QP handle */
- 		qp->rc_qp.queues[i].gdma_region = GDMA_INVALID_DMA_REGION;
- 	}
-+	if (ece_options && mana_ib_ece_supported(mdev))
-+		*ece_options = resp.ece_options;
- 	return 0;
- }
- 
- int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
--			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags)
-+			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
-+			    u32 *ece_options)
- {
- 	struct mana_ib_cq *send_cq = container_of(qp->ibqp.send_cq, struct mana_ib_cq, ibcq);
- 	struct mana_ib_cq *recv_cq = container_of(qp->ibqp.recv_cq, struct mana_ib_cq, ibcq);
-@@ -1131,6 +1137,8 @@ int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
- 		/* The GDMA regions are now owned by the RNIC QP handle */
- 		qp->uc_qp.queues[i].gdma_region = GDMA_INVALID_DMA_REGION;
- 	}
-+	if (mana_ib_ece_supported(mdev))
-+		*ece_options = resp.ece_options;
- 	return 0;
- }
- 
-diff --git a/drivers/infiniband/hw/mana/mana_ib.h b/drivers/infiniband/hw/mana/mana_ib.h
-index b7079af5d1..90e767d323 100644
---- a/drivers/infiniband/hw/mana/mana_ib.h
-+++ b/drivers/infiniband/hw/mana/mana_ib.h
-@@ -339,6 +339,7 @@ enum mana_ib_adapter_features {
- 	MANA_IB_FEATURE_EXTENDED_WQE_FORMAT = BIT(9),
- 	MANA_IB_FEATURE_RC_QP_SQ_POW2_SUPPORT = BIT(14),
- 	MANA_IB_FEATURE_MULTI_PORT_GSI_SUPPORT = BIT(15),
-+	MANA_IB_FEATURE_ECE_SUPPORT = BIT(19),
- };
- 
- struct mana_ib_query_adapter_caps_resp {
-@@ -476,7 +477,7 @@ struct mana_rnic_create_qp_resp {
- 	struct gdma_resp_hdr hdr;
- 	mana_handle_t rc_qp_handle;
- 	u32 queue_ids[MANA_RC_QUEUE_TYPE_MAX];
--	u32 reserved;
-+	u32 ece_options;
- }; /* HW Data*/
- 
- struct mana_rnic_destroy_rnic_qp_req {
-@@ -509,7 +510,7 @@ struct mana_rnic_create_uc_qp_resp {
- 	struct gdma_resp_hdr hdr;
- 	mana_handle_t qp_handle;
- 	u32 queue_ids[MANA_UC_QUEUE_TYPE_MAX];
--	u32 reserved;
-+	u32 ece_options;
- }; /* HW Data*/
- 
- struct mana_rnic_create_udqp_req {
-@@ -585,11 +586,15 @@ struct mana_rnic_set_qp_state_req {
- 	u8 local_ack_timeout;
- 	u8 max_rd_atomic;
- 	u16 reserved2;
-+	u32 mana_attr_mask;
-+	u32 ece_options;
- 	u32 reserved3;
- }; /* HW Data */
- 
- struct mana_rnic_set_qp_state_resp {
- 	struct gdma_resp_hdr hdr;
-+	u32 ece_options;
-+	u32 reserved;
- }; /* HW Data */
- 
- enum WQE_OPCODE_TYPES {
-@@ -913,6 +918,11 @@ static inline bool mana_ib_is_rnic(struct mana_ib_dev *mdev)
- 	return mdev->gdma_dev->dev_id.type == GDMA_DEVICE_MANA_IB;
- }
- 
-+static inline bool mana_ib_ece_supported(struct mana_ib_dev *mdev)
-+{
-+	return mdev->adapter_caps.feature_flags & MANA_IB_FEATURE_ECE_SUPPORT;
-+}
-+
- static inline struct net_device *mana_ib_get_netdev(struct ib_device *ibdev, u32 port)
- {
- 	struct mana_ib_dev *mdev = container_of(ibdev, struct mana_ib_dev, ib_dev);
-@@ -1046,10 +1056,12 @@ int mana_ib_gd_create_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq, u32 do
- int mana_ib_gd_destroy_cq(struct mana_ib_dev *mdev, struct mana_ib_cq *cq);
- 
- int mana_ib_gd_create_rc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
--			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags);
-+			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
-+			    u32 *ece_options);
- int mana_ib_gd_destroy_rnic_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp);
- int mana_ib_gd_create_uc_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
--			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags);
-+			    struct ib_qp_init_attr *attr, u32 doorbell, u64 flags,
-+			    u32 *ece_options);
- int mana_ib_gd_create_ud_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp,
- 			    struct ib_qp_init_attr *attr, u32 doorbell, u32 type);
- int mana_ib_gd_destroy_ud_qp(struct mana_ib_dev *mdev, struct mana_ib_qp *qp);
-diff --git a/drivers/infiniband/hw/mana/qp.c b/drivers/infiniband/hw/mana/qp.c
-index 62980e0762..dec4a84f5c 100644
---- a/drivers/infiniband/hw/mana/qp.c
-+++ b/drivers/infiniband/hw/mana/qp.c
-@@ -656,7 +656,7 @@ static int mana_ib_create_rc_qp(struct ib_qp *ibqp, struct ib_pd *ibpd,
- 		qp->rc_qp.wqe_size_in_bu = wqe_size / GDMA_WQE_BU_SIZE;
- 	}
- 
--	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags);
-+	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags, &resp.ece_options);
- 	if (err) {
- 		ibdev_err(&mdev->ib_dev, "Failed to create rc qp  %d\n", err);
- 		goto destroy_queues;
-@@ -720,7 +720,7 @@ static int mana_ib_create_uc_qp(struct ib_qp *ibqp, struct ib_pd *ibpd,
- 			goto destroy_queues;
- 	}
- 
--	err = mana_ib_gd_create_uc_qp(mdev, qp, attr, doorbell, flags);
-+	err = mana_ib_gd_create_uc_qp(mdev, qp, attr, doorbell, flags, &resp.ece_options);
- 	if (err)
- 		goto destroy_queues;
- 
-@@ -920,7 +920,7 @@ static int mana_ib_create_rc_qp_kernel(struct ib_qp *ibqp, struct ib_pd *ibpd,
- 	if (err)
- 		goto destroy_queues;
- 
--	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags);
-+	err = mana_ib_gd_create_rc_qp(mdev, qp, attr, doorbell, flags, NULL);
- 	if (err)
- 		goto deinit_queues;
- 
-@@ -996,18 +996,33 @@ static int mana_ib_gd_modify_qp(struct ib_qp *ibqp, struct ib_qp_attr *attr,
- 	struct mana_ib_qp *qp = container_of(ibqp, struct mana_ib_qp, ibqp);
- 	struct mana_rnic_set_qp_state_resp resp = {};
- 	struct mana_rnic_set_qp_state_req req = {};
-+	struct mana_ib_modify_qp_resp uresp = {};
-+	struct mana_ib_modify_qp ucmd = {};
- 	struct gdma_context *gc = mdev_to_gc(mdev);
- 	struct mana_port_context *mpc;
- 	struct net_device *ndev;
-+	bool ece = mana_ib_ece_supported(mdev);
- 	int err;
- 
--	err = ib_no_udata_io(udata);
--	if (err)
--		return err;
-+	if (udata && udata->inlen) {
-+		err = ib_copy_validate_udata_in_cm(udata, ucmd, ece_options, 0);
-+		if (err)
-+			return err;
-+	} else {
-+		err = ib_no_udata_io(udata);
-+		if (err)
-+			return err;
-+	}
- 
--	mana_gd_init_req_hdr(&req.hdr, MANA_IB_SET_QP_STATE, sizeof(req), sizeof(resp));
-+	/* ece_options 0 means no ECE update; only firmware with ECE gets V4. */
-+	req.ece_options = ucmd.ece_options;
-+	mana_gd_init_req_hdr(&req.hdr, MANA_IB_SET_QP_STATE,
-+			     ece ? sizeof(req) : offsetofend(typeof(req), mana_attr_mask),
-+			     ece ? sizeof(resp) : sizeof(resp.hdr));
- 
--	req.hdr.req.msg_version = GDMA_MESSAGE_V3;
-+	req.hdr.req.msg_version = ece ? GDMA_MESSAGE_V4 : GDMA_MESSAGE_V3;
-+	if (ece)
-+		req.hdr.resp.msg_version = GDMA_MESSAGE_V2;
- 	req.hdr.dev_id = mdev->gdma_dev->dev_id;
- 	req.adapter = mdev->adapter_handle;
- 	req.qp_handle = qp->qp_handle;
-@@ -1056,11 +1071,14 @@ static int mana_ib_gd_modify_qp(struct ib_qp *ibqp, struct ib_qp_attr *attr,
- 		req.ah_attr.flow_label = attr->ah_attr.grh.flow_label;
- 	}
- 
--	err = mana_gd_send_request(gc, sizeof(req), &req, sizeof(resp), &resp);
-+	err = mana_gd_send_request(gc, req.hdr.req.msg_size, &req, req.hdr.resp.msg_size, &resp);
- 	if (err)
- 		return err;
- 
--	return 0;
-+	if (!udata || !udata->inlen)
-+		return 0;
-+	uresp.ece_options = resp.ece_options;
-+	return ib_respond_udata(udata, uresp);
- }
- 
- static bool mana_ib_modify_qp_state(struct ib_qp *ibqp, struct ib_qp_attr *attr,
-diff --git a/include/uapi/rdma/mana-abi.h b/include/uapi/rdma/mana-abi.h
-index ebc9a655b8..5149bd45ba 100644
---- a/include/uapi/rdma/mana-abi.h
-+++ b/include/uapi/rdma/mana-abi.h
-@@ -64,7 +64,17 @@ struct mana_ib_create_rc_qp {
- struct mana_ib_create_rc_qp_resp {
- 	__u32 queue_id[4];
- 	__u32 mmq_id;
--	__u32 reserved;
-+	__u32 ece_options;
-+};
-+
-+struct mana_ib_modify_qp {
-+	__u32 comp_mask;
-+	__u32 ece_options;
-+};
-+
-+struct mana_ib_modify_qp_resp {
-+	__u32 comp_mask;
-+	__u32 ece_options;
- };
- 
- struct mana_ib_create_uc_qp {
-@@ -75,7 +85,7 @@ struct mana_ib_create_uc_qp {
- 
- struct mana_ib_create_uc_qp_resp {
- 	__u32 queue_id[3];
--	__u32 reserved;
-+	__u32 ece_options;
- };
- 
- struct mana_ib_create_wq {
-@@ -112,6 +122,7 @@ enum mana_ib_ucontext_support {
- 	MANA_IB_UCNTX_ALLOC_PDN_SUPPORT = 1 << 0,
- 	MANA_IB_UCNTX_RC_EXT_SUPPORT = 1 << 1,
- 	MANA_IB_UCNTX_RC_SQ_POW2_SUPPORT = 1 << 2,
-+	MANA_IB_UCNTX_ECE_SUPPORT = 1 << 3,
- };
- 
- struct mana_ib_alloc_ucontext_resp {
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
 
-base-commit: 7404c82cbf1246e0e84e2ec21834d23c26f9a8ed
+
