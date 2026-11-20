@@ -1,74 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795138477;
-	b=IbkFGwWVafYgOP8ZCMiKNEWsT/PDge61XVm7qKyx9c+qv+hPMg4CYKW7hpMkAJlDMVAM
-	 NNTICYGLARf2Egd4Sy+VykbbDnGIsb8wU1qPjzlyjJircCD45cQ6//R0vlsYnqsZVDd6n
-	 cHfO9JgCHyLbLBwtTLphRwejeKyiD0AExNj/cvXvX4TqCqcP/r/fhSwuEDkJO/A73bSiv
-	 lfS8K3C4PB3V+7AzG089AQ1fMWm3z0P8M5kUrpznJjn3DL4XAdtInmu/XT957zBfydH/T
-	 KZj5d3J9SM4dnC2Bdtb/a0ckIMtpDEZ37uTrLwTpAN1RdqXpz1LQvWRxbYz8VHR+OWg==
+	t=1795138617;
+	b=E68z1BnuyAgavBPnJWDKbysO/zxIbLQ35p3QTmBCCzTxf/d2blVgsbYHJuAuPfEnixeR
+	 NZsJYmrQM1gXt5ukkKPV4rwFfRx8LnByhcHOy7lv1p6WIOqRLHFnDzKhPsCdixskU85Rn
+	 szyjSI7BRrnS7Ydl9OF4VtSMI1j5omh3Vqcf98d/ai7WWa8odz6QWxrK3pgt8CPRjG2xB
+	 JYBRLwnOk4R+vWLOzHEHGPcYZMGZSFLE/T35yOwKNVoquRrAzXxSa/kB9lEpY9UWlbmH1
+	 jU1uhp8j0sqOoy2Zid+ct8bMVN3TedE515kNZ6ZGFeeeI18eyEPGBDoE4rLy5XOdkYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795138477;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:Sender:Reply-to:
-	 To:Subject:Cc:In-Reply-To:References:MIME-Version:Message-ID:Robot-ID:
-	 Robot-Unsubscribe:Precedence:Content-Type:Content-Transfer-Encoding;
-	bh=oAbOakfRk9ckjXo2B20LiiEmqlOjg7fhO7zwUDZOYsw=;
-	b=oJU4JZNQ9I+FwpwXibVzAJ2Q7/Oqr0i/DLFE4IcpI2de4XxnpdSjBJmmO3y52EJi9Bdk
-	 c06J5QG0t9RV+3GINGNpwkyQSVTQ+CsU/Ow+lqz3TyZ4LwfG+e9I+jgDTQfuUgvGV9glU
-	 WQzWuulyZFZXCCqaLb8KB8dj2zfF9DqIRusvPavasoiTovcICCoVa2ZNodgefXA0yCOiE
-	 FEbEfp0ueIDv5S/SmQnjbrdK2WfTBtYJ43+fQXb1QF39CTRkovBRW4TnkDBA22Wv+0T8x
-	 x3zKyNjFC3gU/b2Xd03hd1kAFS8AJB9YQxUb/dTmLVHTsnQPCbaIKJ6X3igQQpXlpjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795138617;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=4pJlZsrZ9+5vQ6mSD5Qb2D7JI1+bB6WAnsxnJivNnvg=;
+	b=X2vwpFNiEBGy7ostPwCLDI8p30oWGMoXJCk1ZqVmu9dLjfyvo7vvi8vCasNpRgvlT/Oh
+	 efgWWKS7sb7ftF4VZPc9fO5utzSSJP4EsTS/GFxgbFDNb+ytIA+HgO5mal2oRh/TxLN9A
+	 FvfSXFCZIhdRgR7MQTQhEcJPafn5q3qZY67mqGiqWbAdDU9V2fPC6T5JuS2mTPXSGjAFV
+	 r6FjeIG7Ra9NaLlyvYk3JrKtnKswiu95vsmZPJxR5cQFnj9PPA4HGWObZOfxLfjs/uz0K
+	 b/sbGhA+Kw5xuYbpp92sOKWS195bV5dsa7WFcFH9nihMDtYZF4bHcDuCwcpp4HQo/kQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tr+D51hS;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="Eom/zv6U";
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--wusamuel.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="QdA/FnIO";
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F87C606A320;
-	Fri, 20 Nov 2026 01:34:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F87C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61558606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:36:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61558606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--wusamuel.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=tr+D51hS;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Eom/zv6U
-Date: Fri, 20 Nov 2026 01:34:25 -0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795138469;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oAbOakfRk9ckjXo2B20LiiEmqlOjg7fhO7zwUDZOYsw=;
-	b=tr+D51hSNbOygUMOZEPayjdIDZ93/oqhexL906qs+UghhjCsZItuDpBymLUQNymzFkLj1x
-	QR7H1QhtWLWUVxiMk/eMVata6I6aY9ijtkcQZekvK5cgKHnYgCadaR9MWtgVVnvMbBjx0F
-	+4ymfR608kPv7TRLCJvHVdGYTsBf/8WT7hvOeVeqBTrI7JaNxma/GJB6UYgsTD3XqHqfm2
-	lteJRWeKRVYoVSL2tiNw4zR46Nk7Uu3qvY7mh6vYLC3aybSLnYvJzALZLgNEredznNrgiu
-	wYYnH980EoVbz8D1J74DXn5834pUhGAbraIs16dn3iS8I5TdjB5+FZEb7d+Rqw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795138469;
-	h=from:from:sender:sender:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oAbOakfRk9ckjXo2B20LiiEmqlOjg7fhO7zwUDZOYsw=;
-	b=Eom/zv6U1ZHI0jouJrse/49Mt6xG51gJesAGjVHdE/POe3C22yN9yGvjEH/IQTdDJMv+ru
-	tayepb+3hy9BBiDA==
-From: "tip-bot2 for Tony Luck" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject:
- [tip: x86/urgent] x86/resctrl: Add SNC support for Granite Rapids "D" CPU
-Cc: Tony Luck <tony.luck@intel.com>, "Borislav Petkov (AMD)" <bp@alien8.de>,
-  <stable@kernel.org>, x86@kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119184524.12846-1-tony.luck@intel.com>
-References: <20261119184524.12846-1-tony.luck@intel.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QdA/FnIO
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-370230d93efso1124322eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:36:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795138616; x=1795743416; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4pJlZsrZ9+5vQ6mSD5Qb2D7JI1+bB6WAnsxnJivNnvg=;
+        b=QdA/FnIO7vz95DlEqIN6fqQZ+97KgCLBRu7nhZyxPAFa2NKmY2SZA5Egais/DNRfRW
+         llr47H61NolQi1XhMBeREn3dgcXKMvZPApo2OFIZ0sI+igRX2mc7ITaX+8kqOLwguUOq
+         RlqC+eo02GMQo94q1VKWJkBiGY3o0HJU/nprvojr+jCd5e2wMPeos/IvDG/hYfruedVY
+         Agi7k5K9j/3VwLn0JD2AEbaMQW/1KhRbTZFyveI6wAcn2tYiyPik9KRBXEPAiura2eLk
+         UkrBcXolC6oQbAUd8glI7/gmrG3Sc6L+iCS9kyAjt9cWG6e6wmOgzvKwm0QOvmHd5sOu
+         z+ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795138616; x=1795743416;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4pJlZsrZ9+5vQ6mSD5Qb2D7JI1+bB6WAnsxnJivNnvg=;
+        b=pwo/2f4JJT5Xf4LmjNvkbR2L9k2Vp35hcOQ7o3HeyyTYEzg+o+IobNwk79oiUdgK1Y
+         eTOuD4NYlXn6JbyUvxV0ZmBnLu86+czbuHXIpwUIvsLQpLhd8/AdVk4kDsBXnT6wudl/
+         TUu7/t64pjsFs69JvqeR+N1F7S/nkvhPHCkviW1hjiQpgd3Hyp5KabV+KAz3wSkGMZq7
+         8iBM/aapyma1wyiPeJKDR4qgdvEA8VTr5hu1NVrKRcE8BbM77Ok7QRkmSn22ZGHKjm+G
+         X9ihul6GDlvRoUcMHTmh2MMi3tRRS0G6rT0bICGgDIy3Ye5z7qJy+g55TFhSs/Gkbvef
+         B5Jw==
+X-Forwarded-Encrypted: i=1; AL+hErG0pD8VPCYySdCdmZgLbPfSkckotlhYoEQ5oEg6UdwSNiXG7iLIu+AszlpZuZ6EX2THRXU054DaLvamYuo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LDkSnpaQIgPgTIRm/LxFFcsdIU/HNwSPLUkFUC53ZHLTn6Rj3
+	VgyT7nbUIvq7NxjUqGZp8GLciNte1ze9kp+y+OGrICmfhvXi2S4Ra03TgP6zd45rbxlyJZ8wCSx
+	d2aRhwjTTangsRg==
+X-Received: from dybgo26.prod.google.com ([2002:a05:7301:259a:b0:376:328a:f96a])
+ (user=wusamuel job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7301:150b:b0:36d:a466:9d0b with SMTP id 5a478bee46e88-3856ef47c9dmr1183325eec.19.1795138616011;
+ Thu, 19 Nov 2026 17:36:56 -0800 (PST)
+Date: Thu, 19 Nov 2026 17:36:42 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,54 +75,129 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Message-ID: <179513846588.3191731.9971076433435016491.tip-bot2@tip-bot2>
-Robot-ID: <tip-bot2@linutronix.de>
-Robot-Unsubscribe:
- Contact <mailto:tglx@kernel.org> to get blacklisted from these emails
-Precedence: bulk
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261120013642.1093852-2-wusamuel@google.com>
+Subject: [PATCH bpf-next] libbpf: Fix ring buffers for 32-bit userspace on
+ 64-bit kernels
+From: Samuel Wu <wusamuel@google.com>
+To: Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, David Vernet <void@manifault.com>
+Cc: Samuel Wu <wusamuel@google.com>, kernel-team@android.com, 
+	Andrii Nakryiko <andriin@fb.com>, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-The following commit has been merged into the x86/urgent branch of tip:
+The kernel keeps ring buffer positions in unsigned long, so a 32-bit
+little-endian process on a 64-bit kernel accesses only the low 32 bits.
+Reading them is fine, as positions are never more than one ring size
+apart, but the upper 32 bits are always zero when writing. After 4GB:
+- RINGBUF: the kernel sees consumer_pos 4GB behind, so
+  bpf_ringbuf_reserve() always fails and epoll consumers spin.
+- USER_RINGBUF: the kernel sees producer_pos behind consumer_pos, so
+  bpf_user_ringbuf_drain() stops returning samples.
 
-Commit-ID:     0833bc1d4ad71144500f6ca8601672580624f24f
-Gitweb:        https://git.kernel.org/tip/0833bc1d4ad71144500f6ca860167258062=
-4f24f
-Author:        Tony Luck <tony.luck@intel.com>
-AuthorDate:    Thu, 19 Nov 2026 10:45:24 -08:00
-Committer:     Borislav Petkov (AMD) <bp@alien8.de>
-CommitterDate: Thu, 19 Nov 2026 17:19:54 -08:00
+In a 32-bit little-endian process, write the position as a 64-bit value
+that carries into the upper half. On a 32-bit kernel, the upper 4 bytes
+land in user-writable memory that the kernel does not use for that map
+type: consumer-page padding (RINGBUF), or padding/pending_pos
+(USER_RINGBUF). Big-endian 32-bit compat is not fixed because offset 0
+maps the upper 32 bits, so even reads do not work without knowing the
+kernel word size.
 
-x86/resctrl: Add SNC support for Granite Rapids "D" CPU
+Tested transferring >4GB over BPF_MAP_TYPE_RINGBUF with 32-bit
+userspace (armeabi-v7a) on a 64-bit kernel (aarch64), and verified no
+regression on 32-bit i386.
 
-Sub-NUMA Cluster (SNC) mode divides available RMID counters between
-NUMA nodes that share an instance of an L3 cache.
+This needs commit fdd4fad0bbbd ("libbpf: Fix ring buffer consumer loop
+on 32-bit position wrap"): without it, the consumer stops when the low
+32 bits wrap.
 
-Granite Rapids "D" CPUs can enable SNC mode, so Linux must adjust
-when SNC is enabled.
-
-Update the table of SNC capable CPU models.
-
-Signed-off-by: Tony Luck <tony.luck@intel.com>
-Signed-off-by: Borislav Petkov (AMD) <bp@alien8.de>
-Cc: <stable@kernel.org>
-Link: https://patch.msgid.link/20261119184524.12846-1-tony.luck@intel.com
+Fixes: bf99c936f947 ("libbpf: Add BPF ring buffer support")
+Fixes: b66ccae01f1d ("bpf: Add libbpf logic for user-space ring buffer")
+Signed-off-by: Samuel Wu <wusamuel@google.com>
 ---
- arch/x86/kernel/cpu/resctrl/monitor.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/lib/bpf/ringbuf.c | 38 +++++++++++++++++++++++++++++++++-----
+ 1 file changed, 33 insertions(+), 5 deletions(-)
 
-diff --git a/arch/x86/kernel/cpu/resctrl/monitor.c b/arch/x86/kernel/cpu/resc=
-trl/monitor.c
-index a6a9090..eee7657 100644
---- a/arch/x86/kernel/cpu/resctrl/monitor.c
-+++ b/arch/x86/kernel/cpu/resctrl/monitor.c
-@@ -381,6 +381,7 @@ static const struct x86_cpu_id snc_cpu_ids[] __initconst =
-=3D {
- 	X86_MATCH_VFM(INTEL_GRANITERAPIDS_X, 0),
- 	X86_MATCH_VFM(INTEL_ATOM_CRESTMONT_X, 0),
- 	X86_MATCH_VFM(INTEL_ATOM_DARKMONT_X, 0),
-+	X86_MATCH_VFM(INTEL_GRANITERAPIDS_D, 0),
- 	{}
+diff --git a/tools/lib/bpf/ringbuf.c b/tools/lib/bpf/ringbuf.c
+index 78fcb3df243f..254e19ec51f2 100644
+--- a/tools/lib/bpf/ringbuf.c
++++ b/tools/lib/bpf/ringbuf.c
+@@ -58,6 +58,35 @@ struct ringbuf_hdr {
+ 	__u32 pad;
  };
-=20
+ 
++/* 8-byte alignment lets compiler inline 64-bit __atomic_store_n() on i386. */
++typedef __u64 __attribute__((aligned(8), may_alias)) ringbuf_pos64_t;
++
++/*
++ * Carry 32-bit little-endian position updates into the upper 32 bits for
++ * 64-bit kernels. On 32-bit kernels the upper half lands in unused padding
++ * (RINGBUF) or unused pending_pos (USER_RINGBUF).
++ */
++static void ringbuf_store_pos(unsigned long *pos, unsigned long val)
++{
++	ringbuf_pos64_t *p = (void *)pos;
++	__u64 pos64;
++
++	if (sizeof(long) == 8 || __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__) {
++		/* Pairs with smp_load_acquire() in the kernel. */
++		smp_store_release(pos, val);
++		return;
++	}
++
++	pos64 = READ_ONCE(*p);
++	pos64 += (__u32)(val - pos64);
++#if __GCC_ATOMIC_LLONG_LOCK_FREE == 2
++	__atomic_store_n(p, pos64, __ATOMIC_RELEASE);
++#else
++	/* Non-atomic store, but it only transiently fails reserve/peek. */
++	smp_store_release(p, pos64);
++#endif
++}
++
+ static void ringbuf_free_ring(struct ring_buffer *rb, struct ring *r)
+ {
+ 	if (r->consumer_pos) {
+@@ -290,14 +319,13 @@ static int64_t ringbuf_process_ring(struct ring *r, size_t n)
+ 				err = r->sample_cb(r->ctx, sample, len);
+ 				if (err < 0) {
+ 					/* update consumer pos and bail out */
+-					smp_store_release(r->consumer_pos,
+-							  cons_pos);
++					ringbuf_store_pos(r->consumer_pos, cons_pos);
+ 					return err;
+ 				}
+ 				cnt++;
+ 			}
+ 
+-			smp_store_release(r->consumer_pos, cons_pos);
++			ringbuf_store_pos(r->consumer_pos, cons_pos);
+ 
+ 			if (cnt >= n)
+ 				goto done;
+@@ -412,7 +440,7 @@ struct ring *ring_buffer__ring(struct ring_buffer *rb, unsigned int idx)
+ 
+ unsigned long ring__consumer_pos(const struct ring *r)
+ {
+-	/* Synchronizes with smp_store_release() in ringbuf_process_ring(). */
++	/* Synchronizes with ringbuf_store_pos() in ringbuf_process_ring(). */
+ 	return smp_load_acquire(r->consumer_pos);
+ }
+ 
+@@ -652,7 +680,7 @@ void *user_ring_buffer__reserve(struct user_ring_buffer *rb, __u32 size)
+ 	/* Synchronizes with smp_load_acquire() in __bpf_user_ringbuf_peek() in
+ 	 * the kernel.
+ 	 */
+-	smp_store_release(rb->producer_pos, prod_pos + total_size);
++	ringbuf_store_pos(rb->producer_pos, prod_pos + total_size);
+ 
+ 	return (void *)rb->data + ((prod_pos + BPF_RINGBUF_HDR_SZ) & rb->mask);
+ }
+-- 
+2.56.1.809.ga0b61035b5-goog
+
