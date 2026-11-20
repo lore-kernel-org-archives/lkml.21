@@ -1,60 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199189;
-	b=Zf22mHfJVq2v7HpyOCAhGDHHk6Vot1Oi0EP6keL7bS5zilbku0MmaebZVB/OrUmtVEgw
-	 dXth0mXD3J4+I5RdHN8w0QkuwSqkBzMnbviNfumxsSQ3iHdoLVwYT7WwAPnldR3801SFB
-	 6MZTqPu+9D7kRIp7duE6yBOl0JrFH4qsM1f3gfCmntWnjkLbP1sngkehH5/+0JDdMxPX/
-	 DnXp0HXKID+5WQ5nGEtzrkxBg6EsVrz0ZWqscp4D4m5jNJ2TOvR0/CNnayGaeM8lJw9I/
-	 H1/6XH28IkYunqIjSOVgc1byUzG5uc+E5G/lPYds8IJhwEoS7WLGtj7OhafpjI0hy4A==
+	t=1795199194;
+	b=XYrxdC1SRj03nymmI+HFqL/Hpq2L1wUuwop/hXa4dqdSFUDr/Xp8A8JzVXyiH1q/2Xob
+	 Se0UQDX/QPd6JFr2/GCZg9GizRfF2Pktz6R3n2EVdeT3Y1nxuHTlBuTvMVXam1+dH/CEp
+	 4YHxmyCz4qrBQ4Toik4t3zrkJ5AX7MKgbDeUZAYamC8OuY3PHW6FDOo1po/Jokpf0TZ0g
+	 xXvsoFGRUTadpVVHV9vuVR9AzdFULhg9xFlFPfaF0qiFsukOJ21r+N8bUs4oGDlcTZDG+
+	 tyLiClZZ01vUWhldu1caVZ6DAvKc7vUUuxqe9oVmUD1NVxMhHFnNa6thvR4+c04PTbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199189;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=VAmL/P3cbS7VpErxmKQCAD6JjHHgirS2soZqF2/4KsA=;
-	b=gv2/heMusi94WpFa7zRoOVktSF15v6MR0pgJLqjZO8O6ACjeDb39S1/6mfDYxlcg6aYB
-	 Kkh7Mq/3htOjf5b+DENRI/rxYxVdnipo3qYuIcv1cjnJF6WOpEoY7VvXS+SoEAlUWrNwf
-	 zNlPfwjLjC95lGGBgZS9DTs2y7h3Ap2iipSdfpcFk/pOR0G5JymX1m7/4a/wSa8monOBH
-	 vO0t2WSd6k7mDRZwoWmL3Vgu6+1rqzNboVPN2+CAJReVk2zaz02A9aanf3SyMEn7s0N9U
-	 nDGxA3asYIWUG3aVcgaBYQAnhXWYQzzMPRIRUbDIOOZkJFeMhHJVQVCx9lTfRaWEN/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199194;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
+	b=JRsWWSbOOgw4C+LdZTqsRxBgbPx1UerqQzW2Iq32ZuDwenNWIA9/fQiYnOkSDF9xpa0W
+	 onwdQkR3PIsb4I89X2svvhXQUBGszsoGaMu3LIHUoAp9CC5WtAZ95rudrE1KQ4TdYvtsx
+	 Dk5g/oFzdyUkWaVm4cI1iEhJj3BbQiws+ujV0xtrrNsJjH/pC1ACe08CNrZ1p47+Yocmn
+	 dT46c0gmvQE3cth8+7J2zo/yM/TPnXIAJue0+uX0tucU1lNLQsQPrj0CQHKZgUSgeJJXl
+	 h1/ZeBFFR58lC/N2aD1G3bkEjT1axLjFS7ilvqfJXtXxvKZFBBcr5KXTZjw0+rvvWpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=modelmiser.com;
-	spf=pass smtp.mailfrom=modelmiser.com;
-	dkim=pass header.d=modelmiser.com header.i=@modelmiser.com header.a=rsa-sha256 header.s=protonmail header.b=ZloQGlz7;
-	arc=none smtp.remote-ip=185.70.43.99
-Received: from mail-4399.protonmail.ch (mail-4399.protonmail.ch [185.70.43.99])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="a/3ha5sa";
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B42AF606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:26:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B42AF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=modelmiser.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=modelmiser.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DFEE606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:26:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DFEE606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=modelmiser.com header.i=@modelmiser.com header.a=rsa-sha256 header.s=protonmail header.b=ZloQGlz7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=modelmiser.com;
-	s=protonmail; t=1795199185; x=1795458385;
-	bh=VAmL/P3cbS7VpErxmKQCAD6JjHHgirS2soZqF2/4KsA=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=ZloQGlz7USCOTa1jA9CDu09ujSSbEjfAUfQ5bYloZFfXx2zNBVAjfiYqFHPoj19oN
-	 Bw7WNydljEnToiGVBNB715xFN2wID5u5H8qt955AjJRzVQHrSsKdbChhqq37FJv35C
-	 Y98ztCk/Nyawb7ViIFR/v90pqS/crAzg6NpeRzhOVmYHX8nQlXXewn/3xKaUTec5G4
-	 q8xCa/GqgO8ZTprF63zCINndWq8amZj4sppotPiU58jD7rxQKwx+110ARjtMBrsGpR
-	 T7x8A/KN1vnM6hflvAk82couKV4SQoU08Y/m0uzMp74sgi6wLrFDBhJKVuN1AZz3nY
-	 pnQGr+czkQ+mQ==
-Date: Fri, 20 Nov 2026 18:26:21 +0000
-To: Farhad Alemi <farhad.alemi@berkeley.edu>
-From: Chad Aldreda <ca@modelmiser.com>
-Cc: =?utf-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>, Jeff Johnson <jjohnson@kernel.org>, =?utf-8?Q?Miko=C5=82aj_Pisula?= <mikolaj@pisu.la>, falemi@asu.edu, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [BUG] ath9k_htc_tx_cleanup_timer -- ODEBUG free-active-timer and use-after-free on USB unplug
-Message-ID: <20261120182614.1799276-2-ca@modelmiser.com>
-In-Reply-To: <CA+0ovCgukr_PwQ89iC+YW6FC-m==na4iW6fUkiCM5xp09PMt-Q@mail.gmail.com>
-References: <CA+0ovCgiXX28Mdyu5xA4mDU2pPwoByEzEKgLn5JnfapEKg+PmA@mail.gmail.com> <20261109103444.381459-2-ca@modelmiser.com> <CA+0ovCgukr_PwQ89iC+YW6FC-m==na4iW6fUkiCM5xp09PMt-Q@mail.gmail.com>
-Feedback-ID: 232753253:user:proton
-X-Pm-Message-ID: b9b8f21f17340fbb88510707cf31a2a160286643
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a/3ha5sa
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38699cf08dfso23818eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:26:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795199193; x=1795803993; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
+        b=a/3ha5saUfvEW5Ua5HPuBbNQ1V1As+4BM/acXODn/gT96QZO5WsVwMU47R3EGbaYN8
+         AgaVEeT6V/mSy8VRWYTCW3WJ6vbjs3XIfS/nrVfUv8a2uhndA1h5cZTKC+AE+bLHAWlN
+         dLoI05Wi+YyOKZ4+Xspl9XF3dhYQDCZ3gjyLykfqzWnMtirh6NCHdoonV9OYz9M9EY9S
+         OsIqZLzny5QD+mkPwqEpKeyTC70n4TE8amHOki8mkM2PCU8GfcKhVqrbTw5cEnbQJTwN
+         SkBvrcVknPEmCXbXQ7G4wSjuQBhGJpH9/5ulrcjioJaD+ETnVrInfpZgenGBCkZDghrU
+         puqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795199193; x=1795803993;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
+        b=n7dyP2v6ehaZjzBfw/7jEeWU1Ig+9ALvVfOCMmvPpfwdIU3jhGwyeMwg+kNuSZL7gF
+         EJClC3BwWgHfGq91Ea42JW/srj00f5cj+iEziXM7nNM2K9/uRU63Yu7C99GEFOYcfbpd
+         PiVnsHq14DZjIy9TegVfXImDjhMX36k/7N25sKpzF0QncSwwVgj1056Dw2D5TSA3WC8k
+         Ia+TcY9rL1pHhZqZJt3OwBwTPi2Qc6ALAAL0tWUYVPJVK5OGHDZKqKl7sBJBhJ3T42m9
+         k44k4FRwLs4xW/w87byRM8D++apOzDrM349rw17DxFWBxW4C1LmyZfMuTBaGDhJoinh8
+         JlqQ==
+X-Forwarded-Encrypted: i=1; AL+hErHgh/ITp9/FZHAOsLX8sVtJZQKpgXJqGDg+dKgjUnUjqTccOP5+a+GPYwNO7+1rIBpzD7wmrIVdQZwy0dM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96+Kg20l4iyBBpTekhGtEF0mh5hM3Fdob6jPNEPYxZtJeJf8Ys
+	QT8A2KGgfAS0SsfZ6yIOiTLrG8fsRsgsHZFZ696EX64HBaf0Q0RdMA/K
+X-Gm-Gg: AZFdTZdRcg5sxMqGxZYv1i+MjwRuGxRHfttvvw9Z5Kvj9xU/xHsDkYwz1Xcs+bj5dYU
+	aH1U7wWWiBDcXyfnE2mWHEXXBUeKdEUKbPvz4nzZOZcJBKFrYqCclmFyNFK58ZZ7BCKSurgxt3f
+	/E+0+dCV09griuC5H7TdCqOeQGw3d4dbGfnasSFYeDqi5YdVWEdz5HIvMKPPb/VnXnyonilIFlw
+	JYfuKWWQckuUrhLZHLryNvtTy2Bfi5hSkvlVzp/80iIXiJigr4PdFNLxWdqHTVBbcR0A5ntkJ/x
+	ql0Ff3ncbWxhcRbiih9kLfwN34Z3UQoAU2d2/uMbUpZh8/gHecNYI2uXpLPOJWbv4FujutmkJD8
+	bRKsODKE4kKwlq3PNX9GaySExyUmlSz+DuUb6NRJQjz3xM+/WhPjRwnR4jaXeDBnxAMshFpTpYP
+	zlWN9TxVlOh1E1SuxCSzeFfOfTjJhQAGx4BIZEATSqFmRQlnf47k4nPOqNlbKlRunu5Q5yxOvbm
+	GU2aBm7EFEgDxnkVPUkFcmIJ4PxOwbxbX73gyZIOoTYRwLU1UbZeeTFIvnibeXYItRrViV5rDg1
+	bk2P1c04l9soac8fMx5bOHCrBuRjH66bV5+sMLxbWgXZVNZ2j2V56Z/6jmDbFFWTO75re+j48al
+	eWJ4=
+X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id 5a478bee46e88-3856ff5b880mr5515943eec.27.1795199193306;
+        Fri, 20 Nov 2026 10:26:33 -0800 (PST)
+Received: from ?IPV6:2a03:83e0:1151:15:18db:c1e7:4974:be38? ([2620:10d:c090:500::5:5388])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38577214c2dsm9144539eec.17.2026.11.20.10.26.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 10:26:32 -0800 (PST)
+Message-ID: <cf523269-53c1-4357-a628-87e25e5a6ae0@gmail.com>
+Date: Fri, 20 Nov 2026 10:26:32 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,30 +93,213 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
+ TC rule
+To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
+ cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
+References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
+ <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+ <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
+ <194e1103-0d28-45d4-986a-819955e11268@nvidia.com>
+ <acd93d7c-1e91-45f4-b178-07c6afea7fe5@gmail.com>
+ <0a9b34c9-32d8-4325-aaef-c358c41a9f5a@nvidia.com>
+Content-Language: en-US
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+In-Reply-To: <0a9b34c9-32d8-4325-aaef-c358c41a9f5a@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Hi Farhad,
 
-Thanks for the reproducer. It hits neither of the two paths I guessed
-at. It withholds the reply to WMI_TARGET_IC_UPDATE_CMDID, so
-ath9k_htc_update_cap_target() times out in ath9k_htc_start(), which
-logs that only at debug level, still arms tx.cleanup_timer, and returns
-the error. mac80211 treats the start as failed and never calls
-ath9k_htc_stop(), so the timer is still pending when the device is
-unplugged, and then fires on the freed hw (the KASAN report).
 
-Miko=C5=82aj Pisula found the same thing and posted a fix this week, which
-Toke has applied to ath9k-pending:
+On 11/20/26 10:06 AM, Mark Bloch wrote:
+> 
+> 
+> On 18/11/2026 2:52, Mohsin Bashir wrote:
+>>
+>>
+>> On 11/17/26 2:14 PM, Mark Bloch wrote:
+>>>
+>>>
+>>> On 17/11/2026 23:52, Mohsin Bashir wrote:
+>>>>
+>>>>
+>>>> On 11/17/26 11:18 AM, Mark Bloch wrote:
+>>>>> On 17/11/2026 5:13, Mohsin Bashir wrote:
+>>>>>> From: Mohsin Bashir <hmohsin@meta.com>
+>>>>>>
+>>>>>> In switchdev mode, mlx5 offloads police only when other actions follow
+>>>>>> it. TC needs no extra action for a police-only rule to work. The mlx5
+>>>>>> driver makes every police rule forward to the post meter table, but for
+>>>>>> a rate police it adds that forward only after verify_attr_actions() has
+>>>>>> checked the rule, so the check rejects it. The ok result of police is
+>>>>>> also handled as pipe. In TC, ok accepts the packet and ends the action
+>>>>>> list, whereas mlx5 goes on with the actions after police.
+>>>>>>
+>>>>>> Support police as the only action of a rule. Set the forward while
+>>>>>> parsing police, as is already done for police with mtu, and forward
+>>>>>> an ok result to the end of the TC chains, as the driver does when it
+>>>>>> offloads the gact ok action. The upcoming selftest series also relies on
+>>>>>> such rules for TC offload validation.
+>>>>>>
+>>>>>> The patch was tested on a ConnectX-7 in switchdev mode with the command
+>>>>>> below, and it was verified that the rule is offloaded and limits the
+>>>>>> matching traffic to the configured rate, using the hardware drop counter.
+>>>>>>
+>>>>>>      tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>>>>>        ip_proto udp dst_port 5201 \
+>>>>>>        action police rate 100mbit burst 1m conform-exceed drop/ok
+>>>>>>
+>>>>>> Cc: Carolina Jubran <cjubran@nvidia.com>
+>>>>>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+>>>>>> ---
+>>>>>>     drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
+>>>>>>     drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
+>>>>>>     2 files changed, 5 insertions(+), 1 deletion(-)
+>>>>>>
+>>>>>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>>> index 1bd1c94fb977..52295f5d644c 100644
+>>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>>> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>>>>>                   MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
+>>>>>>                 return -EOPNOTSUPP;
+>>>>>>     -        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>>>             attr->flags |= MLX5_ATTR_FLAG_MTU;
+>>>>>>         } else {
+>>>>>>             attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
+>>>>>>             attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
+>>>>>>         }
+>>>>>>     +    attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>>
+>>>>> This makes every police that is the lact action pass verify_attr_actions()
+>>>>> not only ok case described.
+>>>>>
+>>>>> what happens with:
+>>>>> "police ... conform-exceed drop/pipe"
+>>>>> with this not writes to FTEID_TO_REG so what happens once a packet
+>>>>> reaches the port action table?
+>>>>>
+>>>>> also what about:
+>>>>> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>>>>        ip_proto udp dst_port 5201 \
+>>>>>        action police rate 100mbit burst 1m conform-exceed drop/pipe \
+>>>>>        action police rate 100mbit burst 1m conform-exceed drop/pipe
+>>>>>
+>>>>> won't this create a loop?
+>>>>>
+>>>>
+>>>> Thanks for reviewing Mark.
+>>>>
+>>>> Ahh! I missed the loop case. I had a patch to handle pipe on the last police but I dropped it, since my testing showed the post_act table still passed the packets up. Let me respin and send pipe and jump on the last police to the end of the TC chains. Would that work in your opinion?
+>>>
+>>> Yes for PIPE.
+>>>
+>>> For JUMP, we need to check the target. tcf_action_exec() counts from
+>>> the start of the action list, so even the last police can jump back
+>>> to itself or an earlier action. If we can't offload that, we should
+>>> probably reject it.
+>>>
+>>> That's how I read tcf_action_exec(), but please correct me if I'm
+>>> missing something as I'm not really a tc expert.
+>>>
+>>>>
+>>
+>> Yeah, jump restarts the list. Before this patch police as the last action was rejected anyway, so I believe rejecting jump there in the respin should be okay?
+>>
+>>>>>> +
+>>>>>>         return 0;
+>>>>>>     }
+>>>>>>     diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>>> index 1d35c97aea0b..8685e41487f3 100644
+>>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>>> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>>>>>             attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>>>>>>             break;
+>>>>>>         case FLOW_ACTION_ACCEPT:
+>>>>>> +        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>>> +        attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>>>>>> +        break;
+>>>>>>         case FLOW_ACTION_PIPE:
+>>>>>>             err = set_branch_dest_ft(flow->priv, attr);
+>>>>>>             if (err)
+>>>>>
+>>>>> This also changes rules where police is not the last action.
+>>>>> The conform result defaults to ok when it is not given.
+>>>>>
+>>>>> action police rate 100mbit burst 1m conform-exceed drop \
+>>>>>            action mirred egress redirect dev eth2
+>>>>>
+>>>>>
+>>>>> won't with this change the conforming packets go to the tc end table
+>>>>> and not to the redirect dev?
+>>>>> The rule is still reported as offloaded and installs the redirect
+>>>>> which can't reached now.
+>>>>>
+>>>>
+>>>> Maybe I am missing something here, but when the conform action is not given, doesn't it default to ok? For example, if we have
+>>>>     action police rate 100mbit burst 1m conform-exceed drop action drop
+>>>> shouldn't conforming packets still be pushed up rather than dropped by the following action, making the action drop (or the action mirred) dead code?
+>>>>
+>>>
+>>> Yes, agreed, the following action is dead code in software too,
+>>> a separated cleanup patch maybe?
+>>>
+>>
+>> Yeah probably.
+>>
+>>> What about packets that reach the rep? I don't see anything in
+>>> the ACCEPT path that tells software TC the packet has already been
+>>> processed. For example:
+>>>
+>>> tc filter add dev eth2 ingress pref 100 protocol ipv6 flower skip_sw \
+>>>       ip_proto udp dst_port 5201 \
+>>>       action police rate 100mbit burst 1m conform-exceed drop/ok
+>>>
+>>> tc filter add dev eth2 ingress pref 200 protocol ipv6 flower skip_hw \
+>>>       ip_proto udp dst_port 5201 \
+>>>       action drop
+>>>
+>>> Wouldn't a conforming packet reach software, skip the first rule and
+>>> get dropped by the second, despite already being accepted in hardware?
+>>>
+>>> Can you test this? The existing gact ok path might have the same issue.
+>>
+>> Yeah, in both cases (police and gact ok) the conforming packets are pushed up, where they get dropped by the skip_hw rule. My understanding is that with existing behavior the restore doesn't happen on accept path, so sw tc takes the packet through classification again.
+>>
+> 
+> Hi,
+> 
+> Sorry for the delay. I had other things to deal with and wanted to
+> go through the original internal reviews before replying.
+> 
+> I'm fine with supporting this, provided we preserve TC semantics:
+> 
+> - ok stops processing; later actions are not executed.
+> - jump executes the correct target, or we reject the offload.
+> - pipe executes the next action, or ends processing if it is last.
+> 
+> Please address the issues discussed in the next submission.
+> 
 
-https://lore.kernel.org/linux-wireless/20261117103918.33701-1-mikolaj@pisu.=
-la/
-https://git.kernel.org/toke/ath9k-pending/c/176a947f3d98
+Hey, thanks for getting back. Please have a look at v2 here: 
+20261119040010.1405900-1-mohsin.bashr@gmail.com
 
-I haven't run your reproducer against it. If you do, a Tested-by on
-that thread would still be welcome.
+I believe v2 addresses P1 and P3 fully. P2 needs some feedback. I reject 
+jump only if police is the last action.
 
-Chad
+I can update it to reject jump unless police is the first action and the 
+target is within the action list. That way jump always land on the same 
+action as in TC or it gets rejected. What do you think about it?
 
-This reply was drafted with an AI assistant (Claude Opus 5.5).
+> Mark
+> 
+>>> Mark
+>>
+>>
+> 
 
