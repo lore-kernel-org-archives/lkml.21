@@ -1,76 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180655;
-	b=ZDCoLOMW7amK6txi1Z/evs7tPJZlXo++5PKpZ1DEUmTCycnkVmd+IqfMHgREsPOShqhF
-	 54U58SB54+kkA2Kr2Q87MTcEzKB3T/8z73fY/Nu8Is7NsgyNnvRXwNf/npHcCDtjkLNgA
-	 gkUxA7iOeRB+jD+0NL82BDQPg33rnyDGA5+tPlmov1fKr9hbFoFgpY01Yq6pqxUXCspfx
-	 yNm2lUCs+FiJEd94WBpPPiFhtuQsPJi0EUwklP9Cs8yIi3eZUceWghUqZAOgJRBh90kht
-	 njBmVoHGeqEKtMcygWdxSdTAYx6yXkyKRlcEXJ7dC7oUkZVDPXS4S5HgU0gqRKCTdEg==
+	t=1795180659;
+	b=gIkA4rNCXsGGfVAtWCbY4ykrnPisNGTv726gThHBEBVEz3QZ9Jhl6ZZu7FdzzKb5dUDY
+	 59ZF2DW8F4TQ0o0y1XkWscVfseKRbHyAPKv5jfjmtM2OOenssR4DUX47PT1t+LzGZ1JNB
+	 YC1syjJPCxAmD0YUf51F7A/WA/xjOUGTYkefO1l2ExH0gwSwp2mPlG0ETvR6XcqhQpntI
+	 avAyO+GpeC/e54TVcgzJEx9cQbRUAAS68PHBVhPKHBOxzBuA4oIlQZLEQbVIRKSIP/3Ff
+	 MKhRuJ3zcoI4toxj21uzTMs+Z+B43VJyPcsmCCPTrUuCh0716lJ5v45GGidxCerP+UA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180655;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=Q6IKWBXLobC5DRUy2DzuSRlDF/SVfDMAiaTqttRtgzQ=;
-	b=xGr7DHxCZ+oq6EEX5wSTNDicm/dk3pc8HTnyDhiSWJBxBc1DBZsebE8TEHL2p7mZYQiR
-	 YFkqdDxeCopjn8RlaXOg2GLnLA4mg9Oa3D0KIuK7qe4PYsL6w5zqJO26mPqgdjzDLkXmK
-	 DDO2PzCvVhLBJLuOKPt0xSJv9djmQkZJDaprTJo54IcGt1+XtxPK+Rhf7rguutw7QtKU1
-	 iOojwHtyx0klTnN5CcIrIme9Z0LW06FT8VnvFBEwDJvJN8fP+TPs+tYphOTIg674YnGle
-	 tkD3DitxDiWw+ZinqDbVnKGRP1sWf89JKIGWkSCCTES7KI4AbWwP9rc/cVyhzaLvTaw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180659;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:X-ME-Received:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=1r2RPLiYFSIogaEoUkz4XwYUZKQoUko/pKRdi08cxM0=;
+	b=qpwgufRxw+IIuM6G76NnWVTMz1iRu2LifnRL1wSiKEwRB4CVLL9Fc58sLdukqoo+RY3w
+	 uDvumz8FPUxpi8IMKPQqDlyNK46Ye2Y81oG2RTTM7OEYQp2jCdp8fXG8xz8ja9z3T4HyU
+	 RODsonS/OoU/Mc5xFJzehpaeSCQPPCS0Fok2LWpYemOcK7VDLslf8DCXCIvNJu/doV7Xs
+	 dIOBgrUvpiRyjQ7sKerRFlWlN35wUNrB55yqy+2PwwP1YRXKRBwjhWYPAeUnUp+JcVdNR
+	 qDUzB34E6Pshc0KJLRRMosUQlVqlDKeEZIwlcWaeiCzau65+LiDAxl2nP6LZL3BSbOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.222.45
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TD3I+IMX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67B06606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:17:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67B06606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-9851592ada1so254820241.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:17:35 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795180654; x=1795785454;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Q6IKWBXLobC5DRUy2DzuSRlDF/SVfDMAiaTqttRtgzQ=;
-        b=SWSiLwx4uL5BjhFeQnuo15eDQxJ+uXyO9KRwG0bl0ebmfAbyBPehkyv9pA4td2yDyf
-         n/d6rcUeHvR4rOmPEnd6lNJa4bXd2MlJcob1tdnwXDq4KpPrnQdRj87BH00iad5GuZpV
-         qPWR4sgZcTO/l578O+50uD6pKrjMFmBBx4rTXwUAcms9LtwQoGbZYCpkJdW5peazvL9c
-         bizitVvW7HY5Exi9oyT7OayuNxjn1gmjtW53FR14DTAAyYiNPZR+lPnPMX29YvihCtO9
-         an/ebgNZqlR+pQT6qajmLDYCH41KaWm0BBeYRqPD/4hyH+bWXfJdMJuPq2zrq7o+76Fv
-         yVMg==
-X-Forwarded-Encrypted: i=1; AL+hErFUGCttB/wajQkRRPI75fXMfFWR1BUigodRUulsoUfs1P5b3x6exJhDdpbIDqlG8SqLcnE5jUcLSoTKx1U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7NKsz4UdaDNeViCkOj77mrfH/2UU1oPhJOzqJtI0bJlnrsy7v
-	U/kcshSWqiex71J01G9qyVamXPMg34jpEow9F7WtJauzpPP9umkzsrlKBCsSGTnu
-X-Gm-Gg: AZFdTZe42PVmVfZDeJyaDCW5P9tDUxbtBC8tBUzIw0q2stVcv7fGfMRTNQSqDoH3ZiD
-	mvB9Zng+TFw57COVezLvcyWwqHOtyiRx9Cs2cJ/LcAT020WoBgadbTEmMg2sf1Y/YpHosNybMd4
-	nW9DV3h0kMctmUCKP3EXinEQ47z0zf2uVHFnEZu/OG1uE77XBPGZhI9ktbi6O1NRGy1yW/8RIl9
-	5iDNG3LK+xS/IR21fvBqUu3gUb06kvJDPrt6RYUv6k3ZxyutupvMuAqqiHdau6TddAofqSyGMv4
-	nDxQKDT1MYU1UzKVh8CE43nmph5/epr7chriZxkK094kQ3RNhDezZC/xBODonpFxGFFunbJoBU8
-	86MsW45dLZKQtW36jrIYDSq38OeNwjticjr4eGgi2595hQ330dmcglWf+WevPieTkGcVPXU9+MJ
-	UV31U1snTddESlx24dhvmg7gos/puN7h5UL3fOKyOfQkjvppnioREYU/EWLIoPMhv7Chafs32sQ
-	ljmw946pTfcU4DGoigT/6zHxKsj2c8O0jbgGVANyGRk+1kr1Iq/hC7O1w2M692OrpI/eLR+yazP
-	8hnGzVtuRxQsQ5OL7aTi1ifX8Wwxyn9HWez8PyAv+Kq9PpSS6igeVKuPnDdLmGpF1gI=
-X-Received: by 2002:a05:6122:328c:b0:5ce:76cf:fb2e with SMTP id 71dfb90a1353d-5ee8af35d70mr1467844e0c.16.1795180654271;
-        Fri, 20 Nov 2026 05:17:34 -0800 (PST)
-Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com. [209.85.222.44])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6df8a280sm3037256241.3.2026.11.20.05.17.34
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 05:17:34 -0800 (PST)
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-9851592ada1so254816241.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:17:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGIslyTPEepXro6oYtUTWEzkXPt5GF3OrSJuFxNL6+UXsPo1Jmc5uvCEQacChQcuZQP2nmLWlpcoYWXsJc=@vger.kernel.org
-X-Received: by 2002:a05:6122:792:b0:5c7:a9ee:dcfb with SMTP id
- 71dfb90a1353d-5ee8aeb7fcemr1220332e0c.5.1795180653844; Fri, 20 Nov 2026
- 05:17:33 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5EF0606A339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:17:39 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TD3I+IMX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23ED01F000D4;
+	Fri, 20 Nov 2026 13:17:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180659;
+	bh=1r2RPLiYFSIogaEoUkz4XwYUZKQoUko/pKRdi08cxM0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TD3I+IMXRD+9btMqjG+8B3kJTvc6/N3FGTiOQW0DBF8szaAbfyT3rdoeRLPEztlhd
+	 1fkasb/JgYhFktdnsYQr/hbjy8ZgctD2oCPodj+EcxdWF0TgHkODd7sFnXKKDQLPq8
+	 5ASnbC5RngYAvXnPAqtilUTGTnCIjoJva8uNteQehr3AeEwKXuZJgY2lgewq1DJ9PS
+	 VwJ+/gaSErGpmwEF865LUS3VM1nLS3oOqHLTAYvriEXuxCXfiWnPIsOBBpItHfM9Qy
+	 SlI1Q3+bLjypHspK7ZlbPfJeomFf2OJXl+Xuxt7f6hr2LyAcAONIPxsaFe381p00kt
+	 3qa5gmkswFQ8Q==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.ams.internal (Postfix) with ESMTP id E3EF41980047;
+	Fri, 20 Nov 2026 08:17:33 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Fri, 20 Nov 2026 08:17:36 -0500
+X-ME-Sender: <xms:bUgAa0Ss467GVnDhyoa5GLJvJ3Qkb6jHpBysa7UtJwMHKBxrb5rknQ>
+    <xme:bUgAa_Jn5SAa9Gm26aQ6PCluN4Igj4Xbu-1eShGyKxR4qD4s9mbJsthGMUuBhDiiJ
+    DvPsGIIO4AzG_TK8e7R8mLHjv9E9hWIE1EgDfNtY4sRYb_WfmuVqNFO>
+X-ME-Received: <xmr:bUgAa92iCqHJb79UKYNhTmSvtYLPj7oT62s31rdeiXpMYGt1_RtpnZNe0lI>
+X-ME-Proxy-Cause: dmFkZTEMslbIUNDm8LIh02IXJPPGaz8x9nStkoY2McUqfXdvc0zDAMNuwAdNk567GWqWFb
+    Ue01QIrqSlGhLD7aTRxcawP+AUSNewklEcq6PMC9JP8w32Vkz0EAbVZ2QFm6NbbycGqrOT
+    4Vb8re4U7agTXekt+mqlS2xCpK9NpzTwr+ErpQ3XVKIL+uqfYPpDVYCLRwfuz8aG4ZROa7
+    Xd1wxnnT9IcNmrmTW/L61gTt77vLm2hbvmmHDGa2LHM3iddXj9bf/9phFNGmR4hUZZM7Uc
+    ZJ9oEFeNgt22uQRjW3Wdih7LGzmvCPCrT/2DICvgDeLsnE5QRBd6+NlZnMM7O7XfT7q9Do
+    MkQJtlimT0MHz0XKCwD/pqeSVQTF9nQB6fmaRrIBniyooZx48Wp+fOdjkpjjfy1M74AB0h
+    vS3M9aDC5BqCGS+vBnYumDdMEN6m0xvfiEIP84KP4vUCXEzzfRXpY0HUEEr7Ux+TLE0CvM
+    8mfzIpvGacxcLQSZU2/0i1GMY7jfN3hn3SzrJ9D9XCXiD5LzrcLQeHCkaf88rKLabxTIfx
+    MK6n/B4O2fmC0h6UK+8FsX8/QUZPhtXvSb6VY/dDu82xZH1mgNTNYlAD8mYnORC1N2N/Kt
+    9BSKREudmnRmc0072qjsdqwInnjVlm+WtP0N1OdHG4S5m3ZYPrjrL8R/k2Sw
+X-ME-Proxy: <xmx:bUgAa7toYIuLcOc32pRwV-nsWDZX_L4XKKyWqDVC59SHUuoImBWT_A>
+    <xmx:bUgAa5HlJOmSY7P5WSFjnY6uqz8LobY_WUwzQM8wba5A2rgz9WGBCA>
+    <xmx:bUgAa1Jqwm68KOU2wpFhGSlDAH1XL0GVrygZ1G3sIJWJupOyMB2yEw>
+    <xmx:bUgAa0GHctFKPFG36KsYueFTUiK1wxmIM_ROA7NlIGuYWQMr6gettQ>
+    <xmx:bUgAax7INTnv3udfOUXtVTWi3rt4nW4moV6FhuG_CrgEs7tK_rv3kZad>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 20 Nov 2026 08:17:32 -0500 (EST)
+Date: Fri, 20 Nov 2026 13:17:31 +0000
+From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+To: Andi Shyti <andi.shyti@kernel.org>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Andi Shyti <andi.shyti@linux.intel.com>, 
+	David Hildenbrand <david@kernel.org>, Hugh Dickins <hughd@google.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH] drm/i915/gem: Skip writeback of shmem folios with extra
+ references
+Message-ID: <awBIB3vjr_o-gfCn@shutemov.name>
+References: <20261119134243.3745282-1-kas@kernel.org>
+ <av8n42vx3Q7zvQK8@zenone.zhora.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,68 +92,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-sdhi_rzg3l-v1-0-ca30b209615d@bp.renesas.com> <20261112-sdhi_rzg3l-v1-3-ca30b209615d@bp.renesas.com>
-In-Reply-To: <20261112-sdhi_rzg3l-v1-3-ca30b209615d@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 20 Nov 2026 14:17:22 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVepu0jANzDL552TKrFueydG3AHtd4v9MMXBsw6AK83kQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qUvfxgceZpYCy0eGd3okw1JBrjE6O9xWtztWGDRZeQ1eigXq4aiI1_wUs
-Message-ID: <CAMuHMdVepu0jANzDL552TKrFueydG3AHtd4v9MMXBsw6AK83kQ@mail.gmail.com>
-Subject: Re: [PATCH 3/3] arm64: dts: renesas: rzg3l-smarc-som: Enable SDHI2
-To: Biju Das <biju.das.au@gmail.com>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av8n42vx3Q7zvQK8@zenone.zhora.eu>
 
-Hi Biju,
+On Thu, Nov 19, 2026 at 06:43:08PM +0100, Andi Shyti wrote:
+> > diff --git a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> > index bf9e7480f0f5..748772c358ac 100644
+> > --- a/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> > +++ b/drivers/gpu/drm/i915/gem/i915_gem_shmem.c
+> > @@ -316,9 +316,15 @@ void __shmem_writeback(size_t size, struct address_space *mapping)
+> >  	 * leaving only CPU mmapings around) and add those folios to the LRU
+> >  	 * instead of invoking writeback so they are aged and paged out
+> >  	 * as normal.
+> > +	 *
+> > +	 * The same goes for a folio with references beyond the page cache
+> > +	 * and writeback_iter(). A folio that was just unmapped can still be
+> > +	 * written through a stale TLB entry until the unmapping side flushes
+> > +	 * the TLB and drops its reference. pageout() checks the same.
+> >  	 */
+> >  	while ((folio = writeback_iter(mapping, &wbc, folio, &error))) {
+> > -		if (folio_mapped(folio))
+> > +		if (folio_mapped(folio) ||
+> > +		    folio_ref_count(folio) != 1 + folio_nr_pages(folio))
+> 
+> I don't think we need this fix in the current tree. The i915
+> writeback iterator already skips the shmem folio in the case you
+> describe, so the new refcount check doesn't change the outcome.
 
-On Thu, 12 Nov 2026 at 19:48, Biju Das <biju.das.au@gmail.com> wrote:
-> From: Biju Das <biju.das.jz@bp.renesas.com>
->
-> Enable SDHI2 on the RZ/G3L SMARC EVK platform using the internal
-> voltage regulator for voltage switching. SDHI2 signals are muxed
-> with I2S0; the selection is controlled by the SW_SD2_EN macro in
-> the board DTS, which must match the position of switch SYS.4 on
-> the SoM. By default, I2S0 is enabled.
->
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
+Oh. It took me a while to see why.
 
-Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+__shmem_writeback() asks writeback_iter() for PAGECACHE_TAG_DIRTY
+folios, and shmem never sets that tag, its ->dirty_folio is
+noop_dirty_folio(). So the loop body never runs for any folio, and
+hasn't since 776a853a43c9 ("i915: Use writeback_iter()").
 
-> --- a/arch/arm64/boot/dts/renesas/rzg3l-smarc-som.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/rzg3l-smarc-som.dtsi
-> @@ -42,6 +42,7 @@ aliases {
->                 ethernet1 = &eth1;
->                 i2c0 = &i2c0;
->                 mmc0 = &sdhi0;
-> +               mmc2 = &sdhi2;
->         };
->
->         memory@48000000 {
-> @@ -355,6 +356,74 @@ sd0-data {
->                         power-source = <1800>;
->                 };
->         };
-> +
-> +       sdhi2_pins: sd2 {
-
-> +               sd2-pwen {
-> +                       pinmux = <RZG3L_PORT_PINMUX(K, 2, 1)>; /* SD2_PWEN */
-> +               };
-> +       };
-
-Just wondering: why do you use the internal voltage regulator for SD2
- and GPIO hogs for SD0 and SD1?
-
-Gr{oetje,eeting}s,
-
-                        Geert
+That makes me question the whole writeback thing. What's going on
+there, and what's the plan?
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+  Kiryl Shutsemau / Kirill A. Shutemov
