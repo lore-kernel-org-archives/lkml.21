@@ -1,66 +1,146 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.67.36.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182053;
-	b=VaH25hGO7hugKta2iobxnaV76z3/lfzy9XXoQSTJe0MwWeTkPfYVSjdwf2AozAUPYAmh
-	 2AwY3O2l9Kay40MvzWHL56o6RIJbjQS/DdYw7IOTfBzQYcGAK9F9HTvtnyHucN2vDD5/k
-	 5mwi4TbG7b1AKPOINMlwrRnVJ4TNdzfQ3ohHu9GE+UjsXVy7BFNdm3R1FrXFSa1Zrw5f+
-	 WySbFHuRCN+X4d8uOnvQKgNqr4rtKAiw4glMEraaCDXZo8f0K3q4oC0rm/Ua3Pn7sV7G+
-	 A8cM3nEqb9e4ayX2wO9HVd8UxqxmXxnbMEac+N+ITV/TZpTBHjMFGDgzVQIz/HyNLiA==
+	t=1795182070;
+	b=wu208aA3UlW8Cud/KmR8P54dvU4TVkvDXhWRpXx8+Hn5RLI4lkD5YLxqkIBxwyzIsoIM
+	 JXQiUzuOjaPNQuFCneX2oRC1meDOlgmHOvSWJO+lz4v0sbWtpanjfcGOQcl/3ngBnd/xM
+	 FLkP9UBrB2dHd7f1QbSXsRtsFPHy3Qtm08eYGeYe1MBGZy03OaGaRwLGb+okYOGSH598Z
+	 UzwrAJyXXNtD6j0B9yL5VLtMf97gJAkyGTvhOiVSfavmWxyuGbZjjBNwNXlWXXcV/ckHJ
+	 l2QMx8o59G4syVgHQkKxZ/vhqnAhQ6prjwCisrcWNcQAhF+CpvmMJ5GmNfEcmwyX8AQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182053;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=Ew6MOgVIrcp4AtXKSh7rWMjrCWumR7WkQWAedumdhYk=;
-	b=OyVGSOUkA/pzoYUmKCORxxHpcgnAS/DRix1u+j17FgLHF63Tj+cjQj64Rv7thzNvgzAQ
-	 BUeTnDD/q0G00TQDKw5bK4V6L3IbNPBYn6ExTbXp8soX9DWUEsVKeM+DcZeFOzQfbdWxy
-	 MEGwpBw7Rtk5/L4yWKFAdMM6tabjdXB4W29HJeTqpsA4z2JVsOVqLcBrUwywd1O4gHXWr
-	 tZsfTahFVILM5bkSPMQeFuM0m4pqixWtLM204P7KqFtDSSiulneuQa7ty49BxiZ2lMcxY
-	 1hbpvAv5tpLwUP4dgc/lmnNJGGQ+RmKGQzNoyO0rQtTfdUf50Bq37mjoVfCt8Ujb0MA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182070;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-ID:Subject:
+	 From:To:Cc:Date:In-Reply-To:References:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP;
+	bh=YW4oRhO1MuXRHyeWQ9Lx5ixnye7cuXD9in5rMS24y2A=;
+	b=CPxOSjJfg4w89UiK6DB3gOF0TkQgL5p+mGJszkX0JJdGN5HF+dcAzCctJn4iM5q4GXF7
+	 sJr+ISf3lKFOuqmhBIErw4wV6cyy2xUYb9X4WKTDUIhm3859ZxFEI0mCfUHt0YAPsWHjD
+	 M9emBZarGin9TcgAfInxDiwPMO4dbvynY545cKkZw532Ka8iJAJeKAUk0QNup6XhKg+oa
+	 GpD23WTAd0uX3KBLl87pK80nBC5bkkIoYJdTolhx45pTzVyymjqanv6Hp4H5Ls4mh1I3s
+	 Q582szG/8L4iHtXmGd/DRRabvWViC/CjJoBZHBktu9bwFBCwa73yWHRLxkCPpjdrn4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WpW9e86M;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=posteo.de;
+	spf=pass smtp.mailfrom=posteo.de;
+	dkim=pass header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=hWh+t93A;
+	arc=none smtp.remote-ip=185.67.36.65
+Received: from mout01.posteo.de (mout01.posteo.de [185.67.36.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F1760A2600;
-	Fri, 20 Nov 2026 13:40:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77F1760A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5A25606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5A25606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=posteo.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=posteo.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=WpW9e86M
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CCB6D4E41681;
-	Fri, 20 Nov 2026 13:40:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 90518601B9;
-	Fri, 20 Nov 2026 13:40:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D5F8F11BC00C2;
-	Fri, 20 Nov 2026 14:40:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795182049; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Ew6MOgVIrcp4AtXKSh7rWMjrCWumR7WkQWAedumdhYk=;
-	b=WpW9e86Miv1BRiDfJlZacUzkwwuy6wNbM3EAqn9Trc/QzGG3nFUKBVNVTWIkz7+DsWqeSB
-	drvj1LG+M8/YcCUOytjqXrnUu37sNk/zDzi2SNovySMdPR5VT6dPm9FXbZhFf7uVlBwCot
-	qPEKKYtlZ730aKwrXEBL/XG8mIkfpNN0l0a6DjNI3qDyCn+UQ1xToprSfHtxRdBAO6Ep/L
-	8eptwf0PMzWszbeBvF4sV444j5D7tUSeN+X2incjguOBoai5eetk5x4YNYAyjGWqDVn8SQ
-	JOlAXMQ24AkWdRRL5CvcrVeTQMz1GinAUJmUK0L0KpLeDDdF2XnCS6SsHM5ieA==
-Date: Fri, 20 Nov 2026 14:40:46 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Stefan Kerkmann <s.kerkmann@pengutronix.de>
-Cc: Hugo Villeneuve <hugo@hugovil.com>, linux-rtc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bruno.thomsen@gmail.com,
-	giampiero@sferalabs.cc, p.rosenberger@kunbus.com,
-	antonio@amsobr.com, Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH 3/4] rtc: add battery low voltage detection feature
-Message-ID: <2026112013404685aba5df@mail.local>
-References: <20260311200237.3531981-1-hugo@hugovil.com>
- <20260311200237.3531981-4-hugo@hugovil.com>
- <eeff2fb8-889a-4884-81d8-e4cda7ac5e9e@pengutronix.de>
+	dkim=pass (2048-bit key) header.d=posteo.de header.i=@posteo.de header.a=rsa-sha256 header.s=1984.8680eb header.b=hWh+t93A
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 2678F240027
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:41:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1795182067;
+	bh=YW4oRhO1MuXRHyeWQ9Lx5ixnye7cuXD9in5rMS24y2A=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=hWh+t93AQ89D3y7Q9jrCyuBHB12xO/fjpp2KbQYXJeT2L3X6wH/D4DMbcDgYcqtgT
+	 pePRFyBthjOtirmgOI5czcXW1Xr1VnxH6GfasweXjJm4J9Mm4Hw+mn7yRccYA1M89r
+	 ckxYsVMo6pN37AZxMbKEL4i2LBGKnzK6/RJiaHheArZW644ZeQGqGoyhhM2h3T4JFH
+	 Dk2Hxfv0uSl3GCmBxQb7acaV1ilGCR5zeH72IlA7Ii3mLlwUcevf0AERKWuKOWgNhS
+	 bpETuEoWTvJyWgDofyUyxOmTRbCQ1514fODehAyVg1kPoYini/8kpChbhDu6bw685P
+	 5EShivwIQiQoA==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4jWGgr36MZz6tyT;
+	Fri, 20 Nov 2026 14:40:56 +0100 (CET)
+Message-ID: <e4c77581b1c09f8e0c8be570283f653a2a7e2147.camel@posteo.de>
+Subject: Re: [PATCH v22 4/5] rust: rename `AlwaysRefCounted` to `RefCounted`
+From: Markus Probst <markus.probst@posteo.de>
+To: Andreas Hindborg <a.hindborg@kernel.org>, Danilo Krummrich
+ <dakr@kernel.org>,  Lorenzo Stoakes	 <ljs@kernel.org>, Vlastimil Babka
+ <vbabka@kernel.org>, "Liam R. Howlett"	 <liam@infradead.org>, Uladzislau
+ Rezki <urezki@gmail.com>, Miguel Ojeda	 <ojeda@kernel.org>, Boqun Feng
+ <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,  =?ISO-8859-1?Q?Bj=F6rn?=
+ Roy Baron	 <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>,
+ Alice Ryhl	 <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+ Daniel Almeida	 <daniel.almeida@collabora.com>, Tamir Duberstein
+ <tamird@kernel.org>,  Alexandre Courbot <acourbot@nvidia.com>, Onur
+ =?ISO-8859-1?Q?=D6zkan?= <work@onurozkan.dev>, Lyude Paul	
+ <lyude@redhat.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Christian Brauner	 <brauner@kernel.org>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Dave Ertman	 <david.m.ertman@intel.com>, Leon
+ Romanovsky <leon@kernel.org>, Paul Moore	 <paul@paul-moore.com>, Serge
+ Hallyn <sergeh@kernel.org>, David Airlie	 <airlied@gmail.com>, Simona
+ Vetter <simona@ffwll.ch>, Alexander Viro	 <viro@zeniv.linux.org.uk>, Jan
+ Kara <jack@suse.cz>, Igor Korotin	 <igor.korotin@linux.dev>, Viresh Kumar
+ <vireshk@kernel.org>, Nishanth Menon	 <nm@ti.com>, Stephen Boyd
+ <sboyd@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,  Krzysztof
+ =?UTF-8?Q?Wilczy=C5=84ski?=	 <kwilczynski@kernel.org>, Pavel Tikhomirov
+ <ptikhomirov@virtuozzo.com>,  Michal Wilczynski <m.wilczynski@samsung.com>,
+ Ira Weiny <iweiny@kernel.org>, Matthew Brost <matthew.brost@intel.com>, 
+ Thomas =?ISO-8859-1?Q?Hellstr=F6m?=	 <thomas.hellstrom@linux.intel.com>,
+ Johan Hovold <johan@kernel.org>, Sumit Semwal <sumit.semwal@linaro.org>,
+ Christian =?ISO-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,  Dave Jiang
+ <dave.jiang@intel.com>, Jason Gunthorpe <jgg@ziepe.ca>, Saeed Mahameed
+ <saeedm@nvidia.com>,  Zhi Wang <zhiw@nvidia.com>, Jonathan Cameron
+ <jic23@kernel.org>
+Cc: Philipp Stanner <phasta@kernel.org>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ driver-core@lists.linux.dev, 	linux-block@vger.kernel.org,
+ linux-security-module@vger.kernel.org, 	dri-devel@lists.freedesktop.org,
+ linux-fsdevel@vger.kernel.org, 	linux-pm@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, linux-media@vger.kernel.org, 
+	linaro-mm-sig@lists.linaro.org, linux-serial@vger.kernel.org, Oliver
+ Mangold	 <oliver.mangold@pm.me>, Viresh Kumar <viresh.kumar@linaro.org>,
+ Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=	 <ukleinek@kernel.org>
+Date: Fri, 20 Nov 2026 13:41:05 +0000
+In-Reply-To: <20261116-unique-ref-v22-4-12029383206d@kernel.org>
+References: <20261116-unique-ref-v22-0-12029383206d@kernel.org>
+	 <20261116-unique-ref-v22-4-12029383206d@kernel.org>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-1bC6az0UrhT7nf2a398O"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,77 +150,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eeff2fb8-889a-4884-81d8-e4cda7ac5e9e@pengutronix.de>
-X-Last-TLS-Session-Version: TLSv1.3
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 
-Hello,
 
-On 06/08/2026 14:55:00+0200, Stefan Kerkmann wrote:
-> 
-> 
-> On 3/11/26 21:02, Hugo Villeneuve wrote:
-> > From: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > 
-> > Some RTCs have a battery low voltage detection function. Add new feature
-> > so that it can be enabled, disabled or queried at runtime.
-> > 
-> > Signed-off-by: Hugo Villeneuve <hvilleneuve@dimonoff.com>
-> > ---
-> >   include/uapi/linux/rtc.h | 7 ++++++-
-> >   1 file changed, 6 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/include/uapi/linux/rtc.h b/include/uapi/linux/rtc.h
-> > index 97aca4503a6a3..596eec119bb3a 100644
-> > --- a/include/uapi/linux/rtc.h
-> > +++ b/include/uapi/linux/rtc.h
-> > @@ -134,18 +134,23 @@ struct rtc_param {
-> >   #define RTC_FEATURE_CORRECTION		5
-> >   #define RTC_FEATURE_BACKUP_SWITCH_MODE	6
-> >   #define RTC_FEATURE_ALARM_WAKEUP_ONLY	7
-> > -#define RTC_FEATURE_CNT			8
-> > +#define RTC_FEATURE_BATTERY_LOW_DETECT	8
-> > +#define RTC_FEATURE_CNT			9
+--=-1bC6az0UrhT7nf2a398O
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This is adding a new ABI and it took me a while to find enough time to
-review the datasheet for the RTCs  we support and others. What we need
-instead of a boolean is a voltage threshold. So maybe this should be
-better named something like RTC_FEATURE_BATTERY_LOW_THRES_MV
+On Mon, 2026-11-16 at 15:21 +0100, Andreas Hindborg wrote:
+> From: Oliver Mangold <oliver.mangold@pm.me>
+>=20
+> There are types where it may both be reference counted in some cases and
+> owned in others. For such types, obtaining an `ARef<T>` from a `&T` may b=
+e
+> unsound, as it allows creation of an `ARef<T>` from a `&Owned<T>`.
+>=20
+> Therefore, we split `AlwaysRefCounted` into `RefCounted` (which `ARef<T>`
+> would require) and a marker trait to indicate that the `&T` -> `ARef<T>`
+> conversion is sound for the type. A type that implements `Ownable` may
+> only implement the marker trait if it allows an `ARef<T>` to exist
+> together with an `Owned<T>`.
+>=20
+> - Rename `AlwaysRefCounted` to `RefCounted`.
+> - Add a new unsafe trait `AlwaysRefCounted`.
+> - Implement the new trait `AlwaysRefCounted` for the newly renamed
+>   `RefCounted` implementations. This leaves functionality of existing
+>   implementers of `AlwaysRefCounted` intact.
+>=20
+> Suggested-by: Alice Ryhl <aliceryhl@google.com>
+> Signed-off-by: Oliver Mangold <oliver.mangold@pm.me>
+> [ Andreas: Updated commit message, rebased on v7.4-rc2, converted new
+>   implementers, relaxed the `ForeignOwnable` bound for `ARef<T>`, updated
+>   safety comments. ]
+> Acked-by: Igor Korotin <igor.korotin.linux@gmail.com>
+> Acked-by: Danilo Krummrich <dakr@kernel.org>
+> Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+> Co-developed-by: Andreas Hindborg <a.hindborg@kernel.org>
+> Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
+> Acked-by: Uwe Kleine-K=C3=B6nig <ukleinek@kernel.org> # for pwm.rs
 
-> >   /* parameter list */
-> >   #define RTC_PARAM_FEATURES		0
-> >   #define RTC_PARAM_CORRECTION		1
-> >   #define RTC_PARAM_BACKUP_SWITCH_MODE	2
-> > +#define RTC_PARAM_BATTERY_LOW_DETECT	3
-> >   #define RTC_BSM_DISABLED	0
-> >   #define RTC_BSM_DIRECT		1
-> >   #define RTC_BSM_LEVEL		2
-> >   #define RTC_BSM_STANDBY		3
-> > +#define RTC_BATTERY_LOW_DETECT_DISABLED	0
-> > +#define RTC_BATTERY_LOW_DETECT_ENABLED	1
+I haven't unterstood yet what use case this has, so I am trusting the
+other ACKs here. Maybe a precise example would help?
 
-And so those wouldn't be needed.
+For serdev:
 
-> > +
-> >   #define RTC_MAX_FREQ	8192
-> 
-> I have opened a PR against util-linux to add support and tested the patchset
-> with the extended hwclock binary.
-> 
-> See: https://github.com/util-linux/util-linux/pull/4513
-> 
-> Reviewed-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
-> Tested-by: Stefan Kerkmann <s.kerkmann@pengutronix.de>
-> 
-> -- 
-> Pengutronix e.K.                       | Stefan Kerkmann             |
-> Steuerwalder Str. 21                   | https://www.pengutronix.de/ |
-> 31137 Hildesheim, Germany              | Phone: +49-5121-206917-128  |
-> Amtsgericht Hildesheim, HRA 2686       | Fax:   +49-5121-206917-9    |
-> 
+Acked-by: Markus Probst <markus.probst@posteo.de>
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Thanks
+- Markus Probst
+
+--=-1bC6az0UrhT7nf2a398O
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmsATecbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSANQP/R1hB8C5F3mypETYwCgo
+/31OX6ODiCHu568feU0OwqqnH1gKua6thOPxdUzO4oz9uHEvJOy9k0pAUuqhIoUR
+cwWGFajvqbq0iEcbMMls3ezTo63QhALeYKpaK+p4wCU6HqazGDnsTiqXqIBnSMFF
+/zhMCLHxApAYueLhRzmTe9z4DIEhOaUdcOowPIV35HlxhghSQZ/uaZclBwv6h+xn
+PDpQAKnR2JxW4CcyT1Fm62hItTX+Djvef/Q6aac3xdMq1JSPlsbNUlThWsY+EjbX
+eBTAO766WENw3Hw3SxnX/pcUQwUVsRa3bxxgBxSfwZtm6nSfhxmBzAHsiR7aA4wq
+hrI46P32JW6WcL+jToQJC/QjQienV9rV/QTWrfp83Z59ce3lL43XtMlofu0EoK6W
+IWoX/O4IoSM3YDlzHsSYGQR7KG+VGDXyJAb6HhVyNdMTiegz8UxWwYqGviS9mTON
+a3YA8htdMngXmkwT5CQKhsNbS0sLqGb3nDrqmLV2hSDpjGkdUe86bahObcVCXonf
+7Gdl1/15c46K0QRbEf7q5kgreejRoLqFdi2eyw406ruUxE7Bd71t9faF5zWzaJRK
+ewr2s+IremZr522ABFhIX0SFkqu1sPzXqNLKXQa5fz5XxTh6jQziddGf3Q2z71dB
+79I2PETkcl5NqkNBz+UkmsCH
+=iSw7
+-----END PGP SIGNATURE-----
+
+--=-1bC6az0UrhT7nf2a398O--
