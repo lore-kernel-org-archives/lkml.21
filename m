@@ -1,64 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181183;
-	b=N/aMFMCmLsFKycr8+HGmXgd5PKHyOVOQcr3kPm8LG3HLh23Q+ufEAZDickX5LnjOmx4L
-	 UDWGIrqCzZVeosvkA6Dk8o1e3n6860JTkOE9vxlb2LtJcsVoQJjT0pD2oBfBgc5kHePcm
-	 ph1pmugDn/TnDj+liT7vIXWIisxm34081V7sckFv6GV63+VIrvHz0AqritnYOozbF3ocq
-	 u3fkXiRcDMLneJum/rPWpD6SAvmom6eiYvXBdhlDzyWgqDULjCyiE1vpU5bDgvtMe9Owl
-	 W+105ONrNL60Iikr531ADVCo2xt/5ZGf/jn9I8hUSn1onNH1LAIW78VRst+wJQ5YqLA==
+	t=1795181192;
+	b=npkYWj1G5FjGR3thJdFC/6nrMueTEuLaIjFlYhGDfFUOlnD5aoIRCOhdpRr5plHrYnfS
+	 vK/iN15OScCJVJP7DrHphAykzb6zC7IHEaz7MImPRjTNf04MiTbc5RuQHY4+mQyYgTMub
+	 VFRkghEeDsX3Z7fEzolim/1AjrplErtE1R5XzatImcKSdf3dg2S7igNZim2wyue3wEA+w
+	 8cp6HXCfakZvX7zJ15fji5iLDLwihxja536kuLBZIumz2MsyATGuT0HJll14hdXWssirl
+	 4G6oRyWv8Zijf1O5RI2qCfyVraCAWKEVjTFqz+CaDFWPu/lt9o/lHGyZLtUjtizf0+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181183;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Rspamd-Queue-Id;
-	bh=LpERgTsu052q04aftLC87SFcJq19G3GurEh6LRoztq4=;
-	b=wrEz1wVCJoxINSMwMG6AEsZerdBXU3IdL4bdJ6iGO7GPY7iQW8+YcmQave1f3E+Sh1iq
-	 ZtytQY+JDETF2jjfZQkH0ZPFe8AaH2hDdqFt2qcSQoGx6vAOKglEdIMuKnwxckTd+I0Vg
-	 X/QE94veGVRfIczTRjmM3BBkRnJkgNdNvSLxg8UpSi491BIpubDEbj1drhq+ebwv/JVjw
-	 YC5wQJ4ftYSH5ZouefJas3t224uDGQ16FbnasiLj6+CyP/iVDzEpZ3CfiohrYhRKCHE4s
-	 lNtXf7c7fBKePTgsR1zWvh45rHAusyyJ8f8G6A3ZIHSc5K7LNA3JzxZEqlveKKUACAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181192;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=guyr94lwtT4HUWbL32yj9P2Kvwo+CvFhkMLt90cotQw=;
+	b=vZQ5pXhjW1fe9KleisJrZdE10W3iPH5cDrnZVxYphDcvCIVjx73gfQpP00UjjXWrlqqR
+	 UmYXK+fckb487xS0FKs3HP2Z+tuiFzvC58kD5LQOXgSDNIgwQdPFLNhAu8eqjQBPYTbKe
+	 BkhOFqst7BIJklQknMiDXia5kCB/YlFxtG3ORzUmPK/BdpPeD9jWIX78Touaztd1ooD02
+	 /ci9d3bMZ1HM4dVkx6qpzYDBFEQ3uLvfESTTYCs7TPrgkLWJ6N6ilTnb0rNrovF7KBmEl
+	 HN4uuCF0qcQoDajZ8A2IT5PFUDKsLVfEDie0tXOx4jyXk2lV33Ir+4iOP9InwtgbKCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amieiro.net;
-	spf=pass smtp.mailfrom=amieiro.net;
-	dkim=pass header.d=amieiro.net header.i=@amieiro.net header.a=rsa-sha256 header.s=MBO0001 header.b=DCYB8bgX;
-	arc=none smtp.remote-ip=80.241.56.171
-Received: from mout-p-201.mailbox.org (mout-p-201.mailbox.org [80.241.56.171])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CwQDXvg0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jaE1MJe6;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40B86606A330;
-	Fri, 20 Nov 2026 13:26:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40B86606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=amieiro.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amieiro.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9907E60A2606
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:26:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9907E60A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amieiro.net header.i=@amieiro.net header.a=rsa-sha256 header.s=MBO0001 header.b=DCYB8bgX
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4jWGLy6LCbzMlcd;
-	Fri, 20 Nov 2026 14:26:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amieiro.net; s=MBO0001;
-	t=1795181178;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LpERgTsu052q04aftLC87SFcJq19G3GurEh6LRoztq4=;
-	b=DCYB8bgXhFZKhxX7/Zaq6KBV+x8x76Fu0mfI9+1SeiT2o+Bbf/VsX3utfOlveRjj6ilhtu
-	D2EEukMpsWo9XGRjWjeI5OIFlz6040fBNfbrm6E/KGsYfWUR6qzLfgJAqQ8fJ8VEGSuevt
-	CjTijxMMcLSPcEH+CwA/M6lou4L+NZC6ylzIaSUgIhTAR7ZgDepPTBpQbpUfOZNattJqk0
-	D+qNZfPrA3jyJPdZ7bxmVL8q8Y/k3u50+i4W6sT5epepaHk0KZrPZKW0fHrz7UMB4dUena
-	LD83pqM5NJIbRb3dUbUnIBRg6bjWA8baAmGaC5faPPr2jATAp8dIpzf08q5QOA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of flavio@amieiro.net designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=flavio@amieiro.net
-From: Flavio Amieiro <flavio@amieiro.net>
-Date: Fri, 20 Nov 2026 10:25:58 -0300
-Subject: [PATCH v6 1/2] dt-bindings: leds: Add issi,is31fl3206 to
- leds-is31fl32xx
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=CwQDXvg0;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jaE1MJe6
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAkDBK1017072
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:26:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	guyr94lwtT4HUWbL32yj9P2Kvwo+CvFhkMLt90cotQw=; b=CwQDXvg0LyggqihZ
+	EyN2KmQUQhw66VZ49OxeSUVN/TqOt0ZcSx1f4gw0PY0q/82LuDcuVE8jqPBvul0b
+	uiQcuGiqbpfRauwwMXlrUw2SkkRLVsG4sorz7h4dkXE61+eRxRPAHqNJYrGR0J27
+	d+5Yu67PRZB9GCq61m1Z4iaGbS3IFPDSolYr4FGizg25R94HAHf+aGInvtNklSUX
+	wLELFTcMXE3CUv/b9bPYsXpZiKmFsPlJ7YZ8nDvFxyum02NxmPB0cdBXJ7JaiVBd
+	EhHvwRlyEIxinHhX2NPr74fyN324/jh+Pb714TwlMqUSUEeyKjfGIW7P0KE3WxRm
+	0dEFQQ==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2ggqsrgb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:26:30 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1129820eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:26:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795181190; x=1795785990; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=guyr94lwtT4HUWbL32yj9P2Kvwo+CvFhkMLt90cotQw=;
+        b=jaE1MJe6XPob0wZLVOHHhXBJIvH+cVG35D6csv15NqERrHpvPl5Pjzj/Ez4mpnsGwp
+         /lkMgFmJ3qE7dxd7TisodYRM1v2MAirnusxrB4y7xFbebzUoklxtJNymiWgaC2aeIH8P
+         N/2DrOi0vOV04z+aMPQaf5T9eyGgtywmdvEGeSAb0pXstwDXqPCSD7j4c59n6yz+X4Di
+         ct2lP/DX/fYhDjA0pnhMmc++lQirNNlG3SWIXJ5sbpUULDmnXjmb0lY94u1c07RYnVkY
+         yvbRwnOb7wePU0Hg+XYkpowvkn23lvCCx9hasI23gn8Ww7TCtt90hRWJu74tCGYCZ6Hi
+         b7ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795181190; x=1795785990;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=guyr94lwtT4HUWbL32yj9P2Kvwo+CvFhkMLt90cotQw=;
+        b=NLY6sGr4bEDxneoVpV1WiJefwRTwFmU8uGyjCUMo+mk0/OShjvXqaP0aZjnn1yaHEC
+         JQIVOPoDjA0foM0ffw7vgHPXzajiBLNvJSmmkP151hC9q92PbHsqI88glWGbFuZkVeEX
+         8D2MoDbvZoCozVCoI4G/NzRG5ymluUl6gdR3mR5e+mm+/8PP5DYNYwsM+N15nZBPS0kH
+         4CDmn45R3dEMt/cqT6H0bnarp8yTi+NGWs6T7exIFMx5NxpYPwUGdk3YVBD497+Ch/P3
+         miMmin+laaSNYoZoS5Jyy0+R1z2JvnTtDl1BmkDEJuHDk/eZwwnA8mz169MzLCwTicmJ
+         VTlg==
+X-Forwarded-Encrypted: i=1; AL+hErF9soAwjkVccbvMMTHegocB3Cgn+ZSrkOqiqgV0+EHL5y4Spq2Y2L0Y8ZBOZ7e2T9CCZqnh4VHG1rOOu34=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/8lC+u+vtnCcStqSoUqSYVtDv9EqEQ6lvZNz46w7a3StfkjcI+
+	QopI+8N97Pn3xjf0clBhTxgL/rw/Tjr3KWyCSGOAxfkBfwhVX9WD4uUe4UXdm6cWeuZDVlZqVRS
+	U3FTN/xeBodxCEwQa8Nx9MVBBmXZvDofLDIF6CCKKWDGU9TGU3EEmDigNd5M1kxfnOgo=
+X-Gm-Gg: AZFdTZdMMuu3qvZ0w3rsiDaWrbHCRCQTYFqDsFSEmehmmUxRcHhB7TwNvCUyHnXQdPt
+	jSu+VGTvYCWXXAnLB7LSqbPtXNKlc205TvNmj+7O8xLaF3J/uax0RpE2JvAKMvhltJ+ZfrnOHnR
+	QEAVY3wdp5H385gkp51pkgI/RjlCOH+Lrq+z7uD7+fMOZWFNaeQQoCTN7wvGRXSI9esot5x0/oi
+	oSn5pW1oX0NMh440xayT1f2wYRCsU0DxkLwcB92do+fvQKu5Dax+zhkTSpWtDcht7HHBQ6PUqDp
+	fBahWErq0fuskcKA2cNch+N5sVuYZb67z7602vWGiES3EgiOdsPpGicqaeLbRdWDvkXN1Q/HACJ
+	yMykjJNm6fy7y7JlntMET2rBYxz2GHA0DXmDSbV7XB38Vv0ij/wL6SWuvSY2znWQKGc5MFaBWfW
+	uZdRfozrnFL6znAxzs
+X-Received: by 2002:a05:7301:929:b0:376:37a2:87f3 with SMTP id 5a478bee46e88-38570f25262mr2562926eec.31.1795181190050;
+        Fri, 20 Nov 2026 05:26:30 -0800 (PST)
+X-Received: by 2002:a05:7301:929:b0:376:37a2:87f3 with SMTP id 5a478bee46e88-38570f25262mr2562890eec.31.1795181189475;
+        Fri, 20 Nov 2026 05:26:29 -0800 (PST)
+Received: from [192.168.11.103] ([124.123.81.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm9479753eec.28.2026.11.20.05.26.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 05:26:29 -0800 (PST)
+Message-ID: <6c91ec31-d17b-4ab1-9031-f61932c57dfa@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 18:56:24 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,50 +114,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH ath-current] wifi: ath12k: report TX status for broadcast
+ and multicast frames
+To: Vitor Soares <ivitro@gmail.com>, Jeff Johnson <jjohnson@kernel.org>
+Cc: Vitor Soares <vitor.soares@toradex.com>, linux-wireless@vger.kernel.org,
+        ath12k@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Nithyanantham Paramasivam <nithyanantham.paramasivam@oss.qualcomm.com>,
+        Vasanthakumar Thiagarajan <vasanthakumar.thiagarajan@oss.qualcomm.com>
+References: <20261116230250.369383-2-ivitro@gmail.com>
+From: Rameshkumar Sundaram <rameshkumar.sundaram@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20261116230250.369383-2-ivitro@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-add-is31fl3206-support-v6-1-0969fd6292ab@amieiro.net>
-References: <20261120-add-is31fl3206-support-v6-0-0969fd6292ab@amieiro.net>
-In-Reply-To: <20261120-add-is31fl3206-support-v6-0-0969fd6292ab@amieiro.net>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
- Griffin Kroah-Hartman <griffin@kroah.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Flavio Amieiro <flavio@amieiro.net>, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=795; i=flavio@amieiro.net;
- h=from:subject:message-id; bh=+A8I52rCvgnfvwrfz6L5/w/bDLVeMwFGRbV/sS5gUq8=;
- b=owGbwMvMwCX2bmrBFGnZ5lDG02pJDNkMXhkVLcsUvY4JvE+cpLvsytraFS2vq+cdFy+yrnqvc
- qSpa6ZcRykLgxgXg6yYIgtLGUuZd/vB5t3TVkvCzGFlAhnCwMUpABM5Kszw38Utxink1SLD26Ie
- t24Uvjk08aHQDcGpeaJnWUptq1UKlBj+yk+St5jH5zuhwHtb23v525yLT2wTMVZn983PdjV5/aG
- UEQA=
-X-Developer-Key: i=flavio@amieiro.net; a=openpgp;
- fpr=047604764B87C183BB96AB19EE9570941B1D8355
-X-Rspamd-Queue-Id: 4jWGLy6LCbzMlcd
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA1MyBTYWx0ZWRfX7SB0qmQCpP6Q
+ mP0Qn3xW4DggXuVPSACvMQO6KxR/8BrJeIREFzagdcBZP3/uaZshJrIMCnVMqjUQJvEMPnp3BrZ
+ ia3VU43WNtcT+tO82khteFhHI4lSWIAnANhnp5g2s35Kocaaiay6QodxaRuEMw5RCIChIWGlokp
+ yc8Aw4+KaJZAqzNtsepP1ATSmDGgbw+PQPkX+zOS78xqakYff9L94u/pmZKGUXEB1cqCag+2LvZ
+ F0/QVoaoD/ukfC+IeODUCwF5VPBA2fkJ69f0PMWkHp7E5MgpJEN53ahgxP8+53jIfWGc8zz0wPN
+ Q3pAhlmYZqC77RS/o3iFzUCBGew2Dnv++GxO1NdUUqXX2aa8Z6IK6c8GcruZlyfbEgX67UI+jso
+ gQS0NghIjbuMQ7oU6cDBZzDGdcePWgxoyP8jWLDh+y7Ccva5xXdm74ro/Y4OhmJYss8lntfbbxN
+ ia9T/T9ZEgU+FBirDsg==
+X-Proofpoint-GUID: 2aLa3yvG9hp6TXxekdvtlKjatEWR1x1i
+X-Proofpoint-ORIG-GUID: 2aLa3yvG9hp6TXxekdvtlKjatEWR1x1i
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA1MyBTYWx0ZWRfX+PUKiSxh9Z5W
+ eD8Y/6sDRNTn5jAwV8JI5+cV67p3lDDffuGIPVpXZAC3X/XTnDrIcOtmmGe9rHcuVa3o7fu5AAD
+ wJqoZZjbdYXgZcxisst0IjkU4iEisfw=
+X-Authority-Analysis: v=2.4 cv=CNy/zhrD c=1 sm=1 tr=0 ts=6b004a86 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=WcLwt0pvHDAIUQ3iVSLIEw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=m8ToADvmAAAA:8 a=5RRWBY4WAAAA:8 a=bIduEeDIxUt9zr8lqoUA:9 a=QEXdDO2ut3YA:10
+ a=scEy_gLbYbu1JhEsrz4S:22 a=kCrBFHLFDAq2jDEeoMj9:22 a=drtMOSl5Q_Tsf-UZi3mY:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200053
 
-This is a 12 channel variant of the is31fl32xx led driver series.
+On 11/17/2026 4:32 AM, Vitor Soares wrote:
+> From: Vitor Soares <vitor.soares@toradex.com>
+> 
+> In AP mode, once a station is associated, broadcast and multicast frames
+> sent by the AP log:
+> 
+>    ath12k_wifi7_pci 0003:01:00.0: dp_tx: failed to find the peer with peer_id 2
+> 
+> These frames complete against the AP's own peer. That peer has no
+> station, and since commit 981050b918fc ("wifi: ath12k: Fix TX status
+> reporting to mac80211 when offload is enabled") a missing station is
+> treated as a missing peer: the frame is dropped and an error is logged.
+> Before that commit, the TX status of these frames was reported without a
+> station.
+> 
+> Report the TX status without a station when the peer has none, and add
+> rate information only when a station is present. Only drop the frame
+> when the peer is not found, and log that case at debug level, as the
+> HTT completion path does.
+> 
+> Tested-on: WCN7850 hw2.0 PCI WLAN.HMT.1.1.c7-00108-QCAHMTSWPL_V1.0_V2.0_SILICONZ_UPSTREAM-3
+> 
+> Fixes: 981050b918fc ("wifi: ath12k: Fix TX status reporting to mac80211 when offload is enabled")
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+> ---
+> This conflicts with c752394249f8 ("wifi: ath12k: store station pointer
+> only in dp_peer") in ath-next; the resolution uses
+> ath12k_dp_link_peer_get_sta(peer) in place of peer->sta.
+> 
+>   drivers/net/wireless/ath/ath12k/wifi7/dp_tx.c | 23 +++++++++++--------
+>   1 file changed, 13 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/net/wireless/ath/ath12k/wifi7/dp_tx.c b/drivers/net/wireless/ath/ath12k/wifi7/dp_tx.c
+> index 41abf1865702..794d85d9dbaf 100644
+> --- a/drivers/net/wireless/ath/ath12k/wifi7/dp_tx.c
+> +++ b/drivers/net/wireless/ath/ath12k/wifi7/dp_tx.c
+> @@ -856,24 +856,27 @@ static void ath12k_wifi7_dp_tx_complete_msdu(struct ath12k_pdev_dp *dp_pdev,
+>   	ath12k_wifi7_dp_tx_update_txcompl(dp_pdev, ts);
+>   
+>   	peer = ath12k_dp_link_peer_find_by_peerid(dp_pdev, ts->peer_id);
+> -	if (!peer || !peer->sta) {
+> -		ath12k_err(ab,
+> +	if (!peer) {
+> +		ath12k_dbg(ab, ATH12K_DBG_DATA,
+>   			   "dp_tx: failed to find the peer with peer_id %d\n",
+>   			   ts->peer_id);
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Flavio Amieiro <flavio@amieiro.net>
----
- Documentation/devicetree/bindings/leds/leds-is31fl32xx.txt | 1 +
- 1 file changed, 1 insertion(+)
+I'd still keep this in ath12k_err to catch the frames that get TX 
+completion without a valid peer.
 
-diff --git a/Documentation/devicetree/bindings/leds/leds-is31fl32xx.txt b/Documentation/devicetree/bindings/leds/leds-is31fl32xx.txt
-index 7082ed186dd9..06f85a1c6aaf 100644
---- a/Documentation/devicetree/bindings/leds/leds-is31fl32xx.txt
-+++ b/Documentation/devicetree/bindings/leds/leds-is31fl32xx.txt
-@@ -11,6 +11,7 @@ Required properties:
- 	issi,is31fl3218
- 	issi,is31fl3216
- 	issi,is31fl3293
-+	issi,is31fl3206
- 	si-en,sn3218
- 	si-en,sn3216
- - reg: I2C slave address
+>   		ieee80211_free_txskb(ath12k_pdev_dp_to_hw(dp_pdev), msdu);
+>   		goto exit;
+>   	}
+>   
+> -	status.sta = peer->sta;
+> -	status.info = info;
+> -	status.skb = msdu;
+> -	rate = peer->last_txrate;
+> +	if (peer->sta) {
+> +		status.sta = peer->sta;
+> +		rate = peer->last_txrate;
+>   
+> -	status_rate.rate_idx = rate;
+> -	status_rate.try_count = 1;
+> +		status_rate.rate_idx = rate;
+> +		status_rate.try_count = 1;
+>   
+> -	status.rates = &status_rate;
+> -	status.n_rates = 1;
+> +		status.rates = &status_rate;
+> +		status.n_rates = 1;
+> +	}
+> +
+> +	status.info = info;
+> +	status.skb = msdu;
+>   	ieee80211_tx_status_ext(ath12k_pdev_dp_to_hw(dp_pdev), &status);
+>   
+>   exit:
+
 
 -- 
-2.53.0
-
+Ramesh
