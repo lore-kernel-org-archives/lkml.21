@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795173056;
-	b=foVG9YXRQ6iVI8PFkMtbTmwQ19NAlwSjTQJ9Q4YzTyBs04rxw5qwiTtBvFeyZCGQjdVx
-	 8KqIB3UvyedbwcpnAXzrXRB0JJQmOn5IOELykZf59c37rjCZEqLcaQzPCgZGqPV+H5E/w
-	 lND4IQZMQc/QMqJUWjhNSNJnvBwsdQ3f4l1wMAaByX1YrgT3K+bysNQ/3vPI+DHP/z60R
-	 sm0NkvfMfZbs+dsP4p+1pwa+8FOj42YHHylCavmgVRPtvmlWi82ouXAJScXudfblKJcp3
-	 FzQJhp4lIYZOZtLo7ncITBTZ3ilg4VsA7ufrCsOM/PgDHWy6IkSxSNTSX/k/idiLsiw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173056;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZalYcQYCzRi9sIxhbRnp0bHlYxYvz0VqIZWtxK4/xBA=;
-	b=UyaZMPnFKFglLUcdIg4X/mRpOR14xymksi/fgSKw7LrgNB1RFogIiezzkgNh7lYnDXUA
-	 aPtZSBxnifTF1xiiptIxf+0qVB1rYXBTrxwIZlhUwcT0W0PAGquKT/83szetaTI6du8u4
-	 gkvEbZ0OPHd19DAtuTjbpuVe3MyEJ1MsLFdIq3LBEhnxd7/sar4OB3XhquWF1JPPzkmY9
-	 tFxeY9vpqb3qIGHeXTdSw01TQVrdYbv4diHlYxIrpA0g1z9lrQ0/q12bSjJzlAi25jdRk
-	 4MyTfLJl4jPqu950X85odacMw/UH7WKidF6ULa+NTF9789NKB7jMfWYIiEJKJofeDtA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gyLxsBvK;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795173052;
+	b=n/p74he5uiz35KAGG+YUDvOx+UVmUzEKnxKTcGovgszclchWcoueS4QOMiMnrwoXmxXg
+	 OvUtiP7r2IwvszD4o0zTTF2lYuJjVrcOEXLpMZxqpN5/EeCyls/FaRoJcukpaOou+asK+
+	 IAwU8l3AT6GFjUK4CoLj2thJY2CjjyuAh6lHCGzFGqI8EWIxfT0f/0FHCQamXvOJTCGdk
+	 fxv8gPAggg5sHGtHhdj1Zeg3GpkmBbtPD/Q4EFYPHEDkGqa5VcImUHVoHTxlYp1QigAKM
+	 0DGwCdHpI+otI9RZHfLx7qomeLpfy7QHjxu+KFRTPU0mqMxpLVbxQv+51fBdPzqsi4A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173052;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=OjQ3KTookU9b8nB1FsPKUZ7d491idzwEmHx59C7R6BM=;
+	b=vZVDGXeeMSe3GIbEpjZ8TNnC6IZhAuEec8s974Nh3zk888MvtXRVo9cIM1ZlaR0D7Gn6
+	 kcLAgiDW+qdtPxGHfOWc0YxLMF/dUK2vHP+Eu+4fpQG3YHB8rPc6PLDspJTLAk3wLMtUJ
+	 HBbtczlE/nRg3VlxtL+bKL0YqdPrXiX8KaNpvuLNk0CD905p0wZqLUvbmFHdUJP7FoJsG
+	 GKOel+69ZSazTxmmWKiYY33aSFOPLURJ2Z7+xWg+BkU+bxOHvsaBfUy2VkJY9isBlTIt3
+	 LSI8Tn1CRWEA53wvti4lt1uTNOSFz8gmrLdZM3ZFbxEuApNF16Nb4yn+hVcuK9DlS4w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BLDTG8QU;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3342160A2606;
-	Fri, 20 Nov 2026 11:10:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AD6E606A33B;
+	Fri, 20 Nov 2026 11:10:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gyLxsBvK
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795173055;
-	b=AMAi8Cygcoi9uZe/TT5lLvO1tq4VX+2weaf0jd1OEmoulVGPKLNwz6lEBSD+hysTC9M9
-	 WGF/+VCcY/KAtPjHFsv3xB0oT/0toRZhRvC+eILaSJUoz3guOgHd3PtJsgJqeGqvkkCnr
-	 G7r8MJatJ0SYs/K4ibKddPnRtYq5dWoamShe6o4j1VJn5OV+DCwGDTMOWXr6MZ0fjFP/v
-	 oo8lGigsnnYbZ0VEI8fmpzUskO0f4T23oImGwnyaifa9300FQSXh1qW0mK74PJerlH2XY
-	 zkXDI0VbwziNpaSC0PHhosepf1Tv1NDPDG6fWs1Ph04R2UXxOf0Z67OWP7IhSovuSkg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795173055;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZalYcQYCzRi9sIxhbRnp0bHlYxYvz0VqIZWtxK4/xBA=;
-	b=msQ+8ahhco6e/bc4udN/J/7PGq4LGJ+OF4MEr4qmAotMCFIUSyb4ZawmJ36nXa3PUMx3
-	 LNn00J3fU8RuPjtytvHQjteQ53ltnDaeH/tYqFsb8J2p9ZWZcsibU1uGgq7yc+3VE+3pi
-	 ATYYTap/xeZwSOcWqDdMv0w8+JdXXaOYrH16JKycU7MQYvi3lPnUKnzjIoSYJbnX+RY95
-	 ApbYbRktk3i3XSChT42S2wpl3mQ8cGhzs0H5ApE4kHR2JsTn06lfb5WPhxl47Co2d44JI
-	 htg9zcaZXsBl0l/7rOmiaG00sb45yKGqz5tsBX2VbtjczZR/R184c/nWBHeOgCOnxjQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 119931F000CF;
-	Fri, 20 Nov 2026 11:10:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BLDTG8QU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AD811F000C4;
+	Fri, 20 Nov 2026 11:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173055;
-	bh=ZalYcQYCzRi9sIxhbRnp0bHlYxYvz0VqIZWtxK4/xBA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=gyLxsBvKqRwCm/c9e3MQnpGTD+KCUGQwa+NfA86ADpP56Oj2tPL5S5RuI8XT1vq9x
-	 cyqiWFkr2I0cmQawx3J3mPp1IgsZk102fo8tCY+eYBOTSft0zGoi9CVqwrOOSW7lNq
-	 OrqCLiBTGuD4K3bBwWh7pdGktwHMBkNvldVc6/AhmABy5FT4t11IJ+1y9iWbI/Ep0o
-	 OvgnoBz2/98ZjsSzsbO0KUNY24DxT6I2d839UQdJ6//DQGJyawgoy6lGxRFIrP3qlM
-	 N5y2khYGsjGOI2X4pPOPE0zheo2RjIwkVKx+q25OTMFzqdqsaqJU0/BN7Q3DRz/SaZ
-	 HelBBHVzZ+XLw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 941894983A;
-	Fri, 20 Nov 2026 11:10:40 +0000 (UTC)
-From: Tjerk Kusters via B4 Relay <devnull+tkusters.aweta.nl@kernel.org>
-Date: Fri, 20 Nov 2026 12:10:39 +0100
-Subject: [PATCH net v7 2/3] igb: only strip Rx timestamp header on the
- first buffer of a frame
+	s=k20260515; t=1795173052;
+	bh=OjQ3KTookU9b8nB1FsPKUZ7d491idzwEmHx59C7R6BM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BLDTG8QUIZwPZtvB3To/8I1CRem2qx6oo5aVCAgbdiE3Sq8PdeeY8vnPjGOkAhS6z
+	 GZsK7P2ZKvlsBHzaXlr18ZwB2vmRL8b95js7W6vhnRxrGX7lRCr7MJulMiKLCITQ9M
+	 LjaxjdHsZ2rHpq7rvI54T+z7ribxMWaGzgReEL8XcO7UCxITOE/7vCQV7FmGRf4WEe
+	 FDfKz2RL1H8vJ2fwr3wIzVsNEmnYpm4RGbNRRihTpPIIjQ9B7EfTToczGed4fNP8Fj
+	 z0mIct1XAsZLfAtMjsZ5WHi8fX7Z8APyByqNeMSjgZT5fCG3TPkqIDWCiZFs7ELVph
+	 P2DM1RSYQ0TgA==
+Subject:
+ Re: [PATCH net v4 1/2] ipv6: Honor suppress_prefixlength in fib6_lookup()
+From: netdev-bot+sashiko@kernel.org
+To: leonard@lausen.nl
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 11:10:50 +0000
+Message-ID: <179517305064.3136.1004033364873817896@kernel.org>
+In-Reply-To: <20261117110813.9894-3-leonard@lausen.nl>
+References: <20261117110813.9894-3-leonard@lausen.nl>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,132 +66,149 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-igb-rx-ts-fix-v7-2-63b03045978e@aweta.nl>
-References: <20261120-igb-rx-ts-fix-v7-0-63b03045978e@aweta.nl>
-In-Reply-To: <20261120-igb-rx-ts-fix-v7-0-63b03045978e@aweta.nl>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
- Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Sven Auhagen <sven.auhagen@voleatech.de>, 
- Richard Cochran <richardcochran@gmail.com>, 
- Kurt Kanzenbach <kurt@linutronix.de>, 
- Sriram Yagnaraman <sriram.yagnaraman@ericsson.com>
-Cc: intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Paul Moses <p@1g4.org>, 
- stable@vger.kernel.org, Piotr Kwapulinski <piotr.kwapulinski@intel.com>, 
- Aleksandr Loktionov <aleksandr.loktionov@intel.com>, 
- Alexander Nowlin <alexander.nowlin@intel.com>, 
- Tjerk Kusters <tkusters@aweta.nl>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795173039; l=4403;
- i=tkusters@aweta.nl; s=20260619; h=from:subject:message-id;
- bh=UtweYThC/f0Qx2w0Elc+jEl894+yZSIODmNIWsXcYHE=;
- b=zo4fWZqK6OqLBYe0qtLmwELP5b28z9U6XlZZrxUYtobdOIVTVlZMKac9XSRgafCT8kf9cUqq8
- G3Uqjg4ryQFDIW4e9KsiHhMYXIdgzbmslh6baVpe+kc7DivDyxmRT3z
-X-Developer-Key: i=tkusters@aweta.nl; a=ed25519;
- pk=JYRpYQ3+LrphEabgnxcbiOUpwvNP8WDDMcLzz+cwKsk=
-X-Endpoint-Received: by B4 Relay for tkusters@aweta.nl/20260619 with
- auth_id=831
-X-Original-From: Tjerk Kusters <tkusters@aweta.nl>
-Reply-To: tkusters@aweta.nl
-Content-Transfer-Encoding: 7bit
 
-From: Tjerk Kusters <tkusters@aweta.nl>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-When Rx hardware timestamping is enabled (e.g. ptp4l, which configures
-HWTSTAMP_FILTER_ALL), the NIC prepends a 16-byte timestamp header to the
-first Rx buffer of every received frame. igb_clean_rx_irq() strips this
-header inside its per-buffer loop:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-	if (igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
-		ts_hdr_len = igb_ptp_rx_pktstamp(rx_ring->q_vector,
-						 pktbuf, &timestamp);
-		pkt_offset += ts_hdr_len;
-		size -= ts_hdr_len;
-	}
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-For a frame that spans more than one Rx buffer (e.g. a jumbo frame), this
-block runs once per buffer. The timestamp header only exists at the start
-of the first buffer, but igb_ptp_rx_pktstamp() is called for every buffer.
+- [Medium] The new RTF_REJECT exemption in fib6_rule_suppress() is
+  justified in the commit message by "Do not suppress such routes so…
+- [Low] The commit message names only the nftables FIB expression as
+  affected.
 
-On a continuation buffer the data is packet payload, not a timestamp
-header. igb_ptp_rx_pktstamp() already has two guards against acting on a
-non-header buffer: it returns 0 if PTP is disabled, and returns 0 if the
-reserved dwords (the first 8 bytes) are non-zero. Neither is sufficient
-here: PTP is enabled, and a continuation buffer whose payload happens to
-begin with 8 zero bytes passes the reserved-dword check. In that case the
-payload is mistaken for a valid timestamp header and igb_ptp_rx_pktstamp()
-returns IGB_TS_HDR_LEN, and the caller reduces that buffer's size by 16.
-igb_add_rx_frag() adds a continuation buffer from its original offset, so
-the buffer loses its last 16 bytes and the data of the next buffer
-follows directly. A frame spanning N buffers loses 16 bytes per affected
-continuation buffer, in the middle of the payload when N > 2. If the last
-buffer of a frame holds 8 to 15 bytes, all zero, the unsigned size wraps
-and a fragment of about 4 GiB is added to the skb. The sender chooses the
-frame length and content, so this can be triggered remotely.
+--
 
-This is easily triggered by a GigE Vision camera streaming dark frames
-(mostly 0x00 pixel data) over jumbo UDP with PTP active on the receiver:
-the all-zero frames are dropped as truncated while frames with non-zero
-content are fine. The driver reports no error; only the IP layer counts
-the frames in IpExtInTruncatedPkts.
+ipv6: Honor suppress_prefixlength in fib6_lookup()
 
-No content-based check can reliably tell a continuation buffer that begins
-with zero bytes from a real timestamp header, because both are all zero.
-Fix it structurally instead: only attempt the strip on the first buffer of
-a frame, which is the only buffer that can contain a timestamp header. In
-igb_clean_rx_irq() skb is NULL until the first buffer has been processed,
-so guarding the strip with !skb restricts it to the first buffer
-regardless of payload content.
+This patch makes fib6_rule_suppress() check suppress_prefixlength against
+the prefix length of the FIB entry when the lookup goes through
+fib6_lookup(). On that path res->rt6 is not populated. Routes with
+RTF_REJECT set in the result are not suppressed, so they still end the
+lookup.
 
-This relies on the previous patch. Without it, an XDP program that does
-not return XDP_PASS for the first buffer of a multi-buffer frame leaves
-skb NULL for the rest of that frame. With the receive length limited
-while XDP is attached, such frames no longer reach the XDP path.
+Link: https://github.com/firewalld/firewalld/issues/1600
 
-igc has the same bug; Paul Moses' igc series, linked below, fixes it the
-same way.
+> diff --git a/net/ipv6/fib6_rules.c b/net/ipv6/fib6_rules.c
+> index 0ffd7b47a0460..7efb0515b5c8b 100644
+> --- a/net/ipv6/fib6_rules.c
+> +++ b/net/ipv6/fib6_rules.c
+> @@ -286,6 +286,12 @@ INDIRECT_CALLABLE_SCOPE bool fib6_rule_suppress(struct fib_rule *rule,
+>  	struct rt6_info *rt = res->rt6;
+>  	struct net_device *dev = NULL;
+>  
+> +	if (arg->lookup_ptr == fib6_table_lookup) {
 
-Link: https://lore.kernel.org/all/20261028083344.3047350-2-p@1g4.org/
-Fixes: 5379260852b0 ("igb: Fix XDP with PTP enabled")
-Cc: stable@vger.kernel.org
-Reviewed-by: Piotr Kwapulinski <piotr.kwapulinski@intel.com>
-Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Reviewed-by: Kurt Kanzenbach <kurt@linutronix.de>
-Tested-by: Alexander Nowlin <alexander.nowlin@intel.com>
-Signed-off-by: Tjerk Kusters <tkusters@aweta.nl>
----
- drivers/net/ethernet/intel/igb/igb_main.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+[Severity: Low]
 
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 5f1a5e2240e6..a59ee6575c56 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -9135,8 +9135,11 @@ static int igb_clean_rx_irq(struct igb_q_vector *q_vector, const int budget)
- 		rx_buffer = igb_get_rx_buffer(rx_ring, size, &rx_buf_pgcnt);
- 		pktbuf = page_address(rx_buffer->page) + rx_buffer->page_offset;
- 
--		/* pull rx packet timestamp if available and valid */
--		if (igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
-+		/* pull rx packet timestamp if available and valid; it is only
-+		 * present on the first buffer of a frame
-+		 */
-+		if (!skb &&
-+		    igb_test_staterr(rx_desc, E1000_RXDADV_STAT_TSIP)) {
- 			int ts_hdr_len;
- 
- 			ts_hdr_len = igb_ptp_rx_pktstamp(rx_ring->q_vector,
+The commit message only mentions the nftables FIB expression. However,
+every fib6_lookup() caller takes this branch once
+net->ipv6.fib6_has_custom_rules is set. Should the changelog also mention
+the other callers whose results change?
+
+For example, bpf_ipv6_fib_lookup() in net/core/filter.c calls
+fib6_lookup() when BPF_FIB_LOOKUP_DIRECT is not set:
+
+    err = fib6_lookup(net, oif, &fl6, &res, strict);
+
+So XDP and tc programs that call bpf_fib_lookup() for AF_INET6 will now
+get the route from a later table, not the suppressed default route in the
+main table.
+
+Gateway validation in ip6_route_check_nh() in net/ipv6/route.c also goes
+through fib6_lookup():
+
+    err = fib6_lookup(net, cfg->fc_ifindex, &fl6, &res, flags);
+
+This path is used for IPv6 nexthop objects. Outside a VRF,
+nh_create_ipv6() sets fc_table from l3mdev_fib_table(dev), which is 0. It
+is also used for route adds when the gateway is not found in
+cfg->fc_table.
+
+A gateway that used to resolve through a no-gateway route such as
+"default dev X" can now resolve to a different device once that route is
+suppressed. If no later rule finds a route on the requested device, the
+add fails with -EHOSTUNREACH.
+
+This probably brings IPv6 closer to the ip6_route_output() and IPv4
+fib4_rule_suppress() behaviour, which is likely what you want. Since the
+Fixes: tag will take this to stable, could the changelog mention the
+user-visible changes to bpf_fib_lookup() and to route and nexthop
+validation?
+
+> +		/* fib6_table_lookup() returns 0 for reject routes. */
+> +		return !(res->fib6_flags & RTF_REJECT) &&
+> +		       res->f6i->fib6_dst.plen <= rule->suppress_prefixlen;
+
+[Severity: Medium]
+
+Does the RTF_REJECT exemption also catch RTN_THROW routes?
+
+The commit message says:
+
+    Do not suppress such routes so that they continue to terminate the
+    lookup, as with ip6_route_output() and IPv4.
+
+But rtm_to_fib6_config() sets RTF_REJECT for throw routes as well:
+
+    if (rtm->rtm_type == RTN_UNREACHABLE ||
+        rtm->rtm_type == RTN_BLACKHOLE ||
+        rtm->rtm_type == RTN_PROHIBIT ||
+        rtm->rtm_type == RTN_THROW)
+            cfg->fc_flags |= RTF_REJECT;
+
+On the fib6_lookup() path, fib6_rule_action_alt() returns 0 for any
+matched entry other than fib6_null_entry:
+
+    err = fib6_table_lookup(net, table, *oif, flp6, res, flags);
+    if (!err && res->f6i != net->ipv6.fib6_null_entry)
+            err = fib6_rule_saddr(net, rule, flags, flp6,
+                                  res->nh->fib_nh_dev);
+    else
+            err = -EAGAIN;
+
+So fib_rules_lookup() calls fib6_rule_suppress(). This branch returns
+false because RTF_REJECT is set, and the rule walk stops with an
+RTN_THROW result.
+
+On the ip6_route_output() path, __fib6_rule_action() returns
+rt->dst.error, which comes from fib6_prop[RTN_THROW] = -EAGAIN. IPv4
+fib_table_lookup() returns fib_props[RTN_THROW].error = -EAGAIN. In both
+cases fib_rules_lookup() goes on to the next rule, so a throw route never
+ends the lookup there.
+
+For example, take "throw default" in the main table with a "table main
+suppress_prefixlength 0" rule. ip6_route_output() would continue to the
+next rule, but fib6_lookup() stops at the throw route.
+
+nft_fib6_eval_type() then reports RTN_THROW, and nft_fib6_eval() returns
+no oif:
+
+    if (ret || res.fib6_flags & (RTF_REJECT | RTF_ANYCAST | RTF_LOCAL))
+            return;
+
+That can lead to strict RPF drops. bpf_ipv6_fib_lookup() also returns
+BPF_FIB_LKUP_RET_NOT_FWDED even though a later rule would match.
+
+The throw handling in fib6_rule_action_alt() predates this patch.
+However, before 1c32b24c234b the nft code used ip6_route_lookup() and
+nf_ip6_route(), which handled throw routes correctly. The reject-route
+checks described in the notes seem to cover only blackhole, unreachable
+and prohibit routes.
+
+Could fib6_rule_action_alt() return -EAGAIN when res->fib6_type ==
+RTN_THROW? The RTF_REJECT exemption here would then cover only routes
+that really end the lookup.
+
+> +	}
+
+[ ... ]
 
 -- 
-2.27.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117110813.9894-2-leonard%40lausen.nl
