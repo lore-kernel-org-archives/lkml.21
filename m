@@ -1,58 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169085;
-	b=NYPZEDMv3sqV3PFQCkLk/pq6TmZ57Al6uFNpkrnlIz3gop47tPxd+y1aPmgCzqBUSxF7
-	 hBExi4XrgwgM9qNNE1C92KTLTqWZTQ3fAdrvJmgXLFFMEYHz9UHaXLMynVkhELzaRHkxe
-	 lyv2Kzxvus/ZYjfZBn9uQED6Pira96F6hwn+j6hRt0k0H9hOVgBS5O414u2JfVANltRjb
-	 xJQuxgih2vTMqawb6hFN/GtY2LI3BcyCkBHMkoXwlo3FJ4ZRGB101Aj/0IwNXoptKomgA
-	 dHTDuuUDYsP2H0AWtfpPEaa7ihQe0XOgEvTKcSZugZ9EbUQmQ/UzbrTQss9MkqBOiyQ==
+	t=1795169102;
+	b=mpA3OxSAcrUtauNIFpsQEqNa6y9wZ0dpR8kd8fvlUkcTzRcZWKm3uMA3CIsK64S3EmAc
+	 Pk9lgY50ndk1eqZElVFJVdBUnivC9Yo1FiP3KNLCjFzkmRf9JwWDF5o4CM5/xuRHt+MF/
+	 Lv3GtXYpRBIN0HuHggQjfmYmPz/XDDSkdHJgVg7fh/ZY/w+7RzSswEihFL0RP7so2QLFK
+	 guG9aEN5F4TyV4UEmH/wf7L8Fr7n3dlylktKXRzAMkrAXE/2qfqTXQMwFhPHI9lkWljPC
+	 yQR9d+rBzdJ7r9UpABog/lvLMGjcAMwZpyoUuteZidmq3hFW96rWCAK10eWPIXYCXBg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169085;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169102;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
 	 X-Mailer;
-	bh=Z6BUVo3fWGVpmZK7fHFe9RzImtGRbCFMl/2Ws5mJSkM=;
-	b=LxKxDqc7oYqzUrOcwSHmU3fBmKXeaP9LsWLPnYXZvyIlFU74YafeB8Bx8sAnD52g2DlQ
-	 OcUk04cDSQtmT7kkdZS6NVuhia99JgThw4ndq2H619HxkfjDmaSRfE79Tks9lq8fr6KVG
-	 BzRNzT0MWfuS0K75p1zSI9NQzjvaV900f0AhTdtkGMvpF6P3YHvTYBDajILNXa3bhY9LH
-	 RNd4eiktrUD9UhdO293nR8gEeBbpTttqIWfWiR8L33eVNvdXEMJEwGaQYDEb5s7MgEgx6
-	 hOtsY+IcIO0YmRGSb2t/qX8f0cXcbQ1czadJfylD+7LPVl+zX6eK0ihqXkTe37gQggw==
+	bh=NWXjCMhg5RQHn1ualsi+2+dlBnae42Xj8NLwnTW/lGM=;
+	b=ciQFbx18PtmdHm2g6ntKqC79ip0Cxgbg1h7fuLDuJgnnoRTui9f8CtSyRsYy3p8ZHwyZ
+	 sPGWTOPNzWusoEJ6yRR0Tw3eXthLg6aTU6+iuzRDCv9yLOFurXMXG9Gb/5/cqxF8Y2JNn
+	 YOiFJUvYlM834IfLjHyBT3iUYjpIyuif0Fy8RCIqHK0WtT7cF4iNKk47Z6fbfLIlSMOfl
+	 2P4CDR3TepSlXHeeNm2eq1Be22qGNtsRv2HKGnlInM/2FqDgMNkZPey6VHbpoKK7g12IZ
+	 wceCTRMQDwDPg/cx95R2aO2KlgEnmjqKryHh5IWPcMuqTn7npqKjmHPtUfqJqzzMf7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Qq/6oCi/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rdavW1Tq;
+	arc=none smtp.remote-ip=91.218.175.54
+Received: from mta0.migadu.com (out-54.mta0.migadu.com [91.218.175.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5FB3606A338;
-	Fri, 20 Nov 2026 10:04:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53BB3606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:05:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53BB3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qq/6oCi/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DA341F000D4;
-	Fri, 20 Nov 2026 10:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795169085;
-	bh=Z6BUVo3fWGVpmZK7fHFe9RzImtGRbCFMl/2Ws5mJSkM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Qq/6oCi/8WIMYs2tV5aEnK8tGO7+Are/+wKcxEP+3S+LaKRE9gaJT5qBzl09mWAoR
-	 xT3sTcXGpGD6uyMZa6G9SVRv4gb7d5MXevoyn1eEZrUqCm1zfO7cgTtOF7HNGweQ4v
-	 Z2m3pPmi1GFJVcTzb9MI7xJL53rAdo+54dxhnt3CYEK7cieNJx9qDPymHY6Pm8/3je
-	 L1sAkqCtXM9WYI1sPFWHwn1leYoQLaoxFCMWhjWojwo0VuRwA6f3VrCz5xhDKTBEsX
-	 D5Vp4NN5E44pf1uXo/OWfuYxfWqRtQNq0/txb+lHhYR29WEtweR5uncYM4E4hEkxrL
-	 xJJ+ZQWyrJz8g==
-From: Vinod Koul <vkoul@kernel.org>
-To: Vinicius Costa Gomes <vinicius.gomes@intel.com>, 
- Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>, 
- Dave Jiang <dave.jiang@intel.com>, Yi Sun <yi.sun@intel.com>, 
- linux-kernel@vger.kernel.org, Frank Li <Frank.Li@kernel.org>, 
- dmaengine@vger.kernel.org
-In-Reply-To: <20260911225737.11411-1-kmehltretter@gmail.com>
-References: <20260911225737.11411-1-kmehltretter@gmail.com>
-Subject: Re: [PATCH] Documentation: ABI: sysfs-driver-dma-idxd: Fix the
- kernel version 6.20.0
-Message-Id: <179516908288.54365.16124886370434630919.b4-ty@kernel.org>
-Date: Fri, 20 Nov 2026 15:34:42 +0530
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rdavW1Tq
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=0FNox3ukbz4fDooWMUYv8mk/hq96WOBIwElNNqxsC+0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795169099; v=1; x=1795773899;
+ b=rdavW1Tq7jVe1P+iT0kktJT9Op+ge9TuDSlv2GDs5x7K1q8TY9PTaNWAQqclyXcuHVanl+D7
+ GbZLqQH/HshmlDBqA64YRIQc3DrAmgKr35rICG9Inec3cgv2XzsPesWhIuPmQD/DnYQR41ey2Qx
+ 7bk7zoeJ3ATjMxnmTHiCZyCs=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7b6e652543881dfc;
+	Fri, 20 Nov 2026 10:04:59 +0000
+X-Mizu-Trace-ID: 7b6e652543881dfc
+X-Migadu-Flow: FLOW_OUT
+From: Zqiang <qiang.zhang@linux.dev>
+To: paulmck@kernel.org,
+	frederic@kernel.org,
+	neeraj.upadhyay@kernel.org,
+	joelagnelf@nvidia.com,
+	urezki@gmail.com,
+	boqun@kernel.org
+Cc: qiang.zhang@linux.dev,
+	rcu@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] refscale: Fix possible oops in the typesafe_cleanup()
+Date: Fri, 20 Nov 2026 18:04:50 +0800
+Message-Id: <20261120100453.5826-1-qiang.zhang@linux.dev>
+X-Mailer: git-send-email 2.17.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,26 +68,39 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
 
+If typesafe_alloc_one() fails partway through populating rtsarray[],
+the typesafe_init() returns false but leaves rtsarray_size set to the
+full requested count.  The unwind path then calls typesafe_cleanup(),
+which loops over rtsarray_size and passes the NULL pointer to the
+kmem_cache_free(). unlike kfree(), kmem_cache_free() does not accept
+a NULL pointer, this will cause oops.
 
-On Sat, 12 Sep 2026 00:57:37 +0200, Karl Mehltretter wrote:
-> There is no kernel 6.20: the release after 6.19 was 7.0. The entry came
-> in with commit 8308510b9365 ("dmaengine: idxd: Expose DSA3.0
-> capabilities through sysfs"), first released in v7.0-rc1. Say 7.0.
-> 
-> 
+This commit set rtsarray_size to the number of successfully allocated
+elements before returning false, so that typesafe_cleanup() only frees
+the objects that were actually allocated.
 
-Applied, thanks!
+Signed-off-by: Zqiang <qiang.zhang@linux.dev>
+---
+ kernel/rcu/refscale.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-[1/1] Documentation: ABI: sysfs-driver-dma-idxd: Fix the kernel version 6.20.0
-      commit: 6f85b686fce9dd00202f5c687ab836682b3bdaa7
-
-Best regards,
+diff --git a/kernel/rcu/refscale.c b/kernel/rcu/refscale.c
+index 4157774f01ca..0843bff9c3da 100644
+--- a/kernel/rcu/refscale.c
++++ b/kernel/rcu/refscale.c
+@@ -1143,8 +1143,10 @@ static bool typesafe_init(void)
+ 		return false;
+ 	for (idx = 0; idx < rtsarray_size; idx++) {
+ 		rtsarray[idx] = typesafe_alloc_one();
+-		if (!rtsarray[idx])
++		if (!rtsarray[idx]) {
++			rtsarray_size = idx;
+ 			return false;
++		}
+ 	}
+ 	if (cur_ops == &typesafe_ref_ops) {
+ 		rts_acquire = typesafe_ref_acquire;
 -- 
-~Vinod
-
+2.17.1
 
