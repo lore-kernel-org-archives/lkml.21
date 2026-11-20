@@ -1,49 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180238;
-	b=xHOz8U0z7pQohMG666ZP2k1D2AcgVj9AlomqQTBvrZ/RU/TDZFa+thEiX05ztPLC4pv5
-	 Innxx2LTNFosObk8zv2N7Q1qbgOHDIZ1zXMe1+Thws9JciPHkO0ju5HULQskWvwGlRNBR
-	 JUwldIxPQYAu1BMMw+1ov/jSCuJNaXZ0tjBynEurJcbSwIJT9oEviQL86tvbd9PTf2sNr
-	 JaW5zxOlz+8Y7DDayJtB5kkUoL5viq/rf5nq2aPuoUGUIrtYyM7/ijoWt72n5RqQGLK7C
-	 /Qigsu5IYm6pw2REAgE1ivWyWohFqizti0ORvxIkH4rllBR5o7eXLVYUmWcifZL+e0Q==
+	t=1795180239;
+	b=AfCauleZ6eW1GAHKkdYCKxmbsC2Xp8/+4U0ZWt9Ty8OsLm5TpWaAJbvt5RWEH4zAcqKe
+	 E2MjlrcNqAlOBSSm7B4nTM7+7kw02L+q5yky5vC1Oh9y5RiGnaqd1SfrXwGtvoGDkuD06
+	 92BQQrZKnMb+C99jKOIhTq4JvaKaKa5XR4rsnyMC0ZM5KItZsjLrc6FP1Zk9Ulq/enJZ/
+	 /A1k9n+E6II8NtEEFT8d0GauzWb+jzBn3UGXyAVZW6dmss7tlLNN63Vcd46+G1fvVGoda
+	 Ak35jubHdPd82uo/qgP8EUq1KJxxI++HdhsuuEukAxRCf7MmgU4NB3xtNabiVGFtfJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180238;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=388ztI594AS+nKGPU4H0M5a2RIBgnI1LfiHUyoQUutQ=;
-	b=K1Kvl7zs/VriUidPxXnNQAGu3mwrvZHxWdZKwlBYA8NQbXZbK7tEGcQXmVDE3deQNl4a
-	 hDRlrrPU+IGCz8UzPyVQI7DvIb6reoBPlYBpiTErvXlwbTsO6DZtPiZZDxLcmmToR9k0i
-	 c+v2qvYyhzVvNBL0oPkXg2qPaiqTKVHt74cun3Yy6HP4AfZybyJq4Ur7+P/yflbJlw2My
-	 r7yonSGkfy5qC2LkK8olEGC4Yr2KrpepIbi5fkDTzBe0uIkNxnLY2vgP0FsrIfEzrWca3
-	 6C6dPlzdI66frf/3egL/B5WT5qYhQ20slCwtbmP9MP4NXgRZmi6mp/cMJLec5//l0Ew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180239;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=10xBO6BM5jC2VmfBalPyz94xHQa83JqJS3DZ37b5vUc=;
+	b=PHy9Nugh1RY9sOdTBGFal+4dg4DRyERcFFtHMyx52MDPPoHcIFq56ojBxAWOVweXD40C
+	 AUCTEVRHtzpXmRrviskUWJCemBhHkPH9J20Z2SGEaQJXYbMWp/iCp9o3et/c/uLNc3PID
+	 /t21YkxqXpRHxf+sU8EzJ3jOrvjd2x2ABDPoQd0VaCPdI4f49+72rM34CO0WmTxK6SfqH
+	 i57+a58IJ6OPU1XPnyP8PWcNaTGicjV1c+nAcLW4TOK84OYNFkue2tgP+zghG1iKvMiWW
+	 yEmoo7ydglPTkM1TJ4Deb/M8em1XQXR8xDu+7qGUJeQeZsDh/gpyimMmSiyzdvDxUGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqthkCfC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBgYHFor;
+	arc=none smtp.remote-ip=91.218.175.162
+Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A45D606A335
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07CB060A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07CB060A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqthkCfC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AA931F000E0;
-	Fri, 20 Nov 2026 13:10:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180237;
-	bh=388ztI594AS+nKGPU4H0M5a2RIBgnI1LfiHUyoQUutQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dqthkCfC+TsMclo9bIy6An59QHE2+LwFyMnOMYhyDONXgitaAiwQtOzJnOsEoqaTF
-	 1RovgJ/kyX9xnld6WevTuq+OYmw5Z62DuDbx0GiCA1sbk1Dl6hdU9TuOexR9v+I9Mo
-	 /meEfA63CydmdCRXlaODHsSzln3ulnAJMdW0AbFALKZuo2K+iPbIWkxJl8Rk4ufNiu
-	 DhZ9G3O88TzcmdFJs4cHkC1liIprN4cGokEaadl9JKHxzMnvLXFtxr9fikKkxY0iYd
-	 V+RMhK6H/ATASfg6KsmWs09bX2cSWT+L7oWim8t5jeBMVFJyQ5VUrLUlRkYRG4cIzp
-	 97s3K71fogimg==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 20 Nov 2026 14:10:13 +0100
-Subject: [PATCH v12 6/9] drm/vc4: Carry the HVS channel over to created
- CRTC states
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=LBgYHFor
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Gv0BXU35raU044WaCVsEvA9rHw/hM7oxsFEnRZDuxAc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795180237; v=1; x=1795785037;
+ b=LBgYHForlr+filyEb04K+4N/Uu6PbzoR5S1nuUFYFRJMFe7J8uIMBrlNagZ46Bc1rG0Lo8sX
+ oxkTTLi6s9BSLBTprkzHfwfjhMQWfI90F6wDGpT16adoGMJuZAexia69WectS2HE6aB6fBKxhcY
+ R4zM5l4XeMIESmGj+A8L6vzA=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 06dd85436cc8512a;
+	Fri, 20 Nov 2026 13:10:31 +0000
+X-Mizu-Trace-ID: 06dd85436cc8512a
+X-Migadu-Flow: FLOW_OUT
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Mehmet Fide <mehmet.fide@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>,
+	Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>,
+	Brian Norris <briannorris@chromium.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v3 3/5] wifi: rtw88: do not drop stations when collecting them for an iteration
+Date: Fri, 20 Nov 2026 14:09:18 +0100
+Message-ID: <20261120131000.33858-3-luka.gejak@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117171003.1840491-4-mehmet.fide@gmail.com>
+References: <20261117171003.1840491-1-mehmet.fide@gmail.com> <20261117171003.1840491-4-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,230 +76,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-drm-reset-state-flag-v12-6-42d63d7417fc@kernel.org>
-References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
-In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Daniel Stone <daniels@collabora.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Jocelyn Falempe <jfalempe@redhat.com>, 
- =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
- =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
- Pekka Paalanen <pekka.paalanen@collabora.com>, 
- Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
- Victoria Brekenfeld <victoria@system76.com>, 
- Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6843; i=mripard@kernel.org;
- h=from:subject:message-id; bh=Aen0UsFhzRDDkrCC3Fuk/+qjL8RrEjAcNfYIsatGIkI=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbltFXgf153z6Ov26xLL7PUcLJp3I5wzROeXB0iq+b
- 7Jj8J2yjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCR07GMDXNvsXF+M/TMO80s
- 5Th36eFdN064f3qUsjik4fOJHS6rbxmGHTlW/GXLxGV65Usro+cU5DLWO1kpZ0ZbHp7XNs9jlYX
- R65W5dfoN3iX2p1stfpxee4jHJHfeNekJWoU5dxxDE9YvWhwJAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-drm_atomic_commit_fill_with_defaults() builds its commits out of
-states created through atomic_create_state() instead of duplicating
-the current state. A created CRTC state comes with its
-assigned_channel left to VC4_HVS_CHANNEL_DISABLED, while a duplicated
-state carries the channel currently in use.
+Hi Mehmet,
 
-vc4_pv_muxing_atomic_check() skips the CRTCs whose enablement doesn't
-change, so a CRTC that stays enabled with a created state keeps its
-channel unset, and vc4_core_clock_atomic_check() then indexes
-hvs_new_state->fifo_state[] with VC4_HVS_CHANNEL_DISABLED (-1U), far
-outside of the array.
+Thanks for taking care of the allocation failure. One comment below.
 
-Copy the channel of the current state over in the skip branch, like a
-duplicated state would have carried it. This is a no-op for duplicated
-states, which already have the channel set.
+On November 17, 2026 6:10:01 PM GMT+01:00, Mehmet Fide
+<mehmet.fide@gmail.com> wrote:
 
-Add a KUnit test that enables an output, fills a state with defaults
-and re-applies the same configuration, and checks that the CRTC kept
-its channel.
+>  static void rtw_collect_sta_iter(void *data, struct ieee80211_sta *sta)
+>  {
+>  	struct rtw_iter_stas_data *iter_stas = data;
+> -	struct rtw_stas_entry *stas_entry;
+> +	struct rtw_sta_info *si = (struct rtw_sta_info *)sta->drv_priv;
+>
+> -	stas_entry = kmalloc_obj(*stas_entry, GFP_ATOMIC);
+> -	if (!stas_entry)
+> -		return;
+> -
+> -	stas_entry->sta = sta;
+> -	list_add_tail(&stas_entry->list, &iter_stas->list);
+> +	list_add_tail(&si->iter_list, &iter_stas->list);
+>  }
 
-Acked-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
+Does the driver mutex still pin a client that has already gone back
+from ASSOC to AUTH? In AP mode mac80211 can do that when userspace
+clears ASSOCIATED. drv_sta_state() calls rtw_ops_sta_remove() then, but
+leaves sta->uploaded set, so the watchdog can still collect the client.
 
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-To: Maíra Canal <mcanal@igalia.com>
-Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
----
- drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c | 105 +++++++++++++++++++++++++
- drivers/gpu/drm/vc4/vc4_kms.c                  |  16 +++-
- 2 files changed, 119 insertions(+), 2 deletions(-)
+If userspace deletes that client after the collection drops RCU,
+mac80211 can free it without calling rtw_ops_sta_remove() again. The
+temporary list now has a node in the freed station. list_del_init()
+can write to that node before the callback runs. The old code already
+kept the station pointer too long, and this adds the list operations
+on it.
 
-diff --git a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
-index 7a54f46acff9..c868d2cd1b3d 100644
---- a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
-+++ b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
-@@ -1119,14 +1119,119 @@ drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable_too_many_crtc_state(struct ku
- 
- 	drm_modeset_drop_locks(&ctx);
- 	drm_modeset_acquire_fini(&ctx);
- }
- 
-+/*
-+ * Test that a CRTC that stays enabled with a state created through
-+ * atomic_create_state(), like the ones drm_atomic_commit_fill_with_defaults()
-+ * builds for a reset, keeps the HVS channel it was assigned:
-+ * vc4_pv_muxing_atomic_check() skips the CRTCs whose enablement doesn't
-+ * change, so their new state has to carry the channel over from the
-+ * current state, the way a duplicated state would, for
-+ * vc4_core_clock_atomic_check() to see a valid channel.
-+ */
-+static void
-+drm_test_vc5_pv_muxing_bugs_created_state_keeps_channel(struct kunit *test)
-+{
-+	struct drm_modeset_acquire_ctx ctx;
-+	struct drm_atomic_commit *state;
-+	struct vc4_crtc_state *new_vc4_crtc_state;
-+	struct drm_device *drm;
-+	struct vc4_dev *vc4;
-+	unsigned int old_channel;
-+	int ret;
-+
-+	vc4 = vc5_mock_device(test);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, vc4);
-+
-+	drm_modeset_acquire_init(&ctx, 0);
-+
-+	drm = &vc4->base;
-+retry_first:
-+	state = drm_kunit_helper_atomic_state_alloc(test, drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+	ret = vc4_mock_atomic_add_output(test, state, VC4_ENCODER_TYPE_HDMI0);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry_first;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ret = drm_atomic_check_only(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry_first;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	new_vc4_crtc_state = get_vc4_crtc_state_for_encoder(test, state,
-+							    VC4_ENCODER_TYPE_HDMI0);
-+	KUNIT_ASSERT_NOT_NULL(test, new_vc4_crtc_state);
-+
-+	old_channel = new_vc4_crtc_state->assigned_channel;
-+	KUNIT_ASSERT_NE(test, old_channel, VC4_HVS_CHANNEL_DISABLED);
-+
-+	/* Make the enabled state the current one */
-+	ret = drm_atomic_helper_swap_state(state, false);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+retry_second:
-+	state = drm_kunit_helper_atomic_state_alloc(test, drm, &ctx);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
-+
-+	/*
-+	 * Fill the state with defaults, like a DRM_MODE_ATOMIC_RESET
-+	 * commit would, then re-apply the exact same configuration.
-+	 */
-+	ret = drm_atomic_commit_fill_with_defaults(NULL, state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry_second;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ret = vc4_mock_atomic_add_output(test, state, VC4_ENCODER_TYPE_HDMI0);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry_second;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	ret = drm_atomic_check_only(state);
-+	if (ret == -EDEADLK) {
-+		drm_atomic_commit_clear(state);
-+		ret = drm_modeset_backoff(&ctx);
-+		if (!ret)
-+			goto retry_second;
-+	}
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+
-+	new_vc4_crtc_state = get_vc4_crtc_state_for_encoder(test, state,
-+							    VC4_ENCODER_TYPE_HDMI0);
-+	KUNIT_ASSERT_NOT_NULL(test, new_vc4_crtc_state);
-+
-+	KUNIT_EXPECT_EQ(test, new_vc4_crtc_state->assigned_channel, old_channel);
-+
-+	drm_modeset_drop_locks(&ctx);
-+	drm_modeset_acquire_fini(&ctx);
-+}
-+
- static struct kunit_case vc5_pv_muxing_bugs_tests[] = {
- 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable),
- 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable_too_many_crtc_state),
- 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_stable_fifo),
-+	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_created_state_keeps_channel),
- 	{}
- };
- 
- static struct kunit_suite vc5_pv_muxing_bugs_test_suite = {
- 	.name = "vc5-pv-muxing-bugs",
-diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
-index ab551eb2da50..562f2d1f45a4 100644
---- a/drivers/gpu/drm/vc4/vc4_kms.c
-+++ b/drivers/gpu/drm/vc4/vc4_kms.c
-@@ -970,15 +970,27 @@ static int vc4_pv_muxing_atomic_check(struct drm_device *dev,
- 
- 		drm_dbg(dev, "%s: Trying to find a channel.\n", crtc->name);
- 
- 		/* Nothing to do here, let's skip it */
- 		if (old_crtc_state->enable == new_crtc_state->enable) {
--			if (new_crtc_state->enable)
-+			/*
-+			 * A CRTC that stays enabled keeps its channel. A
-+			 * duplicated state carries it over, but a state
-+			 * created through atomic_create_state() comes with
-+			 * the channel unset, so copy it from the current
-+			 * state to make sure the core clock check and the
-+			 * commit see the channel in use.
-+			 */
-+			if (new_crtc_state->enable) {
-+				new_vc4_crtc_state->assigned_channel =
-+					old_vc4_crtc_state->assigned_channel;
-+
- 				drm_dbg(dev, "%s: Already enabled, reusing channel %d.\n",
- 					crtc->name, new_vc4_crtc_state->assigned_channel);
--			else
-+			} else {
- 				drm_dbg(dev, "%s: Disabled, ignoring.\n", crtc->name);
-+			}
- 
- 			continue;
- 		}
- 
- 		/* Muxing will need to be modified, mark it as such */
+Could we skip stations with no si->vif while collecting them? As far as
+I can see, rtw_sta_remove() clears it under the same mutex.
 
--- 
-2.56.1
-
+Best regards,
+Luka Gejak
