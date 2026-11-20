@@ -1,53 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142431;
-	b=hJml8o9Z6+PHUrHxhdQAH8uzau0gaw9GNFeBC4VXe5+gdpnG/vSVREt8C3ekMitU1q6l
-	 VgilJ7FwsramlV0foGdx0y6U0O0wH/pA/pccVEAJ/bXFXiFW6S2J00x8XTbWvBrlBaO/D
-	 sjsENbYW9+wrROVpGpn41l4k1SoBGUI82+kHU3IJ2jx41uZFctfnsPm//lTeq4/DcEcfU
-	 3fHQ2M9m6270DphDAwObjseqhfMq9XneRl2M1kiKgzRTubiO3dxpQ115Vrs8YkDPJX7dx
-	 5mvl+dJe7QWZtihX6urYzY0vqeDp0TZ0ahMaMD2TGl8yd4QbsFcgHDJ7anEFZYtvFIA==
+	t=1795142442;
+	b=za6aL1SEERN5s6RXTMQ6yTC6sZGKrDYIxXzcPy8czY6D5CMCljQAi+bT0mmW3LkIZsce
+	 kA7WavlCr5Xego6Fu2u9wXbqH+gfQFiYmoRwbhBH54YsXASVPY1FKmQlyaWEbku0lNj/p
+	 yc0vUvQP84q+noPUxzljPzOBPfzCaELlyFp6A+LF/94ASKe1Jr/4r4LziOxweYw8Daqz9
+	 fQR37olMvImI3HGCt4XaB2dj4AC2m/Bua4BpUfVM8YFN0pbf30zqjh9e7odXbQF1V7I00
+	 C3xZ9WoFkiS6VrWbxQ9oyfg1j9h6wMVIVLh4ANBYHNa6ANJy8wtCcoh9mgx5RjwK0cw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142431;
-	h=Received:DKIM-Signature:To:Cc:Subject:From:In-Reply-To:Message-ID:
-	 References:Date:MIME-Version:Content-Type;
-	bh=qBcMam9a+G72eCE1iEQm72P3r8R+iwjDqvOhmq1l5fk=;
-	b=jAqLU0L1PIwKpPQ6j3CIQVbPKxg9mQ2qRfPVK1QuNRFdr5F/coPS1Fs8XVtIgsTD1Z2u
-	 Vd2Qk1+HoqbHZ56gmsN7wEcU0+tkVCbPaGGyF4wPWO1Bm1DQfBAvLDr5Hrzr1O7cMx+xB
-	 0RQfkxFlamVvsmS06nOUAJF+GrznSEfPmwkwuIDCRKZ7NnqqFTrz9Pv49QFGtBiE/lZHq
-	 +fpB+xZUGSxI74pgcT4Er6wSNBRUVs13o2I3D8A/0GM66DeMUYCCpsTO4iuxLkgangyoG
-	 9MPcVDyWrn3OGOIjJA6UtAfR+Qr7DuYvG2xbEFKuuw3RE1KrlzVNR9bllsn/JOu//eA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142442;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mfZO18oBQCqCq+e1KaZpH5JcESLIsSMc1CQXDKdj9vQ=;
+	b=LIXDOAtUW/LMPk1XjtkjF9MK2DxuRBFg9A8EceFcqxewYvq86DVi7QExkREq3MwuhRBS
+	 a+GUzabuxlZzAVVqPr1MXAlu19jH3IDK2+nsLhIGAO7fNOdDCp06by4OSGqe1ama4jr0D
+	 /biuBMrpS9i+OURlysV6V9gotBURnsYOSNQnHC5W67DLcAkOIdX/Al4IVusRHqPW7RkDY
+	 KMaz/C/cg+coOie2YMJKbyuZ9HmJLME1FHCPaD4UJX7KVml82lb+s3A75t2DaSsTCNzFN
+	 0qKld4WLcso+71Bb1BtomOtiMfw3QUXffWuQfMywJSfKOLt3Vf9nOI7GhErfn+Gjdig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fLPEty/H";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DzpN55KN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C794D606A320;
-	Fri, 20 Nov 2026 02:40:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BBE0606A320;
+	Fri, 20 Nov 2026 02:40:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fLPEty/H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 576F01F000C4;
-	Fri, 20 Nov 2026 02:40:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DzpN55KN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 700CD1F000CA;
+	Fri, 20 Nov 2026 02:40:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795142431;
-	bh=qBcMam9a+G72eCE1iEQm72P3r8R+iwjDqvOhmq1l5fk=;
-	h=To:Cc:Subject:From:In-Reply-To:References:Date;
-	b=fLPEty/HV4MNwDK/4gyh+ICQDovXhH2Pqbenl7hfRMBLY4SBXvIsmn0yOJNz4Urly
-	 H1CbeQ0fmi5Bs4R4GhgiDEtmpOxwRqNXg5UIioezhYdJ6xrBLpfwnjwLW9ufFJN66y
-	 edxP9AGEQOZROAj29+QhAzAU/iugDPuJYtDdX4RxuSLJsm0JoPPrHeqh59Y/SBJQTQ
-	 gwIe4mNrsuJbEvJSH2HlyF1UBwIgaVvFAP7OXmZ4Sru1s6BSFzAIpmN4zwl8yo0TOs
-	 9eoCVuhBSv4zCB8QAzEH9gFGftKFHD4RLOx+jVI+aChzKfGrLDrWEBGZfyKDGG6X+Y
-	 sE24MgmvOPO1Q==
-To: Tim Douglas <me@timdoug.com>
-Cc: mkp@kernel.org,  James.Bottomley@HansenPartnership.com,
-  linux-scsi@vger.kernel.org,  linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] scsi: esp_scsi: report the residual byte count
-From: "Martin K. Petersen" <mkp@kernel.org>
-In-Reply-To: <20261118003746.61659-1-me@timdoug.com>
-Message-ID: <yq18q2oql81.fsf@mail.kernel.org>
-References: <20261118003746.61659-1-me@timdoug.com>
-Date: Thu, 19 Nov 2026 21:40:30 -0500
+	s=k20260515; t=1795142441;
+	bh=mfZO18oBQCqCq+e1KaZpH5JcESLIsSMc1CQXDKdj9vQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DzpN55KNH8/zEt6qh3mo1+T/3Bfkc64+7CO307ROnadCVmKibu0VuKniwggNmIDDA
+	 fgq2AyFAgD0R2W32HmlefMLQFSk2Kg4olhOVZrUl2QbhBJhhp8sUm4CMgI6BRrQhNL
+	 fm6/L8k5Lxi2qGWSzO4puoIP98Eat8oD9xeT5CnMa9qO0kfqTLoLAP0M1Unn2XlIOs
+	 YNEBy2tZZfIUuXdW+AOvEQvd2wBRnAbcsy/2hjViq8Rvlt80RZV3X2p+ydLqjoTHqg
+	 Xw0KJhlw56rqx4ASLuhQzN6HxNWMt0GMCGyzFCzDaCRXNFLQDD/X7oMQXN/dCyX9W1
+	 reHd7EHnIRV4w==
+Date: Thu, 19 Nov 2026 18:40:40 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, stable@vger.kernel.org, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
+ Iwashima <kuniyu@google.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] tcp: fix shift-out-of-bounds in SYN-ACK
+ retransmit timers
+Message-ID: <20261119184040.6a4542f4@kernel.org>
+In-Reply-To: <20261118144249.358481-1-jiayuan.chen@linux.dev>
+References: <20261118144249.358481-1-jiayuan.chen@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,17 +64,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
+On Wed, 18 Nov 2026 22:42:37 +0800 Jiayuan Chen wrote:
+> req->num_timeout counts the SYN-ACK timeouts of a request and is used as
+> a shift amount:
 
-Tim,
-
-> The ESP core tracks the number of bytes left to transfer in tot_residue
-> but does not report that count to the SCSI midlayer. As a result, SG_IO
-> returns a residual of zero even when a target transfers fewer bytes than
-> requested, as can happen with INQUIRY and MODE SENSE.
-
-Applied to 7.5/scsi-staging, thanks!
-
+As Eric predicted this does not apply after Chris's series,
+please rebase & repost.
 -- 
-Martin K. Petersen
+pw-bot: cr
