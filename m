@@ -1,92 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186814;
-	b=uROJAGTsMdt7neZ7uIMf9UbNRlXLKtAxQlljBk8qDLyMHMt39aol95kBcdfCKH6YTkN2
-	 EKRyaCA6aBqFmCsFKWyktxCZ7nuRp9nqEl0Iqi5x2aepou5ksxrfccnezT/BUc5wqIqOt
-	 o9WjRWtxIR2aTuplaH3Idf6qcPRg/Eypm/RHPFmJb1XpjxTf7K95Q9TL2WiCnPKALF8Ya
-	 I+aah+qDiIhHFt+7bjJY1SML1j4zipCANIAfO7xgqUcouSffbumnAGHAw8Tj8t0cug96D
-	 mEcOQamR7iT/Xe6lQhpnx1JxJHc1UEgaBbcIIeVHTlvfFS5Ept0RFujy8WYmnUP2KJw==
+	t=1795186815;
+	b=GQN2+VfWneHwFHAKrUHDAoIxnerdHczDZbo0rJY5ECOJMjF5CH2XDr2r5kn2evTbZTA1
+	 RpCTCWv0LbaT3W8keO6ArrhaRn5nxPwsDo6Obrd+i9b9m6lkZFZWw2s15euCzJR38qw2Q
+	 2gXYdY0C5ZIKSrgS3+n0sLWp4buLfFHYj7dr7vE0Nzb8XnWCE2G0G1pNoz4aevFT53YJW
+	 4ARAvQecpuZAa07jGyYCsauWu7zXHD6UYWC7khrGzYrGF3VwvlYRsq+l6c3AVPVeeqdCH
+	 Chso5CD5HkQQBFTJAJwha9SGWwhTpp+uapfzCbRO7gqHn0tOYuotqb0zHg34MtveitQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186814;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186815;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=v+oh6shJRKf7A9wJO4PoFZ9vW+2n3QYIiBlJ5JRJGZs=;
-	b=IBGIqWJyHPtbUgKHSYa550nMzMfZIjUeoqSgL7km1UBfvY73XtZjHZRnY9MEh4K9rk+a
-	 DhhyZ/BQVKwthM/1zSo+rtY5VAaSeQ0dE5CWGMsvqv18AMyX/npLEgN5kaX1VJUupEO6K
-	 igHclI1j+Uo7yvCGyz75kQYjLmwxOeAMfJenR+GdLes1lKHr/AHvHFmwyFEMDBggSOHol
-	 TmNZa3q0ewLFeC4LNsnwSLTmNXCd1vpaxKt8avKClP3IXo1VktT0N2lbF4QCUfKVzfQBW
-	 U4fXmxMLUvN9++8v7UJREYGP5Mq/rHd6q67UfvGn1+GehdIRi5EV+UvG/quiFb64z4Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=XHBcZQlUPQsO0ifHNy4xpiTb5H7JDbYhI3unlnSE//U=;
+	b=sqBKnnT7VC36TDf75bTLja1Hzbn9DbFzYxQHdd9Xw1knybREbRvhKkU6v5WVaCy06Bsx
+	 Ty7xWByUIW2hkxRsyWQc63DugBIV6f6qjbB+idJ0BmMuQJbO9glqBn16kPkEcU7uPBX2r
+	 B9RnjfKFucXJ0YUlZI0EAHa/e//c5ccJr0hrQVO6GdY3f8286RdaW/wVkOLvGv7S9zLWN
+	 WGQoiXtxGB9FkNXi0JQPVLC9JLM/e0yE1ZEgvPOx6LI+3kI98Ghd5wPW/JgHwdrrQ7j5s
+	 6sLHzDdhkx0VHmjCxcN//4HOUeQxyYviHb63jIIhzlKrEGydedlmCut13zXehaIi8Xg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nMa5ZWj8;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dtioWFTB;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8F6C606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:00:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8F6C606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFC0960A381B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:00:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFC0960A381B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nMa5ZWj8
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0481b35c9so4059485ad.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:00:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=dtioWFTB
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso1133278a12.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:00:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795186813; x=1795791613; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v+oh6shJRKf7A9wJO4PoFZ9vW+2n3QYIiBlJ5JRJGZs=;
-        b=nMa5ZWj88cDK8UCKTAXLL79x4mE44SivjLt4vy6BI0lNO4TFHRhk8NMm/9lJapbFLg
-         Q1j7TFL6yKUoG9hQK2RvEs5JKms4IFyP41a0gsrcfjmdQu3RD8yIALjjnyd1tLqMtjyT
-         TalZZPAAi1tetkZQ1N7chk7UmXzDoerrEzLXH+pic4bNxGWXBgrRyyaip8Gy9ViMdzjv
-         FnR7E1fROZslFjgWm+FPcEGYay3Q9N6XNntIU84PIfTQE3/zgZwnVgNNzr/b5CwzKD+J
-         XmI9NIF0EaDl88qiWu8VCxJO+0OPOJ/mypmSWULwfc6KdJ059hOfg23qpBB8J6LnmT/2
-         w0ew==
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186814; x=1795791614; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XHBcZQlUPQsO0ifHNy4xpiTb5H7JDbYhI3unlnSE//U=;
+        b=dtioWFTBD1YkaoukvSZcYfvqEDVfya5uYuCMI2+ZCieitU7Z/N1+ODZcyscKUzydpd
+         8VKZH+b4hC9sikgVEJQUg4PET/IvD2ongCBHovN1rQo5wG9+dvAE+bprivp3bcMXs9Ty
+         8MW7/rgBJapUmTmb1vsjG+EviwSFdW7XP7ZqhOoV/0vDF4ZiRjlj6UqBKxAMAzLZMcj2
+         N3vLa3/P+9zsPIsUjW/sM9xm+zu6Xqf3GBcUv3KS73PS7bEwGRyzHaPTFYklhkc6KdiL
+         Cmx4j2YIcPlRxyO3rAYofOP2ogVEi1556SCGH4nFhE9V3n6feBvnCSH4X/jpeEnxC68g
+         bleQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186813; x=1795791613;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v+oh6shJRKf7A9wJO4PoFZ9vW+2n3QYIiBlJ5JRJGZs=;
-        b=h1QyzZ5QjnJjBho6HVJRypa4wrDhMZ40GPiO9jpPEjb0CTbw6v9yDt2VB8zofKlrS8
-         J2RqnbiQ61RHx5OuTxbFuk2gCNLw6/QMaSS3mekkDrz8Ef0XnWPHNZxWLMg29juDgoL9
-         EsBcrowaLHSMFL9laz1wH8LpyoS3V5mU6I+78iWnrmBboAfDDRCEpZD5e3YkUCTyb+Y5
-         spegTHhsDHu6g9dYDu2GGocggODgOhkA/KhvJGNfZVlbzHa/hVWk6YtC0oY/5NBAdiz3
-         3IX85PdNC25H9Uq4EEsAcrFKWtpmdbf1Q/uFP5b5tZSSx+u88yC0doVP7ZntJhSs6koz
-         IgIQ==
-X-Forwarded-Encrypted: i=1; AL+hErHJlV9xjwIIBybJxnowZXXWHO6LOE+zfkV/0d9e/DuVm3mtXyOKEWqwtVOusOOMbBifc0yjFL6rUlZLM4g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Shg4zddIo5X79Nf1EDKayDdEezGGeDL7d6aL0AEaos2myd2G4
-	Llbts3+GDXIs3kFHQRdmOpDJWsA1ivgJmSY6uq0j1DCFVJ7FYoHCb631QBd7pg==
-X-Gm-Gg: AZFdTZeGITtd/2DaTfrO8If4iEG+vZHFuGI8Kqhp89snfRB/vTjsWdiMgErzv+agMf7
-	st3xQCB8uw/oq0uKTqVvFJOREynSu9sa3RTE8YV2wrpOFOAyf/JoC6biahBuh/Er0aGBdtfJZzh
-	AM9Ejj7PLkEUaRimHzhLeJ+Y5htI3r5gSSKR/QjlHZkVHVfpIAXCOUNv3iiPaJQX2opSGqxnIR6
-	B/I7603Fjx6Gn5VPd1W8+la5YLOemzoxGr3Anslfq//GcINHCSY7lM8y3Mv5mI9o7L9aUZkPi3/
-	X4+cUJNUM15k3gRscI59/o4+z3aw6rRXqvWiLMdv0mNToS/8tfIXGNVgrC8cbuZgwn5/vx5ADQw
-	9BedCBtrKvh3wuzNAJbswILtb5GX5SJLOLCqyhjVFDZUGbn9qFKeL6rxmwozMMmWPeP1u2GAJHf
-	YSF0dBcd/O+UvXjFVLk+IPiNRZ6zQxXCTGS+xTsfQJc2qN99oiOt/dhTOXu7jXz971AOUL6l6Cw
-	v+yMdaRv3RE1GhWK1CYK5AhdR90wUi5gxM1bqy6rh4QReul6Q66SOyG1alt87lJ9sIQSeNKyC77
-	uV7Ra8t2hwxP6gstEXzByTWk9ltjEL9l2pNjZfAU8otdUMLlv1Musw==
-X-Received: by 2002:a17:902:ea0c:b0:2f0:3123:899c with SMTP id d9443c01a7336-2f03f0c1f37mr34277685ad.5.1795186813059;
-        Fri, 20 Nov 2026 07:00:13 -0800 (PST)
-Received: from ubuntu ([110.9.142.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120282sm15213005ad.59.2026.11.20.07.00.11
+        d=1e100.net; s=20260707; t=1795186814; x=1795791614;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XHBcZQlUPQsO0ifHNy4xpiTb5H7JDbYhI3unlnSE//U=;
+        b=pZvQovGockpD1Ld4KqWqGkSY0u9/MvOMd8AeFVZl0JrikG1V5ACdwYSZmErk5cA0XZ
+         o1qhqfeqCBEEC7bDhd9ZyfvGzjk44c9WfMlPHbe26xl6i0ZFPDQKC7wuBu5kKsNzgdNz
+         KP9wc/txlx5Efnn2z7JOXzV6wjDT6ZviZrv7K1uDLdOh99mMpnEyuShFU5fvt9g6XcFV
+         VIjT9RT8ZKrKY/JqlP8+zSZj0/IyqaFgVOkorgfj1DaepQ+2J+pU4kv0er/pPZkn2LzE
+         k8NgcoGNtE4g6ndXF4y8p2v8HWx9RUjLNKz6+x1/hqdM0GWfR9xIhxyZiQ62nAUiY2/e
+         3Lww==
+X-Forwarded-Encrypted: i=1; AL+hErEwUsIJiU5XddtSwyEU0UowR99o9zX8kLF6mTXYeKIy47QuRN56ET1t8DMX1+Nz92tQpvRmqiz8tcEAY3w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z896ncrhzWyDjA7kxONnXPoFueBAQelID2PSH6APRdLb00zFFt/
+	Uo5rcf+NFnP5iyb+xSpp3UzB/oTEiRxbBXKFbxTiIuiMiuLdcSxyswku2xRQRIYsBgY=
+X-Gm-Gg: AZFdTZdEj5P5qkY0cj/5zEimwiYQ9CRwcXLEqBdwklZhJefPUW3EmZnhqgkwxNTGLUe
+	mLCvOL94KGhjryvzggD/NVxlnp83lWk5Y0qcpi1Ayxicn94xZPjWsthh7e7ch4dBxSvIfYCm/Yu
+	CR6TN2J2zuysQaFiSkP7rPeeDwVt8s1SKed7z6sbT6nGFjKzTMK9yy84TBWi0WMu6mGwxfIg/hH
+	yAv8/PD5EeBj1BE38+0BPkFHsq7mnD8Bct9g6A4YJshwCqKV1RLDnGYSQguix7YeQw9j9EbEwH8
+	KiJUJT+Du00MnOolBYsV1LmG8jKV1wk32LMtT6VkX1qlzEMlkJlU7kGW7VMrB1SgycNNdGr/ryS
+	9hRbhUvJKE7Wj04tp9BQA5kAWFmbvmDOsy8yqVreTsZDCfuC53/8HctvV72DKS+TpNWBYlFCW2b
+	9OhRUXrz7beg/6XC0BNdcZxZXYZ71iUrsJjEX5CiRRHkRfr5ZplBdlzBOvWNOdDTi4fmlA4OZFI
+	+j2obGzRiGeEMMcW0cWdbBMfD0j3VRfUqRB2++YFbXDvw33UugUL00xwzXh2Pkr8NzKdScnrjQ7
+	MnuCGJdj4kayYZNtY9l90nRSK9o/ANTTC8l0M01Pt1uwq5CJSFz2cA5GHckVoJjYjSA4dJrDnU3
+	VCtYabevpNYHapfbu0hZ4+l9crh+4aXzcQQHuzw==
+X-Received: by 2002:a17:90b:4d87:b0:3b4:68e:1b77 with SMTP id 98e67ed59e1d1-3b40a5dda03mr3742019a91.20.1795186814085;
+        Fri, 20 Nov 2026 07:00:14 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm1367360a12.21.2026.11.20.07.00.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:00:12 -0800 (PST)
-From: Sang-Heon Jeon <ekffu200098@gmail.com>
-To: Miklos Szeredi <miklos@szeredi.hu>
-Cc: fuse-devel@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Luis Henriques <luis@igalia.com>,
-	Miklos Szeredi <mszeredi@redhat.com>
-Subject: [PATCH v2 0/2] fuse: schedule dentry_tree_work only between dentry tree init and cleanup
+        Fri, 20 Nov 2026 07:00:13 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: mkp@kernel.org
+Cc: James.Bottomley@HansenPartnership.com,
+	linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] scsi: mvumi: reject handshake sizes that overflow the list allocations
 Date: Sat, 21 Nov 2026 00:00:04 +0900
-Message-ID: <20261120150008.1144420-1-ekffu200098@gmail.com>
-X-Mailer: git-send-email 2.53.0
+Message-ID: <20261120150004.3128120-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261014004226.3469868-1-yhlee@isslab.korea.ac.kr>
+References: <20261014004226.3469868-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,42 +100,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hello,
+On Wed, Oct 14, 2026 at 09:42:25AM +0900, Yehyeong Lee wrote:
+> mvumi_hs_process_page() takes max_io, the two command entry sizes and the
+> list depth from the firmware handshake page.  The entry sizes are u8 fields
+> used as shift counts, and 1 is an int, so a count of 29 or more makes the
+> << 2 applied to the shift overflow an int; a count of 32 or more is
+> undefined outright.  max_io is a u16, and the sizes derived from the shifts
+> are multiplied by it in mvumi_init_data() to size three unsigned int
 
-inval_wq_set() schedules dentry_tree_work when inval_wq is enabled, but
-it can be called before fuse_dentry_tree_init() and after
-fuse_dentry_tree_cleanup(). This series makes inval_wq_set() schedule
-the work only between the two.
+This is superseded by v9:
+  https://lore.kernel.org/all/20261015045213.3975845-10-yhlee@isslab.korea.ac.kr/
 
-Patch 1 defers scheduling the work until fuse_dentry_tree_init() sets
-it up.
-
-Patch 2 does not schedule the work after fuse_dentry_tree_cleanup()
-cancels it.
-
-Both patches hold kernel_param_lock(), because a sysfs write can call
-inval_wq_set() at the same time.
-
----
-Changes from v1 [1]
-- Hold kernel_param_lock() in fuse_dentry_tree_init()
-- Add patch 2 to not schedule the work after fuse_dentry_tree_cleanup()
-
-[1] https://lore.kernel.org/all/20261110150250.71520-1-ekffu200098@gmail.com/
----
-
-Sang-Heon Jeon (2):
-  fuse: defer dentry_tree_work until fuse_dentry_tree_init()
-  fuse: do not schedule dentry_tree_work after
-    fuse_dentry_tree_cleanup()
-
- fs/fuse/dir.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
-
-
-base-commit: ab9787d7e66ac7e6e94fc975b37c5b56fff98ca9
--- 
-2.53.0
-
+Best regards,
+Yehyeong Lee
