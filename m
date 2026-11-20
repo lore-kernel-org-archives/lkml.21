@@ -1,71 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795180160;
-	b=NmPuFO3hFeCtplHhq1T8dhDCk1dADteRa/b/z8xvBSZyqbtKCe/tzaMZIr8i9dODSRpR
-	 TW6ujq4Hxhwx3MJHS4LVMmsPrSQtyfQPSIB8gcGSrhKW60nph1BSZDK+GXHDC/Gs+9//I
-	 Ns5IIc1bicEhiMwa4KN3KcEQIpWg0REzNOnK8UZ0mwiGaRIwoUzH42EdcjMxu3nqTH/L4
-	 /7VOTylY4mseLKenx3W/uGN2O+wUFjuDQDsFXYWrIakNnEwAFxFaBvTO4MRckyi8otndg
-	 HciQeexon99fxGUaZSS/Sy8h8QoXg+fXUVKCBEZ8P6uLrCWwk+99quewL8WSdhGb+kg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180160;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Message-ID:
-	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Importance:User-Agent:X-Mailer;
-	bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=;
-	b=m5CYqxN0HGXghUJ/TkSPcIlTwc17CKP0Y6OAxeSnZ74bwhxB5sBrelx8eJwauuLyG2DM
-	 id+ogIhdNbuZHRN/4eoLVXfSE5AotY6hXT+/opkPX4uGAIhqLbB+3Us6SxbrrCf1p8B0/
-	 rC7kdyk68RhNcb1OV+yfAENr6PVBv2H9Blwgyysu04gA6E+fVz5BsqXkG2yf/kxWi6m3b
-	 WfEILEip2uAaK94TYs1B69y5Jsxiot9+QKRNPQB0oDEFIUQchhWSFI/MbDzgzUxwrVbWy
-	 5EDXsmgptKKbj/ujtw4svRul0RGKv735MJ5Y+floPcmXgX4USa9quatb6JPavOJA+SQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=collabora.com;
-	spf=pass smtp.mailfrom=collabora.com;
-	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ehbxFn6Q;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
-Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795180169;
+	b=Mm4ZGM3Vo8n0MaZrtSTelhda4Hi6kdY8ZUrcv3HqD/S5saZ9yLvDlmvfNurf/A9/AXJQ
+	 aF++s0eDS16eThrNSvJmT9Y+uwVdg6+HV7/wDaIa5KF4tpMBWNRq9KHinFsGVNNJpm3Do
+	 mEjwohvCYR95VTXaUBQjnde98fk1/hxq2SNZrqvUaKMuZVK6lRP2pKuqT00AEFo8wRzZH
+	 VgHg4NWm6eid7zD3bR5aPI2QJVXYeN6FyEpdyH6E0umOQwv+Q7NlW3U2LbyOjxBPjc1Jj
+	 ySoEia3IWKegmYjf6VWfq9SyWYP2wC3j2xJtnMgtu7KpYcOWuDihIkgx7t7BzdrXKog==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180169;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=BfGphMSJHSZQ87+RM9UdnonKp5M5o+whIFJ9VyZKxaw=;
+	b=XLYi8Vgkr1zTK3jUc6foOHrSCYGSmN2ajk1JAVq+ddr1IzzUpdfBNHUGqCTWHuoYHFcM
+	 6CqRlJCVpieR6DHnMatM0gYcSgsv05wCRA9CZUAA/QXba+c5wGF2vsLKzKBG+PUk+CNkA
+	 jbSe5/qkLUCnFY1XIzONYdjiEg6bMoi2fYj1+FVEwN8ujGaPmy/oRCFYSi20xVL9RxA2z
+	 si1Pr8tY5rextbBMLDLOo9QZr6ma4JbD3cxFkKtfjhpoz22a/mmhZU7lvgzsRMboTUu/S
+	 5El0gfkhT1SOrOx3z5DfiutF1hNbwuxHkb1TJaPy+K2El43M2pelbn2eS5D1lPjJvNg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fwXdY7Xt;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NoDQKvdm;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D26606A320;
-	Fri, 20 Nov 2026 13:09:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91D26606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A41D8606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:09:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A41D8606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ehbxFn6Q
-ARC-Seal: i=1; a=rsa-sha256; t=1795180132; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FYuT9fhElAX47KBGkB2SllZszrMGccBSGnyXiMEX3YyCdM+qz2KtfxinqDTV0gnBxd7yL1QjJk62yM6TZYzHg7HN8T0fwLQvz8MlW3Nh/5Z8Fmfsk0rFHXd7i7DT1Nz40qqIUfmm42YhlDKF3hcOZiBttATAo9+v27L9plRC+H8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795180132; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=; 
-	b=ZvoUZTyPgb2vfXKImZEhHSAbdbVhjmCzBRjYcu6VXR90/d3TPkzip110xHwT9jQopXhZZyymkcmaT+hs2loUQtQJNdUao3WN0bJBD5ToCXonxp7vH/9WwJUypvvvngNIyFQ2ODELpu9gb2gKFl6HcsFWy+Vycxb2Lwe5ACDY4cU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.dufresne@collabora.com;
-	dmarc=pass header.from=<nicolas.dufresne@collabora.com>
-DKIM-Signature: a=rsa-sha256; b=ehbxFn6Q8yTrPbnsU7wE9E48PYRCjMfiX6+/+ropJDEv7ZZJUwwiOwqGBdAKwHfXE50PWuhmohKp7qW3kRr5IezHe5AfOzOAWWZ0ENmw8J/IIAJQS9I2Ndy6j11Wd4BteUiDNonSiNc+Ny8gPbFJcnssEkziiKPJBPidYaiBhew=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: from mail.zoho.com by mx.zohomail.com
-	with SMTP id 1795180130356352.2454153669245; Fri, 20 Nov 2026 05:08:50 -0800 (PST)
-Date: Fri, 20 Nov 2026 08:08:50 -0500
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: <aiyengar1990@gmail.com>
-Cc: <hverkuil@kernel.org>, <mchehab@kernel.org>,
-	<benjamin.gaignard@collabora.com>, <p.zabel@pengutronix.de>,
-	<mripard@kernel.org>, <paulk@sys-base.io>,
-	<gregkh@linuxfoundation.org>, <wens@kernel.org>,
-	<jernej.skrabec@gmail.com>, <samuel@sholland.org>, <jonas@kwiboo.se>,
-	<linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rockchip@lists.infradead.org>,
-	<linux-staging@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <ckoever@outlook.de>,
-	<aiyengar1990@gmail.com>
-Message-ID: <1a1f912f033.2efff015191157.7190884739957848478@collabora.com>
-In-Reply-To: <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com>
-References: <20261119-b4-cedrus-mpeg1-v1-0-aa5ba1192822@gmail.com> <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com>
-Subject: =?UTF-8?Q?Re:=C2=A0[PATCH_RFC_2/2]_media:_cedrus:_mpeg2:?=
- =?UTF-8?Q?_decode_MPEG-1_as_V4L2=5FPIX=5FFMT=5FMPEG1=5FSLICE?=
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fwXdY7Xt;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=NoDQKvdm
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAju1U1168933
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:09:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=BfGphMSJHSZQ87+RM9UdnonKp5M5o+whIFJ
+	9VyZKxaw=; b=fwXdY7XthpiYtMiAfXIikQFXzC3tBxFd2PpIGGUW1Qiejpck48/
+	s0A8dsKUQAEOAVuQTvWFFwtCbJiysc3q8ATbiN3Z1psBorrPtZAbPLNTJ/R3mYWU
+	HBaiCpFpnLMG5e9kRasAYvwU7aIP6VNdxV/8yVLRp71fh/I6TgjlLJxQLYWcG92t
+	I0ejwYrRjTVT4PJmwAo2aWumqQLTdcxIrs8XwF1gf00v6E0afLYpP/cPgfne8oy7
+	rqYAbHjk5+esMu3cu7e9lIf0GFCHkwnpXhvM2ZCJsbXq0sjuW1gsUzwjNxWGGlbM
+	7aRfR1uOtpZj7T2CWiRjw+jGS646aamB0Qg==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j27b5uuxm-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:09:27 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f32050e72so242006185a.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:09:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795180167; x=1795784967; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BfGphMSJHSZQ87+RM9UdnonKp5M5o+whIFJ9VyZKxaw=;
+        b=NoDQKvdmeo2pHX2Wb1NPBOqaVOyXJrwY2ncxuEG7n6niU/tsWQmSNS416NYvehPRy5
+         AC+LyYo9htKyVgKqpCt0e2AXoR10aIBQP+s3UynTAwXDij3GgnqJ65FwqMqCtmACJ7nO
+         1vDvqvBJmMDi3BahFFsgjC+4sPxcW7yztaPN1xy4FsShXMlCfoGo6ckg0PH3RXAhGylu
+         avdumpVT75fKclRm4hFDMHJy8634MOWba8dtJ1V9xpMCCJGpEJ3Fb17+mBI88970gR/A
+         ofOX9L2PyR41K8RmgMVc2lSopzycm098T7u+EaZXBZsdeqyEcL66PNGif30t6Q3qOmHB
+         44/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795180167; x=1795784967;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BfGphMSJHSZQ87+RM9UdnonKp5M5o+whIFJ9VyZKxaw=;
+        b=i6MZz+Y1LL/8zuItuiG01Zkeit9ZF4jgtsIQErC957vWTjSjf845YGnkLnqHX5se/T
+         nNKzm2byyHeBkcssviJTydAPjQhZcdm5hdJ8t+y73l4y5AC/h6Kwymtwc0ICtXsSwlRx
+         0KzzIZIvRLry3hlPuHzrNBIfUHfI1EyLM7dSu6txQRx/FknL69YwwcmUuTIWPn6ne4le
+         qakwvpr6xuDDu0gLv2V8jPrYMhhUImrocBOqZ5mD7PyZkDHo4zilpkHGayZHEcP05XQJ
+         DqjdLNKZMt+FZjt/wl3DplKwK4TpiklE6/ZPrK/KWPYi/9hFKvbD2EXcggfghnxNCn0B
+         Nzew==
+X-Forwarded-Encrypted: i=1; AL+hErFyAvGvs+mV8y836FXIgaRyXFiiJccY2aTpi5kThmgEZqvPbaZI3+D8XRHucl0RHc9fWUa/gjP0g2ydNB0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VaeIFkWrNyEbOMFUplyn7ywrn9NIdzm2eF+gLGl9Bq8m2GXvU
+	w5tn6qpk8zRdsYEof4G4NVjuWhexa9QeMdeNiaxUMSYqst7pFHzD3WCO+71NF+q7dZCwc0eTuzk
+	gCRIgMwbbW6ctyyuPJRQc856ggRQPs0EckyQMr+aq0Vaso/pkHSKQa7sHwyk0atUeNk8=
+X-Gm-Gg: AYBFou1OIiZR6hcGUeoxzvZykHhJ1m3+IVPVmcHbhgdSXMS8NcCtiMPazOTa8E6hAZ7
+	b7cSMcxDi2AraHsX0YN72cJE9n1n8s/RzxkEeXzrPD0O9rfxXcFqkqv63s9B3sAfsv/qx9VDS5e
+	72HmKh3qm7t/jfFixK6L2Jh65H1hRcdMNaocYgbvbKkKj5Mnk8udZDTkQlZIQSJ76GncS+xxDo6
+	7gy70Hv3ntkyh2zSoz7ncBAgCg6unz9ErZwNZHaZQi6YZSyVe0PM237EKFC6Ioy4REQ8HM5BScD
+	cKseyRvtS79PRy3X5H756nP8pyL2uDyHe+qzue/oKa6xe/mUM2jbT1xeIUg5VIXSid6bXoe32dK
+	4qxw571hdSzFrox9BuCyjlwak0CW6aGT4b4GUjvTTsc8Dt5T9BDdIhN9aSo95Q/9Sp4oTVDtfQ9
+	M=
+X-Received: by 2002:a05:620a:2945:b0:949:6574:f36a with SMTP id af79cd13be357-949ba9d02e8mr477755285a.38.1795180166690;
+        Fri, 20 Nov 2026 05:09:26 -0800 (PST)
+X-Received: by 2002:a05:620a:2945:b0:949:6574:f36a with SMTP id af79cd13be357-949ba9d02e8mr477747485a.38.1795180166030;
+        Fri, 20 Nov 2026 05:09:26 -0800 (PST)
+Received: from brgl-qcom.local ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm5780973f8f.31.2026.11.20.05.09.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 05:09:25 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
+        linux-kernel@vger.kernel.org, brgl@kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [GIT PULL] gpio fixes for v7.4-rc4
+Date: Fri, 20 Nov 2026 14:09:21 +0100
+Message-ID: <20261120130921.29111-1-bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,305 +118,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-Importance: Normal
-User-Agent: Zoho Mail
-X-Mailer: Zoho Mail
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA1MiBTYWx0ZWRfX3aClnL9Ya2qc
+ a3PKMHUyXv6auTXnRCJ2du6MrF5vV+QlO6D4AHyO+o5rCEM3wLzjEUZYodzkbqFuERLZqQ0Hyku
+ CILNvAusSbQpfbxxPGuHT/apCqq7Vj0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA1MiBTYWx0ZWRfX+4Z6jBbene+T
+ RlYDCNyDGyaQv4p6p84xEc6RYBO1bxtzETdOCcXijMD3PKijF5Q4A91oNJ4h9/5aZFJWFgASz6m
+ 01aLYEFAGVJYS5YQyCUqNLzSPu+LrMF4BZHDExudfVk31M19YFThYH6jJJn2l3WgDnT4D6B+MS9
+ 8+0ZWopKLiIWEpQ7Td8RozfYwH8rhv+JZ49kUNzYBxAKv9hmMUN53sHrW/wcrt+E0mCDXwwRzi1
+ 7boTTKhhfI0FFRPQFGuV16FodpG4hGgORK7k8zhm0C6Ic65xdNumGkl1JqXThgOO7iLPWlY8+pH
+ cjnl++LvfG06qsnsVzA2UPeOu0IncWBPLTwfm4On7xRsnOHLZB+Vm9NJT/CXUyLCxT+++UpwRo+
+ uDR8QiqL6KnYpz5RJKQ7xCRSS51ArpWksXkMTct7TPx/AqwPfSw95laXdqYaNVIiX1SpVUJPqHG
+ I6NMVlRFTP4clr90ZXg==
+X-Proofpoint-GUID: j0Y1m2I1xvUKROpn2VwkhAnKX4WBgpkJ
+X-Proofpoint-ORIG-GUID: j0Y1m2I1xvUKROpn2VwkhAnKX4WBgpkJ
+X-Authority-Analysis: v=2.4 cv=LPTz05W9 c=1 sm=1 tr=0 ts=6b004687 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=ZPUh5YY5edBcq0qQK8sA:9 a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
+ phishscore=0 clxscore=1015 priorityscore=1501 bulkscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200052
 
-Hi,
+Linus,
 
+Please pull the following set of GPIO fixes for the next RC.
 
----- Le jeu., 19 nov. 2026 11:34:53 -0500
-devnull+aiyengar1990.gmail.com@kernel.org a =C3=A9crit ----
+Thanks,
+Bartosz
 
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
 
-> From: Arun Iyengar
->
-> The engine has an MPEG-1 mode, selected with the MPEG-1 decoder type in
-> the trigger register, and takes the full pel flags and the picture
-> coding type (D-pictures included) in the picture header register.
->
-> Enumerate V4L2_PIX_FMT_MPEG1_SLICE on every variant with the MPEG-2
-> decoder (tested on H616 only), with the MPEG-2 limits, and select the
-> MPEG-1 mode from the coded format. try_ctrl accepts the MPEG-1 flag, the
-> full pel flags and D-pictures only with the MPEG-1 format. A job whose
-> sequence control does not match the coded format fails, as do field
-> pictures in MPEG-1 sequences.
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
+are available in the Git repository at:
 
-MPEG2 requires MPEG1 support. The new format simply add noise, you can fix =
-cedrus with V4L2_MPEG2_SEQ_FLAG_MPEG1 alone.
+  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio-fixes-for-v7.4-rc4
 
+for you to fetch changes up to 31678e68f82636a27fbad58ae40054557da4fd7e:
 
-Nicolas
+  gpio: shared-proxy: propagate -ENOTSUPP from .set_config() (2026-11-20 13:36:53 +0100)
 
+----------------------------------------------------------------
+gpio fixes for v7.4-rc4
 
+GPIO core fixes:
+- delay freeing the line state workqueue to device release and fix a UAF
+  bug
+- fix races in access to the flags field of GPIO descriptors
+- clear the debounce period field of struct gpio_desc before clearing
+  the "requested" flag
+- propagate -ENOTSUPP from .set_config() in gpio-shared-proxy
 
->
-> Signed-off-by: Arun Iyengar
->
-> ---
-> drivers/staging/media/sunxi/cedrus/cedrus.c | 22 +++++++++++++
-> drivers/staging/media/sunxi/cedrus/cedrus_dec.c | 1 +
-> drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 1 +
-> drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 38 ++++++++++++++++++=
-++---
-> drivers/staging/media/sunxi/cedrus/cedrus_video.c | 7 +++++
-> 5 files changed, 65 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus.c
-> index c3331b4f3f02..60b296032a90 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
-> @@ -77,6 +77,26 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0c=
-tx->bit_depth =3D bit_depth;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0c=
-edrus_reset_cap_format(ctx);
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
-> +=C2=A0=C2=A0=C2=A0=C2=A0} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_MP=
-EG2_SEQUENCE) {
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_m=
-peg2_sequence *seq =3D
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-ctrl->p_new.p_mpeg2_sequence;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct cedrus_ctx *ctx =
-=3D container_of(ctrl->handler,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st=
-ruct cedrus_ctx, hdl);
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (seq->flags & V4L2_MP=
-EG2_SEQ_FLAG_MPEG1 &&
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ctx->src_fmt.pixelforma=
-t !=3D V4L2_PIX_FMT_MPEG1_SLICE)
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-return -EINVAL;
-> +=C2=A0=C2=A0=C2=A0=C2=A0} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_MP=
-EG2_PICTURE) {
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_m=
-peg2_picture *pic =3D
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-ctrl->p_new.p_mpeg2_picture;
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct cedrus_ctx *ctx =
-=3D container_of(ctrl->handler,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st=
-ruct cedrus_ctx, hdl);
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (ctx->src_fmt.pixelfo=
-rmat !=3D V4L2_PIX_FMT_MPEG1_SLICE &&
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (pic->picture_coding_ty=
-pe =3D=3D V4L2_MPEG2_PIC_CODING_TYPE_D ||
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pic->flags & (V4L2_MPEG=
-2_PIC_FLAG_FULL_PEL_FORWARD |
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD)))
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-return -EINVAL;
-> =C2=A0=C2=A0=C2=A0=C2=A0}
->
-> =C2=A0=C2=A0=C2=A0=C2=A0return 0;
-> @@ -90,12 +110,14 @@ static const struct cedrus_control cedrus_controls[]=
- =3D {
-> =C2=A0=C2=A0=C2=A0=C2=A0{
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.cfg =3D {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.=
-id=C2=A0=C2=A0=C2=A0=C2=A0=3D V4L2_CID_STATELESS_MPEG2_SEQUENCE,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-.ops=C2=A0=C2=A0=C2=A0=C2=A0=3D &cedrus_ctrl_ops,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0},
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
-> =C2=A0=C2=A0=C2=A0=C2=A0},
-> =C2=A0=C2=A0=C2=A0=C2=A0{
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.cfg =3D {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.=
-id=C2=A0=C2=A0=C2=A0=C2=A0=3D V4L2_CID_STATELESS_MPEG2_PICTURE,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-.ops=C2=A0=C2=A0=C2=A0=C2=A0=3D &cedrus_ctrl_ops,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0},
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
-> =C2=A0=C2=A0=C2=A0=C2=A0},
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> index 9f8b0555b7dc..6657d6060c39 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
-> @@ -41,6 +41,7 @@ void cedrus_device_run(void *priv)
->
-> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
-> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0run.mpeg2.sequence =3D ce=
-drus_find_control_data(ctx,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0V=
-4L2_CID_STATELESS_MPEG2_SEQUENCE);
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0run.mpeg2.picture =3D ced=
-rus_find_control_data(ctx,
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> index 444fb53878d1..fd3ee8f5e9a5 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
-> @@ -44,6 +44,7 @@ int cedrus_engine_enable(struct cedrus_ctx *ctx)
->
-> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
-> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_MODE_DEC_MPEG=
-;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0break;
->
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> index 10e98f08aafc..18d91b9b1e4a 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
-> @@ -48,6 +48,30 @@ static void cedrus_mpeg2_irq_disable(struct cedrus_ctx
-> *ctx)
-> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_CTRL, reg);
-> }
->
-> +static bool cedrus_mpeg2_is_mpeg1(struct cedrus_ctx *ctx)
-> +{
-> +=C2=A0=C2=A0=C2=A0=C2=A0return ctx->src_fmt.pixelformat =3D=3D V4L2_PIX_=
-FMT_MPEG1_SLICE;
-> +}
-> +
-> +static bool
-> +cedrus_mpeg2_format_matches(struct cedrus_ctx *ctx,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- const struct v4l2_ctrl_mpeg2_sequence *seq,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- const struct v4l2_ctrl_mpeg2_picture *pic)
-> +{
-> +=C2=A0=C2=A0=C2=A0=C2=A0bool mpeg1 =3D cedrus_mpeg2_is_mpeg1(ctx);
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0/* try_ctrl checked the controls against the for=
-mat set at that time. */
-> +=C2=A0=C2=A0=C2=A0=C2=A0if (mpeg1 !=3D !!(seq->flags & V4L2_MPEG2_SEQ_FL=
-AG_MPEG1))
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return false;
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0if (mpeg1)
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return pic->picture_stru=
-cture =3D=3D V4L2_MPEG2_PIC_FRAME;
-> +
-> +=C2=A0=C2=A0=C2=A0=C2=A0return pic->picture_coding_type !=3D V4L2_MPEG2_=
-PIC_CODING_TYPE_D &&
-> +=C2=A0=C2=A0=C2=A0=C2=A0 !(pic->flags & (V4L2_MPEG2_PIC_FLAG_FULL_PEL_FO=
-RWARD |
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD));
-> +}
-> +
-> static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *=
-run)
-> {
-> =C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_mpeg2_sequence *seq;
-> @@ -63,6 +87,9 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, s=
-truct
-> cedrus_run *run)
-> =C2=A0=C2=A0=C2=A0=C2=A0seq =3D run->mpeg2.sequence;
-> =C2=A0=C2=A0=C2=A0=C2=A0pic =3D run->mpeg2.picture;
->
-> +=C2=A0=C2=A0=C2=A0=C2=A0if (!cedrus_mpeg2_format_matches(ctx, seq, pic))
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return -EINVAL;
-> +
-> =C2=A0=C2=A0=C2=A0=C2=A0quantisation =3D run->mpeg2.quantisation;
->
-> =C2=A0=C2=A0=C2=A0=C2=A0/* Activate MPEG engine. */
-> @@ -101,8 +128,10 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx=
-,
-> struct cedrus_run *run)
-> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_Q_SCALE_TYPE(pic->fl=
-ags &
-> V4L2_MPEG2_PIC_FLAG_Q_SCALE_TYPE);
-> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_INTRA_VLC_FORMAT(pic=
-->flags &
-> V4L2_MPEG2_PIC_FLAG_INTRA_VLC);
-> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_ALTERNATE_SCAN(pic->=
-flags &
-> V4L2_MPEG2_PIC_FLAG_ALT_SCAN);
-> -=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VE=
-CTOR(0);
-> -=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_V=
-ECTOR(0);
-> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VE=
-CTOR(pic->flags &
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD);
-> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_V=
-ECTOR(pic->flags &
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD);
->
-> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_MP12HDR, reg);
->
-> @@ -183,8 +212,9 @@ static void cedrus_mpeg2_trigger(struct cedrus_ctx *c=
-tx)
-> =C2=A0=C2=A0=C2=A0=C2=A0u32 reg;
->
-> =C2=A0=C2=A0=C2=A0=C2=A0/* Trigger MPEG engine. */
-> -=C2=A0=C2=A0=C2=A0=C2=A0reg =3D VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC=
-_MPEG_TRIGGER_MPEG2 |
-> -=C2=A0=C2=A0=C2=A0=C2=A0 VE_DEC_MPEG_TRIGGER_MB_BOUNDARY;
-> +=C2=A0=C2=A0=C2=A0=C2=A0reg =3D VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC=
-_MPEG_TRIGGER_MB_BOUNDARY;
-> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D cedrus_mpeg2_is_mpeg1(ctx) ? VE_DEC_MPE=
-G_TRIGGER_MPEG1 :
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 VE_DEC_MPEG_TRIGGER_MPEG2;
->
-> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_TRIGGER, reg);
-> }
-> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> index ad4ec3490775..8979693e9109 100644
-> --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
-> @@ -40,6 +40,11 @@ static struct cedrus_format cedrus_formats[] =3D {
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
-> =C2=A0=C2=A0=C2=A0=C2=A0},
-> +=C2=A0=C2=A0=C2=A0=C2=A0{
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.pixelformat=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D V4L2_PIX_FMT_MPEG1_SLICE,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=
-=A0=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
-> +=C2=A0=C2=A0=C2=A0=C2=A0},
-> =C2=A0=C2=A0=C2=A0=C2=A0{
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.pixelformat=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D V4L2_PIX_FMT_H264_SLICE,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
-=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
-> @@ -125,6 +130,7 @@ void cedrus_prepare_format(struct v4l2_pix_format
-> *pix_fmt)
->
-> =C2=A0=C2=A0=C2=A0=C2=A0switch (pix_fmt->pixelformat) {
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
-> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_H264_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_HEVC_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_VP8_FRAME:
-> @@ -352,6 +358,7 @@ static int cedrus_s_fmt_vid_out_p(struct cedrus_ctx *=
-ctx,
->
-> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
-> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ctx->current_codec =3D &c=
-edrus_dec_ops_mpeg2;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0break;
-> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_H264_SLICE:
->
-> --
-> 2.55.0
+GPIO driver fixes:
+- check the return value of clk_prepare in gpio-omap
+- reject bulk-in endpoints smaller than 3 bytes in gpio-mpsse
+- validate the pin index of interrupt events in gpio-ljca
+- disable interrupts around the chip lock in direction callbacks in
+  gpio-mlxbf2
+- fix line name handling in gpio-virtio
+
+Other:
+- do not clobber errno on read() errors in gpio-watch user-space tool
+
+----------------------------------------------------------------
+Alexandre Becholey (1):
+      gpio: ljca: Validate the pin index of interrupt events
+
+Bartosz Golaszewski (8):
+      gpiolib: don't overwrite the entire flags field in gpiod_get_direction()
+      gpio: shared: use atomic set_bit() for descriptor flags
+      gpiolib: clear debounce period before the "requested" flag
+      gpiolib: don't overwrite the entire flags field in gpiod_free_commit()
+      gpio: cdev: don't overwrite the whole flags field when configuring lines
+      Merge tag 'v7.4-rc3' of git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux into gpio/for-current
+      gpiolib: keep the line state workqueue alive until device release
+      gpio: shared-proxy: propagate -ENOTSUPP from .set_config()
+
+David Thompson (1):
+      gpio: mlxbf2: Disable interrupts around the chip lock in direction ops
+
+Gu Bin (1):
+      tools: gpio: gpio-watch: do not clobber errno on read error
+
+Hyunjung Ko (1):
+      gpio: mpsse: reject bulk-in endpoints smaller than 3 bytes
+
+Jiawen Liu (1):
+      gpio: omap: handle debounce clock preparation failure
+
+Lianjie Wang (2):
+      gpio: virtio: bound the line names block by its configured size
+      gpio: virtio: compute the line names size in a size_t
+
+ drivers/gpio/gpio-ljca.c         | 11 +++--
+ drivers/gpio/gpio-mlxbf2.c       | 29 ++++++++----
+ drivers/gpio/gpio-mpsse.c        |  4 ++
+ drivers/gpio/gpio-omap.c         | 10 +----
+ drivers/gpio/gpio-shared-proxy.c |  2 +-
+ drivers/gpio/gpio-virtio.c       | 13 +++---
+ drivers/gpio/gpiolib-cdev.c      | 95 ++++++++++++++++++++--------------------
+ drivers/gpio/gpiolib-shared.c    |  5 +--
+ drivers/gpio/gpiolib.c           | 39 +++++++++--------
+ tools/gpio/gpio-watch.c          |  2 +-
+ 10 files changed, 113 insertions(+), 97 deletions(-)
