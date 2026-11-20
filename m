@@ -1,103 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197532;
-	b=JulYvAc6vJPukmsqfM9G7bjyI1oVyDP1QWF96Pm9KbdRDpnk6QT9GuwwYVki9SBazcwA
-	 KC5LxAaFBDdndYqZ5egdHFMDoTK0KTj7jftgdsluug7DdLlDOv/v71qwThXV+8DmfbGeP
-	 IlQA71MfsjNdsBffV4GLgGHPfDy/weP32Nh//s9TrsVJde43s8sItEKQ1EtrZ2d+gChet
-	 dJLYeDWAcZsw5HtWMiEavR4jV/ABNtjMcNQkgTExE6bGnNBj0Fl0mGZa/JPpHdY1wKGWy
-	 2U/J6Xt74G5eYBsc7W9JFlirs7Ky3IKexfH36Hfr4qVutAf8LQMtR3oe55kppGccgIw==
+	t=1795197641;
+	b=eWC7sl0kUpGlfKPeFcAmIYQqpFBj55WfC3/rFdLavd0KZKNRwLRekPdXtiY1FyhhEsxQ
+	 d6ciE8qYR9AxbbibLMCMkO3XB+si+21mWGFLO7CQKV2EVTySuD6ggDy/dJRGyOy+pnynF
+	 Tsojm47TvL4WAxV5QACpR5CfpKBzWiE9lDgeYAJt4VzMEoYMmKkrAe3uQKmKJzG0ZvpI+
+	 Za3EDXRGttVBfnWf52OGhjlGfb3P+0oUJT61f4SEy8OkeNn596JLf4Z5G6KStUu85VzY7
+	 xlizH/X1ncELmvuQKSy/g+Bf73sNgy/nB4GNT3YCd/i9PrBX36iUADi9m3vZqML57VA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197532;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
-	b=fXAxBOMnnZiJktkUos1ft384gSvJ1mQNOU2IKb9Ww5ZKCUFlj6Ag1LC0DG1NWSnxwLyf
-	 r77lzMnnvnS83GPGFxgw7xJS6tVj/HneMCne6810odrq3cNC5XdM/YN7h3YEc60N4lTa1
-	 nDU9MclMK1UliaqYkRlERgahPXqBvMYeSPCtl/un4yJe9UAJmJeeK99VcnGLTw45Qm6N+
-	 +O27a+2Q1YjKSqWMctr8FoiQ2OpEAdCEQ7/eqIk6kYg5UL54qGgkNNZZpIaL350NCHTfk
-	 ksTSQuBqee2GH5U5Vre+uWvApSD6/wLoCnlLlUY248M+fEvrbGdP8JXLMoslLr1Kk8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197641;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=aWDQDm7LuQie9jvzV6uB014UdAyJXJaIz6fRdlyOS1c=;
+	b=u+4Qpg7TftWSo7ZTqPoN3+ZlEG64xAottx6OV18vl8WlERZMHNbdC3rvXCidvtuVWNxy
+	 vsbdJw8XAlLrcYUxrRVLENcXsvojw4xYatSJCqMAKoTQM1UEJi6xZKNGd4JUn2jjqm/L7
+	 v/symcnDwnzBIBwcE69HEgl/QZcbSU8HCJIieaOWAbGFSlWyXhXRjSHgzwLsID9Pok8yo
+	 afBgJqLSt/6CTOq3hkfaaWozV1VCTNjjKrIGqyqe4nVll4lXzjAGbU2tztbPzEEq4xJjg
+	 hMAp2oQ4B+AYo2iysR+5LllkXXwMxN56EFeWk2r/3gE9SbJq2vjyMmY7vr0ZbOz6ILQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uDjDauzO;
-	arc=none smtp.remote-ip=74.125.82.53
-Received: from mail-dl1-f53.google.com (mail-dl1-f53.google.com [74.125.82.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P5mkqwGq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28DD160A261E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:58:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28DD160A261E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA5FB60A2600;
+	Fri, 20 Nov 2026 18:00:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uDjDauzO
-Received: by mail-dl1-f53.google.com with SMTP id a92af1059eb24-14394530ec6so1852761c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:58:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795197531; x=1795802331; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
-        b=uDjDauzO+yHPOyuhPIgIu4Vcr9VVJ2nIRKVnXWsaY9sfg5H8TdEVaDvbbblBMl/Zq8
-         6nvKrf9RcDf1QOYEbsNUXI5ErWFO2RwWulx3OATD1nvKMgoSKqBN+f9wyjhNiDi4SqGi
-         X1U7rqovWvdWuUTztQdoXVMy99Fga2+gegb9H+joOirHQwazISwiOCv7lFrnFsH7wNOv
-         kBli1uX2dux2yjS3ZqtLqvYrVnoQtxWwXrS8qWjCr8kquCzCgviidUL+C+Zn447B1NWt
-         RfNZFU+JLuE18vrJyt/EjboNzecmx9cNJ+AU1cseCTDIwFgt8ySqqjr4gR/84RJGbxqo
-         GVrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795197531; x=1795802331;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7nDRG9zrad8XZYWJ2RuZhWhptkwYw+WrRQqA28jZw/k=;
-        b=NE3IC6D3x44DX2wAQGoCCNwY4z8tsfrNWLWqzgYj28h/C3sept96nEdt/vNCpSoB3/
-         b7JonQ72k+WvAcuUD/BqWrxVE0LoO4QA2F3HTfYxWZTlYpDFAQ/th2oGf8s3eGrvkIm1
-         P3Jemtm8BsB3EylgUB1ACdIW48vaHV2LRCmwPeroaoxSoAYXtzRfqkZMBTyqkGI/aRpo
-         cmoEPeu0iVYEoF24Sc4SM7nRPoHM6XtMsS71VrLA23KOb5JXH92AXzni0xEoQ0FXQWV4
-         bQ6Rf267p20UPXo1ws5/J2JRxBURkACN9/rZCEDkvT6ueqk5z9J1SBkFyk99g8wTZNoc
-         ioXw==
-X-Forwarded-Encrypted: i=1; AL+hErFWJu+9vSBKg9K7TBc6CHma4NzCnypAHiNqwkQAOeFOSEBbzLFD2FG8a/Rur6/LWut64VCe+a2InlUZsXE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9R6RvOnba7/tiXxNbHiAYfdeK8ffGd+q8WapW+e8ZJMzAl07CN
-	8km5VBuDMCyXe6ZlWPjShfs9MLUJzkNDZoxMEZ46iwxBMNNw4WB6q3GO
-X-Gm-Gg: AYBFou3YcIJO0V3+fJ2UVYhzCNY/9CRCS6KQyA51ILa1puPcCANSWCtrE6Bg61g3rEc
-	jThdva5ISUw0AnnrTtPlWKHlPxsgugn7lv4BKg9xgjYLSAC9hNXOAGtFUkmgS6FUTdABp3Be9rQ
-	L1dwYz+PbEBcW5QUqMKXGaY+AKPOH2lVPSaUqsdzL3ZEjAhS2fv8jgHvI44MGlx/mr4GZsn1r+u
-	db21mXNx6zcoKELPWbcLXHBwlls5ls/Qto+qyKo8QexYCxo9/ifC3s8Hc3tWCAwajpRp7qPFkD/
-	4VNxoSaKnGLIrKfJdag97INIJBwgPpuzeR5AP+YaZqV67zhtUdQfr+DKs1KhTm0nlz/MffRNdB6
-	byC9elfOy9W9YhQvoeHcVq1H1qrKPthV39VZ89lShjI0zCbfZxFkODffTZqbv5xjNJaMlFiWMCZ
-	Iopj/Ywxlvv9UOVaCI75aE+/zyq1KKPB7j8Fd2fwcGvh0188aht6oy/IR+tsp9Sa2H+ABmnNbuZ
-	Gb0TZLKI6eq/H55GVM8lkJE2YsRjkIalsfYZftqKVmX5/BK8j2juOskF0sSPq9+KwMz7/3LJxSF
-	SPLeaYVu5RjRQnbXHrWl
-X-Received: by 2002:a05:7022:c84:b0:15d:fb47:4268 with SMTP id a92af1059eb24-1b5568c9b56mr3220926c88.21.1795197531216;
-        Fri, 20 Nov 2026 09:58:51 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b562a82b3fsm681084c88.5.2026.11.20.09.58.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:58:50 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: linux-perf-users@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>
-Subject: [PATCH 3/3] perf vendor events amd: Fix a misspelling in the amdzen3 table
-Date: Fri, 20 Nov 2026 17:58:40 +0000
-Message-ID: <20261120175840.1274637-4-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120175840.1274637-1-takano32@gmail.com>
-References: <20261120175840.1274637-1-takano32@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P5mkqwGq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF2F61F000E6;
+	Fri, 20 Nov 2026 18:00:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197640;
+	bh=aWDQDm7LuQie9jvzV6uB014UdAyJXJaIz6fRdlyOS1c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=P5mkqwGqab+KQfWEfEH4mmcGEw6tOW3qm6uvmVNmNnR+GzzxXVkIdUySNuc32vLc0
+	 q31FmpssPWpu0Q0701/2KM+kgiJvkQeROnbFBI/6oZ0XIWMdH/TRqoJRA56olYaWYW
+	 6sckacjB2oiIkTR6cFalvpY3OG8+9vBEABBa8mPfnBQDyQFQb9GpyeuXO6/H4Hsxc7
+	 r057Siz8DIpUlqoO1uqHmWLR0dPkKtgaXHxx+DiDE/T/jrcn+qbpB4oejbh4rAIM+X
+	 nfVNM38HAe0awFXGnv2Hk87AJ60ZrMYfMBsoNpwPtGgOEBEkecr7rs5EqAM+rI876q
+	 Z24xn6pr9lUSQ==
+Date: Fri, 20 Nov 2026 18:00:29 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Heiko Stuebner <heiko@sntech.de>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Dominique Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Yakir Yang <kuankuan.y@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	William Qiu <william.qiu@starfivetech.com>,
+	Xingyu Wu <xingyu.wu@starfivetech.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Manivannan Sadhasivam <mani@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Maud Spierings <maud_spierings@murena.io>,
+	Graham Markall <hello@big-grey.co.uk>,
+	Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Joshua Peisach <jpeisach@ubuntu.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Byron Stanoszek <gandalf@winds.org>, OOHehir <oo.hehir@gmail.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v7 00/19] drm: starfive: jh7110: Enable display subsystem
+Message-ID: <20261120-lagged-aorta-a5799cab633a@spud>
+References: <CGME20261106135849eucas1p242718d72fa1f38e31477210fd9ee30bc@eucas1p2.samsung.com>
+ <20261106-jh7110-clean-send-v7-0-68f7ea9913db@samsung.com>
+ <d21992c9-9e60-4613-b7cd-8e324d214a48@samsung.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,38 +95,67 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9Y3BF9tXWb3jCBuR"
+Content-Disposition: inline
+In-Reply-To: <d21992c9-9e60-4613-b7cd-8e324d214a48@samsung.com>
 
-One word is misspelled in the amdzen3 branch table: "Instrcution" instead
-of "Instruction" in the BriefDescription of bp_l1_tlb_fetch_hit.if4k, so
-`perf list` prints the misspelling as it is.
+--9Y3BF9tXWb3jCBuR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Only the description changes.  Regenerating the tables with
+On Fri, Nov 20, 2026 at 03:02:35PM +0100, Michal Wilczynski wrote:
+> On 11/6/26 14:58, Michal Wilczynski wrote:
+> > This series enables the display subsystem on the StarFive JH7110.
+> >=20
+> > Merging: the series splits by subsystem, there is no build dependency
+> > between the blocks, and each block lands in the tree that already owns
+> > those files:
+> >=20
+> >   drm-misc                     1-3, 6, 8-14, 17
+> >     drivers/gpu/drm/bridge/, include/drm/bridge/ and the display
+> >     bindings. Patches 1 and 2 are inno-hdmi fixes with Fixes: tags;
+> >     they apply to Rockchip as much as to StarFive and are independent
+> >     of the rest, so they can go on their own.
+> >=20
 
-  jevents.py x86 all tools/perf/pmu-events/arch out.c out-str.c
+> >   Conor's tree                 4, 5, 7, 15-16, 18
+> >     drivers/soc/starfive/, together with
+> >     the bindings for its two drivers (patches 4 and 7, under
+> >     bindings/display/starfive/) and the vout-syscon compatible in
+> >     bindings/soc/starfive/ (STARFIVE SOC DRIVERS), and
+> >     arch/riscv/boot/dts/starfive/ (STARFIVE DEVICETREES).
 
-leaves the generated table and the string table identical except for that
-one word: every event name and event code is untouched, and the string
-table does not change size.
+Other than for the dts patch,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- tools/perf/pmu-events/arch/x86/amdzen3/branch.json | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I don't want to take the display binding because I won't have the child
+nodes, and I won't take the driver without the binding for it. At then
+at that point, the remaining trivial binding and driver may as well go
+with the rest of the code.
 
-diff --git a/tools/perf/pmu-events/arch/x86/amdzen3/branch.json b/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
-index 018a7fe94fb9..a3b53845ca19 100644
---- a/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
-+++ b/tools/perf/pmu-events/arch/x86/amdzen3/branch.json
-@@ -42,7 +42,7 @@
-   {
-     "EventName": "bp_l1_tlb_fetch_hit.if4k",
-     "EventCode": "0x94",
--    "BriefDescription": "The number of instruction fetches that hit in the L1 ITLB. L1 Instrcution TLB hit (4K or 16K page size).",
-+    "BriefDescription": "The number of instruction fetches that hit in the L1 ITLB. L1 Instruction TLB hit (4K or 16K page size).",
-     "UMask": "0x01"
-   },
-   {
--- 
-2.53.0
+Please resubmit the dts patch to me individually when the rest of this
+has been applied.
 
+>=20
+> Gentle ping on this series. It depends on the Innosilicon HDMI PHY
+> series [1], but only for dt_binding_check/dtbs_check (the PHY binding
+> is referenced from the jh7110-hdmi-subsystem binding) and at runtime.
+> Everything else builds and can be reviewed independently.
+>=20
+> Any comments on the DRM bridge / inno-hdmi parts would be much
+> appreciated.
+
+--9Y3BF9tXWb3jCBuR
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawCKvQAKCRB4tDGHoIJi
+0qj8AP0ZaeGM0TZcGSFuopE9ZeecanF/1QUS00H2PGlontmwXQEA3BQeYKyiBSs4
+lx/sKFxuXkEXlgn/ah1AzWlf0uWxDQg=
+=XGjQ
+-----END PGP SIGNATURE-----
+
+--9Y3BF9tXWb3jCBuR--
