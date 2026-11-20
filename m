@@ -1,92 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179944;
-	b=A2LlpV3TMFHeOgLBuZVSlORxCpoYVUl6AsZkLqDEwq9eKzICgSKtyrmhPW3eQUQw3Da/
-	 QAfLARRv0fLYtWbT6oWIJAXaVFPML3HT2Vl6pRF+ZqRdwW8cyVDdXYjAonuJtd8AMEmOs
-	 fYJj8LjjwgYpvMDkk7m3TvGqjxqIXjdzp2DjV3t4UJKASLBfmUwj1gEZjKhZj7es7NiCq
-	 vq5wgLiXz2ErdtgOb8LBPFLB49cRXpPLYHc4J78pI/kzbAzWyJFdLOcF+m0FXdQVcHidz
-	 xYU4EaHyolXKUNlMadvasBFTpWBy44Pne+k5OOaDS8a9+AGL04vDI9o2v5a0lGwxdjw==
+	t=1795179999;
+	b=MciSbfGJSHyGq7S7CCvFL20GGD6qhAJBUKfIPGvAV81bFcV33o3wud+Hvgl+H/pnI86L
+	 kf6LrI+/JZosjJzX1MJkqKvn5QltUi6nEbLkMUlTUt1OWvY4WE4yDNAZo6LFRAN+sUjMO
+	 K74mNG2oXVoGMNEVWkMzoPHDPDiPZkDd4m0BgKDqjzyu2m38AQOtP2XhpjtNeuc6eqGhd
+	 16+PyEYwKlNivFyCCdK2506qMHM/FRYvERbu8WfquogL6vZCKTdKw5b/Ag8U977PHpowb
+	 O5ekHJZwWPmy8a2FJi3gii0KP2Psjaceogl0clcKGD6C5tVg22c/ZD2ZK4TaZ7N0I6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179944;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179999;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References;
-	bh=vZD7H59wVkQJIxaCAkwRu81Yn4gtf3+T3VW/kqvLqyk=;
-	b=qQ2PKRS6GGXBnzilcOQhkI6dv5BKet79NoaokKWKUqEybYPj3Lav2GvvlUOsDtWERePC
-	 Op8AIHKdPSATMXFykLh+A3oc1mc/cyOir+VEQQWMW9nRMqdQgmju7VBBXCFhCUt41m0hj
-	 KnwzDCZVoC6I+ac9QB5knojUjanLe+3+GV9DIYnl7FYgqAlGzgMaX97sMN63z2pKIsMWh
-	 Mgfxt5HNPygnRa5QPgqrZGn5dkuocZwbPA189aIlDAYzVcFCsW5fqjamesk83EMnhH/7E
-	 OsvmMdPU5zO6i2mr0AxUD9fOYizEBkH7mEyB9Rye0oTV1urfcq6HECg48mTid/XWMrQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=aN9l8CDwOvjtRjMobYbC9T4AAnLVgaW+5jZeY6o9Xhs=;
+	b=aEPd+Qxs9gsJz9wGBXwMPaFmMgXrerdJKPmc4/F2SCjTTliv6x+Sdkfl7xsdZvVaCdLY
+	 HoEpmTMPUr7gxG58olYddw7y7LoLoIksjioGgm5x4bH/0zz4yOJtEQzx5dpmAYekw7oTG
+	 IYWm7mDHcZitZeBRqZ3mh/E4v3sbmGzNzqPOCMRcud+aba30tKwn3Ggrf9rtCJyGgbMwU
+	 eZu77ZU/Fl2Tj9DUCqzuYdi0D+abTZsTjF4vbqEJSRf7RpFG0+LJxdG2/AQLMTrT884K7
+	 BNTSRmV9ro61zJ0zhXbJFUlUJ6mgxdQ+0nIDFW1tdqcoaUTMKL0frS/E7+SlBqVhWGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xLK5CECU;
-	arc=none smtp.remote-ip=209.85.218.43
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com [209.85.218.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tvTC3UWm;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05D3660A3823
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:05:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05D3660A3823
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03D80606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:06:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03D80606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xLK5CECU
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso132722366b.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:05:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tvTC3UWm
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so7775665e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:06:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795179942; x=1795784742; darn=vger.kernel.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=vZD7H59wVkQJIxaCAkwRu81Yn4gtf3+T3VW/kqvLqyk=;
-        b=xLK5CECUhYqGQaOh9chBL9LAtOPmWb8MCflYggF6Apd4Vzy/BtfqFmAaD/z0A6ks5c
-         MJPem9HO9QygE/i9RhCvatWSvmlsMf7wvNLo9xkQJ9uB4mdngYR3Nj5OqGByl9BGBV/5
-         izd8Qh/Bzig2MYB1by1RYOtONFdxXMfh0+5CQZffkXASYOvtCM/KgujGGQF8MgM6tkld
-         bf2GeSHM24iQ+rgzqhHLA46ktCXO4aFImcKTR4PC9bFpIkHSqfoiZMxQs61/Crn8A9ly
-         yuwusnpXqmohbqO9zFYjj+gNy+NePxOLieLdKLJf0HqUjRebN/JQiGAVaGQ93nf9rl6y
-         ZA4A==
+        d=gmail.com; s=20260707; t=1795179997; x=1795784797; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=aN9l8CDwOvjtRjMobYbC9T4AAnLVgaW+5jZeY6o9Xhs=;
+        b=tvTC3UWmisWdUSymmpATqFWpFz0OJyrOUWNGm6TBa1nwW+7YrCpulfv3UsMXJUSMJR
+         FeB7jMc6J+kTNoXVesQNAldCxnQi8kdK+ZaN5Mx5QWOevM9xrRb4hqkD/xjgcCCQoPvy
+         OQby+O/fPsqDUrWqGaLaD1pwZi2J+tzxhFFhn6F1FHpJansAs9Ltyg9htJqpl1gpkoS3
+         D+7f8lP4Kv3T4bkgIrdlvAsEXbYF0L0BBktabQ/c7R5Etqv5lPQ8bznCTbM05xww9bRU
+         +9rjZPf4Nyffh9azDCNgN8C9/4ZVWysYDqolHHq7nOlV35Bq5qm/k3C91Gxo8pxoi87E
+         tw+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795179942; x=1795784742;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vZD7H59wVkQJIxaCAkwRu81Yn4gtf3+T3VW/kqvLqyk=;
-        b=XM+einMZUUd3D086Qh0Pw+9BFhoxmoNp3bTa/4bZHZr8J6UA+qhvvnWwdTrtriTwjl
-         Af6JV8gABlwpkVHhdBAscvOwYxy9TaYchsvLtA/JX2maZa7pC3I8uUbmuGlexwiDsVM8
-         Ypbr1kvgiDF4aS/cBaCcCt/nB/Nzb4tFLG4NzqVEq99/W2rzjC2q6fADbIZO/h+Hs/lS
-         koBKr4Qds7t+PVYZZ0C5tLzAGxH0lEXQNotsoMAiIzu5/BmvgfLLAoOX0SP0AbkOF5Xl
-         nY76NwWXSNVfXTEqalOMuj2jtUOT2B9Mm7GNPau5yVDddxVVRiqdBXw9JDAPbuAAEdGK
-         5BFw==
-X-Forwarded-Encrypted: i=1; AL+hErFAdXSJ55AvklqPsvF4Zex84qjLI6de4eINAslyuxQsi6JtFEX5BkEFC68ic8YERQBgmYyTLiNp7Jw2O40=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hWCrAAXt9Hoa0sCOoA6bKO+UvA7JbJhcM4ZrpBF/jvtZENLig
-	iDLOY20p0Q5kyLn/2dDoSUBFxITGQx487lFvwS7gl3Cphdlu4iQPpR8g
-X-Gm-Gg: AYBFou0cpUoCJxqmoGvMVqj/MKnC9AShKojE/qAM87EXO5Dpgn8K110aXG2fEkMmwKH
-	gpSJR25oGJBFGYgn61U1id6Gc6GlbBiHkU9u7+iLlgL3gMLDmRTMgcKeIQtWS69Ic626aWFsOo1
-	eRjq8ne/iEGuUVAInU9YxPkbXNT5z7A9774sIb7ahu8VjN2PH9jNCDNr1izxoaBE8Cu8rnQUzxc
-	KFB+IUdrcm0wLliF+FLEPxGHosVDmso91uAqL+pJH/tOeaWVRKmX8smLXC9+qOJz7Xn83QpDQsF
-	Gmn9siFF2oHhEzdvLUa3QhTHncTKwvIBQf6sXrV+fb+mVMSxOkUUJZr2AJnqzu/ObdeiIxoJ2m1
-	rMCUufVrBsA9Z7yvGinE55urwj/m48yCx0KUKQ/u3+t1hUHLlYZEBjby3Co5QLC+0btPox8P5Yj
-	sbZUjkndYI8D2bc8dtxYSHC01D/uzKF6ID92YZ6AY6f3xgLZctH2zMjwkpr2NFcfsoRic+iO41Y
-	Mo/E5regXmgMZW9c82ydJahC46yuBVaBj8R7necE/xsG0P5VP6CQbpWYqIIwr2q9yrazcZLix3X
-	kOhUJUkKHvMXrJbJ1jg7ga5AbnGK0watmbGI1ADQaxc+rQl5c5g929wq
-X-Received: by 2002:a17:907:ea90:b0:c50:5e90:5ea7 with SMTP id a640c23a62f3a-c513ac9dac3mr301963366b.49.1795179942348;
-        Fri, 20 Nov 2026 05:05:42 -0800 (PST)
-Received: from localhost (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae6780esm95720566b.17.2026.11.20.05.05.41
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 20 Nov 2026 05:05:41 -0800 (PST)
-From: Eli Billauer <eli.billauer@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: arnd@arndb.de,
+        d=1e100.net; s=20260707; t=1795179997; x=1795784797;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aN9l8CDwOvjtRjMobYbC9T4AAnLVgaW+5jZeY6o9Xhs=;
+        b=KlMqBQoKoycO/axXE8tNy+zwRqIH7vygEF1/wpTYG2YZW93t9NSIdiIWK1EXdkGMFp
+         gWZ9AIMjbKlQAurLlnMq2fFXXwVomQa0fretm37LAnAAAN+FR2IAhxn4ip86XMlg6N8r
+         82lInheGFI+1PA6ObxCjlpmVzu1QkKq+sORzS7VxFRMy/gPaSU8oxVixG8McuDRdxnn3
+         BOUy/XV5g2WxUhIm0pJZAVP9E5UfswWsavT2i959+FmoGdIlvUmTJOUYaeENb83kskyO
+         UQc6YbWTOacn2MhzxSfYvyY6vz72ob5xrcNIiM2lBvkZJg0UEffGe+PE0bZty4wKu9Xs
+         41OA==
+X-Forwarded-Encrypted: i=1; AL+hErHkDuYULRFlGXCUF3hr3NyiyFeMn22e4FCdrFEK3G+nmMwC3JseGeTiBSgtgk/zBi9mlw6P0Cl1r50S+Ak=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9kM/A2aeyA4/AOm/Tq3+5/ETlwCYip2p2KiHxGKwhO3heGMCAY
+	ANkfFmNgKyBv9r7VXRw0w1heW8fE+tSMneZbLtFSJ649d3BfI7RuUX9F
+X-Gm-Gg: AYBFou0b5brUA9itw6mu39nxusBuvDdlDQJU0roA4W2jCkeRGELhGnGVkStlrvc4hwf
+	inC9Uy/nL6dRCRN9YKFsKOEeLmk0FhP2d5qq13lR5yZvTjKLUnEULhUyeUzOBm9Dr2iyMv+CKcb
+	iZRF7IR9TVdRqOe+qxSQwerfheXpbm9BFQrksIFAR71SruUd+IsXITOdj2e0SQBp4KsPB8m/v+m
+	V610w5mzlm4zBPnH3UMG43DcENDAzwZHdSQLrKb4IyQB3h3IDZ/GX0tiLXWk07MOaXPZ8oWHO5p
+	cM9tQxR+cHi/JQ8GGWtU/W9aNoS/EVGUsXf9Lpme7YUBP6nzFeRuZP2dTCg8kQsZ66gvubpV/u6
+	bHacCh4cji93s8Alg0r56hCF27GP4lHHGKM8Fa9+SStR2hvS6pwlnjU4lMwRzoqQNKBF06uhr4D
+	SIp5cYbZgnD7l7qyBnS85DTQz/qNrIY7kGUfI7O9OVG3Ztpndivhy1DknDuMHg3BQ4fBd1CAyHE
+	o+PqLYnIs8jaD3ngvxe8PBOdyKXQofBZBnZPKDSqT4Qk3JLxTO1skORzT9KMQYri49OVPqUkKpL
+	lhiJYkFIZApw0I8cuFXysNVInhufmJMCVoKYdqymjnDUaagcmB2q452mXhY31I2B4rQxGCyJoEE
+	T
+X-Received: by 2002:a05:600c:4e0e:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4bb88938dc9mr73795085e9.31.1795179996992;
+        Fri, 20 Nov 2026 05:06:36 -0800 (PST)
+Received: from ubuntu-nuremberg ([2a01:4f8:1c1b:70eb::1])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm133317135e9.11.2026.11.20.05.06.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 05:06:36 -0800 (PST)
+From: Reza Ghanbari <ghanbari.reza94@gmail.com>
+To: Keenan Dong <keenanat2000@gmail.com>
+Cc: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mhiramat@kernel.org,
+	oleg@redhat.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	james.clark@linaro.org,
+	andrii@kernel.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Eli Billauer <eli.billauer@gmail.com>
-Subject: [PATCH v3 8/8] char: xillybus: Cancel delayed work items before teardown
-Date: Fri, 20 Nov 2026 14:05:02 +0100
-Message-Id: <20261120130502.17056-9-eli.billauer@gmail.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20261120130502.17056-1-eli.billauer@gmail.com>
-References: <20261120130502.17056-1-eli.billauer@gmail.com>
+	linux-trace-kernel@vger.kernel.org,
+	ming.jvle@gmail.com
+Subject: Re: [PATCH] uprobes: clear extra_consumers before pooling return instances
+Date: Fri, 20 Nov 2026 13:06:19 +0000
+Message-ID: <20261120130619.738336-1-ghanbari.reza94@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260408100247.2065245-1-keenanat2000@gmail.com>
+References: <20260408100247.2065245-1-keenanat2000@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,104 +112,35 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-xillybus_core queues only delayed work items in its workqueue. Use
-cancel_delayed_work_sync() instead of flush_workqueue() to clean up
-queued work items, as the latter does not wait for or cancel delayed
-work items whose timers have not yet expired.
+Hi Keenan, all,
 
-Fixes: 48bae0507410 ("staging: New driver: Xillybus generic interface for FPGA")
-Assisted-by: Sashiko-0.2.5:gemini-3.1-pro-preview
-Link: https://sashiko.dev/#/patchset/20260630092330.43534-1-eli.billauer@gmail.com
-Signed-off-by: Eli Billauer <eli.billauer@gmail.com>
----
+I ran into this crash on my own and can confirm your patch fixes it, so
+here is a Tested-by.
 
-Notes:
-    Changes in v3:
-    - Rebased onto the updated kernel tree (devm_kmalloc_obj() conversion).
-    
-    Changes in v2:
-    - Added Fixes: tag.
+I was seeing it on an unpatched 6.18.63 (kernel.org source, built with a
+Debian 13 config). With libfakechroot in /etc/ld.so.preload and a couple
+of "setarch -R ls" loops running, I attach entry and return uprobes with
+bpftrace to libfakechroot and to the same functions in libc, detaching
+and reattaching every few seconds. The kernel oopses in handler_chain()
+under krealloc() within a minute or so, which is the extra_consumers
+path your patch is about. I haven't pinned down exactly which probes end
+up sharing an address in this setup.
 
- drivers/char/xillybus/xillybus_core.c | 21 ++++++++++-----------
- 1 file changed, 10 insertions(+), 11 deletions(-)
+With only your patch on top of 6.18.63, the same probes ran 20
+attach/detach cycles with no oops, and a fork-heavy variant ran 40 more,
+also clean. 6.12.117 doesn't crash, which fits the Fixes: tag.
 
-diff --git a/drivers/char/xillybus/xillybus_core.c b/drivers/char/xillybus/xillybus_core.c
-index 3433f07e4286..879e26aa6a83 100644
---- a/drivers/char/xillybus/xillybus_core.c
-+++ b/drivers/char/xillybus/xillybus_core.c
-@@ -1922,9 +1922,10 @@ struct xilly_endpoint *xillybus_init_endpoint(struct device *dev)
- }
- EXPORT_SYMBOL(xillybus_init_endpoint);
- 
--static int xilly_quiesce(struct xilly_endpoint *endpoint)
-+static int xilly_quiesce(struct xilly_endpoint *endpoint, int to_cancel)
- {
- 	long t;
-+	int i;
- 
- 	endpoint->idtlen = -1;
- 	endpoint->num_channels = 0;
-@@ -1940,6 +1941,9 @@ static int xilly_quiesce(struct xilly_endpoint *endpoint)
- 
- 	xilly_allow_isr(endpoint, false);
- 
-+	for (i = 1; i <= to_cancel; i++)
-+		cancel_delayed_work_sync(&endpoint->channels[i]->rd_workitem);
-+
- 	if (t <= 0) {
- 		dev_err(endpoint->dev,
- 			"Failed to quiesce the device on exit.\n");
-@@ -1952,6 +1956,7 @@ int xillybus_endpoint_discovery(struct xilly_endpoint *endpoint)
- {
- 	int rc;
- 	long t;
-+	int quiesce_channels = 0;
- 
- 	void *bootstrap_resources;
- 	int idtbuffersize = (1 << PAGE_SHIFT);
-@@ -2054,6 +2059,7 @@ int xillybus_endpoint_discovery(struct xilly_endpoint *endpoint)
- 		goto failed_idt;
- 
- 	xilly_allow_isr(endpoint, true);
-+	quiesce_channels = endpoint->num_channels;
- 
- 	rc = xillybus_init_chrdev(dev, &xillybus_fops,
- 				  endpoint->owner, endpoint,
-@@ -2070,8 +2076,7 @@ int xillybus_endpoint_discovery(struct xilly_endpoint *endpoint)
- 	return 0;
- 
- failed_idt:
--	xilly_quiesce(endpoint);
--	flush_workqueue(xillybus_wq);
-+	xilly_quiesce(endpoint, quiesce_channels);
- 
- 	return rc;
- }
-@@ -2081,13 +2086,7 @@ void xillybus_endpoint_remove(struct xilly_endpoint *endpoint)
- {
- 	xillybus_cleanup_chrdev(endpoint, endpoint->dev);
- 
--	xilly_quiesce(endpoint);
--
--	/*
--	 * Flushing is done upon endpoint release to prevent access to memory
--	 * just about to be released. This makes the quiesce complete.
--	 */
--	flush_workqueue(xillybus_wq);
-+	xilly_quiesce(endpoint, endpoint->num_channels);
- }
- EXPORT_SYMBOL(xillybus_endpoint_remove);
- 
-@@ -2102,7 +2101,7 @@ static int __init xillybus_init(void)
- 
- static void __exit xillybus_exit(void)
- {
--	/* flush_workqueue() was called for each endpoint released */
-+	/* Work items have been canceled for each endpoint separately */
- 	destroy_workqueue(xillybus_wq);
- }
- 
--- 
-2.17.1
+One more thing: Keke Ming's v2 for dup_return_instance() has a hunk that
+clears extra_consumers when cons_cnt <= 1. With only your patch applied
+the fork-heavy runs were clean, so I haven't seen a need for that hunk
+for this crash.
 
+I can send the reproducer and a full splat if that would help.
+
+Tested-by: Reza Ghanbari <ghanbari.reza94@gmail.com>
+
+Thanks,
+Reza
