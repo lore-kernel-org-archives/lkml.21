@@ -1,58 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795152830;
-	b=H5ncAR+1aSvEd3qI76Km/aarNM5wIa1p4lC2EJInK1FvAbRAywEyWW/wBAJgPZkQYOqn
-	 lsqaDiM+B2xXYBm3a0rlOEHzgEdvaKavthTdaarXeeXWdsT4q75/UfRPT26AfcLhtyz67
-	 O/xrYKIcSdJPRSi4ZkuRu+bnl8l5Y8KEnNqV3ENNBekNC/0BdinKtUV86yFQwORv44KoM
-	 DDIwbHDUqQ9wpuhy4WKgfOphPNRMpQsBe5nfvibvLlQQ/W+oFvH8YEu5iTp84xtE0KUBr
-	 tYb894TRqLxxh/ZRGovVvgmAGcG6hGDVQUCtj0G9pkYUvj5uSUcouHSQybxl5UQMVzg==
+	t=1795152920;
+	b=uqdyp/BJq0+cp2hGqC7nTkubq8nk9TzNDqH8nvRf8zshMFooQkZacYTBJAAhZrWcRlEu
+	 lbBbhyGMQcxrJwvGY14Iw7FbG7pXij2gaG3y1tPXN0TxP+ftMyftCPrwZOBp/679sV8EU
+	 fZtJEkeXiHvMFE2OI9nA3LpTDGnCt7MFz/RiJYbVGVRKtzds6++YH6iaL7btQ7EQv3FAg
+	 mQGm2/YsotsrjGJ5mjQiS9TpQfdMAf6+PK7jrx0s6NEcW6fZu4lA+foOajQe46wZ+tnV7
+	 fLPZYzYdhMZShuFpxZJCg7iBNKejZQEY7u/7NNJa9o5z0wdha5LNGHhLFBTxT22mi5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795152830;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=NLrjRZFiatRFJw6E5ayxBxyGTvhj7Htf/txtOkoq6d8=;
-	b=JoBnT5RZc4Xw5konjSLJPCwbqmx7I4B7QtTeoNqHzfwZyCfeJpMEJsIjvqObuHtnAnGl
-	 OvkqpLU1LEk5Spnvrr6atFEoz2/7L1CSAsc/gbH+wFQTLkxfkZKvt0ANB8X7ohU0Ff6qF
-	 O4CfLmcNewzrQtzmRrYwGfQSD2ZixsnkuxugWtzKDgfuQm1Uq7Gvz5rp47t4aBzcoV/Ja
-	 26saoZ2fkPesnFUqc5oOX7zs73mESBrfr6QDimVUXRsNPSWLc9HMvgIMPZYP04+UaeCiv
-	 HHehxmw5j7jJJNwdABXbaxXfo7wAK9liH0CPxI/QSbUD/uAlXx+ILq42ZYOxcptFFXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795152920;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=DjvQqhMP94B6pkXRIu5JFvHLBpFWSNq39QBHFx2ALQo=;
+	b=mY/x0Uw8MTllHmplbRfN6QjklaWYZUn4U/LEIorDIOF4js5xNatMpMVt0fkxW0l/mdRx
+	 iXdI6WXwBDc7yuilI2OWdsp8vqJ54rigpr5LYgHyV03EyUK5sb4daxoEu29DEe/fgQ+2t
+	 EQes9V+quSl5L1qOlNs/jOAfi+KO8Rqcclj54UXuHxzFyEUDYak7VZjR4+YgxXxhdAOba
+	 u79mt6LySm+0IWGkzAhMoTVA6Uv5kt5xsIA9GCmmWd+Pv+1XMVWeTlRVezrzzr57Ic2O/
+	 Yo8AIxdfXFTZ+6mlF9cMIIBOmta0mYhIIZmnJjoIRZBvuUyLw4quy7slLgQ+Nzqforw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3U87XZ1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RCEB3UZK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC968606A320;
-	Fri, 20 Nov 2026 05:33:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B4C6606A325;
+	Fri, 20 Nov 2026 05:35:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S3U87XZ1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D67EA1F000CA;
-	Fri, 20 Nov 2026 05:33:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RCEB3UZK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D7491F000CF;
+	Fri, 20 Nov 2026 05:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795152830;
-	bh=NLrjRZFiatRFJw6E5ayxBxyGTvhj7Htf/txtOkoq6d8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S3U87XZ1xO4brFPEo+Mj6QDGEzt165nI+u6cSkoQccbZd2SvbwuazUjsS33M/8STJ
-	 D1dOX1nfL81c+Fc1eTe2hGysFiN2a+GpAFThI9ESIEGCPSGuya5YTwUngbWGgVtvmI
-	 Fy2BfSZG0X+gq0UoeBuFn6vza3rXC8HKcizeTPmNBMIrT+xh8ExqaBpz6BxT2Nl7lk
-	 vfjrA95p8xCmVh92MrwlVw67CB9jhSZV8z0xx+hkUERUkq1ttOgWVY3ds60Qd+Mi6a
-	 kuXNhISKw5U1Y2M/B+p2LvXp8c83KQaH977xNNlBpmvCmlD3XkwUJcb1FaC0EzbWJ9
-	 gD5RBL6toYAhA==
-Date: Thu, 19 Nov 2026 21:33:48 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: acme@kernel.org, adrian.hunter@intel.com, bvanassche@acm.org,
-	elver@google.com, james.clark@linaro.org, jolsa@kernel.org,
-	justinstitt@google.com, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org, llvm@lists.linux.dev,
-	mingo@redhat.com, morbo@google.com, nathan@kernel.org,
-	ndesaulniers@google.com, peterz@infradead.org
-Subject: Re: [PATCH v13 19/21] perf maps: Fix lock inversion in
- maps__load_first()
-Message-ID: <av_bvJpYwwMWNfDt@google.com>
-References: <20261113164152.2095566-1-irogers@google.com>
- <20261113164152.2095566-20-irogers@google.com>
+	s=k20260515; t=1795152920;
+	bh=DjvQqhMP94B6pkXRIu5JFvHLBpFWSNq39QBHFx2ALQo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RCEB3UZK6ItV1J7msmiXhKwoSjJicjoK64DETqry3RWzERBhCySCWTHn6pHPAMLa8
+	 64ccoS23cyFcaV6pMJbIAIE/FkoklawGt4WxBQxDKuHeSGk+sPpTxDGg+FC70dADQv
+	 JcYK3K/TKWEOEf+xWg7BWfYc63cUFAxQQlX09SeP2fiaiEjpYXGsyZCAxjZWdlGYee
+	 MASAd07hZ5mw0vkubQ6eNortOTClyNqUhZ3naLqCi+YTmCasQmYYpYMfvV0YVYxydp
+	 zICzsEQxBNuzLH3E/QO19rVj8QLd+7CyDYYW5iZqoR87HRnwq3XrIwIxbmdHzJ7UhW
+	 NBWNqOI+p08AA==
+Subject: Re: [PATCH net V2 1/2] net/mlx5: HWS, Handle NULL in vport
+ destination action creation
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ acassen@corp.free.fr, valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com,
+ kees+treewide@kernel.org, leon@kernel.org, linux-kernel@vger.kernel.org,
+ linux-rdma@vger.kernel.org, mbloch@nvidia.com, moshe@nvidia.com,
+ prathameshdeshpande7@gmail.com, saeedm@nvidia.com, horms@kernel.org,
+ william@theesfeld.net, kliteyn@nvidia.com
+Date: Fri, 20 Nov 2026 05:35:18 +0000
+Message-ID: <179515291858.3136.13333642056498222976@kernel.org>
+In-Reply-To: <20261118173227.1957670-2-tariqt@nvidia.com>
+References: <20261118173227.1957670-2-tariqt@nvidia.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,50 +67,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261113164152.2095566-20-irogers@google.com>
 
-On Fri, Nov 13, 2026 at 08:41:50AM -0800, Ian Rogers wrote:
-> In maps__load_first(), take a reference to the first map and drop
-> maps__lock(maps) before calling map__load() to avoid a read-to-write
-> self-deadlock when loading kernel maps inserts extra trampoline maps.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-It seems this function is not used anymore.
+Low priority / nit picks for your consideration:
 
-Thanks,
-Namhyung
+- [Low] The commit message for "net/mlx5: HWS, Handle NULL in vport
+  destination action creation" describes only part of what the bug did.
 
-> 
-> Fixes: e77b0236cd0c ("perf maps: Add maps__load_first()")
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/maps.c | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/tools/perf/util/maps.c b/tools/perf/util/maps.c
-> index f808df2fe77b..7ca33e5218e7 100644
-> --- a/tools/perf/util/maps.c
-> +++ b/tools/perf/util/maps.c
-> @@ -1459,10 +1459,15 @@ int maps__merge_in(struct maps *kmaps, struct map *new_map)
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the same
+  caller, mlx5_fs_fte_get_hws_actions() in…
+
+--
+
+net/mlx5: HWS, Handle NULL in vport destination action creation
+
+This patch makes mlx5_fs_get_dest_action_vport() return NULL as soon as
+mlx5hws_action_create_dest_vport() fails. A NULL entry is therefore never
+inserted into the vport destination xarray. Before this change, inserting
+NULL could later cause a NULL dereference in hws_action_destroy_hws().
+
+> The next mlx5hws_action_create_dest_vport() failure will try to
+> insert NULL again, but xa_insert() will return -EBUSY, because
+> we already have NULL entry. In such case the code will go into
+> error flow of action creation, and eventually will cause NULL
+> dereference at hws_action_destroy_hws().
+
+[Severity: Low]
+This isn't a bug, but does this describe the whole impact? The text covers
+a later creation for the same idx failing again. What about a later
+creation that succeeds?
+
+When the entry is NULL, __xa_insert() stores XA_ZERO_ENTRY instead:
+
+lib/xarray.c:__xa_insert() {
+    ...
+	if (!entry)
+		entry = XA_ZERO_ENTRY;
+    ...
+}
+
+xa_load() turns that back into NULL. The slot looks empty but stays
+reserved.
+
+Suppose a later mlx5hws_action_create_dest_vport() call succeeds, for
+example once a transient kzalloc or STC pool failure has cleared. The old
+code then appears to loop:
+
+mlx5_fs_get_dest_action_vport()
+  dest_load:
+    xa_load() returns NULL
+    mlx5hws_action_create_dest_vport() returns a valid action
+    xa_insert() returns -EBUSY
+    mlx5hws_action_destroy(dest)
+    goto dest_load
+
+Wouldn't this spin forever and hang rule insertion for that vport?
+
+The fix covers both outcomes, since NULL is never inserted now. Could the
+commit message also mention the livelock?
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/fs_hws.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/fs_hws.c
+> index cbcbc2b62809d..de22e7279a312 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/fs_hws.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/hws/fs_hws.c
+> @@ -441,6 +441,8 @@ mlx5_fs_get_dest_action_vport(struct mlx5_fs_hws_context *fs_ctx,
 >  
->  void maps__load_first(struct maps *maps)
->  {
-> -	down_read(maps__lock(maps));
-> +	struct map *first = NULL;
+>  	dest = mlx5hws_action_create_dest_vport(ctx, vport_num,	vhca_id_valid,
+>  						dest_attr->vport.vhca_id, flags);
+> +	if (!dest)
+> +		return NULL;
 >  
-> +	down_read(maps__lock(maps));
->  	if (maps__nr_maps(maps) > 0)
-> -		map__load(maps__maps_by_address(maps)[0]);
-> -
-> +		first = map__get(maps__maps_by_address(maps)[0]);
->  	up_read(maps__lock(maps));
-> +
-> +	if (first) {
-> +		map__load(first);
-> +		map__put(first);
-> +	}
->  }
-> -- 
-> 2.56.1.703.gf848ed807c-goog
-> 
+>  	err = xa_insert(dests_xa, idx, dest, GFP_KERNEL);
+>  	if (err) {
+
+[Severity: High]
+This is a pre-existing issue, but can the same caller,
+mlx5_fs_fte_get_hws_actions(), still oops on a NULL action in other
+destination cases?
+
+In three cases the result goes into fs_actions[] and is counted before
+the NULL check. These are FLOW_TABLE_NUM (when the action has to be
+created), RANGE and FLOW_SAMPLER:
+
+drivers/net/ethernet/mellanox/mlx5/core/steering/hws/fs_hws.c:mlx5_fs_fte_get_hws_actions() {
+    ...
+				dest_action = mlx5_fs_create_dest_action_table_num(fs_ctx,
+										   dst);
+				fs_actions[num_fs_actions++].action = dest_action;
+				break;
+			case MLX5_FLOW_DESTINATION_TYPE_RANGE:
+				dest_action = mlx5_fs_create_dest_action_range(ctx, dst);
+				fs_actions[num_fs_actions++].action = dest_action;
+				break;
+    ...
+			case MLX5_FLOW_DESTINATION_TYPE_FLOW_SAMPLER:
+				dest_action =
+					mlx5_fs_get_dest_action_sampler(fs_ctx,
+									dst);
+				fs_actions[num_fs_actions].action = dest_action;
+				fs_actions[num_fs_actions++].sampler_id =
+							dst->dest_attr.sampler_id;
+				break;
+    ...
+			if (!dest_action) {
+				err = -ENOMEM;
+				goto free_actions;
+			}
+    ...
+}
+
+Each of these can return NULL:
+
+  mlx5hws_action_create_dest_table_num(): allocation failure or STC pool
+  exhaustion
+
+  mlx5hws_action_create_dest_match_range(): invalid range parameters, or
+  allocation, definer or STC failure
+
+  mlx5_fs_get_dest_action_sampler(): GFP_ATOMIC allocation or
+  __xa_insert() failure, or failure to create the sampler action
+
+The free_actions path then calls teardown on every counted entry:
+
+mlx5_fs_destroy_fs_actions()
+  mlx5_fs_destroy_fs_action()
+    mlx5hws_action_get_type(fs_action->action)
+      return action->type;   <-- NULL dereference
+
+The other patch in this series, "net/mlx5: DR, Fix out-of-bounds write
+when sync to HW fails", only touches sws/dr_icm_pool.c and does not fix
+this.
+
+Could dest_action be checked before it goes into fs_actions[]?
+Alternatively, mlx5_fs_destroy_fs_actions() could skip NULL entries.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118173227.1957670-1-tariqt%40nvidia.com
