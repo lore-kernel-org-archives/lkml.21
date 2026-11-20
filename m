@@ -1,100 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795201083;
-	b=ehc1cM3DoZXrVui8cBtYBFcrBONQO2S4An/PQNISlORTJHBRiRhGhsTaxk/eozYiDjAh
-	 8PPXLaXIT38eODompskN3e/YrqiejScDjDRcZlKreak/rZMVBU/xDE6sCJ6sKIPc2KszS
-	 if8AXFLFaEfgK9p61+LUO5lFgfH6/ydryPMU5+yRrIkFfLLqF/oBH/Mz2obtbWujvrKGE
-	 IIlxBgodNVIETB0kZ1CVjQOeYcx1nwUaCADLF5XpgN5ZPf88d7yDtycNlL1FmNHittt0M
-	 8ri+NgyLcK48Ad9LPXRK4kkrfnpJuSnTKLE82R/Yl+u/ODxMylB69U8I4r59e7DHMEg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795201083;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795201086;
+	b=X++UOYtkfjHEVM+80gzK61+cjM2ADQ7yXKQmpWFVCyixbDDUnGYq6AgC9B1lWyn8DzVl
+	 XrjXn6f7Sa3Mypr2E4pfZuYfDUw2nAO78cMf5SB8kQHFUZU1UczHwPeTUM4lMOi4nTtIy
+	 gbk2Qu1EubUGP+yAZtuJNDAts87mLZ5ngbOvIJDEcTHVGP4rOSrJgG6KEtu2GHm0shCP/
+	 TeNpE5wm8uSIes5UxWRYd2g3cdc+g3Ei3CrJtzfpvyRxlvbE3fVFxouw7e7AMK7Z0PZgM
+	 o9vzsVnFd1otVneB+EiZBoNjTROg6JqhJEE8JmYwxMWiZUnLaKnGF5Ksu5ovWSm5d0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795201086;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Ar/I9wixzu0Uno/udNMX0pnEPUMbJ11YDRSQnHpj1Cw=;
-	b=RJ6My3LcZnG6wNSoqFwMcwDyj1SfUvIC+HLj8K/VujmInzzO9cuTtCvLTTb4ouEWLSR1
-	 AypG52ebk4JH/2l2IJzbF6LW/gULmDKIAWkYQ2Bio4konLnAaSI46Ya9vmlh/Fy2e0/so
-	 8tW355GBgUvKbSiv+26kaw5sEVuL+ewelSFsxBtQd9WNqH1pufzODo/rxhkvwlNp7WVQO
-	 FO49Od+tZWup+D1wc1DjP0yQpaLF+HUU7VicvPFQCqKnQIEk68oIdaIszu4aPYcDcfkwr
-	 +bToQVhcrrvRPrOv1P8IdgLlKPbwqBVNa8Nifz/BZpA5mVTV1yYTEtK7e8iykvxN9rg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Bl8dPfEQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=H4FGooqlFWyqGkh+aQ/av1H1BBYV40gcH/hlMVUd0co=;
+	b=x3nCUhsnsWaUT+9GglhJt2dq8+LdanCZNaEA1Mnf5t+OgR7FfoTScDR4mQ/5LoLGbR1Z
+	 bTRmG5kDFeGGB3YCANJTRUEbwA89w3rvwZQ9WD4e4sFSMWrXdxvvy2HMUinYyN7RgWT/n
+	 bbpdtUz06CHPvTzHTXgva21bwFcV3R8yzy9XrJOAWrddggYl37n1t8zzAsTxQjjVGoFlz
+	 aN7n8xYRV6c+0bqeY74nF1AcJ528nj20GIViHHLQ/jtQTzSwiN25O3qhMWPW82L+jpQ3B
+	 ikZdM5t/sdCTkH2Ia9OD/AEl2PXHaD5iZ3K2rtGx2otLsi+qZyiaq1ToKFcW0ULXvJQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=9elements.com;
+	spf=pass smtp.mailfrom=9elements.com;
+	dkim=pass header.d=9elements.com header.i=@9elements.com header.a=rsa-sha256 header.s=google header.b="I1S/K+J5";
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4635860A2635
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:57:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4635860A2635
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9640360A3801
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:58:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9640360A3801
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=9elements.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=9elements.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Bl8dPfEQ
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a018493d57so4835e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:57:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795201071; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AIHIlTARyjaUgTXkZwgKLDERkf8NCgRiPq7ISbc5hpixgxkmojBmHuCoNLbHYqkgud
-         6dlHf4i9rXXlQsXa2cBjuo+dIjvzWAYZSMgFoOAOxWnwTfa3QatWzoh6SU01lsoGSgT1
-         byBdQJb9rOjDF91TIEdpmwKkPLNLFOshgF+BZJl4iyU/+7N19zJEg4KzSjOJhY8pYLlM
-         BI1AJuXw6zWG3c0PWgyjB8QD/FzswEDjO3LMFW+J4elyZ6Z0kKT3LRuTINWKLm4edD9X
-         R0EJFZr1jVf29zoL+P41PjWyzhuEe2vXhSXeesiOYCtiJtcxzWohz3u4dsYlRZCSXV3N
-         /wjA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ar/I9wixzu0Uno/udNMX0pnEPUMbJ11YDRSQnHpj1Cw=;
-        fh=v+94Ml7ZM7A0YPk4XUS+Ey+wP75hbQN37cvt9xON1Sw=;
-        b=AqlJqFZB7HQombkWo47jszVIT+ciHfDcbUc8ZMw91OpfSv/1uLxdSCpiRptdtFNmBm
-         pffJdcYcAEBiQdBPK41F+QuouMFKkbeB0X7VzWorfehqksWUnYXmzN6b4pe2VOZOyjS2
-         UOxI3uV0rImvqYsYbNkNfb/fGLeo0FLGoVPSf6mPaCTLRyXlbb8KM1Mu4LqCZuCoV/k/
-         3UykYgP6Te8emPD7fZEpuIv8dvLcpR7784tV5H0AWQipZ6TBGocQ00r1YbMuzOPmhPnm
-         UKYxyPadYG6OfCGKZ5HAgUq5lLcxp46HQXl+7h+fyBFByCeUgdnzPshMmw9z6m3U42g1
-         6R0g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=9elements.com header.i=@9elements.com header.a=rsa-sha256 header.s=google header.b=I1S/K+J5
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso12083925e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:58:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795201071; x=1795805871; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ar/I9wixzu0Uno/udNMX0pnEPUMbJ11YDRSQnHpj1Cw=;
-        b=Bl8dPfEQb41vuRynhSi32U9qxfIhJ7cWsm0S/WOHogu0sW34oeGg2gBAjcdwDxaEOG
-         ef6dYDCxPp8crLJP9rLoMi/LVbpW0i76XiGAbL/4neprGpZhLouQ/DUM/Zs124JbthYX
-         0a/Lj3UqH8Ol1my8HoFKeEl3atxbTUoVmX1gqjM3xfVZFDnPefvQ9c5ng3f/a1dOuhc4
-         4Du8n3L8v0CH0+MLIQ06chnnOaaFAXvKYNe5IJbeY0JwKTh8dXmM5LvaphzGfSxHvOWc
-         pabCvYrWmK2XCweB0J8xb+/rhTwecMSQpmoRVCYflyRb6xnAl6cdniw2v0zHsvJZJHDi
-         MLMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795201071; x=1795805871;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=9elements.com; s=google; t=1795201084; x=1795805884; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ar/I9wixzu0Uno/udNMX0pnEPUMbJ11YDRSQnHpj1Cw=;
-        b=jQO7GhBsT29Ck9pXk7jRLAKDFavwdHHuZGUnMyxNl6iv3GM1Uyme/b4cuzKWn45IZa
-         WUQ0khM3mzq9Y8d4FIntsXlT1Xw+H2kCNy8O1RNPwl5cshiJ5ZlvRnK4RY+PGONJGAwI
-         +aLoNpnT1At+pa4jHwxVsDQOxsaAFZIJAijY7J3BlWdS/CCTVVx6pXYeW+/5ZfM41RkQ
-         uIxJh1EahhcukYpVxHePk87qjpnEUG4L++jCLZIAAKEiVfWMmvH2Q0KfxKwFYTn6xbTq
-         x/zy7XQAWQVnCsUCr/PGNLnv9d6gzbz5kTQRZSPoKtDJmYyQ93RU2MZa7y52FJjoBYqP
-         Y8ZA==
-X-Forwarded-Encrypted: i=1; AL+hErELRJTLNF4qSH3cWbWzgSn7vzIy37HROXdu3LpeoGi1p4BR93JlWSuPNJWRc5i4J0PGge0d6HteDqqwhN8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+v1Sg51C8J3FscTl+Ri9X8TbbD5fEcrLprXQPJRbl5evWQCk4I
-	yKfEK45zk0UjDMqR8J0LXejWK5cza94i/jIBx6iMDqFZ4Lt5yYZA5QuZs64yasClMonT3xdfq1K
-	2VYXzfUT+2LIqa0MsLc1lUTPKGG4yudkFXsd3QQ5K
-X-Gm-Gg: AYBFou0lgS3VbGFq1xqaZv9bvEIrJMKO05ri8id0mXMoBPCH+ivOzRa+Yt9ivERXcn2
-	bYAm6j6/L+Y6mLAqnKQTh29exGs6pYhdgI5MRNPlMwMxtmdkGDXZ/Oxk8g+M4K66QgODexFT4PK
-	bqYEkv3nfH1ZXOEpeFFcpCa1tKDhhhN2Rc7KfgKXrAN4oSoHKdqILWqAhjUyha8fC2tslkpj1lP
-	aZwGDkijQFXV7YSm2YASicBlDGjmfc3reaTGwsWLKEhCXEA/lZ1S4ABWgAYTqVNJfLh85227Uwz
-	LE3aMRAbZVqQJEfZIkhb5dlFsTZeipxLTmPnvjREN48PFQgb4Bbr0F6O3ar9iZ19mgbCQ+hNXYR
-	/nP/KqImyD/BdoQYhLj7CTtxqVvh1qPFV1pcWnNADwlatLIC+pkQ2vqjgnsIiEOS4Mmk=
-X-Received: by 2002:a05:600c:10c5:b0:4bb:7ad8:9d1c with SMTP id
- 5b1f17b1804b1-4bb90c5a063mr9505e9.6.1795201070230; Fri, 20 Nov 2026 10:57:50
- -0800 (PST)
+        bh=H4FGooqlFWyqGkh+aQ/av1H1BBYV40gcH/hlMVUd0co=;
+        b=I1S/K+J5WENcmKIVe+se5Cu55JBojsi/lBc2bisqSx4Hn5tZvCqCM5eiexZXWFPHG1
+         Uz0mKIipl6OORTGKhJC7AhxciFbWcgaZdBKkYxvuXVFSBBadh7XG0Cwg+vkwP+QT13zW
+         bLJ7q3sr8/ifheeI/Dg3j4g8l6L0xMCnmFuXeBuPS1OsIgnouhmrouGaeJI7aotn1BUV
+         BnRkij4/NyHfxVlRH+Q/OoEd8qmuD93JcBvmpdTuHnJ7zAQ5ctwffFow170EYSi6Ejav
+         5vIY+R/FXsCtVzjHlCYZtJ/I8Y8BFhGQ3oxm7xdmf9dk1PJdsM9mnHaEhj9/BDmWm3eq
+         lEKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795201084; x=1795805884;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=H4FGooqlFWyqGkh+aQ/av1H1BBYV40gcH/hlMVUd0co=;
+        b=vojWKxbPqLL0o5gjCF2HreRkZ5DcXA3zKRkUtadviWi/9uKFJ6dIOrXreyYhUfCk3t
+         SDSwtMHtxMSYaqzN4wRZmWHf8qoN5KB2A3NOyJSLBTbZqtZ0lDtu5tCh7TP4yts/ZHdi
+         9t7QWrc4kxaWVeFPbQokOH4lPVN55ql7jQpzonQA8SoLS4+efZ9QNYTfPIEfe2Wm8+Tt
+         /f3flc+uLXUgkRkkIk9WxgnyxHnpfP5xTRUDgr4PPIDW9Q4Gmt9Pt2v+V9qEtaZay+iP
+         oJBzf5zzYVGQoWhSH/2od/4HRoqX3hCb2d427tsGW9NiiwVx/bgaJo/hlX5RG1dAvd1J
+         0bHA==
+X-Forwarded-Encrypted: i=1; AL+hErGbv8U4Gt8Ge8Pmq4H/03O49eFYKB8EbrMSMvX3BWS8XWuZYGs05PbHRu/UuMs4r2TB5KeJROzc+Ol8j14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XzSnqIdHc2KMhXCx71LOGB0Okbt5WauCb6oePpyyfq5AkMWPS
+	P5F8D39XTGZXbkmuywDJgoXSIX1OSfyIdjRbvn2ymCjTiIAfwlab9tOb8d1FKWwQyxw=
+X-Gm-Gg: AYBFou1fO25TkgI+vSagwOUZyFV6XizF/nmHFYj9jezUJqlZfgLafFg3aP9vtyjIV4l
+	ZxdMRSmE+th6dFhz3Z9LRwvh7RM54XIYaqeT5xg0IAaHXoAMN7l1ASampSzBjp4anUKcXPLPKfq
+	Mje5Q7Fe64uQ06gTze4qg38bf49YNwMYOj1LpRbrIiRtqXwbNfUReLEl+P+P0C4G+uN47bvYTii
+	k1xJVYJQGYKaQQ0PhCTcLn/rjUt4MiQtOqdGGw4ahOaevY8dOhA9Hlu0etsh+J8dy00qldVPqir
+	DOp3bQmYECxYDPsPvYhFGrccPkwIiSzRLrWppLA32O4y9g47/xKYLz0SFLYoTV/7r7tTPrTVJA3
+	Falpxz/ZWyMo369K3og+PNC7JK69pmMonxjA3ZPAzAClSvVNcrZXBjxIgF9RMR9nkbCt6NcBbOY
+	g6x6zz2njQbHJBiSYAgaNwksNKdU3L+jLqj4qqpYtvmu9j+nyaJt0HXwlU6/cIzLrS0CTqk943O
+	U9WNZq9GCBvVx7ez2sKcFnzx7CotqMsfYQ5YOYHZG42mg9QsQkuHF5UsYxfvK+f9fxTEv2FCP0f
+	MRrCcBmfzuZUJK52ZCRXx3HUS6Y2unnesrxESa5SPh/5np2TfDMtRkU4bQ9i2O5NIb4467MUVp9
+	GS7E8n/YseW6tQGQYy9+eTu2ey+0=
+X-Received: by 2002:a05:600c:3491:b0:4a2:c2b:a91b with SMTP id 5b1f17b1804b1-4bb8880014dmr95550835e9.10.1795201083545;
+        Fri, 20 Nov 2026 10:58:03 -0800 (PST)
+Received: from ?IPV6:2a01:599:241:b744:2c96:9736:bec3:7db8? ([2a01:599:241:b744:2c96:9736:bec3:7db8])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442693sm97210445e9.1.2026.11.20.10.58.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 10:58:03 -0800 (PST)
+Message-ID: <9519e889-8c78-485c-a31d-28df8b7cecc3@9elements.com>
+Date: Fri, 20 Nov 2026 19:58:01 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,125 +93,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118220154.2965621-1-shakeel.butt@linux.dev> <20261118220154.2965621-5-shakeel.butt@linux.dev>
-In-Reply-To: <20261118220154.2965621-5-shakeel.butt@linux.dev>
-From: "T.J. Mercier" <tjmercier@google.com>
-Date: Fri, 20 Nov 2026 10:57:38 -0800
-X-Gm-Features: Aa3M54qYEmkoCcL8K-eS_MrHU--U7Q8sr1Os1o1ROUSCVqxdCeBq63ucWRqqKwM
-Message-ID: <CABdmKX3-2UeZpOV0hHX7qh4K5cMWba6E5JiURhJMyp87sY4RtQ@mail.gmail.com>
-Subject: Re: [PATCH 4/6] kernfs: don't take kernfs_iattr_rwsem to publish KERNFS_REMOVING
-To: Shakeel Butt <shakeel.butt@linux.dev>
-Cc: Christian Brauner <brauner@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Tejun Heo <tj@kernel.org>, Jori Koolstra <jkoolstra@xs4all.nl>, Ian Kent <raven@themaw.net>, 
-	Meta kernel team <kernel-team@meta.com>, linux-fsdevel@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] nvmem: aspeed: Add read-only AST2600 OTP support
+To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, ryan_chen@aspeedtech.com,
+ billy_tsai@aspeedtech.com, neal_liu@aspeedtech.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, srini@kernel.org
+References: <20261113034213.158390-1-prasanth.padarthi10@gmail.com>
+ <20261120174440.123487-1-prasanth.padarthi10@gmail.com>
+Content-Language: en-US
+From: Tan Siewert <tan.siewert@9elements.com>
+In-Reply-To: <20261120174440.123487-1-prasanth.padarthi10@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 2:02=E2=80=AFPM Shakeel Butt <shakeel.butt@linux.de=
-v> wrote:
->
-> __kernfs_remove() takes kernfs_iattr_rwsem for writing while it marks
-> a subtree KERNFS_REMOVING, inside kernfs_rwsem.  Commit 507d8ce13f5b
-> ("kernfs: Don't set_nlink for directories being removed") added it so
-> that a refresh would not set the i_nlink of a directory whose removal
-> has started.  The refresh no longer sets i_nlink, so the lock is not
-> needed.
->
-> The flag is only set here, under kernfs_rwsem.  Inode setup reads it
-> under kernfs_rwsem.  getattr reads it without and reports the old link
-> count or 0, either of which is right for a stat() racing the removal.
->
-> Drop the lock, mark the store and the load, and read the flags once in
-> kernfs_dir_nlink(), as the type bits share the word.
->
-> kernfs_iattr_rwsem write acquisitions (lock_stat), before -> after:
->
->   5 dummy netdevs created and removed     1110 ->  740
->   100 cgroup mkdirs and 100 rmdirs        4500 -> 3000
->
-> Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
-> ---
->  fs/kernfs/dir.c   | 10 ++++++----
->  fs/kernfs/inode.c |  7 +++++--
->  2 files changed, 11 insertions(+), 6 deletions(-)
->
-> diff --git a/fs/kernfs/dir.c b/fs/kernfs/dir.c
-> index ef23eac684c6..890aca5d8d70 100644
-> --- a/fs/kernfs/dir.c
-> +++ b/fs/kernfs/dir.c
-> @@ -1604,15 +1604,17 @@ static void __kernfs_remove(struct kernfs_node *k=
-n)
->
->         pr_debug("kernfs %s: removing\n", kernfs_rcu_name(kn));
->
-> -       /* prevent new usage by marking all nodes removing and deactivati=
-ng */
-> -       down_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
-> +       /*
-> +        * Prevent new usage by marking all nodes removing and deactivati=
-ng.
-> +        * KERNFS_REMOVING is only set here, under kernfs_rwsem.
-> +        * kernfs_dir_nlink() reads it without that lock.
-> +        */
->         pos =3D NULL;
->         while ((pos =3D kernfs_next_descendant_post(pos, kn))) {
-> -               pos->flags |=3D KERNFS_REMOVING;
-> +               WRITE_ONCE(pos->flags, pos->flags | KERNFS_REMOVING);
->                 if (kernfs_active(pos))
->                         atomic_add(KN_DEACTIVATED_BIAS, &pos->active);
->         }
-> -       up_write(&kernfs_root(kn)->kernfs_iattr_rwsem);
->
->         /* deactivate and unlink the subtree node-by-node */
->         do {
-> diff --git a/fs/kernfs/inode.c b/fs/kernfs/inode.c
-> index 2f463c0354a5..ca234f69882b 100644
-> --- a/fs/kernfs/inode.c
-> +++ b/fs/kernfs/inode.c
-> @@ -165,9 +165,12 @@ static inline void set_inode_attr(struct inode *inod=
-e,
->   */
->  static bool kernfs_dir_nlink(struct kernfs_node *kn, unsigned int *nlink=
-)
->  {
-> -       if (kernfs_type(kn) !=3D KERNFS_DIR)
-> +       /* KERNFS_REMOVING can be set concurrently; read the flags once. =
-*/
-> +       unsigned short flags =3D READ_ONCE(kn->flags);
+On 11/20/26 6:44 PM, Prasanth Kumar Padarthi wrote:
+> Hi,
+> 
+> This series exposes permitted AST2600 OTP data through root-only NVMEM
+> for userspace diagnostics using raw offsets. It adds the SBC NVMEM
+> binding and a read-only driver adapted from ASPEED's downstream driver.
+> 
+> Changes since v1:
+> - Add the separate binding patch and rename the driver nvmem-aspeed-otp.
+> - Poll once after a 1-us delay; retain the 100-ms timeout and log failures.
+> - Initialize read mode once at probe and stop commands after a timeout.
+> - Use a fixed secure-prefix keepout and check the live SEC54 range on reads.
+> - Simplify copying, locking, configuration and Kconfig help.
+> 
+> Tested on B650D4U (AST2600 A3), OpenBMC Linux 6.18.24 and upstream-based
+> Linux 7.4-rc1: repeated reads, cross-pair reads and 40 reads from four
+> concurrent readers passed. A 12-byte range matched the saved ASPEED-derived
+> reference fingerprint. The 7.4-rc1 RAM boot used the working OpenBMC DTB
+> and initramfs and also passed the final-pair comparison. ARM zImage built
+> successfully.
+> 
+> AI assisted with driver revisions, validation tooling and patch text,
+> using the downstream code, review comments and Neal's hardware guidance.
+> Hardware tests were run by the submitter.
+> 
+> Prasanth Kumar Padarthi (2):
+>    dt-bindings: arm: aspeed: sbc: Describe OTP NVMEM provider
+>    nvmem: aspeed: Add read-only AST2600 OTP support
+> 
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 
-Hi Shakeel,
+Again, please fix your threading... Other maintainers and reviewers 
+already told you in other threads that sending a new revision must not 
+be "In-reply-to" to the previous revision. See the "Explicit In-Reply-To 
+headers" section of the submission documentation [1].
+Consider the use of b4 [2], which can handle it more consistently.
 
-I'd like to ask for some code comments / documentation.
+Tan
 
-This lockless read relies on two rules for kn->flags... the type bits
-and flags set before publication never change, and the other flags are
-only changed with kernfs_rwsem held for write (except KERNFS_NS).
-
-Parts of this are explained in a comment in kernfs_dop_revalidate()
-but not on the field, and that comment doesn't cover KERNFS_HIDDEN or
-KERNFS_SUICIDAL/SUICIDED.
-
-Since this series adds a lockless reader that depends on these rules,
-how about a comment on kernfs_node->flags like:
-
-/*
- * Type bits, flags set before publication, and KERNFS_NS are stable;
-the rest change under
- * kernfs_rwsem (write).  Lockless readers of changing flags must use
-READ_ONCE(), taking
- * one snapshot if they also test stable bits.
- */
-
-
-> +
-> +       if ((flags & KERNFS_TYPE_MASK) !=3D KERNFS_DIR)
->                 return false;
-> -       *nlink =3D (kn->flags & KERNFS_REMOVING) ? 0 :
-> +       *nlink =3D (flags & KERNFS_REMOVING) ? 0 :
->                  READ_ONCE(kn->dir.subdirs) + 2;
->         return true;
->  }
-> --
-> 2.53.1-Meta
->
+[1] 
+https://docs.kernel.org/process/submitting-patches.html#explicit-in-reply-to-headers
+[2] https://b4.docs.kernel.org/en/latest/
