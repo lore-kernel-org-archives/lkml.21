@@ -1,96 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133314;
-	b=EqCUYdAN6x8to/UvgtoSLJc1cIMePBGlSprKlFLtK5c31sGq6J1SbKYOrVPdNOl4yatf
-	 QKt8dSBKhorWDKJZSNytjJTj5Izb0x9vXIDdZHlfO0+5xtL3y7cU94f0yyoGtBYY+Ghwc
-	 /zce6w4kgjzofcbEVOP3MNbjWXd37L8i7EGaudSE29Dw7GPexZlhUiLX7Lzzti/Kujlpw
-	 /eZ6ZD97pgD+my5BK/KHo1XX3HIuvydXfn+SayaEidcNcKq6QzoOaCwFXmZGgGDAMzCwh
-	 MF4tAXK6blevqKUKjQjSgpMGTeBpe9w/Ym873nm0SuIY5hCfrnwmzNGadzQjaJXrD7Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133314;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795133319;
+	b=XThmUghsRLOIcDPYcukVYDs57JrqMsBlAglCJo+NF/Jzx25+606rbrY5q0XWqmnbZOb+
+	 IKZsPDbqrl5b0YD5vNDDGvv6fy1HD9hPm8QNp1pJRoYtYlAMvMsNg1Yd+tKcrzYn0PHrB
+	 lfff+AjeflDt/JfOCHsY2/xibNU4SR0Yxn16Z8UBhrXdKRDMvk7yQyEoBK577i+bLxgJh
+	 xy2bmB42uxTWjUO0CqKk1U7U7YSCx+6gFpBIp0f4eknMxVn17X/uMJOG8BU97y4u7liVz
+	 qSz+BdmZa6BC3CTNZQqSKrq/f19K9GKUW173FOXlExcmf07jPSkDATl/KD+LHOXf0WQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133319;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=kfpfHmsXunUBWQlKkF97XoBgLUmLhk3tSJt0eKigJrw=;
-	b=em9yf17wmjl6YzP5vXWNgryqN6PxndX0Fjfh3UJaMRA5A4B3O14b86sZjLZA1In6Zail
-	 VgQD0bS0FV8ccWFE29H2FyduDPC6uOtpLpyWeL2YSD4szEkNgeU2MmhR/U1aZ/qEWSjQG
-	 7G9lDd8hHM5Wbc3UkxHhnQ6bj3iiLSgkgX29eIRo85QrikpYU2OA2hnVW1nMiPWLd3wkh
-	 iP4CIL+cZk8Vn2DCqfUyElsz5xfnDL1Q97Po23g1WyxljFeHfuKi5SvF+L/qOwQt6Dn9w
-	 u+UmvV9ofB8f4q/nDtxu/xiJjRQ9g/wR5ZPnEYNVGlZZgTWDL5IdEoIvWx4OILPAkwg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=svKQ7KF7;
-	arc=none smtp.remote-ip=209.85.219.51
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	bh=tZlU1z7BvdYlkvDEf1eTGX15VRLDW9lspJV4MixYjmA=;
+	b=osLKyXeu4IoWjn2RiTdfwNpwm5AaGIE78odbfVe6LdwTtN+6N9jU4EQL9xV46P7Y+H5Q
+	 D78YdUviqfmO4cnmwEIUFmerNX2KYDte4vBOx+gR3VYdbG/a56I913MLxIPTw98s6E9AO
+	 HuT/l3h3E1XyKKwJGgORoRpnJ5eXK9QVqgEmHlPvNiyiHpWkKzP6CbIiFtHS65v/I7QQA
+	 5iK2ZfgMbkR10FVjG88p3u5dAHfwJFaoWg7U0YDS+DwxC+lhKYkLolgjpFqLhVynGMDcl
+	 oyWTlYmLogEY14h/BiXbqsi+sTc1giImSb1vfPm2QUXX5oEwjf2hIPFN/xFRlwbrliQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fAdcXQEv;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=jRBlTZTF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2324606A761
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:08:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2324606A761
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C05E606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:08:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C05E606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=svKQ7KF7
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-92130d3ee15so4463546d6.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:08:33 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=fAdcXQEv;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=jRBlTZTF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795133317;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tZlU1z7BvdYlkvDEf1eTGX15VRLDW9lspJV4MixYjmA=;
+	b=fAdcXQEvxpW5xd/l5IChlfcoMhXM8FhWgDMegBaR6g+mraokr9hjhNjAiKX+OVv4KI2l3k
+	1dB2HertdwhTpDptRccwgJhJKdsOhhd6lZ/E37YkaO1yzALO+taUEPxMSuIAccqztn/zEu
+	UW3wu/Hwfk/Pt3hUxpIjCzC75a1ip0A=
+Received: from mail-yx1-f70.google.com (mail-yx1-f70.google.com
+ [74.125.224.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-201-ilqIuWTSNx2nnfLCDWCnHA-1; Fri, 20 Nov 2026 00:08:35 +0000
+X-MC-Unique: ilqIuWTSNx2nnfLCDWCnHA-1
+X-Mimecast-MFC-AGG-ID: ilqIuWTSNx2nnfLCDWCnHA_1795133315
+Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-67532014b2fso696471d50.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:08:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795133315; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LJ7zg1l25Heak65zsoi00Bq/XLBL6hcqsmQvEIGJMCYurTcBmClXssTbOxseBBrfPL
+         1yWWccdpaFF0/99RT2v49qaCMo7yb5PM9EHhLVJlRW1qTfcj3TT8NMHCYHHut8dybXgx
+         LBeW27z9gRt/8CHrTvZlHoMOGiztsdjL10lhGtIWXAtD6Ti5U/JdW2UZpCFGn4Ex9fZW
+         65okpxYg+zdXjffWjg4KELusMKO5pjEUX8uPgsIyiw+BzNQFar5S99uNMhixkeCNvp7a
+         /x1iX/rzXJZUo/6LJ13gKlzTfkfvZxqLOzAOnpM46IZD/lZZ7XLFKqDBkzrmg1Qm6RVn
+         k9CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=tZlU1z7BvdYlkvDEf1eTGX15VRLDW9lspJV4MixYjmA=;
+        fh=O11r0hdk2IzFLqAM5K8vpWqRYeGBWf/MTHI206hKxxY=;
+        b=SfeE86LzaQEbB4BQv+ucV3hPu9FthuIpaWly05EiM8pvZ9aBwEvT3vC4Iq1zpmEbvN
+         MbvCtDODN9tf/un4YpNCDVum5Tt8CN15B8l7u7lFmz1PfWzsC7I/8R3K3MUF8IQpsfuk
+         jRQNydX/VhqXaZKZ4rAclSCpEgaQGlMxwigdF1UwHwgsFbaYv8QbjO3YRP2T0Ywqu9vj
+         9cKZePKeZrR3j3onNKDsE1+E+v5dMbHuc38vRVQiOwfnvuZle7p1BvbEgmfQztNC6Qzo
+         Y0+NJke/S0VteUvjZ8NFWSXJvZDdJR6zTX7nWELM6SAG3rNo+bhvtgDogRLTRG3h6fSv
+         YsWw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795133312; x=1795738112; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kfpfHmsXunUBWQlKkF97XoBgLUmLhk3tSJt0eKigJrw=;
-        b=svKQ7KF78TJhmDtwiUwNaWzI3exRBzt25b3xVqSTz4YuqP/MvP+Ko7xROPLffJCFyd
-         bjjBRzeS3l8YH1QPTT28QNA4doLppjLR7gOLl5RymhvG16KGh+57wmVNI9IVKG5mwDLG
-         84zYZPyYQ5/ViVj2Nl1MV09RzzV5PjTXrnThmdK9LLV2JTdpxU4vmZZ9akWQMzhXpxL2
-         3PJZCbzFHxO+kO8qVC9jjEyejrCXBZpDqqy0KJYQe8nxPj7h8Cfci/EuIbUf4hgHLtyJ
-         IDLkhPUpcib8OcCZnjIClQHI1RGllMRLD9R/e6l6KG00uyQ8ZcKttDywgUpF2ksnW2NL
-         fKCQ==
+        d=redhat.com; s=google; t=1795133315; x=1795738115; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=tZlU1z7BvdYlkvDEf1eTGX15VRLDW9lspJV4MixYjmA=;
+        b=jRBlTZTFoC2yoK6+uSy3Y4osfuQRMkdtM6OHgZh72lqq0luUM9VTdnPAYF9p+Ffurn
+         tcb0nCOcS2UBY+pbrOZWAbcc9IVxGbI4Sta5g+/eFCX4bsB/7YMms3WKySCnbNCAR8jP
+         +f8u//zYjY4dQKyUynXmdVMjZiUuTAuctc1TjeY7TwgclDqdV+ZCwvBc9eho5QjUgn8k
+         WUr77A1k/nrcCTcWIQAFvDmDlIad/Y1ZeI6+b8yuSu4XuDlE42KH03xUYNIDhg4wzVAJ
+         Paa7PUHxYw6Z/GElDMnvvU7vmC3hvEwW/YFRtxyEZwYK5JS7IiNwMoDgJzKNFA9xsyWB
+         z12Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795133312; x=1795738112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kfpfHmsXunUBWQlKkF97XoBgLUmLhk3tSJt0eKigJrw=;
-        b=ezL7rjNzR7MfoN03xTTY2mRrHupdUl/Ek+qmlRYwB035jJU8Vwo6Hf2OlSFDNhSL5A
-         8bAJh5uCvxWU8fu7+Z0n7m2496iomIh2uPBkwtwFgJqZ2XOhgFAk09tPb67EvElPMFmD
-         vH1Cn30ntloduxQvmALOW/b5BxlXPJYagCYXQsYkJf5NDvbPqeOuM2srsf3WiaBMVo87
-         ScLt/EbEhtFoCIszKptQG7tXWPIaP3Ty0kWyt/nYu6/CKffpDg050Uns5g+3/LF/3hjT
-         0hNuLmVPa9MRWHaVQfaFk5q6L4mmo+8CCY2F5P7tbavCe1M/2LcMZr6mNznu7CkqRDGV
-         HrYw==
-X-Forwarded-Encrypted: i=1; AL+hErESWjWWEntuFPn9zKjH/SaxRTZXvAdZzu0ZiKKY0qNEWQpciVzLCrBJLH2GBBBtD12bGQ4ynUHEWBVVtrs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bseLLAtICPXJFSzGJhovp2s4NcEcMrku/TKDmPN6ZzHtUMvSj
-	m2pIsdF3pKySCWT2WPAhNNQd5DsN2fGbhQil/ER8R+O4jQ6JerwFHJSsqWLXLzirMAs=
-X-Gm-Gg: AZFdTZdbsGkB7u1BQaGNTU13w3/BqyG1NuDacfFeOeIKyaEXm5hpO2SKKJ/f00ClBAL
-	VRwH3tFW56WXCCRwZRKa4Zu03JgIsdtKMTKuDEo3J/wgcfRmj+qQTXJz1vrmWdEMZ2wvkwdercb
-	kc0PhiWpEH/kwo3b7la/blk94wnHwXD33s/d/Gpy44w3B8zZrknWEo0QnnwCF9zb0wosylURkiZ
-	YtQ3acAwZw/MqOKxObV9rDkQrlDIFpMcFmGq+TqbJp0ZC1nMDLt/LkotsWOpZBuEYPsrvsczAjs
-	BsMIBAQ4e9u4a4oxOzTTmisCGKRuVH2q/XG1Eie8y8x+Yl8F4AfY0xIziGsWD4gad9BhGhV+BpF
-	uPYMrTn8ZPOXq2KVOC8JfuUnVvEDIttxOEphK0qTP74w9jICIxq2u+QowYZ7EgpQU3/O8fTAO4m
-	YFF1BeW45dr56es6NacYJSOSeir/5nNQk0ISQSwKi1MJy1QXO3ki9TR2aB9XBjlOPUnqbDWTIdX
-	bHVdZIxrNqRUHgPy+x39TnfRWgAOzuakT1k6HRgRdsQIjswU9YDCtpjbC8BmLowtlC/ot+/uxF0
-	b92URXQGqeFKGAnxiD5Hn5zq6t87jfzY6g4mhw/LZabSRbiz8eNxWeqi+VqllAAl7qOxfT/WO1s
-	TNWudIRH1A9sHL29K2DIWXlJUrfnzriFcd70R4N82B4A7MVXpMurOboYqXIqCZjj/1O111eeRic
-	tVXDNRODEZozKUGaCzwKpcTRjoKy4=
-X-Received: by 2002:a05:6214:488d:b0:921:37a7:d1a8 with SMTP id 6a1803df08f44-92137a7d247mr6425726d6.1.1795133312417;
-        Thu, 19 Nov 2026 16:08:32 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:c935:f347:a919:9f78])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a0c33fsm10976546d6.36.2026.11.19.16.08.31
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 16:08:32 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: Bernard Metzler <bernard.metzler@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH rdma-rc] RDMA/siw: Reject a zero length WRITE segment that announces more segments
-Date: Thu, 19 Nov 2026 19:08:29 -0500
-Message-ID: <20261120000829.64597-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20260707; t=1795133315; x=1795738115;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tZlU1z7BvdYlkvDEf1eTGX15VRLDW9lspJV4MixYjmA=;
+        b=cWxr9M0ZI/BFwi/kRSs5torccqtkxzkqBifP3oTRJqqNhmlq5bIFp0G1pJBlARKb/O
+         GgDYOwnvZ6Xe6s0J8DmEXAi4ONpVtUTmCNI34x4pBXd3QdACQX8ND+7sNJn1ZiauLs2H
+         jKE86p3OaKR4Fr2T+qd9Fq+DHuVb842+D6w6X4LRt2PtcpAsCj1XQg2Zual8GyLEwJ+2
+         Yn+g/8cGeoj8EkpwAy9rL9TVIaHVFmNPmd/cJ6Wc3AHnQkwxa3ssylPRk/SVvbRcd/Vc
+         Hcn7D3sujTdqPHGCJps4pwon3Z8FyfB0PQaGS1tdh6+dMnXN1lCPs18q+sXQvfZYsHEA
+         Rn2Q==
+X-Forwarded-Encrypted: i=1; AL+hErH3c28TmKAvwppO36TV1ass2/am1p03G5CBqrZKZRX3035cdfGNiu9HWcgNsvSMGYxCf7acTEy9vyn3juo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9TuEWSX6JQYOacrxPStMSRIi3RA15aXhAhuz48S69oxwztgjcQ
+	WOh5CcahH4AKTOPNfmC9ZfoB+d4kN5fVYVRmIq6j4Kk2vH8sXA6wQHqpPsY3IJ1qCYNz/OUN28t
+	6r0nY0PCDGdOYtwPxsNam9zinubvILUO1cGEnBYJQu7nUJRq7oqk6L27Gg+2kMqquXc/BklctDm
+	v2Q27kaUwJMhdGXxvVGGmmmQElcWIYbaHJBY3gfjCG
+X-Gm-Gg: AZFdTZe0chqwn0BE2LSPvZlWWf4+83dRtrb9c24PTiAH+TXmCQWS4QfZexXZ/8dy843
+	EwBKTmEDrdpk8/DuFXVJwi0J0b7esKLPbJzHnWTmctDOCHaAUYG5SUXinMm4Ogh5h9u4p5t+hXc
+	w5E4oSSOjg2KZkL303egIwiRgrudgut6hTDirVHSqTwimd11BwnKRVK1HTq1sgQL03lJsTPDB30
+	HFbORvgiH1xrhUs9H/vOkUcYuox2cLYGRoc79OUsMTU/A==
+X-Received: by 2002:a05:690e:4395:b0:67d:a676:2623 with SMTP id 956f58d0204a3-67df448cf8fmr314623d50.98.1795133314376;
+        Thu, 19 Nov 2026 16:08:34 -0800 (PST)
+X-Received: by 2002:a05:690e:4395:b0:67d:a676:2623 with SMTP id
+ 956f58d0204a3-67df448cf8fmr314611d50.98.1795133313538; Thu, 19 Nov 2026
+ 16:08:33 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,76 +125,576 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117-gfs2-log-folio-v1-0-35db3db42e35@columbia.edu> <20261117-gfs2-log-folio-v1-1-35db3db42e35@columbia.edu>
+In-Reply-To: <20261117-gfs2-log-folio-v1-1-35db3db42e35@columbia.edu>
+From: Andreas Gruenbacher <agruenba@redhat.com>
+Date: Fri, 20 Nov 2026 01:08:21 +0100
+X-Gm-Features: AclHuK_h6M8Sg0EUxLC-P37DvIaDVLIcg84ZcaN743Bo5EOV0k4K3CKHe4suvks
+Message-ID: <CAHc6FU7adAS0f2BjU6iU3AUD6hAFF=2zOeCMkVvV88p4O-a6=w@mail.gmail.com>
+Subject: Re: [PATCH 1/3] gfs2: stop using pages for log buffers
+To: Tal Zussman <tz2294@columbia.edu>
+Cc: gfs2@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-siw_proc_write() returns early for a zero length tagged segment, before
-it looks up the sink STag. If that first segment has the L bit clear,
-the next segment is handled as a continuation of the same message and
-siw reads mem->stag through rx_mem, which was never set. A remote peer
-on an established siw connection can trigger this, and it panics the
-host:
+On Tue, Nov 17, 2026 at 8:46=E2=80=AFAM Tal Zussman <tz2294@columbia.edu> w=
+rote:
+>
+> The log headers, descriptors, revoke blocks, and escaped block copies
+> come from a mempool of pages and share a bio with the buffer heads being
+> journaled. The completion handler tells the two apart by checking each
+> segment for buffers, which treats a pool page as a folio. That won't
+> work once memdescs give these pages a type of their own.
+>
+> Allocate them from a kmalloc mempool instead and add them to the bio
+> with bio_add_virt_nofail(). Give the pool blocks their own completion
+> handler, and start a new bio whenever the handler changes so that a bio
+> only holds one kind of segment. gfs2_log_write() now takes a folio, so
+> the log write path no longer uses struct page.
+>
+> Each descriptor and each escaped block copy is now a bio of its own.
+> They are contiguous and merge under an I/O scheduler, but the flush
+> path doesn't plug, so without a scheduler they reach the device as
+> separate writes.
+>
+> Signed-off-by: Tal Zussman <tz2294@columbia.edu>
+> ---
+>  fs/gfs2/log.c  |  10 ++-
+>  fs/gfs2/lops.c | 203 +++++++++++++++++++++++++++++++++++----------------=
+------
+>  fs/gfs2/lops.h |   6 +-
+>  fs/gfs2/main.c |   8 +--
+>  fs/gfs2/util.c |   2 +-
+>  fs/gfs2/util.h |   2 +-
+>  6 files changed, 139 insertions(+), 92 deletions(-)
+>
+> diff --git a/fs/gfs2/log.c b/fs/gfs2/log.c
+> index 1baaaf30c4fa..238f6655e15f 100644
+> --- a/fs/gfs2/log.c
+> +++ b/fs/gfs2/log.c
+> @@ -841,7 +841,6 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, stru=
+ct gfs2_jdesc *jd,
+>  {
+>         struct gfs2_log_header *lh;
+>         u32 hash, crc;
+> -       struct page *page;
+>         struct gfs2_statfs_change_host *l_sc =3D &sdp->sd_statfs_local;
+>         struct timespec64 tv;
+>         struct super_block *sb =3D sdp->sd_vfs;
+> @@ -850,9 +849,8 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, stru=
+ct gfs2_jdesc *jd,
+>         if (gfs2_withdrawn(sdp))
+>                 return;
+>
+> -       page =3D mempool_alloc(gfs2_page_pool, GFP_NOIO);
+> -       lh =3D page_address(page);
+> -       clear_page(lh);
+> +       lh =3D mempool_alloc(gfs2_log_buf_pool, GFP_NOIO);
+> +       memset(lh, 0, sb->s_blocksize);
+>
+>         lh->lh_header.mh_magic =3D cpu_to_be32(GFS2_MAGIC);
+>         lh->lh_header.mh_type =3D cpu_to_be32(GFS2_METATYPE_LH);
+> @@ -905,8 +903,8 @@ void gfs2_write_log_header(struct gfs2_sbd *sdp, stru=
+ct gfs2_jdesc *jd,
+>                      sb->s_blocksize - LH_V1_SIZE - 4);
+>         lh->lh_crc =3D cpu_to_be32(crc);
+>
+> -       gfs2_log_write(sdp, jd, page, sb->s_blocksize, 0, dblock,
+> -                      REQ_OP_WRITE | op_flags);
+> +       gfs2_log_write_buf(sdp, jd, lh, sb->s_blocksize, dblock,
+> +                          REQ_OP_WRITE | op_flags);
+>         gfs2_log_submit_write(&jd->jd_log_bio);
+>  }
+>
+> diff --git a/fs/gfs2/lops.c b/fs/gfs2/lops.c
+> index 657edd406dd1..c86f92f2e508 100644
+> --- a/fs/gfs2/lops.c
+> +++ b/fs/gfs2/lops.c
+> @@ -196,45 +196,69 @@ static void gfs2_end_log_write_bh(struct gfs2_sbd *=
+sdp, struct folio *folio,
+>         } while (bh && size);
+>  }
+>
+> +static void gfs2_log_write_error(struct bio *bio)
+> +{
+> +       struct gfs2_sbd *sdp =3D bio->bi_private;
+> +       int err =3D blk_status_to_errno(bio->bi_status);
+> +
+> +       if (!cmpxchg(&sdp->sd_log_error, 0, err))
+> +               fs_err(sdp, "Error %d writing to journal, jid=3D%u\n",
+> +                      err, sdp->sd_jdesc->jd_jid);
+> +       gfs2_withdraw(sdp);
+> +}
+> +
+> +static void gfs2_log_write_done(struct bio *bio)
+> +{
+> +       struct gfs2_sbd *sdp =3D bio->bi_private;
+> +
+> +       bio_put(bio);
+> +       if (atomic_dec_and_test(&sdp->sd_log_in_flight))
+> +               wake_up(&sdp->sd_log_flush_wait);
+> +}
+> +
+>  /**
+> - * gfs2_end_log_write - end of i/o to the log
+> + * gfs2_end_log_write - end of I/O to the log for buffers
+>   * @bio: The bio
+>   *
+> - * Each bio_vec contains either data from the pagecache or data
+> - * relating to the log itself. Here we iterate over the bio_vec
+> - * array, processing both kinds of data.
+> - *
+> + * Every folio in the bio comes from the page cache. Unlock the buffers
+> + * that were written.
+>   */
+>
+>  static void gfs2_end_log_write(struct bio *bio)
+>  {
+>         struct gfs2_sbd *sdp =3D bio->bi_private;
+> -       struct bio_vec *bvec;
+> -       struct bvec_iter_all iter_all;
+> +       struct folio_iter fi;
+>
+> -       if (bio->bi_status) {
+> -               int err =3D blk_status_to_errno(bio->bi_status);
+> +       if (bio->bi_status)
+> +               gfs2_log_write_error(bio);
+>
+> -               if (!cmpxchg(&sdp->sd_log_error, 0, err))
+> -                       fs_err(sdp, "Error %d writing to journal, jid=3D%=
+u\n",
+> -                              err, sdp->sd_jdesc->jd_jid);
+> -               gfs2_withdraw(sdp);
+> -       }
+> +       bio_for_each_folio_all(fi, bio)
+> +               gfs2_end_log_write_bh(sdp, fi.folio, fi.offset, fi.length=
+,
+> +                                     bio->bi_status);
+>
+> -       bio_for_each_segment_all(bvec, bio, iter_all) {
+> -               struct page *page =3D bvec->bv_page;
+> -               struct folio *folio =3D page_folio(page);
+> +       gfs2_log_write_done(bio);
+> +}
+>
+> -               if (folio && folio_buffers(folio))
+> -                       gfs2_end_log_write_bh(sdp, folio, bvec->bv_offset=
+,
+> -                                       bvec->bv_len, bio->bi_status);
+> -               else
+> -                       mempool_free(page, gfs2_page_pool);
+> -       }
+> +/**
+> + * gfs2_end_log_write_buf - end of I/O to the log for log blocks
+> + * @bio: The bio
+> + *
+> + * Every segment in the bio is a block from the log buffer mempool.
+> + * Return them to the pool.
+> + */
+>
+> -       bio_put(bio);
+> -       if (atomic_dec_and_test(&sdp->sd_log_in_flight))
+> -               wake_up(&sdp->sd_log_flush_wait);
+> +static void gfs2_end_log_write_buf(struct bio *bio)
+> +{
+> +       struct bio_vec *bvec;
+> +       struct bvec_iter_all iter_all;
+> +
+> +       if (bio->bi_status)
+> +               gfs2_log_write_error(bio);
+> +
+> +       bio_for_each_segment_all(bvec, bio, iter_all)
+> +               mempool_free(bvec_virt(bvec), gfs2_log_buf_pool);
+> +
+> +       gfs2_log_write_done(bio);
+>  }
+>
+>  /**
+> @@ -291,9 +315,9 @@ static struct bio *gfs2_log_alloc_bio(struct gfs2_sbd=
+ *sdp, u64 blkno,
+>   * @flush: Always flush the current bio and allocate a new one?
+>   *
+>   * If there is a cached bio, then if the next block number is sequential
+> - * with the previous one, return it, otherwise flush the bio to the
+> - * device. If there is no cached bio, or we just flushed it, then
+> - * allocate a new one.
+> + * with the previous one and the bio has the same completion handler,
+> + * return it, otherwise flush the bio to the device. If there is no
+> + * cached bio, or we just flushed it, then allocate a new one.
+>   *
+>   * Returns: The bio to use for log writes
+>   */
+> @@ -309,7 +333,7 @@ static struct bio *gfs2_log_get_bio(struct gfs2_sbd *=
+sdp, u64 blkno,
+>
+>                 nblk =3D bio_end_sector(bio);
+>                 nblk >>=3D sdp->sd_fsb2bb_shift;
+> -               if (blkno =3D=3D nblk && !flush)
+> +               if (blkno =3D=3D nblk && bio->bi_end_io =3D=3D end_io && =
+!flush)
+>                         return bio;
+>                 gfs2_log_submit_write(biop);
+>         }
+> @@ -319,38 +343,63 @@ static struct bio *gfs2_log_get_bio(struct gfs2_sbd=
+ *sdp, u64 blkno,
+>  }
+>
+>  /**
+> - * gfs2_log_write - write to log
+> + * gfs2_log_write - write a folio segment to the log
+>   * @sdp: the filesystem
+>   * @jd: The journal descriptor
+> - * @page: the page to write
+> + * @folio: the folio to write
+>   * @size: the size of the data to write
+> - * @offset: the offset within the page
+> + * @offset: the offset within the folio
+>   * @blkno: block number of the log entry
+>   * @opf: REQ_OP | op_flags
+>   *
+> - * Try and add the page segment to the current bio. If that fails,
+> + * Try and add the folio segment to the current bio. If that fails,
+>   * submit the current bio to the device and create a new one, and
+> - * then add the page segment to that.
+> + * then add the folio segment to that.
+>   */
+>
+> -void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
+> -                   struct page *page, unsigned size, unsigned offset,
+> -                   u64 blkno, blk_opf_t opf)
+> +static void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
+> +                          struct folio *folio, unsigned int size,
+> +                          unsigned int offset, u64 blkno, blk_opf_t opf)
+>  {
+>         struct bio *bio;
+> -       int ret;
+>
+>         bio =3D gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio, opf,
+>                                gfs2_end_log_write, false);
+> -       ret =3D bio_add_page(bio, page, size, offset);
+> -       if (ret =3D=3D 0) {
+> +       if (!bio_add_folio(bio, folio, size, offset)) {
+>                 bio =3D gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio,
+>                                        opf, gfs2_end_log_write, true);
+> -               ret =3D bio_add_page(bio, page, size, offset);
+> -               WARN_ON(ret =3D=3D 0);
+> +               WARN_ON(!bio_add_folio(bio, folio, size, offset));
+>         }
+>  }
+>
+> +/**
+> + * gfs2_log_write_buf - write a log buffer to the log
+> + * @sdp: the filesystem
+> + * @jd: The journal descriptor
+> + * @buf: the buffer to write, from the log buffer mempool
+> + * @size: the size of the data to write
+> + * @blkno: block number of the log entry
+> + * @opf: REQ_OP | op_flags
+> + *
+> + * Like gfs2_log_write(), for a block allocated from gfs2_log_buf_pool.
+> + * Ownership of the buffer passes to the bio, which returns it to the
+> + * pool on completion.
+> + */
+> +
+> +void gfs2_log_write_buf(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
+> +                       void *buf, unsigned int size, u64 blkno,
+> +                       blk_opf_t opf)
+> +{
+> +       struct bio *bio;
+> +
+> +       bio =3D gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio, opf,
+> +                              gfs2_end_log_write_buf, false);
+> +       if (bio->bi_vcnt >=3D bio->bi_max_vecs)
+> +               bio =3D gfs2_log_get_bio(sdp, blkno, &jd->jd_log_bio,
+> +                                      opf, gfs2_end_log_write_buf, true)=
+;
+> +       bio_add_virt_nofail(bio, buf, size);
+> +}
+> +
+>  /**
+>   * gfs2_log_write_bh - write a buffer's content to the log
+>   * @sdp: The super block
+> @@ -367,30 +416,30 @@ static void gfs2_log_write_bh(struct gfs2_sbd *sdp,=
+ struct buffer_head *bh)
+>
+>         dblock =3D gfs2_log_bmap(sdp->sd_jdesc, sdp->sd_log_flush_head);
+>         gfs2_log_incr_head(sdp);
+> -       gfs2_log_write(sdp, sdp->sd_jdesc, folio_page(bh->b_folio, 0),
+> -                       bh->b_size, bh_offset(bh), dblock, REQ_OP_WRITE);
+> +       gfs2_log_write(sdp, sdp->sd_jdesc, bh->b_folio, bh->b_size,
+> +                      bh_offset(bh), dblock, REQ_OP_WRITE);
+>  }
+>
+>  /**
+> - * gfs2_log_write_page - write one block stored in a page, into the log
+> + * gfs2_log_write_block - write one block stored in a log buffer, into t=
+he log
+>   * @sdp: The superblock
+> - * @page: The struct page
+> + * @buf: The buffer
+>   *
+> - * This writes the first block-sized part of the page into the log. Note
+> - * that the page must have been allocated from the gfs2_page_pool mempoo=
+l
+> - * and that after this has been called, ownership has been transferred a=
+nd
+> - * the page may be freed at any time.
+> + * This writes the first block-sized part of the buffer into the log. No=
+te
+> + * that the buffer must have been allocated from the gfs2_log_buf_pool
+> + * mempool and that after this has been called, ownership has been
+> + * transferred and the buffer may be freed at any time.
+>   */
+>
+> -static void gfs2_log_write_page(struct gfs2_sbd *sdp, struct page *page)
+> +static void gfs2_log_write_block(struct gfs2_sbd *sdp, void *buf)
+>  {
+>         struct super_block *sb =3D sdp->sd_vfs;
+>         u64 dblock;
+>
+>         dblock =3D gfs2_log_bmap(sdp->sd_jdesc, sdp->sd_log_flush_head);
+>         gfs2_log_incr_head(sdp);
+> -       gfs2_log_write(sdp, sdp->sd_jdesc, page, sb->s_blocksize, 0, dblo=
+ck,
+> -                      REQ_OP_WRITE);
+> +       gfs2_log_write_buf(sdp, sdp->sd_jdesc, buf, sb->s_blocksize, dblo=
+ck,
+> +                          REQ_OP_WRITE);
+>  }
+>
+>  /**
+> @@ -604,12 +653,14 @@ int gfs2_find_jhead(struct gfs2_jdesc *jd, struct g=
+fs2_log_header_host *head)
+>         return ret;
+>  }
+>
+> -static struct page *gfs2_get_log_desc(struct gfs2_sbd *sdp, u32 ld_type,
+> -                                     u32 ld_length, u32 ld_data1)
+> +static struct gfs2_log_descriptor *gfs2_get_log_desc(struct gfs2_sbd *sd=
+p,
+> +                                                    u32 ld_type, u32 ld_=
+length,
+> +                                                    u32 ld_data1)
+>  {
+> -       struct page *page =3D mempool_alloc(gfs2_page_pool, GFP_NOIO);
+> -       struct gfs2_log_descriptor *ld =3D page_address(page);
+> -       clear_page(ld);
+> +       struct gfs2_log_descriptor *ld;
+> +
+> +       ld =3D mempool_alloc(gfs2_log_buf_pool, GFP_NOIO);
+> +       memset(ld, 0, sdp->sd_sb.sb_bsize);
+>         ld->ld_header.mh_magic =3D cpu_to_be32(GFS2_MAGIC);
+>         ld->ld_header.mh_type =3D cpu_to_be32(GFS2_METATYPE_LD);
+>         ld->ld_header.mh_format =3D cpu_to_be32(GFS2_FORMAT_LD);
+> @@ -617,7 +668,7 @@ static struct page *gfs2_get_log_desc(struct gfs2_sbd=
+ *sdp, u32 ld_type,
+>         ld->ld_length =3D cpu_to_be32(ld_length);
+>         ld->ld_data1 =3D cpu_to_be32(ld_data1);
+>         ld->ld_data2 =3D 0;
+> -       return page;
+> +       return ld;
+>  }
+>
+>  static void gfs2_check_magic(struct buffer_head *bh)
+> @@ -652,7 +703,6 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, =
+unsigned int limit,
+>  {
+>         struct gfs2_log_descriptor *ld;
+>         struct gfs2_bufdata *bd1 =3D NULL, *bd2;
+> -       struct page *page;
+>         unsigned int num;
+>         unsigned n;
+>         __be64 *ptr;
+> @@ -665,10 +715,9 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp,=
+ unsigned int limit,
+>                 if (total > limit)
+>                         num =3D limit;
+>                 spin_unlock(&sdp->sd_log_lock);
+> -               page =3D gfs2_get_log_desc(sdp,
+> -                                        is_databuf ? GFS2_LOG_DESC_JDATA=
+ :
+> -                                        GFS2_LOG_DESC_METADATA, num + 1,=
+ num);
+> -               ld =3D page_address(page);
+> +               ld =3D gfs2_get_log_desc(sdp,
+> +                                      is_databuf ? GFS2_LOG_DESC_JDATA :
+> +                                      GFS2_LOG_DESC_METADATA, num + 1, n=
+um);
+>                 spin_lock(&sdp->sd_log_lock);
+>                 ptr =3D (__be64 *)(ld + 1);
+>
+> @@ -684,7 +733,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, =
+unsigned int limit,
+>                 }
+>
+>                 spin_unlock(&sdp->sd_log_lock);
+> -               gfs2_log_write_page(sdp, page);
+> +               gfs2_log_write_block(sdp, ld);
+>                 spin_lock(&sdp->sd_log_lock);
+>
+>                 n =3D 0;
+> @@ -696,8 +745,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, =
+unsigned int limit,
+>                         if (buffer_escaped(bd2->bd_bh)) {
+>                                 void *p;
+>
+> -                               page =3D mempool_alloc(gfs2_page_pool, GF=
+P_NOIO);
+> -                               p =3D page_address(page);
+> +                               p =3D mempool_alloc(gfs2_log_buf_pool, GF=
+P_NOIO);
+>                                 memcpy_from_folio(p, bd2->bd_bh->b_folio,
+>                                                   bh_offset(bd2->bd_bh),
+>                                                   bd2->bd_bh->b_size);
+> @@ -705,7 +753,7 @@ static void gfs2_before_commit(struct gfs2_sbd *sdp, =
+unsigned int limit,
+>                                 clear_buffer_escaped(bd2->bd_bh);
+>                                 unlock_buffer(bd2->bd_bh);
+>                                 brelse(bd2->bd_bh);
+> -                               gfs2_log_write_page(sdp, page);
+> +                               gfs2_log_write_block(sdp, p);
+>                         } else {
+>                                 gfs2_log_write_bh(sdp, bd2->bd_bh);
+>                         }
+> @@ -856,7 +904,7 @@ static void revoke_lo_before_commit(struct gfs2_sbd *=
+sdp, struct gfs2_trans *tr)
+>         struct gfs2_meta_header *mh;
+>         unsigned int offset;
+>         struct gfs2_bufdata *bd;
+> -       struct page *page;
+> +       void *buf;
+>         unsigned int length;
+>
+>         gfs2_flush_revokes(sdp);
+> @@ -864,29 +912,30 @@ static void revoke_lo_before_commit(struct gfs2_sbd=
+ *sdp, struct gfs2_trans *tr)
+>                 return;
+>
+>         length =3D gfs2_struct2blk(sdp, sdp->sd_log_num_revoke);
+> -       page =3D gfs2_get_log_desc(sdp, GFS2_LOG_DESC_REVOKE, length, sdp=
+->sd_log_num_revoke);
+> +       buf =3D gfs2_get_log_desc(sdp, GFS2_LOG_DESC_REVOKE, length,
+> +                               sdp->sd_log_num_revoke);
+>         offset =3D sizeof(struct gfs2_log_descriptor);
+>
+>         list_for_each_entry(bd, &sdp->sd_log_revokes, bd_list) {
+>                 sdp->sd_log_num_revoke--;
+>
+>                 if (offset + sizeof(u64) > sdp->sd_sb.sb_bsize) {
+> -                       gfs2_log_write_page(sdp, page);
+> -                       page =3D mempool_alloc(gfs2_page_pool, GFP_NOIO);
+> -                       mh =3D page_address(page);
+> -                       clear_page(mh);
+> +                       gfs2_log_write_block(sdp, buf);
+> +                       buf =3D mempool_alloc(gfs2_log_buf_pool, GFP_NOIO=
+);
+> +                       mh =3D buf;
+> +                       memset(mh, 0, sdp->sd_sb.sb_bsize);
+>                         mh->mh_magic =3D cpu_to_be32(GFS2_MAGIC);
+>                         mh->mh_type =3D cpu_to_be32(GFS2_METATYPE_LB);
+>                         mh->mh_format =3D cpu_to_be32(GFS2_FORMAT_LB);
+>                         offset =3D sizeof(struct gfs2_meta_header);
+>                 }
+>
+> -               *(__be64 *)(page_address(page) + offset) =3D cpu_to_be64(=
+bd->bd_blkno);
+> +               *(__be64 *)(buf + offset) =3D cpu_to_be64(bd->bd_blkno);
+>                 offset +=3D sizeof(u64);
+>         }
+>         gfs2_assert_withdraw(sdp, !sdp->sd_log_num_revoke);
+>
+> -       gfs2_log_write_page(sdp, page);
+> +       gfs2_log_write_block(sdp, buf);
+>  }
+>
+>  void gfs2_drain_revokes(struct gfs2_sbd *sdp)
+> diff --git a/fs/gfs2/lops.h b/fs/gfs2/lops.h
+> index 772557b63b48..c1d9e6fef7ac 100644
+> --- a/fs/gfs2/lops.h
+> +++ b/fs/gfs2/lops.h
+> @@ -14,9 +14,9 @@ extern const struct gfs2_log_operations *gfs2_log_ops[]=
+;
+>
+>  void gfs2_log_incr_head(struct gfs2_sbd *sdp);
+>  u64 gfs2_log_bmap(struct gfs2_jdesc *jd, unsigned int lbn);
+> -void gfs2_log_write(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
+> -                   struct page *page, unsigned size, unsigned offset,
+> -                   u64 blkno, blk_opf_t opf);
+> +void gfs2_log_write_buf(struct gfs2_sbd *sdp, struct gfs2_jdesc *jd,
+> +                       void *buf, unsigned int size, u64 blkno,
+> +                       blk_opf_t opf);
+>  void gfs2_log_submit_write(struct bio **biop);
+>  void gfs2_pin(struct gfs2_sbd *sdp, struct buffer_head *bh);
+>  int gfs2_find_jhead(struct gfs2_jdesc *jd,
+> diff --git a/fs/gfs2/main.c b/fs/gfs2/main.c
+> index a607e98eb45f..0da4cfbe54ea 100644
+> --- a/fs/gfs2/main.c
+> +++ b/fs/gfs2/main.c
+> @@ -166,8 +166,8 @@ static int __init init_gfs2_fs(void)
+>         if (!gfs2_freeze_wq)
+>                 goto fail_wq3;
+>
+> -       gfs2_page_pool =3D mempool_create_page_pool(64, 0);
+> -       if (!gfs2_page_pool)
+> +       gfs2_log_buf_pool =3D mempool_create_kmalloc_pool(64, PAGE_SIZE);
 
-  Oops: general protection fault, probably for non-canonical address 0xdffffc0000000004: 0000 [#1] SMP KASAN NOPTI
-  KASAN: null-ptr-deref in range [0x0000000000000020-0x0000000000000027]
-  RIP: 0010:siw_proc_write+0x175/0x9c0
-  Call Trace:
-   <IRQ>
-   siw_tcp_rx_data+0x20e/0x2040
-   __tcp_read_sock+0x1ab/0x810
-   siw_qp_llp_data_ready+0x185/0x2e0
-   tcp_data_queue+0x1f2d/0x4b70
-   tcp_rcv_established+0x8a8/0x3990
-   tcp_v4_do_rcv+0x45b/0x970
-   tcp_v4_rcv+0x223d/0x3b90
-  Kernel panic - not syncing: Fatal exception in interrupt
+We actually need s_blocksize size rather than PAGE_SIZE buffers here.
+How about a per-sbd mempool instead of a global one?
 
-A zero length DDP message consists of exactly one segment (RFC 5041,
-section 5.2), so terminate the connection with a tagged buffer error
-when a zero length first segment announces more segments.
+> +       if (!gfs2_log_buf_pool)
+>                 goto fail_mempool;
+>
+>         gfs2_register_debugfs();
+> @@ -187,7 +187,7 @@ static int __init init_gfs2_fs(void)
+>  fail_fs2:
+>         unregister_filesystem(&gfs2_fs_type);
+>  fail_fs1:
+> -       mempool_destroy(gfs2_page_pool);
+> +       mempool_destroy(gfs2_log_buf_pool);
+>  fail_mempool:
+>         destroy_workqueue(gfs2_freeze_wq);
+>  fail_wq3:
+> @@ -240,7 +240,7 @@ static void __exit exit_gfs2_fs(void)
+>
+>         rcu_barrier();
+>
+> -       mempool_destroy(gfs2_page_pool);
+> +       mempool_destroy(gfs2_log_buf_pool);
+>         kmem_cache_destroy(gfs2_trans_cachep);
+>         kmem_cache_destroy(gfs2_qadata_cachep);
+>         kmem_cache_destroy(gfs2_quotad_cachep);
+> diff --git a/fs/gfs2/util.c b/fs/gfs2/util.c
+> index 529c3ec37a18..1fd5f817312b 100644
+> --- a/fs/gfs2/util.c
+> +++ b/fs/gfs2/util.c
+> @@ -34,7 +34,7 @@ struct kmem_cache *gfs2_rgrpd_cachep __read_mostly;
+>  struct kmem_cache *gfs2_quotad_cachep __read_mostly;
+>  struct kmem_cache *gfs2_qadata_cachep __read_mostly;
+>  struct kmem_cache *gfs2_trans_cachep __read_mostly;
+> -mempool_t *gfs2_page_pool __read_mostly;
+> +mempool_t *gfs2_log_buf_pool __read_mostly;
+>
+>  void gfs2_assert_i(struct gfs2_sbd *sdp)
+>  {
+> diff --git a/fs/gfs2/util.h b/fs/gfs2/util.h
+> index ffcc47d6b0b4..399c20004283 100644
+> --- a/fs/gfs2/util.h
+> +++ b/fs/gfs2/util.h
+> @@ -165,7 +165,7 @@ extern struct kmem_cache *gfs2_rgrpd_cachep;
+>  extern struct kmem_cache *gfs2_quotad_cachep;
+>  extern struct kmem_cache *gfs2_qadata_cachep;
+>  extern struct kmem_cache *gfs2_trans_cachep;
+> -extern mempool_t *gfs2_page_pool;
+> +extern mempool_t *gfs2_log_buf_pool;
+>  extern struct workqueue_struct *gfs2_control_wq;
+>
+>  static inline unsigned int gfs2_tune_get_i(struct gfs2_tune *gt,
+>
+> --
+> 2.39.5
+>
 
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with the same tool and reviewed
-by me.
-
-Fixes: 8b6a361b8c48 ("rdma/siw: receive path")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-
-Tested in QEMU with KASAN on v7.4-rc3. The patch applies unchanged to
-rdma for-rc. With this patch siw sends a TERMINATE and closes the
-connection, a normal two segment WRITE is still placed, and rping over
-siw works.
-A reproducer is available on request.
-
- drivers/infiniband/sw/siw/siw_qp_rx.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/infiniband/sw/siw/siw_qp_rx.c b/drivers/infiniband/sw/siw/siw_qp_rx.c
-index e5b641c8d694..9b7e52906764 100644
---- a/drivers/infiniband/sw/siw/siw_qp_rx.c
-+++ b/drivers/infiniband/sw/siw/siw_qp_rx.c
-@@ -550,8 +550,16 @@ int siw_proc_write(struct siw_qp *qp)
- 	int bytes, rv;
- 
- 	if (srx->state == SIW_GET_DATA_START) {
--		if (!srx->fpdu_part_rem) /* zero length WRITE */
-+		if (!srx->fpdu_part_rem) { /* zero length WRITE */
-+			/* A zero length DDP message is a single segment. */
-+			if (unlikely(frx->first_ddp_seg && frx->more_ddp_segs)) {
-+				siw_init_terminate(qp, TERM_ERROR_LAYER_DDP,
-+						   DDP_ETYPE_TAGGED_BUF,
-+						   DDP_ECODE_T_INVALID_STAG, 0);
-+				return -EINVAL;
-+			}
- 			return 0;
-+		}
- 
- 		rv = siw_write_check_ntoh(srx, frx);
- 		if (unlikely(rv)) {
-
-base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
--- 
-2.43.0
+Thanks,
+Andreas
 
