@@ -1,89 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164275;
-	b=jhddr1cl7RWt+L3uPUTyDAnOyxc8PmN2Cxph67hEmNlPJNRT4qyjUDDoGFtZhqqY3lVl
-	 eZryps6ltdEV6LIEaH2wC6yRRip4h0Kqbj5XxIADRwyvzB/bGSUd08N7pTQ0UTwDuxfDu
-	 rFGJ/nThKl9hEMuzQhTL6i2exc7cYOj5sc5Nvfbq268h7it8Zr+HsI+OMfi4tt9cenW0L
-	 2re3pAubVZpsMNKuaagRTfNLAImC09vp2mqsXzXfJEF/LlR5+X3nPNvLdXnDzceIEJkfc
-	 gwZSdC8rz99Tg9WDAcLTkBE3fqNkRHou+ZKaGK/QdeTaqaLMlgaomOmJbej4NWRJIrg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164275;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=npTE2fiYMjbTekobIqGGljMdib3MOVJF3ledKQqDdEU=;
-	b=3FBsBDaB72mMjUEwtLFIS1nY2C3dKkGHW6ERgjW9nzJPZZVVQVCe00kNPZgOC41ROyK1
-	 Hmfb6xcwHERzJm4VwxJ3OZqWlC2iekwBbs9cURcgGD0x/yqaaP25fnKBOq6yZ8dQVjUr/
-	 jw7CGhChS6T/kLX1eJ+09o4t0lekxqp8QtJXCJvd1zMLAa75xRVABsJgyvv+X1oS36VZ0
-	 EC1oj1y6QqOOP3T1ENY6AEcO545BLAxIPtbqYBm2866LNxAmM6OO6PBbCJyMMIQLAsWP4
-	 dbtXaIGXQK7DNu3nNDoweytWEnRqBr6LRXs6RQcMimymkxRQpXTVncAsCLtMYfahB3A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZVOygCWT;
-	arc=none smtp.remote-ip=74.125.82.43
-Received: from mail-dl1-f43.google.com (mail-dl1-f43.google.com [74.125.82.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795164276;
+	b=1d26wJXKr6UbhlOWHBEg/Vx+NtMpGza29hKrU1hD2dut9nagUCg+hUye2FvTQ++p9sW/
+	 y4zxEkSXQ1YaPxC7X5S51QQKo77WJBcgHQon08ZMT2kZX71c9dkQUb1ageA16xhrqiTmZ
+	 vH5Tnbogud4Sz6B//SV/Bkb9A60bDMjsyWXT+ZTIlc2QdkZwZ5xADP7uP90BIsdHjDZAp
+	 2g0+jXK6W8LI57kZ+Gd6LoMENXj2lhy8BoUP1fgm6S3fxNiu4WP5xZ3wLMZLgabOQ1UiA
+	 hmsz2mIBmo5foHaEhyv3cmVOgzqMWfr8v1Esxg128469/eFAROoJu9SEJIf+FvurMNA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164276;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=HQ/MC2rhbtrQvM+saZG3xHAEtDy44m0IiJf1k707Apo=;
+	b=PBjcc8NKhTtK9FHQ/ay0bwhcNrLmZ39mLhQdXMTR9xXXn/2eH5hANjn8XLaeql2YDosh
+	 71AVdJc597i17cHEXOMb0VDLNbobo25Pjdihmn+y0KYHGM1OcaxTgQV1intT7/g3ijV4/
+	 JCBXL3j52GkHupmN5nGIsFICjcbZLvkKe7y2YIbtNDLUEiMlnbscM84BXfCep3gYBen6/
+	 gDQK2YevxhK8WR+ERlKERPIF2VULHZAl/JKx8x+dZAjhlnVBD2VS/YAosjsazoe5rPeWo
+	 GVHP9GTG1+CqMrE+FGthg+hwO2f5He0yd/P4qohFWhscm/L3A8/NDHgN/ObutZS2nlQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=azCzh2LC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 609FF606A7FF;
+	Fri, 20 Nov 2026 08:44:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=azCzh2LC
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795164276;
+	b=fF1E77TJZTIijgyJXmiKxF0hU7vpq692yHVkgeEgCxuOjoUV8IMw6y0R32eeRRDT3XF5
+	 PZY6IzgTazUeAmrWbxIOJz0qvWQoR6wJEA2CN/nkdwlM4QS1jCfaGZPzptvBDU99Asf9Z
+	 4XKVyGBMIyyAxoVR/5lhX5/vi+jaj2tG2UaSeASbj0GDYBItyMt4SNgasNqswYOquclkd
+	 vZ8qfLMNEx9FB0nzQGtMKHRLduNVV5WF1sXwuKZVMV9JJ4aQqz0gwVqd3cdFIyZXdz3Nb
+	 BbNe3N+FHVlyubSdxS4nUXxNXCZ7w8FmWcANgfXyGkggaa8aj/sRm+FYyM9rNSuubmg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795164276;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=HQ/MC2rhbtrQvM+saZG3xHAEtDy44m0IiJf1k707Apo=;
+	b=RxLvoUqWT4eoOP4ppJrUVR+N6+xXMKgKVpPp6VZpkmMHvRC33noJDUkAYURO9I2wIwhu
+	 i5pjqUYDQ6krMqsEm83p4vfqRtzA7GPgRbZUKwbcgWESC+kyLC2qP3OWOq8polsigsFCL
+	 gvr6zfyLGew+Wx6z7cwvV22d5/s1e6hTXEHmXhJMG6jPfGvKwYn1ZfmSgSTyFFhK2cvO0
+	 Ybgfd1RfbSdauhc6wuH0QYZhuvf0o8a0HE5cedWjgnAeeqnMDU3bdaZxcIza5uXj1g6bO
+	 cu4STA7fgz3B0b7IpILP6ZbS76UK6allMAcf8uNvFJlABcEnJMUojeitS2kcXSUw4/A==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD145606A7E8
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD145606A7E8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZVOygCWT
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-1b50a4bd2f3so1079170c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164274; x=1795769074; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=npTE2fiYMjbTekobIqGGljMdib3MOVJF3ledKQqDdEU=;
-        b=ZVOygCWTym/96cTN/M5WJpxlvTDlnudUy8qJK8TWWRIKY15N2mV2idSzvGQbOFeP8I
-         UA3b68TbYmKIewum+7tXIkOLtAA4TlWYNhQIl/t0YaWmHo/HsjjBbxlujaecAIAA48mn
-         Dxz3qrNOOKhW4BT9cof94v37SpsGa4OZiUjCRyDpZe67YS3XI9Q6OLWL0mEe+Df5DdCO
-         BrtVdjb80NtViw8efdsv0dcUiDO1M+lxFiSMZJluO92FCcQGO8LLWnE8WR/Roiq042Ub
-         Uiw9v6qXe52OJ8C9c+pAfGl0ejkVItidQ8tMyujyOUQNa4LQBzkiwnGSY/xlLsBYaJcK
-         6YgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164274; x=1795769074;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=npTE2fiYMjbTekobIqGGljMdib3MOVJF3ledKQqDdEU=;
-        b=CDVIPQWDGk7ZyUnho5pbzsjRPvTnlOUTJRGz387fCtn9qjuMM0HQntX5hPSLvnJjLj
-         6zPXcXr6MkPRuPcfrM3/pLUi1ARoBjJuZEV4Ps3/pjrtmzft5P85+LNfy9mnCIIp5hnJ
-         ZEn4tik5LVp8q8ZZjHpd4wswnj4N4CvEEHbWKOXKho4zv2dn4EAD3dPzPYONqFkUzipJ
-         FG6eQuJc7JoM4AxEXKxJ8GGWu6LypBno6ICFLZoEEvevLbPb8vTlTLGJcpgNL0aPwIJZ
-         UFHfaemgeW7bqxywTIwE1eGohaX5l5RelYEnTLg0RZcQ71vZniN/4gJN8UlJr8mTdUmZ
-         78bw==
-X-Forwarded-Encrypted: i=1; AL+hErFYg0FGaYTndmGFbk2G5pI2BATK7OKu3zHXd3F+F0bgpNBZR40Ot1GaFb+gmuO7dlz4uQ4+Bs1iPxSgHwk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZWZf5gRI2TJpT5iQ9G5pR9K4HSH4FMMPEfa8AU/NLUi4+/eJB
-	rjYG69o9LfP3cu12I9bFE2HM3ydkYRLC/ndIUHWKTq6yKVvrg0TYVQH+
-X-Gm-Gg: AYBFou3SXb4FoWjjKDkdu9vMcedO8pwBoaDnnPtWsRHwq3HAr6iAIYvjpbtRIJEuJk/
-	ucdQRc7HkV7j3tY0vNfRnZVHFgwpdjIGF3bf0boknZVxPSQ6doGirrFNywCW/+Jra6b7f3hX/N7
-	K44A/8IN2QqeDS6vrhM36XE47dnMx3ouyfAyz2M1ZwSGXIcVMn2xAfPYG+LDFoDEzaP3qu0mNf7
-	7fcFf6vNT6MlB4mXHgd8xDaK+KEQVEJhVEVfKpzdklScZUfHiX6Cg2IOPuoxLrv9X0Y7WZlEtk3
-	F7pduafn8tq/KdEGXl4ifnPBI9xtwdcK74hKokMncjqDWhlzxitONFBlpF0f0DBp6btmnnt9Sc5
-	0xE/IK3CX2ZY2n9yowzROazGl4yYuH6cOdu/6oNSCedv0n+xc7cmJ4aWqO4ae8eeamMSh5xqtiJ
-	FKezEMmszZO4t1lLtzHrs/9IpkpN2/w2E1VpQB7TU8XZR9ULJE6cRkUgYKHbztGZ3pnmSquIKP3
-	BW1UfosKVjmvGlPVzFe36uiDzUoVoEjS7fQKcCV5sWpdf5+sETVtjLg5DdCQmigARj9L8JH6DX7
-	Q9C4iKrTzzBb171gWp9a4ydE0gNkOtVYYqqLbF0mBJBBlBr+Ohca2dcehJ+mw7tfK8OQ3Gjomhj
-	F1SGiEpNXrcQ5iMdmoP8oYQDmykMpQXuzT5ZsowU=
-X-Received: by 2002:a05:701b:4212:20b0:195:49ee:94c7 with SMTP id a92af1059eb24-1b556877b4bmr2456175c88.8.1795164273890;
-        Fri, 20 Nov 2026 00:44:33 -0800 (PST)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:44:33 -0800 (PST)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:44:06 -0800
-Subject: [PATCH v3 15/18] HID: logitech-hidpp: use
- alloc_ordered_workqueue() for FF queue
+	by smtp.kernel.org (Postfix) with ESMTPS id 50B971F000D2;
+	Fri, 20 Nov 2026 08:44:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795164276;
+	bh=HQ/MC2rhbtrQvM+saZG3xHAEtDy44m0IiJf1k707Apo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=azCzh2LCpQdwzt+n9aqxqtOpSWlGIs0svMrlhMf5qJO+Jy/Kku36/gS1nZBy7gBr/
+	 i5lUo2pp63ULYuWsfSVRqfKNUCwSUnRlDg6mooSeeXJEES131nr/nHSj67oxWfS4it
+	 Bhi7oYtQMko0doET4/7pxCaUiyrK+tXxecbjqkCXoUJ6V7Q8czoCyxdMOzBjmR5zHa
+	 kVsISul5J7Pqb+w5DWSLKdVqVb/EGV5Rv8wFL4KRwBDNdZc2d16U5dkMq6Nmjv75y6
+	 Eho+WDIPOp0h81NibvIaMA/PVw7rQhrS4unNDhaE30F3WzKlIoUvRrQY33BA0oChrL
+	 OmaATEABHk42w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CCB8B497B4;
+	Fri, 20 Nov 2026 08:44:34 +0000 (UTC)
+From: Hang Zhengyang via B4 Relay <devnull+hang.zhengyang1010.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 16:44:23 +0800
+Subject: [PATCH sched_ext/for-7.5 2/2] selftests/sched_ext: Test sync
+ wakeups from an RT task
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,47 +84,336 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-scx-fix75-v1-2-254f782ff9b0@gmail.com>
+References: <20261120-scx-fix75-v1-0-254f782ff9b0@gmail.com>
+In-Reply-To: <20261120-scx-fix75-v1-0-254f782ff9b0@gmail.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
+ Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Shuah Khan <shuah@kernel.org>
+Cc: Kuba Piecuch <jpiecuch@google.com>, 
+ Jonathan Bastari Thamrin <thamrinjonathan@gmail.com>, 
+ Hui Su <sh_def@163.com>, sched-ext@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, 
+ Hang Zhengyang <hang.zhengyang1010@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795164273; l=7737;
+ i=hang.zhengyang1010@gmail.com; s=20261008; h=from:subject:message-id;
+ bh=ZdH0zACDdHFIhPF1NiY9Xw4N3rcdSdQGPyZtTNXQl2k=;
+ b=HdoouE0PZ48l4E/8Wqvn7vjxTSXVoGoSc+v6R02Y2sDKcoTESxDs4FwTQezq03JDJIDMSNGEO
+ loIGnICLn5ZCJvWQ64oME+FiK82CmKGfx8MGoMYBffTk/3HlTyAQZR5
+X-Developer-Key: i=hang.zhengyang1010@gmail.com; a=ed25519;
+ pk=5drRny3PqRPLhKVB0YIQXN5YyD8miKCpXWhnEPvafAI=
+X-Endpoint-Received: by B4 Relay for hang.zhengyang1010@gmail.com/20261008
+ with auth_id=1133
+X-Original-From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+Reply-To: hang.zhengyang1010@gmail.com
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-next-v3-15-ba39242d4336@gmail.com>
-References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Gideon Heinz <gideonheinz02@gmail.com>
-Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
- Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
- Edwin Velds <e.velds@gmail.com>, 
- Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
- Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev-6b8b8
 
-create_singlethread_workqueue() is a deprecated wrapper around
-alloc_ordered_workqueue() that unconditionally enables WQ_MEM_RECLAIM,
-allocating a rescuer thread. Force-feedback packet submission does not
-run on a memory-reclaim path, so allocate the send queue with
-alloc_ordered_workqueue() and zero flags to preserve strict in-order
-execution without unnecessary rescuer overhead.
+From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
 
-Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Add the sync_wake_rt test. It loads the minimal scheduler, so the
+kernel picks the CPU for each wakeup.
+
+In each round, a reader task first runs on one CPU. Then it blocks on
+a pipe and may run on any usable CPU. An RT task, pinned to that first
+CPU, writes to the pipe and spins until the reader has run, for at
+most 300 ms.
+
+The test fails if the reader runs on the RT task's CPU in more than 5
+of 10 rounds. It is skipped if fewer than two CPUs are usable. It
+checks where the reader runs, not how long it waits, because the wait
+depends on the state of the ext dl_server.
+
+Signed-off-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/sched_ext/Makefile       |   1 +
+ tools/testing/selftests/sched_ext/sync_wake_rt.c | 257 +++++++++++++++++++++++
+ 2 files changed, 258 insertions(+)
 
-diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index 12b499fe08e7..de9087459273 100644
---- a/drivers/hid/hid-logitech-hidpp.c
-+++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -2778,7 +2778,7 @@ static int hidpp_ff_init(struct hidpp_device *hidpp, struct input_dev *dev)
- 	/* init the hardware command queue */
- 	atomic_set(&data->workqueue_size, 0);
+diff --git a/tools/testing/selftests/sched_ext/Makefile b/tools/testing/selftests/sched_ext/Makefile
+index 44083f1c6596..8d2c5b5b0070 100644
+--- a/tools/testing/selftests/sched_ext/Makefile
++++ b/tools/testing/selftests/sched_ext/Makefile
+@@ -201,6 +201,7 @@ auto-test-targets :=			\
+ 	test_example			\
+ 	total_bw			\
+ 	cyclic_kick_wait		\
++	sync_wake_rt			\
  
--	data->wq = create_singlethread_workqueue("hidpp-ff-sendqueue");
-+	data->wq = alloc_ordered_workqueue("hidpp-ff-sendqueue", 0);
- 	if (!data->wq)
- 		return -ENOMEM;
+ testcase-targets := $(addsuffix .o,$(addprefix $(SCXOBJ_DIR)/,$(auto-test-targets)))
  
+diff --git a/tools/testing/selftests/sched_ext/sync_wake_rt.c b/tools/testing/selftests/sched_ext/sync_wake_rt.c
+new file mode 100644
+index 000000000000..54af31a17076
+--- /dev/null
++++ b/tools/testing/selftests/sched_ext/sync_wake_rt.c
+@@ -0,0 +1,257 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * An RT task wakes a task with a sync wakeup (a pipe write) and keeps
++ * running. The wakee must not be queued behind the RT task on its CPU
++ * while other CPUs are idle. Otherwise it waits until the RT task blocks
++ * or the ext dl_server runs it.
++ *
++ * The minimal scheduler has no ops.select_cpu(), so the kernel's default
++ * idle selection picks the wakee's CPU.
++ *
++ * How long the wakee waits depends on the state of the dl_server, so the
++ * test checks where the wakee runs, not how long it waits.
++ */
++#define _GNU_SOURCE
++#include <fcntl.h>
++#include <sched.h>
++#include <scx/common.h>
++#include <signal.h>
++#include <stdio.h>
++#include <string.h>
++#include <sys/mman.h>
++#include <sys/wait.h>
++#include <time.h>
++#include <unistd.h>
++#include "minimal.bpf.skel.h"
++#include "scx_test.h"
++
++#define ROUNDS		10
++#define SPIN_MS		300	/* max time the RT waker spins */
++#define SLEEP_WAIT_MS	5000	/* max time to wait for the wakee to block */
++
++struct shared {
++	int	cpu;		/* CPU the wakee ran on after read() */
++	int	ran;
++};
++
++static cpu_set_t allowed;
++static int waker_cpu;
++
++static u64 now_ns(void)
++{
++	struct timespec ts;
++
++	clock_gettime(CLOCK_MONOTONIC, &ts);
++	return ts.tv_sec * 1000000000ULL + ts.tv_nsec;
++}
++
++static void spin(struct shared *sh, u64 ns)
++{
++	u64 end = now_ns() + ns;
++
++	while (!(sh && __atomic_load_n(&sh->ran, __ATOMIC_ACQUIRE)) &&
++	       now_ns() < end)
++		;
++}
++
++static int pin(int cpu)
++{
++	cpu_set_t mask;
++
++	CPU_ZERO(&mask);
++	CPU_SET(cpu, &mask);
++	return sched_setaffinity(0, sizeof(mask), &mask);
++}
++
++/* Wait until @pid is sleeping, i.e. blocked in read() */
++static bool wait_sleeping(pid_t pid)
++{
++	char path[64], buf[256], *p;
++	int i, fd;
++	ssize_t len;
++
++	snprintf(path, sizeof(path), "/proc/%d/stat", pid);
++	for (i = 0; i < SLEEP_WAIT_MS; i++) {
++		fd = open(path, O_RDONLY);
++		if (fd < 0)
++			return false;
++		len = read(fd, buf, sizeof(buf) - 1);
++		close(fd);
++		if (len <= 0)
++			return false;
++		buf[len] = '\0';
++		p = strrchr(buf, ')');
++		if (p && p[1] == ' ' && p[2] == 'S')
++			return true;
++		usleep(1000);
++	}
++	return false;
++}
++
++static bool reap(pid_t pid)
++{
++	int status;
++
++	return waitpid(pid, &status, 0) == pid && WIFEXITED(status) &&
++	       !WEXITSTATUS(status);
++}
++
++/*
++ * One round. The wakee first runs on waker_cpu, so that waker_cpu is its
++ * prev_cpu. Then it blocks on a pipe and may run on any allowed CPU. The
++ * RT waker, pinned to waker_cpu, writes to the pipe and spins until the
++ * wakee has run, for at most SPIN_MS. Returns the CPU the wakee ran on,
++ * or -1 on error.
++ */
++static int one_round(struct shared *sh)
++{
++	struct sched_param param = { .sched_priority = 1 };
++	int ret = -1;
++	pid_t wakee, waker;
++	int pipefd[2];
++	char c = 0;
++	bool ok;
++
++	memset(sh, 0, sizeof(*sh));
++	if (pipe(pipefd))
++		return -1;
++
++	wakee = fork();
++	if (wakee < 0)
++		goto out_close;
++	if (wakee == 0) {
++		close(pipefd[1]);
++		if (pin(waker_cpu))
++			_exit(1);
++		spin(NULL, 1000000);
++		if (sched_setaffinity(0, sizeof(allowed), &allowed) ||
++		    read(pipefd[0], &c, 1) != 1)
++			_exit(1);
++		sh->cpu = sched_getcpu();
++		__atomic_store_n(&sh->ran, 1, __ATOMIC_RELEASE);
++		_exit(0);
++	}
++
++	if (!wait_sleeping(wakee)) {
++		kill(wakee, SIGKILL);
++		reap(wakee);
++		goto out_close;
++	}
++
++	waker = fork();
++	if (waker < 0) {
++		kill(wakee, SIGKILL);
++		reap(wakee);
++		goto out_close;
++	}
++	if (waker == 0) {
++		close(pipefd[0]);
++		if (pin(waker_cpu) ||
++		    sched_setscheduler(0, SCHED_FIFO, &param))
++			_exit(1);
++		if (write(pipefd[1], &c, 1) != 1)
++			_exit(1);
++		spin(sh, SPIN_MS * 1000000ULL);
++		_exit(0);
++	}
++
++	close(pipefd[0]);
++	close(pipefd[1]);
++	ok = reap(waker);
++	ok = reap(wakee) && ok;
++	if (ok)
++		ret = sh->cpu;
++	return ret;
++
++out_close:
++	close(pipefd[0]);
++	close(pipefd[1]);
++	return -1;
++}
++
++static enum scx_test_status setup(void **ctx)
++{
++	struct minimal *skel;
++
++	SCX_FAIL_IF(sched_getaffinity(0, sizeof(allowed), &allowed),
++		    "Failed to get CPU affinity");
++	if (CPU_COUNT(&allowed) < 2) {
++		fprintf(stderr, "Skipping: requires at least 2 usable CPUs\n");
++		return SCX_TEST_SKIP;
++	}
++	for (waker_cpu = 0; !CPU_ISSET(waker_cpu, &allowed); waker_cpu++)
++		;
++
++	skel = minimal__open();
++	SCX_FAIL_IF(!skel, "Failed to open");
++	SCX_ENUM_INIT(skel);
++	if (minimal__load(skel)) {
++		SCX_ERR("Failed to load skel");
++		minimal__destroy(skel);
++		return SCX_TEST_FAIL;
++	}
++
++	*ctx = skel;
++	return SCX_TEST_PASS;
++}
++
++static enum scx_test_status run(void *ctx)
++{
++	enum scx_test_status status = SCX_TEST_PASS;
++	struct minimal *skel = ctx;
++	struct bpf_link *link;
++	struct shared *sh;
++	int i, cpu, stacked = 0;
++
++	sh = mmap(NULL, sizeof(*sh), PROT_READ | PROT_WRITE,
++		  MAP_SHARED | MAP_ANONYMOUS, -1, 0);
++	SCX_FAIL_IF(sh == MAP_FAILED, "Failed to mmap");
++
++	link = bpf_map__attach_struct_ops(skel->maps.minimal_ops);
++	if (!link) {
++		SCX_ERR("Failed to attach scheduler");
++		status = SCX_TEST_FAIL;
++		goto out_unmap;
++	}
++
++	for (i = 0; i < ROUNDS; i++) {
++		cpu = one_round(sh);
++		if (cpu < 0) {
++			SCX_ERR("Round %d failed", i);
++			status = SCX_TEST_FAIL;
++			goto out_destroy;
++		}
++		if (cpu == waker_cpu)
++			stacked++;
++	}
++
++	/*
++	 * Allow a few rounds on waker_cpu: if no CPU is idle, the wakee can
++	 * still end up there.
++	 */
++	if (stacked > ROUNDS / 2) {
++		SCX_ERR("Wakee ran on the RT waker's CPU in %d of %d rounds",
++			stacked, ROUNDS);
++		status = SCX_TEST_FAIL;
++	}
++
++out_destroy:
++	bpf_link__destroy(link);
++out_unmap:
++	munmap(sh, sizeof(*sh));
++	return status;
++}
++
++static void cleanup(void *ctx)
++{
++	minimal__destroy(ctx);
++}
++
++struct scx_test sync_wake_rt = {
++	.name = "sync_wake_rt",
++	.description = "Verify that a sync wakeup from an RT task doesn't stack the wakee",
++	.setup = setup,
++	.run = run,
++	.cleanup = cleanup,
++};
++REGISTER_SCX_TEST(&sync_wake_rt)
 
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.53.0
+
 
