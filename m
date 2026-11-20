@@ -1,60 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181300;
-	b=3+wiqINEHuPGZjnGgol11qXqKtPccLfJAfOdcvRSLQJ05ihBWLuNdif9z2IGgTWkEcrc
-	 mMwx3rDG9DW2RaEmZtH0f0l6dUqTfSHmW+lwaER5nX+jDJzQteAwMKo1tBcUKGagj0lI/
-	 0NEtbLTNVER8YtfMBV/p5M9iOZmVHl7Isc5U8YEdSLjchCz+1EkvuH90hh91nlHqW5SAq
-	 oCWlyXZFXIQQMYkjeWJFkAFwRYUjY4/EUWFwoVo5M0L2aEFz+sHsAlxgJzJ4PJwVXjkCM
-	 nI495ebRvqg+AIeepX0uuI25F7lPgQ0DQyIhcBag40r+IRtnAeVCaB7GZG0FkLHfRYw==
+	t=1795181394;
+	b=n1RqLEZs1CvBPfNF+12M4NKZyavRJwkGJhdEfN/w77sbz0wzZEmFmLBu7ypqr6ffDs7P
+	 JjNEMpNkDyAiwE3clYyJqP8Uu7N1A7cSauOq0UG9sKCG68TYrUGPl20ehoIJ470pi4vc/
+	 defgJt5Rj0EBtgG8IGU7WwT2NPWm+0zHhoCHvT7Y2xGfu0PGWpZirIXR/S0QBIvb3Bwzs
+	 LFC2uuYMB6DqaMjJRZvSi2oNbHQmSjgHtF+HoNuAc6Bp81jLGPniETMV2OPPW1yG+SALb
+	 Tuovc6YRGoR8WPDlwbxqYHFT/mlggHM8LqTU6ttSciYGgQEiXBjelOrLySe+aityGwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181300;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 User-Agent;
-	bh=qfOmk5g8WOhg5omRZE5PZ9/eCljQ9jAhHJ+Xtm7TR/0=;
-	b=BFQHPsy47reaMGWlyUYWTB2oBgf1o9t1Iw4Cl2zmu7oA0kDecgt8w3RJ8+/kqu0i0Gww
-	 HU2my9jQ0hT9r25HQnejRx83FclgVODyFHNgOC7gdkqlLO9sZ3zHEjPnp0EC0/7AFzqwi
-	 VsI5MUy6p2jio2IJnRiqGHw1rPELi0GMfn59EUMr546YHRVEi9dO7fRWMwoTC14yBvkh1
-	 HNFXHqLkAa900G29XcWnfJTdcEzrtlgcnNaQdFRRttiyTgOFTkR38r+SAM8cnyHbiCmoh
-	 m2qpvHu4cwduSbTZRe3fvFaP8fc9As7IyhfV3GM3W3YPrY/sgJFUURRbLbzG6te8AOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181394;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=KIuubySBEKoRCjnxozdpuIhIHzXPI2vtLhHLMXp0fx4=;
+	b=LfB53z8N4g/Cyt3c/capiJhDAOpe0nH0RQuVbsVbOPYxdJPPEEL0qjyA45ide3DSkY+i
+	 /i/ApDtdvitcToDWgc1dvlL74nDRCWuEag9vyy87/bsTVA4nTgkSRIfJ8rq99mBf75vNh
+	 1Poic4LmkIjC2YrHc7l47S1gWvpqTWfjSSGd+xNOE4R4AJnKFJiGTffqIgzki7Bcvc3/G
+	 urd+zKasmetrmKkMazbx3kX/B+q7RcsGzSN+yefYB08phIP/Lmr/lq8h5zVMERykcbQoP
+	 ku7TmTMm0PwEWOPWWkVN8nH/MdtRPeKrqI1TvNfNgW2UghlurTwxCi4e+Xa3Vp1tu4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVieoqR0;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="T+0q/4Ul";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A54B3606A320;
-	Fri, 20 Nov 2026 13:28:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0D59606A32A;
+	Fri, 20 Nov 2026 13:29:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fVieoqR0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F7551F000D0;
-	Fri, 20 Nov 2026 13:28:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T+0q/4Ul
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 949861F000C4;
+	Fri, 20 Nov 2026 13:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795181300;
-	bh=qfOmk5g8WOhg5omRZE5PZ9/eCljQ9jAhHJ+Xtm7TR/0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fVieoqR0a4YvsxpVD6Krj2vcLw8hMNIsRtxaOFmgjec4bsmYGsawIM+LsthejH+gY
-	 AJYZnnQ1TJhfygJAe1VeATFcRCPhmNsUgi+z13DlGtBb8AQL+rasda413SYxQbuCzA
-	 wJf4LQPoZJYvRBUA9Nu5/oCWazLimNokOwzjQXsmlTy8Rz6grV0vQSi9PXdUpQke1O
-	 93GQRSe30ZDtXylyb3llDPrC6d6o14huacpzZkMvbrttEhe4cMjdfEBtEvP7Ckd7C1
-	 tJwreI549qMWEJLBvzQQoIAZ4yZBwbK5LS0TpxQeMp6YWVyaeYJMezqRNuWyLNivPq
-	 i+HgPcSSwHrUQ==
-Received: by pali.im (Postfix)
-	id 47D7436C; Fri, 20 Nov 2026 14:28:17 +0100 (CET)
-Date: Fri, 20 Nov 2026 14:28:17 +0100
-From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: Matthew Garrett <mjg59@srcf.ucam.org>, Hans de Goede <hansg@kernel.org>,
-	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
-	Darren Hart <dvhart@linux.intel.com>,
-	Gabriele Mazzotta <gabriele.mzt@gmail.com>,
-	platform-driver-x86@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] platform/x86: dell-laptop: Don't use an unread
- keyboard state at init
-Message-ID: <20261120132817.mffko5sujvg2lsjd@pali>
-References: <cover.1794633179.git.rosenp@gmail.com>
- <7d253bc056c2d6f68992d0d046affef331c57830.1794633179.git.rosenp@gmail.com>
+	s=k20260515; t=1795181394;
+	bh=KIuubySBEKoRCjnxozdpuIhIHzXPI2vtLhHLMXp0fx4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=T+0q/4UlfyZmiXdWBOBSwrYSzlx1WaHw/hwBWjGCtpHxAoHiLxvLq+1hQiQEnfs7w
+	 n2FHuYJjSQBV2K+tTMN8uj8FAGfQi3DMT2s/3z+cw0uVXaB+tM+oYp4ZRFHOMGYB5V
+	 p4tEr9cyi0vSt27LCkJgTUB0IRfkQtjYnJS9pao2e8CMAootYoN54lHxBA8Fv0GozH
+	 YhD+aWg0tdXJN0WSfNMhHF1b9o+8XzviHIcBfeJBLirfMk+X+IuWrwOZSuCn9AJJCV
+	 Il3OTOZehXVO90JKQk2dBkOR3abMDSMnjIJq+vL8RlEgWgosu1mdLv5YfVL02AW7R8
+	 +X2sPRBnZKnBg==
+Message-ID: <83804b12-39c7-41cf-8a70-2bab8b3fa2b0@kernel.org>
+Date: Fri, 20 Nov 2026 05:29:52 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,64 +51,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7d253bc056c2d6f68992d0d046affef331c57830.1794633179.git.rosenp@gmail.com>
-User-Agent: NeoMutt/20180716
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] virtio_blk: validate zone append sector from device
+To: Annie Kim <pulpannie@gmail.com>, "Michael S . Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>
+Cc: Jens Axboe <axboe@kernel.dk>, virtualization@lists.linux.dev,
+ linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120063039.4155597-1-pulpannie@gmail.com>
+From: Damien Le Moal <dlemoal@kernel.org>
+Content-Language: en-US
+Organization: Western Digital Research
+In-Reply-To: <20261120063039.4155597-1-pulpannie@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Friday 13 November 2026 22:29:26 Rosen Penev wrote:
-> kbd_init_info() ignores the return value of kbd_get_state(). If the
-> call fails, the uninitialized state on the stack is used to set
-> kbd_previous_level and kbd_previous_mode_bit, which are later sent to
-> the BIOS when triggers are enabled or the backlight is turned back on.
+On 2026/11/19 22:30, Annie Kim wrote:
+> From: Hyokyung Kim <pulpannie@gmail.com>
 > 
-> Return the error instead. kbd_get_info() has already filled in
-> kbd_info at that point, so clear it as well: level control through
-> kbd_get_state() cannot work, and kbd_init() then still registers the
-> LED if at least two keyboard backlight tokens are available, which
-> works without it.
+> The device reports the starting sector for REQ_OP_ZONE_APPEND completions,
+> and virtio_blk copies it into req->__sector without checking that it
+> still refers to the requested zone. A buggy or malicious device can
+> therefore make upper layers believe the append landed at an arbitrary
+> location.
+> 
+> Validate successful zone append completions before updating
+> req->__sector. The returned sector must not precede the request start
+> and the entire request must fit within the zone writable capacity.
+> Reject invalid completions with BLK_STS_IOERR.
+> 
+> The polling path may batch successful completions, so perform the same
+> validation before admitting a request to the batch. Invalid append
+> completions then fall back to the normal completion path and are
+> completed with an error instead of being reported as successful.
+> 
+> Fixes: 95bfec41bd3d ("virtio-blk: add support for zoned block devices")
+> Assisted-by: Codex:GPT-5
 
-Why returning the hard error here? At this stage we know that the LED
-tokens are available, kbd_get_info() returned success for us. The
-kbd_get_state() could have temp issues.
+This tag is not necessary.
 
-The only problem is with the uninitialized kbd_previous_level and
-kbd_previous_mode_bit variables.
-
-What about this?
-
-if (kbd_get_state(&state) == 0) {
-	kbd_previous_level = kbd_get_level(&state);
-	kbd_previous_mode_bit = state.mode_bit;
-} else {
-	kbd_previous_level = 0;
-	kbd_previous_mode_bit = 0;
-}
-
-> Fixes: 02b2aaaa57ab ("platform: x86: dell-laptop: Add support for keyboard backlight")
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> Signed-off-by: Hyokyung Kim <pulpannie@gmail.com>
 > ---
->  drivers/platform/x86/dell/dell-laptop.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+> Tested on v7.4-rc3+ using modified QEMU backend that returned incorrect
+> zone-append sectors on a memory-backed null_blk zoned device.
 > 
-> diff --git a/drivers/platform/x86/dell/dell-laptop.c b/drivers/platform/x86/dell/dell-laptop.c
-> index bee347e1d60c..171728d63c81 100644
-> --- a/drivers/platform/x86/dell/dell-laptop.c
-> +++ b/drivers/platform/x86/dell/dell-laptop.c
-> @@ -1455,7 +1455,12 @@ static inline int kbd_init_info(void)
->  	    dell_smbios_find_token(KBD_LED_AC_TOKEN))
->  		kbd_timeout_ac_supported = true;
+>  drivers/block/virtio_blk.c | 50 +++++++++++++++++++++++++++++++-------
+>  1 file changed, 41 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
+> index 2b462005c..8f88570b4 100644
+> --- a/drivers/block/virtio_blk.c
+> +++ b/drivers/block/virtio_blk.c
+> @@ -331,15 +331,45 @@ static inline u8 virtblk_vbr_status(struct virtblk_req *vbr)
+>  	return *((u8 *)&vbr->in_hdr + vbr->in_hdr_len - 1);
+>  }
 >  
-> -	kbd_get_state(&state);
-> +	ret = kbd_get_state(&state);
-> +	if (ret) {
-> +		/* Leave level control to the SMBIOS tokens, if there are any */
-> +		memset(&kbd_info, 0, sizeof(kbd_info));
-> +		return ret;
+> -static inline void virtblk_update_zone_append_sector(struct request *req,
+> -						     struct virtblk_req *vbr)
+> +#ifdef CONFIG_BLK_DEV_ZONED
+> +static inline blk_status_t
+> +virtblk_update_zone_append_sector(struct request *req,
+> +				  struct virtblk_req *vbr,
+> +				  blk_status_t status)
+>  {
+>  	struct virtio_blk *vblk = req->mq_hctx->queue->queuedata;
+> +	sector_t req_start, sector, zone_end;
+> +	unsigned int nr_sectors;
+> +
+> +	if (req_op(req) != REQ_OP_ZONE_APPEND || status != BLK_STS_OK)
+> +		return status;
+
+I would move this if outside of the function and call this function under this
+if. That would avoid passing status, make this function a void one, and avoid
+unnecessary function calls for commands other than zone append when the inline
+is not honored by the compiler.
+
+> +
+> +	req_start = blk_rq_pos(req);
+> +	sector = virtio64_to_cpu(vblk->vdev, vbr->in_hdr.zone_append.sector);
+> +	nr_sectors = blk_rq_sectors(req);
+
+req_start and nr_sectors could be initialized when declared.
+
+Other than this, this looks fine to me.
+
+> +	zone_end = req_start + disk_zone_capacity(vblk->disk, req_start);
+> +
+> +	if (zone_end < req_start || sector < req_start || sector >= zone_end ||
+> +	    nr_sectors > zone_end - sector) {
+> +		dev_err_ratelimited(&vblk->vdev->dev,
+> +				    "zone append sector %llu + %u outside valid range [%llu, %llu)\n",
+> +				    (u64)sector, nr_sectors,
+> +				    (u64)req_start, (u64)zone_end);
+> +		return BLK_STS_IOERR;
 > +	}
 >  
->  	/* NOTE: timeout value is stored in 6 bits so max value is 63 */
->  	if (kbd_info.seconds > 63)
-> -- 
-> 2.56.0
-> 
+> -	if (req_op(req) == REQ_OP_ZONE_APPEND)
+> -		req->__sector = virtio64_to_cpu(vblk->vdev,
+> -						vbr->in_hdr.zone_append.sector);
+> +	req->__sector = sector;
+> +	return status;
+>  }
+> +#else
+> +static inline blk_status_t
+> +virtblk_update_zone_append_sector(struct request *req,
+> +				  struct virtblk_req *vbr,
+> +				  blk_status_t status)
+> +{
+> +	return status;
+> +}
+> +#endif
+>  
+>  static inline void virtblk_request_done(struct request *req)
+>  {
+> @@ -349,7 +379,7 @@ static inline void virtblk_request_done(struct request *req)
+>  	virtblk_unmap_data(req, vbr);
+>  	virtblk_cleanup_cmd(req);
+>  
+> -	virtblk_update_zone_append_sector(req, vbr);
+> +	status = virtblk_update_zone_append_sector(req, vbr, status);
+>  
+>  	blk_mq_end_request(req, status);
+>  }
+> @@ -1242,7 +1272,6 @@ static void virtblk_complete_batch(struct io_comp_batch *iob)
+>  
+>  		virtblk_unmap_data(req, vbr);
+>  		virtblk_cleanup_cmd(req);
+> -		virtblk_update_zone_append_sector(req, vbr);
+>  	}
+>  	blk_mq_end_request_batch(iob);
+>  }
+> @@ -1260,11 +1289,14 @@ static int virtblk_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
+>  
+>  	while ((vbr = virtqueue_get_buf(vq->vq, &len)) != NULL) {
+>  		struct request *req = blk_mq_rq_from_pdu(vbr);
+> -		u8 status = virtblk_vbr_status(vbr);
+> +		blk_status_t status;
+> +
+> +		status = virtblk_result(virtblk_vbr_status(vbr));
+> +		status = virtblk_update_zone_append_sector(req, vbr, status);
+>  
+>  		found++;
+>  		if (!blk_mq_complete_request_remote(req) &&
+> -		    !blk_mq_add_to_batch(req, iob, status != VIRTIO_BLK_S_OK,
+> +		    !blk_mq_add_to_batch(req, iob, status != BLK_STS_OK,
+>  					 virtblk_complete_batch))
+>  			virtblk_request_done(req);
+>  	}
+
+
+-- 
+Damien Le Moal
+Western Digital Research
