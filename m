@@ -1,47 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170568;
-	b=pgT2qDjaduWAyzg6Ffg3Vj0AqZTF+9drfPA0OfVDIX343Ht1tOULR4KfFkPdpwC0+Qne
-	 6qy6bLi/hcuUiswHB3aRPE1NUf5Nlmet7FkHHNx+wg/16X8erVnKknX3MqaTk3dQjMhNr
-	 2G8Iubi079iXSfF2xDlIF1hM2oqS5MoiVxgsG1hS81HFUyXuiSWb+aMrY7U+5Ion6iq+A
-	 R2jlLwo77xdFcazCJ9EgDZlVUWp5fICUQkQDyz4W3eSTrJGRJk2Kfl1ruH0athchCmso1
-	 tvhw5hjo7SSIKWW1j/yc3BOHav7V0YMgjkCsPNT5TND5V4++hiFtR2fMPCj3/oEJ1Sw==
+	t=1795170603;
+	b=yPDhUtqgvYq330+XX8uDLGep3jyvgXVAM+s/THEHK5x2XRkf9OCl0N4tt/90q2WCiz67
+	 Z2otVTzkrdc7gtQXRBgvDpajxu3AMOdaFGqx1rASiajZiXSu1+Tg+fQLSjICGyaJwEEyL
+	 Ij2LW1j75ofXhU24HR+lydn7fXnOVo0a1twLbPEo71R9N8ZeI+50WyXO8nWBqE4HnwXYw
+	 mFSbeBDfNdjrqavliTA7ISWtXC0zYqeRTh3qvYLuS/KzD0c1gcmKU3UZIsLTuqedTRG/R
+	 sAqFchgdE7lyDbNE/TUEQQlzHrJyIlVo0kOkYQdZpfsFV+Jmp5yVXr0b9ocdIBoz0ow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170568;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=jTAy/t9Qx0lrwmagh0OZEBBPhEuBNaw2YAMUVykvYNs=;
-	b=1muctbtAwdLVwbqJU3VifEH6mQynwE1kxsbXg8d/tqPq26qh6AXpkaeK1SEBb4LBUXX/
-	 rjO6a9E9jaRuqLyWrk/NOWUU40x/nwoXwoFyPPojoaNNOgMYMGnWRzfGzseLEGICd3CtY
-	 p3tESB95gA3ZmdXaicBf7ZyvsyofkgwtkERkPnZhGJzUx3ozjaF2H9aJE2nRldh+D0qs0
-	 PQ2XdZIG5hGA4IEH7KPCORqZPe9enEgjjOJwIm3kRX/8hTF+noK9WXdusmWWOCv2/Le7r
-	 vcS565qohJFaej7tlrNS/J8BoxLuLMbx7W2fbe8QQM9rOdRLgXZqQgOelZM1Y+6SOxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170603;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=0Pn3lEK37cGLcBDrLgjiBks9/meH2vXTHJ0OG2X8Tb8=;
+	b=p6YbH3V2/uFJPkYZj5RjL9N0YpwlkGkmzZBo3fTpWNyjdMQ3VoQoQXLfT2IIhBNycbgi
+	 QnGrlSRhTvGlUSgbSkJtap0oQFc2RjROz2JWJ5n/f6ArSZ694c5TAdrBFw7FxwvzZsqq7
+	 Y+rWnEbG+W6EwtHHPsV2CBX4/yL0v4VVXfEKqUUktieW6QK6W4XkeMCgxPcaU1PkQ/00B
+	 eeJhiim+pEaUmGnYDAmXoslR+j6bIoQt5wkIcK6vHxeUCaqyfxF7QXY9HmeMnRGIVxZuu
+	 XNrRQ2D7ypH2JOn0PpuLELQ4BbrXZlUOueC1qjKuCTvXVKwW2wzLtnEKpqwKv/H35Lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C+QotWaX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfD7eyQ8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B4E7606A320;
-	Fri, 20 Nov 2026 10:29:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F46606A326;
+	Fri, 20 Nov 2026 10:30:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C+QotWaX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54FCB1F000C4;
-	Fri, 20 Nov 2026 10:29:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfD7eyQ8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB4871F000C0;
+	Fri, 20 Nov 2026 10:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170568;
-	bh=jTAy/t9Qx0lrwmagh0OZEBBPhEuBNaw2YAMUVykvYNs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=C+QotWaX8sgXVpsrb0UKgyMgRuN0GsKE8AGPYQgO+MzXI5ZUYnaR4WdGffBZMSOPQ
-	 bG2Lr5vSHMPO5SQRTPg7+RNzuxuIBLT8SCujZuK58Rzpo2MHBQI7IxI1N/eB1j3Dgd
-	 quC/Dsclj2LbS4+cpUDgACxQigMoqapXxUraDj2nQy5ie/GtVD8D8hJoJDKzBIwKfp
-	 z3g7AMcIVrihLtinhtmkr6bwUMZQpMV6IKheeTBtYJwaa/hSPa3U/NfjnmGNRYrS28
-	 nOG8iR7e6uw38NxkIPQhQS88c0S1xQlLyQUer3Acq74lwh4Khvx2sgYTagnUOnzTbw
-	 wOJZvtJH2f24w==
-Message-ID: <7d50b14d-2df8-4616-ac66-d6dbb1d24061@kernel.org>
-Date: Fri, 20 Nov 2026 11:28:35 +0100
+	s=k20260515; t=1795170603;
+	bh=0Pn3lEK37cGLcBDrLgjiBks9/meH2vXTHJ0OG2X8Tb8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=lfD7eyQ8gP4DU8ZSUxPcn2r9/wW9TN/p6DxqGK1n8VVN12IkLR8gBfHRGsyr/V4Gn
+	 DCd5sScgQhblvHV68S5Tvv/KtnTofDqF4a5PQ4lp3pHrhB5NfQU3L9fY/TE7En9r5r
+	 RSBNLJRcKoUn2BJExPKNbtJU9Ko01NyqupcQK3cw4Ye2o75tvuLdu7jMhYr52/3qwm
+	 L1Le+p4TdUR4b0vwsI2VyCKNgqTusA0PZHhIqsTc7j1MZVOyje2SOlcP40JhouFMCL
+	 GzuTg92+I5JJ50g/S7JlDkiBqn3PnBMulEYp+3YT/nwD9UaSpljWHB8kR5J5uWpyPO
+	 1ghmb7JKtL2sg==
+From: Mattijs Korpershoek <mkorpershoek@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-arm-msm@vger.kernel.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski
+ <krzysztof.kozlowski@oss.qualcomm.com>, Sriram Dash
+ <quic_sriramd@quicinc.com>
+Subject: Re: [PATCH v4 0/2] Add support for SA8255P in the
+ phy-qcom-snps-femto-v2 phy driver
+In-Reply-To: <av79X0gPyQDXgZwR@parshuram>
+References: <20261027-phy-qcom-snps-femto-v2-8255-v4-0-874023825a63@kernel.org>
+ <av79X0gPyQDXgZwR@parshuram>
+Date: Fri, 20 Nov 2026 11:30:00 +0100
+Message-ID: <xhkdbfqwvpzh3.fsf@mkorpers-koolstof.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,53 +65,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] iio: adc: Provide mult_fract() and make use of it
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
- Marcelo Schmitt <marcelo.schmitt@analog.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, linux@analog.com,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Michael Hennerich <michael.hennerich@analog.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Esteban Blanc <eblanc@baylibre.com>, Jonathan Cameron <jic23@kernel.org>,
- David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>
-References: <20261119192408.1724611-1-andriy.shevchenko@linux.intel.com>
-Content-Language: en-US
-From: Joshua Crofts <crofts@kernel.org>
-In-Reply-To: <20261119192408.1724611-1-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 
-On 19/11/2026 20:19, Andy Shevchenko wrote:
-> In a couple of IIO ADC driver the suggested new helper mult_fract()
-> may be used. So, provide it and update the straightforward users.
-> 
-> The helper has potential treewide, hence it's provided directly in math.h.
-> 
-> In v2:
-> - updated commit message in patch 1 (Sashiko, c/o Joshua)
-> - used local variable to avoid double evaluation (Sashiko, c/o Joshua)
-> - collected tags (Marcelo)
-> 
-> v1: <20261117091638.1463621-1-andriy.shevchenko@linux.intel.com>
-> 
-> Andy Shevchenko (3):
->   math.h: Add mult_fract() that takes struct __Txx_fract as argument
->   iio: adc: ad4030: Switch to use mult_fract() helper
->   iio: adc: ltc2378: Switch to use mult_fract() helper
-> 
->  drivers/iio/adc/ad4030.c  | 13 ++++++-------
->  drivers/iio/adc/ltc2378.c |  4 +++-
->  include/linux/math.h      |  7 +++++++
->  3 files changed, 16 insertions(+), 8 deletions(-)
-> 
+On Thu, Nov 19, 2026 at 19:15, Vinod Koul <vkoul@kernel.org> wrote:
 
-Fine now.
+> On 27-10-26, 14:00, Mattijs Korpershoek wrote:
+>> The Qualcomm automotive  SA8255p SoC abstracts resources such as resets,
+>> clocks and regulators in firmware. The SCMI firmware exposes multiple
+>> protocols to control such resources which are identified by protocol_id.
+>> 
+>> For this USB phy, 2 SCMI protocols are exposed by the firmware:
+>> * power domain management protocol (protocol_id=0x11)
+>> * performance domain management protocol (protocol_id=0x13)
+>> 
+>> The power domain has 2 indices: 'core' and 'transfer'.
+>> * core controls the regulators, the clocks and the reset
+>> * transfer only controls the clocks
+>> 
+>> For example, to power on/off the PHY, we should use the 'core' domain.
+>> To disable data transfer and keeping power enabled, we should use the
+>> 'transfer' domain.
+>
+> Hey, this fails on phy/next for me, can you please rebase
 
-Reviewed-by: Joshua Crofts <crofts@kernel.org>
+Indeed, the IPQ9650 support that was recently merged causes
+conflicts.
 
--- 
-Kind regards,
-Joshua Crofts
+I will re-submit a rebased v5 shortly.
 
+Thanks
+Mattijs
+
+>
+> -- 
+> ~Vinod
