@@ -1,67 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193543;
-	b=LX0gJXVHHg4KJrcQtjo2kGX054gyjhf6UzXAHQGvjtYwry4g6lS1fhgfyUsT2JF3l99V
-	 qEZctYinVg1cuTaZ2OFpASb0j58LnvWSmR5TYNaFfyXJcoONDwEx2tJ4B6C3QgOgfjmWR
-	 lWf/jD0cQdJWkhw6bIHA0nTXxfXVkezEJaDp3RGy3zaHJt8sCK88vS2/wdalB2IDFQp7W
-	 yzyAihG1GDk0e7A42seD7xJd+299E0kle55daM1qRQkOMpUHD9zd8vffvMN6sVIsmTqpd
-	 V1e+DWX/W4q70uLcqmj8dnw8xqjg5a9I80OsiXHfYm88ggEmyJx0HhUWKkpfAbzOASQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193543;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=jsvgDpLwGXHaRHsHZCENvIqUnp+iMj9ognXUIXq3TW8=;
-	b=NAEIB/sai3910ygUjT3qYLvO2mD8/acswRkLoVu5Z1psw7xstWUiPSEATPOH5pNmB453
-	 YLJnbCMscfuPgrFKJW0pP7MLKXEzfMRER9ZgFCPUT6u66tfg2YylAYAca/Ec9qcK1zwYJ
-	 /D0xkTFCzg+aNvwOyE9Qk2eBOGEUwEm5ZJSRvK9q4wLI7SxgZ4nNHqoKyM5rGtdGqICdQ
-	 28jfmK4GMoRhvqT/fE9JQ9CDvXOmcT7F9q26DfPAkEz8SQsnXGI+XD/T+bb+vFoPblsJy
-	 aSzBVnPC5aGJxBxNaxCIIQXUggo/84eWc8weNjGwK1HjpzkwNWdpye+ivZiZU4/TMCw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eJ0xokma;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795193557;
+	b=t7fJty48JV8yPHGgfO2wWCvpH0xxfMe08WVJpXicd3giH7AgiNBfK4Tqwu5BtCrXZr18
+	 ScGw4R4pFwNsO/atyAjK4EUVru2aHgset11boFG+GJaW8g248xbnz5uppfBY8llohltaV
+	 F20bRCmJ8WGTljKFo+7NvZAzBIz+EmfXrjylcd25lLH5pUm9i5bXZjt/Io2xCcEmgntkk
+	 oY7l8e8na9bxTcaf9D5MC0PSngXPuVCP3brkZV/t1LprZsAY+HNJzmyU6Y1Amuw/+QGsk
+	 Xw1gpoTY2CatJd96aRp/0NcJ5nbE88a964iK4YJCB4JKPV7vNr7kLCcbjFrBJpUyMoA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193557;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Rp7eyI3MK6PiOiIqXkCi6ZJ+PbVMvtLByPRKSVlrZcg=;
+	b=yu0VNKvSaA9xjeZux+QZCI0hOKNEpHb3RBuKMTUcq5iqeTKcCtlNugmlBFx7K2BnKXmV
+	 D2g4hJIhqZkbnd2FdZFfN5gPdyTZDqjDKukIBaHRxnFyWF6cdbtBG1WDjaPFbR4bVVxcL
+	 9KBi5hyUCQ9umD/xt/ynacGgD+WBe4y+ml82FpWSBeWT10WczOkVpILTB2z1cNgnJzYXr
+	 M1j/lg20oPOaqxtrKOOwQQaOBVhw5HbbOvpgAJbndm8a/L83cJGZDraeTGas7Irfhw0qS
+	 klEu7sMe1grxunpOrh1+5ojKwfVGp45azEbVLGZi0JW9r31YR0qs5ZyLYgZQkJvEEFw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HMrA9tLa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED666606A337;
+	Fri, 20 Nov 2026 16:52:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HMrA9tLa
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795193556;
+	b=gAbacFtniajifytESPCXXCTzxBUNThTckNR3FJjvzf2iZkRIwTJwQvJL3S3unhFBTy51
+	 qkzs9fjYTLMiQsxFjDqarlluqjyL5t5iR3bCWhXe7qLtX5SJ+qUmWKKSakrrQo04P3U1r
+	 +WFl8glpdIRoYl+pqx6P5Wj1Kh2Sm9CuoEfdFRb9evwCDgA8WbIHdpW3eNdARK8Dvjo1D
+	 B0lNmi8QeLnz+EheL/hMCbAi2oL8Hj9/BlZ1eNZN/WI5QklVp7lj+dchUz+Ku8NgU1qN9
+	 +egWCPXJIfmN0mmNqKsIcE5VuIOdY1Kpm4XuujiEj2pCSkp6kkInCw8uFvyTqDkKjHA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795193556;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Rp7eyI3MK6PiOiIqXkCi6ZJ+PbVMvtLByPRKSVlrZcg=;
+	b=hWnDUb/F6K77z/euPC8FZygrkkQrbyvUjUnNm/W28kutng5b3rJ8d28HwxFHHp5PSgAL
+	 /EDGLkuzMBjbK1tYuDBp2QkHl8sa5ObNo0AgM4Bkj7Fy8YsnJcjPV1i2Edo28PgLogVEg
+	 tLGy0DGtDF6HUty0Nsd4/pfjNHp1Gy3R9Vu2u34v6JMpEHSgZSE4gw3yZzXNCqOAoCfgz
+	 MNPvSVJLotys4vpWRcQ6m5bPnh19Ddp2rLMP84tcHPiOVw9RWRdI/onjvGCv3RtBBY4ec
+	 319YHGNRplOy2cMd4IjiTU8/NKRe68bL0iAJ4qN5618A7VN7c91E5xSXjKZK52Vfzhw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7834606A33E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:52:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7834606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=eJ0xokma
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795193541;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=jsvgDpLwGXHaRHsHZCENvIqUnp+iMj9ognXUIXq3TW8=;
-	b=eJ0xokmaGYgT/y4s/+iXlGumc7+WrlHitevst1u5KzUrBrGGQ1WaaXl0j7BQ64NxzfBr4/
-	SD6+WFwQznIv6V4TjLSl1G+CCj3TXsEIYJVGBiWsJXHguqFpOFKIf9q7WKEkC26unGDuJM
-	+RG4bCDFdjQ1ZM9fQP73vcHTi+UmY74=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-364-Amo5EfSZPBevOteng_USZA-1; Fri,
- 20 Nov 2026 16:52:17 +0000
-X-MC-Unique: Amo5EfSZPBevOteng_USZA-1
-X-Mimecast-MFC-AGG-ID: Amo5EfSZPBevOteng_USZA_1795193534
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 2F4FD19540C5;
-	Fri, 20 Nov 2026 16:52:14 +0000 (UTC)
-Received: from [100.90.222.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0C76F1956049;
-	Fri, 20 Nov 2026 16:52:11 +0000 (UTC)
-Message-ID: <1075a283-b745-418b-b49a-2dfd41faba3b@redhat.com>
-Date: Fri, 20 Nov 2026 17:52:09 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id 6AB751F000CA;
+	Fri, 20 Nov 2026 16:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193556;
+	bh=Rp7eyI3MK6PiOiIqXkCi6ZJ+PbVMvtLByPRKSVlrZcg=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=HMrA9tLawUagHckZ7gYJ1q2FwM31IRQpONnh+Lm//RRfICYHOQYx+EuClmbz+aHWQ
+	 jmNYkshPxFZ4by2bVpmE+epkXbiyU4GLET1fhJWyL+zQcc+iVSe79DnTdugJQ8AYxm
+	 os1K8hXWZeijLnm3fIlNphrMutwur1yfmKf5N/UqTAQ3mi33Q0tH4GW0MbV6r48WN7
+	 g6J8Nia5JNH7GbBNM5E1hW/y9iPTJZyGc5bzyEPdjUZQ04N3kKWXwYc4roSQ5gHz0K
+	 hQNJcZwZEFraJuYmKMeGu5XsLs1BeoSMtw87BuRMlKrjTENS41svlK+4/sdwGqxi2P
+	 eaLyZHY3r0N7Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EF12849969;
+	Fri, 20 Nov 2026 16:52:29 +0000 (UTC)
+From: Peter LaDow via B4 Relay <devnull+pladow.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 08:52:25 -0800
+Subject: [PATCH] leds: lp5860: Add I2C interface support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,85 +82,242 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/1] vfio: fix KVM reference leak on QEMU CPR
-To: Andrey Drobyshev <andrey.drobyshev@virtuozzo.com>,
- linux-kernel@vger.kernel.org
-Cc: kvm@vger.kernel.org, virtualization@lists.linux.dev, alex@shazbot.org,
- den@openvz.org, khorenko@virtuozzo.com
-References: <20261120154730.882393-1-andrey.drobyshev@virtuozzo.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Content-Language: en-US
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <20261120154730.882393-1-andrey.drobyshev@virtuozzo.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-add-i2c-support-for-lp5860-v1-1-30bc97dcbf78@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAMh6AGsC/yXMwQrCMAwA0F8ZORtoI87pr4iHtU01ImtJNhHG/
+ t2qx3d5KxirsMG5W0H5JSZlavC7DuJ9nG6MkpqBHPXek8MxJRSKaEutRWfMRfFZD0Pv8HTM+yE
+ QB/YRWlCVs7x/+eX6ty3hwXH+jrBtHxco5Cp+AAAA
+X-Change-ID: 20261120-add-i2c-support-for-lp5860-97f38b2ebe1c
+To: Nam Tran <trannamatk@gmail.com>, Lee Jones <lee@kernel.org>, 
+ Pavel Machek <pavel@kernel.org>, Griffin Kroah-Hartman <griffin@kroah.com>
+Cc: linux-kernel@vger.kernel.org, linux-leds@vger.kernel.org, 
+ Peter LaDow <pladow@gmail.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795193549; l=6530;
+ i=pladow@gmail.com; s=20261120; h=from:subject:message-id;
+ bh=WYeX7Dr68OiZme4pornFR+sF3AnsOda9svE1CKz58RI=;
+ b=hVFHNJ0BORNibfo9AMK6B3bmn8cIlFNYdnhaZ7YahevywvWu9diIBhs5OoFqDugMcll+F6usS
+ G0iXzqDl/8IADm32WZYx2P3VLzIpixE6Rxib6vrrLm32KyfistXB8zZ
+X-Developer-Key: i=pladow@gmail.com; a=ed25519;
+ pk=GEdL9uXOAV0PnykeFpXX87oqKs0/Ac0qAUc4Oow7WN4=
+X-Endpoint-Received: by B4 Relay for pladow@gmail.com/20261120 with
+ auth_id=1585
+X-Original-From: Peter LaDow <pladow@gmail.com>
+Reply-To: pladow@gmail.com
 Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-On 11/20/26 16:47, Andrey Drobyshev wrote:
-> When a VM has a VFIO device and QEMU does a CPR (CheckPoint and Restart)
-> live update, QEMU creates a new VM and keeps the device open.  The
-> device holds a reference to the VM it was opened with, so the old VM is
-> not destroyed.  It stays until the device is closed, which usually means
-> for as long as the guest runs.
-> 
-> It is one stale VM, not one per update.  It is also visible: after
-> cpr-exec the kernel logs "kvm: debugfs: duplicate directory <pid>-<fd>",
-> and the new VM gets no debugfs directory.
-> 
-> This patch makes the device take that reference only if its driver uses
-> it.
+From: Peter LaDow <pladow@gmail.com>
 
-There are two problems with this patch:
+This patch adds I2C bus support to the Texas Instruments LP5860 RGB LED
+matrix driver.
 
-1) It sweeps the bug under the carpet and only solves the case that 
-*you* care about.  If the device keeps a reference to the VM it was 
-first bound to, the problem is that there's no handoff from the old file 
-descriptor to the new one.
+The LP5860 supports both SPI and I2C interfaces depending on the hardware
+IFS pin configuration, but the existing driver only implements the SPI
+bus interface (leds-lp5860-spi).
 
-2) Even worse, the above text is 101% copied from Claude.
+Changes include:
+- Adding the leds-lp5860-i2c bus driver module to handle the LP5860's
+  10-bit register addressing scheme over I2C.
+- Updating Kconfig and Makefile so I2C and SPI bus support can be built
+  independently or together.
 
-Please come back once you have a patch that works for everyone and 
-anyway only after having read Documentation/process/generated-content.rst:
+Tested on ZymqMP (ZU3) with an LP5860 connected over an AXI IIC at
+base address 0x40 (A1=0, A0=0) at 400kHz.
 
-"You are expected to understand and to be able to defend
-everything you submit. If you are unable to do so, then do not submit
-the resulting changes. If you do so anyway, maintainers are entitled to 
-reject your series without detailed review."
+Signed-off-by: Peter LaDow <pladow@gmail.com>
+---
+ drivers/leds/rgb/Kconfig           |  12 ++++
+ drivers/leds/rgb/Makefile          |   1 +
+ drivers/leds/rgb/leds-lp5860-i2c.c | 139 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 152 insertions(+)
 
-Paolo
+diff --git a/drivers/leds/rgb/Kconfig b/drivers/leds/rgb/Kconfig
+index 3f6786616a7d..5dfca8949464 100644
+--- a/drivers/leds/rgb/Kconfig
++++ b/drivers/leds/rgb/Kconfig
+@@ -78,6 +78,18 @@ config LEDS_LP5860_SPI
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called leds-lp5860-spi.
+ 
++config LEDS_LP5860_I2C
++	tristate "LED Support for TI LP5860 I2C LED driver chip"
++	depends on I2C
++	depends on OF
++	select LEDS_LP5860_CORE
++	help
++	  If you say yes here you get support for the Texas Instruments
++	  LP5860 LED driver for I2C bus connections.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called leds-lp5860-i2c.
++
+ config LEDS_NCP5623
+ 	tristate "LED support for NCP5623"
+ 	depends on I2C
+diff --git a/drivers/leds/rgb/Makefile b/drivers/leds/rgb/Makefile
+index a59c13396a22..0e35bf16d615 100644
+--- a/drivers/leds/rgb/Makefile
++++ b/drivers/leds/rgb/Makefile
+@@ -6,6 +6,7 @@ obj-$(CONFIG_LEDS_KTD202X)		+= leds-ktd202x.o
+ obj-$(CONFIG_LEDS_LP5812)		+= leds-lp5812.o
+ obj-$(CONFIG_LEDS_LP5860_CORE)		+= leds-lp5860-core.o
+ obj-$(CONFIG_LEDS_LP5860_SPI)		+= leds-lp5860-spi.o
++obj-$(CONFIG_LEDS_LP5860_I2C)		+= leds-lp5860-i2c.o
+ obj-$(CONFIG_LEDS_NCP5623)		+= leds-ncp5623.o
+ obj-$(CONFIG_LEDS_PWM_MULTICOLOR)	+= leds-pwm-multicolor.o
+ obj-$(CONFIG_LEDS_QCOM_LPG)		+= leds-qcom-lpg.o
+diff --git a/drivers/leds/rgb/leds-lp5860-i2c.c b/drivers/leds/rgb/leds-lp5860-i2c.c
+new file mode 100644
+index 000000000000..2744ac325862
+--- /dev/null
++++ b/drivers/leds/rgb/leds-lp5860-i2c.c
+@@ -0,0 +1,139 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <linux/i2c.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
++
++#include "leds-lp5860.h"
++
++#define LP5860_I2C_NUM_PAGES	4
++
++struct lp5860_i2c {
++	struct i2c_client *clients[LP5860_I2C_NUM_PAGES];
++};
++
++static int lp5860_i2c_reg_read(void *context, unsigned int reg, unsigned int *val)
++{
++	struct lp5860_i2c *i2c = context;
++	int ret;
++
++	ret = i2c_smbus_read_byte_data(i2c->clients[reg >> 8], reg & 0xff);
++	if (ret < 0)
++		return ret;
++
++	*val = ret;
++	return 0;
++}
++
++static int lp5860_i2c_reg_write(void *context, unsigned int reg, unsigned int val)
++{
++	struct lp5860_i2c *i2c = context;
++
++	return i2c_smbus_write_byte_data(i2c->clients[reg >> 8], reg & 0xff, val);
++}
++
++static const struct regmap_bus lp5860_i2c_regmap_bus = {
++	.reg_read = lp5860_i2c_reg_read,
++	.reg_write = lp5860_i2c_reg_write,
++};
++
++static const struct regmap_config lp5860_i2c_regmap_config = {
++	.name = "lp5860",
++	.reg_bits = 16,
++	.val_bits = 8,
++	.max_register = LP5860_MAX_REG,
++};
++
++static int lp5860_i2c_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	struct lp5860_i2c *i2c;
++	struct lp5860 *lp5860;
++	unsigned int multi_leds;
++	unsigned int page;
++	int ret;
++
++	if ((client->flags & I2C_CLIENT_TEN) ||
++	    client->addr < 0x40 || client->addr > 0x4c || (client->addr & 0x03))
++		return dev_err_probe(dev, -EINVAL,
++				     "Use the page-zero I2C address (0x40, 0x44, 0x48 or 0x4c).\n");
++
++	if (!i2c_check_functionality(client->adapter, I2C_FUNC_SMBUS_BYTE_DATA))
++		return dev_err_probe(dev, -EOPNOTSUPP,
++				     "SMBus byte-data transactions are not supported.\n");
++
++	multi_leds = device_get_child_node_count(dev);
++	if (!multi_leds)
++		return dev_err_probe(dev, -ENODEV, "LEDs are not defined in Device Tree!\n");
++
++	if (multi_leds > LP5860_MAX_LED)
++		return dev_err_probe(dev, -EINVAL, "Too many LEDs specified.\n");
++
++	lp5860 = devm_kzalloc(dev, struct_size(lp5860, leds, multi_leds), GFP_KERNEL);
++	if (!lp5860)
++		return -ENOMEM;
++
++	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
++	if (!i2c)
++		return -ENOMEM;
++
++	i2c->clients[0] = client;
++	for (page = 1; page < LP5860_I2C_NUM_PAGES; page++) {
++		i2c->clients[page] = devm_i2c_new_dummy_device(dev, client->adapter,
++							       client->addr | page);
++		if (IS_ERR(i2c->clients[page]))
++			return dev_err_probe(dev, PTR_ERR(i2c->clients[page]),
++					     "Failed to reserve I2C register page %u.\n", page);
++	}
++
++	lp5860->regmap = devm_regmap_init(dev, &lp5860_i2c_regmap_bus, i2c,
++					  &lp5860_i2c_regmap_config);
++	if (IS_ERR(lp5860->regmap))
++		return dev_err_probe(dev, PTR_ERR(lp5860->regmap),
++				     "Failed to initialise Regmap.\n");
++
++	lp5860->dev = dev;
++
++	ret = devm_mutex_init(dev, &lp5860->lock);
++	if (ret)
++		return ret;
++
++	i2c_set_clientdata(client, lp5860);
++
++	return lp5860_device_init(dev);
++}
++
++static void lp5860_i2c_remove(struct i2c_client *client)
++{
++	lp5860_device_remove(&client->dev);
++}
++
++static const struct of_device_id lp5860_i2c_of_match[] = {
++	{ .compatible = "ti,lp5860" },
++	{}
++};
++MODULE_DEVICE_TABLE(of, lp5860_i2c_of_match);
++
++static const struct i2c_device_id lp5860_i2c_ids[] = {
++	{ "lp5860" },
++	{}
++};
++MODULE_DEVICE_TABLE(i2c, lp5860_i2c_ids);
++
++static struct i2c_driver lp5860_i2c_driver = {
++	.driver = {
++		.name = "lp5860-i2c",
++		.of_match_table = lp5860_i2c_of_match,
++	},
++	.probe = lp5860_i2c_probe,
++	.remove = lp5860_i2c_remove,
++	.id_table = lp5860_i2c_ids,
++};
++module_i2c_driver(lp5860_i2c_driver);
++
++MODULE_DESCRIPTION("TI LP5860 RGB LED I2C driver");
++MODULE_LICENSE("GPL");
+
+---
+base-commit: c016466c8c8b01af27ac66d97b64fa9c9e431a3d
+change-id: 20261120-add-i2c-support-for-lp5860-97f38b2ebe1c
+
+Best regards,
+--  
+Peter LaDow <pladow@gmail.com>
+
 
