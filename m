@@ -1,100 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216042;
-	b=uXqFGpptn8u/fswnRGE9D/ISMjDlP/wiXayJPbYDbAQUwjUucEoCHC+7NiDaAFH2eT/2
-	 BoMkUpnWFTkMnUDBpdwEDu3t1BryjKohmHsh6g6CYg7srx4AygkaQt9RvqOFN4Y2psau8
-	 dzOMYVXj+O1gcyKP9NVnFq9isgCq2rCFFmAU1d+DCIuK9LDSPcFU2PusFih3QMoWSbV7e
-	 NaoBEZ50JkjFD/LqmBMEinvwKaPD5QW2TgS3G7SuPEkfwKZOXKiMPVb6CU1F6qwZMwe55
-	 pq4n+72xsqr0jN8rQ2ok66xgxkL+AqqYlT8JWlW+2kKAVwXs3hDYpIMVkxzboe2UitA==
+	t=1795216113;
+	b=KiXxLO72HwJxAY/i7OZtIBKMiAtYHXBb9RZzxLt+e26glb+S/tViq8pxz4yxOKFW31S9
+	 GfXhNlXNipycQPBPDAj/HnsxluXX/CnPzdG8hmFfYwz9xpSMunYOEhgqDQacTkwHWcp8z
+	 YfUYtnhpE2Y6ZTAKUgdtIWD7eCG5eNIrHGkFmhbS6HHH3UpHFRk6uwsqnbMWmUyMsK6TO
+	 91WMwWRN1GGr03gi4pArVQH5buU4Om7LUWXJWHMcEu25xQGtYg+se7JMBWALVYbNj821e
+	 P/x548Xh1749AUeUmKsotsUEJuqySbL4jS7BCQhYgrlR5o0yFVuWz/lxEp5I2B+0yuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216042;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=A7lVlF6eAYb1EWlptLfI5ak3vIP6pO8uIB3MP+Hp924=;
-	b=bSpdgj5Llcmc8Uh3r2cMLsDVfbuyOZplXscSCD3tPkI3VnWyqIbP4MYhrknxRnXZnK+l
-	 d8oQVGSgIn1E7GtgETP9AAp9SK9vj/D2zMXGWeaWEPzXuMnyA3YO0JjPhozsBj9YT/aLa
-	 XP0NOP6fhGIdXvW8vtbgSl/hrwnZvUFKt/xaM5AM6SK8OV9LSi3aDGnOnNLSZ/kU9Bl9I
-	 fK3AACs5nwGj6yKOe0cjDtNhQ03wDNyAmMTaI+qNxFIR34juESKl7QLnqbOmB0A3fHgWx
-	 L0SZIhisY4giNMHbu5GvXmo/FcT4NdfQonU9kBPu/6dSiCHmyGwLfP7qNyMAlF6S40Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216113;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=vhRGA5stCNe5n0EWpCuQMaKiuxZMQFmZwfvJS2nbnJs=;
+	b=Tm1wTjHJg2gPXSdp/i69Rly621nVMMopKeTqIUxRNokPRAhfLEDYeqpVlhnB/C8tB+2o
+	 DLaqWJNpqAMbtkCkxPMbEJMirkLieN1E3iIO+QMvhk8Vx5VtZa9GjpuPt4VTuIoRIHDF/
+	 i6oqx2Vow38uo2qfsCOHgkuv7SURqNOZgBoicfu1IWDMvW/TJPbDvUAItpfYuBzfAW/i4
+	 UGptuwlFcyHJxjgIz8+5pxXrRTt5NK4uGqmHT5LIbJ/WBrA5djopQQP/tyIuW8l7sVdK5
+	 kkfnWz6v8uEr1rZ3JSRHqmqaZwOE8iWA6e8by6blvscyI/n0fWuebaTybLcWJBMzVfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YYXXXwQy;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b="Ku/us/nu";
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34BC1606A68F
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:07:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34BC1606A68F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2E05606A691;
+	Fri, 20 Nov 2026 23:08:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2E05606A691
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YYXXXwQy
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a358881793so771300f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:07:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795216034; x=1795820834; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=A7lVlF6eAYb1EWlptLfI5ak3vIP6pO8uIB3MP+Hp924=;
-        b=YYXXXwQyZWgE9rOV0urd0gLkPcuhRXU6AkTzJNx556VbAWKGoJGm/RJT80ZsosiqvK
-         Fsior3n5yayuEKRGyjX8IggataSP1ymu+0H0lf2B9qJLVb6OHpbRxdL4PwLPCiSkEYhF
-         jHRKmS8eC6fBDpyhFMogXBA/UAXlymcVr7X9Y58w0cH9iwMX+hFIEpJ++D310EGtp/Lm
-         K0NdDPdUSLs4WZ2CTVlZowB2HjvLbsJ0RwMJEa7CIhTCdnjA4tm5tjx5aoFAeTxlpmA9
-         TI0X8KB0utc0u9BXqBBIyjBOBYw8wqt+iXyZLZEbQjWaLXYI59zCKzxr38XemM6XCUBX
-         Wp/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795216034; x=1795820834;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=A7lVlF6eAYb1EWlptLfI5ak3vIP6pO8uIB3MP+Hp924=;
-        b=NCcI4Z8MNTUeDZ8SxNx2+6q/obrCa8cMzVL+mPAAucX5l/XSUzZWmLxyXdS0i7DY2h
-         qBvF3od23bz9joshrynrZEqH4/SmR8TXB2kBwV/7yB186VOpOJNa5kHpSl86GawkgtF6
-         Tt/rfdC+iKl27BZ6GlVhdEgg6oBHKc3UJfQXFJLOWMIANimZ2S6ErISPSucyoCKpTz1U
-         /OuNoXUghg+TSoVaXgfE1+DtJDmlF9L14ULbkVlGFS3JB2ObEOix6NYnTdDoUpB5jmxN
-         SgIkbsIR2KN1y/ikU22WdOFcKh8t3virW2hIvVopm8LbwFRnhM/JoTdX5e5c/6mf3ZWP
-         38WQ==
-X-Forwarded-Encrypted: i=1; AL+hErHeV7vi/a5PHDPmF3jjdCE75+ZXtklcBO84uAG7aBqD2xHAwtom1f1n4JiZL6xXuyNj9fbSI1m5sxOF+tU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9D8YmQoJUotMQxALNXaMIh/DF0CKs51CgwNnoYrBnAOQMYM78n
-	Rm5ZhayqJe8mVEsJzCo13ACtz6jPvUx0f+RELIm8o9bbP2Og7NfQRY6A
-X-Gm-Gg: AZFdTZff3v+al49Kxc+Nl4GbwiaMG7PDdR7uGQpVePcv+yYBC4OXUzcaVkj4ufOljRn
-	u4l8J28drXl/hzh935BAR4GRf8Asu96cLJQ73cisiOloWgYRNsY1cFvuZJ8bXW5ZByboe1QghlQ
-	TSSh0cwR8S+iiC8GiTAsRxsAij8rDKKUaH2V8f2Vww4wGC8IrLTGORybgX285mrttXG19q6yu0P
-	5ILlYookyjG+gGkSsuLZ2r95I1ZwbEn34vFBn+UYX1FrNot5ky00r+RWoUmRi/W47AAXJiqURRm
-	pqfCVyBs+DzWGccnRkQoTOXu9gNjHm/vf+VtSkEE+iEAYRiPDUClOwbBh56WmnlsFIR7BSZVsel
-	OLVwEBFG/4sk6s3fAVAmyFMS7oWCAhAexnIk3d+9+VaARyVcynXnNB4RD/4EhFFpqyy3AS8giz6
-	ClBXnR9lnbjDXse6cjiH0mW7NBPlm3ZOgalHmXxS8rL/coSILU4CNdi0EGQnY2t67jfKAnoPNfW
-	tnDop0uDh/VKzXcj1WGT3olfC74rFbgzIa2KygVB3ADpfH/tOxaT2tp1BSoQ7nUUjEBbogWr4iA
-	J6JX7kbKjTTj/GTwLfHmwalxJgT1pplTPbluDWAO8CwnUJjJ/OVv8OpdPdZSw4vfj7dKQmMNtnY
-	07k4FWIoZDEJ/iiz7smUkxm1RKrO0dNC/93biKC4hWTA=
-X-Received: by 2002:a05:6000:4a0e:b0:48b:451:4f19 with SMTP id ffacd0b85a97d-4abb7971c1dmr9888353f8f.51.1795216034439;
-        Fri, 20 Nov 2026 15:07:14 -0800 (PST)
-Received: from Raghu007.. (sgyl-44-b2-v4wan-174108-cust110.vm6.cable.virginm.net. [80.1.81.111])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6ae2dcf9sm7945502f8f.32.2026.11.20.15.07.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:07:13 -0800 (PST)
-From: Palla Raghunath <raghunathpalla.0209@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-usb@vger.kernel.org,
-	Neill Kapron <nkapron@google.com>,
-	=?UTF-8?q?Micha=C5=82=20Nazarewicz?= <mina86@mina86.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Brigham Campbell <me@brighamcampbell.com>,
-	linux-kernel-mentees@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	raghunathpalla.0209@gmail.com,
-	stable@vger.kernel.org,
-	syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com
-Subject: [PATCH v2] usb: gadget: f_fs: fix use-after-free of ffs_dev in ffs_free_inst()
-Date: Fri, 20 Nov 2026 23:07:11 +0000
-Message-Id: <20261120230711.14330-1-raghunathpalla.0209@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key, unprotected) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=Ku/us/nu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795216105;
+	bh=vhRGA5stCNe5n0EWpCuQMaKiuxZMQFmZwfvJS2nbnJs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Ku/us/nudTVXa1sGIDwmBnCyhJyIoDqC4IqMpZYBnsH2YKz7i1ub6EJ56VVQgHVrl
+	 0e/bcAlozEsdha+oA5ioGWJSmKVtCutMBs7wjIUZvns9QtrIyl8CNewH6M6Pus6CRQ
+	 8mdOuNZSnMV7Gq6x3HrE2CdQjODP2/Z/2bVjgh2yeemw02C3CrW7Hn4upUr1jfvbfF
+	 7tLgaeNvQUWY5bb9SKy1sRX9AEL2/AxIxXD7nI2aU69EWPnhNch3xJH7oonhuzVJhy
+	 MUtVG90XUwxdbfL57SVZYUU8tuTmkyGlMbfeCzs178gL6JvPoIQ6JSSkjSMfTrqmwt
+	 IdJPAMXe0mldg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 737EB17E031D;
+	Sat, 21 Nov 2026 00:08:23 +0100 (CET)
+Message-ID: <fd7d38bfd2e6b3ba56422c0f14ccf46f6f1bea6d.camel@collabora.com>
+Subject: Re: [PATCH v3] media: rkvdec: Handle interrupts without a current
+ context
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Alex Kazinsky <a.kazinsky@ideco.ru>, Detlev Casanova
+	 <detlev.casanova@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	lvc-project@linuxtesting.org
+Date: Fri, 20 Nov 2026 18:08:22 -0500
+In-Reply-To: <20261113102456.4155237-1-a.kazinsky@ideco.ru>
+References: <20261113102456.4155237-1-a.kazinsky@ideco.ru>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-voWmVM1frdbreVTmWmdK"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,124 +90,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-When a function instance is removed through configfs, ffs_free_inst()
-first calls ffs_release_dev(), which takes ffs_dev_lock, detaches the
-dev from its mount and drops the lock again. Only then does it retake
-the lock and free the dev with _ffs_free_dev().
+--=-voWmVM1frdbreVTmWmdK
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Between those two steps the dev is still on the ffs_devices list. If
-someone mounts functionfs with the same instance name right then,
-ffs_acquire_dev() finds the dev, marks it mounted and points the new
-ffs_data at it. The dev is freed a moment later, and when that mount
-is torn down, ffs_closed() writes to freed memory. syzbot hit this:
+Le vendredi 13 novembre 2026 =C3=A0 14:24 +0400, Alex Kazinsky a =C3=A9crit=
+=C2=A0:
+> The watchdog can finish the current job before the threaded IRQ handler
+> retrieves its context. In that case, v4l2_m2m_get_curr_priv() returns NUL=
+L,
+> but the variant IRQ handlers unconditionally dereference ctx->dev.
+>=20
+> Pass only the device pointer to the variant IRQ handlers, so they can
+> acknowledge interrupts without accessing the current context. Retrieve
+> the context inside rkvdec_job_finish() instead. In the IRQ path, this
+> happens only after successfully cancelling the watchdog, while the job
+> is still active.
+>=20
+> Found by Linux Verification Center (linuxtesting.org) with SVACE.
+>=20
+> Fixes: f9c7b7deeffd ("media: rkvdec: Support per-variant interrupt handle=
+r")
+> Signed-off-by: Alex Kazinsky <a.kazinsky@ideco.ru>
 
-  BUG: KASAN: slab-use-after-free in ffs_closed drivers/usb/gadget/function/f_fs.c:4427 [inline]
-  BUG: KASAN: slab-use-after-free in ffs_data_clear+0x543/0x5b0 drivers/usb/gadget/function/f_fs.c:2305
-  Write of size 1 at addr ffff8880237b1e4a by task syz-executor/11910
-  Call Trace:
-   ffs_closed drivers/usb/gadget/function/f_fs.c:4427 [inline]
-   ffs_data_clear+0x543/0x5b0 drivers/usb/gadget/function/f_fs.c:2305
-   ffs_data_reset drivers/usb/gadget/function/f_fs.c:2336 [inline]
-   ffs_fs_kill_sb+0x84/0x370 drivers/usb/gadget/function/f_fs.c:2180
-   deactivate_locked_super+0xbe/0x110 fs/super.c:586
-   cleanup_mnt+0x3d3/0x460 fs/namespace.c:1329
-  ...
-  Freed by task 17408:
-   kfree+0x1c5/0x650 mm/slub.c:6923
-   _ffs_free_dev drivers/usb/gadget/function/f_fs.c:4336 [inline]
-   ffs_free_inst+0x233/0x2c0 drivers/usb/gadget/function/f_fs.c:4152
-   usb_put_function_instance+0x95/0xc0 drivers/usb/gadget/functions.c:77
-   config_item_release+0x13a/0x2d0 fs/configfs/item.c:137
-   configfs_rmdir+0x885/0x950 fs/configfs/dir.c:1580
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Fix it by doing the release and the free while holding the lock once.
-To allow that, move the body of ffs_release_dev() into a new
-_ffs_release_dev() that expects ffs_lock to be held already, annotated
-with __must_hold() so the compiler can check that, and keep
-ffs_release_dev() as a wrapper for ffs_data_put(). A racing mount now
-either gets the dev before ffs_free_inst() runs, in which case the
-release clears its pointer, or doesn't find the dev at all.
+--=-voWmVM1frdbreVTmWmdK
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-I was able to reproduce this in QEMU with a small program that keeps
-creating and removing an ffs function directory in configfs while a
-second thread mounts and unmounts functionfs with the same name. On an
-unpatched kernel it hit the same KASAN report within about ten
-minutes. With this patch applied, the same program ran for 30 minutes
-without any problem.
+-----BEGIN PGP SIGNATURE-----
 
-Fixes: ecfbd7b9054b ("usb: gadget: f_fs: Fix setting of device and driver data cross-references")
-Cc: stable@vger.kernel.org
-Reported-by: syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=6227549bd2c8a1ec8ba0
-Acked-by: Michał Nazarewicz <mina86@mina86.com>
-Signed-off-by: Palla Raghunath <raghunathpalla.0209@gmail.com>
----
-v2:
- - Annotate _ffs_release_dev() with __must_hold(&ffs_lock) so the
-   locking rule is checked by the compiler (Greg)
- - Fix the comment to name ffs_lock, the actual mutex
- - Add Michał's Acked-by
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawDS5gAKCRDZQZRRKWBy
+9N/xAP93QEhfxMoixZ27CiEovcLw6efRsiOmrPrLVvLdjDXqVwD/Y19TZSzDEVqi
+qmeVvZAq3Glew2P4GvsejKJZnuBWiQI=
+=hXHK
+-----END PGP SIGNATURE-----
 
-v1: https://lore.kernel.org/all/20261006204202.59604-1-raghunathpalla.0209@gmail.com/
-
- drivers/usb/gadget/function/f_fs.c | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-index c64a268e98a4..996fa0767de2 100644
---- a/drivers/usb/gadget/function/f_fs.c
-+++ b/drivers/usb/gadget/function/f_fs.c
-@@ -288,6 +288,8 @@ static struct ffs_dev *_ffs_find_dev(const char *name);
- static struct ffs_dev *_ffs_alloc_dev(void);
- static void _ffs_free_dev(struct ffs_dev *dev);
- static int ffs_acquire_dev(const char *dev_name, struct ffs_data *ffs_data);
-+static void _ffs_release_dev(struct ffs_dev *ffs_dev)
-+	__must_hold(&ffs_lock);
- static void ffs_release_dev(struct ffs_dev *ffs_dev);
- static int ffs_ready(struct ffs_data *ffs);
- static void ffs_closed(struct ffs_data *ffs);
-@@ -4147,8 +4149,8 @@ static void ffs_free_inst(struct usb_function_instance *f)
- 	struct f_fs_opts *opts;
- 
- 	opts = to_f_fs_opts(f);
--	ffs_release_dev(opts->dev);
- 	ffs_dev_lock();
-+	_ffs_release_dev(opts->dev);
- 	_ffs_free_dev(opts->dev);
- 	ffs_dev_unlock();
- 	kfree(opts);
-@@ -4363,10 +4365,12 @@ static int ffs_acquire_dev(const char *dev_name, struct ffs_data *ffs_data)
- 	return ret;
- }
- 
--static void ffs_release_dev(struct ffs_dev *ffs_dev)
-+/*
-+ * Same as ffs_release_dev(), for callers that already hold ffs_lock.
-+ */
-+static void _ffs_release_dev(struct ffs_dev *ffs_dev)
-+	__must_hold(&ffs_lock)
- {
--	ffs_dev_lock();
--
- 	if (ffs_dev && ffs_dev->mounted) {
- 		ffs_dev->mounted = false;
- 		if (ffs_dev->ffs_data) {
-@@ -4377,7 +4381,12 @@ static void ffs_release_dev(struct ffs_dev *ffs_dev)
- 		if (ffs_dev->ffs_release_dev_callback)
- 			ffs_dev->ffs_release_dev_callback(ffs_dev);
- 	}
-+}
- 
-+static void ffs_release_dev(struct ffs_dev *ffs_dev)
-+{
-+	ffs_dev_lock();
-+	_ffs_release_dev(ffs_dev);
- 	ffs_dev_unlock();
- }
- 
--- 
-2.34.1
-
+--=-voWmVM1frdbreVTmWmdK--
