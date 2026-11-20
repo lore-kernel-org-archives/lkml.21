@@ -1,88 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176262;
-	b=bgNHeBOe1KSXahm8Rv94k5E5Y89Lk2jyLb3nxxwiBfEkCKGzW8qnTp+mKS5zIY6frGdZ
-	 BipxKUcD7hFTUJJhqeZx83JWqLIERI6szl0YYFTX54A7DKovJz8LkopDEJPXUt87tGOfN
-	 tye7AzFu2nX4pV50AymGVjr/BOtbByzvSJVrHB6ILRdTXHdWCEqpHxkvWMgyCAAh8++rG
-	 RrYtFsPui2eaFW3E0PY/430cbzy3gCU678ILW20ZSbVaZa778H6AKnyhpD54UzVfYPn7u
-	 tmqFU6Wez1wF9CqYr5AzwbiwJX9ju+Nr6d1bXIcIV5rEadW1Nbjbo+vUOfo6pgbj0dQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176262;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
-	b=fXLsUdWUHF8YiWF0RpbMTHK2MF4xVoPqsSgpsHLUsaaj4Zug3iI4FDzbd03gVNjUJR+K
-	 anqMJoBZo57xCFUAeBy1GGtvuohkmb1mirLRg8CedIFxEf++D4q0LWhGxxqP/Fa7kcyaZ
-	 2fc5PREsjr2TUbq4Tj1/+SrMuoWqaG++4mZivNTLKD0NnoUcnIAbBrnB6kdqpelV6eCHq
-	 YBJQflt1JW1zduhqkXXSLEPqe8NKt3ud0JsXbrQhkkP3fxxY58qoT3MdqaNE9Rvk6xCKb
-	 gZf6pl4updyPb0Akg7XI1kGNOE5ycdnVgPBpJfrT7BIJ/+e4DTy4Lq0x6bkUgpPMeUQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JyqHZBSG;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795176271;
+	b=wiZ0JNHeDi+Q9NFL/+bpjVOTSubiHJr5Hp6dOcVbQF4lrYP8q+fsJoMR5h1pGAlDlsDb
+	 BHDzw5o0LQtos+w+zdI7tGMvN9lSmgeJauI3svq0sflpGACT1F+agwaZgCFxWGYThj6r9
+	 asoASTVa+Z58hRFZiifCoqw4pN3WFo+egRi4493eDlodgXNtXDYtWpufUzGhCvlGIw/fN
+	 jKPV94Vn/MMh9ujZB/Yjzi+kKmJdvme0cNLtPX/y3rCrCHkRk4L3FlCavkukhyqp3i7vS
+	 J0U4IimWQQMUJsnP2WlsrBOsua/WmITxPtXLkP7lMWxyRrtun6WINoLYvJ3u8wa6zfw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176271;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=XQu0hGy1KA1uO4Dt43vnkVWs8fGf8xNR3xdR0Qb+GQo=;
+	b=K/q1DWjGaIc6+zN0rQD0kAYWyCf+K7zqesknD9ThVwu4kcliVRDMW+CAxuVW/3mpVu4f
+	 EkcAfvUeHwdvOHi3sYk4J411Z2hfEvQCSwtU5kE2mYEKz5KGcfX84d7/tp8VpTU1QvSIy
+	 SqdrmE/aHsaDhKqyUB5fvbWTloeCu/t1ut8JVn+IvhufReVbBaU5mJhIm4YnRObW9uOjg
+	 xKFRf1cGtAVGpKLQurjPihJTXoaucUibUmXPOqFkHH95Wr49WWA6musjHpfqABwcOjRRo
+	 cD1xeloyvG6WpqugA++y8ssUoWp1gjs93SFfvdfmhZtjRg/uZQyXHVeUjc0LmwNLK3Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=M3uQpmZf;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=nxZbC5YZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79ED0606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:04:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79ED0606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66A92606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:04:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66A92606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JyqHZBSG
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50933bdf4bso182194966b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:21 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=M3uQpmZf;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=nxZbC5YZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795176269;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XQu0hGy1KA1uO4Dt43vnkVWs8fGf8xNR3xdR0Qb+GQo=;
+	b=M3uQpmZfqbVJjPN6Ut5ffQ1KdCKMRl+8gJz1myYwkFG1aq0X3VKJEUVBQLP3doPi+DUNx9
+	2PX39Dt772bPI5TJ3ToksloECLyXG7+xp/tyBJmpkxe4MCgCA9C87PzUJ9F7cyp5D37Xl4
+	2D5/e7fhqHGtwbEwFgIDC3pPnrYT0gk=
+Received: from mail-yx1-f70.google.com (mail-yx1-f70.google.com
+ [74.125.224.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-543-2zOnfiHsPSW0zw9gDj6bdA-1; Fri, 20 Nov 2026 12:04:27 +0000
+X-MC-Unique: 2zOnfiHsPSW0zw9gDj6bdA-1
+X-Mimecast-MFC-AGG-ID: 2zOnfiHsPSW0zw9gDj6bdA_1795176267
+Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-677c4ca22c5so1502996d50.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795176267; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GL3QAxlXdnIf3tcxJlUBM2Hoq9uL1gbrquYvyc8hobnsEsWiiMnZuHBQD9Nk6bbDiL
+         6s1dyEVclcq6G3sqHZJ9ccuNJEBToHvSSbsziJ8xTdtPRgw/ahn/F1KDovd8cHOvoNju
+         JG8WUS18LrpD/1Q5mswsamNENJwAkV2nwpz8fSZuFyfQNvpakB9EZ+Yk0JAMjsRECBWc
+         dP/9Qe0inI+iTr4aZRQ2Mn1rllU2/oMxpxNtfsdDBrqDE5Ow/YaKmlRIS/uzw96i3pYO
+         9aVnU9O8oReSzL3nWNBQkbWeov+3yM5VtOG37zT8mW6GfBzu+IPAfzJ+LUPNX8GQ3fej
+         ynqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=XQu0hGy1KA1uO4Dt43vnkVWs8fGf8xNR3xdR0Qb+GQo=;
+        fh=Cc/mRV3CEwMrEqb9KWHQiMdZwbk05LybI7yht8gkK7M=;
+        b=WcKXxc3ZO2ZVzSv5T/HcHf90Nhe/o1SiLUHnMhK6EXONuEFsGtl1PxNvXDqasU9SnW
+         wN+BVwBAFj0Cny0cRdD7hCHh3/QVAEwmQ2PvMPKFckNd8GAddHU9fv1byaYR85Dq8ADM
+         4P5Mmq4EYEQLV/nAWENZRTSH2u39y1Gyu3RYoY+blngPH8ZIJWUVgtXQ/WHxxoFFruK7
+         5DhTOrHLFuFcY9JEEZyhMtFDlxGwjIsPwawefbZtw+xw1NRLQoXwmoDMz7Brr/Xri1NJ
+         LlOCD9N66LpF5hFWOjPt71sqYxUaJCx4Dvq0suPYJ5VD0nsEmdwFBnUiK0Gs2fvb0c2g
+         +9sg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795176260; x=1795781060; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
-        b=JyqHZBSGCCRqDdOHH65ZZy9yArIzKay9iBcAGj+JCP39dQWxzibSCZRuFYM9l+iNqC
-         ces5ENxu9spsVKO9ohgXKIAXU1bbRyezWFmA+b2FHoyLzFoNlQI+7HD39OomPwhdb5DX
-         C4LoYW6oqQMITUwQXNsowUpr7Vlci2qUQv2DpGWLfrGxRO6BnoIrsxkL0GBIvYadfT4Q
-         7Qawy2XUZGLdTRJkQcNbgTZ4zUcZNXIWDvQ34wYzqefUxFGdaPu2dfabz9bFU/AaAXky
-         qev/w6ejUs8bYaYzBQ8LDYo/ZXAiO4WP4fpYsKNeY2J5+PXqcz3nCo7Vlz1NlsideXcE
-         OexA==
+        d=redhat.com; s=google; t=1795176267; x=1795781067; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XQu0hGy1KA1uO4Dt43vnkVWs8fGf8xNR3xdR0Qb+GQo=;
+        b=nxZbC5YZPCZegBCOvX5RXZwjKOHM2FpbX/qijsdCCMZcrhShfupgktsMIEG4L0klfF
+         serIHzmSktODQUIH3r8fukMrSL0LHU0b6zXUR/MVjlMKgEwkfeOqkVS70vfM6FNK88nx
+         ejBvkJTRPPtgHvGqo0giJuLDixu/zqKbUDE0eJ7TuYK5q5qo8e0laqgvCAMJF2s0bO20
+         Ji1X4aWOm38bQSTrJuEX04mAr2p1CgU/oUw/5sIh45K1Qo0obp6PSHXwcxOr2WoqKpUD
+         Y+YyYNi0sVkd2YB1fs4rMRlknFOP46imWMpVB98pmMl6J+oxotUsSMUgzYgVAC2F4HXR
+         kxgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795176260; x=1795781060;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
-        b=kVXEzAjljt4OXYRLOtk8g8xn96CG2xb/o730pJ42dfdgbs9N5/pyAKyT/8R9p4r4xc
-         6R/7lvT1D+ITaS0MsJVZ2bGZJ8ONdnglFjQykjtZmTLaNaOmx1BByX2eemAsMs1Cz6+D
-         3wSCkDmKsYNjZHl5Qn0mw6LBkxSjjFR4sH+3Dgawspy4LzQprywBsiZzdAAsNBqMG64T
-         ml1bgHYvpT/rvrASIGBipzgrUnwmHb8A+2ZX92F3zSEI0UQMzAtVwDsVjaMpqcF4voFK
-         xW8r0NPtBiAk+99woZ7UD+UhctPTmeGuPbI82Ysanynk9MpE7w4flgHc+nhxqeB4D3oC
-         rO3w==
-X-Gm-Message-State: APuU4Z9zzEfGKo21ivWhZiUfhCC+7vyF43Wq6/AgPJ39oVY3QIdnVWTo
-	7hUffNBHA80+Z1yg9mJq/5NtpiZhbAWupEKDR2pQQcmM3JBo4htKiz6K1YQZjVNt
-X-Gm-Gg: AYBFou3FpnaUYBxNSGwQAN0hKEAN/bUcf9ggDX8V/TWZS149czJrOhJsiyogt8PcfJn
-	4XNr1dK3F/xw+P2y8W2Pa8Xegga4jJIX75od70v2T5xDbbFiA6pTLhjqwWhjRsFWI6CSJcxDe98
-	JeEfoVXff8Fq1mRyKHZUTSm/YKFvaYq5mee1pl5k20CQ21l7UpPGP/rsthTxn+EocPLbbWKJ8sd
-	igW+mC/l/mgpmqPRDs27KDhHgJ9Z51LFUJqo7D3JfQOK4XNty5tjiDG7X0OZ6ToPOHxN440TD4M
-	kkw9ngrLKJ+Mi9srXUZHpbzMSpVBr+k/7lXSzybQcA2VSQknBh+6lhz3b0Bl4EGrWUrOJICDbcY
-	y8o+HZUQQL4TsZDokozPnY5oFElkWeWbOnSZYarRjNPpCZRiT+0pOag1PDE4nauRJSy3eBfLHgL
-	Ozw4++58QPF1gxRxNilKF3af7sptL5J+9ytaQvAGNChhJhvfbhVzj9HC+4LWwV1azs9HDnbRl3/
-	tOVXvtkgWDJNTANVTj94BMOA+r7yG8ZV5HE/6N0Dkm8OBc2+2kceDp8bQxJDF80Clox6QF9B0dg
-	JGnD/CA+q0WZN/Iv/GXo7JQvq9k5yU2SiBpKXIIH0sfoW7FZMloJkdfIO8SLSrPuR5dE8vxAyK7
-	L+tt9Gua7LD25dF2gqT0Q2FnJFsweogINVkJ1Q9Nr4Q3RkPHJPvoJJVk1CCTbkpV0Igp32tGDzM
-	46jReIeZWpn4xKY1kVwT6Clr5sM9ourZTvOoGxpRj73dJyPGp5fakqQ0x/IGAlPQ0=
-X-Received: by 2002:a17:907:3dac:b0:c51:249f:7215 with SMTP id a640c23a62f3a-c51317e3341mr433349466b.7.1795176259541;
-        Fri, 20 Nov 2026 04:04:19 -0800 (PST)
-Received: from [192.168.100.100] (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc5396sm88672866b.58.2026.11.20.04.04.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 04:04:19 -0800 (PST)
-Message-ID: <91d8a899-e768-4a4f-8f56-50a7b6f8a293@gmail.com>
-Date: Fri, 20 Nov 2026 13:04:18 +0100
+        d=1e100.net; s=20260707; t=1795176267; x=1795781067;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XQu0hGy1KA1uO4Dt43vnkVWs8fGf8xNR3xdR0Qb+GQo=;
+        b=MrOcPEhWIIOM18VLrNB7eiMkPzXyPykX4v5sGBkHAYWyL9upICasyxQm6dl+ifxrBi
+         lmuEGRQnJGKfk2aqy/J4R1pYjj5qh0vYZl+e89EbuVvMdx5/iYjowkADPvpRRk1KScAM
+         c0ALXEacBHWbKw3f7ypQDCaxToKtjirmGP09nVJDfud9gFjpK2Dy92LfNdGeWwtOAOy0
+         7ATarfAbgxvjYI9pn2KHUQ3rGAzCh5eodwL9zJu1Z0Ag5saohnMaYTNC6DpbMqpX8YLE
+         S+yrzOcy5fkJMQMU8bTU2CpeYSGGWenBRHexAFP2u7iLYrTO/70LK5L9HjAuPCB5aHgz
+         uAig==
+X-Forwarded-Encrypted: i=1; AL+hErHhyb2V0xM4DhZ1Y+ooLuQZODgANJPbLWcW2Xp2YLW54vskT+f5AAsAGm4yhv6hVD+HHrlpGajY/+5KiKU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+OkY+85P3ysPkH8U+qlTo9Ud6qgLW/0sNpSQTm9VXtWNX2Scyi
+	JLiG55OPWWDA2domAFpUrqr0YurlNU0nM+U4EbNdmFbd38Pauf3/BcJ7C2HwAjTWH7ClJ1pfZbT
+	9Iw8T9XvcLh6A9sLxfX7YXPI8daBRRPCigYW2tvAqf/qnGf5hPVO5fgWV7eX5ohoYmbOCrQqzSC
+	zm0NqyyhsHYtgxJFrOVQza2LP8DwjsSlSmwZrSzkkZ
+X-Gm-Gg: AZFdTZeO4QY8ZYwkiotX3DwLsKJiA7x+F+CbOAH9Ht64649vnYnHSFf5oRiOvPJqMGz
+	zVlJ8U/OOVplx2COyV/E4aXkfRvVj2avxTDrsnFS4HYjeloUzW2u2bZhMZVBHjsqsCyf5fw0V7a
+	tJ65ovCzIs0HnXdoohEU9m/Mp+xzmLzf/qgfeVy4P7YpT+qJbXW/nBojJWM8B+IALZL/Lgxa6ey
+	JrKDJeUqM3EgQZJXp0Cj38KiQ9d5hHnjhOsr2GisI41b+Bx1rPveA+gMFo=
+X-Received: by 2002:a05:690e:4090:b0:67c:69f:b1db with SMTP id 956f58d0204a3-67df43cf48fmr1438606d50.18.1795176266560;
+        Fri, 20 Nov 2026 04:04:26 -0800 (PST)
+X-Received: by 2002:a05:690e:4090:b0:67c:69f:b1db with SMTP id
+ 956f58d0204a3-67df43cf48fmr1438589d50.18.1795176265935; Fri, 20 Nov 2026
+ 04:04:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,122 +125,96 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] fat: make rename recovery safe after metadata write
- errors
-To: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- syzbot+b0aebd03565f5774f7f8@syzkaller.appspotmail.com
-References: <6aa82300.a211d2ce.1a5198.0295.GAE@google.com>
- <20260929090029.742579-1-krystianmkaniewski@gmail.com>
- <87ld8j4161.fsf@mail.parknet.co.jp>
- <1f18819d20c92960b8b2d6ccc8bc4506d346150e.1790779353.git.krystianmkaniewski@gmail.com>
- <87bj90m6dq.fsf@mail.parknet.co.jp>
- <20261014082315.190262-1-krystianmkaniewski@gmail.com>
- <87qzhqvloo.fsf@mail.parknet.co.jp>
- <55a1f016-a7a2-469f-b481-37223d695f29@gmail.com>
- <87cxt921rc.fsf@mail.parknet.co.jp>
- <f9b27432-4104-4323-8cd7-e2cda73db2f9@gmail.com>
- <875wz11xfg.fsf@mail.parknet.co.jp>
- <c820357a-a7cf-4f4b-ab23-91530a12218b@gmail.com>
- <878q3uhv4h.fsf@mail.parknet.co.jp>
- <20261019145146.539233-1-krystianmkaniewski@gmail.com>
- <87wlrdy8ch.fsf@mail.parknet.co.jp>
- <2ba329a1-ad8c-4b6a-8dd6-1f93c85224c0@gmail.com>
- <20261102143013.492650-1-krystianmkaniewski@gmail.com>
- <87y0b3to5u.fsf@mail.parknet.co.jp>
-Content-Language: en-US
-From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
-In-Reply-To: <87y0b3to5u.fsf@mail.parknet.co.jp>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+In-Reply-To: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+From: Eugenio Perez Martin <eperezma@redhat.com>
+Date: Fri, 20 Nov 2026 13:03:49 +0100
+X-Gm-Features: AclHuK-i5EtKvbqYrIjTizPF6lX03AG63KfWC612II-z105w9vnQhBI_r_r_XiY
+Message-ID: <CAJaqyWfpkenRAYdkeG2+XEWRhJbmV4ARZ+eMm=EibcA6i0z-5g@mail.gmail.com>
+Subject: Re: [PATCH net v2] vhost/net: Fix receive queue test in busy poll
+To: raoxu <raoxu@uniontech.com>
+Cc: mst@redhat.com, jasowangio@gmail.com, davem@davemloft.net, 
+	kvm@vger.kernel.org, virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/8/26 15:04, OGAWA Hirofumi wrote:
->>
->>  fs/fat/namei_msdos.c | 18 ++++++++++++----
->>  fs/fat/namei_vfat.c  | 50 +++++++++++++++++++++++++++++++-------------
->>  2 files changed, 49 insertions(+), 19 deletions(-)
->>
->> diff --git a/fs/fat/namei_msdos.c b/fs/fat/namei_msdos.c
->> index d46d1a3851f25f..51d49a3ca93c14 100644
->> --- a/fs/fat/namei_msdos.c
->> +++ b/fs/fat/namei_msdos.c
->> @@ -562,14 +562,20 @@ static int do_msdos_rename(struct inode *old_dir, unsigned char *old_name,
->>  	return err;
->>  
->>  error_dotdot:
->> -	/* data cluster is shared, serious corruption */
->> +	/*
->> +	 * Complete the remaining rollback. Report corruption only if a
->> +	 * recovery step cannot be completed.
->> +	 */
->>  	corrupt = 1;
->>  
->> -	if (update_dotdot) {
->> +	/* A failed sync write clears BH_Uptodate, leave that buffer alone. */
->> +	if (update_dotdot && buffer_uptodate(dotdot_bh)) {
->>  		fat_set_start(dotdot_de, MSDOS_I(old_dir)->i_logstart);
->>  		mmb_mark_buffer_dirty(dotdot_bh,
->>  				      &MSDOS_I(old_inode)->i_metadata_bhs);
->>  		corrupt |= sync_dirty_buffer(dotdot_bh);
->> +	} else if (update_dotdot) {
->> +		corrupt = err;
->>  	}
->>  error_inode:
->>  	fat_detach(old_inode);
->> @@ -577,11 +583,13 @@ static int do_msdos_rename(struct inode *old_dir, unsigned char *old_name,
->>  	MSDOS_I(old_inode)->i_attrs = old_attrs;
->>  	if (new_inode) {
->>  		fat_attach(new_inode, new_i_pos);
->> -		if (corrupt) {
->> +		if (corrupt && buffer_uptodate(sinfo.bh)) {
-> 
-> This check is ok with sinfo.bh?
-> 
+On Fri, Nov 20, 2026 at 4:39=E2=80=AFAM raoxu <raoxu@uniontech.com> wrote:
+>
+> From: Xu Rao <raoxu@uniontech.com>
+>
+> sock_has_rx_data() returns a positive value when receive data is
+> available. For sockets without a peek_len() callback, however, its
+> fallback returns skb_queue_empty(), which has the opposite meaning.
+>
+> An AF_PACKET SOCK_RAW socket is accepted by get_raw_socket() as a
+> vhost-net backend, and its socket operations do not provide peek_len().
+> With busy polling enabled for this backend, an empty receive queue is
+> treated as ready and a nonempty queue as not ready. This can make
+> vhost_net_busy_poll() stop polling prematurely or fail to stop for
+> queued receive data, and invert its receive-side scheduling decision.
+> TUN and TAP backends provide peek_len() and are unaffected.
+>
+> Negate skb_queue_empty() so the fallback matches the callback and the
+> readiness checks in vhost_net_busy_poll().
+>
+> The issue was found during AI-assisted code review. The helper's
+> incorrect result was confirmed on x86_64 running 6.6.0-amd64-desktop
+> using a temporary diagnostic module containing the original and fixed
+> helpers. An AF_PACKET SOCK_RAW socket, without PACKET_RX_RING, was
+> bound to loopback in a private network namespace. Across three cycles
+> of sending and receiving a 60-byte frame, the original helper returned
+> 1 for an empty queue and 0 for a queued frame. The fixed helper returned
+> 0 and 1 respectively, matching socket readability in all nine checks.
+> This tests helper copies on real sockets, not the running vhost-net
+> busy-poll path; the vhost-net module was not replaced.
+>
+> The patched drivers/vhost/net.o was also build-tested on the net tree
+> with x86_64 GCC 12.3 and W=3D1 under allmodconfig and allyesconfig.
+> No end-to-end vhost tests or kernel selftests were run.
+>
+> Fixes: 1576d9860599 ("tun: switch to use skb array for tx")
+> Cc: stable@vger.kernel.org
 
-Yes. For an existing destination, msdos_lookup() reaches fat_scan()
-through msdos_find(), while do_msdos_rename() calls fat_scan() with
-the same normalized 8.3 name. Both identify the same directory entry,
-so sinfo.i_pos equals new_i_pos and sinfo.bh is the buffer containing
-that entry.
+Acked-by: Eugenio P=C3=A9rez <eperezma@redhat.com>
 
-> 
-> I guess this check is needed for msdos too? If so, maybe we want the
-> helper function in fat module.
-> 
-> Thanks.
+> Signed-off-by: Xu Rao <raoxu@uniontech.com>
+> ---
+> Changes in v2:
+>   - Target net and add the introducing commit's Fixes tag.
+>   - Explain the raw packet socket backend and busy-poll decisions.
+>   - State the AI-assisted discovery method and document the diagnostic
+>     module test, its results and its helper-level coverage.
+>   - Document the targeted build tests.
+>   - Keep the code change unchanged from v1.
+>
+> v1: https://lore.kernel.org/virtualization/20261110051642.249640-1-raoxu@=
+uniontech.com/
+>
+> AI assistance: OpenCode was used to inspect the history, prepare and run
+> the diagnostic module test, run build checks, and revise this message.
+> The code change is unchanged from v1. The discovery method was confirmed
+> by the author.
+>
+>  drivers/vhost/net.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
+> index 4570a4ffbab2..10ed2d55ff07 100644
+> --- a/drivers/vhost/net.c
+> +++ b/drivers/vhost/net.c
+> @@ -538,7 +538,7 @@ static int sock_has_rx_data(struct socket *sock)
+>         if (sock->ops->peek_len)
+>                 return sock->ops->peek_len(sock);
+>
+> -       return skb_queue_empty(&sock->sk->sk_receive_queue);
+> +       return !skb_queue_empty(&sock->sk->sk_receive_queue);
+>  }
+>
+>  static void vhost_net_busy_poll_try_queue(struct vhost_net *net,
+>
+> base-commit: 435cbdaf9b03687498dc16fe4af8d16a977e21d0
+> --
+> 2.50.1
+>
 
-I agree that a common FAT helper would be the right shape if this check
-were still needed. I prepared that version, but before sending v6 I
-noticed that the buffer write-error contract changed in v7.4-rc1.
-
-Commit 9f08e58149dc ("buffer: stop touching BH_Uptodate on write
-completion") no longer clears BH_Uptodate after a failed write. The
-failure is recorded in BH_Write_EIO instead. The same series changed
-fat_sync_bhs() in 8417ab622ffc ("fat: check for a metadata write error
-with buffer_write_io_error()"). The 9f08e58149dc commit message calls
-out the mark_buffer_dirty() warning from this report as the reason for
-the series.
-
-I reran the original C and syz reproducers and targeted metadata write
-faults on current mainline without a FAT patch. The writes still failed,
-but the !buffer_uptodate warning did not occur.
-
-This also means that changing the v5 checks mechanically to
-buffer_write_io_error() would not be correct. The new buffer semantics
-deliberately preserve the in-memory data so that a failed write can be
-retried. In particular, suppressing the second dotdot rollback in
-vfat_rename_exchange() would now remove valid recovery.
-
-My current conclusion is that I should not send a FAT v6 for mainline.
-Would you agree that 9f08e58149dc should be reported to syzbot as the
-fix and that this FAT series should be dropped?
-
-Older kernels that do not contain these buffer changes may still hit
-the warning. Since the warning is now addressed in the buffer layer,
-backporting the relevant v7.4 buffer changes may be preferable to
-adding a separate FAT recovery change.
-
-Thanks,
--- 
-Krystian Kaniewski
