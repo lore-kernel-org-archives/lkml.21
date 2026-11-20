@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173514;
-	b=GPLexA0/G9xioE4zSwgPTFuhDF9LkbFYCB3Urqhvl9erZa3mJvMkOT6kGwmNOi+cfn3z
-	 U+4oBI4sQYCuon47UDkwrENF8VQKQIWW9LeXRt/quusXiTUENKU7PxtTaUYnW/3x2rS5V
-	 qHH9x5nV8QcjclRZZJgQCpIifQSuKnDATa0sBWWtHL3SNNkNqwtUIkoJaECd9WSBBR37/
-	 7pMMHgQV1OnDmeQ665qkV/qU4NH/oR+TEbl80AQBAPB5Be1iAwQZ6RK9766AhApOKMLs4
-	 sOQ8rILfGUdOVCngWQ6HTbUjaINCd0Jt9Yzk01IAe+xmFTbfZnTfhgkmYM0D2jFPslw==
+	t=1795173518;
+	b=DQY4Qc3i/qZzpbvooa9bxLD8kXW9NDFjeL7wvk/71VbdXe4azfnBdm41HzGYDwhk8t45
+	 qCjLYTB5iVmem82M7O5/w6OxcNVnt97PIUwWIwlKj0wvY9/JNbpXwvxMLUdzoLeiz45Uu
+	 mnGcQEB+Il1PgzN4yrHA6A/7nrhlLMv9te8YXCT6Haml/sRQkw+Vnu9gCdBkc/4I4hLb5
+	 2i25aVWBo2ZDuLdmx0MWWZ4fliBMJslZh4OEnPGvgXrhFkWjTNJZ67pPwRH5CK5gD7FAP
+	 NCJmz/CEqS1Jtlj8xLIm6H4CERtr61Jk5LW2dfGFRAkqe+sRGR5uNO3G/CLCFXRYXmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173514;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173518;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=zpsVdJ3WbR6kE2v38VJhuAhS7jEKmVk9lGuvUfsu2RM=;
-	b=jFL0JK2HrRbh8MBpaQLbRCaxsA4oqtQ8wNuTj4vITpHvKHKg9TRNmEUXZkXzkNnmDQTu
-	 iPAytfhB+EXdMDtKWKOpI/JPO4OQEt27PDpKFPG63cF9IgPXD7LiIXnHbf8wVcS2kaqIu
-	 nCTG13Vgh2w4p0+sFd9x45QMmK77ZEBbrGGUTeHAAItvaGN4ukMy0mYbTkalCKHkM1yKV
-	 GCq65KMRpbjPCJvKG0pqvigpM3sye+ejWCaoaDWXG17HoNL4RFcR5cu9u8cJsYrSHZfmL
-	 v1VhrqWtkuqtCkLSK/ThakAhFeWci4l9jx4atZOCSGZm50Ep/gi65xvPqg6lr/ShTFg==
+	bh=GVuAUaZMskqzeiLFr56cuMAxOEFeqJFepRj8B7tYuqg=;
+	b=SWVGvu+3w4KnoPwZhL8h/dG6usM2FRccLUqlN/Gt2lroAN0xkDAUCFOe4obbrTpHwC1r
+	 8at8P5IxirrnwZtiwXnYTmz36goKfuZERC7k31kLYKpENmQvjVYlF+i/rdP304/ucbg6B
+	 NtVq9dVUt/OQaJrzFQ0xpq79AM90jTS3Kgql1iG4hwxnWuaYGoLTcLB3PBpecvQ0A9Imk
+	 WiQvuVE6egq+hi5hwyA1ok3xyatEOjHWz9t3GwZyS/cPy3efcxN751cyTfq4hlyMIk1wY
+	 tn1YL2pP+8DB0q2/LlZgxkvrCt0X6yctlZdodW20fAm0fdmB5HXne/j22lih8THaaRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k6ksLl8W;
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGOHyzOW;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE03E606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:18:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE03E606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94974606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:18:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94974606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k6ksLl8W
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-48dfc0421d9so686628f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:18:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uGOHyzOW
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c4d28f75d62so138748266b.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:18:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795173512; x=1795778312; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795173517; x=1795778317; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zpsVdJ3WbR6kE2v38VJhuAhS7jEKmVk9lGuvUfsu2RM=;
-        b=k6ksLl8Wgr8uXVydDfgGczdMdtHhae7G2e4mHkti/xXNX0pXLzhmNd1u8OjFrLFblr
-         cXQOmyyMUKxTbLAVYW72nAYfBxUzgL/2Zp/H90r3jQJDfZ330WatI/7V+RfTna2aRfkN
-         Nq6Ahe1GiJK9ubZhwRVojV/a/+TZxT6PUThkkvNYP8PQv0vc55ZErsK2+pz1/R3JnX/2
-         IrKhvM0Fhs9x1AoG9jdohDUz7GGV6iyghDjDNiLecB8NO0urveA+KNrrMkOcc5xHSWVi
-         pYO6Bu/lSkPxlA0qzbjUa9iYQVYScVOkN09CozVKuM8qniLnwOFgHsDVoYE8TXTuA+1I
-         FE5A==
+        bh=GVuAUaZMskqzeiLFr56cuMAxOEFeqJFepRj8B7tYuqg=;
+        b=uGOHyzOWSEfWiJZ6I//Si1S/pmEbouLICKWn1MjChSpAZh4B8Baz/rLRknV5o+0qMO
+         w2TW4T6dlC7tzu68PhL0ENiSSI2Bb/PsKkzzOTZ71bl1ahqLORphGSduFy5sVVRGRn1o
+         Jf8kf4XRy2hLegP1DS98x0prWoQSVyoFKftinR38xifZPVaxvuWVWTDD2NSW7Pxlzbt8
+         HxuTkMNp12+GSK6uBCvu+vEsP7BzLdlOIrHGZqwIDqvG9EP3wlBKmjP9brw2u/JqEL7h
+         7SdQSkTnX11aFU3P3o7KPEcaYd3XYDwkZL5IJMUofTvcNNoMKfq6rQiBF3R7JnYsGBWz
+         g69A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795173512; x=1795778312;
+        d=1e100.net; s=20260707; t=1795173517; x=1795778317;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zpsVdJ3WbR6kE2v38VJhuAhS7jEKmVk9lGuvUfsu2RM=;
-        b=SyN4WrnESdPh8p5IZgHmN7iSdvW/Dfv1lv02s+28XHXZK/ZXr+0lZ5sxUdmhW1fws9
-         KT4g909KzEvFbQxAaNBOZCAYBX+GLDNKnW5YE0+VbbtXpP5vIP5Loa+dbo09HNs38RaE
-         dcf6ug2KWwLWuWrxPGvRibM5mzoxD/kLB5bVO22BjrNZxC8WLACsQbP3JlINhQEjz++l
-         u6dPZb6PWPFH3hBsxL4bE0T6DPjEceCLd3TPxcnhwklvUYC1WZQhKaKxTLQnizgYgMGt
-         CUPOT7aLpxb94++L0nOYXY3bxueRuMl5GgJ9ufxl8QoX4pNsKA9L9EjMiEEWbaXxntF9
-         A+bQ==
-X-Forwarded-Encrypted: i=1; AL+hErGNcvCz71FNMYZkg/4pN7GRs3sPyBVaePv9tvj+eUUAnPFseZloz/K0JBCZ0+SwLoMPRhpc5KoHyZde2cU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9a21+pHP2joMYjP+OMXdDs//cJhlT+kAQY18NhxrQmxEifUSNp
-	uBV4tCkoDN9/ti8TO36QEdyduM9G55da2Ewj1VI0SQcBLNXjLbleODZ7
-X-Gm-Gg: AZFdTZeSPv0FTkwiDD3XzqppilX727/S/wW3ZKk9bfQRdif3Rs8C2yd97mjbtphJKrP
-	ImT9/vj/tYIurBMS9gBR4WbVwM5NUAXjL2icoxUVfP3G2sRGsO/2ZAF/k2mLjW6T4HbHJbI7HL3
-	ayc4vrhX8rXuS27xDfkmPryQlAaHvkW8Bt0gc3FdJeTQGMPdQjMbGg12hWJvPSv42/fCPwBrsdm
-	Gx9KLwQQdgnk84BdJW+AoN/TkwkfkkEnn8MaTcvynx5rcJ9fU/CM5zRilt/Ae1a0diH/M2XwR40
-	4M8L2hGGAaUNFdt1wp5hIiP+8VvtSivlUEMT00C41OA5q5tLD6L0LOWYzxSgjA6gSC4gKANqY+k
-	dlHmfpF4Tcrisj5y+QlW/FUDz31GWZBBeqC0Jrwch+NuqapnkkVunqwH4aRHnpEeLBxsKzFJY0R
-	ygIi5xwKDSwNckrPZccS7w1/2kHN0UZQ68SVYaH6QKVyWOD7qlKnDowtka0rXomwkW3nmRE5hf1
-	4h9vEoCTVtpVTQBl3KS5NquzSVUDigcxtx8BYOZIJo8/EvT47B1sGM0JQYdaZllvpnh2nJrdco6
-	RzX3bLdGeVKfuZLOT53xD9efxJwo29cB3SfVsQxmlxF+x9TIWcEe
-X-Received: by 2002:a05:6000:4705:b0:48f:c4fb:6bb6 with SMTP id ffacd0b85a97d-4abb400bb83mr5164503f8f.12.1795173512177;
-        Fri, 20 Nov 2026 03:18:32 -0800 (PST)
+        bh=GVuAUaZMskqzeiLFr56cuMAxOEFeqJFepRj8B7tYuqg=;
+        b=DqiEPo3G/Bdrtijsu9yYbbHgxSGyDLHmxsvB6XP/cJ9RauYNGBMT8lEvF4MQLMpdxK
+         dGsfpBGORs5vOPSJrjriBsOe/2VtWgJHLf4R30KBbJkJZL8uatsJiKYIzk2GaUrk4DhO
+         drL70FG1pkW3jYOvzs7htQntkqIABx4ZlkXMYOt4bu86ySVBQpTf73uf9abnv+fF5JVi
+         KUogJxg98clHFsZPxvU8ccg6K+awkHfbb19aFl+V+bS28Znl02bhvBjJBRGc1H5kVbgN
+         Y3e3RdfbitoEt/YAYSoa319bRmkV4mxiYIm6a93JS2mVAbj1U3Zx36X2RQVjyd7emZwz
+         rk/g==
+X-Forwarded-Encrypted: i=1; AL+hErH1NN/HrUl7wuSgZ2HdMDlCsn85htYj/HcrWjHPExt9Qh+17X0umkdLVOGVE/2fBsRV4l/GZEhn79SEePg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8w8o9ReWs1dZadkdu4UZzt6NMP0y2OA4MJXZbv8nwENjdepE2B
+	DY7CC0LlI158m065rWKVvBj9QgsVw6oVIiHmXa3G+DgfcKipbcIa7e4K
+X-Gm-Gg: AYBFou3ank52POqHppOObwAApGqkyGZfaq8EmCvh1I20Soez0bL80kAa+Qi1/VsF+ou
+	4HZeNkZJfMyHGGXvUXSEz0w/sA1TZvQK50Y5//oZ/aeHzJK8eG+QGN3djXucTWE4kqcu9wWb13d
+	wKS7o563psdl9aPJYea2F4IGRyc7rK3UZWJ+rtmzMDvf5aD3umcCHz+ufTPbJRA9tr0+hV4HCG4
+	Tob9flHzbyAISZ3AKG5VszbHrkzmkJraqipZOkwYwKBlpDK/thEWDGA6ouqXeS0qGQTCph2GWFz
+	z/JzcfVvT308qem2RXCBnEL27DPXrtHaSYaNpg/vTKgUjgWnpCdnfa5qRkKvqueELNIYqRpwzkf
+	ySUgSC3+/sqzeO6ExG6yPAyl7uZrO1NqamVXvzKhQBlhj+Oin93QeGSEbA4aq8yvyxRGUcja2bX
+	zplcknZnn6OLQxyu0ZsLZeKiPeoqiugxS4IZr6ozVdqXb2YnO6pGDAgMMvE5vxIXQlr1XUXyP7V
+	xvNIT2olxYD8BRMFXpjxMu7gKdyVv+8aKB39uoEBweK6ToRZlj1fxK7834IcWEFSfYQ5jt/xORE
+	Gbs73V4QtbFMCSTp75qjJq7oNcG8+Cu/kLpm9NY8hi6oSZ2vp529IA==
+X-Received: by 2002:a17:907:6095:b0:c51:24eb:4de9 with SMTP id a640c23a62f3a-c513ac634admr257163466b.34.1795173516536;
+        Fri, 20 Nov 2026 03:18:36 -0800 (PST)
 Received: from DESKTOP-OL07BOP.localdomain ([87.116.183.240])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm4985562f8f.3.2026.11.20.03.18.31
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm4985562f8f.3.2026.11.20.03.18.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:18:31 -0800 (PST)
+        Fri, 20 Nov 2026 03:18:36 -0800 (PST)
 From: nenkov2004@gmail.com
 To: linux-raid@vger.kernel.org,
 	yukuai@fygo.io,
@@ -93,12 +93,13 @@ Cc: dm-devel@lists.linux.dev,
 	bmarzins@redhat.com,
 	syzbot+8b22a0459202f76b4096@syzkaller.appspotmail.com,
 	Hristos Nenkov <nenkov2004@gmail.com>
-Subject: [PATCH v2 0/2] Fix recovery flags on failed RAID10 reshape
-Date: Fri, 20 Nov 2026 12:17:55 +0100
-Message-ID: <20261120111757.4705-1-nenkov2004@gmail.com>
+Subject: [PATCH v2 1/2] dm raid: Clear MD_RECOVERY_WAIT on reshape setup failure
+Date: Fri, 20 Nov 2026 12:17:56 +0100
+Message-ID: <20261120111757.4705-2-nenkov2004@gmail.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <4d13edef-f454-437b-8910-3a905697303e@fygo.io>
+In-Reply-To: <20261120111757.4705-1-nenkov2004@gmail.com>
 References: <4d13edef-f454-437b-8910-3a905697303e@fygo.io>
+ <20261120111757.4705-1-nenkov2004@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,32 +113,60 @@ Content-Transfer-Encoding: 8bit
 
 From: Hristos Nenkov <nenkov2004@gmail.com>
 
-Hi Kuai,
+rs_start_reshape() sets MD_RECOVERY_WAIT to keep the sync thread
+from running before the table reload. If setup, check_reshape() or
+start_reshape() fails, raid_preresume() logs the error and continues
+without a reshape. There is no reshape-related table reload to wait for.
 
-Thanks for the review. This revision implements the ordering you
-suggested. Patch 1 clears MD_RECOVERY_WAIT in dm-raid on all three
-reshape setup errors. Patch 2 removes the recovery-word reset from
-the RAID10 abort path.
+Clear MD_RECOVERY_WAIT on those error paths. Keep the bit set when
+reshape setup succeeds.
 
-Checks: checkpatch reported no errors or warnings for either diff.
-Both affected kernel objects built in WSL. Five focused userspace
-checks passed for the dm-raid flag handling. I did not run a
-live-kernel reshape regression test.
-
-I used OpenAI Codex to apply the review feedback, prepare the v2
-changelog and run the checks above.
-
-Changes in v2:
-- Add the dm-raid error-path fix first, as suggested by Yu Kuai.
-- Keep the original RAID10 change as the second patch.
-
-Hristos Nenkov (2):
-  dm raid: Clear MD_RECOVERY_WAIT on reshape setup failure
-  md/raid10: Preserve recovery flags on reshape abort
-
+Suggested-by: Yu Kuai <yukuai@fygo.io>
+Link: https://lore.kernel.org/r/4d13edef-f454-437b-8910-3a905697303e@fygo.io
+Signed-off-by: Hristos Nenkov <nenkov2004@gmail.com>
+---
  drivers/md/dm-raid.c | 10 +++++++---
- drivers/md/raid10.c  |  1 -
- 2 files changed, 7 insertions(+), 4 deletions(-)
+ 1 file changed, 7 insertions(+), 3 deletions(-)
 
-
-base-commit: b3dfbde62cf1981c4638939c159dfd087b7a72e9
+diff --git a/drivers/md/dm-raid.c b/drivers/md/dm-raid.c
+index ac019a0f5..e132951f3 100644
+--- a/drivers/md/dm-raid.c
++++ b/drivers/md/dm-raid.c
+@@ -4004,7 +4004,7 @@ static int rs_start_reshape(struct raid_set *rs)
+ 
+ 	r = rs_setup_reshape(rs);
+ 	if (r)
+-		return r;
++		goto clear_recovery_wait;
+ 
+ 	/*
+ 	 * Check any reshape constraints enforced by the personalility
+@@ -4014,7 +4014,7 @@ static int rs_start_reshape(struct raid_set *rs)
+ 	r = pers->check_reshape(mddev);
+ 	if (r) {
+ 		rs->ti->error = "pers->check_reshape() failed";
+-		return r;
++		goto clear_recovery_wait;
+ 	}
+ 
+ 	/*
+@@ -4025,7 +4025,7 @@ static int rs_start_reshape(struct raid_set *rs)
+ 		r = pers->start_reshape(mddev);
+ 		if (r) {
+ 			rs->ti->error = "pers->start_reshape() failed";
+-			return r;
++			goto clear_recovery_wait;
+ 		}
+ 	}
+ 
+@@ -4037,6 +4037,10 @@ static int rs_start_reshape(struct raid_set *rs)
+ 	rs_update_sbs(rs);
+ 
+ 	return 0;
++
++clear_recovery_wait:
++	clear_bit(MD_RECOVERY_WAIT, &mddev->recovery);
++	return r;
+ }
+ 
+ static int raid_preresume(struct dm_target *ti)
