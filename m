@@ -1,55 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795183710;
-	b=LbZ+h0B6NHflBgBbKVCzkiOUdHIFpb7U6kZ2kDxxTDHJxwkYoX5p+SkD2jjjYib+Mi4c
-	 KaJUq4rg49qFukqEMIlpRoqkR6vOnE6TGWQZMinR5HEPX8jLBH1+HL6x3n1zc1Pa/zcqh
-	 XObBuYyJTp63dP9Xr8YmNs0VvdT6RBDV3EKPB6k2gNwrRcV7FpCV6xgGA2H5MVB1F+r6d
-	 gSePzDGT5cK43PpB6HAuWfW25ZBbw2+C3AMvtgiQSsc/u5eF2dJM4RTSDgna3jfdKevdB
-	 yFoG+8TsznX50T5/cccCdl1VXikPpP/YkgP+4zGgz8QNpLfpn0kt0kX7BdtECCgpPsA==
+	t=1795183769;
+	b=x7HCSBl4YnpVFvOG/cwCKiWWyyAcKIebr+CrK0cvUVhVYCZr3tKk+rcgRF5ElYLjzq9g
+	 Qij+3cJ+6FLaw4WYIQNhYP4R6j/MpjpalQHnMc3y1LIJ1mFg/qDac152/8BFq8jPxp5hO
+	 aH6fBKy3oVPOKW/8l/qW2uQsgF+mlhN/XdWV0HptKZ6WkiOEWWoDtGhpBiDriloX8EHcY
+	 myb0COyZkz7Yf535Vj9eyHbU4lPlKCASl8As+w/g3NHCezlxoQRplWICO9RZBTYkqxrXe
+	 rgJufiVGi4Jd3N1pr9fnmN7nSjMOO86iJE2VOhpfTYihi/I9aKlU1NYhIoYEG+LsBMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795183710;
-	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
-	 Message-ID:References:MIME-Version:Content-Type;
-	bh=g/Uw/zfUs+KgJU4czuGuYu2+3Kijzr9VBndrh5VygIk=;
-	b=Mh3eTAhSbpqMrFEam51MpB5SmwjTLrEUiMpLpAv6DDbGdXzx9Vq4qBSoBi8BffA+f3PM
-	 01pLVkDGxdGqh0vTHIfYTYSSkwzviqb4y8W3dWS714E1vhKA74SIMKhLBoDJBaNL/6QhP
-	 l3Dy0EBdBJhn1WX1++tleBxvzObcA1Jp3cqEEJI/ac4V3qm96gHUe/XClnsMucz55USQL
-	 B1D2JvrNC45k6Nr3QKI09RG959Vq7P0aSVdtI22OBfW7lve5JRzL90aS6iVc4laYKOhql
-	 MedmW0LJoQA4yfqbCDqu3ZQhrCk/v9npeThULbANiPbX0dXAlkfMF+XC9Wh0nE273ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795183769;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=Fcs0DJBKtZLUxloKKuDwNaVEQG5Sv/NarhrhzSQukPk=;
+	b=eEOeUAvBrsMU6VqjeawmrOBCU960jCbzrW6UXTcMI2qIxWFvAvXaxZIZPKnk8iuroaIk
+	 Eg4N5h18Yx3fFeMFwX9eThdkaAj52M3yK0kcD8yohfJEZxAp3XznQ0EvufJTiSqrrgKOP
+	 Wxqaq0PeHLB5O1q3Syi0E4f0jpd2xiJBRDFjUe3y0BoIjnrC/hc2RjsmZIggFSW9q108X
+	 EXe/LfPBg5ws44T5BE2G8pCEP2tWFumjvllSqcwIPZlwbrLKy17aFdQuBpWZ2McjvjAkq
+	 BgQ9gw24iNkmZkey0R8rk6fxStC54FAXEVQxDlcHpov3y1Ml1g5r+Dtl8zH5giyAnnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXj94GPw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=phsZOd6F;
+	arc=none smtp.remote-ip=209.85.210.197
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCEB9606A320;
-	Fri, 20 Nov 2026 14:08:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA158606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:09:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA158606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--seanjc.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXj94GPw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF3BE1F000D0;
-	Fri, 20 Nov 2026 14:08:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795183710;
-	bh=g/Uw/zfUs+KgJU4czuGuYu2+3Kijzr9VBndrh5VygIk=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=AXj94GPwXEdiuqLZYsWIzRGFSnyeuJ27XEo6VO+XZmMY2b4jxFsfab/lb6UgJsIvF
-	 DKcVaY34FIxDb4PsFvwigtBoYg27174TuJUqONvgnU/bTeVlnO/6VSEKuZQQa8I1+W
-	 +Ls6amdYeUBx5XAaDP7IpQcEwy0QeVMops3323mxL4ZmBkRDjWaJyMWVsKi5IGHXbz
-	 KEe+7PQQMPwviDyuKukbaX38xVZot7+cWjvwwh4gWgyuKcuOafkfwn9AYAoIBwQ6aX
-	 /R2muARrQWSXmVvzr2Bfo3kkJLeGEFGZ6C8OcV76TMLO9pDUD5Dv4RDjnFUvOu6jKv
-	 KY3I1hI2fbw2w==
-Date: Fri, 20 Nov 2026 15:08:27 +0100 (CET)
-From: Jiri Kosina <jikos@kernel.org>
-To: Sasha Levin <sashal@kernel.org>
-cc: Benjamin Tissoires <bentiss@kernel.org>, 
-    Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, 
-    Jonathan Cameron <jic23@kernel.org>, linux-input@vger.kernel.org, 
-    linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] HID: sensor: custom: Fix the sensor state allocation
-In-Reply-To: <20261120132751.2909204-1-sashal@kernel.org>
-Message-ID: <so8sso3n-s31p-7102-08pn-oon59qo77r25@xreary.bet>
-References: <20261120132751.2909204-1-sashal@kernel.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=phsZOd6F
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b97460a133so902217b3a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:09:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795183768; x=1795788568; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Fcs0DJBKtZLUxloKKuDwNaVEQG5Sv/NarhrhzSQukPk=;
+        b=phsZOd6FHm2fLXlBEPUk4HxHQsr2YjaF/8w8uBbsM/PVnx356OU/hMbwUbzUHLeBg3
+         qHulj4rKFN9eSri/EBSKVaLa+0AQcb3ImuX8vxCNSMnrR8V4jU54wTq6dFhHpi71fH/z
+         6XWFpi8deUl4U2lVzNSiE/+4/UY2tuES1tkJhoC5wME/1koEmYrUy2UyQ4zF3rnIdiAG
+         TJu2vG9djnhknQ0fmwqmmjfxBxl7SrmDA2hz0Sc6d/KfCkF1tkKrSF4jZZUo0Paf6fJN
+         zBUoCLo9FqJpdsnseJS2iTmbWZtGMaTAuCyL5OEHvpppSWxcOl9ntNLlkK99SXPO9/6y
+         kEig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795183768; x=1795788568;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Fcs0DJBKtZLUxloKKuDwNaVEQG5Sv/NarhrhzSQukPk=;
+        b=DH1DJgALMWhFuZ6WC90RyxHm3BfTCZv7P2NWWfeWDrxAYHNUHBYBIuxbsEHCyzVlop
+         UHj6QoGO/1N/gwNeJj4D6+XGenrvJEaOnMpAMcSKET0ZiTu/Il6co0N07C8sDs6KxGt/
+         iDrMH2hxqYD5vqcKutaiYS3r8k2p1mzxvVvw0FJQKGmk0V67Cnx7EceVuwVb6LuFPywE
+         2tRktvXfWe14OW5WX2Xd/vFrxuq50fkizJFRsFzqs9G5f6ARQNJZKgnE4wJ2t1naqgtc
+         OYEfEY9tJzzxLmiRylmgbsNUpRz+aMfoDrmpwGWRFrbCZMAmJ+Old2DGQyR0H8vH8d1/
+         pHsg==
+X-Forwarded-Encrypted: i=1; AL+hErG7Tvu604sYu5dMPfo4GX2SMH8RZTtbpFk56cdqXoPA2X2cKUpvXbxiOMUqjY+eIIfcmUFpkOzCOC4gFS0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gYMpqS+at6FPpUcLONbC09ahJEfe+mqCVKGdzfdqIKxW//Agh
+	3ms6xKLoWynOFwxqz+IlM5rdx6xQ65RgEHMORsWGAiNf1nhFhm+b+dkShkaOZnssevZNfad7DLB
+	XucwcxQ==
+X-Received: from pgin4-n1.prod.google.com ([2002:a05:6a02:8784:10b0:cc7:cad8:adb5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:d52f:b0:3de:b95:d50f
+ with SMTP id adf61e73a8af0-4014c945bf6mr2794811637.24.1795183767718; Fri, 20
+ Nov 2026 06:09:27 -0800 (PST)
+Date: Fri, 20 Nov 2026 06:09:26 -0800
+In-Reply-To: <20261120-gmem-selftests-fix-v3-0-d94ffe17ead6@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,28 +77,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Mime-Version: 1.0
+References: <20261120-gmem-selftests-fix-v3-0-d94ffe17ead6@amd.com>
+Message-ID: <awBUlv3ItZiyZvlS@seanjc-mac.roam.internal>
+Subject: Re: [PATCH RESEND v3 0/4] KVM: guest_memfd: fix NUMA selftests
+From: Sean Christopherson <seanjc@google.com>
+To: Shivank Garg <shivankg@amd.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, David Hildenbrand <david@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Jim Mattson <jmattson@google.com>, Peter Shier <pshier@google.com>, 
+	Ricardo Koller <ricarkol@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Steven Price <steven.price@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-On Fri, 20 Nov 2026, Sasha Levin wrote:
-
-> Commit d8dcea5754a2 ("HID: sensor: custom: Fix state lifetime during
-> removal") was applied with kzalloc(&pdev->dev, sizeof(*sensor_inst),
-> GFP_KERNEL), which does not build:
+On Fri, Nov 20, 2026, Shivank Garg wrote:
+> NUMA selftests in guest_memfd_test assumes that node 0 and 1 exist and
+> have memory. However, nodes can be sparse or memoryless which would
+> break this selftest.  Select the nodes from MPOL_F_MEMS_ALLOWED instead.
 > 
->   drivers/hid/hid-sensor-custom.c:1023:46: error: macro 'kzalloc' passed 3 arguments, but takes just 2
+> Based on kvm-x86/next.
 > 
-> The posted patch has kzalloc_obj(*sensor_inst). Use that.
+> Tested on bare metal and in QEMU. Without this series, the test fails
+> with EINVAL when node 0 or node 1 is not an allowed memory node. With it,
+> the test passes for any set of allowed NUMA nodes.
 > 
-> Fixes: d8dcea5754a2 ("HID: sensor: custom: Fix state lifetime during removal")
-> Signed-off-by: Sasha Levin <sashal@kernel.org>
+> RESEND:
+> - Rebase on kvm-x86/next. No code changes.
 
-Thanks Sasha, I've just fixed this a couple minutes ago in hid.git 
-already, so the compile failure should be gone.
+If there are no code changes, then there's no need to rebase.  Please use
+RESEND if and only if you are sending the *exact* same patches/emails, e.g.
+because you missed a To: or Cc:, or a mail got dropped by your server, etc.
 
-This was me fat-fingering merge.
-
--- 
-Jiri Kosina
-SUSE Labs
-
+If you want to ping a patch/series, just ping.  v3 is sitting in my TODO folder
+and applies cleanly, i.e. there was no need to send the entire series again.
