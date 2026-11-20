@@ -1,61 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192751;
-	b=lBKIwZAv7b20VlkWtXAsgVqiknIPGZQsiHAAmuOpfiGJIg9/ySO3O/9ugfgXIJT1ii/4
-	 IhXCnQCGj3uqnaLn4uneJnAiZw2ev5lAlV3Q06Dv4x9taAafu8yfjvEs0kC8b1VLxsh8Y
-	 bRf2IbCECLwMX/1NQYGsgIsEZvIijuLkIb7k7GC/oo3nb5kk0N9hacAWuM+oXh1ZsPgwV
-	 qpiDm9QVKhtl4I6WJCj4LAGck3L6ICvbB+Tp2OjylXlJFyLYMMVXvDYIe5zbPCqB//aB/
-	 cS3Kr5nIv0ud4r75q/nxlqJhOZi1ctd8744KEqwQGtpC6FQpvqpsPzfedAwoodQ6xAw==
+	t=1795192795;
+	b=1jnC8h4THbOYsVogBGcTbno/L03aNJMew3GthLOycNTV89QYxG5Kb39VfCVG5ugClbkz
+	 elzYj2C2pyJy4CiEYdE3GB0w74DY0P9cav/879r/A8Ly9hOgiKCDpxP9QSp/HhbQ9sOIF
+	 UR/sI/UWEfUgL+Vp5c2Jirjd8aMGGhzcRzb+mcBUsgIWQAzZVJyw86P/TrzT4OaoVDHTw
+	 QpF1ftcS83+/rN/VGPqSy37Tw33Pgv8WJNS7RlfBG6ArojC7jsxE1tvK1puWlf8csN2Uh
+	 SBmwMguwpoF7xCI1rOxq9Q3K1JeZpzD5ReFnYR0PgY+8QbHRkpQ1OZjeyAlaVO/HvZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192751;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=o2Gchlovjpt7GczhTpNg1ZhDn2KN/WvMSeZUox3Hoa4=;
-	b=BeScogtzm/Cuv50qjrBhdSPegj1XYoLZN7lnoENmC82Es8LaS+vXlyhHMHHo6IdeQ/DU
-	 5lWjwFzLqoQWvEHYTgwuvhqLM3FlFyjhSz0UxO6ma72HY6WsnpeefUJ/MqmOvMHywGZC5
-	 5e1HOGEkyxl7Y0sAPCYoHI9vnaJgsuP0T9kIjOIefazuXb5xg10z3NT9UbFtbXjWT3gkj
-	 sRfAcbyQFx4v06FtcMj9k0ZIF8iOHKByVBsah4Xbd4HdXVVHOcPKV6D0OjNLg8dUTsK5u
-	 PdirvmcgIzc1YNGGKvLVsOx9Q7dFMrKxZYXxTWoyBFImN20ooKWSXKNgzKGU/IB9UuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192795;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=X7CKRTq2Up5l+f6XzAeKjlVv2VDwIKbHcnq42YBLBPQ=;
+	b=qrg9PcxemwfS9XwJScLAEyMbGZVRNLCsxo1qTUcFKM4Nz0sj9+SBOJPnSYj52CSXIF18
+	 Zlv82WoLbcAxv53/n7+0ybcHAOxNiW5mZydGeln8YtzxrRb/MvjSCJv/Culj6CLEEhTLq
+	 G4A/LWLMRUvhV7R/zBo+pVmwrsh8cASxhxAAcgHUM2VOyGDkjfvFyjBnFLnuuayp/dxNv
+	 8Ef2Hm8T7I4ae7UwImNUacXdUoHQBve0hzvybG5o22TUX1wKqUFfMMMiHb06XCKU4rv/C
+	 JHOfCfvJabaElYovL0IrXs56vr2vINVr+pmjYS5gT2Onj+3NrFKoFZ7i7KKpNkLFkEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R0diO3R0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nJJxJhL6;
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F05CC606A338;
-	Fri, 20 Nov 2026 16:39:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2A0060A2607
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:39:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2A0060A2607
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R0diO3R0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BB11F000F0;
-	Fri, 20 Nov 2026 16:39:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795192750;
-	bh=o2Gchlovjpt7GczhTpNg1ZhDn2KN/WvMSeZUox3Hoa4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=R0diO3R0IwdCFQBi8ev6UvmGHq45+73ZelTh5K2rpzujd/HbZ0CqAoOtQdRCTuPzu
-	 YIrI0q+UudpMC3trJzl1eS6cCYK9kk2VtN0jEhD2ODYeXpeAeAsjuY+8IGegifY9aj
-	 JLriM43csRHqFXYmI5b029uPhNAKPYa3JPQ7v1a0kTw2/XQ+BD7jkGxdBNxZ+eI0lm
-	 FQuS2Xb1RB0wDngBTXTHMSHPMOth3MhnSF2fyx5CdKXN26ZhIQA8kKbEJpm4KPDPoL
-	 EFOSJ4I8MLb6F/LDKvT1Jc0KwNseYtZvUKo/5jzy9GDGW8Ipb7sxwqo59WUG3gMvrO
-	 XbmLk9Iib6yaw==
-Date: Fri, 20 Nov 2026 10:39:09 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Richard Cheng <icheng@nvidia.com>
-Cc: dave@stgolabs.net, jic23@kernel.org, dave.jiang@intel.com,
-	alison.schofield@intel.com, vishal.l.verma@intel.com,
-	helgaas@google.com, iweiny@kernel.org, ming.li@zohomail.com,
-	linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, tglx@kernel.org, wangruikang@iscas.ac.cn,
-	alifm@linux.ibm.com, shawn.lin@rock-chips.com,
-	lihaoxiang@isrc.iscas.ac.cn, 18255117159@163.com,
-	xiangzao@linux.alibaba.com, vidyas@nvidia.com, kaihengf@nvidia.com,
-	kobak@nvidia.com, newtonl@nvidia.com, kristinc@nvidia.com,
-	Benjamin Cheatham <benjamin.cheatham@amd.com>,
-	Alex Williamson <alex@shazbot.org>
-Subject: Re: [PATCH v3 1/2] PCI/MSI: Skip MSI/MSI-X restoration when config
- space is inaccessible
-Message-ID: <20261120163909.GA878361@bhelgaas>
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nJJxJhL6
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2e9ae391a05so7187325ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:39:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795192794; x=1795797594; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X7CKRTq2Up5l+f6XzAeKjlVv2VDwIKbHcnq42YBLBPQ=;
+        b=nJJxJhL6n2ctqodT4EO+rNssng5pzWJwvOdKOT/lwdgUYaCFmKn01hkVOK9LNnVgDf
+         UdE4GFf4WjDHjSz5Uy/tidBzhiYC7xOhiwWXWpxNd+TSwuSXkX9GUlbtSBlmeMBP38l5
+         6tPP+0WujmTqCfnRhc2ujdjHZjP+nBzdu9Q2HzEqBv/sADyLKk7AJZ+uFiqyBtwv6N7f
+         1tByluOfG4UN+R3dbNJUbvPF0EXO117JGSiU53rmtTyYPynX8wYmcCl2CvF1pq7eyHfb
+         Er5fRjfW4z4T0lhLe6rEs4/MmQXXyguIHys6HloYfyUTv4j0SCVWDaB/FwRfZvetyFzC
+         qEqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192794; x=1795797594;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X7CKRTq2Up5l+f6XzAeKjlVv2VDwIKbHcnq42YBLBPQ=;
+        b=DEtfximekXIy0fYTNMrxCoQ9YCWfTWnw5yZNG0la9+MW9z6kpgAIy8fTH+Pajawcyn
+         0/8QLeGvfmKyuLkT5Or9i+qLaJeu/c6o+jfob5WD8A9kRclMK0I8bVt4lDQLRMM5U6SU
+         fn0xMQhh9FdB6iuQ17sxSOaZSQvmSBIGMe9s4UsZaSzUCepz+1SQfat3uWVqq/juiOzG
+         ISwy6ygaZ3EQ3Lbcu0Q4B5bdsjzrsvYOTNXjKXcvgRjxj+t29rYp+RArgsN6YMXnr/iF
+         RSE0ssb8yPIVclUTH5NNw7ehED0zR89bfgiPvWvQ7Es4Tx6kjPhniabuDQIQgB1liX6C
+         ccxg==
+X-Forwarded-Encrypted: i=1; AL+hErF3GAfXXBh4PcF6d/toGOw2Jz495mCitREjScb5PA4R4X3EhB7+no/qxDKiS5dWY2CQ+UdNmJkAo10lmfE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/nNxrH2T/NOD9ujyjAgWO1ainl332WY45A05MoFLsDhj3u2x/R
+	9lKiu63Tbcq7iElwxz2yYkpoEOGvwjPH6GQ0mdxnAViGFAgtYjLIe8Oct63ednUZ+BKkatowuKG
+	8DvYqhQw=
+X-Gm-Gg: AZFdTZf3lSOuzXlAYLOE6FMjNvIeE6xjE4B2e57O8MRdE2KZ1sqX4MXeueur71MNgO2
+	I5PItmlI+2qaqF3pCc9Nb0svw/C2MsaunbooNMb1+pFwomKRHCI/FSXUFvkQdMY90PreqcR5J1n
+	UhOXvplhET9ZLR9J3Mp3r5TGhfVpuuW7vyeWBvuZXIj3rTVsh22wIsUhjq1TRv3bYotgjraLUWM
+	7ZEqRezoKNQmAD2ibWr/1mYWhT2yQn7jnxK7XuybGWq/aOrIej/GOvz2KR77bcYoc/M3/n0Ua/E
+	5vC4XWTEKmGRxKiwa2UWf0XmaOAEzuIvBwb1lLFW5Bx+YDrnNhvEtrecKyZFRqoduqWHcSqJ994
+	mt3a2VyHbglQdJ1nvdkalEbVgN5GoNXHzvT0uL5PN4fu0Yy+uKFEAUVwkb3XDhbbzBidDfvEWuZ
+	LvPjEA/fxubTJHuAC+iI7VRJXSbJazU1Dko6qShu5nb2WNmigqzqLT5eiK5MMEXjdcpN+kbPn5a
+	02uyCT68q0lkCW+ni1se0jYOXDEwiEhnwXaVrvFRxgu7vw9/Du7w9Uubq0R4eEymIDWxkvasRmG
+	5Wr84LApEMaxuhBSYOrIn7iqSP3vQCl0Nk2OvgIil4KwEZydoCBEZAZgPUqoRoM4ujgT4IW/ohN
+	8wauHfGZWpI7M224YYYTlrFRqgwuhi/G1YIz6
+X-Received: by 2002:a17:902:e847:b0:2ee:1c36:e25 with SMTP id d9443c01a7336-2f03f211940mr28621045ad.35.1795192793950;
+        Fri, 20 Nov 2026 08:39:53 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f14a432sm16865065ad.75.2026.11.20.08.39.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:39:53 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: Lee Duncan <lduncan@suse.com>,
+	Chris Leech <cleech@redhat.com>,
+	Mike Christie <michael.christie@oracle.com>,
+	"Martin K . Petersen" <mkp@kernel.org>,
+	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>
+Cc: linux-scsi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sashiko-reviews@lists.linux.dev
+Subject: Re: [PATCH] scsi: libiscsi_tcp: hold back_lock across the copy of a Data-In
+Date: Sat, 21 Nov 2026 01:39:48 +0900
+Message-ID: <20261120163948.3238659-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <sashiko-outbox-225445@kernel.org>
+References: <20261120145243.3124991-1-yhlee@isslab.korea.ac.kr> <sashiko-outbox-225445@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,169 +105,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <av_8-NLyjXUQC0lK@MWDK4CY14F>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-[+cc Ben, Alex]
+On Fri, Nov 20, 2026 at 03:15:55PM +0000, sashiko-bot@kernel.org wrote:
+> Should iscsi_tcp_hdr_dissect() verify that task->state ==
+> ISCSI_TASK_RUNNING before accepting a Data-In header and setting
+> tcp_conn->in.datain_task?
+>
+> iscsi_itt_to_ctask() only checks task->sc and session->age, so it also
+> returns newly queued commands in ISCSI_TASK_PENDING on conn->cmdqueue.
 
-On Fri, Nov 20, 2026 at 04:09:13PM +0800, Richard Cheng wrote:
-> On Mon, Nov 16, 2026 at 01:09:39PM +0800, Bjorn Helgaas wrote:
-> > On Mon, Nov 16, 2026 at 02:52:28PM +0800, Richard Cheng wrote:
-> > > PCI state restoration runs even when a reset fails. If the device's
-> > > config space remains inaccessible, MSI-X restoration still writes the
-> > > MSI-X table. The table lives in device memory space, and these MMIO
-> > > accesses can trigger additional errors, including DPC.
-> > > 
-> > > MSI is programmed entirely through config space, so it doesn't issue
-> > > such MMIO accesses. Restoring it is still pointless when config space is
-> > > inaccessible: reads return all ones and the restore path writes back
-> > > values derived from them.
-> > > 
-> > > Check whether config space of pci device is accessible or not at the
-> > > start of both MSI and MSI-X path, after msi_enabled/msix_enabled test
-> > > and before any config access, and skip the restoration if the device is
-> > > inaccessible.
-> > > Make the helper non-static and declare it in pci.h so the MSI code can
-> > > use it, too.
-> > > 
-> > > Signed-off-by: Richard Cheng <icheng@nvidia.com>
-> > > ---
-> > > Changelog:
-> > > 
-> > > v2 -> v3:
-> > > - Cover MSI restoration path as well (Farhan)
-> > > - Use pci_dev_config_accessible() instead of open-coding the check, and
-> > >   make it non-static (Farhan)
-> > > - Move the check before any config space access in the restore
-> > >   functions (Farhan)
-> > > - The return value of the PCI Command read is no longer checked, since
-> > >   the helper only tests for an all-ones value.
-> > > - Update the subject and commit message accordingly
-> > > ---
-> > >  drivers/pci/msi/msi.c | 6 ++++++
-> > >  drivers/pci/pci.c     | 2 +-
-> > >  drivers/pci/pci.h     | 1 +
-> > >  3 files changed, 8 insertions(+), 1 deletion(-)
-> > > 
-> > > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
-> > > index 8a0133a6a286..2865f73f5ead 100644
-> > > --- a/drivers/pci/msi/msi.c
-> > > +++ b/drivers/pci/msi/msi.c
-> > > @@ -524,6 +524,9 @@ void __pci_restore_msi_state(struct pci_dev *dev)
-> > >  	if (!dev->msi_enabled)
-> > >  		return;
-> > >  
-> > > +	if (!pci_dev_config_accessible(dev, "restore MSI state"))
-> > > +		return;
-> > 
-> > Sigh.  I hate the fact that pci_dev_config_accessible() is
-> > proliferating even though it's obviously racy.  Maybe it's the best we
-> > can do, but I just feel like we're digging this hole deeper.
-> >
-> Hmm I agree this is racy even though we're holding the device lock
-> throughout the reset/restore process.
-> 
-> I assume you mean something like a separate sources DPC happened and
-> make the device inaccessible , some scenario like that ?
+It already does, in the series this patch follows up on: 3/4 makes
+iscsi_itt_to_ctask() return NULL for ISCSI_TASK_PENDING and
+ISCSI_TASK_FREE, and 4/4 adds the task->state != ISCSI_TASK_RUNNING test
+to the ISCSI_OP_SCSI_DATA_IN arm of iscsi_tcp_hdr_dissect().  Against
+plain mainline the PENDING case is real, but it predates this patch.
 
-Yes.  A PCI device can stop responding at any time, e.g., it got
-physically removed from a slot, a cable was removed, its internal
-firmware crashed, power failed, etc.
+  https://lore.kernel.org/r/20261117101500.1894608-4-yhlee@isslab.korea.ac.kr
+  https://lore.kernel.org/r/20261117101500.1894608-5-yhlee@isslab.korea.ac.kr
 
-> > Also, this is called in the pci_restore_state() path, which is full of
-> > other things that also write to config space and will also fail in
-> > this situation.
-> 
-> Actually I was trying to cover the whole pci_restore_state() in v1 [1],
-> and Benjamin raise the concern about the drivers may depen on PCI state
-> having been restored by the time reset_done() runs.
+> Can dropping session->back_lock before segment->done() let
+> iscsi_tcp_process_data_in() complete a newly queued command that reuses
+> the freed ITT slot?
+[...]
+> digests are enabled, iscsi_tcp_segment_splice_digest() sets
+> segment->sg = NULL before receiving the 4-byte digest, so a subsequent skb
+> carrying the digest skips the if (segment->sg) check and reaches
+> segment->done() after the task was already freed.
 
-I think you're referring specifically to Ben's comment [2] that driver
-.reset_done() handlers expect that pci_restore_state() has already
-been completed, and your "[PATCH 3/4] PCI: Skip state restoration when
-configuration is inaccessible" patch calls .reset_done() without any
-restoration if the device was inaccessible:
+No.  iscsi_tcp_process_data_in() never touches segment->sg: it verifies
+the digest and, for ISCSI_FLAG_DATA_STATUS, calls iscsi_complete_pdu(),
+which takes back_lock itself and completes through __iscsi_complete_pdu()
+like any other PDU; a task in ISCSI_TASK_PENDING is refused there by 3/4.
+That a target can send status for an ITT whose command has been
+transmitted is not new.  The digest path is the same answer: after the
+splice, segment->data is the four-byte digest buffer, so the copy that
+skips the test goes nowhere near the scatterlist.
 
-  static void pci_dev_restore(struct pci_dev *dev)
-  {
-        const struct pci_error_handlers *err_handler =
-                        dev->driver ? dev->driver->err_handler : NULL;
+> Does unlocking session->back_lock at skb_done leave segment->sg_mapped
+> mapped with kmap_atomic()?
+[...]
+> spin_lock_bh(&session->back_lock) while inside kmap_atomic() /
+> pagefault_disable() (which violates sleeping spinlock rules on
+> CONFIG_PREEMPT_RT).
 
- -      pci_restore_state(dev);
- +      /* MSI-X restoration may access device MMIO. */
- +      if (pci_dev_config_accessible(dev, "restore state"))
- +              pci_restore_state(dev);
+Not a problem, on either half.  On CONFIG_PREEMPT_RT kmap_atomic() does
+migrate_disable() and pagefault_disable() rather than preempt_disable()
+(include/linux/highmem-internal.h), so a spinlock_t may be taken under
+it.  And a mapping of a page that has since been freed is not
+dereferenced: the next skb hits the segment->sg test first, finds
+datain_task gone and fails the connection before any copy, and
+iscsi_sw_tcp_recv_data() tears the mapping down once tcp_read_sock()
+returns.
 
-        /*
-         * dev->driver->err_handler->reset_done() is protected against
-         * races with ->remove() by the device lock, which must be held by
-         * the caller.
-         */
-        if (err_handler && err_handler->reset_done)
-                err_handler->reset_done(dev);
+> Does the conditional locking across copy_locked trigger a Clang
+> -Wthread-safety-analysis warning when CONFIG_WARN_CONTEXT_ANALYSIS=y?
 
-I think Ben is absolutely right that .reset_done() handlers expect the
-device to be accessible and config state to have been restored, and I
-don't think it's reasonable to expect every driver's .reset_done() to
-handle that generic problem.
+Correct, three of them, fixed in v2.  clang 23.1.6 with
+CONFIG_WARN_CONTEXT_ANALYSIS=y gives one "spinlock
+'conn->session->back_lock' is not held on every path through here" and
+two "releasing spinlock 'conn->session->back_lock' that was not held" on
+v1.  v2 moves the copy into a helper so the lock is taken and released on
+one path, and the file builds clean.
 
-I think pci_restore_state() needs to return failure and callers need
-to figure out how to deal with that.  There are a lot of callers, so
-it's messy, but we should recognize that it can fail.
+  https://lore.kernel.org/all/20261120163857.3238489-1-yhlee@isslab.korea.ac.kr/
 
-> What my bug actually hit was MSI-X table write triggered DPC, I can't
-> justify for all kinds of driver, so I limited the scope.
-> 
-> If you think a broader check in pci_dev_restore() is a better place to
-> handle this, I'm happy to give a deeper research and revisit it.
-> 
-> Best regards,
-> Richard Cheng.
-> 
-> [1]: https://lore.kernel.org/all/20260929020405.9724-1-icheng@nvidia.com/
-
-[2] https://lore.kernel.org/all/8a19d63c-db9a-40ab-a811-5d761252638f@amd.com/
-
-> > >  	entry = irq_get_msi_desc(dev->irq);
-> > >  
-> > >  	pci_intx_for_msi(dev, 0);
-> > > @@ -877,6 +880,9 @@ void __pci_restore_msix_state(struct pci_dev *dev)
-> > >  	if (!dev->msix_enabled)
-> > >  		return;
-> > >  
-> > > +	if (!pci_dev_config_accessible(dev, "restore MSI-X state"))
-> > > +		return;
-> > > +
-> > >  	/* route the table */
-> > >  	pci_intx_for_msi(dev, 0);
-> > >  	pci_msix_clear_and_set_ctrl(dev, 0,
-> > > diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-> > > index 7c6f2aba8144..671ffe4da1c8 100644
-> > > --- a/drivers/pci/pci.c
-> > > +++ b/drivers/pci/pci.c
-> > > @@ -714,7 +714,7 @@ u16 pci_find_dvsec_capability(struct pci_dev *dev, u16 vendor, u16 dvsec)
-> > >  }
-> > >  EXPORT_SYMBOL_GPL(pci_find_dvsec_capability);
-> > >  
-> > > -static bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
-> > >  {
-> > >  	u32 val;
-> > >  
-> > > diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> > > index 77efa4c5c960..98dd3dbd5edb 100644
-> > > --- a/drivers/pci/pci.h
-> > > +++ b/drivers/pci/pci.h
-> > > @@ -240,6 +240,7 @@ enum pci_mmap_api {
-> > >  int pci_mmap_fits(struct pci_dev *pdev, int resno, struct vm_area_struct *vmai,
-> > >  		  enum pci_mmap_api mmap_api);
-> > >  
-> > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg);
-> > >  bool pci_reset_supported(struct pci_dev *dev);
-> > >  void pci_init_reset_methods(struct pci_dev *dev);
-> > >  int pci_bridge_secondary_bus_reset(struct pci_dev *dev);
-> > > -- 
-> > > 2.43.0
-> > > 
-> > 
+Best regards,
+Yehyeong Lee
