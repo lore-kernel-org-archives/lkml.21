@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180235;
-	b=yaBZcfNsqFEZ683Inu0rp+8NT6R6eHnICFIWG5Sms6rr3z17VwugM0aGa9nSXzRRckam
-	 CcaOo0Rri81+3Gan8BCQwvzjJPnFk7VrJEyrZRfmgf6x43+lf3C3+PXDS372fEnZ1Otcg
-	 HPso0o2HuV9Uh4LkBlt6dDJ8udJkHiSfvTim/8XM3mtt8a1mEAT3JHDYtzCILSPz8LK4W
-	 JCBnbB5l6YFWXD1XvkpeGnnuyaPulRHPZw5Nf5ygaIcoH0ftvlxwG/u5uC8/B2Z82Ihu/
-	 vN+lwVDxe+QKVDX06Pcg6/Em7MZsBYQaHlZn//W1XteHY5Do1V3vGOykN4f2itRzDiw==
+	t=1795180238;
+	b=xHOz8U0z7pQohMG666ZP2k1D2AcgVj9AlomqQTBvrZ/RU/TDZFa+thEiX05ztPLC4pv5
+	 Innxx2LTNFosObk8zv2N7Q1qbgOHDIZ1zXMe1+Thws9JciPHkO0ju5HULQskWvwGlRNBR
+	 JUwldIxPQYAu1BMMw+1ov/jSCuJNaXZ0tjBynEurJcbSwIJT9oEviQL86tvbd9PTf2sNr
+	 JaW5zxOlz+8Y7DDayJtB5kkUoL5viq/rf5nq2aPuoUGUIrtYyM7/ijoWt72n5RqQGLK7C
+	 /Qigsu5IYm6pw2REAgE1ivWyWohFqizti0ORvxIkH4rllBR5o7eXLVYUmWcifZL+e0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180235;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180238;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=SfJfDs7eRLaWgJWCrBHrHS+0aR5Z5G5czSxokvRK4+4=;
-	b=3oBjV2uzy05aJ9jBmy1mPvK/LsQDa0ADW9RZXkuCQDod59b6ziR5q91M5fQqJbwbDBsV
-	 Xo4lzFDDw5lvCzjQG1PGRtwObPUedBdsC9o+4wQ5Q2p6xNVMwoxS9icq0rm4wnSWhBAI/
-	 oRZ9SDvg7c6LJinQds1PnuUtnT9rbu6UQM19xCz9MRYCW9aPpvR1sJMdYwFx2wGAN7J25
-	 wRJI0rTuFb8P7F6f9ME/OD2dxEhxixIxjdDM45t08UcAcY8eltvlJRDa2QCU0elTjaJDW
-	 OkGoq+lQo0Sq5QD80vqfl/8erIzDVN6j+nl4NREakUZn6YMbBNBAnGyTDfO2netPuaQ==
+	bh=388ztI594AS+nKGPU4H0M5a2RIBgnI1LfiHUyoQUutQ=;
+	b=K1Kvl7zs/VriUidPxXnNQAGu3mwrvZHxWdZKwlBYA8NQbXZbK7tEGcQXmVDE3deQNl4a
+	 hDRlrrPU+IGCz8UzPyVQI7DvIb6reoBPlYBpiTErvXlwbTsO6DZtPiZZDxLcmmToR9k0i
+	 c+v2qvYyhzVvNBL0oPkXg2qPaiqTKVHt74cun3Yy6HP4AfZybyJq4Ur7+P/yflbJlw2My
+	 r7yonSGkfy5qC2LkK8olEGC4Yr2KrpepIbi5fkDTzBe0uIkNxnLY2vgP0FsrIfEzrWca3
+	 6C6dPlzdI66frf/3egL/B5WT5qYhQ20slCwtbmP9MP4NXgRZmi6mp/cMJLec5//l0Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePqPVFS1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqthkCfC;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FFAD60A260A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A45D606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePqPVFS1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F15A1F00ACF;
-	Fri, 20 Nov 2026 13:10:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dqthkCfC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AA931F000E0;
+	Fri, 20 Nov 2026 13:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180234;
-	bh=SfJfDs7eRLaWgJWCrBHrHS+0aR5Z5G5czSxokvRK4+4=;
+	s=k20260515; t=1795180237;
+	bh=388ztI594AS+nKGPU4H0M5a2RIBgnI1LfiHUyoQUutQ=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ePqPVFS1ta7XhtSVdjxIKX8QUsmgKw1+hc/uQpzDiFefg6qbiTsZCbfEHQg6Q0xrX
-	 9dqecUujmNV2TqnRDUbCDEMp6KWQ3FcFWJPUlbl7AwOcd5fLlKdoj41ye17Ec5tJV2
-	 tpkKfd9r5zbquMxkFYZws3k340Ktq7suDC1gvSb46tcPeODvCHxtf5puIdn5JIwFxd
-	 3l9IR5tN51VyURkm38W7P/J9fahRO1AR0aA8Fhz2H+VE8M8R1zRMsPGfHBOpz7fBbG
-	 /ib4usaptjFfjOI30rPA6uF4cTmYS5D/zqwuGWgckaJ/PDdZ5zo5p/FE3bV27jPx9A
-	 QaNu2QphoUSfA==
+	b=dqthkCfC+TsMclo9bIy6An59QHE2+LwFyMnOMYhyDONXgitaAiwQtOzJnOsEoqaTF
+	 1RovgJ/kyX9xnld6WevTuq+OYmw5Z62DuDbx0GiCA1sbk1Dl6hdU9TuOexR9v+I9Mo
+	 /meEfA63CydmdCRXlaODHsSzln3ulnAJMdW0AbFALKZuo2K+iPbIWkxJl8Rk4ufNiu
+	 DhZ9G3O88TzcmdFJs4cHkC1liIprN4cGokEaadl9JKHxzMnvLXFtxr9fikKkxY0iYd
+	 V+RMhK6H/ATASfg6KsmWs09bX2cSWT+L7oWim8t5jeBMVFJyQ5VUrLUlRkYRG4cIzp
+	 97s3K71fogimg==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 20 Nov 2026 14:10:12 +0100
-Subject: [PATCH v12 5/9] drm/amd/display: Take over the current stream and
- dc_state
+Date: Fri, 20 Nov 2026 14:10:13 +0100
+Subject: [PATCH v12 6/9] drm/vc4: Carry the HVS channel over to created
+ CRTC states
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-drm-reset-state-flag-v12-5-42d63d7417fc@kernel.org>
+Message-Id: <20261120-drm-reset-state-flag-v12-6-42d63d7417fc@kernel.org>
 References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
 In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -73,123 +73,209 @@ Cc: Daniel Stone <daniels@collabora.com>,
  Victoria Brekenfeld <victoria@system76.com>, 
  Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
  linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
- Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- amd-gfx@lists.freedesktop.org
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4875; i=mripard@kernel.org;
- h=from:subject:message-id; bh=jMZyKlQM+O8dO3fSECDw/33k6M92+XJBu0DQueQcSjw=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMblv3GO71rFhuxs3JybLRYqlp/BKbrRf6Itjn68fb8
- PLEKDh2TGVhEOZkkBVTZHkiE3Z6efviKgf7lT9g5rAygQxh4OIUgIkUvWBsuDzz3Y+Dhh4MM1Z8
- P9R4lvvdqvINKs7KSw/N6j0cIttt3Lu09tn9XYGnj/Pusrq50MX2HWPD7M+8YjZHX33+FnXwq8+
- 2KEXPGHeHFZmzm0QP6HLUP5K98pg17fZvsb6ARkXRmFr5EzUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6843; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=Aen0UsFhzRDDkrCC3Fuk/+qjL8RrEjAcNfYIsatGIkI=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbltFXgf153z6Ov26xLL7PUcLJp3I5wzROeXB0iq+b
+ 7Jj8J2yjqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCR07GMDXNvsXF+M/TMO80s
+ 5Th36eFdN064f3qUsjik4fOJHS6rbxmGHTlW/GXLxGV65Usro+cU5DLWO1kpZ0ZbHp7XNs9jlYX
+ R65W5dfoN3iX2p1stfpxee4jHJHfeNekJWoU5dxxDE9YvWhwJAA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
 drm_atomic_commit_fill_with_defaults() builds its commits out of
 states created through atomic_create_state() instead of duplicating
-the current state. A created state comes with no stream nor dc_state,
-while a duplicated state carries the ones in use, with their
-reference.
+the current state. A created CRTC state comes with its
+assigned_channel left to VC4_HVS_CHANNEL_DISABLED, while a duplicated
+state carries the channel currently in use.
 
-The update passes of amdgpu_dm_atomic_check() release the stream and
-dc_state in use and clear the pointer of the new state, on top of the
-reference the current state drops when it gets destroyed. Those
-releases are only balanced if the new state brought a reference of
-its own, so a commit that disables or reconfigures a live CRTC or
-plane through a created state over-releases and frees the stream
-early, leading to a use-after-free when the current state gets
-destroyed. The paths that keep a CRTC or a plane enabled without a
-modeset also work on the stream and dc_state through the new state,
-and hit BUG_ON(dm_new_crtc_state->stream == NULL) since it never had
-one.
+vc4_pv_muxing_atomic_check() skips the CRTCs whose enablement doesn't
+change, so a CRTC that stays enabled with a created state keeps its
+channel unset, and vc4_core_clock_atomic_check() then indexes
+hvs_new_state->fifo_state[] with VC4_HVS_CHANNEL_DISABLED (-1U), far
+outside of the array.
 
-Take the stream and dc_state of the current state over, with a
-reference, at the beginning of amdgpu_dm_atomic_check(), like a
-duplicated state would have carried them. This has to happen before
-the update passes clear the stream of the new states: past that
-point, a state whose stream was cleared can't be told apart from a
-created one.
+Copy the channel of the current state over in the skip branch, like a
+duplicated state would have carried it. This is a no-op for duplicated
+states, which already have the channel set.
 
+Add a KUnit test that enables an output, fills a state with defaults
+and re-applies the same configuration, and checks that the CRTC kept
+its channel.
+
+Acked-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
 
-To: Harry Wentland <harry.wentland@amd.com>
-To: Leo Li <sunpeng.li@amd.com>
-To: Rodrigo Siqueira <siqueira@igalia.com>
-To: Alex Deucher <alexander.deucher@amd.com>
-To: Christian König <christian.koenig@amd.com>
-Cc: amd-gfx@lists.freedesktop.org
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+To: Maíra Canal <mcanal@igalia.com>
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
 ---
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 50 +++++++++++++++++++++++
- 1 file changed, 50 insertions(+)
+ drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c | 105 +++++++++++++++++++++++++
+ drivers/gpu/drm/vc4/vc4_kms.c                  |  16 +++-
+ 2 files changed, 119 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-index 0ea45ab12119..b2eddb87dd5c 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-@@ -6279,10 +6279,60 @@ STATIC_IFN_KUNIT int amdgpu_dm_atomic_check(struct drm_device *dev,
- 	struct drm_dp_mst_topology_state *mst_state;
- 	struct dsc_mst_fairness_vars vars[MAX_PIPES] = {0};
+diff --git a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
+index 7a54f46acff9..c868d2cd1b3d 100644
+--- a/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
++++ b/drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c
+@@ -1119,14 +1119,119 @@ drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable_too_many_crtc_state(struct ku
  
- 	trace_amdgpu_dm_atomic_check_begin(state);
+ 	drm_modeset_drop_locks(&ctx);
+ 	drm_modeset_acquire_fini(&ctx);
+ }
  
++/*
++ * Test that a CRTC that stays enabled with a state created through
++ * atomic_create_state(), like the ones drm_atomic_commit_fill_with_defaults()
++ * builds for a reset, keeps the HVS channel it was assigned:
++ * vc4_pv_muxing_atomic_check() skips the CRTCs whose enablement doesn't
++ * change, so their new state has to carry the channel over from the
++ * current state, the way a duplicated state would, for
++ * vc4_core_clock_atomic_check() to see a valid channel.
++ */
++static void
++drm_test_vc5_pv_muxing_bugs_created_state_keeps_channel(struct kunit *test)
++{
++	struct drm_modeset_acquire_ctx ctx;
++	struct drm_atomic_commit *state;
++	struct vc4_crtc_state *new_vc4_crtc_state;
++	struct drm_device *drm;
++	struct vc4_dev *vc4;
++	unsigned int old_channel;
++	int ret;
++
++	vc4 = vc5_mock_device(test);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, vc4);
++
++	drm_modeset_acquire_init(&ctx, 0);
++
++	drm = &vc4->base;
++retry_first:
++	state = drm_kunit_helper_atomic_state_alloc(test, drm, &ctx);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
++
++	ret = vc4_mock_atomic_add_output(test, state, VC4_ENCODER_TYPE_HDMI0);
++	if (ret == -EDEADLK) {
++		drm_atomic_commit_clear(state);
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_first;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	ret = drm_atomic_check_only(state);
++	if (ret == -EDEADLK) {
++		drm_atomic_commit_clear(state);
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_first;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	new_vc4_crtc_state = get_vc4_crtc_state_for_encoder(test, state,
++							    VC4_ENCODER_TYPE_HDMI0);
++	KUNIT_ASSERT_NOT_NULL(test, new_vc4_crtc_state);
++
++	old_channel = new_vc4_crtc_state->assigned_channel;
++	KUNIT_ASSERT_NE(test, old_channel, VC4_HVS_CHANNEL_DISABLED);
++
++	/* Make the enabled state the current one */
++	ret = drm_atomic_helper_swap_state(state, false);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++retry_second:
++	state = drm_kunit_helper_atomic_state_alloc(test, drm, &ctx);
++	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, state);
++
 +	/*
-+	 * A CRTC or a plane that stays enabled keeps its stream and
-+	 * dc_state: a duplicated state carries them over, with their
-+	 * reference, but a state created through atomic_create_state()
-+	 * comes with neither. Take them over from the current state,
-+	 * with a reference, like a duplicated state would.
-+	 *
-+	 * The reference is needed when the update passes below
-+	 * reconfigure the CRTC or plane: they release the stream and
-+	 * dc_state in use and clear the pointer of the new state then,
-+	 * on top of the reference the current state drops when it gets
-+	 * destroyed, so that release is only balanced if the new state
-+	 * brought a reference of its own. The pointer is needed when
-+	 * they don't: the paths that keep a CRTC or a plane enabled
-+	 * without a modeset work on the stream and dc_state through
-+	 * the new state.
-+	 *
-+	 * A stream or a dc_state in the current state means the CRTC
-+	 * or the plane is enabled, since they are cleared when it gets
-+	 * disabled, so the conditions below already single out the
-+	 * live objects. They deliberately don't check whether this
-+	 * commit keeps them enabled on top of that: the update passes
-+	 * release the stream and dc_state of the CRTC or plane being
-+	 * disabled too, so their new state has to bring the reference
-+	 * just the same.
-+	 *
-+	 * This has to run before the update passes below clear the
-+	 * stream of the new states: past that point, a state whose
-+	 * stream was cleared can't be told apart from a created one.
++	 * Fill the state with defaults, like a DRM_MODE_ATOMIC_RESET
++	 * commit would, then re-apply the exact same configuration.
 +	 */
-+	for_each_oldnew_crtc_in_state(state, crtc, old_crtc_state, new_crtc_state, i) {
-+		dm_old_crtc_state = to_dm_crtc_state(old_crtc_state);
-+		dm_new_crtc_state = to_dm_crtc_state(new_crtc_state);
-+
-+		if (!dm_new_crtc_state->stream && dm_old_crtc_state->stream) {
-+			dm_new_crtc_state->stream = dm_old_crtc_state->stream;
-+			dc_stream_retain(dm_new_crtc_state->stream);
-+		}
++	ret = drm_atomic_commit_fill_with_defaults(NULL, state);
++	if (ret == -EDEADLK) {
++		drm_atomic_commit_clear(state);
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_second;
 +	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
 +
-+	for_each_oldnew_plane_in_state(state, plane, old_plane_state, new_plane_state, i) {
-+		struct dm_plane_state *dm_old_plane_state = to_dm_plane_state(old_plane_state);
-+		struct dm_plane_state *dm_new_plane_state = to_dm_plane_state(new_plane_state);
-+
-+		if (!dm_new_plane_state->dc_state && dm_old_plane_state->dc_state) {
-+			dm_new_plane_state->dc_state = dm_old_plane_state->dc_state;
-+			dc_plane_state_retain(dm_new_plane_state->dc_state);
-+		}
++	ret = vc4_mock_atomic_add_output(test, state, VC4_ENCODER_TYPE_HDMI0);
++	if (ret == -EDEADLK) {
++		drm_atomic_commit_clear(state);
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_second;
 +	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
 +
- 	ret = drm_atomic_helper_check_modeset(dev, state);
- 	if (ret) {
- 		drm_dbg_atomic(dev, "drm_atomic_helper_check_modeset() failed: %pe\n", ERR_PTR(ret));
- 		goto fail;
- 	}
++	ret = drm_atomic_check_only(state);
++	if (ret == -EDEADLK) {
++		drm_atomic_commit_clear(state);
++		ret = drm_modeset_backoff(&ctx);
++		if (!ret)
++			goto retry_second;
++	}
++	KUNIT_ASSERT_EQ(test, ret, 0);
++
++	new_vc4_crtc_state = get_vc4_crtc_state_for_encoder(test, state,
++							    VC4_ENCODER_TYPE_HDMI0);
++	KUNIT_ASSERT_NOT_NULL(test, new_vc4_crtc_state);
++
++	KUNIT_EXPECT_EQ(test, new_vc4_crtc_state->assigned_channel, old_channel);
++
++	drm_modeset_drop_locks(&ctx);
++	drm_modeset_acquire_fini(&ctx);
++}
++
+ static struct kunit_case vc5_pv_muxing_bugs_tests[] = {
+ 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable),
+ 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_subsequent_crtc_enable_too_many_crtc_state),
+ 	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_stable_fifo),
++	KUNIT_CASE(drm_test_vc5_pv_muxing_bugs_created_state_keeps_channel),
+ 	{}
+ };
+ 
+ static struct kunit_suite vc5_pv_muxing_bugs_test_suite = {
+ 	.name = "vc5-pv-muxing-bugs",
+diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
+index ab551eb2da50..562f2d1f45a4 100644
+--- a/drivers/gpu/drm/vc4/vc4_kms.c
++++ b/drivers/gpu/drm/vc4/vc4_kms.c
+@@ -970,15 +970,27 @@ static int vc4_pv_muxing_atomic_check(struct drm_device *dev,
+ 
+ 		drm_dbg(dev, "%s: Trying to find a channel.\n", crtc->name);
+ 
+ 		/* Nothing to do here, let's skip it */
+ 		if (old_crtc_state->enable == new_crtc_state->enable) {
+-			if (new_crtc_state->enable)
++			/*
++			 * A CRTC that stays enabled keeps its channel. A
++			 * duplicated state carries it over, but a state
++			 * created through atomic_create_state() comes with
++			 * the channel unset, so copy it from the current
++			 * state to make sure the core clock check and the
++			 * commit see the channel in use.
++			 */
++			if (new_crtc_state->enable) {
++				new_vc4_crtc_state->assigned_channel =
++					old_vc4_crtc_state->assigned_channel;
++
+ 				drm_dbg(dev, "%s: Already enabled, reusing channel %d.\n",
+ 					crtc->name, new_vc4_crtc_state->assigned_channel);
+-			else
++			} else {
+ 				drm_dbg(dev, "%s: Disabled, ignoring.\n", crtc->name);
++			}
+ 
+ 			continue;
+ 		}
+ 
+ 		/* Muxing will need to be modified, mark it as such */
 
 -- 
 2.56.1
