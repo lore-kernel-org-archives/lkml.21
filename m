@@ -1,54 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204833;
-	b=HBGY/1DiKYDWeT4YfNvjlHcspWitUiXYP0iOQGj0AwXndd3d6/j00ufuu4XCbnXEj2c6
-	 oq44tLB2dXAG0Qz43NpNdCCBrZgI1ViIt2gAxtlS9MOIYrK2AhzZX8Cm+FdUu0n1D4aFD
-	 kklLpCmOGXtIpP5z6QFBuK/dcT3cTa0cWHxgA9epzazKq1YReJLi6Q18pH/nfijVGHpB1
-	 6lQSf4CVTkT0zrrbqCosW0ULLT2BLtvJQNurQqReKii3f9460plKk+Ez8FMXwlMtZKuU3
-	 D6kmVidBLPwPSI1Bb4W8oj13vxvYIZ6IZudKIyG6w72xkhamxWOVvYaCYbzBG/mdkGA==
+	t=1795204858;
+	b=O6/HXEgOTtys75wfnOykZa1heWgDbO2O0gPC/5/0/fN8rmmUXHaj2Tpu2w0xWmpHUZ7w
+	 y5vsMSCIhs5Uux0X4fVtvrHfKLPdC8pPiDBTptpY5qF8pDVpK/KBoA1UQZIeMkqVv2bh8
+	 Rr/XCb//BlM4Rbv1Aig3uaODCg+4g+FneidJowaY1uLuGYawSDRIUxvFd+jtUItrQ8c6+
+	 DjEFR1F001nEIjhTDLc/rKADceQ/S79dG4qQwg9swuCOHgHdqpB/XUjbfd+Xd+eWKNJss
+	 ANpbH/2q/x1x0imbEr4Fi3qU1J3CRCNzZLvBx78Frpyb/SNMoghIgmYZlTLhXWbtvvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204833;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=5QgfHDQQ4MSdGh+4Ts8IUMOxAYgDCdzXWqFzljmCVG4=;
-	b=Dkc09kvgn0UTG2aIBolu3ryzWUe92OZpR/rnRY6ZOdrdaUAtcRBg6MsdndFnadwIl0bj
-	 d7Qi8GmgB16H2tgqX7JYu1fS4uVg8q6PvgORe/79GhzxZCcAVBOi84KG67zGHcnKOwuNl
-	 vpF75bt3l5kbxfOUYKEoOAsCBf2Od0K0HUtiqf4cZYrgoC3bBs4wIZhOrqKFWGawiNMSI
-	 njYBP3XE3bKi/5ezc7FlHnojl34+Y0g/U6iBzb+ajG/ygLTPE0jZROt8PDV9hQ9V6NhQn
-	 22ZTTzJrcrDKVpo4cGVJEiSW1iYcsCh0kBPdtKIFCLsDQjLY5SxNLBa/Rvrs5+V5A4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204858;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=v6MACD1sBfgK5beVMe+EiTqIGqdXAEDg9pQGTzuk0wA=;
+	b=Z7Zfh86KHTsboiZ2KmxRNvGvxQOrTThJ5NOPLvhioma+uJqs1sOQMiL76lhliZd3Ad4t
+	 my6nWbjvGR7T6yySPvyCYrbLM/RAzEqBL4Nw9/TCvllQLTV/qPfao47ajSMpQBbm4mLcb
+	 nXy1lWWcl7NKNOGaB0k3RbJfVHogskbvRcUsP8ldhjs9acyVGSbnEJH4Q0x5+/cShgWl4
+	 HYjFclYmAfhGnzGq0ml/0nqvazFO0NTrJq4l7TLh9UyAZK9O3bVvz2sD7laN43Z9tSgl6
+	 cTHxuRzAIWv1FlXbZDCIWjPbqeGNuixZk7HEz8gikrbH+YbNIf9JM2yAG5boVusooyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EEjM6lKn;
-	arc=none smtp.remote-ip=91.218.175.226
-Received: from mta0.migadu.com (out-226.mta0.migadu.com [91.218.175.226])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mvSCHHSQ;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7AB6606A6F0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:00:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7AB6606A6F0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1D97606A6DB
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:00:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1D97606A6DB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=EEjM6lKn
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Uy/t5Hdz2eRHlZ3WuQOUva9nAZPCprYKY2wlV0ZSa2c=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795204830; v=1; x=1795809630;
- b=EEjM6lKnyYmoIm6xJBfqhCuVLpbnNQUmKv2evvJ6r1RwpFiB3+kguNBYe0b34D6sq0DxD2ld
- KJgQ8rmg61bPB3sqaTswLrYXCsaEcMZGRCyEFheOBrWZP0x70b/GCi83NAJA6AzghqxRXr1ymj3
- 7e3jYrpNV6lzZa+vPdVFgv0Y=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id b84f8d674bfff41c;
-	Fri, 20 Nov 2026 20:00:29 +0000
-X-Mizu-Trace-ID: b84f8d674bfff41c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
-Date: Fri, 20 Nov 2026 20:00:27 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mvSCHHSQ
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33c35f5ca6cso1626876eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:00:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795204856; x=1795809656; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=v6MACD1sBfgK5beVMe+EiTqIGqdXAEDg9pQGTzuk0wA=;
+        b=mvSCHHSQ4+VLK8nz9MRPufP779dzfiskHFZtamiDap/o42aSqIsdtvN9mRH4XxHtSQ
+         9hf8WmY2fmWDaAmVIm7izW5QxCiW5zL2XW0hY8Bvk7jXlffbl65bhqZZAhmPHuaeMfdz
+         ZmqhkYFKPC6IC6ul4qY+0GB8Pegzj+ko9fmlbgow/HCF4st9gYKaylBhW5XBDlmWJO3Y
+         MTH00PadJhETHD6o3WvBglhF0obII1hSsJgtSgpXBuixEJ2K5lfC+3el3sEdoMZu+ond
+         i+BtsZ5m0C73muqqTx+jRGqfYQkmMiy4v6scA8BHhM8VZ/wUjYn9yKjNOZkRj9JVrbl/
+         YmbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795204856; x=1795809656;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=v6MACD1sBfgK5beVMe+EiTqIGqdXAEDg9pQGTzuk0wA=;
+        b=2pHseTzC1XOzCB45pCC0O4/WE7E/XrVYVvAFHKW1AZaPt9bTmDEb/B1xI4FXf2B1a1
+         YAFKFCS5obHiSoJ7rzvB+9H4XvH2tgUnMjsJT8ruxtJJmPJKOmTM6IgUMquR0nV8cF0a
+         MAzSkoLmKoB/ibJ5QSGBujS9eEaT8bmeqFXUdbCNFu4vEL1N5iXseJJV460dI4gT8bxS
+         NZXwhHCYmIE16tImmnmLMAhs14pnyYYoazxyM1z5NcKUg35d2CcQu3x7OYLustWpbkTi
+         8O62CmzsRi0bKrbbop+NX0IWcDUFDdQcneWhvdF71h8MYh6i3JElU+rLgQsMOZ7bren5
+         lkgQ==
+X-Forwarded-Encrypted: i=1; AL+hErH5vNYoptGRP8EsgoYQng/Kk6gZlgOuJd2BUaNx0yqyhyAaZ4MpQ3ejRe2qmkQr8SL9YnPJRoUhI78J9vc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82y3Hb87T43Y04vUxPQ7m6n9TTB52VAHX8VfELa7kwy/cVbOvn
+	Jp+07CZi5r/QucebzSHUQYkAjRf3oZX9En1Uy9/al3mPyv/4kJO0KOrOGfIyoAH1O0oshujzBCG
+	tmA==
+X-Received: from dycc14.prod.google.com ([2002:a05:693c:60ce:b0:380:e54c:744c])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:880d:10b0:36b:fca0:80b3
+ with SMTP id 5a478bee46e88-3856fd5d0f0mr4234213eec.22.1795204855427; Fri, 20
+ Nov 2026 12:00:55 -0800 (PST)
+Date: Fri, 20 Nov 2026 20:00:47 +0000
+In-Reply-To: <sashiko-outbox-225939@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,148 +78,35 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Ivan Vecera <ivecera@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jiri Pirko <jiri@resnulli.us>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>
-Cc: netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
- <20261119133851.3f25074c@kernel.org>
- <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
-Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <sashiko-outbox-225939@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261120200047.2917735-1-elkin@google.com>
+Subject: Re: [PATCH] serial: 8250_exar: check IS_ERR() on __xr17v35x_register_gpio()
+From: Elkin Cruz <elkin@google.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>
+Cc: linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	sashiko-reviews@lists.linux.dev, llvm@lists.linux.dev, irogers@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-On 20/11/2026 07:39, Ivan Vecera wrote:
-> On 11/19/26 22:38, Jakub Kicinski wrote:
->> Well, I'm not convinced. The relations between objects in DPLL are
->> already quite hard to follow, and objects from one driver routinely
->> "plug" into objects from another. The explanation of the locking
->> rules in patch 9 does not look clean or clear. The driver facing
->> API needs to be much more "dummy-proof".
-> 
-> Fair enough. The complicated part of the rules comes exactly from
-> that: a pin registered by another driver, like the zl3073x pins that
-> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
-> A message about such a pin runs callbacks of both drivers. I have
-> prototypes of the first four ways below to lock this, each with KUnit
-> tests, and would like your opinion before going further.
-> 
-> In all of them a domain is the set of objects created with the same
-> module and clock_id, dpll_lock becomes an rwsem for the topology and
-> lifetime, and a mutex per domain serializes the callbacks.
-> 
-> A) Pin's domain (this series)
-> 
->     Callbacks of a pin run under the domain of the pin, whichever
->     driver registered them.
-> 
->     Pros:
->     * one domain lock at a time, so no lock order
->     * a request or a message about a pin is atomic
->     Cons:
->     * the callbacks of a foreign pin are serialized with the driver
->       that created the pin, not with the other callbacks of the driver
->       that registered it, so that driver has to protect the shared
->       state itself, and lockdep cannot check it
->     * restrictions for measured_freq_get, reference sync pairs and the
->       private data of a parent pin, which patch 9 has to explain
-> 
-> B) Registrant's domain, deferred notifications
-> 
->     Each callback runs under the domain of the driver that registered
->     it. A message about a pin takes the domain locks one after another,
->     and notifications from callbacks are queued and sent once the
->     domain lock is dropped.
-> 
->     Pros:
->     * callbacks registered by one driver instance are always
->       serialized with each other
->     * one domain lock at a time, so no lock order
->     Cons:
->     * a request or a message about a pin registered across domains is
->       not atomic
->     * the most complex core: a notification queue per domain, a lock
->       per object to keep its messages in order, and pin setters split
->       into validation and apply parts
-> 
-> C) Registrant's domain nested under the pin's domain
-> 
->     Pros:
->     * callbacks registered by one driver instance are serialized with
->       each other and with the driver that created the pin
->     * a request or a message about a pin is atomic
->     Cons:
->     * the lock order comes from the topology, so a pin of A registered
->       with a DPLL of B together with a pin of B registered with a DPLL
->       of A deadlocks, and lockdep sees it only with a lockdep class per
->       domain
->     * a stuck foreign registrant stops the domain of the pin
-> 
-> D) Merged domains (your suggestion)
-> 
->     Registering a pin with a DPLL or a parent pin of another domain
->     merges both domains. They are not split again.
-> 
->     Pros:
->     * the rules for drivers stay as they are with the global lock
->       today, and lockdep checks them; the only new one is that state
->       shared between chips not connected by a pin needs a driver lock
->     * a request or a message is atomic
->     Cons:
->     * only hardware not connected by pins runs in parallel; on the
->       GNR-D system the zl3073x and all ice PFs end up in one domain
->     * a callback that waits for the hardware, like the planned resync
->       for up to 1 s, or for firmware still stalls all DPLL devices in
->       the merged domain
-> 
-> E) Global dpll_lock, slow callbacks asynchronous
-> 
->     Pros:
->     * no change in the core
->     Cons:
->     * the resync problems from my previous mail, and a callback that
->       waits for firmware still stalls all DPLL devices in the system
-> 
-> I wrote before that stretching the domains would not improve
-> anything on that system. That holds for the ToD stall I measured,
-> but the zl3073x does not need to hold its channel lock across the
-> edge waits. Without that, the remaining waits are the planned resync
-> and output state callbacks, and with D they stall only the devices
-> wired to that chip, which depend on it anyway.
-> 
-> So I lean towards D, as it gives drivers nothing new to get right.
-> Would that address your concern, or do you see a better way?
-> 
-> It would be good to hear from the other DPLL maintainers as well.
-> Jiri, Vadim, Arkadiusz, what do you think?
+On Fri, Nov 20, 2026 at 07:40:04PM +0000, sashiko-bot@kernel.org wrote:
 
-I totally agree with Jakub. Current implementation of DPLL subsystem is
-over complicated, and all these complications came just to completely
-model what was designed for Intel NICs, basically ice driver. But now we
-are again back to the discussion how to complicate things further just
-to fit what was implemented in the new generation of the same hardware.
+Please ignore this patch.
 
-Maybe it's time to step back and think if we really need all this, or
-find simpler way to express/model things?
+> The error-pointer dereference in xr17v35x_unregister_gpio() mentioned in
+> the commit message was already fixed by 0353b5196588 ("serial: 8250_exar:
+> check priv->gpio properly"), which checks !IS_ERR_OR_NULL(priv->gpio).
+>
+> Previously, GPIO platform-device registration failure was non-fatal so the
+> card's UART ports would still be registered.  Propagating PTR_ERR(pdev) from
+> xr17v35x_register_gpio() and iot2040_register_gpio() causes
+> pci_xr17v35x_setup() to fail on port 0, which breaks out of the port setup
+> loop in exar_pci_probe() at i == 0 and leaves the card with zero UART ports
+> registered while exar_pci_probe() still returns 0:
+
+Sashiko is right here - 0353b5196588 already fixed the unbind bug in
+xr17v35x_unregister_gpio(), and returning an error from
+register_gpio() would abort UART port setup in exar_pci_probe().
+
+Thanks,
+Elkin
