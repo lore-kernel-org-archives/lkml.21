@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795133258;
-	b=la4j6ck8ouZhgUGpNPxaFAFDLimwJXmVlpZip/CawLVIUOTqdU5pe5jN90Et2c6rFSZS
-	 n/0xAaHS3NfOMtVs+jpO4tQypKuUyXsveDy0MQqlLFk4qRq21bxdKJKTL81ntyUigA50Q
-	 rROadY84vzexKL+53rEZubKW/3toCakC06TocmKDbY1McMJ/H4M/i3GIwpplr6C/Ifwg7
-	 Onx0z/VnXMb8FZGSO1PHEGdO5ks0PPKzlj9qZolg+z9c1NxD+iIu6B6+Y0zgcG9qHuYFL
-	 n1LzgrhCc5OBrerWPmGF+3Uqna0KnRitvO2M6pM1b4f1VgyvMrRkXSIKBFn8JeoEAhw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133258;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kp6fkKnIImemnGcCbeJTUu/75Q8NuYHmcxO2NQ7WfyU=;
-	b=UcxpdlqCJxnBZ4ehDg+Xetvg2OOaoJGlOt8lXo9HdZSIyLQDhijuzTR8zPToOq8BRUzw
-	 dHgBs6bzKO+Gkd1jDXP7laltAK7vhbBOywNcdewF/DsgXwfJ4QCDTBbowMZKUJa1nLFZL
-	 be8n6+2G/ODWIOBu2FKziEZseDkGvTBpHntFK9aJKnRcl00GbWeEmDXAD+0O7GfUEm828
-	 +tQp94YOl/chLAI9/cHLS8b4ccZ+qW439prSmMb17rsXXi0vRDw0W6pkxZVkb4dCjFw5h
-	 lnnld+FqxUKD3EXtRrdS1aFNnU4uV0zO/GVIAb1cS/WFIpMP/vd+op8x4SWSZoayOSg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FWA2C4NE;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E23D7606A325;
-	Fri, 20 Nov 2026 00:07:37 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FWA2C4NE
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795133257;
-	b=dRF6pSxdxc2Odeyqrzc81G+J2x3cClSK4QhpA4awztwsvu0x5Rmi7x97EdlWJkVZa3I8
-	 tolINWwm75FJDlL1CxyUVSy+SVlTbdw1DodW05Am72lDzXt60Me8ExGMzg+fHhS6U9kGU
-	 Baf/ihiIfQVjJVtAqHtn6uwiyDzAd1LYGbrfZYIKDOFb35xEeb28aXRQQjlabszb24WE6
-	 GmwmJB5GUOUVyqiBRN0OMizQ/UJH35ql5b9oaZ2RiaM3z3XebScasuywkDJmskskUwEjE
-	 D/r2MFCneo9pwVeBQikWau+wsj0g1sK1xaY4zq55hK6XtwWUr1oum6fqXIpgf6tI87w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795133257;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kp6fkKnIImemnGcCbeJTUu/75Q8NuYHmcxO2NQ7WfyU=;
-	b=gqfiSCWKHTT4YR8xztkDxd/kc6cplkQzFW/dKzG+UB9nnvSSI4dMDuUfHTuBueXK5P14
-	 uBZ9x15jp2vIpQ4dl8hD1iKIUdqT8BmbDOu/KPvCUomDDa/ZPr0HaKr9xwZsbF0xgLngA
-	 YIx5rcfte1Hr2nf2TjtjG8hDijBjBZpthVolzys29br6FHsPloIdvVD0RAdtEQ04lvMrO
-	 KrIJ0CV1i+ATRocd2745v63faCIBU5w2RGENAsff73YoIcUytvQzkZc+JoN71Cw1PfMiU
-	 JOpYkiJMLE8x74XN+WgYVuj0yUC4IJ2un4IEBB/Sgn0uLFiTF+0CZlumcMjS7mEY1CQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.199
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795133288;
+	b=4/zg3swbbSUFTSg98EMaSYiJRLnLrmA2r9ai+/yItwPMMUsusyzEd4EjQ1MVZjC3grkT
+	 AM4n0G+0A9emOwg/lAtyzWhBpodlY64ho2q7P0Jj0Mz4294lR3Y19uzfqWJ/9/OwsWIcE
+	 MHBnqA5ZWOR9CRS0hQgxsN8qzj9EFcQhf8odTc1FS0I4CQ/G83ZOGXwB2YGzkfgSzZO6I
+	 mlfCjwH4BfChkOrO7jqRAieZ7nyZefdt7bo4AKwV4NGq5XjCeu6PWlqbmEadhQVh2Lybl
+	 eRKcz1NvzPygZijWEMok4RMlsITe2iIZ/ZkMhnEQmX0eNJtksytnRu+LtVfup4IBzQg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133288;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=JuTA66QgZyDcdKSFBeixhG8AoG8bhepLvtAusJLTtBo=;
+	b=4cQd6QSloIUsCVmb4uNbcKYY+oHYGFVNrKaBM1kqiqT3HwlJ4zKUZtbk5oNmfZRQLS87
+	 1beNw1CkKqChShsaYemCegjZ1LmlKm11Ud9/GaWzCqJwvCjp2Z7COlPlCc3ux/Qeu0Wcs
+	 oUNaRVQSkOtET5MeVdhPxDZWWfdQvww0wB+YaYd5r8ZX+ihmiOdl53vZwWo2LNdujk3q5
+	 c/l2BCbj997xjADfJY/wtB89SK5sYalWe7QdU0FHcAfQ0i2Rq7FtYkpQdmm/zxHtEAlMM
+	 PRY01mvYERYgR0aGRuUFF8OwT9gCOShhGwl1OrG6acVbKCXEkEqgFUyXK9cJR5Ptp4Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=SGUeT0I2;
+	arc=none smtp.remote-ip=66.163.184.199
+Received: from sonic301-30.consmr.mail.ne1.yahoo.com (sonic301-30.consmr.mail.ne1.yahoo.com [66.163.184.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0836F1F000CA;
-	Fri, 20 Nov 2026 00:07:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795133257;
-	bh=kp6fkKnIImemnGcCbeJTUu/75Q8NuYHmcxO2NQ7WfyU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=FWA2C4NEUVDmhrwTvFZB/VTf02pzDsye4w3VMXOBc90et2+CQJ55YtGAFmlMRDkBL
-	 TFkMJJcCCaqaEq4k8NhUwDT1FylemTJpx/O1vKDG3ELTzumowjEBql6fkfRE7a9mJs
-	 QJwIzOamcbqeLcp2iVlRJwrlUMz8X7b0hvMF0f7l6tETHlONR53KSUg0QZXRH+xskK
-	 qJiiRRce/41oPj3Kzx6YAr+xHQLHGKPy8b/Rgur+mFK5JPX8EcAyMu/pv0lgf3G66q
-	 Gkwugo94zZPuJSF4nEsIZcMiYAZ8kdpm+amz3l92luMsTWFcOT+9NgedkuFytq5pZr
-	 +iWEvJpvF3X/Q==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 89F56424DC;
-	Fri, 20 Nov 2026 00:07:35 +0000 (UTC)
-From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Date: Thu, 19 Nov 2026 19:07:24 -0500
-Subject: [PATCH v3 02/11] leds: rgb: ktd202x: Fix an out-of-bounds read
- with unused channels
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9E9960A2628
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:08:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9E9960A2628
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=SGUeT0I2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133283; bh=JuTA66QgZyDcdKSFBeixhG8AoG8bhepLvtAusJLTtBo=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=SGUeT0I2u0m+1IllJstiwCXt7WNpZQozowg8mGE057g7eHFQ82ddL7QxV1Y0N2U3rE6l7gxboickPfVgQ1dLrMrORD7rM0bS4hHTB1SsHh87Lucf7qz/1wY9hdMF4kFyyTOOvethyTih717z2pvgY28YgB+mxfLlfROnm/xEs5PUlb+oo7WNjW6HhMpoT1OuSjzIb/Xge8SsuNbEd3FrJ3Jd/HrRMlRWVw6tgfk8Es5A4jn2Yau5STxEHXzsWlKwQEDY1/Zlgigt815MW3I5evpGU3q54mJpHx0+XgVy4NApArEPDC9aU0FSGaSjTNux4TskNerVCs11yKc22rfanA==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133283; bh=M29jKogtKaDkKLN8X3pXimQRVB9FDn6G7lil/7rgE2e=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=i5uXXM1K0lenJPYHNWSLdepDdo3kR8jHLZguNrY7lSGtGLXdeJ9hdN/fQh9/Np+Z6j3alw/zS26Ynimfm+yL4ewyZh0z1VkAF4RZWurpw6Pq07dj1lqv7Phlcy3fiL5zu8xJFfatpI59Aw/U+yLcNIOSapMEdF/TPWPfuwzwkALIuWrZqVeMZuSQnXP6PN6ZaRxTcnLOorPXSfHIK6yP/RTlssJ9BKgWu3Bf3o2TSqg4ZEBcMREe9uVc0zBoxhfnc5yTcgsMnVix4vwhhEpmcZEqOADidvEi+xH0LOkZd6HSyFa7BLbz0zexxFurFBDeC4h6bZHeFqTtEg/uqRmYEg==
+X-YMail-OSG: mH7mTYMVM1n9R2tgZgv4ld0VdzBMzpUUj9v4pMY.chyW_dGmyLKnk6TTYyrRVaW
+ CO6wU9BVX.5P__i4Ym0NR1wf5o2Hq0iDDYqF0cMbqVARJYRg5h3QP2fq1e7LragRCzz1YQQIyavw
+ g15osszfHrfxZC9dsYdpM.CSwHj48cmYriBfuUDytVLF5orxHGEWvCiGKZdVXk0jVxahG8YszMkz
+ fTuukObR0rTWRCp0xRJZnGQMKqvVcWedHgMu..tAjehXc4RxBFdnqdUytso0p0l0NMlqXIQie4f6
+ o4so8NAica4TxLqG72oLYo_t0dK460NWqvlFrQ5YI1KH5LQ2r68vw0Ch78Ej0bP7A3nIv7baRm1h
+ HFs6tNAUZsHA7Kz08HaynzaPU8DXtsw1iFlU3_DAk6_.HF8ZH00EdU39gJWA.LPVOxITLGmuK0.9
+ btsijdADaeTvl51WhkpEx81oRILWw04tO_kSoPvNXfTq8hodz_lKIErssJUokAFtG6UuFxMZoNZR
+ AmdiOHpU0PJa.K1J2lAScRYofjjvVjwdyCCqp0WXwBdwMPc7Up87sgGxg_UwmQCnZQvKZbPkYXm2
+ xjw88qDmWBQvPfzdOSXQgEPMMem7WtBpoOgFnknrRTWV1pcO3XMlgSOPgun8AeoY56NBdg4OEGHc
+ pHhbxNweWbu90I28vrPO2Eb5mpROiEoh6uppSyx.g.5IStuOumync7_9tO9Op7zJP1h4eU5DD0Dm
+ mXxacUb8ig1C7.gLzuIcMkY8s7fzsxAnwBCbVok5AAxj2j2IyJ5xOmrQETFIC2RNHmsxYb4qFWkn
+ z0NWpb4NN79_sF4tMOFHmscy52uJcYyOw4l.5nk7gRPZvN6gnNEToTP2laZ7DpkjMpVbIjQZhQ2S
+ c7BZs7H9V8TJ3iEK7t465kUkYncgvsP7x_0Q1LqKYbmGRAp89P8qe6ySIpG8MWFRrNZdaVhbiUX6
+ hs_cNc6VRLAMLOqZnqQ1JToHA1fjjOPRJFMO.c4wudazDGel.GbkSL09S0OsXbyermjnHnUBqc3L
+ CF4DURQ8I_8WDIAg1Ul3v1D3buaGZ8vwpnDb0TavxKJX1PHY5kQQg5RPSIe96.xHhDbYyXsZskS.
+ 2tGt3Xd6qikNEUkC1SfpiQB7XhI8GRGnkzvbBloyHHTuscOcPGp6yKBWN.RAVuLzjrsFhlxp.xfz
+ fhpdUVKKhX403HKsYVpxRk0nPh9kjCRr7HVA79bvBJ8uFaiMyAy.Amwo8IPmRR2L47m0yvzJ8k5n
+ hfeLZEnY4ml7ExDjcHVELqhFg7.u.s19xK7CU4PXl2KjzEhEPoK3VzvV0OLyaSYQFgVcGXWu8Dxh
+ gyt_7QSuMyzH4njlPsta_UrZzypPGqF0MXZcNEye4c5_krENUcGZlfYvk5WuAjZtuiMmcLf8AS6_
+ 3c_ibu7cTxfYDj8MzTvX2Z5CrcRG8gG9V2tRiJoqn_Fp00oVuZyPGFbhv.pNYpcooxGHqLhZH_3v
+ HnWlF2vme0S79RTU5TgywsXa5ZJJk1n62c4rTIGuVvO.jPQ6IVa.nJY4qDLrBZ.OkeNxSuBs2_xz
+ qRBDEFGH__QBofWN4ubXg.Jv3T90zg1EQH.f0mOijBthFuXkNuwijLGTrcSaDGujURGfnA6wkGSA
+ ficVovn2Tg9jEMG4LXiiAhgup4uEN_93G7Z0o1u5pODTUmBl3SGumKCTBTS9TYDzUmKjfe3nqNEA
+ Dd68aYr.zoPYmePM4FoWyP8mZipJPesZNLImOGBByAHyT_s_CdwnkKyKgATESNLf5oMQnZTFIAKX
+ tocIUH23tck5wRhghvNXpcx.dh0PwLWjhDMMDhibPQ_i2mxCxd_gg9ylxTAIx84bt.o_Bvt.wj4L
+ BLkep0xkCTxCiu_amC1fQikQeNP1q8Ayomgm7OaiQX3gfBGVMzfocAdS1NpBdcCPZUT4aoqodwNr
+ W.AhmKWb3Cp.m_SSU48acs91u8D9nHu3tCFrxAnQfCjT.E1N30WEL3sVI1oEG.0pI8R4kl4wJ2d_
+ cCtCxBIlULks9Od7wCgUZfu3aV0erVVkpT1ceP5YB7Mowm6IctDrwa.2En678RDp6CH6JE8G7KYK
+ bmm6Nd82UsGZQoijDZFX0fcg0SVFEUzI2sN182_ZGXbZetJlmM9LHFewvM2A_63uaDJdUqLKEq8V
+ l8ToSIkvFUogjdSKzOlGpZ6YveC7FrA8_IJtsT4xzcT_emvCqLX19qFqSEdNZCwXyH1YcCIfunlD
+ s5RB5el2jJoGxL5reJLCNGUAQ0LxzAKZcOTf8A6F2dZib1vKiKgqCmrB5zJUBJn8DEdSO4nv7j0U
+ YTGpnI_wJUY5ZP1QvLy5XV.6GJn2Tza8FphBxvBAQ_A0qqVuN7spv
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 0822242f-9a67-4e9d-8d30-a33802e97ef2
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic301.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:08:03 +0000
+Received: by hermes--production-ir2-7c4859dc89-lmzdv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID ded1ae81206ae672981e969624c3da8a;
+          Fri, 20 Nov 2026 00:07:58 +0000 (UTC)
+Message-ID: <f11a35e0-fda5-4582-8b2c-6c9595a6e5e0@yahoo.com>
+Date: Fri, 20 Nov 2026 01:07:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,92 +84,426 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-ktd202x-et6326-v3-2-98b836b1cddc@telaak.dev>
-References: <20261119-ktd202x-et6326-v3-0-98b836b1cddc@telaak.dev>
-In-Reply-To: <20261119-ktd202x-et6326-v3-0-98b836b1cddc@telaak.dev>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
- Griffin Kroah-Hartman <griffin@kroah.com>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Apitzsch?= <git@apitzsch.eu>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-hardening@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-doc@vger.kernel.org, stable@vger.kernel.org, 
- Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795133254; l=1981;
- i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=Q+4DpaSvY1AxhEa3mUDe02kBvFBM51CNN8lmDli4tPM=;
- b=ca/I6iY8wF50z9SzInW1G9cmH6hrhhaStUcyFzSzdJ3FD7Yfa6a9VN8dcZIUFO57fA2SzgJKd
- Z0jZWSWY004CwCEq3N4cp5O/x3p0WeEo8dpZbqxD3aUv+mRFujKwN1m
-X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
- pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
-X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
- auth_id=1404
-X-Original-From: Joseph Telaak <joseph@telaak.dev>
-Reply-To: joseph@telaak.dev
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v12 11/13] net: dsa: realtek: rtl8365mb: refactor L2
+ MAC handling
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+Content-Language: pl
+In-Reply-To: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-From: Joseph Telaak <joseph@telaak.dev>
+Add L2 MAC pack/unpack helpers and use them in the family C
+serializers instead of open-coding the byte packing, since the layout
+of the MAC address words is the same for both families. The now unused
+per-field MAC masks are dropped.
 
-The LED array is allocated for the number of child nodes, but
-ktd202x_chip_in_use() walks it up to num_leds, the number of channels of
-the chip. With fewer LEDs in the device tree than channels, for example
-two LEDs on a KTD2026, it reads past the end of the allocation and the
-__counted_by() annotation hides that from the bounds checkers.
+Rename the family C serializers to rtl8365mb_c_l2_*(), export them and
+reach them through function pointers in struct rtl8365mb_family_info,
+so that a following patch can add the family D layout without touching
+the family C code again.
 
-Allocate one entry per channel.
+No functional change.
 
-Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Tested-by: Stanislaw Pal <kuncy7@gmail.com>
+Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/leds/rgb/leds-ktd202x.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ drivers/net/dsa/realtek/rtl8365mb.h      |   7 ++
+ drivers/net/dsa/realtek/rtl8365mb_l2.c   | 125 +++++++++++------------
+ drivers/net/dsa/realtek/rtl8365mb_l2.h   |  12 +++
+ drivers/net/dsa/realtek/rtl8365mb_main.c |   5 +
+ 4 files changed, 83 insertions(+), 66 deletions(-)
 
-diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
-index 539cf425cdb7..e7e44d5612a7 100644
---- a/drivers/leds/rgb/leds-ktd202x.c
-+++ b/drivers/leds/rgb/leds-ktd202x.c
-@@ -537,6 +537,7 @@ static int ktd202x_probe(struct i2c_client *client)
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index c59e657..9a69e85 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -13,6 +13,8 @@ struct dsa_switch;
+ struct netlink_ext_ack;
+ struct rtl8365mb_jam_tbl_entry;
+ struct rtl8365mb_vlan4k;
++struct rtl8365mb_l2_uc;
++struct rtl8365mb_l2_mc;
+ 
+ struct rtl8365mb_family_info {
+ 	enum rtl8365mb_family family;
+@@ -31,6 +33,11 @@ struct rtl8365mb_family_info {
+ 	int (*vlan_pvid_port_set)(struct dsa_switch *ds, int port, u16 vid,
+ 				  struct netlink_ext_ack *extack);
+ 	int (*vlan_pvid_port_clear)(struct dsa_switch *ds, int port, u16 vid);
++	size_t l2_entry_size;
++	void (*l2_data_to_uc)(const u16 *data, struct rtl8365mb_l2_uc *uc);
++	void (*l2_uc_to_data)(const struct rtl8365mb_l2_uc *uc, u16 *data);
++	void (*l2_data_to_mc)(const u16 *data, struct rtl8365mb_l2_mc *mc);
++	void (*l2_mc_to_data)(const struct rtl8365mb_l2_mc *mc, u16 *data);
+ };
+ 
+ const struct rtl8365mb_family_info *
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.c b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+index 0494d8a..cd5b333 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_l2.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+@@ -6,18 +6,11 @@
+ 
+ #include <linux/etherdevice.h>
+ 
++#include "rtl8365mb.h"
+ #include "rtl8365mb_l2.h"
+ #include "rtl8365mb_table.h"
+ #include <linux/regmap.h>
+ 
+-#define RTL8365MB_L2_ENTRY_SIZE			6
+-
+-#define RTL8365MB_L2_UC_D0_MAC5_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D0_MAC4_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_UC_D1_MAC3_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D1_MAC2_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_UC_D2_MAC1_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D2_MAC0_MSK		GENMASK(15, 8)
+ #define RTL8365MB_L2_UC_D3_VID_MSK		GENMASK(11, 0)
+ #define RTL8365MB_L2_UC_D3_IVL_MSK		GENMASK(13, 13)
+ #define RTL8365MB_L2_UC_D3_PORT_EXT_MSK	GENMASK(15, 15)
+@@ -36,12 +29,6 @@
+ #define RTL8365MB_L2_UC_D5_FWD_PRI_MSK		GENMASK(4, 4)
+ #define RTL8365MB_L2_UC_D5_STATIC_MSK		GENMASK(5, 5)
+ 
+-#define RTL8365MB_L2_MC_D0_MAC5_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D0_MAC4_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_MC_D1_MAC3_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D1_MAC2_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_MC_D2_MAC1_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D2_MAC0_MSK		GENMASK(15, 8)
+ #define RTL8365MB_L2_MC_D3_VID_MSK		GENMASK(11, 0)
+ #define RTL8365MB_L2_MC_D3_IVL_MSK		GENMASK(13, 13)
+ #define RTL8365MB_L2_MC_D3_MBR_HI1_MSK		GENMASK(15, 14)
+@@ -131,16 +118,29 @@ struct rtl8365mb_l2_mc {
+ 	bool igmp_asic;
+ };
+ 
+-static void rtl8365mb_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc)
++static void rtl8365mb_l2_mac_to_data(const u8 *m, u16 *data)
++{
++	data[0] = (m[4] << 8) | m[5];
++	data[1] = (m[2] << 8) | m[3];
++	data[2] = (m[0] << 8) | m[1];
++}
++
++static void rtl8365mb_l2_data_to_mac(const u16 *data, u8 *m)
++{
++	m[5] = data[0] & 0xff;
++	m[4] = data[0] >> 8;
++	m[3] = data[1] & 0xff;
++	m[2] = data[1] >> 8;
++	m[1] = data[2] & 0xff;
++	m[0] = data[2] >> 8;
++}
++
++void rtl8365mb_c_l2_data_to_uc(const u16 *data,
++			       struct rtl8365mb_l2_uc *uc)
  {
- 	struct device *dev = &client->dev;
- 	struct ktd202x *chip;
-+	unsigned long num_leds;
- 	int count;
+ 	u32 val;
+ 
+-	uc->key.mac_addr[5] = FIELD_GET(RTL8365MB_L2_UC_D0_MAC5_MSK, data[0]);
+-	uc->key.mac_addr[4] = FIELD_GET(RTL8365MB_L2_UC_D0_MAC4_MSK, data[0]);
+-	uc->key.mac_addr[3] = FIELD_GET(RTL8365MB_L2_UC_D1_MAC3_MSK, data[1]);
+-	uc->key.mac_addr[2] = FIELD_GET(RTL8365MB_L2_UC_D1_MAC2_MSK, data[1]);
+-	uc->key.mac_addr[1] = FIELD_GET(RTL8365MB_L2_UC_D2_MAC1_MSK, data[2]);
+-	uc->key.mac_addr[0] = FIELD_GET(RTL8365MB_L2_UC_D2_MAC0_MSK, data[2]);
++	rtl8365mb_l2_data_to_mac(data, uc->key.mac_addr);
+ 	uc->key.efid = FIELD_GET(RTL8365MB_L2_UC_D4_EFID_MSK, data[4]);
+ 	uc->key.vid = FIELD_GET(RTL8365MB_L2_UC_D3_VID_MSK, data[3]);
+ 	uc->key.ivl = FIELD_GET(RTL8365MB_L2_UC_D3_IVL_MSK, data[3]);
+@@ -161,23 +161,13 @@ static void rtl8365mb_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc)
+ 	uc->is_static = FIELD_GET(RTL8365MB_L2_UC_D5_STATIC_MSK, data[5]);
+ }
+ 
+-static void rtl8365mb_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data)
++void rtl8365mb_c_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc,
++			       u16 *data)
+ {
+ 	u32 val;
+ 
+-	memset(data, 0, RTL8365MB_L2_ENTRY_SIZE * 2);
+-	data[0] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D0_MAC5_MSK, uc->key.mac_addr[5]);
+-	data[0] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D0_MAC4_MSK, uc->key.mac_addr[4]);
+-	data[1] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D1_MAC3_MSK, uc->key.mac_addr[3]);
+-	data[1] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D1_MAC2_MSK, uc->key.mac_addr[2]);
+-	data[2] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D2_MAC1_MSK, uc->key.mac_addr[1]);
+-	data[2] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D2_MAC0_MSK, uc->key.mac_addr[0]);
++	memset(data, 0, RTL8365MB_C_L2_ENTRY_SIZE * 2);
++	rtl8365mb_l2_mac_to_data(uc->key.mac_addr, data);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_UC_D3_VID_MSK, uc->key.vid);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_UC_D3_IVL_MSK, uc->key.ivl);
+ 
+@@ -200,16 +190,12 @@ static void rtl8365mb_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data)
+ 	data[5] |= FIELD_PREP(RTL8365MB_L2_UC_D5_STATIC_MSK, uc->is_static);
+ }
+ 
+-static void rtl8365mb_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc)
++void rtl8365mb_c_l2_data_to_mc(const u16 *data,
++			       struct rtl8365mb_l2_mc *mc)
+ {
+ 	u32 val;
+ 
+-	mc->key.mac_addr[5] = FIELD_GET(RTL8365MB_L2_MC_D0_MAC5_MSK, data[0]);
+-	mc->key.mac_addr[4] = FIELD_GET(RTL8365MB_L2_MC_D0_MAC4_MSK, data[0]);
+-	mc->key.mac_addr[3] = FIELD_GET(RTL8365MB_L2_MC_D1_MAC3_MSK, data[1]);
+-	mc->key.mac_addr[2] = FIELD_GET(RTL8365MB_L2_MC_D1_MAC2_MSK, data[1]);
+-	mc->key.mac_addr[1] = FIELD_GET(RTL8365MB_L2_MC_D2_MAC1_MSK, data[2]);
+-	mc->key.mac_addr[0] = FIELD_GET(RTL8365MB_L2_MC_D2_MAC0_MSK, data[2]);
++	rtl8365mb_l2_data_to_mac(data, mc->key.mac_addr);
+ 	/* key.vid,key.fid shares the same memory space */
+ 	mc->key.vid = FIELD_GET(RTL8365MB_L2_MC_D3_VID_MSK, data[3]);
+ 	mc->key.ivl = FIELD_GET(RTL8365MB_L2_MC_D3_IVL_MSK, data[3]);
+@@ -228,17 +214,13 @@ static void rtl8365mb_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc)
+ 	mc->igmp_asic = FIELD_GET(RTL8365MB_L2_MC_D5_IGMP_ASIC_MSK, data[5]);
+ }
+ 
+-static void rtl8365mb_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data)
++void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
++			       u16 *data)
+ {
+ 	u32 val;
+ 
+-	memset(data, 0, RTL8365MB_L2_ENTRY_SIZE * 2);
+-	data[0] |= FIELD_PREP(RTL8365MB_L2_MC_D0_MAC5_MSK, mc->key.mac_addr[5]);
+-	data[0] |= FIELD_PREP(RTL8365MB_L2_MC_D0_MAC4_MSK, mc->key.mac_addr[4]);
+-	data[1] |= FIELD_PREP(RTL8365MB_L2_MC_D1_MAC3_MSK, mc->key.mac_addr[3]);
+-	data[1] |= FIELD_PREP(RTL8365MB_L2_MC_D1_MAC2_MSK, mc->key.mac_addr[2]);
+-	data[2] |= FIELD_PREP(RTL8365MB_L2_MC_D2_MAC1_MSK, mc->key.mac_addr[1]);
+-	data[2] |= FIELD_PREP(RTL8365MB_L2_MC_D2_MAC0_MSK, mc->key.mac_addr[0]);
++	memset(data, 0, RTL8365MB_C_L2_ENTRY_SIZE * 2);
++	rtl8365mb_l2_mac_to_data(mc->key.mac_addr, data);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_MC_D3_VID_MSK, mc->key.vid);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_MC_D3_IVL_MSK, mc->key.ivl);
+ 
+@@ -283,17 +265,20 @@ int rtl8365mb_l2_get_next_uc(struct realtek_priv *priv, u16 *addr, int port,
+ 			     struct realtek_fdb_entry *entry)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc;
  	int ret;
  
-@@ -544,10 +545,14 @@ static int ktd202x_probe(struct i2c_client *client)
- 	if (!count || count > KTD202X_MAX_LEDS)
- 		return dev_err_probe(dev, -EINVAL, "Incorrect number of leds (%d)", count);
- 
--	chip = devm_kzalloc(dev, struct_size(chip, leds, count), GFP_KERNEL);
-+	num_leds = (unsigned long)i2c_get_match_data(client);
++	fi = rtl8365mb_get_family_info(priv);
 +
-+	/* Loops over the LEDs go up to the number of channels, not of child nodes */
-+	chip = devm_kzalloc(dev, struct_size(chip, leds, num_leds), GFP_KERNEL);
- 	if (!chip)
- 		return -ENOMEM;
- 
-+	chip->num_leds = num_leds;
- 	chip->dev = dev;
- 	i2c_set_clientdata(client, chip);
- 
-@@ -562,8 +567,6 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_ADDR_NEXT_UC_PORT,
+-				    port, data, RTL8365MB_L2_ENTRY_SIZE);
++				    port, data, fi->l2_entry_size);
  	if (ret)
  		return ret;
  
--	chip->num_leds = (unsigned long)i2c_get_match_data(client);
--
- 	chip->regulators[0].supply = "vin";
- 	chip->regulators[1].supply = "vio";
- 	ret = devm_regulator_bulk_get(dev, ARRAY_SIZE(chip->regulators), chip->regulators);
-
+-	rtl8365mb_l2_data_to_uc(data, &uc);
++	fi->l2_data_to_uc(data, &uc);
+ 
+ 	ether_addr_copy(entry->mac_addr, uc.key.mac_addr);
+ 	entry->vid = uc.key.vid;
+@@ -307,6 +292,7 @@ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+ 			u16 efid, u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -326,13 +312,14 @@ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+ 	uc.is_static = true;
+ 	/* age greater than 0 adds/updates entries */
+ 	uc.age = 1;
+-	rtl8365mb_l2_uc_to_data(&uc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_uc_to_data(&uc, data);
+ 
+ 	/* add the new entry or update an existing one */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	/* Assume the missing new entry as the table is full */
+ 	if (ret == -ENOENT)
+@@ -347,6 +334,7 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 			u16 efid, u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -358,7 +346,8 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 	uc.key.vid = vid;
+ 	/* age 0 deletes the entry */
+ 	uc.age = 0;
+-	rtl8365mb_l2_uc_to_data(&uc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_uc_to_data(&uc, data);
+ 
+ 	/* it looks like the switch will always add/update the entry,
+ 	 * even when age is 0 or uc.key did not match an existing entry,
+@@ -368,7 +357,7 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	if (ret == -ENOENT) {
+ 		dev_dbg(priv->dev, "%s: %pM vid=%d efid=%d missing\n",
+@@ -451,6 +440,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 			u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_mc mc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -463,16 +453,17 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 	 */
+ 	mc.member |= BIT(port);
+ 	mc.is_static = 1;
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* First look for an existing entry (to get existing port members) */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, &addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_MAC, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	if (!ret) {
+ 		/* There is already an entry... */
+-		rtl8365mb_l2_data_to_mc(data, &mc);
++		fi->l2_data_to_mc(data, &mc);
+ 		dev_dbg(priv->dev,
+ 			"%s: found %pM addr=%d member=0x%x igmpidx=0x%x %s\n",
+ 			__func__, mac_addr, addr, mc.member, mc.igmpidx,
+@@ -487,7 +478,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 			mc.is_static = 1;
+ 		}
+ 
+-		rtl8365mb_l2_mc_to_data(&mc, data);
++		fi->l2_mc_to_data(&mc, data);
+ 	} else if (ret == -ENOENT) {
+ 		/* New entry, no need to update data again as it already
+ 		 * includes the member.
+@@ -508,7 +499,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	/* Assume the missing new entry as the table is full */
+ 	if (ret == -ENOENT)
+@@ -522,6 +513,7 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 			u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_mc mc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -529,13 +521,14 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 	memcpy(mc.key.mac_addr, mac_addr, ETH_ALEN);
+ 	mc.key.vid = vid;
+ 	mc.key.ivl = true;
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* First look for an existing entry (to get existing port members) */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, &addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_MAC, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	if (ret == -ENOENT) {
+ 		dev_dbg(priv->dev, "%s: %pM vid=%d missing\n",
+ 			__func__, mac_addr, vid);
+@@ -547,7 +540,7 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 		/* Return on any other error */
+ 		return ret;
+ 
+-	rtl8365mb_l2_data_to_mc(data, &mc);
++	fi->l2_data_to_mc(data, &mc);
+ 	dev_dbg(priv->dev,
+ 		"%s: found %pM addr=%d member=0x%x igmpidx=0x%x %s\n",
+ 		__func__, mac_addr, addr, mc.member, mc.igmpidx,
+@@ -565,12 +558,12 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 		mc.fwd_pri = 0;
+ 		mc.igmp_asic = 0;
+ 	}
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* update the existing entry. */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	return ret;
+ }
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.h b/drivers/net/dsa/realtek/rtl8365mb_l2.h
+index 9470cf0..a9f9ae4 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_l2.h
++++ b/drivers/net/dsa/realtek/rtl8365mb_l2.h
+@@ -12,6 +12,18 @@
+ 
+ #include "realtek.h"
+ 
++#define RTL8365MB_C_L2_ENTRY_SIZE		6
++/* Highest L2 entry size of any supported chip, used for sizing */
++#define RTL8365MB_L2_ENTRY_SIZE			RTL8365MB_C_L2_ENTRY_SIZE
++
++struct rtl8365mb_l2_uc;
++struct rtl8365mb_l2_mc;
++
++void rtl8365mb_c_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc);
++void rtl8365mb_c_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data);
++void rtl8365mb_c_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc);
++void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data);
++
+ int rtl8365mb_l2_get_next_uc(struct realtek_priv *priv, u16 *addr, int port,
+ 			     struct realtek_fdb_entry *entry);
+ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index 50ba2fa..b83e393 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -798,6 +798,11 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.vlan_port_reset_pvid = rtl8365mb_c_vlan_port_reset_pvid,
+ 	.vlan_pvid_port_set = rtl8365mb_c_vlan_pvid_port_set,
+ 	.vlan_pvid_port_clear = rtl8365mb_c_vlan_pvid_port_clear,
++	.l2_entry_size = RTL8365MB_C_L2_ENTRY_SIZE,
++	.l2_data_to_uc = rtl8365mb_c_l2_data_to_uc,
++	.l2_uc_to_data = rtl8365mb_c_l2_uc_to_data,
++	.l2_data_to_mc = rtl8365mb_c_l2_data_to_mc,
++	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+ };
+ 
+ /**
 -- 
-Git-155)
-
+2.53.0
 
