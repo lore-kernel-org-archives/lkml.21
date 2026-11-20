@@ -1,60 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.98
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198184;
-	b=H/QBC4jFTpLkuyKojv9b6H88oCWxF0thE8CLF586K857NTcW6O0Ne0T4wWHStXY+S7J1
-	 YkLHIEdjslBkDylASPNHGZ1Mt6bKjNXiezAbnRfhTdB3cnTsOscgnM3UJvwyVzx/4adnK
-	 NsYxQ6DWS7ANV2GDE7h/IFCItowUR4wj+jqPZgSsFFOQA0nnyXe1OMdogsR+28p1WJSWB
-	 W740yVZ9bwwBaAJC2C9Cwl4fKKJMlEdQf0yaPgV8OdANFDfze+YVB5hhF17GlpO+x1yML
-	 llV5e0HPSVrn+CkeaV/5hA82h6Ua38l3YmOMQWEcJeX5pokNC/3RICneLm6HBkajPkA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198184;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=zResQ5ZFMg/74d81DhEnv17MvM7X6Q7FueU5zTYSKMY=;
-	b=RVW880E0UvAO9Hc0V86Hh02cQdbSbqXCzDHTkTobXMlzhj/5jMYNYkpJf9PnACQgW4Lu
-	 td5rsHiMO8YE05MXmfOqN0Ra2iBykGexwSLgVUnwuvcpfe72LWyfMHev43nWOvw37Z1ba
-	 EBandaILfi5PgdjJHSQFWOKjJb2oxeQ6TeoR1A2YaNr6U7hi8P46A2JpWRurjtkYu/nlX
-	 pMEtw6An7WFkjPi56TIzUZZdWb4XfC+vmsSF2MVfT7DcE44j8YPwME93Hv/RZ7nfryxDp
-	 yP1WGW7TkY+ZhV2eyjxnF7G4p/c7aykf3u7SP525oFvr2jivschG/KcbutxSIHice/Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=gl467aguv5ev5iqs2hsem64xuu.protonmail2 header.b=GU0CcjcQ;
-	arc=none smtp.remote-ip=79.135.106.98
-Received: from mail-10698.protonmail.ch (mail-10698.protonmail.ch [79.135.106.98])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795198181;
+	b=YIp6t0DbV00bTrPWqT6I5TJyZvtycIOGHNGDma3wrCBDWvvV20jfmeRbqW8U3SNWa2wr
+	 8baYh3usFU5x4T8oSvsi5sqmNJlkmIYIb5tuO/45xaQMqyZbir+1Phqme+SQe0GQtxKNJ
+	 FggVVfa7nwGuD7RqCsMPS8pnzbhlrEgg9smAHxIbFjmWOSbndCOqFPY5hnwQa0/EBJ29N
+	 0bJRs8e6tNoRWYw67vBkDWLzE0r7q7ukGd149h5LdKtF77CEFzZd9ELrfFnf36UkZ5OTe
+	 +CTyprXDHFEwtFf4nPbT4py6Wol4vVxylQaBRoWRlOaAahi4p9Pfg9iGLuYSFLYxDgw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198181;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=1fr3kKexKN6/LyygAXFTIEKl3iK6RW/c/i9QMIazwjQ=;
+	b=upXSeXyqBFelDul301orJ/tpFRMS1psrJD2jFN6A53nAym3Z71UjzqPojyUybWDdhYHx
+	 UwXRNh+w7nGWrC1oruocckE1VHd6nEPb4dKg1WAztFwzCAMQXOKct3dk+GUlrRh1N+8Dj
+	 fUEycAzdgGAP5fRx08FNQiFNsq07VC9ZvS37vZHGg8oVlBh4q1D+Z2x+pyrBzAg+vLTon
+	 PKMpMP3krGy81IpJGrYEWrjTvekZoy2UukiKPyWSfYSezrcW3jkKTFNkffq8dJKPzhvWq
+	 qe/SDF4ZbXy3nKBvLx4F0ngL+wr8ijKbSiiPNblOrtAecZujmSJlFufu1xug2TnoQxw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="QQNLjO/A";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF9B160A2623;
+	Fri, 20 Nov 2026 18:09:41 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQNLjO/A
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795198181;
+	b=tkiLDR64Na+wfBYnDDJfn/s65Xoq4YHJXxEtveXrL44aO389zZsTNok1N/T5436mVSEb
+	 bByGx6wIDb9CGV3/JSH+Wm1imk5zraEBJJ3N1yuOr8m7PC8znYXB0HoSSceV9miRHaqxs
+	 ouFl4IIBp/UnAJXocV/a+vUcobCMPAAbaB3yzbMBRrL+bDs3jYnHpMG83Gz8BK5ebEmdW
+	 mvzzykZWFNTWO/DF2e130R1RXtn19B4f9xNsx2HK7ZcGxuDdl19n240uFr44ZBsGjOIpP
+	 fcdwBf+jo3QtakTfrNAj2IqI1N09DEjzT7ZZlcFGz+HgRT89VKLs8sRqmrglBihTVQA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795198181;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=1fr3kKexKN6/LyygAXFTIEKl3iK6RW/c/i9QMIazwjQ=;
+	b=yJPlilkdB/Uj5DREtZqIp2hjevTLMFgw4oq7ikPSj8i5EwL4zksYFFJojvT+EPdqwwYp
+	 IppHn8JHeMS11QdAfFuneOzoWUYf6kVAWwCuLYvOS7UICk0mTqowAdg1vFSelayMo0DdD
+	 D5+pWM5+YUV8M3/ijc+9Ia18x7A5ygBjxTD/Op62zKwhn+75hmUn6EIgwl9xvi8hWVpze
+	 TPd18IJatsu8IYVR5nAYcQObokxpeYbztF8XWpIDJUtZETWAv9p4ZAfmaOIJTfp7xArgX
+	 baXo5mbCEOC+nxUjkdnTnIMz0f84iXiVdcKQjCC2FWigWidSPT6t/1/2is3HnvkK54Q==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE79B60A2603
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:09:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE79B60A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=gl467aguv5ev5iqs2hsem64xuu.protonmail2 header.b=GU0CcjcQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=gl467aguv5ev5iqs2hsem64xuu.protonmail2; t=1795198181;
-	x=1795457381; bh=zResQ5ZFMg/74d81DhEnv17MvM7X6Q7FueU5zTYSKMY=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=GU0CcjcQG8ylfbomRVopPquWwjR/Se0fAhQAkCsKeiRhYP5i5gtVT3cmFCbgMTt9c
-	 LOJiM/a0euW5IUfsnXqjfYRcUH4bd3YpFhk+IfIP/mPEtOJZJuRqFWE+aSBq3i5Tka
-	 2BJUKkvkYtytCkszT9yE5klqJPadwAL3AuBcZXwb9LPN26dDWjnhGFmJeFdBwfoy/y
-	 5olxgaZ4Fl1MfqgqljgGoR+i+qqL5xmHG2S85mPIAZ9jcYkwCz66p1gOwwlxPcP2DO
-	 ik94CnNb/YQN1al2hveGdvAJu8mQi5iI8Jl++KkbQjTXo85giR0Th21jKs0KXdxwtG
-	 ukoLqhZV6brSA==
-Date: Fri, 20 Nov 2026 18:09:35 +0000
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-From: "armandas.kvietkus" <armandas.kvietkus@proton.me>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Elgin Perumbilly <elgin.perumbilly@siliconsignals.io>, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v5 0/2] media: i2c: Samsung S5K3T2 image sensor
-Message-ID: <n9KhEjcupYPV3bWTkYxQ7HeEpYlqJh_SNsFRzgdw_aRJ6FxhfOx08ZCBNjERg_S6P7K3Fu9F__f8f7O3fh8vXQ7SxZbLYk0VrA3V7vhDbFw=@proton.me>
-In-Reply-To: <av9wGCsEhX-kIW9H@kekkonen.localdomain>
-References: <20261117-upstream-s5k3t2-v5-0-1f7f5fde9e2a@proton.me> <av9wGCsEhX-kIW9H@kekkonen.localdomain>
-Feedback-ID: 164226125:user:proton
-X-Pm-Message-ID: 86d5e5f045ece75d1abeddd62650a96a8fbcf9b0
+	by smtp.kernel.org (Postfix) with ESMTPS id AE0CC1F000EB;
+	Fri, 20 Nov 2026 18:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795198181;
+	bh=1fr3kKexKN6/LyygAXFTIEKl3iK6RW/c/i9QMIazwjQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=QQNLjO/AGEsdVDWq/dxgiR6dej4HbQKtukVFuY5he60ufYSkQ1oWWGrbr1rhQU54D
+	 /775ZjzZXOCikDHf0Qn0ql775/A3AFaDGXWoutbch5nBfzJ9EIEB0YANrWDLwDgF8S
+	 ufK73d4VtcQElmApOr8vrZ0hi9k0iL1jk8BKWjSwYk0SQNL63IIbpyL5bhx1bp6/6L
+	 7+z4wghYetMtR9Iwg+jjugoUPGW5/mQCSY/+ez08D5sqhOY0EZiYyMDEQBptn3H3e/
+	 wb6hlndjcyVPT6dpGbnytedZGUR5LEhFo2eJndfduqG5SjE1DrZkOpPkmmnrnN1+jq
+	 aCg9VKf5kd2Ng==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 7ECCF4B8D1;
+	Fri, 20 Nov 2026 18:09:17 +0000 (UTC)
+From: Gregory Price via B4 Relay <devnull+gourry.gourry.net@kernel.org>
+Date: Fri, 20 Nov 2026 13:08:55 -0500
+Subject: [PATCH 04/60] mm/page_alloc: build zonelists from common memory
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,23 +82,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-private_nodes_v6-v1-4-74f5f9a115c2@gourry.net>
+References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
+In-Reply-To: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
+To: Yury Norov <yury.norov@gmail.com>, 
+ Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
+ David Hildenbrand <david@kernel.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Michal Hocko <mhocko@suse.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Oscar Salvador <osalvador@suse.de>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Suren Baghdasaryan <surenb@google.com>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Johan Hovold <johan@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
+ Rakie Kim <rakie.kim@sk.com>, Ying Huang <ying.huang@linux.alibaba.com>, 
+ Matthew Brost <matthew.brost@intel.com>, Byungchul Park <byungchul@sk.com>, 
+ Alistair Popple <apopple@nvidia.com>, SJ Park <sj@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Kees Cook <kees@kernel.org>, 
+ Kairui Song <kasong@tencent.com>, Barry Song <baohua@kernel.org>, 
+ Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+ Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+ Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Michal Hocko <mhocko@kernel.org>, David Rientjes <rientjes@google.com>, 
+ Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, 
+ Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, 
+ Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, 
+ Xu Xin <xu.xin@linux.dev>, Chengming Zhou <chengming.zhou@linux.dev>, 
+ Lorenzo Stoakes <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>, 
+ Jann Horn <jannh@google.com>, Chris Li <chrisl@kernel.org>, 
+ Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>, 
+ Youngjun Park <youngjun.park@lge.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, 
+ Waiman Long <longman@redhat.com>, Ridong Chen <ridong.chen@linux.dev>, 
+ Tejun Heo <tj@kernel.org>, 
+ =?utf-8?q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>, 
+ Dan Williams <djbw@kernel.org>, Vishal Verma <vishal.l.verma@intel.com>, 
+ Dave Jiang <dave.jiang@intel.com>, 
+ Alison Schofield <alison.schofield@intel.com>, 
+ Shuah Khan <shuah@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+ linux-cxl@vger.kernel.org, linux-doc@vger.kernel.org, 
+ driver-core@lists.linux.dev, damon@lists.linux.dev, 
+ linux-pm@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
+ linux-kselftest@vger.kernel.org, "Gregory Price (Meta)" <gourry@gourry.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795198152; l=2108;
+ i=gourry@gourry.net; s=20261120; h=from:subject:message-id;
+ bh=hYnZoxMJ3yP49nfY0PYkTWJ6krAi0Bs8xOcweeGlZSI=;
+ b=0+ENTTd09K3orEMzSi6wiR5qOFJD5dDrUYY3xdoPrBK5gY7zLwZQW1DS5dBPmSiXPxJfW0mkv
+ 12JJVCclp0MC6jQLSgCNEVIyNSUniufk9x/6ovTQjJziND5MyE5ogoK
+X-Developer-Key: i=gourry@gourry.net; a=ed25519;
+ pk=BZWDlx4htkR5KcvGjGtSDfx1tM0E5dlyBR43FEhjWVc=
+X-Endpoint-Received: by B4 Relay for gourry@gourry.net/20261120 with
+ auth_id=1586
+X-Original-From: "Gregory Price (Meta)" <gourry@gourry.net>
+Reply-To: gourry@gourry.net
+Content-Transfer-Encoding: 7bit
 
-Hi Sakari,
+From: "Gregory Price (Meta)" <gourry@gourry.net>
 
-On Thu, Nov 19, 2026 at 11:54:32PM +0200, Sakari Ailus wrote:
-> I don't remember whether this was discussed earlier, but link frequency
-> determines which modes are available, even in a register list based drive=
-r.
+Zonelists decide which nodes an allocation can reach.
 
-Thanks, that answers my question from v3. In v6 the link frequency
-control is writable, and only the modes for the selected frequency are
-offered.
+The fallback lists hold every node in N_MEMORY, and a node's
+__GFP_THISNODE list holds its own zones whatever the node's state.
 
-v6: https://lore.kernel.org/all/20261120-upstream-s5k3t2-v6-0-dd345fa4201c@=
-proton.me/
+Ordinary allocations should reach only common (general purpose) memory.
 
-Thanks,
-Armandas
+Build the fallback zonelists from N_MEMORY_COMMON, and __GFP_THISNODE
+zonelists only for a common node.
+
+The build_local_zonelist() refactor lets us reuse the code to build
+a local-only zonelist for nodes outside the N_MEMORY_COMMON set later.
+
+Signed-off-by: Gregory Price (Meta) <gourry@gourry.net>
+---
+ mm/page_alloc.c | 23 ++++++++++++-----------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
+
+diff --git a/mm/page_alloc.c b/mm/page_alloc.c
+index ddb04b72a160..0448d04e048a 100644
+--- a/mm/page_alloc.c
++++ b/mm/page_alloc.c
+@@ -5947,17 +5947,14 @@ int find_next_best_node_in(int node, nodemask_t *used_node_mask,
+ }
+ 
+ 
+-/*
+- * Build __GFP_THISNODE zonelists
+- */
+-static void build_thisnode_zonelists(pg_data_t *pgdat)
++/* Build a local-only zonelist when this node is eligible. */
++static void build_local_zonelist(pg_data_t *pgdat, int zlidx, bool eligible)
+ {
+-	struct zoneref *zonerefs;
+-	int nr_zones;
++	struct zoneref *zonerefs =
++		pgdat->node_zonelists[zlidx]._zonerefs;
+ 
+-	zonerefs = pgdat->node_zonelists[ZONELIST_NOFALLBACK]._zonerefs;
+-	nr_zones = build_zonerefs_node(pgdat, zonerefs);
+-	zonerefs += nr_zones;
++	if (eligible)
++		zonerefs += build_zonerefs_node(pgdat, zonerefs);
+ 	zonerefs->zone = NULL;
+ 	zonerefs->zone_idx = 0;
+ }
+@@ -6001,8 +5998,12 @@ static void build_node_zonelist(pg_data_t *pgdat, const nodemask_t *candidates,
+ 
+ static void build_zonelists(pg_data_t *pgdat)
+ {
+-	build_node_zonelist(pgdat, &node_states[N_MEMORY], ZONELIST_FALLBACK);
+-	build_thisnode_zonelists(pgdat);
++	int nid = pgdat->node_id;
++
++	build_node_zonelist(pgdat, &node_states[N_MEMORY_COMMON],
++			    ZONELIST_FALLBACK);
++	build_local_zonelist(pgdat, ZONELIST_NOFALLBACK,
++			     node_state(nid, N_MEMORY_COMMON));
+ }
+ 
+ #ifdef CONFIG_HAVE_MEMORYLESS_NODES
+
+-- 
+2.56.1
+
 
