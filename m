@@ -1,20 +1,20 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.16
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.35
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197972;
-	b=4qZmnjO4dlc+JuHxp64k8oEkCSuK5qWf8kg5qA++c9QFew4SR/JrEEOy0rPB093DAdCQ
-	 aDu56D+oS2ZKGLUIJPaEh5N7KEbj32k4/Tl+sTyipISkki4uRbDOKweBE1OQF0HyTg83q
-	 p37xSFZDf2QcGNeZhzZOHgbM/JddbV3++1YCc3+nleKZcrcvODWWD0jQ0bsJPM/V0wej2
-	 sZeWNIsA46jU/Z5cdX75L8XRxDtmWx9hz4aFTD8DbeBQkKCgfHHedPM3R/jvm8EteHr3m
-	 AzAUIwHeHNvzss2Dqb4uTvFe7Yx4s22Z0vxtobac/T4yvF1cFnUoJjV20SEf+IE3dPg==
+	t=1795197995;
+	b=hPJNScizKxDF6IdTu1cor2uig4u1IHQEzYOeg41kPVkLdxIK39SFsMoDdCHEbY3lWaeF
+	 lHQMXH6F+69421Jvyh97KZBki8LyIEwBL74BwrY8OqJbnHZQhP80F30sjoireW5Xp3g+m
+	 TnmtZR3mcY9ZI7KgbKAbmec6vguLp7UmqUnPIbWYMlyvdgvxxadLb9eB2G09l+b7G6ktA
+	 Txg5W0XqWtAQMLOLHzyqTZ7BsB1maxEAXKc+VcCY05QcgT6gGgpVvNCLThANjOrYXtrmv
+	 2Mq/7m/8GDrS1HKE6GR9SD9/zQ44kT3UTKQkmwVBZOUwMr5Q34m60gX7Mv9fJjsOA/g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197972;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197995;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
@@ -24,73 +24,77 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Fkx1Jr5QRyNUCvLU1DZk373fPKJe+3ZsiI6Vpir5xtY=;
-	b=uxDzP3Wrughyi55etWkhPjDO5RbfkjY1It3ChFwVoTPWUD+Lo9d1ojEjHclaFNf9ltlH
-	 JAj1Be1+1IDM16xbb3e8JJZ0cP7t8WpT7sK3d4PskQ1jcu9AVYdbLP6ied6jfC+UtBWxm
-	 teYb8jyCrMaOF7yEoiwW7dOkbCyqvwTkbMGwqvT7x5GdWRXp2Jip+DZN4UIsEeQHPuZCq
-	 YhvB/CzJQWjT5X5y/a1bMBQ66qblnCVy4OsdLu21i06pzApDGpWULdZZZYFwJkxnWrAT7
-	 VKiixqc/5/Ytc+2FQNcbNLSqkmFk78ZV+wTdUZVc/S94yKuoNSR8MnX/JskcLqOqi+g==
+	bh=ptdOMaD+9vZV0Uu2KA6YrEAuhqi8FlfBehAYo+ruinU=;
+	b=DoTmUygrGcF5rSWdxrwsKIwwX4E+FwgoVT7TyJu76l27Yzx+M1fHtZ+lJi0KwhHzIhhR
+	 18jQfdnro00UIhNiS03d5VRxP4NCZuDvNCSmYUXFoNgs93XlgRPqtq6Nj544v6ZpurEvh
+	 eLtOaC6rPUONU4KPRtBpFZCTigo/XwaNeorZaGbQ5Hlyrc40cI4ax3LRWvT/pULTALW29
+	 /+7yA+dpljdKlpYB23TJTv5+e5xauRDtiImVg7GR/KalVOg9jy8xoa4YVYwAI28wkJKF6
+	 2RtC7Pw8wUoF+FKRowG1mf2CSgj3NJre/wURCxV1Dk2ll+AL6JFlsqRw6owbosy0Gow==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F7dgIbhx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.130.16
-Received: from MRWPR03CU001.outbound.protection.outlook.com (mail-francesouthazon11011016.outbound.protection.outlook.com [40.107.130.16])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZjpzeoEG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.35
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011035.outbound.protection.outlook.com [52.101.57.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10A5C606B108;
-	Fri, 20 Nov 2026 18:06:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10A5C606B108
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F109D606B11C;
+	Fri, 20 Nov 2026 18:06:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F109D606B11C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=F7dgIbhx
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZjpzeoEG
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NT4ZvuuJ5vbwXtnMsWbDwPysY3b2e8h8/LQDCNZBgC28iLlb7xrDT3WqwPu+uRf0QDwRiO4JjPPXr3UM/9uGqgkWSuF1A0baDz+3DNeLyQgWZgI8xJl18IHQR20oYokfN8rMLzN2dFF+NnpTeK0TYIb0Uy+cs8ehrKpA7w0km7sGl0LddxJHm/LAq1Q20xj7J+cewbq63kotGwx6zautFQRB1vuXdDIXW5oRgKU6I8v4hDYlXxjPMQcz/iAs3a09ooO92CozpNnIWLqk+heQladqWfLso5dwj1w6hg4CtYjJR6yXhfLd9RzClbNtc0Zn6V0p0sSDEtj3pttyHbnIBw==
+ b=Gih4hKNJqSWpByN0yEMQg9r60WYZNJFH8dCLe7kPPg2wYCP+abZM77mqbJzeJ7jIlN/7ziMJFPLcnA8hBRoUibpitp/9JjlaK6KZpgILNQyi6Sgkoo6QWzKSiOlczUZoxQcEpXkNRqNh2n43HTM0amW2Qly2ckS95UpBp69WFT1fvlNNhbr2xNLS0RbA3CP3hr/EzhGJM626hju2JA6z+halV/XLVaxRFTRo3Ver95uFqC0J6X8ReEgwlnEFMZoOk7ASgPShjHNZ0ecixuY3nk2j7O2m0R0PHvOfJ/3KKYqpE1OX/cmK0ZodQ1rYx3gOIkkW8jNSenSXGbQ0nsSuDw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fkx1Jr5QRyNUCvLU1DZk373fPKJe+3ZsiI6Vpir5xtY=;
- b=h+P2Tvyv+WSPLbI9alopje8GfbfhbpKlMBisxMvzQ4kYnRok4rx4vrF50qL9cSgGBPdq19rg+jAFtavHQj93LQPj8MypxkVcw491w4rq9S5Vj2LxEun5cTDZ//jZBXeY6Dq49UfMOooXk43piWcFde5w8wZ41H/aWH0kVE5Kx3SmsFesWsu5SJqyouGjmqHAoG32GirZ8WjxG1kzWpfZBfxqpVxbTB/dHyZgPiqeZnnEaIT1wkyc/iMOBymfylCi/6yHGOqAD6nNLe5Ly/nfo6sfb3mHjjYlQWZvPM4OTyJQbyNVB9o6X0/+Pvnm5L+C0dWLsmiHrK4JipDZxdPtcg==
+ bh=ptdOMaD+9vZV0Uu2KA6YrEAuhqi8FlfBehAYo+ruinU=;
+ b=UF6q2ejxPWweARPVHMnjP5bxb3wqIs4acOM6FJqXA4ZNvr+mNhFxFCslo+MahNXweQPJpELFAQWmKs26NXu48RW3vpLDkAuwhIC4WSJcoHcRF2VbgNZfpk1NKT3V1F0uNyQ9lLNkquFmml5ksau7FlVCSQ55jPZA8DXUKEMWLG9TASkh1HrkdYMvcwvWmz2dnvwR67Szayh0EZ6SsGNOXg+sgZdQFvuH/ht+1coK2xCMjoT7m1YJDduaI01BPAedgkPZHJDlTayz5S7e4OEzyMVXEbNdwEBbThnliXg4waL8L35UtkaS0CilpNiPzVRJT8aMM8TJwwok0hZEYHKCLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fkx1Jr5QRyNUCvLU1DZk373fPKJe+3ZsiI6Vpir5xtY=;
- b=F7dgIbhx1ffNQO+73z8MSmaGHnFqBt0sjmqeY9qyCI88bcBnQtY6dwV4LqeIbRSz03lfZpHPENJW8sR4Umj0ziA7Yb1/ZYwOUT6XnnnfVj4TdvIYZ224Ua5hixusbBMyLuzmEjxP3TOB/nvYRbCw44hunOHdWEenkgMArgcBvam6QNLeW9zFUiDMsDUnPYPTQJBh+hrMD9WJI4RsXPbCRg9HELLaQqk9OXq34TuCSVL5mB8+KAerkLLnfyHuxA+1a4E8vjeuWWYuPT+Sxl5pg8Af+udN7bFLRKu/1EVkKWSelQf84GJkJVOk1qogLatxJbWUGvmvhl85y8vLlOO/pw==
+ bh=ptdOMaD+9vZV0Uu2KA6YrEAuhqi8FlfBehAYo+ruinU=;
+ b=ZjpzeoEGJ4JwqoVKp9i0wv8LogufVC5x4zcvLMW3XL9oi0+y7SSgT9iQbOs7MnNZFSzTqVFf9bule5+b1UWVQvpS18b5gNAI1w5NC15bG2JVWl85ENql/ZEOz2pYAWNANBvMhBO2SA+ebiYrW0s22CGWpX+F5dK/+0p42fb3zE+E930qaIj8zYVsG2MPxx5Amt33Y2IC610Xq34lC34FJiGwvtpsM4snUY520phlLcXmWqW8kOK+Ca5wAl41WeMNpo/6f7Dftv2Prqv6I10JAKlqahSSALFF/5X3NCyUlc8wZZMTW30NUj7z1J4kywmuHvkcVGe0pZJ+aj+0bY1h0g==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by AMBPR04MB522251.eurprd04.prod.outlook.com (2603:10a6:20b:7da::16) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SA0PR12MB4367.namprd12.prod.outlook.com (2603:10b6:806:94::13)
+ by PH7PR12MB9253.namprd12.prod.outlook.com (2603:10b6:510:30d::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 18:06:07 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 18:06:07 +0000
-Date: Fri, 20 Nov 2026 12:05:57 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] dmaengine: stm32-dma3: replace hardcoded LLI size
- with aligned descriptor size
-Message-ID: <awCMBWXquRi3_WFZ@SMW015318>
-References: <20261120-dma3-fixes-v1-0-f29c1f437399@foss.st.com>
- <20261120-dma3-fixes-v1-4-f29c1f437399@foss.st.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-dma3-fixes-v1-4-f29c1f437399@foss.st.com>
-X-ClientProxiedBy: PH8PR02CA0011.namprd02.prod.outlook.com
- (2603:10b6:510:2d0::10) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
+ 2026 18:06:22 +0000
+Received: from SA0PR12MB4367.namprd12.prod.outlook.com
+ ([fe80::2815:8a95:1a44:be1c]) by SA0PR12MB4367.namprd12.prod.outlook.com
+ ([fe80::2815:8a95:1a44:be1c%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 18:06:21 +0000
+Message-ID: <0a9b34c9-32d8-4325-aaef-c358c41a9f5a@nvidia.com>
+Date: Fri, 20 Nov 2026 20:06:16 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
+ TC rule
+To: Mohsin Bashir <mohsin.bashr@gmail.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
+ cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
+References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
+ <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+ <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
+ <194e1103-0d28-45d4-986a-819955e11268@nvidia.com>
+ <acd93d7c-1e91-45f4-b178-07c6afea7fe5@gmail.com>
+Content-Language: en-US
+From: Mark Bloch <mbloch@nvidia.com>
+In-Reply-To: <acd93d7c-1e91-45f4-b178-07c6afea7fe5@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: TL2P290CA0011.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::14) To SA0PR12MB4367.namprd12.prod.outlook.com
+ (2603:10b6:806:94::13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,123 +105,241 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|AMBPR04MB522251:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9f24b6b-db1b-4284-9646-08df4730f307
+X-MS-TrafficTypeDiagnostic: SA0PR12MB4367:EE_|PH7PR12MB9253:EE_
+X-MS-Office365-Filtering-Correlation-Id: b40fe2a3-c236-4b80-2cef-08df4730fba9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|366016|23010399003|376014|1800799024|18002099003|22082099003|11063799006|56012099006|4143699003|261022075727099003|261021123027099003|261102123227099003|261009223027099003|261021121427099003|10067099003;
+	BCL:0;ARA:13230040|1800799024|7416014|376014|366016|23010399003|261022105027099003|261026140227099003|261028144727099003|11063799006|261021123027099003|56012099006|4143699003|261021121427099003|261009223027099003|10067099003|261102123227099003|18002099003|261026121527099003|6133799003|22082099003|3023799007;
 X-Microsoft-Antispam-Message-Info:
-	+vr4q2zY5zlAt+PfnIcjtst8eVUnGxcUxba7E4ygtmiVHGfjCOOPbuLHzhtxKYgkKMlh3iXQ8PrX0ZQozTFAgMkZetk0uurIfXTHa6LrGl+EvZPGJWz+ZZw0HizKd1AqYDDdv/9/xdoZYK6p9RRXhg8eVr7LqhsM3Y+6tySs0GLKTuwPMrXUmZYiqdd8oQV5+SJ+Gqhi1STVPamBp32/YoxXIhqCxIC4q4zDaPFgzCpTHJdm5KhGxsz2QU+XVcS9Sug0DRs6Xo52FyoZqkHUSKm3dS57S9Cw0E5i76jmO6oQ4ul7q7DF31FFNMELpYQaoye2eIeX8i4tStVD8tbtAwTqeoQTgKe1VTmic7UBwK29V3towzI+6jSX1m2QoiwGO/Hj9Tpn8szPac81chX8Fdyv6NBpj3MFd/qnfuafwTti/fOO+NxnDP8IeMEyuxKffMQUkUH/gioA4qU0ipfeXzQGqKCy8C+kiCn1eWUTIsfTp1b+hLMkr1e+TIUbpxkDl0MqZGIXh8EpGDXagV84G9o7CyQUqrAem/lg9cNRfwUTCI6OI7IcdVKHVXTbw8zB7ESjYiAbhEjGCcTYwbL71whe36IhoEH2+wnchcY/XmUY5DOkuECuDVql8TBYabZJYJr20UvVcXne7+PcJrPt9YHMSvP0Sqlbw5GPd0o1r1Q=
+	gkzYBvlcffYyscikb8hZTw1dcwslFdJrgDgEGgYh2ib40yWD+1opGviZsng15qgI5q3ZxZWres9NsAUrxCRydV4pW6VsXD6g/4hP1qWVds/ZmHVtXqh6oYz2m5X4ee7abgkarB2oe4sLXk4B3SSKzBGT/pADQI1takne6JdnAnB/+jMWx5UIBed7WWCANlF7jtHLNFeXiQxiDmKnM/LSnm80A2SMmG+I967m6rbZ8NXoieZkotjS5+tqN2I+rHChCgI4XI1oBFvFVa52V57lOVodylkufqV48AcsqLyPoh0SKeQd4zE3tcqMbmAeawNmbgppSY38w+0xMYuY9oDAbYTakPFdjdU4YczxaKIBha/sHO/cpeYfH+FAAV1/PuhCzvUput8vYuzADWZoGDmbyPogsSJ2bqPR0hhfgmo8ujwkVgOvrKMaVT5MdFuMlBpcLChMkPuLkJGpaizkyaqiK1U49JAisy0HzOg6+rlVuslDnVK5gnjgsRuXiZrzi8CKrm/+uqVmuYsyJc5KZzHAGldDpUAHmopSG67F5aurrrzRsRVzXRNP5zNsSTE8SPCWrnioKZPjxyM4QNXaQlNp0a2CyJUtqA8ynoZOj+FOK0scor71E3CcrUm0+r99OsC8flqu6d091eWmfjnrPB+5rnLk0JDndpUBFVTzHYQm330=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(376014)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006)(4143699003)(261022075727099003)(261021123027099003)(261102123227099003)(261009223027099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB4367.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(23010399003)(261022105027099003)(261026140227099003)(261028144727099003)(11063799006)(261021123027099003)(56012099006)(4143699003)(261021121427099003)(261009223027099003)(10067099003)(261102123227099003)(18002099003)(261026121527099003)(6133799003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?4f95sQ8sgzzYyLEe4rcBjQenNpjFRG0Ed8IN+PL1uAN9WuBMozZi/1LZTVfH?=
- =?us-ascii?Q?THLU5Vzl4WOoG7SYNdDiOTQqvFBZK/cTbJ6FiKNnYjzGP2TrSbMUydncJATn?=
- =?us-ascii?Q?BVcghsHm64xTxg4eTs4nmp6nITEtAMWa0BZeB9fBND/GuBzycrqCMJUqhYcM?=
- =?us-ascii?Q?Evsm7e8njzKKwp9lmpG6TnYVLViObhywWNHhu9aXJ6fXYGAiki7qJJqH/cDO?=
- =?us-ascii?Q?HKYrb/aApW2GpGkz5FQIjXhcn9fLwt0hVWbp/lbIhpbwpbnr/Y6+i57ym9vO?=
- =?us-ascii?Q?6NObg8yk4XCUhPlCNq5YS9yB9HX1GYRe3QMkkeDh3LR8078kc2dhR0gOC/Rv?=
- =?us-ascii?Q?A6Kc0vz5AQdEe+qq2capJGWlO8HKcnHmshYQIwVADD5b45zqW5ofZ7rbhza+?=
- =?us-ascii?Q?EyzzcohGrKysJRtOBZT1xFSnfM0e8OERbP3gsFQfBoxgM3KPh05rlwObL3Nu?=
- =?us-ascii?Q?tfuN2Xk4oSdUN+flg8YjVUDsBl7mIWbd/tQuh1YtJNBmRQi9kdhrLu89Jda2?=
- =?us-ascii?Q?gWp9YiAXj01UDtvppTpGqf+1PpUfYAxRoKTxYaZnBQ3dTH48gEPvBXRnxFMc?=
- =?us-ascii?Q?qD9VvwQblSSWlUGIVODoYH2WcIowSx4ru3YJnRFBcfUTdK+CTvZ/XtBd8bV1?=
- =?us-ascii?Q?m9ueFLR6cEH+DIcoXcyj3f5SYa4rLl18TSN53L/O39Ka0sQkopy0PZ+WBGbE?=
- =?us-ascii?Q?cnr6tfSfmqIVc9BomJm9fbtMuqM2QkowYLufnVdUREo0bYtAL26s5x9AKmiW?=
- =?us-ascii?Q?nq0cP1EwiHYflO1zbleHE1UZ+5BI6/xG66gJFrcCAb9kF2vmjJF2ksnklmdi?=
- =?us-ascii?Q?3ERk08mAAOMl39M0qHIFvtvec28CHyhV3CYneveg2G33VicAGhaRyepefM0d?=
- =?us-ascii?Q?vtYyGL+Celf/1Yr2HjTU7lZnexxK1KYfsEhDbLmUuNWmN+Z+NEfxGPgeJu0k?=
- =?us-ascii?Q?pqOwrcrWFDkaRF4MT/esUY2cuvTzP1lJ1ooXTtjqwcAfQ1UltNSwsLQfL7m0?=
- =?us-ascii?Q?bZ2nvVHVJnubGGGhcWSl4E2UL/4o0xJ7oaozFHrfAQDSxZa1CrL5dQnXIhrD?=
- =?us-ascii?Q?yKMU4ixeuSIDJYpfJp7opgkfyue8Vo9xpkjKrA/dR7e97jpNfKoAqunVDegW?=
- =?us-ascii?Q?Pgacee7AXSEi1PH64SBXr0AE00Dj15iJCA2+5UnbODHGsqY4cla2m4PiofA8?=
- =?us-ascii?Q?ZhpIK1NtnUAleIWVsPBRv8gD13JsjdaTSQphhVSdsp4OoHv3EAUX5oZGduO2?=
- =?us-ascii?Q?Kt3Pz9v8ke/Gt3Ek41HtJXiYuyf3UQSnA6rGO4Tpo2qfUyjcZwdMNPVkavu8?=
- =?us-ascii?Q?gH4hIJSHyMoOC5jw14UqeAiHnEwnK981MeR7TJfIepfrXzywziUN1oID81CM?=
- =?us-ascii?Q?a0rl0fIlOsDrcZhwF6RrPz4pzW0LL6SgUWl3PEEEKg3ywIBFyUyKPXKSSkSW?=
- =?us-ascii?Q?98/udopRpPO8vyY2IgS2v6qLCol7bdzUYmfSpbRz/MTmlOaHr5gTaA9xlsYc?=
- =?us-ascii?Q?x8bkAWyAiJPnR/l48EA+QGN1FvUliUfHgZNID5GdTq1OQcMuREafD9LCno8j?=
- =?us-ascii?Q?fRx4Yp9qqCc4eTqYLzZC8AjdLMuxkd5L2xwCrFUZWLGQ9ghS/zulYVbADqjw?=
- =?us-ascii?Q?axfrtqPq83tcIZWXVDuJY94fIQRR74pyjA5yGt1s94RrAxXoldYvH3ZDMmy7?=
- =?us-ascii?Q?eGjgHu6N4QPPF4PQY136Mh1Dk8OWPvm+BAWbDACtWO2EwwThJveTPC2v0eA+?=
- =?us-ascii?Q?mIm0N0wkRZBhgBMdsiM9z4l5IQqfcCTZr6LkMDKUCEueet3ee7x9?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9f24b6b-db1b-4284-9646-08df4730f307
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+	=?utf-8?B?b1pNa0lqaE1sZGpIdHI0WE5yUlFEQjI2aDM3YWJOMXZxVkJKT2RabGhvL1R1?=
+ =?utf-8?B?NlFhb0NnVG85OGFKZGRvd2RGWlA3MThZMUtDMUE2OWNxVGZQU1VTVFlTMGhp?=
+ =?utf-8?B?SldFZ3EydHg5b1g2c0xHbVRTU3pjY0VSYjJIOG5vYmhqbXUrc29SNks0MkR6?=
+ =?utf-8?B?ekdZelBDMVFiNEJORmdBRHV4TklVQWZlZ2VzbExudDJueVowV09nRlg3K00v?=
+ =?utf-8?B?NmpJZ1JrYlBIV201NkIwdUZGVlc0Y2dSUldrcGVnU1VUbW01M0NGWjdQaWxY?=
+ =?utf-8?B?bm5tOCtZSXFSTzY5bnZadXIrTUVLWXA4eEdzbDNwZmJpeHFMVWNUL0hqYUJO?=
+ =?utf-8?B?eE0zMnVMSUZEdVNLL0RtK05tRjQvQ2pXUmUvVndYVGdjSVNlUFZPWWk2dzFm?=
+ =?utf-8?B?THBCU1VKbFoyMFlKUUtoM3VDUDhrcXJraGdKQjZvdE9HUG9hNmQ0QTMvNjlM?=
+ =?utf-8?B?VUl0QUsxNHpqaFBNOEFaRXkzZy9MaGNjNkxaSXRpOWlMNXZCTWNtZ2hDSDJ5?=
+ =?utf-8?B?cWxrckl0UExlc3ZrOUhSNFc1R0dEZ0lqN2ZJenNqUGxqbGQxeVZjN3hBb1FF?=
+ =?utf-8?B?cjVYYTl4clgvWFVzWVkvY3dZNTdydXRvc3dIeEQxQlVWNGJPNi8rNTFhU1ho?=
+ =?utf-8?B?b1F0dzY3SUJ0NTVZTXQ3ZjdhUFU0MEZjZkRkRXhSOUNXOEpJQ0VMOEg5L1Vw?=
+ =?utf-8?B?Yjd1OGlxUXJuYng5Z2NuQnZLYVZRQ1JlNUVyZ3lsQTE2c09URXhraGNaaVZr?=
+ =?utf-8?B?eGNBdERMTE8yTy9QbXVoK3JaU3VJTlBmVVI2UU9CeGdyL1JEbDNPL3UwMjlY?=
+ =?utf-8?B?ZkRlVFA0WXdFWk8xaUtYTDFKWVRIVUFUSm9Qd1BoeGVUNllNRnFTR1Q3N3dn?=
+ =?utf-8?B?Y1hXVExITXp5clllTWoyRXQ4aFF4a3BrVDJoZHBaTnhIcmgvWXBZMjBZUlU1?=
+ =?utf-8?B?bE9QbndaL21VNHQxVUUraGdJTmxnK2VoWkF2V1lwSDNTOXMzbGFhbWpNcC9o?=
+ =?utf-8?B?enE0ZTliZFoxRURFcHNLQjBmWnh4WnNBU2wvUW9XbHdFTFArWnlWd3B4b285?=
+ =?utf-8?B?S2lxQ29JeFhMeW5OalJYb1o2bW5GRnBkT0hWNUgvQy9LMVdldjY0QVJJY2kr?=
+ =?utf-8?B?c3Z3ZXhRR21XVVBqNjRlUGdGSUoxbEFrMTNDeHhYL0xRaUNVc0Q3UUJCOHBs?=
+ =?utf-8?B?dGZDMFNHYUs5MndLZkFVRWhTK21EckFpODQ4ZitKMWlLRVFaL21VTVVlVFFw?=
+ =?utf-8?B?eFAvNnRUQmdNTjI0ZG4wVmxwbkZCZm01OEhKeXA1Ukd3SjhlSlNtZ1BIODQy?=
+ =?utf-8?B?OHhhM1lWVUJDeEFQSHRGNzZ6OVZsQTN4L1pYNHIyNnJpZE1maWRFMjkweEYz?=
+ =?utf-8?B?bTNnVkZOYklOOXZhZFFNZVEvN0xRVWhENmtmc2gyWmRUMVJnUmtSSGZVdjNJ?=
+ =?utf-8?B?L084bkVEaTlNVHFPay91bFZBbDNLWTgzK3ZxSWRMOElrRUhxNDJtcEhSTmY0?=
+ =?utf-8?B?ekRGa05BTkRPSHpUOHlTVFhHZ01BNWF1dnRoM1dqRU1PVm5HdFBGaHpMZ2NQ?=
+ =?utf-8?B?VDZwaDhyaVdEQnJKeEZqc3kvYS9DbmdCU3RRZDhYdFBCbGdLQzFwMVRaOUcw?=
+ =?utf-8?B?dEs2eVRrOFUxU3ZNVVptNFlZVGd2eitHb2F2ZVFFTHUvQ3JOenJJSmNtUnRY?=
+ =?utf-8?B?ZWZuWHpLZ21BVG9WWnVuV3pvYXR0b1oveStOOG1ydW5KZGxrYUJjeVAyVC9H?=
+ =?utf-8?B?Tk5SSWgxSkgzUHloQW04ZlR5L0NSVG92ZHR1R2pHWkdQMndRS0EvNlNJS0dY?=
+ =?utf-8?B?SlFNQXVTdVhwOE5Yam5Mb1FjdDlvQTNVMVZLZGZpTjRVdHliOVJyRkhDSFpE?=
+ =?utf-8?B?R1lueVg2MXlhZnByL2hSOFVHN0ovNE1DbUtzSUxWQ2R5VGtnZXgycTAwbU4w?=
+ =?utf-8?B?cWtRN1VpNDJqRlFWclN4bWlmcHhGZmM2MHYyajJvYkJhY1RUVStBVHJyd1pS?=
+ =?utf-8?B?Vm1VNkFNazF6REk2SVFQNWZWZC9MQ3NNRDlRN3pmN1pqUFdXRUplOGZ0ekVW?=
+ =?utf-8?B?Sy91dzdPWVBFK0lnRll2Z2E3ZDBjeXBvS2RSblZFYndPbWlodUVlYkUrTnhm?=
+ =?utf-8?B?eXhBL2JyN0tDZTVWWGV4dkk0Z0tjdG5jNU4zSWwyNThkaHdOMnpvWGJkSDQy?=
+ =?utf-8?B?N3JmWVJwWEZGVlJCN1kwcUtyYTVpZUFTbTd0bkoyejdZVkNZQWFvcGxWQ0FM?=
+ =?utf-8?B?VVVwZDRvMnBZNXlFNWppTElzNTdZN1JHRDl0VVNOREdmTllNYWFSYmpYczll?=
+ =?utf-8?B?amJVb0lTL1MySURId2s3cFJEd3R2enF3WUNvczJ2eFdScXdWdEJBQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b40fe2a3-c236-4b80-2cef-08df4730fba9
+X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 18:06:07.3439
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 18:06:21.8403
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZRwtUal7x3prZb0eaMYvtE/P9C9mIQrV8KHdJdT9Cjc57YgbQb6enBS837m/eiSA5/OCvtZKZDuocmmaEqqeIdODHOZnvdI4CGZxohrzGTxQFjUmPbPl7uNakkirJDgf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB522251
+X-MS-Exchange-CrossTenant-UserPrincipalName: yqsneEpRk5587vj+RwWbHl8h4X5vo1AbVi3FEF2ybJJVFauuC2rXPB/tSvatvt32P+9T5HG2DA532aYTy9hSEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9253
 
-On Fri, Nov 20, 2026 at 10:18:04AM +0100, Amelie Delaunay wrote:
-> The DMA3 driver currently hardcodes a 32-byte descriptor size when
-> computing the maximum linked-list size and validating the number of
-> descriptors to allocate.
->
-> Compute the descriptor size from the aligned size of
-> struct stm32_dma3_hwdesc, introduce a dedicated STM32_DMA3_MAX_DESC_COUNT
-> macro, and use it both for the segment size limit (STM32_DMA3_MAX_SEG_SIZE)
-> and for the descriptor count check (in stm32_dma3_chan_desc_alloc()).
->
-> This also corrects the maximum descriptor count: CLLR_LA holds the offset
-> to the next descriptor, so for a descriptor size of N bytes the last
-> valid descriptor is at offset (count - 1) * N, and the maximum number of
-> descriptors is (CLLR_LA / N) + 1.
->
-> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->  drivers/dma/stm32/stm32-dma3.c | 19 ++++++++++---------
->  1 file changed, 10 insertions(+), 9 deletions(-)
+On 18/11/2026 2:52, Mohsin Bashir wrote:
+> 
+> 
+> On 11/17/26 2:14 PM, Mark Bloch wrote:
+>>
+>>
+>> On 17/11/2026 23:52, Mohsin Bashir wrote:
+>>>
+>>>
+>>> On 11/17/26 11:18 AM, Mark Bloch wrote:
+>>>> On 17/11/2026 5:13, Mohsin Bashir wrote:
+>>>>> From: Mohsin Bashir <hmohsin@meta.com>
+>>>>>
+>>>>> In switchdev mode, mlx5 offloads police only when other actions follow
+>>>>> it. TC needs no extra action for a police-only rule to work. The mlx5
+>>>>> driver makes every police rule forward to the post meter table, but for
+>>>>> a rate police it adds that forward only after verify_attr_actions() has
+>>>>> checked the rule, so the check rejects it. The ok result of police is
+>>>>> also handled as pipe. In TC, ok accepts the packet and ends the action
+>>>>> list, whereas mlx5 goes on with the actions after police.
+>>>>>
+>>>>> Support police as the only action of a rule. Set the forward while
+>>>>> parsing police, as is already done for police with mtu, and forward
+>>>>> an ok result to the end of the TC chains, as the driver does when it
+>>>>> offloads the gact ok action. The upcoming selftest series also relies on
+>>>>> such rules for TC offload validation.
+>>>>>
+>>>>> The patch was tested on a ConnectX-7 in switchdev mode with the command
+>>>>> below, and it was verified that the rule is offloaded and limits the
+>>>>> matching traffic to the configured rate, using the hardware drop counter.
+>>>>>
+>>>>>     tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>>>>       ip_proto udp dst_port 5201 \
+>>>>>       action police rate 100mbit burst 1m conform-exceed drop/ok
+>>>>>
+>>>>> Cc: Carolina Jubran <cjubran@nvidia.com>
+>>>>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+>>>>> ---
+>>>>>    drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
+>>>>>    drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
+>>>>>    2 files changed, 5 insertions(+), 1 deletion(-)
+>>>>>
+>>>>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>> index 1bd1c94fb977..52295f5d644c 100644
+>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>>>>> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>>>>                  MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
+>>>>>                return -EOPNOTSUPP;
+>>>>>    -        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>>            attr->flags |= MLX5_ATTR_FLAG_MTU;
+>>>>>        } else {
+>>>>>            attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
+>>>>>            attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
+>>>>>        }
+>>>>>    +    attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>
+>>>> This makes every police that is the lact action pass verify_attr_actions()
+>>>> not only ok case described.
+>>>>
+>>>> what happens with:
+>>>> "police ... conform-exceed drop/pipe"
+>>>> with this not writes to FTEID_TO_REG so what happens once a packet
+>>>> reaches the port action table?
+>>>>
+>>>> also what about:
+>>>> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>>>       ip_proto udp dst_port 5201 \
+>>>>       action police rate 100mbit burst 1m conform-exceed drop/pipe \
+>>>>       action police rate 100mbit burst 1m conform-exceed drop/pipe
+>>>>
+>>>> won't this create a loop?
+>>>>
+>>>
+>>> Thanks for reviewing Mark.
+>>>
+>>> Ahh! I missed the loop case. I had a patch to handle pipe on the last police but I dropped it, since my testing showed the post_act table still passed the packets up. Let me respin and send pipe and jump on the last police to the end of the TC chains. Would that work in your opinion?
+>>
+>> Yes for PIPE.
+>>
+>> For JUMP, we need to check the target. tcf_action_exec() counts from
+>> the start of the action list, so even the last police can jump back
+>> to itself or an earlier action. If we can't offload that, we should
+>> probably reject it.
+>>
+>> That's how I read tcf_action_exec(), but please correct me if I'm
+>> missing something as I'm not really a tc expert.
+>>
+>>>
+> 
+> Yeah, jump restarts the list. Before this patch police as the last action was rejected anyway, so I believe rejecting jump there in the respin should be okay?
+> 
+>>>>> +
+>>>>>        return 0;
+>>>>>    }
+>>>>>    diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>> index 1d35c97aea0b..8685e41487f3 100644
+>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>>>>> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>>>>            attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>>>>>            break;
+>>>>>        case FLOW_ACTION_ACCEPT:
+>>>>> +        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>>>> +        attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>>>>> +        break;
+>>>>>        case FLOW_ACTION_PIPE:
+>>>>>            err = set_branch_dest_ft(flow->priv, attr);
+>>>>>            if (err)
+>>>>
+>>>> This also changes rules where police is not the last action.
+>>>> The conform result defaults to ok when it is not given.
+>>>>
+>>>> action police rate 100mbit burst 1m conform-exceed drop \
+>>>>           action mirred egress redirect dev eth2
+>>>>
+>>>>
+>>>> won't with this change the conforming packets go to the tc end table
+>>>> and not to the redirect dev?
+>>>> The rule is still reported as offloaded and installs the redirect
+>>>> which can't reached now.
+>>>>
+>>>
+>>> Maybe I am missing something here, but when the conform action is not given, doesn't it default to ok? For example, if we have
+>>>    action police rate 100mbit burst 1m conform-exceed drop action drop
+>>> shouldn't conforming packets still be pushed up rather than dropped by the following action, making the action drop (or the action mirred) dead code?
+>>>
+>>
+>> Yes, agreed, the following action is dead code in software too,
+>> a separated cleanup patch maybe?
+>>
+> 
+> Yeah probably.
+> 
+>> What about packets that reach the rep? I don't see anything in
+>> the ACCEPT path that tells software TC the packet has already been
+>> processed. For example:
+>>
+>> tc filter add dev eth2 ingress pref 100 protocol ipv6 flower skip_sw \
+>>      ip_proto udp dst_port 5201 \
+>>      action police rate 100mbit burst 1m conform-exceed drop/ok
+>>
+>> tc filter add dev eth2 ingress pref 200 protocol ipv6 flower skip_hw \
+>>      ip_proto udp dst_port 5201 \
+>>      action drop
+>>
+>> Wouldn't a conforming packet reach software, skip the first rule and
+>> get dropped by the second, despite already being accepted in hardware?
+>>
+>> Can you test this? The existing gact ok path might have the same issue.
+> 
+> Yeah, in both cases (police and gact ok) the conforming packets are pushed up, where they get dropped by the skip_hw rule. My understanding is that with existing behavior the restore doesn't happen on accept path, so sw tc takes the packet through classification again.
 >
-> diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-> index 7c509a69f5e5..e5724c4b2c84 100644
-> --- a/drivers/dma/stm32/stm32-dma3.c
-> +++ b/drivers/dma/stm32/stm32-dma3.c
-> @@ -251,12 +251,14 @@ struct stm32_dma3_hwdesc {
->  } __packed __aligned(32);
->
->  /*
-> - * CLLR_LA / sizeof(struct stm32_dma3_hwdesc) represents the number of hdwdesc that can be addressed
-> - * by the pointer to the next linked-list data structure. The __aligned forces the 32-byte
-> - * alignment. So use hardcoded 32. Multiplied by the max block size of each item, it represents
-> - * the sg size limitation.
-> + * (CLLR_LA / STM32_DMA3_DESC_SIZE) + 1 represents the number of hwdesc that can be addressed
-> + * by the pointer to the next linked-list data structure.
-> + * Multiplied by the max block size of each item, it represents the sg size limitation.
->   */
-> -#define STM32_DMA3_MAX_SEG_SIZE		((CLLR_LA / 32) * STM32_DMA3_MAX_BLOCK_SIZE)
-> +#define STM32_DMA3_DESC_SIZE		ALIGN(sizeof(struct stm32_dma3_hwdesc), \
-> +					      __alignof__(struct stm32_dma3_hwdesc))
-> +#define STM32_DMA3_MAX_DESC_COUNT	((CLLR_LA / STM32_DMA3_DESC_SIZE) + 1)
-> +#define STM32_DMA3_MAX_SEG_SIZE		(STM32_DMA3_MAX_DESC_COUNT * STM32_DMA3_MAX_BLOCK_SIZE)
->
->  /*
->   * Linked-list items
-> @@ -401,11 +403,10 @@ static struct stm32_dma3_swdesc *stm32_dma3_chan_desc_alloc(struct stm32_dma3_ch
->  	dma_addr_t base_addr = 0;
->
->  	/*
-> -	 * If the memory to be allocated for the number of hwdesc (6 u32 members but 32-bytes
-> -	 * aligned) is greater than the maximum address of CLLR_LA, then the last items can't be
-> -	 * addressed, so abort the allocation.
-> +	 * If the memory to be allocated for the number of hwdesc is greater than the maximum
-> +	 * addressable by CLLR_LA, then the last items can't be addressed, so abort the allocation.
->  	 */
-> -	if ((count * 32) > CLLR_LA) {
-> +	if (count > STM32_DMA3_MAX_DESC_COUNT) {
->  		dev_err(vchan_chan_dev(&chan->vchan), "Transfer is too big (> %luB)\n", STM32_DMA3_MAX_SEG_SIZE);
->  		return NULL;
->  	}
->
-> --
-> 2.43.0
->
+
+Hi,
+
+Sorry for the delay. I had other things to deal with and wanted to
+go through the original internal reviews before replying.
+
+I'm fine with supporting this, provided we preserve TC semantics:
+
+- ok stops processing; later actions are not executed.
+- jump executes the correct target, or we reject the offload.
+- pipe executes the next action, or ends processing if it is last.
+
+Please address the issues discussed in the next submission.
+
+Mark
+
+>> Mark
+> 
+> 
+
