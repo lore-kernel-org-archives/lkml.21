@@ -1,45 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179334;
-	b=4W9S+R7V2wEL1ImSfLkMy4JEPVN1HsMRqr8C+O4ymDu1LAIuy8GTrmRGCNpvJphWYo3j
-	 VFsQNXCKPxpVsaqLl06iic7IkSv76+aQQsYrCvuVr4qg+jH+RI8Z/txfS/f3dQClzaWru
-	 SRa788D/Id3AYoi6YGyuY+pjzr2/y4EkaP/SXrurwP45X2G7Jq2jPlJo2VA5rxiyLzlSd
-	 SrGBUeh1NMoeWXOVL0SGaflNiPE8cMYmrrCUPE37//3MCaSKzRHpWmvNSEBVDNI+l683F
-	 2KgaSFzDFZG5RJbUJIT7PoZ1jfkw7U7nBelbwRkGkixc6Ic4A7kABLTHag+XtwC0cPg==
+	t=1795179373;
+	b=etI7W+vIsDpvUWmyyxUpxJCvQYWn3A41TwIZk+e7/vsWFCB89EOCuxiFdoYfN92IUQS6
+	 roLL4VKKtYnaJ1jBAIe8A3Ce+FeduvdXJZSr2q6bZ50HByGnJB4IF49GivTgIUGBM1pAP
+	 PoSkr91gnz9aL3HRdwvp7YF1J0RI8hzuFai9pWRv7awcpXWjm3II7H+zUY2hw7/Wjc21K
+	 +dJsCelEbaa7lKGkt8oY7/04Mc6hkMViNSZE3giuLLpjaMVt6faKsJ89ytc0LA+RU0SQO
+	 VQPYhwLhQfzvU7xM0Z+Rdxkf02XLqbwP6S1ZpAq3NcfsbaCLeG+00OSJAK9UV+dJ/yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179334;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=a9XbVf4FhnzktWS3qGCIKBfurWHFZpTKRrnVlbTItsk=;
-	b=Fix/hX8ICsH82MAo/1OO4ZJdUlFMQnrTIwXOT6DRrS0wQC9q1e2Cg6p4YvSksiGOO5p5
-	 pvrK5/Y5ogGoxLexwFjeE3X9pDH6w2F2sjPb/A5keMdkA2H+SSlzLabvLyyngtGY72Nsy
-	 dbTM+4/JoUnjI4wBy0PFPhFWi3++kvIIoLYn+5nZokIDdLlQwl8SPSrvUeopJYA4OusSW
-	 5hOZjvB1RAEHxXzTP/pbpU9wSlw9fVxbEOYDLAg7O3Xy9vr8r38D7kt3tPsm+sRelklFx
-	 XcWcz2Wz9fl/rpYvop9a5TA9sHs7zHbtiw5NoEsmIlMGfTTbyCPy70rP7IHMBgKNN3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179373;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=eHMqgDAEPCosoidPk3c6KfvIHKmZESHd+BbV4dQ2VRg=;
+	b=X3ZrSiSBazNQIntNlwik1ayD3q/rrabDuDHtDFqaaD0uDhT2DmVpRBpDiOzvHA7QA6Lt
+	 k5NMQ7Aup5kVSadtfwlYylvfRXJ7MAdg2odI1/ov3p9r0rUM2hcmsx9ibEQ/tQY4Rpm8R
+	 V1XzQkrjwc0IKOj5xyT4u3YRNN1riXG0N90njPb0WAxT7WlphPf52/U4XrI+r2+0FOm0k
+	 Q2Fkh5kFxLwZS3OtcqP30nsIltxZKSQtkfZjzFouqlfOesJleA76IURtUDs9BjBFxuKga
+	 oxn5C2RZQP1RL7mOEvrhbGdcvgpi9DOiPEUml14VNoEBQGN2iVWD99RgALZU1D9VVQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ierlH+1y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BEwZ0SsO;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04D9606A325;
-	Fri, 20 Nov 2026 12:55:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 400C3606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:56:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 400C3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ierlH+1y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AA431F000CF;
-	Fri, 20 Nov 2026 12:55:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795179334;
-	bh=a9XbVf4FhnzktWS3qGCIKBfurWHFZpTKRrnVlbTItsk=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=ierlH+1yaKgOGiKDNN4HpqkZHJDN9nGZ6onn+NykctOULAD1baYA6H8n3s0meIiNB
-	 GGWS5q5X06phVlVO1pXNSbyepQskwvGrCiI4Ube+oV2AfTwYbuIa7ZWyu2g2ZVbfJf
-	 0VQMfsijJ+rlsbA5W8jM09Uwd7H/dv5RLNWr5JdTJGzGXsJ0s7UjbLcdloql+CqNOX
-	 a4W/eg+pNFMGJjjofAgaf0I4xYEvEHF9UsxT1ML7e0QpuOQVv4wR2ADWZQuo4wgsTi
-	 c7rll+4IOSmbhIayxmCmziPaUd3YjqZiO8+tz5F0PfQMzQlHoyAdiHLM/8sRbYgM/g
-	 +wKrsPl/ySjLA==
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BEwZ0SsO
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id A21234E41638;
+	Fri, 20 Nov 2026 12:56:09 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4D2CA601B9;
+	Fri, 20 Nov 2026 12:56:09 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E190811BC003E;
+	Fri, 20 Nov 2026 13:55:54 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795179366; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=eHMqgDAEPCosoidPk3c6KfvIHKmZESHd+BbV4dQ2VRg=;
+	b=BEwZ0SsO/M9c0BxNk8KuFpHOcOpd57kpxzVOILhXBUMq3Qe0j7OYdRCN/sevm5BjlSfA1d
+	2b/NUy18cQ64lQhBx+t6Tue6Wt1m6Fpm7ZVhbHrtYlcwcmqmYjakFK40C18ETegqo6Cols
+	bZgAEEwx+tDLaXQlyMu5s3ZmaqRpBUWdW6VtZYjSIMjd9pfuSDG0ahNTPiTGbrlWUljv/I
+	m1CXPrNE0sc1WLk9BmwA6yDrOhsCTjm2SzxzjVt2wG9zIPPEDYxdHt9Yw+ePs12AIX6vTO
+	pVE1MltmXtlUK6hDl7kZQjMEl4TNoh4huNhXzA34l+V0GZLMaNtcHXzcy2PqgQ==
+From: Benjamin Robin <benjamin.robin@bootlin.com>
+Subject: [PATCH 0/4] phy: cadence-torrent: rewrite Torrent PHY driver
+Date: Fri, 20 Nov 2026 13:55:48 +0100
+Message-Id: <20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,81 +64,173 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v3 3/3] ASoC: qcom: x1e80100: Allow userspace WSA RX
- chmap override
-From: Mark Brown <broonie@kernel.org>
-To: Abel Vesa <abel.vesa@oss.qualcomm.com>
-Cc: Srinivas Kandagatla <srini@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, 
- linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261105-b4-sound-qcom-x1e80100-allow-ucm-channel-map-v3-3-29e06613115f@oss.qualcomm.com>
-References: <20261105-b4-sound-qcom-x1e80100-allow-ucm-channel-map-v3-0-29e06613115f@oss.qualcomm.com>
- <20261105-b4-sound-qcom-x1e80100-allow-ucm-channel-map-v3-3-29e06613115f@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 12:55:30 +0000
-Message-Id: <179517933021.6016.6430816550414163668.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1895; i=broonie@kernel.org;
- h=from:subject:message-id; bh=gi4YhkF1nfJuktb0DH/M4fSx8AVY+E8YevyMn12hA+o=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZnJ32iqhqTZt1LvnYvZPaD15/fNnuKLg+5WvWWeZF3
- 7b72nDEdZSyMIhxMciKKbLEZXG/rC95vYbv4MI2mDmsTCBDGLg4BWAi1qsZ/pk9/fT8cxXr5YCJ
- mkwytjtdZR02ni/urgq6znL9p7CpyDKG/yW7Wj953rnuqtfbmWF9/fii5JPuwsrWlb0Cq+1SFMO
- m8AIA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBG4auQWTtJi6joVYwLaH9gXAxkWo2Gc
+ HerLr/FeyslmCDRpVrJ8JQksxb4XUVh6nQESyym2tVH792el+nNoYvQAM6zGTSzjtzG5nzqozs
+ MTUslXgyDvH7j6+3v9OjvCPl7o237AHFabKx6AAAA
+X-Change-ID: 20261103-phy-cadence-torrent-ng-8d497bd05f48
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yuti Amonkar <yamonkar@cadence.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Andrew Davis <afd@ti.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Chintan Vankar <c-vankar@ti.com>, 
+ Abhash Kumar Jha <a-kumar2@ti.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Thomas Richard <thomas.richard@bootlin.com>, 
+ Swapnil Jakhade <sjakhade@cadence.com>, 
+ Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ Benjamin Robin <benjamin.robin@bootlin.com>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 
-> The WSA RX slot mapping is currently computed entirely from the channel
-> count in .prepare() and pushed unconditionally via
-> snd_soc_dai_set_channel_map(). Userspace has no way to express a
-> different channel map, so any map defined in UCM is ignored.
+This series rewrites the driver for the Cadence Torrent multi-protocol
+PHY (sd0801).
 
-> +
-> +static int x1e80100_wsa_chmap_ctl_get(struct snd_kcontrol *kcontrol,
-> +				      struct snd_ctl_elem_value *ucontrol)
-> +{
-> +	unsigned int *map = x1e80100_wsa_chmap_from_kcontrol(kcontrol);
-> +	int i;
-> +
-> +	if (!map)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < X1E80100_WSA_MAX_CHANNELS; i++)
-> +		ucontrol->value.integer.value[i] = map[i];
+Motivation
+----------
+The existing phy-cadence-torrent driver hard-codes, for each supported
+configuration, the register values to program. The configuration space
+is large: protocol and associated PLL frequency, DisplayPort bit rate,
+reference clock frequency, spread-spectrum clocking (SSC), number of
+lanes, PHY revision and technology. As a result, every new board or
+standard combination requires a full extra table of opaque register
+values, which is inflexible and hard to maintain.
 
-Nothing intialises the default maps AFAICT so this will just return 0s
-until the control has been written.
+The rewrite aims to:
 
-> +static int x1e80100_wsa_chmap_ctl_put(struct snd_kcontrol *kcontrol,
-> +				      struct snd_ctl_elem_value *ucontrol)
-> +{
+  - simplify the addition of support for a new board;
+  - support every reference clock frequencies supported by the Cadence
+    Torrent PHY;
+  - support multiple links per standard without restriction (the previous
+    driver, for instance, was limited to two PCIe links);
+  - allow, in the future, the dynamic reconfiguration of the SerDes link
+    rate (for example, to switch between SGMII and 2500BASE-X).
 
-> +	for (i = 0; i < X1E80100_WSA_MAX_CHANNELS; i++)
-> +		map[i] = ucontrol->value.integer.value[i];
-> +
-> +	return 1;
+Because this is a complete rewrite, the diff is large and not well suited
+to a line-by-line review. The rewritten driver can be fetched from the
+`phy-cadence-torrent` branch at https://github.com/benjarobin/linux
 
-This just stores the value but doesn't tell the hardware about it, we
-only write at prepare() time.  Either the writes should take effect or
-we should refuse them while the stream is prepared.
+Design
+------
+The new driver computes the register values instead of hard-coding them:
 
-> +static int x1e80100_add_wsa_chmap_ctls(struct snd_soc_pcm_runtime *rtd,
-> +				       const char *name)
-> +{
+  - registers that depend on the reference clock frequency or on a PLL
+    frequency are computed at run time, from the reference clock
+    obtained through the clock framework and from the PLL frequency
+    derived from the selected standard;
+  - the remaining registers, which only depend on the standard type, the
+    PHY revision and the technology, are written through one function per
+    register, with an internal table selected by a
+    standard/revision/technology key.
 
-> +	/*
-> +	 * The core registers a query-only control. Make it writable so that
-> +	 * userspace (UCM) can select the WSA channel map. The card is not yet
-> +	 * registered at this point, so the control is not visible to
-> +	 * userspace while being modified.
-> +	 */
-> +	for (i = 0; i < info->kctl->count; i++)
-> +		info->kctl->vd[i].access |= SNDRV_CTL_ELEM_ACCESS_WRITE;
-> +	info->kctl->get = x1e80100_wsa_chmap_ctl_get;
-> +	info->kctl->put = x1e80100_wsa_chmap_ctl_put;
+The PHY revision and technology are detected from the PHY identification
+registers, and the DisplayPort link initialization and rate-change
+sequence were rewritten.
 
-The TLV should also advertise SNDRV_CTL_TLVT_CHMAP_VAR.
+Validation
+----------
+Because the rewritten driver computes register values instead of
+hard-coding them, its output was validated against two independent
+references:
 
--- 
-Mark Brown <broonie@kernel.org>
+  - The Cadence "Torrent Programmers Guide" spreadsheet, for the
+    registers that depend on the reference clock and on the PLL
+    frequencies. The spreadsheet generates (as a CSV) the expected value
+    of every register to write; the values computed by the driver were
+    compared with these expected values over a large number of
+    combinations of reference clock, PLL frequency.
+    To make this comparison feasible, the reference-clock and PLL
+    computation code was extracted into small userspace harnesses,
+    so that many combinations can be swept without booting the hardware,
+    and the results are fed to a comparison tool that checks them against
+    the spreadsheet CSV.
+
+  - The existing driver, for the complete set of programmed registers.
+    Every supported configuration of the old driver was extracted as a
+    test case. Two userspace harnesses were generated:
+     - tp-full-old, mirroring the old cdns_torrent_phy_init() /
+       cdns_torrent_phy_configure_multilink() path;
+     - tp-full-new, mirroring the new tp_configure_links() path.
+    These 2 userspace harnesses run the same test cases (single
+    standards, standard pairs, PCIe-Multilink and internal-SSC variants)
+    and then compare, register by register, the writes performed by each
+    driver for the same configuration. The registers written by both
+    drivers match, with a small number of remaining differences that are
+    all explained (for example, values that were fixed in a later
+    revision of the spreadsheet, or obsolete/unused registers);
+
+The last patch of the series adds a debug trace on every register read
+or write, so the same comparison can also be performed on real hardware
+by capturing the driver logs.
+
+The tooling used for the validation described above is available at:
+https://github.com/benjarobin/cadence-torrent-phy-tooling
+
+Status / testing
+----------------
+The driver has so far been validated on two TI boards:
+
+  - J784S4XEVM: two PCIe links (x2, x4), one DisplayPort link (display
+    output working) and one USB-C port (configured as host);
+  - J721EXCPXEVM: two PCIe links (x2, x1) and a J721EXENETXPANEVM
+    daughter card exposing four Ethernet ports over a single QSGMII
+    link (~1 Gbps per port).
+
+Comments on the overall approach are welcome, as is testing on additional
+hardware, for which Tested-by tags would be appreciated.
+
+Dependency
+----------
+This series should be applied on top of v7.4-rc3. This was done this way
+since the commit "treewide: Convert devm_kmalloc() family to the
+devm_kmalloc_obj() family" introduced conflicts.
+
+The driver depends on the following series:
+
+  - [1]: needed since the driver requires the consumers to call
+    phy_power_on() and phy_power_off();
+  - [2]: needed otherwise the QSGMII SerDes link is never powered ON.
+
+The series [2] is included in this one.
+
+[1] https://lore.kernel.org/all/20260601095041.3042950-1-a-kumar2@ti.com/
+[2] https://lore.kernel.org/all/20260326134929.1696750-1-c-vankar@ti.com/
+
+Signed-off-by: Benjamin Robin <benjamin.robin@bootlin.com>
+---
+Benjamin Robin (3):
+      dt-bindings: phy: cadence-torrent: drop cdns,num-lanes default value
+      dt-bindings: phy: cadence-torrent: add phy-mode constants
+      phy: cadence-torrent: rewrite Torrent PHY driver
+
+Chintan Vankar (1):
+      arm64: dts: ti: k3-j7200: Fix QSGMII overlay by adding SERDES PHY
+
+ .../bindings/phy/phy-cadence-torrent.yaml          |   10 +-
+ .../dts/ti/k3-j7200-evm-quad-port-eth-exp.dtso     |    3 +-
+ drivers/phy/cadence/phy-cadence-torrent.c          | 9417 +++++++++-----------
+ include/dt-bindings/phy/phy-cadence.h              |    8 +
+ 4 files changed, 4376 insertions(+), 5062 deletions(-)
+---
+base-commit: 6515d69692fb374d01e3dc95eef53047ca8f947c
+change-id: 20261103-phy-cadence-torrent-ng-8d497bd05f48
+
+Best regards,
+--  
+Benjamin Robin <benjamin.robin@bootlin.com>
+
