@@ -1,91 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197282;
-	b=imT9XUH3u2JzFTRBUNAUtEdkdYh0Rxxsvzj0BwttPT3yFtwKPHWJlNfTsXOwBMYWGSwW
-	 gjTAGzNl2skJ6glRcdpqc0TB5EC79oKPKLcVvE301PQwlLf16/thz5C1xeu6QByOifhiJ
-	 tE39R+/hXHtNefLzzZj4ZBmmsCR+P51gzYj/TYHt2u06TUT4sbE9F/fjUNVfWwpjHyway
-	 M7oFzh26voOqf60xzod8p+bdn93vddGomTgoI2Yr7cthWK0349GUq3fwzdKNCFddTiM2s
-	 XPXfVqGs3XCmcaUpEp2RVFNHIe0JNJ544fHFBHZ5p40WtnDjUY0yK1nL9Wur7XawH3A==
+	t=1795197296;
+	b=t6HxwobK7MucoN+qQWx2DCs349p0dGdaDnBgImXAH635lZoGxmQpPD7VRqt0UElLAODb
+	 KFz0L7trbZUU1ungIJVUdIQIwBGm32WstJvMHZ1v7Y7Zl7YGqX5pakLGPWfVCIVA1ceLn
+	 vSNorpWnBIJL3yEbyOMbH7bL8QWuo7nDo/lWu77WLjzcTjxFf2LTUPmRP9Rmjdm7U1ZQR
+	 lpIKtjJEh2SHtrMthVc4rLR+tvaYiVavvaD5fMRRUXDfPPGOO1r7AfGV843EROPeo8L19
+	 3i7bbVIUsBqsNM6QmzU3LehSptJDsH0wKL+mPfLi8583uW9S2FBdoon74Vni9JYXe7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197282;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=hFqZz2h/h7TudkofaL8xz2dLX3fTj+nuD//ec3A6Lrw=;
-	b=Q26Tiyyh6jVYEKo6gdnTk9YNBGZ+B+ME9qw/1DQTHv+5UtPilDEBGWA4gfLSk8xSv5/W
-	 +VDHcQRU8RsYAmplZLWpOnxaAWgi9CMKyAsWL44SKSLKofBcl6eon1K6Y1KoGt3KwjrOH
-	 pZqUM9JwuohCP250VaT2ovHTXHGchlGyVBIXda5ZtzBwX5psLj1SlGCZzkTTbcTzp41B4
-	 MRvzbNNLAH9ul+lD/BmQz09YssEY8FD9vs6/BMC0vgAzOmSix4rzZ4ViSWLBAiEWATIMq
-	 kH2fucNDTeZirTYyShm0/ThgdD3yMo3GVkfDrTElZM8nQngKIoQ6eV8rZ0eJA1oFbcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197296;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=dKrmLiXU2F487bqrAOIazBqAgREKSs8080df6vNjwXY=;
+	b=y8RP+Qo4ZLLp1Oip9Mt/l+gizDevEK9IpciCjiSrme1JJ90BUt4oVmaw+dKRr2u0HqKy
+	 m7gBhIVNISAY8DGH8e5AVXD1dYBd4hhjbrYyNOYeVA172H5Up9eDYwG1ONj/XpT8It/VP
+	 Cpb4OeObrUTwoANR4UJNt0XbU2NVxu4aiU/xW6OONPCx5QukJ3Edo+ELBGkfg8ndVjXFO
+	 1mievRuh1CEjQfHoUNGhL7hQcBVt97vlC84+Kwdxr/nDl/Kl+nafce9gPm114XaY1avUI
+	 6nbEpItvrJw9Z42SU8VNSXeYXezAbgEYXXlLzpTqh/gbKn36FMkR7wSSfY5gGwz+Pwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eZ5xp39E;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HxnrnQiV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1B3960A5BDE;
-	Fri, 20 Nov 2026 17:54:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1B3960A5BDE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BC2560A380C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:54:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eZ5xp39E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795197277; x=1826733277;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ConwBO883fH7Ku8ncBEy7FwYn6WifnoRIWbzm8B92rM=;
-  b=eZ5xp39ER/qKC2LyLuaPXlTKG52j9VCc0S5cpDll4Pehi1ORd1p0oPPq
-   dIuTW+PDAF/FPrmokzMsHvyrNiSYoKgkjmwfJfbP5PiIi9OjbVu9Fen0B
-   KcRLoxB4wrkw9Pz+qQtI602xTG5xwo877AmtyUY0t2s6BU6EmOYtqXZP3
-   OL0DCsjBBHwNs3+gLIg/u+tYMLBcsospzs2zP4P55CnsnFGflGUQAWjDF
-   Wy3goMTwa0MV44vLk6ICj7Idk+C+xLBVY4PReoUvT6O9xA4gLjwKOk8wj
-   WZGdT2IA8BX3FS4CHd/ehNJ5xznxVdJZtK3EaMccLtydBo8f+E8mncRb+
-   g==;
-X-CSE-ConnectionGUID: eZf5Fko4T2yfjESQ0kdx1w==
-X-CSE-MsgGUID: OvsIRoeESjaEaipf2u+Zlg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4108993"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4108993"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:54:26 -0800
-X-CSE-ConnectionGUID: qxn3RrBrTkWn4veiCN3eMQ==
-X-CSE-MsgGUID: v/lDymdCQgWLxWPfCOJO+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11171073"
-Received: from jf.intel.com (HELO jf.intel.com.jf.intel.com) ([10.165.154.102])
-  by fmviesa001.fm.intel.com with ESMTP; 20 Nov 2026 09:54:26 -0800
-From: Ehab Ababneh <ehab.ababneh@intel.com>
-To: ilpo.jarvinen@linux.intel.com,
-	hansg@kernel.org,
-	tony.luck@intel.com
-Cc: ashok.raj.linux@gmail.com,
-	platform-driver-x86@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	tglx@kernel.org,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org,
-	peterz@infradead.org,
-	sathyanarayanan.kuppuswamy@linux.intel.com
-Subject: [PATCH v3 12/17] platform/x86/intel/ifs: Add new sysfs interfaces {status, details, cpus_ran}_list
-Date: Fri, 20 Nov 2026 10:56:53 -0700
-Message-ID: <20261120175658.1147030-13-ehab.ababneh@intel.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120175658.1147030-1-ehab.ababneh@intel.com>
-References: <20261120175658.1147030-1-ehab.ababneh@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HxnrnQiV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A06A71F00A3C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:54:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197295;
+	bh=dKrmLiXU2F487bqrAOIazBqAgREKSs8080df6vNjwXY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=HxnrnQiVLW3ZnOR3uRlDYCwz9NVO84sq1aERU+XGJxa5P98Qu/z/0xWUUfPT+2+t1
+	 /RfOthkV9UAX2QlcDl/j+gkqaoFvo9a18ZoQfNmMjyfMulj483u0L6J+woa213TGy9
+	 ypiVv/vsyFIEYRgZKcG0uLSh2j0/QD4hecccbDnwqxbGZlW3fPDXWg11xoQcshHs9j
+	 sCzr+U0Vzn5o9tBYuMvhBOGA2psdGM9Vm620SF2wh8CDeMxWjmbYM9KoFM4aOMcsOL
+	 CJWkEe/wAKtl95y+M/FmEYuqm5Gkm0jv/mODu0NiBISO7VWYrPs8F8YLk8GOLJpVlc
+	 7PDe2O8BP4Haw==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso930162e87.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:54:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGRuA1XC+vJZzM64/wKZky3ucI4fuc3upFSLgtIW9WvRxMH5g6pEpwwvu0WRAuSVXFI+UI9bu5fjy5189M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Ml+qgIcAHXK477QyZ7XWCxFlOjF2Qg3XtFmJPNQSoLqe/Q8ID
+	wVjjnAjMt1cc9vzuLmhT38DlxaHIYFTzvP8xT5+0jl++Ve1M829nYZZ904gxWh3Gi2hd2+LzUvO
+	o9iBUFMzizLtLuw5++5k69c4XzlI5M5U=
+X-Received: by 2002:ac2:4c4b:0:b0:5c0:a54:5d4c with SMTP id
+ 2adb3069b0e04-5c1bc8635bfmr1193536e87.36.1795197294018; Fri, 20 Nov 2026
+ 09:54:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,149 +59,215 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261116-pm-runtime-summary-v2-0-a3d8654baf8f@kernel.org> <20261116-pm-runtime-summary-v2-1-a3d8654baf8f@kernel.org>
+In-Reply-To: <20261116-pm-runtime-summary-v2-1-a3d8654baf8f@kernel.org>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 18:54:39 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0g+7zxWmUNt4b6NXQnWML-coCBDCqrZnVpD+7s=SmCAcw@mail.gmail.com>
+X-Gm-Features: Aa3M54rjIr-lP8MdASeLxH5QB5e_sHkRORN5DH92yPw3YktljUsuSRiXGkY7deM
+Message-ID: <CAJZ5v0g+7zxWmUNt4b6NXQnWML-coCBDCqrZnVpD+7s=SmCAcw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] PM: runtime: add additional suspend/resume metrics
+To: Joshua Crofts <crofts@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Johan Hovold <johan@kernel.org>, Samuel Wu <wusamuel@google.com>, linux-pm@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Jithu Joseph <jithu.joseph@intel.com>
+On Mon, Nov 16, 2026 at 10:36=E2=80=AFAM Joshua Crofts <crofts@kernel.org> =
+wrote:
+>
+> The current implementation only logs the total accumulated time a device
+> spends in suspended or active states.
+>
+> Add tracking for:
+> - resume_count : number of successful transitions to active
+> - suspend_count: number of successful transitions to suspended
+> - last_suspended_time: duration of the most recent sleep cycle (ns)
+> - min_suspended_time / max_suspended_time: shortest and longest sleep
+>   cycle durations to help detect power thrashing (ns)
+>
+> Signed-off-by: Joshua Crofts <crofts@kernel.org>
+> ---
+>  drivers/base/power/runtime.c | 76 ++++++++++++++++++++++++++++++++++++++=
++++---
+>  include/linux/pm.h           | 12 +++++++
+>  2 files changed, 83 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
+> index 304a2b12342082ffacce32aa9c2e863466b0d4ae..3085318e9c32fce892def5a90=
+1aae300f473ea2d 100644
+> --- a/drivers/base/power/runtime.c
+> +++ b/drivers/base/power/runtime.c
+> @@ -5,6 +5,8 @@
+>   * Copyright (c) 2009 Rafael J. Wysocki <rjw@sisk.pl>, Novell Inc.
+>   * Copyright (C) 2010 Alan Stern <stern@rowland.harvard.edu>
+>   */
+> +#include <linux/pm.h>
+> +#include <linux/timekeeping.h>
+>  #include <linux/sched/mm.h>
+>  #include <linux/ktime.h>
+>  #include <linux/hrtimer.h>
+> @@ -103,11 +105,58 @@ static void update_pm_runtime_accounting(struct dev=
+ice *dev)
+>                 dev->power.active_time +=3D delta;
+>  }
+>
+> +static void rpm_account_suspend(struct device *dev)
+> +{
+> +       dev->power.suspend_time =3D dev->power.accounting_timestamp;
+> +       dev->power.suspend_count++;
+> +}
+> +
+> +static void rpm_account_sleep_end(struct device *dev)
+> +{
+> +       u64 duration;
+> +
+> +       if (!dev->power.suspend_time)
+> +               return;
+> +
+> +       if (dev->power.accounting_timestamp <=3D dev->power.suspend_time)
+> +               return;
+> +
+> +       duration =3D dev->power.accounting_timestamp - dev->power.suspend=
+_time;
+> +       dev->power.last_suspended_time =3D duration;
+> +
+> +       /* Update min/max extrema at the exact same moment as last_suspen=
+ded_time */
+> +       if (!dev->power.min_suspended_time || duration < dev->power.min_s=
+uspended_time)
+> +               dev->power.min_suspended_time =3D duration;
+> +
+> +       if (duration > dev->power.max_suspended_time)
+> +               dev->power.max_suspended_time =3D duration;
+> +}
+> +
+> +static void rpm_account_resume_complete(struct device *dev)
+> +{
+> +       dev->power.resume_count++;
+> +       dev->power.suspend_time =3D 0;
+> +}
+> +
+>  static void __update_runtime_status(struct device *dev, enum rpm_status =
+status)
+>  {
+> +       enum rpm_status old_status =3D dev->power.runtime_status;
+> +
+>         update_pm_runtime_accounting(dev);
+>         trace_rpm_status(dev, status);
+>         dev->power.runtime_status =3D status;
+> +
+> +       if ((old_status =3D=3D RPM_SUSPENDING || old_status =3D=3D RPM_AC=
+TIVE) &&
+> +           status =3D=3D RPM_SUSPENDED)
+> +               rpm_account_suspend(dev);
+> +       else if (old_status =3D=3D RPM_RESUMING && status =3D=3D RPM_SUSP=
+ENDED)
+> +               dev->power.suspend_time =3D dev->power.accounting_timesta=
+mp;
+> +       else if (old_status =3D=3D RPM_SUSPENDED && status !=3D RPM_SUSPE=
+NDED)
+> +               rpm_account_sleep_end(dev);
+> +
+> +       if ((old_status =3D=3D RPM_RESUMING || old_status =3D=3D RPM_SUSP=
+ENDED) &&
+> +           status =3D=3D RPM_ACTIVE)
+> +               rpm_account_resume_complete(dev);
+>  }
+>
+>  static u64 rpm_get_accounted_time(struct device *dev, bool suspended)
+> @@ -1571,6 +1620,7 @@ EXPORT_SYMBOL_GPL(__pm_runtime_disable);
+>  void pm_runtime_enable(struct device *dev)
+>  {
+>         unsigned long flags;
+> +       u64 now;
+>
+>         spin_lock_irqsave(&dev->power.lock, flags);
+>
+> @@ -1587,12 +1637,21 @@ void pm_runtime_enable(struct device *dev)
+>                 dump_stack();
+>         }
+>         dev->power.last_status =3D RPM_INVALID;
+> -       dev->power.accounting_timestamp =3D ktime_get_mono_fast_ns();
+> +       now =3D ktime_get_mono_fast_ns();
+>
+> -       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED &&
+> -           !dev->power.ignore_children &&
+> -           atomic_read(&dev->power.child_count) > 0)
+> -               dev_warn(dev, "Enabling runtime PM for inactive device wi=
+th active children\n");
+> +       if (dev->power.runtime_status =3D=3D RPM_SUSPENDED) {
+> +               if (dev->power.suspend_time && dev->power.accounting_time=
+stamp
+> +                   && now > dev->power.accounting_timestamp)
+> +                       dev->power.suspend_time +=3D now - dev->power.acc=
+ounting_timestamp;
+> +               else
+> +                       dev->power.suspend_time =3D now;
+> +
+> +               if (!dev->power.ignore_children &&
+> +                   atomic_read(&dev->power.child_count) > 0)
+> +                       dev_warn(dev, "Enabling runtime PM for inactive d=
+evice with active children\n");
+> +       }
+> +
+> +       dev->power.accounting_timestamp =3D now;
+>
+>  out:
+>         spin_unlock_irqrestore(&dev->power.lock, flags);
+> @@ -1861,6 +1920,13 @@ void pm_runtime_init(struct device *dev)
+>         pm_suspend_ignore_children(dev, false);
+>         dev->power.runtime_auto =3D true;
+>
+> +       dev->power.resume_count =3D 0;
+> +       dev->power.suspend_count =3D 0;
+> +       dev->power.suspend_time =3D 0;
+> +       dev->power.last_suspended_time =3D 0;
+> +       dev->power.min_suspended_time =3D 0;
+> +       dev->power.max_suspended_time =3D 0;
+> +
+>         dev->power.request_pending =3D false;
+>         dev->power.request =3D RPM_REQ_NONE;
+>         dev->power.deferred_resume =3D false;
+> diff --git a/include/linux/pm.h b/include/linux/pm.h
+> index ef3f1310e749c34d4aff75a2fd7e95b9f2ef3a10..7cd1350ea327be4e800175c2f=
+c0e3b3e35c3ea57 100644
+> --- a/include/linux/pm.h
+> +++ b/include/linux/pm.h
+> @@ -747,6 +747,12 @@ struct pm_subsys_data {
+>   *   state.
+>   * @accounting_timestamp: Timestamp in nanoseconds of the last runtime P=
+M state
+>   *   accounting update.
+> + * @resume_count: Number of transitions from suspended -> active
+> + * @suspend_count: Number of transitions from active -> suspended
+> + * @suspend_time: Timestamp when device entered RPM_SUSPENDED
+> + * @last_suspended_time: Residency of the last sleep period (ns)
+> + * @min_suspended_time: Shortest sleep duration
+> + * @max_suspended_time: Longest sleep duration
+>   * @subsys_data: Subsystem-specific power management data.
+>   * @set_latency_tolerance: Callback for setting latency tolerance.
+>   * @qos: Per-device PM Quality of Service (QoS) constraints.
+> @@ -816,6 +822,12 @@ struct dev_pm_info {
+>         u64                     active_time;
+>         u64                     suspended_time;
+>         u64                     accounting_timestamp;
+> +       u64                     resume_count;
+> +       u64                     suspend_count;
+> +       u64                     suspend_time;
+> +       u64                     last_suspended_time;
+> +       u64                     min_suspended_time;
+> +       u64                     max_suspended_time;
 
-Problem
-=======
-The current legacy interface for Intel In-Field Scan is designed to
-simultaneously test all CPUs in a group [1], but it only reports a
-single result for the whole group and doesn't indicate which CPUs have
-been tested. This results in the following issues:
+Can we please put those new fields behind CONFIG_DEBUGFS?
 
-  - All CPUs in a group can hold different statuses, but when the group
-    does not pass, the user cannot see which CPU failed or was not
-    tested.
+They would just be pure useless overhead without it AFAICS.
 
-  - The topology of a group of CPUs may vary across systems. For example,
-    in a Hyper-Threading (HT) system, the group consists of all CPUs in
-    a core, while in a Dual-Core Module (DCM) based system (e.g., Intel
-    Diamond Rapids CPU), two cores in a module form a group. The user may
-    be unaware of the group topology and test each CPU of the system
-    individually, leading to duplicate test runs.
-
-Solution
-========
-The user continues to write a single value to run_test, and while the
-legacy sysfs reports the result of the whole group (pass only if all
-CPUs in the group passed), new sysfs interfaces {status, details,
-cpus_ran}_list provide results for each CPU tested as part of a group.
-The user can check for the presence of new sysfs interfaces to
-understand that multiple results are available, read them, and identify
-which CPUs have been tested to avoid duplicate tests.
-
-  intel_ifs_0
-  +---- run_test	<--- Same legacy file
-  +---- current_batch
-  +---- details
-  +---- details_list	<--- Details for all CPUs in the group (new)
-  +---- dev
-  +---- image_version
-  +---- status
-  +---- status_list	<--- Status for all CPUs in the group (new)
-  +---- cpus_ran_list	<--- CPUs in the group tested along with CPU written to run_test (new)
-  \---- uevent
-
-Example of reading the cpus_ran_list to see the CPUs tested:
-
-  echo 0 > run_test
-  cat cpus_ran_list
-  0,96
-
-  cat status_list
-  pass pass
-
-  cat details_list
-  0x8086 0x8087
-
-[1] Indicated by bits [20:16] of MSR_INTEGRITY_CAPABILITIES when bit 21 is set.
-    E.g., in Hyper-Threading (HT) systems, a group includes all threads in a core;
-    in Dual-Core Module (DCM) system, a group includes all CPU cores in a module.
-
-Signed-off-by: Jithu Joseph <jithu.joseph@intel.com>
-Signed-off-by: Ehab Ababneh <ehab.ababneh@intel.com>
-Tested-by: Yi Lai <yi1.lai@intel.com>
----
- drivers/platform/x86/intel/ifs/sysfs.c | 58 ++++++++++++++++++++++++++
- 1 file changed, 58 insertions(+)
-
-diff --git a/drivers/platform/x86/intel/ifs/sysfs.c b/drivers/platform/x86/intel/ifs/sysfs.c
-index 287f96bb033e..46a74826606d 100644
---- a/drivers/platform/x86/intel/ifs/sysfs.c
-+++ b/drivers/platform/x86/intel/ifs/sysfs.c
-@@ -135,6 +135,61 @@ static ssize_t image_version_show(struct device *dev,
- 
- static DEVICE_ATTR_RO(image_version);
- 
-+static ssize_t status_list_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct ifs_data *ifsd = ifs_get_data(dev);
-+	struct ifs_test_output *pcpu_state;
-+	int lcpu, len = 0;
-+
-+	for_each_cpu(lcpu, &ifsd->grp_cpumask) {
-+		pcpu_state = per_cpu_ptr(ifsd->result_ptr, lcpu);
-+		len += sysfs_emit_at(buf, len, "%s%s", (len > 0) ? " " : "",
-+				     status_msg[pcpu_state->test_result]);
-+	}
-+
-+	if (!len)
-+		return sysfs_emit(buf, "%s\n", "none");
-+
-+	len += sysfs_emit_at(buf, len, "\n");
-+
-+	return len;
-+}
-+
-+static DEVICE_ATTR_RO(status_list);
-+
-+static ssize_t details_list_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct ifs_data *ifsd = ifs_get_data(dev);
-+	struct ifs_test_output *pcpu_state;
-+	int lcpu, len = 0;
-+
-+	for_each_cpu(lcpu, &ifsd->grp_cpumask) {
-+		pcpu_state = per_cpu_ptr(ifsd->result_ptr, lcpu);
-+		len += sysfs_emit_at(buf, len, "%s%#llx", (len > 0) ? " " : "",
-+				     pcpu_state->test_details);
-+	}
-+
-+	if (!len)
-+		return sysfs_emit(buf, "%s\n", "none");
-+
-+	len += sysfs_emit_at(buf, len, "\n");
-+
-+	return len;
-+}
-+
-+static DEVICE_ATTR_RO(details_list);
-+
-+static ssize_t cpus_ran_list_show(struct device *dev, struct device_attribute *attr, char *buf)
-+{
-+	struct ifs_data *ifsd = ifs_get_data(dev);
-+
-+	if (cpumask_empty(&ifsd->grp_cpumask))
-+		return sysfs_emit(buf, "%s\n", "none");
-+
-+	return sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(&ifsd->grp_cpumask));
-+}
-+
-+static DEVICE_ATTR_RO(cpus_ran_list);
- /* global scan sysfs attributes */
- struct attribute *plat_ifs_attrs[] = {
- 	&dev_attr_details.attr,
-@@ -142,6 +197,9 @@ struct attribute *plat_ifs_attrs[] = {
- 	&dev_attr_run_test.attr,
- 	&dev_attr_current_batch.attr,
- 	&dev_attr_image_version.attr,
-+	&dev_attr_status_list.attr,
-+	&dev_attr_details_list.attr,
-+	&dev_attr_cpus_ran_list.attr,
- 	NULL
- };
- 
--- 
-2.43.0
-
+>  #endif
+>         struct pm_subsys_data   *subsys_data;  /* Owned by the subsystem.=
+ */
+>         void (*set_latency_tolerance)(struct device *, s32);
+>
+> --
