@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164255;
-	b=UIBKxjaH812zxo72L9XQugwPvehRL8Jb9gBWmmJQyiVS51FN1DbOFT1jSbSYFk/yhDmX
-	 msSwc57mWRsxix9WnWMoIW8Mizcm6mu4HDuvjFhcy8+smm0xGHM4P+KNdR3ky6WJT4+Gx
-	 72Ki2K4J+3MudK51+w/0IMuhL74h+G+DtW/4MAFMtjErEMHT6qFGt8anbSDRVyp0xPMZL
-	 FeqK8lmJieUTTxtj7HF3qdqUF0ueEIgRHstCsIKSZquamZkPldi2MI+Rk99wBprjYEJyv
-	 7Fz0ORXIqo9ilMQqskeBpJVS4AY/v1Hg1MpTJUHXLZn7ryKrupqx2OsxoeGs4a40gSA==
+	t=1795164251;
+	b=lkCODVGHozISfcabtsUD1714UMsayklQn2c+nrSS3BWb0LeVVnLcvqGJIH+4W3dqJyzm
+	 rw37MhGEObmf0g6m2Tx99DxopmkXb5ZV5w1uILRpgAzv3HolloTBOzJK5dn22jZOTtEGa
+	 nWsU6ivTo7bgUMR8xrSJnOgJMRokhYGuLm2vO23RDFavSK+M9yLh26YmiiWBnSKKY0wW3
+	 euk3jYOhexKzKq74sAciyF7Du05Gi+P7FL/NaJXrlQE5J1d3c3GatNbvcWtQ/ZdfLD51T
+	 nkZialXDT6jvInZGaOvRKORWffD1cklYTFU+5aPEAmLhG6P1KzxIGr6y5HgUTNRgL3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164255;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164251;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=V8ZwfTPG8jGpcsaM/I32hjrBsqSSwwwpQT8qhPi47RI=;
-	b=X9YN0frUw1wMr+q2jQSOjwFiRpBT8Hc5g+8ZjBR2MNChgv49Za4vZbixJ0Is0nruBXOO
-	 PkaMtqP1nY1pWs4pJA0xbtzxn4+MRSqQ3NlpKQH0t5Zm4mcrmB2+s9BTBCfmlBAkzOLwq
-	 uPnQcp0ZJLXUvtQWunqR80zY4RR0Gxyul48NtRutg1PfK7dU3eP2QwOB7EkKZkUg4glX2
-	 LJZTf96bRFHPeBkow/5/GuNr7C4xb2VAtPXES1RirVgpMABdYSPufVeIg2RRVs9jOMiYH
-	 E8Mdc64d9r2B6QFwnQvRR6+1m9Ea7LJR6Dmaka7Z1FnvwY2SmRK7SPpb8c44S8C0bJA==
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
+	b=tIxb56xQfqK/b+BdbHGFN3idstNSDuBxD3hN0Zbbm1UYVvbqiBewMf/BtWo67KUXytVp
+	 Y2orURI+qXc29Fre4+5ZseRq51NWJTKyAFedxocvGqgGl8GWvXb/QyUJ/06PdjsO6t5cF
+	 /F6UhdYmDnb3YAKIc95IOHHyiRqpaPHSbqTVGBJGVJrKyrHXiExWF92KMefzL/OBVO9Vz
+	 jwtfhrTEGbDm7p7HVl4B4d+rHY2DNS18fUmnv59C56O3BBxW4j+bBjVN3VoXwmBMqFJkE
+	 YUkpYDuxIwJynFrPYkvhuaWRv/riTedsEkwOHMApFpnvarPQ2RzrWoC0UaXFTC2ljzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s+IOzwVZ;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YwWKhL+G;
+	arc=none smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B7ED606B4B6
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B7ED606B4B6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2A25606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2A25606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=s+IOzwVZ
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-15ea896ddc8so1139281c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YwWKhL+G
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15ea896ddc8so1139172c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164255; x=1795769055; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V8ZwfTPG8jGpcsaM/I32hjrBsqSSwwwpQT8qhPi47RI=;
-        b=s+IOzwVZ/6+3+Vr6SI/DdKZ2cuiUy2PRsqIMvTld6qzNTaUqucXfW2ZbQc0eUBRwhr
-         0GjjPSPrfgKZBxq2OGAWWrPdWFudDlzaZBxst8cAA8Rd/P34Gh80OG7+MyO0zX2OOwKB
-         5I+iAL1bEEYaZ52yhG2jpC7PWn4fYlXQrB7yier1Ff03pP21KKNW71jBu0V4iaarlZk7
-         bJ4ZgubpeckJ2DVPdy8DdeQ5b9AcYI4WKeg3B6FdAkDL6x7eq5hIrWpzML2WypVn0UbF
-         xQh+X3r74ludX1iKQZcSQavsPnWA/nfXsOokhdf5vBOIXaqlEyW2+Z2SWRtSij4G1vk/
-         sipg==
+        d=gmail.com; s=20260707; t=1795164250; x=1795769050; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
+        b=YwWKhL+GHrChb5ufz1RyC8GdU7EtVlqown2RYTC6d90gbFuotV5O3fQYGl1Zz/qv5b
+         puZ0iEwWjQLq/U4FwXn+Nnu+GzOPLy/DZ+Q6IFxSfFQnEyDYkzsdcdnAzMDqDBXDQ1a1
+         G+nytKnNV6H8lYb3oy9Jjc5JpvQLsOt3wPMDZTrNQDMevotrYCWMLE/g7Dnjg8y66zg5
+         F/JsugisGZbwIdSQeMFQX1pXy3GrZk4YUN/ZoyY41V+C2XCbR9Det+KYxaVPwL+tQJdy
+         wwDNj0EtSSoJNCq7HPEp60MXawu9WJ8c5tUlfyg2g5hyNt0tXHgPNUKS7ulDxPzKqk9i
+         wMBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164255; x=1795769055;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=V8ZwfTPG8jGpcsaM/I32hjrBsqSSwwwpQT8qhPi47RI=;
-        b=tiVh4qY0giIx0g2AZrUGE5CVVh0LLt8lh2K4AbcdGOJLb9f5k++0tPmpXhTrJU1R6i
-         g4YAHtP0WRgpD+OeJ142iOdZnr2FY+pAZJi5wcG5aqJ150mnpjmYumxXcjTEV2OmL+QO
-         XBRZidOBXR/UUKRQMbHDVlhWa1YQcGnW4DOXkSN3RbqIRnFqmcNHjo4cOhFTsfNZzWE5
-         OipSaNRFMwG377sK3nL9PBgza+ADO5eti9e0hhls97FxnhBzMmNcVL3DhUaI0Kj3mC5/
-         v9xbbCwm8wcSP2anOi813MB3A/tLCwq61UvxngayjxHTJtSf0hZZLg5oM6bz9oEdsNvz
-         zeYA==
-X-Forwarded-Encrypted: i=1; AL+hErHTYSgHL9F7ZEOdFVEgWECC3jAIXcj2QIVi746ZeY1d72QZzCKfi++fxQB36M3IlfiOkbklcPlmNuYgHsU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NMBj+xhbU9kHb3irES7xcAH4HBVLzldx1Edeklxx7jGoP/dKs
-	95DA0QhGT8CahinrJfCNk7qVM0l9cSKZC0+pbqybmLcCm//CnwNNymRZ
-X-Gm-Gg: AYBFou1m4oodwMZCQHJFDC+j44qbUycjtW5dqzUE64uSpBqfgE1RJ3R64SHw/49uMMt
-	HBK50edtVDDGCd0WldphNajALB9cNgvlh0fXnrFPN4a+U9FYy5TaLE1RuY//OjOFhNQCN528n12
-	CupQCn0fWWaXUuWrl7j0dA794DI/O7OVWw0nUb4T1gKi649KXBFw5HLJRd6K29BvZW57s7Lg389
-	GU/GplpbFOZipe1JeXTCaGTJh/RDE2b+xSuLahshYW8Tu5LpegbL1fctAGf5rZhL1gQFSRo98tH
-	MMgbcU/Eit1r2pYcH0KeWGuavo2rcgfGQ2Hc3bRPbrKhTsFScdXTc3AoRDLsc77fGP5h7tDbFu/
-	a253o8fy1g6cSqglRzRS5dooOnLeHP1D6Vf86G/tr09GvHeDa2eYx9NwxZtaDYFY2rnp6HlqKwg
-	2r23GpovvyX/QPOx8O3RldCheTc5HiQwinerA9NEg3xZa6JPON4AUooF+7HoScKbScH/DbBDXxV
-	fZ1KgV3ZtrGcfivcGQoW+XQ0P3mz9kYUd1Jn28zWEGEmkguyK8Q0p54L7fxuc+WZZXu8EtMBIj1
-	dTLT5my6R38j8tjiml/oxzMWIfv8IzDyduujl9ZhFWyNCmiidmWZ/5ixYnxXOKaZETH0wH9HmNM
-	M/SxJb5EgDqaUWSFQkA==
-X-Received: by 2002:a05:7022:f907:b0:1b2:558a:d781 with SMTP id a92af1059eb24-1b5567b5788mr1842460c88.5.1795164254561;
-        Fri, 20 Nov 2026 00:44:14 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795164250; x=1795769050;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
+        b=IRm2Sjv0IrP8N9hYd7R/iiynCWw+Y0w+Hy2htbB4/l/pgruMD1ZA6yxOLYG2xl86OW
+         Z7q+y+bKW4JHpc1tjahjMfqmOykSZuWGtMVS21xfUX4/THhrj5HxnNUW5A19yPTa9rxJ
+         f5jeD2ZoF7YLQz0pJEpoZf2mQ6rrcIHaL1PebgSm/adY3FvkQcWRRV6+hyeEygaoolqs
+         N6GBvdLPxWeMvxuezNmtXG3Jld1mLOrpmWVrwSSWCITJxzplojL/ZKVZxI2rFPigeHeW
+         cCdorjviNDjxsP+9DvpsI3gV2althePVVwcx2sTKiqX0nmix6S1ftC/8sPLsn3OevuOX
+         cnLg==
+X-Forwarded-Encrypted: i=1; AL+hErE2kXN+zutvtF1oP8UqQVnzN/tsfYiTOHw44f+Xun7+5tVxdJUie8YVzOgAXFSc9kxPmYUK8Jnqly9B1As=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+G4SvbGzbV04HXnpITXvvQn6X60XaNJtPt5Bxsef4stXSutXTZ
+	C0reQLdAGLRuIzikM0/L9AHTtSVq9aQ/ClsFmPp+6r+peNIBDqkEBfjg
+X-Gm-Gg: AYBFou1RgE0igLFopcfQYyx+ajMoeIL6EhX+KCQS4gAIlytitkop11KuHLRkjCtZ5XP
+	+iPXj+r/Cckt9zwpZNEbVdAxYcrk+styOzMifaPTjaV7m4Sfz9Ni8uN74tyyx6KBJzHcFxXNTJD
+	T04XWNq42nG9eLdMjeNCI6oBbLvD6pgz5Xx/rceUTuQetpyx/6qRGmm+32w5IL0bNOZpjeRDqCk
+	1eHco7cngUwaJlYJ3s/8zmp6YYKn4rLw5dHB+pHA+1Q9JKplJqZ8XIGhucaW1Ohluu6FZbVf018
+	hFckA3NXgTKITUWoSIzm188WifUeQ8GKWDMb3qtQi6A7oLVxo8LzyXuw2TZgZ2fHE5ihJKgP9ZQ
+	kuGoSWUAgrza04ib94ba5AyC2T+YycOYTM+5PeMjobXmpaQf5xCqnXoPaC5W59+6kuk6xGrdc5N
+	SWsIaXJ4GqKB9gInp0jlx6L6uGjwp4dJ9L6LbogjTNWhn0WfyW1KZHzajQmj5SSjspjpjTOoRB0
+	yGAZwphoV2IcQFEogLeX5fKcZ2YOnlfCH/sRfxix8p6zLlamWkq//I68Kmq8cvkyjgrSKxUa9L3
+	n4dj+OYjYtCQB4KvuFkKGLwRhNKE3tYH9gNf/EbmFiiGiFfl59kU7G7e5is+QIgbvAlHL+KuG+u
+	XTn4amDThM00HrYTkvjQT6lGDYttJQ5W6TrXKATw=
+X-Received: by 2002:a05:7022:7f03:b0:1b3:a881:4d9f with SMTP id a92af1059eb24-1b5568a69abmr2133740c88.20.1795164249965;
+        Fri, 20 Nov 2026 00:44:09 -0800 (PST)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.13
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:44:13 -0800 (PST)
+        Fri, 20 Nov 2026 00:44:09 -0800 (PST)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:43:54 -0800
-Subject: [PATCH v3 03/18] HID: logitech-hidpp: return negative error codes
- from hidpp_send_message_sync()
+Subject: [PATCH v3 00/18] HID: logitech-hidpp: G920 force-feedback rework
+ and driver cleanups
+Date: Fri, 20 Nov 2026 00:43:51 -0800
+Message-Id: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,9 +95,13 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-next-v3-3-ba39242d4336@gmail.com>
-References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAEgIAGsC/22Qy26DMBBFfwV5XSM/wA9W+Y+qCz8GcBswNQQli
+ vj3GhJVWWQz0pXunDmaO5ohBZhRU9xRgjXMIY458I8Cud6MHeDgc0aMMEEp1bgPHp9jFxZw/R6
+ mCY9wXbDxzte8MtYZhfL2lKAN14P8+fXI88V+g1t23LOR4PeSTy6PGrJmBuziMISlKVRmWV3Xl
+ hJaV1IaQ6nRAljLjaNWc2WlbKvj2L9qUzxFyTtRoVRlWysMr1SzcrR79WFeYrodD1jpofFAEE3
+ 2yUumlBRcYIp9Fku3MvfjTx/XUzeYcC6z8EFa2cv2e4GVYYI5kRUHTb3i9hWxbdsfhnvgg48BA
+ AA=
+X-Change-ID: 20261119-hid-logitech-hidpp-next-adcd534abca8
 To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
  Gideon Heinz <gideonheinz02@gmail.com>
 Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
@@ -108,349 +112,105 @@ Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.17-dev-6b8b8
 
-Low-level synchronous send helpers previously returned 0 on success,
-negative error numbers on transport/timeout errors, and positive values
-on device protocol errors. Callers across the driver were burdened with
-checking if (ret > 0) to convert protocol errors into -EPROTO or -EIO,
-leading to scattered, inconsistent error translation.
+Per Jiri Kosina's request, this 18-patch series for v7.5 is split out
+from v2 and applies on top of:
+[PATCH v3 00/14] HID: logitech-hidpp: G920 force-feedback and battery fixes
 
-Translate HID++ 1.0 and HID++ 2.0 error reports directly into standard
-negative error codes (-EBUSY, -EIO, -EPROTO) in the core synchronous
-send helper, simplify retry handling in hidpp_send_message_sync() to
-check ret == -EBUSY, and remove redundant protocol error conversion
-boilerplate across all callers.
+Note that v2 patch 22/33 ("HID: logitech-hidpp: shut down G920 force
+feedback on input unregister") has been dropped in favor of "Input:
+destroy force-feedback device on input unregistration" in input core.
 
-Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
+The first group of patches improves transport handling and error
+propagation: keeping connect work disabled during probe until
+hid_connect() completes, preserving transport error codes in
+__hidpp_send_report(), and translating HID++ protocol errors into
+standard negative Linux error codes in hidpp_send_message_sync().
+
+The G920 force-feedback rework moves capability discovery back into
+hidpp_probe() while device I/O is active (excluding generic USB PID
+force feedback for validated HID++ devices), separates device-level
+wheel settings from the input FF queue lifetime, moves the G920 range
+sysfs attribute to driver dev_groups using sysfs_emit(), executes range
+stores, effect uploads, and effect erases synchronously, indexes FF
+slot arrays directly by effect ID, and cleans up FF helpers.
+
+The final patches modernize the driver by switching multi-byte protocol
+fields to unaligned accessors, storing device serials as byte arrays,
+using guard(mutex), __free(kfree), alloc_ordered_workqueue(),
+devm_mutex_init(), and devm_device_add_group(), and removing unused
+kfifo and wtp_data fields and redundant helpers.
+
+Thanks.
+
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 158 +++++++++------------------------------
- 1 file changed, 37 insertions(+), 121 deletions(-)
+Changes in v3:
+- Split out from v2 as a separate 18-patch series for v7.5 per Jiri
+  Kosina, applying on top of the v7.4 fixes series.
+- Dropped "HID: logitech-hidpp: shut down G920 force feedback on input
+  unregister" (v2 patch 22/33) in favor of "Input: destroy
+  force-feedback device on input unregistration" in input core.
+- Collected Tested-by tags from Gideon Heinz across all patches in this
+  series.
+- Link to v2: https://patch.msgid.link/20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com
 
-diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index f7e654d82805..44a7b4dfc9d9 100644
---- a/drivers/hid/hid-logitech-hidpp.c
-+++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -287,10 +287,9 @@ static int __hidpp_send_report(struct hid_device *hdev,
-  *
-  * Must be called with hidpp->send_mutex locked
-  *
-- * Same return protocol than hidpp_send_message_sync():
-- * - success on 0
-- * - negative error means transport error
-- * - positive value means protocol error
-+ * Same return protocol as hidpp_send_message_sync():
-+ * - 0 on success
-+ * - negative error code on failure
-  */
- static int __do_hidpp_send_message_sync(struct hidpp_device *hidpp,
- 	struct hidpp_report *message,
-@@ -331,6 +330,18 @@ static int __do_hidpp_send_message_sync(struct hidpp_device *hidpp,
- 	    response->rap.sub_id == HIDPP_ERROR) {
- 		ret = response->rap.params[1];
- 		dbg_hid("%s:got hidpp error %02X\n", __func__, ret);
-+		switch (ret) {
-+		case HIDPP_ERROR_BUSY:
-+			ret = -EBUSY;
-+			break;
-+		case HIDPP_ERROR_RESOURCE_ERROR:
-+		case HIDPP_ERROR_UNKNOWN_DEVICE:
-+			ret = -EIO;
-+			break;
-+		default:
-+			ret = -EPROTO;
-+			break;
-+		}
- 		goto out;
- 	}
- 
-@@ -339,6 +350,14 @@ static int __do_hidpp_send_message_sync(struct hidpp_device *hidpp,
- 	    response->fap.feature_index == HIDPP20_ERROR) {
- 		ret = response->fap.params[1];
- 		dbg_hid("%s:got hidpp 2.0 error %02X\n", __func__, ret);
-+		switch (ret) {
-+		case HIDPP20_ERROR_BUSY:
-+			ret = -EBUSY;
-+			break;
-+		default:
-+			ret = -EPROTO;
-+			break;
-+		}
- 		goto out;
- 	}
- 
-@@ -350,11 +369,8 @@ static int __do_hidpp_send_message_sync(struct hidpp_device *hidpp,
- }
- 
- /*
-- * hidpp_send_message_sync() returns 0 in case of success, and something else
-- * in case of a failure.
-- *
-- * See __do_hidpp_send_message_sync() for a detailed explanation of the returned
-- * value.
-+ * hidpp_send_message_sync() returns 0 in case of success, and a negative error
-+ * code in case of a failure.
-  */
- static int hidpp_send_message_sync(struct hidpp_device *hidpp,
- 	struct hidpp_report *message,
-@@ -367,18 +383,10 @@ static int hidpp_send_message_sync(struct hidpp_device *hidpp,
- 
- 	do {
- 		ret = __do_hidpp_send_message_sync(hidpp, message, response);
--		if (ret <= 0)
-+		if (ret != -EBUSY)
- 			break;
- 
--		if (response->report_id == REPORT_ID_HIDPP_SHORT &&
--		    ret != HIDPP_ERROR_BUSY)
--			break;
--		if ((response->report_id == REPORT_ID_HIDPP_LONG ||
--		     response->report_id == REPORT_ID_HIDPP_VERY_LONG) &&
--		    ret != HIDPP20_ERROR_BUSY)
--			break;
--
--		dbg_hid("%s:got busy hidpp error %02X, retrying\n", __func__, ret);
-+		dbg_hid("%s:got busy hidpp error, retrying\n", __func__);
- 	} while (--max_retries);
- 
- 	mutex_unlock(&hidpp->send_mutex);
-@@ -387,11 +395,8 @@ static int hidpp_send_message_sync(struct hidpp_device *hidpp,
- }
- 
- /*
-- * hidpp_send_fap_command_sync() returns 0 in case of success, and something else
-- * in case of a failure.
-- *
-- * See __do_hidpp_send_message_sync() for a detailed explanation of the returned
-- * value.
-+ * hidpp_send_fap_command_sync() returns 0 in case of success, and a negative error
-+ * code in case of a failure.
-  */
- static int hidpp_send_fap_command_sync(struct hidpp_device *hidpp,
- 	u8 feat_index, u8 funcindex_clientid, u8 *params, int param_count,
-@@ -426,11 +431,8 @@ static int hidpp_send_fap_command_sync(struct hidpp_device *hidpp,
- }
- 
- /*
-- * hidpp_send_rap_command_sync() returns 0 in case of success, and something else
-- * in case of a failure.
-- *
-- * See __do_hidpp_send_message_sync() for a detailed explanation of the returned
-- * value.
-+ * hidpp_send_rap_command_sync() returns 0 in case of success, and a negative error
-+ * code in case of a failure.
-  */
- static int hidpp_send_rap_command_sync(struct hidpp_device *hidpp_dev,
- 	u8 report_id, u8 sub_id, u8 reg_address, u8 *params, int param_count,
-@@ -988,22 +990,14 @@ static int hidpp_root_get_protocol_version(struct hidpp_device *hidpp)
- 			CMD_ROOT_GET_PROTOCOL_VERSION | LINUX_KERNEL_SW_ID,
- 			ping_data, sizeof(ping_data), &response);
- 
--	if (ret == HIDPP_ERROR_INVALID_SUBID) {
-+	if (ret == -EPROTO &&
-+	    response.rap.sub_id == HIDPP_ERROR &&
-+	    response.rap.params[1] == HIDPP_ERROR_INVALID_SUBID) {
- 		hidpp->protocol_major = 1;
- 		hidpp->protocol_minor = 0;
- 		goto print_version;
- 	}
- 
--	/* the device might not be connected */
--	if (ret == HIDPP_ERROR_RESOURCE_ERROR ||
--	    ret == HIDPP_ERROR_UNKNOWN_DEVICE)
--		return -EIO;
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1091,12 +1085,6 @@ static int hidpp_devicenametype_get_count(struct hidpp_device *hidpp,
- 
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 		CMD_GET_DEVICE_NAME_TYPE_GET_COUNT, NULL, 0, &response);
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1115,12 +1103,6 @@ static int hidpp_devicenametype_get_device_name(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 		CMD_GET_DEVICE_NAME_TYPE_GET_DEVICE_NAME, &char_index, 1,
- 		&response);
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1273,14 +1255,6 @@ static int hidpp20_batterylevel_get_battery_capacity(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_BATTERY_LEVEL_STATUS_GET_BATTERY_LEVEL_STATUS,
- 					  NULL, 0, &response);
--	/* Ignore these intermittent errors */
--	if (ret == HIDPP_ERROR_RESOURCE_ERROR)
--		return -EIO;
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1302,11 +1276,6 @@ static int hidpp20_batterylevel_get_battery_info(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_BATTERY_LEVEL_STATUS_GET_BATTERY_CAPABILITY,
- 					  NULL, 0, &response);
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1461,12 +1430,6 @@ static int hidpp20_battery_get_battery_voltage(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_BATTERY_VOLTAGE_GET_BATTERY_VOLTAGE,
- 					  NULL, 0, &response);
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1609,14 +1572,6 @@ static int hidpp20_unifiedbattery_get_capabilities(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_UNIFIED_BATTERY_GET_CAPABILITIES,
- 					  NULL, 0, &response);
--	/* Ignore these intermittent errors */
--	if (ret == HIDPP_ERROR_RESOURCE_ERROR)
--		return -EIO;
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1699,14 +1654,6 @@ static int hidpp20_unifiedbattery_get_status(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_UNIFIED_BATTERY_GET_STATUS,
- 					  NULL, 0, &response);
--	/* Ignore these intermittent errors */
--	if (ret == HIDPP_ERROR_RESOURCE_ERROR)
--		return -EIO;
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -1963,13 +1910,8 @@ static bool hidpp20_get_adc_measurement_1f20(struct hidpp_device *hidpp,
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 					  CMD_ADC_MEASUREMENT_GET_ADC_MEASUREMENT,
- 					  NULL, 0, &response);
--
--	if (ret) {
--		if (ret > 0)
--			hid_dbg(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--				__func__, ret);
-+	if (ret)
- 		return false;
--	}
- 
- 	*status = hidpp20_map_adc_measurement_1f20(params, voltage);
- 	return true;
-@@ -2143,11 +2085,6 @@ static int hidpp_solar_request_battery_event(struct hidpp_device *hidpp)
- 					  hidpp->battery.solar_feature_index,
- 					  CMD_SOLAR_SET_LIGHT_MEASURE,
- 					  params, 2, &response);
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -2235,12 +2172,6 @@ static int hidpp_touchpad_fw_items_set(struct hidpp_device *hidpp,
- 
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 		CMD_TOUCHPAD_FW_ITEMS_SET, &items->state, 1, &response);
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -2305,12 +2236,6 @@ static int hidpp_touchpad_get_raw_info(struct hidpp_device *hidpp,
- 
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index,
- 		CMD_TOUCHPAD_GET_RAW_INFO, NULL, 0, &response);
--
--	if (ret > 0) {
--		hid_err(hidpp->hid_dev, "%s: received protocol error 0x%02x\n",
--			__func__, ret);
--		return -EPROTO;
--	}
- 	if (ret)
- 		return ret;
- 
-@@ -3498,13 +3423,8 @@ static int g920_get_config(struct hidpp_device *hidpp,
- 					  HIDPP_FF_GET_INFO,
- 					  NULL, 0,
- 					  &response);
--	if (ret) {
--		if (ret < 0)
--			return ret;
--		hid_err(hidpp->hid_dev,
--			"%s: received protocol error 0x%02x\n", __func__, ret);
--		return -EPROTO;
--	}
-+	if (ret)
-+		return ret;
- 
- 	data->num_effects = response.fap.params[0];
- 
-@@ -3707,8 +3627,6 @@ static int hidpp20_reprog_controls_get_count(struct hidpp_device *hidpp)
- 
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index, cmd, NULL, 0,
- 					  &response);
--	if (ret > 0)
--		return -EPROTO;
- 	if (ret)
- 		return ret;
- 
-@@ -3726,8 +3644,6 @@ static int hidpp20_reprog_controls_get_cid_info(struct hidpp_device *hidpp,
- 
- 	ret = hidpp_send_fap_command_sync(hidpp, feature_index, cmd, &index,
- 					  sizeof(index), &response);
--	if (ret > 0)
--		return -EPROTO;
- 	if (ret)
- 		return ret;
- 
+Changes in v2:
+- Rebased the series on top of linux-next.
+- Kept connect work disabled during probe until hid_connect() succeeds.
+- Switched hidpp_send_message_sync() to translate RAP and FAP protocol
+  error codes into negative Linux error codes (-EBUSY, -EIO, -EPROTO)
+  instead of returning positive protocol values, and preserved transport
+  error codes in __hidpp_send_report().
+- Converted G920 range store, effect upload, and effect erase to
+  synchronous execution with slot indexing by effect ID.
+- Added G920 force-feedback helper cleanups, removed unused kfifo and
+  struct wtp_data fields, and cleaned up minor helpers.
+- Link to v1: https://patch.msgid.link/20261109061103.2887636-1-dmitry.torokhov@gmail.com
+
+---
+Dmitry Torokhov (18):
+      HID: logitech-hidpp: keep connect work disabled until hid_connect() completes
+      HID: logitech-hidpp: preserve transport error codes in __hidpp_send_report()
+      HID: logitech-hidpp: return negative error codes from hidpp_send_message_sync()
+      HID: logitech-hidpp: rework G920 force-feedback initialization
+      HID: logitech-hidpp: use sysfs_emit() in hidpp_ff_range_show()
+      HID: logitech-hidpp: manage G920 range sysfs attribute via dev_groups
+      HID: logitech-hidpp: execute G920 range sysfs store synchronously
+      HID: logitech-hidpp: index G920 force-feedback slots by effect ID
+      HID: logitech-hidpp: execute G920 effect upload and erase synchronously
+      HID: logitech-hidpp: clean up G920 force-feedback helpers
+      HID: logitech-hidpp: use unaligned accessors for multi-byte values
+      HID: logitech-hidpp: store device serial as a byte array
+      HID: logitech-hidpp: use guard() for send_mutex
+      HID: logitech-hidpp: use __free(kfree) for temporary allocations
+      HID: logitech-hidpp: use alloc_ordered_workqueue() for FF queue
+      HID: logitech-hidpp: manage send_mutex with devm_mutex_init()
+      HID: logitech-hidpp: manage ps_attribute_group with devm_device_add_group()
+      HID: logitech-hidpp: remove unused kfifo and clean up minor helpers
+
+ drivers/hid/hid-logitech-hidpp.c | 798 ++++++++++++++++-----------------------
+ 1 file changed, 323 insertions(+), 475 deletions(-)
+---
+base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+change-id: 20261119-hid-logitech-hidpp-next-adcd534abca8
+prerequisite-change-id: 20261110-hid-logitech-hidpp-6884bfb6a348:v3
+prerequisite-patch-id: e1416a97b0f876b3ad2c58d961bc858fc894d90d
+prerequisite-patch-id: a7c7a0921c6903c5cb52598f422b76593030eefc
+prerequisite-patch-id: e250d48e371cf39225c26a2830059e1ef0f84100
+prerequisite-patch-id: 19ed5cf936a31bcfb2e6743c64bdbfaf4cd4c497
+prerequisite-patch-id: 7d9f088caf73b37fffaa521ab2fa01154bc725d5
+prerequisite-patch-id: fd2e52e0c7fb38fbb457f1a133b21cc2e82bad7d
+prerequisite-patch-id: 26d251375b09680f430f05d1cfe6f1a7049d7699
+prerequisite-patch-id: 452b96def4814eb20770c50cda5ba2cdf934e1e6
+prerequisite-patch-id: 99be7ec097ed9b8c9fcae3a1e769c65bd40d0e5e
+prerequisite-patch-id: f42ce025d79d5bce980e061ee7bfd79fac6db59f
+prerequisite-patch-id: 1f1d98c497c6f72f2468a7b136b38d3b1673a843
+prerequisite-patch-id: 1ae006ac01f09e4fab516f0925b69f6683011ca4
+prerequisite-patch-id: 1d063d2ee308c2ac3a57dfa9029b2d826b7f2a42
+prerequisite-patch-id: 417cd6cae264a8b5dd5714ddeef4e75bbd959b17
+
+Thanks.
 
 -- 
-2.56.1.750.gf70dc682cf-goog
+Dmitry
 
