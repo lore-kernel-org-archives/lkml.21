@@ -1,79 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197905;
-	b=lgk/G8lDTl1GouzLrb6mzh16TuvmTmRvRyRN546LvCDHqHIdMzp5rk+sPJai4PUwbJRG
-	 oN0iW1ET3XZFAljGIZm6WDIh6wUHbHdfX8dNP7pcLnpymxC4RbmyvNihg9dsyu41AafRo
-	 p7diY3pHhuN37M8AAVAaa4NhKIXhKfGnm45bJ9c+sb1IhdcV7J9eoGuLFeMYj32fTYOEi
-	 tC3PK5JQONHfGYfeMQA8qE7rA3/5QAlbRZ4SRCZW7jCj72pvbfAcEYDhlC6XaspkNObvG
-	 MyJ0WwIBxuOvEvxBbxRlt92chqDIEwGUgoCHDxHli4sg705clf4BectcMQ5pVXgG1Mg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197905;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z0iC7O32uyMGduUf/rLmlqfyp3kiuwRd3E2PoPpaukw=;
-	b=YC+jHHnkei3LYXzLFy32QRe36Mf/oIKug9XcaCS1jUVKoqSzndO6jNi01ZpQ+zouFYgc
-	 OJzwCYvXCEWMH435HxCpFMhqrcejPCoxsb0Xme7/aDPJpE7RevyjyD4JCZytnKkEmqRdC
-	 483eiHzd7E6yF+g3z2M4RtjRAGvC7f7xn8PsAtsZv8Q5m7JelpctGg+kszcKsN06nBvrx
-	 mW60xcM7xVc5BtrqYr17WGYwuk0yoFtONYbdQR6V6xtdqlrpxnlY3GTyLPZ1SQZZPuLWY
-	 OYslRffeIv1ZXlHARDFjQiX2g1ou6Pcr7n3WFTHDZpZDOQSiiVN9711MjLMChEN/QlA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lF8jYa+H;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795197889;
+	b=yomLq5zmu9cIcEX751ZyJTu1NdxZPmD4qGmBPwoGa9nOTTMFT1MQl+3h1526egSUt7hU
+	 0/vsOF2CwCguHfYDxKWvVEqDf5tgLiNij4gRcB+0eZ+RweOcnOwjmS+mP+JzPEA3c9I52
+	 Sdglzv9Y2aJxQm1cL8av6wPyMrVgoDMWGi1+8w4O1344Undy+oluxNeOwVbmBhl55pHc7
+	 k02g5f99OgqvQMxIjm5nFltFTIbxVGYiGv2SXced3gfV0RHxfjmlUS0yBUxzkz3d/gXUI
+	 msOosl5k7j88Me7x7xLxtT7kipfq04JqDPy/DNhJid2CwL6Ig62wntIjucFf6zAE3CQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197889;
+	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=DygjEKi38o3GasFml85WxiMAFWjjX0WD7EifQHPGL/A=;
+	b=zhJR2TqByh5C75eedsfzcPVhyTVQ5BecZ/9usSmxB6lDN2LzeCjxpjoID34YQqMwzA3R
+	 XrQoF+0D+tKvUbj2NSCvoh7VEgDgnB38AmDtfkO++NQc7kBjf000tlbw3XOq1QOhDxbpW
+	 QSoYSJr4rGy2h6tRC0qgsjFXYXiFJb8yQLQAM7+PHP1mBO+QEJiywh2UVVvLjG9u7MsSe
+	 VbW7YaoUNhieH/wbKATIAiPMddw01++gJzHX4Lof2qE5FtjHrPJ9L445GwKT/yRMaTSEu
+	 BFlhsNiIUa4+xxP5Jp8LTZKusk/llPUIwOpSxP/f+n3isKBIRGBO4qNCYbIw19IgWCA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c1QJwoP9;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1724A60A3837;
-	Fri, 20 Nov 2026 18:05:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D365B606A895;
+	Fri, 20 Nov 2026 18:04:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lF8jYa+H
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795197904;
-	b=WB5WOkSAIToJIw4clOVQYmFM7BKav2xLplnJihLBHSa28mhAvORmFkpQlLwxdydimk/B
-	 vl6t0rUu9LDu52nce74Ce/Z0IxcNoHXB16MaYAQLiozukB9Q/9BGOqdL78oRTssoF9df1
-	 21Hs/cSxZKWZ9bxOGi7CuKcpX0PvWf5YD0o0KXePeHNYJAOQRMrN/et4HjFVTX40vj+jL
-	 TxMmL0O4OE4VAcBf9hLNc82hTJtwWqm0jtG1W/0hN+0gaqb0TykujglQjAhQOcGkiY8Tw
-	 sVBc59JbK2cyyYJq0CP96yTl921YkF675bwLnyJQeDD/+G6w1TmFuebtAYNmPw12wKw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795197904;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Z0iC7O32uyMGduUf/rLmlqfyp3kiuwRd3E2PoPpaukw=;
-	b=YlvlGKTZk+xt2jFrbm1F2AvwUM653t65oFy3ykcsyBGmDcG6yzxjT+CSP1h3gd3NeUzN
-	 hVucmIA9T30bvjNE8IBopuf5Ioh3wIa3nZmj5/QTKoUo4UGCIkyV5+dtC6LmfTd/L6jsm
-	 LFb430eM125BPbJlH61EEyj9R5YE18eY1JQuzjChIXDZBR/bW/p1RrCGX1ET0DjOsvO4O
-	 hDcH/GP4+DqGgmD6doHITWFiVslc+lRr8V8Ot+Z5rrL2pW9GmiuuC+nJtJx4Az1CsQr7P
-	 myE6DYOnKk1dfdIsZRlI2me0gAYdVPkDQoMoxCGCobX4yEW1XFlTf7P64FuqMZoTiKA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 48D4D1F0089F;
-	Fri, 20 Nov 2026 18:04:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c1QJwoP9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C1D1F000D4;
+	Fri, 20 Nov 2026 18:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795197904;
-	bh=Z0iC7O32uyMGduUf/rLmlqfyp3kiuwRd3E2PoPpaukw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=lF8jYa+HavExLK4/eMgOCETCmR6WSD3PpQM8YFIPrOsbM/wmvDqGMpjaDnW86fRgF
-	 X6IuNAjtdpm4DdkDzU5Fgw2hOwA2Y0f9SFhY/u9GwDRvr60HnA9nsexDwRC1f+hU8e
-	 NjqDUU6gvEIr8g7/7Yy+H3LlBezt4Oaay9CyVT3AtyLWBsdhxfTrZG7AG09S1Rvy36
-	 gXmT/if+UKClVMU+0nftXFj1xb1N2QxdYRlyf3YlCp/4edElCiX+YxEhqcYy1sAC4x
-	 X/QQjfls96YD9Fd8Z2kLvb4mlqGa+yG12vE5j/qH3bJpl1O2w2JwRlP34IXLIZUZmj
-	 BhwX040MaU6eQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B5B484B8C1;
-	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
-From: Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org>
-Date: Fri, 20 Nov 2026 18:04:01 +0000
-Subject: [PATCH RFC 5/5] iio: sysfs: drop core-only fields from struct
- iio_dev_attr
+	s=k20260515; t=1795197889;
+	bh=DygjEKi38o3GasFml85WxiMAFWjjX0WD7EifQHPGL/A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=c1QJwoP9Js9ylOiblL15IpwU7TGs+iGcXN00rM4AAIZ7SJFgu/4iMiI7as4QmmsOf
+	 K6yCYGonCPBX0mcJqnsX4xgl4mmoXhSa0AjCgpxb3CF+M4rPGQIFDYhZunhXfikw7K
+	 dfA/WXhd2eOQ15vH0MOKh0NVYMftV4hUW5G6ExgeTVCJk6U/adQYIp9rHi50/6Raxe
+	 C7uZaASE1cNrPGYAbD/+sWREQOB0RgMqywL1e4HqZ6C7imfg7V6Z6W10sa4XCewWOF
+	 Wq8DhN4vKsJK32JG1Mjk8vnJXvkyGD1x01OP9zBTgONtkOclCcVaZc8q5uqPoMOJ5z
+	 QqrPpmm66yISg==
+Message-ID: <c9d7a4bf79247d7cfcd23460d351412c343d546c.camel@kernel.org>
+Subject: Re: [PATCH RFC] NFS: don't wait for writeback on close() with a
+ write delegation
+From: Trond Myklebust <trondmy@kernel.org>
+To: Jeff Layton <jlayton@kernel.org>, Anna Schumaker <anna@kernel.org>
+Cc: Chuck Lever <cel@kernel.org>, linux-nfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 10:04:48 -0800
+In-Reply-To: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
+References: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,73 +62,148 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-iio-core-attr-review-v1-5-05b41f8133c2@analog.com>
-References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-In-Reply-To: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-To: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, 
- Rodrigo Alencar <rodrigo.alencar@analog.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795197883; l=1385;
- i=rodrigo.alencar@analog.com; s=default; h=from:subject:message-id;
- bh=65/z2WflfdlMHb7yQxMB5agemZHd6GgMQWFUiigsa0U=;
- b=r6Nvq+rxeQxCWzAcw8aDRZDugDzbMk8jQDXr5u8T7ss65LXsa1FemLTXqJI3/cUwpjb4aGbuM
- LROuVPUNLjfC3wMD5Fu0cTJ/E19QWTfNox/kh+kMSCdsY1DMGbP2F+S
-X-Developer-Key: i=rodrigo.alencar@analog.com; a=ed25519;
- pk=ULeHbgU/OYh/PG/4anHDfLgldFItQHAhOktYRVLMFRo=
-X-Endpoint-Received: by B4 Relay for rodrigo.alencar@analog.com/default
- with auth_id=561
-X-Original-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
-Reply-To: rodrigo.alencar@analog.com
-Content-Transfer-Encoding: 7bit
 
-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
+On Mon, 2026-11-16 at 15:55 -0500, Jeff Layton wrote:
+> Commit 5445b1fbd123 ("NFSv4: Respect the server imposed limit on how
+> many changes we may cache") made close() write back, COMMIT and wait
+> whenever outstanding requests exceed the write delegation's
+> space_limit. Servers that send a limit of 0, knfsd included,
+> therefore
+> get no close() benefit from write delegations, which knfsd now grants
+> even on write-only opens.
+>=20
+> That flush buys nothing:
+>=20
+> - CTO: no other client can open the file until the delegation is
+> =C2=A0 recalled, and the recall writes back our dirty data first.
+> - Error reporting is all that's left, and it's pointless. close() is
+> =C2=A0 not required to flush, and most filesystems don't, so checking for
+> =C2=A0 writeback errors there is unreliable at best: the failing writebac=
+k
+> =C2=A0 may not have happened yet. Applications that care must fsync(),
+> =C2=A0 which this doesn't change; errors are still recorded in the mappin=
+g
+> =C2=A0 and reported there.
+> - RFC 8881 says only that the client "should" abide by space_limit;
+> =C2=A0 exceeding it leaves the server's behavior undefined, and knfsd jus=
+t
+> =C2=A0 returns NFS4ERR_NOSPC/NFS4ERR_DQUOT on WRITE or COMMIT.
+>=20
+> Go back to just starting writeback on close() whenever we hold a
+> write
+> delegation. In testing against a knfsd patched to send a nonzero
+> space_limit, single-threaded create/write/close went from ~92 to
+> ~1,500 files/s.
+>=20
+> User-visible change: ENOSPC/EDQUOT for data written just before
+> close()
+> now shows up only via fsync(), not close().
+>=20
+> For now, the pagemod_limit is still decoded but unused.
+>=20
+> Signed-off-by: Jeff Layton <jlayton@kernel.org>
+> ---
+> I started looking at wiring up space_limit for nfsd's write
+> delegations,
+> but afrer looking at how the client uses it, I think we're best off
+> just
+> not bothering to respect it at all. Thoughts?
+> ---
+> =C2=A0fs/nfs/delegation.c | 25 -------------------------
+> =C2=A0fs/nfs/delegation.h |=C2=A0 1 -
+> =C2=A0fs/nfs/nfs4file.c=C2=A0=C2=A0 |=C2=A0 7 ++++---
+> =C2=A03 files changed, 4 insertions(+), 29 deletions(-)
+>=20
+> diff --git a/fs/nfs/delegation.c b/fs/nfs/delegation.c
+> index ad774316f716..3a141d5ee0bd 100644
+> --- a/fs/nfs/delegation.c
+> +++ b/fs/nfs/delegation.c
+> @@ -1587,31 +1587,6 @@ bool nfs4_copy_delegation_stateid(struct inode
+> *inode, fmode_t flags,
+> =C2=A0=09return ret;
+> =C2=A0}
+> =C2=A0
+> -/**
+> - * nfs4_delegation_flush_on_close - Check if we must flush file on
+> close
+> - * @inode: inode to check
+> - *
+> - * This function checks the number of outstanding writes to the file
+> - * against the delegation 'space_limit' field to see if
+> - * the spec requires us to flush the file on close.
+> - */
+> -bool nfs4_delegation_flush_on_close(const struct inode *inode)
+> -{
+> -=09struct nfs_inode *nfsi =3D NFS_I(inode);
+> -=09struct nfs_delegation *delegation;
+> -=09bool ret =3D true;
+> -
+> -=09rcu_read_lock();
+> -=09delegation =3D rcu_dereference(nfsi->delegation);
+> -=09if (delegation =3D=3D NULL || !(delegation->type & FMODE_WRITE))
+> -=09=09goto out;
+> -=09if (atomic_long_read(&nfsi->nrequests) < delegation-
+> >pagemod_limit)
+> -=09=09ret =3D false;
+> -out:
+> -=09rcu_read_unlock();
+> -=09return ret;
+> -}
+> -
+> =C2=A0int nfs4_delegation_hash_alloc(struct nfs_server *server)
+> =C2=A0{
+> =C2=A0=09int delegation_buckets, i;
+> diff --git a/fs/nfs/delegation.h b/fs/nfs/delegation.h
+> index fba4699952b8..75f0edde65ea 100644
+> --- a/fs/nfs/delegation.h
+> +++ b/fs/nfs/delegation.h
+> @@ -83,7 +83,6 @@ void nfs_put_delegation(struct nfs_delegation
+> *delegation);
+> =C2=A0void nfs_mark_delegation_referenced(struct nfs_delegation
+> *delegation);
+> =C2=A0int nfs4_have_delegation(struct inode *inode, fmode_t type, int
+> flags);
+> =C2=A0int nfs4_check_delegation(struct inode *inode, fmode_t type);
+> -bool nfs4_delegation_flush_on_close(const struct inode *inode);
+> =C2=A0void nfs_inode_find_delegation_state_and_recover(struct inode
+> *inode,
+> =C2=A0=09=09const nfs4_stateid *stateid);
+> =C2=A0void nfs4_inode_make_writeable(struct inode *inode);
+> diff --git a/fs/nfs/nfs4file.c b/fs/nfs/nfs4file.c
+> index 9a434f5dda8d..04f4d8967e5b 100644
+> --- a/fs/nfs/nfs4file.c
+> +++ b/fs/nfs/nfs4file.c
+> @@ -122,10 +122,11 @@ nfs4_file_flush(struct file *file, fl_owner_t
+> id)
+> =C2=A0=09=09return 0;
+> =C2=A0
+> =C2=A0=09/*
+> -=09 * If we're holding a write delegation, then check if we're
+> required
+> -=09 * to flush the i/o on close. If not, then just start the
+> i/o now.
+> +=09 * A write delegation already provides close-to-open
+> consistency:
+> +=09 * no other client can open the file until it is recalled,
+> and the
+> +=09 * recall writes back our dirty data. Just start the i/o.
+> =C2=A0=09 */
+> -=09if (!nfs4_delegation_flush_on_close(inode))
+> +=09if (nfs_have_write_delegation(inode))
+> =C2=A0=09=09return filemap_fdatawrite(file->f_mapping);
+> =C2=A0
+> =C2=A0=09/* Flush writes to the server and return any errors */
+>=20
+> ---
+> base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
+> change-id: 20261113-nfs-space-limit-025199334e52
+>=20
+> Best regards,
 
-The list node, channel spec and buffer pointer of struct iio_dev_attr
-are now only used through struct iio_chan_attr and the types extending
-it. Remove them, so that attributes declared by drivers through
-IIO_DEVICE_ATTR*() and friends no longer carry them.
+Maybe we can call filemap_flush() in order to kick off non-blocking
+writes in this situation?
 
-On 64-bit, without lockdep, this shrinks struct iio_dev_attr from 72 to
-40 bytes.
-
-Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
----
- include/linux/iio/sysfs.h | 9 ---------
- 1 file changed, 9 deletions(-)
-
-diff --git a/include/linux/iio/sysfs.h b/include/linux/iio/sysfs.h
-index de5bb125815c..1e4122b8c13a 100644
---- a/include/linux/iio/sysfs.h
-+++ b/include/linux/iio/sysfs.h
-@@ -9,23 +9,14 @@
- #ifndef _INDUSTRIAL_IO_SYSFS_H_
- #define _INDUSTRIAL_IO_SYSFS_H_
- 
--struct iio_buffer;
--struct iio_chan_spec;
--
- /**
-  * struct iio_dev_attr - iio specific device attribute
-  * @dev_attr:	underlying device attribute
-  * @address:	associated register address
-- * @l:		list head for maintaining list of dynamically created attrs
-- * @c:		specification for the underlying channel
-- * @buffer:	the IIO buffer to which this attribute belongs to (if any)
-  */
- struct iio_dev_attr {
- 	struct device_attribute dev_attr;
- 	u64 address;
--	struct list_head l;
--	struct iio_chan_spec const *c;
--	struct iio_buffer *buffer;
- };
- 
- #define to_iio_dev_attr(_dev_attr)				\
-
--- 
-2.43.0
-
-
+--=20
+Trond Myklebust
+Linux NFS client maintainer, Hammerspace
+trondmy@kernel.org, trond.myklebust@hammerspace.com
