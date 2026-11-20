@@ -1,66 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=18.194.254.142
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.202.70.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795141371;
-	b=Uu8V3Rfsc51crDhkC8/iLt5Xjho6uYgAUMo4rgSLnQcOpL1K+E+/g83hAvvLj2LxkFCI
-	 UYte/XWrn/9RHuRDUGbyXpJOoIBdGYB28KPOxkVX/OOgUcUpMDRaeJTdRNKxzC3ZC73hl
-	 dUjpY6Xwf9b/xi3DrCF8mnMgjxgmE610ziOasOmrV9nMA4NOUjtrHlqS6D5qPAFIxA1Ym
-	 U6cDj0cgCBZ3O+s4lOo7zjQGaulEeNHcS8WAIGhVooJKZurJL6RQP/5lE0HSmXOjw4p42
-	 F2LrgZn4XV+A4nMo8cksAqoye5azU2WEUf8s1i0bs89jB/8hBYdOuvtMUQqfNNtIRzw==
+	t=1795141442;
+	b=lyL06ujpdcvD5fS4r+UgOfRfKL/xeg3KmFuQygFGgwIDwC6Hfpj0Vci4lK/LDhGqj5Kq
+	 xcu9RWGYI1ERBabMcNCXvPSioCNhKmsc2w4CKRP2arneo6/reMy85ItqEJ6gf7xgS1Cyd
+	 eUciHtSxnZVR4OJsIGSmL8ITTa25ayEN5pCUxFUhtylK4YPFk+qsPayHepn1VRty8XwlS
+	 MJAm3dJWPJ1mcKp9E1qFrrIm6dQa4Y+Nz+4eKH3JE7GGWMsj29iXZ4M1GV3ivYkOXKHMZ
+	 oxT44/3hcYKtlJa4D9evfFooHSO9LBabBomS9wBFx3Qvs/FZPwcu77JXg8rizXgGAQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795141371;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
-	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=P/zNpLrTOtmqClHIZAY0EmFG09sH9ouzQujH5k/amEU=;
-	b=SHlwrGM5Ac9Qz+kmehDD4oKC26ZDcmFyHWjpcZYQYEe2luGZkbaaBhXbbxmK/8GEQLK9
-	 XFVaNMw9sJUeexdcZKqpHmmdgA5viDa+gcF1k6GREdtyxBiD6VGkb+TVBE/qKTaqGq39p
-	 uPTeOAFUHHRoafWDFqZACeT2aKQbrV5GHGxo9yIq7kIQLV8oc946raCLRcW7e1WjFpmiw
-	 g6EhkyZbT4EcSwVKquDc+/KbxOWTZ5BjSkCvJAcvGrJHT8Kgt86UL59nZ9G/BRCHRLYRg
-	 9k/gIM6HAFhrEdJz9AtXBfAvoJ3W3meD/ytY/E6MAVu7QVE4L2r6TPQiRPxC+a7CzJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795141442;
+	h=DMARC-Filter:Received:Received:Received:Date:X-MD-Sfrom:X-MD-SrcIP:
+	 From:To:CC:Subject:Message-ID:Mail-Followup-To:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:User-Agent:
+	 X-Originating-IP:X-ClientProxiedBy:DKIM-Signature;
+	bh=BxPM0GoS+3d23HxtcIoWyp1oqestr/tiJ9Eswggqs1Y=;
+	b=kpSR7Vm+U9kB3ggUbW05TQsMXsk7KJRmGMWjJ2IAUfwXpUG103VQBOdYUxzqT8iSATqd
+	 L0UWm21GWim+n377VW1vjEpCft+heb6MbqxpN0ZDZNtYKI3Kzl8YF5xS71FRdn2WanRq9
+	 WnoB/kgIQlvLH/HrV+YP7EQ5renyG3Z7bUpTlY+q4SCbgHik5YJOaoVYWgdCU9omWBVgm
+	 pI2zSUiK3TLGoH1XM6nSA2N7BPhEKXrNzD5EYmpyFPwFxWMb/OBWmeAtAuxhW+l6/0JHG
+	 Wbu5CC0c+4jSg/H8NZGhCbTwdotHG4GIK10u2sVhQgtiZw/rm3sNzH8H9tqmEVkBx3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=biun9u4T;
-	arc=none smtp.remote-ip=18.194.254.142
-Received: from smtpbgeu2.qq.com (smtpbgeu2.qq.com [18.194.254.142])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC325606A320;
-	Fri, 20 Nov 2026 02:22:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC325606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	dmarc=pass header.from=didiglobal.com;
+	spf=pass smtp.mailfrom=didiglobal.com;
+	dkim=pass header.d=didiglobal.com header.i=@didiglobal.com header.a=rsa-sha256 header.s=2026 header.b=AQBudL2S;
+	arc=none smtp.remote-ip=111.202.70.124
+Received: from mx9.didiglobal.com (mx9.didiglobal.com [111.202.70.124])
+	by smtp.subspace.kernel.org (Postfix) with SMTP id 0EDFE606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:23:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EDFE606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=didiglobal.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=didiglobal.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=biun9u4T
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795141322;
-	bh=P/zNpLrTOtmqClHIZAY0EmFG09sH9ouzQujH5k/amEU=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=biun9u4TpZBxqQaWDNaRirtsSw7ZCcB+aRJTHblGXgEs9P7furWCzAZXvOgkB7Enc
-	 dM0Cx/NVh4pPbZZ3jCXf/VfOLh8kUB38paTxpjWGtZ2neQCoINgRMF39qO+J16LJ56
-	 NW1dI00SjDNGNpLvnNFjHJBCfOtPmzbX20aqaIeg=
-X-QQ-mid: esmtpgz12t1795141319t66f213b8
-X-QQ-Originating-IP: S0xQKMI+sohAVTutLx6QGaJ+/8gwQwIR5AE13eyHWQM=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 20 Nov 2026 10:21:47 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 3208655575677083449
-From: Siqi Chen <chensiqi@uniontech.com>
-To: jagathjog1996@gmail.com,
-	jic23@kernel.org
-Cc: crofts@kernel.org,
-	dlechner@baylibre.com,
-	nuno.sa@analog.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] iio: imu: bmi323: check i2c_transfer() return value
-Date: Fri, 20 Nov 2026 10:21:43 +0800
-Message-Id: <20261120022143.4065982-1-chensiqi@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	dkim=pass (1024-bit key, unprotected) header.d=didiglobal.com header.i=@didiglobal.com header.a=rsa-sha256 header.s=2026 header.b=AQBudL2S
+Received: from mail.didiglobal.com (unknown [10.79.65.20])
+	by mx9.didiglobal.com (MailData Gateway V2.8.8) with ESMTPS id C2F01182F9C2CC;
+	Fri, 20 Nov 2026 10:23:44 +0800 (CST)
+Received: from BJ01-ACTMBX-04.didichuxing.com (10.79.64.12) by
+ BJ02-ACTMBX-02.didichuxing.com (10.79.65.20) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 20 Nov 2026 10:23:44 +0800
+Received: from didi-ThinkCentre-M920t-N000 (10.79.64.102) by
+ BJ01-ACTMBX-04.didichuxing.com (10.79.64.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Fri, 20 Nov 2026 10:23:44 +0800
+Date: Fri, 20 Nov 2026 10:23:35 +0800
+X-MD-Sfrom: jinkehan@didiglobal.com
+X-MD-SrcIP: 10.79.65.20
+From: Jinke Han <jinkehan@didiglobal.com>
+To: Dave Hansen <dave.hansen@intel.com>
+CC: <linux-kernel@vger.kernel.org>, <tglx@kernel.org>, <mingo@redhat.com>,
+	<bp@alien8.de>, <dave.hansen@linux.intel.com>, <x86@kernel.org>,
+	<hpa@zytor.com>, <nik.borisov@suse.com>, <rppt@kernel.org>,
+	<peterz@infradead.org>, <mhiramat@redhat.com>
+Subject: Re: [PATCH] x86/kprobes: Fix boundary check in insn_jump_into_range()
+Message-ID: <20261120022335.GA1970@didi-ThinkCentre-M920t-N000>
+Mail-Followup-To: Dave Hansen <dave.hansen@intel.com>,
+	linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, nik.borisov@suse.com, rppt@kernel.org,
+	peterz@infradead.org, mhiramat@redhat.com
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,76 +67,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: NLPsVJklzyEpHrDK7k56IKwNuWaN1KtsiMuiEmsFtXpcB74jwc35MtQk
-	Svo2a50Td01kFvjPK/QdxSR744bhFnU4cfdC5Lx4d1+2CzuGWDAzAolbbHqXQT56hq75WAW
-	224DcKGSxcj6wSpWvoD9jApQOUFi5Ldk9FyjGLaAbTqL3LeG1VJa9s/ZehxaMV7Jr4DcqQN
-	EKZ/TChk3T/7X1JlXalbP5ThCsdSZz/mneTvsPqOKps4+MNCFsy4Hob2VMuOXfyLsRaZWbv
-	pXiExc/b8jkmZ78rGpsSBZ0BBIAVl+fN+sAcKHeJribUcI6QgRzOlC50dvwLINdt7qS1VKK
-	kzP9LfDMM8WJuSOni6rtBCBI9Rrku5IZ7Y+24qH4VgcLX3n/eprUMl2P+7OXmen0Pc+ksgE
-	q8Jz+A+loknB70SNij+yDWzSxgA6ifuZF+vIQ6VLpwQG8+6/+VIyrMGTdBaeOtRiLW1oHye
-	oeUyvRumRe9MW8vhHY4GxXeJitRMoY9ddm6RNDsXNmm9gUKwqpDhHKhEyfYQv1brCYOWSOM
-	wJoe4HMRbovCourIzOAoydyJRYu0T/rxN4lB6OjVdx+H0CTUeoGc9IdsLaTet/uhNZHiEa4
-	KD6+Mci/JVaAjhbyRcMjesp/JETU0OvtFvHzzN3YBtH6tyLnMvC8ndQU5MduceX+l8l1m5C
-	zHmzfANcqgeW8coeacKnZNR1qBzp2rfIoWrRpdiuw48Ybir2JG4Xi1VtqNwbgOAgY7YtuL7
-	rpSg4Nr4TLLSjJxgF6TYd5GRSZ8/1gT9Yv8PS9qTbcNp6yD4O1dEHgQebShJEb8necfUylZ
-	dbVf/zimylgWjzsoaL8EPPU4PvMfV3faox3jAsK4lWAcqpSdu6dLQ2ZkKDR0j2ZGd+QOfUm
-	IrGopYQ/1WhTmMwXFMk70H7gmBe/0mzRPjG5PSX6ErzPYu4iY47IC6V4T7CBmXClX8HsFff
-	ktuf2BLhV9AzZ1b4JTR+gxJ/YjLEjXJCrqXbrUez5tRu9UDV4hJeX2OgQzFqLAjoTGhLcHd
-	IvalVmoczAqv4yzYTovJal0B+LZ221/URtQu+jWTAmDU7TuB4OfyHTMvqpgzpbyIcNkVTTq
-	A==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <b136b9da-7089-4232-ad96-6174a48844d9@intel.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ClientProxiedBy: BJ02-PUBMBX-01.didichuxing.com (10.79.65.22) To
+ BJ01-ACTMBX-04.didichuxing.com (10.79.64.12)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=didiglobal.com;
+	s=2026; t=1795141425;
+	bh=BxPM0GoS+3d23HxtcIoWyp1oqestr/tiJ9Eswggqs1Y=;
+	h=Date:From:To:CC:Subject:Message-ID:Content-Type;
+	b=AQBudL2SS/inTWC/tahe++QB4x/voFAo+2F1mwyAZCfp3J4KBADak6TDLiqVWlNUI
+	 qHvvlX5BKnBh1S2tOQy4rIrtt3s4292i2bgsrs2PtSNhAVvmKsVwtb4X4107Flbv6A
+	 OfVzaKO51KNDkGoFeVWtzO2r+uLdP1IAFcArkiKg=
 
-i2c_transfer() returns the number of messages transferred or a negative
-error code. The BMI323 I2C read path only checks for negative values and
-maps all errors to -EIO.
+> On Thu, Nov 19, 2026 at 04:41:04PM -0800, Dave Hansen wrote:
+> > On 11/19/26 16:36, Jinke Han wrote:
+> >> Since there is no reported failure, I'm fine with dropping the Fixes:
+> >> tag if you'd prefer to treat this as a cleanup. I can also post a
+> >> separate change that makes the check use the actual optimized length
+> >> instead of the open-coded DISP32_SIZE, if you think that's the better
+> >> direction, and add a regression case under
+> >> tools/testing/selftests/kprobes.
+> > 
+> > The Fixes: is fine, but it would be nice to have a better changelog
+> > about what's going on.
+> > 
+> > Not voluminous, just better, please.
 
-If only the register-address message is transferred, the function copies
-data from the receive buffer and reports success even though the read
-message was not completed.
+I'll send a v2 to improve the changelog.
 
-Require both messages to be transferred, preserve negative error codes,
-and return -EIO for a short transfer.
-
-OpenCode was used to identify the issue and draft the code and changelog.
-
-Fixes: 8a636db3aa57 ("iio: imu: Add driver for BMI323 IMU")
-Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
----
-Changes in v2:
-- Split the transfer error and short-transfer checks for readability.
-- Move testing information below the separator.
-
-Compile-tested with CONFIG_BMI323_I2C=m using:
-
-  make O=/tmp/opencode/linux-build-bmi323 W=1 \
-       drivers/iio/imu/bmi323/bmi323_i2c.o
-
-No hardware or I2C fault-injection testing was performed.
-
-Link to v1:
-https://lore.kernel.org/r/20261119070837.3844364-1-chensiqi@uniontech.com
-
- drivers/iio/imu/bmi323/bmi323_i2c.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/iio/imu/bmi323/bmi323_i2c.c b/drivers/iio/imu/bmi323/bmi323_i2c.c
-index e025c88c30b4..27eddd1346d0 100644
---- a/drivers/iio/imu/bmi323/bmi323_i2c.c
-+++ b/drivers/iio/imu/bmi323/bmi323_i2c.c
-@@ -41,6 +41,8 @@ static int bmi323_regmap_i2c_read(void *context, const void *reg_buf,
- 
- 	ret = i2c_transfer(priv->i2c->adapter, msgs, ARRAY_SIZE(msgs));
- 	if (ret < 0)
-+		return ret;
-+	if (ret != ARRAY_SIZE(msgs))
- 		return -EIO;
- 
- 	memcpy(val_buf, priv->i2c_rx_buffer + BMI323_I2C_DUMMY, val_size);
-
-base-commit: c1b99c6982dccade0199879966a2d97f27a0a110
--- 
-2.20.1
+Thanks,
+Jinke Han
