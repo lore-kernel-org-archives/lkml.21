@@ -1,55 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180397;
-	b=Gn0kVLavFcOM5gpmb5c74Jh9DkDaPgVazv3Y8Xv2XW8NmZmS8G/DMAGo+zTLsM6TnT2w
-	 35+2nQh7pAcn61EWqdf7VfnmYMcWkSLTwMcQMoK0Y09ttR+H/Q3aDk9Egl4dA9Ix/cjjh
-	 HzyimUw/JpSmDkP/dqsWiiDM/wVn2hTf41QEax5C4zNWWy08gZFHoKFrqepm+VnE7HlE2
-	 bkxl5Nz71As0Z9HS0tOscO3qzTEWUmobEXqAZeiHrXpHkKdX++lA4/Xqng0WOtGj7od6B
-	 mx7g37aA9S9N7XlpBxYDLBmBEzg5EupENOyP2grNE0SY3rMpJ+qB12jT5c9bavYnTHw==
+	t=1795180392;
+	b=NWzYySK/sIFwz/oyhLia1wfpl/r9X9as6SEED9c3T3uETrDe16e+TiLz9Dyy/pWYllIn
+	 yoYL8eiJw2CF+uc4u5e0ZZR427+cZXyeKPopw3npY5E1SgctUu8DFmhbKm3LU0fUdoNYT
+	 3ZpHOeW/tN6wNRoe2htP46z9aUUuuKUICfnLsaat7k+ynif9X5jIECl+dI+Thi8gRpkrl
+	 lc7hut3ZlUfJupFz0PXsl63eq6MYAm02VwKH+VDwYBMIy8D9kkRs2/U3no9BmS/Mb4cpE
+	 VecuHjd3IPyLvP4W5NDW8li3OmFAPCC+o8YYq7fL6zzb70gijz7wune+xY5nWKtpXGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180397;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=WWyp6r5wDDG04V+vWcV+yUaXF/hhm1BKes3FoIGNab0=;
-	b=c0w4u+sJNcNNTTxiJQvRdJrcU2vZ01CLmDnpmFpLr7UQYpgNHXhyGrJiOk5W9GlJPym3
-	 fzAMk0hi5vVOfODop57cvswhPlbjk/nvfanJjAJkGWi6BQ+rRBg8FQxPOozYcx+zrYzfq
-	 H8PqaOS8AxyiJ3xdxPcKoCqmeB2GwF7lPEpFh3CalM/is/Wn8HQbNOh8bvNsfkZwcPcQh
-	 xxf/AOCsTVjBAQu8Dk9tPoWfhQGbHXB3qARsAKFqKMQvUFdw5IUTQdW79iUS3IFDFt18j
-	 AJta6KaUhTsu/4Bc+vi/gsoFlz24zkm1O0c/xmWZ3jZblHXXMFE8GGLS+w9CzY9x1VA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180392;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=9Y4YGdjx5Co4VGeq/qLfNYXpjTltdduCTVMVmpN67n8=;
+	b=l2vqke8y3OF/YTAS/l4QWTyMHeSbfRdh97jUNfmyK0tpFPfeF3fiw/n6Y5xXBb2Ie5uO
+	 d5oJ8Mp46aHMlYjFK9OMtNp4IM5wYxgKTcLdWj2F152B0BYFD4BCmDO11i1vnbmdbJShP
+	 elPB/C4O/AIeNNVfPXrT4qDW/sv5nuotkyl5HsKgF/ecPBZXQV3m6NDDlcvU/i06GsWCp
+	 ZPJRCi6wuwdz7qJSEEWkCnpq0cNBpbc3aXYB4GrXqdZZgO50RCigMW8F+pFj2pXJtVtG3
+	 14l7FNZ4+R1MrPVlf6O35iUhMlOEX9kqeGb9Xr+m/LKxi30X/idp7v1JkySoEzd13VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TneN1nC9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L6bm2CA6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80EC0606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:13:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 4F9F6606A32C;
+	Fri, 20 Nov 2026 13:13:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TneN1nC9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA0B31F000D0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:13:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L6bm2CA6
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 864701F000D0;
+	Fri, 20 Nov 2026 13:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180396;
-	bh=WWyp6r5wDDG04V+vWcV+yUaXF/hhm1BKes3FoIGNab0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=TneN1nC9TyAgi8ImFKUiCv3HSslXgGH4HSRVQ8BTkzTlscG1x6Rmd8jy58GfleqZL
-	 95i+6iG7eq64nuh1z0i9ybuTG+VsmqmjQcfr7eE+rtFDN+Mv5F+6xf4uDxKF3lyaDT
-	 AT6M8FTW5i8Eu3DCDaCaHgmgFuPSi9gSi1knzKi3Hnga/34vhIESOG5s+BQkr3yp/+
-	 xpJTrMZCLwR/mQvHBtWIBXT70uzG40o+DYQ4ElFWmSNrr6PDQla7uY7wLRIhMzspj1
-	 m9AIPRHrmi1/Mjhwt9uqXrti3HpGMw+v0zcQTDV7ULU2CZ+f2LtChTL/Dp9mjThO7f
-	 COsZ5klA4lpHQ==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5c1593fd141so786722e87.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:13:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEFE9utepZlXpY3BgtrdgM+CQY18xyfTzmimkxlYebmqIYfDUruE3ATu2ZyIOXeRyAq5GPVzhywFzGNOLg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/psNqS/SDvfJA49nt7eiczNue7H43gCh9qcIsIwrXHFgRKVGwM
-	9r+5bmaespl/yaNSGKSiVO9kxDX5THSnmXoc8Ujo/dqygYMd9ZyAWqCx3pjVgNwAiGTA5tumVjL
-	u9b56F0U2oI5T97gWvvkLhexiX5WRapc=
-X-Received: by 2002:ac2:4c4b:0:b0:5c0:a54:5d4c with SMTP id
- 2adb3069b0e04-5c1bc8635bfmr941652e87.36.1795180395199; Fri, 20 Nov 2026
- 05:13:15 -0800 (PST)
+	s=k20260515; t=1795180392;
+	bh=9Y4YGdjx5Co4VGeq/qLfNYXpjTltdduCTVMVmpN67n8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=L6bm2CA6ArbThfm1WmrkXzmsjJ9pMyguKKs0xUr4K+f38fDFzfbpfRicjfICsSdJ4
+	 EvCaIoZNDDkDzdu1VOSNkdU1F0RSN51ctC/kKe5RfxH15HixGgB9YHgyITfdm6fmQ/
+	 KukuzEL7OfU540j63rweyPPBP05/OOpczqhijr3NboHNmidk5YDJ49HfnBY185Md5w
+	 N2+fWgKAZGe0cthL0YBrnH7VsL2dFuZ7tr5+cBA9Dmvi89tnlasDr5v2w/ITKALjHD
+	 YgBMPO/Zz54/vicmRTKCrNjRXAUPjwlDfMiA2QDKQNW6VyWV4/fCpfMyeFKHXxQ92P
+	 MuT54PeKYrtiQ==
+Date: Fri, 20 Nov 2026 15:13:08 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Alexander Mikhalitsyn <alex@amutable.com>
+Cc: Andy Lutomirski <luto@amacapital.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Christian Brauner <brauner@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
+	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>,
+	Paul Moore <paul@paul-moore.com>, linux-fsdevel@vger.kernel.org,
+	linux-api@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+Message-ID: <awBHZO2VwWyJzvBN@kernel.org>
+References: <20261117231352.3816603-1-jarkko@kernel.org>
+ <CALCETrVUkbpoFjwSAejyA4b_9qEauAP_36i=O8Op1ifp8aUkqA@mail.gmail.com>
+ <av3akYFOYaeQZauZ@kernel.org>
+ <av3bkDnwmjunTleX@kernel.org>
+ <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
+ <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
+ <CALCETrXt-Do28BHDpbrA98kEy-tQuorxD8c2XsW24Tt8Vspdtg@mail.gmail.com>
+ <CALCETrUbe8rBoxrC+Q66AMsrJ8Fow7xt5KJKRAmobtXBvHWdqg@mail.gmail.com>
+ <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,402 +72,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113131243.28214-1-atharvatiwarilinuxdev@gmail.com>
-In-Reply-To: <20261113131243.28214-1-atharvatiwarilinuxdev@gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 14:13:02 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jBBt0a3eQO_qYX=HNGUqDJDSnL8UAhjfZ0GXMvNZL4gQ@mail.gmail.com>
-X-Gm-Features: Aa3M54qwtXTjQVOXHBd3RZ7NnTdE0YnhQ0bCOANv8z_VabKAf08TJ_3hPCSSvPk
-Message-ID: <CAJZ5v0jBBt0a3eQO_qYX=HNGUqDJDSnL8UAhjfZ0GXMvNZL4gQ@mail.gmail.com>
-Subject: Re: [PATCH v2] ACPI: processor: Use Apple-specific methods for P/C-states
-To: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	"open list:ACPI" <linux-acpi@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
 
-On Fri, Nov 13, 2026 at 2:12=E2=80=AFPM Atharva Tiwari
-<atharvatiwarilinuxdev@gmail.com> wrote:
->
-> Use APSS and ACST instead of _PSS and _CST when available on Intel Macs
-> as they include better P/C-States.
-> These methods are used in macOS (X86PlatformPlugin.kext),
-> and when not found we fallback to generic _PSS and _CST methods.
->
-> Changes in v2:
-> - Improved description of the patch
-> - Replaced goto's and if statement's with new functions
-> - Added support to differentiate _PSS and APSS in debug info/error info
-> - Added support to differentiate _CST and ACST in debug info/error info
-> - Used Package instead of variable for ACST description
->
-> Link to v1:
-> https://lore.kernel.org/all/20261015204450.1270-1-atharvatiwarilinuxdev@g=
-mail.com/
->
-> Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-> ---
->  drivers/acpi/acpi_processor.c    | 80 +++++++++++++++++++++-----------
->  drivers/acpi/processor_perflib.c | 43 +++++++++++++----
->  2 files changed, 86 insertions(+), 37 deletions(-)
->
-> diff --git a/drivers/acpi/acpi_processor.c b/drivers/acpi/acpi_processor.=
-c
-> index 5fbab5417..bbe471b3c 100644
-> --- a/drivers/acpi/acpi_processor.c
-> +++ b/drivers/acpi/acpi_processor.c
-> @@ -18,6 +18,7 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/pci.h>
-> +#include <linux/platform_data/x86/apple.h>
->  #include <linux/platform_device.h>
->
->  #include <acpi/processor.h>
-> @@ -815,6 +816,22 @@ bool acpi_processor_claim_cst_control(void)
->  }
->  EXPORT_SYMBOL_NS_GPL(acpi_processor_claim_cst_control, "ACPI_PROCESSOR_I=
-DLE");
->
-> +static int acpi_processor_apple_acst(acpi_handle handle, struct acpi_buf=
-fer *buffer)
+On Fri, Nov 20, 2026 at 01:32:57PM +0100, Alexander Mikhalitsyn wrote:
+> On Thu, 2026-11-19 at 15:27 -0800, Andy Lutomirski wrote:
+> > On Thu, Nov 19, 2026 at 2:50 PM Andy Lutomirski <luto@amacapital.net>
+> > wrote:
+> > > 
+> > > On Thu, Nov 19, 2026 at 9:30 AM Josef Bacik <josef@toxicpanda.com>
+> > > wrote:
+> > > > 
+> > > > On Wed, Nov 18, 2026 at 9:46 AM Andy Lutomirski
+> > > > <luto@amacapital.net> wrote:
+> > > > > cells: The dance where I create an anonymous mountns, mount
+> > > > > stuff into
+> > > > > it, and then attach it to the cell is cute.  But I think the
+> > > > > userns
+> > > > > interaction is wrong: you are making me assemble all the mounts
+> > > > > in
+> > > > > *my* userns and then clone the entire tree into a fresh, non-
+> > > > > anonymous
+> > > > > mountns bound to the current userns.  And that clone operation
+> > > > > is not
+> > > > > free and serves no actual practical purpose.
+> > > > 
+> > > > The copy buys us nothing, agreed.  That's just what the mount API
+> > > > gives
+> > > > me to work with today, it's not something cells wants.  If I
+> > > > could make
+> > > > an empty mount namespace and fill it by fd I'd use that, the
+> > > > "root" slot
+> > > > takes a mount namespace fd already.  Extending the API for that
+> > > > makes
+> > > > sense to me on its own.
+> > > > 
+> > > > The mount namespace staying with the builder's userns is on
+> > > > purpose
+> > > > though, that's what keeps the cell from mounting anything no
+> > > > matter what
+> > > > capabilities it was given.  The builder sets the tree up and
+> > > > hands it
+> > > > over, so the cell only ever has what it was given, and the mount
+> > > > code
+> > > > isn't something it can attack from the inside.
+> > > 
+> > > I don't get it.
+> > > 
+> > > Using the builder's user namespace means that the contained
+> > > processes
+> > > can't be ns_capable on mntns->userns.  But this solves very few
+> > > problems unless you also deny the contained processes the ability
+> > > to
+> > > unshare userns and make a new mountns, and if you can do that,
+> > > surely
+> > > you can also deny the ability to modify the mount namespace.
+> > > 
+> > > As just one example, a mount namespace could have a little flag to
+> > > say
+> > > that it's *in* one userns but its owner is a different userns.
+> > > 
+> > > > 
+> > > > > cells: I find it *incredibly annoying* that one generally
+> > > > > cannot put
+> > > > > new mounts into an existing container using most existing
+> > > > > container
+> > > > > managers.  I hit this on a surprisingly regular basis.  You
+> > > > > seem to be
+> > > > > baking this into the whole cells design.  Why?
+> > > > 
+> > > > By design.  Allowing changes to a running container is what
+> > > > causes the
+> > > > problems.  If you need another mount, tear it down and build it
+> > > > again.
+> > > 
+> > > What problems?
+> 
+> Dear friends,
+> 
+> Dear Andy,
+> 
+> > 
+> > I'll add:
+> > 
+> > On a non-container Linux system, you can hot-add a removable drive.
+> > On a Linux-hosted VM, you can hot-add all kinds of devices, with or
+> > without the help of the hypervisor.  (The hypervisor can hot-add a
+> > device, and the guest can mount network devices or newly added USB
+> > devices on a port that was already assigned, etc.)
+> > 
+> > For some reason, on Docker and its sort-of-clones, approximately the
+> > best you can do is rbind in a directory and then mount things into
+> > that directory from outside.  This is sad.
+> 
+> +1
+> 
+> I guess the root reason here is what you've mentioned - for VMs we have
+> a clear separation of the host-side (hypervisor can hot-plug a device
+> to be visible on a PCI bus, for example) and some agent on the guest
+> side can react on this change and do something depending on how VM's
+> owner has configured it.
+> 
+> For containers, we usually don't have an agent (at least in LXC, OpenVZ
+> and Docker too). So it is a container manager's work to figure out how
+> to hotplug a new filesystem for example and where to place the mount.
+> And this was always a reason for some crazy security issues, when some
+> privileged process on the host was entering a container's namespaces
+> (partially) and then suddenly become trace-able or bring some host FDs
+> (and these FDs could be a way to escape via (struct file*)->f_cred
+> permission delegation model).
+> 
+> Another reason is that in VM you hotplug a device, while in container
+> you can only hotplug a mounted filesystem. And for devices we don't
+> care under which major/minor they land and so on - again, because we
+> have systemd for example and it can figure this out. For filesystem we
+> need to know where to place in in a mount namespace tree from the
+> beginning (we still don't allow mounting a block-device based
+> filesystems inside user namespaces).
+> 
+> I really like your point and that would be great if we can solve this
+> somehow in a new design.
 
-bool?
+This is for v4 (latest).
 
-> +{
-> +       acpi_status status;
-> +
-> +       if (!x86_apple_machine)
-> +               return 0;
-> +
-> +       status =3D acpi_evaluate_object(handle, "ACST", NULL, buffer);
-> +       if (ACPI_FAILURE(status)) {
-> +               buffer->length =3D ACPI_ALLOCATE_BUFFER;
-> +               buffer->pointer =3D NULL;
-> +               return 0;
-> +       }
-> +
-> +       return 1;
-> +}
->  /**
->   * acpi_processor_evaluate_cst - Evaluate the processor _CST control met=
-hod.
->   * @handle: ACPI handle of the processor object containing the _CST.
-> @@ -837,28 +854,35 @@ int acpi_processor_evaluate_cst(acpi_handle handle,=
- u32 cpu,
->         acpi_status status;
->         u64 count;
->         int last_index =3D 0;
-> -       int i, ret =3D 0;
-> +       int i, ret =3D 0, base =3D 0;
-> +       bool using_acst =3D false;
+MOVE_MOUNT_T_MNTNS takes any nsfs CLONE_NEWNS fd, and populates
+CLONE_EMPTY_MNTNS directly and attaches live submounts without setns()
+and FSCONFIG_SET_ROOTNS mounts FS_USERNS_MOUNT filesystems unprivileged
+without entering userns.
 
-What about
+The gaps would be open_tree(OPEN_TREE_CLONE) gating (it's now against
+host), uid_map/gid_map prepopulation and a flag to deny mount table
+changes inside rootns() container while keeping external hot-mounts
+enabled.
 
-    const char *method =3D "_CST";
+Those are totally addressable issues.
 
->
-> -       status =3D acpi_evaluate_object(handle, "_CST", NULL, &buffer);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_handle_debug(handle, "No _CST\n");
-> -               return -ENODEV;
-> +       using_acst =3D acpi_processor_apple_acst(handle, &buffer);
-> +       if (using_acst)
-> +               base =3D 1; /* ACST is a 4 field package we need to skip =
-the first field */
-> +
-> +       if (!using_acst) {
-> +               status =3D acpi_evaluate_object(handle, "_CST", NULL, &bu=
-ffer);
-> +               if (ACPI_FAILURE(status)) {
-> +                       acpi_handle_debug(handle, "No _CST\n");
-> +                       return -ENODEV;
-> +               }
->         }
-
-if (acpi_processor_apple_acst(handle, &buffer)) {
-    base =3D 1; /* ACST is a 4 field package we need to skip the first fiel=
-d */
-    method =3D "ACST";
-} else {
-    status =3D acpi_evaluate_object(handle, "_CST", NULL, &buffer);
-        if (ACPI_FAILURE(status)) {
-            acpi_handle_debug(handle, "No _CST\n");
-            return -ENODEV;
-       }
-}
-
-and using "method" wherever the ternary operator would be used below?
-
->
->         cst =3D buffer.pointer;
->
-> -       /* There must be at least 2 elements. */
-> -       if (!cst || cst->type !=3D ACPI_TYPE_PACKAGE || cst->package.coun=
-t < 2) {
-> -               acpi_handle_warn(handle, "Invalid _CST output\n");
-> +       /* There must be at least 2 elements for _CST and at least 3 elem=
-ents for ACST. */
-> +       if (!cst || cst->type !=3D ACPI_TYPE_PACKAGE || cst->package.coun=
-t < base + 2) {
-> +               acpi_handle_warn(handle, "Invalid %s output\n", using_acs=
-t ? "ACST" : "_CST");
->                 ret =3D -EFAULT;
->                 goto end;
->         }
->
-> -       count =3D cst->package.elements[0].integer.value;
-> +       count =3D cst->package.elements[base].integer.value;
->
->         /* Validate the number of C-states. */
-> -       if (count < 1 || count !=3D cst->package.count - 1) {
-> -               acpi_handle_warn(handle, "Inconsistent _CST data\n");
-> +       if (count < 1 || count !=3D cst->package.count - 1 - base) {
-> +               acpi_handle_warn(handle, "Inconsistent %s data\n", using_=
-acst ? "ACST" : "_CST");
->                 ret =3D -EFAULT;
->                 goto end;
->         }
-> @@ -882,24 +906,24 @@ int acpi_processor_evaluate_cst(acpi_handle handle,=
- u32 cpu,
->
->                 memset(&cx, 0, sizeof(cx));
->
-> -               element =3D &cst->package.elements[i];
-> +               element =3D &cst->package.elements[base + i];
->                 if (element->type !=3D ACPI_TYPE_PACKAGE) {
-> -                       acpi_handle_info(handle, "_CST C%d type(%x) is no=
-t package, skip...\n",
-> -                                        i, element->type);
-> +                       acpi_handle_info(handle, "%s C%d type(%x) is not =
-package, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- element->type);
->                         continue;
->                 }
->
->                 if (element->package.count !=3D 4) {
-> -                       acpi_handle_info(handle, "_CST C%d package count(=
-%d) is not 4, skip...\n",
-> -                                        i, element->package.count);
-> +                       acpi_handle_info(handle, "%s C%d package count(%d=
-) is not 4, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- element->package.count);
->                         continue;
->                 }
->
->                 obj =3D &element->package.elements[0];
->
->                 if (obj->type !=3D ACPI_TYPE_BUFFER) {
-> -                       acpi_handle_info(handle, "_CST C%d package elemen=
-t[0] type(%x) is not buffer, skip...\n",
-> -                                        i, obj->type);
-> +                       acpi_handle_info(handle, "%s C%d package element[=
-0] type(%x) is not buffer, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- obj->type);
->                         continue;
->                 }
->
-> @@ -907,8 +931,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u=
-32 cpu,
->
->                 obj =3D &element->package.elements[1];
->                 if (obj->type !=3D ACPI_TYPE_INTEGER) {
-> -                       acpi_handle_info(handle, "_CST C[%d] package elem=
-ent[1] type(%x) is not integer, skip...\n",
-> -                                        i, obj->type);
-> +                       acpi_handle_info(handle, "%s C[%d] package elemen=
-t[1] type(%x) is not integer, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- obj->type);
->                         continue;
->                 }
->
-> @@ -947,8 +971,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u=
-32 cpu,
->                                 cx.entry_method =3D ACPI_CSTATE_HALT;
->                                 snprintf(cx.desc, ACPI_CX_DESC_LEN, "ACPI=
- HLT");
->                         } else {
-> -                               acpi_handle_info(handle, "_CST C%d declar=
-es FIXED_HARDWARE C-state but not supported in hardware, skip...\n",
-> -                                                i);
-> +                               acpi_handle_info(handle, "%s C%d declares=
- FIXED_HARDWARE C-state but not supported in hardware, skip...\n",
-> +                                                using_acst ? "ACST" : "_=
-CST", i);
->                                 continue;
->                         }
->                 } else if (reg->space_id =3D=3D ACPI_ADR_SPACE_SYSTEM_IO)=
- {
-> @@ -956,8 +980,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u=
-32 cpu,
->                         snprintf(cx.desc, ACPI_CX_DESC_LEN, "ACPI IOPORT =
-0x%x",
->                                  cx.address);
->                 } else {
-> -                       acpi_handle_info(handle, "_CST C%d space_id(%x) n=
-either FIXED_HARDWARE nor SYSTEM_IO, skip...\n",
-> -                                        i, reg->space_id);
-> +                       acpi_handle_info(handle, "%s C%d space_id(%x) nei=
-ther FIXED_HARDWARE nor SYSTEM_IO, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- reg->space_id);
->                         continue;
->                 }
->
-> @@ -966,8 +990,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u=
-32 cpu,
->
->                 obj =3D &element->package.elements[2];
->                 if (obj->type !=3D ACPI_TYPE_INTEGER) {
-> -                       acpi_handle_info(handle, "_CST C%d package elemen=
-t[2] type(%x) not integer, skip...\n",
-> -                                        i, obj->type);
-> +                       acpi_handle_info(handle, "%s C%d package element[=
-2] type(%x) not integer, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- obj->type);
->                         continue;
->                 }
->
-> @@ -975,8 +999,8 @@ int acpi_processor_evaluate_cst(acpi_handle handle, u=
-32 cpu,
->
->                 obj =3D &element->package.elements[3];
->                 if (obj->type !=3D ACPI_TYPE_INTEGER) {
-> -                       acpi_handle_info(handle, "_CST C%d package elemen=
-t[3] type(%x) not integer, skip...\n",
-> -                                        i, obj->type);
-> +                       acpi_handle_info(handle, "%s C%d package element[=
-3] type(%x) not integer, skip...\n",
-> +                                        using_acst ? "ACST" : "_CST", i,=
- obj->type);
->                         continue;
->                 }
->
-> diff --git a/drivers/acpi/processor_perflib.c b/drivers/acpi/processor_pe=
-rflib.c
-> index 9e25d6124..9b9533649 100644
-> --- a/drivers/acpi/processor_perflib.c
-> +++ b/drivers/acpi/processor_perflib.c
-> @@ -17,6 +17,7 @@
->  #include <linux/cpufreq.h>
->  #include <linux/slab.h>
->  #include <linux/acpi.h>
-> +#include <linux/platform_data/x86/apple.h>
->  #include <acpi/processor.h>
->  #ifdef CONFIG_X86
->  #include <asm/cpufeature.h>
-> @@ -313,6 +314,23 @@ static void amd_fixup_frequency(struct acpi_processo=
-r_px *px, int i)
->         }
->  }
->
-> +static int acpi_evaluate_apple_apss(acpi_handle handle, struct acpi_buff=
-er *buffer)
-
-bool?
-
-> +{
-> +       acpi_status status;
-> +
-> +       if (!x86_apple_machine)
-> +               return 0;
-> +
-> +       status =3D acpi_evaluate_object(handle, "APSS", NULL, buffer);
-> +       if (ACPI_FAILURE(status)) {
-> +               buffer->length =3D ACPI_ALLOCATE_BUFFER;
-> +               buffer->pointer =3D NULL;
-> +               return 0;
-> +       }
-> +
-> +       return 1;
-> +}
-> +
->  static int acpi_processor_get_performance_states(struct acpi_processor *=
-pr)
->  {
->         int result =3D 0;
-> @@ -323,16 +341,21 @@ static int acpi_processor_get_performance_states(st=
-ruct acpi_processor *pr)
->         union acpi_object *pss =3D NULL;
->         int i;
->         int last_invalid =3D -1;
-> +       bool using_apss;
-
-And here you can do it like in acpi_processor_evaluate_cst() above.
-
-> -       status =3D acpi_evaluate_object(pr->handle, "_PSS", NULL, &buffer=
-);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_evaluation_failure_warn(pr->handle, "_PSS", status);
-> -               return -ENODEV;
-> +       using_apss =3D acpi_evaluate_apple_apss(pr->handle, &buffer);
-> +
-> +       if (!using_apss) {
-> +               status =3D acpi_evaluate_object(pr->handle, "_PSS", NULL,=
- &buffer);
-> +               if (ACPI_FAILURE(status)) {
-> +                       acpi_evaluation_failure_warn(pr->handle, "_PSS", =
-status);
-> +                       return -ENODEV;
-> +               }
->         }
->
->         pss =3D buffer.pointer;
->         if (!pss || pss->type !=3D ACPI_TYPE_PACKAGE) {
-> -               pr_err("Invalid _PSS data\n");
-> +               pr_err("Invalid %s data\n", using_apss ? "APSS" : "_PSS")=
-;
->                 result =3D -EFAULT;
->                 goto end;
->         }
-> @@ -360,7 +383,8 @@ static int acpi_processor_get_performance_states(stru=
-ct acpi_processor *pr)
->                 status =3D acpi_extract_package(&(pss->package.elements[i=
-]),
->                                               &format, &state);
->                 if (ACPI_FAILURE(status)) {
-> -                       acpi_handle_warn(pr->handle, "Invalid _PSS data: =
-%s\n",
-> +                       acpi_handle_warn(pr->handle, "Invalid %s data: %s=
-\n",
-> +                                        using_apss ? "APSS" : "_PSS",
->                                          acpi_format_exception(status));
->                         result =3D -EFAULT;
->                         kfree(pr->performance->states);
-> @@ -384,8 +408,8 @@ static int acpi_processor_get_performance_states(stru=
-ct acpi_processor *pr)
->                 if (!px->core_frequency ||
->                     (u32)(px->core_frequency * 1000) !=3D px->core_freque=
-ncy * 1000) {
->                         pr_err(FW_BUG
-> -                              "Invalid BIOS _PSS frequency found for pro=
-cessor %d: 0x%llx MHz\n",
-> -                              pr->id, px->core_frequency);
-> +                              "Invalid BIOS %s frequency found for proce=
-ssor %d: 0x%llx MHz\n",
-> +                              using_apss ? "APSS" : "_PSS", pr->id, px->=
-core_frequency);
->                         if (last_invalid =3D=3D -1)
->                                 last_invalid =3D i;
->                 } else {
-> @@ -402,7 +426,8 @@ static int acpi_processor_get_performance_states(stru=
-ct acpi_processor *pr)
->
->         if (last_invalid =3D=3D 0) {
->                 pr_err(FW_BUG
-> -                          "No valid BIOS _PSS frequency found for proces=
-sor %d\n", pr->id);
-> +                          "No valid BIOS %s frequency found for processo=
-r %d\n",
-> +                          using_apss ? "APSS" : "_PSS",  pr->id);
->                 result =3D -EFAULT;
->                 kfree(pr->performance->states);
->                 pr->performance->states =3D NULL;
-> --
-> 2.55.0
->
+Br, Jarkko
+ 
