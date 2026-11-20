@@ -1,78 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795202212;
-	b=zRsQv509AGHQUCkjVfBpdGtdLab8v0tOEVFPgoMhE2ePmNcFll0nIen2eJItx6cLSt73
-	 YvR+xrC3FPUuWndXBHp3w5HklN7Z7I53N8lWpKg+YFohlgpJa69naUwRFHXN9ltszu3L2
-	 j2RZgqIap6e/NU9GUd3QctC7BdO7Ps9FwAHU9C9//R3HfG7YUoykPPv2smXoklmJKYf8c
-	 nMpArcRFFkTVndCkkpGH5QYwupGApdj9wf6aEjd9TShjubtTgY36tOhvi8vh+AdhV103U
-	 wJgpmUlmn/kwq3PwouTkxZ7u0DD5BXdNr+cHLlA7ugzRiSf1ZK4xZ9XCt0AUiKVSvPA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202212;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
-	b=WJ7Huu9zY0HAnvU62CbLBR5neJryIR7hGGytAcGaYlyyqgBNet1ix1mbOLP6MEaSG7rP
-	 rY4nwDJSMVs0dspXvj3jIw9DQvx10N9xi0jL1PqJiT/JTb1sNihytfZYUSoz6+uthrxsu
-	 kdxWb0xWuIm+B82pDcRzFhAJPt1l6mAgsVNnHIKsPbgvWArHdJctGEuqgRbXuLNJuxp1s
-	 0yxZQ0m6ItPkcuiX6yPqrGg8XK8MIxWztgrXbbetpcBTojyzooQkprlrYMdTVJwn7Q6w9
-	 qGIPgCbltokQivz2YNlCbtf5/DbuMg+lYfayxWKJzlKQlncszrQn6u/o4BrHGzvxBgA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="n0uumM/2";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795202293;
+	b=FvkNyac269RHoVBS8w5WsLuaiX2rztlwaS62D78jpJweBWsXnjifzWvLlXChS43bkKeX
+	 LRnbSl0TrtOz4uXNtFmU4AVC7UKJOgp+jKhCPl0vJewSO01dWrEU21KuueEKnPo2SC8Ny
+	 NTdaxcYIV9QLBwAgksZgxeQZA6DdqPABF9mm2vK4+7Wlb7hOeSkW/QFGzPDYtd47c5K6q
+	 LRSeT00Akzw7ukG9tVUjT0vAvVaCVc+3TuSDCS7be6GKdQgl7TWn2crxjG4ux0rDYXcIV
+	 42PhnKXko0xqXaYXbRYHS8FSR4B/OsR4FY/bT4JXp9S2c+zaaBf0yPOb4PPmHNLW12Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202293;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=D0aacaaucLazBzamGaNcpBWXLJSLR5Zsq+QZIkHcA28=;
+	b=CeUJ4red8ce6e5CdgqiwICPObMgmoCpJHONanneWzXAQWpPQXVuArw7uAy2ioBB3vUsb
+	 NI+GlKuT+iKOKsMNl+q/UMTCQJUPaVaGJVHIYQgAEdz6B8daoMiVSYhKObsCQePIp6Yru
+	 fiwGijjx90rIVW9iqXVIfNmo6T2OXtV2PZ1QFe+uYJ7uckw5dv+sH1bPO65pL4WCOzzEJ
+	 lnYf2xACgqC6r0hEzAsJgO32O7ENdawWPIhBH/c0sTiKDdZA+VqMTKJMTVFsQztaJm5ri
+	 OOobZOEit2SZUDzDkomzYK7iFq3pULWH9PIFMBOoHASCDwJ1M6UPpxq5YKIgQzhcc5Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tsu+dV+R;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAEE0606A33A;
-	Fri, 20 Nov 2026 19:16:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0B69606A6D3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:18:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n0uumM/2
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795202212;
-	b=AgRYJMmErCe6+Ok1nc5BNJp+x4FQ9GHPTTIX8koQDH78gjk8ZQLZFiKdVprzN6fS+FZa
-	 BrAlcdatF6Q7Ee7y5Ww+uaDVUbLsdgMz9hc0skispk8gyMF/lye1jfLF31GSioqSv+LUO
-	 qqz0U2JUELR6QLUtDuGzwVT2kEwQ6PISW2tVrQsdByNdCMbtbzKl3dyXJYFjM7lF4yKhU
-	 xJbq2/8VaUlwIvPAiKRDcnDPEuISw3uQWHwMWIbLFnE/q0wXZl8WklwQcEhAGTD/D3saP
-	 Hy4nRhxRa+T8KE1AjdWY0eceg++T4ahfANUAYeWl/3qMLkDTFMKPUMnKdwNLhVgoY5w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795202212;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
-	b=l4q/EoQRxKqsSb6q2PgUqjITNfImUPaX/FvI7iqhDoMTGjLV2pi7RJC8/yzHyY4uz34a
-	 NuPeuEP66ehkhUGmZiGAgOrlMk4bqvwTgquSv0/YBphZV4jsi86mfy6EcnU+SZltlxpXr
-	 sxxq/eEccTxe/Z+lxYsKVgnEzOp00UUt/iz0sP96W+KpATyVnIo8rSE/QG9a8gqv3w10b
-	 Zu7lJ/wRNwfCuLRpCD9SpcuvJyHmMz1+5DRIHb4jDUdRHP4WlSM4/qa2TONT+omslbXT3
-	 VWHaCb9T9sFD+ki2oSlCyGGkM8R0ePFg5nQjPAJPPSzJ2RdB2pqcT0fr+yCTVp1RijA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 051871F000CF;
-	Fri, 20 Nov 2026 19:16:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tsu+dV+R
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBA71F000D0
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795202212;
-	bh=E+Sl1Gk0Izp8iNjXVvH7BXDYK1wVBrrJEHxdo0B8yl4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=n0uumM/2f4e4WX1djaV+kb2DrCvFpm+emAAWizF8ndmVmuoWb/9pCKG8n/IZQMrlK
-	 VdLMAsADCCKWNH6QVr6RQrGVvhNCuujeMW6JCdgNmZ/8tB9nI4QAh7kbQds50hSfLu
-	 kyCrwh6ZUbK78P6stMznbax8v8TwYBpY5c2oTxG0H2vDfvBJH0u9ATk550xAsJmjUP
-	 uZDdJ4VtDgBIxKcBAnHbl646V53TQ4O76ZQYbiRSRneLQgI+htYdH/NnbPPk1QnXB4
-	 rV4M5HAN9ek1sXSPU8Ip0Nbn1eb7qI2q46vNaAP/4ZKRjej2RLLOFuGDJ4FmeRsM8M
-	 +Z1C9FKMqQ29g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 189954B9DE;
-	Fri, 20 Nov 2026 19:16:25 +0000 (UTC)
-From: Han Gao via B4 Relay <devnull+gaohan.iscas.ac.cn@kernel.org>
-Date: Sat, 21 Nov 2026 03:15:56 +0800
-Subject: [PATCH v4 10/13] riscv: dts: zhihe: add A210 module memory
+	s=k20260515; t=1795202292;
+	bh=D0aacaaucLazBzamGaNcpBWXLJSLR5Zsq+QZIkHcA28=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Tsu+dV+RFstRRv9DCiGG0qgN4F8PbOY6/XDaZv5+N00mdm7KoZod3Jdlpak9BABKb
+	 +0EFOLZDoGVg1Vq9B4RmzFxNH/wQY0yNFsv45UIm33eSA73I4GM3IBVrF/5Jqw/Xgf
+	 ozcfDRa8hK4Gmiw0At24xmlO4vfcN5aQBbCTmw4TWJimTBBU98kG9/k6WGLZhzvu80
+	 8sOHlyWx2IzZXdrGubIH5/9bXbZHy+JDhVtOFJrXu9DKfIBP1fHYkjCf4DRqULZovf
+	 kinhqDgKUHIqWP9cTdUBbH2y7ALbtl9I4RyBWfFTNyTg8UZca1BJi5UI4Mk2tRNRKo
+	 P2IFBQw4/i2Mw==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ae22dcfdc3so10132621fa.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:18:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEPTX5nuIq2nd5udTfefm/mzZr5P6hMqnjGkaqt7XrC2DGrdvxV+FvZAJ4gJZDz31pNb26rPA14vEeLAFw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UsKGsWfeGx0c7uCRsOBsAiMvVo/saUwK0W+hb2hkBOF0N9WeZ
+	zDcBVDXZT0PjojQA2BoxnRkXr7qAIi8ca8iIu+U3wuGoJShD4uvQ5qNaYamUgUrieQpSw9s6CH5
+	IEjdaKsP3jyDNeuVbJvw7cZ6S4HkuVC0=
+X-Received: by 2002:a05:651c:419b:b0:3ac:433c:6ab7 with SMTP id
+ 38308e7fff4ca-3ae7f9f2550mr11211681fa.16.1795202291354; Fri, 20 Nov 2026
+ 11:18:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,71 +59,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261121-a210-scmi-v4-10-4a795a0a9fc9@iscas.ac.cn>
-References: <20261121-a210-scmi-v4-0-4a795a0a9fc9@iscas.ac.cn>
-In-Reply-To: <20261121-a210-scmi-v4-0-4a795a0a9fc9@iscas.ac.cn>
-To: Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
- Zhiguo Zhu <zhiguo.zhu@linux.alibaba.com>, 
- Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Radu Rendec <radu@rendec.net>, Samuel Holland <samuel.holland@sifive.com>, 
- Daniel Lezcano <daniel.lezcano@kernel.org>, 
- Anup Patel <anup@brainfault.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Drew Fustini <fustini@kernel.org>, Icenowy Zheng <uwu@icenowy.me>, 
- Inochi Amaoto <inochiama@gmail.com>, Vivian Wang <wangruikang@iscas.ac.cn>, 
- Yao Zi <me@ziyao.cc>, Jiaxun Yang <jiaxun.yang@flygoat.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- linux-serial@vger.kernel.org, Han Gao <rabenda.cn@gmail.com>, 
- Han Gao <gaohan@iscas.ac.cn>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795202181; l=777;
- i=gaohan@iscas.ac.cn; s=20261021; h=from:subject:message-id;
- bh=YcgMhPuDLQowVTt+MvNEeWTBEwtrbKzVnPLSZwTdXCU=;
- b=UCyyELTjinwGxSiobkxFax1VS8/WmZZD+1yWwZXAf4WG0exoNvFai7aW2vn3dGB7NugVpqKtB
- VP/INK+1K3wBjMg+f42Z0GgT06wejuMZZI4nPHk+b1FCe6Zckc1FVnH
-X-Developer-Key: i=gaohan@iscas.ac.cn; a=ed25519;
- pk=J8WHEK3filS86QaCaIHDGafqhxKyQ4K7+vFgRirTIiY=
-X-Endpoint-Received: by B4 Relay for gaohan@iscas.ac.cn/20261021 with
- auth_id=1262
-X-Original-From: Han Gao <gaohan@iscas.ac.cn>
-Reply-To: gaohan@iscas.ac.cn
-Content-Transfer-Encoding: 7bit
+References: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 20:17:58 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0h_kRcqpfM=8wnEXSnwB5+MHHUd2wK8jruQSRoTYnuXew@mail.gmail.com>
+X-Gm-Features: Aa3M54oLwSoxOTZL4M8rcFfriin7DTrg-svIenSNy9jdlFieUb2umtCsC8Amt5k
+Message-ID: <CAJZ5v0h_kRcqpfM=8wnEXSnwB5+MHHUd2wK8jruQSRoTYnuXew@mail.gmail.com>
+Subject: Re: [PATCH RESEND v2 0/2] powercap: idle_inject: Create threads on demand
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: rafael@kernel.org, tglx@linutronix.de, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Peter Ziljstra <peterz@infradead.org>, Bradley Morgan <brads@mainlining.org>, 
+	Heiko Stuebner <heiko@sntech.de>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Han Gao <gaohan@iscas.ac.cn>
+On Wed, Nov 18, 2026 at 5:16=E2=80=AFPM Daniel Lezcano
+<daniel.lezcano@oss.qualcomm.com> wrote:
+>
+> Idle injection currently registers per-CPU kernel threads during early
+> initialization, including on CPUs for which no idle injection device
+> will be registered.
+>
+> This series makes thread creation follow the lifetime and CPU mask of
+> each idle injection device.
+>
+> The first patch adds an optional CPU mask to smpboot thread descriptors.
+> The mask restricts thread creation, CPU hotplug handling and teardown,
+> while preserving the existing behavior for descriptors without a mask.
+> Registrations sharing task storage are checked for overlapping CPU
+> masks under smpboot_threads_lock before any threads are created.
+>
+> The second patch uses this support to register idle injection threads
+> when a device registers and destroy them when it unregisters. CPU
+> ownership claims, registration rollback and thread teardown are
+> serialized to prevent overlapping registrations from sharing threads.
+>
+> The series was tested on Rockchip RK3588. The updated smpboot code and
+> idle injection code also build with W=3D1. Concurrent registration and
+> CPU hotplug runtime testing remains outstanding.
+>
+> Changes in v2:
+> - Reject overlapping smpboot registrations sharing per-CPU task storage
+>   with WARN_ON_ONCE() and -EBUSY, as suggested by Thomas Gleixner.
+> - Default a NULL CPU mask to cpu_possible_mask at registration and
+>   remove redundant NULL-mask checks from the lifecycle helpers.
+> - Use scoped guards for the smpboot registration locks.
+> - Document the overlap restriction and registration return values, and
+>   update the core commit explanation.
+> - Add Bradley Morgan's Reviewed-by tag to the idle injection patch.
+>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Rafael J. Wysocki <rafael@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Bradley Morgan <brads@mainlining.org>
+>
+> Daniel Lezcano (2):
+>   smpboot: Allow restricting per-CPU threads to a CPU mask
+>   powercap: idle_inject: Create per-CPU threads on registration
+>
+>  drivers/powercap/idle_inject.c | 69 +++++++++++++++++++++-------------
+>  include/linux/smpboot.h        |  6 +++
+>  kernel/smpboot.c               | 45 +++++++++++++++++-----
+>  3 files changed, 83 insertions(+), 37 deletions(-)
+>
 
-Add the A210 module memory node with a default 4 GiB range for boot
-firmware to update with the detected capacity.
-
-Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
----
- arch/riscv/boot/dts/zhihe/a210-som.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/arch/riscv/boot/dts/zhihe/a210-som.dtsi b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
-new file mode 100644
-index 000000000000..a77447e402d7
---- /dev/null
-+++ b/arch/riscv/boot/dts/zhihe/a210-som.dtsi
-@@ -0,0 +1,11 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+
-+#include "a210.dtsi"
-+
-+/ {
-+	/* The loader replaces this reference capacity after DDR training. */
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x1 0x0>;
-+	};
-+};
-
--- 
-2.55.0
-
-
+Applied as 7.5 material, thanks!
