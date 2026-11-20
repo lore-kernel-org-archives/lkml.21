@@ -1,89 +1,89 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164077;
-	b=GbCzNz9M9yaUSF+DZERpblsf0qK1rjhi+TzY5/7JB3aain7dhm0PuULY0Jt4qi6OeX1u
-	 Q67WMbrgMUWSq+vy3Ix6mfurik0K3HEYsB6dj6XylHiSVVk5gaQZgG58Zgwqh6Hw3Mt4F
-	 eA5j+GUP8fR19HDUIUwpvC7ZMKxAiM7PPDRFc7nC+xrEOz70cU/KYL48RFZBLS8Q02tnp
-	 ALpLzxnjJV/eODHJ919KyfvSmrVWgJoF5dGH3nUeWSoywQNYZy+QZXBcr5odkZqfnjoNd
-	 XwwF59oEqxsXjalhJUO/6I2+JjZUWMxfXhzCKiJyUesTa67Ri671mGDdfutYvb7bBig==
+	t=1795164071;
+	b=C8IvmKB/6nmAfaX02m3LyxOL0dtRu3KZklfvRUmxtbT065Fi/fHFMnxxprtryi8McPxS
+	 rC404n9N2/3n+C4/3Iym4RbZPbuYlSRLKabILo6TaxyvP4PN3z9CWre1w1HHk5BKqgf+3
+	 1pzNkoO7lVjR4zooaTmfHRgTgqH7Sz4tN8A5efNB4FJBOQIgudV7sbv1tqDqE0GSL1eGB
+	 wSLO23PU94vfFib1dI0sbZ/u+bV7CGD1jzjfeGMC8dgwjvRWylSyGaiQnjQnVfc8sEoSf
+	 72l58JKvuj3xbi1rqPMWEeVY4UvxdLRzvmrojRWxvaeRF5idf42DSq38DLMnjWngr9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164077;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164071;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=eakGv17JCMk0nAPgz+YpjcrUUEGyOYJEafBX4gfQmKo=;
-	b=x6PBqZO32riTQ1YRzAtZITDMkgCWxM0nZY+1LXCLnhYjH+6IYLlJz5kxJonJhX5qEJDh
-	 WJ/NmhcuzPfcGstOGFhhdmgNRR1wYOMPbHfCGliBnl2xmeWZaM+ZjqGavTFpfRxSa63f4
-	 D5ZwL9vBvqv4BgLqrmp/BXWa0Zni/0y0Q1zh7+RMNMyC88B2rmlyCRKqau2a+5s1ZHIvu
-	 troaRZMww2uAntB7cgfatlEVhhESLXXCk3y9o4HkfcZtMpER6zMK4+feyMc2M0LSupiYX
-	 kNs4afsYQa/uKgipdQ+luYOx42ADuHuoc0fCS3tHUJu7QN/xF93G4agkDViAsZ5wMSA==
+	bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
+	b=u6KYXgU1QTju4otUj9iSeNvANyb7C9kg2NU3RoBN550ySyz/t4YxovLcHNhXIgyfomiO
+	 N6p/1xHh844EoVTb0IrUkmq4rkTDm1qs6Gv4ek/PvOgZh6pXT1EoFNr1pukXVEVOwfvvO
+	 WYXUd1j5LJURKR52ROZDjAhpkCtpvGbJMa5rdAF1YwEapOBMmJTu2LAJ32tiUzy8LZT2/
+	 DBkoDt1GUYYnoQ4iCJMlVno5klWnzmEr4VDUgx6y9rav894xURWUeA4CWb3Lq18d+XOzG
+	 B3fsxERW9Q3L1KkM+G23mlMsYnr13J38MwhxFGScxQTcSYoPfaKXwldTkE/2IV/C6iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bdPYE9ai;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFxXblBq;
 	arc=none smtp.remote-ip=74.125.82.176
 Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E10A2606A882
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E10A2606A882
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B718160A5BD5
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B718160A5BD5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bdPYE9ai
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38564b4b017so664106eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFxXblBq
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-382f4710a17so1023023eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164076; x=1795768876; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795164070; x=1795768870; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=eakGv17JCMk0nAPgz+YpjcrUUEGyOYJEafBX4gfQmKo=;
-        b=bdPYE9aiVRydFu3htQdbcm3SSeRg0s2d487qMGOc21hs/5ORfzVPIBeDeOnIUNEqLa
-         WOOTe+7dTC7wLN7x7RPOWn3uuo8JkVtSCFyRbOPm0ElgnC0UhCdecYj1nQqnw3PPf/tQ
-         1bVx7tuQNZbFDQsbgQnjXasdmUkQvV8lY57sNmkc1JRVy9QT2u8wmzmUzINNDGuRmXyw
-         TuXeDDLzPfSz7VUHyzP3VUtl31Sx6s+289t678najQ2deQ7ZfndQ9PpGVZw3qHmQtDZu
-         EECjGd4CzFALSP/OzgCQxT2SQXwLo8ItSefNfaDanU7Gz/pBmN+1zAZUTKA8nOabRWds
-         Y7yg==
+        bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
+        b=BFxXblBq1otoODFiqEI2i/efkRllhYlVxPiXINOyzCa87lxGRzRvo4ysEgErBhelYs
+         8k8DFKpTnbFiViNMEIcQiEl7ek4JT8smZcZwR/XoEUg0HXOQuXzyfIWYXJ3Dm6erP4ar
+         JYZ1oZQQ5uDIg+6LlfR2OHha4IK4Ub9DWeLmUuLsYQwOOWF0dl/zF0hoiJTr48raameH
+         ZaUn6fd0Dp2ppnh6GWoz7swz1kHULWeoKiqN5seP7dAB+Nd9/y/JMeQOQeHBW2+7pXCb
+         HGJJr8XQjTy4uB1JCHT5Q0FaRY+004ORNMLRjWvcxTQ/li7WDeuwUZeG26j1d6Qo8OJy
+         Jowg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164076; x=1795768876;
+        d=1e100.net; s=20260707; t=1795164070; x=1795768870;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eakGv17JCMk0nAPgz+YpjcrUUEGyOYJEafBX4gfQmKo=;
-        b=VjFk9vaW4a5OvIAGdPEQVrcK+9RskfdIZ/w839gOG3aFTuzTDr+DBWbAdsC8+FNoFS
-         1ZjPYcdWTtfLEtIVjc9VBD8VFu6wkiBb9wYTqn/E6XrjQnTTozT3q9QZBVViKHrvp2dy
-         z+9JsNCt0eEFrJhh2bmtZVvLrEi5kEH8zbl+ujtQVVsMA5EsxbYjYBK1bQxFbLXqcbeg
-         fHLfolJMZVtCMldjkkPqexJHCtz2Q65lYV1lHEnweUUGYxLQSeFhHSLA9ziOF/4lMCRv
-         7QwCe0BuMnpxxU7b+wI6vcRxUwpHK4ZRbhGsJTgT4wf79SLPlzefTHtBMjhN7NOOrlpz
-         opOA==
-X-Forwarded-Encrypted: i=1; AL+hErFZaR8G5WjDSFTfeELsWGVjWrTbvmI1qa639pPWP5h04j8Nq7BgQ12JWYZjtTkNSWngeX6XNuRdOIax910=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9b71gjTKCFqLk6KKxfBat6uetnan4HSn3xemSLA2c0lX5rY/15
-	SjkYomLjejdJd9XdLWavJNCDg58mchIpJFwFzKw7mbb9n3PJtFz0sfSJ
-X-Gm-Gg: AZFdTZfgnkIpHWXQ0bTNqgX8DcubU8gt40hS2Qzv1brGtzFI2WIHHV/xNGsB5MYMQV3
-	WysOzZZ3ryE036omxa4lX9QRbZGJpbt+uqSATjbZtXXX53QKNsQ5WbqDBW1HUdQf7EKe9JpQDXL
-	7TcnSpnBEz8WzX0osME7ItCu8aPW9E0DevfpKFVR7y79dKQ3lueFL2OxYGNH5wpSUuHNaN861PS
-	Mbw2RhaOPOyXH5lu0riNNVBJd89nOV0mKr/2QYUpnkltoZw9K1wGGc5HXjWjg39CPOiAd2wGfV3
-	FRHjHlistaGEmKAT3V4UIfPD2deWjqk9JZurfYJCbwrmVvSiD5lNqYqxGOLpja0u1pPmkrnqrQa
-	TjoRdkecDLLflwHqrs3TSh1FEtRmPESDN6OnR0r+e2hmjCwliJUSmZmFKcl7RYFv5xAFuTMjIkd
-	J2y72CAneIMsl+1QkOw+y0NcT8an9HYfk+Jwgwlm68zNrslXEHhigy13tgL0t8wyTkZfVmFpBf5
-	vzqwRZl6POnmlQrAijTJT2gByGYReN2MZnnfT02TZErmehYuqHSRuZ+FwyidgAOWi13vivWy5NB
-	M5HT2ygEz5LnW6Lft+n7nxWDAsl7LaXkSbjAzZ96IuCW/E8bdgalEtrJLj7UrTvIR+FdYZKd/Yl
-	v8Kw1NrnGRtzmoRr9lA==
-X-Received: by 2002:a05:693c:414c:10b0:37a:15c:b8c5 with SMTP id 5a478bee46e88-384b11ebf27mr4053020eec.2.1795164076070;
-        Fri, 20 Nov 2026 00:41:16 -0800 (PST)
+        bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
+        b=GM8bZRxZvwiKN3W4/iJYkgaODX2GZLlP+mhMN3j4iTdQQNS5kUiLij2HqGg0eWkcQW
+         fH7jNd+iPXjb5e+YkHTyApNloNCdwICYFIfiGfS8JmIEwgWnI/ctd6VV9BrL36Q3Takl
+         bvdhQRIU7bFqL0Ry7wJNwZYhI2DU6iGDG6EYGzFFw2IFJ8RV90sN/U0gtgW76TIGcNBO
+         ZEPQjd9jidsA4z67FgXFOinxHYkjCSHDzDG64PEKdkkd37Eva13vZAAYQqb8dmqe5Db/
+         eK0jCIA5Ve/R0lYJwbXyEPD5SBDjytE6oek1I8scjeSPTaKTEndRxcSLdTN8+kWKRa8Q
+         YADg==
+X-Forwarded-Encrypted: i=1; AL+hErF5Uu4/5WB1o66eA2N4C78O/caaU2m9rBtikVlnhCTGCKP7KQ9IGGJNLmZlAuVBwYdlfep0YotkX/kq3y0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8VO2g2Q+cVH3R65kqOT25JPgvgx5yOV92NaocHjTtSR7P1gP6a
+	KJLWWZN31272fMTJoSS7aJUplAvU/pJBBu1XHPMtMolmodaNJ856VgfP
+X-Gm-Gg: AZFdTZdiBuGnKyGuXNYYnQSfOnLeDxRZbElx8+o8OhAI/7IGe8jKZDgEy53d1Kn7Oo6
+	YrL4/G5WBrESjlBuxs9XRE6rAGlg2/upuIZQxhlsnOZI6Qnt3nOSTbwE+yBJAQh4r5cg81jTji3
+	EuHbRlf08/xVbT3w3BUOgFpBjr3Tn9npey8qlH7sPInOY1eu/LwxIpotW2zi+u6hQmsW5WB/Rxx
+	WWKk1X+QY1OwdTAWxKFAWOs63gWAtgb/3xYTIAq8ro5JksSeuUft9LbIHXdBm07JQVRuCVASQZm
+	9yKkNdGY8MwRqn9KZJbRTQIRqIC4/eL8KhX+iSfGaHAx1ALrH7ZRP5r9zgA6XOuC/8IOJQYJGtP
+	HCscsdKHtSI/qWgaWSrpCMO/YAT1YZa8JdLrd3aYKB/ABcSDbnTW6kGQOodIJX91uMK9Caz5w/N
+	M6qlUPQOZR7Q5PXa+bCDaHouC0BBmfdM9MIm2Enw3nuJhqISJUVeeb3Jj9SpsXL3/X5S30G6QV4
+	1uD9hb1g2uEtu+R9d5GwOgmaL/fimXu6CQWb7/Sv8pDZ+uDn7MENq4Vtb+iybKEokS/LVwXb8K/
+	gItdZaLosBN7ELjulS+HFL7ErkfHLKH/hrLSuWDXjCjsqebftqy9Z5a7N07iYfA275bAFXyJicQ
+	L3p6L5jo2w1WHP9FeBg==
+X-Received: by 2002:a05:7301:fc02:b0:384:c043:c5c with SMTP id 5a478bee46e88-3856c6b3470mr1883528eec.3.1795164069863;
+        Fri, 20 Nov 2026 00:41:09 -0800 (PST)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.41.14
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.41.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:41:15 -0800 (PST)
+        Fri, 20 Nov 2026 00:41:08 -0800 (PST)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:41:00 -0800
-Subject: [PATCH v3 12/14] HID: logitech-hidpp: mark device online on
- unified battery 0x1004 events
+Date: Fri, 20 Nov 2026 00:40:56 -0800
+Subject: [PATCH v3 08/14] HID: logitech-hidpp: do not retry timeouts and
+ transport errors in hidpp_send_message_sync()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-v3-12-cfe2caa1d0eb@gmail.com>
+Message-Id: <20261120-hid-logitech-hidpp-v3-8-cfe2caa1d0eb@gmail.com>
 References: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
 In-Reply-To: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
 To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
@@ -108,73 +108,40 @@ Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>,
  linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-Mailer: b4 0.17-dev-6b8b8
 
-When a wireless device disconnects, its battery state is marked offline.
-However, when the device reconnects and sends an unsolicited unified
-battery status event (feature 0x1004), hidpp20_battery_event_1004()
-never updated hidpp->battery.online to true and did not include the
-online state in the changed check.
+When a transport failure or timeout occurs, the synchronous send helper
+clears the response buffer, setting its report ID to zero. Because the
+retry loop only inspects valid HID++ short, long, and very long report
+IDs to decide whether to return, a cleared buffer misses both checks and
+falls through to the busy-retry path. Every transport error and timeout
+is therefore misidentified as a busy error and retried three times while
+holding the send mutex.
 
-As a result, sysfs POWER_SUPPLY_PROP_ONLINE stayed 0, power supply
-listeners were not notified of the online transition, and the 0 to 1
-online transition check in hidpp_raw_hidpp_event() failed to schedule
-reset_hi_res_work to reconfigure high-resolution scrolling on reconnect.
+Return immediately when the low-level helper reports success or a
+negative error code, and only retry when the device responds with an
+explicit busy protocol error.
 
-Furthermore, both feature 0x1000 and feature 0x1004 share the same
-hidpp->battery.feature_index, event ID 0x00, and return 0 from their
-event handlers. Because hidpp_raw_hidpp_event() previously called both
-handlers unconditionally, an event on a 0x1000 device also matched
-hidpp20_battery_event_1004(), corrupting the online state and decoded
-battery status.
-
-Include !hidpp->battery.online in the changed check and mark
-hidpp->battery.online true when receiving a 0x1004 status event.
-Gate the event dispatch in hidpp_raw_hidpp_event() on
-HIDPP_CAPABILITY_UNIFIED_BATTERY so 0x1000 and 0x1004 events are routed
-to their respective handlers.
-
-Fixes: e037acf0b1ae ("HID: logitech-hidpp: add support for Unified Battery (1004) feature")
+Fixes: aba7963544d4 ("HID: logitech-hidpp: Do not assume FAP in hidpp_send_message_sync()")
+Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
 Cc: stable@vger.kernel.org
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+ drivers/hid/hid-logitech-hidpp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
 diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index 28402baf04fb..c960d26a41dd 100644
+index 0264e4541edf..c486488efe99 100644
 --- a/drivers/hid/hid-logitech-hidpp.c
 +++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -1761,12 +1761,15 @@ static int hidpp20_battery_event_1004(struct hidpp_device *hidpp,
- 	status = hidpp20_unifiedbattery_map_status(hidpp, params[2], params[3]);
- 	level = hidpp20_unifiedbattery_map_level(hidpp, params[1]);
+@@ -364,6 +364,9 @@ static int hidpp_send_message_sync(struct hidpp_device *hidpp,
  
--	changed = status != hidpp->battery.status ||
-+	changed = !hidpp->battery.online ||
-+		  status != hidpp->battery.status ||
- 		  (state_of_charge != hidpp->battery.capacity &&
- 		   hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_PERCENTAGE) ||
- 		  (level != hidpp->battery.level &&
- 		   hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_LEVEL_STATUS);
- 
-+	hidpp->battery.online = true;
+ 	do {
+ 		ret = __do_hidpp_send_message_sync(hidpp, message, response);
++		if (ret <= 0)
++			break;
 +
- 	if (changed) {
- 		hidpp->battery.capacity = state_of_charge;
- 		hidpp->battery.status = status;
-@@ -4200,10 +4203,10 @@ static int hidpp_raw_hidpp_event(struct hidpp_device *hidpp, u8 *data,
- 
- 	last_online = hidpp->battery.online;
- 	if (hidpp->capabilities & HIDPP_CAPABILITY_HIDPP20_BATTERY) {
--		ret = hidpp20_battery_event_1000(hidpp, data, size);
--		if (ret != 0)
--			return ret;
--		ret = hidpp20_battery_event_1004(hidpp, data, size);
-+		if (hidpp->capabilities & HIDPP_CAPABILITY_UNIFIED_BATTERY)
-+			ret = hidpp20_battery_event_1004(hidpp, data, size);
-+		else
-+			ret = hidpp20_battery_event_1000(hidpp, data, size);
- 		if (ret != 0)
- 			return ret;
- 		ret = hidpp_solar_battery_event(hidpp, data, size);
+ 		if (response->report_id == REPORT_ID_HIDPP_SHORT &&
+ 		    ret != HIDPP_ERROR_BUSY)
+ 			break;
 
 -- 
 2.56.1.750.gf70dc682cf-goog
