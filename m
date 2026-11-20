@@ -1,65 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196460;
-	b=q03lWpPzqzk9QuA9lIUv1ixzWysnMtzYxDe2Nxcte6mx4ZK7xgyw2mdvABP/jDJMvD/r
-	 WTLEgjMtuFO+pggR7aVMqsQ1NzXgZogqgS7T+LrzCzedve1MUD9Uv7NIv35Z5a7E31gBB
-	 KoYq8S7zvH+Yu3PzIACFrmYyynqBSjtvbbj0XHgutS6FfIa1dd1TO7ZlQFiTHfjuNZgaY
-	 PHvbP2EbIDt0etCmo91cIlAUlMASpkojhtZpNWMpnY0tjPsb1eQirklTulC9tQA6n+/Yp
-	 zaYbMgGMThetK1zOAMC2TIa3KU4xFRgKplJ1I1uZFPl4KE0kBEthNVvvoVzJciXAomQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196460;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=yUI+P7wF2fgm8/0nVe+Aa64vy1Ow1NxiEVzhenVvIqo=;
-	b=O5bmUeVBx1B6asf5ogGknGpDLdVbxGRJbCLr0BPouY4emgcSWmteDLoBIyNUbdmePUIx
-	 GklQLSgUG1O7q9xQJcIXMbsymKg23V8QTkdmV2OtBPAs1bve/ww6QzrHv1Gq4+V+QdwJ5
-	 KFWy2yf9u7tP0IjaRmf/sbVDxQtrj9zhCZMt6Z/S9xkw9PQ+xgL08rLSp12X7ZAWDjBS+
-	 2HiMMyBsm//m6E39voDmqCKK60CYTw9tMTzQ/SsiVrf2vQ+cqWYzhiZ+22BF8x1hfPRXp
-	 o6e0MoEz4L6QYa5LoPRFvTsk1iwpxHgXRiEV0qQZ4mLuInWYNTDSyIdjD5t8Nrui6Pg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795196471;
+	b=jttvUi26Q3MkZC+1KE49UxdY5xbwtNXl3DzKBjWHNboY0Imgu1ClbnGz+RzCsUKa1bmV
+	 XagPaD3ztes+usvR/j8p31LOUX/DejiLUxkc+i/jLS/oTe8D3nAvm1FxhtjS9vPr67Rno
+	 xsLFKFAOK+GVRAmeX5PHOADvYzE9W1mB2GJ3wsQuphICqbI5k+s9Lxw4CoSEEyltXMHjz
+	 3E6XOFZSufht0jEWoYL4AD82Z/P0KO9CLPIv+86Ea81srtsFfn6/LGRyWJyjArtZUW/HQ
+	 z0WzS2f1mqKFaN5xncxmMI/a5EUqo+ejCdqzMl1PhwLsNU2H0E4KVu32rQivM6wG/nA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196471;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+	b=j2RUPyXj0ZnASYpcgoto2JL9/DqNGm7+CIeTmhi2xXaPyLjkudeRofKZUClnyy7/G6Q3
+	 ONUD0b7eI28YsWYseJ1MGqTBZ7ktHll9iAzXLQyROqJ5JYxRJHQQARz/YM6U+2197YSdo
+	 HEBbGrRyPolrFsq0BprUZ7XVbphsg22+VUngHAY/8xMlkkCOaScI/SpgGsfYzM7dyOJG9
+	 PCU6p5P8kXWExZ3Wlg1rlOdIaHEfphNmHEHt3DOKT0Wju+3HZRXYBBl3H2Bzlfj/QeFzz
+	 OHelvh0RrSgaFnFlqI1N/WMbHeAlYM6LB8GYuvf3wNMnzoAYecxOwBk2TrhWwID1elw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
+Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C762E606A325;
-	Fri, 20 Nov 2026 17:40:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C762E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUSbU-000000000JQ-1ndT;
-	Fri, 20 Nov 2026 17:40:52 +0000
-Date: Fri, 20 Nov 2026 17:40:42 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	David Heidelberg <david@ixit.cz>,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	Marc Zyngier <maz@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Dang Huynh <dang.huynh@mainlining.org>,
-	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Subject: [PATCH v5 2/5] media: rkvdec: Add support for the VDPU346 variant
-Message-ID: <8c72620fd92b5f98bbb9d8b425c5a0f3f441623c.1795191822.git.daniel@makrotopia.org>
-References: <cover.1795191822.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7C71606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:41:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7C71606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=H0YVwCbF
+Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-533202fe429so181cf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:41:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795196470; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KPUNi7Yu5Pm6/VEW0/bosNVt+sYGim2eBbGjPMVw4XIeisXpEFqNOL7knvYSym/5he
+         P2S7GbRRJB/Lvp2aW/it9ijhEbEwYCdjzVLYFtsvc/u/Gm2eqRtTW9CavYqRylO6ATUh
+         OwkWjYq9bEl2oVMT8HSHgTSmOmwiURn7ng4WkHld9xWEj0pnNizxJ+86LnkMpQ/UWsab
+         FyPhL3AGs4FwiSABg4OkPAqJzptO9fugRaLr1ail3V4lyfxMecA52vvmUe2Inxcxylr/
+         FMjLPJj/wuaO857M5bjzEYOtk1IQ1bk2oVU+oJoaqdB2StrGbNcZUbGB2v4BScTIKoZm
+         vfSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        fh=lN6kXJN/uFbXDZkawBnaU27YacYvHEbBzYRnm0yT/t8=;
+        b=EmQ/+1Sx4nCr/Bh4nf2G4sQPIvPdnp5ng93t6oNKfVpqxAIdIOKVepp8/2vk2QXW73
+         KYq2Tevnl8TwbwqNrxUzpv3Gub44pz4H9p/wn9P1q/mBJDgLjn2NaarBsMgcRHj7ltIT
+         oNBYdkzC4PzNWK5/gJXnKx+xTyQtzWEfP6MFFV99yisDJtD7JxZjkECNpfuGf5b2voa/
+         YVywHVo2oVgbEbJFROJlx48favPO17F4lKEOV40AP9DRMMXaM5XnRPA8oy/Hskv1A7OS
+         E/mX0tiat7nvRPiJSV36uSFsvBhRbBBSG5n4MiBomkd0I37+JI9nvmJdCA22BZaMUBRw
+         VWCQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795196470; x=1795801270; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        b=H0YVwCbFtGsLhM2WgfyZ9CEZuscowg14WiA+lGcenJ4NsS++ZK28EXcnwg7wRJs1+8
+         +z5Yyobbdw8XfgEZXrC8PmpRdfpofq5yIe+YvuleuMfjNdXoKc50YW3DxeRi4OthuRqz
+         0tuKhB8OrCns8cXlXrDiBhdk9AcVh86nnuG7ZSmr8R2FYvQi1M0nS/u6ajkzKfVJ6nmL
+         NMqoouL4ZyyqnOsTslkUO4QzXWMDqWVdE4LaNW/uy9MML4lLgwtkOiMZKng/4b3yRM7Z
+         xhBSTJieuagig0YgfuCsKkLw/XhFOmV2jReuv3khWSxABqSkp6b77CoVKCc+9NPZMEUK
+         Qzhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795196470; x=1795801270;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NBhJnzU/KValBhhwaOLZ41OrcrxNBBfePnpP/eKtfYY=;
+        b=LTR66ibRpqbuxaHDbh8nZv8LPqzYxuRAGRKizH+zjUMdXNNvxc0wEsYXOGMHStbFAG
+         I+x8zNLLw8RBWT+VLxX5bIWinqW8q6jr+IQDGzrXIjv6hRehIjOCIY4FoPbxL6Jk6Lif
+         jCM+ocZE8zzrLQ+c883G1aJceNdO0v7MQpy3YwM5zEMvgpwZ2aHlKaClhZpSoTAvguDG
+         0LpVIiOq8M4w2GNM6M90VjeMWbOmyPAu3AmITol823/SnLvKm1DPFf4KnU0GPw5bY8Ap
+         x3UJjFw0EAcNthoJZTiMNj1jiONiBhZwS1WkGMktf6XGs23aC7bb102orPDCvl5YIHlz
+         bT9g==
+X-Forwarded-Encrypted: i=1; AL+hErEbPPx7FkPlNlWSI0iMwC35yFZ0yJBgzS7Na601fPwOpw2+vRAs0kGW6QYIpuACTEfYoyurx3LLWOiB0z8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+U9FsmN4JIHAoN29Fd61vhjYp8i37aVfMHMTN7I4xkc5acWUMj
+	u9p2ogn7bjSqcJD0q/KDbRmy+45Tu40rZUT5nsy+b/fn9rIM8ZMCE9ze/1oqISHg1Cg6RI0Ik1l
+	4V5hPw3TQM7NEORLDXgEV8Gb5sJ1D57B9Cr0rjscT
+X-Gm-Gg: AYBFou2bxSNHwsmDZwrKxesXb9g3DZoH4qg9XYH1tAWmMHRPsCNUw9qzQENR3rEBoy1
+	hQTmLqRzP7SdoMZPt2IbXcWVKKQKU2izX8i5bGuEAJlLNApSoQcv5F6raD+3YSajJHFi3eVD9lD
+	WSSgXqir9RXb8ouayvrvIVD8lUd4CbG7B+gjkQGGDNJ9e4hlB2sTNs35OXozVdyfYAqS8AFJkcS
+	GkT+TJFX5uN5ainBbRtxWxwoFxDvhdyCz0aKDUKZQ7Wow9dv+w5gKGzaR/7FZEKvjdeCHiA/eHW
+	KCiYSJHR9wsRoF/2/g69DdQgj9VXgoL/qYB7s0e/pbjDQM2YDoMtbmldEZRNnRxy4Hd6AeFEOv6
+	W7/14uot571FrLh5z55LCuBeoN6bmiu5KPCpO
+X-Received: by 2002:a05:622a:58c8:b0:55b:d494:187f with SMTP id
+ d75a77b69052e-55d7911a3d1mr23325621cf.5.1795196469202; Fri, 20 Nov 2026
+ 09:41:09 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,165 +104,123 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795191822.git.daniel@makrotopia.org>
+References: <20261119170729.1524516-1-irogers@google.com> <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
+In-Reply-To: <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
+From: Ian Rogers <irogers@google.com>
+Date: Fri, 20 Nov 2026 09:40:57 -0800
+X-Gm-Features: Aa3M54oOzjegUxdpX7VNYBH8UxXyKYAg5jEgHWesrq6ha6qjCQCMQopqRhJhoB8
+Message-ID: <CAP-5=fWXrX+VTWP4r4daZPf8QHEEWEyfWaQ9L+oa80Y3YAZcBA@mail.gmail.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Horatiu Vultur <horatiu.vultur@microchip.com>, UNGLinuxDriver@microchip.com, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	Elkin Cruz <elkin@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Christian Hewitt <christianshewitt@gmail.com>
+On Fri, Nov 20, 2026 at 1:57=E2=80=AFAM Daniel Machon
+<daniel.machon@microchip.com> wrote:
+>
+> > When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
+> > lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freein=
+g
+> > skb, and lan966x_port_xmit() returns that negative errno directly from
+> > .ndo_start_xmit. Because dev_xmit_complete() treats negative return cod=
+es
+> > (< NET_XMIT_MASK) as packets already consumed by the driver, skb is nev=
+er
+> > freed or requeued, permanently leaking the sk_buff and its socket
+> > sk_wmem_alloc accounting.
+> >
+> > Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
+> > NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
+> >
+> > Found via an x86_64 LLVM=3D1 (Clang 21.1.8) allyesconfig audit with
+> > -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+> > coding assistant. Build-tested under LLVM=3D1 W=3D1 (-Werror) and
+> > -Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
+> >
+> > Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for tim=
+estamping")
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
+> >  1 file changed, 9 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/dr=
+ivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > index b8696fc7e9b9..9c722d23e0bb 100644
+> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> > @@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff=
+ *skb,
+> >       struct lan966x_port *port =3D netdev_priv(dev);
+> >       struct lan966x *lan966x =3D port->lan966x;
+> >       __be32 ifh[IFH_LEN];
+> > +     netdev_tx_t ret;
+> >       int err;
+> >
+> >       memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
+> > @@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buf=
+f *skb,
+> >
+> >       if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TS=
+TAMP) {
+> >               err =3D lan966x_ptp_txtstamp_request(port, skb);
+> > -             if (err)
+> > -                     return err;
+> > +             if (err) {
+> > +                     dev_kfree_skb_any(skb);
+> > +                     dev->stats.tx_dropped++;
+> > +                     return NETDEV_TX_OK;
+> > +             }
+> >
+> >               lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
+> >               lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_ty=
+pe);
+> > @@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_bu=
+ff *skb,
+> >
+> >       spin_lock(&lan966x->tx_lock);
+> >       if (port->lan966x->fdma)
+> > -             err =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
+> > +             ret =3D lan966x->ops->fdma_xmit(skb, ifh, dev);
+> >       else
+> > -             err =3D lan966x_port_ifh_xmit(skb, ifh, dev);
+> > +             ret =3D lan966x_port_ifh_xmit(skb, ifh, dev);
+> >       spin_unlock(&lan966x->tx_lock);
+> >
+> > -     return err;
+> > +     return ret;
+> >  }
+> >
+> >  static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu=
+)
+> > --
+> > 2.56.1.708.g77570a6a1d-goog
+> >
+>
+> Hi Ian,
+>
+> Thanks for the fix. The issue is real, and also on my backlog of work to
+> upstream.
+>
+> Just a heads up, I expect the AI review to flag issues in this area. The =
+lan966x
+> PTP TX path has a number of known problems that I am are going to address=
+ in a
+> PTP series soon. I'll go through the findings once the review is in and f=
+ollow
+> up on this one.
 
-VDPU346 is similar to VDPU381 but with a single core and limited
-to 4K60 media. It is also limited to H264 L5.1 and omits AV1 and
-AVS2 capabilities. VDPU346 is used with RK3566 and RK3568.
+Thanks for the heads-up, Daniel! Feel free to fold or supersede this
+in your upcoming PTP series if that's easier than taking it
+standalone.
 
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Tested-by: Dang Huynh <dang.huynh@mainlining.org> # Pinetab2
-Tested-by: Diederik de Haas <diederik@cknow-tech.com> # PineTab2, Quartz64-A, NanoPi R5S
-[daniel: EXT SPS RPS dims 64 and 32 as of commit f0b9d7e5be06]
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
-v5: fold in "media: rkvdec: vdpu346: Limit HEVC EXT SPS RPS dimensions",
-    registering the EXT SPS RPS controls with 64 and 32 elements
-v4: add Tested-by from Diederik de Haas
+Thanks,
+Ian
 
----
- .../media/platform/rockchip/rkvdec/rkvdec.c   | 103 ++++++++++++++++++
- 1 file changed, 103 insertions(+)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 5250dd59df2ec..ba61e373b4342 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -236,6 +236,62 @@ static const struct rkvdec_ctrls rkvdec_hevc_ctrls = {
- 	.num_ctrls = ARRAY_SIZE(rkvdec_hevc_ctrl_descs),
- };
- 
-+static const struct rkvdec_ctrl_desc vdpu346_hevc_ctrl_descs[] = {
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_SPS,
-+		.cfg.ops = &rkvdec_ctrl_ops,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_PPS,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_SCALING_MATRIX,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_MODE,
-+		.cfg.min = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
-+		.cfg.max = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
-+		.cfg.def = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_START_CODE,
-+		.cfg.min = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
-+		.cfg.def = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
-+		.cfg.max = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
-+		.cfg.min = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
-+		.cfg.max = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
-+		.cfg.menu_skip_mask =
-+			BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
-+		.cfg.def = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
-+		.cfg.min = V4L2_MPEG_VIDEO_HEVC_LEVEL_1,
-+		.cfg.max = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS,
-+		.cfg.ops = &rkvdec_ctrl_ops,
-+		.cfg.dims = { 64 },
-+	},
-+	{
-+		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS,
-+		.cfg.ops = &rkvdec_ctrl_ops,
-+		.cfg.dims = { 32 },
-+	},
-+};
-+
-+static const struct rkvdec_ctrls vdpu346_hevc_ctrls = {
-+	.ctrls = vdpu346_hevc_ctrl_descs,
-+	.num_ctrls = ARRAY_SIZE(vdpu346_hevc_ctrl_descs),
-+};
-+
- static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] = {
- 	{
- 		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
-@@ -510,6 +566,41 @@ static const struct rkvdec_coded_fmt_desc rk3288_coded_fmts[] = {
- 	}
- };
- 
-+static const struct rkvdec_coded_fmt_desc vdpu346_coded_fmts[] = {
-+	{
-+		.fourcc = V4L2_PIX_FMT_HEVC_SLICE,
-+		.frmsize = {
-+			.min_width = 64,
-+			.max_width = 4096,
-+			.step_width = 64,
-+			.min_height = 64,
-+			.max_height = 2304,
-+			.step_height = 16,
-+		},
-+		.ctrls = &vdpu346_hevc_ctrls,
-+		.ops = &rkvdec_vdpu381_hevc_fmt_ops,
-+		.num_decoded_fmts = ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
-+		.decoded_fmts = rkvdec_hevc_decoded_fmts,
-+		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_H264_SLICE,
-+		.frmsize = {
-+			.min_width = 64,
-+			.max_width =  4096,
-+			.step_width = 64,
-+			.min_height = 64,
-+			.max_height =  2304,
-+			.step_height = 16,
-+		},
-+		.ctrls = &rkvdec_h264_ctrls,
-+		.ops = &rkvdec_vdpu381_h264_fmt_ops,
-+		.num_decoded_fmts = ARRAY_SIZE(rkvdec_h264_decoded_fmts),
-+		.decoded_fmts = rkvdec_h264_decoded_fmts,
-+		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
-+	},
-+};
-+
- static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] = {
- 	{
- 		.fourcc = V4L2_PIX_FMT_HEVC_SLICE,
-@@ -1704,6 +1795,14 @@ static const struct rkvdec_variant_ops vdpu381_variant_ops = {
- 	.flatten_matrices = transpose_and_flatten_matrices,
- };
- 
-+static const struct rkvdec_variant vdpu346_variant = {
-+	.coded_fmts = vdpu346_coded_fmts,
-+	.num_coded_fmts = ARRAY_SIZE(vdpu346_coded_fmts),
-+	.rcb_sizes = vdpu381_rcb_sizes,
-+	.num_rcb_sizes = ARRAY_SIZE(vdpu381_rcb_sizes),
-+	.ops = &vdpu381_variant_ops,
-+};
-+
- static const struct rkvdec_variant vdpu381_variant = {
- 	.coded_fmts = vdpu381_coded_fmts,
- 	.num_coded_fmts = ARRAY_SIZE(vdpu381_coded_fmts),
-@@ -1752,6 +1851,10 @@ static const struct of_device_id of_rkvdec_match[] = {
- 		.compatible = "rockchip,rk3399-vdec",
- 		.data = &rk3399_rkvdec_variant,
- 	},
-+	{
-+		.compatible = "rockchip,rk3568-vdec",
-+		.data = &vdpu346_variant,
-+	},
- 	{
- 		.compatible = "rockchip,rk3588-vdec",
- 		.data = &vdpu381_variant,
--- 
-2.56.1
+> /Daniel
