@@ -1,44 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179408;
-	b=41zNie+yv269SggFZOSAGapRhC+IEaFd9kX9PGz9fyLxrkn3Nk74waJ41ebkxe3ywOxW
-	 35RVDJ7jB6xWYOML0FHKAVx7NDAciFlz1yMMt4HEQwOON0R689r/nWEExhM85zcY6ZRiT
-	 h1R53KC0GJaaRzCswU7KjEjN1Qo17mjEWMhBxXZTGP/eXvu0L5EL78PVSaQAe5jxSDeEm
-	 iv6PBazKgbxq5YFfbiTWcZAdIDPw5Qe5q5cWl50Y5CUTLhXvipKCERtK1YhzYQA0WENna
-	 pMtg7m6B4b5+KNNYDxS/LX1oIoXbPQ4i1Ri9gp16dVAY1nWSL0xqeT5vv3/j57WLWWA==
+	t=1795179461;
+	b=uwo89TFezHGE/FHFdcZUZSiqmppvpjTzy48hXKAxeIAgs4U/Fe9Mtmt4kfJQKW8idVuK
+	 MJg55QFlKtty5ToI4G65MZ/WaY8h6PfKBAz9cRQ+CfeR8ibv+SgBGip+y0g3BJuQZFTKP
+	 Te8OOU5/CWqEek6B36y/KPHQaZtwcuYQqmWZTCqAAn7Eb1SEN9UJnAsic/KBGY2WclkV8
+	 D5cCM5zAe4NuXPgFlUdFVCCZMWBKC50F727jfRXbzJbGjM9GeqYLZg9/50WnT8b53g41g
+	 Qw+kRj3CtDKMhMbSkHX4hIwmlY/YYzwGMX5t4D/3pHUNZ1XzwttO4Rhc5TIpVByt9Mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179408;
-	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
-	 Subject:Cc:From:To:X-Mailer:References:In-Reply-To;
-	bh=tFUgsonzdWZLAS1pzTBqmSJ/wCyu7F0wrC3wsF9xA4k=;
-	b=WvC/JnNyAOEDToSrs2vhb+gZKPiv3uM2b7jeJS6u+aTOUrUdUPV3kwPufau4RC1NRMM5
-	 RHgnwQEzvvgxzMyiFDkuLiHJl78pUShj1fhMa2zKWQTioUJRnrwaWL0R6QRjTl0WYbrQs
-	 mM+Wi0Kji52CKate4J0RMTpH/7ZqWxTReDJKCPoURJjmSuGX/mv8sDB3p9eRYuy6LwE9A
-	 8HzV5Nem1cEc2jPp0MZtfNLTXn3yYwuo62/8gQtFBAydxd4hn+5HnI1qjmwshfRy9MudR
-	 G7+jWtM3jmYdEy87eRl1UJrwaUydTi/V1PBbZw8Czm1I6no2WW3BrgGaUZ7hZkQPuHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179461;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KeRD44dQOO6ZDNI7a8JiTN75jiv8xR1iGSuq9LBDHK0=;
+	b=k0dc+Ase4vXqU+J0BHP9aKM0V/UG2jC5iBpLH6t0FI84H9Mf1rCfWrtP1hev6g5WZ6md
+	 oy4hbXConTxHdPxjukQjoXpD1WKYXe6F/s4TA6epUaAwxzDzLn56iZ+JGS89h3JySPFBw
+	 /P6SYHcWljfc9Cdu6iaTy01fb9gk22A4JLEjcdY7yfz7fBrGYBSSmN/zMJkSCVR6lHt0j
+	 4vr6pNjUJAYDczS0iy7tr0UwwOmcAf3PRdiwU1CDhq/dxWwNLU/9bqvMKPWNP+q/B7k5+
+	 pu7pLO3O3HPbr/5pg2YSpD2u6PIrj1y2hbtFfX18aleVximETvvTQzhEeDS8VeSeOPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QZgFJpCS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="xc+/RY6m";
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E5C0F60A261C;
-	Fri, 20 Nov 2026 12:56:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80133606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:57:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80133606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QZgFJpCS
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 427CC1F000E0;
-	Fri, 20 Nov 2026 12:56:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795179407;
-	bh=tFUgsonzdWZLAS1pzTBqmSJ/wCyu7F0wrC3wsF9xA4k=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=QZgFJpCSXGErrdr7UZI00oLmHhVCCzdMT8VQHkB/2F1wAFIhB2Ju7hPV/BR3TRngO
-	 2DF7hTlWHP0e56sa6XPyR0a3O+pwhnGkBosvxlP90u4xA+4hZ1iizknD54IuFKdvXC
-	 E5OV5R2Nkkdp4lOpFjF7YlbZB+687R7APSJT44S5a/zSOS+V92V4LcgaXW7ybsu3wm
-	 MCPcj3qs08uw2zjtBZude5YsTD7MdmOjbvu2xJxiaVYJ6ALPWmLOFprSq0KuQDpv/C
-	 qV4hKlPDWeom4IzCEEAZTnV6CLX1D5QJFe3IeNbVhXXCAuba4dHHR1tdGOFhGZ0z48
-	 2DRKoKoEQ/WCg==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xc+/RY6m
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33fb4680717so2173451eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:57:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795179461; x=1795784261; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KeRD44dQOO6ZDNI7a8JiTN75jiv8xR1iGSuq9LBDHK0=;
+        b=xc+/RY6mE5bOW4O6W5gmg4gOu1k2/kFtnQHpgVLHJtgbPGIRhrKRwoGhJrhblCxn+h
+         CzjDJ2yuxJGPeB1SYPdsf3M8s2oRmbU9IFlDdFxssBz3l+8R1vq0JIajfQ+6AIHWny+s
+         qijpk6JuGsHJEAjwF0k4VzfTIflN5H3cWa2UvDgOdYW/OteghkBjgq3dkzjjgPIRmyrR
+         b7TEvcxwf7cXtTOe5Je90WOZqLekoGgMN5EV7tbjpSVmJn8BcMfdPQd97aIwEQef2A6N
+         qPsWgVZNPxkdkZ+bk6HMHggZzp3xEyzgXyHsGhjMBo7MSDddugjn9q4LW3umHiUENL+o
+         o7/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795179461; x=1795784261;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KeRD44dQOO6ZDNI7a8JiTN75jiv8xR1iGSuq9LBDHK0=;
+        b=Lk82ctqx8DLpXneBv1H4lgSw2b4ZmHJTtQWMb4XYq9+TSA7mRVjQBKorY1Sp6g49/1
+         dX6lHf+oabkubCQmPLVk/uyLW5bD+AEQdorVE39yYSL0c9SNn/3sG/T40eP1eX5iy42i
+         3CiItDDPnoTm2GjnwRt5l/t5R5znwSmhtPAMlczNyy6gMDiyVEF1KWbgwEgT3qPR6Fcq
+         oaxzVqQ6kSBHiIVhNDzklHC+6VwSc24yR9cNx1kZWlwVv84zs6WX/9mT7DufsJ5kK3cB
+         XOg15eVQg/eek83HBF8wR5oZpyDOWl+v1+lYoYGst5dtBHuJowex+F5wvfuhV5gUP/h5
+         UCmQ==
+X-Forwarded-Encrypted: i=1; AL+hErFTuqSnDRA/TVYeUKmDhLG6gyp6EJZ2NncCx6N+px2cVgp7iTd8XqEf8b8C9SWOVT+T0tV8WuldepinMHY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+IOvyKu+fugzPIMxg+ZjZk3Avrrn1bG3zXBcWow/TZk9MNCssu
+	FX719ELwayUEO8FVMo3Nz0LIpaA8HLDl1At4VxUYUEZBPOQ5zrsjT2uW
+X-Gm-Gg: AZFdTZcyN8B5+4a5aQyXDwmpZLXYCa+Wa6ymJIwlE6pEwEscgoknoxNWQby9jK3ogOF
+	AjygPxgmjnXCMVHquitn6SOrLJmOJlDoccAnjymMxeETSOPxtOnqzIlaPlJWmQcdmywj9r4L8kz
+	kEfg+O5i7hT8ELkqAled2mwRLFD6i4P/ziphuxxDFahYoHHYJ1JOc50rXzs6dFzvI3iAm/FK7Ig
+	mvyxw8Zn2yQoxWKBvm1NzXoKFcIiuXWPT6fLiIJKrsbv2nrxqZu0x+xNrycaioyrHLkhVEVOygF
+	vcoGZ92lWIrVwSp67qLsHxB0oQoJc+t2qbKPWsjXkEBuZvnthWf26ZzTbiPtsNqjcMnwQQ2wUto
+	/aZz5YCShJmyzb2HzlLJaAbtv9COXxZA+QbhX8m3jefCcrW29/Nbn/i4u6kNORwWAPNsXZkEXwl
+	ASroLzFNJ2mzVH4WVUt2LBNnbW8Nro9nZhMj3wxB6KttP7pGC4uo6iFeds4mq6hi1iIKWJ1pN6h
+	JEx3PxB/0tAMiNXTmosG+hgpalY8nyTbzmkA5+BHSkMy3pI4g0lmVvXlahJz3XhXp6YMsvUAhYD
+	n797epBzs1+4Csb5AqW7DfMLATGJ+IkvQRm30jWQwonAIC3uyKhd9gNHwnCo7yFWbLyWKkXW
+X-Received: by 2002:a05:7301:182f:b0:385:cf42:9b9b with SMTP id 5a478bee46e88-385cf429e7amr1916243eec.8.1795179460450;
+        Fri, 20 Nov 2026 04:57:40 -0800 (PST)
+Received: from akhil ([61.0.85.44])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm10672548eec.4.2026.11.20.04.57.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 04:57:39 -0800 (PST)
+From: Akhil Arul <akhilarul324@gmail.com>
+To: perex@perex.cz,
+	tiwai@suse.com
+Cc: shenghao-ding@ti.com,
+	baojun.xu@ti.com,
+	Carmel@aperio.ai,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Akhil Arul <akhilarul324@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] ALSA: hda/tas2781-spi: Set tas_hda->dev in probe
+Date: Fri, 20 Nov 2026 18:27:29 +0530
+Message-ID: <20261120125729.135171-1-akhilarul324@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -47,134 +99,56 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=cd2dae19cb24704fa8f412b0fcbc099e07be2af6d62f1bb1ea7d9fe316ac;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Fri, 20 Nov 2026 13:56:44 +0100
-Message-Id: <DN01ZL81VTHB.3PB0JO4WI6WU0@kernel.org>
-Subject: Re: [PATCH v11 00/19] spi: cadence-quadspi: add PHY tuning support
-Cc: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
- <praneeth@ti.com>, <sebin.francis@ti.com>, <u-kumar1@ti.com>,
- <srikanth.boyapally@amd.com>, <m-shah@ti.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Santhosh Kumar K" <s-k6@ti.com>, <broonie@kernel.org>,
- <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
- <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
- <pratyush@kernel.org>, <takahiro.kuwano@infineon.com>
-X-Mailer: aerc 0.20.0
-References: <20261105105832.2134313-1-s-k6@ti.com>
-In-Reply-To: <20261105105832.2134313-1-s-k6@ti.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
---cd2dae19cb24704fa8f412b0fcbc099e07be2af6d62f1bb1ea7d9fe316ac
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+tas2781_hda_remove() is shared by the I2C and SPI drivers and uses
+tas_hda->dev for component_del() and for the runtime PM calls.  The I2C
+probe sets that field, the SPI probe does not, so for SPI it stays NULL
+from the devm_kzalloc().  Unbinding the device through sysfs then warns
+in component_del() and crashes on the NULL device in pm_runtime_get_sync():
 
-On Thu Nov 5, 2026 at 11:58 AM CET, Santhosh Kumar K wrote:
-> This series implements PHY tuning support for the Cadence QSPI controller
-> to enable reliable high-speed operations. Without PHY tuning, controllers
-> use conservative timing that limits performance. PHY tuning calibrates
-> RX/TX delay lines to find optimal data capture timing windows, enabling
-> operation up to the controller's maximum frequency.
->
-> Background:
-> High-speed SPI memory controllers require precise timing calibration for
-> reliable operation. At higher frequencies, board-to-board variations make
-> fixed timing parameters inadequate. The Cadence QSPI controller includes
-> a PHY interface with programmable delay lines (0-127 taps) for RX and TX
-> paths, but these require runtime calibration to find the valid timing
-> window.
->
-> Approach:
-> Add SDR/DDR PHY tuning algorithms for the Cadence controller:
->
-> SDR Mode Tuning (1D search):
->  - Searches for two consecutive valid RX delay windows
->  - Selects the larger window and uses its midpoint for maximum margin
->  - TX delay fixed at maximum (127) as it's less critical in SDR
->
-> DDR Mode Tuning (2D search):
->  - Finds RX boundaries (rxlow/rxhigh) using TX window sweeps
->  - Finds TX boundaries (txlow/txhigh) at fixed RX positions
->  - Defines valid region corners and detects gaps via binary search
->  - Applies temperature compensation for optimal point selection
->  - Handles single or dual passing regions with different strategies
->
-> Patch description:
-> Infrastructure (1-5):
->  - Patch 1:   Add spi-max-post-config-frequency-hz to describe maximum
->               frequency achievable post controller configuration
->  - Patch 2:   Add spi-phy-pattern-partition phandle for
->               NOR flash PHY tuning pattern location
->  - Patch 3:   Parse spi-max-post-config-frequency-hz in spi.c; adds
->               spi_device.post_config_max_speed_hz (0 when not set
->               keeping all existing DT fully compatible)
->  - Patch 4:   Extend spi_mem_adjust_op_freq() with a bypass: if
->               op->max_freq equals post_config_max_speed_hz, return
->               immediately leaving op->max_freq unchanged. All other
->               ops are capped to max_speed_hz. Also require per_op_freq
->               controller capability for post-config ops in
->               spi_mem_default_supports_op()
->  - Patch 5:   Add execute_tuning callback to spi_controller_mem_ops and
->               spi_mem_execute_tuning() wrapper in SPI-MEM core;
->               serialises access via spi_mem_access_start/end and
->               rejects GPIO chip selects
->
-> Cadence QSPI Implementation (6-14):
->  - Patch 6:   Move cqspi_readdata_capture() earlier (preparatory)
->  - Patch 7:   Add DQS bit to cqspi_readdata_capture() (preparatory)
->  - Patch 8:   Add complete PHY tuning support: DLL management, pattern
->               verification (NOR via spi-phy-pattern-partition phandle,
->               NAND via write-to-cache), SDR 1D and DDR 2D search
->               algorithms with temperature compensation, AM654-specific
->               execute_tuning entry point
->  - Patch 9:   Reject 2-byte-address DDR operations via a new
->               CQSPI_NO_PHY_TUNING_WITH_ODDR_2B_ADDR quirk flag to work
->               around AM654 OSPI erratum i2383
->  - Patch 10:  Refactor direct read path for PHY support (preparatory)
->  - Patch 11:  Enable PHY for direct reads at the calibrated frequency
->               when both transfer boundaries are 16-byte aligned,
->               falling back to non-PHY DMA otherwise; also reprograms
->               DLL on chip-select switch when two devices have
->               different calibrated settings
->  - Patch 12:  Enable PHY for indirect writes of at least
->               CQSPI_PHY_MIN_INDIRECT_WRITE_LEN bytes
->  - Patch 13:  Reprogram per-device CS timing on any chip-select switch
->  - Patch 14:  Reprogram the PHY DLL (master config and RX/TX taps) on
->               runtime resume, since the DLL loses its lock when the
->               OSPI controller is power-gated
->
-> MTD core (15-19):
->  - Patch 15:  Extract spinand_select_op_variant() into a shared helper
->               spinand_op_find_best_variant() with a skip_mask
->  - Patch 16:  Negotiate optimal controller operating point before dirmap
->               creation; iterate all read variants in performance order
->               across ODTR and SSDR interfaces; re-pair cont_read_cache af=
-ter
->               PHY tuning via protocol-shape matching
->  - Patch 17:  Extract spi_nor_spimem_get_read_op() helper (preparatory)
->  - Patch 18:  Execute controller optimization in spi_nor_probe() before
->               creating dirmaps
->  - Patch 19:  Reset max_read_op frequency for security register reads
+  WARNING: drivers/base/component.c:839 at component_del+0x149/0x170
+  Call Trace:
+   tas2781_hda_remove+0x16/0x60 [snd_hda_scodec_tas2781]
+   device_release_driver_internal+0x19e/0x200
+   unbind_store+0xa4/0xb0
+  Oops: general protection fault, kernel NULL pointer dereference 0x1d1
+  RIP: 0010:__pm_runtime_resume+0x1a/0x90
+   tas2781_hda_remove+0x23/0x60 [snd_hda_scodec_tas2781]
 
-So what is the merging strategy here? Getting the first parts in and
-then getting the spinand and spi_nor in in the next cycle?
+The same path runs from the driver remove callback and from the
+component_add() failure path in tas2781_hda_spi_probe().
 
-FWIW, the spi-nor parts looks good.
+Before the common library was introduced, the SPI driver had its own
+remove function that used tas_priv->dev.  Set tas_hda->dev in
+tas2781_hda_spi_probe(), as the I2C driver does.
 
--michael
+Tested the probe/unbind path with KASAN and lockdep enabled: without this
+change, unbinding the device gives the warning and oops above; with it,
+unbind, bind and unbind again complete without any splat.
 
---cd2dae19cb24704fa8f412b0fcbc099e07be2af6d62f1bb1ea7d9fe316ac
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: 28a09d9e42c5 ("ALSA: hda/tas2781: Create an independent lib to save the shared parts for both SPI and I2C driver")
+Reported-by: Carmel Okun <Carmel@aperio.ai>
+Closes: https://lore.kernel.org/linux-sound/AS2PR02MB10038DB2CE8CAE659D35B9F1AC8792@AS2PR02MB10038.eurprd02.prod.outlook.com/
+Cc: stable@vger.kernel.org
+Signed-off-by: Akhil Arul <akhilarul324@gmail.com>
+---
+ sound/hda/codecs/side-codecs/tas2781_hda_spi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/sound/hda/codecs/side-codecs/tas2781_hda_spi.c b/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
+index da71b57a26e..4bcee8362b6 100644
+--- a/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
++++ b/sound/hda/codecs/side-codecs/tas2781_hda_spi.c
+@@ -781,6 +781,7 @@ static int tas2781_hda_spi_probe(struct spi_device *spi)
+ 	if (!hda_priv)
+ 		return -ENOMEM;
+ 
++	tas_hda->dev = &spi->dev;
+ 	tas_hda->hda_priv = hda_priv;
+ 	spi->max_speed_hz = TAS2781_SPI_MAX_FREQ;
+ 
+-- 
+2.56.1
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCawBDjBIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/jlKgGAmJfvydKg0f8fTncnEJee3RHHg0horD+2
-iFLHf5kuyyb9k43qSNyXNtEh8Z9lOWHvAYC2s5jKfeXC8nMtNHHSPMfBTTj4BbZV
-boFxqVsvcIKVaEBgl0odMoW/LoONdY0SoiI=
-=fiz6
------END PGP SIGNATURE-----
-
---cd2dae19cb24704fa8f412b0fcbc099e07be2af6d62f1bb1ea7d9fe316ac--
