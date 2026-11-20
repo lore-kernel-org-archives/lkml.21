@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214596;
-	b=G6dAa5aG16Cz/A7cDgOHUm5RzuMociYkddSErUJ/bHqQOHg3mdEjTRZ2cC1nHSQsBKfW
-	 ofzMsP4vvrFMWLvIFJnhYTwkWWMO4FOMNYI95p+866HaBBLDRiNeIgEWyem9jjFL4II2I
-	 Yn89BBCsEuejyHvnt0EPhqHmYJscfw1sgUnNn4EXCndYvJ65BaluPNGnKOBAYqh+9TW0R
-	 bEkw32KFLNwjuVPRG1WxcmNIZCd6v6uLJ9PG9rJuXx6RFt6BcSeir24ZXqi2RFEbJ7hIv
-	 LU9efyh38iIVmtskLpppdvYa7pC8otXtS/F3mTR+lx50kHJoVMiezYsBxsX6HD1rivQ==
+	t=1795214597;
+	b=JwZzbriNYP9BhAGhOf4h9OzGpTcRgcBf/DzJ3rF5TGK4vRSSStA/9HHvBgt2Kh2fB6ys
+	 Eq4pjs2Vd8x51sOviZVuaHHI8WZvElDMprzg8ummQA2jwZsNl12u8SecxesHPQZJTPzg0
+	 YUZ/4d7BDpzFEJYTChyiMMjmRJoajgPNxTZaURR9w4V/29okya5K4TVKQZkVfwX2tKqK2
+	 /SfedP7+0Jl89hMe5NAvYd13k4gSS7UkEEdELSyGlSAVMHD4y6wCOV2xI7A5C3LbIZ0cT
+	 uPzNne2D4jKEqyvUEKEo+e24OsiOteAOQcC0BFsyS9y8YuJHKOradZLNl1ojOs9Cvyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214596;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214597;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=beVIJzhO9G9mQP4NDpUbqUkjliEs+CDfS51LB2XvRJ0=;
-	b=NPNuFUpQXdO17OrtYesFsgNRHV2H9z3hh1J2CDiXXw9mWKXYyGbliNF7tbyKjZVhFG4r
-	 H/9jt1w27SK+txH+/kayipFSuzgzfuPnoXDTrP0VY/rsy7+t3nQYb6efnbs0/tcJUrFSO
-	 SH1ij/0fHbpRY0uxbLw6FPUkuRbIBLgdPQxcOu2JSKEGsst1OPC+TGnQMwLA0oa4nqHSS
-	 p7dxo+qvgXs2Rxdy+g7+WE9cjQnR9loNss6yLB1H/k/itjTAU+xZfD1sQemGTOLQ2E0MJ
-	 fcS1Cfomx0TUv+9e1vRTSdN3nOGRGJVdd1FMc+Zzk4HWcP6rFQ0h7s0tAWhCPeXbmtA==
+	bh=/jxiGLmfmKTjgadYTv5ZC0oOROfd7E+9MLG34StbnE0=;
+	b=aVMkT7b0Nv5KAeZzjAzB/6fiAAdZpTrnMzIX1i6xM2mQnwDFlpZH4XpmPchMST+mgEmB
+	 IIx2aVpm+7ju0nHe1KOoGF5itws/Ufc1OF5ABH5hRw6DMlQe68HCpbXvbUq3t3NIdEgtP
+	 44OoeVzIvcm/6+S2yeE1Fy5EpYsKZrLBBJtf3qNMyL/JUdo0LhcMH+Z2QgCp+E4EJrxzf
+	 MZscWwr0qxlb1iRJx69rzSV7ROXtnyxEM3oxyS27eWxfm5gi1A6k/02MoB579SyxsWgaF
+	 EnbuMkVKt8gfUbN9DV9faOShO9WMjwGFNaFXUQBdo+1RB7gFMNiTg0q5e2zEvTjbL9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=dtENblfA;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=yEP1fyUY;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDEF606A6B8;
-	Fri, 20 Nov 2026 22:43:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFDEF606A6B8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2CBF606A333;
+	Fri, 20 Nov 2026 22:43:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D2CBF606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=dtENblfA
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 53EF6A4C50;
-	Fri, 20 Nov 2026 23:43:11 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=yEP1fyUY
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 62FFBA4C38;
+	Fri, 20 Nov 2026 23:43:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795214591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795214590; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=beVIJzhO9G9mQP4NDpUbqUkjliEs+CDfS51LB2XvRJ0=;
-	b=dtENblfAm+MeYpcHD8/wT+ZABx7V5L7ljJw5Z9MYZ6IydLl/pMDdvdSnRs0vTrqe4jaX67
-	Ryf5AyPsrMgwl8FhjslgqxW3neH+Gzlh6RH2t3+22tNRXIWa41AEJ7PmnniIRPtS9Fq9za
-	Fe0KfKn2h27i8aMz7BZSwB6rChhiUEvwyI1Cvo7KdCsYfid7ipMv1kjNDKCGR90yP5O8qH
-	CfdiCANZI194sxmRll+yxorE3E4mlbhIMqfKwRJ/gax1QFeb2bGo5y/6zjVAj/DUD8gRHI
-	X2xoHlvWX58PSxnAsXFZ4GMDYlFF6YNeJ5XRPIaUzQkl2RCNIgfnOZpdsQ0PTw==
+	bh=/jxiGLmfmKTjgadYTv5ZC0oOROfd7E+9MLG34StbnE0=;
+	b=yEP1fyUYZdSgqUz/8CCXbaDqAxnrYW/AaLqfWxov43J1aFVgaAH8P/IgHUCtw2pzCCjLn0
+	xyAnQh3mGE6NOGVYG84N0WFM5SfMRN7nq7n7JcROkxzoxMKkyVNBRDY/nC8FnXu2p0S9FH
+	BkOTyhMVoklScNnyegj418RNA5kweh6FyDOdMOvm0ilJZAMKah596uRiUzJl+M47qUxD8R
+	F/yKtvzygj6zcMy/ZizhDNHoImu7FdKWmvbfmgAa8LpgCKx2dbB5JYwC0ctXCLQjVx1GCw
+	9SV0Grg6EWw18sqajlunuyFqkjZL7cHpTq/qtsrEv3TpS6yaA32hhWq43MxnQQ==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 20 Nov 2026 23:42:39 +0100
-Subject: [PATCH net v2 5/5] net: systemport: accumulate the DIM packet and
- byte counters
+Date: Fri, 20 Nov 2026 23:42:37 +0100
+Subject: [PATCH net v2 3/5] net: bcmgenet: reset the Rx discard count with
+ the ring
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,7 +59,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-nb-genet-dim-stats-net-v2-5-1a7cece7dd1a@tipi-net.de>
+Message-Id: <20261120-nb-genet-dim-stats-net-v2-3-1a7cece7dd1a@tipi-net.de>
 References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
 In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
 To: Doug Berger <opendmb@gmail.com>, 
@@ -75,34 +75,33 @@ Cc: Justin Chen <justin.chen@broadcom.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-net_dim() computes rates from the difference between two samples and
-needs running totals, but bcm_sysport_desc_rx() passes the counts of the
-last poll. Adaptive coalescing then picks profiles from wrong rates.
+Ring init clears the hardware discard counter but not
+ring->old_discards. Discards after an ifdown and ifup or a resume are
+then missing from rx_missed. On a CM4, after an ifdown and ifup, 3666
+discards showed up as 0 in rx_missed.
 
-Accumulate the counters instead.
+Reset old_discards together with the ring.
 
-Fixes: b6e0e875421e ("net: systemport: Implement adaptive interrupt coalescing")
+Fixes: d26ea6cc48da ("net: bcmgenet: collect Rx discarded packet count")
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- drivers/net/ethernet/broadcom/bcmsysport.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
-index 29e608e7daaf..0902dd0dd94b 100644
---- a/drivers/net/ethernet/broadcom/bcmsysport.c
-+++ b/drivers/net/ethernet/broadcom/bcmsysport.c
-@@ -844,8 +844,8 @@ static unsigned int bcm_sysport_desc_rx(struct bcm_sysport_priv *priv,
- 			priv->rx_read_ptr = 0;
- 	}
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index f9f38445568f..b81408e6293c 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -2826,6 +2826,8 @@ static int bcmgenet_init_rx_ring(struct bcmgenet_priv *priv,
+ 	ring->read_ptr = start_ptr;
+ 	ring->cb_ptr = start_ptr;
+ 	ring->end_ptr = end_ptr - 1;
++	/* Zeroing RDMA_PROD_INDEX below also clears the discard counter */
++	ring->old_discards = 0;
  
--	priv->dim.packets = processed;
--	priv->dim.bytes = processed_bytes;
-+	priv->dim.packets += processed;
-+	priv->dim.bytes += processed_bytes;
- 
- 	return processed;
- }
+ 	ret = bcmgenet_rx_ring_create_pool(priv, ring);
+ 	if (ret)
 
 -- 
 2.53.0
