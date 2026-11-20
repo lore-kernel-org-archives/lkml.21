@@ -1,121 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.156
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176275;
-	b=BnENOVNWL1nDBrUOcshyPINBad7/8gUURDz77n1585J3d4pudaUhFKpgRbknHmMIP3Mf
-	 UR+bSxFzD3z+Rf0mRbDzUtwsHEnGBae3VTJ95ujxyjHs6Dq3ph5pXtXntICnhWiAdaQHg
-	 4hQSnsTv1USZSjpzwZK6qOYV2cF0Og5c5WP2ljH6FQHV9b5pEFY7sEQtih0epH4LM8Q7f
-	 j69CpCTDxHOFytDLyfvKuxYVazFrDJhUK+jwNkTlAh7tanbN22Itq9qn4wBnx2CnE+jzl
-	 svH5aJfabJCGJBcpSpynjql7dh0yHIpwbFARzcPbHWvByQt+n20sSgQRBop8fRFDqow==
+	t=1795176300;
+	b=NfYnH1CP5NrCaKEvnCCL5Ai7eZxsQ8KrNWq2f64WjHSQA9p4xcvF6+JkLJLyPA+O4sUE
+	 tjZspjD1sagQCVug7J3NFV6dzfGi6jBFR3CAvVjysMJtj1oGeQr1PgxEMJ0Pkp9vdw423
+	 YrKTH3f2cQBYK32zDTKa1heeUzoI40QTgw7tneLsAEPiz+FlUmnui6jTmoXNbOdefQ7Fl
+	 s6NKgiMZLAbGrqGEEZ+bgGtaVEeqSPOKca7YesXCyRR5Qs2EcEVsOn+A9w0E3miU/4j0J
+	 7c+fi1BNQEgZ9HEhvJmFBLOOe9cjhnuvAIVuO4UdsYkyd2NoeVfA48yT/fx1/8hjl9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176275;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176300;
 	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
 	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
 	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=W+H3ZgwXRf3uRNP9Sao2k6J8GvvE+kh8lsRez7kjrbQ=;
-	b=Uyv8/+o1//y4YMjUQ9+/qqPZodGukAs16hLFfouT9pWyVS+okhQt56a/5I5edN2J773G
-	 sedI0Fq0YxfU1oAoU6x3gUCZCg7Hkm4kCX78m7dnB3X84qzoUHdUhLOaiDMofyNxZIkgK
-	 dy8iUB3jIGoEjLt8ZoupaAs83/YbFB/CL8Ik8U/0XG8e4aqL0sUHlqa8YSEBS2VPOhvee
-	 gmuHWizfXqcUgfD8jU/h+WqoyZY0f/t3SkKsopIjpHsJjDdBQGExNU2KH7f12pl5CFN4P
-	 1+bykOv19EcR87vMK3HEGnmYqoPl17DtMt3Qp4m9C6onUi4DlZlGZk+WYuxfcb0MYLg==
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding;
+	bh=ntnwPFxxRgCA0u9ScUDkYiTKmaZx1bBmwr4auBXvMlg=;
+	b=sD2Pd42QSn7DFLp10kT2Tque/MqEmVTDmx4FkSfdFFX4dW1FNo7/g189XZ0DhMS1FihH
+	 og24PDmr+A3WwjCTp2EtjbA0j/Ga8RtplfZ+5g8SJqO7EQx3O4rHggZv8aCPKPoFCZHux
+	 AfEmHJE1jwaCJdXz6i0abvgHlsiqZ0lu2pN4i9Baz8KoLD29IxtMVXXt/QTKojnPEdBMY
+	 iQ+z+ZIqFIg2phDqwPe2cl0TlU2j1y3ab0u9ZveRcjdLPWHZLddRwv2HiD2OFz7Ih0xh7
+	 BBigPYwBSEVk6lX//oP+PsEGmMtj0T6ReR4l96tiWjxHkpigyeuIZbLiIAW9pOd5Y+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=kode54.net;
 	spf=pass smtp.mailfrom=kode54.net;
-	dkim=pass header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=oXJE79cN;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="Yq9/JIaj";
-	arc=none smtp.remote-ip=103.168.172.149
-Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
+	dkim=pass header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=l5M4ajtZ;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w+HRFUhI;
+	arc=none smtp.remote-ip=103.168.172.156
+Received: from fhigh-a5-smtp.messagingengine.com (fhigh-a5-smtp.messagingengine.com [103.168.172.156])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0CA7606A339
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:04:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0CA7606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68458606A334
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:04:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68458606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kode54.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kode54.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=oXJE79cN;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=Yq9/JIaj
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfout.phl.internal (Postfix) with ESMTP id 03EB1EC09C8
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:04:34 -0500 (EST)
+	dkim=pass (2048-bit key, unprotected) header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=l5M4ajtZ;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=w+HRFUhI
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 908171400267
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:04:58 -0500 (EST)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-09.internal (MEProxy); Fri, 20 Nov 2026 07:04:34 -0500
+  by phl-compute-05.internal (MEProxy); Fri, 20 Nov 2026 07:04:58 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kode54.net; h=cc
 	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm3; t=1795176273; x=1795262673; bh=W+H3ZgwXRf3uRNP9Sao2k
-	6J8GvvE+kh8lsRez7kjrbQ=; b=oXJE79cNf6Hsut8sx/6vJWy+DfxOWk3fg652A
-	zae5ohfdsY8PFrmanC8TxXGmj1siTxWrP9k0zq4igyTE6FkPDs1HLIDPE0B3SETN
-	G2TTyF0muvXZY6ZJzUUfZMANBFQTE9N9UwaLzRvrfsq45fG5H6m5CFC5k7G11FdU
-	l7Hpt6MRqOHYSPJQxGUzL02UUagR/gpptOM3wmb/TskQHzqIUHYWlZuiOINxAcWK
-	jqSwPvteQwMl22zVRxsjZXyM9TR/ehX9p/JSMdYJyYKKH0OmGy7an2Fv2t5hO8XX
-	gpZNIDlbCjHMZY9swvQEQhJGRN1tDrG2X+MIQN/1Twzq310Dg==
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm3; t=1795176298; x=
+	1795262698; bh=ntnwPFxxRgCA0u9ScUDkYiTKmaZx1bBmwr4auBXvMlg=; b=l
+	5M4ajtZ6/IByWEZJOXsnDqsaYzqIZo9OGG+6Ctk6gGmR7yok5TA31NJYb9tYbmHB
+	h9SYdjIADreqGmEZV2gHmtcwG1QwYe/FE2NOk6lNaibgAGbUZUWCJ8p7GF2ASW8s
+	v5N920/jitR9Lfih81gR7dBEXuG62PvXRJTyJZpYGZyESjnYWkp57kiyFP5j2tnO
+	tiiMertw9WtqECIRD9hYBGpYQJoNv7Rs7RS/9z7kIyKEHzyJY+DO6dW1U81HarXk
+	X6VPDppHRTX+9buxIok7/DqHl5OBC3pyzCRpEF4Srsgq9FYoCqG+fa6TFIM93+2d
+	zK6SixGku6AZmqmtXvmmQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795176273; x=1795262673; bh=W+H3ZgwXRf3uRNP9Sao2k6J8GvvE+kh8lsR
-	ez7kjrbQ=; b=Yq9/JIajrw83X2WSksArbZ19sEM0Ogbc77EapoBakWzgJ40BGM8
-	aopdZR7/rLFKQANHTjuhT9ZYr3XBYRCQ1OMmEF4RE/V1N1v8di2Jx4HrezWHARNt
-	ynpKgGfIqgbquSwoa8J2shkqHHL+nmaX8Rf7gkHGSpxM8KPOquEco/aqbY1kr+HR
-	lD31oQ3/nzn/wo2p+ZHyiaRt3Ll+i6nEORlPAH7wM9wACoE5Bl9vrnItmRZjmW3e
-	U3CFYv7o967vQCAtB4zOlLaYiik+kqX4g4IHf/rRt7o4c3faVpq+PHdGyeBqClY9
-	w9ORWkeNYzsWDk3kEDUBtKq5VlknUVxbkIw==
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1795176298; x=1795262698; bh=n
+	tnwPFxxRgCA0u9ScUDkYiTKmaZx1bBmwr4auBXvMlg=; b=w+HRFUhIhN/PTzc86
+	J+0fG6n20pmYep3SZK5HS3ASZSDSmXAD3+npwYvrv/xo92m/rpTxM1SITexBi6ER
+	i3EkaV/mEK+ym/XbtlANSHi289/eQQg+gPXkTwe5AKa6z5QX9QTVLoFlQLu3G2Pi
+	OBPwP+kyzaMnG6CkB+C57kObILhkGtGFQN2KHvxE3+czG0fQFLBW2jCbweAUw8RA
+	gT71/ECSMV5iNDqKgxTsBEAj817js0PSPaUAeefSL/YWzQKAao2KQMUbRHDgLndL
+	ARBCfq3pzrYvJt1KkuLcWM+zsEyB4wYQkOFrjIbnSIHOg1r8pZjIlu3B7CJ9wkiz
+	IwwGw==
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
 	action=sign d=kode54.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795176273; d=kode54.net;
+DKIM2-Signature: i=1; m=1; t=1795176298; d=kode54.net;
 	mf=PGNocmlzQGtvZGU1NC5uZXQ+;
 	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:d5h+UyhyANY3s2Iga0iixo1Au5FDx8qQjt3ukcCXP2UvlcM
-	oa8X07g3nW0NXyiqvMSgpA9VYNFJz/0d/NvPI07rXf4LWs5VGN4Iagz/RUKVxAnm
-	CJuJFT5z/cDzQBCjKtvJHtWeU6rL2JpM7QGuVklCzCfkkUaJpjPtYMBhd4dbxca1
-	q8CoO49qDu75sbvxX5hWRqxVbGJytREJMvvQDKQXe5qp2J+nUnxXuxTAVrl4HxUb
-	n2pq7jw3T8nK1zoMpAHSaZRzjkXODURYZgAM0v8SN/MU+rfZQ/dkhCJh1fBRlIpb
-	hZ3aIYQUupg6z/Qahj0OppVlNNs2vM16Be2OO+g==;
+	s=fm3:rsa-sha256:cwd0gMrVvwvIFrp5RRvOKmQmOfYjFq7NKiq7KtYuCXiFQxd
+	EIXkvTlro0HAyHFy4TAr7yK1uP7FF16Nf6YN1PaHpxjWrgzAHPGq5kwhZUUgnTdu
+	M6imIdzaXHTi2wqasw20+B1Zlb4CLQogbGLKPnOBUC91S3iOxSylW9BUhBWnuxpQ
+	VRQuZ0f3H+aZsx19LrV83lJYMSAll5ZpuNy9ikXHUWquIabdsVAaLpcs5yaZJDm3
+	g+NgUtCQKIuq/OOr811OZt48Cirb8Khs1H1dfEVlP4CkriZCauZ3pil+aS+nSxgN
+	SzXMRlY0azXiz/jxIAoNuUi27WK/ZGt/Gc+rFVg==;
 X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
 	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=9;
+	action=mi-m=1; hc=11;
 	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	message-id,mime-version,subject,to;
-Message-Instance: m=1; h=sha256:7f5JvrCyyfIj42IC9CMRwjOPfNQ2x+DOCGRSM6nymkg=:CGQ+xCpDJLwH/GY6i3EAx/RyFdm100D0fEFf+ftdEUw=;
-X-ME-Sender: <xms:UTcAa1k4shN0XPzbyzDISsP01a4OOP3itHE7GrVaWhNiXFRPnorEpQ>
-    <xme:UTcAaxhiPTCIeOUj4H-PyTY_sqwXx6BaqVmlsC8clYPDBid4PdcplFf3zfecKFzkG
-    AXTQZYdV4UmDHa6GeLomGzq_XgELab1_TV0-HuF5QjP71tfvS6S-vg>
-X-ME-Received: <xmr:UTcAa50oGTbzSpk4TNycbH9Zo5hcLNg5DY8BtsJXzn_9kPpxEPjrcoISh7Q>
-X-ME-Proxy-Cause: dmFkZTGW7ioBdtv7wnzDBQK/fEyd4fv5lhnt/d7TOogTZlX/GOXgDKVzeAkjBBOrEv9dNS
-    3WuN2xQsgZM5fFFnTyn34AbFdDMKTMpKbQbfmQPUnMMXRgbUPIuijen24FQIyNn3SUFb4v
-    6LZkE2A6eOWjpPZbK1/DxxVXsckNet5C5lGo4jzbzmYsg7mfRWLcwWFOC7YUdPicK121dI
-    BsLMvvIsp0FXPOaQN3vVqfT2iWgIiM8ieWlTTtZsSnudMIBRJwYFP+qIlg0iV6793eR+JD
-    060z8l7oHHBWQ3mp2jT5Sm+fAM68Yi0Z5bNyKCCCkWzykRbJVCKzzyf/y7kmDyrcjVAfK7
-    +/pCa95xwzgOyCWG7ncB5b84LXd+4rBxDpdBXQDf6UkYtjWezLMEve7mt9eMAzWP1fK1Ir
-    TAklqfwPE++lQkKK5RR/KCshZHgRKQ8OD4FzjQ/eTRtGckI8YDW6431stYoo8ItScShoKz
-    YYf1rVwRpX/aks47+yvFQG0O5bGTEz2Iy/7VqNusf3ygn6/v+5N71B3qJsLWsJ14FZHm3W
-    krRpJpfdB2aLZJPASgY3LNOmlE0Nv1wZ3jCyTt2jH1Ebvi6x9IQ2/8LfDd6TIZP+/ZATFj
-    k37O/TQIqjQi3tQ7hgBQ95x6leAe19mvxz5I4iv+jDttMdRjVOe+W7HbqpAA
-X-ME-Proxy: <xmx:UTcAa6K4PIzz9Yk-uiASAOTNVOZRleDoZVfiiplfkMN4NiZuop1dLg>
-    <xmx:UTcAa5yE7mgJc6_UhZtc1Nr7AjlMrF4PHBSRysHhkBSgPmFkrliyBg>
-    <xmx:UTcAa4WZ6w4rGKk_n3DhUOaEbdwRp_JoERql4oV-woXtRgG0xDQKsA>
-    <xmx:UTcAa5iZZnYbmD5Wryl-bixgIVQUUM8S_jLMKd2dO1iwSJjY9y9yEA>
-    <xmx:UTcAa3GBYdZFQu8kQFbTyEN4AD5Trqo9nM2fFlZ02cseLm6YrHvkqJ86>
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:4llmN+XFH+ae2f2pRIQoQhhf87PVOVcvF8J5673ujes=:roRJLkkKQxjciiTHtIhlQBm1eQJzyqr5xHJL1lNH8z0=;
+X-ME-Sender: <xms:ajcAaxBcKBtgoPaqKgjbgGABfPDbEWsk5xeklm7dFP1TEk6Zpr6WeA>
+    <xme:ajcAa40Ck3UBPvIxRjl2YvSBzTJHQCFj15Q_cTDvI1bY6PXDqnynfBcWQcnLQRGn4
+    1Shn3DcSp2Pd9mik_wSh1sb2NGpSWcZOMa3Pm50Ve_lkq1ycfNW0RZi>
+X-ME-Received: <xmr:ajcAaz2TVCpGhxEkS8lxkpyKRHX_dG_HPC2VzHjKUY3cZH2zdnnk5c5DtS0>
+X-ME-Proxy-Cause: dmFkZTFKR1zDAhZmbHLJ7CVH7GHk9rjnGGRA+5Gtr9mou2+Vn3JaeFoVzM8Ujj942CQARu
+    m2b9tEmGWOZfV8SV7HC0CDkzHJGWfKZxGhOIjXbHoUYbLp/BdKfBzOjmlllP4kFzhah8KQ
+    mINDatb9zaGT/CMvEDNVVSLoLGmY8719UVOae7yrF3o05rj1xdAfbr1ixG2l7/1YC+GlN8
+    jeFnGhK9NFrKmO2MzxwRu9otKIgw/Ks6L+p4QC1gqIdS4eLLuHaJvxIXhzjX9n0NBlYTLO
+    OOwBj66nv+o2sFYi6avSAxDZeD8muhEjzZ14icozEGwp2p0nevSvuMV16m5WZT/D28gvEC
+    P2EpZyS+HUMqyhx/jU0q5ZFw0hYuLW7HTURtzNKQMrLsrPJGA9oSKj1kJwF5w17P2Do8R9
+    MQcrxdzTOuLlX3zcSDzQwMgBW4t7O7SUn0/Yjgrn/L4dNcsMapQE0a19WGTyAIIORoCBF6
+    tQ7GpKS9hkY8uECCv1VnQPYIQWgd/NY6pgj/JrI4gGErxOuxFvZmJV+V+2PSEcgjjJF7BQ
+    WHJwklPt7gWZ5XJhKhtvGL6nCXyMOEaM0PbASP4L+bEnbaOiVS/JGGjtu3T8rD6zXjRpT8
+    4KEUY3/mIJEjmXIZZfhRk03RfF2aJOi7t/WW44HBOuvQ34RG3YX0j7TW9f0Q
+X-ME-Proxy: <xmx:ajcAa9CdtzPEqH0BV98SjDKZF2HKqxB4_N5ilhKqJERXA8oiN01OfQ>
+    <xmx:ajcAay6Iv-YktUOOy5Kwfu1Iw5HDzVTSuaM4NheitTBZxxznn5s9vg>
+    <xmx:ajcAa-JTHMFS-Pu9K04Gha4ox4K6H9yKdkFJleb4ENIMgFNLBTobBw>
+    <xmx:ajcAazufCOja_yEi5uBDE2-qQAGXm6S2_u97uvad76k137-GpeVKSw>
+    <xmx:ajcAa0NIKPyhmbNc4Fu8oGuWOB5rXFHbCClfICWzIJQoWmBTwzIhWzQy>
 Feedback-ID: i9ec6488d:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Nov 2026 07:04:32 -0500 (EST)
+ 20 Nov 2026 07:04:57 -0500 (EST)
 From: chris@kode54.net
 To: Takashi Iwai <tiwai@suse.com>,
 	Jaroslav Kysela <perex@perex.cz>
 Cc: Christopher Snowhill <chris@kode54.net>,
 	Cryolitia PukNgae <cryolitia@uniontech.com>,
-	Rong Zhang <i@rong.moe>,
 	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] ALSA: usb-audio: quirk_flags parsing fix and Logitech PRO X 2 LIGHTSPEED quirk
-Date: Fri, 20 Nov 2026 04:03:46 -0800
-Message-ID: <20261120120356.10909-1-chris@kode54.net>
+Subject: [PATCH 1/2] ALSA: usb-audio: Ignore trailing whitespace in quirk_flags
+Date: Fri, 20 Nov 2026 04:03:47 -0800
+Message-ID: <20261120120356.10909-2-chris@kode54.net>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261120120356.10909-1-chris@kode54.net>
+References: <20261120120356.10909-1-chris@kode54.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,57 +130,36 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Patch 1 fixes parsing of flag names written to the quirk_flags module
-parameter with a trailing newline, as echo produces.
+Writing a flag name to the quirk_flags module parameter through sysfs
+with echo leaves a trailing newline on the string. The parser keeps it
+as part of the last flag name, so a valid flag is rejected:
 
-Patch 2 adds quirk flags for the Logitech PRO X 2 LIGHTSPEED receiver
-(046d:0af7). This is a mitigation, not a fix. After a hotplug the
-receiver firmware resets itself on the first stream open, and also on
-repeated GET_STATUS requests or on SET_CONFIGURATION shortly after a
-port reset. It only behaves once it has gone through such a reset of
-its own. The flags avoid the worse failure, where the probe-time
-interface setup wedges the receiver for about 77 seconds.
+  snd_usb_audio: unknown flag SKIP_IFACE_SETUP
+   while parsing param quirk_flags
 
-The same receiver hotplugs without trouble on Windows and macOS. A
-USBPcap capture of a Windows hotplug, with G HUB installed, shows no
-missing request that made a difference when I tried it. Replaying
-G HUB's initial HID reports before the audio driver binds did not
-help, and neither did a host port reset. These differences were not
-isolated:
-- Windows never sends GET_STATUS.
-- It sets the playback alt setting once, about 0.9 s after
-  configuration, and keeps it.
-- It only reads the volume controls at probe.
-Suggestions on how to narrow this down, or on whether the quirk should
-be expressed differently, are welcome. Captures and logs are available.
+Numeric flags are not affected because kstrtou64() accepts a trailing
+newline. Strip leading and trailing whitespace before parsing.
 
-The device entry repeats CTL_MSG_DELAY_1M from the Logitech vendor
-entry, as the other Logitech device entries do, because a device entry
-replaces the vendor match. The receiver also worked with only
-SKIP_IFACE_SETUP | IFACE_DELAY. The PRO X Wireless (046d:0aba) entry
-does not carry the delay; Rong, I'm not sure whether that was intended.
-
-Testing: with both patches applied, sound/usb/ builds without warnings
-with W=1 and checkpatch --strict is clean. Patch 2 was runtime-tested on
-a 7.3.5 stable kernel. Cold hotplugs on a front-panel (PROM21) port and
-a rear (CPU xHCI, behind a hub) port recover within half a second and
-then play normally.
-Patch 1 was runtime-tested on the same kernel. Flag names written with
-a plain echo are applied, and an empty echo is ignored by the parser.
-The sysfs readback still shows the newline as written, because the
-parameter stores the raw string. That is cosmetic and left unchanged.
-
+Fixes: ffd586126a82 ("ALSA: usb-audio: improve module param quirk_flags")
 Assisted-by: AI
+Signed-off-by: Christopher Snowhill <chris@kode54.net>
+---
+ sound/usb/quirks.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Christopher Snowhill (2):
-  ALSA: usb-audio: Ignore trailing whitespace in quirk_flags
-  ALSA: usb-audio: Add quirk flags for Logitech PRO X 2 LIGHTSPEED
-
- sound/usb/quirks.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-
-base-commit: 58161ead29e50d70a317ea26b472e0c7508e69da
+diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
+index a54fabce7920..cff10fac496f 100644
+--- a/sound/usb/quirks.c
++++ b/sound/usb/quirks.c
+@@ -2765,7 +2765,7 @@ void snd_usb_init_quirk_flags_parse_string(struct snd_usb_audio *chip,
+ 	if (!val)
+ 		return;
+ 
+-	for (p = val; p && *p;) {
++	for (p = strim(val); p && *p;) {
+ 		/* Each entry consists of VID:PID:flags */
+ 		field = strsep(&p, ":");
+ 		if (!field)
 -- 
 2.56.0
 
