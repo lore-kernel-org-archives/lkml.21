@@ -1,85 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193322;
-	b=jHTBTCizL+TniA6pdiYAmGLVu1hbtD8lfy3Ws0sYB32UQKUOxQFj3Ys63PkWPLVLRTmc
-	 Ftr+i/Qe+hTcgkQZ/iC3MDE68cyN7w1qAfW7hJyf0j/N1G1GBseA1QmMAqdbGFMFMxzrZ
-	 R/MYTrDHh36Z3rGj5Vfc8T53bS+7BlIlWRx7YgHHo/jDYpM4bpZvJdQl0Pwt+VFSHFGHC
-	 Iyz2sBm/j+6KCmFSC6RXpGL0xbnHqNqABNKogVakNkFVt4HodhZDFuC/SCoMxoMQZtpbV
-	 AU5B112AM+ZkvAkfvJK0sFmKUxqKOXZrzJ4RhbYqd3UiPJ5AawR1Hlhr7wWPssf0OQQ==
+	t=1795193329;
+	b=0epaOKCRxg1+5VAU4x/O0OgKfbUjFhTFr2xc14+72n1kvYewyTIJosOTEbI2JjsjQs35
+	 tkF3DQTQXQ0m/opvByZ1GumWuN09V8NB9+nlcl2g8YzfRGhFqqoimwsRmUuqV6W/AdqKM
+	 YT2jpRjQAHKcNaprk11P/AoKPrxityItQL6e9kudumrMyarrBjLknU6wip7TWS79m+ZgG
+	 /3gH3rLniLHsWnSItmXOZTUtPy/R7S86RIw/eqVf1h6hJ8YwbYAlj70z6K5JZ1ik5rvBV
+	 FQ0nhlB3zN0BE5xdcdfAJJm19NxzNS3PUzmVA3VdasPrBemS3ARqjTeDupoVxJ1qjTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193322;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
-	b=ifwXMI81yX4tXaPzebYgCPhFcHC6m9XHtet/VB24Lq82YwqhCFAUvYW7GXXXrJP9oY/8
-	 l0Z5b/ocx8IG7pti3NXKa+v7CXckDOtyByySaMRmJwbPi9C1X8jVsPoFJHpMQ6veIK15p
-	 LGaQWmCS5gYF3d7EPjo90SoMWGcjxS9GWinGGRVwPWlKWFxFZR2n+OPyax6iPO4kSbdP+
-	 PKcB/BZ/JYyCQQZGtCjV/+vamDn0vCtkZ4+2wvqbjGVx92ZHOFRCrzpIZtBH2M94GSdnB
-	 2uXHEFXBgXFiGaopVdlA2QPX7IZlDgCeNY9NPkebrB0lmavBfwsbd1N2IO+y5ZFljZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193329;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nf7ZvY803TNekaL5vmEd7TKoQhygNYuaeAFOBV+qHIY=;
+	b=S1MMlimF7CZa5qxGipz4J7+Ys9MQT/rqHjDTuEnuzlLIwB6AGhRIwDd+5Zb6GuEr/wNJ
+	 wEMPNqPcggaIVlgC1BZraEYuZiXhPcpRb0fcPKW1uMqYGMjrPDfNhnoQsRuqtIoLc4kp3
+	 YoyyuEwSHY+YctRHT7E/rOMZWqe930KU6c57Hcu5oUmwDEEl7cMQtFnsQxDjI9MH77mY2
+	 c2xUOoeTjc6qVnoDwFSDTKZhsLsgoARPxpsAmlnNJZRWFwRvWkGXMUJe8z0NvD+k//lZn
+	 yfs6tj5MsuZ7lVF0OED6TfhxdbxFv9SMiM7Nh42Gay4q1vajkPRWSMOA8NIhG2v6yYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RNAMJ6sM;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmwEFXDX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7716960A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:48:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7716960A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CB54606A331;
+	Fri, 20 Nov 2026 16:48:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RNAMJ6sM
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so8808715e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:48:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795193320; x=1795798120; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
-        b=RNAMJ6sMUpkWN4HrB0XYJTVcOtjWWEYhH6d3S9pj85lhBPRg5KkeaWo1USMBh8nDxJ
-         w/2T2XYDMgVkyVrFeq/jl71c4n93hO/4Nc7iCIfX2OaYcsUU5pWUfNweZrU7lY4qEIxS
-         4eh9dpGdnLaPp6u/BJuIaSUEM9sKLBQrNTbenH1nsZTez+0/KglhUPE3Mx537/pB4xRP
-         8US4Tq4WX3HzsJOKtAtUGRlXjScW3SZXmw2uEC/7LSr2f9aIch+VfB/A7NqU30NL7hee
-         0gL2JYNXK9f/Y2bCnqnXnDCx6SIjdqdoRXZ4BKvTX66tKXa7T7/hV4E9yjYAFoJPIXic
-         WR7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795193320; x=1795798120;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
-        b=o7g5+Z3AWBDG+Mmng40n2sDsOEydiajkbR0Xwhg6nOVQgjEhBgO1BVFabADbCTtVVv
-         uHnI9q8GtBfBy9t/HIY3PYkb/zFKMPS63bj170cyCMBE2eOgvt9tWBNDgLNSlktj0v2U
-         KGHRUUdTAxe7NDLIgr4rzti8InvgQkH++b/qfyIi6T65znC7vyaymLnZCz1VPArekzIL
-         2rSShrdueDslZqhCmLlkqsGXUmMUe2rCCEtBs5wbAYE5TWgRAgPjhkOmE94OnTKA7TW+
-         U9nDFsmn26wgWXLjuSQgIKf9C7h9VZRnTthBSXQDB8UsEkdjjHld8/G58U//jh0A0v6n
-         aGfQ==
-X-Forwarded-Encrypted: i=1; AL+hErHOvkhexn4EnI0XpD04oB2j3WYWg2Cd91aOxAchvYO6oA+NS+T+E9MfpY297ZiQ3w1+h8SDABGrRfep2UY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xXc3zxa4+tLgH5n10HvUq2Ewqn3oHN+d3NmiJM3xv9HsOkoXb
-	DbTzwqoMhggd0re9zPXzYSjU1n/khKn0pcgmgpoczggKGxDeenqJMjCUoOt/hTtWG/I=
-X-Gm-Gg: AYBFou2gj9NI9ZfFjgRilJMJRtjiIaPDsEe9hi+tRzldQOUPghr38LqNZBX2Iod8Hbd
-	Ia+qNOgUIjmHYiQeQ6qcbjejdj7nC4NAxSURxKZ6axopeOv3f5FbcqlM9Dk/dG1BfqwL/dxP5TH
-	BkZKBOb0ZEbBdVNkMfnmaE1UILtnqwo06VI1aOmmU6hgPhdGjq+SfIZ17x/OYt4eLzEAt08RQjV
-	uFAbdTzFJsAhk+k049Kh6Jrz9ucCGQQfdamENar2t4+UUteq2cqLzMx6Gade8jqXeRY7YhqejM4
-	rLAmbpZegXNcp9H72nYGAO9+g6EDq+ERejYB2xvmyUUVI17onCzYSXNZProCquSrZW5CaBozZgd
-	FTnUCIE35eUqmKdVs+C62Fwy04+gfba/NraPaVr6oUfFdoWDDfIpLF9nY0n4heuO/GWbWCkcyXf
-	L2sGHMC+HRYId0TsMdavyq+rarzqGRzeC+ApLVvLy6y+Ke9Ila3hZf40D3bngtRlSd+eEKIlSUR
-	fpwVJUbHxMnhkWJyveUYi50gbPqYESbuDla4Bw5OqbcIHjFsfaM+NNRVND4Tt16iughH5zLOLIw
-	9NMBoH0Cy+uZBuy76joBv380V9GXxYDTUZ/mLwPcnmI2WRmi
-X-Received: by 2002:a05:600c:848d:b0:4bb:6b6b:fbaa with SMTP id 5b1f17b1804b1-4bb8880fd0amr81601005e9.16.1795193319985;
-        Fri, 20 Nov 2026 08:48:39 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm102415595e9.15.2026.11.20.08.48.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:48:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmwEFXDX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3672D1F000CF;
+	Fri, 20 Nov 2026 16:48:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193328;
+	bh=nf7ZvY803TNekaL5vmEd7TKoQhygNYuaeAFOBV+qHIY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=bmwEFXDXKyTx+0R2/7PyhMY+lL6CQdTn9OoCgvd/vi0lUEOMSBVqOu4auFFdRs/sQ
+	 2M9OG7yvDwEmfSjcjwtHNVt7j5YWTETFNFiYhDRNT8tUtlpzJ7P12g8N6fqC9mhkNW
+	 bC8REw99Emfrk/un/tGhhUPP3ExPLbfk7C0d8jE+YWKlhjhbsHhHUc3pLmDt2wvuiW
+	 QthuYHsLLyCJO4pw6H0ZW7ySakKlI0DCgbqKd8lcYTC5J/WQBmKwyv66iRmhLucSPo
+	 YhAnUNr2iwTYK1iD5HJvN8DLsyxzOsFcsyhKaauodEDqz9EVVIolcZ1dve4YhBD+nl
+	 ES1287K33hprA==
+Date: Fri, 20 Nov 2026 10:48:47 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "Ionut Nechita (Wind River)" <ionut.nechita@windriver.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alex Williamson <alex.williamson@redhat.com>, lukas@wunner.de,
+	sebott@linux.ibm.com, schnelle@linux.ibm.com, bblock@linux.ibm.com,
+	linux@roeck-us.net, matthew.brost@intel.com,
+	michal.wajdeczko@intel.com, piotr.piorkowski@intel.com,
+	dtatulea@nvidia.com, mani@kernel.org, kbusch@kernel.org,
+	lkml@mageta.org, alifm@linux.ibm.com, julianr@linux.ibm.com,
+	ionut_n2001@yahoo.com, sunlightlinux@gmail.com
+Subject: Re: [PATCH 1/1] PCI: Don't block bridge config access while waiting
+ for the device lock
+Message-ID: <20261120164847.GA887103@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,99 +64,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v6 0/7] Clk improvements
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Michal Wilczynski <m.wilczynski@samsung.com>, 
- Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
- Fu Wei <wefu@redhat.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- linux-pm <linux-pm@vger.kernel.org>, 
- linux-kernel <linux-kernel@vger.kernel.org>, 
- dri-devel <dri-devel@lists.freedesktop.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- linux-pwm <linux-pwm@vger.kernel.org>, 
- linux-clk <linux-clk@vger.kernel.org>, 
- rust-for-linux <rust-for-linux@vger.kernel.org>, 
- Boris Brezillon <boris.brezillon@collabora.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Maurice Hieronymus <mhi@mailbox.org>, Jerome Brunet <jbrunet@baylibre.com>
-In-Reply-To: <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com>
-References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
- <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com>
-Date: Fri, 20 Nov 2026 17:48:38 +0100
-Message-Id: <179519331840.3795820.8047048832159165355.b4-reply@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2089; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=4z3/sdMgR1NP7DfsDZx0tYiu2dW9UOhvaq59u1rg0JU=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNkMlc+2Ksh+kZXIPh/3rDDW4Kn27hqR6Y15t/Vndc9nY
- JL6uuFhRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACYSOYfhf77/s+M/3jXtP6oy
- 5+cRhk+hnv9r4q4aztv7e7Xt8cINxx8zMkx3PJygYGn8ecrZdJeblhwduyRv7OkO5akz19EKybu
- wlhsA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119123504.25906-2-ionut.nechita@windriver.com>
 
-On 2026-11-11 13:54:01-03:00, Daniel Almeida wrote:
-> Hi all,
+On Thu, Nov 19, 2026 at 02:35:04PM +0200, Ionut Nechita (Wind River) wrote:
+> From: Ionut Nechita <ionut.nechita@windriver.com>
 > 
->  > This series contains a few improvements that simplify clock handling for
->  > drivers.
->  > 
->  > Patch 1 converts clk.rs to the kernel-vertical style for imports.
->  > 
->  > Patch 2 replaces OptionalClk with Clk::get_optional(). There is no struct
->  > optional_clk in C, and Clk already allows a NULL pointer.
->  > 
->  > Patch 3 implements the same typestate pattern that has been used
->  > successfully for Regulators. This is needed because otherwise drivers
->  > will be responsible for unpreparing and disabling clocks themselves and
->  > ultimately handling the reference counts on their own. This is
->  > undesirable. The patch automatically encodes this information using the
->  > type system so that no misuse can occur.
->  > 
->  > Patch 4 adds guards that prepare and/or enable a clock for the lifetime
->  > of the guard without consuming the Clk, so that a driver can keep a
->  > long-lived Clk<Prepared> and enable it for scoped sections.
->  > 
->  > Patch 5 makes things more convenient by offering devres-managed APIs. This
->  > lets drivers set clock parameters once and forget about lifetime
->  > management.
->  > 
->  > Patch 6 adds ExclusiveClk<T>, which holds rate exclusivity over a Clk<T>
->  > in any state until it is dropped.
->  > 
->  > Patch 7 uses it in pwm-th1520 to lock the clock rate for the lifetime of
->  > the driver data.
+> pci_reset_function() locks the upstream bridge with pci_dev_lock(),
+> which takes the bridge's device lock and then blocks config access to
+> the bridge, and only then takes the device lock of the function being
+> reset. If another task holds that device lock, the reset sleeps with
+> config access to the bridge blocked, and every user config read of the
+> bridge sleeps in pci_wait_cfg() for as long.
+> 
+> This happens with vfio-pci when a userspace driver keeps a VF open:
+> 
+>   1. A driver unbind of the VF waits in vfio_unregister_group_dev()
+>      for the user to release the device, holding the VF device lock.
+>   2. Writing 0 to sriov_numvfs on the PF takes the PF device lock and
+>      waits in sriov_disable() for the VF device lock.
+>   3. Writing 1 to the PF "reset" attribute calls pci_reset_function(),
+>      which blocks config access to the PF's upstream bridge and waits
+>      for the PF device lock.
+> 
+> From then on lspci, which reads the config space of every device,
+> hangs in D state, and so does any tool or agent that runs it, until
+> the userspace driver releases the VF:
+> 
+>   lspci           D
+>     pci_wait_cfg+0x60/0xc0
+>     pci_user_read_config_dword+0xcc/0xf0
+>     pci_read_config+0xf5/0x290
+>     kernfs_fop_read_iter+0xb6/0x1b0
+>     vfs_read+0x21f/0x340
+> 
+> This was hit with an Intel FPGA PAC N3000 FEC device bound to vfio-pci
+> (PF and VFs), where the SR-IOV FEC operator reconfigures the PF while a
+> DPDK application holds one of its VFs.
+> 
+> Take the device locks first, bridge before device as before, and block
+> config access to the bridge and the device only once both are held.
+> The order between the two device locks is unchanged. Config access is
+> now blocked only while the reset runs, not while waiting for a lock.
+> 
+> The reset itself still waits for the device lock, so the tasks in
+> steps 1-3 stay blocked until the user releases the VF. Only config
+> reads of unrelated callers stop being blocked.
+> 
+> Fixes: 7e89efc6e9e4 ("PCI: Lock upstream bridge for pci_reset_function()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
 
-Hi there,
+Applied to pci/reset for v7.5, thank you!
 
-I was wondering how the rust folks expect these changes to be handled since they
-touch the rust/ dir. Should the clock changes go through the clock tree or the
-rust one ? it is fine with me either way.
-
-I've added small comments on patch 3, with my understanding of what of what you
-are trying to do. Please take them with a grain of salt. While I'm eager to help
-rust grow in the kernel, I'm definetely very new to it. It is very likely I got
-things wrong.
-
-If there are pain points regarding clocks with Rust, please feel free to
-reach me or Brian. We are happy to help if we can.
-
-Cheers
-
--- 
-Jerome
-
+> ---
+>  drivers/pci/pci.c | 24 ++++++++++++++++++++----
+>  1 file changed, 20 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> index d79f73b28..9c8d5dda9 100644
+> --- a/drivers/pci/pci.c
+> +++ b/drivers/pci/pci.c
+> @@ -5345,19 +5345,35 @@ int pci_reset_function(struct pci_dev *dev)
+>  	 * no upstream bridge configuration to hold consistent.
+>  	 */
+>  	bridge = pci_upstream_bridge(dev);
+> +
+> +	/*
+> +	 * Take the device locks, bridge before device, before blocking
+> +	 * config access to either of them.  device_lock() can sleep for as
+> +	 * long as another task holds it, e.g. a driver unbind waiting for
+> +	 * a vfio user to release the device.  If config access to the
+> +	 * bridge were already blocked at that point, every config read of
+> +	 * the bridge (lspci, sysfs "config") would sleep in pci_wait_cfg()
+> +	 * for the same time.
+> +	 */
+>  	if (bridge)
+> -		pci_dev_lock(bridge);
+> +		device_lock(&bridge->dev);
+> +	device_lock(&dev->dev);
+> +	if (bridge)
+> +		pci_cfg_access_lock(bridge);
+> +	pci_cfg_access_lock(dev);
+>  
+> -	pci_dev_lock(dev);
+>  	pci_dev_save_and_disable(dev);
+>  
+>  	rc = __pci_reset_function_locked(dev);
+>  
+>  	pci_dev_restore(dev);
+> -	pci_dev_unlock(dev);
+>  
+> +	pci_cfg_access_unlock(dev);
+>  	if (bridge)
+> -		pci_dev_unlock(bridge);
+> +		pci_cfg_access_unlock(bridge);
+> +	device_unlock(&dev->dev);
+> +	if (bridge)
+> +		device_unlock(&bridge->dev);
+>  
+>  	return rc;
+>  }
+> -- 
+> 2.55.0
+> 
