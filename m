@@ -1,66 +1,42 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164621;
-	b=XovAjWp6LVDJl4s8uJ3eqahbYiL16/mtyZ4jZmocwBH+OGUlMJAt594IRaOTAjj7sMN3
-	 kbuwLwFP6H/AMKTC6IsRkDoRuLg6uBlzkJIQsdt1YAkPPWGJkwF61FuX5VcqHSxGKWzhQ
-	 OYdhla+SHJGBeuQAPRsOb4wgA0KMX+ExsUz5lQlzeuTNNYSJdJF1vBFdiHvZ6r+dd6ezD
-	 41Vda3nd9+MM7uIupP6H/jqoDYJcPg+UEAxyd+BxebYT4/ZJXSxtXtHhdCAIwSWutxPVT
-	 kMN0b/4mHqV3KUe8eFkoSUUl0waY7N9rhzgBdf9b48yHWk/gbbzzB66pEvPi1cyN+MQ==
+	t=1795164628;
+	b=o+NqHbgy1WzIknbg5spoxmCp3Ts/0ETlups/Uo7tOM78yYPzUSrlpz+QL90Bqyhy+WbJ
+	 gjchuPdUE8NWplsIKJXTBgb2X0BN7zGCQDoa/P4tOEQBEa1KralSqk2jd1vNMTzVufsHP
+	 +O1cJHfHAEE2+55c6EBVKRZdRKd9fl4+Ki/uzZ1NewvVASp9T6CMA9xHMXMJqYFZl3ifO
+	 hvSacocjz1ipy5u+90cg916vVZK8UEZTgKTnVRyVoyzO90nUgyIc+RGDbIkExsEOzkgUW
+	 vnilRvmvckI4MorZ4x6vf/c4Yca/zr512qKVwEPhWIeIzRRY54bwKevgwRKDsECQ2Fw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164621;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=C6f5TxS2kJ2OdvnPQrHvSYRMyjQfN9BNBaJyxN98204=;
-	b=1kmgLnx2nSP3pvF57LucNfjVaujj3umwKTHMMs32/lz1qNb5QmD/qlHwc3+e+e3TbpAP
-	 Vtfv4xWAHenOxEmJUBbKTo42/5uHTE5tiUYkrC6C3US0MD1AbbzLPbns9veUUKVMcx41z
-	 vVXCxfZ7Bl0YrMM/kYR/HEtSbz/iZXZsX6QLia5VpRqRYK/snsIrHCkML/XiT3xWRnbHx
-	 Miix4q6qlObjj812CGb+xjecC0XjWZlEnwvmbOuzNUjihl1wz9qhYCuTwSrVIOhPobc6v
-	 z9hOAsHJ1nXBLKs9IGwuSZETOcb4Ed3+C1VnhUDHenRbcqgpixj0fXmsWesA9fBSOjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164628;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	 X-CM-SenderInfo;
+	bh=3W4UX72q3nL7QnYTdyMxZRoIYC/nbsvY/bEqG/17nyE=;
+	b=v3mZZhpYScB+PyCDPJufJYGKCUA3J/YTLd46vGz0O1ykagZnupfjq6FnyNeNeiSVptnv
+	 rPGBp66msm+ZJOrzqK0RuneTeEOYQ1thxoRTNi+8f0eXPLpvqHpT482zRsvAqGPTLo0en
+	 HY5lupiSWAcHZzB4m3iEKYPs6JLXfDkErVFixTV82miW+nAEKxJiPKUEnMogeITf6uT+A
+	 MEL5Oq7bQfQQBeLqzifrYSeOM63hw1Nm6/Lh+O/HlY0qIOWYudV8YLb9paUJ8aFLKHciu
+	 /wH/G5HIu5DvtmZ3mjsgOUdd6Vfn7m9FkkIH2P0TGrfXLouRoJG+KAaOhgXuWN1spbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YeVQSB6Y;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id EA364606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:50:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA364606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=YeVQSB6Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=YeVQSB6YDYyFNd4B1VWKBMF15QILokhVS5d4wo0zGftyqqECUPyt0E9IQDFcF6euLdWYtLKefnnP4
-	 k7eMXBpa08jpw6E/m47unfs1V7UEVIDMcZPHJ0CzsndIoONSl8YXTGloDZjEWU+meXdOe6slt88908
-	 PNbTnyg3YHQPml5s=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b0009caa45-c71b3;
-	Fri, 20 Nov 2026 16:50:18 +0800 (CST)
-X-RM-TRANSID:2ee86b0009caa45-c71b3
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from Z04181454368174 (unknown[10.55.1.71])
-	by rmsmtp-syy-appsvr10-12010 (RichMail) with SMTP id 2eea6b0009c6ffd-1e207;
-	Fri, 20 Nov 2026 16:50:18 +0800 (CST)
-X-RM-TRANSID:2eea6b0009c6ffd-1e207
-From: zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
-To: gregkh@linuxfoundation.org
-Cc: srini@kernel.org,
-	zhouzongmin@kylinos.cn,
-	linux-kernel@vger.kernel.org,
-	trivial@kernel.org,
-	zhang jiao <zhangjiao2@cmss.chinamobile.com>
-Subject: [PATCH] slimbus: messaging: fix out-of-bounds write in slim_msg_response()
-Date: Fri, 20 Nov 2026 16:50:10 +0800
-Message-ID: <20261120085011.2080-1-zhangjiao2@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.81
+Received: from cstnet.cn (smtp81.cstnet.cn [159.226.251.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AFE5606A881
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:50:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AFE5606A881
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from [127.0.0.2] (unknown [123.116.51.226])
+	by APP-03 (Coremail) with SMTP id rQCowACHkpPFCQBrNdxnAQ--.12681S2;
+	Fri, 20 Nov 2026 16:50:15 +0800 (CST)
+From: Vivian Wang <wangruikang@iscas.ac.cn>
+Date: Fri, 20 Nov 2026 16:47:44 +0800
+Subject: [PATCH] mailmap: Update Vivian Wang's email address
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,52 +46,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-update-email-v1-1-b7e080827c7c@iscas.ac.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2N2wrCMBAFfyXss5EkXir9lVIhSbe6YtqaSxFC/
+ t1ofRyYMydDQE8YoGUZPK4UaJ4qyB0De9fTDTkNlUEJdZZSCZ6WQUfk6DQ9uWnEAS9WnUYroE4
+ WjyO9f7mu3zgk80Abv42/4fGV6k/cNDA6ILezcxRbtjb7I/dWXnOBvpQPDL3BPJ8AAAA=
+X-Change-ID: 20261120-update-email-b703e8c25fc0
+To: linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>
+Cc: Vivian Wang <dram+linux@dram.page>
+X-Mailer: b4 0.15.2
+X-CM-TRANSID:rQCowACHkpPFCQBrNdxnAQ--.12681S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtF1kZF1UtryxJw4fGFWfZrb_yoWDtrg_K3
+	WrtrykurWkAFn8KrnxXFs3Cr1F93s7tr1jgwn8Jr9xZFy3KFn3CrWkCFWa9a4DXrykWr9r
+	Gr1avFZYvFn3ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb2kYjsxI4VWxJwAYFVCjjxCrM7AC8VAFwI0_Jr0_Gr1l1xkIjI8I
+	6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM2
+	8CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW7JVWDJwA2z4x0Y4vE2Ix0
+	cI8IcVCY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF
+	04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r
+	18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkGc2Ij64vI
+	r41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr
+	1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvE
+	x4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU8mXdUUUUUU==
+X-CM-SenderInfo: pzdqw2pxlnt03j6l2u1dvotugofq/
 
-From: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+I am leaving ISCAS in December of 2026. Redirect future mail to my
+personal address.
 
-slim_msg_response() copies the reply payload into the client receive
-buffer using the length reported by the controller, without checking it
-against the msg->num_bytes for which the buffer was sized.
-
-The reply length originates from the message received on the bus (the
-RL field of the message header) and is therefore controlled by the
-remote SLIM device. A buggy or malicious remote, e.g. the firmware
-driving the Qualcomm NGD controller, can send a reply longer than the
-requested number of bytes and slim_msg_response() then writes past the
-end of the client buffer. Client buffers are typically small, for
-example the single stack byte used by slim_readb(), so this can corrupt
-adjacent stack or heap memory.
-
-Clamp the reply length to msg->num_bytes and report the protocol error
-so that the transaction still completes normally (freeing the TID and
-dropping the runtime PM vote) without overflowing the receive buffer.
-
-Signed-off-by: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+Signed-off-by: Vivian Wang <wangruikang@iscas.ac.cn>
 ---
- drivers/slimbus/messaging.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/slimbus/messaging.c b/drivers/slimbus/messaging.c
-index ee127ef42046..b20864b59606 100644
---- a/drivers/slimbus/messaging.c
-+++ b/drivers/slimbus/messaging.c
-@@ -41,6 +41,13 @@ void slim_msg_response(struct slim_controller *ctrl, u8 *reply, u8 tid, u8 len)
- 		return;
- 	}
- 
-+	if (len > msg->num_bytes) {
-+		dev_err(ctrl->dev,
-+			"Got response with invalid length:%d for TID:%d, expected:%d\n",
-+			len, tid, msg->num_bytes);
-+		len = msg->num_bytes;
-+	}
-+
- 	slim_free_txn_tid(ctrl, txn);
- 	memcpy(msg->rbuf, reply, len);
- 	if (txn->comp)
--- 
-2.33.0
+diff --git a/.mailmap b/.mailmap
+index 0d05be949eff..1e518c12123c 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -993,6 +993,7 @@ Viresh Kumar <vireshk@kernel.org> <viresh.linux@gmail.com>
+ Viresh Kumar <viresh.kumar@linaro.org> <viresh.kumar@linaro.com>
+ Vishnu Dasa <vishnu.dasa@broadcom.com> <vdasa@vmware.com>
+ Vivek Aknurwar <quic_viveka@quicinc.com> <viveka@codeaurora.org>
++Vivian Wang <dram+linux@dram.page> <wangruikang@iscas.ac.cn>
+ Vivien Didelot <vivien.didelot@gmail.com> <vivien.didelot@savoirfairelinux.com>
+ Vlad Dogaru <ddvlad@gmail.com> <vlad.dogaru@intel.com>
+ Vladimir Davydov <vdavydov.dev@gmail.com> <vdavydov@parallels.com>
 
+---
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+change-id: 20261120-update-email-b703e8c25fc0
 
+Best regards,
+--  
+Vivian "dramforever" Wang
 
