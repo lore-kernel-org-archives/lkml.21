@@ -1,121 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.55
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795189021;
-	b=ArycLUNoT753ncIN2B6ljcI8rdQ2pmcQd7nlg6kAV1q1Bbu8kwfpi5im2mdt9XjLrEoI
-	 5o73M0sRh/TGC0wmMKtutl1xILM6EyaXxMYHvtsgK6VaPgs4vQs1VH2xpIKLladbaCrs7
-	 gikHl+SgnLVdlvtcmVPdOpiXt6s3/nB1d3v2qBxTYLUB4Er0ubBxDoJIMU75J97Uf5mIP
-	 HfMk2oqQPNLfytVYO+UgEQX3moQD3NEzwjGu3zqGooa6LKqSPkdIchT3Smr+wAK/akQyn
-	 NRJhueD5564WJb8EzuqD+oatzCku2tOQzscKueTFkZLH1OXqeResFWzM34PnVuqx2Zg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189021;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=c600cCk0bymkjgSTJtdYCHHeCNrDL4EPXE5JNU4BW0U=;
-	b=2wSoB+KGJRzPAK+9u4jf4/6IsNMBdF/1rbv99LxH6Bkil5xU1dDFNWMgSbwAN/jXKs1O
-	 hhHK+KeoRpk02Y4PUn9XF89veMAu6KZ7r3xuovq+3k5PXSoXIyqdhYfgvZ/ZyQ+sQoH7F
-	 Rh925eYXPHxx7GHqm9MHrYTjEG+cLZXhBmlSqU1bqyaiK7Id/SpZkcHusgArna+XYA4Bq
-	 AwflCdRO3qElBrY8CARtkdILfYonGtun5embxVpPDxrsUeJDs7Ymd+v46xDKJdJhd/Xkv
-	 pa7JW+lf143BdvK065tc8wCIvKKt7vWV2hoa1t0fZPrRjNvNy8aK8OsDBRVj3NejpEA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=el2L0rws;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.55
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013055.outbound.protection.outlook.com [40.93.201.55])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795189044;
+	b=WeqZ07ckfwCg8fSDMASsN6f6fKvZyNr2FB8C3gQmYfweA/vBbU2tRbREXdT3GnY59I3e
+	 MnFKtqqmdmec/8k2rS9/ur+M9DZ9l1IvVA6PCzWL5Nr4XauNfytDNWRofdWl/gIf26jQV
+	 tj+hODMWQPQKJywK0elRdGOclA5/rZliK4TdrLzybUcRgRBVP+pDbLjdm3UkhC+IMzBE1
+	 DU/0DBAhe2SANS/wgpPgjOSP6/j1H3KA1k1j7Y0/7IvM/n0J3mtVTOECXZGWhWX0UmgVJ
+	 Wh0X7u1K7Vm3NHYFgXHDnyYqvLSjLDk0GgjGomAY7qu3qi2SWksy59CzKNeU5GQjWHg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189044;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=jM2zQZj4sCA/BeUqFrGmArSxPy2PziPiafisynOVo9s=;
+	b=GBiovMJk99lE+KeQYfb06zglfEKWwkBL5PvgILLREdLQqEfdeuFrExv1XXP22vTt4VNz
+	 NNQPT+r94Nzfw51TTAovRrdYblqsDngzDen4EOKygNf2+OcAvIXDK2F49QQtcBl5sH89Q
+	 bvZtb8oWAZQc12ipvaiqDbP9RdALf7IHH3a++5aa5D5Y1XseLoYpcSMK33cKhAm1DidYm
+	 Lf3QgYmke4MCQP/kwNA8xTpyy4YKIGPfKdGwUBTEC/Q6GUGZ0d5JCPmVSgRiYyXqJWo3S
+	 eRRp3wgFlC5LpT4ZboMQklQ+c+9iZf79Ujgwyh4+B8OR22GJhspfxuM88GhdnomoFgw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=xYQs2WKx;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40961606A325;
-	Fri, 20 Nov 2026 15:37:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40961606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BE6606A325;
+	Fri, 20 Nov 2026 15:37:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=el2L0rws
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O+Q2kJOxZwAtbDJK7/OYiDOF26tV74ShC1fzSy/3pHHXgJayfQoExDldCV2FgFaMBbyoGu92pz7jjsJmb12Dh/4UjGDzhIaFOvuk9WydIr8R5AYel9pWr3fc/d4pdoFAIfyRSUpgpIkQq7+Sc88oQKpR/zKBOfjdzDREggy4yMu4MKyIipaU43wXJ+qJJVJUV+llSKHV1S+Mk8cq7wqLllWy+tq3WUViwHspkUtyfr2akNnPVjk6ryIPBcAEFbS9ko0fjuH/xf+/SQmocGnK1FPrl1STfxzalaVsaUZfpekXDtHuw0nXzQsyTM0/onsSATnAeCKgaHPan8DKd7bzwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=c600cCk0bymkjgSTJtdYCHHeCNrDL4EPXE5JNU4BW0U=;
- b=FLVcYWfhUNiOWBSMqLSWQtSeDyFAXsV2Rca5Q5Uj5UZADJJ3jxkmO6mbafEJgITFrcAwMz0BEpI8m3xlZ3BDPuqSPvtFpoNaleWcM1YYgA5T+iFbWsZ9SK/z4lkYlyvzcBxhC+xQm1UnBg4B9VcpCspMu1ic0nENoJHLYRT8879jFACGy+EkJajUm9kYSaE2OY0Yv0VhymeytNlpA/BftdxD/7LGFbuG6kpHNp7Fn/f0eY7iQqm7rku/GDeu1rBwNm8JWxbA8DHzNfhi8Nip8GK9UFM5+jSOrSCWV5A3DLmdU6uoF13Xwhbd8bHlQ52iwoVmbia4rjNlw0W58V9xkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=c600cCk0bymkjgSTJtdYCHHeCNrDL4EPXE5JNU4BW0U=;
- b=el2L0rwstOPlEV7MZxhHFDYirq21TCnfva9JxAdDiXw/6y/uAhSL8ofhQPnpJhOvpVFZIa6wL+ENFCxD9L73Rk6WuqarkmtLplO0k7iEVYtfW5ziS6lR/qOEi8j6Lxi0iX1tF5AU2PMUL14fn0cPAxWMu8x3g6kZzqwFY+ZdXy8N026Ma/bCLS7j5MB02aTc0nslxqJbtKSSN+zZ3owvmLSz/d07A4O8yHWnECmmTlpX5kEV8wuUZcTBh/Z2Mdn3jMPzBoMC/D22h4HT+DUl0KOHTiJzJvbvPRYNtLti2XKD1CAT85wy2LLKVjPXViabCJl1pkxZwa97Bcck6l3N6g==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com (2603:10b6:408:20c::21)
- by DS0PR12MB8765.namprd12.prod.outlook.com (2603:10b6:8:14e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 15:36:48 +0000
-Received: from LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286]) by LV3PR12MB9356.namprd12.prod.outlook.com
- ([fe80::1c36:31b4:c420:6286%4]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 15:36:47 +0000
-Date: Fri, 20 Nov 2026 10:36:46 -0500
-From: Yury Norov <ynorov@nvidia.com>
-To: Shrikanth Hegde <sshegde@linux.ibm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Yury Norov <yury.norov@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andrea Righi <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Johan Hovold <johan@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
-	Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-s390@vger.kernel.org
-Subject: Re: [PATCH 6/7] virt: steal_governor: restart sampling immediately
- after CPU hotplug
-Message-ID: <awBpDhQufKCyf6qs@yury>
-References: <20261113184257.621707-1-ynorov@nvidia.com>
- <20261113184257.621707-7-ynorov@nvidia.com>
- <37a30a91-bd86-4dbb-ad12-8cbb509f7c4c@linux.ibm.com>
- <av80SflNuKlReSEO@yury>
- <0b449b4b-a336-426a-a72c-f6a560b5a8e5@linux.ibm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0b449b4b-a336-426a-a72c-f6a560b5a8e5@linux.ibm.com>
-X-ClientProxiedBy: CH2PR14CA0020.namprd14.prod.outlook.com
- (2603:10b6:610:60::30) To LV3PR12MB9356.namprd12.prod.outlook.com
- (2603:10b6:408:20c::21)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=xYQs2WKx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8003E1F000D0;
+	Fri, 20 Nov 2026 15:37:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795189044;
+	bh=jM2zQZj4sCA/BeUqFrGmArSxPy2PziPiafisynOVo9s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=xYQs2WKxWaBk/KDjQ5vSevd9VvV4biRUZIWcvCyBSyr2G+pq3UTxe7kT61aqJFxIK
+	 qkkisD8rGPl6HTtZWjE3cfschy4Lurmyr5ZS8kgP/M+mwrtdxKO50Q6wpxkvEjYfqo
+	 OEKf4ShPxj7xrTI9U3ArJeVDVHLvuKUKYGnJd0Go=
+Date: Fri, 20 Nov 2026 16:37:21 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Guomin chen <chenguoming88s@gmail.com>
+Cc: Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] usb: cdns3: fix NULL dereference in cdns_host_resume()
+Message-ID: <2026112010-raft-sandbank-869b@gregkh>
+References: <20261118140513.8281-1-chenguoming88s@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,91 +54,110 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR12MB9356:EE_|DS0PR12MB8765:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3d2da3da-f908-4324-ec00-08df471c16cb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|376014|7416014|261026121527099003|261021121427099003|261022105027099003|261028144727099003|261026140227099003|261022075727099003|261102123227099003|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	hZ45/3TBzRjw7/VkGL6NiQM+8EThbbjSPJudGePu6zhnsxjJvrPrWHhjYud0gJwx0BTlCjL8SZxc2+RQwco9C+Ve6cV0GSQljY1kHzXlCp98nzLC+eo5OytP6V/I1cSqL8ZfDFbv5EtKea9gCdAkiUB/tAWajgYIz5DInAfSih4rcZIYqbb4FF2Ai0R8EJU6H2IarcRBJhH8ySGdTtC/cb8fyonp5vrHifLGJghVVmQAP4mrZg27WX26onuMxkUtRzsfLdIzG1z1dKur3V33Eo6XmjeYY420Jf0I6/cFgS14rZrmrv2bRmS13scSVMwJFZbf9PT+L8Gq4Aj3XtwVufuRZBobAQWg0iVoyaSDmkqKBqDoo9SQYbfSX3TJoYOCipIrbn+Z6j/B0w2uubdo9MHCGfHSdbEtkHo5xk54wTh1TDcfc27YGNzkHGVZowMdfXMlt+1BrsojlH8pGbSOkHpY5/sPtbVzMBslQquvLwQMVL+MVXq9Sw3UKaBtcTmAAu/PoRIZ9Mn3hfWfT/aUFaaniefWHetLtqmlXj8JkXxKMC/Xxei2ghQUKlnu0LZ+5sbLQ7I5tc4EIvhUIRWX6C7a3dw4SWEy/NE72qitXxXhfXuT7Lcbwus+FvvOXfzscNs0+YS0raiXYLhvCJH5oYM3dm0Lfflk8heUARhhBio=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9356.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(376014)(7416014)(261026121527099003)(261021121427099003)(261022105027099003)(261028144727099003)(261026140227099003)(261022075727099003)(261102123227099003)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?zb40Q+eqW+cMHe4DNS+ZN6gxpJv31cALTK3MMUWRbVvkAsUBil3FGfZjBbmL?=
- =?us-ascii?Q?imPh7KuN+elpg3ePpaRTzQUolwrUrbwxDMaCtnTH7Ag72pyWaDEed41q4q4G?=
- =?us-ascii?Q?3K4u0TI5fgp1isTrw0fD1rwZIpJxcGnTiNrkHnQQs/2mUWBrraChnRuR5TLw?=
- =?us-ascii?Q?Qc8yvo5c1LPqrx0TxUG1CRNZjv6NlwwYA7hbqfCRdt9zruz+M0JiTojY9WjO?=
- =?us-ascii?Q?hc4MCkB80cvkWhIT3mj8P0BrFT72zADN6DKC/gAtz44Svh3/k/tNTEBEXPpT?=
- =?us-ascii?Q?iEeCjpQztA+sjq+pPUcsrNQpYNmgZeZHftuGHtSfPvbP20ABwU/e6GeuSpMg?=
- =?us-ascii?Q?lLwqzsUQ9S/m0rdmZOhs6ToUCSywC3yxAMRK74g2KCbA8Ksz2k9O4MslWdq2?=
- =?us-ascii?Q?WbsOEruac37yoGgWj7RdAVoh6VZkWSJT6tOZFCnSWkdhpSzmYMOUuyDCJMU8?=
- =?us-ascii?Q?6MreH+1szI/uy7TcEBjETxHShz3WZpgqUedeDmxK37iIkVWX1KRoyeRtvyC5?=
- =?us-ascii?Q?ekTB0SbQc09mV95AfhINhwcMcff2X8udY1b8XOQDqPcPtwyiFXKT/LEj0ZlQ?=
- =?us-ascii?Q?hD6r+ZlBXacPjRaiL40Hoe4ou5O1bJnsATCTJJLk9fUFRNRyAkwsHkoNhV00?=
- =?us-ascii?Q?KBxyMibSslPqjrmTYjMTp5WJiMgPB1/a7GEaPlB1BX67GcU4p+ZF7sUYNxD6?=
- =?us-ascii?Q?vFK7hBaudHDSXQ4qJ7Oj7raFvNq2H7ZBkIW0pODquOX7eDYDDTt2P1qF42qS?=
- =?us-ascii?Q?LyBjPN7zriA3XRII6uWiarp5U+sXzT5nX6tt29OUI7b3qtD8dpq9K5nEbhmf?=
- =?us-ascii?Q?A9TAftPXNs30zPVXtNvfjJu01f1nXkW6SQvs9EDHvv2r5SSo1RyOizo9Q/HN?=
- =?us-ascii?Q?nj4RSEdSOJfdQOT4ICFCajPEFFFanHthmme73L8kahBl/qdYAyTE/LGvHYmV?=
- =?us-ascii?Q?0tKn5YfnXcPfGyIXw9jxckymlZwd4dGZr6QpJ8cvgpe68TPO8KM9vjnI96UB?=
- =?us-ascii?Q?+yxSU4E9pn37CNYgB82xl9IzJMJQ8atExF3Wj9a5m67Z6QdvbJOFB8S4Vou2?=
- =?us-ascii?Q?OoCdunZkl+lkyYGAYLQBxjmXLANuwtK0bwdSNFxAMSYU28VFrvp6lLPoqhkG?=
- =?us-ascii?Q?kiI55pubLieOPjJvTgKmPFMMNuswP1O14Orce/a+dwdbweqbMC/Xv5VM++gN?=
- =?us-ascii?Q?7LmfYmPYU/LdKikSpeJBuoLRwNJ8OGvGiO/2AY49c6z75YozYOVJ2xXDhPPD?=
- =?us-ascii?Q?P3C3wS2bA7sfynAJAasrnfAR/ChqixRDjn76DB/WkgdqcYq2109q2Qf12zBo?=
- =?us-ascii?Q?zDB44tPV6DIg8W20i1WfNdM2SIONyuzx7JA5wX1VWJ6Pg0C7AqAQsIwTVzY8?=
- =?us-ascii?Q?jeKW8odWPxeCiS8LQAJHkeYy6e1JmAEHUD7g0SK2hUItFDycdUT59UlAAMMT?=
- =?us-ascii?Q?H5WWUPlBrXK0o8uvU/kXZwzEplc1z+hXS9AsppN93mvgdP2DjxlbkIFoUXFV?=
- =?us-ascii?Q?ZtSNFVDhmOsHnX7C4aLPou4ZMKzSsEP3D9d0XSjFbfyjmr6SGuXR8qo/qnIO?=
- =?us-ascii?Q?dcip2MSUYGY78xNLSKb2aoP3W9aSIZuJYXmio3riZ+bIt2AIE0jur9nM5R+m?=
- =?us-ascii?Q?Q5g433IWHHdPgZSson3Eo3sc+67ONcLw7hQK+2CLL3z/+4Xnwn0eB0FSLgVr?=
- =?us-ascii?Q?usAHATl5Uew+kc7I5GjeQc0BWHBqCLShHQC2kqr9UqG6SDSaWhxfLlINBNwq?=
- =?us-ascii?Q?M8uK6SPIG2go9M4gZ4K6aDkz66nkVQhi116R+PhHlX1e9Q6vdlzK?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d2da3da-f908-4324-ec00-08df471c16cb
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9356.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 15:36:47.8308
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MNz+dnAIS53YlZZAR1tBjjqRHpCD0oFKcSXX7mvhv2g38aIqsMI9THoFPEtCGZjxDsa5nRndE0glvJaIT6usYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8765
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118140513.8281-1-chenguoming88s@gmail.com>
 
-On Fri, Nov 20, 2026 at 02:20:21PM +0530, Shrikanth Hegde wrote:
+On Wed, Nov 18, 2026 at 10:05:13PM +0800, Guomin chen wrote:
+> From: Guoming Chen <chenguoming88s@gmail.com>
 > 
+> cdns_host_resume() assumes that the xhci-hcd child device is bound and
+> passes platform_get_drvdata() straight to hcd_to_xhci_priv().  That is
+> not guaranteed: __cdns_host_init() creates the child with
+> platform_device_add(), but the child is only probed once xhci-plat
+> registers.  cdns3/ is linked before host/ in drivers/usb/Makefile and
+> both are module_init(), so at boot the child stays unbound until
+> xhci-plat's initcall runs; when xhci-plat is a module it stays unbound
+> until the module is loaded, and it is retried even later when its probe
+> returns -EPROBE_DEFER.  Platforms that set
+> CDNS3_DEFAULT_PM_RUNTIME_ALLOW (cdns3-imx is the only in-tree user) let
+> the controller autosuspend (20 ms), so the parent may already be
+> runtime-suspended by the time the child's probe actually runs.
 > 
-> On 11/19/26 11:09 PM, Yury Norov wrote:
-> > On Thu, Nov 19, 2026 at 11:36:46AM +0530, Shrikanth Hegde wrote:
-> > > Hi Yury.
-> > > 
-> > > On 11/14/26 12:12 AM, Yury Norov wrote:
-> > > > CPU hotplug between samples can distort the calculated steal ratio because
-> > > > the governor divides accumulated steal time by the current active CPU
-> > > > count, even when that count changed during the sampling interval.
-> > > > 
-> > > > For example, assume a constant 3% steal rate on each CPU, with four active
-> > > > CPUs for 900ms followed by two active CPUs for 100ms. The accumulated
-> > > > steal time is:
-> > > > 
-> > > >       4 * 900ms * 3% + 2 * 100ms * 3% = 108ms + 6ms = 114ms
-> > > 
-> > > 
-> > > This example is not realistic. If you had 3% steal with 4 CPUs, and if they become 2,
-> > > your steal time will definitely increase. It will likely double. So
-> > > governor likely calculates 6%.
-> > 
-> > You say it's not realistic, and then you confirm the math. So
-> > realistic or not?
+> When the child is finally probed, driver core resumes its parent before
+> calling really_probe() (pm_runtime_get_sync(dev->parent) in
+> __driver_probe_device()).  That runs cdns_resume() ->
+> cdns_host_resume() while platform_get_drvdata() still returns NULL,
+> because the drvdata is only set later, by dev_set_drvdata() in
+> __usb_create_hcd() called from xhci_plat_probe().  hcd_to_xhci_priv(NULL)
+> then evaluates usb_hcd_is_primary_hcd(NULL), which dereferences
+> NULL + offsetof(struct usb_hcd, primary_hcd) (the offset depends on the
+> configuration).  The oops faults in the first instruction of that
+> helper:
 > 
-> I do not expect the steal time to remain consistent across after hotplug
-> completes.
+>   pc : usb_hcd_is_primary_hcd+0x0/0x1c
+>   lr : cdns_host_resume+0x24/0x44
 > 
-> Instead of speculating, we should to get the numbers from the actual systems.
+> Return early when the host child is not available: it has either not
+> been created yet or not been probed.  cdns->host_dev is also cleared by
+> cdns_host_exit() while cdns_role_stop() leaves cdns->role pointing at
+> the host role, so a resume after a role stop reaches this function as
+> well.  Nothing is lost in either case: the child's probe initializes the
+> controller from scratch, and xhci_plat_priv.power_lost is only consumed
+> when an already initialized host resumes.
+> 
+> Fixes: 3a85c1011540 ("usb: host: cdns3: forward lost power information to xhci")
+> Signed-off-by: Guoming Chen <chenguoming88s@gmail.com>
+> ---
+>  drivers/usb/cdns3/host.c | 16 ++++++++++++++--
+>  1 file changed, 14 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/usb/cdns3/host.c b/drivers/usb/cdns3/host.c
+> index e01264dc625d..3456f065111b 100644
+> --- a/drivers/usb/cdns3/host.c
+> +++ b/drivers/usb/cdns3/host.c
+> @@ -140,9 +140,21 @@ static void cdns_host_exit(struct cdns *cdns)
+>  
+>  static int cdns_host_resume(struct cdns *cdns, bool power_lost)
+>  {
+> -	struct usb_hcd *hcd = platform_get_drvdata(cdns->host_dev);
+> -	struct xhci_plat_priv *priv = hcd_to_xhci_priv(hcd);
+> +	struct usb_hcd *hcd;
+> +	struct xhci_plat_priv *priv;
+> +
+> +	/*
+> +	 * The xhci-hcd child may not be bound yet (xhci-plat can probe it
+> +	 * after cdns3 created it), or may already be gone after a role stop.
+> +	 */
+> +	if (!cdns->host_dev)
+> +		return 0;
+> +
+> +	hcd = platform_get_drvdata(cdns->host_dev);
+> +	if (!hcd)
+> +		return 0;
+>  
+> +	priv = hcd_to_xhci_priv(hcd);
+>  	priv->power_lost = power_lost;
+>  
+>  	return 0;
+> -- 
+> 2.43.0
+> 
 
-You're very welcome to stop speculating and run your own experiments,
-if you don't trust the above.
+Hi,
+
+This is the friendly patch-bot of Greg Kroah-Hartman.  You have sent him
+a patch that has triggered this response.  He used to manually respond
+to these common problems, but in order to save his sanity (he kept
+writing the same thing over and over, yet to different people), I was
+created.  Hopefully you will not take offence and will fix the problem
+in your patch and resubmit it so that it can be accepted into the Linux
+kernel tree.
+
+You are receiving this message because of the following common error(s)
+as indicated below:
+
+- This looks like a new version of a previously submitted patch, but you
+  did not list below the --- line any changes from the previous version.
+  Please read the section entitled "The canonical patch format" in the
+  kernel file, Documentation/process/submitting-patches.rst for what
+  needs to be done here to properly describe this.
+
+If you wish to discuss this problem further, or you have questions about
+how to resolve this issue, please feel free to respond to this email and
+Greg will reply once he has dug out from the pending patches received
+from other developers.
+
+thanks,
+
+greg k-h's patch email bot
