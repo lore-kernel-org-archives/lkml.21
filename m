@@ -1,64 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192869;
-	b=W2VfAoaYH8tAJvEcpqidpQzkWLlEzUIOtjyAJPOoj55HR2GPC/nGzVVS3zRKh9PPrVJo
-	 uzhDymLuXhEafZHco+3drjQB8/vKx84rSWF5BED8McYBj2yeN9suN3MIiyIgUE3lc9wp1
-	 x+wqHiOHBJYrSa5bMXTMCJir6pSM1TIRbbzSK1hSdNPfkXWYboyMjdkWO91IPA5wGnN1d
-	 Tg1+14cFU2iV5Hzlf8G5w1ktOgIEYXSq00kE2/GDhLDwLspqSk33ARao0Ecg6AcY5Dpea
-	 OuaQaUO74Y/KhkfsPd0HVgRxgOv/P2kXEBXORTJifsjLFToRcXm5LXS/QRDDG9xjo3w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192869;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=AXJ73gZbDqFdLSj+f85ZsrSo29IjJTKtoRF5M4E2k9s=;
-	b=eYlB3nB9xB00NoTIT6zSuGLzKx9+NhiZ5pfWdo6LRS52zODy+GmtmSFyZTvowqCboCxm
-	 LNcLoNtB7tNEPbsFvG0lCxSTvC/2IcTo75c2nFVMXOX02pDXWcNkViNf1zRbr+MWXUeRK
-	 AmMZwuKFIBR61+MP9A+e8YjqOf7KMf3wKRyT9ZO2wazzk7U7g19wjR0+FSb78bvqad+4t
-	 ZjNqJT7hi1A96cX4Oa+XXMPmVpNOY3cXfvIf3FRHhZVzLMsE6Ua2CC5a3CaFkjodWbH5N
-	 31yM6o51voP3w8h3+bg364SUXaDDNgAb1jwW9BdBkKF6p2EaxlO/0Yw8Yl+AKPEEyvQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="bJNgXs/n";
-	arc=none smtp.remote-ip=95.215.58.200
-Received: from mta1.migadu.com (out-200.mta1.migadu.com [95.215.58.200])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795192884;
+	b=HXiVth6rnoV1kj8+QKF3GgDYSr3sOrgdMmTKPneE1T0GZn6KjGDNKJMUvUCDPCUVpNVk
+	 xiFGOM4SujDHjDp7ZCOi7WopY4qkmM7ZpOKLiTGmKmFMOv4xwAJNu5NyFOmAb74wIb5S+
+	 ajvV+sm89KJ5eeroLbIUCFEVfE01g/XBR6RTERXAkM5SR8St3rERB/cejfu9ANSPbDfrf
+	 H8BNjFYSFWhhMKfsde2JydD/1bHx9CTVcTGh6CV6t5WE3/RM0/eAPI2z4mbcSp4gAdOI5
+	 yqTRaQyqz/0uwHKJ2fXiUUmmtqxyOdR0lT+MJMWbfEA6DfJg9VWfJBci64vcN+x34Pw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192884;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=5LKcQCSmGSFWH7cFrHCRUFRL7czFDZ0JoEIiivjm0J0=;
+	b=0mRqdiWtU109fG6TbKtLEf82Pnd1E1m+N6eNjZe49gQ7AOJWQO4Q9AWcSs3VfUmFg6mU
+	 EoSue6LaExLAKTH4qkAt7lproFID60m9a/KihP631T5hj7ClermBbQlEgcBl7/utfqc02
+	 wsZXrB6jledOfWd2drI3m9m/s2tazVE34izqIsjqdna4LQo8mp15IUxRKMCRUmOYfaZta
+	 hcRMYJ4stSZ3uPTL1lWEG3mr9BbLFbHJ6ZWXURzsm83bOAswOUfB3r4yYaDjU/r7cerkq
+	 gopF1kHkkga7x8morVfXdQuqh0eA3P7FbIeUv2JvUHPL3e++oZd7HAPkaBiEd2046QQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CR6kwwm1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9787360A2608
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9787360A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96C2D606A605
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96C2D606A605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bJNgXs/n
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZoM2yf3MA8k5sZbw96Hh1V2kwRR1l1ZCz3uIHytu5jY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795192864; v=1; x=1795797664;
- b=bJNgXs/n1QT3IoJuJIbKvzdSmhhdwzylK2Sj7kxe2/0hHFFfJyWva9lJHMhWlt1dxYYqWpz4
- IB+fG3eztkt5lXlMnmK3H7g9/dIsemLKV5O99g6qXR6goFI5VLkjhu2I28PIbtErTczMU5ui1eo
- 5rkqrgpOrrDhDpzG5McbIsbI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 883b19b9dfbc7c0f;
-	Fri, 20 Nov 2026 16:41:04 +0000
-X-Mizu-Trace-ID: 883b19b9dfbc7c0f
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 20 Nov 2026 17:40:29 +0100
-From: Andrew Jones <andrew.jones@linux.dev>
-To: Koichiro Den <den@valinux.co.jp>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
- time
-Message-ID: <awB1hZGh3LYztjqL@orel>
-References: <20261118062242.2914385-1-den@valinux.co.jp>
- <20261118062242.2914385-2-den@valinux.co.jp>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CR6kwwm1
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb845433b8so55835e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795192872; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gztld292fc2Fg481t/GmylYtU8S7CTZbmm34fGTmEyknRbGyIC2Zi+wqoCeNhgSAtq
+         xtOWws0vej3/dBkmVM7aBVh+HPPkQa5hLuCAn2iKKlWg7qSrrY78VYU3SURODJD6dlJY
+         5o+YSBpQhqLFbHlrNWvcvnGoX3qPloiyXRxdXzKg6ECevKkEp5dFZCEvWgJbF+IFTDJb
+         ej91SQigu+2s2JlrQJFtSJYYwrI8yujf/FvsoZBMYG3pccW7OYHeaWS+ocZmOMSfXoxk
+         2fQ8o8whPxLzK9+cNub0yBr2tZ8vn6rJWc/VI2OupExxR2xZcxFQiQAounn2WOuyZgUQ
+         dOZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5LKcQCSmGSFWH7cFrHCRUFRL7czFDZ0JoEIiivjm0J0=;
+        fh=yzxYBRYNoJuCPa4eUPIYg+5J5eFEmOVWcRITDkfxBhs=;
+        b=hbLb9JszwbaUmQ7SZqiW4hx8yPXMSE2stWM0cH4/nxo4KHJIU+FuOMpy+3k44e+2qo
+         DeGMHKxlSx3xucjxSms3x50gp3k6VSVqJeHOl2wtD2x4bsAzu0CC2ZuD/5RED21hN1Jf
+         scRZF3KrRWT/Rbz6hrvg1xEOZMnBmEijiNvjoSebbr/9BihxV06UcVyptU9FNqYsFaWE
+         FctICbItMcOixI/qgQ1EhcvWqrMpfaStP9HTN9SNP81s7aCzdXXeTpAdRR1bokmOyTOd
+         zOKSAN2V0UwcXN8+Bnaow5u/2imPYzaItdpuY0WOX6Xr03Hga8NFdtGB/yTxx+KqH8Uv
+         /rPQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795192872; x=1795797672; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5LKcQCSmGSFWH7cFrHCRUFRL7czFDZ0JoEIiivjm0J0=;
+        b=CR6kwwm1oHbSxVATbOmkl8qKoYaBhgBn5D9snZ0tnQQ3Mum6vvcKkI/UYRjN3sbMsU
+         Q3lP7ctTQ8Lb7hgMXk7ZerlRr75y+f4aYQidLl6z3oJYiMaKDGK3/R7U9pbJ6Y0C+4OB
+         UKhhnMEVyFTIgUtmL1tvROIZwAd2MQkwQFMbsoAeySbHFbwa3nzNeVShfEzrmGx/jv+o
+         Tj4RmDVqM90h5lRnDknyA1JU+t8COdH4pwqC/b9DqLWfgwD/2mKyrQ9XeJCVEaIOuWsj
+         x/oFen3mIU0fyVzeYnYKAU/8YM/lNctAhZmTQ6Lp/G+PeuM8bChEd+t4yQXKFCshyHwU
+         Um/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192872; x=1795797672;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5LKcQCSmGSFWH7cFrHCRUFRL7czFDZ0JoEIiivjm0J0=;
+        b=l/LyRep6sk0xSGmntKt60LzhvyiW9104hM6mkE/HyXIqeEPvOHobSa0bpTcdGsGXhB
+         ifzumXLJPTwehZhQeLzkIBj5W3zYLWd19mWYlefgVwvL5S4iThu8rgRv7b74m8fWgOGy
+         A6Fl2T0RjiwkCfUla569XE935c+uAqv0rcAKUw5yiy1vvVqDga2rnNI/mhAhw9PQz9Pe
+         2/sFFsQr6HRqLR9hCDhZUamv83W5aN+7z2teMWmWl/seJ9keKjhy+0/FCzat66IJkVUT
+         TgU8weDWZHDYxa+mh37GlKk9DZKJfxFTFcTM0SbeXS5grDYY+2YPstxujHaUGpMCOioJ
+         AkGg==
+X-Forwarded-Encrypted: i=1; AL+hErGZIPRKHWWUtUgfTC/W+DCt8SCIuQrTzR6XLBQJEEfuy7kkRlxOZfIXDAWrSTZdLywlR1nWsW/wDcaL7Wk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+cA2V70URAzBO5ZVaIEAlg22D+LUidJStbbD/Dg0lpCNc4ZXsf
+	vIW9zNKx1wRM3/EXQ7pXbfImjC8trqZSIGmqHQ2MJejeH1b1eKYZE3TuWio/CRTSI44CBh9oJS2
+	ZOE/aLCNSFZCuoKRB5F2Pd7o5sXd8DAWZz/GR4VEZ
+X-Gm-Gg: AYBFou0+WEUpjALnu/j4NlUcRt+hMuX+5Pk9xh0A1NxYB7hM7f/4AXHyYy1OE54QDi+
+	UacfOBVSXmKEaj01EhoctM8Tt0L2YGAnnZIqQfNUE0pdT+HdpxmIVvJ2S7LTj9wtQYSyxBsQn9O
+	w0CKIHxzJHC0CeHofkgvqk8ro9e62Rev7Dp6wHpHReYblwY2mgV/WGCFa9mW+bHqOSvyJrWbPyh
+	e8tskdOAsreiYhGtTTNOGY+qPr/HLpO9QPXcNwDuhuAFq59xBmEhbQCsWRUcCvA0T4myLDB4Rh3
+	7KS6hapgehN0wm82a38NtayYN5sc3OWqnxWUanvyFg/5ex/BX29aDF0CZEiNM6oA+0s8Pt0bXI+
+	YsgY41JNv9wKiF2u1W7fAbKiEUtC3J41VzA==
+X-Received: by 2002:a05:600c:3ba4:b0:4a2:bd1:a80a with SMTP id
+ 5b1f17b1804b1-4bb89619133mr1203705e9.2.1795192871012; Fri, 20 Nov 2026
+ 08:41:11 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,136 +104,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118062242.2914385-2-den@valinux.co.jp>
+References: <20261119-fix-rust-build-error-modversions-v2-1-1c2271cbcab5@gmail.com>
+In-Reply-To: <20261119-fix-rust-build-error-modversions-v2-1-1c2271cbcab5@gmail.com>
+From: Sami Tolvanen <samitolvanen@google.com>
+Date: Fri, 20 Nov 2026 08:40:33 -0800
+X-Gm-Features: Aa3M54oct8MRe9MZBWMaHsVotwxFhMb4AgWLlWpoCWN9GDOy9iSx4jSZ3IW3NJ4
+Message-ID: <CABCJKufYm_PXLzoTSyj6jFjz9fO4hoUQT5eTqxofg7ARMg=2UQ@mail.gmail.com>
+Subject: Re: [PATCH v2] rust: kbuild: generate a symbol version for rust_build_error
+To: peder.bergan@gmail.com
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, Matthew Maurer <mmaurer@google.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>, 
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-modules@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
-> Updating the SBI STA shared structure performs 2x get_user() + 3x
-> put_user() calls, each of which toggles sstatus.SUM.
-> 
-> Keep SUM enabled across all five accesses to the shared structure.
-> 
-> Note that write barriers are added to order the odd sequence store
-> before the steal-time update and the even sequence store after it.
-
-The barrier additions should probably be posted separately with a Fixes
-tag.
-
-> 
-> Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> ---
-> To reviewers: please let me know if you'd prefer
-> scoped_user_rw_access() here.
-> 
->  arch/riscv/kvm/vcpu_sbi_sta.c | 59 ++++++++++++++++++++---------------
->  1 file changed, 34 insertions(+), 25 deletions(-)
-> 
-> diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-> index 60e50296a008..cfc6f22c3e33 100644
-> --- a/arch/riscv/kvm/vcpu_sbi_sta.c
-> +++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-> @@ -8,13 +8,14 @@
->  #include <linux/kvm_host.h>
->  #include <linux/mm.h>
->  #include <linux/sizes.h>
-> +#include <linux/uaccess.h>
->  
-> +#include <asm/barrier.h>
->  #include <asm/bug.h>
->  #include <asm/current.h>
->  #include <asm/kvm_vcpu_sbi.h>
->  #include <asm/page.h>
->  #include <asm/sbi.h>
-> -#include <asm/uaccess.h>
->  
->  static void kvm_riscv_vcpu_sbi_sta_reset(struct kvm_vcpu *vcpu)
->  {
-> @@ -26,13 +27,13 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
->  {
->  	gpa_t shmem = vcpu->arch.sta.shmem;
->  	u64 last_steal = vcpu->arch.sta.last_steal;
-> -	__le32 __user *sequence_ptr;
-> -	__le64 __user *steal_ptr;
-> +	struct sbi_sta_struct __user *st;
->  	__le32 sequence_le;
->  	__le64 steal_le;
->  	u32 sequence;
->  	u64 steal;
->  	unsigned long hva;
-> +	bool dirty = false, success = false;
->  	gfn_t gfn;
->  
->  	if (shmem == INVALID_GPA)
-> @@ -51,31 +52,39 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
->  		return;
->  	}
->  
-> -	sequence_ptr = (__le32 __user *)(hva + offset_in_page(shmem) +
-> -			       offsetof(struct sbi_sta_struct, sequence));
-> -	steal_ptr = (__le64 __user *)(hva + offset_in_page(shmem) +
-> -			    offsetof(struct sbi_sta_struct, steal));
-> -
-> -	if (WARN_ON(get_user(sequence_le, sequence_ptr)))
-> -		return;
-> -
-> -	sequence = le32_to_cpu(sequence_le);
-> -	sequence += 1;
-> -
-> -	if (WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr)))
-> +	st = (struct sbi_sta_struct __user *)(hva + offset_in_page(shmem));
-> +	might_fault();
-
-We're probably safe to drop this might_fault(). But either way it's fine.
-
-> +	if (WARN_ON(!user_access_begin(st, sizeof(*st))))
->  		return;
->  
-> -	if (!WARN_ON(get_user(steal_le, steal_ptr))) {
-> -		steal = le64_to_cpu(steal_le);
-> -		vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
-> -		steal += vcpu->arch.sta.last_steal - last_steal;
-> -		WARN_ON(put_user(cpu_to_le64(steal), steal_ptr));
-> -	}
-> -
-> +	unsafe_get_user(sequence_le, &st->sequence, fault);
-> +	sequence = le32_to_cpu(sequence_le) + 1;
-> +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
-> +	dirty = true;
-> +
-> +	/* Publish the odd sequence before updating stolen time. */
-> +	smp_wmb();
-> +	unsafe_get_user(steal_le, &st->steal, update_sequence);
-> +	steal = le64_to_cpu(steal_le);
-> +	vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
-> +	steal += vcpu->arch.sta.last_steal - last_steal;
-> +	unsafe_put_user(cpu_to_le64(steal), &st->steal, update_sequence);
-> +	success = true;
-> +
-> +update_sequence:
-> +	/* Publish stolen time before completing the update. */
-> +	smp_wmb();
->  	sequence += 1;
-> -	WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr));
-> -
-> -	kvm_vcpu_mark_page_dirty(vcpu, gfn);
-> +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
-> +	goto out;
-> +
-> +fault:
-> +	success = false;
-> +out:
-> +	user_access_end();
-> +	WARN_ON(!success);
-> +	if (dirty)
-> +		kvm_vcpu_mark_page_dirty(vcpu, gfn);
->  }
->  
->  static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
-> -- 
-> 2.54.0
+On Thu, Nov 19, 2026 at 2:19=E2=80=AFAM Peder Bergan via B4 Relay
+<devnull+peder.bergan.gmail.com@kernel.org> wrote:
 >
+> From: Peder Bergan <peder.bergan@gmail.com>
+>
+> CONFIG_RUST_BUILD_ASSERT_ALLOW exports rust_build_error to modules.
+> When CONFIG_MODVERSIONS is also enabled, modpost warns that the export
+> has no symbol version and records a zero CRC because the build_error.o
+> rule skips gendwarfksyms.
+>
+> Let the existing Rust library rule run gendwarfksyms for build_error.o
+> so modpost gets a version calculated from the Rust definition.
+>
+> Fixes: ac61506bf2d1 ("rust: Use gendwarfksyms + extended modversions for =
+CONFIG_MODVERSIONS")
+> Reported-by: Gwan-gyeong Mun <gwan-gyeong.mun@intel.com>
+> Closes: https://github.com/Rust-for-Linux/linux/issues/1201
+> Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
 
-Otherwise,
+Reviewed-by: Sami Tolvanen <samitolvanen@google.com>
 
-Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Sami
