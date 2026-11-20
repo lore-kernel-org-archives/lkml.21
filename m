@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212965;
-	b=3a/c/+S7je939ruv4Rp8f9anyVZQlSFVQwKwRmyXV/sg4yFqC8spDGhDskrzv24gQSbL
-	 McW4+kDSekaIS7Kurwlpuxh/TH9sh1zRdhFPZSPo1QUe7lkrzvmfrgPhGBjmL1d6kbmLJ
-	 V6yyrtwyVgOgHnDX7FKX14D8tGSmaLzAPE0ZLshWCAhMvqtN5wlcwcI7dvSai5xUfbVzl
-	 RZTWbqpAZ+rlezjYBZr+imNP4BjRFZo9sOHNgnYOF1A13GrKeZFL9hbSUagzwkWIB3NhI
-	 EspiQUzyVG2zAinUMuGeX3TujpuPsnFg9xRofRunU/WbUrIXgHo+aeJw5uAsKm6atPQ==
+	t=1795212970;
+	b=wIWE2M/5ZKfgncm4/gKZzUmx9hw8PuJI+eNHLsRTa1ZJ4zxJJCqDtU3RQqLhaUfm6CGG
+	 nGFB2P81Q41x1FMIZXnKpSWEeNUVyPFYuO+vHqvNAei2FDvb3FH4c6+jUNmAdlPC+94PD
+	 f4dxibyGUi6lZ4dxKMR/XQEZVX7roW8R1drlnkmg8U96NtdtSls9bPxlM3GQGFJZ8FDAp
+	 DOuoRH/JMdE9bVMjI5IQ96q6ZUmkVZ2Ay7tdJr+I8s9Rdw+bbTqVxce0B0CgzrUG9KUdZ
+	 +/j46Kr1lOB1GD8xaFnHdIuz0w4v4YlxoYd1JCKpQl/PVEoXilSEqI2fh97Hm8SLx4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212965;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212970;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=2HEN6VUdgvdF1e1P4lzoTvsLs3mhrZspRNp4JiB/L5I=;
-	b=2FCR123n/UL2P/6v88rediJbd313zTSZRDbMhnsXdorD27tUFhxhsVXwAESKc+/TMYWN
-	 5loTI4ZHJ8xyal1vdVEjuF7SlAkEo7Ih0gy7Z/e0wi39VtXEEWVTHSRWpG+O+VXPFv8ii
-	 LaQFGitVEzmJf4X7lDwLKeHjjSJjk3qdx6bG9seDTpc4P3jucE1oBi2RoOOlQ1+4OmdtC
-	 lwHyuU3OoOyKZH7oibJfcBOl6IOnDSzgAqyweZYd9HWUqBxlZ/BEOI9fH7jlKISymbQIx
-	 5uA9Gco/rJhhs+o3iXA9ywrRg88naG8JnpqEGlEG7M5PivxnQXsZb376u8noMjJyXPg==
+	bh=+3GA/Hx+rJjH8NEt3R7rrCgNjWYX47icXT6CUIFco3s=;
+	b=zz14kAPGjRnLnnaCkC4nLzHTdV9n4aIaZ08l/6IS5UFTUNUnz1ik0QWsOf96Dm7KGkgZ
+	 oOy8g8i0YqIJmIb/BBVq3O+Jp9j5pyUScm+tHYMxy59UOhL14AK/NU5ZR/TIe+vAfNC/L
+	 qEHsZUdATLIgANmLOMtxP7Qkt4AGoxYefJ+Swcwbj6dXgIq4D8HFoLLFbQGxiiaPblXnC
+	 4VNqEVER8JTvJOWvbPDUgy1JpDrgZt3ab+j0CQ5l6soJNA+tmK6zTodjCm2nTYzlPckR9
+	 l7qO8C0VnPZ56KMz44f6Ht1yr6LskBHHX9a9QEWbylXG8u9dckr02fVdIdpw5z1MKGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VgtTw4XP;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KTciVtpz;
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E28D60A2610
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:16:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E28D60A2610
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86FAD606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:16:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86FAD606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VgtTw4XP
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2edd25534afso11667165ad.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:16:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KTciVtpz
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3846d5f54c1so1754466eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:16:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212962; x=1795817762; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212968; x=1795817768; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2HEN6VUdgvdF1e1P4lzoTvsLs3mhrZspRNp4JiB/L5I=;
-        b=VgtTw4XP3Tea/OPo+j/xL5RWam/c6pQbvxUCKaIsinEksk+QAnx7FvPVCnQ4asjWHS
-         DVnJvsjJvBcbimAFeXgKI7N8qJdApmcHf/n7BJiotla/R7ksKwW69/CfOHqTJL6zince
-         eVzmoHlFwO5RPPH1EzEexSSHQsFkBOnF2Uwh1CH8c9KbdG4IK66Q7+1hxNj0GaSrZ8D1
-         RGbL+jy5+mlBdOfsIkuNKxwkBgGdWu88VzEgPCdXmWDtroEhuFGTeoZnRA4L7vxW0SZS
-         a4HJBr7Qa16T58e+zVRrJ6SXCWSqERFxPTOz5dg6loQ6rqy4ZUx7rq/ZezqfSka5oRP+
-         KnYQ==
+        bh=+3GA/Hx+rJjH8NEt3R7rrCgNjWYX47icXT6CUIFco3s=;
+        b=KTciVtpzt/ADkq/HTagr56OcyxiJJqKipleAe0Xhbws8JaU6XZYxtRiEftwyh3LUBq
+         trQkCxfPIX4aRoKcPmeBrhe1tlm6NEx+KSQRfm25E60hRo+/VQ82sTf+r/kJTenTpOMx
+         /hzqWPOyx47HLFUZu7mvoHFUgFY70+UsSlP5GrWN1W//iAKj5r3pzVMNY4UHfplSlggn
+         3J0GdfnWMK+iOe3WmSl0alfcbPGW0tN+vdfVQKjO2ctGHiMq+ZZRs6n0WwCXTKYlNeIz
+         HcHakFhQc1EWRgSV9XPBEHnuVmSYa6s0Bb8EOY2y+hORhQjBxeDoZ1Z69rMntRlXR1SR
+         Y0Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212962; x=1795817762;
+        d=1e100.net; s=20260707; t=1795212968; x=1795817768;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2HEN6VUdgvdF1e1P4lzoTvsLs3mhrZspRNp4JiB/L5I=;
-        b=em6Wvhhq6IXpReDS4UJGr6vy5i0ecP8D9i76NyOnmQJMtqnqrTSc0MBrxE+O8s9y1h
-         6BAhHrcIi6SiXJQcgDqvD1y/yJXWW31Dx3EV/vIvzyZMnQfajuCj72S4juCr8ZXsW8B0
-         T4OMdE2dmjRvRQKpIFDwQ3T1cpB34xaGUSCa0FG4DRoop2IhI0nM/2gjP/kIuOYI2kyO
-         txlwY33YIbu/g2mN/kstk9PmI+sO+z388GQk6wNelm7SY8RJVcOetzjIAEX1C4Ua86PG
-         jmkObvVcALI2WGIHA5c9/B4VD0z4YDw0lhmmlpQtK2SUDlbQEQTDdHn1LYG1oNnj7R1R
-         frsg==
-X-Forwarded-Encrypted: i=1; AL+hErGrhYMdKbuG+HFU2FrAjWgQu8AoZAYevAEdAOSP+rsFFV8YPo6igfXNHaqUZwt3K7qqfn42DilLBW5WYLc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Xuf50QkPzmSktYen2rSnMAnKME8koyi5ElL5BVq+qst7DU6Ed
-	iFc2csqTvE/VDwwDLRYQmV8l69C8TG3NdPbp5UnKuC6jZ9+WTVf+4fRLINgjQl7UYk03R+oUomi
-	wcx3ozqIY5g==
-X-Received: from plhc7.prod.google.com ([2002:a17:903:2347:b0:2e4:afb6:7889])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:c401:b0:2ef:e9df:2429
- with SMTP id d9443c01a7336-2f03f17d1afmr51904595ad.21.1795212961653; Fri, 20
- Nov 2026 14:16:01 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:29 -0800
+        bh=+3GA/Hx+rJjH8NEt3R7rrCgNjWYX47icXT6CUIFco3s=;
+        b=BkP/31fwC3nIuRJhgo4XK5lUpQ84IMB76sWpTqZmjF3RLHL4u+7BDB03m1MSvIbdD5
+         Q5PtQVTH72ZEjIC0IzRh0oXGgILqSBrFOYoI4ohr7e8l+Q0zOdU+pVtwHRhii15yu6cC
+         45inPXa9SpBm8U56YlnYdxqFyJCvij3O0IU3PpflJevfh+22he7YQzh5A6R0ggb69E6c
+         rLkhsonS2F4bint2ti4ttU0Q9e4B1Ilhvn2f7fkFXMe1JAZdmuUqtVIQ615YyA9O3HYE
+         1/CwRs8sTqTDfEDaoHvQaN6UYDSjlpUVQd9fQOA5aNogJq/2swV/ADjk4G3aKid7TV1E
+         PBSA==
+X-Forwarded-Encrypted: i=1; AL+hErFxWPjc/lHoIDR5F72SfOX8qEucaB9f3F9/J2shdNdNsNy0Jo5PfY/Q5z+5F8LL8WhoThK1QGxzeT5fukE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+VmCe2wcbhtm0850AZxJTXIUae3zhZteYOfU0S+YlPs5g/a56z
+	gl1AShsjFv21kY3Sa/dPOtcd0yu02463NJxYDG63EI/r2DmazePydH+9PfpVKWMmRssiV0Aodv7
+	jsqLafsU+jg==
+X-Received: from dyba9.prod.google.com ([2002:a05:693c:63c9:b0:36d:8068:9180])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:f401:b0:385:e4d9:e0e7
+ with SMTP id 5a478bee46e88-385e4d9e3f5mr2821138eec.5.1795212967274; Fri, 20
+ Nov 2026 14:16:07 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:30 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-29-irogers@google.com>
-Subject: [PATCH v3 28/30] perf stat report: Display metrics for recorded events
+Message-ID: <20261120221332.2245191-30-irogers@google.com>
+Subject: [PATCH v3 29/30] perf script: Display metrics for perf stat record data
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -91,219 +91,207 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-perf stat report displays the recorded counts but not the metrics that
-perf stat record displayed, as metrics aren't recorded in the perf.data
-file. Inspect the recorded command line in struct perf_env and display
-the metrics requested on the perf stat record command line (or the
-default metrics when no events or metrics were explicitly specified),
-for example:
+perf script displays the counts of each stat round read from a perf stat
+record perf.data file. Also display, after each round, the metrics
+requested on the perf stat record command line (or all matching metrics
+when --all-metrics or stat.all-metrics=true is used), computed from the
+counts aggregated across CPUs and threads, for example:
 
   $ perf stat record -M insn_per_cycle -a sleep 1
-  $ perf stat report
+  $ perf script
+  CPU THREAD         VAL         ENA         RUN        TIME EVENT
   ...
-    784,599,279  cpu_atom/cpu-cycles/   # 0.7 instructions  insn_per_cycle
-    586,070,692  cpu_atom/instructions/
-    776,737,361  cpu_core/cpu-cycles/   # 1.3 instructions  insn_per_cycle
-  1,011,699,468  cpu_core/instructions/
-
-    1.004467030 seconds time elapsed
-
-Also add --all-metrics (and the stat.all-metrics config option) to
-display all metrics whose events were recorded in the perf.data file,
-as well as -M/--metrics and --metric-only options to perf stat report.
-Set stat_config.system_wide from the recorded thread map as metrics
-such as CPUs_utilized depend upon it.
+  cpu_atom/cpu-cycles/  metric:      0.7 instructions  insn_per_cycle
+  cpu_core/cpu-cycles/  metric:      1.3 instructions  insn_per_cycle
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/Documentation/perf-config.txt |  7 +++
- tools/perf/Documentation/perf-stat.txt   |  5 +++
- tools/perf/builtin-stat.c                | 54 +++++++++++++++++++++---
- tools/perf/util/config.c                 |  3 ++
- tools/perf/util/stat.h                   |  1 +
- 5 files changed, 65 insertions(+), 5 deletions(-)
+ tools/perf/Documentation/perf-script.txt |   6 ++
+ tools/perf/builtin-script.c              | 107 ++++++++++++++++++++++-
+ 2 files changed, 110 insertions(+), 3 deletions(-)
 
-diff --git a/tools/perf/Documentation/perf-config.txt b/tools/perf/Documentation/perf-config.txt
-index 6cff6f26af8d..906e59c7e9d5 100644
---- a/tools/perf/Documentation/perf-config.txt
-+++ b/tools/perf/Documentation/perf-config.txt
-@@ -713,6 +713,13 @@ stat.*::
- 		(boolean) Change the default for "--big-num". To make
- 		"--no-big-num" the default, set "stat.big-num=false".
- 
-+	stat.all-metrics::
-+		(boolean) Change the default for "--all-metrics" in
-+		"perf stat report" and "perf script". When true, all metrics
-+		whose events were recorded in the data file are displayed rather
-+		than only the metrics requested on the "perf stat record"
-+		command line.
-+
- intel-pt.*::
- 
- 	intel-pt.cache-divisor::
-diff --git a/tools/perf/Documentation/perf-stat.txt b/tools/perf/Documentation/perf-stat.txt
-index 8ea17da89976..7258ec280770 100644
---- a/tools/perf/Documentation/perf-stat.txt
-+++ b/tools/perf/Documentation/perf-stat.txt
-@@ -426,6 +426,11 @@ information at the boundary of the level 3 cache in the system.
- --per-core::
- Aggregate counts per physical processor for system-wide mode measurements.
+diff --git a/tools/perf/Documentation/perf-script.txt b/tools/perf/Documentation/perf-script.txt
+index f0228e784ced..bfd69d411996 100644
+--- a/tools/perf/Documentation/perf-script.txt
++++ b/tools/perf/Documentation/perf-script.txt
+@@ -468,6 +468,12 @@ include::itrace.txt[]
+ 	default behavior.  If you want to see separate CALLCHAIN_DEFERRED
+ 	records for some reason, use --no-merge-callchains explicitly.
  
 +--all-metrics::
-+Display all metrics that match the recorded events in the perf data file,
-+rather than only the metrics requested on the 'perf stat record' command line.
-+Default setting can be changed with "perf config stat.all-metrics=true".
++	Display all metrics that match the recorded stat events in the perf data
++	file, rather than only the metrics requested on the 'perf stat record'
++	command line. Default setting can be changed with
++	"perf config stat.all-metrics=true".
 +
- -M::
- --metrics::
- Print metrics or metricgroups specified in a comma separated list.
-diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
-index 2b563382cf43..64883e7cb6aa 100644
---- a/tools/perf/builtin-stat.c
-+++ b/tools/perf/builtin-stat.c
-@@ -2246,6 +2246,29 @@ static int process_stat_round_event(const struct perf_tool *tool __maybe_unused,
- 	struct perf_env *env = perf_session__env(session);
- 	const char **argv = env->cmdline_argv;
- 	int argc = env->nr_cmdline;
-+	static bool metrics_added;
-+
-+	if (!metrics_added) {
-+		struct perf_thread_map *threads = evlist__core(session->evlist)->threads;
-+		bool system_wide = !threads || perf_thread_map__nr(threads) < 1 ||
-+				   perf_thread_map__pid(threads, /*idx=*/0) == -1;
-+
-+		/* Metrics may use system_wide, such as for #target_cpu. */
-+		stat_config.system_wide = system_wide;
-+		metricgroup__add_recorded_metrics(session->evlist, metrics,
-+						  parse_events_option_args.pmu_filter,
-+						  parse_events_option_args.cputype_filter,
-+						  stat_config.metric_no_group,
-+						  stat_config.metric_no_merge,
-+						  stat_config.metric_no_threshold,
-+						  stat_config.all_metrics,
-+						  system_wide,
-+						  /*default_metricgroup=*/true,
-+						  force_metric_only ? NULL
-+								    : &stat_config.metric_only);
-+		zfree(&metrics);
-+		metrics_added = true;
+ :GMEXAMPLECMD: script
+ :GMEXAMPLESUBCMD:
+ include::guest-files.txt[]
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index afed2353ef80..135ec34494bd 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -2334,8 +2334,13 @@ static void script_print_metric(struct perf_stat_config *config __maybe_unused,
+ 
+ 	if (!fmt)
+ 		return;
+-	perf_sample__fprintf_start(NULL, mctx->sample, mctx->thread, mctx->evsel,
+-				   PERF_RECORD_SAMPLE, mctx->fp);
++	if (mctx->sample) {
++		perf_sample__fprintf_start(NULL, mctx->sample, mctx->thread, mctx->evsel,
++					   PERF_RECORD_SAMPLE, mctx->fp);
++	} else {
++		/* Metric computed from the counts of a perf stat record round. */
++		fputs(evsel__name(mctx->evsel), mctx->fp);
 +	}
+ 	fputs("\tmetric: ", mctx->fp);
+ 	if (color)
+ 		color_fprintf(mctx->fp, color, fmt, val);
+@@ -3795,26 +3800,112 @@ static void script__setup_sample_type(struct perf_script *script)
+ 	}
+ }
  
- 	process_counters();
++/*
++ * Set up the computation of metrics whose events were all recorded by perf stat
++ * record. Counts are aggregated globally for the metrics.
++ */
++static bool script_stat_metrics_init(struct evlist *evlist)
++{
++	struct perf_thread_map *threads = evlist__core(evlist)->threads;
++	struct evsel *counter;
++
++	evlist__for_each_entry(evlist, counter) {
++		if (!counter->stats)
++			return false;
++	}
++	/* Metrics may use system_wide, such as for #target_cpu. */
++	stat_config.system_wide = !threads || perf_thread_map__nr(threads) < 1 ||
++				  perf_thread_map__pid(threads, /*idx=*/0) == -1;
++	metricgroup__add_recorded_metrics(evlist, /*metrics=*/NULL,
++					  /*pmu_filter=*/NULL,
++					  /*cputype_filter=*/false,
++					  stat_config.metric_no_group,
++					  stat_config.metric_no_merge,
++					  stat_config.metric_no_threshold,
++					  stat_config.all_metrics,
++					  stat_config.system_wide,
++					  /*default_metricgroup=*/false,
++					  /*metric_only=*/NULL);
++
++	if (rblist__empty(evlist__metric_events(evlist)))
++		return false;
++
++	if (!stat_config.aggr_map) {
++		stat_config.aggr_get_id = script_aggr_cpu_id_get;
++		stat_config.aggr_map =
++			cpu_aggr_map__new(evlist__core(evlist)->user_requested_cpus,
++					  aggr_cpu_id__global, /*data=*/NULL,
++					  /*needs_sort=*/false);
++		if (!stat_config.aggr_map)
++			return false;
++	}
++	/*
++	 * The aggregated stats may already have been allocated, with the
++	 * aggr_map, for metrics computed from samples.
++	 */
++	if (!evlist__first(evlist)->stats->aggr &&
++	    evlist__alloc_aggr_stats(evlist, stat_config.aggr_map->nr))
++		return false;
++
++	if (!stat_config.output)
++		stat_config.output = stdout;
++	stat_config.aggr_mode = AGGR_GLOBAL;
++	return true;
++}
++
++static void script_print_stat_metrics(struct evlist *evlist)
++{
++	struct evsel *counter;
++	int aggr_idx;
++
++	evlist__for_each_entry(evlist, counter) {
++		struct perf_stat_output_ctx ctx = {
++			.print_metric = script_print_metric,
++			.new_line = script_new_line,
++			.ctx = &(struct metric_ctx) {
++				.evsel = counter,
++				.fp = stdout,
++			},
++			.force_header = false,
++		};
++
++		cpu_aggr_map__for_each_idx(aggr_idx, stat_config.aggr_map)
++			perf_stat__print_shadow_stats(&stat_config, counter, aggr_idx, &ctx);
++	}
++}
++
+ static int process_stat_round_event(const struct perf_tool *tool __maybe_unused,
+ 				    struct perf_session *session,
+ 				    union perf_event *event)
+ {
+ 	struct perf_record_stat_round *round = &event->stat_round;
+ 	struct evsel *counter;
++	static int show_metrics = -1;
++
++	if (show_metrics < 0)
++		show_metrics = script_stat_metrics_init(session->evlist) ? 1 : 0;
++
++	if (show_metrics)
++		evlist__reset_aggr_stats(session->evlist);
  
-@@ -2296,6 +2319,8 @@ int process_stat_config_event(const struct perf_tool *tool,
+ 	evlist__for_each_entry(session->evlist, counter) {
+ 		perf_stat_process_counter(&stat_config, counter);
+ 		process_stat(counter, round->time);
+ 	}
  
- static int set_maps(struct perf_stat *st)
++	if (show_metrics)
++		script_print_stat_metrics(session->evlist);
++
+ 	process_stat_interval(round->time);
+ 	return 0;
+ }
+ 
+ static int process_stat_config_event(const struct perf_tool *tool __maybe_unused,
+-				     struct perf_session *session __maybe_unused,
++				     struct perf_session *session,
+ 				     union perf_event *event)
  {
 +	struct evsel *counter;
 +
- 	if (!st->cpus || !st->threads)
- 		return 0;
+ 	perf_event__read_stat_config(&stat_config, &event->stat_config);
  
-@@ -2307,6 +2332,9 @@ static int set_maps(struct perf_stat *st)
- 	if (evlist__alloc_stats(&stat_config, evsel_list, /*alloc_raw=*/true))
- 		return -ENOMEM;
+ 	/*
+@@ -3823,6 +3914,13 @@ static int process_stat_config_event(const struct perf_tool *tool __maybe_unused
+ 	 */
+ 	stat_config.aggr_mode = AGGR_NONE;
  
-+	evlist__for_each_entry(evsel_list, counter)
++	/*
++	 * Mark counters unsupported until a PERF_RECORD_STAT event is
++	 * processed for them by perf_event__process_stat_event().
++	 */
++	evlist__for_each_entry(session->evlist, counter)
 +		counter->supported = false;
 +
- 	st->maps_allocated = true;
  	return 0;
  }
-@@ -2365,7 +2393,7 @@ static int __cmd_report(int argc, const char **argv)
- {
- 	struct perf_session *session;
- 	struct opt_aggr_mode opt_mode = {};
--	const struct option options[] = {
-+	struct option options[] = {
- 	OPT_STRING('i', "input", &input_name, "file", "input file name"),
- 	OPT_BOOLEAN(0, "per-thread", &opt_mode.thread, "aggregate counts per thread"),
- 	OPT_BOOLEAN(0, "per-socket", &opt_mode.socket,
-@@ -2381,11 +2409,20 @@ static int __cmd_report(int argc, const char **argv)
- 	OPT_BOOLEAN(0, "per-node", &opt_mode.node, "aggregate counts per numa node"),
- 	OPT_BOOLEAN('A', "no-aggr", &opt_mode.no_aggr,
- 		    "disable aggregation across CPUs or PMUs"),
-+	OPT_CALLBACK('M', "metrics", &evsel_list, "metric/metric group list",
-+		     "display specified metrics or metric groups (separated by ,)",
-+		     append_metric_groups),
+ 
+@@ -4206,6 +4304,8 @@ int cmd_script(int argc, const char **argv)
+ 		    "Enable LBR callgraph stitching approach"),
+ 	OPT_BOOLEAN('\0', "merge-callchains", &merge_deferred_callchains,
+ 		    "Enable merge deferred user callchains"),
 +	OPT_BOOLEAN(0, "all-metrics", &stat_config.all_metrics,
-+		    "display all metrics matching recorded events"),
-+	OPT_CALLBACK_NOOPT(0, "metric-only", &stat_config.metric_only, NULL,
-+			   "Only print computed metrics. No raw values",
-+			   enable_metric_only),
++		    "Display all metrics matching recorded stat events"),
+ 	OPTS_EVSWITCH(&script.evswitch),
  	OPT_END()
  	};
- 	struct stat st;
- 	int ret;
+@@ -4577,6 +4677,7 @@ int cmd_script(int argc, const char **argv)
  
-+	set_option_flag(options, 'M', "metrics", PARSE_OPT_NONEG);
- 	argc = parse_options(argc, argv, options, stat_report_usage, 0);
- 
- 	perf_stat.aggr_mode = opt_aggr_mode_to_aggr_mode(&opt_mode);
-@@ -2412,8 +2449,10 @@ static int __cmd_report(int argc, const char **argv)
- 	perf_stat.tool.stat_round	= process_stat_round_event;
- 
- 	session = perf_session__new(&perf_stat.data, &perf_stat.tool);
--	if (IS_ERR(session))
--		return PTR_ERR(session);
-+	if (IS_ERR(session)) {
-+		ret = PTR_ERR(session);
-+		goto out;
-+	}
- 
- 	perf_stat.session  = session;
- 	stat_config.output = stderr;
-@@ -2422,10 +2461,13 @@ static int __cmd_report(int argc, const char **argv)
- 
- 	ret = perf_session__process_events(session);
- 	if (ret)
--		return ret;
-+		goto out;
- 
+ 	zstd_fini(&(session->zstd_data));
+ 	evlist__free_stats(session->evlist);
++	zfree(&stat_config.aggr_map);
  	perf_session__delete(session);
--	return 0;
-+out:
-+	/* Freed when processing the first stat round, if there was one. */
-+	zfree(&metrics);
-+	return ret;
- }
+ 	perf_script__exit(&script);
  
- static void setup_system_wide(int forks)
-@@ -2603,6 +2645,8 @@ int cmd_stat(int argc, const char **argv)
- 		OPT_CALLBACK('M', "metrics", &evsel_list, "metric/metric group list",
- 			"monitor specified metrics or metric groups (separated by ,)",
- 			append_metric_groups),
-+		OPT_BOOLEAN(0, "all-metrics", &stat_config.all_metrics,
-+			"display all metrics matching recorded events (report only)"),
- 		OPT_BOOLEAN_FLAG(0, "all-kernel", &stat_config.all_kernel,
- 				"Configure all used events to run in kernel space.",
- 				PARSE_OPT_EXCLUSIVE),
-diff --git a/tools/perf/util/config.c b/tools/perf/util/config.c
-index 287401f159e6..d64d0db51d8e 100644
---- a/tools/perf/util/config.c
-+++ b/tools/perf/util/config.c
-@@ -514,6 +514,9 @@ static int perf_stat_config(const char *var, const char *value)
- 	if (!strcmp(var, "stat.bpf-counter-events"))
- 		evsel__bpf_counter_events = strdup(value);
- 
-+	if (!strcmp(var, "stat.all-metrics"))
-+		stat_config.all_metrics = perf_config_bool(var, value);
-+
- 	/* Add other config variables here. */
- 	return 0;
- }
-diff --git a/tools/perf/util/stat.h b/tools/perf/util/stat.h
-index e3598037a6aa..a957479804c1 100644
---- a/tools/perf/util/stat.h
-+++ b/tools/perf/util/stat.h
-@@ -82,6 +82,7 @@ struct perf_stat_config {
- 	bool			 metric_no_group;
- 	bool			 metric_no_merge;
- 	bool			 metric_no_threshold;
-+	bool			 all_metrics;
- 	bool			 hardware_aware_grouping;
- 	bool			 stop_read_counter;
- 	bool			 iostat_run;
 -- 
 2.56.1.750.gf70dc682cf-goog
 
