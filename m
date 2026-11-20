@@ -1,53 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795146142;
-	b=YOQ84Odkp06n4VjaMEurXIgaluJU7YgsRai2WdL5KVaLsXj+Kz7uHkWU63BebTEQiLU4
-	 LSBjVU4kpY3QJ4S3hixTPz4eC23jzCTuPtiJGNHmKALQnIFciL/aawLNJrPx3wjT/EnlR
-	 HHOlLUOfNJwkJLh/jd8Jr42lKPgDltIhlCC6BPSV+O2HHYa7j8YO13BD7CEcQ8Ukf+UFK
-	 Tknf1A/QwSwgksRrhFwF43TmVlIIQd2wEo+LqP+/EIasuiKgjQKZWsgPjbfHUe7dt+Dfy
-	 LitlxnGm5XR8UoiRUn0vrxHjrfHxTOSeheyexFA2F4wi6keuJ2iU+y75U1ZL+G7xLkg==
+	t=1795146375;
+	b=P8rEzZYOmGGJbHayeKe3MZ20tHXjhyA4nm37gMF5AFCJnudIhoMZFYgNhFbJ7Y4jUwzu
+	 48pn4b0c4YdbYGaGekwMWIYekolU9I08RgID1w1KrURsW+ddJQ6j3A4g2aJi/EVCwICGA
+	 iCgjIE13DekDpc1+iLxN4U2GYIfnIvEPL66jaLHUUqD+mxGECFKM93QaYWDdpKJZMeA9L
+	 FSYPQpTH3lNmAUF5nkkAKv21/U4ICqr0QIDgbGxMJNsf6joRLa7ncf1epsrjO2Ff6fLzW
+	 1pf1jfiu9RjA/YQJkRpaFm/wPyqg+0wiHgtn5NfaSkEH3QNF0lRAOKsJK+6G0l6IzJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795146142;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LvGgs0LmnbFgyPQ2jeX4JEBExkGaNzwkJs6z5uReUoQ=;
-	b=3fWZfcLvSwRkF5GqthEjGuLVlUZeKTTO2wZiDT4VCWwwLABL3IRDaYcvyiZsgok5HErH
-	 hHjxmnMHyTxuIeKSzBEjXwqA479rY8u0UAhoUXFSFm68h1sUAKQHyzQXjjV/J7X2yXXXO
-	 1JlvE0Nip9FFfDMBq21smSm41LqK6Crn1Iii3+nTIHZCt9AnzmBQwNMuR4/buELkwg42Z
-	 wCPNzej4C02fnEwB2O2UimN3VObK9bjzBvTXpOm1P5xbTHux/BkSB6PIXPqawyrj3Jz9v
-	 FJ8stb/D+IGmk1FyTgQ1Cc/WkIyN/9Ny7PlNqdX9a1RK0oOlHl60B4Vw912URlaxorA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795146375;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Subject:To:CC:
+	 References:From:Message-ID:Date:User-Agent:MIME-Version:In-Reply-To:
+	 Content-Type:Content-Language:Content-Transfer-Encoding:
+	 X-Originating-IP:X-ClientProxiedBy;
+	bh=Ov5PXrThZFLHfyzJInb6D7h8b2OrOQGcnTyb4KYS+vA=;
+	b=eXP3ZEdKiBewrO1XHqpt5x0g5W0NKT04fBaRAeVM8FRl+xW7BOlsybyUsrD5Mhnk93J3
+	 i4gyIjEN3KsA+PXVlPeYFZZk+vUI00HtCavQqrVA7zWV9bnnLZEWKt0hfp7SU8bkdlLOf
+	 qfgLsqlTr5S9Pv1Rd4F4FKtAl8aQysJ9B7EQIt8Na2vRR8EG8tz+stJaj1ygdOgTzM/nw
+	 4tCGSy27zsqgFi0VHfJvyL+JyDVjHmEBerLYFZY5KSHH3PFVGGisP8+zpXM5ybB3DnV2X
+	 g8UNvBkEuE66MMDo67gu1QGUvJ9gyN+D+yHHH6gQqCA1pr1ZmeJeQaUDanNlaTr6tig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PoT9Wi9z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=jxzmHuI6;
+	arc=none smtp.remote-ip=113.46.200.221
+Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8204A606A320;
-	Fri, 20 Nov 2026 03:42:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE2BF606A320;
+	Fri, 20 Nov 2026 03:46:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE2BF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PoT9Wi9z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDB9F1F000C6;
-	Fri, 20 Nov 2026 03:42:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795146142;
-	bh=LvGgs0LmnbFgyPQ2jeX4JEBExkGaNzwkJs6z5uReUoQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PoT9Wi9z4Bme/byZ1hCnxJvBK8kbn9Qt128ekf22cg/msr0H0ZWL2rPFttYtu80SH
-	 sQEM5dYPmuAF+26uN1ePnLHl8gl/reo5KmlYvsa1GIOppLd/YOPNJ+HkXGmAwvhASZ
-	 /wJZMvvNcG3pW5uLIUzMQ5PA3bI/FKT3UvvJ6ZeBk3s58wbAV0EcR0g0jyXCGn+WBw
-	 GQMxZuTf91M2vEFWZ6yzUOIgF6cD3ke940RHbawQ0CeotGZszgx+4vyIxOZYKmq1tq
-	 wUtFQoJuNwue8+xbDwgKtcihdaOy2hA6LTCds+8bc+2pnNIepV9ath8julvO9x/tav
-	 0Ubfm8JOXNdHw==
-Date: Thu, 19 Nov 2026 19:42:20 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Qu Wenruo <wqu@suse.com>
-Cc: linux-btrfs@vger.kernel.org, linux-crypto@vger.kernel.org,
-	ardb@kernel.org, x86@kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC v2 0/6] lib/crc: x86: convert the CRC assembly to C
- intrinsics
-Message-ID: <20261120034220.GA11532@sol>
-References: <cover.1795137348.git.wqu@suse.com>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=jxzmHuI6
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Ov5PXrThZFLHfyzJInb6D7h8b2OrOQGcnTyb4KYS+vA=;
+	b=jxzmHuI6+S2AM4qB3E6tP2vW2EUIm1a9lvlv02TDGcNki//Y61eFm1ApxoIQgdj3/h5NwLoHa
+	a3ofvYZNVW3pp5D041bES22Fz+KwZQhv0ZzdinV5+BrMqyfZ0UyikSZIFcJbGC16ojEpb5VuKCs
+	la9j/D50g/n+bztD1j+E+is=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jW1TF0f7VzRj3B;
+	Fri, 20 Nov 2026 11:45:53 +0800 (CST)
+Received: from whupemk100004.china.huawei.com (unknown [7.152.185.74])
+	by mail.maildlp.com (Postfix) with ESMTPS id A9A4B40683;
+	Fri, 20 Nov 2026 11:46:08 +0800 (CST)
+Received: from [10.173.125.21] (10.173.125.21) by
+ whupemk100004.china.huawei.com (7.152.185.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 20 Nov 2026 11:46:06 +0800
+Subject: Re: [PATCH v2] mm/page_owner: fix double decrement of stack count on
+ unpoison
+To: Nilay Vaish <nilayvaish@google.com>
+CC: "Jose A . Perez de Azpillaga" <azpijr@gmail.com>, Johannes Weiner
+	<hannes@cmpxchg.org>, Suren Baghdasaryan <surenb@google.com>, Michal Hocko
+	<mhocko@suse.com>, Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan
+	<ziy@nvidia.com>, Marco Elver <elver@google.com>, Andrey Konovalov
+	<andreyknvl@gmail.com>, Naoya Horiguchi <nao.horiguchi@gmail.com>,
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@kernel.org>, Oscar Salvador <osalvador@kernel.org>
+References: <20261119234804.1740734-1-nilayvaish@google.com>
+From: Miaohe Lin <linmiaohe@huawei.com>
+Message-ID: <539112f2-06a8-7c3a-cf95-0d6d63a7a5a5@huawei.com>
+Date: Fri, 20 Nov 2026 11:46:05 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,222 +77,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795137348.git.wqu@suse.com>
+In-Reply-To: <20261119234804.1740734-1-nilayvaish@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemk100004.china.huawei.com (7.152.185.74)
 
-[ +Cc x86@kernel.org ]
+On 2026/11/20 7:48, Nilay Vaish wrote:
+> page_owner counts, for each allocation stack, how many pages allocated
+> from that stack are still in use. The count is incremented when a page
+> is allocated and decremented in __reset_page_owner() when it is freed.
+> 
+> A page that is hwpoisoned while in use and later unpoisoned passes
+> through free_pages_prepare() twice:
+> 
+>   1. On poisoning, the last reference is dropped. free_pages_prepare()
+>      calls reset_page_owner() but, because the page is PageHWPoison(),
+>      keeps it off the free lists.
+> 
+>   2. On unpoisoning, unpoison_memory() drops the poison reference and
+>      free_pages_prepare() calls reset_page_owner() again, this time
+>      really freeing the page.
+> 
+> __reset_page_owner() decrements the stack count both times, although
+> the page was allocated only once. The first call clears
+> PAGE_EXT_OWNER_ALLOCATED, but the second call never checks it.
+> 
+> If this drives the count to zero while the stack is still in use,
+> stackdepot treats the record as freed and warns on every later
+> allocation or free that uses the same stack:
+> 
+>   dec_stack_record_count: refcount went to 0 for 92274844 handle
+>   WARNING: lib/stackdepot.c:517 at depot_fetch_stack+0x5c/0x70
+>   Call Trace:
+>    __set_page_owner+0x110/0x290
+>    get_page_from_freelist+0x1225/0x1440
+>    __alloc_frozen_pages_noprof+0x1fc/0x1b00
+>    __folio_alloc_noprof+0x12/0xa0
+>    alloc_migration_target+0x81/0x1e0
+>    migrate_pages_batch+0x1f2/0x14c0
+>    migrate_pages+0x9c3/0xca0
+>    soft_offline_page+0x189/0x570
+> 
+> A single soft offline followed by an unpoison is enough to trigger it,
+> because the migration-target stack that the offlined page is accounted
+> to usually has very few pages.
+> 
+> Fix it by decrementing the stack count only if PAGE_EXT_OWNER_ALLOCATED
+> was still set, i.e. only the first time the page is freed.
+> 
+> To reproduce, boot with page_owner=on and CONFIG_HWPOISON_INJECT, soft
+> offline anonymous pages with madvise(MADV_SOFT_OFFLINE), and unpoison
+> each old PFN through debugfs hwpoison/unpoison-pfn. Without this patch
 
-Hi Qu,
+Oh wow, this issue should be very easy to reproduce, and it has been around for
+quite some time. When I tested earlier, CONFIG_PAGE_OWNER was enabled, but I didn't
+add page_owner=on to the boot parameters. :(
 
-On Fri, Nov 20, 2026 at 11:48:58AM +1030, Qu Wenruo wrote:
-> [CHANGELOG]
-> v2:
-> - Use compiler's intrinsics header directly
-> - Convert all x86 asm files to C
+> the first cycle prints the message above and 2200 cycles produce 6597
+> warnings. With it, the same run is clean and all stack counts return
+> to their initial values.
 > 
-> Currently the x86 CRC code is all assembly: the generic [V]PCLMULQDQ
-> template (12 functions: crc16, crc32 and crc64, three vector lengths each)
-> and crc32c-3way.S.  arm and arm64 already use C intrinsics.
-> 
-> This series converts all of it to C with the compiler's intrinsics, and
-> removes the assembly.  No algorithm, constant or calling convention
-> changes, so the glue is untouched.
-> 
-> The goal is maintainability and portability, not speed: C is easier to
-> read, review and extend than the macro-heavy assembly.
-> And it is also easier to port to userspace tools like btrfs-progs and
-> xfsprogs which will require optimized CRC for offline operations.
-> 
-> Tests on a Zen5 VM show no obvious change in performance, except for clang
-> with the MSB-first SSE and AVX2 functions, see below.
-> 
-> Patches:
-> 
-> 1:   asm/x86-intrinsics.h, a wrapper around <immintrin.h>.
-> 2:   crc32c_x86_3way().
-> 3-6: crc32_lsb, crc64_msb, crc64_lsb and crc16_msb, each with the SSE4.1,
->      AVX2 and AVX512BW/VL variants.  The template crc-pclmul-impl.h grows
->      with them, and the assembly is removed in the last one.
-> 
-> Design decisions and trade-offs
-> ===============================
-> 
-> -  ISA selection: target attribute instead of per-file flags
-> 
->    Each function and helper has __attribute__((target(...))), the code is
->    not built with -msse4.1, -mavx2 or -mavx512*.  Per-file flags would
->    need one object per ISA level, or the SSE function could use AVX-512.
-> 
->    Pros: all vector lengths of a CRC are in one file, and the compiler can
->    only use an extension in the functions that run after the CPU feature
->    checks (checked in the objdump).
-> 
->    Cons: no precedent in the kernel for selecting x86 ISA levels this way,
->    and this is completely compiler dependent. See the GCC 8.1/8.2 issue
->    below.
-> 
-> -  One template, included once per function
-> 
->    The 12 functions differ only in vector length, CRC width and bit order,
->    so crc-pclmul-impl.h generates one per inclusion, after the includer
->    defined VL, CRC_BITS, CRC_MSB and CRC_FUNC.
-> 
->    I tried two different solutions:
-> 
->    * Nine standalone functions
->      About 1400 lines against about 490 with the template.
->      And any fututre fixes needs to be duplicated 9 times.
-> 
->    * A DEFINE_CRC_PCLMUL_FUNCS() style macro
->      It can work, but the body cannot have #if, so the wide-vector stages
->      become constant if()s and GCC warns about the dead code (-Wpsabi).
-> 
->      That macro also makes checkpatch warn about flow control in a macro,
->      and compiler errors, gdb and perf point at the invocation line.
-> 
->    The include-as-template is not a common practice, but would be the
->    least-worst solution I can come up with.
-> 
-> -  Generated code and performance
-> 
->    Against the assembly (kbuild objects, GCC 16.2, clang 23): clang has
->    the same total size for the 12 pclmul functions (7453 against 7482
->    bytes) and the same instruction count in each main loop.
-> 
->    GCC is 18% bigger (SSE +12%, AVX2 +22%, AVX-512 +19%): stack
->    realignment in every function and, for AVX-512, loads not folded into
->    vpternlogq (19 instead of 16 instructions in the LSB-first main loop).
-> 
->    crc32c_x86_3way() grows from 400 bytes to 603 (GCC) and 783 (clang),
->    mostly prologue and unrolling of the tail.  The main loop is 15, 17 and
->    16 instructions (asm, GCC, clang).
-> 
->    Every C function also gets endbr64 and the ftrace call, which the
->    assembly never had.  The call is patched to a nop at boot.
-> 
->    Throughput comes from a userspace harness using the same sources, built
->    with the kernel's -mno-sse flags, on a Zen5 VM (Ryzen AI 9 HX 370): one
->    pinned CPU, median of 7 runs.  No in-kernel benchmark yet.
-> 
->    Peak is about 7.7, 15.4 and 30.7 GB/s for SSE, AVX2 and AVX-512.  GCC
->    is within 2% of the assembly from 1 KiB, up to 4-6% slower at 64-200
->    bytes and 8% for AVX2 at 512 bytes.
-> 
->    clang is the same, except crc64_msb and crc16_msb: SSE is 5-8% slower
->    from 512 bytes, AVX2 5-7% from 1 KiB, but 14% faster at 512 bytes.
->    AVX-512 is equal.
-> 
->    The clang SSE loop is 175 bytes against 153 for the assembly, as it
->    keeps data in xmm8-xmm11 (REX prefixes).  That is likely the cause,
->    changing the XOR order did not help.
-> 
->    crc32c_x86_3way() is within 3% of the assembly: 8.6 to 9.0 GB/s at 200
->    bytes, 14.8 to 14.9 GB/s at 64 KiB.
-> 
-> Known issue: GCC 8.1 and 8.2
-> 
->    GCC 8.1 and 8.2 cannot build the AVX2 functions.  Their
->    <vpclmulqdqintrin.h> declares _mm256_clmulepi64_epi128() with avx512vl
->    in its target, which fold256() lacks, so it cannot be inlined.
-> 
->    GCC 8.3 and later only need avx.  I reproduced it on Compiler Explorer,
->    where 8.3 to 9.5 build the code cleanly.
-> 
->    Calling __builtin_ia32_vpclmulqdq_v4di() directly for GCC older than 9
->    fixes it, but it is not included.  8.1 is still the documented minimum,
->    so: add that workaround, raise the minimum, or ignore 8.1 and 8.2?
-> 
-> 
-> Qu Wenruo (6):
->   x86: Add a wrapper header for the compiler's SIMD intrinsics
->   lib/crc: x86: Convert crc32c_x86_3way() from assembly to C intrinsics
->   lib/crc: x86: Convert crc32_lsb_*() from assembly to C
->   lib/crc: x86: Convert crc64_msb_*() from assembly to C
->   lib/crc: x86: Convert crc64_lsb_*() from assembly to C
->   lib/crc: x86: Convert crc16_msb_*() from assembly to C
-> 
->  arch/x86/include/asm/x86-intrinsics.h |  49 +++
->  lib/crc/Makefile                      |  11 +-
->  lib/crc/x86/crc-pclmul-helpers.h      |  90 ++++
->  lib/crc/x86/crc-pclmul-impl.h         | 304 ++++++++++++++
->  lib/crc/x86/crc-pclmul-template.S     | 575 --------------------------
->  lib/crc/x86/crc-pclmul-template.h     |   2 +-
->  lib/crc/x86/crc16-msb-pclmul.S        |   6 -
->  lib/crc/x86/crc16-msb-pclmul.c        |  23 ++
->  lib/crc/x86/crc32-pclmul.S            |   6 -
->  lib/crc/x86/crc32-pclmul.c            |  23 ++
->  lib/crc/x86/crc32.h                   |   2 +-
->  lib/crc/x86/crc32c-3way.S             | 360 ----------------
->  lib/crc/x86/crc32c-3way.c             | 264 ++++++++++++
->  lib/crc/x86/crc64-lsb-pclmul.c        |  23 ++
->  lib/crc/x86/crc64-msb-pclmul.c        |  23 ++
->  lib/crc/x86/crc64-pclmul.S            |   7 -
->  16 files changed, 811 insertions(+), 957 deletions(-)
->  create mode 100644 arch/x86/include/asm/x86-intrinsics.h
->  create mode 100644 lib/crc/x86/crc-pclmul-helpers.h
->  create mode 100644 lib/crc/x86/crc-pclmul-impl.h
->  delete mode 100644 lib/crc/x86/crc-pclmul-template.S
->  delete mode 100644 lib/crc/x86/crc16-msb-pclmul.S
->  create mode 100644 lib/crc/x86/crc16-msb-pclmul.c
->  delete mode 100644 lib/crc/x86/crc32-pclmul.S
->  create mode 100644 lib/crc/x86/crc32-pclmul.c
->  delete mode 100644 lib/crc/x86/crc32c-3way.S
->  create mode 100644 lib/crc/x86/crc32c-3way.c
->  create mode 100644 lib/crc/x86/crc64-lsb-pclmul.c
->  create mode 100644 lib/crc/x86/crc64-msb-pclmul.c
->  delete mode 100644 lib/crc/x86/crc64-pclmul.S
+> Fixes: 217b2119b9e2 ("mm,page_owner: implement the tracking of the stacks count")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Jose A. Perez de Azpillaga <azpijr@gmail.com>
+> Reviewed-by: Oscar Salvador (SUSE) <osalvador@kernel.org>
+> Signed-off-by: Nilay Vaish <nilayvaish@google.com>
 
-Thanks for exploring this.
+Reviewed-by: Miaohe Lin <linmiaohe@huawei.com>
 
-I think we should be honest: this would be a negative for
-maintainability at least in the short term.  We'd be replacing existing
-well-optimized and well-documented code with an experimental use of x86
-C intrinsics in the kernel, with many of the original comments stripped
-out or made inconsistent, and signing up to fight with compiler issues
-(including inconsistent support between compilers, having to use
-error-prone hacks to use the x86 intrinsics in the kernel at all, and
-inefficient code generation which in some cases might not be solvable
-without contributing fixes to gcc/clang).
-
-I've used the x86 C intrinsics extensively in userspace projects.  So
-sure, some of these compiler issues (minus the ones specific to trying
-to use the intrinsics in the kernel) are things I'm used to already.
-It's just been nice to not have to deal with them in the kernel.
-
-Note that gcc can't even generate simple loops using vector intrinsics
-without emitting unnecessary move instructions.  I reported it years ago
-(https://gcc.gnu.org/bugzilla/show_bug.cgi?id=107892) and it's still
-unfixed.  So realistically, we either need to simply tolerate bad
-codegen like that, or actually step up and actively contribute fixes to
-the compilers (as merely opening a bug report does not result in a fix).
-
-And as you mentioned in your cover letter, a lot of the code grew in
-size and became slower, especially for short inputs which are important
-for some in-kernel use cases.  So clearly there is some bad codegen
-going on compared to what was there before.
-
-I kind of feel this could only be a benefit in the long term if we
-actually go all in and commit to switching the crypto code over to this
-style of implementation as well.  But that area has a lot more code.
-And that code also has another thorny issue: when operating on secrets,
-it has to make sure to only use x86 instructions that are in the DOITM
-(Data Operand Independent Timing Mode) subset.  Yet there's no compiler
-support for restricting the used instructions to that subset, and no
-announced plans from anyone (Intel, AMD, or otherwise) to implement it.
-
-I'll also note that the hardest part to understand about this code (IMO)
-is actually the polynomial math, especially the Barrett reduction.  And
-yet this series deletes or greatly shortens many of the comments
-explaining it, leaving unexplained operations, factually wrong comments
-(especially for the Barrett reduction), and dangling references.  That's
-most of the negative diff, too.
-
-So if we're going to proceed, I'd at least like to see a version that
-compares a bit more favorably to the original.  But also I think before
-diving into this approach I'd like wider agreement in the Linux
-community (x86 maintainers, crypto, etc.) that the x86 intrinsics are
-the way to go, and for there to be a path forward for DOITM as well, and
-hopefully some interest in improving the compilers too.
-
-- Eric
+Thanks.
+.
