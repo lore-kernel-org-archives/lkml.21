@@ -1,114 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218327;
-	b=WqYZoip7haTv0HFmTd2i35w55xamWtkPeG+//JulnCDM6yAeoP/mARRKL2LDzvY7HGzn
-	 oecfTD9Jg5FDlEntTTY7YytzfDZ60PCG9qhPRboCNzVfNQ5gxr7ci2T4lsaEKfcdi7GOk
-	 drdZIyDWgXGVWPqFGYV7bDq0qGEWo3Gii/Gr9VLuYl+Fc6lJ7jJINWe5r45b9OSg5aZwF
-	 nJVTsg9Uo8ETcQTsJC4qrfVZg0LCgb9cEGDVP87pY9g+KrV9boeznIvMSL8eq4IJbK6CH
-	 eZqo81NuEyTYq8BqLXtTFeKizQyej7l9XKKhVzf0bdy/s4SHqFrARARkhlF88TB5GJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218327;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=Rc2l4NhiVbNsYAKguNZDNfqyM+0RNSHLxFUsWz17xDM=;
-	b=a13j90arhwSL8XN1krSw+s49v8yP2MW23kR7ZLW64rE7NRX34sjS3FBvWQyDTND8E1CW
-	 7HiOxcQviIbDAmwzInSYmzBcsYfmyA1Q08fyj1phVZSbCYCFxauN6x4REWoburst5NAeJ
-	 PWqkbEXud9Z1aZ2jqD99HQX6ygM+xXX20UUB4l/R2EYo/6RNB34AiCJ37ev1mXMmRpcRV
-	 c/hY0pRDcjK0d+pVxaYJo9+P2hs7co/Cb+YO4rRyQYhwo1euBOip81kUNFuEzXpylWyP3
-	 mkniEZp0mEZ82zIaM1Q9qC2NkWkYm477Xb4LTtI0lyzuoJa+H9DdputPv1RnZ/ducFA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=esiVVdqS;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Mlqz0iG6;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795218369;
+	b=n9q/lUr9WRlTK4PVB1M0z9ATgcsx86ZzPnZr733rGwOuM5RahOiMf319g/Rgpp0zpWSF
+	 amG9dh5ZPsEw7VzcwnOE7jo47WWxrnag0zlNax+mcWTbxEtlHCNGqNufVdHaPC+TF7ryk
+	 +QU7R2z+Xi6EK8EXCveNPitO7LdKlwgSUweRfmNSZqdPlSuIvvFFJBDeqJFdEt6AfRM/p
+	 lJx0OZE4zTr6XzdbgwH/5t7UaxrybrkEIyLImda5tdBLPmZyDdaL6+gz34YQuwA6kwB/Z
+	 fUkdjDSPAHIfeYAUpIPZUbQy2+D8kX/PLdlXfysDzpTTK8Q0vRWitLV61zfwtGjN9pA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218369;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=TF/OrXQqNDrjszpeflyaDCo7TdpIhYTZUC07gi7hq5U=;
+	b=evfk7M9ifeidMFKfb24OVGf1+z9zRPt92kDkUsXMjo9+zhZWaJdGDVZI9IKjwSTTYAfR
+	 gNfCcf0oUUPlpINCaBeIdjMTVrrHgHbzE06utAShOI6jg3J3cCYVq9Q+0WNiYfTXsM5Kz
+	 pF6bK7YLihesoUTOGXxHiD09WJpFJ0c9Mc3489m7n69rP8dq4UNUNb0zfi2K9md6i8R4Q
+	 otjWO3tzMMQc4h73n2iz1MhlvGXduG+pGAvbmLbDPhbs08IXrEe1iad6YJQjFeocA4qzk
+	 voSpL3JY/q9+h4wZrgIx3geMRXaipmcT+ksMqqbPeUUWtf8nX5BS3tIuZwrtybejPHA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+PiW6VL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C888660A2621
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C888660A2621
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD99C606A6BA
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:46:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD99C606A6BA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=esiVVdqS;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Mlqz0iG6
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKLNNDC304265
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Rc2l4NhiVbNsYAKguNZDNfqyM+0RNSHLxFUsWz17xDM=; b=esiVVdqS0nNVURsr
-	7IbCJqr8nt+vkMK0rOK0GHTVPfPC3wnruTKNxKphwtu7cCVfZ0/Skwr7Mq6HvJRd
-	xchtLFSkwdmYkmaaH4+NGdxG8XdEkbduzSnNydZAeAn8e6+iNdaAc9D5YeO+p5Il
-	RcdL3al1tYTtydBRS8jbtrMc6Ld8nNvmt73tSCpeHHM0rWxaWTI4TEP8agNGof8Z
-	/k3xz2D/+6QbbmtW1yNZpdTLOw198NCGIGm+QZUncbvuFWDjUkkrYW0lk5gVKFT8
-	j9JHUL1EdnpIQtMg/5hG3XF7OQHyL7jnteVZSabKltUIKsNFSa4E3Fj2Kh2POLeE
-	Zkl2Jw==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2gu83yyk-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:13 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-384dc44c70aso109938eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:45:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+PiW6VL
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so904503f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:46:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795218363; cv=none;
+        d=google.com; s=arc-20260327;
+        b=b6ERktnaCgQJRgbaJqrgti7+UaAcsGGuHu2a1RlKp4kzA8SC9RUwKNNKiqL1CFelfX
+         YhQPdhKxAVZ0b5Dv1spW/lrR/EVDbCNEyhSPs9qqh4hVuSKi+xQFkWbf4OkK3LlV2zro
+         x1PegsEReEryVRLeYrlNhCRvNaG96j+/QqmL0Jw+AnrMmzUYJZJXcGfbpB1wSlh9vPdy
+         UA3UJekLLB3lFvUG09iyEXZd5rP1KY8oejWn2b4Ae4hMpkhAzF2JXQP1ivM49pvspYJU
+         +PCaCXxiLDVuhelKthXXG8nKmM4GZJpXDQ7Big53kkxbF8CHAi7edL9zA4og5zvZ2Ec9
+         J/HA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=TF/OrXQqNDrjszpeflyaDCo7TdpIhYTZUC07gi7hq5U=;
+        fh=+GNjal+pQAJDxRURzWOB6MUxPaFU/0rSD/wJRDBzlgE=;
+        b=k41prFE/q4A80f/R+X0nLqkWeGxVULmTuiZzcBa/hbgLyTfJDz/AqRA+yD4pj6ZjnB
+         +ecPtvRddHrNrlUVpkFLDDlLasNWJo5KOA73GlMPMn9YXQweDw3XCD1ZyeGYmHAZa1hl
+         x2Z1Hota1gfvd+Im2dBxZfnF0dMWjME0OvpBPSfDHO4x3WkNvI6Puxl+EPYzwazNPrk5
+         PBBMiE981bBY/QopPxT7UGeCIZnNHzg4KyzkqU91AUJWtKeDh9R7RpRpchxOtR/XMr7R
+         0Z3IRsWCmbu3pgnVAmxCWMhpYDXB+rC4Tvj/YheH1QJuJFG2We61e/cxv3zqBa4O48I4
+         Ql+A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795218312; x=1795823112; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rc2l4NhiVbNsYAKguNZDNfqyM+0RNSHLxFUsWz17xDM=;
-        b=Mlqz0iG67TeXhO/mshAUhHvFKwVZ0J9974T3FMPSOtPcE+JH7ty8P94n6ApWpCSxkh
-         GlB9Sa3gsKDu0DAHlLA0VlO/6cmETzr/ovsCHjRr2mkDjweG92FGRwVH4uet/IIFAIjP
-         kceGdnDhHtqb2JDmJpRLMI9ObiXdeZEWhs7vWfRxXX3X1LWXc6hdpS1hFw2ugUwxKoK1
-         4ZLwLiBtPl4OQeIyf9rJ8jdZdqqUV5GybRXT4JnowSWumIGuXwm7NJp3HGTrjhQNCdX6
-         pvtI4RJ5y6ynCSoY5fsYg2FfArWFuEV/1rnwTjFOLonmsNgHFG3cYDlQbSB/DJe8untx
-         1yXA==
+        d=gmail.com; s=20260707; t=1795218363; x=1795823163; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=TF/OrXQqNDrjszpeflyaDCo7TdpIhYTZUC07gi7hq5U=;
+        b=k+PiW6VLolf7vxB9lvbl12ZRcokDbxDeqo2OwzDCtb5oh7HN1Muk107TvcLKvY5d3S
+         zCzI+eGRqAHnGXi8pv+Mn+fuPxwf7sJFac7hxyd1VGIugN8u9wRq75/vydRyAZlByNLb
+         AtBeSeWV4kPcurTpIPO03IYjJxoYVJx/pjXN4fbEdaMUa8/qWkTyR3EIYzTvYGoR/GsN
+         XeD+lqZujpj2itzyNpa2X9wLeg6EQcsUbRbRLd10hQim2wFHI4JIZqzwGJuZgw36UOXu
+         8HVXDp/8Ri6Jaos7M7jcCbA6UYOp/SYh/S6p0f1ex1Mn6MMPkCXEV5nQnbSQsUkPklte
+         9c9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795218312; x=1795823112;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1795218363; x=1795823163;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Rc2l4NhiVbNsYAKguNZDNfqyM+0RNSHLxFUsWz17xDM=;
-        b=dXPH32OrOhaxttL1FnOBNG7dZnm1FGYaS1f8SjrGt7vdbsJqsnJZkD6vPnUJ95qNeE
-         8yiRATD2MKLjFRhEvdrTK91z9yhNThUxmZJnVTvl0cfpX3n/N9YaCVH0//ZDZhlCUWNm
-         NXvMIdgHKr5KSSMMIKddwN78fWUzXhmV2lRsnxZTKc3NHL6aJisEn9BERMRY+869WXrz
-         EhTWcEr49e1dDUhhblZrxeUbFBJ2O6TuoH5x+4YVaWregwiR2SRctbhxIeeET3w4R8bh
-         taODkCnVFZJ0cUehLwe+crCBHY9t/jfsx2+tSuq6W23lkvsCa4sqrXATB9ZV33/4NJcm
-         pXAg==
-X-Forwarded-Encrypted: i=1; AL+hErFzCVMgtise3JCRX7Ib/01FAOlabkegG+ZZCe+yM7rSRsOy31ZxlGkl/2MSK6LSoqJwCAwubd6kh0alFNI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9WMZhxPGv8DU1IIOGtNsJPqfqVxsFgEALuzlaMuQKXznducGol
-	ynO5w2CXPF5Se82sKuHXeAyf91TpJWZ2HZh9dbjhzEYj/QZ8/VjltJSguw+ft1IM1VosTf0XzJu
-	61ReHj8C6jmgHdD2k0YRY9qi7UtpedQbAh7E+NkCAi+DntGeW6e2ri2qaHWw1ZTRN8Rea+CNSar
-	g=
-X-Gm-Gg: AZFdTZc0KQ4HQwoJsbvaZQV5JzNpz2J629BodSti9+jvxzOh9+XTbcsuYE8m+D2xlrv
-	Ev6kuii9K+ny/A/HSgVHRV4xbR1Dfwp9B9PVOVcCJmeNwo4/NzgPrcsf77ESt4DdZAIIS+78Raj
-	1CIK0BECTzp+QLo1HCrRyBC54DEsFwpvk8Op0qHPtpZm0KWoAAxbJP7xbbYheUy81Uw4MNndT7I
-	ybJDCc+qRAgGZfuyDbxNHw0TqEozjdDbiuFsbjukcqZ3chBb69qw98cehmxmMEgiUnDF34HGFgK
-	i2ve5GHs5njPfmUvuRwIfmZAYnjTn1r6SWZ1JDXun10jKNAtOwHYAOnMnhR5ENkz138I93yIFf5
-	BzTqsvDKKlytff7eLNT8LppdD5xlf92Zq2lQTYxrTZIcREKWyMojYfnocMD41RGue48dinIfnFH
-	SzObvPutmDf1Izt25NHxXrLp0WgpJdYKSK1g==
-X-Received: by 2002:a05:7300:caa:b0:385:4627:bd5e with SMTP id 5a478bee46e88-3856ec46bccmr9235248eec.2.1795218312089;
-        Fri, 20 Nov 2026 15:45:12 -0800 (PST)
-X-Received: by 2002:a05:7300:caa:b0:385:4627:bd5e with SMTP id 5a478bee46e88-3856ec46bccmr9235124eec.2.1795218311136;
-        Fri, 20 Nov 2026 15:45:11 -0800 (PST)
-Received: from gu-dmadival-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm14669862eec.4.2026.11.20.15.45.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:45:10 -0800 (PST)
-From: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 15:45:06 -0800
-Subject: [PATCH v11 5/5] media: iris: Add BUF_ROIMB_DELTAQP metadata buffer
- for ROI delta QP
+        bh=TF/OrXQqNDrjszpeflyaDCo7TdpIhYTZUC07gi7hq5U=;
+        b=QyH/lXsexiGLmptwZ8Dxn+xnu0xwnmmu8EmBFE5CrKCbwbcIyClzNAq3krRmYXSJC4
+         WDTVSSJAUsKZVp21p3aIjlAuBKQgaVsm494F21B8dxXpy1y89kO7dsi91E0FKJ9wWn0+
+         R+Ts50WZU1Rv7WTe7GP6cCmOWqezKoKcxBLIg8OZ7lX9TidgmN2otAAgS0ISz5Air6Ld
+         vf8kauuA5vGZ2SyDdSiG907bjhIdJsvc9kS5hLw3hnHeVKKfod6NgyhMK0efcp8sGtvJ
+         xd4sbiffRJyMNBI/tOk9EY9GqnJMWS2a+hG77POF1ONlzaeP8LtLve2LrZ4nVEJ8At5D
+         NJ3Q==
+X-Forwarded-Encrypted: i=1; AL+hErFTzVIPatmYVSr6yzxAPyqN557Ayl0TUSx8qJMT3VsNomu4cxr6whB3YJrNRnNEubsC0Mq8RxXEFrqDgds=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8Adf5sbFQ0kOv0OxMQiecxE4cO4gIEyBJzHnuN7sw5O5/CaKc
+	UQhzf48uxQ98bwkFveNS8LphbRjvpddrqIyj82FAsZoabtEo6lr7MCroHcFmSZNJO1jVDt6H8AC
+	OKmhU16JNrdNscIbUKQ9dSX3ZMYWdZGHYtJZCc4A=
+X-Gm-Gg: AZFdTZeSndbKSPz3tnSDSxyLa0LAo+FK/kVwU67C4s3BQGLWD/mMGcbJU7VnWhnprsJ
+	D4HFg92sb30IjY4CaIbSz5LOEhd0N/DCKCI1LNvh/fmyyBmU0SaTRLaxZ3j3tAiNh28bEpgTDTe
+	eb2UJF/13VAiWVjSPhVffis3zhNWAiEzLDJjs8X1o3lUDOJWBgw3Fd7S+UVj/QHhLQQOjNPjkuV
+	WuL0F/+827n9Ks1ihWXP5G+k2ULKvO511Qucp/g2NuQ+d3kZHlaSG9EzZHzpVIRNC86Q69Nv6Ua
+	mRogkowRTUYwvToVQwGi0gG4Gg0ZAeGCvWrjwe0qZuHKUjeWIlCLxWNA1yyLR9ObH90fP8bWFuj
+	0r1uWcCRf+rSpK6EdX1spN/TkC5ivofzlqKD2x48FlI6wCr3QBT9+UG/TvQMTge9BmCKeezQNAq
+	6QEwbDakKuw2sFg+AYK+H8dr/vS8ouRzBS+zaMehBDkV4E0w1tjcl7aJGjEV6RvRPHEIQOfSOpP
+	zQa
+X-Received: by 2002:a05:6000:29ce:b0:4aa:6e52:23a9 with SMTP id
+ ffacd0b85a97d-4abb0e46a60mr7207679f8f.15.1795218362987; Fri, 20 Nov 2026
+ 15:46:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,398 +106,381 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-enc_roi_enable-v11-5-c00b95ea1b81@oss.qualcomm.com>
-References: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
-In-Reply-To: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Bryan O'Donoghue <bod@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>,
-        kernel test robot <lkp@intel.com>,
-        Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795218304; l=13484;
- i=deepa.madivalara@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=F3Z04TqkQ6B1gimk/+XFqezGBKHwYbEGxe2v80w+cW4=;
- b=JfCjTAbQ4QfIlr//wQ0/If1c+2TmSWU8hyQmBANCw+1/jsuxweb9E2KYOeHVZDyAhunLN15xt
- 7ErI4KcGMljCFInNHBA68RflVmC+HJAPVEDFjA4s7l6+eSHUJ0nL+sy
-X-Developer-Key: i=deepa.madivalara@oss.qualcomm.com; a=ed25519;
- pk=MOEXgyokievn+bgpHdS6Ixh/KQYyS90z2mqIbQ822FQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX4P58nNwRwWWW
- 0M1d5XB9ve5q71GEzH9bo9vqlmkjpGXOgf0xXhXIaa5qHsmRKRWlOH6QFaRL7zSbDts71Ze6UYy
- 5pa0A47pa8mWxizdXRLqzg9qPfh4N1WnBRDXSuwVBz2jzk28TG89803OopNVsQfsNgOFwwpK2Ua
- 2+XwqD9+1UrOmOWymIr/DU6wQ2oRjqXR4FIUBTgpg25xfaUsJ5zA6zZg+sWfpuUSJhqKvk5hfTg
- oEP0IZ2bRJ2wWszfVSJ5lCGbMzg0yGxv/5FLU8f0NrO3+q9iTO9ynIYVnwVTUaGD4gGf/3lzbTt
- LLJic97SSzeqzB1dC1AX22K6NRq/bx39l19LEFokJAxopdVkiLcrvSihREsCO8ftM88GUpWWnXm
- plAJOWIN2MWSekvpooftKy90ubH8LJIWiSPS812xRz3zch/qpsKs3wWXgV35DEOcuKTTWJvnJkY
- RBzpM4IM4vvmpyMFexg==
-X-Authority-Analysis: v=2.4 cv=bLeDs/+Z c=1 sm=1 tr=0 ts=6b00db89 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=s8F71vpxD9iY_bj2qIcA:9 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-ORIG-GUID: 0agG50Ttl-tEe2NN7MCdV8t9glxmeVHg
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX7mIhOz2VrEUN
- 4bGYq6M3jHoJK3sc0HQ+NgPIUttSvoLZqk3EBVMdjlg3ypFcXfDzuFtiFkH3JT1q5ChHl5eu9lv
- OXBLdxxGyVDWw4Tw7HATZdBr7N+CoPU=
-X-Proofpoint-GUID: 0agG50Ttl-tEe2NN7MCdV8t9glxmeVHg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
- malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200094
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com> <20261120041906.5785-8-kanchanapsridhar2026@gmail.com>
+In-Reply-To: <20261120041906.5785-8-kanchanapsridhar2026@gmail.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Fri, 20 Nov 2026 15:45:51 -0800
+X-Gm-Features: Aa3M54qBweF4AdtgZgj0DVvcadIsjWZqHEyP6IMH8n9Wq-G2vfGRxjefsq91gJw
+Message-ID: <CAKEwX=PuyT7WhrA3nEQQTyw1H_5D_ZxEcSZYQSF0MyUTii36MQ@mail.gmail.com>
+Subject: Re: [PATCH v4 7/8] mm: zswap: Refactor and optimize
+ zswap_store_pages() batch operations.
+To: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Cc: hannes@cmpxchg.org, yosry@kernel.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-- Introduce BUF_ROIMB_DELTAQP as a new internal buffer type to carry
-  per-macroblock ROI delta QP data to the firmware. This buffer is
-  allocated on demand when the application sets ROI parameters via
-  V4L2_CID_MPEG_VIDEO_ROI_MB_DELTA_QP, and is queued alongside each
-  raw input buffer as an HFI_BUFFER_METADATA packet on HFI_PORT_RAW.
+On Thu, Nov 19, 2026 at 8:19=E2=80=AFPM Kanchana P. Sridhar
+<kanchanapsridhar2026@gmail.com> wrote:
+>
+> Subsequent patch series will be submitted, that implement ideas building
+> upon this batching framework:
+>
+>  1) Replacing zsmalloc with SLUB allocator, comprising of kmem_caches
+>     for a finite # of compressed size bins. This enables bulk allocation
+>     of compressed buffers in a batch that belong to the same size
+>     bin. It gets rid of significant zsmalloc latency overhead (locks,
+>     compressed data spanning zspages, etc.), without compromising memory
+>     efficiency.
 
-- The metadata buffer layout follows the firmware-defined metabuf_header
-  and metapayload_header structures. The s8 per-MB delta QP values
-  supplied by userspace are widened to s16 as required by the firmware.
+I don't think this will be a good idea, because it will make
+compressed memory unmovable.
 
-Reviewed-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-Signed-off-by: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
----
- drivers/media/platform/qcom/iris/iris_buffer.c     | 114 +++++++++++++++++++++
- drivers/media/platform/qcom/iris/iris_buffer.h     |   4 +
- drivers/media/platform/qcom/iris/iris_ctrls.c      |  28 +++++
- drivers/media/platform/qcom/iris/iris_ctrls.h      |   1 +
- drivers/media/platform/qcom/iris/iris_hfi_gen2.c   |   1 +
- .../platform/qcom/iris/iris_hfi_gen2_command.c     |  24 +++++
- .../platform/qcom/iris/iris_hfi_gen2_response.c    |   2 +
- drivers/media/platform/qcom/iris/iris_vidc.c       |   2 +
- 8 files changed, 176 insertions(+)
+>
+>  2) vmscan reclaim batching of hybrid any-order folios, that will submit
+>     a batch of folios to zswap_store()'s batching framework to optimize
+>     storing of batches of pages from different folios, in addition to
+>     within large folios.
 
-diff --git a/drivers/media/platform/qcom/iris/iris_buffer.c b/drivers/media/platform/qcom/iris/iris_buffer.c
-index eb8de60c1177f5e1ab83b90a3c8c80e0b4d1f02e..b51976b4c28e1e2e1cb1db508fc75950f8aa5bc2 100644
---- a/drivers/media/platform/qcom/iris/iris_buffer.c
-+++ b/drivers/media/platform/qcom/iris/iris_buffer.c
-@@ -5,11 +5,13 @@
- 
- #include <media/v4l2-event.h>
- #include <media/v4l2-mem2mem.h>
-+#include <linux/slab.h>
- 
- #include "iris_buffer.h"
- #include "iris_instance.h"
- #include "iris_power.h"
- #include "iris_vpu_buffer.h"
-+#include "iris_hfi_gen2_defines.h"
- 
- #define PIXELS_4K 4096
- #define MAX_WIDTH 4096
-@@ -705,6 +707,20 @@ int iris_destroy_dequeued_internal_buffers(struct iris_inst *inst, u32 plane)
- 	return iris_destroy_internal_buffers(inst, plane, false);
- }
- 
-+int iris_destroy_roi_metadata_buffers(struct iris_inst *inst)
-+{
-+	struct iris_buffer *buf, *next;
-+	struct iris_buffers *buffers;
-+
-+	if (inst->domain == ENCODER) {
-+		buffers = &inst->buffers[BUF_ROIMB_DELTAQP];
-+		list_for_each_entry_safe(buf, next, &buffers->list, list)
-+			iris_destroy_internal_buffer(inst, buf);
-+	}
-+
-+	return 0;
-+}
-+
- static int iris_release_internal_buffers(struct iris_inst *inst,
- 					 enum iris_buffer_type buffer_type)
- {
-@@ -928,3 +944,101 @@ int iris_vb2_buffer_done(struct iris_inst *inst, struct iris_buffer *buf)
- 
- 	return 0;
- }
-+
-+static int iris_fill_roi_data(struct iris_inst *inst, struct iris_buffer *buffer)
-+{
-+	s8 *p_array = (s8 *)inst->fw_caps[ROI_PARAMS].p_array;
-+	u32 payload_offset, lcu_width, lcu_height, row_size;
-+	u32 array_size = inst->fw_caps[ROI_PARAMS].elems;
-+	struct metabuf_header *mbuf_hdr = buffer->kvaddr;
-+	struct metapayload_header *mbuf_payload_hdr;
-+	s16 *p_16, *p_temp;
-+
-+	memset(mbuf_hdr, 0, sizeof(struct metabuf_header) +
-+		sizeof(struct metapayload_header));
-+	mbuf_hdr->count = 1;
-+	mbuf_hdr->size = sizeof(struct metabuf_header) +
-+			 sizeof(struct metapayload_header);
-+	mbuf_hdr->version = BIT(16);
-+	mbuf_hdr++;
-+	mbuf_payload_hdr = (struct metapayload_header *)(mbuf_hdr);
-+	payload_offset = sizeof(struct metabuf_header) +
-+			 sizeof(struct metapayload_header);
-+
-+	mbuf_payload_hdr->type = HFI_PROP_ROI_INFO;
-+	mbuf_payload_hdr->version = BIT(16);
-+	mbuf_payload_hdr->offset = ALIGN(payload_offset, 256);
-+
-+	if (inst->codec == V4L2_PIX_FMT_HEVC) {
-+		lcu_width = DIV_ROUND_UP(inst->enc_raw_width, 32);
-+		lcu_height = DIV_ROUND_UP(inst->enc_raw_height, 32);
-+	} else {
-+		lcu_width = DIV_ROUND_UP(inst->enc_raw_width, 16);
-+		lcu_height = DIV_ROUND_UP(inst->enc_raw_height, 16);
-+	}
-+	/* Firmware expects each row to align to 8 LCU */
-+	row_size = ALIGN(lcu_width, 8);
-+	mbuf_payload_hdr->size = row_size * lcu_height * sizeof(s16) + 256;
-+
-+	if (array_size != (lcu_width * lcu_height))
-+		return -EINVAL;
-+
-+	/* Firmware expects 2bytes of delta_Qp, int16_t */
-+	p_16 = buffer->kvaddr + mbuf_payload_hdr->offset;
-+	for (int j = 0; j < lcu_height; j++) {
-+		p_temp = p_16 + j * row_size;
-+		for (int i = 0; i < lcu_width; i++)
-+			*p_temp++ = BIT(11) | ((p_array[j * lcu_width + i]
-+						   & 0x3F) << 4);
-+	}
-+
-+	return 0;
-+}
-+
-+int iris_hfi_gen2_session_alloc_roi_metadata_buffer(struct iris_inst *inst)
-+{
-+	struct iris_buffers *buffers = &inst->buffers[BUF_ROIMB_DELTAQP];
-+	struct iris_core *core = inst->core;
-+	struct iris_buffer *buffer, *next;
-+	bool found = false;
-+	int ret = 0;
-+
-+	if (!buffers->size)
-+		return 0;
-+
-+	list_for_each_entry_safe(buffer, next, &buffers->list, list) {
-+		if (buffer->attr & BUF_ATTR_DEQUEUED) {
-+			buffer->attr &= ~BUF_ATTR_DEQUEUED;
-+			list_move(&buffer->list, &buffers->list);
-+			found = true;
-+			break;
-+		}
-+	}
-+	if (!found) {
-+		buffer = kzalloc_obj(*buffer);
-+		if (!buffer)
-+			return -ENOMEM;
-+
-+		INIT_LIST_HEAD(&buffer->list);
-+		buffer->type = BUF_ROIMB_DELTAQP;
-+		buffer->buffer_size = buffers->size;
-+		buffer->dma_attrs = DMA_ATTR_WRITE_COMBINE;
-+
-+		buffer->kvaddr = dma_alloc_attrs(core->dev, buffer->buffer_size,
-+						 &buffer->device_addr, GFP_KERNEL,
-+						 buffer->dma_attrs);
-+
-+		if (!buffer->kvaddr) {
-+			kfree(buffer);
-+			return -ENOMEM;
-+		}
-+		list_add(&buffer->list, &buffers->list);
-+	}
-+
-+	buffer = list_first_entry(&buffers->list, struct iris_buffer, list);
-+	ret = iris_fill_roi_data(inst, buffer);
-+	if (ret)
-+		return ret;
-+
-+	return ret;
-+}
-diff --git a/drivers/media/platform/qcom/iris/iris_buffer.h b/drivers/media/platform/qcom/iris/iris_buffer.h
-index ee2d24bb69c57220b0a735d9b4aae4434a33daf6..df9d018493f3ec37fd5e6b0ba049dba0b5ae76e9 100644
---- a/drivers/media/platform/qcom/iris/iris_buffer.h
-+++ b/drivers/media/platform/qcom/iris/iris_buffer.h
-@@ -28,6 +28,7 @@ struct iris_inst;
-  * @BUF_SCRATCH_2: buffer to store encoding context data for HW
-  * @BUF_VPSS: buffer to store VPSS context data for HW
-  * @BUF_PARTIAL: buffer for AV1 IBC data
-+ * @BUF_ROIMB_DELTAQP: metadata buffer for ROI MB DeltaQp
-  * @BUF_TYPE_MAX: max buffer types
-  */
- enum iris_buffer_type {
-@@ -44,6 +45,7 @@ enum iris_buffer_type {
- 	BUF_SCRATCH_2,
- 	BUF_VPSS,
- 	BUF_PARTIAL,
-+	BUF_ROIMB_DELTAQP,
- 	BUF_TYPE_MAX,
- };
- 
-@@ -139,5 +141,7 @@ int iris_queue_buffer(struct iris_inst *inst, struct iris_buffer *buf);
- int iris_queue_deferred_buffers(struct iris_inst *inst, enum iris_buffer_type buf_type);
- int iris_vb2_buffer_done(struct iris_inst *inst, struct iris_buffer *buf);
- void iris_vb2_queue_error(struct iris_inst *inst);
-+int iris_hfi_gen2_session_alloc_roi_metadata_buffer(struct iris_inst *inst);
-+int iris_destroy_roi_metadata_buffers(struct iris_inst *inst);
- 
- #endif
-diff --git a/drivers/media/platform/qcom/iris/iris_ctrls.c b/drivers/media/platform/qcom/iris/iris_ctrls.c
-index 8c02b4fec93b511d1d9bdd71a9038a7f7be5404f..91a3ec52d299e942fde18eafaf58ea6542afd0ec 100644
---- a/drivers/media/platform/qcom/iris/iris_ctrls.c
-+++ b/drivers/media/platform/qcom/iris/iris_ctrls.c
-@@ -1720,3 +1720,31 @@ int iris_set_metadata_delivery(struct iris_inst *inst, u32 plane)
- 
- 	return 0;
- }
-+
-+int iris_set_roi_params(struct iris_inst *inst, u32 plane)
-+{
-+	struct iris_buffers *buffers = &inst->buffers[BUF_ROIMB_DELTAQP];
-+	u32 height = inst->enc_raw_height;
-+	u32 width = inst->enc_raw_width;
-+	u32 metadata_header_bytes = 256;
-+	u32 lcu_height = 0;
-+	u32 lcu_width = 0;
-+	u32 lcu_size = 16;
-+	u32 n_shift = 0;
-+	u32 size = 0;
-+
-+	if (!inst->fw_caps[ROI_PARAMS].p_array)
-+		return -EINVAL;
-+
-+	if (inst->codec == V4L2_PIX_FMT_HEVC)
-+		lcu_size = 32;
-+
-+	n_shift = ilog2(lcu_size);
-+	lcu_width = (width + (lcu_size - 1)) >> n_shift;
-+	lcu_height = (height + (lcu_size - 1)) >> n_shift;
-+	size = ALIGN(lcu_width, 8) * lcu_height * 2;
-+	size += metadata_header_bytes;
-+	buffers->size = ALIGN(size, 4096);
-+
-+	return iris_hfi_gen2_session_alloc_roi_metadata_buffer(inst);
-+}
-diff --git a/drivers/media/platform/qcom/iris/iris_ctrls.h b/drivers/media/platform/qcom/iris/iris_ctrls.h
-index ef2c09485ad93719e4acc7f395899d7f67cb5b2d..d5fb33a8e2a19035a0ff5eb412ffb8167e6098f3 100644
---- a/drivers/media/platform/qcom/iris/iris_ctrls.h
-+++ b/drivers/media/platform/qcom/iris/iris_ctrls.h
-@@ -52,5 +52,6 @@ int iris_set_time_delta_based_rc(struct iris_inst *inst, enum platform_inst_fw_c
- int iris_set_slice_count(struct iris_inst *inst, enum platform_inst_fw_cap_type cap_id);
- int iris_set_properties(struct iris_inst *inst, u32 plane);
- int iris_set_metadata_delivery(struct iris_inst *inst, u32 plane);
-+int iris_set_roi_params(struct iris_inst *inst, u32 plane);
- 
- #endif
-diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
-index 0f4c6f955f4f408c45c50796332b47c116f52982..36d2517140ce67821962c200093a9887e5b6b392 100644
---- a/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
-+++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2.c
-@@ -1822,6 +1822,7 @@ static const struct platform_inst_fw_cap inst_fw_cap_sm8550_enc[] = {
- 		.hfi_id = HFI_PROP_ROI_INFO,
- 		.flags = CAP_FLAG_INPUT_PORT | CAP_FLAG_CUSTOM |
- 			 CAP_FLAG_DYNAMIC_ALLOWED,
-+		.set = iris_set_roi_params,
- 	},
- 	{
- 		.cap_id = MB_SIZE,
-diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
-index cf88dbe11e8e9faef826e661d8e9909fd7f16b94..a1b0c4982f0d789a807f22a1dffdf61decd20d28 100644
---- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
-+++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_command.c
-@@ -134,6 +134,7 @@ static u32 iris_hfi_gen2_get_port_from_buf_type(struct iris_inst *inst,
- 		switch (buffer_type) {
- 		case BUF_INPUT:
- 		case BUF_VPSS:
-+		case BUF_ROIMB_DELTAQP:
- 			return HFI_PORT_RAW;
- 		case BUF_OUTPUT:
- 		case BUF_BIN:
-@@ -1267,6 +1268,8 @@ static u32 iris_hfi_gen2_buf_type_from_driver(u32 domain, enum iris_buffer_type
- 		return HFI_BUFFER_VPSS;
- 	case BUF_PARTIAL:
- 		return HFI_BUFFER_PARTIAL_DATA;
-+	case BUF_ROIMB_DELTAQP:
-+		return HFI_BUFFER_METADATA;
- 	default:
- 		return 0;
- 	}
-@@ -1328,6 +1331,7 @@ static struct iris_buffer *iris_queue_metadata_buffers(struct iris_inst *inst,
- static int iris_hfi_gen2_session_queue_buffer(struct iris_inst *inst, struct iris_buffer *buffer)
- {
- 	struct iris_inst_hfi_gen2 *inst_hfi_gen2 = to_iris_inst_hfi_gen2(inst);
-+	struct iris_hfi_buffer hfi_meta_buffer;
- 	struct iris_hfi_buffer hfi_buffer;
- 	u32 port;
- 	int ret;
-@@ -1349,6 +1353,26 @@ static int iris_hfi_gen2_session_queue_buffer(struct iris_inst *inst, struct iri
- 					     &hfi_buffer,
- 					     sizeof(hfi_buffer));
- 
-+	/* check if any metadata buffer is available not queued, queue it */
-+	if (port == HFI_PORT_RAW) {
-+		buffer = iris_queue_metadata_buffers(inst, BUF_ROIMB_DELTAQP, buffer->index);
-+		if (buffer) {
-+			iris_hfi_gen2_get_buffer(inst->domain, buffer, &hfi_meta_buffer);
-+			port = iris_hfi_gen2_get_port_from_buf_type(inst, buffer->type);
-+			iris_hfi_gen2_create_packet(inst_hfi_gen2->packet,
-+						    HFI_CMD_BUFFER,
-+						    HFI_HOST_FLAGS_INTR_REQUIRED,
-+						    HFI_PAYLOAD_STRUCTURE,
-+						    port,
-+						    inst->core->packet_id++,
-+						    &hfi_meta_buffer,
-+						    sizeof(hfi_meta_buffer));
-+
-+			buffer->attr |= BUF_ATTR_QUEUED;
-+			buffer->attr &= ~BUF_ATTR_DEQUEUED;
-+		}
-+	}
-+
- 	return iris_hfi_queue_cmd_write(inst->core, inst_hfi_gen2->packet,
- 					inst_hfi_gen2->packet->size);
- }
-diff --git a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
-index ea1fc96077fdce83db9c6a6c1f753ec7978b0673..4f8f0b78f7b7559d985ea627f9a3224f36fb6f18 100644
---- a/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
-+++ b/drivers/media/platform/qcom/iris/iris_hfi_gen2_response.c
-@@ -58,6 +58,8 @@ static u32 iris_hfi_gen2_buf_type_to_driver(struct iris_inst *inst,
- 		return BUF_PARTIAL;
- 	case HFI_BUFFER_VPSS:
- 		return BUF_VPSS;
-+	case HFI_BUFFER_METADATA:
-+		return BUF_ROIMB_DELTAQP;
- 	default:
- 		return 0;
- 	}
-diff --git a/drivers/media/platform/qcom/iris/iris_vidc.c b/drivers/media/platform/qcom/iris/iris_vidc.c
-index 05aab6e3005d5c3788f5dfe5857f2d6b782e7a83..ba56aca5c0d102869dcf7ad6c050579283000cd7 100644
---- a/drivers/media/platform/qcom/iris/iris_vidc.c
-+++ b/drivers/media/platform/qcom/iris/iris_vidc.c
-@@ -199,6 +199,7 @@ int iris_open(struct file *filp)
- 	INIT_LIST_HEAD(&inst->buffers[BUF_SCRATCH_2].list);
- 	INIT_LIST_HEAD(&inst->buffers[BUF_VPSS].list);
- 	INIT_LIST_HEAD(&inst->buffers[BUF_PARTIAL].list);
-+	INIT_LIST_HEAD(&inst->buffers[BUF_ROIMB_DELTAQP].list);
- 	init_completion(&inst->completion);
- 	init_completion(&inst->flush_completion);
- 
-@@ -321,6 +322,7 @@ int iris_close(struct file *filp)
- 	iris_destroy_all_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
- 	iris_check_num_queued_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE);
- 	iris_check_num_queued_internal_buffers(inst, V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE);
-+	iris_destroy_roi_metadata_buffers(inst);
- 	iris_remove_session(inst);
- 	mutex_unlock(&inst->lock);
- 	iris_inst_put(inst);
+This one might be more complicated than its worth, but I'm not sure.
 
--- 
-2.34.1
+>
+> Signed-off-by: Kanchana P. Sridhar <kanchanapsridhar2026@gmail.com>
 
+Code mostly LGTM.
+
+> ---
+>  include/linux/memcontrol.h |  12 +++
+>  mm/memcontrol.c            |  23 ++++-
+>  mm/zswap.c                 | 181 +++++++++++++++++++++++++------------
+>  3 files changed, 153 insertions(+), 63 deletions(-)
+>
+> diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
+> index 980358bc6f49..93f060818c14 100644
+> --- a/include/linux/memcontrol.h
+> +++ b/include/linux/memcontrol.h
+> @@ -1244,6 +1244,11 @@ struct mem_cgroup *mem_cgroup_from_css(struct cgro=
+up_subsys_state *css)
+>         return NULL;
+>  }
+>
+> +static inline void obj_cgroup_get_many(struct obj_cgroup *objcg,
+> +                                      unsigned long nr)
+> +{
+> +}
+> +
+>  static inline void obj_cgroup_get(struct obj_cgroup *objcg)
+>  {
+>  }
+> @@ -1921,6 +1926,8 @@ static inline void mem_cgroup_calculate_protection_=
+path(struct mem_cgroup *root,
+>  #if defined(CONFIG_MEMCG) && defined(CONFIG_ZSWAP)
+>  bool obj_cgroup_may_zswap(struct obj_cgroup *objcg);
+>  void obj_cgroup_charge_zswap(struct obj_cgroup *objcg, size_t size);
+> +void obj_cgroup_charge_zswap_many(struct obj_cgroup *objcg, size_t size,
+> +                                 u8 nr_pages, u8 nr_incomp_pages);
+>  void obj_cgroup_uncharge_zswap(struct obj_cgroup *objcg, size_t size);
+>  bool mem_cgroup_zswap_writeback_enabled(const struct mem_cgroup *memcg);
+>  #else
+> @@ -1932,6 +1939,11 @@ static inline void obj_cgroup_charge_zswap(struct =
+obj_cgroup *objcg,
+>                                            size_t size)
+>  {
+>  }
+
+Why do we still need obj_cgroup_charge_zswap() at all?
+
+> +static inline void obj_cgroup_charge_zswap_many(struct obj_cgroup *objcg=
+,
+> +                                               size_t size, u8 nr_pages,
+> +                                               u8 nr_incomp_pages)
+> +{
+> +}
+>  static inline void obj_cgroup_uncharge_zswap(struct obj_cgroup *objcg,
+>                                              size_t size)
+>  {
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index 091401cecf39..2236f5ba6304 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -6345,6 +6345,23 @@ bool obj_cgroup_may_zswap(struct obj_cgroup *objcg=
+)
+>   * compression and storage in zswap for this cgroup to go ahead.
+>   */
+>  void obj_cgroup_charge_zswap(struct obj_cgroup *objcg, size_t size)
+> +{
+> +       obj_cgroup_charge_zswap_many(objcg, size, 1, (u8)(size =3D=3D PAG=
+E_SIZE));
+> +}
+> +
+> +/**
+> + * obj_cgroup_charge_zswap_many - bulk charge compression backend memory
+> + *                                from compressing a batch of pages.
+> + * @objcg: the object cgroup
+> + * @size: total compressed length of a batch of compressed objects
+> + * @nr_pages: # of pages that were compressed to store in zswap
+> + * @nr_incomp_pages: # of incompressible pages to store in zswap
+> + *
+> + * This forces the charge after obj_cgroup_may_zswap() allowed
+> + * compression and storage in zswap for this cgroup to go ahead.
+> + */
+> +void obj_cgroup_charge_zswap_many(struct obj_cgroup *objcg, size_t size,
+> +                                 u8 nr_pages, u8 nr_incomp_pages)
+>  {
+>         struct mem_cgroup *memcg;
+>
+> @@ -6363,9 +6380,9 @@ void obj_cgroup_charge_zswap(struct obj_cgroup *obj=
+cg, size_t size)
+>         rcu_read_lock();
+>         memcg =3D obj_cgroup_memcg(objcg);
+>         mod_memcg_state(memcg, MEMCG_ZSWAP_B, size);
+> -       mod_memcg_state(memcg, MEMCG_ZSWAPPED, 1);
+> -       if (size =3D=3D PAGE_SIZE)
+> -               mod_memcg_state(memcg, MEMCG_ZSWAP_INCOMP, 1);
+> +       mod_memcg_state(memcg, MEMCG_ZSWAPPED, nr_pages);
+> +       if (nr_incomp_pages)
+> +               mod_memcg_state(memcg, MEMCG_ZSWAP_INCOMP, nr_incomp_page=
+s);
+>         rcu_read_unlock();
+>  }
+>
+> diff --git a/mm/zswap.c b/mm/zswap.c
+> index df59ab0c1029..5e1fb5624ffb 100644
+> --- a/mm/zswap.c
+> +++ b/mm/zswap.c
+> @@ -491,12 +491,12 @@ static int __must_check zswap_pool_tryget(struct zs=
+wap_pool *pool)
+>  }
+>
+>  /* The caller must already have a reference. */
+> -static void zswap_pool_get(struct zswap_pool *pool)
+> +static inline void zswap_pool_get_many(struct zswap_pool *pool, u8 nr)
+>  {
+> -       percpu_ref_get(&pool->ref);
+> +       percpu_ref_get_many(&pool->ref, nr);
+>  }
+>
+> -static void zswap_pool_put(struct zswap_pool *pool)
+> +static inline void zswap_pool_put(struct zswap_pool *pool)
+>  {
+>         percpu_ref_put(&pool->ref);
+>  }
+> @@ -1603,55 +1603,60 @@ static void shrink_worker(struct work_struct *w)
+>  * main API
+>  **********************************/
+>
+> +/* Functions called by zswap_store(), that operate on batches of pages. =
+*/
+> +
+>  /*
+> - * Store multiple pages in @zc->folio, starting from the page at index @=
+start up
+> - * to the page at index @end-1.
+> + * zswap_init_entries() co-locates most of the zswap entry fields' setup=
+ under
+> + * the assumption that all phases of store processing will succeed. An i=
+mportant
+> + * marker to simplify catch-all cleanup in zswap_store_pages() is done b=
+y
+> + * initializing each entry's @handle to ERR_PTR(-EINVAL).
+>   */
+> -static bool zswap_store_pages(struct zswap_store_context *zc,
+> -                             long start,
+> -                             long end,
+> -                             struct zswap_pool *pool,
+> -                             struct obj_cgroup *objcg)
+> +static inline void zswap_init_entries(struct zswap_store_context *zc,
+> +                                     struct zswap_pool *pool,
+> +                                     struct obj_cgroup *objcg)
+>  {
+> -       u8 i, store_fail_idx =3D 0;
+> -       bool ret;
+> -
+> -       zc->nr_pages =3D end - start;
+> -       zc->folio_start =3D start;
+> -
+> -       VM_WARN_ON_ONCE(zc->nr_pages <=3D 0 || zc->nr_pages > ZSWAP_MAX_B=
+ATCH_SIZE);
+> -
+> -       ret =3D zswap_entries_cache_alloc_batch(zc, GFP_KERNEL);
+> -       if (unlikely(!ret))
+> -               return false;
+> +       struct zswap_entry *entry;
+> +       u8 i;
+>
+>         /*
+>          * We co-locate entry initialization as much as possible here to
+>          * minimize potential cache misses.
+>          */
+>         for (i =3D 0; i < zc->nr_pages; ++i) {
+> +               entry =3D zc->entries[i];
+>                 /*
+> -                * Set pool_idx before the xa_store() below publishes the=
+ entry, or a
+> -                * concurrent reader could resolve a stale pool_idx left =
+by slab reuse
+> -                * to an unrelated live pool.
+> +                * Set pool_idx before the xa_store() in zswap_tree_store=
+s()
+> +                * publishes the entry, or a concurrent reader could reso=
+lve a
+> +                * stale pool_idx left by slab reuse to an unrelated live=
+ pool.
+>                  */
+> -               zc->entries[i]->pool_idx =3D pool->idx;
+> -               zc->entries[i]->swpentry =3D folio_swap_entry(zc->folio,
+> +               entry->pool_idx =3D pool->idx;
+> +               entry->swpentry =3D folio_swap_entry(zc->folio,
+>                                                         zc->folio_start +=
+ i);
+> -               zc->entries[i]->objcg =3D objcg;
+> -               zc->entries[i]->referenced =3D true;
+> -               zc->entries[i]->nid =3D zc->nid;
+> -               INIT_LIST_HEAD(&zc->entries[i]->lru);
+> +               entry->objcg =3D objcg;
+> +               entry->referenced =3D true;
+> +               entry->nid =3D zc->nid;
+> +               INIT_LIST_HEAD(&entry->lru);
+>         }
+> +}
+>
+> -       for (i =3D 0; i < zc->nr_pages; ++i) {
+> -               if (!zswap_compress(zc->folio, zc->folio_start + i,
+> -                                   zc->entries[i], pool, zc->wb_enabled)=
+)
+> -                       goto store_pages_failed;
+> -       }
+> +/*
+> + * zswap_tree_stores() stores the batch entries in xarray and adds them =
+to the
+> + * zswap LRU list. If an error occurs during xa_store(), localized state
+> + * unwinding is done to erase prior batch entries from the xarray and de=
+lete
+> + * them from the zswap LRU list. Remaining batch cleanup occurs in
+> + * zswap_store_pages(). As batch entries are processed, we maintain aggr=
+egate
+> + * statistics to do the accounting in one bulk operation.
+> + */
+> +static bool zswap_tree_stores(struct zswap_store_context *zc,
+> +                             struct zswap_pool *pool,
+> +                             struct obj_cgroup *objcg)
+> +{
+> +       u8 i, store_fail_idx =3D 0, nr_incomp =3D 0;
+> +       size_t total_batch_comp_length =3D 0;
+> +       struct zswap_entry *old, *entry;
+>
+>         for (i =3D 0; i < zc->nr_pages; ++i) {
+> -               struct zswap_entry *old, *entry =3D zc->entries[i];
+> +               entry =3D zc->entries[i];
+>
+>                 old =3D xa_store(swap_zswap_tree(entry->swpentry),
+>                                swp_offset(entry->swpentry),
+> @@ -1663,13 +1668,11 @@ static bool zswap_store_pages(struct zswap_store_=
+context *zc,
+>                         zswap_reject_alloc_fail++;
+>                         /*
+>                          * Entries up to this point have been stored in t=
+he
+> -                        * xarray. zswap_store() will erase them from the=
+ xarray
+> -                        * and call zswap_entry_free(). Local cleanup in
+> -                        * 'store_pages_failed' only needs to happen for
+> -                        * entries from [@i to @nr_pages).
+> +                        * xarray. Local cleanup in 'tree_store_failed' n=
+eeds to
+> +                        * erase entries up until now.
+>                          */
+>                         store_fail_idx =3D i;
+> -                       goto store_pages_failed;
+> +                       goto tree_store_failed;
+>                 }
+>
+>                 /*
+> @@ -1680,22 +1683,10 @@ static bool zswap_store_pages(struct zswap_store_=
+context *zc,
+>                 if (unlikely(old))
+>                         zswap_entry_free(old);
+>
+> -               /*
+> -                * The entry is successfully compressed and stored in the=
+ tree,
+> -                * and further failures will be cleaned up in zswap_store=
+().
+> -                * Grab refs to the pool and objcg, charge zswap memory, =
+and
+> -                * increment zswap_stored_pages. The opposite actions wil=
+l be
+> -                * performed by zswap_entry_free() when the entry is remo=
+ved
+> -                * from the tree.
+> -                */
+> -               zswap_pool_get(pool);
+> -               if (objcg) {
+> -                       obj_cgroup_get(objcg);
+> -                       obj_cgroup_charge_zswap(objcg, entry->length);
+> -               }
+> -               atomic_long_inc(&zswap_stored_pages);
+> +               total_batch_comp_length +=3D entry->length;
+> +
+>                 if (unlikely(entry->length =3D=3D PAGE_SIZE))
+> -                       atomic_long_inc(&zswap_stored_incompressible_page=
+s);
+> +                       ++nr_incomp;
+>
+>                 /*
+>                  * We finish by adding the entry to the LRU while it's al=
+ready
+> @@ -1711,17 +1702,87 @@ static bool zswap_store_pages(struct zswap_store_=
+context *zc,
+>                         zswap_lru_add(entry);
+>         }
+>
+> +       /*
+> +        * Each batch entry is successfully compressed and stored in the =
+tree,
+> +        * and further failures will be cleaned up in zswap_store().
+> +        * Next, we do bulk accounting for the batch: grab refs to the po=
+ol and
+> +        * objcg, charge zswap memory, increment zswap_stored_pages and
+> +        * zswap_stored_incompressible_pages. The opposite actions will b=
+e
+> +        * performed by zswap_entry_free() when the entry is removed from=
+ the
+> +        * tree.
+> +        */
+> +       zswap_pool_get_many(pool, zc->nr_pages);
+> +       if (objcg) {
+> +               obj_cgroup_get_many(objcg, zc->nr_pages);
+> +               obj_cgroup_charge_zswap_many(objcg, total_batch_comp_leng=
+th,
+> +                                            zc->nr_pages, nr_incomp);
+> +       }
+> +       atomic_long_add(zc->nr_pages, &zswap_stored_pages);
+> +       if (unlikely(nr_incomp))
+> +               atomic_long_add(nr_incomp, &zswap_stored_incompressible_p=
+ages);
+> +
+> +       return true;
+> +
+
+Can you add a comment that we only clean up the current batch here,
+and the clean up of other batches in the folio are deferred to
+zswap_store() (or whereever up the stack it is handled?).
+
+> +tree_store_failed:
+> +       for (i =3D 0; i < store_fail_idx; ++i) {
+> +               xa_erase(swap_zswap_tree(zc->entries[i]->swpentry),
+> +                        swp_offset(zc->entries[i]->swpentry));
+
+xas API?
+
+> +               zswap_lru_del(zc->entries[i]);
+> +       }
+> +
+> +       return false;
+> +}
+> +
+> +/*
