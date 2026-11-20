@@ -1,99 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174946;
-	b=JYeo+O19IvPmLRH1eByke4KgzqqhiCrvfHECyNoZL1JZ6EvSWa/OUATaYaojb8cMO+q6
-	 tDUkp2da3o3/3SOuOGExTNQtdayMbYZ+0mdYt43dTKiulW/D4BlEN4lm1VdUfmXmPp1Di
-	 FeeKH9pd5APZzfyCMnjxmLBbWOZlJDXTzaQN2hrcYx0myfoZg8BJERQOlNTfpltZkgWMc
-	 0R+ECKw2I3NDhN7U/VR0yru9EtXVMNUXdgL0vuhns/6kMptypmo3F4rdQtyh99PgSV3DC
-	 GGVF+m7WHwujVpYG0thbc5nhHMwG+CoxdJgrKPpY3Uewn7GQflPqPQDgk8RnYZs+dog==
+	t=1795174949;
+	b=U1MGU5IAK7DQ5b8QjScQrzjFYotRoHciRm/d53uHqMtQ4/fBiQAArOzvfz7VuFZQgJ4Q
+	 QXxkdLoGkqgmF4BKIlJRO2WCgMD2fsKNRgRfIqr/sstk1W+h0GA2sKo9/ahtJRV0LoMzC
+	 hWxbGqgjGHlAL78+jH8tXvLJ2UwUmMyX9Y5kJN73HdGj8XeHkTyy92rteqXmhYO3dakYD
+	 AmcHuog6+PVD6xCmaBd99ZSYTGhBBnLaYYUbVMUqfcUIk+QgwltpXPeOvInLCLScLmeFx
+	 F0DGtq0pwvyAeRnXqZQsaA7Y+dQcoygzu0p2NO0gK9nSU3w2jOyhzj4P5ghrysee3dw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174946;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=3zkI23j8MahfPJVW8qMcXMj9oI+W1BwYSEzbCZAbKEE=;
-	b=SLFQwbHgKrOsNqK5mfW6KgyZqPSVCDdG5xBcUpS/UE1drT+fGkJ03pfEtx0ogXW2CF8B
-	 bTzWurceu6SdLgfmwuhXW2U1HBePpd9Run/ZMJty7Kor/EyZ5OgcFmx04apCcGYCPvDvg
-	 GfbOglyXVTptA4Ix1jARHtsVAePHLeBUtKpJtQSBX1BRizG5nwi9KHYPI9mjE+3apM3Yp
-	 5yQM70IQpv/qrXEJYCaa9h1a3a9Z0fjfiZ0yHi45fR8eKWCAamAciesey+f0eKnpPImfA
-	 jKDhFOSfmblakbMunS+HoO1VptEscU7x7ZUGquEaQHwGhAEMNCTKNU5jNIUqzZinl9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174949;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DF7mXZvTw1RDuVa5ppZVO6UyLu2N+9+2c00mkMOuaDM=;
+	b=0cP4Mtb5RuthbjiwmyGN1VpYjKZA1Cy8nQzM1dYhpmZ6xpj2o0UR0n4b6yCKUQ+BcwyM
+	 0yGCWpXCdutbYP5Ex8ChH1znSBOy7yZ6CGi7Be8qFrh8XyGtmH3osVKFnd/HG5bL4Hk4H
+	 Hx6oKEfYeR5dAfEzP3vy6OBhaedWkNQ6RLjb/40fyoP4Vl7+VQ5jwZLHMtzOQovNZgW+T
+	 BCj+rPVgPJDvfU0ngkNlgujQs2N5OkuTJCRoUy+sSB3uqfJ4Kg5x/IrJ+/nsFr7RfJmkG
+	 WEXugajouInbZEKFyyVsEo+/SuPaFKcL8FQ3k96WotKB5Kq2+JaSmC9JFpvWDtAUedw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Qnc3ovur;
-	arc=none smtp.remote-ip=209.85.214.177
-Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=SXSDi6Za;
+	arc=none smtp.remote-ip=203.205.221.233
+Received: from out203-205-221-233.mail.qq.com (out203-205-221-233.mail.qq.com [203.205.221.233])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7663A606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:42:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7663A606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B702606A337;
+	Fri, 20 Nov 2026 11:42:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B702606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Qnc3ovur
-Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f037bc348dso6839965ad.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:42:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795174946; x=1795779746; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3zkI23j8MahfPJVW8qMcXMj9oI+W1BwYSEzbCZAbKEE=;
-        b=Qnc3ovur2XzIyk91JOuf4a9IFGgaBu89uCIW78Zz8dXebNk+k4gvcFpSUeRSxBKil0
-         1hxBAoUBA9rQSxY9iU9BftiIKlavOxTMEPsh9ry0f5u3gPbiy2/HEIMxfZXSwGd/Nsw7
-         woVTcMoufsTydKmheTN6n+xhboCjh4eqalJEtyB2YcsBmIow2d9TZSZerajcGJoS2tPr
-         5Eeg7T6r9Uhj4w6vsCJYyY/QYusGkqMX8i180+0jzZ+XVaj/9sA1GP0USw7R+jqWZlCE
-         5LA258rfH2T47oMz6BdFlEnQY0TiNoJiY9owEs6jlayfJYfMPIatSFQPcS3zTm7pI/+d
-         0qtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795174946; x=1795779746;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3zkI23j8MahfPJVW8qMcXMj9oI+W1BwYSEzbCZAbKEE=;
-        b=eyGTwwq/3Wp7Cm53RaPEqZwK59PVEA2JIAIGBpP7p4kBeV9F6QDKgAh581nhRTuWaJ
-         N3qs26hFS7kyMCb8ysk/9+uKLclqt9EqB1I5wzK+DAG/tTkLLDV4QpW4q6G9T3rC74Yq
-         7NRJ+SD+AhsNA20SU4+E9NS73afS9R5WncSR6nIQ+LY9UiGAjZX2ONiIyN9fgnf6eu9f
-         pE/0k7BK/vWQAOOoFBfIrSWsjsmG7AZ//HBTPGQpyf15W5wwxZ+PbyO/CCMLObyXu9LX
-         zBxMwddKOEvLMaW0wXAuUFkbv+9xE2cufr8wqgmBxtDhkjN7VgGlRcI8CVO3cY9FE2hz
-         stiA==
-X-Forwarded-Encrypted: i=1; AL+hErGvMNWZSQxLgZ6jg2SiitKdqbMYRWUdimGu9hy9IapaUV94QBLSedzcTCVkglsZZfkVWhURHp/8rN84m04=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+lRIx6v740jtO45UNYlw9vt6gX4VZkjB2G1tJyhAI0Sk2FUSTn
-	kqnAJrFEDA+HCtHQbtopOptO7Ap2xeNjuo9c3r9NTQERun22NwDPUfV1whVvDOl6qrg=
-X-Gm-Gg: AZFdTZfG9VIeDJTelIgHjqerxUVVFOl3pmaJ9JCJE2uuhNIXoA2NP5Alv4UTYEWuSwa
-	0Nkp7I9Iy8T1yjVZybfEy0dC3PL67YxD5F+e3LeLhlTm+S3wJvVvw2DBOLCgpDTllyjSulp5juT
-	YHDzR724e1/LgI1aOdPx4Pm7hgKk3bK9yPmRjjMgh4psSUXzmwr/slxh/N7B/uC77wSpfhkUQlR
-	YbmqOTw6g2qRdoAIekVUpP2fZSQPnE9xtSmPVhTO32JL7b9MF9s8+rapurmiv4PQiimeYsUkUCC
-	xueukvPVXk/nTBq2gftrkP8Y2+oJ3+TMoSxHFjqimgkYmsIWryrywS10KK2fYtBy61hJw+7HNkM
-	XuK2qTt7vnaph1UexZ4VkiCbWW00JCE8nU2G6rNsXXCoKaLG9Pw3oOKzAezIjJrzd+LoMVRBds4
-	76+hmTqJh4ggqSCtCn8IcWLXxaA62FhXazL2H8o7ya/UKla13Lid65sQCTWLaxf/bKSRV2dwKI3
-	kjmliSebDPDsm/XSk4GE7Xy1IiF3yn6mTJP8nLZ7kCYV+0Sr8NtKkiRhYb3mYIq2O3CZPy9Qq7h
-	tqkfknrkzn5SNn2XiVVU1xkSrYLbJJDviTjRU3S90ebivlPmbOepYbkbcHKl3OSAkFoqRjFwGSk
-	C/fORQtmT64Q0ntrKrDrD34OjyQ62jELy+UKQ
-X-Received: by 2002:a17:90b:4a48:b0:3ac:9d14:fe9f with SMTP id 98e67ed59e1d1-3b41c9032b4mr2584267a91.31.1795174945866;
-        Fri, 20 Nov 2026 03:42:25 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm4086815a91.6.2026.11.20.03.42.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:42:25 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: michael.christie@oracle.com
-Cc: martin.petersen@oracle.com,
-	lduncan@suse.com,
-	cleech@redhat.com,
-	James.Bottomley@HansenPartnership.com,
-	linux-scsi@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=SXSDi6Za
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795174937; bh=DF7mXZvTw1RDuVa5ppZVO6UyLu2N+9+2c00mkMOuaDM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=SXSDi6Za0/NOAQcZP04T/uc8vxWiIunXulrXxNSUJwKX8FtuXRFVKUS98yq/+7JBU
+	 0hA3vCJQqtVr1j5gwpYlTOVzeRHzEekm4iv/fQeAeSXByIVutl1d0LpRY5Lm5vkkyM
+	 TDB8JqXY5S0e91YH7KFWTa31jq0R6ji+MnEt7ll8=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.198])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id A8F85298; Fri, 20 Nov 2026 19:42:15 +0800
+X-QQ-mid: xmsmtpt1795174935tvdaes88h
+Message-ID: <tencent_5B9FB1BCC8EF36C5E2128B7D4D54B867480A@qq.com>
+X-QQ-XMAILINFO: NGbyafB8LluuaL9kMVcdPeWjxflf6SMYiIhU3NeQbvBQYEzsK8M3JD0NfiFgMi
+	 hLSpAcP8EenyfQqjem/14/ltCXWB1UOAz6VmLJuSxZt/v7voQ4QSeb3tBfbG1H5pigP1BGadfep4
+	 KqFIXYOPElk+/sPWD4n4Wv40Xj/rOCBiV6KCIWgtE38lgeGh4c21imd6KdN61zbcLXRBltdU6ef3
+	 nN73I1eRc1WRJJXPgclUI15KQc1FI2QMBagetGbaAkmvoVC/L1l/enIDkF2VVPIeVdApdj4GaU8N
+	 eQZXcHvNh3G5mJ+wP4Jf4DSn+F6XQ5qu8/nnx1tPsQvam/XmCDH+/Izynrbi9ruDZKFO2cyVQLcd
+	 CZGTx4Z49hvldOXSeo1O0GETazCVQaMJOS84qAlc8ENEph/q/ecI7KJ06XDsRgMPVngKJmwPsLW0
+	 VAOCgD5CU4OZmUZBtyEO/vnzKXKCso61roPCeJsh0HsLzZC3Q5ptWzrcG3GH0Lk9DgjG1oF9ZlDU
+	 uzu/jofe8F6NlO5Atkw1IvXdnbo9MmXpWQK5rVDVlogCDQsd2abwH2xmpdtrElF9m14SjRkihDJ3
+	 TlKjbNxCTMepb5ZJrZ3CZSxZGzUa14zzJ3hIq84UUa20OCz2+CSmLTNSKA96oU+8DD6F50Z2mxCI
+	 O9rBvDuZQZxtKmVwnjtVsAmQVZtVmz5soxjxsFjjQ76AuHoheGxFpZ6B6ZDXNx1AybBWEsNhuCOY
+	 HQfH8haHUWr+ris4r+0deaYo06DSWPKS6aGiZDBjAzG16/6Ku6upX2KfjJAyy5/su72n/Nny0aD2
+	 g7g+cUjleypV1bSSv6ACkILoX+h5Ljf9AEo8wFWLV43ApErOB4Gg3CMJpBnYiRsKKlmBTlJT/s2C
+	 bAvkZHEbibjQPa4RCJVcHa017nYLzRhpoCx09Z1hMVWpghu3mffv0EHEQT2j3/L+7EDCcMj2/iSf
+	 Vcoat8kx51+XNrPjga/VwOekBDRkvek9wCRsJ34ORyhvAfUlDjY8siHBcMUxX/8WrIUXQlLSmWFT
+	 /oSZTV3ZZ/7zo7fqIZve6+S9BTOLgNvZTc74SRu8K5sH1lHdIyEVykvx/m5eQ=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+From: Shuai Liu <847807867@qq.com>
+To: linux-rdma@vger.kernel.org
+Cc: yanjun.zhu@linux.dev,
+	zyjzyj2000@gmail.com,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	rpearsonhpe@gmail.com,
+	syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com,
+	syzkaller-bugs@googlegroups.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] scsi: libiscsi_tcp: check that a read got the data the target claimed
-Date: Fri, 20 Nov 2026 20:42:20 +0900
-Message-ID: <20261120114220.3072138-1-yhlee@isslab.korea.ac.kr>
+Subject: [PATCH rdma-next v1] RDMA/rxe: Don't trust the user space SQ producer index
+Date: Fri, 20 Nov 2026 19:42:15 +0800
+X-OQ-MSGID: <20261120114215.419797-1-847807867@qq.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261007032501.640372-1-yhlee@isslab.korea.ac.kr>
-References: <20261007032501.640372-1-yhlee@isslab.korea.ac.kr>
+In-Reply-To: <6adb54ac.d1cee5ca.8df35.0007.GAE@google.com>
+References: <6adb54ac.d1cee5ca.8df35.0007.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,11 +85,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This is superseded by v7:
-  https://lore.kernel.org/all/20261008063248.767676-1-yhlee@isslab.korea.ac.kr/
+The send queue producer index of a user space QP is stored in the
+queue buffer which is shared with and written by user space. The
+requester reads it without any validation in req_retry() and
+__req_next_wqe().
 
-Best regards,
-Yehyeong Lee
+The requester stops processing WQEs when its local WQE index equals
+the producer index. If user space writes an out of range producer
+index into the queue buffer, that comparison can never become true.
+Once the QP is put into the error state, rxe_requester() then keeps
+flushing the same (already errored) WQE forever: the flush loop
+advances the WQE index but req_retry() resets it back to the
+consumer index, and each pass calls rxe_qp_error() which reschedules
+the send task, so the loop never converges. The send task holds a
+reference to the QP for as long as this lasts, so ib_destroy_qp()
+waits for the QP reference to drop until it times out after 50
+seconds and the WARN_ON(!ret) fires in __rxe_cleanup():
+
+  WARNING: drivers/infiniband/sw/rxe/rxe_pool.c:212 at __rxe_cleanup
+  Call Trace:
+   __rxe_cleanup
+   rxe_destroy_qp
+   ...
+  rxe0: qp#17 rxe_destroy_qp: cleanup failed, err = -110
+
+Fix this by validating the producer index: if it is out of range,
+treat the send queue as empty. Verified with the syzbot reproducer
+in QEMU: without this patch every destroy_qp hangs for 50 seconds
+and hits the WARNING above; with this patch the reproducer runs
+cleanly.
+
+Reported-by: syzbot+fef38133c495aeb48297@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=fef38133c495aeb48297
+Fixes: 5bcf5a59c41e1 ("RDMA/rxe: Protext kernel index from user space")
+Signed-off-by: Shuai Liu <847807867@qq.com>
+---
+ drivers/infiniband/sw/rxe/rxe_req.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/infiniband/sw/rxe/rxe_req.c b/drivers/infiniband/sw/rxe/rxe_req.c
+index 4f353abd76f55..2f7396f40801b 100644
+--- a/drivers/infiniband/sw/rxe/rxe_req.c
++++ b/drivers/infiniband/sw/rxe/rxe_req.c
+@@ -48,6 +48,12 @@ static void req_retry(struct rxe_qp *qp)
+ 	cons = queue_get_consumer(q, QUEUE_TYPE_FROM_CLIENT);
+ 	prod = queue_get_producer(q, QUEUE_TYPE_FROM_CLIENT);
+ 
++	/* The producer index is written by user space and cannot
++	 * be trusted; treat an out of range index as an empty queue.
++	 */
++	if (unlikely(prod & ~q->index_mask))
++		prod = cons;
++
+ 	qp->req.wqe_index	= cons;
+ 	qp->req.psn		= qp->comp.psn;
+ 	qp->req.opcode		= -1;
+@@ -168,7 +174,7 @@ static struct rxe_send_wqe *__req_next_wqe(struct rxe_qp *qp)
+ 	unsigned int prod;
+ 
+ 	prod = queue_get_producer(q, QUEUE_TYPE_FROM_CLIENT);
+-	if (index == prod)
++	if (unlikely(prod & ~q->index_mask) || index == prod)
+ 		return NULL;
+ 	else
+ 		return queue_addr_from_index(q, index);
+-- 
+2.43.0
+
