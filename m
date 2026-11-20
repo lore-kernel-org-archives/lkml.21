@@ -1,91 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185407;
-	b=BY3Fl/1qxRTCviRZxJwM7WffV7+Ff4cJF6bRz7jD/yzSoyWSfTb/ym/d3CYMtB2XQLbD
-	 99Fj41FLnpa0YM81RGgTnt9k09rCCEVN6ODWNv/t0jE4VlT2zoUvjUvpWcHyqxUUB+hxF
-	 fPiqZZo0dClWe90ktgTs/jsfRabrdk5Otv213qI9XeN+nVvHU9DlwyK/r6OilEQtH9Mms
-	 KCh+u+RV8I1daDGfjKa0igkxHrgCJPoQ0WbI41Wu60jc/QKOXcumIDLGDRXhFcztmGAWL
-	 oiwlP5cpyIgEcK7N2hRToy6llrK+etYILII2s7EAsSJVl3f2WMQq3hiThcV2ph9CTiQ==
+	t=1795185469;
+	b=ZRq3RHpDrjW7D5rf4p9yW6Yw7zOedfdBO/aoyI1yFzLy+NzPxLCfu/fr/2HWHBNMdlsD
+	 7dvqXzM613gLW8ix20b+4z1Sy1TZqnKMV1t5wSVBJOtqITqPShjOn5C5g5kngf/aN1hbb
+	 nc9HSNpbETG8VJ3KCqJaSU16qjW140rVGyKYLRgvSUOu27Grz8RY7obRE8cEhvvdmnWFo
+	 tv+6KzQfzuf/Q7C0VtXhvGvgvX31hejdbq0fbDPmMGLSrthEd0JrvGL6QFs5rBLB8e0vP
+	 OhpHbTt1Pfr/wQa/ljnN+dhoyGjW99uKjlVquFS72kMJv4Km503BuOmUX4B1IHH0f3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185407;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=0MCAlK1vSDEUpH6KYq3lQT9MH1vaHUdj1vOQ6+cLaJ8=;
-	b=QmpXJawOKP1yXtDUanOf6kdskDQTNpvS3M/XX3k4PJen42xleYCKBK+pLxh36aFNMXBm
-	 5iFAwkQAXRteaxJVjIzLeJEpuAW1xt6OjMQOROcz9QkHG6F2LiWtk7cGAYNn9ycOaFKBh
-	 vVIL2AD2bTEvE3cVLJDZSXFPdfR90S42MkwnwXQhpdF6KkBTRMSvyfhtvXVwk/ToSLXAu
-	 oAIojcNuRCR3keg8JmI2htpngQu364+w1FBKcFSP3ZqQH4CqyDCkFPO2HS1p+7U7EUKG1
-	 Y/3pcgQtdVBn+5QG0z8+hSxQy8Qidgs6cVCBMP5R+ejUSqGH9kylgOxhYuMnFZoO2WQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185469;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=T5R/PeSgIFg+ZSyUN7aEvdcRUdxKA2wXlQRJFCOnmQ8=;
+	b=HxZN+f3uq6ino3KE91FYVbzjCOVA2jx3X660Nw4eOXs8gVCJU3bNGegSql5nau5QGy8u
+	 VCldAUExtzApQomS5Y1VwWOFxpEmjPLM1DUC4pGf+KF//Hq++/nNo+DNWQnP9FAyODf4k
+	 JHN+Zm9JRe4j4n/gTIYUHqwl30/EU5fIHs0E4e3WDUw6nS60wBCmSbxNDv+Y0u5auOHah
+	 sMJIV800Lh7rtgl/4xc7elrlyXdrYIUYaEJdTbjkYSp6R4Kr7lOm89XClP0cp6yfDkr3Y
+	 LD+IZLfqY/uxvuDqKD9mVJNMHdSn1Kw3c2yV027gEt06I2IlRg9kUeY7y1nAz4k5OYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="ap/iHjEJ";
-	arc=none smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzl+rJ5b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6969D606A320;
-	Fri, 20 Nov 2026 14:36:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6969D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8496D606A320;
+	Fri, 20 Nov 2026 14:37:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ap/iHjEJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795185408; x=1826721408;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Cig8N2Zz9xbZB/SGA4aQF6o/ROAYS8EbqASX3ugaRTY=;
-  b=ap/iHjEJ1Zo2NolmaYj2jifTxcx+3t5vA5tbt6WCOmUffhBUkbUEcEsk
-   NKCI9A4/CK7UwQVtxgeuBTXqmURZGIa/5kdfwzgFLxV/gXSLT2qoLRFPx
-   RMt/D1YqIV2l+oS7kOTVCa8O2IyAtLNGDbgei1Ak9QpJ/ufCv1r3JLI8O
-   wmHjGTLK6vig8LqOnr+zFDlH8AMNWAX+Qy7orEh35orF2fH2c5YyoBzNK
-   /FR1uvpVtiHnFmMznC0D5dF/4Cq87PsjiyeQk6bUUfeDxaiEKkZJ+RJ3F
-   JJHa8c9lFVCeDWyb/lHdz/cd4tLpNko+4CZN+RgdF8ZyWcn8igeCI2Dlh
-   g==;
-X-CSE-ConnectionGUID: oVZ+ndlbTfeq7g/DniPfKg==
-X-CSE-MsgGUID: pS1kG+wLReart25JAlWcLA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4061436"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4061436"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:36:47 -0800
-X-CSE-ConnectionGUID: kpvhJ1msQ5mhPKhZEX2IZQ==
-X-CSE-MsgGUID: aFpybgINTWKITI6agTdBtw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11046527"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:36:42 -0800
-Date: Fri, 20 Nov 2026 16:36:40 +0200
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] iio: adc: rohm-bd79112: Add chip info structure
-Message-ID: <awBa-BjgoJ5aSKI-@ashevche-desk.local>
-References: <cover.1795176984.git.mazziesaccount@gmail.com>
- <42cb719e8da3b07e3c5b9bc6347e95ea7a30511f.1795176984.git.mazziesaccount@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzl+rJ5b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661281F000C0;
+	Fri, 20 Nov 2026 14:37:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795185469;
+	bh=T5R/PeSgIFg+ZSyUN7aEvdcRUdxKA2wXlQRJFCOnmQ8=;
+	h=Date:From:To:Cc:Subject;
+	b=Qzl+rJ5bPiHBUBv6QObyf9fn/9CbjnBjJtjLqU7XB2CryfNOB+zoWOZEhwVbXHx8C
+	 /RvkLPLo68a9CKJ5G98jSAFAsKZKIeLB4yveBQxtvpn0gw32ptVrYOXNiGXtQ/B43U
+	 ICuAMz1EBVDOdHyPHfW8fl7hQ544wulyydauGfaRMrUW+kNryZAjusrWQG/8S56ISE
+	 rPw1IrVRb2BR6upu9tqEUS4AdZ3uomBi3bQJq6lWF5i8ynUkGnwlb59NOAXAVAXnkr
+	 eyU9RyMLL5iW8PM+4zrkbHNAOT+fgbVmr8vXpuYivhL3X+6ATI1XYvT6jCed5I+TEx
+	 x/YwCzpGMpY1A==
+Date: Fri, 20 Nov 2026 14:37:44 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <benjamin.tissoires@redhat.com>
+Cc: Jiri Kosina <jkosina@suse.com>, Kees Cook <kees@kernel.org>,
+	Kees Cook <kees+treewide@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Subject: linux-next: manual merge of the hid tree with the origin tree
+Message-ID: <awBbOE022xyZY3Vl@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,35 +59,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ZzPA4M+AoqRJahMC"
+Content-Disposition: inline
+
+
+--ZzPA4M+AoqRJahMC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <42cb719e8da3b07e3c5b9bc6347e95ea7a30511f.1795176984.git.mazziesaccount@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 02:28:00PM +0200, Matti Vaittinen wrote:
-> 
-> A new ADC variant, ROHM BD79111 is going to be supported by this same
-> driver. As a preparatory step, introduce chip-specific data and pick it
-> at probe time based on the spi-match data. This allows describing the
-> necessary hardware differencies in data structures, which tends to
-> result cleaner solution than some CHIP_ID specific switch-case blocks.
+Hi all,
 
-...
+Today's linux-next merge of the hid tree got a conflict in:
 
-> +	data->cd = spi_get_device_match_data(spi);
-> +	if (!data->cd)
-> +		return -ENODEV;
+  drivers/hid/hid-sensor-custom.c
 
-ENODATA
+between commit:
 
-...
+  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
+oc_obj() family")
 
-Otherwise LGTM,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+=66rom the origin tree and commit:
 
--- 
-With Best Regards,
-Andy Shevchenko
+  d8dcea5754a29 ("HID: sensor: custom: Fix state lifetime during removal")
 
+=66rom the hid tree.
 
+I fixed it up (see below) and can carry the fix as necessary. This
+is now fixed as far as linux-next is concerned, but any non trivial
+conflicts should be mentioned to your upstream maintainer when your tree
+is submitted for merging.  You may also want to consider cooperating
+with the maintainer of the conflicting tree to minimise any particularly
+complex conflicts.
+
+diff --cc drivers/hid/hid-sensor-custom.c
+index c12272479d82d,66fca5c4855b5..0000000000000
+--- a/drivers/hid/hid-sensor-custom.c
++++ b/drivers/hid/hid-sensor-custom.c
+@@@ -977,7 -1019,8 +1019,7 @@@ static int hid_sensor_custom_probe(stru
+  	int ret;
+  	const struct hid_sensor_custom_match *match;
+ =20
+- 	sensor_inst =3D devm_kzalloc_obj(&pdev->dev, *sensor_inst);
+ -	sensor_inst =3D kzalloc(&pdev->dev, sizeof(*sensor_inst),
+ -				   GFP_KERNEL);
+++	sensor_inst =3D kzalloc_obj(*sensor_inst);
+  	if (!sensor_inst)
+  		return -ENOMEM;
+ =20
+
+--ZzPA4M+AoqRJahMC
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsAWzgACgkQJNaLcl1U
+h9CTlgf+NrbaG9NxBn11jFfEoWCroZ3xtgmWdnpEnz2RLEhq+A1uyeuVy8Nk3WU+
+f4cdfzrCjKnD3P+HLFV1gJpfdI6k5fkAS4FkLGKXDY0svHHKRPV3Pn8tHP2I281r
+uqcnZEcXQvpamzRK118kMQYUwqGTAMlJUMX8FfzC9jxIcezzaXUMl0bqXZR2mZj8
+YNZLoYxieY7utNguiEDZ6vgO0D91xF8a4kxFVsURY6g9W66cB6E/rwwKs2XRF2Qg
+F2jdaAZLpnzq5yn3tqiKv1erOZ9NF2N+cC1/ZXm2AVD2+pbkWBaC94QFlJQQIwnY
++MbpQEtsmXCtBvYxKJcik7m6KwfMnw==
+=A7/i
+-----END PGP SIGNATURE-----
+
+--ZzPA4M+AoqRJahMC--
