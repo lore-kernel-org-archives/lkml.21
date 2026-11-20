@@ -1,88 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158839;
-	b=N0yrz1E8196XafL07F2STnCwADaSQHpyEwPZUUbnOKlszFCmsLy4ZdlZdbx9bUDbz+5g
-	 yx9Z/QwNFQKbNR+68ZLKIBlmHPwOq6cVjCH1QVGBihtMuE7sgE9aAxCyJajungDhglQwg
-	 rInzYdbiIU4TVHyRTzgCziEhWbissnKr6QaBWfsBKt9Wh+reRkQk8+boSAQipgCFd/rqz
-	 IdqAdM6BTQsLSiAHQryCbOzJXkAmZgjKHFj7scjaDVLoCnPNarsHxfa2pMq7qAYonX062
-	 Px6EqqkhoXcThdl5WIe0NHXHos/qfFFwHRD2ldW1cpo6Kz4C+qwX1bOOVVASp0h1KSA==
+	t=1795158909;
+	b=DL8WcRjjh582lmuzCD2P18FPs1Ne55qZbEYPxHuCbW4HvVH8EFki6TZYXwLZvMDmaQ/6
+	 52yXlMlaeC6tkooLfCD4Oau9oH+FgIKAeaSGMnek9E71vduyCNR9sxy439KviZsvuIRkm
+	 ayD5yKuRU5deQYMjpQLOuSsdiKYJlj3EE7qWBjl8+7hyI+moSYJGR6tZRRTTjeXSU8ks3
+	 /fzLWDQgQuqFTx9QpKmbA4kp4/GfAwUPrb4GS69QmhY4C2Xxc8e+3mibjiJ6I4DDAyTGz
+	 nMi4khEoEO6I4VBsHjy5z/r9Ys6gR5Co6jtGE2bfOQUekotlWjLH0aXfjuMDzOfN1uw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158839;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7RB/HtS4S9iiO15BSxD7a7rMqDDbgGDfzBXH6TSb1x8=;
-	b=sL/MHZejRhoNFcJepOt659nUutq5wzBE8RsG55nePEeS5cQp9BhNI42YU5OY9Z/S193q
-	 8waLEb59EIX+nlpfOCNZm2jktQ93Ab8KX0JxLpU95w6ksNtO4Hi5wrKHTvqfrvaltw92m
-	 evDUO7E8/oXgWYMfLbxhynjvRuTeoZAFi8NyxX02srEwFYmeYzKZp7qc1z9tJdT6GfGlN
-	 gUbqBGlYY+03shCxMhihnzGYix228DyKUH6No17dQCMtTKUAYerlMWUDOIE9pGiO+g+ma
-	 5CMsiyssAZBd650Qb6UbiA8Kgyv3CdzFEN2XVJfwfcE3AAK74sG8jaUA2/jEH31EpKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158909;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=M1vM1hW8MosKcywV6qIcvb/oHiAwshYCDqraUSRSHAw=;
+	b=P1vLVn73vDQ30L3aLK7iNkqqjJLDUokrKu1UiBLdmCYhPR7atVmDeANAL1Yv6ARPVhG7
+	 N89c7G+WJgNcgZT9Q2AQcUnoZIzlR13PhwbrMxv8aVsKxyYZGSBtSXEI9b0EpI7/MXiCK
+	 2/BHJO9E/IJM/6SRGw3CUZTZ9/GB0BovrSnNv0FoSF6O5MKOGswzJKK59CIzNUtIXqfFs
+	 w9NxvRhipmA70MzJZjk4SBL2rnlO9Tf6BMB7IEd57E/XfbqC5U3nYWuxPqJEP3Ec7DlER
+	 BEN1x4tgpV/PaC0fCHaYG374FUWqVZlFeQ8qcmSK4m6VNm+uHXF0nyh/dG3iEnPAXtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b="StZw2/H6";
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=QO8R1q6a;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C2F4606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:13:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C2F4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3C55606A325;
+	Fri, 20 Nov 2026 07:15:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=StZw2/H6
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so5231925e9.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:13:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795158837; x=1795763637; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7RB/HtS4S9iiO15BSxD7a7rMqDDbgGDfzBXH6TSb1x8=;
-        b=StZw2/H6WwnI+YGGuGADmugfPJYA+F8P0w1qgtbquhzPWqUTsPNO2Lw5UnizJ3W4LL
-         GAVFXY6w5tO5IasoWvT8Ek00TkkLlNylb95iS4B/3H8nffZ/iaRc5MJsTohqkreKspyv
-         W1ECfVESSwtHzdU170+sozSyhPMupwmZF52FffVfyPeGUTKzCzYC8U4RGrUQAqALDrxH
-         bEQGQfp/hjiIodKap2dXV6OYiWhBGcdtzz7wiV4InkGeaB/w7OtSDpvx2CcuPDz6t+sm
-         BGdMkEzfgaHXVcerhA8FNb/0DeIy/G9P0fgaO72UGUrFNVAw7vT3aHhXLy2ActuWhrVy
-         1r0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795158837; x=1795763637;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7RB/HtS4S9iiO15BSxD7a7rMqDDbgGDfzBXH6TSb1x8=;
-        b=EaQZ8pzBsZJSfRlEdwfb6MKi0E2I2sTvsmL9I4Zyc2onHMOHn4D7cYWt/VHBs5bLG7
-         eKFQ/e7sYiT0K4LSbvB/OKIBu+2r3qHF/TDj5oCwOk7TLtYpZrVk0UQZ/jvH5xO8qwOl
-         W1p4Nt8UmCw2g0/rdcqIGv4n928sCogfYNQ5tq0M+5lAfAYTBUZ7+NvdNbldpJfqLPiO
-         y7ePrLf+o0Po83OXJsBZ47b5jCam6KAOP6gJDgxyEuEo/nAG0Jm7iUrfm3mNC4hHrHx7
-         L1UZPuUypBYgL3MDcrGdFpX5kq91rJj5FAmxYypKyHDP3Hxepfie5qZmwSLBIOLA2EgM
-         P6AQ==
-X-Forwarded-Encrypted: i=1; AL+hErFG4gcQ3h1DKGWSk5xkE00v5/rZu85En2NswVG5/yfjF9XdGRKaQHEdnbaKkZfQ77QQTGBkM1NGqhJQKE8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Dk7058/xQA/W39WUOJC0QAk6WSQHw3SxnVL6nc91uzQOtYL+r
-	czLFlLd56x116z58ngbztL/5gsvcByhTtilsKlUSZXavmxZi44nFGX3WtoCcyAFpRaE=
-X-Gm-Gg: AYBFou0GkW88VSUWyt1FW26BUqDmE9fAf+/e0xort1WEMRePnHOduAm7vR6L77sc5Rm
-	8a060rZNeDC2ZzPhtA2EQgWL2Ptq/w3juBY0q2GhGIgFKRGr3mw0L5FuTBQwNWPZgNtkeezpkBQ
-	G4s+UJ9cR4RN2YpBg3WynNBAA81cx//fWKRjqeNTxbNMjfPxzbx0qmamYzVf8cPnltxISwSt3fn
-	zhH2Dgg1cUS2XQN5xdzhkxTA69TnX2munOiURH22LzZ7L+wgfDnWMbH1RdiktNaGGUo6VIpy73Z
-	uVk7Jx+oGAhBomov3PNeinaGKVwsxV9ulqBQ6Fz0IJOXn7CYsHrWXtRS9pD9+jSOjoVc6Yq1b3F
-	dm5Imlaxof7yhQJTAO7KKANsgOfuxLnCifBBF24NTazTaBSqOzp9+Vh2zljGT2abkK73uiu4rFY
-	1ENxglEI6vcl2Y+V7LFELkPO8A+o1/Y6zlT+PAOCXgjHiJtgKTLZEiDiTV5mja/GRX2OC9qvbBK
-	6y4onHB9VGIjm+IZB8ZsyzOK7yLuCg8hVBTNOFRa2sDRXbZpqyzsNvUNlnTCSw0TctNi1Hlwpqv
-	aJG4fabZ80vJZ4vxafl3SeGXqFNl6jIeLdzyZZZmU+snE66mY9y+987UNWETtAVetwks
-X-Received: by 2002:a05:600c:64c9:b0:4bb:679a:86ee with SMTP id 5b1f17b1804b1-4bb88938dbemr45264345e9.29.1795158836687;
-        Thu, 19 Nov 2026 23:13:56 -0800 (PST)
-Received: from ?IPV6:2001:a61:13f5:8201:41d9:56b4:277:abb8? ([2001:a61:13f5:8201:41d9:56b4:277:abb8])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm3848039f8f.58.2026.11.19.23.13.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 23:13:56 -0800 (PST)
-Message-ID: <41a997dd-48ab-4635-97b3-f13b11066e2f@suse.com>
-Date: Fri, 20 Nov 2026 08:13:55 +0100
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=QO8R1q6a
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECFCC1F000C4;
+	Fri, 20 Nov 2026 07:15:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795158909;
+	bh=M1vM1hW8MosKcywV6qIcvb/oHiAwshYCDqraUSRSHAw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QO8R1q6a2mSnRZen9YOIipCzend/sLiz7k7VDszRfLnC89JNkLxaBxvwZ+hv6ga1Q
+	 Zdf1pQRJDXhAZ6KTbO1Ne7uVlIpkCoDCQ/JvEJMqX6ndlC0OpcGwCRbKHuhol0cSBg
+	 eGODOWBqNPHfPwL8g6m1iGTcJZlJvUQcAbmeKYR4=
+Date: Fri, 20 Nov 2026 08:15:06 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: DelaySystem@tubot.lat
+Cc: shyamsunderreddypadira@gmail.com, marusik.adamenko@gmail.com,
+	error27@gmail.com, christian.gromm@microchip.com,
+	parthiban.veerasooran@microchip.com,
+	rajveer.chaudhari.linux@gmail.com, linux-kernel@vger.kernel.org,
+	linux-staging@lists.linux.dev
+Subject: Re: [PATCH v3] staging: most: dim2: drop volatile from state counters
+Message-ID: <2026112047-delicate-sheet-620f@gregkh>
+References: <20261118-staging-dim2-atomic-v3-1-bc595e081fc8@tubot.lat>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,49 +56,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] USB: cdc-acm: refuse writes after disconnect
-To: "William A. Kennington III" <william@wkennington.com>,
- Oliver Neukum <oneukum@suse.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Havard Skinnemoen <hskinnemoen@google.com>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261120070353.956978-1-william@wkennington.com>
-Content-Language: en-US
-From: Oliver Neukum <oneukum@suse.com>
-In-Reply-To: <20261120070353.956978-1-william@wkennington.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-staging-dim2-atomic-v3-1-bc595e081fc8@tubot.lat>
 
-
-
-On 20.11.26 08:03, William A. Kennington III wrote:
-> Commit 7fb57a019f94 ("USB: cdc-acm: Fix potential deadlock (lockdep
-> warning)") stopped clearing acm->dev in acm_disconnect() and replaced
-> ACM_READY() with acm->disconnected, but left the write path checking
-> !acm->dev and dropped the disconnect check from acm_tty_write_room().
-> Because acm_disconnect() frees the write buffers with
-> usb_free_coherent() and acm_probe() only pins acm->control, a late
-> acm_tty_write() call dereferences freed memory.
+On Wed, Nov 18, 2026 at 10:24:41AM -0800, Maximo Manriquez Lizarraga via B4 Relay wrote:
+> From: Maximo Manriquez Lizarraga <DelaySystem@tubot.lat>
 > 
-> This can happen when a CDC-ACM device disconnects while a file
-> descriptor remains open with a line discipline such as mctp-serial
-> attached. Hangup closes the line discipline, but a subsequent reopen of
-> the hung-up TTY calls tty_reopen() -> tty_ldisc_reinit() from the saved
-> c_line before acm_tty_open() fails with -ENODEV. Because the original
-> descriptor keeps tty->count non-zero, the reinitialized mctp-serial
-> instance stays attached and faults in memcpy() inside acm_tty_write() on
-> the freed wb->buf when transmitting.
+> The request_counter/service_counter pair is shared between the AHB
+> hard-IRQ handler and the threaded-IRQ service path, but every access
+> already runs under dim_lock with local interrupts disabled:
+> dim2_ahb_isr() holds it across dim_service_ahb_int_irq(),
+> dim2_task_irq() across dim_service_channel(), and configure_channel()
+> across the dim_init_*() calls that zero the counters. The spinlock
+> provides both the mutual exclusion and the memory barriers, so the
+> volatile qualifier adds nothing and wrongly suggests lockless
+> cross-context sharing (see
+> Documentation/process/volatile-considered-harmful.rst).
 > 
-> Pin acm->data alongside acm->control until acm_port_destruct() so the
-> unlocked dev_vdbg() in acm_tty_write() stays valid across disconnect,
-> check acm->disconnected at the start of the write_lock critical section,
-> report zero room in acm_tty_write_room() once disconnected, and set
-> acm->disconnected under write_lock in acm_disconnect() so any concurrent
-> writer finishes before the URBs are poisoned and the buffers are freed.
+> Converting to atomic_t is the wrong tool here: the service-side
+> check-and-increment cannot be a single atomic step when done as
+> separate atomic_read() calls, as Dan Carpenter pointed out on the
+> atomic_t attempt, and a lockless scheme would still need dim_lock for
+> the sibling channel state (level, indices, done-buffer count, MBO
+> lists) anyway.
 > 
-> Fixes: 7fb57a019f94 ("USB: cdc-acm: Fix potential deadlock (lockdep warning)")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: William A. Kennington III <william@wkennington.com>
-Acked-by: Oliver Neukum <oneukum@suse.com>
+> Drop the qualifier and document the actual protection in place. No
+> functional change intended.
+> 
+> Compile-tested only (MOST=m, MOST_DIM2=m build clean); I don't have
+> this hardware, so testing on real hardware would be appreciated.
 
+I'll only take stuff like this if you can test it on real hardware,
+sorry.
+
+thanks,
+
+gre gk-h
