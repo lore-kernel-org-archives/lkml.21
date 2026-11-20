@@ -1,52 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182179;
-	b=t60mkSbhguuGpHuZZIFRBU+C8QeH39gGFRZT8rpTDEqmEzXYik56l4zNKPM9rScj1Trt
-	 DY16HovQN6JiQ4wRSKFTBF9jGWFLQfVbkzsA7DJTamqe2NVNb45IKbuMqIT7omurmJMo7
-	 e3cMZv9ODRnuHG3AeD/NYWXfJjaUF/4hiqhkHeL7iZJPZ+eud7fptBpSEPHxHzcEi02T/
-	 K8esRBMGDW+n1fDU7TSbiN8WEoW+hFvgG/4+W8SXqieYytIoio1CNTBMIXfGDIjomnN94
-	 ypPgXDsHIrl04Y6szYr5CLGqZZIYhQUsYctm0wg29pI42GdpnyDHE57msMqBy/bRkZA==
+	t=1795182184;
+	b=H2KHqrdOuQRB32/s/Tkcffg4W6EomgazH/XgX3npTH+2eRGjpmb32MwIZ+F9VEgGJ/9H
+	 rbfx8s1OJNFh2H+JaKRLUNKp00v+WqLzouKtxeS+xRVS3CKC3VtCajvvp8c81bikkvoUi
+	 sPu/BpggiAAYS28U6i7GiIw4thptL1g4KgsAA78osggdhj8gRorwVA3WNNaDaUJmJRzZL
+	 7fhNVVXRVUyDSiAvsc0U2/+n0gSuh/Hz8yO8NQS+iK+QPitgAh9UFL04zwlYDV9yj9wgH
+	 Y2Z0wYRReKZ256j0pM6fXO5cHOKABrCP7u2SvD12J7PzcbZ7vfGagotp+DueWGOTZmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182179;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=SvA7m/49Gi2iaxV+gXZZS3T1rvAfQr6LUzbleK9RmJI=;
-	b=RO+qma/a19X6vHyr39lcGPq+fnnrsOCifgjnRbtxNoU59BpYdPNB2iZv6xKfFxb+Qeax
-	 cpXCCTeak87bJ2ck9DnPJ61+hzGkmM32AppLm6+JqhWaCLItaar09QVGpNTru++nbWsdB
-	 q11yftSWju9dxCEuT2c+jV6ZhgXzD+tW0hjgVmGVatVm4klT8LARhkdAgIvbkbgTUrsl6
-	 KwpPGwwL+70EIP57FsaKRVDyfk7jc2HR7p599S0kLJAt2+0VjgyVYkGyxzZ0sMhRj2N0q
-	 h1z1VZxF8veJn6JsV0q3ZzMB95JXJKgAnlJSBJ3EPBN4MInzyAJ5yDVAC9fJaLKkrgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182184;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=cYXD2FWmrnnRZk6eOj0Jj2xBjZH/opG+pmsIgNjn1qM=;
+	b=CsxTmtFRO3SM5O/3M11G4JqRrhWPLLHWb8jUycgHGsqENpsyQAgMwLpsPqVerOPdwPMK
+	 7ttQmTx+WQEPhREofM7shyfbnUBOUfChJnjpHPxbbZKFr4UiiULuEbqqbKjq/bZhcLbaG
+	 87m+69Sazbkw1sGT/UG0UGL6SDUYJcUYmSJjnGUdDY3euKIpxFN248PiN0+pNoZU+idR2
+	 qSEV9oNiaMmKe4Qw8DpopumUjS9tQw03wg+Zp3vCO5tYowwF8CEFrH/6YC5N7xYM7dRn2
+	 Z2ILNOpebT2lBJz1BMVskLKONts7pf2BU4Kq7Zt3ebp+wANQIwIn/Fnva7ukxccRBPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gv+2tT+1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fWMOhzPc;
+	arc=none smtp.remote-ip=74.125.82.180
+Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3141360A2601;
-	Fri, 20 Nov 2026 13:42:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F41FA60A261E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:43:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F41FA60A261E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gv+2tT+1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F2561F0156C;
-	Fri, 20 Nov 2026 13:42:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795182178;
-	bh=SvA7m/49Gi2iaxV+gXZZS3T1rvAfQr6LUzbleK9RmJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gv+2tT+1IZbGG7xXQKEdMg/FYlWBO7XabOVcDaMmr03D4t6fMlRIDb1kJkaajwQz3
-	 ycPKoGHjCcIsTEGOLBgPo6IZKhdPRM83zUVqbUMN0J9QjgeOSmej/Ndlt9SlWw+DW3
-	 1JyISUe6zlOqNYmm3c5IKjy1bdBsJqAWbFeBeWj0=
-Date: Fri, 20 Nov 2026 14:42:56 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-Cc: nkapron@google.com, linux-usb@vger.kernel.org,
-	Thinh.Nguyen@synopsys.com, bigeasy@linutronix.de,
-	target-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	lgs201920130244@gmail.com
-Subject: Re: [PATCH] usb: gadget: f_tcm: do not dequeue UAS stream requests
- in BOT mode
-Message-ID: <2026112031-sandlot-idealness-df6f@gregkh>
-References: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fWMOhzPc
+Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3282db206d3so2397835eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:43:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795182183; x=1795786983; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cYXD2FWmrnnRZk6eOj0Jj2xBjZH/opG+pmsIgNjn1qM=;
+        b=fWMOhzPcYN0UpLMPegxJSOPZR1y33brbSICxb79t0XSxcz7Rn1I5DvxrS9W4GL0dxf
+         LPbq+RyVjBQfn23lJYx3GGBzPzvnhyhm7aC9I8Om9vT/WUIRjw/Ejb3GWBLorimx9Zzf
+         A8d4qbyGn9SnNJEuONtuC9+S9qwhH7irx7W0ECh8ANXEcJxxHvtRbUwU2Lr7TLRTuHd1
+         rYDx+qJzHnRR6j6J1l6tvRkGEZfnVHv0uw31frMqGDQDstwqa97L2OFv1BZD+xJf2BdI
+         XaYSZxw5IHaS70Hs8hZq9EjmCPT/iDPMf5UP6XrHDRzyL43+zy0ZtiOAsEvPr3dsIO2h
+         hCdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795182183; x=1795786983;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cYXD2FWmrnnRZk6eOj0Jj2xBjZH/opG+pmsIgNjn1qM=;
+        b=KJYo6IeLhL2zhmEuiqu6mvdcJJxXrKn3uh7CPS9Ou93dSnZP8b7l7EWu1G9A74zJ9J
+         MvCM7xjfc8ualsTzbPmESeQgvqWKQRFmWgPBrb8JS2oe+0MVTPl87OL3Jwsas3+ZxKKX
+         h0cVHWeIX7HspwDNrN8sv1dt/A7QNTLgB6xqeqANSIm/jLc9DZouHGYXZrNchUVez8kv
+         eNIp4o+zSfxkYChbjhyXdTJByZyR1NorRlcPHR5JoXjXcRmqCyVHlCyJUcnfQrsdGTzZ
+         FAIUV+u2YLlrbOEcFSHBnGX+ILLsXDQshGij/Yq2CICPcSYEgP5cGOOym2z9zxfOVsUb
+         S8DQ==
+X-Forwarded-Encrypted: i=1; AL+hErHAIe6whLIB/x9Ewz+AcMVGhsMYzoE1mr3MMqiMgyBwDHjCSCw5ojWEN8DDryAlvI58QpWvNLW+5FabWns=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96qoK1w3SFB1jBHZ03fk5IDiawfuwDncH4XR7f/CboP0KQ9rOJ
+	Pua8NOop5k5J9Nhhjwkrobqq5usVyozCNJX44PkgQb4Oqe0gsl16qaHm
+X-Gm-Gg: AYBFou1qQ0UCWte1LmvBaTBZBUubIDc517JGwFUK8lKJY5c+Q7SsZ3lpPohgiAhlK4V
+	I8lRvT/SB8criBfHijwlUBkQmxrI/WVsHCZKOdJnpI0/0e/U4Js3oBbotx1bD82FgNn/qMpNFvQ
+	uxeT5DR8qB8HkCK0SFmOKh/yeItukH8czwypGrJw7kPxqzKP7rr6aFJtfFdi4PFccj81gVFPust
+	yUYy75XxoYoUqR+519QDMk6eUfQpAYB72w+aij2gYXjviD0Az09POPC2deholbUbUv1X9oV3Id9
+	tYv1mZ2PYe+5NU6Q9DR3LgLTWDf/ACgVyJbvzeDuKRljbu65YoY+UXbM2ySlGOdOX33amQFRNL9
+	GKWtHesEkAE9XJ5QprenqFSJ+61eGVXkXBOMNIYYw/Tbiiv+QVbuQASAzSm9H1DrmN37L1D9j45
+	leb/39kc0/YEa4qjAXdn/sDVyqKMoCvE6tmF4OonPwBBF4MejukNfalTPxCCd/24pXVi3u+n/l6
+	4UQVGLsN1rbBLPOToT+lhGYcHIb2qt4nTWILqe3gow+676fZuqRP13hVUq2ujpaetQt/xQEKEvK
+	PRsLzG3aiOMXqDwtaxFU
+X-Received: by 2002:a05:7301:d805:b0:385:ce95:2e14 with SMTP id 5a478bee46e88-385ce953221mr2127751eec.30.1795182182938;
+        Fri, 20 Nov 2026 05:43:02 -0800 (PST)
+Received: from a1-free ([161.33.196.121])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm9590857eec.28.2026.11.20.05.43.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 05:43:02 -0800 (PST)
+From: TAKANO Mitsuhiro <takano32@gmail.com>
+To: linux-perf-users@vger.kernel.org,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	James Clark <james.clark@linaro.org>,
+	John Garry <john.garry@linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	linux-kernel@vger.kernel.org,
+	TAKANO Mitsuhiro <takano32@gmail.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@arm.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Subject: [PATCH v12 2/2] perf jevents: Fail the build on a key the tables may not carry
+Date: Fri, 20 Nov 2026 13:42:52 +0000
+Message-ID: <20261120134252.1036963-3-takano32@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120134252.1036963-1-takano32@gmail.com>
+References: <20261120060931.711483-1-takano32@gmail.com>
+ <20261120134252.1036963-1-takano32@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,90 +114,128 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 08:39:56PM +0900, Yehyeong Lee wrote:
-> usbg_aborted_task() starts by reading stream->req_out->status.  The
-> stream requests are allocated by uasp_alloc_stream_res() for the UAS
-> alternate setting only, so in BOT mode they are NULL.
-> 
-> The target core calls .aborted_task() from target_handle_abort() for an
-> aborted command whose CMD_T_TAS is clear.  A BOT command gets there when
-> a LUN RESET arrives on another fabric that exports the same backstore
-> and the backstore has emulate_tas set to 0: core_tmr_drain_state_list()
-> aborts every command on the device, no TASK ABORTED status is owed, and
-> the core calls .aborted_task(), where the read faults.  With the default
-> emulate_tas of 1 the core sends TASK ABORTED status instead.
-> 
-> Return early unless the function is in UAS mode.  A BOT transfer uses
-> fu->bot_req_in and fu->bot_req_out, not the stream requests.
-> 
-> Reproduced on dummy_hcd in BOT mode with a fileio backstore that is also
-> exported through tcm_loop and has emulate_tas set to 0: a WRITE(10) has
-> its data stage held while SG_SCSI_RESET_DEVICE on the loopback disk
-> issues the LUN RESET.  Without this patch 3 of 3 boots oops as below;
-> with it none do, and the write does not reach the backing store.
-> 
->   BUG: kernel NULL pointer dereference, address: 000000000000005c
->   #PF: supervisor read access in kernel mode
->   #PF: error_code(0x0000) - not-present page
->   PGD 0 P4D 0
->   Oops: Oops: 0000 [#1] SMP NOPTI
->   CPU: 1 UID: 0 PID: 30 Comm: kworker/1:1 Not tainted 7.4.0-rc3-FT9NNM-00395-g8dac6df92a2e #1 PREEMPT(lazy)
->   Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
->   Workqueue: target_completion target_abort_work
->   RIP: 0010:usbg_aborted_task+0x2d/0xc0
->   Code: fa 55 53 48 8b 87 e0 01 00 00 48 89 fb 48 8b 50 38 48 8b 52 30 48 8b 2a 8b 57 24 48 8d 14 d2 48 8d 14 d0 48 8b b2 58 03 00 00 <83> 7e 5c 8d 74 2b 48 8b b2 50 03 00 00 83 7e 5c 8d 74 58 48 8b b2
->   RSP: 0018:ffffc90000107e40 EFLAGS: 00010246
->   RAX: ffff88800540d000 RBX: ffff888006c6c870 RCX: 0000000000000001
->   RDX: ffff88800540d6c0 RSI: 0000000000000000 RDI: ffff888006c6c870
->   RBP: ffff8880053febc8 R08: 8080808080808080 R09: ffff88800491c218
->   R10: ffff888005031cc0 R11: fefefefefefefeff R12: ffff88807db295c0
->   R13: ffff888006c6c9a8 R14: ffff888005031805 R15: 0000000000000000
->   FS:  0000000000000000(0000) GS:ffff8880f9e92000(0000) knlGS:0000000000000000
->   CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->   CR2: 000000000000005c CR3: 0000000003030002 CR4: 0000000000770ef0
->   PKRU: 55555554
->   Call Trace:
->    <TASK>
->    target_handle_abort+0x6b/0x130
->    process_one_work+0x19e/0x3f0
->    worker_thread+0x180/0x2f0
->    ? __pfx_worker_thread+0x10/0x10
->    kthread+0xee/0x120
->    ? __pfx_kthread+0x10/0x10
->    ret_from_fork+0x186/0x230
->    ? __pfx_kthread+0x10/0x10
->    ret_from_fork_asm+0x1a/0x30
->    </TASK>
->   Modules linked in:
->   CR2: 000000000000005c
->   ---[ end trace 0000000000000000 ]---
->   note: kworker/1:1[30] exited with irqs disabled
-> 
-> Fixes: 76003eb6d09278 ("usb: gadget: f_tcm: Handle abort command")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-> ---
->  drivers/usb/gadget/function/f_tcm.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
-> index 9e6d4f39900a27..57e2ec81f29a8a 100644
-> --- a/drivers/usb/gadget/function/f_tcm.c
-> +++ b/drivers/usb/gadget/function/f_tcm.c
-> @@ -1614,6 +1614,10 @@ static void usbg_aborted_task(struct se_cmd *se_cmd)
->  	struct uas_stream *stream = &fu->stream[se_cmd->map_tag];
->  	int ret = 0;
->  
-> +	/* the stream requests exist only in UAS mode */
-> +	if (!(fu->flags & USBG_IS_UAS))
-> +		return;
+jevents.py takes the fields it wants out of each JSON object by name and
+ignores the rest, so a key that is spelled differently is dropped without
+a word and the object is built without whatever that field held.
 
-What prevents the flags from changing right after you read them?
+Compare the keys of each object with _valid_keys, the keys a table may
+carry, and fail on anything else.  The generator already names the file it
+was reading and the exception names the keys it did not expect, so the
+build stops with a message that says where to look.
 
-thanks,
+Written with Hermes Agent, an LLM assistant; the author reviewed it and
+ran the generator on every arch directory, with and without a key the
+tables may not carry.
 
-greg k-h
+Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
+---
+ tools/perf/pmu-events/jevents.py          | 24 +++++++++++
+ tools/perf/tests/shell/jevents_bad_key.sh | 52 +++++++++++++++++++++++
+ 2 files changed, 76 insertions(+)
+ create mode 100755 tools/perf/tests/shell/jevents_bad_key.sh
+
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 080e04b51b8c..1baeae76349f 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -63,6 +63,27 @@ _json_metric_attributes = [
+ # Attributes that are bools or enum int values, encoded as '0', '1',...
+ _json_enum_attributes = ['aggr_mode', 'deprecated', 'event_grouping', 'perpkg',
+                          'default_show_events']
++# Keys a table under arch/ may carry.  jevents.py takes the fields it wants by
++# name and drops the rest without a word, so a key that is spelled differently
++# is only visible as a field that went missing; a table carrying anything else
++# is an error.  The list holds the keys jevents.py reads, plus the ones the
++# tables carry and it does not read: Counter, CountersNumFixed and
++# CountersNumGeneric (read by nothing) and Experimental (read by metric.py).
++_valid_keys: Set[str] = {
++    'AggregationMode', 'AnyThread', 'ArchStdEvent', 'BriefDescription',
++    'Compat', 'ConfigCode', 'Counter', 'CounterMask',
++    'CountersNumFixed', 'CountersNumGeneric', 'Data_LA', 'DefaultMetricgroupName',
++    'DefaultShowEvents', 'Deprecated', 'EdgeDetect', 'EnAllCores',
++    'EnAllSlices', 'Errata', 'EventCode', 'EventidCode',
++    'EventName', 'Experimental', 'ExtSel', 'FCMask',
++    'Filter', 'Invert', 'LegacyCacheCode', 'LegacyConfigCode',
++    'MetricConstraint', 'MetricExpr', 'MetricGroup', 'MetricgroupNoGroup',
++    'MetricName', 'MetricThreshold', 'MSRIndex', 'MSRValue',
++    'NodeType', 'PEBS', 'PerPkg', 'PortMask',
++    'PublicDescription', 'RdWrMask', 'RetirementLatencyMax', 'RetirementLatencyMean',
++    'RetirementLatencyMin', 'SampleAfterValue', 'ScaleUnit', 'SliceId',
++    'ThreadMask', 'UMask', 'Unit',
++}
+ 
+ def file_name_to_table_name(prefix: str, parents: Sequence[str],
+                             dirname: str) -> str:
+@@ -196,6 +217,9 @@ class JsonEvent:
+   def __init__(self, jd: dict):
+     """Constructor passed the dictionary of parsed json values."""
+ 
++    if extra := set(jd) - _valid_keys:
++      raise ValueError(f'Unknown keys: {sorted(extra)}')
++
+     def llx(x: int) -> str:
+       """Convert an int to a string similar to a printf modifier of %#llx."""
+       return str(x) if x >= 0 and x < 10 else hex(x)
+diff --git a/tools/perf/tests/shell/jevents_bad_key.sh b/tools/perf/tests/shell/jevents_bad_key.sh
+new file mode 100755
+index 000000000000..6084205b5f4d
+--- /dev/null
++++ b/tools/perf/tests/shell/jevents_bad_key.sh
+@@ -0,0 +1,52 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# Check jevents.py reports unknown keys as errors (no_mlock)
++#
++# A key that is spelled differently is dropped without a word, so jevents.py
++# compares the keys of each object in a table against the keys a table may
++# carry and fails on anything else.
++
++jevents=$(dirname "$0")/../../pmu-events/jevents.py
++python=${PYTHON:-python3}
++
++# An installed perf has the test but not the generator, and a python that is
++# not there or too old to run it is a skip, not a failure of the check.
++[ -r "${jevents}" ] || exit 2
++[ "$("${python}" -c 'import sys; print(sys.version_info >= (3, 9))' 2>/dev/null)" = True ] \
++  || exit 2
++
++tmp=$(mktemp -d) || exit 2
++trap 'rm -rf "${tmp}"' EXIT HUP INT TERM
++tables="${tmp}/arch/x86/model"
++mkdir -p "${tables}" "${tmp}/arch/common"
++printf '[]\n' > "${tmp}/arch/common/empty.json"
++printf 'Family-model,Version,Filename,EventType\nGenuineIntel-6-97,v1.0,model,core\n' \
++  > "${tmp}/arch/x86/mapfile.csv"
++printf '[{"EventName": "a", "NotAKey": "x"}]\n' > "${tables}/events.json"
++
++if "${python}" -B "${jevents}" x86 all "${tmp}/arch" \
++    "${tmp}/pmu-events.c" "${tmp}/pmu-events-string.c" \
++    > "${tmp}/out" 2> "${tmp}/err"; then
++  echo "jevents.py accepted a key it does not read" >&2
++  exit 1
++fi
++
++# The generator says which file it was reading, and the exception says which
++# key it did not expect.
++grep -qF -- "Exception processing" "${tmp}/out" || {
++  echo "jevents.py failed without naming the file" >&2
++  cat "${tmp}/out" "${tmp}/err" >&2
++  exit 1
++}
++grep -qF -- "${tables}/events.json" "${tmp}/out" || {
++  echo "jevents.py failed without naming the path" >&2
++  cat "${tmp}/out" "${tmp}/err" >&2
++  exit 1
++}
++grep -qF -- "NotAKey" "${tmp}/err" || {
++  echo "jevents.py failed without naming the key" >&2
++  cat "${tmp}/out" "${tmp}/err" >&2
++  exit 1
++}
++
++exit 0
+-- 
+2.53.0
+
