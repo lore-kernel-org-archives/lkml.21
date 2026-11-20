@@ -1,44 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.38
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=96.67.55.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143775;
-	b=zCU+ALUGpu2DHB8F1YZFDJD5RLuhlrlk1iObx1PfwekGCzoyZn4lmCxUQ6DtTqAjNBIp
-	 EWWnDDom1Q2cCtHyLYEBzw6o0QN92i0ZzXHIeN8Z9Nd6UwEPF/d0cBJ/PWh5IdAO/5qTv
-	 AI4pKp7Gc6oqAKqH80FPcYL85/uXua7/EWCAdwgtemHdM0RZyed8QKCte+YN/YlZh13Mn
-	 pXfkQCejrVAmL++plSwwVeY3hPY9PA9P3tS0a4+eBbC/POz4zvUi9r16w2ZLpwkWNK/CN
-	 ce40yOUMoYa1/oDIGORe94sLydegm659D7T7bS9796cW1Ek02SrP3r94IHmr5A74DyA==
+	t=1795143853;
+	b=sVzzaQ362k0nNuIwOM7SApu+Ry+cxkF5PjH/JzJBtcHepD1SIh2+QGmDepXL4RxDY8td
+	 aLIidIAQ2v9peox8t+OqOrk9U+07YitQY3Bgy0DRCakBvL/rcnaIPuULQgSnXYzyi2F2Z
+	 NQMYaJAEi+A3E9YhsxnnnzMg28cBN5Yp62o89M6gF/HQKzsf/LL/SS3ePW8EIabHG8/Ka
+	 s8O8u2AjeY+kz7szwmtfZCxfoDOJr54nbZ/aMKpcj/wOfx/Eub+nkMUXjJTt+cnZF0/cS
+	 ttHyKdxH9rAFnJ3VJmuKwk/wyxiJhoigCasjlCiBUxLTmNQrz/agBwLd+XeZqVOmAUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143775;
-	h=DMARC-Filter:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=wC0wUU2m3HtIPmY9jvAO8PsD5hDAxn7Ex23eU3jgxZQ=;
-	b=kkDQG2MfSqMlj0jOyfBIrzEfbrUDKBMkyZ6yZIgMljav4/XJ1yYB5rNsLRc29l9Sx0DJ
-	 XqdcKRjaBTKGMTckYXU6en7Zv92eZOJNaWU6k6DqmZndSHlCWHGRvevv1vLRlEp6cxch1
-	 gvHzx8WfVrSUCQ2Zb6MjNaErOon8cRp4VE6JPxt9z000X1Q6E9aAFRruIWuC9S1/A2pS9
-	 0BDNjD9AfVgLDTDD2iWmjwoZcfkmU3FboyMgraijXS4kdxE1u4i2xeEV50RhpPfxfA7DE
-	 R2eixJGxG4rS6pVJ9UxqZbolB3xH8vARx+RdKvevi47woSCg+450YxGpMYsvBhffmlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143853;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Content-Type:
+	 Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=3fj1f9s84rqSArxiRYtZ9EY+vp9TA7GW6SELZM+VBUY=;
+	b=bllThJ9kYNKTf7GekKoukLk71EAqW3Pw5szygLf9HxMyTGKBovQkiL7YiSDCoDGm7dob
+	 JkEI8k2DWSZ0F5ovP9utWdTymMzBc5AwlCVZw61on8NHxFeoHLyVHQTodk2qW6+QdI3sJ
+	 nUc3Kq0SrQ6MECE0lxrRHqa1YvOpSQtMSIjY3ivuM+akaj/ygADS4JRvGtaGufKEvifrW
+	 q9TSy4GvKPDfemw1gDD4URPQP6P9zozAkY6KFoj2zFVQp/WS2L40Ik/gLfRDcxTZVBiAs
+	 CxPaBgiKrsQs+AvK7yOhWfhuIPm8xYU060PtbQwwl6chj1e5WktgyrXiXSRZLNHWJsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=BlAtMAnU;
-	arc=none smtp.remote-ip=154.81.10.38
-Received: from mail-m1038.netease.com (mail-m1038.netease.com [154.81.10.38])
+	dmarc=pass header.from=surriel.com;
+	spf=pass smtp.mailfrom=surriel.com;
+	dkim=pass header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=id4TkeXo;
+	arc=none smtp.remote-ip=96.67.55.147
+Received: from shelob.surriel.com (shelob.surriel.com [96.67.55.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E044606A320;
-	Fri, 20 Nov 2026 03:02:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E044606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE78E606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:04:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE78E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=surriel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=surriel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=BlAtMAnU
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 555bbefdb;
-	Fri, 20 Nov 2026 11:02:42 +0800 (GMT+08:00)
-Message-ID: <bc2695a5-5b20-4658-a95c-e67731086e9a@rock-chips.com>
-Date: Fri, 20 Nov 2026 11:02:40 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=surriel.com header.i=@surriel.com header.a=rsa-sha256 header.s=mail header.b=id4TkeXo
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID; bh=3fj1f9s84rqSArxiRYtZ9EY+vp9TA7GW6SELZM+VBUY=; b=id4Tke
+	XotKuwhNhtPXtJ8/mYlY5KR/HcjS64J1TJzz+ZbMG8NIfdaV0ytkPD4pTQ3WmttBUqs3dcPEuVAkt
+	5qNpRPVA67DePP/jsW43zbl34s+m9y3Pw2F0UMBcZwc3gS3ASsXPsDOn7i0RTW1vQd3yfqUMV1jhg
+	UZNKuFolBqTFoE/ASYUn0G3LWSZzdk646nlXEwwg+aoYYFWyIW8GphdoF1kSnnehnnn0oJIs6tP+8
+	3Duc1PB3Q+y5vgmCa6uy9/ZXHij2sPrcvijjA8MIGEK8OYUTWSThTn/KeVpJG76Nfwitt3oqed1P4
+	wRPmb9eT4mNUxwvgQzN+XxlbfPow==;
+Received: from [2601:18c:8100:a0e0:5a47:caff:fe78:8708]
+	by shelob.surriel.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <riel@surriel.com>)
+	id 1xUEuy-00000005akT-2X5q;
+	Fri, 20 Nov 2026 03:04:04 +0000
+Message-ID: <89e41824f1371b5880029f264e19b5d0589ae22c.camel@surriel.com>
+Subject: Re: [PATCH v5 5/8] mm/gup: break out gup_lookup_pte() helper
+From: Rik van Riel <riel@surriel.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, David Hildenbrand	
+ <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Suren
+ Baghdasaryan <surenb@google.com>, Christoph Hellwig <hch@infradead.org>,
+ Yuan-Hao Hsu <aa9736195201@gmail.com>,  John Hubbard <jhubbard@nvidia.com>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Peter Xu <peterx@redhat.com>
+Date: Thu, 19 Nov 2026 22:04:04 -0500
+In-Reply-To: <avxXgTBaJkPN6XOh@gremlin>
+References: <20261116210127.3837898-1-riel@surriel.com>
+	 <20261116210127.3837898-6-riel@surriel.com> <avxXgTBaJkPN6XOh@gremlin>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,104 +98,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] ARM: dts: rockchip: Add Luckfox Lyra boards
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: Ye Zhang <ye.zhang@rock-chips.com>, devicetree@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261119152055.556266-1-jonas@kwiboo.se>
- <f3746e7d-2c56-4e95-bed5-b2e993cf35e0@rock-chips.com>
-Content-Language: en-US
-In-Reply-To: <f3746e7d-2c56-4e95-bed5-b2e993cf35e0@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0aa1f6e8035203a7kunm3c3a335e85aa24
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQk0fVh9MGkJLQkhLSkMeTlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQkxVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=BlAtMAnUjFxtbegHN4OgFdA/VS6Ly1e3JiRAZwktlvpMQ0vYr762qEMzVP36mIGArANDSPdD+JU8tdEaVdacuzo2MOq446jfShqKXpX3hKh+0mqCYQxaJzwbYLkAySUcMV1krAuUWBd/SqNgMhd7hKrwRs/+3YmcNDWdBc9WMMk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=wC0wUU2m3HtIPmY9jvAO8PsD5hDAxn7Ex23eU3jgxZQ=;
-	h=date:mime-version:subject:message-id:from;
 
-On 11/20/2026 10:53 AM, Chaoyi Chen wrote:
-> Hi Jonas, 
-> 
-> On 11/19/2026 11:20 PM, Jonas Karlman wrote:
->> This series adds initial devicetree for Rockchip RK3506 SoC and initial
->> support for Luckfox Lyra board family [1].
->>
->> The Luckfox Lyra board family use different RK3506 SoC variants, i.e. Lyra
->> and Lyra Plus both use RK3506G2 and Lyra Ultra and Lyra Zero W both use the
->> RK3506B varaiant.
->>
->> All board compatibles use rockchip,rk3506 in this revision of the series,
->> maybe we should use rockchip,rk3506b for the RK3506B (and RK3506J) variants?
->>
->> The pinctrl driver for RK3506 will not work as-is using the SoC DT from this
->> series. The already merged driver depends on a rockchip,ioc1 phandle prop
->> that never was described in dt-bindings. The SoC DT in this series instead
->> uses rockchip,grf in GPIO controller node to reference correct IOC for GPIO0
->> and GPIO1.
->>
->> The branch at [2] contains follow-up patches that e.g. fixes pinctrl driver
->> and adds USB support.
-> 
-> Perhaps these pinctrl patches should be included before the dts patch?
-> 
-> Cc: Ye Zhang <ye.zhang@rock-chips.com>
+On Tue, 2026-11-17 at 13:48 +0000, Lorenzo Stoakes (ARM) wrote:
+>=20
+> > +		need_no_page_table =3D true;
+>=20
+> This is set true but not used anywhere? This is dead code no? Am I
+> missing
+> something?
+>=20
+> Patches should be incremental but adding completely useless locals
+> incrementally
+> seems silly?
+>=20
+> > +	}
+> > +
+> > =C2=A0	pte_unmap_unlock(ptep, ptl);
+> > =C2=A0	return ret;
+>=20
+> I'm guessing you forgot to include the code that works with
+> need_no_page_table here?
 
-Oh, I just saw your pinctrl patches. Sorry for the noise.
+That code is in patch 7. The check isn't needed
+yet in patch 5, and it got shuffled wrong during
+some refactoring.
 
-> 
->>
->> Mainline U-Boot support can be tested using a branch at [3], it contains
->> board support using same devicetree files extended with USB support.
->>
->> [1] https://wiki.luckfox.com/Luckfox-Lyra
->> [2] https://github.com/Kwiboo/linux-rockchip/commits/next-20261116-rk3506
->> [3] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/commits/rk3506
->>
->> Jonas Karlman (8):
->>   dt-bindings: soc: rockchip: grf: Add RK3506 compatibles
->>   ARM: dts: rockchip: Add support for RK3506
->>   dt-bindings: arm: rockchip: Add Luckfox Lyra and Lyra Plus
->>   ARM: dts: rockchip: Add Luckfox Lyra and Lyra Plus boards
->>   dt-bindings: arm: rockchip: Add Luckfox Lyra Ultra
->>   ARM: dts: rockchip: Add Luckfox Lyra Ultra board
->>   dt-bindings: arm: rockchip: Add Luckfox Lyra Zero W
->>   ARM: dts: rockchip: Add Luckfox Lyra Zero W board
->>
->>  .../devicetree/bindings/arm/rockchip.yaml     |   9 +
->>  .../devicetree/bindings/soc/rockchip/grf.yaml |   6 +
->>  arch/arm/boot/dts/rockchip/Makefile           |   6 +-
->>  .../dts/rockchip/rk3506-luckfox-lyra-plus.dts |  31 +
->>  .../boot/dts/rockchip/rk3506-luckfox-lyra.dts |   9 +
->>  .../dts/rockchip/rk3506-luckfox-lyra.dtsi     | 124 ++++
->>  .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 576 ++++++++++++++++++
->>  arch/arm/boot/dts/rockchip/rk3506.dtsi        | 540 ++++++++++++++++
->>  .../rockchip/rk3506b-luckfox-lyra-ultra.dts   |  31 +
->>  .../rockchip/rk3506b-luckfox-lyra-zero-w.dts  |  23 +
->>  .../dts/rockchip/rk3506b-luckfox-lyra.dtsi    | 100 +++
->>  11 files changed, 1454 insertions(+), 1 deletion(-)
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra-plus.dts
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dts
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-luckfox-lyra.dtsi
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-ultra.dts
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra-zero-w.dts
->>  create mode 100644 arch/arm/boot/dts/rockchip/rk3506b-luckfox-lyra.dtsi
->>
-> 
+In v6 the need_no_page_table thing will be in
+patch 7.
 
--- 
-Best, 
-Chaoyi
+>=20
+> 'need_no_page_table' isn't a great name either. Maybe is_none or
+> something?
+>=20
+Maybe pte_is_none?
 
+--=20
+All Rights Reversed.
