@@ -1,121 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795186600;
-	b=lt5ur5WtXECxQC6L9+4O2wNzz3HMDhOV0dOfD6SJkb23kIC/P3e0k0Zlyq+T3zP7D5gy
-	 YVy5PoGtErURVnK/NqElnVktuew9d+cHoegGwT80eKDBIyZ/SaZdUUWbgOpl5JlDnXHWy
-	 UJgDdkYKE/etBHQCYqz3hKUrVG1eEWGVlRehhbX7340rFscFe2AexRVnEEKAvfXULENzr
-	 lhGaO1haZpXZ1YqpsKxBw6UvqgauoEjqTRnZqeDrGcgkeGuXdu7xFuTnzqXjsdfyfWv9/
-	 +Kpy6XcloCw5ohCQ2PJV0+aEvBfwJUoD9dO4mkVTMU5oehX16dvwQbX3rTbOH2I8jgA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186600;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795186672;
+	b=pUnaE202vor0ztfMdagq2VVjaIS+IAdYc0ixO5KMyPncappBYfUteZOE2+1V6Fm/hQl+
+	 xbbJzg2vKVBf1mS87V5dEy33cj0T8PX5fUD9P0dbRQeOinOCJGObYMjmG7aLxr46UsMDd
+	 Ra8qdKPnFO897cPxPoxPr3hXanl4BCUMoH+VsEBKWQbCmKeE3j3Tqr0exk6WbLNMZhjEY
+	 zUU2P3A4iXvp05RSWRcviJJ92b8r8zAQzO5lc2/tq8bTvAJyDFEnOXCyQxy1+ghB1osm9
+	 aJQeXQeTBYgmDw4CbXQaRc8Fwxw5MOvniAwncSlgrq4VBPUZJx2zgTSCnh1PoyGx1KA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186672;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=yo11Eu8FVAj7BGu1LSTgiAFkJHWFwxDpoxDkv06j5xE=;
-	b=miQGv7mwxw9P8xGvUSwLXJalU8iUCytM1sMEVZSRj82twZ8leS9UCBfrkk10RssuP9qZ
-	 212YERBNWgigCSDnf7OkE2RqydvPcdUTU4g2HQBPZ0NmNOvEMTG8aJ4VosFQXCSfeSmfT
-	 Qd0AX60cOatqQq1iDIbDLnk/Fz11aJMBx/D8HYIFGnE8YlWYPpB99lWt2l4oKwn2wziBd
-	 rSAli2555aVcWgWoTh4pNQkgVHv9PiVUCHsW2LQivYRhyxopwYl1I8BYdlNepgX3ijKB0
-	 Sg2D0bjjyeAh1s0xaWSnRJqjeHlZuaA5mQ3DvAbDLFylqryImpRRZb0JhGTKpE8nFNw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZP56w4sc;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CtmTlrFm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	bh=UzYqfwK03XswOM+aAiEKuPhg2qiLfmbDsVStkI8SOkA=;
+	b=LWzrp9nWTP79VLcmmJefj6c/V4ZFdFBbimNEzhpXsN6dvbo5s5+e+yt+hxegFJ5QG8WF
+	 N0lcRHwoXew6lbot5AwBinpA3GthuzDu/w9ZzKEUMIYUVVzKGTC6frNi6Ba9qNgy+BIa3
+	 xwmsnkLl+FnJ0JIAXqY9JAmxchsWGomkoPt6rcO/OlusWK8E9YFNfVtc6v/5ZCqYZTxtC
+	 n7MD1gGLqjE3G6Dg/JZDreNEvticOeni9r6RavVc7hPXK4hodwMo18nxOYAck1RyNfIps
+	 l3hffjqSjP7aLBiQKHSVzdHRTJJ1BBvhQSChTbz+SKiLD3RGGefzMwBpOHFB21/X8mA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WUc5n26O;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4B08606A338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:56:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4B08606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7687E606A325;
+	Fri, 20 Nov 2026 14:57:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7687E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ZP56w4sc;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=CtmTlrFm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795186598;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yo11Eu8FVAj7BGu1LSTgiAFkJHWFwxDpoxDkv06j5xE=;
-	b=ZP56w4sc63v91u/w1PUxUnl1hmUqQuMuAfJscSUK0SIttyHRu0HoQOyydrMVE4aVDs6L9D
-	jNmyUHibVk5szTacaZ0ARER9uquihUTW0rJ30NCD7b8S4ZRJbI18WGCHx+13fovmviWSO8
-	Nj9UWRXjZL9QTNPjE3b5JPtkMnf2YEE=
-Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
- [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-389-QFOzi7seOG6Ypz1D-771Cw-1; Fri, 20 Nov 2026 14:56:36 +0000
-X-MC-Unique: QFOzi7seOG6Ypz1D-771Cw-1
-X-Mimecast-MFC-AGG-ID: QFOzi7seOG6Ypz1D-771Cw_1795186596
-Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-8b3ad0823c3so15317697b3.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:56:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795186595; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gRF7nlENwD1nxdVM4K+YSwnnLvy+RN3nS3pdHllBYk1GNg5lUBQzTathf9+6lZ2TPi
-         KnWaGPoeWeDJ8RbWt+yYNnMqpY95c0qB58Pg7UNVMCVw589wEZPNVzv3PTQsA3ooR+22
-         5tQOvOAdYt0MJvYZ9XyCxczf6W22SFia90KzN/v2af9CNhT4OyEU7XGNFHiDjmmSu91V
-         MNlt1qKUM/MZ2/0FYp2fTjcgOg3ghv5Fe3I93zbKUncu4iik/sVFuqd4j1KmK5OHI7y0
-         WljJjYeqmEjx0YaBA7qor5ERXKODI7PeldDlMX050rYpM8iDCAWjout6ZhnVBZ0vkxM0
-         CcmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=yo11Eu8FVAj7BGu1LSTgiAFkJHWFwxDpoxDkv06j5xE=;
-        fh=PJkLJ9ZBUw4ASpkNl6nstL4grhBfKwW11FHyIspG+3A=;
-        b=aZvivu7A61qHwoxkD7i/3nnXDGw49h+tdEFEsHPbXQNd5x0AVQfYZKvD59lREM9Jn4
-         HLVbGQjZYq7heVJEW6qRXPsEoy1arYEeDdy6Qyv8LdS5ThsJTJqi6ddbOklzd5f+H8oo
-         LPCCHk8DMFOUPzWn5Mo9NQz7GzEvL+rRIVsTTnmbQo8BDB0JQ8QU6lp9uUMFEob/TTPp
-         8zSerVn/I9rM0tvRC91eIRYFc0jAoy80cC8bZv5MSbjTLJ0MGqKNsE8weAvcNUMZ6O6o
-         Ukw4ojkeMV9SwmRB8L6gUJWgamjNQAPE0NmRj22aq/SLiz10LJq4PWICyWpYTO9CqZDz
-         EBVw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795186595; x=1795791395; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yo11Eu8FVAj7BGu1LSTgiAFkJHWFwxDpoxDkv06j5xE=;
-        b=CtmTlrFmZQU2mZ/eZM2NR8asfuX6D2DCONAiCYRZPU8cuUA61PR0XBSbsDUMF2a5C7
-         GRBbpGCrfH9c31jvTVhHBFwu5EpimnDfeTufNrZ3oG2Wqk8stnl90TPB0KQXE9DJOqTG
-         CMC7DkvWun3uDFjpH7oEc5/NhrJSMx9k7WBEkCYwbZq+bl4sZluncePRd01tsV2+twc3
-         a5OW2t5jZEtdzHQpoQEPWaeOAUKdKy4MRkSlSmoTqLFSZzHAoEyRcGNKTwA7i/61CM1U
-         ZSSAKx/Lu8G2jJ+9ju29WyJFAT1BOVUms9+idCcGTLG3Yp2L4qSyy4xk6i96bfH2w2V2
-         +4Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186595; x=1795791395;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yo11Eu8FVAj7BGu1LSTgiAFkJHWFwxDpoxDkv06j5xE=;
-        b=J3juoBin6V8VQ7ulGNTnY33oTYHM1h9fctuNcoRtQIeN/LtQt7Hk0WDO1PKIHoYDRb
-         HwG+IYnEM5CmhHdqsrmpisIz0wbS8VCV5SOK1J+DEOOiN3UbXaDE3WBeb7v5CyxZ6vFg
-         VWZASDOBvJYUZqH8vXk30xVkzmS0RMFIfnQGle1p4GYU0VoRd0aouh0EESzya+MbF3qx
-         ONrPB1wPv6Ci3lLZAhRQbyjQQxu6cnOH53fQd9d/z+rqZRHRNr4hDwLz2oj8EzBDfHCw
-         05J6KHP3UPgvGSey/D6GImH3q7HpPSqLhiikxtzD7V4H9+22AueaYM4qpzz6pPLtQ9mf
-         7XuQ==
-X-Forwarded-Encrypted: i=1; AL+hErGhtccgf16iSqgcxapvYknjle74SoEufpGWlrJpkknf8DqMmvRrhOFnMUB44a+vbmTbjhTfwZmGTMuNFy8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Dn873OwGSD9XPELqkcGXnXDaBwFFj3mWa9XUgi7rR0t15YRcP
-	wVPkyGEzcjc0G0Ynujl0c839fU0b/Ebtk2CUGMV9JyDAFPNFD4oh0ZKRvoMfAGDl5LLX+TGm3Jv
-	4Y02XxXJuHi9bl6s0G9ev9g0LWgoL49vKHjISAT0Pl+zcR0xtNDJttNPaj0mkVq14eyR7aRe6SC
-	hLBZC1ifLb6CAFBj0FKJHRMxcNYF82ypk5OOPN6yRF
-X-Gm-Gg: AZFdTZfJbut8Ii5c6VEu1izpwGRDhEMjlOjcTTDQkbRdyq1wW2RgSiKiXV1K+cCO3cR
-	sP1usr1P32P5P1QifXLqGLtsVqooKZSwY5CtdsnnSs1k6MiRhB0oCE/8D8neHTX366DPwcF5/Kl
-	wBMs8MEynNNEs15cJPsnfix75LMSvTqQsFXa862XBnoJ/1WH2UtNBE+8AeIPszusnG2CsOzOXcU
-	lkBYdYPrQEgGoBSYMi+ZiXyn/S7moX1Z4Kp3nih6D35mA==
-X-Received: by 2002:a05:690c:296:b0:8ae:a9c6:2740 with SMTP id 00721157ae682-8b5204dbbf4mr17277287b3.48.1795186595368;
-        Fri, 20 Nov 2026 06:56:35 -0800 (PST)
-X-Received: by 2002:a05:690c:296:b0:8ae:a9c6:2740 with SMTP id
- 00721157ae682-8b5204dbbf4mr17276957b3.48.1795186594739; Fri, 20 Nov 2026
- 06:56:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=WUc5n26O
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795186673; x=1826722673;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=Toql5mJ4cCFYPW7Pu+YFyJaUBUmYDrRv0by+tOZIa6Q=;
+  b=WUc5n26O6t8GUmociUeTFzJeDz1kU2cEDAH9L3LTniF1SZQI5esRBrQo
+   QtSXdQ+pYk8TV0rEJbe5RLp4TnerhT1K7A1MvB63ML2xWHIEdwuvZ5iik
+   1CguWdSm0es8N4LufXrtUhvrVM1Jeg7bY+a7PuJivuBlNiiRC7lMukCYz
+   wBX5e1AIZ8dqcgFrWmDoEl6+KRx65uXzTxAXsi9o1Byg/BTHt/Ip1YUAI
+   B6iaJlPQ07O5f0d2+4CWSHb/27yyslMXlCDoUAYwnaXqQ66wOOHcksWSt
+   +ra4y2hGfdRRoU1rJ4EtATmxAYb/OOGschO4rC5rRnX7yCeTc/+jvsHo6
+   A==;
+X-CSE-ConnectionGUID: TQ57xOOVRq2foUwKEmD+MA==
+X-CSE-MsgGUID: Bo017nQyQcCHFrQ3Srokyw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3976592"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3976592"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:57:52 -0800
+X-CSE-ConnectionGUID: hNZ3gathTZ+p5+Gmf2E3VQ==
+X-CSE-MsgGUID: kaBnqMCZQWaMXCaij3/u5Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="12553753"
+Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.123]) ([10.125.109.123])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:57:52 -0800
+Message-ID: <b04950ad-d655-4ca2-8cbd-59360509d25b@intel.com>
+Date: Fri, 20 Nov 2026 06:57:48 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,216 +73,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120031305.3561045-1-huangsj@hygon.cn> <20261120031305.3561045-2-huangsj@hygon.cn>
-In-Reply-To: <20261120031305.3561045-2-huangsj@hygon.cn>
-From: Andreas Gruenbacher <agruenba@redhat.com>
-Date: Fri, 20 Nov 2026 15:56:23 +0100
-X-Gm-Features: AclHuK-KPlGaYd21yj03z7EB2mPfkwiCHXM0MaDKxGgj2dWKdsX7kpdNXfvoeLg
-Message-ID: <CAHc6FU7VUBLg=gX-xspFfp4jPffdH7Pc4oVx5nRDo7A3aiVWug@mail.gmail.com>
-Subject: Re: [PATCH v3 01/11] vfs: add super_iter_inodes()
-To: Huang Shijie <huangsj@hygon.cn>
-Cc: viro@zeniv.linux.org.uk, brauner@kernel.org, jack@suse.cz, 
-	hch@infradead.org, mic@digikod.net, axboe@kernel.dk, gnoack@google.com, 
-	paul@paul-moore.com, jmorris@namei.org, serge@hallyn.com, legion@kernel.org, 
-	aleksa@amutable.com, libaokun@linux.alibaba.com, ebiggers@kernel.org, 
-	djwong@kernel.org, sandeen@redhat.com, zhongyuan@hygon.cn, 
-	fangbaoshun@hygon.cn, yingzhiwei@hygon.cn, wujianyong@hygon.cn, 
-	shijie8@gmail.com, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org, 
-	gfs2@lists.linux.dev, linux-security-module@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/cpu/hygon: Work around XSAVES Erratum 1386
+To: David Laight <david.laight.linux@gmail.com>,
+ Tina Zhang <zhang_wei@open-hieco.net>
+Cc: x86@kernel.org, puwen@hygon.cn, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ linux-kernel@vger.kernel.org, yangzhen@hygon.cn, dengqiming@hygon.cn,
+ stable@vger.kernel.org
+References: <20261028235712.383977-1-zhang_wei@open-hieco.net>
+ <20261120094627.513b216e@pumpkin>
+ <22eb33f3-a6f7-43b6-837b-74c8f5a3428b@open-hieco.net>
+ <20261120144430.0b1b43a3@pumpkin>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261120144430.0b1b43a3@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 4:19=E2=80=AFAM Huang Shijie <huangsj@hygon.cn> wro=
-te:
-> Iterating the cached inodes of a superblock is open coded in the
-> kernel. Add super_iter_inodes() for the callers which can work without
-> holding the sb->s_inode_list_lock.
->
-> For super_iter_inodes():
-> -- By default, it runs @iter_fn with a referenced inode and with
->   sb->s_inode_list_lock dropped, so the callback is free to block and to
->   do whatever it wants with the inode except drop the reference the
->   iterator holds.
->
-> -- Three flags change the default behaviour.
->
->   INO_ITER_F_REFERENCED restricts the walk to inodes which still have a
->   reference.
->
->   INO_ITER_F_NOREF does the opposite: only inodes whose reference count
->   has already reached zero are handed out.
->
->   INO_ITER_F_NOIGET tells the iterator do not call __iget for the inode.
->   Used with INO_ITER_F_NOREF in evict_inodes().
->
->   The flags are not orthogonal, so super_iter_inodes() warns if an unknow=
-n
->   bit is set or if INO_ITER_F_REFERENCED is combined with either of the
->   no-reference flags.
->
-> Signed-off-by: Huang Shijie <huangsj@hygon.cn>
-> ---
->  fs/super.c                     | 87 ++++++++++++++++++++++++++++++++++
->  include/linux/fs/super_types.h | 29 ++++++++++++
->  2 files changed, 116 insertions(+)
->
-> diff --git a/fs/super.c b/fs/super.c
-> index c5a0658f7aaf..204c70c7f179 100644
-> --- a/fs/super.c
-> +++ b/fs/super.c
-> @@ -171,6 +171,93 @@ static void super_wake(struct super_block *sb, unsig=
-ned int flag)
->         wake_up_var(&sb->s_flags);
->  }
->
-> +static bool super_iter_check(struct inode *inode, int flags,
-> +                            ino_iter_eligible_fn eligible, void *priv)
-> +{
-> +       bool ret =3D false;
-> +
-> +       if ((flags & INO_ITER_F_REFERENCED) && !icount_read_once(inode))
-> +               return false;
-> +       if ((flags & INO_ITER_F_NOREF) && icount_read_once(inode))
-> +               return false;
-> +
-> +       spin_lock(&inode->i_lock);
-> +
-> +       if ((flags & INO_ITER_F_NOREF) && icount_read(inode))
-> +               goto out_unlock;
-> +
-> +       if (inode_state_read(inode) & (I_NEW | I_FREEING | I_WILL_FREE))
-> +               goto out_unlock;
-> +
-> +       if (eligible && !eligible(inode, priv))
-> +               goto out_unlock;
-> +
-> +       if (!(flags & INO_ITER_F_NOIGET))
-> +               __iget(inode);
-> +
-> +       ret =3D true;
-> +out_unlock:
-> +       spin_unlock(&inode->i_lock);
-> +       return ret;
-> +}
-> +
-> +/**
-> + * super_iter_inodes - iterate all the cached inodes on a superblock
-> + * @sb: superblock to iterate
-> + * @iter_fn: called for each inode, with a reference held
-> + * @eligible: optional filter, called before the reference is taken
-> + * @priv: caller data, passed to @iter_fn and @eligible
-> + * @flags: INO_ITER_F_* control flags
-> + *
-> + * This function iterates all cached inodes on a superblock that are not=
- in
-> + * the process of being initialised or torn down. By default it runs @it=
-er_fn
-> + * with a valid, referenced inode, so it is safe for the caller to do an=
-ything
-> + * it wants with the inode except drop the reference the iterator holds.
-> + *
-> + * The flag INO_ITER_F_NOIGET changes that contract. It runs @iter_fn wi=
-thout
-> + * grabbing the inode with __iget().
-> + *
-> + * Return INO_ITER_RET_DONE if the iteration runs to the end.
-> + * Return other value if the iteration breaks.
-> + */
-> +int super_iter_inodes(struct super_block *sb, ino_iter_fn iter_fn,
-> +                     ino_iter_eligible_fn eligible, void *priv, int flag=
-s)
-> +{
-> +       struct inode *inode, *old_inode =3D NULL;
-> +       int ret;
-> +
-> +       WARN_ON_ONCE(flags & ~INO_ITER_F_ALL);
-> +       WARN_ON_ONCE((flags & INO_ITER_F_REFERENCED) &&
-> +                    (flags & (INO_ITER_F_NOREF | INO_ITER_F_NOIGET)));
-> +
-> +       spin_lock(&sb->s_inode_list_lock);
-> +       list_for_each_entry(inode, &sb->s_inodes, i_sb_list) {
-> +               if (!super_iter_check(inode, flags, eligible, priv))
-> +                       continue;
-> +
-> +               spin_unlock(&sb->s_inode_list_lock);
-> +
-> +               if (!(flags & INO_ITER_F_NOIGET))
-> +                       iput(old_inode);
-> +
-> +               ret =3D iter_fn(inode, priv);
-> +
-> +               old_inode =3D inode;
-> +               if (ret !=3D INO_ITER_RET_NEXT)
-> +                       goto out_loop;
-> +
-> +               cond_resched();
-> +               spin_lock(&sb->s_inode_list_lock);
-> +       }
-> +       spin_unlock(&sb->s_inode_list_lock);
-> +       ret =3D INO_ITER_RET_DONE;
-> +out_loop:
-> +       if (!(flags & INO_ITER_F_NOIGET))
-> +               iput(old_inode);
-> +       return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(super_iter_inodes);
-> +
->  /*
->   * One thing we have to be careful of with a per-sb shrinker is that we =
-don't
->   * drop the last active reference to the superblock from within the shri=
-nker.
-> diff --git a/include/linux/fs/super_types.h b/include/linux/fs/super_type=
-s.h
-> index 72f4288e16c5..974d3c087952 100644
-> --- a/include/linux/fs/super_types.h
-> +++ b/include/linux/fs/super_types.h
-> @@ -80,6 +80,35 @@ enum freeze_holder {
->         FREEZE_EXCL             =3D (1U << 3),
->  };
->
-> +/* Inode iteration callback return values */
-> +#define INO_ITER_RET_DONE      0
-> +#define INO_ITER_RET_ABORT     1
-> +#define INO_ITER_RET_NEXT      2
-> +
-> +/* Inode iteration control flags */
-> +/* Only iterate inodes that still have a reference. */
-> +#define INO_ITER_F_REFERENCED  BIT(0)
-> +/* Only iterate inodes whose reference count has reached zero. */
-> +#define INO_ITER_F_NOREF       BIT(1)
-> +/* Do not take a reference on the inodes handed to the callback. */
-> +#define INO_ITER_F_NOIGET      BIT(2)
-> +
-> +/* REFERENCED and NOREF ask for opposite things, so only one may be set.=
- */
-> +#define INO_ITER_F_ALL         (INO_ITER_F_REFERENCED | INO_ITER_F_NOREF=
- | \
-> +                                INO_ITER_F_NOIGET)
-> +
-> +typedef int (*ino_iter_fn)(struct inode *inode, void *priv);
-> +
-> +/*
-> + * Optional filter, called from inside the inode's i_lock and before
-> + * __iget(), so that an inode can be rejected without paying for a
-> + * reference.
-> + */
-> +typedef bool (*ino_iter_eligible_fn)(struct inode *inode, void *priv);
-> +
-> +int super_iter_inodes(struct super_block *sb, ino_iter_fn iter_fn,
-> +                     ino_iter_eligible_fn eligible, void *priv, int flag=
-s);
-> +
->  struct super_operations {
->         struct inode *(*alloc_inode)(struct super_block *sb);
->         void (*destroy_inode)(struct inode *inode);
-> --
-> 2.53.0
+On 11/20/26 06:44, David Laight wrote:
+>> Did you mean that the kernel could prefer XSAVEC when no supervisor 
+>> XSAVE state needs to be saved, rather than clearing X86_FEATURE_XSAVES 
+>> on the affected processors?
+> Or when there can never be any supervisor XSAVE state to be saved.
+> I rather lost track of these instructions after XSAVEOPT.
 
-Sorry to say, but this has gone quite a bit off course. Can you try a
-construct like iomap_iter() instead?
+Could you explain how that would help, exactly?
 
-Thanks,
-Andreas
+First, there needs to be a reference to the erratum in the changelog.
+For me, searching for this string git the PDF to pop out of Google:
+"Revision Guide for AMD Family 19h Models 00h-0Fh (Publication #56683)".
 
+Second, I don't see anything in the erratum that says it is triggered by
+supervisor state. Do you know something about this erratum that's not in
+the public document?
+
+I'm not even sure AMD _has_ supervisor state components on Zen 2 that
+Linux uses.
+
+Third, even if we could move to XSAVEC, I'm not sure it buys us much. I
+certainly don't want to add the complexity to our already horrid XSAVE
+mess. The right fix is in the microcode. Let's not give our dear
+hardware vendors to mitigate even fewer issues than they do already.
