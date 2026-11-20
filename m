@@ -1,110 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142562;
-	b=k7j8OrfdXr6QSDmCS7J5Szv7sEDUrar+i+ZC4bcYnlw67IWPjkIAumddDIWqc8f+9P7Z
-	 LOP18CnBA5HDxKQbBZ6ZiW8rtQVoGYN2T8NuEbuMnuQsb34Z+pFMPu2mSpweDlHKGPJYG
-	 G3wXN9SFOXxwFRq16ET8E+B4xw1IwF1hpwCG9D2qeEYcqTK1DlMmm/jhI1cwSPqpz33vV
-	 RiVfseUtK3pLJPlBarqj6LNgB+/wmiURqrHXzIGzyYSAU4cd1b91HnZs0u9UI+PDCyAQO
-	 5TYidU0O0BHD2M3YIwn9tb1FCUPLEM1VPzJS+zdZZUkZBwpE9T8f23Q+pjl5q6ZiG7Q==
+	t=1795142664;
+	b=5YCq6me4GA9ak5HhwyjEH2kadraknGFUiOQNZ+zktr7Mc4Aygj7MxiiRKVWJReVf/Glh
+	 uPsAomLIy9fnCEjWqLqNPHw1C6D2jsn/C39wxu9Ia8/yZ7hRRRB+qy9WlqAntMw3yDhN7
+	 gHTLanhA7hdqNCgtnU6dJkkxcHKQtO4wqVVe3p0H8Xe1c7KxcQuF1gm0hOQ5K2OWA+2tz
+	 I54mlTe63vsnMFxZom+Q3LkVo+MSdYiCCh/2NLMRUTm9NQ2/k+OJgA/TNC5PuFgvlZOUZ
+	 NxpzbQV7qCRw9zLDTJ87Li2Ix5q5KsOrTYJcYcp0Ghx0lgNUPC6t5Dy/s1mxWqgUQrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142562;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142664;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=EF0vL6wEhy6tre/wASvym5RnC5jfEWcWyrd8wmWnmW4=;
-	b=4A5gEGQzwALfy9OddcmQcabTX0/5j7oipwWT8dyFKHc1ftKj4rydFJ/SfdFqv9VC14zi
-	 spe28rJU8G36aw7+/TRqyD/bZt5pXIdXhMeGNhJb1/PuWivQaCOWAQJ9bQsAI14CDmCml
-	 1DaezkFChzaecS+QzHuo1MqqcXHXImsAJoLfmQw2oUk0D1SxH6WTu603FrX15VYEEwNNG
-	 CLZzmYOceS2QCY2fz0/FOseS2/vL6MnV9Z/hGmPeFKrMx9utgB4n9KtA8rSFCPrVb47mn
-	 s2YUAm2iCzm9M2tOTEgIKTHKKfCsfWfbGYJJWfrvfBdYf+VE/CitcZaL8PTEqDpYNBA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=FqAwkj/RgVbeEeWB+OVqnE+d236GoP0AK0b8fYCl970=;
+	b=pthzEOM/gxXWN7attmRKkNXqWSJGT7G7MaPJbdVzISyVmP1t7vQeky4d8cjMKHaYTi0T
+	 1DO+oU97D5SXvV6W8uOimh7vkJDtnggIxVdWc79yDXMyB756djKLkpoSOkvAzIRyirURa
+	 N3vdfhOEajNB1J/GetV7OxfmPl2cB7zgdMEVgGe3q27OoSeRFkf+alRu41i1axDgACBp0
+	 ziGx40c+i3A15aA5cKWelhp6jT16oXAd5Lwr4nDOWKnsB+O5HME1SBLayPFVJZeYE1J5X
+	 4od45Vu1vH2TdlJSe0m2TFA9OPrqSA5OqPwuzCO46KDqx7TRzzItqU11w/oZV5f61lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oe8qZ4cG;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--akorn.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K3ps3kCj;
+	arc=none smtp.remote-ip=209.85.216.69
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1D23606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:42:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1D23606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1384606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:44:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1384606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--akorn.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oe8qZ4cG
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3fb193c03so232204a91.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:42:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=K3ps3kCj
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3b41aa2b9a8so390504a91.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:44:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795142561; x=1795747361; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EF0vL6wEhy6tre/wASvym5RnC5jfEWcWyrd8wmWnmW4=;
-        b=Oe8qZ4cGxV9VAKGnbLuyaX0avd/zXFdOXXZx4Ib5GkdZtwkaUCefUHSJx/YCY37OGn
-         2Qf4Zqp+948TZPyBytMhRn1Gba0nE7UEFENfwClnbZQEXLpduH/yOOkoQ+Go/HvI/y/1
-         jTHzUKsknqsGF2AxdNV/cPXdKP11/keMLVuCycW8QadHU2KVXMUsurBqZWAWWWRTt3tM
-         IDibg6hdCEwy2JKI4gVFMa+rosWzzV2fnvKlal/5KD30CtCl/0ukVYz6LbVO8JdApd9h
-         qtLWdog5Vc3jT6nfXqQxFLYaTZbO33MC4aaTmh9CVh/pXJif4u2zBk3CZaUd1/CDUg3I
-         CCdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795142561; x=1795747361;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=google.com; s=20260707; t=1795142663; x=1795747463; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EF0vL6wEhy6tre/wASvym5RnC5jfEWcWyrd8wmWnmW4=;
-        b=C1zW5pxWrFohkNS5rC57QoKOFJPjua7EEKKAOSlyPMYugC4O461KyBDP3IOXUxn1CY
-         vKbYD8bSN1Z029CnNzeEO0nlP40dxzKiw9ccrRcFGL39FI1db4zW5DtSwXpE7P3W477v
-         LkaSLF9cwym1oO2i11z4y/hD4NWec8HWAAF1VlPym57ax+61wU/gWs/2gb9JO6k9nXX1
-         APExHiOHnrhKvXi0eu2GicM/da2AQA5eRB8fg5bFairxPlnf7zf64Oy0pIVQm6oEu7Bg
-         1A1AfQG3b4vL6/B6Us45OsriWl0fy7xFp0jzTFAinhGaqqHm0nX/Wto6lnQLOe5R5xEs
-         Z2Zg==
-X-Forwarded-Encrypted: i=1; AL+hErG4qKKLtDFKnsXZEDo3T2ske/gMxUu0sLh1DFzIzpRplPqs6f3aWmwkQiRSoAmsGJt8gyh9Ssa6CutteSQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Qe+JckdcV/J7BvXf6sqoX4pyHqKhqglmWIAyyNa2EeclziY0x
-	pPS3Vj6/o8p1OY7kUIQk7nPzc92ca/2eJVGEEjxIPgfdlyrWpNLS77c2
-X-Gm-Gg: AZFdTZfu5VkCmRygPPZH7WUzznPGyS+uujR6WifiVHRkxd4pfX7U0TxNZVv0466ye8F
-	cMCBgkIUysmrRlO98qqHLxVWFHOlwmJg+I2958dcvDoM/+5vLKQkzv+LSyt/XDK8fUomWYBh6nT
-	xlk9cNWc+woxiTBxM/KHJ1SAaSlC8ZJ4gO/Cru54anFktM8h7345AP+IiUno7NriGvnNcxBONqS
-	h/76CJoXqunoeuKUIfZ2nh15+WwVjoJ3q8rs23oRBvKoM8psGM50URfzfj7u1c+T+7jggNWWjc6
-	90EdUdVjrnjOKCR8qoqrloZ2nl5EhhzeFC/nw7/rJ0/rIkmZTK24dt/L/0fCbAtXqxs3zZ0hXK1
-	OYdMcchDdbx896SFU9bbW1rH/YCUzvklBSjP02q5k1/eDJIfbLgTkZM6gCWkC4zKqzfH7pDEDv/
-	Htnd83lpFCebGtBvl1LCiHo/Vv3AZ1huR7WC9xfWaoOVFKKbwjq8dYxIYcVarEWOAPJKq5ogQW0
-	6OYJGAOaH+mqihYUSrhli1/xkMtXNDckBmVUwCBLMdBSbl/m6zWmxxmT26YHTohe0JvgYBCV5Jz
-	vAwUC0ON547e1GqpWQU0fEVGXABXXXYNXsySlkXvGMV4Ajyz4Wk=
-X-Received: by 2002:a17:90b:3d8d:b0:3b4:1982:473b with SMTP id 98e67ed59e1d1-3b41c98a120mr1116872a91.18.1795142561292;
-        Thu, 19 Nov 2026 18:42:41 -0800 (PST)
-Received: from u.. (61-222-64-201.hinet-ip.hinet.net. [61.222.64.201])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ffbab7fsm553507a91.0.2026.11.19.18.42.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 18:42:40 -0800 (PST)
-From: Tim JH Chen <tim770802@gmail.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org,
-	chandrashekar.devegowda@intel.com,
-	haijun.liu@mediatek.com,
-	ricardo.martinez@linux.intel.com,
-	loic.poulain@oss.qualcomm.com,
-	ryazanov.s.a@gmail.com,
-	johannes@sipsolutions.net,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	ilpo.jarvinen@linux.intel.com,
-	sreehari.kancharla@linux.intel.com,
-	m.chetan.kumar@linux.intel.com,
-	horms@kernel.org,
-	linux-kernel@vger.kernel.org,
-	tim.jh.chen@wnc.com.tw,
-	Chih.Hung.Huang@wnc.com.tw
-Subject: Re: [PATCH net v7 0/6] net: wwan: t7xx: fix TX push kthread soft lockup on suspend and RX stop issues
-Date: Fri, 20 Nov 2026 10:42:32 +0800
-Message-ID: <20261120024232.133708-1-tim770802@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179514018050.3291.12379298766410717361@kernel.org>
-References: <179514018050.3291.12379298766410717361@kernel.org>
+        bh=FqAwkj/RgVbeEeWB+OVqnE+d236GoP0AK0b8fYCl970=;
+        b=K3ps3kCjFoNyQsEPKIrqkA25PXTWmPoCohdlMH+cgnWa+ww2d5P0GoV7m58wKd4wHK
+         rt/c0FY9n6kMaoquQG3fPBl/i54b9KCwn9NnSP5eUW7UqpGVmE6oGS7YBQsF3w3lCaB9
+         +Yeoxl4vA0qOmEAJe9zRZB1KbIGRua0H9Lp/AYPL6fu7kxHVoXQKuSsA6CgBSrhH1Kky
+         1rUQcNdFmBdEpDoKkPykTKjHPBWdMUlAfbS4ultqqNW2nfgToWg5Mh9rL7RXzoVDw139
+         +h+HieMBc0cNKLNtSsBtaTNpIAORGSopsIOQD2mrZXfP0CTQjCb7Q8cJU3W5xUI+cTqg
+         TGEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795142663; x=1795747463;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FqAwkj/RgVbeEeWB+OVqnE+d236GoP0AK0b8fYCl970=;
+        b=jL8jdT3JARrLRoMNtgFsUtX0rEz8FfYlN2C8R5wtlTGgTJQLjUD3N8wNuTsYGrwudk
+         OfkRglxVmgf0VASJKOq5OURqKJhwW2rir/RF4f4a8eTUbKOQU+Ip7eUH1fHuaSPn2Rh6
+         o66pkGQSa3wbmNBnzAo3uBhlzv55PGT2lTUnRncp/g9gCDWSk7GgPdbOwBpIQegQ/+F6
+         OGyQie3oPatFKFehyz8/SZwnYY5LWroVulKu8NobtEk/8sZNjzL6h5JFxMNUx40lCKr2
+         tjTD6t2VUE8aZN7j77RKhG8nN5rDc8G8yZlUENOPYZdUL4xJ4K643wx5N2zGFm9XETp0
+         8COQ==
+X-Forwarded-Encrypted: i=1; AL+hErGaSB2JknxSqPwOVR3GeTeC4Wj/3BfqM2V8UnC8x4cQ1bHGiQegdxBdgk6cipBK40GrirlSoKSwxmR1lQA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/YdKylHbsiQRsr6Q2ZmPDoOOrcSCH+fcX2Uu3NMjoUlAFiD1eV
+	No+qbfXcjIbqhOFG7zaIdSzpvW/XOTCcPDaHpQS6n88pEHhZTasU1onKcMiEhwhqiM3/6VWN7hH
+	HDg==
+X-Received: from pjq3.prod.google.com ([2002:a17:90b:5603:b0:3ae:c401:753])
+ (user=akorn job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3b8f:b0:3b3:b36e:8c3d
+ with SMTP id 98e67ed59e1d1-3b41cb466f4mr1155511a91.62.1795142663097; Thu, 19
+ Nov 2026 18:44:23 -0800 (PST)
+Date: Fri, 20 Nov 2026 02:44:15 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,61 +75,89 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261120024416.338876-1-akorn@google.com>
+Subject: [PATCH v3 1/2] hwmon: (pmbus/max16601) Support byte data writes on
+ VSA rail
+From: Arthur Korn <akorn@google.com>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Arthur Korn <akorn@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-> - Whether the issue was actually triggered, or is only theoretical
->   (e.g. found by LLM and not proven at runtime). If it was triggered
->   please include the symptoms, like the stack trace or kernel messages.
+MAX16601 exposes the secondary VSA rail on virtual PMBus page 2 backed
+by a separate I2C client (data->vsa), while page 1 is a read-only
+virtual page for VCORE input current and power telemetry. Although the
+driver routes byte reads on page 2 to data->vsa via max16601_read_byte()
+and PMBUS_CLEAR_FAULTS byte writes via max16601_write_byte(), it does
+not implement write_byte_data(), and max16601_write_byte() falls through
+to -ENODATA on virtual page 1.
 
-Per patch:
+As a result, PMBus 1.2+ byte-data status writes from pmbus_core (such as
+clearing individual status bits in pmbus_get_boolean() or clearing
+STATUS_CML faults during probe) on page 2 are sent to the primary VCORE
+client instead of data->vsa, and byte writes on virtual page 1 fall
+through to page 0.
 
-1/6: Triggered. Soft lockup in an s2idle rtcwake loop (SIM registered,
-ASPM L1 enabled) on 6.19 with the unmodified driver, on the 981st
-cycle, captured with kdump:
+Implement max16601_write_byte_data() mirroring max16601_read_byte() to
+forward page 2 byte-data writes to data->vsa and reject virtual page 1
+with -EOPNOTSUPP, and reject virtual page 1 in max16601_write_byte() as
+well.
 
-  watchdog: BUG: soft lockup - CPU#4 stuck for 26s! [dpmaif_tx_hw_pu:764]
-  RIP: 0010:ktime_get_mono_fast_ns+0x2e/0xe0
-  Call Trace:
-   ? t7xx_pci_enable_sleep+0x44/0x90 [mtk_t7xx]
-   t7xx_dpmaif_tx_hw_push_thread+0x1f9/0x490 [mtk_t7xx]
-   kthread+0x10b/0x220
+Fixes: 2138f8853a00 ("hwmon: (pmbus) Driver for Maxim MAX16601")
+Signed-off-by: Arthur Korn <akorn@google.com>
+---
+Changes in v3:
+- New preparatory patch to route MAX16601 page 2 (VSA) byte-data writes
+  to data->vsa and reject virtual page 1 byte/byte-data writes.
 
-With the series applied, 10024 cycles of the same loop completed
-without a soft lockup.
+ drivers/hwmon/pmbus/max16601.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
-2/6 and 3/6: Not observed; found by code review. -EACCES is only
-returned while runtime PM is disabled and the device is not active,
-and I have not seen these paths hit at runtime.
+diff --git a/drivers/hwmon/pmbus/max16601.c b/drivers/hwmon/pmbus/max16601.c
+index 2eca7525..f9138fc0 100644
+--- a/drivers/hwmon/pmbus/max16601.c
++++ b/drivers/hwmon/pmbus/max16601.c
+@@ -153,14 +153,28 @@ static int max16601_write_byte(struct i2c_client *client, int page, u8 reg)
+ 	const struct pmbus_driver_info *info = pmbus_get_driver_info(client);
+ 	struct max16601_data *data = to_max16601_data(info);
+ 
+-	if (page == 2) {
+-		if (reg == PMBUS_CLEAR_FAULTS)
++	if (page > 0) {
++		if (page == 2 && reg == PMBUS_CLEAR_FAULTS)
+ 			return i2c_smbus_write_byte(data->vsa, reg);
+ 		return -EOPNOTSUPP;
+ 	}
+ 	return -ENODATA;
+ }
+ 
++static int max16601_write_byte_data(struct i2c_client *client, int page,
++				    int reg, u8 value)
++{
++	const struct pmbus_driver_info *info = pmbus_get_driver_info(client);
++	struct max16601_data *data = to_max16601_data(info);
++
++	if (page > 0) {
++		if (page == 2)	/* VSA */
++			return i2c_smbus_write_byte_data(data->vsa, reg, value);
++		return -EOPNOTSUPP;
++	}
++	return -ENODATA;
++}
++
+ static int max16601_write_word(struct i2c_client *client, int page, int reg,
+ 			       u16 value)
+ {
+@@ -252,6 +266,7 @@ static struct pmbus_driver_info max16601_info = {
+ 	.read_byte_data = max16601_read_byte,
+ 	.read_word_data = max16601_read_word,
+ 	.write_byte = max16601_write_byte,
++	.write_byte_data = max16601_write_byte_data,
+ 	.write_word_data = max16601_write_word,
+ };
+ 
+-- 
+2.56.1.703.gf848ed807c-goog
 
-4/6: Triggered in the field, reported by Andreas Haerter on the v6
-thread (Closes: link in the patch). After "SAP suspend error: -110"
-every runtime resume failed, the TX push kthread exited, and a later
-write to the PCI remove attribute crashed in kthread_stop() with a
-NULL worker_private and then hung in D state.
-
-5/6: The symptom was triggered, the exact path is not proven. In two
-overnight runs on 6.19 with an earlier test build that did not have
-this patch, a modem exception was followed by closing the wwan netdev
-hanging in napi_synchronize() with rtnl held, and every other rtnl
-user hung behind it:
-
-  NetworkManager:
-   msleep
-   t7xx_ccmni_disable_napi+0x42
-   t7xx_ccmni_close
-   __dev_close_many
-   __dev_change_flags
-   netif_change_flags
-   do_setlink
-   __rtnl_newlink
-   rtnl_newlink
-
-The not-started early return that this patch fixes is the path I
-believe left NAPI_STATE_SCHED set, but I did not capture the poll
-itself. With the patch applied, "Work RXQ: 1 has not been started" was
-logged twice in a later run without a hang, but no modem exception
-occurred in that run, so the exception case is not verified on
-hardware.
-
-6/6: Not observed; found by code review.
