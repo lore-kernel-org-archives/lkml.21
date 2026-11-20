@@ -1,55 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169891;
-	b=lqE/LfB42mu/JLM6YPny86YBEAxmqDR1aXabiCGTwCWHigx9VhaJslGhF62/n3Fn4bDv
-	 KirdrMAQVdc4jdF0/MxLSs7PrssFHDg0AgPUSHbhKpNvt5A9KTNGn7V+uEif+Ebg2DmW/
-	 +vTD6rwi8y9P21l4knLQ2tFApJ40Vm3HxTnuXX2vlk2sw9sN1C94K+4h4fsMw7Fvxj02V
-	 vNjh4KtOnZJj1qK4Vi68fKXndABK+/AeoFGm8IN3ArdqPSMdMOvz/Z5Nfrjki7Z6lwZ51
-	 yNsH3ecoeLQpnuAJzz7G2UMQLMjffoUf9T83phfpUvVOv4kK4V/J+TueazAodHzWvdQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169891;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=91aSG4C3xDj7rNipux5lI7AnWD+3hz8cV70eKCK0A3Y=;
-	b=stNJLw11W5IMhYUEFho/W6Z1jNySzvnS+Gw9lyYsfNZ+Z5WkQRTQnj/ZdIDQ7bN7ln0+
-	 2f2iMXFzn/v5lNLt2QfdY8EgxGFCOGds52mgENDXTr/I2WVI2uVZDGfZtBIcxhuNDoABo
-	 x9VXKOjD+nKNNaLyxltUq5A8fF+Oi+v/mhB44uCcDupnhkDjpVQuy14uHkT7ZDfrZQofX
-	 6xnmUnSa2FqBJR6QBGTgQuQfRR5T2puhe3DNQ0ZnubUap8iryjB34nsRz8nhsvTPI75B6
-	 oI3HHZF9g22DBosQzi8t6UsR8WPKqmmhmJJ4JLW0u3KD4sS6hBm7DbaE+O18ldYWu6w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=LMDZJNKP;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795169907;
+	b=YWScfjEwxE0J4MEq/GQWyKpVLCh6wwKIlF31ioBIyEn92Vt7RSdpfRSZvBie/mdSqMCb
+	 mulhbdOo/iaIiKodi52cWuVAjdkLvonXgdamRjh6iCS99z1GzHbzYIsrmo5yanyB42N/J
+	 lIjCTAaLhpxCutQOGXSxvjCV0pRe5xNA8Hc2R5nL7tyLR2RQrijXsHgvwhSEyYCRPgfFt
+	 8u6CzRJUMrGxSYtrX5nux7kxHyNMzrT7PG+fJTTGDv017i7yX+Ur0butS3F99g/fpMRos
+	 NUkUHwCJ5oWCPwZkMsUAF/O7jFLMFjoWVZI3TuW/pVHAllQlgL6tX+gRp+iryCmcOyg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169907;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=SNWLb0L+OWBVvvcB3v+U+hDjyIksqWir4fqKX+sD6Ls=;
+	b=2BPgfa6kPkhCZmDcsUjPk66i8Jid16EEkQa+A8QF1bOX9HNcEIqRPqc0rRxSQWFXGo/A
+	 vv+sbHC4X3QpsmUOgj7w9sCd0bUU2hIenomX7xlQnWT4qzmzn1GPpwz4lEZlKUtM5SteV
+	 V5QKf+BFf5FDrxEyZ6wj2VKmS+eKIGFT1AJcYQYcC4KMJc8zIoR54cXvJDHvELHcx2lKr
+	 +cVoA2437LD1f7yMW2zuPqYMwkka5U7JBaFwm4kOm58ofeCqfyAs2t8gBL6w4Z79Vsysr
+	 IYbCjUNT3rpM7iX71ErXgwMWHvkf0bMckZKZ6+PCYBYLAkhFjxijF/rsmcK5EMH5yBw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Xfd/1Xjk";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A91E606A320;
-	Fri, 20 Nov 2026 10:18:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1984606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:18:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1984606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=LMDZJNKP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4421F000CF;
-	Fri, 20 Nov 2026 10:18:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795169890;
-	bh=91aSG4C3xDj7rNipux5lI7AnWD+3hz8cV70eKCK0A3Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LMDZJNKP3WhrzcLhiGmKo6B2KkXY5JuEVE3bD/AeAxLSQahDxrOspDslHBGaeyaug
-	 cXKghlblt4VBw/sWnXKfJk/fU9Oi5louyLXTvJ5pmCEMmHrMZA3Bet7MIWSZnRy6VR
-	 zvMvVn5qldvnD6hPq8izYmGEpYAvVGzvQ8yEkdGM=
-Date: Fri, 20 Nov 2026 11:18:08 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Palla Raghunath <raghunathpalla.0209@gmail.com>
-Cc: linux-usb@vger.kernel.org, Neill Kapron <nkapron@google.com>,
-	=?utf-8?Q?Micha=C5=82?= Nazarewicz <mina86@mina86.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Brigham Campbell <me@brighamcampbell.com>,
-	linux-kernel-mentees@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com
-Subject: Re: [PATCH] usb: gadget: f_fs: fix use-after-free of ffs_dev in
- ffs_free_inst()
-Message-ID: <2026112029-depletion-small-f290@gregkh>
-References: <20261006204202.59604-1-raghunathpalla.0209@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xfd/1Xjk
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67db6d4054eso964598d50.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:18:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795169906; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Z2GzbDvYhVZo+Fu9bo9gQ9HovRK5MzAOm5ylwTNgJOSc8ANV1s4UoTzogU2fekW0+f
+         T5k8HKhphgn/ctGJHEUTd9c7hVqfhX1UbmnXE/1kl5Hf7BP9/yhCBsfWNR578mRDSOF6
+         yi56x801ZiLQNvrrlgG7sOMOtwjyr8GdIcE2a+adKK6i+iPX+farIBFTHff4MgjGx/pX
+         1EVCw7BSxEMWj4MxPQYQuxb4gIe5tAZPCM1iy9yMuqYzOSL8XEeAh5Kabns3TO+u9K3X
+         QSQBHt8d3YcmK32CkkFzPfByItj6eZumLbrX+hK0eczg2IWFKcE6HyoGiXFos6Y36wPm
+         JS8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SNWLb0L+OWBVvvcB3v+U+hDjyIksqWir4fqKX+sD6Ls=;
+        fh=yi3y382LtInVFrAT8m+aVFfUu7pPf7n9PwNvpJY0ihs=;
+        b=mlqY577IeslI2bI37PzByWGhTRO02fXUewFHlPt3N0oXoTxBNI1b689NalDD4I/azS
+         CBhs2TXUellPo47ZXrrnBZ9Zf8f+B4yXorShrSwI28F8ehELgiFOv2z1Rioq2JPhzNS8
+         y8tI7Aab+bAEoJZ/dQWFoGC3WSwpawI+AoWDXgZ8vWToYos1lIGMCD6QAIwoTBySHz/b
+         SqLbfryOtLjOG8TmL/XVGWBlAMxUgObVLGQlPXJV2GhEgllhlXL5643xZKfTei9UrcEL
+         zJnpVrpeJliRM7HPSIQYx8v5SUWWC4tzmxcFGlEuesYFNPyzRxE+kPz8QkxVV7OnCAYN
+         Eu6A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795169906; x=1795774706; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SNWLb0L+OWBVvvcB3v+U+hDjyIksqWir4fqKX+sD6Ls=;
+        b=Xfd/1XjkL3FqNHUx8kXj5Q+8fv0Tj5lRXHjfiieSXxrU3bXlfPnutreOLGT5WoaE1K
+         FkrXS9QNwZaDEOMJMm6YmfWj79VR8K1yNnXK/lXhL7yvm6j/hB3jeaP4fdFI+8gKzHXw
+         rvkVn4YgrewrCjuqW6dUBezyiqczKsBR2NP/dk/NBV8mIhuA1BXM5imDPGJrOZEXGAIr
+         etWeiRzVw+WcqTpe+EO4mk2DzOtObdWW63xuWHPHgQ/POjgBe/kgnvhxqHx/EV1sHkJj
+         OGwQ6QBEHQpKj0SjULOZl14vmkHipWjn9x3StY4Heg6kMGXLDrwRWYTDPw2rQvBAsWqp
+         ZoCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795169906; x=1795774706;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SNWLb0L+OWBVvvcB3v+U+hDjyIksqWir4fqKX+sD6Ls=;
+        b=sz3uuNEIo1GXTjufoTMffD3MgwyApXxHt2R2PWvHifVYNF2dIi9MBPdZKJyEHGmBpR
+         I1MxUQ+sCAeBXy7aXsqT0sty2zClLNgDaGbBbyZsSXAFRG+qeU8eq+Xlyz6B2LqM5imf
+         pu9oduAd/FzH3tt7XavTGXPBSM4aIzOnLAQTlrx/LHQo3+F+pNhdOSu7f21ogObAiHqP
+         DhJxjDZDLoU1Km7UsDAvTo4qYQ0DMZN2TXsndLlUSupHm7/fUOqK7F8HTfWe4EUjr5yz
+         bZB0D7DfBiRK26ScwtaG88X20S4Zjd1jMflrQqHaq1kfxjsdvHUDgVY6SvMQbqhZYXzG
+         CLiw==
+X-Forwarded-Encrypted: i=1; AL+hErEcCmsGmeLFikIUQQxXojT5B7DAWWgeSeSicuQT+N2IXuc0B/JiuC4zJR0KH6dvZ98gdlMy5cP6gp8KwT4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/qH9fl9i0KgMbMD8wzhF4NZTGBs31BzElNrc0XB100nLROOoy7
+	gFZBCWbLQsnVPRpXX8Cqhbl9juhB70pwJIeAhkcGF4/2RhujoaepZJG4idqb2Suy4wbbRsC8p63
+	l9WuUHpfBjJam2A4oOEgl0rSmSa4JN7Q=
+X-Gm-Gg: AZFdTZf55PSXtsTYJ3bX+VZGKunOEOy9a7zTmdvJnKJCGYc6qFv298EU2ckNhCsbZOc
+	zMi7F8bFFRrmGhTxnpuIpjmq70eIT13FsUSqmsx7decB6Fn6+zp6usz1f75zPFUDNMq8dBIThHX
+	9e9Oms8lBGzgRpXJ0UrbaKKKlpoxe9XpPdcAMUruG7qLgtGwIm8WoiOnYdircRthgTWy3LPJIDW
+	kSDY5CcUq3/AFD8dHUIU2SS4LMzaa2E85fwkxA3ppJTJ5DFif5gV0vsQfoS+wO1278LvBenqk+m
+	0BM1H2jv9n26/9kdTGVxjMWuQ3AWnPtunFKglCZzlBivkX0SIGINhY7PGQdMfTRuDcbRNNDdIof
+	ylv+XFiWynaLJo4euU+/rbwvfrP9QRSdbWs0=
+X-Received: by 2002:a05:690e:814:20b0:67d:e499:b2ab with SMTP id
+ 956f58d0204a3-67df4441bd2mr775708d50.71.1795169905776; Fri, 20 Nov 2026
+ 02:18:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,83 +103,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261006204202.59604-1-raghunathpalla.0209@gmail.com>
+References: <20261104205108.1041666-1-albu.victor.m@gmail.com>
+ <20261105202110.1081296-1-albu.victor.m@gmail.com> <2026112048-dimmer-ravine-ae33@gregkh>
+In-Reply-To: <2026112048-dimmer-ravine-ae33@gregkh>
+From: Victor-Marian Albu <albu.victor.m@gmail.com>
+Date: Fri, 20 Nov 2026 12:18:09 +0200
+X-Gm-Features: AclHuK-qOUJSVTytZZc8wfC9XpvLA8OMQ4xXujI6KM1rGr8r-cqUyLmslYf83H4
+Message-ID: <CAE5KA-NS5-yJXAHUofgmyCmWyjbjPSNdoQZi5+iPwZKabVbbyQ@mail.gmail.com>
+Subject: Re: [PATCH v2] staging: most: dim2: add missing Return: documentation
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, christian.gromm@microchip.com, 
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev, 
+	parthiban.veerasooran@microchip.com
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, Oct 06, 2026 at 09:42:02PM +0100, Palla Raghunath wrote:
-> When a function instance is removed through configfs, ffs_free_inst()
-> first calls ffs_release_dev(), which takes ffs_dev_lock, detaches the
-> dev from its mount and drops the lock again. Only then does it retake
-> the lock and free the dev with _ffs_free_dev().
-> 
-> Between those two steps the dev is still on the ffs_devices list. If
-> someone mounts functionfs with the same instance name right then,
-> ffs_acquire_dev() finds the dev, marks it mounted and points the new
-> ffs_data at it. The dev is freed a moment later, and when that mount
-> is torn down, ffs_closed() writes to freed memory. syzbot hit this:
-> 
->   BUG: KASAN: slab-use-after-free in ffs_closed drivers/usb/gadget/function/f_fs.c:4427 [inline]
->   BUG: KASAN: slab-use-after-free in ffs_data_clear+0x543/0x5b0 drivers/usb/gadget/function/f_fs.c:2305
->   Write of size 1 at addr ffff8880237b1e4a by task syz-executor/11910
->   Call Trace:
->    ffs_closed drivers/usb/gadget/function/f_fs.c:4427 [inline]
->    ffs_data_clear+0x543/0x5b0 drivers/usb/gadget/function/f_fs.c:2305
->    ffs_data_reset drivers/usb/gadget/function/f_fs.c:2336 [inline]
->    ffs_fs_kill_sb+0x84/0x370 drivers/usb/gadget/function/f_fs.c:2180
->    deactivate_locked_super+0xbe/0x110 fs/super.c:586
->    cleanup_mnt+0x3d3/0x460 fs/namespace.c:1329
->   ...
->   Freed by task 17408:
->    kfree+0x1c5/0x650 mm/slub.c:6923
->    _ffs_free_dev drivers/usb/gadget/function/f_fs.c:4336 [inline]
->    ffs_free_inst+0x233/0x2c0 drivers/usb/gadget/function/f_fs.c:4152
->    usb_put_function_instance+0x95/0xc0 drivers/usb/gadget/functions.c:77
->    config_item_release+0x13a/0x2d0 fs/configfs/item.c:137
->    configfs_rmdir+0x885/0x950 fs/configfs/dir.c:1580
-> 
-> Fix it by doing the release and the free while holding the lock once.
-> To allow that, move the body of ffs_release_dev() into a new
-> _ffs_release_dev() that expects the lock to be held already, and keep
-> ffs_release_dev() as a wrapper for ffs_data_put(). A racing mount now
-> either gets the dev before ffs_free_inst() runs, in which case the
-> release clears its pointer, or doesn't find the dev at all.
-> 
-> I was able to reproduce this in QEMU with a small program that keeps
-> creating and removing an ffs function directory in configfs while a
-> second thread mounts and unmounts functionfs with the same name. On an
-> unpatched kernel it hit the same KASAN report within about ten
-> minutes. With this patch applied, the same program ran for 30 minutes
-> without any problem.
-> 
-> Fixes: ecfbd7b9054b ("usb: gadget: f_fs: Fix setting of device and driver data cross-references")
-> Cc: stable@vger.kernel.org
-> Reported-by: syzbot+6227549bd2c8a1ec8ba0@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=6227549bd2c8a1ec8ba0
-> Signed-off-by: Palla Raghunath <raghunathpalla.0209@gmail.com>
-> ---
->  drivers/usb/gadget/function/f_fs.c | 15 +++++++++++----
->  1 file changed, 11 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/usb/gadget/function/f_fs.c b/drivers/usb/gadget/function/f_fs.c
-> index c64a268e98a4..f8ea9a980605 100644
-> --- a/drivers/usb/gadget/function/f_fs.c
-> +++ b/drivers/usb/gadget/function/f_fs.c
-> @@ -288,6 +288,7 @@ static struct ffs_dev *_ffs_find_dev(const char *name);
->  static struct ffs_dev *_ffs_alloc_dev(void);
->  static void _ffs_free_dev(struct ffs_dev *dev);
->  static int ffs_acquire_dev(const char *dev_name, struct ffs_data *ffs_data);
-> +static void _ffs_release_dev(struct ffs_dev *ffs_dev);
-
-> -static void ffs_release_dev(struct ffs_dev *ffs_dev)
-> +/*
-> + * Same as ffs_release_dev(), for callers that already hold ffs_dev_lock.
-> + */
-> +static void _ffs_release_dev(struct ffs_dev *ffs_dev)
-
-Then enforce the lock being held here by telling the compiler that it
-must be held.
+A few had no Return: at all so I added one, the others already had the
+sentence and I moved it into a Return: section, because kernel-doc
+-Wall only looks for that. Nothing needs this, drop it if it's not
+useful.
 
 thanks,
 
-greg k-h
+Albu Victor-Marian
