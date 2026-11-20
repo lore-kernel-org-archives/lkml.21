@@ -1,74 +1,147 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180722;
-	b=KgTmyblz/cL+DU4Q0gaanAZ9tZ+9r/KYVsKMqd9lwPk9mz0Gac2S8GZfWuYvF+QijUre
-	 03CGMA/o/eA0M6+kgOr7l61KmsQnscrCCXDNg6beUCMTaIGn7gmWOJnxVthNZ+EJ/NrUb
-	 +Pw8UyB6gOGPjyMLqmlhg8GWO5ZsqSzoy4HL+b6aKD03SfqB5BsDKlbfpPWeU4FkNBQlW
-	 tjApmMKlszNLkSn43MVtQ8e370CtwRd1szEz6vVLtzPjAkjFxb2QeFvOvM6tM1FkBqKKb
-	 Fnq7X55F48qAiRbnsv+U+06o7DdZK+o+d5QcWpLkSuA2chWngQgIDz0oCst1ZWWjCTg==
+	t=1795180730;
+	b=CdltK7U0RKDa2qqgY23BsC7F774OxEmQ7KRAfvcT4IqFeineBWdbuADOGgu/X4HqjWx6
+	 X9xN3b9dqR/xcNfEzfBPdqiloUzL8gR2WboPuxiMcKNZE04BrGmB0aJzUEy9Ca2F3cqtm
+	 ZGaYTTfOdXQfsh0ODfSKBJn7fpR52gtDOBKrEnWlMPkuk1O5iU8aQoVyw+LMBjna+1yDH
+	 R/NQE2QcNzvlIees4YqpHkcfFTpGD+p4us/myuhTJe6G131Lq56I7sATPQZ89VgFOwXF+
+	 Hd+oGopdPhTWqNiuu3VVkkc6fmADuySRBjrQrNUyBp2sLfJgZcVzvhV6TB+MNwedglw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180722;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=61GJjhwg5oOvms+aARYdro5wTTJ4sOIsLi6nvULglvA=;
-	b=hxsg/Ok6VnxEfibzjttE375ve0xWeGBWPX2JtUOQy4HuenAeD9u5htPVOB3d58rCRt1+
-	 u7/1f1rJc3f2ZVYJiirB6Ukpa+BQCak6LO6gSb/xSyPdSptTQ72jwRRcsuDC/2idFQQ0L
-	 fRqAcOZAW/jZWU614iMr2YEacXsB2AqfsEr89sqfVd2M4loyoY+4smsOIx0mx+rMJMnOh
-	 aNvaI0+GqmZGOo13DdOZQCJUd/qLf87P2erjVH48lVVYpTf+1RfExwvCO77Nk0Qpprgi+
-	 /ixZLXJ6cDg9FKB5604wo8gvye+//75ewPijEdh3DdQkifPrnZNRW9mSD8PFyWWX39Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180730;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
+	b=EHK3BEMjPNUMO+M271Zsmz1i1qrKvfpNFPWwcB6wfS0zFP9YKEWBzx91k2iYp7/JJtIW
+	 TX5cyrrFGr6tCpmMCTRIcejrlYEXOOsahhE9T2L8Mgsqfp85ELVR6WPm2poYHEuaH05js
+	 NPAh25Gp2uq49lZoP9UV/Weu3gqz9a3go7b1wupK2MQRrk94kEOlKVl3450UvG51Msh3A
+	 SbKxiBPk+zk/q4Ca/4YKVdevHu/skGExBNysyFxgYqMB3fb+ukCC+2C0+fHA/COd1qcml
+	 hFb8j/PgDMuCqddKvrdM1pj7dkVR5zQfJ1t2Q3Jx1301WvrsShU5T42mUSY078wjkdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2w4IsVbA;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="UI/9rv+D";
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52676606A33E;
-	Fri, 20 Nov 2026 13:18:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52676606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2020D606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:18:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2020D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2w4IsVbA
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DB7BBC62216;
-	Fri, 20 Nov 2026 13:18:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 23B7E601B9;
-	Fri, 20 Nov 2026 13:18:40 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7854611BC017C;
-	Fri, 20 Nov 2026 14:18:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795180718; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=61GJjhwg5oOvms+aARYdro5wTTJ4sOIsLi6nvULglvA=;
-	b=2w4IsVbAQRTkTGYemx/0oRtViPXyOE0KkUbuv49VjBXdHmRnPbyS1I4C6rx05vpF1EplHc
-	D8fvFnixkqXgxca4MrcWmjcaALBKSrjssO0IxbFZ8nNzRaG4p2qzu7MJSEGc1OFRiALigY
-	0Rd83VmxTlqCDNOULfTWF1ALyNMWv8B39GvcIZXHdBL0wW3HbvBrMOMY2o1peBxbygRZEa
-	/L8gjADasA2YHLR8a61gDVbCxZ5aIRWqKh192/PKhkGHSD3Pfk9AHdUAqPfKX49PqsKHwn
-	sG2A1VNhg4rqYlgwHt7kdny058RU0UvQc1P3YcEiO+Qk02o9dhTTN4hP7MPm5Q==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: "Michael Walle" <mwalle@kernel.org>
-Cc: "Santhosh Kumar K" <s-k6@ti.com>,  <broonie@kernel.org>,
-  <robh@kernel.org>,  <krzk+dt@kernel.org>,  <conor+dt@kernel.org>,
-  <richard@nod.at>,  <vigneshr@ti.com>,  <pratyush@kernel.org>,
-  <takahiro.kuwano@infineon.com>,  <linux-spi@vger.kernel.org>,
-  <devicetree@vger.kernel.org>,  <linux-kernel@vger.kernel.org>,
-  <linux-mtd@lists.infradead.org>,  <praneeth@ti.com>,
-  <sebin.francis@ti.com>,  <u-kumar1@ti.com>,
-  <srikanth.boyapally@amd.com>,  <m-shah@ti.com>
-Subject: Re: [PATCH v11 00/19] spi: cadence-quadspi: add PHY tuning support
-In-Reply-To: <DN01ZL81VTHB.3PB0JO4WI6WU0@kernel.org> (Michael Walle's message
-	of "Fri, 20 Nov 2026 13:56:44 +0100")
-References: <20261105105832.2134313-1-s-k6@ti.com>
-	<DN01ZL81VTHB.3PB0JO4WI6WU0@kernel.org>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 20 Nov 2026 14:18:31 +0100
-Message-ID: <87cxrzbpzs.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UI/9rv+D
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c515319dd89so17830466b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:18:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795180728; x=1795785528; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
+        b=UI/9rv+DZdDezz6z4q5V4bbLRvq2PUwTXKvmGLgkStPFRG3MFzpLEzZUOMicEVzjqv
+         h9WskxL6pQRjVp6LW7wNLul6TdE5DMEMvMtKHVto1kDWUtXl4YZysNnP5izuUm6Wyf00
+         02kOc+/ogItTG9aLvdGftl8BuwMr3ddEGZP8CscGYWnM7MnxJ1gdPDJRCMKsqAHhAduA
+         5fYf+0m8yQ6qc78NG4siN795mYwXAc6BQzyhcrtUI3sLGXErAQdCZNzpNCRSgoDhZ53Q
+         BTlXcoGhXILqja8hQmBbLSiQNTaIckFhQCA59sphyqAh5AgpCytcMtf2fggUT1oBCS51
+         FT4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795180728; x=1795785528;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
+        b=aMas/rRI6Qg+54VX2Wigd/vETgiexPqlkmtVqX4OoEkVfXDU+BLGAJK5/Got5OFioy
+         YXPP1cvK3Hiwy1hizxdQ0bdyMwY+GNTfLm6i0mBSrLGOcjlVINU2/YIbnTsLrmvHtFtB
+         0fwOR64sUSxnknmwrEh0QcbJ9lS962KFOP2nMqpy1Y+8yZhYjCC+56vt1RWj8U6V0vQo
+         Y8vu2T3+hdy8XK9oSYotThIlMKzR+N/ZBIJNHhmtxqvacQJu80ove2Dq+z1g2XAkG99C
+         iuqHgFi80KrhrDiJUMtUh+90DiZSqI5GHaQeb7J1yjtSa6cUVNkTxwpUXVySKMrm+Eyw
+         o4hw==
+X-Forwarded-Encrypted: i=1; AL+hErGjLsVXoOmitem5Ydrda+IPZRdAQwir+CdFqvJ5tcdeDoFIFhqy9pno0liSxsieNRvZn2JBPb1pgjhgnkM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+yRC35YRj6mc1sNiurTSAcJVz4RTwghV8LPRCszbiqOrg9WKS0
+	/yVwri0aSZ+vwOhsvj6o7gu8tV2M2YLrPv5XNl5timuU0N1bmpi8TtHHblg+7Hz4vQW4
+X-Gm-Gg: AYBFou04WxVQ4d/Ur+JxB7CNJJtKc1E+/Q8epKHuIQFMAWm7siSjXixLMyruxbhbfgk
+	fd2IS5lMkLQw1TU1PVgo7VCo+8gp32MjhBN5safXlUXtsvLG9F9meqJCNXFu7fls7CTTffFfAv8
+	c23G+isXG8tM/ZMmrWWo+iOo1xh8daMYg5ZOf02/yu3S5YoPacrvYQ30zuEduG22SoilB3vtqJN
+	PLxxt9tONAfZgQUH4hlM7CpWbJtCJVUUjBFn+Mp8vR7y7gVqfxnx2taMO4DgPm5cMs9N3LrWHC0
+	YzKOi0NAUhBm/F+9z2WmHX6+y/KNu2Z3XW0w4tAqT/WUgsG0Mndrn0SRFLenex2XbHIaOBTC5ha
+	IAC8JnfbwKscNLcGE6r6qIoICWbn2LN9AyGNN63z7h51qKnimUsI0GONqBMfnDdXmGjI2sbX5Q4
+	OLGC0yQziiPPknsoBuqQ5gX8mpwXYBTbKij8IP82bNvNLQLgU0bZzH1wrXGM6ZgZ3qwMYLcSD3v
+	2yWoVDaiCooKduAUEDdWmutIG1gIAJHy4mgy4aqEw9qt8hxHxU/yS5VM4J2fSGArkWizgE1O84o
+	j7IR4PXMxhpiCIhfWCwiddhvFrie7PfgotZ3XCgtM3xkJvpd7RSzqaxm1d0hqnJSJA==
+X-Received: by 2002:a17:907:a890:b0:c41:55b4:d88b with SMTP id a640c23a62f3a-c513ab14402mr338807466b.43.1795180728386;
+        Fri, 20 Nov 2026 05:18:48 -0800 (PST)
+Received: from [10.0.0.233] (tmo-084-188.customers.d1-online.com. [80.187.84.188])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe3b0sm93731066b.8.2026.11.20.05.18.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 05:18:47 -0800 (PST)
+Message-ID: <e376c8f0ec5c50b417375197a5589a210f151d9b.camel@amutable.com>
+Subject: Re: [RFC PATCH v4 03/14] rootns: Track init lifecycle via
+ copy_process() and pid_namespace
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Jarkko Sakkinen <jarkko@kernel.org>, linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-arch@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, Alexander Viro
+ <viro@zeniv.linux.org.uk>, Alexandre Ghiti <alex@ghiti.fr>,  Andreas
+ Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski	 <luto@amacapital.net>, Andy Lutomirski <luto@kernel.org>,
+ Anna-Maria Behnsen	 <anna-maria@linutronix.de>, Arnd Bergmann
+ <arnd@arndb.de>, Ben Segall	 <bsegall@google.com>, Borislav Petkov
+ <bp@alien8.de>, Casey Schaufler	 <casey@schaufler-ca.com>, Catalin Marinas
+ <catalin.marinas@arm.com>,  Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Christian Brauner <brauner@kernel.org>,
+ "Christophe Leroy (CS GROUP)"	 <chleroy@kernel.org>, Chris Zankel
+ <chris@zankel.net>, Dave Hansen	 <dave.hansen@linux.intel.com>, David
+ Hildenbrand <david@kernel.org>, David Howells <dhowells@redhat.com>,
+ Davidlohr Bueso <dave@stgolabs.net>, "David S. Miller"	
+ <davem@davemloft.net>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Frederic Weisbecker <frederic@kernel.org>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, "Hallgrimur H. Gunnarsson"	 <halg@google.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Helge Deller	 <deller@gmx.de>, "H.
+ Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,  "James E.J.
+ Bottomley" <James.Bottomley@HansenPartnership.com>, Jan Kara
+ <jack@suse.cz>, John Johansen	 <john.johansen@canonical.com>, John Paul
+ Adrian Glaubitz	 <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
+ <corbet@lwn.net>, Josef Bacik	 <josef@toxicpanda.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Kees Cook	 <kees@kernel.org>, K Prateek Nayak
+ <kprateek.nayak@amd.com>, "Liam R. Howlett"	 <liam@infradead.org>, Lorenzo
+ Stoakes <ljs@kernel.org>, Madhavan Srinivasan	 <maddy@linux.ibm.com>,
+ Magnus Lindholm <linmag7@gmail.com>, Manfred Spraul	
+ <manfred@colorfullife.com>, Mark Rutland <mark.rutland@arm.com>, Matt
+ Turner	 <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, Mel Gorman
+	 <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko	
+ <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, Mike Rapoport	
+ <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>, Nicholas Piggin	
+ <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Moore	
+ <paul@paul-moore.com>, Paul Walmsley <pjw@kernel.org>, Pavel Tikhomirov	
+ <ptikhomirov@virtuozzo.com>, Peter Zijlstra <peterz@infradead.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Richard Henderson
+ <richard.henderson@linaro.org>, Rich Felker	 <dalias@libc.org>, "Ritesh
+ Harjani (IBM)" <ritesh.list@gmail.com>, Russell King	
+ <linux@armlinux.org.uk>, Serge Hallyn <sergeh@kernel.org>, Shrikanth Hegde	
+ <sshegde@linux.ibm.com>, Shuah Khan <skhan@linuxfoundation.org>, Steven
+ Rostedt	 <rostedt@goodmis.org>, Suren Baghdasaryan <surenb@google.com>,
+ Sven Schnelle	 <svens@linux.ibm.com>, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>,  Thomas Gleixner	 <tglx@kernel.org>, Valentin
+ Schneider <vschneid@redhat.com>, Vasily Gorbik	 <gor@linux.ibm.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Vincenzo Frascino
+ <vincenzo.frascino@arm.com>, Vlastimil Babka <vbabka@kernel.org>, Will
+ Deacon	 <will@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Date: Fri, 20 Nov 2026 14:18:43 +0100
+In-Reply-To: <20261119224312.1037966-4-jarkko@kernel.org>
+References: <20261119224312.1037966-1-jarkko@kernel.org>
+	 <20261119224312.1037966-4-jarkko@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,106 +151,206 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 
-On 20/11/2026 at 13:56:44 +01, "Michael Walle" <mwalle@kernel.org> wrote:
+On Fri, 2026-11-20 at 00:43 +0200, Jarkko Sakkinen wrote:
+> A root namespace needs to record its init thread group's PID when
+> bootstrapped and capture its exit status once all processes in the
+> root
+> namespace have terminated, without serializing normal fork() and
+> exit()
+> paths inside the container.
+>=20
+> Commit the bootstrap child reaper, bind pid_ns->rootns, and wake
+> waiters
+> in copy_rootns() after attach_pid(PIDTYPE_PID), and invoke
+> exit_rootns()
+> from zap_pid_ns_processes() after the root namespace's PID namespace
+> has
+> killed and reaped all member tasks.
+>=20
+> Co-developed-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: David Howells <dhowells@redhat.com>
+> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+> ---
+> =C2=A0include/linux/pid_namespace.h |=C2=A0 4 ++++
+> =C2=A0include/linux/rootns.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | =
+15 ++++++++++++++
+> =C2=A0kernel/fork.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +++
+> =C2=A0kernel/pid_namespace.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=
+=C2=A0 2 ++
+> =C2=A0kernel/rootns.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 38
+> +++++++++++++++++++++++++++++++++++
+> =C2=A05 files changed, 62 insertions(+)
+>=20
+> diff --git a/include/linux/pid_namespace.h
+> b/include/linux/pid_namespace.h
+> index b20baaa7e62b..6fd959f4d0d4 100644
+> --- a/include/linux/pid_namespace.h
+> +++ b/include/linux/pid_namespace.h
+> @@ -15,6 +15,7 @@
+> =C2=A0#define MAX_PID_NS_LEVEL 32
+> =C2=A0
+> =C2=A0struct fs_pin;
+> +struct rootns;
+> =C2=A0
+> =C2=A0#if defined(CONFIG_SYSCTL) && defined(CONFIG_MEMFD_CREATE)
+> =C2=A0/* modes for vm.memfd_noexec sysctl */
+> @@ -45,6 +46,9 @@ struct pid_namespace {
+> =C2=A0	struct user_namespace *user_ns;
+> =C2=A0	struct ucounts *ucounts;
+> =C2=A0	int reboot;	/* group exit code if this pidns was
+> rebooted */
+> +#ifdef CONFIG_ROOTNS
+> +	struct rootns *rootns;
+> +#endif
+> =C2=A0	struct ns_common ns;
+> =C2=A0	struct work_struct	work;
+> =C2=A0} __randomize_layout;
+> diff --git a/include/linux/rootns.h b/include/linux/rootns.h
+> index 3f59415efadb..0557ce75195d 100644
+> --- a/include/linux/rootns.h
+> +++ b/include/linux/rootns.h
+> @@ -13,6 +13,8 @@
+> =C2=A0struct file;
+> =C2=A0struct nsproxy;
+> =C2=A0struct pid;
+> +struct pid_namespace;
+> +struct task_struct;
+> =C2=A0struct user_namespace;
+> =C2=A0
+> =C2=A0enum rootns_state {
+> @@ -41,6 +43,9 @@ struct rootns {
+> =C2=A0struct rootns *get_rootns(struct rootns *c);
+> =C2=A0void put_rootns(struct rootns *c);
+> =C2=A0bool is_rootns_file(struct file *file);
+> +void copy_rootns(struct task_struct *tsk, struct pid *pid,
+> +		 struct rootns *rootns);
+> +void exit_rootns(struct pid_namespace *pid_ns, struct task_struct
+> *tsk);
+> =C2=A0#else
+> =C2=A0static inline struct rootns *get_rootns(struct rootns *c)
+> =C2=A0{
+> @@ -55,6 +60,16 @@ static inline bool is_rootns_file(struct file
+> *file)
+> =C2=A0{
+> =C2=A0	return false;
+> =C2=A0}
+> +
+> +static inline void copy_rootns(struct task_struct *tsk, struct pid
+> *pid,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct rootns *rootns)
+> +{
+> +}
+> +
+> +static inline void exit_rootns(struct pid_namespace *pid_ns,
+> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct task_struct *tsk)
+> +{
+> +}
+> =C2=A0#endif /* CONFIG_ROOTNS */
+> =C2=A0
+> =C2=A0#endif /* _LINUX_ROOTNS_H */
+> diff --git a/kernel/fork.c b/kernel/fork.c
+> index 5efceb8d58a7..08fc28ad1eed 100644
+> --- a/kernel/fork.c
+> +++ b/kernel/fork.c
+> @@ -83,6 +83,7 @@
+> =C2=A0#include <linux/fs_struct.h>
+> =C2=A0#include <linux/magic.h>
+> =C2=A0#include <linux/perf_event.h>
+> +#include <linux/rootns.h>
+> =C2=A0#include <linux/posix-timers.h>
+> =C2=A0#include <linux/user-return-notifier.h>
+> =C2=A0#include <linux/oom.h>
+> @@ -2576,6 +2577,8 @@ __latent_entropy struct task_struct
+> *copy_process(
+> =C2=A0					=C2=A0 &p->signal->thread_head);
+> =C2=A0		}
+> =C2=A0		attach_pid(p, PIDTYPE_PID);
+> +		if (thread_group_leader(p))
+> +			copy_rootns(p, pid, NULL);
+> =C2=A0		nr_threads++;
+> =C2=A0	}
+> =C2=A0	total_forks++;
+> diff --git a/kernel/pid_namespace.c b/kernel/pid_namespace.c
+> index 127a5fd23e70..081c27aa85bd 100644
+> --- a/kernel/pid_namespace.c
+> +++ b/kernel/pid_namespace.c
+> @@ -24,6 +24,7 @@
+> =C2=A0#include <linux/sched/signal.h>
+> =C2=A0#include <linux/idr.h>
+> =C2=A0#include <linux/nstree.h>
+> +#include <linux/rootns.h>
+> =C2=A0#include <uapi/linux/wait.h>
+> =C2=A0#include "pid_sysctl.h"
+> =C2=A0
+> @@ -280,6 +281,7 @@ void zap_pid_ns_processes(struct pid_namespace
+> *pid_ns)
+> =C2=A0		current->signal->group_exit_code =3D pid_ns->reboot;
+> =C2=A0
 
-> On Thu Nov 5, 2026 at 11:58 AM CET, Santhosh Kumar K wrote:
->> This series implements PHY tuning support for the Cadence QSPI controller
->> to enable reliable high-speed operations. Without PHY tuning, controllers
->> use conservative timing that limits performance. PHY tuning calibrates
->> RX/TX delay lines to find optimal data capture timing windows, enabling
->> operation up to the controller's maximum frequency.
->>
->> Background:
->> High-speed SPI memory controllers require precise timing calibration for
->> reliable operation. At higher frequencies, board-to-board variations make
->> fixed timing parameters inadequate. The Cadence QSPI controller includes
->> a PHY interface with programmable delay lines (0-127 taps) for RX and TX
->> paths, but these require runtime calibration to find the valid timing
->> window.
->>
->> Approach:
->> Add SDR/DDR PHY tuning algorithms for the Cadence controller:
->>
->> SDR Mode Tuning (1D search):
->>  - Searches for two consecutive valid RX delay windows
->>  - Selects the larger window and uses its midpoint for maximum margin
->>  - TX delay fixed at maximum (127) as it's less critical in SDR
->>
->> DDR Mode Tuning (2D search):
->>  - Finds RX boundaries (rxlow/rxhigh) using TX window sweeps
->>  - Finds TX boundaries (txlow/txhigh) at fixed RX positions
->>  - Defines valid region corners and detects gaps via binary search
->>  - Applies temperature compensation for optimal point selection
->>  - Handles single or dual passing regions with different strategies
->>
->> Patch description:
->> Infrastructure (1-5):
->>  - Patch 1:   Add spi-max-post-config-frequency-hz to describe maximum
->>               frequency achievable post controller configuration
->>  - Patch 2:   Add spi-phy-pattern-partition phandle for
->>               NOR flash PHY tuning pattern location
->>  - Patch 3:   Parse spi-max-post-config-frequency-hz in spi.c; adds
->>               spi_device.post_config_max_speed_hz (0 when not set
->>               keeping all existing DT fully compatible)
->>  - Patch 4:   Extend spi_mem_adjust_op_freq() with a bypass: if
->>               op->max_freq equals post_config_max_speed_hz, return
->>               immediately leaving op->max_freq unchanged. All other
->>               ops are capped to max_speed_hz. Also require per_op_freq
->>               controller capability for post-config ops in
->>               spi_mem_default_supports_op()
->>  - Patch 5:   Add execute_tuning callback to spi_controller_mem_ops and
->>               spi_mem_execute_tuning() wrapper in SPI-MEM core;
->>               serialises access via spi_mem_access_start/end and
->>               rejects GPIO chip selects
->>
->> Cadence QSPI Implementation (6-14):
->>  - Patch 6:   Move cqspi_readdata_capture() earlier (preparatory)
->>  - Patch 7:   Add DQS bit to cqspi_readdata_capture() (preparatory)
->>  - Patch 8:   Add complete PHY tuning support: DLL management, pattern
->>               verification (NOR via spi-phy-pattern-partition phandle,
->>               NAND via write-to-cache), SDR 1D and DDR 2D search
->>               algorithms with temperature compensation, AM654-specific
->>               execute_tuning entry point
->>  - Patch 9:   Reject 2-byte-address DDR operations via a new
->>               CQSPI_NO_PHY_TUNING_WITH_ODDR_2B_ADDR quirk flag to work
->>               around AM654 OSPI erratum i2383
->>  - Patch 10:  Refactor direct read path for PHY support (preparatory)
->>  - Patch 11:  Enable PHY for direct reads at the calibrated frequency
->>               when both transfer boundaries are 16-byte aligned,
->>               falling back to non-PHY DMA otherwise; also reprograms
->>               DLL on chip-select switch when two devices have
->>               different calibrated settings
->>  - Patch 12:  Enable PHY for indirect writes of at least
->>               CQSPI_PHY_MIN_INDIRECT_WRITE_LEN bytes
->>  - Patch 13:  Reprogram per-device CS timing on any chip-select switch
->>  - Patch 14:  Reprogram the PHY DLL (master config and RX/TX taps) on
->>               runtime resume, since the DLL loses its lock when the
->>               OSPI controller is power-gated
->>
->> MTD core (15-19):
->>  - Patch 15:  Extract spinand_select_op_variant() into a shared helper
->>               spinand_op_find_best_variant() with a skip_mask
->>  - Patch 16:  Negotiate optimal controller operating point before dirmap
->>               creation; iterate all read variants in performance order
->>               across ODTR and SSDR interfaces; re-pair cont_read_cache a=
-fter
->>               PHY tuning via protocol-shape matching
->>  - Patch 17:  Extract spi_nor_spimem_get_read_op() helper (preparatory)
->>  - Patch 18:  Execute controller optimization in spi_nor_probe() before
->>               creating dirmaps
->>  - Patch 19:  Reset max_read_op frequency for security register reads
->
-> So what is the merging strategy here? Getting the first parts in and
-> then getting the spinand and spi_nor in in the next cycle?
+Dear Jarkko,
 
-Agreed.
+> =C2=A0	acct_exit_ns(pid_ns);
+> +	exit_rootns(pid_ns, me);
 
-> FWIW, the spi-nor parts looks good.
+We have a very similar mechanism around pidfd's to track exit
+information for a task. As far as I can see we already have (struct
+rootns *)->init_pid reference, so we can get exit information for free
+(look for PIDFD_INFO_EXIT).
 
-Same for the SPI NAND bits.
+Kind regards,
+Alex
 
-Miqu=C3=A8l
+> =C2=A0	return;
+> =C2=A0}
+> =C2=A0
+> diff --git a/kernel/rootns.c b/kernel/rootns.c
+> index 3bbf7677080e..bde7cf4baebe 100644
+> --- a/kernel/rootns.c
+> +++ b/kernel/rootns.c
+> @@ -183,3 +183,41 @@ bool is_rootns_file(struct file *file)
+> =C2=A0{
+> =C2=A0	return file->f_op =3D=3D &rootns_fops;
+> =C2=A0}
+> +
+> +void copy_rootns(struct task_struct *tsk, struct pid *pid, struct
+> rootns *c)
+> +{
+> +	if (likely(!c || !is_child_reaper(pid)))
+> +		return;
+> +
+> +	scoped_guard(spinlock, &c->lock) {
+> +		if (c->state !=3D ROOTNS_FORKING)
+> +			return;
+> +		ns_of_pid(pid)->rootns =3D get_rootns(c);
+> +		WRITE_ONCE(c->init_pid, get_pid(pid));
+> +		WRITE_ONCE(c->state, ROOTNS_RUNNING);
+> +	}
+> +	wake_up_all(&c->waitq);
+> +}
+> +
+> +void exit_rootns(struct pid_namespace *pid_ns, struct task_struct
+> *tsk)
+> +{
+> +	struct rootns *c =3D pid_ns->rootns;
+> +	struct task_struct *leader;
+> +	int status;
+> +
+> +	if (!c)
+> +		return;
+> +
+> +	leader =3D tsk->group_leader;
+> +	status =3D (tsk->signal->flags & SIGNAL_GROUP_EXIT) ?
+> +		 tsk->signal->group_exit_code : leader->exit_code;
+> +
+> +	scoped_guard(spinlock, &c->lock) {
+> +		c->exit_code =3D status;
+> +		WRITE_ONCE(c->state, ROOTNS_DEAD);
+> +	}
+> +
+> +	pid_ns->rootns =3D NULL;
+> +	wake_up_poll(&c->waitq, EPOLLHUP);
+> +	put_rootns(c);
+> +}
