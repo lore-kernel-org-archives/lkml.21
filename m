@@ -1,96 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.61
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795156026;
-	b=rMbey4sZnsyNynkT96QKZUT+6Kdvn6b/fWnsSTyhwa2rIAvDBfr3f6Efem6qRvycIy41
-	 7VSrbvZ6OpQBI5vcX0uhT1ZRrt1UGqETs3o3UxIctYqXi667hWcL2C5vudRqbO7N9eFNd
-	 lr1rtUmft7nJqtC9zguKdGoleN2EF3kvTtOLZ3FPmrB70y2KUAopdNEAhvLtTBCtA+n5B
-	 4VIU6REH6lkeRUr5uzkw8GYT6AY6i5t8y7oZnznXwaGgEI1UN+hiHX1LxGi1V8A8L0VTq
-	 LJ/CAz685QnpXtdC2cXszSAL7YQGFnS61VmnqrPf2wNB92qLjKVZ7Hm9fIjDG7DzYWw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156026;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
-	b=1lrgr9clss35CvkFbeZBAxqwvqwVEGq26ORelk/SIzeXmsowvcgPtLjr0LnpJ2ktmA0D
-	 6IO5Y7dY4XpzB3OJ13ZBCC+co8zAjTehAVu69Yhv0RJJf+ApvQRt9iADNuCSLUs/9TfHY
-	 4s+2g/Iod8o0EgYUxdhDh6pl+GI6S2FTJi/+y+og4eD0HSQBoS2P00nXQiVSr5GXyFbEG
-	 j/C4IGaGJbf6SuQo5aiw6a4jQpfqRBERL4pSbCapiX8WlpHCA3iDCQ/x5pGOPZ4uB0jaS
-	 whwF7bPSVTv1Of1v8rQQZik/ddu5PlaoQ3T8GA1khyDq2i9tlmGAS8xIm9Xwv2/eM+g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=f5FFAss8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.61
-Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010061.outbound.protection.outlook.com [40.93.198.61])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795156143;
+	b=zfpI9xNPBY715zM/4RZx9yNLxmxdKB4+0K1adcrR2Ux/dsekzboKeZHKK/F9Rm80lr2h
+	 IPGI5Vib4cL5ONS/Wg/dUNVFTSZ/f+rui0/q3dyvnnIPIRdBQ0xJfr25RYlk7k14Jm8iG
+	 W/+u+f2UJ3SAVqW3ap3wovj30b35E0D47Q2Qkr4mD4F4lBKr8VGDEn9YdZkL7Kj33ljIK
+	 Uh+OdiYcNlNZeUfdExuGRn42F1L2ecrCOGihSq4J3ju6dPXRUgsTkm9lF7bHGuKEKsNRE
+	 uuuwPjThfB754PYQhldf9KEtu9dYebRajbNxzlfa6qqjMsaSlqXuOrBaS/+zvyJ1oEg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156143;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=6r5YdkdPx0JHlq1kqBAhLW8GKPt7jP2c9Sj28z24pgs=;
+	b=W67raXLD1ZtGo4S48BJDSHy/e/Hf8C1JNcWz+WC16/rY/Rox3h5sfV5rmUAT7jUiKgRO
+	 bxmnNDOUASfwltqb5KxhYNxhN7qccI8793bv+AwBxlqBX6/sZhS1m3RiILCleXu7WgO3X
+	 ZFXpblWFQVdvZoapYjfIjvZ4QW8A1Gw/KdNn/JJwb7sETR+x5zYXzF/Jdc59zv0YpRRUo
+	 iecqgq4ywfUmXQ9CctTbwE7zmXWRvYMyWmFCF7atcn29SrVa+SHHQ15kc6T2Z6NnijyXX
+	 0xzsR4KobJshFNtA73ZSIWIrSx6CelgRavimNH03N7JMpvPv5HL8w5vIq1ff87gUgnQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZ94YtnX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DFEF606A32A;
-	Fri, 20 Nov 2026 06:27:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DFEF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEB43606A326;
+	Fri, 20 Nov 2026 06:29:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=f5FFAss8
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KNzw4bf+kfra+PnUdhW/iotAxZCHRb201U5yxfzhZ96TL5E1EiuA4GUKLPzjP/W7rh+3a7266eaoectXgGT67jAQWi+XpGTt2rT2X1YIFbdjpYDaEYw85e/7Gn+mKPbxwwIGUe7m1sizlfStLE28/iBlcpGE/1B0V/Q47LlH87q86BWNacPAuV9Fd9DJwRNFLjhlo16W+NK1s6gKlNkiyqMwWAND+UWP/ngtdZL/02hADPC2bZnTIdmWUwiKIh+jxGvGwRvBe/uCx6HhvMWgpW/BYNmllSP9tn/3O/FQfe4upwn9eLTurbvVTo9gTgQZ3X/mF4GEri4vhGjpbrctsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
- b=Y3ZVjPmGcLjV9U+nmLPOFK3XCFieapBpnuQdpLfscwCbgXe6o/fzq7tTqImZ1EI8HVkXRmK+t4gMbCvq5H3DmHmQXGehzrkQxo8H2jmdSVHvtyIvqz7Cz43Qj1BGjKXE+E2Vm+4REBPfnDANbamjgOEYOzYXl0I+MXvRZV/MPN1lwlVC8+7ZG9YHDge42n1TDuzx/xOKKg9F+IKWV2v+605UmjV4UZqj32xZEFPreJAGvy0fkIcUpfHwbDvchZYypWhSWCoLFTc43CrKedvrpVpyD5nUaZFTMGTIgRJzBiTZeEkea/YLQT5ICxl5zPY5OxfbnSxA/P2OMjr5KbHtug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
- b=f5FFAss8/WYdNJsdWjgWwA/WUcXcpfOgU53OPuofqHRwEeu1vmOrSvlCDAElGeUE5HYBrGRKDny52qk+7M3TeGrrztbGNlJLB9mQkpye+tDXg/ZSySvvRbBtQ4VeUBx6iAucxju0JCkj949dCeqAo4ybGXGO2lXxhzMV4hEvDNNJCNfmcsdx2PIrfpx3wY1+fS4Vq7Iur7vjA84iZ3hjePh73jyuLpqnmxxqmpvjUzc2tAy+Gbrf7dq+oEvDU9ZixJo2wK7U4X4UAh08DdXjoM/Xtj8Y0vXQOZNZeH5VUXRdIfw1AbC0BRXNSRAxwkJSYZCsvp0QU6ZPIRNS0DT6cA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
- by CY8PR12MB7267.namprd12.prod.outlook.com (2603:10b6:930:55::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 06:27:00 +0000
-Received: from BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
- ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 06:27:00 +0000
-Date: Fri, 20 Nov 2026 07:26:53 +0100
-From: Andrea Righi <arighi@nvidia.com>
-To: Sechang Lim <rhkrqnwk98@gmail.com>
-Cc: sched-ext@lists.linux.dev, tj@kernel.org, void@manifault.com,
-	changwoo@igalia.com, mingo@redhat.com, peterz@infradead.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
-	haoluo@google.com, brho@google.com, joshdon@google.com,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH] sched_ext: reject oversized dispatch_max_batch
-Message-ID: <av_oLZQzAtFe2vTr@gpd4>
-References: <20261120054913.3795562-1-rhkrqnwk98@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120054913.3795562-1-rhkrqnwk98@gmail.com>
-X-ClientProxiedBy: FR2P281CA0071.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9a::6) To BL1PR12MB5174.namprd12.prod.outlook.com
- (2603:10b6:208:31c::19)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TZ94YtnX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18B2C1F000CA;
+	Fri, 20 Nov 2026 06:29:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795156143;
+	bh=6r5YdkdPx0JHlq1kqBAhLW8GKPt7jP2c9Sj28z24pgs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TZ94YtnXIq4+7GYPfXrnA15pnUcyJJT4Uhk4mbYxQFYWC+ApHuvM6FdnVMEvOsk1j
+	 HhW+eYM4QAzbxqi3kOgjRnigNDfI1oAkze89PTok80UXcMMOfW5tDO/Q3FjNV3IGp2
+	 tsG6XDlcwQTs2WY1fybmk+hPyhlEqJ6GKouDmfWtNx+M9VPqDdF/7pXMKf4vQhcFuD
+	 3sJtRAFiXHBsc0oVidL2N4nWPgKjYrj9CH/buT2PZ9d79siEbD3o1OW9sAm+oTp91j
+	 2QBiyG/JgoZxiUXWsV3m/mJfO83hSeYFLQ2Po+NI2+QP16RQP3b87+Oj9XqO1vyzlf
+	 HxnTfUlKYvY7g==
+Subject:
+ Re: [PATCH net-next] aqc111: Correct endianness handling in rx/tx_fixup
+From: netdev-bot+sashiko@kernel.org
+To: mail@birger-koblitz.de
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 06:29:02 +0000
+Message-ID: <179515614261.3136.9007298128427052621@kernel.org>
+In-Reply-To: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
+References: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,119 +63,191 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|CY8PR12MB7267:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa630c09-708d-4ed0-9a26-08df46cf487d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|23010399003|366016|1800799024|376014|10067099003|11063799006|56012099006|261021123027099003|261022105027099003|261021121427099003|261022075727099003|261028144727099003|261102123227099003|261026140227099003|261102124527099003|261009223027099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	mki+iEGcdG1nm52Hz5H6pqz4I+70XJQcru9vKKRURZ5lo+NTJr6+7wv8phrhEjwe5QKO2bS2bFzP7VgmFVXTmTsj0T320b3Jp+T4rGJY7026TIgyKXivpbDgBqPKoMWyTVPwpU3sVFjzQoX5jXZLTfrkXxCA5n3wvmxEqv0FjbWqnA/LDU6CBG60RVe7J7PJjM6ivelCxarmDmQHWlOO+LzYaOKnib20z6XP26+cQDkLqx57otftAQYNENdWTZj7aWiLleOwgn82a3SClShpvushWsPyctgELTyvWmXBEYSvESLbU04YaRe+KJl35K5S7hv7uf9FLi6VxwCwrxE6C9WTpVBxtMMcWogJRMp8N1/Ry6xyCY0sbgBybuHk8rjYPCd/uyPXLo+rI+Gef0qKtRc/XAOV/uFKpWp/2uSkJ7r4EJI6M0GXKjoJr8bQt4EGjROSydTL0WXUjl80WpcI/PQvFQcnzLhI3GfU2nagUWNtPILhmAym6uhonKgackKpcbQK1JBAdmCLdT9XZXkC4eGfNeq+NbQrtFOzRsXrE8Oq0aj1kieAnW+Dl/0+/TahN0jlhpbi9vcLLQuYBEjE6RXb5B64d16D5los+5mc93H6WLhVoG+oUTjsgzKyNTCH9O81p4EsgIbYOa66+ZDI7Tr9go5DxuInH2PjYTD7Zgg=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(366016)(1800799024)(376014)(10067099003)(11063799006)(56012099006)(261021123027099003)(261022105027099003)(261021121427099003)(261022075727099003)(261028144727099003)(261102123227099003)(261026140227099003)(261102124527099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?IqoTg7E6gVTkjglOaCs9vnscT3nQ1zesKIhn3tu2E69IqUBuWzDHKhtqb7FP?=
- =?us-ascii?Q?eimgxKFTWm2KGE4qDhrb4G1nE7OXznLuh6K2wEjpO5JXQQroivgw/w2w575S?=
- =?us-ascii?Q?bZSVKOcSWcjRNon9I2G2SZfRtS93yRtdR4+bc3UyZDe/dv8XBlroNRQ8O+hl?=
- =?us-ascii?Q?D6DCohYw5bCMOI2mcXg3wf5g3Qpi/9QU6WMR2gX1xYz5eID0vCjaD4bqMWLz?=
- =?us-ascii?Q?FhJZOn1x6vGkPaYdAI7xlLDqbmnN2EEFc0c2kxJAqBjdoJ/gsC0CJW/XtVN2?=
- =?us-ascii?Q?oWrbg18EploJnqGF3KjQROyHr8PK+UDehpbFV/epEZHUjpn8b97pak5jmtyU?=
- =?us-ascii?Q?57+zjMUXOVdKEtK3dIymFk8Sc31dRF2DhmCpxZDTz1EqAhg2AdMwUVjNStj/?=
- =?us-ascii?Q?lZwt9GgdzxPbL+pwpfk7y2h7zg3RxYNuBrY8BVHlTROg5bYLbnJlQCfcwnxG?=
- =?us-ascii?Q?P+EzdqOmNa68mi4ApWMRBY7bbTTjSj011/kUwMOWT8Zr8yUlw0+7QF8+p0ap?=
- =?us-ascii?Q?lGCc4o5aERUPLiinFX0A8MHxGAWsCg7Et+bKnohSQNW19bA+o1ykhQ4v98/E?=
- =?us-ascii?Q?woEZ3rK5v9TUbARCbajXszSTmFhj7wDwsy5zFFjX4sEAtnJzU2THY45BcX3J?=
- =?us-ascii?Q?xMHYS3Pe4N7fTvGqe7TJIPpscXygYlv6msF9zX4NLHsTDSP/koiHDD0Jd8kP?=
- =?us-ascii?Q?jt1xm24XgRmSfwhVQlMKLWuzkvIvGgv1vO4xOHOAzwtET+FbjP+kv2jhwMgO?=
- =?us-ascii?Q?GHD0g4VkMDJivUMaadrKwzvKRkW8WfquT1fcTlL575yj+YBlHj5wKuL3b8I0?=
- =?us-ascii?Q?cKSke3A/gXxSwtKh7g7M8h+crALmhgPUbGqpJrqdPW3h6fTMWQOs2vCZS9ID?=
- =?us-ascii?Q?PdOhGj/E4kLGC2f+bZtKS6g2lMabsVF0QJRqJGA6EiOSooulCXLCTK4wYIiO?=
- =?us-ascii?Q?lwYs+eEm+Vjg35uU/1yrs+i6CY2MkHp7yl7mTTLT+mQvp8d8MwQWfdR5OATD?=
- =?us-ascii?Q?Tfv0aTD3UegLUj7E7lmOxmL737NcDcoan2BbY54H9qrDXf/WY6Rs9lH66lUr?=
- =?us-ascii?Q?p96+GZB684e0wNcp5KPTj2z7c2XXNFQ9+8rFetNhE5v4i68nNF3vsvvXg0zl?=
- =?us-ascii?Q?GrdKr8DOnmv/sAf3O1uOT5QtD22EpnSac27ffX6eXWIzlYiryuSyu4PoyoF/?=
- =?us-ascii?Q?bN5MaxQii0Qgoro99QcPpj88Y5BpRDkqny1rZIAKlkhMcvr/cKtyAbjcKUic?=
- =?us-ascii?Q?NFsDljBkv3X0/0ISQfCddWYJD8019TanTpRshrjEH38goMtPc3PHpqwYgDsk?=
- =?us-ascii?Q?pCOCG35j+4VtNFRtZ60vFDQ0J7YVekU4q6hpKlqQtoCNTjWRbIKey9O6mdTf?=
- =?us-ascii?Q?pPa7HvPqVSmT0VBjNBe7JCrWMEgDjiNIizAEv2o6S0sSJMpfp4LJ8ASCmnMm?=
- =?us-ascii?Q?yugE2cTvFidrdhtXHo1XnGtiQkhZcZFRrh33u8FvsSaUIoLhEQTRpemUnTJG?=
- =?us-ascii?Q?Hsh0u+yPlQqM0Dv2JzmvqXFP1lckhhasUCFQgN1LCW8qPpFCZNJ5MoziAMU2?=
- =?us-ascii?Q?rK88JQZxBnlYUOKWr9uN96gn/HelzTEydzzH+FWXRRpCzySJ+pOF1FU+rUmj?=
- =?us-ascii?Q?lS60A+V3TWd+iOICPHQkyQjTloHKg/zr/ULzAqB5YfuVoH3mzBivxrncF8OA?=
- =?us-ascii?Q?5XkHg8Hj5Wz6hp6pPCPrwsr77BjFsg/cQ9uhslgDM0XepUoTw1Vf2MH2Yr53?=
- =?us-ascii?Q?2IaUZfW82w=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa630c09-708d-4ed0-9a26-08df46cf487d
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 06:26:59.9526
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZN0OSfWlQ5gFccGkWF3VDxPkze7ti0ksYALFAs7nI5YUuxcx9m6042o1K91ip5yKDS01i1MX9Oj2jVep5sF6wA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7267
 
-Hi Sechang,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-On Fri, Nov 20, 2026 at 05:49:08AM +0000, Sechang Lim wrote:
-> bpf_scx_init_member() accepts dispatch_max_batch values up to INT_MAX.
-> The value determines the size of the per-CPU dispatch buffer, but
-> __alloc_percpu() rejects allocations larger than PCPU_MIN_UNIT_SIZE.
-> With BPF_F_LINK, an oversized value passes the struct_ops map update
-> and triggers an illegal-size warning during link creation before the
-> allocation fails with -ENOMEM.
-> 
-> Calculate the buffer size using the effective batch count, including
-> the default used when dispatch_max_batch is zero. Reject values above
-> the per-CPU allocation limit with -E2BIG during the map update, before
-> the allocator is called.
-> 
-> Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
-> Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
-> ---
->  kernel/sched/ext/ext.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
-> index 10de6bd865e8..93128da6b126 100644
-> --- a/kernel/sched/ext/ext.c
-> +++ b/kernel/sched/ext/ext.c
-> @@ -9197,9 +9197,14 @@ static int bpf_scx_init_member(const struct btf_type *t,
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 2
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The new `skb_cloned(skb) ||` term in aqc111_tx_fixup()
+  (drivers/net/usb/aqc111.c:1223) sends every cloned TX skb to…
+- [Low] The commit message misdescribes the change.
+- [Low] The patch fixes real runtime bugs but has no Fixes: tag and no
+  stable Cc, and its message reads like a sparse cleanup.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  aqc111_rx_fixup() takes pkt_len from the device-controlled per-packet…
+
+--
+
+aqc111: Correct endianness handling in rx/tx_fixup
+
+This commit moves the RX and TX descriptor accesses in aqc111_rx_fixup()
+and aqc111_tx_fixup() to __le64 pointers with get_unaligned_le64() and
+put_unaligned_le64(), to address sparse warnings. It also makes
+aqc111_tx_fixup() always copy cloned skbs via skb_copy_expand().
+
+> aqc111: Correct endianness handling in rx/tx_fixup
+
+[Severity: Low]
+Does "endianness handling" accurately describe what changes here?
+
+The old code already got the byte order right. le64_to_cpup() is
+le64_to_cpu(*p), and the TX path stored cpu_to_le64(tx_desc). Sparse was
+only complaining about the missing __le64 annotations.
+
+The runtime changes in the patch are different, and the message doesn't
+describe them:
+
+- Plain 64-bit loads and stores become get_unaligned_le64() and
+  put_unaligned_le64(), which is an alignment fix. aqc111 never sets
+  EVENT_NO_IP_ALIGN, so RX skbs carry the NET_IP_ALIGN offset, and
+  desc_offset is a multiple of 8. On NET_IP_ALIGN=2 architectures, the
+  trailing descriptor header and the descriptor array both sit at 2 mod 8.
+  On TX, skb->data - 8 is normally 2 mod 4.
+
+- aqc111_tx_fixup() now always copies cloned skbs, and the message covers
+  that with only this sentence:
+
+> Fix these problems and additionally also make sure that cloned
+> skbs are always copied for expansion.
+
+Could the subject and body describe the alignment change and the
+cloned-skb change, so the patch isn't mistaken for a cosmetic sparse
+cleanup?
+
+[Severity: Low]
+Should this carry Fixes: tags, and maybe be split into an alignment fix and
+a cloned-skb fix?
+
+Two problems are fixed here. The 64-bit descriptor accesses in
+aqc111_rx_fixup() and aqc111_tx_fixup() are misaligned. aqc111_tx_fixup()
+also writes the TX descriptor and padding in place into the headroom and
+tailroom of cloned skbs. Both go back to the original aqc111 RX/TX data
+path commits.
+
+Without Fixes: tags or a stable Cc, these fixes may not reach stable
+kernels, and the patch may go to net-next instead of net.
+
+> diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+> index dd53f413c38f6..39d8755ca8e7b 100644
+> --- a/drivers/net/usb/aqc111.c
+> +++ b/drivers/net/usb/aqc111.c
+
+[ ... ]
+
+> @@ -1116,10 +1116,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+>  		goto err;
 >  
->  	switch (moff) {
->  	case offsetof(struct sched_ext_ops, dispatch_max_batch):
-> -		if (*(u32 *)(udata + moff) > INT_MAX)
-> +		u32 batch = *(u32 *)(udata + moff);
-> +		u32 nr = batch ?: SCX_DSP_DFL_MAX_BATCH;
+>  	/* Get the first RX packet descriptor */
+> -	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
+> +	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+>  
+>  	while (pkt_count--) {
+> -		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
+> +		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+>  		u32 pkt_len_with_padd = 0;
+>  		u32 pkt_len = 0;
 
-The fix makes sense, but with clang:
+[Severity: High]
+This is a pre-existing issue, not one introduced by this patch, but is
+aqc111_rx_fixup() missing a lower bound on pkt_len?
 
-In file included from kernel/sched/build_policy.c:71:
-kernel/sched/ext/ext.c:9214:3: error: label followed by a declaration is a C23 extension [-Werror,-Wc23-extensions]
- 9214 |                 u32 batch = *(u32 *)(udata + moff);
-      |                 ^
-1 error generated.
+pkt_len comes from the device-supplied descriptor, and only an upper bound
+is checked:
 
-(also reported by sashiko)
+drivers/net/usb/aqc111.c:aqc111_rx_fixup() {
+    ...
+		if (pkt_desc & AQ_RX_PD_DROP ||
+		    !(pkt_desc & AQ_RX_PD_RX_OK) ||
+		    pkt_len > (dev->hard_mtu + AQ_RX_HW_PAD)) {
+    ...
+		skb_put(new_skb, pkt_len);
+		memcpy(new_skb->data, skb->data, pkt_len);
+		skb_pull(new_skb, AQ_RX_HW_PAD);
+    ...
+		usbnet_skb_return(dev, new_skb);
+    ...
+}
 
-Can you wrap that case in braces, matching the nearby cases?
+A malicious or broken USB device can report a pkt_len below
+ETH_HLEN + AQ_RX_HW_PAD and still keep pkt_total_offset equal to
+desc_offset. When pkt_len < 2, the skb_pull() above silently fails.
 
-Thanks,
--Andrea
+The runt skb then goes through usbnet_skb_return()->eth_type_trans(), which
+doesn't check the length. The 14 byte ethhdr is read from bytes that were
+never written, so skb->protocol and pkt_type come from uninitialized
+memory. The skb is then passed to netif_rx() without ETH_HLEN having been
+pulled.
 
-> +
-> +		if (struct_size_t(struct scx_sched_pcpu, dsp_ctx.buf, nr) >
-> +				PCPU_MIN_UNIT_SIZE)
->  			return -E2BIG;
-> -		ops->dispatch_max_batch = *(u32 *)(udata + moff);
-> +
-> +		ops->dispatch_max_batch = batch;
->  		return 1;
->  	case offsetof(struct sched_ext_ops, flags):
->  		if (*(u64 *)(udata + moff) & ~SCX_OPS_ALL_FLAGS)
-> -- 
-> 2.56.1
-> 
+If the device is bridged, br_dev_queue_push_xmit() calls
+skb_push(skb, ETH_HLEN) into headroom that was never written. That could
+transmit about 12 bytes of stale kernel memory on another port. An
+AF_PACKET reader could also get uninitialized bytes in sll_addr.
+
+Would rejecting pkt_len < ETH_HLEN + AQ_RX_HW_PAD in the drop condition
+above prevent this?
+
+[ ... ]
+
+> @@ -1220,7 +1220,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+>  	headroom = skb_headroom(skb);
+>  	tailroom = skb_tailroom(skb);
+>  
+> -	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+> +	if (skb_cloned(skb) ||
+> +	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+>  		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+>  					  padding_size, flags);
+>  		dev_kfree_skb_any(skb);
+
+[Severity: Medium]
+Does this new skb_cloned() check force a full payload copy for every TCP
+data skb?
+
+TCP transmits clones from __tcp_transmit_skb(), so skb_cloned() is true
+for these skbs by the time they reach ndo_start_xmit. TCP also marks them
+nohdr, so skb_header_cloned() is false. Writing the 8 byte descriptor into
+their headroom was therefore already allowed.
+
+skb_copy_expand() allocates a new linear buffer of
+8 + skb->len + padding_size using the caller's GFP flags. It then copies
+the whole payload, including the frags.
+
+This bites hardest when usb_device_no_sg_constraint() sets can_dma_sg in
+aqc111_bind() and AQ_SUPPORT_FEATURE enables NETIF_F_SG and NETIF_F_TSO.
+In that case the skb_linearize() call earlier in aqc111_tx_fixup() is
+skipped.
+
+Before this patch, a nonlinear TSO skb with padding_size == 0 went straight
+to skb_push(). Now it gets a linearizing copy of up to about 64KB. That
+needs a high-order atomic allocation, and the packet is dropped if the
+allocation fails.
+
+Linear cloned skbs are copied too, for example every packet while an
+AF_PACKET tap is active. Nonlinear skbs that need padding were already
+copied before this patch, because skb_tailroom() returns 0 for them.
+
+The sibling ax88179_tx_fixup() only unshares the head:
+
+drivers/net/usb/ax88179_178a.c:ax88179_tx_fixup() {
+    ...
+	if ((skb_header_cloned(skb) || headroom < 0) &&
+	    pskb_expand_head(skb, headroom < 0 ? 8 : 0, 0, GFP_ATOMIC)) {
+    ...
+}
+
+Would skb_header_cloned() plus pskb_expand_head(), sized for the
+descriptor and the padding, be enough here?
+
+The commit message also doesn't say which problem the cloned check fixes.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-aqc111-v1-1-27a54c4b54ca%40birger-koblitz.de
