@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167435;
-	b=dUX+3H5qfuQZPH0TOH/Z5pJyABVvWU2iG8zg3H9RZlm5p//u7UKJ33bKv5LY4NaJ9Q3C
-	 RF1U+4/6MzYnh7kfgLUbHi/nvjgfprZdOnGfbgbcEgMu0bQaCvMCrrzIrlek0s2RZLjyD
-	 C6YA+DPqHneQmmqFiySVYJ4eU9ZnghvsoUD9kawYHkd+YIwjm+jyMx4LTqMr0Tfi0ec6Y
-	 n2EIfEYLz6HUaWPDNkqS9BnDkn+yhcIylKHRAmw7XNFLp1aG41vgVdOpxECZF7fMBTW5r
-	 qLW/GQO34rbB/4Q7M+2ozaz31qLLGkxUJfU3vNlAre1BakKeaB6TJEVzzkTvVgH5xHg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167435;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
-	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=MrNarIVU0YX4mWeXh4vyBELTR6sZxtTEz/XfzxTFPVE=;
-	b=bWwmjf0t5h5t+2XNj88UvvN6ESF5h7xVMldzMkOItTJOCTAVUgi9W5UX2LNqxQQaoZ6Q
-	 /T1uFAwA8QHTEMG/GHqJl7dmdsxNBE3/RFlQ01N4vRCjdwtoKCXDXdor+L4XhB8tOvgPZ
-	 bAN/Fn9m5nnWkJ1SbjOg1kJim8A+jN+P1yG3Ov1Yz8udosQGzyJ07XfahgC96yPmv8wWi
-	 qcdQhI0r29Z6wZBdT6UoA04cYwsYXnddkZp7nN8lQIO20K/I+yY+XRuDCK4IQs40bbfcU
-	 aO5gT8YOVpoyBmvtET1lD92t2EZ3PQywqyYNBAW6g2sHygiTqCTtS/jgUMkoidVgEqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Bz8Zhy4w;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795167428;
+	b=YVYXVhOh2DiF0WyRu2apDP6khAic+o7pfp+vgNaYFibEqvl+2ZllwfdgqiClvl2dCUD1
+	 3GQ48EG7fIEGqpr7wvO/8t1bid8S4Z0XcvyPD20UM5eDBS9SwDQntcQSp+6CjpOFy+RmB
+	 2BCRsvYwA9AiriTTpIvTVY8bPe/6aOIlEAE0nU/QJsOvV4kVkVqJkZkUOA3tah5AhpYo/
+	 4xIQUKhlGcs3XpcCpHxZTZmfqhbcRkq2b3tfv9xd389ejrVXMmQ8/BH+c1bt6lbl17eR+
+	 gvGqBnlmXDXmT5HggfgdlQx67VyP4e1+SxZ1gTr6nOr6VfUylEi+6HINQwjmmg8WTtA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167428;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
+	b=R+qun2B1RzBHfKLn4gHxYg58HzStwUJsvSL27TIALdfw8C29CCSUGs2H67oQ9R+F85nF
+	 qz+cQ+8X00Qk8tO29X9woUTvvjG62ymYHoLJuOQXkDHv/I59fTdSNjRz2gpk3f2RhX7v0
+	 3EvvkrWeyoaeH3M6mJB+iPIio3M7MfJ6nIgxHBjLBHuDs2yx/TG7IoqrQUqVWi5Jcg3gw
+	 bxFbABAR9QzmKs4X1w9nqMFyx+iK+OiGvvXtWvY5nrmIaN5/ebCpdXEhNcFp/Uq0FHkoi
+	 sT3JKEsOFSvoTaHU6IqbCenOk1/Beuqq4DD2TabF6ueQAwlW39DP9rJpS+72ep6yJZw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=P+OUwZLi;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86757606A33D;
-	Fri, 20 Nov 2026 09:37:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86757606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9701606A336;
+	Fri, 20 Nov 2026 09:37:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9701606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Bz8Zhy4w
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795167435; x=1826703435;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rlHqRw8hS+FTCGK5Viu7WJ5pApqs6rhAMq0KeFmr74A=;
-  b=Bz8Zhy4woSNtdWIH+npdZxZew+v+WCLQ5bzMRCk+J0Sfm0qbn1fpXVaP
-   0y9wawGc9JYq3fIX3uzQjkh6AFzPoC3fp99/h6n8X/Ux4NyWJqUUrHX1J
-   QSXItMuzajKTalkIB5QCg1cepHR8d+UiyOoL1JdcNwY/Sol/T3j6S6KfM
-   wKag8nMcvKS26fftuQoAU4diejnwJegVYME5hNQQkt4K7XyQpqJyqA02J
-   wA/nXjMeMTa0urS9xFNOOFbGUurT4Esv64/TkWxL1Hu+PXkMkLL1xJa5C
-   J83lX0JgYmmOJ57d5KvMyE8VRk5b6KdenAGV590x9dDrFiTCS6C1y0gzw
-   w==;
-X-CSE-ConnectionGUID: Dka6nkWsQpCXkuopLNWGDw==
-X-CSE-MsgGUID: MVateqPURN+/wGbERm3K2A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3934024"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="3934024"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:37:14 -0800
-X-CSE-ConnectionGUID: UMEumKBHSk6L3a6qHfAsPQ==
-X-CSE-MsgGUID: E2Xk2eg7QCu/USZPLDoWiA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="11092297"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.253])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:37:12 -0800
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id B3854121B99;
-	Fri, 20 Nov 2026 11:37:10 +0200 (EET)
-Date: Fri, 20 Nov 2026 11:37:10 +0200
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Marco Ziliani <rylos78@gmail.com>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, Chris Simpson <chris@nilk.net>,
-	Tony Garcia <tony@loafecho.com>,
-	Simon Kruse <simon0x+git@proton.me>,
-	"D. Manresa" <dmanresa@gmail.com>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] media: i2c: ov5693: Program the mode registers on
- stream start
-Message-ID: <awAUxukyHCqtABs_@kekkonen.localdomain>
-References: <20261029-ov5693-fixes-v2-0-2526d7b13030@gmail.com>
- <20261029-ov5693-fixes-v2-1-2526d7b13030@gmail.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=P+OUwZLi
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EA610205B41;
+	Fri, 20 Nov 2026 10:37:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795167425;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
+	b=P+OUwZLiqMnCGXLmYWvt1iZfw82Rk21aiy1iOLrfOT5yQzkLITUknmyO3+nqIb+czQx//o
+	oRmBU4K8KrdrFfkRAzexYS7CY+IV1LAZjNqKvWPQkYhWuCAqEE2VUfZpL5YNl9UjiZmHka
+	2A0F6dvxmWSJsjcGamzkbuyw69GZ+MF/MwXZXPxZrupb57Cr1oCv6qrkuvUM3Mdx2vLfmE
+	2YsMKIpTvbYmroaTgVuaPb8gDB6O2haUU20BUkd08+nTT17N1sE81XLMMe/bU0FGOMotpw
+	qGaTHXeZBHMSQpK5m4YAys7IJF/zQpvN5zMqzt55NiAxJvCGPWegMKIRJTO+yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795167425;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rQIbTDPqM1kGhmjmlo8VdalXlbJAiuRtdZwXJ1lLpOc=;
+	b=fl05Vht4e6739plESL9sVFP94kS5cjxBBI0lRv3FLwzKk+KqvtWfDJdfrQMSpH0jYseF1C
+	2wzAVPA0ThM+X0ThlC6jlbRU5S8byJKQQqBLN9mEyWku5DtTI0a+Njy9n5K2B0IMztxV1+
+	19yy+WSmjgirvoMXRjY7Oe3sCILr35BTaNN6rfmne9S8xBF8vfcwK9dxIUxTh19rjc6zw1
+	NZWlSIVQbSS+lALFBE+KaXH5dPsiqK+PAQfQ25MHVC4mqBmTf2D0WB7Zykk1MsIBM/iKO9
+	x4YwN7oZNbWjeChODEygEIZypeFF3sYPx9C+0YjI4SUkTpE6EHNm8Mj62EF8og==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795167425; a=rsa-sha256;
+	cv=none;
+	b=EWMWytVgopVKw+1nKLwQ33OpYY5zcjexx08gPySa8ODEVsati7+UD1ik9todrKqZoaZjOD
+	/oROixqM6S6RaOhkgBvvLshySbTxaKKZtFmWUroor5L1rALMm/9mOGoAV/7nFjIP9NAfnK
+	aAx/6FJIIjtI3oQIaqEMMyw+TyqH1wKDLAo3T8uWhVeZzNMzbr9WCOB389SNYGB/57JAFn
+	sNymnpZg0MN3ISVm/HZ1Q/y7WvcokVJ8VaBn2WRaQR+qxjtEwUQsozDUV9WcD9H2kLpVpm
+	ihnZUUNd5wAkRj/cjMvS1ILIxgome5ptn9ZIBImm8h41B1qxkT2jTdMV8CFqWA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=f.diener@pengutronix.de
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.2])
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.96)
+	(envelope-from <f.diener@pengutronix.de>)
+	id 1xUL3J-000dRE-18;
+	Fri, 20 Nov 2026 10:37:05 +0100
+From: Freimut Diener <f.diener@pengutronix.de>
+Date: Fri, 20 Nov 2026 10:37:06 +0100
+Subject: [PATCH 3/5] arm64: dts: freescale: imx93-11x11-frdm: use 8-bit
+ eMMC bus
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,73 +89,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261029-ov5693-fixes-v2-1-2526d7b13030@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-imx93-frdm-fixes-v1-3-78dde22a56fe@pengutronix.de>
+References: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
+In-Reply-To: <20261120-imx93-frdm-fixes-v1-0-78dde22a56fe@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel@pengutronix.de, Freimut Diener <f.diener@pengutronix.de>
+X-Mailer: b4 0.15.2
 
-Hi Marco,
+The FRDM-i.MX93 eMMC connected to USDHC3 uses an 8-bit data bus.
+Correct the bus width to allow HS400 operation.
 
-On Thu, Oct 29, 2026 at 10:27:52AM +0100, Marco Ziliani wrote:
-> ov5693_mode_configure() is only called from the runtime PM resume path,
-> through ov5693_sensor_init(). If the sensor stays powered between two
-> streams with different modes, the settings for the second mode are never
-> written to the hardware.
-> 
-> Move the call from ov5693_sensor_init() to ov5693_s_stream(), before the
-> controls are applied, so that the mode is written on every stream start.
-> 
-> Fixes: 89aef879cb53 ("media: i2c: Add support for ov5693 sensor")
-> Link: https://github.com/linux-surface/kernel/pull/181
-> Signed-off-by: Marco Ziliani <rylos78@gmail.com>
-> ---
->  drivers/media/i2c/ov5693.c | 18 +++++++++++++-----
->  1 file changed, 13 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/media/i2c/ov5693.c b/drivers/media/i2c/ov5693.c
-> index 56599f9ca..d09095c3e 100644
-> --- a/drivers/media/i2c/ov5693.c
-> +++ b/drivers/media/i2c/ov5693.c
-> @@ -663,11 +663,6 @@ static int ov5693_sensor_init(struct ov5693_device *ov5693)
->  		return dev_err_probe(ov5693->dev, ret,
->  				     "global settings error\n");
->  
-> -	ret = ov5693_mode_configure(ov5693);
-> -	if (ret)
-> -		return dev_err_probe(ov5693->dev, ret,
-> -				     "mode configure error\n");
-> -
->  	ret = ov5693_enable_streaming(ov5693, false);
->  	if (ret)
->  		dev_err(ov5693->dev, "stop streaming error\n");
-> @@ -1000,6 +995,19 @@ static int ov5693_s_stream(struct v4l2_subdev *sd, int enable)
->  			return ret;
->  
->  		mutex_lock(&ov5693->lock);
-> +
-> +		/*
-> +		 * Program the mode on every stream start, so that a format
-> +		 * change also reaches a sensor that stayed powered since the
-> +		 * previous stream, and before the controls so that the mode
-> +		 * registers don't clobber them.
-> +		 */
+Verified on an FRDM-i.MX93 board. With the corrected bus width,
+the eMMC operates in HS400 Enhanced Strobe mode at 200 MHz.
 
-This doesn't seem quite right. The static register list should be written
-on power-on and the rest when they change. Also there shouldn't be overlap
-between the register list and the registers programmatically determined by
-the driver.
+This also avoids a respective warning:
 
-> +		ret = ov5693_mode_configure(ov5693);
-> +		if (ret) {
-> +			mutex_unlock(&ov5693->lock);
-> +			goto err_power_down;
-> +		}
-> +
->  		ret = __v4l2_ctrl_handler_setup(&ov5693->ctrls.handler);
->  		if (ret) {
->  			mutex_unlock(&ov5693->lock);
-> 
+     sdhci-esdhc-imx 428b0000.mmc: drop HS400 support since no 8-bit bus
+
+Signed-off-by: Freimut Diener <f.diener@pengutronix.de>
+---
+ arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+index fbe3543e1ee8c..af674f3f48364 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts
+@@ -75,7 +75,7 @@ &sai1 {
+ };
+ 
+ &usdhc3 {
+-	bus-width = <4>;
++	bus-width = <8>;
+ 	keep-power-in-suspend;
+ 	mmc-pwrseq = <&usdhc3_pwrseq>;
+ 	non-removable;
 
 -- 
-Regards,
+2.56.0
 
-Sakari Ailus
