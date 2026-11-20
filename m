@@ -1,53 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168756;
-	b=4YLBLzyYGR6q+SOAUVCU3CMe0T97b1L1SHSRPUD3KOWudq5WH2A0tG9uZVf56MUUFrJS
-	 lc3y4KyRFJPxtJmonRHn1XlbjMnj8qRDEXnGx/JmKm2lmsrHGetHy8hOJ/lhChCX+5IOK
-	 zA805TATVkY71Y0SOwJWhAwf6u4Ey81B5n4duiDBooI4RPrS9aQCkqBovJvjOTs1X3w26
-	 InIYuHw2yOJCd8RK8WLFtuhqdscUwd1BIVrX68UCazQQn2PZV4sJ9trOZRDKeAXvowj5y
-	 Fa8l9Dr3fMTaKDm+tJeFrtK4Ly2xPaVgp1ZhVwOCxkIUNEXlh14UTQWi4sQt/RWGS1Q==
+	t=1795168771;
+	b=yJ+Zo12vj/9ibGQUwmTwC33YwkCFig3i+Xll5f2PM9jVG0R7/HRtZvJUe/3KHtV3NF/2
+	 ZZjUlXkzyl5b+FUwpXgTzFtprqEs9WaxyfOdSamJZjRLtuuxX0eVFSprJkfTKd5hvQNz3
+	 YOQSdRsCjECdfxcp/W8+Z5WxAxcqkl4y8B5o56hABS/+bL7OEKW3z4He/UZe0dR15Qyx/
+	 0+XNiwdnTic6g8r8kXFJ/lE7gYEIlmZM6OLgQpGyvXVBQYGEoykzQskxAfVratJpGf8xD
+	 3O81AZa4CGN83DG+pi+1f+SMwi1HMVfeULEOhE2PuAH0+cjY7lH7EKCa3kTMiT0M2Ug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168756;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=aNJVgiuqS87QmiPYqOjVcz6sjCHusWRo9ExL6mlDqFo=;
-	b=Fo2aORt6mcTgGV0F+mqWUyFa6C3p23XdyOETOQnZDp0wlidIu+pZiFYnlpAS2D0ydeo0
-	 wiQKF8XNIknlDfLuaKCgo1x8Swkh8fINaHpNOhRHMRwPGiic80tUdcWs09gX8lf9ltgGX
-	 W5GVc7MKhPAn1QOrvnUZT3jgtwWHVuY4ohOnLuJPhIkcHTmCAwhoSg9TkfT7oOpBA9DgG
-	 RW5ynMk+zbCQ47FfsiQ6BmghuKE0t2fUkGl50PK72BQKfz2naU5QaapPQIt+CSzupO7w6
-	 MeO3kj74MfUPp0l37DjSlgLODSbPQ2GTSGcCMdFeQeucPsVlz4qM5JD+zvHwgbVwBEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168771;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=54MAWfFgyDXgdTIKy5UVC0oKpZt8Q+PuEtG+8qm+8/8=;
+	b=CN2uiCnIad3KdNdaxa9kP6CqE2WghjKImiYz2rgEZVqzfFeTY2QQOP3xx/gF/FBetxA0
+	 0ju1lu+SLM4MsSKrXRa5PeW9TW913+XitFAiGF6/0kdatzRGK7EMA+nggllVpzzA7sbnL
+	 pSyqNwpEvb4wYRn4KbWtksDvpeWHPwSJi4ar7lgSeKsvo9WjW9IO6U0LREjNwvhBSuf1l
+	 kovTPPWqMZ9jPQIZQOPrAWTyemR3SxnTM/u1QA1ajpoqTBpbKXAqzV2PL1E8B1D+oh1zX
+	 F6Jxx5/OXb5oGbgynI93ytyflQnB+vuOO+yrq86JMPv/ODKqzVXR0qRzH75RNDQRxOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j1bxCYZF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=D2M9T2oI;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A3B4606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:59:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19ABF606A320;
+	Fri, 20 Nov 2026 09:59:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19ABF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j1bxCYZF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46E5E1F000C6;
-	Fri, 20 Nov 2026 09:59:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168756;
-	bh=aNJVgiuqS87QmiPYqOjVcz6sjCHusWRo9ExL6mlDqFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=j1bxCYZFoOt0X9covx9etBcBFCdrVjrT1Yau1iipB2H1WFuFw/hyKeDw2BXO1pJYO
-	 FLqi0knnY6DjMsSJChaYtgyWNfwY6Fr+fyyna2cw61c+AMlpAeTFVV+mFYq+t5+hCQ
-	 M90Zl03QwDRQMThFZrDF56aw9B1J8UfcEKu+gCTtzfAP2z/oymrFBt+GZf8qHjmJti
-	 9nBBye9aWjcfrGWnnLbk+NySGLzq5VgomrY3Qa6munH2MBr674g12YZISvzZJXflmC
-	 9aHiyKMPkDx/XZnhJToSrHiKm34Iy7FDktYBwOBihJxgNvKJ03I8CQq9IdZkVv7Vdm
-	 TYKmtoLQT3I5A==
-Date: Fri, 20 Nov 2026 10:59:12 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Haoxiang Li <haoxiang_li2024@163.com>
-Cc: jani.nikula@linux.intel.com, joonas.lahtinen@linux.intel.com, 
-	rodrigo.vivi@intel.com, tursulin@ursulin.net, airlied@gmail.com, simona@ffwll.ch, 
-	intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drm/i915/vma: Fix a memory leak in i915_vma_pin_ww()
-Message-ID: <awAYXcgE4RMg3Hqi@zenone.zhora.eu>
-References: <20261118153205.2432736-1-haoxiang_li2024@163.com>
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=D2M9T2oI
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=54MAWfFgyDXgdTIKy5UVC0oKpZt8Q+PuEtG+8qm+8/8=; 
+	b=D2M9T2oISXFsdJNM4+8zDbgXzvyGracayVxkPtRHdQmoC3EQcacj3jKjajMPAxfQGkIRPYvfW5I
+	1+3SGg6XhyIpDk1o1rejiTjaSkZOfxlyjC7Qbw/fFNaKYbOW4qzF5gtm4QkeqY0K0QuT70OKFk3Lz
+	78mjMSS2Cwl/xWaJjkE7dPZ8BfVyde2OUN0iPfAQzPa1zrOOMtsYlgE8p8eymeptRO2BdnS//5ynr
+	nH7HaUeYVQgkVQ6QyHwpjf1fRXsq3cFm4MnlH+FvlFIP5AxatxEhTmP2/tyyPoaLYQJe4h7CYBhl3
+	NUqbl8C+BXvpB4W78gNptLyvepEKACpCjcRg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xULOx-0000000HYsL-0yVc;
+	Fri, 20 Nov 2026 17:59:28 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:59:27 +0800
+Date: Fri, 20 Nov 2026 17:59:27 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Nhat Tran <nhat.tranminhk2@gmail.com>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Deepak Saxena <dsaxena@plexity.net>, linux-crypto@vger.kernel.org,
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] hwrng: omap - Unregister hwrng before disabling the
+ device on remove
+Message-ID: <awAZ_4SngFhAPq0l@gondor.apana.org.au>
+References: <20261115145050.88427-1-nhat.tranminhk2@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,27 +69,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118153205.2432736-1-haoxiang_li2024@163.com>
+In-Reply-To: <20261115145050.88427-1-nhat.tranminhk2@gmail.com>
 
-Hi Haoxing,
-
-On Wed, Nov 18, 2026 at 11:32:05PM +0800, Haoxiang Li wrote:
-> i915_vma_pin_ww() allocates bind work before retrieving the object's
-> moving fence. If the lookup fails, it jumps to err_rpm, bypassing the
-> fence commit at err_fence and leaking the work allocation.
+On Sun, Nov 15, 2026 at 09:50:50PM +0700, Nhat Tran wrote:
+> Commit 3e75241be808 ("hwrng: drivers - Use device-managed registration
+> API") switched omap-rng to devm_hwrng_register() and dropped the
+> hwrng_unregister() call from the start of omap_rng_remove(). Since then
+> the hwrng is unregistered by devres only after omap_rng_remove() has
+> returned, i.e. after the device has been runtime suspended and its
+> runtime PM disabled.
 > 
-> Jump to err_fence instead so the fence callbacks can release the work.
+> When the omap-rng is the current hwrng, hwrng_unregister() drops the
+> last reference and schedules cleanup_rng_work(), which calls
+> omap_rng_cleanup() and in turn omap4_rng_cleanup(). That reads and
+> writes RNG_CONTROL_REG while the module clock is gated. On a
+> BeagleBone Black (AM335x) unbinding the driver triggers:
+> 
+>   # echo 48310000.rng > /sys/bus/platform/drivers/omap_rng/unbind
+>   Unhandled fault: external abort on non-linefetch (0x1028) at 0xfa310014
+>   Internal error: : 1028 [#1] SMP ARM
+>   Workqueue: events cleanup_rng_work
+>   PC is at omap4_rng_cleanup+0x14/0x24
+>   LR is at cleanup_rng_work+0x30/0x48
+>   Call trace:
+>    omap4_rng_cleanup from cleanup_rng_work+0x30/0x48
+>    cleanup_rng_work from process_scheduled_works+0xf0/0x518
+>    process_scheduled_works from worker_thread+0x140/0x2f0
+>    worker_thread from kthread+0xfc/0x134
+>    kthread from ret_from_fork+0x14/0x28
+> 
+> The worker dies before it completes rng->cleanup_done, so the unbind
+> also never returns because hwrng_unregister() waits for that
+> completion. The same window lets the hwrng fill thread call
+> omap_rng_do_read() on the suspended device.
+> 
+> Restore the original teardown order: register with hwrng_register()
+> and call hwrng_unregister() first in omap_rng_remove(), while the
+> device is still powered.
+> 
+> Fixes: 3e75241be808 ("hwrng: drivers - Use device-managed registration API")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nhat Tran <nhat.tranminhk2@gmail.com>
+> ---
+>  drivers/char/hw_random/omap-rng.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 
-BTW, this commit description, along with the title, is too
-LLM-ish. Can you please write a simpler and more descriptive
-commit message?
-
-Please do not blindly rely on your LLM for this. Write it
-yourself and use the LLM only to fix the grammar.
-
-It would also be interesting to explain how this oversight
-(because that's what it is) happened in the first place.
-
-I'll wait for v2. You can add my R-b as well.
-
-Andi
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
