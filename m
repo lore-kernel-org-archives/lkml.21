@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185469;
-	b=ZRq3RHpDrjW7D5rf4p9yW6Yw7zOedfdBO/aoyI1yFzLy+NzPxLCfu/fr/2HWHBNMdlsD
-	 7dvqXzM613gLW8ix20b+4z1Sy1TZqnKMV1t5wSVBJOtqITqPShjOn5C5g5kngf/aN1hbb
-	 nc9HSNpbETG8VJ3KCqJaSU16qjW140rVGyKYLRgvSUOu27Grz8RY7obRE8cEhvvdmnWFo
-	 tv+6KzQfzuf/Q7C0VtXhvGvgvX31hejdbq0fbDPmMGLSrthEd0JrvGL6QFs5rBLB8e0vP
-	 OhpHbTt1Pfr/wQa/ljnN+dhoyGjW99uKjlVquFS72kMJv4Km503BuOmUX4B1IHH0f3A==
+	t=1795185476;
+	b=vfDdzkqm+eA/E0v3RaUWj3HIMVRmhPOpLg9SjC7aQSg+R/lJnVn/guJjhKFxb0/0J72w
+	 3Ejqj45KK2efnaiAEGqJekiG5Sc1Fb9DgtKFQYQaxWDvVsFQbdoWtfvBhlMW29Yaazk39
+	 g9bEXaTizQv4cTsSirOar03hYCXNAjCur8QSQwbEUx593/swLm5TYw7glU5LuLxin25sz
+	 ziSj7CF6/e6x9dU9ZSwb1oEQfLCBnBkfPlzMoq/OL/c8uK3XOIHa8Ox/+Bl3cBuYyXFZc
+	 rLk0A9n/Br51N3PWcBa8v9+3SoNNtaqJqinUVloK0AugI85AEpBgU2XTNRruw/BLrwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185469;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185476;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 MIME-Version:Content-Type:Content-Disposition;
-	bh=T5R/PeSgIFg+ZSyUN7aEvdcRUdxKA2wXlQRJFCOnmQ8=;
-	b=HxZN+f3uq6ino3KE91FYVbzjCOVA2jx3X660Nw4eOXs8gVCJU3bNGegSql5nau5QGy8u
-	 VCldAUExtzApQomS5Y1VwWOFxpEmjPLM1DUC4pGf+KF//Hq++/nNo+DNWQnP9FAyODf4k
-	 JHN+Zm9JRe4j4n/gTIYUHqwl30/EU5fIHs0E4e3WDUw6nS60wBCmSbxNDv+Y0u5auOHah
-	 sMJIV800Lh7rtgl/4xc7elrlyXdrYIUYaEJdTbjkYSp6R4Kr7lOm89XClP0cp6yfDkr3Y
-	 LD+IZLfqY/uxvuDqKD9mVJNMHdSn1Kw3c2yV027gEt06I2IlRg9kUeY7y1nAz4k5OYA==
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=G3Dx1Rl8sCVhKobWtk/mYO5a3CKsB1ub+4mYD8rlpqA=;
+	b=jHEJErtianIO0r+uC8A0N81W6ELaeJGZTGi2NziGuCfF1HukpnnG+uuJWeWBZ5DwuC8P
+	 ZGG4LbcEIeavuxZFG2L0t49vQaKuPUzFE0Zg275kC3Jkd5ZZWJLRHyjaA/kPzjSAvWKcX
+	 3ep5I+iA40Ovi6nyClRgQBnGi8sud3e9VseA/qR1PTORS3wk+z+quD53kDseE1l0gArNs
+	 DsQlff6Nh2MNDJUqAJ7pknupXoG1/2lpgaL7781DFHWpDjHCuihGwP6Hf5hdYXrdU5FzC
+	 hIn8X9RxczpgXDByxm3pbNsjl1BtRXimOX4XF4Dt/U8pIOUsCGpn+OjrQcp5PUFA5xQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzl+rJ5b;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=gwalE1n6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8496D606A320;
-	Fri, 20 Nov 2026 14:37:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C098606A325;
+	Fri, 20 Nov 2026 14:37:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Qzl+rJ5b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661281F000C0;
-	Fri, 20 Nov 2026 14:37:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795185469;
-	bh=T5R/PeSgIFg+ZSyUN7aEvdcRUdxKA2wXlQRJFCOnmQ8=;
-	h=Date:From:To:Cc:Subject;
-	b=Qzl+rJ5bPiHBUBv6QObyf9fn/9CbjnBjJtjLqU7XB2CryfNOB+zoWOZEhwVbXHx8C
-	 /RvkLPLo68a9CKJ5G98jSAFAsKZKIeLB4yveBQxtvpn0gw32ptVrYOXNiGXtQ/B43U
-	 ICuAMz1EBVDOdHyPHfW8fl7hQ544wulyydauGfaRMrUW+kNryZAjusrWQG/8S56ISE
-	 rPw1IrVRb2BR6upu9tqEUS4AdZ3uomBi3bQJq6lWF5i8ynUkGnwlb59NOAXAVAXnkr
-	 eyU9RyMLL5iW8PM+4zrkbHNAOT+fgbVmr8vXpuYivhL3X+6ATI1XYvT6jCed5I+TEx
-	 x/YwCzpGMpY1A==
-Date: Fri, 20 Nov 2026 14:37:44 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Jiri Kosina <jikos@kernel.org>,
-	Benjamin Tissoires <benjamin.tissoires@redhat.com>
-Cc: Jiri Kosina <jkosina@suse.com>, Kees Cook <kees@kernel.org>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
-Subject: linux-next: manual merge of the hid tree with the origin tree
-Message-ID: <awBbOE022xyZY3Vl@sirena.org.uk>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=gwalE1n6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB0291F000D1;
+	Fri, 20 Nov 2026 14:37:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795185476;
+	bh=G3Dx1Rl8sCVhKobWtk/mYO5a3CKsB1ub+4mYD8rlpqA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gwalE1n6xg8+aCz8tzdSBMFT4OzhyXzaXSdy+DLoS1DsZAikhr7lisJBMxV539KUQ
+	 MqnNESWJyCDJbAv8ljr1HKFYRmGmc2yP3vANzHQ0+LdXeTEwOFxgXjv/xvU9lRBrwQ
+	 t5QM+eIdfkQQNnula0BGl2GryflsnzCOKQe5pE9U=
+Date: Fri, 20 Nov 2026 15:37:53 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: joseph@telaak.dev
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Minas Harutyunyan <hminas@synopsys.com>,
+	Chuanhong Guo <gch981213@gmail.com>, linux-mips@vger.kernel.org,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] usb: dwc2: Add Siflower SF19A2890 support
+Message-ID: <2026112039-library-rise-d0b7@gregkh>
+References: <20261111-sf19a2890-dwc2-v2-0-cba9dd4a4256@telaak.dev>
+ <20261111-sf19a2890-dwc2-v2-2-cba9dd4a4256@telaak.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,69 +58,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZzPA4M+AoqRJahMC"
-Content-Disposition: inline
-
-
---ZzPA4M+AoqRJahMC
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20261111-sf19a2890-dwc2-v2-2-cba9dd4a4256@telaak.dev>
 
-Hi all,
+On Wed, Nov 11, 2026 at 03:26:02AM -0500, Joseph Telaak via B4 Relay wrote:
+> From: Chuanhong Guo <gch981213@gmail.com>
+> 
+> The Siflower SF19A2890 has a DWC OTG 3.30a controller. Limit its
+> transfers to 65535 bytes and its AHB bursts to INCR4, the settings the
+> OpenWrt port has run it with.
+> 
+> Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
+> [Joseph Telaak:
+>   - take it from OpenWrt's siflower target and rebase on v7.4-rc1
+>   - commit message and subject]
+> Signed-off-by: Joseph Telaak <joseph@telaak.dev>
+> ---
+>  drivers/usb/dwc2/params.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 
-Today's linux-next merge of the hid tree got a conflict in:
-
-  drivers/hid/hid-sensor-custom.c
-
-between commit:
-
-  4dd10fbbeb9c3 ("treewide: Convert devm_kmalloc() family to the devm_kmall=
-oc_obj() family")
-
-=66rom the origin tree and commit:
-
-  d8dcea5754a29 ("HID: sensor: custom: Fix state lifetime during removal")
-
-=66rom the hid tree.
-
-I fixed it up (see below) and can carry the fix as necessary. This
-is now fixed as far as linux-next is concerned, but any non trivial
-conflicts should be mentioned to your upstream maintainer when your tree
-is submitted for merging.  You may also want to consider cooperating
-with the maintainer of the conflicting tree to minimise any particularly
-complex conflicts.
-
-diff --cc drivers/hid/hid-sensor-custom.c
-index c12272479d82d,66fca5c4855b5..0000000000000
---- a/drivers/hid/hid-sensor-custom.c
-+++ b/drivers/hid/hid-sensor-custom.c
-@@@ -977,7 -1019,8 +1019,7 @@@ static int hid_sensor_custom_probe(stru
-  	int ret;
-  	const struct hid_sensor_custom_match *match;
- =20
-- 	sensor_inst =3D devm_kzalloc_obj(&pdev->dev, *sensor_inst);
- -	sensor_inst =3D kzalloc(&pdev->dev, sizeof(*sensor_inst),
- -				   GFP_KERNEL);
-++	sensor_inst =3D kzalloc_obj(*sensor_inst);
-  	if (!sensor_inst)
-  		return -ENOMEM;
- =20
-
---ZzPA4M+AoqRJahMC
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsAWzgACgkQJNaLcl1U
-h9CTlgf+NrbaG9NxBn11jFfEoWCroZ3xtgmWdnpEnz2RLEhq+A1uyeuVy8Nk3WU+
-f4cdfzrCjKnD3P+HLFV1gJpfdI6k5fkAS4FkLGKXDY0svHHKRPV3Pn8tHP2I281r
-uqcnZEcXQvpamzRK118kMQYUwqGTAMlJUMX8FfzC9jxIcezzaXUMl0bqXZR2mZj8
-YNZLoYxieY7utNguiEDZ6vgO0D91xF8a4kxFVsURY6g9W66cB6E/rwwKs2XRF2Qg
-F2jdaAZLpnzq5yn3tqiKv1erOZ9NF2N+cC1/ZXm2AVD2+pbkWBaC94QFlJQQIwnY
-+MbpQEtsmXCtBvYxKJcik7m6KwfMnw==
-=A7/i
------END PGP SIGNATURE-----
-
---ZzPA4M+AoqRJahMC--
+When you don't cc: the dwc2 maintainer, you'll not get a review...
