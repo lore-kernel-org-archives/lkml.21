@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795136839;
-	b=CyDkcu7ve4JVu7vabbSwz4vBwExDDS/3mhRD9J2+JRs7P8I11S4zvvgtA53/eaWgrFm9
-	 j1flZC2B/2dkUaG3+vZvwIiY8SEcUhkXBwfCMwQL6Q0qWT0zipfqeT0pY+RAU6mGfRabc
-	 nMOe/Q9huhK1erVSXLHb2K86+C4CLq7a+EyXUu0jLFXK0SWNPb371et6Mn2yY9LFkUgm7
-	 P6byDzfLSGXsdsJLB59vJT4QZUzfpsL/HD74me6N/SywUisbVWoMGhbXnVy6dgxBZo7cl
-	 +PfHRF9IocyJ8tytXgjcAP6/Ghk1W6q06/s2yiAQTXc4Sp3JfBC0PAWcCQkQvKoyuqg==
+	t=1795136845;
+	b=lxmt1ahsbdIAgzgpOTOleFnz4Ze4AUN0OX9a9NzCaN2THMjhOom10f3wg0ensW8MMBi2
+	 MdWAkvsspmljRYwyF+Ys9qjsvp1ALaNN6+MaZ+/9J6sS8S2SwhZrLmbPBE+VN3hOEFbCT
+	 g1TtPNrbIFPXuYQ1OEuNy8RdstFBGS11nJWuQ94UZWsoHL2f6ZFyh0BGPoSpIEuExeaaL
+	 OE00Y6CCLDQwZ+ooiDa1LyJIa42X9X3FLOFrb9AK5HpZg7/pxJh91jhifpp3pv7eJFJfA
+	 Gf3t8FGdPmQZk+uzvqAtxDlMvmItcooS/OJZStmgg1u+G0xioex8kJwLQlzQ/ubGWVQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795136839;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795136845;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=vXU5FE3T392RxN9QNel254D35psegmPr29XGG2IaIcw=;
-	b=pUUOBEU/ARdv0dHtrmMfLMJv+MCoqYnIXpCkw+pzLDSY299DbBq5d3niZbL4MQjLCunc
-	 QuChSZYYN4gkvb1ZDR++swic7R+0XyP1E3w9rxWjnZAipebw7hC5dDyYgVS73KBc5sPzp
-	 dzJcfswRcIpIk75Snyr5m+QRzeUnE5PXajQtoyHYwkVcBMFvaZztfzF4qmiJjkhioZNS+
-	 w4Vdt2morVq6xw+gj9BXaAm/WPHjvxsJX5xFPwCphb4hPTseC2Hps76IgZtGLY+k6tJFN
-	 XaKdl9VG+vxX7dJcTEYZoknBTTiYxFGG0QOa88yskMs59zzJX4C0uzjznrKIAoJmlkw==
+	bh=dRkr2BvKaK0JNp+xEr+CP1uqN9jcKW992wqEJ/xsaHY=;
+	b=tsTAD3IdqbXoe++8sAxuFChSAqdoouhfrw8PPQExpAEb679KB3DY21Svqzs0qGhwSXpR
+	 WZljoCEK0L0EJ/7SRcAkm5Mj97d5QWfzlQnWpcBaiwuersndM25t/WSgqkqnzKH0RwoBl
+	 stj0BbyMo5CptSXy+p50yyyfRbL5Y80Z4FNuRmPtkgGd0WdfWRz3jL3adKbJfnG5XGLtZ
+	 RKDbUtGZirGAUVhVe7iu/hESIlOP8wz1mgCxSm/NxiwroGz2LtO603Q1kaPHXQP4DpGaQ
+	 49PMW2XCoIbtDQBgOwubKXmrjPv0bqFs/8skM6UeFvU9zP7gUTUrfrAoxdn3UPMPzrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JN1XES1B;
-	arc=none smtp.remote-ip=209.85.218.70
-Received: from mail-ej1-f70.google.com (mail-ej1-f70.google.com [209.85.218.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ES4ennDZ;
+	arc=none smtp.remote-ip=209.85.208.71
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53F1860A3810
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:07:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53F1860A3810
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 512B56072287
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:07:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 512B56072287
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JN1XES1B
-Received: by mail-ej1-f70.google.com with SMTP id a640c23a62f3a-c505f26e9e1so24315766b.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ES4ennDZ
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6b9095eeb5bso1951240a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795136838; x=1795741638; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795136843; x=1795741643; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vXU5FE3T392RxN9QNel254D35psegmPr29XGG2IaIcw=;
-        b=JN1XES1B+9xWtZQpoeMZD1UeWfT8QzjJSgx/sA0JgmGXSEnoJmVjMhf9okWGToRyHI
-         UC4p+4/gQ3721KhE81Am0R88BKIzA+63rA89MYsqczHOOjNk/NbKL5GRSVvSLYdrwFx7
-         veJLApSlferalQefLmHR+mCgrOfnX40PeDyA8ugXlIHH0G+Vd1uNUEnIfQ7P5ZkksIPy
-         3dw8vuxjXyNwYxSor20m6+Xloh49B3bI8AXiF4P+b8O2Ogb6X96BGDOB2a6/v24AIV38
-         +Xk17oB24yyJNkX/CpxmOpCNeqIP9D9jG6kcaTsguL1bNkWDRHMQZcaWGRXk5eOxSdfT
-         JBhg==
+        bh=dRkr2BvKaK0JNp+xEr+CP1uqN9jcKW992wqEJ/xsaHY=;
+        b=ES4ennDZTflXaeQYEQfAfoxa0BxH02PkL8QJTPLMmiyR8dGrQsgV/SPDpmfK9jWggM
+         8PsX/g1+mZvKeuRNgQkM8SEyf2GEO9at10u0q9ywBXwoo9l49k6G4O/x40PqgY030zP/
+         igs4cHyJTjN/xg8fABXqLn9FfqPtAL28NK9ZFbdjjzUI7ufY/4gx3bAOAuFk3MLlq7VR
+         qpTGXQmaxwPLPGIKBdDahDSf6RCltzeLW6C+1MDEgwNoiZxMqqYB14/uaR1OzpKhQwlL
+         S9hgbuZSqmEyW1dCCCazJwkmHAGJfc27Sv+lSoZqyUK6hrlaDOSC4YVeqtW5w+FUWT9B
+         kYlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795136838; x=1795741638;
+        d=1e100.net; s=20260707; t=1795136843; x=1795741643;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vXU5FE3T392RxN9QNel254D35psegmPr29XGG2IaIcw=;
-        b=TBQQRW+mtoYBMn9yVa18xRRrJzT1vrPYjDcDvL7Gv8inLlL/8J3XjoFy94Ph92qxez
-         I5cbPuBF+FpevVccn5RPxL3wdBMQ9gQALmWSReVKSM2ELdUWjY4qIz9jxA7Wnn46maI4
-         dytPLOofNhJEqqOeJMO0tA5azEtQ7ucoUApuQ/cJz63k9xl7mzvXwFYkeWjIBny8hPPe
-         HVeqfUaIrjglzGYuZHQX7k6u/Vhx/yjszXtmt2uQBgwBjigSq9MJVZqJ+qKzT0uMTtF0
-         tJ7HIi0tFj9yJ2Cpeyq17Q3Tx+EwUIOHN4Qfh2erQc5egt65Q6R0CGwZB1DaBfUA6OGz
-         U/sQ==
-X-Forwarded-Encrypted: i=1; AL+hErGP0bARHuPNXzPuAa8bEbBoNtXDEd5dvqF1jwahtdBCQ6OttbcLoHe3fpFUD5NU/RCyn/WnJE0+3trREUQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Z1KAWA4kJz3eorTDtyFxEMCVdWfQkN/cYC07Ra1AyCDSsjlFh
-	EwEav/H30PdBjIK7mvUuY2zWefhZM9QeJ2tXw2Aumv4Opjdd0/RyhKMLgiypppFmijAGuJulGFp
-	JP4QSEw==
-X-Received: from ejdlt17-n2.prod.google.com ([2002:a17:907:c651:20b0:c50:cd62:3dd0])
- (user=lrizzo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:4fc4:b0:c2e:62af:b6fe
- with SMTP id a640c23a62f3a-c513a5e62e7mr135377366b.8.1795136837193; Thu, 19
- Nov 2026 17:07:17 -0800 (PST)
-Date: Fri, 20 Nov 2026 01:06:45 +0000
+        bh=dRkr2BvKaK0JNp+xEr+CP1uqN9jcKW992wqEJ/xsaHY=;
+        b=ZwYmgnyEFgqTzMTgxoZVqArBhdDlMTCupApMPFXGlHTyYX6H4pglS0JRb+7VODBdiK
+         lP7sIfvY70DImjIjzx80C+/ntmgCgsozfxJUZ52U+OafZbhU50KnIIvCyODZjt6K6PGa
+         Z/Z7OwisACbnqS9AKFr9A9pEgPnzDp91X4dBYvv5FroXvqqksXSrCn9g1YxyA4GwgYYM
+         qxNGHuJYrPOm4T5Sr6eeB8J8adUFtbpd2Mb2StzGGDGgrktHakXFUXSsXyFDRMCFTjyu
+         pLahbZxbkP1Gv81F/BzVo2vXLwlcpt+SsEGHlshAOTMFQFHFy83I/Nqq9qtttWvZZShu
+         Pbvw==
+X-Forwarded-Encrypted: i=1; AL+hErFubN0c4QrenNumMIC0Bhp98lPGIyEYRw2Bs42dp9Fa6jbx7iuDJk3U0OebzhrxHfb6EoxMK63Frugljkw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9PaTYv57F3aUWZQ/XxwxtxWfLUosWuFs0vZoyPNKhY3tQ1+OPt
+	D3Oov0nPTJZUHya839FJAe9AyvLiYepNSySLa7+EP4zYkjCRUKP842dESswjChuCrmMlfrht0T6
+	BTPHxqw==
+X-Received: from ejcfw45.prod.google.com ([2002:a17:907:502d:b0:c50:519f:c790])
+ (user=lrizzo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:370b:b0:c51:34ae:dd7
+ with SMTP id a640c23a62f3a-c5134ae12d8mr166377466b.17.1795136842505; Thu, 19
+ Nov 2026 17:07:22 -0800 (PST)
+Date: Fri, 20 Nov 2026 01:06:50 +0000
 In-Reply-To: <20261120010655.467825-1-lrizzo@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261120010655.467825-16-lrizzo@google.com>
-Subject: [RFC PATCH v3 15/25] net: Use PISA for page_pool memory
+Message-ID: <20261120010655.467825-21-lrizzo@google.com>
+Subject: [RFC PATCH v3 20/25] arm64/mm, mm: Support decrypted PISA pages in Realms
 From: Luigi Rizzo <lrizzo@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
 	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -112,35 +112,129 @@ Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, M
 	Luigi Rizzo <lrizzo@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-When a page_pool performs DMA mapping (PP_FLAG_DMA_MAP) on a device with
-pisa_rx_bufs enabled, pass __GFP_PISA_RW to use PISA memory.
+An arm64 Realm (ARM CCA guest) only reports CC_ATTR_MEM_ENCRYPT, so PISA
+did not treat it as a CoCo guest and refused to initialize there.
+
+Treat a Realm as a CoCo guest: PISA pages are decrypted (shared with the
+host) when they are allocated, as on SEV-SNP and TDX.
+
+A decrypted page is mapped with PROT_NS_SHARED, the top IPA bit, set in
+the address field of its PTEs. PISA maps such pages into user space with
+ordinary PTEs (page cache, migrated user pages, zerocopy receive), and
+for those pte_pfn() must be the PFN of the page, or vm_normal_page() and
+GUP see a PFN that has no struct page.
+
+Make __pte_to_phys() strip the bit when what is left is a decrypted PISA
+page. The check is behind pisa_decrypt_key, so outside CoCo guests it
+costs one static branch, and every other shared mapping (ioremap() of
+emulated MMIO, swiotlb, DMA mmap) keeps the address it has today.
+
+pisa_decrypt_key and the lookup are exported because pte_pfn() is used
+by modules.
 
 Signed-off-by: Luigi Rizzo <lrizzo@google.com>
 ---
- net/core/page_pool.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/include/asm/pgtable.h | 28 ++++++++++++++++++++++++++--
+ mm/pisa-meta.c                   |  9 +++++++++
+ mm/pisa-node.c                   |  9 +++++++--
+ 3 files changed, 42 insertions(+), 4 deletions(-)
 
-diff --git a/net/core/page_pool.c b/net/core/page_pool.c
-index d7c88c0b67e53..91cae5ba78373 100644
---- a/net/core/page_pool.c
-+++ b/net/core/page_pool.c
-@@ -16,6 +16,7 @@
- #include <net/page_pool/helpers.h>
- #include <net/page_pool/memory_provider.h>
- #include <net/xdp.h>
-+#include <linux/pisa.h>
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index a474c9fb485ad..86c60b8f43ae0 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -108,7 +108,7 @@ static inline void arch_leave_lazy_mmu_mode(void)
+ 			  TLBF_NOBROADCAST | TLBF_NONOTIFY | TLBF_NOWALKCACHE)
  
- #include <linux/dma-direction.h>
- #include <linux/dma-mapping.h>
-@@ -622,6 +623,8 @@ static noinline netmem_ref __page_pool_alloc_netmems_slow(struct page_pool *pool
- 	 */
- 	if ((gfp & GFP_ATOMIC) == GFP_ATOMIC)
- 		gfp |= __GFP_NOWARN;
-+	if (dma_map)
-+		gfp |= pisa_rx_gfp(pool->p.dev);
+ #ifdef CONFIG_ARM64_PA_BITS_52
+-static inline phys_addr_t __pte_to_phys(pte_t pte)
++static inline phys_addr_t __pte_to_phys_raw(pte_t pte)
+ {
+ 	pte_val(pte) &= ~PTE_MAYBE_SHARED;
+ 	return (pte_val(pte) & PTE_ADDR_LOW) |
+@@ -119,7 +119,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+ 	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
+ }
+ #else
+-static inline phys_addr_t __pte_to_phys(pte_t pte)
++static inline phys_addr_t __pte_to_phys_raw(pte_t pte)
+ {
+ 	return pte_val(pte) & PTE_ADDR_LOW;
+ }
+@@ -130,6 +130,30 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+ }
+ #endif
  
- 	/* Don't support bulk alloc for high-order pages */
- 	if (unlikely(pp_order))
++#if defined(CONFIG_PISA) && !defined(__DISABLE_EXPORTS)
++DECLARE_STATIC_KEY_FALSE(pisa_decrypt_key);
++bool __pisa_phys_decrypted(phys_addr_t phys);
++#endif
++
++static inline phys_addr_t __pte_to_phys(pte_t pte)
++{
++#if defined(CONFIG_PISA) && !defined(__DISABLE_EXPORTS)
++	/*
++	 * In a Realm, PISA maps its decrypted pages into user space with ordinary
++	 * PTEs. Those have PROT_NS_SHARED, the top IPA bit, set in their address
++	 * field, but pte_pfn() must be the PFN of the page: strip the bit when
++	 * what is left is a decrypted PISA page. Other shared mappings keep it.
++	 */
++	if (static_branch_unlikely(&pisa_decrypt_key) && (pte_val(pte) & PROT_NS_SHARED)) {
++		phys_addr_t phys = __pte_to_phys_raw(__pte(pte_val(pte) & ~PROT_NS_SHARED));
++
++		if (__pisa_phys_decrypted(phys))
++			return phys;
++	}
++#endif
++	return __pte_to_phys_raw(pte);
++}
++
+ #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+ #define pfn_pte(pfn,prot)	\
+ 	__pte(__phys_to_pte_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+diff --git a/mm/pisa-meta.c b/mm/pisa-meta.c
+index 99c5bc42eed10..b608ef71152af 100644
+--- a/mm/pisa-meta.c
++++ b/mm/pisa-meta.c
+@@ -189,6 +189,15 @@ bool __is_pisa_direct(phys_addr_t phys, size_t size)
+ 	       (phys & (PISA_SIZE - 1)) + size <= PISA_SIZE;
+ }
+ 
++#ifdef CONFIG_ARM64
++/* For __pte_to_phys(): true if @phys is in a decrypted PISA page. */
++bool __pisa_phys_decrypted(phys_addr_t phys)
++{
++	return pisa_pfn_flags(PHYS_PFN(phys)) & PISA_DECRYPTED;
++}
++EXPORT_SYMBOL(__pisa_phys_decrypted);
++#endif
++
+ /*
+  * Update @meta's position on @pa's lists under @pa->lock. When all blocks
+  * become available (avail == bpp), either queues @meta to @pisa_free_list (and
+diff --git a/mm/pisa-node.c b/mm/pisa-node.c
+index 12fbb617c342b..aa4f8759ae5e8 100644
+--- a/mm/pisa-node.c
++++ b/mm/pisa-node.c
+@@ -36,11 +36,16 @@ unsigned int pisa_reservoir_max __read_mostly = 16;
+ 
+ /* Enabled in CoCo guests by pisa_node_init(): new PISA pages are decrypted for DMA. */
+ DEFINE_STATIC_KEY_FALSE(pisa_decrypt_key);
++EXPORT_SYMBOL(pisa_decrypt_key);
+ 
+-/* A confidential guest: PISA pages are decrypted for DMA. A bare-metal SME host is not one. */
++/*
++ * A confidential guest: PISA pages are decrypted for DMA. A bare-metal SME host
++ * is not one. An arm64 Realm only reports CC_ATTR_MEM_ENCRYPT.
++ */
+ static bool pisa_coco_guest(void)
+ {
+-	return cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT);
++	return cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) ||
++	       (IS_ENABLED(CONFIG_ARM64) && cc_platform_has(CC_ATTR_MEM_ENCRYPT));
+ }
+ 
+ /* Memory encryption that PISA cannot handle: neither an SME host nor a guest it decrypts for. */
 -- 
 2.56.1.809.ga0b61035b5-goog
 
