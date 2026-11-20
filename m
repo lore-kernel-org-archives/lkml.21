@@ -1,93 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200151;
-	b=cmgXmNHaXb0NUlPt5KUseTMcN4tDEDf7uXloR0xNX+oX4urw//oADKPBS43jpX20mp4Z
-	 bQk5a18sD9EJ4NUN/c6drwLDaSXTR20G7K3xnQ/KxB7pyAbvdgHrtgDk/lz+CkVorevda
-	 uv8yZsvrvNiP2N+CYHX+s1nO2wIaAP3+h4BpIRWXTSkDvfTqM/rhr5NNk34xI5iQxssxd
-	 EhjvR4JiyGe4EIri2yyvCxvMVW9K4rqdn8Paonn12LG/3s2DiHG8Mi2iY/HSuAVWQWw0M
-	 bGNHOuHhDDITCdGTjYHNUd9IbKo9m4HB9gHl+C44ZYtLcpHanabVSyBSvQB8Bv4Ikjw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200151;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
-	b=ueVSjVs9Aap4uTcFIPb2d/eCPE/f9U4Q6iI/HKyptmW3fgiKhprzYchnrM7VLmdbVxJ7
-	 uf/WmUFfvaFZ1qfQEWVsMQA1z4RsQVAFpLcXu0hGlSvCQgwjCT7mXgZJSwpRZRX0BRm0t
-	 oI+tdp1CDQgds1mB2TD4mr+Myu9EqAlIDbuTDBeq5uAcIaVVdIaIbS263ZXBrrWNW6m1Z
-	 ORxoy3mhPs5trhq2bFqJrhtro1arNNn7FIQTaBpyf7Icfyt8qiZnP8euln//3g9zJzz1r
-	 n/TlFBEjYAZMgwlJdxGFFWN71fGoRLqmyMKsZahQSv7WZEmxcYR4ZKSPYLb0H5uwqEA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxPXU45+;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.58
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795200154;
+	b=uBNJ/6Ie3gYUtu0fUgpkLgGq+LL0kuWiZ6QT5EB0dDGhvKYbmyOxWkT+ADbRIrgE9gbb
+	 lwiTKVisGWNXQQSgQft1KdQwcPii2L4xAaag3EuaM0HB0C6EU7S3m8GY/XQMNqggrwTOz
+	 vU8bqNQDgIXzPcYNq0tV9bJ5bajBhiwT0wae85BK4txXDQEY0BAtwGSlesL3XxyB+aJTg
+	 zCCzNSXCyCepGz7iYk80UNeB/3Mg8wirqDiP8S/pw40FOMMPp0ij75BwxnKCpxnuu7X/y
+	 uUvBkn5nZZp7b+6dnnjjjP/Yr3hEEbkaarAY+wJnrv22w+WdUrf9pWeg/Kj5ctQdIGA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200154;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XGvzxP2BZBhJcie60rEu/LaVj4GRscX2Ieh3jF8mvgw=;
+	b=HWYMuYgFZhpfEykGz2P9/J/noXWjyAlNVZJ/H5GyKxwwhJFJsDral3R6KzCBM+1aORKA
+	 dq//2O7UV0Z/la8pEGkX3+5KEU3C/H8xJrr0bp7NF2Ov9Ue2HhkVCMERGsujhv5oywhXX
+	 OvufhdEREOgGqGWDFm2SOFmOWrEORN8PnrMv93M2vSb9X7+jCl09U5AxIHxjEjrgBkOoF
+	 pSN+qj53o5S9jTRgu78Rly/uHb0BRSCyG/oEsrDg4ws8xZUqZIr9a0dt1evElwTz1NP20
+	 x68UCLqLF3mQZAUbJcEfDPh2BT3B4qbFa6pVmCCK3JWDxhjCf+3/ByFU6l5MCyjUKuw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=prWmzOsx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.58
+Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013058.outbound.protection.outlook.com [40.93.196.58])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA57360A261C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:42:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA57360A261C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB2E160A263E;
+	Fri, 20 Nov 2026 18:42:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB2E160A263E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jxPXU45+
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso21773325e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:42:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795200148; x=1795804948; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
-        b=jxPXU45+x0qqCZq7FjT2jEA8QQsyOrGK3smXcH1RPjxo+sFn3+DWykT19QxHd8OIkL
-         OJEZ8KIJVOsL3WXz9IkQ9EHsP6AAR1u//k1O8XkWfWpxl0eiExYA3/SXfKSm2Ki0Tci5
-         MYYktGoZDOdHcq7kTRuLRFHRIL2IlR9DPYFzKDRXky3vVXk014RWh96R76vvoql19lU4
-         vcnu8IVikP/Qq9XiSc4Kf0GDYdtLpiVRlgDE8lGT1/Z0t/P9H33yc2MvZfs3QqAv1sMt
-         hohPmssLRGbHC1BLxMaPF6VoDNAcE2FsnW6ofCHbs+uvjezNbafA1HjgQzJS94JRttpJ
-         PjeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795200148; x=1795804948;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qDrA3QEHMeKIHW3bOyblcdVywBJ7RCRY1bQxafinoto=;
-        b=vPBoWUY5kGy5GX6aH3pc032arPtb2Y8Sny028O+NJvP1HTjIRFjPan9eNhgp1va660
-         vnZE2wpmwyk4tgulljddyFsB8qwgjCbETDkCHM0M8OE68STmaNheN+GP3Y7u7LVWf3oU
-         jd6aKHhsNLDlmRz0Bm6cIe2DYifXdtE9eJbbX8DEn3iWhrsOVmuYBc911rOas9wTSajc
-         QTtyGAAqfRbW+7XCf8/Zf7AtUO5m2aIOh6fn+ATGcJkbW5BbPlMZmHgC3MBdEw51vxSq
-         9oewY2MW3UZpAQDjBZNN2KL2vljbdBiooAX78q/hX7RYMbM4lZI9C6xcn7UYVnXHecle
-         ekfg==
-X-Forwarded-Encrypted: i=1; AL+hErFoqn2NMXFruhavdkEvqEa8QhJBGTude7TxT0n8YnGu6mvD5gWX5GnRzMp6T+h8+VwJN8yPPYIBTk/htjg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NP8xBVjHuQ1SkRnhGZd3Pus6tMVRaW3tA6LZwCvJkVCGk4zvb
-	Du3BgtVNOviXz459b/0UPb5iwC0ZJFiY+xPcIMyrI/qwKeKJb1vLZPmtSCjsSCYr
-X-Gm-Gg: AYBFou2xTZIJePhqMkCGmcRtAnEjM7x0NsOIwNloqboBKDNRACZjLI138R2F+AwaAB3
-	Fw5ENgj2uzoVK+ZwS/PnlVwPnZUpZJBWbdOoiUzvHY2tb+p59f6h8zDPmizkP7gZclNlhUQw/zZ
-	6dnHfabFuHZ1Mjg+/qx2BG+lqrjppJjdCTVBVN4tmfabGQUMItA/xmyrRT/VDXDdTc82hHallQQ
-	aW+AIxwfMEGfO9pNzEMHgXyvCVQNzx9tVx3gs0G4lVOK4jW/NBWryY2eZpVe5kk0ehTfjC89QWo
-	n8MNjggxoVOvlusQfeh0kPF6rPGiYqsDTlQbdFXXkFPm4rwiqZ4zQTxLB1drR6+zsVhcyGy1la3
-	ZlvsOm1P+ouPN2sOTIP/Q3QEQoWfT5JYmWBpR7lEDp9tyYiDJndcNkBH/+uzlLJX8MBZcs4GYVK
-	lj6CrgfdgQG2ZDrPlC1MZwQUmHMqWqZ6cxLzVnyJMx4fGyN8AYpcxfchUTA4wjbSios90rIcmU9
-	XEL37I2GTk5jrcTtHuRYUJdxH1g6gsG60eDW2BbLeSYOtKoUpNLbNA3BsBz+E6DUsjesC0UBSlv
-	VAQ9rktWGWnxgbKdHk7+U9M8acGsIF31aV5RZh4z3zpp
-X-Received: by 2002:a05:600c:6749:b0:4bb:5d38:259f with SMTP id 5b1f17b1804b1-4bb8881099cmr90234605e9.12.1795200148016;
-        Fri, 20 Nov 2026 10:42:28 -0800 (PST)
-Received: from asahi.teknoraver.net ([195.182.211.216])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865a2sm109943825e9.3.2026.11.20.10.42.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 10:42:27 -0800 (PST)
-From: Matteo Croce <technoboy85@gmail.com>
-To: linux-fsdevel@vger.kernel.org,
-	Christian Brauner <brauner@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Ding Feng <dingf3ng@gmail.com>
-Cc: Paul Eggert <eggert@cs.ucla.edu>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: [PATCH] fs: shorten I/O that would extend past the maximum file offset
-Date: Fri, 20 Nov 2026 19:42:25 +0100
-Message-ID: <20261120184225.257554-1-technoboy85@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=prWmzOsx
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dqJgzgi/ei8ElkpPISmKtZNE8manBlqhExhvJLvC7UjfhNzLKtSUgNWyQB4NPU7ucHuP3X/5B9ZNFdCIdpfaCZBeLMC7/HU5ztOZSgK0csolbQ/nZ8pgJwv5TGTvMH+Vw8Cd9Bo/AnX4c3W53w4g/7AJeVQNuwpZABDtubIvIEzHZz8OcV+FMLBHdcQ+eezmBQfIOdNq3LJ+IUdbVuyCckeDMSP9s2CmFOB/eqbdmt9n9XuPHF8ED5rzQCDooQYdYHvvQKI9fH39ks67jPgOxmtz1tgui/uXeb4j7lPviinZS90hF97RKx8Ux/VIrLJ9MO8jRqIXj5uFvj2ZJkMfYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XGvzxP2BZBhJcie60rEu/LaVj4GRscX2Ieh3jF8mvgw=;
+ b=gkp49PD5dPturPQQcUPRffAX6SQXLHr7AQxTbx7bAIdaHPDN7h0jz7y/4BBj6WnKvNba5B6a75mzJH2U7VmCzR9hRr1q778m/SgpVXH9d5vW3pWhz8TuBiag1VoLyFzcV8OR5gHL1A2mpkx9JzQ7sE3g8SlwyD+lRUK/iXBrg/Id+bCIiugYDyOWKkkFKSfDISeQruGfc5z1jCBwM3pG4siV4sQdkFFEZT/JnYzyjJCzyQSkijkBhg+8BIqkaKFZ0UPyZ4DzbNS2x3ZqC1QuwGDiXxdXSRXYC7UMsdvRfHtH+EX+5mNdD7gzauSrX0uAUlk93ElUbusJktmR+Dj5Aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XGvzxP2BZBhJcie60rEu/LaVj4GRscX2Ieh3jF8mvgw=;
+ b=prWmzOsxAGozR3Qb14H9GsXnreep25d0bUUkpZfh/gJrEMm7lIM3YQ9T9SVp30AqrMQJCknLfxgGyOx/5f6fCM2DZbe9E/Dbl5MexkI7y/KYpE7PQ1ovJSMO5s9IozTcnntrGYQxMcsmhmIfu6i9qnqi5TYXQQpTSa6mNmpzRowKb9VeZ4scYBr45DBV392VfoyGarzCFB4upk+Ca44Sk5EBkiG8+bhwsuntsWvL31tY/wlvof11ae422Cp9Z/6Acfpc3HlG6o0l8x8bQt1eTwjxQ0mKm94fugeHLIfS1JHrS5NBC7i2jzZqg6QYBgt3xhqlcUBySDmFd8Ru0ecJLQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHAPR12MB999248.namprd12.prod.outlook.com
+ (2603:10b6:610:2ff::22) by DS5PPF7671D5CC0.namprd12.prod.outlook.com
+ (2603:10b6:f:fc00::653) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
+ 2026 18:42:28 +0000
+Received: from CHAPR12MB999248.namprd12.prod.outlook.com
+ ([fe80::4972:8062:d74e:b205]) by CHAPR12MB999248.namprd12.prod.outlook.com
+ ([fe80::4972:8062:d74e:b205%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 18:42:27 +0000
+Message-ID: <1e629c2d-f7bb-4508-9e7b-cfb7b23344fb@nvidia.com>
+Date: Fri, 20 Nov 2026 19:42:16 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next V2 00/13] net/mlx5e: Add netdev support for data
+ direct
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
+ Bobby Eshleman <bobbyeshleman@meta.com>, Carolina Jubran
+ <cjubran@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>,
+ Daniel Borkmann <daniel@iogearbox.net>, David Wei <dw@davidwei.uk>,
+ Erfan Sharafzadeh <erfansh@meta.com>, Gal Pressman <gal@nvidia.com>,
+ Jacob Keller <Jacob.e.keller@intel.com>, Kaifeng Wang <kaifengw@google.com>,
+ Leon Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>,
+ Matt Fleming <mfleming@cloudflare.com>, Mina Almasry
+ <almasrymina@google.com>, Nikolay Aleksandrov <razor@blackwall.org>,
+ Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>,
+ Stanislav Fomichev <sdf.kernel@gmail.com>, William Tu <witu@nvidia.com>
+References: <20261110183826.2927274-1-tariqt@nvidia.com>
+ <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
+ <20261120101402.44f66da2@kernel.org>
+Content-Language: en-US
+From: Dragos Tatulea <dtatulea@nvidia.com>
+In-Reply-To: <20261120101402.44f66da2@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR3P281CA0060.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:4b::10) To CHAPR12MB999248.namprd12.prod.outlook.com
+ (2603:10b6:610:2ff::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -97,315 +113,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHAPR12MB999248:EE_|DS5PPF7671D5CC0:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1f40b1b9-8320-46ef-fe33-08df473606bf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|1800799024|366016|7416014|23010399003|261022105027099003|261026140227099003|261028144727099003|4143699003|261022115727099003|11063799006|56012099006|261021123027099003|261102123227099003|10067099003|261021135927099003|261021130227099003|261021121427099003|261026130827099003|261022075727099003|261022113327099003|18002099003|22082099003|261026121527099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	Roau7sZpf8jp8vv2xWumGUYikPtbNfAs5eJfmtXVPua4V/Ov/cZU1sHhYQz+wxH20IgliSul7vQW2KzQWra7Sy2FXbduJ2/cL3PwD4oGXc4w4ZE//iBYysJ4Jt2EDd8I2mx7Ls1rSXm63pvegDj6P2tM10dzmKU/kSCLF+W5gVleEO6hSrMwMSFlR6ib/+2xxPgs7bQSIodLJt3o0tH/FlclJp5+BpaycuL1IoAdx6xC8eDv0W/Q6iJiPWDBQqzo4Qymh0ttKHh2+Nq+YGfi59Z3O8EgCPVamCRkZkkgJfbsH1nlpoo++q2YoM9swO/SM9SKtZZ8+FJAlv3sff96NwzBQZyRxyDeJPEdfjT4AuiLuwbaQ1g1RsYc5tRGZDUA9+e97+SaV1mrAFEq6S/IGRB0vxxzTiyWf0XbND4eX+kenDWyQsI6i0MmTkjDBzBy5/vU7PRAn+ij+qHBKzB49yhQ7ccYyoUVFb8bNOnGAOzd+KGLUoUnT1Hc6J3rvMNmWFQJmfz6qmJTyUaP2ZuTab7Kk36u4uORADTspbiwg1G6Q1rdfKWCzo65UItUhuR6b071dHc0Nx347NRm9S5yktd6N5Kq6GPRVTxT5SxDNIWApAq+EiLcajLn5JUTqNMJpSOJjQUBg3phIy/PffC5KVanPV11KvbnbFvnFNehSpk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999248.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7416014)(23010399003)(261022105027099003)(261026140227099003)(261028144727099003)(4143699003)(261022115727099003)(11063799006)(56012099006)(261021123027099003)(261102123227099003)(10067099003)(261021135927099003)(261021130227099003)(261021121427099003)(261026130827099003)(261022075727099003)(261022113327099003)(18002099003)(22082099003)(261026121527099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?bllyNVhJR2J5cjR3Q0M2bHVIQmdYdThFbFJBTWx4YW5XN01lUWVVSEdTaTBu?=
+ =?utf-8?B?N0w3R250bUt5WjVaMHFSQk5WeWhPeEIxbzFOY2IwbitRQmpyRStkNHo1VmZk?=
+ =?utf-8?B?bEFvQUxDWkZTcHkvZ3dnclZQdk44UjhBOGg3QSt3OGo1Vi9wMWJYS0Q0enAv?=
+ =?utf-8?B?VE5FRHliVjk4d3FSaGFINC9uYUZndVlUcElpT1gwVXdpZFcwVnlOZFd4Qmxp?=
+ =?utf-8?B?OFFad1ZySFNvS2lMTWFIV0MzbEFtOWxrTS9UNU5jTVhoWm5TZ3ptRFY3MkFs?=
+ =?utf-8?B?bkdJWXd2RmpONFlLdkRlK1h4NjJ5bklNa1FabVJMemJRTXFjdkJIMTVZTDJI?=
+ =?utf-8?B?UEYyd014c0pTTlY1WEp6OHM2NmYzY01WaCt0R2J2cUN5cUtYdjlYdXhJcmtF?=
+ =?utf-8?B?eE9FQ0hhZ09LMXdUaFZhdE51dFNzSS9YK0M2MVp2RlNFWm4yL3hYNlBOWk9n?=
+ =?utf-8?B?VklQdVpkVmRYbkl4TnYrTHNIazB1QnNWa1lsVmE3QVBvbER5TTFGYnBKbXcv?=
+ =?utf-8?B?MTJJUi9YZEJaRTIvdEl0cE1IdkI0UXhONjYwdUl0NmZUR1g2dDdGL2pDdC9K?=
+ =?utf-8?B?aUMxV1VrSHJySC9iVGcxMWtUd1JqVnMzT0xvVXlieXFKSzJoVWFEaVpQVkVP?=
+ =?utf-8?B?YUpuTDhCeHVrdThMV2ZKQkFLWEJwWVhma3pqd0pFZDZRcVhiTmJlbEFROFl1?=
+ =?utf-8?B?ZXdTMFJncUozekRmLzhWZ3ZLbjlsRS9ZODMyZ0s3clIxaTZkOEgvQUthUHdv?=
+ =?utf-8?B?T1JKa01SOHNXbTUzMWZQUVFIeE8xNS9LVjBobWtNVXdsc2hFSnVUcS9BNVpP?=
+ =?utf-8?B?VVNVL2xJVHVCWXpuZkZPREI5b3VGa1U2Z3NicmtFa0xKanJicm9URFRmd015?=
+ =?utf-8?B?ZEtSbWR6K2RkaDgrd25hY3FpdXcydTIrQ2ZxZk9uRmpzRm56TDZEcGYrZmc2?=
+ =?utf-8?B?WVVUdWxuYVdXUjBCRGlHaVozdit2YytjUVVQalg3ZVJCRUozRmNpQWx3eklW?=
+ =?utf-8?B?NitwcW1QTTh6d3E1M2hMeXRPUE1JNnFyK3N1THRIdkpvOUFnYVlZNDIyS24x?=
+ =?utf-8?B?YmhlWUxzc2Z2TmFCc0RVb2pqUjYyYllmUzFVZzFBbFUrYlFyTnZOckhqbXRQ?=
+ =?utf-8?B?ZkovdElNMjNOWHArdnZjMmo1ejZRMlpzOXlWOUk1S0NzWndaOGdZRmhRUGpi?=
+ =?utf-8?B?MVFXS0RNdktVblJyVW43cmM3eU9HTXlydTBsK25RNlJBMzhSWGlwSjZ5b043?=
+ =?utf-8?B?Mi9Pa0ZvckN6Z2JpLzJYQURLd1h1bUZ6ZlNDd251OEhkdHlaN0ZXZkxmeW4y?=
+ =?utf-8?B?K3llOWMrQkplVU1FWm5MdXNQYWtNL09rdkNFclAyTUVNTEdESnRxYWoyUFoy?=
+ =?utf-8?B?TkwxaERKODNzRkdEYVNhdVFzTTdXVGk3NkFWVkFyaXNIWFdzSHBCQVdmMVZm?=
+ =?utf-8?B?ZXVyWjlJY2c0KzcvUWZBM1BEbnNnOG1mNXExdnR5TnpZejFoRVM5WnplSnM0?=
+ =?utf-8?B?cHQ1Y2tPTFpyaWszUzhsRlhuYWFDYUEvY25FTWFKMkwrSG96SURsU0l6d25X?=
+ =?utf-8?B?VEpxeFp0cUlhWi9hdm5mcUsvNktTMmxES2x2c2tJVGxHN0pQbE9zVElwOVc2?=
+ =?utf-8?B?OUs4UUkrbHdCc0dHSytZbzEzSEVkZWdBZWY3SUU0ZVdHNENER045R0FHZ2VV?=
+ =?utf-8?B?YjR4MUNzSXFnNnFFWXhmOFFZZUp4blMwaXh6QVRMcE9WY1hBTjBzaHhta1V1?=
+ =?utf-8?B?ZE1XTmJrWktkcTZSdExmWGNpV2tiRUMwODhZNmQ1d2NwV0xRZlBkQmFNc29s?=
+ =?utf-8?B?eHRtdmNYOC8xWnVkUWZVTUJQM2RoM0hnODhLK2F1UXdkZytOMFBWZ2NzZHQ0?=
+ =?utf-8?B?NExualh1K2FnTFdJa3RIRWFucjVSRVpmR3l6TTlMZXBsSE0yV0dRZWRVVDlH?=
+ =?utf-8?B?VXhDTGJJbjV2VUo3eGd1NjdPVDJXVE5aakU0K0xOUC8vR2hqUnhZUGkzSUNY?=
+ =?utf-8?B?aW0wQVJ0MHRNWGpXbHF6S2RnbjVOSHRTazJEK2o5TjZGQ3FFY2ExZG5QYjd4?=
+ =?utf-8?B?WEJpZTNZVTZ3OENHRWtZcXdBcWl1dE4wN0s4QkVpM2lNdDRMOHdsSmhvKzdu?=
+ =?utf-8?B?M2xTeFcyQURtbHV6akZwM0V3RERwcnlUZ1BWUmhpckFlS0VJWFZWTEx5QkRI?=
+ =?utf-8?B?dFJMR1hsb2hzZS9Jc1BLNklBcUY0QjluNGpwZHU5R3YzcHZsdURIQzRSaWVv?=
+ =?utf-8?B?LzNHVWlLMDRvTktuTE4zaHRZL3p6ZWFhZHBRcE5leUxidDhXR2FpL2dVcDFV?=
+ =?utf-8?B?bWJkV2l2UGtFWmhGVi9MUGJYenV4MVlPM3VSS2dqcXdiNFRDM3h5dz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f40b1b9-8320-46ef-fe33-08df473606bf
+X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999248.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 18:42:27.8989
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HnD/dCQ8Wf4m3lnyyOSmipf7umu2YyqWr5YsODNRtHjlQY6GiALODXnJ0rLHsMw6QF7oubBepq0YtwREzrpH0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS5PPF7671D5CC0
 
-rw_verify_area() fails with -EINVAL any read or write where
-pos + count would exceed LLONG_MAX, even when pos itself is valid.
-Such a request should not fail: a read should return the bytes that
-are there up to the maximum offset, or 0 at end of file, and a write
-should write what fits and return a short count.
+On 20.11.26 19:14, Jakub Kicinski wrote:
+> On Fri, 20 Nov 2026 15:39:21 +0100 Dragos Tatulea wrote:
+>> While working on V3 I realized that keeping the core part in
+>> this series is not the best approach. Initially it made sense
+>> because the change was small.
+>>
+>> I think I should re-spin it in a separate series with netdevsim
+>> based selftests for the new APIs. I would base it on Mina's devmem
+>> leased queues unregister [1].
+>>
+>> Any reason not to?
+> 
+> Hard no, please read the netdev maintainers profile. netdevsim is not
+> a sufficient consumer to merge an API.
+Ack. Will drop this approach. Will keep the added APIs as part of
+mlx5 data direct V3 series.
 
-This breaks ordinary programs that pass a large count, such as
-coreutils, which uses SSIZE_MAX as the count for copy_file_range() and
-falls back to read() at the end. For example, both of these fail with
-EINVAL:
-
-  $ truncate -s $((2**63 - 1)) hugefile
-  $ dd if=hugefile bs=1M skip=$((2**43 - 2))
-  dd: error reading 'hugefile': Invalid argument
-
-  $ dd if=hugefile bs=1 skip=$((2**63 - 1)) | cat
-  cat: -: Invalid argument
-
-and on a 100-byte file:
-
-  preadv2(fd, 200 bytes, pos = LLONG_MAX - 50) = -1 EINVAL
-  preadv2(fd,  50 bytes, pos = LLONG_MAX - 50) = 0
-
-splice(), sendfile(), aio and io_uring fail in the same way.
-
-Add rw_clamp_count(), which shortens the count so that the range ends
-at LLONG_MAX, and call it before rw_verify_area() in the read and write
-paths of the VFS, splice, aio and io_uring. Where the I/O is described
-by an iov_iter, truncate the iterator. This is what filemap_read()
-already does for s_maxbytes. In io_uring, also save the iterator state
-again after truncating it, so that the short read retry loop does not
-restore the full length.
-
-rw_verify_area() keeps its check, so callers that are not converted
-behave as before. rw_clamp_count() leaves alone negative positions,
-counts above SSIZE_MAX, files with FOP_UNSIGNED_OFFSET and writes that
-start at LLONG_MAX, so these still fail in rw_verify_area().
-copy_file_range() already clamps the range in generic_copy_file_checks()
-and is not changed.
-
-Reported-by: Ding Feng <dingf3ng@gmail.com>
-Closes: https://lore.kernel.org/linux-fsdevel/20261120051457.47753-1-dingf3ng@gmail.com/
-Suggested-by: Paul Eggert <eggert@cs.ucla.edu>
-Link: https://lists.gnu.org/archive/html/coreutils/2025-12/msg00097.html
-Link: https://lore.kernel.org/linux-fsdevel/20251219125250.65245-1-teknoraver@meta.com/
-Signed-off-by: Matteo Croce <technoboy85@gmail.com>
----
- fs/aio.c           |  4 ++++
- fs/read_write.c    | 18 ++++++++++++++++++
- fs/splice.c        |  3 +++
- include/linux/fs.h | 38 ++++++++++++++++++++++++++++++++++++++
- io_uring/rw.c      | 16 ++++++++++++++++
- 5 files changed, 79 insertions(+)
-
-diff --git a/fs/aio.c b/fs/aio.c
-index d78acc69f487..abd17f75faaa 100644
---- a/fs/aio.c
-+++ b/fs/aio.c
-@@ -1651,6 +1651,8 @@ static int aio_read(struct kiocb *req, const struct iocb *iocb,
- 	ret = aio_setup_rw(ITER_DEST, iocb, &iovec, vectored, compat, &iter);
- 	if (ret < 0)
- 		return ret;
-+	iov_iter_truncate(&iter, rw_clamp_count(READ, file, &req->ki_pos,
-+						iov_iter_count(&iter)));
- 	ret = rw_verify_area(READ, file, &req->ki_pos, iov_iter_count(&iter));
- 	if (!ret)
- 		aio_rw_done(req, file->f_op->read_iter(req, &iter));
-@@ -1679,6 +1681,8 @@ static int aio_write(struct kiocb *req, const struct iocb *iocb,
- 	ret = aio_setup_rw(ITER_SOURCE, iocb, &iovec, vectored, compat, &iter);
- 	if (ret < 0)
- 		return ret;
-+	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, &req->ki_pos,
-+						iov_iter_count(&iter)));
- 	ret = rw_verify_area(WRITE, file, &req->ki_pos, iov_iter_count(&iter));
- 	if (!ret) {
- 		if (S_ISREG(file_inode(file)->i_mode))
-diff --git a/fs/read_write.c b/fs/read_write.c
-index e8c14e2760b2..0a6cf9b5b02e 100644
---- a/fs/read_write.c
-+++ b/fs/read_write.c
-@@ -544,6 +544,7 @@ ssize_t kernel_read(struct file *file, void *buf, size_t count, loff_t *pos)
- {
- 	ssize_t ret;
- 
-+	count = rw_clamp_count(READ, file, pos, count);
- 	ret = rw_verify_area(READ, file, pos, count);
- 	if (ret)
- 		return ret;
-@@ -562,6 +563,7 @@ ssize_t vfs_read(struct file *file, char __user *buf, size_t count, loff_t *pos)
- 	if (unlikely(!access_ok(buf, count)))
- 		return -EFAULT;
- 
-+	count = rw_clamp_count(READ, file, pos, count);
- 	ret = rw_verify_area(READ, file, pos, count);
- 	if (ret)
- 		return ret;
-@@ -653,6 +655,7 @@ ssize_t kernel_write(struct file *file, const void *buf, size_t count,
- {
- 	ssize_t ret;
- 
-+	count = rw_clamp_count(WRITE, file, pos, count);
- 	ret = rw_verify_area(WRITE, file, pos, count);
- 	if (ret)
- 		return ret;
-@@ -675,6 +678,7 @@ ssize_t vfs_write(struct file *file, const char __user *buf, size_t count, loff_
- 	if (unlikely(!access_ok(buf, count)))
- 		return -EFAULT;
- 
-+	count = rw_clamp_count(WRITE, file, pos, count);
- 	ret = rw_verify_area(WRITE, file, pos, count);
- 	if (ret)
- 		return ret;
-@@ -879,6 +883,8 @@ ssize_t vfs_iocb_iter_read(struct file *file, struct kiocb *iocb,
- 	if (!(file->f_mode & FMODE_CAN_READ))
- 		return -EINVAL;
- 
-+	iov_iter_truncate(iter, rw_clamp_count(READ, file, &iocb->ki_pos,
-+					       iov_iter_count(iter)));
- 	tot_len = iov_iter_count(iter);
- 	if (!tot_len)
- 		goto out;
-@@ -907,6 +913,8 @@ ssize_t vfs_iter_read(struct file *file, struct iov_iter *iter, loff_t *ppos,
- 	if (!(file->f_mode & FMODE_CAN_READ))
- 		return -EINVAL;
- 
-+	iov_iter_truncate(iter, rw_clamp_count(READ, file, ppos,
-+					       iov_iter_count(iter)));
- 	tot_len = iov_iter_count(iter);
- 	if (!tot_len)
- 		goto out;
-@@ -939,6 +947,8 @@ ssize_t vfs_iocb_iter_write(struct file *file, struct kiocb *iocb,
- 	if (!(file->f_mode & FMODE_CAN_WRITE))
- 		return -EINVAL;
- 
-+	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, &iocb->ki_pos,
-+					       iov_iter_count(iter)));
- 	tot_len = iov_iter_count(iter);
- 	if (!tot_len)
- 		return 0;
-@@ -970,6 +980,8 @@ ssize_t vfs_iter_write(struct file *file, struct iov_iter *iter, loff_t *ppos,
- 	if (!file->f_op->write_iter)
- 		return -EINVAL;
- 
-+	iov_iter_truncate(iter, rw_clamp_count(WRITE, file, ppos,
-+					       iov_iter_count(iter)));
- 	tot_len = iov_iter_count(iter);
- 	if (!tot_len)
- 		return 0;
-@@ -1007,6 +1019,8 @@ static ssize_t vfs_readv(struct file *file, const struct iovec __user *vec,
- 	if (ret < 0)
- 		return ret;
- 
-+	iov_iter_truncate(&iter, rw_clamp_count(READ, file, pos,
-+						iov_iter_count(&iter)));
- 	tot_len = iov_iter_count(&iter);
- 	if (!tot_len)
- 		goto out;
-@@ -1045,6 +1059,8 @@ static ssize_t vfs_writev(struct file *file, const struct iovec __user *vec,
- 	if (ret < 0)
- 		return ret;
- 
-+	iov_iter_truncate(&iter, rw_clamp_count(WRITE, file, pos,
-+						iov_iter_count(&iter)));
- 	tot_len = iov_iter_count(&iter);
- 	if (!tot_len)
- 		goto out;
-@@ -1325,6 +1341,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
- 		if (!(fd_file(in)->f_mode & FMODE_PREAD))
- 			return -ESPIPE;
- 	}
-+	count = rw_clamp_count(READ, fd_file(in), &pos, count);
- 	retval = rw_verify_area(READ, fd_file(in), &pos, count);
- 	if (retval < 0)
- 		return retval;
-@@ -1365,6 +1382,7 @@ static ssize_t do_sendfile(int out_fd, int in_fd, loff_t *ppos,
- #endif
- 	opipe = get_pipe_info(fd_file(out), true);
- 	if (!opipe) {
-+		count = rw_clamp_count(WRITE, fd_file(out), &out_pos, count);
- 		retval = rw_verify_area(WRITE, fd_file(out), &out_pos, count);
- 		if (retval < 0)
- 			return retval;
-diff --git a/fs/splice.c b/fs/splice.c
-index 9d8f63e2fd1a..7a889274f9d6 100644
---- a/fs/splice.c
-+++ b/fs/splice.c
-@@ -1001,6 +1001,7 @@ ssize_t vfs_splice_read(struct file *in, loff_t *ppos,
- {
- 	ssize_t ret;
- 
-+	len = rw_clamp_count(READ, in, ppos, len);
- 	ret = rw_verify_area(READ, in, ppos, len);
- 	if (unlikely(ret < 0))
- 		return ret;
-@@ -1338,6 +1339,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
- 		if (unlikely(out->f_flags & O_APPEND))
- 			return -EINVAL;
- 
-+		len = rw_clamp_count(WRITE, out, &offset, len);
- 		ret = rw_verify_area(WRITE, out, &offset, len);
- 		if (unlikely(ret < 0))
- 			return ret;
-@@ -1364,6 +1366,7 @@ ssize_t do_splice(struct file *in, loff_t *off_in, struct file *out,
- 			offset = in->f_pos;
- 		}
- 
-+		len = rw_clamp_count(READ, in, &offset, len);
- 		ret = rw_verify_area(READ, in, &offset, len);
- 		if (unlikely(ret < 0))
- 			return ret;
-diff --git a/include/linux/fs.h b/include/linux/fs.h
-index deb411e86661..990d8fa0b2bb 100644
---- a/include/linux/fs.h
-+++ b/include/linux/fs.h
-@@ -3128,6 +3128,44 @@ extern loff_t fixed_size_llseek(struct file *file, loff_t offset,
- extern loff_t no_seek_end_llseek_size(struct file *, loff_t, int, loff_t);
- extern loff_t no_seek_end_llseek(struct file *, loff_t, int);
- int rw_verify_area(int, struct file *, const loff_t *, size_t);
-+
-+/**
-+ * rw_clamp_count - shorten an I/O so it does not extend past LLONG_MAX
-+ * @read_write:	READ or WRITE
-+ * @file:	file the I/O is done on
-+ * @ppos:	file position of the I/O, or NULL for stream files
-+ * @count:	number of bytes requested
-+ *
-+ * A read or write that starts at a valid file position but would end past
-+ * the maximum file offset should transfer the bytes up to that offset and
-+ * return a short count, rather than fail.  rw_verify_area() rejects such a
-+ * range, so callers clamp @count with this helper before verifying it.
-+ *
-+ * Out-of-range positions and counts are left alone so that
-+ * rw_verify_area() still rejects them.  So is a write starting at
-+ * LLONG_MAX, which cannot transfer anything.  A read starting there is
-+ * clamped to zero bytes and reports end of file.
-+ *
-+ * Return: the possibly shortened count.
-+ */
-+static inline size_t rw_clamp_count(int read_write, struct file *file,
-+				    const loff_t *ppos, size_t count)
-+{
-+	loff_t pos;
-+
-+	if (!ppos)
-+		return count;
-+
-+	pos = *ppos;
-+	if (likely(pos < 0 || (ssize_t)count < 0 || count <= LLONG_MAX - pos))
-+		return count;
-+	if (file->f_op->fop_flags & FOP_UNSIGNED_OFFSET)
-+		return count;
-+	if (read_write == WRITE && pos == LLONG_MAX)
-+		return count;
-+
-+	return LLONG_MAX - pos;
-+}
- extern int generic_file_open(struct inode * inode, struct file * filp);
- extern int nonseekable_open(struct inode * inode, struct file * filp);
- extern int stream_open(struct inode * inode, struct file * filp);
-diff --git a/io_uring/rw.c b/io_uring/rw.c
-index 432820f86251..6c01290aa2fb 100644
---- a/io_uring/rw.c
-+++ b/io_uring/rw.c
-@@ -918,6 +918,7 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
- 	struct io_async_rw *io = req->async_data;
- 	struct kiocb *kiocb = &rw->kiocb;
- 	ssize_t ret;
-+	size_t count;
- 	loff_t *ppos;
- 
- 	if (req->flags & REQ_F_IMPORT_BUFFER) {
-@@ -946,6 +947,13 @@ static int __io_read(struct io_kiocb *req, struct io_br_sel *sel,
- 
- 	ppos = io_kiocb_update_pos(req);
- 
-+	count = rw_clamp_count(READ, req->file, ppos, req->cqe.res);
-+	if (unlikely(count != req->cqe.res)) {
-+		iov_iter_truncate(&io->iter, count);
-+		iov_iter_save_state(&io->iter, &io->iter_state);
-+		req->cqe.res = count;
-+	}
-+
- 	ret = rw_verify_area(READ, req->file, ppos, req->cqe.res);
- 	if (unlikely(ret))
- 		return ret;
-@@ -1134,6 +1142,7 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
- 	struct io_async_rw *io = req->async_data;
- 	struct kiocb *kiocb = &rw->kiocb;
- 	ssize_t ret, ret2;
-+	size_t count;
- 	loff_t *ppos;
- 
- 	if (req->flags & REQ_F_IMPORT_BUFFER) {
-@@ -1166,6 +1175,13 @@ int io_write(struct io_kiocb *req, unsigned int issue_flags)
- 
- 	ppos = io_kiocb_update_pos(req);
- 
-+	count = rw_clamp_count(WRITE, req->file, ppos, req->cqe.res);
-+	if (unlikely(count != req->cqe.res)) {
-+		iov_iter_truncate(&io->iter, count);
-+		iov_iter_save_state(&io->iter, &io->iter_state);
-+		req->cqe.res = count;
-+	}
-+
- 	ret = rw_verify_area(WRITE, req->file, ppos, req->cqe.res);
- 	if (unlikely(ret))
- 		return ret;
--- 
-2.56.1
-
+Thanks,
+Dragos
