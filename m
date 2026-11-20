@@ -1,107 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795135570;
-	b=qWrHPJlvpJBDscv5VzsHRBc1EnasPmJR+9KoWuhcj902PjB0my2UtpLuYAleq+pZ/lBe
-	 yt4BEiNE/05xhpnkHbpuk7+4y9IqnMqBsMkDsi+h6K3HAVZub+hlKatwDkn3dFt/blPAm
-	 b7ofL9DubH9Nsco5ZzFuqrWTnUlQbpxHsqdMMINKV0M5HBK0G4addcoB4RZ3W77nFwSo/
-	 w/LHiG2xvv/+B8moacgQO7D3rjnkENiDm2/dBVC4FTKi7QaY96WHYAoJrvcZIAgKaUYJd
-	 GYTQssWZZF7OyjKxyc6TcSO0tcZyWMpfIkvBxbQSBZ+IddLQK4/NJK3a8blVuUUBZIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135570;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version;
-	bh=0Wk1fOxDDLV4UZ+GtYR1Hq2j6HZ/VcU5vNNYnE2q0m8=;
-	b=5KYbrJETnjg6tQi40tb3zhQ6K5/Zdv9QjNVmXRQ40cyPRt6HaiCMmGRjUg9bTauHZzV5
-	 y2CRqIecC4b1/RW2ilp+fKjlx0W3n0OyhPDiyGbO+593/79A7EJ1vbGKiYxvwQuHUk70r
-	 tvLm3gWZLYqd1uDuG6FZkYKuUUicLDVwGZoOHDMjBib793litWcxjlPH34r/bZWEb0iZj
-	 N1SYdRHf0gD6N5Ahauy+goaJpme0cMVTfpmP/70VPc+8tKCbxRYpY/mvrs0Op72EJw3yH
-	 ZJwmPkeAJiVtX/wGODLgWxYHt7scccTuDdiRGXJLsJh8Y2ZGu0bkiEubTmQiZa9tgjw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NV6sU6jJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=104.30.16.114
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795135727;
+	b=qAliKhups3XzOFxdQB9Ik0iOabE21mXAAfaT8vSmAROPwk8RBmflkthek31hykfTJQTl
+	 VKLTfjIl9nQuxgiJR1FdTNFFZ8sIjRN14v9k/EZSDQhJSHK7c1ZjSXg5v0hqTCf82uL0F
+	 xwedyFBi64CUTMpS2/PGilVLwsZSwriCqkR6krSYAfDVoaPS5to5KCBJw5kZxEvs+WM2B
+	 QfpTmFYwrUtbazvwQQ/oqpV8jhlmNksU3oJvI1/jkLZUCQr7h3C59WbISIeJnBRJr1Lfw
+	 /uMtR20SwfLTHHGVDur3SZYT1A/ARaDOBz/gLeBn6/hP8QrUuR5P32SdVvtHY3H3hUQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135727;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Feedback-ID:Received:
+	 Message-ID:Content-Type:Date:To:Subject:Cc:From:
+	 Content-Transfer-Encoding:Mime-Version:X-Mailer:References:
+	 In-Reply-To;
+	bh=lJKqDUp98SmSKHKD9/VCU8JlR0KHKYo0zsYch6uPCyA=;
+	b=dgOvPiGZMZBaqi7v3H3JgxjC4gu2h7WJ5r9/y+bN1mCjcF+c3h998dcBvwyMz+0HVgT+
+	 tVARxyM0P/6LGq/aVRNGPNuI6ygS4mbxvkW10/ft0vmQfpgrajwy2Rt4KQ4Te/DCl2b3I
+	 OAm+Ne6Lj3KzLPTegMJDlRBo0EhuQ58dpEC16XRUId5ZvCVSRChNHYqwtx7Zgiw1Y+4Rx
+	 PLXw/c9CiqCAp/3xbP/PAzudnqZ5eZBQgLx7GvWMVu6fy+o6Y3k05J5hojIKj1yDEY3Rq
+	 8a5O5B/JNi6lXVqKEY8+9NOBeUzDJwGNuQj+soikhxRfUOljoUiwb7o0h/ndFWwfHBQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=shangen.org;
+	spf=pass smtp.mailfrom=cf-bounce.shangen.org;
+	dkim=pass header.d=shangen.org header.i=@shangen.org header.a=rsa-sha256 header.s=cf-bounce header.b=XpuVIsVR;
+	dkim=pass header.d=cloudflare-smtp.net header.i=@cloudflare-smtp.net header.a=rsa-sha256 header.s=cf2024-1 header.b=NNAkLAxy;
+	arc=none smtp.remote-ip=104.30.16.114
+Received: from bg-bbe.cloudflare-smtp.net (bg-bbe.cloudflare-smtp.net [104.30.16.114])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4BA3606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:46:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4BA3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF650606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:48:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF650606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=shangen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cf-bounce.shangen.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NV6sU6jJ
-Received: from pps.filterd (m0148460.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0FLLM4019833
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:46:08 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=0Wk1fOxDDLV
-	4UZ+GtYR1Hq2j6HZ/VcU5vNNYnE2q0m8=; b=NV6sU6jJZ0mpnUMoIb+pL/HH7xK
-	a3UwfYHXKTyMkhahfD417ja4OfWndYESuBDx66rnAVDwPlQLHoHTC+PUnUzHSyNg
-	EB9BCAch75SL0RfF6TMsOX3rsu6ySgWFdV1qO1pjkotz9t14GvdoSy2B1VQ824cS
-	I8U8XdHNz9p6hG55YvQrdcpQUsH2Ha5jOuqzB1secBKPU6nIK3jqLOhVT0CGQv/C
-	dH1uV/DXEjr0ptmtWBbWrdSF0UEPWiDWP7Cu+3e0971fV6/i87OrBnt0iVKDTW+l
-	Jnk+o5k/2+7A9//ciWeuLqSmYKAeNlyay0fLuty1auwFGXnBKk/YjVP44yw==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j22w75ca3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:46:08 -0800 (PST)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-89f84753b43so297571b3a.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:46:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795135568; cv=none;
-        d=google.com; s=arc-20260327;
-        b=d4DZZNnHM9NIMCLnMHpUQqoP7p0vcrT+/Q3n+5WFhSKzEX8yFwgyzo4gdDOO1E3tzQ
-         upW0XFr+e4t5QzRkabXLipn3Qx+GzTw/BoHH8G99F8rt9AhluFpLS9b1zcgL308Hg2RW
-         O1DxXJzyCmCOHcu8qcIEU3AN2TPCTGI3i2o4o2ZdJb0iK7yNWVOBkIrS2NyhQd5DW4U+
-         lLayvbZiA0yocn8fQgSG7UHb79AaGRyFZIDi7/xq6Aox3T7QIqzl91jMBg8gOU0ZzrQU
-         8BI+bVvUf1C/S19c01NyTqIneY2aaPpTxSm9Niks9KOqXPU4DFnb1jCpOpwn1P6qf/A6
-         dzXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=0Wk1fOxDDLV4UZ+GtYR1Hq2j6HZ/VcU5vNNYnE2q0m8=;
-        fh=f8xPE+Nizt8VQlEFyxmkCbMjizwMD1gOPhT5vEkB4S8=;
-        b=M7d1a85mx4V+bra3K7IdFygvKmapbNQtntZrUAj7eet4d7ADBEPM+dp3ngpXkiOLZu
-         0ddaorAdwlSmLil1H8v9IwbPymdlqJNM17AXoPI59xY60MM42bsMu+siO9Yjjn5O/H83
-         hfGHqBFephQLI9WXXLqd6u21cbp+r/qEKNPZAggEd1QvSnmYOf1+BNIhX7JFWwFL/RsD
-         7i51LoXV3P0+u0jqE+v4BZN2WpGYTmfc4gJB4LIEWnLRF257nXQE7ZXeRPyiuOCvXmLm
-         Hr2g9klaV7F0KU9yPpXLvU4CHz1awOEUb/ihv/gSdvLh2IJ4Y5Hl9e8EwGLNQHEAHzVf
-         bilA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795135568; x=1795740368;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=0Wk1fOxDDLV4UZ+GtYR1Hq2j6HZ/VcU5vNNYnE2q0m8=;
-        b=TGPLKvHnLcqJe29pJscW5aZxNbhHSy0RgTdDcOd5pxoH+nGvqiwCh4pkl8FZUAJZ22
-         0e62MUUHxzAHMBhFoYCVAoViaYDhIrLUms0YxIR05zbQ+RqV23vOoc0HCioYSllbXOUW
-         fkxJv1ZpYe8eJMMF8pgsnjYCcR8UgzVy2qxDQS+EzetzV1Wacj6O8yuDyzNFmJuWVLNC
-         1rjRGViN5iFpzNbn49sUh1QQmAVccna/a0LTpM0wCAMoupONHsLzXBv2tVxf0bhU+rd1
-         15CWCpitZ+LzdlrUv0Oyl7hd88kSiFh7JD+ZDNxihV9PhZoXgtN8R/TkLl9vrhlKqXqF
-         4Ocg==
-X-Forwarded-Encrypted: i=1; AL+hErGC/ibVpyaEL7+SNgbIU79Ha6aAYmS53f6Os+Hsxu3vE19RJ0aSNhfQDwoUDVXAoZVLPaA+VSinQKpybmU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HfIMsOaSoYH6bEyiymgT9HlZtN3SnWbNtn03rBS7uB/QcJgkX
-	y6H3WAP+xpRjKoH847KvvVloFA9s9zAxkH7SxNpyzEaX+S870xcDCv7yLTJbNtgobe8tU0rhmfP
-	t6rWzEvOu7RiWN4eVf0boq5Gah8k56tMgqrxQFdv4InS8wnAiKyt95jIIXqa9PaylVpUvNu8p7a
-	8Woz6Q0cJOTuHO5Co1EFpAhsDK/oHpMNkNoQNzQSc=
-X-Gm-Gg: AYBFou3Z2J/mfMZK/J2NXyoJMKrf+B1wZMckN/RTD9nFmFnXVP/ivVbNhSNEAbJKoGo
-	x69HmjrWk05o4VbEOvPXZSSGHT+i48WNWgTjQ2/xwLQBF/eGbZVPw5bQeIvQIjgi8nyNvHurpuE
-	AZVAg0B4asMVIVBF7SdselF6DhduWGiP7cehmgXwPBAx91aiw5XNy0RxOjH4i0/leEDa5Qne9CJ
-	MleTgt34wPjlGLbBmNVB5r8dSxXSby0
-X-Received: by 2002:a05:6a00:8d6:b0:8b6:400d:7cc3 with SMTP id d2e1a72fcca58-8c87c67021bmr1122495b3a.27.1795135567600;
-        Thu, 19 Nov 2026 16:46:07 -0800 (PST)
-X-Received: by 2002:a05:6a00:8d6:b0:8b6:400d:7cc3 with SMTP id
- d2e1a72fcca58-8c87c67021bmr1122469b3a.27.1795135567119; Thu, 19 Nov 2026
- 16:46:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=shangen.org header.i=@shangen.org header.a=rsa-sha256 header.s=cf-bounce header.b=XpuVIsVR;
+	dkim=pass (2048-bit key) header.d=cloudflare-smtp.net header.i=@cloudflare-smtp.net header.a=rsa-sha256 header.s=cf2024-1 header.b=NNAkLAxy
+DKIM-Signature: v=1; a=rsa-sha256; s=cf-bounce; d=shangen.org; c=relaxed/relaxed;
+	h=In-Reply-To:References:From:Cc:Subject:To:Date:Feedback-ID:from:reply-to
+	:resent-date:resent-from:resent-to:resent-cc:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive:otp-token:otp-token; t=1795135726; x=1795740526; bh=
+	lJKqDUp98SmSKHKD9/VCU8JlR0KHKYo0zsYch6uPCyA=; b=XpuVIsVRRhOdO8fwMS4QYBgTtMD
+	R8u99MdDNKCLxIZnVAxLGvP4J6jTtwr87bfuhdfpDa3kFaIVJjTwPql5KxJgl9XIw/wb+sdUoz7
+	/NrSF570dP0ZgL6BWskQjhPlJDaws9GUFIjdVtVWAm79KsAH0ceFRE/w8gaTJV+Cbx1MgzZZ/gM
+	K5KRO5wufg9QEDJHNVSOs754LV/JX+FrlFK0b4Z05pFZHczbNE54thJ7aVvdeXVYegU5VJ6BGlV
+	FMnXQu0X63TDmd7mkvgjxX6MvQkrTe5K/TbsXgbOt+S6twzo+L7eQNzFaa+ZdJoGPr15YS3C8i3
+	OpDpg/Ik1SxWOIA==;
+DKIM-Signature: v=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-smtp.net; c=relaxed/relaxed;
+	h=In-Reply-To:References:From:Cc:Subject:To:Date:Feedback-ID:from:reply-to
+	:resent-date:resent-from:resent-to:resent-cc:list-id:list-help
+	:list-unsubscribe:list-unsubscribe-post:list-subscribe:list-post
+	:list-owner:list-archive:otp-token:otp-token; t=1795135726; x=1795740526; bh=
+	lJKqDUp98SmSKHKD9/VCU8JlR0KHKYo0zsYch6uPCyA=; b=NNAkLAxye+xJDqwXtidkH5t2Crl
+	iEHZiLNOo2Wdgd70zQQdbX0Vrx+/qERLjXD20O+HvTEcoZsUqmE8byR8UUDug1BpRigZqQw0dz+
+	+g1ZvzNvwZ3jzDqfEew6QSixE8ne/DXq2Ys3l/7fWgUj1qpUbLbVmI07utCeqfDZ9K58ZTxzu+/
+	rnyvypRMGktIlejbcy/GhrQ23qDd3J7FApR5rH9Xo07Y3gB+4xFWE+Ps9Xwb4P2w5ztO5u6Gtaw
+	nQGhxXXLQcVSyMRYXWoiUHuCdJHavUCNjlhoOMwEOD8SfGfxtSFCVV1sKiFwpELFpwq7QL9AY8e
+	a3IZYTo7/wYlHUw==;
+Feedback-ID: shangen.org:5:5:Cloudflare
+Received: from authenticated-submission.invalid
+        by mx.cloudflare.net (Cloudflare Email Submission) with ESMTPSA id 7W2cHzDMzIUs; Fri, 20 Nov 2026 00:48:31 +0000
+Message-ID: <YhW6lq8O4pm3D9oM5F5YIVpBGvPxrzy3vpbS@shangen.org>
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 18:48:30 -0600
+To: "Filipe Manana" <fdmanana@kernel.org>, "Shang En Sim" <sim@shangen.org>
+Subject: Re: [PATCH] btrfs: pin folios before dropping the last extent
+ buffer reference
+Cc: "David Sterba" <dsterba@suse.com>, "Chris Mason" <mason@kernel.org>,
+ "Boris Burkov" <boris@bur.io>, "Daniel Vacek" <neelx@suse.com>, "Filipe
+ Manana" <fdmanana@suse.com>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+From: "Shang En Sim" <sim@shangen.org>
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,56 +81,178 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261117192411.247117-1-toddfreed@meta.com> <20261119162146.28229969@kernel.org>
-In-Reply-To: <20261119162146.28229969@kernel.org>
-From: Todd Bert Freed <toddfreed@meta.com>
-Date: Thu, 19 Nov 2026 16:45:55 -0800
-X-Gm-Features: Aa3M54qP1YCQf7NpHxLxwgOH9sNuFK0oZ-H3E0wPLjIaO2Wa5zKJBx45I7vhaDw
-Message-ID: <CADh2yMyEv46Ms1ne7rDWEJ6EFxQTe_OLnW4-TDCRSWusPoodVg@mail.gmail.com>
-Subject: Re: [PATCH net v2 0/3] net: don't redirect decrypted skbs to ingress,
- psp time-wait validator
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Simon Horman <horms@kernel.org>, Daniel Zahka <daniel.zahka@gmail.com>,
-        Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-        Wei Wang <weiwan@google.com>, Jamal Hadi Salim <jhs@mojatatu.com>,
-        Jiri Pirko <jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        Andrii Nakryiko <andrii@kernel.org>,
-        Martin KaFai Lau <martin.lau@linux.dev>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>,
-        Sabrina Dubroca <sd@queasysnail.net>,
-        Boris Pismenny <borisp@nvidia.com>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Authority-Analysis: v=2.4 cv=Ia0Symqa c=1 sm=1 tr=0 ts=6aff9850 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=JnKecZnUtZousrUlYMGU:22
- a=uh9GPBYV2gxs7o8O5dIA:9 a=QEXdDO2ut3YA:10 a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: pLk_7mOpMop-rbwQxB-I6ufddEbG6Fu7
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwMiBTYWx0ZWRfX8Up9l9kKBDlN
- MEHLZXMho9orBgXVdoOeVHZgcjjpIazpihSrkQz47EhyIauG2YoaQJ91TGoB5JaAqGY1ln/YELb
- kygzijVM1zT7tjT5QeUaxertI89AVsk=
-X-Proofpoint-GUID: pLk_7mOpMop-rbwQxB-I6ufddEbG6Fu7
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwMiBTYWx0ZWRfX/N05nByUDnlK
- vCrSjQoV+7Rr4iPCRpuUU9n4Z8j+pq7ag4Oo12UXm9hely3IpPJ5cQJjZgKCd6mvi//k29s7DUk
- oD1dOCJXEo7b2PQrBTFNCPj7B1d+pQElMPbEmApvGWN1epfReiqZSJBjw3MFpl6cADUgkkfkKKq
- ql71dMV8XXeTCdN3PhZzloVgyAqF/hef10ePexx2qp1FZNQPWVpHAm1x94SvzND55aM5P8RxodN
- NQybmUvXSaqXvi05fBWI9MtUfgvaRFm3EUFHN/KDTUfWy5dk9pFXl+pUik6wqE1YCJLlpbTLaaK
- aQVYT5C6Gq9uUYXMlxtxtDHqKgUiR2ygHmYRIhMnT3PWZyexxrUnNoxCem4DO3A74JbsIH5E0gA
- KJU06h9XHtFV1L2ipfJxlgz0jNK0s3xPx/Sj6gMMR9ocdtKo7SIFYpneGXOiA7bRayz7R5J86YZ
- pR1JvnuFxFS692qAYDA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_01,2026-11-19_01,2025-10-01_01
+Mime-Version: 1.0
+X-Mailer: aerc 0.22.0
+References: <20261117-my-btrfs-patch-v1-1-4b934a7ff69a@shangen.org>
+ <CAL3q7H6zzrx-oHoiXqMA6U=GoS8rZpWE7gjtZDkrA-87UycM-Q@mail.gmail.com>
+In-Reply-To: <CAL3q7H6zzrx-oHoiXqMA6U=GoS8rZpWE7gjtZDkrA-87UycM-Q@mail.gmail.com>
 
-> For future reference - there needs to be a path in net that hits the bug
-> for something to be considered a net-worthy fix. Otherwise no Fixes tag
-> and to net-next it goes.
+On Thu Nov 19, 2026 at 11:24 AM CST, Filipe Manana wrote:
+> On Wed, Nov 18, 2026 at 12:20 AM Shang En Sim <sim@shangen.org> wrote:
+>>
+>> release_extent_buffer() drops the last reference to a mapped extent
+>> buffer (eb) before detaching its folios.
+>
+> To mapped and unmapped extent buffers, so remove the "mapped" part.
 
-Makes sense, I will keep this in mind.
+I will remove "mapped" in v2.
 
--Todd
+>>   task A                         task B                    task C
+>>   release_extent_buffer(eb)
+>>    refs: 1 -> 0
+>>    remove eb from buffer_tree
+>>                                  alloc_extent_buffer()
+>>                                   attach_eb_folio_to_filemap()
+>>                                    grab_extent_buffer()
+>>                                     refs is 0, take over
+>>                                     the folios
+>>                                  ... new eb released ...
+>
+> It's not "new eb released", it's the new folio that is released and we
+> take the existing folio into the new eb.
+
+My bad, that diagram was misleading.=20
+
+Inside attach_eb_folio_to_filemap(), task B drops its newly allocated
+folio and reuses the existing folio for the new eb (eb2), attaching eb2
+as folio->private after grab_extent_buffer() detaches eb1. After
+alloc_extent_buffer() completes, task B finishes using eb2 and calls
+free_extent_buffer(eb2), dropping eb2->refs from 2 to 1 (leaving only
+EXTENT_BUFFER_TREE_REF).
+
+>>                                                            drop_caches
+>>                                                             folio->mappi=
+ng
+>>                                                             =3D NULL
+>
+> And where does this happens?
+> Please be detailed, add the call chain triggered by drop_caches that
+> results in setting the folio's mapping to NULL.
+>
+> I don't see how that is happening, because when we end up in
+> try_release_extent_buffer(), eb->refs is 0 and that
+> makes us return immediately with 0:
+>
+> spin_lock(&eb->refs_lock);
+> if (refcount_read(&eb->refs) !=3D 1 || extent_buffer_under_io(eb)) {
+>         spin_unlock(&eb->refs_lock);
+>         spin_unlock(&folio->mapping->i_private_lock);
+>         return 0;
+> }
+> spin_unlock(&folio->mapping->i_private_lock);
+
+When task C enters try_release_extent_buffer(), folio->private no longer
+points to task A's eb (eb1, with refs =3D=3D 0). Task B's
+grab_extent_buffer() detached eb1 and attach_extent_buffer_folio()
+attached eb2 to folio->private. Once task B drops its caller reference
+on eb2, eb2->refs is 1 (with EXTENT_BUFFER_TREE_REF set), so
+try_release_extent_buffer() inspects eb2, clears EXTENT_BUFFER_TREE_REF,
+releases eb2 (detaching folio->private), and returns 1.
+mapping_evict_folio() then calls remove_mapping() ->
+__remove_mapping_unfreeze() -> __remove_mapping() ->
+__filemap_remove_folio() -> page_cache_delete(), which sets
+folio->mapping =3D NULL.
+
+(If eb2 was already fully freed and detached before task C runs, e.g.
+via free_extent_buffer_stale(), try_release_extent_buffer() sees
+!folio_test_private(folio) and returns 1 immediately.)
+
+Here is the full sequence, starting with a 0-order folio F in
+btree_inode->i_mapping with F->private =3D=3D eb1, F refcount =3D=3D 2 (1 f=
+or
+the page cache, 1 for F->private), and eb1->refs =3D=3D 1:
+
+1) Task A drops the last reference to eb1:
+
+     release_extent_buffer(eb1)
+      refcount_dec_and_test()         # eb1->refs: 1 -> 0
+      spin_unlock(&eb1->refs_lock)
+      xa_cmpxchg_irq()                # removes eb1 from buffer_tree
+      <window before btrfs_release_extent_buffer_folios(eb1)>
+
+2) Task B allocates eb2 for the same bytenr, takes over folio F, and
+   drops its caller reference:
+
+     alloc_extent_buffer()
+      find_extent_buffer()            # NULL (eb1 removed from tree)
+      btrfs_init_eb_prealloc()        # allocates eb2 and new folios
+      init_extent_buffer()            # eb2->refs =3D 1
+      attach_eb_folio_to_filemap()
+       filemap_add_folio() -> -EEXIST
+       filemap_lock_folio() -> F      # locks F; F refcnt: 2 -> 3
+       grab_extent_buffer(F)
+        folio_get_private(F) -> eb1
+        refcount_inc_not_zero(&eb1->refs) -> false (eb1->refs =3D=3D 0)
+        folio_detach_private(F)       # F->private =3D NULL; refcnt: 3->2
+       folio_put(eb2->folios[i])      # drops eb2's unused new folio
+       eb2->folios[i] =3D F             # reuses existing folio F
+       attach_extent_buffer_folio(eb2, F)
+        folio_attach_private(F, eb2)  # F->private =3D eb2; refcnt: 2->3
+      __xa_cmpxchg()                  # inserts eb2 into buffer_tree
+      check_buffer_tree_ref(eb2)      # sets TREE_REF; eb2->refs: 1 -> 2
+      folio_unlock(F)
+      folio_put(F)                    # drops lock ref; F refcnt: 3 -> 2
+     free_extent_buffer(eb2)
+      free_extent_buffer_clear_reading(eb2, false)
+       release_extent_buffer(eb2)
+        refcount_dec_and_test()       # eb2->refs: 2 -> 1 (TREE_REF)
+
+3) Task C runs drop_caches, releases eb2, and evicts folio F:
+
+     drop_caches_sysctl_handler()
+      iterate_supers()
+       __iterate_supers()
+        drop_pagecache_sb()
+         invalidate_mapping_pages()
+          mapping_try_invalidate()
+           find_lock_entries()        # locks F, fbatch ref: F refcnt 2->3
+           mapping_evict_folio(mapping, F)
+            folio_ref_count check     # 3 <=3D 1 + 1 + 1 (passes)
+            filemap_release_folio(F, 0)
+             btree_release_folio(F, 0)
+              try_release_extent_buffer(F)
+               folio_get_private(F) -> eb2
+               eb2->refs =3D=3D 1         # check passes
+               test_and_clear_bit(EXTENT_BUFFER_TREE_REF) -> true
+               release_extent_buffer(eb2)
+                refcount_dec_and_test()  # eb2->refs: 1 -> 0
+                spin_unlock(&eb2->refs_lock)
+                xa_cmpxchg_irq()         # removes eb2 from buffer_tree
+                btrfs_release_extent_buffer_folios(eb2)
+                 detach_extent_buffer_folio(eb2, F)
+                  folio_detach_private(F) # F->private=3DNULL; refcnt 3->2
+                returns 1
+            remove_mapping(mapping, F)
+             __remove_mapping_unfreeze()
+              __remove_mapping()
+               folio_ref_freeze(F, 2) # F refcnt: 2 -> 0 (eb1 holds no ref)
+               __filemap_remove_folio(F, NULL)
+                page_cache_delete()
+                 xas_store(NULL)      # removes F from i_pages
+                 F->mapping =3D NULL
+               returns 1
+              folio_ref_unfreeze(F, 1) # drops page cache ref; refcnt 0->1
+           folio_unlock(F)
+           folio_batch_release()      # drops fbatch ref; refcnt 1->0, free
+
+4) Task A resumes and detaches eb1's folios:
+
+     btrfs_release_extent_buffer_folios(eb1)
+      detach_extent_buffer_folio(eb1, F)
+       mapping =3D F->mapping           # NULL (F refcnt is 0, freed/reused=
+)
+       spin_lock(&mapping->i_private_lock)  # NULL dereference
+
+I validated this exact sequence with bpftrace probes during the
+reproducer run and observed try_release_extent_buffer() seeing
+folio->private =3D=3D eb2 with refs =3D=3D 1, returning 1,
+__filemap_remove_folio() running from drop_caches_sysctl_handler(), and
+task A subsequently entering detach_extent_buffer_folio(eb1, F) with
+F->mapping =3D=3D NULL and refcount =3D=3D 0.
+
+I will replace the diagram with this fuller breakdown (and remove
+"mapped") in v2 once you have had a chance to look at the rest of the
+patch.
+
+Thanks,
+Shang En Sim
