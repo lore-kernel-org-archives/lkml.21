@@ -1,100 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795134421;
-	b=somXEObyrZvpsWGD1zh2WZZqra8HrzYd3ZFSRzH4NY26NKSF/zi/wp4FemGlmHnKSrrw
-	 u1WCjBkTlRRMy9kHrp2l7l1yRn+T5r9J91CUkpyQ5c8QsFbPpqI8B0aSvxfNb2FeUWHEX
-	 eCfjiKLPTzO+AEz9Dnoqm60pipts8ajIIMyTq1VNWzWtlte9pydeWyC2PljyHrxpAwKhz
-	 EkDzOFboDv+Ck+w1cFuMi95VJidFXYgSBZASeKgt7HC5q0mh8Pm6xe9ydKWZLlZUSBSYV
-	 RKoEM224f3MvKKa8UvJJQIgkm2TQj2XGn+SL7BTn13+/OyWQmUUKrEn9N4uvyte3nKA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134421;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=b9j9vXtfY+EbgPv2tG2SsfgvXGNMtTujxB5ZcN9bBcQ=;
-	b=IZGgEsq17x91FoLnkIMFx6wuiiUk2DceuCoU2gCiyXGXARqxFS2FgRpbTRzmkOTmSSn/
-	 4oyb4ZDfhTk1BquJBwv98zF2OUgzzp+Psm7O7knwBNinxeFyRK3vOamK0FDHRnS/MCz03
-	 az4Lxsdf2AQLVbmG0GKnv3nzmyQxgsCiNnhQPiqiUfWYsxf3eNyOFLzILlhddGQMoN71R
-	 SVgUwiY88h5kxSkDSUgBzR+TI3XYqDmCndOnPw/IFAZ8xnR5glQcsUdXsH3dSf0onsQAP
-	 76lCpd8Z1HCQqFC2zE+DNLcrvne/628tQsm0lbPTh1Ef/QZ4aqKegi17WQjgYYWpTlg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KlHlNBRL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.54
-Received: from mail-yx1-f54.google.com (mail-yx1-f54.google.com [74.125.224.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795134604;
+	b=v2DS0cLQPKbrBG3it/V5Znm508kM1c8ySQDLi/Gcioa4ogvt1ae8bG0AToI7+7Tm4Gbb
+	 F2kv8uWd9g6g4i5p0axAOYuA/0CdtX5eu6NAIORIFxNxSZhS+QAeOwbtciHTOGd6aCo9d
+	 Y6P2RU20g5eRejaEkkwMykgEm61oYloGANt82xMXPcG0Z3kvlHrW+HiafK/ysHT3foMWh
+	 6Xja8OkgBQDetxDR7OXeVpxUSfQK7g+oUP8szzHQtNB6uWYH0ldfCnziRiqzNI2wkKNFL
+	 Yta9RZcXfuL7HpyDczCknsmJqb6W2/mhazlTMiNgvFYzJ4iQjBpG8aDxVB3bw3XI4+w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134604;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=spQYeU6542V64iaRZJYUdLSnSLYK38L77Q167Rmh7/I=;
+	b=rcgMF+fWo+FthC311pDMxnrwEmP2elyyF7rX7G6mRNLBfUL0XlAmsGBXqHa+V4cA98+W
+	 5JdWdZsUVEOXMib6FFO85yxxkZjdLsYnLPfgQ61bFUr7W7D+b+gS2p/n/lM9w+Wu1o+of
+	 Iv26zy6J+6+BfGxaE5wamS/wHt7gCAJLCUlv/nRTjD5dbxHxmInGzGMve7V1jUvX8Bo8i
+	 9w0qHw0s0crltE/e993draFBLFCA0tEd2MI7TGaYCasOsSJybhYUnxqS/VUtBLg5peCcf
+	 FxYWBCFMHTslffPRgrrBfiwEKxgqclOKljajDpJ+GPOsvsXDktxnlqhZq1LO3mR/7Jg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bLm/MCFL";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAD91606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:27:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAD91606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 977E4606A32C;
+	Fri, 20 Nov 2026 00:30:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KlHlNBRL
-Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-67db5e13b0cso432559d50.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:27:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795134420; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nENTbU8SznQrZVAlF0V4daIjXQYhHTYuPBq3lmUNeR9Ccs0lBbzS2cVKLZGtmyPrk1
-         LP5JdZQcFCFEs4Z1C39sEHyVNGdJy21n8OdJMP2x/yOZ1S2ySc/7GfJGD9DejPmSGXY0
-         sRKJv70LbfhwXUljRkpimJYJL9oNe5uLzAQ+wYA5njj663NsYaMyAAkNfVrgyTfJQFC1
-         tkrrjetdH5aWotwaZ0jq+Iwe2ZUFTsrN+s92nW5207Uxc4ztuLIBOyxxsqd4bq6SrPs5
-         WW2qs4SqWuHW/ZiZjCSDz+7EJBe9Nz3o6Jtib1IwcoHAVxP3Zct317DD96gv938nnXzK
-         e9qQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=b9j9vXtfY+EbgPv2tG2SsfgvXGNMtTujxB5ZcN9bBcQ=;
-        fh=6p/Bgq86HQ43iDu2paNZ/ZJ6drGpL4h7YwNtMnFCzNs=;
-        b=JpjVfCcAjvkSwTay1x0RFUw2+y3QavkbQvKiIzWYoEWJ8puvCHlILCJm7hNnawsdCb
-         hwNUZ61nrXN0aaDVQtM8m9CfnGxuh72Jehpa+HIx1i98GKLlYXWPllwqS4B+ehHLkDEO
-         pJvEdZN7osN/NiN4O5uSxNPI8Bu3B6pa0b2ol8uQtyeMg7+qD8g+xAAxd47/bBoRXvSD
-         XjQNY2q3zZ4Gpe+5Pu6hp+VvbIqNk1f7kW0Ef2GmqAj1IA5vgfaULqwuAxGWt83H9xHB
-         HF0VuOwKgpwBXLBk8nafHOUqO5kET7kRneGtDfRJTxAnCsiSF+O9v19GIar5Abus1+Rm
-         r1MQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795134420; x=1795739220; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=b9j9vXtfY+EbgPv2tG2SsfgvXGNMtTujxB5ZcN9bBcQ=;
-        b=KlHlNBRLnkbFIkyiQ4dmD5l2RFLqJtNmjLeuxHpj1TOb2ee2RnbntdxgZUOS7qRia2
-         Z1Du+D9vzUBMPZJERe5mbTyxNkcJ3/9wS6aBfdwtP2Uk7LBdC3YCCct8fO/YWGwc3oMJ
-         qaRGbJbwNmIl8HOICnk1tzWdc0ucVXEg4oInUi+qS79oBguSq0lU6dBtYaoM0ytC7m7K
-         zIV6+IyVgbMxnr8QBP4xST2fozCfU8ujzWrnRvhm2HoEvbuPNk2lexVqSRugvuH4lVdx
-         dYOMvIhUMbSRDqxoiLaAI7pvPureGzSOIjFhNw2LXDqxuxctKdTNMP14bClGPSBPDGl4
-         67Uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795134420; x=1795739220;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=b9j9vXtfY+EbgPv2tG2SsfgvXGNMtTujxB5ZcN9bBcQ=;
-        b=Ksz9JmTtl8UBF/+8KzTWmr3nSaPj2BG0eoszd0VbwzQK5wiurBULPsumgsiXN1EHtJ
-         Ej9tuyMAGIxOe2T2ZUrxU6bF9VwADw5yvR/OAhRts2o8fKgCacAbAbPHlSuuOYKxxpHJ
-         Hq8+iLMPpnKoUODxkK2Bsa36hYp530S17Ec35whm5ZPlgysSPpTwkwoE2oDCOzy3cFHm
-         A2Cif7/+J+kmhBszEu3S6knuXsv9CqHPtp/8e4CUu34TqGF6EAWaNq5kizSaYSoOssQw
-         ngMymrvhd06l3XftSzSzSHxoKOk67HMZzfhcH+MtcbSVSQptvrHDkZq6Q7+2+2D3LRur
-         Vnrg==
-X-Forwarded-Encrypted: i=1; AL+hErHQzhogJr+LHe7UC7CH1ZPPpfAhWfXiyAT63QUAXi9+k8PH82aql4y+bO+k8Lfxfe80dPG28wj1kG90vY4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9T8MjLB3/PlPVBuBvYaoOBdh2NhKd5TwL18meQ9XZjRe6rIkD3
-	muo6qTxcbULfkbAMgmLl16fSzeJ59uXKVQKulyi30i5qsWSxjq3+sT42eaIStnOo75MEA4V+YAE
-	Uk4bQq2GnaZs9zACJzL/AnXrJHOzmtUafEkW3Ucc=
-X-Gm-Gg: AZFdTZcWuMhU4eWiZRGr5eMORPBKeVWejI7q+AU58pzfQm46XcNxWEL6HZMOAo4vaoK
-	8znUa9LMLYf4uBGqibaVyGD1AAg+hVMWqPRvywnNJQS9JCsPENaEXUeujYV90Vorw71YpIRWIXE
-	0D6B1ocRw9ssze41JYAVVqja6yCCDSV4/thKxzmXbNgLUwCxobt4CWSeXX+gYbhPBomeo4+4AR+
-	b9VJTUAr4fsB+O5ynDFVOSdw3UlGzYCp/EZx2MNP2DI7HCF6WIA27pL+Ilpj9XlvxcaHK8UBY9x
-	Zgm4OyCZdvGmrH/r8rK+exM/EEOLzs+FlGlFKtnA6t62FPs0o1uIzaKlctZ2dhSmGuYWEcbHlvj
-	QWdWY6gMItMHb8tVtnc7GJ+idvUws//E7VDu8f64DaMgTqEjKZGlqPGWag/qkXkLrTNVSjQ==
-X-Received: by 2002:a05:690e:11c6:b0:67c:4b5:d5ea with SMTP id
- 956f58d0204a3-67df40d1b21mr504880d50.0.1795134419928; Thu, 19 Nov 2026
- 16:26:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bLm/MCFL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B12AB1F000C4;
+	Fri, 20 Nov 2026 00:30:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795134604;
+	bh=spQYeU6542V64iaRZJYUdLSnSLYK38L77Q167Rmh7/I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bLm/MCFLyl61eg8R9ubKDw53/mPhRc0aUoTOqic5Ongt+RE2EGkPf24KJsGYOBP38
+	 8fKO2+FVv+Y9WbQS/IHYuuf2O7byIf8qrDc4ogud9nb5R5r7gSFXs8gLHNIdP/Uv7Q
+	 zB7escgWn70lmZTG/sxWh9/4MzhZP4fY1JFYJx8KFhqCBsX0xBUjzL9arZSEi31W0D
+	 +zhIOA6R7T+L/5Mrr+9kB74pBA8OOreoKPr3Q3x2IutxfG34ysfsklPrPTbTKs+3/O
+	 k+GX0xOVAf8ANgJd6NnJte7esVlut+jBwVA2PxQPC/KW0rbqASgCYnr5pVSKv+/nvK
+	 u3YLIOiieiHHw==
+Date: Thu, 19 Nov 2026 16:30:02 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atish.patra@linux.dev>,
+	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
+	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
+	James Morse <james.morse@arm.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
+	Peter Newman <peternewman@google.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Rob Herring <robh@kernel.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Sunil V L <sunilvl@oss.qualcomm.com>,
+	Tony Luck <tony.luck@intel.com>, Weiwei Li <liwei1518@gmail.com>,
+	yunhui cui <cuiyunhui@bytedance.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Zeng Heng <zengheng@picoheart.com>, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, x86@kernel.org,
+	devicetree@vger.kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v12 5/5] riscv_cbqri: Add CBQRI capacity allocation
+ platform driver
+Message-ID: <av-Uip0Yp4NGYGEM@thelio>
+References: <20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org>
+ <20261114-dfustini-atl-sc-cbqri-dt-v12-5-6ef1f627072d@kernel.org>
+ <20261119000000.1b43ba35@jic23-hlaptop>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,50 +87,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119232935.1708458-1-thiery.louis@gmail.com> <20261120001114.61077-1-brayniac@gmail.com>
-In-Reply-To: <20261120001114.61077-1-brayniac@gmail.com>
-From: Louis Thiery <thiery.louis@gmail.com>
-Date: Thu, 19 Nov 2026 16:26:47 -0800
-X-Gm-Features: AclHuK8HpDb3YGyRkewngiL9iq-G_WUfJKYzbVW6WD48cpmbOt2XettliD_eIU8
-Message-ID: <CANox1RhDMiP2nQodMyf5KndjymFKCqgXLWRPf4kdwko2ifkCWA@mail.gmail.com>
-Subject: Re: [PATCH] io_uring/net: don't charge the folio offset to truesize
- for managed frags
-To: Brian Martin <brayniac@gmail.com>
-Cc: Jens Axboe <axboe@kernel.dk>, io-uring@vger.kernel.org, 
-	Pavel Begunkov <asml.silence@gmail.com>, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119000000.1b43ba35@jic23-hlaptop>
 
-Thanks for the corroboration, Brian. Been playing around with this for
-a few months and missed your report from this morning. Happy to have
-the Reported-by, Closes and Tested-by
-added.
---Louis
+On Thu, Nov 19, 2026 at 12:00:00AM +0000, Jonathan Cameron wrote:
+> On Sat, 14 Nov 2026 14:06:25 -0800
+> Drew Fustini <fustini@kernel.org> wrote:
+> 
+> > Add a platform driver for CBQRI capacity controllers described in
+> > device tree with the riscv,cbqri-capacity-controller compatible.
+> > 
+> > The controller node points at the cache it governs with a
+> > riscv,cbqri-cache phandle. The driver maps the register block, looks
+> > that cache up in cacheinfo and uses its cache id as the resctrl domain
+> > id, so the binding does not need to carry a CPU mask. The controller is
+> > then handed to the CBQRI core, which probes its capabilities and decides
+> > whether to expose it through resctrl. Only an L2 or L3 cache is
+> > accepted, since those are the cache levels resctrl has resources for.
+> > 
+> > Nothing is vendor-specific and reg is the CBQRI register block itself,
+> > so any SoC that describes a CBQRI capacity controller in device tree can
+> > use the driver unchanged.
+> > 
+> > Tested-by: Chen Pei <cp0613@linux.alibaba.com>
+> > Tested-by: Zeng Heng <zengheng@picoheart.com>
+> > Reviewed-by: Zeng Heng <zengheng@picoheart.com>
+> > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> 
+> Sorry, late to the game and pretty much a drive by review.
+> 
+> Still a few things below that will leave you with more readable
+> and probably less fragile code.
+> 
+> Jonathan
 
+Thanks!
 
-On Thu, Nov 19, 2026 at 4:11=E2=80=AFPM Brian Martin <brayniac@gmail.com> w=
-rote:
->
-> On Thu, 19 Nov 2026 23:29:35 +0000, Louis Thiery wrote:
-> > Only the in-page part of the offset matters for how much memory a
-> > fragment ties up, so use offset_in_page().
->
-> This is the change suggested in my report earlier today:
->
->   https://lore.kernel.org/io-uring/CAC+fX10wVVSqGnfCg+aazorsCxB34sUDV-XJi=
-BPd6R3Kuqc-7Q@mail.gmail.com/
->
-> I applied this patch to io_uring-7.4 (0659e44ce739) and ran the
-> reproducer from that report. With it, SEND_ZC from a registered huge-page
-> buffer is charged the same as SEND_ZC without one on every row, for
-> hugetlb and THP, including 8192 for a send that crosses a page boundary.
-> On the stock kernel the same run shows the overcharge.
->
-> Jens, if you apply this, could you add:
->
-> Reported-by: Brian Martin <brayniac@gmail.com>
-> Closes: https://lore.kernel.org/io-uring/CAC+fX10wVVSqGnfCg+aazorsCxB34sU=
-DV-XJiBPd6R3Kuqc-7Q@mail.gmail.com/
->
-> Tested-by: Brian Martin <brayniac@gmail.com>
+> 
+> > diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
+> > new file mode 100644
+> > index 000000000000..6f3d06c4f74b
+> > --- /dev/null
+> > +++ b/drivers/resctrl/cbqri_capacity.c
+> 
+> > +static int cbqri_capacity_probe(struct platform_device *pdev)
+> > +{
+> 
+> Noted in the ACPI patch that you can save some effort there
+> by a few tweaks that probably make sense here anyway.
+
+Yeah, I'll make the changes in this patch so there is less churn in the
+RQSC series.
+
+> > +	struct device *dev = &pdev->dev;
+> > +	struct cbqri_controller_info info = {};
+> > +	struct device_node *cache_np;
+> > +	struct resource *res;
+> > +	void __iomem *base;
+> > +	u32 rcid_count, cache_level, cache_id;
+> > +	bool found = false;
+> > +	int cpu, ret;
+> > +
+> > +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> > +	if (IS_ERR(base))
+> > +		return PTR_ERR(base);
+> > +
+> > +	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
+> > +	if (ret) {
+> > +		dev_err(dev, "missing riscv,cbqri-rcid\n");
+> It's a probe, use
+> 		return dev_err_probe(dev, ret, "missing riscv,cbqri-rcid\n);
+> same for all these paths.  Sure we won't defer but it does nice formatting
+> and tends to save a couple of lines every time!
+> 
+> With the __free() magic, you can do this for all the returns in this
+> function.
+
+Sure, will do.
+
+> > +	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
+> Follow on from glancing at the acpi and then finding this elsewhere in my
+> inbox.
+> 	struct device_node *cache_np __free(device_node) =
+> 		of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
+> and drop all the goto iritiations.
+
+Will do.
+
+> > +	info.type = CBQRI_CONTROLLER_TYPE_CAPACITY;
+> > +	info.base = base;
+> > +	info.addr = res->start;
+> > +	info.size = resource_size(res);
+> > +	info.rcid_count = rcid_count;
+> > +	info.cache_id = cache_id;
+> > +	info.cache_level = cache_level;
+> 	info = (struct cbqri_controller_info) {
+> 		.type = CBQRI_CONTROLLER_TYPE_CAPACITY,
+> 		.base = base,
+> 		.addr = res->start,
+> 		.size = resource_size,
+> 	...
+> 
+> Might as well as you nicely set everything here.
+> It's more readable and also makes it clear anything not set
+> is zeroed without anyone having to go check the = { }; above.
+
+Good idea, will do.
+
+Thanks,
+Drew
