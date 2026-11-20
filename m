@@ -1,109 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194551;
-	b=iw4HpiJvgnphS+vaK0mY+BSyiTtdXKt46upmQaPLvLBC7pHYWNFpBM3uQ9q3fcybYCeI
-	 6Pl4gprNTjzgCSh9jbbaoc3UCfSX8WnAkfu1vs7hyrLYJoYxySsSfmM09JHIexYhl4dUD
-	 WQI+ZJ1kTqu2j6OVuRNbpG522DF5alsiHZREji2lzNlJj6YgcNmE+kFt5EiYbu2uiZzU7
-	 PShupwPpoIFuw9Em03wfTq6oxAbY/sRDENYNn9MlkHAinw4rU8mazwPGHp247Vs9I0DiT
-	 vk3/jB9S5MEXrJLvLSvH0OJ5NYhYNIyHyMaFl5DvxBStJpIDoIkC5xfpmir1f5MngWg==
+	t=1795194571;
+	b=vz9me2XsfMheKWxqCjKDBZ5uDWd6TVfJWRw0kpFuhIonej5eEikqBs3r0Wr6S/hBP3Hj
+	 4z7PlB89SzszaKhWi4EPSGBV1X63rxATNfOaDKGo//GiKXmjJBAV1A692QAV12FGcJDjO
+	 Y1+DcNWE60+hLQJ3rBBhZz/SNyr+rs4eowuiToCDMwLRFcrvGzmF/ELGSJGeTm55S6KsW
+	 ZW83zJ0C7EtUfDxm6Y3W9YxXQ28Xp35OAxWjzRy682jq4rzh4lET43mXXmEevB55e0XAw
+	 93mSz6GOaN0fxaOwvLR+2AdOadyNtwjJEG2wr7gx/WwOkAyrxMJXeTT9+ZIyCAlcQFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194551;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=aoWT+2BSpjUJRhMXG6Rg0wLsCrBurv5q4LV08hsOWtM=;
-	b=RvDYjRCNLhqL2UXtWn4ZpTE7Em8YXz20lUilfwM9luX5LpHeViMFIvuo5j4UoHNoTPKu
-	 jjoj6Ptn375u/Fqqv0eDe3Al+/fPpUlWUenHn1D36ZVlc75zq4YYmhOLzbZdjgph3WGau
-	 +4HnR4zJPYLVMEGSwBGJ2PWoGr8QmNkYgoJemK3uYRmyLCG+yf/6qotvKMEAbwatpyQxJ
-	 58dXStuwLHlxuxo6EbiXuoIMD5ttU+kdmJNX3dK+akH8E23OC9p58kw1ftwFK3HW+qhyX
-	 RDu+AoCt/tchtD1+Eb6keeWc+2IX2G/NlQ4MXkTcZ9fOfLtydK8CSTuflzxlpy0t+1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194571;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=5juQiS4NV5WDA9Mql8KGEciA+P/kt6ePCjBKpgAiReU=;
+	b=r5ihajFtn2wHL3DI5ZSSpbXJCkWIUGWapNJDVg4yS0WmRz8AeFCxZga+ni9DXvuRI3Q9
+	 xCZDQ/GtJ0cbf0X3JlWiPYuLrGN2mMt/vCEFZjN1avUMC76BjpqZsiMGiaw52G8Owxitr
+	 hLe1HNLvg4cVxkt+jpKFB1+krSjU5PysDC6VnT5EZ2r5R3DZ3ulFxAs5VTKucMsOqJ+jQ
+	 YUJ+NBwOk00+6DQPxWnHwEor8+3vYUZPUoZXm8HOeYhNZ+6yixKEYvkDY8jlPKe0IHUXn
+	 +8sJ7SHm896MbKSYdGX5KGiFL/Ie31b7O8+H/ldmzJlutp6jaJRZ3DBXmgod8/vXhEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=t4pXnOP3;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vNxXW9sT;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=t4pXnOP3;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vNxXW9sT;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aghKennR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B77FC606A320;
-	Fri, 20 Nov 2026 17:09:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B77FC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E9EF606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:09:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=t4pXnOP3;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vNxXW9sT;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=t4pXnOP3;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=vNxXW9sT
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id BEA5622297;
-	Fri, 20 Nov 2026 17:09:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795194548; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aoWT+2BSpjUJRhMXG6Rg0wLsCrBurv5q4LV08hsOWtM=;
-	b=t4pXnOP3kIcweGARDuRt4iXbiB/B4ma0vFIwoEqxl10Y9hP69ZsN+UK2YBKOIQbpPQQkbb
-	5B5U9jLC4WIrMoH5DczT0ljgBb6DcRyDEJu4HQB3EeSMGZQp+/F7KbjAOhr4XZvdMf5OkG
-	hTRMyAyIeuBYmQztc0xoO4kG2qk+w5U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795194548;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aoWT+2BSpjUJRhMXG6Rg0wLsCrBurv5q4LV08hsOWtM=;
-	b=vNxXW9sTRHlNYC0uNUoUG9cELSJa00mJipPYr4tOJOpyb07SGFoXNUxFBsVOaq93Hv6jxV
-	6vRga9b8Ti7aB1Dg==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795194548; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aoWT+2BSpjUJRhMXG6Rg0wLsCrBurv5q4LV08hsOWtM=;
-	b=t4pXnOP3kIcweGARDuRt4iXbiB/B4ma0vFIwoEqxl10Y9hP69ZsN+UK2YBKOIQbpPQQkbb
-	5B5U9jLC4WIrMoH5DczT0ljgBb6DcRyDEJu4HQB3EeSMGZQp+/F7KbjAOhr4XZvdMf5OkG
-	hTRMyAyIeuBYmQztc0xoO4kG2qk+w5U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795194548;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=aoWT+2BSpjUJRhMXG6Rg0wLsCrBurv5q4LV08hsOWtM=;
-	b=vNxXW9sTRHlNYC0uNUoUG9cELSJa00mJipPYr4tOJOpyb07SGFoXNUxFBsVOaq93Hv6jxV
-	6vRga9b8Ti7aB1Dg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 6DB9B1342D;
-	Fri, 20 Nov 2026 17:09:08 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id QxpdEbR+AGsJUAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 20 Nov 2026 17:09:08 +0000
-Date: Fri, 20 Nov 2026 18:09:07 +0100
-Message-ID: <875wxrwhu4.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: chris@kode54.net
-Cc: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Cryolitia PukNgae <cryolitia@uniontech.com>,
-	Rong Zhang <i@rong.moe>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] ALSA: usb-audio: quirk_flags parsing fix and Logitech PRO X 2 LIGHTSPEED quirk
-In-Reply-To: <20261120120356.10909-1-chris@kode54.net>
-References: <20261120120356.10909-1-chris@kode54.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aghKennR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BABB51F000D1
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795194570;
+	bh=5juQiS4NV5WDA9Mql8KGEciA+P/kt6ePCjBKpgAiReU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aghKennRr03xKxOZoOVVsaoxmHiuOy0Arzqjh3H4+XaTwDwLCqX5lvfDqb64plhp7
+	 fXC3HOhWZSNVnSjey0BZGwbkggKW9VUBdNvFQoZce47WYlvYwXrDsZ/hbuj/7+Ru6F
+	 eW/LVZAJcVEPLuQhWIBRruZPXBY7NxhZ39BQCeH/A8g4oLNsZ4TrtirSVTTmc9ZCCC
+	 OIRmAZOrUmF8gGos7dRV8FXHw8GStK8LMakqItoXqqETUZMbvf6VxTxitY1kkUfSA8
+	 iuUSFdy5KsLFRBEwdl08sOm7zchndL/PVYSnBbMhD0TjDHui/JuP90Xwsjcsb9YOUv
+	 Za234rg6qzPNg==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5c126f80426so1027442e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:09:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFw2Z45DOKSgk8ld8obN3jJWQYg4QXMQM8nPoOnXtMzUUJjJQ7JARpXBzolqprYvWi63JOV9MrBKr3C5wg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bZJdPvPSCt+ON7KBtNT6IyEOuPhYWKzvJxSjEVcxvqV6+Rufd
+	dnyb7OzLmSdXeJ/8uBE+hX+Au8k+2P80BiSjbcL98WY/MpbBCyBbFdXd9qzCWJwILiDv9eJSrQ1
+	HJ9uuLln8SXiiknvc3k36w/CmyfgFfpk=
+X-Received: by 2002:a05:6512:3093:b0:5c1:595f:b370 with SMTP id
+ 2adb3069b0e04-5c1bc6d253fmr1174527e87.3.1795194569103; Fri, 20 Nov 2026
+ 09:09:29 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,81 +58,46 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-12.30 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[7];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -12.30
-X-Spam-Level: 
-X-Spam-Flag: NO
+MIME-Version: 1.0
+References: <20261114-intel-pstate-online-max-freq-v1-1-1bbdae2b4986@hsal.es> <20261115085234.40661-1-xzhangjr@gmail.com>
+In-Reply-To: <20261115085234.40661-1-xzhangjr@gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 18:09:17 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0j_XsA_vv5XyjvtbkNXBJNhwDkYoJSfE78KsA50BaUq+Q@mail.gmail.com>
+X-Gm-Features: Aa3M54r8cdEJAdD0Zd7M4FbDyba-DKAmCj_dmkYEh4fRehGNENiucSzO3VGQDYs
+Message-ID: <CAJZ5v0j_XsA_vv5XyjvtbkNXBJNhwDkYoJSfE78KsA50BaUq+Q@mail.gmail.com>
+Subject: Re: [PATCH RFT] cpufreq: intel_pstate: Refresh cpuinfo.max_freq when
+ a CPU goes online
+To: Ximing Zhang <xzhangjr@gmail.com>, Hugo Sales <hugo@hsal.es>
+Cc: Viresh Kumar <viresh.kumar@linaro.org>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Len Brown <lenb@kernel.org>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, 20 Nov 2026 13:03:46 +0100,
-chris@kode54.net wrote:
-> 
-> Patch 1 fixes parsing of flag names written to the quirk_flags module
-> parameter with a trailing newline, as echo produces.
-> 
-> Patch 2 adds quirk flags for the Logitech PRO X 2 LIGHTSPEED receiver
-> (046d:0af7). This is a mitigation, not a fix. After a hotplug the
-> receiver firmware resets itself on the first stream open, and also on
-> repeated GET_STATUS requests or on SET_CONFIGURATION shortly after a
-> port reset. It only behaves once it has gone through such a reset of
-> its own. The flags avoid the worse failure, where the probe-time
-> interface setup wedges the receiver for about 77 seconds.
-> 
-> The same receiver hotplugs without trouble on Windows and macOS. A
-> USBPcap capture of a Windows hotplug, with G HUB installed, shows no
-> missing request that made a difference when I tried it. Replaying
-> G HUB's initial HID reports before the audio driver binds did not
-> help, and neither did a host port reset. These differences were not
-> isolated:
-> - Windows never sends GET_STATUS.
-> - It sets the playback alt setting once, about 0.9 s after
->   configuration, and keeps it.
-> - It only reads the volume controls at probe.
-> Suggestions on how to narrow this down, or on whether the quirk should
-> be expressed differently, are welcome. Captures and logs are available.
-> 
-> The device entry repeats CTL_MSG_DELAY_1M from the Logitech vendor
-> entry, as the other Logitech device entries do, because a device entry
-> replaces the vendor match. The receiver also worked with only
-> SKIP_IFACE_SETUP | IFACE_DELAY. The PRO X Wireless (046d:0aba) entry
-> does not carry the delay; Rong, I'm not sure whether that was intended.
-> 
-> Testing: with both patches applied, sound/usb/ builds without warnings
-> with W=1 and checkpatch --strict is clean. Patch 2 was runtime-tested on
-> a 7.3.5 stable kernel. Cold hotplugs on a front-panel (PROM21) port and
-> a rear (CPU xHCI, behind a hub) port recover within half a second and
-> then play normally.
-> Patch 1 was runtime-tested on the same kernel. Flag names written with
-> a plain echo are applied, and an empty echo is ignored by the parser.
-> The sysfs readback still shows the newline as written, because the
-> parameter stores the raw string. That is cosmetic and left unchanged.
-> 
-> Assisted-by: AI
-> 
-> Christopher Snowhill (2):
->   ALSA: usb-audio: Ignore trailing whitespace in quirk_flags
->   ALSA: usb-audio: Add quirk flags for Logitech PRO X 2 LIGHTSPEED
+On Sun, Nov 15, 2026 at 9:53=E2=80=AFAM Ximing Zhang <xzhangjr@gmail.com> w=
+rote:
+>
+> On Sat, Nov 14, 2026, Hugo Sales wrote:
+> > I have no HWP machine, so the HWP capability path is untested
+>
+> The patch fixed the stale cpuinfo_max_freq on my Core i7-10510U with
+> intel_pstate in active mode and HWP enabled.
+>
+> The test changed no_turbo while CPU 7 was offline, then brought CPU 7
+> back online. These are policy7/cpuinfo_max_freq readings in kHz:
+>
+>   Turbo change   Unpatched   Patched
+>   off to on        1800000   4900000
+>   on to off        4900000   1800000
+>
+> Both patched readings matched CPU 7's reference with all CPUs online.
+> CPU 0 stayed online and reported the expected maximum in both cases.
+>
+> Tested-by: Ximing Zhang <xzhangjr@gmail.com>
 
-Applied both patches now.  Thanks.
+Applied as 7.4-rc material, but I renamed
+intel_pstate_update_cpuinfo_max_freq_locked() to
+__intel_pstate_update_cpuinfo_max_freq().
 
-
-Takashi
+Thanks!
