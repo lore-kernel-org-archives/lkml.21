@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197852;
-	b=WZg4zOwqCeS/YiB7DiKZcIJigQSig7i452L/Z0PcNX3uSc/mTT0xHC0S6dF8Vj2vMig2
-	 axytchXPG8MGQWPQ+cZB9koTujN1hPAeYkNjCV8QNo+2mdlPwpkVrQKEplPw0MCyr0Qfi
-	 psQhOM99d4s/zlhtzhT9V+yh7hRxXvWj2EmHOx4vvlrlEzADDskNWvRBFrFVK1eQsmYmc
-	 QIaTTrVUGfpwlt7Fr3KkOvvxK6zK4V5XNxFqMjvdCmFTU2UaOsVsKUnNDBuRvQqGPzkEB
-	 uhiSPqrECEwd4X5Bnd4c4Jtf3p6qlZx7lTr4hciiWDCWoA+7YVSxNdSu2awkxE20PBQ==
+	t=1795197863;
+	b=SrlRdJ0kyvVQwJRIIwQilvU5xt6zNk7Jtotug+6zDa2Je7CghyKt6c47ekdkFiBSKoWZ
+	 iLXJS3IVvL/Gfj4x3El3ep6eKcW2GHVsnpMJ8eILrAQrsZ4Awyhnstd8lvP7CofPwe3vC
+	 dFF/H5baIPD+ID4MalT2ZJcJ/buGTyt7GuLl5O19RJliukfoYum60xxhzaEKgziPc10Mb
+	 G1M8TBd+sd4Bp9JGMNk+CeiMUYCLmeCiY48PvcQJ0/7KFHPQ5+aKznSxVAwqXkGOynpui
+	 1rckqr+wwEqhBaPvnG202/Pvg3UpJyBzxcVWGkPw2Jei1aUkPivQIp7/P4cBLM0fLmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197852;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197863;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=EWvTyJ0GKSZ0OW9hy14bottUtec95h3CpCl/9rBJjxg=;
-	b=aCMmxomZVCiW4ibq/NLO3LnQe44UQqj59f5MRYxFlzc/u35HlHFdS6N6jS+S40bssRvz
-	 +F50F9Xwh8yQWmOEe1fiuLHd0qdFSmBW+SlaUxB8Og2HXwYB50n5ZaKu5AOxfYJmR4vG5
-	 4tKys339eEmnkM1e+Ydk3Zpy4kHYqqCpNfAmd05pXjIAvKzuchgMoPAcGFkuwOCQtedEu
-	 S/PZMyQOzLEHf4RnV0Emfn0RuxFLp6d/hmwmcGl87DQ/AWiX/vCNvH8vV0Th7WS5WKbN8
-	 q1rdln4r9mbnkuW9QI7gyYKE9YOxrPVrslJMlNAw7tXJ6Vah4ElQ0I6HCC56inAMwHg==
+	bh=tbl7KbbWqbfMj9Je7A0HPDYmT/fmrxkKs/AK6iFXtPU=;
+	b=PvmU1UDJjKPKzYkT6lUwgQJ3Hji3B7Z+QO+VTDF+jbVTgsajp7kL9xg86JOjs6rs2d2E
+	 aLNldNpwY1Fg4+K5Y2rM8sx/G9vTCHvSDrx/zGbBrzZvz4MVGT/nBndyJIHOT4s8PTvvw
+	 hFnfc2ArvdXsOxUMHW8hQX9piGWqJNUduj0A2Rxfnj6KYUoFrvLgZcIHNx7AibNizDqCY
+	 opn0Vp8yZ9JErYwzie88GricAb3Jc2F6J3DGXRnm4hJnlWTEyC0Lm+NQE6fUf094WEo/1
+	 HoAq+fTEbhojSm0umxm8pivkKVpzApHx9tWHi0VLyr2gCFQgD8xnH3UmSU6Ku5bUKvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=P9W9WMta;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gzmRpfKy;
 	arc=none smtp.remote-ip=185.171.202.116
 Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7462E60A263E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:04:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7462E60A263E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF30F60A3827
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:04:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF30F60A3827
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=P9W9WMta
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gzmRpfKy
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id BA449C62225;
-	Fri, 20 Nov 2026 18:04:07 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 20455C62225;
+	Fri, 20 Nov 2026 18:04:22 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EDB65601B9;
-	Fri, 20 Nov 2026 18:04:01 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A801111BC09FC;
-	Fri, 20 Nov 2026 19:03:55 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 554DC601B9;
+	Fri, 20 Nov 2026 18:04:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 04F7A11BC0627;
+	Fri, 20 Nov 2026 19:04:09 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795197839; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795197854; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=EWvTyJ0GKSZ0OW9hy14bottUtec95h3CpCl/9rBJjxg=;
-	b=P9W9WMtas5JI8irOOHVzjhnj5lJfAPEKbVtuVoaGThNK6KVLDad5IAlQJAe/4b7xGt0v6f
-	lfP72nsjnXgbZSbKkaYsL8HZLdjam4OAdrxRAMEECA+m8t5cFvbfSaIul/0hFggs5Hg8M6
-	Ck9PEgHBaW80dgQyY+BSU6P+R4CB1Ashft35xsRgkHdgZlngBYEwh8KjSpuAtz0MhOuCfR
-	RQ1cINtZicmfYQoy+SPwPWE4EsFEEwV0MvT5cOkUpSAkLpuTLrcDAnioYIQp24/d+IVtcB
-	53Btq5083RoDtjNndmsO/NZfItr1VR4V12G+TNM68gQGAyqzKQ5ttb1SN6D7gQ==
+	bh=tbl7KbbWqbfMj9Je7A0HPDYmT/fmrxkKs/AK6iFXtPU=;
+	b=gzmRpfKy1Cjr1LkvGCUqP92ZEUvjeLQi8ln4r6Wjkj9+v9w9pqKkbQgtMr+QLZdb7lo/ji
+	ZCZpCuyqiRNU6LBfrn+5NAQWNCX5uZV02OsUwENSovQD/lNZf60Hkxd+6a+a2vuahfW88T
+	kzGQJIVzqnGTAI7vJqhgs0m8w8YpHy8ouPeZvjSkPHaZ8RNTQXmdSVZxLLHPbSt28hSNIF
+	es/psjgSF3Kkz1m0ZJLRvB5hy16DfgpBi7OYuGzAlprjz+AGnOs207CbMLE25bhNHKtQEl
+	vC/HQJJWwMOGS/8l4XS7B+FlyY4zcpgpe9mGdLK5ecm1oSgfjOutjaQiPnAhmw==
 From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Fri, 20 Nov 2026 18:58:56 +0100
-Subject: [PATCH v6 14/43] drm/vkms: Add error handling in plane config
- creation
+Date: Fri, 20 Nov 2026 18:58:59 +0100
+Subject: [PATCH v6 17/43] drm/vkms: Use enabled/disabled instead of 1/0 for
+ debug
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,8 +65,8 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-vkms-all-config-v6-14-78ace90f4fc1@bootlin.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261120-vkms-all-config-v6-17-78ace90f4fc1@bootlin.com>
 References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
 In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
 To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
@@ -90,83 +90,61 @@ Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
  victoria@system76.com, thomas.petazzoni@bootlin.com, 
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
- llvm@lists.linux.dev
+ llvm@lists.linux.dev, 
+ =?utf-8?q?Jos=C3=A9_Exp=C3=B3sito?= <jose.exposito@redhat.com>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2118;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1209;
  i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=tJ6CmTl8tZxoxLjfFVZLDN6OYWoWi2kn4tyF5DKaWI0=;
- b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIr/M5fxgGdZQwxOEDXjpj2q9XdrXZF3dhvDi
- VTjE3JoX6CJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCK/xsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOLzBBAAtQUiY8IycgCKZvm2cEsLaGPaRAacj5U
- 24hdcs3OtVaNAAvcSZOrCQ9wVivgqDbNU8cQSKNn4AXqyhKhkS6GcgSAHvlLPZ61NsRhoha8X65
- gCmADE3pgA5I7oXkJocjSwsaxGVPcvfVEo904PC3OBgBOAC/k4C48bHPcS5AMf4Z6KCtjGKtGRl
- N3Di6sie6PwpkTbk/RlYGMz8OB1JoL9LHLDx58AXGGY9sf3bZX/rCtpDrDwN5WWfsITv28W22bX
- 7sE4GImBld5nod5ggGidCNWOtxw+I/vMHoN5fAEKrYsXyEmkLw0LBR/Hp/armvQsnr/wdJ9MY64
- rI0wk7M+fPVBldJQtIltd2aTaBmz3/nzbdnPYMa0wJvmIb1u2yFUwcL8Dmzp1vScG00qen7eyMy
- 2Hwj3CZJ7TbOsiRjqTYtXgMmq7Otk5J0DKF5No6iBx6kO3G0Ou/qmeoom3FoMTCA4fhriAY0f6A
- 5N4sizlLkfi0Sq4tJktPTOj6Ix9gAN5k5c0mK9q3ebv9q3pH92ETgIRTOzFr3x+dmKZEbSxx71h
- RYiQqUrG5Lxs6m7CB0Zf6cdkvoXeep47hU15YiJnD5oVY6SBLxD3Egq6Ouart9d6eMpEI6gelH6
- R5wDR7sa5U+FCGeyDuy57+pJvC/wd4L2oDGHLq/v0mRAnq2y0s5A=
+ bh=FuLxv4IS8t2OQ5v1HuAk78riDXjuPDUEQbNHD3ODm3Y=;
+ b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIr/Hsg3FddplCIKcqug0I7EdumRSe4lf/48B
+ qkjemsQq4GJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCK/xsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOJPoxAA021lc8DnTStnlAZWYd5TyVyTIS3Shax
+ 26CLO8CrwR4KPHH9sPBz+mUc1wbkTjpXv6qHrg20lIokU2JQqpRfuVTIpOePS4SZ260XEAeAgFO
+ UcVNldCpSGb7bnVfl0OVrnpnjL5LUniHXyA9Zsm2C06VmEUaGHEQiUo3f5ZSydKB3SoYz+AW4Oj
+ Ok7bgjMD1AMCJtJxTgFpp2JkJ1h8Z15nAeFCypCtfenQAXvM/9e6k8kSeJ/9ckeYHJOe4aeAvXY
+ JKh6n2ybpZXAQC0y0jl3B44WWy0ti9wRa8JX8ifrjFGSKbtJQ/1OTuemR2PFyf2NPNlced6TXcJ
+ seDS5OlCcn1S1O4MEeuFkMBjrxDGZb/n7cB+vcm3Yel1ogRgii5XA42MZL6hWIEduK4ZJQgKyns
+ Nx6xN27slWcCVk6ehjPPQXO4blYkgxlKrlaH+4jaZHQwIFOuxgKPGR/Claz8FiC4h/pTTrD3t28
+ yto5Tdp85ITP6iwyuDQxqn9Erwk1E6AGiQapKpm9QeiUw0Tf79/D0xKdcLKAmEiv733ncY0Zijc
+ HdjBe1fOpM6VMyJmAjcz+TqiCdATexgULvF24wf4k3dYwuYpsgzyRV6QGduq5y9LKHai7Z6HLly
+ QGlMzq3LvblNCMzVxbiQ8h87H3Ux6fF7HLKW/WI6q7pBz1f/muzg=
 X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
  fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
 X-Last-TLS-Session-Version: TLSv1.3
 
-Properly route the error path of vkms_config_create_plane() through a
-fail label to simplify future work.
+Debug information are mainly read by human, so display human
+readable values.
 
+Reviewed-by: José Expósito <jose.exposito@redhat.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- drivers/gpu/drm/vkms/vkms_config.c | 12 +++++++++---
- drivers/gpu/drm/vkms/vkms_config.h |  2 +-
- 2 files changed, 10 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/vkms/vkms_config.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-index 50cde689f482..03f2d0f0e327 100644
+index 44ded8a86a6e..4127fb176a87 100644
 --- a/drivers/gpu/drm/vkms/vkms_config.c
 +++ b/drivers/gpu/drm/vkms/vkms_config.c
-@@ -424,13 +424,16 @@ void vkms_config_register_debugfs(struct vkms_device *vkms_device)
- 			      ARRAY_SIZE(vkms_config_debugfs_list));
- }
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0+
  
--struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config)
-+struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_config *config)
- {
- 	struct vkms_config_plane *plane_cfg;
-+	int ret;
+ #include <linux/slab.h>
++#include <linux/string_choices.h>
  
- 	plane_cfg = kzalloc_obj(*plane_cfg);
--	if (!plane_cfg)
--		return ERR_PTR(-ENOMEM);
-+	if (!plane_cfg) {
-+		ret = -ENOMEM;
-+		goto fail;
-+	}
+ #include <drm/drm_connector.h>
+ #include <drm/drm_print.h>
+@@ -397,8 +398,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
  
- 	plane_cfg->config = config;
- 	plane_cfg->default_pipeline = false;
-@@ -440,6 +443,9 @@ struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config)
- 	list_add_tail(&plane_cfg->link, &config->planes);
+ 	vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
+ 		seq_puts(m, "crtc:\n");
+-		seq_printf(m, "\twriteback=%d\n",
+-			   vkms_config_crtc_get_writeback(crtc_cfg));
++		seq_printf(m, "\twriteback=%s\n",
++			   str_enabled_disabled(vkms_config_crtc_get_writeback(crtc_cfg)));
+ 	}
  
- 	return plane_cfg;
-+
-+fail:
-+	return ERR_PTR(ret);
- }
- EXPORT_SYMBOL_IF_KUNIT(vkms_config_create_plane);
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-index de6a89819daf..49510a0957c7 100644
---- a/drivers/gpu/drm/vkms/vkms_config.h
-+++ b/drivers/gpu/drm/vkms/vkms_config.h
-@@ -288,7 +288,7 @@ void vkms_config_register_debugfs(struct vkms_device *vkms_device);
-  * The new plane configuration or an error. Call vkms_config_destroy_plane() to
-  * free the returned plane configuration.
-  */
--struct vkms_config_plane *vkms_config_create_plane(struct vkms_config *config);
-+struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_config *config);
- 
- /**
-  * vkms_config_destroy_plane() - Remove and free a plane configuration
+ 	vkms_config_for_each_encoder(vkmsdev->config, encoder_cfg)
 
 -- 
 2.56.0
