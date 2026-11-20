@@ -1,68 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172173;
-	b=iEIlzVROmsFoaEQYpzhKcevLLvqVyFnJW5rIcTf25kjPwPHLPmRErf60y+lYMknGlDpU
-	 JbJYJu/e65zRJkyGtdLuFDYCk0pnqqaEzNYBcbngwOoxF7qhQW/ppuzxjHnWOBfDKMDgC
-	 nUnqskeEmgoAMHn/vsvHIkQhu40LSamvM/bS1lrATfHeWSaaKgeAsa9GcNazA3aTwBC2a
-	 fVCxgwYfugCpr5TqJ7+1LURYdu0wlxt9t0ezI2VDNy7S/Lvg4OJY/HGboBNp59eG9rPS2
-	 J/VFgxqaKWDHnw705r9ifZHkE/CSBMmqzIgw/mANXaWQZLyop03/kr2DjUFF1hAANqQ==
+	t=1795172296;
+	b=C1Pb6yvAWXaeAKT0AsjvDlP/8KzXPYl3iguQg0ffdSC4RJ4QlJrW8HyysIQeV7Nftmh2
+	 ygzGx2DZ9i3E+P/VGdXxnQ3STV01Pq74QLTxgUr6CmdU9rAb9/4DuWy88ID9mxFpoqAwq
+	 d132YRPUzOcMaSSk7XxEiugtc/IdGZyvyy9dTqWodWKedSS2+zfQiSO1Znzcr6avphXDr
+	 hw0JUQwkhjTRtoWV88epPLgCkuLPsdyHETb7DZ1yflQJgSkIrHBNDwuQAvkHlNVgPsUtC
+	 EofkizrK5OqZCgk4CRFdL24jck5fEGBZJO0y3+AlX/UbSsPlCkvr/4nxVnDbT1oLLoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172173;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YNmhIN96G/XaUV9fy0P9SjX0B+4zL5Q0jDqnNZEKxz8=;
-	b=ByBM4cbPK8PBjReRskCfR55VnWAMaf9PPpbv8AIW0+JDcsQKnMS8od9DOczq5cgERmNt
-	 bkU3uhmrzrmh/C/rgg4pspuDMRNiVdc5t8Ha5Q/gKMqNZK8teLze3uoTM70YedvbTArMQ
-	 DQ3Q/GTL9koHtsiGuGyy/jH4EUuch9oCae20i6iAX3R9Kbpf85qruQcbYP6m4gPTD7vJi
-	 DfqOL6kqu/7YdS56mLX6Z0dXSsg3smyOxqogso1vwBDylLfKNyJRJ4uITmt2hp1lCqaRZ
-	 C4UNakV12MExL003t8MvgRf/ve/4lGR36FrEMB/YPdF1nhm85CYw3ElCZucPy7ZeKhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172296;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=EW6Q9jmIhQh9U/3ByIZXptV8tV4/B3yP9ni/4lNN4ho=;
+	b=Qg28RSieX2C8YqVWX5Qqn3BSDq+I12nb6FEoUjoCp8Y+qgxl8ssoZwa1bCNg/uwRhJal
+	 aekxm/rkWgXdx7Hks6v4wK4H03dcBR26HKSCReaJiRSfaeN0+VDS5yN14FdXiamP60oLY
+	 mvpQy1+N1O/CatGl2G6uVVf7by4S/AnYJbcdO+0cAqOOhbjQJ3wctKABeS9TAezEWdRTw
+	 o2dVGz+1I+ZHvn9X+35JgmnY0ydR3u90zEHsO3J4nzfy6kSrWBiL6XwTZQSt9s5Pe9uS0
+	 2qSR0UFB7UKBWfId3demgiUwm8H55K2t5CLqakTmq5cOyB+FnUdZB5COuq9vqg9Bf+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b="FtyeK/CD";
-	arc=none smtp.remote-ip=115.124.28.172
-Received: from out28-172.mail.aliyun.com (out28-172.mail.aliyun.com [115.124.28.172])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=gUNJtQtS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08B30606A336;
-	Fri, 20 Nov 2026 10:56:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08B30606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E928606A325;
+	Fri, 20 Nov 2026 10:58:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=FtyeK/CD
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795172164; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=YNmhIN96G/XaUV9fy0P9SjX0B+4zL5Q0jDqnNZEKxz8=;
-	b=FtyeK/CDxXGxyy4cVKK8fg6EjqsRODDOWLoHqZEFx/s+CI6y3seEM2e3r+Jc+W3XtTD0tl2HWFaSoIaXRZAqowXpIFuXpoB/r0zLZhuOetCF01EpUCtMawmNcoWN5fFAsLfVbAqndsRw7M62ZabXlypc3cS3co7HekMobryT2gA=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.05407562|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00349499-0.00128547-0.99522;FP=11300766904079126240|1|1|4|0|-1|-1|-1;HT=maildocker-contentspam011083099174;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k6Wwa33_1795172162;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k6Wwa33_1795172162 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Fri, 20 Nov 2026 18:56:03 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Maoyi Xie <maoyixie.tju@gmail.com>,
-	Guanglei Zhu <zhugl3@xiaopeng.com>,
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=gUNJtQtS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74D9A1F000C6;
+	Fri, 20 Nov 2026 10:58:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795172296;
+	bh=EW6Q9jmIhQh9U/3ByIZXptV8tV4/B3yP9ni/4lNN4ho=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gUNJtQtSHmecT3cbkPHjfDMIOqke1kr8wcj8qViGVOgRM25It6xUPOlm0Omkoun+O
+	 8Vj+LYsf+Riz3AIf7vF97VLervezzIX6APqbX2QCXNibwgJ2iSLhh9HhUfZGH4yhMX
+	 ADPJfBtcWAZvZxD7oRctR+1DmBsfXgzvwNvxndKA=
+Date: Fri, 20 Nov 2026 11:58:13 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Slawomir Stepien <sst@poczta.fm>
+Cc: andrzej.p@samsung.com, jiashengjiangcool@gmail.com,
+	yun.zhou@windriver.com, zzzccc427@gmail.com, bigeasy@linutronix.de,
+	nab@linux-iscsi.org, linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v3 2/5] net: wwan: iosm: validate the ADGH datagram length
-Date: Fri, 20 Nov 2026 18:55:56 +0800
-Message-ID: <20261120105559.54519-3-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261120105559.54519-1-fangxy@xiaopeng.com>
-References: <20261120105559.54519-1-fangxy@xiaopeng.com>
+	syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com
+Subject: Re: [PATCH 1/3] usb: gadget: f_tcm: take the TPG in tcm_bind()
+ instead of tcm_alloc()
+Message-ID: <2026112034-paralegal-democracy-b509@gregkh>
+References: <20261022134926.1125473-1-sst@poczta.fm>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,46 +57,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261022134926.1125473-1-sst@poczta.fm>
 
-ipc_mux_dl_adgh_decode() takes adgh->length from the device and hands
-adgh_len - packet_offset to the network stack as the payload size of
-the cloned skb, without bounding adgh_len. A length below the header
-plus its negotiated padding wraps the subtraction, skb_trim() keeps
-the clone unchanged and the stack gets the whole rest of the block. A
-length equal to packet_offset yields a zero length clone that
-ipc_wwan_receive() still reads skb->data[0] from.
+On Thu, Oct 22, 2026 at 03:49:24PM +0200, Slawomir Stepien wrote:
+> tcm_alloc() runs when a TCM function is symlinked into a gadget
+> configuration. It searches tpg_instances[] for the function instance
+> and copies the TPG pointer into fu->tpg at that point, under
+> tpg_instances_lock. This has two problems.
+> 
+> The function and the TPG can be set up in either order. If the
+> function is linked into a configuration before the TPG directory is
+> created, tpg_instances[i].tpg is still NULL and fu->tpg stays NULL.
+> Creating and enabling the TPG afterwards sets can_attach, so
+> tcm_bind() succeeds, and the first USB request that reaches the
+> target code dereferences the NULL fu->tpg.
+> 
+> Removing a TPG also leaves can_attach set for configfs instances, so a
+> later bind is not refused even though the TPG it would use is gone.
+> 
+> Store the TPG in struct f_tcm_opts instead: set it in usbg_make_tpg()
+> and clear it in usbg_drop_tpg(), under opts->dep_lock. In tcm_bind(),
+> refuse to bind unless both can_attach and opts->tpg are set, and copy
+> opts->tpg into fu->tpg there. Also clear can_attach in usbg_drop_tpg()
+> for configfs instances. The legacy g_target driver sets can_attach once
+> at module load, and its attach callback does not set it again, so
+> leave it alone in that case or g_target could never bind again after a
+> TPG is recreated.
+> 
+> With fu->tpg no longer set in tcm_alloc(), the tpg_instances[] lookup
+> there serves no purpose: f->fi already identifies the instance for the
+> item's whole lifetime. Drop it, and with it the tpg_instances_lock
+> acquisition. config_usb_cfg_link() calls tcm_alloc() with gi->lock
+> held, so this also removes the gi->lock -> tpg_instances_lock edge
+> from the following lockdep report:
+> 
+>   WARNING: possible circular locking dependency detected
+>   task is trying to acquire lock:
+>    (tpg_instances_lock){+.+.}-{4:4}, at: tcm_alloc
+>   but task is already holding lock:
+>    (&gi->lock){+.+.}-{4:4}, at: config_usb_cfg_link
+> 
+>   the existing dependency chain (in reverse order) is:
+>   -> #2 (&gi->lock):
+>          config_usb_cfg_link
+>          configfs_symlink
+>   -> #1 (&sb->s_type->i_mutex_key#24):
+>          configfs_depend_item_unlocked
+>          usbg_make_tpg
+>          target_fabric_make_tpg
+>          configfs_mkdir
+>   -> #0 (tpg_instances_lock):
+>          tcm_alloc
+>          usb_get_function
+>          config_usb_cfg_link
+>          configfs_symlink
+> 
+> Fixes: 4bb8548df632 ("usb: gadget: f_tcm: add configfs support")
+> Reported-by: syzbot+2799146a53c356f8017d@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=2799146a53c356f8017d
+> Link: https://syzkaller.appspot.com/ai_job?id=51e1f189-6d91-4321-a6ba-07d4eb3cd8cd
+> Assisted-by: Gemini:gemini-4-argon Gemini:gemini-3.8-flash syzbot
+> Signed-off-by: Slawomir Stepien <sst@poczta.fm>
+> ---
+>  drivers/usb/gadget/function/f_tcm.c | 29 +++++++++++------------------
+>  drivers/usb/gadget/function/u_tcm.h |  4 ++++
+>  2 files changed, 15 insertions(+), 18 deletions(-)
+> 
+> diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+> index 9e6d4f39900a..cc75d7e9792a 100644
+> --- a/drivers/usb/gadget/function/f_tcm.c
+> +++ b/drivers/usb/gadget/function/f_tcm.c
+> @@ -1720,6 +1720,9 @@ static struct se_portal_group *usbg_make_tpg(struct se_wwn *wwn,
+>  
+>  	tpg_instances[i].tpg = tpg;
+>  	tpg->fi = tpg_instances[i].func_inst;
+> +	mutex_lock(&opts->dep_lock);
+> +	opts->tpg = tpg;
+> +	mutex_unlock(&opts->dep_lock);
 
-Require the datagram length to exceed packet_offset and to fit into
-skb->len, and drop the block otherwise.
+Why is a lock needed to write one value?
 
-Fixes: c34ca4f32c24 ("net: wwan: iosm: fix incorrect skb length")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
----
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+>  	mutex_unlock(&tpg_instances_lock);
+>  	return &tpg->se_tpg;
+>  
+> @@ -1760,11 +1763,14 @@ static void usbg_drop_tpg(struct se_portal_group *se_tpg)
+>  		opts = container_of(tpg_instances[i].func_inst,
+>  			struct f_tcm_opts, func_inst);
+>  		mutex_lock(&opts->dep_lock);
+> -		if (opts->has_dep)
+> +		opts->tpg = NULL;
+> +		if (opts->has_dep) {
+>  			module_put(opts->dependent);
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-index 1c5aae25f08f..341c58b851cb 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-@@ -473,6 +473,15 @@ static void ipc_mux_dl_adgh_decode(struct iosm_mux *ipc_mux,
- 	if_id += ipc_mux->wwan_q_offset;
- 	adgh_len = le16_to_cpu(adgh->length);
- 
-+	/* The device supplied length bounds the datagram. It has to
-+	 * exceed packet_offset and fit into the received block.
-+	 */
-+	if (adgh_len <= packet_offset || adgh_len > skb->len) {
-+		dev_err(ipc_mux->dev, "invalid ADGH length %u, skb len %u",
-+			adgh_len, skb->len);
-+		return;
-+	}
-+
- 	/* Pass the packet to the netif layer */
- 	rc = ipc_mux_net_receive(ipc_mux, if_id, wwan, packet_offset,
- 				 adgh->service_class, skb,
--- 
-2.50.1
+The whole module_put() logic should probably just be removed, right?
 
+
+> -		else
+> +		} else {
+> +			opts->can_attach = false;
+>  			configfs_undepend_item_unlocked(
+>  				&opts->func_inst.group.cg_item);
+> +		}
+>  		mutex_unlock(&opts->dep_lock);
+>  	}
+>  	mutex_unlock(&tpg_instances_lock);
+> @@ -2300,10 +2306,11 @@ static int tcm_bind(struct usb_configuration *c, struct usb_function *f)
+>  	opts = container_of(f->fi, struct f_tcm_opts, func_inst);
+>  
+>  	mutex_lock(&opts->dep_lock);
+> -	if (!opts->can_attach) {
+> +	if (!opts->can_attach || !opts->tpg) {
+>  		mutex_unlock(&opts->dep_lock);
+>  		return -ENODEV;
+>  	}
+> +	fu->tpg = opts->tpg;
+>  	mutex_unlock(&opts->dep_lock);
+
+But opts->tpg could be changed now, but you saved it off?  No reference
+counting at all?  That feels very wrong.
+
+thanks,
+
+greg k-h
