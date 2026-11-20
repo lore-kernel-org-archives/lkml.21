@@ -1,81 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133154;
-	b=MXYdrSmAr70JITlwEL4pgdfFJbIZIeDf9v98K0DvAnAPm9TAyBbGLVjlAzTns2+ZotKG
-	 iXiIE4B44+mibaigZ9mGLv1pi/tDvIpEUyiNcLiVC7hG9ayLAcgRbeX1ycAStqo+xcL/z
-	 d1efNnJuTpaPOHWrvFs23u7Z6j6n2cmCvlgaZxzeTh+v/cng+AOjg7t31MpXaVfEMvuN0
-	 LlBIzzkX33lPmzC72+7I8CfrH7SJw37X5vjwC3NVrEh5PHpFJ0Z4Wl2kJKy4cwrQ2GcmU
-	 3ndI0YIQVerQJGhs/cMHA+VG1hJnZuJpQMnwrcgWz4CINH6iOEznntGtyBY2mIqO3KA==
+	t=1795133161;
+	b=DjWtL04KFUMIeTXEDaOJDSrn0gKy3XjRVE0se4NLZHc1wO6z8ULf+KDqHBcOv9WaOzBb
+	 41raycG2//yVqcN48eiUDjjsC3VZ61Nb7ycFKbRApTuPWtUR5WBH37s65L74zofkEiE7D
+	 f1eVJqPBiOCEI60nFCNvk0Qr6T4bW0hldol5FIJizYp/ZMrIPSFM8aCwWvguCLFT1Jp2e
+	 nkEHYw5a/qjpT2WwKkvaEucZeKKR3JAqMMxEd4JlXOS2FZ/82+TgEd7mL49EKYrExkEWN
+	 t3+0Hj019G3qCiMSMeVbi1j4s6CQmRXbkb32FhtvhXRQwf/1eRw70rwl2B9EzYVIXdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133154;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133161;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=aPMvV6uAMyUnxRWvODLxRgeAeThvvI3YGxLfT12eNJ4=;
-	b=4iGiUjtSYdzxJb83ClZ4XSHcLdgGsTyViZHcekj+v/OVpGiulOHqyxuJrbzcWMhuk+fd
-	 8vhegnuV02TkBgRdPXIc5GgZAJG1TI3ph9FBzSy7/3IKE9CJmvdbsi6bebwRmvA3HLZkd
-	 qLqNmjZ3H+tNQi6b7sSNutGFMq/V89ogyKaInYmunuqE49KLWwga7ORKrqlSlrc9WGA64
-	 K+JETC1URryEOYv/BkC34aOTQ0mslyRi6r8Nw3cZWx+9QJhSpSTX1Z/5MX9PmNGUWOz5D
-	 rS0HGSwsQRhEN4Ssa6ffG7Ru1iq6PXBvEC2fteb7DN9x1YyL3AY5pw674xSjX/eem7g==
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=azqLA0qAXYUCa45xOPW0Kp2rz+qW3QafvJ3hp75stTg=;
+	b=ZfU24cp7YFBrM/l+a0o7vkvZxfR+HUkftUrlsCoNK2PXef2LIwc4MHvbXl8o06ewUoCF
+	 pAqvbvOrJcAhD7HEYBNkGKwN+YG1HDBpPXCaD7IJJjyN5B1MIgvdvKCVWTtGbnViYBfdt
+	 rvd/eFCRIbkbb4ZVL5Sdds+oQvPfnW4LtyzfE/FFty6tMj5sHDlKrhhi+yb/JVBMPfA1e
+	 Jfz34LyRhQXZu25RNqWzht6ciR1kT3OZitqAO8KwHPvMtqBUYx8+kTzUQzj8Gj1G6JOX7
+	 d1i4JNKIN435XhgbHGQJl1SpUZScaON79sNBlSUjkyLFEIALQ42gdAXluxxTP0USJzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6RDrTH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="C/qRcMCX";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D39060A260C;
-	Fri, 20 Nov 2026 00:05:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C6AB606A33D;
+	Fri, 20 Nov 2026 00:06:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zo6RDrTH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 725A61F000C6;
-	Fri, 20 Nov 2026 00:05:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=C/qRcMCX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6478C1F000C4;
+	Fri, 20 Nov 2026 00:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795133154;
-	bh=aPMvV6uAMyUnxRWvODLxRgeAeThvvI3YGxLfT12eNJ4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Zo6RDrTHjY6al3VoeDmjDNSMCEZL/DL0AE39Hi6ZO2FvCCzWFtyPdYkGQLH4oAh/m
-	 BbVgYDQvNI8/q9/WJ7pU/wq6pyZAQ9Ds8IfqMifGTUeAmoNt4im7fEIVPHsF2ZwouF
-	 DzIwYlkdTOuo48OOr/mNwBKzFc653k7d+qknd9W+G5PIm7K+/03IY8rV30/R23vvhL
-	 7ZWpBIaQhlCs7UNmMYw4QhvSENWMVYqiXivFhLUxIJ7VE2DzxdqbJBnonf8ATdJjVj
-	 ov0rXmWw6HlhvN/iyvkW70GrjAxAT3bY+heZ9xKz6Y/Sq1xaRjqN/nlcY0YPtTgKgV
-	 fQ6cN4FzhkYBQ==
-Date: Thu, 19 Nov 2026 16:05:52 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Sunil V L <sunilvl@oss.qualcomm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Patra <atish.patra@linux.dev>,
-	Anup Patel <anup.patel@oss.qualcomm.com>,
-	Chen Pei <cp0613@linux.alibaba.com>,
-	yunhui cui <cuiyunhui@bytedance.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
-	Zeng Heng <zengheng@picoheart.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>,
-	Tony Luck <tony.luck@intel.com>,
-	Adrien Ricciardi <aricciardi@baylibre.com>,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, Weiwei Li <liwei1518@gmail.com>,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Samuel Holland <samuel.holland@sifive.com>, guo.wenjia23@zte.com.cn,
-	liu.qingtao2@zte.com.cn, Dave Martin <Dave.Martin@arm.com>,
-	Babu Moger <babu.moger@amd.com>, Fenghua Yu <fenghuay@nvidia.com>,
-	Peter Newman <peternewman@google.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] riscv_cbqri: Bind to RQSC platform devices
-Message-ID: <av-O4EoModkN73WK@thelio>
-References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
- <20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
- <20261118234904.0f6a0f17@jic23-hlaptop>
+	s=k20260515; t=1795133160;
+	bh=azqLA0qAXYUCa45xOPW0Kp2rz+qW3QafvJ3hp75stTg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=C/qRcMCXJOeIm4PHfsmYQqzKld2ueQeGDruZ2gAssKMuhhzvSGZgumXxfj9qtBut+
+	 VLyc33Pqh4lheBm60yLwGRpH1jNz5WHmDPe0R6BC5TnBFAP8URvpOiB+4lS98IPpUJ
+	 QyQ0VpoFd7pzKm+P7IAiPx7cXuyNX4d31756lt04ougDpRPU7dSSO7hXH7MykTONzb
+	 5n7uban6mELkAJMo0RjcPElhuqVfiyLMSi6r9oSmA88ms2cwLpk6fdSucGd5xCO5C3
+	 TSp3S0gE72R6YzzlIpUROktNaYtb987nfavFMmhVhGE1YzHFN+loroKbvnBFy80nHJ
+	 GIrJfJvw72h7A==
+Date: Thu, 19 Nov 2026 16:05:59 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Joe Damato <joe@dama.to>
+Cc: tariqt@nvidia.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org, daniel.machon@microchip.com
+Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
+ doorbell fix
+Message-ID: <20261119160559.45b9fc7f@kernel.org>
+In-Reply-To: <av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
+References: <20261117155353.2250540-1-joe@dama.to>
+	<179493106742.3291.11434436383058043225@kernel.org>
+	<avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
+	<20261119143852.3bca9000@kernel.org>
+	<av+HfZSa40OFtF+M@devvm20253.cco0.facebook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,47 +64,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118234904.0f6a0f17@jic23-hlaptop>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 11:49:04PM +0000, Jonathan Cameron wrote:
-> On Tue, 17 Nov 2026 14:11:29 -0800
-> "Drew Fustini (Tenstorrent)" <fustini@kernel.org> wrote:
-> 
-> > Let the capacity controller driver probe the "cbqri-capacity" platform
-> > devices created from the RQSC table. The cache is named by its PPTT
-> > Cache ID and the PPTT gives its level. Select ACPI_RQSC so the table is
-> > parsed and drop the OF dependency.
+On Thu, 19 Nov 2026 15:34:21 -0800 Joe Damato wrote:
+> On Thu, Nov 19, 2026 at 02:38:52PM -0800, Jakub Kicinski wrote:
+> > On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:  
+> > > The only fix in this series is the deferred doorbell flush (patch 5), but I
+> > > need the other code (patches 1-4) for SW USO support I plan to submit next
+> > > if this series is applied.  
 > > 
-> > No change for device tree systems.
-> > 
-> > Signed-off-by: Drew Fustini (Tenstorrent) <fustini@kernel.org>
+> > Not sure if this is what you meant but this may read as if you were
+> > sending a fix for net-next for convenience of sending more patches.
+> > To be clear - that's not a valid excuse. That said, here, we're talking
+> > about a 10 year old error path bug which nobody apparently have been
+> > bothered by. We don't have space in net for such things at this point
+> > of the cycle, anyway :S  
 > 
-> Has the DT support landed? If not feels like a few tweaks in that
-> would make this less noisy.
->
-> If not, see below for one tidy up I'd make here if you can't push
-> it back to that series.
-
-Sure, I will roll the changes around cbqri_capacity_of_cache() into a
-v13 and leave that out of this patch.
-
-> You almost never want to do manual device_node puts these days!
+> I'm probably just being dense and not following what you mean here.
 > 
-> It's one of the nicest places to use the cleanup.h magic.
+> I was looking at a local branch that implements SW USO in mlx4 and it was
+> getting to be quite long with a lot of patches. I thought that breaking it up
+> and moving some of the patches into a standalone series would make it easier
+> to review.
+> 
+> I suppose you are saying I should have just kept it as one longer series,
+> instead?
 
-Good idea, I will use it for device_node.
+No, not at all. 
 
-> >  	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
-> Whilst you are here.
-> 	struct device_node *cache_np __free(device_node) =
-> 		of_parse_phandle();
-> and drop all the gotos. I haven't checked but if there is
-> a path where you want to hang on to it, no_free_ptr() that.
+You said "The only fix in this series is....I plan to submit next if
+this series is applied". Which triggers my suspicion that you packed
+a fix with -next stuff for expedience / not having to wait for a
+net->net-next merge before you send the rest of USO. I don't think
+that's what you meant but since I had to ping Tariq anyway I decided
+to wag a finger at you. 
 
-Will do. There should not be a need for no_free_ptr() for this one.
-
-Thanks,
-Drew
-
+IOW I'm commenting purely on packing what can be perceived as a net
+fix in a net-next series.
