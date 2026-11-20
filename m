@@ -1,47 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195578;
-	b=NxurHmA4GKMuonfeDaXTMFoXAscpDMSi5LwUTChiTGbvGgIdtFBcbYGIY62vRGFFsfsa
-	 zsO+yWbdE+bTbXHI9VoHCBFs809Oy80Zkc+gwUnayxyYEm6m5aHi3NvTkyNGkOqoyqFWI
-	 gCcY8+o0/pSkl1SheSiYu/tKxebPTuxU64XZqe6B/PfGhJ6iqne6aFl7PtwcoLz/ueZY3
-	 nEX1ityKzCsb+Q/RBoJnMzC5psaGrr43SODTMczawU5moXI5d1c0zuwwkIxUzMBOIhLEr
-	 aCIHNZr8UM1Z+3Cqd633He5xWOTICO80HRWRKIh46kLMiD2KI6kv0FX/g2cBCoQOQzw==
+	t=1795195605;
+	b=eWDAXYbEgPQ97ek9+6qrByy8n49balFW5CWusnURlVYoAT7TRjQHypBC3R6mnsXnpdBI
+	 YWqnHsoqWGyY5VqVfAx64MVSp7ON3FamBfo3t2i898yo3YGM/UY2OXXjUUyvUbKSEHzvu
+	 3nG9o+sSNEKun6v9gvQ2IUHTiu6Pc4ZIYBwNPCs3XZBLL6ZYxV3CrRFwSa6f1KxeDW/u7
+	 lDZoRViUPQJ3/qX/3iqLon9a12O/HPQ17Yty1xMQuM3S2NvpZRlj7GScaea+jQWwEBLvS
+	 RJZ/OxWVRAVMZ9xb9iMeeB4sUenxMfRQ02SvYkykd+yVciM2ZXD3xIR7qvJ4sWUjgDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195578;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=fj5lo260dYvQAeAPMJArWPIv25ADO1FHWkm4Gpv3BMo=;
-	b=vspMbXLqwizE/qV0OypSDVMgC55dZSeAGSu8+7+em1KjAOc/kRNPUZMb3VlhJLsV2cnU
-	 aGOTFrG+likB/M5Y12p1WbdtmXCkUaOCA+PqeIxSrGx29ctMPq8lordn+i1ohHibjYbSB
-	 Z7bQ/B14Hoalvo7NSg7/WnFn7cUCuotUS9FKubnKYh2BQ44645Bv6agXPbwP07xa031a+
-	 NjjM/4juuWDn9ty/+wAmNrX/Owdf3JXEwy+wgDCCMeBeJFQhbE9oyFfmj6xhUizgbs/HL
-	 LKd6MG+7/Gwj3hhPH2LIVJ8sWWkhNPBEllRpsCc4aPdGM4TmL3esZDryn94cVlHpWAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195605;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=fxf+nipH1Cr8jDUljHcHSs5CO02bX7aKJ8t0CkTEBBU=;
+	b=haRMOo/iTWl45lI4Gu08wjRTxxAn4Ix+J1PC1u75kp75VDa0kSaymJle15bwF9szCWfJ
+	 M5jEm8AgYuZMpSr69N/msDbtFPaDlLibUvhM0cDaD+6jTRvpg8U+sfbwvoUXvXXPnogPN
+	 Gi9OyiGqCbH8BQDmMyCC4GleEobgfvlAjxDqZow3j3RAVSuI6BVeZfO5CUZb5mon98F0W
+	 Rtbb+o63NADTNkOQZ/Jq7ku5qIBEWpktzjpIdH8cSEjFIM/tvbtoFMwHQ27bTvRC+cnGd
+	 r3kKerp8FgHcVOEog0/XtKtHmsBXZ49Yj7ZNeN0FcSndS37lM5Pf+FUtkYLGzj3dw8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IKjykBdQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8808B606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:26:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8808B606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 5595F6732A; Fri, 20 Nov 2026 18:26:14 +0100 (CET)
-Date: Fri, 20 Nov 2026 18:26:14 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Qiliang Yuan <qiliang.yuan@linux.dev>
-Cc: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	Nilay Shroff <nilay@linux.ibm.com>, Hannes Reinecke <hare@suse.de>,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hannes Reinecke <hare@kernel.org>
-Subject: Re: [PATCH v5 2/2] nvme-multipath: don't wait for a grace period
- in nvme_mpath_set_live()
-Message-ID: <20261120172614.GD941@lst.de>
-References: <20261119-bug-nvme-mpath-set-live-srcu-v5-0-e1483e2e447f@linux.dev> <20261119-bug-nvme-mpath-set-live-srcu-v5-2-e1483e2e447f@linux.dev>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6F23606A32A;
+	Fri, 20 Nov 2026 17:26:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IKjykBdQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E69E1F000C6;
+	Fri, 20 Nov 2026 17:26:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795195604;
+	bh=fxf+nipH1Cr8jDUljHcHSs5CO02bX7aKJ8t0CkTEBBU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IKjykBdQKK6UW+SjhXzoKfCs3ox84evesRjlgzUkRt6YulvgkWsuJ7oWEVj3R4cv6
+	 Fftdt/yPrrRSZUjOA9mkOAUBImSavMj2Dy6TuqPKpPUrulY4kci8BvV1clqgYYORo0
+	 bQnnB7toxNM/1VekBdnBdO5GsKR4cy9Mc3ZM7i/IMuPOy5hr3JmsfymyfkU5WkCn2N
+	 lB8b9+78K9kTag+XccBAZpKZq8NCcrmvZ0STC89Q4c0FGcFr9AF5/f+QkN07cB0XbA
+	 Emr1tzs/OkXsPtIdltSMHc+eDGheLG67tntbcdN2m9XB32B3myFkLcjXLcO4WKUAZh
+	 G1zd1xci164Ng==
+Date: Fri, 20 Nov 2026 17:26:39 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Navid Ghahremani <ghahramani.navid@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
+	stefandoesinger@gmail.com, krzk@kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 19/24] dt-bindings: spi: Add ZTE ZX family SPI flash
+ controller binding
+Message-ID: <20261120-unrivaled-prong-1e95735fe087@spud>
+References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
+ <20261014072109.1759502-20-ghahramani.navid@gmail.com>
+ <179518848943.6016.16140133614242447239.b4-review@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,23 +64,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rjrmWXXpDlSqC1UG"
+Content-Disposition: inline
+In-Reply-To: <179518848943.6016.16140133614242447239.b4-review@b4>
+
+--rjrmWXXpDlSqC1UG
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119-bug-nvme-mpath-set-live-srcu-v5-2-e1483e2e447f@linux.dev>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: quoted-printable
 
-> --- a/drivers/nvme/host/multipath.c
-> +++ b/drivers/nvme/host/multipath.c
-> @@ -712,6 +712,11 @@ static void nvme_requeue_work(struct work_struct *work)
->  		container_of(work, struct nvme_ns_head, requeue_work);
->  	struct bio *bio, *next;
->  
-> +	/* Let bios that found no usable path reach the requeue list first. */
-> +	if (!poll_state_synchronize_srcu(&head->srcu,
-> +					 READ_ONCE(head->requeue_srcu_cookie)))
+On Fri, Nov 20, 2026 at 03:28:09PM +0000, Mark Brown wrote:
+> > Add Device Tree binding for the ZTE ZX family SPI flash controller,
+> > supporting both ZX29 and ZX279128S SoCs.
+>=20
+>=20
+> Please submit patches using subject lines reflecting the style for the
+> subsystem, this makes it easier for people to identify relevant patches.
+> Look at what existing commits in the area you're changing are doing and
+> make sure your subject lines visually resemble what they're doing.
+> There's no need to resubmit to fix this alone.
+>=20
+> > +properties:
+> > +  compatible:
+> > +    enum:
+> > +      - zte,zx29-qspi
+>=20
+> This looks like a wildcard binding which we don't normally allow.
 
-Let's use a two-tab indent here to make this a bit more readable..
+I figure by wildcard you mean that the compatible is covering the whole
+family, rather than the x being a wildcard character. If so, I agree
+that it should not be allowed. I don't really know why it is here, no
+other patch in the series that I looked at seems to do anything of the
+sort, it's all device-specific ones for the xz279128s.
 
-Otherwise looks good:
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+--rjrmWXXpDlSqC1UG
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawCCzwAKCRB4tDGHoIJi
+0laKAQDRGnEKIBosOkTgcH+zt5RiPxDTs6KvjxZOxByJ94lB1wD/RN9YSoRwzHfG
+KwRcBXW7isi8mBE1p07Uf0zJ4hunvwc=
+=RCwU
+-----END PGP SIGNATURE-----
+
+--rjrmWXXpDlSqC1UG--
