@@ -1,94 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795155670;
-	b=NBil7fGzo0aEgqQTWOnmaC+qFqSp4s6oGRnQXRTvV6ArFFP198nrxZZ4lbTdhD2a0G5C
-	 u6MmngZSP0gHVDJO8Hx4A2MZ6pLC8GXvxxfjld+Tw20YBZEo2WGrKDkAHYD2Pk9NQ7Ms/
-	 uC18Y0CyRkT2h0FmxrcYC9FHs20w/YliPN4PB2YLZEjVzT+dZLW51rYUTzy1VQUNj3xWw
-	 yKeoLIjneJGTMQMuCIoWqaiI3b1hp4WULRtrHeaMpEoOMQIupZWsXR9ly7ggEewfuKS5/
-	 aWp2T/52pPu0iDClDpoJNaajv/ItfO9ctlFEwNtZU4h2Ust27QTi7X8f2NLOTyY8rCA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795155670;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
-	b=GMy/gMkqzjf+GS19eeAjBjOtkJA4Frg5SFyseaolRbBC751gWQqOLsPLx0x8eLvxKnbb
-	 ExRcpACfVyh6eldviYLHrd6Ha0eGVHRncvjNshyCdNG4UYTrO7wYxBcFg70nLaAkVgZoE
-	 IKA6xkLmvHVtdVfTU3QSnwUCS6FhQ1VMsRAmtbFZSLi3ggkrMtMZZVhVz9tgw3lRJoV8h
-	 CKVO5S47MSIqCwhXJPKKIx+vpIScuQX+/OWdk8c4ADLRt6Z0G3DOxl+kgElqpGOoXY74J
-	 nNm/ujoPr9fEOX95NJ3JZpS2fxl9H6hAh44NAb5L9NVRZBVYpRY/h5qailcl4EQlPnA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jf9CV78f;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795156026;
+	b=rMbey4sZnsyNynkT96QKZUT+6Kdvn6b/fWnsSTyhwa2rIAvDBfr3f6Efem6qRvycIy41
+	 7VSrbvZ6OpQBI5vcX0uhT1ZRrt1UGqETs3o3UxIctYqXi667hWcL2C5vudRqbO7N9eFNd
+	 lr1rtUmft7nJqtC9zguKdGoleN2EF3kvTtOLZ3FPmrB70y2KUAopdNEAhvLtTBCtA+n5B
+	 4VIU6REH6lkeRUr5uzkw8GYT6AY6i5t8y7oZnznXwaGgEI1UN+hiHX1LxGi1V8A8L0VTq
+	 LJ/CAz685QnpXtdC2cXszSAL7YQGFnS61VmnqrPf2wNB92qLjKVZ7Hm9fIjDG7DzYWw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156026;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
+	b=1lrgr9clss35CvkFbeZBAxqwvqwVEGq26ORelk/SIzeXmsowvcgPtLjr0LnpJ2ktmA0D
+	 6IO5Y7dY4XpzB3OJ13ZBCC+co8zAjTehAVu69Yhv0RJJf+ApvQRt9iADNuCSLUs/9TfHY
+	 4s+2g/Iod8o0EgYUxdhDh6pl+GI6S2FTJi/+y+og4eD0HSQBoS2P00nXQiVSr5GXyFbEG
+	 j/C4IGaGJbf6SuQo5aiw6a4jQpfqRBERL4pSbCapiX8WlpHCA3iDCQ/x5pGOPZ4uB0jaS
+	 whwF7bPSVTv1Of1v8rQQZik/ddu5PlaoQ3T8GA1khyDq2i9tlmGAS8xIm9Xwv2/eM+g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=f5FFAss8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.61
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010061.outbound.protection.outlook.com [40.93.198.61])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4B1560A2602
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:21:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4B1560A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DFEF606A32A;
+	Fri, 20 Nov 2026 06:27:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DFEF606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jf9CV78f
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33fb4680717so1361670eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:21:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795155669; x=1795760469; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
-        b=jf9CV78fTEHK77xABUNuLqeS77oUBYpR+16bljYgb0KLdAWnIC/IJI+3N04IHXm2Yc
-         xciabRbXXTjGCK+TPK2aBYJ9r+9vAennl2WJGwAvxCC6ACdA3fbxP+Zoul6dm0x1GjSd
-         lWLSGdMfwzub5nLl87rkdWrulgyYQ9zJlv0ufpxSqpXN+QchkFHOCJILENf9gwiEFBAI
-         7V7uqpre3uWfn7D9a1XitMGgfCp2C9XLDzS/TC5Vy7GKAXhFgMN3eNRDH0oDqsrIhaky
-         vXMoB/AkH9LNqSmfgh6vvRRVrJ78mqMoDymPL/bkhgNgjJLbEazlcR2RdfLxD4MFWjvf
-         t0ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795155669; x=1795760469;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
-        b=X4H38/iQryToGMshupLSV8Zl/PR9eTX6pyPsB9SudewReYqRNfW+1fEnJoud83jEIb
-         VgqAsMhWomVqB/X+wXmf0YyBSVJ/mwrJSTJD8dFkOEEm6dqqET02Cmqlz1ZFQ2fdTe2b
-         HaFfBoMoAUBhqJ6gM8mqZNUd8sQHTuayAn6PY9qFMIY14cVxjUk0a3l7ee8GbILFRqJA
-         22EoCiP8bKpjSw1BaJpwRRRmzipaLDykcXNYSfJWqfUb6vvj/x/goY+dFQKTHqpw0T4m
-         caU6PImvKUIg+OdZip2MihhMImaTV7rHcL9XP58y1bRQmhUK7qREDsPzKzWgmtBco2nq
-         URTw==
-X-Forwarded-Encrypted: i=1; AL+hErFLd/RptwK6sMKVkXt1vkOEXuShDkRpBowzxI1k14BXvBS+FwivS5llKGBJ/ETLjxiMmB9HVh8BlZUW+14=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8dbcGQhIM6ja30Y40PXIplkxiH2XndMDK7KKBW9ZW5/DT68fqS
-	3f7j98hoIc3bnlRvml5Cp+wdXzGm1msz3eB8A+7kpiVvH84Bsnq0BCim
-X-Gm-Gg: AZFdTZfVblRTq3/AosVoLkvhuRpEUi7Mf4E9EE7K03xAveamlLCwXQAfLwdGadjmQub
-	wSsvtycg01N3oyGedv4mLQnfkvT6ToKnPaV87n2nfWSotpF6G2J8jESNmAP9Pi8U30GQaLFawJ3
-	+GZZHADUsTVc5//pV3StyBjXBbwruV6WYgJX2dJ1uHu1jD+rHPv9Er0S6SAqKe7VFVu/yE1U4Vy
-	nojk7IleL20oTutNWeS0/8V9GvB/jOMYAR8RKnOI3YoCqeXzJcmDLneuRJ9OmkSySDDmiaQ7Ns3
-	ZblrnNhOOAHGCql7YNdXoJ5SjnMG+xKLBTGDJiCfK7fj78rFuq3oAGD2OQ5pbepg+/tvgTez2sb
-	oA+AbHgG64wFpz0M9Yq08u9FoyKrNrWFaY/Chxk33Z7S2f7iL+hf1DD4ygijL/1WRv6+o49/OQX
-	Cy/G+Xa7wOXXJ5gEzUArwA1wCGM/JYrCtqbXs4xD0x3hX6LXqu+VHIpogstHSWVDzjFemMmYyRg
-	Qs4pBMB/yUeSwPrmLaebciBsRp8cnuWehLtw31CsGSb44N7V2tOQ/G/Slp1COcE/p8aaEk2vVnG
-	0OQO1AVmyqqx7GwXTMkcrXhv8eW2++VNm+ZdKxlUGtsnDWpimw==
-X-Received: by 2002:a05:693c:80cd:b0:385:b8f4:756a with SMTP id 5a478bee46e88-385b8f47b36mr999820eec.12.1795155668669;
-        Thu, 19 Nov 2026 22:21:08 -0800 (PST)
-Received: from G7XWH7K1F3 ([139.177.225.240])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm5476880eec.5.2026.11.19.22.21.04
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 22:21:08 -0800 (PST)
-From: Zhao Li <enderaoelyther@gmail.com>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Michael McAllister <me@michaelmcallister.org>,
-	stable@vger.kernel.org,
-	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH v2] Bluetooth: hci_serdev: stop write_work before closing the port
-Date: Fri, 20 Nov 2026 14:20:48 +0800
-Message-ID: <20261120062048.40310-1-enderaoelyther@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=f5FFAss8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KNzw4bf+kfra+PnUdhW/iotAxZCHRb201U5yxfzhZ96TL5E1EiuA4GUKLPzjP/W7rh+3a7266eaoectXgGT67jAQWi+XpGTt2rT2X1YIFbdjpYDaEYw85e/7Gn+mKPbxwwIGUe7m1sizlfStLE28/iBlcpGE/1B0V/Q47LlH87q86BWNacPAuV9Fd9DJwRNFLjhlo16W+NK1s6gKlNkiyqMwWAND+UWP/ngtdZL/02hADPC2bZnTIdmWUwiKIh+jxGvGwRvBe/uCx6HhvMWgpW/BYNmllSP9tn/3O/FQfe4upwn9eLTurbvVTo9gTgQZ3X/mF4GEri4vhGjpbrctsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
+ b=Y3ZVjPmGcLjV9U+nmLPOFK3XCFieapBpnuQdpLfscwCbgXe6o/fzq7tTqImZ1EI8HVkXRmK+t4gMbCvq5H3DmHmQXGehzrkQxo8H2jmdSVHvtyIvqz7Cz43Qj1BGjKXE+E2Vm+4REBPfnDANbamjgOEYOzYXl0I+MXvRZV/MPN1lwlVC8+7ZG9YHDge42n1TDuzx/xOKKg9F+IKWV2v+605UmjV4UZqj32xZEFPreJAGvy0fkIcUpfHwbDvchZYypWhSWCoLFTc43CrKedvrpVpyD5nUaZFTMGTIgRJzBiTZeEkea/YLQT5ICxl5zPY5OxfbnSxA/P2OMjr5KbHtug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DxH4JHM06o8/H7CLAb3ZJvx3B+UrcQfFxBEh/cVScK0=;
+ b=f5FFAss8/WYdNJsdWjgWwA/WUcXcpfOgU53OPuofqHRwEeu1vmOrSvlCDAElGeUE5HYBrGRKDny52qk+7M3TeGrrztbGNlJLB9mQkpye+tDXg/ZSySvvRbBtQ4VeUBx6iAucxju0JCkj949dCeqAo4ybGXGO2lXxhzMV4hEvDNNJCNfmcsdx2PIrfpx3wY1+fS4Vq7Iur7vjA84iZ3hjePh73jyuLpqnmxxqmpvjUzc2tAy+Gbrf7dq+oEvDU9ZixJo2wK7U4X4UAh08DdXjoM/Xtj8Y0vXQOZNZeH5VUXRdIfw1AbC0BRXNSRAxwkJSYZCsvp0QU6ZPIRNS0DT6cA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com (2603:10b6:208:31c::19)
+ by CY8PR12MB7267.namprd12.prod.outlook.com (2603:10b6:930:55::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 06:27:00 +0000
+Received: from BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9]) by BL1PR12MB5174.namprd12.prod.outlook.com
+ ([fe80::58de:822b:868:96e9%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 06:27:00 +0000
+Date: Fri, 20 Nov 2026 07:26:53 +0100
+From: Andrea Righi <arighi@nvidia.com>
+To: Sechang Lim <rhkrqnwk98@gmail.com>
+Cc: sched-ext@lists.linux.dev, tj@kernel.org, void@manifault.com,
+	changwoo@igalia.com, mingo@redhat.com, peterz@infradead.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
+	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
+	haoluo@google.com, brho@google.com, joshdon@google.com,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH] sched_ext: reject oversized dispatch_max_batch
+Message-ID: <av_oLZQzAtFe2vTr@gpd4>
+References: <20261120054913.3795562-1-rhkrqnwk98@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120054913.3795562-1-rhkrqnwk98@gmail.com>
+X-ClientProxiedBy: FR2P281CA0071.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:9a::6) To BL1PR12MB5174.namprd12.prod.outlook.com
+ (2603:10b6:208:31c::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,80 +100,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5174:EE_|CY8PR12MB7267:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa630c09-708d-4ed0-9a26-08df46cf487d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|23010399003|366016|1800799024|376014|10067099003|11063799006|56012099006|261021123027099003|261022105027099003|261021121427099003|261022075727099003|261028144727099003|261102123227099003|261026140227099003|261102124527099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	mki+iEGcdG1nm52Hz5H6pqz4I+70XJQcru9vKKRURZ5lo+NTJr6+7wv8phrhEjwe5QKO2bS2bFzP7VgmFVXTmTsj0T320b3Jp+T4rGJY7026TIgyKXivpbDgBqPKoMWyTVPwpU3sVFjzQoX5jXZLTfrkXxCA5n3wvmxEqv0FjbWqnA/LDU6CBG60RVe7J7PJjM6ivelCxarmDmQHWlOO+LzYaOKnib20z6XP26+cQDkLqx57otftAQYNENdWTZj7aWiLleOwgn82a3SClShpvushWsPyctgELTyvWmXBEYSvESLbU04YaRe+KJl35K5S7hv7uf9FLi6VxwCwrxE6C9WTpVBxtMMcWogJRMp8N1/Ry6xyCY0sbgBybuHk8rjYPCd/uyPXLo+rI+Gef0qKtRc/XAOV/uFKpWp/2uSkJ7r4EJI6M0GXKjoJr8bQt4EGjROSydTL0WXUjl80WpcI/PQvFQcnzLhI3GfU2nagUWNtPILhmAym6uhonKgackKpcbQK1JBAdmCLdT9XZXkC4eGfNeq+NbQrtFOzRsXrE8Oq0aj1kieAnW+Dl/0+/TahN0jlhpbi9vcLLQuYBEjE6RXb5B64d16D5los+5mc93H6WLhVoG+oUTjsgzKyNTCH9O81p4EsgIbYOa66+ZDI7Tr9go5DxuInH2PjYTD7Zgg=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5174.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(366016)(1800799024)(376014)(10067099003)(11063799006)(56012099006)(261021123027099003)(261022105027099003)(261021121427099003)(261022075727099003)(261028144727099003)(261102123227099003)(261026140227099003)(261102124527099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?IqoTg7E6gVTkjglOaCs9vnscT3nQ1zesKIhn3tu2E69IqUBuWzDHKhtqb7FP?=
+ =?us-ascii?Q?eimgxKFTWm2KGE4qDhrb4G1nE7OXznLuh6K2wEjpO5JXQQroivgw/w2w575S?=
+ =?us-ascii?Q?bZSVKOcSWcjRNon9I2G2SZfRtS93yRtdR4+bc3UyZDe/dv8XBlroNRQ8O+hl?=
+ =?us-ascii?Q?D6DCohYw5bCMOI2mcXg3wf5g3Qpi/9QU6WMR2gX1xYz5eID0vCjaD4bqMWLz?=
+ =?us-ascii?Q?FhJZOn1x6vGkPaYdAI7xlLDqbmnN2EEFc0c2kxJAqBjdoJ/gsC0CJW/XtVN2?=
+ =?us-ascii?Q?oWrbg18EploJnqGF3KjQROyHr8PK+UDehpbFV/epEZHUjpn8b97pak5jmtyU?=
+ =?us-ascii?Q?57+zjMUXOVdKEtK3dIymFk8Sc31dRF2DhmCpxZDTz1EqAhg2AdMwUVjNStj/?=
+ =?us-ascii?Q?lZwt9GgdzxPbL+pwpfk7y2h7zg3RxYNuBrY8BVHlTROg5bYLbnJlQCfcwnxG?=
+ =?us-ascii?Q?P+EzdqOmNa68mi4ApWMRBY7bbTTjSj011/kUwMOWT8Zr8yUlw0+7QF8+p0ap?=
+ =?us-ascii?Q?lGCc4o5aERUPLiinFX0A8MHxGAWsCg7Et+bKnohSQNW19bA+o1ykhQ4v98/E?=
+ =?us-ascii?Q?woEZ3rK5v9TUbARCbajXszSTmFhj7wDwsy5zFFjX4sEAtnJzU2THY45BcX3J?=
+ =?us-ascii?Q?xMHYS3Pe4N7fTvGqe7TJIPpscXygYlv6msF9zX4NLHsTDSP/koiHDD0Jd8kP?=
+ =?us-ascii?Q?jt1xm24XgRmSfwhVQlMKLWuzkvIvGgv1vO4xOHOAzwtET+FbjP+kv2jhwMgO?=
+ =?us-ascii?Q?GHD0g4VkMDJivUMaadrKwzvKRkW8WfquT1fcTlL575yj+YBlHj5wKuL3b8I0?=
+ =?us-ascii?Q?cKSke3A/gXxSwtKh7g7M8h+crALmhgPUbGqpJrqdPW3h6fTMWQOs2vCZS9ID?=
+ =?us-ascii?Q?PdOhGj/E4kLGC2f+bZtKS6g2lMabsVF0QJRqJGA6EiOSooulCXLCTK4wYIiO?=
+ =?us-ascii?Q?lwYs+eEm+Vjg35uU/1yrs+i6CY2MkHp7yl7mTTLT+mQvp8d8MwQWfdR5OATD?=
+ =?us-ascii?Q?Tfv0aTD3UegLUj7E7lmOxmL737NcDcoan2BbY54H9qrDXf/WY6Rs9lH66lUr?=
+ =?us-ascii?Q?p96+GZB684e0wNcp5KPTj2z7c2XXNFQ9+8rFetNhE5v4i68nNF3vsvvXg0zl?=
+ =?us-ascii?Q?GrdKr8DOnmv/sAf3O1uOT5QtD22EpnSac27ffX6eXWIzlYiryuSyu4PoyoF/?=
+ =?us-ascii?Q?bN5MaxQii0Qgoro99QcPpj88Y5BpRDkqny1rZIAKlkhMcvr/cKtyAbjcKUic?=
+ =?us-ascii?Q?NFsDljBkv3X0/0ISQfCddWYJD8019TanTpRshrjEH38goMtPc3PHpqwYgDsk?=
+ =?us-ascii?Q?pCOCG35j+4VtNFRtZ60vFDQ0J7YVekU4q6hpKlqQtoCNTjWRbIKey9O6mdTf?=
+ =?us-ascii?Q?pPa7HvPqVSmT0VBjNBe7JCrWMEgDjiNIizAEv2o6S0sSJMpfp4LJ8ASCmnMm?=
+ =?us-ascii?Q?yugE2cTvFidrdhtXHo1XnGtiQkhZcZFRrh33u8FvsSaUIoLhEQTRpemUnTJG?=
+ =?us-ascii?Q?Hsh0u+yPlQqM0Dv2JzmvqXFP1lckhhasUCFQgN1LCW8qPpFCZNJ5MoziAMU2?=
+ =?us-ascii?Q?rK88JQZxBnlYUOKWr9uN96gn/HelzTEydzzH+FWXRRpCzySJ+pOF1FU+rUmj?=
+ =?us-ascii?Q?lS60A+V3TWd+iOICPHQkyQjTloHKg/zr/ULzAqB5YfuVoH3mzBivxrncF8OA?=
+ =?us-ascii?Q?5XkHg8Hj5Wz6hp6pPCPrwsr77BjFsg/cQ9uhslgDM0XepUoTw1Vf2MH2Yr53?=
+ =?us-ascii?Q?2IaUZfW82w=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa630c09-708d-4ed0-9a26-08df46cf487d
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5174.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 06:26:59.9526
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZN0OSfWlQ5gFccGkWF3VDxPkze7ti0ksYALFAs7nI5YUuxcx9m6042o1K91ip5yKDS01i1MX9Oj2jVep5sF6wA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7267
 
-With HCI_QUIRK_NON_PERSISTENT_SETUP, hci_uart_close() clears
-HCI_UART_PROTO_READY without hu->proto_lock and closes the serdev port
-without waiting for write_work. The hci_uart_flush() just before it
-re-enables write_work and may replay a recorded wakeup, and
-hci_uart_tx_wakeup() queues it from any caller that passed the
-HCI_UART_PROTO_READY test, such as the serdev write_wakeup callback.
-write_work can then call ttyport_write_buf() while ttyport_close()
-releases the tty, so it writes through a released tty.
+Hi Sechang,
 
-A partial frame that write_work leaves in hu->tx_skb also survives into
-the next open, which flushes nothing, and would be sent first to the
-controller after it is powered on again.
+On Fri, Nov 20, 2026 at 05:49:08AM +0000, Sechang Lim wrote:
+> bpf_scx_init_member() accepts dispatch_max_batch values up to INT_MAX.
+> The value determines the size of the per-CPU dispatch buffer, but
+> __alloc_percpu() rejects allocations larger than PCPU_MIN_UNIT_SIZE.
+> With BPF_F_LINK, an oversized value passes the struct_ops map update
+> and triggers an illegal-size warning during link creation before the
+> allocation fails with -ENOMEM.
+> 
+> Calculate the buffer size using the effective batch count, including
+> the default used when dispatch_max_batch is zero. Reject values above
+> the per-CPU allocation limit with -E2BIG during the map update, before
+> the allocator is called.
+> 
+> Fixes: f0e1a0643a59 ("sched_ext: Implement BPF extensible scheduler class")
+> Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
+> ---
+>  kernel/sched/ext/ext.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/sched/ext/ext.c b/kernel/sched/ext/ext.c
+> index 10de6bd865e8..93128da6b126 100644
+> --- a/kernel/sched/ext/ext.c
+> +++ b/kernel/sched/ext/ext.c
+> @@ -9197,9 +9197,14 @@ static int bpf_scx_init_member(const struct btf_type *t,
+>  
+>  	switch (moff) {
+>  	case offsetof(struct sched_ext_ops, dispatch_max_batch):
+> -		if (*(u32 *)(udata + moff) > INT_MAX)
+> +		u32 batch = *(u32 *)(udata + moff);
+> +		u32 nr = batch ?: SCX_DSP_DFL_MAX_BATCH;
 
-Quiesce the transmit path as hci_uart_unregister_device() does: clear
-HCI_UART_PROTO_READY under percpu_down_write() so that no wakeup is in
-flight, cancel write_work, free the leftover frame, then close the port.
-A wakeup sets HCI_UART_SENDING and HCI_UART_TX_WAKEUP before it queues
-write_work, so clear both after the cancel: a work cancelled while
-still pending would leave SENDING set, and the next open, which reuses
-hu, would never queue write_work again.
+The fix makes sense, but with clang:
 
-Found by code review. Compile-tested with W=1.
+In file included from kernel/sched/build_policy.c:71:
+kernel/sched/ext/ext.c:9214:3: error: label followed by a declaration is a C23 extension [-Werror,-Wc23-extensions]
+ 9214 |                 u32 batch = *(u32 *)(udata + moff);
+      |                 ^
+1 error generated.
 
-Fixes: de8892df72be ("Bluetooth: hci_serdev: Close UART port if NON_PERSISTENT_SETUP is set")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
----
-v2:
-- Clear HCI_UART_SENDING and HCI_UART_TX_WAKEUP after cancelling
-  write_work. A pending write_work cancelled there left SENDING set, so
-  the next power-on never queued write_work (Sashiko's review of v1).
-v1: https://lore.kernel.org/linux-bluetooth/20261118124821.3990-1-enderaoelyther@gmail.com/
+(also reported by sashiko)
 
-Before 6.16 the quirk test in hci_uart_close() reads
-test_bit(HCI_QUIRK_NON_PERSISTENT_SETUP, &hdev->quirks); with that
-context line the patch applies to 6.12.y, 6.6.y, 6.1.y, 5.15.y and
-5.10.y. It applies as is to 6.18.y and 7.3.y.
+Can you wrap that case in braces, matching the nearby cases?
 
-No new W=1, sparse or smatch warnings.
+Thanks,
+-Andrea
 
-AI assistance was used.
-
- drivers/bluetooth/hci_serdev.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/drivers/bluetooth/hci_serdev.c b/drivers/bluetooth/hci_serdev.c
-index 194f11251cc5..a5e4b3d32144 100644
---- a/drivers/bluetooth/hci_serdev.c
-+++ b/drivers/bluetooth/hci_serdev.c
-@@ -164,7 +164,20 @@ static int hci_uart_close(struct hci_dev *hdev)
- 	 * open may drain the battery.
- 	 */
- 	if (hci_test_quirk(hdev, HCI_QUIRK_NON_PERSISTENT_SETUP)) {
-+		percpu_down_write(&hu->proto_lock);
- 		clear_bit(HCI_UART_PROTO_READY, &hu->flags);
-+		percpu_up_write(&hu->proto_lock);
-+
-+		cancel_work_sync(&hu->write_work);
-+		clear_bit(HCI_UART_SENDING, &hu->tx_state);
-+		clear_bit(HCI_UART_TX_WAKEUP, &hu->tx_state);
-+
-+		/* Do not send a stale partial frame after the next open. */
-+		if (hu->tx_skb) {
-+			kfree_skb(hu->tx_skb);
-+			hu->tx_skb = NULL;
-+		}
-+
- 		serdev_device_close(hu->serdev);
- 	}
- 
-
-base-commit: 1d79f61152c315e30e758116e525871732181a98
--- 
-2.56.1
-
+> +
+> +		if (struct_size_t(struct scx_sched_pcpu, dsp_ctx.buf, nr) >
+> +				PCPU_MIN_UNIT_SIZE)
+>  			return -E2BIG;
+> -		ops->dispatch_max_batch = *(u32 *)(udata + moff);
+> +
+> +		ops->dispatch_max_batch = batch;
+>  		return 1;
+>  	case offsetof(struct sched_ext_ops, flags):
+>  		if (*(u64 *)(udata + moff) & ~SCX_OPS_ALL_FLAGS)
+> -- 
+> 2.56.1
+> 
