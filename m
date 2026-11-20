@@ -1,127 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795178824;
-	b=Jty6fYz9Mg4FslCKe8/nES5UnhFW1PHMt/cfJk6csa5uegc+vQlzUM+4ZXOarKJYod2/
-	 1dXxeDp/CmRlHyBCpRHqdSK6XqhILGHLjp65e9TbFo0wjdUORP++NO3enFlmmM7F3SQOr
-	 WXzdhrwik7M0/dL7tmtzaC4UkXnp1J3QTIcJ7ymcc0TxIi+3F5xZ7PMAARE8YhUHuZmCz
-	 3fk5ceR7QtQpzcr+xIi8kfrpVenCR1k60deXHHVCPA0XeXDIQvIEX8If4HrytqfmnnpWB
-	 tDdjrtfnr+Qw4V/yudFCM4RldNeopFkocWIbYITXYYxvGcyU+g25TAzLxNdWqUgbXVg==
+	t=1795178825;
+	b=hkHDMPs6XN12XdGZVDnmgymkqA5srqrs0TiUM4mXkcojQ6f/MKCLQOjBZWLp8x2f1ss5
+	 nxF7GzSkm6X0zi+wgNEF/SyQ92mwmSIDxX8rtPFGUi5tXdAPqv0nNtrxz/wxwB91F0Vk5
+	 kecsgtqiTM5Pjo0XNisP8DOuRskz2wXL3kN923fA9A51AqWY1VsR4KJmoju/uwiDYl171
+	 hdVwrCJiVDhbmd1dWlZvTXaOtxGWrgAaE3nWFELnAjW783K4oLVzdmTjZ6kgYTOgTZK66
+	 F0xM/cCEsSuWYAa5zGhOhZOrAOuxyT/yu3K9jtZjfUeZAMZOJyNF5ovvTCst6kbFN3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795178824;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=0ulF/F82puM5FYsSJ0g59/1wc8Edn/NytcDM7FiJ8jc=;
-	b=v0wNUqJK8koC0NnRS5+W3RMN7uRLuM/kwo2Rr+dkq4ySkGOhjdT1wREeBChwTRTf4Pc4
-	 gP1yCbbu0fGupTRrNZ83ndwO+EleldJL+tjJzRROSH8KAffCIjf+S+1yN0bVDwRwo0TlW
-	 is/xnRRuytpQ7ouddnQRuMrvzmY0PeFjPFIOejxBdCJ+h5wbAsCDdyU91MJQg0R70GETQ
-	 idxqWJg7jPr3lNloKrCiJniI+TASZXFzOVOxZxXG1tIW5mUb2f7BxuTUYza7vsWhNhgqy
-	 kLtxKeynidRn0rwbx19AGaZPbavOdCBbw3x5yMZqSGqdji+DJDz4zMgOeEAw4ZkY/+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795178825;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=VW9PgIUqddV2ctIph8GklJCXOd/Fbs2bPwpKZj/erTw=;
+	b=PpJwxya2TiazyZuJ2lvbIyYGot/6mhRabR3k1bxpk4aI6m+hMuq3B7gXHVNf8yWNLFG0
+	 YwMNcd+DyRyyQM8aO7CzVvU1zw2c+QzIw8h+qFnR3ViVVhkGqYokTcTp+60utmmI2OVPS
+	 s43ot5Q24J0zY2ZC9AZTgvGE7+xXP+8waSNBcvj9dJVin573bR9oCUdT04lMIhIMdHZYB
+	 VvbIrY9VnjepzLYkQElG+ZCgidPMyfzk0L4F5Yrd7efqSl7v8zFOsAt/O8mtg+Je9lV2o
+	 TpXxLqRef2R+4jkrhHCA4rLX7wmYVq9KGy91HR0mhd/1DCQXca5QH32/Wzj9YqMb/BQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DqoZLySG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ko+ched7;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IgcpA2Zs;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 879F660A2607;
-	Fri, 20 Nov 2026 12:47:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5515606A33A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:47:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5515606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DqoZLySG
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1F3B61F01816;
-	Fri, 20 Nov 2026 12:47:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795178823;
-	bh=0ulF/F82puM5FYsSJ0g59/1wc8Edn/NytcDM7FiJ8jc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DqoZLySG6tbEny6oIUE/axFh/2wx4W5GHzOkvhTlgcaY4EZUTlRys71s81y3ij2s+
-	 Rx6evb1/Oa+v4+RmHdPnlMI8p3/9Vk2Qlijco1EtXlIo6+Uox0MEXkH/j5p22LtJG8
-	 O+pAzJgjaL1XHgOBkbBGKjTQJ9BhUBlib22F8c7LUzIeRP0B3hW1yyMckmXfB09V3/
-	 pb0B13DLnURH0RN2WYu1RtEzVFvz+D8QM0Yu59J9hZtbKvXjbGvXTuwegQcAfBSTXZ
-	 ryU1OkE2JtMJpTX6AEDJ3anQ8K5ylpOqcKArjol4ky4NYsELzEC9Sl23cE4WQ60q2T
-	 OvpwQRIevpNOw==
-Date: Fri, 20 Nov 2026 14:47:00 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-security-module@vger.kernel.org,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@amacapital.net>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anna-Maria Behnsen <anna-maria@linutronix.de>,
-	Arnd Bergmann <arnd@arndb.de>, Ben Segall <bsegall@google.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Casey Schaufler <casey@schaufler-ca.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Christian Brauner <brauner@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Chris Zankel <chris@zankel.net>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@kernel.org>,
-	David Howells <dhowells@redhat.com>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	"Hallgrimur H. Gunnarsson" <halg@google.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Jan Kara <jack@suse.cz>,
-	John Johansen <john.johansen@canonical.com>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Magnus Lindholm <linmag7@gmail.com>,
-	Manfred Spraul <manfred@colorfullife.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
-	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Moore <paul@paul-moore.com>, Paul Walmsley <pjw@kernel.org>,
-	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Rich Felker <dalias@libc.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Serge Hallyn <sergeh@kernel.org>,
-	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Valentin Schneider <vschneid@redhat.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Subject: Re: [RFC PATCH v4 07/14] fork: Support CLONE_INTO_ROOTNS in clone3()
-Message-ID: <awBBRDaILtH11wgW@kernel.org>
-References: <20261119224312.1037966-1-jarkko@kernel.org>
- <20261119224312.1037966-8-jarkko@kernel.org>
- <awAh8chFM-9WtNKP@kernel.org>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ko+ched7;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=IgcpA2Zs
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKAkf9N3107595
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:47:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	VW9PgIUqddV2ctIph8GklJCXOd/Fbs2bPwpKZj/erTw=; b=ko+ched7bFDddz4F
+	j8dhA+j429hqyz2yk5Ncmi5aAa3rgLQEWYbkwqZ2RN8VZovqVe/lh1VS4yaINoO4
+	wQkSsHZOVJDkSGMiPEqNIZfepjZpra8nb5wETHry4dTe453aseWRXnQAuWxMOGA4
+	4S8u27zNH1TTH0ZUt0OFWOWOnzE5RXqk5O1vEvUOdcNTAk6+s1nVhDFyn9j4Iwhh
+	XvCUYN66Nm0Gm7nPM7q+uHW5hAmus9Zq8Wd2P7KAGxExFUjwNDUYan2klSNHEgY0
+	xs8b0U3v0dkuh7JxhRSD/S9BgD8Wp8JOJ1oyUQOLTO3sz5EtAWYNCdD98T8YGE9U
+	kJWByA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j27au3rbn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:47:03 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93f2005ce21so148719985a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:47:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795178823; x=1795783623; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VW9PgIUqddV2ctIph8GklJCXOd/Fbs2bPwpKZj/erTw=;
+        b=IgcpA2ZsZqpVSl7v6IyVW84NU2m59ch+2cnf597njxpkDny5cVH+v0ejy9ieyN1jrd
+         Abm80g/1vvp0JmB0dojOKhnsaqMQpY8mTkSnaZ49B+NDC6EQp/gnHPxPvnQOcAl703Ys
+         t4rDl0VsdNgZEJ5lAY+xFrcAHMLtMN0pdIqhVKECsP/+k07rSJ1jxrcOeYWWEo4lXsrb
+         aj1Zlj+J2qZWPj8B6k3cFgbEWKJHgvLaf3LQIyPdw/XcFunfKL+LnxsLRTCVnWQj65au
+         IA97aK9K0nV6bD8hVi4nmyKiWXqtCUdgu3/0l5EP3uEJoIoyO/e9CQ3Pij1OZSJnvYBu
+         R/uQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795178823; x=1795783623;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VW9PgIUqddV2ctIph8GklJCXOd/Fbs2bPwpKZj/erTw=;
+        b=b2T5IsED0mp+5B7mRHG+f5ogNWDXKxBWM5TG63pMk5bCCHs2W1uCNDGUsbT3ewAaH+
+         VyyrkmL7dvs50yZDwY/S/C9phUpKD9ju9g1luJ7awar/16D59wGenhO2/5G3X39JEHCN
+         Al2dhPKtx5O9ZMBV7bGLOOS5RKWJ2B+oXgZ7TpoWP+qKQXH/7xTlKLERckC3/Qt0Jpjh
+         2UI/VvOu4448OOlu8ts6w1YuZ85FkxFYc6CO9CSOBtOTnbZQFGLyMKvdPsimR1mjtcuy
+         d45i6Vpfu02u8DicGR0jyKer7m5FWCiPARMWJKUlzFCDt4+QSiELux8REW180BrbuO/a
+         CIxg==
+X-Forwarded-Encrypted: i=1; AL+hErHNzdTq7l0/0iL+FzfdGxEvzgw7US2IWRaswOFgkyeaQFEiIzFGbmH9r885GtwhyrO8Go7miChnTMB35po=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/eymn87BUtuIXXkHEq9XJPGP+IEn6ZZh8ofwpzwweoubrqdDvB
+	Vk5z8blHcN6kbPd2imC3w56wba2F+33PJJiiMt2kcPpPFbuXSkOTU6SmUlvAgH3HWOdlvSxubhV
+	tNdqFaxwc0ocUC4L3WkB8HyY4yWlQ45OC3Acvwixr685/QLnqlKoYjzJn6DkVL8AtPKA=
+X-Gm-Gg: AYBFou3Mgnl1Hs8Ymw0JOS7LtzWEasyH9KzQUA+47SF2+sCuYeo6VdipSmI2VWN7xWS
+	P/0A/1J9H440wkn3t8NTDaKAtzixf1G2jQJai80TDDP6GQOJLGfqj/cIdmKJPkdGfY5LLnNDamb
+	9rRing2DyypW2zsN0gJano2hxTq6PXu5GV6HEAD4NdaVYNrw7B+9xOmvk6GDEl4QtrVOC+/I7gj
+	f0sRlxo7xcliWBVR869umRgmC/tRDLGe9MspcW+HfaakLXhbX7c7HMb9kNe6L/QT9eVsKYDHyhI
+	Ir05KxraeQrLg8WaQ7903WPVy5CM4Auywwg9aZnQFmYaEEPM+XmW/wSnEDw+V/+C2XhXDMqLKZv
+	CEASlJr3nFoQ1t6ChQoijXLZWjLRVVjCtFBvYxg3OO+QNHPxJgQGCUp4on8Rbvm12s0Nk0SAGNV
+	w=
+X-Received: by 2002:a05:620a:1307:b0:93f:1e3c:4a3d with SMTP id af79cd13be357-949ba9db70bmr444308685a.46.1795178823086;
+        Fri, 20 Nov 2026 04:47:03 -0800 (PST)
+X-Received: by 2002:a05:620a:1307:b0:93f:1e3c:4a3d with SMTP id af79cd13be357-949ba9db70bmr444305585a.46.1795178822702;
+        Fri, 20 Nov 2026 04:47:02 -0800 (PST)
+Received: from brgl-qcom.local ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm119248995e9.11.2026.11.20.04.47.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 04:47:01 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 13:46:42 +0100
+Subject: [PATCH v3 05/10] of: property: implement the .property_get_names()
+ fwnode operation
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,51 +117,146 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awAh8chFM-9WtNKP@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-fwnode-for-each-prop-v3-5-808e304dc73e@oss.qualcomm.com>
+References: <20261120-fwnode-for-each-prop-v3-0-808e304dc73e@oss.qualcomm.com>
+In-Reply-To: <20261120-fwnode-for-each-prop-v3-0-808e304dc73e@oss.qualcomm.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+        Daniel Scally <djrscally@gmail.com>,
+        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>,
+        Hans Verkuil <hverkuil@kernel.org>,
+        Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+        Kees Cook <kees@kernel.org>, Andy Shevchenko <andy@kernel.org>,
+        Len Brown <lenb@kernel.org>, Rob Herring <robh@kernel.org>,
+        Saravana Kannan <saravanak@kernel.org>,
+        Linus Walleij <linusw@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-gpio@vger.kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2119;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=k44LD99l6+yuoAWvft0Vpp5Uhsi3XgcWFZVnUcvzOe0=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBrAEE3jVJ3t+7uOpkpf/ma2oevHqicDxvGj6rBl
+ oPQT0dmTv+JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCawBBNwAKCRAFnS7L/zaE
+ wztCD/9paaR0X5QgLZYpSkhTLDTDj+2CoshL76CwZ1C/euxfx9tQSoQJ4gzXzbBkFkBFqsUxlyt
+ GNNSODrG5PYw8EjJ7vDMp48Ttka9c9OQKOoe3eWtu+G68YsiZI3GE2aBE8b8YaKFdP/w4/S0BcG
+ /PVGqrbKQT06pLdEEM9gLJnwgcDz4HmRK5DUYeBZzn7VNiC/SXFpkvwYodJ7WDrkHJAfiJj06fV
+ qel4dEHCkt61LsEDdkukVtcgBmcKQbGJDMcwPke2dFdp2ap6cL2vHro+W4tWug2vb8+wNXgPbRF
+ mr00uwwasIhDyZgV3eH0lUPQQIzT2v0wixQdqAXuavckz4zkemVQbMDjlwo+I/sncQobi6IdmhR
+ ux+nVqVmwREhNaSHZVR+WMQMIRowp5vY1azSPvpQweYKZBmjulfqby81nbNdvEVfrQqyi/Zu+EG
+ XSyc3pusKBiDGRWdWDENGtbgMsqcUyHI6KEKY1iC1QbhZdmf4OGtDuoKT+uTSALX0IOM0P+/Dmh
+ Ty/QCv14O/KHiziP6X2ihEiRIhDjSVJJyO0vu7PgCORHsL+/4NcaeI0cTm6AMP6mZ8imuRR6dN+
+ dS+VwgchE3FAUZHUC4CrUgMVZTRRo1OnrMOEpBmwOOU/jpCR1vkGHPLgFjDdXCT86Hbq9YxAN+h
+ Jj9EW4TsfQgs0yg==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA1MCBTYWx0ZWRfX6wn0ovcOjdNc
+ E4rCwzUWBrPIStpZMATWaIDvn8/J1vi+JLLcYcLXidmA9Hz85GUKkhaIKwKy+w977wBEW3MLZ4a
+ 4key7Uvo1gt0xJeACMTllwzYGJMEF/qLYUQzg/rPQUT1K7hOT2jKBcaPN/5A1Jny/4vDtRyhgao
+ 2dx+xK+BSeJeIDuIa8cDaRup0AV5qqMw5cas1dBsl243ipVJqgj5/iaFCQSIhd7siP/o6XQ94XS
+ lvCRBAeT+emfOZ986oIfncQJE5CrlTQ+rPpigpoSC3CHEyFzEYr64zGNdtVgPtmqkWQOd9PULoV
+ ajyvxjQ077aLu7YnFMBd00MKKe/H1+RIVtfW61loOQMuO7gbg+uUF+dUudFSnSFZUhWDO2cgh5u
+ mldLo61JcG+TN1PQbkpROoG4VZUMRUhm5C8XarAEQ2eEYiJY9CXwZnBCqwasT8Wly8B7Xmfxgo9
+ 1fnWwJaH9FfGj1vYJbA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA1MCBTYWx0ZWRfXzJdLMdX47SSs
+ yNbX18Ah8WmOYc1JgmsVy9IOnYtY1nvU+g9f871P4HclYoFV1psyj5/k9GTaW1KJm4tioNZ9LkL
+ GGrdK5/FtWNw2Uy0aFqQUCsBQvpMOiQ=
+X-Proofpoint-ORIG-GUID: tvmJzqwnaRmw5_UHTdPU2zWnuvGelSOU
+X-Proofpoint-GUID: tvmJzqwnaRmw5_UHTdPU2zWnuvGelSOU
+X-Authority-Analysis: v=2.4 cv=KuHYSmWN c=1 sm=1 tr=0 ts=6b004147 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=EUspDBNiAAAA:8 a=cT0tItDctYQywj5JGBkA:9 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_04,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 lowpriorityscore=0 impostorscore=0
+ priorityscore=1501 bulkscore=0 adultscore=0 spamscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200050
 
-On Fri, Nov 20, 2026 at 12:33:25PM +0200, Jarkko Sakkinen wrote:
-> On Fri, Nov 20, 2026 at 12:43:05AM +0200, Jarkko Sakkinen wrote:
-> > Multithreaded userspace daemons cannot call setns(CLONE_NEWUSER) or
-> > safely mutate process-wide filesystem state in place before spawning a
-> > child into a target namespace set.
-> > 
-> > Add CLONE_INTO_ROOTNS and struct clone_args.rootns (CLONE_ARGS_SIZE_VER3)
-> > to spawn a child process directly into a rootns whose root mount has
-> > been installed. Transition the rootns from ROOTNS_INIT through
-> > ROOTNS_FORKING to ROOTNS_RUNNING for the first process so it becomes
-> > PID 1, serialize concurrent entrants on waitq until bootstrap resolves,
-> > and admit subsequent callers into the running PID namespace until
-> > teardown begins.
-> > 
-> > Derive child credentials from current, require CAP_SYS_ADMIN and
-> > CAP_SYS_CHROOT in the target user namespace and an ancestor active PID
-> > namespace, preserve caller umask, reset dumpability across user namespace
-> > transitions, commit time namespace vvar mappings after copy_process()
-> > succeeds, and look up the live mount namespace root. Restrict companion
-> > flags to CLONE_VFORK, CLONE_PIDFD, CLONE_PIDFD_AUTOKILL, CLONE_AUTOREAP,
-> > CLONE_CLEAR_SIGHAND, CLONE_INTO_CGROUP, and CLONE_NNP.
-> > 
-> > Co-developed-by: David Howells <dhowells@redhat.com>
-> > Signed-off-by: David Howells <dhowells@redhat.com>
-> > Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> 
-> Being fd-bound object the gist is that the first clone3() binds
-> cgroups, which could e.g., different process than who build the
-> container.
-> 
-> CLONE_INTO_CGROUPS is of course available as an optional flag when
-> using CLONE_INTO_ROOTNS.
+Implement the property_get_names() callback from the fwnode interface
+for OF nodes.
 
-The major benefit over Cells is that there is no embryonic task state
-and nothing from the host mount table is inherited unless explicitly
-moved in. Also, unshare() cannot ascend from the rootns() created
-hierarchy.
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ drivers/of/property.c | 34 +++++++++++++++++++++++++++++++++-
+ 1 file changed, 33 insertions(+), 1 deletion(-)
 
-Shooting yourself in the foot is an explicit and planned action taken.
+diff --git a/drivers/of/property.c b/drivers/of/property.c
+index 3a272775a8b7967bc0d35d882a5856153941cef3..f914f0475e0be865afc9753fda5aa40a08a10e25 100644
+--- a/drivers/of/property.c
++++ b/drivers/of/property.c
+@@ -27,7 +27,7 @@
+ #include <linux/of_device.h>
+ #include <linux/of_graph.h>
+ #include <linux/of_irq.h>
+-#include <linux/string.h>
++#include <linux/string_helpers.h>
+ #include <linux/moduleparam.h>
+ 
+ #include "of_private.h"
+@@ -1120,6 +1120,37 @@ of_fwnode_property_read_string_array(const struct fwnode_handle *fwnode,
+ 		of_property_count_strings(node, propname);
+ }
+ 
++static int of_fwnode_property_get_names(const struct fwnode_handle *fwnode,
++					char ***props)
++{
++	const struct device_node *node = to_of_node(fwnode);
++	struct property *prop;
++	int count = 0, i = 0;
++	char **names;
++
++	for_each_property_of_node(node, prop)
++		count++;
++
++	if (count == 0)
++		return 0;
++
++	names = kcalloc(count, sizeof(*names), GFP_KERNEL);
++	if (!names)
++		return -ENOMEM;
++
++	for_each_property_of_node(node, prop) {
++		names[i] = kstrdup(prop->name, GFP_KERNEL);
++		if (!names[i]) {
++			kfree_strarray(names, i);
++			return -ENOMEM;
++		}
++		i++;
++	}
++
++	*props = names;
++	return count;
++}
++
+ static const char *of_fwnode_get_name(const struct fwnode_handle *fwnode)
+ {
+ 	return kbasename(to_of_node(fwnode)->full_name);
+@@ -1712,6 +1743,7 @@ const struct fwnode_operations of_fwnode_ops = {
+ 	.property_read_bool = of_fwnode_property_read_bool,
+ 	.property_read_int_array = of_fwnode_property_read_int_array,
+ 	.property_read_string_array = of_fwnode_property_read_string_array,
++	.property_get_names = of_fwnode_property_get_names,
+ 	.get_name = of_fwnode_get_name,
+ 	.get_name_prefix = of_fwnode_get_name_prefix,
+ 	.get_parent = of_fwnode_get_parent,
 
-And further, it has provably more defence in depth than Cells because
-LSM hooks accurately populate the data crossings.
+-- 
+2.47.3
 
-Br, Jarkko
