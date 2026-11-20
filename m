@@ -1,100 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795142810;
-	b=o8jxqlo+OF1EhilVsHnFaiua1ENNg8CWwYfNO7q+GBZC30yq7jlPzggEIwdJZjqtNKoJ
-	 Xn7VbCrWmick9jvfOaNeP8uMJY2iagy0w7v/xUmozY1fYWOWj7IkZvTZ+PH+TpLZDFr+u
-	 gJkLFZqWwT0+CNyzPiRzsco4XPSXXL8TlXSLYbn8lvZOF4VCvKX9gY0aGUVl3REqVn3K6
-	 mlKAgOe59TiyrBIazqQL4sm5wOHl6OuWLHPXHtH1atqH1KrB5Vq+B/Qy/icJ8EIFTdTGK
-	 jruaSFRAAd1eppi56TvfwkU7VeewRhfntv7G3N2cgxiGHCFNkYepjfknr7G/t3RvN6A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142810;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
-	b=TMy5oJappIH3SDSzkfPdYgewte7/F9aphik3pWC9VeDp5AUtDRTH8kdjZCZfyH8Ii3oz
-	 3yTIYAySKKLqvA7BXkgkCAPOHoSN3KmQ7XWvXvtgWU1ruvIiiglTCgCtGZFDRN7eklGt/
-	 HlK4VAk0XwZ8P2yaq4naWm2mcISL4T0CPbH5eLqpKV99Zp/Hhj+pGBeRihBqQpgtVQG/G
-	 4RiO6h/o0LwswCE3bgpFIZymQOyF0X/pikehLwh45uQ4sS7WKrxb8z6Nh8K+30wJq9uQS
-	 uKmxkZDMwsYJzlL9H4aJocTbmr+7ml5SH+lZgJh7pk6FW6Ycsv7ChxElyscrNkU4P0Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEqvGS8N;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.159
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795142853;
+	b=zhJ1PYY+l5GGxc630vfz/2V1vXbMsX33L40RoW5w6WnqM4QdD+/TCHcF04iNtn+m9fjU
+	 nkO+EvyTz9gU4k5E5sRWoe/3El5Wz/BTYZR2qeKmhuEjImSRH+aIaYe+iQvSvoUXss6Ff
+	 XBpIarKhFLzC/sogLUNGQZxD4xE75VKLMCJ3I4vfcdbWWlyioZRtqnwRueDc8oXNwsa7n
+	 cv8Umm4zqZINBXNKgm7K4U2KfwqxSvsC00KOo+9WzacF9LTU1J3VW68xaS188rcu/Rx0w
+	 p8tcNrMcil+yvuzpIlfyJfVp8x5e8QiJM8gmMNKTo1a91HbmctQzpQKvUYt+RLaX38g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142853;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=gLkYIAzdX5n+E2UDbvv2hp4q1FOusklc4XvJW1NkNM4=;
+	b=lOzthAbG9CHW7RSvKgnKKH5YJpGelRkBx4WP0GlfT0j+2sALJde04k0EQGWy5CjDMxYr
+	 HF7XRIReAT6vuaVw79VpnhCEu0DU/WO4nlDlbdA5i4Od4OvCoT6ZvYl7rhjZ+EPijCTZ1
+	 B9/xzDa4TwWo4K5Gg8q275lZ8KljIlDt49nPUGAUxDBm3R1Pn+7T9jZLX+lZJO3KC20uv
+	 PjFnlhe8XOpJzEeLW44oN4ybpQsjioquaGQG8h4ssBZENknnzYNrCfq2kevEa5acO78+L
+	 3osv9N03z7ixGvVUUI7Y4D+xNOp9MTrnvD3iUQWZwDi12jda2g54Nh1D9Azcs9CcVNA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=seanlyon.dev;
+	spf=pass smtp.mailfrom=seanlyon.dev;
+	dkim=pass header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=FXB14iHB;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=h4gN1SYj;
+	arc=none smtp.remote-ip=202.12.124.159
+Received: from fhigh-b8-smtp.messagingengine.com (fhigh-b8-smtp.messagingengine.com [202.12.124.159])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BCCB606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:46:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BCCB606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32746606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:47:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32746606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=seanlyon.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=seanlyon.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eEqvGS8N
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-372bdb942dbso514837eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:46:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795142809; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mzBOITqfW3f9AeG8EnGnlXTV06Qpe9vOIMGslqUODC8shhM1fa/bXEE1YDu9R+rXro
-         dc7wAy1MQmyEFlQJTFDKyVmKQR+sxTEovB55uTpVEwyifu3sCJlthdTeDVyURTnb733W
-         3NczEwacieDCrjhJQsAgJFaOFPhBkLjDTas109nn2gyJFy3E7hKxL9mRyMkw5y1uTKW1
-         ArAgXWv2EsUwy+X5NAoHofIXz31Ny4D8CADdIPQyk7DbMzUqYTWcstiNTbmffKm2mNVM
-         gyHWNtkSHyvqvyrnYL1vYGZESEpzF38datcUweJxZHmOeUpyYkw6wtbbQb3sZCvdc26V
-         zN4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
-        fh=8Tdtcu8dvWQnMX7YavfLRVlGNOWeCapzrYDuFy0YkBU=;
-        b=qcUFEsL7kU1wsWQAH4zdBbnGsXL/JAtapvWhEuVkY0AqSD4oBKBw6XoyDi666WUwTN
-         ms/OUJm+rmO++akqN4o7TvNZMFqcU9jEoWJGZNFZalJGW2lBUJECIlbuSd/LRC3fjYNp
-         LQE0s+AtCazHjVdMExNMaZZlrl2bawrut+E2PpDL2dt4sJFtByOBP9nl6v74PtQlhuhH
-         +gKNqZrSWd7e4402+sc4u4H8ri/fBIhQXpz0EzX3nG0mNfTunttyhmNXRFWiR5T8eDOB
-         1DsRXp7RlnC+v28mGHwgiIoJ5dv6T6doWQ2IWnnFfn0qhIH803L4UpOr8aUV8GXN53Ig
-         iVPw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795142809; x=1795747609; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
-        b=eEqvGS8NSjDv/lk1dVAeRWGEh8TiPEgsovxYo2LanZz/ysbPTA0KZq1Irb7hcRkPPH
-         dZSKM5hJ+MP81SnZ+0YwGi9bkP1Nj4+OFZ0Lt6OVh0NqD+8zwd2jHvx8mYlUazKKsh1m
-         HPrp5gdyujUqmXeYT/G/nBelGP45z8ik/RKgIuPi3Zckw5IrXLdeVO03dmF0pTH2nmhS
-         hsnbTKRCYVDZ/qt55BKdfe/Wx9Yu584hJ9b2q2mT6yR/WDdR/Qx4DXrvOm1j343IutY4
-         Y47ubAtcOvI/QjaVZ/IOKNUxRBxkEueTGnwBZYTX/g37Y+CT7SGJLGI1cLuhEF7b8+Eq
-         NeFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795142809; x=1795747609;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=yr/uKPUgfAaxf6T6HbuD487OUhPehvlRV062kb2O/9g=;
-        b=Yba/2brXERIoIOz/cn/0wPjgIkFa2JL21cEZUPIZHGm76yFjHoRsEEMhU8GrZvuxY3
-         TWcDm/WLuEOFJwbuBoILl6vOclZvIcKJXzHDzwt3sTgurFZbzY7k5kogVXjeBrBYh4ae
-         ZyRB6TwFiuDGe2WjblkNdPj1TvV5qOyQEfM011Raba7V2PNDWgpCEQhmN2GQFVxrVlPI
-         OPsbB+tR2JhvpIiJWso2b+AEZ1aQiRUrty0sV+7+Yt7oNA5Btl4a1JyPnixD1cT1m1RD
-         DIJY3VPZRNSqc3tbfxE0sOUPbWmYR/jixXy0VZupN22vy7vxcnZXQrgVU9d/7Fh11R7O
-         TFwQ==
-X-Forwarded-Encrypted: i=1; AL+hErGGWnCAf0NuGnknGxhD+ZwYyl/PnVGjPkoQBbdGfrQJzHv8cL8l7bYgSAmL7bEEYMHQbQHf+A2WIwUYkV8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9qYvBVjKgzGu/Lq3MO923HOxrTxzPn5DXD17tsS1nZ7blqZQGX
-	xdxM3bzDlEBMTIGaia+WsmC7FgLRtEBl6T9X2GkgFk3H48ojpXi/8ifOqrT6fs3hBOmOlYqNHLV
-	XEMrSppHAMIzlL488805/hO6kkphlhd8=
-X-Gm-Gg: AZFdTZfzNaypKzj3BhO1Swqw1BQ3M9ikpeXvvvF6ckMd36RzEkRna5snXUEMyHCdxr7
-	lcQbBV0jT8lMAxYcjMOBqcuXHrHvMmsyeaSlhyCSaKZFau4ks+5FJtUG77E9F/rt8AsUM7mrKx7
-	sArQw9BH8+eept0krvw5VcCh01XsF8be9eISBLLeG1I7VK2anioXZy2JwDsKoyw8RfTwvf5jCI/
-	ebP96wbDFFU7u1OsCr/KT0E0NiR7tq9YLsl/glsIzw6mdNwAOTiInaCy61EPGj8Wqlhuxq9IFIq
-	iwg02Nv28791+TbBGkyMpq3ztkVjGZVHgQeyV6MTblZJOUNI7ttq/VHOlxVZKu57f9R0eQiBpyx
-	5qLsZACLESbjGTwPfb/CEYp71tjUf/3eMoo47//it6PtLggcNrLuWqAySai9+4so/TvJ2z4hJjN
-	MK7ouoAEYU9OGdObin
-X-Received: by 2002:a05:7300:e9cd:20b0:36f:f3b7:6dee with SMTP id
- 5a478bee46e88-3856f148099mr1509811eec.7.1795142809415; Thu, 19 Nov 2026
- 18:46:49 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=FXB14iHB;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=h4gN1SYj
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B5B217A030B
+	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:47:32 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Thu, 19 Nov 2026 21:47:32 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seanlyon.dev; h=
+	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1795142852; x=1795229252; bh=gLkYIAzdX5
+	n+E2UDbvv2hp4q1FOusklc4XvJW1NkNM4=; b=FXB14iHBoQ645Ulm6SOw4oFBLs
+	lGZywz30jAn/SY1vjMKEVl/wPeEB5mMghiLXWCPrmXQC4vRkfKzGMT8W/WymGYc8
+	tOIu8Tza+zGXrr1ec0/+tdeUfYNp3cn/pUY2oxeyhVMB9rN3sm9vsaS+Yupc/nS/
+	lS26EUVJIJuVwq+GxrWHs+qiyvU01/v9XVfq3BMsNyhb6X5fSSNZCZ3Hbd3MSn8d
+	P5FdoKdxLV2LjiigkRsaARrz5GvTHw1SYtdrwQoUXstWyqt734kTGS0BDMB/rJi3
+	mfNTrsAcIT+KYHmMhfnReCqd/6TLPHGC+HxXBI8uC3trHJdSVjvz1caKrUCg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795142852; x=1795229252; bh=gLkYIAzdX5n+E2UDbvv2hp4q1FOusklc4Xv
+	JW1NkNM4=; b=h4gN1SYjO8U84ftgB0sXmkMER3eO4ieq3uDKwzVguNUoSE6nCoy
+	ee/d5FQL8K1tiN0eZO2XCVjwGxK0/2XP7jk/u7sePLVunB1IYThhv+uM9/dSGYFf
+	4tvMfeV8u3Ce41CXeUvawR58txdE3gt0wVBOggFJPOS2Ta8XvTaFSEwxswKnpvrc
+	XB02KyaSQp21Li+mIGLYv15ugKh9wCPVodF5HHy2A19dZ80EAzfCbhp+srqC8OrM
+	z69ldD5qHtPyesiQmzBY5/vOeUj0ccPtLSADtKpSQ2kL66Mxn+InEK8VaJQyfh2g
+	gZL8kzWLBp1ojrzZv9q45tyx7ZnEm70TUPw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=seanlyon.dev a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795142852; d=seanlyon.dev;
+	mf=PHNlYW5Ac2Vhbmx5b24uZGV2Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:EA8dL98WX7IRPEaH3s9O5GiXlyr96h9lnzoUNpaCT2YhVc6
+	GwcCC5Po0yy5VZruvwIiojz5kwwz3P+G/GPtBSufqOaMx1bTW34Dlg6LfXoaJ1Tl
+	PGvJ2vw79MhGkfblrBKSLien3GRKGfeGfyffuwOiv2h4poj6jMfdsaPUNIVy9Gqp
+	EzjsNqYIG0l1f3iXiWqKxqhaKXTQY7/vj7DnX8ykayy0V0w778BsJgzqRB000FM3
+	QUumX948PBlwxPooN4eKj/Q0d19dk7LhJLL/iF0ZyfWqvxdtTq7BkvRrDGM1Ibm0
+	6rkvMWqlfHUeLurLQGUOFeVhbR+1NiZz0VcD/hQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:GNs4Hi3kNb2xX4o2d4GL53MHJv5n55m3S9ar/QLhhM0=:KWBpvp3tH6V9Mn8VJT4mEx+ubPZ4SLLBIuPXr8irKSo=;
+X-ME-Sender: <xms:w7T_alYOIk_Z-8lCNKpMnqA7TE3hLC9c6l-y74sSU1cV5Mbp3ZkqtQ>
+    <xme:w7T_aoStrPFNl5MDLLH2TEsSFo80Z1ouMvcDHBA3MUSFKKZ3CJ_1czlG-XcYAAp9p
+    9nNKNJAd-PZlrdVFeh6Xr8RljvtEsprv1av1D1qmELKhH6-kYla6aGz>
+X-ME-Received: <xmr:w7T_ajdgLoFKpT_VvECZEq4L9Dj8SkYx09lY4l2BX3Wvtf7rLxqnhNCP3D11_EtC-V9nQEqFp_JUatOypnQRXphp3sI>
+X-ME-Proxy-Cause: dmFkZTEz9EicWBCz5+aB4e14PavjISyOBet3lZ+vRU6QATFGK2oT6Bwo53VTqVeNrpRxW5
+    2hpb9UGL/71D4zHD3AOd4wcSo5+pg5jyO/FpFbecLWxPrnMCOkwsYXdfYDDN/47kVC0kW4
+    pH9KND4QXFU+ozcCXQmucfr23psrb389BJj8MAUPcr0pPjgkX7gMp3HG9zvBbZaDUoWl/Z
+    FGsJLvG9vFeMk3QStn3sQga9AVZ0J94S8BwFesaJXgufVY/8qYG6K8hIm1vUVJPI4szr6K
+    hLnhbi3M+iU2HNfD7+TQK4JQQ5kYlXEQ2h9V6O5P8RjtiaEeZv9T9TsDLTrnj2vrE8H9dZ
+    FQZ6vejqa49AWr2zET5mGAaDfBAVCco1wEMhjwzLR7fBlQDUv1pscT8tfLup3cZQTPwlby
+    7E2gyZ9bKolpJDGw9F2hLRhM0U0HHeHc56mAseoZg36GnG9DDmOQmkbV072VKaGY5nAhne
+    kq8KaOUcN94Si21Tpq8MKQgQFdBxjZymwp+vX9wXhZq8XfceyFAtQ0/bzJrx2aXKxVD9NI
+    5DfieSMuvGjCaNwQf0L6sRNqy038i6LMGnSIRRn7+OkB6DJj/vXU/SxnkZU8OdzvRZcldz
+    9inCAFw+gMl5O8WGyakOLXnMXG/+WIYgq1eBVsrMgV5t9znb5ad1J/624F9A
+X-ME-Proxy: <xmx:w7T_anlLV2NGK66kRv0OjqPtvNvTx9r23-uQ92X4r49iy8lXEPQUvw>
+    <xmx:w7T_aoiR8bZska8R-FBvNYFXZ_kkG0TWKEu9jsuiKiXLQpo392Pxxw>
+    <xmx:w7T_aoG9Vsf9MISm-8bhOi1d7I8a56rJTdy-uq1MZaKq4KAxdZr8ug>
+    <xmx:w7T_any35mjTYtpOrkljlcD4E2axzP7VfGtjhKVUG6Rz038nDUSnlA>
+    <xmx:xLT_aisvKBkDxo0rG5qAHNi_fgTG7QPQQ40iOIzDvMs0HvtnG-eD8qNf>
+Feedback-ID: i07c64b5b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 19 Nov 2026 21:47:30 -0500 (EST)
+Date: Thu, 19 Nov 2026 21:47:29 -0500
+From: Sean Lyon <sean@seanlyon.dev>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.12 0000/1756] 6.12.119-rc1 review
+Message-ID: <av-0wWk7K6IG_8by@ncase>
+References: <20261118150007.957976754@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,24 +127,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118051247.3885308-1-lcy8047@gmail.com> <96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com>
-In-Reply-To: <96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com>
-From: Changyul Lee <lcy8047@gmail.com>
-Date: Thu, 19 Nov 2026 21:46:38 -0500
-X-Gm-Features: AclHuK_LbjhS7-Db8Zoq1dtarOebPOZsaYeLwUIwTxAs3oDtr1MYrA09Uyk3gnY
-Message-ID: <CAKefsHu6P6FJAz6hV6+Fzm_PgXcTCn54WjD5pH0ThLC1A-DOFA@mail.gmail.com>
-Subject: Re: [PATCH net] net/mlx5e: IPsec, Fix RX mapped ID leak when adding a
- rule fails
-To: Jianbo Liu <jianbol@nvidia.com>
-Cc: Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>, 
-	Mark Bloch <mbloch@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118150007.957976754@linuxfoundation.org>
 
-Thank you for the review. I will update the patch as you suggested
-and send a v2.
+On Wed, Nov 18, 2026 at 03:35:27PM +0100, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.12.119 release.
+> There are 1756 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-Best,
-Changyul
+Built, booted, and tested on hardware for x86_64:
+
+- Intel N100
+
+No regressions found.
+
+Tested-by: Sean Lyon <sean@seanlyon.dev>
+
+Thanks!
+Sean
