@@ -1,99 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.11
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795172526;
-	b=OJSaw3bEbirVgRBItnUmqYNd6xbHSHPBtKZk3kJHZq3CgkrY3DsNPYXTTCh9sJjr+K2T
-	 MjEBcy/TO7ORKjfcPWSZ9kqoSJ+QekGgwqnNQoEu538JQCccFOFVmA5t21AWIqoLG87wy
-	 DGmMqPVVr320FdBL6rE5qQunuO7uW6D7Gmr1woax/XLinFElLOpcI2X4/+/pZ5AhruafF
-	 6KyxSUfJJO6QERjNs6qfFZFl9TQhi99HuSqn7adpMlGzhqJFW0pnqpv/KWUzx6FXQBwLt
-	 vjVAOT1TXAuN/hpJcriO4erqaTOKnuB1c4mw/s6EAVO1sIwH/Cdd2JiHGzaN05zjVpw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172526;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=dEkkAmzVJPlzOhnp7OGwqcYzqVwEy2ZzSmPlOweWOYI=;
-	b=hA+agowsmRxiyUK/mbZ3zZ7xwRdGTw/KUX0b/PJ40Qoz2lhx50JdR3kXeFX/lHcIL9cY
-	 ZUb5mmvA+/WUm0+v71Z+ji5OZoUS7niJK2TyhX9Dkcx8GywaPOcufNUD34OrxISzUjeNR
-	 L6xs3+JzQFfkbqg9tKo45iJRHw8xLMHoSw88k8EAIMlq7QvBcrk6H1mTCwlt2i9qidnE+
-	 1DImVol7xxZl3kK29E9nSxrxXhVh1SCScrMkEEDeJEvGj9jBoX0c/57An3WU6ANFiLhCP
-	 Jh/1QfoPwXD4xDuwqFndA7GRZR6MDug5skn7j2fA2afoeHNZ/QOGN9F8cKZsZHOL2cg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=PSkrgagH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.11
-Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011011.outbound.protection.outlook.com [52.101.62.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.8
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795172542;
+	b=UHLsM/9cRuqRZEUs7If+ImUk0aFiHhGkMfJTwkgI4ljYi4/FfmA08E1CS7iCryoeUiYQ
+	 gUu7+v1Zw7t/Ch5CMhy/0S+hkKuspaKoUmym9gtFW4X9KEmlr6GfW8I+eHR6wYuTulSRk
+	 ZOYygs6lfvfN4kZKABmMdoCw8KFKBObtfCgDPTk6911TNbDXhoN6wbBIFnZHo5av3Wtl0
+	 4bwTNvCDMo3TtLkLguQt2eRU2/Pb/WvpuJOa/92eoyfNDTbVIv8jluW5K1+XTw8XQIMVD
+	 1MjF9JQDZyxohZSyKIOCOG41zqD5cItIWjRyoYkXwY3W8CapHkHkPpmfjSZMh9ABKsQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172542;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=NkbG5LB1NV/xKpH/oha2h+NsDn7aeLKmyfn1a4faE08=;
+	b=3vfH7LAi2HSLLG1tKANeXPPaYtY0rcWFdY2sSOIQLduaDaSuXE2VIUs3PLUEg+whf5zC
+	 1fj22bO82J+Z6wgfKaQrF1jyUA1Zd93tIxvZTkpmSTRDYlUGe6CrLlPWRqfxfkIOqEU3x
+	 /5+KC7AFSuf3JuHLTQv7ZBkMopzrOqmQtK5pWajVO3xleTt1/1wLF5rTFanS8SiebgMXV
+	 g7bNOv5oiNibow6u/NyAk/C7lSyrzOYOHLxCVwBmU1KGE5EZxFkNoAC5NqX3mAQNceyIJ
+	 UzlIjAJGzdQj09ZYt3TNbZco6B54Wr55X+BVX9d6BkiV4agRaF6tMxKolutpGmubraA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r0dxDfOl;
+	arc=none smtp.remote-ip=74.125.229.8
+Received: from mail-dy2-f8.google.com (mail-dy2-f8.google.com [74.125.229.8])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA4B6606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:02:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA4B6606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 769BA606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:02:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 769BA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=PSkrgagH
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HS7jZ4u4cqkskPygNqJHe1EAu0u1r8ANPOcGnqJQshwWoM3tyHfdT+q1FgT0i/JzMwMVBtU9SAka2Etuc1Do9HdXT4d5WXJauqAZQWsCZB2RpYPa+RYntmxIoM+5tTVvlEczIjWi/JlSFb4ildJFEJC3oMFb0yrioMYa400gbWoXdl7EHW2UGVMSlelnOWqr1MZm9XoeRrJS+71zdw0GawDLDN+ySIxfc82lqzayJQLfTtWxJH8nNobdoohMzejE5tJy2r4dol94QDn3iURbhXMy8zQ2TZo1F20lg9L8a0/KwW45Km3P3GdQ/qHpjjld46mcZcMfWM/I3UzFOc74sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dEkkAmzVJPlzOhnp7OGwqcYzqVwEy2ZzSmPlOweWOYI=;
- b=SXypCGCT+rDHKdTmlb6r8ukFqx8YRJjU01rjfXV/am16Xd9Ouz/fHy4ccbKLQ0RyMjaNYtcbQfwzqgSHCZUOF5BigcS6e85pd5sBI8AdwHAPyD1v/Pj+gdqPUd8jerWieUc4RyBRaTxy0ORKqrCwdUstEalBgCHbToAUdqEVD9+WZSDastEieiOP/8qA778/fW6DS1jHhmXN6hnHBKHIL1yrNZb+LwPYBQ3bRdflgHDUjOkByVioRFG6B16Z/6fVA8yHua/dK0wG4hzK2vpvIikh19Ei1Evkdiys9e+o9QJOsvRqUS3Ps4sh46+b8A3cpqq9OpCVzkszp6BmU2KuqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infineon.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dEkkAmzVJPlzOhnp7OGwqcYzqVwEy2ZzSmPlOweWOYI=;
- b=PSkrgagHGo/9IhMeYiSS2OW1L0D6Nv4T/g4jSSr5m/FjukU5WWZcyPDOtYAkxGZaPxWCMZSEX1VbCaiOtQbY4oGtU8Ol4ZcJ6DvjsTnMn59+03S8xSwCLjHDMNGnlsRBflgu1u0/rTSqf3L6+UPJsQs9DmtRGmz1SSTFmtMjtjU=
-Received: from PH7P220CA0127.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:327::7)
- by IA1PR12MB8357.namprd12.prod.outlook.com (2603:10b6:208:3ff::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Fri, 20 Nov
- 2026 11:01:55 +0000
-Received: from PH1PEPF00062F24.namprd02.prod.outlook.com
- (2603:10b6:510:327:cafe::7c) by PH7P220CA0127.outlook.office365.com
- (2603:10b6:510:327::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 11:01:55 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- PH1PEPF00062F24.mail.protection.outlook.com (10.167.243.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 11:01:54 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 05:01:19 -0600
-Received: from xhdlc220225.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Fri, 20 Nov 2026 05:01:16 -0600
-From: Srikanth Boyapally <srikanth.boyapally@amd.com>
-Subject: [PATCH 0/2] mtd: spi-nor: Add flash reset support during resume
-Date: Fri, 20 Nov 2026 16:31:13 +0530
-Message-ID: <20261120-nor_11_20-v1-0-70332a54037f@amd.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r0dxDfOl
+Received: by mail-dy2-f8.google.com with SMTP id 5a478bee46e88-381c5130f4bso189794eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:02:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795172541; x=1795777341; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NkbG5LB1NV/xKpH/oha2h+NsDn7aeLKmyfn1a4faE08=;
+        b=r0dxDfOllU/QYRhojgtSm89tr2UxvFaFD1UFRr1X8M3Es/PCsOgsA2LtD73TF+Kgan
+         pT98fKbt5GT09xhZwwKIIvjQGUjg4clQX9GhfOigVxsUnWToUf5pz+cJstXHJ7xMxEfH
+         QTu8Uk8YKcobcZzXklZFCGae7XOk1O6ontMoeTfJDk6tsbaiQ1eky/LHSSDe1SyPMS6k
+         N+/BHcm5zCa4b6PwsQ1nPsu69m0VbCgzqxJwwiO4Y1Zupx+CVxZJSYBMaHlrSOUBimuh
+         DYffBFHfZ5VKz8BbFqRv7JuvVQzfuSsThitV+k6gltLr8pIqFNoFyYYsvm/n0On48JQY
+         XiHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795172541; x=1795777341;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NkbG5LB1NV/xKpH/oha2h+NsDn7aeLKmyfn1a4faE08=;
+        b=T52RCK3AQ5Pu0pDk6ptpYswhnNQiwhRyQB2VwBL1sSU4UNq28uTUVI8+Kjb025lL1e
+         uPTSHr6a79zlXxFrHGvv9ToKuCeIeURQMVG9K9EkpryYdg9BT1mCrIG93VJLfTEMi8ql
+         RgMMtNB/HuNXL2LOmdBnr0QFwDnS+6Ge8YgNceywsgf86v4QeV5+M7zp0NvsTvMbyuiR
+         b7OTzymQzBIa3bPylgy3uMLnTEaUWP/OCWizG3v1WSuhoGmNNlLV7KtNm0Wb4EfWDu8n
+         au+rIZyezm+6TVVt57H7pUkerRh7N9jmvr3MKYOQPBRs96TpbzRLqD3IWH++TsGiub2k
+         BkZA==
+X-Forwarded-Encrypted: i=1; AL+hErGfVYiJLJSNAhdTuK77QLdZD54ECjCNVWl2ImceFgX/0w4chfXsqFo4C5Z9OIpSnOSATebunHpRgeWJVRM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Ewndpm0lA1f1T+7P6CgNgGlrzxJ4F2ToigLi76qeh03a2XDA1
+	OAXMS5czNRSyP0PeO+hAaMO1cAqRBMHTag5xCeuERxtLIZ3LJqfL993Enlwrd+3h/DmmwA==
+X-Gm-Gg: AZFdTZed9aKpa+5b3cV/vWGtg4B6NjcYUz7DlbN7R6z3QIPNYONtjQXbNfmlwT/nuVD
+	70/M9b684m+0WvhoYdLliqHRtRJSb/tLQ3zLjXSzTQV1S1y/Kv1QmPJvDxmguW9GSdvntjNcT7B
+	5R5Pgk5kQKXjFg7z29nobnBpOf3KrfHw7xY33RMZ9rb0aMA8ev9N6fBVNmDy4Sb7OwnvywxnTiu
+	UiP9f3HB8ArXf0JUX2uub4WEfK10Xt+vRzopKrp0dXAJZ7+gQ8pOFK4E0sS1DZQ4BCmlWE5/bX/
+	UcQLfs9fK52j7aDqbwmvy/ydEo/+NwjJbPZ3mq9iOkZLjSEs1zfnlA8Sl0Jj/AxfoTJDTs51lQN
+	O9yAND7vXEZ5glTRtqGHCOLMuOAuhP6OgWOpI8t/0Vfj4b09QrATGUfLlYacItBZUZIBoWagTuO
+	7GkSeey1Ldtk85W3ykZHTqxQNBvR+NYh0ExP+Flldz9nHzRhqxoUufez0r9P9WpqlnEV9o+Dxhe
+	PIpU+WJrUylLhX8g1ZUd3P8O5BiLXVEiMYytVu0WUvy4kDWdeqK2PuFbarBSNBlFKcBW5bKrmPp
+	TDOQSU6zbkdB11uuv7iw1H51pReNSrenfCKg17TgYIF8Sc8sw+Re4bKhKrB/gYc7CZR+zyl1gzI
+	zbLj6NqLT50sANx/hDsOeIYLiggS7zxDe4bpCSReWnudeSMBvwbRFLJrk1aM=
+X-Received: by 2002:a05:7300:f483:b0:384:e31e:3c58 with SMTP id 5a478bee46e88-385714160f6mr2276276eec.33.1795172541457;
+        Fri, 20 Nov 2026 03:02:21 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38577214c2dsm6561530eec.17.2026.11.20.03.02.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:02:21 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: jaegeuk@kernel.org,
+	chao@kernel.org
+Cc: daehojeong@google.com,
+	linux-f2fs-devel@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	dennylin0707@gmail.com
+Subject: [PATCH v2] f2fs: read atomic replacements through the COW inode
+Date: Fri, 20 Nov 2026 11:02:13 +0000
+Message-ID: <20261120110213.68391-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,78 +98,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHkoAGsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyMD3bz8onhDw3ggy8w40dTSwtzMxDTVXAmovqAoNS2zAmxWdCyEX1y
- alJWaXAIyQKm2FgB6SyZkbQAAAA==
-X-Change-ID: 20261120-nor_11_20-63a5987645e7
-To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>,
-	Takahiro Kuwano <takahiro.kuwano@infineon.com>, Miquel Raynal
-	<miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, "Vignesh
- Raghavendra" <vigneshr@ti.com>
-CC: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<michal.simek@amd.com>, <git@amd.com>, Srikanth Boyapally
-	<srikanth.boyapally@amd.com>, Amit Kumar Mahapatra
-	<amit.kumar-mahapatra@amd.com>, Sai Krishna Potthuri
-	<sai.krishna.potthuri@amd.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795172476; l=798;
- i=srikanth.boyapally@amd.com; s=20261106; h=from:subject:message-id;
- bh=EKFoSFf071LOYOkWiTaSFrk9uRosj95HpwKyluDnJXk=;
- b=FWEQxgnYehQyLo8QTecI91s1+8nV5yYhKZO+no6mSRE00TbBRUiPe1zVEPlfpbhWUdTR1hCYz
- pMCwMDvo2qbAcH1a2+Y3deazUIecXWOC6vpMSBhLI45adCVZda7lL83
-X-Developer-Key: i=srikanth.boyapally@amd.com; a=ed25519;
- pk=VZiIwz5+m6FvZJ+3hzpXDQl0u531OPVeBcB2OVGeZVk=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH1PEPF00062F24:EE_|IA1PR12MB8357:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0e50e6dc-b651-4358-acb1-08df46f5b028
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|82310400026|23010399003|1800799024|36860700016|261102123227099003|10067099003|56012099006|11063799006|261021121427099003|261021123027099003|261022105027099003|261028144727099003|261022075727099003|261026140227099003|261009223027099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	7jeQjxHLNinKT26yhYsXOkgw7yWoKCHl2kTzBr4spuRHiGslzAb0uM9BqXxGjoh2ma3Ck8yHRUQ3Q9+kdKoB3jfkg6P+JtI/Ywq2YTc5J2a2VbACzzoC6w41rZi9LFwzSSZfrLeYCfYlYMRXXoMDz9abgLLIOYzdTJ4WfkK1b6OVXgRTMkzEeosVkdLEWOKF0Yiy5PZp4nnuWDKD68/EdUKNtElQjiTa8Tjqw4Jtzi8G9DK8e2n250TBlkrT/b8h08AqUZdrCUWOs5xBs/83IM3OseYH1neomfq9KBzFgXEMQ0S2ZzR1kPDWdtOyD3LgDFC6S8ldqt7vms8oPxRSDHetaoLzSDgkFPYoSWgeFCQ6/0BDTI9gaLNx1BCsSlvCEYU9pAHGPw0mc6u2Z+8AgL2Gas142neHXM6qBjQiR1u8EJFtF2FeilfMe4xaEj8KR2o/QeMMMc/GyvI/3BogmYfNjuzVM+RxuGtTMJxJETpBB67vcrRpV3g8O4vUnBqLj0X9AzViQnXEvwyLMxJQPJ4T3+7WoulbBVC2Qe01hSMrK1YPLa+NZSbwuJgW20S9puDrRakRwy6gZ5U8RA6YiQ/SNrfBy0YkvOrP9aBYtH575Kvvu8hO0oViTfcGMoUaffQi2u6EqQ+SJM/G1nj1Bk9oic7sSwdp3qjoyLsi/E4CLTD/IcfDo422+O7L8tFAe9XCWq/M3XwbUz+jrz5nkg==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(23010399003)(1800799024)(36860700016)(261102123227099003)(10067099003)(56012099006)(11063799006)(261021121427099003)(261021123027099003)(261022105027099003)(261028144727099003)(261022075727099003)(261026140227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	OqGYXA+OMr8Q7qYiS1yIOMkW2fMEcdbR2ygNHw5j3vLkxEpTfOjYpzQcc+qy07sBBot5nzKoDxBTvyW9+lm3HLVBwXVmg5qIxRfLrFQlznMj50sF3f/YLPEDr52AxeFrghDUJd8FGv2ACCtWWp21os1Of5SaTdZfNz7/ZWrp/kT6dKkpUujKe22kwxZjNy4t7TN4rHtLbSfhoG/ZSV5JOgR6kfB+lEGqAwUwBFeI96o9LFB2tZW8yE4coF9oAp5p7UhwXay9DdShvOkLsdbJrY0XCv4jxMAoypXb2qDyQS2dLLAuC2YLu6VM9I4lwtMMr3dAUYodxLHSNwerADr2vKVCGjRqV2nZAWsTfIyxJjTDUdKi4lMiKFLARmJeY0WfVguqUJzyU8MiMHo/U2bKnGnZO8kWKJNTNZgGMeN6vnt5RHBsoLd0wCubPB2q/yIQ
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 11:01:54.5509
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0e50e6dc-b651-4358-acb1-08df46f5b028
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	PH1PEPF00062F24.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8357
+Content-Transfer-Encoding: 8bit
 
-This series adds support for resetting SPI NOR devices during resume.
+Starting an atomic replacement drops the page cache and resets i_size,
+but keeps the original block mappings so the operation can be aborted.
+After a sparse write extends the replacement, buffered reads still use
+those original mappings for the skipped range and cache the old data.
+Commit removes the old gap mappings, but the cached data remains visible
+even after reopening the file. A subsequent partial write to the gap can
+write those stale bytes back to disk.
 
-The first patch stores the reset GPIO information required to reset the
-flash device, and the second patch uses it to perform the reset during
-resume.
+Resolve buffered reads through the COW inode during atomic replacement,
+in both f2fs_read_single_page() and f2fs_read_data_large_folio(), so
+unwritten ranges are read as holes. Keep using the original inode for
+the read bio and its encryption context. Once FI_ATOMIC_COMMITTED is set,
+use the newly committed original mappings again.
 
-Signed-off-by: Srikanth Boyapally <srikanth.boyapally@amd.com>
+f2fs_commit_atomic_write() sets FI_ATOMIC_COMMITTED before it removes
+the old gap mappings. Hold the mapping invalidate lock while committing,
+as f2fs_abort_atomic_write_locked() does, so that buffered reads cannot
+map those blocks in between.
+
+Fixes: 41e8f85a75fc ("f2fs: introduce F2FS_IOC_START_ATOMIC_REPLACE")
+Cc: stable@kernel.org
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 ---
-Amit Kumar Mahapatra (1):
-      mtd: spi-nor: Store GPIO info for resetting device during resume
+v1 -> v2:
+- Rebase onto the f2fs dev branch.
+- Also map through the COW inode in f2fs_read_data_large_folio().
+- Drop the invalidate lock from f2fs_abort_atomic_write(); the callers
+  take it since "f2fs: support subpage blocks in atomic writes".
 
-Sai Krishna Potthuri (1):
-      mtd: spi-nor: Reset flash device on resume
+v1: https://lore.kernel.org/linux-f2fs-devel/20261104191621.89561-1-dennylin0707@gmail.com/
 
- drivers/mtd/spi-nor/core.c  | 18 ++++++++++++++----
- include/linux/mtd/spi-nor.h |  2 ++
- 2 files changed, 16 insertions(+), 4 deletions(-)
----
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-change-id: 20261120-nor_11_20-63a5987645e7
+ fs/f2fs/data.c    | 14 ++++++++++++--
+ fs/f2fs/segment.c |  2 ++
+ 2 files changed, 14 insertions(+), 2 deletions(-)
 
-Best regards,
---  
-Srikanth Boyapally <srikanth.boyapally@amd.com>
+diff --git a/fs/f2fs/data.c b/fs/f2fs/data.c
+index cdc9e6e8633c..b006f92b3c70 100644
+--- a/fs/f2fs/data.c
++++ b/fs/f2fs/data.c
+@@ -2650,6 +2650,14 @@ static inline blk_opf_t f2fs_ra_op_flags(struct readahead_control *rac)
+ 	return rac ? REQ_RAHEAD : 0;
+ }
+ 
++static struct inode *f2fs_read_map_inode(struct inode *inode)
++{
++	if (is_inode_flag_set(inode, FI_ATOMIC_REPLACE) &&
++	    !is_inode_flag_set(inode, FI_ATOMIC_COMMITTED))
++		return F2FS_I(inode)->cow_inode;
++	return inode;
++}
++
+ static int f2fs_read_single_page(struct inode *inode, struct fsverity_info *vi,
+ 				 struct folio *folio, unsigned int nr_pages,
+ 				 struct f2fs_map_blocks *map,
+@@ -2695,7 +2703,8 @@ static int f2fs_read_single_page(struct inode *inode, struct fsverity_info *vi,
+ 	map->m_lblk = block_in_file;
+ 	map->m_len = last_block - block_in_file;
+ 
+-	ret = f2fs_map_blocks(inode, map, F2FS_GET_BLOCK_DEFAULT);
++	ret = f2fs_map_blocks(f2fs_read_map_inode(inode), map,
++			      F2FS_GET_BLOCK_DEFAULT);
+ 	if (ret)
+ 		goto out;
+ got_it:
+@@ -3490,7 +3499,8 @@ static int f2fs_read_data_large_folio(struct inode *inode,
+ 		map.m_lblk = index;
+ 		map.m_len = max_nr_blocks;
+ 
+-		ret = f2fs_map_blocks(inode, &map, F2FS_GET_BLOCK_DEFAULT);
++		ret = f2fs_map_blocks(f2fs_read_map_inode(inode), &map,
++				      F2FS_GET_BLOCK_DEFAULT);
+ 		if (ret)
+ 			goto err_out;
+ got_it:
+diff --git a/fs/f2fs/segment.c b/fs/f2fs/segment.c
+index 066b7cf813d7..b3554b27751c 100644
+--- a/fs/f2fs/segment.c
++++ b/fs/f2fs/segment.c
+@@ -417,11 +417,13 @@ int f2fs_commit_atomic_write(struct inode *inode)
+ 		return err;
+ 
+ 	f2fs_down_write(&fi->i_gc_rwsem[WRITE]);
++	filemap_invalidate_lock(inode->i_mapping);
+ 	f2fs_lock_op(sbi, &lc);
+ 
+ 	err = __f2fs_commit_atomic_write(inode);
+ 
+ 	f2fs_unlock_op(sbi, &lc);
++	filemap_invalidate_unlock(inode->i_mapping);
+ 	f2fs_up_write(&fi->i_gc_rwsem[WRITE]);
+ 
+ 	return err;
+
+base-commit: b61a029304bb5531312ebc133b2a895d14dc3fee
+-- 
+2.43.0
 
