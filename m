@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.25
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.72
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795166303;
-	b=qh7RAb7F+gGiwTV+IwlIJvbStySnO+sn7txVdU9R7qG/1oQZYpTUidaVx3wNBDqnPheO
-	 tvX/tw7tQ2O3CI5giySSEkDeYRfYFd1xJuLOy7b1jZTgdLVuytqSDg4m02qY+Y+xUjOLU
-	 Ar/J5coJx/e9bHVtqHWtgGHt2JiXFUdJKH6QjLZyPyQ5zHTfskBFfdTemTRwjR4Ga/kA/
-	 a/SaA2FY6o76q19p7CxGEvvDbc2X5oGwfkSF6svp645ZrO7s5qvpufJBehQEP6ODk1zak
-	 UqElyB4MXpHIF0VVUAGYcz067E8xzXM7228i1MSxoSlSCnCvs5UAO5q8mVYSry94BYQ==
+	t=1795166304;
+	b=b9CVooz3HyiYGTVN4O7F+3GMxPS1gb82XgcQplfT93O8kqqsYwn5++31NS99ejn9ahki
+	 A5GjuzH0fMUzmE2fNy8wJwJesNfELQWcNUjEjTAGFa7vY3tT07h5lT32jls+N0iu4FL6/
+	 Q2a/RJIajfTjeRXltLjTVIGz2bb6m4cjNQcb0rKFDxg4lJfdEJP0jPg15Hwmd1F3cS+9Z
+	 7ThEUdxHGr/wA4g8cgR5yts4Gak4izZcAuEPSrBUTKLBzMQmAnYLugVYRauA1fEyvdU9z
+	 qaUTQ/Ycca4gJ9mGs9J6viL5oP7OS3Vp04CQ20/EM+t3BEwmmZN1M/L/mbY6tEZo8cA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795166303;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:References:In-Reply-To:To:CC:
-	 X-Mailer:X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xeHV1QIUGlXiCzRxx+wOZyYTwMb5C1vRGJ7PnaOI2Ww=;
-	b=s7b4bDVtXFOkwO67df9yRU8dl9JxWNqev/g+mWyCX/0zKMEm+Y0DgnabBerBQ3sOT/AS
-	 wRngT2PKnffBYhzT8m6GUmmruL56xOA3FIp+stpUpoCSGHpmvldPcjsZggDZOkUCGZ/Xz
-	 Rsd5ASEmSSgVAFBz1JDOf/7eLBcWyMWAMg066jRkJxpu1fP1eDEN4nK76h1+00ZYVh3dv
-	 vDBpMCeaa9JOOhShN5ebXru34KpvscW4LrP3GIGC4Ug5qxAgl7nUGBNT2aYfc9Zem1AQ0
-	 ERKQJGmXHK97RUaXnwy7Ivaz0/ryS8cGZgSP1xXqTC3WH/NDRpX/DrCZssYhZF+yLzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795166304;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=LKNcUjiPdctgglYR7W2eprVTeGLfvr9jOphlzyK9oG4=;
+	b=rCr4zVh4mSF0bBypS/mg03kKUD5QCbNd68PQ4b+iqBQ00AO3oJizkK95LoFU+MkDxyDW
+	 HjgMt7+a2YaHUT0kbxeMTe1MfsesfBA6rZ1zMU3A3pv6YYxyKhHj/z9MldhhXwNyCio8C
+	 +FimkHZNjlhGK4njxKrD5qLEk/JYvGxEOyUI7NJ7Au7BJPEeTZ8iDhO7ugeLOHOyh8KzO
+	 5WT9LB91F9y5YIf7iiS3ny3yxxB7wMuxhtcwwMsiVJuQFNas1iY3WKLYEqW6grooL3nPF
+	 aOwZGdvKUD6qBcj4VZ/UC8XlU35EYL9zbg2hNt9KDgf5UZYFL6LAzC/GNdQbNHYLuzQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=foss.st.com;
-	spf=pass smtp.mailfrom=foss.st.com;
-	dkim=pass header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=C0xFYtEe;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.25
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011025.outbound.protection.outlook.com [52.101.70.25])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yUSjm1Jc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.72
+Received: from mail-lr2-f8.google.com (mail-lr2-f8.google.com [74.125.230.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8258606A334;
-	Fri, 20 Nov 2026 09:18:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8258606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=foss.st.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=foss.st.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00E30606A33F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:18:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00E30606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=foss.st.com header.i=@foss.st.com header.a=rsa-sha256 header.s=selector2 header.b=C0xFYtEe
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U9jwYqC8dPYtPS3goGhWWreOyX6+Kz+Om0NSjJ+sECEr8TY9W4Jjf5WAOmFg/m2tIRGb6TEM4FqnTYpeIXQTCOCgPPlcjQ0QpQLXMSQzRYM4k2jKsMOb0+EfcIbazrzRMFJga/l3VUZ69qWFtC6VYrNiyQnYzug3UcOjENwnc/nuCEHX2ImNQxUF0d4Oixd0iL6eanTED8xRT0pNmnisj3BUYSN27mfqKWjRHYM5QkmyVjMrPi6oYVYmNZPrs7fd0ZqAiC+jC+UO01WfzjN5xnX6SopwHJovAhONcCauX4/Ckx/jYDolCajCtsEoAF9WyW6WB9CnJOHmnzsg643Xrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xeHV1QIUGlXiCzRxx+wOZyYTwMb5C1vRGJ7PnaOI2Ww=;
- b=gBGxS+WToI73S/8GYsWb8x4BkPLlW0fW1E77ahJnJOL+tlWlYDs0HhcOSTLnUjzkI0+4Q8QYhYe9XrWVr16AthjhnUEdNSbN3wj6ihvdYVinVWn7yQfjPf74kKkJr4Q7OAN7Zl4T9+j+eWcNMyr6U8YXgmQtjQmHXe4vNTdahj7WF5VT2uW+LGPy8MoLe348TpiADpWJVvH5tlRgQ13N+CRiEOAvz9/vXb6fwu8SzWDjHyoo3FfVXx/quncu2aUlTe6zFguPgaiNHL5vsYPOcH5A+l1IigxycLJKyeZDm5JQefjUKay+D32dpj7LY/dvO2zFmZRfDRbeL1V2tDK+qA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xeHV1QIUGlXiCzRxx+wOZyYTwMb5C1vRGJ7PnaOI2Ww=;
- b=C0xFYtEeCvvB7b+HQNu6nvUbLB+dR4cTAESocLqud9HXquzgnYXL73TInTqrvwRnyfxB5FcfOsCDbZ7eQem9rMFPOqcMQCXvus8BaVGlvd+oir9fUBmCc+07Er9seLw4C0tT48G3udhcbH5CxqtQKhE8VhD04W+QrQTUeLZn4rWH9dP96+5YjASwqy2KYu016VkoF9j4eVR4+Z+gqpnVbULio1WpLx1uD8HsAief0FY4eYQGVqnDcOMKX+negzsYVzo/5CLd8M4DcszzrWrJUaamV+/1zU3P/7q4puFOkhb203yzCOI0uwSgqklruAVujD3JT8/Xpq11QmFjMsXNrw==
-Received: from AS8P250CA0002.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:330::7)
- by GV2PR10MB6209.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:76::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.2; Fri, 20 Nov
- 2026 09:18:15 +0000
-Received: from AM7PEPF00000053.EURPRD83.prod.outlook.com
- (2603:10a6:20b:330:cafe::61) by AS8P250CA0002.outlook.office365.com
- (2603:10a6:20b:330::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 09:18:13 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=fail (sender IP
- is 164.130.1.59) smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM7PEPF00000053.mail.protection.outlook.com (10.167.242.39) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.0 via Frontend Transport; Fri, 20 Nov 2026 09:18:13 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
- 2026 10:18:55 +0100
-Received: from localhost (10.48.87.222) by STKDAG1NODE2.st.com (10.75.128.133)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Fri, 20 Nov
- 2026 10:18:08 +0100
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Date: Fri, 20 Nov 2026 10:18:04 +0100
-Subject: [PATCH 4/4] dmaengine: stm32-dma3: replace hardcoded LLI size with
- aligned descriptor size
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yUSjm1Jc
+Received: by mail-lr2-f8.google.com with SMTP id 38308e7fff4ca-3ad85432c52so1063331fa.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:18:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795166302; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jAtwS7HOY1bHAn0w6j6IF1J6wkQ1bi92ZM+G7+3FR6vImF0s5YOjsgkusYXPfP/w+u
+         hiuq6SI6MOH+mIBbwy2IhXPp1FcrhcyzZSkA9Wlv4WVPT0ruAL6DHlvHliveipLnuoib
+         WYoq3ejK5lezJngT6MtQEeUs5yM5fIaHUcvg1YSZ8h3/WI64TAPt8k8aYX98gp7sX1D8
+         tZkG356+Y73CG3OIMOCfRaWXpPULKrsYphp810VygdDOG2XYFbqC7PriSGF/EjEFumX6
+         8sHXxW19guoVSwnYTrTCD1VRLojjk3B1ZzmFGE/wE7IC8kdrX4w6JRmoP/la4ZpKgIA/
+         h3lQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=LKNcUjiPdctgglYR7W2eprVTeGLfvr9jOphlzyK9oG4=;
+        fh=GMyEyc1iSrfWJ0r3XRXkoORzmpERRXpI5FgvEUD194o=;
+        b=JTlusRlnE7ZvzFRIvgqlDT53S5Kwz/jdP7gP7LygPCkGy0kwHbplwNX2iXsHVHSeex
+         E5uGHJRMhFvB/D7HEfRzSeYm5NEqNBiSPv+w4yCBeN16FmwA/CTPjb3QPIRgJajfmoap
+         dboXiZNKNGSdFOIhT+fMdCkyRSJGz71sWVqA8uP5QmNsAJJJZifci0q78y6DXTslZqrz
+         YOtmd2TiKpvpZ5CHgfPrpV4JS8KyBxkhLEsgyspY/xrj+tmCdSzRgoQIRo23d2zdhmKO
+         WFszezv+w+7OGyBcWEsJMuy2rUUJK2v0oxIJDqZ+CoeAk2hl8FRKBqB/ZAbW+QzXXS9Y
+         UnvQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795166302; x=1795771102; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=LKNcUjiPdctgglYR7W2eprVTeGLfvr9jOphlzyK9oG4=;
+        b=yUSjm1JcMlFPAsTjjciCOT6VbhYtZel/rl8MzdnhvqCHX1W59hE7lW7zjKnqSXvpja
+         IabtUR9nHiV7QABRzNefTYeQgSzepAQkPLjSN67hY3o6qyEwuQI3OY+5+Gw4tHJE9oTt
+         1CShlDPH+Ji0TN4A0nBOcQzYht3K9sfWm1FoEODg56jKqtF3zGxZGrIDIstje3XOop9j
+         9SglQQswBDBowOGV+kV1j4VxpldFe9eWnNgE9ZKGpS6DcxB0BI/jYJfkUxa3Eq5K6r6T
+         wpkXKL/n2TZ3LtGkiH8uugYc3FqOoNYyCSFl6WeZBChrtYLA2hEeGD7IJJoDjUdJlijn
+         e/BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795166302; x=1795771102;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=LKNcUjiPdctgglYR7W2eprVTeGLfvr9jOphlzyK9oG4=;
+        b=S1Mtij1Em5qR5fIodOmza633bIYGPBP84AEIiPx/PgU7nDJuMMUjr+6bRB+RuAfmlC
+         RLbVxAwPy1/Pw9QFd6Rc+NR134PAZc/A4DCaiARVhBqwnPZYf5q6tLjuZ/lvLxzdkVry
+         d1Ax7PSpO40MleadnFDgzKbSObwkdDBvBidAj5JkFkI5j6R+6lgSksg7jRXz0hL+7q0i
+         gceqs5C6OhAAWvj2zafJ7hVxrmFqGm9HKMgNCeNLpC8TwtUyW4ffC8BPenuJ2J2nQpUX
+         WzG5qDQA9gqv7R0mZWQ4w3hwUR/DG+KBQk3Kq2h/tZMVXjNTmvfUpmkf33ZsCdeNRmo1
+         OtVA==
+X-Forwarded-Encrypted: i=1; AL+hErGHxzCDJ5POTa2vcDVYny5vlkCYtvjVtNs5Ls14KyN+jzBu1iGOCjfXCK1puAtIU8s+vpPoEIgV1yEqRBo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YDD/8mtg8JEMy0cBW9jr8+l8tqgX5FTmVbhWMoKpx0lsHji0f
+	3D5PNF+a1jvNpxuTBlR8ygyJ6xzLbx0y7JY9zqr0j+P/reqipu6CeeyFCRJSFbcUXh2sl0SQV1q
+	O/cgbbEXFvfeA2b1pwYVRppoJ3s2P5vg=
+X-Gm-Gg: AZFdTZc6+h46MIlbIlIn0ELzpNXfPqHUYUNUdNCScg8Vy6EDA6tLDGD85ak95azUO34
+	MZzE+wtTHy/857R0pHs5OXlXwWeghcK1baG5Qi028mbTco47egFDHteZZB5ALwwXqHE6eC219/+
+	DY173yhjarg4we0WAWZ/RP0SQYSZRfepHfpWP7PCLWjqmS8XryxJhafYGC0XvvjAZzfGNyAcMGe
+	N7INtvFN6awTOqeKco+IarLQDrGvPu8ABGhcdFvIwe8Mq7CO2SxeMEoAzI+ln3vIH+T7UjDe21v
+	mJZT6cXMwcFHURZF/+D1qhHqg+CITAOSPzqH2j+EdIv60hshMqr8oNj7lzhiO3MztzRrEbgJ+f4
+	Q0FAiY0CHbqt+T2LFs4RmQvloiyQ8Hz8qDNJZQZYssE/eybYO9s3XIHcsI070Bie9vxIQUrC0eN
+	kYt1BECpCUuFDhqqGTZOEwuOrkIQ4CLI8sGvDolKeH+QCXvR2FGecI
+X-Received: by 2002:a05:6512:3503:b0:5c0:a65:4e79 with SMTP id
+ 2adb3069b0e04-5c1bc84aba5mr734450e87.41.1795166301858; Fri, 20 Nov 2026
+ 01:18:21 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,106 +104,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261120-dma3-fixes-v1-4-f29c1f437399@foss.st.com>
-References: <20261120-dma3-fixes-v1-0-f29c1f437399@foss.st.com>
-In-Reply-To: <20261120-dma3-fixes-v1-0-f29c1f437399@foss.st.com>
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-CC: <dmaengine@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>
-X-Mailer: b4 0.16.0
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM7PEPF00000053:EE_|GV2PR10MB6209:EE_
-X-MS-Office365-Filtering-Correlation-Id: fdb527bc-b052-4360-5eb8-08df46e733f9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|36860700016|82310400026|376014|23010399003|22082099003|18002099003|261009223027099003|261022075727099003|261021123027099003|261021121427099003|56012099006|10067099003|261102123227099003|11063799006;
-X-Microsoft-Antispam-Message-Info:
-	apbWO7OBMQImlwK4QNhg3znDbvUIYfXJKpZl/YsOOH06QHRe3WzKKyQXQMua221plu8ZbGoX127w4RMSA6WufOT3tRD5/rMPlAfhXL/yLIw4RmqYUhnTOx8sVzVYu6+blVoN38jXSoegMNOrr7zvZ+d2ul73TujqfSmw+tz0KyQfYfGZmGo1HYXmTqcT/E9Yb6MaBndkaJmDVO2u+YOmkQM1Z5XBCjEWpnomOTyyjn8mg1MlnlgH8wwwb1Bbb4/tdmL9S9otJKhx36uFl3FJTScJ0clf+9iP6XrhEJtwShkyhe8Rp+uJAwwFDnzgVGtUCVmEjAITzIt6TM8hN5PXSJdCgMgpzEMu6p/F7uJDonCuMvge81uV3Mwz5aAvI34BdFgs8b4EPxOiMkEXK8RTbhICcy/umLKTKo8UtsiytkIcyP/RmqQ7pRH4Micq9PZ05H83yvc74TAZtmblBd+NyswZ52bkT1PCD4JHW17e100vdPmZC+JL+uEmzKJdDYmQj4bkeplgX/1FtdBS3FogJGCMyAteSO1/prPmbyo/jw2/ZNd+ekOLzLXqkGpAFCRQGwjSxQ+PspUyDvqj4RPA8VMFrS1yKeqnypxYe+Ach6Uz3FEGsXSqjCBohz9DIwiSnfFa1EeXgOPvZjBxp1z3l3N0aZPi5RojTAZHVn8Yj1dOWRh9FFBTQGWD7osV7iF7Hl5KXlxctw1T9xfEkrrQdg==
-X-Forefront-Antispam-Report:
-	CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(82310400026)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(261022075727099003)(261021123027099003)(261021121427099003)(56012099006)(10067099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	Ha3ZxBpuNItxv72fL9blQiVGMhLW5mKhz4azBkGlbxUko8zL0t75SXGVBCAVfx0TMiOXyz0CCWJlNi24c52Hp71eN8FgFqyjIdyRpr+1Mo8NPTtyRI+yMbhKLPmPzqF9+hbGVJJK6X3z5GqyQJXXuYKEZKiYT57ZSvZ2xRRq3ze08oFjLyEea6+go/EW3FTBGZRV9VPDch+alkLq7a7g455zYNl6rdBv8Mjt+8+5imDFVHU8fnaZePdkreISXSUYqMlbh57F0+cAkQ0Pes77tHNB+92af/FY23JvEh2sRgl+YyDZab/SWU+31hYr5r5vIBg+jPi2rtJQF6xAqWh21d5cxZ0saRQkqx2ZJ9yIPvTAw2FnNyP8u5Zovyb/Vz5Zi2xHiYIoMDf2NfGQxSaXNn3Iia8Ja3QEXh4HOwUiEzVjUNOoRb0hiGTJQUx8OWyo
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 09:18:13.2474
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fdb527bc-b052-4360-5eb8-08df46e733f9
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	AM7PEPF00000053.EURPRD83.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB6209
+References: <20261112214303.16198-1-dennylin0707@gmail.com>
+In-Reply-To: <20261112214303.16198-1-dennylin0707@gmail.com>
+From: Hungyu Lin <dennylin0707@gmail.com>
+Date: Fri, 20 Nov 2026 01:18:06 -0800
+X-Gm-Features: Aa3M54oQtZ0qOiM5E-eLggRfvzG84Hvr9XCvrCFnTpiJPy9BPjxn70QmsI8m6Zw
+Message-ID: <CAGEkeHe7Vsqrze1oxA-L0urvOwAx0w-FVsAJ__LMRBJbujwmSQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] f2fs: require write permission for ioctls that
+ change per-file state
+To: jaegeuk@kernel.org, chao@kernel.org
+Cc: daehojeong@google.com, linux-f2fs-devel@lists.sourceforge.net, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-The DMA3 driver currently hardcodes a 32-byte descriptor size when
-computing the maximum linked-list size and validating the number of
-descriptors to allocate.
+Hi Chao, Jaegeuk,
 
-Compute the descriptor size from the aligned size of
-struct stm32_dma3_hwdesc, introduce a dedicated STM32_DMA3_MAX_DESC_COUNT
-macro, and use it both for the segment size limit (STM32_DMA3_MAX_SEG_SIZE)
-and for the descriptor count check (in stm32_dma3_chan_desc_alloc()).
+Gentle ping on this series.
 
-This also corrects the maximum descriptor count: CLLR_LA holds the offset
-to the next descriptor, so for a descriptor size of N bytes the last
-valid descriptor is at offset (count - 1) * N, and the maximum number of
-descriptors is (CLLR_LA / N) + 1.
-
-Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
----
- drivers/dma/stm32/stm32-dma3.c | 19 ++++++++++---------
- 1 file changed, 10 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/dma/stm32/stm32-dma3.c b/drivers/dma/stm32/stm32-dma3.c
-index 7c509a69f5e5..e5724c4b2c84 100644
---- a/drivers/dma/stm32/stm32-dma3.c
-+++ b/drivers/dma/stm32/stm32-dma3.c
-@@ -251,12 +251,14 @@ struct stm32_dma3_hwdesc {
- } __packed __aligned(32);
- 
- /*
-- * CLLR_LA / sizeof(struct stm32_dma3_hwdesc) represents the number of hdwdesc that can be addressed
-- * by the pointer to the next linked-list data structure. The __aligned forces the 32-byte
-- * alignment. So use hardcoded 32. Multiplied by the max block size of each item, it represents
-- * the sg size limitation.
-+ * (CLLR_LA / STM32_DMA3_DESC_SIZE) + 1 represents the number of hwdesc that can be addressed
-+ * by the pointer to the next linked-list data structure.
-+ * Multiplied by the max block size of each item, it represents the sg size limitation.
-  */
--#define STM32_DMA3_MAX_SEG_SIZE		((CLLR_LA / 32) * STM32_DMA3_MAX_BLOCK_SIZE)
-+#define STM32_DMA3_DESC_SIZE		ALIGN(sizeof(struct stm32_dma3_hwdesc), \
-+					      __alignof__(struct stm32_dma3_hwdesc))
-+#define STM32_DMA3_MAX_DESC_COUNT	((CLLR_LA / STM32_DMA3_DESC_SIZE) + 1)
-+#define STM32_DMA3_MAX_SEG_SIZE		(STM32_DMA3_MAX_DESC_COUNT * STM32_DMA3_MAX_BLOCK_SIZE)
- 
- /*
-  * Linked-list items
-@@ -401,11 +403,10 @@ static struct stm32_dma3_swdesc *stm32_dma3_chan_desc_alloc(struct stm32_dma3_ch
- 	dma_addr_t base_addr = 0;
- 
- 	/*
--	 * If the memory to be allocated for the number of hwdesc (6 u32 members but 32-bytes
--	 * aligned) is greater than the maximum address of CLLR_LA, then the last items can't be
--	 * addressed, so abort the allocation.
-+	 * If the memory to be allocated for the number of hwdesc is greater than the maximum
-+	 * addressable by CLLR_LA, then the last items can't be addressed, so abort the allocation.
- 	 */
--	if ((count * 32) > CLLR_LA) {
-+	if (count > STM32_DMA3_MAX_DESC_COUNT) {
- 		dev_err(vchan_chan_dev(&chan->vchan), "Transfer is too big (> %luB)\n", STM32_DMA3_MAX_SEG_SIZE);
- 		return NULL;
- 	}
-
--- 
-2.43.0
-
+Thanks,
+Hungyu
