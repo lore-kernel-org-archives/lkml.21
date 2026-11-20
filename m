@@ -1,54 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.155.198.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172305;
-	b=t+nLZWOUeOtPncB/sZjTMgsvpDP0p2Ubauwt6uwzYbnxrZ7uzIh+dQF8OKvZDFlWa1Vj
-	 6v7L8O9htPc6r0GCCeM0Dl87ehiymnV1xgjmNZ15BtlSworwTlYSG6gx+0Z0Z4mN9vXgb
-	 rkB9QO5r1h+SePefQN2ktNeD/1OPB4LnCq4w+165NS6Xj+2TI6498jDeDr2qfLGWnZX+T
-	 T4IOmcjwYgnmu7+AZ+9tfEcQxz+6eyfQ9kBuvnDXAu5xRCcl5MQIjnmF0d4DBJ04DzI1H
-	 VWzqJBRwZBmeo8FBRHAQqgBzQ1VmzI0ROplVdnWrc3pWms7Thv6x1dsZAnHeUlCUnyw==
+	t=1795172315;
+	b=liWI5fvqVkKhn8kKHrFXBS/woIT4t03iERJUlkz5XRn+MKp3R3kswH5WX6d7tTWjms6i
+	 Pl8igCCW/FNBt5bPWmctKT8WdrYd4udg+gp3Jzk+X/HHtomglfsOwXg2ymHpD+6vn/LpZ
+	 mjw1q7AEm+YCvR2Cz2nDxpAT1mHe3ueDxow+ANfcnDGvWJ2u6HhT0OtHWb9t34kSSEKnC
+	 25mvLDHol4/JuJaR+CDbY1USPBCrzEFb06JYNnuN40a1oNBSwZ/s7E5GsCxR9P0Qd3qlu
+	 2Fmn8AB0a32+oAxlTL4d3J6Yr27M7GsEyc9bVTAvRs+3RacBCYzX1IRwudszz4A2esg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172305;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=yBagZQZhW3t4Jx4qjVtZRY71nILCOps2dDeRDw0jV54=;
-	b=RvsrTDbRB/ZTTSbtp8Egv6SjOo17O2RixO5RKPUqKFCdMqQFzJ2TeoJLUAUgijgH51w+
-	 /DDWVhg63nS6iPRILqcgtyuXRsbaKlHECPv7IWCjBzvM3WbmMbHb+0nYYX+1sJ4fKNOUF
-	 sVi5thNkdAUO8i2FrxNyIPETI9mVLck0NGXXunLkRTINFK5u+ppbnlISmnZHQVZv7eT9N
-	 N3WBKgV3m9UBh9cPs0MsefcaQp4R2Vcxw3M9xL3StugFxtk2Us8euPEfaARnPA5Y/7mJn
-	 2tQtvwUcimpE5Rn+1X9mDYDeMiYi3lnKkCOg0g0TnhE8YlRaW44rJrlC0Ul7mVEd+QA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172315;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=yvQXu6dR+QvEP8TzMzLD7JVkNNphPtBs+knO8K3lRNM=;
+	b=V9N9wuZFnDZnCkCwc7lVZLWiAUJPj3xrr03pevQkwEYb2YNRAhwEQb6KwusjOgzMPEGt
+	 LY8PHzBq++CLmAzh6Ri6kjg/BlzH2Y1ntDddmBvPVFVW8FoSdwhJ/pRKX/HkjL9txHuND
+	 XcGXbcjxcbz2VMYygZrxWAdioB+DNp33OUI+HE0xlqBXx6lgKJjO08VIP4yQ7NadZHdLh
+	 ee8val7TqARmu++P1rWU5tXWCpvhWBQoiwfwHYBdKLQbrabM+Af9Rz1weidp/gkeD5YnW
+	 Rq5OpC3DxzrUXvwi42ugxbI6ypKvIDCsRwYKkEkGV8UsqoYQqjASiuSWG/g6C5SIZYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id A58D9606A320;
-	Fri, 20 Nov 2026 10:58:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A58D9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+	dmarc=pass header.from=amazon.de;
+	spf=pass smtp.mailfrom=amazon.de;
+	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=pBCS4zUK;
+	arc=none smtp.remote-ip=35.155.198.111
+Received: from pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com [35.155.198.111])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1113A606A320;
+	Fri, 20 Nov 2026 10:58:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1113A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=pBCS4zUK
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=yBagZQZhW3
-	t4Jx4qjVtZRY71nILCOps2dDeRDw0jV54=; b=fwuS51mzi17Sq6wWNXDQ5gy3lG
-	mn+TQCfUYo3y//FMtazC+ofAfLmR+5H73z1qS5ApUBcxNdrJr8nLBUL4KiJnJCEZ
-	mdQGnkPelYHLfgWrAZ2pRlcgLu4quCoGWgOBg27wz0y1+/KbarwO1Wk6X/eL+tBo
-	hCf+uyeTPcjueJbk0=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.41])
-	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkA2XQPAJwBrAY_wAQ--.59502S2;
-	Fri, 20 Nov 2026 18:58:09 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Sean Young <sean@mess.org>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH] media: mceusb: fix NULL dereference on disconnect during IR transmit
-Date: Fri, 20 Nov 2026 18:58:07 +0800
-Message-Id: <20261120105807.8166-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1795172315; x=1826708315;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=yvQXu6dR+QvEP8TzMzLD7JVkNNphPtBs+knO8K3lRNM=;
+  b=pBCS4zUK1xGnNj8kIKHkFyGvZuQln/9jFgT7he8pAbpcyFHT7XmSeLmc
+   T0UILv9h61a7+E8yZeMKvC/VJEGoC8hAeFtyKRbHI/+SgOjNiCumKDW7V
+   EltvYGTXVmmQPpIOkIKqzAUb5yqYK9B4fhZ3cpzF7FjXb9YPzM4q1Bt4e
+   FyWCS4Fc7VVslgHbG27so8qZNKWCSNZDV3XS2R+IQ+6tXVfkkLQ2AS5oc
+   T5E+toKj4/sDgJKWvT8YzeS0o9/Wkub/VCxLJmjR1RJYY3WBkJFoDcx7R
+   JhcaJEsAN8VkjVVje78nEngMrf+xHVkYKOWEdFcq7Z6MssxlZQ8a+cgfN
+   Q==;
+X-CSE-ConnectionGUID: /8KqqdTBS6+wz+n3QN+Ogg==
+X-CSE-MsgGUID: poCk/whcRFKLq01QejUFrw==
+X-IronPort-AV: E=Sophos;i="6.27,222,1787011200"; 
+   d="scan'208";a="34597964"
+Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
+  by internal-pdx-out-009.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:58:32 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:16912]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.8.86:2525] with esmtp (Farcaster)
+ id af5e9a32-fd9b-4dd2-ba91-6e9a937cc2f3; Fri, 20 Nov 2026 10:58:32 +0000 (UTC)
+X-Farcaster-Flow-ID: af5e9a32-fd9b-4dd2-ba91-6e9a937cc2f3
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Fri, 20 Nov 2026 10:58:31 +0000
+Received: from dev-dsk-lshahed-1a-d9c3b839.eu-west-1.amazon.com
+ (172.19.123.145) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Fri, 20 Nov 2026
+ 10:58:29 +0000
+From: Ibrahim Elshahed <lshahed@amazon.de>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>
+CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Josh Don <joshdon@google.com>, Shuah Khan
+	<shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Fernand Sieber
+	<sieberf@amazon.com>, Roman Kagan <rkagan@amazon.de>
+Subject: [PATCH v2 0/3] sched/core: Fix stale core_pick and forced idle after SM_IDLE fast path
+Date: Fri, 20 Nov 2026 10:58:19 +0000
+Message-ID: <20261120105822.7770-1-lshahed@amazon.de>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,76 +91,71 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BrQMCkA2XQPAJwBrAY_wAQ--.59502S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cr1UZrW3WF1kXw1fKFWkCrg_yoW8ZFyDpF
-	W8KFWSyFWDKF4DKr4DAanru3WUAws3GayxCry09wn09rs8Aa4qka4kKayDG3sxArW8A34j
-	yF98A3y7ury5CaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvlb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
-	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
-	r41lc7CjxVAaw2AFwI0_JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvj
-	DU0xZFpf9x07jnPEfUUUUU=
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUDD2r-E0ndsAAAsp
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWA002.ant.amazon.com (10.13.139.96) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-mceusb_dev_disconnect() clears ir->usbdev before unregistering the rc
-device.  An IR transmit runs mceusb_tx_ir() under rc_dev->lock, and a
-single lirc write may issue several mce_write() calls, each of which
-waits up to USB_TX_TIMEOUT for the URB to complete.  If the device is
-disconnected while such a write is in progress, the next mce_write()
-passes the now-NULL ir->usbdev to usb_fill_int_urb(), which
-dereferences it:
+Under core scheduling, a core-wide selection can leave a pick for an
+idle sibling in rq->core_pick and force the other sibling idle. If the
+picked task is migrated away before the idle sibling schedules, and it
+was that sibling's only task, the SM_IDLE fast path (v6.12+) sends the
+sibling back to idle without a pick. The core then stays forced idle
+with nothing running, and the forced idle accounting keeps using the
+stale pointer, also after the task and its cgroup are freed.
 
-  general protection fault, probably for non-canonical address
-  0xdffffc0000000003
-  KASAN: null-ptr-deref in range [0x18-0x1f]
-  RIP: usb_fill_int_urb
-  RIP: mce_write
-  Call Trace:
-   mceusb_tx_ir
-   lirc_transmit
+Patch 1 clears rq->core_pick when the picked task is dequeued. Patch 2
+stops idle CPUs from taking the SM_IDLE fast path while the core is
+forced idle. Patch 3 adds a selftest for the stuck forced idle and the
+use-after-free.
 
-A write that starts after ir->usbdev has been cleared but before
-rc_unregister_device() marks the device as unregistered can hit the
-same NULL pointer.
+Changes in v2:
+- Patch 2: drop the rq->core_pick check. With patch 1 a pending pick
+  is always queued on its rq, so an empty runqueue has none (Peter).
+  Reword the subject and changelog accordingly.
+- Patch 3: new, a selftest derived from the reproducer (Peter). It
+  checks for stuck forced idle and, with cgroup v2 and schedstats,
+  frees each stalled task with its cgroup to catch the use-after-free.
+- v1: https://lore.kernel.org/lkml/20261117142704.6878-1-lshahed@amazon.de/
 
-rc_unregister_device() sets dev->registered under rc_dev->lock and
-waits for an in-flight tx_ir() to finish, so clearing ir->usbdev
-after it returns closes both windows.
+Testing, on tip sched/core d7e670601af6, schedstats=enable:
 
-Fixes: d8b4b5822f51 ("[media] ir-core: make struct rc_dev the primary interface")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
- drivers/media/rc/mceusb.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+- KVM guest, 2 cores x 2 threads, idle=halt, the v1 reproducer. Without
+  the series, both boots oopsed in __cgroup_account_cputime_field()
+  from __sched_core_account_forceidle(). With v2, 6 boots of 240 s
+  (972562 attempts) showed no stuck forced idle and no oops; the
+  no-migrate control (194596 attempts) was clean as well.
 
-diff --git a/drivers/media/rc/mceusb.c b/drivers/media/rc/mceusb.c
-index 39ba7f6a2549..645ce0d0cbc6 100644
---- a/drivers/media/rc/mceusb.c
-+++ b/drivers/media/rc/mceusb.c
-@@ -1844,9 +1844,9 @@ static void mceusb_dev_disconnect(struct usb_interface *intf)
- 	if (!ir)
- 		return;
- 
--	ir->usbdev = NULL;
- 	cancel_work_sync(&ir->kevent);
- 	rc_unregister_device(ir->rc);
-+	ir->usbdev = NULL;
- 	usb_kill_urb(ir->urb_in);
- 	usb_free_urb(ir->urb_in);
- 	usb_free_coherent(dev, ir->len_in, ir->buf_in, ir->dma_in);
+- cs_forceidle_test through run_kselftest.sh in the same guest, 30 s
+  runs. Without the series, all 11 runs crashed in
+  __cgroup_account_cputime_field() 0.4-2.2 s into the test (with
+  KASAN, 2 of 2 first reported a slab-use-after-free in
+  __account_forceidle_time()); with -n, which skips freeing the
+  stalled tasks, 72, 59 and 67 stalls in about 20000 attempts each.
+  With v2, 10 of 10 runs passed with 0 stalls and nothing in dmesg (2
+  with KASAN, 2 booted without schedstats). With patch 1 alone, 42, 43
+  and 34 stalls and no crash; with patch 2 alone, 0 stalls.
+
+- Builds with SCHED_CORE on and off, SCHEDSTATS on and off,
+  SCHED_CLASS_EXT, PREEMPT_RT, tinyconfig and allnoconfig; W=1 clean in
+  kernel/sched/, and each patch builds on its own.
+
+Ibrahim Elshahed (3):
+  sched/core: Clear a stale rq->core_pick after dequeue
+  sched/core: Don't take the idle fast path while the core is forced
+    idle
+  selftests/sched: Add a test for stuck forced idle under core
+    scheduling
+
+ kernel/sched/core.c                           |  28 +-
+ tools/testing/selftests/sched/.gitignore      |   1 +
+ tools/testing/selftests/sched/Makefile        |   1 +
+ tools/testing/selftests/sched/config          |   2 +-
+ .../selftests/sched/cs_forceidle_test.c       | 471 ++++++++++++++++++
+ 5 files changed, 500 insertions(+), 3 deletions(-)
+ create mode 100644 tools/testing/selftests/sched/cs_forceidle_test.c
+
+
+base-commit: d7e670601af6c564ccf6d3b2ddf70ee4f41a6d1c
 -- 
-2.34.1
+2.47.3
 
