@@ -1,84 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202990;
-	b=Sjaq/wEEtP71VKzrVE6FYCYvBQBaE+gdETONnW08HTdexXFgM9lzDX3Boh4A3Wnm+mck
-	 CUxnVJ/9QcuHtmiylgah2tSaDiyObKlVtog6n2Ep5OHhFnFnJUsFZZoP/PhR7BQFlXK+r
-	 WqO0IB6ymybLH2PzuD0y0s6bGbjVJVQAUFoSIFaz65syhZP0I30/LDjo4kLBjZ8GlCgPv
-	 V20eEq614/xP/4BpI1yOUXRXU/IFSMlZ9a+GK3GfzJPebRLzt19VRWtf0Jpv6in68qr4z
-	 Iu2XFULzEv04dRs9Y/pDNJhzxeuyMhfcmW/W4/6zhQghIecUAHjWqTR3DIKCUZz+vMQ==
+	t=1795203008;
+	b=FU2lS/PzEkMbAgI1EWHf8+vhx2xt1SiL9NjJlHJ+3vzDi/ud2bmXnBOjIOQ/3bz5XO8f
+	 D07MeogAZSNuEhnZF37tcPhX8xtdw8HtpvPcXH6OPtDfC6juV3S2QBU//uV4pZEpdScMF
+	 jlg7QC6coaNLFScCDmDO/dileAgudJpilrmijNKKHyoVU7hMR3H+5cprGEioQCb+15IYz
+	 bTaxtCGDNjEHXxQSQ3/EpuoAmU9Hz/uN/h7BjUuYnKy1sICsqkD6LeijQc+fbjonMDdp7
+	 FvwPSwPCowVyM1jYP/UDpWY6egkQ08k+Z8Cp1VsUrQGGmia6GUOGkgBpug4isWMnPrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202990;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 To:Cc:Subject:From:X-Mailer:References:In-Reply-To;
-	bh=ka3sdI51heiAiEj1XMuq2JlrX86IIDTRxLvf6oCKKN8=;
-	b=0fjpLVvWxyqPOcTkVqDVQSaGMXAf7kxnvsg6H46mM7oNlW4kfj0bX9X6QjP2so40Q33+
-	 mwtTiEzWc9DLiqlUpXjhUMNHwgbZ7AyTfxttrFiZm4v5a0Q/fDQz1o+qzCCr4EMcvGrVq
-	 yoNmJ+h5Tz4+IASMOR4HcUtIpj7izgPXnZ4nxLIicdog6tvapKBb+LcfwTGGu3oKJ5ylE
-	 xaD+YUn0Mco46q9tRiTZ92tibdSrFgslwAQfc7fZIrp/gYO7vCYZEGznak046e82fBnES
-	 Ikc4olZjLAFguYXWN8gLZj4CPYVN05lF0Pl1Pn7l/W3JS7GPD3Ig8J7ya69doECsKbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203008;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:X-Rspamd-Queue-Id:
+	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=fsR2ckawZaVZ8b1NhX6hZBSLAfDYxLYGyswfVkMNPA8=;
+	b=1wbPfQm3AHpL70WHWHHi2vvEiO5NF7cEy2LuTLRx5QBCD5Y14vqevZ7hVHeV5tRv8c7K
+	 tHgh9FTks3YLydlfBCI8K3F+SMTWZ+oabKz9EXwS+nuigqjGkafpLyPsUrpaxVT19g/E0
+	 oOmbYlPGOcD5Rz5SgYQz2a0M7c0mI4o8Kx8XX7E19cMaPC83n1SlQWzWsr7hGxE8QpbT/
+	 +nPzS25d6t8yG6yHDV1CF/E/HiU/ERcvBxa9sbJ+4wYKS2m+gGTaw7jmC4xRv2s2fCFAV
+	 K1IaA2Uuk0vXn5ZfBjjjfYe6a00PUFFJjSl3bIAJZjHwskZGenoo5rFmX/MwE3ink2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="I5/wODJW";
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=3lO3FZvB;
+	arc=none smtp.remote-ip=216.40.44.11
+Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E192A60A262B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:29:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E192A60A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F7DF60A2639;
+	Fri, 20 Nov 2026 19:30:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F7DF60A2639
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=I5/wODJW
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f02f04a426so10775185ad.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:29:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795202986; x=1795807786; darn=vger.kernel.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ka3sdI51heiAiEj1XMuq2JlrX86IIDTRxLvf6oCKKN8=;
-        b=I5/wODJWDkk/WTn0vNmxyqVtCPSl4gO1A+GVQco9OAJdwKQkLqoHUnZNsESO5B2acp
-         q2q1P2vGJ2Myin4zPLw2aRO8arTi7ErJHXWvyMzT9DlHa2znzbwgcbawPtigwsuX1+Q2
-         3z3WSOBmuveqCf51BjY4TP5fo9DDCraHZBScG9tyZTNjlQ9pTVSxXfsSP9sgnxpftqPW
-         ctBm3ogJ1Gdg+Drl5PHetamrOZ8NFeiIOSYVhG3eCc39udi6jex7r7oWhnYmWRjYTcd6
-         UTYXJzYLMAzBCpp2u6fONh+wbzIQC08G70ZfjosrtFGRtVkLxp/qirchrUM7jQ/t/84P
-         RArA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202986; x=1795807786;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ka3sdI51heiAiEj1XMuq2JlrX86IIDTRxLvf6oCKKN8=;
-        b=BUMU3RCRUFoAcz4RoxXavPSI1ysSiANsKAs0Rl810yH1lMxOgAMCjp8+EwPwKMcxuF
-         br2DpjypTfDGjLfpmIHnO/7M9Oqe0oTsKc1fyZZFwdGuodm+5IkP+AiW2x6ZnBZeFrgv
-         U1DSZ6SLjDlHiwvSFQUUAtxvMx5rzuC+nGNV3TXtknmE1NzaDko7+bduAopc/42+Qwi2
-         m0HZCQGHmjDZLHPFB8mrwvsdKycRmX35cyRo+ymOFPr7fhnuXVSNK8Gl0HK+rNTl3EDG
-         rvjqhQ0t7+wAfM/6DD1Emn5PcTQ6uLdEy0aA47s02uwdazgdZdtKZjpGC5/Q8Lm9QSNb
-         R7JQ==
-X-Forwarded-Encrypted: i=1; AL+hErFoLuXBHk62Xyej1mrvYsmDfPGKvhytwRGeCHxSIgkaPZ+SlB+hHBir87vf10Tr1GEiu80qPjyiyL4E2hk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9aTO5BZD3XawhBzVVkY8O61Z6PvXxJqutKwgnYNbCokzF004DW
-	8Rq8vZRcBl+yzMpq86fAQq+YfLiQWZP5O/iPYUg0n9UT+WzFGsD85xRHRN25Ic9vnw==
-X-Gm-Gg: AZFdTZeRkhKA7dGXG2aGAGHOl5HPw1FwkwIdCyP6Zqep0GYUDdzOfBJBNRBZqMmAdEe
-	fKQNSnHT3njNCeteJcwKA7tU5q0D65h3vG4JDk3anp7akEU8Kx+cjL/H7LXSwB4xBbmSrRfPga7
-	NbyAgvYv+4f+MBwiIb2FFqwPFGqqN1s5FxLKKFyHnlBXQrhtRwyaDJJcRBeqQMe50Ps8rwS84hp
-	8hCowZXSlD5SwoNpS0bISbcLsv5avHJE0jDtsLQfKn3oPwux+teSRKHAWPePw1DWIb2Lw1bfjO6
-	eD/pMggJZBeAN7AEtr36v4XeeMERPGxY4cfIaikoUCpZ1rAz1wthzMu5NjTIa5szqW4QEo+41O2
-	zqzfzklGs6z99uc3KzxzPlx7H4d+8PlQeKPAkQ6xjV/uPB4gospLsSFq2Mf/b/X9LyunAW/mZy7
-	ELgtWlk+NlFmSMau2utd2iDwGmFSvgiS4Hoky7CHZNxP5Vy2ks9PEOxX7kJZozg5kprLfwFxmiC
-	O04mz3mht+yLnRUBiLR97EPupIZmZ3T6ZInSxEuqm2B3KdDV6VxyK9qw4pa7cyGFgZTRoQIyOY/
-	6ktTGVtPKgIZNG8deSoD4sMGp8T817GY2xvxpq2SQAstk0sazNnX6SEOwqOPrO3D
-X-Received: by 2002:a17:902:ef49:b0:2ea:192a:13b8 with SMTP id d9443c01a7336-2f03f1cfb70mr39502795ad.20.1795202985149;
-        Fri, 20 Nov 2026 11:29:45 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c2ad2sm18293005ad.16.2026.11.20.11.29.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 11:29:43 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=3lO3FZvB
+Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay02.hostedemail.com (Postfix) with ESMTP id 9646312017F;
+	Fri, 20 Nov 2026 19:30:05 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 1B7E11A;
+	Fri, 20 Nov 2026 19:30:04 +0000 (UTC)
+Date: Fri, 20 Nov 2026 14:30:02 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
+ <linux-trace-kernel@vger.kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>
+Subject: [PATCH v4] tracing/probes: Zero out faulted dereferenced fields
+Message-ID: <20261120143002.18b364b3@gandalf.local.home>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,159 +56,241 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 20 Nov 2026 11:29:42 -0800
-Message-Id: <DN0ACH1KR5BS.A33KFC1ZMPTZ@google.com>
-To: "Pranjal Shrivastava" <praan@google.com>, "David Matlack"
- <dmatlack@google.com>
-Cc: <kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-pci@vger.kernel.org>, "Adithya Jayachandran"
- <ajayachandra@nvidia.com>, "Alexander Graf" <graf@amazon.com>, "Alex
- Williamson" <alex@shazbot.org>, "Alex Williamson"
- <alex.williamson@nvidia.com>, "Bjorn Helgaas" <bhelgaas@google.com>, "Chris
- Down" <chris@chrisdown.name>, "Chris Li" <chrisl@kernel.org>, "David
- Rientjes" <rientjes@google.com>, "Jacob Pan"
- <jacob.pan@linux.microsoft.com>, "Jason Gunthorpe" <jgg@nvidia.com>,
- "Jonathan Corbet" <corbet@lwn.net>, "Josh Hilke" <jrhilke@google.com>,
- "Leon Romanovsky" <leonro@nvidia.com>, "Lukas Wunner" <lukas@wunner.de>,
- "Mike Rapoport" <rppt@kernel.org>, "Parav Pandit" <parav@nvidia.com>,
- "Pasha Tatashin" <pasha.tatashin@soleen.com>, "Pratyush Yadav"
- <pratyush@kernel.org>, "Randy Dunlap" <rdunlap@infradead.org>, "Saeed
- Mahameed" <saeedm@nvidia.com>, "Samiullah Khawaja" <skhawaja@google.com>,
- "Shuah Khan" <skhan@linuxfoundation.org>, "Vipin Sharma"
- <vipinsh@google.com>, "William Tu" <witu@nvidia.com>, "Yi Liu"
- <yi.l.liu@intel.com>
-Subject: Re: [PATCH v11 09/13] PCI: liveupdate: Adopt ACS controls in
- incoming preserved devices
-From: "David Matlack" <dmatlack@google.com>
-X-Mailer: aerc 0.21.0
-References: <20261118223704.3286085-1-dmatlack@google.com>
- <20261118223704.3286085-10-dmatlack@google.com>
- <awBkg0ODE436CZy0@google.com>
-In-Reply-To: <awBkg0ODE436CZy0@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Stat-Signature: a1rozdkt8mwikma77uocjc3dioh5py1y
+X-Rspamd-Server: rspamout04
+X-Rspamd-Queue-Id: 1B7E11A
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1+I8eBn7jDDxOIK/S+O6crh/EdPev82jH0=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=fsR2ckawZaVZ8b1NhX6hZBSLAfDYxLYGyswfVkMNPA8=; b=3lO3FZvBiGxk0q7wAyk5ck/kyhXrY9Zs6Jkic3QKAJd7PlWDSA66znNTji/m6NIrsGhTq7/z7jTU8MHC2DqOYdGxr9rOoxKtKnzEZXGNpCXSD+LmyfF6l9MCzPF2CWNQyQ1cJto7P7XGQckeDHnMmpaFMPCFtXmG6LTCtNMOdAE=
+X-HE-Tag: 1795203004-537236
+X-HE-Meta: U2FsdGVkX1/zImiulvvCzfjq2t70Xz8BN7kzotVM47JEmA+Bc5sn+OcGNP3NX9acNTUV+aChHZEQWNp1b9jhdCQFZCON92bWTJRZgf+arhlXyV1hNrO6hDNJHy2UQU+XdmmM5NRqp33TR5iRXL07Zk3o4exkqC7WzIjfEd1jZ0gDTbBTHmRDgdBD4vxiSVEKWxObjLvEiPlohgwrtrVMOWwjWduPgyRpkgD1yH0SrNQ8gbyTzSYRYH/z2D4mvc8XmvUcO6hAhOA1lt2NgTyZxJYittR9ACXU5OJtbl4C5DXdj96vgseCVm9uX0CYOnHFjcOSbrVfdn9GNm9rC+ruTaXM+Qs21i9z220RLelkteWK7PBmJFwVvytCXbAaEHjn/tGCRW9ni41fo/efvlEq0euOigJ4Sj68GB4NJ5eVORphpLIdI8JXIN+joOcIcOpVZ1cBlnfg0s8DKnV1ejUXHfNzlkoqUOYmn6oEBQ2YvK0=
 
-On Fri Nov 20, 2026 at 7:17 AM PST, Pranjal Shrivastava wrote:
-> On Wed, Nov 18, 2026 at 10:37:00PM +0000, David Matlack wrote:
->> Adopt Access Control Services (ACS) controls on all incoming preserved
->> devices (endpoints and upstream bridges) during a Live Update.
->>=20
->> Adopting ACS controls avoids changing routing rules while memory
->> transactions are in flight from preserved devices. It also keeps IOMMU
->> groups from changing during or after Live Update.
->>=20
->> The adopted controls are recorded by the pci_save_state() call in
->> pci_bus_add_device(), which runs before drivers bind, so they are
->> reapplied by pci_restore_state() if the device is reset. Allocate the
->> ACS save buffer for incoming preserved devices even if they match a
->> device-specific ACS quirk, since their adopted controls live in the ACS
->> capability, and panic if it could not be allocated.
->>=20
->> To simplify ACS adoption, reject preserving any devices that require
->> quirks to enable ACS as those quirks would also have to take Live Update
->> into account. If such a quirk matches an incoming preserved device
->> anyway, e.g. because it was added in the new kernel, log a warning and
->> adopt the device's ACS controls regardless, rather than reprogram a
->> device in the path of a preserved device's memory transactions.
->>=20
->> Signed-off-by: David Matlack <dmatlack@google.com>
->> ---
->>  drivers/pci/liveupdate.c | 75 ++++++++++++++++++++++++++++++++++++++++
->>  drivers/pci/liveupdate.h | 16 +++++++++
->>  drivers/pci/pci.c        | 13 +++++--
->>  3 files changed, 102 insertions(+), 2 deletions(-)
->>=20
->> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
->> index 00d6fa5236e9..b99a88c2c199 100644
->> --- a/drivers/pci/liveupdate.c
->> +++ b/drivers/pci/liveupdate.c
->> @@ -123,6 +123,9 @@
->>   *
->>   *  * The device cannot be a Virtual Function (VF).
->>   *
->> + *  * The device cannot require device-specific quirks to enable Access
->> + *    Control Services (ACS).
->> + *=20
->
-> [...]
->
->> +#include "liveupdate.h"
->>  #include "pci.h"
->> =20
->>  DEFINE_MUTEX(pci_slot_mutex);
->> @@ -1071,9 +1073,13 @@ static void pci_allocate_acs_save_buffer(struct p=
-ci_dev *dev)
->>  	/*
->>  	 * Devices that rely on device-specific quirks to enable an ACS
->>  	 * equivalent keep that configuration outside of the ACS Control
->> -	 * register, so they are configured from scratch on restore.
->> +	 * register, so they are configured from scratch on restore. The
->> +	 * exception is devices preserved across a Live Update, which always
->> +	 * adopt the ACS controls established by the previous kernel and need
->> +	 * the buffer to keep them across resets.
->>  	 */
->> -	if (pci_need_dev_specific_enable_acs(dev))
->> +	if (pci_need_dev_specific_enable_acs(dev) &&
->> +	    !pci_liveupdate_was_incoming(dev))
->>  		return;
->> =20
->
-> The ACS save buffer is forced for incoming devices that match an
-> enable_acs quirk, but neither existing quirk keeps its controls where
-> the generic code saves them (Intel PCH Root Ports have no ACS cap,=20
-> SPT/UPT has the Control register at +8, not +6). Is the intent that=20
-> such devices just lose their adopted controls if they ever lose config
-> state later? (e.g. a Root Port D3 cycle after pci_liveupdate_finish())
-> If so, maybe worth calling it out in a comment?
+From: Steven Rostedt <rostedt@goodmis.org>
 
-The previous kernel refuses to preserve any device that requires a
-device-specific quirk to enable ACS, and every kernel that supports
-preserving PCI devices already has the PCH and SPT/UPT quirks. So
-neither of those quirks can match a device that was preserved by the
-previous kernel.
+While looking at tasks global descriptor tables, I discovered the
+following anomaly:
 
-A quirk can only match an incoming preserved device if it is new in the
-current kernel (or the previous kernel was built without
-CONFIG_PCI_QUIRKS). In that case the previous kernel did not apply the
-quirk and programmed the device's standard ACS Control register, which
-is what the save buffer captures. So the device just continues with its
-non-quirked ACS configuration from the previous kernel.
+~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
 
-I will expand the comment and the changelog in v12 to make that clearer:
+The above creates a tprobe on the sched_switch tracepoint and records the
+previous task_struct pointer, it's mm_struct and the pgd the mm_struct
+points to.
 
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index b5b578355a1b..f3d58b5e7a5d 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -1073,10 +1073,14 @@ static void pci_allocate_acs_save_buffer(struct pci=
-_dev *dev)
- 	/*
- 	 * Devices that rely on device-specific quirks to enable an ACS
- 	 * equivalent keep that configuration outside of the ACS Control
--	 * register, so they are configured from scratch on restore. The
--	 * exception is devices preserved across a Live Update, which always
--	 * adopt the ACS controls established by the previous kernel and need
--	 * the buffer to keep them across resets.
-+	 * register, so they are configured from scratch on restore.
-+	 *
-+	 * The exception is devices preserved across a Live Update. The
-+	 * previous kernel refuses to preserve devices that need such a quirk,
-+	 * so a quirk can only match here if the previous kernel did not apply
-+	 * it (e.g. the quirk is new in this kernel). The previous kernel then
-+	 * programmed the standard ACS Control register, so save it to keep
-+	 * the adopted controls across resets.
- 	 */
- 	if (pci_need_dev_specific_enable_acs(dev) &&
- 	    !pci_liveupdate_was_incoming(dev))
+~# trace-cmd start -e tracepoints:sched
 
->
-> Apart from that:
->
-> Reviewed-by: Pranjal Shrivastava <praan@google.com>
->
-> Thanks,
-> Praan
+            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
+          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
+     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
 
-Thanks for the review!
+The first event has is a user task that has both a valid mm_struct and a pgd.
+The second event is a kernel task where the mm_struct is NULL and so is the
+dereferenced pgd pointer.
+
+The third event is where things looked strange. The mm_struct is NULL but
+the dereferenced pgd has a value! That is: NULL->pgd produced something
+other than zero.
+
+The reason for this is that the probe_mem_read() and probe_mem_read_user()
+do not write to the destination on failure. The process_fetch_insn_bottom()
+loop does not check the return value of the dereference (as it is the last
+one), and does not update the event. That leaves the value for that failed
+field to be whatever was in the ring buffer at that time.
+
+Have both probe_mem_read() and probe_mem_read_user() set the destination to
+zero on failure to read the address.
+
+Now all pgd are zero when mm is zero.
+
+Also update the stage 2 of process_fetch_insn_bottom() to not return on
+fault but to just set the value to zero and also do not even bother
+dereferencing the address if the value is already zero. This allows the
+code to continue and fill in the zero into the memory location on the
+ring buffer.
+
+Cc: stable@vger.kernel.org
+Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
+Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
+---
+Changes since v3: https://patch.msgid.link/20261119152922.5a66f10e@gandalf.local.home
+
+- Better handle offsets when val is a NULL pointer to always dereference
+  NULL. (Sashiko)
+
+- Wrapped the probe_mem_read/_user() in a function to use that does the
+  memory clearing on failure so that other code (like trace_uprobe.c) that
+  defines probe_mem_read() can also work with it. (Sashiko)
+
+ kernel/trace/trace_probe_tmpl.h | 80 +++++++++++++++++++++++++--------
+ 1 file changed, 61 insertions(+), 19 deletions(-)
+
+diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
+index 8acc0f0ebd7a..6e137772d2b6 100644
+--- a/kernel/trace/trace_probe_tmpl.h
++++ b/kernel/trace/trace_probe_tmpl.h
+@@ -133,13 +133,37 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
+ 	return 0;
+ }
+ 
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read_user(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	ret = probe_mem_read_user(dest, src, size);
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
++/* On failure, zero out the destination */
++static nokprobe_inline int
++do_probe_mem_read(void *dest, void *src, size_t size)
++{
++	int ret;
++
++	ret = probe_mem_read(dest, src, size);
++	if (ret < 0)
++		memset(dest, 0, size);
++	return ret;
++}
++
+ /* From the 2nd stage, routine is same */
+ static nokprobe_inline int
+ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			   void *dest, void *base)
+ {
+ 	struct fetch_insn *s3 = NULL;
+-	int total = 0, ret = 0, i = 0;
++	int total = 0, ret = 0, i = 0, offset;
+ 	u32 loc = 0;
+ 	unsigned long lval, llval = val;
+ 
+@@ -147,25 +171,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 	/* 2nd stage: dereference memory if needed */
+ 	do {
+ 		lval = val;
++		/* Prevent dereferencing NULL val pointer */
++		offset = val ? code->offset : 0;
+ 		switch (code->op) {
+ 		case FETCH_OP_DEREF:
+-			ret = probe_mem_read(&val, (void *)val + code->offset,
+-					     sizeof(val));
++			/* Do not dereference NULL pointers */
++			if (val)
++				do_probe_mem_read(&val, (void *)val + offset,
++						  sizeof(val));
+ 			break;
+ 		case FETCH_OP_UDEREF:
+-			ret = probe_mem_read_user(&val,
+-				 (void *)val + code->offset, sizeof(val));
++			/* Do not dereference NULL pointers */
++			if (val)
++				do_probe_mem_read_user(&val, (void *)val + offset,
++						       sizeof(val));
+ 			break;
+ 		case FETCH_OP_CPU_PTR:
+-			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+-			ret = 0;
++			/* Do not dereference NULL pointers */
++			if (val)
++				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
+ 			break;
+ 		default:
+ 			lval = llval;
+ 			goto out;
+ 		}
+-		if (ret)
+-			return ret;
+ 		llval = lval;
+ 		code++;
+ 	} while (1);
+@@ -173,19 +202,25 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 
+ 	s3 = code;
+ stage3:
++	/*
++	 * Once val is zero, it is pointing to NULL. Any new dereference is
++	 * also treated as a NULL pointer.
++	 */
++	offset = val ? code->offset : 0;
++
+ 	/* 3rd stage: store value to buffer */
+ 	if (unlikely(!dest)) {
+ 		switch (code->op) {
+ 		case FETCH_OP_ST_STRING:
+-			ret = fetch_store_strlen(val + code->offset);
++			ret = fetch_store_strlen(val + offset);
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_USTRING:
+-			ret = fetch_store_strlen_user(val + code->offset);
++			ret = fetch_store_strlen_user(val + offset);
+ 			code++;
+ 			goto array;
+ 		case FETCH_OP_ST_SYMSTR:
+-			ret = fetch_store_symstrlen(val + code->offset);
++			ret = fetch_store_symstrlen(val + offset);
+ 			code++;
+ 			goto array;
+ 		default:
+@@ -193,27 +228,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 		}
+ 	}
+ 
++	/* When val is NULL, so should the val + offset */
++	offset = val ? code->offset : 0;
++
+ 	switch (code->op) {
+ 	case FETCH_OP_ST_RAW:
+ 		fetch_store_raw(val, code, dest);
+ 		break;
+ 	case FETCH_OP_ST_MEM:
+-		probe_mem_read(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_UMEM:
+-		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
++		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
+ 		break;
+ 	case FETCH_OP_ST_STRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string(val + code->offset, dest, base);
++		ret = fetch_store_string(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_USTRING:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_string_user(val + code->offset, dest, base);
++		ret = fetch_store_string_user(val + offset, dest, base);
+ 		break;
+ 	case FETCH_OP_ST_SYMSTR:
+ 		loc = *(u32 *)dest;
+-		ret = fetch_store_symstring(val + code->offset, dest, base);
++		ret = fetch_store_symstring(val + offset, dest, base);
+ 		break;
+ 	default:
+ 		return -EILSEQ;
+@@ -237,11 +275,15 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
+ 			if (s3->op != FETCH_OP_ST_STRING &&
+ 			    s3->op != FETCH_OP_ST_USTRING) {
+ 				dest += s3->size;
+-				val += s3->size;
++				/* Only update a non NULL val */
++				if (val)
++					val += s3->size;
+ 				goto stage3;
+ 			}
+ 			code--;
+-			val = lval + sizeof(char *);
++			/* Only update a non NULL val */
++			if (val)
++				val = lval + sizeof(char *);
+ 			if (dest) {
+ 				dest += sizeof(u32);
+ 				*(u32 *)dest = update_data_loc(loc, ret);
+-- 
+2.53.0
+
