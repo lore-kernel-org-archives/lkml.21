@@ -1,88 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169219;
-	b=HiRRyAqKs9zkGBbVpT+DNhppOtxBsPcQUABSeaeTXwy4rWVSimSPk2sj1kkcze4ruBir
-	 +bUpqX75SbpYAhwtNBnHW8Q4MxaFAGOu6rcx6q5UytBMwjV1pydEAkJUqubaYunxnsqHZ
-	 pvUHeinv6f79t9kPaCYVU4eSt3lVceln48R4VPq1kAsi7zGucI9BE83VlfCLSz2YXjQoY
-	 PI7fX/Fm10LScOSVmtlYDH6xxnqIpqlk1IXNAaXMvDExuTeIumZqgmebGgU3Sn3IgRtqq
-	 XxRORIzP5KaZto8Vjz4NXIThCrP8M+FdBltUfMABuBh5Ik2ZmOAzpy4F4ol1klvpPnQ==
+	t=1795169278;
+	b=Vrx4TVWRv3SWZ89BGV7kx8z/efELbGR3uN18fo/PdfrPDncT6tX1N5D8WFsZaXBFOKnd
+	 0MaZja4yqyHremJa3wj88s3Suy6qHQUGv7OX1qB2A+p9r5cd/CtDx0WQpWrt4yAIvEvjj
+	 byw4GhkK6Fn71LmdHGcXkRjqjRC0U57RYbkNbtorWbsdud3XnkS7fX5BgyqoJJ1Bdew1F
+	 817kqs32Y3QaR9FyDl4dOoDPlJD1QrIUUV0TbdAWeYTTp8PnLN/PtjUVhodYe44Aqmylh
+	 pWIVNRYg9NLKZSHRMoHjp+k/5UKQWVnxL1OLbkmJUrBKiYe93cowOk//RqfnaLPrmCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169219;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+90+pqil6CBAVbA79RRMMCs5y0fU+WuyAvov2TcftGQ=;
-	b=YB50wlHTppVenTRvy8gYGZmjKuTv7BDgvk9dhKMdfwmIbYomydzSGlh9eyMVjh6Bj2Ak
-	 dv/UWs1PTc3D9n5aqshm5Hpmdy/XyLLs2471xskjPyLvrBJKcmo/D9SNfuXPSYiRBO9a2
-	 8HADnAy1M/ITz6R26CyAtzpaek5UTtjw1jCaot3I8NL1TnP41cpAYjDT8DDacSjivOKJ0
-	 wb1u37eDBzo0sFPhjoKp0Qv/4hr5JFC0CQoHd87OR8tZVZrEt3XFYtV0TiPwoAUu7sw9I
-	 u1DmhBumBgXOyTt9d1rk8n7Rs7o9UNf1a208SiKps+JQcQPLFrYXutX4O2y5e8ZD4HQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169278;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
+	b=MG/qF7TY0Lf246nEZLwLy/SnB73x6gzOfnHf5g1q7ZEf46eU6d6ZuRNBXeWT2V1PVxR5
+	 RH+PfEhXFPkhitn/1h/oVVRqK5Y1MoYDthKnQf4KPL2cwMv2m+qU+IOvloXka4yz8gJ1j
+	 pd2NovpZxxWVO+gIokSJgm3vIIXJ4jUsIrp+gF+Os/fE7BP5v/xOx4Hmj7DcPs/BgdlWo
+	 qiQ1oAMttopGShEVBbvS05fWvnvpCCgfprkgC4ZJNhvoHSStfrJvbtNEo24EIWuRDThkb
+	 p8ifEb0+CT0bmbi+AEdvrMILcWyUH8s981uJPDSGvn1kKBnXFiWbIYQB9n6LtdHcCxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=sazvftPD;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MqHRQxxi;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="gR/nZ5lW";
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74F53606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:06:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74F53606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EB1F606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EB1F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=sazvftPD
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so6050105e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:06:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MqHRQxxi;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gR/nZ5lW
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f9Oc1742339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=mG/rT4UghNUXT3K+3KmB2T5h
+	Q5j4h+o5zz/Q6dODnAc=; b=MqHRQxxiczegEAQZBfwxNU22C/SoRCgiQ0fJlCqv
+	/czQxgk9Dt6LpUggnt5Eok/C0MnS3wuU01IFVPJSnQUJ8fLmi9gy1cQBnNGLF0PE
+	1exYOLwsDYM1VmVyAHfEoF5b/dCiXq5ULZPb7FrzG2sWwsJk4EC7+wCvAZPvj6Ij
+	tkJrZSBk+4X3/JDGM4LDTyzF/PsK4Z1Dc17+AXr/sCi+VnQaLD2Nja+qpUnVkNsx
+	DbOZZiPjmFXpUaDdB5AddWMI8UI1zOxNwiOcZB/zxq7Ccl0pO9xvoRyBKPtHLiQ3
+	c2cdxHU/B3rpF2ArVOJMXHBA7+xNE3DExLwrbJ5Ta6XYsg==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4yhbhj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:55 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92134f1eb00so11568626d6.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:07:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795169218; x=1795774018; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+90+pqil6CBAVbA79RRMMCs5y0fU+WuyAvov2TcftGQ=;
-        b=sazvftPDNBlMwUtfO1fhjPDBQ8zpPXewmHHeJrpQeFRQQfwpEWHRiNb0HRC1G8aCGB
-         UgGPkTCl9z0xIMZ6wEjQHlO4uloI1uiNdGhO2LDDQThE75hYs1O3ekXwZfQfZEB+KCQh
-         Ni/DlVy5JA4i/f+PhhBGfFI4AVuaolp6/AqAJCwl1NlhMQ/CIXLyh6VFd7RfPhzD0yzq
-         4ktOTmXs7K/wmm83j+VhgZAkl4ToKO40ENRlBhziAiITc6ht1M/9e5Zqm6Dz/F+I2oi+
-         9lkF4uRFdaK4vPX6iv+uVlV995+Lutv0S3hZ5HqYkDTKudEVx50jkTVNsCMAkndFU6xd
-         G3Bw==
+        d=oss.qualcomm.com; s=google; t=1795169275; x=1795774075; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
+        b=gR/nZ5lWSjrcMVuk7HciyFObAo/bq4uwaY0xR+5vFDlj88VX2vqb8CELmVMI+E6DbL
+         M1yTLdwwCtisZ28m+jrobnLwAATeXa4g5nWL4a9ssDir5yhPmI/vEDU7VDlcBbH0CW9c
+         2vXSpkqo8Vt3LZ11jSTOfIX5OB3TES8emh42t1B1ASUy4UU75tOQjlc1B9xAwrZnueJ6
+         5EoKyFT1cmug5yW/TWFSu5v13z6mMz2hwahxAJSp08uxizNfXehGrgiaQv8hDqnG3CNt
+         x3esoPtff44qxh79jt3AXMaeFfGTTL1ONZDWbCBsl3urtfer267CZ6qU+HbuNpPmR74X
+         x0WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169218; x=1795774018;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+90+pqil6CBAVbA79RRMMCs5y0fU+WuyAvov2TcftGQ=;
-        b=WMDL1w4ddrCEF5NqyGV8QUaqX5wMy2Mt0vs7ARZ4age+Ney3n/9dNLvpkdHyP+LnBO
-         Z6JPlP3IShl1De6whtXPTcRXlYT0Q+aVRGQ9+49r5Bve93pE0YCMF7lpBqzPIqCQQDL6
-         wnPvPwq/UEn0++lvVZet9WPodSAcGhMoMKeBzWGatYCca9bbxdVzoWRJsBP5ytw6Cq6F
-         20u92NC3k7tjtEL58cfNnimp+W7hpk9G1Dfx2Q+2h+85YCsTRwiB50/c+Py1N4UAz2VF
-         vwAjduEImJ0TIzp1fGLwom4ABZ6N5aU2I0uKsK/A6jUlcoMknBzAfTsXLUlh05eoSimz
-         oSPg==
-X-Forwarded-Encrypted: i=1; AL+hErGjef1kgTosVtLOw9T6CJ802KLUI/H2BHMPCoefIsUQpRbezQIjVNp8udGa9wyD7hzfxMSNWCU65KKC2xs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pebdsYyUqsJcJiyeBuCv1qPqpD9N+QMZ84+nlZPcZZ/1jDk1G
-	kYd4uGxxOkAw9Yt+KPSsPty7xVyVOBxllKjFc8Fk5D93DJumZxXE68lECzkvYM3HQrU=
-X-Gm-Gg: AYBFou2rEm1ktsOooYrr3sxhLVoW6+nCCoNO6A/Uq779HijFXQT3MpQ+DrkVNnot0oE
-	KtgqV1knDVNrGUpNQWOjvOaQH1w8wk+1u0KRkzND41jurT3PLAKwzZkta8uiHcyCt4kSSqj5Imo
-	nqFaqSDfrjUILnQ9IIdxta12ZxZfNH2VgOZmekCcmtbG0wnJKRm4P/PUPpnCtUSkpTuYQsLJmhz
-	jZZftBHqrs8Raa7gluhvbIWQbZEqzDTqYBkvYMzj2rtcyDfJZU5DGwEGHWC8z9KtwiPo06SOP99
-	R2uxbR24QMxs7+cMJ6cgIcmkGDbgrVFK/2iNoDg21E9lh+oTmRobGQsb5vHQvnTcN65vhEXEDeu
-	rrMLmOOO5P05WqExWT8wjvzeDQSZfKnCUO32dE+jDgQRNqAbJ/ceGofqzevEPelSbrF6AKWVOK+
-	TE4Ay0+/h0nxdRJR4xyy40nA0NaO2Oif/UmsK9riXJ9am7Zpaks3JJBwgn7xIuPgIcEkfInmtiN
-	30hxHWhfL7fFNz/9a+LOIje/2u5n5CoyPV+7A0e8hvlHsxqcp1wF1xI9x5qsAzXujj1ur0/u7Za
-	DFUbzQEc74SGShHNd6R8AZCJod5o4yl21g==
-X-Received: by 2002:a05:600c:c4a2:b0:4a3:59c9:a744 with SMTP id 5b1f17b1804b1-4bb88807d87mr58234305e9.7.1795169217686;
-        Fri, 20 Nov 2026 02:06:57 -0800 (PST)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm20236705e9.4.2026.11.20.02.06.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 02:06:57 -0800 (PST)
-Message-ID: <4c59af55-230f-4fd5-980e-91b953a1709a@linaro.org>
-Date: Fri, 20 Nov 2026 10:06:56 +0000
+        d=1e100.net; s=20260707; t=1795169275; x=1795774075;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
+        b=XxoCi+KfzQCHT/3MtkPt3fZijzJUcruV6RPXfCYHNZ64k32Bc4WRewsNl00HpwiDbN
+         i4fWhy8z77mpmWXtqabOvCF6UwNzytaCAwShKFYFTP+B2X0xEw83z2XWe5A/MY/rCMhX
+         jmKTlHtetkru8CBjCerKR4xL8TIelI1yIPHCeje7QwcqJnvBKNTQu2o2VIVyL/Cs+2Wz
+         ZeP/cSpTmC2nkoea6FmzK+LxhzKV1in+bRKd1dL9zJoskhfgCLuIYJj3x/k6P6Xj+dJm
+         Av/pECAbs4W7a/kNq+NZ6JJwye0DcaM/PmRsZ5nxTcfmFLvLbX3Xjxtd4fiqmbMt7AE5
+         S8cA==
+X-Forwarded-Encrypted: i=1; AL+hErHF1AsgCIaWR0HKWF8w5YeIGrB28l8FVlpMzRJ9eVNR8q0SkEACIw3Knn/+ov07g0JnUB6b3cRxni3wv54=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ldEyjdm287wubs5XwQy5qB/yN5UUEFNnANGLL4fjHABY+JHdR
+	Cak/weqSDmqZSHqZAFAzojdO0tNUGN74p2Ub3sNhTqbuX8k+yVMz2LRCotXRbdDA4UjHjMId7Xx
+	4dTtQzlkHd4P1Q1sKPCsAzvA22hjtKH6IAAR9mY93ZwVrQzVf4e+fxrQZm0r8aNAiSGA=
+X-Gm-Gg: AYBFou1CY5YvESQHbHzLJtrFHGOV10cZSSZ/pzEpdenM7AL1noojQ7TqieFaX9DRQD9
+	yb5SZ7TZv51yTIeunyDPuE64kKJ6kgmkEyIEUYsryvlKdJrEy/uxNRg8L0bDdFDx8vztL1MPJjD
+	qWzg7ruh6Ld9SIHoxuYge1ayYZr997hZnXMcIRV33nyXg4E6Awycv7omYlaKm1G+U4W5AiSLxnj
+	hBMUH5jZHWDp34U4PTAfzIHMaxQJ+evfmNicoPBXiSTcgGI4rq+7nV1eqjHqF1fcuLfTOInvcS2
+	RCCgepE/xTp2NuTDn3tZsq0+N3pPBcsRc/dMBz1wIdZqdlKxihKsZFqZ7Qsj5+4A9a1zl9VpVAK
+	J6F/KUu8v0BM+vHqwi6e4Bp9D8q/jcsxFDgxGOH19O3q67VPa5nJ67BvWu+gBg7JR
+X-Received: by 2002:a05:620a:f11:b0:93e:5016:e3a6 with SMTP id af79cd13be357-949ba9c6e0bmr449683885a.26.1795169275057;
+        Fri, 20 Nov 2026 02:07:55 -0800 (PST)
+X-Received: by 2002:a05:620a:f11:b0:93e:5016:e3a6 with SMTP id af79cd13be357-949ba9c6e0bmr449678985a.26.1795169274365;
+        Fri, 20 Nov 2026 02:07:54 -0800 (PST)
+Received: from oss.qualcomm.com ([188.27.161.77])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f1b2sm4306233f8f.25.2026.11.20.02.07.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:07:53 -0800 (PST)
+Date: Fri, 20 Nov 2026 12:07:52 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        netdev@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] clk: qcom: segcc-nord: Add I2C and TSC clock
+ support
+Message-ID: <6r52ghmfpdspeeh5ucxbcbcoir2fti4j2pyptdomgwouudpo7e@qsspx4h6hjmc>
+References: <20261119-gcc_i2c_tsc_support-v2-0-dcb91a0b0013@oss.qualcomm.com>
+ <20261119-gcc_i2c_tsc_support-v2-2-dcb91a0b0013@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,238 +131,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 2/2] perf jevents: Fail the build on a key the tables
- may not carry
-To: TAKANO Mitsuhiro <takano32@gmail.com>
-Cc: Ian Rogers <irogers@google.com>, John Garry <john.garry@linux.dev>,
- linux-arm-kernel@lists.infradead.org,
- Ilkka Koskinen <ilkka@os.amperecomputing.com>, linux-kernel@vger.kernel.org,
- Will Deacon <will@kernel.org>, Mike Leach <mike.leach@arm.com>,
- Leo Yan <leo.yan@linux.dev>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- linux-perf-users@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
- Peter Zijlstra <peterz@infradead.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>
-References: <20261113032927.634183-1-takano32@gmail.com>
- <20261120060931.711483-1-takano32@gmail.com>
- <20261120060931.711483-3-takano32@gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20261120060931.711483-3-takano32@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-gcc_i2c_tsc_support-v2-2-dcb91a0b0013@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6b001bfb cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=-HzP2oy_C0ZWqF548KoA:9 a=CjuIK1q_8ugA:10
+ a=OIgjcC2v60KrkQgK7BGD:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX7vvPvf4DEDvR
+ K8qbjS5DZ8Qrx3qN0G+BziDxl2FM6vZDaxIEt4+H775oxrxhRqL5nib8q7N9tRm6iqPDxVb0hAJ
+ B9Lvha6ceJ9bP1pkBlnUqIpzQH1BNx/hWYk+FIcCO9/38aIMPhtVo5Hlhl4yWGbWCGp1wtAQi6g
+ B3oXiz1gn0c6h5ReJOi4CaG/LN4hkghCi1b329ress164yHSG3g3jtWs5lisajuV1KKN5Wr+I41
+ bTa0/YdGuUCxUEhDGKG7e9NC7E3U6t8YgN+s/rbGTK+pI9gEXKvfGVZTTWAgFv7cBK8Gjfa2vGA
+ A8O/C1QPF1tf/MOW5u8OoJnsuLz2EN/fmsPXMWDHwtfFY1NEp2YW+BroNl9Ei0zY8HMXRxEdCeu
+ kWDiY+HGwgz9SZtUIrGIXLgNJHbz7yQMISnqLW7ng0iKSgH4bmRgjlHeKXYKtwU/vIn4Nhalfx/
+ FVuJvF/5PtdBspLprrA==
+X-Proofpoint-GUID: VifQWnk-uCZnDFf5qMYHQEclG1YCsWvt
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX/OQ/IP4M4clT
+ FtAHR01X1HM6sTyMFNY3wvc1rkYRYNFq1R8fQYnj8HiHB3Zf6tbenyvIQBivo4HHE4KFJuGGs5S
+ CxMR0ds3U7BxRVp0mVJFTUlsAPm/8jQ=
+X-Proofpoint-ORIG-GUID: VifQWnk-uCZnDFf5qMYHQEclG1YCsWvt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 adultscore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200040
 
-
-
-On 20/11/2026 06:09, TAKANO Mitsuhiro wrote:
-> jevents.py takes the fields it wants out of each JSON object by name and
-> ignores the rest, so a key that is spelled differently is dropped without
-> a word and the object is built without whatever that field held.
+On 26-11-19 22:34:21, Taniya Das wrote:
+> Describe the I2C slave and TSC subsystem clocks, reset lines, and
+> parent PLL needed by the Nord SE GCC. This permits consumers to enable
+> and reset the hardware through the common clock framework.
 > 
-> Compare the keys of each object with _valid_keys, the keys a table may
-> carry, and fail on anything else.  The error is one line naming the file
-> and the key:
-> 
->    jevents.py: <path>: unknown key(s): ['BriefDescript6ion']
-> 
-> Written with Hermes Agent, an LLM assistant; the author reviewed it and
-> ran the generator on every arch directory, with and without a key the
-> tables may not carry.
-> 
-> Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
-> ---
->   tools/perf/pmu-events/jevents.py          | 70 ++++++++++++++++++-----
->   tools/perf/tests/shell/jevents_bad_key.sh | 43 ++++++++++++++
->   2 files changed, 98 insertions(+), 15 deletions(-)
->   create mode 100755 tools/perf/tests/shell/jevents_bad_key.sh
-> 
-> diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-> index 080e04b51b8c..65e51dafd42b 100755
-> --- a/tools/perf/pmu-events/jevents.py
-> +++ b/tools/perf/pmu-events/jevents.py
-> @@ -63,6 +63,27 @@ _json_metric_attributes = [
->   # Attributes that are bools or enum int values, encoded as '0', '1',...
->   _json_enum_attributes = ['aggr_mode', 'deprecated', 'event_grouping', 'perpkg',
->                            'default_show_events']
-> +# Keys a table under arch/ may carry.  jevents.py takes the fields it wants by
-> +# name and drops the rest without a word, so a key that is spelled differently
-> +# is only visible as a field that went missing; a table carrying anything else
-> +# is an error.  The list holds the keys jevents.py reads, plus the ones the
-> +# tables carry and it does not read: Counter, CountersNumFixed and
-> +# CountersNumGeneric (read by nothing) and Experimental (read by metric.py).
-> +_valid_keys: Set[str] = {
-> +    'AggregationMode', 'AnyThread', 'ArchStdEvent', 'BriefDescription',
-> +    'Compat', 'ConfigCode', 'Counter', 'CounterMask',
-> +    'CountersNumFixed', 'CountersNumGeneric', 'Data_LA', 'DefaultMetricgroupName',
-> +    'DefaultShowEvents', 'Deprecated', 'EdgeDetect', 'EnAllCores',
-> +    'EnAllSlices', 'Errata', 'EventCode', 'EventidCode',
-> +    'EventName', 'Experimental', 'ExtSel', 'FCMask',
-> +    'Filter', 'Invert', 'LegacyCacheCode', 'LegacyConfigCode',
-> +    'MetricConstraint', 'MetricExpr', 'MetricGroup', 'MetricgroupNoGroup',
-> +    'MetricName', 'MetricThreshold', 'MSRIndex', 'MSRValue',
-> +    'NodeType', 'PEBS', 'PerPkg', 'PortMask',
-> +    'PublicDescription', 'RdWrMask', 'RetirementLatencyMax', 'RetirementLatencyMean',
-> +    'RetirementLatencyMin', 'SampleAfterValue', 'ScaleUnit', 'SliceId',
-> +    'ThreadMask', 'UMask', 'Unit',
-> +}
->   
->   def file_name_to_table_name(prefix: str, parents: Sequence[str],
->                               dirname: str) -> str:
-> @@ -196,6 +217,9 @@ class JsonEvent:
->     def __init__(self, jd: dict):
->       """Constructor passed the dictionary of parsed json values."""
->   
-> +    if extra := set(jd) - _valid_keys:
-> +      raise ValueError(f'unknown key(s): {sorted(extra)}')
-> +
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 
-All you need is this raise, you don't need any of the other try catch 
-changes. It already prints the filename, a little bit of stack and then 
-the missing key as the last line:
-
-   Exception processing pmu-events/arch/x86/amdzen1/core.json
-
-   ...
-
-   ValueError: Unknown keys ['EvendtName'] ...
-
-It's perfectly legible as an error as it is and not worth the churn and 
-extra noise in the code.
-
->       def llx(x: int) -> str:
->         """Convert an int to a string similar to a printf modifier of %#llx."""
->         return str(x) if x >= 0 and x < 10 else hex(x)
-> @@ -459,6 +483,8 @@ def _read_json_events_impl(path: str, topic: str) -> Sequence[JsonEvent]:
->     try:
->       with open(path, encoding='utf-8') as f:
->         events = json.load(f, object_hook=JsonEvent)
-> +  except ValueError as exc:
-> +    raise ValueError(f'{path}: {exc}') from exc
->     except BaseException:
->       print(f"Exception processing {path}")
->       raise
-> @@ -492,6 +518,8 @@ def preprocess_arch_std_files(archpath: str) -> None:
->             _arch_std_events[event.name.lower()] = event
->           if event.metric_name:
->             _arch_std_events[event.metric_name.lower()] = event
-> +    except ValueError:
-> +        raise
->       except Exception as e:
->           raise RuntimeError(f'Failure processing \'{item.name}\' in \'{archpath}\'') from e
->   
-> @@ -643,7 +671,10 @@ def preprocess_one_file(parents: Sequence[str], item: os.DirEntry) -> None:
->     assert _bcs is not None
->     if item.name.endswith('metricgroups.json'):
->       with open(item.path, encoding='utf-8') as f:
-> -      metricgroup_descriptions = json.load(f)
-> +      try:
-> +        metricgroup_descriptions = json.load(f)
-> +      except ValueError as exc:
-> +        raise ValueError(f'{item.path}: {exc}') from exc
->       for mgroup in metricgroup_descriptions:
->         assert len(mgroup) > 1, parents
->         description = f"{metricgroup_descriptions[mgroup]}\\000"
-> @@ -1473,6 +1504,8 @@ def main() -> None:
->               continue
->         try:
->           action(parents, item)
-> +      except ValueError:
-> +        raise
->         except Exception as e:
->           raise RuntimeError(f'Action failure for \'{item.name}\' in {parents}') from e
->         if item.is_dir():
-> @@ -1536,20 +1569,27 @@ struct pmu_table_entry {
->       if item.is_file() and item.name.endswith('.json') and not item.name.endswith('metricgroups.json'):
->         tasks.append((item.path, get_topic(item.name)))
->   
-> -  for arch in archs:
-> -    arch_path = f'{_args.starting_dir}/{arch}'
-> -    preprocess_arch_std_files(arch_path)
-> -    ftw(arch_path, [], collect_json)
-> -
-> -  with concurrent.futures.ProcessPoolExecutor(max_workers=_parallel_worker_count(len(tasks)),
-> -                                              initializer=_init_worker,
-> -                                              initargs=(_arch_std_events,)) as executor:
-> -    for path, topic, events in executor.map(_parallel_read_json_events, tasks):
-> -      _json_cache[(path, topic)] = events
-> -
-> -  for arch in archs:
-> -    arch_path = f'{_args.starting_dir}/{arch}'
-> -    ftw(arch_path, [], preprocess_one_file)
-> +  try:
-> +    for arch in archs:
-> +      arch_path = f'{_args.starting_dir}/{arch}'
-> +      preprocess_arch_std_files(arch_path)
-> +      ftw(arch_path, [], collect_json)
-> +
-> +    with concurrent.futures.ProcessPoolExecutor(max_workers=_parallel_worker_count(len(tasks)),
-> +                                                initializer=_init_worker,
-> +                                                initargs=(_arch_std_events,)) as executor:
-> +      for path, topic, events in executor.map(_parallel_read_json_events, tasks):
-> +        _json_cache[(path, topic)] = events
-> +
-> +    for arch in archs:
-> +      arch_path = f'{_args.starting_dir}/{arch}'
-> +      ftw(arch_path, [], preprocess_one_file)
-> +  except ValueError as exc:
-> +    # A worker's traceback is three levels of ProcessPoolExecutor noise around
-> +    # the one line that matters, so say it here and stop.  make deletes the
-> +    # target it failed to build (.DELETE_ON_ERROR), so the next run reads the
-> +    # JSON again rather than a half-written table.
-> +    sys.exit(f'jevents.py: {exc}')
->   
->     assert _bcs is not None
->     _bcs.compute()
-> diff --git a/tools/perf/tests/shell/jevents_bad_key.sh b/tools/perf/tests/shell/jevents_bad_key.sh
-> new file mode 100755
-> index 000000000000..7848e60b8b4a
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/jevents_bad_key.sh
-> @@ -0,0 +1,43 @@
-> +#!/bin/sh
-> +# SPDX-License-Identifier: GPL-2.0
-> +# Check jevents.py reports unknown keys as errors (no_mlock)
-> +#
-> +# A key that is spelled differently is dropped without a word, so jevents.py
-> +# compares the keys of each object in a table against the keys it reads and
-> +# fails on anything else.
-> +
-> +jevents=$(dirname "$0")/../../pmu-events/jevents.py
-> +python=${PYTHON:-python3}
-> +
-> +# An installed perf has the test but not the generator, and a python that is
-> +# not there or too old to run it is a skip, not a failure of the check.
-> +[ -r "${jevents}" ] || exit 2
-> +[ "$("${python}" -c 'import sys; print(sys.version_info >= (3, 9))' 2>/dev/null)" = True ] \
-> +  || exit 2
-> +
-> +tmp=$(mktemp -d) || exit 2
-> +trap 'rm -rf "${tmp}"' EXIT HUP INT TERM
-> +tables="${tmp}/arch/x86/model"
-> +mkdir -p "${tables}" "${tmp}/arch/common"
-> +printf '[]\n' > "${tmp}/arch/common/empty.json"
-> +printf 'Family-model,Version,Filename,EventType\nGenuineIntel-6-97,v1.0,model,core\n' \
-> +  > "${tmp}/arch/x86/mapfile.csv"
-> +printf '[{"EventName": "a", "NotAKey": "x"}]\n' > "${tables}/events.json"
-> +
-> +if "${python}" -B "${jevents}" x86 all "${tmp}/arch" \
-> +    "${tmp}/pmu-events.c" "${tmp}/pmu-events-string.c" 2> "${tmp}/err"; then
-> +  echo "jevents.py accepted a key it does not read" >&2
-> +  exit 1
-> +fi
-> +grep -qF -- "NotAKey" "${tmp}/err" || {
-> +  echo "jevents.py failed without naming the key" >&2
-> +  cat "${tmp}/err" >&2
-> +  exit 1
-> +}
-> +grep -qF -- "${tables}/events.json" "${tmp}/err" || {
-> +  echo "jevents.py failed without naming the file" >&2
-> +  cat "${tmp}/err" >&2
-> +  exit 1
-> +}
-> +
-> +exit 0
-
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
