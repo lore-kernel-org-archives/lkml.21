@@ -1,55 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.34.166.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202293;
-	b=FvkNyac269RHoVBS8w5WsLuaiX2rztlwaS62D78jpJweBWsXnjifzWvLlXChS43bkKeX
-	 LRnbSl0TrtOz4uXNtFmU4AVC7UKJOgp+jKhCPl0vJewSO01dWrEU21KuueEKnPo2SC8Ny
-	 NTdaxcYIV9QLBwAgksZgxeQZA6DdqPABF9mm2vK4+7Wlb7hOeSkW/QFGzPDYtd47c5K6q
-	 LRSeT00Akzw7ukG9tVUjT0vAvVaCVc+3TuSDCS7be6GKdQgl7TWn2crxjG4ux0rDYXcIV
-	 42PhnKXko0xqXaYXbRYHS8FSR4B/OsR4FY/bT4JXp9S2c+zaaBf0yPOb4PPmHNLW12Q==
+	t=1795202401;
+	b=mBq6WTjMgtu6AjnrXLHQV9DPLNhD4ko/i/65hie/4oo5fvsf+jWDDz7cJc5gX9e5iaqU
+	 RPNR/AQ2c5+JjcKgrWnUgjJW+d2bOH6Irn8c1vXZ0pMDh2ftFtZMafjJ1ob6QekUTpZy7
+	 0Q83bqcqw/sZpR6SXz+KOiwEcjFQ686X5tY6Ik03Tug2ynVfYO1o2Vad3b1maM/YnPQqG
+	 rbgVBdP1IWQi7cx9lqshpg1mmgGWXZzdatWY2x5Syd6132jekq7HID+SFIdcddt/dk/1S
+	 oQcOG3FRoMpqi0cm6bTuZzputxqe5ORyIIWut4dJLPVGzVmn6eGr3rmlrinaz2sfibQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202293;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=D0aacaaucLazBzamGaNcpBWXLJSLR5Zsq+QZIkHcA28=;
-	b=CeUJ4red8ce6e5CdgqiwICPObMgmoCpJHONanneWzXAQWpPQXVuArw7uAy2ioBB3vUsb
-	 NI+GlKuT+iKOKsMNl+q/UMTCQJUPaVaGJVHIYQgAEdz6B8daoMiVSYhKObsCQePIp6Yru
-	 fiwGijjx90rIVW9iqXVIfNmo6T2OXtV2PZ1QFe+uYJ7uckw5dv+sH1bPO65pL4WCOzzEJ
-	 lnYf2xACgqC6r0hEzAsJgO32O7ENdawWPIhBH/c0sTiKDdZA+VqMTKJMTVFsQztaJm5ri
-	 OOobZOEit2SZUDzDkomzYK7iFq3pULWH9PIFMBOoHASCDwJ1M6UPpxq5YKIgQzhcc5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202401;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=YCSPQg38JCvTFBhOaouQF8A4H/BO7cYu0Ed6hFheRRk=;
+	b=pBG4JHg6kF2Mbupt8udX04UH/dCgGU9sO1E/NsvGRja54iuLlPpJiAuKa3Qo7BDuolgd
+	 vPwmRdBM4C7AiYCIP6zacOOYiUVpHfDdq5n57ajuObKeU1jNHJPjgTUqwihx84+QhQAX9
+	 cPPXQce1xmzleRX0OEm6XlFDx5gexsqpsBd1zxLr4WofJngHAxJ3ZvsV2yzHJtypdV1b1
+	 0NkDVzoCQt40ZJA08/+U7J8oz9agvF9pHUu9cMp5FSlH2Vp110FZzund0AYRSdrg7CfkC
+	 4mejB32oxp/35Vtd/tSeRkdnuObsz+sI88PPylMLmZW8/00h9o7tNVbtZoHiQkQJSCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tsu+dV+R;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=tukaani.org;
+	spf=pass smtp.mailfrom=tukaani.org;
+	dkim=pass header.d=tukaani.org header.i=@tukaani.org header.a=rsa-sha256 header.s=x header.b=OH+bECqH;
+	arc=none smtp.remote-ip=84.34.166.10
+Received: from mailscanner01.zoner.fi (mailscanner01.zoner.fi [84.34.166.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0B69606A6D3
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:18:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3053B606A6CB
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:19:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3053B606A6CB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tukaani.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tukaani.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tsu+dV+R
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEBA71F000D0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:18:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795202292;
-	bh=D0aacaaucLazBzamGaNcpBWXLJSLR5Zsq+QZIkHcA28=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Tsu+dV+RFstRRv9DCiGG0qgN4F8PbOY6/XDaZv5+N00mdm7KoZod3Jdlpak9BABKb
-	 +0EFOLZDoGVg1Vq9B4RmzFxNH/wQY0yNFsv45UIm33eSA73I4GM3IBVrF/5Jqw/Xgf
-	 ozcfDRa8hK4Gmiw0At24xmlO4vfcN5aQBbCTmw4TWJimTBBU98kG9/k6WGLZhzvu80
-	 8sOHlyWx2IzZXdrGubIH5/9bXbZHy+JDhVtOFJrXu9DKfIBP1fHYkjCf4DRqULZovf
-	 kinhqDgKUHIqWP9cTdUBbH2y7ALbtl9I4RyBWfFTNyTg8UZca1BJi5UI4Mk2tRNRKo
-	 P2IFBQw4/i2Mw==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3ae22dcfdc3so10132621fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:18:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEPTX5nuIq2nd5udTfefm/mzZr5P6hMqnjGkaqt7XrC2DGrdvxV+FvZAJ4gJZDz31pNb26rPA14vEeLAFw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UsKGsWfeGx0c7uCRsOBsAiMvVo/saUwK0W+hb2hkBOF0N9WeZ
-	zDcBVDXZT0PjojQA2BoxnRkXr7qAIi8ca8iIu+U3wuGoJShD4uvQ5qNaYamUgUrieQpSw9s6CH5
-	IEjdaKsP3jyDNeuVbJvw7cZ6S4HkuVC0=
-X-Received: by 2002:a05:651c:419b:b0:3ac:433c:6ab7 with SMTP id
- 38308e7fff4ca-3ae7f9f2550mr11211681fa.16.1795202291354; Fri, 20 Nov 2026
- 11:18:11 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=tukaani.org header.i=@tukaani.org header.a=rsa-sha256 header.s=x header.b=OH+bECqH
+Received: from www25.zoner.fi (www25.zoner.fi [84.34.147.45])
+	by mailscanner01.zoner.fi (Postfix) with ESMTPS id BC24644EA4;
+	Fri, 20 Nov 2026 21:19:41 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=tukaani.org
+	; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
+	In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:
+	Content-Description; bh=YCSPQg38JCvTFBhOaouQF8A4H/BO7cYu0Ed6hFheRRk=; b=OH+bE
+	CqHWieFSxKm5UOF4rg+CCdi7M35T6aA5gLfY19KyPlANkXcRs2bumDtjIkexnnFjlGtyo2eeTMk5a
+	TiTaQ3HFZvTBY1AnSAt7YtwEKBncaXoqy79W/DzGgi3YZp+0IXIp39aLxqB3Cqh/yDw3nDo8WBamp
+	5E8ZK0CMr4WtGF7CIgKyy5gxa4+C3VLkEIIfkdgbcyCjZqc2OGD7H/Fzc9aJYSUspyjtnZ7itRm5A
+	+oJOONklApQ0nfMYAwY3Y6PK1gSjSfZdJYfNPx0FWCZJ+Mj5oxuknBhBvBGI2tOPpcXMH9Nn21U10
+	0+yaD/f6VnevBB95uujuUV+6rl4Sg==;
+Received: from mail.zoner.fi ([84.34.147.244])
+	by www25.zoner.fi with esmtp (Exim 4.100.1)
+	(envelope-from <lasse.collin@tukaani.org>)
+	id 1xUU94-00000007R16-0TP6;
+	Fri, 20 Nov 2026 21:19:41 +0200
+Date: Fri, 20 Nov 2026 21:19:41 +0200
+From: Lasse Collin <lasse.collin@tukaani.org>
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] lib/xz: Decode LZMA with local range decoder and
+ dictionary state
+Message-ID: <20261120211941.05b6995e.lasse.collin@tukaani.org>
+In-Reply-To: <20261113115937.188894-1-pmenzel@molgen.mpg.de>
+References: <20261113115937.188894-1-pmenzel@molgen.mpg.de>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,72 +69,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <cover.1794992905.git.daniel.lezcano@oss.qualcomm.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 20:17:58 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0h_kRcqpfM=8wnEXSnwB5+MHHUd2wK8jruQSRoTYnuXew@mail.gmail.com>
-X-Gm-Features: Aa3M54oLwSoxOTZL4M8rcFfriin7DTrg-svIenSNy9jdlFieUb2umtCsC8Amt5k
-Message-ID: <CAJZ5v0h_kRcqpfM=8wnEXSnwB5+MHHUd2wK8jruQSRoTYnuXew@mail.gmail.com>
-Subject: Re: [PATCH RESEND v2 0/2] powercap: idle_inject: Create threads on demand
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: rafael@kernel.org, tglx@linutronix.de, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Peter Ziljstra <peterz@infradead.org>, Bradley Morgan <brads@mainlining.org>, 
-	Heiko Stuebner <heiko@sntech.de>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 5:16=E2=80=AFPM Daniel Lezcano
-<daniel.lezcano@oss.qualcomm.com> wrote:
+On 2026-11-13 Paul Menzel wrote:
+> lzma_main() and the functions it calls access the range decoder and
+> the dictionary through s->rc and s->dict. Every decoded bit stores to
+> a uint16_t probability, and every decoded byte stores to dict.buf, and
+> the kernel builds with -fno-strict-aliasing. So the compiler has to
+> assume that these stores modify *s, and reloads and stores rc.range,
+> rc.code, rc.in_pos, dict.pos, dict.full, =E2=80=A6 around each of them.
 >
-> Idle injection currently registers per-CPU kernel threads during early
-> initialization, including on CPUs for which no idle injection device
-> will be registered.
->
-> This series makes thread creation follow the lifetime and CPU mask of
-> each idle injection device.
->
-> The first patch adds an optional CPU mask to smpboot thread descriptors.
-> The mask restricts thread creation, CPU hotplug handling and teardown,
-> while preserving the existing behavior for descriptors without a mask.
-> Registrations sharing task storage are checked for overlapping CPU
-> masks under smpboot_threads_lock before any threads are created.
->
-> The second patch uses this support to register idle injection threads
-> when a device registers and destroy them when it unregisters. CPU
-> ownership claims, registration rollback and thread teardown are
-> serialized to prevent overlapping registrations from sharing threads.
->
-> The series was tested on Rockchip RK3588. The updated smpboot code and
-> idle injection code also build with W=3D1. Concurrent registration and
-> CPU hotplug runtime testing remains outstanding.
->
-> Changes in v2:
-> - Reject overlapping smpboot registrations sharing per-CPU task storage
->   with WARN_ON_ONCE() and -EBUSY, as suggested by Thomas Gleixner.
-> - Default a NULL CPU mask to cpu_possible_mask at registration and
->   remove redundant NULL-mask checks from the lifecycle helpers.
-> - Use scoped guards for the smpboot registration locks.
-> - Document the overlap restriction and registration return values, and
->   update the core commit explanation.
-> - Add Bradley Morgan's Reviewed-by tag to the idle injection patch.
->
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Rafael J. Wysocki <rafael@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Bradley Morgan <brads@mainlining.org>
->
-> Daniel Lezcano (2):
->   smpboot: Allow restricting per-CPU threads to a CPU mask
->   powercap: idle_inject: Create per-CPU threads on registration
->
->  drivers/powercap/idle_inject.c | 69 +++++++++++++++++++++-------------
->  include/linux/smpboot.h        |  6 +++
->  kernel/smpboot.c               | 45 +++++++++++++++++-----
->  3 files changed, 83 insertions(+), 37 deletions(-)
->
+> Copy both structures to local variables at the start of lzma_main()
+> and write them back at the end, and force inlining of the helpers that
+> take their address, so that the compiler can keep them in registers.
 
-Applied as 7.5 material, thanks!
+Something like this seems to be a good idea.
+
+While -fno-strict-aliasing hurts speed a little, it's a minor thing.
+Even with strict aliasing, writes to dict->buf[...] are a problem
+because uint8_t usually is unsigned char which can alias anything.
+Simply adding "restrict" to the pointer arguments of dict_repeat() and
+dict_put() reduces decompression time by several percent on some
+machines.
+
+I separated the changes into multiple commits so that the effect of
+local rc, local dict (or *restrict dict), and various __always_inline
+additions are easier to test. I created three temporary branches in the
+upstream repository[1]:
+
+    optim_paul  Your version
+    optim1      Local rc and "restrict" for dict
+    optim2      Local rc and local dict (no "restrict")
+
+optim2 is similar to your version. optim1 and optim2 contain a few
+other changes too, the first one being "Split state updates".
+
+The results vary between systems:
+
+  - On Ryzen 7 9700X with GCC 16.2, the the local rc clearly helps, but
+    the dict changes don't make much difference in speed.
+
+  - On ARM64, the dict changes in both optim1 and optim2 are significant
+    improvements (tested on NVIDIA GB10 Spark on cfarm.net).
+
+  - On x86-64 and Clang 23 with -O2, the rc and dict changes make little
+    difference.
+
+Could you test and compare optim1/2? I mean primarily the commits
+before "Split state updates", but thoughts about the later commits are
+welcome too, of course.
+
+I suggest creating a test file with xz --threads=3D1 --check=3Dnone so that
+one is measuring only the decompression speed without CRC32. The CRC32
+implementation in XZ Embedded is slow.
+
+There is a benchmark program in the repo:
+
+    cd userspace
+    make CFLAGS=3D'-O2 -fno-strict-aliasing'  # Or use kernel's flags.
+    ./bench /path/to/testfile.xz m 10  # Multi-call mode (XZ_DYNALLOC)
+    ./bench /path/to/testfile.xz s 10  # Single-call mode (XZ_SINGLE)
+
+The source files aren't completely identical to the versions in the
+kernel. If you want to test optim1/optim2 in kernel context, copy
+xz_private.h, xz_lzma2.h, and xz_dec_lzma2.c to the kernel tree and
+remove XZ_EXTERN:
+
+    sed -i 's/XZ_EXTERN //' xz_private.h xz_dec_lzma2.c
+
+It might take several days for me to reply, so please be patient.
+
+Thanks!
+
+[1] https://github.com/tukaani-project/xz-embedded
+
+--=20
+Lasse Collin
