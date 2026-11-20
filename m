@@ -1,104 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795161495;
-	b=gz84zUUnXs1Yi3VvrZraDAciLUXDEtb09IQtg5EOB/j9ufUkIdSGXYM7Ri0M12+XILs9
-	 tDqQ5NK0wD+e6NdyEzBNSWv7TMs1LJua4ngpLr2F+aeXkgTFoG8ld5tSXM9nLimfnoDw1
-	 rvL21SY4gemQaEOmZRgy0bpwM3BWQkMGcjwX5Z4xsWQB3zst8QFwG5e2oWhDjyKBRtaEe
-	 crK3DlgASAXltxu1GyTuF6ZUAJ0ZgFAyQhIE3pe/9ZpjznUl+hDzVQ5l0OeU7DKs8tgPL
-	 UPR/GWI9VSgyXczL8MmFppOmPgi5jTsSejYvhoVknwYKKtzpxPkx8NziMhD0pcC8ahg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161495;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 In-Reply-To:References:MIME-Version:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Content-Type;
-	bh=uT5yC1vz0hTCCQYbRPqrM1RAS3M39jnWDO+MUUDgNVs=;
-	b=HmD0xer8X5fH+59drqxlM/+0Pnv1I9MWx0VcV0gxfSDU+3mb2dy/wjqRaM1DbxwlUJ2z
-	 Iq83+SzrtTPu6WEaFO2Tq+U7o1s33F5ET2g/m+AkctKxrhRmznSOeUQ6eXtvFVB48a9Mi
-	 5bATE1i47NkkzI/Fe394pakcphCV0sfSBbXH0dmRRi9qyRum3d2I+f1mmDzsgOBLFMTLf
-	 yZznzethQABbHUVLLmONLaqfLgkG/gMyMzDrHb1mbuSkFJBXVZOdu1W8J8eN0yAbVAkF0
-	 y6vCPRh4iTJd1i5BDewprOSy/XEjUJp6+ek7uY6mcY9KiCnFP9Wf4CWyS3AjZZG/9Tg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x3PRDn+a;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.47
-Received: from mail-yx1-f47.google.com (mail-yx1-f47.google.com [74.125.224.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795161570;
+	b=yNWltBUL3j96h9B4/k5uZibMQWhYKNzHnmg/lFo7t7esWpwhry4TnkBAMFdwQoaHk2xi
+	 yhYpU79/i4ccpGUP3m13rVjijsfQavzrBQHSiUjx4Sc0/go709WWW4CepNrWn/Jhnc9nE
+	 CWJycbJF2HklNzGaAn2d/n/zS4SQy31/0S6TbjSuGqhYNdvS7LKE4KmzSoysQ0BjccNlm
+	 pcJeIsAET0+MNBFf5bTF+YGeD/ZwCXSvgEGuynnWNDimQNb8/sCPRsBJ14uHraSwHbBpZ
+	 s94fbRs2Oh1+Ya3V2PIYOpP8HrGx9FEhlN69oXFYtB1lY/cTv5w4wADlAyWFqr9xS+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161570;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 X-TM-AS-GCONF:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=F2n+4r1Qd+k8zApxHYn/nInTmDlOUducVk8dWZ2hv7U=;
+	b=K0NgdgMZbELmoFQMsuolqmy/PcQ3bv+Ci0vqM16lGHjHOl43am9EZ8SYVKq6I5FC6A6n
+	 STSiif4UMmsGqyplhLAnZzkB9xDehhkX+5SOUFwQw2yxpOfX5Oy2TrhTnSMJ5A4JR4rWU
+	 cciIMeK/S4qHErT9Oc+yL8l4sOlqyEzjmPE2OyC5A2NtcpTrBbe6v7BQheAxIH3ASnHZV
+	 QjneFqFGuEvDzcvcD4OwXws8XSNhlqawvMvgejQgznITG6Dl0pf+LqbWzgzlN5jYTxmxj
+	 mN4z6Ze25kk3CS1hk9fhiS4wcCh++bh59+dIgHoe8wdw8hqXq92+RnSJUDA0+5VDHRQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="OEQ/sW/t";
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD227606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:58:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD227606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2487606A320;
+	Fri, 20 Nov 2026 07:59:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2487606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x3PRDn+a
-Received: by mail-yx1-f47.google.com with SMTP id 956f58d0204a3-67da564d9f2so1082720d50.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:58:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795161494; cv=none;
-        d=google.com; s=arc-20260327;
-        b=q8GZ8iH6VNKykffOROdBV2vT+aVf+U8omfb5aWZxqPptmTxsFkEb2it/P5nRgbWi0Q
-         +v8GvaY33Bis84slgRCJ0mn733hLlkifR6rI6zMGqbrbYy1eeO+U10f2sovk0GyXAaS3
-         HCqYtTDl7o75EKtGrUc0U4DvYHlFi3xm7edMJYVf2u/idHOXZaWXuZN2fLVmlm9nzKY4
-         6a6m6AqPTs4/V5UaZAONHN1cRBSNi6BM1vOroOBe/IZebD6AdyuteFGtqaO1//0Dm3Zq
-         VysVI3UtrmCM7w2dkCrALFe5vwr3yy9x8XuRN6OgHxUI+ezMtxDBc5CYV2JmrhxnREVm
-         Fpig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=to:subject:message-id:date:from:mime-version:references:in-reply-to
-         :dkim-signature;
-        bh=uT5yC1vz0hTCCQYbRPqrM1RAS3M39jnWDO+MUUDgNVs=;
-        fh=SSrNZGWaDRpPz3EK1ZFab3CmzeUkgE0blpY5isqdrRs=;
-        b=U4SzsCvMg2fklRH2cIoLlUaknwZrQctntALWZl3llyccz6/grp4//0ir0svAqjL8VS
-         S7wTwE0ptLTma6e9OeJCDMcHkP0/aGFDBYX4dCl3LyuFtJv3vgpX8oir6FjOJNkngoAc
-         9pJFqwE8LVdrU5Qjz8m1X57q5q7Rpn/YvVW8kCOoRg6LXHV4GtTeUBMsgWRYXlSypZkP
-         2z99WOJPyuUmPG6GfasavLgJp20bisK4cn/RNbu4L94rAJoUv6kt2YTc46Y/TdTmHk2h
-         xrlappnd+nsIdCpDuNXqrRoTlFVBNTG7K99yaYELJDRoFbtgChBO8z6t+F6rLINSZflz
-         jnnw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795161494; x=1795766294; darn=vger.kernel.org;
-        h=content-type:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uT5yC1vz0hTCCQYbRPqrM1RAS3M39jnWDO+MUUDgNVs=;
-        b=x3PRDn+ag0GJGwdQFEJpvNTgaSWoLRjaqTdDS2YbvgUzPrxEiL51PsqpGtNTkJZhsn
-         kCZt4/7F1Z5jSrTaHPTiW4vehFvE6DmOH3UDpFSLgtEsRP5Xv06E2XnEEbxJvMSRamcn
-         6XsPYKmiDH1WFYZ8/K29Vb0OaSy/at82HxfIYfB9cEOXYqVHVrVuDz2DVtdxZp1BwnE3
-         8I6TjUinuQBfg7ub2nXQZ1VNxF8Dh8rRvQ6v1ZcHaKiiAJWbwFaD8elgp0+KvD6our8H
-         kA703WQuPXKQRSUQSk88UVhG+ryRnO0TiiD3eH1wlLMBjSJojjc6LxEG3R5B+XX/JcCU
-         iEsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795161494; x=1795766294;
-        h=content-type:to:subject:message-id:date:from:mime-version
-         :references:in-reply-to:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=uT5yC1vz0hTCCQYbRPqrM1RAS3M39jnWDO+MUUDgNVs=;
-        b=q6wHMyIVbSdyTpunPxjFQBAq/9CIHVOLCSm4X+bek1bl32vA3395lN8zFH517206Rn
-         +9/89zT2Wty8RbYnvNNMRsOginS8r9rjZZHP0WffXUJOJJFDDuE3Dbh7k9ziZJvFNXrl
-         vhkqQVLCqofh5iRgHxGwRxlSxZjyYoZ4ajPG5mSUnVjXQ3St4S1qUw387xslLXiqZiOX
-         qs03UIxh712bJoxMnB2BZQGBsF9iDotCdtTi5+KxmdgxKQwkp+rw0IONZeNGbVZPFL5N
-         GcmbxRsncKrbUEyacxrSSnjqtrIf6Cuv8LXG5i287Nh2nuOWBS6AXux2gknk7N/Jp8ow
-         UkLQ==
-X-Forwarded-Encrypted: i=1; AL+hErGWatOJZ/3OjXDofeALb0MwuRR9kGQ7AA8DOUIb6XSZZKv5v/VEEPgT49gl7q8FdqmNg/4oiBUhJ8N3Dn0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IhMLcbVW5vcsFn5iLgN08D5w5NH5Y1QiNrKcXvJkeORfZW6ed
-	TVx0arXAy9RpghlICgrl5MUJaQ/yJZdAUyt/CHyks1eAZWFNupa9Mc7lCDkIgNF8Ont82li9eNg
-	e2dOonl4houtGKTQVFobPfTocstG1DmE=
-X-Gm-Gg: AZFdTZfxCzV4E5uxtCNyIyxLZXjK6PW6l33RzFfCASgKCYoAAaThaUh5srR73dolRB4
-	OmKIRQUQlaKd3NcZ5lulXQkBqONfCdfKZgzQ1YFEJIberN/L+vxyCIgT4pXDLfnIm5H/sZjqLcz
-	Ecubtas5kh2nk8og12xzCDv1ptdnN0tKa2oemXD4lJGLCtmDUR02NI93ZuFOFKyeVr9nRtjP3jk
-	MqX5DtClhfybTAtiHJV88bLHl/78fhLWROrduKMt3Hdy6/GdsIC1MCFi+nWCDk+hzs9BMdn1OTR
-	weU3ngDArLGxtnAMa10S4IJHzeEwTZ2Qu1C/LtPooYxq6EsLXtuH+GTtSH9rnHqkY2L8DfWn32l
-	db7seVs8PXB/MOoTLZfTsT7GeHEQy0OvOH9dYOStYH8bMXj3/t19WfjVlkvV9OWErP8rEXTCq6K
-	LLRPfKX1jl0UekZU+19DxcfazUh+TL/JmMuFGBuEeJO6k/RL9kbVQ=
-X-Received: by 2002:a05:690e:b81:b0:67b:ed25:6981 with SMTP id
- 956f58d0204a3-67df446b547mr1140071d50.77.1795161493596; Thu, 19 Nov 2026
- 23:58:13 -0800 (PST)
-Received: from 1087654160852 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 20 Nov 2026 01:58:12 -0600
-In-Reply-To: <2026112041-suffrage-bonanza-e079@gregkh>
-References: <20261112-bcm2835-audio-unused-decl-v1-1-3b63a24b033b@gmail.com> <2026112041-suffrage-bonanza-e079@gregkh>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=OEQ/sW/t
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7uNZw2531150;
+	Fri, 20 Nov 2026 07:59:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:message-id:mime-version:subject:to; s=
+	pp1; bh=F2n+4r1Qd+k8zApxHYn/nInTmDlOUducVk8dWZ2hv7U=; b=OEQ/sW/t
+	DO5k5qHIqnMFCTBcrLZMFFt05/VGISLK++OknAs3X93c9ZqUXnLdel2SWGnbjKc5
+	ORhjf6zo/I7deziCpmAgHmmghW2FjnFTPwMFWrtwq20djCQh7IMlZTlvDXRHZfAH
+	wRTy9xewnvS+ikI+kw1XGO/e5+1qvYHdyMRhCHZjxmKn7hiHLA3DyXeK5y6Mmz11
+	M674HMkpMhY1/8KzgvpysPdsC6/kMafAzmZQjIC66u2cT1GVWxXyHO78bCl4VnGi
+	zCV2KM5IYbdiRi78GCPy1hsez3iJUU2gznS1iKFxmBuIORVPpyrSSwVf9q81zvzn
+	KkDtoFeO0coIcw==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxqnb-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:59:28 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7o6gk2242262;
+	Fri, 20 Nov 2026 07:59:27 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd71hwr-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:59:27 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7xN5A45089144
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 07:59:23 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6069D2004B;
+	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4716E20049;
+	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
+Received: from tuxmaker (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
+Date: Fri, 20 Nov 2026 08:59:22 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
+        linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [GIT PULL] s390 fixes for 7.4-rc4
+Message-ID: <20261120075922.3382525Ad6-agordeev@linux.ibm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,26 +89,83 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Yusuke Hayashi <yusuke8h@gmail.com>
-Date: Fri, 20 Nov 2026 01:58:12 -0600
-X-Gm-Features: Aa3M54rDBssWS8x-mWGeSyXCm49DwKaFGXNNyDKNZuSemUCxLCe4Jn6SB8XT-cU
-Message-ID: <CAB59oQ92ghkX-GFoZPU8bVSe+DPEpfDrjs2aO08AAG0Ja8y0Sg@mail.gmail.com>
-Subject: Re: [PATCH] staging: bcm2835-audio: remove unused bcm2835_audio_retrieve_buffers()
- declaration
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, yusuke8h@gmail.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, linux-staging@lists.linux.dev, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: Fm_K2aGAZITDy9ygzmUp6syw-Ytz-KQX
+X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afffde0 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
+ a=Cb2_Q8YfTQsDjjc_npEA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: Fm_K2aGAZITDy9ygzmUp6syw-Ytz-KQX
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzMSBTYWx0ZWRfX3BpkRxfpQOqV
+ p2OPiPDJPVKsgEoeBKt89m0MgT6s393Izxcw5b4SxpXDPt1gX/4C0dYo8ZneeI5HCrMvHG+CbG1
+ +aZv/9v0toK6A7w+YtlX2ak7bvIp0xkuQtczIcAvQnXgnjeADnhapmqNJfBoxIDaKJ12bQN1dQ9
+ WSPTdHEs2cw4Off3mi4sGpxSPDNRcn4RTl2cDgwBhX2N5suR+hYksTDkjXvtZwCUYQmk+mmMB5P
+ UBRGujkRk52xGRJTNebzKBqZJEY2uH/oDbDgNEFNMbM5c2mUfRiqSu5N6d98G8VKTLZmNWf3T2s
+ WWGYbcyZPdamp8nHIkHRsjvUr88tNYWwAeSxbJDwWFVn659fc9aYuq/AC4uhRFlzDh1cmE3GTcB
+ 0gseYAvJ7FH9PIFizqsngJbPsWVLJyF9YVzVRuvHHtmgU3N2DZ4XDna/noEFrcVr2elkgZcmEr4
+ aZASD4gewMYXzliGN2Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzMSBTYWx0ZWRfX+T67MH1GUozZ
+ tP+EQP44N5ax8+q1FU+omfecfz6Jv9kx8C/ImUyLaGiG/wg1BJvNTGvsug6S3UpYUaAcrzLMl38
+ Z9xEv42QUX+6sWOvUhHeCNdWb37X7tk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 clxscore=1011 lowpriorityscore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200031
 
-On Fri, Nov 20, 2026 at 08:21:51AM +0100, Greg Kroah-Hartman wrote:
-> Please read: https://lore.kernel.org/r/2026080354-skater-urgent-31b2@gregkh
+Hi Linus,
 
-Thank you for pointing me to this policy. I have read and understood it.
-I will drop this patch and make sure not to use LLMs for drivers/staging/
-cleanups going forward.
+please pull s390 fixes for 7.4-rc4.
 
-Best regards,
-Yusuke
+Thanks,
+Alexander Gordeev
+
+The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
+
+  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git tags/s390-7.4-2
+
+for you to fetch changes up to 64ee7f863655e67f26947420516daba4e232675d:
+
+  s390/dcssblk: Initialize device semaphore before sysfs registration (2026-11-05 17:54:25 +0100)
+
+----------------------------------------------------------------
+s390 fixes for 7.4-rc4
+
+- Fix error handling for monitor start and stop operations.
+  Return failures to userspace, prevent inconsistent state
+  and potential use-after-free scenarios
+
+- Ensure skipped syscalls return -ENOSYS as expected. Preserve
+  existing ptrace behavior while separating syscall number
+  handling from the return value stored in gpr2
+
+- Fix a race during module initialization where sysfs handlers
+  could access an uninitialized device list semaphore
+
+----------------------------------------------------------------
+Gerald Schaefer (1):
+      s390/appldata: Fix error handling in appldata_generic_handler()
+
+Heiko Carstens (1):
+      s390/syscall: Set -ENOSYS return value before calling syscall_enter_from_user_mode_work()
+
+Jiale Yao (1):
+      s390/dcssblk: Initialize device semaphore before sysfs registration
+
+ arch/s390/appldata/appldata_base.c | 12 ++++++++----
+ arch/s390/include/asm/ptrace.h     |  4 ++--
+ arch/s390/include/asm/syscall.h    |  1 -
+ arch/s390/kernel/ptrace.c          | 28 +++++++++++++++++++++++-----
+ arch/s390/kernel/syscall.c         | 20 +++++++++-----------
+ drivers/s390/block/dcssblk.c       |  3 +--
+ 6 files changed, 43 insertions(+), 25 deletions(-)
