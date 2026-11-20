@@ -1,79 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795161948;
-	b=PCfKfiBgE1XwmgSTAt6q6/Z293gjmZy5+MWUlBz9KBUh3hefXNa0A6Fozv7aEVwzKlSP
-	 sUpomzDE2GTvdqQnGGfJzXuxcygMtGuzMBm13MquUM5vgqC08HF65ljUMdpoWiW2XFtXF
-	 DFdomktORK+CAVlxUVOe0ur3s3h6tL5c73ilb2TckJC/iyvsiAdIu81zI+gWnV6w6KXR5
-	 IkAcilEcmaX8M8ekCQeh4N6vlvgqgBrMl04t6CaEIEPgrCucRbrx0+jKR+o3PPG6kCCTY
-	 8+tIBvGTy8fD8rCayqJ0TQ3wamXc6+8Vd1AnuVoNLbez2hc14HwPDWzid0F8IQhBmAg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161948;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xeffjzmHyFonYOOtAADjPMxDZdPCRXQMpGu0bFB66mQ=;
-	b=HsB+MNyLRG7FL7tO87vrU2np75z3f1lRDXmjvv2sF3QCf7a6HNwISYDZa2pdDirwUZxB
-	 ZyL7hR33xRJiTvnMWeusTytaWohwj3/vhpHWFz7vOETgAuwPgGAyMv3hqq4rfj1nO14mQ
-	 cOyTklxXVAUUhv7moTfZkSRVhHdvbbSl7+NDW7HrZbxSOg5qg4G/zEqgkBYlsuftu2dsI
-	 R8mJUWjq/he1XYLFcARdq5oQKJ762hXiJEfLr0TeQpyhVSsfVG1TsVFu2I5tPoOuYmgd7
-	 0vh9dbBHtFMq4Cf5CURJpoxY9mZEnbul4KErgvyR/Yro2RbRkp6cpEOYlg/igkVqMNQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=icrEpvad;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.128.211.58
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795161961;
+	b=ntx4S25LJXo690JD6+3HWGW2NwS30Jq7IYqfSPRg0ECTG0do8OljR9QyTPdFLZeSpS2Y
+	 JGRxgzfjuCiJ7pTsyeLsgGhvlQriBvkid1tG8pVcPiWT8kFxuPhyR5FS69VABKXDy26Oq
+	 wOA2KUJJlpmil19NxDCD2fdJbVl2IZ/TDKqd7Gp/GPvDZCmJlXhoKXGRkWQZa8tli4Gab
+	 zhMaAZQsHMjpHMWyLXufXFK0x1ec3O+YPKkbI8Cai0eZ/NtNZy4/lrRRkTk3OOi5ZLEd/
+	 seGpgFjHCpfM/3eVZar/bRr5zQ2+vIJLi85gzTTEdPTNI4LG9tfn6ofwDLmvyGnzi8A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161961;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=VSY1iDAHZ6tCyGqcPNtz1Q8eGTEUUYKlMakxCbur3ZY=;
+	b=jk+0cS0886LJV5XH4zrVXG9YarvnDoDTP2CiRMlh2f59rUnnxRuWjqmGdpOrOX4z6bhD
+	 PN+k8Q/4xG0Wdnq0pspA3kHuHomzA8AEGm2hdu6Wm1iUxanJYpQlYKn6d0woF8f/uoCnA
+	 zxvG5XjP0TG8EKh5LpQ9EjpG4UCEXpqTzX2axIl9q9NBSvcNkbTkzGuOEEIKn6wYKeIHI
+	 54FnD/6xZsMf1W2Q2Vaut2NDoz8GMTUx0gIQe1ZIzgtNsTq/EDgukMQwoADecNc8zSkkN
+	 0KcmH8ADQKsMIRPCBb3PtB5rGPeCZ1gSHeBgjEGgBMbpOtOb8VVBSWFvu2vLBAUcpFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=librecast.net;
+	spf=pass smtp.mailfrom=librecast.net;
+	dkim=pass header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=SXj+Tkz6;
+	arc=none smtp.remote-ip=185.128.211.58
+Received: from bregans-1.gladserv.net (bregans-1.gladserv.net [185.128.211.58])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DDAE606A326;
-	Fri, 20 Nov 2026 08:05:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E44760A2611;
+	Fri, 20 Nov 2026 08:06:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E44760A2611
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=librecast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=librecast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=icrEpvad
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795161948;
-	b=uQcs6cana1D7y++89yKkwq7RI+GsKnVOm0LxjzbQriFSpQ1PTv7WbonEeCplrAXdaYL4
-	 wapLngg64TlgFGTltRavwkbm3KPijWlc5qKfzPJwmE3+XXYR9vhe+KIXm9v9IeQBx1kni
-	 02PpUIKb7bypnoDjJe4c0tpZBO2HaV1ENYO9HGfUj1u0NTXcpXQZhrzvtxtGBMw50Pkxm
-	 wtMGyoKf1mAbOLPeDBWm7KyGrCRaphsb793vm8X43hEG/uX6g2FVsI3vDulC49y86vCPA
-	 W0zaWPyoONWUJcyRHhW+hbrgdcTr08BaxXHpArJWdqOHTF99C2MPkAtsnS8XOdUAKdw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795161948;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xeffjzmHyFonYOOtAADjPMxDZdPCRXQMpGu0bFB66mQ=;
-	b=lSCWGGAg2/XP3eqkU5yB5lPDVElTkpFaPbm4VV3NPK4+rcKNnXTDUzGkpfQ67KLZ+raT
-	 HktqVQszDwAql5Olqpy/owl1+NtjB9BzXU0hxBi6l3gk7oLYnvEKw48lUD+muGMX0tmQh
-	 imC1/1VXh1Hfsloj+V4rgNjIwtFb1YzFE9hrMDwE4NgCWaUr+D5J8dULjSrllsixAOWkR
-	 xqqD7fJZHom+yIKn6HhleNZB23W0KxHT1swI32ODVFK/pEMgY1c+4QaZjpi3KocMRIP1e
-	 RuDm97BXCppURv8QKYh4RWUCDOsS8Si8Z6jW74iX/1+d3c8GGw+4JDDDkaIHzUJmiEA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id E217D1F000C6;
-	Fri, 20 Nov 2026 08:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795161947;
-	bh=xeffjzmHyFonYOOtAADjPMxDZdPCRXQMpGu0bFB66mQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=icrEpvadeVN/7NPKS1qhSbQB/tUKHZ5xbxQvv3nrQATVzI/9seaYbQwbDDG2Aybpb
-	 vr5uDOdC346UIPUuMTRAkj9wHn75qf7WWv9tlIKTEWMEn41x5yuauzd+U0zzy7J7x4
-	 Wv94cqUFtWbtPRSldcovcFO0s+auDpvecke0IhDFVap3C9AGRsCnIsxPWfm4FElofC
-	 Ocsj8ndP9WiE0GmSlu4YqXFo/AW4q381uWcCDw0X+DkZZ8+ip140WT13BdvUj+BloA
-	 sIn/wzpqM1EzwDEDSSY8Ton8k7fz9yTHy8fR8T6SfUgAOB1qRLdx6LAVg/jnwslqLt
-	 wg5qmLXV7FbrQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 6CCC449778;
-	Fri, 20 Nov 2026 08:05:46 +0000 (UTC)
-From: Alexandre Rapaille via B4 Relay <devnull+arapaille.atlr-engineering.com@kernel.org>
-Date: Fri, 20 Nov 2026 09:05:46 +0100
-Subject: [PATCH v2 2/3] wifi: wcn36xx: Do not enforce interrupt trigger
- type
+	dkim=pass (2048-bit key, unprotected) header.d=librecast.net header.i=@librecast.net header.a=rsa-sha256 header.s=2026110900 header.b=SXj+Tkz6
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=librecast.net; s=2026110900; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=VSY1iDAHZ6tCyGqcPNtz1Q8eGTEUUYKlMakxCbur3ZY=; t=1795161960; x=1796025960; 
+	b=SXj+Tkz6acZZixSbPDloACsLecUXB6jHNQiCxjStUjwzl1Bm6KbxVwlGfqAi7KVeakkrtpvrcFq
+	6FqtsMhskdfokSdGDklSynBloDIxjBJSaz+wMTRK+OtmjuD75IRdehmUDeZLuIoeho4DgLB3WQVNa
+	QFRresny1AvGBhxjHCB6N0vF/hwUMHTCnEa90KSKOOAEeM+Vt0F2BXKhPAnbU5La+x/tkJS9YpAma
+	pTthVyPEpCwc1/4IORznMLyFUbXeiu1aujNsEN4DLeACp+2eZM5640xHdrmcIZNURFcEdtbrxzAxh
+	7DpgwQUsEj4JzbLZrdL7B3xxj7kubDk2YrpA==;
+Date: Fri, 20 Nov 2026 08:57:13 +0100
+From: Brett A C Sheffield <bacs@librecast.net>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
+Message-ID: <av_9WRciaJYhqHEK@karahi.librecast.net>
+References: <20261118145911.150052362@linuxfoundation.org>
+ <av3U6pDFzRL3k0m3@karahi.librecast.net>
+ <2026112014-lemon-barista-c77f@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,71 +69,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-wcnss-series-v1-v2-2-3fed518decfb@atlr-engineering.com>
-References: <20261120-wcnss-series-v1-v2-0-3fed518decfb@atlr-engineering.com>
-In-Reply-To: <20261120-wcnss-series-v1-v2-0-3fed518decfb@atlr-engineering.com>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Loic Poulain <loic.poulain@oss.qualcomm.com>, 
- Luca Weiss <luca@lucaweiss.eu>, Eugene Krasnikov <k.eugene.e@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, wcn36xx@lists.infradead.org, 
- linux-wireless@vger.kernel.org, 
- Alexandre Rapaille <arapaille@atlr-engineering.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795161947; l=1310;
- i=arapaille@atlr-engineering.com; s=20261118; h=from:subject:message-id;
- bh=fl24+QXJej14ixsS3PP+/Yde4CZKV/tbL7KavByENog=;
- b=jOVeRhQploDdl2usEZ5kRoAUO7AklsBT9dK43kVpb1jIaOBVKD3GKmgYmTUUsDNGa5PZKLwmu
- x0+dmbYMrPMBruIEGeq5p2t2SYrvYCDuQYwsi8Tx5yGBbQx71AY5Imz
-X-Developer-Key: i=arapaille@atlr-engineering.com; a=ed25519;
- pk=xskH/sIiNU/aZCeGeBB1TK/AuiG3MXlX0m2wMlbMl08=
-X-Endpoint-Received: by B4 Relay for
- arapaille@atlr-engineering.com/20261118 with auth_id=1560
-X-Original-From: Alexandre Rapaille <arapaille@atlr-engineering.com>
-Reply-To: arapaille@atlr-engineering.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026112014-lemon-barista-c77f@gregkh>
 
-From: Alexandre Rapaille <arapaille@atlr-engineering.com>
+On 2026-11-20 06:45, Greg Kroah-Hartman wrote:
+> On Wed, Nov 18, 2026 at 05:40:10PM +0100, Brett A C Sheffield wrote:
+> > On 2026-11-18 15:33, Greg Kroah-Hartman wrote:
+> > > This is the start of the stable review cycle for the 5.10.275 release.
+> > > There are 1848 patches in this series, all will be posted as a response
+> > > to this one.  If anyone has any issues with these being applied, please
+> > > let me know.
+> > > 
+> > > Responses should be made by Fri, 20 Nov 2026 14:55:32 +0000.
+> > > Anything received after that time might be too late.
+> > > 
+> > > The whole patch series can be found in one patch at:
+> > > 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.10.275-rc1.gz
+> > > or in the git tree and branch at:
+> > > 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.10.y
+> > > and the diffstat can be found below.
+> > 
+> > Build failure on amd64 with amdgpu.
+> > 
+> > git bisect start
+> > # status: waiting for both 'good' and 'bad' commits
+> > # bad: [12d2575b30ab6dd7d0f61ef33860d08836347cbb] Linux 5.10.275-rc1
+> > git bisect bad 12d2575b30ab6dd7d0f61ef33860d08836347cbb
+> > # status: waiting for 'good' commit(s), 'bad' commit known
+> > # good: [3a323bc22b881a5bdc1646080f93f5ecb22850bf] Linux 5.10.274
+> > git bisect good 3a323bc22b881a5bdc1646080f93f5ecb22850bf
+> > # good: [48be8a7d04b11bd8a2d641bfb8965ee037cab57b] xen/gntdev: Fix gntdev_dmabuf ref leak in dmabuf_exp_wait_released()
+> > git bisect good 48be8a7d04b11bd8a2d641bfb8965ee037cab57b
+> > # good: [7edc53e830e18e313c808faa4bc5d2e14d90aa34] iio: dac: ad5758: Fix the offset calculation
+> > git bisect good 7edc53e830e18e313c808faa4bc5d2e14d90aa34
+> > # good: [533ee956be520b32f60844a83d6b030ae2586849] sh: sh7785lcr: Register the PCA9564 controller as I2C bus 0
+> > git bisect good 533ee956be520b32f60844a83d6b030ae2586849
+> > # bad: [6c4061694ecb407f5d67421f35e7f550f98805df] ASoC: cs42l56: Remove the ADC Mute Switch control
+> > git bisect bad 6c4061694ecb407f5d67421f35e7f550f98805df
+> > # good: [5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73] ASoC: soc-component: Fix return type of snd_soc_pcm_component_pointer()
+> > git bisect good 5ed2a3e2073ef449d3f0c6d052dbfa8a55c2ff73
+> > # bad: [a356793651fdb50e5b5bc0558357d578b8d405d3] selftests: netfilter: fix return value in zone subtest
+> > git bisect bad a356793651fdb50e5b5bc0558357d578b8d405d3
+> > # good: [e9e79589baa60f79c75823422974ef46fd619613] ARC: Strip libgcc debug information when generating BTF
+> > git bisect good e9e79589baa60f79c75823422974ef46fd619613
+> > # bad: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
+> > git bisect bad 4428e62a30507763e58fb1bb017f273ec98457d5
+> > # good: [d0c3b85950d12e1808644f31f10a95461f254df0] ASoC: codecs: sta350: Fix definition of Ch2 and Ch3 Volume Bypass controls
+> > git bisect good d0c3b85950d12e1808644f31f10a95461f254df0
+> > # good: [1de066662fa2ef918a350698c90f873e803e61eb] gre: keep the UDP tunnel GSO type when completing GRO
+> > git bisect good 1de066662fa2ef918a350698c90f873e803e61eb
+> > # good: [51a5555c99ede3eed53b2999a4ab3245cf4a2e49] bpf: Fix verifier WARN on narrow read of bpf_tcp_sock u64 fields
+> > git bisect good 51a5555c99ede3eed53b2999a4ab3245cf4a2e49
+> > # first 'bad' commit: [4428e62a30507763e58fb1bb017f273ec98457d5] bpf: Validate the SRH which End.DT6 uncovers in End.BPF
+> > 
+> > Reverting 4428e62a30507763e58fb1bb017f273ec98457d5 fixes the build.
+> 
+> What is the build error you are getting exactly?
 
-request_irq() with IRQF_TRIGGER_HIGH stores level on the IRQ mapping,
-which outlives the driver, so a DT with another type gets "type
-mismatch" and -ENXIO on the next probe. Rely on the DT as ath10k does;
-every in-tree qcom,wcnss-wlan node is level high (msm8974 since the
-previous patch).
-
-Signed-off-by: Alexandre Rapaille <arapaille@atlr-engineering.com>
----
- drivers/net/wireless/ath/wcn36xx/dxe.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/wireless/ath/wcn36xx/dxe.c b/drivers/net/wireless/ath/wcn36xx/dxe.c
-index 801f1218ef..7852f71368 100644
---- a/drivers/net/wireless/ath/wcn36xx/dxe.c
-+++ b/drivers/net/wireless/ath/wcn36xx/dxe.c
-@@ -552,14 +552,14 @@ static int wcn36xx_dxe_request_irqs(struct wcn36xx *wcn)
- {
- 	int ret;
- 
--	ret = request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete,
--			  IRQF_TRIGGER_HIGH, "wcn36xx_tx", wcn);
-+	ret = request_irq(wcn->tx_irq, wcn36xx_irq_tx_complete, 0,
-+			  "wcn36xx_tx", wcn);
- 	if (ret) {
- 		wcn36xx_err("failed to alloc tx irq\n");
- 		goto out_err;
- 	}
- 
--	ret = request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, IRQF_TRIGGER_HIGH,
-+	ret = request_irq(wcn->rx_irq, wcn36xx_irq_rx_ready, 0,
- 			  "wcn36xx_rx", wcn);
- 	if (ret) {
- 		wcn36xx_err("failed to alloc rx irq\n");
+I'm sorry, all I can tell you at this point is the build was exiting non-zero
+and that reverting 4428e62a3050 fixed it.  The only artifact I kept from the
+build environment was the bisection log.  I have rc2 checked out now or I'd
+re-run it. RC2 builds and tests OK.
 
 -- 
-2.43.0
-
-
+Brett Sheffield (he/him)
