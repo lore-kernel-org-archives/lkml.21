@@ -1,45 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188978;
-	b=e3TNNlaAsC0r5SlY77qiPq09MbGUBeU4O/ynEVHl2RsN0+JRaQwNFhcsSIsQ08QNRqk+
-	 nTlm5MrxUKm008cA5dM+DvnNdPxsf2gdy/M3ztoeiqe0ip+2lTiUPHvfTknFt21mYxFQs
-	 qUtzCA7aGHsyHkjSVaTNF7bq1SF2F2h+mZIAr2ZAiV1tNKecKr2LIi7p026DwkzlzxJ2X
-	 xYhvyq6eYkQ5ncm4SkBqTDYdh8frkf50udNcjtjcprcBRxyDHPrTHGzDD5CEe9EvyyGu2
-	 FhiVZcw5cQ9sZXQpjX2bVlJxqb70u8queB2A+54kGFc/Fa0zXA/DbkLBqsKwfxTouUA==
+	t=1795188986;
+	b=0td//rXV5deJ9gMrqOWsbvlV65oWMHXbqgm0/bfI+wuCa64WlBavknmBLIfVl62BCQ0f
+	 6uuZE66oWwX5wU1aqoFIU+Aj9EGSlbazd+4CES0DnbOn3/9rdQtaNys997hcfU0GTpbG6
+	 uCoCuRotsmoEWcgiIf2mDi1KTiHgSwZvAMsx9txHZDEyFU0NsOuDyRHN7BvMp3nMVvvPV
+	 flW8tYNzT/NQD4WM3UTc2Qeu+2Z/EUzrGQe0SXfjOfG/UtoXH5m/6A0cqQtvg0lxc2Pvz
+	 yaJpLm6qIMQFnDoD8IJsOise+oOqqeemohcFT30youAzniHSXP27t41xxu0cBcNRPNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188978;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=db2MO1a70PIE6Fv5WZXGz5F9j2CW0g9J+SpZG3GxKeo=;
-	b=nr3IJVgnN0WPEcXgGsSF8uOBldaFGV554gr7/CLUx5jCy2Fa4cveyVACL2f0gRmbERqs
-	 DaF6NVTT2PhNB2iH8irqhYGZ4PXKcWAD5/8JF/GX9rdx/XYObNPBjISpK0vdXklukctaD
-	 9R/CK2SQrGg++9zMIi09TO9oTnC6p/KMW5c3hEFw7viHokACdPJqLN4biDK1SBZyookJI
-	 k6v/hN5JyCH++1L2W42L4o9qMIwFcja3CZKdGwU4xMGlvONy10J78HBJClKY4ckBMctpK
-	 HsKfbIUvQFhB1mrxyTAaMSDmp4qaYH95ZjRfmSNsmJw2cZZm2QgioLQzpxiyBVe4Vrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188986;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
+	b=H14G0SkIhUvbsBzMJli9JcIFiXW7ElX0qsfVLdOwpDa8EPm6cIMc9oH4JApoldpzr6cl
+	 pRY/TTLe1eqKF8ztJm15XArlQUd80rc2PgbPM58XTvZnurMYwMKeKDa/oNnGPzpmr8sJ2
+	 lll/OKtYzS6BxN2YD8m/0/bKVnoNTt0RE5kx0gvufIZfGwhMp1qyWKlxG92LQiUi7nvyt
+	 wEJZuShDTSaSToptC6YaDEv43MR9nSZKpkceYVlizwnlwedfhr4nwI6e9JRsLPSDceNsr
+	 /vnC/mgvvdZqZupajBhOU3xGui0rgXzpGpV41NZVzpdLvI2CZQgys5mdakjtN3QvHLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iY7qbtRX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ocKZwuHr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="/3UWy6bd";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1288F606A320;
-	Fri, 20 Nov 2026 15:36:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90F7A606A336;
+	Fri, 20 Nov 2026 15:36:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90F7A606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iY7qbtRX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ACC41F000C4;
-	Fri, 20 Nov 2026 15:36:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795188977;
-	bh=db2MO1a70PIE6Fv5WZXGz5F9j2CW0g9J+SpZG3GxKeo=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=iY7qbtRXUOcQFowK/jqsglS7S97JW+1X5C5Fwcm81+MKpDNUZduhnGEeIU1oh+Aer
-	 fpK6iPk9Am9peRUHDCbwruJ7KiPDfWWNTG71VAT1QVxMd+AZryE/DY5K3SCA605XhW
-	 3rkWv1M29RDeZG+T5ZnaRxM6XlWOBhcQvr5SPNVDxi18QC2FLK+vFXfj66NoXL3+XX
-	 wMLhb7jCy9Eka6FwWa7iuo1sT4fDoBvjcbWPSmptA5OHIyqMRq8hCrxhCAAPOgeEgs
-	 bvT1Lh3+g+CM9VCzhouhuC9DbnJTA8MUuf2/ijBXWXgwOshPlB6i7J6FDtgmmzPFpO
-	 pZQyzi78LzyRg==
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ocKZwuHr;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=/3UWy6bd
+Date: Fri, 20 Nov 2026 16:36:19 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795188982;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
+	b=ocKZwuHrzuSS5ct2BH9+QHW61CP+dOVKPTj6OnEL5JRcOuENkj0NL0skilIvwRsvY8R/4d
+	CLIEdNZEGWZ2+GWNRnttwKPWCQR99CItKiWt7sPu3FVy6wjwmSwNrGuA4vnLpx8j1aV4KN
+	oucdLvD2xawYd7/siHeOJkUWKmh9rEdf18jCqNzAbDKDhNZxIeRPBGBfXmtckHgfJaDYM3
+	HyHUcuzXU18kwelECl+BVuwFH5XSoHKvLoAwDSqQePK4qcrHGtHd1lh/ALmZSc+ILWYJSt
+	G0R9OpDpF46Mpq0CKPoZ+vSMMP4Bfw80YQ2jR05qhh7pPFKC1Uw9FCHQ11/rLA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795188982;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0v8j2lBvxHjXaH9n0pHRtDOnUfQzBe+8Nl6XwJcdi84=;
+	b=/3UWy6bdseM8Bvl3FVKoUU8HTCV8bfiOwegV1SE7IS2/xYsJtTfC9IiB5w7SmqUznWC2HV
+	P5ol4oPM0GV6hXDA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Juri Lelli <juri.lelli@redhat.com>
+Cc: kernel test robot <yi1.lai@intel.com>, oe-lkp@lists.linux.dev,
+	lkp@intel.com, linux-kernel@vger.kernel.org,
+	aubrey.li@linux.intel.com, yu.c.chen@intel.com, ltp@lists.linux.it,
+	cgroups@vger.kernel.org, rcu@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	luca abeni <luca.abeni@santannapisa.it>,
+	Yuri Andriaccio <yurand2000@gmail.com>,
+	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>,
+	Qais Yousef <qyousef@layalina.io>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: Re: [PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us
+ to RT_GROUP_SCHED
+Message-ID: <20261120153619.gkOojPT4@linutronix.de>
+References: <20261113-sched_dl-v3-6-a76ffa1cdeee@linutronix.de>
+ <202611192004.cca8bf73-lkp@intel.com>
+ <20261119142348.MkPQ2Fby@linutronix.de>
+ <awBiDzEvUch_5ZJn@jlelli-thinkpadt14gen4.remote.csb>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,61 +104,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH RFC 19/23] ASoC: qcom: sc8280xp: allow using the
- sc8280xp card with lpass-cpu
-From: Mark Brown <broonie@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
- Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Srinivas Kandagatla <srini@kernel.org>, 
- Rohit kumar <quic_rohkumar@quicinc.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Konrad Dybcio <konradybcio@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-clk@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-gpio@vger.kernel.org
-In-Reply-To: <20261113-topic-sm8650-el2-v1-19-5183f6aab9fc@linaro.org>
-References: <20261113-topic-sm8650-el2-v1-0-5183f6aab9fc@linaro.org>
- <20261113-topic-sm8650-el2-v1-19-5183f6aab9fc@linaro.org>
-Date: Fri, 20 Nov 2026 15:36:11 +0000
-Message-Id: <179518897124.6016.130748488943015768.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=760; i=broonie@kernel.org;
- h=from:subject:message-id; bh=yjz8fAQ3kPUwHl3NaYwbsrK24UeGk5MNb2vPPtnlmvw=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZMl5flv7+cs/s8ksfd2gXesrP8v/we9HlaS4PG/q27
- zuXtixPtaOUhUGMi0FWTJElLov7ZX3J6zV8Bxe2wcxhZQIZwsDFKQATSXZjZHj093gn057njsve
- uimc3TGrXnSbqJOnbKXX6oAYxRkszyUZ/vA9fbC880DHwxnXebgFOKsvXZ2bHf9gs4FflhO7meB
- EH04A
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <awBiDzEvUch_5ZJn@jlelli-thinkpadt14gen4.remote.csb>
 
-> Add the missing DAI ids and set the ops to allow using
-> the sc8280xp card with lpass-cpu and keep the sm8650 sound
-> card bindings working with either Audioreach or lpass-cpu
-> interfaces.
+On 2026-11-20 16:06:55 [+0100], Juri Lelli wrote:
+> Hello,
+Hi,
+
+> I agree on the RT throttling part. Before this series, writing to them
+> does serve a purpose, though. 5/8 moves that functionality to sysfs,
+> which leaves the files without a purpose, and 6/8 then removes them. So
+> existing users don't lose a useless knob; they lose the working one,
+> which has moved somewhere else. LTP is not the only one that will
+> notice, I'm afraid.
 > 
-> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
+> This is what I meant with "yes and no" in the RFC thread: we need an
+> interface for admission control, and I wasn't sure how much breakage
+> moving it would cause. Now we have a first data point. :)
+> 
+> You suggested yourself back then to keep the files and make them apply
+> to DL only. I think that's something like:
+> 
+>  - keep sched_rt_{period,runtime}_us for !RT_GROUP_SCHED, backed by the
+>    same code as the new dl_{period,runtime}_us (sched_dl_try_boundary()),
+>    keeping the current validation semantics (the LTP test checks the
+>    EINVAL cases, and 0 is a valid runtime today)
+>  - pr_warn_once() on write saying they only control DEADLINE admission
+>    control and that RT throttling is handled by the fair_server,
+>    pointing to where its knobs are
+>  - fix the documentation as you are doing already
+> 
+> That way nobody gets surprised anymore, which was your point, and we
+> don't break anyone? We can still discuss deprecating the procfs names
+> later, once the new interface has been around for a while maybe?
 
-> @@ -533,12 +540,11 @@ static void sc8280xp_add_be_ops(struct snd_soc_card *card)
->  	int i;
->  
->  	for_each_card_prelinks(card, i, link) {
-> -		if (link->no_pcm == 1) {
-> -			link->init = sc8280xp_snd_init;
-> -			link->exit = sc8280xp_snd_exit;
-> +		link->init = sc8280xp_snd_init;
-> +		link->exit = sc8280xp_snd_exit;
-> +		link->ops = &sc8280xp_be_ops;
+Doesn't sound bad. Let me respin it with these changes.
+Thanks.
 
-This now applies to everything for all cards, that feels like it needs a
-lot of care?
+> Thanks,
+> Juri
 
--- 
-Mark Brown <broonie@kernel.org>
+Sebastian
