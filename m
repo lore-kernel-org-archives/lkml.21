@@ -1,68 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186497;
-	b=OqqpMeiIfS3WFphZHF5O8+VwTiEUKrOgXQeVRMSPG9f716D80tZjAvTCaTBfW6bgTjPY
-	 KZN8VtwqmIMxuETxu+qxtOadcvUj18sYMcNi/jB1fbChSJhHYafDkKneb18O+myA2CZq6
-	 beEdY+DadzjxitmpAurYywxToZkgruQjNHbz9Ur6vllufh5kfNfFXwAkoxzoXgbuwoZ0w
-	 JHFRE+tCPqtvNnaD/BkhwxxZQR6wFnZvNMRpR94wR9pcv2y167JxZt85oPaLwm9u9uTWy
-	 kQNdn7e5yzZ1yDtuQeUrdGSBZsj9ruyvS1W/PUWSAoCIqt+IxLFNgAc2h3crSGWpc9A==
+	t=1795186530;
+	b=yfhF4SCK50BA0SvNtanLGGJaV+aY1eCuf05tbHykStGVXMgPMpNBklPmjmNKDThPxAeX
+	 72TUITe5yCDWTcGBs10f3YsU5JoTQonRS1EWZGmJCkWxc4O41CE26+4vD7UlKtHQ8drrw
+	 OiLcwSwfDrjGLiMXc+FVeIL////3dhimN576tumOaFW8S091FXG5JnL65ED3q2f4em0j+
+	 eYEw6fqateTYhFjdLWxI1h1gB8e1UM/FBdPaD4d7zqf4QjRApo90WvwSIZO0JKtXK0ujF
+	 3QWcQPFghcuyEADfQUsjl6jJmtYqcitN2hr2WnCKnshW2ucrVtASkEK11qZEPmHy9dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186497;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=rJXABJb2IswXHFHVUy9sFDPYDOPoMVxLMdVHHDodayk=;
-	b=WvNTtSskFHOzhU8MRxylYp0Esvg+JsX+JyMPrUXNHTnSOAiQ80J5BmNWoTdODrs2aUPg
-	 1YIjfPpshFEfMPJRxA7ObXFZb+LPxH8WnstOu7hdWSQBgNgqXYbXi8ftrFWq+aYMlQuJd
-	 Gg5Idy8Lcu2Vc2fPswOg0Cmx1Cpo1lDIm6hto+wWND6M2nETi7AFwWdrmVp4EatXOK2Ad
-	 iA6iW20ZfXAsPqzS62HZ5uygb1CDNdxb46PQ2Zk6daYo0nDcIfNFJevNBR9Blm9NRpiTW
-	 ohmTHFJ8jOGNTDSlDuTWn/7Dquq/sNv6DPwt82wS9OyQhM6vmZakNSlsOUGiz0zrIVQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186530;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition;
+	bh=k2afYDSbhGUGiUhcoGzLE+xs9HwNUM5FrmXjgV49pcQ=;
+	b=Roy+nZN1d6qJNRmpFfuAq/V2e4hUhM4jaKVUVG6n7ZlLjmLxSg/JAwXgx1EZz9iceeGG
+	 +ETy1qsl8RVdt9GJ9N79yXNLPA51lkdf1AizffrMxzWrO+5X1O/+J9pREFqqp06+un/C7
+	 D04bH4oAN2E5BMUyOtMEHcf0XTASSRkl0RdFQeUXo+AVCSZKom0obTHy5o1kxIWnZr3vm
+	 kA58AlA4f0xBmD6JKD3gSlsJlxkRR6oI6GzypzbK7vaisLHpyOa+Esh3R+/hBTtUah2LF
+	 94WMwrXVED4s7KcSmuzeojCLpLHJ4Ydw5xICLXehRxwy1iTeD+K8oM5hvuYj5zYlKrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=NSa6wdND;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AgdN17dR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E1A8606A326;
-	Fri, 20 Nov 2026 14:54:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E1A8606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B520D606A325;
+	Fri, 20 Nov 2026 14:55:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=NSa6wdND
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BB1461A1735;
-	Fri, 20 Nov 2026 14:54:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8E4CD601B9;
-	Fri, 20 Nov 2026 14:54:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0474711BC027B;
-	Fri, 20 Nov 2026 15:54:41 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795186483; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rJXABJb2IswXHFHVUy9sFDPYDOPoMVxLMdVHHDodayk=;
-	b=NSa6wdNDUXV1iBAQdr4Cq18Kf6waPEJ/Y7qwyECkK+15x2bH6Lvf2TuEaGypA2lB9oNG+r
-	8uyiYz5UeB3lYM2E7hKXmfLogoUSdROg9Y02h/NEyX3z6FsL6JaVr2iC04Q1JeauoOD/GK
-	rECxllg6qjXP6AsdaOjDkfN2MgTUtIfnjo7jLc6eUZ2Xa42bbGDwaBmSDWSqSu5ujQGX5d
-	LwGpqyCx5S1dHlZSQFCQnAQ+3winGcc18c6AafMqbQ282ZqoHJMTTMHu+zk/4iXVwiONQm
-	UorAtnyUnP/lFu6xcEOkjC1SNkTFiS2JwcYq+V8rulyoJPSUdVm096DL33+arQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH] mtd: take a reference when opening an unpartitioned master
-In-Reply-To: <20261108-submit-mtd-master-open-reference-v1-v1-1-871aac8c6e05@gmail.com>
-	(James Hilliard's message of "Sun, 08 Nov 2026 14:12:39 -0700")
-References: <20261108-submit-mtd-master-open-reference-v1-v1-1-871aac8c6e05@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 20 Nov 2026 15:54:41 +0100
-Message-ID: <87pkvza6z2.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AgdN17dR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33CCA1F000C4;
+	Fri, 20 Nov 2026 14:55:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795186530;
+	bh=k2afYDSbhGUGiUhcoGzLE+xs9HwNUM5FrmXjgV49pcQ=;
+	h=Date:From:To:Cc:Subject;
+	b=AgdN17dRiKJVb2NOYdow/OGv5jT+kvxYncPbB5koJOb4gpolT+I3ZNBDNvz5UqLR0
+	 sYFZ4+BcPvysnAc0Ejheh2yX0iBQ7tYLP5H9CJhC8CeXbraXZ8G3l78B+rCldNx/TW
+	 hGrSVUA4rxoarrN67weq6geef4WF00uHu6xblKITd/FqXR0DiYG6hq9zJ/BNn9qmZE
+	 jEjA80Ye53+Xm8A02XvnXtrUNmrryDey6Mq58hjLk8w+tqTjkNZSOwLOzwrne3S4OQ
+	 VOnQ8C5MTU4P+c7WogJt/TRtZS6wNw/G5l+UJzL3kglZLUutMe2q8ZA+q1vvAxtKug
+	 oziMUC0eZjBlw==
+Date: Fri, 20 Nov 2026 14:55:26 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Benjamin Tissoires <benjamin.tissoires@redhat.com>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Subject: linux-next: build failure after merge of the hid tree
+Message-ID: <awBfXhrj8dYTa53z@sirena.org.uk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,53 +57,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ecbcHoamtLU6R967"
+Content-Disposition: inline
 
-On 08/11/2026 at 14:12:39 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
 
-> CONFIG_MTD_PARTITIONED_MASTER controls whether a master is registered
-> alongside its partitions. Without that option, an unpartitioned device
-> is still registered as a master and can be opened directly.
+--ecbcHoamtLU6R967
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-"can be opened directly"
+Hi all,
 
-> __get_mtd_device() skips the master while walking the parent chain and
-> only takes its reference when CONFIG_MTD_PARTITIONED_MASTER is enabled.
-> A direct open therefore leaves the registration reference as the sole
-> reference. Unregistering the device releases its device-model and
-> NVMEM
+After merging the hid tree, today's linux-next build (x86_64 allmodconfig)
+failed like this:
 
-"releases its device-model"
+/tmp/next/build/drivers/hid/hid-logitech-hidpp.c:4714:4: error: call to undeclared function 'hidinput_disconnect'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+ 4714 |                         hidinput_disconnect(hdev);
+      |                         ^
+/tmp/next/build/drivers/hid/hid-logitech-hidpp.c:4714:4: note: did you mean 'hid_disconnect'?
+/tmp/next/build/include/linux/hid.h:1051:6: note: 'hid_disconnect' declared here
+ 1051 | void hid_disconnect(struct hid_device *hid);
+      |      ^
+1 error generated.
 
-> state while the handle remains open.
->
-> Take and release the master reference for direct opens as well. Retain
- > the existing behavior for partition handles whose master is not
-> registered.
+Caused by commit
 
-Is this really what you do? The code does not test whether the
-master is registered. The condition is:
+   a9c54220eaab7 (HID: logitech-hidpp: disable works before stopping transport)
 
-	mtd =3D=3D master || IS_ENABLED(CONFIG_MTD_PARTITIONED_MASTER)
+I have used the tree from next-20261119 instead.
 
-As a result:
+--ecbcHoamtLU6R967
+Content-Type: application/pgp-signature; name="signature.asc"
 
-- A handle on the master takes a master reference.
-- A handle on a partition takes a master reference only when
-  CONFIG_MTD_PARTITIONED_MASTER is enabled.
+-----BEGIN PGP SIGNATURE-----
 
-No? I believe the code is correct, but that's again one of those very
-imprecise commit logs where words taken independently are fine but put
-alltogether don't build any meaningful message in my brain. Maybe:
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsAX10ACgkQJNaLcl1U
+h9BODwf/aFqI49fgLDzSVZRvDEzWoHNnJxs89/sn03ET58BzeYKc9NNoZg1o+8Nu
+BUiIFA1kkuBsb9qTf6SJgbeP9wCThRj+F/QydZZGzhDKZlQ8w6Eq89EpVfmuIcBJ
+lJYwshfpPE2cTdaJRlTf4EnpRyrMvvs2bXk3BXNpQFG6BIAFY0y4ZiDCAwjsnNaP
+jm3RSqQshqdPVcYZLSc04Oqod1atzWfFQoWLjtzj9u3M9PLQjQHes9CaFdlP0n+8
+DXJoDRKNTgdP7v+mKPtS9qnQmWMI8fyCU6GBtexzVEQy1ATyDwEh6rM3MnvyZadu
+R+92gjwKJVQelnMzZjz+102mWEe7zA==
+=bj6Z
+-----END PGP SIGNATURE-----
 
-  A handle on the master now takes a master reference. A handle on a
-  partition takes a master reference only when CONFIG_MTD_PARTITIONED_MASTER
-  is enabled.
-
-In general I think this commit log must be reworded.
-
-Thanks,
-Miqu=C3=A8l
+--ecbcHoamtLU6R967--
