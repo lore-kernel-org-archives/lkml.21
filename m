@@ -1,67 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.134
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193468;
-	b=ariAq/lH/gM6Xr7dE4u5vba7qC+hY70B7eaVeZK2+RsXQuPi/J39It3C4MhFNKZ4SB6i
-	 k0772mGkSqH9EM/sykBG8pyAr5dFdfoixDI1omblDJEnc/f9POV3etetegpixJUQy/Myj
-	 kEaeKSNlkYNJQXME9U+d+cg5dkfjfHTUjLCoC9i4rrXkapEB7i7OoixhBKqvMLs9bXkBK
-	 OYEfaRO959jjiERcRRVIm3l6ouURndsXwszMoKjLVuCszxt7ZWY1IDDLeDrDEdjdejrMa
-	 sHGQ1iWJEV7rdUkG+paN+O0daWOiUlpE5uCre3PUkkZCbH9DabNIJbXYB7QhQd/BNhg==
+	t=1795193467;
+	b=WDuHKzJvwd8gCb0YuAoNmgU+S2UaOjym1sHBvUIcWul7hAauaK1c50EHhv3WvigDO4bJ
+	 fJwajZYZn5+W3c54DWPtSWrXk7BUDDztEUQqviEFo0XX+RZ8tJ0nmtFq0f7qUAR9NzuQs
+	 v3lb9YghGoR991kuYklaALhPy4+ziVoSWuQsGCMkV1/2GrLd3w6NeNHTJQuMT3jce7eUe
+	 hloivWdbK1fcpeffKH587twJilP8FNhehK4PIS3kGqQUaHUu05hN5Up0JM43/EFsL1SeI
+	 ionkDDzWdlWd3bcZIB6LOQuUxMo3Mycukughaz1hNgidbmbu9X/ekI4HAHjzNIYcXXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193468;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:CC:Subject:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=K0ndYaDZoYcWVoVC7S2A9Vrq7y6IxfYnkplM3Ym75uw=;
-	b=pbVdXVzrtZ7qyjPPq+lD/GOtLpbvePQa3pAbbooecwghbaIvUfTNZS3tgih1Londg4kW
-	 OHQSxSSwrM9mcgptsNIEpchhGYXHjRkNXJA4HKFDjy0B9Rm2bxs1oE/cHWEfvVZIIJLQw
-	 GBM7ePBSCQqGspb19D50DHQsqao8u8YIQHChwJ6QtzDBGHGvPNSk4ta871Lg/y7M1gZst
-	 Bct3iyxl3sB8IKWs9nR6qk9wK/iBXXVRQol5nRAUNDlp3XKz4qkv07cPy1+FeSnIWpL/z
-	 PTciR5Kc1Kj2tXZCtpOlKfSy+oUkz1IsRY5OqeUFatxvs524DbaB7G5U111tyNfGWoQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193467;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=v9u6Il645wwqwPsIhsxeY14aJqFQtWTjPLxOKEgbEEw=;
+	b=v1TT327jO13HcwaMmHPpU9IYLIcxcudlvBNA+Xkx8FkBRJO0HSReOIe3YGecnO4Eenhr
+	 FXq/76sxZ29zu+QAOG4k7+YpviRlyDpYxof45Ai3LWk3og3652+bTSevtTQ1/PB97vj6R
+	 Nx003DCXwexhpbLQqF1eY55T0iVzJp3uTiek7SGAe25lmYNLHmZWYT5rHj23QTssy8GcG
+	 V7+7UPn2lAhV/3GNClfe5l0IZluWSKEvmzvgO7KTqZsuImAORT85Nm7pNEhxbVj/Z791r
+	 ekDb0uuRUUV4nxlktWSwkCXOy5a824WJkWpwv5HgpbdMWRtY2EjTQdS5OcoLFjDTjYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BSyJJR+c;
-	arc=none smtp.remote-ip=95.215.58.134
-Received: from mta1.migadu.com (out-134.mta1.migadu.com [95.215.58.134])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e4XFjb1Q;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8395D606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C587A606A330
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8395D606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BSyJJR+c
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=23aotKbVmZZK5ma89rsXnDW+52IBOiyRWRcBtbK9USc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795193465; v=1; x=1795798265;
- b=BSyJJR+cYbWVVAp0IkQW1yxkmzztJIqOdC8iaxFtBLJM3P8W/dDoRWUyR1mNw8eA44LXrt89
- hUAyXI2J+U/w7r7KGlo/7W+EqJJ77QGrtVTslygiDkuQYfxmnXjpZyprjcReU6MgMn97nyANfGT
- 7F6/jSWdjgQ3CjoFKh8yRuDo=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 2f79ea2b221504db;
-	Fri, 20 Nov 2026 16:51:04 +0000
-X-Mizu-Trace-ID: 2f79ea2b221504db
-X-Migadu-Flow: FLOW_OUT
-Date: Fri, 20 Nov 2026 16:51:05 +0000
-From: Bradley Morgan <bradley.morgan@linux.dev>
-To: Christian Brauner <brauner@kernel.org>, Serge Hallyn <serge@hallyn.com>,
- Paul Moore <paul@paul-moore.com>, Josef Bacik <josef@toxicpanda.com>
-CC: James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>,
- Jarkko Sakkinen <jarkko@kernel.org>, "Andrew G. Morgan" <morgan@kernel.org>,
- Serge Hallyn <sergeh@kernel.org>, linux-security-module@vger.kernel.org,
- linux-kernel@vger.kernel.org, keyrings@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, Shuah Khan <shuah@kernel.org>,
- linux-kselftest@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v11_0/3=5D_capabilities=3A_close_the?=
- =?US-ASCII?Q?_ways_around_the_CAP=5FSETFCAP_rule_for_uid_0?=
-In-Reply-To: <20261120-zutun-ausgearbeitet-erregen-ebd3834404ea@brauner>
-References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com> <20261120-zutun-ausgearbeitet-erregen-ebd3834404ea@brauner>
-Message-ID: <167100D4-9E3B-4412-A554-E3D09B5BE9DA@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e4XFjb1Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E79D1F000D4
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:51:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193467;
+	bh=v9u6Il645wwqwPsIhsxeY14aJqFQtWTjPLxOKEgbEEw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=e4XFjb1QUl+W/h3IkvvVOzp3emObeLDLbCfyF8DkzwaaaFAnsadwSLlKaB1v1T7p7
+	 QW9Y4NlliI56DoM6KyPPbHoZWRfcBzKLWnhiTi5c5LhHaLKHY2sWMvnDz5oZ5BS+ln
+	 q4eXmRWuZssZPnNuwQDEADNlAuOPhe03sSMcZayjfcJ2IWRwl93fOqlfD4ISGRZNZ9
+	 xH3/RC2dVKXqwWDxmIYuBEbic2qQyjacQadWmGijEB82k9dHqy92na7LXS7JqIylqc
+	 DlZoHoJ3+pqF5///bIKfWFccZ+K1Y6VPT4ERjXLRaGiujinJ5+steGn7lUH9DiugYx
+	 ndPWGuSzGtyPQ==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5be4b61fd3dso868944e87.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:51:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFqjTzoATdv1kdy7Pw9oFZJ4qr6I62TYU1RLgMcbAB0EFjQO7tGpsY5mlmc2POajags2cev+z3mSx0Elh8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sI5G/Hm3Zych1OmE8MM/7w7EB85pOwLdZFUXJXYNqoc+dXzxC
+	HDFmtJtA1qJhhG3A/75NjyVKOIOLBIcxm5I8pp+0pFay/oFOQXfmVEz/XKLZeB2CEHQYfdVpa83
+	WjeWsTx9r5FG1MYjvLMyH/52tfA0qW2o=
+X-Received: by 2002:a05:6512:1086:b0:5c0:53e:6662 with SMTP id
+ 2adb3069b0e04-5c1bc80756fmr1199028e87.12.1795193465789; Fri, 20 Nov 2026
+ 08:51:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,65 +59,133 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+References: <20261113045502.68053-1-yuz08559@gmail.com>
+In-Reply-To: <20261113045502.68053-1-yuz08559@gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 17:50:53 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hNrr_+CBkOLpbfs7nrCCSfGT0_CPo=G3LB_dpetcKuZQ@mail.gmail.com>
+X-Gm-Features: Aa3M54phyBWRr-oW0bMbLB1lpYMkfBaYd3wcroDjrMDD1838N0GeOrSuvTqDZ6A
+Message-ID: <CAJZ5v0hNrr_+CBkOLpbfs7nrCCSfGT0_CPo=G3LB_dpetcKuZQ@mail.gmail.com>
+Subject: Re: [PATCH] thermal: sysfs: take the zone lock in the tzp attribute handlers
+To: Yu Zhang <yuz08559@gmail.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 20 November 2026 10:11:34 GMT, Christian Brauner <brauner@kernel.org>
-wrote:
->On Tue, 17 Nov 2026 19:54:23 +0000, Josef Bacik wrote:
->> v1:
->https://lore.kernel.org/all/20261006-b4-setfcap-userns-v1-0-f47e7ed66072@toxicpanda.com/
->> v2:
->https://lore.kernel.org/all/20261014-b4-setfcap-userns-v2-0-fac4d19281d7@toxicpanda.com/
->> v3:
->https://lore.kernel.org/all/20261021-b4-setfcap-userns-v3-0-97c7ed4e43e1@toxicpanda.com/
->> v4:
->https://lore.kernel.org/all/20261022-b4-setfcap-userns-v4-0-88aa0ffaa08f@toxicpanda.com/
->> v5:
->https://lore.kernel.org/all/20261023-b4-setfcap-userns-v5-0-0620223be951@toxicpanda.com/
->> v6:
->https://lore.kernel.org/all/20261026-b4-setfcap-userns-v6-0-25f10b7ca497@toxicpanda.com/
->> v7:
->https://lore.kernel.org/all/20261026-b4-setfcap-userns-v7-0-bf8a576f7259@toxicpanda.com/
->> v8:
->https://lore.kernel.org/all/20261027-b4-setfcap-userns-v8-0-2674adc63f3c@toxicpanda.com/
->> v9:
->https://lore.kernel.org/all/20261109-b4-setfcap-userns-v9-0-0d3f00976ce2@toxicpanda.com/
->> v10:
->https://lore.kernel.org/all/20261112-b4-setfcap-userns-v10-0-84f6f7faa903@toxicpanda.com/
->> 
->> [...]
+On Fri, Nov 13, 2026 at 5:55=E2=80=AFAM Yu Zhang <yuz08559@gmail.com> wrote=
+:
 >
->Applied to the namespace-7.5.misc branch of the vfs/vfs.git tree.
->Patches in the namespace-7.5.misc branch should appear in linux-next soon.
+> The thermal zone parameter (tz->tzp) sysfs attributes - sustainable_power=
+,
+> k_po, k_pu, k_i, k_d, integral_cutoff, slope and offset - dereference
+> tz->tzp without holding the zone lock:
 >
->Please report any outstanding bugs that were missed during review in a
->new review to the original patch series allowing us to drop it.
+>         if (!tz->tzp)
+>                 return -EIO;
+>         ...
+>         tz->tzp->name =3D value;
 >
->It's encouraged to provide Acked-bys and Reviewed-bys even though the
->patch has now been applied. If possible patch trailers will be updated.
+> For a zone registered without thermal zone parameters (tzp =3D=3D NULL at
+> registration - the thermal testing zones, ACPI thermal and every driver
+> using thermal_zone_device_register_with_trips(..., NULL, ...)),
+> power_allocator_bind() allocates tz->tzp and power_allocator_unbind()
+> frees it and sets it back to NULL, both under the zone lock:
 >
->Note that commit hashes shown below are subject to change due to rebase,
->trailer updates or similar. If in doubt, please check the listed branch.
+>         tz->tzp =3D kzalloc(sizeof(*tz->tzp), GFP_KERNEL);
+>         ...
+>         params->allocated_tzp =3D true;
+>         /* unbind */
+>         if (params->allocated_tzp) {
+>                 kfree(tz->tzp);
+>                 tz->tzp =3D NULL;
+>         }
 >
->tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
->branch: namespace-7.5.misc
+> bind/unbind run from policy_store() -> thermal_zone_device_set_policy()
+> under the zone lock when the governor is switched to or away from
+> power_allocator.  The tzp attribute handlers take no lock, so a read or
+> write of one of these files racing a governor switch dereferences a
+> freed tz->tzp or a NULL pointer.  The read side (0644) is reachable by
+> an unprivileged user.
 >
->[1/3] userns: don't let setns() lend CAP_SETFCAP
->      https://git.kernel.org/vfs/vfs/c/711bc24f1d8f
->[2/3] capabilities: don't let ptrace borrow CAP_SETFCAP
->      https://git.kernel.org/vfs/vfs/c/c1e5f4d36d2a
->[3/3] selftests/namespaces: test the CAP_SETFCAP rule for user namespaces
->      https://git.kernel.org/vfs/vfs/c/cbe977960cb3
-
-Oops! Couldn't get to it. I had a look, looks ^Wsane^W
-
-Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
-
-
-
-
+> KASAN, one test thermal zone, one loop switching the policy between
+> power_allocator and step_wise and one loop writing k_pu, panics in
+> seconds:
 >
+>   BUG: KASAN: slab-use-after-free in k_pu_store+0xd7/0x130
+>   Write of size 4 at addr ffff8880064e5c94 by task init
+>    k_pu_store+0xd7/0x130
+>    dev_attr_store+0x46/0x70
+>    sysfs_kf_write+0xed/0x110
+>    kernfs_fop_write_iter+0x29f/0x380
+>    vfs_write+0x5df/0x950
+>    ksys_write+0xfd/0x1e0
+>   Allocated by task:
+>    power_allocator_bind+0x51a/0x600
+>    thermal_set_governor+0x86/0x170
+>    thermal_zone_device_set_policy+0x58/0xb0
+>   Freed by task:
+>    power_allocator_unbind+0xad/0xd0
+>    thermal_set_governor+0x57/0x170
+>    thermal_zone_device_set_policy+0x58/0xb0
+>
+> Take the zone lock in the tzp attribute handlers, as mode_show() and
+> weight_store() already do ("Don't race with governors using the
+> 'weight' value").  The governor already reads these fields under the
+> zone lock, so this also serialises the PID constant updates against a
+> running power_allocator.
+>
+> Fixes: f5cbb182586e ("thermal: power_allocator: don't require tzp to be p=
+resent for the thermal zone")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
+> ---
+>  drivers/thermal/thermal_sysfs.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/drivers/thermal/thermal_sysfs.c b/drivers/thermal/thermal_sy=
+sfs.c
+> --- a/drivers/thermal/thermal_sysfs.c
+> +++ b/drivers/thermal/thermal_sysfs.c
+> @@ -258,6 +258,8 @@ sustainable_power_show(struct device *de
+>  {
+>         struct thermal_zone_device *tz =3D to_thermal_zone(dev);
+>
+> +       guard(thermal_zone)(tz);
+> +
+>         if (tz->tzp)
+>                 return sysfs_emit(buf, "%u\n", tz->tzp->sustainable_power=
+);
+>         else
+> @@ -271,6 +273,8 @@ sustainable_power_store(struct device *d
+>         struct thermal_zone_device *tz =3D to_thermal_zone(dev);
+>         u32 sustainable_power;
+>
+> +       guard(thermal_zone)(tz);
+> +
+>         if (!tz->tzp)
+>                 return -EIO;
+>
+> @@ -289,6 +293,8 @@ sustainable_power_store(struct device *d
+>         {                                                               \
+>                 struct thermal_zone_device *tz =3D to_thermal_zone(dev); =
+ \
+>                                                                         \
+> +               guard(thermal_zone)(tz);                                \
+> +                                                                       \
+>                 if (!tz->tzp)                                           \
+>                         return -EIO;                                    \
+>                                                                         \
+> @@ -302,6 +308,8 @@ sustainable_power_store(struct device *d
+>                 struct thermal_zone_device *tz =3D to_thermal_zone(dev); =
+ \
+>                 s32 value;                                              \
+>                                                                         \
+> +               guard(thermal_zone)(tz);                                \
+> +                                                                       \
+>                 if (!tz->tzp)                                           \
+>                         return -EIO;                                    \
+>                                                                         \
 
---- Thanks!
+Applied as 7.5 material, thanks!
