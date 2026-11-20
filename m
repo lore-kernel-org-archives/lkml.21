@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184323;
-	b=HP/7iPcx4esl+70yeJwHdZFXtHvLYtHfbm4iYsuVrABQ1IcCCLIAhfEZCOFj5kb8LeUy
-	 VJKOBlhUP2OgAtyM1MLHYRQCjyZT1JEu7/GMIIFVAaW4eyLB++2yakcN9efan4ExV0Sa+
-	 Xl4Oc1wAdl771vOUmIr7OdWsM66cbHU98G5GxbnbBtedYkwdJl52Q8vz8HyfNUWrzxXLZ
-	 iSAXsWCp3r51cIAN/zkJU/GXuY29AqUdjd04bYWuuWEJU8ihBXD7sUmTTL9f10a8/sYox
-	 YDYY1lGelNXQ6BH7a0GOus3DT7Awpy3eOXbj6ZaOYcPfZjriR4ROK5LZTY2kZPEU0pA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184323;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=tchBVgJeJy04vBo/BlAAOzVIUxBgTws/k6WQKEwIWWw=;
-	b=FPTAzfUh66hL6aGnmQS+1tbsRl4F3c/xklijhl23G5L4pkWTWHNzEwCBxf8WXx4v71o4
-	 TnkrU1pMvigFwDWExCXIEBEp/dKVTxx/sISX1wplnQyavykZhQVkpYx3/tyHoLZqHxr/J
-	 tpraGvzqz518fnWvQOWlT9lp4zTGgAGh/AdRNO512osrzGIUaQg8Jxa6g/uoOM9l4aWnA
-	 0HOhMk7SMlkSDFhgiCm6bX0X5K0+9YzRlvj5cWrB2MDxNnsaznEKoYNOqQseZl9B44qRq
-	 tvvldf9RFfRE5sKyZVXv/4XjhAAUH2jNCGOdBVH0i14+tgZbEnhOj+h1fMtNMjx4JqQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=XI6AB4iG;
-	arc=none smtp.remote-ip=210.118.77.12
-Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795184326;
+	b=Ab+44mLvR3mOsEcEvXN95FHDHU8bSOBJCLL5led8t+BGosH8wQdfNgf0gfkSiw+vzZIU
+	 /C9H4TAh7WVDNqFSqXV0XNQjQdpNJXMSZ+KgRNx/+QBS5+5Wx4kZ4Gr5Q5ro6bNfI587/
+	 4/a77CQEga6UJKsVrhT7JQxPa073PKOBLhFbKieiCD56FF8fBNNgpTWVzKZSrX2OnStCS
+	 bMcP27GbUFtekiRWLywjB13hfVwkv77HNjaRGfwulyEtKvoxIcmq/VRZbRycm/0Pn4WY4
+	 wr65Zi0DZdC4UjZgz6/YoSepmtM6D7R2qVyCKKADP8MGD5QVLqQDBJSTWwV4wcd862A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184326;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
+	b=urGFhIdZ6JBpXfbmx62ZX+KCmW0a5uPJsw0zzZYMeoO3gSnNtPw5oWVaSVI4P4+z7RUv
+	 pEFU6HzTgwenFdwxDzspADa07wSOHHaACJYdlYspLsIrelvgivPspT+8QR/r8nVBJ7AN8
+	 cbBKa2lL/6UFlyL+EXBd260pPPhoz4C1y99Uew4kp2UR+Zqu2ueZgW1ttDYPjQ+VhN4UH
+	 QLFKiizZSe4LQBuareY/TTbxgxCRBgonWNtU4RlRTtoQTRo4o/vNRz30CVxB6zf5yBCjI
+	 LP0am9mRytt0k3loDxbqLRe5kDfQvPUEcVJjptnQu3rmPNU1KxO/ri1PPwmVHVGwawg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.52
+Received: from mail-yx1-f52.google.com (mail-yx1-f52.google.com [74.125.224.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD9F1606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD9F1606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F9E0606A33E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F9E0606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=XI6AB4iG
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261120141839euoutp02e557a236305e7e000e427331e46901b7~pxqCz2QBa0192901929euoutp02I
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:18:39 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261120141839euoutp02e557a236305e7e000e427331e46901b7~pxqCz2QBa0192901929euoutp02I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795184320;
-	bh=tchBVgJeJy04vBo/BlAAOzVIUxBgTws/k6WQKEwIWWw=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=XI6AB4iGzg8JTHnOsvNZvZFYWTjE3vniGMB74Dcz56hRhFZtclpVGEuZ3oWzfj3/E
-	 rdaTT+i2pUm+MKDdmVycwR6y5GtozK2lp1fhRu7TSBUGrzWQJJwQWnYJG1Xw5lJ4MT
-	 twM561yXSqAKdt+UcI64uox75FiVGZv8+ExO8tk4=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20261120141839eucas1p147101d35489752f566d91b788a75dfb9~pxqCihgoM0385403854eucas1p1t;
-	Fri, 20 Nov 2026 14:18:39 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20261120141839eusmtip24357cb99294f8e6577a6683ab3a0f3fb~pxqB5949W1268112681eusmtip2Q;
-	Fri, 20 Nov 2026 14:18:38 +0000 (GMT)
-Message-ID: <7cfe91c5-4053-44bb-8c18-612fcda90e4d@samsung.com>
-Date: Fri, 20 Nov 2026 15:18:38 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=S2Ub1fv4
+Received: by mail-yx1-f52.google.com with SMTP id 956f58d0204a3-677bc4704cbso1225205d50.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:18:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795184325; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eXpWuO2VC8wVooXkgAswzCiimkiUgDRtqff4XuScwPMCls7G4qwWUhfT/o0kPZtVGp
+         m+P0RvaS7lJ8mBT4+UOQAiK9Qnk4JO3NO4dxO9Yp6CT3NMehs2lYdu8pI79HK3amsVhE
+         7q6W/MbpYt6qtGquRrD2CgkOKV6dJCOblprXV9f0Yf7bp4kSuo6PBtjQrUY74b+/Cb/h
+         rIrlidijOIw315sOCCH09ymWkejjya0AiO4lRDddgRUSpkfWDWHxlvlK5aoBqreHEUHp
+         BfwbT4VjJX3ODjhF8EgmuNL/eDFjIgRU+PuFGzpiFuMD2cY05O7PQeWiun45WroHtSVA
+         wWVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
+        fh=XGXV/AJ5BrydkNwOh7+C7LNX7dNkGi1wNd5s3DTuytc=;
+        b=IfJQ+DmxFEsGNMxRlSaJoxf6DupICd1uKi6BScZXxrfuUbrBBAV3gCvNPicilJqJ4X
+         gLzEF0KV1KfIuEEPq6kqHiculzoEWHWcB+aCgVicWwWwIP7Elv2lc96+u7yInfBZQ7su
+         vbVJaoiTOh9OrnZ84csaVSLtCRuEYLtNRyGHDUSWYGj5oKOgEkW8uisp5nQwnqdeoT2w
+         7sVSedJKHmnXSgNaDszXeB+3olbpuPm8zXit5QE+43jUU1n4EqCEfV2CZtd0un3TipTX
+         D1Ryq0vSZk13zc6TYcfXb/B36AE1ogxc/4CQZdZ6ScdI8TglmHehyvDpqYTEA55ESZQc
+         CU5w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795184325; x=1795789125; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
+        b=S2Ub1fv4QIMwpCH6y9qCpBAh5iD4X4i6Hsbg/PjVIMAUTA4MFr+DZSYbq2SZE5N1gY
+         952r7VvJsvDRJjvJ2iHlyZU40SjZG57KUrkjNWzyrxUV1fNPEIfnd4JREco+sVH7exGW
+         ToAIwpfIW5nXUhdFUndHmxdWXSKATRRJ0vLlkaZtub7PrCASbKqD8nSHfbTX4rTEF9tc
+         5lXCZtu9oRdFoNWMkZ7LWnqA2RFxF/b46sHofPW+2bZ4a1hOvMLIlXORlQlH0/1Ay+fR
+         X+JMzkbkUALsrIacS9/V7KAFL/UNTvL1kV6lRZBgOcfWcxXleZVQYG9CjPSX3wRCJvWQ
+         tAfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795184325; x=1795789125;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Qm85nREb7P0agHsSS2w3wnffVDPZdu6tF713NyJ40SQ=;
+        b=Ymzcf2hNrn7RSIazDDgTZOQ+AJujoPJrjF1xg2AgVNCsvMx3sCpu3P3XZQtT5B2il8
+         emWpgYHevwjAcYrLVe2C9hv6z0+WJykIX0BBHPHags6s72AZE0Ll4KusGTh1akqVLgNk
+         EYQiayOpzC29sIMpEXxbZfHnGPeSWCsJzDQQd6ufXCznIWLUyErfTM1SsUhqU/k/hRuM
+         F5VcONugVM6IDUrjcZAivDWg6cUg3W0vZVbTn2wUP9fgWlsXNkKn0xZeAxYgeMxbc8N2
+         lUZUhCtO+yBBPmShI2yiuiQd94ZURXXywpjYLTzZBwhY8V4gRaA2y1fXsVSKNhZjSbmJ
+         KgPQ==
+X-Forwarded-Encrypted: i=1; AL+hErEE7oO62fyqK6Cd2lK4UKK1GIShzIRo3OontKA9yeY6KPzrDxnYPoMXGzrUbURyJF/N3GjoYjEMQoDyeck=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8I1FxqWKA1r2hPkrZkytyzY68+kDIL3NZ1ph2MxWXIRVD8Jzu7
+	pO75r8VZ7B039mPuxU3h0Q4tkXTHHJr2IWyd/8m48acC3e5pzEG6W09diifT83mcqykrLQxJ/nk
+	mcR926CB5oVxHIjhxWNONdKkYAtHWz6Y=
+X-Gm-Gg: AZFdTZeUSbv03v1EBNwaMgbyP4OiHfovUP8XSfqvWfQaAiXUD4UiDkQ2FQ6M0wO+gzc
+	UtLUenDZTOzjJrH2g0hxq3lFxNCMLrjwbQv2imTcGIniaq2qXeZLDelpZcRY0BDh90rUSbzfXLg
+	Ge+KcT+DXNFgCCseA5JW1gWhEl2lw7dxGRKMwhOrA8mnyhy1LGf5+UIbEYc5f8W4b8pAaPuhOWT
+	c2URU5EfKJU7TgkY3VVjGSzcck6GRlzboEPoYmUJXfjmRQS7h5oZaXDwP+klAmN2J3t1L9p/eRw
+	QLwkP7hg5LEf7aH1qk8OaKgzBysykYGNYEBBMluC9GvRI89au12C8/ajZpVC9rbCONcSSFIrSQm
+	qQbhdJrwhHUXJAj0UUjMpaz7rEmpwicmXFZ2vJkl8kDh2JP0HZKxUuUviUdZPovoYVpn9BOxxGy
+	Ss9MBeKIkPpcZF+IClCQ==
+X-Received: by 2002:a05:690e:478f:20b0:67d:99fc:2e27 with SMTP id
+ 956f58d0204a3-67df43f3b0cmr804987d50.40.1795184325362; Fri, 20 Nov 2026
+ 06:18:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,65 +104,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH] dma: swiotlb: Allocate the restricted DMA pool slot
- array with kvzalloc()
-To: yzddmr6@gmail.com
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20261120-upstream2-swiotlb-rmem-kvzalloc-v1-1-1c5f9b503223@gmail.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20261120141839eucas1p147101d35489752f566d91b788a75dfb9
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261120131146eucas1p2d05549af0404d6af77ce3e9385e91fa7
-X-EPHeader: CA
-X-CMS-RootMailID: 20261120131146eucas1p2d05549af0404d6af77ce3e9385e91fa7
-References: <CGME20261120131146eucas1p2d05549af0404d6af77ce3e9385e91fa7@eucas1p2.samsung.com>
-	<20261120-upstream2-swiotlb-rmem-kvzalloc-v1-1-1c5f9b503223@gmail.com>
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com> <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
+In-Reply-To: <e5b0e0b7-6c68-4b9d-ad52-f83bde5e32f8@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Fri, 20 Nov 2026 11:18:33 -0300
+X-Gm-Features: AclHuK_xpfbJPoEhoQpqqv5nViKMrJKk3pARB3vz01zc7O1qtz_EdUVXv0vSmLU
+Message-ID: <CAK+kzgzb0CZZ9JR0Rs+hjK8+nDitMGhyzNZ3o23NSfwaeZ_osQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v12 08/13] net: dsa: realtek: rtl8365mb: refactor
+ PVID handling
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev
+Content-Type: text/plain; charset="UTF-8"
 
-On 20.11.2026 14:11, yzddMr6 via B4 Relay wrote:
-> From: yzddMr6 <yzddmr6@gmail.com>
->
-> rmem_swiotlb_device_init() allocates one struct io_tlb_slot per 2 KiB
-> slot of a restricted DMA pool with kzalloc(). The struct is 24 bytes on
-> 64-bit, so with 4 KiB pages and the default MAX_PAGE_ORDER of 10 the
-> array is larger than KMALLOC_MAX_SIZE (4 MiB) for any pool above about
-> 341 MiB. For such a pool kzalloc() refuses the request with a
-> WARN_ON_ONCE() in ___kmalloc_large_node(), the pool is not set up, and
-> of_dma_set_restricted_buffer() warns that it failed to initialise the
-> pool. The devices assigned to it then lose the restriction without
-> their probe failing, and use the default DMA path.
->
-> The slot array is only accessed by the CPU and does not need to be
-> physically contiguous. Allocate it with kvzalloc_objs() and free it with
-> kvfree(). The other pools are not affected: the slot array of the
-> default pool comes from memblock, and the buffers of late and dynamic
-> pools are limited to MAX_PAGE_ORDER, which keeps their slot arrays
-> small.
->
-> Pools of this size are needed when large buffers go through the pool
-> for their whole lifetime: this was hit with an arm64 Gunyah protected
-> VM whose virtio-gpu resources stay mapped in the pool, and a desktop at
-> 3392x2400 needed more than 341 MiB.
->
-> The problem was analysed and this change written with the help of an
-> AI coding assistant.
->
-> Fixes: 0b84e4f8b793 ("swiotlb: Add restricted DMA pool initialization")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: yzddMr6 <yzddmr6@gmail.com>
+Tested on family D only (RTL8367S-VB, TP-Link EX511 v2), v12 as is: the
+PVID paths reached through the family info behave as with v11, PVIDs set
+and cleared on access ports, untagged and priority-tagged frames handled
+per PVID, deleting another VLAN keeps the PVID. The family C
+implementation is not exercised here.
 
-The change looks fine, but according to kernel rules, the patch must be
-signed with a real developer name. 'yzddMr6' doesn't look like a real name.
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
 
-
-> ...
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Thanks,
+Gustavo
