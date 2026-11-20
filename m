@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147411;
-	b=uBJT1hJUQ5Yg4GJL2DZFDRN5LAEy4Re8t6E/0WQ0cJM1nBtB4MWzQ5RtIS2KwlU4v9LH
-	 iw5eTVtBTy+Ye2QgRKMKSvLk6ha55XOfVkQMsQI7gzN+ostZwtpj60baTgRPkigmMQr0W
-	 Wo8eBnwDKJdt1vShjggchRwdmqlvvdvoaACj3DaKKRjyS+zTD4KDBOjNds966pztItxH5
-	 l0fsqHj28ejGqMksa7TDK5NQnkB/lOGGqOH6fWuGSsDXe68r+ouHpiUdNsg5BcJZTPQxv
-	 R657XFxg0EqPbK9q31CJSLx3SdFQKKopJK7G3uCHPGssmpAMzVy3f5wY1kE9jGt3PdQ==
+	t=1795147415;
+	b=4gUG7EMM4f5ICtWtzRQmTeg+NuD176AnGuEyENYQmIEDWBAZgsP6h0QTpRuvyuiltDt0
+	 ApsAqkoqtA7flT6g7RCSUZeAmQAONzQegRxmgdFRhpXpqC3HiT3HqP8DjieJJqOdjrtMy
+	 nA3eG+uiDPIrsapXmDZn/u0FxMApB6Rl2hBN9nBHrQu4OJq+5Nk4gLoU0u8H88IbLeXi1
+	 4oNuzlfLBbHda7o1uprbQSeHl/YEQFO/LHUGqQMWXmjSrCOqm7Luj/w3H/iuQA0agSPzb
+	 Rp3AwSDMxaduRtuy+L30UiLfCj5wI7AavdQwaeDESlggIefqoxVM9Par4NWTTj9TZtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147411;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147415;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=VrGBV7RnHyqY/luoSQkqMxgQv+Ks7bSq84D1rzXmpdg=;
-	b=AQ0xy+i19lsb3tLrY2ZfU6kQOrecXuASbXn8esHKd1ZttJ93g3OLvgtDepuGnLF7cLxn
-	 qPCzpRPpZr/wtLZiuBGo+YcdeVSlVmSE+9igTca1NjvASOXr6FVeteHlkb0nlWg7U4xYQ
-	 urJLik4ek+NcmrfdUekHuM+bGsKqYgMrWBinSx+pUTJjZYgW6rlwsLL/nj37F6GM95Mds
-	 pdVqk+QbXfN8FMbPwHtbpGdep+75jaSFdKiHLATSAClmulDQT7oL+KJScnBExsPVIHBrL
-	 VnArgOaZeoFx7qeYC5X+G0PDL55IDoncjLjAQZD2UrNQ7KJAJiH2+zMy6M7cEfszreQ==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=yXYdj9nyuM4v8jiGLwhF31o5qWrZcD3zaXor3EN0gEE=;
+	b=BOqwjB9d1JWOlWHCr5JAE36n6EMnHG7bwdoAo/G4lt39ffQvHw41hzGZv9tvlVTWLMME
+	 n+EM0VLSpKeL6auvVQCbexd2XiOR7j/p5QhbvCI4W1zoHuJuopisJZ+6CaiV1zg434hWK
+	 CFwkArL+MKj4dCDZBIfNm3cKBHbG1VNkpADeWQctsRd4MyT5BLTFpNWHA6S0iAMKLLc6E
+	 eOAXvCcqHTdFleZusIrhi6tz3Mcj8egjKcLAqUTS2fKGqYUk4aQ3y/nzyt5xtr5llZPDW
+	 2dIaH6QNbbWQWR0auC3YZzzn/4rNbzGv73T/Bbh/I/7VWIwQcIB4wdDfmMKKLPTX+lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vL1XCew1;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0QMy9xVi;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37019606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:03:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37019606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B08606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:03:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77B08606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vL1XCew1
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38190551625so707660eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:03:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0QMy9xVi
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-385d8a00598so230618eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:03:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147410; x=1795752210; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VrGBV7RnHyqY/luoSQkqMxgQv+Ks7bSq84D1rzXmpdg=;
-        b=vL1XCew132usZhKw292/n/AihosBpCvqZ9p3SjiEdTT1ayQ9aD1NHF4TCmNwDoNEkH
-         BZjBjXZ/dYlcBSd4+YndoIFALhEvjRiLUIaOFOc3ubXD8ARHDDKio5SamKfynvur6+xw
-         1sYVyRfBOBsyEar1/6RmdFrCsmOZau0e/++6WARFhsxpJo/XNJWXQXDJEQE8x7+r2NJr
-         O3G+LLfg1o0JRDEznDKc5SaOEsw2RBElrCvJNh33nF5s7RzwtonHZTtf5TPrAfFnCSLp
-         a2vyrHgmyGtVIFVowY0qjf3W7GDwu1ZtAnZHLARc/PchiM4edgZnB1E7LyvDNWW55tr1
-         Gu7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147410; x=1795752210;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795147414; x=1795752214; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VrGBV7RnHyqY/luoSQkqMxgQv+Ks7bSq84D1rzXmpdg=;
-        b=ASOczHwyjwEvP6YefBNfjtNBan+gnRDVPFodH9Ruv723SzYP3UJ+Lft8H1fujb0sKW
-         Lh1do9FnsCHr4iEqEu7B+F2Cc/otMScCxPbV3mwX4fzRF4wMfVUzFI/3u+HePeGaAkSm
-         Bi17+vTxwF2Kw3DgZHuEBnF5eO5tIAbLUNqRz9U/ThxlQ98e5bGpIOx7fKmuYA39lreI
-         /VC16t5Eyp6Oa2/M/LamjN+rXfrzz8Nl963N0MdPJxaZMOn+C1ZAnb4QBIDIunsJgstA
-         0rA0KP+oZmJMeyn3cBykpU+KsXLvfpKT4Jis526Q9Af/6bfQikcarUUqWivL8vXrkT3r
-         fs9Q==
-X-Forwarded-Encrypted: i=1; AL+hErGxH9tK4nd+2sg+w03tzQ5ouDswBIHihW7Cud52CDOKIfVq7Zork3J/wOxvKqLfvml4JSt2h57HUuL7pL0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9IY6OtoDvoeR9HTTpJOZjXPEgdDYv9MWHVCv4hu+5fg9KfS3Jm
-	IU0URzxsMbo0RdRauCes0rhd+oyQzM8n5qL8FRzuY9LFiqyVrhYHUmS+
-X-Gm-Gg: AZFdTZfCq/VRlVGFMsoivyVml7DKNd4/Y5mXjov4JCWEelTd3wNtaHQhiYDpUdnMNEx
-	JdJjdGqhJzaeOKxAhZLDfSGtQVUwcCb0xF/G6vl3UcLOPjclKojVRI8vuLJb98E+pVSxoKYhLSR
-	ul3ooYXqO5mQSL+Tv+YO17tJoxhx4uisLgcYW/YG8T0i9NI/oXci21lWmYdRJEfhokz0Pw17FtS
-	xhgfh7TxEfvn1rTKMasmAjEGuId1OP2Vewdu44BTzOKey5QWi4qAE19exfZoAlgNPsYSLepAZK7
-	kYngf72nHrFUwPKtzO7KbbdmV1KMXogHs0H667L7WFvgitW3xFXRw62cvFS/laoU3Wk5o4W1bps
-	4IOfusX+uCQW7oDwHZv2NUtZgbfec0gg0OAgQnSR+1nQsTFEJ/vQAXRi9S+87Fo+7bJHxXczV0y
-	9BI6oprXHRSeNxvurdoQIQg1Gyhx6bFf12dvkurGS/6GvP9OM3OKpIMW5icjGyJr6K43JkjQWOh
-	kHyWOk9fiygEUVa6qOthCSMJzPCT36mbmFFKnCtbt2Veca0ezT69t7n7io+KF/MDXxubAZxBjQo
-	2OB94ue7DY1nIgYWV9LTipTjDi2xdt7jug==
-X-Received: by 2002:a05:693c:864b:10b0:377:1ad4:1947 with SMTP id 5a478bee46e88-3856f14d3c8mr1630324eec.6.1795147410323;
-        Thu, 19 Nov 2026 20:03:30 -0800 (PST)
+        bh=yXYdj9nyuM4v8jiGLwhF31o5qWrZcD3zaXor3EN0gEE=;
+        b=0QMy9xVihzdqUeuC2tXf4jH6W6ojo/2tnNh0uAc4vUeSpaPgFdS6xiOpbsBHSlt0mg
+         Yay4agX0tWmBpJH+LDsY8JPSD3DdwfTDKyi47L6e6U/yJffhpv4hAtU1c0u5CH+WRZhJ
+         nCmYSSWnii/9995khh1tO+9eCQyaA09F61WuVQrg0f+FnK3b9RAYu+Si0dw9ezgBkHQ0
+         sKxszHEFuTvPRF8GIUT3R2TsXRtvmFnGp5ZDfKTCEcu0dJ1mPQAUqzuTyL5/G9wwh05n
+         2tjyPqAVrahlL2iMxNED5I4y1Jh0O9nO6Kpf0+yFnvD4+jXPXaXc0XQUbNd1ugq4GLJM
+         4bMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795147414; x=1795752214;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yXYdj9nyuM4v8jiGLwhF31o5qWrZcD3zaXor3EN0gEE=;
+        b=zmNanCvmCKHDOK+woFpdXjNwL2oaY+vKDAUxangNUnqLsPSbDUbba3DDhcF+95tZGB
+         nlgvqJZYHL3I3j4aujbqsdMn/z/GbTRaKvfmE5NiG8t/n3vrDK+sSa11spFMba1u5YZ7
+         1pBX64W9xmkdN36m9kQoycB42G8ep8hfjqkumK3Bl8yUlnU2Q6C3RtIV6vh7mSFswLze
+         pW6c30CjM8RkAnTHz+y73g9B8Tcd5zTnNCocpv8xiNbLJJEUJEW/Jjv51CaEoyOU78MD
+         WAdt+3y/vDezqeDoz0hAIPYMH6uCiUMwQQn9RKI2gb8YT5sR/2mvAZ05gquPbQUtVZds
+         7vAg==
+X-Forwarded-Encrypted: i=1; AL+hErEvApG5JGfEEkcwdgtAnbSnxJNhFqxfiXeK3sKlk2EueWo4lMFhxRK9cJ6b0pIUcWJwNUqOj7Mig28AVTA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+KJFsQFRq7WRiEQVPnKhF36FTXYM6a1zKpX2jxeXqUqs+enJCt
+	W7KuDMpyCTkpH+2GKzD1GJgxiua0qXs2Ae6kMTgrozL02vFQJM9x5sTo
+X-Gm-Gg: AZFdTZeVhUc3sOg/W9/nQjBJhCVGLgobGh5nO92wAHPPp1qX4AHHHuh1af5ftLeM90D
+	7uX4Io+Qdr9vHK1jkZptIG0d9SMVKCinaeSD7nN0uqf/2t/WuVLesIbNc6rWDYSJc89KNiI/p9R
+	OT5dAX+rAqtBnud4T37IpznWdV2PJ3xgFCtrk7HXgwNPzXFbxiKq5Y+/MJkK95YYKRHH1Xw+rhv
+	6HP1GAPhUikYJkC5KWMW/kEffL57Y28kq8QoZd+01RiE/stPe3y/BGDutUZBbm2V728/aGCK7iJ
+	ePwBpcvRhMN22wBU3RwGwAEONX3uI5veULNMdJo/EA1E/YLyxUz3Qi/8vii0bY8vtOUVo0anBEK
+	gEqK97gfQCaDVW3SxioR/+sHSCmn+O99BxXtR0hcfYLveERgxNnJYkobBmYcZY8D/mW6N5N7aj7
+	9ije8XcCUYkK9wex4D0Ah3am/F7ql+4vm83EyDwS2Ag6hM82qC6SJ9LOGNGNu6qxluQUcrXbrYB
+	5zYOG24d19UgW+9PiDyNR2RNzgWaAYAZ2to3UAVxtJ5vnZ93IgSjhdwiOWIHgPU7WjhREVA4lY8
+	lKJnOrGe1sJQhFxeOjwiOdRC1WYOPI+rqw==
+X-Received: by 2002:a05:7300:10e:b0:385:4fef:bb1e with SMTP id 5a478bee46e88-38570c361e8mr1625006eec.36.1795147414494;
+        Thu, 19 Nov 2026 20:03:34 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.26
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:03:29 -0800 (PST)
+        Thu, 19 Nov 2026 20:03:33 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -86,11 +87,14 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Michael Ellerman <mpe@ellerman.id.au>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 00/19] powerpc/mm, pseries, powernv: Enable clang context analysis
-Date: Fri, 20 Nov 2026 09:32:59 +0530
-Message-Id: <cover.1795147055.git.ritesh.list@gmail.com>
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCHv3 01/19] powerpc/mm/book3s64: unlock RCU before returning from mm_iommu_is_devmem()
+Date: Fri, 20 Nov 2026 09:33:00 +0530
+Message-Id: <c6cce4c4ad2b177cacfb7bfbb7bfd4a26fcd4612.1795147055.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795147055.git.ritesh.list@gmail.com>
+References: <cover.1795147055.git.ritesh.list@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,78 +106,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Enable Clang context analysis checking for most of powerpc/mm, pseries & powernv
-platforms.
+Clang's context analysis reports:
+  iommu_api.c:380:1: error: __ctx_lock_RCU 'RCU' is not held on every path through here [-Werror,-Wthread-safety-analysis]
 
-Lock acquire and release checking used to be done with Sparse. That support was
-removed [1] and replaced with Clang context analysis [2].
+mm_iommu_is_devmem() takes the RCU read lock to walk the preregistered
+device-memory list. On a match it returned true from inside the loop and
+skipped rcu_read_unlock(). Hence fix it.
 
-Note that enabling this caught a real locking rcu bug in arch/powerpc/mm
-(Patch-1). Note, more invasive checkers to check what each lock protects
-is deferred for later enablement.
+Fixes: b5952f8125ae ("powerpc/mm/book3s64/iommu: fix some RCU-list locks")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+---
+ arch/powerpc/mm/book3s64/iommu_api.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-The series was build tested with LLVM/Clang 23.x
-
-[1] 5b63d0ae94cc ("compiler-context-analysis: Remove Sparse support")
-[2] 3269701cb256 ("compiler-context-analysis: Add infrastructure for Context Analysis with Clang")
-
-
-v2 -> v3:
-=========
-1. Added patch-3 to remove -Wunused-but-set-variable on 4K with Hash (reported
-   by Sashiko).
-
-v1 -> v2:
-===========
-1. Dropped RFC tag, since this series is looking in shape to be included for
-   v7.5
-2. Clubbed both RFC series {pseries|powernv} and mm into one.
-2. Patch-3 changed the type of i from "unsigned long i" to "int i"
-3. Fixed commit msg for patch-14 - as pointed by Sashiko
-
-
-Ritesh Harjani (IBM) (19):
-  powerpc/mm/book3s64: unlock RCU before returning from mm_iommu_is_devmem()
-  powerpc/mm/book3s64: Rework tlbie() to remove conditional locking
-  powerpc/64s/hash: Reference all arguments in the 4K pte_iterate_hashed_subpages()
-  powerpc/mm/book3s64: Rework native_flush_hash_range() to remove conditional locking
-  powerpc/mm/book3s64: Annotate the subpage-protection PTE lock
-  powerpc/mm: Rework nohash TLB broadcast locking
-  powerpc/mm: Enable context analysis
-  powerpc/pseries: Drop inline from hugepage invalidate
-  powerpc/pseries: Rework hugepage invalidate to remove conditional locking
-  powerpc/pseries: Rework hash flush to remove conditional locking
-  powerpc/pseries: Add context annotations for the DTL worker lock
-  powerpc/pseries: Annotate the VPD sequence lock context
-  powerpc/pseries: Annotate the RTAS indices sequence lock context
-  powerpc/pseries: Annotate the RTAS physical-attestation sequence lock context
-  powerpc/pseries: Annotate the DTL debugfs read lock context
-  powerpc/pseries: Disable context analysis for the CMM hotplug notifier
-  powerpc/pseries: Enable context analysis
-  powerpc/powernv: Rework OPAL console write to remove conditional locking
-  powerpc/powernv: Enable context analysis
-
- arch/powerpc/include/asm/book3s/64/hash-4k.h  |   4 +
- arch/powerpc/mm/Makefile                      |   2 +
- arch/powerpc/mm/book3s32/Makefile             |   2 +
- arch/powerpc/mm/book3s64/Makefile             |   2 +
- arch/powerpc/mm/book3s64/hash_native.c        | 122 +++++++++++-------
- arch/powerpc/mm/book3s64/iommu_api.c          |   6 +-
- arch/powerpc/mm/book3s64/subpage_prot.c       |   2 +
- arch/powerpc/mm/nohash/Makefile               |   2 +
- arch/powerpc/mm/nohash/mmu_context.c          |   1 +
- arch/powerpc/mm/nohash/tlb.c                  |   8 +-
- arch/powerpc/platforms/powernv/Makefile       |   2 +
- arch/powerpc/platforms/powernv/opal.c         |  30 +++--
- arch/powerpc/platforms/pseries/Makefile       |   3 +
- arch/powerpc/platforms/pseries/cmm.c          |   1 +
- arch/powerpc/platforms/pseries/dtl.c          |   8 ++
- arch/powerpc/platforms/pseries/lpar.c         |  59 +++++----
- arch/powerpc/platforms/pseries/papr-indices.c |   3 +
- .../platforms/pseries/papr-phy-attest.c       |   4 +
- arch/powerpc/platforms/pseries/papr-vpd.c     |   3 +
- 19 files changed, 183 insertions(+), 81 deletions(-)
-
---
+diff --git a/arch/powerpc/mm/book3s64/iommu_api.c b/arch/powerpc/mm/book3s64/iommu_api.c
+index 60d00c9e7f19..56d9aa6cc8e2 100644
+--- a/arch/powerpc/mm/book3s64/iommu_api.c
++++ b/arch/powerpc/mm/book3s64/iommu_api.c
+@@ -356,6 +356,7 @@ bool mm_iommu_is_devmem(struct mm_struct *mm, unsigned long hpa,
+ {
+ 	struct mm_iommu_table_group_mem_t *mem;
+ 	unsigned long end;
++	bool ret = false;
+ 
+ 	rcu_read_lock();
+ 	list_for_each_entry_rcu(mem, &mm->context.iommu_group_mem_list, next) {
+@@ -371,12 +372,13 @@ bool mm_iommu_is_devmem(struct mm_struct *mm, unsigned long hpa,
+ 			 * and the caller needs to distinguish this situation.
+ 			 */
+ 			*size = min(1UL << pageshift, end - hpa);
+-			return true;
++			ret = true;
++			break;
+ 		}
+ 	}
+ 	rcu_read_unlock();
+ 
+-	return false;
++	return ret;
+ }
+ EXPORT_SYMBOL_GPL(mm_iommu_is_devmem);
+ 
+-- 
 2.39.5
 
