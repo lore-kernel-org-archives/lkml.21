@@ -1,157 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.42.105
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795163762;
-	b=Bj0pJjli1UygM2JzNvp3QjnHkk9T9ZqWwRnXooMyYGKPlgrWWD1jOiKrjBj+L3ceiDRN
-	 EghDAPE0oXLkPy+iU9gNxBCDToM6/UC4t7XcRkD83JXHMYDxIDj5G9ZUSgpg0CdBQqx/J
-	 gzvYoPClTrjNJoHUfP+0B/sdHo9FP9R8IyxlSeQEIhBV2Uh+FBwuv2BgMSTIuAUjvmaHC
-	 tAfJSyGpp/ZUk7oR6ZIbT7Nb6AytzJylPi8Bgmdet8ye4AOZgXdecIQYNZYSeZq3e/BCH
-	 q6J0AUvjq+PLlx4+LafDQawOgw3uWX49180FOrxy4XWRbm0Ldv442wrcexbrGNfhFfw==
+	t=1795163761;
+	b=JbdfXWSOnAuRFwjrN2YFh9Rxxn2C6uYapokjDSr7YiGnXW1/9b/EcMrc/FZVzpyoRlhs
+	 2nKu5LIk/ea1NEarF91yA1rM/H3NATT5Q7nkYpbo66RlXXpcM/K39S3ouuxPaR5ejoFSB
+	 KYd2aiwO12CNOLyGqjBXg95d5MlkZJYYkGnIs6ue452mADksmXG3ebpsnTrBNefz2WdHi
+	 a5OrfFFJtGIlW4uQhENbTX1R3x0A1bl6e/g0hBCf/6cvZEDlcaM+jSsN28jD4uv3WTzf8
+	 sOcLr8jWOo4dLpwy1AjRfiopKkwISSE4x3OqUV10tb9kmoVpkgb+JF7bPg0noNGRDWg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163762;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=LxChbrrZV+zFqp+fLlUnZyMDafjkRbWdWeJvGgG26yE=;
-	b=cEQgIDTsLLAg4y+q+RO0dOzFjR7MiezPMRK7n4zxNpU5L94riccqnpTHRlwQwHJYH0H0
-	 cbu7LnFMuS29q0be8dECaUEm+CSc1DoIur2v3IZX4Vv/g52VZi33IxL7+Amh8+ofIZQK7
-	 IlHU0Pfo70xuHkm20TYKZi2lw20hqvZKTidNAlLvLrHz2D582yDOCv5pTgoQvwOGtmyoL
-	 tErrwz+CAW7Sy7JjbjWUWuiAp+QebuoYNrXpBjq+XhMY1oGYs5t21MNsOS2trVgsptaKx
-	 hEX9GW2h4BukE2y51jqsOySqkHpQlcSZ+EN9VD/Tft2ttmPxYtGG/gi01yrceav33pw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163761;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=DSuUtXGnjpMqHENNRIfD4nz00o+v1iSCypFww/wg4kA=;
+	b=HSgVHYKyqJcn1MVwgcXrEL6eMtHbKO2bOegTEWqRqLq2rb1fTUbl6t4reH2f9TKMGBH1
+	 CXV252zuBLtli/d18e2133w8qYc3JUIQTOcPRocdsDxwZnw4ldqqwcjC5S7mFNJc5qoEV
+	 VRXC1PoBujfWXE0QNY+BKSSjArUh7ZBgiPLherofe/NjAzwDdDIfuewhkiqpi4NcWv2/L
+	 uEy+ixlOBXj0Uv58G6LyhU/NYnT5acA8n43lEx5dvB1DnnWImQRcgwkZTmXk52HYV+oNm
+	 D4zzCOB7EfLAWMmajq5HpDwomMpFHbslOwiYyk25x1/EECMYahIXmZf4sZDnNdlwLtA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chipsnmedia.com;
-	spf=fail smtp.mailfrom=chipsnmedia.com;
-	dkim=pass header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b=hhyRIvFX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.42.105
-Received: from SLXP216CU001.outbound.protection.outlook.com (mail-koreacentralazon11021105.outbound.protection.outlook.com [40.107.42.105])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HnIvXDKy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE336606A32C;
-	Fri, 20 Nov 2026 08:36:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE336606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chipsnmedia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=chipsnmedia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD48D606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:36:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD48D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=chipsnmedia.com header.i=@chipsnmedia.com header.a=rsa-sha256 header.s=selector2 header.b=hhyRIvFX
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VB6UYmcKq4rsGTSx1d/deITyTJTT7cwwn+MC2JAD1/UPxh33b9L4E8VKN5YHxNd55FeuUxfBsUwucznngxARdETwtuCkqRxyBwNyuA0oTafZpZBHxhhodf+Ajk4As3O9Uc3GiZioN5wORpZpgOXOMmLAYLEznsez4Tp8jXQRUv5HeoXHWHaaQfJzJeDCA2pdR88LQsibzXihzqrQEVte5Kccc5jsF0J7SVxMfWSghVGRuHh41fUbflxWrsMvBRsEsCFcC4iAlS8wdOMXqEGjWrSCa12iBj780NVazh1jAcJoAAz4IXQVmAuAX14eUStHSn2mWkryPmFkaGA6Ry3rhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LxChbrrZV+zFqp+fLlUnZyMDafjkRbWdWeJvGgG26yE=;
- b=TJAQNBe3NwusOzScDIunxtOBtHdBFQGwlgVB0ysRcfOrfjPRkjjPpL7PchMUZOWh3MTMr9FEYbr7BUJ8bE7GT59dLUCceouYDzJZHS/e1yvT47MKH3szvAGJzRQDHMTnjFUi2KMDgipPXSVcz/pWhzPkcDC7QwXYkSykEyzu+tOX9pxJHlTc/Bm/f3ZJ5INlNvdguRDLxQj4wH8OTWpb8VQwrpf3O91RVzfGzyPMu2eREDuRWUCQHL+zIOGgTFn1QdelIn+T9Q4xz1+40aSMdUU40Vzi/B7zdIoG6n5io1UbfEJ9FNaZ8zbl+VGDfS0Tu+Y+KlhIal5hfkBbEYCbTw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LxChbrrZV+zFqp+fLlUnZyMDafjkRbWdWeJvGgG26yE=;
- b=hhyRIvFXe+mllQ09Bx/scqI1j9EMhEUSJ3mL2sn6/f44EX0DOpalZzPBTc7XoCUVfH6ig+CmhgjAr2zoyyip3lrxx7/ZOtsm4MgREA73by6GVM9PixSmlgPqn5svpQK1VI5C20s3NMr8Gg+2bEzVuGSeLMFUCf6AbpW8j4x7KaXHCzfD3J+uCj+vKOuqnQtIDL6tlnxn+b+6GAAVNpmnaOLh220Yl6XV0SMB5YLDHTBAxzhpDvJFz43ZtCoX/isYQodlbeYy8qOJ2rGRmqk7v8niv/+x8HgAzogsDJtGbGPaqH2IuHTwjvlL1vv5VUlN+P3WHtALSdWEeV32hYMFxQ==
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by SE2P216MB540648.KORP216.PROD.OUTLOOK.COM (2603:1096:101:30d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 08:35:58 +0000
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 08:35:58 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@kernel.org"
-	<hverkuil@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "Frank.Li@nxp.com" <Frank.Li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "festevam@gmail.com"
-	<festevam@gmail.com>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
-	"ming.qian@oss.nxp.com" <ming.qian@oss.nxp.com>, "marek.vasut@mailbox.org"
-	<marek.vasut@mailbox.org>, "jackson.lee" <jackson.lee@chipsnmedia.com>,
-	"lafley.kim" <lafley.kim@chipsnmedia.com>
-Subject: RE: [PATCH v8 04/11] media: chips-media: wave6: Add Wave6 decoder
- firmware interface
-Thread-Topic: [PATCH v8 04/11] media: chips-media: wave6: Add Wave6 decoder
- firmware interface
-Thread-Index: AQHdeARpUyb83kGqMUuzxLfi+MdlDLc126qAgADHbqA=
-Date: Fri, 20 Nov 2026 08:35:58 +0000
-Message-ID:
- <SL2P216MB2441FEA3BA37B5274BD55C3AFB782@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
-References: <cover.1795075577.git.nas.chung@chipsnmedia.com>
- <c246cbe7fe5fdd1affbce30b8c7f7d2987fd308f.1795075580.git.nas.chung@chipsnmedia.com>
- <av9eIKDq8XMM_rfC@SMW015318>
-In-Reply-To: <av9eIKDq8XMM_rfC@SMW015318>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SE2P216MB540648:EE_
-x-ms-office365-filtering-correlation-id: b8681bf7-7835-4f90-696a-08df46e14cd8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|6133799003|22082099003|18002099003|3023799007|261022105027099003|4143699003|261021135927099003|261026121527099003|261022075727099003|261028144727099003|261021121427099003|56012099006|261102123227099003|261009223027099003|261026140227099003|10067099003|38070700021;
-x-microsoft-antispam-message-info:
- /pNSh0LwBz/MPCUmYj2dshJ3NGaEzn2sh/2VNeuBXUIvX26NPY4Kk0vVefMJlucwvdU+dcN72PyZaPn9P/RTk41W7gCOrE/5psCh2cRLUhby5LsSWKFCg6ekFx2pUAVRam423qovW7GMx8DJdsEBaPW1mngRn3tqvsomtKXssQIOuZ5mKy9CjToO6T3c3LHpQL36NNYsR3ayPCi+YYTxc7ycxoysrCshbBxhJUX/7hI0kJhgUL6m+JwdVukuYQfsw9NaTFkjOeXqKTMhwC7KnF0lPv+URSfc7FLavKQksyU+YpNhZkY48EOoy66T8Qs7FRUqaIj9N/77W6TGHdPirocN0gZXu1Pwj0k3MgF3yO/w5hEqvBTde0CMLwvgH7519SAX/NwMBd8Hnn80pBYrsI1hF43oWOde/UWls4GUMwqGRG/vzW49H1JVsdSbqYKBEhYIzMAJenHvYPagAa7U1iRQFyuzgGq53H3tyUu1ThBv88rDnACghot4Z5uZGPt/JPAJZQtZFC629HUYcq5qhOZmNTPceCszS87E9PAcEEnmZBBr0rQiUdzP91eatkPBNbb6/udEWDGdCCD7Hh0/EsORVdWV2Ctn0Xhn8KbECF7bNB8np0SxyNlvqGCHykY7VQAb3j0lCaSuoMzZqkQR1PGB/mfs7/9stawwNrxfWOvQiA8FuLYlQI2mclzXLw1BkiQYEZRlzO1/C9ii+hCnrE8WWCgOagpxqlaXM7h+cuA=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(6133799003)(22082099003)(18002099003)(3023799007)(261022105027099003)(4143699003)(261021135927099003)(261026121527099003)(261022075727099003)(261028144727099003)(261021121427099003)(56012099006)(261102123227099003)(261009223027099003)(261026140227099003)(10067099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?YOFF8R6dfX4oQBhyilU1iw8oxn1OJ31ZzcqKL0R8DDzk5SnBMJ+KH+DnIxrk?=
- =?us-ascii?Q?/tCbhe5eSqQRpHoR9mjP4XrLFIUahU4qddydDUwEG2eJgWya/xqUeQZjg6GM?=
- =?us-ascii?Q?9eQffW288vXSJTVdtUI2X97WjKT1SVSwQ06aRUqnsr/EO/AW5uPdkEBuAgGm?=
- =?us-ascii?Q?Oq+qfV/G16zAx/UUnwl1EQTE8/Y2KImulpIXKMx7GIHEMzv2gU3UdsYdMouG?=
- =?us-ascii?Q?RVw3Nik0Vh6xgIURt8mZSrYTeuUcXiLefuqK0PfslYuO91AL7cgMgk8TpIkZ?=
- =?us-ascii?Q?9v0z/agZ2wxnsghJqvpl7tjx6DqDE1toNR4/SbKZ/mRiVxg23ftNvwuEXwUy?=
- =?us-ascii?Q?N5aw/ofHzHmT9F5hM1t2Y4shhjBPcQPgsA/+FrDR2mXmXXyM0DiolFVocwnE?=
- =?us-ascii?Q?85RSVW9cMA98n9kGjBAX5luMkc/c0FDciYdYl6vQzOnBA0Is+zNixoj7RIu2?=
- =?us-ascii?Q?nGR7W5csXr8gUaHHw1Ha6KgYbDAuOxJy8FoomCJ5tsu2QYCNqal/kFhwSCfw?=
- =?us-ascii?Q?1SYES1sCd0amlw3TeSs4gURw4kTHE/dkXck0xErW6jWCAHiHZ7EAEh4trswI?=
- =?us-ascii?Q?H3foTHcASd+A6JyrZvd7oLgAUwXD70lDQVNcGVwefRvngyBLleNHLg/bUxFF?=
- =?us-ascii?Q?RGABClcqwqzjV8GVloMNrJh0bYUAFm6Ectbse/rVlBNHhXWPBtDM1bHU+gEe?=
- =?us-ascii?Q?6rv13jM6VIs0nPYINEKm0ma7w4EpJHTfdOgZsqEmQ2ss9ifRYZ9UrohACdFZ?=
- =?us-ascii?Q?KSqb+FTTkYNCYzDgksFpEVOCTVk36mW2CtXSJ6nJgRUSzD84OEdQK/CKc6D+?=
- =?us-ascii?Q?nxYvGb8EsYwjo1DYTmZJZmsEoqC8rudhDdEgJKxWDQgBH1SOkfiH3I7UTqXZ?=
- =?us-ascii?Q?9c6E0Ir58AAT5xrX/nHhwy0OASPIqT948a8Pyh7xkG1FUvXYtXF5PSrGGSMa?=
- =?us-ascii?Q?LTW/L2lIYASNaPgqt0xN+we9S6D0QTNemSnTUXByPCnzT2wZz6i2jwKkexu4?=
- =?us-ascii?Q?VX69KeBiocgMDLWGLxfiCYVPhfUXos99RyT3PHYt636AK9qP7A8U85OYoWku?=
- =?us-ascii?Q?JvyL5GWYRRSj/nySuwjsWQ09fP7c2JMnqb8EG21MvrCtiXg5fY9TLqa6p0ub?=
- =?us-ascii?Q?94L86ckkLbymSTcF4h5G8zfno5OWc2gtsREquYEzLSuSUMYskIN37Q7s+oxD?=
- =?us-ascii?Q?NT0M8GyHSlBuWoViqxNW1yc5P66dcV31snnYhQVNNGYShSHLWtW57EzA5O8H?=
- =?us-ascii?Q?fG4F9rWq6Ads9Mmad4IGrr6CrFDP333zr5f7nQ1tK3ljOlt0yL/gabHbBpsP?=
- =?us-ascii?Q?tf+reem3G832/2YH/WZ/TVooAkV9jxSuBhiS9dFVefbw8SYoqDHhExGI7l44?=
- =?us-ascii?Q?WOesdgFi8cu1LvLf2eiGi2/VbPOi64GHataoRBpBYt9xd4NogSH7IWWzW51K?=
- =?us-ascii?Q?81GgdYRp+sKKMqJY2kwRHWptxE9j9gP3LGirhvc3uFrpjCYDdffC8lp3HiNx?=
- =?us-ascii?Q?c2pgxyz2IlV4LwdfRWI3pRzTGG/3MIa7AUC+0OsPuD6KrII5el2N7dRV/5EJ?=
- =?us-ascii?Q?0PPwF5VAFHxMQUfbuPB3y2p6eJOG+Le1mEFeyeGNLpIYCL1bNtgfjeAo86h2?=
- =?us-ascii?Q?2X3eY2FMzWBQnmMWBF6RiWqdlNN/4pu+IJ6WKWKhonevM5dRuTkH68W1mErq?=
- =?us-ascii?Q?1RU93CvK6qoH3XAtYTJQJa23ta2RlA7/itpa7rcGLPaWcR758cVB7w1aznbO?=
- =?us-ascii?Q?3f+75RrCIQ=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HnIvXDKy
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b8a2518f7cso737495a12.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:36:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795163759; cv=none;
+        d=google.com; s=arc-20260327;
+        b=efinFCM2wSLnh9eaGNLxUg4NTDF6dZVzMrQXIYsngDPDcAbA4KemzlLZlrseykSbUq
+         jZh5mSlSmlniqBdM7F+7jE9yewyXIAVFz6L4Z77Zwtgu+XZwCTHz+wCMLmqW+Fr4NTN+
+         8VnlfFJyQPvtILvtQPsGyEx+L/B2JAe0jhTvz3eK4paZuJ1x1rbf+zZxV7CcpnY0cChu
+         dM5J6iy9ax0xv26mYh2GysQE1p/tmvaPMxiXebYNT0lDchnqFlXcQYcXBlNqXigKLiKq
+         n4FsLo2JR1WSJ1KshJyHMnVo/axk6sHDxRohdNY3q9y6gbSZUvg+j26a3LBp185su1Hv
+         M/hQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=DSuUtXGnjpMqHENNRIfD4nz00o+v1iSCypFww/wg4kA=;
+        fh=g0wHtPn9seQJQ/cCaCatRuWAJaBBqM9dS4ukkhuHtCA=;
+        b=EfDQXfTBdf/J31gvLctcEpr7/Ifv3c/ty3LnVLD6ODGtZQd7pLeojAaQp/+FcWpbyA
+         pbR2A/M4jAxRPHp5U8l+Z8iPzfB/VefgAPrJg22GEsffZdK+pXGnuIU40Rx4eT3zcJ5l
+         wlTVahFiHPhIIWiz5yksPTrWcl9kwtBAA8JI45YPc36adJCMAvx8OYSafM9BASf35P2f
+         7kQFvw0TguynTTacgCv7zfN/Spdp7O7hVL4Q+/yHk4Gg5vra2yEevddfoquK1eX5Imcf
+         VGRJEUQkFzT+nyp3Fz1YtpPO4qPydE54QjUApQDWEnJF2IwCT57emDHWFwhlGwtH2U8a
+         uGRQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795163759; x=1795768559; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DSuUtXGnjpMqHENNRIfD4nz00o+v1iSCypFww/wg4kA=;
+        b=HnIvXDKyzH4JiePmNccI5gCzaP0sZv16UqMoTav9WMqv1SSDqPACZ7kJfHNCoD5ear
+         jK7cJN7E42L5M4IrQDHprzQZ393zAttFTXlCdoBuUnzCBKj50B4+u75KBIkmEhdC4YFE
+         4OyC0lk7Z16Bfg5PodWjYD8mZ+xUTRHfmVWZt37I/y8fRu1EQSfUWi11K9gyHnchHtrJ
+         7XhMWozeO8QeG10mLJblq1tgQz9Wa/zJolBY4rdI2lZ/ZZ8wZRjwS+fY8F5UY4mCEeb3
+         0sDk6t/6942QJJCdKopHs0KBmRiGQrs0j28UPiLPzFb3tfykx0Ht/4lWb9Hbvg39ylrW
+         0COQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795163759; x=1795768559;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DSuUtXGnjpMqHENNRIfD4nz00o+v1iSCypFww/wg4kA=;
+        b=VwPZvXQjk8s2o89+JhFlPQ7S0lXs+URvpVhcZViQNAQJXKTnDQCY+HrPFCvGkM468g
+         IXfZLfGeV69vPvSWlhn6YQ3oUr2cKcqtWpGInwfrDezVHP/nohDbGcasSvyJA46blp53
+         CiAx0IZC0PtmDVP869o+w8dxdQc0ZL6U3KHTsG9ZZaCzv2Nx95wtVMNZ0rJzcsZt45nu
+         Rt3SCa+TTjz6FYdu4din0PMym9wPj8vpLFCbYXTWN684kGtCs/lJA4QH7/CqUSN/ENQM
+         JWza1Q3Y6CTAUEYt8pICuJ6S78DNACobSxxqi1n52p2OSHrtpYTLWtOkyK+p0n2ZJh/g
+         aYvg==
+X-Forwarded-Encrypted: i=1; AL+hErE0dEXqfzIs4oq9l1iUelWVgF3ToagOeRbjyvdrvlQ+zDuCZy8OaMODg7hC7rxSXIBVJT37WTPeEiFHsj8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9aEr23Tf3rQdMGvqRMLwUkYdsUdeA05PuPZwHa7kDOjYgteeFT
+	lFU5lJaJVS6SzoYcEXjA0D4RbwqTOX1iYXOoLmyRPo5JDzkC5Wnk+UNVQQ1P+nx8XF8nbMC7nkD
+	lEXM7SPdqK0bRlQLzeA0oGxKWaP6uQIs=
+X-Gm-Gg: AZFdTZc+qMxMHCA94ONh67D5Xf3d2luM9zUVbIQ5UvpmkJH0tv8VDQDPQdmPD+x09d+
+	GTzJIC9w50m4xC0Vqp4ktu7OLtUWVQR4nuqZrVWTqCTPBfoknqrueYUKe2Rlf3FxCw8KcvS9DpS
+	3oJa2ghd1whMJtT9Dwysj/AgbD1t+79/OoLsmqufekOQPQwa+cgYuFDr61xfgUfwFjCGRHrwv1K
+	f7ff/DZC/oSThnAcQZstBPfIhrvi5FMMTnIN0u6VrC1uFqVt5cXdQ9PuG8RTTQMGYZg5l7CKwfB
+	MZS1Kw0CbjIsopo8L+Ynz+6gmYt9IT/L2imAnZvPLEW6h2wyKyHB5HKMJVD7X/Ph8sgkgU5w//L
+	pvOUC1TbdOSNIC83mssOQMeGdRR/7BXM4DLGlRYx100JjpEoA3q0sZGQ4yG+e6Scm5Q==
+X-Received: by 2002:a05:6402:454d:b0:6b6:fec8:d0a8 with SMTP id
+ 4fb4d7f45d1cf-6ba37ece7b4mr1180315a12.43.1795163758738; Fri, 20 Nov 2026
+ 00:35:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -161,116 +104,177 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: b8681bf7-7835-4f90-696a-08df46e14cd8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 08:35:58.0392
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: hHCdyS6b/7pPDyd765URmdaC89opOcHrgDDBJUORP885m1FxlVDzDiPheKMzcd8YMlfbM3CzJ0xlJyxeWLj1wReyjYh9iwStNuvNxbzxkUo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE2P216MB540648
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119-mglru-fg-v5-13-9eee2fe97a2d@tencent.com>
+In-Reply-To: <20261119-mglru-fg-v5-13-9eee2fe97a2d@tencent.com>
+From: KunWu Chan <kunwu.chan@gmail.com>
+Date: Fri, 20 Nov 2026 16:35:45 +0800
+X-Gm-Features: AclHuK-_GFG5PkAWFBgYarA_ZH8s5VuYTvaSRhCd3qxcRhatbnu155-OV8JZlEE
+Message-ID: <CAN_Opa9WKYNXyuJDixgbCzW-yWYXuoBTujSA_SWeQLzQzp_26w@mail.gmail.com>
+Subject: Re: [PATCH v5 13/17] mm/madvise: adapt for LRU refs based operations
+ for MGLRU
+To: kasong@tencent.com
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
+	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
+	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
+	Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>, 
+	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
+	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
+	Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+	damon@lists.linux.dev, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi, Frank.
+On Thu, Nov 19, 2026 at 5:03=E2=80=AFAM Kairui Song via B4 Relay
+<devnull+kasong.tencent.com@kernel.org> wrote:
+>
+> From: Kairui Song <kasong@tencent.com>
+>
+> For the active/inactive LRU, madvise clears PG_referenced so that one mor=
+e
+> access is not enough to reactivate a folio, and keeps PG_workingset on a
+> folio demoted out of the active list so its refault is still accounted as
+> a workingset refault (PSI).
+>
+> MGLRU keeps that history in the folio's refs count instead, which now
+> lives in PG_referenced, PG_workingset and LRU_REFS_MASK, so writing to
+> those bits directly corrupts the count. The two hints want different
+> things:
+>
+> - MADV_COLD resets the count in folio_deactivate(), which also requests
+>   deactivation.
+> - MADV_PAGEOUT clears non-workingset refs and caps the rest at
+>   LRU_REFS_WORKINGSET after isolation, before handing the folio to
+>   reclaim_pages(). The hint marks the folio as cold, so the
+>   eviction shadow records the capped count and does not inflate the
+>   eviction/refault counters of the hot tiers that drive aging, while
+>   folios at or above the workingset threshold keep their PSI
+>   classification.
+>
+> PG_young is cleared for both LRUs as before, so the referenced walk does
+> not count stale history as a recent access.
+>
+> Signed-off-by: Kairui Song <kasong@tencent.com>
+> ---
+>  mm/madvise.c | 54 ++++++++++++++++++++++++++++++++++++++++--------------
+>  1 file changed, 40 insertions(+), 14 deletions(-)
+>
+> diff --git a/mm/madvise.c b/mm/madvise.c
+> index 2d54cb9863ea..7486c492f437 100644
+> --- a/mm/madvise.c
+> +++ b/mm/madvise.c
+> @@ -360,6 +360,42 @@ static inline int madvise_folio_pte_batch(unsigned l=
+ong addr, unsigned long end,
+>                                      FPB_MERGE_YOUNG_DIRTY);
+>  }
+>
+> +static void madvise_cold_prep_folio(struct folio *folio)
+> +{
+> +       /*
+> +        * VM couldn't reclaim the folio unless we clear PG_young.
+> +        * As a side effect, idle-page tracking loses recent referenced h=
+istory.
+> +        */
+> +       folio_test_clear_young(folio);
+> +
+> +       /*
+> +        * For the active/inactive LRU, a folio demoted out of the active
+> +        * list should have PG_workingset so its refault is still account=
+ed
+> +        * as a workingset refault, and the referenced bit always needs t=
+o
+> +        * be cleared even for inactive folios. For MGLRU, MADV_COLD clea=
+rs
+> +        * refs in folio_deactivate(); MADV_PAGEOUT handles refs after is=
+olation.
+> +        */
+> +       if (!lru_gen_enabled()) {
+> +               folio_clear_referenced(folio);
+> +               if (folio_test_active(folio))
+> +                       folio_set_workingset(folio);
+> +       }
+> +}
+> +
+> +static void madvise_pageout_prep_folio(struct folio *folio)
+> +{
+> +       unsigned int refs =3D folio_lru_refs(folio);
+> +
+> +       /*
+> +        * For MGLRU, clear refs below LRU_REFS_WORKINGSET and cap
+> +        * the rest at it: MADV suggests the folio is cold, so the evicti=
+on shadow
+> +        * should not record its hotness in the high tier counters, but
+> +        * the workingset classification is preserved for PSI.
+> +        */
+> +       if (lru_gen_enabled())
+> +               folio_set_lru_refs(folio, refs >=3D LRU_REFS_WORKINGSET ?=
+ LRU_REFS_WORKINGSET : 0);
+> +}
+> +
+>  static int madvise_cold_or_pageout_pte_range(pmd_t *pmd,
+>                                 unsigned long addr, unsigned long end,
+>                                 struct mm_walk *walk)
+> @@ -434,12 +470,10 @@ static int madvise_cold_or_pageout_pte_range(pmd_t =
+*pmd,
+>                         tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
+>                 }
+>
+> -               folio_clear_referenced(folio);
+> -               folio_test_clear_young(folio);
+> -               if (folio_test_active(folio))
+> -                       folio_set_workingset(folio);
+> +               madvise_cold_prep_folio(folio);
+>                 if (pageout) {
+>                         if (folio_isolate_lru(folio)) {
+> +                               madvise_pageout_prep_folio(folio);
+>                                 if (folio_test_unevictable(folio))
+>                                         folio_putback_lru(folio);
+>                                 else
+> @@ -544,18 +578,10 @@ static int madvise_cold_or_pageout_pte_range(pmd_t =
+*pmd,
+>                         tlb_remove_tlb_entries(tlb, pte, nr, addr);
+>                 }
+>
+> -               /*
+> -                * We are deactivating a folio for accelerating reclaimin=
+g.
+> -                * VM couldn't reclaim the folio unless we clear PG_young=
+.
+> -                * As a side effect, it makes confuse idle-page tracking
+> -                * because they will miss recent referenced history.
+> -                */
+> -               folio_clear_referenced(folio);
+> -               folio_test_clear_young(folio);
+> -               if (folio_test_active(folio))
+> -                       folio_set_workingset(folio);
+> +               madvise_cold_prep_folio(folio);
+>                 if (pageout) {
+>                         if (folio_isolate_lru(folio)) {
+> +                               madvise_pageout_prep_folio(folio);
+>                                 if (folio_test_unevictable(folio))
+>                                         folio_putback_lru(folio);
+>                                 else
+>
+> --
+> 2.56.1
+>
+>
 
->-----Original Message-----
->From: Frank Li <Frank.li@oss.nxp.com>
->Sent: Friday, November 20, 2026 5:38 AM
->To: Nas Chung <nas.chung@chipsnmedia.com>
->Cc: mchehab@kernel.org; hverkuil@kernel.org; robh@kernel.org;
->krzk+dt@kernel.org; conor+dt@kernel.org; Frank.Li@nxp.com;
->s.hauer@pengutronix.de; linux-media@vger.kernel.org;
->devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
->imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
->festevam@gmail.com; kernel@pengutronix.de; nicolas.dufresne@collabora.com;
->ming.qian@oss.nxp.com; marek.vasut@mailbox.org; jackson.lee
-><jackson.lee@chipsnmedia.com>; lafley.kim <lafley.kim@chipsnmedia.com>
->Subject: Re: [PATCH v8 04/11] media: chips-media: wave6: Add Wave6 decoder
->firmware interface
->
->On Thu, Nov 19, 2026 at 05:59:58PM +0900, Nas Chung wrote:
->> Add an interface layer to manage hardware register configuration
->> and communication with the Chips&Media Wave6 video codec IP for
->> video decoding.
->>
->> The interface provides low-level helper functions used by the
->> Wave6 core driver to implement video decoding operations.
->> It handles command submission to the firmware via MMIO registers,
->> and waits for a response by polling the firmware busy flag.
->>
->> The decoder commands cover instance creation, flush and destruction,
->> sequence initialization, frame buffer and display buffer registration,
->> and picture decoding.
->>
->> Sequence initialization and picture decoding complete asynchronously:
->> the interface interrupt reports completion and a query command reads
->> back the result.
->>
->> Tested-by: Ming Qian <ming.qian@oss.nxp.com>
->> Tested-by: Marek Vasut <marek.vasut@mailbox.org>
->> Signed-off-by: Nas Chung <nas.chung@chipsnmedia.com>
->> ---
->...
->> +int wave6_vpu_dec_issue_seq_init(struct vpu_instance *inst)
->> +{
->> +	struct dec_info *p_dec_info;
->> +	u32 reg_val;
->> +	int ret;
->> +
->> +	guard(mutex)(&inst->dev->hw_lock);
->> +
->> +	p_dec_info =3D &inst->codec_info->dec_info;
->> +
->> +	vpu_write_reg_relaxed(inst->dev, W6_CMD_DEC_INIT_SEQ_BS_RD_PTR,
->p_dec_info->stream_rd_ptr);
->> +	vpu_write_reg_relaxed(inst->dev, W6_CMD_DEC_INIT_SEQ_BS_WR_PTR,
->p_dec_info->stream_wr_ptr);
->> +
->> +	reg_val =3D DEC_PIC_BS_OPTION_STREAM_END(p_dec_info->stream_end) |
->> +		  DEC_PIC_BS_OPTION_EXPLICIT_END_ON;
->> +	vpu_write_reg_relaxed(inst->dev, W6_CMD_DEC_INIT_SEQ_BS_OPTION,
->reg_val);
->> +	reg_val =3D INIT_SEQ_OPTION_MODE(W6_INIT_SEQ_OPT_NORMAL);
->> +	vpu_write_reg_relaxed(inst->dev, W6_CMD_DEC_INIT_SEQ_OPTION,
->reg_val);
->> +
->> +	wave6_send_command(inst->dev, inst->id, inst->std, W6_CMD_INIT_SEQ);
->> +	ret =3D wave6_wait_vpu_busy(inst->dev, W6_VPU_BUSY_STATUS);
->> +	if (ret) {
->> +		dev_err(inst->dev->dev, "%s: timeout\n", __func__);
->> +		return ret;
->> +	}
->> +
->> +	if (!vpu_read_reg_relaxed(inst->dev, W6_RET_SUCCESS)) {
->> +		u32 reason_code =3D vpu_read_reg_relaxed(inst->dev,
->W6_RET_FAIL_REASON);
->> +
->> +		wave6_print_reg_err(inst->dev, reason_code);
->> +		return -EIO;
->> +	}
->
->I see many place use the same pattern. Can you move to help function to
->macro like
->
->#define wave6_send_command_sync(...) \
->	wave6_send_command() ...
->	wave6_wait_vpu_busy() ...
->	...
->
+Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 
-Right. I will move this common pattern into a single helper function in v9.
-
-Thanks.
-Nas.
-
->
->Frank
->
->> +
->> +	return 0;
->> +}
->> 2.41.0.windows.3
->>
->>
+Thanks,
+Kunwu
