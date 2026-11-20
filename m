@@ -1,56 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.245.251.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165182;
-	b=zgEvuhr2U8jTM9NUlRZSLFLqPyZqZBdeSj89Er8GVbkVHEbJAdAw6xqDpzwz/SR4l8dM
-	 Q/yi4OyU0ebDFmyoGeirJHxRfzXrhhLU4LGqXiYPR7vVTGujq4ZmsYe77UNKCt2OZnU2b
-	 p4b2mLKI9iCZYx/I7dEN+2iTGbdKHvrhTYhtWDMhB5XsKC86491jE94WGe7SS6YK0qpQS
-	 0POkjylhXa2xziN+HLeewBsIbjVx8sZlWBoPGRewEZM9VKlZ1fQT2VwR1yh1+8iiJkdgk
-	 AtRKfM56kWKkHbqb8LOHajcILZrI0L20odSzfCyRXwxbeFdTPGvSdxXVk+RVEVSmHeQ==
+	t=1795165188;
+	b=CwqJCzQ1QlM2HVpMNRaY9zD3B/xRSZP267J4q5Jg/BeK/IN+2snf2xUePe5TCW1WIXV5
+	 wwKUnfgSthE/hkY8/qNp7m6cPHoc0of/J7AOac2g9h9drO3KixTHnNuEhGQpDjsPgbjj+
+	 VQF8kHjDSNg0CREC4T1uJ6G0boHKnDIe/GAqgEPOVxyWBlJsaT6ykk/EBDuQrGjXacPNl
+	 ibWZ5A52UqKgdoduVmp7mDEe7M7Pf+KkbKG1skAd/GIu5VspNZD9x+a8Ccfc/wbMaqQUk
+	 dedNiQREL6cvkTZwMIbtAGH2Plh3RxKGlbd08y9nO96cc296eD8FU6UYi7uLAGYuU2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165182;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=2ccnweT/dXUZnBEt2kANRtABkZdQMfgjKD0LcKfebxQ=;
-	b=4fWlA8koM/8zLtIlSznmkU+U7uZ8XyQSj+akdU16s2AMrii8YBJ6EatZSWy33TuvHPim
-	 KKngYww2i7AcsjnSCf8qN62WIIoKUMDwGIudmQQ0AOOT0VaDaOI3UF0BRBWgVGkrVX27n
-	 Ziua+wmQ+MHToT9AU2cHbpaFb7dAdqoZ4/h4E7RdLhDMmYfNEQPMoE+pBsfNplmTzmA0h
-	 de59jgcm4pviviziByo/FAiwC8EPQ3CJwR5Wxt3rMxaS6pmj+YjJO8Wpxw1V6mO/dQAq/
-	 qBCnG1e4foCUppJVXVWmBXLLfqCH3vslFTWSaTZOh39qdEC4umlx4/vC3aDwRgnuXGg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165188;
+	h=DMARC-Filter:From:DKIM-Signature:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key;
+	bh=fbQvGbxMmP9kcDTrgeOTvwfYbL2AhH5t1IgaPsWtq58=;
+	b=Hmk5T4bgJphXU6uc7leh0l5tRUFfyM5xmJHUlCjI6rChWaqFy4byI6/a9vQ4SkZoFhyn
+	 Nllh5aWO3uPRibEvj8FxTpbdp0qTzk9s5f02qXoGn411fnaXD9XNSciEG5sWyAZWCOv0y
+	 OWQqepDYREXmXEZx0whGq1HCoe7d68Wh6QnQDMD0oS+IY/R3GJ0P3y+PNgWa3DwLap3AZ
+	 DZPc5Z6owOscdxE7+c5SO2xkAcIGKu07oL94KCsTuDmTFnLFA/WIt9oCBQA0s0Q4En0Np
+	 Ri41f6JosBBsI6qLU6cSuoYdZGLYIMBfUb2V+j6uHRK876kJ4afeIZAaacadPEBRWEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTgP8oc7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=fhannenheim.net;
+	spf=pass smtp.mailfrom=fhannenheim.net;
+	dkim=pass header.d=fhannenheim.net header.i=@fhannenheim.net header.a=rsa-sha256 header.s=mail header.b=Eabu1trd;
+	arc=none smtp.remote-ip=188.245.251.181
+Received: from mail.fhannenheim.net (mail.fhannenheim.net [188.245.251.181])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1705606A33C;
-	Fri, 20 Nov 2026 08:59:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A84E3606A32A;
+	Fri, 20 Nov 2026 08:59:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A84E3606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fhannenheim.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fhannenheim.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTgP8oc7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B329E1F000CA;
-	Fri, 20 Nov 2026 08:59:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795165182;
-	bh=2ccnweT/dXUZnBEt2kANRtABkZdQMfgjKD0LcKfebxQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bTgP8oc7MznmCSpH1M6XjrNMtHy+szYjRB2CiT5DyR/c6I9yFd/hDffzc87GAtzLE
-	 5OdLrwugRdy2r4poGAJ1MQ132kIFAw1dcXyICT9v9c1FjDK5RaOoiy45s3E04TyEQU
-	 REBtzS9O77iD6CsDYzgBXUP8oUlFwFMHUZDyR4KavOvEu+KSBR+OyEe5Ku6WwrLcYX
-	 AcidueS6sDErdg4gxx1d/YirwPbZBAL4/kN6fLQRTKRtQ6nkWNMhezu31LJ9lvE/sI
-	 i/uz4elWGPio01/QaWDUwHRp3OHDcUZZEgd7rzFD1pNXTIUhxbb2EFtX2ri3jI1pKZ
-	 ywx9JxWUQw0aA==
-Date: Fri, 20 Nov 2026 09:59:37 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Shakeel Butt <shakeel.butt@linux.dev>
-Cc: Jori Koolstra <jkoolstra@xs4all.nl>, viro@zeniv.linux.org.uk, 
-	jack@suse.cz, neil@brown.name, cyphar@cyphar.com, jlayton@kernel.org, 
-	amir73il@gmail.com, gregkh@linuxfoundation.org, tj@kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 00/12] vfs: add O_CREAT|O_DIRECTORY to open*(2)
-Message-ID: <20261120-archaisch-angleichen-wucht-037d8888abf0@brauner>
-References: <20261024213539.1307600-1-jkoolstra@xs4all.nl>
- <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
- <av3U2jLO8Q01swyg@linux.dev>
+	dkim=pass (1024-bit key, unprotected) header.d=fhannenheim.net header.i=@fhannenheim.net header.a=rsa-sha256 header.s=mail header.b=Eabu1trd
+From: Frieder Hannenheim <git@fhannenheim.net>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fhannenheim.net;
+	s=mail; t=1795165179;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fbQvGbxMmP9kcDTrgeOTvwfYbL2AhH5t1IgaPsWtq58=;
+	b=Eabu1trdySfLItNplIMy+zLULvCstrcaTdKkErkN0nXhGTSEQAOn7iESJlkssHhKOfjHAK
+	g/ZTYLzqb/Qb451Ly0VqCrfo4kuCV+KEJNiqGhxO4/bvahKmmy8T6NaLMdbXCt0ZsDo0PK
+	Y5BFU3OmLbQevergWr58TnMZlp04pvY=
+Date: Fri, 20 Nov 2026 09:58:21 +0100
+Subject: [PATCH v6 1/3] dt-bindings: arm: qcom: Document OnePlus 8T
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,44 +55,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <av3U2jLO8Q01swyg@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-kebab_dts-v6-1-b7ec55f3d04f@fhannenheim.net>
+References: <20261120-kebab_dts-v6-0-b7ec55f3d04f@fhannenheim.net>
+In-Reply-To: <20261120-kebab_dts-v6-0-b7ec55f3d04f@fhannenheim.net>
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Robert Oscilowski <drgitx@gmail.com>, 
+ Casey Connonly <casey.connolly@linaro.org>, 
+ =?utf-8?q?Jean-Fran=C3=A7ois_Bobier?= <jf.bobier@gmail.com>, 
+ phone-devel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Frieder Hannenheim <git@fhannenheim.net>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=744; i=git@fhannenheim.net;
+ h=from:subject:message-id; bh=CeBRjPUFvwQTFpQjuReNKg163gglm/vs4m/E4rGk7Bo=;
+ b=owGbwMvMwCWWw1h8YvtkuWDG02pJDNkM3K/u+bz6musmLmCcOa2piINB59o0Ew9jPYYfD914l
+ Xbcjl7XUcrCIMbFICumyOI8XfKHfaWwjn74P0WYOaxMIEMYuDgFYCJpPxn+B2998N621aepastC
+ 4XUMdryR38K+cbnk8G2y6C5wMX1fwchweMFizsgwlSOr9l74rZDzjO9P3wxZ05rXcWZV0keDdD9
+ zAwA=
+X-Developer-Key: i=git@fhannenheim.net; a=openpgp;
+ fpr=439719F83F79132C2F57FE216C0173C8B7931E53
 
-On Wed, Nov 18, 2026 at 08:42:47AM -0800, Shakeel Butt wrote:
-> On Wed, Nov 18, 2026 at 05:30:20PM +0100, Christian Brauner wrote:
-> > On Sat, Oct 24, 2026 at 11:35:27PM +0200, Jori Koolstra wrote:
-> > > This series implements new semantics for the O_CREAT|O_DIRECTORY flag
-> > > combination for open*(2): perform a mkdir and open the resulting
-> > > directory; return a pinning fd (which mkdir does not).
-> > 
-> > I've applied this to vfs-7.5.directory and folded a bunch of fixes into
-> > it. Each fixup is attached as a git note to the commit I folded it into
-> > so you can see what I massaged:
-> > 
-> > git fetch https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git \
-> >     +vfs-7.5.directory:refs/remotes/vfs/vfs-7.5.directory \
-> >     +refs/notes/vfs-7.5.directory:refs/notes/vfs-7.5.directory
-> > git log --notes=vfs-7.5.directory v7.4-rc1..vfs/vfs-7.5.directory
-> > 
-> > The biggest change is kernfs. kernfs_iop_mkdir() now just looks up the
-> > new node by name so the kernfs_syscall_ops change is gone and cgroup and
-> > resctrl aren't touched at all anymore.
-> > 
-> > The kernfs patches are in vfs-7.5.kernfs as "kernfs: instantiate the
-> > dentry in kernfs_iop_mkdir()". I'll sent that out soon.
-> > 
-> > I split out of 09/12, your kernfs_iattr_rwsem fix and the kernfs part of
-> > 11/12. vfs-7.5.directory is based on the first one.
-> > 
-> > I dropped "vfs: move ->create check in lookup_open() to before
-> > try_break_deleg()". vfs_create_no_perm() does that check itself now.
-> > 
-> > Let me know if I messed something up.
-> 
-> Just a heads up from my side. I will be sending couple of kernfs series over the
-> next couple of weeks. First one will be removing kernfs_iattr_rwsem from
-> mkdir/rmdir paths and later ones will be trying to make open, lookup, stat and
-> readdir operations lockless for kernfs.
+Add compatible for OnePlus 8T
 
-Sounds good!
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Frieder Hannenheim <git@fhannenheim.net>
+---
+ Documentation/devicetree/bindings/arm/qcom.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
+index 50cc18a6ec5e..c21ef16e9ac8 100644
+--- a/Documentation/devicetree/bindings/arm/qcom.yaml
++++ b/Documentation/devicetree/bindings/arm/qcom.yaml
+@@ -1067,6 +1067,7 @@ properties:
+ 
+       - items:
+           - enum:
++              - oneplus,kebab
+               - qcom,qrb5165-rb5
+               - qcom,sm8250-hdk
+               - qcom,sm8250-mtp
+
+-- 
+2.54.0
+
