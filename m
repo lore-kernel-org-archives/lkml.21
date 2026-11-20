@@ -1,49 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795170520;
-	b=2e4+/2VVnX+tk41C5QFavuQFnawG/qlnLlPPlSBEqHrCObqrvlKucvctvgKtvr8uh9I9
-	 W/qR10bkAapbylBWdTQDdp2Grdp6K4PMOjTlrm/h2PECDTwcE4Cov6qzJg+I6CdIp8Rcz
-	 mO9boyzQ3QsKA9Pq1/t66rEMX4D/kVKjwsYbil73Ok6U+cinZBLkG4Cx8xGydwN44iGxT
-	 X+VVYqO0sZkukRUYh+d4IIFk8dTpEr2XJARlTwPAvT7UKY1yrp3YTwgRXz/6aULKJqp5M
-	 Aw/zfzFSQQTtapuRIfJdMiAAxVs2iR9Og13lGQhQOZFwSvQTfiz8mBqdd/NcN5Yforg==
+	b=VussK/WqeRrS5eN1z5zzG1PKRLRT4nhkuHST4DOfqqyiqvv/ekT9nIG48zjOaXtSXMQ1
+	 KOci1Ik9ZCV+ptbTW6XELF7Iv6QWp97YI4AQRbaPh85GcQPEJoEYNJTy+tIxw67Raua7S
+	 8UCZysJEBkE0mfpTFMketD6VDkEv3QwyYGLX7ddT1kRUvrOXkNXXgziXUEzpyAd0eQITt
+	 2UtEfp3+oNpaox2jXreTTbFzPDQwVCvV+60HIBn/GgA3okq9ByatQ9pGk2/TaH7tYKnJ0
+	 cgs1aEt61jsxOn/ECI0sTU4juPzy6si/aiKOwBCLPE8n/kc7vS0rxLS+oRhxiQF7USg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795170520;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=4CgRzJqEpozYdtfooGGK8vO5/mhcOc1oY2ASDM+A4Y8=;
-	b=0d7yjhIAXBw1vAe+1mw8gXI+IRgJJT3KIhVeiJu9NBnGoetvGG2m5RrlWDAAdwzowfaQ
-	 KEb0azGrEnNtQoJRQrWNHXBSIZ4cByNyRAq9VQ+9/SbA0BBRAkfcqHFUL6F755eMajym6
-	 vgMvT2kUTvnnQd4BMkd0MxehbERLKDP/vkptMHAJ0cE7/kb1i1F/7KzQcbodW6qnIoRrF
-	 U/+w0pXWbpwOZIrj0MI758575aHmcwtoFIfd5aVGwWlyJrEZ0LvtkkcDSusu+M8O0E6Qw
-	 X4QeiCmVr7al3xvaUmkUZRusOolXBl38QtUqNxi3AqFCIA3bbp77pZCuGAt1pPMonrA==
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=G581ycX6Ku6kP8YxR7osG1LQa9jb2ypNNxCsAk8tyrw=;
+	b=xJTKkHwDcj0hAIrjbPH/VlQDXIxnsmlFTZ6NngMNUIcAAQ2T9PZ2gYtJ6aYg/NoS6//S
+	 9wRNFeRZo0AeqnfQAeEan/8SabJqcLg8mK/bHyJBPRj870/8zywgP6dscffUyZTHRzpv/
+	 bwcsV1JuBJUJebiavu3N8Xo3VjV0xdSa4t43j0GRGRawTxlaltp6D3PFUKjyXnS3IbmAp
+	 pdeL8VYzZihp71nY8IUg4TLKF2K6ZexrAq1FmZy0rmzxsO4FpvkWMHeIsG5Kl+mo7mpTO
+	 Kovs7DLBDclzrxs7pbH82dlC25QDk6rQ/ySxBSg0B7mNFZjf48H1XgqxqhUAu6j1gPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TE3DoABs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IJfDmle0;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KtRM+F+r;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80AEE60A2615;
-	Fri, 20 Nov 2026 10:28:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2CF760A2604
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:28:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2CF760A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TE3DoABs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 669361F00ADE;
-	Fri, 20 Nov 2026 10:28:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170520;
-	bh=4CgRzJqEpozYdtfooGGK8vO5/mhcOc1oY2ASDM+A4Y8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TE3DoABsetFmiGLQRbnkFNlVMuhNO43XVPdNZWmKh3FKhdpH+hhGnf2Q/hqQitH13
-	 978n1hhvAk+HdkiJFeT+T9svsUZnwIqPR9d/6z0FNhP3ctJz3oMKPl9lCWqVx7OgkS
-	 azo0JE4vfqnaQ+Ga0s0q8mtyu63ZQPo85RevTmLkAgjvkLAoFLDS4l7wVBAJJpasUm
-	 gROZQg/nA0+kcJCb++Od9KI0O/jua8h501RXmrJnQVLnbTm7wKPe8GMUxrSIYs+o76
-	 /KWvlEgEJAsgQGGRSRALIlAxusEvsRUkSPu5sKsya8ctgMYoJ+Uw4RkqTODz0oBI6E
-	 N7QLGUBPrOFRQ==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-Date: Fri, 20 Nov 2026 11:27:00 +0100
-Subject: [PATCH 01/11] rust: page: tighten safety requirements of `SysMem`
- copy methods
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IJfDmle0;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=KtRM+F+r
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7exJA605998
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:28:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	G581ycX6Ku6kP8YxR7osG1LQa9jb2ypNNxCsAk8tyrw=; b=IJfDmle04u+tTfV6
+	e2/yVasOZYYnS513Wd2IDyWdMIi23/8unEsh6HXrFWnKKFZClyi3xLH3/WgQ77of
+	QzsBms+5uwZVvfhcKJPg2wDlPHQPfivH7i+MAvKitfV2UTb1GMwhrKZCDFHzeIl1
+	pLkqhOgm7sXNgKO7C4l6VTM54eEbPcYzjPCXQvToDADnzqvf5JgU5R8tTv1uu9ri
+	4PdsXHUeI7vo6E7LZQ6bLvcWuL+K+Pr2a/t0JbAATk5PZO+6lzN99ZVFNu/3cj/k
+	aHb3mKexVxbKysHb0qhCwiM6lU6/MnHaL9R3IAZn3LrzCYp22n9ELeYBb6ubA9fn
+	ywgnxw==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2ggqs2xx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:28:38 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-384c78aa0dbso928396eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:28:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795170518; x=1795775318; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=G581ycX6Ku6kP8YxR7osG1LQa9jb2ypNNxCsAk8tyrw=;
+        b=KtRM+F+r2STkugosvgSpV8uue1bGGC9T0NXWgHBw2q24FE9lszZ89639mjR/OKGTPO
+         mHs+48S6E3YSAqh1fX756i3cFb0GOUH6/AoKwq2NPB3wOdc4dOHSsjNkkQ6EviPqgiyG
+         MAIOl1P5ymKWrgGQ3abF1TZNjXNA4uZ43c/0bOLVHx5zyIodbyAhjTGk+BxE+bgnZ4Gz
+         esSE5MeF8xU2mRdb+g1l+qyT5h5zP4doNRi6dpnYAd+4yjaxwYbcZSpkzuv8lSLMcvDu
+         0cX1yFuLHnw+JrvkyUESihXELmo4M3RMZ4tHEbsntf7t2KI3tpYT+7VZkor1JTq8Zanb
+         PT8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795170518; x=1795775318;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G581ycX6Ku6kP8YxR7osG1LQa9jb2ypNNxCsAk8tyrw=;
+        b=y5Hmfc3kt4spYdxxueFWrI/NQFqKT8oxwFHhNTTrWDd/RPLWVXLpfg4TiDyzOhLpJ+
+         VnK6USW7OTcMVzolEObOcaKJ3LyQsXLdI5y46yIE9Ik6uvoolRAKgwliu9z19DQHKrCF
+         213R9Dr2UBzkuX5uen96Z3Ip7ykpz3ZysGJT44VcmqX0WUmtBB1NS5xbXuELBYwAGCK0
+         xC+kcBO/hqxER1TfD9yA5kmtQJrIjKuiK4KSL9tAi+6xEyozV0arKP4GfSD97HQiek6R
+         lQE0OYOgKHVnIap5Ri45cYdfvIoT+ezsDhDFGPOTcTrW58ZbrkgSXk7zv5VNMrfJOMYQ
+         Y01g==
+X-Forwarded-Encrypted: i=1; AL+hErE/0zO17k5P/m9Zstbub9GpAFMIM5BUXWLqHCztgUYGfK8SzSu/YwGqyMRoFhGc4MDmb6eRWv+yc2IdyQs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ecxPoJxX4i6ytfQm9GnYn8MymKCjPLhHd2vctCVWjWzYmGWQr
+	dxgI3K5SiLFKvgjdh4DGUtGCZhdRa1g6eMQHD9cDO+1RwalrCkQ36lYiqC3w3ZhbZsnSnXWPMtg
+	1feZ313NF+iQE8HLb70L3rfBbxWy36umVZe9HXI6nMRdWEXsaKT0euFbaSe5JgMd/0w4=
+X-Gm-Gg: AZFdTZe+QhPSnArh/PtANcT8lGy7QvX6mgXtGDrXTzLfXrG/9rBbgHwrKuxpcQBm+55
+	JqOZ68/06R8WdsrGz2U4czVDSG0Inl3l4nmgPMTPe4YXS/AJzPLECjelayDCUN8ByPLLGJW4VQ7
+	+Y8Y0iK0ThtPjXLv2GuS8oOKcMngz525+DQgpHQej16p2BGqliFTplxzVW7bHrmnlKfLIu/PZLB
+	TX7fzd7HABvy6HBNg5xxaFfdiA4/cJa2YwSSkquH6KyHZxSw2xApAqB5/DFQoQb7Bg2Fc4pq2cj
+	co1futY1iaJqrij+v2Q7DvWQ27fWr5QVqyt64wxWrfB3ETYtIREtbXIJqT7kkP9rHNU5Fq4NnKJ
+	2YX/212wb1XcEEb3BHCM+0cBDjjX+TcqKCoP3Bg4eolK2/nhk1X5Xj6LvO6vs9iCCIro4ys/HoH
+	uysw==
+X-Received: by 2002:a05:7301:4c84:b0:36e:371:8255 with SMTP id 5a478bee46e88-38569944070mr2039969eec.0.1795170518244;
+        Fri, 20 Nov 2026 02:28:38 -0800 (PST)
+X-Received: by 2002:a05:7301:4c84:b0:36e:371:8255 with SMTP id 5a478bee46e88-38569944070mr2039930eec.0.1795170517779;
+        Fri, 20 Nov 2026 02:28:37 -0800 (PST)
+Received: from [10.217.216.70] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm8572641eec.11.2026.11.20.02.28.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 02:28:37 -0800 (PST)
+Message-ID: <057574d3-b5d3-4617-b9d0-1c68d6fadc5f@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 15:58:18 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,107 +116,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] clk: qcom: gcc-shikra: add PWM XO512 source clock
+To: Taniya Das <taniya.das@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+        Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261116-pwm_clocks_shikra-v1-0-55fc11501821@oss.qualcomm.com>
+ <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
+Content-Language: en-US
+From: Imran Shaik <imran.shaik@oss.qualcomm.com>
+In-Reply-To: <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-page-shared-v1-1-66f8c4c62822@kernel.org>
-References: <20261120-page-shared-v1-0-66f8c4c62822@kernel.org>
-In-Reply-To: <20261120-page-shared-v1-0-66f8c4c62822@kernel.org>
-To: Alice Ryhl <aliceryhl@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
- Mark Rutland <mark.rutland@arm.com>, Lyude Paul <lyude@redhat.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- =?utf-8?q?Arve_Hj=C3=B8nnev=C3=A5g?= <arve@android.com>, 
- Todd Kjos <tkjos@android.com>, Christian Brauner <brauner@kernel.org>, 
- Carlos Llamas <cmllamas@google.com>, Zi Yan <ziy@nvidia.com>
-Cc: linux-mm@kvack.org, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, driver-core@lists.linux.dev, 
- Andreas Hindborg <a.hindborg@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3044; i=a.hindborg@kernel.org;
- h=from:subject:message-id; bh=SEmUKaWSirshMZNhFKAa6XD1FMrLGE2pgSxpI+8ilKM=;
- b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBrACCCvNGTm5okCaeQwkmLXdu/rlqIT+sC5ohTS
- kzAeoYXjYOJAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCawAgggAKCRD6UCkIqsW9
- 0LBnEAC3BwBnfGcNsqqgePf0LBDFq5c9O1unwZ/ZKtEH4IY22gEgrLiQVbxyq0tD4/4fD+WKJid
- X8CcsZCdr09obivkErnkRLd9CQCIFopCjlhd5no9MgOAYHmQNhy8xDZeCEDqsG6/I9jcv5wmkQ8
- OTL6sD9/3+hdv1CP44TyYVxUd5cJsuk6CG06ttDtHfg7fh14fo07IWQ3rEJNV/5Roo8kAjr7mVy
- BVGbGeZvk9Bsrd5x/4mULz+5ZE5x7Ny+04atr4VjWaXfEx55nL3GML2D1zDraiiyc65OQufh5H5
- ceDkLDUXU77PSUEZ6a+bscAQmYgfXWGSnIC6q7YK00I4uf4T9216sb88cCVg6YRY/WRhW7udoU/
- VLgd+meakaYxWCA3liBK72qyFi2E3bFJMv9Yh3kEX1F0xgTd6AIT/FTGp9OGB2wPPhG0MCnxaRA
- RigFx0HUH9BcFcEOD4KuNam4jiPtEF+2px8DFVnCfJI9Z/G+5semJQB75CiIR7eflO761DJNtCJ
- rmPUUUirheB7jZQvmat0C922Ib0E1ec8sR5YmMIv1LrhGuY1mrVYwcg5/OghrxQxEdOX8+QCkvC
- L8tRWakO1j0yaE5qxJaNMPnmSZslF6Qg0M8caU61RrlC0eSyjFDhjzLgA96k+bx6TtBFdm2I+OQ
- BrncguZsQuvLWIw==
-X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
- fpr=3108C10F46872E248D1FB221376EB100563EF7A7
-
-`Page::read_sysmem` and `Page::write_sysmem` are available for all page
-kinds, so they can be called on a `Page<Exclusive>`, whose data can be
-referenced as a slice. Add the requirements that the raw accessors of
-`Page` have for this case: no mutable reference to the data that is read
-may exist, no reference to the data that is written may exist, and data
-written to a `Page<Exclusive>` must be initialized.
-
-Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
----
- rust/kernel/page.rs | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
-
-diff --git a/rust/kernel/page.rs b/rust/kernel/page.rs
-index 4ea7368b4699..3c48ecde4d14 100644
---- a/rust/kernel/page.rs
-+++ b/rust/kernel/page.rs
-@@ -374,6 +374,8 @@ pub unsafe fn read_raw(&self, dst: *mut u8, offset: usize, len: usize) -> Result
-     /// Callers must ensure that:
-     ///
-     /// - This call does not race with a write to the source page that overlaps with this read.
-+    /// - No mutable reference to the data of the page that overlaps with this read exists during
-+    ///   this call.
-     /// - The memory region of `dst` does not overlap with the memory of the page.
-     ///
-     /// # Examples
-@@ -391,7 +393,8 @@ pub unsafe fn read_raw(&self, dst: *mut u8, offset: usize, len: usize) -> Result
-     /// // way while `dst` is alive.
-     /// let dst = unsafe { SysMem::new(&raw mut buf as *mut [u8]) };
-     ///
--    /// // SAFETY: `page` is not written to during this call, and `buf` is not part of the page.
-+    /// // SAFETY: `page` is not written to during this call, no reference to the data of `page`
-+    /// // exists, and `buf` is not part of the page.
-     /// unsafe { page.read_sysmem(dst, 0)? };
-     /// assert_eq!(buf, [0u8; 16]);
-     /// # Ok::<(), Error>(())
-@@ -453,6 +456,10 @@ pub unsafe fn write_raw(&self, src: *const u8, offset: usize, len: usize) -> Res
-     ///
-     /// - This call does not race with a read or write to the destination page that overlaps with
-     ///   this write.
-+    /// - No reference to the data of the page that overlaps with this write exists during this
-+    ///   call. Such references can be obtained from a [`Page<Exclusive>`], see
-+    ///   [`Page::as_slice`].
-+    /// - If the page is a [`Page<Exclusive>`], the bytes of `src` are initialized.
-     /// - The memory region of `src` does not overlap with the memory of the page.
-     ///
-     /// # Examples
-@@ -476,8 +483,8 @@ pub unsafe fn write_raw(&self, src: *const u8, offset: usize, len: usize) -> Res
-     ///     )
-     /// };
-     ///
--    /// // SAFETY: `page` is not accessed in any other way during these calls, and neither `data`
--    /// // nor `buf` is part of the page.
-+    /// // SAFETY: `page` is not accessed in any other way during these calls, no reference to the
-+    /// // data of `page` exists, and neither `data` nor `buf` is part of the page.
-     /// unsafe {
-     ///     page.write_sysmem(src, 0)?;
-     ///     page.read_sysmem(dst, 0)?;
-
--- 
-2.54.0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX4mJ8oJzvVKbk
+ /AWq/RRZPegrvotEuL2ZkFs4OfVoWyd8STxn0tX6lqsTl9Pel8+ukUs11gQNPiBXGrOVWaFR2Vj
+ NOWXS/KiL4U3NoedGUP+yBEFjMliWW7UJaB0aBLJSwf5UNLHac05S1U+Yn1kgttR8jIVy6ujKRU
+ 9gVcckbcMTso0BUOsu2rQ/4LSEDkhmi81w7ODVx/WtjR7GS+UCE55ZEG5W7uHwZ6bIBP8FXSmm5
+ U62KrIXKnpgdJw0zdCU9KyEJwXH5ehyMdPuk8sG9ns+EZjVT7eUGpuZk0sP6kHlRFiyQ/yv+dP2
+ hC+505X3LxbVs41Ey9wxS3thplFc7zgLlbSJX6WL/u4osoEBsP580KKTEQlCiwdQ4kNL9e39pz3
+ f1O9y8FzbQCHCXAeB6F20KXUgXNXregPLk3l65UU4v2jK6QbAEKnocGY+8wl9FHOnOJoqzSPiei
+ lgTy1c1QmcUdLDbViwA==
+X-Proofpoint-GUID: Nz5ZEMIIIJJ3gzottr-9mE6Fb_QZOYRo
+X-Proofpoint-ORIG-GUID: Nz5ZEMIIIJJ3gzottr-9mE6Fb_QZOYRo
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfXx7meuv1wBi/R
+ gtwBflIRZX5v6nSxkgEy6MpGFYUpV3Ubw5oiH0jBrQpVAAhQqfHMQ6HG86WLsvIPTzg0SW4uBSd
+ dFLV6EGShrlFc8oknmut/cBelUVUL6w=
+X-Authority-Analysis: v=2.4 cv=CNy/zhrD c=1 sm=1 tr=0 ts=6b0020d6 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=qo5-9WyrHJ9SuE11QxkA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200041
 
 
+
+On 16-11-2026 10:57 am, Taniya Das wrote:
+> Add the programmable PWM XO512 divider sourced from bi_tcxo and make
+> GCC_PWM0_XO512_CLK its child. This permits PWM consumers to select their
+> PWM core rate through the common clock framework.
+> 
+> Signed-off-by: Taniya Das<taniya.das@oss.qualcomm.com>
+> ---
+>   drivers/clk/qcom/gcc-shikra.c | 21 +++++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+
+
+Reviewed-by: Imran Shaik <imran.shaik@oss.qualcomm.com>
+
+Thanks,
+Imran
