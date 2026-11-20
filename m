@@ -1,49 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206249;
-	b=f1Uo/Z4p4mPFBBCBmUdWn1asBMr/exGpIOSVLIIPEk6UgFts8koEpubAupozV9CaseXd
-	 mhbE1Ih9I7fWOH1NU6t/R5sM4wyIUTffjHGFfasaLOn4Tti83VxL0Dz7aWo8nqIbpP0Wd
-	 ggi35VgJvZtoMn0abywcj3ScLWJ41yeH2IIRVb28qeaBpKJDvb6dpW4FYSSb2KYvjEqkX
-	 vByJ6P3+bUQ6HwCbELI+UFW5lpRUNIk6S4QsveSzbgpq7q6hmQJs0aRqV2eH0v7nL+sYQ
-	 HmzK4i144Ir7XpL2pVrVKh0NS7MVi6cKmpl1MG5Y9BiutdhVG8+WCdEDgBvNOAhQJrg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206249;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=8sGPwxDcWxVjAGsmOZOEmODTRujm9ilPC0+3rwHfGMc=;
-	b=B6KTLx8lyRkIcbsAUcwnnbHg3d47Aizi6txMGIblzD27dYxCi+dDMc2FJzg2PD1i8Fcr
-	 ofyeK445ccKRMyMvTVP9lN1PiQziK3lf091zrgVqMIxEJpA/Vv+UBvctSCDPCmXleQ2hT
-	 HPQPoaB/zONwKQyUJb1LBf+D5zQelqlNrRfcDFgNg/bFbXGYGRulsdVCFQGmHkUkX6HlD
-	 Ev+wQyEAYU+3rbDRSaRQpefDp8BGE/dNvMOUBZdc8pqW/jXKsy2sjXRLy2n1MPAJmpcPv
-	 Fe6gLVeJKX/3Q9ru1W7nmPdleam7hQnmhfQI+iZGuUntPWKHAnVnliyYqHZFi1bDFuA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="LiECJw/0";
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.40
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795206253;
+	b=zVBQ3zbY66e3gBidTlfRh4vlp11JmBwOgn/sE1D0Dj5fh9xmD0NnEaKpKMhvrh0TByZd
+	 kQJKyNOTSWOVf9QmOU4vF1n0oIt1syLYDgnxcZ6hEKTP9gQvjFxGgMbllMew5wneqyJ35
+	 Xfz5cwUxwHFzxWVgiasQ0YQIxwIYQ0avd3BinauPYS74E7rF2zyG3wxZQPbG2v8HY7qca
+	 H5leq6NmZNmKL+GLwnbxVn72qKwGpreEoE6cTTD6nYFscVPzQKcjrMatmJhDyP0q8pZmE
+	 qvXVkHgDMipsKTZaqXYFCLC9MI0PGNzhzITgH87XyawIpHedaQA+f4kioKJh4CYFasw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206253;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=+awqhnrukpMtYHx44F1/eADeZTLSRCkwVgE00F1Z1Uk=;
+	b=Qc/7Fwhsec4M4PU5zTstwkXGn2iFo27gdd7TpxQQ4KQlhkII3jUFsd0zLbGkjomnBGkG
+	 m5IdDe7rf2UNeQw58WdwXSxsHYrEC5UP9MApHoKDUdmyb7bTEaQcCtTZ6yq2gDWfMuSYZ
+	 ddDuF5b6RE7C4J1NuPdqHiY4CufJaR5nZt4PFPVzFqQmAJM+DgauiX3jmm2+OHYO+VUue
+	 7I+bPeMKRSCBh6sBBDKSYpWobOE1xCFd5dQLPE15erx8EirJ/NwiyivOWZ8vyjmFEfQNb
+	 hahSCJUWqvOFAKZXyIirhY2EQAl4+6WO41V1N7fVhH+hx+LIvnlUaHhFiyMO/t3S3hw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="eON/AF43";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.40
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011040.outbound.protection.outlook.com [40.93.194.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6418606A6E8;
-	Fri, 20 Nov 2026 20:24:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6418606A6E8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B18F8606A335;
+	Fri, 20 Nov 2026 20:23:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B18F8606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=LiECJw/0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 10056A0956;
-	Fri, 20 Nov 2026 21:23:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795206241; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=8sGPwxDcWxVjAGsmOZOEmODTRujm9ilPC0+3rwHfGMc=;
-	b=LiECJw/0qrTDqlAgTkAJyeA7xJGd9iOQPTtiGpP/d9r/xFJmDTl+xSZSMM2IA9CMKaevXe
-	i9HypoliVQAkWWIu9VGQuNzr17xIc+pUUc/+prrjsLSKtxv4Ek4wxU5R6tkpi2mcKIdFmG
-	0SZPmQjyIrsiClqbXI3jsCFfurYfVoDIM+zCjQGcZhIB7WQhjzDqSUdN38iXk5U/VWLRLD
-	+WBQuqBqp9GDZS4txAbLphXCBd1/ESTlaLANVNpcnlBRrSPvZ1lexwiDn3N9z3729I/uhm
-	EDlLxl385xTvGrLg57toLhO/VkvxT0ZgXuOxTi8xkrzbtJmvKkFjqB4sI0n+HA==
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eON/AF43
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cGpHZguGUfYRtUPUlkZGIiSIqcWbQCA/rmgLXTC+fBD+33abz2RArdZu9Cnl2pFyjzof/lAcoqgxT0dJsO46YpKHWbP0CiLxmNpmEJsvwoUH11nqXIykYKzXjXib5I9ykNfuSV1G39lNuUakyynEvXrtU5Ix8eti/Km0vM5AGbIrOkSyWxfT+KN/8ly9MiyrQqKDWViqTtpRafqZ7WLKi9ZFl2NYAXhVIz7kL8x4zyt9qbcNjdzacRGANDW96kAk3sPYTj6uANpUWExRIlc5jm3/ewZMUQI87q7UMpZwivVxgrRiZOVevdW7Lk6Nd4nW24cz3hu57ZPw+hdHvE9A5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+awqhnrukpMtYHx44F1/eADeZTLSRCkwVgE00F1Z1Uk=;
+ b=XvYwY1hQTjNXKEkOYEp3K8+hjRwXNE12eSdRk9U52OX+eFBe6wu8UaNy7848HAs+haJH/AfT8rYIwIYjORd1KxysO8MfHzSPma589ec94olnJ++esm4ElCykLIw4fxaFDNX7tKQxsGp0N9PnjzvjsMqivE+SEozeJFhpyJoEGtGGb2EF91cNFMBxMhQv3lUk2/59BYQt46SNdNZHH0/y7pckXbfEsAFfepDsOEKUEsYL2TUcO+t92oiFjG2UJbK0dmy4BND6UarLYdhuoFA5HoIquOkcV3G0r5q8Mq/EZUC+3jlHdAKIP1jiG/izdNErSy9LlDtRNEYsrfgRSMTonA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+awqhnrukpMtYHx44F1/eADeZTLSRCkwVgE00F1Z1Uk=;
+ b=eON/AF436WWrkC7NIvZAnL3CP5GSlYRAzPIai5kAZqenIHkISAG3tILvjM5vfGgZjoqAIdhupiWNTgLO9/DcNhmnL5Kmz1yaUqZSHooZkIZ1mZTzkuTx6aRPMlnTJtgpQYZ1zor5YqPmwWy3ft++jQbsKS5j2BE4esudHqBBb4ZHjenyLE6BCzPp+j62onAfkhYUnEptUkJw93epp3ESxVEHiTdXtZmjsdDrgS+qA99KAld/TqEk3/HSDQgY1APYh+lStlnUHmd0kidXToJZCSuWhhzj9UsCsi7PiodbqbpcN/H7v460tD4+A0wIrMN6isH5NSmk8w8ONxNk7qnx7A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS4PR12MB033229.namprd12.prod.outlook.com (2603:10b6:8:50c::24)
+ by CYYPR12MB8962.namprd12.prod.outlook.com (2603:10b6:930:c4::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Fri, 20 Nov
+ 2026 20:23:55 +0000
+Received: from DS4PR12MB033229.namprd12.prod.outlook.com
+ ([fe80::d666:2f16:7d21:b7f0]) by DS4PR12MB033229.namprd12.prod.outlook.com
+ ([fe80::d666:2f16:7d21:b7f0%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 20:23:55 +0000
+Message-ID: <66ab6c3e-de92-4a22-8c72-c4f8df118cb7@nvidia.com>
+Date: Fri, 20 Nov 2026 12:23:54 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] resctrl: mpam: Fix potential per-CPU data leak on probe
+ failure
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261120173519.3923924-1-liguangshuo@mail.sdu.edu.cn>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20261120173519.3923924-1-liguangshuo@mail.sdu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR13CA0120.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c5::35) To DS4PR12MB033229.namprd12.prod.outlook.com
+ (2603:10b6:8:50c::24)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,321 +100,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 21:23:59 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>, Justin
- Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
- Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, linux-kernel@vger.kernel.org, Mlody12 mlody12
- <kudzo51@gmail.com>
-Subject: Re: [PATCH net-next v5 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
-In-Reply-To: <20261120194318.3952487-5-florian.fainelli@broadcom.com>
-References: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
- <20261120194318.3952487-5-florian.fainelli@broadcom.com>
-Message-ID: <f99d99bfb3e3a4dce182cad801c05be8@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PR12MB033229:EE_|CYYPR12MB8962:EE_
+X-MS-Office365-Filtering-Correlation-Id: e7ef7bdb-ce0c-4e6c-2a20-08df47443338
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|261022105027099003|10067099003|261026140227099003|56012099006|261021123027099003|11063799006|261102123227099003|261022075727099003|261028144727099003|261021121427099003|18002099003|6133799003|22082099003|261009223027099003;
+X-Microsoft-Antispam-Message-Info:
+	MmEYnENTMPJ5Zgwag7XLsAELZ9cbtneV9ciLfuTYtLrvqAkQ+dKKiYzSq8IEoN5Kd0EPbqChZBkyfl+mGnKdnl/BsjVaHG3XARy9i6Uy0tzRQnYChZ9hetcr6poOnmJI7fhuFuGHbag2mHhuSE590oMzjhp1nfNa+L3rGyavbDyHw/DILbCMqGQ8SVoktAWjt9YEuO9KHKBSE4lowQabJDHKlmV5B+p0cA5u23CdG73pU2G09Dk+tqehF5SRmDMDLNyfoMOgvyRhXhTZPpjUZK1TlGnd4I40sJh1dP5Vr3hyzWtQ6M4WO6Sz9+MUMm+hi0ZQrKcCp0dUtiTb+Hws4RqWS2vsPoiPwAfUFSvhLkGMeGtJs5E+mlwqHQmsCFj13B5QU+WDnYJ9P0sXa4ldOGAjnoPEGscA+uNmJ/34tcLDmbfkcAsDbmFzZcPTc+kZqvB34qy20faPG8QqCdBQ5Oit2/005ZjZDv6j4MIRBEm5U5/szJLLoql6vHfwpUWHR2LIYYobXp2WEHzOpNjorYjLZsSToRFLzVWbOipJZnIbuqhnDYA+FZ/yRyaTwRaUwm6CizhRr6nKBlLvsBqchE4XmiXzLmUto9l+p7kXeV7YILwQsrHNyYyxjnJWgp0Z65NiuoGQOTssRHhsu3WeGzOJsEQCdISUrk7jIxoeKr8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB033229.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(261022105027099003)(10067099003)(261026140227099003)(56012099006)(261021123027099003)(11063799006)(261102123227099003)(261022075727099003)(261028144727099003)(261021121427099003)(18002099003)(6133799003)(22082099003)(261009223027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?UC9xc2FBOEtUNkVMZC9LbVVqKzZHTFZiMklJQXlKdFhBelNZSEZnemlyOXh3?=
+ =?utf-8?B?am1Zemo1d3dBM3NwUXYvVFc4MVd1Wk1BQnh2VTZvUVZneTVvREdBdGd4a1Rl?=
+ =?utf-8?B?bzV1am9MTy8rbWtPREVHNTNJTU1vSklPall4elJHNzlZZysrQlRpeUN3UGNk?=
+ =?utf-8?B?RVlJc1hBUmxUZWdObmkyRmorS09hRWgxNVNNMDczYnVmMnBQK1gzcVFEWTZP?=
+ =?utf-8?B?SVFmZWRZdWhaRlJmZEZZWFBHWVluSWZUTkVSRWU4NndhdFV5TW5Za0xYN1hX?=
+ =?utf-8?B?RGlmK2dsUTBCSGt3aFJoNitWU0lJZzZQZHlsS1Q2K3FQYWRWYzY3R1RlSitt?=
+ =?utf-8?B?WmIxY3NMUUdkUjdqS0x6eDAxMFhvUXhrT3VLb2s0OGREUktyWXFWendxRFk1?=
+ =?utf-8?B?RVkzWE1QWlFEZG8xVTlCNlJ2U1gzOFRXZGhQcnkxcEQ0czJtcUs2c1RENXZL?=
+ =?utf-8?B?WHR1anNNVnZzT0kxM0hFYUZoTlBNdWlMN0hzTG9QZXJGNnJiV2V5WTVLYVhz?=
+ =?utf-8?B?eW5uZzlrdWo1Z0Noc0llODJqZ1orMFBUZDQrVFQ0TG5pakFiUEZzeDRrbTA4?=
+ =?utf-8?B?cjVFSGttR05uYnZUTW1hakJ6QkxISnF1aitJMjBmaWtVQ0pkK3ZYczk5dkhP?=
+ =?utf-8?B?YVFlZWZEQjF1Q1lyTzZpOTBQTG1FU0VGa0hSK2dNY1hHTEtpNG1HQ1NTajdr?=
+ =?utf-8?B?QWxtYzJCZjVhWlJhSFl2Q01SYjVwbFFjaHl6c05kNWlZVjQzeGxKQUorWXlE?=
+ =?utf-8?B?V09DNFVoVS9UREQ2aml0bjlwQU4yWE5vNGZHRElma3lZbXZuUXFUUndxT0F5?=
+ =?utf-8?B?enhYZ2VmMWZzZjVuaHUrRTlpNW4yVUlLa1kwSjZyN2RjOWZzNC9Fd2ZteVh3?=
+ =?utf-8?B?NFFuT2l0NU0weTJTNk1WQ041b1ZueDN0RkdZYmExQU1yYjVqQ1FQTllPYzNZ?=
+ =?utf-8?B?U0FoQ3FiM0ZkMk95NlNyT2QvMHVnM1NuZ3ZFQmc4L3hXRVZFRzlyam44UDhy?=
+ =?utf-8?B?QUNZRlRxT0d0UG54NkVXOEFrVlFCRmlVN3JjZmU1QzZ6MXJGRnpFSkRDcjNq?=
+ =?utf-8?B?MlY4cktISTRtdlltaUJyODhjVksweVNqaTFsTk9JVTVXcGlYeUloK0tTS1NX?=
+ =?utf-8?B?WUNnbnduclJTY1pyZHM2Vkw2OHBpeWdKMEs0STNybjZXeGVjWjMvL3c3SlZZ?=
+ =?utf-8?B?TnNEWmFqN2d2aU44WHNRS2pKTmFaaU1uNmFZa25wcFA5Z1plc2gzU0VxZlNi?=
+ =?utf-8?B?WU1aNTRnY2g0YU1NVmxtT3Qxc0tuY2xIRmFrMFhXOVBndW5NVTV1MlVFQlc1?=
+ =?utf-8?B?YkU3ZTlnVjc2YnljdzdsM1Q0S2R4QlZyekVaYkdRelBmQnN2MHlmUjVCaElI?=
+ =?utf-8?B?UlhuWDZDaFFDQndXakFVS1M2UlVyZHBrcTYxc2I1K0VZTXI0aEFXdDRZMjV4?=
+ =?utf-8?B?b0lmNDFhMXl4U3RlMVY5bVdHVWo4Q1owM1Vxak1oL3ZQaEpQYlI2V2JpM2FJ?=
+ =?utf-8?B?OVBnUE9IVGNubGFTS25OSVp6M01ZTjRYTEJ0RWJhQXAzWmV6Z21EYXEyOWNp?=
+ =?utf-8?B?bHJmM2VvSEUzZHIzcG5QdldDMmx0N0cyZlN4YndDajBoOU9CYU5UeFJuNXJQ?=
+ =?utf-8?B?S0hUM1doR2pnYjVST1hRNzQveXRnbDVZcXBNc1BBNTR1RDVZT1VmVUR6cHB4?=
+ =?utf-8?B?QTVZRGNYZy9lMGs1N21ZbTR3d1d6OThmWTIwRUI1eTRDUjVFd2hWbklLZVVr?=
+ =?utf-8?B?cEI0NDVMc0o0V2hJUUwvNlVtc1NYUDlMcHBGNUcwWDBDUGFJKzZJcVljeTRa?=
+ =?utf-8?B?V01uNURtUlhpMWdaUEYwWWhpSDNIejlxRVZKNGRKeXNTQ2ZTTTEyUVJnWlFH?=
+ =?utf-8?B?MDRJR3hyaC9xS296Y1NtTlVaNGtTRjlwQVd2K0s0TXI0V1RXVndjTkZWRkdM?=
+ =?utf-8?B?bzlrUkI4b3FmR0JBK0FkZzh6YUZZc0dmTFhQZnlPZWt6aVU1Vm5jSWtmRzdM?=
+ =?utf-8?B?MWgrOS8ydmNRaDVDaDJZbWpXcmdwN0IyUHRJS0pFOWxySWM5eFcrcDcxWFAv?=
+ =?utf-8?B?cVlPWm5OdEVIeE1NN1hGcHBSblhEOTMrQ1YwbThNUzRSOTFzcXVhejE2QjJp?=
+ =?utf-8?B?TW5TVlNTaTlhNmsvcnlST3pBSlpYMW4zamovU3ZuVnFLZVduRVR5amh6Y0VU?=
+ =?utf-8?B?VmwzVld5bHd2R1BJSVpqaURaV2YzcTc4WlliZUEvLzNWemNTeXI4b3A1cTY2?=
+ =?utf-8?B?U00vdXNRYlZNRzd4YmNJS3dPNngrRkdKK28vYVVJU241dTVkZnVDMXd6bE16?=
+ =?utf-8?B?V0xub2VnR0J4bGNDUTdaRXgvN1JRR08wYlRVWEQ3KzM1L0tUOUtXQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7ef7bdb-ce0c-4e6c-2a20-08df47443338
+X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB033229.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 20:23:55.3891
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CePhsEnjyOX6XqPR9HJo4XO/MdjOP4vrcNL485ptdvVcbLxw28R3PRPDKNQFPdvfpFmvFZwwPD/Ib2tSufHHOA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8962
 
-On 20.11.2026 20:43, Florian Fainelli wrote:
-> Add Clause 45 read/write support to the UniMAC MDIO bus controller 
-> driver
-> by implementing the read_c45/write_c45 bus callbacks. Each access 
-> performs
-> the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) 
-> under
-> the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
-> MDIO_CFG is only written when the mode actually changes.
+Hi, Guangshuo,
+
+nits:
+Subject: [PATCH] resctrl: mpam: Fix potential per-CPU data leak on probe 
+failure
+
+1. s/resctrl: mpam/arm_mpam/
+2. s/data leak/memory leak/. Without this fix, there is no "data" leak, 
+which means information is disclosed, right? Not freed memory is memory 
+leak, I think.
+
+On 11/20/26 09:35, Guangshuo Li wrote:
+> The PPI device IDs are allocated separately from the MSC. If subsequent
+> resource discovery fails, probe destroys the MSC without freeing its
+> per-CPU allocation.
 > 
-> Since MDIO_CFG also holds the clock divider, unimac_mdio_resume() now 
-> takes
-> the bus lock around unimac_mdio_clk_set() so that it cannot race with 
-> the
-> read-modify-write done by the accessors. Resume may therefore wait for 
-> an
-> MDIO access that is in flight.
+> Use devm_alloc_percpu() so the device releases the allocation when probe
+> fails. Its cleanup remains valid even if the MSC is freed beforehand.
 > 
-> Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0 
-> even
-> when the controller is still busy. For C45 this would let the data 
-> cycle
-> or the next access's MDIO_CFG switch start while a frame is in flight, 
-> and
-> return the command bits instead of the read data. Check that the 
-> controller
-> is idle after every cycle, C22 ones included, and report a timeout 
-> instead.
+> This issue was found by our static analysis tool under development.
 > 
-> Also skip the BMSR workaround read in unimac_mdio_reset() for children
-> compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
-> expected to respond to C22 accesses.
-> 
-> Note that providing read_c45/write_c45 also makes the MDIO core scan 
-> for
-> C45 PHYs at registration time, on addresses that are not masked and do 
-> not
-> already have a C22 device. This is not the case when the bus is 
-> registered
-> from a Device Tree node, which masks all addresses.
-> 
-> The platform device that GENET instantiates when it is probed without a
-> Device Tree node (e.g.: ACPI) does not mask any address, so it is 
-> scanned
-> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a 
-> timeout
-> per frame since GENET's interrupt is not registered yet when the bus is
-> registered. That makes the scan slower at probe time on such systems, 
-> the
-> same way the C22 scan already is.
-> 
-> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
-> Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
-> Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
-> Co-developed-by: Justin Chen <justin.chen@broadcom.com>
-> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
+> Fixes: 49aa621c4dca ("arm_mpam: Register and enable IRQs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+
+Thanks.
+
+-Fenghua
+
 > ---
->  drivers/net/mdio/mdio-bcm-unimac.c | 136 ++++++++++++++++++++++++++---
->  1 file changed, 126 insertions(+), 10 deletions(-)
+>   drivers/resctrl/mpam_devices.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c 
-> b/drivers/net/mdio/mdio-bcm-unimac.c
-> index f8e5c1811d96..b01e99327b56 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
-> @@ -24,10 +24,16 @@
->  #define  MDIO_OP_SHIFT		26
->  #define  MDIO_RD_C22		(2 << MDIO_OP_SHIFT)
->  #define  MDIO_WR_C22		(1 << MDIO_OP_SHIFT)
-> +#define  MDIO_ADDR_C45		(0 << MDIO_OP_SHIFT)
-> +#define  MDIO_WR_C45		(1 << MDIO_OP_SHIFT)
-> +#define  MDIO_RD_C45		(3 << MDIO_OP_SHIFT)
->  #define  MDIO_PMD_SHIFT		21
->  #define  MDIO_PMD_MASK		0x1F
->  #define  MDIO_REG_SHIFT		16
->  #define  MDIO_REG_MASK		0x1F
-> +#define  MDIO_DEVAD_SHIFT	16
-> +#define  MDIO_DEVAD_MASK	GENMASK(20, 16)
-> +#define  MDIO_C45_REG_MASK	GENMASK(15, 0)
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index c067b6d57d71..3e89f9183041 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -2351,7 +2351,7 @@ static int __setup_ppi(struct mpam_msc *msc)
+>   {
+>   	int cpu;
+>   
+> -	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
+> +	msc->error_dev_id = devm_alloc_percpu(&msc->pdev->dev, struct mpam_msc *);
+>   	if (!msc->error_dev_id)
+>   		return -ENOMEM;
+>   
 > 
->  #define MDIO_CFG		0x04
->  #define  MDIO_C22		(1 << 0)
-> @@ -97,7 +103,60 @@ static int unimac_mdio_poll(void *wait_func_data)
->  					MDIO_CMD);
->  }
-> 
-> -static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
-> +/* Wait for a cycle to complete. Some wait_func implementations (e.g.:
-> + * bcmgenet_mii_wait()) return 0 even when they timed out with the 
-> controller
-> + * still busy, in which case MDIO_CMD[15:0] holds the command rather 
-> than the
-> + * data, and MDIO_CFG or MDIO_CMD must not be touched before the frame 
-> is
-> + * over. Make sure the controller is idle after every cycle.
-> + */
-> +static int unimac_mdio_wait(struct unimac_mdio_priv *priv)
-> +{
-> +	int ret;
-> +
-> +	ret = priv->wait_func(priv->wait_func_data);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return unimac_mdio_poll(priv);
-> +}
-> +
-> +static u32 unimac_mdio_c45_devad(int devad)
-> +{
-> +	return ((u32)devad << MDIO_DEVAD_SHIFT) & MDIO_DEVAD_MASK;
-> +}
-> +
-> +static int unimac_mdio_addr_c45(struct unimac_mdio_priv *priv,
-> +				int phy_id, int devad, int reg)
-> +{
-> +	u32 cmd;
-> +
-> +	/* Prepare the addr c45 operation */
-> +	cmd = MDIO_ADDR_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +	      unimac_mdio_c45_devad(devad) | (reg & MDIO_C45_REG_MASK);
-> +	unimac_mdio_writel(priv, cmd, MDIO_CMD);
-> +
-> +	/* Start MDIO transaction */
-> +	unimac_mdio_start(priv);
-> +
-> +	return unimac_mdio_wait(priv);
-> +}
-> +
-> +static void unimac_mdio_set_clause(struct unimac_mdio_priv *priv, bool 
-> is_c45)
-> +{
-> +	u32 cfg = unimac_mdio_readl(priv, MDIO_CFG);
-> +	u32 new_cfg = cfg;
-> +
-> +	if (is_c45)
-> +		new_cfg &= ~MDIO_C22;
-> +	else
-> +		new_cfg |= MDIO_C22;
-> +
-> +	if (new_cfg != cfg)
-> +		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
-> +}
-> +
-> +static int unimac_mdio_do_read(struct mii_bus *bus, int phy_id, int 
-> devad,
-> +			       int reg, bool is_c45)
->  {
->  	struct unimac_mdio_priv *priv = bus->priv;
->  	int ret;
-> @@ -108,14 +167,25 @@ static int unimac_mdio_read(struct mii_bus *bus, 
-> int phy_id, int reg)
->  		return ret;
-> 
->  	/* Prepare the read operation */
-> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) |
-> +			(reg & MDIO_C45_REG_MASK);
-> +	} else {
-> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> +			(reg << MDIO_REG_SHIFT);
-> +	}
->  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
-> 
->  	/* Start MDIO transaction */
->  	unimac_mdio_start(priv);
-> 
-> -	ret = priv->wait_func(priv->wait_func_data);
-> +	ret = unimac_mdio_wait(priv);
->  	if (ret)
->  		goto out;
-> 
-> @@ -137,8 +207,8 @@ static int unimac_mdio_read(struct mii_bus *bus, 
-> int phy_id, int reg)
->  	return ret;
->  }
-> 
-> -static int unimac_mdio_write(struct mii_bus *bus, int phy_id,
-> -			     int reg, u16 val)
-> +static int unimac_mdio_do_write(struct mii_bus *bus, int phy_id, int 
-> devad,
-> +				int reg, u16 val, bool is_c45)
->  {
->  	struct unimac_mdio_priv *priv = bus->priv;
->  	u32 cmd;
-> @@ -149,18 +219,50 @@ static int unimac_mdio_write(struct mii_bus *bus, 
-> int phy_id,
->  		return ret;
-> 
->  	/* Prepare the write operation */
-> -	cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT) | (0xffff & val);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_WR_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) | (0xffff & val);
-> +	} else {
-> +		cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> +			(reg << MDIO_REG_SHIFT) | (0xffff & val);
-> +	}
->  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
-> 
->  	unimac_mdio_start(priv);
-> 
-> -	ret = priv->wait_func(priv->wait_func_data);
-> +	ret = unimac_mdio_wait(priv);
-> +out:
->  	clk_disable_unprepare(priv->clk);
-> 
->  	return ret;
->  }
-> 
-> +static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
-> +{
-> +	return unimac_mdio_do_read(bus, phy_id, 0, reg, false);
-> +}
-> +
-> +static int unimac_mdio_write(struct mii_bus *bus, int phy_id, int reg, 
-> u16 val)
-> +{
-> +	return unimac_mdio_do_write(bus, phy_id, 0, reg, val, false);
-> +}
-> +
-> +static int unimac_mdio_read_c45(struct mii_bus *bus, int addr, int 
-> dev, int reg)
-> +{
-> +	return unimac_mdio_do_read(bus, addr, dev, reg, true);
-> +}
-> +
-> +static int unimac_mdio_write_c45(struct mii_bus *bus, int addr, int 
-> dev,
-> +				 int reg, u16 val)
-> +{
-> +	return unimac_mdio_do_write(bus, addr, dev, reg, val, true);
-> +}
-> +
->  /* Workaround for integrated BCM7xxx Gigabit PHYs which have a problem 
-> with
->   * their internal MDIO management controller making them fail to 
-> successfully
->   * be read from or written to for the first transaction.  We insert a 
-> dummy
-> @@ -191,6 +293,10 @@ static int unimac_mdio_reset(struct mii_bus *bus)
->  			if (addr < 0)
->  				continue;
-> 
-> +			if (of_device_is_compatible(child,
-> +						    "ethernet-phy-ieee802.3-c45"))
-> +				continue;
-> +
->  			read_mask |= 1 << addr;
->  		}
->  	}
-> @@ -302,6 +408,8 @@ static int unimac_mdio_probe(struct platform_device 
-> *pdev)
->  	bus->parent = &pdev->dev;
->  	bus->read = unimac_mdio_read;
->  	bus->write = unimac_mdio_write;
-> +	bus->read_c45 = unimac_mdio_read_c45;
-> +	bus->write_c45 = unimac_mdio_write_c45;
->  	bus->reset = unimac_mdio_reset;
->  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-%d", pdev->name, pdev->id);
-> 
-> @@ -337,8 +445,16 @@ static void unimac_mdio_remove(struct 
-> platform_device *pdev)
->  static int __maybe_unused unimac_mdio_resume(struct device *d)
->  {
->  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
-> +	int ret;
-> 
-> -	return unimac_mdio_clk_set(priv);
-> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
-> +	 * Clause 22 and Clause 45, which run under the bus lock.
-> +	 */
-> +	mutex_lock(&priv->mii_bus->mdio_lock);
-> +	ret = unimac_mdio_clk_set(priv);
-> +	mutex_unlock(&priv->mii_bus->mdio_lock);
-> +
-> +	return ret;
->  }
-> 
->  static SIMPLE_DEV_PM_OPS(unimac_mdio_pm_ops,
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 
-Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
