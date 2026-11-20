@@ -1,83 +1,83 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147439;
-	b=s/fSfCWCeN1oUyBFB4zOy90qP18GFAyy334lESolvaRSJ3yfl3bWRNhus6skSCnea2kp
-	 tw/vyuYBF/YpEVEGad9Y7zWhA9s7Ki7ElVTXg18xi4Dh0AJMUJBeh70uBhrk6Qv6ZDQyG
-	 EAOKSPjXv8UkHucknGzRmGNDsJ+Wibbq+EkPqXyLheiQWgHOKeulzNvr7Q8u2BzczV3BV
-	 8BBg9w7rSEPS1qaPxUb9ZR9mX13scPcBkyKU2vqQQDEXtaOcESz0BQgdsWJ6q/SI4HEOp
-	 jQaVFfRrpf+vqMXczHAbdpp4R4vOqL1/w9W2ZNMrGEfUZ5M6DhjtP1JZ3MFu5QCrKIQ==
+	t=1795147444;
+	b=1k5yt7jlZm3IxgPEAuqvZnkw0+MgMxiMlQTup0nUBpQMr1OVwqGlW+Snh5iTizaaQvp2
+	 OEMUBZYcSNPLHMJFNwcteiqbZqxCT1moWHwTPyg+mppGzrWpuphFChkZDRH7ZEcLJhV2O
+	 z2dCr+2rqSX1JjNoBsuxIsKpLfFF/7SPDu5y+aOt/3Lhf1IrUz7ShLhpvdlOG4DPW4Rp+
+	 b8VJCo+uoVnXePFF4AipMQK+Gn17/O3kQogINPse2V+X4W3CRIzGfK4rAoJjQCntb3XM4
+	 7DJ+g1ALUwpRe0sSP3pbtq+vKKwktHhDkrCqRskoWMCgsBDa/koHGX9NsIKdC7dI0og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147439;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147444;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=Nf/66osJudXLuEZ03+OHFd4peJaJBQJPrvu5ptsPZms=;
-	b=gHz+MrmzbQVvxlEm9Y2a7L1ERkkcrA2CiaThmbRR67ZV8ujwDG3jQJdQlSc91O5wbz7w
-	 +3YcIgw5uVtx9/6+zB+uVKWeMggjzZztqTPVrUYnp0dCQwPjgRGEXiyemScoNHHbyv0uz
-	 SGGPMEUor/Lstg8lfHI2jVCkqruLCuiUYpYK19S3yw3f9Hiq6AEpKbSB69JTxNIQYmIfU
-	 1PUr7AQpJ+YwOWvdX+mPRsJ4Wk8indpLzJUL6pUHLieIj4V7lyN3m866GMPbbavfjd9+R
-	 BMPra5iE3ZjuvPyFpfH5kvkBZql2nN+r1WfgJLSEKq6Q418DsM3Vq8frNxMcEjAx6ZA==
+	bh=ewTGQvK3tt2260QtNRrZ7p3X1lbZ3jh2OEzTu9yhDdE=;
+	b=mE/h2y8o7yCeIvcvsUbFyJ+yYHSOJ4FHkC2NvcIaI3OQPCnDHfKX3SmTj7pEgt6MpbtF
+	 0URsIC3eWj2c/ckPbpGxvIAg0ChKxRpMTL+9Lq53GxM8AszWhPe0RUfcWwT9tDS2rxRMQ
+	 JMw+/YCsXtOzADqcCP/6dAwyUYfrQWQ96WVWmiKvRX/5+5TCIMiCmzMv1Z+ZD7W0aBr60
+	 hW/LtKSkLsX6Slb1PhtY+DUQZsKcUz0qYJ/vaWvkZs2PX6k4r/Lg/xZaXaiFNcBbXbJFN
+	 oLLd9fykYUx4clK8WX0gIOv6ND86D4jlTvsuZ0rjIuGaJYB01tep1p7ivTK47kq2ovA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DeeB2lr6;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x1EAVqUa;
 	arc=none smtp.remote-ip=74.125.82.175
 Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7735C606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:03:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7735C606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB2FE606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB2FE606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DeeB2lr6
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-380b40312e2so1243317eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:03:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x1EAVqUa
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-38564b4b017so486551eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147438; x=1795752238; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795147443; x=1795752243; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Nf/66osJudXLuEZ03+OHFd4peJaJBQJPrvu5ptsPZms=;
-        b=DeeB2lr6t0GQXG0viXjeZhsaa7z9icQw8+9QTs+nHT2Ssk0byESLdrcZGFZ6NFRSeF
-         UunyabDqAU9ZF3v2VvHmvQfvMp9605XhPJngjampSH6fyca2nrehs59YQ71NQdqUqUHl
-         E7E7nnNQNr8caRISt0ziMqSKmVL4zHiDp0/CHPXnfVxbDDkJZN9cdIH8GcZ2ziuXYcS8
-         y/l2ZG2A60VUmY6jBh5bp4fNiVL3+iZ+W4o6H+c/UvRHnI9OmHNfRWKt2Rx4ZLdMOhi7
-         XSW2/Ggs8ZALSdG/c8myG3PNznc9B8xp9roek2C4yeX8CnpEQoI6XXJruQcFL7XaKSRG
-         60cg==
+        bh=ewTGQvK3tt2260QtNRrZ7p3X1lbZ3jh2OEzTu9yhDdE=;
+        b=x1EAVqUa+b45EP1aErg7+AGeX5dSBHfnnWm58hbj9xPZ2cfcCT9oFGHrIsvZ5JWObJ
+         Wtg3JlCrADS8BfI4ic0D6bOgqy4uWzSJgi/c/iE8/v1CXZRCym+E+UOFH/WzDwoNPTaY
+         dA24K70UMMjlkTzGFgPbBMOM53cHT0VAEjw73nQS5SCcm0UowfXVNMWZzZZ/Dv6jFErB
+         FkDlVpAAsKLSbcfTxBs5DMR93MyUHuAwbgqFsAgdWObHBJfW1b+pSP7VvRIxmnQl5UD1
+         x2/pFLhfgkDcyyhFM7/0rNfUkM74madali5NOn+X+LJ3vxsaQ6B4gQOAk3a0VEaI4cDE
+         CmkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147438; x=1795752238;
+        d=1e100.net; s=20260707; t=1795147443; x=1795752243;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Nf/66osJudXLuEZ03+OHFd4peJaJBQJPrvu5ptsPZms=;
-        b=MYU+EdDH5bMm02JgAWf4Y7LRLawJ+yGz2LUcj2TGAsTvwz9fytruZnUfK1d677i25v
-         6U9DjqOE8W8Kit6HkerKfPG1ZkuB+S/NxBZaOe7d5Nixir10qGnGe9SPB+VIWza5AEUF
-         hQrunmQbLt3GuP/qUTypOoAgtDXDLDtamfok03s1CrihqGMMH3jMMo6HxKD3YZIE38KB
-         1c9VAaiuFTHaa7EYyNSBZwmtqHl2z6WITNJafAm5lRxRj+K9nAhbnPbEFnpW2qzxYc+P
-         E9gzRc6r3rmI3Q00BFFHIndVU4XyjISWOCWgQNY8aKkyJzzG40ZRPrvpVJ+MgC4gC07g
-         OOrA==
-X-Forwarded-Encrypted: i=1; AL+hErGxe7Dn1sK1K1ghbTDrzLdbBG80gbFI1ZihyHFbkyiS1dQksQrHutMc9MFBS3SAhvIA8jo91CSwDdVEkQg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wrf5VB2xK2iFt+9fMTt88inZUVZ/5kZLXbzxHRWoBwhxTI42N
-	7OMNctVOUAWhfeiSPqSjSR2Zuka8irUVqTR4tDfiNC7EV2NEfcgF6aRj
-X-Gm-Gg: AZFdTZdW8FQKGlirZrJTZyMcfLFGeE9luyGQSWNNtmMnjFWugcNl++RWON6aiyvEZBu
-	LsKE121IpKuNdc6GW45+ikuEtD/zI2RMew6Xw8146NtHY4maDxeUaExKA6nRatiQSgKgZsnffHl
-	PzZ6tJCxILk9lSV43bKdUGlUA+phxMQ4z2cBsMDJUS9QQjRA4UoQBE6TxPWBVMPXoYdZGCx8WDE
-	jWSF7qXdllT9yoOVxp9AIsODKzsxmoSbb8hPHr+C5+Y1oRDFamfleMtIh09aCqf6WW98JPiO1W0
-	cDzNQMgwzGR7Ft09gRt3d5IVxO3mQmGD01DlS1ZEjex/+IcxK5Pf8MdMTVuWtD6bZKZWq3bmZTQ
-	WFxCnlRG8MvA3j8eSyzMFekDUbWIsudyLrgRlcucQYn5jdbhV2yKtcsB8p0CBXPejXCUy2E3AuK
-	I2LF3sNvInlhIriujy7RMHessq6TDdoVLUYtI15boGGjLK8seos4rKt/rOgeOW6Bhiss9/7HsWu
-	xoqSEVAjV5lcy6DYle+OfT1vqdW5yyhE/m6Qbf9rFtu85jUQji/pzaI052M1YbuiN4IApF0S3MG
-	rbX3YSAPAcZAws6BZhYy7nFdl4TPLdVQMQ==
-X-Received: by 2002:a05:693c:41d9:20b0:382:cef9:e354 with SMTP id 5a478bee46e88-385715183f6mr1436107eec.36.1795147438538;
-        Thu, 19 Nov 2026 20:03:58 -0800 (PST)
+        bh=ewTGQvK3tt2260QtNRrZ7p3X1lbZ3jh2OEzTu9yhDdE=;
+        b=SctoFYjRexxw2wGTMNu/kKBog9ZASdo2CxU53lx0LnjtZUuC0kgTFRFMBmcDr0QAVd
+         ogRHYLj7vKI48R6qT0Vnh6oDC83jtiDwlJcUpVV+yfCSPLgjYthLD4qcWvYlYX1fHb0G
+         K14F8nUp5r2hMTDKzSod+P9PxWlAz1wjDqkAfPM5GOUAR8aCFqNn/LvSEW4220ft6lWg
+         P40ervyqnQJAe1WF0FDxwn5WBMRarvk6tkKP23QargpXvSozPojOfJIjkPxvLwcYAhx+
+         h39DlHppKoEMVh4HWkRf72y15hXBVCGGAx+CBlHRjOdR79A/yV1l8qEdVDdCDzAkRq7D
+         jqeA==
+X-Forwarded-Encrypted: i=1; AL+hErHlGrMQzsFEToPwa0LhkEWqIvtxoqjd1rAISUwPeH3cbtn6smYPT8n/RpA1Y6MONnHGVNn+NpZy1/dT3WU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/YYrjxMm1HSwwyQWaPrNxOQFkYKmKVzyUkePmuRW8BECLHmn5z
+	zxnNJsHa8XGaPBYe98Cb9nFjLd3thl4YxVdS/oT9MqNJSRADOzxWJP1H
+X-Gm-Gg: AZFdTZc6lDfMVddGdstsz0ubPz/Q5+beE8F+dMnM9zcJOFiy9g8L0LSCUtOTmocIzPS
+	zrs3W2TXIQRVeavxDEIWhSrpBxXmmluR0THlvyps38DY6G4jTXfhtk85OeBihEoVU33G+GOYs9z
+	4hpgxB3WCdDnmLx1ZMfYqaG8nv6WyRGnHg8QTZ0IHObXPQlFeGlCZDsfoLrL/gT+0hYUqRM/JnR
+	w9Vc5Cpc/uEpVqlTon3bAWnLUNZR41NwRwBLYG2vVoHQhOhGI4mA5ufQ7srjsnS+RISQAJjMLbk
+	nxeepscTWGxze9Ven0aq0y4Wp4twdZ2LieWlT9VN4ORDfaOdoyZOD9jQ1Csp5DRSUWRSy9qSUWi
+	un33xDXyi3kd2+vx4haQC2+gD+lPjdihbHh3tMjjNtiEFGm6AMlmYhavLsjwbW74/I2D6KaWAqh
+	98QhLowIENDSiEniSxIXcPZ/BMjX00x6Jz4kkr8RxzQ6YEVcQPW/u8ojxUBv27ZNXziyTs9WY8L
+	7E8oQv84pxn3GtF9nshD2rT3OVdiskb2Yp2eF8NiYYuh8MDowrVB5G33jEnXq4JXXxHivs1HeFQ
+	rAeN+Uh9oREJCJN3XfsihUBd9at4GqgJHD1q/5gpnZAOVlXkXRKrsHI=
+X-Received: by 2002:a05:7300:f794:b0:381:c31c:bfbf with SMTP id 5a478bee46e88-384b496a36amr3121021eec.21.1795147442650;
+        Thu, 19 Nov 2026 20:04:02 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.03.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:03:57 -0800 (PST)
+        Thu, 19 Nov 2026 20:04:01 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 07/19] powerpc/mm: Enable context analysis
-Date: Fri, 20 Nov 2026 09:33:06 +0530
-Message-Id: <9381c873240a164ea8ebd69dd40ebbf1a94fea45.1795147055.git.ritesh.list@gmail.com>
+Subject: [PATCHv3 08/19] powerpc/pseries: Drop inline from hugepage invalidate
+Date: Fri, 20 Nov 2026 09:33:07 +0530
+Message-Id: <835cff52eb035d0fca6656209233790a3ad09dbd.1795147055.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795147055.git.ritesh.list@gmail.com>
 References: <cover.1795147055.git.ritesh.list@gmail.com>
@@ -105,66 +105,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-powerpc/mm/ objects now build with Clang context analysis enabled.
-Turn it on for book3s32, book3s64 and nohash mmu.
+Leave __pSeries_lpar_hugepage_invalidate() static and let the
+compiler decide whether to inline it.
 
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/mm/Makefile          | 2 ++
- arch/powerpc/mm/book3s32/Makefile | 2 ++
- arch/powerpc/mm/book3s64/Makefile | 2 ++
- arch/powerpc/mm/nohash/Makefile   | 2 ++
- 4 files changed, 8 insertions(+)
+ arch/powerpc/platforms/pseries/lpar.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/mm/Makefile b/arch/powerpc/mm/Makefile
-index 8c1582b2987d..33e51abb5aac 100644
---- a/arch/powerpc/mm/Makefile
-+++ b/arch/powerpc/mm/Makefile
-@@ -3,6 +3,8 @@
- # Makefile for the linux ppc-specific parts of the memory manager.
- #
+diff --git a/arch/powerpc/platforms/pseries/lpar.c b/arch/powerpc/platforms/pseries/lpar.c
+index 6a415febc53b..94cd30e9f6e1 100644
+--- a/arch/powerpc/platforms/pseries/lpar.c
++++ b/arch/powerpc/platforms/pseries/lpar.c
+@@ -1225,7 +1225,7 @@ static void hugepage_bulk_invalidate(unsigned long *slot, unsigned long *vpn,
+ 	}
+ }
  
-+CONTEXT_ANALYSIS		:= y
-+
- obj-y				:= fault.o mem.o pgtable.o maccess.o pageattr.o \
- 				   init_$(BITS).o pgtable_$(BITS).o \
- 				   pgtable-frag.o ioremap.o ioremap_$(BITS).o \
-diff --git a/arch/powerpc/mm/book3s32/Makefile b/arch/powerpc/mm/book3s32/Makefile
-index 50dd8f6bdf46..d5069a586c7b 100644
---- a/arch/powerpc/mm/book3s32/Makefile
-+++ b/arch/powerpc/mm/book3s32/Makefile
-@@ -1,5 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- 
-+CONTEXT_ANALYSIS	:= y
-+
- KASAN_SANITIZE_mmu.o := n
- 
- ifdef CONFIG_KASAN
-diff --git a/arch/powerpc/mm/book3s64/Makefile b/arch/powerpc/mm/book3s64/Makefile
-index 33af5795856a..c5d8d2ef72ac 100644
---- a/arch/powerpc/mm/book3s64/Makefile
-+++ b/arch/powerpc/mm/book3s64/Makefile
-@@ -1,5 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- 
-+CONTEXT_ANALYSIS		:= y
-+
- obj-y				+= mmu_context.o pgtable.o trace.o
- ifdef CONFIG_PPC_64S_HASH_MMU
- CFLAGS_REMOVE_slb.o = $(CC_FLAGS_FTRACE)
-diff --git a/arch/powerpc/mm/nohash/Makefile b/arch/powerpc/mm/nohash/Makefile
-index cf60c776c883..7d7409d2cf97 100644
---- a/arch/powerpc/mm/nohash/Makefile
-+++ b/arch/powerpc/mm/nohash/Makefile
-@@ -1,5 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0
- 
-+CONTEXT_ANALYSIS		:= y
-+
- obj-y				+= mmu_context.o tlb.o tlb_low.o kup.o
- obj-$(CONFIG_PPC_BOOK3E_64)  	+= tlb_64e.o tlb_low_64e.o book3e_pgtable.o
- obj-$(CONFIG_44x)		+= 44x.o
+-static inline void __pSeries_lpar_hugepage_invalidate(unsigned long *slot,
++static void __pSeries_lpar_hugepage_invalidate(unsigned long *slot,
+ 						      unsigned long *vpn,
+ 						      int count, int psize,
+ 						      int ssize)
 -- 
 2.39.5
 
