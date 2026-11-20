@@ -1,49 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192823;
-	b=IVmFiWLOQg6pBG4+j8YLrZvoJaa89Umxi04cXz7Bny1NtJyDqp/igJ8lVly9w7SwBuev
-	 Vo/4LkxOdovGnqahlIjLA5gyyWI0E/nC8Svr1hwxHhNw4+jS5Fo2xyo8xdL3I4U9yIFZ8
-	 4un+H+u7NnCTN5qCs77SwUc3qEu2WIniDe/4xh88MxuGisXlwYupM7KuEF4WDcyQuiiZY
-	 Z10FkJfACW2ED1N9j8F6UAZ6WItwoB8dWfuI49/uj1IMQ02tVqgllpPYVDx0R+DnIGKGu
-	 d9WbNP1bb7c+5oX6grJPcr8U5jbzAbjrpJdTU+CyXNS7bbcaYZw0R+6V9oGIXPJ7SIA==
+	t=1795192869;
+	b=W2VfAoaYH8tAJvEcpqidpQzkWLlEzUIOtjyAJPOoj55HR2GPC/nGzVVS3zRKh9PPrVJo
+	 uzhDymLuXhEafZHco+3drjQB8/vKx84rSWF5BED8McYBj2yeN9suN3MIiyIgUE3lc9wp1
+	 x+wqHiOHBJYrSa5bMXTMCJir6pSM1TIRbbzSK1hSdNPfkXWYboyMjdkWO91IPA5wGnN1d
+	 Tg1+14cFU2iV5Hzlf8G5w1ktOgIEYXSq00kE2/GDhLDwLspqSk33ARao0Ecg6AcY5Dpea
+	 OuaQaUO74Y/KhkfsPd0HVgRxgOv/P2kXEBXORTJifsjLFToRcXm5LXS/QRDDG9xjo3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192823;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=gyxgT4IX7LtruGkky0Oi3Cw70BiD7ZNrDBoJFZzuNIg=;
-	b=kRn8LkWPsZfE+g19AnVl7P24kfdmoqq5cdDtEOAqELR+hHKUkN4y+NxwYEehTVdM4fbT
-	 3A677WTsbvd+mR4kLKr9SBC90F2Y0a27KEKMSfng+h/y/aTcM58KeNT5/8THQw+G4JkcS
-	 1kyjqe2gufdfc55bVbsznijbzwWaxeP7wZKQd+PFS4+GuuSJSGiQ1G+GG3gqsL7Q3GIum
-	 oWg9YhOhS+mKgTIQ7COhljVH+iyOTJCrOGvtsuuxlFhBiSALnm06PzmmpisCKlfddR9cB
-	 dald989cR1cNUXVfz1ZBQpitnTGGhzBNIiEFTfDPI7UfTuQjV3Pdx7zZj2wew+66Fmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192869;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=AXJ73gZbDqFdLSj+f85ZsrSo29IjJTKtoRF5M4E2k9s=;
+	b=eYlB3nB9xB00NoTIT6zSuGLzKx9+NhiZ5pfWdo6LRS52zODy+GmtmSFyZTvowqCboCxm
+	 LNcLoNtB7tNEPbsFvG0lCxSTvC/2IcTo75c2nFVMXOX02pDXWcNkViNf1zRbr+MWXUeRK
+	 AmMZwuKFIBR61+MP9A+e8YjqOf7KMf3wKRyT9ZO2wazzk7U7g19wjR0+FSb78bvqad+4t
+	 ZjNqJT7hi1A96cX4Oa+XXMPmVpNOY3cXfvIf3FRHhZVzLMsE6Ua2CC5a3CaFkjodWbH5N
+	 31yM6o51voP3w8h3+bg364SUXaDDNgAb1jwW9BdBkKF6p2EaxlO/0Yw8Yl+AKPEEyvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z40xSSaC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="bJNgXs/n";
+	arc=none smtp.remote-ip=95.215.58.200
+Received: from mta1.migadu.com (out-200.mta1.migadu.com [95.215.58.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF99660A3820;
-	Fri, 20 Nov 2026 16:40:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9787360A2608
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9787360A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z40xSSaC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0955D1F000D3;
-	Fri, 20 Nov 2026 16:40:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795192823;
-	bh=gyxgT4IX7LtruGkky0Oi3Cw70BiD7ZNrDBoJFZzuNIg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Z40xSSaCCo6dpAp0HVW/cuP4aAGBQpOGge8pABL9B6vh28loO95Yg51WetUZcTnql
-	 e0DSnxf2HZiOxHJEioa0YVtNBcmxCNRF8KLx4kGulqIzSQSwiENPsexz/b+L5A5VzR
-	 796oxZ0k+/FWFS+gY4lEg7liTZZUeQp3fLd8AcRTwwlQMMfrVVCSOaLZVtrNQoRKgV
-	 UVogqTpcqPz6IEnw1EBCXUpYe4I1AJPx3cBI4H3tjt75yxqonNMEz363V8BffytqYT
-	 A8vtmKlS2b8yJZVpvrAJ/oSz3wfO4I/IBBF57T7LQkPQinPWFnQW18u0fR8cBTSfTT
-	 P1CvNoKkYSPWA==
-From: Jeff Layton <jlayton@kernel.org>
-Date: Fri, 20 Nov 2026 08:40:11 -0800
-Subject: [PATCH 05/11] nfsd: set ctime when a SETATTR with delegated times
- changes other attributes
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=bJNgXs/n
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ZoM2yf3MA8k5sZbw96Hh1V2kwRR1l1ZCz3uIHytu5jY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795192864; v=1; x=1795797664;
+ b=bJNgXs/n1QT3IoJuJIbKvzdSmhhdwzylK2Sj7kxe2/0hHFFfJyWva9lJHMhWlt1dxYYqWpz4
+ IB+fG3eztkt5lXlMnmK3H7g9/dIsemLKV5O99g6qXR6goFI5VLkjhu2I28PIbtErTczMU5ui1eo
+ 5rkqrgpOrrDhDpzG5McbIsbI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 883b19b9dfbc7c0f;
+	Fri, 20 Nov 2026 16:41:04 +0000
+X-Mizu-Trace-ID: 883b19b9dfbc7c0f
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 20 Nov 2026 17:40:29 +0100
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Koichiro Den <den@valinux.co.jp>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
+ time
+Message-ID: <awB1hZGh3LYztjqL@orel>
+References: <20261118062242.2914385-1-den@valinux.co.jp>
+ <20261118062242.2914385-2-den@valinux.co.jp>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,70 +68,136 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-delegts-fixes-v1-5-c89b37d2d462@kernel.org>
-References: <20261120-delegts-fixes-v1-0-c89b37d2d462@kernel.org>
-In-Reply-To: <20261120-delegts-fixes-v1-0-c89b37d2d462@kernel.org>
-To: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
- Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, 
- Tom Talpey <tom@talpey.com>, Christian Brauner <brauner@kernel.org>
-Cc: linux-nfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Jeff Layton <jlayton@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1576; i=jlayton@kernel.org;
- h=from:subject:message-id; bh=Zlz32Gc29QNIG3vpAmd+auU1FO64+bJJZ8eozOi+X4w=;
- b=owEBbQKS/ZANAwAKAQAOaEEZVoIVAcsmYgBrAHfxqpLPnam5Lb1vW/EvzAyGVXOM/KDr0DR6H
- QgsMojmIOSJAjMEAAEKAB0WIQRLwNeyRHGyoYTq9dMADmhBGVaCFQUCawB38QAKCRAADmhBGVaC
- FYj3D/9ViS+WhQyaAArHFyLUOTBWGlkJiYu/CfuLy8an9zqSFR4IB0oSlmb6TrLbZH0Lg1/8oR5
- Tv+35sXsNJZE6/10CX1coRf1l9lYDjnz0hGralG3Hbz7KfuTeTBb56QKbVvMvODOwGbpuMohkyC
- SRNTs6CDSip4BFqRgt4ims8iPkXcWcAty3zAPGbkBKFcPIysEgPvNVpPxMJancOHi9kJiqBx34p
- +ztQnhaDVbFnYwB3LOM/bq1K0oa+l8cjBx0ypKIjFp09tq2To/rQImQFvjEiPg0zMbUDzc0TY0z
- TGQUHs4d/FyQtr99P8bZBpd4aX4LTmbMjRvMySI9Rzsy0kAmHqaoI/Qe5qU7O9usbWGt916cY/9
- A8dlXnkrqiO74bgg1b9Duu/YB4HRhJ4g2vGBaRCiQ/kF4qNwjhExUG2uKOyxybtD0hGd0gBUTSV
- EXqaKzfGy6eZ3CI2+ANfkZfUDFA2oTeNWLcRzV9dr7l8VmjNGKH1ixSJ1I3xWNoq004XlTh5Ao7
- VeVADazackgUsAarf5QiXK3S5FiMDu3safqA2kKCETbp1NFHuGwjQ47PdTfT2FdEj7Z9szwnoO2
- 0NtwED2iwn3fvZ4UXd3WNgDdRPkUTc9YjQCpCEqdT0h6DJUv5hmymn5B4plxC3k8BCH4bWxm7dj
- 0rthbh1nA23JEGQ==
-X-Developer-Key: i=jlayton@kernel.org; a=openpgp;
- fpr=4BC0D7B24471B2A184EAF5D3000E684119568215
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118062242.2914385-2-den@valinux.co.jp>
 
-__nfsd_setattr() adds ATTR_CTIME only when ATTR_DELEG is clear, to keep a
-delegated atime-only update from moving ctime. But ATTR_DELEG is set for
-the whole iattr, so a holder's chmod or chown sent along with a delegated
-atime changes the mode or owner without updating ctime.
+On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
+> Updating the SBI STA shared structure performs 2x get_user() + 3x
+> put_user() calls, each of which toggles sstatus.SUM.
+> 
+> Keep SUM enabled across all five accesses to the shared structure.
+> 
+> Note that write barriers are added to order the odd sequence store
+> before the steal-time update and the even sequence store after it.
 
-Add ATTR_CTIME unless the request is a delegated atime-only update. A
-delegated mtime whose ctime failed vetting now gets ctime = now instead
-of no ctime update.
+The barrier additions should probably be posted separately with a Fixes
+tag.
 
-Fixes: f9a348e0de19 ("nfsd: don't set the ctime on delegated atime updates")
-Signed-off-by: Jeff Layton <jlayton@kernel.org>
----
- fs/nfsd/vfs.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> Signed-off-by: Koichiro Den <den@valinux.co.jp>
+> ---
+> To reviewers: please let me know if you'd prefer
+> scoped_user_rw_access() here.
+> 
+>  arch/riscv/kvm/vcpu_sbi_sta.c | 59 ++++++++++++++++++++---------------
+>  1 file changed, 34 insertions(+), 25 deletions(-)
+> 
+> diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
+> index 60e50296a008..cfc6f22c3e33 100644
+> --- a/arch/riscv/kvm/vcpu_sbi_sta.c
+> +++ b/arch/riscv/kvm/vcpu_sbi_sta.c
+> @@ -8,13 +8,14 @@
+>  #include <linux/kvm_host.h>
+>  #include <linux/mm.h>
+>  #include <linux/sizes.h>
+> +#include <linux/uaccess.h>
+>  
+> +#include <asm/barrier.h>
+>  #include <asm/bug.h>
+>  #include <asm/current.h>
+>  #include <asm/kvm_vcpu_sbi.h>
+>  #include <asm/page.h>
+>  #include <asm/sbi.h>
+> -#include <asm/uaccess.h>
+>  
+>  static void kvm_riscv_vcpu_sbi_sta_reset(struct kvm_vcpu *vcpu)
+>  {
+> @@ -26,13 +27,13 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
+>  {
+>  	gpa_t shmem = vcpu->arch.sta.shmem;
+>  	u64 last_steal = vcpu->arch.sta.last_steal;
+> -	__le32 __user *sequence_ptr;
+> -	__le64 __user *steal_ptr;
+> +	struct sbi_sta_struct __user *st;
+>  	__le32 sequence_le;
+>  	__le64 steal_le;
+>  	u32 sequence;
+>  	u64 steal;
+>  	unsigned long hva;
+> +	bool dirty = false, success = false;
+>  	gfn_t gfn;
+>  
+>  	if (shmem == INVALID_GPA)
+> @@ -51,31 +52,39 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
+>  		return;
+>  	}
+>  
+> -	sequence_ptr = (__le32 __user *)(hva + offset_in_page(shmem) +
+> -			       offsetof(struct sbi_sta_struct, sequence));
+> -	steal_ptr = (__le64 __user *)(hva + offset_in_page(shmem) +
+> -			    offsetof(struct sbi_sta_struct, steal));
+> -
+> -	if (WARN_ON(get_user(sequence_le, sequence_ptr)))
+> -		return;
+> -
+> -	sequence = le32_to_cpu(sequence_le);
+> -	sequence += 1;
+> -
+> -	if (WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr)))
+> +	st = (struct sbi_sta_struct __user *)(hva + offset_in_page(shmem));
+> +	might_fault();
 
-diff --git a/fs/nfsd/vfs.c b/fs/nfsd/vfs.c
-index 4f3e480a3981..c0d10c263a93 100644
---- a/fs/nfsd/vfs.c
-+++ b/fs/nfsd/vfs.c
-@@ -514,10 +514,12 @@ static int __nfsd_setattr(struct dentry *dentry, struct iattr *iap)
- 	/*
- 	 * If ATTR_DELEG is set, then this is an update from a client that
- 	 * holds a delegation. If this is an update for only the atime, the
--	 * ctime should not be changed. If the update contains the mtime
--	 * too, then ATTR_CTIME should already be set.
-+	 * ctime should not be changed. Any other attribute change, such as
-+	 * a mode or owner change sent along with a delegated atime, must
-+	 * update the ctime.
- 	 */
--	if (!(iap->ia_valid & ATTR_DELEG))
-+	if (!(iap->ia_valid & ATTR_DELEG) ||
-+	    (iap->ia_valid & ~(ATTR_DELEG | ATTR_ATIME | ATTR_ATIME_SET)))
- 		iap->ia_valid |= ATTR_CTIME;
- 
- 	return notify_change(&nop_mnt_idmap, dentry, iap, NULL);
+We're probably safe to drop this might_fault(). But either way it's fine.
 
--- 
-2.56.1
+> +	if (WARN_ON(!user_access_begin(st, sizeof(*st))))
+>  		return;
+>  
+> -	if (!WARN_ON(get_user(steal_le, steal_ptr))) {
+> -		steal = le64_to_cpu(steal_le);
+> -		vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
+> -		steal += vcpu->arch.sta.last_steal - last_steal;
+> -		WARN_ON(put_user(cpu_to_le64(steal), steal_ptr));
+> -	}
+> -
+> +	unsafe_get_user(sequence_le, &st->sequence, fault);
+> +	sequence = le32_to_cpu(sequence_le) + 1;
+> +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
+> +	dirty = true;
+> +
+> +	/* Publish the odd sequence before updating stolen time. */
+> +	smp_wmb();
+> +	unsafe_get_user(steal_le, &st->steal, update_sequence);
+> +	steal = le64_to_cpu(steal_le);
+> +	vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
+> +	steal += vcpu->arch.sta.last_steal - last_steal;
+> +	unsafe_put_user(cpu_to_le64(steal), &st->steal, update_sequence);
+> +	success = true;
+> +
+> +update_sequence:
+> +	/* Publish stolen time before completing the update. */
+> +	smp_wmb();
+>  	sequence += 1;
+> -	WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr));
+> -
+> -	kvm_vcpu_mark_page_dirty(vcpu, gfn);
+> +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
+> +	goto out;
+> +
+> +fault:
+> +	success = false;
+> +out:
+> +	user_access_end();
+> +	WARN_ON(!success);
+> +	if (dirty)
+> +		kvm_vcpu_mark_page_dirty(vcpu, gfn);
+>  }
+>  
+>  static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
+> -- 
+> 2.54.0
+>
 
+Otherwise,
+
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
