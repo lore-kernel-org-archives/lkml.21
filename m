@@ -1,100 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795184413;
-	b=fixeSaGhfawHn/r8VjBwkhIM9q69O7DSlANZDOBNed3Wwbw0G87ouK9bPeqTauycgMbf
-	 Q5bca2fPT9QVMZc/Q47IC70/EjKROU2HQEA+yvm4Awrj31k0mHAZ027QGYAogEFrDrp8i
-	 nvOrjLet8yGj8nCAfYy8qER0Zky2plc/7SzEfIpYRh6+TkKC6EBsOl68T8u/pW5Yq3pe2
-	 EYGlhpoP/mw2T/V14fQ/lpZHYOSsrdMMSNIU0DOljzYq1LlR2soOIpCj5YXHzy885gA3/
-	 aYKX7nlhknUqdyt585fENNPs1YSv5N87A7dkWHHiRUYXE47aAojdJvHVfRUUUz77wvA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184413;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
-	b=5eyRZSQlQCNqjpLE7if/EMF9zmBazERqU7WZ1rhjyAOuyZfzQ7/33PK/Oph1yFEZIAg9
-	 yEoHwZVU2Kj4VmBhbYM1+Ygt5ZuNtXkZaDu6xNyt4Ylk8BxUZO8F6xtXxFi+GajDH7hnm
-	 iAW2PHsNCQ0zgPfUYrdZ5ewTdjWx3u09sfZTwHPBVQLj7pgHh5EZ7Y2Xsuhs562byxfXR
-	 Bibj/lpqTWuzvxVXAXWiSh4U+46VPKYVPdadz7NLZxv2KFBAwRohjgy46vsBQuL9n0ozl
-	 Rz5t01KrFMZi+GQuY5wy5PnmLG7MTYsaH+yt4vD2hTxRHw8qho6xG3QycbnzvZ4xtpA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPrxrTV3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
-Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795184446;
+	b=Lbk80PTtXydg2SiXw3NBBxr+QikT4pj4fpyyZ0w9MImvwwgxD+s6kIv/O1xgEhADvLgP
+	 ORd+veAoUafdK9ffJhHcGI/wgoRGLjnwin+o3MnLCdDcSAL02G1Qxs6cLP4owe3TLG3jG
+	 LgdVxjdCb7qSmvxOddZLk9XNa3Dozi/xWitBAiAB9D0JvnUsv4xWhQFB9BBgvSEOPYdcc
+	 tD9F+py10rIc1blTsQte3QIEsJR3EgZCIiG+g0Qjkagut67BRFHufYbXGvkIYYdrL+Apa
+	 TxTvvCD44WFp5KMYM8wDH3qQRvsUsaLwEPk2NrgToapailgnsZuZwY8xiPXftvTig5g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184446;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=2jGOHL7rKwXl1jT5V7Gwe6eZMcsw3mKNVzsJCxgJguE=;
+	b=jMte/PK6nH+FzQRKQ5CEsuqtPmM+1HrFlR5NsIpWPm+6EbgzHq9w9nt+0+cBGe7IzEVm
+	 VcPErehW6I7f1k1m27Me9UKRgPXXr5zOs+v3jP2db71zWMmIs2CFp01JmGiznHA8C4FQM
+	 6ZLZq5MkMMfFI5omAniotWL/T274xVTcR1ghsHf9J8BrwtieD+pGnhmC7g/vh/UZh6b+P
+	 0zud/SdZ5lOt0+Cw/UY+jkg+J929UKFXhg6ZUXVoAim8LHGjDgBRfrAk7mYIoY5Fr2jIl
+	 sQkDDWXB7TlHvYycFgSl0yY+AVHciICvHDN9yG4sDgvyN/8Bo3SiQaKTHg4GIUo8d3w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AzPBuscg;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90DBB606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:20:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90DBB606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A172606A320;
+	Fri, 20 Nov 2026 14:20:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aPrxrTV3
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-54492d8a988so289281cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:20:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795184412; cv=none;
-        d=google.com; s=arc-20260327;
-        b=KtofrZdJqanLaq+GRYJDzMQLfDQlqThTSwsNp2j0lMzx/+GdDurYXODpKVIFFqCmSQ
-         x6diDuNLXB7JpwtX3blFfuWeNbVTL4etRBpBdXSK7i0MWHD2xADG757wbyG2YpH2ZusA
-         Fm7REN2JMIkFQKPWrTotKf0ibAuZ+ITqf1O8+eNW2WMBgtnmbDWXVfkCHu0edcljyXoH
-         XiCuVr4P2jtgKB5MLiK6jOFR/MuwyOw44PyWJ0kNYcXKBPJYweLT87dReh6XBh1LTrbd
-         hTQcYqHwlmWKIypPGJBHvGBIUJVXHeMm/M3FelPLI3xQxhvFW54fuqaxmFA8N64Zq+DA
-         eyVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
-        fh=m7U7QQrpTPYS0sQdemzqne8reVLRr1FpW6VjI9povVk=;
-        b=X3Q5YhDdX+qejOpJaAuJy19kD9OjzukIdGzA54cpbaxHu6Sla7nH9qr0KEEBRJ21na
-         R+E+rjLc6pG6cuAfvrV4DolEQqeJcHyV2+NdQ9zfcxGUCWovcEzgjy55JavX5vWsEEx5
-         uxlybl6Vuo8N/yAzc+mkYl5F3HTtAMZ0Eg67KdvUS30tK4ZtasNSAU8GpNdCzysTq7S1
-         6CzYDawzWjFQxZ+3wgqy25ajDvxDtgi/FTbwqfiFsUv66Sx81zn9n+KpdzIbKNlyKMBZ
-         dV6a+tqUml04KG21/6XWorqcZBLgP0hmt+qYAppKiJRvGmBj5oNLvq9vP1scSSmbobtL
-         s08A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795184412; x=1795789212; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
-        b=aPrxrTV3tjNKVZRe0o/QZnrHtJ88Cq0pnVQFh7mHgAvBJzDrEJpUWOT7AK49X/t9t1
-         p7Vunzt0X2Jci5rymoMAfsIElmpqm511Q1t7p8xn1jTunsDcwP+6GaXxEB2IFTgFyMZ9
-         0iof2il/XdRNNVwakcxSw0onlzvNI9i3hcQnJoO5i5GHUKuFzFtrzC3+IMt6INHHgjGk
-         xqTd0Wgb4Ec0WCLoQA1db0uoMdVOIYDq9ySwBT+7Mn0wwGKDTjTrt/aa7XbbUc+3QID5
-         2e3M416nZRs+/ass9ys+Ro5LBwyHkmnva3YwUsJ7NnD60k9CYZmdfaxSg5dN/4GGjxa8
-         eNnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795184412; x=1795789212;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ZZKnDY3fzlC6VsJ3+sJIUV4LE2tQFmEUFN5SVkPY8Lk=;
-        b=b8+Zy+JBkYcXA3LhlrYyeBM7nGE1u6Vr61Oedu9tQec5BjWRurA9Fjt5Zvonp04DCM
-         wlIxpjdrqdrkN35Y/kvG2Sor9S+LlXGqHr5WmK/ry4ASC441wcNqBjx8gy/9n3SFHSlz
-         12DSCPw2d8ae8+4m9XjL/jgeqz1BS9IfjBuohYDopVlEN5wYyCCkG29X/0r3j2NtnLF9
-         o/sb00JNWPGfA9Rx1qf9YW4n/y5QqSgfN9AdUjYHwOwuaXh3EsedrDzx1/iN23owWBTg
-         0JBnx1JhvS9N7vAFVXcCRPl8tvLGVr55Fzptjiy1p8VskkSptVYaPMIfeqCwu/4X3IP0
-         9P0Q==
-X-Forwarded-Encrypted: i=1; AL+hErHph8zs59rYld7Px29zcBSNusg7PjdM1dFyPWHV7F0N0phx0y284lViOT66ezKm8sfc4GFwLEpxync5ciI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Dswz3N/unXJRUYkRn3lmjbIJFCwxxEVLaOy2dDlm1ZzzFCzGa
-	nsFm/p71PdqzkMo1DT8edfU9t13SpEf3RzvroygYqUCVEn2mJOceaUnzUyJZk10+z9XhnSe95AH
-	cQRw5H0nxYV7rq96gfzU4g6chMxAWjAENBTUj9hwv
-X-Gm-Gg: AYBFou1b8fkbpQGxQaZJf9dbTl94JVRWfmtcwCyeWkMHktJgXBiPURSKH2PVHwneHQ+
-	WLyBjNkv1rjoIkxz2MmHMQu4PmP77+fsC6JGkqV0zlKgz2JSYF4Ut0i9chI12TXSFzhNZksHwYl
-	oaSdAXzORe7DOV5C8KjazmFkXRcBaUN5grPSM6ajuI23sYWZOI+1h5DQHmfCvcuILx+KQBDawDP
-	AjTryuM59a8yY3g+pyUvJDSIzfBqqwOqxxK2WaKlJEWXhuQd96Hm6t/LH3EIZIF6s2AbIJ0MyI3
-	6pzp3xFCozQE6uwesXikTSYQTljm7ie0Ps545nWu6arHg1esNMAPItVGqbzpXLixz9P+8hd2xUp
-	1i1uCtkOszeHeKkcf9MPc6qjQNnKKc9NcjDBCtQ==
-X-Received: by 2002:a05:622a:8c8:b0:55b:ce7e:e65 with SMTP id
- d75a77b69052e-55d7a37902amr16973301cf.12.1795184411359; Fri, 20 Nov 2026
- 06:20:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AzPBuscg
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 578271F000CF;
+	Fri, 20 Nov 2026 14:20:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795184445;
+	bh=2jGOHL7rKwXl1jT5V7Gwe6eZMcsw3mKNVzsJCxgJguE=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=AzPBuscg2UpG5GqPijCz57ul4N7u2zkrg2dx31xMCYrXCTovV3PJQLyAp7EiMgiq6
+	 1uEyTHa1LvmxJBay3hAgoRxfwl3rbSPlA2oiIRr1YF7eJj/FsiyQ8IdvbGtMbpIVyP
+	 t8EMU5L406OS/iTszaf1VfS65cJ+jjDdY9nZgiN+CI0HABv/MeAcS5ZA80/K+zpzRg
+	 lu8mhcYFiK5nvBhRhwSLcU5r7KYfS7pLvZu4uvroXV6Vg9K5fV15lAB0XoTAFuf70+
+	 X6ycjXLgVNGOZH46/qicPh8aXngxboPfugpo7FYDP5cFfo0fmFRoyQjov0JviKwmog
+	 XTA4umdwrbw2A==
+Message-ID: <sashiko-outbox-225348@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v9 21/33] rtmutex: Continue the walk when the owner's
+ top waiter changes lock
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <6438d828d974eeda3fc9bdf8a2caeb4392e96cd6.1795181240.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
+ <6438d828d974eeda3fc9bdf8a2caeb4392e96cd6.1795181240.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 14:20:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,99 +60,112 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
- <20261120135013.GO3115493@ziepe.ca>
-In-Reply-To: <20261120135013.GO3115493@ziepe.ca>
-From: Luigi Rizzo <lrizzo@google.com>
-Date: Fri, 20 Nov 2026 15:19:34 +0100
-X-Gm-Features: Aa3M54r79-wonm4abHk_49DjjJPxLMhPkMzG33LcM6yDH6fwirGgzaIY398cqTc
-Message-ID: <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
-Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
- for DMA and CoCo
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
-	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, 
-	Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Willem de Bruijn <willemb@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Joshua Washington <joshwash@google.com>, 
-	Harshitha Ramamurthy <hramamurthy@google.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
-	Christoph Hellwig <hch@lst.de>, Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
-	netdev@vger.kernel.org, linux-block@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 2:50=E2=80=AFPM Jason Gunthorpe <jgg@ziepe.ca> wrot=
-e:
->
-> On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
-> > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PIS=
-A
-> > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
-> > Documentation/core-api/pisa.rst (patch 25/25), which has the details.
->
-> I thought the conclusion was to just do this stuff in netdev pagepool,
-> now you come with an enormous AI series spread across the entire
-> kernel?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue to consider:
+- [High] rtmutex: premature chain walk stop in
+  rt_mutex_adjust_prio_chain()
+--
 
-There were surely comments claiming nothing outside net/ cares or needs thi=
-s.
+commit f337380aa6d8b1a73b3aab01c70615b369f151be
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-I respectfully disagree, witness is the fact that e.g. there was already an
-io_uring proposal which is smaller, but does not address applications
-that want to use the standard disk I/O paths (libaio, buffer cache etc)
+rtmutex: Continue the walk when the owner's top waiter changes lock
 
-Nothing has changed from the initial series in terms of size, use cases or
-subsystems involved. Large files are placed where they should,
-the series covers the same three use cases (disk, network, CoCo), and
-touches three parts which it has to touch: mm (most of it; it is a
-memory allocator
-extension after all), dma (it hooks into map and unmap, not a large change)
-and net (the pagepool change is a couple of lines; the tx path needs to
-touch more places because the current stack assumes all paths have
-the same I/O requirements).
+This commit removes the top_waiter !=3D task_top_pi_waiter(task) check in
+rt_mutex_adjust_prio_chain() so the PI chain walk continues when the
+previous step changes the owner's top PI waiter to a waiter on another
+lock.
 
-For CoCo, there are very fine grained controls so the bounce buffers
-can be enabled only when they don't pose a risk, which in turn
-depends on the threat model.
+> diff --git a/kernel/locking/rtmutex.c b/kernel/locking/rtmutex.c
+> index c78dfe9c93fc5..c06261259a563 100644
+> --- a/kernel/locking/rtmutex.c
+> +++ b/kernel/locking/rtmutex.c
+> @@ -821,23 +821,15 @@ static int __sched rt_mutex_adjust_prio_chain(struc=
+t task_struct *task,
+>  	 * Drop out, when the task has no waiters. Note,
+>  	 * top_waiter can be NULL, when we are in the deboosting
+>  	 * mode!
+> +	 *
+> +	 * Do not compare top_waiter with the top pi waiter of the
+> +	 * task here. The previous step can have made a waiter on
+> +	 * another lock the top pi waiter of the task. The priority of
+> +	 * the task changed then, and the next owner must follow. The
+> +	 * test below tells whether there is something to pass on.
+>  	 */
+> -	if (top_waiter) {
+> -		if (!task_has_pi_waiters(task))
+> -			goto out_unlock_pi;
+> -		/*
+> -		 * If deadlock detection is off, we stop here if we
+> -		 * are not the top pi waiter of the task. If deadlock
+> -		 * detection is enabled we continue, but stop the
+> -		 * requeueing in the chain walk.
+> -		 */
+> -		if (top_waiter !=3D task_top_pi_waiter(task)) {
+> -			if (!detect_deadlock)
+> -				goto out_unlock_pi;
+> -			else
+> -				requeue =3D false;
+> -		}
+> -	}
+> +	if (top_waiter && !task_has_pi_waiters(task))
+> +		goto out_unlock_pi;
+> =20
+>  	/*
+>  	 * If the waiter priority is the same as the task priority
 
-Specifically, for network tx buffers or disk writes, the user-to-kernel cop=
-y
-is basically a bounce buffer provided it is used correctly and not leaked
-elsewhere (which is the design; of course the implementation
-needs to be verified and possibly fixed so that it matches the design).
+[Severity: High]
+Can this !task_has_pi_waiters(task) check still stop a deboost chain walk
+early and leave the next owner with a stale priority or dangling
+SCHED_DEADLINE donor?
 
-cheers
-luigi
+The comment assumes top_waiter is NULL in deboosting mode, which is only
+true on the first step: at the end of step 1, rt_mutex_adjust_prio_chain()
+sets top_waiter =3D rt_mutex_top_waiter(lock) before dropping task->pi_lock
+and lock->wait_lock.
 
-> > - Needs bounce buffers: in Confidential Computing VMs, PISA allocators
-> >   pre-decrypt 2MB pages in place, avoiding swiotlb bounce-buffer copies=
-.
->
-> It seems this was ignored too. We want the bounce buffers in CC. They
-> serve a security purpose. You cannot loose control of the shared
-> memory buffers have have them leak into SKBs, user mappings and so
-> on. It is not secure.
->
-> I don't see how any of this is valuable or necessary for CC,
-> especially when we really don't even expect to have an vIOMMU for CC
-> very often..
->
-> Jason
+Suppose O (SCHED_OTHER) holds L2, M (SCHED_OTHER) holds L1 and blocks on
+L2, and W (SCHED_DEADLINE) and X (SCHED_OTHER) both block on L1, so M and
+O inherit W's deadline donor (&W->dl):
+
+CPU0 (W)                          CPU1 (X)
+sched_setscheduler(SCHED_OTHER)
+  rt_mutex_adjust_pi(W)
+    rt_mutex_adjust_prio_chain()
+      /* step 1: task =3D W, lock =3D L1 */
+      /* requeues W behind X on L1 */
+      /* deboosts M to SCHED_OTHER */
+      top_waiter =3D X_waiter
+      unlock(M->pi_lock, L1->wait_lock)
+                                  /* X times out on L1 */
+                                  remove_waiter(L1, X_waiter)
+                                    /* M->pi_waiters is now empty */
+                                    unlock(M->pi_lock, L1->wait_lock)
+      /* step 2: task =3D M, lock =3D L2 */
+      lock(M->pi_lock)
+      if (top_waiter &&
+          !task_has_pi_waiters(M))
+        goto out_unlock_pi;
+/* W times out on L1 */
+remove_waiter(L1, W_waiter)
+  /* !is_top_waiter: returns */
+/* W exits and frees task_struct */
+                                  /* O still has O->dl.pi_se =3D=3D &W->dl =
+*/
+                                  /* before X's walk reaches O */
+                                  replenish_dl_entity()  <-- use-after-free
+
+Because step 1 demoted W below X on L1, W's own remove_waiter() sees
+!is_top_waiter and returns without walking the chain, while O stays
+boosted to W's deadline parameters (and can even preempt X's chain walk on
+the same CPU) after W exits.
+
+Removing the if (top_waiter && !task_has_pi_waiters(task)) check as well
+lets rt_waiter_up_to_date(waiter, task) below stop the walk when the
+waiter is already unboosted, while requeueing an out-of-date waiter when M
+was just deboosted.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795181240.gi=
+t.mathieu.desnoyers@efficios.com?part=3D21
