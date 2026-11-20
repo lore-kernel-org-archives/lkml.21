@@ -1,48 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795186722;
-	b=2t8yG8uEPxRwCTx0thkPpY6sCRFyiUDkUqpCJT2T5+grZr/8CIEixvkkLwSPZkKkiKAS
-	 ppON2PhuUE0aE6Wptogq6/JDG3uG9SpUaopyNZW+8RJJ4z70Z/srYqf82dCmhPOFEB367
-	 4jaGuuq4rScGqBCyOT6rQib9F7d27dWsw+8uXgMobOJYFjMdDYHjZgXSGSfYDG2QgPdYG
-	 GLWTfBq1r9fgNQAZHZrwCLrPTyLE6g8CO4WaY8+bWLzxQDewDYX7a/MGa2luN4VZowUxz
-	 R56+VJsNgiJQe49NOt8B4XFgKEVnwzM95WmhimZdJNZhJTvXutLUpO1ZI1HueM/OEjg==
+	b=ATIRYL9lf2OD+md15IQbodoLoJqHZuMu3/N5QIflxQUhfDZBk27XlJ8btNHHZDPsH28G
+	 Tyw4aDT2eyD+A+OtVqN4DxgTu0n7kWFQeVy+izm0VIVyHYXWH8cL4fc7vkHF+TvRlKw6G
+	 hzZk6XaFQe5eZ2a2BKkvcXOT5r5g89OxK0JdV4W6PvU9J7eYAdQQ1p7wNZ6zyCk1EoO9P
+	 ezmsdLrmEw7ARJNCN4IEWTthgsD8s163PRJP5Tdiizpgv5P+pWJiY4PV+hos98LzQv0Nd
+	 CQVZ9JFXBb8ymVPavu2/EG+hztZq5sdO0uAIGPDTPOe2Bga2uS70C3EcOPbWGEuRu0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795186722;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=X8kjfOaquqsCuw1INjfug/3xaJAguhVUHjw7uk0as/M=;
-	b=ePCdBS/mA53TXa/8p9WAuvmNJt4YG4IY/cr0roT1+I4X8KzbaHBfDIbJqmlYH1sgun5N
-	 x48TbVm/DKsAK8Tn5WoH2AnkTMsrBTRpGMoIXeY167vbtqz3n8EEkdZlwpHMB4m/Y8YRl
-	 pucfHPO+yQUEhXh+uW+tybU46LebPJrJ8+wEBIs+Tecm4xR9DBxF6Lt1bcQlezqJcL9SY
-	 MJFfNhT20+76RaOjV3ffjB/sfw4E1XOVPMygnlO9U0Exbjfd0As/SibtMd01LMzA9mfAg
-	 lCSD+2p27/B3h9n2M3I4amB5k99wbVdXArL/7Z1t5sf8tdwnXd++ER8N/BEEKCZJJDw==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=XdoRtQhHoyHImXneWx/psMei/x18HxmV1jWcBPR1VTA=;
+	b=v98Z2qh1amziBWUHgcv8iuDiR5iVEkl5AGZIFSX31/9lLO25bdF6a/U1pT7lhTTWBw15
+	 8ujvc8P4vvtICp6s2bBBBGd5SN0lWX1AoNcnsNU3GV0qR1C8436ug+fEQYh79HwaURjKi
+	 hudrtSyLh7c85EdgKrnvCmtgHfYa80vznGBQzPUzzziohYOcDSNGXUgtDOc+jKTQrjKzj
+	 Ht4iBUwKxiZKOIEmFwoVec0HlfgssqxHwK0i1/klDRxRJ1XL+u8IUxYpkoo8Qo0DjJtMD
+	 7SNnJ8yzeG0zviOtg7cVbgxiCMNk2YbsdjonqnBPqa3RtAS5vKXDdajvA+l3QFLBNBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TJlXgYm4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=TAM82AbG;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA2D060A3837
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C19B260A260C
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C19B260A260C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TJlXgYm4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51D7F1F00A36;
-	Fri, 20 Nov 2026 14:58:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186721;
-	bh=X8kjfOaquqsCuw1INjfug/3xaJAguhVUHjw7uk0as/M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TJlXgYm4ykF7EehzJFw5Rrg4sXQpm9f2Hr/3qB8yNcj0hVdddJggFV7PKEBFblib1
-	 +4FkA4ZkiNRm0skGgjb0mvnwK6Q26hoYDsHf0wd67hqQFZFnbveHMJpKUFcbJpcW8K
-	 8+BHxfNz7PV7K3UCVweIbqjcM8Yu1hMOMhZKqKBNZ+kPuCxb7vIMVky6uNQ8hUyTOj
-	 2ScIEq+iTHsb+dAc8ywT3DCkj6x01A1w/hqkdOtCGEqPMrWpoBR/+KppNOMe4DfH9s
-	 Ory7f/g40Y3gD8k5JSGRA64zLiOMNW7Vtwl8t3guK107gjWazC9jeF9vUA19aytnm6
-	 SWKmOnwvr6c3A==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Fri, 20 Nov 2026 08:57:42 -0600
-Subject: [PATCH v5 18/19] accel: ethosu: Support IFM upscaling
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=TAM82AbG
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f04f61282dso2195795ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:58:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186721; x=1795791521; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XdoRtQhHoyHImXneWx/psMei/x18HxmV1jWcBPR1VTA=;
+        b=TAM82AbGbrL6t41u5NLlu7pp/fSxNbY3VEmtbHwc67s7Fe5iIO6uEPOH4AGW9HsEl1
+         PqW5FdoV6Dy1jyYEW61TvwRD4KSK7XZFvm5QmfgC7nuIUh/qcCEZGdXl0Wm5isOobxLM
+         jZOUtbCJCgfJy1R13t2VpCsza2EGqxaOUwNBzA9CIPXENbaJ8u43KB5/dEKKDuOlyJvL
+         n/+FT1PFnGcZ2nNqPD65jO2yhFzGJHiRP8HrjQ3HnMS+uGy90T5mHtA4nm2aArPWAlIL
+         yPB9IeEl3WGYP4BKNCpyn6YE34sRCSMfm4OGyxKdyQ/9hflvXSo/TRAZK5NPQ0eY2ZQR
+         74ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795186721; x=1795791521;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XdoRtQhHoyHImXneWx/psMei/x18HxmV1jWcBPR1VTA=;
+        b=Ap37q6oVE70QO/knQTNXVFhOOUZfTKfpqj02ZIIaiCXpqlQz4A6DciWcLcp8GMDbDs
+         t3eSnOstb3YlM9lEylyCv2C+VRfNTthScD8BR3plWwxP0CtR/a1KWKVLOvCjDkmbFg5Z
+         +4qNVGcSX8psXTSMRbuPeDBIfpmP7vrFwfCDgVj6u/cHUr5bj/eXWiBONNXoIbqtyY9l
+         uGqFPWD9PHZg7OP7h6G+soCiEAyGSuc/5ztNLaJGeCqLbL87ZwNP9wgNnRy6u8k0xz+j
+         DSJmzBXlabjmqcqtpEt4sFb9fFrR1cfHDDUgKMrZRK4OsNqDe6H3ZaGTzxxI8sEs3uCz
+         lwiw==
+X-Forwarded-Encrypted: i=1; AL+hErHb6TBA9t9HIzabWm6LgJ+tK4CU1HoREOkbqrwnBua4bfBpPQgJMn2haQxDvZS7IAepE+RQwhCarU4EY60=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9K6VchxIyGDwpGmVZ0P+TZjDaUfaM7w8kqiixG/d3qv8EaviOk
+	ngPg4x67334OsvDSCPTHfWmel5CObAbcHm4WPG1pQqhnBuwZlJajEfYwGkhxQSSdNoE=
+X-Gm-Gg: AZFdTZdKvtVfniXbayEK5QXj12qb7SE6dDrpQ6A5o8qLCCRGCEWc6ormUl1OAeA62O5
+	QEOxWXiZLjEQJuSNKpboY5GyAYeHWtZDCxpJ68ZipaWP6FBshS69f0kiRqWUBhQQZEPmrE9gTXp
+	6nscfue49pTMBroQLoiZ9d35+3HEnnhX3HY28ioXK0YrVJAy3S+OK3j2/exzV98Zqo6zTJ7FTno
+	jZQlFim9D2V3Dwkx/WxDR/7btQDH8BXXA5E6ASgvJu3R57XcxzaFeNUxiP0FxH6cj5ssQ5IwxFq
+	OjvqO1kC8UQwEv5re9Q4roO44PdZwoAQNc3X8J6wrkU3MrdxVwHehs5d95brdd/AqJ4niNDAe1+
+	8EPtnZF+mPqhrym2qw4eZABQtuNcc/zLta1X8LoaugYorijhk/L8RCi5p/i5xnE1HVVNFnnem1g
+	M0pYM9MFp3+6aPdwbRuSd7V/II1PMniVkJpXUKoN2rk8PlwvdSoVJlp3ucXmZIemk9e3LnOUf4O
+	TgzN4+JJIrxRs+Ht3y/I6p+Yxm75yy+Ej5IWey8IbhQ9HzQnPn+mjnMNsZ9Lu5MNA+J75dI9tnS
+	moAc2ALktCLl/1HJCVjem1CwWrdgXstssqitRR3Y6NJMp+aF/uDynKDMHD+2m0yZV7a56ylGs3t
+	F2t2fJjeTYiVNXW7G3GrZ9XJa0olhgRBxTH9t
+X-Received: by 2002:a17:902:f543:b0:2df:a0f0:6625 with SMTP id d9443c01a7336-2f03f17d1a2mr38645095ad.17.1795186721178;
+        Fri, 20 Nov 2026 06:58:41 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f108205sm15372495ad.44.2026.11.20.06.58.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:58:40 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: linux-rdma@vger.kernel.org
+Cc: bvanassche@acm.org,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RDMA/srp: fix use-after-free of a request in srp_destroy_qp()
+Date: Fri, 20 Nov 2026 23:58:36 +0900
+Message-ID: <20261120145836.3127736-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260812190418.200337-1-yhlee@isslab.korea.ac.kr>
+References: <20260812190418.200337-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,175 +101,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-ethosu-fixes-v5-18-52d459acdb84@kernel.org>
-References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
-In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16-dev
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Track the IFM upscaling mode while validating command streams and
-adjust feature-map bounds for its 2x resampling modes.
+On Thu, Aug 13, 2026 at 04:04:18AM +0900, Yehyeong Lee wrote:
+> srp_destroy_qp() drains the send queue before destroying the queue pair.
+> For the fast registration and invalidation work requests, the wr_cqe it
+> finds there is &req->reg_cqe, which lives in the blk-mq request pool.
+> srp_remove_target() frees that pool first, through scsi_remove_host():
+> page_owner records the page freed by blk_mq_free_tags_callback() while
+> that call is running.  __ib_process_cq() then calls wc->wr_cqe->done on
 
-Resize operations require no IFM upscaling, so reject a non-default
-mode there. Ethos-U only defines upscaled IFM reads with unit kernel
-strides and non-chained storage. Reject incompatible state when the
-operation actually reads IFM, including elementwise operations, rather
-than checking when registers are programmed.
+This is superseded by v2:
+  https://lore.kernel.org/all/20260818035229.505098-1-yhlee@isslab.korea.ac.kr/
 
-Also enforce the pooling-mode restrictions: max/min cannot insert zeros,
-and reduce_sum and argmax do not support IFM upscaling. The coordinate
-reduction used for bounds checking must not be applied to these
-undefined hardware configurations.
-
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v5:
- - Reject various invalid modes
- - IFM upscaling is not U85 specific, but supported on U65 too
-
-v4:
- - New patch
----
- drivers/accel/ethosu/ethosu_device.h |  7 ++++++
- drivers/accel/ethosu/ethosu_gem.c    | 46 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
-
-diff --git a/drivers/accel/ethosu/ethosu_device.h b/drivers/accel/ethosu/ethosu_device.h
-index f8066a9cf610..40b7f28ae61d 100644
---- a/drivers/accel/ethosu/ethosu_device.h
-+++ b/drivers/accel/ethosu/ethosu_device.h
-@@ -93,6 +93,12 @@ struct gen_pool;
- 
- #define NPU_CMD_CTRL_CMD1		BIT(14)
- 
-+enum ethosu_ifm_upscale_mode {
-+	NPU_IFM_UPSCALE_NONE,
-+	NPU_IFM_UPSCALE_NEAREST,
-+	NPU_IFM_UPSCALE_ZEROS,
-+};
-+
- enum ethosu_cmds {
- 	NPU_OP_STOP = 0x0,
- 	NPU_OP_CONV = 0x2,
-@@ -109,6 +115,7 @@ enum ethosu_cmds {
- 	NPU_SET_IFM_PAD_BOTTOM = 0x103,
- 	NPU_SET_IFM_DEPTH_M1 = 0x104,
- 	NPU_SET_IFM_PRECISION = 0x105,
-+	NPU_SET_IFM_UPSCALE = 0x107,
- 	NPU_SET_IFM_BROADCAST = 0x108,
- 	NPU_SET_IFM_WIDTH0_M1 = 0x10a,
- 	NPU_SET_IFM_HEIGHT0_M1 = 0x10b,
-diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/ethosu_gem.c
-index d2884d9922ae..b4544298742f 100644
---- a/drivers/accel/ethosu/ethosu_gem.c
-+++ b/drivers/accel/ethosu/ethosu_gem.c
-@@ -167,6 +167,7 @@ struct cmd_state {
- 	u8 acc_input_precision;
- 	bool fast_weights;
- 	u8 parallel_mode;
-+	u8 ifm_upscale;
- 	struct dma_state dma;
- 	struct buffer scale[2];
- 	struct buffer weight[4];
-@@ -402,6 +403,11 @@ static int feat_matrix_validate(struct ethosu_device *edev,
- 		    !cmd_state_reg_is_set(st, NPU_SET_IFM_PRECISION) ||
- 		    !cmd_state_reg_is_set(st, NPU_SET_IFM_DEPTH_M1))
- 			return -EINVAL;
-+		if (st->ifm_upscale &&
-+		    (!cmd_state_reg_is_set(st, NPU_SET_KERNEL_STRIDE) ||
-+		     feat_matrix_chained(edev, fm) ||
-+		     (st->ifm.stride_kernel & (BIT(0) | BIT(1) | BIT(6) | BIT(9)))))
-+			return -EINVAL;
- 		if (feat_matrix_chained(edev, fm))
- 			return 0;
- 		if (!cmd_state_reg_is_set(st, NPU_SET_IFM_WIDTH0_M1) ||
-@@ -745,6 +751,11 @@ static int calc_sizes_resize(struct drm_device *ddev,
- 	u64 len;
- 	int ret;
- 
-+	if (st->ifm_upscale != NPU_IFM_UPSCALE_NONE ||
-+	    feat_matrix_chained(edev, &st->ofm) ||
-+	    FIELD_GET(NPU_OFM_TRANSPOSE_MASK, st->ofm.precision))
-+		return -EINVAL;
-+
- 	if (!cmd_state_reg_is_set(st, NPU_SET_KERNEL_WIDTH_M1) ||
- 	    !cmd_state_reg_is_set(st, NPU_SET_KERNEL_HEIGHT_M1) ||
- 	    !cmd_state_reg_is_set(st, NPU_SET_OFM_BLK_WIDTH_M1) ||
-@@ -811,6 +822,19 @@ static int weight_streams(struct ethosu_device *edev, struct cmd_state *st,
- 	return 0;
- }
- 
-+static u32 ifm_upscale_coord(u32 coord, u8 mode)
-+{
-+	switch (mode) {
-+	case NPU_IFM_UPSCALE_NONE:
-+		return coord;
-+	case NPU_IFM_UPSCALE_NEAREST:
-+	case NPU_IFM_UPSCALE_ZEROS:
-+		return coord / 2;
-+	}
-+
-+	return 0;
-+}
-+
- static int buffer_size(struct ethosu_validated_cmdstream_info *info,
- 		       struct cmd_state *st, struct buffer *buf, s8 region,
- 		       u16 region_cmd, u16 base_cmd, u16 length_cmd, bool inactive)
-@@ -871,6 +895,8 @@ static int calc_sizes(struct drm_device *ddev,
- 
- 		if (ifm_height < 0 || ifm_width < 0)
- 			return -EINVAL;
-+		ifm_height = ifm_upscale_coord(ifm_height, st->ifm_upscale);
-+		ifm_width = ifm_upscale_coord(ifm_width, st->ifm_upscale);
- 
- 		ret = feat_matrix_size(edev, info, st, &st->ifm, FEAT_MATRIX_IFM,
- 				       ifm_width, ifm_height, st->ifm.depth, false,
-@@ -972,6 +998,8 @@ static int calc_sizes_elemwise(struct drm_device *ddev,
- 		height = st->ifm.broadcast & 0x1 ? 0 : st->ofm.height[2];
- 		width = st->ifm.broadcast & 0x2 ? 0 : st->ofm.width;
- 		depth = st->ifm.broadcast & 0x4 ? 0 : st->ofm.depth;
-+		height = ifm_upscale_coord(height, st->ifm_upscale);
-+		width = ifm_upscale_coord(width, st->ifm_upscale);
- 
- 		ret = feat_matrix_size(edev, info, st, &st->ifm, FEAT_MATRIX_IFM,
- 				       width, height, depth, false, &len);
-@@ -1102,6 +1130,19 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 		case NPU_OP_POOL:
- 			if (param > (ethosu_is_u65(edev) ? 2 : 7))
- 				return -EINVAL;
-+			if (st.ifm_upscale) {
-+				switch (param) {
-+				case 0: /* max */
-+				case 5: /* min */
-+					if (st.ifm_upscale == NPU_IFM_UPSCALE_ZEROS)
-+						return -EINVAL;
-+					break;
-+				case 2: /* reduce_sum */
-+				case 6: /* argmax_x */
-+				case 7: /* argmax_y */
-+					return -EINVAL;
-+				}
-+			}
- 			use_ifm = param != 0x4;  // pooling mode
- 			if (!cmd_state_reg_is_set(&st, NPU_SET_OFM_PRECISION))
- 				return -EINVAL;
-@@ -1208,6 +1249,11 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 				return -EINVAL;
- 			st.ifm.precision = param;
- 			break;
-+		case NPU_SET_IFM_UPSCALE:
-+			if (param > NPU_IFM_UPSCALE_ZEROS)
-+				return -EINVAL;
-+			st.ifm_upscale = param;
-+			break;
- 		case NPU_SET_IFM_BROADCAST:
- 			st.ifm.broadcast = param;
- 			break;
-
--- 
-2.53.0
-
+Best regards,
+Yehyeong Lee
