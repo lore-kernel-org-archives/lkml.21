@@ -1,46 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192993;
-	b=x3oiYs7xn8BCMd7rA9OostRCtilHNylSGRfTdDe2CCvAwqTHvRolUgLH0BryQoN+OmV7
-	 CJYpdResjcXF+Ys21gXOYIwNk66N+KZIvJMEbHC73BZyAr9u++u3BDZPABLnP7NF1rGlc
-	 CqeYpEGhQ0uqiWnm4MaHetDfWRa1kytHhjkNYc0Bzl3GqnuEJqu29GsnTqN+TIE8wAfIn
-	 qHUuckDpNJlkl88UqK1q/t2G87bIbCule3SV+saRqvFQMuTStyb6JmjNYC4Q1RWP7adZ6
-	 +ytNmqSSm7bByBJIWFPOy3cUqgHaLcheurYkpnOkf1l8oJoVba5Z7hkKhJGnQV5zczw==
+	t=1795193006;
+	b=BGDDQDLUq192LCC//GLnJIdkyMsRT/739OR4g25TZj0hGh2E/4tg9t8MHftvcos4KbpH
+	 E500E178gseI39yebYR0/2Xov1tDkHWrJUoBSiu9QC0SoPM7TKrkA2RdKjfRw8q3gsWgc
+	 OtRe4botzZ4XYZNWBpTsP0X9eNEEGD5VL/sirdyL2xNF/XouWsJ0OVzu4pl8BhNIW3JZu
+	 wYeckdUNmdEhKQfyT4DZ8oAXIQKGeXCn2jcWwoyMqd9YNemVu9Er1+IeTNZU1t5LehkRp
+	 mbqFHpSJSxAwL+1vE41sw60rJxcRP/sus6xRT27cbss9wPLz7/bOWo0mUO+jy+qlN0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192993;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=+31TwLq8mlbw/chbUXL8vDb3S/TW39pYqyiL0lr5JVs=;
-	b=A3F8mIfK7TSbNEORSuLTU5QRGLGB54TbVAmVCDRvgSoh4+dBwytHri7TRC/WrCNeWDDg
-	 Bc2ljGzJYJaDqehLUCPUM0YFCrOrbf6G9iK6qAq4aircdJqPOsehl23vVt2dvECpCvJWg
-	 tEYmkoAP48oUM7jD6vpwH8hQya//mV88Tf+MZ+D5iaAnGjUJOaiq03j4qOlRGPJGSbKBQ
-	 CTUyFn+/ts4m07sDPOe+NmRqiT8oPBVoLuhlEJciH56JPhaCYNVP+ZigkK3cZ7SoWotWR
-	 6zo42FiFQYXWqcmXbeMXsZCuWr03s/HVAWrF9jZsMVXjKvgxoy4q7QKj4vVPj5Kroyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193006;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
+	b=gzZoYUUghs8M6AR1yPq2EVF0EGzlYNEr9xIAukNfCSowJeCDkcukSMbtptrf6hZnvbEr
+	 unEsqnxNXanvT0ssImsBH2Dm+ZqQI4IJpIWVDCNlYUHW0Ye5bKSupyPgSKQSXWhdVc72f
+	 wT+y2oMsC1gOhINcml7Yc8Fujz/YVhTqBEIEkm7lScA0NGYOuQ/4gxdeYFxNXDwziBwKj
+	 qDbZBwqldboPm/VV9LQRfjE57HgCYFsnzrci0ionGLKHQIBvid84fSiVBtfejzBj+636P
+	 IYGT0REabkJAz4QZo4TcmKqgpmP9s98KBfsUmY7Gkzg9lKeH3Lv2klf3rD5ERaqGyWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eCbaT1wM;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E591D606A33A;
-	Fri, 20 Nov 2026 16:43:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E591D606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id AE6396732A; Fri, 20 Nov 2026 17:43:09 +0100 (CET)
-Date: Fri, 20 Nov 2026 17:43:09 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Tal Zussman <tz2294@columbia.edu>, Christoph Hellwig <hch@lst.de>,
-	Jens Axboe <axboe@kernel.dk>, John Garry <john.garry@linux.dev>,
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-xfs@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 0/2] block: fail short atomic bounce bios in
- bio_iov_iter_bounce_write()
-Message-ID: <20261120164309.GB32683@lst.de>
-References: <20261107-blkdev-atomic-bounce-v1-0-f66344262096@columbia.edu> <20261120-gratwanderung-wickeln-mitkommen-1fa50bede59a@brauner>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B398606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:43:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B398606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eCbaT1wM
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso12378155e9.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:43:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795193004; x=1795797804; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
+        b=eCbaT1wMQMGTehrBs05zZnZkIoaKciHE2kFhoCVK5epPcJSjiz440luNXjDTDqcfy3
+         WPnya8aBMjlaKu8/GbLNvaJjyxhr8hDat96pEPCh7x5vuqQTivIfjTjy5G8kic3Wnhyy
+         +K8AvUSkWyBXSJ3TO1hBXW7ZwacX8XCeV+H7lzS3IjgsngaJnkWexyBZGIy64uhfJoh5
+         oNHaDASnfgq504eIvU9xMvzgD4x5/BqwOI6AVJPncGR3wh/dT+YDhl9H2R1bQ/0oR1/J
+         ijpNLISsF0bZhVzYkaSczT0cXo5W/iKKk1ywhXNtkvenjGTiMZKgB0VgmldCuQ82q4Al
+         uyyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795193004; x=1795797804;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
+        b=xgLUsqQRfsEIqjbrUVgdUOi4ivzPAdZbC8CzCI3BCGH7AJKyd/Qc7n3Nxtq7sWeQ2K
+         wUD58iXLQliT3rLLgPXPlkt3MUBRCj8reIwbJWxzXplP6teqeXAapmPg5xIF46r3M/s5
+         4KkuYisYBKN/I+2pKF0JkRJo5K2/bIRPaIpvvPeOonodwIdSTDPesx4+O4B7rtg8BLri
+         komQunCdVtzJOpInGK9ueCfQrGEUfzb2Tzqtx4BGbDWeJWuPiPaarWDBfVut4PzjbHEz
+         ReTv/Y3IWdIq4TXM9KdTiTMh2IP9KqgIhlbhpAS/lNNVmXENs4ilno0VmYwQLocLD2FW
+         WBTw==
+X-Forwarded-Encrypted: i=1; AL+hErEPxzpTSjJ9xuJKGw8CSD1mD4okNXjc31OgFcnbuDj+MO1lMdvSWTkuDhVYhPczJy1SoMHi0dQr6FDDxNY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86QZdj3c17gD8RM33sCEarq9rmYDPnAmoIwgOv+TAvBNeMHt24
+	NzRuCmDNixn+SkjenUfFzSeG8v7as7VIVQQ8caE4aJKvTKsE+5pFDxLNbAIzmQ==
+X-Gm-Gg: AYBFou2MuzqMghsQ1mfoRzkIgHzcHSRMP8ahAzBnbM6/zWR5y8ybsQIhR6TsHBoWT4L
+	+JtTKFvJQQiPhUK/Eg/BCY7XQBc+bzxKpxrrDlmoslGYIWTjjyxS2cmUH5VXMIR3T7omzMRw9fO
+	tFH/J/OLw4vW2Xeew9Bpu6In4IspGBNc/iiTYLfcpsNbiGopgswtESfNLsqeenYaQjO6FYfNP2T
+	7/Y57ba2stfORkoRhYYwvkTfIqCA+lMuQxCY5k1evLzWaw99yGNnhwTjYDlO6z1Mt1ADoEbm/3m
+	LD3OLr5zAxoAL9J4oAdq69c/lg/8SQD/SHe4WTeY4eCNEDaCzXGen6cVoYlJVRh8bfZq6/WUGbY
+	NrizsdIeYAKY0GnVj3bHyLa7G1NF+K9SnUx1NkWw7JgV4FBfRseAgssiysyHK6sNfxBlOu2ye+I
+	oKhIIReCKwPwKzm/FfX7HzPv6J89YwshIDsJWRJ3p/szwJlngkfxSL5h20LpbW9Zh5U9uT9of1/
+	ej3p9W7Uknsj/S4CaAKmwtrZugtiA9IO4hUWNuANZcbh0FUlvfyVLFKsvHf+cmGKESJMKGNx0Bi
+	30FBr/7EXnJfrFpVaKwjVZ64UTcpsR1qbG8qIQUHH1uAT75puc+tT9ZRoKCRH6iNzIo14HTIdjt
+	InIR2mkQ=
+X-Received: by 2002:a05:600c:530e:b0:4b2:2ec5:8a2b with SMTP id 5b1f17b1804b1-4bb887fe8f1mr85315575e9.10.1795193003759;
+        Fri, 20 Nov 2026 08:43:23 -0800 (PST)
+Received: from beelink0 (host86-181-68-246.range86-181.btcentralplus.com. [86.181.68.246])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm86679555e9.9.2026.11.20.08.43.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:43:23 -0800 (PST)
+From: Graeme Harker <graeme.harker@gmail.com>
+To: Finn Thain <fthain@linux-m68k.org>
+Cc: geert@linux-m68k.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and ndelay()
+Date: Fri, 20 Nov 2026 16:43:22 +0000
+Message-ID: <20261120164322.1034075-1-graeme.harker@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org>
+References: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,16 +99,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-gratwanderung-wickeln-mitkommen-1fa50bede59a@brauner>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 10:04:37AM +0100, Christian Brauner wrote:
-> No objections per se, I just would like see Christoph take a look first.
+Hi Finn,
 
-No fucking idea.  As far a I can tell atomic writes are a mess and we
-should not have done them in the first place.  Ask the people who
-create this mess.
+Thanks for running it again, and with both interrupt settings.
 
----end quoted text---
+> test_ndelay(40)	 191E-09 -> 17.0E-09
+
+I think this one has wrapped the timer as well. 400000 calls only fit
+in T2's 83.7 ms if each takes less than 209 ns, and 17 ns is less than
+one clock on the LC040. With one wrap it would be 226 ns, which is
+longer than before, as ndelay(400) now is. 40000 calls should show it.
+
+> test_ndelay(40000) 38.7E-06 -> 46.5E-06
+> test_ndelay(400000) 366E-06 -> 456E-06
+
+These show a real problem with the patch: long ndelay()s now run about
+15% long. The 5 I took from x86 is 2^32 / 10^9 rounded up, but
+2^32 / 10^9 is 4.295, so every ndelay() asks for 16.4% more loops than
+it should. Combined with your udelay(1000) of 979 us (2% short), that
+predicts 453 us for ndelay(400000), and you measured 456 us. The old
+code was short instead, from rounding loops_per_jiffy down to a
+multiple of 2048.
+
+I can't explain the old ndelay(4000) of 6.03 us without knowing
+loops_per_jiffy. What does your machine calibrate to?
+
+I can see three ways to go, and I'd like to know which you and Geert
+would prefer:
+
+1. Keep 5, as x86 does. Delays are never short, but up to 16% long.
+
+2. Use a closer constant, e.g. __xdelay(nsec * 4 + ((nsec * 1209) >> 12)),
+   which is 4.29517, within 0.005% of 2^32 / 10^9 and still never
+   short. It costs another multiply and a shift on every call, and the
+   second term overflows for delays above 3.5 ms, which ndelay() should
+   not be asked for anyway.
+
+3. Leave ndelay() as it is and fix only udelay().
+
+Option 2 seems the most accurate, but ndelay() is mostly used for short
+delays, and for those the call overhead you measured matters more than
+the constant.
+
+Graeme
