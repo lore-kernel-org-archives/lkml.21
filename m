@@ -1,73 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172986;
-	b=QkYunjjUJ7MO9CHq1RMeTzSBoup/mmBI95ycVMColFoZOKhNd37w40Dki+zarMW9yKbk
-	 QYKguRsrE6zP4ZTwGtJ1NDKEF3+PV7CQwTIP5DDM/mWBrmcGqSEHHgYyQ28DSgJhgAACm
-	 xBgU7Aw2rM5UZ2Ukv/fQxq8XmGugeJJtO/WP9wp4uf4AbRG/BCUq7EX7JlsChtWoJDHu0
-	 7DQikdecxLyBUTkk4TaRua5JeCG+5G9QnjcdTB7zSQdG3e57o1NWxAQahQibDSHx2NXWU
-	 gopBkruimuVHh5iqjtiO9Y3WN2CDVxWak+7InIH5YvUfDhucB4E+N02ddGDMHcQpQ4Q==
+	t=1795172995;
+	b=GaltkeaBr6QFMTK/OJ5kX5FXABvmSkvAQDeeqBrgQIkN2yejJCxwNC8CloRB12w8F+SW
+	 JCDTDdkLoLAZrWxBWUhzPo+RmzNUzrdnqTMajip/1jMEpxkKvVB+wmB4GC0/qHqZx1emY
+	 wa9SjjxPUkPfE+D+2WUwKSjA5sItL82DKwPg/0gUfwds1FYYSMRZEIPBaUrSv4SzqSE2i
+	 EbHxZo3X9BEqsT2seI9AJOdTo/lQH+So8aFGHfmVnTRunKwCZ+zWNUKrkbvQUTLVZfYMD
+	 y9IjS08Nvhi9DPU/HN8g1EdRBWTSr5isj3s7I5+/CMFtX5b/2JAdlc9bWT1+y54bphQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172986;
-	h=Received:DKIM-Signature:Received:Date:Message-ID:From:To:Cc:Subject:
-	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
-	 X-SA-Exim-Connect-IP:X-SA-Exim-Rcpt-To:X-SA-Exim-Mail-From:
-	 X-SA-Exim-Scanned;
-	bh=2RuimmOKEdckylLVvtsFC7k8j+dPt2aTJXFr5gsiNwk=;
-	b=pda4+uy0nrCVVqansmmTK9/SBRoTlNNqisZ0Hu7tvjsZL5jzwn3LJrKQTRatxn5HTL4g
-	 1r2Pfk3uaQqVATukrzDWd8LRbF4aOJSmnmOrVfVFKQQ2/epxmU5MuEBrrQaC3J59Uuot7
-	 bcYA6AyQXzgDUbH9tOx3qJQENTsjXMxH5G6pUzGGr95oVm9deVXtqnHficDO60eDmx/iK
-	 eRgES8nck4ELfLPR94GTzh45AezhENaLrUWKoZHI+EbAcTS6w9KFN7RKaQF8mi7PDHnTO
-	 wVQfp28zHP87i8CYBBpZVWT2gLfeMbWpM9Ioz55PValFb7evohztprS7RgeWhxwmVOg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172995;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=w9myFnwj5zB1QE7elWWV13KgJsaU9TxgOrmcx9HYe1I=;
+	b=5EDPYEF7WuGc6PoNUx7rY6siuSVxgHOEmn6wYGTCpzzf42Cio4Rh5/BoEHunpqEB3PpJ
+	 STPQtao/6PgUEfkPs23TCvYr5YERx3t3phFu91Urz9EihyW8Cv25voZd7D2ukENOfeuYP
+	 yc92y5QIzG/U2xmF2rbvwBNTISfjGc47/ZFi+2te1Ohnnryz3IUrfSO5D89gpXjRYyl+U
+	 gCJ/QX0rkUbRHgUVCS0+PmQpC7W2rPz8KVjA5Hg82LU5QE91hFUwZxEYPJHBNhq7WuuK8
+	 LlRACAU3ppQ2jRgArIrWoY+Wbdo2NAHNKfCKBA8SLofTZxkTj1hAfLg4XQpF91aGxiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMikXPr3;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=K0DICIEk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC111606A325;
-	Fri, 20 Nov 2026 11:09:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D20E1606A325;
+	Fri, 20 Nov 2026 11:09:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMikXPr3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D051F000C4;
-	Fri, 20 Nov 2026 11:09:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795172985;
-	bh=2RuimmOKEdckylLVvtsFC7k8j+dPt2aTJXFr5gsiNwk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AMikXPr37HdnbqD8nENh/uDeTqYDteieNAvjGhJ1zvCMDR2DGqHUYAtV/5oG6jK8M
-	 UeFx8bmTJ7V/EOoasqkHLStLmdwhiQWF/y72dJt6TYp7dtqGyY/UUW9jH4wvA+fjLx
-	 CaryP2Y4Ld6Cv5dSsGqPfucT8Puw48jyy2OSGXPuig012l6JTHfWaJcTwpEl63dn08
-	 hbgyBHXzdPPdZgPHS4dyjiXLFfRHAPkHfQiYj5Uq8g1g32ndGfyuffKHEGmWUwC97a
-	 dXkKduKi24RxjMbYZVw0s8r9ID+2L2xBkod6s6aR5r2+Utc6lWtoSo+vEmwEwYwo1u
-	 SKUDMOC/zQEUQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1xUMUw-00000000wOs-3zvf;
-	Fri, 20 Nov 2026 11:09:43 +0000
-Date: Fri, 20 Nov 2026 11:13:09 +0000
-Message-ID: <87cxrz92nu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: nv: Fix guest stage-2 mapping leak on sub-block unmap
-In-Reply-To: <20261119185105.626343-1-coltonlewis@google.com>
-References: <20261119185105.626343-1-coltonlewis@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=K0DICIEk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875FA1F000D3;
+	Fri, 20 Nov 2026 11:09:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795172995;
+	bh=w9myFnwj5zB1QE7elWWV13KgJsaU9TxgOrmcx9HYe1I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=K0DICIEk4a8jSFRZWbz47M8Blj4HRTjqjY1my6J5SSUCLsVWuJJZuBr7wHBt70U3t
+	 lkAuXx/Xpsx1vw20mg/B3RUFWRhK2FZfcGyn0Iiwmbd3ypLBJOr0MFqVKcZDBLVUKI
+	 o7+3CQF/XX3dOZ4YPL9vxL/qNSHRApZAWZfRGA70=
+Date: Fri, 20 Nov 2026 12:09:52 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Cc: linux-usb@vger.kernel.org, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	target-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4] usb: gadget: f_tcm: reject a short write data-out
+ transfer
+Message-ID: <2026112028-starless-aching-bdfd@gregkh>
+References: <20261013043951.2534225-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,74 +55,80 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: coltonlewis@google.com, oupton@kernel.org, weilin.chang@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, fuad.tabba@linux.dev, seiden@linux.ibm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261013043951.2534225-1-yhlee@isslab.korea.ac.kr>
 
-On Thu, 19 Nov 2026 18:51:05 +0000,
-Colton Lewis <coltonlewis@google.com> wrote:
+On Tue, Oct 13, 2026 at 01:39:51PM +0900, Yehyeong Lee wrote:
+> usbg_data_write_cmpl() copies se_cmd->data_length bytes out of the bounce
+> buffer into the command's scatter-gather list without checking how much the
+> host actually sent.  A BOT host can declare a larger OUT transfer than it
+> delivers and end the data stage with a short packet: req->actual is then
+> shorter than req->length, but the completion handler still commits the full
+> declared length.  The tail past req->actual is whatever was already in the
+> kmalloc'd bounce buffer, which is not zeroed, so uninitialised kernel heap
+> is written to the backing store and can be read back by the host.
 > 
-> When a shadow stage-2 block mapping (for example, 2M at PMD level) is
-> partially invalidated by a smaller guest unmap such as a 4K TLBI
-> IPAS2E1IS,
+> Fail the command when req->actual does not match req->length instead of
+> committing the stale tail.  The short packet means the host has already
+> ended the OUT stage, so mark the command and report the residue in the CSW
+> without re-arming ep_out to drain data that will never arrive, the way
+> f_mass_storage treats a short_packet_received.
+> 
+> A short 8192/4096 WRITE then commits nothing to the backing store instead
+> of 4096 bytes of stale heap, and the CSW reports a residue of 8192 with no
+> OUT drain queued.
+> 
+> Fixes: c52661d60f63 ("usb-gadget: Initial merge of target module for UASP + BOT")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+> ---
+> v4:
+> - Keep cmd->data_len so the CSW still reports the untransferred length as
+>   the residue.  v2/v3 cleared it, which reported a residue of 0 and told
+>   the host the whole transfer had been accepted.  Skip the ep_out drain
+>   with a command flag instead, matching f_mass_storage.
+>   v3: https://lore.kernel.org/linux-usb/20261013015416.2503787-1-yhlee@isslab.korea.ac.kr/
+>   v2: https://lore.kernel.org/linux-usb/20261013005854.2470384-1-yhlee@isslab.korea.ac.kr/
+>   v1: https://lore.kernel.org/linux-usb/20261012154422.2436134-1-yhlee@isslab.korea.ac.kr/
+> 
+>  drivers/usb/gadget/function/f_tcm.c | 14 +++++++++++---
+>  drivers/usb/gadget/function/tcm.h   |  1 +
+>  2 files changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+> index 9e6d4f39900a2..d686fbcf36f72 100644
+> --- a/drivers/usb/gadget/function/f_tcm.c
+> +++ b/drivers/usb/gadget/function/f_tcm.c
+> @@ -120,7 +120,8 @@ static void bot_send_bad_status(struct usbg_cmd *cmd)
+>  
+>  	csw->Residue = cpu_to_le32(cmd->data_len);
+>  
+> -	if (cmd->data_len) {
+> +	/* a short data-out already ended the phase; draining it would hang */
+> +	if (cmd->data_len && !(cmd->flags & USBG_CMD_OUT_SHORT)) {
+>  		if (cmd->is_read) {
+>  			ep = fu->ep_in;
+>  			req = fu->bot_req_in;
+> @@ -1090,8 +1091,15 @@ static void usbg_data_write_cmpl(struct usb_ep *ep, struct usb_request *req)
+>  		return;
+>  	}
+>  
+> -	if (req->status) {
+> -		pr_err("%s() state %d transfer failed\n", __func__, cmd->state);
+> +	/* a short data-out left the buffer unwritten; don't commit stale data */
+> +	if (req->status || req->actual != req->length) {
+> +		struct usb_gadget *gadget = fuas_to_gadget(cmd->fu);
+> +
+> +		if (!req->status)
+> +			cmd->flags |= USBG_CMD_OUT_SHORT;
+> +
+> +		dev_err_ratelimited(&gadget->dev, "%s() state %d transfer failed\n",
+> +				    __func__, cmd->state);
 
-What does that mean? If we have a 2MB shadow mapping, then the guest
-cannot have something smaller in its own PTs. And how do you get a "4K
-TLBI IPAS2E1IS"? TTL == {4kB, L3}? If that's the case, we have every
-right to *ignore* this TLBI, because it cannot possibly reflect the
-original state of the PTs. If this is an unqualified address (no TTL),
-then the whole block *must* go.
+Why is this needed?  And __func__ is never needed for dev_() calls.
 
-There is no such thing as "partial invalidation".
+thanks,
 
-> kvm_pgtable_stage2_unmap() shatters and clears the entire
-> block descriptor in mmu->pgt.
-
-Shatters? Or clears the entire block? It cannot be "and" because the
-two are polar opposites.
-
-> However, kvm_remove_guest_s2_mappings()
-> only removes a struct kvm_guest_s2_mapping node when its entire
-> [nested_start, nested.last] span lies within the unmap range.
-
-What do you call "the unmap range"? What we have removed from the
-shadow S2? What the guest gives us as part of the TLBI instruction?
-Something else?
-
-> As a
-> result, every sub-block invalidation followed by a re-fault leaks a
-> stale block-sized tracking node in mmu->guest_s2_mappings and
-> kvm->arch.mmu.guest_s2_mappings until the shadow MMU is destroyed,
-
-Leaks? A leak is something that is still allocated, but not linked to
-an existing data structure, and therefore not recoverable. This looks
-to me like exact opposite of a leak...
-
-> allowing an L1 guest to grow host kernel memory and degrade subsequent
-> TLBI IPAS2E1IS walks to O(N) under write_lock(&kvm->mmu_lock).
-
-Honestly, this wall of text is not an explanation. That's just a whole
-lot of LLM gunk that you have generously copy pasted.
-
->
-> Conversely, unconditionally removing any overlapping tracking node on a
-> sub-block unmap would be unsafe when a shadow block mapping has been
-> split into a child table (such as on a page-granule fault under dirty
-> logging or a racing shared walk returning -EAGAIN), because sibling
-> sub-page PTEs outside the unmapped range remain live in mmu->pgt and
-> still rely on the block-sized tracking node for host MMU notifier
-> unmaps.
-
--ENOPARSE. Sub-page PTEs sounds like a great idea.
-
-I stopped reading here. Please come back with an actual description of
-the problem that you will have produced yourself, or provide the
-original LLM report (it cannot be much worse than the above).
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+greg k-h
