@@ -1,82 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206088;
-	b=xGtaWCksOFFsBbVO3ahfgxPzBrmugNK9Ju0kA4/LQ9be4OE44tD6CLqTIYJJ3oEswd7M
-	 e4v5B+96GRoKxzF581F+fBP3dpR5K+LvnYd6ZHEF0I/YvUeWhNJMrQBj4YDavhFWDLDRY
-	 JrdvP4L7fn4DFPRER5QhV+x4gCmqwAkIVx/hupi33QpRe2B7t9J9NktVxhxxNfj65cIRV
-	 dI85hgYy3f/QmpJbEZ4j8eOUk02gtft43TAEmagz/YhvlTZABXoopIu6Uw1Rs84XKlCsX
-	 gTYnsjy3fZyGVDMy0ZviDrMsDWeLbIcknsQN7D3wXP6jp6dGWeUAI0hIel2N+dR8Acg==
+	t=1795206249;
+	b=f1Uo/Z4p4mPFBBCBmUdWn1asBMr/exGpIOSVLIIPEk6UgFts8koEpubAupozV9CaseXd
+	 mhbE1Ih9I7fWOH1NU6t/R5sM4wyIUTffjHGFfasaLOn4Tti83VxL0Dz7aWo8nqIbpP0Wd
+	 ggi35VgJvZtoMn0abywcj3ScLWJ41yeH2IIRVb28qeaBpKJDvb6dpW4FYSSb2KYvjEqkX
+	 vByJ6P3+bUQ6HwCbELI+UFW5lpRUNIk6S4QsveSzbgpq7q6hmQJs0aRqV2eH0v7nL+sYQ
+	 HmzK4i144Ir7XpL2pVrVKh0NS7MVi6cKmpl1MG5Y9BiutdhVG8+WCdEDgBvNOAhQJrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206088;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=FhubQ0AwqwjKKa4eYGPVP/A6yHZrg9Mpv8xAmXRO44Y=;
-	b=Ij2enmmz/2Bz+KPQvvl2SqpaJFotTobrSA98NYBFdEPF8WDyX6+6SUwmNJ3k3v7FtLP7
-	 +IEoYXPcdySgdYuKW7uk6vyyelOlP8CxLRfnarfnrrR/sdTUykrfVkKIaMmTgq3ZmVryk
-	 GNgmI8G2Il2MjBhGyJQXA4SedsXhOm7ikpiyytUg2LBMJO7ZeDDDDcayhU73FH9XE6Jpg
-	 2HrgAa5H2anV1lqVXjSYmsmjOqMCokHRluLkbhSnRmTJoUGdtGMJXoLmrTCP6ogx9OCLd
-	 pPEuECYPl1XnUmsehbNFisHf1YKFuzQNI3B9UPtN9DRrJswRfI1hZWfc2LSv5f6vyBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795206249;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=8sGPwxDcWxVjAGsmOZOEmODTRujm9ilPC0+3rwHfGMc=;
+	b=B6KTLx8lyRkIcbsAUcwnnbHg3d47Aizi6txMGIblzD27dYxCi+dDMc2FJzg2PD1i8Fcr
+	 ofyeK445ccKRMyMvTVP9lN1PiQziK3lf091zrgVqMIxEJpA/Vv+UBvctSCDPCmXleQ2hT
+	 HPQPoaB/zONwKQyUJb1LBf+D5zQelqlNrRfcDFgNg/bFbXGYGRulsdVCFQGmHkUkX6HlD
+	 Ev+wQyEAYU+3rbDRSaRQpefDp8BGE/dNvMOUBZdc8pqW/jXKsy2sjXRLy2n1MPAJmpcPv
+	 Fe6gLVeJKX/3Q9ru1W7nmPdleam7hQnmhfQI+iZGuUntPWKHAnVnliyYqHZFi1bDFuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQBjBqzG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b="LiECJw/0";
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 447D360A260A;
-	Fri, 20 Nov 2026 20:21:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6418606A6E8;
+	Fri, 20 Nov 2026 20:24:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6418606A6E8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jQBjBqzG
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id F21721F000C4;
-	Fri, 20 Nov 2026 20:21:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795206087;
-	bh=FhubQ0AwqwjKKa4eYGPVP/A6yHZrg9Mpv8xAmXRO44Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jQBjBqzG9wwGKgTzZ5RMcA461vYrebLjyuQVHxrMJIqVm6XCJroPZ2h9EzUP1NEuA
-	 u4q+mf95gFoA8IW250eIZU2W0j1/vSAhqkx1C0dlekzJVvN0bdbNNWp28gyMm2VPCW
-	 b4iTDPCGGsqOMBqAzbKqPUIQJarXsSX278GxUahwpHF+/sfv3N2I+y5I6aLg9gYzdO
-	 +rxuOihQ4f1ULAKCRdfKwCdvz2J8MOEl3zD6WFxuyXj6tBwZLrzDJIRPedq63s+/lv
-	 REUz6Qw2D/1KQfSp6Bv19VQNXAdR384dD0+9UhoiG/vhaLtWXbnwQwmpjWM/6x1eM1
-	 iQbBrcm1nn4iA==
-Date: Fri, 20 Nov 2026 21:21:13 +0100
-From: Nicolas Schier <nsc@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Nathan Chancellor <nathan@kernel.org>, Sasha Levin <sashal@kernel.org>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
-Subject: Re: [PATCH 2/2] devicetable-offsets: Get struct cpu_feature from a
- device-id header
-Message-ID: <awCruYkI2TkxJfPC@levanger>
-Mail-Followup-To: Nicolas Schier <nsc@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	Harald Freudenberger <freude@linux.ibm.com>,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kbuild@vger.kernel.org, linux-s390@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org, "kernelci.org bot" <bot@kernelci.org>
-References: <179424040477.1704532.18231793404479518924.b4-ty@b4>
- <av8Uv7EV3sLqUBfr@derry.ads.avm.de>
- <20261119194738.GC875856@ax162>
- <awAtvSIQeLJq2hvF@monoceros>
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=LiECJw/0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 10056A0956;
+	Fri, 20 Nov 2026 21:23:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795206241; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=8sGPwxDcWxVjAGsmOZOEmODTRujm9ilPC0+3rwHfGMc=;
+	b=LiECJw/0qrTDqlAgTkAJyeA7xJGd9iOQPTtiGpP/d9r/xFJmDTl+xSZSMM2IA9CMKaevXe
+	i9HypoliVQAkWWIu9VGQuNzr17xIc+pUUc/+prrjsLSKtxv4Ek4wxU5R6tkpi2mcKIdFmG
+	0SZPmQjyIrsiClqbXI3jsCFfurYfVoDIM+zCjQGcZhIB7WQhjzDqSUdN38iXk5U/VWLRLD
+	+WBQuqBqp9GDZS4txAbLphXCBd1/ESTlaLANVNpcnlBRrSPvZ1lexwiDn3N9z3729I/uhm
+	EDlLxl385xTvGrLg57toLhO/VkvxT0ZgXuOxTi8xkrzbtJmvKkFjqB4sI0n+HA==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,58 +53,321 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <awAtvSIQeLJq2hvF@monoceros>
+Date: Fri, 20 Nov 2026 21:23:59 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>, Justin
+ Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>, Broadcom
+ internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
+ Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, linux-kernel@vger.kernel.org, Mlody12 mlody12
+ <kudzo51@gmail.com>
+Subject: Re: [PATCH net-next v5 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
+ support
+In-Reply-To: <20261120194318.3952487-5-florian.fainelli@broadcom.com>
+References: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
+ <20261120194318.3952487-5-florian.fainelli@broadcom.com>
+Message-ID: <f99d99bfb3e3a4dce182cad801c05be8@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, Nov 20, 2026 at 12:25:48PM +0100, Uwe Kleine-König wrote:
-> Hello,
+On 20.11.2026 20:43, Florian Fainelli wrote:
+> Add Clause 45 read/write support to the UniMAC MDIO bus controller 
+> driver
+> by implementing the read_c45/write_c45 bus callbacks. Each access 
+> performs
+> the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) 
+> under
+> the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
+> MDIO_CFG is only written when the mode actually changes.
 > 
-> On Thu, Nov 19, 2026 at 12:47:38PM -0700, Nathan Chancellor wrote:
-> > On Thu, Nov 19, 2026 at 04:24:47PM +0100, Nicolas Schier wrote:
-> > > So my questions:
-> > > 
-> > >  * Shall we keep it the way it is to keep the original patch order
-> > >    (bisect might fail on the two commits before this patch)?
-> > > 
-> > >  * Or shall the patch be moved before Uwe's (removing the 'Fixes' tag,
-> > >    and rewriting the commit msg)?
-> > > 
-> > > I am in favor of the latter.  Are there any objections?
-> > > 
-> > > 
-> > > [1]: https://git.kernel.org/kbuild/c/f1dc66c38b7eb4b2fb946a2fd6929250ecd2d85a
-> > > [2]: https://patch.msgid.link/bc9fbf5784f6788e10c749a05d56c42bdb68f3d9.1792144769.git.u.kleine-koenig@baylibre.com
-> > 
-> > If history is already being rewritten, I believe it is always good to
-> > fix potential bisection issues like this. Rewriting the commit message
-> > (and maybe some of the diff?) and placing it in an order such that the
-> > build cannot break sounds great to me (but others are free to disagree).
+> Since MDIO_CFG also holds the clock divider, unimac_mdio_resume() now 
+> takes
+> the bus lock around unimac_mdio_clk_set() so that it cannot race with 
+> the
+> read-modify-write done by the accessors. Resume may therefore wait for 
+> an
+> MDIO access that is in flight.
 > 
-> Full ack. I think the danger to hit that point during bisection is
-> small, but I like the 2nd option as this reduces the small chance to 0
-> in that case that people yell at me :-)
+> Some wait_func implementations (e.g.: bcmgenet_mii_wait()) return 0 
+> even
+> when the controller is still busy. For C45 this would let the data 
+> cycle
+> or the next access's MDIO_CFG switch start while a frame is in flight, 
+> and
+> return the command bits instead of the read data. Check that the 
+> controller
+> is idle after every cycle, C22 ones included, and report a timeout 
+> instead.
 > 
-> So from my side: go!
+> Also skip the BMSR workaround read in unimac_mdio_reset() for children
+> compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
+> expected to respond to C22 accesses.
+> 
+> Note that providing read_c45/write_c45 also makes the MDIO core scan 
+> for
+> C45 PHYs at registration time, on addresses that are not masked and do 
+> not
+> already have a C22 device. This is not the case when the bus is 
+> registered
+> from a Device Tree node, which masks all addresses.
+> 
+> The platform device that GENET instantiates when it is probed without a
+> Device Tree node (e.g.: ACPI) does not mask any address, so it is 
+> scanned
+> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a 
+> timeout
+> per frame since GENET's interrupt is not registered yet when the bus is
+> registered. That makes the scan slower at probe time on such systems, 
+> the
+> same way the C22 scan already is.
+> 
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
+> Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
+> Co-developed-by: Justin Chen <justin.chen@broadcom.com>
+> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
+> ---
+>  drivers/net/mdio/mdio-bcm-unimac.c | 136 ++++++++++++++++++++++++++---
+>  1 file changed, 126 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c 
+> b/drivers/net/mdio/mdio-bcm-unimac.c
+> index f8e5c1811d96..b01e99327b56 100644
+> --- a/drivers/net/mdio/mdio-bcm-unimac.c
+> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
+> @@ -24,10 +24,16 @@
+>  #define  MDIO_OP_SHIFT		26
+>  #define  MDIO_RD_C22		(2 << MDIO_OP_SHIFT)
+>  #define  MDIO_WR_C22		(1 << MDIO_OP_SHIFT)
+> +#define  MDIO_ADDR_C45		(0 << MDIO_OP_SHIFT)
+> +#define  MDIO_WR_C45		(1 << MDIO_OP_SHIFT)
+> +#define  MDIO_RD_C45		(3 << MDIO_OP_SHIFT)
+>  #define  MDIO_PMD_SHIFT		21
+>  #define  MDIO_PMD_MASK		0x1F
+>  #define  MDIO_REG_SHIFT		16
+>  #define  MDIO_REG_MASK		0x1F
+> +#define  MDIO_DEVAD_SHIFT	16
+> +#define  MDIO_DEVAD_MASK	GENMASK(20, 16)
+> +#define  MDIO_C45_REG_MASK	GENMASK(15, 0)
+> 
+>  #define MDIO_CFG		0x04
+>  #define  MDIO_C22		(1 << 0)
+> @@ -97,7 +103,60 @@ static int unimac_mdio_poll(void *wait_func_data)
+>  					MDIO_CMD);
+>  }
+> 
+> -static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+> +/* Wait for a cycle to complete. Some wait_func implementations (e.g.:
+> + * bcmgenet_mii_wait()) return 0 even when they timed out with the 
+> controller
+> + * still busy, in which case MDIO_CMD[15:0] holds the command rather 
+> than the
+> + * data, and MDIO_CFG or MDIO_CMD must not be touched before the frame 
+> is
+> + * over. Make sure the controller is idle after every cycle.
+> + */
+> +static int unimac_mdio_wait(struct unimac_mdio_priv *priv)
+> +{
+> +	int ret;
+> +
+> +	ret = priv->wait_func(priv->wait_func_data);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return unimac_mdio_poll(priv);
+> +}
+> +
+> +static u32 unimac_mdio_c45_devad(int devad)
+> +{
+> +	return ((u32)devad << MDIO_DEVAD_SHIFT) & MDIO_DEVAD_MASK;
+> +}
+> +
+> +static int unimac_mdio_addr_c45(struct unimac_mdio_priv *priv,
+> +				int phy_id, int devad, int reg)
+> +{
+> +	u32 cmd;
+> +
+> +	/* Prepare the addr c45 operation */
+> +	cmd = MDIO_ADDR_C45 | (phy_id << MDIO_PMD_SHIFT) |
+> +	      unimac_mdio_c45_devad(devad) | (reg & MDIO_C45_REG_MASK);
+> +	unimac_mdio_writel(priv, cmd, MDIO_CMD);
+> +
+> +	/* Start MDIO transaction */
+> +	unimac_mdio_start(priv);
+> +
+> +	return unimac_mdio_wait(priv);
+> +}
+> +
+> +static void unimac_mdio_set_clause(struct unimac_mdio_priv *priv, bool 
+> is_c45)
+> +{
+> +	u32 cfg = unimac_mdio_readl(priv, MDIO_CFG);
+> +	u32 new_cfg = cfg;
+> +
+> +	if (is_c45)
+> +		new_cfg &= ~MDIO_C22;
+> +	else
+> +		new_cfg |= MDIO_C22;
+> +
+> +	if (new_cfg != cfg)
+> +		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
+> +}
+> +
+> +static int unimac_mdio_do_read(struct mii_bus *bus, int phy_id, int 
+> devad,
+> +			       int reg, bool is_c45)
+>  {
+>  	struct unimac_mdio_priv *priv = bus->priv;
+>  	int ret;
+> @@ -108,14 +167,25 @@ static int unimac_mdio_read(struct mii_bus *bus, 
+> int phy_id, int reg)
+>  		return ret;
+> 
+>  	/* Prepare the read operation */
+> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> -		(reg << MDIO_REG_SHIFT);
+> +	unimac_mdio_set_clause(priv, is_c45);
+> +	if (is_c45) {
+> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
+> +		if (ret)
+> +			goto out;
+> +
+> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
+> +			unimac_mdio_c45_devad(devad) |
+> +			(reg & MDIO_C45_REG_MASK);
+> +	} else {
+> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> +			(reg << MDIO_REG_SHIFT);
+> +	}
+>  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
+> 
+>  	/* Start MDIO transaction */
+>  	unimac_mdio_start(priv);
+> 
+> -	ret = priv->wait_func(priv->wait_func_data);
+> +	ret = unimac_mdio_wait(priv);
+>  	if (ret)
+>  		goto out;
+> 
+> @@ -137,8 +207,8 @@ static int unimac_mdio_read(struct mii_bus *bus, 
+> int phy_id, int reg)
+>  	return ret;
+>  }
+> 
+> -static int unimac_mdio_write(struct mii_bus *bus, int phy_id,
+> -			     int reg, u16 val)
+> +static int unimac_mdio_do_write(struct mii_bus *bus, int phy_id, int 
+> devad,
+> +				int reg, u16 val, bool is_c45)
+>  {
+>  	struct unimac_mdio_priv *priv = bus->priv;
+>  	u32 cmd;
+> @@ -149,18 +219,50 @@ static int unimac_mdio_write(struct mii_bus *bus, 
+> int phy_id,
+>  		return ret;
+> 
+>  	/* Prepare the write operation */
+> -	cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> -		(reg << MDIO_REG_SHIFT) | (0xffff & val);
+> +	unimac_mdio_set_clause(priv, is_c45);
+> +	if (is_c45) {
+> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
+> +		if (ret)
+> +			goto out;
+> +
+> +		cmd = MDIO_WR_C45 | (phy_id << MDIO_PMD_SHIFT) |
+> +			unimac_mdio_c45_devad(devad) | (0xffff & val);
+> +	} else {
+> +		cmd = MDIO_WR_C22 | (phy_id << MDIO_PMD_SHIFT) |
+> +			(reg << MDIO_REG_SHIFT) | (0xffff & val);
+> +	}
+>  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
+> 
+>  	unimac_mdio_start(priv);
+> 
+> -	ret = priv->wait_func(priv->wait_func_data);
+> +	ret = unimac_mdio_wait(priv);
+> +out:
+>  	clk_disable_unprepare(priv->clk);
+> 
+>  	return ret;
+>  }
+> 
+> +static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
+> +{
+> +	return unimac_mdio_do_read(bus, phy_id, 0, reg, false);
+> +}
+> +
+> +static int unimac_mdio_write(struct mii_bus *bus, int phy_id, int reg, 
+> u16 val)
+> +{
+> +	return unimac_mdio_do_write(bus, phy_id, 0, reg, val, false);
+> +}
+> +
+> +static int unimac_mdio_read_c45(struct mii_bus *bus, int addr, int 
+> dev, int reg)
+> +{
+> +	return unimac_mdio_do_read(bus, addr, dev, reg, true);
+> +}
+> +
+> +static int unimac_mdio_write_c45(struct mii_bus *bus, int addr, int 
+> dev,
+> +				 int reg, u16 val)
+> +{
+> +	return unimac_mdio_do_write(bus, addr, dev, reg, val, true);
+> +}
+> +
+>  /* Workaround for integrated BCM7xxx Gigabit PHYs which have a problem 
+> with
+>   * their internal MDIO management controller making them fail to 
+> successfully
+>   * be read from or written to for the first transaction.  We insert a 
+> dummy
+> @@ -191,6 +293,10 @@ static int unimac_mdio_reset(struct mii_bus *bus)
+>  			if (addr < 0)
+>  				continue;
+> 
+> +			if (of_device_is_compatible(child,
+> +						    "ethernet-phy-ieee802.3-c45"))
+> +				continue;
+> +
+>  			read_mask |= 1 << addr;
+>  		}
+>  	}
+> @@ -302,6 +408,8 @@ static int unimac_mdio_probe(struct platform_device 
+> *pdev)
+>  	bus->parent = &pdev->dev;
+>  	bus->read = unimac_mdio_read;
+>  	bus->write = unimac_mdio_write;
+> +	bus->read_c45 = unimac_mdio_read_c45;
+> +	bus->write_c45 = unimac_mdio_write_c45;
+>  	bus->reset = unimac_mdio_reset;
+>  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-%d", pdev->name, pdev->id);
+> 
+> @@ -337,8 +445,16 @@ static void unimac_mdio_remove(struct 
+> platform_device *pdev)
+>  static int __maybe_unused unimac_mdio_resume(struct device *d)
+>  {
+>  	struct unimac_mdio_priv *priv = dev_get_drvdata(d);
+> +	int ret;
+> 
+> -	return unimac_mdio_clk_set(priv);
+> +	/* MDIO_CFG is also modified by the MDIO accessors to switch between
+> +	 * Clause 22 and Clause 45, which run under the bus lock.
+> +	 */
+> +	mutex_lock(&priv->mii_bus->mdio_lock);
+> +	ret = unimac_mdio_clk_set(priv);
+> +	mutex_unlock(&priv->mii_bus->mdio_lock);
+> +
+> +	return ret;
+>  }
+> 
+>  static SIMPLE_DEV_PM_OPS(unimac_mdio_pm_ops,
 
-Thanks!
-
-I'll send a patch that combines both patches in a few minutes.  I plan
-to replace
-
-  * Move struct cpu_feature to <linux/cpufeature.h>
-    https://patch.msgid.link/bc9fbf5784f6788e10c749a05d56c42bdb68f3d9.1792144769.git.u.kleine-koenig@baylibre.com
-
-and
-
-  * devicetable-offsets: Get struct cpu_feature from a device-id header
-    https://patch.msgid.link/f610c07f39df15f3e7ebdc63bfcd759ca7a687a8.1794233316.git.sashal@kernel.org
-
-with it.  Please complain in case of objections or inappropriate tags.
-
-Have a nice weekend!
-
-
--- 
-Nicolas
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
