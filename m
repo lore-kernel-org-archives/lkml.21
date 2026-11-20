@@ -1,101 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.217.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795135830;
-	b=lpWUPbUSOLnys+Pt216BzvRJW20zxBog5AXcJ+AatjVsUSvkWuZZm0K5REK2vPM5tLbw
-	 D3GAgFxjVukm82q1D2lJTqZ66FEIiJdf07RTX8kzwSwo+ceH40/1zZsLkHTPYppO901Hv
-	 LJ+IX7N0SKqOWvtA2V49FkfJD/PrIC+/VrYsAE+hQ/wBJBMEFFMBxcIX5qzuHWER0bJFm
-	 5OtaIxahabZKxji/Gc8g9tZlbDq+N6mzzedw1F/8NWN1YZF3JhF1OcwIHOnG2JbgDS8Aa
-	 JFOs722JpjYYiR6OKE3Om0m9kG4Pun/oDnqFit7tpyjamcoPB57+HR0CIqzsVHEWo6Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135830;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=4pQ/jBdCGos9KDlJt1J2TDwopdBtnvMOQDgM0Dw4Uoc=;
-	b=GcYNS5Zm6fY0RAa7HW293LlJXi31g2NTfHPkO8i4ZkbM20AfurYVFYyAhQieIB8Qp4aU
-	 tjpo31GxyuPWQP3Zt7XyKZ+NlZnQzEeiOR9jnUuKfSw7U7ZhbP+bxTVcnfDBu2UqUEpfC
-	 MoihVhR8NpQgVAdTsDpBLi/YHpdDPR5fkLxbD8b8eqxdGqmi95lccW5zM6kx5bCln2NbR
-	 x+/dgkqZZqN82FDPWgyjFzahw2TS+5wIAtGlFkszjEmHBwA21XqlYr2a54Pzk62zI4fq2
-	 sl4uVp2AvDj6aPHpVdgUeGczQ/2jHwvKFmvPyKHFpuHFZ/lKpZcwLgS8Hgi/PfLFY4Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AtGdGmCq;
-	arc=fail smtp.remote-ip=209.85.217.42
-Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com [209.85.217.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795135865;
+	b=0yvhhxmG0nAwXQa8mBsBMVp51HpPiVJJg3g+/AHtS5jlU5w6KDrGWAaay7BDE912mqUr
+	 3K5ktDD2zJ2u1gnVyrJGAkfSso8gpjHC8NklG0ynP3wlXRKlw49rtMDhjT8XSkX3vr7qL
+	 r9Npl4X4Qruq8KmZa4nqBBxwGFZrUzKwnpUkwxqL7C4sUfrmdGHL0WTUgdT8/9MQ9Gok5
+	 2XMEJJBFU6+TvX/VPiwkygjJmSZ9KHQhEvpFcTww1elRh/kLt/cLZwrL7HHUOTSDFcbzf
+	 L0pY2JYrXcQxwdLfIZTx7X2C6eufsl2s+KaGhoLbykkWobt8MZy0xMeESDa69QhZwAQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135865;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=04JSIZhHjKFEu/YxzRiw0+EhqATPIIfOkPMS5Z9474I=;
+	b=LnGTng9Umrawz7oWn0yU11Zz0ZkssTXggU3NAIkrZkNMP91D2AstWFuwKd+HJRrY4GCl
+	 HqroBpVaP2K5PCjs6KaXlVYtEb43YIzGXINCi24dWYHejcww93w+3Gu2HBRWoJJbvCmif
+	 1pqmie7bfUkZZdvO4UJ4Wgd8k5/+Yc5oVsBtgX1jGggJagOfGrG7SqM3EDYZIy9JXEvMP
+	 ajfcIg6gG5I1sDQASlyVl77X2r26J1KASF2XIZEpKlHNNVDtwwpydySID6C1OJt/7xvQM
+	 kZ0f4oLSOctQZG+i/380K/SEOLkHkwXKJ+AzDMDHF/+hIQZM3p6B8z5A+G1u0e4UfJg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hAPjT4Ft;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8AE5606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:50:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8AE5606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D8FC606A325;
+	Fri, 20 Nov 2026 00:51:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D8FC606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AtGdGmCq
-Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-7d65662077cso181481137.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:50:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795135829; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aGmJhpdyOBXU7RYm9YWL2m22NUeC3MS9sUG7edPZlcu+MfqmTqot4FkDtzxqq0Fm/P
-         4gCe1cPAqmngoiQ4+NRZ/Jys1hxcrzXJkvkIxIbbqtY4buAi31pTSF5Tad7tjz1LcM0u
-         sda06tHPR4MGT/+oyQbG4GXnaCzUpGrxXxnSR8XtzPyma/Nq9cK/qYHmjCM3OAuBF50n
-         HFpknx9nsZWjkN+kR7IWP4TQRvfaZbePqeYqDSVZ/9QiC7f8MQULF43TnlHavtSnqKO8
-         4mT+TD9x0aRh/bWrTxAgJkZk8IzFd2vP4jfa/duz/Q+OhIikdG66BwlJU4dYvFu6fkrP
-         xe7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=4pQ/jBdCGos9KDlJt1J2TDwopdBtnvMOQDgM0Dw4Uoc=;
-        fh=2VNpz4MekpPWEHCKk07DNft6H9eb6GQcEA2siJYkmdw=;
-        b=INX7915cxfKmlbtpmexvy0wC4sZx7DXETZkgBgrJkAgEaVo+UCQH/tEn3fW/jp5tUo
-         o39LHujWVdCnZ21PwmKYnEjvT2WT6Mok3bI49Ee318dMDLKL/44a3lGnd7LJKDE9Nk0B
-         512GiBhiWnB8vmySeFgCI1kIY03+gkm1ySV0J+k76ZTMi7DbLQT9nWdgSqnKaQUC+Lig
-         kgYkyP/LSD6G9CzFVbU8j5vUqK1B571Wb5X92PYSLuPvoRf+f07//WmeR2dlvHGR62M1
-         wAK5nkCPk4VwY5SQpq3WKzab60f8TD3MOqT8DG7IrKOg3Ydmc9XPW4LOBAx330UrGN95
-         iqeA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795135829; x=1795740629; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4pQ/jBdCGos9KDlJt1J2TDwopdBtnvMOQDgM0Dw4Uoc=;
-        b=AtGdGmCqYWoBagnroC2kHC0RNlIUQFcdGwFSfIhmpAOpSH7S9OzAMR0o0dof16ztpp
-         XdEGWoEjYwLoudW4mOupNda2yO2gEZ3dC1vzTXaIBC9Ve/A9Wqo4Gm211szeC/e4fJwz
-         xa+H67uKRR+3CvqeVV7bX/ZMWcU2pei4vqImjg5FQJ0VmhYJo1ICNX/BU0AeVCPlYlJO
-         hLTboBdfqd5nAnzWH/gwtY6OM/kQXnhwrttMbfXUlor4OKXg4BHgB+9TdJB47/JiiQFm
-         LcugDJtKsfoJE6dieQvhm4pB6dPV0dc06673o4joi1IGbyHOycbQkiF4aEQO4hF9HFr9
-         +/cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795135829; x=1795740629;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=4pQ/jBdCGos9KDlJt1J2TDwopdBtnvMOQDgM0Dw4Uoc=;
-        b=iDtn9r9QRrEZBoQxUj1fxGxYWKMXEihHiOBa2DLbwUuq6FZ+B/CF9KYDWBZQG+XsY8
-         kgNrLP4mKyhXZwva4oRchGSuoJXWN939/HOL1hChvA9SSb5C/XTLLZPdrATOGi4F/5P4
-         eQwvcXGrqKWK/k45fT1pr6ND7q5Qm6SoQlUYBXmHVFbJcJ1wEipMRCBB6lNBTBsU/iG1
-         HHsznl5hNljX8jqg9Cv1LlPrtpbDncURjOLXUHlgwgrFWQnOzn/z200SRhAoUBKPPH4u
-         DLv8pncEZwaTEXqgX0BBR+Q0R//EuQpUHmFeiYwZq1D6FH9+N9nB/WPBvBmI1dqnxY1V
-         60iw==
-X-Forwarded-Encrypted: i=1; AL+hErFD6cixYTAavkvfYUetgCNe3D0f4EmN3BPsaKxqbwHYIs29C1Juq4TLS4/YW6SpLQBIKWVd9Sf/EgM1Sk8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/YGkz7u2q6+UYHVynZOj7c6uMWbN7c1BrrGmiVzuRputbF+MOd
-	IoSC79thOXMb6/34VRm8b5cUXvJwGDTxkLsN3SoJaMiEQU+ETbT1V0GoZxfSyYGA9js3k0fhHLD
-	mZ7TlZXc+8KR66uHLwhOdcLPnz2fEXcU=
-X-Gm-Gg: AYBFou3wl3tpxxyBMwEUheecdGCedRBbhfGMKYMfn+jSyNY2QV/+My70lYVwoZu0xXw
-	7zL3bMFldZ4FadcAlhKjlb0547sp4b3XRmtJ3PiEHQscmLRipRJ6bwVAEXcH+Kd57vGv18segP4
-	ncG5MWBgTSa/rwemGSZvwAr7IN7QjlwpwmqmrENG+hOgeFhWDfA0x6XU2eQb3HPatbGFO0h9vRU
-	2DF93tKXlQ35ZyaGX2j524Hvx7YQ3KypMvnapdRLXGFflw/pFhQeNMP0MaJbNyrhnN9Z3N1oLv6
-	eH5s4ZuuEDC05agpAZtbptFjGKt3MxpNnd2DCVq1U8gkYHx5ixIS9RzOPH88jNKMK/eZ8nd4JUq
-	Du2LaeB4TM/4iB7ZPVvwGfHUMnU7S8pr4DYjyPEiy0EmngRnNTl0PV1IzgB5usYRtIO7wYdyLUc
-	sRmE9XGhkN/gTWxelVjQBU4cjkyk16xjB4dMqCxMzWNSwzUtWE1o6uQgCqtE5fWmtqCpxBv9Ut1
-	ebeelDE9JTUl7c9bnK5br1YI1Ecmp7lqLipWJMQLg==
-X-Received: by 2002:a05:6102:441a:b0:7c3:f36:c7b with SMTP id
- ada2fe7eead31-7d739460f73mr627739137.14.1795135828903; Thu, 19 Nov 2026
- 16:50:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hAPjT4Ft
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795135866; x=1826671866;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   in-reply-to;
+  bh=PiQQ53VfPmAKE6LrwH/r/v6LsS18HY/qWJCCHOSzdls=;
+  b=hAPjT4Ft5T2T3cnoVAdzwHTtPIuAQvTLiMvWqlklHjR9N5JI7oPa9yFn
+   IlxuRkV2CXd3TCAhrbpexYKd3f/FF/YCEWSR1l82FadSuVs0pfzR+fcca
+   KsFRMP3OI4nes808G6fD+ELDErtTnjJ4C80erPPzCm2uHM7lun00RyZRJ
+   UvydMUExmbny4m/vW5mufvbw18RXTitSHTFqWPpvTvzW4XifseYcGMD5I
+   oVR5e6T9Te+RpXXPmiB+cWnp0Nc4QbZUWShM5e5HxwD9BsUM5CzdlE5jO
+   SoeNtZWbYzAtojJuljrrnGWbh/dRKmLcL33Of6GnBkOP4DaZuq5RcICEq
+   A==;
+X-CSE-ConnectionGUID: T4Q5rm6YQfy/XDVFepjGQA==
+X-CSE-MsgGUID: an+bCtG4RUGF03bObRvI3A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3891155"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3891155"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:51:05 -0800
+X-CSE-ConnectionGUID: NfSyXI7OSyirTKo5cJZuig==
+X-CSE-MsgGUID: YeiBLmiMThqLC+jjX7H3Hg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10462099"
+Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:51:01 -0800
+Date: Fri, 20 Nov 2026 08:50:58 +0800
+From: kernel test robot <yi1.lai@intel.com>
+To: Sinan Turunc <enscrpt@pm.me>
+Cc: oe-lkp@lists.linux.dev, lkp@intel.com, keyrings@vger.kernel.org,
+	David Howells <dhowells@redhat.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>, paul@paul-moore.com,
+	jmorris@namei.org, serge@hallyn.com,
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, yi1.lai@intel.com
+Subject: Re: [PATCH] keys: serialise instantiation against keyctl_chown_key
+Message-ID: <202611192204.aa82996f-lkp@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,23 +81,150 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20260930-b4-elan2514-irq-route-v1-1-44671bf01d05@gmail.com> <75148n0r-r943-9304-n194-r66rnnq660s5@xreary.bet>
-In-Reply-To: <75148n0r-r943-9304-n194-r66rnnq660s5@xreary.bet>
-From: Waqar Gulzar <iamwaqargulzar@gmail.com>
-Date: Fri, 20 Nov 2026 05:50:17 +0500
-X-Gm-Features: Aa3M54rs1VLWPrHj2w7hmXHghKJVCZNUY4vPO1mwF8EQIcxkzA7-LKDhDSyrkzY
-Message-ID: <CADeB2Yom5E_0MwW=9i6RATAEFBmO+Q+ygR9efN84S1mtKVcE6w@mail.gmail.com>
-Subject: Re: [PATCH] HID: i2c-hid-acpi: restore touchscreen IRQ routing on HP
- OmniBook X Flip 16
-To: Jiri Kosina <jikos@kernel.org>
-Cc: Benjamin Tissoires <bentiss@kernel.org>, linux-input@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115121722.206-1-enscrpt@pm.me>
 
-On Fri, 20 Nov 2026 at 01:45, Jiri Kosina <jikos@kernel.org> wrote:
-> Applied to hid.git#for-7.4/upstream-fixes, sorry for the delay.
 
-Thanks, Jiri!
+Hello,
 
-Waqar
+kernel test robot noticed "WARNING:possible_circular_locking_dependency_detected" on:
+
+commit: a22ea46d3e3ee6e7fbea90bd9b1ff61cdcdc96c1 ("[PATCH] keys: serialise instantiation against keyctl_chown_key")
+url: https://github.com/intel-lab-lkp/linux/commits/Sinan-Turunc/keys-serialise-instantiation-against-keyctl_chown_key/20261115-121740
+base: https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git 23c62304dde29abe92013d85910d03a77dada35d
+patch link: https://lore.kernel.org/all/20261115121722.206-1-enscrpt@pm.me/
+patch subject: [PATCH] keys: serialise instantiation against keyctl_chown_key
+
+in testcase: trinity
+version: trinity-x86_64-216a8b36b-1_20261116
+with following parameters:
+
+	runtime: 300s
+	group: group-02
+	nr_groups: 5
+
+
+config: x86_64-randconfig-121-20251020
+compiler: gcc-14
+test machine: qemu-system-x86_64 -enable-kvm -cpu Haswell-noTSX,enforce -smp 4 -m 16G
+
+(please refer to attached dmesg/kmsg for entire log/backtrace)
+
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <yi1.lai@intel.com>
+| Closes: https://lore.kernel.org/oe-lkp/202611192204.aa82996f-lkp@intel.com
+
+
+[  227.133561][ T1501] WARNING: possible circular locking dependency detected
+[  227.137692][ T1501] 7.4.0-rc2-00717-ga22ea46d3e3e #1 Not tainted 
+[  227.138989][ T1501] ------------------------------------------------------
+[  227.140436][ T1501] trinity-c3/1501 is trying to acquire lock:
+[  227.141691][ T1501] ffffffff838679e0 (keyring_serialise_link_lock){+.+.}-{4:4}, at: __key_move_lock (keys/keyring.c:1305) 
+[  227.143815][ T1501] [  227.143815][ T1501] but task is already holding lock:
+[  227.143815][ T1501]
+[  227.143815][ T1501] but task is already holding lock:
+[  227.143815][ T1501]
+[  227.143815][ T1501] but task is already holding lock:
+[  227.145340][ T1501] ffff88812a091e08 (&type->lock_class/1){+.+.}-{4:4}, at: __key_move_lock (keys/keyring.c:1298) 
+[  227.147290][ T1501] 
+[  227.147290][ T1501] which lock already depends on the new lock.
+[  227.147290][ T1501]
+[  227.147290][ T1501] which lock already depends on the new lock.
+[  227.147290][ T1501]
+[  227.147290][ T1501] which lock already depends on the new lock.
+[  227.147290][ T1501]
+[  227.149447][ T1501]
+[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
+[  227.149447][ T1501]
+[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
+[  227.149447][ T1501]
+[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
+[  227.151296][ T1501]
+[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
+[  227.151296][ T1501]
+[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
+[  227.151296][ T1501]
+[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
+[  227.152939][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
+[  227.154012][ T1501]        __lock_acquire (locking/lockdep.c:5288)
+[  227.155085][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
+[  227.156219][ T1501]        lock_acquire (locking/lockdep.c:5907)
+[  227.157219][ T1501]        down_write_nested (locking/rwsem.c:1757 (discriminator 1))
+[  227.158300][ T1501]        __key_instantiate_and_link (keys/key.c:451)
+[  227.159581][ T1501]        key_instantiate_and_link (keys/key.c:549)
+[  227.160804][ T1501]        keyring_alloc (keys/keyring.c:541)
+[  227.161819][ T1501]        blacklist_init (blacklist.c:337)
+[  227.162888][ T1501]        do_one_initcall (main.c:1419)
+[  227.163950][ T1501]        do_initcalls (main.c:1481 (discriminator 1) main.c:1497 (discriminator 1))
+[  227.164975][ T1501]        kernel_init_freeable (main.c:1517 main.c:1732)
+[  227.166136][ T1501]        kernel_init (main.c:1622)
+[  227.167132][ T1501]        ret_from_fork (x86/kernel/process.c:158)
+[  227.168163][ T1501]        ret_from_fork_asm (x86/entry/entry_64.S:245)
+[  227.169265][ T1501]
+[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
+[  227.169265][ T1501]
+[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
+[  227.169265][ T1501]
+[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
+[  227.170969][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
+[  227.172036][ T1501]        __lock_acquire (locking/lockdep.c:5288)
+[  227.173115][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
+[  227.189495][ T1501]        lock_acquire (locking/lockdep.c:5907)
+[  227.191295][ T1501]        __mutex_lock (locking/mutex.c:646 locking/mutex.c:821)
+[  227.193002][ T1501]        mutex_lock_nested (locking/mutex.c:874 (discriminator 1))
+[  227.194980][ T1501]        __key_instantiate_and_link (keys/key.c:443)
+[  227.197215][ T1501]        key_instantiate_and_link (keys/key.c:549)
+[  227.199432][ T1501]        keyring_alloc (keys/keyring.c:541)
+[  227.201173][ T1501]        look_up_user_keyrings (keys/process_keys.c:116)
+[  227.202572][ T1501]        init_root_keyring (keys/process_keys.c:1044)
+[  227.217442][ T1501]        do_one_initcall (main.c:1419)
+[  227.219309][ T1501]        do_initcalls (main.c:1481 (discriminator 1) main.c:1497 (discriminator 1))
+[  227.221127][ T1501]        kernel_init_freeable (main.c:1517 main.c:1732)
+[  227.223114][ T1501]        kernel_init (main.c:1622)
+[  227.224834][ T1501]        ret_from_fork (x86/kernel/process.c:158)
+[  227.226598][ T1501]        ret_from_fork_asm (x86/entry/entry_64.S:245)
+[  227.228485][ T1501]
+[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
+[  227.228485][ T1501]
+[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
+[  227.228485][ T1501]
+[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
+[  227.231311][ T1501]        check_noncircular (locking/lockdep.c:2219)
+[  227.233160][ T1501]        check_prev_add (locking/lockdep.c:3209)
+[  227.235032][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
+[  227.236844][ T1501]        __lock_acquire (locking/lockdep.c:5288)
+[  227.238525][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
+[  227.240157][ T1501]        lock_acquire (locking/lockdep.c:5907)
+[  227.241603][ T1501]        __mutex_lock (locking/mutex.c:646 locking/mutex.c:821)
+[  227.242975][ T1501]        mutex_lock_nested (locking/mutex.c:874 (discriminator 1))
+[  227.244070][ T1501]        __key_move_lock (keys/keyring.c:1305)
+[  227.245152][ T1501]        key_move (keys/keyring.c:1634)
+[  227.246096][ T1501]        keyctl_keyring_move (keys/keyctl.c:618 (discriminator 3))
+[  227.247227][ T1501]        __do_sys_keyctl (keys/keyctl.c:2023)
+[  227.248314][ T1501]        __x64_sys_keyctl (keys/keyctl.c:1885 keys/keyctl.c:1885)
+[  227.249389][ T1501]        x64_sys_call (kbuild/obj/consumer/x86_64-randconfig-121-20251020/./arch/x86/include/generated/asm/syscalls_64.h:251)
+[  227.250447][ T1501]        do_syscall_64 (x86/entry/syscall_64.c:61 x86/entry/syscall_64.c:89)
+[  227.251533][ T1501]        entry_SYSCALL_64_after_hwframe (x86/entry/entry_64.S:121)
+[  227.252848][ T1501]
+[  227.252848][ T1501] other info that might help us debug this:
+[  227.252848][ T1501]
+[  227.252848][ T1501] other info that might help us debug this:
+[  227.252848][ T1501]
+[  227.252848][ T1501] other info that might help us debug this:
+[  227.252848][ T1501]
+[  227.255005][ T1501] Chain exists of:
+[  227.255005][ T1501]   keyring_serialise_link_lock --> key_construction_mutex --> &type->lock_class/1
+[  227.255005][ T1501]
+
+
+The kernel config and materials to reproduce are available at:
+https://download.01.org/0day-ci/archive/20261119/202611192204.aa82996f-lkp@intel.com
+
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
+
+
