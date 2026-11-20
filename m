@@ -1,95 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158405;
-	b=q3/aMtan3dDJb2HVcU5bfdhfcLgv0Ou7F5eYC/DzS216hJmNruxC8FQit/jMRyTiKwXu
-	 EXWAa+2cR8y4Jxx7UfuUGsGgGB4TWDVW/KeFxprVRyR/CCoDS+2KqhG0QWXWHD24RTfcQ
-	 rgv4WbgpORQ89nGXxnlkkYnWxxrNA5yc9K/Olmn2HHxwAk4Ar/OJfA19Z7x44aOBm9vpT
-	 Zla2mWC2ZL895LosEzigzr5m5s5bvcf7RJUG2CgPxAH0AxznDopJLWL3Kc7dmx/mWFdha
-	 zQ+Ujgsg7SlLMiE1iIc2buA9mZ0aQNapEyXvgoR+fX7Ek2ayclsA1GEOLYalwPgkJoA==
+	t=1795158410;
+	b=XyXRQyigcvJgLz2nAkNf+CypVUHSejuvipbVqv889RSXgk6nEks4y7H5UaRjOyoOElwk
+	 YfxpncztegOukiyrvk12eTTOP50hO7dEwvAkSvag8nX9lcQ4YN4xdc+OSZSwl+EBCwAzu
+	 CJ4LfhMg+EClN1pGVpVZ8h9wWFptyT/mb3AeBFuw4/q4hyHfuJS1miMu8Ws4VQfL2rv7Q
+	 riEuyDQKQFzxDE93NQOQvorcwkClOP/PzHvryLmKAWxBODhh+hvTcWd2LsnqnZ2eQxPV/
+	 KZNCdG1aGv7NqFK75CtPBzTV20LgOs5KbobpXCecQzlrCwIMpV31fWnFPQDv+KOs/Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158405;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=DNfItCD3Z4BoYtins2/yOU+Coq3wbYX7eM32Pd4EAjg=;
-	b=LxBF3ftzpRYzT4ylJ3HQ/K+Lq9qyOALeGPGWa3/6edrAJZ1tZSvarx9mkRMmT6Vk05ES
-	 weRuOmDXnSUkeUUw9dpiQEZXdpLSv20DBrMMQPbr40ZMSU40992xPHK2MpnjGkZV2lrUy
-	 9EbtBDxaFyblQA0KBTO1ls1YLP5qdUjVIXmdqUur6Bpe0Ac34Xv8rGG6YIkObIBOr2qtI
-	 A5Z+DDmz+x2MyQhMLyK35w0HqaSyFmuISd5UeIdv+Vgk2Lj9mgJixiy1qr8XV7dC0LMvu
-	 Z5b9YCX7nuDm2eVz5z3tUE1e+1PXCdQ2MXZ6wCXpnvJqKjTdPol9UR3b4R9xLJFX+iw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158410;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=CY72Zq7lo9Y2YudDGog7+uMWBPN0lY7PTfwCBrr8w2w=;
+	b=PvqgxkMfK0FIys0pTEG+HBNd+tgTONcAKlvKU4gF+Y/mG2D1OrAWgoDpkKfxLMUGbijn
+	 WuArz+ZLiBY0+Bee5Ig5NdyeCN4DdaktcTnmK+MChbfKOUIWMP3iXoNxdqcf+Q/Qta0t2
+	 97a9w5RSz3+Ydie+YSZkKhuraLAliRx6pvOV3iiiXlKfkDdS0orx0ICWzZHPkVzfNkjVC
+	 gAk87PBFZSQlo/Xm/lAZ2jHza3UKP01BZpTlNfnJPa3zGjktRgRRN7A9g9azFpaWlk4Tu
+	 FvYVSL1ulDLBONjK4o9nkieVt7aDQmlGqfM10nGanQL3CzjCDzCzqcUSMhbMuD7+B4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yNkqUQDp;
-	arc=none smtp.remote-ip=74.125.227.138
-Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=t+bjaloX;
+	arc=none smtp.remote-ip=212.227.17.12
+Received: from mout.web.de (mout.web.de [212.227.17.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06809606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:06:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06809606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AE0C606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:06:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AE0C606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yNkqUQDp
-Received: by mail-pj2-f10.google.com with SMTP id 98e67ed59e1d1-3b4067446d7so128937a91.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:06:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795158403; x=1795763203; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DNfItCD3Z4BoYtins2/yOU+Coq3wbYX7eM32Pd4EAjg=;
-        b=yNkqUQDp/xwCPgqx89ZP4vPdesgz1rlsl4SZQBgBrU605uAVv4guL5/5EcoSMZvcub
-         e4FOS96jDw/7Un0GSykdM2VNZAkzuMS4QWn1VzRou49poveVu8V8kKCQ1/AfL5a8TLH2
-         MddV0F6c36pKXjKS/TE9Ks9DUJ/IH4EPSMzVPl6VObmkLeYUYCupCbftBf9El7FJ7sHo
-         TYlDqFFvpZrR2Ppeu1Msp8PcwkHiaedBILByqBvUoU9z69rNq10f+S1TRohOIuBD5oZh
-         3zQR4RLOZ/Eak2hURKqlgs5o/Y4z7a3d3IFOav8YQNgqxRtZwb+Eq3uMdeh9BbR60M04
-         0nRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795158403; x=1795763203;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DNfItCD3Z4BoYtins2/yOU+Coq3wbYX7eM32Pd4EAjg=;
-        b=q5z2+QN0TexL1UNVP55Z+oHyUrkrQDYYUtSDZ7I61rJPBB07W4ifKEnxXI+B2GAtTb
-         CtyzbLxlKNL3sSS6l/daDW4Khf30YKCnQPfJbJFKKw1eTxOwB2JEe2FzMQmoX0iaBL5E
-         v2Fjr2qE1iNaOp+A6SCPed4+OXedsYlIgyYzIjzsCdNsr9BX4vhKKT+mhtbc9UsuRzVb
-         t8jVvjmKTbKzow0JKxLb1PzxB+qNgoePZzTRMPzGnr/G3Yqxem4gXDdQZdLDbkJvXFqO
-         vc8gXFM7FDH1vVMz90tYxT5qoFbhe+6TNQ7ZSEekjbYKt2sFXYT4qHQOXLieiQWaNGAQ
-         c5ow==
-X-Forwarded-Encrypted: i=1; AL+hErG0ZcLljTbIDJu+ojSsi4SnV7G/ExPs7h2s+BnAjmGHm0UxyDDjQR1P9QNC63vdZ8xOaXZ2luU5T7leBis=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/DHzeQyz12uVliRTr5c5fr+dT9cUJcq8A53TuQgsAD0T/V7wDP
-	0j0ycvK4eqOoEZtnDSuDxx8DLGoCE7Zx81npACRLPORpyOYBxxPHbr1R
-X-Gm-Gg: AZFdTZejvD28aTwSh7iZJVBe0dMfomkVL9olSwKaO05R8+xBtiK6W/gYiNkng+pqBhY
-	tN86Sso3IfW1e/mPPsIwbsbTERP2Q3KXcDqkiNaicVlICicxPc0D7IlzgGVewc3ncpHnxdPi1Gs
-	rzcLm0eDHD/3D129vq0Y4n1etqxJ+3Z9S5U/GfthW23X8Z81LZpzyiG4l2YC5C595q/nYq7+VNc
-	xgkqdzoOoQ2RTPOSHZJm9DrRlq+XVt2GmKmoLWUz+n63BAyVUucq9FswsAtuaXrMbHDN0WAaVFV
-	7T3MuK+zR8vlczTjJwGfzLxnst6pgy9jLh1CzPjJupp1B2h6SCxiET2F6+R2+EHrmAC8qld0Gx3
-	RUDXGRsQD6QzdGzqacbCLseV9W01DwIeaEHQHMXP9NchdWE/ph8ZyCEUkr2oLQ+hZOdfYMzIcQc
-	RDZFq1vF8IDU1Sw2a1CLvbOpzxJGRmoJOPT2ur5T8RlJR2JTtkSS/yUZ1S77jlqClNatzjactEn
-	KgBVQqkl0ums0FDJKkQ78uO49n+xGNG/4U5tzVyRXn2EysWVxEJ0wPN0cv9T1u73pYflI1SrBg7
-	Jzjp1UMt3pp+wIiCbUQM7TmS3yi1MaLwvC2VTECjRZ9eHw==
-X-Received: by 2002:a17:90b:2c84:b0:3ac:a203:e092 with SMTP id 98e67ed59e1d1-3b41c7b6864mr1838751a91.1.1795158403117;
-        Thu, 19 Nov 2026 23:06:43 -0800 (PST)
-Received: from nixos ([2409:8a28:ae4:7f20:fd8b:76d8:48d:6284])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ffbab7fsm1016361a91.0.2026.11.19.23.06.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 23:06:42 -0800 (PST)
-From: Zixin Wang <w1355457260@gmail.com>
-To: linux-doc@vger.kernel.org
-Cc: linux-rt-devel@lists.linux.dev,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	corbet@lwn.net,
-	linux-kernel@vger.kernel.org,
-	Zixin Wang <w1355457260@gmail.com>
-Subject: [PATCH v2] Documentation: real-time: Add boot parameters and task isolation section
-Date: Fri, 20 Nov 2026 15:06:20 +0800
-Message-ID: <20261120070620.535693-1-w1355457260@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=t+bjaloX
+DKIM2-Signature:  i=1; m=1; t=1795158407;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:VniBvG0eEYhzrHFzJ5nQV345QEmg
+   wwkWKIsPZYumvOmBvpJZj45DU9oSEd7UScGNgRuntpY0CR6+ej1Dph7ZX1Qzn2A49pYnar/P+H+
+   016ptGqwoVPHt7+/rQfEnXonagbT9fsT2PFDrmvkSYSdzeV7yrWNQ6YCx829ElptOjUauZ9fCCy
+   S/4VFazYHoZoiqCZ7x+PO+47KfJuCx1ApkQxVjopK+8SHPPKCrRnTJtU1nSfJsHRYD2nDp7yOb/
+   AlLC8J0++LOW+QaaqW1J1nhBzG2ydCQHoT5dxXvNXF7s7MJvBdNACK4eaqEtCXfMmYYRNz2AJ9F
+   8G5zjMDRZpH/qA==;
+Message-Instance:  m=1;
+ h=sha256:
+   LmQBWAL1+b2yn7l8bprLnpnLOjsOXHvK8lyGpn2+mwc=:
+   CY72Zq7lo9Y2YudDGog7+uMWBPN0lY7PTfwCBrr8w2w=,
+  sha512:
+   AUWxHWkylSOh20l8dhtSXNdHLf4zsyqjZmhGSydftN5jQL2LqPui3E6s5ilbfe69hWgQZIlPPJ3ZC+1jGgNN8g==:
+   +39wfESTkURYC62uIy+wzVsmAn4Ov8mLqATMhYd7n4+khrt4mNVDbNIpbyQhDIIG9RjIIbwFGaUBcYCQcMnXWA==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795158401; x=1795763201; i=markus.elfring@web.de;
+	bh=CY72Zq7lo9Y2YudDGog7+uMWBPN0lY7PTfwCBrr8w2w=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=t+bjaloXDUk9AtfcpWQ0HpLkJjaJujbpo/W+6aOkXZw3dk94M98XTkqKi1DABkKJ
+	 neUICcqhG7PssIK5vT5y0N3+5/6MgG9ST1FsO+mihTBNhFn6HrIQfyDMT+m+Gw6Aq
+	 W6M50eG1rZhR0V18+KTzLROQPMbHrDL2iVDegWxf/FJroclK0cnbEUD1TGgMERT8e
+	 Wpy1K5Tr2NgNUVlME/2S9zsWEalCJLjD0+Ao4t5r3lhdHB2lNRRUKQtoXpMTF3nJ2
+	 A2vf7lNBb0i9cE2b9rRgNKnf9FihfHtEydmLyZm5LsFcn8T/T8TZO9iBwMhovoHFt
+	 D0LoOsahJBRSnmYDsQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1N0qr9-1wXVci1MZB-00xEj6; Fri, 20
+ Nov 2026 08:06:41 +0100
+Message-ID: <b0dfbe4b-53f3-41fc-a0c3-5158bef05259@web.de>
+Date: Fri, 20 Nov 2026 08:06:39 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,185 +81,142 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: usb: bdc: Use devm_clk_get_optional_enabled() in bdc_probe()
+To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ linux-usb@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com,
+ Al Cooper <alcooperx@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Justin Chen <justin.chen@broadcom.com>, Neill Kapron <nkapron@google.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <07112f96-430c-4109-9aca-e5d17e333d67@web.de>
+ <111e6c03-017f-47f2-a941-cba45697c1e4@wanadoo.fr>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <111e6c03-017f-47f2-a941-cba45697c1e4@wanadoo.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:SI0aCLEtQxAlvDvzrHnPufKePai99XkibqrJMckMmgFvstWfi4A
+ nmJ8+h6p8+/MNgCYj8ECDZsEmxXj0Go0LLsbuJxFc18oU8ChJ1oIw0ECx0szml6lJWtzN+C
+ DOxp2v1hkpvIunYdnZZ0Z4kfSaXvMA3d7ve54fwCmL5Q2DKtWZ2xj31oNr2P/Nf/anDS+sY
+ vQqlRGKBbOV2x9m1NFYHQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:OGIMLH3Rgqw=;quzV4LLURFx7hI8ksA31DxVgfgm
+ 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
+ w==
 
-Document the boot parameters and runtime tunables that affect the
-worst-case latency of a real-time system, alongside the existing
-kernel configuration guidance.
+> this patch is wrong because the remove function and the error handling p=
+ath=C2=A0of=C2=A0the=C2=A0probe=C2=A0need=C2=A0to=C2=A0be=C2=A0updated.
 
-Cover CPU isolation, nohz_full, RCU callback offloading, interrupt
-affinity, idle states, and real-time throttling, with references to
-the relevant documentation.
+Thanks that you pointed special patch review concerns out.
 
-Link: https://bugzilla.kernel.org/show_bug.cgi?id=220633
-Link: https://github.com/elisa-tech/wg-aerospace/issues/222
-Signed-off-by: Zixin Wang <w1355457260@gmail.com>
----
-v1 -> v2:
-  - Fix the kernel.sched_rt_runtime_us description: the default runtime
-    is 1000000 us and, without CONFIG_RT_GROUP_SCHED, SCHED_FIFO/RR tasks
-    are no longer throttled through this sysctl.  Describe the per-CPU
-    fair deadline server (50 ms per 1000 ms) instead.  Reported by
-    Sashiko.
-  - Clarify the isolcpus= flag semantics: only the domain flag removes
-    CPUs from load balancing, and the remaining flags do not affect
-    unrelated kernel threads, timers, or interrupts.  Review feedback.
+https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/usb/gadget/udc/bd=
+c/bdc_core.c#L483-L583
 
- .../real-time/kernel-configuration.rst        | 141 ++++++++++++++++++
- 1 file changed, 141 insertions(+)
-
-diff --git a/Documentation/core-api/real-time/kernel-configuration.rst b/Documentation/core-api/real-time/kernel-configuration.rst
-index d7f08e7b..995674b9 100644
---- a/Documentation/core-api/real-time/kernel-configuration.rst
-+++ b/Documentation/core-api/real-time/kernel-configuration.rst
-@@ -216,6 +216,147 @@ just by being enabled.
- These tracers do incur measurable latency overhead even when tracing is not
- currently active.
- 
-+Boot parameters and task isolation
-+==================================
-+
-+Kernel configuration options alone do not determine a real-time system's
-+worst-case latency.  Integrators commonly rely on boot parameters and
-+runtime tunables as well, to keep kernel housekeeping work away from
-+latency-sensitive tasks.  The parameters below complement the options
-+described above.  Each one is documented in detail in
-+Documentation/admin-guide/kernel-parameters.rst; the notes here focus on
-+the aspects that matter for real-time latency.  For the full CPU
-+isolation model and its limitations, see
-+Documentation/admin-guide/cpu-isolation.rst.
-+
-+.. caution::
-+
-+  CPU isolation is best effort.  Unbound workqueues, kernel threads,
-+  timers, and interrupts may still run on isolated CPUs unless they are
-+  explicitly steered away.  Measure the resulting latency with tools
-+  such as ``osnoise``, ``timerlat``, and ``rtla`` rather than assuming
-+  that an isolated CPU is free of kernel noise.  See
-+  Documentation/timers/no_hz.rst and Documentation/tools/rtla/index.rst.
-+
-+CPU isolation
-+-------------
-+
-+``isolcpus=``
-+  Format: ``[flag-list,]<cpu-list>``.  Isolates the listed CPUs from the
-+  disturbances selected by the flag list (default: ``domain``):
-+
-+  ``domain``
-+    Remove the CPUs from the scheduler domains.  This is the default
-+    when no flag is given.  Domain isolation cannot be undone at
-+    runtime; use cpusets when the isolated CPU set must change
-+    dynamically.  Isolated CPUs remain usable through CPU affinity or
-+    cpusets.
-+
-+  ``nohz``
-+    Stop the tick when a single task runs and offload kernel noise,
-+    including RCU callbacks.  This is equivalent to ``nohz_full=``.
-+    The residual 1 Hz tick is offloaded to workqueues, which must be
-+    affined to housekeeping CPUs through the global workqueue
-+    ``cpumask`` (/sys/devices/virtual/workqueue/cpumask); by default
-+    that workqueue may run on any CPU.
-+
-+  ``managed_irq``
-+    Prevent managed interrupts from being targeted at isolated CPUs
-+    when their automatically computed affinity mask also contains
-+    housekeeping CPUs.  This is best effort and has no effect when the
-+    mask contains isolated CPUs only.  See
-+    Documentation/core-api/irq/managed_irq.rst.
-+
-+  Apart from the best-effort managed IRQ redirection, these flags do
-+  not stop kernel threads, timers, or interrupts that are already
-+  affined to the isolated CPUs.  A practical configuration therefore
-+  combines ``isolcpus=`` with ``nohz_full=``, ``rcu_nocbs=``, an
-+  interrupt affinity mask, and a C-state limit.
-+``nohz_full=``
-+  Format: ``<cpu-list>``.  Requires ``CONFIG_NO_HZ_FULL=y``.  Stops the
-+  scheduler tick on the listed CPUs whenever possible.  The boot CPU is
-+  forced outside the range to maintain timekeeping, and the RCU
-+  callbacks of the listed CPUs are offloaded as if they had been
-+  passed to ``rcu_nocbs=``.  This parameter takes precedence over
-+  ``CONFIG_RCU_NOCB_CPU_DEFAULT_ALL``.
-+
-+  Tickless operation can increase the kernel-to-userspace transition
-+  latency, so it is most useful for workloads that execute in
-+  userspace for long periods with few syscalls.  Periodic workloads
-+  with short periods may prefer a consistent tick instead.
-+
-+RCU callback offloading
-+-----------------------
-+
-+``rcu_nocbs[=cpu-list]``
-+  In kernels built with ``CONFIG_RCU_NOCB_CPU=y``, move RCU callback
-+  invocation for the listed CPUs out of softirq context and into
-+  per-CPU ``rcuo`` kthreads.  This reduces OS jitter on the offloaded
-+  CPUs.  If the argument is omitted, no CPU is offloaded at boot, but
-+  the mode can be toggled at runtime through cpusets.  ``nohz_full=``
-+  implies the same offload for the CPUs it lists.
-+
-+``rcu_nocb_poll``
-+  Make the ``rcuo`` kthreads poll for callbacks instead of requiring
-+  the offloaded CPUs to wake them.  This improves the real-time
-+  response at the cost of higher power consumption, because the
-+  kthreads wake up periodically to do the polling.
-+
-+Interrupt affinity
-+------------------
-+
-+``irqaffinity=``
-+  Format: ``<cpu-list>``.  Sets the default affinity mask for
-+  interrupts that do not have an explicit affinity.  Managed
-+  interrupts, such as MSI-X queue interrupts, derive their affinity
-+  from the device queue mask instead and cannot be changed through
-+  ``/proc/irq/*``.  Combine ``irqaffinity=`` with the ``managed_irq``
-+  flag of ``isolcpus=`` to keep interrupts away from isolated CPUs
-+  where possible.  See Documentation/core-api/irq/managed_irq.rst.
-+
-+Idle state limits
-+-----------------
-+
-+``processor.max_cstate=``
-+  ACPI platforms only.  Limits the deepest C-state the processor may
-+  enter.  ``processor.max_cstate=1`` caps the processor at C1 and
-+  avoids the entry and exit latency, cache flushing, and clock effects
-+  of deeper states.  A value of 9 overrides any DMI blacklist limit.
-+
-+``intel_idle.max_cstate=``
-+  x86 platforms using ``intel_idle`` only.  A value between 1 and 9
-+  specifies the maximum C-state depth.  A value of 0 disables
-+  ``intel_idle`` and falls back to ``acpi_idle``; it does not disable
-+  C-states.
-+
-+Deeper C-states save power but increase wakeup latency.  Choose the
-+shallowest state that still meets the platform's power and thermal
-+requirements, and validate the result with the tools listed above.
-+
-+Real-time throttling
-+--------------------
-+
-+``kernel.sched_rt_runtime_us``
-+  Together with ``kernel.sched_rt_period_us``, this sysctl defines the
-+  total bandwidth available to SCHED_DEADLINE entities.  When
-+  ``CONFIG_RT_GROUP_SCHED`` is enabled, it also limits the bandwidth of
-+  the real-time scheduling groups.  The default runtime equals the
-+  period (1000000 us), so no bandwidth is subtracted from deadline
-+  tasks by default.
-+
-+  Without ``CONFIG_RT_GROUP_SCHED``, SCHED_FIFO and SCHED_RR tasks are
-+  no longer throttled through this interface.  Instead, a per-CPU fair
-+  deadline server keeps non-real-time tasks running by providing
-+  50 ms of runtime per 1000 ms period.  That reservation is not
-+  disabled by setting this sysctl to -1; the server parameters are
-+  exposed under /sys/kernel/debug/sched/fair_server/cpuX/.
-+
-+  A value of -1 removes the total deadline bandwidth limit, that is,
-+  runtime equals period.  Do this only after validating the workload,
-+  because runaway real-time tasks can then starve the rest of the
-+  system.  See Documentation/scheduler/sched-rt-group.rst for RT group
-+  scheduling details.
-+
- Kernel Debug Options
- ====================
- 
--- 
-2.54.0
-
+Regards,
+Markus
