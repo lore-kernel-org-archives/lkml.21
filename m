@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191723;
-	b=Je4pM4aOJFGJKXnf5kR4GOvW76bHftQMwmG4U4bi/KZkcmLUbDpghlp++BmBccSJ6PD8
-	 23SiW6Ln3mHcV3bXCLy0Wg14qPeBGx/oNxey5HOHIcmt/pH2M/8PBvSSWIMt6GIU6tH7O
-	 CWiYEucs5ox8265K8sN/lkepcS6Bgjs2s66BWWyrO6z8qy96HLQ41uaQWITPd66t7fAvA
-	 prFW/art2uNj3JqPdRcSBtWLukVgfQ1FbrbZm5wVj9o11KvVOP9zp1J0it2FiuZXEVBmS
-	 SViqziQxujTebnGTqGQ0GEToIIbK++/m+tJo2mWXda2Xl+81FrlZWmWr2qxn/1A+qIw==
+	t=1795191724;
+	b=1Oxvd7VFH46Kigi81Yn3XyGBFYuouWDQPbwl/wpwlWloVEecaKNJPpn9g4BfVY1VGTQn
+	 3HepIZOg7sXQacqukT4OEE+v+VB5X56RXjU4uxqjc+sbHN2SmwlASDC+EGMFdZXHI4sae
+	 87Yd7WwySZMWx7OBE8mI9vgxOoDUYQtQl6EfUkTt/Cgh/XlW/1wzEKk5D8BLgsMXa9v/6
+	 cEDyZ0vIZ2FIDEu+mEeE7YatkwGjPRVLCl/gq+SakEgg3LZ70cVC3m+hYB2XpHYETL5qd
+	 kD2Q0mbIu3yKxEDjvpNoW0YuSbNY5d/qhbggLBs7MRenC89cGwpsvFzBJIwtvavskmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191723;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191724;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
 	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
-	b=dhWnFTEGiehfttw/T8X9MhXd4kBzBv5hZWl5IXfoGPWmuKPA9Fhfc4gL+95fZOWIWb//
-	 8arxI5AHH6xd+fk5WYtAu1ksVP43TnL7evq7nAiHt36CSLNWsz+VWoaex/wESZYcT1AxT
-	 GASAVCUGKtX8nNTVXEjK5xjd5zx38+usYsvA8rwkAxrewERNEkCph9WWGQwYibohWK7wU
-	 Xiht6xUdse37ngxYMksgUxsbG1j8vp+Z73D+5rFXZkwna13alzYdvBE2cmS3brFnRid4C
-	 jIZ94roDSpTFyV829l98WTRsoD+1/nx+fRTVpvI6ctwua9mZFrRWemJ9DWAwNX9PJmQ==
+	bh=/RwXlYMt9ERMWAYTjJyAVtWyMXXnKsIq0qrxgpPStpE=;
+	b=XTOBF37WL0UHuEPlu4uam59jDRJbU+Li4AWnt4pZn+fqNud3+Gsf3PI3m6Ek7zXh9yCY
+	 8ChMPc1cshkOgdq98pE2fHwa88JgKom9Oql3qLQS3vDAgf/XesKDU5y9ejEkxrrMPF+Ah
+	 nO9uSac84hzl7qvpkBa9PL4Lh+pzoaPAbzXY3o94eRpJLm0cEStgX/oS6MX17YEf44UAM
+	 Gt+ogm7AzVtKcy5W7uZbykNgvL3p+PwY7j5x3d5v/RbtsLMSHP6m8tIQGikQvYpWK7DEW
+	 Vrs3wKcm5jw7MWI7IHhM3dp322HZ749Y6gVDlHn/VTltf7bTNAq1yC1qLLCOaMnxIKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=baylibre.com;
 	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GSMVwhZH;
-	arc=none smtp.remote-ip=209.85.221.52
-Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b="MnFS/Kiw";
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABCCF606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:22:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABCCF606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CED2B60A2602
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CED2B60A2602
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GSMVwhZH
-Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so665375f8f.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:22:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=MnFS/Kiw
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so9995815e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:22:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795191721; x=1795796521; darn=vger.kernel.org;
+        d=baylibre.com; s=google; t=1795191722; x=1795796522; darn=vger.kernel.org;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:from:to:cc
          :subject:date:message-id:reply-to:content-type;
-        bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
-        b=GSMVwhZH/ueBlJaQiJ5tBFKzOag7BCR5BhXV1vjJ6yXySEI0mT2VMeFtR8YLI3QObp
-         l+9xoHrKeIBmt2kbouQcLmWeYtsw1SAQsvk19IVm1GoRn/dd5U/zC3gpB7SsC82DLkMC
-         1PxNoFLz19cCa9xeO6jQ1x7QwuiDjsSlO2ve/tZs/untp7QF97TlsVV0fEDCtGEfppcN
-         kyTRRyJYJMxJzqyhtxryQTDEnVcltPPWcx/qW5dbw8GLPGUI+zwUL6SyrZNl/H/CXbIh
-         DN4P0fC06cQ3rv1oqcphHJY9Or07QdoJ0BJ3bnq6/b+HufHJMelC+YFHl3KH9tbwoTMF
-         pdTA==
+        bh=/RwXlYMt9ERMWAYTjJyAVtWyMXXnKsIq0qrxgpPStpE=;
+        b=MnFS/KiwR0FnhoOK4G0RQnbR+2+0YXyZxjepLV8qYke0Hmz6Wz9kmVmeisQA5vsBz4
+         WYjrMP0AxWvKTbdK6oJ7xOXCdzMEBZ/BOLvUri3YmHLyaJzriLv/10GF2PoVTfF2NNeJ
+         IxJxYpfjr2eby/dTXcXMcH8skvA5YXnaqCjuWYOYvLZvVhrPZQfLZM6EUx1KDUWmyiZB
+         1b38VeDhHJOmftcrqbmOJTXs96mq9zAI9w+DlzcXGi+ArKvh6Gc/LuihRuD8ce5k/Dj9
+         vS32jAh2KJwSumaGTQkW2pb51mzVmjV1QjKsxPyX7jmlHIB3TCfCIff97KfBdVzGUVKH
+         AIDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795191721; x=1795796521;
+        d=1e100.net; s=20260707; t=1795191722; x=1795796522;
         h=message-id:date:references:in-reply-to:cc:to:from:subject
          :content-transfer-encoding:content-type:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
-        b=uHjgw/syVxmfCtu/a9CdoFnM3UyWn+q5b881bhqCtENTQjZlINM2Zg1MyrcGlMAbRE
-         Iz97mhhbc0721LamBIHep/k/VQJVLpQ0NE+ZUMGQbtE87HrOyvo2218luxn1Nz8dJLQB
-         +kwqP3pEEpXPnCpoBjgp6G2XruUzUx+4yeyyXr4JarKVyBfQBccZnPo5iGyKpRfJST8Z
-         k4UyfZPC4rX8Wd8ZxNFsyDDrb0na8gNMQCQzzIM2wWSVfFrSt9r+bV3JITFvrKMYdjm9
-         9TdNhlpGJrpRDlcPyWg8j+qk2MCj022b9lrh/vGOyab4i3U0LdGKAfaJmdbf/5TO3rkF
-         31gg==
-X-Forwarded-Encrypted: i=1; AL+hErERgfZYn3L1Jj54NLMAzy3aFmGLmqv7Cy/2yxa+6b/ZmA6e/7zpvLj02TIjSQ79pluBOW2RAMRr9kteyJM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9l1F9H0KZqr1739EJc0ArC4nYFVrIEFXJHtKtNnEpk0VjdlKV+
-	txlgcuqNwfdH+x5dFBO1p+lH63jrvGSnX5XoXDHINx8nw2SPBoyKV/KwWc+OB8N6RaA=
-X-Gm-Gg: AYBFou0RnC88PVGw/ba+0kaT2oTDUgem9+4scjnu9kD9p0LRp8feYS5fb+CB86mEtln
-	mWVj9NoCt7q/Iji/GpXum3UBGE7MRsM3yk4Bjw5RX5kR7YZZeozIF72Byq9kj4vt3bjs1zAnDFE
-	HngS1CoXyJ78VZFjdeSYN5FoLXD0dfiPAAkrO/lT2/ggzIOETnvfa2kfNh+Y0FLNG4v5nvKBJgy
-	Fl+W1CjGtnFkZQ2nbAho4di7lTK5fLHmogxi+zqS4FvwvbzitFQ5roAXHgNc3zCJ7FVz7LotPz2
-	B2UfkWbsHcvv+D/MJaAZOA2ekYk7uqJOOd9ZlPwz0hL8s0c/LjgGUKbcfp/tbI/OH0KwJmGp5q7
-	IqBsMWlZ7l8xDoa+dN8E9mzhyH7OwJZgDTfv1syAFIuY+GZxlyKFPEbbdWxQzMnayrsFSMqn0eM
-	IDjAUfebY4LCrnB+lTk4o8m0g6YAVAIjl8O50fjcX8/IaVWb4pLC91nesqPIQPNxvzwmzW8LhPK
-	DlkcIc17KnGQP/NDk/wMXaAysrINFGpKa26OfaoOg4vSVPlKOw5VPcPlI5KCbsgqv0J0gU1PCNI
-	tz2hfypflEckwDIuorwuZNDQ6y2hwitXSGXnJJ0Aw69CVSMF
-X-Received: by 2002:a05:600c:3e1a:b0:4bb:6814:7391 with SMTP id 5b1f17b1804b1-4bb8881921cmr77585875e9.25.1795191721065;
-        Fri, 20 Nov 2026 08:22:01 -0800 (PST)
+        bh=/RwXlYMt9ERMWAYTjJyAVtWyMXXnKsIq0qrxgpPStpE=;
+        b=FD5OjWpTyr//9AH9QqZDv+ThWPyDIxJ0IubUsHOjVjq3QRnpdrIlIbeX7TYdO9EiKG
+         oxEs7S8AiZXNN1+BMNK/uP01t0zmrwnw0SBYdqvjzX3BUlw4yHwMmefsL/9IibRFMeIL
+         Cbn7JGKk4sc6a7Mw7N7in7lF9WP+ghuQytnH3IFjg5xRAcwWW5H/S1g3IlovdZlJw+B3
+         vumErDku1HbqNoM3CNKmrRqy2RdbXOrY7n87OpQQ8aXttER6UNXJc6Cv/DQx5V/9X0+d
+         H9pcu4/Ez3ZFs666QuuqGxdDPa51Fzz1ka7IdBFeewz6HP6sDntDUSuf6ryTGFB/gsy5
+         RT2w==
+X-Forwarded-Encrypted: i=1; AL+hErEL8J62HBiAsuVcyoBptywl9bsUyiptQbs84iTDhOjXaB8hodnvmxVbV6WkLrzL9w0vAvMA5pE+XNiYRzE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CGYvvToWHpph7phLWaKltxZ0AU28GEB8c4VpBGcaBaUBy8Yq2
+	2INcXo9l4wrgPT713skP4/QQpZtvSVzWU/9NT2Xfxy0xqohcPE3n8S+8FakKKh8VNXA=
+X-Gm-Gg: AYBFou3jLp3EYtOFBF4LMg+mhwkgHHZsR+xljsIgo6I4YY/lugzO33DZoRprQHLqV9o
+	5vlOYZM0eIgelgu+NjSQsXrXRZ+ph4TTnnZKJfpVFmXB3zQoeGwMxko+h+RuQjd63TsHP8g+Kni
+	as1LN3vCHmx6/IMQLYYAhkby936MZ3HZQh13Szdofdd2w+spLk8yW7xr7BpyTPGFk+xDjR2Rxbu
+	XMLqfWIKZOJiLtEk1t5t/i151etISCXmbckhX6GDquhNjCPo5EAFEDAJrvLuqLfzCVM9znr8HvX
+	CdKH92gWV3Gj9N11/FUz9qym6fdxWEGQ2CNRclShjqBCpguxFKLr/TDFqg+KwWgxXUKLYw/rKG3
+	6ThWTiIlBdJLOE1ybrv1QuVa4KjHmr6gQpJfaahSLaQIZC/s6iIuAXjwYIiUSotoILtHA5lrahj
+	Xd/vTx2f24bayuMWQA24JhrB0yvc2hRZ5rxyd/pGWM/6FCQ+o+6/aFiXREzEhUyWn1OVVt3LTjc
+	4hcpX8+nK7SMrMEIP3WB0yUHSRUGqxVb0NmfTwhnxk9/D/AQfGwuL1qetvuiHGRwaQTfjhb4duP
+	5HJsPFsr9r+Dd6r+bBk8yy7utwDfjD3OssUx7vzu+eZhsNDB
+X-Received: by 2002:a05:600c:5246:b0:4bb:60ba:49e0 with SMTP id 5b1f17b1804b1-4bb88930707mr87878585e9.26.1795191722209;
+        Fri, 20 Nov 2026 08:22:02 -0800 (PST)
 Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm129338075e9.15.2026.11.20.08.22.00
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm202623845e9.4.2026.11.20.08.22.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:22:00 -0800 (PST)
+        Fri, 20 Nov 2026 08:22:01 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,8 +91,8 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v12 00/10] clk: nuvoton: ma35d1: Fix mux parenting and
- peripheral clock rates
+Subject: Re: [PATCH v12 02/10] clk: nuvoton: ma35d1: Use clk_hw pointers as
+ mux parents
 From: Jerome Brunet <jbrunet@baylibre.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>
 Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -112,51 +112,541 @@ Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
  Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
  openbmc@lists.ozlabs.org, stable@vger.kernel.org, 
  Jerome Brunet <jbrunet@baylibre.com>
-In-Reply-To: <20261118-perso-ma35d1-upstream-clk-v12-0-bee2c8dad4e1@bootlin.com>
+In-Reply-To: <20261118-perso-ma35d1-upstream-clk-v12-2-bee2c8dad4e1@bootlin.com>
 References: <20261118-perso-ma35d1-upstream-clk-v12-0-bee2c8dad4e1@bootlin.com>
+ <20261118-perso-ma35d1-upstream-clk-v12-2-bee2c8dad4e1@bootlin.com>
 Date: Fri, 20 Nov 2026 17:21:57 +0100
-Message-Id: <179519171774.3795820.6006858658982158181.b4-review@b4>
+Message-Id: <179519171774.3795820.3637822831411003847.b4-review@b4>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1505; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=da1CAgmUNSJ5Vw/XW6Lz4OSgqJ+yn+Z+QoMk5bui0gM=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNkMxctdWw95f775+kf6Kd3uhXaOSe5//1wwaWVeY9QYX
- yM9mbu/o5SFQYyLQVZMkaWGu1r8naTWl1nTdW7DzGFlAhnCwMUpABOxMGf4nyRy6+VEnRlFq7fI
- GagKJv1//7Hkw7/YmsPPe/Y99eOVz2NkuJ8445EhV1vDy2cFLl7ntuvVZT55xxi3U6SLM/uNTEA
- fBwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=21680; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=DMIkjnYMdPi5PyCQ7RLGRqmc6HG3et9tIjQSFKOZqbc=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNkMxcv11/kWmc0t9flmZsgu5M97tqqF0bXK+6qwTJDnA
+ unIXR4dpSwMYlwMsmKKLDXc1eLvJLW+zJqucxtmDisTyBAGLk4BmIhGDSPDi8AH2RWZio3MdydP
+ vPzM9PjL6NNa5WnvIg+bitYe/V7JwfBP5cmf+0a3buzvddyU8WSlqNK3SRPyzx0UlnwnHWp84Lw
+ jEwA=
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-> I am in possession of an MA35D1 NuMaker board. The SPI controller has
-> been contributed, but at this stage it does not work with the current
-> clock driver.
+> The MA35D1 clock provider registers its muxes with parent data
+> structures filling .fw_name. This is not the ideal approach since that
+> would require a massive amount of internal clock names declaration in
+> the DT. Since the DT does not play the game of exposing all these names,
+> none of the parent lookups performed when instantiating the muxes
+> succeed. As a result, these muxes get registered as root clocks, leading
+> to a sadly flat clock tree and no frequency assigned to most of the
+> peripheral clocks:
 > 
-> The clock controller registers its muxes with .fw_name parent data,
-> which requires every internal clock name to be declared in the DT. As
-> the DT does not declare them, all parent lookups fail: muxes end up
-> registered as root clocks and most peripherals read a zero rate.
+>                                  enable  prepare  protect
+>    clock                          count    count    count        rate
 > 
-> This conversion exposed a first issue with the WDT/WWDT parents which
-> were actually missing in the clock driver. I am not using these clocks
-> myself but it is worth fixing.
+>  usbphy1                             0       0        0        480000000
+>  usbphy0                             0       0        0        480000000
+>     husbh1_gate                      0       0        0        480000000
+>     husbh0_gate                      0       0        0        480000000
+>     usbh_gate                        0       0        0        480000000
+>     usbd_gate                        0       0        0        480000000
+>  syspll                              0       0        0        180000000
+>  lirc                                0       0        0        32000
+>     lirc_gate                        0       0        0        32000
+>  hirc                                0       0        0        12000000
+>     gtmr_gate                        0       0        0        12000000
+>     hirc_gate                        0       0        0        12000000
+>  lxt                                 0       0        0        32768
+>     rtc_gate                         0       0        0        32768
+>     lxt_gate                         0       0        0        32768
+>  hxt                                 0       0        0        24000000
+>     vpll                             0       0        0        1224000000
+>        dcup_div                      0       0        0        612000000
+>     epll                             0       0        0        6000000000
+>        epll_div8                     0       0        0        750000000
 > 
-> The second round of reviews raised another problem with the
-> crystals. HXT and LXT are external crystal oscillators wired on the
-> board, while HIRC and LIRC are on-chip RC oscillators. HXT was described
-> whereas LXT was not. The series now also takes the two crystal inputs
-> from the DT: they get documented in the bindings, described in the
-> boards and looked up by the driver (with a fallback for backward
-> compatibility).
+>        epll_div4                     0       0        0        1500000000
+>        epll_div2                     0       0        0        3000000000
+>           emac1_gate                 0       0        0        3000000000
 > 
-> Finally, I was still unsatisfied by the clock tree because there were
-> too many root clocks. Many "gates" were wrongly set aside from the
-> downstream clocks they would gate, and SYSPLL was simply not parented at
-> all (?).
+>           emac0_gate                 0       0        0        3000000000
 > 
-> The clock tree now looks much more accurate.
+>     apll                             0       0        0        6048000000
+>     ddrpll                           0       0        0        266460000
+>        ddr_gate                      0       0        0        266460000
+>        ddr6_gate                     0       0        0        266460000
+>        ddr0_gate                     0       0        0        266460000
+>     capll                            0       0        0        2400000000
+>     hxt_gate                         0       0        0        24000000
+>  clk_hxt                             0       0        0        24000000
+>  spi3_mux                            0       0        0        0
+>     spi3_gate                        0       0        0        0
+>  spi2_mux                            0       0        0        0
+>     spi2_gate                        0       0        0        0
+>  spi1_mux                            0       0        0        0
+>     spi1_gate                        0       0        0        0
+>  spi0_mux                            0       0        0        0
+>     spi0_gate                        0       0        0        0
+>  i2s1_mux                            0       0        0        0
+>     i2s1_gate                        0       0        0        0
+>  i2s0_mux                            0       0        0        0
+>     i2s0_gate                        0       0        0        0
+> ...
 > 
+> Apart from the wrong clock tree representation, it means that none of
+> the device drivers (spi & i2c in the excerpt above) can actually query
+> their clock rate, or they would get 0Hz.
+> 
+> Instead of declaring the parents in the clk_parent_data structure, use
+> the actual HW clocks to lookup the parents directly: parents are
+> described by an array of indices into the controller's main clock table
+> (like in other clock controller drivers), which the "new" mux helper now
+> resolves.
+> 
+> The WDT and WWDT muxes list the /4096 children of PCLK3 and PCLK4 among
+> their possible parents. Those two clocks are now registered by the
+> previous commit, so their entries in the parent tables are restored
+> instead of being turned into invalid slots.
+> 
+>                                  enable  prepare  protect
+>    clock                          count    count    count        rate
+> 
+>  usbphy1                             0       0        0        480000000
+>  usbphy0                             0       0        0        480000000
+>     husbh1_gate                      0       0        0        480000000
+>     husbh0_gate                      0       0        0        480000000
+>     usbh_gate                        0       0        0        480000000
+>     usbd_gate                        0       0        0        480000000
+>  syspll                              1       1        0        180000000
+>     dbg_mux                          0       0        0        180000000
+>     sdh1_mux                         0       0        0        180000000
+>        sdh1_gate                     0       0        0        180000000
+>     sdh0_mux                         0       0        0        180000000
+>        sdh0_gate                     0       0        0        180000000
+>     sysclk1_mux                      2       2        0        180000000
+>        pclk4                         0       0        0        90000000
+>        pclk3                         0       0        0        90000000
+>           sspcc_gate                 0       0        0        90000000
+>           ssmcc_gate                 0       0        0        90000000
+>        hclk3                         0       0        0        90000000
+>        pclk2                         0       0        0        180000000
+>           eadc_div                   0       0        0        90000000
+>              eadc_gate               0       0        0        90000000
+>           qei1_gate                  0       0        0        180000000
+>           ecap1_gate                 0       0        0        180000000
+>           spi3_mux                   0       0        0        180000000
+>              spi3_gate               0       0        0        180000000
+>           spi1_mux                   0       0        0        180000000
+>              spi1_gate               0       0        0        180000000
+>           epwm1_gate                 0       0        0        180000000
+>           i2c5_gate                  0       0        0        180000000
+>           i2c2_gate                  0       0        0        180000000
+>        pclk1                         0       0        0        180000000
+>           qei2_gate                  0       0        0        180000000
+>           qei0_gate                  0       0        0        180000000
+>           ecap2_gate                 0       0        0        180000000
+>           ecap0_gate                 0       0        0        180000000
+>           spi2_mux                   0       0        0        180000000
+>              spi2_gate               0       0        0        180000000
+>           spi0_mux                   0       0        0        180000000
+>              spi0_gate               0       0        0        180000000
+>           epwm2_gate                 0       0        0        180000000
+>           epwm0_gate                 0       0        0        180000000
+>           i2c4_gate                  0       0        0        180000000
+>           i2c1_gate                  0       0        0        180000000
+>        pclk0                         1       1        0        180000000
+>           adc_div                    0       0        0        90000000
+>              adc_gate                0       0        0        90000000
+>           qspi1_mux                  0       0        0        180000000
+>              qspi1_gate              0       0        0        180000000
+>           qspi0_mux                  1       1        0        180000000
+>              qspi0_gate              1       1        0        180000000
+> 
+>           i2c3_gate                  0       0        0        180000000
+>           i2c0_gate                  0       0        0        180000000
+> 
+> Note: while switching the API, let's use the devm_ alternative to manage
+> the clock registration automatically.
+> 
+> Fixes: f50a000b4219 ("clk: nuvoton: Use clk_parent_data instead of string for parent clock")
+> Cc: stable@vger.kernel.org
 > Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+> ---
+>  drivers/clk/nuvoton/clk-ma35d1.c | 626 +++++++++++----------------------------
+>  1 file changed, 177 insertions(+), 449 deletions(-)
+>
+> diff --git a/drivers/clk/nuvoton/clk-ma35d1.c b/drivers/clk/nuvoton/clk-ma35d1.c
+> index e95f72bb8103..c65ceed2fd5e 100644
+> --- a/drivers/clk/nuvoton/clk-ma35d1.c
+> +++ b/drivers/clk/nuvoton/clk-ma35d1.c
+> @@ -63,300 +63,49 @@ static DEFINE_SPINLOCK(ma35d1_lock);
+>  #define PLL_MODE_FRAC           1
+>  #define PLL_MODE_SS             2
+>  
+> -static const struct clk_parent_data ca35clk_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "capll", },
+> -	{ .fw_name = "ddrpll", },
+> -};
+> -
+> -static const struct clk_parent_data sysclk0_sel_clks[] = {
+> -	{ .fw_name = "epll_div2", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data sysclk1_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data axiclk_sel_clks[] = {
+> -	{ .fw_name = "capll_div2", },
+> -	{ .fw_name = "capll_div4", },
+> -};
+> -
+> -static const struct clk_parent_data ccap_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "vpll", },
+> -	{ .fw_name = "apll", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data sdh_sel_clks[] = {
+> -	{ .fw_name = "syspll", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data dcu_sel_clks[] = {
+> -	{ .fw_name = "epll_div2", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data gfx_sel_clks[] = {
+> -	{ .fw_name = "epll", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data dbg_sel_clks[] = {
+> -	{ .fw_name = "hirc", },
+> -	{ .fw_name = "syspll", },
+> -};
+> -
+> -static const struct clk_parent_data timer0_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk0", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer1_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk0", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer2_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk1", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer3_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk1", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer4_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk2", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer5_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk2", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer6_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk0", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer7_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk0", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer8_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk1", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer9_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk1", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer10_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk2", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data timer11_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk2", },
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "lirc", },
+> -	{ .index = -1, },
+> -	{ .fw_name = "hirc", },
+> -};
+> -
+> -static const struct clk_parent_data uart_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "sysclk1_div2", },
+> -};
+> -
+> -static const struct clk_parent_data wdt0_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk3_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data wdt1_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk3_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data wdt2_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "pclk4_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data wwdt0_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "pclk3_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data wwdt1_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "pclk3_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data wwdt2_sel_clks[] = {
+> -	{ .index = -1, },
+> -	{ .index = -1, },
+> -	{ .fw_name = "pclk4_div4096", },
+> -	{ .fw_name = "lirc", },
+> -};
+> -
+> -static const struct clk_parent_data spi0_sel_clks[] = {
+> -	{ .fw_name = "pclk1", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data spi1_sel_clks[] = {
+> -	{ .fw_name = "pclk2", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data spi2_sel_clks[] = {
+> -	{ .fw_name = "pclk1", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data spi3_sel_clks[] = {
+> -	{ .fw_name = "pclk2", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data qspi0_sel_clks[] = {
+> -	{ .fw_name = "pclk0", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data qspi1_sel_clks[] = {
+> -	{ .fw_name = "pclk0", },
+> -	{ .fw_name = "apll", },
+> -};
+> -
+> -static const struct clk_parent_data i2s0_sel_clks[] = {
+> -	{ .fw_name = "apll", },
+> -	{ .fw_name = "sysclk1_div2", },
+> -};
+> -
+> -static const struct clk_parent_data i2s1_sel_clks[] = {
+> -	{ .fw_name = "apll", },
+> -	{ .fw_name = "sysclk1_div2", },
+> -};
+> -
+> -static const struct clk_parent_data can_sel_clks[] = {
+> -	{ .fw_name = "apll", },
+> -	{ .fw_name = "vpll", },
+> -};
+> -
+> -static const struct clk_parent_data cko_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -	{ .fw_name = "hirc", },
+> -	{ .fw_name = "lirc", },
+> -	{ .fw_name = "capll_div4", },
+> -	{ .fw_name = "syspll", },
+> -	{ .fw_name = "ddrpll", },
+> -	{ .fw_name = "epll_div2", },
+> -	{ .fw_name = "apll", },
+> -	{ .fw_name = "vpll", },
+> -};
+> -
+> -static const struct clk_parent_data smc_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "pclk4", },
+> -};
+> -
+> -static const struct clk_parent_data kpi_sel_clks[] = {
+> -	{ .fw_name = "hxt", },
+> -	{ .fw_name = "lxt", },
+> -};
+> +#define MA35D1_MUX_MAX_PARENTS	10
+> +
+> +/* Mux parent selection, by index into the controller's clock table */
+> +static const int ca35clk_parent_idx[] = { HXT, CAPLL, DDRPLL };
+> +static const int sysclk0_parent_idx[] = { EPLL_DIV2, SYSPLL };
+> +static const int sysclk1_parent_idx[] = { HXT, SYSPLL };
+> +static const int axiclk_parent_idx[] = { AXICLK_DIV2, AXICLK_DIV4 };
+> +static const int ccap_parent_idx[] = { HXT, VPLL, APLL, SYSPLL };
+> +static const int sdh_parent_idx[] = { SYSPLL, APLL };
+> +static const int dcu_parent_idx[] = { EPLL_DIV2, SYSPLL };
+> +static const int gfx_parent_idx[] = { EPLL, SYSPLL };
+> +static const int dbg_parent_idx[] = { HIRC, SYSPLL };
+> +static const int timer0_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
+> +static const int timer1_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
+> +static const int timer2_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
+> +static const int timer3_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
+> +static const int timer4_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
+> +static const int timer5_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
+> +static const int timer6_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
+> +static const int timer7_parent_idx[] = { HXT, LXT, PCLK0, -1, -1, LIRC, -1, HIRC };
+> +static const int timer8_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
+> +static const int timer9_parent_idx[] = { HXT, LXT, PCLK1, -1, -1, LIRC, -1, HIRC };
+> +static const int timer10_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
+> +static const int timer11_parent_idx[] = { HXT, LXT, PCLK2, -1, -1, LIRC, -1, HIRC };
+> +static const int uart_parent_idx[] = { HXT, SYSCLK1_DIV2 };
+> +static const int wdt0_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
+> +static const int wdt1_parent_idx[] = { -1, LXT, PCLK3_DIV4096, LIRC };
+> +static const int wdt2_parent_idx[] = { -1, LXT, PCLK4_DIV4096, LIRC };
+> +static const int wwdt0_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
+> +static const int wwdt1_parent_idx[] = { -1, -1, PCLK3_DIV4096, LIRC };
+> +static const int wwdt2_parent_idx[] = { -1, -1, PCLK4_DIV4096, LIRC };
+> +static const int spi0_parent_idx[] = { PCLK1, APLL };
+> +static const int spi1_parent_idx[] = { PCLK2, APLL };
+> +static const int spi2_parent_idx[] = { PCLK1, APLL };
+> +static const int spi3_parent_idx[] = { PCLK2, APLL };
+> +static const int qspi_parent_idx[] = { PCLK0, APLL };
+> +static const int i2s_parent_idx[] = { APLL, SYSCLK1_DIV2 };
+> +static const int can_parent_idx[] = { APLL, VPLL };
+> +static const int cko_parent_idx[] = { HXT, LXT, HIRC, LIRC,
+> +				      AXICLK_DIV4, SYSPLL, DDRPLL,
+> +				      EPLL_DIV2, APLL, VPLL };
+> +static const int smc_parent_idx[] = { HXT, PCLK4 };
+> +static const int kpi_parent_idx[] = { HXT, LXT };
+>  
+>  static const struct clk_div_table ip_div_table[] = {
+>  	{0, 2}, {1, 4}, {2, 6}, {3, 8}, {4, 10},
+> @@ -375,24 +124,20 @@ static struct clk_hw *ma35d1_clk_fixed(const char *name, int rate)
+>  	return clk_hw_register_fixed_rate(NULL, name, NULL, 0, rate);
+>  }
+>  
+> -static struct clk_hw *ma35d1_clk_mux_parent(struct device *dev, const char *name,
+> -					    void __iomem *reg, u8 shift, u8 width,
+> -					    const struct clk_parent_data *pdata,
+> -					    int num_pdata)
+> -{
+> -	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
+> -					       CLK_SET_RATE_NO_REPARENT, reg, shift,
+> -					       width, 0, &ma35d1_lock);
+> -}
+> -
+>  static struct clk_hw *ma35d1_clk_mux(struct device *dev, const char *name,
+>  				     void __iomem *reg, u8 shift, u8 width,
+> -				     const struct clk_parent_data *pdata,
+> -				     int num_pdata)
+> +				     struct clk_hw **hws,
+> +				     const int *parent_idx, int num_parents)
+>  {
+> -	return clk_hw_register_mux_parent_data(dev, name, pdata, num_pdata,
+> -					       CLK_SET_RATE_NO_REPARENT, reg, shift,
+> -					       width, 0, &ma35d1_lock);
+> +	const struct clk_hw *parent_hws[MA35D1_MUX_MAX_PARENTS] = {};
 
-Looks good overall. just 2 tiny nitpick and we are good.
+
+It works but a little check to make sure we do not overflow the table here
+would be nice.
 
 -- 
 Jerome
