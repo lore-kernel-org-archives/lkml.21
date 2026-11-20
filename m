@@ -1,45 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175076;
-	b=MntlkXX1AIogHbnt47VZNT6shB+rfJVdxroNNKZppBQCfUHj6DpsHY+9Tu3zfIlsCFKi
-	 BG4ZEANI4vlw5kinTD53ZTlXORgHnutt5cGzlgV3+qY1slwJMM4eE1AinUDyf/OdU4sGU
-	 MY8E7x9FQCbbkgCcAnh2S2pc+l49OG0NeiA9C4fxc9wJuabIW/KiYUHx37wsMje0L9A6f
-	 r4lbY0F8VyVPflmeEHSXgyOT19TToDHm1Jt0nsp0JLduFwyTf2Ke2WAlYoEAOTrh4+bh/
-	 O9SLIxRYFbPDEoNjKXth4VmnYt1FhacLZIviF/2tnJCndYwY4NWf10PHJ5tSveFdIAg==
+	t=1795175082;
+	b=5VlAxbg/ephH5vEOEvwmGaMFRmkBECZwJYE5OeOopE2RNx7WSZVfCvaiT9l+IPtlthFJ
+	 loIXLhXVjiYDac0fCum3Scij50M2aO9GxRu0NJ8mXqf2ZbOrRfTEEVjSuBV4HbCEtpP5n
+	 JpUnySmYE8wqg59Rg+lVoOn+cGbhdXkbvjfbMt55jG4iKEsiSGK7X6nwKvFqQWrtjfPk0
+	 VMrnJHEk6TQeXXoWA4+aNLkuZP9n1d0Hy6yg6g/URbRW0zpMvDGt0/TQdAcq9yKDyO5ZW
+	 1Cln2XS7XoK+wP92N7kRuCQWnuINcR5STI2cAZP8BtVsU6YQwV+BdMHM/RjTBYEPgiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175076;
-	h=Received:DKIM-Signature:Mime-Version:Content-Transfer-Encoding:
-	 Content-Type:Date:Message-Id:Cc:To:From:Subject:References:
-	 In-Reply-To;
-	bh=5L7qqB5WaMtNMY9uDK4imR6R5lduwPZOBAPzSNwaOt8=;
-	b=TPLLasjHdufODF0y/4yCUkKh9QUjG0qcb3L+J/kf4k2GOrdjWh/aTYBPYC4C7CxF8NW1
-	 AxJkfaDFiJlNvJeSpHIb//BVWDxI26PyCFvXHDJaIpA+eB14PgyWCLXvgRlphrR0aFw9M
-	 wy+CS12wDGql6dpfykPAt7qefZs67hrFlRqrOKyA3zdgwEmdCa8skenKBPXEh5xIDz2dg
-	 +a26bMArZMoud1rzMz+DinPfm7Z/sCqnGnW12a5LIooY7z+CPq6xrEVhOygm+6ev1+yIa
-	 smjd4zD51NxoUjzJHyKBnDOC48vFC6SZjwegFDR0Y0pXAM3+UOHBpQOrBzMnOZ0pONg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175082;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=aQRBgX2VgkOHD0W+Pmya6gBX/CjSVN896aNxZV8p6ww=;
+	b=XOAzTBEH9RyIuW2U6lctiK5jZpIMYNk8f3tQhk4KvaP0ivCBbrOzThUdsiAKow43A4jc
+	 r+Pz6hBMej1cX4MATluGHwDOBlRdf3rF545VOwM2JMW8ttJp5Jqt6Q1dllr70/X7a3vA9
+	 +haBQeYwln5Pt8nIJtcmgYeQ0AS5HTzeMDtV+BfX4ZRmkJjcsvHjWlc8V2y6YlJPFVx4y
+	 ekAlGxRFbdpv7AGIiH/c/zTWXLp+Wh+w+m4SyxbyK9jtbadpDLLM56njsN0dAfEodu80Z
+	 iWMLwPiQIqZlUKJHyXj7I9Rg1SXT6nMR/FMwNcvc5/u7hs5096iRfn1XoicP4WIq1Lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MK02NyNG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Cnw6IEIq;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8249960A5BE6;
-	Fri, 20 Nov 2026 11:44:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE0660A3817
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DE0660A3817
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MK02NyNG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB791F000EB;
-	Fri, 20 Nov 2026 11:44:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795175076;
-	bh=5L7qqB5WaMtNMY9uDK4imR6R5lduwPZOBAPzSNwaOt8=;
-	h=Date:Cc:To:From:Subject:References:In-Reply-To;
-	b=MK02NyNGVt3ebGIuf7j8ititOe/z/miWKxC/cxRWpaUwoqWbdiGhRQvU8OaMCnYwS
-	 j90977RhLU5XEfTut81+FJClZVIn6vGa5AdoBLBiocBd87c89OiQPzCwDmssryaBWy
-	 jaOwv8Ws2Pvbr0/Jqe12F3wSyeJ7/lxSoBcG0C6LMvt46SOWFWgWL7iApA3ZTBxIJQ
-	 r8vv8oHlRieseBk+vxJ0jfn3VoA4zcPO0VuTJ6LhfNzmP2W3B6ufNf/6OJ3ifZDSb3
-	 4NJ14njem1N4mzF1c2R/lShdOdWSJbTlYuq/igCsgM317wLi0DTSRuKHTmukFsh8p7
-	 J5TfXh/NYL1+g==
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Cnw6IEIq
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b0ae87069dso381282a91.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:44:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795175082; x=1795779882; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aQRBgX2VgkOHD0W+Pmya6gBX/CjSVN896aNxZV8p6ww=;
+        b=Cnw6IEIq/AktYRV2USksXF7EAwqu0FAGMqTsHjbh4ISE1J/9hGAPLV56F74IWpLNbS
+         tc0icoflWo4ZppuV3leeV6Vmabym3n8vhUqcuTasw+E7ZrmYBL0rMjQ9r5+3/LekQ90d
+         lDCcjyl8Ta0wrp2/3kM36f8TGrXquEc0Jt9ib2wUGONOQtPswHErvnTwHbStAgMqtNLP
+         4D4P0ie1E9C8uLUUTfzzT+7sN4Dpl1E0H+AlCNc3myHGkEK1S9f2UwkOtJOSPlSnmh6M
+         Z2pMxzn3vMbwh9TqFwZULQILM4xbGjinH62CLMbG9w4AtqzekZKDCZUczIl6h/H+HrIC
+         1mbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795175082; x=1795779882;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aQRBgX2VgkOHD0W+Pmya6gBX/CjSVN896aNxZV8p6ww=;
+        b=RO+sJc7GuyRKEy4zgaIMRIhM2ZsHFEaVXcHJEsY1VzNhD+raI7jJvkr5wFvI78LpPp
+         p70nY9KEnxtzJAIBVQs3zL3Y2nwpGXOxVrmSlYwLkMJqsglo8yvKpyczSJe8k5YPyQfv
+         ZGy0kDIuCLOTFLwk30EyUEE8UtJWJW8niKE1IrxJwgiMmz2lCM7MF9diSQx1Ats0J4l7
+         Q8PeXO4xdfSqKVJbXQMqiHSnMi9hiHrwdblTgtAbG8MVJxQ8DqdclXaDR1xmPNuhqMcJ
+         9fS0QYraGn07bXTpm3nfp1GjVbdcPhkSKhtx3hyUV41wqW6RrTAalriOa5k8FfzUkCIc
+         4VYQ==
+X-Forwarded-Encrypted: i=1; AL+hErEOLN8hDOhKsfHyFhFDJFrPIBo6EkNLyhtuG741FHbRJHuCYvpzfgWtJqH0Crs8eytUl8Sw312lRzRBYRU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+yzkH+ElWpB0Ung89kzMc8R0s21McZKLWvBg7nUy0zTUKlsL7U
+	RiF3t9oBTwvCxGfXipZ5xpLFITUEgBfopBnJLz7nCtlrM71cGJUbi4ZLrv0y4QmPDNo=
+X-Gm-Gg: AZFdTZdZBvGmbBCdANtSD6ZZrDCDYpCFc+F2fEvCpE9NBbK5lXJkCLjhD1MLdxK5VcM
+	dSCDwmQPHyODi93pAhhOKuxDMaPfrcPb2TUx7HyDM35BNNZ+5npZvL6qXpgsc5EiM1Y107rGSpH
+	c1Y7oCubdI9aeqmgCFfVIhbOguLOdmbWfB9t7wAlhU0sdnUD6kPulxO+63Yzh0ZhosgjJxyhkkz
+	ch+M5gyCgS3eGoh6+ww00cJQDYPR7LcJbkvRokOipQU2B9fWcKvG6vlSkMb+XZSD+X/nUUOX+y0
+	qkRIhiEY5/l4abmGrFZuOF4IK/TxVuTV3nJefnt++o/bbacjsqFZQ6EwhTpNUjEdb0E1XQhZ4Ru
+	IW8Tgnzzqx4nxfK9Eiu4bm7vcVkKWtWLz70w1ENvmxaVJqZ8Lu7XlTiPV0cwyddiG7sffPEowwC
+	9KqpbKh5xMxWCOD+rjXSqmp5NxDjBnWRLtTRMzIrcE+G0GvIkAduul68tkFdI9OQneaBXV+8j79
+	poq5ou1MIUIgy1m4XhIX/hXkoTOiIuW23Y9Ps5D7tCldWQ6ojy+K0GXTyEpuatbFSqlFBR0Jw2F
+	1fuXYmaubqKxugd0M9A3wIQ3aohhJQd7rvWDN404GqmPcDo/EWc2cxfu7RJ0QOTPFk9yk4qvo2U
+	Q5kMeLBa4Cd17DHBJM4B/FSV+0qkF6o4OJHzY
+X-Received: by 2002:a17:90b:388c:b0:3b4:1877:8d35 with SMTP id 98e67ed59e1d1-3b41c975320mr2681077a91.52.1795175081857;
+        Fri, 20 Nov 2026 03:44:41 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm4339969a91.1.2026.11.20.03.44.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:44:41 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: ram.vegesna@broadcom.com
+Cc: dwagner@suse.de,
+	mkp@kernel.org,
+	jsmart2021@gmail.com,
+	hare@suse.de,
+	michael.christie@oracle.com,
+	James.Bottomley@HansenPartnership.com,
+	linux-scsi@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] scsi: elx: efct: hold a node reference across asynchronous session setup
+Date: Fri, 20 Nov 2026 20:44:36 +0900
+Message-ID: <20261120114436.3072633-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261021022209.2580332-1-yhlee@isslab.korea.ac.kr>
+References: <20261021022209.2580332-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -48,173 +105,12 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Date: Fri, 20 Nov 2026 12:44:31 +0100
-Message-Id: <DN00GAPAAQTY.1T9M9U7UAFYC0@kernel.org>
-Cc: <phasta@kernel.org>, "Sumit Semwal" <sumit.semwal@linaro.org>, "Alice
- Ryhl" <aliceryhl@google.com>, "Miguel Ojeda" <ojeda@kernel.org>, "Boqun
- Feng" <boqun@kernel.org>, "Gary Guo" <gary@garyguo.net>,
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
- <lossin@kernel.org>, "Andreas Hindborg" <a.hindborg@kernel.org>, "Trevor
- Gross" <tmgross@umich.edu>, "Daniel Almeida"
- <daniel.almeida@collabora.com>, "Tamir Duberstein" <tamird@kernel.org>,
- "Alexandre Courbot" <acourbot@nvidia.com>, =?utf-8?q?Onur_=C3=96zkan?=
- <work@onurozkan.dev>, <linux-media@vger.kernel.org>,
- <dri-devel@lists.freedesktop.org>, <rust-for-linux@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-To: =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-From: "Danilo Krummrich" <dakr@kernel.org>
-Subject: Re: [PATCH] rust: DamFence: Remove warning about unsignaled drop
-References: <20261112101015.528127-2-phasta@kernel.org>
- <5d466f7c-2e70-4011-be04-9ffdf877b915@amd.com>
- <49298d3a328c1695ea27993f714c20b8a1c05f32.camel@mailbox.org>
- <e2ec8a39-56c3-4274-91ce-60c273904877@amd.com>
- <ab99758408df682c68a3792cc3014b77d6e1c8ab.camel@mailbox.org>
- <c2dd46ea-94d8-4720-af37-897c91809338@amd.com>
- <DMXJ8TBSZJJ4.3HG0OJDI9URTT@kernel.org>
- <8da4a8c0-1740-450c-9cf1-1a7b21d12997@amd.com>
- <DMXMSIQONGUW.1RRNS7I6LACD6@kernel.org>
- <a7f9e0f3-b299-4d40-9230-106003725dc2@amd.com>
- <202dd0c3d515ddfa77a8ec8751badadd31b8a7b0.camel@mailbox.org>
- <141892f8-180c-4157-8c59-6e69057334f2@amd.com>
- <DMZAQ0G6LTTB.1CRPNXSYB4QHG@kernel.org>
- <c18fc55a-717f-42a0-b37f-4ed81efd29d1@amd.com>
-In-Reply-To: <c18fc55a-717f-42a0-b37f-4ed81efd29d1@amd.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri Nov 20, 2026 at 10:15 AM CET, Christian K=C3=B6nig wrote:
-> On 11/19/26 16:34, Danilo Krummrich wrote:
->> On Thu Nov 19, 2026 at 11:47 AM CET, Christian K=C3=B6nig wrote:
->>> A dma_fence should *NEVER* signal because you waited for something. Ins=
-tead
->>> the dma_fence is what is waited on.
->>=20
->> In the end, despite doing it on behalf of the hardware, the driver is th=
-e
->> producer of the fence. And there are cases where it can't wait on its ow=
-n fence,
->> because no one is going to signal it other than the driver itself.
->>=20
->> Assume you have an execution context that is torn down, and also assume =
-the
->> hardware supports preemption. Then some of the jobs in the queue might s=
-till
->> signal, but some jobs are not processed anymore and hence are not signal=
-ed.
->>=20
->> For those jobs that did not execute anymore, the fence still has to be s=
-ignaled.
->> So the driver has to signal them after it waited on the preemption and e=
-xecution
->> context teardown is complete and no more operations are in flight.
->
-> Oh well that comment made me smile because it confirmed what I wrote :)
+This is superseded by v3:
+  https://lore.kernel.org/all/20261021142818.2782104-1-yhlee@isslab.korea.ac.kr/
 
-No, it just seems that way because you ignore everything I write and instea=
-d
-repeat "wait for the DMA fence".
-
-Again, how can a driver wait for its own fence to be signaled (e.g. through=
- an
-interrupt) when the hardware (or firmware) queue is dead?
-
-> How do you wait for the "preemption and execution context teardown is com=
-plete
-> and no more operations are in flight" ?
-
-I think the generic answer is exactly the same way as if an individual job
-completes, the driver signals the fence for otherwise.
-
-> That waiting for DMA context teardown must be done through a dma-fence. T=
-hat
-> is the whole concept of dma-fences in the first place.
-
-Again, how can this be done if the hardware or firmware queue is dead?
-
-> I wish I could enforce that in C somehow but we missed that opportunity w=
-hen
-> we originally designed the dma-fence and now it is to late because of the
-> fallout and complexity required for such a change.
->
-> See the discussion here as well https://lists.freedesktop.org/archives/dr=
-i-devel/2025-August/520640.html
-
-You ask about whether dma_fence_work_commit_imm() in i915 should exist in t=
-he
-first place. I can't find any subsequent discussion and the function exists=
- in
-i915 till today. What did you intend me to extract from this?
-
-> I think we are at the point where I need to make clear that practices lik=
-e
-> signaling fences from a destructor or other IOCTL initiated teardown is a=
- NAK
-> from my side as DMA-buf maintainer.
->
-> When you want to push forward with this anyway I think we need to raise t=
-his
-> with Dave/Linus to get an answer if such an approach is ok or not.
-
-There's many indicators in this discussion that show me that you probably d=
-on't
-understand Rust enough, or didn't engage with the arguments enough to make =
-such
-a call (mixing up Rust destructors and IOCTL context above is one of them).
-
-At this point, none of this needs an authoritative answer.
-
-That said, maybe it helps to find some similar examples in C. I tried to fi=
-nd
-amdgpu ones. Xe code is probably a better fit as it has firmware queues as =
-well,
-but let's try this first.
-
-amdgpu signales fences in a way that is a destructor too.
-
-[1] was introduced in commit 97ff19462539 ("drm/amdgpu: Implement a new
-userqueue fence driver"), explicitly suggested and reviewed by yourself.
-
-(To me it seems that this signaling loop is unnecessary though, so maybe fa=
-ir
-enough.)
-
-Another example is amdgpu_fence_driver_force_completion() [2], which is cal=
-led
-in many places. One of them has the following callchain:
-
-	amdgpu_pci_remove()
-	  drm_dev_unplug()
-	  amdgpu_driver_unload_kms()
-	    amdgpu_device_fini_hw()
-	      amdgpu_fence_driver_hw_fini()
-	        amdgpu_fence_driver_force_completion()
-	          amdgpu_fence_process()
-	            dma_fence_signal()
-=09
-
-The comment in [3] explicitly says "You can't wait for HW to signal if it's
-gone", which is exactly my point.
-
-The same is true for when a firmware ring is gone (or dead) and the firmwar=
-e
-guarantees that there are no more outstanding transfers.
-
-And then there's of course the case where jobs didn't hit a hardware or fir=
-mware
-queue in the first palce, e.g. in drm_sched_entity_kill().
-
-All of those examples are all destructors.
-
-[1] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
-pu/amdgpu_userq_fence.c#L183
-[2] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
-pu/amdgpu_fence.c#L668
-[3] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/amd/amdg=
-pu/amdgpu_fence.c#L543
-[4] https://elixir.bootlin.com/linux/v7.3.1/source/drivers/gpu/drm/schedule=
-r/sched_entity.c#L305
-
->> The same is true for job fences that are in a software queue and never h=
-it the
->> queue of the hardware execution context.
+Best regards,
+Yehyeong Lee
