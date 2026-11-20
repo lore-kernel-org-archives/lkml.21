@@ -1,87 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207386;
-	b=ccnOvrKDBaob0Ro3xbx/LqHerNo/6AVykjW2ZYppbmCvxp5P5pN5xMVrt85vEacUQ9oH
-	 MBiz7XawPQr+ovHgp7h8qaiIqCXMkKKjcBqMDcNzTnoJxUS892wN9wkvfkQ8Jn5Lm3PlG
-	 geVueATMol0WbMd5xVr+Qul//yJyEUFAWr/xsqdLyFUQo9BMOtjvYdsrHaQpDTuLHHSkH
-	 aTU9norzCFJNMHwyCuCvJyhoEAYJp45CMdHYuhLWN9jEwWL0xNW0oMxPwsQlmqDBE4Cre
-	 e8QQAR+0Osb/VXWLTszrOgtO2um+UfC+/BWcAXt1ZC4phcddVRbe8my+oXqYrv2Sd2Q==
+	t=1795207367;
+	b=iReuNlP0/AMRT6rHXMKzfeUDi/aZdhL6U9Gs4vAz5nCIgaCUkl1UkT+0Q18d7mopatWn
+	 lc5dqhwgMCmwAtzwakdPtIngQgo1Rin9e4FcJ6s8qvZnnrEO7VYdHoIFKENdVtRMBjPq0
+	 eyxVEcxC3pAhQulxOsx2NLZHAifpYROFDjV9C5MIw1lWjtpyLRA970PS2svEGLZdZkmlW
+	 2Y4VyYdlTIP3kfHqMjELk7kuJ0d/XUG3cifX+35wrTNcsgB6JbBsZN8jUtt5l8saIfIu8
+	 NmxI97YQ7haLN3nhwcUE0NMi7mktuRQYa/eBgF93FGJPH2yAGelB6rxkBHd2Vw73uyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207386;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:MIME-Version:In-Reply-To:References:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207367;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=gYU6H2/wBp0m3RHfRk6KSsrkcHEKkYUH+D3d0ccp7Sc=;
-	b=5aac0wTo2H91QoWh+plHY8VoYFdROhOjuYq6Ai6xhmtCHR/H1LuE/WtJnYoelFcfD9iT
-	 smR7szI5b+GbofXj36kMcn9MYbTuTS6Hr9jwzh9CbcTgMk2zyuUYa/jn5CCC6J6sWE/Qd
-	 Q/8CnCgYJe/7l8dSQNM2dC/Cqz9AoEWuwqGZhF3ztMxsEii8bJixfGx9bze2Y2NEcpkc3
-	 kyL1ZFsZr1sp2aOscAUDGPbbUn2BXRtDXtTCMTXK2LkNbywlPLHhUdbuVJYxb+j3XbRvk
-	 rH529Xr6WeT6Acou/4M9uaaQIjgR3CNfdHg3gGKVlgny5dc5QsCOa64+SWRkn7fZ/dA==
+	bh=9HHgPnngfANMXf/PtLeRb/ky94A+yHxsRFZy6YViF1s=;
+	b=MH8Mp9rz5vtZoILYXtLw4k3Z7c9Hl635rKCLuRlV3j/cFF4scGyYjvoL6jwletV3lIQ3
+	 Dya/39uFZRSGuwpMrF3SJK7fbO1rsYL35q4PfRurkGFb0593IzpxINELvjq6D2638rQuj
+	 Mbr1x02XQXL57m4W+VNipDbAI3WyxOauTgo8229qMR5xLtzF99lGm2Bg5RijsTVSu7ibS
+	 x2YP6uTorRWCaTq6KLkscQY5ZErc4BeMZCXPHgC53/8J6NZn3APKo6ZHvmVDvdYK+8rKS
+	 X2cAJ+jHHZtRwc/6JS1ZlCy3Bn2NCMwT7q5u/GK3v7MdmH1FW4+2hL5Yc5zfFpFBDMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=kernel.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.222.175
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=d4htThkj;
+	arc=none smtp.remote-ip=158.69.130.18
+Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B7EE606A70E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:43:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B7EE606A70E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=kernel.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-9496577d4c4so142819085a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:43:06 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795207385; x=1795812185;
-        h=content-transfer-encoding:content-type:references:in-reply-to
-         :mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gYU6H2/wBp0m3RHfRk6KSsrkcHEKkYUH+D3d0ccp7Sc=;
-        b=Chb3TvELq5NkPqemkwvaZiSpPnMshcKR9TF0BveJGb9BK1kEgsc/Jh43sNoWibJ/kG
-         Lxa13WzJNOJqlIAPhpQ6uZk3y1YjyT6/j8BxhUQWYJmnt6tDrUdr/RzK4Q8vjud+Rpi2
-         7GuKN+VuYjGWVsfOYKJK/9gDBXAc8TjNJvUXVu5J53+1HkjZdpff5jVSEmhdBk5pWVV1
-         ZNVz+l/2avLEpzYgPG40yQAzpWrRdTorllmakmnKfLH0KO/SYJ6avdKbCcmt7HVSRpLl
-         D2RS8KMJ8qGZM/4HqyR8loIadqiNP3tW0Cn1xk2OLfKKSMn8DsE3RIZ79AtJDrdOB9T5
-         L7+A==
-X-Forwarded-Encrypted: i=1; AL+hErFErtWrrTE1P2K6KDzGq6hvedcVpie59+mQ9pIsEbiwzK6qXbtZvJ/V6FhjXEPO4zixKlaxjyYHy1IHJ7c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9udkzqioz8r+2Kg9P5BuarCQKBLobohK5JtM3iLrVCSxx5DmHv
-	Hy7/8BfU4/2nlJi2CnPEs3tb3EL11+BAkjy/08nHfmTUebNaVEOpXWUA
-X-Gm-Gg: AYBFou2IxPHd8dhX74L9PPcdWb33fZfi6DX+kEA5i1OqhYRaYTiTYx8GoHTED/jNDBy
-	9gvnTJ1q69RLyiAzeSuTbPGq+B4UFP5TV7XFYzfofwbUeMN/nC/b9aI1Zo+1FbORwMLyiLnGvHE
-	Wnts4iyPcZwP4RfUugKA92LYeGYKd8mv4HIQNh05QfUa4h0aN/jknPPQhbc8BoxeL0uYPPg61Q9
-	tkcHHaIzNVCcAjWhRYTYYL+r7mqIMfDiYjWBGi201Ox5ZMzuO0l2LbXo78pUrijgM6dE8j5Vrm4
-	I5vFDKDWUt4ziThWojEGVwyvwH6at9b2dVfElArNblT9dZukhpJxqqnlcRG/lef3F21EBuvI2gQ
-	ogh7yfQBOwAKD90ASVDf0TXV+bUPfFD3/6pR+jAxUxSyxeg1r988HPr3xWrIRK3N5itzLSy4FzW
-	K6AB5W2PE0g7IuxD30uzD6ToEL/OYRsvYmMNizdlqK1PiHfR3LZljdfW7jElKkutfVTlPT94NgN
-	8pH9+hK9oUyNmYT0Q2pFNVE8rjlMSmZZtbRqN8OXObpo4JfzI58528+4r9w7VG+I9PGZHAoz/mk
-	tLJalN65/BsjSgShbneHtcfbww6QztKJ6XgKigmMTr1FOa73xJ/7JDCKhl5zJlK8fOuHqRu8dh1
-	qPXsZAmMtH6OvUPWt0mTVbSdASHRvGdTdVopNJb7N9ebLfraQkSDG
-X-Received: by 2002:a05:620a:4142:b0:945:d6e9:9a8c with SMTP id af79cd13be357-949baa0735emr674761885a.33.1795207385322;
-        Fri, 20 Nov 2026 12:43:05 -0800 (PST)
-Received: from localhost ([199.170.132.196])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb418241sm271210285a.38.2026.11.20.12.43.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:43:04 -0800 (PST)
-From: Tamir Duberstein <tamird@kernel.org>
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Andrea Righi <arighi@nvidia.com>,
- Xu Kuohai <xukuohai@huawei.com>, Andrea Righi <andrea.righi@canonical.com>,
- Bing-Jhong Billy Jheng <billy@starlabs.sg>, David Vernet <void@manifault.com>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, Andrew Werner <awerner32@gmail.com>,
- Zvi Effron <zeffron@riotgames.com>, Andrii Nakryiko <andriin@fb.com>,
- Emil Tsalapatis <emil@etsalapatis.com>, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH bpf v2 8/8] libbpf: ringbuf: Prevent missed wakeups
-Date: Fri, 20 Nov 2026 17:51:54 -0000
-Message-ID: <179519711471.18576.6533152874363127425@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD07E60A2625;
+	Fri, 20 Nov 2026 20:42:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD07E60A2625
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=d4htThkj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1795207355;
+	bh=9HHgPnngfANMXf/PtLeRb/ky94A+yHxsRFZy6YViF1s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=d4htThkjFGl3lC6HPDFXDm++mXCW6kriJbhbV0YL30/EaPjvtZ9/lx9xMi5n491Qw
+	 jPMPKhRf4oKxEwwWxjld2drjQotDKZBvOv9c8znciXOXrKMkSUU1LzFxCg87+UKaFk
+	 dNd2yrgaq5iDqQwAcRDZaGeS5P8ASW2cEvUHMuMoWq/bsFKDHtQ23jLTQtO1yIsekp
+	 bynYSO4+/WaOloi/MnObChqr8UOhHCUH9kwic5tKKPfbuPwWopAn16jHExlzmOLFrK
+	 JyEYevfb3uVs/XsX2ZsUCUNo5zzQxKKHlkjcsypi0Poj1TCYn2dvfv81PY1iGgs8fp
+	 xoqWXoLIfkang==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2M4538zTqY;
+	Fri, 20 Nov 2026 15:42:35 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: juri.lelli@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	vincent.guittot@linaro.org
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	tglx@kernel.org,
+	will@kernel.org,
+	boqun@kernel.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org,
+	longman@redhat.com,
+	ridong.chen@linux.dev,
+	tj@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	shuah@kernel.org,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	parri.andrea@gmail.com,
+	m.szyprowski@samsung.com,
+	kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com,
+	linux-kernel@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v10 20/40] sched/deadline: Do not truncate a bandwidth to 32 bits in __dl_add/sub()
+Date: Fri, 20 Nov 2026 15:41:57 -0500
+Message-Id: <9f123dcc2d5ccbb4c2e44cedd420a5c363e6ed0c.1795207232.git.mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -91,21 +95,55 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-In-Reply-To: <CAEf4BzYKewRUpOboOmPcxdX25731tF0w63V0Ha=_f4D_F-ie3w@mail.gmail.com>
-References: <20260618-bpf-ringbuf-fixes-v2-0-33fde039ddf3@kernel.org> <20260618-bpf-ringbuf-fixes-v2-8-33fde039ddf3@kernel.org> <CAEf4BzYKewRUpOboOmPcxdX25731tF0w63V0Ha=_f4D_F-ie3w@mail.gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-> so we do this one time retry
+__dl_add() and __dl_sub() spread a change of total_bw over the extra_bw
+of the active CPUs of the root domain. Commit daec57983670
+("sched/deadline: Reclaim bandwidth not used by dl tasks") added this,
+for the bandwidth of one task. That is at most 1 << 20, the bandwidth
+of one CPU.
 
-The retry is needed for correctness. The producer can commit after the
-first BUSY read but observe the old consumer position and skip wakeup.
-The consumer must reread the header after fencing before returning.
+But cpuset_can_attach() reserves the sum of the bandwidths of all the
+deadline tasks it moves, with dl_bw_alloc(). __dl_add() and __dl_sub()
+cast the bandwidth to s32 before the division. Past S32_MAX, more than
+2048 CPUs of deadline bandwidth, the cast flips its sign. The extra_bw
+of each CPU then moves the wrong way. GRUB lets reclaiming tasks run
+more than the free bandwidth, or less. This was found by reading. It
+needs a machine with more than 2048 CPUs, so no case tests it.
 
-> [...]
+Fix this by dividing on 64 bits, with div_u64().
 
-> Wouldn't it be cleaner and easier to
-> mentally follow to have `goto done`
+The Sashiko AI review of the first series found this.
 
-Done for the bound exit in v3. Callback errors now publish, fence, and
-return directly; cnt = err is gone.
+Fixes: daec57983670 ("sched/deadline: Reclaim bandwidth not used by dl tasks")
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: stable@vger.kernel.org
+---
+ kernel/sched/deadline.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 9faaaf665459..cc5be00b2b0c 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -205,7 +205,7 @@ void __dl_sub(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+ {
+ 	dl_b->total_bw -= tsk_bw;
+ 	if (cpus)
+-		__dl_update(dl_b, (s32)tsk_bw / cpus);
++		__dl_update(dl_b, div_u64(tsk_bw, cpus));
+ }
+ 
+ static inline
+@@ -213,7 +213,7 @@ void __dl_add(struct dl_bw *dl_b, u64 tsk_bw, int cpus)
+ {
+ 	dl_b->total_bw += tsk_bw;
+ 	if (cpus)
+-		__dl_update(dl_b, -((s32)tsk_bw / cpus));
++		__dl_update(dl_b, -(s64)div_u64(tsk_bw, cpus));
+ }
+ 
+ static inline bool
+-- 
+2.47.3
+
