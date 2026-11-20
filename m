@@ -1,45 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188495;
-	b=XMvR8JS3YHCfehEcYzWoldY/jUftXfhav4zMGokYZuG7/Lbrjv1Xda2kPBglbk/Nly38
-	 mgovf5/etN9cMccgnbge2XnqVI3j+d8SK/eXI+oDfUxU81SeaYXJjKPLKBSdtZGr7Wcw2
-	 P9owDdU8kakAFRwcWL1Xm/m3tq5ijtMG70IrDslO0jlMYrGyUI7UVvE4e83QIpIg7ok4P
-	 BeBHcOpVUqb/xI7qppkqmQkQ22D0++1PISbhh6rl3oWqcl/s+ebKTlWsuQv410EP64qiE
-	 TE+N7APs3YD9O731sObkCd5H2ltG+LRIsyxAV0aDWxvj0lasa+GzdS/sFl7BGsTtsyA==
+	t=1795188491;
+	b=h2obWuszPCJoqzmwLhxFhqpFaWQCmco3VEsDGicHLbYywVn+Swcu6xUoDT9IabtoMgJK
+	 u5THlcIawFlSPWw3PZ7XngpF1RWfXNBPptgavyTuoqVuz+Sb4UzEoMOpNmvoh3VPKgDoF
+	 0V9nw+O9TCg9wC4z42VQ4r4h7yPC63Hy/kxyGCmfYHQBQeqz7eHyvdt8RX3imI0UlcrEP
+	 9DbN9B6C7zylxbgf7ZtPRAMG+RsxKbkGhe6psqixtt0XCkVdP1ZOuVkUcbN9gy5Nybu02
+	 RM2ZmQDTbcCeVOQfABnFZb18j6iBulmNDrDs1QvpT/BLPokA+haJVMsgj1RKUyoVcIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188495;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=WhaebfWiS1VXN82KLOZz1WCfzqv1TpGJKn70SfWk5W0=;
-	b=MfdWbXYCWWRKcgnTLEplaFUXxze4/e/7w/0KW0BbfEpRq6bgPOELS12qaB3DpwnWa8A5
-	 aO21z2MRYaH8Oei0jZyC/NrZzmS+p5j9V/EN11TvIZcWH8lScSA91yXK+FouZKm1NRCah
-	 In2Dn/IzvNYFz/d5Of78o3j2CQn06eG4IiTpFI9yrwcpu2O3oMfe7sRddYI4VHV+QM2Of
-	 6RXn6TAai/dSdEo0vG25IZbyp9CGChFNk4lfAXmYK0B+zQA14Xwb/t0EJnLrxhaLRF/86
-	 cwddAT59tCYhsRCKXfa0PGNI4ChY/EKsNvm7T6pjPbU1FqJdedhE02KICtpYFZKzNDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188491;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-SRS-Rewrite;
+	bh=Vmnslzco2VFlTAvIBJ5u1f30UOcTFAjsRmY4Ir9CuYU=;
+	b=MueIWejbgNfwMgbIYy34Ccy7sVqtrEyz/k3xtWhyN9o6JJzxtYgBZv9KZrPza2K3k4+Y
+	 Ip/co3KsGUg9bSGmc2I+vCiJLFpZQyzNehPK5cgXw0HOTkwLz/ACmDaBlD2PDMwQuv4F4
+	 y4hNdV12RTRN384QuP031tjGDtZg+53O17cnGqOpbccTq9PfxX/Ohv1nV8EqnbfndRntu
+	 Eptvl0IhtA+zo6i2w3annrx6Ju9eyoLPhnv8IGzXRBEE7naQNyeiJIcJEuYs5kkk/Wq8w
+	 fnRAtmFNYabzbEalyecuZGw8hOVQdODH/Lgk/ur3kRlDUgU5ICQLmOOyCvKi5Qn5gPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AOgRSLhJ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLzWti4m;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7C16606A32C;
-	Fri, 20 Nov 2026 15:28:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46F33606A325;
+	Fri, 20 Nov 2026 15:28:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46F33606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AOgRSLhJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEC141F000D2;
-	Fri, 20 Nov 2026 15:28:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795188495;
-	bh=WhaebfWiS1VXN82KLOZz1WCfzqv1TpGJKn70SfWk5W0=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=AOgRSLhJCbYeK6jNnplfLl2Kq5M6XrwmKNN8elkW6waXsIj4Ns+APjITnuDSHz1f6
-	 MneXC1ecOi0p8jjYAEUytXuGhLCXhhWYXIszLzRJbz9XoJquQN4WCXFB2qq0ukwS7r
-	 ONMUGW5gL7ytJVNJi1U7ss+sUo5Psq1cU1QZaJ1bY0bxv4GmNHEm53kUgECFSSgryy
-	 U8UGB/BqCgsHVJ4m/G34c98P6/WNUkwJoNSSFNmYpT+i/08ymOQJRWKc2uwhyau5Nz
-	 WOHIbv/5DDV556chd+EKs03BijdnbtRnyej7Lg1F3mVxWzmrntalhSPSq5/D9XlPGm
-	 JufJ+bFjoMTKA==
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=CLzWti4m
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Vmnslzco2VFlTAvIBJ5u1f30UOcTFAjsRmY4Ir9CuYU=; b=CLzWti4mMgs1L0148e68QDbnFY
+	obunPTpbdRcx2qLz7GW1hqsf1jh1wwLCTuM8wna5OT5YSdSGi202Nw0RzFT8cMlTuu+g2QoCXIOgv
+	zhHTKkfH407sc0Zu+fvSxA3xsAhMxCNehsxhIoBgBEuZkeSz7Q0Xv53Y3fSskleNh1S6vbkBbURk+
+	kXdPzaDjLpKstaZbYatqG8eQQDlXkscCRZ1JxMKZGsBjzYeNBgbz5FnhY1szcwHjhNJiSnqzVM9RY
+	8lxvVdwheXvmuig5U0PJxcIdlTbR1B7+F0nCSW45VfxolXsJIYe3eatkKwPrGoQUVED+0skilThPT
+	kFy2ZM5g==;
+Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUQX1-0000000FQND-3Gp8;
+	Fri, 20 Nov 2026 15:28:07 +0000
+Date: Fri, 20 Nov 2026 07:28:07 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Zakaria Belkadi <zakaria.belkadi@inria.fr>
+Cc: Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Kanchan Joshi <joshi.k@samsung.com>,
+	Anuj Gupta <anuj20.g@samsung.com>, florence.schadle@ssi.gouv.fr,
+	frederic.tronel@centralesupelec.fr, louis.rilling@irisa.fr,
+	stable@vger.kernel.org
+Subject: Re: [PATCH RESEND] block: pin user PI pages for writing when ref
+ tags are remapped
+Message-ID: <awBnB-55HQ54C1x6@infradead.org>
+References: <20261118154053.13218-1-zakaria.belkadi@inria.fr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,48 +67,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 19/24] dt-bindings: spi: Add ZTE ZX family SPI flash
- controller binding
-From: Mark Brown <broonie@kernel.org>
-To: Navid Ghahremani <ghahramani.navid@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de, 
- stefandoesinger@gmail.com, krzk@kernel.org, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-spi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261014072109.1759502-20-ghahramani.navid@gmail.com>
-References: <20261014072109.1759502-1-ghahramani.navid@gmail.com>
- <20261014072109.1759502-20-ghahramani.navid@gmail.com>
-Date: Fri, 20 Nov 2026 15:28:09 +0000
-Message-Id: <179518848943.6016.16140133614242447239.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=639; i=broonie@kernel.org;
- h=from:subject:message-id; bh=IYVVL1WQpODtUTYbvZYUESLycirYOu+mnnmWexmbyOA=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZ0rlY9Wcybbq5QPAnY8wKptu/A6w+HGxp3W+b75qjy
- r7uXvOOjlIWBjEuBlkxRZa4LO6X9SWv1/AdXNgGM4eVCWQIAxenAExkWjnDP91f0bu//Y8I2iPl
- F1cb9PuZ2t0Jp/zrX13co9q9k5khKIzhf5B6jljiedXMq76cz6f7/Jjs2sZ5OEjxirVwQOn0aP+
- 7jAA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118154053.13218-1-zakaria.belkadi@inria.fr>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
 
-> Add Device Tree binding for the ZTE ZX family SPI flash controller,
-> supporting both ZX29 and ZX279128S SoCs.
+On Wed, Nov 18, 2026 at 04:40:53PM +0100, Zakaria Belkadi wrote:
+> +	/*
+> +	 * blk_integrity_prepare() remaps the reference tags of a write in
+> +	 * place, so the PI pages are written. Pin them for writing.
+> +	 */
+> +	if (bio_op(bio) == REQ_OP_WRITE && (bi->flags & BLK_INTEGRITY_REF_TAG))
+> +		it.data_source = ITER_DEST;
 
+I don't think we can just pin memory as writable that wasn't given to
+us as writable.  So this needs to force bounce buffering, at least when
+remapping might be required.
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
-
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - zte,zx29-qspi
-
-This looks like a wildcard binding which we don't normally allow.
-
--- 
-Mark Brown <broonie@kernel.org>
