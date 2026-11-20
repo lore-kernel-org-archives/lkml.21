@@ -1,92 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135035;
-	b=aa0aZ8QIurGI0gwySK9N2ikVUwjWdHe0I2FUG8MPe81t5egm6P3KmpYGhlmBGTMgP6rH
-	 fH1/5JSAfaK2hIyAkDLeM/5oNCtzDJ5sl4jfaMEhHQCGcVrH47XC3WqZbZB0ZgPGn3iKM
-	 gmjvIqqC2Z8Z6mVbE9kftniNSpFZOpEK/LPU2pIngX5RL7vHf4vHJYbMtAJ6TQIFccuKT
-	 fkFMcmomPf7nk0pykKsBtVCVdzF/FPbTEzvT19ohHu296BOyJkl9PHGHXYgjgWJ4RR8tS
-	 aotasu1ICjzSRzwcrTaBjA4L3fN6UW+V2U3IkpgkrzP2yPxz7Lyy55NdolAknSCnQ4Q==
+	t=1795135156;
+	b=eyXfAWJ3wFksx6oWZjnPlAIBTeggCGrBoeH/e9sbdhxX+YHA+kmF3OsUN808D+A39weC
+	 8XQzr2wS9E7GSyGeBiUJopavkj+CFa+4xl7+JEjn2VQi7mcYseTfBosX8K4Dmk1LNIZnr
+	 BIDCRGG2g+4fbq+6ZfbaTWXP3Hf59qnszguTfpeajwTPPXAsS2sMbslzUtOAN/823f6MB
+	 foxYQkzGZgzhym44ZGYS3mA25nRlj++FLzeanBBxnoYU/Uvur9Xr++PN7ee9lW+OFyAyP
+	 WzptdXxZP1BsRyP3+JFV+70Y93FVpJvW7gfs7L4u4rpVOM5EqVNz0FZ38g+umlV3rRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135035;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=Mvm7TbZO2dEaCkOK5kw7o++VyiDOkdnriqFs9QSV/HI=;
-	b=raCWfAYFa6rRi26uwEmanG4Vrv/9dh0baYRQZr2w8LIf199oOkigfShd4NCH/65LQIvq
-	 ZBiMX2KasoVAj1CVNrRMUV2mVweQDDLoHOXsjO+xh+ydznrzX7D0Z0SgTkgJ0x54IsR1Z
-	 Fd79Sh0YUG9VXcNbpZ9Cf6Ur8QHs5bEmM3tWezfdQ4XCeajQud0KW5id1ji1hWzdO9EIt
-	 7ppXhPxxQ8vtAMeSTXXRG2aMQ2+L1w89Gkf0IqsxmOnsGxwlnJ9863NWGB214vYjU5qFi
-	 AN4ru1HnIRSQQLL1P6AnIySPATqHlZ97ZWnd8TkbIHXd1BdGSxjdEJuluD/7GGK+tRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135156;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Message-ID:Subject:To:Cc:In-Reply-To:References:MIME-Version:
+	 Date:Content-Type:Content-Transfer-Encoding;
+	bh=5gxwyGctvojwIiXOCGBcUPizSCDvTG4IBxX7KHgzhdg=;
+	b=DIcHEbHiAL9RiIjzyg4Kqe78DjbUK7dNtFpuIw9rV1Co/axTowaEMy4aeepwxlyHJggI
+	 t+EE5K0x1tuJ8uhdp7xjUDlk49EbF4LEFhPwAjocz17+rFibW4rBPodzU9VXyoLjoN5lQ
+	 e5ayGDzZGdnPezXz9eku+LhGI714cSCPC44gx2enhz5Bm9r77D2swhTzLqtecI3UkwDd6
+	 pMr4nWK91RBVXps/YL8s3WvCi6rtF1V6CbrDT7ymlSIdlGPSkb2UkW0lnLwlseYYUDuW+
+	 5CVxmvJPPrky1C155CyNThIOtK/sCNwBnSThPUn4ziq9gwU1tZ8k36SmC6JX7M4xXDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=GAZRK1M8;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AXIrbsRs;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 906FF606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:37:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 906FF606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8EB3606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:39:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8EB3606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=GAZRK1M8
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0QxA44059320;
-	Fri, 20 Nov 2026 00:36:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=pp1; bh=Mvm7TbZO2dEaCkOK5kw7o++VyiDOkdnriqFs9QSV/
-	HI=; b=GAZRK1M8ggiwhWspegfWj1cGiL9nBqlSxdxlxBr7Rct67Mi2LmfBLHLKo
-	H3NHSJJahJCJIVxqSeA6aEACL2i7S5lQt1CcSBHi2iREVLUuoPZPa2ZoiIabwiU3
-	wfA18FmSAWS5ZvbgM8XvKk7YQebqPBwQZV4H/lYCZTjcIodce9aovPf8MX39dtKR
-	w0kJg3nVjaqyiaBHB7kuujznTfSjj7kBdjDJDT/Nh7QaXxDKYFbKUQpMt4B/ErPj
-	LqZJ5o4C2MUBuVMjnxZpvVrG5tUvFskE9UXMHIaORDzQIkQV/fZ5p5SWx6DIUxXZ
-	5dkLavDH1CfaHrDJhL12u8+aZpZxg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105rw357-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 00:36:49 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0Jw501717744;
-	Fri, 20 Nov 2026 00:36:48 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd6yrf1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 00:36:48 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK0akHg52298160
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 00:36:46 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6D27A20043;
-	Fri, 20 Nov 2026 00:36:46 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7EF1D2004D;
-	Fri, 20 Nov 2026 00:36:32 +0000 (GMT)
-Received: from sapthagiri.in.ibm.com (unknown [9.111.19.126])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 00:36:31 +0000 (GMT)
-From: Srikar Dronamraju <srikar@linux.ibm.com>
-To: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-        Srikar Dronamraju <srikar@linux.ibm.com>
-Subject: [PATCH 0/3] sched: Fix load accounting and improve imbalance calculation
-Date: Fri, 20 Nov 2026 06:05:34 +0530
-Message-ID: <20261120003534.1339296-5-srikar@linux.ibm.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AXIrbsRs
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1b3beeaf6f9so426125c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:39:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795135155; x=1795739955; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:date:mime-version:references
+         :in-reply-to:cc:to:subject:message-id:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5gxwyGctvojwIiXOCGBcUPizSCDvTG4IBxX7KHgzhdg=;
+        b=AXIrbsRssxXaO3w8GrpTDhyAHBoe8gHl6vr1AgWK/cwk9Q07YyUHncFHncJa46UUL3
+         TgmkdDVvNftjYQdNRFgZsqI49nDzWumOSnYxV8wcUZs5Gcnn3anIwpCjKujLDJwmC8iK
+         6ZK6VAZw9CgJl7Df/Bzv063r+hBx0B4fidZsdWJ1jC9OEal3iZJMf2BxLf882Td28SIX
+         Wz+DJjNddHav9pLJ2ujtZ60os7JcAtjRIXP90PgnT+QSy1hSyARUgJcqpbzkKFaDOm2z
+         mIqhczej3xSQrEXsLvf0mbJQVNl2nG2Qp8a8zIM9aNMdpQWUM+0SIaeq3USPn5pQh7m9
+         qPFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795135155; x=1795739955;
+        h=content-transfer-encoding:content-type:date:mime-version:references
+         :in-reply-to:cc:to:subject:message-id:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5gxwyGctvojwIiXOCGBcUPizSCDvTG4IBxX7KHgzhdg=;
+        b=aknrzoKBwrvkPgs05lm4zE5WQu8AfqM0V2VW2RKsG5GhFHBpi54GLFQeVtLWn2aPL0
+         d548Q4bCNQ7kP+4mcG1fYddnl1beS9kJ2hg41/NMPrE2tAtFrddn/3kFG5K8zU9i9x6q
+         ypaqYewlbf+hsjwH/KJC6zt9UyZ3xVqmMa0PXK1X9fYxctbMhHFkqKgrhtkK1VDmaypi
+         qiZTF+4YgwXn4lNQ3N9fQTWj7qDi7yDn5ge19zTTNT1uK1lnepxu+lTJ54U0NhjCDF5s
+         JnICUIMPebneJexeykdXUSfaqsdlvMAd4Au/LLiJNGmk4Ho1h7YbiYO2VHDUGxriirO2
+         V2ug==
+X-Forwarded-Encrypted: i=1; AL+hErHe85TGgiZfkSohnCYoivczbD+4JCQGj3124M53dL645owUnMgvbwiLJ4c5hSYt9g57ZfTW5Yjn2DXudbY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+pq6UlphdPJSB2Kg9mKwCQz5GTgHPIDoBJRB9NULqvzB2Nl7fe
+	NOkx7b/X8mqK187n8DkZ9wPcNFUTIDGQK51ZKmAloFo6WBODEkEyEovO
+X-Gm-Gg: AYBFou3tmTTv3NsZwUqF8k3Xq1uq02rSKYwsFjkX+B6dDJRicjgaYEgkLi8+pQJKC+0
+	/qhcU1sLke4mh6VaTlOgtbwNuiDy+vfEs2gQ7FP1oty6/5+W+QPzq1/AQgECaYrk4G5aulLdCmJ
+	ZkvMl8Ol+PcIwUL8cwK7yclZ52hJhs8+WmpUIeTNgH1pthcnIw4iKVd3PKUZ1rqQjxYnmd/TwC4
+	64RptPBrkRNQ86TwmJBGcLRwfY+JU9FTU/GW+9CAsHN3nqmGeSSLScqV7/CiE3DhH8yyHNrhNQF
+	pV6EoCUjLw8So7LlDIgxcbsaK6ZNelZg/WI41jDTqJeoPcqNRFK8XSWbctC3IPw7bBU2mQUu3T1
+	7o/COROSzrkb5j4UNnqW9vqxjvcVK1hgJ2yRSNgjN+232qxaQNfZitnUIfh2NoCVLm+5DKZennA
+	kz3WDYUIHNwuYFyO7U2Awvw6YJNYXVUT6xDcfXS+vt9W1aGVIolsg1F6nRp1kPbwsOg061AfbgR
+	ZHGsbjtEoGGFVx8/EUJOpLPB8VZ7Ja8IE9g8gy+F61gnoGeCa9aZbvx+1frsegtNFla+jH7nkXP
+	S3byX/bxorGWCd2MR1NLi0rMkKn4Ny81SueEPeslH/n27UuspOBLGSWh4RKuULPtGTFob5FVMk3
+	uoRR9FnupUNDYbnSEuxQZzyQsIC1XanxHUMaBg4n7AtgMpGxOUOA=
+X-Received: by 2002:a05:701b:4555:20b0:1b5:2988:eba7 with SMTP id a92af1059eb24-1b556947286mr1278313c88.41.1795135154985;
+        Thu, 19 Nov 2026 16:39:14 -0800 (PST)
+Received: from [127.0.0.1] (ip68-107-67-45.sd.sd.cox.net. [68.107.67.45])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55682d301sm2184747c88.10.2026.11.19.16.39.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 16:39:14 -0800 (PST)
+From: jasmeet.bhatia.us@gmail.com
+Message-ID: <32909f9cc196a161bf380b6f64603b75@gmail.com>
+Subject: Re: [PATCH v1 0/2] efi/tpm: Preserve event log without changing x86
+ E820
+To: ilias.apalodimas@linaro.org
+Cc: ardb@kernel.org, rafael@kernel.org, pavel@ucw.cz, linux-efi@vger.kernel.org, linux-pm@vger.kernel.org, x86@kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <CAC_iWjJ1L5MYWy2vHG3AHYcfqx7urJmaTYP7vuyvZm8GSnWCDw@mail.gmail.com>
+References: <cover.1788259938.git.jasmeet.bhatia.us@gmail.com>
+ <a9e23066-aa75-44be-ac3b-9a15f4cf6047@app.fastmail.com>
+ <DL6NCV1KQ9F9.6K6XZQCS4AF3@gmail.com>
+ <c3ca811b-a6eb-4f4d-bbb2-4feef02e3db2@app.fastmail.com>
+ <CAC_iWjL9jDsRaU7kEemYfwk292Nxa49cK0Rq=81pC=FWNRDhvg@mail.gmail.com>
+ <b66f68b5220ddcadddb41340d3ea3388@gmail.com>
+ <CAC_iWjJ1L5MYWy2vHG3AHYcfqx7urJmaTYP7vuyvZm8GSnWCDw@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,65 +103,50 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: MBHENH6tRv9db4lgtJZTDAxH-s4sj5pF
-X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6aff9622 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=ZsR2dV4RUeciMP3PSSwA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwMSBTYWx0ZWRfX9m5lxW2Nixk/
- WtxWUQrsaYwJ4Ws8+tZDdupxAAfdw8duv9JrFrpCO/kj11VGbrEmfFdGrvjnmmvlL2xTPq6R8EI
- MSt9jS7yna6h3AnIDSjXYAMigbc3YqQ=
-X-Proofpoint-ORIG-GUID: n-74fVsq8BqOhBC86gq0Oe4plv1a3dWg
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwMSBTYWx0ZWRfX8e2An6cDrezZ
- i4XLsBbFRXpd2thH0hUUgRnyOi+TGj1dG4rDhedKeFftyfLKG5wwGuM9vzntoj5DcKJbYLxNda2
- LYMYl/VsVgVWUT4CvHHGR/jrLrXrmkQW2ddv6UQbuY1uviPyKAfRBAUX6UV0q+Za7Eb0V4+IP69
- KC9Hs0JCMESF6WMddWTYaEnZ+iqa19kbhuhXIGLxmMVUsG2J2yj4e09lgg/Jj3kEsqOhp/1TRPX
- 5FMv9xTPqLWYrc/8d/6UHMVQ3FJjP/M5YVxDXdKWVJpsJcAHoV/V4v6hgzPe53c79TZJ6Egeg9r
- OLzZxChuxDl2EPCqEeoDVpPwwvAHvckxP6zwX0OKXCd6CyK3hz8JOX1v5ELyo8t7W/8MBoGJbUX
- XJC2eGlEAI553cOcnSaUysx9qtqQSIgtX+YgIltFewd1XFHqYN5skG1mlMlctmnN05ESlKD4JdV
- gK68zd8ClTiYD+2Gl4Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_01,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200001
+Date: Fri, 20 Nov 2026 00:39:13 +0000
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-This series contains a few independent scheduler fixes and cleanups.
+Hi Ilias,
 
-The first patch corrects load accounting in update_sg_lb_stats() by
-excluding delayed-dequeued tasks from sum_nr_running. Delayed-dequeued
-tasks remain visible in rq->nr_running even though they are no longer
-runnable, causing load balancing statistics to overestimate runnable
-load.
+On Wed Nov 18, 2026 at 10:11 PM -08:00, Ilias Apalodimas wrote:
+> Hi Jasmeet,
+> 
+> On Wed, 18 Nov 2026 at 04:57, <jasmeet.bhatia.us@gmail.com> wrote:
+> >
+> > Hi Ard and Ilias,
+> >
+> > I wanted to follow up on this discussion after a couple of months.
+> > My bad at being slow, at keep this discussion moving.
+> >
+> > Has there been any more considerations with the preferred approach,
+> > regarding the EFI TPM event log reference and kexec?
+> >
+> > This issue is still relevant to Framework 16 owners and the temporary
+> > fix has been confirmed to work for other users despite not being a
+> > proper fix to this issue.
+> >
+> > I'm always happy to prepare and test any patches once we decide what
+> > direction we want to move forward towards!
+> 
+> Ard suggested we discard the EventLog on kexecs and I agree that in
+> its current state it doesn't offer much to security. Is there any
+> specific reason you want it to survive?
+> 
 
-The second patch improves imbalance calculation for domains containing
-groups with different numbers of cores. Idle CPU counts alone can be
-misleading in such cases since larger groups naturally contain more idle
-CPUs even when they are proportionally more heavily loaded. Use the
-runnable task distribution for imbalance calculation when comparing
-groups of differing sizes.
+No, I don't have a specific reason to preseve the TPM event log across
+kexec. My original patch only preserved it to avoid adding any
+regressions, but I do agree that not preserving the event log would
+simplify things greatly, and I can't think of it providing much value.
 
-The final patch is a cleanup of cache_nice_tries initialization during
-sched-domain construction. The resulting values remain unchanged but the
-initialization becomes simpler and easier to follow.
+I'm hoping that will allow us to return back to the EFI_LOADER_DATA and
+the E820 instability issue that was causing hibernation failures on
+Framework laptops, and possibly other devices.
 
-Patches 1 and 2 contain functional fixes while patch 3 is a cleanup.
+If you and Ard are comfortable with that approach, I'd be happy to prep
+that patch and test it!
 
-Srikar Dronamraju (3):
-  sched/fair: Exclude delayed-dequeued tasks from sum_nr_running
-  sched/fair: Use runnable task imbalance for asymmetric groups
-  sched/topology: Simplify cache_nice_tries initialization
+Thanks again for the guidance!
 
- kernel/sched/fair.c     | 5 +++--
- kernel/sched/topology.c | 9 ++-------
- 2 files changed, 5 insertions(+), 9 deletions(-)
+Jazz
 
---
-2.55.0
