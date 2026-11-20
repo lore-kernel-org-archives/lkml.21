@@ -1,67 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193565;
-	b=ifxSIiHmSuI+rAyxU6bprNGTFr+mjZeHPULN/xxxSRptUQrHc/6HGVx/BzfvZtBPbTpU
-	 nkXVhAptdMZ/nB7Ehmd5BrZ4jpnfRqN+dYPc1AMKZTNts+xi6qCdyl0LtG35al1dXwMBl
-	 8Db37kL7IbJoubBzNUkUKqKmO+0Md9dvsuvVFTtRJAjs1ewI5bd4e9lfEvvk+tAD5Wtcs
-	 Xk/z4DcNJhVJZ3sZTdNvwzRX47+qLfBRRhsn8sx+nPJuiwktUmeeUk6sHzo8KeLLktOOa
-	 eJRGlSqeB2vMzBdMg6t46WSsNQmtF2ncU7JGotXGXtqrWxIryssny9rSGqUqE1rMKPg==
+	t=1795193588;
+	b=M+wQle9vaIV+kCJlAGHmC0sI32BXy3Wlf28uvCanQJmULjqy+MSurRPkBJiypLolzFcf
+	 8E3Uvm7l8ab/4096YMWR5kd7HfbzqBDQSb8lfR4jvhzSWSwabT06C+BBdyxqNbebCyhIm
+	 7zwpbi+wX1SHzDfsbfA3YSZi01v2abzX4DjINfo72VC5WAuWwrubBCs7I3Y1wpOgEDhbA
+	 lP3ckbWkjGxaOMO4lVoOgaucm4bip13wWG5X2z5jAKqosdal12BwmET/KUCmv1etnnpQd
+	 0JI4V1En5ybTS6kYDy1XDipNm4/7u5JKywHDNCAneEl3YlKj3/H4om4Eiz2rrQfQBZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193565;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=Zy682i0uANXovwUo+P5vT59eEw7qQwjd7eLHwlsNqRU=;
-	b=YOJ48T5lWyyF4saBb6nfUnyc011mFH5E4aQCx8qaKhaBMgvd6+4JEJp73l2hGLoMtVwp
-	 h549iGCKEGzZxPuREghtF9MdHIR3UDl0JeDRBZkMnkGoATw9RFazIzSLKY5BGLsT4tytK
-	 R363rc3UV3IzOoPRbjjFKdKDWrONNwBosTLBsPlPTxXva0EBysXQY7XKlOyziZCXfLrf1
-	 uawl96XXzFFETrSgCNzfLpHtnaESmQch0LnEstpbzxY4a4ehQbD7zL0GFarhBKWqxuFuw
-	 AubzjwkW+HItun9clpK7uwt/Z/iIhw4WMP4eGiQ4/PCStxvXRL7TDm1TIoRLrwJDuEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193588;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=A2nLq6am/T/zNwphpbaOffHi5KxUqXtUM9OeXv+xYRE=;
+	b=1Eg9kAKB6HGNrC2rl0k0Ie8kVhy779gMYul46zIQ57qHhoNFulPz2zY4rIn74BJAiff2
+	 hVVixbL3foh/iWBHpFAVxwZNHUp3v0UxvOOJwjqpPqG4U3jfVBR7n1z2LY0kxhYrFqx/n
+	 4goRN5wgef+dgoQOPYAIZ+d5fVEzR/yxi6ztl+fBNh32vKzo9SflaQdyTC8Rd5Rhe03ma
+	 Dxp3x78ZHFvbnFof4BgebF1G0e0ZsloA0ni4nZmE9+RyXyN7ykzmVKzGUTlDIFYkNwM6S
+	 AloTIs3iKedREjJ52C+gMoeNnknYBaSr8PX2el9e0eo0/hoOSuLwszUOpTQaMXA6bzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DTPjgJQO;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YcJS42KG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3753606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:52:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3753606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E24F606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:53:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DTPjgJQO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795193563;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Zy682i0uANXovwUo+P5vT59eEw7qQwjd7eLHwlsNqRU=;
-	b=DTPjgJQO7EHx0LRYuhPe/hI21AVDi8V/fOJPidXPbH97MwcbDxZB50EI4eUWxV1OEy7WEk
-	xoLtRVxYXb7/q33nfx0+AhzxbLYRgXiTlySM6H/YeAeLo+S40eDgdADf3zpo7PxC1kHRQT
-	yyQ08uFSLLMkUpWWHwVHMY0TtxtyDXQ=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-550-Lk362HAvNrOBrvfHeN1wAg-1; Fri,
- 20 Nov 2026 16:52:39 +0000
-X-MC-Unique: Lk362HAvNrOBrvfHeN1wAg-1
-X-Mimecast-MFC-AGG-ID: Lk362HAvNrOBrvfHeN1wAg_1795193556
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 30E091800876;
-	Fri, 20 Nov 2026 16:52:36 +0000 (UTC)
-Received: from [100.91.18.181] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EDE4118011D9;
-	Fri, 20 Nov 2026 16:52:32 +0000 (UTC)
-Message-ID: <5a16dda3-f128-4109-a52b-f51e01309b35@redhat.com>
-Date: Fri, 20 Nov 2026 11:52:32 -0500
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YcJS42KG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60E3E1F000D1
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:53:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193587;
+	bh=A2nLq6am/T/zNwphpbaOffHi5KxUqXtUM9OeXv+xYRE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=YcJS42KGCGCOoF6/uHN1RQidhqQwiBy145eBAxwxierpntbvxSX3vdpviAtOOQpAV
+	 qEwFjik/t9YX6YG8BIxCFqzwwxWmkHUtJ6eSh0WxSAJCE6n/+fhsdMYtDv8W2EdqsX
+	 M+QU40GGN/oZnfQhm3qOHEAeW3quqh2DS8PSxWibXOEebfsSqy/x5z0oZd/Dh5Iyib
+	 yrAJgVXFNoK2OwTepuf+ODS+mURbIeJPggijiY+L8WHcO1GXFa7e+y2JtG7b7lP5/q
+	 GO29Emhv+8z5oTooi8fxUPp/IJY4uGF2ex7gxhz9/yPtnLoHpDbvvX7uVJ5bOq0CWG
+	 AbMqkCSuJizzg==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5c102ad8420so658749e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:53:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE0vHlPZxePWqDg3kURT2m9htuAP3Er821jlPhZhZWgIlypDDrvBNjVG+W1MBU59GPbFkLGxZrecCqhhFI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8lHx7cz+dU6QzyK3u8AGcv4oyAqBguYG6Ao6+cEP1cP2jYSU6s
+	b6/y4lC+vHUE0tcYR2PRjV0EHbmX/vZcnK6FnP1VUdpJHVAnWdcPtsA8M9/D7iKx4fR9oaaHASO
+	HSN62rPoWJgjLGXU/AdXU/7+tBa9oqEU=
+X-Received: by 2002:ac2:4c4e:0:b0:5bf:d063:608 with SMTP id
+ 2adb3069b0e04-5c1bc7bd46emr1186381e87.17.1795193585853; Fri, 20 Nov 2026
+ 08:53:05 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,80 +59,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [BUG] sched: BUG() in select_fallback_rq() at boot with
- isolcpus=domain on the boot CPU and CONFIG_CPUSETS=n
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Juri Lelli <juri.lelli@redhat.com>,
- Vincent Guittot <vincent.guittot@linaro.org>, Michal Hocko
- <mhocko@suse.com>, Tejun Heo <tj@kernel.org>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
- K Prateek Nayak <kprateek.nayak@amd.com>, linux-kernel@vger.kernel.org
-References: <20261117144817.265109-1-mathieu.desnoyers@efficios.com>
- <dd335ee6-c879-4bee-9ea8-6d9e9216fb0e@redhat.com>
- <av26-ojv3LkO2vXH@localhost.localdomain>
- <c40da4c4-1f70-44f7-983c-3349199b5b68@redhat.com>
- <av8d79cn662slr_K@localhost.localdomain>
-Content-Language: en-US
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <av8d79cn662slr_K@localhost.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+References: <20261113072621.2285-1-gubin@cmss.chinamobile.com>
+In-Reply-To: <20261113072621.2285-1-gubin@cmss.chinamobile.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 17:52:52 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jqzVYLck6ujV4jc2=Mkf-BFeCy=7dUX-FaZfZ8wMJyJg@mail.gmail.com>
+X-Gm-Features: Aa3M54oXMmrxOpu8xOdOOB6acVvkJkOq-L8oVEyl4twYOeTba7QaRyxboJG3ic4
+Message-ID: <CAJZ5v0jqzVYLck6ujV4jc2=Mkf-BFeCy=7dUX-FaZfZ8wMJyJg@mail.gmail.com>
+Subject: Re: [PATCH] tools/thermal/tmon: propagate fscanf failure in sysfs_get_ulong()
+To: Gu Bin <gubin@cmss.chinamobile.com>
+Cc: rafael@kernel.org, daniel.lezcano@kernel.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, rdunlap@infradead.org, hemanth.selam@gmail.com, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/19/26 11:03 AM, Frederic Weisbecker wrote:
-> Le Wed, Nov 18, 2026 at 10:55:35AM -0500, Waiman Long a écrit :
->> On 11/18/26 9:49 AM, Frederic Weisbecker wrote:
->>> Le Tue, Nov 17, 2026 at 10:13:02AM -0500, Waiman Long a écrit :
->>>> On 11/17/26 9:48 AM, Mathieu Desnoyers wrote:
->>>>> Hi,
->>>>>
->>>>> With CONFIG_CPUSETS=n, a kernel booted with isolcpus=domain,0 hits the
->>>>> BUG() in select_fallback_rq() during boot. CPU 0 is the boot CPU. I
->>>>> found it while testing a SCHED_DEADLINE series [1]. I then reproduced
->>>>> it on v7.4-rc2 alone. tip/master of 2026-11-17 and next-20261116 have
->>>>> the same code. A proposed fix follows the scissors line.
->>>>>
->>>>> Trigger
->>>>> =======
->>>>>
->>>>> Build x86-64 with CONFIG_CPUSETS=n. Boot a VM of 4 CPUs with
->>>>> isolcpus=domain,0 or isolcpus=domain,0,1. The kernel panics before
->>>>> init runs, in every boot.
->>>>>
->>>>> These boot fine:
->>>>> - the same kernel with isolcpus=domain,1,2, or without isolcpus;
->>>>> - a kernel with CONFIG_CPUSETS=y, with isolcpus=domain,0,1.
->>>> I am now thinking about disallowing the boot CPU from being domain isolated.
->>>> That will include using isolcpus=domain boot time isolation parameter as
->>>> well as in setting up isolated cpuset partition. Will that be a simpler
->>>> solution than fixing all these places where isolating the boot CPU will
->>>> cause various problems that need to be fixed?
->>> You can try that, hopefully nobody relies on that. nohz_full supports the
->>> boot CPU to be isolated but it's a heresy.
->> The upcoming runtime modification of nohz_full CPU will not support the boot
->> CPU
-> Agreed.
+On Fri, Nov 13, 2026 at 8:26=E2=80=AFAM Gu Bin <gubin@cmss.chinamobile.com>=
+ wrote:
 >
->> at least for x86, as the boot CPU cannot be made offline.
-> We should forbid that on all archs.
+> sysfs_get_ulong() always returns 0, masking a fscanf() failure, so
+> find_tzone_tp() cannot detect a malformed trip point temperature file
+> and reads the uninitialized temp_ulong. The sibling sysfs_get_string()
+> returns its ret.
 >
->> I would not
->> recommend putting the boot CPU into nohz_full boot parameter, though we are
->> not going to forbid it.
-> It's already supported and unfortunately we can't remove that as that would
-> break kernel ABI.
+> Return the fscanf() result from sysfs_get_ulong() and have
+> find_tzone_tp() skip the entry when the read fails. This also makes
+> the check honor the "ignore 0/invalid trip points" comment above it:
+> previously a failed read left the caller-dependent stack value to the
+> temp_ulong < MAX_TEMP_KC comparison, so a garbage or zero temperature
+> could be counted as a valid trip point and later drawn as a bogus
+> marker in the TUI thermal data window.
+>
+> Return 0 rather than -1 from find_tzone_tp() on the skipped entry so
+> the scan_tzones() loop keeps running, avoiding the early break that
+> would leak the remaining scandir() namelist entries.
+>
+> Fixes: 94f69966faf8 ("tools/thermal: Introduce tmon, a tool for thermal s=
+ubsystem")
+> Signed-off-by: Gu Bin <gubin@cmss.chinamobile.com>
 
-I just found that that CPU 0 will be automatically cleared from the 
-nohz_full list in tick_nohz_init() for CONFIG_PM_SLEEP_SMP && 
-!CONFIG_PM_SLEEP_SMP_NONZERO_CPU kernels. IOW, that means most kernel 
-will do CPU 0 cleariing. Although we don't explicitly say that CPU 0 
-cannot be a nohz_full CPU, most kernels will not allow that.
+Sashiko has feedback on this one:
 
-Cheers,
-Longman
+https://sashiko.dev/#/patchset/20261113072621.2285-1-gubin%40cmss.chinamobi=
+le.com
 
+Please let me know what you think about it.
+
+> ---
+>  tools/thermal/tmon/sysfs.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+>
+> diff --git a/tools/thermal/tmon/sysfs.c b/tools/thermal/tmon/sysfs.c
+> index 5d64aff12a86..7f1e38276254 100644
+> --- a/tools/thermal/tmon/sysfs.c
+> +++ b/tools/thermal/tmon/sysfs.c
+> @@ -70,7 +70,7 @@ static int sysfs_get_ulong(char *path, char *filename, =
+unsigned long *p_ulong)
+>         ret =3D fscanf(fd, "%lu", p_ulong);
+>         fclose(fd);
+>
+> -       return 0;
+> +       return ret;
+>  }
+>
+>  static int sysfs_get_string(char *path, char *filename, char *str)
+> @@ -167,14 +167,15 @@ static int find_tzone_tp(char *tz_name, char *d_nam=
+e, struct tz_info *tzi,
+>                         int tz_id)
+>  {
+>         int tp_id;
+> -       unsigned long temp_ulong;
+> +       unsigned long temp_ulong =3D 0;
+>
+>         if (strstr(d_name, "trip_point") &&
+>                 strstr(d_name, "temp")) {
+>                 /* check if trip point temp is non-zero
+>                  * ignore 0/invalid trip points
+>                  */
+> -               sysfs_get_ulong(tz_name, d_name, &temp_ulong);
+> +               if (sysfs_get_ulong(tz_name, d_name, &temp_ulong) !=3D 1)
+> +                       return 0;
+>                 if (temp_ulong < MAX_TEMP_KC) {
+>                         tzi->nr_trip_pts++;
+>                         /* found a valid trip point */
+> --
+> 2.55.0.windows.3
+>
+>
+>
+>
