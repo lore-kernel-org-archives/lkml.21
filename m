@@ -1,102 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182198;
-	b=qphQtnrPgov4oRabWQBsIDm3fMvd7tIGXTZDMpWEzsbkdsFjGC+RH9A/3C4iYz5P+z2O
-	 fnHV6h2oquSgVFtRpj8jNO1cknH4ARn+S6DINWw9zpmcJRU6yyaf0ska14YVF+pFDuJOe
-	 YCcWSyYvVENysLPasFAEpv7ns9T5Tre2Ao+dbf1qYxfbFwlg5ymXTcskoIbxWIX1h4bg0
-	 d2TnvsgUh+p7rsEZiHfMGA/+hRKvhK5aPlLTEIsimjY3ffp24Zp+r/qzh6fZ9kTVQQoFr
-	 udKhTVM8ivWcaZI2ml9bIgB2VWla+sUNhOZP90KrmsBkN7sDVGwaoBBUSncjdaYHJbw==
+	t=1795182199;
+	b=Lk0WySn3teuB5NNHZzw0fYDfZmqy5pNdanx1h+KyZdVUn1D8XJrVRvQaOOFRs/U3AmKu
+	 wAJTSEwHnYYSRltu37HN8c/AUs+jFy1tSgGfkYMOy5VqhzlxOSSnCopgq8mykvTtO5MFc
+	 DIly/jhK9fjKhp6MQuDYiKmMW6nOKQgbT24i1WYhPaY0Ifx9rkQUBdN5a3oYkv+zfievw
+	 bH+0eo6c0I5AS22pj9ObxWRcBMlbRHcnj9Sf6sv8XCGi5KbO88TQYzEUQVjRofDYNSBz9
+	 ACByfHdzkRy6NOyz5QYPwBV544KXle8PulG3Da83BnDO1bw7WbGLqYYJReZDvwa9B8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182198;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
-	 User-Agent:MIME-Version:Content-Type:X-Rspamd-Queue-Id:X-Spam-Level:
-	 X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:
-	 X-Spam-Score;
-	bh=A7ic0CVjCzukvSTgJx4WMC2o+tIKJQMs35wGW1e+9fA=;
-	b=Mz12TWRJwilWpO9wGNz31u3V9rAzL+AcpnJHjVWG7FCFGdmPqAYDt5QgLH4t5/n2Zza+
-	 jGGXl/wLzJ6rZxapWI5M/keXh/JDe6BQ51xiB8bzpQvtqgyRCJ4dDuytMvZKQbTqs4RJK
-	 2DwTSBeYoNlM3pJWv2/taR4K3B8mY+6lspMCvnTYTQ77f4nVV2opMWccJt35IlmUqXVU8
-	 fsNUboPfF4HzJRPBMwRAwmPgTmPrbvjSTEyO1lEV2K6wFI3e5bvupRDH84H9yMx9i787V
-	 QmbAekoAB8WuYe9E7BFSp8DVUYcwXq19pzDhR/keg0vS3Z4KIadM7l/P8oXr7rq6H4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182199;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=9237+tKAR89WsuPxFlAqDCDty0GUNRZKGXXasLOl2ng=;
+	b=mvojphZI0k79mD65To6BfXqh+Rr+7a9MPqKM8h3IbFLjhDCnqsC9rdQRWSnndx/p69G6
+	 WbJ7ex3IE/Fkl4bx+PnJvIIIFEnbkUXgdsOok09KogEqDlmBRZvtcOYCc2NFtb2NyHdb8
+	 xVsZTA03EDUZsQ2xVbCZqYN0cCDDc1BYiGer9v0hQ/s4ZCfS26Dp0fIi+eRf8hNkH2P2E
+	 ELr4jHbpkhyIEEIOv0UkKmxrAXtRJeaePoCqwkZ0viQ1ebFLSRQS4TCIGxlZfuKbC2fJi
+	 1Dbf4VB4KQwrD+20CegSM2ckSPYQCnWjT4Y+4/+e+Pvfx/I2r9XZAjZhzQktTGEAh1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Q61mpzs5;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wNCeRlBF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b="oTWLN/I/";
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sVCOfaoM;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=AVDT2NBg;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BE9A606A334;
-	Fri, 20 Nov 2026 13:43:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BE9A606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49A25606A336
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:43:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49A25606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=Q61mpzs5;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=wNCeRlBF;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=oTWLN/I/;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=sVCOfaoM
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id DAC4922520;
-	Fri, 20 Nov 2026 13:43:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795182195; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=A7ic0CVjCzukvSTgJx4WMC2o+tIKJQMs35wGW1e+9fA=;
-	b=Q61mpzs5eM0a7yPOnUBHq4qHsIw7TNvSNkd2wAKyaxGBJrSsaoQ8/eV9D6PT1dnslijOim
-	Lypr6wNvxK060ZQwnYxceuBkeWLuL4utmsBOSGVdU3cycmWy1TkZD5yFIW30AqIvbbSo5S
-	RTZu/3G6aYpVFDiejBt0CTtNGfXHDFQ=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795182195;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=A7ic0CVjCzukvSTgJx4WMC2o+tIKJQMs35wGW1e+9fA=;
-	b=wNCeRlBFB192MPmF4eMcfpkMPavBUz1aeJ1HSctTY+Jl8izwFo26Ti6nf+fO5EHt+9vF26
-	EYvGKld6XXRmNwDg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="oTWLN/I/";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=sVCOfaoM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795182194; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=A7ic0CVjCzukvSTgJx4WMC2o+tIKJQMs35wGW1e+9fA=;
-	b=oTWLN/I/Aj6srHUlaWOUPJnwDLDVK52sPrl7c7HGpltF1nI1JcFVNs+lWf4Q4KhBXZngd/
-	1nA7+FZ+6tAYHdVb9cpPEyGrao4ll9c/MVrROfShwhZuKud0DqmdizPXhD9pWmZJrnRC/Q
-	SYVj1m3n6hr3cbxzjv26kfAxyRJf78U=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795182194;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type;
-	bh=A7ic0CVjCzukvSTgJx4WMC2o+tIKJQMs35wGW1e+9fA=;
-	b=sVCOfaoMV8xQSCWPegSf5zyvmpVF21SCzHKv6oDqNkhIMz5MrYCDnm4XS9TsFv1s61JQPX
-	4rpu/fSRTY+t5cDw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8DF051348F;
-	Fri, 20 Nov 2026 13:43:14 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id avdnGHJOAGvffAAAD6G6ig
-	(envelope-from <tiwai@suse.de>); Fri, 20 Nov 2026 13:43:14 +0000
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=AVDT2NBg
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261120134316euoutp0273881f5df12c0a18e259cf3b9457b15e~pxLJCN5L92519725197euoutp02Z
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:43:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261120134316euoutp0273881f5df12c0a18e259cf3b9457b15e~pxLJCN5L92519725197euoutp02Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1795182196;
+	bh=9237+tKAR89WsuPxFlAqDCDty0GUNRZKGXXasLOl2ng=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=AVDT2NBgHGsRO0KO7DoI41IixNDJ18plqCeYQue7B59xesvIJz3QQok0fPUO6n1Sw
+	 vj0Cs19HyEGr45mj1VWnfM6roS9dZozGmwEh6szwoBmt+ZjP9kUdvLbUbcuSP5re48
+	 JbPpsDgKcmjI3Lnj0FsAOoSy94VFvUNpn/T9zPRM=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261120134315eucas1p14bd143778442db5f514865fe00a49c63~pxLInXiM60242902429eucas1p1r;
+	Fri, 20 Nov 2026 13:43:15 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20261120134314eusmtip1e5f11fdfc1d113cba0eecae5a72f9eb8~pxLHtfY1G0050900509eusmtip1w;
+	Fri, 20 Nov 2026 13:43:14 +0000 (GMT)
+Message-ID: <b6dc6c36-9ce1-49dd-bae5-245d983610bc@samsung.com>
 Date: Fri, 20 Nov 2026 14:43:14 +0100
-Message-ID: <87pkvzmxe5.wl-tiwai@suse.de>
-From: Takashi Iwai <tiwai@suse.de>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Linux Sound Mailing List <linux-sound@vger.kernel.org>, Linux Kernel
- Mailing List <linux-kernel@vger.kernel.org>
-Subject: [GIT PULL] sound fixes for 7.4-rc4
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,225 +63,126 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-Rspamd-Queue-Id: DAC4922520
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-12.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	TO_DN_ALL(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[5];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,gmail.com,vger.kernel.org];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim]
-X-Spam-Score: -12.51
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 0/5] phy: Add the StarFive JH7110 Innosilicon HDMI
+ PHY
+To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, Rob
+	Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+	Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Emil Renner
+	Berthing <kernel@esmil.dk>, Hal Feng <hal.feng@starfivetech.com>, Dominique
+	Belhachemi <db@domibel.de>, Andy Yan <andyshrk@163.com>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-riscv@lists.infradead.org, Marek
+	Szyprowski <m.szyprowski@samsung.com>, Icenowy Zheng
+	<zhengxingda@iscas.ac.cn>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, Joshua
+	Peisach <jpeisach@ubuntu.com>, Byron Stanoszek <gandalf@winds.org>, OOHehir
+	<oo.hehir@gmail.com>
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com>
+Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20261120134315eucas1p14bd143778442db5f514865fe00a49c63
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261106135504eucas1p14138c1ce829febb8bcd63c4de1f29ffb
+X-EPHeader: CA
+X-CMS-RootMailID: 20261106135504eucas1p14138c1ce829febb8bcd63c4de1f29ffb
+References: <CGME20261106135504eucas1p14138c1ce829febb8bcd63c4de1f29ffb@eucas1p1.samsung.com>
+	<20261106-jh7110-inno-hdmi-phy-v7-0-d49368303800@samsung.com>
 
-Linus,
 
-please pull sound fixes for v7.4-rc4 from:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git tags/sound-7.4-rc4
+On 11/6/26 14:52, Michal Wilczynski wrote:
+> This series adds the HDMI PHY driver for the StarFive JH7110 and shares
+> the pre-PLL code it has in common with the Rockchip RK3328 Innosilicon
+> HDMI PHY.
+> 
+> Up to v5 it was part of the JH7110 display series [1]. It is split out
+> as Vinod suggested, so it can go through linux-phy on its own; the rest
+> continues as v6 of "drm: starfive: jh7110: Enable display subsystem".
+> Nothing here depends on the display series. The display series depends
+> on this one: its HDMI subsystem binding references the PHY binding from
+> patch 1, and it needs the PHY driver at runtime.
+> 
+> [1] https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
+> 
+> The JH7110 has the same Innosilicon PHY as the RK3328, offset by 0x100
+> because it sits behind the HDMI controller in a shared register block.
+> Patch 2 factors out the pre-PLL config format, table lookup,
+> determine_rate, recalc_rate and the pre-PLL programming; patch 3 moves
+> Rockchip onto it; patch 4 adds the JH7110 driver. Pixel clock tables,
+> post-PLL and analog config stay SoC specific.
+> 
+> Patch 3 should be a no-op for Rockchip - same writes, same order, same
+> values - and RK3228, whose pre-PLL is at different addresses, keeps its
+> own register code and shares only the lookup. I have no Rockchip
+> hardware, so it is build tested only (arm and riscv). A Tested-by would
+> help.
+> 
+> Patch 5 adds a MAINTAINERS entry for the binding and the driver, as the
+> other JH7110 PHY drivers have.
+> 
+> Testing
+> =======
+> 
+> Tested on a VisionFive 2 v1.3B together with the display series, using
+> modetest: all 42 modes the sink advertises work, with pixel clocks from
+> 25.175 MHz up to 297 MHz.
+> 
+> Every commit builds for riscv and arm.
+> 
+> Changes in v7:
+> - Point the binding example comment at the hdmi-subsystem binding's new
+>   location in bindings/display/starfive/, where the display series moved
+>   it
+> - Rebased onto v7.4-rc1
+> - Link to v6: https://lore.kernel.org/r/20261028-jh7110-inno-hdmi-phy-v6-0-f3379684d97e@samsung.com
+> 
+> Changes in v6:
+> - Split out of the JH7110 display series (Vinod)
+> - inno_read() returns the regmap_read() error and recalc_rate checks it,
+>   instead of a failed read turning into a zero divisor (Vinod)
+> - Bound the pre-PLL and post-PLL table walks with the table size instead
+>   of relying on a sentinel (Vinod)
+> - Lowercase hex in the JH7110 pixel clock table (Vinod)
+> - New patch 5: a MAINTAINERS entry for the JH7110 HDMI PHY, moved out of
+>   the display series' entry
+> - Rebased onto v7.3, collected tags
+> - Link to v5: https://lore.kernel.org/all/20260929-jh7110-clean-send-v5-0-82b4d8e3c6c7@samsung.com/
+> 
+> ---
+> Michal Wilczynski (5):
+>       dt-bindings: phy: Add starfive,jh7110-inno-hdmi-phy
+>       phy: Add common Innosilicon HDMI PHY helpers
+>       phy: rockchip: inno-hdmi: Use the common Innosilicon PHY helpers
+>       phy: starfive: Add jh7110-inno-hdmi-phy driver
+>       MAINTAINERS: Add StarFive JH7110 HDMI PHY entry
+> 
+>  .../phy/starfive,jh7110-inno-hdmi-phy.yaml         |  49 ++
+>  MAINTAINERS                                        |   6 +
+>  drivers/phy/Kconfig                                |   8 +
+>  drivers/phy/Makefile                               |   1 +
+>  drivers/phy/phy-inno-hdmi.c                        | 358 +++++++++++++
+>  drivers/phy/rockchip/Kconfig                       |   1 +
+>  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c      | 169 +-----
+>  drivers/phy/starfive/Kconfig                       |  20 +
+>  drivers/phy/starfive/Makefile                      |   1 +
+>  drivers/phy/starfive/phy-jh7110-inno-hdmi.c        | 587 +++++++++++++++++++++
+>  include/linux/phy/inno-hdmi-phy.h                  |  88 +++
+>  11 files changed, 1144 insertions(+), 144 deletions(-)
+> ---
+> base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+> change-id: 20261028-jh7110-inno-hdmi-phy-83e5cfa643e3
+> 
+> Best regards,
 
-The topmost commit is 3c3db0de2aa937e80ef96e21da940dc8816d3c16
+Gentle ping on this series.
 
-----------------------------------------------------------------
+Is there anything else needed from my side ?
 
-sound fixes for 7.4-rc4
-
-A collection of various small fixes.  Nothing really stands out.
-While we still get more fixes than before, things look still well
-manageable (fingers crossed).  Here are the highlights:
-
-* ALSA core:
-- Fix page leaks at buffer allocation retries
-- Fix in compress-offload API for setting metadata_set flag
-- Parameter flag handling fixes on setup and error in PCM OSS layer
-
-* HD-audio:
-- Fix AE-5 LED strip color corruption during animation in ca0132
-- Correct boost values for CS35L41 on several HP laptops
-- Realtek quirk regression fixes for Lenovo Legion and V14 G2 ITL
-- Fix quiet speakers on HP 250 G6
-- Various Realtek quirks and mute LED fixups (HP, Lenovo, THUNDEROBOT)
-
-* USB-audio:
-- Fix UBSAN array bounds warning and period wake-up issue in usx2y
-- Quirk for Yamaha MODX M
-
-* ASoC:
-- Intel / SoundWire: Support for Senary SN6245 codec
-- AMD: Fix ACP7.x DMIC/PDM ring buffer address on resume, ACP quirks
-- Fixes for Qualcomm to reject oversized compress ring buffers,
-  AudioReach routing disconnect, LPASS clocks probe ordering and
-  WCD934x MCLK initialization
-- Fixes for Meson about locking and sleeping in atomic context
-- Rockchip fix to avoid stuck clear condition in I2S/TDM consumer mode
-- Mediatek fix for ETDM3_OUT DAI startup error on MT8195
-- Codec fixes for CS35L56, TAS2781, ES9039Q2M, and WM8962
-
-----------------------------------------------------------------
-
-Adolfo Morales Tena (1):
-      ASoC: amd: yc: Add DMI quirk for GIGABYTE EAGLE 9MJ
-
-Arnav Kapoor (1):
-      ALSA: hda/realtek: Don't apply the Legion Slim 7 quirk to Lenovo V14 G2 ITL
-
-Chen Yuxi (1):
-      ASoC: wm8962: Fix broken headset button caused by wrong guard constant
-
-Devin Christensen (1):
-      ALSA: hda/ca0132: Fix AE-5 LED strip color corruption during animation
-
-Dirk Su (1):
-      ALSA: hda/realtek: Add LED fixup for HP ZBook Ultra G1a Laptops
-
-Dustin Tacy (1):
-      ALSA: hda/realtek: Add mute LED quirk for HP OMEN 15t-ek000
-
-Gaurav Suman (1):
-      ASoC: codecs: wcd934x: keep MCLK enabled so init writes reach the codec
-
-Geoffrey D. Bennett (1):
-      ALSA: usb-audio: Add always_set_rate quirk for Yamaha MODX M
-
-HyeongJun An (1):
-      MAINTAINERS: Add myself as a reviewer for the virtual PCM test driver
-
-Josh Klecka (1):
-      ALSA: hda/realtek: Add mute LED support for HP Pavillion Aero 13-be1xxx
-
-Julius Bairaktaris (2):
-      ASoC: qcom: q6apm-dai: reject compress rings larger than the DMA buffer
-      ASoC: qcom: q6asm-dai: reject compress rings larger than the DMA buffer
-
-Karl Asseily (1):
-      ASoC: es9039q2m: Enable the DAC clock at component probe
-
-Louis-Alexis Eyraud (1):
-      ASoC: mediatek: mt8195: Fix ETDM3_OUT DAI startup error
-
-Marc Herrero (2):
-      ASoC: qcom: audioreach: use a 32-bit container for S24_LE PCM
-      ASoC: qcom: audioreach: only disconnect the route a mixer control owns
-
-Marek Vasut (1):
-      ALSA: doc: cs35l56: Point to kernel.org firmware repository
-
-Nicholas E. Andrade (1):
-      ASoC: amd: acp: fix PDM ring buffer address on ACP7.x resume
-
-Qianghua Wang (1):
-      ASoC: sn624x: add support for the SN6245 part ID
-
-Richard Fitzgerald (2):
-      ASoC: cs35l56: Only write ASP1TXn registers when widget is powered-up
-      ASoC: cs35l56: Fix unwanted writes to ASP config registers
-
-Sinan Turunc (2):
-      ALSA: usx2y: Count completions apart from the URB array length
-      ALSA: usx2y: Account for every period a URB completes
-
-Sreeraj S Kurup (2):
-      ALSA: compress: Set metadata_set only after successful callback
-      ALSA: memalloc: Fix DMA allocation retry cleanup
-
-Stefan Binding (1):
-      ALSA: hda: cs35l41: Correct Boost values for several laptops with overridden ACPI
-
-Takashi Iwai (2):
-      ALSA: hda/realtek: Fix regression on Lenovo Legion 16IRX9H
-      ASoC: tas2781: Avoid possible zero-division
-
-Tim Surber (1):
-      ASoC: rockchip: i2s-tdm: Don't reset a pending clear in consumer mode
-
-Valerio Setti (3):
-      ASoC: meson: aiu-fifo: prevent sleeping when spinlock is held
-      ASoC: meson: gx-formatter: change stream lock from mutex to spinlock
-      ASoC: meson: gx-formatter: add lockdep_assert_held check
-
-Ye Weihua (2):
-      ALSA: pcm: oss: Restore params flag after failed reconfiguration
-      ALSA: pcm: oss: Clear params flag only after successful setup
-
-Zhang Heng (5):
-      ALSA: hda/realtek: Add quirk for THUNDEROBOT Gravity16G2Pro
-      ALSA: hda/realtek: Add quirk for HP Pavilion 15-cw1xxx
-      ALSA: hda/realtek: Add quirk for Lenovo Yoga Pro 7 14ASP9
-      ALSA: hda/realtek: Enable mute LEDs on HP Laptop 15-fd1xxx
-      ALSA: hda/realtek: Fix quiet speakers on HP 250 G6
-
-suso (1):
-      ASoC: amd: acp: Add ACP70 ACPI flag override for LG gram 16U55U
-
-yzddMr6 (1):
-      ASoC: qcom: q6dsp-lpass-clocks: Set driver data before registering clocks
-
----
- Documentation/sound/codecs/cs35l56.rst             |   2 +-
- MAINTAINERS                                        |   1 +
- include/sound/cs35l56.h                            |   2 +-
- sound/core/compress_offload.c                      |   4 +-
- sound/core/memalloc.c                              |   8 +-
- sound/core/oss/pcm_oss.c                           |   6 +-
- sound/hda/codecs/ca0132.c                          |  54 +++-----
- sound/hda/codecs/realtek/alc269.c                  |  48 +++++++
- .../hda/codecs/side-codecs/cs35l41_hda_property.c  |   8 +-
- sound/soc/amd/acp-config.c                         |   7 +
- sound/soc/amd/acp/acp-legacy-common.c              |   5 +-
- sound/soc/amd/yc/acp6x-mach.c                      |   7 +
- sound/soc/codecs/cs35l56-shared.c                  |  38 +-----
- sound/soc/codecs/cs35l56.c                         | 147 ++++++++++++++++-----
- sound/soc/codecs/cs35l56.h                         |   1 +
- sound/soc/codecs/es9039q2m.c                       |  12 ++
- sound/soc/codecs/sn624x-sdca-sdw.c                 |   2 +
- sound/soc/codecs/tas2781-fmwlib.c                  |   2 +-
- sound/soc/codecs/wcd934x.c                         |   6 +
- sound/soc/codecs/wm8962.c                          |   2 +-
- sound/soc/intel/common/soc-acpi-intel-arl-match.c  |  18 ++-
- sound/soc/intel/common/soc-acpi-intel-lnl-match.c  |  18 ++-
- sound/soc/intel/common/soc-acpi-intel-mtl-match.c  |  18 ++-
- sound/soc/intel/common/soc-acpi-intel-ptl-match.c  |   9 ++
- sound/soc/mediatek/mt8195/mt8195-dai-etdm.c        |  30 ++++-
- sound/soc/meson/aiu-fifo-i2s.c                     |  15 ++-
- sound/soc/meson/aiu-fifo-spdif.c                   |  14 +-
- sound/soc/meson/aiu-fifo.c                         |   3 +-
- sound/soc/meson/gx-formatter.c                     |  26 ++--
- sound/soc/meson/gx-formatter.h                     |   4 +
- sound/soc/meson/gx-interface.h                     |   3 +-
- sound/soc/qcom/qdsp6/audioreach.c                  |  10 +-
- sound/soc/qcom/qdsp6/q6apm-dai.c                   |   3 +
- sound/soc/qcom/qdsp6/q6asm-dai.c                   |   3 +
- sound/soc/qcom/qdsp6/q6dsp-lpass-clocks.c          |  14 +-
- sound/soc/qcom/qdsp6/topology.c                    |   4 +-
- sound/soc/rockchip/rockchip_i2s_tdm.c              |  47 +++++++
- sound/soc/sdw_utils/soc_sdw_utils.c                |  56 +++++++-
- sound/usb/quirks.c                                 |   4 +
- sound/usb/usx2y/usbusx2y.h                         |   1 +
- sound/usb/usx2y/usbusx2yaudio.c                    |  11 +-
- 41 files changed, 510 insertions(+), 163 deletions(-)
-
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
