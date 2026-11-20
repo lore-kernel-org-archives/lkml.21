@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795157414;
-	b=wqa7prG5ZIhC2v6i5FsGKeSjqe0F82ijkMlpIc9hlJ6Bzxv7QQreGvSzrGbuW18bYOyB
-	 WoiAGseihSI29iSgi0GjSF/HPPS6nlzolkR/vOEfA5XOE8u6J+Vhz4rfDPTQQ8jDKWE+O
-	 c5IrfSGz98HTcQs/V4MpnUw/rtxk7pbop3LQuWH3U1w+9erISPgLVk4n9GXqnb9ochlrZ
-	 kk1UPM0oPgkz0zMvJgY7XMSf5tXIjn6ZZpFLQ7Zl6V78Djo4JG0zow+thcWyC8IhIeNmg
-	 RD/p1HCpDBK25E7uPr8eWBSchUUto2dLIZtP51okx22+ASpdw4REBs3VKQaHP53/MDA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157414;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tdYE7Lz1hXw9g041ObApzQfqyHIfgtC9mdpdQYGD1us=;
-	b=xTtyzx5b5XnAIE2GQQKpOJ07cfiupvn9io6CfMS7an93xldu1e85L72ldFD0rUmd5R78
-	 Hnti2SZvYf8rZNH3SDOxg61avFgmkymCh/7jpbFjFP2MUwgMevTqprEChzAQ0QGC1/iKt
-	 uCcx7zw28Qh9buJaYF2w6nR/i8nUaFZTeynIK3ja8xErW0FywkDjJQe0Wb/C36vfLHDtk
-	 siNElPQKsDzDDIeG1mIXnzr87FhKaJbBRL/Qj+K3L6QIvDu3EW+U8hYyZ6ihTrqaLf5eI
-	 HdMYYh8JeNybQh4A/9cN5fYlMLxLSWENCcSdTuSA3tYbEtm1Bxsrj4O3XYlcgSjbmlA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dra/uNWN";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795157485;
+	b=y0M6JqSjH2ZSZkre2/aaAftHGkVwgGdN2HSJvLROCwEjzZAOciwexv9kDNd8SDaCkwLn
+	 SUHOkci+ve2W/wJwV+iQ3q6/bdWeVq//gZwDrsuhJUGYWb98xVyI9aDWjlNSdW7HKhErH
+	 4ghK4Ey1L0Y4JLEwqw02sEJ1D2e1ufhbG+J/meenEQe4qHRXrOHYHpa/f8TXZsBpDW1AE
+	 w1EEAhOaCb077So/36t+gckNso6Gl8eOfFTtmofdIIFrb3p1Q/6M9Q70kLoWl16lDiVl3
+	 RopmC8zD6rRkCHiDDhODxv94C6CAMt5w2ycmhlXlWQwUwSfSIPLSfVCmz7ymfvqV1qA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157485;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=1g1qowK/Vhy/51ATJ4wve21dh0EgoCYYqHxYRokZ4Cs=;
+	b=GuBgUrY5u95keMtz6o9EDvLQGBUR42NgIIVvWnv8BSEZ5+w259fVsW6S8afM0cj0KKeW
+	 MVwpp3krF9pClXBD4YRvnqCv6q9NpGYdoTou3O7ugc5sU8PRPHheqLDnxhYJeWdffuifm
+	 BKSy7hyQ4cdEcFw7sp9nzWr++mU3ng2+A+/yP7lfJcOVypHSzMtrHSJvV6OoNTQImD++S
+	 dcfOlz8ZNe/set8iMg/UBPvUH2IzRTuA1+7UhswGCdbVrKnH4l8rmGsfiJdov27pCudS/
+	 FFH1iOHQIzssepbRvitvbIXsu1XTzg3J6n5mhCdVODVyOlJ50R2QER6PsFYuIgHuBRg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TyGyL+pv;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3398560A2602;
-	Fri, 20 Nov 2026 06:50:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C36A606A33E;
+	Fri, 20 Nov 2026 06:51:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dra/uNWN
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795157414;
-	b=CooaHElJWqmk0iikafLjc0HGWVICwzHwhPibldhL3ECh0nmQ1Rq/V69hiIi6qfmy0k7R
-	 UgQWqq7jKYpK5FaIb1KjWUw5OAZ0J4qrCSY1NUH5FkkYCZ4d2nHkJ0CSNTgNhQOpIQXaJ
-	 TGo6i7iX2/lrm/x8VP2EuCklD8ojxV26QjvIvMFNr10154GtP9sDur2GF7iluEkpnEWUz
-	 3yF1sNoVkUn22ZLn45aryGJSH3rzTgXxDSB22QAnATPisLwRSBY/zlg0CYfmEwMhG9dov
-	 IiEMOH6XkqYF1zCmtlzgeTkHLUr/OgLj77GANZAk3seH2QBy67kPL5SOH9aEcPCLsHQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795157414;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tdYE7Lz1hXw9g041ObApzQfqyHIfgtC9mdpdQYGD1us=;
-	b=3JtNKZ/IxjqH9AO+uG+T1EOUlP2UQjHnLUso64UHvODSDbzjy4WtFfjJ7bXuGeJBgCbt
-	 L42zfn4U6aWP872G1IOr+VKDMfFmEs5y0kBeEIt2A4XTVk7VzkAMi6lcEa94+9HLYuDj+
-	 WZ/n36bINaGIefsIY411FFkTaJFRG2IbRoVb9Ee2UcpANESZ4oSR8qb69uSQVKD4UVg5B
-	 GbaTegJjeooeKrGpizWWVDgZ/BMUlbrHmojxJz+bWpl5Eagi+i4X4xEu/1ZjFOC+/So0u
-	 rynZKsr2TuZ0EYFt+Pnu2hXEm3SjXmlV63jRmRCOE/Zc5PZTvJxlS/dHW9absIVfTWg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B454D1F000C6;
-	Fri, 20 Nov 2026 06:50:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TyGyL+pv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F361F000C4;
+	Fri, 20 Nov 2026 06:51:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795157414;
-	bh=tdYE7Lz1hXw9g041ObApzQfqyHIfgtC9mdpdQYGD1us=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=dra/uNWNe5Z3CNSqhank6iiwTlarX54Vlhp5Yv+vXqWGAT7CTpojeexhtNGonfto5
-	 SaZcACVhuYzmy1vITi8boOnoAlKvWTnTd7EtSFWcHFyLwL4Qf+/QFXt/wKi+uWmeBb
-	 mML/JF76Nh3zBtTajRWlycWz1XnkkJPauMXfT1mp+CA411k1QLIi2x+o6Bsgour4R3
-	 oqOBDkZb2/PsFJUvECq2IrBxmIGSj5ugFxsuvOb1fCCAe2IrqQYvjTK/s5FMnPbiux
-	 PwtfnCR05Wdjnxxq3Y4wJags4JWxGHvMC9+uyDlbr/bGw6kNNefWLZcZDe2lsQojKd
-	 0qZXOV9CD9UCQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 46AD749725;
-	Fri, 20 Nov 2026 06:50:11 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 09:49:44 +0300
-Subject: [PATCH v5 1/2] dt-bindings: i2c: Add Cortina Systems CS7542 I2C
- controller
+	s=k20260515; t=1795157484;
+	bh=1g1qowK/Vhy/51ATJ4wve21dh0EgoCYYqHxYRokZ4Cs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TyGyL+pvUVyjqSzJMtV6EH6roUrKZbb9TejLfSQgNn6/Cg+1TDAJmvomZIhnT7+7E
+	 tUSgd3y/cyEkt263xOaPoa9E2ZNvcFsVI28ztYrjNHqxlrIr7HsTg8hgUQgTlrWknv
+	 F/O0aqOs1yTlQ/E+hUqX1LiRNxZNWTshEubFMqBXOZSssGfuNaJIPV6N07KuXAzlr0
+	 8vpGB1SKBdKwhokLEzPq1botFI2N4m9D05PWC+4smWR3/ympqz/kPcoyR/LOW/N6CR
+	 LEvfZR07SblM3XdBCzVjg6Kl+ueNDvtUdPPNPLVMZ5quM5slrC23usEsPVbJD9nWCn
+	 KlNYaaag13SYA==
+Subject: Re: [PATCH net-next v3 2/2] selftests: drv-net: run tls_hw_offload on
+ netdevsim
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ john.fastabend@gmail.com, sd@queasysnail.net, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Date: Fri, 20 Nov 2026 06:51:23 +0000
+Message-ID: <179515748385.3136.10275675955381531740@kernel.org>
+In-Reply-To: <20261119064902.242502-3-jiayuan.chen@linux.dev>
+References: <20261119064902.242502-3-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,105 +64,126 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-cs75xx-i2c-v5-1-03bec242a549@gmail.com>
-References: <20261120-cs75xx-i2c-v5-0-03bec242a549@gmail.com>
-In-Reply-To: <20261120-cs75xx-i2c-v5-0-03bec242a549@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Fil Dunsky <filipp.dunsky@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795157410; l=1877;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=rtrtjfERWRSSEQV4SOw9IuyiDTovzANcBqx4f0A6z4M=;
- b=WvqxN3plu4y+ajpANgKaDHdLTTEp18Tm505MOL5RKfD2hymHMruyPXDqrxXVnrpTOJ7aGgFGq
- +gf6KUSfln7DILcKM6qAfRkasOiaMsLJWsd7lek3cY2M0YehdpSlvul
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Add a binding for the I2C ("Bi-Wire") controller of the Cortina Systems
-CS75xx SoCs.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
----
- .../bindings/i2c/cortina,cs7542-i2c.yaml           | 56 ++++++++++++++++++++++
- 1 file changed, 56 insertions(+)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/Documentation/devicetree/bindings/i2c/cortina,cs7542-i2c.yaml b/Documentation/devicetree/bindings/i2c/cortina,cs7542-i2c.yaml
-new file mode 100644
-index 000000000..095e24379
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/cortina,cs7542-i2c.yaml
-@@ -0,0 +1,56 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/cortina,cs7542-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Cortina Systems CS7542 I2C controller
-+
-+maintainers:
-+  - Fil Dunsky <filipp.dunsky@gmail.com>
-+
-+description:
-+  The I2C ("Bi-Wire") controller of the Cortina Systems CS75xx (Goldengate
-+  G2) SoCs. It transfers one byte per command and runs from the peripheral
-+  (APB) clock through a 16-bit prescaler.
-+
-+allOf:
-+  - $ref: /schemas/i2c/i2c-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: cortina,cs7542-i2c
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-frequency:
-+    maximum: 400000
-+    default: 100000
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c@f00700e8 {
-+        compatible = "cortina,cs7542-i2c";
-+        reg = <0xf00700e8 0x28>;
-+        interrupt-parent = <&intc>;
-+        interrupts = <11>;
-+        clocks = <&apb_clk>;
-+        clock-frequency = <400000>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+    };
+- [Medium] In read_nic_stats()
+  (tools/testing/selftests/drivers/net/hw/tls_hw_offload.py:128-131),…
+- [Low] Several comments still describe a real-hardware-only setup, but
+  after this patch the default run (no NETIF) uses a netdevsim pair that…
+
+--
+
+selftests: drv-net: run tls_hw_offload on netdevsim
+
+This drops nsim_test=False from tls_hw_offload.py, so the test runs on the
+default netdevsim pair when NETIF is not set. It also makes
+read_nic_stats() skip the ethtool -S snapshot when a local netdevsim
+device was created by the environment.
+
+> diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> index e720ce6547610..1197f17caa13c 100755
+> --- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> +++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> @@ -125,6 +125,9 @@ def read_nic_stats(cfg):
+>      # before/after-delta caveat as read_tls_stats(): these are device-wide,
+>      # so concurrent kTLS traffic on this NIC would perturb the deltas.
+>      stats = defaultdict(int)
+> +    # netdevsim has no ethtool -S, and the NIC counters below are optional
+> +    if cfg.get_local_nsim_dev():
+> +        return stats
+>      output = cmd(f"ethtool -S {cfg.ifname}").stdout
+
+[Severity: Medium]
+Does this guard check the right thing? The comment is about the driver,
+but get_local_nsim_dev() only returns self._ns. That is set only by
+create_local() when NETIF is not in the environment:
+
+tools/testing/selftests/drivers/net/lib/py/env.py:NetDrvEpEnv.__init__() {
+    ...
+        self._ns = None
+    ...
+        if "NETIF" in self.env:
+            if nsim_test is True:
+                raise KsftXfailEx("Test only works on netdevsim")
+            self._check_env()
+    ...
+}
+
+If NETIF names a netdevsim port, self._ns stays None. The test then falls
+through to cmd("ethtool -S ...") with the default fail=True. netdevsim
+has no get_sset_count, get_strings or get_ethtool_stats, so ethtool exits
+non-zero and cmd() raises CmdExitFailure. run_tls_test() does not catch
+it, so all 8 variants fail at the first snapshot. Any other TLS-offload
+netdev without ethtool stats would fail the same way.
+
+The test header already says these counters are optional:
+
+    # counters. Each counter is checked only when present.
+    ...
+    # Missing NIC crypto counters remain optional.
+
+The get_local_nsim_dev() docstring also discourages this kind of use:
+
+    Using this method is discouraged, as it makes tests nsim-specific.
+    Standard interfaces available on all HW should ideally be used.
+
+Would a driver-agnostic check be simpler? For example, run ethtool -S
+with fail=False and return the empty stats dict on a non-zero exit. That
+would cover the default nsim pair, NETIF=netdevsim and any stats-less
+driver, with about the same amount of code. The commit message mentions
+the NETIF case but doesn't say why the environment check was chosen
+over a capability check.
+
+[ ... ]
+
+> @@ -307,7 +310,7 @@ def test_tls_offload_record_type(cfg, record_type):
+>  
+>  def main() -> None:
+>      """Set up the DUT/peer environment and run the offload test suites."""
+> -    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
+> +    with NetDrvEpEnv(__file__) as cfg:
+
+[Severity: Low]
+This isn't a bug, but with netdevsim now the default environment, a few
+comments still describe a real-hardware-only setup. Should they be
+updated?
+
+The comment in read_tls_stats() says:
+
+    # sock_net(sk)). The test runs on a real NIC in the host namespace, so
+
+The header of tls_hw_offload.c says:
+
+    * Tests kTLS hardware offload between two physical nodes using
+
+The run_tls_test() docstring says the remote:
+
+    source/sink and may run any kernel without HW offload. Both sides run
+
+On netdevsim this isn't true. drivers/net/netdevsim/tls.c says:
+
+    /* Emulated kTLS offload.  No crypto is performed: TX puts the record on the
+     * wire as plaintext, so the RX side has to be offloaded on netdevsim as
+     * well, otherwise the core runs the software AEAD over plaintext and fails
+     * the connection with -EBADMSG.
+
+So on the default nsim path, the peer has to receive with HW offload.
+If its RX offload were turned off, the test would fail, even though the
+docstring says that setup is allowed.
+
+>          cfg.bin_local = cfg.test_dir / "tls_hw_offload"
+>          cfg.bin_remote = None
+>          cfg.tls_skip_reason = None
 
 -- 
-2.53.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119064902.242502-1-jiayuan.chen%40linux.dev
