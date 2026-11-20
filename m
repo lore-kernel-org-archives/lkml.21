@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164627;
-	b=DzCexzsUC2D6a1IW2eAbPTASrw+3fJ/FmWKwhmQRjKWjEO/Om6HVLkBvLeC6psVjw7sM
-	 wXK4NvoGI9CZ6gVm1WWTTdOrWwyd73o3Tl+XCNURbG1BxuHXfVAnKjQnQFd+4++yvUVjK
-	 4btyeFwB/bCiXXr8iGT/zE4s4O7uEB45oj43x4yzaRkn0e/Bnw5pjBfG5Wp1CPApGj42Y
-	 pkdv/wyjbvIfN7jVCefdU2bnaTPA4F4gIweuT/9vKmrsWIa3QUWTfXN/0WTfrO634vWTi
-	 9/P7hSkpH5CMzkztNS7CWIimJBwm6gUg1zEbzYqio6Cx31hzN4HJHITiDdpfOLM6xYQ==
+	t=1795164664;
+	b=3HVJTIMgnk6LFLAhAUGSQ0brBbLtHD/K4VE2cAuMKBHaInItCjVplcQOGIeM50qfbmnL
+	 ndEW5Cy2E05qkfEUkB6JgnV15f5i93isNeuikTw8E18MHsafl0OhUZOnYN1+YyvFRE3X8
+	 Jla81BtRR/r7Px5zi01qyYVvqTJdRRoGMrJU4GICKFl4brqZOhBI2vvh5uQGVCvWNO6Uv
+	 hY8Mq4t0fvyHYmSM1W5x60GzCg4Zld5UGGt6FExNxapq4oXmGiLiH611Jy2Qy5HoqAmgs
+	 UKkhgUZfna0XZDxaKEmIoiEcNKzBBx0NOea6mu36qo2cxCNjwTR5vaxITjw9qmfRG/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164627;
-	h=DMARC-Filter:DKIM-Signature:Cc:Mime-Version:In-Reply-To:References:
-	 Content-Transfer-Encoding:From:Message-Id:X-Lms-Return-Path:To:
-	 Subject:Content-Type:X-Original-From:Reply-To:Date:Received:
-	 User-Agent;
-	bh=8AbiXIB/gnjp1Z+owg6HEbOnhKQ+HwREgu1dRQMA7/Y=;
-	b=o0vxE+ONB9tFai1AUTmejNMlMyY+55a4EjSrzjo2TTAVN7g1xOP7WSH3t1w9+kkfk2wE
-	 kkRK2tOYGg2FJ17TmYlCfNjwqTtQRTPkTLEnB03ZvyWyLJ3fkBeW8hObcDw6z054HAlZc
-	 qZ4yy7Tru6hhfmI5tadUktGF8naTn/Dz3ziqMbJCJZWW/4TUBwoO5ZIYDeZfgeGb4cMt2
-	 GIT6TUjtTo2cQRbvmwCgcHLFZyJHiF3lYOjdHW1TGIF1iY9ikgaXjZHLIUQBoFW2bO7ay
-	 0GNFuIlr7xJlIDr4mgMhxIeEMqh5FGilcjZm8npNQ+rv8OalYuXA0aF6pej8gvbnhyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164664;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=rQeV4mLH61WP4HKRkWH5RlX2hanHXt1wvj7nMXpNtag=;
+	b=i20X++Gvtz9JlCaXhLFBRRrjmCc7TzBKaSyKK3xU9rLXJuW2v/V1en3DgLefRJTgfukl
+	 Cpqly3uXuZwoKSwjSKhk0y172uHJ7vFtp7rce0af2NRQ0nPEwXjkNEHeqLGpnKKJUWiVL
+	 /H/7ofebbS3aNa2Y96+Fs/tqlHzb8pcni5PnT/8ZHI+kxHcVWWZqVnihmC9pdHHnOtX7f
+	 lnmWSB6bs7QX5FXLbLVf6Y7jEfiW34Kb6iCVqhVl/53fgPSi481z8DeGgZLJaA59fE+l3
+	 LmkdchiSBUTu56WSAn7oy8vKUovQKTWO43aozYeB2rBF3stY/dpc1MI3v8PiYQwgyJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fygo.io;
-	spf=pass smtp.mailfrom=fygo.io;
-	dkim=pass header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=Mn8vnEZr;
-	arc=none smtp.remote-ip=209.127.231.44
-Received: from va-2-44.ptr.blmpb.com (va-2-44.ptr.blmpb.com [209.127.231.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="h/rwrOLb";
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B8F9606A335
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:50:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B8F9606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fygo.io
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fygo.io
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7557D606A320;
+	Fri, 20 Nov 2026 08:51:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7557D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fygo-io.20200929.dkim.larksuite.com header.i=@fygo-io.20200929.dkim.larksuite.com header.a=rsa-sha256 header.s=s1 header.b=Mn8vnEZr
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=fygo-io.20200929.dkim.larksuite.com; t=1795164618;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=8AbiXIB/gnjp1Z+owg6HEbOnhKQ+HwREgu1dRQMA7/Y=;
- b=Mn8vnEZrd5Z11JmYGcNCifiMuOF2gt+/nKZvWrl8D+ULCnqtJeH0EO1mG2msKQ9+V1IH19
- 1hH+hZb7wx947Nnss/byf+jlZz79YgPbh5iWu0g7qG+Mt+LWZ0AfVHEkiSK+rZRmn89XkA
- aX/SStbwLJCKZ69q5j7lg7jLLPLY7/SSKmY/h4ZsYLfcVRXhuuQp2Xuc30Qp8mARYqERFD
- luMWwaxva71UrFRSqFBIhueIc92C/VZwEV7WYBdEdJ9QCZZ4AVqoc7NWjdjHJ49rH2EwnK
- DP7acUFGGENrE2inTWTM3UJYd50h6kEuWR17kQ8uZxLpPFgKFEetlpPbb1cZnA==
-Cc: <dm-devel@lists.linux.dev>, <magiclinan@didiglobal.com>, 
-	<xiao@kernel.org>, <linux-raid@vger.kernel.org>, 
-	<linux-kernel@vger.kernel.org>, "Li Youhong" <liyouhong@kylinos.cn>, 
-	<syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com>, 
-	<stable@vger.kernel.org>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=h/rwrOLb
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7u0jJ2499599;
+	Fri, 20 Nov 2026 08:50:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=rQeV4m
+	LH61WP4HKRkWH5RlX2hanHXt1wvj7nMXpNtag=; b=h/rwrOLbllz0Av07z3Ii+7
+	V4H4XFRHRUv/hpACVSu28xiPEnLu+LSQBU3/6F1AoByidOHnDIYlepGcvdwjgBik
+	vwz4p2mOGMrmf8TFr8FouCpM3FUGhacLYF/VdVSLRceIWzBjwiVktnLUVVhPkrc0
+	eBEt6ES0GUFEXI57OoTHAd9GzAHFxQMHI/qaxwH2hABqbN26gbg+wEWd1Xm2ipi/
+	jaXvBWWUcEayRExpfptQ6ct9RedDadvpxwBXXRiCVooTo5H3908+yX305C2xQgEE
+	HznOD8N8iMLggaNm0ZQzIhE2olgUiWhtJVvoh9JQtMt4Ebj+JzksgTFTjPmA8Lww
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tfacv-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 08:50:36 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7oG4a3921034;
+	Fri, 20 Nov 2026 08:50:35 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xf227-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 08:50:35 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK8oUhC45482384
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 08:50:31 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DBE4220040;
+	Fri, 20 Nov 2026 08:50:30 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5EEE42004E;
+	Fri, 20 Nov 2026 08:50:22 +0000 (GMT)
+Received: from [9.124.219.128] (unknown [9.124.219.128])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 08:50:22 +0000 (GMT)
+Message-ID: <0b449b4b-a336-426a-a72c-f6a560b5a8e5@linux.ibm.com>
+Date: Fri, 20 Nov 2026 14:20:21 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,206 +85,162 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-In-Reply-To: <20261112013523.120428-1-dayou5941@163.com>
-References: <20261112013523.120428-1-dayou5941@163.com>
-Content-Transfer-Encoding: quoted-printable
-From: "yu kuai" <yukuai@fygo.io>
-Message-Id: <0849198e-cbd3-42c4-bbce-4496ffbc974a@fygo.io>
-X-Lms-Return-Path: <lba+26b0009c9+1d9cb7+vger.kernel.org+yukuai@fygo.io>
-To: "Li Youhong" <dayou5941@163.com>, <song@kernel.org>, <agk@redhat.com>, 
-	<snitzer@kernel.org>, <mpatocka@redhat.com>, <bmarzins@redhat.com>, 
-	"yu kuai" <yukuai@fygo.io>
-Subject: Re: [PATCH v5] md: fix sync_work vs array teardown races
-Content-Type: text/plain; charset=UTF-8
-X-Original-From: yu kuai <yukuai@fygo.io>
-Reply-To: yukuai@fygo.io
-Date: Fri, 20 Nov 2026 16:50:11 +0800
-Received: from [192.168.1.104] ([39.182.0.159]) by smtp.larksuite.com with ESMTPS; Fri, 20 Nov 2026 08:50:16 +0000
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] virt: steal_governor: restart sampling immediately
+ after CPU hotplug
+To: Yury Norov <ynorov@nvidia.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+        Thomas Gleixner <tglx@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
+        Vincent Guittot <vincent.guittot@linaro.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andrea Righi
+ <arighi@nvidia.com>, Ben Segall <bsegall@google.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Danilo Krummrich <dakr@kernel.org>,
+        Dietmar Eggemann <dietmar.eggemann@arm.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Johan Hovold <johan@kernel.org>,
+        Jonathan Corbet <corbet@lwn.net>,
+        K Prateek Nayak <kprateek.nayak@amd.com>,
+        Maxim Kuvyrkov <maxim.kuvyrkov@grdncc.com>,
+        Mel Gorman <mgorman@suse.de>, Mete Durlu <meted@linux.ibm.com>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Steven Rostedt
+ <rostedt@goodmis.org>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Valentin Schneider <vschneid@redhat.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, linux-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, driver-core@lists.linux.dev,
+        linux-s390@vger.kernel.org
+References: <20261113184257.621707-1-ynorov@nvidia.com>
+ <20261113184257.621707-7-ynorov@nvidia.com>
+ <37a30a91-bd86-4dbb-ad12-8cbb509f7c4c@linux.ibm.com> <av80SflNuKlReSEO@yury>
+From: Shrikanth Hegde <sshegde@linux.ibm.com>
+Content-Language: en-US
+In-Reply-To: <av80SflNuKlReSEO@yury>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6b0009dd cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=h26eGJ0Xg0KXshNN3FsA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: GolZFxeny-hTQ8ItVW_7LImiM5lsyRRd
+X-Proofpoint-GUID: 9NzjNCzxe30-0qA4UebGSTWgkhUnc2X9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzMyBTYWx0ZWRfX7Y4hh+K8EoUv
+ k6Op5QfkkRdzNWRXVWG9xTy7/JydXtXl1vEaIFvfSPhF+3+X4XzoiJmWvzzUB+TzDcB9lfsJ9Ap
+ VhPid8a3hit68OAnGovE5ZnE+gK/FwTn9rhXIybh5z2VCYHaQzdTCohfFptZ6xGkIcI1ler+qC8
+ 3dr7LN2WcQwKniq26NoWOTVPpei0ot+uP0JEiGTzCxJVuHcNAOtOU7lD15V84S7d5UcDGDAXwX2
+ XbW8+XSB/a9iVwFT7HdvhynEtuKGlwmoPLj80ri3lkiBl+9ygRYyFpK3eRajKJ7jvA7LdSpWRaA
+ RXLN4xhGCruFGmmZfZc248dQrqTkUEKdmC3JMACdIwvY5iwQzlqKDrKtdipIEXEXozrBYEcL2K7
+ C0YdmrUzlTsFDw4hlTPtF+Az2p93OnCLmanHcqp4MwF0JZ3kQ2Chu4lTDS5dxx+zbB4QIk9ZJun
+ Csq3l1+UhMbfBKMzj/A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzMyBTYWx0ZWRfXzQ6TGrODn+pl
+ wpPMeZl7bZph4nVED4SRcN9vPe1OrXI3UcTb1x/ShX4G0WVLzmXZPpd1UMiyCYyh+Q8GOYVuixB
+ 44zDpx6OHugNRfxmvcxUqMzWGDKlZhE=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200033
 
-Hi,
 
-=E5=9C=A8 2026/11/12 9:35, Li Youhong =E5=86=99=E9=81=93:
-> From: Li Youhong <liyouhong@kylinos.cn>
->
-> dm-raid tears down arrays via md_stop(), which cleared mddev->pers
-> without waiting for previously queued sync_work. That work could
-> then call remove_spares() with pers =3D=3D NULL, or keep using mddev
-> after raid_dtr() frees it.
->
-> do_md_stop()/md_stop_writes() already call stop_sync_thread() before
-> teardown. Do the same in md_stop(). Because md_start_sync() may still
-> use mddev after unlocking / clearing MD_RECOVERY_RUNNING, flush
-> sync_work whenever it is busy rather than only when work_pending().
->
-> Calling stop_sync_thread() from md_stop() can drop reconfig_mutex,
-> which introduces two follow-on issues:
->
-> - When nothing is in flight, keep reconfig_mutex if the caller held
->    it (gate the idle early-return with work_busy()). Otherwise clear
->    of an inactive array can race with do_md_run().
->
-> - While the mutex is dropped, mddev->thread may run
->    md_reap_sync_thread() and queue event_work. Flush event_work on
->    the raid_ctr() error path before raid_set_free().
->
-> Separately, the read-only path in md_check_recovery() queued
-> sync_work without honouring MD_RECOVERY_FROZEN, unlike the
-> read-write path. Check FROZEN there so freeze/stop cannot race
-> with a new queue.
->
-> Fixes: db5e653d7c9f ("md: delay choosing sync action to md_start_sync()")
-> Fixes: 81e2ce1b3d5a ("md: delay remove_and_add_spares() for read only arr=
-ay to md_start_sync()")
-> Reported-by: syzbot+a53c2918175b36cfd601@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=3Da53c2918175b36cfd601
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Li Youhong <liyouhong@kylinos.cn>
-> ---
-> v5:
-> - Restore idle early-return in stop_sync_thread() gated by work_busy(),
->    so locked callers keep reconfig_mutex and do not race with do_md_run()=
-.
-> - Flush event_work before raid_set_free() on the raid_ctr error path
->    (md_stop() may drop the mutex and let md_reap queue it).
-> - v4: https://lore.kernel.org/linux-raid/20261111015027.4029184-1-dayou59=
-41@163.com
->
-> v4:
-> - Always flush_work(&sync_work) in stop_sync_thread(); do not delay
->    clearing MD_RECOVERY_RUNNING (that can drop MD_RECOVERY_NEEDED via
->    md_check_recovery, and does not cover the successful sync_thread
->    registration path).
-> - v3: https://lore.kernel.org/linux-raid/20261110063045.912703-1-dayou594=
-1@163.com
->
-> v3:
-> - Honour MD_RECOVERY_FROZEN before queueing sync_work on the
->    read-only md_check_recovery() path.
-> - (superseded) delayed MD_RECOVERY_RUNNING clear on not_running.
-> - v2: https://lore.kernel.org/linux-raid/20261109023055.2164333-1-dayou59=
-41@163.com
->
-> v2:
-> - Drop the pers NULL check in md_start_sync().
-> - Call stop_sync_thread() from md_stop() before clearing pers,
->    matching do_md_stop()/md_stop_writes().
-> - v1: https://lore.kernel.org/linux-raid/20261106083543.249267-1-dayou594=
-1@163.com
->
->   drivers/md/dm-raid.c |  7 +++++++
->   drivers/md/md.c      | 41 ++++++++++++++++++++++++++++++++---------
->   2 files changed, 39 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/md/dm-raid.c b/drivers/md/dm-raid.c
-> index ac019a0f5a92..f82c09d858de 100644
-> --- a/drivers/md/dm-raid.c
-> +++ b/drivers/md/dm-raid.c
-> @@ -3319,6 +3319,13 @@ static int raid_ctr(struct dm_target *ti, unsigned=
- int argc, char **argv)
->   	md_stop(&rs->md);
->   	mddev_unlock(&rs->md);
->   bad:
-> +	/*
-> +	 * md_stop() may drop reconfig_mutex so mddev->thread can run
-> +	 * md_reap_sync_thread() and queue event_work; wait for it before
-> +	 * freeing raid_set. Skip if INIT_WORK has not run yet.
-> +	 */
-> +	if (rs->md.event_work.func)
-> +		flush_work(&rs->md.event_work);
->   	raid_set_free(rs);
->  =20
->   	return r;
-> diff --git a/drivers/md/md.c b/drivers/md/md.c
-> index 680b34a63cb3..79c564320f18 100644
-> --- a/drivers/md/md.c
-> +++ b/drivers/md/md.c
-> @@ -5184,7 +5184,14 @@ static void stop_sync_thread(struct mddev *mddev, =
-bool locked)
->   {
->   	int sync_seq =3D atomic_read(&mddev->sync_seq);
->  =20
-> -	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
-> +	/*
-> +	 * If nothing is in flight, keep reconfig_mutex when locked so
-> +	 * callers such as do_md_stop() cannot race with do_md_run().
-> +	 * work_busy() is required: md_start_sync() may clear RUNNING and
-> +	 * still use mddev after unlocking.
-> +	 */
-> +	if (!test_bit(MD_RECOVERY_RUNNING, &mddev->recovery) &&
-> +	    !work_busy(&mddev->sync_work)) {
 
-I'll prefer to use mddev_get() in md_start_sync() to prevent accessing free=
-d mddev,
-this way there is no need to call mddev_unlock().
+On 11/19/26 11:09 PM, Yury Norov wrote:
+> On Thu, Nov 19, 2026 at 11:36:46AM +0530, Shrikanth Hegde wrote:
+>> Hi Yury.
+>>
+>> On 11/14/26 12:12 AM, Yury Norov wrote:
+>>> CPU hotplug between samples can distort the calculated steal ratio because
+>>> the governor divides accumulated steal time by the current active CPU
+>>> count, even when that count changed during the sampling interval.
+>>>
+>>> For example, assume a constant 3% steal rate on each CPU, with four active
+>>> CPUs for 900ms followed by two active CPUs for 100ms. The accumulated
+>>> steal time is:
+>>>
+>>>       4 * 900ms * 3% + 2 * 100ms * 3% = 108ms + 6ms = 114ms
+>>
+>>
+>> This example is not realistic. If you had 3% steal with 4 CPUs, and if they become 2,
+>> your steal time will definitely increase. It will likely double. So
+>> governor likely calculates 6%.
+> 
+> You say it's not realistic, and then you confirm the math. So
+> realistic or not?
 
->   		if (!locked)
->   			mddev_unlock(mddev);
->   		return;
-> @@ -5192,14 +5199,20 @@ static void stop_sync_thread(struct mddev *mddev,=
- bool locked)
->  =20
->   	mddev_unlock(mddev);
->  =20
-> -	set_bit(MD_RECOVERY_INTR, &mddev->recovery);
-> +	if (test_bit(MD_RECOVERY_RUNNING, &mddev->recovery)) {
-> +		set_bit(MD_RECOVERY_INTR, &mddev->recovery);
-> +		/*
-> +		 * Thread might be blocked waiting for metadata update which
-> +		 * will now never happen
-> +		 */
-> +		md_wakeup_thread_directly(&mddev->sync_thread);
-> +	}
->   	/*
-> -	 * Thread might be blocked waiting for metadata update which will now
-> -	 * never happen
-> +	 * md_start_sync() may still use mddev after unlocking. Always
-> +	 * flush so teardown waits for that work to return; checking
-> +	 * work_pending() is not enough once the work is running.
->   	 */
-> -	md_wakeup_thread_directly(&mddev->sync_thread);
-> -	if (work_pending(&mddev->sync_work))
+I do not expect the steal time to remain consistent across after hotplug
+completes.
 
-work_pending() is not correct in the first place, I think this should be a =
-separate
-patch to replace it with work_busy().
+Instead of speculating, we should to get the numbers from the actual systems.
 
-> -		flush_work(&mddev->sync_work);
-> +	flush_work(&mddev->sync_work);
->  =20
->   	wait_event(resync_wait,
->   		   !test_bit(MD_RECOVERY_RUNNING, &mddev->recovery) ||
-> @@ -7101,6 +7114,14 @@ void md_stop(struct mddev *mddev)
->   {
->   	lockdep_assert_held(&mddev->reconfig_mutex);
->  =20
-> +	/*
-> +	 * md_check_recovery() may have queued sync_work; that work accesses
-> +	 * pers. Wait for it here before __md_stop() clears pers, as
-> +	 * do_md_stop()/md_stop_writes() do.
-> +	 */
-> +	set_bit(MD_RECOVERY_FROZEN, &mddev->recovery);
-> +	stop_sync_thread(mddev, true);
-> +
->   	/* stop the array and free an attached data structures.
->   	 * This is called from dm-raid
->   	 */
-> @@ -10494,9 +10515,11 @@ void md_check_recovery(struct mddev *mddev)
->  =20
->   			/*
->   			 * Let md_start_sync() to remove and add rdevs to the
-> -			 * array.
-> +			 * array. Honour MD_RECOVERY_FROZEN like the read-write
-> +			 * path so freeze/stop does not race with a new queue.
->   			 */
-> -			if (md_spares_need_change(mddev)) {
-> +			if (md_spares_need_change(mddev) &&
-> +			    !test_bit(MD_RECOVERY_FROZEN, &mddev->recovery)) {
->   				set_bit(MD_RECOVERY_RUNNING, &mddev->recovery);
->   				queue_work(md_misc_wq, &mddev->sync_work);
->   			}
+Let me see if i get some time to get it w.r.t to powerVM implementation.
 
---=20
-Thanks,
-Kuai
+> 
+> On my VM, there are 4 or 8 vCPUs, and the steal time hovers around 3%
+> normally. Offlining half of them triggers steal governor pretty
+> consistently.
+>   
+>> But yes, you can have realistic examples, where governor may calculate
+>> the values which goes slightly above or below. But IMHO those examples are very
+>> limited. Even in the above examples, the steal governor was supposed to trigger
+>> high threshold since the steal time with 2 CPUs is 6%. So if not now, in the next
+>> delta it would have triggered it anyways.
+> 
+> Sorry, I don't understand this. The governor is not supposed to
+> trigger decrease_preferred_cpus() on offline event. If some system
+> event skews steal ratio, the governor must adjust to that, or simply
+> skip the iteration. This patch implements the 2nd approach, which is
+> simpler IMO.
+> 
+>> Some examples are really corner cases. Maybe like
+>>
+>> 60 CPUs 3% steal, and then 40 CPUs 5.1% steal = 4.55%
+>> (Below threshold, but should have been high). One interval missed. But if you see
+>> large duration was in low threshold, so it is agreeable to miss it.
+> 
+> Don't understand this either. Can you elaborate on your case and math
+> please?
+>   
+>>> The elapsed time is 1000ms. Using the final count of two active CPUs, the
+>>> governor calculates:
+>>>
+>>>       114ms / (2 * 1000ms) = 5.7%
+>>>
+>>> This exceeds the default 5% high threshold, even though the actual steal
+>>> rate stayed at 3%. Using the CPU counts over the whole interval gives:
+>>>
+>>>       114ms / (4 * 900ms + 2 * 100ms) = 3%
+>>>
+>>> Checking num_online_cpus() doesn't account for cases where CPUs go online
+>>> and offline such that the total number of online CPUs doesn't change. So,
+>>> implement the sampling restart on hotplug event.
+>>>
+>>
+>> I am not sure if we really need to stress about hotplug cases. IIUC, when a user
+>> does hotplug, systems are usually idle. (Atleast that is what we have observed in
+>> real life use cases). And hotplug is really user driven, so user knows system is going
+>> through some transitions and will be stable soon.
+> 
+> The follow-up series brings a real counter example: Android daemon
+> running on Qualcomm SoC offlines CPUs on thermal event. So, it's
+> automatic and the offlined CPU is likely not idling.
+>
+
+I wasn't aware of that. So is it userspace daemon or kernel module/driver?
+  
+> Thanks,
+> Yury
+
