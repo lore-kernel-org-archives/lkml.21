@@ -1,61 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192220;
-	b=XTXGMFwrfxABlHew5HCoqBmbdxSfDvNRfvJ+0BuVSefArs7Ay5bPP1A4YzSEM+Jq9Lm3
-	 ovJgped1gFGKzbIUHLMgOs/sJMKmy3VkwGa/G3fxZw4DMZfWlFbBB5Wyc5dImDdwcl0fz
-	 KxhoJjJynyEj238bwidAXaYHQp97doE93yqiH+X5DZixx0Ftu+/jzjamhwR8aSPLblmGB
-	 hsvha6+IUzSrshlO8EpbkOPI4/QDABlwXsmwM2Re9uDtSqtFprpFtCutTC1pW23SletIK
-	 y+9PV4MS0A3FeT3S2DUhxW5FXDnD+MR/3/s3PY5JbHEr9RNw8HBHxtOuyyPvUOFyDVA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192220;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-SRS-Rewrite;
-	bh=DLn/nRLdH7tnntHWkgxOvyOlyiVy+UUcBurM4sXK35M=;
-	b=1180pKBM8FypxRXNqoNmQGpNX88VAZpzS2h4aIpEG9ZAxwCVTinPdohujWTlNJdXlIS4
-	 0yg0deR1yZ3RNiYB0IAvHA7R6oCg2BK9HrarAHIwH8vUGJeG/6GKqriOJbRVJeujXg9/5
-	 cWfbKlTfP2iinYTKKQEJaj8IUF5nrnuDcbRfN71VKv3MVyyvn+tKhoTOX3NuzLbwc5lVK
-	 K74B0ibXOSlMp+t3U+TuCseRmd9pNrKBFwJbzDCgAcIcDPIJarfFzhl8KBEW+JNqrwiZZ
-	 Q0lWQCS/PLASaFTaihpt285VwXekBV9XAm04J6v3lO+psyX/baELuWNqmUHup8B5OHQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=erFWOLMK;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.1
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795192221;
+	b=oy/FdlxVlc+uhkfRRO42RGqx00xRSaDJKcn9BmNj/fRNFOBI971BOAEWJll9xVJrU8rT
+	 0mJoLiot9O9INgOjrcDAwiXQNOrNMxR8L6SouYr4icFqI9skBVU7tUpowJimYEoiQZxkJ
+	 6Ffumo+UM9XHEdfue+QAkXM/wz5q0jOxQef6iv6uYuiGNLJ/7ZOIKOTcijStb4CTywo7M
+	 ue0dZErR4hhOXEO0YE4FAXw9KDMv6Kv8Z2lmoV62HdV+aoLhAn3pDnX1CZF5K74pZ57Ms
+	 UjlEJpDkWnS5/tWpf1nlRYl+ag5UzgU7mAsOil+vNjbf9A1YoSAYrunbaSHHBq2F5Mw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192221;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
+	b=SXUjlQymHZShGbxFFImxMFlAEREKg2WwiWRFhrrSV1zOwUljIGDW9K0GOa4aAuTHLHsi
+	 TZt/Sbi17RQUNMNnwDSLhpKKd8yJP13qO1EZp9BpMwrhKXEQHaxtfJS7NrNMfH+TGliq+
+	 kXxubo1hRSXndRbtbnwKhCQ8tlfeXENLlnYvrGCl0m/J6w5U0rs9wzthN9Zft/99fpYLJ
+	 vnDd1QR3/u5Uye+C1eMpLDXF+NW+ox6zTVKwQBaX4d9gs0ctbIGu+lLfiMxK02OOkeWZ8
+	 jBCdegc/aPSVx7fwotGxyVPJs0vHwa16FpJJiOIG67HergWKFG1ScxK0U889SSimQlQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Wt0uEjJo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.1
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011001.outbound.protection.outlook.com [52.101.70.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 783DF606A33D;
-	Fri, 20 Nov 2026 16:30:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 783DF606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13A9B60A2609;
+	Fri, 20 Nov 2026 16:30:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13A9B60A2609
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=erFWOLMK
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DLn/nRLdH7tnntHWkgxOvyOlyiVy+UUcBurM4sXK35M=; b=erFWOLMKbsbc1kXKJ1RIFYCDBK
-	xKZf864qLcHPkgt9GIvjmgLCXHSrZ3+7YeFM9od+hFegwD2cx8w3WIDerJ1d3axhHd5fvkzhgnLpe
-	smvc1g/thqACMdSO6TzuI6aDZZheGvNBzg8sQAlUYm0h/wJ7ZZ2QHxk8q+x6fgqZQe+jk/VKfAzkX
-	rpipoMBqyenJQ9wiLlAOebVQcVkcX35hRu7W+R0gGyNU44uVTyG8+bnpMqN7OyVLGGztewE+PHLqs
-	OUJj6l3e+oaMXHJxF+cnez+HxrdGduXzgYGHKGrbrB+J6WtSZzwM747MCukVqWCnFVtox8D3S5erV
-	J4Uwh7KA==;
-Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xURVC-0000000FYuK-3p0t;
-	Fri, 20 Nov 2026 16:30:18 +0000
-Date: Fri, 20 Nov 2026 08:30:18 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Carlos Maiolino <cem@kernel.org>, "Darrick J. Wong" <djwong@kernel.org>,
-	Aldo Ariel Panzardo <qwe.aldo@gmail.com>, linux-xfs@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [BUG] xfs: a remote xattr valuelen larger than its blocks makes
- getxattr() read a hole and warn
-Message-ID: <awB1mmg22PhD_efC@infradead.org>
-References: <179505710272.3511680.12978324583605871086@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Wt0uEjJo
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x2ekVOgY/YjGxJnmIPieSkseycJ3of6v296yUEJIVFYE/C+gpv0K632yqctHIcswLIyrTKG7ptoxvhmA2wq6zloZ6PE4vqt7m/mvNKOt2FFBFszwYFJbb2kY+Wl5N1mqIigVqYCYynPCNknRT3D5Lc0xH1shUWzfpTsAQd4EfpwT63oT2b7oIO16c6T4UzqrSlntRcVF6+kIV7V6mJwhxvRTomVEGfNyh1blw8nviGbaYUzjql1tT6vYeXTr/s2YosDuiPWl/LmWEBeurc6GYglWcSeOZoE2VXB328uucEJkP2qx+Nd6PH1W0odd+M3ZhQrfYiqfOAf48rMS2bX3Ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
+ b=hjrg2U8SdV0irEnOQGRnVmxelNgxRi4ACy64I5VYbtcL9fqHsJrGjxIUlmSQgbNUlFBNl63k4w+3ojzvl3ppodnNQ5eN6FmZn0b9qKxRD+cesEnUBJbmS/SUue61/DBGRikjzp3YYRQ1pOz0n1JvivGQKk9vJmgKl8LpOseixhKpqVz/tvJEEeKn4jklCDIXLWmWe4MK3fuSAGW38QpUDlrnqd1UdefxxI2jM8kzuyYaNdTvWIu/xv2CG5/UHRpOIOVrQuTsCKVPLwzLnrl6sXnQdDq61osxpi6uCR+NYXXuMuJxRT0B1+waPGyrD5N7qLGPcCz4ehvrBWAS5xiZWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
+ b=Wt0uEjJouOcMtP2RbEXmPIMXcVdIyfbSEqqxLd7mTPQ2tjiTS0YRxpAfs1oVCFZiKOy7oPa/1/um18kpmuUZib7eQHYudjeGVxol407bGVbaehh3AdgaJCkFL/a6gAZt3F74grZn+sh8FAgGErMHwIMckH16tYoddaX0cEE6oOb/tUcynyLnWj2AcX0sqXB5Ow4Gvv3ywC/3xf4sb9TmOOZlnqY9OQVZxzO0juOpRFal3y3IjZTkhQXSEivN7dcq1glnrJuW3t5CHp/4hE+iy0HzPD5iz4i7cakJmZ1IfF80UstRv/iZSTdL5IveGxtE9ReLf5T6vAithYV61ENQMw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV1PR04MB9213.eurprd04.prod.outlook.com (2603:10a6:150:28::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 16:30:16 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 16:30:16 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-bsp@toradex.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] arm64: dts: freescale: Correct white-space style
+Date: Fri, 20 Nov 2026 11:30:08 -0500
+Message-ID: <179519219422.3710319.8948835867917075030.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261113185329.183113-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261113185329.183113-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH8P220CA0022.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:345::16) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,313 +108,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179505710272.3511680.12978324583605871086@gmail.com>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV1PR04MB9213:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ebe59d8-568c-4cde-2916-08df47238f15
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|18002099003|22082099003|921020|11063799006|56012099006|261026121527099003|261009223027099003|261022075727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	1TBLZBxmKy7xrgEFw/ogHK4IA9EAe1lgcCtRGNRJFS0S76BSzAMHE1R7hhweoWlA+TXAvf5mvcuBifXyAFDL8uB3IXmlV71PFyRU55pPvRzYjGqKg6p8w8VX/BD3NFfxZanXIcsUSsvF5txv3xrCHB9+q9mGGlxOpLmpQhfWhhezOzruA/mGNkXN8oJcPaKyPYzZ00qEmrqS8DjTdTYZUnCcd69ekw/o4o0/qiNzj95xUMRG6vbqj8b3yo+PgMUXnNChpAwOo3hTobR+mQiSx1mkSm4P1KsHh+fewrgT+utpn5gK6CLMGSoPrACbF/D/Id9Nhdnv+sEmPqgpdOG/fYYulnCNsee69fPn0tLWrfnV2IH/dnoEyqgDuurrSGh31Dtz7pwbNjo3qgF5h+Rksr5uBQ/m3CFDUWuRzwo1oiK89iDpjX+YhZuSAY4quvsn7Uem5IT3Y/iuHVuKhbYo5SglNz8GegrnChSuPuSdHsSVCQrP9//4oWE7luVwDZNmHL2i/tgElYU8z4hDY1W3SI1NByjAmKJ+H3xVz2y8xp34pg/xcNygByxET10oZ5OSTFXXPMY06jl/tIHn43J7Vb0zee3q2feThlViTx313H7gXI2UvA0sIJXVbJagAkVna/1vD+fFk7tk+Ws3TqhVHSNP110Fm8I+7cyA006GlveI+KEYZCEDQMfivNmRA9bX0IrEnILKtp0PcBjTWhV6HA==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(18002099003)(22082099003)(921020)(11063799006)(56012099006)(261026121527099003)(261009223027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?OVRhdmNDZHZPZkQxSzdpb0RIekdaZTJDMXcvcElRQ1hHQVpPMmFCZjJ0UmY4?=
+ =?utf-8?B?M1pGOXdEc3JjKzBCODRuaUZNL2QwazlFSkQvMWo1SnNZRVJoMVVYVmx4V2Uw?=
+ =?utf-8?B?NXJ5T2c1SjNXSTBHSDFDeC9CbkgvRldadnFTNndHSGRQRk9vMFFsNG5HZnVw?=
+ =?utf-8?B?MXNUY090T3FueFZzV0hYNndZcmpBenJ1eFZYQmdNTlRmSU5CUko3VUVTRlRN?=
+ =?utf-8?B?NnJSWFM4bi9Tdm5BelhSalNia0xzY2xUSXBPT1pDcVQxd3BXSElPcE5Ob0x6?=
+ =?utf-8?B?bDFUYmJzdHN1MzlmOHp4RlBFOC9SZTBkdHVmWnVoRmhUMWRCQTZ3TnFPejB1?=
+ =?utf-8?B?Z3U5STdTM0lmWWNBR2hxMEpYamJBbS84VXRQWGVERDk4Nk9YVEgzclJUQWV6?=
+ =?utf-8?B?UlpxbGw3QytMNThqVE4wNmVMcDdWRjljNW5ieExBaGJndURFTTg5alUyQ05X?=
+ =?utf-8?B?SVJZVEtHVU8rU29UTUlwSG4zZGYrdHZZY21yUER1MzloMkF2ZmRiTGRQVzlW?=
+ =?utf-8?B?ZUhuMmgvZElxNDdaMEIwaEQ4YkcvWHRCZTBlaGFBVHQ5MkxHblJNVnd2a0Uz?=
+ =?utf-8?B?MVo1cTVXOStISkFHa2JPZjJsNzFaYWJmODBBcXhoRkR6QWlSRlNsVjVYMWh2?=
+ =?utf-8?B?dFlkZGhiQThwK2Q2bEhnc3FFY0V2NUdETVBXQ01pZVEzMWRLOEVMaU8zQ0xo?=
+ =?utf-8?B?ZmVRQUNWT2F2OSt6NU5UYXIzYzFmODU5QTkzd0lpVjJjSTBEZUlBbW41NnFj?=
+ =?utf-8?B?bzArN3lOVi80dDFzV0ZwQytybXlFakwyb2x0TWc0Zjl2VUk2UWpIS0FNa0lj?=
+ =?utf-8?B?eEtJMTJ4Z2ZEVFVBSDl5M0tCRkJLbWEzVWVjdmRQNzlJUUk5K1pDOUtudVln?=
+ =?utf-8?B?bHlNdHo2eERYRmxiMXpqcXhKSGxYTUxPdlNJQmJCTVNidi9FaEgwTHk0OEV4?=
+ =?utf-8?B?SmJXR1dMblBMQnd4VUxvbkdIaTZPSHdxMmE5Wm5kTVI0K0tjQ2M1bHAwaWJJ?=
+ =?utf-8?B?Q0YreHdvWUJMdHVudHJ4TzZ3ZmRBQ0RWWkdHc0I5cDNnQlQ3Zkp5Z3pwL0Jv?=
+ =?utf-8?B?ZzlUeHRJdWtqcVJpUUxiK1FIbmFjNHpFZUtQREJTTFp2QTc3WTRSbUNMT3E5?=
+ =?utf-8?B?ZFBJR3VBTW83ZGVHUE1zdm50eDFJRW9JSEV6dEphSEdFTko4aFcwN08wWnlm?=
+ =?utf-8?B?bjFmdzU1bjhRQmg1dFlPcWhPNHBCaFRRSjMzT2hpT09HQWpPMEFqYjN0YW1T?=
+ =?utf-8?B?UDZIN2MrRjJyczIwRDU5WEIrT0ZLazJ4SVk1Qm9oeFJWQlNmTFMxSDZKblpO?=
+ =?utf-8?B?NnhROVdZT0pkdENlM25wMFMybDZmaHIrUDhSTXVJUjZnNDN6ZmJxbEMxZzkx?=
+ =?utf-8?B?aWxZVWpMRkVOemNPQUdNYUhzSHRQSUVLcXp1RTFRcUlnQmNpVkRXOFlIOXVD?=
+ =?utf-8?B?R1A4bXF6MURncmZqdTVLVHlIZ3FvOVNNUTR4Ny9VU1ZXZUNqZHlDNzlNY3dR?=
+ =?utf-8?B?bUQzY2h6Rm92a2N2MEJ0Z0I2U0g4WktZT1B3eWU2MG1IT0JtSlQwZXVDTkpo?=
+ =?utf-8?B?b2FDbEg0b09PN2VScG9RY0dmMGFrQU1yNWZlY3N2WFJIV1p0WG5QWDA1cXps?=
+ =?utf-8?B?MHVseFpLWGlzZXowUkk1UVZRYjY3S252OTNnYnBtbklmL0w1TzRTSzN5ckYr?=
+ =?utf-8?B?SWNoU2N1emI5YjBFVU5ZbnBUREdCb0RjVk9kSTArMG1oRzZ5WThwVFZVL3Bx?=
+ =?utf-8?B?TEtLOWUrNmVNNnFZcTAyYStWOEU0Si9mYjA3dkZWTUw3eXVON3hJb0FISEw4?=
+ =?utf-8?B?NDQxeTFSOWs2VzRDdVFqWVV0c3VsTHFqRUlUaFVhYlVEdFR5WXJUVDRPRHpH?=
+ =?utf-8?B?djg5aHdtelJuNGt0eHZ1d2VXdGZBTDN3VjNpdlduYjF0NkIvU0xVV1pTdUll?=
+ =?utf-8?B?WEJ3UGNGdW55SWQwTEdHT0R3WC9EK0FYbE4xbGtCdlgzYnR6VTB5NnZrejZK?=
+ =?utf-8?B?WEN5bmpIOWFpWXNDKzRQQlZPTE83VTRLUEJYdk5pU2pZbjFEYUhGQXlFNWIw?=
+ =?utf-8?B?TVJYQUdYYVdHeklDbGhmNUNGSlgzT1hlbElQZzJZUzl0K3R5MXR3NlYvbnpq?=
+ =?utf-8?B?NFVSWDU0bHhRNWlwaVJGQStWMDB4RmVRSGZFV09KbDlzMHVJYlM0M3EzSjdS?=
+ =?utf-8?B?eTBPYlVSSk9QdEhKWklpalpRcktLZGZIYjQySVJUc3VCR240amJ2cmhXU2hI?=
+ =?utf-8?B?K1dnSEh1NDM3bHZJbVN2TzRyT2FXSnZzc0wxL3YzZEhWd1pSQ1cwbjh4akJY?=
+ =?utf-8?B?WmlOTnFvdXpWWU9qVjJnTW5sdGgxamdyMm95enUyaythK1R2NkNlb0UycHRz?=
+ =?utf-8?Q?3yrhRoA4p+N2GLovv+uazQlgOADAizlgSuxIx?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ebe59d8-568c-4cde-2916-08df47238f15
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:30:16.1241
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XsOIaQ2GnIL2TO0aq2bp8NJVQLuj4e2BvEoJn7K7GTZXpo8hVaxI9KXEsWpvEQEEFx0H9GXN7p7yVnxhffvns/NzrD2UMZItO2w1PDVyyFOcQ9zlIuicWEoBbHlVw0Qa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9213
 
-Not going to complain about a fix if you send it, but the usual PSA
-applies:  іnjecting malicious changes to the on-disk format (and
-regenerating the CRC) is not part of the threat model for XFS.
-
-On Wed, Nov 18, 2026 at 07:04:53PM -0800, Kyuwon Cho wrote:
-> Hi Carlos, Darrick,
-> 
-> While testing v7.4-rc3 with an LLM-guided test generator that we are
-> developing as a research prototype, we found that a remote xattr whose
-> on-disk valuelen is larger than the blocks the value owns makes
-> getxattr() read a hole, which ends in the WARN_ON() of
-> xfs_buf_map_verify():
-> 
->   XFS (loop0): xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
->   WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350, CPU#1: test/114
->   CPU: 1 UID: 0 PID: 114 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy)
->   RIP: 0010:xfs_find_get_buf (fs/xfs/xfs_buf.c:423 fs/xfs/xfs_buf.c:567)
->   Call Trace:
->    <TASK>
->    xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
->    xfs_attr_rmtval_get (fs/xfs/xfs_buf.h:243 fs/xfs/libxfs/xfs_attr_remote.c:434)
->    xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
->    xfs_attr_node_get (fs/xfs/libxfs/xfs_attr.c:1597)
->    xfs_attr_get (fs/xfs/libxfs/xfs_attr.c:287)
->    xfs_xattr_get (fs/xfs/xfs_xattr.c:150)
->    __vfs_getxattr (fs/xattr.c:446)
->    vfs_getxattr (fs/xattr.c:479)
->    do_getxattr (fs/xattr.c:808)
->    filename_getxattr (fs/xattr.c:837)
->    path_getxattrat (fs/xattr.c:876)
->    do_syscall_64 (arch/x86/entry/syscall_64.c:61 arch/x86/entry/syscall_64.c:89)
->    entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)
->    </TASK>
-> 
-> 15ccd92a782a ("xfs: reject remote xattr entries with an out-of-range
-> value length") makes the leaf verifier reject a remote valuelen above
-> XFS_XATTR_SIZE_MAX, but a valuelen up to that limit is not checked
-> against the value's blocks. xfs_attr3_leaf_getvalue() computes
-> rmtblkcnt from the on-disk valuelen, and xfs_attr_rmtval_get() maps
-> that many blocks of the attr fork. It only asserts that a mapping is
-> not a hole:
-> 
-> 		for (i = 0; (i < nmap) && (valuelen > 0); i++) {
-> 			...
-> 			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
-> 			       (map[i].br_startblock != HOLESTARTBLOCK));
-> 			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
-> 			...
-> 			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
-> 					0, &bp, &xfs_attr3_rmt_buf_ops);
-> 
-> Without CONFIG_XFS_DEBUG, a hole becomes the out-of-range daddr above.
-> xfs_attr_rmtval_stale() in the same file checks for a hole at run time
-> and returns -EFSCORRUPTED.
-> 
-> The reproducer runs as root on an empty XFS image (mkfs.xfs, 300 MiB,
-> default v5 features). It gives a file a 16160-byte user.big xattr (four
-> remote blocks), unmounts, rewrites the entry's valuelen in the attr
-> leaf block to 65536 and fixes the block's CRC, mounts again, and calls
-> getxattr() with a 65536-byte buffer. On an x86_64 QEMU guest with 2
-> vCPUs and KASAN (gcc 13.3), it warns every time, and getxattr() fails.
-> 
-> Checked against v7.4-rc3 (aebb72744764); xfs_attr_remote.c and
-> xfs_attr_leaf.c are the same in the xfs for-next branch.
-> 
-> A patch is attached (git format-patch against v7.4-rc3; it applies to
-> the xfs for-next branch):
-> 
->   0001-xfs-reject-a-hole-in-a-remote-xattr-value.patch
-> 
-> It replaces the ASSERT in xfs_attr_rmtval_get() with the run-time check
-> that xfs_attr_rmtval_stale() uses, so the read fails with -EFSCORRUPTED.
-> It was written with LLM assistance; we reviewed and tested it. With it,
-> the reproducer no longer triggers the report.
-> 
-> The reproducer (repro.c), the kernel config and the patch are attached.
-> 
-> Thanks,
-> Kyuwon Cho
-
-> // WARNING in xfs_find_get_buf (xfs_buf_map_verify) from getxattr() on a remote xattr whose on-disk valuelen is
-> // larger than the blocks it owns.
-> // Needs an empty XFS image at /files/attr.img (mkfs.xfs -f, 300 MiB, default v5 features) and runs as root.
-> // 1. Mount it and give /tmp/mnt/leaf a 16160-byte user.big xattr (a leaf-form attr fork with a 4-block remote
-> //    value; 16160 is 4 remote payloads of 4040 bytes).
-> // 2. Unmount and rewrite user.big's valuelen in the attr leaf block to 65536, which the leaf verifier accepts
-> //    (it only rejects > XFS_XATTR_SIZE_MAX), and fix the block's CRC.
-> // 3. Mount again and getxattr() with a 65536-byte buffer: xfs_attr_rmtval_get() maps past the value's 4 blocks
-> //    into a hole and reads a daddr past the end of the device.
-> #define _GNU_SOURCE
-> #include <endian.h>
-> #include <errno.h>
-> #include <fcntl.h>
-> #include <linux/fiemap.h>
-> #include <linux/fs.h>
-> #include <stdint.h>
-> #include <stdio.h>
-> #include <stdlib.h>
-> #include <string.h>
-> #include <sys/ioctl.h>
-> #include <sys/mount.h>
-> #include <sys/stat.h>
-> #include <sys/xattr.h>
-> #include <unistd.h>
-> 
-> #define IMG "/files/attr.img"
-> #define MNT "/tmp/mnt"
-> #define BLK 4096
-> #define LOOP_CTL_GET_FREE 0x4C82
-> #define LOOP_SET_FD 0x4C00
-> #define LOOP_CLR_FD 0x4C01
-> #define BIG 16160
-> #define FAKE_LEN 65536
-> 
-> struct ext { uint64_t phys, len; };
-> 
-> static char loopdev[32];
-> static int loopfd = -1;
-> 
-> static void die(const char *m) { printf("FATAL %s: %s\n", m, strerror(errno)); fflush(stdout); exit(2); }
-> 
-> static void attach(void) {
-> 	int img = open(IMG, O_RDWR);
-> 	if (img < 0) die("open image");
-> 	int n = -1;
-> 	int ctl = open("/dev/loop-control", O_RDWR);
-> 	if (ctl >= 0) { n = ioctl(ctl, LOOP_CTL_GET_FREE); close(ctl); }
-> 	for (int t = 0; t < 8; t++) {
-> 		snprintf(loopdev, sizeof loopdev, "/dev/loop%d", n >= 0 ? n : t);
-> 		loopfd = open(loopdev, O_RDWR);
-> 		if (loopfd >= 0 && ioctl(loopfd, LOOP_SET_FD, img) == 0) { close(img); return; }
-> 		if (loopfd >= 0) close(loopfd);
-> 		if (n >= 0) break;
-> 	}
-> 	die("attach loop");
-> }
-> 
-> static void detach(void) {
-> 	ioctl(loopfd, LOOP_CLR_FD, 0);
-> 	close(loopfd);
-> 	loopfd = -1;
-> }
-> 
-> static void mount_xfs(void) {
-> 	if (mount(loopdev, MNT, "xfs", 0, NULL)) die("mount xfs");
-> }
-> 
-> static void umount_xfs(void) {
-> 	sync();
-> 	if (umount2(MNT, 0)) die("umount");
-> }
-> 
-> static uint32_t crc32c_raw(uint32_t crc, const unsigned char *p, size_t n) {
-> 	for (size_t i = 0; i < n; i++) {
-> 		crc ^= p[i];
-> 		for (int k = 0; k < 8; k++)
-> 			crc = (crc >> 1) ^ (0x82F63B78u & -(crc & 1));
-> 	}
-> 	return crc;
-> }
-> 
-> static uint32_t xfs_blk_crc(const unsigned char *blk) {
-> 	unsigned char tmp[BLK];
-> 	memcpy(tmp, blk, BLK);
-> 	memset(tmp + 12, 0, 4);
-> 	return ~crc32c_raw(0xffffffffu, tmp, BLK);
-> }
-> 
-> static int attr_extents(const char *path, struct ext *out, int max) {
-> 	int fd = open(path, O_RDONLY);
-> 	if (fd < 0) die("open file for fiemap");
-> 	size_t sz = sizeof(struct fiemap) + 128 * sizeof(struct fiemap_extent);
-> 	struct fiemap *fm = calloc(1, sz);
-> 	fm->fm_start = 0;
-> 	fm->fm_length = ~0ULL;
-> 	fm->fm_flags = FIEMAP_FLAG_SYNC | FIEMAP_FLAG_XATTR;
-> 	fm->fm_extent_count = 128;
-> 	if (ioctl(fd, FS_IOC_FIEMAP, fm) < 0) die("fiemap xattr");
-> 	int n = 0;
-> 	for (unsigned i = 0; i < fm->fm_mapped_extents && n < max; i++) {
-> 		out[n].phys = fm->fm_extents[i].fe_physical;
-> 		out[n].len = fm->fm_extents[i].fe_length;
-> 		n++;
-> 	}
-> 	free(fm);
-> 	close(fd);
-> 	return n;
-> }
-> 
-> // Patch the valuelen of the "big" remote entry in a leaf block in the image file.
-> // Returns 1 if this block was patched.
-> static int patch_block(int img, uint64_t off) {
-> 	unsigned char blk[BLK];
-> 	unsigned char pat[8] = { 0 };
-> 	uint32_t pbe = htobe32(BIG);
-> 	memcpy(pat, &pbe, 4);
-> 	pat[4] = 3;
-> 	memcpy(pat + 5, "big", 3);
-> 	if (pread(img, blk, BLK, off) != BLK) die("pread leaf");
-> 	if (blk[8] != 0x3b || blk[9] != 0xee) return 0;           // XFS_ATTR3_LEAF_MAGIC
-> 	unsigned char *hit = memmem(blk, BLK, pat, sizeof pat);
-> 	if (!hit) return 0;
-> 	uint32_t stored;
-> 	memcpy(&stored, blk + 12, 4);
-> 	uint32_t calc = xfs_blk_crc(blk);
-> 	if (calc != stored) {
-> 		printf("CRC self-check FAILED at off %llu: stored=%08x calc=%08x\n",
-> 		       (unsigned long long)off, stored, calc);
-> 		fflush(stdout);
-> 		exit(3);
-> 	}
-> 	uint32_t be = htobe32(FAKE_LEN);
-> 	memcpy(hit, &be, 4);                                      // valuelen field
-> 	uint32_t nc = xfs_blk_crc(blk);
-> 	memcpy(blk + 12, &nc, 4);
-> 	if (pwrite(img, blk, BLK, off) != BLK) die("pwrite leaf");
-> 	return 1;
-> }
-> 
-> int main(void)
-> {
-> 	char *v = malloc(FAKE_LEN), path[] = MNT "/leaf";
-> 	struct ext e[64];
-> 	int n, patched = 0, img;
-> 
-> 	memset(v, 'A', BIG);
-> 	mkdir(MNT, 0755);
-> 	attach();
-> 	mount_xfs();
-> 	close(creat(path, 0644));
-> 	if (setxattr(path, "user.big", v, BIG, 0))
-> 		die("setxattr");
-> 	n = attr_extents(path, e, 64);		/* the extents stay valid after unmount */
-> 	umount_xfs();
-> 	detach();
-> 
-> 	img = open(IMG, O_RDWR);
-> 	for (int i = 0; i < n; i++)
-> 		for (uint64_t o = 0; o < e[i].len; o += BLK)
-> 			patched += patch_block(img, e[i].phys + o);
-> 	fsync(img);
-> 	close(img);
-> 	printf("patched %d leaf block(s)\n", patched);
-> 
-> 	attach();
-> 	mount_xfs();
-> 	printf("getxattr(65536) = %zd (%s)\n", getxattr(path, "user.big", v, FAKE_LEN), strerror(errno));
-> 	umount_xfs();
-> 	detach();
-> 	return 0;
-> }
+From: Frank Li <Frank.Li@nxp.com>
 
 
-> >From 497e52f18128c6f7c83ab8d52bc8506fac24f1d2 Mon Sep 17 00:00:00 2001
-> From: Kyuwon Cho <kyuwoncho18@gmail.com>
-> Date: Thu, 19 Nov 2026 11:36:52 +0900
-> Subject: [PATCH] xfs: reject a hole in a remote xattr value
+On Fri, 13 Nov 2026 19:53:30 +0100, Krzysztof Kozlowski wrote:
+> Correct minor style issues around white-spaces (e.g. double space before
+> '=', missing space before bracket or colon) to fix dt-style-check
+> warnings like:
 > 
-> xfs_attr_rmtval_get() maps the blocks of a remote xattr value from the
-> on-disk value length and only asserts that a mapping is not a hole. The
-> leaf verifier caps the length at XFS_XATTR_SIZE_MAX but does not check
-> it against the blocks the value owns, so a larger length makes the read
-> reach a hole. Without CONFIG_XFS_DEBUG the hole becomes a disk address
-> past the end of the device:
+>   imx91-toradex-osm.dtsi:75: [redundant-whitespace] extra whitespace after :
 > 
->   xfs_buf_map_verify: daddr 0x258000001a7f0 out of range, EOFS 0x96000
->   WARNING: fs/xfs/xfs_buf.c:423 at xfs_find_get_buf+0x160f/0x2350
->   Call Trace:
->    xfs_buf_read_map (fs/xfs/xfs_buf.c:648)
->    xfs_attr_rmtval_get (fs/xfs/libxfs/xfs_attr_remote.c:434)
->    xfs_attr3_leaf_getvalue (fs/xfs/libxfs/xfs_attr_leaf.c:2718)
 > 
-> Check for a hole or a delalloc extent at run time and return
-> -EFSCORRUPTED, as xfs_attr_rmtval_stale() does.
-> 
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> ---
->  fs/xfs/libxfs/xfs_attr_remote.c | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
-> 
-> diff --git a/fs/xfs/libxfs/xfs_attr_remote.c b/fs/xfs/libxfs/xfs_attr_remote.c
-> index e6c8dd1a997a..722440f005ca 100644
-> --- a/fs/xfs/libxfs/xfs_attr_remote.c
-> +++ b/fs/xfs/libxfs/xfs_attr_remote.c
-> @@ -427,8 +427,11 @@ xfs_attr_rmtval_get(
->  			xfs_daddr_t	dblkno;
->  			int		dblkcnt;
->  
-> -			ASSERT((map[i].br_startblock != DELAYSTARTBLOCK) &&
-> -			       (map[i].br_startblock != HOLESTARTBLOCK));
-> +			if (XFS_IS_CORRUPT(mp, map[i].br_startblock == DELAYSTARTBLOCK) ||
-> +			    XFS_IS_CORRUPT(mp, map[i].br_startblock == HOLESTARTBLOCK)) {
-> +				xfs_bmap_mark_sick(args->dp, XFS_ATTR_FORK);
-> +				return -EFSCORRUPTED;
-> +			}
->  			dblkno = XFS_FSB_TO_DADDR(mp, map[i].br_startblock);
->  			dblkcnt = XFS_FSB_TO_BB(mp, map[i].br_blockcount);
->  			error = xfs_buf_read(mp->m_ddev_targp, dblkno, dblkcnt,
-> -- 
-> 2.43.0
-> 
+> [...]
 
----end quoted text---
+Applied, thanks!
+
+[1/1] arm64: dts: freescale: Correct white-space style
+      commit: e32bda9845c5239c3b7605c465d61f3e2d350599
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
