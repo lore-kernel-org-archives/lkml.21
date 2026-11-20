@@ -1,100 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.251.105.195
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795205492;
-	b=LZudH1qBr/A/ivSEc7ZVGNx5jBlEXv3LhLGLpx8Q4OI+N3cvx/VLfNsnOpuGokbxp+5F
-	 JteeC4yF5GMQ3CyvQ2mDftUIcYOFE2Ze0JSn8GXWPv3WO1OM9U9oXTSZbuweRysijtLVq
-	 TjzROYzVOZs33D0SsOCnfnpKeQEo+D0BzmALSUuuk1TsyoiS4AGQsCKwd11JLSKdRX00G
-	 gNWuQu/zP7178NDBi3GgScT/+DRltd04Nw23itLByp2XqcYOEMMqPLEj9bD8q9+xHX4/k
-	 KobRD+OzEQNo8fUAMbJHzjg7S2znj5s2/hH6dByBTVj2tRwUZAbzi/i7WPPuDyfVnIQ==
+	b=312xLqsRipjrcXzGGJHZKhJd7T7zH0eNWuvcpzBLBP2TepewcAyctQc+raD4c5APOL0T
+	 afsbTGpV52Esp/ZpaLN9U7lfDr2ZW5Pbes7F2MM2wm4j4SiqCx5ecgtOGQ44qm4Lx+GTw
+	 aXV0i0hciYumF39UdAGgA5y3CSgV2YgqpWmluzmaL2gkkdRd037IsG91FRZZ23LayNdjI
+	 0/GeIgb2ZkCo9C+8UQsKi9RQS4hyRehrjUBWT5ymb3jjYSMF7F868b/9PveZYadIa00CB
+	 pw4j1SM7dWl0Uyt7t4FrmHjIiAd5HOXYfQFePlqRSpeqcj6VMRcffqFIogIIl60hshw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795205492;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=VSNciQwXoLzNC38H4Cu8pkuiuhLtNiZHzowcIJLxJLQ=;
-	b=LdX65Eg+B7Owiv4VBJBtiv10jQz8TF+b5nozut64x6/SuzpxbWbc5hYhe7iyrE6ZboHl
-	 YjHyKw/b7sDT0O5tFBOfwHTmTsDkyqeOklbW2EwH2H22aEStjsinft+6z2MOlIMT8VwgI
-	 ETs2mLaCwAhTFU7FOK812k7EKBuwoLOVTZUGtnyhfpV97JZOefjt+97S4dvqHGsr3fCHu
-	 JfOGXv7lU6O9T6XV3l/n/lflXaen3fG1Ce1OivPQdBymyvgPavoIwKRrdY82YtuWsUMn7
-	 jziv7meXsmoBbEOMbgi1/ljO8TT0/w5W7hU5HVkqWLPqBLOs5GRbvUqDqOXN9Yo5ibg==
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Autocrypt:Organization:Content-Type:
+	 User-Agent:MIME-Version;
+	bh=ka2j4512bd9fmo/OpN9lEC/AEYIpS2u6yb5k4hs/qgU=;
+	b=X6RleI4zk6QzcfQlV4bNBzeCjAkGSH8xH/gJ6gacU5NZMMYCTol6GPGHkbLXJo4GvPQI
+	 raSY8hUK78qcQBHj/WfgtmV+3hkLf1pDiCYRy43NFj8pM+wMPAUBpjDyaikN3G4XC2t/A
+	 JUO1bKuJdNLebGTCRQfsQDJc9xEA5JUzDHUa6y7WuhpeuNpsNqImguvm8Eyh7HSwwD1UK
+	 nJjIrWcstsMlbrhnPNuiHB2w6Y6WVzbHk1irvo9b8vrDAgpouNU454yYcdQ0SGcdpmPf+
+	 /1gKyY6beb+5dgDBOF8kSCKmurn/TIhO9cDQ936IBHVO91vS3QyMpbNx7VCkpz/TNJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caX+YDDx;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=oXz7TaiZ;
+	arc=none smtp.remote-ip=148.251.105.195
+Received: from bali.collaboradmins.com (bali.collaboradmins.com [148.251.105.195])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8736260A2601
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:11:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8736260A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC1D606A6E4;
+	Fri, 20 Nov 2026 20:11:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8AC1D606A6E4
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=caX+YDDx
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35a60499eso11018075e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:11:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795205488; x=1795810288; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VSNciQwXoLzNC38H4Cu8pkuiuhLtNiZHzowcIJLxJLQ=;
-        b=caX+YDDxbdK7lOatziDlxo1NbeN67mglyVy5oETr/Bg/CVDK8WbHmhkGJNrTaJhyfq
-         L658wKUIOvvPgzjTnQdWj+gQkuJ/fWwmQwTEpocdjJ9bNQZEZ0iN1E/eHLd9+d1FD3kC
-         4p9jeJo1Xjwh/wB52phrpgqgm+3c6cs39cBZeknpGHCebRd9+sZD9NrG9r16Eri8jIz9
-         wDb6UpfFg7J7mYFjUV/VcuzGYD9hLMgTh46e9R9l3TWnjc/UAWnfb7E8EJ+b1IbdHqu6
-         Jvl/ly1YZVOYNnY6KXYPTbcsxoOz8VIP7GNuOeKkaocpO93yfSEUXzaYBZbjWJXLJVOt
-         ScMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205488; x=1795810288;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VSNciQwXoLzNC38H4Cu8pkuiuhLtNiZHzowcIJLxJLQ=;
-        b=wtRqgfumy4SvJOWhlKXhg7aE88myHp3wzS1/rFT3J5hy0d6TzBcsJj9akIM6IoMEhN
-         WNJzuQ7XrC68mG8CT/18ZqbEcsM2UvX/O6mKcHVYHHUADiFiwjPBAr8m9eeOSxrEzEa6
-         E771ZA8HIpMgJ4IAeNsm46V3tpH2kqYVt/yaOzaoC8doXvEqH9DSzA2aX/QKYXSQzkfL
-         CibYhPFZ0P17selATRp/CwehdygacDPe5sSuwbkYc+7Hkqqd0y8B15acA6HmO5rv2VdH
-         GK0erGOl9IP6kFg0T61DdK8Q6IZcScrSnoV5cT4qFjomLo+m3izdj9GNyvjSzc3E3b22
-         P06g==
-X-Forwarded-Encrypted: i=1; AL+hErFCyv5EvhhxJJ5NjOo+vRRbH78Me57YiQvbvvJRkFkXNruhxcVhuccGrKKRU63v/LAX7hYwTkpqey2RTPU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7dOV4V0qRCeQp774DgCF9u6oEbt75Hl1P/RMNoijTZunF+efy
-	xEluW30DmYyz9VGk3rQvEbH5k0n4uOk5/xSs9wzUi3CusrUGJBvw1Lft
-X-Gm-Gg: AYBFou0pGtWSPFcKYuPo97DhAm7V6GKz4Ge+q7OuV1Sod+ycL/MdxOa4MyEJqtN8QV9
-	mY6MMBfR9FOsr1G2joEf37f2u8W0QAUNfygW8E5K1izP5dMsbPKOYeimOAsbGK64hpcqHa53jep
-	gBaiDPybJfojeRokBF9t83ztFLR08j+30q6qhrmVLmSFPpzNLeTgGFtjo9CIqWTnRa58lF6ftZR
-	vj4h3fJf83EephjNuPCJxLQ1/R4P4fH/8O+jk9R5dNLZCp1OwYUpzoz73EyNgyAkpz8ng9tvn2H
-	0Ifoh/L8go/IFk4iatr0rpCA7rfxGqFATbqB7F7/M+6IIEf5cjpVeVdrvrvnMLhIk9qJ1rUsmEz
-	a5nEPe9TSnC47ktLJYzlERl4P1ACBbs9PxlEOr/cWjP9vZYU28DPd/0EiNIFdgHFVQ+13WlxJ0L
-	c7tFbjr4MADZ4Pvq+cZ4aSBh5pLaw5Hj7rIzNIdvenWhDqWIGyAYXFOm+WlOKJSUPJxzEh2fxdn
-	X7X42ObuZhjslgEhr0fzntYUCzMeUoxmCj9H72XYLBuSZSZ+S4w2SmgEwEGsvK96WneKbz1SzPZ
-	wp9ksQ+9rUbJ+TyOfLTpHidDdbbH35ZGZJSccacRq5mGSShp1Q==
-X-Received: by 2002:a05:600c:820d:b0:4bb:6cef:d14b with SMTP id 5b1f17b1804b1-4bb887c34f1mr104686305e9.2.1795205487788;
-        Fri, 20 Nov 2026 12:11:27 -0800 (PST)
-Received: from vivobook-s16.fritz.box ([2a02:908:e843:f280:6cae:291b:a1:8362])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865a2sm115561275e9.3.2026.11.20.12.11.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:11:27 -0800 (PST)
-From: "Ingo A. Kubbilun" <ingo.kubbilun@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"Ingo A. Kubbilun" <ingo.kubbilun@gmail.com>
-Subject: [PATCH v2 1/2] dt-bindings: arm: qcom: add ASUS Vivobook S16 S3607QA
-Date: Fri, 20 Nov 2026 21:10:52 +0100
-Message-ID: <20261120201127.90969-2-ingo.kubbilun@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120201127.90969-1-ingo.kubbilun@gmail.com>
-References: <20261120201127.90969-1-ingo.kubbilun@gmail.com>
+	dkim=pass (2048-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=mail header.b=oXz7TaiZ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1795205484;
+	bh=SO5xn4DmO0cJPYXStNqXjO9vovwuaPS6nfGK/NmntRs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=oXz7TaiZRi37e0TVtMRTCxN7AEF1mn4br8ayHeczfZ2haAJPAQB4nrn9YKwn28Jn8
+	 vW6Jx6M3+ZgASmNnLD+RZXlpz1lCJiEOq7uJxidJxPhsKZ5oYVor1FCCFmINWDzYXZ
+	 64KsaaGaGMaRJQR9t1ZT36VNyjK6pS9l1oVxU91dtjQZrD6voZqKCtHeOdcnPKsZfC
+	 M3XHIiMdKJVQV7WjsUNSkOAkhNvOg0tYR+YzF3bTJWZzW/PAeVD5FPwbLdGmI7Bv5+
+	 VkNrORJ6njM1NmL3Mw43NBTSYU2YgN4XOcLDNujvZxrKbrWIBAuPNOgI0q6UL2W7Uc
+	 G4b49U1t1chTQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 39C9E17E085F;
+	Fri, 20 Nov 2026 21:11:23 +0100 (CET)
+Message-ID: <9af91a9239c2905ae0106beea2a16b2764cbc052.camel@collabora.com>
+Subject: Re: [PATCH v2 2/7] media: verisilicon: AV1: Use alloc/free helpers
+ for auxiliary buffers
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Benjamin Gaignard
+	 <benjamin.gaignard@collabora.com>, mchehab@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 15:11:22 -0500
+In-Reply-To: <aecaf769d7db9775e695b7d64e5723d9a6b0b17b.camel@collabora.com>
+References: <20261120151345.88802-1-benjamin.gaignard@collabora.com>
+			 <20261120151345.88802-3-benjamin.gaignard@collabora.com>
+		 <dca17004d6cd81f66ebadc0a227548a4e558f2df.camel@pengutronix.de>
+	 <aecaf769d7db9775e695b7d64e5723d9a6b0b17b.camel@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-XzpSqKrUmalSvRJHa5Js"
+User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,33 +90,164 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Document the ASUS Vivobook S 16 S3607QA, a laptop based on the
-Snapdragon X X1-26-100 (X1P42100, Purwa).
+--=-XzpSqKrUmalSvRJHa5Js
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Developed with the help of an AI coding assistant (Anthropic Claude),
-which drafted the changes from the Windows ACPI tables, existing device
-trees and test logs; reviewed, built and tested on the device by the
-submitter.
+Le vendredi 20 novembre 2026 =C3=A0 15:10 -0500, Nicolas Dufresne a =C3=A9c=
+rit=C2=A0:
+> Le vendredi 20 novembre 2026 =C3=A0 16:56 +0100, Philipp Zabel a =C3=A9cr=
+it=C2=A0:
+> > On Fr, 2026-11-20 at 16:13 +0100, Benjamin Gaignard wrote:
+> > > Simplify and clean up the code by using the helpers.
+> > >=20
+> > > Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> > > Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > > ---
+> > >  .../media/platform/verisilicon/hantro_av1.c   | 177 ++++------------=
+--
+> > >  1 file changed, 39 insertions(+), 138 deletions(-)
+> > >=20
+> > > diff --git a/drivers/media/platform/verisilicon/hantro_av1.c b/driver=
+s/media/platform/verisilicon/hantro_av1.c
+> > > index 2cde32f0e935..e05816c7dfa3 100644
+> > > --- a/drivers/media/platform/verisilicon/hantro_av1.c
+> > > +++ b/drivers/media/platform/verisilicon/hantro_av1.c
+> > > @@ -235,40 +235,17 @@ size_t hantro_av1_chroma_size(struct hantro_ctx=
+ *ctx)
+> > > =20
+> > >  static void hantro_av1_tiles_free(struct hantro_ctx *ctx)
+> > >  {
+> > > -=09struct hantro_dev *vpu =3D ctx->dev;
+> > >  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> > > =20
+> > > -=09if (av1_dec->db_data_col.cpu)
+> > > -=09=09dma_free_coherent(vpu->dev, av1_dec->db_data_col.size,
+> > > -=09=09=09=09  av1_dec->db_data_col.cpu,
+> > > -=09=09=09=09  av1_dec->db_data_col.dma);
+> > > -=09av1_dec->db_data_col.cpu =3D NULL;
+> > > -
+> > > -=09if (av1_dec->db_ctrl_col.cpu)
+> > > -=09=09dma_free_coherent(vpu->dev, av1_dec->db_ctrl_col.size,
+> > > -=09=09=09=09  av1_dec->db_ctrl_col.cpu,
+> > > -=09=09=09=09  av1_dec->db_ctrl_col.dma);
+> > > -=09av1_dec->db_ctrl_col.cpu =3D NULL;
+> > > -
+> > > -=09if (av1_dec->cdef_col.cpu)
+> > > -=09=09dma_free_coherent(vpu->dev, av1_dec->cdef_col.size,
+> > > -=09=09=09=09  av1_dec->cdef_col.cpu, av1_dec->cdef_col.dma);
+> > > -=09av1_dec->cdef_col.cpu =3D NULL;
+> > > -
+> > > -=09if (av1_dec->sr_col.cpu)
+> > > -=09=09dma_free_coherent(vpu->dev, av1_dec->sr_col.size,
+> > > -=09=09=09=09  av1_dec->sr_col.cpu, av1_dec->sr_col.dma);
+> > > -=09av1_dec->sr_col.cpu =3D NULL;
+> > > -
+> > > -=09if (av1_dec->lr_col.cpu)
+> > > -=09=09dma_free_coherent(vpu->dev, av1_dec->lr_col.size,
+> > > -=09=09=09=09  av1_dec->lr_col.cpu, av1_dec->lr_col.dma);
+> > > -=09av1_dec->lr_col.cpu =3D NULL;
+> > > +=09hantro_free_aux_buf(ctx, &av1_dec->db_data_col);
+> > > +=09hantro_free_aux_buf(ctx, &av1_dec->db_ctrl_col);
+> > > +=09hantro_free_aux_buf(ctx, &av1_dec->cdef_col);
+> > > +=09hantro_free_aux_buf(ctx, &av1_dec->sr_col);
+> > > +=09hantro_free_aux_buf(ctx, &av1_dec->lr_col);
+> > >  }
+> > > =20
+> > >  static int hantro_av1_tiles_reallocate(struct hantro_ctx *ctx)
+> > >  {
+> > > -=09struct hantro_dev *vpu =3D ctx->dev;
+> > >  =09struct hantro_av1_dec_hw_ctx *av1_dec =3D &ctx->av1_dec;
+> > >  =09struct hantro_av1_dec_ctrls *ctrls =3D &av1_dec->ctrls;
+> > >  =09const struct v4l2_av1_tile_info *tile_info =3D &ctrls->frame->til=
+e_info;
+> > > @@ -277,6 +254,7 @@ static int hantro_av1_tiles_reallocate(struct han=
+tro_ctx *ctx)
+> > >  =09unsigned int height_in_sb =3D height / 64;
+> > >  =09unsigned int stripe_num =3D ((height + 8) + 63) / 64;
+> > >  =09size_t size;
+> > > +=09int ret;
+> > > =20
+> > >  =09if (av1_dec->db_data_col.size >=3D
+> > >  =09    ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_cols)
+> > > @@ -285,44 +263,22 @@ static int hantro_av1_tiles_reallocate(struct h=
+antro_ctx *ctx)
+> > >  =09hantro_av1_tiles_free(ctx);
+> > > =20
+> > >  =09size =3D ALIGN(height * 12 * ctx->bit_depth / 8, 128) * num_tile_=
+cols;
+> > > -=09av1_dec->db_data_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> > > -=09=09=09=09=09=09      &av1_dec->db_data_col.dma,
+> > > -=09=09=09=09=09=09      GFP_KERNEL);
+> > > -=09if (!av1_dec->db_data_col.cpu)
+> > > -=09=09goto buffer_allocation_error;
+> > > -=09av1_dec->db_data_col.size =3D size;
+> > > +=09ret =3D hantro_allocate_aux_buf(ctx, &av1_dec->db_data_col, size)=
+;
+> > > =20
+> > >  =09size =3D ALIGN(height * 2 * 16 / 4, 128) * num_tile_cols;
+> > > -=09av1_dec->db_ctrl_col.cpu =3D dma_alloc_coherent(vpu->dev, size,
+> > > -=09=09=09=09=09=09      &av1_dec->db_ctrl_col.dma,
+> > > -=09=09=09=09=09=09      GFP_KERNEL);
+> > > -=09if (!av1_dec->db_ctrl_col.cpu)
+> > > -=09=09goto buffer_allocation_error;
+> > > -=09av1_dec->db_ctrl_col.size =3D size;
+> > > +=09ret |=3D hantro_allocate_aux_buf(ctx, &av1_dec->db_ctrl_col, size=
+);
+> >=20
+> > Please don't |=3D error return values. Even if it happens to work here
+> > because hantro_allocate_aux_buf() is guaranteed to return the same
+> > error, it may inspire others to copy this in places where it's invalid.
+> >=20
+> > Further, hantro_allocate_aux_buf() looks like it can return -EINVAL and
+> > -ENOMEM, not sure if that can happen inside reallocate. That would
+> > combine into -ENOENT, which makes no sense to return.
+>=20
+> Fair enough, I reviewed too quickly and assumed it was boolean. Not very =
+common,
+> but something I've seen in the past:
+>=20
+>   =09ret =3D func(params1, ret);
+> =09ret =3D func(params2, ret);
+> =09...
+>=20
+> And then:
+>=20
+> int func(params, int ret)
+> {
+> =09if (!ret)
 
-Signed-off-by: Ingo A. Kubbilun <ingo.kubbilun@gmail.com>
----
- Documentation/devicetree/bindings/arm/qcom.yaml | 1 +
- 1 file changed, 1 insertion(+)
+Of course I mean if (ret) ...
 
-diff --git a/Documentation/devicetree/bindings/arm/qcom.yaml b/Documentation/devicetree/bindings/arm/qcom.yaml
-index 7ffa4f69987f..2390568de805 100644
---- a/Documentation/devicetree/bindings/arm/qcom.yaml
-+++ b/Documentation/devicetree/bindings/arm/qcom.yaml
-@@ -1350,6 +1350,7 @@ properties:
-       - items:
-           - enum:
-               - asus,vivobook-s15-x1p4
-+              - asus,vivobook-s16-s3607qa
-               - hp,omnibook-x14-fe1
-               - lenovo,thinkbook-16
-               - qcom,x1p42100-crd
--- 
-2.47.3
+> =09=09return ret;
+> =09
+> =09...
+>=20
+> =09return ret;
+> }
+>=20
+> That would allow moving the repetitive branch inside hantro_allocate_aux_=
+buf()
+> and keep the proposed simplification.
+>=20
+> Nicolas
+>=20
+> >=20
+> > regards
+> > Philipp
 
+--=-XzpSqKrUmalSvRJHa5Js
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCawCpagAKCRDZQZRRKWBy
+9Fv1AQDOyNVKijVVoQPo376w3LHrGDfnfggMkyLUXH1BK4aQIQD/fPA3g9YIC8gq
+8h3TPvMTv2MKSXuqNKJ5vcTReJkzYQY=
+=nFN1
+-----END PGP SIGNATURE-----
+
+--=-XzpSqKrUmalSvRJHa5Js--
