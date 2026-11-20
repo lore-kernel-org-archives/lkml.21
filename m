@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139440;
-	b=zUUM80SWKvYlJuYD513X/deyaBdVc2ikYi21MOp/96/cn62AUnQ8N1UeR/CWNJHK7kK/
-	 Vvu0GpbVw1ySAdKtXEioE9byzOiPd7imU55cM6fFQ5uXY+cdxqtxV4sCq1PngsAb8fxY8
-	 0+w73uEWk6bvAAXTFRkquIKbPoeKW9HhERmrOIk1mdjFqF3CTkQ4thBdCACqcesGY6jMz
-	 6uKRhZNUhKZ3JUA4hz0HsQuxwklflCoY88/9mOp8r5kaI8cOSZkXa++Dbm21la27uWMcs
-	 DOMBc2MeomqtEOeUFXXtmoj8F1ZZCnRv1NIfB/Kqa5XYyIoQy6dN8n8bMiVc2Y3NjtA==
+	t=1795139468;
+	b=FQ2wG523/QWz2tZUH5TD6gL9+1VT+cSFZyj3vkvhZOfsDiHDr/wbkH4onMuN3R6T0cwk
+	 mn4IlBNis0NosR60W7CtFBYLvTxrwUmlvFWRxCGEQXgXDoUCicjUw0Dg62H4ycFEljBdZ
+	 M0iHyGQvdiDHPsEwj94f5griKQDYZJyV1gairkX6qiwFu7BNCBuNKdl9CO/4nLynaoeWu
+	 7me7AzoCBcp5a+XDKhRF+xHg/j7J/Wu2yTea0eZBEVmryABDJvngz9+ld8rRpbgovvU8Y
+	 HKCuzTEp1zusQNslNDAO0yXNQcPLsyYBbsAnecFLoC0I+iZCL9DAp2sYVNLHbYU9Zgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139440;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=tzlDQj0f/vJ+y/DQnIE5DsPiCJecj6j+gSmMXEYHqX4=;
-	b=ifk2KZOCiYJ5aOJG4cZqSceN2EzjGWb9fn0piqFGJchMCCjpT/r54BSVmD6nqdI8i8fB
-	 Ut2RshaliBBSDJQt/6mX0OKa7RkMn5NwAOjbByjxiVCxPyy7bUqOc6l5RfI6BeMacNiJC
-	 ZERQRq4xArrMnamkRG3uoe1iLAYuQqefQRKpu361lCbIQ3Zn3jMY6BhH368KnNiEcE0+x
-	 Kr1oUnK2/0FBARTbIawG2qXeg8MbJfVAY7LY9L2wlt7qWFPZRPoxzol/4WdNN2rjzQtGg
-	 YAjOaNTTHTBZxosym3wf6hc7iRGhPVUxF3p7XHrEDpuEHJC2HaWXe2iGv0DxvbyiTqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139468;
+	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
+	 Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=9vGUD1suLBnRt0owSt9jD5mFNgLgcQyVHLA6QUgiD1E=;
+	b=yADitn51Sm4KQXxvklspv1YSMJchdWGpnIthay0byqscSAvrJaKHpNf23Fn8IsyR+qVW
+	 8wL7Bm6+VsIyBN7yWg1MPROIrOONVIj+gZEmhc6XPK2Z3tF/VieOeWFHtJRNauxGUYrzw
+	 3gtEa7hBiSkT69GwQ2jUha2rNDmCn5erx3JVLamAKTR0ocemZ5ejpduCn2L3Dryr/1WZG
+	 E7IAFdx5otB//3RvMjzgVR1PydwnmCgLVjXtygGxQkfbqVtV1Fp7RA8GqDbF+NVjIheCf
+	 eIirOAWSJTv526QvQpBn/FicSC6mMoqzTDpK818D2oEWiRik7YOaLgBwwSOoWnSw3mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gjW8Lc+s;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09B12606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:50:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09B12606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gjW8Lc+s
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0QLoW1653605;
-	Fri, 20 Nov 2026 01:50:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=tzlDQj0f/vJ+y/DQn
-	IE5DsPiCJecj6j+gSmMXEYHqX4=; b=gjW8Lc+s7mrE98qdIKpkF7v6LBcbk3cEO
-	yyS4e9vb7iXCYfhh2e4S1rAQwfSTEz5kZcAfpBgV5j1KPR2+GBgVfnu0SI5vELb8
-	2HHjleVS4HGepnJeshgEQuKLH10ngK/Obvfz8wtCaAft1KyRvIO2toxH+87YTdv2
-	jBJv6dm74vBvmGEcfjFYyn8CUBz+84d8Nb3dzRXYeOnR7bgeU7V8mR6N5xAIDYA9
-	SgMVPg+sM8N0Hp/m7ZknrzwsgT/KZOsXKU2Gq+bUheFEVgW+3Dqp6jFlXDuVFcUR
-	EiBnFKdiiccIyZdBHXowmzcZBMYRiFdyV0eBLrsfqplbc4R+WUoBg==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105nnd75-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 01:50:21 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK0JuX0302710;
-	Fri, 20 Nov 2026 01:50:20 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c5257w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 01:50:20 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK1oITZ40829378
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 01:50:18 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4E43320065;
-	Fri, 20 Nov 2026 01:50:18 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1AFA72004E;
-	Fri, 20 Nov 2026 01:50:15 +0000 (GMT)
-Received: from sapthagiri.in.ibm.com (unknown [9.111.19.126])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 01:50:14 +0000 (GMT)
-From: Srikar Dronamraju <srikar@linux.ibm.com>
-To: Ingo Molnar <mingo@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-        Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
-        Vincent Guittot <vincent.guittot@linaro.org>,
-        Dietmar Eggemann <dietmar.eggemann@arm.com>,
-        Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>,
-        Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>,
-        K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-        Srikar Dronamraju <srikar@linux.ibm.com>
-Subject: [PATCH 3/3] sched/topology: Simplify cache_nice_tries initialization
-Date: Fri, 20 Nov 2026 07:19:50 +0530
-Message-ID: <20261120014946.1355234-8-srikar@linux.ibm.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261120014946.1355234-5-srikar@linux.ibm.com>
-References: <20261120014946.1355234-5-srikar@linux.ibm.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1157B606A325;
+	Fri, 20 Nov 2026 01:51:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1157B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: d33fda2ee48411f19a56ed5b684f684d-20261120
+X-CTIC-Tags:
+	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
+	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
+	HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM, HR_SJ_PHRASE
+	HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT, HR_TO_NO_NAME
+	IP_TRUSTED, SRC_TRUSTED, SA_TRUSTED, SA_EXISTED, SN_TRUSTED
+	SN_EXISTED, SPF_NOPASS, DKIM_NOPASS, DMARC_NOPASS, CIE_BAD
+	CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS, GTI_RG_INFO, GTI_C_BU
+	AMN_GOOD, ABX_MISS_RDNS
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:849dcd0a-3f02-4cae-a128-8a4cd9fb2aeb,IP:15,
+	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:15
+X-CID-INFO: VERSION:1.3.19,REQID:849dcd0a-3f02-4cae-a128-8a4cd9fb2aeb,IP:15,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:15
+X-CID-META: VersionHash:7db8b62,CLOUDID:9dadecb9686f8b308f418b8a5d787993,BulkI
+	D:261120095058ABQSO0VM,BulkQuantity:0,SF:10|38|66|78|102|127|153|850|865|8
+	98,TC:nil,Content:0|15|50|99,EDM:-3,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,Q
+	S:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,
+	ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: d33fda2ee48411f19a56ed5b684f684d-20261120
+X-User: yijiangshan@kylinos.cn
+Received: from localhost.localdomain [(116.128.244.171)] by mailgw.kylinos.cn
+	(envelope-from <yijiangshan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 797630907; Fri, 20 Nov 2026 09:50:55 +0800
+From: Jiangshan Yi <yijiangshan@kylinos.cn>
+To: brendan.higgins@linux.dev,
+	david@davidgow.net
+Cc: raemoar63@gmail.com,
+	brgl@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	kunit-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	13667453960@163.com,
+	Jiangshan Yi <yijiangshan@kylinos.cn>
+Subject: [PATCH] kunit: minor cleanups in attribute filtering
+Date: Fri, 20 Nov 2026 09:50:20 +0800
+Message-Id: <20261120015020.40658-1-yijiangshan@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,99 +87,44 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwNSBTYWx0ZWRfX25pAwHPgJYYK
- hb51KSAU8YCjAqmWsmxVsL7ggvpCElV3fmoM68+r5uudtZWJ5lnptNvjU5bKpCDuRFajPp8v3iL
- xE+bil4zF0CheicCwdAfQFocp9O4i02q+5/ShPSbxOP14Mf13FPlhS6Lv6ns2au3dRFcAgwJy7T
- /BKDlD+ec58/XcEbZqXOAq75prfjYOb7Ec7s9xkcXUWD1wNGGzm8QvBu9LNnjozdLndwglEK9bM
- L226j3lJKmHqUGyF91X3R6AgkACh5l4ttHvgvalx9aym8+hka0tZX1tYsC9uP7Unt47ZNwmq0OV
- Jz9LiiQ8rw2wdBq2oztHxwWZ4LT6+gPz+1W/2IDkjxDxOKw53bPpP2mxyEn+3LQ0Vbte2WWclx7
- dNqZB2HID5zNPvxP51Td1Jze4KqBgKqcCi7hsJDcrZbQkDVfcTUSgzvOpp0i2GDhbFXjVbTwi+y
- JYpfvOqe8k9tMvqVdjw==
-X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6affa75d cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=SzBnzi8YTisCr0rkP6kA:9
-X-Proofpoint-GUID: LQfpZSY2N-Tg12VCfQ92PcWMjPsIs45D
-X-Proofpoint-ORIG-GUID: 1tidZ5fWlm6UyDUDEfMMWCaGyUEYTlbl
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwNSBTYWx0ZWRfX09qjj+RmtaOq
- W8DDln7CSMjGQ8XXEqxrAArAXTKt2zMJRJ7rie67khPXIedJHVCbjPWmItpII2kOkhsw3jUvuzg
- WDgw282Lo/gGxvdZfx4wHawlgVoL/zE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_01,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200005
 
-sched_domain initialization currently starts with cache_nice_tries = 0
-and later updates it based on the domain type. Most sched domains
-eventually end up with cache_nice_tries set to 1, with LLC-sharing
-domains and most non-NUMA domains explicitly overriding the initial
-value.
+kunit_filter_attr_tests() calls get_attr() twice for each test case;
+reuse test_val for the filter() call.
 
-As a result, the current code initializes cache_nice_tries to a value
-that is not the common case and subsequently reassigns it during domain
-setup.
+In attr_enum_filter(), stop scanning str_list once the input value is
+matched.
 
-The only domain type that retains a value of 0 is a
-SD_SHARE_CPUCAPACITY domain, while NUMA domains use a value of 2 and
-most remaining domains use a value of 1.
-
-Initialize cache_nice_tries to 1 by default and only override it for
-the special cases that require a different value. This reduces the
-number of assignments required during sched-domain construction and
-makes the resulting configuration easier to follow.
-
-No functional change is intended. The resulting values remain unchanged:
-
-	SD_SHARE_CPUCAPACITY : 0
-	SD_SHARE_LLC         : 1
-	other non-NUMA       : 1
-	SD_NUMA              : 2
-
-Signed-off-by: Srikar Dronamraju <srikar@linux.ibm.com>
+Signed-off-by: Jiangshan Yi <yijiangshan@kylinos.cn>
 ---
- kernel/sched/topology.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ lib/kunit/attributes.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/kernel/sched/topology.c b/kernel/sched/topology.c
-index 99878da03bce..da4f1e127341 100644
---- a/kernel/sched/topology.c
-+++ b/kernel/sched/topology.c
-@@ -1979,7 +1979,7 @@ sd_init(struct sched_domain_topology_level *tl,
- 		.busy_factor		= 16,
- 		.imbalance_pct		= 117,
- 
--		.cache_nice_tries	= 0,
-+		.cache_nice_tries	= 1,
- 
- 		.flags			= 1*SD_BALANCE_NEWIDLE
- 					| 1*SD_BALANCE_EXEC
-@@ -2018,10 +2018,7 @@ sd_init(struct sched_domain_topology_level *tl,
- 	 */
- 	if (sd->flags & SD_SHARE_CPUCAPACITY) {
- 		sd->imbalance_pct = 110;
--
--	} else if (sd->flags & SD_SHARE_LLC) {
--		sd->imbalance_pct = 117;
--		sd->cache_nice_tries = 1;
-+		sd->cache_nice_tries = 0;
- 
- #ifdef CONFIG_NUMA
- 	} else if (sd->flags & SD_NUMA) {
-@@ -2036,8 +2033,6 @@ sd_init(struct sched_domain_topology_level *tl,
- 		}
- 
- #endif /* CONFIG_NUMA */
--	} else {
--		sd->cache_nice_tries = 1;
+diff --git a/lib/kunit/attributes.c b/lib/kunit/attributes.c
+index 6d7a53af94a9..9ff04d2985f1 100644
+--- a/lib/kunit/attributes.c
++++ b/lib/kunit/attributes.c
+@@ -132,8 +132,10 @@ static int attr_enum_filter(void *attr, const char *input, int *err,
  	}
  
- 	sd->private = sdd;
+ 	for (j = 0; j <= max; j++) {
+-		if (!strcmp(input_val, str_list[j]))
++		if (!strcmp(input_val, str_list[j])) {
+ 			input_int = j;
++			break;
++		}
+ 	}
+ 
+ 	if (input_int < 0) {
+@@ -432,8 +434,7 @@ struct kunit_suite *kunit_filter_attr_tests(const struct kunit_suite *const suit
+ 	/* For each test case, save test case if passes filtering. */
+ 	kunit_suite_for_each_test_case(suite, test_case) {
+ 		test_val = filter.attr->get_attr((void *) test_case, true);
+-		test_result = filter.attr->filter(filter.attr->get_attr(test_case, true),
+-				filter.input, err);
++		test_result = filter.attr->filter(test_val, filter.input, err);
+ 		if (*err)
+ 			goto err;
+ 
 -- 
-2.55.0
+2.25.1
 
