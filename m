@@ -1,66 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188808;
-	b=FY023y8wUeGrDvUD//R6LulDjCvXY72+NyPGq2kYy6c+tEc2PKWRKjENEaZeCSr35+fc
-	 JQ8M7CoTU0dmuyKwTmFDCd1iLJZdZaGJ7HkakAsRUvPFk2EL9ys36KpLKydpsQ/UiKzsu
-	 XhERTAit5AmU0kLi1D4yU/xeFbkzDDN6QWBsdgSwUJhho5+4PP6Mrj6TanAodL5ofUfIv
-	 mZtyuXVS23azGjzhF3j0pZcKpMIDLfZ5BS0g0sUThXEXE8RTbdFGj/gaAGGX26qAgY5OL
-	 ZeBDfIGXaK+4omH+4ivZOpjlQB1aKgjp2zFlHKNczGe9Rr8IM/nCFWWkngoARnHrvKg==
+	t=1795188856;
+	b=QurT1bb9oxGgu7pUavAzJ3Xvc9D11L/jqVFR3vyg9UE3ReC+hx8yDFvIHN0tHfn3k0uS
+	 5+bBgD6oXUULe62iEqp4yczoY3AgLpJQ+00ow9zZs8A6/4yVSgQNrMmWboUIyai36zHex
+	 rDKyR4/yywPxL1JktOq10EFB+oR6DNti8GbvIpY4gPaKtahs27MqPG25pICxadW1M0vsN
+	 2dy2RqgAhmTKENsBXU05OMDMspDwocwbwahYuXVmHrq7hAuAwNI2lzbI5BPbL5hU4N4Tu
+	 9HwRRw4jMCkpm2aYDtQi254tvFxvhyM+a5L4VnSaTmWT9TN32olJYfrIyt4/AkjqlTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188808;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=3Mz6w7UeEL+7CGNi0VN6+DRD/NzemXmTCBXkDh4Qctc=;
-	b=5Qk6nNSEqtSDBjUAxoW8/nllT160jAe/G1iHjy4Coj0PcdO1JvGEBRbIhx6Gx0NBMAE1
-	 vBhu+Wfqr6MzKLpOpQV/6UUD4GdQV+Q4udysW8YHwQe8fmkdX63i91a4bNHnlTSF2h2he
-	 tdVTdHoAhsfB4HIZdFPcilsT720OlAJwNg9oB7ZUgAoCR1vRTmO2cqOLE+Z9iOy6il9XV
-	 f/Lgavu7E9Ubi96hPHGlDHMaq6pPNEUC10DdvZ3CGmdPfqflBtSawOBMgXqsXXdeRk2WM
-	 jl/L3RQhRbXx0U5bV/p5COU7SfmAIgkKgBsIQlgUfeoSpNDSMCUHNWNjTEXTZ5wgVdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188856;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:
+	 X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
+	 X-Spamd-Result:X-Spam-Score;
+	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
+	b=f47BsCcN7QcvmIm9I2J0E/87N/h8EFMF08VN28CTJtxmoilQqH2reZskU47aqatWdvP/
+	 0Pnz/NicPS1eaE5mvEj9SGm0xr9Z46tXYeEMuBTbmXW+TN4HOSaqxV0FyJFGhZDr48XGU
+	 rmTsDd8qybz+Iw8VjX373yCp+1xO/+On8WmpCQY11jZAzL8sMdd3URNk2QfzK/sO0IjxY
+	 P+joGBvmnyZ/jzBOTj2SOtdTbCdJrY2I+HfFwNUj3YTKogTMDlGxsRY4TeCAc9YDzrg3u
+	 DBFk30VcGfrY68GG3NSbVO/tgCkRum4zlFDg2cHwK1PzLEhx2ncz7g5exHcR+YvB42g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PZHo8SXu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF148606A320;
-	Fri, 20 Nov 2026 15:33:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A565606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:34:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A565606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PZHo8SXu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 163B21F000CF;
-	Fri, 20 Nov 2026 15:33:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795188808;
-	bh=3Mz6w7UeEL+7CGNi0VN6+DRD/NzemXmTCBXkDh4Qctc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PZHo8SXuAGTP5QeLNm50UO1x70lqFU/S83DZrh1r7zKX7lQ0VsKlAZuhxJ5/E5sdY
-	 rOovFk0GrYpls6/011L/LKbvSGn2+U0PlHnpEUYT8/p47xTbLAybxHSayb6qGg4xMJ
-	 EApoBYHjR9gYbxY+o9wHymgFWFwOnuJn/72SVxRCgzLggIghTzkMxRGPBNy0cuqnV+
-	 1LJFvT0wAQFIU6tW9KiQT1G0DqCMqNbixZqIOlLaL07Qea/Pl2ljW5g5lB0nqw2InL
-	 RDU3zeHz9PWRZV+MpQ0hJxVYIpHbJ0iQGgpF+JrxUj/90W7mTM60AHYAROF/T+JU+3
-	 LPAg5rdod2EdA==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xUQc9-00000006S7K-0u9O;
-	Fri, 20 Nov 2026 16:33:25 +0100
-Date: Fri, 20 Nov 2026 16:33:25 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	driver-core@lists.linux.dev, linux-acpi@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/8] driver core: platform: fix swnode use-after-free
- on device release
-Message-ID: <awBoRYvZEdI40B_R@hovoldconsulting.com>
-References: <20261117101336.980216-1-johan@kernel.org>
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 4EA162242E;
+	Fri, 20 Nov 2026 15:34:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795188853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
+	b=cTZzMcRF3HVSh8PsR4SB+nBNdE/2C8ati1TTGhtnO4IGcXxmv8lHHqpwtSa1D+YMLIaknj
+	Ew3guMf5N0s1IrAZJ2jZIb4rwxzy/w4rVbzfFjEqB3IEg5we9+ekkGuKKwFB5BTVHyY4jJ
+	HbUQYYDwpPrpi5MnC3n07uFkaZ0QgDY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795188853;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
+	b=PLcYMHfLZ2XeiqdVYa3RGPW/8lAfPcjKCenqfQOity0rP+CDWMh1nNXpzKFBw1LL57qpto
+	tdQLiOT0vrSdeGBg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=cTZzMcRF;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=PLcYMHfL
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795188853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
+	b=cTZzMcRF3HVSh8PsR4SB+nBNdE/2C8ati1TTGhtnO4IGcXxmv8lHHqpwtSa1D+YMLIaknj
+	Ew3guMf5N0s1IrAZJ2jZIb4rwxzy/w4rVbzfFjEqB3IEg5we9+ekkGuKKwFB5BTVHyY4jJ
+	HbUQYYDwpPrpi5MnC3n07uFkaZ0QgDY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795188853;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
+	b=PLcYMHfLZ2XeiqdVYa3RGPW/8lAfPcjKCenqfQOity0rP+CDWMh1nNXpzKFBw1LL57qpto
+	tdQLiOT0vrSdeGBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E264E1348F;
+	Fri, 20 Nov 2026 15:34:12 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id sOZyJHRoAGvdbwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Fri, 20 Nov 2026 15:34:12 +0000
+Message-ID: <c93a89cd-2af3-485f-9549-c288fe327c42@suse.de>
+Date: Fri, 20 Nov 2026 16:34:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,45 +108,170 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117101336.980216-1-johan@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/ast: Get VRAM size from PCI BAR0
+To: Jammy Huang <jammy_huang@aspeedtech.com>, Dave Airlie
+ <airlied@redhat.com>, Jocelyn Falempe <jfalempe@redhat.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261111-ast-vram-size-from-bar0-v1-1-dff97e2f8ccd@aspeedtech.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20261111-ast-vram-size-from-bar0-v1-1-dff97e2f8ccd@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4EA162242E
+X-Spam-Level: 
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spamd-Result: default: False [-13.50 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	XM_UA_NO_VERSION(0.01)[];
+	MX_GOOD(-0.01)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[aspeedtech.com,redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
+	MIME_TRACE(0.00)[0:+];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_TRACE(0.00)[suse.de:+];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
+X-Spam-Score: -13.50
 
-On Tue, Nov 17, 2026 at 11:13:28AM +0100, Johan Hovold wrote:
-> When fixing a use-after-free regression in 7.3, I noticed that the
-> software node implementation is internally inconsistent.
-> 
-> Specifically, the firmware node pointer of a struct device may point to
-> either a primary or secondary firmware node, but in several places
-> kernel-doc and comments suggests that the firmware node pointer always
-> points to a primary node (cf. [1][2]).
-> 
-> This series fixes the 7.3 regression along with a similar issue in i2c
-> core due which are both stem from the fact that
-> device_remove_software_node() happens to drop a reference to a primary
-> software node that was never added by device_add_software_node().
-> 
-> The next two patches clarify that device_remove_software_node() should
-> only be used to remove nodes added by device_add_software_node() and
-> stops touching primary nodes.
-> 
-> The rest of the series addresses further inconsistencies.
-> 
-> The first two fixes could go into 7.4 and the rest (which depends on the
-> fixes) into 7.5. And preferably with an ack from the i2c maintainer for
-> patches 2/8 and 4/8.
 
-> Johan Hovold (8):
->   driver core: platform: fix swnode use-after-free on device release
->   i2c: core: fix swnode use-after-free on client deregistration
 
-I have applied these two for 7.4 now.
+Am 11.11.26 um 07:16 schrieb Jammy Huang:
+> ast_get_vram_size() decodes the VRAM size from VGACRAA[1:0]. The size
+> of PCI BAR0, the framebuffer aperture, already reflects the VGA memory
+> size configured in hardware, so the separate register lookup is
+> redundant. Using the BAR size also guarantees that the VRAM mapping
+> never extends beyond the aperture that the device decodes.
+>
+> Take the VRAM size from BAR0 and keep subtracting the reserved region
+> given by VGACR99[1:0].
+>
+> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
 
->   software node: fix device_add_software_node() kernel doc
->   software node: ignore primary nodes in device_remove_software_node()
->   driver core: platform: warn on bad fwnode assignment
->   driver core: platform: tests: fix swnode reuse test description
->   software node: fix software_node_notify() primary node comment
->   device property: fix fwnode_get_next_child_node() comments
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Johan
+> ---
+> The ast driver currently determines the VRAM size by decoding
+> VGACRAA[1:0]. Since the size of PCI BAR0 already reflects the VGA
+> memory size configured in hardware, use it directly and drop the
+> register lookup. The reserved region reported in VGACR99[1:0] is still
+> subtracted from the result.
+> ---
+>   drivers/gpu/drm/ast/ast_mm.c | 27 +++++----------------------
+>   1 file changed, 5 insertions(+), 22 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/ast/ast_mm.c b/drivers/gpu/drm/ast/ast_mm.c
+> index 0bc14031946..6ef686cca5b 100644
+> --- a/drivers/gpu/drm/ast/ast_mm.c
+> +++ b/drivers/gpu/drm/ast/ast_mm.c
+> @@ -33,26 +33,10 @@
+>   
+>   #include "ast_drv.h"
+>   
+> -static u32 ast_get_vram_size(struct ast_device *ast)
+> +static resource_size_t ast_get_vram_size(struct ast_device *ast, resource_size_t bar_size)
+>   {
+> -	u32 vram_size;
+> -	u8 vgacr99, vgacraa;
+> -
+> -	vgacraa = ast_get_index_reg(ast, AST_IO_VGACRI, 0xaa);
+> -	switch (vgacraa & AST_IO_VGACRAA_VGAMEM_SIZE_MASK) {
+> -	case 0:
+> -		vram_size = SZ_8M;
+> -		break;
+> -	case 1:
+> -		vram_size = SZ_16M;
+> -		break;
+> -	case 2:
+> -		vram_size = SZ_32M;
+> -		break;
+> -	case 3:
+> -		vram_size = SZ_64M;
+> -		break;
+> -	}
+> +	resource_size_t vram_size = bar_size;
+> +	u8 vgacr99;
+>   
+>   	vgacr99 = ast_get_index_reg(ast, AST_IO_VGACRI, 0x99);
+>   	switch (vgacr99 & AST_IO_VGACR99_VGAMEM_RSRV_MASK) {
+> @@ -74,8 +58,7 @@ int ast_mm_init(struct ast_device *ast)
+>   {
+>   	struct drm_device *dev = &ast->base;
+>   	struct pci_dev *pdev = to_pci_dev(dev->dev);
+> -	resource_size_t base, size;
+> -	u32 vram_size;
+> +	resource_size_t base, size, vram_size;
+>   
+>   	base = pci_resource_start(pdev, 0);
+>   	size = pci_resource_len(pdev, 0);
+> @@ -84,7 +67,7 @@ int ast_mm_init(struct ast_device *ast)
+>   	devm_arch_io_reserve_memtype_wc(dev->dev, base, size);
+>   	devm_arch_phys_wc_add(dev->dev, base, size);
+>   
+> -	vram_size = ast_get_vram_size(ast);
+> +	vram_size = ast_get_vram_size(ast, size);
+>   
+>   	ast->vram = devm_ioremap_wc(dev->dev, base, vram_size);
+>   	if (!ast->vram)
+>
+> ---
+> base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
+> change-id: 20261111-ast-vram-size-from-bar0-13819df1df24
+>
+> Best regards,
+
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
+
+
