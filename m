@@ -1,64 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795245542;
-	b=c3YpzzXGpZtXLqbx11l+DFO9hb3DwzahnE/O2ql6ArwCKyHF3Udka4w/mHTTP0ArjbmP
-	 RTQiamSh6hqH94LKVqzbyGpDmqowqJpmNns6m7tH0dgEWmO1NeB+lhbAj875WankQXX+i
-	 yo2U9mlgK7JgYmgMrl1zmfB/WVxTfaO8t7Dg9krwntVtJGu+ZtpRZ5A+f4ZD9d87zLgGi
-	 gcZljtE3XL3ZZB9XUaVF9QZeTItxQCHyODi4dzi5yp81rGdRlFeHp5KrBRZjNFRljYCUJ
-	 +jxhtdOmsAB4ut7x9W2aX51efkiykJYrU9NiFTWnN7eE4vp3q3N0+vYcO/ArNm3ed4w==
+	t=1795245739;
+	b=ZYYioot3WFMnO51EcKARb6ZCdbM31A2ZaJ/TJXJ3hLSVPR7AerIzK7n0WC2RdZ9/8wNh
+	 /e0U54uBhdA3aquolDWd3V1YviGrPPOmEsoemc+COQSOTD5DX5zxNnMMszb1G9OLv3+Py
+	 Zed94f51VzazsRAiJEBk7T7iTpmXApsiKMNjk9UtJjSfK88sORIEBKizHnu3CfGjfFEE3
+	 ecLQhj/whLhH03I15cAF4aiXhn66TDgJkPDYnmRrmgwEughO3wutnI0W8XuxrfsJFhg2p
+	 s8HJaSh07hdixcPkkB+kWSUj2vGOlpCrShaj/8U1v848k5Hdw2a0bWX0DC0lHESIyNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795245542;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
-	bh=kOLdrxtlbkJl5si7RCYhsrq7KDo3r3G+vXC21EW5Oac=;
-	b=U6NC9rM/0djv0k5MVn2pB2462ofrMMYSNYAJYS3tOZ3ZtzoL76VPawAgWHDnVJ6NKe/N
-	 TRsGFbTyOWkBpWfqHbqhFHAzg9fsQpi8RdC/EdhR/OlaTYRRgE+VIrQLE9nJzwhC6JAdm
-	 /Fhzh8E06edWJP+t0acQHhLjUFCMok3Cj8BLL6eum5mVwrp6eHI9ZgPdSdqlCU4O+nVzc
-	 RKjLs1hN7UNPrlGKFws+dIdg7CnRJB/19MM7fFk9ofXCRfajFBZndRADQ36axyAlIg2FN
-	 7isEXdzeAa9R1UY5aAsi3qIp1DuRBU6Bg0dam5zWG3YZOQ6PQfghtELzUOLq/RBs8oQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795245739;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=fWPTVdLZKQdLVpLGvu6ADbd0Jrl0EaP9dm5o4mGCfIE=;
+	b=Cr1GWXOhNWNwSKyOZIikmFXhRUtNSrgr9VFDmpdP1D0WkyOiGndEyC1tbSQg+PK0XYGm
+	 +u/cz5ZXXFRj2B1qlwJNmTdWCG/6e2VBv/9Tota2y4O9DFaP18vkA+DW6avVFV8XVH+QE
+	 n6Mi3NyG3UNTHGJwsAFupmzzwoaP8Yq6TkJe1zfVBQ2KIZ/UonEvnk0hC2ypPTbu4L7ci
+	 mcGFJLgxWkO6ItCDNqSsi0Ofg6NurXZBlXaQV1+p4vbY1xe/pIKKQlIovtaW7FaQ1DacM
+	 8FlNXsz/JrdbpWtZq7Bkea49g5/1Sh11r1TkigDSa5Xs2FZ3YS6feWA2b693YjheqwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GRf6h5v5;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=wTzX6Liq;
+	arc=none smtp.remote-ip=203.205.221.155
+Received: from out203-205-221-155.mail.qq.com (out203-205-221-155.mail.qq.com [203.205.221.155])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B09C5606A325
-	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:18:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B09C5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E8DF606A320
+	for <linux-kernel@vger.kernel.org>; Sat, 21 Nov 2026 07:22:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E8DF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GRf6h5v5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=kO
-	LdrxtlbkJl5si7RCYhsrq7KDo3r3G+vXC21EW5Oac=; b=GRf6h5v53/wts6PEIH
-	lqwmV1URlwiSzQbXS8wprJg2TJ3n3644hxzqnRJAHTwHwaCjOcZPvekcCRtC7uPZ
-	7BPgcNi9Gv2QlVjvNQv7SE93joTY8vCybwx3nmLfAveYXEMF/Q6gBabvKP2jdFof
-	diWd2qF5Byhs/Lr1vxUtK76zE=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgAHVaSsRQFrb83YHA--.29041S2;
-	Sat, 21 Nov 2026 15:18:06 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: andi.shyti@kernel.org,
-	jani.nikula@linux.intel.com,
-	joonas.lahtinen@linux.intel.com,
-	rodrigo.vivi@intel.com,
-	tursulin@ursulin.net,
-	airlied@gmail.com,
-	simona@ffwll.ch
-Cc: intel-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	Andi Shyti <andi.shyti@linux.intel.com>
-Subject: [PATCH v2] drm/i915/vma: Fix a memory leak in i915_vma_pin_ww()
-Date: Sat, 21 Nov 2026 15:17:13 +0800
-Message-Id: <20261121071713.335337-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=wTzX6Liq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795245734; bh=fWPTVdLZKQdLVpLGvu6ADbd0Jrl0EaP9dm5o4mGCfIE=;
+	h=From:To:Cc:Subject:Date;
+	b=wTzX6LiqtlbUOgvh20DG5FQV1MyZgSFokSAdgFpuyM4ao1FIZpX+S8qVaTViw6w8O
+	 yz/GGKL+tjNwjgHe/TJ+4SbxRXyBwEEeEBpdi0bUgfJXrBBfL1NWxIksEiP9H7uuu6
+	 kQNN3ThCsd0evIf7NNSaVlR3jgktMBOlXHvmY8qI=
+Received: from [172.18.4.77] ([202.113.185.209])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id 58C2D4B2; Sat, 21 Nov 2026 15:22:12 +0800
+X-QQ-mid: xmsmtpt1795245732t45esk625
+Message-ID: <tencent_530751733E95518BA97CDF3C23B34E0FA608@qq.com>
+X-QQ-XMAILINFO: NbgegmlEc3JubfUYDCE4nAWl5/jdCFxR1lSRHLuO/QY7iMZCQohX8GSp0vA1Zt
+	 Wt6ouUvfAsuXCrEPfiItc2qABpQiaE0uzHS8Sjwo8Z64ju4zxhXK1IGF0n2Oj2CVXjiqShgNlbc+
+	 xqOLK0XOXcMtUfNcG1yrIsIXxC1AIm3w6kCSuAr8hMxSCTpXqky3F6MqjLPV/KJstk3dRtJEngBW
+	 GPL3c6Slj139lKKuBNamLELi7se3tNH3OthpB1HkpVfds701WuZYPkfHgp6ZNGcId7SsfPcXCsqo
+	 TjNlaW0FvvDB17T0C/A14ilHhr7BzjxhUwY1aajLByj4oXFS8dgr5KN2AHLQmlgSdmW0jcXMR6it
+	 SDBO82bhOBfvxjyw3tMdrUcVZKtIcLG2zJhS7dsqXWZ38itUA79PwSEN2/AGXVcp1VBQZvQM0Mov
+	 6ULvdbAwy5zK2opR+Do8rAfgkizC8Ue7WDOitjEXbCaSDtUnJCjYC4GgpyayKa/kGU+K95L5oVW8
+	 weknU3NVmP1tZBZx9QvRo9v+MiFQpCNHvlGXiyExDClgvUzw4OYUjs40L+BOAKHaUzIlwWInBAEd
+	 SC3hz8JmHu37s6cooxq3BKqGPHsNBh8ear0L9llv4Od/u8FVutRQZfSM3cn5eJ1z0JyGXT8fu8FV
+	 ODG79757uSDjuhI5lQOvmvvLvPfJEyyl7thwuZV7bUP/jxS3OVAlyeJsE469NsYP+G/+6MUquGXu
+	 qXiTjwjBTH+w9BQIabO7bH4OP6z56vRqnYo/R3XDLHIs71jikCwkUjewz1UmpfDVxFjTqOQ29JTa
+	 rw98g/NVnZwXa15Mopx5tfM9nQDPQRXXYiTvbDG/0h//87mIyLNt5WBbXom2KwXZw5+fM4WyiMCQ
+	 dTplKLE6Vmygd8wrsDxPR0pGco3rgUU3GtkzVDzXZ6nGLnrdSZKVe9jmmLuH6SP8PK2k49NQ75Jm
+	 lXZGTcN2OCbeNdF1WqJEQM9oQM6r3yV2IHB5Z7R1bgMnJs9P8GZD9KLMtTId+hOdzKwGWJHB12+L
+	 UOMLjUOJbHnRktm3YuSGbIVkhXk2GDboCKtA0FmhjTHYEThjaem8PEsxEGq8UJJyE+YeNKRQ==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: Guikun Yang <yangguikun19@qq.com>
+To: Jaegeuk Kim <jaegeuk@kernel.org>
+Cc: Chao Yu <chao@kernel.org>, linux-f2fs-devel@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: f2fs: a same-name dirent whose target inode has no NAT entry hits
+ WARN_ON(1) in recover_dentry() at mount - kernel panic with panic_on_warn
+Date: Fri, 20 Nov 2026 22:00:00 +0800
+X-OQ-MSGID: <f2fs-recover-dentry-warn-20261120@qq.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,41 +76,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:QCgvCgAHVaSsRQFrb83YHA--.29041S2
-X-Coremail-Antispam: 1Uf129KBjvdXoW7GFy7Cw17Xw4xJw4kCFWruFg_yoWDZFc_CF
-	yjy34jgrWUAryq9Fy5CFs3ZFy0y3WkZrs7XF1xt3s3JFyUCr4Du3s3WryrXw4xCF4qqFZF
-	q3Z7XFnxZr97KjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRM8nYUUUUUU==
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbC7Q6XBmsBRa7SEgAA3z
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 
-The memory allocated by i915_vma_work() is not freed if
-i915_gem_object_get_moving_fence() fails. Change the
-goto label to do so.
+Hi Jaegeuk, Chao,
 
-Fixes: 8ec5c0006c50 ("Merge tag 'drm-intel-next-2022-05-20' of git://anongit.freedesktop.org/drm/drm-intel into drm-intel-gt-next")
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
-Reviewed-by: Andi Shyti <andi.shyti@linux.intel.com>
----
-Changes in v2:
- - Modify the commit message. Thanks, Andi!
----
- drivers/gpu/drm/i915/i915_vma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Mounting a crafted f2fs image with fsync data to recover ends in a
+WARN_ON(1) during mount-time recovery, before any syscall beyond
+mount(); with panic_on_warn the box panics at boot.
 
-diff --git a/drivers/gpu/drm/i915/i915_vma.c b/drivers/gpu/drm/i915/i915_vma.c
-index 16782d8579a8..4ba1c9ea5ecb 100644
---- a/drivers/gpu/drm/i915/i915_vma.c
-+++ b/drivers/gpu/drm/i915/i915_vma.c
-@@ -1470,7 +1470,7 @@ int i915_vma_pin_ww(struct i915_vma *vma, struct i915_gem_ww_ctx *ww,
- 
- 		err = i915_gem_object_get_moving_fence(vma->obj, &moving);
- 		if (err)
--			goto err_rpm;
-+			goto err_fence;
- 
- 		dma_fence_work_chain(&work->base, moving);
- 
--- 
-2.25.1
+  F2FS-fs (vda): f2fs_recover_fsync_data: recovery fsync data, check_only: 0
+  F2FS-fs (vda): recover_dentry: inode with [ino:xxx] has invalid encrypted name
+  ------------[ cut here ]------------
+  WARNING: fs/f2fs/recovery.c:223 at f2fs_recover_fsync_data+...
+  Kernel panic - not syncing: kernel: panic_on_warn set ...
+
+## The path
+
+fs/f2fs/recovery.c, recover_dentry():
+
+	de = __f2fs_find_entry(dir, &fname, &dentry_blk);
+	if (de && inode->i_ino == le32_to_cpu(de->ino))
+		goto out_put;
+
+	if (de) {
+		einode = f2fs_iget_retry(inode->i_sb, le32_to_cpu(de->ino));
+		if (IS_ERR(einode)) {
+			WARN_ON(1);                       /* :223 */
+			err = PTR_ERR(einode);
+			if (err == -ENOENT)
+				err = -EEXIST;
+			goto out_put;
+		}
+
+The recovered inode's filename is looked up in the parent directory.
+When a same-name dirent exists but points at a different ino whose NAT
+entry is missing (blk_addr == NULL_ADDR), f2fs_iget() returns -ENOENT
+and the function hits WARN_ON(1). Nothing on the way to the assertion
+checks that the dirent target exists: the name lookup and the inode
+lookup read two independent on-disk structures, and a corrupted or
+fuzzed image can leave them inconsistent.
+
+The mount is enough: no post-mount syscall is needed, the recovery
+walk reaches the entry as soon as the last checkpoint carries fsync
+data for the crafted dentry.
+
+## Related but distinct reports
+
+This is a third independent spot in the same recovery walk:
+
+ - recover_orphan_inode() had f2fs_bug_on(PTR_ERR(inode) == -ENOENT)
+   for an orphan whose NAT entry is missing; fixed by treating the
+   missing inode as fs corruption (downgrade to f2fs_err +
+   SBI_NEED_FSCK) - that fix does not touch recover_dentry().
+ - do_recover_data() cross-checks ni.ino against the node footer and
+   hits f2fs_bug_on at recovery.c:698 - reported separately.
+
+Same family: an ino read from one on-disk structure does not resolve
+through the NAT, and the recovery code asserts instead of treating it
+as corruption.
+
+## Reproducer
+
+A crafted image where the fsync dentry entry to recover names a file
+whose dirent in the parent block points at an ino with no NAT entry;
+mounting the image reproduces the WARNING (3/3 runs with
+panic_on_warn=0, panic at boot with panic_on_warn=1). A control image
+identical except that the dirent points at an existing inode mounts
+and recovers normally.
+
+The image builder and the run script are available on request.
+
+## Versions
+
+Reproduced on 7.3.0 (self-built, panic_on_warn=1 for the panic
+demonstration). The WARN_ON(1) at recovery.c:223 is unchanged in
+current mainline. No report found on the syzbot dashboard for
+recover_dentry/f2fs_iget_retry, and no list thread found for this
+assertion.
+
+## Possible fix direction
+
+Treat the missing dirent target like the orphan case: log f2fs_err,
+set SBI_NEED_FSCK, skip the dentry (the recovered inode keeps its
+name from the fsync entry) or fall back to -EEXIST handling, instead
+of WARN_ON(1).
+
+Thanks,
+Guikun Yang
 
