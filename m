@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795196475;
-	b=ReV8wH/qP8mtWYO1MKQiV24ajnjH52dhmzCAdDmL4eQ+te8V2Ot/lOGIQxqIRAVFra+r
-	 T5wtNN1yKgNHcx7kreruyBe0V/jj7AC9I3/CEZF5LjgXggEh/HGzAhM2a6pXcXKa9q/Vc
-	 e9ZJofR6lJUJv/1MOpEpbGfjk5A78LewUdAdlIBSFt2QqvXp4yxK0XsmJYCKwqyH5ycT2
-	 yKQR0TCg4Vmxz9eSwARDw2oKQoD/S1lpolFyRxb8csdlNRFBTA47raGPvv7P5BIkrYQN9
-	 /hlo6p45PSw1w55/7PWQj7siwY08BhFbMkPXqOTK9+yXD/J3uvKHKIKKZeOgBQgT+BA==
+	b=UbDhbdWgsmro+EXWYqUrxCniTSUr6wPTCQ15910JZiaLI6zLAMgj4rVeRPBlaS3JMTK0
+	 Et6iStj57uUk636DtZ3AtWoy84omCLkyFpSiXxdHP+jwdRrEWkU5Y8SyINd7wR+xLkNbI
+	 X+RDKbQG27ADOZTr6iWn5o4whXFHBoLFXQeacLUed0fWq3GuvNMBNxCsUDVeVUBETE+Rn
+	 rmTfbkfD5m0qlD1knY7XL3QL9AGoAn25btMz3OlaqZnueOFuVUg8ddA69wwJOZgvDB6nE
+	 VVlwvp11xByB37fJpq5aWTENi6zRRwBjotHNmIXvpljBzW/BCEg28ClCbF98xP7Aruw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795196475;
 	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
 	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=IHp1ZPkYUZ83/9+/+lvmjSITnZBCSqciGUD+Oh9oFmk=;
-	b=eLDnHrY/mMYkEVbWLnkO8IFqA0lu++4DCqxkiiUUi4VuqoPLljVdD0K3TdPQBfSbi9Rm
-	 hhAjfv8sqve0rHxhbdowge7GTpI9RBVfvim2SdkOXdeITiYaa6pMoIiS2Y1rKtPPRIOD1
-	 Z5duac/DpKKYmhn/BST7jUSrGVydHTVF4PGJl7XqoKLkRY8si5JL1ffg+CWCR5wom3T7w
-	 v3HIlNVejf+omlJ47OnE9nFJOVpuqDe7xLPTOIqAG9aS/CeoK59fd1/Hw7A0K3JjIMmZr
-	 IybiRfb554GJ467gU+51VDDDq1Y3u4+Pjc0qdjwqNYfKDpl6XVeqS6mCtNwNVES8wcw==
+	bh=Adu/Hdv9H4tgUeMLSxNGgOk0ElazLC8OxKyBikKQgTI=;
+	b=VcsHqMafqoHRWuwiFolOIlEfhxB6mIlv28AMn3DotmLDvkR5EFMj4qhSQamtIcV750ZT
+	 wkdXuNeWr4ESIGvvLW8bfbkuOXfX6BeqI1WqRJNxCw8Tf/ZfLu+AIpIUuwj8rTU8er8AH
+	 vLGcb0Ax9uwbIRTbsDjg9kyNt+OvwY60dM6bw0lQJCaYLgx9WtCQEK4e55hg7G3MRplWk
+	 jBZK4rfn75y0bwC64TW9T59GEQN018da+WTGvbT9hprkUwRwiOiozws1FTnQfouOH1yJp
+	 +qmp4pNUdTcOXzIQ6l1GJ5Ja9tB8Jiqa8GnIbXQJWjqRYMQWR4KFveFUt5tFacXp8yw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lk0khO1n;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhfHyRcz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E57A60A260A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:41:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BCB7660A2606;
+	Fri, 20 Nov 2026 17:41:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lk0khO1n
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DC631F000EF;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NhfHyRcz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 980AB1F0093C;
 	Fri, 20 Nov 2026 17:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1795196475;
-	bh=IHp1ZPkYUZ83/9+/+lvmjSITnZBCSqciGUD+Oh9oFmk=;
+	bh=Adu/Hdv9H4tgUeMLSxNGgOk0ElazLC8OxKyBikKQgTI=;
 	h=Date:From:To:Cc:Subject:References;
-	b=lk0khO1nivBVhNMBm/MVwOSJZEvJYz7sWw7WZQ08K0K5uCRfsYtqCwVzDmUYfCqnj
-	 m+BkaQtgNOcbjyfC6g/IX7yMEGOU2rzo8JgAAfk0E0Ui8X2J/dQvEjQ7ih0XkiRPJq
-	 wrEUSXW0R0fixBapzElgeeJruAn1of3P6JYV21geqiCSJ4qlB6w52Sgc1v3WZfIBx0
-	 qUPqzIQLSdrcnRddhdYKTIV2bs/o97eTgKXJc5Xt2qveHoQY/GTWBWWQ191kuqQ834
-	 s9U7G8U2iJX1gpwA5zOlumr1fh46vsZATUYzMBYFkqLfD5bf3Xr8Qok67a9hUVsZr0
-	 1ZXvvDVQaBwgA==
+	b=NhfHyRczEsSD4xj8D0E+7sr9d9iVKTI2KtKtVJE7myldN7cfkitr2yV/Y77BmQf7a
+	 N09EV2BT6XwPKZQvo4LLMr7v1fFO5xGiehfszpLJqiJSlMLESlyTLXvH3ZDEWx6GVW
+	 o489CA6BZhjBmO9HSqdoAeTMkSkkuzPnyJwMPGXEPbbX6L/5FcqWGRPY0CTVV/ZD7Z
+	 GYSwIJn8Bi3CzZZsdilRdP2bmfHLo8B3Uw/DTCDdEqYuTu977CdWAUFVdOcr77YWza
+	 pDifU43zdHo9R5NAPhdQLT80Y+ZMUH3tE62xEDWKNCkRlCYHG5UEAlziw5aQAUnziC
+	 +BHoD+vNwLCYw==
 Received: from rostedt by gandalf with local (Exim 4.100.1)
 	(envelope-from <rostedt@kernel.org>)
-	id 1xUSbq-00000004aFs-37rD;
+	id 1xUSbq-00000004aGQ-43kC;
 	Fri, 20 Nov 2026 12:41:14 -0500
-Message-ID: <20261120174114.544875377@kernel.org>
+Message-ID: <20261120174114.766221293@kernel.org>
 User-Agent: quilt/0.69
-Date: Fri, 20 Nov 2026 12:38:55 -0500
+Date: Fri, 20 Nov 2026 12:38:56 -0500
 From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Morton <akpm@linux-foundation.org>,
+ stable@vger.kernel.org,
  Kyle Zeng <kylebot@openai.com>
-Subject: [for-linus][PATCH 03/32] tracing: Restrict perf filters that read kernel strings
+Subject: [for-linus][PATCH 04/32] tracing/filters: Treat zero-length dynamic strings as empty
 References: <20261120173852.687189370@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -68,82 +69,114 @@ Content-Type: text/plain; charset=UTF-8
 
 From: Kyle Zeng <kylebot@openai.com>
 
-A task-bound, counting-only syscall tracepoint can be opened without
-permission to read raw kernel tracepoint data. Setting exclude_kernel
-does not prevent its filter from running: perf_syscall_enter() submits
-the saved user-mode registers.
+The regex callbacks use a length of zero for NUL-terminated strings of
+unknown size, such as the trailing buffer in a trace_marker record.
+However, filter_pred_strloc() and filter_pred_strrelloc() pass the length
+from a data locator directly to those callbacks. A zero-length locator
+has no data and need not point at a NUL byte.
 
-Pointer-string filters use FILTER_PRED_FN_PCHAR by default, which reads
-through strncpy_from_kernel_nofault(). For sys_enter_openat, for example,
-the filename field comes directly from a syscall argument. An
-unprivileged caller can pass a kernel address, install a filter such as
-'filename ~ "Linux version*"', and use the event count to test the
-contents of kernel memory, even with perf_event_paranoid=2.
+In particular, syscall entry events can contain an empty captured array
+or a failed user-string copy. Matching such a field with an equality,
+prefix, or substring filter can read beyond the record. The per-CPU perf
+trace buffer is reused, so an unprivileged counting syscall event can
+disclose bytes left by a previous kernel tracepoint even when raw
+sampling is denied and exclude_kernel prevents counting that tracepoint.
 
-Check the compiled filter before installing it and require the same
-kernel and raw-tracepoint permissions as access to raw kernel tracepoint
-data for FILTER_PRED_FN_PCHAR. Inspect every predicate so that other
-events, operators, and boolean expressions cannot bypass the check.
-Return the permission error through the existing cleanup path before
-publishing the filter.
+Handle both locator formats through a common helper. For a zero-length
+field, pass an empty string and its actual size to the regex callback.
+This gives all matching modes the empty-string semantics without reading
+the locator's target. Keep nonzero fields and the legacy trace_marker
+unknown-length convention unchanged.
 
-Keep user-pointer (.ustring) and record-local predicates available under
-the existing policy. This leaves tracefs filtering and authorized kernel
-string filtering unchanged.
-
-Link: https://patch.msgid.link/20261006224005.49636-1-kylebot@openai.com
-Fixes: 5967bd5c4239 ("tracing: Let filter_assign_type() detect FILTER_PTR_STRING")
+Fixes: 10f20e9f9da9 ("tracing: Have zero size length in filter logic be full string")
+Cc: stable@vger.kernel.org
+Link: https://patch.msgid.link/20261006225642.58778-1-kylebot@openai.com
 Assisted-by: Codex:gpt-6-astra
 Signed-off-by: Kyle Zeng <kylebot@openai.com>
 Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- kernel/trace/trace_events_filter.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ kernel/trace/trace_events_filter.c | 38 +++++++++++++++++++-----------
+ 1 file changed, 24 insertions(+), 14 deletions(-)
 
 diff --git a/kernel/trace/trace_events_filter.c b/kernel/trace/trace_events_filter.c
-index c10951bcfc5f..cd0da148414d 100644
+index cd0da148414d..62444db0f78b 100644
 --- a/kernel/trace/trace_events_filter.c
 +++ b/kernel/trace/trace_events_filter.c
-@@ -2749,6 +2749,28 @@ static int ftrace_function_set_filter(struct perf_event *event,
+@@ -891,6 +891,25 @@ static int filter_pred_pchar_user(struct filter_pred *pred, void *event)
+ 	return filter_pchar(pred, str);
  }
- #endif /* CONFIG_FUNCTION_TRACER */
  
-+static int ftrace_profile_filter_perm(struct event_filter *filter)
++static __always_inline int filter_dyn_string(struct filter_pred *pred,
++					     char *str, int len)
 +{
-+	struct prog_entry *prog = rcu_dereference_protected(filter->prog,
-+						lockdep_is_held(&event_mutex));
-+	int i, err;
++	int cmp;
 +
-+	for (i = 0; prog[i].pred; i++) {
-+		if (prog[i].pred->fn_num != FILTER_PRED_FN_PCHAR)
-+			continue;
-+
-+		/*
-+		 * Even a counting filter can reveal kernel string data.
-+		 * Require the same access as raw kernel tracepoints.
-+		 */
-+		err = perf_allow_kernel();
-+		if (err)
-+			return err;
-+		return perf_allow_tracepoint();
++	/*
++	 * The regex callbacks use zero for an unknown-length, NUL-terminated
++	 * string. A zero-length data_loc or rel_loc field has no bytes at all.
++	 * Match an empty string instead of reading past the end of the field.
++	 */
++	if (!len) {
++		str = "";
++		len = 1;
 +	}
-+	return 0;
++
++	cmp = pred->regex->match(str, pred->regex, len);
++	return cmp ^ pred->not;
 +}
 +
- int ftrace_profile_set_filter(struct perf_event *event, int event_id,
- 			      char *filter_str)
- {
-@@ -2770,6 +2792,10 @@ int ftrace_profile_set_filter(struct perf_event *event, int event_id,
- 	if (err)
- 		goto free_filter;
+ /*
+  * Filter predicate for dynamic sized arrays of characters.
+  * These are implemented through a list of strings at the end
+@@ -907,13 +926,8 @@ static int filter_pred_strloc(struct filter_pred *pred, void *event)
+ 	int str_loc = str_item & 0xffff;
+ 	int str_len = str_item >> 16;
+ 	char *addr = (char *)(event + str_loc);
+-	int cmp, match;
+-
+-	cmp = pred->regex->match(addr, pred->regex, str_len);
  
-+	err = ftrace_profile_filter_perm(filter);
-+	if (err)
-+		goto free_filter;
-+
- 	if (ftrace_event_is_function(call))
- 		err = ftrace_function_set_filter(event, filter);
- 	else
+-	match = cmp ^ pred->not;
+-
+-	return match;
++	return filter_dyn_string(pred, addr, str_len);
+ }
+ 
+ /*
+@@ -930,13 +944,8 @@ static int filter_pred_strrelloc(struct filter_pred *pred, void *event)
+ 	int str_loc = str_item & 0xffff;
+ 	int str_len = str_item >> 16;
+ 	char *addr = (char *)(&item[1]) + str_loc;
+-	int cmp, match;
+-
+-	cmp = pred->regex->match(addr, pred->regex, str_len);
+ 
+-	match = cmp ^ pred->not;
+-
+-	return match;
++	return filter_dyn_string(pred, addr, str_len);
+ }
+ 
+ /* Filter predicate for CPUs. */
+@@ -1037,7 +1046,8 @@ static int filter_pred_within(struct filter_pred *pred, void *event)
+  *
+  * @str: the string to be searched
+  * @r:   the regex structure containing the pattern string
+- * @len: the length of the string to be searched (including '\0')
++ * @len: the length of the string to be searched (including '\0'), or zero
++ *       for a NUL-terminated string of unknown length
+  *
+  * Note:
+  * - @str might not be NULL-terminated if it's of type DYN_STRING
+@@ -1046,7 +1056,7 @@ static int filter_pred_within(struct filter_pred *pred, void *event)
+ 
+ static int regex_match_full(char *str, struct regex *r, int len)
+ {
+-	/* len of zero means str is dynamic and ends with '\0' */
++	/* Zero is reserved for a NUL-terminated string of unknown length. */
+ 	if (!len)
+ 		return strcmp(str, r->pattern) == 0;
+ 
 -- 
 2.53.0
