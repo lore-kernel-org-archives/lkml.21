@@ -1,45 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171475;
-	b=simIaG2PgeXw0DNF6AzhVt9v+hU34w3xXV92pfjsVL5EhgrGgG4WhwUpIU9qaH4R2+6x
-	 PmwKctk4jE5OLLZy99HedxTDclUFc+mwdjxU7LOc/YDceONeLcQpi6Dm/VHB194H8kRfT
-	 0WQPenqM90utOB0AfNrIMuInEzO6q6G3bR6ireKYaUjPggZd7oiGA293rclTdDHEeaN4u
-	 HLPONUCzN1KrbpN9/jfPo8HcSgJ6/rstbQ2fsy0d3Awcv5ZyG/pFjtF7Ah8xiN2A6Br7G
-	 ly7YpWe2qCZIKN7Idl1qyGgP/k4s6Y2eTeqO2trAn4VVe9woUT71n2Gp3Phz73GtUfA==
+	t=1795171482;
+	b=RpTfCFaJv+mLSfRahYIIbITRCcn6b91+Ot9wbEGgvSkNQmhYdjJpAuQrQcIjFbRxc196
+	 iKgFLsswy6dDOhvC95gVFr2u7UCG0ecu7GZgeVDP2d+1MNvKeaNl1g/9SZx+6cKWt6Z7y
+	 SlYwkV70GzbdUVhAICoYSQ2/zQRfA80yTGUHqYk9UXvv9iKn6J6qvi0MzBVk1Is7LXd/4
+	 qdO+NloPi7KT7WCVf5hHHeWS4QHOJNqiRKVQ6Hw4gw1jM5ADKR0xRqISnPwU06IO75LYy
+	 SjM9WqfoPApyX3RMLcDh6B89iH5U392BiJ4E5yqb/Rgi3rknts6jgXNCVgKxfHYqCBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171475;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=JsqpgB0A0PresyEEYoyd/ZHrKXAzvTpJERbRBZY84Kw=;
-	b=5gEpvTyvUDuYp0Rq6t/Ax/rHoNEcDG2Xfmr6TuJnpGg6FWmmLy/ONt1fOeTQ1TJxDcGm
-	 3aVuhPbNVNg7XAEHAedOMuX+Tt3bliGoPoJu+HvF6SyXUYbBpZevqVbk0CGQJF7MyvSpa
-	 B+H/1JFY6fjDjgJ8BUy+i5BhtNRstGadCRB1l6dmQgkWc0SS/HipNLaMYV4q1kwH2inJx
-	 X7nr6lnFdu1uSJLeYKrrVDZrCsO2uslGC0QIcihuW0APSQTeLo+OuP/Gqi8hOCfxEBYWm
-	 M6CM3siU+1cgXM0x5+bqNDh6VDhL2ZhDFfSsqIZaZSKpHVRDN2VCD+UAI32x40F+pHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171482;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:X-Authority-Analysis:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=lIhslLrvmapJff2vQ65fW3Yt1P4sBxJFOE15A/lhjxM=;
+	b=TTQz017/96DNiMTndt8l5ciIDTJc/C9vQwzb0g91TA4l9VJuBvkuPXtnFMPTR6OGpUHk
+	 l707Wk7OLFzh3MMsLpWpCRcy4vP1u1/gwck1M7MIiTzMIIVXVKILVUkdEzQOTwKIygTm4
+	 59VlMPht7U0FWoXpAAycqQkzfIbNuQ18yFwVDFYXI7+jhszZopHoUfyv9PSwweTYfDN17
+	 Z/hH3V9RfZjyD2lrkIWDHGEtCyfxV9NQanU7DNHZq1EKxeJywo4DT/yEV9/u9lnBxkQxs
+	 KsuUlz3dNLpgQvXQyJQAuhEoVt3WdLfotDwk2snWKFrtnxk1jV/Je2uXuiUZAXbMKdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PoJrroKu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="EeLHh3/K";
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CE8oAfV5;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D69CC606A334;
-	Fri, 20 Nov 2026 10:44:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E851606A339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E851606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PoJrroKu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 196661F000C4;
-	Fri, 20 Nov 2026 10:44:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795171475;
-	bh=JsqpgB0A0PresyEEYoyd/ZHrKXAzvTpJERbRBZY84Kw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=PoJrroKu3NNp0SbpMJA2F2IMgBikRoZ3HL9HMDxk0nW10ZLVh7jmaDV2RMujul8wY
-	 TSB5WK5A4O4yc8kAz+PZQwyAJctoyRSd4tVes0zTVSolz1e7MGalFH7WlE3hdiRqk4
-	 JAjOYnk4yfOQNvRpEIVwG5vCLpSE63gOoo8T31KeEVunSHiZ9zE5p4qTLC0st5Py7e
-	 YahYd3cyxoCHD9kdbnx8iyn63VszX4wJOb/QBdVUZuwwJhYMlfFhkPXVVHu494s56G
-	 wGdKNKPFxmtdK53HzC5sz2TaiO0NZezLNMlKdJWmXas/vhGAEeSQblhSISO1Ybd8fb
-	 62f3uF/Ha/dxw==
-Content-Type: multipart/mixed; boundary="===============8787224294258530798=="
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=EeLHh3/K;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=CE8oAfV5
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7et4Z1268397
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	lIhslLrvmapJff2vQ65fW3Yt1P4sBxJFOE15A/lhjxM=; b=EeLHh3/KcCx/WaWm
+	LDQmUDXJ7tCRpkZhlu+asror4GP80v49z6ML17TnNySbeuVcjdnCGlLzQXn+mNdW
+	pJQZIGUL02VhoJj9hn+AlpItEXk6fMlLdFZLrrjUeOqfN2hwiWNE4LVNOj08N/qM
+	QkZmgSjmbi0VETXDjnrtS2OaYXJsqT454CXy+tSI2yB/vGBScmlSQT6lewPN+u+V
+	QeHbynTqqFmS4dcMQtTrjPLJyVLbDl4AoRwgvmqVjM4nYhusLQjmbJimeW6Lprew
+	cdSkl7MDtPC6mlEGxTD0t7ru66RfReYEz8jpDI6xTyv/dSdabfy9BH15OEQT4I9i
+	/QihWQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2cd1t15t-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:44:41 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-38531c1a566so1713926eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:44:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795171481; x=1795776281; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lIhslLrvmapJff2vQ65fW3Yt1P4sBxJFOE15A/lhjxM=;
+        b=CE8oAfV58qYjjMqi9g4y/7flkeg8pDeDJMjFgWbtjXCrapAp5BsV3KK1VE3P5JhPlr
+         qut+VH/IPsr9K+UMo1U5pn5xnRiW/vHhF4Ik9ox56LDe8c8g7KYQZ8QYhr9lxw6AQ+Bi
+         VDmE3zyCV1K6r3toJezZ8hOGnekRbsJrD7cEvYdvHaCOQId3ilq/mAzV+Mu+7YAzw7QA
+         QO4myF8X77jovf2jrNc+w1rmhBHUe22FBR9BqsNBl6IOHVIuuCCsWlt4vfClXW1bOESf
+         v1AxQCFUAvHrVPjotnvA21M6Zco8C2V1rZpay6XjSjDL1PKR2jcOiSAUDEMOEwes5b0G
+         O/1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795171481; x=1795776281;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lIhslLrvmapJff2vQ65fW3Yt1P4sBxJFOE15A/lhjxM=;
+        b=AjDv4Zh1yjCVHr+wMvwBkwNOjGb8drjPcxb1ba0UCIApjQtNnw+KF/zrDXVB8fBl+F
+         /S/+pMbhmMyuQ3DBLuqtPnDtnXaAjjNmf66fcI/fLk3Qeeiq6UMBJ05qKMaZ0yKnP0Lm
+         Em9n/Jhwf2VnUvaNq2DhSoRYqSL+tTQWu7xchLXMp6klmbFG24kVV44YpCjZqQWhgikO
+         wDcz6QALbxVXahaiDRT+XLoTd6PmNSwE48h7rtn91JXTAn+CiuR/bavawhZ8+4wj+nT2
+         huzGoNscUCtza07i0EkORwu7hDFNxS/n76FgJCqquxLRJYBJdCMjjvHfNgBJeMxNKLFA
+         4ayg==
+X-Forwarded-Encrypted: i=1; AL+hErFS8D0Q11SN4kygA6qGRqQ8GpWMDfjAXlvFgFMEoSKN16vrOdyafqdn75dy0aNYGERb7PBdeXpsW9YaMpQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sunVE8yskisc4I+GCgeYv2jl+CqO0n/lqBxawZIiVidu443L7
+	i3tHCMTcN98teAsQQERn6Dw20bHf09DTfWJxh3LU95jFYcrRixfQrmkZY9T2vHGv577u9uRWLsg
+	Q2SiZxdjRK9BXMuNDvP95QU+RnIAyxYJcK9BKGYeuAFTVelzJwzD4NuGhI3h0Wk/TLLQ=
+X-Gm-Gg: AZFdTZdTUH4HzPtyAHVEX5AusC+jAUDdfhrGXg4xdtOqIYuSqrupwz9P3TSwpBwakM1
+	NX5MC+MFDfkiSl/VyZGcS5ido+vC54GERfBMOBGTiLN9zo96QlCAZJUmaeYgkZ0J7m8WdFMHhx4
+	ihmoVk7Ya5WHbf/K+2dSX5fczb/t3L2NUuLbNn7DrYwWtwb/qW0bohUTI6cp80aRgRLWSa0tnmN
+	ndEZcLgct4N8yXxdfdH6F0uAPutMXsF2IpMroWsXJ3vKOf776tWfQg8j/7+V+KYY/Dzr3k7oNGL
+	Vbk7WlL1GQhWyOlD3OPGJB4XJJvbGl47kyHsnYdTcqMnProOCxiQmwVY22VBNUD9fQRivRbn9g0
+	cgb5yy5E5ZTt/0uKdKSknysdzSBsandeKDdBeN3qCQnBltC0zWRmHoWwQld7+qwrCBQhaf/6A
+X-Received: by 2002:a05:7300:e9d6:10b0:369:efd5:9cad with SMTP id 5a478bee46e88-3856fd5b5e6mr2694724eec.8.1795171481176;
+        Fri, 20 Nov 2026 02:44:41 -0800 (PST)
+X-Received: by 2002:a05:7300:e9d6:10b0:369:efd5:9cad with SMTP id 5a478bee46e88-3856fd5b5e6mr2694698eec.8.1795171480649;
+        Fri, 20 Nov 2026 02:44:40 -0800 (PST)
+Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm6097471eec.24.2026.11.20.02.44.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:44:40 -0800 (PST)
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 16:14:20 +0530
+Subject: [PATCH v3 1/2] dt-bindings: clock: qcom: Add I2C and TSC clocks
+ for Nord
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,47 +115,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <0df319dfcd7e3797886c1bfa092cc986e1caf8922450cea44d8c4a38ec6d8adf@mail.kernel.org>
-In-Reply-To: <20261120094820.11929-2-tasos.papagiannnis@gmail.com>
-References: <20261120094820.11929-2-tasos.papagiannnis@gmail.com>
-Subject: Re: [RFC PATCH 1/2] security: Add hook for unresolved pathname opens
-From: bot+bpf-ci@kernel.org
-To: tasos.papagiannnis@gmail.com,linux-security-module@vger.kernel.org
-Cc: bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-fsdevel@vger.kernel.org,paul@paul-moore.com,jmorris@namei.org,serge@hallyn.com,brauner@kernel.org,viro@zeniv.linux.org.uk,jack@suse.cz,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,kpsingh@kernel.org,matt@bobrowski.net,eddyz87@gmail.com,tasos.papagiannnis@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Fri, 20 Nov 2026 10:44:33 +0000 (UTC)
-
---===============8787224294258530798==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-gcc_i2c_tsc_support-v3-1-e631872e670b@oss.qualcomm.com>
+References: <20261120-gcc_i2c_tsc_support-v3-0-e631872e670b@oss.qualcomm.com>
+In-Reply-To: <20261120-gcc_i2c_tsc_support-v3-0-e631872e670b@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        netdev@vger.kernel.org, Taniya Das <taniya.das@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-aa3f6
+X-Authority-Analysis: v=2.4 cv=Dt/Da2/+ c=1 sm=1 tr=0 ts=6b002499 cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=OfrIayanZ0Hpx6dNCfcA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22
+X-Proofpoint-GUID: F1jfQhovJAYB3kA6h1-YSf-It-i8XOcL
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MiBTYWx0ZWRfXzvTDA0wvkSQR
+ +I4+5cHFWxXuuz8mEOd5iqExnz7hShK1hVpn/UbD+2zT44TsXp6U1IEYxx9HwFAsn+G/tYIow3C
+ Qpdkqv4bu5V6SPBhIegfGft8SXPnQvknIGTEKckzjz5uDu764bgBUAGMk0g9NXB7PqtYthGQJmd
+ mhipxmRU3fK3YeJv5cyGMeDIhABLR3gNV460cNiDrWbVpbscqUCaeCRtO0TvRgL4zMknYgcbdeA
+ Hcg6JND2Or5eJKxsQznfNEQ4l5VuMJcHROvy+MC+FvTzdD42knR1VXoLouh+NUAhLA0FCJMgoI9
+ fa3z0LFkWe0C42PMBz/9QGW2GYP7RDcE/RnDUp+f+qL3jisQOy0qiONhrrme0MNQBP9RlmdHm96
+ lM42xs+rqEyg42h5TBBBrxzsA1+0T8A6fOqTno6ySpeTlzll1afcOStBr0W3keNvAoYl0E3Im76
+ RdOxaGe04ZxU/6p2piA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MiBTYWx0ZWRfX90dIY8k77987
+ kPHxHEoUip5dBXZ6j5WSlyvQHxzjy5I5emnHaJMhPWtHfPXipN2S9Jb3XgFkgpm7dM1NcWf/GbQ
+ exER52ufwuo3itd2I2mbMXanBB1sL5M=
+X-Proofpoint-ORIG-GUID: F1jfQhovJAYB3kA6h1-YSf-It-i8XOcL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0 bulkscore=0
+ malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200042
 
-> security: Add hook for unresolved pathname opens
+Expose the I2C slave and TSC subsystem clock and reset IDs used by
+Nord SE GCC in device trees.
 
-TL;DR: Commit message only: it lists what the new file_open_name LSM hook
-changes but not why it is needed, what existing hooks can't enforce, or which
-LSM will use it.
-
-> security: Add hook for unresolved pathname opens
->
-> Check the copied pathname against the selected base before traversal or
-> file changes, including O_PATH and O_TMPFILE.
-> Pass lookup flags so policy can request a referenced retry. Recheck the
-> base after each restart and cover kernel opens with an explicit root.
->
-> Signed-off-by: Anastasios Papagiannis <tasos.papagiannnis@gmail.com>
-
-This isn't a bug, but could the changelog say why a pre-lookup pathname hook
-is needed, meaning what security_file_open(), security_inode_permission() and
-the path hooks cannot enforce, and which LSM is expected to use it?
-
-Each sentence currently lists what the patch changes (the call in
-path_init(), the lookup_flags argument, the recheck on each path_openat()
-retry, the ND_ROOT_PRESET case), but the problem being solved is not stated.
-
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ include/dt-bindings/clock/qcom,nord-segcc.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/44717653250
---===============8787224294258530798==--
+diff --git a/include/dt-bindings/clock/qcom,nord-segcc.h b/include/dt-bindings/clock/qcom,nord-segcc.h
+index de4539b999850294926854a45db2997043c74f2c..f8d6963f226f151d8cd49aba9ab98f9972f8cd64 100644
+--- a/include/dt-bindings/clock/qcom,nord-segcc.h
++++ b/include/dt-bindings/clock/qcom,nord-segcc.h
+@@ -86,6 +86,13 @@
+ #define SE_GCC_QUPV3_WRAP1_S_AHB_CLK				76
+ #define SE_GCC_EMAC0_CNOC_APB_CLK				77
+ #define SE_GCC_EMAC1_CNOC_APB_CLK				78
++#define SE_GCC_I2C_SLAVE_AHB_CLK				79
++#define SE_GCC_I2C_SLAVE_XO_CLK					80
++#define SE_GCC_GPLL1						81
++#define SE_GCC_TSCSS_AHB_CLK					82
++#define SE_GCC_TSCSS_CLK_SRC					83
++#define SE_GCC_TSCSS_CNTR_CLK					84
++#define SE_GCC_TSCSS_ETU_CLK					85
+ 
+ /* SE_GCC power domains */
+ #define SE_GCC_EMAC0_GDSC					0
+@@ -96,5 +103,7 @@
+ #define SE_GCC_EMAC1_BCR					1
+ #define SE_GCC_QUPV3_WRAPPER_0_BCR				2
+ #define SE_GCC_QUPV3_WRAPPER_1_BCR				3
++#define SE_GCC_I2C_BCR						4
++#define SE_GCC_TSCSS_BCR					5
+ 
+ #endif
+
+-- 
+2.34.1
+
