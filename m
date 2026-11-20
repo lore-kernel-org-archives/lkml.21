@@ -1,77 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158045;
-	b=A/fysMnf3KIuNsESAW50YMMljsCaGiDdF6zoRn9qjGLwDZeWyNsdHW5Ygsr7rPFO1aQC
-	 xy+YMpN50SgmLEUl4Nsm9Bhyh43a8smFlAEAnGrxMvPK//PJcmihE0n9UE+IKsnzhVT1Z
-	 7Ac0o5RevLhpLsjZNBGCXhSBBJTN25kI9Bl3vsNlzBUnvO1eVx9JQJMfk0FgzXVbZnqnl
-	 H0X1NnaxDF53+bGYiq+v7J02Zmg3KhcCRrwsTrdXS8n2fmSunYLzqm32Qrd3NwKZb0dCF
-	 n83GJ+FQJjDUxzCOs4F4m+w4RhYK/8gfuMneU0tFKVTka8jEblSui6iyLzCjASo+uzQ==
+	t=1795158184;
+	b=hNzc0ysJYcVBD1aG8odtIeqBi902fccf9OcrCkieKhDjG+Xi/hJ4RemFgwCDQfa0x0/X
+	 oyNR3hGwD5wkRVUAe6LT/s/J9dJvxK1QQN6HCnvqVudmYWp3aisQFA+Fcol4575ZJ/u/M
+	 n/W/BXIkLJ36kC6a3YAi1oz/M075DwrY2pWeXXrpk1SXZfwBLeV8Uq2dsTUm5YgruXXXO
+	 CN4Ro75D4jMtqdG26W4JKxy0FzZ+vznd5ukN66+kT1LJhL42C+8m8WOymfrZWlVbAPvBQ
+	 ODIEbC7YUHEftpiMAAxybNXgi/s+WeOW43+GUoGUOnvuYlI93+moiCV+9mdx2zKDmMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158045;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=3C3J7sJpbSPskeA5sqVDl0sDUf7twKvsyiVZ33i6hEg=;
-	b=rM4MpMbRjLqv32Q/n3G2oovlBOI+EpeKzj6ACHmIBosJcyvEsuwnarUdhK4xjl4mFWqx
-	 dERaUwK4MCvR1j7RL3Ni8tU8tk0SyGzTx45U+DJVAhGJjk5RaSTydiVIh4RpaUXiIZs5Z
-	 rwXcZ/yqMZA633m7RIBJ5cCV6JUzUwGga0MZvp/3yaExs91BRVgR2Hb9UMUAoTNP7ysWQ
-	 AiTYS6zc3i5i+ugolTjBi0KtYwtcu2uJ3S74SFXcHMNOX2B1Mck1GX8xT3WCVdnbPbYYe
-	 xXknIVh3Ff/UfcLDNLSINfTGrZQ6FbKH6EZ0p7GbBXRj0xyykz2Gx0ptqBkobOD0QdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158184;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-TM-AS-GCONF:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=afa95FYRycSTILjMsqGzLRYXv+PeRp5wBtIh6n6xeOo=;
+	b=dgrhO209pgRCsbB9hSRUtZMQWy7dcVZi1zaSq0NdIO0OiU/F2KnQB43TiLcisA3+o2pK
+	 p8n49V5IauvC1zX3zhFDnycq9YrWiyUhXWmlImxo4uHO/Tfstlq7fBEFX2rSLNn0oWXMJ
+	 mdD6ACK5ryQIgkS73af/Q/ElQRaPyHQXMH2L1+8Vc8eyMP+XlyT23kIrutAO6zCI4Gtm8
+	 wTDbcTIPc3iX/EVWmQNVvWVB4J9+NZh9z0DD1m2X9tlhWiW8rQdHCcbx4jo8RoLHRpYO/
+	 WiOLxX9V3/hV6vpJ5sQ2UWv9oj5vi9iUiyi93i2LSvxtJ2pBNiyWCeoC2eDAfmL1xMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=GXwJZo+b;
-	arc=none smtp.remote-ip=212.227.17.12
-Received: from mout.web.de (mout.web.de [212.227.17.12])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=imaK9aMz;
+	arc=none smtp.remote-ip=148.163.158.5
+Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C83960A2603
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:00:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C83960A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E1E4606A325;
+	Fri, 20 Nov 2026 07:03:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E1E4606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=GXwJZo+b
-DKIM2-Signature:  i=1; m=1; t=1795158042;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:h46wNqUqedrwj8ZObTqNncslpVHT
-   cDUAncqexL/oo1P2SRPEHZpckDsc7rHUTPz0fRJQzg17QCD/fsiVYGkAreGeVN/Mvkyjdhj8baf
-   Cc7Sbk9nPeh/+SWlqRs8+dKiSo0bpev3AFX8PGlzDQz+iwCOw4GEbeAmDFUcMgw86nQgifnJJjb
-   SobOQJxQ3PIEJzymbMZwbN3lHLzqE1vlTk/Rg9kf4ygy0jDpK/fatr/kj0I08sZAucXEBVQWhI4
-   nMIpfmuSK6uttcjB2e4QGi4lqCmDZVUsHL3/dzqpYKlcwySu0AHudvXRN0l4d2Eog0u3pUTo/yb
-   1sKKBRl2DbXP0Q==;
-Message-Instance:  m=1;
- h=sha256:
-   y/9jgboQbNCHQ8Vi1LqdQD1L1TQSqDw723ieRIQX2yg=:
-   3C3J7sJpbSPskeA5sqVDl0sDUf7twKvsyiVZ33i6hEg=,
-  sha512:
-   bRWayZntM3v+eX+m5XlHb3kstfufe8WNkGPtEKoolIDfsMv1rglzBEp3j757d39juFHbQHIXMTh/J023F0OE3g==:
-   yAJwG0gAlfdcZFqI7yDU1CzEeT3o2xwjnZcL8paAp3KsGfY4e4sYxStY80BILLBZ+mAzGE4PMTSRk4y8LThjeA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795158011; x=1795762811; i=markus.elfring@web.de;
-	bh=3C3J7sJpbSPskeA5sqVDl0sDUf7twKvsyiVZ33i6hEg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=GXwJZo+b8NU9OmrSgYKi2T4If/g0zkyRf4E1YHGba9XKzJQr9dOjTcKSJOtDBg74
-	 cYHFvCS7XssFc1+zg2byEQd0ANQ58aMUm4A6r+spU9G6aokzYVG45wJ4JntAkCbs2
-	 32AjNRRVrZIUGXy0ARjxEeZD8B7mnf1Xpq4jrtKrkLWSX8Uhr2lr2y7SS7LUMKsnA
-	 ZNDTX1X8MBDUbx7QLYMxFkYdQmnCAnWNGhFEfmZY+Wod+EurNXxFQNTSW3CJYiC9b
-	 Pm2j0tH5NvHXCwLDjA3eGKc193Z4UqD9RY5auqjcDK1C1dARxiVDtfVYZ0Z8gqFoJ
-	 vo+dOX9/W9wwOlljXA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MlsOP-1wlIjY0lzX-00guBt; Fri, 20
- Nov 2026 08:00:11 +0100
-Message-ID: <ab5a8304-9976-40e1-bdcd-161cb3f81ab3@web.de>
-Date: Fri, 20 Nov 2026 08:00:08 +0100
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=imaK9aMz
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3uab61965675;
+	Fri, 20 Nov 2026 07:02:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=afa95FYRycSTILjMsqGzLRYXv+PeRp
+	5wBtIh6n6xeOo=; b=imaK9aMz6We9WdCUTzVaTg7txsXokdCrRM0xgJq/DmbmUX
+	CXm/mN7NYuQLdyd6iHdiF0MtOh5rzYuaGlWmm1HAxZPxaEwHQNEgTWBlAaxwrd5k
+	fsZ3J8cl1NEeFTTp2XUa2TOZ9sasCtUxUIAydid42mjZgn0n9+jixFEmoH5p3ZpI
+	NV5IEUZdFWj4W40YGSpV+OKPhwp+Og1D1Dq6nrp61Urw/m7Ll3buMxtZDK4GqanK
+	N3e2D7OXjE8M+TrrGO59+Br/VWY3dYzg47DOy4yu4spFAYCxHRlJk8z6KiGpqiA4
+	w9lr3HufL4G/lQUbs1pJjVAJunfRWQfiVjgNut4Q==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105x6cqa-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:02:56 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK6xKEQ600883;
+	Fri, 20 Nov 2026 07:02:56 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb5jpsn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 07:02:55 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK72qqZ46924182
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 07:02:52 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F16492004E;
+	Fri, 20 Nov 2026 07:02:51 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7B98620049;
+	Fri, 20 Nov 2026 07:02:51 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.24.221])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 20 Nov 2026 07:02:51 +0000 (GMT)
+Date: Fri, 20 Nov 2026 08:02:50 +0100
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Cc: Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Vlastimil Babka <vbabka@kernel.org>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-mm@kvack.org
+Subject: Re: [PATCH 0/5] s390/char: replace page allocator calls with
+ k[mz]alloc()
+Message-ID: <fe72024b-da3d-44ba-ad41-79dd5da7fac2-agordeev@linux.ibm.com>
+References: <20261108-s390-char-ready-v1-0-3db507722530@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,167 +97,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: net: dsa: bcm_sf2: Use devm_clk_get_optional_enabled() in
- bcm_sf2_sw_probe()
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
- Christophe Jaillet <christophe.jaillet@wanadoo.fr>, netdev@vger.kernel.org,
- Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Vladimir Oltean <olteanv@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <d772ca26-d7f4-4857-9278-628b87e2252e@web.de>
- <92093067-f11e-4ce8-af0e-698644dc27ba@wanadoo.fr>
- <c4715b1f-c2cc-4b4f-8610-dd2e0ec71c45@broadcom.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <c4715b1f-c2cc-4b4f-8610-dd2e0ec71c45@broadcom.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:2iyKVOoxy9+0uTtjduT98wHM0wAtR+FNw++GOtVhX+3RsoRawZB
- h0dfLsPtNRuKKZY7ghuYtCf6BBNp6pErZsqWSsmpHwaaLXWzs0GD+C+/h1UdGlgEsM6H7xq
- W8tr+WyldVpmTWOlDUcT4xvNUo5bQO3zKG/DTD/eKNvCg2LOtdJuZxHUK/bt2zWMOLEXdcD
- 87Py0TxY2ffVuuPVKK4xw==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:fqVpRTvuna0=;cSgfAouELmMoJiWh/bt1f5Kf4r0
- 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
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261108-s390-char-ready-v1-0-3db507722530@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: _Qgos3NoeD80laCUZJqkS_1Bn37hEhS4
+X-Proofpoint-GUID: _Qgos3NoeD80laCUZJqkS_1Bn37hEhS4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfX1RXMLaCa/04M
+ aOYxs5DvyYE09AE2LUAJHqxmF5pRsVK/0iA69ltyJ1WFiwHmZG1Z0WIi19JXkzwH8Wj3pNUHQ7C
+ i2/4XUoH/zBxUN2HnXd1/WtQrlRPfs8D+reuF4AJ1nCOuNpZfUHoftK+ac1VaMsrXV3TBGm+xVp
+ Q4VdoBPPH2KJf1vmiHamehbe1FxxGi+AIOfelUffUCtLfI9+XNt7yKzJZc1qZPuE3FlaTb+1BcL
+ gw5vhc9f0tE5f8zDd9Mm2kHL+iWwvwhVjq6+WS8imU7dlsO2Ub9v8WUWZaib+SIua3j6oadyBfC
+ No7Wp/Zn9/DDIv4C/w07jac/NGp6Jg10U+JFNKQ6kbr5cRVlLA3XV+i+cVGxCqN6I+j8u92fct1
+ GcrYuZ6I4UUigdmovTIECHWgubKpUmQRIs4divExlQ+OCA/UPUfxCRNrUrU7OSMftD1JiYvkeG9
+ k9pvPKPlVaQPnYcN27g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfXxJEDkFN3YIbF
+ XIlkKdwXpookl1+MSBo3hkM8LNHRBVxbFVpd6sLoa/15c+FAdlIv7xody3pmScoq5FjW+NhpD0P
+ +ixyYCwvYW7Sgce59CvWtrfe6qqg4i4=
+X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6afff0a0 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=bKjcd7YqMW8_FUSzF1wA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
+ priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200027
 
->> NACK, this patch is wrong because the remove function and the error han=
-dling=C2=A0path=C2=A0of=C2=A0the=C2=A0probe=C2=A0need=C2=A0to=C2=A0be=C2=
-=A0updated.
->=20
-> My bad you are right this creates the following regressions: devm_clk_ge=
-t_optional_enabled() registers a devres action that calls clk_disable_unpr=
-epare()=C2=A0on=C2=A0detach.=C2=A0The=C2=A0patch=C2=A0leaves=C2=A0the=C2=
-=A0manual
-> clk_disable_unprepare(priv->clk) in two places in drivers/net/dsa/bcm_sf=
-2.c: the probe error path (out_clk:) and bcm_sf2_sw_remove().
->=20
-> pw-bot:=C2=A0cr
+On Sun, Nov 08, 2026 at 10:48:57AM +0200, Mike Rapoport (Microsoft) wrote:
+> This the next episode of conversion of page allocator calls to kmalloc
+> family :)
+> 
+> This series covers s390 character drivers other than SCLP.
+> 
+> = tl;dr cover letter copied from the previous posts:
+> 
+> This is a (small) part of larger work of replacing page allocator calls
+> with kmalloc.
+> 
+> My initial intention a few month ago was to remove ugly casts [1], but then
+> willy pointed out that Linus objected to something like this [2] and it
+> looks like more than a decade old technical debt.
+> 
+> Largely, anything that doesn't need struct page (or a memdesc in the
+> future) should just use kmalloc() or kvmalloc() to allocate memory.
+> kmalloc() guarantees alignment, physical contiguity and working
+> virt_to_phys() and beside nicer API that returns void * on alloc and
+> doesn't require to know the allocation size on free, kmalloc() provides
+> better debugging capabilities than page allocator.
+> 
+> Another thing is that touching these allocation sites gives the reviewers
+> opportunity to see if a PAGE_SIZE buffer is actually needed or maybe
+> another size is appropriate.
+> 
+> For larger allocations that don't need physically contiguous memory
+> kvmalloc() can be a better option that __get_free_pages() because under
+> memory pressure it's is easier to allocate several order-0 pages than a
+> physically contiguous chunk with the same number of pages.
+> 
+> And last, but not least, removing needless calls to page allocator should
+> help with memdesc (aka project folio) conversion. There will be way less
+> places to audit to see if the user was actually using struct page.
+> 
+> The patches are deliberately kept small, so that every conversion can be
+> reviewed, and if needed reverted, on its own.
+> 
+> Also in git:
+> https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git gfp-to-kmalloc/s390-char
+> 
+> [1] https://lore.kernel.org/all/20251018093002.3660549-1-rppt@kernel.org/
+> [2] https://lore.kernel.org/all/CA+55aFwp4iy4rtX2gE2WjBGFL=NxMVnoFeHqYa2j1dYOMMGqxg@mail.gmail.com/
+> 
+> ---
+> Mike Rapoport (Microsoft) (5):
+>       s390/zcore: Replace __get_free_page() with kmalloc()
+>       s390/vmur: Replace __get_free_page() with kmalloc()
+>       s390/vmlogrdr: Replace get_zeroed_page() with kzalloc()
+>       s390/uvdevice: Replace get_zeroed_page() with kzalloc()
+>       s390/hmcdrv: Replace page allocator calls with k[mz]alloc()
+> 
+>  drivers/s390/char/diag_ftp.c     |  5 +++--
+>  drivers/s390/char/hmcdrv_cache.c | 18 +++++++++---------
+>  drivers/s390/char/hmcdrv_ftp.c   | 14 +++++++-------
+>  drivers/s390/char/uvdevice.c     |  4 ++--
+>  drivers/s390/char/vmlogrdr.c     |  4 ++--
+>  drivers/s390/char/vmur.c         |  8 ++++----
+>  drivers/s390/char/zcore.c        |  8 ++++----
+>  7 files changed, 31 insertions(+), 30 deletions(-)
 
-Do you expect more functionality from a devm_clk_get_optional_enabled() ca=
-ll
-than from the combination of devm_clk_get_optional() and clk_prepare_enabl=
-e() so far?
+> Sincerely yours,
+> Mike.
 
-https://elixir.bootlin.com/linux/v7.4-rc1/source/include/linux/clk.h#L680-=
-L699
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/driver-api/driver-model/devres.rst?id=3Dd220c9443db6e5f20a60ca=
-d55c6a0ae7a75c63b8#n242
-
-https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/dsa/bcm_sf2.c=
-#L1365-L1568
-
-Regards,
-Markus
+Applied, thanks!
