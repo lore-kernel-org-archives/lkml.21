@@ -1,96 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795187797;
-	b=J90QHeMt6av4+0ZrqNZrEffTcADWNG6AZ247NETdtqgtAnC00u2uOpJadmPNzBt1n/QU
-	 ObT3mELUopg35a/Xn2zaAVER+qhnqOXFMznUVwyeKbH0xUB325IjUWoeIB1usawcLRYsH
-	 2FlsH4nmJ81fXZHzLBfEtddFEnGjC4A7aCsooszuijLCBAtI93z34XZQ+pMxTGJu4eKkc
-	 OcCBOIelYz/ZrJYk3PQ60dI+ljkfRHgMD/geJQGRm4DFDo0n8M2aGoET816rnJ7u/foHZ
-	 6OXQBIWcmm+ENCfIjJ8izPCxhIizDPvOXNnjeCyInFnHMclS4xapOHUO7B9oHu05iqg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187797;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795187855;
+	b=nAXqFYAOXsgcRmWzrgmKV3RyaRhdX5AMw6/uqHU02C/EFce7gDw/pKZ9hJJBD/ShEqKj
+	 R+bWogXhOGza9ZVPhLiSF12xeyhwJj5Rhu4Z/k5q/tVbN2a+ie7MJcUG5qS7NBOhFgRFC
+	 oeLeQ6eazX1ZwHKUNH9pPEfnQ78AjoJyFkgAJya4Uh5hPOk68nZ17/BiOgQGyh6haEsHi
+	 IMQhUuoyRf7fmrtlJE+0Bp//lXbrDlDcg7jAZr0EkeV5mG9QyfWLt5Fx5q1o/evi//yIw
+	 a7pXS1xAsRyZ2zVXjE6TNXxbFKJGci0eWRl+xQzk9YRbKLdukvHhZGbVcblZ2/H4TJg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187855;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=yW1EW3ndjX19ZMwxi5BjIBlhtxHPAFUThq+STsbmeB4=;
-	b=3f29hf4yCYd+4RHZYKKAZ19Q6jan5+b8MIsCXbm9OkNo/LRG9HtPEuYakRaO6gM5VZQK
-	 jxG0pG4dCz7VhlU8DMXomzKkwA4I5LzwyhfvyC7W2IKZP3RiAJMQAt122ekfQ6sgkKGbs
-	 cYzzdIrPU4p/9Z1PlGUmjtcpBOwO0+nZ4f1W6fOcr3GNaXDQxKJIaDq0ueVLEYsZnHBsB
-	 9zMkosKDwUNG0P02Eb2VwSYzyXEBbCdWQdYc3DSLqbiZnjMFhsuOz1xXWpF0jjQk9Z2e+
-	 +FhSIjJz8ESQXjEtp1M0Grds8mf2R9KU5FrMbZ5uSio9b+J02dMK1GVJNOZrR+2qlSA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=szeredi.hu;
-	spf=pass smtp.mailfrom=szeredi.hu;
-	dkim=pass header.d=szeredi.hu header.i=@szeredi.hu header.a=rsa-sha256 header.s=google header.b=ZBHWfN5E;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.170
-Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
+	b=elEHCqqeC+3uamit8YcQBpIAKCA/5PICiKFsvyXJzLNjlX7vhTLioH7auupw2OCp1qui
+	 SFdCz6OXglxUA6LK/XT2ZSIeOdqcDEtsnPKzULJpNLhCFGYXDgrggA6MSjGkTvq2VopOV
+	 PJFt0AXRrFSrGNEWpmNykDtotcjH1qV5UqisHfqf9jZo9DI0QVnhaK07UKYcJxIc6jZz6
+	 IWv6xZ6JaFQ4RKnEW+e/QT2f6+Vzx7fOdsat7l88d7btGMfi9AMrzupAR8O3qySaHbh6R
+	 RfyaNRmaVoRqtfqUyG02G4UsJ/AoM3Aa/v3SIWsuKrnmcbT+GqDIaplzJlV98brPCfg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZsBZbY9r;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AB93606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:16:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AB93606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szeredi.hu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szeredi.hu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E41B606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:17:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E41B606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=szeredi.hu header.i=@szeredi.hu header.a=rsa-sha256 header.s=google header.b=ZBHWfN5E
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-5430f70c827so14659831cf.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:16:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795187795; cv=none;
-        d=google.com; s=arc-20260327;
-        b=q0cxzyayrSSfkP62DjPKeu7zMoUpGi3aUj3srJf7DFOGtS5o0qLUuXVcHMC0SQiHuW
-         ipml3kVMBHCca+xuXOp6hRa0JyVTwHFmzsNo1K7Lv/Ud17EQQ35HwNhKXlMbC2EBtggI
-         jWaXReUPQBhyePThaGkGXfIwhrozb9bQeCquu82SqiWvlACn/tpYW/AjAZprFhnaAbXy
-         NIXIILPqxLfRFWyaWO12Zrv8pViThVEl5bdDSECaiksdEFzHv4xwq1xQL2wri42oqLkx
-         bQSqjaoUrMyzb8ucba+NoEWu46vnMuTjq2ApzBVLfXZZ/ZvXZN1f8GgjOKG2EKcsJE4D
-         cU8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :mime-version:dkim-signature;
-        bh=yW1EW3ndjX19ZMwxi5BjIBlhtxHPAFUThq+STsbmeB4=;
-        fh=qvCy5mQ0yf+eqmSJniwbsnmFxpBJeIo8WXAVhYfdPXE=;
-        b=LonRGSuJsMbQGWAEosCc8EPR6q0SIFDv4n+tG9Kz95KtW5kZ5lGhSgQ4387iLfHpIY
-         d346zkGy3fbkvKdePJR7qL0T3iwc9u4xNXgYtqBGNqYDu8tWdpmiYU4HMnaSG3FlTnnz
-         q9JzOTTfgg5gf2IjGocpLdxnLBFNgafTGGNSC4fUlE7ttyU++qRf2wFTAIMq9EeX9qrB
-         QJOxc6g4qrd6ihymmYDW9LhsySy4g72QMwyi0FQD4frtyItIA9AZoU0ErleVJAK+uDxx
-         0TKiGa5K7kZSBPZOACgF9aKsTTwW0TgGXi0x8Pt43NFJ0Rr5tTiXVefnOe+U+VtLG532
-         6RrQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZsBZbY9r
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-150ef97e790so7385c88.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:17:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=szeredi.hu; s=google; t=1795187795; x=1795792595; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yW1EW3ndjX19ZMwxi5BjIBlhtxHPAFUThq+STsbmeB4=;
-        b=ZBHWfN5EBCTvJBzOSDNLhl8eRWHIOM284uWYA8Ud8wrinUzLD4l5aq9iqi20zYkWtz
-         mMdrRLjigEmz7PzpVuGpsZG73cBsgL+xRb6/byUz3sJ1eGQogIIhgBnhWMCexJViCWYS
-         vhAoChPkUMu15nwp12Au89CeK66CwRUcg2W1k=
+        d=google.com; s=20260707; t=1795187854; x=1795792654; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
+        b=ZsBZbY9rhrhfiMH0sIHuSlkXAHu76ZIvXMLxoLYKzwh8PjT4CLxStoojunbuP0/iA/
+         W90zitn5Ubkfby50lAuwhDOazB2L6R/imqoZQrr5T2qH6KWT0/Oi7Sz1JcBbXdE3dDzw
+         snDvkyJlfwkEk6pXFI3AHJmDTiQdkJuRleFOmaN5NVQG5880pyvAK9iBugmfOftYOo+v
+         rAaNCKf4p5tV+po35L3klIxGqj+ugGAu/Ok0TpBPaFpfLMMtzEpqE3GuXOGoxX3Z2t7c
+         lxFQfro0U36zTDNKHVXh5rBMyIfmzQRVpydIrZoC6Q6+KZ0L8XzhdBsO2aJGCJ6u6OzM
+         9oDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795187795; x=1795792595;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=yW1EW3ndjX19ZMwxi5BjIBlhtxHPAFUThq+STsbmeB4=;
-        b=fFd5My0e8SIrqr9yM0Br6v7WqIc5fXdsiaj48rz0adfAGtpip8BN9oO7cKEIeUiuHc
-         Eo196wkdOK8RLh6ouXJ1kcSKTZ8G0lhs/nz4E7NY9pzhN1By7o8k4szZ9YzhMMbuBOO5
-         wejTOshqAIbmXP4bjiCxf4CABloJ9aD92QdQBJ8dwCeVpZ5euQP6EdaLdSC7tWPdvgi0
-         cS1O94UfgQ/dN41PRbMzFYqX8IztbMbTucAbcgU1ODXFS4HFKJiW9LUuztZq6pMGvMc2
-         reui/IZ3GiLUbBIBo52i4f2WJ30S1YbBvPJMY7P+QWerPLXkbpNb2LUTxRo/BTdk87jY
-         A1/g==
-X-Forwarded-Encrypted: i=1; AL+hErHCoZneloul7Kzlv5/lUokrrhqLORO4K49vz6dlVyZQLlWohacvw1irCyuEu3wOdphBECNZjn1BJ2Pm7xY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9je/5c8vXgBkyV5wNo/+7KgN7oecgxIDaJOdAnYv3syY1aV/AX
-	UqCJXZhwk0M1L21aJWR+2BdV4w0/KkplvMB3aKMitGUwMLofneCGG3zK/5b6SaLICazh1f9lyqq
-	V0ymgnAWF1Sfqzz4tRwFCgZhu5wa9VkozOHwoQM8jVg==
-X-Gm-Gg: AZFdTZcuExZYJBtiMWNDqAbpNBDGwMjdTkd8jiIJbK29nkJaaHz4pfeQXQbD+h+UkuC
-	+lcYx1wcrQbPfhmrOPCb46Uz/aI+b+mWHNBCT6rf99o8SbhNSnx8OWsmmjwEVkDG0IoTw/oO6AN
-	XByczR2TZHlWqq5UXvfjGK5Mz/LN+bAc3GPScwNKPeON9WEKO0Uqe/JtiAmXgf0D5whOBRBhPbO
-	RvbVCOMGswxjKJKVkOvmg09QlkKwSIYKmFs9y6ywcNPRGUFR1POKEwGHaBiBLgq1zAV5+u1TFKz
-	3R4XlA2aomJDedHhpEBz36XX+JLhf2xrxtTpcpURAvU5HcfnXoW5Wz7zitmfQ8IQ0+sIEy9W4Un
-	/3oUdHZx3D+hwkhI0L17bt2JBWlXsOSeZaNlRcLpyQcW8E2S+YSJL75lXM326PQzKGw==
-X-Received: by 2002:ac8:5706:0:b0:536:3760:e6cb with SMTP id
- d75a77b69052e-55d769e9387mr59850611cf.14.1795187794951; Fri, 20 Nov 2026
- 07:16:34 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795187854; x=1795792654;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
+        b=bbGqd6wWPzJDHH4tA/nYh34M/qZkIhPCACNEKAIa9DljVMbUiuVJJeMeqsjp6Xoa7g
+         djxreXpn5ji/kw2T5+7PQ9NGDHHz79wLR4P/Dchj6RjKr4w8N46RofwqNY3SAXf1EsQW
+         JOxiX4Gdxga9toiReuWVY0GbwcdXyjivq1JXqOmW1NiZkbwCZsO6HOlgoQyYKET4wRWV
+         qCWga3Ut4l95BW8p04fmyaHjMen+j+CANYQppEKWj2tnDGeKYf+kJjR8YnXGhqfDJi8t
+         UpZsZLJ4yvqViT4ERYID2/hTFShyzMyyrrahATezgSsPoNWTbmBNrPfY7cpuQIIgdkyF
+         lXFw==
+X-Forwarded-Encrypted: i=1; AL+hErE9KKe1hVRHI7KAPiVaCfhgCMzesRA5Xj5IDMzA/lBVmHtCHrlaEP9agsunQ92MA0xP8XnG+N3jvTMovYo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9usvaT7LwIXccihEHSZMMg6tncuvG1wMHZ8GVcx+ItR1g6WlH2
+	tG2OhYfnHOCtf9L9JiUIrlMY9L18BGLVILl+Fw5H2A/DCTcb8XxRlZdoYhgD9wPlWQ==
+X-Gm-Gg: AYBFou2qX26GHTc8f2StLLFjfHtd0OQ8sZFTEQR6TzSepEGAhSf09VsC0M4C1kv0T/i
+	XWB6jAfhGWW+mcWBsxeNz+dl5NsyZOTi4rJ92O588GVk+2/nUIuaKUYtqtyCZX90WGwU0Xk8JFV
+	nD+Gv/EuKlrQjwTn66+ji2YZp9Xx6Xe0lD3CZYAwlyLAgbezDLYDFTCd2NZUIoytQHBXo2pxldU
+	NOOV50WP+0woTGMuHmBE8VKLoAddNscNgLblZsEfV18AZLTpapJ3E9eMxC9ll1mzUVujzgQB8uY
+	oiq1w/lmIwmtWWgbtDsqWAz9Yi8hRWqYjiODibKTzaJ06ViRUNlicuKTn3W79ngBjtHT0h07BhY
+	o3B0P086jSFps/sIZGrefZKh63nSLbCbF6xvyZqBuWtOcreIJKgdJzj4+I3MExPo5ecFmEuCS2C
+	sdHSDdaCam2CxhH5xKtHAKjcq6MM0q83EBbb6C74OCdEJnSJU9YJmLdllLi9bR9rJ/6AOez8ekA
+	W+3ytgKau18qR4MpvA/5a4ygVNud9wQFf3vif4Xms/5SIBUenrcAfBnMjyEAiDTfS/tcf53iWpf
+	R6FYB6cWmJoaHYjl/H7qnVWm94/bKN+70OnpJ/05jx+OmaZiRIAPzCpZx3QxiPYh9VAkJw1eN7z
+	lP4HkE/72fLxr
+X-Received: by 2002:a05:701b:4516:20b0:1b3:c4ba:8e0b with SMTP id a92af1059eb24-1b557b69270mr1215594c88.2.1795187852837;
+        Fri, 20 Nov 2026 07:17:32 -0800 (PST)
+Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm7441365c88.3.2026.11.20.07.17.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 07:17:32 -0800 (PST)
+Date: Fri, 20 Nov 2026 15:17:23 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org,
+	Adithya Jayachandran <ajayachandra@nvidia.com>,
+	Alexander Graf <graf@amazon.com>,
+	Alex Williamson <alex@shazbot.org>,
+	Alex Williamson <alex.williamson@nvidia.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>,
+	David Rientjes <rientjes@google.com>,
+	Jacob Pan <jacob.pan@linux.microsoft.com>,
+	Jason Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>,
+	Josh Hilke <jrhilke@google.com>,
+	Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner <lukas@wunner.de>,
+	Mike Rapoport <rppt@kernel.org>, Parav Pandit <parav@nvidia.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Vipin Sharma <vipinsh@google.com>, William Tu <witu@nvidia.com>,
+	Yi Liu <yi.l.liu@intel.com>
+Subject: Re: [PATCH v11 09/13] PCI: liveupdate: Adopt ACS controls in
+ incoming preserved devices
+Message-ID: <awBkg0ODE436CZy0@google.com>
+References: <20261118223704.3286085-1-dmatlack@google.com>
+ <20261118223704.3286085-10-dmatlack@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,77 +120,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-From: Miklos Szeredi <miklos@szeredi.hu>
-Date: Fri, 20 Nov 2026 16:16:23 +0100
-X-Gm-Features: AclHuK9Kz6D2bchO88XWWEcVzCFfoEy0keHk3Nyv8Ec-0oQZb2LLMT7EFrmIXNc
-Message-ID: <CAJfpegvzVm6hTTNp7BgkFMs1DziFvmNoHUXjdTPz=9nC5ccUjQ@mail.gmail.com>
-Subject: [GIT PULL] fuse fixes for 7.4-rc4
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: fuse-devel <fuse-devel@lists.linux.dev>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118223704.3286085-10-dmatlack@google.com>
 
-Please pull from:
+On Wed, Nov 18, 2026 at 10:37:00PM +0000, David Matlack wrote:
+> Adopt Access Control Services (ACS) controls on all incoming preserved
+> devices (endpoints and upstream bridges) during a Live Update.
+> 
+> Adopting ACS controls avoids changing routing rules while memory
+> transactions are in flight from preserved devices. It also keeps IOMMU
+> groups from changing during or after Live Update.
+> 
+> The adopted controls are recorded by the pci_save_state() call in
+> pci_bus_add_device(), which runs before drivers bind, so they are
+> reapplied by pci_restore_state() if the device is reset. Allocate the
+> ACS save buffer for incoming preserved devices even if they match a
+> device-specific ACS quirk, since their adopted controls live in the ACS
+> capability, and panic if it could not be allocated.
+> 
+> To simplify ACS adoption, reject preserving any devices that require
+> quirks to enable ACS as those quirks would also have to take Live Update
+> into account. If such a quirk matches an incoming preserved device
+> anyway, e.g. because it was added in the new kernel, log a warning and
+> adopt the device's ACS controls regardless, rather than reprogram a
+> device in the path of a preserved device's memory transactions.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> ---
+>  drivers/pci/liveupdate.c | 75 ++++++++++++++++++++++++++++++++++++++++
+>  drivers/pci/liveupdate.h | 16 +++++++++
+>  drivers/pci/pci.c        | 13 +++++--
+>  3 files changed, 102 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
+> index 00d6fa5236e9..b99a88c2c199 100644
+> --- a/drivers/pci/liveupdate.c
+> +++ b/drivers/pci/liveupdate.c
+> @@ -123,6 +123,9 @@
+>   *
+>   *  * The device cannot be a Virtual Function (VF).
+>   *
+> + *  * The device cannot require device-specific quirks to enable Access
+> + *    Control Services (ACS).
+> + * 
 
-git://git.kernel.org/pub/scm/linux/kernel/git/mszeredi/fuse.git
-tags/fuse-fixes-7.4-rc4
+[...]
 
-- Fix  bugs reported by Sashiko
+> +#include "liveupdate.h"
+>  #include "pci.h"
+>  
+>  DEFINE_MUTEX(pci_slot_mutex);
+> @@ -1071,9 +1073,13 @@ static void pci_allocate_acs_save_buffer(struct pci_dev *dev)
+>  	/*
+>  	 * Devices that rely on device-specific quirks to enable an ACS
+>  	 * equivalent keep that configuration outside of the ACS Control
+> -	 * register, so they are configured from scratch on restore.
+> +	 * register, so they are configured from scratch on restore. The
+> +	 * exception is devices preserved across a Live Update, which always
+> +	 * adopt the ACS controls established by the previous kernel and need
+> +	 * the buffer to keep them across resets.
+>  	 */
+> -	if (pci_need_dev_specific_enable_acs(dev))
+> +	if (pci_need_dev_specific_enable_acs(dev) &&
+> +	    !pci_liveupdate_was_incoming(dev))
+>  		return;
+>  
 
-- Fix a couple of issues introduced in this cycle
+The ACS save buffer is forced for incoming devices that match an
+enable_acs quirk, but neither existing quirk keeps its controls where
+the generic code saves them (Intel PCH Root Ports have no ACS cap, 
+SPT/UPT has the Control register at +8, not +6). Is the intent that 
+such devices just lose their adopted controls if they ever lose config
+state later? (e.g. a Root Port D3 cycle after pci_liveupdate_finish())
+If so, maybe worth calling it out in a comment?
 
-- Misc bug fixes
+Apart from that:
+
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
 Thanks,
-Miklos
-
----
-Hengyu Liang (1):
-      fuse: preserve ENOTCONN after failed initialization and disconnect
-
-Hungyu Lin (1):
-      fuse: clear the old EOF tail before writeback-cache writes
-
-Junyoung Jang (1):
-      fuse: skip dcache instantiation for readdirplus names with embedded N=
-UL
-
-Leon Ming (1):
-      fuse: set dentry epoch before making the dentry visible
-
-Miklos Szeredi (10):
-      fuse: fix possible UAF in fuse_direntplus_link()
-      fuse: zero the partial EOF page in copy_file_range()
-      selftests/fuse: test post-EOF page zeroing on copy_file_range()
-      fuse: derive short read EOF from the request offset
-      virtiofs: fix use-after-free of fs->tag on device removal
-      virtiofs: disable request timeout
-      virtiofs: zero the reply region of the argument buffer
-      fuse: don't mark inode DAX without CONFIG_FS_DAX
-      fuse: advertise support for DAX mappings
-      fuse: limit name size in listxattr
-
-NeilBrown (1):
-      fuse: Use d_alloc_trylock() in fuse_direntplus_link()
-
-Orkun Emin Sar=C4=B1 (1):
-      fuse: don't pass a NULL inode to fuse_inode_backing() on release
-
-Shunbo Shi (1):
-      fuse: fix UBSAN warning in fuse_iomap_writeback_range()
-
----
- fs/fuse/dev.c                                      |   8 ++
- fs/fuse/dir.c                                      |  12 +-
- fs/fuse/file.c                                     |  53 ++++++--
- fs/fuse/fuse_dev_i.h                               |   3 +
- fs/fuse/fuse_i.h                                   |  23 ++++
- fs/fuse/inode.c                                    |  46 +++++--
- fs/fuse/readdir.c                                  |  39 +++---
- fs/fuse/req.c                                      |  15 +--
- fs/fuse/virtio_fs.c                                |  34 ++++-
- fs/fuse/xattr.c                                    |   2 +-
- include/uapi/linux/fuse.h                          |  10 +-
- .../filesystems/fuse/write_extend_eof_test.c       | 143 +++++++++++++++++=
-+---
- 12 files changed, 308 insertions(+), 80 deletions(-)
+Praan
