@@ -1,49 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180266;
-	b=Stws8Owbi2x2t4W+UZZii6CN/mCmjHjUD41WRHnbEjsR7GfJI4DINsbjZenKSfpumjLB
-	 3Fku9FNGNNpXQ05wFOkTbN6R2T7MHgdf1OcfMYpN7nBsIaVT0KfphlTgvwPPKy4mFGUUO
-	 UurDn6igl7xgUxTljxR+7wkWsNymWmYTuphAiSqCkixcpygLHq2KVsDj3l5NEiVlVyaVV
-	 z/qzedt6yWiLnzsI+BZ6TFrtcJRj7KaSEmoixtaV3RZaAF24vC28+cI2N+Kfup9sohdA5
-	 FyqrOidW/OfrcmFMl1OYDM8hcNOwGs9ngWEy8M7akfOE4WKF8MxRNloAArmv4T5bdTg==
+	t=1795180276;
+	b=BVEtjPv6ph4QS0UoITLvm4TwwMVaqDbQ+ikbxyvh/yMQLrLMMkvrcabfopC2vyC9+dTS
+	 QaTW32Z+YCbFBkc5V1GJ4L8ibfPS2r8tr86rRB2AS160ionMaKWcS8khvoQkZs9dXqu3y
+	 N2TuqUPq9CiC1huT0Of4l8rN+nRPE5pq91fuiuP8EJF78pAZgikImbgR1RenEVEEUCP1l
+	 5K/57BOpCqyPpBh364EBAz3DBo6c9bYpQZZBwPD+eNNqu4uxklPWD88PId/28WVCRBSOg
+	 sBqrv1Us41dzWYiqBneqSByb6U2vbXS8Bmc+dGLoNUuCNw/kCcdAUPodSpEf89yb6Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180266;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=4BfmwT5HwmtAheFgYIlEkMUQ63GV05El6mVs5kObkQ0=;
-	b=G4V0uXrO+B4LWbtWStCEzSdrr9BU+A3I75xcas4LTU+ds0NKVOebMydIvvmCMsw6Nbkj
-	 O4XCTe4dTHyFDadrMiw7MfTqwBI88sd/5DApjIe2+STz46//fPIlQDBiFkNienSdDR3/C
-	 kIyh3GOottMdL2m7Nh8RIO2b4ssoTbH3NZQQQucQ/tytPwIKGI65f7NWsgp67JtO9ZR13
-	 DlSpbh/eovUuYjN3xmq6+cUhdkRLB8vsZTdsuWIbUzfqBs7hGvs2UY7XHDkl7X0Xw/Lmy
-	 iT+7qaiTHCPZK/nBjZDfc314zau7I4Hqu8WbyIA37Os/tViHsQhvyY29XRG8uxtVbbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180276;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Last-TLS-Session-Version;
+	bh=uUoED0cDbcz0KfAteKUfnKCWp0vpsdbr7J4+2b7eRPI=;
+	b=2C/2hIKyYrggmglgnXIxuPN+QvoPDWzJ9phLTZaoTND2pgiHLCQiVCGjViX8+WutIpKe
+	 t9SjdhPbPiILe09elfS+I458lZGOYxf2g3TAjSIxG2Igejy5i5ft8UNJrj5QbKncLOb4l
+	 3RKADnrPIpOU0X5hZLnddyxKFb7qFEBnM1xCNi5RZclC/Y5in44saUAJtDp4bn0qIdjKO
+	 2dbqIq+vLRu76fV8Az1ORoVtn6DBJpILjNUvMAfubXnPh5/pnkQ8N17MvjJjQH7XJbuAm
+	 kGp1f8KNZlM47kMkKRx8o3+9yDW7ooelhJiTU0/Qi928PXHRmslH+zHszeE22eWVyww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K3re072U;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VzJ2Iqkf;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 455B2606A326;
-	Fri, 20 Nov 2026 13:11:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10213606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:11:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10213606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K3re072U
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C4C01F000C4;
-	Fri, 20 Nov 2026 13:10:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180265;
-	bh=4BfmwT5HwmtAheFgYIlEkMUQ63GV05El6mVs5kObkQ0=;
-	h=From:Subject:Date:To:Cc;
-	b=K3re072U/JtpTkV5CUity3yLkPfxYNthAICuBafScdewG/9R2iw5OiW2pO1AGauzi
-	 +shBDaiOudEMMKbDPNhxr6NI17b/uEZ3DHsZx6oNn7OjhfFmNr/Q8/kHoJfcgV1gt6
-	 V0MFs7D66CwcQKU9bel2RZ6nymblb8Fzc1nDy7lrwPDEjPq3u/f+gUiKeqLEErX+7E
-	 SX0Xo9EeMBGD1HJwRma485TEGa8V5QLGOjHiGPNrLlTGzYKaYyBM/iAsQHsjEefVgN
-	 GjTNNHqdtDUltymXSU5sIJC4idUzxGcYFqn1HYyg3emhEDfpOgWRWodIFuFzmfCu01
-	 ILEOktYtwhMww==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-Subject: [PATCH v6 00/12] rust: xarray: add entry API with preloading
-Date: Fri, 20 Nov 2026 14:10:11 +0100
-Message-Id: <20261120-xarray-entry-send-v6-0-1f69d7385f70@kernel.org>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=VzJ2Iqkf
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 413F2C62216;
+	Fri, 20 Nov 2026 13:11:19 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4797E601B9;
+	Fri, 20 Nov 2026 13:11:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40E3311BC0089;
+	Fri, 20 Nov 2026 14:11:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795180271; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=uUoED0cDbcz0KfAteKUfnKCWp0vpsdbr7J4+2b7eRPI=;
+	b=VzJ2Iqkf6sZd0IczGzHfI/apvv15DT1Hdj5+U5RNpmAf93PGyoh41fNj6NG0jumXvWitu2
+	t8qGQy08hBxYViD5dl2huEMrkGQ657tqh1KNZDfYj/t70+rqTsKM9bbkmT7TZVOmHO13os
+	WTp4OcGuFESxx7gRJseneWHHpSe1nASKRPScDIjDbObkYpwF2IVaLc1vwFBvlD8RbhV8w2
+	O+F/N3I8ZK9/T/ShgrvssKdxa8R2IQdBYMqlPqbE+m8sfgVC5/uvpoU8g9FeGI1k8RoJ1y
+	Scl/POdT6KuJLFmAYxQjQ1PUUBuQkhulTeO+R2K9cN3hGlCC//dCH8JLPyxc6A==
+From: Benjamin Robin <benjamin.robin@bootlin.com>
+To: "Kumar, Abhash" <a-kumar2@ti.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
+ s-jain1@ti.com, y-d@ti.com, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org, mripard@kernel.org,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, devarsht@ti.com,
+ u-kumar1@ti.com, sjakhade@cadence.com
+Subject:
+ Re: [PATCH v3] drm/bridge: cdns-mhdp8546: Add suspend resume support to the
+ bridge driver
+Date: Fri, 20 Nov 2026 14:11:04 +0100
+Message-ID: <oN6DWNeSTbeo_5NexR3j3A@bootlin.com>
+In-Reply-To: <73ebfed6-a3ad-4134-a8b9-d17213442fa9@ideasonboard.com>
+References:
+ <20260601095041.3042950-1-a-kumar2@ti.com>
+ <f1089720-2a8e-4f0f-b995-fc7ef0836da0@ti.com>
+ <73ebfed6-a3ad-4134-a8b9-d17213442fa9@ideasonboard.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,242 +78,181 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIALRGAGsC/33OTWrDMBAF4KsErasyGv3ZXfUepQvVGiWiRQ6jY
- GKC7145UNJi0+V7MN+bm6jEmap4OdwE05RrHksL7ukghlMoR5I5tiwQ0CoELa+BOcySyoVnWal
- ECYAaEnhjyIl2d2ZK+Xo3395bPuV6GXm+T0xqbf/TJiVB9mRTipb0kOD1k7jQ1/PIR7FyE/4QD
- hDcHoEroQajnNcp6i2hfxP9HqEbkbz3g7MfXSDcEOZBODB7hFm/cDa1jc73QBvCPogecI+wjYi
- qCzGQAQ/dH2JZlm/y7CDgvwEAAA==
-X-Change-ID: 20251203-xarray-entry-send-00230f0744e6
-To: Tamir Duberstein <tamird@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Matthew Wilcox <willy@infradead.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Harry Yoo <harry@kernel.org>, Hao Li <hao.li@linux.dev>, 
- Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
- Roman Gushchin <roman.gushchin@linux.dev>
-Cc: Andreas Hindborg <a.hindborg@kernel.org>, 
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
- Daniel Gomez <da.gomez@samsung.com>, 
- "Mukesh Kumar Chaurasiya (IBM)" <mkchauras@gmail.com>, 
- Sashiko <sashiko-bot@kernel.org>, Tamir Duberstein <tamird@kernel.org>, 
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
- Lorenzo Stoakes <ljs@kernel.org>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9483; i=a.hindborg@kernel.org;
- h=from:subject:message-id; bh=5xnL2+/1G3RJlbCVQDxV1k1/UK21NajORP5wc0Ttlmo=;
- b=owEBbQKS/ZANAwAKAfpQKQiqxb3QAcsmYgBrAEbA7SIl3L0sxQmVeuvbUu7x+E0XkhER2fpl4
- JE2vj4UbD+JAjMEAAEKAB0WIQRXitnI2WZ2JirAaob6UCkIqsW90AUCawBGwAAKCRD6UCkIqsW9
- 0JEED/950bGF5w/sOYpPRxlmKNZV4SlstXn3LQ/FlilNVoRmU8hBygFzf1/yyczySAIReq1d6yq
- dL+J0RDLemAsBVacmoeWbN35L8W7J4kvym4wLwZh/zbcrAMCgnysVZjlyffTirhRJA8wp4Q15rZ
- yKJPMW/nNm3SvYD6PnDeEMKdGEoQxYPKmem+woobJq+pfcfQ9154f0xvV/6yDlJ/IemvyllMAsX
- jNrudTRgtXfeNo0PLSg9YlSjNBE4qt4vpGSf8lWmKDWXwmCiMADNYjz1Z/sVfrI+xbikwn8fe1F
- KVgC/mjWWfsw3KuYfglSHXaOYMqbjrCzl9tPA/Xul1laKyM0OSlxjzQ/q/j7Gp0deRx7VD1+cJ4
- 4jfZVrM7AkZEx7E4/GVtDXeQH0rALGpCFMttpr7sC8cq8AO5cM8OXpKHqB11iedRVNTb4IUos93
- IzzZgR7RBVwzH1CA2WVJJRagFIKCzVT00Zzq9INgeInH7iF1T2GvjZgxnQhiSY4uPfRPAqjyRS0
- TTocdHKObP9wG2xv2n/cSeRyxPWlOPXqKMMu2M9JQIHokiclsfEmxPE2OnVwv4fsOIZ7jcJVgT3
- bZ3iaQmluLV0XsaIFwHOV17g1RAG5U8MKJu2tTL+Fhk0hpHKr4RSuvQb6hQFBfQrJs3XL4uYawm
- T88EwTtY6doIBkw==
-X-Developer-Key: i=a.hindborg@kernel.org; a=openpgp;
- fpr=3108C10F46872E248D1FB221376EB100563EF7A7
+X-Last-TLS-Session-Version: TLSv1.3
 
-This patch series is a mashup of cleanups and feature additions for the
-Rust XArray abstractions.
+On Wednesday, October 14, 2026 at 3:25=E2=80=AFPM, Tomi Valkeinen wrote:
+> Hi,
+>=20
+> On 06/10/2026 11:49, Kumar, Abhash wrote:
+> > Hi,
+> >=20
+> > On 10/1/2026 1:10 PM, Tomi Valkeinen wrote:
+> >> Hi,
+> >>
+> >> On 29/06/2026 13:32, abhash wrote:
+> >>>
+> >>> Hi Tomi,
+> >>>
+> >>> Thanks for the review.
+> >>>
+> >>> On 18/06/26 14:19, Tomi Valkeinen wrote:
+> >>>> Hi,
+> >>>>
+> >>>> On 01/06/2026 12:50, Abhash Kumar Jha wrote:
+> >>>>> Add system suspend and resume hooks to the cdns-mhdp8546 bridge=20
+> >>>>> driver.
+> >>>>>
+> >>>>> While resuming we either load the firmware or activate it. Firmware
+> >>>>> is loaded only when resuming from a successful suspend-resume cycle.
+> >>>>
+> >>>> It's not clear from the patch if this is a fix or improvement. It=20
+> >>>> sounds a bit like a fix, but it doesn't mention any kind of issue in=
+=20
+> >>>> the driver. So, why is this patch needed?
+> >>>
+> >>> The driver lacked support for suspend-resume as stated in the todo on=
+=20
+> >>> the driver, So the patch adds this improvement.
+> >>
+> >> The patch doesn't remove any todo lines. Was that just a miss, or is=20
+> >> there more to add wrt. PM?
+> > Yeah, i will remove the TODO in the next revision.
+> >>
+> >> What does it mean it didn't support PM? Does the driver not work after=
+=20
+> >> suspend-resume cycle? Or does the driver prevent a proper suspend?=20
+> >=20
+> > When we resume, the cdns_mhdp_link_up function fails.
+> >=20
+> > Failure log at resume:
+> >=20
+> > [  55.329452] tidss 4a00000.dss: PM: calling tidss_resume [tidss] @=20
+> > 1053, parent: bus@100000
+> >=20
+> > [ 183.381228] cdns-mhdp8546 a000000.bridge: Failed to read receiver=20
+> > capabilities
+> >=20
+> > [ 191.391548] cdns-mhdp8546 a000000.bridge: get block[0] edid failed: -=
+110
+> >=20
+> > [ 193.392713] cdns-mhdp8546 a000000.bridge: Failed to read register
+> >=20
+> > [ 261.415544] cdns-mhdp8546 a000000.bridge: Failed to read register
+> >=20
+> > [ 263.946153] tidss 4a00000.dss: Timeout waiting for framedone on crtc 0
+> >=20
+> > [ 391.991358] cdns-mhdp8546 a000000.bridge: Failed to read receiver=20
+> > capabilities
+> >=20
+> > [ 392.026847] tidss 4a00000.dss: PM: tidss_resume [tidss] returned 0=20
+> > after 336689133 usecs
+> >=20
+> > I guess it is fair to say that the driver does not work after suspend-=
+=20
+> > resume cycle.
+> >=20
+> >>>>> If resuming due to an aborted suspend, loading the firmware is not
+> >>>>> possible because the uCPU's IMEM is only accessible after a reset=20
+> >>>>> and the
+> >>>>> bridge has not gone through a reset in this case. Hence, Activate t=
+he
+> >>>>> firmware that is already loaded.
+> >>>>>
+> >>>>> Use genpd_notifier to get the power domain status of the bridge and
+> >>>>> accordingly load the firmware.
+> >>>>>
+> >>>>> Additionally, introduce phy_power_off/on to control the power to=20
+> >>>>> the phy.
+> >>>>
+> >>>> If you write "also" or "additionally" or such in a commit desc, you=
+=20
+> >>>> should stop and think if that part should actually be a separate=20
+> >>>> patch. Also, why is that change needed?=20
+> >>>
+> >>> The phy device could be powered off while resuming. So we are=20
+> >>> explicitly powering it on.
+> >>>
+> >>> The phy driver api also recommends to always call phy_init() first=20
+> >>> followed by a phy_power_on().
+> >>>
+> >>> "Some PHY drivers may not implement `phy_init` or `phy_power_on`, but=
+=20
+> >>> controllers should always call these functions to be compatible with=
+=20
+> >>> other PHYs"
+> >>
+> >> It still sounds like a separate patch to me: the current driver is=20
+> >> missing phy_power_on/off from the probe/remove functions.
+> >>
+> > I will add that as a separate patch
+> >>>> Overall, this sounds fragile/hacky to me.
+> >>>>
+> >>>> The first thing is that usually you shouldn't use system suspend/=20
+> >>>> resume in a bridge driver. When a system suspend happend, the=20
+> >>>> display pipeline will be disabled, so this driver will get an=20
+> >>>> atomic_disable() call, and enable when resuming. You can use runtime=
+=20
+> >>>> PM hooks if you need resume/suspend hooks.
+> >>>>
+> >>> Thanks for the suggestion, I will use the runtime PM instead.
+> >>>
+> >>>> The second thing is the PD notifier. Is there really no way we can=20
+> >>>> see the state from the MDHP IP registers?=20
+> >>>
+> >>> The other way that i found was to read the MHDP KEEP_ALIVE_p register=
+=20
+> >>> twice to know if the firmware is incrementing the counter.
+> >>>
+> >>> Based on that we can decide if the bridge is active or not. Do you=20
+> >>> think this approach would be okay over the PD notifier?
+> >> I think it would be best to be able somehow to ask this from the HW to=
+=20
+> >> find the true state, instead of guessing it second hand from the PD=20
+> >> notifier (which also doesn't tell us the initial HW state at probe).
+> >>
+> >> KEEP_ALIVE_p sounds fine. Or what does the mdhp IP do if you send a=20
+> >> message to the firmware when it's not up? Say, if you always do=20
+> >> cdns_mhdp_set_firmware_active, what happens if the FW has not been=20
+> >> loaded? I would guess that there's a timeout, and that could be used=20
+> >> to find out the FW is not up.
+> >>
+> > Yes, there is a 2 second timeout if we send a message and the firmware=
+=20
+> > is not up. I would prefer the KEEP_ALIVE_p method, as that is a better=
+=20
+> > indication of the
+>=20
+> But that's a driver imposed timeout, and it sounds rather arbitrary (and=
+=20
+> bad). How quickly does the firmware usually reply? What would be the=20
+> situation where the firmware takes e.g. 1.5s to reply? I would guess=20
+> that if the FW updates the KEEP_ALIVE_p every N us, it would also reply=20
+> to us in that time.
+>=20
+> In any case, changing MAILBOX_TIMEOUT_US would be another patch.=20
+> KEEP_ALIVE_p sounds fine if you know how often the FW updates it.
+>=20
+>   Tomi
 
- - Patch 1 starts by fixing minor formatting issues and bringing use
-   statements up to date with the new coding guidelines.
+Hi,
 
- - Patch 2 adds some minor convenience functionality.
+I wanted to check on the status of this series, as I'm quite interested
+in it since my series [1] depends on it.
 
- - Patch 3 moves two static C helper functions to the xarray header so
-   that they can be called from Rust helpers.
+=46or my use case, the suspend/resume support isn't essential, but the
+calls to phy_power_on() and phy_power_off() are.
 
- - Patch 4 adds an abstraction for the C `xa_state` structure and uses
-   it in `xarray::Guard::load`, removing an unnecessary rcu lock. This
-   is a prerequisite for all the subsequent patches.
+Thanks for any update.
 
- - Patch 5 is a simplifying refactor of `xarray::Guard::load`.
+[1] https://lore.kernel.org/all/20261120-phy-cadence-torrent-ng-v1-0-da2db7=
+125cd7@bootlin.com/T/
 
- - Patch 6 adds two new methods for finding items with keys that are larger
-   than a given integer.
+=2D-=20
+Benjamin Robin, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
- - Patch 7 adds an entry API.
-
- - Patches 8-9 add support for sheaf-based object caches.
-
- - Patch 10 enables sheaf support for the xarray kmem_cache.
-
- - Patch 11 adds preloading to the new entry API.
-
- - Patch 12 documents that `Guard::store` may temporarily drop the
-   xarray lock.
-
-The feature additions in this series are dependencies for the rust null
-block driver, most of which is still downstream.
-
-Best regards,
-Andreas
-
-Signed-off-by: Andreas Hindborg <a.hindborg@kernel.org>
----
-Changes in v6:
-- Rebase on v7.4-rc2.
-- Assert pointer alignment when inserting through the entry API (Sashiko).
-- Correct the documentation of the sheaf capacity: the requested capacity
-  is a minimum, and requesting a larger sheaf yields an oversize sheaf
-  rather than a warning (Vlastimil, Sashiko).
-- Describe static and dynamic caches by whether they are destroyed, rather
-  than by the language creating them, in the sheaf documentation and commit
-  message (Vlastimil).
-- Document that dropping a `Sheaf` never destroys its cache (Sashiko).
-- Document the reference counting done when allocating from a dynamic cache
-  (Sashiko).
-- Merge the two identical `Sheaf::alloc` implementations.
-- Add missing `#[inline]` annotations to small forwarding functions
-  (Sashiko).
-- Move the trailing empty comment to the last item of the import list and
-  mention the `crate` to `kernel` change in the commit message (Sashiko).
-- Remove the `drop` call from the `Entry::is_occupied` example until `Drop`
-  is implemented for `XArrayState`, to keep each patch clippy clean.
-- Link to v5: https://msgid.link/20260902-xarray-entry-send-v5-0-d18adae40708@kernel.org
-
-Changes in v5:
-- Rebase on v7.2.
-- Update the cover letter.
-- Adapt the entry API to the new lifetime bounds on `ForeignOwnable::Borrowed` and `ForeignOwnable::BorrowedMut`.
-- Squash the `xas_load` conversion into the `XArrayState` patch (Tamir).
-- Replace the `GuardRef` trait with a `Deref` bound on `XArrayState` (Tamir).
-- Filter internal `XA_ZERO_ENTRY` entries in `XArrayState::load` and `load_next` (Sashiko).
-- Add a new patch moving `xas_result()` and `xa_zero_to_null()` to the xarray header instead of duplicating them in the Rust helpers (Tamir).
-- Require an exclusive guard reference for `XArrayState::insert`.
-- Add `XArrayState::replace` and `XArrayState::restart_at` helpers and use them in the entry code (Daniel).
-- Clear `XA_FREE_MARK` when inserting through the entry API (Sashiko).
-- Reset the `xa_state` cursor before retrying a failed store in `XArrayState::insert` (Sashiko).
-- Check for NULL before running the object initializer in `Sheaf::alloc` (Sashiko).
-- Set cache object alignment to the alignment of `T` in `KMemCacheHandle::new` (Sashiko).
-- Restrict the `SBox` raw pointer round trip to static caches (Sashiko).
-- Implement `Send` and `Sync` for the sheaf types and `Send` for `XArrayNode` where sound (Sashiko).
-- Add `#[repr(transparent)]` to `XArrayNode` (Sashiko).
-- Document that dropping the last `KMemCacheHandle` reference may sleep (Sashiko).
-- Add a new patch documenting that `Guard::store` may temporarily drop the lock (Sashiko).
-- Import `kernel::fmt` in the `StoreError` `Debug` implementation (Tamir).
-- Add the `__rust_helper` attribute to the new C helpers (Sashiko).
-- Add `#[inline]` to small forwarding functions in the xarray and sheaf abstractions (Sashiko).
-- Fix the SAFETY comment in `OccupiedEntry::insert` (Sashiko).
-- Fix the `KMemCacheInit::init` documentation (Sashiko).
-- Update the `Guard::load` simplification commit message to note it establishes the untyped pointer style for the rest of the series (Tamir).
-- Remove a stray blank line in `Guard::get_mut` (Tamir).
-- Expand the entry API commit message to describe and motivate the added API surface (Tamir).
-- Collect Daniel's Reviewed-by tags. The tag for the `XArrayState` patch is dropped due to substantial rework of the patch.
-- Link to v4: https://msgid.link/20260604-xarray-entry-send-v4-0-965f6028790e@kernel.org
-
-Changes in v4:
-- Rebase on v7.1-rc2.
-- Drop `contains_index` patch (Tamir).
-- Use `kernel::fmt::*` rather than `core::fmt::*` (Tamir).
-- Add `into_guard` to `VacantEntry` and `OccupiedEntry` for releasing the entry borrow while keeping the lock guard (Alice).
-- Refactor `XArrayState` over a new `GuardRef` trait to support both `&Guard` and `&mut Guard` borrows.
-- Improve the `XArrayState` type invariant and update SAFETY comments.
-- Document the `(size_t)XAS_RESTART` cast in `bindings_helper.h` (Tamir).
-- Use GFP_ATOMIC when allocating under spinlock in the examples.
-- Link to v3: https://msgid.link/20260209-xarray-entry-send-v3-0-f777c65b8ae2@kernel.org
-
-Changes in v3:
-- Fix a misconception about sheaf availablility under `CONFIG_SLUB_TINY` and `CONFIG_SLUB_DEBUG`.
-- Add missing patch to enable sheaf support in xarray kmem_cache.
-- Update commit messages for last 3 patches.
-- Link to v2: https://msgid.link/20260206-xarray-entry-send-v2-0-91c41673fd30@kernel.org
-
-Changes in v2:
-- Rebase on v6.19-rc8.
-- Update the cover letter.
-- Implement preloading with sheafs.
-- Investigate generating RUST_CONST_HELPER_XAS_RESTART as pointer -> Not possible.
-- Correct wording of commit message for patch "rust: xarray: use `xas_load` instead of `xa_load` in `Guard::load`".
-- Correct wording of commit message for patch "rust: xarray: add `find_next` and `find_next_mut`".
-- Remove last patch (lockdep static key fix) from series, to be sent separately.
-- Expand note on why store to occupied slot cannot fail.
-- Change signature of `OccupiedEntry::swap` to match core::mem::swap.
-- Move // NOTEs about storing NULL closer to relevant checks.
-- Move `insert_internal` to `XArrayState`.
-- Share logic between `find_next` and `find_next_entry`.
-- Rename `XArray::get_entry` to `XArray::entry`.
-- Make `load_next` a method on `XArrayState`.
-- Move load logic to `XArrayState`.
-- Use `PhantomData` to capture lifetime of `Guard` for `XArrayState`.
-- Link to v1: https://lore.kernel.org/r/20251203-xarray-entry-send-v1-0-9e5ffd5e3cf0@kernel.org
-
-To: Tamir Duberstein <tamird@kernel.org>
-To: Andreas Hindborg <a.hindborg@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-To: Boqun Feng <boqun@kernel.org>
-To: Gary Guo <gary@garyguo.net>
-To: Björn Roy Baron <bjorn3_gh@protonmail.com>
-To: Benno Lossin <lossin@kernel.org>
-To: Alice Ryhl <aliceryhl@google.com>
-To: Trevor Gross <tmgross@umich.edu>
-To: Danilo Krummrich <dakr@kernel.org>
-To: Daniel Almeida <daniel.almeida@collabora.com>
-To: Alexandre Courbot <acourbot@nvidia.com>
-To: Onur Özkan <work@onurozkan.dev>
-To: Matthew Wilcox <willy@infradead.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-To: Lorenzo Stoakes <ljs@kernel.org>
-To: "Liam R. Howlett" <liam@infradead.org>
-To: Vlastimil Babka <vbabka@kernel.org>
-To: Harry Yoo <harry@kernel.org>
-To: Hao Li <hao.li@linux.dev>
-To: Christoph Lameter <cl@gentwo.org>
-To: David Rientjes <rientjes@google.com>
-To: Roman Gushchin <roman.gushchin@linux.dev>
-Cc: rust-for-linux@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-fsdevel@vger.kernel.org
-Cc: linux-mm@kvack.org
-
----
-Andreas Hindborg (12):
-      rust: xarray: minor formatting fixes
-      rust: xarray: add debug format for `StoreError`
-      xarray: move xas_result() and xa_zero_to_null() to the header
-      rust: xarray: add `XArrayState`
-      rust: xarray: simplify `Guard::load`
-      rust: xarray: add `find_next` and `find_next_mut`
-      rust: xarray: add entry API
-      rust: mm: add abstractions for allocating from a `sheaf`
-      rust: mm: sheaf: allow use of C initialized static caches
-      xarray, radix-tree: enable sheaf support for kmem_cache
-      rust: xarray: add preload API
-      rust: xarray: document `Guard` lock drop semantics
-
- MAINTAINERS                     |   1 +
- include/linux/radix-tree.h      |   3 +
- include/linux/xarray.h          |  26 ++
- lib/radix-tree.c                |  19 +-
- lib/xarray.c                    |  12 -
- mm/slub.c                       |   4 +
- rust/bindings/bindings_helper.h |  11 +
- rust/helpers/xarray.c           |  15 +
- rust/kernel/mm.rs               |   1 +
- rust/kernel/mm/sheaf.rs         | 762 ++++++++++++++++++++++++++++++++++++++++
- rust/kernel/xarray.rs           | 605 +++++++++++++++++++++++++++++--
- rust/kernel/xarray/entry.rs     | 381 ++++++++++++++++++++
- 12 files changed, 1791 insertions(+), 49 deletions(-)
----
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
-change-id: 20251203-xarray-entry-send-00230f0744e6
-
-Best regards,
---  
-Andreas Hindborg <a.hindborg@kernel.org>
 
 
