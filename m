@@ -1,60 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204262;
-	b=FD15o62GhTkJYomNnzykn/LI8UaAElD2lGS773vX4L+MWECpN6+qyrNbkgVHrNFhSsBT
-	 4HeXm320vNZJFyEapwqvBIUkTbsji3xCTraVKUPdaMss/CuFydHJ4kJqOVTYPDmVXwD+J
-	 V9ck37e/82mUrzyNc7kqhwtlpYDsObsZQc2DV46owtCUgSRFkco8Pi31kvL5Jk4u2W7hW
-	 3v9hgLQS83cAScUqyZcMU160Ya4yDK9HKBKyRsOZqslDcZtH1VTlmLrdjoY73yRDI/qeW
-	 ouoshTopCuNlDVRqhLUH6Hm7Bv6mWbitaXdeBKHGHqqAkwGO0bvBkJF1FJnswTOI+ew==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204262;
-	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=MTAY5ibAV1uBF9jduuJT+bDCTIoeL+5xkNZ5oxnneLw=;
-	b=dC57ApnPd0U3UjX1rFj1UXdFSE7j7CRn3/wCkmRsgHvcvTHtNp4Gp+OMqU95Voh1UERZ
-	 Pp6cHrLFfpUr9RTSRQNzSpFM2FgqrdR9OK31/EEiWSwg2j+ImUQ2QGswdxgOUD2UbPt7X
-	 wpoBlEqRJZuMFJcxFPOojEgOeaGowd8cfYLJfNY87QAwUL+XSmJYiye3HJk2sNTUy3TUU
-	 AAP7UM0KmWdIyYoZSAdB+hQCuSTAhnpM3MyBwu6ARuLvs0RCI3W4TeM4pyoHZninDzW3Z
-	 5TuZYjMmJBZzqPRmITwMDfqANP7Zy5fb+IQtzFG2SzA3OE7Cq5bu0VY6PKfx2gdzI+A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="A/LHCGfe";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795204258;
+	b=IDbhQ0FmFkywMo7j70w4ECE75guH9VGujTTCt7lnOWr338/s+6VKxZAcMVyBbWWC5RAP
+	 fHSleEE3z0uQVqHen39kSnPHIvTVcSPDBXf3Rq1YmeBxXoqW4xpFv0yg4rqnNkCLue/D4
+	 iLap2yRBlhhz/Gjwxzc1+K9dZ7sT6ncVMe+CXKxy6hzisPL/29cAPJARDuLyGsKinYOld
+	 yqTR3V7Z4+yqfnmyR+mp74FPZY/J0VBWS95YFhXdxfKH8XLrZ05yATGRxatcyf0tNRQVV
+	 WlO0ASSjJAM8cdtsJm4rLlD/0hCZ1EjiKvXqS1g2boBU5kCwSzjwa5gFOZdJbLmSvug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204258;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=b1Da2gDHyuYV60D1+HJXEkmCxAkqVayaX/7gj7IPP/k=;
+	b=Q/tu+bMkSwuBbFGsaZfuA9YmgQe1GwxDQOgO8ymsPtVSN/BY7wc0EyeMrbe3MPKIc3nf
+	 iweJkAh4Vu02FbAfHR2tMTd8qjGD3FWkF5KOqFnLIKO48Pd5AFdR9uXZyg6E5js0ysylf
+	 5SZ4+IdIIuUdXoYsMecqdsPXNXrk213tgiKCmuTx+yCDlaJGI+K3w8AzgNGtVp5Uu8TBz
+	 sZJIA6wOa7WHtnpk+F4HGzbkftLKWJsX/QqLzXtTzB0g0S9YJRTZiBda0+Fz3tWNn3mla
+	 VoM6ul0T6u47Jx+eUBclyh31WJ92OL0OBj8ilyaGTm6frc6SmKKrTWV/UUevXYsRRag==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=c2FzYdYF;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.52
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011052.outbound.protection.outlook.com [52.101.57.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 745E760A2621
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:51:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A27D7606A33F;
+	Fri, 20 Nov 2026 19:50:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A27D7606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A/LHCGfe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 041FF1F000C6;
-	Fri, 20 Nov 2026 19:51:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795204262;
-	bh=MTAY5ibAV1uBF9jduuJT+bDCTIoeL+5xkNZ5oxnneLw=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=A/LHCGfe7mu4454iMs5fhNiINy54iJwrmXZT5ZmbHZaxSE3qSYofocnuDwsb3nVZP
-	 rkrTqjJ/FmgPJB0r+5bSjYluJfO0FJiZYA7LMmg+d6Oap+l/40yOLjj2b4MUmDjrTB
-	 NtG/8sIT0VGNBPFd5qtgmzVlnwHDbEMK8LZZEnMH+C+nsXmDc+cHhAGw5K6W4M5XMc
-	 F53IjUa+fdgCez2RmrnoqkxwoZd2umDt/RrZyV+2MyPkrOxEed8lbHVET2wgZZ9jrB
-	 tlN/4sFAlc7HO7IU/5nIVvTazall6xcsZQD0yQfgKWrsRU4Ujknp1yN9VynbdIW0hS
-	 Ni9ATcTdbhHVw==
-From: Chris Mason <mason@kernel.org>
-To: hughd@google.com,
-	david@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	akpm@linux-foundation.org,
-	qi.zheng@linux.dev,
-	qinyuntan@linux.alibaba.com,
-	shakeel.butt@linux.dev,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	mason@kernel.org
-Subject: [PATCH v2 1/1] mm/shmem: don't use the memcg of an uncharged folio
-Date: Fri, 20 Nov 2026 14:50:58 -0500
-Message-ID: <20261120195057.50031-2-mason@kernel.org>
-In-Reply-To: <20261120195057.50031-1-mason@kernel.org>
-References: <20261120195057.50031-1-mason@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=c2FzYdYF
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JsHsRG3UpZfhyMru/UvqvwGCNgRy/E8LZDW+P9zJzTsp/wF5BZfkJLs9rXRvuMfjjjlvQhJgvg52UsPtE7xlUHiGHTJBfNL9IenWIil0/brq6rZ2WEWy2KAsHHJd+ybO+3tN4vKeyQZw/bTix5949Ob8nuE+Eww2W1cfMTPPQMA2PsHTbmeEja00HGQFu0BIQBdERl0nXuW2901FuBFhQHgtyR9bhIg55SzXpfGyGnsu0exfYzdf0Tc12LyjAoRhdkaU9xVleQ+asGCoXRCAHoqYKE//Ninb6drWSy2yC1bdAN7BlNu5zyJBNG+wxN+VrC+Oe3TEhB8TvgQSorN7UQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b1Da2gDHyuYV60D1+HJXEkmCxAkqVayaX/7gj7IPP/k=;
+ b=GYHgrghuKphKkf18F+8ZH2CPHalDcfqC3kEV7DvmQAuqRoeLnO9dEYm1DpAThnArmNpHH/XIh9L/DTE3262q0aHm+FXP2vhQD9tUufNqUceEoX1r/ipyku16chVH4AYOo7EP3QcsRp+/JkFdfQTxWmdgAaai4Xp5AmUkiTsUF/aA3BOX/t7+014rwYw6wWJlmR9/q792riW8r2oLXR3Efx8vGQyctBYv/m8XKj4FCHuM+GqOIxzOvt4Fh8irHcTBa+TUPcyJjeoCavtCK0laMgyF4ozdNkyJHuZix2gK1+BMDowIkW0zEhekL7Cm6yWHjRZEL7nDEFdLqTKIybYPzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b1Da2gDHyuYV60D1+HJXEkmCxAkqVayaX/7gj7IPP/k=;
+ b=c2FzYdYFLBlwOZO+T2n6bTauY7ujfXc7VyPjfYpTDfo/QWpudLZcjGC6yVauq2ugLl06BTtdjCEHb+AeSQm5IiSDTxM4UoiBUB7OoVofTjCCRmfA79eKWHhgZg9vRx4r9ws57FrQz50RQ7RgSSSqWVUCXnBmYU1tw7cZJNld1O0ooW8uB1ExpqLbNRtpoon24hV4zmFxQYtbo7PmQJTk62Kzn41iutblntxltdcgIGpkUCxTDk0a3tmSDFL8mpsCpWklPGRfk7lqqDMDT+AXPdLUWovH/IZQd/cGFZ66r9H4iccFSkD/dLXo08c3YSklqInHCg4fIVIvbRmiG+WEfA==
+Received: from MW4PR03CA0299.namprd03.prod.outlook.com (2603:10b6:303:b5::34)
+ by DM6PR12MB4284.namprd12.prod.outlook.com (2603:10b6:5:21a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 19:50:49 +0000
+Received: from SJ1PEPF000037AA.namprd03.prod.outlook.com
+ (2603:10b6:303:b5:cafe::52) by MW4PR03CA0299.outlook.office365.com
+ (2603:10b6:303:b5::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 19:50:49 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF000037AA.mail.protection.outlook.com (10.167.244.184) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 19:50:48 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 11:50:27 -0800
+Received: from vdi.nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 11:50:25 -0800
+From: Chris Babroski <cbabroski@nvidia.com>
+To: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <kblaiech@nvidia.com>, <asmaa@nvidia.com>, <andi.shyti@kernel.org>,
+	<cbabroski@nvidia.com>, <davthompson@nvidia.com>
+Subject: [PATCH RESEND v1 3/3] i2c: mlxbf: Remove unused slave GW PEC handling
+Date: Fri, 20 Nov 2026 14:50:08 -0500
+Message-ID: <0c59e563f999e2c9c5bb41d62856d45bf7907526.1795203929.git.cbabroski@nvidia.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <cover.1795203929.git.cbabroski@nvidia.com>
+References: <cover.1795203929.git.cbabroski@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,132 +111,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000037AA:EE_|DM6PR12MB4284:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1dcbaeb8-2445-420f-c02d-08df473f9354
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|10067099003|56012099006|11063799006|261009223027099003|261021121427099003|261102123227099003|261021123027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	jasONnOv0NngQKmT3aPA0zjdat/KkBZdO5Mbza+HsdfZaOo3u77wDnSieEoD/1Mr677RQB/EoPBDhco9mI9oBHkqe5/4Mwe8NQXgohDpyw+zGsINSBBzp6tJGWUzGabr+YEf/gQlpJZBbYUkGV3JZe5MCgpgpc9eG1I8oCdGIZDCTMckRUhjz7UxOkEzEhI8ZRYE+GW0HjYCq34RrqvPixzZQEbRB92CUKv0V5W31y4S3pJaXO3E04tZBWxmBvZOo/u1DF0H8Qonn8CMWo9IZzRxO83jGI6/1uQftv0mrCVhKNA+Zx/23kHHHdImuyWp5DJtaEv1pl9L/y5MOhZoje0jCl2rojiVLupx+AAQvy3Grl8XEX1+R7gW4K7V83+NlM7jqrK4dcUOa/pDUjsm0m5++YMpFvaIqj92+yZfJbzmO8psRRmRGwCYuOYjKRl3ILxmLrR52j31fzDngnwdSE1X0RGEeygbQiQKue/0M8Nf/eTtaWUQNOSMXNPX7PG8yPl1eCEIAguuWK3X7Nxw3ghrousMqQY1X4ANENvyZ5OzwhIkMEGBlNS+CS7ANIWMgxaNAO6fgFThDihg4T9f1XJ/DCrcJeqyeAFTdX9D4ZzJ8LIceQUffVLiA/CJ0lAM6Bbi4ruSfQYU6toCur6T3KNslRXFY/kJq1XuepEx+8SrUHjhkT2Fm9xIUGzD8vnTCyh8k+OfDeCobslWpnCSSg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(10067099003)(56012099006)(11063799006)(261009223027099003)(261021121427099003)(261102123227099003)(261021123027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	o4J2TKBdANnOZipf0Mv2m32Suv080EMAt43QBdmu/r59LhLJ/v89CSIwSngX6wGmENpeUeNTXYdSrr+oGKp2VUuL8CzK0Dpp1YiE3hnos544lp4Y6CNNeIf/7iaFw0qpfXgznkPLlyOZll3/z465csyNcfCO3G1j5ytWwZUib1TGOlbtbFDkSqIFK4kh3Yd/ygltEXm3GoGYSCQo0+7UZVOD5UdeUBft53LiSS0BDqKljHL+ZBC9JNaJroC1pwvr+FK+kzYjxGquK70oMlicJBCJThhdAz4UoUc3XLm6AXXPzb+o9drPQB1Ly+BFJ7ciEsehufO+7vTCePm7k2/HDZkRwdffM+TGBO3Wyd8FlfKZ99eWoX6jlnbD5UOj/xX9jXYTV7gQSNqF5YEo/93aCLBGkcIpsW4O4lXa/T1prD3PH7JTe9GcWSazN9CagemO
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:50:48.9886
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1dcbaeb8-2445-420f-c02d-08df473f9354
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	SJ1PEPF000037AA.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4284
 
-The shrinker for unused huge tmpfs folios can dereference a NULL memcg
-if it races with the migration of the folio at the end of a file.
+The slave gateway control word write always cleared its SEND_PEC bit,
+since PEC is not supported on the slave path. Remove the dead pec_en
+local variable, the corresponding register write, and the now-unused
+MLXBF_I2C_SLAVE_SEND_PEC_SHIFT definition.
 
-folio_memcg_list_lru_alloc() assumes that folio_memcg() is never NULL.
-But it is NULL until the folio is charged, and a migration target can be
-in the page cache before charging.
-
-shmem_unused_huge_shrink() looks the folio up without the folio lock,
-so we can race with migration:
-
-    __migrate_folio()               shmem_unused_huge_shrink()
-    =================               ==========================
-    __folio_migrate_mapping()
-      xas_store(newfolio)
-                                    filemap_get_entry()
-                                      returns newfolio
-                                    folio_trylock() fails
-                                    shmem_unused_huge_requeue()
-                                      folio_memcg_list_lru_alloc()
-                                        folio_memcg() is NULL
-                                        memcg->kmemcg_id
-    folio_migrate_flags()
-      mem_cgroup_migrate()
-        commit_charge(newfolio)
-
-Fix it by keeping the original objcg around while the inode is isolated.
-
-Fixes: 743e7d025d2f ("mm: shmem: make unused huge shrinker memcg aware")
-Suggested-by: Qi Zheng <qi.zheng@linux.dev>
-Signed-off-by: Chris Mason <mason@kernel.org>
+Signed-off-by: Chris Babroski <cbabroski@nvidia.com>
 ---
+ drivers/i2c/busses/i2c-mlxbf.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Notes:
-    v1->v2: adopt Qi Zheng's suggestion to return early in the
-    failure path
-
- mm/shmem.c | 39 +++++++++++++++++++++++++++++++--------
- 1 file changed, 31 insertions(+), 8 deletions(-)
-
-diff --git a/mm/shmem.c b/mm/shmem.c
-index 10cef89b00b08..901cfd15bdbd0 100644
---- a/mm/shmem.c
-+++ b/mm/shmem.c
-@@ -758,6 +758,13 @@ shmem_unused_huge_alloc_lru(struct shmem_sb_info *sbinfo, struct folio *folio,
+diff --git a/drivers/i2c/busses/i2c-mlxbf.c b/drivers/i2c/busses/i2c-mlxbf.c
+index 22874ec4b45a..e330a0dc5505 100644
+--- a/drivers/i2c/busses/i2c-mlxbf.c
++++ b/drivers/i2c/busses/i2c-mlxbf.c
+@@ -288,7 +288,6 @@
+ 	(MLXBF_I2C_SLAVE_BUSY_BIT | MLXBF_I2C_SLAVE_WRITE_BIT)
+ 
+ #define MLXBF_I2C_SLAVE_WRITE_BYTES_MASK  GENMASK(28, 22) /* Number of bytes to write. */
+-#define MLXBF_I2C_SLAVE_SEND_PEC_SHIFT    21 /* Send PEC byte shift. */
+ 
+ /* SMBus slave GW Data descriptor. */
+ #define MLXBF_I2C_SLAVE_DATA_DESC_ADDR   0x80
+@@ -1821,7 +1820,7 @@ static struct i2c_client *mlxbf_i2c_get_slave_from_addr(
+ static int mlxbf_i2c_irq_send(struct mlxbf_i2c_priv *priv, u8 recv_bytes)
  {
- 	int ret;
+ 	u8 data_desc[MLXBF_I2C_SLAVE_DATA_DESC_SIZE] = { 0 };
+-	u8 write_size, pec_en, addr, value, byte_cnt;
++	u8 write_size, addr, value, byte_cnt;
+ 	struct i2c_client *slave;
+ 	u32 control32, data32;
+ 	int ret = 0;
+@@ -1887,12 +1886,9 @@ static int mlxbf_i2c_irq_send(struct mlxbf_i2c_priv *priv, u8 recv_bytes)
+ 	mlxbf_i2c_smbus_write_data(priv, data_desc, byte_cnt,
+ 				   MLXBF_I2C_SLAVE_DATA_DESC_ADDR, false);
  
-+	/*
-+	 * A migration target is in the page cache before it is charged. Once
-+	 * charged, its objcg can't change while we hold a folio reference.
-+	 */
-+	if (!mem_cgroup_disabled() && !folio_memcg_charged(folio))
-+		return ERR_PTR(-EAGAIN);
-+
- 	ret = folio_memcg_list_lru_alloc(folio, &sbinfo->shrinklist, gfp);
- 	if (ret)
- 		return ERR_PTR(ret);
-@@ -887,12 +894,11 @@ static enum lru_status shmem_unused_huge_isolate(struct list_head *item,
- 		return LRU_REMOVED;
- 	}
+-	pec_en = 0; /* Disable PEC since it is not supported. */
+-
+ 	/* Prepare control word. */
+ 	control32 = MLXBF_I2C_SLAVE_ENABLE;
+ 	control32 |= FIELD_PREP(MLXBF_I2C_SLAVE_WRITE_BYTES_MASK, write_size);
+-	control32 |= rol32(pec_en, MLXBF_I2C_SLAVE_SEND_PEC_SHIFT);
  
-+	/* keep shrinklist_objcg, requeue may need it */
- 	list_lru_isolate(lru, item);
--	objcg = shmem_get_and_clear_objcg(info);
- 	set_shmem_unused_huge_isolated(info);
- 	list_add_tail(&info->shrinklist, &scan->list);
- 	spin_unlock(&info->lock);
--	obj_cgroup_put(objcg);
+ 	writel(control32, priv->slv->io + MLXBF_I2C_SMBUS_SLAVE_GW);
  
- 	return LRU_REMOVED;
- }
-@@ -928,10 +934,26 @@ static bool is_shmem_unused_huge_match(struct folio *folio,
- static void shmem_unused_huge_drop(struct inode *inode)
- {
- 	struct shmem_inode_info *info = SHMEM_I(inode);
-+	struct obj_cgroup *objcg;
- 
- 	spin_lock(&info->lock);
- 	list_del_init(&info->shrinklist);
-+	objcg = shmem_get_and_clear_objcg(info);
- 	spin_unlock(&info->lock);
-+
-+	obj_cgroup_put(objcg);
-+}
-+
-+static void shmem_unused_huge_requeue_locked(struct shmem_inode_info *info,
-+					     struct shmem_sb_info *sbinfo,
-+					     int nid)
-+{
-+	lockdep_assert_held(&info->lock);
-+
-+	list_del_init(&info->shrinklist);
-+	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid,
-+				  info->shrinklist_objcg);
-+	info->shrinklist_nid = nid;
- }
- 
- static void shmem_unused_huge_requeue(struct inode *inode, struct folio *folio)
-@@ -943,17 +965,18 @@ static void shmem_unused_huge_requeue(struct inode *inode, struct folio *folio)
- 
- 	objcg = shmem_unused_huge_alloc_lru(sbinfo, folio, GFP_NOWAIT);
- 	if (IS_ERR(objcg)) {
--		shmem_unused_huge_drop(inode);
-+		spin_lock(&info->lock);
-+		shmem_unused_huge_requeue_locked(info, sbinfo, nid);
-+		spin_unlock(&info->lock);
- 		return;
- 	}
- 
- 	spin_lock(&info->lock);
--	/* Requeue the inode to shrinklist */
--	list_del_init(&info->shrinklist);
--	shmem_unused_huge_lru_add(sbinfo, &info->shrinklist, nid, objcg);
--	info->shrinklist_objcg = objcg;
--	info->shrinklist_nid = nid;
-+	swap(info->shrinklist_objcg, objcg);
-+	shmem_unused_huge_requeue_locked(info, sbinfo, nid);
- 	spin_unlock(&info->lock);
-+
-+	obj_cgroup_put(objcg);
- }
- 
- static unsigned long shmem_unused_huge_shrink(struct shmem_sb_info *sbinfo,
 -- 
-2.55.0
+2.34.1
 
