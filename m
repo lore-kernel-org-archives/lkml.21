@@ -1,89 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202476;
-	b=EBmUyCSAiaa8gwELF9LRTFSKw/ysJedH9EK8K4YtqkapW1jY0axl/O1YnhyKKT1PH+ck
-	 RzVQL6Yp4Be0Nchm+P2O3AQSwi+tKSTNyy03s7v13cj+NTCuGxpyaSR1xu73h6PLc7If2
-	 660hnLFegxIBj+Y99CXkXkgJdxfWrpYdUl6AgF7JNgMmTTJEbx19gT3167JSx77nV/AWz
-	 8zCrsjhjlxNGA6OiezH0rJqKW2F10QBwh9gZiMjndEA7KUu2kXXZua+Lv/VZQUBIjV+3U
-	 MiyxqlZvMqXBg/kWIE+w369r8CAamjJjvfeBE6Oy5vojDm7LQVX0BtnizHyaHgVFPow==
+	t=1795202486;
+	b=UsPXQypBZWaGHhCWpxniai8Dja0gLgwn5/l6Umm71dEGpEIB0CK5ggcYxqEm0mw86fb5
+	 LUInRC/cULma6A9i1YScrMWTuIUR1SygsWQWFWYuzeRbElkquXlPxvnQ0WTjIuVCRk4MZ
+	 CAQ4Mh+jeVoEFlQmiUAC0/VnHSQM3aKVkp5vxVtrKr3amxqJpAnkaOPYS3bc4Xi4WgPEB
+	 l7r69qNNiCZvgNNiu7UHcA+eRT2Hl0hvX7GprPYCGjfXCpsFXSjarm7QTjJEQhv8USwNg
+	 i8X5/O2V0OwqsTadulwCyDNdCF6MvF5DTjYO4lhUBimKuUonJ8tQY3kkD5wjLI6pEeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202476;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202486;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=7WdPVPrqEAVCZ0oTAu8C9RoFpPGs1RbxvC68iYCtVl8=;
-	b=NSpwpPIkNrGe0CoTXzAcCMeBvI2BnIWS80+sk50dr/STk8sLSUlqEW1YxC8xC8nWRkjz
-	 UiDNNeupKl4HRgskUdQb3GpKZ3lf7iLV0JNheH3xDoOKLFVANDiZfz8EVpNsaqRBPLr0t
-	 MvnqDMEu2NJIHE6IJnwVYi1wECzJDIu/FksvnMvmgd7e8B3YWv0uVqR3ImabuxPhGG95x
-	 CUykQ5PpD0/CC2N09o//6mj48ZGX35zPdhgU72Ffs4IV1nBskjYEHVwZufmXwcg2IluMC
-	 I35+3qxT5MYWRIP602+x7G+0Kk17FNESyb+ps5CpXWKcxZGWGrvYmHVOQaLxzKRa4DA==
+	bh=qrL4o0PULdqFfuwcYS3OMeO2yJN8Iu7JXlTfeUe5POg=;
+	b=OphVhoH6EpyJ7j57+CzkW5jgoFgLcACB9QM9u91pOFIzzTKcxU0go4aV4EaOT0SAYQJQ
+	 Z+lfDOg0J4nyxJV70OxaL7dChY7eBYi+9sdQZDxtsMMY6wNeV+/mDn6SGmjaF/kT+Bl+0
+	 KS5sH3F5j7iisVvRrD0AFLu1j0gZz2BdIwR4Lg2d2A9rH5EH8jaNYakjWTJ2zDu0Vb2A1
+	 g8d7kCuGMAjX7s4vN8WcDqC5jclY/h3eBdx5undTSNTQ2gKkCgszLumbUltY28jPZBdf8
+	 SFcVf27SPTaznUo6y6ztGvhknnBLV92wgZQQxpwFYea1umcCyyfV3WJsNRdfl5KesLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8ekLW+s;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rnLs2+CE;
+	arc=none smtp.remote-ip=209.85.221.49
+Received: from mail-wr1-f49.google.com (mail-wr1-f49.google.com [209.85.221.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6C3D60A2606
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:21:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6C3D60A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB981606A6E3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:21:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB981606A6E3
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8ekLW+s
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso9887025e9.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:21:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rnLs2+CE
+Received: by mail-wr1-f49.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so1002034f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:21:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795202471; x=1795807271; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795202483; x=1795807283; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7WdPVPrqEAVCZ0oTAu8C9RoFpPGs1RbxvC68iYCtVl8=;
-        b=V8ekLW+sQq4tPZ3ynI7cvdrRVFl5DMgBTBdJtUZtvvVjISp9cSK5pi9wtfBwU2IwD0
-         8IGK1TVb0reqfmIgA3I+aqptYIz1dcSI561LTfsLvvuGEYGTTqGAb7lKWAQ5Cx4nMS+y
-         9G+NJmtMsRwDz2M+l8O4tiGiXXzO4ZZ8U9/KgWJHYkrx0g1NDcwxh70ZWKoVEAmb9r8c
-         jLF9I3uQjeEMDo0v/9foJyPxhcRHFAvVfYciLEyV6WtZ4kEIbb1gOK3itA1Eu25cIjCv
-         TPbXpBDsiJUO+a5Ze8JSlHG/dYrpndx6hl1kJ/rx2md+Lnm3+YakQ+SoCJwT79U2HEDA
-         BE1Q==
+        bh=qrL4o0PULdqFfuwcYS3OMeO2yJN8Iu7JXlTfeUe5POg=;
+        b=rnLs2+CE4dPjrh2cS63O3W8X7Fmhydj3lA4IEyYnwQXSJnu7QhoJOIc++wANPmBAys
+         XLOjnYhtycL0b1re/n793G5FpKyL/VX4ksoCFChSHlnh+zuhCoiZIEEOqoumH9LN++XH
+         bnkw3AiUD6/oc4QlXmCh+QuF18ZE7e8wSDb4/f+V7E34o58jFP2JbG7BRtbEUjILMMVz
+         PUxR3p5yxn61K3nJ4LdtvmKGHtGPkVFX1BM8i/LiBSR2p6YAzCzvRYvwmFJEGVp2R1SW
+         lyK9Oj5pRd1zA37fDCFSHL1dmYCGZzT71d0rF8/T8ksySxEmpz8kzAyN4aQ6fFgFEJI4
+         bP9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202471; x=1795807271;
+        d=1e100.net; s=20260707; t=1795202483; x=1795807283;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7WdPVPrqEAVCZ0oTAu8C9RoFpPGs1RbxvC68iYCtVl8=;
-        b=eqKZlgW09XWr5drOFjR7f4leOwWafpvtuhMXjdObK3nEgXdWCbUtVHMTiPoZ0YHNSl
-         O/rEbYShOjmjMaz05b77mI5RQ6CdHsR1UrshI9x5D4Mu0AzaWxgBemD2Q4MK5qPy90Pg
-         CNoO9xYxS8xW5PvnRkmr5BYaSvqcTF0pFXlm+9YHDeM+eyc50VcuSq9e/++VK4sWEYKV
-         xhCFAQPKtr1vI0Wb7Jhk9D6YqopwywZoQxm4Q56w2SmgiemwYlavmdeoaktW5ORF5uei
-         zf1P4y1W77C55N9UI31/bfau8OQr05wk+NeymdgkoQPvadLT+sgouwbaNo5N1zZ4rcok
-         ESMQ==
-X-Forwarded-Encrypted: i=1; AL+hErEHE9+BtS3YwO9WOQyLXgdM1di4LvH19qSt0X1Yv7gsC+U+QYJoaLs7y6cTyceZzAwx1bizFKM16CBKxM4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91Ar0xLil3K3rIUmx19hPoSsg7F7Z69lq+j9ku5aiDEdpOkzId
-	3SeTPYMQmV9J0pbVPrHQMf0SfgLpOsNgoZw+3uWTsUm7SgGLrjQnRj4P
-X-Gm-Gg: AYBFou2L8F2Rs+ZsuwNISvlcrNgc3VQj+QYyfQMcZs0IjfYu7S/guhBhoHRh3H0CwYm
-	ZHwGerl5FF1rzo2sMfcdm9HjXrfgzxd8be5AmbayoWCKwkBV58Vw7O6C2Anr5ZvvVqlPtIHgBDQ
-	WqdpItFvDcWq8tvDtoYNRTBQTjH1Yl5s0fN9IIeflkSCDmB7YcogyYj/4aL+5jUk3q7/J2Iq1jK
-	VQwMam7tx2IapmyiKxafow07vjrkSeo0A/j3/ZJYCPBE8WPRxmiEpCwElCywEFW2nR/VloOonCO
-	oTGracDn4SGs0FcmWN7a9Jupg9tE7ZrG7jy0Lw3g9U4Q7t7gAxhTCtU0RwsWwIBjC+USfcc4jdt
-	qdqa6PV9idQquxLbkT4wo0V76bDkfZ9d7i9lW4invSI+KhVqlI+LG/rY7By9fZb7GxTGaVCAewb
-	2yqXMvXrrQAcz6vS3gm7+0Y+RoO/8TlO1ZJa5PUpRfyb13IZhjpxDMD1vwENMTPW96XPXGKmz02
-	Iw+7Mdzm8NuC1anmFTlFmnBvsUk1eLMnav4qGfkr0ZXL3L7O55mmFd6TOlBtYxM2/yqW/trc8R1
-	q8it/yiaNzowGSHpkt/WC8ZmNeFhMqUjPTvB5d8VlHgzKnUrieUyLmpaPOaaqQ==
-X-Received: by 2002:a05:600c:19d4:b0:4a1:f377:5c6c with SMTP id 5b1f17b1804b1-4bb8880ac6amr96586425e9.10.1795202471009;
-        Fri, 20 Nov 2026 11:21:11 -0800 (PST)
+        bh=qrL4o0PULdqFfuwcYS3OMeO2yJN8Iu7JXlTfeUe5POg=;
+        b=nNQOj9CkbScFOC4u+rX0NBo+YHA4GPqgylQgAv+sMPEbJCVkO3Tt7bpsXnuKQLioaq
+         C2OFA6CHOfvyL1N7KRBVZY8zhZD/UfRXCQby6stfIiT6Ar+uRLk8FvwtJukqvNT22rTj
+         wDen5NPI5qIrtROF5QIlh5W/SXBkFu9yy5DrwtVeAgWWPkei6gbK6quZ/aPud4HMAVYQ
+         1GFDRuL/TYp6LV18iM26Z8kMx9eil390kixgxP1mEtSG2mSQZVrNfRt6yOkmb2KKPur2
+         rIOorgZupBclZLETCOZiP+Oc57iaagyn6YZq9UGa/1AcDvjJ7L+ghkzSBReQH+cY6Zgb
+         WnUw==
+X-Forwarded-Encrypted: i=1; AL+hErEhLplmSNXSN7KCIBZ+pXa4YjMbchQ1la8HPkvp6NqwxmtQvn2OpL0fa92WMra6rukLMlnm20qeD+EkDjg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8aJex9UJq5J7xJ7G+sJ8PTESU0NjAzD3mSmQDePpyiDb/BHc/f
+	z2KoYeCChyNBaBhsZCSeQLpYUtof3lYp6DP+n1LMsDTD5hFeiQVMuWyl
+X-Gm-Gg: AZFdTZdhUvcuLRYoMVlS83ZTts5IVoxNoOTb7xt9vykK+fr6UAPX8iTG0quJDTAh/mb
+	4+Ch4zpKp2tzg/gu/ZY2+OZ1zOYHRmh7Q2654V6PZPHINnYNY3RfvqoBgc2ddi6AimlHUMGYyHj
+	nLXyUAMm/2qqVAucTpkErjDOJMWjxAPMg10+X/LCgYfD/8czBMkpGyNKrX8/L+VI9A6bqY2yRe+
+	0HAQeajNeQ1fI6pBhj5W3jYtgFG25G4YPHZKTpuu+Se3nn92Yo2jt9p7VawR38yplnUqWSaf+by
+	GthUEf6D4UkGpSVePNflmyjkzljyoNL+WvfFthIUyfNhbiRgkjdq9Kv8QJs9gJDLasDlad7ICeZ
+	D+viKTQlpxJQFOUvkfmWdhMHKV++GCXyAtnYAg8hfhDRgS76FAtP+UzhqIuHW1sLL5ec5K8MbQN
+	HXkH2Z82ciba7vpwGsuOKQAo/KHhmYGB+bQ+JOIsfcnG7tDmjwLmTWmrxTdS4a+fZO9dwCXIK/w
+	Qy/w0lrgMU+rekStcpE6gEo2V5y7GOWB5KQ5ZZHYMDRHQlibBwUlzD0fXUquOrnO3uG6pRkW9cP
+	VMSbTfRyHzbyF70CZgmRYxtpbjjC1p2l7q1CAj3s
+X-Received: by 2002:a5d:5e8f:0:b0:48f:bf71:2ad9 with SMTP id ffacd0b85a97d-4abb400bcb1mr8820356f8f.41.1795202483117;
+        Fri, 20 Nov 2026 11:21:23 -0800 (PST)
 Received: from [192.168.0.2] ([197.250.160.206])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm8405703f8f.21.2026.11.20.11.21.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm8405703f8f.21.2026.11.20.11.21.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 11:21:10 -0800 (PST)
+        Fri, 20 Nov 2026 11:21:22 -0800 (PST)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Fri, 20 Nov 2026 22:20:50 +0300
-Subject: [PATCH 1/6] dt-bindings: soc: zte: Document zx297520v3 socsys
- controller
+Date: Fri, 20 Nov 2026 22:20:52 +0300
+Subject: [PATCH 3/6] pmdomain: zte: Add a zx297520v3 power domain driver
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-zx29usb-v1-1-b0433258e51b@gmail.com>
+Message-Id: <20261120-zx29usb-v1-3-b0433258e51b@gmail.com>
 References: <20261120-zx29usb-v1-0-b0433258e51b@gmail.com>
 In-Reply-To: <20261120-zx29usb-v1-0-b0433258e51b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -111,222 +110,398 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev, 
  linux-pm@vger.kernel.org, linux-phy@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7623;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12340;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=NdfxG+rjqtXpuMXB6FHKcGgU0zKZ4pW041ggmfB9o7E=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBrAJ2WVW5e1KPkQL1gQ9ewMRyMEsKrrUGaOVV+J
- E4z6Uz/UYqJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCawCdlhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKVqg//Uy+x4EEaYrDpooZbWoCBB9I052DMyfA
- RTFbDzHKeZGrNXnYhcdCJs0VTL8EriH9BfRET0/SkxeqQ5Q13T1QGDXKNUWrYdhYjCHELjNeatj
- OTFmFwSGcDU4R9PA5hE31PSckAXrDzzJ5HJP7n+BALE0RZYmQiNmIOs6XLs4P5cMdKZ9skDmb6j
- U5RrAWXt6MMRaWndbLC2e4twXHhCVoaNshzHwyxR/rqfqz/+1tC1xiQa18vO7HyGvL4tD+xS9HU
- 8o9HXruAjlHF2TgnOSFyh7KL2cwFv8Dh94MJnf0S+4coGZ0cbJx4BE3TbyvtGiFgMJEOFjqFq/m
- ysCz5R346kum1NQMYBNu1JRWNAM9FKWG3pLfgPpTS2pFSxCBLVNgtEhUJ+/Shoy2ndZDniNEQ/a
- ddlR2tvnj39IGnnlEooP3GD0Stsbz6mnHVa2RXCRpTYLS/Rqr9zoiPrSE9X9F1M0BhCcSYwb1Hj
- M/wLT1lSEZ/oc+0jPXqoGFDYK8oUjjj3vXgfZhKz/8IPcTvdyNtm3bgy+uaM/DYIDkMUC5Lnwip
- 5e5rnXm1A8RU0Ijmc/2MZt4SzscvNE85ggrV6Nbrx4x2G1ilD3/3vbdwRbtPLQ46JTl0khwWfn1
- ZsWy/8B+CLoVnYIvWyqLAWgMXQnhOKJ3SYnzmllKjrnoTwMsOLVI=
+ bh=VfvWHYxi8vxHqRxg9s/54zdayLBUu8LY5SmupIpw68k=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBrAJ2Wj2mjRcJ86eSiAk+9gbxi78e0958ZSB/bB
+ sOwfk3XSJGJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCawCdlhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJSJQ/9G2A1qfjkRgEgWSLvjqNuwV6AiYVbdcb
+ OnExHEAkvQ+C7cGpw8bpL7WKovivZZeIfX/ZWHLqnlFsE5pPXW+HWfGZSmxKgZ5N8DNGSioOvBe
+ F2i/BWh0EbgZSHWMf3LKUQZyxnUU0hf8pIEsl1iDBHLLgsvggEUisvVbrmCewSheK0D4mn3kZC1
+ b23jEXZPgjxLL+QXTNyddZD+ScwpFUqEPh6kzSMMuF1cgXmY4pKAK7Vep3XTl4skhtDckjyISJV
+ EOTlD/3rAkdgwUY4TQ7GkQU0BsQ1McUAmB/bMPYbQC2GIOEoiAFxJTsaPjBVhFD9wi7jgKv2e16
+ LpWyyjHF8MicAFnYmxiM2y3GQT+CRRPXFe8V8MCXQeqxqhxJ0MQMTqTKozSJA9cA1dxm3Hh6rth
+ mBTuvOub4Ytsy17W8IeqZodC99cDpLHtWKtg2AiTr3MeqUbmdIMiI2G1lKY51DOdiZmCSK6CTA4
+ EUapb4VqiaEgeaXHEruOmOhbpqsNM7lstdTwOekSiHeaG4ln4naujpm98BnkzQtZbMO+9/jVqkq
+ bG+fd+EPTqjcaZ1EAdXlxE2X1v6j3hqXLBkMbC3zJBX6Tqg4kpZ6BN/ziFPAWoKkulMVr+mliwW
+ tvXIN/xKcAtvJ49xs/5+iHiHRTIiUVRI1TbI4E7vziqaTmbnSwWU=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 
-The best way to sum up this controller is probably "misc". ZTE probably
-put everything they didn't bother to put in its own mmio area here.
-Documentation in ZTE's sources is very sparse and even the blobs only
-touch a handful of registers.
-
-The controller contains power controls, resets, DMA multiplexing,
-auxiliary USB phy controls, i2s controls, the proprietary DSP boot
-address and many others.
-
-For power controls I could confirm that the USB/HSIC and a GSM-related
-controls work. There are 5 bits mentioned in ZTE's kernel though and
-there is a second register that is used in a very similar fashion by the
-LTE blob.
-
-For the Ethernet PHY reset register there are 5 settable bits,
-but only one of them produces an understood effect. I am using
-reset-cells=1 because it is likely some of the other bits have an actual
-meaning.
+This controller has bits for USB, HSIC, EDCP (a cryptographic engine)
+and GSM. Not all of them work the way one might expect (see comments in
+the code), but they are there and can be set.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
 
 ---
 
-ZTE uses the name "SOC_SYS" in their downstream kernel. I am not
-particularly thrilled by that name, but couldn't come up with a better
-one yet. I am open to suggestions
-
-I do not want to commit to exposing the GSM related bits as power
-domains just yet, so no handle for them is defined in this binding. They
-are inside the RST/ISO/PWR registers just like their USB counterpart,
-but the PWR bit does nothing and the client driver will have to assert
-and deassert the reset to wake up the hardware. This is easier to do
-with a reset controller than a power domain. The ISO bit kinda works
-though, so I can't just pretend they are standalone resets.
-
-The hardware behind the GSM bits has a self-arming watchdog. After
-2.5ms it puts itself into a broken state and can only be recovered by
-asserting and deasserting the reset in socsys. Like almost everything on
-this board it is enabled on boot, so the client driver needs to assert
-and deassert the reset before touching it.
-
-How much documentation is appropriate in the binding .yaml? I want to
-document the identified registers *somewhere*, and since the yaml lives
-in Documentation/ I put it there. I do understand though if the Linux
-kernel doesn't want to be a backup SoC datasheet.
+For now this driver can only enable and disable the USB controller. I
+expect more LTE related power switches will be added later, but I don't
+want to commit to how I expose GSM and EDCP in the bindings just yet.
 ---
- .../bindings/soc/zte/zte,zx297520v3-socsys.yaml    | 100 +++++++++++++++++++++
- MAINTAINERS                                        |   1 +
- include/dt-bindings/power/zte,zx297520v3-socsys.h  |  11 +++
- include/dt-bindings/reset/zte,zx297520v3-reset.h   |   2 +
- 4 files changed, 114 insertions(+)
+ MAINTAINERS                                 |   1 +
+ drivers/pmdomain/Kconfig                    |   1 +
+ drivers/pmdomain/Makefile                   |   1 +
+ drivers/pmdomain/zte/Kconfig                |  15 ++
+ drivers/pmdomain/zte/Makefile               |   2 +
+ drivers/pmdomain/zte/zx297520v3-pm-domain.c | 286 ++++++++++++++++++++++++++++
+ 6 files changed, 306 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/zte/zte,zx297520v3-socsys.yaml b/Documentation/devicetree/bindings/soc/zte/zte,zx297520v3-socsys.yaml
-new file mode 100644
-index 000000000000..094409c72333
---- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/zte/zte,zx297520v3-socsys.yaml
-@@ -0,0 +1,100 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/zte/zte,zx297520v3-socsys.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ZTE zx297520v3 SoC miscellaneous system controller
-+
-+maintainers:
-+  - Stefan Dösinger <stefandoesinger@gmail.com>
-+
-+description: |
-+  This controller contains registers controlling numerous components of the
-+  zx297520v3 board. It is poorly documented by sources available from ZTE.
-+  Information about it has mostly been deduced by experimental testing.
-+
-+  The device contains power controls for USB and at least parts of the GSM/LTE
-+  stack, a reset control for the Ethernet PHY, DMA multiplexing, I2S controls
-+  and additional (beyond power) USB PHY and controller flags. To round it out it
-+  also contains a flag to bring up the SoC's Cortex A53 CPU in arm64 instead of
-+  arm32 mode.
-+
-+  The "include/dt-bindings/reset/zte,zx297520v3-reset.h" header contains reset
-+  defines for this device. "dt-bindings/power/zte,zx297520v3-socsys.h" contains
-+  the power domain defines.
-+
-+  The following registers are mentioned in ZTE's kernel and U-Boot code dumps:
-+  0x0:
-+    Bit 23: Boot ROM and sram2 remap
-+  0x20:
-+    Bit 13: A USB control "USB PHY COMMONONN", but without noticeable effect
-+  0x40:
-+    A mailbox system to read DDR mode registers
-+  0x60:
-+    I2S configuration
-+  0x10c, 0x110, 0x114:
-+    Power domain controls: RST (Reset), ISO (Bus isolation) and POWERON. ZTE
-+    names devices "RAM", "DSP", "EDCP", "USB" and "HSIC".
-+  0x120:
-+    DMA channel multiplexing
-+  0x150:
-+    Ethernet PHY reset
-+
-+  The following registers are used in ZTE's power management and LTE blobs:
-+  0x14:
-+    Likely the ZSP rproc entrypoint
-+  0x180, 0x184, 0x188:
-+    Likely more power domain controls for LTE hardware
-+
-+  The following have been deduced by testing:
-+  0x20:
-+    USB PHY and DWC2 controller controls:
-+      Bit 0: Force PHY into USB 1 mode
-+      Bit 1: Unknown
-+      Bit 2: DWC2 controller endianness
-+      Bit 3: DWC2 DMA endianness
-+      Bits 7:4: PHY clock adjustments
-+      Bits 9:8: PHY electrical configuration. Setting them both to 1 allows
-+                operating in host mode.
-+  0x24:
-+    More USB controls of unknown nature
-+  0x2c:
-+    HSIC controls mirroring the USB controls in 0x20
-+  0xbc:
-+    A53 mode controls. Setting bit 0 enables arm64 mode, others have no observable effect
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: zte,zx297520v3-socsys
-+      - const: syscon
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#power-domain-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/power/zte,zx297520v3-socsys.h>
-+    #include <dt-bindings/reset/zte,zx297520v3-reset.h>
-+
-+    syscon@140000 {
-+        compatible = "zte,zx297520v3-socsys", "syscon";
-+        reg = <0x00140000 0x400>;
-+        #power-domain-cells = <1>;
-+        #reset-cells = <1>;
-+    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 9b6a2da28aa5..ab8797b8d0a5 100644
+index ab8797b8d0a5..e394e0044f1f 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -4033,6 +4033,7 @@ F:	Documentation/devicetree/bindings/arm/zte.yaml
- F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-lspcrm.yaml
- F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
- F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
-+F:	Documentation/devicetree/bindings/soc/zte/zte,zx297520v3-socsys.yaml
- F:	arch/arm/boot/dts/zte/
+@@ -4038,6 +4038,7 @@ F:	arch/arm/boot/dts/zte/
  F:	arch/arm/mach-zte/
  F:	drivers/clk/zte/
-diff --git a/include/dt-bindings/power/zte,zx297520v3-socsys.h b/include/dt-bindings/power/zte,zx297520v3-socsys.h
+ F:	drivers/mfd/zte-zx297520v3-crm.c
++F:	drivers/pmdomain/zte/
+ F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
+ F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
+ F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
+diff --git a/drivers/pmdomain/Kconfig b/drivers/pmdomain/Kconfig
+index 5341dff669be..d5050c22f064 100644
+--- a/drivers/pmdomain/Kconfig
++++ b/drivers/pmdomain/Kconfig
+@@ -21,5 +21,6 @@ source "drivers/pmdomain/tegra/Kconfig"
+ source "drivers/pmdomain/thead/Kconfig"
+ source "drivers/pmdomain/ti/Kconfig"
+ source "drivers/pmdomain/xilinx/Kconfig"
++source "drivers/pmdomain/zte/Kconfig"
+ 
+ endmenu
+diff --git a/drivers/pmdomain/Makefile b/drivers/pmdomain/Makefile
+index d7aee13ae571..cc3cc7b3d1c2 100644
+--- a/drivers/pmdomain/Makefile
++++ b/drivers/pmdomain/Makefile
+@@ -19,4 +19,5 @@ obj-y					+= tegra/
+ obj-y					+= thead/
+ obj-y					+= ti/
+ obj-y					+= xilinx/
++obj-y					+= zte/
+ obj-y					+= core.o governor.o
+diff --git a/drivers/pmdomain/zte/Kconfig b/drivers/pmdomain/zte/Kconfig
 new file mode 100644
-index 000000000000..fb54e5deea2a
+index 000000000000..cc329d085e5a
 --- /dev/null
-+++ b/include/dt-bindings/power/zte,zx297520v3-socsys.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++++ b/drivers/pmdomain/zte/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config ZTE_ZX297520V3_PM_DOMAIN
++	tristate "ZTE zx297520v3 pm domain"
++	depends on HAS_IOMEM
++	depends on PM
++	depends on MFD_ZTE_ZX297520V3_CRM || COMPILE_TEST
++	default SOC_ZX297520V3
++	select PM_GENERIC_DOMAINS
++	select MFD_SYSCON
++	help
++	  Say y to enable the power domain driver for ZTE zx297520v3 boards.
++	  This driver is necessary to enable the USB hardware found on this
++	  board. Say y or m if you are building a kernel for a zx297520v3 based
++	  device and plan to use its USB capabilities.
+diff --git a/drivers/pmdomain/zte/Makefile b/drivers/pmdomain/zte/Makefile
+new file mode 100644
+index 000000000000..8a4185f48ff3
+--- /dev/null
++++ b/drivers/pmdomain/zte/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_ZTE_ZX297520V3_PM_DOMAIN)	+= zx297520v3-pm-domain.o
+diff --git a/drivers/pmdomain/zte/zx297520v3-pm-domain.c b/drivers/pmdomain/zte/zx297520v3-pm-domain.c
+new file mode 100644
+index 000000000000..3df4cd5f1b22
+--- /dev/null
++++ b/drivers/pmdomain/zte/zx297520v3-pm-domain.c
+@@ -0,0 +1,286 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright (C) Stefan Dösinger
++ * Copyright (C) 2026 Stefan Dösinger
++ *
++ * This driver controls power domain registers found on the ZTE zx297520v3 board. The USB and GSM
++ * controllers are controlled from here.
 + */
 +
-+#ifndef __DT_BINDINGS_POWER_ZTE_ZX297520V3_SOCSYS_H
-+#define __DT_BINDINGS_POWER_ZTE_ZX297520V3_SOCSYS_H
++#include <linux/delay.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pm_domain.h>
++#include <linux/regmap.h>
 +
-+#define ZX297520V3_PD_USB	0
++static const struct {
++	const char *name;
++	u32 reg;
++	u32 mask;
++} power_domains[] = {
++	/* ZTE's kernel defines the following power controls in 0x10c-0x114:
++	 *
++	 * Name			Bit
++	 * GSM_RAM		0
++	 * GSM_DSP		1
++	 * EDCP			4
++	 * USB_CTRL		8
++	 * USB_HSIC		9
++	 *
++	 * But the names are wrong/misleading.
++	 *
++	 * For USB, bit 9 appears to control both HSIC and USB, except for the isolation register,
++	 * where setting either bit 8 or bit 9 zeroes both of their address space. So we expose
++	 * one power domain that controls both bits.
++	 *
++	 * Bit 1 isolates and resets the mmio area from 0xf4000000-0xf7000000. The device behind it
++	 * is an Infineon PMB887x GSM controller derivate. The power bit doesn't appear to turn it
++	 * off, and it remains unset by the stock firmware. The reset works and the driver for this
++	 * hardware needs to assert and deassert it to wake it up on boot. The isolation bit 1
++	 * works, but only once the GSM hardware is properly booted - if the GSM chip doesn't
++	 * respond, and isolation is enabled, attempts to access this area nevertheless stall the
++	 * bus.
++	 *
++	 * Bit 0 controls the TeakLite DSP on the PMB887x.
++	 *
++	 * The functionality of bit 4 is not understood yet. The "EDCP" hardware seems to be a
++	 * cryptographic engine implementing PDCP and some hash functions.
++	 */
 +
-+#endif /* __DT_BINDINGS_POWER_ZTE_ZX297520V3_SOCSYS_H */
-diff --git a/include/dt-bindings/reset/zte,zx297520v3-reset.h b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-index b21d5901a7b9..7146e479695a 100644
---- a/include/dt-bindings/reset/zte,zx297520v3-reset.h
-+++ b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-@@ -59,4 +59,6 @@
- #define ZX297520V3_TIMER_L11_RESET		16
- #define ZX297520V3_TDM_RESET			17
- 
-+#define ZX297520V3_ETH_PHY_RESET		0
++	{"usb",		0x10c,		BIT(8) | BIT(9)},
 +
- #endif /* __DT_BINDINGS_RESET_ZX297520V3_H */
++	/* There is a separate set of registers in 0x180 - 0x188 that accepts 4 bits (0, 1, 6, 7)
++	 * and is controlled by the cpko.ko blob in the same way as 0x10c-0x114 is controlled by
++	 * the USB driver: LTE on: Set *0x188=0xc3 and the others to 0. LTE off: Set 0x188 to 0 and
++	 * the others to 0xc3. It is therefore likely that up to 4 more devices can be powered on
++	 * and off in these registers.
++	 */
++};
++
++struct zx29_pm_domain {
++	struct generic_pm_domain	gpd;
++	struct regmap			*map;
++	unsigned int			domain;
++};
++
++#define REG_RST		0x0
++#define REG_ISO		0x4
++#define REG_PWR		0x8
++
++static inline struct zx29_pm_domain *to_zte_pm_domain(struct generic_pm_domain *domain)
++{
++	return container_of(domain, struct zx29_pm_domain, gpd);
++}
++
++static int zx29_pd_on(struct generic_pm_domain *domain)
++{
++	const struct zx29_pm_domain *zx29_pd = to_zte_pm_domain(domain);
++	u32 mask = power_domains[zx29_pd->domain].mask;
++	u32 reg = power_domains[zx29_pd->domain].reg;
++	int res;
++
++	dev_dbg(&domain->dev, "Power on\n");
++
++	res = regmap_set_bits(zx29_pd->map, reg + REG_PWR, mask);
++	if (res)
++		goto error;
++
++	/* The 10 microsecond delay is from ZTE's dwc2 USB driver integration */
++	udelay(10);
++
++	res = regmap_clear_bits(zx29_pd->map, reg + REG_RST, mask);
++	if (res)
++		goto error;
++
++	udelay(10);
++
++	res = regmap_clear_bits(zx29_pd->map, reg + REG_ISO, mask);
++	if (res)
++		goto error;
++
++	return 0;
++
++error:
++	/* Power the device off and isolate it from the bus (reads from an unpowered, unisolated
++	 * device can stall the CPU), but don't forcefully reset it.
++	 */
++	dev_err(&domain->dev, "%s: Power on failed: %d\n", domain->name, res);
++	regmap_set_bits(zx29_pd->map, reg + REG_ISO, mask);
++	regmap_clear_bits(zx29_pd->map, reg + REG_PWR, mask);
++	return res;
++}
++
++static int zx29_pd_off(struct generic_pm_domain *domain)
++{
++	const struct zx29_pm_domain *zx29_pd = to_zte_pm_domain(domain);
++	u32 mask = power_domains[zx29_pd->domain].mask;
++	u32 reg = power_domains[zx29_pd->domain].reg;
++	int res;
++
++	dev_dbg(&domain->dev, "Power off\n");
++
++	/* If isolation fails, abort. The device should still be operational as far as the pmdomain
++	 * settings are concerned. If isolation failed, asserting reset or powering it down leaves
++	 * the mmio space in a dangerous state: Attempting to access it will stall the CPU forever.
++	 *
++	 * If later steps fail, consider the device off. It won't work without removing isolation.
++	 */
++	res = regmap_set_bits(zx29_pd->map, reg + REG_ISO, mask);
++	if (res) {
++		dev_err(&domain->dev, "Bus isolation failed: %d\n", res);
++		return res;
++	}
++
++	res = regmap_set_bits(zx29_pd->map, reg + REG_RST, mask);
++	if (res)
++		dev_err(&domain->dev, "Device reset failed: %d\n", res);
++
++	res = regmap_clear_bits(zx29_pd->map, reg + REG_PWR, mask);
++	if (res)
++		dev_err(&domain->dev, "Power off failed: %d\n", res);
++
++	return 0;
++}
++
++static int zx29_pd_attach_dev(struct generic_pm_domain *domain, struct device *dev)
++{
++	/* The DT link to the consumer targets the (MFD) parent, which doesn't prevent unbinding the
++	 * this driver or removing the module. Either would leave the consumer with a dangling
++	 * reference.
++	 */
++	if (!device_link_add(dev, &domain->dev, DL_FLAG_AUTOREMOVE_CONSUMER))
++		return -ENOMEM;
++
++	return 0;
++}
++
++static int zx29_pd_is_on(const struct zx29_pm_domain *zx29_pd)
++{
++	u32 mask = power_domains[zx29_pd->domain].mask;
++	u32 reg = power_domains[zx29_pd->domain].reg;
++	int res;
++	unsigned int val;
++
++	/* To consider a domain on, PWR must be set and RST and ISO cleared */
++	res = regmap_test_bits(zx29_pd->map, reg + REG_PWR, mask);
++	if (res < 0)
++		return res;
++	if (!res)
++		return 0;
++
++	res = regmap_read(zx29_pd->map, reg + REG_ISO, &val);
++	if (res < 0)
++		return res;
++	if (val & mask)
++		return 0;
++
++	res = regmap_read(zx29_pd->map, reg + REG_RST, &val);
++	if (res < 0)
++		return res;
++	if (val & mask)
++		return 0;
++
++	return 1;
++}
++
++static void zx29_pd_release_provider(void *data)
++{
++	struct device_node *of_node = data;
++
++	of_genpd_del_provider(of_node);
++}
++
++static void zx29_pd_remove_domain(void *data)
++{
++	struct generic_pm_domain *genpd = data;
++
++	pm_genpd_remove(genpd);
++}
++
++static int zx29_pd_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *of_node = dev->parent->of_node;
++	struct genpd_onecell_data *zx29_pd_data;
++	struct generic_pm_domain **domains;
++	struct zx29_pm_domain *zx29_pd;
++	struct regmap *map;
++	unsigned int i;
++	int res;
++
++	map = device_node_to_regmap(of_node);
++	if (IS_ERR(map))
++		return dev_err_probe(dev, PTR_ERR(map), "Cannot get parent syscon regmap\n");
++
++	zx29_pd = devm_kcalloc(dev, ARRAY_SIZE(power_domains), sizeof(*zx29_pd), GFP_KERNEL);
++	if (!zx29_pd)
++		return -ENOMEM;
++
++	domains = devm_kcalloc(dev, ARRAY_SIZE(power_domains), sizeof(*domains), GFP_KERNEL);
++	if (!domains)
++		return -ENOMEM;
++
++	zx29_pd_data = devm_kzalloc(dev, sizeof(*zx29_pd_data), GFP_KERNEL);
++	if (!zx29_pd_data)
++		return -ENOMEM;
++
++	for (i = 0; i < ARRAY_SIZE(power_domains); i++) {
++		zx29_pd[i].gpd.name = power_domains[i].name;
++		zx29_pd[i].gpd.power_off = zx29_pd_off;
++		zx29_pd[i].gpd.power_on = zx29_pd_on;
++		zx29_pd[i].gpd.attach_dev = zx29_pd_attach_dev;
++
++		zx29_pd[i].map = map;
++		zx29_pd[i].domain = i;
++
++		domains[i] = &zx29_pd[i].gpd;
++
++		res = zx29_pd_is_on(&zx29_pd[i]);
++		if (res < 0)
++			return dev_err_probe(dev, res, "failed to read initial pmdomain state\n");
++
++		dev_dbg(dev, "%s: %s\n", power_domains[i].name, res ? "on" : "off");
++
++		res = pm_genpd_init(&zx29_pd[i].gpd, NULL, !res);
++		if (res)
++			return dev_err_probe(dev, res, "failed to init power domain\n");
++		res = devm_add_action_or_reset(dev, zx29_pd_remove_domain, &zx29_pd[i].gpd);
++		if (res)
++			return dev_err_probe(dev, res, "failed to add pm_genpd release callback\n");
++	}
++
++	zx29_pd_data->domains = domains;
++	zx29_pd_data->num_domains = ARRAY_SIZE(power_domains);
++
++	res = of_genpd_add_provider_onecell(of_node, zx29_pd_data);
++	if (res)
++		return dev_err_probe(dev, res, "Cannot register power domains\n");
++
++	device_link_add(dev, dev->parent, DL_FLAG_AUTOREMOVE_CONSUMER);
++
++	dev_dbg(dev, "zx297520v3 power domain initialized.\n");
++
++	return devm_add_action_or_reset(dev, zx29_pd_release_provider, of_node);
++}
++
++static const struct platform_device_id pmdomain_zx297520v3_ids[] = {
++	{
++		.name = "zx297520v3-socsys-power",
++	},
++	{ }
++};
++MODULE_DEVICE_TABLE(platform, pmdomain_zx297520v3_ids);
++
++static struct platform_driver zx297520_pd = {
++	.probe = zx29_pd_probe,
++	.driver = {
++		.name = "zx297520v3-power-domain",
++	},
++	.id_table = pmdomain_zx297520v3_ids,
++};
++module_platform_driver(zx297520_pd);
++
++MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
++MODULE_DESCRIPTION("ZTE zx297520v3 power domain driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.56.1
