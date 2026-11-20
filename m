@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147201;
-	b=t2NIkk/FswmuhVXxtc5lJSgS10cAMcmea94Dmx7qAk3HnUlgQOdHTYg6DUMng9ktO7DE
-	 VUy6bad0GutgZLwGHR2avhB7UCrejp1tIXShyLGbil9O/DRiPzAXJPhHmP7y/6qyEgPtc
-	 cC4+/4URAZHZvAOXc0ZiZ/rtz2PE95OMQUKlIbN0Tt7P0vJxFI/p8pK/6NfOKMx1yqqAo
-	 8e7dxr5Mg3mUAFqnLMIzTA2/CusUgRhstkjEsMSp5UETSioB3IpTKwsZcHx6Ph2j6Pd34
-	 oHxUqGBpeS6ZV4jF7jKuGgMdVQZUbpRjB+ow7UePAhzCvz4FVZw2xowKwt5P952zhnA==
+	t=1795147205;
+	b=w17RroNOuajY2H2i1QwsmqnyTKZS9CDW3DVJiMcbzTUSWt9KJjTwhI57Caln0rSjY3eE
+	 t47SeRElAxts8HvvNQdan+3PG0nGEa9lormJ7kIoO2rz0c9P2yLP0F46VoCuO/aarCY2s
+	 8RIL+cnIEUGPoQfoF9SIcplZwcqreiFKe41VjwE0Sk3eGxo2Ww4l557BJza1vG93mLVYK
+	 nfa8sYMOxJKu66FgFbOlfUzUxAiky7whHnrx2xA34kjRVsWPyA4kocDbyMS/EOFEu5oiu
+	 8nE5pDAPWBJ96tNFlmtdlPVGNcmdmFZ/ct38dPYuIKyktJMZilT+jak9rIWP1WqHJdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147201;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147205;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
-	b=NvR/8G+WjMasenIfqm74Nf6xny8Cb23mWRiakTVa+xe4h1YCAMaSaHGJirFiVICDCLvS
-	 XqoOPfONrwdZkGxipJC85Kn+NZaGWBkZUGfL9oy7tkOF4xXxX18bLl4N/Ymh/OGZ9FHcM
-	 Me2C/Rm+YZYTQ6PG5IX8XWMCnbt6Rq/CYjzh7SE8nBFnbQYt1zU59uaOfeWnm/cDDPkjv
-	 tFka41qwb7uicrhaJzg63D4CYtL043v18n/KJCCmPJvOkNou/nz7tCDqC/TRcLl8nb9Rz
-	 1mJEck9stwo1q6zGL9qEh8pkEn3mTHmbHviFgiIk/ra1vIFQwD9DckSTGrXbFb5U1VQ==
+	bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
+	b=sAZZ3P1wEMSc+VLYcRvdJR0VAwsnjgpJRKWO8vxyYZKi8HTtI7WPpHMHJ6E8H12Kx67M
+	 XX8qDYVD8v0jb+oXRU7K/1ixZ5WB0OPFhA0lCtj/GH6YoDZ5V46fCDHXoLvPYt0wOL7Or
+	 z30dqpX1gjZ/VUdrsv9+ILtNsL+/8JmambCOv/1DvxVNE+OY3PykGuX/ZK9hmd3+artdf
+	 lkM68AUMI2VNbKpKeFwuT3HszrSB3KZXEYSxqvHfIqbmQuJtyFhDcz6W8otf62mmj0ZKL
+	 94dAfxCsoLm0XeD+StQ52ofTwfwuW1D9FwR833pcoM0ji/0tyxkaXkWSsdcJQbiC4Pw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pv9tEZFT;
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MIk7AYxl;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05EEA606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:59:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05EEA606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1DB9606A338
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:00:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1DB9606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pv9tEZFT
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f045b921caso872835ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:59:59 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MIk7AYxl
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2efd7259872so2668595ad.2
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:00:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147199; x=1795751999; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795147204; x=1795752004; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
-        b=Pv9tEZFTlOfAj6PbvGp6C32fm5LFFqJO/T6RHjukvgU86yMpRPRomGOyjxNHHEA/m3
-         4/5y2hMUew54Vvk+lyRATXii4GLdpAmhjIMt/pis0HHU7aMbGiaA4Bmxk3nHn8ro5cQb
-         D0Tff6ZDs0jG+RUwuXQOWChPlgNqEBSdWV70drN4a0KOgoejiwxwctXytEsLIa9Gzv6u
-         0tl2hd0A/wAku1xfmdsGRzoani1xTexThyDrCzmuLoCYM7YVFdXdeF1/hcLJnVFuE75W
-         EPKM2kQ6qyz7b6IxHJvyi2QpMmatMNcxt/9XeLfItTYrFxyA3ho+EQ50FuMGq9TRFhHv
-         1zGA==
+        bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
+        b=MIk7AYxlubAGO5iF6xq1gJSK8bb6mnscfLO44jNUU+Pphz1Xnz/cCtER7nlvxICf/J
+         4sCMYbD7Qh5UgNzCoryZYhxnpCzBmo/w+HNg+LAGmsdfFTPj+Jyn0DjVQnx9RYEvorOa
+         vUEdGPUURLAcQqngaNteUwcy4L/i2i7IdLaW64hcPhIVG0rR1Dy4M3Nbl6ZnLUSyeDBw
+         /mcdjp/4ow8cJr0aHRyuQ9qY+kpCFQOC88V0n180NhH/+gEEd/wkpikG3G3UmoCMOZ6m
+         apAcSttUCPPmTH+64TmEh/THTTPya2LtUs/8xDxIEVF1j0DEeCl3ictl37Vq1+dInU6m
+         8bvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147199; x=1795751999;
+        d=1e100.net; s=20260707; t=1795147204; x=1795752004;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
-        b=Waka/WgBw0jDvb2NkF9oRLqMMGczsJV+Kd1cRHffKChPozrB6HlIiTNV+mz+TExf+5
-         /7Ww3F/UK0R5iENekoSXOX9sHhyO4fnJ3M/yC80wCV/oyXcyBRfNnt9gov4sfnqcSGpP
-         xn4opC0foo47wSZKDMG6UYwpZ/m0BsAFMelahlfLLSPGcVQCQD9U5BDRodSN89QYLsoJ
-         DGQAfu0tzmEzR7Q0WfO3bOT2XmCnyRr2i4FrUqIoOMAbsN3FxAMIaHcLexc9WT2WMoCa
-         mL1H+rGyvLwsGCjgY3vLOlpwNp0WPb9UYTQCAU+oQoccjz3D1eVaCY1GkkMa+i+AP2YS
-         CVNw==
-X-Forwarded-Encrypted: i=1; AL+hErF8HSYKHLghe/j+1nK4gWCXKdM3r3q1O+Y72SKFn1lUiTGb3nFDt3eh1ouzLfG1BHOxWx2heb3lhVLsSFY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8j1aow8teg252stuP/hyrsQLvHXLoVPhCHRKb3tX3IBqZFJHZP
-	fDeNYGtyhj5X1Lk3cz+lkx9qyni24pD8Pz6BlrktYE5C0i9o84QvBMi/
-X-Gm-Gg: AZFdTZeKwDw3fBvr+x9c30MfpYK3K41W3asT3wKueMHJi5oCIdXrHs6o2hxhCg2M00B
-	DjyzFj3/M1VFH/oiEDKs3stR/mZzHsCj6F1o1fUOc4/g1xkoIVqml29hnKdCX62eGCU+UL/nGQP
-	UsCfndMROduAazmJ4v6T48cv/Oars8nAyZjX2XHk6av8TTRRL2sEV8GE4mwsL7lIvnbL64StGfd
-	4aUfWsL7q+zaYn7xOKXGrrxY4P5V5ku9mgOOVscvuCQYaE+OXktWxwAiyHXl+F5BZdhT40rxVAr
-	FL6hAJjhSDNwtwTHhetaRaBuFUrIQfOlqbZwUmSWlWcrUjxtv/2a0debc3/cSW8jDFJv9yz5OB/
-	xR3S6pTv6q3dsJRcFZd3fU3ciBSgdTpYqjrRhFYfGFDdz0gQIsHBwoOVrDZ1+GRDAx087U3l2v4
-	jaTxhhJQ3vCmF8t93w0XwId6PodKUc00M9hy4L+dx5Hlm4PaLqr0sWgKJws5dfL28vfZk5+PfOR
-	HeiGCtcKgWVtZNzBgqo2s0dw4nIK1CcYkQHe+1d/5L/+ZfyZpe6yLrMEHCtbAFJa4SnQUFUj646
-	QgKcxEywD/41YAibN9tyqlrCooC3lzAZQ+Tplj7GTQdgFNQG1wWeVzvP4EYUwu5t/Lyo1zSjfvn
-	O/Gpr+8ZgUy13KJz1NLN6zCOtryrtfa2q4bPaNvVcy1MR
-X-Received: by 2002:a17:903:19cb:b0:2ed:2afa:9221 with SMTP id d9443c01a7336-2f03f1707f5mr19772845ad.27.1795147199236;
-        Thu, 19 Nov 2026 19:59:59 -0800 (PST)
+        bh=3o8lIoxd/J68fTCxNjKUOwU7KIWlfdsl4McX0KjPG74=;
+        b=LfXPMAc7RbjuVoNNMIwkc2nqWazl9LTNd5WH21or0d7aC8V+JptZcbHEqxfeOZVa7u
+         gorIQE4fCaILTMixSoUgh3RiPYEPTzeXdDPtMjRkjPmsauMJ83Zpdwu6k2tr/76B0uQd
+         k+9a+jhELJanGvpq/N7yMYnQl+PkRhZDGbWvPP9KutHQ+OyxqtzGebxO7tuTx4PJwMQs
+         mjypUCs86oP0RqSxPel1lVYb0gg19rpslOfRuf2J3SeIm4a0rydaJZfajAlvhQQDnLzJ
+         9M9xuhHEMMHH/vg1gQYxorW0UT4OXpymkWYCPVtWC/tN+WVMX61tqLmxwabhH7xOgT8g
+         GCZw==
+X-Forwarded-Encrypted: i=1; AL+hErHo4QW3jZlhJEAuRMo53lQTApb1vRmqqnRZChJATxiXk7uhX+jP+EWqkAPmhkSo/CbUCckrRNvoGJCi5+M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z98SSfGyLkPfwjbEla/mHR7w0LU++pclg8nErBHzaCmdnxk0Pvb
+	0i9DvIl+7yeOl7uFIFQx9gVn5EkWaJzUtSue1+eUVL8YeBD7KZJX7pFR
+X-Gm-Gg: AZFdTZfzf522FUCuUUh9NKtZLvF2FNXbH0eVtFY7SeuLFI/7l+JZGWkrMgO7twcysEA
+	NtnC5Qe+BO/28nrZLpWjNAxCIDI/k1kiOMkdZQOY67JaV2kFQpC5p5O69hRMC2Bruy31iPRkToi
+	vU0zluhGHxMYrPdl914VGI1NpLqQ94QSsCDVJIGErM81p8Cz0VX7F4DsLJOrzNMJCj50cGo+G9I
+	JT2TG8q1QKXClYcudrqwcD+ZdwlmgSaHaGmDC4FNjQJdcbS5XzRm49MOFZXfn5QMGaFdO+fNc3/
+	lIlv9Crx/OjFCSED4RA9PtVH8EehvHisFnwGpLBBc5d3P4FoXfrigaGZUgIOJGXAoSQn7mGAUFq
+	RJIeND7kzwiRWEHYajouZcJl92nTeIzh64cc3j/B00VjubSASLj/BbLNW4jhh5IUOY0lYb0rq0D
+	1itKxjQZx2dF9h95RAzwjAkIMpDv0RR778ZNAGSt8IN9Hev2WJQwEDN8SkvW/f+t/J5OCY+F/Bt
+	vmdzo0QXp+2nrQfPb2biPOfh5RE7rvLBwEEc+pm9PqPL8/IE92oDBhnN2pSctknAYsytdd6aHrU
+	pPYWMMUKdyCjJVQGD2pCv7vSTSSAofzbjQk9VjRkQ+qTsAQs5GaaJPlM6hU7Il+rOeIOEW5XX9M
+	Lnnpa3T9jThuHGX4tKl26dEs/lcKVNl8n10vDNLQd+lgW
+X-Received: by 2002:a17:903:22c8:b0:2ef:dc24:c71f with SMTP id d9443c01a7336-2f03f2980f4mr21004545ad.56.1795147204267;
+        Thu, 19 Nov 2026 20:00:04 -0800 (PST)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm7801115ad.63.2026.11.19.19.59.56
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm7801115ad.63.2026.11.19.20.00.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 19:59:58 -0800 (PST)
+        Thu, 19 Nov 2026 20:00:03 -0800 (PST)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
@@ -92,9 +92,9 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [RFC PATCH 1/2] ASoC: atmel: mchp-spdifrx: Fix 16-bit big-endian format check
-Date: Fri, 20 Nov 2026 10:59:38 +0700
-Message-ID: <20261120035939.12774-2-phucduc.bui@gmail.com>
+Subject: [RFC PATCH 2/2] ASoC: atmel: mchp-spdifrx: Preserve MR defaults in hw_params
+Date: Fri, 20 Nov 2026 10:59:39 +0700
+Message-ID: <20261120035939.12774-3-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261120035939.12774-1-phucduc.bui@gmail.com>
 References: <20261120035939.12774-1-phucduc.bui@gmail.com>
@@ -111,41 +111,39 @@ Content-Transfer-Encoding: 8bit
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-MCHP_SPDIF_FORMATS advertises SNDRV_PCM_FMTBIT_U16_BE as a
-supported format, but mchp_spdifrx_hw_params() checks for
-SNDRV_PCM_FORMAT_S16_BE instead.
+hw_params() overwrites the entire MR register, clearing the
+VBMODE and SBMODE bits configured in dai_probe().
 
-Replace SNDRV_PCM_FORMAT_S16_BE with SNDRV_PCM_FORMAT_U16_BE
-to make the format check consistent with the advertised
-supported formats.
+Use regmap_update_bits() to update only the ENDIAN and DATAWIDTH
+fields, preserving the other MR bits.
 
-Fixes: ef265c55c1ac ("ASoC: mchp-spdifrx: add driver for SPDIF RX")
+Fixes: fa09fa60385a ("ASoC: mchp-spdifrx: fix controls which rely on rsr register")
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
 
 Note: 
-The SAMA7G5 datasheet does not explicitly document support for
-16-bit and 20-bit big-endian samples. This change only makes
-the format check consistent with MCHP_SPDIF_FORMATS.
-Hardware testing on SAMA7G5 is needed to confirm whether these
-formats are actually supported.
+Hardware testing on SAMA7G5 is needed to verify this change.
+If the current full-register write is intentional, the issue
+may instead be in the default MR configuration in dai_probe().
 
- sound/soc/atmel/mchp-spdifrx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ sound/soc/atmel/mchp-spdifrx.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
-index 632da8d7bc81..06a2a5a90a63 100644
+index 06a2a5a90a63..e37470165717 100644
 --- a/sound/soc/atmel/mchp-spdifrx.c
 +++ b/sound/soc/atmel/mchp-spdifrx.c
-@@ -455,7 +455,7 @@ static int mchp_spdifrx_hw_params(struct snd_pcm_substream *substream,
- 	}
+@@ -502,7 +502,9 @@ static int mchp_spdifrx_hw_params(struct snd_pcm_substream *substream,
+ 	dev_dbg(dev->dev, "GCLK range min set to %d\n",
+ 		params_rate(params) * SPDIFRX_GCLK_RATIO_MIN + 1);
  
- 	switch (params_format(params)) {
--	case SNDRV_PCM_FORMAT_S16_BE:
-+	case SNDRV_PCM_FORMAT_U16_BE:
- 	case SNDRV_PCM_FORMAT_S20_3BE:
- 	case SNDRV_PCM_FORMAT_S24_3BE:
- 	case SNDRV_PCM_FORMAT_S24_BE:
+-	ret = regmap_write(dev->regmap, SPDIFRX_MR, mr);
++	ret = regmap_update_bits(dev->regmap, SPDIFRX_MR,
++				 SPDIFRX_MR_ENDIAN_MASK | SPDIFRX_MR_DATAWIDTH_MASK,
++				 mr);
+ 
+ unlock:
+ 	mutex_unlock(&dev->mlock);
 -- 
 2.43.0
 
