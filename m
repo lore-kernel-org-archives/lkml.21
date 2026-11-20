@@ -1,61 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795151238;
-	b=IxbVwi4RTO5uXs08ZAAt05Wcl6Y0iDTbJJQi3gd1P8KmBi4ecDcDKaQpNeSTMR25ZCG3
-	 kUIoDbrN00I1FUhlMPCpgsCT69uFphQcwcc8HWlbKWqsthnDvfqLemyL24o255/+szIHh
-	 qoAXXgyavGhtoVxWk5hCbI96dv4QfgDO1wBDAFCA+8p5k6a9GKVClyihIcjmH+SYBbWAP
-	 t97nEwCLJZWZJE2CUCYWdgrRYfHF4ZpV+RlFZyTGZL02ds4IlX1IIYgNP077Ps+JOZxsz
-	 oRjmUr55MXzV9QaJuF8c1FhJGQuD3+j6N7pFJFiSWDdxiMCPk3N1T8AL42CQvnrvQQA==
+	t=1795151325;
+	b=BO9sWPHHsOCkIb8gYeDFaxDwxx3MUQU/GDyTE5HC48wDZB9mpYqb8DfYX79yeml28lYH
+	 MvIikdy3Wohbw4zlVr4IQCWLOABkfsEvINDUoUxHOtvnJyVttgXmH+1m+QiqA0t0zSMz+
+	 asdHmALE+L65ZVwjXzKwN6DXT2PD5Y4Rpqsbo4xA+u1B+B36a5T4HZZWsyyw4QpgtH1rf
+	 J84hKmu+jZNpSgRnB2hfRK550YaPWoI/sZzQqyKt9aGcYYiZcypx7XxM/wb7b/pzhQTzZ
+	 h/t+ZKTg+3Z4GUuQ48vV7l8A/p0raoeoqoSld7uBEKUkTNVEDmQTgEQJIxKsw5XYojg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795151238;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=r7ro0o9mchZpsV5Fg9CWlcyIAXb1X25O0eU4eBlOp58=;
-	b=eKWNLWHNUHS2iHMrKvWPqSqC8Djhqt+IHDtc/RywEN0lyjWLTOV+Dw1Z/7vdrcHWvRSO
-	 HZyBSvbjt/9veKELXMgM/246DL7Lzc03jb8vcRSBWuqLJm361sDs+lJ3bWym1OJrkowN6
-	 qOaC2aIMUt7nOXwaHfZwN0AtKumTEc/Vzidm0TQY8wamtgH310H/fQf7rwC74gntPDw7K
-	 ziB3NIFiMARglFVcdAMVOBzel/3BdJnLm3LDK6j46bhjw2yndKoKhtRWvJZNvZDXqKu+P
-	 udcpIDkhBl5AGTr2cab0ff7LtBbAkiq92bXBSQm4DHTX/fyKagcgNg4S2RYiyLqeH/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795151325;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=dJ3qLBYattYfDuWuotFyeF89FeAbvQLDg4xUYhMHPLk=;
+	b=oTG+OdwDHiePYs+8pyk3FFq3WRgUpFtEXvXUTsIYODkf2OEtIJOcXL7CETQnRxLSy6XV
+	 d5eN7KPYC8/4RSZmFqkhBbk8rg1pPfF2fKuvXrUgJPpaDt2YXjhgc5a966dxP3wSADdtD
+	 yyC7e8Ce318XWVmrXExGEALSuQaLeHOneDG2Z6rBk9B13PEL866NQO9NMVjv2s/z+huuA
+	 x53otgvhQiIbZ9rmMad/bJ1NbIEnYSN1Ibjxqo6K7Ni+nfeGDIk1UHOUAmHQGPgHKYdCW
+	 gwBAHwYRehoyAkDEn4SAiSQeSyMITisIbX1E7dzvaMmZZ3+cBFvEXhxlicT7V7jUtRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz3ufiub;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySOdvT6L;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A54A5606A320;
-	Fri, 20 Nov 2026 05:07:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADBB3606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:08:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADBB3606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hz3ufiub
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97F941F000C6;
-	Fri, 20 Nov 2026 05:07:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795151238;
-	bh=r7ro0o9mchZpsV5Fg9CWlcyIAXb1X25O0eU4eBlOp58=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hz3ufiubOrS1q/kA51l0Rl9gPb0zk2h5llOQKiAfAWQtAZHFy3dVtiydjEa2BtJU8
-	 +j3WzyfXryfvdmq3pGpZaImD9KPw1K/RbVp7KoWgGuZ3boBd09Zerqm5zumOkK/w5w
-	 H2DIMSOfZKfITJXNVEJf5pWy1YVIjwGJWd1RcQgzZ9Qsqbmr/xzywhy0LO1ZybcIsc
-	 CtES14qCSHSSbhZDUTUaP/NMRcArFyRzJ80DUPQGEwwZLV+vNrV9GrJsj9GT4/e11R
-	 0T0OUeahnqPoz0r6Qa8GwVp9uW6numOljQ1G0nYC0WE0TnBY5a8yABU7UilVXv20fN
-	 Wcn/W5gxcdKeA==
-Subject:
- Re: [PATCH net] bnxt_en: Fix auxiliary device leak on early probe failures
-From: netdev-bot+sashiko@kernel.org
-To: lcy8047@gmail.com
-Cc: michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, vikas.gupta@broadcom.com,
- andrew.gospodarek@broadcom.com, jacob.e.keller@intel.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 05:07:17 +0000
-Message-ID: <179515123717.3136.1891710789877841672@kernel.org>
-In-Reply-To: <20261118050716.3873167-1-lcy8047@gmail.com>
-References: <20261118050716.3873167-1-lcy8047@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ySOdvT6L
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-33fb4680717so1233173eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:08:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795151324; x=1795756124; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dJ3qLBYattYfDuWuotFyeF89FeAbvQLDg4xUYhMHPLk=;
+        b=ySOdvT6LJJsEWiqKG9X8EKRQElyfVvtGtzpk5tmXh3sKlmIeUom+b6c/lV9tW95ZHy
+         nnQ/45q6Co/MS87UrDtMt8U904T1p8jA7FCo0rYtkgYsIu8g0d7TOesI0n4lKXgFjnkB
+         9zMDmoNhyz3AQ0M/o9pplT87wTWHlcF3YNwD8nJRywAOqFzawGiL8LgsVw/y9cM6fZPQ
+         ciK2TdNtd7w+RGSAyIFhOKUZhpc/PyYBokUSmRMUrOGFoBGPp7LsX3zRYSc7ogVpD2cJ
+         dcbTT4P9n59wwDoYir9k1J4jAEDYoKsqAyV0C+J+5iCAfN0VIeQ+IRGk8/rZMV2YHB8F
+         EbbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795151324; x=1795756124;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dJ3qLBYattYfDuWuotFyeF89FeAbvQLDg4xUYhMHPLk=;
+        b=TFjNgBqczBGbvlrErE2cF9x2FCs/nZzdFI75QltBzFNdWdHzTf2w89awhGneZpRpl2
+         wy0CICd3YFjLT/YSwcm+XiisqnFSwaRGw1gyGzdmB9sJLfgGqym0ad1nwOu371b2giNG
+         qEEEdgx5xP/0o+u8l+zCo5HFVO59lYkUIrdr9IS/GSLFGoks4371cyGwhUdlsgn8RnsE
+         jP92YVs4cjiui96ovsqOgOovEKatD3AOn3TO33VC2iL1Sit1IudgADCwxLfDaUxeAjfD
+         /wu9AbsgLJ1UAEO7ZtD1q733gTP3wEFDP5mM/jEFDQN4OJk2MsvfcY9jf0zXVXX+kEvD
+         sdQA==
+X-Forwarded-Encrypted: i=1; AL+hErFw/8Jo5wh/rxSolW7n4Scl+RQrfPXCvUAgDeWdYK3EhAhqvy8/Ct2PBY7iHjjh8H4SJkrdh6uE7xYTjAE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hX7UZbCmu/YN/Chsv6T6KH6QNGRssfPy8ViZ34mLhRok5Fn4w
+	MnhKMUyTS+GOyQ9vtEJrF/5R2+zWKKQZx532Fere6mQIIo4SM+eO+rFjIiw6RA==
+X-Gm-Gg: AZFdTZef5uJ5FvawBqNqTQn+p7arFQvyDyy6FlqrgY7P6G1mAnJmxrS7wfq/HnSQh1y
+	E2ZNNkfeALZgfc4Ts7zznfV4rFxqxGbCTxJREF6f3Iw8kkP/2K2cUiFufolYjrTCplkcyUXcAU1
+	hqiqrigEul82l9ZyTKreNB86hOIba2JBaDKBt4fvrrO5Vza8QKNIXXKSVSwyAFGDr3hhiRYRfkS
+	evfNTA3yIQ0/kGVQBsgvjQM8VOLcePUPJGT+fD61KBthEvDpVWM25jUlmNqWHL+ktAdMwr3fyK5
+	KSgxJCuTWLj/02nEBY23dSc48CsrVsdSYHQLStVpEuSnIPJoBv9f4FjpRE7IsgjGKp1HrzwrQqT
+	542KaWS1ewJ8+N41SEKznDrXRj+q4Y8ZwOj+V3m5wO9hdhkwe8RiIBiKCXOeb/JlyQBYhTJHWNP
+	xDY3jITQMS2gtG7i0asVp4M6AoegNO1fsRDnsAjPLdn+AbSP7zCz5511TEganWC1HIV7SPjum1t
+	g7oLdCcXSWt3AIR7bl2/y/QniGZMrWC6O4O3WDFulkxCWLS1a04shiLulQTUIz+M56DiwWWUbl3
+	qwpoj0pO
+X-Received: by 2002:a05:7301:4209:b0:369:fc93:eda5 with SMTP id 5a478bee46e88-3857054b988mr1696587eec.39.1795151323663;
+        Thu, 19 Nov 2026 21:08:43 -0800 (PST)
+Received: from eldorado ([2600:8802:b00:1f88::287])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm4652750eec.5.2026.11.19.21.08.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 21:08:42 -0800 (PST)
+From: Florian Fainelli <f.fainelli@gmail.com>
+To: linux-mips@vger.kernel.org
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	"Maciej W. Rozycki" <macro@orcam.me.uk>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] MIPS: Ingenic: Allow assembler reordering in the XBurst secondary entry
+Date: Thu, 19 Nov 2026 21:08:26 -0800
+Message-ID: <20261120050827.804767-1-f.fainelli@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,135 +97,53 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Remove .set noreorder and the two explicit delay-slot nops from the
+XBurst secondary CPU reset entry. GNU as emits identical reset-entry
+instructions with reordering enabled in both the CI20 and generic
+MIPS64r2 Ingenic SMP builds.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+On CI20, two baseline and three updated cold boots brought both CPUs
+online. Each boot passed the CPU affinity check and 100 cross-core
+idle-wakeup round trips in each direction. Codex assisted with the
+assembly comparison and hardware test campaign.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Suggested-by: Maciej W. Rozycki <macro@orcam.me.uk>
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+Thomas, feel free to fixup into "MIPS: Ingenic: Add XBurst SMP support"
+if that is simpler. Thanks!
 
-- [Medium] In bnxt_init_one()
-  (drivers/net/ethernet/broadcom/bnxt/bnxt.c), a bnxt_pf_wq allocation…
-- [Medium] bnxt_en: skipped bnxt_clear_int_mode() on bnxt_pf_wq error in
-  bnxt_init_one()
-- [Low] The commit message lists the leaking failure points as
-  bnxt_set_dflt_rings(), bnxt_init_int_mode() and the bnxt_pf_wq…
+ arch/mips/ingenic/ingenic-smp-entry.S | 3 ---
+ 1 file changed, 3 deletions(-)
 
---
-
-bnxt_en: Fix auxiliary device leak on early probe failures
-
-This patch adds an init_err_auxdev label to bnxt_init_one(). Failures
-after bnxt_aux_devices_init() now uninitialize the auxiliary devices and
-free the auxdev ID. The bnxt_set_dflt_rings(), bnxt_init_int_mode() and
-bnxt_pf_wq failure paths jump to the new label. On the register_netdev()
-failure path, the aux cleanup now runs after bnxt_clear_int_mode().
-
-> bnxt_init_one() allocates the auxiliary device ID and initializes the
-> auxiliary devices before bnxt_set_dflt_rings(). If that call,
-> bnxt_init_int_mode() or the bnxt_pf_wq allocation fails, probe jumps to
-> init_err_pci_clean, which does not uninitialize the devices or free the
-> ID. Only init_err_cleanup does.
-
-[Severity: Low]
-
-This list leaves out one path whose behaviour the patch also changes:
-the bnxt_dl_register() failure that jumps to init_err_dl.
-
-Before the patch, init_err_dl ran bnxt_shutdown_tc() and
-bnxt_clear_int_mode() and then fell straight into init_err_pci_clean.
-That skipped bnxt_aux_devices_uninit() and bnxt_auxdev_id_free(), so
-aux_priv, edev, ulp_tbl and the bnxt_aux_dev_ids entry leaked on that
-path too.
-
-Now init_err_dl falls through into init_err_auxdev, so that path gets the
-aux cleanup. The code change is fine. Could the commit message name this
-path as well, so the scope is clear to backporters?
-
-> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> index e78cf7ad3cbc8..ba0e458a467f5 100644
-> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-
-[ ... ]
-
-> @@ -17449,7 +17449,7 @@ static int bnxt_init_one(struct pci_dev *pdev, const struct pci_device_id *ent)
->  			if (!bnxt_pf_wq) {
->  				dev_err(&pdev->dev, "Unable to create workqueue.\n");
->  				rc = -ENOMEM;
-> -				goto init_err_pci_clean;
-> +				goto init_err_auxdev;
-
-[Severity: Medium]
-Does this path still leak the MSI-X vectors and bp->irq_tbl?
-
-By the time create_singlethread_workqueue() runs, bnxt_init_int_mode()
-has already succeeded. It has allocated the MSI-X vectors with
-pci_alloc_irq_vectors() and allocated bp->irq_tbl. The new
-init_err_auxdev label sits below bnxt_clear_int_mode() under
-init_err_dl, so jumping to it skips the only call that releases them.
-Nothing under init_err_pci_clean or init_err_free calls
-pci_free_irq_vectors() or frees the table either. bnxt_cleanup_pci()
-only unmaps the BARs, releases the regions and disables the device.
-
-This can happen on the first PF probe, while bnxt_pf_wq is still NULL,
-if the workqueue allocation fails. Once free_netdev() frees bp, the
-irq_tbl pointer is lost. The vectors also stay allocated on bp->pdev
-with msix_enabled still set. A later probe of the same function would
-then trip the msix_enabled WARN_ON_ONCE() in __pci_enable_msix_range()
-and fail to set up interrupts.
-
-The old init_err_pci_clean target had the same gap. The commit message
-says the unwind now follows the reverse order of setup, so should this
-goto jump to init_err_dl instead?
-
-At that point bp->tc_info is still NULL, so bnxt_shutdown_tc() returns
-early. bnxt_clear_int_mode() then frees the vectors and irq_tbl, and
-execution falls through into the new aux cleanup.
-
-[Severity: Medium]
-
-Does this path still leak the MSI-X vectors and bp->irq_tbl?
-
-By this point bnxt_init_int_mode() has already succeeded. It has called
-pci_alloc_irq_vectors() and allocated bp->irq_tbl. The new label sits
-below bnxt_clear_int_mode():
-
-init_err_dl:
-	bnxt_shutdown_tc(bp);
-	bnxt_clear_int_mode(bp);
-init_err_auxdev:
-	bnxt_aux_devices_uninit(bp);
-	bnxt_auxdev_id_free(bp, bp->auxdev_id);
-
-Nothing under init_err_pci_clean frees the vectors or the table either.
-bnxt_cleanup_pci() only disables PTM, unmaps the BARs, releases the
-regions and disables the device.
-
-This can happen on the first PF probe, while bnxt_pf_wq is still NULL, if
-create_singlethread_workqueue() fails. After free_netdev() the irq_tbl
-pointer is lost and pdev->msix_enabled stays set.
-msi_device_data_release() would then hit its WARN_ON_ONCE(!xa_empty(...))
-on devres release. A later probe of the same function would also fail in
-__pci_enable_msix_range():
-
-	if (WARN_ON_ONCE(dev->msix_enabled))
-		return -EINVAL;
-
-The old init_err_pci_clean target had the same gap. Since this goto is
-being rewritten to unwind in reverse order of setup, should it jump to
-init_err_dl instead?
-
-At that point bnxt_shutdown_tc() is a no-op because bp->tc_info is still
-NULL. bnxt_clear_int_mode() would release the vectors and irq_tbl, and
-execution would then fall through into the new aux cleanup.
-
-[ ... ]
-
+diff --git a/arch/mips/ingenic/ingenic-smp-entry.S b/arch/mips/ingenic/ingenic-smp-entry.S
+index 290e23c65707..d6aa4b4b1a17 100644
+--- a/arch/mips/ingenic/ingenic-smp-entry.S
++++ b/arch/mips/ingenic/ingenic-smp-entry.S
+@@ -16,7 +16,6 @@
+ 	/* The CP0 REIM register only stores the upper 16 address bits. */
+ 	.section .text.smp-entry, "ax"
+ 	.balign 0x10000
+-	.set noreorder
+ LEAF(xburst_secondary_cpu_entry)
+ 	mtc0	zero, CP0_CAUSE
+ 	li	t0, ST0_CU0
+@@ -32,7 +31,6 @@ LEAF(xburst_secondary_cpu_entry)
+ 	cache	Index_Store_Tag_D, 0(t0)
+ 	addiu	t0, t0, CACHE_LINESIZE
+ 	bne	t0, t1, 1b
+-	 nop
+ 
+ 	mfc0	t0, CP0_CONFIG
+ 	li	t1, ~CONF_CM_CMASK
+@@ -50,5 +48,4 @@ LEAF(xburst_secondary_cpu_entry)
+ 
+ 	PTR_LA	t0, smp_bootstrap
+ 	jr	t0
+-	 nop
+ END(xburst_secondary_cpu_entry)
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118050716.3873167-1-lcy8047%40gmail.com
+2.53.0
+
