@@ -1,74 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168034;
-	b=toqhg3PNSrfFE19W5cMjlz4qjl0Oh8hoEjTn0DJq09EQgAzcs07Ak3J8BmP0xVqxz5V8
-	 3HdNxLdQoK7ieOCJZvz2y9twxjlMTl869rKsR8qygWGXc8vkxUKtQUVxzzt5pszc+dfhf
-	 aTBUEV4DCyCysn2NPoje5tvJ/cTou6QXTG63ygtDnMSt1KtV0nDMRnZHMUHzg7uhQogA3
-	 opyo3UTce7BahoB3Q/GRmjC2b8PsvPp2bAcg6GXQ+9ijK38xV2dplO/QUauFlp+dwEzUl
-	 etbNuBPHmUfoycRWiAO+gLhyY8ALkwd7O65NZ/kh9U9c0jHpzbVWubRCaxEvTReWTPA==
+	t=1795168038;
+	b=N0gI2zl1Bzn7cI0o5dYWnG0+79U4m8ulmyY+eFgEe4r9bilq1CcDp08OsjkVukk/Q9z8
+	 2Pl2HryykSp1HPuUVJIYcR3uuW1iGI7dds1pXI62FraAw7EhBJEqe/6hV7L2ogHOt3Ia8
+	 /f2oUIQ+7mKS0sBkUSig65Y4yjHJMpgbaoqq53i75oKvxNOYVltrLMOCEghTqRcnvI2Mp
+	 xcQL+VAlYn/GaPz0Up0CvcfBnoFWlHcmhja8FyjGlFir+4qbf3TUbpPrGfNhDZsVbf9a9
+	 O1jSSxFhiYkzc2DBOVUwkJigcKW/TyqC6+o+qBA07rO9hX/AWdyg3g1txdhxtpKaAKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168034;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:Organization;
-	bh=hNTyL9d5D046W9Uho5nbeG7PrmHuixoNuV1srGZZBx8=;
-	b=IkUAbweSPhOJ3OBYAKyAjU0XJCocXIRMOgBhS71k3g4o5zb9FQB/Fj0jN1aftz821PgP
-	 mufSnqgCFkyEYkGxyc5OA72fLCmf8FfRDLJXC6Il6UHU0kNc79nV0nC6YXED/OJ/ruLjx
-	 wenRhzMLZGKvugUpx8geWoXiKtnivcTmUHLJn2r9ECderb8Z/zoWvXf3IiyevKP1TBFQL
-	 jFzKcX6srXPxy45VHFT9pF7OBTkQeli5vwdV6FocDiigdiIWwWBRfp8rJ6aGPo12PsOTf
-	 zQHGICa51xAX50YBYewbZt3ApMZS6PN7sUBcimuZdu2WF860hOu4CUva4VdPKiKmznQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168038;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=SvTdqnVwIENDhZTrSuh8g7cNIkRmaUcL7O5Mg6MGuzQ=;
+	b=t8Ofz/erEd0cxkLnJ8Us2EbMA8WPv8xcHx9DNzV0stWUkJuQbzbAR1fb4axSJH8zI5YM
+	 CSrXWJD00POqFqplUPswjNnuBxyE2CclrzRZUFVGUf/DISbsCIRhTxKFY0M1CBOQT2SK8
+	 C+itCvgi3mFbwUvPKo5XePWUQFbFSCmaiAYZFqLCPyST9oUs3pihi6KNoJw1ayNON2YNx
+	 cJfbqKDo+2c74S8GKSGiWN2p36qu4UUgYzWTt81yO56pxDoi9EdSJHPdYj5ldUftQ7dGc
+	 1Efq+3fj+fmsd1p1gE7zIhgf7ygaVnDGyaiB5TdpypYwkW9tv/yU1dNxHJHisrjL3bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X5u3r1Tr;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=J9AE9jX6;
+	arc=none smtp.remote-ip=91.218.175.3
+Received: from mta0.migadu.com (out-3.mta0.migadu.com [91.218.175.3])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22A1A606A320;
-	Fri, 20 Nov 2026 09:47:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22A1A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA31260A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:47:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA31260A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=X5u3r1Tr
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795168035; x=1826704035;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=cGtQIbQY0xSeQNRQi2tA6DmXq6v/2YbbkJ7U6WpvmTw=;
-  b=X5u3r1TrAYcg1GsUSuK65UONtxql1o3BFtPp6n5AvYZ1gOQZJ7RS9AOh
-   yYQHRutAHC7IPpFoR/RfZzlMCWU758kOiUurJV1HKWON1XRTL88MKRhU9
-   U9Nddbpo1rIHFYROWKeGN+W6XOiMoU74gFszRVk9wzbXJz53+SWpsvnIC
-   SUKwFcO6DfwMljVrJ3MCkl2rrmHBdshsBVUVO2lAc2kqUgk+ff/OGhlVc
-   8EbHlik1dUoYdDtxDJVkn7HIq5Yx5eVg3u5+Sa/Qc5Bq/3s817xU/VSis
-   u1EKYOi0Ka26awhbvLiKKWL0mgj9+Lc1I0uJwzYcnhz046ww9/7/bNIm9
-   g==;
-X-CSE-ConnectionGUID: WKo2HA8QQNG+QbSCNjgBmw==
-X-CSE-MsgGUID: nvyu8ZEiTKC1Yc0wHrtmlg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3927147"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="3927147"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:47:14 -0800
-X-CSE-ConnectionGUID: Fq3QEnPAQLypwoCqdEYFGg==
-X-CSE-MsgGUID: doqsl1/vSSqHMlvopfUXyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="12504486"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:47:12 -0800
-Date: Fri, 20 Nov 2026 11:47:09 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: brgl@kernel.org, warthog618@gmail.com, linux-gpio@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=J9AE9jX6
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=rAEFlL3ehnQf0utZCaA12Sm49W28OORcQYGQItYKVKk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795168035; v=1; x=1795772835;
+ b=J9AE9jX6wAeP3qm9/xD1RHirECT6wkPpuHj6mQ9BFWd3FeBysvnrai0d9kxxkVNpg3akTf8k
+ OM4sAp+jZza22OKO4lC+HfVWzGPiMBykiT1aCQ7k+zGjZ7eOVzzwx5CHir9OGfExUkxkxwKSkuO
+ 2OD8BetTI382/XPcTVjLmL18=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id fca0a44074f6fe16;
+	Fri, 20 Nov 2026 09:47:15 +0000
+X-Mizu-Trace-ID: fca0a44074f6fe16
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Patrick McHardy <kaber@trash.net>,
+	Florian Westphal <fw@strlen.de>,
+	Hannes Frederic Sowa <hannes@stressinduktion.org>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools: gpio-watch: Preserve line event read errors
-Message-ID: <awAXHXfe8Lc09f3X@ashevche-desk.local>
-References: <20261120061836.98108-1-zhujun2@cmss.chinamobile.com>
+Subject: [PATCH net v2] ipv4: fix conntrack defrag forwarding after ip_frag_reinit()
+Date: Fri, 20 Nov 2026 17:46:59 +0800
+Message-ID: <20261120094700.46500-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,22 +73,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120061836.98108-1-zhujun2@cmss.chinamobile.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 02:18:36PM +0800, Zhu Jun wrote:
-> The short-read check sets errno to EIO even when read() returns -1,
-> hiding errors such as EINTR. Set EIO only for a nonnegative short
-> read and keep the original errno for a failed read.
+q.max_size and max_df_size are used by ip_frag_reasm() to set
+IPCB(skb)->frag_max_size and the DF bit of the reassembled packet.
 
-Isn't somebody sent similar change a week ago?
-Before sending something like this, always check mailing list archive.
+ip_frag_reinit() reuses the queue for a new datagram but does not
+reset them, so the new datagram inherits them from the old one.
 
+On a router with conntrack defrag, if the largest fragment of the old
+datagram had DF set and was larger than the egress MTU, a new datagram
+without DF gets DF set after reassembly and is rejected with
+ICMP_FRAG_NEEDED, even though all its fragments fit.
+
+Reset both fields.
+
+Fixes: 5f2d04f1f9b5 ("ipv4: fix path MTU discovery with connection tracking")
+Fixes: d6b915e29f4a ("ip_fragment: don't forward defragmented DF packet")
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+v1 -> v2: Target net
+v1: https://lore.kernel.org/all/20261119061751.222641-1-jiayuan.chen@linux.dev/
+---
+ net/ipv4/ip_fragment.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
+index ef7fd61284a3..0688be8142c4 100644
+--- a/net/ipv4/ip_fragment.c
++++ b/net/ipv4/ip_fragment.c
+@@ -250,6 +250,8 @@ static int ip_frag_reinit(struct ipq *qp)
+ 	qp->q.flags = 0;
+ 	qp->q.len = 0;
+ 	qp->q.meat = 0;
++	qp->q.max_size = 0;
++	qp->max_df_size = 0;
+ 	qp->iif = 0;
+ 	qp->ecn = 0;
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
