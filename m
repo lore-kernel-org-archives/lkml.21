@@ -1,102 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795201862;
-	b=16AcdSufZv2EDhmtiPcBc8n5uRdCMZURBpmuMTgQt/tB8Pqi6YgxXANCZw1Sgt73RX7B
-	 eK85yxNl1ZDcZvQnzwYBae0FyWW6v9OUs/pqnM/p8v5H3ldQlLIUva9INo847tovjuYFU
-	 4xOWD1/2FtpIQnx1WysPkenNYgbFFI+TtOtbEBDrLtjqeeZldMHjRkmevVu7xVDZodMIY
-	 arbcIiWM+//SvcOXwvxYEo74nvxOT7kZhos9/gLauFjS3zJZG5Uquc/suLua70R34l7nb
-	 EaxJ26l88qEU7aOhZuyS6nSDHI+/5t4EhXMLKIYAGyf7Ck+Hlvhhcr62ewCCIq3z4rg==
+	t=1795201889;
+	b=P6hQ2m7tQl+P0HEyONO8WegVy5UurDP5TsvzYfS9bytwukZ2+AnNXpBFC5BnBVmQ63SP
+	 ddEJwPl4l2Be/x3OLXlJHNypkaDUAySEEXW7EnjvcYwe4bbA+auRBgHVpSH+UKSDKqX6J
+	 WrOvw5KzNnQwojqFzKrgg+aV/ZwHhZaUvQAKwvFEQtcKeNV9DhIZug/I4ZVVNUbwcvHjZ
+	 LfgSOIEeG3WCdMNS61Pnu0ae9ygZcHZE4sthYhkwo57dKn2m9U2BjM2zRjW+kY0OlKs+6
+	 YYM+qwy6MXCcgFWfPYX9l1ku2TBZzKVL4f8z3Xb7T3l+bFmdmHF268/H5XGdxq8avNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795201862;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=R8eWA3MZ0eEFDvLHaBWtEpinN3qOx1VnZpieDpTE5ys=;
-	b=w6K1l97YfXs20zzkxti0d/QFzEbO0SWc8p8LA6wumtRT6uV1vtozjXPZHA/BSzE55HFA
-	 0d3mgM/1m9ShgCWUosFK7ZAxGOtv3O/+mbSrKTAwi8cgqeo00pC5sGbo0ITzxP46OB1mM
-	 gH+poZurfsHwdanEHOhwUWVOn/4FEvxFmi47pr8mUHWMabmjuc0E4QrJfDG+c3U2/S5FD
-	 VjUNSaPfmoQZRpFFlE5iVXPWnLAqCYF/WpYU7GwLue8BvIqMgUqc9Qg7JWG2laJfx/wwQ
-	 2tme/U03ABJ2qEQdNY8VA59W/fQn9tQqTW3adNvOk0GuAxeNRD82OwKFr2h8UU0LyKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795201889;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TPzfbb3YaLrMvD09KlfQinHnJnyyczP5XVaqic2qKsQ=;
+	b=VrQnVAaDGDWuG8QUuNZs3ky+2OqlSEEcb1JF7haV+Y5M27rvskxsUp4YikjisuiEyV7L
+	 hggfASblrL9Q+RgwEI/Qs8KNmJjvDOPgajWPX5OKHLH9bwrf9pNA7SSL1BVUZltbHmKct
+	 kTyzIEXQ3wXPRhJsU9ISeLp0x5bdgl0mjpXL3LuJZjI76KF5c9MQb2DRn/Wm0dQEMUMsW
+	 PaSioDFbePL3kmzULgjwl/hQzR8uFtJjdPQbPh45cT8wgXHSc6i7Sdj5ZRRwk2/YX3a2L
+	 3/mJoW05cikHwWH+VPZV7Bn5qSamTSiitvOmg/NHTdcU2OFGitFxqOb5YSjNFQl/pxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=P1GXsIfW;
-	arc=none smtp.remote-ip=209.85.215.227
-Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
+	dmarc=pass header.from=openai.com;
+	spf=pass smtp.mailfrom=openai.com;
+	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=EyAeqo+A;
+	arc=none smtp.remote-ip=209.85.160.45
+Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EBB660A2626
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:11:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EBB660A2626
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A447B60A2616
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:11:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A447B60A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=P1GXsIfW
-Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-ccca948203aso1414805a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:11:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795201860; x=1795806660;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=R8eWA3MZ0eEFDvLHaBWtEpinN3qOx1VnZpieDpTE5ys=;
-        b=GkLFBvV/zTWsvzWuwgv7EJyWE+KFzEzfdBxLCKTTgYS+iYpPYn5GKzkxlb4IEiAqWO
-         xXNMz0TrowWjEb3Cd4qBYgzZZnEuo3FhXpR3v4ciH1bmQSY0tBlta+DqrFQKT+eKYL9O
-         +Umkzg7pW1u5z0s+HkaBmCJK9cxrlW8z16Kl5rUrKgiN2iTtj606ppeHiPwsbf9OGAuk
-         Ybkkt6l7GfkGNClRw2oezPF4WDqan1pE/HuaDHzHpHAYDFM5f/T9NVPfAJGRQXIbJZZX
-         8oLHbInTpZkgw5wjpe25UfgWywpfXu21x8CL5Z/a+QNMNMXROTtjq0MKevSlzddtJEBB
-         bBgw==
-X-Forwarded-Encrypted: i=1; AL+hErEPFaqHHrfCbPMy0/ibumZDKBmLqiyE5K1vB5/b9e3DHa1hQZ+NmaL5hcrlN7xb9CwqZOWX198jNRIRzEM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9AYq3LY9uJg5sU4eSLccyXghUYDNGTDm4DumG/fGNS6b4JRDvj
-	GY+RQWjgonsM3gMYFlrZgRz2dRRAVnyt8etm6UsZBPqFT5std7SuabvBsgkimL6EeGA7BkQLj33
-	N4um4qENi91c0+BfGke6VJm6BWQrp4NhIS1I1gJHCvRN71sHTPR8Si+3IBa2OxFG4IaDcATSCpl
-	H6CGNOITr/Dyl5wRXaas1xRn8Umf1Ecj7tAbf5I7jZFP8qslEH9gwgaLeZuZk7hUb0WkEg8Go2q
-	Vic+FPKdlzcwPrqC+7OsdHq
-X-Gm-Gg: AZFdTZdYfib6dbQSbbtWZVHbLkFXHo2qEFbgPTN2ISk3nU03GU4XElIh4Rt+V2Pvd0A
-	IrrC3Lu6JSMsCdVi9eQJBnZkH3FXs+7HeAJ0nrMEJDY/sec17Td1ic2sQdW19YWJHa5GgpqNx4n
-	IrR2BNNAJ+2+2wldgqByAyZ8Opqr26JkaYw3VfB3NAesk+Q5347JOKRQhNlvY2zroHiVcaEziU5
-	hsR5Gd2BZKgDg9Cd3GjKbbMzIgbowQfxX6CZI4xpDNYKxHfQ6UWRQzEOuZz4oS9i3XYocYIL/6L
-	USea4ATdfiN+tSbvjwJPqenILej+5ml7Xb8sH+5M+D6ELVafoqx3mNYJ6EkdGulgL/lbsJLyhA3
-	E4vz4xO0txaDrPAfDIhfc7p+o1ToLy6CMIR1i3wAwTx8gUlurS8rczTK4tBYSIedkK905er6gQQ
-	TlvHeg2mMgG16NyLtNxf/QOpoiuPFN5nEg3OW9kFRCz9o=
-X-Received: by 2002:a17:90b:39a7:b0:3b0:ac2c:1619 with SMTP id 98e67ed59e1d1-3b41c961e33mr3550140a91.39.1795201860293;
-        Fri, 20 Nov 2026 11:11:00 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b4062aa58dsm3592906a91.5.2026.11.20.11.10.59
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 20 Nov 2026 11:11:00 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93e92aad34aso236115985a.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:10:59 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=EyAeqo+A
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-490d838b425so670778fac.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:11:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795201859; x=1795806659; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=R8eWA3MZ0eEFDvLHaBWtEpinN3qOx1VnZpieDpTE5ys=;
-        b=P1GXsIfW2byvL/pIY0MoTb5D2/1V7/kxdLovQRQY4O+uFL+kJeL7shNHvv1Q5rgOY+
-         RwYM5JHxvgBZjx9bM3UNL/BFViT6U+EznQ1JXpx85/mChB78jjVaCm3OBXYXoSLUVcXO
-         e7CJZLh5WKkLGgztMR890OlqFbHE9RntuAKXQ=
-X-Forwarded-Encrypted: i=1; AL+hErFuEtzix3bMjiniu2ScPfJJIlHYc1wyu/5QO1XqoQXMb8Ede2VsE+JKM+/4JJJe2KEDun0wlyFNTUvIWyk=@vger.kernel.org
-X-Received: by 2002:a05:620a:480e:b0:949:816f:cff3 with SMTP id af79cd13be357-949ba82355dmr692203585a.5.1795201858854;
-        Fri, 20 Nov 2026 11:10:58 -0800 (PST)
-X-Received: by 2002:a05:620a:480e:b0:949:816f:cff3 with SMTP id af79cd13be357-949ba82355dmr692198185a.5.1795201858397;
-        Fri, 20 Nov 2026 11:10:58 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb34ac1esm261924985a.15.2026.11.20.11.10.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 11:10:57 -0800 (PST)
-Message-ID: <53f8b30a-99d4-47cd-9838-85aaa4da6df1@broadcom.com>
-Date: Fri, 20 Nov 2026 11:10:55 -0800
+        d=openai.com; s=google; t=1795201886; x=1795806686; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TPzfbb3YaLrMvD09KlfQinHnJnyyczP5XVaqic2qKsQ=;
+        b=EyAeqo+ApYsatSBApkkMjlHlP50A1jf1ordwq8G7XRSahNrIQlT44sMaDpYhR+Ok0t
+         R+aY5JM6SLJY/b/xcYnYtrCz4KwIFQyyxdQPCgfcZR96rtn7ZDSaKGoklvHQh8xNRxi4
+         1kOrqLVYX8IbYexCaysu4ONfbaFi7rUHFlVZY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795201886; x=1795806686;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TPzfbb3YaLrMvD09KlfQinHnJnyyczP5XVaqic2qKsQ=;
+        b=I9gn0D2D9YgN1AK5AGKDtTz5xwdgkh/7G2ej5E6mPAH6TOGT31rSek7YkB5vvXIk6t
+         wCCNDS//rsnIVlU9qh+DyJfKgl2lX19iBWc9xXgOsJ5WbJ0k4K9kA0QoJ8FySlfhrAYe
+         rL/qtYqxEGVfDFGvMEg8hbK50zX0c/WLqDo5WBxDNISgYP/fTDSmsKUIiFzzjUXy1I5K
+         ZfvC+D7eE5lTZGTIjGzLimT52XF4roWaz4FNexa9+dPzSbc5UYjd5ieNLqI1OG1a10eU
+         2zNt7KoIEhMFgJt4K1szQ7jeifMst1/67TiEdlv3ks5iHFnSaR8mXtyJbgvfcgGfDBaK
+         WUuQ==
+X-Forwarded-Encrypted: i=1; AL+hErGinXHOdbBIDXXdiEZJYU7M97oTRqPAiy2dpjpYPKSzvDNkbeve47BRLsXPr0zu6quR3OfY2dCJ1GQQ3e4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aUSIiNuFfTctOB0QsdHbZ1YkauBlw+Y8h+UhMUpFhdk+ljYIo
+	L82YGk1gBpKEznE6UiWTQUw4ghsmt9d0CErTmmyRQRFRzda35Z2Y35GfOhozlM/UuVo=
+X-Gm-Gg: AZFdTZcQNz1muTzk+Pn+aXpsyAfXkbJeIyGcZ3zWw77VPmDJF2amWNJp7K39H5+HCrh
+	PPAv/S3OJS+YVrPp5dQsX53/ijLJaXbaY+6I2KRL5dD5/hQJWMeaKdA20v0rrgJ3lm0mrSK1q8J
+	tLr5uEm3U8vOwCokubn02kmKRV4UOcs2gdI4UbyRD4bMYmhO9fYviZuT6VIFKr9VP08zaz0kXWQ
+	4k5206zq48uvntIsHAChXeLFM/MgVhDhI1+q8YHFyR2VOCcRscuO514KsUj1l2yxauhHBuwKbL7
+	RJfx0kTpUG7GeGoBfcgFGlUVCpA4KH1TuG0545R2uxvccp+PYFBxJwEri8PYQ9+coPSnajdNNkA
+	hMnwl4RPRaMITArz80fWXDgVDYEE+Ja0uJcwCoWFjZv3GBXaKE6Dpb9jNSld1zPdc7pfugsueyP
+	tiW0e4TUXZ+Iqp+QIDnFDCeuDykwbQ4vV1Tq3uLaJi9j/FH4rYBlSvzfSArAewV2Z1cFyLLuMsj
+	IVdetGmFuc6bM4fWmsAQjsS4sqq+md0l/mkKbYAAIvR/BSG+rpp8fNX+xSRcMzyw6Zk28NlHvNl
+	vYt5RDn3FzcnnLcGVWAhhtx2/hQO1HiMnTU+cXJFlf7w6iMuMMu/W7zpQwbBuWTaVPbTSMteY8k
+	IycD4eAjifbtS+fWgMdQYo617xJ3noGIrjKlFrhK8N5xTUcnvDWxz
+X-Received: by 2002:a05:6870:3193:b0:475:a1ec:9617 with SMTP id 586e51a60fabf-4bc80ec71b9mr3905456fac.25.1795201886207;
+        Fri, 20 Nov 2026 11:11:26 -0800 (PST)
+Received: from com-75606.corp.openai.org ([199.47.143.1])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc60497300sm3706193fac.11.2026.11.20.11.11.24
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 11:11:25 -0800 (PST)
+From: Kyle Zeng <kylebot@openai.com>
+To: dev@openvswitch.org
+Cc: netdev@vger.kernel.org,
+	aconole@redhat.com,
+	echaudro@redhat.com,
+	i.maximets@ovn.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kyle Zeng <kylebot@openai.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v4] net: openvswitch: make transport checksums writable
+Date: Fri, 20 Nov 2026 11:11:15 -0800
+Message-ID: <20261120191115.39932-1-kylebot@openai.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,109 +102,225 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-References: <20261119005943.999981-5-florian.fainelli@broadcom.com>
- <179515311151.3136.11984816802162340674@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179515311151.3136.11984816802162340674@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On 11/19/26 21:38, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] unimac_mdio_probe() now sets bus->read_c45/bus->write_c45 for
->    every instance, including the one GENET creates from platform data.
+OVS can still rewrite an IP address after transport-header extraction
+fails. The checksum helpers check skb->len, which includes non-linear
+data, before directly accessing the L4 checksum. If the transport header
+was not pulled into the linear head, the checksum update can read or
+write beyond it.
 
-Your analysis is correct: without a DT node nothing is masked, and 
-bcmgenet_mii_wait() sleeps for a timeout per frame since irq0 is only 
-requested in bcmgenet_open(). I'd rather not special-case that path:
+Call skb_ensure_writable() before IPv4 TCP/UDP and IPv6 TCP/UDP/ICMPv6
+checksum updates. Save the original addresses and reload header pointers,
+since even a failed pull can move the skb head.
 
-- it only affects GENET probed without a DT node (ACPI/UEFI), and it is 
-an one-off cost at probe time, bounded to two failed C45 reads per address
+Keep failures nonfatal to preserve the existing policy of rewriting IP
+addresses when the transport header is unavailable. A failed pull or
+unshare may leave a stale checksum or CHECKSUM_PARTIAL seed; the receiver
+may discard the packet.
 
-- the C22 scan on that path already pays the same per-frame sleep, so 
-this slows an existing slow path rather than creating a new one
+The issue was found by an LLM.
 
-- C45 support is a property of the MDIO controller, not of how the 
-platform device was instantiated, and gating it on DT or on pdata would 
-make the driver's behavior depend on the firmware interface.
+Fixes: ccb1352e76cf ("net: Add Open vSwitch kernel components.")
+Fixes: 3fdbd1ce11e5 ("openvswitch: add ipv6 'set' action")
+Suggested-by: Ilya Maximets <i.maximets@ovn.org>
+Cc: stable@vger.kernel.org
+Signed-off-by: Kyle Zeng <kylebot@openai.com>
+---
+v4:
+- Document that both IPv6 checksum addresses must be outside the skb.
+- Use the IPv6 address fields' sizes in the final copies.
 
-The commit message now says that this scan runs there and why it is 
-slower. If the probe time turns out to matter, the fix belongs in 
-bcmgenet_mii_wait(), which should poll while the interrupt is not 
-registered yet. That would speed up the C22 scan as well and I'd rather 
-send it as a separate GENET patch.
+v3: https://lore.kernel.org/r/20261113232158.61174-1-kylebot@openai.com
+- Select source and destination addresses with booleans instead of
+  calculating offsets. Keep the saved IPv6 address across head movement.
+- Remove the redundant IPv6 fragment check and correct tab alignment.
+- Move testing details below the separator and clean up attribution.
 
+v2: https://lore.kernel.org/r/20261107040238.27606-1-kylebot@openai.com
+v1: https://lore.kernel.org/r/20261030042304.74291-1-kylebot@openai.com
 
-> - [Medium] The patch's own comment in unimac_mdio_addr_c45() says
->    bcmgenet_mii_wait() can return 0 after timing out with MDIO_START_BUSY…
+I have a reproducer for this issue and can share through DM.
 
-Agreed. v5 adds unimac_mdio_wait(), which calls wait_func() and then 
-polls MDIO_START_BUSY. Every cycle goes through it: the ADDR frame, the 
-RD_C45/WR_C45 data frame and the C22 read and write. MDIO_CFG is 
-therefore never rewritten while a frame is in flight, and the read data 
-is never fetched before the frame completes. The commit message explains 
-this.
+ net/openvswitch/actions.c | 80 +++++++++++++++++++++++++--------------
+ 1 file changed, 52 insertions(+), 28 deletions(-)
 
-> - [Low] unimac_mdio_resume() now takes priv->mii_bus->mdio_lock around
->    unimac_mdio_clk_set(), so system resume now serializes against, and…
+diff --git a/net/openvswitch/actions.c b/net/openvswitch/actions.c
+index 12e339cbf791..7691f262294d 100644
+--- a/net/openvswitch/actions.c
++++ b/net/openvswitch/actions.c
+@@ -319,20 +319,22 @@ static int pop_nsh(struct sk_buff *skb, struct sw_flow_key *key)
+ 	return 0;
+ }
+ 
+-static void update_ip_l4_checksum(struct sk_buff *skb, struct iphdr *nh,
+-				  __be32 addr, __be32 new_addr)
++static void update_ip_l4_checksum(struct sk_buff *skb, __be32 addr,
++				  __be32 new_addr)
+ {
+-	int transport_len = skb->len - skb_transport_offset(skb);
++	struct iphdr *nh = ip_hdr(skb);
+ 
+ 	if (nh->frag_off & htons(IP_OFFSET))
+ 		return;
+ 
+ 	if (nh->protocol == IPPROTO_TCP) {
+-		if (likely(transport_len >= sizeof(struct tcphdr)))
++		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
++						sizeof(struct tcphdr))))
+ 			inet_proto_csum_replace4(&tcp_hdr(skb)->check, skb,
+ 						 addr, new_addr, true);
+ 	} else if (nh->protocol == IPPROTO_UDP) {
+-		if (likely(transport_len >= sizeof(struct udphdr))) {
++		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
++						sizeof(struct udphdr)))) {
+ 			struct udphdr *uh = udp_hdr(skb);
+ 
+ 			if (uh->check || skb->ip_summed == CHECKSUM_PARTIAL) {
+@@ -345,32 +347,37 @@ static void update_ip_l4_checksum(struct sk_buff *skb, struct iphdr *nh,
+ 	}
+ }
+ 
+-static void set_ip_addr(struct sk_buff *skb, struct iphdr *nh,
+-			__be32 *addr, __be32 new_addr)
++/* May move the skb head; callers must reload packet pointers. */
++static void set_ip_addr(struct sk_buff *skb, __be32 new_addr, bool saddr)
+ {
+-	update_ip_l4_checksum(skb, nh, *addr, new_addr);
+-	csum_replace4(&nh->check, *addr, new_addr);
++	__be32 old_addr = saddr ? ip_hdr(skb)->saddr : ip_hdr(skb)->daddr;
++
++	update_ip_l4_checksum(skb, old_addr, new_addr);
++	csum_replace4(&ip_hdr(skb)->check, old_addr, new_addr);
++
+ 	skb_clear_hash(skb);
+ 	ovs_ct_clear(skb, NULL);
+-	*addr = new_addr;
++
++	if (saddr)
++		ip_hdr(skb)->saddr = new_addr;
++	else
++		ip_hdr(skb)->daddr = new_addr;
+ }
+ 
++/* Neither addr nor new_addr may point into the skb, since
++ * skb_ensure_writable() can move the skb head even on failure.
++ */
+ static void update_ipv6_checksum(struct sk_buff *skb, u8 l4_proto,
+ 				 __be32 addr[4], const __be32 new_addr[4])
+ {
+-	int transport_len;
+-
+-	if (l4_proto == NEXTHDR_FRAGMENT)
+-		return;
+-
+-	transport_len = skb->len - skb_transport_offset(skb);
+-
+ 	if (l4_proto == NEXTHDR_TCP) {
+-		if (likely(transport_len >= sizeof(struct tcphdr)))
++		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
++						sizeof(struct tcphdr))))
+ 			inet_proto_csum_replace16(&tcp_hdr(skb)->check, skb,
+ 						  addr, new_addr, true);
+ 	} else if (l4_proto == NEXTHDR_UDP) {
+-		if (likely(transport_len >= sizeof(struct udphdr))) {
++		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
++						sizeof(struct udphdr)))) {
+ 			struct udphdr *uh = udp_hdr(skb);
+ 
+ 			if (uh->check || skb->ip_summed == CHECKSUM_PARTIAL) {
+@@ -381,7 +388,8 @@ static void update_ipv6_checksum(struct sk_buff *skb, u8 l4_proto,
+ 			}
+ 		}
+ 	} else if (l4_proto == NEXTHDR_ICMP) {
+-		if (likely(transport_len >= sizeof(struct icmp6hdr)))
++		if (likely(!skb_ensure_writable(skb, skb_transport_offset(skb) +
++						sizeof(struct icmp6hdr))))
+ 			inet_proto_csum_replace16(&icmp6_hdr(skb)->icmp6_cksum,
+ 						  skb, addr, new_addr, true);
+ 	}
+@@ -396,16 +404,28 @@ static void mask_ipv6_addr(const __be32 old[4], const __be32 addr[4],
+ 	masked[3] = OVS_MASKED(old[3], addr[3], mask[3]);
+ }
+ 
++/* May move the skb head; callers must reload packet pointers. */
+ static void set_ipv6_addr(struct sk_buff *skb, u8 l4_proto,
+-			  __be32 addr[4], const __be32 new_addr[4],
++			  const __be32 new_addr[4], bool saddr,
+ 			  bool recalculate_csum)
+ {
+-	if (recalculate_csum)
+-		update_ipv6_checksum(skb, l4_proto, addr, new_addr);
++	struct ipv6hdr *nh = ipv6_hdr(skb);
++	__be32 old_addr[4];
++
++	if (recalculate_csum) {
++		memcpy(old_addr, saddr ? &nh->saddr : &nh->daddr,
++		       sizeof(old_addr));
++		update_ipv6_checksum(skb, l4_proto, old_addr, new_addr);
++		nh = ipv6_hdr(skb);
++	}
+ 
+ 	skb_clear_hash(skb);
+ 	ovs_ct_clear(skb, NULL);
+-	memcpy(addr, new_addr, sizeof(__be32[4]));
++
++	if (saddr)
++		memcpy(&nh->saddr, new_addr, sizeof(nh->saddr));
++	else
++		memcpy(&nh->daddr, new_addr, sizeof(nh->daddr));
+ }
+ 
+ static void set_ipv6_dsfield(struct sk_buff *skb, struct ipv6hdr *nh, u8 ipv6_tclass, u8 mask)
+@@ -479,16 +499,18 @@ static int set_ipv4(struct sk_buff *skb, struct sw_flow_key *flow_key,
+ 		new_addr = OVS_MASKED(nh->saddr, key->ipv4_src, mask->ipv4_src);
+ 
+ 		if (unlikely(new_addr != nh->saddr)) {
+-			set_ip_addr(skb, nh, &nh->saddr, new_addr);
++			set_ip_addr(skb, new_addr, true);
+ 			flow_key->ipv4.addr.src = new_addr;
++			nh = ip_hdr(skb);
+ 		}
+ 	}
+ 	if (mask->ipv4_dst) {
+ 		new_addr = OVS_MASKED(nh->daddr, key->ipv4_dst, mask->ipv4_dst);
+ 
+ 		if (unlikely(new_addr != nh->daddr)) {
+-			set_ip_addr(skb, nh, &nh->daddr, new_addr);
++			set_ip_addr(skb, new_addr, false);
+ 			flow_key->ipv4.addr.dst = new_addr;
++			nh = ip_hdr(skb);
+ 		}
+ 	}
+ 	if (mask->ipv4_tos) {
+@@ -533,10 +555,11 @@ static int set_ipv6(struct sk_buff *skb, struct sw_flow_key *flow_key,
+ 		mask_ipv6_addr(saddr, key->ipv6_src, mask->ipv6_src, masked);
+ 
+ 		if (unlikely(memcmp(saddr, masked, sizeof(masked)))) {
+-			set_ipv6_addr(skb, flow_key->ip.proto, saddr, masked,
++			set_ipv6_addr(skb, flow_key->ip.proto, masked, true,
+ 				      true);
+ 			memcpy(&flow_key->ipv6.addr.src, masked,
+ 			       sizeof(flow_key->ipv6.addr.src));
++			nh = ipv6_hdr(skb);
+ 		}
+ 	}
+ 	if (is_ipv6_mask_nonzero(mask->ipv6_dst)) {
+@@ -555,10 +578,11 @@ static int set_ipv6(struct sk_buff *skb, struct sw_flow_key *flow_key,
+ 							     NULL, &flags)
+ 					       != NEXTHDR_ROUTING);
+ 
+-			set_ipv6_addr(skb, flow_key->ip.proto, daddr, masked,
++			set_ipv6_addr(skb, flow_key->ip.proto, masked, false,
+ 				      recalc_csum);
+ 			memcpy(&flow_key->ipv6.addr.dst, masked,
+ 			       sizeof(flow_key->ipv6.addr.dst));
++			nh = ipv6_hdr(skb);
+ 		}
+ 	}
+ 	if (mask->ipv6_tclass) {
 
-The commit message already said that resume takes the bus lock around 
-unimac_mdio_clk_set(). v5 also says that resume may now wait for an 
-in-flight MDIO access.
-
-pw-bot: cr
+base-commit: 2800868f63227c8237d70c41e70d441c919620d6
 -- 
-Florian
+2.55.0.openai.911.g06873a30d2f3
+
