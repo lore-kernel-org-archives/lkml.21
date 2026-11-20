@@ -1,54 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168862;
-	b=hd5301XxWwDoMExhoSrKty1Diba2WlBQdZhfN61TPGmYhT6bqIA8ijz4TttV0NX1Ng8K
-	 aT6fZ3vtq+ofdUYGaRl1VOHs94bGKI9SqI2i847mh/wvQCjtrkVfP5WJa9pWn5FKSVMJ5
-	 l1JYM8PVE6t6U34BWos37au3jUGpnIgVmTyzVwjlBH3Eo8rGyUL997bBOMm6CE+zLHtfB
-	 EGmFGvEP9gszOqw0TeVvIiJimaSGpQQjclnqqkYpUl4MohChze8u00wFBfa/4CEeOjiTq
-	 YkuFiGyEEC0ffgBRvW8wcEY1URRWtqUE+PXGowzBoBYYSoliMt8v2ZIoXAQdFeBUGMw==
+	t=1795168863;
+	b=oYEvyDkbagu5/J/t3nDVuAUN8LyqbbPtxCImqJQxetym3Mk0kSIdV5CwSu/jPlkKy9LG
+	 w/M10MhQrSEafvz64USnjW2vyByqQsCL1dJFgkYakcQB3dBZbr4K7pjI2Itms5tV0bD/Y
+	 Pug2HjyVe4RORNxdYkyPbjXBcSvOALzy7TeEhH+e4VWKzq0YksYSrza7KMEbHSr87uGad
+	 OyvOB6RNSlFBB8VdTsVvNzRfqMeTfPrUodpJunbaJ5bpTw8OZywzTIN2dz85WK0/o/BVH
+	 /uFsu9whDaN7WDnHaDdiLhgQX8pD7Yd/v5jdtMtFPPvLqLL8W1hESBb8bO3DZOcspfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168862;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=OW6HdtlkyB2pOcMRQ2PLyD4esYADdXW7hEtoz2L7rTM=;
-	b=xMsOElnqJuALJbeqRSdbrvDf3dmqjqOdo65h1efkYuxcqV7+TcMWhYUbYb4lFTY5aHM/
-	 pqEr9K9ob1x+IGEfB88JEu4JGPjjyIaozRwHEoG6Ch6n6/4nDnRf8a7FC/i5wfUQbhSrj
-	 J4w0BlVpQAvCHVoTkQsY3/XtW74N1Gf9zUjI7WIcWNKxQCa2+GuIvHl21LWr0WVjv1TU3
-	 MWkMk4sQr/WZQgg18dKLobLZm89bwthEOx5V7g5JIifDkureuhKL2ofU3/7ybXA1fgbl9
-	 9FAWeIcTWITme16AV0dCkswSMHEXuMR0mt6ZJABZYrgLPOnwrGxvqJGCIkUP5a9BGYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168863;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=1U7Hy2sMhArBZCxu2GDyjmJzGlD4GYMvvTvb31K5AEo=;
+	b=jUwWWlti5GX5jrCfeAZNbl3n2R+E4/ST1295W9sATO1r++xLZi9+jeXcNetMyewayeHK
+	 Ew/3Sz9qWdkSzwO3CsvGnYvDx26CH68ujmJcrzicuZ8qw7ovgLfH3qYUUkwVFylPVu/rw
+	 mQH6IbXOZndvJKBCRdGBz47+DTsjAzko1PzCRkfU6mRKxGp3tl2rbfz53MRFOuMDRJOLG
+	 m+sL8hNYa6kxVhlgJ3J6YgZLyttrgsZGSOYx3c3AhRy0QM/7rwsyO1DtzR1eOKgIJSyP3
+	 mcbbr8a0dTQ/vML6kU1vo3QC5Oo0U1DSsBW3hGlUyCD3pprGf2h7nhNg1ZBxbLZI36A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1m0+B3Z;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=oVD8bui9;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FA2460A2613;
-	Fri, 20 Nov 2026 10:01:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A5C160A2600;
+	Fri, 20 Nov 2026 10:01:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A5C160A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H1m0+B3Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B47051F000EE;
-	Fri, 20 Nov 2026 10:01:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168862;
-	bh=OW6HdtlkyB2pOcMRQ2PLyD4esYADdXW7hEtoz2L7rTM=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=H1m0+B3ZwZ95DMlRlKMSaKYyTZLW5SsAR1ev34x3AO3PlwxX6fwKYZ8a4GXynD5mV
-	 +v4HAnILBcduQw2/tbkKrvDTBZ7G9w8b5Br3TWDTM3x4w6ahoyB25kG7Y54hoXjZmw
-	 JnYSwYCyRcZo4hiWR9fq6T4lD0fvngLa8HNWsQ6zV0AXIEKpVouoY6VHjePiFJ+yVr
-	 AbDa5g/ByIdG4annFH+K+F0SAn4p1AbJ93DthXPsEQNUBqJ66fgTawcZ0A6uBbTWah
-	 A4egcPBpR0eyrIME+ndk2nr61B/gGp+24jxgJmSNbKURyxN0+ZMdmuMn/C32ehtx83
-	 sdW+pRWdiOoWA==
-From: Christian Brauner <brauner@kernel.org>
-To: viro@zeniv.linux.org.uk, Fuad Tabba <fuad.tabba@linux.dev>
-Cc: hirofumi@mail.parknet.co.jp, linux-fsdevel@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261108200141.383158-1-fuad.tabba@linux.dev>
-References: <20261108200141.383158-1-fuad.tabba@linux.dev>
-Subject: Re: [PATCH 0/2] fs/nls: Add Arabic code pages CP720 and CP1256
-Message-Id: <20261120-ohnmacht-achtsamkeit-kellner-5f9d652b8f10@brauner>
-Date: Fri, 20 Nov 2026 11:00:58 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=oVD8bui9
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=1U7Hy2sMhArBZCxu2GDyjmJzGlD4GYMvvTvb31K5AEo=; 
+	b=oVD8bui9cOYU8Q/+DzeLXlCvZ/ZII2UZLIEquGhoNyM5Du29Dx1ksoxcAohJ4ftH0zd+NEEnBy+
+	AzCKyFf2G2xKEqteH9ps/1vbZV1aRM4vUll6+TN3zr9DhpG2Eo7uLyIo0gUrU2menCaCTZh5fKU14
+	tSDIIY/QdW5/UMX3AhUldwJS8u3hUjue9r/nNJtuL0QGEhg8h0qJ4kt+B2WGFKxWGuxP8aJ7f6JYK
+	iptZLClLJWBzFBNrNQMMr8LIT+/4SzPq4ZkI/oTnv/VRLUFsSVs6bQAh37PTK+BJrMv2KXZk2kyQs
+	PZnOMATag4DRbrHxC+z24wgpkjccqACDojFQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xULQR-0000000HYvw-3bIW;
+	Fri, 20 Nov 2026 18:01:00 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 18:00:59 +0800
+Date: Fri, 20 Nov 2026 18:00:59 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thomas Huth <thuth@redhat.com>
+Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
+	"David S. Miller" <davem@davemloft.net>, qat-linux@intel.com,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: qat - Don't use -EFAULT as error code during
+ setkey()
+Message-ID: <awAaW4PhJxllUutD@gondor.apana.org.au>
+References: <20260824122403.630026-1-thuth@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,37 +66,38 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260824122403.630026-1-thuth@redhat.com>
 
-On Sun, 08 Nov 2026 20:01:39 +0000, Fuad Tabba wrote:
-> This series adds two Arabic code pages that fs/nls lacks. CP720 is the
-> OEM code page of Arabic Windows, which FAT uses for short names, and
-> CP1256 is the Windows code page for Arabic. The tables are generated by
-> a script from Microsoft's code page 720 table (ICU's windows-720-2000)
-> and the Unicode Organization's CP1256 table, in the layout of the
-> existing ones.
+On Mon, Aug 24, 2026 at 02:24:02PM +0200, Thomas Huth wrote:
+> EFAULT means "Bad Address", it's the error code that is meant to
+> be returned when userspace provided the kerknel with a pointer to
+> memory that is not part of its address space. However, the QAT driver
+> abuses this error code during its setkey() function to signal that
+> there was something wrong with the selected algorithm, which is just
+> confusing.
 > 
-> [...]
+> The best choice for an error code would likely have been EINVAL here,
+> but qat_alg_aead_init_sessions() seems to make an effort to use this
+> for another error case already, so there is likely the desire to
+> distinguish the different errors here. Thus use EOPNOTSUPP as a
+> replacement now, so qat_alg_aead_init_sessions() continues to return
+> two different error codes depending on what went wrong.
+> 
+> Anyway, instead of hard-coding the error codes in the function
+> qat_alg_aead_init_sessions() again, let's also simply rather pass
+> the error code from the called functions up to the caller instead,
+> this way we can also get rid of the need to call memzero_explicit()
+> here three times.
+> 
+> Signed-off-by: Thomas Huth <thuth@redhat.com>
+> ---
+>  .../crypto/intel/qat/qat_common/qat_algs.c    | 31 +++++++++----------
+>  1 file changed, 14 insertions(+), 17 deletions(-)
 
-Applied to the vfs-7.5.misc branch of the vfs/vfs.git tree.
-Patches in the vfs-7.5.misc branch should appear in linux-next soon.
-
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
-
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
-
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs-7.5.misc
-
-[1/2] fs/nls: Add codepage 720 (Arabic)
-      https://git.kernel.org/vfs/vfs/c/cc3a85b55d27
-[2/2] fs/nls: Add Windows codepage 1256 (Arabic)
-      https://git.kernel.org/vfs/vfs/c/b2221104e818
-
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
