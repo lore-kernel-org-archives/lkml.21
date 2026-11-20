@@ -1,180 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795142850;
-	b=IxDCoJfOQX3ZMSn//7vcGoQweRGM1cbxRCEK4yFjE4cRc25XrT158TZSJkF1ViRy71EW
-	 WoCpmg8V19ePzmdHYddHFbAdMMo+bMGK96+68Ta2bI6ECOopQP6sKFCak+u8tHmtEeENX
-	 wTYi8QdTrRTbg62wTzmTdW4E2Uwu+McoigmA4zO0E2K9v03CyKIUoZmPT456SBWGOr8F9
-	 hOg5k0o5LICnofyvw5ylzwHPRalcQ4muvI+ypcDQvLMPPJIO8KVkOfNBCaBwuhKf4pHRr
-	 Kx8sAW1+P+gV4WXY359QLSt8+IW/CgJJgozr4o2QfFOmFgdzspyBWVaVTQscApAZmHg==
+	t=1795142893;
+	b=vKzO4tD4qZjQFa99q0k1tzzht3LOg5CKGWBsTZwTyBfign4PSq0V/MRAr6l0yKCDhLKC
+	 iNh4AO0+xfT1HMRowtUwR6BCu9XAw44rbFqZ59m5NUA+sJiQjxUKnmjspEgGZXoVXKeNH
+	 pl8knqLmb3g3Bt2kFfrc8IboWYZL3C9o9Ixala/0npsvTt0rmmDTuIZj2o5ZMPU8/vxzR
+	 Zw6o/tdqWOuGNx7hZABT3zdzDyg71nq077wFeJdaBqQJGSX0N6/SSsOj3LWFT3kUYkmxM
+	 Dj2Izbh9UP7dNO1diWOZINmnfk8cZaGoRV5Zrfp+i6S81W3DY75o4diBoeSSjziLHww==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142850;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-AuthSource:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142893;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:Content-Transfer-Encoding:
+	 Content-Type:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:
+	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=5FKj030d+oNmYckDCh9k3T/GGTB+8rCJ6BJuiBkF0WY=;
-	b=HOMrt42o5olOwWO/WoRmJkYPwrPbOB7cmVeBmc0/A8Do4BY2jJMGjd77vrij6THi2PZO
-	 vy6Ka0xxlayKAjzQTJTjHPF7ajPjfdZyG35nKew6r92DBcrQ6N7Y3R4PzbsyZmus92Tp9
-	 4ODfZahGaiHY/oncKUBoZWk4iakJJ7mAfOZpAJv3OWRTPSiDD1RpYVbHizrfFcrRQCp+F
-	 Ys9EPHMUDcX2r2PGgDdpqT5RFnUAVx1OuzZKPzb8MjgmRxKql9MZ6B5vDxKMTN5DlIvRl
-	 kDwg/fkpsXaJ+vWjxQwc7mRsm4Qeu16Kn1/RJSb22o7zw223csugqWDlZ9E4JLdJssQ==
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=qqAOgzNmsCSfqryQinKzSeKX+TX3+ksV2z2gF6CMNCk=;
+	b=PNmcjorNp0BH50lnkV0j99SMDVunci/lE4qYOcGq8hnEOyUAen5HS4ryOyqqJfubd7lO
+	 p+WOSWCr204n49+Ostfe6o0afLl5nFD5mDtX4GDNlXw+HUVx1ANLck3LnHXJyVTHYfhRK
+	 VWd9GJAzJrtaxnj3gqtnb7YUa72jyWkSJprkK5VmFlso+AhpcIE5aBToIdHTOl5yQ1k+D
+	 3ehj3rftWTzi0L1ACQzURRAMIsM9J/Rlc7oRzAGF3nhxld+KyW8R1JiWwa1ua+hVicn6D
+	 jbyP/rXyZPDGthbWEGJ1zxdy0VnylYHphjDKSgqH4Z4XQOYR6sfrxF3PXRiInz/bFvA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Pq+U7obR;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="mSpk0C/3";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aM344snd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.52
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011052.outbound.protection.outlook.com [52.101.52.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05D8D606A325;
-	Fri, 20 Nov 2026 02:47:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05D8D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1E50606A320;
+	Fri, 20 Nov 2026 02:48:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1E50606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Pq+U7obR;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=mSpk0C/3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795142850; x=1826678850;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=GxXZ3pZDB+OBxfbE9URwYtDbIMXsbUvQFw4YQstXZ08=;
-  b=Pq+U7obRwYi7uONJ/sqS+5ZlWvdAVIodt7OZwFqPC0lfC8OILCVKPfYP
-   ooN1jjrjR/kvMbEq1cuYA6/KihhUTDVsAdrKpTUQyETRnAuur56g4IEEH
-   /YXZZyoCu5giuUQdRXBZf7zDgToO8kI7T7Klzd9CXhG35F6KT1UFCsSdI
-   y3qRVawt45PEbdsPIzNSfsjiBcTN8KzuHdMPfotydKem0ZWDk4fbgI9c/
-   RlLd/H58Sr+Y4SkIhhXSHIeugSuJrS+mhCcyCUYeKdnX2BLOWvyR/Lcq+
-   sOzsR/9ac7lZHsgXFFSODdQEZkUQxvWHpljsTGlovuwIH7HGapkJGQwas
-   Q==;
-X-CSE-ConnectionGUID: VP8fuFPkQMSgPLBq8P2Cpw==
-X-CSE-MsgGUID: WBbz6ShuTjmLZHZxtrKaEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4115728"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4115728"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:47:29 -0800
-X-CSE-ConnectionGUID: ZFN8M/1BSWykYKSJquGf5w==
-X-CSE-MsgGUID: r+f0YL1TSBS3uEqI5jYdsA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10412904"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:47:27 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 18:47:27 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 18:47:27 -0800
-Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.19) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 18:47:27 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=aM344snd
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qkcDgKxlCDXZ6/1dEtmV5lND0l7xFleTDiW4ha7ykqB0qHFok5Gu3+7m12S7uxbk1bWC7GooJFYfD+cDuV8/BAtlpET8C67EoPXlgVoX8C4fP8UfqdLt/EhL6/3hoMWJFb3x15AagZQ3qsXPoTPz/25kD0UQt6BaEcsd2gWSxoAGxnQ2viQM/kxAJfE8yoAk5XgKS9qPISFjFCQ25RtangrG+aRgEbHMCLBFY+tj0ztYOVhRX2jkZH1j6GTXFT4CrXazJIyMWUhKoFFBwdcx4v1lz4wlXosZ7r+2ZlRJh3z6867xvgokyM+Z6x1rJDX6JUQE6P1LuCO4rKEl29DJ2Q==
+ b=iyB/xp9w1Bog+x9O6RzGVDXUCBgWy+zJrN4Z9eriBlY7ByRDlQf02/SE+yfY1rWrnp0aXwhkX/EH8udN8eiDS5BAYxNobvAWUOPhoZnZvFBiq9GIwQOnmXN6HnocIaxuXo8wRWmuYBHV9lgQtjMVHuTEcshGPDekj9hi207XOJSXh67BjshcTW49Tn9PtvSV0sY/aG+nY1MP8Tb5Je3Lk/y5qHbzCTgas2bEJG1+sZ2fE2frl1GDIVYfy55cFvhRHR2GE9FnELlhMbSPfWcogeS2I3oomFQ3HtrmL6p39VEKgn3H6QNA4Npr/DKu31tTxgAgKkBueKRe6x8dmDpASQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5FKj030d+oNmYckDCh9k3T/GGTB+8rCJ6BJuiBkF0WY=;
- b=OlKF3IBhWG9mXlphpUuT+XlBw+3vrLNKNV+lOwrELqiKWJlGQJKWKxxuOg/9TfphSYQlJLMvWmfUUQ5k0I77RPdIyYuWWMk9d9ukGpk59NPEhLi2h9WF9S+UtXtkXKYTgVrnvdhwPKyuBugygDze41Xnij46wuxVC9b6PrkrB9S3YGGf+O3e+zJcA1vNjWixsvr6b4/8cTYf3NggSAH1geG7gSUcvO758W2/jiZDksfXjMdplzYaab7tHHq1VonLpWY36JL8usj+3apTSsEsvRRHD1MTHkMZpo9p0ksl5N/eax7n8FFl9kRVXSpjSX5Pzb51SZvc13XlimUaoQXz3Q==
+ bh=qqAOgzNmsCSfqryQinKzSeKX+TX3+ksV2z2gF6CMNCk=;
+ b=tADPWNXbA5abQO1S3/WhtWL3Tn4vUyOiMl8OwsfsYx05YUe+CCgAx+zS2YL5AgTPFS+Q7Op6oLeF3wgzfcBX24gLr+eleT6s4YZf2mnQM4k1vTxMUGyHzDztfzNyE7GlwkUXFqatslOCavLa3Q9qa5mJQ4MjCQsMs2xf3IRr1OBuSHANodzv6mb4lPydhiwOaa6dxq8IK4DdGyJlBf48b7eped8hXqvW29FOzSYA2s8o1+7OsKy7P7jwY7gdRQrNnGaerToHQKVADnNmUVFSE5d3VuFE6XFQZLBKB++YWCbPrM4LQVLrjagSV06fq3hMshb+mBiOn9Ot6/oauvEI7w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5FKj030d+oNmYckDCh9k3T/GGTB+8rCJ6BJuiBkF0WY=;
- b=mSpk0C/33v53MHlVHvPRmOSYyDDJ+Pc2WibbxYbJPBFwB1NurLwLRG+fzewRDsrrzqcuoYCCcVzUzyfISggmQB7u+X9KhwKvSZ//ydfjO3P5o/LmVF+pEHU2DQwrTNlOkFjdcYK+yk/469SH3F4QWmweRHH86N6iAIivv16UgYA=
-Received: from SJ0PR11MB7704.namprd11.prod.outlook.com (2603:10b6:a03:4e7::5)
- by DS4PPF641CF4859.namprd11.prod.outlook.com (2603:10b6:f:fc02::26) with
+ bh=qqAOgzNmsCSfqryQinKzSeKX+TX3+ksV2z2gF6CMNCk=;
+ b=aM344sndFGDtveQR/LFVLY1puyuej8YOU6a4mvLQOGOqD7PP/ospz3VNs9KuafR/o1j97d8WrN5mwG12/mf749kfCAPpmheaCAOtDDV0vuzxwGiOFToyz8IqLvNaUmU96uoODvPb4o4ndnrnvmRzaqo8L4bvlXo8+8bHWynfu/SA20H2Hm54Cp0Yf1EAfz68tJZ6KMf7vJEK8HtKZMXzU8ocMjSHbKGmtNRtH/Xk/9cRkYPSCvA/fWyWCpUv/S48KFT8nFVbHWlF418c0u4aw1GYCxrpZ48m+v/XUrg3xcl+QjyHitstW4Y1DwxIvjsIHb0007ECqESFPa7MNNNDFQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com (2603:10b6:a03:566::20)
+ by IA4PR12MB9809.namprd12.prod.outlook.com (2603:10b6:208:54f::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 02:47:22 +0000
-Received: from SJ0PR11MB7704.namprd11.prod.outlook.com
- ([fe80::a8b5:7722:c11b:63c5]) by SJ0PR11MB7704.namprd11.prod.outlook.com
- ([fe80::a8b5:7722:c11b:63c5%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 02:47:22 +0000
-From: "Xu, Even" <even.xu@intel.com>
-To: Emfox Zhou <emfox@debian.org>, "Sun, Xinpeng" <xinpeng.sun@intel.com>,
-	Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>
-CC: "linux-input@vger.kernel.org" <linux-input@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v9 0/5] HID: intel-thc-hid: intel-ipts: support THC IPTS
- ports
-Thread-Topic: [PATCH v9 0/5] HID: intel-thc-hid: intel-ipts: support THC IPTS
- ports
-Thread-Index: AQHdeAYclKQaiBUpbU6meysbShCEQLc2QWYA
-Date: Fri, 20 Nov 2026 02:47:22 +0000
-Message-ID: <SJ0PR11MB7704C0830972D20A640C57D1F4782@SJ0PR11MB7704.namprd11.prod.outlook.com>
-References: <20261119091152.470384-1-emfox@debian.org>
-In-Reply-To: <20261119091152.470384-1-emfox@debian.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR11MB7704:EE_|DS4PPF641CF4859:EE_
-x-ms-office365-filtering-correlation-id: f7b33a57-47e2-4058-0989-08df46b09a18
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|6133799003|18002099003|22082099003|3023799007|56012099006|11063799006|261026130827099003|5023799004|261026121527099003|261026140227099003|261022115727099003|261022105027099003|261022075727099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261102130727099003|261021130227099003|261021135927099003|261009223027099003|261022113327099003|10067099003|38070700021;
-x-microsoft-antispam-message-info: Y6kiDwWm6zN7LXdx5BvflaHCZTCJ5PIJQC7ITgLyF16Iglk5KWKbViOV6cbuiYtUVuDAeN0C0GbDwi1VuHgOdSb9aDASb2i2nT69Ik53jF5c1nYTlTYAPep2f+aKrT1NLdFCa3XlMsesb3awgAB4DRW51tzX+0TCj3aMXP8joJfbDBDBByLnSgejM7TpWghTxnANYPCrAV+QDnsOLGmGfYexhuESUrO2YZ8xPdvHIAE0RlMLuFgK3jLaZY8bhZXQsWz60cJ2yEoXa9wlRQfUTsF5NRCPxWN8ecUJu7MQoWCQy9tQfAU3DQ7Q3SpUbloxcJ20yxuWztZflRFlUmUW5OoNqDX6oq8IWbNm/dWwA37jDRhm4SYwLiDtRGQSXjV6km/EE0E/Dzu57KBh72QfCEtgJk932VP8fl7vz7Wg3//XXPQOflvX1bYwS0AmISekQFSl31aTlLnafKdyYK+7E1kqz1cEW9DjYhNssuSBf+CESeWDPj2aNZU+N0mBR5/I9u6K2gWgSyanmAu48KG9SdpoyJYaYaA42gcNzLZ9PMq8nmp44Z7RXdF/hM9hKp31N1GX2ZGcKXismNzmb/ZuSDJ36P/KAHhDhBPvYx6EyiIAvGqyGMk5pNQM4Jzct2cg53+UfjsT2LpI4jNbXbXW7bf7H/4sLYMW7ebpJvXXN/8=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR11MB7704.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(6133799003)(18002099003)(22082099003)(3023799007)(56012099006)(11063799006)(261026130827099003)(5023799004)(261026121527099003)(261026140227099003)(261022115727099003)(261022105027099003)(261022075727099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261102130727099003)(261021130227099003)(261021135927099003)(261009223027099003)(261022113327099003)(10067099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?J9cEW3cFK4VgZgpVATOL/+692ILfzbE7S4lprXSaj8TV3m8ebkzSCbul4INw?=
- =?us-ascii?Q?en2hi4GWkNmTQfsw8Ou4Vzq1MlJBFYYWhpPPx6owKlmfg7AHMpqle+73IPlI?=
- =?us-ascii?Q?I1jsOunobMs63IdCpGuwLlTzD7gzOfxY/5JGzDrvPO/Idv8ZsdyRt0dHP4Bx?=
- =?us-ascii?Q?Wo0S1m4OeQz7/LHB/K6mVwE54N6e94wH08t85VZEY+C2OcJOZDjHUulZYbnV?=
- =?us-ascii?Q?q6eVxIBXmB/96dTu38UEuruU4oGGCBbI53ktnPMa42cjH57jCvfDt5gyM3e3?=
- =?us-ascii?Q?cm/T/GaUqjsc0J01C7/QkWbggh7Hr18AvrHCxxz5sCuhh/sy7/emyHqvfOXn?=
- =?us-ascii?Q?51fcDirl4qlDPsK0XLYb9JfgcYawtAbIw3Q0/Lyx6WMcCQF9EZsVRcdXtcAS?=
- =?us-ascii?Q?SH5IRr7crE3pinz/qdKPTqAjhd8Dg1WzVLvwL4c+0z8XWbGWduL32//GQz1B?=
- =?us-ascii?Q?sJC0dTU8HlmZFMUCfYGNHMOUwNIhKQUx0/jfYfPC1lUICqB1/AjqrNiLjnVt?=
- =?us-ascii?Q?OLuGmJZmvK/F3D99P944wW982mJFj+v2RrhB5XoXr5BHSo3WBymX7AndFig8?=
- =?us-ascii?Q?JIk7yHuKx1yExgkOl12Ei53UIGGfnLVJ1BZ2B6rxDlbcmQuiDsGcolCfZKMZ?=
- =?us-ascii?Q?c9ocx/lh7ADSSIWSo6RzNpyRJOOutAKPh8oOCRh2jQCHtWQeAWADjS6Ndwhk?=
- =?us-ascii?Q?goR4sgNq+juNuEqdQzM6Xxr9FKm5+VXWmyTeLchu0GlsHzBtEBKAxpvBaGme?=
- =?us-ascii?Q?s9H4hJmNcRZ/LW8aDrhYzE9/px2LRJZXCLY0WociD4ps8Eg6yCUMw2vdttzQ?=
- =?us-ascii?Q?8DUn79UPDhMbVIgJIcefvpJNzsJugo/9zes5cOc0Jxo7hGvyBknK6vA4WLL2?=
- =?us-ascii?Q?0BqG8IPrMc8MzJ52e/W6k06JbT4xKd/4JAtGsWIR/1G+8UUE22cW/5Qa0j3t?=
- =?us-ascii?Q?LqDPLFgIrl0GKbSp8aujhBuldrMq3QeMOIfUMcPOxkkybUnuA88Lh1cIRPVm?=
- =?us-ascii?Q?XzvMVTQPNh/Y6kgCSsC4+vL3f+qRm0aU5zumwepczVYRQ5XYvCb/7xTG9vp2?=
- =?us-ascii?Q?kURCkgUnVVUPuhN2oug/cCXnzOy441zS5aFRc8lmqhznlJ5pDGf0ikqODtjs?=
- =?us-ascii?Q?hVy39adUlFgCEsLo81apU9Fb9P3Jlm9R0royiNxUIZoUT4oVJZGj+7P1gIbB?=
- =?us-ascii?Q?c+dAWkfbzChon98jHXCFfPwLJlf+cK11KEvO0XGj8YyLqRW8I9uuNWm1ikSQ?=
- =?us-ascii?Q?cZM5SFaA4guzZ2A/RMa6YenM8yX9Knn1ffrK8AD7n5pYkOAkBaRlJgAS/sK0?=
- =?us-ascii?Q?PE6+0Zg7/3/WYW7tgne/NwJe+r3OA72sip7PvpMPb/qaez6L+nQfWdgW57Tb?=
- =?us-ascii?Q?/UqAu3W+yIpiqsqNV+uUug2ysWHbfLaTnL4GzG+3cp7J0oW6etojHCUdRPAy?=
- =?us-ascii?Q?QWeI+If6/8nwEG3dIEWWK7kxt98Lypu6xjU81NN3/faNmh/vaQbnw8DNVbq6?=
- =?us-ascii?Q?fydUQOX7+MHHjzZrFGPLY/kMTiUTo0peQebLtvtM3cPIuc3LmbBRAbhTjWc/?=
- =?us-ascii?Q?MlRKCUva3x/1phbqKyhDi8q6QnrjC/PV2mXEWa7JvYjOYficlSjVezAsmWrs?=
- =?us-ascii?Q?zIk35gtLaMxVLEAQZRQzmaGbKJRXs5GjVzxwoNYHdkFQWQOhoprqwt97YZ9l?=
- =?us-ascii?Q?NGWLtJo0UV90jpJhGbnWA47LgXnsb/blKO52d+ImJeuT9H6n?=
-Content-Type: text/plain; charset="us-ascii"
+ 2026 02:48:09 +0000
+Received: from SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017]) by SJ2PR12MB9161.namprd12.prod.outlook.com
+ ([fe80::d9d1:8c49:a703:b017%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 02:48:09 +0000
+From: Mikko Perttunen <mperttunen@nvidia.com>
+To: Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org
+Cc: Austin Schuh <austin.linux@gmail.com>, Aniruddha Rao <anrao@nvidia.com>,
+ linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Austin Schuh <austin.linux@gmail.com>
+Subject:
+ Re: [PATCH v3] firmware: tegra: bpmp: populate debugfs in the background
+Date: Fri, 20 Nov 2026 11:48:05 +0900
+Message-ID: <5_ik4HOeQzCUNLN6ib_iaA@nvidia.com>
+In-Reply-To: <20261103061125.3825178-1-austin.linux@gmail.com>
+References: <20261103061125.3825178-1-austin.linux@gmail.com>
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ClientProxiedBy: TYCP286CA0351.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:7c::20) To SJ2PR12MB9161.namprd12.prod.outlook.com
+ (2603:10b6:a03:566::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -184,134 +99,268 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: U+lJK6+i6d6SKeLgFf+RE7CTZB8dVio19hXqhRWPX0kRd3pxMmME1u94dKNRMzP96drR7HyGVzuEDnDO3ZjBgEKKqj0kyv1Gza07qxPboN3AXXFdLn0g6/7Y/0WSAdOIIwQm00u+/SJGNO8RCmBuwuwSU+O4new+Ajua2aG3bd4JywQIVf8MfxoqD/Wad8tyAHUlmKNLy67AGGDb5iOrtCsXQYZRjcOnWI3yWMoYVkm9scRsDC9X13fg7uQPRvmPlHZZUtve4SE3NPrMODTUK4HjgDcbNUd82nyQK+OwztfDO9FxNRoznX4JddtCfAPP5sOWZegJukAQUHh/gr3Efg==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB9161:EE_|IA4PR12MB9809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 005d6c3e-6e3f-41ee-d465-08df46b0b60f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|10070799003|23010399003|1800799024|376014|366016|22082099003|18002099003|6133799003|261009223027099003|11063799006|5023799004|56012099006|261028144727099003|261102123227099003|261026140227099003|261026121527099003|261021121427099003|261022105027099003|261021123027099003|261022075727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	vYE1nzgetmm/UP+yY0/KHDMwAe4qIN45CO1EA789+N3V9hJ2uIjX8jLjab7g/qFqXxhi7zmKO0VDBmBLSSpaf9rzyyGXlXx+S+J7/NMTQDdrsnHYlA8VX9OOjhuTcFRxECfI4ZJ7oiVQBlgmcqCSA/kN+Et9RiWa0bbOSazNXQFqhalTkVUGxGqMPpnMAVSWuSSif/+kuSM/LXLMnXA/a+HCq6BchL8FNsFY66GVg1D5oduYHygyNOS/tGIMamw9reAd7PIlKJnH/Ssh4fCpW6UPbuWx4zDeT7AJ875IAH7yUSXAgKcodZhuV7UJ/ULrqqnNnEOypdngcCYEBieE5r95fsxP7inUEkes6S5I7owldN8B7+P9stZErxm2/WyKJ0v5vnRCXmMCcsSv3Yb8olu7ZZdtrrHlOxR793+f2Yli/JckYd/KG0UGjUdzIkIY6H/Qd52f2k2dB2hCZcVEUWiXKvq8V/IGDvszVD2aVZgj5tGTHtrmv6EwwQEjBtDj22qbkunITls7gTFjwpra4wczplin92RyBl63Lf2ENNGNgtddl+6tKV40zNsnmGNnCBlQrVLtlX0VWjmemdGLF4e/JPDPSwQzwvIzCLbWtjxFNcc5BJ1VrNl7YtnIURile6xa0/f338eMuOAliQfvmz3i3vqARCVjAtZV6S57ooY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB9161.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(1800799024)(376014)(366016)(22082099003)(18002099003)(6133799003)(261009223027099003)(11063799006)(5023799004)(56012099006)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022105027099003)(261021123027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?RUZpdWhRZzZqZDZabm1CTWVsaXV2akozb1ZHY0ZhNERKVG84aWZrVWRmcmEx?=
+ =?utf-8?B?ZmpUdWQ1dmJUL3V3TG5VbHgzS2pncHUwZWg5R2QxS0c2QlpVenJkeENCdjlu?=
+ =?utf-8?B?QnJSTGZ4OGZjNFBaTWpLbjBvNTc2cktBL204RVdteklxcmF6aUkxQ0hkcGd3?=
+ =?utf-8?B?Q2R1Qmx5L00xa2xIaGZicGNYcW5mTGJ6ajlOQ3lMTDJNcmV3RXpnWkZ3MWlt?=
+ =?utf-8?B?czZwOEkrRDUrZXlHeVM0SEl2ODhDSGdMbmw2NjljTFJrYUMvZk5zNHVlWEJt?=
+ =?utf-8?B?QXpJbU9aSktpa2QvdFY5cmZMbHo2ZzNucWF3aGtENVZ2YWdiMzJoOFRxSnlE?=
+ =?utf-8?B?N1BKRzRza0s5VWxTY3J6WTNGVjB1bDArOGlidUI5c0lVTXplV2FJNEIyQzhZ?=
+ =?utf-8?B?MW5RYlk2QXl1L3ZYenZwemNZUmtMZG9BYi9vUzNPMWYyY2ZyaFA5KzA5NVVG?=
+ =?utf-8?B?UHNzcXZZS0c5ZlM3OHZ0WWM1c1M4bmZSSWxPcVM5bkRUMUtYMGtURUhQaldB?=
+ =?utf-8?B?UHlESlc5YUh0L1J0ck50b3VYNmN6U29KREZRZzk0N1MwUnV6cU5TMklTZEl3?=
+ =?utf-8?B?TW42eUpSSTNxaUdLNXZPaUJIV2I3dENPM2FTWVhCc0NBRmZrZVl1VnhYNU8r?=
+ =?utf-8?B?Yjc5R2c0eVRXam9PS3BNZlpEQnVOOHl2OThXTFZUQjRiMnAyZEhBZGdsbVZO?=
+ =?utf-8?B?aW9HdnhpNktyNENZU0hrSkdIOHBaTnlBNkIxbzhaRlVVS3EvcllXQWkweWFT?=
+ =?utf-8?B?bzFhVmd4MlVteXc4VW50MTE0NzJyMC82K3ZDOTNjMy8zQnNIcmd2WDVaSFlZ?=
+ =?utf-8?B?M3E5ZnVLVk5IaG9mYUdTTUJ1VGFReDh1RHE3UEt6RkVETk0wd05Xb2NXYWJJ?=
+ =?utf-8?B?VzVpQ3EzY0c5VEt3UXJ1cmZHNXNsc1FBTFdyckVFZlh4YkFOcmE4MTczM29V?=
+ =?utf-8?B?QlpITUwvT2RwWVRhbk1TM3dLSjkxUy82aHlEM3AzNGJ4SGJ5bzdFa3RTKy9l?=
+ =?utf-8?B?SlhiT1IyOHBDeVdoMGFWQ2hSeUplNlNRb0ZleFV1U2RBQzY2RjRNQ3JucUhI?=
+ =?utf-8?B?SGdIaENSbDN2Y3pJWVZlNEl6enlGODZBemFIMjlTQmpER1dvWGUzYjVjZmRr?=
+ =?utf-8?B?ZENPWmllVUR5ZFR2S0F5UmhxL3cxTlZlN1ExcjdNUjBGb25RU3ZXQnVDOGwx?=
+ =?utf-8?B?Uk8rRWRxNVZHaXdQb1VNRkpIRjl2WCtxWlQ3bDdHVGt5ajQzL3dFTUczQTY1?=
+ =?utf-8?B?bGtCcERuTEExUWo4Y3pUQlNEaWtUejZlRG1KV2ljL1lpUzZLUFVEdkcvTWQ0?=
+ =?utf-8?B?Z2o1VmlDNzMxQXk3bHNIV0pMV3UxbkVZYkJzUmRhOW5YZVpkeWZQNEJ0Y1NV?=
+ =?utf-8?B?aW5SYVdnZkFwWDh0bnVyeDdvd1poTWNaLytRUDRIRHQ1V1NmZFpYT1A3Z0lH?=
+ =?utf-8?B?bDBjNU1IWDJFT1hnYVdDMS90S0I2MGtrbFdueTEyQWJxb2JBdjIxVExBZnlC?=
+ =?utf-8?B?clBmWUNwVjlPNlRFVjlmcDlwWUZMZUoxcFR5SUowWUtmWlZsaklpWjB4Nlp5?=
+ =?utf-8?B?aEx6L1NnSzNBWXM2SzhhUmQ4aVVXUXIxb1U3MVpzODBRTTg2UTdYZEl5UkFP?=
+ =?utf-8?B?dXRRZGJHeVBSZUZKNHIvWkhmVTJxL25rOGtXWXhhZk13V0hLL0RuSUR2ckdC?=
+ =?utf-8?B?UVRERksyc3dVTEExZE0wVWNHeGFrei9MVGVCTXN0VTA1VGxzYkNJMGFBcTZa?=
+ =?utf-8?B?NytVSnBWNk5ESkZWOXFOejgzRzYydGl4WFhnc1FuY0Mra04ySUNaalRETDVk?=
+ =?utf-8?B?Y21LS2doL3FjNWJwaitNcm5pbzNBQ3hpaVcrd0NkYmtzclloZUhIbW1yR2xR?=
+ =?utf-8?B?Y0ZWdTl3dGQyVUl4aWtOZTRYdVZsbjcxRHZvYjFjdzdpdmdUdkpMOXI1bFAx?=
+ =?utf-8?B?Z01kdWNHWmpTcjJsaFNkbjFodDl0czYzUThBMThSUFBDQnQ3VFBTM0FGUFVu?=
+ =?utf-8?B?MDhCZE91ZGR3aGZQdisvTXZ3SzZ1SU0xVTI4SG9ma2NSd2dRRmo5VW5NdzEv?=
+ =?utf-8?B?L1h4QytTU0xPQlB4WlRyMFVLQTlPeDNGVktCek45VXdnSnhQMWxPU2lGWS9S?=
+ =?utf-8?B?VWlxZ3RJMThNVit6OU9IcDVtTVFHWWZUcjh3bUJtblVwNHZXV2VVQ1R1UU9I?=
+ =?utf-8?B?blBENm84Snp0UU9HQnlKcTR5b1dTMk84eHJaajJVMWRzdnlmSWdXRXJqWVdK?=
+ =?utf-8?B?NTZ2QUw2NnpHWHYzSStWQ0lzQVdCd205Z3g4U1RsSzJkZWlZdnVsT1JZWXFI?=
+ =?utf-8?B?TWNEd0VySVplSVlaNzUzUWIwQVJiQnBxVW94bU9KVUVxTHN5ei9XRlFDZGc2?=
+ =?utf-8?Q?EvfvDNJPh3TPt4W47hSxafKYXgb/Hp2j4Ugt99NuJaITu?=
+X-MS-Exchange-AntiSpam-MessageData-1: 715gjbIkiceV0g==
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 005d6c3e-6e3f-41ee-d465-08df46b0b60f
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB9161.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR11MB7704.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7b33a57-47e2-4058-0989-08df46b09a18
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 02:47:22.3001
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 02:48:09.5651
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: bTjKs3G5H47dk7bmLcvHnCS7s5Uhb1i2AQaAFwsvQvbKo+hK+H5n6fS/HAcaf9U9myel9HeG/3ubWSiPCSSa/A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF641CF4859
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Pj4r4lJWIjzy0wJRtkJZJbxC1sM7Ear9YMNey2EMjgKYzFa05+wUS9oZ/2qiIFbVs5L09I1VeM6BFhiXh9ujOQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA4PR12MB9809
 
-Hi, Emfox,=20
+On Tuesday, November 3, 2026 3:11=E2=80=AFPM Austin Schuh wrote:
+> Populating the BPMP debugfs mirror takes several synchronous BPMP request=
+s
+> per directory, which on Tegra234 adds up to seconds.  The BPMP probe wait=
+s
+> for it, and nearly every other device on the SoC waits for the BPMP.
+>=20
+> Nothing in the kernel uses the mirror, so populate it from the freezable
+> workqueue instead, which system suspend waits for.  Create the mirror as
+> .debug-populating and rename it to debug once it is complete, so that
+> userspace never sees an incomplete state.  Count the users of the shared
+> root, so that one BPMP failing doesn't remove it while another is still
+> populating.
+>=20
+> On an Orin Nano with v7.3-rc1, the BPMP probe now takes 0.5 seconds
+> instead of 2.6.
+>=20
+> Assisted-by: LLM
+> Signed-off-by: Austin Schuh <austin.linux@gmail.com>
+> ---
+>=20
+> Notes:
+>     Changes in v3:
+>      - Shorten the commit message and comments.
+>      - Populate several BPMPs in parallel, and count the users of the sha=
+red
+>        root instead of holding its lock across the whole population.
+>    =20
+>     Changes in v2:
+>      - Embed the work_struct in struct tegra_bpmp, and cancel it with
+>        cancel_work_sync() from a devm action.
+>      - Create the mirror as .debug-populating and rename it to debug once=
+ it
+>        is complete.
+>      - Queue the work on system_freezable_wq, so that system suspend wait=
+s
+>        for it.
+>      - Hold bpmp_debugfs_root_lock across the whole population.
+>    =20
+>     v2: https://lore.kernel.org/r/20261024055055.602558-1-austin.linux@gm=
+ail.com
+>     v1: https://lore.kernel.org/r/20261017065012.3063980-1-austin.linux@g=
+mail.com
+>=20
+>  drivers/firmware/tegra/bpmp-debugfs.c | 62 ++++++++++++++++++++++++---
+>  include/soc/tegra/bpmp.h              |  2 +
+>  2 files changed, 58 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/firmware/tegra/bpmp-debugfs.c b/drivers/firmware/teg=
+ra/bpmp-debugfs.c
+> index 2efc48b522ac..d90ef912b66c 100644
+> --- a/drivers/firmware/tegra/bpmp-debugfs.c
+> +++ b/drivers/firmware/tegra/bpmp-debugfs.c
+> @@ -774,6 +774,7 @@ static int bpmp_populate_debugfs_shmem(struct tegra_b=
+pmp *bpmp)
+> =20
+>  static DEFINE_MUTEX(bpmp_debugfs_root_lock);
+>  static struct dentry *bpmp_debugfs_root;
+> +static unsigned int bpmp_debugfs_root_users;
+>  static bool bpmp_debugfs_enabled =3D true;
+> =20
+>  module_param_named(debugfs, bpmp_debugfs_enabled, bool, 0444);
+> @@ -785,19 +786,18 @@ static struct dentry *bpmp_debugfs_get_root(void)
+>  	guard(mutex)(&bpmp_debugfs_root_lock);
+>  	if (!bpmp_debugfs_root)
+>  		bpmp_debugfs_root =3D debugfs_create_dir("bpmp", NULL);
+> +	if (!IS_ERR(bpmp_debugfs_root))
+> +		bpmp_debugfs_root_users++;
+>  	return bpmp_debugfs_root;
+>  }
+> =20
+> -int tegra_bpmp_init_debugfs(struct tegra_bpmp *bpmp)
+> +static int tegra_bpmp_populate_debugfs(struct tegra_bpmp *bpmp)
+>  {
+>  	struct dentry *root, *d;
+>  	char name[32];
+>  	bool inband;
+>  	int err;
+> =20
+> -	if (!bpmp_debugfs_enabled)
+> -		return 0;
+> -
+>  	inband =3D tegra_bpmp_mrq_is_supported(bpmp, MRQ_DEBUG);
+> =20
+>  	if (!inband && !tegra_bpmp_mrq_is_supported(bpmp, MRQ_DEBUGFS))
+> @@ -818,7 +818,11 @@ int tegra_bpmp_init_debugfs(struct tegra_bpmp *bpmp)
+>  		}
+>  	}
+> =20
+> -	bpmp->debugfs_mirror =3D debugfs_create_dir("debug", d);
+> +	/*
+> +	 * Name the mirror "debug" only once it is complete, so that userspace
+> +	 * never sees an incomplete state.
+> +	 */
+> +	bpmp->debugfs_mirror =3D debugfs_create_dir(".debug-populating", d);
+>  	if (IS_ERR(bpmp->debugfs_mirror)) {
+>  		err =3D PTR_ERR(bpmp->debugfs_mirror);
+>  		goto out;
+> @@ -830,15 +834,19 @@ int tegra_bpmp_init_debugfs(struct tegra_bpmp *bpmp=
+)
+>  	else
+>  		err =3D bpmp_populate_debugfs_shmem(bpmp);
+> =20
+> +	if (!err)
+> +		err =3D debugfs_change_name(bpmp->debugfs_mirror, "debug");
+> +
+>  out:
+>  	if (err < 0) {
+>  		if (!IS_ERR(d))
+>  			debugfs_remove_recursive(d);
+> =20
+>  		guard(mutex)(&bpmp_debugfs_root_lock);
+> +		bpmp_debugfs_root_users--;
+>  		if (root =3D=3D d) {
+>  			bpmp_debugfs_root =3D NULL;
+> -		} else if (simple_empty(root)) {
+> +		} else if (!bpmp_debugfs_root_users) {
+>  			debugfs_remove(root);
+>  			bpmp_debugfs_root =3D NULL;
+>  		}
+> @@ -846,3 +854,45 @@ int tegra_bpmp_init_debugfs(struct tegra_bpmp *bpmp)
+> =20
+>  	return err;
+>  }
+> +
+> +static void tegra_bpmp_debugfs_work(struct work_struct *work)
+> +{
+> +	struct tegra_bpmp *bpmp =3D
+> +		container_of(work, struct tegra_bpmp, debugfs_work);
+> +	int err;
+> +
+> +	err =3D tegra_bpmp_populate_debugfs(bpmp);
+> +	if (err < 0)
+> +		dev_err(bpmp->dev, "debugfs initialization failed: %d\n", err);
+> +}
+> +
+> +static void tegra_bpmp_cancel_debugfs(void *data)
+> +{
+> +	struct tegra_bpmp *bpmp =3D data;
+> +
+> +	cancel_work_sync(&bpmp->debugfs_work);
+> +}
+> +
+> +int tegra_bpmp_init_debugfs(struct tegra_bpmp *bpmp)
+> +{
+> +	int err;
+> +
+> +	if (!bpmp_debugfs_enabled)
+> +		return 0;
+> +
+> +	INIT_WORK(&bpmp->debugfs_work, tegra_bpmp_debugfs_work);
+> +
+> +	err =3D devm_add_action_or_reset(bpmp->dev, tegra_bpmp_cancel_debugfs,
+> +				       bpmp);
+> +	if (err < 0)
+> +		return err;
+> +
+> +	/*
+> +	 * Mirroring the BPMP's debugfs tree can take several seconds, so do
+> +	 * it asynchronously, on the freezable workqueue so that system
+> +	 * suspend doesn't make its requests fail.
+> +	 */
+> +	queue_work(system_freezable_wq, &bpmp->debugfs_work);
+> +
+> +	return 0;
+> +}
+> diff --git a/include/soc/tegra/bpmp.h b/include/soc/tegra/bpmp.h
+> index f55db918ccb1..f961c265326c 100644
+> --- a/include/soc/tegra/bpmp.h
+> +++ b/include/soc/tegra/bpmp.h
+> @@ -12,6 +12,7 @@
+>  #include <linux/reset-controller.h>
+>  #include <linux/semaphore.h>
+>  #include <linux/types.h>
+> +#include <linux/workqueue.h>
+> =20
+>  #include <soc/tegra/bpmp-abi.h>
+> =20
+> @@ -103,6 +104,7 @@ struct tegra_bpmp {
+> =20
+>  #ifdef CONFIG_DEBUG_FS
+>  	struct dentry *debugfs_mirror;
+> +	struct work_struct debugfs_work;
+>  #endif
+> =20
+>  	bool suspended;
+>=20
+> base-commit: 1bbcf4a19f1495f769b69e9569d8c1e81df074f5
+> --=20
+> 2.47.3
+>=20
+>=20
 
-Good job! Thank you for your patches. This driver fills in the remaining pi=
-eces of THC.
+Thank you!
 
-I've just reviewed v9 of the IPTS patch series and have a few suggestions:
-1. Please separate the code by layer: put THC hardware-related handling in =
-intel-thc, and protocol-related code in a dedicated ipts directory.
-2. Please reuse existing APIs where possible. You can modify them, but plea=
-se maintain compatibility. For example, the APIs related to quiescing and S=
-PI frequency appear reusable. There may be others as well; these are just a=
- couple of examples.
-3. Please group the header files and keep them in alphabetical order.
-4. Before sending the patches, run ".checkpatch.pl --strict" on all of them=
- and fix all warnings.
+Reviewed-by: Mikko Perttunen <mperttunen@nvidia.com>
 
-One more tip:=20
-You could send patch revisions less frequently. I noticed that you posted s=
-everal versions within just a few days. That doesn't leave reviewers enough=
- time to review them, and it can be unclear which version they should focus=
- on. Consider leaving at least a week between revisions so reviewers have e=
-nough time to review the previous version and provide feedback. You can the=
-n address their comments in the next revision.
 
-Thanks!
 
-Best Regards,
-Even Xu
-
-> -----Original Message-----
-> From: Emfox Zhou <emfox@debian.org>
-> Sent: Thursday, November 19, 2026 5:12 PM
-> To: Xu, Even <even.xu@intel.com>; Sun, Xinpeng <xinpeng.sun@intel.com>; J=
-iri
-> Kosina <jikos@kernel.org>; Benjamin Tissoires <bentiss@kernel.org>
-> Cc: linux-input@vger.kernel.org; linux-kernel@vger.kernel.org
-> Subject: [PATCH v9 0/5] HID: intel-thc-hid: intel-ipts: support THC IPTS =
-ports
->=20
-> The THC ports on Tiger Lake, Lakefield, Alder Lake and Raptor Lake run in=
- IPTS
-> mode: plain SPI with a private framing instead of HIDSPI, which is all in=
-tel-thc-hid
-> handles today. This adds a backend for them next to intel-quickspi and in=
-tel-
-> quicki2c, on top of the same core.
->=20
-> It is based on v7.4-rc3 with two core fix series applied, both still unde=
-r review:
->=20
->   https://lore.kernel.org/r/20261118053132.253448-1-emfox@debian.org
->   https://lore.kernel.org/r/20261117105420.318995-1-emfox@debian.org
->=20
-> One gives the DMA engines a lifetime, the other keeps a PRD table from
-> overrunning after a reset, and the recovery path here relies on both.
-> They overlap in intel-thc-dma.c: apply the first, then the second.
->=20
-> Register, DMA and interrupt work goes through the exported intel-thc API,=
- except
-> in four places where the core has no call for it: the reset, port-support=
-ed and
-> quiesce-state bits of THC_M_PRT_CONTROL are accessed directly. Nothing
-> outside the new directory changes except Kconfig and Makefile.
->=20
-> The hardware facts - port IDs, configuration block layout, frame codes an=
-d header
-> sizes - come from the ithc driver linux-surface ships, at
-> https://github.com/quo/ithc-linux 6d53c9c (dual licensed GPL-2.0 / BSD-2-
-> Clause); no code is taken from it. The layout, the frame format and the o=
-rdering
-> between quiesce, interrupt configuration and the DMA engines are the part=
-s most
-> likely to need scrutiny; each is argued in the commit message that relies=
- on it. All
-> of it was confirmed on a Surface Pro 8 with a 045e:0c37 controller.
->=20
-> The first four patches each leave a state that builds and loads: port bri=
-ng-up, DMA
-> and interrupts, HID registration, system sleep. The fifth documents the f=
-rame
-> format and the IPTS handshake.
->=20
-> Link to v8: https://lore.kernel.org/r/20261118065725.673090-1-
-> emfox@debian.org
->=20
-> Changes in v9:
->=20
->   - The reset count a feature answer is compared with is sampled inside
->     the send, under the lock a reset must take, so only one that started
->     after the frame went out can change it.
->=20
->   - The interrupt is masked before a resume brings the port back, as prob=
-e
->     already does.
->=20
->   - A failed reset no longer wakes the queue, which no waiter could act
->     on: the port stays masked until it is started again.
->=20
-> Emfox Zhou (5):
->   HID: intel-thc-hid: intel-ipts: bring up the port
->   HID: intel-thc-hid: intel-ipts: receive reports
->   HID: intel-thc-hid: intel-ipts: add the HID device
->   HID: intel-thc-hid: intel-ipts: handle system sleep
->   HID: intel-thc-hid: intel-ipts: document the IPTS mode
->=20
->  Documentation/hid/intel-thc-hid.rst           | 109 +-
->  drivers/hid/intel-thc-hid/Kconfig             |  14 +
->  drivers/hid/intel-thc-hid/Makefile            |   4 +
->  drivers/hid/intel-thc-hid/intel-ipts/ipts.c   | 989 ++++++++++++++++++
->  drivers/hid/intel-thc-hid/intel-ipts/ipts.h   | 201 ++++
->  .../hid/intel-thc-hid/intel-ipts/pci-ipts.c   | 201 ++++
->  6 files changed, 1517 insertions(+), 1 deletion(-)  create mode 100644
-> drivers/hid/intel-thc-hid/intel-ipts/ipts.c
->  create mode 100644 drivers/hid/intel-thc-hid/intel-ipts/ipts.h
->  create mode 100644 drivers/hid/intel-thc-hid/intel-ipts/pci-ipts.c
->=20
->=20
-> base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
