@@ -1,63 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196480;
-	b=KVYiDSU2iB+kw5ZSnMacFl8Ac9r48a/wZI2SBMf71LhJlbyuhI8G1X6I7yKSCZkMR7mW
-	 XieznhDICbIfcwhWnaBJ+/b+J9FR28YtwBriMFjWTPdCbXl3qw+yooD/MB4KNZ6/vKF9c
-	 /2Fplwg8m7RUeudin67ljdK63ez21hpkS4AZOxpVudRucEtNs/l2sr8jn/X4+tXLuP6Rp
-	 kRpg9JnV0m2TrfzpA43NzLnGnXPBy+0qWpOR5T6RSyyPQUC3KjFkDPntHPj5/RumHZnlG
-	 JTIbGKPahq97ApaVK3X5YFYDhzBesnPnZ0/eOVj3sASVSKbUCNzI/qTjiCV0z6q9qjg==
+	t=1795196475;
+	b=yF4DOjj5Z1yvP68EuPZn8uaSLyszESHHXVzZRIbwOWOh8UDMcytRU38RXY2YyJBxQHJV
+	 cZLukO1/9+S4HXoqmNPgOwboXo0KsT08cl3GhI2HghmAn2IunXWPEltmRzCNdlQRK5/Ai
+	 AMiKmV5nfJEBslvpeKtfXWWmBBt/A/Bd46M7wlddFji8W15Vmoq5EdKYj7Y3WvCri6kfB
+	 0t3w3HVm9wQhkGlyX147Ff7gvWqFr1Ym+3xmzBTF4Y+599rDw80+1ltY125kjC+164AFW
+	 elbc302yfe0UINf3UfEj1+ye2YSvkPrQGphPo7CLWHjA9jtBt2y5JiJEHtuw3mV2nnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196480;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196475;
 	h=Received:DKIM-Signature:Received:Message-ID:User-Agent:Date:From:To:
 	 Cc:Subject:References:MIME-Version:Content-Type;
-	bh=dTORwJjh2GP/tQDSNXGaR6IiHSyQqUXOWpgsZOvmQSs=;
-	b=RObq/ZF2+xR0OwOXEhIqVPBTv8HVZlFCaNwI76GjX+q+tyCzzrF4+fmXYUNmenF4GDP1
-	 NttO6sR4tzziQpEebqMjjh+oXsA0HlAXmSCe8C1+851YllySw2U2DFOwWWO7OozV2Dirv
-	 OxmtJPJk83zXB6xyxDjmrTAckdwYV6+Hc+rYqmn8ZOqc/GLl1kdxK5f/nA6I3tqmj3gHU
-	 CKldEU8g8m/ja8LkpOgna5FBQiP4VSSAfVS9vgZGIVEqLWhHqMzwftqp3KTf0tiRl3ubx
-	 yHr93WjruX3gyBeBSwucMMxSbLt0bd+HVfz7zMBkjmG1NdpbHkm7geLk7nPOVynxPgg==
+	bh=Yttu17P/aZtjQ1zeZnm1P4mYe97rcjK2QdjYEIu3Qmc=;
+	b=Z7gqsbZNavMZzZzc+D3Wxa02XqlbuiHp+psVzpoEuL1SYIMf7nt5YFitoY0SG0NhoVHK
+	 NR/nFStbcAWSI35LdwmSGJt1NPDLMDxuhSR3pfhNjczYOTbEL70ssun+S5NbhsHZwAIA/
+	 ug3DqfjkCannWEutfdXIQeifK9rv8GI7NSWINecazvQx1asPtNvIpn1XQ5dJMWp16R8JQ
+	 bra92rdnVLz1whn3CnJKYNXvZ+yIgSlRxTDY78hQi57iUEMo+v/88l/xB2Y2TUFQaQbcs
+	 7kiLQh8RtjJXBU+LNIeFxwJuwLjxghBBdtpcaNqOgioo9kQ4JRAEFabD9EEDx804BhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsQwJL+q;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mm1oDWL5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADCEA606C2C1;
-	Fri, 20 Nov 2026 17:41:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5823A606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:41:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WsQwJL+q
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 822CF1F0281F;
-	Fri, 20 Nov 2026 17:41:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mm1oDWL5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B14B1F000F0;
+	Fri, 20 Nov 2026 17:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196480;
-	bh=dTORwJjh2GP/tQDSNXGaR6IiHSyQqUXOWpgsZOvmQSs=;
+	s=k20260515; t=1795196475;
+	bh=Yttu17P/aZtjQ1zeZnm1P4mYe97rcjK2QdjYEIu3Qmc=;
 	h=Date:From:To:Cc:Subject:References;
-	b=WsQwJL+qYgjcEGrIrQ2A48+MWcjGLREUZXun+HeC6TassfAFwKfkwwyiJAnAFCCPs
-	 AH8EPfwWCbQeXdcYD3yA+rCRvcujk2AHOCFVf4HBYJE3RkcuKJD4bhQiqe6ECE5LmP
-	 jW1zqddL3B8fyRYW1ssokwevroIgaOsEuaeybwgbZJdG3fdsEAmXO2ctZOxptJsXFg
-	 IFvKMrn+fj5cEx/M37uWnrekhG9zQDlROQCb66pq5mqTMH5kgVFSH7GfrVn/AAOcHR
-	 KUxHEXxWMAC3KdonRw/Q7zHLe3YIU3zvvmRDse58WZoSZC21rxkxZ0OuVgXq4qKv60
-	 nyNUSZqBtISkA==
+	b=mm1oDWL5+54g7usZiCMAAx4zRnEeI1lPVa2Qu0xxTXJcnduoE1jfrqerO+Qzk3ghl
+	 SL+zy3YOgOpc8Y2xqfLwtCbyUzu2nh2/ZcjaIbLyecheMgJRTcw6LNEEX7jXuKbBFG
+	 6iGI0699pG4dYEpFUHz1ZBaqnFe7BCixf8L8mynmJqDd2O31yV2oUOiJ/A7lJATjPK
+	 3pqPrnMNwqlEAsN4jJpzII4cTVw+g9nCHksRo6XWzJfQhVyAEW9VssxAoTZL1Akafd
+	 kNupyHUKQ4frXqczKhbZ08Sov/o2TYsqwjhOzuZas1D9VX90sUPCyiVQO7TVQFWvoM
+	 o9UyY89NazNyA==
 Received: from rostedt by gandalf with local (Exim 4.100.1)
 	(envelope-from <rostedt@kernel.org>)
-	id 1xUSbv-00000004aV6-3P7h;
-	Fri, 20 Nov 2026 12:41:19 -0500
-Message-ID: <20261120174119.651825409@kernel.org>
+	id 1xUSbq-00000004aFK-2CWJ;
+	Fri, 20 Nov 2026 12:41:14 -0500
+Message-ID: <20261120174114.323473747@kernel.org>
 User-Agent: quilt/0.69
-Date: Fri, 20 Nov 2026 12:39:22 -0500
+Date: Fri, 20 Nov 2026 12:38:54 -0500
 From: Steven Rostedt <rostedt@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Mark Rutland <mark.rutland@arm.com>,
  Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- stable@vger.kernel.org,
- =?UTF-8?q?Michal=20Such=C3=A1nek?= <msuchanek@suse.de>,
- Vincent Donnefort <vdonnefort@google.com>,
- Amit Machhiwal <amachhiw@linux.ibm.com>
-Subject: [for-linus][PATCH 30/32] ring-buffer: Do not check si_mem_available() before deferred init
- completes
+ Jaewon Jung <jaewon8868@gmail.com>
+Subject: [for-linus][PATCH 02/32] tracing: Keep copying markers when one instance is stopped
 References: <20261120173852.687189370@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -70,70 +66,53 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 
-From: Amit Machhiwal <amachhiw@linux.ibm.com>
+From: Jaewon Jung <jaewon8868@gmail.com>
 
-With CONFIG_DEFERRED_STRUCT_PAGE_INIT=y, only about one memory section
-per node is initialized early in boot (16 MiB on powerpc).  The rest is
-initialized on demand by deferred_grow_zone() when an allocation would
-otherwise fail, or later by page_alloc_init_late().
+When several instances enable copy_trace_marker, stopping one instance
+can prevent the remaining buffers from receiving markers.
 
-Until then NR_FREE_PAGES can be close to zero, because early allocations
-(SLUB, vmalloc, ftrace records) use up the first section.
-si_mem_available() is derived from NR_FREE_PAGES, so it under-reports.
+Continue copying text and raw markers even if one copy fails. Return the
+largest successful write length, or -ENODEV if no write succeeds.
 
-__rb_allocate_pages() returns -ENOMEM when si_mem_available() is below
-the requested size.  This check wrongly fails the buffers allocated for
-the boot CPU in early_trace_init() and for secondary CPUs in smp_init(),
-both of which run before page_alloc_init_late().  The resulting boot log
-shows:
-
-  ERROR: Failed to allocate trace buffer
-  ERROR: tracer: failed to allocate ring buffer!
-
-Skip the check until SYSTEM_FREEING_INITMEM on
-CONFIG_DEFERRED_STRUCT_PAGE_INIT kernels.  The allocation itself still
-fails if memory really is short.
-
-This is the second half of the fix for the early boot crash reported on
-ppc64le KVM guests.  Commit b3b974008388 ("tracing: Do not initialize
-tracefs work if tracing is disabled") stopped the NULL pointer
-dereference in __find_event_file() that followed the failed allocation.
-This patch fixes the allocation failure itself.
-
-Cc: stable@vger.kernel.org
-Fixes: 2a872fa4e9c8 ("ring-buffer: Check if memory is available before allocation")
-Link: https://patch.msgid.link/20261118183235.63310-1-amachhiw@linux.ibm.com
-Reported-by: Michal Suchánek <msuchanek@suse.de>
-Closes: https://lore.kernel.org/all/arYskzbiaNzBR9MD@kunlun.suse.cz/
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Amit Machhiwal <amachhiw@linux.ibm.com>
+Link: https://patch.msgid.link/20261104232046.32519-1-jaewon8868@gmail.com
+Fixes: 7b382efd5e8a ("tracing: Allow the top level trace_marker to write into another instances")
+Signed-off-by: Jaewon Jung <jaewon8868@gmail.com>
 Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
- kernel/trace/ring_buffer.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ kernel/trace/trace.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
-index 0a1c7f98159e..a5a0adc934fa 100644
---- a/kernel/trace/ring_buffer.c
-+++ b/kernel/trace/ring_buffer.c
-@@ -2468,8 +2468,17 @@ static int __rb_allocate_pages(struct ring_buffer_per_cpu *cpu_buffer,
- 		 * memory. It may not be accurate. But we don't care, we just want
- 		 * to prevent doing any allocation when it is obvious that it is
- 		 * not going to succeed.
-+		 *
-+		 * With CONFIG_DEFERRED_STRUCT_PAGE_INIT, si_mem_available()
-+		 * will reflect the actual available memory only after
-+		 * SYSTEM_FREEING_INITMEM.
- 		 */
--		i = si_mem_available();
-+		if (IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT) &&
-+		    unlikely(system_state < SYSTEM_FREEING_INITMEM))
-+			i = LONG_MAX;
-+		else
-+			i = si_mem_available();
+diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
+index 4ccdefb5c3ef..527b16690acb 100644
+--- a/kernel/trace/trace.c
++++ b/kernel/trace/trace.c
+@@ -6345,9 +6345,10 @@ tracing_mark_write(struct file *filp, const char __user *ubuf,
+ 	if (tr == &global_trace) {
+ 		guard(rcu)();
+ 		list_for_each_entry_rcu(tr, &marker_copies, marker_list) {
+-			written = write_marker_to_buffer(tr, buf, cnt, ip);
+-			if (written < 0)
+-				break;
++			ssize_t w = write_marker_to_buffer(tr, buf, cnt, ip);
 +
- 		if (i < (nr_pages << subbuf_order))
- 			return -ENOMEM;
- 
++			if (w >= 0 && w > written)
++				written = w;
+ 		}
+ 	} else {
+ 		written = write_marker_to_buffer(tr, buf, cnt, ip);
+@@ -6424,9 +6425,10 @@ tracing_mark_raw_write(struct file *filp, const char __user *ubuf,
+ 	if (tr == &global_trace) {
+ 		guard(rcu)();
+ 		list_for_each_entry_rcu(tr, &marker_copies, marker_list) {
+-			written = write_raw_marker_to_buffer(tr, buf, cnt);
+-			if (written < 0)
+-				break;
++			ssize_t w = write_raw_marker_to_buffer(tr, buf, cnt);
++
++			if (w >= 0 && w > written)
++				written = w;
+ 		}
+ 	} else {
+ 		written = write_raw_marker_to_buffer(tr, buf, cnt);
 -- 
 2.53.0
