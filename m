@@ -1,47 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196126;
-	b=PR88ubfRR0kJ/N0NCNbJTyRb6BH4Tq0W0h5NLoaO6KMm3c2hwhmtMaBbb9WXBnQDjqEm
-	 dVtBu/tk/J8xe9uae53UnG+2FwTpwVM9UnWUrMG/ABAQ5Uzz5mKfQgmldWcxjj7wJouBd
-	 qYPTmHZ5SnmWgdKXuzFniFWfpSW7JiootwuPCGez7kFHL/Gfy0eSYonU7+GM9HlzJi4vv
-	 tSsF4AozsXL0Lnt4YPcJKcogEFjOUqdbjL3JxDLQP47za7k1pwFlS++gx2O56ARxr3aAw
-	 zTf4E6l2NTg8KI3RfUjx8td5TP9wGmDiL/ROMZZC660XarrKawYI6hMWAhmiGAbIvwA==
+	t=1795196127;
+	b=ClNVBIPCF7/qh3Jw5mlOt/hsnv0XdNKHb+y4cVfwmeI8FIINlrIRcS0azDf7VG0UCEWI
+	 YLJYOdfPt9yIARL9ka4O4me2SF7vo9/XuO9UavRhK7T5f0ehw8cA7FkU2Dzse9GCqFyhY
+	 ITN+WfwJ2B9ah83ICrFx8zuZidfphUNJFurTOMPXJiEsHiJkjzaQ3ZkST3owoBQ4MaeT6
+	 2UADGJKeVwBRnjFYeDMIZ4IzXUSmBqaKdWVN93F0wEL+CniRpB2EPqry5T+2jNAHmMhjW
+	 fs/tv/aIdZdzKwFrYM7D2s4mfhvmR6ysJlWmqrz8s/AUn3Txh6Dnwt5afQbDLcR+c6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196126;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196127;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
 	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=4fqyV+IxCSlliAT75SUkyH3zRm7PqSfjFRkVtWXmgZM=;
-	b=n0rY29nvgp+uMX5cbASmMUhxtZKIFMDOAJ0WiSSQzxS6acbNUG6UuQporLBTejYbBR7t
-	 o1PSVbhqz7zkSGbEgejvXFC25R4T4Dr33FCrQbb3jF3hS0nFr6lqOvwTBz72Ve14DATbR
-	 wgtNlzy34pmAZKE2IJ3iF0vt7J/RHCG924SpjnrDqo66tBg2LCRCGoi706KGdDXDAWjSE
-	 AttGPVUwPF/WkWehqV/OP9j+/HUGEO3o/c4Brk+nQ47vAPI3A/AWxaZTpR3zXmrUvbd9B
-	 PrrV120gODWSgXGrxDkpctODkbYuS5Lcok59nZBGPkpuN0ximJJd1QBb1+xk1/h30iA==
+	bh=hEdO69vVL5rwCpel8UiCyiJqyc8aP/573OWZYMkPaAo=;
+	b=fmiOOVZJEbbuFtXOKm9ar8vUxj66OU8FwWog3PQU9EqRKlpAHO/6y9I+3sPrSB9AOiYP
+	 YJ9DACvDFa3Uo+NZihVp3a3LE1ud7A9bkw5NMUPjSmI1F+Lr4ZNeXB/PPcQrvkXwxm1lc
+	 TYA7YYczAoFVx/R2EE2K9go5Nqlv36j7qmBZchg1hgEtpYpkh22rg9UZihzN7q4T1njw2
+	 UwKnGiTWMuaSAaUwraAMn2xvGTPZfY2qn7+QQ8nPXgbmmqqCSIH5Oh7sDCfllrxQoShzN
+	 QiAB3u7zxiBVkjMmkoM0k4H2bRsUQQplqgxt794UH1sMqNYGKswmgjBno2up8l2K0FA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.sdu.edu.cn;
 	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=hItw551M;
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="UaDEIKq/";
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 011BA60A2602;
-	Fri, 20 Nov 2026 17:35:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 011BA60A2602
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 995C960A2610;
+	Fri, 20 Nov 2026 17:35:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 995C960A2610
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=hItw551M
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=UaDEIKq/
 Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5573c0abb;
-	Sat, 21 Nov 2026 01:35:18 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 5573c0abc;
+	Sat, 21 Nov 2026 01:35:21 +0800 (GMT+08:00)
 From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: linux-wireless@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Subject: [PATCH] wifi: ath6kl: Fix potential firmware leaks on initialization failure
-Date: Sat, 21 Nov 2026 01:35:15 +0800
-Message-ID: <20261120173516.3923881-1-liguangshuo@mail.sdu.edu.cn>
+To: James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] resctrl: mpam: Fix potential per-CPU data leak on probe failure
+Date: Sat, 21 Nov 2026 01:35:18 +0800
+Message-ID: <20261120173519.3923924-1-liguangshuo@mail.sdu.edu.cn>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -54,81 +59,45 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1fa06e40303a1kunme848b2bf238b70
+X-HM-Tid: 0aa1fa06efde03a1kunm98e3e691238b77
 X-HM-MType: 10
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSkpIVk0aHh9NS0gfTBgdTVYeHw
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGB9MVh8ZTB0YThoYSU1OGVYeHw
 	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
 	NMVUpLS1VLWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=hItw551M9tjpHakqQ/ocqdgQdO1oZPXKMS26kpaXejLrYaJs67r1BZh+YBE/ti0TroQi7eqO8SSW33X7IsGSaVJjETW5zDKbPAEGoXllgSfTQGhTwrPEyyHlTRP+HOpMpCEjzZetheE2nyJjhjY0de0HGAcL3HSGeY8Brz5NU+A=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=4fqyV+IxCSlliAT75SUkyH3zRm7PqSfjFRkVtWXmgZM=;
+	b=UaDEIKq/cgqGyzDB5Vooo8BjZBjXwDYuRLBCocMmLicUQSuLdNN3I4K/8Jm3ihCtBtSIEgxRYj1POm7hKpYXKWpj5CAXplAz6YJPgo1VqtHpLdtH/LaRQa/gPHO2REZv0S0qRMFf6W0gBa0HQnDjM/dd8qsNAd3j/oM+hnMtobs=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=hEdO69vVL5rwCpel8UiCyiJqyc8aP/573OWZYMkPaAo=;
 	h=date:mime-version:subject:message-id:from;
 
-Firmware loading can leave allocated images in the core before a later
-initialization step fails. The initialization error path destroys the
-core without releasing these images.
+The PPI device IDs are allocated separately from the MSC. If subsequent
+resource discovery fails, probe destroys the MSC without freeing its
+per-CPU allocation.
 
-Share firmware cleanup between the initialization error path and normal
-teardown.
+Use devm_alloc_percpu() so the device releases the allocation when probe
+fails. Its cleanup remains valid even if the MSC is freed beforehand.
 
 This issue was found by our static analysis tool under development.
 
-Fixes: bdcd81707973 ("Add ath6kl cleaned up driver")
+Fixes: 49aa621c4dca ("arm_mpam: Register and enable IRQs")
+Cc: stable@vger.kernel.org
 Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 ---
- drivers/net/wireless/ath/ath6kl/core.c | 18 +++++++++++-------
- 1 file changed, 11 insertions(+), 7 deletions(-)
+ drivers/resctrl/mpam_devices.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/ath/ath6kl/core.c b/drivers/net/wireless/ath/ath6kl/core.c
-index 648110cd313f..fec0e1ad9752 100644
---- a/drivers/net/wireless/ath/ath6kl/core.c
-+++ b/drivers/net/wireless/ath/ath6kl/core.c
-@@ -63,6 +63,15 @@ void ath6kl_core_rx_complete(struct ath6kl *ar, struct sk_buff *skb, u8 pipe)
- }
- EXPORT_SYMBOL(ath6kl_core_rx_complete);
- 
-+static void ath6kl_core_free_firmwares(struct ath6kl *ar)
-+{
-+	kfree(ar->fw_board);
-+	kfree(ar->fw_otp);
-+	vfree(ar->fw);
-+	kfree(ar->fw_patch);
-+	kfree(ar->fw_testscript);
-+}
-+
- int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index c067b6d57d71..3e89f9183041 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -2351,7 +2351,7 @@ static int __setup_ppi(struct mpam_msc *msc)
  {
- 	struct ath6kl_bmi_target_info targ_info;
-@@ -123,8 +132,6 @@ int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
- 	if (ret)
- 		goto err_htc_cleanup;
+ 	int cpu;
  
--	/* FIXME: we should free all firmwares in the error cases below */
--
- 	/*
- 	 * Backwards compatibility support for older ar6004 firmware images
- 	 * which do not set these feature flags.
-@@ -252,6 +259,7 @@ int ath6kl_core_init(struct ath6kl *ar, enum ath6kl_htc_type htc_type)
- 	clear_bit(WMI_ENABLED, &ar->flag);
- 	ar->wmi = NULL;
- err_htc_cleanup:
-+	ath6kl_core_free_firmwares(ar);
- 	ath6kl_htc_cleanup(ar->htc_target);
- err_power_off:
- 	ath6kl_hif_power_off(ar);
-@@ -346,11 +354,7 @@ void ath6kl_core_cleanup(struct ath6kl *ar)
+-	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
++	msc->error_dev_id = devm_alloc_percpu(&msc->pdev->dev, struct mpam_msc *);
+ 	if (!msc->error_dev_id)
+ 		return -ENOMEM;
  
- 	ath6kl_debug_cleanup(ar);
- 
--	kfree(ar->fw_board);
--	kfree(ar->fw_otp);
--	vfree(ar->fw);
--	kfree(ar->fw_patch);
--	kfree(ar->fw_testscript);
-+	ath6kl_core_free_firmwares(ar);
- 
- 	ath6kl_cfg80211_cleanup(ar);
- }
 
 base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
