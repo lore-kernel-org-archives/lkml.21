@@ -1,47 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191379;
-	b=z0D2J15zjCIMEvfuZBo8RF9YM7gGll9rPwE+m5avj0FAtzOxE48EtmEiS9aurevYXiCF
-	 fGJx2mcPc6EWSCx4tsXei/lkNKNuE7PpJdL/1npEYJK3qtfPQ+PnYu19B1d/gTl+LV7za
-	 NfZUM6fZj5+jRYCgJiayN9TBmVq72lcD0Xmbfti9AFXlHf50gt8wPtJTkIHFj8NYIWjl0
-	 ujsO4E3CIUanfJyg851le83ctozO5NIVRLXbNij+6/5UK0ddcczHlgohgIz4vRO4l2139
-	 Dt40UqUXmDV1qNP1VviayT1F8t3PvppNFDnEGW5qg4wPAyCJNrmp23kzyy05/sg+aDQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191379;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ufkrJtwpBnz6WPMTAKwab4l3d1SzDvPyFYqyMLcrdh0=;
-	b=L3QmyqecA72tcRH1RHh1CA/lG2OBoQiowOymuDM/SqO4RqSjjGfE/QjxLe29XchkYVsY
-	 XejpuKLugtVyvwiKFlYKbiKF6znmXoGzVOHTCLrnl2ufL53Jj5lqISSFzA2uxrruHtis2
-	 VOOO4VnIhdpRUSAPZRErBJfpfZFeAZVEOc9ACZ0qT5FRa319FwmEeakoa0T6Pbw3xD1hq
-	 YFP3tcDds7jQNcLuikp/TuT5X9ZHcviibJBYEMiKoxv3VlrfW7GZzfiYHltmicR7G64Tb
-	 H36VcLbChgzLVw4vHRwDdwITgPtA4ZRLP4XkbLS3CMT1c/or2qrdSDlHyxuV33QHl2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dFvHyXyV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795191432;
+	b=jBtj5oB4C+stxdwTNbY3CcJNv2jTdJXuIzxSBfXky4XOaFO4sRV0G7evp/xpAC6G85JI
+	 +3TOSQIx8UdFhxCZhVYcEMUc58Q5Z1Q3H+bRAp5D1sOgYF4Ef1yCWfKG3ZKM6bDacGQyB
+	 y0huFH9fyypTZZakiwmVUAhkfGtwro9gP510Z4npwqJAlQTQZS78YZJ6L+h9vIgHxz2cI
+	 fz7AIcbNLRdQ+/qUA6vmVyX+paTilkJtsKmSQDWktMh5giXv1vbB5CV4LlxZAr2WHPLK+
+	 Fc15xoE+57dDkQpTN9UK7VMNsxTh2zU5sURlgq/M/eikGr3Ekm4ulypQiy4YRFd6sug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191432;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6pDEC7mZctjuQyIVdZ8lILmTsCvmwBFO6EStJerdj9U=;
+	b=aH7p6du2bGPDmxUdtM5uaN40tIWGuY5VfrsOeNF31kAv+es5r7P1m4aoZp5muoVYBfky
+	 zuoPGJX2MIOEJHGg5AFbOHF8xH1/bWTtbIOeg2oydpiF8IIqcbMlcX9tA5VIVgUbc+7XS
+	 jGEgLndu3wV4wXB6E8iPvuq8DwatGPGM54VCcCGi0DamvSl8ch/zgrsZi5DlbaqFMpqom
+	 27xyLWnu1d+Cjd5z0YFaiSzl02wgXLXiM/VZjIhjRjSbJm5ifikSCpBMZH+2OIh17WVK7
+	 +KI1/E8q/R4NTLO5zaXu8Kl210eD0M4DfLQSBC1oHDchQJ/NUTScXcOwRcVpZDWB+UA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="h/fZwFYo";
+	arc=fail smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65013606A32A;
-	Fri, 20 Nov 2026 16:16:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CBA2606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:17:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CBA2606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dFvHyXyV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054D01F000CF;
-	Fri, 20 Nov 2026 16:16:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795191378;
-	bh=ufkrJtwpBnz6WPMTAKwab4l3d1SzDvPyFYqyMLcrdh0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dFvHyXyVfCYjJ7NGMnBGAqmFCpcmUE94vICjEkzBBZoW/GMfsILWHwMTtiuJI1dZR
-	 isbdUdY2VdAjzDG9uOuj3HvrSFais+CocjccNOVwLZRv4W5ikc+GRT4v+Fx8NdqWKr
-	 ZyxCUZJwx62l8JwkMmsTJRdoDyRAYUklPkgCUjc0vcfaQmkZGX7zdu73B4j7pKlt9w
-	 g12fUi9O3FgrMF6IzDZZ0QywB+0HnVHqTSchls1fGpNhgm5tGk871tvM0ulpNBvy1x
-	 VvNSDoA5BvpXMpyONoBdWe1qJLOqoJGSzHqSYgnpGAyU4vXMxP3P+LXZxSsJ99YNir
-	 xqWdZ+uG5iH2A==
-Message-ID: <2bd84c5a-221e-4da0-bc08-93096b293395@kernel.org>
-Date: Fri, 20 Nov 2026 17:16:13 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h/fZwFYo
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso1297309a12.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:17:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795191430; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ei6EqseclAMbJyWRFR6WuelsAK5mZuxMVqA/1/4P/3AG2yIevQms++Te5GrRhsT9Zj
+         JPsWlvRBch2j48qMyc73nz+0l1NVwYlRQcFPv48rW8m+G8GZ12gJQLfgt0gUJkxIS+Dp
+         4DJ+J+A+l+0V7nPdWFuhtsHMWYrUp1E9Eot3w16TZuaPKHOCxIHPval65u7ETEGHOdkn
+         LRwl+kTajBTmc4jhFEaQSu51e1KErtMsRRcQHSlrwigNEHhEAm8AHDatCZ9jwHn3aXWx
+         nvY8i6Wfp0AnT36go7WlssPy3OmxvbjVdmnjpLHTYtOmH1Ox8p/vNNcXPbMC0z/GDU1K
+         cvzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6pDEC7mZctjuQyIVdZ8lILmTsCvmwBFO6EStJerdj9U=;
+        fh=lwphG1iDUW+2rzBGfODoyETVbr5jWClKSfi3WOZiqmQ=;
+        b=Or9O8aJjTSU/XH1vL7pJbvqUXWryUDyRx45o9CdDrDyvxq3KTvC88WfYAVopjAhUdZ
+         NH8R8fUbGLzpyt4ZSSdFDtVc4QswNJ8bJJ+eSq6+bkPgiAVn3AcGVXTkHyyUBuKz8noz
+         WKrcY5+LiMm+qlRpugpGamdytM8IheObHnIyGDoIYfSK4zMHkPEXDvKDQafUutxPdLj8
+         C8D+bK6ypltV2BjlTop9CYvYrIWfnnsCyKcWoql0Bm1pJ8mm6qfyG9IzHjQV6jNADLnc
+         RiSb5YDEWI+jL3lVyTMoVWvSzybmLgxFdqryWF3jU0dK5suR14IMehbfdPE9atpz+kK2
+         NXzw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795191430; x=1795796230; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6pDEC7mZctjuQyIVdZ8lILmTsCvmwBFO6EStJerdj9U=;
+        b=h/fZwFYoiZ5YPRIJdDNPd6R2WQqQoX+h7cTcLwOfnPyAa1DPa1hxluLRyoO6Xm4sY9
+         ovgYMuN1VmVG2b0g/LvfpIVhbQQX2N6IaALoOXq1GETPLvZs61MuhJ0UhI/bX7lZx9kE
+         jrz+F1knWHvPKhUY4x5+Zcq6R49IPXPGuHiJXtvd9qU+hHWP0DeqyDjhSzKwzl2IvYdL
+         y8KcOZpqPD5+clxjMHGD0gIx54eNMFAhPY1AXnyv17zAzyJbePexJvC3yP8mla0hT9fU
+         J1CtyrcpOL584I1Qt0hbElWxdBJJ+Dsh5m8jAkiw92q7dDtejYpy9TmKaIr813bbhk4r
+         grXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795191430; x=1795796230;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6pDEC7mZctjuQyIVdZ8lILmTsCvmwBFO6EStJerdj9U=;
+        b=XO0gJrFqLJgPH8SiHaasJ71Fn/cu4XAYuPbi1DoqbDIB3uuEGim0S2Zl2WzMROokPH
+         WFUE7r92U2vJiV2kjNRV3ncyaArqhpxuzmO8GLKpOhvb07amqK7YaVGWLTVhTHzgoMfl
+         EB2K9LNPbEe8AC2r09g3VV7OIoDovLeXByizYUI3bOg64Bp2RmPjx+hgDWyF8In1DM2+
+         CFuOuQ/b6IWwn1cgJfwSkIiLFyOthhx7qlMs/yF+fn8uh+i9vpXpLRvZ9trSo3+ojs1M
+         aCqj2sefUsqT36Tlzs3nlmh9Dzh75+78yDH9FKh/aUE3DS9X2DP5SxjTER+689nnSvvb
+         hXCQ==
+X-Forwarded-Encrypted: i=1; AL+hErEs0sG5HrZqdsbgOFn/SB/zp8kg9dvgKs+bjNhgYt//JE9oXnCShJVnpiKEj/wNgwTIwXg9eoEURlPH2Jw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96delZ7FTXDUZ0ouuWAC6guiWuyMQjholtzFthDofBUb+UBXAS
+	vBohZns1KTYL89hFYoexETg1eqyqEpiF1DbSBGEiJqXXFX6XfmCxVyTn4HRkOEywCjP7WoRSo/R
+	fSTPFL9CnHzSPTTDViI3LOYOCaEfTDRs=
+X-Gm-Gg: AZFdTZeTaxQZ/7m3Ovrwoeg5lw6cSxa76fP6Cdcg+nQq+CVzcMM2lMJSzO/5X2HvyYs
+	Hwjh/cX9iw2nNigWelgZ6d9y095mP2aJLWgtsQIvMPaVe0ro0eWBi652Dqvd094kb7btCTQBG3i
+	KxziYhYQCbhUe34q2Bl2veHs8BhrhO0v3EjT+d3w9JP/ET4nOZPvfvj5Uyewvw4us9KmkY1LHAp
+	5cuO/js6bxJA1NCmEOpd1sjH2E/1a4l4oBUb1YZduPAVE61EERBBF20i1NhIeoSIG2cIzVJ22lE
+	doP0+adA2yiE5YMpvkV9FM98mm+7K9BylwHFQV6BT5/Fjj6JOJhe/GjCt7aHzU47/ZLxutlH46T
+	wozx/D26EHRsIsbHxa+V6zxSHY8m5ITVGKMHsdbg0uOr/7yF0xkwAbN9gik/kPlcdAl/J0g==
+X-Received: by 2002:a05:6402:3223:b0:6b8:5f08:931b with SMTP id
+ 4fb4d7f45d1cf-6ba37ea44b2mr2736007a12.26.1795191430236; Fri, 20 Nov 2026
+ 08:17:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,171 +104,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/6] PSCI-via-EFI to support firmware and kernel
- sharing EL2 for Apple Silicon
-To: Ard Biesheuvel <ardb@kernel.org>, Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Sudeep Holla <sudeep.holla@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-efi@vger.kernel.org, asahi@lists.linux.dev
-References: <20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org>
- <9c53cfd7-e193-4441-83ca-7710060225b7@app.fastmail.com>
- <apldL6Ml91GW-tE9@J2N7QTR9R3.cambridge.arm.com>
- <aplk2hHRB7Yw9FWW@willie-the-truck>
- <eb75b82a-8910-4198-b89a-5c8b487c0fd5@app.fastmail.com>
- <cadadedb-1de1-46f0-9bfd-35eb8bdfa85b@kernel.org>
- <avxETlOGyr_WQ2zp@willie-the-truck>
- <ef76e141-491d-44a9-90a6-e9cd54526012@kernel.org>
- <a1b18224-4171-4702-acb2-cef994dd9921@app.fastmail.com>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <a1b18224-4171-4702-acb2-cef994dd9921@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-9-koray.fra@gmail.com>
+ <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com>
+ <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com> <CAOQ4uxi6h9BBP7pf4sR+gc2+4XtkEgbxXZha45iZzdB_wGFVgQ@mail.gmail.com>
+ <DN02S2XNGRZD.1KNOZJ0GGDJNG@gmail.com> <CAOQ4uxh+d-wNC0aWLEexPFz7zj=TZjLyu61kaEmwBx9_hKn2gg@mail.gmail.com>
+ <DN0526U5C1RT.3AQRIHXPB86NS@gmail.com>
+In-Reply-To: <DN0526U5C1RT.3AQRIHXPB86NS@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 20 Nov 2026 17:16:57 +0100
+X-Gm-Features: Aa3M54o4zCHXyRapvg8jSZ5VVJaxHz4N0ZrJOn4Hcu1m2DItc14K7Jop9PLrcPo
+Message-ID: <CAOQ4uxjCN-ekd18R-soD8tkGFnXjK0S1VdSNhq9b3Ev6y8K9jQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 08/10] nfs: add provenance time (ptime) via FATTR4_TIME_CREATE
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>, 
+	Sungjong Seo <sj1557.seo@samsung.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Trond Myklebust <trondmy@kernel.org>, 
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
+	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
+	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	linux-api@vger.kernel.org, Theodore Tso <tytso@mit.edu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+On Fri, Nov 20, 2026 at 4:21=E2=80=AFPM koraynilay <koray.fra@gmail.com> wr=
+ote:
+>
+> On Fri Nov 20, 2026 at 3:55 PM CET, Amir Goldstein wrote:
+> > On Fri, Nov 20, 2026 at 2:34=E2=80=AFPM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> On Fri Nov 20, 2026 at 7:45 AM CET, Amir Goldstein wrote:
+> >> > On Thu, Nov 19, 2026 at 11:10=E2=80=AFPM koraynilay <koray.fra@gmail=
+.com> wrote:
+> >
+> >> >> >                    fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING=
+;
+> >> >> > +                 fa->fsx_xflags_mask |=3D FS_XFLAG_CASENONPRESER=
+VING;
+> >> >> > +                 fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASENONPRE=
+SERVING;
+> >> >> Uhm, why both in _mask and _ro_mask? If it's a RDONLY flag shouldn'=
+t
+> >> >> it *only* be in _ro_mask? (same for CASEFOLD)
+> >> >>
+> >> >
+> >> > Good question. Maybe
+> >> > I guess if you want to follow some percent
+> >> > FS_FL_USER_MODIFIABLE is a subset of FS_FL_USER_VISIBLE
+> >> > but I think that exporting ro_mask and _mask is going to be easier a=
+nd
+> >> > cleaner than rw_mask but not sure.
+> >>
+> >> Hmm I asked that also because you said in the xfs shared extent thread=
+:
+> >>
+> >> > The advantage being that it makes the interface symmetric.
+> >> > User can alway setattr() with the buffer they got from getattr()
+> >> > and instead of randomly ignoring flags in set, the fsx_ro_mask
+> >> > along with fsx_mask defines the behavior exactly.
+> >>
+> >> But by putting the ro flags in _mask too, a user would have to clean
+> >> them out or vfs will reject the call with -EINVAL/something else, sinc=
+e
+> >> in that case the vfs would see the user say "I want to change this [ro=
+]
+> >> flag".
+> >>
+> >
+> > That's just a matter of interpretation.
+> >
+> > You could say that if flag FS_XFLAG_CASENONPRESERVING
+> > is in ro_mask then its value may not be modified and fs needs to
+> > fail the set
+>
+> Yes, that's what I was thinking.
+>
+> > if the user given value is not a match to the current
+> > kernel's value.
+>
+> Since this is a new API, I think it's fine to -EINVAL if it's in _mask
+> anyway, even if the value is the same, no?
+>
 
+The question is only about when a flag is set in _ro_mask
+and say that it is not in _rw_mask
+what do you do with the value of this flag in _xflags?
 
-On 19.11.26 16:38, Ard Biesheuvel wrote:
-> 
-> 
-> On Tue, 17 Nov 2026, at 16:25, Sven Peter wrote:
->> On 17.11.26 13:10, Will Deacon wrote:
->>> On Sun, Nov 15, 2026 at 07:38:35PM +0100, Sven Peter wrote:
->>>>
->>>>
->>>> On 03.09.26 15:25, Ard Biesheuvel wrote:
->>>>> On Thu, 3 Sep 2026, at 14:15, Will Deacon wrote:
->>>>>> On Thu, Sep 03, 2026 at 12:42:39PM +0100, Mark Rutland wrote:
->>>>>>> On Thu, Sep 03, 2026 at 01:34:56PM +0200, Ard Biesheuvel wrote:
->>>>>>>> On Wed, 8 Jul 2026, at 09:15, Sven Peter wrote:
->>>>>>>>> This series adds a custom EFI table that points to a PSCI entry point
->>>>>>>>> (plus some other stuff that has to be available before EFI runtime
->>>>>>>>> services are set up) and adds support for this new conduit to the psci
->>>>>>>>> code. We can't directly use the normal EFI runtime path because that one
->>>>>>>>> takes a sleeping lock and we need to be able to call into PSCI from
->>>>>>>>> atomic context during e.g. cpu bringup or during idle.
->>>>>>>>> It also adds support for specifying the specific MAIR attributes for EFI
->>>>>>>>> runtime mappings as defined in the latest UEFI spec since Apple Silicon
->>>>>>>>> is rather allergic to using Device-nGnRnE vs. Device-nGnRE for its MMIO.
->>>>>>>
->>>>>>>>>          dt-bindings: arm: psci: Add EFI conduit
->>>>>>>>>          arm64/efi: Add and parse custom PSCI EFI configuration table
->>>>>>>>>          efi: Add EFI_MEMORY_ISA_{MASK,VALID}
->>>>>>>>>          arm64/efi: Honor EFI_MEMORY_ISA_MASK for Device-nGnRnE vs -nGnRE
->>>>>>>>>          firmware/psci: Add EFI runtime conduit
->>>>>>>>>          arm64: dts: apple: t8103: Add PSCI and CPU idle states
->>>>>>>>>
->>>>>>>>
->>>>>>>> I've picked up patches #3 and #4, which are useful in their own right.
->>>>>>>>
->>>>>>>> I'm not sure if the arm64 maintainers will want to consider this, but
->>>>>>>> I think it's a reasonable compromise, as it puts the abstraction in
->>>>>>>> the right place.
->>>>>>>
->>>>>>> Sorry for the late reply; I've been away almost all of August and I'm
->>>>>>> slowly catching up on things.
->>>>>>>
->>>>>>> As with last time this was proposed (in abstract), I am not happy about
->>>>>>> bodging an EFI conduit into PSCI, given that the manner in which state
->>>>>>> is managed is completely different from SMCCC.
->>>>>>>
->>>>>>> If we need a mechanism for doing hotplug and/or idle without HVC/SMC,
->>>>>>> that's one thing we can consider. I don't think we should pretend that
->>>>>>> it is PSCI.
->>>>>>
->>>>>> What do you have in mind for an alternative mechanism? I understand your
->>>>>> objection to this proposal, but at least it keeps the interface fairly
->>>>>> high-level and avoids opening the flood gates for a bunch of SoC-specific
->>>>>> idle routines. Are you thinking of extensions to the PSCI spec or
->>>>>> something else?
->>>>>>
->>>>>
->>>>> I can't speak for Mark, of course, but I could imagine EFI being used as a
->>>>> conduit to provide a callable set of interfaces (with a rigorously defined
->>>>> set of constraints such as the ones in this patch, i.e., reentrancy, no FP
->>>>> or SIMD, not relying on ISA features that the OS needs to know about and
->>>>> enable, etc).
->>>>>
->>>>> There is prior art here in ACPI PRM, which does something similar, and this
->>>>> also relies on EFI runtime services.
->>>>>
->>>>> You'd still need to implement the CPU ops and a cpuidle driver afaict (no
->>>>> expert here), but at least those would be coded against an interface that
->>>>> the kernel itself specified, and can be made as generic as we choose to.
->>>>>
->>>>> Not saying this is all great, but it might be a worthwhile compromise to
->>>>> consider.
->>>>
->>>> Finally getting back to this series...
->>>>
->>>>
->>>> I'd definitely like to keep mapping the resident firmware using EFI runtime
->>>> services because otherwise I'd have to duplicate a whole lot of tricky code
->>>> to do the same thing via some other means (e.g. a device tree nodes that
->>>> contains all mappings + callbacks) and I just don't see much value in that.
->>>>
->>>> I'm happy to just drop the PSCI part though and replace that with a simple
->>>> and somewhat generic "efi-rt" (or similar) cpuidle driver and make that one
->>>> have similar requirements like I added for this RFC series and expose bunch
->>>> of generic callbacks (that will just happen to resemble PSCI functions very
->>>> much ;)) via a custom EFI table. That would keep PSCI out of all of this but
->>>> come at the cost of an additional cpuidle driver.
->>>>
->>>> I don't think that would open any flood gates for SoC-specific drivers since
->>>> we could just point them to the generic one and tell them to use that one if
->>>> they can't do PSCI for some reason.
->>>>
->>>>
->>>> Now before I go off and prototype this: Would this approach be fine in
->>>> general with you, Mark and Will?
->>>
->>> tbh, if the "efi-rt" thing is just PSCI with a different conduit and that
->>> conduit is properly documented, then I really don't see the point in keeping
->>> it separate. However. I suspect that we probably all have slightly different
->>> opinions here which isn't going to help you very much :(
->>
->> Yeah, well, I agree but I really don't have a strong opinion or any good
->> argument if either "efi-rt" vs "psci-via-efi" is better or worse. I only
->> think both are better than SoC-specific cpuidle and cpu_ops drivers and
->> I have no idea how else we could do this. (We could drop the kernel to
->> EL1 and do "normal" PSCI in EL2 then but that would be much worse than
->> either of those options imho)
->>
-> 
-> I agree with Mark that implementing a pseudo-PSCI that can never quite
-> comply with everything in the PSCI spec is probably not a great idea
-> unless we actually need it.
-> 
->> And especially with M4+ I'd like to have something that can go upstream
->> because normal wfi loses most general purpose regs there and has to be
->> disabled which is not great.
->>
->> I can also just prototype the efi-rt cpuidle+cpu_ops thing and then we
->> can take a look at it as well and see if that's better than what I have
->> in this series if that helps but I'd rather not spend that time if that
->> has no chance of being accepted either.
->>
-> 
-> I think a consistent approach for both secondary bringup (+teardown?) and
-> cpuidle that is based on the same efi-runtime layer is perfectly acceptable,
-> and allows us to define it as narrowly as we can, rather than having to
-> consider what shared code might assume once it sees enable-method=psci on
-> a CPU, or a PSCI conduit (SMCCC detection, mitigations, etc etc)
+You can simply ignore it, mask it out as  copy_fsxattr_to_user()
+is doing today and this is probably the right choice.
 
+But you could also take a more conservative approach
+like ntfs_fileattr_set() in fs/ntfs/file.c:
 
-True, that's a very good point.
-At least for Apple SoCs I don't need anything nearly as complex as what 
-PSCI provides. I think all that's required is cpu_on, maybe cpu_off, and 
-cpu_enter_idle plus a bunch of static values (number of cpus, available 
-idle states, etc.). Let me think this over and maybe come up with a 
-simple proof of concept then.
+        /* chattr passes the unchanged read-only flags back to us too. */
+        if (NInoCompressed(ni) || NInoWofCompressed(ni))
+                readonly |=3D FS_COMPR_FL;
+        if (NInoEncrypted(ni))
+                readonly |=3D FS_ENCRYPT_FL;
+        if ((fa->flags ^ readonly) & (FS_COMPR_FL | FS_ENCRYPT_FL))
+                return -EOPNOTSUPP;
 
+This is stronger, because userspace can express:
+set flag X while making sure the flag Y is not set
 
-Sven
+in this case xflags =3D X, xflags_rw_mask =3D X, xflags_ro_mask =3D Y
 
+It does not have to mean that Y is a readonly attribute
+the filesystem itself could set it in rw_mask, but when user
+puts it in ro_mask its a verification_mask rather than an ignore_mask
+
+In both interpretations (verify/ignore) the sequence:
+
+    ret =3D get_fileattr(&fa)
+    ret =3D set_fileattr(&fa)
+
+should work fine most of the time, but if some rdonly flag
+can flip between the two calls (e.g. FS_XFLAG_PREALLOC)
+then the set call would fail and this is not the expectation
+wrt the existing FS_XFLAG_RDONLY_MASK flags.
+
+Thanks,
+Amir.
