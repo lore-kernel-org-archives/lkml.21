@@ -1,55 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196610;
-	b=e6P28ICopvMvmIh1gEXOV2U4t3NGobx5gPnkIiYQYNromqWViwtLQIoqKKvVIhqN7YDH
-	 G5Lo50WsDKn4nmTWuWOxpTRzHk0mU2wnuH6OQj2rKJGr5sanoqmXbPRHGguMlg5p1Ic1F
-	 Ew2wOYPbQ2u0RAeDFtyuVIGC/oKttBIWO3TskAXWUSjrjKRrCT89vB3XnFnt7nsagFf7o
-	 0a6sDwA35zbRKHHz5WIJERY1k8vO1/5effEoZGA/ceBS8NPS80xxellZR/pvoPmQ17nZc
-	 Cxkz97DfoeQm5m4rpCeJqsxp7yOC8gX84iUWiremfQL8l2/yhrSDIdEq+v37IDy9pvg==
+	t=1795196626;
+	b=MPfIx0iMTgWMISMiXlfefbRKeoQVDzwDnbjQ9eiMMudvfSuwsXLdtEmGbaatcOq+avTm
+	 tL5ImyfSQyS3aScfRkiCvUUuKw//zUXQqKDZuDCFC/FDDukF7d1PpR0zhcPd1FYreY3oH
+	 pC3VqTxy4AFbEFjOlbhCJFcvuPmNvj5S4/xct8lKb3kyYdgfLgUVLhRNAciy/r/y98QNs
+	 8hxckB4BL2Ny6DlgZUVvWOLJlE4wD3ehaWM6/cYBYK41ynV7LakDp9qLJlUYUtaLzZ8HI
+	 Pn58i4C/kY0CYRpDgXEf8XSOx1BMrnD/CxDfpi0VnBNWwXOa1hQQTupoPbXb8ODt53g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196610;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lgTaAi4dtYVsiHebSL4/05iwTJaTp7a5EN84CAsUBiA=;
-	b=F8q/Q1kqEAm4twTXxWfE7DD3MbKzo/RvtiLRQvH56bMeBU0Q+Gzu3hmifVXVWSVdAUEX
-	 dUgif1F1khQXcDoVqj8ttDBRJPZ9BgR3vFZ/MlOUzuP7kVscH074vgSOUzdiMoxiPej9l
-	 /ppltHLcCEBkvAhopV5Xzp9HO6+HtaGdRxSpb6tJtF6jrKiWkXsyNwR25I49iAlhgC03k
-	 xCoUAVG0rAFcvxCLhsAvFa9h87MUvn8he+aGMsE/zpM5loFjHa8hvek67stQij576DEp/
-	 EyRa2L5AiOV6a7GkZ9m/k1RMbRccHLwid1xGxT7qW7l4sFieVKc1SFTHtPJVccKYNhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196626;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+	b=GqKKfbQqDDjObfWjKNqMcl4CQGnGJFcBmzJKpXSEh9zJ98EpiTLglOB14hQCyhMScEWK
+	 /JwJnM/N8Aby+AjsozL5c9jcIIusfCfnpC4PuXOoVP5sO+mE7cYLLP+SwKKNCOMA/YG8l
+	 RUL1M0bGyoPL/pxLPUHhnyHobJkrAEK4VnIq9Izwuae9DbF2Wg491w4Kou4YeLhUjD0AA
+	 mv+laZ7XO6XDsS0Dn32eiGYe21JBTrC8bIK0xX0+EE0+9P1MOqhjGS5lhV678hfWjTzZc
+	 mQt8PnT/9myUxBOD7lVHJ3JsTqglaN4mF+B1Sh80bLGPB3yK3Pi19pL/LrkjBLMVnDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ooWYIkIR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J4iGkAy4;
+	arc=none smtp.remote-ip=209.85.222.50
+Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com [209.85.222.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A6BA606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 336B0606A7D5
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 336B0606A7D5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ooWYIkIR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9AF91F000C4
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196609;
-	bh=lgTaAi4dtYVsiHebSL4/05iwTJaTp7a5EN84CAsUBiA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ooWYIkIR3Te36Z456tZG71Gc9vOxO/97WMHlsjHRXVCoWcxtlMWBxjp1j8ZY43o3O
-	 XTvfLj+vSxHzplxPwFUkIdGsDCfSZOn7LoYdKFNySgB0cLexM5oG2AiFBN1J1tcTis
-	 PmMUaglseXM749zL+CzWnVl5BRWWcP0pBEcbVRSOT5mKplQUbKm/tb2/Ly5gH0zsFV
-	 z3KalL6gdyXMaIc1jvGu31FgQXckwRwslIfpcxp75nbqjQf5j7C8nRT4fJls0CTWf8
-	 dgTyM6TwIWXu9B74ludypeKgwUeUCPCpnaLRHrQ+crt4Ph2/fmHmMBRottzqi5JuB3
-	 p4qnXAtvFa7Sg==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5c14f7768acso857441e87.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:43:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFyvknXPuMoGZ+wzH4k+Gku22ucHuzdOtPuPqM3V/VTIrVdwrKvhZwLCSEHazzOeIAOlBf1W989eBMRGHo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ZOHbwlKmMz8Cjz2kbZ+DPNOQjjJDMycWvpMQtX8BAoFqtIzhs
-	AN9euTtsZp2g2bKjARyzUJNHSzqVe4PLG3Nsx8qifekrOSF9K8m8cchbrWtjTlK9vw2C/x09Hs+
-	AT7obi2tJbBmVjwG9hiGhaEiDdzoRRsA=
-X-Received: by 2002:a05:6512:2342:b0:5bf:f39f:cfc1 with SMTP id
- 2adb3069b0e04-5c1bc800ad8mr1160498e87.31.1795196608109; Fri, 20 Nov 2026
- 09:43:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J4iGkAy4
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-99e0d9b3438so325084241.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:43:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795196624; x=1795801424; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+        b=J4iGkAy4Jk/VD59I2nqQ1enVY3HtGwVnhz0h5ynsHI2i38PPbVDFduQH6KVKdWejDO
+         dMCH6d2/hpoonk0tRwe7AZuXcMDT5P0e0GJtWIAg66q8ihXbrd2L7Nd6dDDuVxu27ADT
+         Iu8APcY6TUb7TKtt8nXxPLKUxc4wz0FHF+J0IebC6x1/B84QyivsAQ0dtfDfd5tU68Jb
+         SczJ3Vn/qdjwVWo9zC4pPOt9fyrOQ6u7RRc99OyVHBeuA5Lfuqeycm49O63oW2A+tlwT
+         TEHCoqTessyy01NuZYBX7gJafHh6cyJ/etkauWBqkJVAJZtShjbvkEayazif+Fw5xXZG
+         KflQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795196624; x=1795801424;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9RS1aTZbvFjlQeMzAWvxNDOmSGxq+psns4GOzN5ypAs=;
+        b=lg504uTTgnLFituRGzDS/aUeVVwx8V1rApOpF53oDO/bBH4IXF7jVqSAyq6WNTtjNK
+         SATV54SWF2H0oNbVgnCV4w+NeuzLwJMG8j2qalGjA2zbs1j8z0opUOMg5CKo+g6/Db4m
+         dY4hFsMhg6kR0xSzlOsTkrmq7fsPbf55r5U5Bd+237Is+GZAtc0Uta2ADac4DH2wj6lD
+         J9r8cGbMYqTCtd1scKHRBX4W15VP+pUg4aebZEQBDGFL/jcG5wtXqMEdQwUwqANWFMmZ
+         +asUVaMXVCNSyDseIvUCnj6hyPT1uXxnl99+VL/C9twFy6Ha7NBvnceMG8lQeRTM3jvC
+         apgQ==
+X-Forwarded-Encrypted: i=1; AL+hErG6EtGQE+C+g/GnuywhQUtrWisskBp3ykdpUl6sy4bNiJtYvOmQW1kNvMpHYx7z803zgUSREpegfaHvozs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8UFV449FseEZHzYhIfQgz5vh6378G/eZ2ktpNp5R8G8YBgIZ/J
+	I/KiXqjyOt86+fFnuKX1vlwgGWXBCaLid7W8V7C9O4HrV4P4XvLlpG7J
+X-Gm-Gg: AZFdTZfqQ1xhc7MXaa2nreKnEaXvLyJAg9nPTV4OCnaAS5E5pPY6/QlBqTYhYzx51wF
+	dbLiMP82lJlT4IrWXOBX9ZXNy07ZSpGVYG03nWIJ/yIjY2stZAlvzPwptW44HSCWq4nGgNeqnG/
+	nJVaDLXWAhGtvv5SxYgmH+TuM0E1wvTDtDaSojMZF9QHYg7WUa1ysH3P3YiGzF6HA6TH/Zc+r7j
+	LrvSi6MfBbw557zf4aZh+rgWEaaq1Gu6FDvVQ+7RBzQQU9mEdq6GRKtCEDcrSLhogIRVFkVMTsn
+	K69EOF6qCH7brEfPqQtrGX1/AkZUu/J7X0a0nbhubtsO7lM6WCQN67EZOJMh/yZtCQhp/ARvolP
+	Jgz/NSoe3W+Pg9RGX6ZWPzL/LZ00Thyi36yHdcUsdb2kbUKMOeL56xUM50jOcrPKFIDqw160ESC
+	VPUchUeGWFBommagF42WNVB6ZjwpHn0Ld0GU0BMLWPV07HPA3tHB3YBSUCbGnF7V8K1JwacExWG
+	vjakJgnsHgo8kCTs0jfo4MQ55CQWMxIX+aNFVuiNhtnuPmZUXs5lS2HeoKwGEH6OBOZbxZ+PzHZ
+	U1izJCIsvE5IIICFu6ODkF7gCRU+V/taV3+X41FUf+WjTnNAm6RVVG1r+BgcsIXxlv0ZOg==
+X-Received: by 2002:a05:6102:c54:b0:7c1:f530:2d8e with SMTP id ada2fe7eead31-7d7396a6024mr1680666137.35.1795196624132;
+        Fri, 20 Nov 2026 09:43:44 -0800 (PST)
+Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.43
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 20 Nov 2026 09:43:43 -0800 (PST)
+From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+To: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Eric Garver <e@erig.me>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net 1/4] udp: Fix bind conflict check stopping at the first reuseport socket
+Date: Fri, 20 Nov 2026 12:43:38 -0500
+Message-ID: <20261120174341.35873-2-juanagusnicco@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261120174341.35873-1-juanagusnicco@gmail.com>
+References: <20261120174341.35873-1-juanagusnicco@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,82 +107,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116034619.36218-1-xiongxin@kylinos.cn>
-In-Reply-To: <20261116034619.36218-1-xiongxin@kylinos.cn>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 18:43:15 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0isU4bT14fUTXDhAb13G8pwoJvW+b5dqXzxCs+bT=1J_w@mail.gmail.com>
-X-Gm-Features: Aa3M54qScF5JLG2T6_O11bFxZzF4WTe7PhuPZq7_HV45-TLpTUBNXRP08WqoYDM
-Message-ID: <CAJZ5v0isU4bT14fUTXDhAb13G8pwoJvW+b5dqXzxCs+bT=1J_w@mail.gmail.com>
-Subject: Re: [PATCH v4 0/4] PM: hibernate: flush icache for restored pages
- from task context
-To: Xiong Xin <xiongxin@kylinos.cn>
-Cc: rafael@kernel.org, lenb@kernel.org, pavel@kernel.org, james.morse@arm.com, 
-	hch@lst.de, will.deacon@arm.com, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 4:46=E2=80=AFAM Xiong Xin <xiongxin@kylinos.cn> wro=
-te:
->
-> Hello,
->
-> With `hibernate=3Dnocompress`, load_image() submits the read bios
-> asynchronously and hib_end_io() completes them from hardirq/softirq
-> context.  The flush_icache_range() call there, added by the
-> commit f6cf0545ec69 ("PM / Hibernate: Call flush_icache_range() on pages
-> restored in-place"), ends with kick_all_cpus_sync() on ARM64 and so
-> triggers the WARN_ON_ONCE(!in_task()) in smp_call_function().
->
-> This series fixes it by keeping the flush in task context, and first
-> closes three pre-existing holes in the restore error paths that the
-> rework would otherwise trip over.
->
-> Patch 1 resets clean_pages_on_read when load_image() finishes, so that
-> a failed nocompress resume can no longer leak the flag into a later
-> compressed resume, where it made hib_end_io() call flush_icache_range()
-> from interrupt context for the reused ring pages of
-> load_compressed_image().  The flag is also cleared as soon as the load
-> is known to have failed, so that the bios still in flight do not flush
-> from interrupt context during the final drain.
->
-> Patch 2 stops snapshot_write_next() from releasing all snapshot pages
-> in place when one of its internal allocations fails: the read bios do
-> not take page references, so freed pages could be handed out again
-> while the device is still writing the image data into them.  The image
-> is now released by the outer error paths, after swsusp_read() has
-> drained the batch.
->
-> Patch 3 makes the error exits of load_compressed_image() wait for the
-> read bios that may still be in flight before the ring pages are freed,
-> like save_compressed_image() and load_image() already do.
->
-> Patch 4 defers the flush on the nocompress path: hib_end_io() now only
-> records the restored page on a per-batch list, and load_image() flushes
-> the pages once hib_wait_io() has returned, preserving the asynchronous
-> batched I/O.
->
-> Patches 1 to 3 are unchanged since v3.  Patch 4 now yields with
-> cond_resched() in its flush loop, as the final drain may walk a
-> multi-gigabyte image in one go.  Many thanks to sashiko for the
-> reviews of v2 and v3.
->
-> Xiong Xin (4):
->   PM: hibernate: reset clean_pages_on_read after load_image()
->   PM: hibernate: do not free the image in place while restore I/O is in
->     flight
->   PM: hibernate: drain pending reads in compressed image load errors
->   PM: hibernate: flush icache for restored pages from task context
->
->  kernel/power/snapshot.c |  9 ++-----
->  kernel/power/swap.c     | 57 ++++++++++++++++++++++++++++++++++++-----
->  2 files changed, 52 insertions(+), 14 deletions(-)
->
-> --
+Since commit df560056d960 ("udp: inuse checks can quit early for
+reuseport"), udp_lib_lport_inuse() and udp_lib_lport_inuse2() report
+the port as free as soon as they find one overlapping socket that has
+SO_REUSEPORT and the same owner, without looking at the rest of the
+chain.
 
-Applied as 7.5 material except for patch [3/4] that is equivalent to
-already existing commit 931650685e35 ("PM: hibernate: Wait for
-in-flight reads before freeing the read-ahead ring")
+This is only safe if overlap is transitive, and it is not:
 
-Thanks!
+- A wildcard address overlaps specific addresses that do not overlap
+  each other.
+- A socket with no bound device overlaps sockets bound to different
+  devices.
+
+As a result, an unprivileged user can bind an address and port that
+another user's socket holds, and receive its datagrams:
+
+  victim:   bind(127.0.0.2:P)
+  attacker: SO_REUSEPORT, bind(127.0.0.3:P)
+  attacker: SO_REUSEPORT, bind(0.0.0.0:P)     /* should fail */
+  attacker: SO_REUSEPORT, bind(127.0.0.2:P)   /* should fail */
+
+Only stop at a socket that matches the new one in family, IPV6_V6ONLY,
+bound device, SO_REUSEADDR and local address, and keep scanning past
+the other compatible sockets. Identical SO_REUSEPORT sockets, the
+workload the early stop was added for, still stop at the first one
+(binding 16384 of them on a KASAN build: 223 ms before, 222 ms after,
+3727 ms with the full scan every time).
+
+Fixes: df560056d960 ("udp: inuse checks can quit early for reuseport")
+Cc: stable@vger.kernel.org
+Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+---
+ net/ipv4/udp.c | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
+index 303d0102519a..446729b41d66 100644
+--- a/net/ipv4/udp.c
++++ b/net/ipv4/udp.c
+@@ -131,6 +131,15 @@ EXPORT_PER_CPU_SYMBOL_GPL(udp_memory_per_cpu_fw_alloc);
+ #define MAX_UDP_PORTS 65536
+ #define PORTS_PER_CHAIN (MAX_UDP_PORTS / UDP_HTABLE_SIZE_MIN_PERNET)
+ 
++static bool udp_lport_same_bind(const struct sock *sk, const struct sock *sk2)
++{
++	return sk2->sk_family == sk->sk_family &&
++	       ipv6_only_sock(sk2) == ipv6_only_sock(sk) &&
++	       sk2->sk_bound_dev_if == sk->sk_bound_dev_if &&
++	       sk2->sk_reuse == sk->sk_reuse &&
++	       inet_rcv_saddr_equal(sk, sk2, false);
++}
++
+ static int udp_lib_lport_inuse(struct net *net, __u16 num,
+ 			       const struct udp_hslot *hslot,
+ 			       unsigned long *bitmap,
+@@ -154,8 +163,11 @@ static int udp_lib_lport_inuse(struct net *net, __u16 num,
+ 			if (!bitmap) {
+ 				if (sk2->sk_reuseport && sk->sk_reuseport &&
+ 				    !rcu_access_pointer(sk->sk_reuseport_cb) &&
+-				    uid_eq(uid, sk_uid(sk2)))
+-					return 0;
++				    uid_eq(uid, sk_uid(sk2))) {
++					if (udp_lport_same_bind(sk, sk2))
++						return 0;
++					continue;
++				}
+ 				return 1;
+ 			}
+ 			__set_bit(udp_sk(sk2)->udp_port_hash >> log, bitmap);
+@@ -188,6 +200,8 @@ static int udp_lib_lport_inuse2(struct net *net, __u16 num,
+ 			if (sk2->sk_reuseport && sk->sk_reuseport &&
+ 			    !rcu_access_pointer(sk->sk_reuseport_cb) &&
+ 			    uid_eq(uid, sk_uid(sk2))) {
++				if (!udp_lport_same_bind(sk, sk2))
++					continue;
+ 				res = 0;
+ 			} else {
+ 				res = 1;
+-- 
+2.43.0
+
