@@ -1,100 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.117
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.87
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795139501;
-	b=kS/l1emGIa9ypz/4fPZeqfcak2Q7A2E15Jo8AgLMqiUI4HQruODMj3NrJgrPzUoSsWpw
-	 QWgk3QoX06NEl3o2UEkPGH7fvWNxoBU5riY16O6Tc3H8Hf8yUovCwVfFZvewfWdxPJilS
-	 9OtlVv3KmcSuz+5/yqG09azjByayugyQpNdxSZ6RuT0xnwHUEZPUrAoTj2ylURe4QCcVY
-	 1xa+MngeQgIfL6+Xf6wQrhvvBSoT6p6CAYbtaWDIyqu7HCw7jWK8Rvel3vlsf0WTbMPaK
-	 SPSjW8WOustQ3y0ymQ+g2w5bUe+ZsOCq+52aqnHo68T4p27uveQaE9kG54uq4oxPoAw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=oHFtnB3CbP667n6i3BBXE9llJ/p9ZJtQyW8sN6q0GlVegK+GLnKnxWYklpMiN+ybHiiJ
+	 3TzsLicW8kQQ1960lPmZ2VnGfh+/r9lgwuWXbfsCSiQk42tHyoweK/gAtBuoUbLCYdiRW
+	 xqak7/v/2/JnUbRes6d7cNU53LzB8wz1YUL1SjXXd/lxYQ+RQWhlRzjjvun29hDPU/xyl
+	 FzJiuptCCeOeyqiIxRct+N7t5E8HAF8y6OYdL2Whz/b/RApqZ0tbhwdJz5TxYXikQHujk
+	 NDD7DI743yc170EIqt7yt6i7R/o7TcQxIKsmIS1HJTLOJd4dXklgCz3gKvYrch4McXg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795139501;
-	h=DMARC-Filter:Received:Received:X-MS-Exchange-Authentication-Results:
-	 Received-SPF:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=uHTYH0hftu1/GRLYHKJXgTt7gRzt2O6NRsCJlLzAVM4=;
-	b=vJkpl87vtQAGAs+RLwT5MUs/FP2WHkvDgvCS9Dalx53a86Us5CUMHEOwvkTWb1NKzBWW
-	 k5qsakCgDIvH2hl3Cu98BZ2N43LFstGCw4DMXpYc9L+usJO9MSt3aTiKhrOntQhu/V+hi
-	 CqYzvScvfaF5Cu6kIds/o0WGudCMM/rUQYUTb97DUD29frrnklu2WIx32aXj3i8qKc8ri
-	 6UDI8mfNKmsP7exsDGRI1EWrRQdy0A8ZdC2s9k26vtE/ZA34O9wcEjNrrBI2r/qxl9v2n
-	 sz1MtdHTLZZ9NYwso9G4lvB+tQwnAVP5LAhE0OsoAkiDQjK2zL12Ub+gwVp0LEcYFYQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=cixtech.com;
-	spf=pass smtp.mailfrom=cixtech.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.75.117
-Received: from OS8PR02CU002.outbound.protection.outlook.com (mail-japanwestazon11022117.outbound.protection.outlook.com [40.107.75.117])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=FvDJE+n71HTRKM6iNl5KrntFvqecHZirfobt7pnykMc=;
+	b=HbQRA8087HyZt+/HuQuNK6hSAN0JpL+I2dJW/DHPrmmLpQ2jiIo3xGGy132+YTbRVIDQ
+	 jWX6clW762lszVjeAVAjKEsKkmm5lf9R9sAFJMUdEKXCgtMUxQneZ73TtfjNPEvajauPa
+	 NzkL1vTf8RenUYcnn9X8ulWlQ9drBOoKMeBG0WH2WMuemdwm+JpcqPrf6G4mlr23CeV7/
+	 XQhr33XZGMg22evWauNQ81U0RC3W/BZIlakZ/5HX6kmk7KR0/nb0L1pdS6IXu9b2pglTO
+	 aztA3rLWc1e44bULDF1PLTgqKSP58ETeI4vey1Pd60BylVlo/C9qaOnKvKc0MttS+bA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=u0hpijTE;
+	arc=none smtp.remote-ip=95.215.58.87
+Received: from mta1.migadu.com (out-87.mta1.migadu.com [95.215.58.87])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E96F8606A325;
-	Fri, 20 Nov 2026 01:51:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E96F8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=cixtech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cixtech.com
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ASWq0Y00RZq2Wyv0HD1YfDMx83oyXICM85o5s3e8tSCouEXp6vsjHf0PYdfps7iMVdxLykqPOOp/o/VC7dVkN2a8jzAI/X1LD1NxkMM3Z9UAQ0mo7XBTW3gDZ955Id6NNb3BgkqhC9kAV52sdCFq1SB5WeSfj1zX99FAlRjOuwYmKnC1nk2vmM6aAY82konATwy2VOpZZQNv4x8jiW80mH7nxJo96nfwlwIAwKkrAIGRE2fIK3ZNPLZUgByotUthoEGViqIJLThRF7YAElV5JjdwuGxZUdVz2sRAjs4bY3kzQY2N+vgNRiOATp4tsfsx5/HRkt6KY0k04AbaD+untg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uHTYH0hftu1/GRLYHKJXgTt7gRzt2O6NRsCJlLzAVM4=;
- b=uZ9oLxXrZt/2ZlcLQk8TGF+NyWYvky6eysZ28wm5UdZxH8eTdc8ymm0f+XF6nZDnQi9URzy5tq4TtrYEjpi3/2vg4Bar0ut6kb0gpzsIHa6NWsHSBX1kVSrznp8g/JXRqg8dpHgzR2hQHC4t3k7ZRgzSDl0YBNZXPk2jogK14vtje1tzvB8mR3fB1el8m2pTkpbV7aMEftlosrZrKbVAEDOL+SIG06FXSRFqNHYvOVTlxFZmjF2/mhmcGN2yFuzGU2jFo4khqu9pt0DFfoWfj2mxMZSXlHb2rABp7tlsSsoTkaFOXIoO2f0UUzYAM0CfFwXG47oJcD+YQj6Z7Hc0fA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from TYCP286CA0279.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:3c9::6)
- by JH0PR06MB6512.apcprd06.prod.outlook.com (2603:1096:990:3b::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.2; Fri, 20 Nov
- 2026 01:51:34 +0000
-Received: from TY2PEPF0000AB88.apcprd03.prod.outlook.com
- (2603:1096:400:3c9:cafe::3d) by TYCP286CA0279.outlook.office365.com
- (2603:1096:400:3c9::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 01:51:34 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 222.71.101.198) smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB88.mail.protection.outlook.com (10.167.253.11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 01:51:34 +0000
-Received: from ubuntu (unknown [172.20.64.99])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1B63B40920E2;
-	Fri, 20 Nov 2026 09:51:32 +0800 (CST)
-Date: Fri, 20 Nov 2026 09:51:29 +0800
-From: Jelly Jia <Jelly.Jia@cixtech.com>
-To: Brian Masney <masneyb@kernel.org>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, robin.murphy@arm.com,
-	sboyd@kernel.org, bmasney+clk@redhat.com, jbrunet+clk@baylibre.com,
-	tglx@kernel.org, devicetree@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, joakim.zhang@cixtech.com,
-	radu@rendec.net
-Subject: Re: [PATCH v4 3/5] clk: cix: Register the Sky1 AUDSS IRQ auxiliary
- device
-Message-ID: <av+noTCzllh8pjJM@ubuntu>
-References: <20261117094408.1393837-1-Jelly.Jia@cixtech.com>
- <20261117094408.1393837-4-Jelly.Jia@cixtech.com>
- <179505256752.187996.952601612639868708.b4-review@b4>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD6C9606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:51:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD6C9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=u0hpijTE
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ZiKMS/ZZpKwJvVwWzvJOPwyAyMNHTF5jfpzUaA7eYRc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795139498; v=1; x=1795744298;
+ b=u0hpijTEDQlTgnbcP/Q/LlluerTaXPISQOZlBVWPMIWl+45Lk/a7+chw33Gf0ncbLzb6ftSc
+ UztD0el79pJZA2iP6asJ3vMDUzN190uL/O/xJJ+1KTP2f0H6YvUKBAowwQljIYlqjcfzV/Q2Ani
+ Id/Uj0wPJ8kNAg382bthOTRg=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7edf8534af9eb4d5;
+	Fri, 20 Nov 2026 01:51:38 +0000
+X-Mizu-Trace-ID: 7edf8534af9eb4d5
+X-Migadu-Flow: FLOW_OUT
+From: Qiliang Yuan <qiliang.yuan@linux.dev>
+To: Li kunyu <likunyu@open-hieco.net>
+Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] sched: Tell rq_online() and rq_offline() whether the CPU changes state
+Date: Thu, 19 Nov 2026 20:51:30 -0500
+Message-ID: <20261120015130.41615-1-qiliang.yuan@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <6fd92ba8-2249-b5e1-772d-cc598c91bad5@open-hieco.net>
+References: <20261118-bug-sched-fair-offline-active-v2-0-b6ede596c6a6@linux.dev> <20261118-bug-sched-fair-offline-active-v2-1-b6ede596c6a6@linux.dev> <6fd92ba8-2249-b5e1-772d-cc598c91bad5@open-hieco.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,67 +76,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179505256752.187996.952601612639868708.b4-review@b4>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB88:EE_|JH0PR06MB6512:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5e93db2-c05d-47a5-91ec-08df46a8ce98
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|1800799024|82310400026|23010399003|36860700016|376014|18002099003|22082099003|261009223027099003|56012099006|4143699003|261026140227099003|261028144727099003|261026121527099003|261022105027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	CkNmjC5YOtyRsJiKsrhs5Fui7kEwXZUUwXfmpEi4Sl/KSe/9o4e7alOqaer2OrOr9rmaNrikiftjP+2GJQ4qEzl2+MkO7Nh2I1dhryBretRvaaiEUQt7NthLHdQ44N04cZ5ygpkmX7QwIrgjfv9fh0jo+T0CnDyI8hJCzCr9+T6qRreMVWKz5eq5tok8tb7ly+EpiYj59PdoDK7hf5N57ykY6Idk97x0hMNN6yLJmew6+4LHnKPtA5XMfDjMrV9Qo7PhuwKDWN9CfRYsO+9U2D8dsxdWe4uYnZqr7p3f7+IlunchkOkF28ACDFOjvgNtOK6QPr29Oh0q0Zm6DktHKgScpMSebdvCrFY62OfM/CNCaj/KWzmVMcs9bjQv92x4gy89JAKbVCEReWJFgTcq/akHuhgdcWbI8gMSMivOPBW/u3MrKP3JuXdJI3aS7sW/1gA6hZtGQyZLEjBxOe6ROB2mB99obEuZWadECCvv6MNcADLoaX6bB0YJVvSf5AhuMCaxwPbu/6UKtGGGiubdj0ZebBmYe+rtVWRtXONpNjwTpcv0tpXcKjjWh6tCw9/1DdJzDiEonm/ICBnYCa9bVIsek9x8F/P+1ybktlELLCC11IVweyVcB9yYxNvf01i0vxX6RF7ZRB/2PTMhGAQVVK6APTN8F4B4tKqobfzRjxAeOPg6ZFyOWvaO3G1HK0/OjwXmJRDaqvq+Oa8UD4MBhg==
-X-Forefront-Antispam-Report:
-	CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(82310400026)(23010399003)(36860700016)(376014)(18002099003)(22082099003)(261009223027099003)(56012099006)(4143699003)(261026140227099003)(261028144727099003)(261026121527099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	3/l58ZoV7OrUx8i7vHABGfpUjpHTr4sdZtimFtg7dbnJMQJ17lYnqXZBI5yCG1rtK+tmoJF3e6vvOE/MRMyfrlYRpNrHTflrHxAuXoqhNsOcTWgGwljMD7O8hhy5rW2ess9Tfm5BC5cyu7O2yFLZ2zzVch4PKQR3dRQM60e1YuLS/4/EyFcxHDwpLDuIvshf0rBVaknjfKPbA8SwAoyrsEfPDg300JmQ0VYFPdynjrdPffYQXSOjS0XZDGF0K+u+MKS/rVvqTB5mL7OoEl7qYo/gvq9LN92+doafCdJIbtPXns2VyYc7I9HYC5H0lvwQFVYTEGOgSkkeDugbzXmuofxH3IZ7esQ5QKoBWmk+hyoo5lo1Nz7TI2YHA0QOAq0SOOnPHBUsvf2NkI5n4kLUSLpl4M+Aoi+sCXrlEDzmQl4DWVXDg1/CH3NIxPguE2Cz
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 01:51:34.1956
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5e93db2-c05d-47a5-91ec-08df46a8ce98
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	TY2PEPF0000AB88.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6512
+Content-Transfer-Encoding: 8bit
 
-Hi Brian,
+On Thu, Nov 19, 2026 at 04:29:27PM +0800, Li kunyu wrote:
+> Is this parameter currently unused, or is it being introduced at the callback
+> layer in advance for future use cases?
 
-Thanks for the review.
+Only the fair class uses it, later in this series:
 
-> This, along with the defines should go in a separate commit.
+  callback                         uses hotplug
+  rq_offline_fair()                yes, patch 2 returns early when !hotplug
+  rq_online_fair()                 yes, patch 3 calls update_runtime_enabled()
+                                   only when hotplug is true
+  rq_online_rt(), rq_offline_rt()  no
+  rq_online_dl(), rq_offline_dl()  no
 
-Agreed. I'll move the INFO_AP_IRQC and INFO_SW_RESETN definitions
-and their save/restore entries into a separate patch.
+The rt and dl callbacks take it only because they share the
+sched_class callback type, and they have no use for it, whatever
+tasks run on the CPU. They move state that lives in the root domain,
+so they have to do the same work on hotplug and on a root domain
+change:
 
-> I don't care which pattern you use but make it consistent within this
-> driver.
+  callback          work                       why also on !hotplug
+  rq_offline_rt()   rt_clear_overload(),       rto_mask and cpupri live in
+                    __disable_runtime(),       rq->rd, so leave the old root
+                    cpupri -> CPUPRI_INVALID   domain; reclaim RT runtime
+                                               lent within it
+  rq_online_rt()    rt_set_overload(),         register the overload state
+                    __enable_runtime(),        and the highest RT priority in
+                    cpupri_set()               the new root domain for push/pull
+  rq_offline_dl()   dl_clear_overload(),       dlo_mask and cpudl live in
+                    cpudl_clear()              rq->rd, so leave the old root
+                                               domain
+  rq_online_dl()    dl_set_overload(),         register the earliest deadline
+                    cpudl_set()/cpudl_clear()  in the new root domain for
+                                               push/pull
 
-I'll make the IRQ registration helper follow the existing reset
-helper's #if IS_ENABLED() pattern, including the stub when disabled.
+The fair callbacks handle task group state (throttling and the
+bandwidth switch), which doesn't depend on the root domain, so they
+can skip it when the CPU stays active.
 
-> Should this be a separate patch?
+Passing a bool follows Peter's suggestion on v1 [1]. Prateek proposed
+instead to give root domain changes their own callbacks, implemented
+by rt and dl only, which leaves rq_online() and rq_offline() to CPU
+hotplug and needs no parameter [2].
 
-The reset_control_assert() error check is independent of the IRQ
-integration. I'll drop that extra change from this series, leaving
-the existing error-handling behaviour unchanged. The additional ret
-variable will therefore no longer be needed.
+As only the fair class needs the distinction, I'll rework the series
+along Prateek's lines in v3, so that rt and dl don't carry a
+parameter they never use.
 
-> The IRQ driver uses the new pm_ptr(). Please use that.
+[1] https://lore.kernel.org/r/20261112125947.GZ1813469@noisy.programming.kicks-ass.net
+[2] https://lore.kernel.org/r/e1a63a3c-3975-4b05-8ab4-518c37d867d6@amd.com
 
-The clock driver already uses pm_ptr() for its .pm pointer, but still
-uses the SET_* PM macros. I'll switch to RUNTIME_PM_OPS() and
-NOIRQ_SYSTEM_SLEEP_PM_OPS(), matching the IRQ driver, and remove
-the unnecessary __maybe_unused annotations. The noirq suspend/resume
-ordering will be retained.
-
-I'll also remove the added bits.h include.
-
-Best regards,
-Jelly
+Thanks,
+Qiliang
