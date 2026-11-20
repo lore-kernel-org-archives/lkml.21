@@ -1,112 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156930;
-	b=EqRCoveFZnh1yD2vQKSIebcBwMEelpZi5Mb0EXuZeF8JC28ISm5g3/q2MslHlzwPwIf6
-	 aZ0IdaY/Oct+O6NtMHoAXDhtb6N+uFXmEjXFYVZhuoGOLtmAZfnl2+z6Al3829kYKpWcE
-	 sltdzn4GWB5q7/3jBNuUW5NtH0LwpoOHmz5iWFzyZ9xdv6Fu8gqAHoiqW/wXukEKKAXBC
-	 XrXuuwtJJuCL5eqlGWyFrGxWv33oBuzQJNLISg8wUgridEYDSllbt+3JCCCGLUcE3ajcw
-	 M6jjfrEP5NxA8MpMpqs+4sbdqTW0zMUTqVGgrR/X93gRe2gQqJrkZC6/mxg9brZS28w==
+	t=1795156983;
+	b=r8s3vK/n3s4pg68mo6VA2jkcrgbdslkD3rVGaUlcTx5ogp+3Fb6nJvenVNACQ8BUBKUJ
+	 mO3MgCmcrZkEkd8ehQJ+y2YjXY7KUk2d+p2VMtPy27coCUpa8oboaLqjBXnBK7CYcVB3k
+	 kL+rtSvQFWQngBX6zBYWVjf6BSoSE9/KV4MebBB1eKMDwJ33UmkR+YIXLnQPPM6AaF3U2
+	 TsU7cDlC7VKee9WlOvtEJv5b96mATxXn6H+y442M9ky4is8z0rTWKcZTp6xQNAhEZkGkb
+	 YlvVlJdvRZ80OEUn+rib8e2mcnVjAYcn1kgAz04/1ogk1uw89VPOkYrFGfDhL91zBSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156930;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
-	b=4qYwzThkGkFiQ1cy6tJCXxQ2KLvqxdBjIGrL0ztYqMwUeD599LmDPN9ag0vbmnUEmPz4
-	 inBarW3gmsTjYeCcUf2U9FWq2rcFdIwVQHFoPqSQnOnLb+CVoXmOFIstWsv8QRSPN+w8m
-	 izZbtGm82XrT9hVGaoCNAx9OlHDuj0aMsAXjtJ/dKgPgu1AaH0duTtQnFiGLmFY9Smkae
-	 CNh+SpOXW6zNb9HfL3rIIV2wa20bRt7pfLGCTeCFLajwd8H7afGL0JqmRU7GHmXXgDan6
-	 y5/CJj2USsy4w7Hen+umm3yh5N1omEidb7mUmGvz9ZI+JkMEqub36+Xr9EhTwWv/oZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156983;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy;
+	bh=5L5MV5K9+o090G2Wf4y7FRKXeHZWJ1IGq5n28rVHbBE=;
+	b=W/E1GV9taOQWyZ32OFSxXOI6GX9GRwcT9UAgJTSdNSiGpH/Jq6N4Ndj0YyDJJse5PSQs
+	 8bwrtGx7hWr9cCjrWol/iAW0bvypQSUvo1tntu8A8dHm9d9WygutfhpVshA6YrQrsA1DI
+	 XMYGEjOzC27kH0PeI7dgLfZwrNL3i35MD9rWIPfxuGeYSSj4LYhZwRqvrQODmcQ9QJ2pX
+	 JZD2eVPMlcFzbOSAbZr8Q5YHCd7agM3lfbL8vOMnWAqdFeF5WIi4BklbIFNVO4rpLvw40
+	 dgtogQBs7ah7Ru70vydQa0bTQFz+idXbialU1GJQ16JJMPihOJVMQyWfNd+Th9/wrTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ELCm7CSA;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UUNMFQSw;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b="O7//PZXX";
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D332606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D332606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC99C606A326;
+	Fri, 20 Nov 2026 06:43:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC99C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=ELCm7CSA;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UUNMFQSw
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK6JHEi3393026
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=; b=ELCm7CSAXr8TgCGi
-	8ZMvThZeoeM2fX7FKd/PpSYl/M+69+mJLFzfD7xJ1I/nypIv5+3Wb/1ZP11yN8vp
-	sgZkNhg8YFyxzG6fppr/hrMnkK2WdsBlzNZ1eSrqTMV8iHZ27tAPbjcwO+1qe6kL
-	3m4ncvaz3K4JPJCPQq6CAynCMnBvD5uO18RozYMyWUiskCtSNkWdtIT7FQIUfgAz
-	+N0kVdKf4J2rW0ZOV5326jX0T3bND1Q+BcakBn+PjhoJwK8exWOkfKvPn+kbHQmO
-	V/vO2EiurYVl63XaxrkIeB+S6ULSKC910iMlE7WGSCiPNXPI+3I7tXqVizC9Z6Zx
-	KYXW/w==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2gu8035a-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:42:09 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2eb5375cd68so6561825ad.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:42:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795156929; x=1795761729; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
-        b=UUNMFQSwc4obBsowlwlEt21XxSADSHaxBo5iLCn2seSW/SSvBe+hG3bGuN2x3JO0hl
-         MmkpI1MG7vxiu0NOZKOw3i6tjDCP2cEMyCqR6jiiKhbSvwJvCpfMDLHz8l+S/7FbTslq
-         +eNtnYDkNs+9POIwdYFmVMxaGLaO1tog2OJoLaZ29cXd/5RtVURkCzZyNrz2DiJKlMzj
-         Krak8oxgkgpuy6fOG/J15cjj06dUHPhncZra2/6slGL4xGNby5UG2bX2x1yty/1P44Ie
-         5HskdRox2UPw3ywjuorbboe7gINxaDlA+M1P1U1c6ZXuBNzgLBJeAm2/TT1x36gzczAc
-         WMvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795156929; x=1795761729;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Z04Zgh/4uhXTKGuLDOYJatyR674dYRllSpwpdbHQSzQ=;
-        b=jfCqwU/lE+tHFO/G1Hsd1vyW7KimQ++1JR0GqiFEQ3ANvN8Fde0MdvTp5MAfk2XlBt
-         GdGqIbVJCWPd/sznA/rUiyG9l5/te8yRDI9zYYlM/zNthsTrXQWbaQasmRYcSd48BzKl
-         ttVsfBmHfGEhCwIJN0MLBvK//qj5K7/e1fhRGCEF2nYzAKOPM5y12Rkw6Xn0Y0P0oUun
-         GATEHC6CqenQFP1o2DA102QnqahpFQQeC5u1zapsG4rQrISPm6cR5Vk+cyWzDc8iyUeJ
-         020VCj4qsTDc9zoS4f+B0puiyULnbW+UmSFamJikTYdEyvY8meCZjgk0w29Daf0CK2Gt
-         5zOQ==
-X-Forwarded-Encrypted: i=1; AL+hErGWfMds+zc0WZmLtSGppDpKdev0tP65IbaCc1YmCiPOiqkz0nWldy/u3Ph8CEgdVkh36EniaTiSIdUh0XQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DIK9nfvf74dy0uUagUMKyASGwNbOOL9oPsUUkj7u650y5FeVD
-	i5oDMfrYvTkDECqr9774fxpdc4PDxfJcA/eE5s/6cy0ERu0uIOcmxhbKbNgBGDofrGKEUtwYN/R
-	RnYSrdZlIv77Po2yjDL//cDdles2AXrUyUzfF9iBGbR+KLln9nJakOK1nmJjhertIdcg=
-X-Gm-Gg: AZFdTZd30+Ggl9H619hhRrlo86RAYZikyisOk3K8yDevYuiJhmGlW1riCI1ZG4U2dKt
-	dxukjeEWJRZRnfwchjFd2P6xxr3yRdfRnMiUw0xtiboQe1rvba0xgkHaDs0LxOjRk2lf3WjPNqe
-	cnXgCg0TFU8p+OtPfhzRG5zQZXbfm8lSa48DJkincUFg5J4FcZwFSrhNEmW3S9OIun2IY9GxFyk
-	SfDzLeD9ws4CjMt5TC6JXXQnltCy9Iqj1llyk+7lQiU/XdihraSapDmUji3T5nvM+T20eQGw14q
-	9Fs5cC37EYR5SvhektV8pWfxTd/EEGTmaASz2vB4FezJWGxVsZ4ioTcpJFYMH43WqBhJoON2Z6j
-	aykBeJCvj54tWouzneUtGxByRIs93Tf3NknUKTT1ChtHa/7Eg9uhSNy6xVcQPKJa+tL/TgnQqje
-	ENfdWTqIHk+eBsreMD/BNozvTB2FDBRootDJXz2pY=
-X-Received: by 2002:a17:903:298c:b0:2ed:42d5:e682 with SMTP id d9443c01a7336-2f03f21d8f7mr20044225ad.41.1795156928526;
-        Thu, 19 Nov 2026 22:42:08 -0800 (PST)
-X-Received: by 2002:a17:903:298c:b0:2ed:42d5:e682 with SMTP id d9443c01a7336-2f03f21d8f7mr20044055ad.41.1795156927955;
-        Thu, 19 Nov 2026 22:42:07 -0800 (PST)
-Received: from [10.133.33.8] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a69sm9484255ad.18.2026.11.19.22.42.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 22:42:07 -0800 (PST)
-Message-ID: <fd5cf760-b750-4c97-bc32-93bd4451664e@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 14:42:04 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=O7//PZXX
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id D56DD20743;
+	Fri, 20 Nov 2026 07:42:59 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id AWpiZiIyASIi; Fri, 20 Nov 2026 07:42:59 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 420FB2069C;
+	Fri, 20 Nov 2026 07:42:59 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 420FB2069C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795156979;
+	bh=5L5MV5K9+o090G2Wf4y7FRKXeHZWJ1IGq5n28rVHbBE=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=O7//PZXXS2BxZ7HIF8RijE/yH9oyOT/zJP9KyUHuQSs9T+t63SzLo41QFuSYeXKN8
+	 6xRMYZMRzcurBvpi0/V1AO99nLifwZPC/GXSZYZM4sQSiZ8qtbjboWv8lXv+M5e0d6
+	 CNkr3dg6AaqEvKesHkRZM2mvCg7vWkGVqKz0g7MWUsnlxS/pSwY5kQDoTJyKrDq++m
+	 Cxpje+0jJp1qFyrmd/30j1LGLz7SYKv/uVWKYI1aU41HKxhGvFaNBfDTUfPz8da1vn
+	 SLo6le0jhBEEPhNf+y8MSM/4oc8mxz/6WYgnc0Nc86IoV1+/+imDEbc55sYxxmHKa5
+	 EhK2PVKo+VxCg==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
+ 2026 07:42:57 +0100
+Received: (nullmailer pid 1661259 invoked by uid 1000);
+	Fri, 20 Nov 2026 06:42:57 -0000
+Date: Fri, 20 Nov 2026 07:42:57 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Sewook Seo <sewookseo@google.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<kernel-team@android.com>, <stable@vger.kernel.org>, Maciej
+ =?utf-8?Q?=C5=BBenczykowski?= <maze@google.com>, Lorenzo Colitti
+	<lorenzo@google.com>
+Subject: Re: [PATCH ipsec] xfrm: check inner family via skb_dst for
+ small_ipv6 DF clearing
+Message-ID: <av_r8dKdyeJmw-jj@gauss4>
+References: <20261110092513.2375648-1-sewookseo@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,254 +85,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH ath-next v3 01/10] wifi: ath10k: fix SDIO aux workqueue
- starvation in recovery detection
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>
-Cc: Jeff Johnson <jjohnson@kernel.org>,
-        Baochen Qiang <baochen.qiang@oss.qualcomm.com>,
-        Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-        linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20261112-10k-sdio-crash-v3-0-24f03f300bb2@oss.qualcomm.com>
- <20261112-10k-sdio-crash-v3-1-24f03f300bb2@oss.qualcomm.com>
- <CAFEp6-12bAc5YoP7BaP-GENQsNAifXVxehpdPUu2pi-X8hfC=Q@mail.gmail.com>
-Content-Language: en-US
-From: Kang Yang <kang.yang@oss.qualcomm.com>
-In-Reply-To: <CAFEp6-12bAc5YoP7BaP-GENQsNAifXVxehpdPUu2pi-X8hfC=Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfXxeL4MyMFULMt
- Rlb7NdfKfhGX1mh/bkqG5xaEvz4I6mVvaCxMDnReUviudV6aadzWquDszmF7DI8snXwb9EBvvhJ
- NTW3JgFSulhZG3EIIaqhmOTtKMa1YHXkfW0IAg5kSMbC+HrbiMVoo8b+2OsGc4Kd2w6rModLaIw
- glQs3wsiawEYNzFBt+I4tQRK3SVl77QZ5HPfY0cjehdDWYIyfPN7tQ0H/LThclqaDQJIl6fSyFW
- OTQDGrQhK/o7bzh5KE89KVS9Jgc2BpWMyHv6ErpRivbBDgR2jHRK6+qZZHWI4JOzmsAEex/DcND
- GJOcxPT/KsU02QihiUTBBOPPo+5ijhegUjJyVgcadixRRYH404r7f0imxfORBEQeuk/tqC5AL7B
- gzxceQfFoMdTINDPYY9HpVNrYjF9iobtteHbop/9ZGWfOSN9Y60jeuSfGlr2NCvRcy4GwAnedEP
- eMQ6Ad0Y48Y9jSATamw==
-X-Authority-Analysis: v=2.4 cv=bLeDs/+Z c=1 sm=1 tr=0 ts=6affebc1 cx=c_pps
- a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=QQEwzqQhIAFD7pLbQSoA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-ORIG-GUID: 83dE_TTQE6NwohY_0ebHp6S9mQgOm-CV
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfX5bNHKma9iyX/
- YH7KaocJaSLxovZQx/tMJ47H/a2J/tj3t7AFw4s8io6V8FPrt26LtcNWnx+Md1+bOctwlVjPYum
- f9zzynoHy358FxYnT6Rhp18ShLQEcx4=
-X-Proofpoint-GUID: 83dE_TTQE6NwohY_0ebHp6S9mQgOm-CV
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
- malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200026
+In-Reply-To: <20261110092513.2375648-1-sewookseo@google.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-
-
-On 11/13/2026 5:24 PM, Loic Poulain wrote:
-> On Thu, Nov 12, 2026 at 12:26 PM Kang Yang<kang.yang@oss.qualcomm.com> wrote:
->> Recovery monitoring runs on workqueue_aux, which is also
->> used by SDIO RX dispatch and WMI SERVICE_READY handling.
->>
->> A single firmware crash may generate multiple recovery
->> triggers. Recovery detection currently handles each one by
->> waiting for recovery completion on workqueue_aux. On SDIO,
->> this blocks the same workqueue needed to deliver recovery
->> traffic, preventing recovery from completing.
->>
->> As a result, otherwise recoverable firmware crashes fail
->> with:
->>    ctl_resp never came in (-110)
->>
->> Treat duplicate triggers as part of the same recovery attempt. Use an
->> atomic compare-and-exchange on pending_recovery so only the first
->> trigger starts restart_work.
->>
->> Convert the recovery monitor to self-rearming delayed work. While
->> recovery remains pending, the monitor periodically checks its state
->> without blocking workqueue_aux. Cancel the monitor when recovery
->> succeeds or the device is stopped.
->>
->> Tested-on: QCA6174 hw3.2 PCI WLAN.RM.4.4.1-00288-QCARMSWPZ-1
->> Tested-on: QCA6174 hw3.2 SDIO WLAN.RMH.4.4.1-00189
->>
->> Fixes: f35a07a4842a ("wifi: ath10k: move recovery check logic into a new work")
->> Signed-off-by: Kang Yang<kang.yang@oss.qualcomm.com>
->> ---
->>   drivers/net/wireless/ath/ath10k/core.c | 71 +++++++++++++++++++---------------
->>   drivers/net/wireless/ath/ath10k/core.h |  2 +-
->>   drivers/net/wireless/ath/ath10k/mac.c  | 13 ++++++-
->>   3 files changed, 53 insertions(+), 33 deletions(-)
->>
->> diff --git a/drivers/net/wireless/ath/ath10k/core.c b/drivers/net/wireless/ath/ath10k/core.c
->> index 7c2939cbde5f..82bb0bb72dc7 100644
->> --- a/drivers/net/wireless/ath/ath10k/core.c
->> +++ b/drivers/net/wireless/ath/ath10k/core.c
->> @@ -2493,48 +2493,54 @@ static int ath10k_init_hw_params(struct ath10k *ar)
->>
->>   static void ath10k_core_recovery_check_work(struct work_struct *work)
->>   {
->> -       struct ath10k *ar = container_of(work, struct ath10k, recovery_check_work);
->> -       long time_left;
->> +       struct ath10k *ar = container_of(work, struct ath10k,
->> +                                        recovery_check_work.work);
->> +       int fail_count;
->>
->> -       /* Sometimes the recovery will fail and then the next all recovery fail,
->> -        * so avoid infinite recovery.
->> -        */
->> -       if (atomic_read(&ar->fail_cont_count) >= ATH10K_RECOVERY_MAX_FAIL_COUNT) {
->> -               ath10k_err(ar, "consecutive fail %d times, will shutdown driver!",
->> -                          atomic_read(&ar->fail_cont_count));
->> -               ar->state = ATH10K_STATE_WEDGED;
->> +       if (ar->state == ATH10K_STATE_WEDGED)
->>                  return;
->> -       }
->> -
->> -       ath10k_dbg(ar, ATH10K_DBG_BOOT, "total recovery count: %d", ++ar->recovery_count);
->>
->> -       if (atomic_read(&ar->pending_recovery)) {
->> -               /* Sometimes it happened another recovery work before the previous one
->> -                * completed, then the second recovery work will destroy the previous
->> -                * one, thus below is to avoid that.
->> -                */
->> -               time_left = wait_for_completion_timeout(&ar->driver_recovery,
->> -                                                       ATH10K_RECOVERY_TIMEOUT_HZ);
->> -               if (time_left) {
->> -                       ath10k_warn(ar, "previous recovery succeeded, skip this!\n");
->> -                       return;
->> -               }
->> +       /*
->> +        * Pure monitor: only ath10k_core_start_recovery() starts a fresh
->> +        * cycle. Bail if there is nothing in flight.
->> +        */
->> +       if (!atomic_read(&ar->pending_recovery))
->> +               return;
->>
->> -               /* Record the continuous recovery fail count when recovery failed. */
->> -               atomic_inc(&ar->fail_cont_count);
->> +       /* Record the continuous recovery fail count when recovery is late. */
->> +       fail_count = atomic_inc_return(&ar->fail_cont_count);
-> I don't understand why we need so much complication and the need to
-> count and restart this work again, why not simply scheduling the work
-> or a timer at the final expected timeout instead, then if we reach the
-> timeout the device is simply marked as wedged.
-
-Yeah, you are right. Early this patch-set will re-queue restart work so 
-we have the fail_cont_count. Now only one restart work will be executed 
-at one time, so we can delete the fail_cont_count and related code.
-
-
-
+On Tue, Nov 10, 2026 at 09:25:12AM +0000, Sewook Seo wrote:
+> Commit 6821ad877034 ("xfrm: do not set IPv4 DF flag when encapsulating
+> IPv6 frames <= 1280 bytes.") intended to clear the outer IPv4 DF bit in
+> xfrm4_tunnel_encap_add() when encapsulating inner IPv6 frames of at most
+> IPV6_MIN_MTU (1280) bytes, by checking skb->protocol == htons(ETH_P_IPV6).
 > 
+> However, its caller xfrm4_prepare_output() overwrites skb->protocol with
+> htons(ETH_P_IP) before invoking xfrm4_tunnel_encap_add(), since
+> commit 0c620e97b349 ("xfrm: remove output indirection from xfrm_mode").
+> As a result, small_ipv6 always evaluates to false, leaving IP_DF set on
+> outer IPv4 tunnel packets even when encapsulating <= 1280-byte IPv6
+> frames.
 > 
->> -               /* Avoid having multiple recoveries at the same time. */
->> +       if (fail_count >= ATH10K_RECOVERY_MAX_FAIL_COUNT) {
->> +               ath10k_err(ar, "consecutive fail %d times, will shutdown driver!",
->> +                          fail_count);
->> +               ar->state = ATH10K_STATE_WEDGED;
->>                  return;
->>          }
->>
->> -       atomic_inc(&ar->pending_recovery);
->> -       queue_work(ar->workqueue, &ar->restart_work);
->> +       /* Recovery still in flight; check again later. */
->> +       queue_delayed_work(ar->workqueue_aux, &ar->recovery_check_work,
->> +                          ATH10K_RECOVERY_TIMEOUT_HZ);
->>   }
->>
->>   void ath10k_core_start_recovery(struct ath10k *ar)
->>   {
->> -       /* Use workqueue_aux to avoid blocking recovery tracking */
->> -       queue_work(ar->workqueue_aux, &ar->recovery_check_work);
->> +       if (ar->state == ATH10K_STATE_WEDGED)
->> +               return;
->> +
->> +       /*
->> +        * SDIO raises several triggers within microseconds of one crash;
->> +        * only the first winner starts a fresh cycle. Losers do nothing
->> +        * while the owner runs recovery.
->> +        */
->> +       if (atomic_cmpxchg(&ar->pending_recovery, 0, 1) != 0)
->> +               return;
->> +       ath10k_dbg(ar, ATH10K_DBG_BOOT, "total recovery count: %d",
->> +                  ++ar->recovery_count);
->> +       /* Start a fresh failure budget; the last cycle may not have completed. */
->> +       atomic_set(&ar->fail_cont_count, 0);
->> +       queue_work(ar->workqueue, &ar->restart_work);
->> +       queue_delayed_work(ar->workqueue_aux, &ar->recovery_check_work,
->> +                          ATH10K_RECOVERY_TIMEOUT_HZ);
->>   }
->>   EXPORT_SYMBOL(ath10k_core_start_recovery);
->>
->> @@ -3727,7 +3733,7 @@ struct ath10k *ath10k_core_create(size_t priv_size, struct device *dev,
->>
->>          INIT_WORK(&ar->register_work, ath10k_core_register_work);
->>          INIT_WORK(&ar->restart_work, ath10k_core_restart);
->> -       INIT_WORK(&ar->recovery_check_work, ath10k_core_recovery_check_work);
->> +       INIT_DELAYED_WORK(&ar->recovery_check_work, ath10k_core_recovery_check_work);
->>          INIT_WORK(&ar->set_coverage_class_work,
->>                    ath10k_core_set_coverage_class_work);
->>
->> @@ -3764,6 +3770,9 @@ EXPORT_SYMBOL(ath10k_core_create);
->>
->>   void ath10k_core_destroy(struct ath10k *ar)
->>   {
->> +       cancel_work_sync(&ar->restart_work);
->> +       cancel_delayed_work_sync(&ar->recovery_check_work);
->> +
->>          destroy_workqueue(ar->workqueue);
->>
->>          destroy_workqueue(ar->workqueue_aux);
->> diff --git a/drivers/net/wireless/ath/ath10k/core.h b/drivers/net/wireless/ath/ath10k/core.h
->> index dfee432615eb..e8fcbef38ca6 100644
->> --- a/drivers/net/wireless/ath/ath10k/core.h
->> +++ b/drivers/net/wireless/ath/ath10k/core.h
->> @@ -1207,7 +1207,7 @@ struct ath10k {
->>
->>          struct work_struct register_work;
->>          struct work_struct restart_work;
->> -       struct work_struct recovery_check_work;
->> +       struct delayed_work recovery_check_work;
->>          struct work_struct bundle_tx_work;
->>          struct work_struct tx_complete_work;
->>
->> diff --git a/drivers/net/wireless/ath/ath10k/mac.c b/drivers/net/wireless/ath/ath10k/mac.c
->> index 8e604697d6c2..3c45e5483b60 100644
->> --- a/drivers/net/wireless/ath/ath10k/mac.c
->> +++ b/drivers/net/wireless/ath/ath10k/mac.c
->> @@ -5427,7 +5427,15 @@ static void ath10k_stop(struct ieee80211_hw *hw, bool suspend)
->>          cancel_work_sync(&ar->set_coverage_class_work);
->>          cancel_delayed_work_sync(&ar->scan.timeout);
->>          cancel_work_sync(&ar->restart_work);
->> -       cancel_work_sync(&ar->recovery_check_work);
->> +       cancel_delayed_work_sync(&ar->recovery_check_work);
->> +
->> +       /* ath10k_stop() can race with an in-flight recovery. Clear the
->> +        * recovery state after the works are cancelled so a later
->> +        * ath10k_start() can start a fresh cycle instead of being blocked
->> +        * by a stale pending_recovery that nothing will clear.
->> +        */
->> +       atomic_set(&ar->fail_cont_count, 0);
->> +       atomic_set(&ar->pending_recovery, 0);
->>   }
->>
->>   static int ath10k_config_ps(struct ath10k *ar)
->> @@ -8170,6 +8178,9 @@ static void ath10k_reconfig_complete(struct ieee80211_hw *hw,
->>                  ar->state = ATH10K_STATE_ON;
->>                  ieee80211_wake_queues(ar->hw);
->>
->> +               /* Cancel the monitor first so it cannot bump the count after reset. */
->> +               cancel_delayed_work_sync(&ar->recovery_check_work);
->> +
->>                  /* Clear recovery state. */
->>                  complete(&ar->driver_recovery);
->>                  atomic_set(&ar->fail_cont_count, 0);
->>
->> --
->> 2.34.1
->>
+> This issue was observed on devices in production use over IPv6-in-IPv4
+> ESP-in-UDP tunnels where an intermediate IPv4 link has an MTU smaller
+> than the encapsulated packet size (e.g. < 1362 bytes) and ICMPv4
+> Fragmentation Needed errors are either filtered or not actionable below
+> IPV6_MIN_MTU, causing encapsulated <= 1280-byte IPv6 packets to be
+> dropped instead of fragmented by the outer IPv4 router.
+> 
+> At the time xfrm4_tunnel_encap_add() runs, skb_dst(skb) has not been
+> popped yet and still represents the inner packet destination entry, as
+> already used a few lines below to set top_iph->protocol via
+> xfrm_af2proto(skb_dst(skb)->ops->family), while skb->len still holds the
+> unencapsulated inner packet length. Check dst->ops->family == AF_INET6
+> instead of skb->protocol so small_ipv6 works as intended.
+> 
+> Tested on User-Mode Linux (ARCH=um) with a four-namespace IPv6-over-IPv4
+> XFRM ESP tunnel reproducer across a 1300-byte MTU router link with ICMPv4
+> Fragmentation Needed filtered (verifying 1280-byte inner IPv6 frames fail
+> before the fix and pass via outer IPv4 fragmentation with the fix, while
+> larger frames still preserve outer IP_DF), and verified all tests pass in
+> tools/testing/selftests/net/xfrm_state.sh.
+> 
+> Fixes: 6821ad877034 ("xfrm: do not set IPv4 DF flag when encapsulating IPv6 frames <= 1280 bytes.")
+> Cc: stable@vger.kernel.org
+> Cc: Maciej Żenczykowski <maze@google.com>
+> Cc: Lorenzo Colitti <lorenzo@google.com>
+> Assisted-by: LLM
+> Signed-off-by: Sewook Seo <sewookseo@google.com>
 
+Applied, thanks a lot!
