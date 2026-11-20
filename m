@@ -1,80 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795164276;
-	b=UM61Bzp1TVXmnTrvj5ba+lnBz775cHVzmz16DYFK1UOxYSQQYq+1SY+i9SvJ08d3tUm5
-	 uSfkFdaW17KvnenarrD4BrCfLTyEyK5K+IYKkleSTYwxjuqL/QZCTyBXz+zhcdyTnxmZr
-	 K0Vhj+WFzBxjr8ZCNNFm9EKfvw5bumqdoyFeid7WOnMUNSMllPFCO9TqBKJMiE9G+8IGB
-	 5Bx3/IMT+GUSaggyMEh6Xs6ojc2S+i/q8smgOLhq8xG1omFUSSYMKBbHiq3EYi2vOzqGa
-	 sIgQjVc0MdKsK3Btf0lqAZ0UaWqXMNl/0bHcV/TO+IcJdKuGncuxBc9z9AfBL3+rO4g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=RNu1jAkemPEx7p0+eqvbGjT94nX+xd0h8NHNIai9KbEWWz73ZMyJc2i6D6y3U2iXjOvB
+	 e2Kc0+7iWLKVf6ueHWsNeObkzkF5geIesGgbhnOR8IZghFJNJq6OUOTkKeQJBgvUSfdrN
+	 q9h1P7fRdKV/PRlisuPwhDulNihPznuABVYguXYjxTxs2o1CEJIlz8QbfGQQmxs4fXxMs
+	 vv3sLpMJzgGudYzJEy8IVFsnMDr85ODGQkbJCSdpjIyLS1eypf+NUhGrDLJwVyf26tlSz
+	 EQvMe3paBEmjiJ2GK5Z4Wryn1G/R9lmnGIUjfTFA6QCY7/kwZs1KxKcqdcoLHt8Xnqw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795164276;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=vnHkIsLxTap6PDAEihPAF/hMw6HkeMh5fdayIMgroaM=;
-	b=sdGh9pbF1DSf95IERl+nk9xNDM+2GRlE+stXKu4iqZpdWlVZvLjOZarBXc3WbLf/gQm7
-	 mGlktS7C9It7HHv+CA8xEIzLvK4AlUrvS6eS/StqMOndUXAZkdHgXy1H6Kx+JS8wWDnbf
-	 9l5uFruaG+3xtj+GQGswrnXGHVVRtKnjj91Gzp/zm4qm/j4iYIf9SwFsDSuTNuRIoxxDB
-	 ZZ6yFnUyEZ2f9yh0DTd+qVT0GnPnmDJ9a3rWM1zeO9SH9NsqltckAWa9Sgs73M+Ik7kQ2
-	 xyTMgIVQpG48FefdlqIxQHQIUi3H77VD7Xb2RDTzybdvt1ikSZJYbq7EN8ppYngxpxg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BiUDTPG3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 368FD606A7F5;
-	Fri, 20 Nov 2026 08:44:35 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BiUDTPG3
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795164275;
-	b=HT1SW3hww+8sgLB/+97F5wWBg2tc8EPgh6a3yqJ9LNj7yiGiBaECy9BkRLVBEzEjoQSE
-	 XskuuIuJJkLdi0pe3qOBFNCdLP+Dtk1GEimlwuIx8uCPTQt+5jNiLzCShl/Og+QQLBrTt
-	 HewBMyLcC/k/Or0MzqNmVMIrqaat0adCZgz+ri2IwDT47mlesSU3SdwzINN1RUmHRBMmd
-	 67tsZ+Is8rnMgSVjByUISO5rpaYASlwkS59tCwBJVTwNrJnIKqCnLwuwa8V9YceRoSDnf
-	 sXle7E5SDL2HbsAnDK3kHReKT+kLi2DunyGJMsJJzPLxA2qgYnlK6YZqRHWnu0/ufEA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795164275;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=vnHkIsLxTap6PDAEihPAF/hMw6HkeMh5fdayIMgroaM=;
-	b=cBONckJkDCgwBbfZJJ6tp8TKBdY49uHYgdfs6GA+258Hex3JdJO3zk1riKNlI/vepQJr
-	 7ahSTKfxLumD6LVFr71NqajW1bj2cK2BjehfTsXGPHbXv1pCcs0zw7tRC5reoItIK5o+R
-	 DFExaOVFBdq+t+kVn2n9/5wkzZ4Ju/1bFPedMdkUd/j4zdJxDRorxtEld8Gy5W5CQg93j
-	 4UH+N3BN1d8RlcXYPrcK3nQ22UbRsyPrjrLI2jv6lv56NXSP8f9M+c1SKU4Z7H9o318hg
-	 f4RNuL+GfqtaS8TC58kG+mxmQH7vW9lPogl/sUBa/pJS+9OQ4wQH6RQA411HPPs12SQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=OJyJgZhm9cp9UYClWtGOIe/UnREzWNGjtCvJbSuxIDU=;
+	b=bAyLlWIxpx7T6MF0mKCmzWsKew2XOFbIwb1sZ2CgnEs4tBVF//Tla24O5DxK1HMd4h6N
+	 5HZw2/20DdvVNC4lnq+LFRvvcWLTsqXMuFGcoTRtS1IOfvdYMC1Kh6BBlDBT41RF9Cxz8
+	 sayNkpymE3k14JlYP/KdXw1AIMf5RTlt5drDej/27XTTuGTqNqUMgEi0eIqRJEMjnWEiW
+	 g+SR3KGurhIE2gVavqMMQfw9ZYimo/8SY50tiwjL4koJIlPEIsKHIvRn7uI53GSsI/VSy
+	 DEfEND25l/VB1PcAvk4W26FqtmE6oUJdRz+tjOHLif9an9r+BWRlLuxKazZrxBfoQcw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gADtE0ag;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1E9D41F000D1;
-	Fri, 20 Nov 2026 08:44:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795164275;
-	bh=vnHkIsLxTap6PDAEihPAF/hMw6HkeMh5fdayIMgroaM=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=BiUDTPG3kZmMwtuQcLR4+7sONO+JEjcyNy+2wtE8BV0lp+BqNdQnXma8IaxalPT/i
-	 p4d97m18SBCwY69KMvT0HeYemwe3xb5E7kRUDbGmxu8SlGTL8gOO1IqXFvDOqsl/9j
-	 kJkhXOlaxRT4MJSjw0FDVVvOVoS/mkvLsnLgLM/F4RRLC1ev9lpZUhCZ+5+5OJn+AH
-	 vHMsyazDiwSJD/iLCrs8YGGjwLIkmaFUbdncCtqbRpCm7NLAQScOgpKmbyORd16SBK
-	 2hAhNIxyVJ1SyMUWEdmhbeRqPEpcFBF5rrO0tOL+4PNdc4mmZo7tYMgCA+m4OkbCvS
-	 4latatNEnfsqQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8B253497A9;
-	Fri, 20 Nov 2026 08:44:34 +0000 (UTC)
-From: Hang Zhengyang via B4 Relay <devnull+hang.zhengyang1010.gmail.com@kernel.org>
-Subject: [PATCH sched_ext/for-7.5 0/2] sched_ext: idle: Don't stack a sync
- wakee behind a higher-class task
-Date: Fri, 20 Nov 2026 16:44:21 +0800
-Message-Id: <20261120-scx-fix75-v1-0-254f782ff9b0@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D869606A7F8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D869606A7F8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gADtE0ag
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1a3c08d6928so933498c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795164275; x=1795769075; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OJyJgZhm9cp9UYClWtGOIe/UnREzWNGjtCvJbSuxIDU=;
+        b=gADtE0ag0Yu358+Jr2GttRb271ajTVW/rczWLDYGLiSCnFk2L3Uk/4DIqfEEqPYuQL
+         2omcC6Ui8YcQRMZlz0LPckjt7iYctQk1V2clhNQebMgKG2F3iv6waVVOEkMTjHqdhkI0
+         n4H4bd4VyNrEVf+nWwD0nLqyS2v1f2d5o8dp1g0Q/GE+vOPwCb2nrY2KFL2Iz8sG1pp/
+         ficU5N4ivECGkuFVVsTLBheO+GaQCpqIaR95ZsVc5u+5nvB2kxzR2/Ojmo9ABpWrghjS
+         xksu3DRb0Sp0cWaY9RubgO0zfwzxKrdGmoByJqjMLum2OzxFKXcO7vEde+pOjrY2K50n
+         Kjag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795164275; x=1795769075;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OJyJgZhm9cp9UYClWtGOIe/UnREzWNGjtCvJbSuxIDU=;
+        b=KGltGrojb17ZNYFoxgE/8dkE2aXHSMweGu//eqEiEB6fbt4/yIM4k6vtLQ2C2wJd2+
+         BM3L4Yq/c5xjkn3i8bruw0ahgMuIeH0mXUQEVLEvoZlIkSLWu8H8ZKXN7oQp5B2qwewO
+         LgZYQydsEGnuDbYwb79NLEUcqfP63s+MJdtnOQpLmBU+Vn6PgdIRfG2qrT8tHV0St7wY
+         oWFyBj4odg9VwD4qj76MkXmY7Q0irhePYZ7dSJkyRAji5of2ldIb94ao4DEK97s/0CBP
+         QYP5Liqh5tjpmOiREak9T1ZnCrv9uqz8YrS+fQ70d16q23tKz7jrKIQK0n0qaMMmv3zP
+         AFbQ==
+X-Forwarded-Encrypted: i=1; AL+hErEbGVohVtpa6SEzfbhAb9EJ3rkG3bdEUwaiZQW1cH+aWa5fEdoeY3tcLSNHdHnyiV09ZmP3zx4orpxB9II=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AkodjKOgpFNiaGMO02pFqqre76pyqZHw/Dcg58Y07awJUG/oo
+	cU8y2wmd5wGSqFbqyxCLMwIkdm1Pfeiv8dpm9zFj6wwE8HwCLX0tIP/e
+X-Gm-Gg: AYBFou24QBuO92AyPXF82nbN3ag7MA/hPDTGHRXCxOnmnyvfgfGzV9ZEQFtFfilyYf5
+	QaRRO3+YmqKP+7SaZ60pnBMkK3jSF5MxgiX0/d804cSAs4/gnPCkrz2Y8MswCqJAB9Wgr+nxABh
+	XTdNBu+pp2SaEkog2AS9QcDHeFcB6MBMUHz4agNLm70S+HpD76lUp2YngFolRwefAJkYupfLQ5n
+	TjZMaGQg87IrUDcC4LyxDLhnxdETF9NM29LX4eTJ+MAAYcKzShhjHytit+IeQDS+1O3lErTT56L
+	PElWemql3jq9n64MNURJVU6Vcov9/qC2yrHi+Ts/OjvPNtPiq9hFjTlSzQiF4V7tmN/+ghbDfiW
+	ECJpmtojbNql3j3wPJnlyQhiMfxNtBA+qAGxDE6gAKO8sfoPGcY8OawYRdljX3zZgu52VIgYl5u
+	AG2K/lrIIw8lhvfBU2da+W1vcBJ0TTuZN26mZiJULvXSsAXii7Bu0dOrI1uEHUh6SVSESp6mDOJ
+	n/KUtfqIUp+3lbKSxJuYD45FqYwl6M+jkwOIezkyqnBtjeZp7lTVVIzLLNn6O7w+ekYr4Ppghx9
+	0jssjY5bmFNkgyhB3yLNQlKGyy3g/9WidHEdmFzRvtSVJUYvEO783f5i8e02qALbRG5UPD+mAW5
+	79Snp2afh9z6b5++/Hg==
+X-Received: by 2002:a05:7022:23aa:b0:1b5:23e7:3387 with SMTP id a92af1059eb24-1b55688dd29mr3272803c88.19.1795164275440;
+        Fri, 20 Nov 2026 00:44:35 -0800 (PST)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:44:34 -0800 (PST)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Date: Fri, 20 Nov 2026 00:44:07 -0800
+Subject: [PATCH v3 16/18] HID: logitech-hidpp: manage send_mutex with
+ devm_mutex_init()
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,101 +95,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MwQqDMBAFf0X27LYmxVj8FSkSk2fdi5aslID47
- waPwwxzkCIJlPrqoIS/qGxrAVNXFBa/fsESC5NtrDPGNqwh8yy5a9m/nXfxZRAwUel/CUXcr4E
- 0LIgj8v6ct8Tdo6XPeV6lfDYwbgAAAA==
-X-Change-ID: 20261120-scx-fix75-a86a6d31eceb
-To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
- Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
- Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Juri Lelli <juri.lelli@redhat.com>, 
- Vincent Guittot <vincent.guittot@linaro.org>, 
- Dietmar Eggemann <dietmar.eggemann@arm.com>, 
- Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
- Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
- K Prateek Nayak <kprateek.nayak@amd.com>, Shuah Khan <shuah@kernel.org>
-Cc: Kuba Piecuch <jpiecuch@google.com>, 
- Jonathan Bastari Thamrin <thamrinjonathan@gmail.com>, 
- Hui Su <sh_def@163.com>, sched-ext@lists.linux.dev, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, 
- Hang Zhengyang <hang.zhengyang1010@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795164273; l=3044;
- i=hang.zhengyang1010@gmail.com; s=20261008; h=from:subject:message-id;
- bh=+c5iTcPGpkwPWTC0M/a6nppfpfe0VFKGA2gyib/nlzg=;
- b=KW5iaCyxdPLwsuWYUfdcxn+/B/rhaa9ybvCDWxHbFnLzoMGK/ua2uAo1eyZbM26DtaqeMjoNT
- /RSr1OFRAP7C/J88aluS8E8yimXJKoTVA1UpY4PE5aTqlrBvdSYk7EW
-X-Developer-Key: i=hang.zhengyang1010@gmail.com; a=ed25519;
- pk=5drRny3PqRPLhKVB0YIQXN5YyD8miKCpXWhnEPvafAI=
-X-Endpoint-Received: by B4 Relay for hang.zhengyang1010@gmail.com/20261008
- with auth_id=1133
-X-Original-From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
-Reply-To: hang.zhengyang1010@gmail.com
+Message-Id: <20261120-hid-logitech-hidpp-next-v3-16-ba39242d4336@gmail.com>
+References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ Gideon Heinz <gideonheinz02@gmail.com>
+Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
+ Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+ Edwin Velds <e.velds@gmail.com>, 
+ Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+ Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.17-dev-6b8b8
 
-In sched_ext, the default idle CPU selection can put a sync wakee on
-the waker's CPU, even when the waker is an RT or DL task that keeps
-running. The wakee then waits there, sometimes for more than a second,
-while other CPUs are idle. Patch 1 stops this for higher-class wakers.
-Patch 2 adds a selftest that fails without patch 1.
+Manually initializing and destroying the HID++ command mutex in probe
+and remove destroys the mutex before devres tears down managed child
+resources such as the delayed input device and battery power supply.
+Switching to devm_mutex_init() eliminates manual teardown boilerplate
+while keeping the mutex valid throughout child device teardown.
 
-Tested on sched_ext/for-7.5 (c6cc52a72055) in an 8 vCPU KVM guest,
-non-debug kernel, booting each kernel twice:
+Initialize the command mutex with devm_mutex_init() during probe,
+returning early on allocation failure, and drop manual mutex
+destruction from the error path and device removal handler.
 
-                               before               after
-  RT waker, pipe               16/16 on CPU 0,      idle CPU,
-                               169 ms - 1.5 s       <= 0.6 ms
-  same, ALWAYS_ENQ_IMMED       16/16 late by        <= 0.6 ms
-                               16-483 ms
-  partial, fair waker          16/16 on CPU 0,      <= 0.6 ms
-                               half ~930 ms late
-  sync_wake_rt, 8/3/2 vCPUs    fails                passes
-  other sched_ext selftests    no change            no change
-
-With KASAN and lockdep on v7.4-rc2, sync_wake_rt fails without the fix
-and passes with it, with no warnings. If other tasks keep all CPUs
-busy, the test passes on both kernels, because the shortcut is only
-used when some CPU is idle. On bare metal I could only run an
-unpatched distro v7.0 kernel, because of Secure Boot. It has the same
-problem: the reader waited 168 ms or more.
-
-The cost: after a sync wakeup from a higher-class task, the wakee no
-longer runs on the waker's CPU. WF_SYNC doesn't promise this anyway.
-In a pipe ping-pong between an RT task and an EXT task, a round trip
-now takes ~9.8 us instead of ~6.5 us, because the EXT task stays on
-its own CPU. CFS also takes ~10 us here. The difference can be bigger
-on large non-SMT machines [1]. That series detects pairs of tasks that
-wake each other. If fair adopts it, we could keep the shortcut for
-such pairs.
-
-There is no Fixes tag. The shortcut has been there since sched_ext was
-added, and this patch changes where a task runs, not whether the
-kernel works correctly.
-
-Hui Su's patch "sched_ext: idle: Honor SCX_PICK_IDLE_CORE in CPU
-selection shortcuts" changes the line just before this code. Whichever
-patch is applied second will need a small rebase.
-
-I used Claude Code to find the issue, write the patches and run the
-tests. I reproduced the issue on bare metal and reviewed the patches.
-
-[1] https://lore.kernel.org/all/20261021-b4-sched-sync-wakeup-v7-1-91995ba5b596@gentwo.org/
-
+Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
-Hang Zhengyang (2):
-      sched_ext: idle: Don't stack a sync wakee behind a higher-class task
-      selftests/sched_ext: Test sync wakeups from an RT task
+ drivers/hid/hid-logitech-hidpp.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
- kernel/sched/ext/idle.c                          |  11 +
- tools/testing/selftests/sched_ext/Makefile       |   1 +
- tools/testing/selftests/sched_ext/sync_wake_rt.c | 257 +++++++++++++++++++++++
- 3 files changed, 269 insertions(+)
----
-base-commit: c6cc52a72055ef9775b39937d02e39ca358ba042
-change-id: 20261120-scx-fix75-a86a6d31eceb
+diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
+index de9087459273..261022e4088b 100644
+--- a/drivers/hid/hid-logitech-hidpp.c
++++ b/drivers/hid/hid-logitech-hidpp.c
+@@ -4618,9 +4618,12 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	INIT_WORK(&hidpp->work, hidpp_connect_event);
+ 	disable_work(&hidpp->work);
+ 	INIT_WORK(&hidpp->reset_hi_res_work, hidpp_reset_hi_res_handler);
+-	mutex_init(&hidpp->send_mutex);
+ 	init_waitqueue_head(&hidpp->wait);
+ 
++	ret = devm_mutex_init(&hdev->dev, &hidpp->send_mutex);
++	if (ret)
++		return ret;
++
+ 	/* indicates we are handling the battery properties in the kernel */
+ 	ret = sysfs_create_group(&hdev->dev.kobj, &ps_attribute_group);
+ 	if (ret)
+@@ -4697,7 +4700,6 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	hid_hw_stop(hdev);
+ hid_hw_start_fail:
+ 	sysfs_remove_group(&hdev->dev.kobj, &ps_attribute_group);
+-	mutex_destroy(&hidpp->send_mutex);
+ 	return ret;
+ }
+ 
+@@ -4724,7 +4726,6 @@ static void hidpp_remove(struct hid_device *hdev)
+ 	hid_device_io_stop(hdev);
+ 
+ 	hid_hw_stop(hdev);
+-	mutex_destroy(&hidpp->send_mutex);
+ }
+ 
+ #define LDJ_DEVICE(product) \
 
-Best regards,
 -- 
-Hang Zhengyang <hang.zhengyang1010@gmail.com>
-
+2.56.1.750.gf70dc682cf-goog
 
