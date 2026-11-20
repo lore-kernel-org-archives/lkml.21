@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795154007;
-	b=LlOHJ0Q+HE2SrRPGs5ygdjVNvOWkm5Wf1MnBF5n82goeqolgTl5xpl9pUCHq6QUSk9Sh
-	 uhaLevEFILu4aYGew11c0A1VidZoWPiHu0K96b+WagHymEaYhc/pnsVxgpoUnDs8KhQFs
-	 dXhmds8boo+wbibvnGUZr+JM6moy6VEl02HUV8ycJfj/jI+nJhEagk5yfUnXlpL3r6Mon
-	 LKowN2hyRAKujaEe96R23CJ0UzDmzeJRZHH9s4I3fjvstDRYYORmbjbwPMqkq4syq48oX
-	 fADLc9bamL8QAwRRZXRcjy+ZsOBonOEASvRv0PopVcAOGqCASIEK63xN3zzPiPw90/A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795154007;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=8acJLKDDuAq49IKqU6CJftqIRFxZoq6oCQgLOqzp0Bg=;
-	b=2WOur57y9fjVdsk+f1QE0ejwD1YtrYqr5v5oIBG05hactW2VWBnRvV4NtTTWZ2LFBQxp
-	 M1nWS37LyIiRs2C1K7k8dPR6t2j9R+4B5PCHl+ZP+0sHrNbEBWgevADchaKWmDoItpWib
-	 RSUKnjsIbmrZYdsqmrR2JVKtchnoSNMvwCrSRdY63KqpYUVUp6zNlO8ByRc1Ltiyo9WdB
-	 iA6Bq3vElavIg+cQmneOzRSF6508dW/KQJTvIDgOjGPVzQw3RqTEmpb52tIjwmuDlFYOI
-	 HYsoFutCkk/XFZxyC0H68NIhXvb/THi8Lcea+RYlgYw0DVhazUZbmqV9dGadhcznAkA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iw0Bqh9w;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19A94606A320;
-	Fri, 20 Nov 2026 05:53:26 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.202.70.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795154091;
+	b=ahizu3iHWbn/I9UUOtYp5eETbe5v9WCajbsIicpL0Wiav/cieggHVuxUMy0J2eE5U0Y9
+	 VVerW3ZNofR56PBX0APNtIRCY27NGn5IHBlY6qRcibENQs4AoU7vOrI53DGzdlFddEn3y
+	 sKZgn7JWHjUkGN8x0UArumIf3LLU5W1WpKLWqIcUZUS4UVg/BQ2uQ+nI/j7gXSTMP9B+m
+	 kJBooMm/m6fKfIryChUGmr3F6lc1oonR0b92smeZmoQ9vetJ4mFcdjeaUPl/t/5LGepWE
+	 XaF42aSvN7jmEiJUQmCv4zHze1AcSbdEFGQe0vYpZXdcTqb6889nm21Xn9EwxP/t9Gw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795154091;
+	h=DMARC-Filter:Received:Received:Received:Date:X-MD-Sfrom:X-MD-SrcIP:
+	 From:To:Subject:Message-ID:Mail-Followup-To:MIME-Version:Content-Type:
+	 Content-Disposition:User-Agent:X-Originating-IP:X-ClientProxiedBy:
+	 DKIM-Signature;
+	bh=wwB/yQsTLu9DlExYuOD0GIhTCLIvYpd5e79IGcbMwqo=;
+	b=1u2TUvXgAmFxOpw3XVzRwnORzKuajPyv10tKe77IdiI5oGIDtzSRPRvuQDcy9ZhsAK7T
+	 dfagpHLG2K73SDQ14KF5887Jzg0pmdv0b9whBnNTSF9oV9wqvE93xPalocBoRed4bh0Ai
+	 PE+jD/wdB0gwMhEDf0k5HR+tt7+Ou1CQc4PupqwwRyTdcoc67RTga944QubsLk6LBWvPB
+	 xrtJgKwwgKMpjkXDXRmT1Coi4LadqEER2uuI5iof6HfwgJUE4Cq1RqqK7T3hTsva3OY90
+	 Z8fYYq20X1LJ548PsXQE8wAj27naTLD2gntrrgO0c9JEuOapijsQUaVe6M1Dh8RLaOw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=didiglobal.com;
+	spf=pass smtp.mailfrom=didiglobal.com;
+	dkim=pass header.d=didiglobal.com header.i=@didiglobal.com header.a=rsa-sha256 header.s=2026 header.b=dO7q1WMc;
+	arc=none smtp.remote-ip=111.202.70.124
+Received: from mx9.didiglobal.com (mx9.didiglobal.com [111.202.70.124])
+	by smtp.subspace.kernel.org (Postfix) with SMTP id AA3C8606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:54:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA3C8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=didiglobal.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=didiglobal.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iw0Bqh9w
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795154006;
-	b=GGMHMyavf4fMZPselc4WIMbgQHp6NAY6UGC+wEo3CpN+ZrePegbuQE5fYfHpausDum5E
-	 EmUaZ76NWwaj7N28SWnIB0dAvky8OnJLOmvEUrN4mcdi8Rwp2MayqQLD+A1ugo7lZc0fR
-	 YG3MTCBk6zbPJm20BlOwHtHrMoFOVckR5RWozvdeRIW1zegKa9d0eVhtGC6Fm6qezVUrQ
-	 DTHgAi9wI9OyJ0DNMjWgZJEFpANH8guEXIg80OHhi3cY/Vn9y9k3dM8uQgLWA5PioDI1h
-	 OGqpx0rHtXeuQLsr2HLNZVR46UPW/tQrwqIrZ2dbtyPuahB3yJyW0UdvcMEP7z4i/cQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795154006;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=8acJLKDDuAq49IKqU6CJftqIRFxZoq6oCQgLOqzp0Bg=;
-	b=vlXBCw5qXAsAmYP7N59br6of32YNVRu0tdAmtXyqr6Yo+CLAGYg9lTEdGfe0AGtPaoUj
-	 1EMsLYubS411468xlfi24vbFyEdfzI2TFA2QDllp85WXLI30vbAFnV5oUi/lbl3zzgWcd
-	 UFUPKL2wRci0P1R3x5XbN46b+I5rN5g89Y1EUZYoIZB/MbSIRRa0WAcAqL2zC3eBklb7Z
-	 eHW/jHSJ9dSaI6eJ6KIppzLGFnm48U6VFVmy63Zc9JtLB8p1EQceQgHiQS5GUez8Eg/g6
-	 top6ra0ex7lVIEhNmI7fWuzrSXyrIUIN0QNu6ywKkR1t2/4OPJcQ6yNup5NqZM/u/Og==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 5852F1F000C4;
-	Fri, 20 Nov 2026 05:53:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795154006;
-	bh=8acJLKDDuAq49IKqU6CJftqIRFxZoq6oCQgLOqzp0Bg=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=iw0Bqh9wb8tTOidAb/HlGTBIGtJX44CNzW5JojcVGgFeKn7k5Q+6rY0J89QcWrlYV
-	 1w0b5p9MRswDBhqP4wGFUTwU5LOTtz0QMPpIHo/ou5k4hOKLnfYGNOpgOVj7PtxGJB
-	 QAjo5dZv+yjwJekN6U1Ea0RygS+SfxU6kPNik+7Xh//McOmWnJQZZgCSKwf15Jar7r
-	 HyZiD7p/2lNBK0bOmRGZpPN/qEyWrhytwzCIDdnFpbpPkt0f/7UH4ep6QT7naNoJ3Q
-	 fXaKfcr2W0bw3FRX/RcmyTt3RO6qHv7XOp2MBXuoJjBTdsDsp90eMYez0eWarWCeOr
-	 z6MFRRce4qMKg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D93A0496E5;
-	Fri, 20 Nov 2026 05:53:25 +0000 (UTC)
-From: Rong Chen via B4 Relay <devnull+rong.chen.amlogic.com@kernel.org>
-Date: Fri, 20 Nov 2026 13:53:23 +0800
-Subject: [PATCH] mmc: meson-gx: Add reset for Response Mode Error Mask
- (RMEM)
+	dkim=pass (1024-bit key, unprotected) header.d=didiglobal.com header.i=@didiglobal.com header.a=rsa-sha256 header.s=2026 header.b=dO7q1WMc
+Received: from mail.didiglobal.com (unknown [10.79.64.20])
+	by mx9.didiglobal.com (MailData Gateway V2.8.8) with ESMTPS id D246D18357EE7F;
+	Fri, 20 Nov 2026 13:54:36 +0800 (CST)
+Received: from BJ01-ACTMBX-04.didichuxing.com (10.79.64.12) by
+ BJ01-ACTMBX-01.didichuxing.com (10.79.64.20) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 20 Nov 2026 13:54:36 +0800
+Received: from didi-ThinkCentre-M920t-N000 (10.79.64.102) by
+ BJ01-ACTMBX-04.didichuxing.com (10.79.64.12) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Fri, 20 Nov 2026 13:54:36 +0800
+Date: Fri, 20 Nov 2026 13:54:23 +0800
+X-MD-Sfrom: jinkehan@didiglobal.com
+X-MD-SrcIP: 10.79.64.20
+From: Jinke Han <jinkehan@didiglobal.com>
+To: <linux-kernel@vger.kernel.org>, <mhiramat@redhat.com>,
+	<dave.hansen@linux.intel.com>, <tglx@kernel.org>, <mingo@redhat.com>,
+	<bp@alien8.de>, <x86@kernel.org>, <hpa@zytor.com>, <peterz@infradead.org>,
+	<nik.borisov@suse.com>, <jinkehan@didiglobal.com>, <rppt@kernel.org>
+Subject: [PATCH v2] x86/kprobes: Fix boundary check in insn_jump_into_range()
+Message-ID: <20261120055423.GA15683@didi-ThinkCentre-M920t-N000>
+Mail-Followup-To: linux-kernel@vger.kernel.org, mhiramat@redhat.com,
+	dave.hansen@linux.intel.com, tglx@kernel.org, mingo@redhat.com,
+	bp@alien8.de, x86@kernel.org, hpa@zytor.com, peterz@infradead.org,
+	nik.borisov@suse.com, rppt@kernel.org
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,77 +65,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-a4_mmc-v1-1-5a84cbcdcace@amlogic.com>
-X-B4-Tracking: v=1; b=H4sIAFLg/2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQyMD3UST+NzcZN2UFJMkyyRjs+QkAwMloOKCotS0zAqwQdGxtbUAKoW
- 1klgAAAA=
-X-Change-ID: 20261120-a4_mmc-dd4b9b36cb00
-To: Ulf Hansson <ulfh@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rong Chen <rong.chen@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795154005; l=1328;
- i=rong.chen@amlogic.com; s=20261116; h=from:subject:message-id;
- bh=ldcBzSWY8qmDPf31J18ds1oMT+JS17QVuWgrGqm9XrQ=;
- b=vUz2tYdPH+vzuS5s+wTBf+hkZRqWYYUyOdbqg+YHDpmn5FeQ9cDaWszezykoMJ1UlbazSXAHf
- h8TBoKOe9beBd9UcK2PbvOvH2MvbmouhGCLdFdEwtpaXhSYmstq5V9C
-X-Developer-Key: i=rong.chen@amlogic.com; a=ed25519;
- pk=vFtPE1jHKfpAuk10u/dq9u25ZzVsUM3t2Sew8vz0YWc=
-X-Endpoint-Received: by B4 Relay for rong.chen@amlogic.com/20261116 with
- auth_id=1539
-X-Original-From: Rong Chen <rong.chen@amlogic.com>
-Reply-To: rong.chen@amlogic.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ClientProxiedBy: BJ02-PUBMBX-01.didichuxing.com (10.79.65.22) To
+ BJ01-ACTMBX-04.didichuxing.com (10.79.64.12)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=didiglobal.com;
+	s=2026; t=1795154078;
+	bh=wwB/yQsTLu9DlExYuOD0GIhTCLIvYpd5e79IGcbMwqo=;
+	h=Date:From:To:Subject:Message-ID:Content-Type;
+	b=dO7q1WMcizWg1FEmbFxxmyXdBeTAZRzjeekJaNSP7R7Go+J/z3dl34tbv9PzKLkBk
+	 DRxILIOLiKISTZMBCXiT5sizQmBzZu0ZTOj5nUGWDrsRcVhJqhEZShIxQ+kC0zmDzY
+	 Pb6c8tNAZ7QPXtdwg4usNAhE/8GdGBSVX0ZwXZRw=
 
-From: Rong Chen <rong.chen@amlogic.com>
+The range checked by insn_jump_into_range() is half-open:
+[start, start + len). However, the current check treats the upper
+bound as inclusive, so a jump target at `probe address +
+JMP32_INSN_SIZE` is incorrectly considered to jump into the
+optimized region.
 
-For T7 and older SoC families, the RMEM has no effect. Starting from
-the SoC family A4, RMEM acts as an interrupt mask for the device status
-field received in R1/R1b responses.
+A valid jump target must be an instruction boundary. A target at
+`probe address + JMP32_INSN_SIZE` lies just outside the overwritten
+region, so allow the jmp optimization in this case.
 
-By setting RMEM to zero, the device status is ignored, thereby
-preventing controller hangs caused by spurious IRQs under specific
-device states.
+For example, with a kprobe at queued_spin_lock_slowpath+17, the
+optimized region covers queued_spin_lock_slowpath+17..+21, and the
+next instruction boundary is queued_spin_lock_slowpath+22. A branch
+target at queued_spin_lock_slowpath+22 is therefore outside the
+half-open range [probe, probe + JMP32_INSN_SIZE).
 
-Signed-off-by: Rong Chen <rong.chen@amlogic.com>
+Before this patch, the kprobe falls back to an int3 kprobe because
+the boundary target is wrongly considered to be inside the range:
+
+  0xffffffff823ebdff <queued_spin_lock_slowpath+15>:  xchg %ax,%ax
+  0xffffffff823ebe01 <queued_spin_lock_slowpath+17>:  int3
+  0xffffffff823ebe02 <queued_spin_lock_slowpath+18>:  add  %eax,(%rax)
+  0xffffffff823ebe04 <queued_spin_lock_slowpath+20>:  add  %al,(%rax)
+  0xffffffff823ebe06 <queued_spin_lock_slowpath+22>:  mov  0x0(%rbp),%eax
+
+With this patch, jump optimization can be used:
+
+  0xffffffff823ebdff <queued_spin_lock_slowpath+15>:  xchg %ax,%ax
+  0xffffffff823ebe01 <queued_spin_lock_slowpath+17>:  jmp  0xffffffffc0401000
+  0xffffffff823ebe06 <queued_spin_lock_slowpath+22>:  mov  0x0(%rbp),%eax
+
+Fixes: c0f7ac3a9edde ("kprobes/x86: Support kprobes jump optimization on x86")
+Signed-off-by: Jinke Han <jinkehan@didiglobal.com>
 ---
- drivers/mmc/host/meson-gx-mmc.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Changse in v2:
+- Only the changelog is updated; the code keep unchanged. 
+---
+ arch/x86/kernel/kprobes/opt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/mmc/host/meson-gx-mmc.c b/drivers/mmc/host/meson-gx-mmc.c
-index 49df33bbd8e5..9d9b00b199b6 100644
---- a/drivers/mmc/host/meson-gx-mmc.c
-+++ b/drivers/mmc/host/meson-gx-mmc.c
-@@ -113,6 +113,7 @@
- #define SD_EMMC_CMD_RSP1 0x60
- #define SD_EMMC_CMD_RSP2 0x64
- #define SD_EMMC_CMD_RSP3 0x68
-+#define SD_EMMC_CMD_RMEM 0x150
+diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
+index 3f8fea52619f..a920ecb99381 100644
+--- a/arch/x86/kernel/kprobes/opt.c
++++ b/arch/x86/kernel/kprobes/opt.c
+@@ -252,7 +252,7 @@ static int insn_jump_into_range(struct insn *insn, unsigned long start, int len)
+ 	}
+ 	target = (unsigned long)insn->next_byte + insn->immediate.value;
  
- #define SD_EMMC_RXD 0x94
- #define SD_EMMC_TXD 0x94
-@@ -1086,6 +1087,9 @@ static void meson_mmc_cfg_init(struct meson_host *host)
- 	cfg |= CFG_ERR_ABORT;
- 
- 	writel(cfg, host->regs + SD_EMMC_CFG);
-+
-+	/* ignore status in response */
-+	writel(0x0, host->regs + SD_EMMC_CMD_RMEM);
+-	return (start <= target && target <= start + len);
++	return (start <= target && target < start + len);
  }
  
- static int meson_mmc_card_busy(struct mmc_host *mmc)
-
----
-base-commit: d2616724e01132376c78872b8324f38659af9f28
-change-id: 20261120-a4_mmc-dd4b9b36cb00
-
-Best regards,
+ /* Decode whole function to ensure any instructions don't jump into target */
 -- 
-Rong Chen <rong.chen@amlogic.com>
-
+2.34.1
 
