@@ -1,55 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197856;
-	b=mz60c/FtDk6k4dL+CiggApCNuPPJiiA9eBET+oYHV1Qa4+Ml1c3v70AOapgBlu96Ovwz
-	 fPKGMb9VfRXs8AXF3qnUGiZv5ltDl5M3utjYxprXrR5ystzdnZa5VqG30/+U01m5CLJwM
-	 QpAZz5q3m5fBg8kgkAzX3amaKJhqI604JcBcrULn7jEhYBz3WRok09hwY8cPulr9YQHX8
-	 SfuCaTuatkBF1KrgLXn/AxQfuTWUAsNdPp2Gg659Q26P5M5WggrAM3AbpeMFo/HtWsg16
-	 4bBB+zTn+Y/i3di6wspZwlmbHI9fxTf21+QyDMMDdKmsR3Mz1HrMFvuCNCkKDy1vvnw==
+	t=1795197854;
+	b=1nEPuYLaPBhK7+9NiA6+kT2XZrUUIL8vT6lGKbKCU8mqY7rvP5lMxvqM/jLWkloTUn8z
+	 FsiRg5zRLTDwB63wV/2Kh42CPqwvwoiBYeU7fdPmCU6XCqwqEWO9lSHs+rjAUAHsAQPbX
+	 crOXPWqat9k5bufAlpG4yk1uifWW2OzxrMMoyJpIMn/g1ewwmf8r+Cvks5awJCZILsApQ
+	 K2TPIIiPQ8KOn1uRo9OzGahDMVDx3FB30/dqsyc/X/S/zSzQ3fT4O5z1pG0mju8VVAnH/
+	 4tP1NN2jSARFOAYvbjSKZsxZaFIMcU0kFyZdFsuKwg1LdCjp+KzcyP0EXX9W9Mz6J5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197856;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=tlgHNxY3cbIEZdFgXAY46HV5KLADXUvJ3tj4tsStDeA=;
-	b=s8wwBO/Ub8oUAJRWO39d48r+GIIL35EUtypBykDZI6cBpLrz+iaSYclILCTknxRgzNBR
-	 rImynYo2d2r+inv8RhUZnf4FJohNxy/sAOgue7fyWQrzucCGJBDrGRhZ5CvQuLcWV8DJN
-	 z2zxVaXPncQycEJGJIAMNSjYEeeyvBD60gbOLFHvceWecOTgZ4ucRS9VvEEDIZXHmFViL
-	 I+Ir52fCGPZfBb5yq4iG3t4+7zXDXrQidOCfyLsm1VqmS0nM0K2n985kFGtJk4WeeOhii
-	 0x5yoyTiVBn6Bas483xd+1vUUg4nuJOEfjvAAjQXSMOTz3EI8w9vM1e8113dWKt7p6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197854;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=cg4SfeZItMnv8HhgngTb5Vsme4va1eBtUIIb1SuER0c=;
+	b=h+CPhrFC4bWsMZdxgNgp9AdAIwZrxCSrrUl1x1Fandthkmy133QMTK4MoOfklskz1VmO
+	 sZgt1wHAL899YoXnjWoW4EaJ9wZ2TRJxUbptzFtvx3MQd2h8VS5gNOjgTm4w2AKMUl2B/
+	 tHgujoUbXvw//NrWT0Lmxq4FodWNvHHUXEswHlAVFrdoAGSvHVZThb5yowjB51djJn2Nd
+	 yr8yhLLX2AzRoS7lks93HgNUSYerRAnk3FK/+iy0omEtRZcR04+xF6fcZ2kguxB2o+ruR
+	 mzSrgIXfEDWs44iUfTOJc30yDdqQFxUgwVR+rsX8lA1DdZHNPZ4O51SJ7vmqnpcDA0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fGFqq7s+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bny3Ld8P;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F40960A2626;
-	Fri, 20 Nov 2026 18:04:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 186CB60A381F;
+	Fri, 20 Nov 2026 18:04:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 186CB60A381F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fGFqq7s+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DEE21F000CF;
-	Fri, 20 Nov 2026 18:04:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795197855;
-	bh=tlgHNxY3cbIEZdFgXAY46HV5KLADXUvJ3tj4tsStDeA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fGFqq7s+2JMKLvv1WjB7blE5A9+++itSvV44DsMY4p9oiMHGexiUPOF/zNO5ZfIgd
-	 Ns1dZR9ZNFTxFlf1+XonkwAOeUUw7ouBBqXFFUFVMIHspM3lRxD5BcLtclvgtGLSsN
-	 1UGwOoXGsIImUz+Pz5NHI4fLomI40wW4sIgm2D264vH574TyGK7xYVd8Cv9XdN2Art
-	 q+xq+YnWrzOohcPGCtOm5BEILRsBLELbJHmq1l2t/72ZL7fWiSp1vyGF5w3ch5h+CW
-	 yY3QDi58hnOhrsCeLI2SNdQhHzG/cHSrdBTyk02GtGWZrmOCLTQXuBYkJ1OhQ572YR
-	 VlkNQNc247VvA==
-Date: Fri, 20 Nov 2026 10:04:15 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: mdshahid03@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
- rtnl_get_link()
-Message-ID: <20261120100415.363fcb19@kernel.org>
-In-Reply-To: <20261120134548.214126-1-mdshahid03@gmail.com>
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bny3Ld8P
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 7C361C62223;
+	Fri, 20 Nov 2026 18:04:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B0259601B9;
+	Fri, 20 Nov 2026 18:04:11 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6C13611BC08D7;
+	Fri, 20 Nov 2026 19:04:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795197849; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=cg4SfeZItMnv8HhgngTb5Vsme4va1eBtUIIb1SuER0c=;
+	b=bny3Ld8PCNi2bhC13Bit9PeNDNo3pHX+IvACs1Pv68A8f7+pl1h4tep+WXfXYR+AvZXir0
+	+lLShyNoSlEvQ0tS9pko8PgDMy7cD5nGyOowFUwMXzx2kbckZH9f9dzymPIe0ut8LaFJMI
+	M33l/WBQOa+y/nikQn1czYbXVVL0cgM8DwhZ0cOg4HpVzooM3AAsj85OtG1Mrw6WgcB16z
+	HIMyIOIHckrMeH3toueciTgPjVGFINLts9QEirM6OXzYokHo7m0XluDGevAuHCLlxwl5F5
+	ha+E2ZQo5iIOG/1oDLNBHhylGtcgdfmGq67U+sIdqp5lH+3flgvBOcVkv9p0Yw==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Fri, 20 Nov 2026 18:58:58 +0100
+Subject: [PATCH v6 16/43] drm/vkms: Explicitly display plane type
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,38 +63,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261120-vkms-all-config-v6-16-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
+ llvm@lists.linux.dev, 
+ =?utf-8?q?Jos=C3=A9_Exp=C3=B3sito?= <jose.exposito@redhat.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1010;
+ i=louis.chauvet@bootlin.com; h=from:subject:message-id;
+ bh=OAT05TwafSaZUI5qNR1+4cNJLCVDeclk80tgkB9t9UE=;
+ b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIr/msYT0QdyVhfbV0U4NHdJjqrfOBvoj8t3u
+ FPi5WcMWVeJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCK/xsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOJznxAAoYFxM6AbCctXt4iA+4F8VKUlZSnJ+gE
+ C9TvSC8ntVCv9JeUUiC4ksrCIz2H6R0QKhRBNlBy7YuB4IXBZv7McMTSxdY5P4w5M2b081XLf/3
+ nhjwcZqS03uacEP7jVLZ7IE5NjGxqVzu1twTVmgv//7PEbl8ZVSUKo+4sKSKrM7BRXPoYEqTh3/
+ 9MuDH3L4ejztoPU79lcaUuuVvhqT5Mf4o26BRA30UtaLxVZXUwhhBLZeQh5nR29lOGYrVNmo+R0
+ mCv7W6huF9cO+NJL/v05g8WEkgdAA9gwJSw+fXwUfM8Sj5uZ81hWiploMG8zRCt+KnKn580f4Ac
+ DZSG0PNiSyxfQWCEkFa79Y4lVxR0auF8xmTPy3zshL6GZj6FGMycWItKYUu6X1URYwLS1XaED5a
+ D/69XFQ7GuUo3hdGffpEta+hkGnau+ZGeJhP1wP43dSWtgeHHYKpzWFX2s8QF4VvslhAIzmAwEa
+ SFtAGgwaloi0s1mfQ2U/++m9ILW5Gvq8Te1I/gmleC6lfk2V+mxz8os1u9osvdgerbs+Vd/v8uk
+ uPWLsRpEwswJAAuvwFruIs/n3ZiqhdDCjU+4EhPcGkNtcrP8zP4IwwBjuCKj4OK8U/ZM+1E0hAD
+ YzaOi0qLuxYzYKocLrZsRZe3Mf+FYc32eYGs1BT34+Tggdh/PsTE=
+X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
+ fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, 20 Nov 2026 19:15:48 +0530 mdshahid03@gmail.com wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
-> 
-> The rtnl_get_link() function falls back to the PF_UNSPEC
-> handler table when no handler table is registered for the
-> requested protocol.
-> 
-> However, the fallback table can also be NULL,for example
-> after rtnl_unregister_all(PF_UNSPEC) clears it.
-> 
-> In that cass, dereferencing tab[msgtyp] results in a NULL
-> pointer dereference.
+Debug information are mainly read by human, so use full name instead
+of values.
 
-How can this happen? If you can't answer that - please do
-not submit any patches to Linux networking for at least
-6 months.
+Reviewed-by: José Expósito <jose.exposito@redhat.com>
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/vkms/vkms_config.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> diff --git a/net/core/rtnetlink.c b/net/core/rtnetlink.c
-> index e141340172ce..b552cbf17d76 100644
-> --- a/net/core/rtnetlink.c
-> +++ b/net/core/rtnetlink.c
-> @@ -406,6 +406,9 @@ static struct rtnl_link *rtnl_get_link(int protocol, int msgtype)
->  	if (!tab)
->  		tab = rcu_dereference_rtnl(rtnl_msg_handlers[PF_UNSPEC]);
->  
-> +	if (!tab)
-> +		return NULL;
-> +
->  	return rcu_dereference_rtnl(tab[msgtype]);
->  }
->  
+diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
+index 03f2d0f0e327..44ded8a86a6e 100644
+--- a/drivers/gpu/drm/vkms/vkms_config.c
++++ b/drivers/gpu/drm/vkms/vkms_config.c
+@@ -391,8 +391,8 @@ static int vkms_config_show(struct seq_file *m, void *data)
+ 
+ 	vkms_config_for_each_plane(vkmsdev->config, plane_cfg) {
+ 		seq_puts(m, "plane:\n");
+-		seq_printf(m, "\ttype=%d\n",
+-			   vkms_config_plane_get_type(plane_cfg));
++		seq_printf(m, "\ttype=%s\n",
++			   drm_get_plane_type_name(vkms_config_plane_get_type(plane_cfg)));
+ 	}
+ 
+ 	vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
+
+-- 
+2.56.0
 
