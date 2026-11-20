@@ -1,75 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188303;
-	b=KTC0gl4jiOWouEaB2DwYNU3NhTYHkuainGlufHK8BFKM+MqijksTkD31WIyAu0eSTSvA
-	 fQnr9jUYgBzyzAfblcadaRa9BWKWH9y0+iyNn/plG464USi6ab5K3OxRsU5jMASm5q7bO
-	 +vVtRe915FE2t7G0a1Bx8aFkkQwmtHs5ZND89poNgWWzEQO2+Qjbc9PO2rl3ypeAX+R43
-	 ttmVV/WM92k102n51qwGyDA3LGEsGtvYASHs+QJ8Guzz853Su5Cd8ds9qcdJW7E4odkIH
-	 zhNhQ0uxPbjXnnYP0k8C8PoC3ES7Dvk5fAP6BmrWYudBT65RjHVq5pofG2y4tqjLIIA==
+	t=1795188320;
+	b=EZjTq/jYNMM14Z6PjhAKqLbBCaM6Kbsm+Rxx3rFWSa7Y8Lw7Swxj+Hs1uu/ozO+h4OlU
+	 cpEQ+K1JtDJPUx/I4PISdT0V5iae5gySbs79R2cdRYyXAyVmAxM5vXSL4CAZQ/5fO63Th
+	 mV0ntrGMXBCpklROvCDoymMIFWTLhuxnw5TpK/jRWypgRudVy0ixyTpMEykeA3Y3qHJJ6
+	 ju6wAcve89AZyIx2kaMAxxe1B6wpM1xRQsu3BdQ4ET/iPIy0vgRXaM7Y0/MHr5wQiOiDQ
+	 /CE61flKv2RVcFzoVjdirzc2GEB1i3FwCG9VH0kPp9cQAxLc6EOrGZnH5+5b2S40esQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188303;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=+RAiifQP1e5nLcxfyf/nJlEgVnCv8MvUh0IXv0jqyag=;
-	b=OPxC4RS49kk6VyMRttucptMvbGb7TAheXLJ311Rw/lgxSZJhQau0yciqRoSm5LI6TUDa
-	 TzKHphGqN/LlF6tR7T64dAG76KYUyByp7v8cc1suQnBggye8KW5gFsnVqsWxb3EX4DAxI
-	 bOtSiV+ukvMSzTcZoWYzd+oRv6KWwqUgXnkL2Aw4pD4ydBG7VrHmYQHlOMhMBzyuUvSvq
-	 NfJm5bWWCYt9c8Z8pga+qYT2ZED4+UC50jLbg7txnfNnbsViZs9u1VuI0sNVu9VlUAITR
-	 RT9nrXUx2reqBshDPhtZOAYloDXtDXSlWIWj7dqPaBVqt6B2OXyLAMjcFodzuvJtX7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188320;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=eKJ9ZcgQ0plbbLKy1sHm+A6RarK2aCkoMQ/aWF15v1E=;
+	b=Tj0WyZfUgo3SMVUlog5sVlaZo9K5yqFAUOFyc07PZ+qyheNyUB8TRXdQBFwcs9IoG4xi
+	 QQu/oiULMim743PD+/3N95Sz0+rcDinY1fQ5GHdMx80R9mG3v5ekKQTLpEeNtU7PDuYSU
+	 8zAVp1rMe/ATBQxAM57NChwnEEZkm2N8uQ/gqg8rJqGFrdSh1h0MLboEp5MPKzT/aGzgs
+	 x//5a1eQsnaQSfz0X8bjSYwcRELlR/TZf38QeG+Wt7+iQVwO+F8/KUTXF6BlLngo2eYKc
+	 3XGQoRnh1wKyzV3zLxqNMewiuUpLVKpTtGBcm+MNnkVz8er310ZpnLpooPt6zindG4w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=SgJ8gPFe;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=Cx5+lfmY;
+	arc=none smtp.remote-ip=109.224.244.17
+Received: from mail-24417.protonmail.ch (mail-24417.protonmail.ch [109.224.244.17])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16172606A326;
-	Fri, 20 Nov 2026 15:25:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16172606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0067F606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:25:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0067F606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=SgJ8gPFe
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+RAiifQP1e5nLcxfyf/nJlEgVnCv8MvUh0IXv0jqyag=; b=SgJ8gPFeNaP3DSN7NtmlqLi/iN
-	iV9r/oQSlpXbAF34ej4NQK2Fo5NSbvBNdCmCqIlbVmfxeGbaqXrWus3M7g3qBNCok+Quqn8AffD2u
-	XBGgr8Shholi2aNldd0PEF/KScopR86DXpqUzpKctgoJZzEej/t3EftyB3705sAgqYc05GEtwpA+U
-	6wspwqR14TZmWuowNPZFBulZa3wjPX3h8F2mZtwfsoscCOtOMVwFBvMFL27YOn/kx7xUzgPUiHpwH
-	HDMAUUYI7v1Ws9dZf+pmm6JA9DrFId9d7frQP4ho+gM5hU75ufHF6TwzyNHH61GZDPG4lOq33adXo
-	tWlgSySQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUQTw-00000006tZA-0jgH;
-	Fri, 20 Nov 2026 15:24:56 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 855EA301185; Fri, 20 Nov 2026 16:24:55 +0100 (CET)
-Date: Fri, 20 Nov 2026 16:24:55 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
- enqueue
-Message-ID: <20261120152455.GV2668564@noisy.programming.kicks-ass.net>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
- <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
- <20261120141606.zcwyHZ3P@linutronix.de>
- <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
- <20261120151017.mKJ_Y_u0@linutronix.de>
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=Cx5+lfmY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795188316; x=1795447516;
+	bh=eKJ9ZcgQ0plbbLKy1sHm+A6RarK2aCkoMQ/aWF15v1E=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Cx5+lfmY3H3HHzU3oSP9Gmdupn0ufy4RXnGzCotVbRaw/Wkd9obS5Q31WRgT8nwdo
+	 4iojvZRMPNn+NKb1alK1fe0WCMvi03MIUwiYtecHcIEjQ3rjJ7nypfD+hYOlyw3ONL
+	 R3akvz2O8RyjVavHX0axaXUOlROBwRY3v1JOF9L2xx1MfJiBNlprdZAWfJNm/T+1nE
+	 KPKOdmMTGz6J6UcuM9vEvWBCV62+N33utpinKWl6jUlPiUCfkk/fs2fo27fHTWmNgY
+	 emSt/C8OUMnYq1zRwSuax+KZqiKf/EBhJMSbM+Foh7CbL0go3s4OVOfvYC228nwTF+
+	 Yjlymflx8YhAA==
+Date: Fri, 20 Nov 2026 15:25:09 +0000
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+From: Sergey Lebedev <lsa.uz@pm.me>
+Cc: Benjamin Mugnier <benjamin.mugnier@foss.st.com>, Sylvain Petinot <sylvain.petinot@foss.st.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Dan Scally <dan.scally@ideasonboard.com>, Hans de Goede <hansg@kernel.org>, =?utf-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Peter Marshall <pm@petermarshall.ca>, George Neacsu <geocausa@gmail.com>, Hao Yao <hao.yao@intel.com>, Fernando Rimoli <fernandorimoli11@gmail.com>, Emfox Zhou <emfox@debian.org>, "D. Manresa" <dmanresa@gmail.com>, Jizhou Tong <fqwqf@fqwqf.xyz>, linux-media@vger.kernel.org, platform-driver-x86@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] fixup! media: i2c: Add ST VD55G0 global shutter sensor driver
+Message-ID: <20261120152501.82411-1-lsa.uz@pm.me>
+In-Reply-To: <awAyiCEXYnf2TJpC@kekkonen.localdomain>
+References: <20261114095815.74012-1-lsa.uz@pm.me> <20261114095815.74012-3-lsa.uz@pm.me> <awAyiCEXYnf2TJpC@kekkonen.localdomain>
+Feedback-ID: 113843758:user:proton
+X-Pm-Message-ID: 4e7aece7f2af07b9f6e04ea38619e4722249d7a0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,53 +64,212 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120151017.mKJ_Y_u0@linutronix.de>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 04:10:17PM +0100, Sebastian Andrzej Siewior wrote:
-> On 2026-11-20 16:04:52 [+0100], Peter Zijlstra wrote:
-> > On Fri, Nov 20, 2026 at 03:16:06PM +0100, Sebastian Andrzej Siewior wrote:
-> > > On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
-> > > > > Also use smp_load_acquire() when checking pending_work in
-> > > > > the exclude_kernel warning path to ensure the read is properly
-> > > > > ordered.
-> > > > 
-> > > > I am confused by the use of smp_*() and cmpxchg() here. Where is the
-> > > > multi-cpu scenario?
-> > > 
-> > > The same event is used in process context and NMI
-> > > |        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
-> > > |        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
-> > > 
-> > > I don't see how to deal with this without cmpxchg. And the same event is
-> > > also used by other task
-> > 
-> > You can do CMPXCHG (without the LOCK) prefix; the helper is called
-> > cmpxchg_local().
-> > 
-> > > |        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
-> > > 
-> > > which makes me thing that it could be pinned to another CPU (unless
-> > > there is something that impossible and it is strictly per-CPU).
-> > > 
-> > > The smp load/store macros is my fault as it looked better to do this
-> > > than plain stores (given that we have the cmpxchg already).
-> > 
-> > It is confusing as all heck. This is all task-local, and a task can only
-> > ever run on one CPU at the time.
-> 
-> Given the two pids I was assuming (!knowing) that two CPUs could be
-> involved.
-> 
-> So you are saying cmpxchg_local() and a plain assign/WRITE_ONCE rather
-> than the smp.* given that this is all task local.
+Sakari's review of v5 2/6:
+- name the test patterns as the manual describes them, in the words
+  other sensor drivers use;
+- keep the auto exposure cold start in the exposure controls' current
+  values, as vd55g1 does, rather than in a copy in the driver;
+- no runtime PM reference across probe: autosuspend is set up after
+  registration, and pm_runtime_idle() ends probe;
+- in remove, set the device suspended only when it was not.
 
-Well, from what I can remember, only task bound self-monitoring events
-can signal, and the whole task_work is per necessity task local. Which
-makes it all local.
+Signed-off-by: Sergey Lebedev <lsa.uz@pm.me>
+---
+Hi Sakari,
 
-It is indeed {READ,WRITE}_ONCE() combined with barrier() if you really
-need to beat the compiler into submission.
+The fixup for v5 2/6, as you suggested. 3/6 to 6/6 do not touch the file.
 
-But let me go try and read this Changelog in more detail.
+- The test patterns are named after the manual's table, UM2829, in the
+  words vd55g1 and the CCS drivers use.
+- The cold start is the exposure controls' cur.val now. The first stream
+  after probe therefore starts from their defaults, 200 lines, where v5's
+  copy started from 50.
+- On the error path only pm_runtime_put_noidle() went:
+  pm_runtime_disable() and pm_runtime_set_suspended() stay, as in imx219,
+  since probe sets the device active. The autosuspend delay and
+  use_autosuspend() moved after registration too. With no reference
+  held, either call before it would suspend the sensor at once.
+
+Tested on the Surface Pro 11, on 7.4.0-rc1 with KASAN and lockdep:
+- probe powers the sensor off after registration, not before;
+- v4l2-compliance 46/46, capture at 59.14 fps;
+- in every stream the cold start registers equal the controls read
+  before it: the defaults after probe, then what the last stream left,
+  manual or auto;
+- each test pattern writes v5's PATGEN_CTRL value;
+- a failed registration, and unbind, leave the clock and supplies off
+  without a WARN.
+
+Sergey
+
+Tool use, per Documentation/process/generated-content.rst (Assisted-by
+tags in commits were dropped in 7.4-rc1):
+
+* My contributions to this series were prepared with Claude Code
+  (claude-opus-5-5); work by others in it is their own.
+* This replaces any Assisted-by tags in earlier versions.
+
+ drivers/media/i2c/vd55g0.c | 65 ++++++++++++++++----------------------
+ 1 file changed, 27 insertions(+), 38 deletions(-)
+
+diff --git a/drivers/media/i2c/vd55g0.c b/drivers/media/i2c/vd55g0.c
+index 99bfb05225d..dc1cf48bee6 100644
+--- a/drivers/media/i2c/vd55g0.c
++++ b/drivers/media/i2c/vd55g0.c
+@@ -726,13 +726,13 @@ static const struct vd55g0_patch vd55g0_patch_cut2 =
+=3D {
+=20
+ static const char * const vd55g0_test_pattern_menu[] =3D {
+ =09"Disabled",
+-=09"Solid",
+-=09"Colorbar",
+-=09"Gradbar",
+-=09"Hgrey",
+-=09"Vgrey",
+-=09"Dgrey",
+-=09"PN28",
++=09"Solid Colour",
++=09"Vertical Colour Bars",
++=09"Colour Bars With Fade to Grey",
++=09"Horizontal Grey Scale",
++=09"Vertical Grey Scale",
++=09"Diagonal Grey Scale",
++=09"Pseudo-random Noise (PN28)",
+ };
+=20
+ static const s64 vd55g0_ev_bias_menu[] =3D {
+@@ -863,12 +863,6 @@ struct vd55g0_dev {
+ =09=09struct v4l2_ctrl *dgain_ctrl;
+ =09};
+ =09struct v4l2_ctrl *ae_lock_ctrl;
+-=09/* What the last stream applied, for the next one to start from */
+-=09struct {
+-=09=09u16 expo;
+-=09=09u16 digital_gain;
+-=09=09u8 analog_gain;
+-=09} cold_start;
+ };
+=20
+ static inline struct vd55g0_dev *to_vd55g0_dev(struct v4l2_subdev *sd)
+@@ -1161,16 +1155,20 @@ vd55g0_try_fmt(struct v4l2_mbus_framefmt *fmt)
+ =09return mode;
+ }
+=20
++/* The auto exposure starts from the exposure controls' current values */
+ static int vd55g0_apply_cold_start(struct vd55g0_dev *sensor)
+ {
++=09/* A range change under auto exposure did not clamp it */
++=09u32 expo =3D min_t(s64, sensor->expo_ctrl->cur.val,
++=09=09=09 sensor->expo_ctrl->maximum);
+ =09int ret =3D 0;
+=20
+-=09vd55g0_write(sensor, VD55G0_REG_AE_COLDSTART_COARSE_EXPOSURE,
+-=09=09     sensor->cold_start.expo, &ret);
++=09vd55g0_write(sensor, VD55G0_REG_AE_COLDSTART_COARSE_EXPOSURE, expo,
++=09=09     &ret);
+ =09vd55g0_write(sensor, VD55G0_REG_AE_COLDSTART_ANALOG_GAIN,
+-=09=09     sensor->cold_start.analog_gain, &ret);
++=09=09     sensor->again_ctrl->cur.val, &ret);
+ =09vd55g0_write(sensor, VD55G0_REG_AE_COLDSTART_DIGITAL_GAIN,
+-=09=09     sensor->cold_start.digital_gain, &ret);
++=09=09     sensor->dgain_ctrl->cur.val, &ret);
+=20
+ =09return ret;
+ }
+@@ -1288,11 +1286,12 @@ static void vd55g0_save_exposure(struct vd55g0_dev =
+*sensor)
+ =09/* On a read error, keep what the previous stream left */
+ =09if (!vd55g0_read(sensor, VD55G0_REG_APPLIED_COARSE_EXPOSURE, &val,
+ =09=09=09 NULL))
+-=09=09sensor->cold_start.expo =3D val;
++=09=09sensor->expo_ctrl->cur.val =3D min_t(u64, val,
++=09=09=09=09=09=09   sensor->expo_ctrl->maximum);
+ =09if (!vd55g0_read(sensor, VD55G0_REG_APPLIED_DIGITAL_GAIN, &val, NULL))
+-=09=09sensor->cold_start.digital_gain =3D val;
++=09=09sensor->dgain_ctrl->cur.val =3D val;
+ =09if (!vd55g0_read(sensor, VD55G0_REG_APPLIED_ANALOG_GAIN, &val, NULL))
+-=09=09sensor->cold_start.analog_gain =3D val;
++=09=09sensor->again_ctrl->cur.val =3D val;
+ }
+=20
+ static void vd55g0_stream_disable(struct vd55g0_dev *sensor)
+@@ -1693,14 +1692,9 @@ static int vd55g0_g_volatile_ctrl(struct v4l2_ctrl *=
+ctrl)
+ =09u64 expo, again, dgain;
+ =09int ret =3D 0;
+=20
+-=09/* Unpowered: the last stream's values, the next one's start */
+-=09if (!pm_runtime_get_if_in_use(dev)) {
+-=09=09sensor->expo_ctrl->val =3D min_t(u32, sensor->cold_start.expo,
+-=09=09=09=09=09       sensor->expo_ctrl->maximum);
+-=09=09sensor->again_ctrl->val =3D sensor->cold_start.analog_gain;
+-=09=09sensor->dgain_ctrl->val =3D sensor->cold_start.digital_gain;
++=09/* Unpowered: the current values, which the last stream left */
++=09if (!pm_runtime_get_if_in_use(dev))
+ =09=09return 0;
+-=09}
+=20
+ =09vd55g0_read(sensor, VD55G0_REG_APPLIED_COARSE_EXPOSURE, &expo, &ret);
+ =09vd55g0_read(sensor, VD55G0_REG_APPLIED_ANALOG_GAIN, &again, &ret);
+@@ -2066,9 +2060,6 @@ static int vd55g0_probe(struct i2c_client *client)
+ =09if (IS_ERR(sensor->regmap))
+ =09=09return dev_err_probe(&client->dev, PTR_ERR(sensor->regmap),
+ =09=09=09=09     "failed to init CCI\n");
+-=09sensor->cold_start.expo =3D 0x32;
+-=09sensor->cold_start.digital_gain =3D 256;
+-=09sensor->cold_start.analog_gain =3D 0;
+=20
+ =09handle =3D fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+=20
+@@ -2140,12 +2131,8 @@ static int vd55g0_probe(struct i2c_client *client)
+ =09=09goto error_media_entity;
+ =09}
+=20
+-=09/* Held until registered, so that runtime PM cannot power it down */
+ =09pm_runtime_set_active(dev);
+-=09pm_runtime_get_noresume(dev);
+ =09pm_runtime_enable(dev);
+-=09pm_runtime_set_autosuspend_delay(dev, 1000);
+-=09pm_runtime_use_autosuspend(dev);
+=20
+ =09ret =3D v4l2_async_register_subdev_sensor(&sensor->sd);
+ =09if (ret) {
+@@ -2153,7 +2140,9 @@ static int vd55g0_probe(struct i2c_client *client)
+ =09=09goto error_pm_runtime;
+ =09}
+=20
+-=09pm_runtime_put_autosuspend(dev);
++=09pm_runtime_set_autosuspend_delay(dev, 1000);
++=09pm_runtime_use_autosuspend(dev);
++=09pm_runtime_idle(dev);
+=20
+ =09dev_dbg(&client->dev, "vd55g0 probe successfully\n");
+=20
+@@ -2167,7 +2156,6 @@ static int vd55g0_probe(struct i2c_client *client)
+ error_pm_runtime:
+ =09pm_runtime_disable(dev);
+ =09pm_runtime_set_suspended(dev);
+-=09pm_runtime_put_noidle(dev);
+ =09v4l2_subdev_cleanup(&sensor->sd);
+ error_media_entity:
+ =09media_entity_cleanup(&sensor->sd.entity);
+@@ -2190,9 +2178,10 @@ static void vd55g0_remove(struct i2c_client *client)
+ =09v4l2_ctrl_handler_free(sensor->sd.ctrl_handler);
+=20
+ =09pm_runtime_disable(&client->dev);
+-=09if (!pm_runtime_status_suspended(&client->dev))
++=09if (!pm_runtime_status_suspended(&client->dev)) {
+ =09=09vd55g0_power_off(&client->dev);
+-=09pm_runtime_set_suspended(&client->dev);
++=09=09pm_runtime_set_suspended(&client->dev);
++=09}
+ }
+=20
+ static const struct of_device_id vd55g0_dt_ids[] =3D {
+--=20
+2.54.0
+
+
