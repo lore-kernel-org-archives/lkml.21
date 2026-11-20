@@ -1,71 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196279;
-	b=mHqRQh42e7qLEY3IDBJ3HU1iIaqP3uyfJiwV2c4kYtWN72yrLXxnDaIaD0Ii8R4x+VKz
-	 GAKyi7Xc8be7VOvdqnZYGJYYD+kWd9SMPR+5At8GNDPtNQJO7AMbMx5vBjBzGsxzLVevk
-	 eSkqZbAN4QytvHmryq/zkq0tijTHiQWKYA9v/arEEqrmXHej+HqKOsJqekgJAaiWf270j
-	 8eLE8CyALle3pnLMxkgtCSCrSjgHVgIfZEOtv+ORkONOCskJM2f589dMm5tl36CEwTTn1
-	 xk3u47PMhN6fUQgE8y0EGy1unqB7+1/YZy4MiQ02vCW467MS5hoSsFxdaxXejeHeDiQ==
+	t=1795196336;
+	b=kutEC1WUENZvvKbhjj+oxCwGdWZOJjKJohHhYC9yXpbRDr/MHpdo2uuMsoIiMASVcLBa
+	 /GoYnTgpNzRrx0yWpM4kAKEgCQYpS1G85dBLhA/88wfaLXdQMg3hUW97IQbkbdMjJjl4X
+	 RISf2k+18WxhAc+TvGmG24Svqy/0Sdx1hvp53RArRMw+mWEx18hHv/L5F46gdGYiWGeZw
+	 NoUxFBF32MNRnnomIwp7o6oajHSEClUzbZiIWRDIfTTDnahJuALRGGrseleeNRQ81POga
+	 QlQ6IxZyU/Vjs5+7nODItAeHkYkvsLEb+vV+I6+4fHMOVlJrnLRXvuLOw71Ts0w8dqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196279;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wQw7a5KD+lvlLW/FKesRQ2UDET7CuP00cuxNZsjJY6A=;
-	b=ITliNwqT3hSyCtaEoZeFQEUTL2WCWky4NDfd33uxz5jy65vMozSgrZ9Uh0kfFAKEQeuO
-	 TK51OYHxNqYU6XYX1v0u6rIAOG/cZslYJBvP78dlgBufkaVY/0PpTyUdj8M47xjgjjF0E
-	 00lyH9mEXt7kfgDaBodjMz60qTnKb6i16M2rYuwsqrXPdShZDzQEaQ67xippjRnAaAlC9
-	 TivwyFI/3wdPpVfN86PuZZNg8/0zf7wEwRHTM8xXWn7atsAFZQamVTc74xB9ZF4ajJ04J
-	 XaqC3zEXqZMy3KXginNuaZA4DEXrcsd84sRojbf66Q8a2FTVLu9Pc8GPGrobfwhg10w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196336;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=KTQmlFfwUQU4v+NLA+yUDpQoUdLsc1gGPYlZIjQ7eEo=;
+	b=0jdSBDOGNpLtkQK35HaIrm+e5Htl/SD1ves9a9ZXlqm14AwG4+3HpHPIHlEQygoJ+Es9
+	 hs+L7do4GvHSAc9vbeurQCqtElCYBjdPieC1MEJVBG/OBytylyOKNALsHSlTGETKDm3Yl
+	 h9t2Q59mLFV6rIoz23D+z03C+Gyr0u/PQQWI7W8ROcCJF1Xs1OIZ8ACy68BNCHgMlICKr
+	 /gqXRb245tsSHRNYyi/zZoj0zX7KSr2uCU94CNHjccf09FwEX9VIJ5gGLPD/h267f6hpI
+	 m54/nsGKTBFMJb/0pqM+58tbvqyeikuZP0Gq+gJDRNYqqqX4po4AS8LfpkUcO3x+XYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dhi5Dptv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLqTU0I+;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FEDE606A320;
-	Fri, 20 Nov 2026 17:37:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA6E8606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:38:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA6E8606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dhi5Dptv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A94581F000CF;
-	Fri, 20 Nov 2026 17:37:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196278;
-	bh=wQw7a5KD+lvlLW/FKesRQ2UDET7CuP00cuxNZsjJY6A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Dhi5Dptv/B8q787JJw7fs//I8i+zc6erq7OquEqDJonWjIucS2ds5XZYPJJJdQ0xA
-	 Lhen6+jFtmj/3Dod5hTlR05BckqBoxoJR4POBPp2MANbeNtltOcQiq+KHnX/cUNo7u
-	 AwWHqZlQnMEd0jMP0NzmoJFm4vGUIxyY/4I2d+9gm3Wy67aVZoJgY0fMpRkZhkbT9a
-	 ijvDhFZqlqsBEXbAi534bvNthhZidvVfMgMs0uZ9Jdt90Lv3CKApaNeIhTlzcynhSq
-	 +rcqpjMQdQ05smvpZB8kP2aXj67Lq78bwLNtZgAPwInem1unPEFZfiFDDGu6TymkzX
-	 goe3u2OARb+3g==
-Date: Fri, 20 Nov 2026 17:37:52 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Matti Vaittinen <matti.vaittinen@linux.dev>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marcelo Schmitt <marcelo.schmitt@analog.com>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	Radu Sabau <radu.sabau@analog.com>,
-	Janani Sunil <janani.sunil@analog.com>,
-	Salih Erim <salih.erim@amd.com>,
-	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
-	Antoniu Miclaus <antoniu.miclaus@analog.com>,
-	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: iio: Support ROHM BD79111
-Message-ID: <20261120-unneeded-rockiness-7225e7368478@spud>
-References: <cover.1795009599.git.mazziesaccount@gmail.com>
- <f69b996cc07fad1712871fb8b0436c71abd435b9.1795009599.git.mazziesaccount@gmail.com>
- <20261118-ancient-ominous-4f2a4a37369b@spud>
- <bf0dd82b-e1a5-4ab9-9ab7-1641181d303f@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZLqTU0I+
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f03eeda984so6411445ad.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:38:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795196335; x=1795801135; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=KTQmlFfwUQU4v+NLA+yUDpQoUdLsc1gGPYlZIjQ7eEo=;
+        b=ZLqTU0I+DIIHMin65pUJcuDQgDfSkiYKNkHSq8jQ2W1y3uMQaQPbei6+eu81GWf6Vn
+         KfMyIv597LZ5FDfOmkRrYz6QA5ZVwklvvIkdS7QUpmDkbyA4nTtBRgXM72IXzfhAeP3W
+         KnXGCWDrVBPaNcPYgQAPiwVRHiH48IWIP4jw1/pM35UI3IiPlG0O/c4k4O0yd7gbNsM3
+         81YCSm6zO16/6p/yt98D/h0Isr8KQ5k2zBEa5m6cdNPqxQX18ZHqgxKDzVTvmtpZsmkT
+         zbZ6YQPYIEQu+Y/TT7Tm7ujj3OxJ1vOEgM4VTNcKBV5LHzJ3MjXuqmaRaP2FvG9ghfN/
+         ec8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795196335; x=1795801135;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KTQmlFfwUQU4v+NLA+yUDpQoUdLsc1gGPYlZIjQ7eEo=;
+        b=haGxh+OpwJSRKEiqEGeg+3BH+6ml50fi6nHFG1+0Mpb+ilgcUfvMFvjQavYfxGHkNY
+         RHa+b4HVxPNebyRPBH4dbJKJBnG+Pndfm9TuXKOob7vyk9Y3uLHhtuMr73aTMb/0xpxc
+         A0QsVTuIaqNqyjPQVboipIBuoKHdeC4wvmleZZveC3ukRSo7YjEbjf3cbwGfE3IEUKak
+         qpxe4Zuy2BLbQs08M5M9pFwK1e3mwyBuveWr30U46UjMRB1jatvqifQC/pL8wTVMrvH4
+         6n0LgO4ymT/j1tN9hvvGT4bFM50zUDMwPVozaktVVf914oOeniV8rQDsTQUO+Xi7If7Y
+         +kkw==
+X-Forwarded-Encrypted: i=1; AL+hErGybQ5kXb03gYKRi0B4EjokEznItLEg90zAXo1NTDn0oxmR8epGP6bYKJzN2qmeBOX1759CAoIwFcy0smw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+YVFZpA+ngE+PcpnHpW8BtpS5MJrxU+b8Qg3SDD2QIlZJGQ9oW
+	40PXeaxgqtRCgtwkibH1aeAQ+cdfMnbpiNqEB1FSb08JyfV4o9Tuqrne
+X-Gm-Gg: AZFdTZemnCRrq82BIaexwLd1VF4MlXFZR3LBzvJrrfH9os5SaPcwRQEWDyshmAiZyep
+	ffEbN+7c2R0EbKICiFZyLD3Cdj8RMiBczE45OvVIHNE12hVUP95MWMrEMzEH90OvV1WiI2XpI2K
+	OBncszNsGg12dEomn7DypBiL6tPvaYQTtRsT3OzRlem4p3mxP5iwocKJLATCcHr9mFldS72yffo
+	pP/9Kib32QnsWFRGq7LN4KmnuJIEgxLFkA/JXZj/EpobOcSrnfSCybqPKRlCVJlhvY3nAhv1Slf
+	PGhs01qkVsktnpQIJV+2UPR34/94FsLpON2lvUzUophC/QADTVrGFiuesH22A4w5jRZOINPQQVP
+	1rhQdkbcMN4Duu9MJgORUpUWp6IeDK5DW4ECPng/gbBSY6zuD8oU6/u12AQt2Wj1WrfJjvYU7xK
+	1AQn+YzAIO67YcC1mqgworxVuiA5wRPqj0AoahzKd6WbbdsDGQDE5afs766VKvjOLhHmYUYobgd
+	1prH2Ht9q6tAMWNdtQu2GhfRLfvkYxmScE0Puox68b5Rc6SdsgVfXdHl/w6kYOyQj7LsrP5lx1n
+	CXdDOF8xa9v0GzNEc0fJcEIHA2gPt9gjbQauIs508STky47vyN5LWcqQVEUgoKNo12Zsatr/ZU5
+	VOn1izrVoUGXZYIJdM50SoNRB+ElPEwvGbQ==
+X-Received: by 2002:a17:903:2391:b0:2ef:f01f:fa4d with SMTP id d9443c01a7336-2f03f1e0f73mr43801925ad.51.1795196334841;
+        Fri, 20 Nov 2026 09:38:54 -0800 (PST)
+Received: from localhost ([153.61.198.247])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc4f2sm18100965ad.30.2026.11.20.09.38.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 09:38:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,119 +88,45 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KhCEy9qpaczk0nKs"
-Content-Disposition: inline
-In-Reply-To: <bf0dd82b-e1a5-4ab9-9ab7-1641181d303f@gmail.com>
-
---KhCEy9qpaczk0nKs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 20 Nov 2026 17:38:53 +0000
+Message-Id: <DN07ZMOAD4GP.37PG3XUPBG4CM@gmail.com>
+Cc: "Ryan Roberts" <ryan.roberts@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>, "Alexander Viro"
+ <viro@zeniv.linux.org.uk>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
+ <stable@vger.kernel.org>
+Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Catalin Marinas" <catalin.marinas@arm.com>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <20261117172341.3152407-1-ryan.roberts@arm.com>
+ <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com> <awAay4FFj1_wQtaL@arm.com>
+In-Reply-To: <awAay4FFj1_wQtaL@arm.com>
 
-On Fri, Nov 20, 2026 at 02:01:36PM +0200, Matti Vaittinen wrote:
-> On 18/11/2026 19:37, Conor Dooley wrote:
-> > On Wed, Nov 18, 2026 at 04:19:11PM +0200, Matti Vaittinen wrote:
-> > > From: Matti Vaittinen <mazziesaccount@gmail.com>
-> > >=20
-> > > ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO device=
-s,
-> > > where pins can be configured to be either used as GPIO or ADC inputs.
-> > > ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being=
- IRQ
-> > > sources.
-> > >=20
-> > > The main difference is amount of channels/GPIOs. The BD79112 has 32 p=
-ins
-> > > for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
-> > > promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  wher=
-eas
-> > > the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
-> > > clock.
-> > >=20
-> > > Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> > >=20
-> > > ---
-> > >=20
-> > > Note, I had to change the 'root-level' additionalProperties: false to
-> > > unevaluatedProperties: false in order to allow the properties in the =
-new
-> > > allOf:
-> > >    - if:
-> > >       ...
-> > >=20
-> > > section. It seems to me this is what a few other bindings in IIO do, =
-but
-> > > I suppose it makes this "less strict". Well, since I am terrible with
-> > > writing bindings, I'd better point this out and ask if it's ok, or if
-> > > there are better way(s) to handle this?
-> >=20
-> > I don't think you should have to do that though, since the children are
-> > described in the same file.
-> > If you instead retained the pattern properties section, and lowered the
-> > restriction to channel@<any number> with reg with the max of 31 and in
-> > the conditional section constrained reg to a max of 16 does it work
-> > without the unevaluatedProperties change? We typically want properties
-> > defined at the top level and constrained in conditional sections anyway.
->=20
-> Gah. Either I don't know how to do this properly (which is likely), or th=
-ere
-> is a slight caveat. When I tried to do what you suggest, the binding allo=
-wed
-> channel@X, where the <X> was is out of the range. Sure thing this was cau=
-ght
-> by 'reg' being out of the range, but it still allowed odd combination of
->=20
-> channel@X, reg =3D <Y>, if Y was in accepted range.
->=20
-> I suppose the 'X' and 'Y' in previous example are expected to always be t=
-he
-> same, but I would still like to catch this type of an error.
->=20
-> I am about to spin v2 where I use the BD79112 limits (channels 0 to 31
-> allowed) in the pattern properties, and then do:
+On Fri Nov 20, 2026 at 10:02 AM UTC, Catalin Marinas wrote:
+> On Thu, Nov 19, 2026 at 01:18:03AM +0000, Alexei Starovoitov wrote:
+>> On Tue, Nov 17, 2026 at 09:23 AM Ryan Roberts <ryan.roberts@arm.com> wro=
+te:
+>> > The arm64 JIT implements BPF_NOSPEC with a speculation barrier, but th=
+e
+>> > interpreter calls barrier_nospec(), which falls back to a no-op on
+>> > arm64. Programs executed by the interpreter therefore lack the
+>> > Spectre-v1 barriers assumed by the verifier. Contrary to the code
+>> > comment, kernel-wide SSBD does not provide this protection, since it
+>> > mitigates Spectre v4 rather than Spectre v1.
+>>=20
+>> Nack.
+>> In bpf-next arm64 has no interpreter when the JIT is built.
+>
+> And what about current mainline/stable or when one disables BPF_JIT
+> explicitly? Should we force BPF_JIT=3Dy as well when ALWAYS_ON=3Dy?
 
-Yeah, I kinda fucked you a bit here sorry. I just mentioned this way as an
-easier way to fiddle around/debug it than having to meddle with the
-regexes, with the intention of following up promptly when you replied
-saying that what you have done for v2 is how you would implement it in
-practice.
-
->=20
-> "^channel@(1[6-9]|2[0-9]|3[01])$": false
-> to exclude 16 - 31 from the BD79111.
->=20
-> I am not super happy with it, but it seems to work and is still decently
-> understandable even for someone yaml -illiterate like myself. :/ (At least
-> for as long as we only have ICs which don't increase the amount of default
-> channels. That might cause the exclusion regexp on other ICs to become
-> ridiculously long or hard to read. Well, I don't have such ICs on sight f=
-or
-> now.)
->=20
-> Well, let's see what people think of it :)
->=20
-> Yours,
-> 	-- Matti
->=20
-> --=20
-> Matti Vaittinen
-> Linux kernel developer at ROHM Semiconductors
-> Oulu Finland
->=20
-> ~~ When things go utterly wrong vim users can always type :help! ~~
->=20
-
---KhCEy9qpaczk0nKs
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCawCFcAAKCRB4tDGHoIJi
-0qXJAQCt/f1dlG1xM9NeqXhl6z52zsXZVscTXAtq+KBGGQ7oNQD/TyvuEcK5uHbX
-auCxt69y6ycAL9UxXLGcpQ7wceubswg=
-=vug2
------END PGP SIGNATURE-----
-
---KhCEy9qpaczk0nKs--
+Anyone who didn't have BPF_JIT_ALWAYS_ON=3Dy were exposed to speculation
+attacks forever. The security hole was wide open. We've been saying it
+forever. At the next merge window we will say
+"you cannot make wrong choice anymore".
