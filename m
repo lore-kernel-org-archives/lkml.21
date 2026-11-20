@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186920;
-	b=JrcY/llP4Tw/ohHFWF9iFuqzHdk9q3UJ34KKYSH9Y/gFoUAqU/56soQL7NB65IglWDdz
-	 hmrAVGZF6A1Xm/GemFqkldYY13nIuvIIAWq67sVwRxHhWxLyosygMyAPuUONhv4DAGpII
-	 tyVQnomfrTSzJrHWrjZDDKxRLCxkV/ujADCUO0J1GaM54ITG58/g1HD+2TVbMsdJLJsfU
-	 Hlwutjkaq3/tnRP9wIXlrUwTIrLFhPUwbR9yV6gGhLolctJcVNpnjijlAX2LC5o+HlsGh
-	 zy4qL6vLlMU15y3HRzbYNDDlbuUY4JAqMSxiGi1fIjUdgK9lPGM4+rPNBW4Q8VO3DtA==
+	t=1795186926;
+	b=Ah0TT5h79+LnV4pT7xw0by5NIZUBGRNxAuARo7FGei4FuixZWfP09HIJHsjkWsH9eulf
+	 YS3CnnG6GH/pFvAIc/hAFkKvM2QB4SBJa8w63v1UkyvlvLIsZBb4d3ftsjULiDrWWI/3j
+	 AhLyYv2lPR2AiVdv4Zs92Tv6M/86GmpJgA2V4z7RCLZXZ+3h0Q/yO0FXF494KXfkybAG3
+	 cOzvEvcLcS2+zbvURCCCiQZwjfC9xKvvrEiAhkwUrg32kC6UjVbFZ4UkqaAcsFMTQX18H
+	 HZdRRhnsebJiiy5qf2PXkj9H5zb/DDd5kxS0hgNoVURIh6H7no1zHV7WOCxdSNdfmCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186920;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
-	b=Lj2tYgfyjH7MM7c8PotjFLSQH3ZlRUEcStTfcRu0ngNORMGrEIQpg6ZVUJ8N16S+e4rg
-	 SPXkZ5ana/89WTR/7qKDiVcAHcV9RBxMEO8rlhFS6yY4I6lWfXObYvfR/F0h3r+OOaex0
-	 VeAOGKYqvzd1nAVwQ1mD1N+195+lyK1SDklOK3UAXapPjwuRRkkkmYtI7W6B9kwJYMoDp
-	 6uygvvf0seXMkv1qNHxUBA3dK/5O4qqMyvviOHpMaZh/glUXGQ+vK5syj50GxSHVxAjj2
-	 dT7+WzdOt5grHeDPPhnxGjRZk+9ECOHE5MOTzxxC+PzM61hMmUjpxpQefxi8dF5xyjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186926;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Stat-Signature:
+	 X-Spam-Status:X-Rspamd-Server:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=BBFOIz+klR4QMUOeWXRV/f88UPnpaiHfbfIHkmv7NgU=;
+	b=pQ6bhsy587abWyuHTWSQxAnktBparxSyMkV1Rjf64f1nY+naSyVnskJjMc4vFv0S4XPM
+	 cuxekQvC666ZdfQd7vkXBE9e1sgWTOEWlvKNgirff2/9KxSIou49wzMefs6IQvoJA1dEr
+	 nKFFXbUk8qlN7Kn1ptpxV6UH3TPhf0PDl5HtW9nQN7MT6rvYhtFlF2o20HsG/4z589MiU
+	 gSGdVTl7fH10mWZcWa8zJnJpOAev8JLuP5xi4TJvRdOKjvvCXsCQfJxWmLQkE/NPnAc3x
+	 NmekUCyNDJQD1yz0LaV3zrcRgOBdW/CD0stPUKnvAestuViwwYFoNUm91tfcxKaW5/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=V1muv4aO;
-	arc=none smtp.remote-ip=209.85.215.171
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com [209.85.215.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=VQ7RPYYy;
+	arc=none smtp.remote-ip=216.40.44.17
+Received: from relay.hostedemail.com (smtprelay0017.hostedemail.com [216.40.44.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43352606C869
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:02:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43352606C869
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5D326074D17;
+	Fri, 20 Nov 2026 15:02:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5D326074D17
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=V1muv4aO
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-cddc597d062so584419a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:02:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186920; x=1795791720; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
-        b=V1muv4aOu02L+yE4GAaHN7SP6R+7IjUh8YEh5nx82Yg5Xh8xNHmJDgjDfvfC/ucUjm
-         cTr8PmTaextdDJKUU+q20INEYhzxAv8g3wboLhaDeINx8UCor5YAwwfK3r77RL79gQUL
-         nvI9YZpWdyh4i1CUrh+3BxYlWTNXbRfdNSO/7PjTlU9qOGYrLTO1FJDWavGJgG5lbgQl
-         86hOm/3Bj2KivYZhXFdAWXugZftf1SFw1aWrWS5Ft9/E+N4aUJJyvGimLbMVvTQ83pOD
-         yL0DzPzHx9IrRc1eprEVMr9D5trEf9y2Nc0wwM69675ETUuocc7UKxOOAj6El/tge0l3
-         aC6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186920; x=1795791720;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EQquq+i6TPhSReN9IjVRPVIB6xCEadhlzp/OpeuYVq4=;
-        b=HovpANgABoRfkm2UlyqyM/krXmI9zOgAdBE3wKwPYZMShCYBvsuB8fwWPYMvvWunIK
-         QnJpFi8OWEMdbXhJhxoDVaTkZvE3rLNzzsK5sQw413EbV2EyXgVRr+BO1a69FK+T4yO6
-         Qg1q9o+g53X9e4a1bFe86zjG6VL2MoSP5OdvoXSuIpSbHhQbejU6gmyOvI38kjKJSlGZ
-         Xrrtb++7g2GAnBF7U7GoukrhkLhO+2FKnzZYBuM/u0R1stYMmDoJFLP8WDNJ36jEe8x5
-         SySQgyQGmIxIAv1De8zkAtHX1aBG0krxh/QMNDt8oqZ0IpdEljWf4P1cdoUQUL4qxISi
-         G4Qw==
-X-Forwarded-Encrypted: i=1; AL+hErEHPz6qlDocJN6xOiXpFYyNTY2UFWVuYK24JMKBYCLGHan2tTPC2EwQjojqLsCJMyk0L7DmWugGkM4Tz24=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8SW8ywWPskPehvH4MGUL16hXyZd6Jmmej/HdgJgomTHmyHH17c
-	tft6PyFRYosNUajedAegbPEvEU2fWrlYO0yhJ/uDkRUuXZozsavxod+u7yefDYnrPS4=
-X-Gm-Gg: AYBFou08QpqT5IWoAjp8UGz9gRisvYuBnzOhTcxP6S/7x1BDkQhsOGSKtuHpcWsl0Ma
-	JIj9ya4vO25esgi7AUEHIw9NuKNsViy3LG8FytAHYwxHSYFZQ3Yj//wZxy/BIUTEjQgI0F/XFd/
-	Aus437WSaiuaVcHqVDPfrcGlveVnxjInZSkjT1XXuSmoYRQEWnyn/fsvrkLUExLKAO+VHDUqGwF
-	2wLTe26VmR8EA0nAi9Z8LKgV/B9Qa+4MqGwCZyfm3uOPQf+lAeEblkXC5AMeI+PITpPDNUygzAe
-	hktJVlNV67UFaEd3i7vISWaZBNS9IoZxol6NFvp3o80Y0UrpDapKj4SOx9mTE12IvgvpODdCZqr
-	KoeR5GDzthBsLheKtZecf3fD/BLx9GyLeXnTinPhcfu2dILPWnNrEvrqQE7XouNysg6Sy72m7vI
-	0a3Qg+GosSWA4r4TDKjonpQfLqczbfINmo3mStDCn04CD90oNJX9riGfFTyMiladKkoartAembQ
-	gt7xG8BSmAg86t44BiFEut8Zk8789VhxyFD3USa/sKIinQFzLHzXdbssLhUpijlcFGq2PyKPLeF
-	CAOCeXytHAp2LuUCgzwPRCCltkVEHiIrNgyMyFr1tG46w5nwPM9RYsMEEaGddMkRqRnKF83r/Re
-	NmtM83aiwYPHSer629NH8vaqIrIZoMGR3LOC6ug==
-X-Received: by 2002:a05:6a20:c887:b0:3ff:f20b:d2ec with SMTP id adf61e73a8af0-4014dd66078mr3640804637.52.1795186919522;
-        Fri, 20 Nov 2026 07:01:59 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d06503dsm1398731a12.27.2026.11.20.07.01.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:01:59 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: gregkh@linuxfoundation.org,
-	nkapron@google.com,
-	linux-usb@vger.kernel.org
-Cc: Thinh.Nguyen@synopsys.com,
-	bigeasy@linutronix.de,
-	target-devel@vger.kernel.org,
-	sashiko-reviews@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	lgs201920130244@gmail.com
-Subject: Re: [PATCH] usb: gadget: f_tcm: put the overlapped command's request back on ep_cmd
-Date: Sat, 21 Nov 2026 00:01:53 +0900
-Message-ID: <20261120150153.3128458-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <sashiko-outbox-223285@kernel.org>
-References: <20261119140641.2768465-1-yhlee@isslab.korea.ac.kr> <sashiko-outbox-223285@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=VQ7RPYYy
+Received: from omf05.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay06.hostedemail.com (Postfix) with ESMTP id B24E5A8FA4;
+	Fri, 20 Nov 2026 15:02:03 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf05.hostedemail.com (Postfix) with ESMTPA id 7E2F120010;
+	Fri, 20 Nov 2026 15:02:01 +0000 (UTC)
+Date: Fri, 20 Nov 2026 10:02:00 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Kirtikumar Anandrao Ramchandani <kirtiar15502@gmail.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, linux-trace-kernel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com,
+ syzbot+eb74dca0d1eb3ec227a7@syzkaller.appspotmail.com
+Subject: Re: [PATCH v3] ring-buffer: Skip time delta validation for the
+ counter clock
+Message-ID: <20261120100200.4f8ac19b@gandalf.local.home>
+In-Reply-To: <CADZg-m3Wxkze0t9u1+dvn3Rrart54_eyi5XDcOSE+9W94s983Q@mail.gmail.com>
+References: <CADZg-m04iG5kCZ5-yh=Vz_ysYjVDGSYn3je4_-8AzWWfiC-bXQ@mail.gmail.com>
+	<CADZg-m0FeLntAS6XxE-kc74vwH-jAh+jXT68qnVwXuHZNUHzfA@mail.gmail.com>
+	<CADZg-m3Wxkze0t9u1+dvn3Rrart54_eyi5XDcOSE+9W94s983Q@mail.gmail.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,27 +64,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 7E2F120010
+X-Stat-Signature: 7h3cf55ih1ubk61hsgqpahhxxbdqt4nz
+X-Rspamd-Server: rspamout03
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX19P3U7rEiGgz/KaeMNUspQQiiLSVO8YZe8=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=BBFOIz+klR4QMUOeWXRV/f88UPnpaiHfbfIHkmv7NgU=; b=VQ7RPYYyCGHLRJ31x+XnzR9jCiPYPDPKgjXNatxGiqpoVhP5wBiEhIw0L4YZMc8SuCJSLCh1wDYT23/J1g2J7m1iKJk8R1jSIvJ5DUDik8dt/VyDqJ276SX/TPvc+6YN2J94VGWrf5mMk0ZaTJr4LnNKBXF2AsW0rPjLx/6fnhE=
+X-HE-Tag: 1795186921-332108
+X-HE-Meta: U2FsdGVkX19cZamt8VBOOHAbsfurHqvPIqjcByT8+z1K2RNeQ6mU2WFp5JwjJs4FIwn69s5OGiEvGDmq8M00/KRdm4Q61HH9Y+IjQ+Lx4joB5kUKc8f3Fwwr5duD5m9RcOY1/TmipDQ0Z/s6PJWksbPY0IXoF5s87NtTMXjlFExZwR/0TEyr6TMZWR1VFOcvk1eFZ0oN+Ecvy5XVyXel/UGcDQSnj4bFbSuhoaAcVojo1lRyE1yRfE3vU8iT/Nr5Hmm0Y2pENjvwAGCD7gpsFHB4t0P7nNxwQrZIT6kyulQ4vRv9P0JHH0ygKrUq0V7Hi7qNh2ifpf02eYer7NvOJzAwMHDe0jio71HpJ+sH4aRzaWH1ntWceJVnWIOD8TBxQuzDDOoIQadM0f24U6bw9Tb6LMOPUpYW/XAz2MZfRm+2Hph5O26DNbjz/Dsf3Yi+LdU5N+Jh3hWYIonrKXEUj/EkbO2vvdEHRw5nOmzZbV0=
 
-On Thu, Nov 19, 2026 at 02:21:37PM +0000, sashiko-bot@kernel.org wrote:
-> [Severity: Critical]
-> This problem wasn't introduced by this patch, but can usbg_aborted_task()
-> dereference a NULL stream->req_out pointer in Bulk-Only Transport (BOT)
-> mode [1]?
->
-> Aborting a task in BOT mode therefore causes a NULL pointer dereference and
-> kernel panic.
+On Thu, 5 Nov 2026 06:19:54 -0800
+Kirtikumar Anandrao Ramchandani <kirtiar15502@gmail.com> wrote:
 
-Right, this is a real bug, but it needs a non-default setup.  With
-emulate_tas at its default of 1 the core sends TASK ABORTED instead of
-calling .aborted_task(), and a BOT session can't send a TMF itself.  So
-it takes a LUN RESET from a second fabric sharing the backstore, with
-emulate_tas set to 0.  It's an Oops in the target_completion worker, not
-a panic.
+> The counter trace clock increments on every read. Time delta validation
+> assumes that the clock values read while reserving and checking an event
+> can be reconciled with the deltas stored in the page. With the counter
+> clock, this assumption can fail for an intact ring buffer and report a
+> spurious TIME DOES NOT MATCH warning.
+> 
+> Skip time delta validation while the buffer uses trace_clock_counter().
+> Clock selection already resets the buffer, so events recorded under a
+> previous clock are not retained for this check. Recording and reading
+> counter-clock events are unchanged.
+> 
+> Link: https://lore.kernel.org/all/20260920161648.7d9fda60@fedora/
+> Reported-by: syzbot+eb74dca0d1eb3ec227a7@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=eb74dca0d1eb3ec227a7
+> Signed-off-by: Kirtikumar Anandrao Ramchandani <kirtiar15502@gmail.com>
 
-Fixed in a separate patch:
-  https://lore.kernel.org/all/20261120113956.3071640-1-yhlee@isslab.korea.ac.kr/
+I'm going to hold off on applying this because I'm not fully convinced that
+this isn't hiding a real bug.
 
-Best regards,
-Yehyeong Lee
+I remember looking into this in the past and thinking I found the reason
+the counter breaks the check, but when looking at the code again, I'm not
+so sure. There may be a real bug here that only the counter can trigger. Or
+at least trigger more reliably.
+
+Until I'm sure there's not a real bug being hidden by this patch, I'm going
+to keep allowing this to trigger on the counter clock.
+
+Thanks,
+
+-- Steve
