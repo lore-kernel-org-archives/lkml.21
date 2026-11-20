@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795153088;
-	b=ufqL7Adg25PSNapc3tYU6/XIQpyIZNLX2y+b48vYtlX3N/TZwKmpcF8qnZL0p3nl8UkL
-	 VRtRf227yTAbflCRIW9ZptaMs1+chnQQSySO03iUQYHVRK7z6CUbW79Mjx0OPWZkZjcCU
-	 LSGdnNaB0XXOFw7DuLQrvTYUYZYRgdT6bs/cY3OUN3zpP79vSgE9xutjmQaX8jNNxkF9v
-	 HS/dFm5KidOdB2H/UEbzA9YINgbqlv4odZw8ihH2qLtW2TLnKpTHhky4TjyzSqDa/rfR9
-	 cN+/NTfzs+U+XOUDQk1qozs2pBqcgGmTLemX/zNYL6Oy63QbYemphzEBtL1SpA+vl5A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153088;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=FQV27F+25SDT6+Die50FMSITrrA1WgE6PAtCddC8U3s=;
-	b=1mwgD24RPDMJPB9kaJOY7jJ4a2X3jUMq4h9DQ5Erhes2yeeihVmzOjgsXj5Pt8WbF/W5
-	 bauTGVytefpVm3SrpCkkfXebcUArhEe1XCken3JFf3AzCK2kcNTP8oK5mVgGLGBpjI0P0
-	 lBn/3hLJjJ01k0RtnmK83Nwe1s7ZsYBdEaXxxhe9Py/I8UzKgxvEUhuCysCDQjB+8BTi/
-	 WPJBIRnBlkfEBpXBDpq7qddQjpOgI2rwzczPWjlYFdx8Tfyi6oMteCP+xalA9KKHJCB30
-	 GUF4+NVlt2EcawppKrbwZEDb6wH0TYIrjmri7RNt6g7R7vgIALgnUmDosXWxMP1jsKg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqOUjkqe;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795153111;
+	b=Dv21FYxGQwJUws5QSJCY+NQn0Nrin5z246asXjeF5ac17eiLHlyRoQu0sE0V3/Bd8nYE
+	 pb2jUrklwCogfxDQnlHqbpb6mMG0shSM+HMGvj80ZaqXjDAI9I2zUygcye//GV0Bj7kgb
+	 fa5Lbr6ZN7+32of25WVTG2fynEw/ScgjlhkEBqXJ0Szbdiqt6K8wyVX4vry8f4WDY7CVX
+	 99+dEewrBmvYK0AEVtjF8Ujx32IGX703xC022fxTlX702nT3AOYI4q5MOVYaSmFj4u3iz
+	 0yn0uEAbos222QleBJnehEpROpYqswPmyRvepb+nYcj84VA7g4PpErKw0DyJfCoaRjg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153111;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
+	b=I40BVI3aekuBYBu0qOGB6aG/HISEkYZhKgq2j4tuw0M9h3Hbs23KpLK/RSM1vTGS1lt2
+	 zLIiPA7HCorcg8mXNjJ/ve/HdLpURXonwVy+2HRbAXno4TICdX7rkCW6enI7lkK0A8nEt
+	 7PoymdL6InVDJczeao7JKR2CYPkZINJ3vvZooAsE2T7goLO/CXEGI1iT1sN14t6ffOHqF
+	 NEBE/sbURp5zXO/j3wDTHPUU8hYxU4lZqYiuzi0IndNCabw5sJkAa6ZARJCAJRYv4rg/V
+	 I3bJSu/sh81rz8F9YFrtqgrng8STk9oqNS9ZeDAjItfkZv8kgrr81u+Ho1JME3Yi7dw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B725606A336;
-	Fri, 20 Nov 2026 05:38:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4E79606A320;
+	Fri, 20 Nov 2026 05:38:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqOUjkqe
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795153087;
-	b=d9H0REmzCALo9ZbpbxH9TcEL71gEGuZYErDG+R2YQwSV6gLW0BZy1VeuNrVauO4zk4IO
-	 a6wTVXovS3B9i2USEYrTpb1pmaJulfN2OLRDXmPpp0IRMoYHwpMElV3KKJM//83NF8xDf
-	 K2oa2Mla05DadrVwiYch9vGEiE/M87jh77sYjUD6bm5467HTfp3slouQi3h3cEGXzDtz0
-	 57PdF4A+8PRLcxFJEk+Mzr0k25aHyzI7gaQ//YWYB/yIvI/njG7mbeX0dKCWOxxsl9CSO
-	 fgSAIjFssudYpXYSl+Af/gaaIfFmdUpqUKICVmajWrliiBocO+mesByFRAyq18GEs/A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795153087;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=FQV27F+25SDT6+Die50FMSITrrA1WgE6PAtCddC8U3s=;
-	b=H4XhbGh6RxMvn7ufDil5CdXvvY2FIXzWwSIz7E9gmiU9kyOHtThP2qly4kiqwXEnFoij
-	 Uwn15tRYu7M7oXyxfmykv1LPRVQciCQmB8SrrS9lvAawqLf51QVagpWqkSob/noOFwuY3
-	 ZPPbS47tT7h8Lt4Of0DH+8jxPxsu9WR39Ig98ZfrwC0Fn5lY3rF6Jva+gmxFJUwsICYNY
-	 trjs1DHiCMqNH3E0zOgPKa1JgXVxSwfW5aGNT8ooCLGM5+e+IU0RtJ8w+gV4u0wcikB4A
-	 1AVd1TNUzMfE38ZFb3AgFPstLa/QEJsOSqlT6PjtViD9CWNKXNMNYw0OcTvn1iHA8tg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2FF291F000CA;
-	Fri, 20 Nov 2026 05:38:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GdCyH9kV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A3E1F000C6;
+	Fri, 20 Nov 2026 05:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795153087;
-	bh=FQV27F+25SDT6+Die50FMSITrrA1WgE6PAtCddC8U3s=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=gqOUjkqe9xazqq66jm79/hVbwJfGdFHSDs9yVjjf2xXzPofIFaVL68XlPGjSy7pWq
-	 5aLC7vgOAjG7yk7QkXkjlRgj2e8VSc84L2cnQk1OWdN6mfuMuTcYbocA/gyvU+XZnq
-	 lyYai9aCHI+J2Z2dpaux84wZFVnbupL8O3G2nnJL0N3dMmHhRD7dYQwbye0RhiJxgw
-	 3PUb3me/qE+zwyx+eQJu7X6k221MdjWiHU+BY8GI4O/JdVLpPGxPdxEl0f3iZURmp+
-	 lfWTDr+rnC1d8igGkucRDKmD59FvJDPKFRfDOTbKgAD9O1TLae5AnneLkPl+w8glrb
-	 q7IHTDPKG+/iw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AF2BF496EB;
-	Fri, 20 Nov 2026 05:38:06 +0000 (UTC)
-From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 05:38:06 +0000
-Subject: [PATCH 2/2] ALSA: fireworks: Rearm the transaction after a bus
- reset
+	s=k20260515; t=1795153111;
+	bh=XOjSlJvgQP4Iaas7h11mJ3/93ER6A7G5BBfYIFJUboE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GdCyH9kVDo50BeQqxTan6qurJr8c8eoUCjmIdh9CL7hoAeBKzdvJzcDyH1Fz3g+qa
+	 v2YJHqvY03WqpGhspapq3VoZIaUdf1ALBUflZpZ+Op4atVN35MC68xiHeigqFZbeW6
+	 ZxRDAPy5OWKWSfV6LzuV9wdoM7TMJ7Fo8O5m0SbmFzcxFwap4bLTB/JxOOpeB7CoGb
+	 B9MoNQfxV7e/chTSD1q1WZL0oeM8Til5eUJSZncGsNYuw0vvSS/Xa9GS2Jyecniasb
+	 v0UUyPB9fuj+EhPjaZm2jlk33/5RgZDayVmG2JXtfVO89bugn9Ez8+QbuAzoAmM9c7
+	 Qw9QcUA3Sl2JQ==
+Subject: Re: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, opendmb@gmail.com, nb@tipi-net.de,
+ bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+ kudzo51@gmail.com
+Date: Fri, 20 Nov 2026 05:38:30 +0000
+Message-ID: <179515311013.3136.13885466048757926038@kernel.org>
+In-Reply-To: <20261119005943.999981-2-florian.fainelli@broadcom.com>
+References: <20261119005943.999981-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,65 +65,172 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-firewire-busreset-v1-2-8bb9079a2984@gmail.com>
-References: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
-In-Reply-To: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
-To: clemens@ladisch.de, o-takashi@sakamocchi.jp, tiwai@suse.com
-Cc: stefanr@s5r6.in-berlin.de, linux-sound@vger.kernel.org, perex@perex.cz, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795153085; l=1609;
- i=shyckless@gmail.com; s=default; h=from:subject:message-id;
- bh=1Y5tLKaRBeTaHsrbFAyk3KOEWMVkXW1Qflif+BgawNU=;
- b=jfZH8RUBvwraViT8Is2/7Gi8yarnl9HNAqUbWPcQSzB3Bty7B0Xq67oE/zAQRKUHbPmIBsdIE
- 9y9YKoNEzXYBaW4ox60Dpfw/3UCwnmwqwrGkQNv3hSpokJOeUSp4Zqr
-X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
- pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
-X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
- auth_id=1498
-X-Original-From: Suyuan Wang <shyckless@gmail.com>
-Reply-To: shyckless@gmail.com
 
-From: Suyuan Wang <stevewong@hust.edu.cn>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-snd_efw_transaction_run() has the same problem as fcp_avc_transaction():
-after snd_efw_transaction_bus_reset() moves the transaction to
-STATE_BUS_RESET, the loop sleeps and resends the command but leaves the
-state as it is. The response handler only completes a transaction in
-STATE_PENDING, and wait_event_timeout() returns at once on the stale
-state, so the command is resent every ERROR_DELAY_MS without counting
-tries and the caller never returns unless sending fails.
+Low priority / nit picks for your consideration:
 
-Set the state back to STATE_PENDING before resending.
+- [Low] The -EIO/-ENODEV -> -ENODEV mapping in get_phy_c45_ids()
+  (drivers/net/phy/phy_device.c) applies to every caller, not only…
+- [Low] The commit message gives the UniMAC MDIO block (MDIO_READ_FAIL)
+  as its example of a controller whose read_c45() reports an empty…
+- [Low] The patch rewrites the kernel-doc of get_phy_c45_ids() (lines
+  826-828) and of the exported phy_get_c45_ids() (lines 1107-1109).
 
-Found with a static analysis tool and checked by hand.
+--
 
-Fixes: bde8a8f23bbe ("ALSA: fireworks: Add transaction and some commands")
-Cc: stable@vger.kernel.org
-Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
-Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
----
- sound/firewire/fireworks/fireworks_transaction.c | 2 ++
- 1 file changed, 2 insertions(+)
+net: phy: Map C45 probe read errors to -ENODEV during bus scan
 
-diff --git a/sound/firewire/fireworks/fireworks_transaction.c b/sound/firewire/fireworks/fireworks_transaction.c
-index 5c859773fe06..57aef570ac2d 100644
---- a/sound/firewire/fireworks/fireworks_transaction.c
-+++ b/sound/firewire/fireworks/fireworks_transaction.c
-@@ -100,6 +100,8 @@ int snd_efw_transaction_run(struct fw_unit *unit,
- 			break;
- 		} else if (t.state == STATE_BUS_RESET) {
- 			msleep(ERROR_DELAY_MS);
-+			/* resend the command and wait for its response again */
-+			t.state = STATE_PENDING;
- 		} else if (++tries >= ERROR_RETRIES) {
- 			dev_err(&t.unit->device, "EFW transaction timed out\n");
- 			ret = -EIO;
+This commit makes get_phy_c45_devs_in_pkg() return the raw bus error.
+get_phy_c45_ids() now maps -EIO/-ENODEV to -ENODEV for the devices in
+package reads, both in the MMD loop and in the MMD 0 fallback, which
+matches what get_phy_c22_id() does. With this, mdiobus_scan_bus_c45() can
+skip empty addresses on controllers that report an empty address as a bus
+error.
+
+> MDIO controllers that report a read from an empty address as a bus error
+> (e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide read_c45()
+> with unmasked addresses therefore cannot be registered: the C45 scan fails
+> on the first empty address.
+
+[Severity: Low]
+
+At this commit, drivers/net/mdio/mdio-bcm-unimac.c does not set
+bus->read_c45 yet. The UniMAC example therefore can't reach
+mdiobus_scan_bus_c45() here.
+
+The read_c45 support comes later in the series, in "net: mdio:
+mdio-bcm-unimac: Add Clause 45 support". In that patch
+unimac_mdio_do_read() returns -EIO when MDIO_READ_FAIL is set.
+
+Could the commit message say that the UniMAC case depends on that later
+patch? That would help anyone who backports this fix on its own through
+the Fixes: tag.
+
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index b39e945cebd73..79f3fa1e9a036 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+
+[ ... ]
+
+> @@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>   * the PHY identifiers for each device. Return the "devices in package"
+>   * and identifiers in @c45_ids.
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid or no device responds.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
+> + * reads that look for a device), or %-EIO on any other bus access error.
+>   */
+
+[Severity: Low]
+
+Is this list of return values complete? Further down in
+get_phy_c45_ids(), the Device Identifier loop still returns the error
+from phy_c45_probe_present() unchanged:
+
+drivers/net/phy/phy_device.c:get_phy_c45_ids() {
+    ...
+		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
+			...
+			ret = phy_c45_probe_present(bus, addr, i);
+			if (ret < 0)
+				return ret;
+    ...
+}
+
+So whatever errno the controller's read_c45() returns for MDIO_STAT2 can
+reach the caller. That could be -ETIMEDOUT, or an unmapped -EIO/-ENODEV.
+The same call in the first loop is mapped.
+
+The raw return predates this patch. However, the new kernel-doc here, and
+the same new wording on the exported phy_get_c45_ids(), now reads as a
+complete list of zero, -ENODEV or -EIO.
+
+Should this call site be mapped too? The alternative would be to word the
+kernel-doc less strictly.
+
+[ ... ]
+
+> @@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  				continue;
+>  		}
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
+> -		if (phy_reg < 0)
+> -			return -EIO;
+> +		if (phy_reg < 0) {
+> +			ret = get_phy_c45_probe_err(phy_reg);
+> +			if (ret != -ENODEV)
+> +				return ret;
+> +
+
+[ ... ]
+
+> +			devs_in_pkg = 0xffffffff;
+> +			break;
+> +		}
+>  	}
+>
+>  	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
+> @@ -855,7 +881,8 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  		 */
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
+>  		if (phy_reg < 0)
+> -			return -EIO;
+> +			/* returning -ENODEV doesn't stop bus scanning */
+> +			return get_phy_c45_probe_err(phy_reg);
+
+[Severity: Low]
+
+The subject limits this change to the bus scan. However,
+get_phy_c45_ids() is shared by every get_phy_device(bus, addr, true)
+caller and by the exported phy_get_c45_ids(). Is the new return value
+intended for those callers as well?
+
+Some of them now get -ENODEV instead of -EIO when the devices in package
+reads fail:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
+    ...
+		if (rc == -ENODEV)
+			dev_err(&mdio->dev,
+				"MDIO device at address %d is missing.\n",
+				addr);
+		else if (rc)
+			goto exit;
+    ...
+}
+
+Previously this aborted the bus registration. Now it logs the message and
+continues.
+
+drivers/net/phy/sfp.c:sfp_sm_probe_phy() {
+    ...
+	phy = get_phy_device(sfp->i2c_mii, addr, is_c45);
+	if (phy == ERR_PTR(-ENODEV))
+		return PTR_ERR(phy);
+    ...
+}
+
+The SFP state machine now retries and then reports "no PHY detected".
+Previously it went to SFP_S_FAIL.
+
+gpy_probe() in drivers/net/phy/mxl-gpy.c now passes on -ENODEV from
+phy_get_c45_ids() instead of -EIO.
+
+This does look consistent with existing phylib behaviour.
+get_phy_c22_id() already applies the same mapping for every
+get_phy_device(..., false) caller. The phy_c45_probe_present() branch has
+also done it for C45 since commit 17b447539408.
+
+Could the commit message mention these non-scan callers? As written, the
+subject suggests the change only affects mdiobus_scan_bus_c45().
+
+[ ... ]
 
 -- 
-2.34.1
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119005943.999981-1-florian.fainelli%40broadcom.com
