@@ -1,49 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173277;
-	b=HC39HA3CpvPm/YLnDiX0FRFBqk1Tvmjmhp3JqIU6coTLJPNNjJ/8e66F7/y4+TiWmzk2
-	 1kMDg25gfWTAaObIJC6gsDMkYRnrHBuoRImIKWEXqLVirGFcBiybAd1vJg9XVsxxmRUGz
-	 OYcTefOkUP7YJFsZNDeXaQi7HBhXv/oHz+iNM/g4cWHghXu2FZbZ/zhZ5X8ZXzA+e5PF7
-	 J+mSsi64AgNTbay8LCHHcKQi+YkdGCOsSQF/P0OMghjN5ns3D+LWstEddpBW6rqqrxgZf
-	 iredmVfgdHMOwKQ/hoaa+qayEPGZycmtAuD1KVtQbPqgMw+TemCUvQTPcqFJyWr0d8Q==
+	t=1795173273;
+	b=RU40+7yS1A6iLJfjG3c+Y2tJCBZ1Fx+blSAWlCmShPQHmbJEYBF1eTiYZrEo3vx2CxfK
+	 qVnBbalSCnP+RdkEunUbWOps71IR6vpZnYLsSMckbNFA+22i/BCqe8jGzyiVzYFeFBteh
+	 NaQhxsDb2lyw/Ya9LAxvNCnSsBhUKYhrLJfnFDxNXGNQWyNm8lRvcextVPE/jdmEu4yOv
+	 OC73DcVK03rjyjP/J05LuCxvLuQPqndyZAfn4vLdXhW9pVrY50HtYsm+kjDwjlUL7XiKV
+	 PxR166S8hg23a3FAbJmOx1KY2sWAwVJwuEEWEzAWwU1Q2LZoIX+aLPo5iAKQ699GY3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173277;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=AfDl09HCOdC6ty2onrha6eMWA47wa+fLuXb2WwM6rSw=;
-	b=AdUmOm9G7ft68M84Yym/cSjFsqpFkdU6lfdQPrgvd52dPqsZOnpMQejKDVJYexs5XJ3Q
-	 8RifwYV3K9ply450a21qTFSdSHnpnnwz1GwwDAqiewQo0/UhAsOAbIcm+W4bTaQA6pdWT
-	 QMeN+xLjwu/5gMLIUEEj2UlGhxTeulD9kFuvVNbvYp2LgoSEH94jPzGzv0u3amlCYjR+m
-	 +zQZ9xpIAA3z52llQgUIPMe0WUJ5DSAKlZ2zI26VcbucXBI4CssllgGEbdr/zQ1/K/L8o
-	 hjUhF1G2kh/HBKnn6XkigCkhLRoGp7tfrrY52sU3WVyT6jsONLmf50Ull+cJbydrG7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173273;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=r9krR42dCc1R/MygVNC6/W4IONRVpaDXMDjUD/jXYko=;
+	b=vNbGQ/E3EncCGDg5jWW0gUih7gddDo7ln4ZVJ55OvRPmoBbdkuNZq70jy0k9afzw/p/S
+	 qMfJHMHiCdkMxYY2m7yKg1kpcW43R3zLWiShzkgljmf5K17o+qiFF3D14qIKm2+LoSBhE
+	 l5R0PLYaPmRIaGe3cQhzRXHPgGrqgcAaQ0eVWVnS3j/VscxJ/Dg6br2uh/3vCNzBFz7dK
+	 H2V/GGf0QQso5ExeucEhu0K15dwNItJ50Hw7S8xZivybFzqey9KcaXsHnD5xBD3NTvn7s
+	 qOAhPLS0/n4zZPcH8YbX7+IbM62HwzJ+8OLWKYbXAvZ2sog+t7jDUfq6MTu1SJMknwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GqkwZTXS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XMdebML7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41827606A338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:14:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF0DF606A331;
+	Fri, 20 Nov 2026 11:14:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GqkwZTXS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21F511F0093E;
-	Fri, 20 Nov 2026 11:14:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XMdebML7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 448741F00AE3;
+	Fri, 20 Nov 2026 11:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173277;
-	bh=AfDl09HCOdC6ty2onrha6eMWA47wa+fLuXb2WwM6rSw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GqkwZTXS/VvSSegFTnqFSPKP/0HoasBNR8yVVdWZQgXpZZNspD/pL1kgRzqrYNRGT
-	 4cRM3wDDt2aqzcp9iu/zidMNEGNAbLPcss3p9ku0ftdvSsgpuUNvQO61+8PDXE6zpT
-	 rTgos49nT64iQ88ct+adz42TJQZtBjGnru8uhAvWC7AwU7Y5S8k30R8muWTP9IuGLM
-	 Y/UDbpsTENTqAxCld9z43kxPQfsLevNMFbvsb+gAh4gtjadDcMe42lLAhYkwNAKi62
-	 pFxyHLV+ed+uTXq2/ugbe++p66gIyzkSnnCqyc87JQxwPfCpdQQkX8rhfeK9qPUgST
-	 Wkd1BzUUcZ9bA==
-From: Hannes Reinecke <hare@kernel.org>
-Date: Fri, 20 Nov 2026 12:14:06 +0100
-Subject: [PATCH v4 7/9] nvme-auth: wait for authentication to finish when
- changing keys
+	s=k20260515; t=1795173273;
+	bh=r9krR42dCc1R/MygVNC6/W4IONRVpaDXMDjUD/jXYko=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XMdebML7wUZ/sz2xc/apBDOavf3ksv9LxUyAootCAlGpmavA+qGqUX+xacg9T4q19
+	 wwn9JuvYS9vQct9s/PiUsxliWccbmZzmFmMkZvnhxlpcjky17mlisXMePXth7F6c4t
+	 QeubADI+90ig7Irnvf5uD8GzRtBkb+tjfuV7eSPetGY8vTGaFEDM4SxLk3daOjep7h
+	 3WInP/fqpcN4wBs2Zsk8q/ANStBEHB5wRJyiEv0N9iLH8w5WiZzMkD4c4UDPCHD4T4
+	 JBIZcEBVmjhIcXFNuSH2M6LbjvNrNy4/P53VcN4wFq/9gZvLyL3jZ7n45DHlMg1TKm
+	 FlUX75wJ2oVAg==
+Date: Fri, 20 Nov 2026 12:14:24 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Huang Shijie <huangsj@hygon.cn>, Christoph Hellwig <hch@infradead.org>
+Cc: axboe@kernel.dk, viro@zeniv.linux.org.uk, jack@suse.cz, 
+	zhongyuan@hygon.cn, fangbaoshun@hygon.cn, yingzhiwei@hygon.cn, agruenba@redhat.com, 
+	mic@digikod.net, gnoack@google.com, paul@paul-moore.com, jmorris@namei.org, 
+	serge@hallyn.com, aleksa@amutable.com, legion@kernel.org, david@kernel.org, 
+	sandeen@redhat.com, ebiggers@kernel.org, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, gfs2@lists.linux.dev, 
+	linux-security-module@vger.kernel.org, sunjunchao@bytedance.com, shijie8@gmail.com
+Subject: Re: [PATCH v2 1/3] vfs: add inode iteration methods
+Message-ID: <20261120-mitverantwortlich-drehbaren-kantholz-241300d20168@brauner>
+References: <20261113115702.586594-1-huangsj@hygon.cn>
+ <20261113115702.586594-2-huangsj@hygon.cn>
+ <avcBTMvzFWuCkwkn@infradead.org>
+ <avqmmP4dbwu4ziKz@hsj-2U-Workstation>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,75 +64,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-dhchap-keyring-v4-v4-7-5f8c7d9926ee@kernel.org>
-References: <20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org>
-In-Reply-To: <20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org>
-To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
- Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>
-Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Hannes Reinecke <hare@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795173255; l=1812;
- i=hare@kernel.org; s=20260619; h=from:subject:message-id;
- bh=iC5uIetjBmiu+F/MAqTDdLINO5cA+QFsZTQyB9J/JXw=;
- b=472pOmkDTRMcF4MYfGAdKFt9PSahbLRaHfzWZihopwAl24EjPSAFnxpb0WvktRYYs3YeAIP9T
- sm2XC4B2z5RBQhVzO8Yzl29CqPRfeDx66BKWIrTMSgRZadiNCaGaS4d
-X-Developer-Key: i=hare@kernel.org; a=ed25519;
- pk=iekPF4ZZFva3sutm7d1ryPNR1G/WFfUgHaDB423JXho=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <avqmmP4dbwu4ziKz@hsj-2U-Workstation>
 
-When changing DH-HMAC-CHAP keys in sysfs we need to wait for authentication
-to complete on all queues. Otherwise the user might change the keys while
-authentication is in progress, causing the authentication to fail and
-I/O to be interrupted.
+On Mon, Nov 16, 2026 at 02:45:44PM +0800, Huang Shijie wrote:
+> > 	struct inode_iter_contex ctx = INODE_ITER_CTX_INIT;
+> > 
+> > 	while ((inode = sb_inode_iter()))) {
+> > 		/* do stuff */
+> > 	}
+> > 
+> How to manage the sb->s_inode_list_lock in this code?
+> 
+> I have no idea how to hide the sb->s_inode_list_lock in this code.
 
-Signed-off-by: Hannes Reinecke <hare@kernel.org>
-Reviewed-by: Sagi Grimberg <sagi@grimberg.me>
----
- drivers/nvme/host/sysfs.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+I think Christoph is right. The lock shouldn't be held across
+iterations. Let the iterator take it, grab a reference to the next
+inode, drop the lock again and hand the inode out. The reference keeps the
+inode on s_inodes so the next call can continue from there.
 
-diff --git a/drivers/nvme/host/sysfs.c b/drivers/nvme/host/sysfs.c
-index 47caed2ce39786848a5acdb1dc50e4b156694086..ce327a018b0d0a24e26a7f9bfce761157aafe871 100644
---- a/drivers/nvme/host/sysfs.c
-+++ b/drivers/nvme/host/sysfs.c
-@@ -875,7 +875,6 @@ static ssize_t dhchap_secret_store(struct device *dev,
- 		if (generated) {
- 			dev_dbg(ctrl->dev, "revoke host key %08x\n", key_serial(key));
- 			key_revoke(key);
--			synchronize_rcu();
- 		}
- 		key_put(key);
- 		kfree_sensitive(dhchap_secret);
-@@ -897,7 +896,7 @@ static ssize_t dhchap_secret_store(struct device *dev,
- 	/* Start re-authentication */
- 	dev_info(ctrl->device, "re-authenticating controller\n");
- 	queue_work(nvme_wq, &ctrl->dhchap_auth_work);
--
-+	flush_work(&ctrl->dhchap_auth_work);
- 	return count;
- }
- 
-@@ -973,7 +972,6 @@ static ssize_t dhchap_ctrl_secret_store(struct device *dev,
- 		dev_dbg(ctrl->dev, "revoke ctrl key %08x\n",
- 			key_serial(old_key));
- 		key_revoke(old_key);
--		synchronize_rcu();
- 	}
- 	ctrl->ctrl_key = key;
- 	ctrl->ctrl_key_generated = generated;
-@@ -983,7 +981,7 @@ static ssize_t dhchap_ctrl_secret_store(struct device *dev,
- 	/* Start re-authentication */
- 	dev_info(ctrl->device, "re-authenticating controller\n");
- 	queue_work(nvme_wq, &ctrl->dhchap_auth_work);
--
-+	flush_work(&ctrl->dhchap_auth_work);
- 	return count;
- }
- 
+This is how drop_pagecache_sb() does it today. Sm like (UNTESTED and not
+nice-ified):
 
--- 
-2.51.0
+struct sb_inode_iter {
+	struct super_block *sb;
+	struct inode *inode;
+	bool done;
+};
 
+struct inode *sb_inode_iter_next(struct sb_inode_iter *it)
+{
+	struct super_block *sb = it->sb;
+	struct inode *prev = it->inode, *inode;
+
+	if (it->done)
+		return NULL;
+
+	spin_lock(&sb->s_inode_list_lock);
+	inode = list_prepare_entry(prev, &sb->s_inodes, i_sb_list);
+	list_for_each_entry_continue(inode, &sb->s_inodes, i_sb_list) {
+		spin_lock(&inode->i_lock);
+		if (inode_state_read(inode) & (I_FREEING | I_WILL_FREE | I_NEW)) {
+			spin_unlock(&inode->i_lock);
+			continue;
+		}
+		__iget(inode);
+		spin_unlock(&inode->i_lock);
+		spin_unlock(&sb->s_inode_list_lock);
+		it->inode = inode;
+		iput(prev);
+		return inode;
+	}
+	spin_unlock(&sb->s_inode_list_lock);
+	it->inode = NULL;
+	it->done = true;
+	iput(prev);
+	return NULL;
+}
+
+void sb_inode_iter_end(struct sb_inode_iter *it)
+{
+	iput(it->inode);
+	it->inode = NULL;
+	it->done = true;
+}
+
+and then drop_pagecache_sb() becomes:
+
+	struct sb_inode_iter it = { .sb = sb };
+	struct inode *inode;
+
+	while ((inode = sb_inode_iter_next(&it))) {
+		invalidate_mapping_pages(inode->i_mapping, 0, -1);
+		cond_resched();
+	}
+
+Make it a cleanup class and a caller that breaks out early doesn't have
+to remember sb_inode_iter_end() either.
+
+This will end because new inodes are added at the head and the cursor
+stays on the list. So these assumptions should get
+VFS_WARN_ON_ONCE()-es.
+
+Walkers that can't take a reference might need different solution.
+I'm not sure if there are any?
