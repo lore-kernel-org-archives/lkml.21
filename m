@@ -1,77 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163220;
-	b=Cf3j6ZK8DYVT6m5HdnZfU8W6qax55GYPwSedBCEba58SxQFSMJSvHsxpCp5N6iFSh/OO
-	 izE9jlfSLXjmiWULpYas/EzMllOLlWTmKJsmzluwXUYDlIXCJC5Qzn+4Xwgcjz/7jmg9r
-	 hlOepHd0gT1MFmNlO0fR4TflC3byw5VqGIeMZDxPYQZ/VrxwT7C8p5NWkaH5xZjWqXKXU
-	 I2AOhwPotzooRmRJqzzWIrN+P1V78eIMDKqUy9W2WovvRZO98NbFazd72AfMNv/tQYBzp
-	 6rg8JBQ88lCl/gxLRH+N0zHNCenJEBlorAtTOPPRKC77NGGRc/KT6nrSS7nW2QJST4w==
+	t=1795163272;
+	b=XGFFSHUDE/RmEgA3hNaYfGvpZjyxi+olVguoAvJCO08UjSkndrGKWBRoVCKc0R8Smm+Z
+	 vD7o0JOHt+gPqsyq91DTNAo9oJh2zK2G2qnUUY/6q/lP45OH5HzqhIrnwOGEiPJpxYKRJ
+	 meqCYASoMbAjOJlok5x5hzJNetmPPg13GrLaezTwTgup8chLuDHXafM4hCFfOjhX11HV6
+	 Sqzf2Z1hJGIbIlS+PRkIz2JgY3ibjiJTNU+hb14dOvM4Nm1+XnFiDwnkGSvLswFxsz2wC
+	 jIIZmA8Xx5orZ2UJIqDXf+1/fn9KRQszQ8G0C9Dcu5tUMWZQJydiCHY4bXLPABiJ99w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163220;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=OOnGsAGVoEs5x1m+oAWfOlWtzdwCIzVoBKrtW1ml1LQ=;
-	b=VYATK0B0F9t3Dv2bIKUt8CqFUoqp8ZxapUFGkxyQIIAMmHE270OqORIpZEkmZ5RBNxms
-	 pL+4Y0OAJgssevzaUnhQV/rrgMO0TifMHqD5IW6vkE0z1adqObufkmDysrMyKc3WfdUUO
-	 /O9Z3khYcjdMuYen/RurDgJlCvzRhALUFl4W4pvAciwD7bklCXZ/Ueolc161ddBXrTqoE
-	 8ZuhCSYOp4KGCY+d24Mp2LTkzLmxP7VhcL9pgi0XSwIM9ZNiLPUepXBrf3v//1D7sxCuv
-	 SZQh9qZdEuHmBq3uY4M1witfXtu1q05lOUCO2vu0jrrDiF1zeFZav+8xbeH5wLFTiDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163272;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
+	bh=9EVz50obAhjsYPeTDicab+zb3sNmelcAO2oj1dxcUDE=;
+	b=oyOTxynJ/U/36ZjNrk/R5fluLmkGS81qOjzTWPYBB/W7H3Fs4h0FXLokPc/S9JRbh5z8
+	 m59Gr3rpo7RlZHpT8ZAJVSp7fHljkUGXPw5bIiDGvG1e52nIZIp91w9mNW7LRZs6DA2iC
+	 7W/e42nr9YIXyehPwLCtck7pOsa/Ajvqk2IM2YTHD4ViAa/fbvnxHznSeoMGS2fZbh7Si
+	 TC71cwMwwm7grTKhyH/VXK2tPM2BW/bryJiCJNA5RJBoSAc2f2lH8lkfVNhf/qc/j+CDx
+	 HA344OVNh5B6Cva0vMsAIRd1twdbZFqeOaJUWZblTj/LLVsBHjFqlu6s3G4OGyFhDrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.217.45
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cTEyU2TD;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01C84606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:26:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01C84606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-7cc013095d4so197706137.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:26:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795163219; x=1795768019;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OOnGsAGVoEs5x1m+oAWfOlWtzdwCIzVoBKrtW1ml1LQ=;
-        b=AjZtb+LFteKkcJupprjOnN4wzHcIKuwGresLWw7/8rux33hj3Qud1f2JyetiI3HeP/
-         0EcqtOh/KIctoVDDYuAP1s0HbMEHGAVU3FH+d4WyZT5uYAy4fNVNaq/FhCE3eWqK7wDc
-         MrYJXAIkNeYzeE8UHBzidv77ALhXt5PJJkYZrv63gcvaOnHScweCIbLaGlVa70rSRpgt
-         bBpe10rkjBBm4MGig/k+mtt73BhpOpb/k4UeokRWagjYGv5QKAmXmMY+o7J+A3DFa1Yw
-         JLGshktt5fVGkvkpXlAebhoKdTXDLRA8ExuONcx4g7uq3fSPvpnEBuMBBCdFh0j7aR9w
-         okpQ==
-X-Forwarded-Encrypted: i=1; AL+hErEW14/KDahNQZHF1xQgWMLZhye47n6qMxd+9Pqxi8aSfpfeRHhXsl0JlBt9ZSfp6+W0kHn6pJkCasWKqps=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/Kg5pM2hNB/5k1/euZ4G3WzxHR+Tfss1EFYPa+UczouSQg+wh
-	gb4/CUGBrdKv4aAgfnErO6afm3yI7/2BotwhmJcEaE6BAiW4TkM6X1ps/gvX/w8r
-X-Gm-Gg: AZFdTZfy8oIV4zIzZrKfnFhztNLbajDFTvU+btifI+/MxHQcCERkVtbCofE31vggWVd
-	ZSr0PTzpuNuIBR8OfHoR0i3sIlVCYSz92dGLjxY2s42dZxOVUnEinZx8f1yv39X/4IfNn/rWclf
-	827hE598V+9ZkGOAA5Yyl9I0APiIqLskwT/sjK0aUWSuJyhRJfjZ3hOhH71RC+vCm0QyuKZnqbS
-	jE+TlGwjuK1hhrEJI/kQ0wg4F66tAmMpCEmaIW6cGVMlUL/T8tvatI514B+8l3c7b5n0xhaL5aT
-	XE+sy/ZJm5PS8tInNHX2bGeVu+lHnhw+U4vr8sdn1rthQAeAideADW3ZZeOrPK2OmdudJafaiiG
-	HjRzE5gV2tjRx13OKEhCfRB+eEFQsJNMrr8NKqCIShgbRRH4Uhj4YBDkzCwb2GuaLc1WWo4Izb4
-	6+Lsg0VPaFBleMEtwC1l9DAoraxgTaW142A/8TEN26qTg52qReN/jMaUfGMCBoygmLyVcNJJMFR
-	JxFeq74qGnudDLlFUbDJry8EmCmEcIjaFJ67SQepbDxhVZnf3X46vHJEz7ZKdi/bsqozHp2CCU7
-	1/K9kgs4XN8UUs0CUTAcTy7TyMnW0koY9zIctqQI8FGJxrVyvNvBrbKLXkUa72jBnRWzPPR7JNA
-	nHZHFdmIxiIpF
-X-Received: by 2002:a05:6102:6f06:b0:7d2:8e49:f90e with SMTP id ada2fe7eead31-7d7395fe209mr558310137.27.1795163218885;
-        Fri, 20 Nov 2026 00:26:58 -0800 (PST)
-Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e80cb440sm2276920137.7.2026.11.20.00.26.58
-        for <linux-kernel@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 00:26:58 -0800 (PST)
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-99e0d9b3438so175530241.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:26:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGmsAk6ZRwUk+AUOCafI8cKZf8lpOQbbtGxjV0mN9RbEdonUz7He2HqmSee1UEeZoPpGPIB7f9JapjKMrM=@vger.kernel.org
-X-Received: by 2002:a67:e706:0:b0:7d2:7c63:5a08 with SMTP id
- ada2fe7eead31-7d739630203mr799846137.32.1795163218370; Fri, 20 Nov 2026
- 00:26:58 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C197606A320;
+	Fri, 20 Nov 2026 08:27:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C197606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cTEyU2TD
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 1C4694E41684;
+	Fri, 20 Nov 2026 08:27:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CCB226017D;
+	Fri, 20 Nov 2026 08:27:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5828B11BC0FCE;
+	Fri, 20 Nov 2026 09:27:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795163269; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=9EVz50obAhjsYPeTDicab+zb3sNmelcAO2oj1dxcUDE=;
+	b=cTEyU2TDlVbsaA3wIhmbgcZhWApax+ThYFh5jkqWEeHG9F1D3JSnc0D+GrthqfMIqdG9Y4
+	86OtrjBvHcNFWWwRfB0IakXx0nTFC+4n80CKVEX3+sdcLl29G0srYBG3in+x9EotN9KMep
+	A1HRt4f5XLRpvwlmHr3U8ACPBlcEdZN7pto3OprQ2Bbxs8BKJnW1qPW0hSYVQE5zYDES2n
+	LDpDIaYGd8Iv2H00xLD8jnntKYc5x8IpVAhjmKS1BTSkHRbf2eB86l+KqQCHEspgP2F3a3
+	yPTEkiQAEiS5LOBFWa17pHevhEhzsgF+3ccbiBZp4cIvRNQy43pMxhpe3rcrLA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Yaohan Li <shunsheng1218@gmail.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,  Daniel Lezcano
+ <daniel.lezcano@kernel.org>,  Zhang Rui <rui.zhang@intel.com>,  Lukasz
+ Luba <lukasz.luba@arm.com>,  Eduardo Valentin <edubezval@gmail.com>,
+  linux-pm@vger.kernel.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] thermal/drivers/armada: request the overheat IRQ
+ before enabling the source
+In-Reply-To: <20261120042728.420697-1-shunsheng1218@gmail.com> (Yaohan Li's
+	message of "Fri, 20 Nov 2026 12:27:28 +0800")
+References: <87o6bldqjo.fsf@bootlin.com>
+	<20261120042728.420697-1-shunsheng1218@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 20 Nov 2026 09:27:46 +0100
+Message-ID: <87o6bjc3gd.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,79 +73,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn>
-In-Reply-To: <20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 20 Nov 2026 09:26:47 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
-X-Gm-Features: Aa3M54qI8mmq8jn4s299XQgo_FeZArEGNoWUlwaxQmcii1kzPDH4mMAcGfofjbE
-Message-ID: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
-Subject: Re: [PATCH] firmware: arm_scmi: Drop the ARM architecture dependency
-To: gaohan@iscas.ac.cn
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Michal Simek <michal.simek@amd.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Han Gao <rabenda.cn@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Han,
+On 20/11/2026 at 12:27:28 +08, Yaohan Li <shunsheng1218@gmail.com> wrote:
 
-On Fri, 6 Nov 2026 at 20:40, Han Gao via B4 Relay
-<devnull+gaohan.iscas.ac.cn@kernel.org> wrote:
-> From: Han Gao <gaohan@iscas.ac.cn>
+> armada_thermal_probe() requests the overheat interrupt before it registers
+> the thermal zones.  Devres releases resources in the reverse order, so the
+> zones are unregistered first and the interrupt is freed afterwards: a
+> handler that is still running, or that fires in the window between the
+> two, passes a zone that has already been destroyed to
+> thermal_zone_device_update().
 >
-> The SCMI core and the mailbox and shared memory transports only use
-> generic kernel interfaces. Transports that need architecture support,
-> such as SMC, already carry their own dependencies.
+> Request the interrupt after the zone loop instead.  The handler is then
+> freed before the zones it updates, and the interrupt is only requested
+> when a critical trip point was found, which is the only case in which the
+> driver has an overheat source to enable.
 >
-> Drop the ARM and ARM64 dependency so that other architectures can use
-> SCMI. Depend on HAS_IOMEM instead, for devm_ioremap().
+> The interrupt stays optional, as before: apart from -EPROBE_DEFER, an
+> unavailable or invalid IRQ number does not fail the probe, it only leaves
+> the device without overheat interrupt handling.
 >
-> Suggested-by: Michal Simek <michal.simek@amd.com>
-> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-
-Thanks for your patch, which is now commit fe87ede443a15969 ("firmware:
-arm: scmi: Drop the ARM architecture dependency") in scmi/for-linux-next.
-
-> ---
-> This was patch 1 of the Zhihe A210 SoC series [1]. As Michal asked, it
-> now goes on its own through the SCMI tree.
+> The source has to be enabled after the handler is registered, so
+> armada_configure_overheat_int() only programs the thresholds now and
+> armada_thermal_probe() enables the source once the request has succeeded.
+> A failed request then cannot leave an interrupt enabled that nobody
+> handles.
 >
-> Since [1], it depends on HAS_IOMEM: Sashiko found that UML, which has
-> no HAS_IOMEM, failed to link devm_ioremap().
+> The zones are now registered while the source is still masked, so the
+> driver masks it at probe time on the variants that describe the overheat
+> interrupt as a DFX cause: a firmware that left it enabled would otherwise
+> raise an interrupt that nobody handles until the request below.  The mask
+> is released when the request succeeds.
 >
-> Build tested on x86_64 without OF, i386, loongarch64, ppc64le, riscv64
-> and arm64. On UML, SCMI can no longer be selected.
+> ->remove() masks the source and sets a shutdown flag so that the poll loop
+> gives up instead of keeping the removal blocked until the sensor cools
+> down.
 >
-> [1] https://patch.msgid.link/20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn
+> Fixes: 879d7362d1d0 ("thermal: armada: add overheat interrupt support")
+> Signed-off-by: Yaohan Li <shunsheng1218@gmail.com>
 
-> --- a/drivers/firmware/arm_scmi/Kconfig
-> +++ b/drivers/firmware/arm_scmi/Kconfig
-> @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
->
->  config ARM_SCMI_PROTOCOL
->         tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
-> -       depends on ARM || ARM64 || COMPILE_TEST
-> +       depends on HAS_IOMEM || COMPILE_TEST
-
-Please extend the dependencies to RISCV (from the link above, I assume
-you are targeting riscv?) instead.  There is no point in showing this
-option on architectures that have no users of SCMI; one already has
-too many relevant symbols to configure.
-People who want to build test on x86_64 without OF, i386, loongarch64,
-ppc64le, ... can just enable COMPILE_TEST.
-
->         help
->           ARM System Control and Management Interface (SCMI) protocol is a
->           set of operating system-independent software interfaces that are
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
