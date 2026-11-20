@@ -1,57 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209482;
-	b=Ubn3WIRoPz4jKt7IYbc9gvPORePVPIcPtMLooThjdtdkG4gZtTHsBpl+yDWjzO6d0rvL
-	 4pGaQZSTZHOAVCVPNOxq2ZF39bj3xoXGLixM6awirDg0Jh8V5m0FeAtV2Br98pYNyJGri
-	 DuqiGO3fqpyBqygsyfZlyI65q5zvTGWv7ZPLldBEIsuqO9hZHxgfggqOhyCU9FKwqZBa8
-	 wJN5MRltJvxTuEuXwW5fXvp8mQP6U/zJ79As4wCf7L5ZzYXGeaHOgy77Ne9nr3PG8+g0O
-	 qIuqsUBcQIGfSArDyJo0zvzG6axzR5FbQpoU1pJpqZfR5LCPbwMiNpV4ePgZ71xygQw==
+	t=1795209504;
+	b=jjs0JKs68Dvz1VM2qADB3k8AU7vXqH8FbvQo6RITbskNrs5OfPwhaAyFOUbJLVvtGY1r
+	 PET9ox9yYUA7uPEx/4ubQHhTWaBMs6S4wtEoFGJVWvXpNzFn7rIRdoYWh4JpJxef/K27h
+	 enx8zI0EjsNRPdKfVsy/EF5x+85O8syHgV3iXH4F7kj1l0JDEDhIIB0tVye7LJ3h/T7Ma
+	 scMP3p9umkgxnTHGwqzH8Ecn7Ig5kHSZJprFu3voobzD9deatuTbQh4u9DtgKXAlUF7OU
+	 JXSA367FCLQJwNFXvhLxRGmACrp8cNHmuQ28nKIEDrCt8neqtve9/admBmPq7nWrcLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209482;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=LUatZsx+OjdjB9hoDWV8i7p3YX61+WOHN0UmE2quwBo=;
-	b=3ecy47dOSIMjEwPyJk654emi1JLRFSndRLkYSX94UlhofGYrjvuGP7HQyJh7ajQhytMn
-	 bVHqezF5opMa2chsFkAuYE4tl+t2vHmW72gjtQjJJ34i2vumkaoPN/HRyXu//O963lZq/
-	 rih0xZcHSnLBtAG1Qpv56W2QmJX66abmUhVmfb/VD1ALdIfZf95GwpqLavMgu9d3hYsnC
-	 48GCJVdrMbNpCcz4ybtLLSSzk0VTzXdGqQ7LZLZFVKWko8lql4m8XXBv4A7t/mGCUxRCE
-	 tuwleg+lb3TFnUzKtLL/2y6AFPT/M5PNc/e5N89aVYjcKDkp5bUsAU4Fcanx21TnJhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209504;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wjd64Or23nw/KUsVntyuyIfn77R+aFtaF7PwFr5d/Ws=;
+	b=BrRlPukrs+OAJKj70ABYix4Fm2ZH7rZAzq+PLm2zvfwpSUYzUS+DlAyUULAgnvebvZfE
+	 IbVvKbTPY02TepfZMF5nf8MZGeoy73W5vM5wAq+O6xRw5hb8fCwtXH+UhRDK7YzzZH3OL
+	 vSg09OOlNO6oxbN/t2HL0ZEL/dFpt2A9evYI82NSombVq655Ydv4hS9z99SXAdfOy47M2
+	 jGzQtxhJXmBgZBuSSSEQgiWELatKd7gWNPTR9f6fXZSq1YxlmAkXS7i73nQXiKCYqdiTv
+	 ncLJotXuQvE9SWnZ2No0i03T/ooyJ5k8FdmdHpWazgJ4jrdklgLWoahbt3bvxRci5qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CnA4CmsV;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hiHbLGgf;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22C9D60A2600;
-	Fri, 20 Nov 2026 21:18:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F258B606A689;
+	Fri, 20 Nov 2026 21:18:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F258B606A689
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CnA4CmsV
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 911181F000CA;
-	Fri, 20 Nov 2026 21:18:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795209481;
-	bh=LUatZsx+OjdjB9hoDWV8i7p3YX61+WOHN0UmE2quwBo=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=CnA4CmsVfPq37brUqn/PwLVLykL6C9ajZKprLKIJxyaMUZQQNGbfOIxTWItWBSQfI
-	 1YFjVvKb/hbpOsvvqOrZ8+cSEGC2C/xzAGi4ZhBTAdERvKAKQBgENwV1jBOkGsLNKt
-	 4iN5E+5NpVUHIT/J6eBBrfWgG9y4sSLq7a6Q2n9zkVdG5iWDB4VhAD+z5oXAItR9P8
-	 vwx/SpG8raheumtItkmN1GMJKgFPLLAtfkHlIvicPrabxsw6Gbl0wyDcqt9X/QPZ3q
-	 REC+u/Q9hqkdjAcUlMMg2bcb6m1WLlH/DgjCuA7M3IVnNARqjHI7m0o5WBXW7mIMDw
-	 B2VYPHa0TFAww==
-Message-ID: <sashiko-outbox-226154@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v10 03/40] sched/deadline: Record the root domain
- holding a task's bandwidth
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <1d10d1a2f94b18ec7e51c1c57833a34c2481c092.1795207232.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <1d10d1a2f94b18ec7e51c1c57833a34c2481c092.1795207232.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 21:18:01 +0000
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hiHbLGgf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795209497; x=1826745497;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=VayXO2obERxLTh/FIisCjx2Bi3BpVJ+zEUoxkoWvpiw=;
+  b=hiHbLGgfAwCaRmh097WBjq/Av4qWMW7l8E7mN/mnxu4JnpXwGlAY3IWN
+   1UDSXVsRi4t4tJgX0oBAFGOVX15nmkewy7d3iG7zHpNi88R0pVXA9Mylh
+   q3ZhsFZUpk4jds0POfnGbNWITBKSiOXtQ/fTZEF5rpa5Cl89RSpc/xVsb
+   zNz77CmRcpo0WvoeKgJBVcoirroco7CRhiIKSmaktb9XEe3PMgb2Aq8NQ
+   fQ5+AZUuETPA9xJorBe+dzbUkvx21OAZJBcoO9bcAvw3Ba4y1sYtQ10SF
+   VAfAMPv8GU6i6bPeffqGUF2XluboQs2E5iO/8aNCLQA0zvzEU+52uaRBZ
+   g==;
+X-CSE-ConnectionGUID: bUXx0zq6Tb6hhX24DCMeBw==
+X-CSE-MsgGUID: N31w90kJR+CFzNJBqYyKTw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4084722"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4084722"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:18:16 -0800
+X-CSE-ConnectionGUID: BMjj23xJQqSojMr33lja1A==
+X-CSE-MsgGUID: 4yEJNJXHQJ+q7NJzFHpFnA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11364362"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 20 Nov 2026 13:18:10 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUVzi-00000001Iah-0bcq;
+	Fri, 20 Nov 2026 21:18:06 +0000
+Date: Sat, 21 Nov 2026 05:17:29 +0800
+From: kernel test robot <lkp@intel.com>
+To: Olivier Moysan <olivier.moysan@foss.st.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, linux-sound@vger.kernel.org,
+	Olivier Moysan <olivier.moysan@foss.st.com>
+Subject: Re: [PATCH v2 02/11] iio: adc: stm32-mdf: add core registration
+Message-ID: <202611210514.27XNsKFF-lkp@intel.com>
+References: <20261118-upstream_mdf_v2-v2-2-7939d3c3720a@foss.st.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,109 +103,114 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-upstream_mdf_v2-v2-2-7939d3c3720a@foss.st.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issues to consider:
-- [Medium] sched/deadline: dl_task_admit_cpu() returns offline CPU in
-  p->cpus_mask
-- [Medium] sched/deadline: dl_task_check_affinity() uses stale CPU when
-  dl_bw is 0
---
+Hi Olivier,
 
-commit fc9f04f79ff6b3431efcbfa8c33fd7eb5355e667
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+kernel test robot noticed the following build warnings:
 
-sched/deadline: Record the root domain holding a task's bandwidth
+[auto build test WARNING on d922ed738439e1d5b4701df7f4cdd49a09925624]
 
-This commit records in dl_bw_cpu a CPU of the root domain that accounts for
-a deadline task's bandwidth, replacing dl_departed_cpu so that admission,
-affinity checks, moves, and releases operate on the root domain where the
-bandwidth is counted even when a sleeping task remains on a CPU from
-another root domain.
+url:    https://github.com/intel-lab-lkp/linux/commits/Olivier-Moysan/dt-bindings-iio-adc-add-stm32mp2-mdf-filter/20261118-161746
+base:   d922ed738439e1d5b4701df7f4cdd49a09925624
+patch link:    https://lore.kernel.org/r/20261118-upstream_mdf_v2-v2-2-7939d3c3720a%40foss.st.com
+patch subject: [PATCH v2 02/11] iio: adc: stm32-mdf: add core registration
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20261121/202611210514.27XNsKFF-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210514.27XNsKFF-lkp@intel.com/reproduce)
 
-Link: https://lore.kernel.org/all/20261103-b4-sched-dl-bw-fixes-v1-1-dd761f=
-e005b4@redhat.com/
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611210514.27XNsKFF-lkp@intel.com/
 
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index d1a2ae9ab75fd..dbb5dafff3717 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-[ ... ]
-> @@ -3592,14 +3618,52 @@ static void task_woken_dl(struct rq *rq, struct t=
-ask_struct *p)
-[ ... ]
-> +static unsigned int dl_task_admit_cpu(struct task_struct *p)
-> +{
-> +	unsigned int cpu;
-> +
-> +	if (task_has_dl_policy(p) && p->dl.dl_bw && p->dl.dl_bw_cpu >=3D 0 &&
-> +	    p->dl.dl_bw_gen =3D=3D dl_bw_gen)
-> +		return p->dl.dl_bw_cpu;
-> +	cpu =3D task_cpu(p);
-> +	if (!cpumask_test_cpu(cpu, &p->cpus_mask)) {
-> +		unsigned int other =3D cpumask_first_and(cpu_active_mask, &p->cpus_mas=
-k);
-> +
-> +		if (other < nr_cpu_ids)
-> +			cpu =3D other;
-> +	}
-> +	return cpu;
-> +}
+All warnings (new ones prefixed by >>):
 
-[Severity: Medium]
-Can dl_task_admit_cpu() return an offline CPU when p is asleep on a CPU
-that went offline?
+>> drivers/iio/adc/stm32-mdf-core.c:447:12: warning: 'stm32_mdf_core_runtime_resume' defined but not used [-Wunused-function]
+     447 | static int stm32_mdf_core_runtime_resume(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/iio/adc/stm32-mdf-core.c:442:12: warning: 'stm32_mdf_core_runtime_suspend' defined but not used [-Wunused-function]
+     442 | static int stm32_mdf_core_runtime_suspend(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/iio/adc/stm32-mdf-core.c:407:12: warning: 'stm32_mdf_core_resume' defined but not used [-Wunused-function]
+     407 | static int stm32_mdf_core_resume(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~
+>> drivers/iio/adc/stm32-mdf-core.c:388:12: warning: 'stm32_mdf_core_suspend' defined but not used [-Wunused-function]
+     388 | static int stm32_mdf_core_suspend(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~~
 
-For tasks in top_cpuset (or when CONFIG_CPUSETS is disabled), CPU
-hot-unplug does not clear the offline CPU from p->cpus_mask.  If p is
-asleep on that CPU when sched_setattr() enters SCHED_DEADLINE (or updates
-a zero-bandwidth task), cpumask_test_cpu(cpu, &p->cpus_mask) is still
-true, so dl_task_admit_cpu() returns the offline CPU whose runqueue is
-attached to def_root_domain.  __sched_setscheduler() and
-sched_dl_overflow() then check and charge def_root_domain instead of the
-active root domain where p will run, failing with -EBUSY when
-def_root_domain has no active CPUs or accounting the bandwidth in the
-wrong root domain.
 
-Should the fallback also trigger when !cpu_active(cpu)?
+vim +/stm32_mdf_core_runtime_resume +447 drivers/iio/adc/stm32-mdf-core.c
 
-> diff --git a/kernel/sched/syscalls.c b/kernel/sched/syscalls.c
-> index 96a5f0a7adbc3..95181e5de8da6 100644
-> --- a/kernel/sched/syscalls.c
-> +++ b/kernel/sched/syscalls.c
-[ ... ]
-> @@ -1204,9 +1213,16 @@ int dl_task_check_affinity(struct task_struct *p, =
-const struct cpumask *mask)
->  	 * if admission test is enabled, we only admit -deadline
->  	 * tasks allowed to run on all the CPUs in the task's
->  	 * root_domain.
-> +	 *
-> +	 * That is the root domain that counts the bandwidth of the task:
-> +	 * the one of the CPU recorded with it. A task moved asleep to
-> +	 * another cpuset is still on a CPU of the root domain it left. A
-> +	 * bandwidth of 0 is counted nowhere, and no move updates its
-> +	 * record: use the CPU the task is on.
->  	 */
-> +	cpu =3D READ_ONCE(p->dl.dl_bw) ? dl_task_root_domain_cpu(p) : task_cpu(=
-p);
->  	guard(rcu)();
-> -	if (!cpumask_subset(task_rq(p)->rd->span, mask))
-> +	if (!cpumask_subset(cpu_rq(cpu)->rd->span, mask))
->  		return -EBUSY;
-> =20
->  	return 0;
+   387	
+ > 388	static int stm32_mdf_core_suspend(struct device *dev)
+   389	{
+   390		struct stm32_mdf *mdf = dev_get_drvdata(dev);
+   391		struct stm32_mdf_priv *priv = to_stm32_mdf_priv(mdf);
+   392		int ret;
+   393	
+   394		ret = pm_runtime_force_suspend(dev);
+   395		if (ret)
+   396			return ret;
+   397	
+   398		regcache_cache_only(priv->regmap, true);
+   399		regcache_mark_dirty(priv->regmap);
+   400	
+   401		/* Balance regmap_mmio_attach_clk() clk_prepare() */
+   402		clk_unprepare(priv->kclk);
+   403	
+   404		return pinctrl_pm_select_sleep_state(dev);
+   405	}
+   406	
+ > 407	static int stm32_mdf_core_resume(struct device *dev)
+   408	{
+   409		struct stm32_mdf *mdf = dev_get_drvdata(dev);
+   410		struct stm32_mdf_priv *priv = to_stm32_mdf_priv(mdf);
+   411		int ret;
+   412	
+   413		ret = pinctrl_pm_select_default_state(dev);
+   414		if (ret) {
+   415			dev_err(dev, "Failed to set pins default state: %d\n", ret);
+   416			return ret;
+   417		}
+   418	
+   419		ret = clk_prepare(priv->kclk);
+   420		if (ret) {
+   421			dev_err(dev, "Failed to prepare kernel clock: %d\n", ret);
+   422			goto err_clk;
+   423		}
+   424	
+   425		regcache_cache_only(priv->regmap, false);
+   426		ret = regcache_sync(priv->regmap);
+   427		if (ret) {
+   428			dev_err(dev, "Failed to sync cache: %d\n", ret);
+   429			goto err_cache;
+   430		}
+   431	
+   432		return pm_runtime_force_resume(dev);
+   433	
+   434	err_cache:
+   435		clk_unprepare(priv->kclk);
+   436	err_clk:
+   437		pinctrl_pm_select_sleep_state(dev);
+   438	
+   439		return ret;
+   440	}
+   441	
+ > 442	static int stm32_mdf_core_runtime_suspend(struct device *dev)
+   443	{
+   444		return 0;
+   445	}
+   446	
+ > 447	static int stm32_mdf_core_runtime_resume(struct device *dev)
+   448	{
+   449		return 0;
+   450	}
+   451	
 
-[Severity: Medium]
-When p->dl.dl_bw is 0 and p was moved to another cpuset partition while
-asleep, doesn't task_cpu(p) still point to the old root domain that p left?
-
-Because dl_task_needs_bw_move() skips zero-bandwidth tasks, p->dl.dl_bw_cpu
-is not updated on the move, and while p remains asleep task_cpu(p) is still
-a CPU of the old partition outside p->cpus_mask.  Calling
-sched_setaffinity() before p wakes up intersects the requested mask with
-the new cpuset's allowed CPUs and then checks cpumask_subset() against the
-old root domain's span, causing sched_setaffinity() to fail with -EBUSY.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
-t.mathieu.desnoyers@efficios.com?part=3D3
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
