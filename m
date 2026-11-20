@@ -1,104 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.1
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795192221;
-	b=oy/FdlxVlc+uhkfRRO42RGqx00xRSaDJKcn9BmNj/fRNFOBI971BOAEWJll9xVJrU8rT
-	 0mJoLiot9O9INgOjrcDAwiXQNOrNMxR8L6SouYr4icFqI9skBVU7tUpowJimYEoiQZxkJ
-	 6Ffumo+UM9XHEdfue+QAkXM/wz5q0jOxQef6iv6uYuiGNLJ/7ZOIKOTcijStb4CTywo7M
-	 ue0dZErR4hhOXEO0YE4FAXw9KDMv6Kv8Z2lmoV62HdV+aoLhAn3pDnX1CZF5K74pZ57Ms
-	 UjlEJpDkWnS5/tWpf1nlRYl+ag5UzgU7mAsOil+vNjbf9A1YoSAYrunbaSHHBq2F5Mw==
+	t=1795192251;
+	b=b+Os3Kw8ImKgMaZPM455qARvs6tbG481lKYFCDf2IbpZyztMMeojkizHubo0Zr8SnSez
+	 bkdmtA1HoPUYBdG3WpTGhT3UfQU5scvNMz3V3wAgEoh0gOG8i0Q/HJWsIYK7cTG4ySTG1
+	 rZYDzZfQqsXSiG12WyF8Amaeiygv+iMyKxuBmQuAXA+RoacrlDyR8esB6yGbnIB8GIEgn
+	 z0rqSxml7Blwz76RcP1M/Pau7WQXmAdUoXODlUQMLRQXSZhSwiQqkzScbJ0we/QPX2Z/a
+	 BSwR6X8oruzVgcnL0kcG69r7xuHEjlTeYVhJUPfkuCbawfiDzmL6yRgTWm1vEPVy0Zg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192221;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
-	b=SXUjlQymHZShGbxFFImxMFlAEREKg2WwiWRFhrrSV1zOwUljIGDW9K0GOa4aAuTHLHsi
-	 TZt/Sbi17RQUNMNnwDSLhpKKd8yJP13qO1EZp9BpMwrhKXEQHaxtfJS7NrNMfH+TGliq+
-	 kXxubo1hRSXndRbtbnwKhCQ8tlfeXENLlnYvrGCl0m/J6w5U0rs9wzthN9Zft/99fpYLJ
-	 vnDd1QR3/u5Uye+C1eMpLDXF+NW+ox6zTVKwQBaX4d9gs0ctbIGu+lLfiMxK02OOkeWZ8
-	 jBCdegc/aPSVx7fwotGxyVPJs0vHwa16FpJJiOIG67HergWKFG1ScxK0U889SSimQlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192251;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
+	b=3s7vsqfQaMMQ/Vd7AQ1FIWBPBbKCKVDyscC1Vd9O/A59IJCXhRVfIPGUig1YbLU9L1Ur
+	 qEP34NVCVnsh56krrHqd0mtnCY5kiyRnkPia5v9BlbL4zJyUDnTMhvH+3pQ5Oz02ZDt2K
+	 yDMpl/BQMHwjFmMYhGTl1vpleSrTIgYiN9tGd9Yf8WiddoWMywtL3tDAScaSRWM8hHeUn
+	 RlIpha96Z4ze76oS8etVn4LH09Dro0Med34d9I8elNPdblZJZqHMWSygD79ZxCaMBZXgT
+	 MWnPOoWp2a7lEQOp4aIkNddz2KWGQDLUJ1JFH7c/Nu6Lr90Y/71zVww/6jrd0anUNgA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Wt0uEjJo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.1
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011001.outbound.protection.outlook.com [52.101.70.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkFR55X7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13A9B60A2609;
-	Fri, 20 Nov 2026 16:30:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13A9B60A2609
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE9A60A262A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:30:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EE9A60A262A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=Wt0uEjJo
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x2ekVOgY/YjGxJnmIPieSkseycJ3of6v296yUEJIVFYE/C+gpv0K632yqctHIcswLIyrTKG7ptoxvhmA2wq6zloZ6PE4vqt7m/mvNKOt2FFBFszwYFJbb2kY+Wl5N1mqIigVqYCYynPCNknRT3D5Lc0xH1shUWzfpTsAQd4EfpwT63oT2b7oIO16c6T4UzqrSlntRcVF6+kIV7V6mJwhxvRTomVEGfNyh1blw8nviGbaYUzjql1tT6vYeXTr/s2YosDuiPWl/LmWEBeurc6GYglWcSeOZoE2VXB328uucEJkP2qx+Nd6PH1W0odd+M3ZhQrfYiqfOAf48rMS2bX3Ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
- b=hjrg2U8SdV0irEnOQGRnVmxelNgxRi4ACy64I5VYbtcL9fqHsJrGjxIUlmSQgbNUlFBNl63k4w+3ojzvl3ppodnNQ5eN6FmZn0b9qKxRD+cesEnUBJbmS/SUue61/DBGRikjzp3YYRQ1pOz0n1JvivGQKk9vJmgKl8LpOseixhKpqVz/tvJEEeKn4jklCDIXLWmWe4MK3fuSAGW38QpUDlrnqd1UdefxxI2jM8kzuyYaNdTvWIu/xv2CG5/UHRpOIOVrQuTsCKVPLwzLnrl6sXnQdDq61osxpi6uCR+NYXXuMuJxRT0B1+waPGyrD5N7qLGPcCz4ehvrBWAS5xiZWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VKYRBdXb/GbE15X2GdmuZ6dvn5CC/xJ1Uon1SW9ll8o=;
- b=Wt0uEjJouOcMtP2RbEXmPIMXcVdIyfbSEqqxLd7mTPQ2tjiTS0YRxpAfs1oVCFZiKOy7oPa/1/um18kpmuUZib7eQHYudjeGVxol407bGVbaehh3AdgaJCkFL/a6gAZt3F74grZn+sh8FAgGErMHwIMckH16tYoddaX0cEE6oOb/tUcynyLnWj2AcX0sqXB5Ow4Gvv3ywC/3xf4sb9TmOOZlnqY9OQVZxzO0juOpRFal3y3IjZTkhQXSEivN7dcq1glnrJuW3t5CHp/4hE+iy0HzPD5iz4i7cakJmZ1IfF80UstRv/iZSTdL5IveGxtE9ReLf5T6vAithYV61ENQMw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by GV1PR04MB9213.eurprd04.prod.outlook.com (2603:10a6:150:28::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 16:30:16 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 16:30:16 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-bsp@toradex.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH] arm64: dts: freescale: Correct white-space style
-Date: Fri, 20 Nov 2026 11:30:08 -0500
-Message-ID: <179519219422.3710319.8948835867917075030.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261113185329.183113-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20261113185329.183113-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8P220CA0022.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:345::16) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hkFR55X7
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so8502735e9.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:30:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795192247; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TRbzfY0FESEcs3GrMwA4v4zgAKkt8JVYu4l7jR++U0QTPlByUHhlMes+/FjokiCIWK
+         +7s/elWY7gg7ZP3UI8KCH7k9w+7BAFXBdRKz7EZglYFge7IZURltZUH6V56R76jcgH9y
+         tr+dzHCgfzGHErMZNjUHmgUuGzznyX6w9sSvJhFToadRDk/UUhiRIKuXhX+5idCN1BzD
+         F44kCFkAx2V7LDZEIeKqY8/OVScflHgpyvzZUsrFx8niY6Zt4l1Zr8xIzKJCEpTiD00S
+         gQC9mqa93PC8GilbJaWgzaqVm0V5CK9kflU8PZuM55MaOownEM17FfRzfCLzbEt2Nikm
+         QpMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
+        fh=YvbZZS1VXbEEHwdUG9Iv1gUsmhMTRIwTcZTh5rFmggs=;
+        b=I+0/rNxBW+us7qGOz/gv+75DWKp2i4AYl9MMVWz1f5owDz53vIISJnmFgyFDt2wwlk
+         2DYVdU/SGHnHIjCIfP8p9/yq6pcMSCjEXhD5vowW707MFE3P/yHznjWuaiLfip7IwvqG
+         w7HbPeHfWoFRbsxkxc9g4kW4+W9uE+Dahm5OrsHRtmpxr+UThRwBHiiPP5OhyEwVj6iT
+         BBcV5Nyp3P1VCUcgeTG9L/I6ZlLZ9v3lTOrV+mlzgzMKUYGmT+1EXg8RPZ2/Ph48uGA/
+         xeItcr3TPGbg20naSdjfAFBcuVC+BoMsbZAsYD0IubZZ2sTpdWxQrZPHxu4mf2fhZVvD
+         WxFA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795192247; x=1795797047; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
+        b=hkFR55X7tHxCv67GbrOSqM2bPtx+GkeIUPQLEHomrHxzgFa82hZAB2RX2T0iI/PZgg
+         hptGCk5mOaRyI2iibg04Zzw8JbtTGfYGS47JYazV4ocpaVqSqKnb587cJdqkKekDERx2
+         HwzYJ6EaGHRQVezBfSSutZgSoHivL+TmiPk8FYJ92/ziEExu/nH2hVDnnJ5ZY/Hm4SbP
+         GDIpghhBZQH1YhgkcqaRyuXx1HoyHiDv6t6e5vUxPVnAwJjOlO83uIqkllYwj/ycZ9LC
+         SekPR1aEx9s/uzYKrXaZvObY13ti1zAnUX5aR1Ol0P2eKGFSDQN9nUM08uSHWcIEUg+P
+         SWfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192247; x=1795797047;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cpX1M32t+57fqMIQ7LfIycrRgmXhRXFNCGI027Dqdn4=;
+        b=A+nzdcS2jW3psscgeY1DcKd22BdsDSgZtoS27cjsG2u+lQibhPOj2wqM620QMEhtNC
+         RtCPeuctZYO8NryF+4DWprx7GU5xAo+7sDJq73ad48CvGurMmswk0a/UDMrJK4M/4tkc
+         nQJRkENijsWvzHK9JaYoYkgbEEm0LpH5DB035d2d11BKXQ3ZCak3vMBD9fYIS+VOaj4b
+         0SldgpjfpvN5lAzbTMofh8ih9IIJOQnFt8WkUXi3MV08QExH2xCVIVETewaUKtxS8cHA
+         J/+NfhpOX3bTgNZO5yIcc0rlGefvgdch45p1xSR0ejpcb4qan2+rWfwDJ/eD9NXEIk/S
+         0QNA==
+X-Forwarded-Encrypted: i=1; AL+hErEhzXd15RR7/CJDS+KAka7vV7iskb/e17Gp8hChVa7ejjXDA/RmkwQYkQri81BB2nqiwOEozKVI7nKh9Z8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83mgTSGS6N7LoVHKx8f4BRSfwpz+v1hPzK0PNrMpgdNRkrhHXW
+	m7KcTfHW5BJswRvDWx7LAVhVZy0SUvuMK+FapQBAJurRnNLTcI02OomL7n3feWkajFtMZgrvgaI
+	4S+XWq9xn3VZuEEt3R1oucuRgUqO/RSY=
+X-Gm-Gg: AYBFou0Gx8hHo6BmHJ+QizJBq/eCM5dereC90W68ZZ6cP4UibTOn8zg3kr+0R7O6u1s
+	Ynp7yb4zvk+x9USFFI+N5O9Qg8BBiCtLf0j9wrBghrpz8j+PfHCpeSVA4S6iGtRDyh6WFHvQqf2
+	nPdnOqFz3JcNfqMFHwxUKGJLmYImVX7fdtvAFHAw3mrHHnIm1pSQzFLeoqM4bPolSPwQ7nQX81o
+	R8ER+NyoEEB91+ub7mfdVXk1pzo56r2pjB765Vb5mO48py1eSasWSEwUVgHK6BWADY6nUVreq/p
+	X+bKhOmS/y63lCXilgGtQm/oNtT7o3HhV54QdyrR8bFT9LjDlrtqOXAybmBC3ZwpFMkfJjyjzbg
+	iApQDlpVXHSTRiEL3lWUaNVuZh3Hk/D6JdUJIeHLiSMyhO/h1W3d/dBTHxu6AD3LR9IHN9MtoE7
+	P/Ofku9gQ3CDKkoYHMOAc=
+X-Received: by 2002:a05:600c:a08b:b0:4bb:6651:9eda with SMTP id
+ 5b1f17b1804b1-4bb88922ca4mr75440565e9.14.1795192245903; Fri, 20 Nov 2026
+ 08:30:45 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,90 +105,455 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV1PR04MB9213:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ebe59d8-568c-4cde-2916-08df47238f15
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|23010399003|18002099003|22082099003|921020|11063799006|56012099006|261026121527099003|261009223027099003|261022075727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	1TBLZBxmKy7xrgEFw/ogHK4IA9EAe1lgcCtRGNRJFS0S76BSzAMHE1R7hhweoWlA+TXAvf5mvcuBifXyAFDL8uB3IXmlV71PFyRU55pPvRzYjGqKg6p8w8VX/BD3NFfxZanXIcsUSsvF5txv3xrCHB9+q9mGGlxOpLmpQhfWhhezOzruA/mGNkXN8oJcPaKyPYzZ00qEmrqS8DjTdTYZUnCcd69ekw/o4o0/qiNzj95xUMRG6vbqj8b3yo+PgMUXnNChpAwOo3hTobR+mQiSx1mkSm4P1KsHh+fewrgT+utpn5gK6CLMGSoPrACbF/D/Id9Nhdnv+sEmPqgpdOG/fYYulnCNsee69fPn0tLWrfnV2IH/dnoEyqgDuurrSGh31Dtz7pwbNjo3qgF5h+Rksr5uBQ/m3CFDUWuRzwo1oiK89iDpjX+YhZuSAY4quvsn7Uem5IT3Y/iuHVuKhbYo5SglNz8GegrnChSuPuSdHsSVCQrP9//4oWE7luVwDZNmHL2i/tgElYU8z4hDY1W3SI1NByjAmKJ+H3xVz2y8xp34pg/xcNygByxET10oZ5OSTFXXPMY06jl/tIHn43J7Vb0zee3q2feThlViTx313H7gXI2UvA0sIJXVbJagAkVna/1vD+fFk7tk+Ws3TqhVHSNP110Fm8I+7cyA006GlveI+KEYZCEDQMfivNmRA9bX0IrEnILKtp0PcBjTWhV6HA==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(23010399003)(18002099003)(22082099003)(921020)(11063799006)(56012099006)(261026121527099003)(261009223027099003)(261022075727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?OVRhdmNDZHZPZkQxSzdpb0RIekdaZTJDMXcvcElRQ1hHQVpPMmFCZjJ0UmY4?=
- =?utf-8?B?M1pGOXdEc3JjKzBCODRuaUZNL2QwazlFSkQvMWo1SnNZRVJoMVVYVmx4V2Uw?=
- =?utf-8?B?NXJ5T2c1SjNXSTBHSDFDeC9CbkgvRldadnFTNndHSGRQRk9vMFFsNG5HZnVw?=
- =?utf-8?B?MXNUY090T3FueFZzV0hYNndZcmpBenJ1eFZYQmdNTlRmSU5CUko3VUVTRlRN?=
- =?utf-8?B?NnJSWFM4bi9Tdm5BelhSalNia0xzY2xUSXBPT1pDcVQxd3BXSElPcE5Ob0x6?=
- =?utf-8?B?bDFUYmJzdHN1MzlmOHp4RlBFOC9SZTBkdHVmWnVoRmhUMWRCQTZ3TnFPejB1?=
- =?utf-8?B?Z3U5STdTM0lmWWNBR2hxMEpYamJBbS84VXRQWGVERDk4Nk9YVEgzclJUQWV6?=
- =?utf-8?B?UlpxbGw3QytMNThqVE4wNmVMcDdWRjljNW5ieExBaGJndURFTTg5alUyQ05X?=
- =?utf-8?B?SVJZVEtHVU8rU29UTUlwSG4zZGYrdHZZY21yUER1MzloMkF2ZmRiTGRQVzlW?=
- =?utf-8?B?ZUhuMmgvZElxNDdaMEIwaEQ4YkcvWHRCZTBlaGFBVHQ5MkxHblJNVnd2a0Uz?=
- =?utf-8?B?MVo1cTVXOStISkFHa2JPZjJsNzFaYWJmODBBcXhoRkR6QWlSRlNsVjVYMWh2?=
- =?utf-8?B?dFlkZGhiQThwK2Q2bEhnc3FFY0V2NUdETVBXQ01pZVEzMWRLOEVMaU8zQ0xo?=
- =?utf-8?B?ZmVRQUNWT2F2OSt6NU5UYXIzYzFmODU5QTkzd0lpVjJjSTBEZUlBbW41NnFj?=
- =?utf-8?B?bzArN3lOVi80dDFzV0ZwQytybXlFakwyb2x0TWc0Zjl2VUk2UWpIS0FNa0lj?=
- =?utf-8?B?eEtJMTJ4Z2ZEVFVBSDl5M0tCRkJLbWEzVWVjdmRQNzlJUUk5K1pDOUtudVln?=
- =?utf-8?B?bHlNdHo2eERYRmxiMXpqcXhKSGxYTUxPdlNJQmJCTVNidi9FaEgwTHk0OEV4?=
- =?utf-8?B?SmJXR1dMblBMQnd4VUxvbkdIaTZPSHdxMmE5Wm5kTVI0K0tjQ2M1bHAwaWJJ?=
- =?utf-8?B?Q0YreHdvWUJMdHVudHJ4TzZ3ZmRBQ0RWWkdHc0I5cDNnQlQ3Zkp5Z3pwL0Jv?=
- =?utf-8?B?ZzlUeHRJdWtqcVJpUUxiK1FIbmFjNHpFZUtQREJTTFp2QTc3WTRSbUNMT3E5?=
- =?utf-8?B?ZFBJR3VBTW83ZGVHUE1zdm50eDFJRW9JSEV6dEphSEdFTko4aFcwN08wWnlm?=
- =?utf-8?B?bjFmdzU1bjhRQmg1dFlPcWhPNHBCaFRRSjMzT2hpT09HQWpPMEFqYjN0YW1T?=
- =?utf-8?B?UDZIN2MrRjJyczIwRDU5WEIrT0ZLazJ4SVk1Qm9oeFJWQlNmTFMxSDZKblpO?=
- =?utf-8?B?NnhROVdZT0pkdENlM25wMFMybDZmaHIrUDhSTXVJUjZnNDN6ZmJxbEMxZzkx?=
- =?utf-8?B?aWxZVWpMRkVOemNPQUdNYUhzSHRQSUVLcXp1RTFRcUlnQmNpVkRXOFlIOXVD?=
- =?utf-8?B?R1A4bXF6MURncmZqdTVLVHlIZ3FvOVNNUTR4Ny9VU1ZXZUNqZHlDNzlNY3dR?=
- =?utf-8?B?bUQzY2h6Rm92a2N2MEJ0Z0I2U0g4WktZT1B3eWU2MG1IT0JtSlQwZXVDTkpo?=
- =?utf-8?B?b2FDbEg0b09PN2VScG9RY0dmMGFrQU1yNWZlY3N2WFJIV1p0WG5QWDA1cXps?=
- =?utf-8?B?MHVseFpLWGlzZXowUkk1UVZRYjY3S252OTNnYnBtbklmL0w1TzRTSzN5ckYr?=
- =?utf-8?B?SWNoU2N1emI5YjBFVU5ZbnBUREdCb0RjVk9kSTArMG1oRzZ5WThwVFZVL3Bx?=
- =?utf-8?B?TEtLOWUrNmVNNnFZcTAyYStWOEU0Si9mYjA3dkZWTUw3eXVON3hJb0FISEw4?=
- =?utf-8?B?NDQxeTFSOWs2VzRDdVFqWVV0c3VsTHFqRUlUaFVhYlVEdFR5WXJUVDRPRHpH?=
- =?utf-8?B?djg5aHdtelJuNGt0eHZ1d2VXdGZBTDN3VjNpdlduYjF0NkIvU0xVV1pTdUll?=
- =?utf-8?B?WEJ3UGNGdW55SWQwTEdHT0R3WC9EK0FYbE4xbGtCdlgzYnR6VTB5NnZrejZK?=
- =?utf-8?B?WEN5bmpIOWFpWXNDKzRQQlZPTE83VTRLUEJYdk5pU2pZbjFEYUhGQXlFNWIw?=
- =?utf-8?B?TVJYQUdYYVdHeklDbGhmNUNGSlgzT1hlbElQZzJZUzl0K3R5MXR3NlYvbnpq?=
- =?utf-8?B?NFVSWDU0bHhRNWlwaVJGQStWMDB4RmVRSGZFV09KbDlzMHVJYlM0M3EzSjdS?=
- =?utf-8?B?eTBPYlVSSk9QdEhKWklpalpRcktLZGZIYjQySVJUc3VCR240amJ2cmhXU2hI?=
- =?utf-8?B?K1dnSEh1NDM3bHZJbVN2TzRyT2FXSnZzc0wxL3YzZEhWd1pSQ1cwbjh4akJY?=
- =?utf-8?B?WmlOTnFvdXpWWU9qVjJnTW5sdGgxamdyMm95enUyaythK1R2NkNlb0UycHRz?=
- =?utf-8?Q?3yrhRoA4p+N2GLovv+uazQlgOADAizlgSuxIx?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ebe59d8-568c-4cde-2916-08df47238f15
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:30:16.1241
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XsOIaQ2GnIL2TO0aq2bp8NJVQLuj4e2BvEoJn7K7GTZXpo8hVaxI9KXEsWpvEQEEFx0H9GXN7p7yVnxhffvns/NzrD2UMZItO2w1PDVyyFOcQ9zlIuicWEoBbHlVw0Qa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9213
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
+ <20261119-mglru-fg-v5-15-9eee2fe97a2d@tencent.com> <CAN_Opa8jGstV=s9S=c842XFJ_H8m5txc6eJDH2AF=KuJSHAe6Q@mail.gmail.com>
+ <CAMgjq7C+7=k9f9HVtYn_VwB96TZAJ=D8cbMh0mV7wCsW3m0ZWA@mail.gmail.com>
+In-Reply-To: <CAMgjq7C+7=k9f9HVtYn_VwB96TZAJ=D8cbMh0mV7wCsW3m0ZWA@mail.gmail.com>
+From: KunWu Chan <kunwu.chan@gmail.com>
+Date: Sat, 21 Nov 2026 00:30:33 +0800
+X-Gm-Features: Aa3M54q95jyZhEq-i_M7PwZnXUeHoRjlmXeb1GTLAqkufRChUjHRglY7D5BoOUY
+Message-ID: <CAN_Opa_+xnmx7JTYxSRyn+itcfJZqeZz2mgBjTTKF13UKqO8rQ@mail.gmail.com>
+Subject: Re: [PATCH v5 15/17] mm/mglru: folio LRU refs based active/inactive
+ number accounting
+To: Kairui Song <ryncsn@gmail.com>
+Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
+	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
+	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
+	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
+	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
+	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
+	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
+	Joanne Koong <joannelkoong@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, 
+	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Frank Li <Frank.Li@nxp.com>
+On Fri, Nov 20, 2026 at 7:21=E2=80=AFPM Kairui Song <ryncsn@gmail.com> wrot=
+e:
+>
+> On Fri, Nov 20, 2026 at 5:30=E2=80=AFPM KunWu Chan <kunwu.chan@gmail.com>=
+ wrote:
+> >
+> > On Thu, Nov 19, 2026 at 5:04=E2=80=AFAM Kairui Song via B4 Relay
+> > <devnull+kasong.tencent.com@kernel.org> wrote:
+> > >
+> > > From: Kairui Song <kasong@tencent.com>
+> > >
+> > > Currently the active/inactive LRU sizes exported through /proc/vmstat
+> > > and memory.stat are derived from the generation window: folios in the
+> > > two newest generations are accounted as active, the rest as inactive.
+> > > This causes several problems:
+> > >
+> > > - Unmapped file folios can stay in older gens despite repeated use,
+> > >   so active files can be under-reported, unlike classical LRU.
+> > >
+> > > - The reading is jumpy: on aging, the second-newest gen, previously
+> > >   active, becomes inactive all at once, causing a huge drop of active
+> > >   folios without any change in use.
+> > >
+> > > - The reading is reversed on swapless machines. When swapping is
+> > >   disabled or unavailable, MGLRU ages anon by moving the gens directl=
+y
+> > >   without walking or touching any folio, to reduce the overhead. So
+> > >   inactive anon folios can suddenly count as active, or vice versa,
+> > >   despite no change in their hotness.
+> > >
+> > > With frequency guided promotion, hotness is already tracked per folio=
+ by
+> > > its referenced count, so we can do folio level accounting instead: a
+> > > folio is active once its refs reach LRU_REFS_ACTIVATED (currently
+> > > LRU_REFS_PROTECTED).
+> > >
+> > > On reaching this threshold, folios are accounted to the active part.
+> > > On forced per-folio aging or PID protection, refs are capped at
+> > > LRU_REFS_WORKINGSET, dropping active folios to the inactive part.
+> > > Note that on swapless machines anon refs are not reset by aging (the
+> > > shortcut skips the per-folio walk), but the counts no longer oscillat=
+e
+> > > as the generation indices wrap.
+> > >
+> > > The accounting is now per folio and lruvec independent, so no size
+> > > adjustment is needed when reparenting a dying memcg: the hierarchical
+> > > stats keep the counts in the parent automatically.
+> > >
+> > > folio_migrate_lru_refs() also gains off-LRU VM_WARN_ON_ONCE checks an=
+d
+> > > __folio_set_lru_refs() warns when the folio is still on an LRU list.
+> > >
+> > > The latter uses lru_get_gen_flags(), so that helper now has to move o=
+ut of
+> > > the CONFIG_LRU_GEN block and is built with the option off, where
+> > > LRU_GEN_WIDTH is 0 and LRU_GEN_MASK is zero.  Keep the decoded value =
+in
+> > > int so the subtraction of the one-off encoding cannot fold to ULONG_M=
+AX
+> > > before it happens: that is -Woverflow, and fatal with CONFIG_WERROR.
+> > >
+> > > Signed-off-by: Kairui Song <kasong@tencent.com>
+> > > ---
+> > >  Documentation/admin-guide/mm/multigen_lru.rst |   4 +-
+> > >  include/linux/mm_inline.h                     | 118 +++++++-------
+> > >  include/linux/mmzone.h                        |  23 ++-
+> > >  mm/folio.c                                    |  39 +----
+> > >  mm/madvise.c                                  |   2 +-
+> > >  mm/vmscan.c                                   | 218 ++++++++++++++++=
++---------
+> > >  mm/workingset.c                               |   2 +-
+> > >  7 files changed, 230 insertions(+), 176 deletions(-)
+> > >
+> > > diff --git a/Documentation/admin-guide/mm/multigen_lru.rst b/Document=
+ation/admin-guide/mm/multigen_lru.rst
+> > > index 9cb54b4ff5d9..808d2e97b3f3 100644
+> > > --- a/Documentation/admin-guide/mm/multigen_lru.rst
+> > > +++ b/Documentation/admin-guide/mm/multigen_lru.rst
+> > > @@ -149,8 +149,8 @@ generations less than or equal to ``min_gen_nr``.
+> > >      ``- memcg_id node_id min_gen_nr [swappiness [nr_to_reclaim]]``
+> > >
+> > >  ``min_gen_nr`` should be less than ``max_gen_nr-1``, since
+> > > -``max_gen_nr`` and ``max_gen_nr-1`` are not fully aged (equivalent t=
+o
+> > > -the active list) and therefore cannot be evicted. ``swappiness``
+> > > +``max_gen_nr`` and ``max_gen_nr-1`` are not fully aged and therefore
+> > > +cannot be evicted. ``swappiness``
+> > >  overrides the default value in ``/proc/sys/vm/swappiness`` and the v=
+alid
+> > >  range is [0-200, max], with max being exclusively used for the recla=
+mation
+> > >  of anonymous memory. ``nr_to_reclaim`` limits the number of pages to=
+ evict.
+> > > diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+> > > index 14aab2b1ed08..77f514143266 100644
+> > > --- a/include/linux/mm_inline.h
+> > > +++ b/include/linux/mm_inline.h
+> > > @@ -105,6 +105,22 @@ static __always_inline enum lru_list folio_lru_l=
+ist(const struct folio *folio)
+> > >         return lru;
+> > >  }
+> > >
+> > > +/**
+> > > + * lru_get_gen_flags - Return the LRU generation number from folio f=
+lags.
+> > > + * @flags: folio flags
+> > > + *
+> > > + * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Ret=
+urns
+> > > + * -1 if the flags indicate the folio is off the list (e.g., isolate=
+d).
+> > > + */
+> > > +static inline int lru_get_gen_flags(unsigned long flags)
+> > > +{
+> > > +       int gen =3D (int)((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF);
+> > > +
+> > > +       /* The gen is stored offset by one, so zero means off-list */
+> > > +       VM_WARN_ON_ONCE(gen > MAX_NR_GENS);
+> > > +       return gen - 1;
+> > > +}
+> > > +
+> > >  #ifdef CONFIG_LRU_GEN
+> > >
+> > >  static inline bool lru_gen_switching(void)
+> > > @@ -168,22 +184,6 @@ static inline void lru_set_gen_flags(unsigned lo=
+ng *flags, int gen)
+> > >         *flags |=3D (gen + 1UL) << LRU_GEN_PGOFF;
+> > >  }
+> > >
+> > > -/**
+> > > - * lru_get_gen_flags - Return the LRU generation number from folio f=
+lags.
+> > > - * @flags: folio flags
+> > > - *
+> > > - * Returns: A number between 0 and (MAX_NR_GENS - 1), inclusive. Ret=
+urns
+> > > - * -1 if the flags indicate the folio is off the list (e.g., isolate=
+d).
+> > > - */
+> > > -static inline int lru_get_gen_flags(unsigned long flags)
+> > > -{
+> > > -       int gen =3D ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
+> > > -
+> > > -       /* Exclude the legal -1 from the unsigned MAX_NR_GENS compari=
+son */
+> > > -       VM_WARN_ON_ONCE(gen !=3D -1 && gen >=3D MAX_NR_GENS);
+> > > -       return gen;
+> > > -}
+> > > -
+> > >  static inline int folio_lru_gen(const struct folio *folio)
+> > >  {
+> > >         return lru_get_gen_flags(READ_ONCE(*const_folio_flags(folio, =
+0)));
+> > > @@ -247,12 +247,21 @@ static inline bool lru_refs_is_workingset(unsig=
+ned int refs)
+> > >         return refs >=3D LRU_REFS_WORKINGSET;
+> > >  }
+> > >
+> > > -static inline void folio_set_lru_refs(struct folio *folio, unsigned =
+int refs)
+> > > +/**
+> > > + * __folio_set_lru_refs - Set a folio's LRU refs.
+> > > + * @folio: the folio
+> > > + * @refs: the new referenced count (0 .. LRU_REFS_MAX)
+> > > + *
+> > > + * Set the folio's LRU refs.  The folio must be off the LRU list (e.=
+g.,
+> > > + * isolated), or use folio_inc_lru_refs or folio_reset_lru_refs inst=
+ead.
+> > > + */
+> > > +static inline void __folio_set_lru_refs(struct folio *folio, unsigne=
+d int refs)
+> > >  {
+> > >         unsigned long new_flags, old_flags =3D READ_ONCE(*folio_flags=
+(folio, 0));
+> > >
+> > >         do {
+> > >                 new_flags =3D old_flags;
+> > > +               VM_WARN_ON_ONCE(lru_get_gen_flags(old_flags) !=3D -1)=
+;
+> > >                 lru_set_refs_flags(&new_flags, refs);
+> > >                 if (new_flags =3D=3D old_flags)
+> > >                         break;
+> > > @@ -261,12 +270,18 @@ static inline void folio_set_lru_refs(struct fo=
+lio *folio, unsigned int refs)
+> > >
+> > >  #ifdef CONFIG_LRU_GEN
+> > >  void folio_inc_lru_refs(struct folio *folio, unsigned int flags);
+> > > +bool folio_reset_lru_refs(struct folio *folio);
+> > >  #else
+> > >  static inline void folio_inc_lru_refs(struct folio *folio, unsigned =
+int flags)
+> > >  {
+> > >         /* Should not be called with !CONFIG_LRU_GEN */
+> > >         WARN_ON_ONCE(1);
+> > >  }
+> > > +
+> > > +static inline bool folio_reset_lru_refs(struct folio *folio)
+> > > +{
+> > > +       return false;
+> > > +}
+> > >  #endif
+> > >
+> > >  /**
+> > > @@ -280,10 +295,18 @@ static inline void folio_inc_lru_refs(struct fo=
+lio *folio, unsigned int flags)
+> > >   */
+> > >  static inline void folio_migrate_lru_refs(struct folio *new, const s=
+truct folio *old)
+> > >  {
+> > > -       folio_set_lru_refs(new, folio_lru_refs(old));
+> > > +       VM_WARN_ON_ONCE_FOLIO(folio_test_lru(old), old);
+> > > +       VM_WARN_ON_ONCE_FOLIO(folio_test_lru(new), new);
+> > > +       __folio_set_lru_refs(new, folio_lru_refs(old));
+> > >  }
+> > >
+> > >  #ifdef CONFIG_LRU_GEN
+> > > +static inline bool lru_refs_is_active(unsigned int refs)
+> > > +{
+> > > +       VM_WARN_ON_ONCE(refs > LRU_REFS_MAX);
+> > > +       return refs >=3D LRU_REFS_ACTIVATED;
+> > > +}
+> > > +
+> > >  static inline bool lru_gen_is_old(struct lruvec *lruvec, int type, i=
+nt gen)
+> > >  {
+> > >         unsigned long min_seq =3D READ_ONCE(lruvec->lrugen.min_seq[ty=
+pe]);
+> > > @@ -294,23 +317,12 @@ static inline bool lru_gen_is_old(struct lruvec=
+ *lruvec, int type, int gen)
+> > >                gen =3D=3D lru_gen_from_seq(min_seq + 1);
+> > >  }
+> > >
+> > > -static inline bool lru_gen_is_active(const struct lruvec *lruvec, in=
+t gen)
+> > > -{
+> > > -       unsigned long max_seq =3D READ_ONCE(lruvec->lrugen.max_seq);
+> > > -
+> > > -       VM_WARN_ON_ONCE(gen >=3D MAX_NR_GENS);
+> > > -
+> > > -       /* see the comment on MIN_NR_GENS */
+> > > -       return gen =3D=3D lru_gen_from_seq(max_seq) || gen =3D=3D lru=
+_gen_from_seq(max_seq - 1);
+> > > -}
+> > > -
+> > >  static inline void lru_gen_update_size(struct lruvec *lruvec, struct=
+ folio *folio,
+> > >                                        int old_gen, int new_gen)
+> > >  {
+> > >         int type =3D folio_is_file_lru(folio);
+> > >         int zone =3D folio_zonenum(folio);
+> > >         int delta =3D folio_nr_pages(folio);
+> > > -       enum lru_list lru =3D type * LRU_INACTIVE_FILE;
+> > >         struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
+> > >
+> > >         VM_WARN_ON_ONCE(old_gen !=3D -1 && old_gen >=3D MAX_NR_GENS);
+> > > @@ -321,19 +333,6 @@ static inline void lru_gen_update_size(struct lr=
+uvec *lruvec, struct folio *foli
+> > >                 atomic_long_sub(delta, &lrugen->nr_pages[old_gen][typ=
+e][zone]);
+> > >         if (new_gen >=3D 0)
+> > >                 atomic_long_add(delta, &lrugen->nr_pages[new_gen][typ=
+e][zone]);
+> > > -
+> > > -       /* return now if not a promotion */
+> > > -       if (old_gen < 0 || new_gen < 0)
+> > > -               return;
+> > > -
+> > > -       /* promotion */
+> > > -       if (!lru_gen_is_active(lruvec, old_gen) && lru_gen_is_active(=
+lruvec, new_gen)) {
+> > > -               __update_lru_size(lruvec, lru, zone, -delta);
+> > > -               __update_lru_size(lruvec, lru + LRU_ACTIVE, zone, del=
+ta);
+> > > -       }
+> > > -
+> > > -       /* demotion requires isolation, e.g., lru_deactivate_fn() */
+> > > -       VM_WARN_ON_ONCE(lru_gen_is_active(lruvec, old_gen) && !lru_ge=
+n_is_active(lruvec, new_gen));
+> > >  }
+> > >
+> > >  static inline unsigned long lru_gen_folio_seq(const struct lruvec *l=
+ruvec,
+> > > @@ -376,7 +375,8 @@ static inline bool __lru_gen_add_folio(struct lru=
+vec *lruvec, struct folio *foli
+> > >  {
+> > >         unsigned long seq;
+> > >         unsigned long flags;
+> > > -       int gen =3D folio_lru_gen(folio);
+> > > +       unsigned int refs;
+> > > +       int gen;
+> > >         int type =3D folio_is_file_lru(folio);
+> > >         int zone =3D folio_zonenum(folio);
+> > >         int delta =3D folio_nr_pages(folio);
+> > > @@ -384,7 +384,7 @@ static inline bool __lru_gen_add_folio(struct lru=
+vec *lruvec, struct folio *foli
+> > >         struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
+> > >
+> > >         BUILD_BUG_ON(BIT(LRU_GEN_WIDTH - 1) !=3D MAX_NR_GENS);
+> > > -       VM_WARN_ON_ONCE_FOLIO(gen !=3D -1, folio);
+> > > +       VM_WARN_ON_ONCE_FOLIO(folio_lru_gen(folio) !=3D -1, folio);
+> > >
+> > >         if (folio_test_unevictable(folio) || !lrugen->enabled)
+> > >                 return false;
+> > > @@ -395,10 +395,12 @@ static inline bool __lru_gen_add_folio(struct l=
+ruvec *lruvec, struct folio *foli
+> > >         gen =3D lru_gen_from_seq(seq);
+> > >         flags =3D (gen + 1UL) << LRU_GEN_PGOFF;
+> > >         /* see the comment on MIN_NR_GENS about PG_active */
+> > > -       set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK | BIT(PG_ac=
+tive), flags);
+> > > +       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK |=
+ BIT(PG_active), flags);
+> > > +       /* use the refs from the atomic snapshot to avoid raced updat=
+e */
+> > > +       refs =3D lru_get_refs_flags(flags);
+> > >
+> > >         lru_gen_update_size(lruvec, folio, -1, gen);
+> > > -       if (lru_gen_is_active(lruvec, gen))
+> > > +       if (lru_refs_is_active(refs))
+> > >                 lru +=3D LRU_ACTIVE;
+> > >         __update_lru_size(lruvec, lru, zone, delta);
+> > >
+> > > @@ -425,24 +427,33 @@ static inline bool lru_gen_add_rejected_folio(s=
+truct lruvec *lruvec, struct foli
+> > >  static inline bool lru_gen_del_folio(struct lruvec *lruvec, struct f=
+olio *folio, bool reclaiming)
+> > >  {
+> > >         unsigned long flags;
+> > > -       int gen =3D folio_lru_gen(folio);
+> > > +       unsigned int refs;
+> > > +       int gen;
+> > >         int zone =3D folio_zonenum(folio);
+> > >         int delta =3D folio_nr_pages(folio);
+> > >         enum lru_list lru =3D folio_is_file_lru(folio) * LRU_INACTIVE=
+_FILE;
+> > > +       unsigned long max_seq =3D READ_ONCE(lruvec->lrugen.max_seq);
+> > >
+> > > +       /* Keep LRU_REFS_FLAGS: refs carry access history across isol=
+ation */
+> > > +       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK, =
+0);
+> > > +       gen =3D lru_get_gen_flags(flags);
+> > > +       refs =3D lru_get_refs_flags(flags);
+> > >         if (gen < 0)
+> > >                 return false;
+> > >
+> > >         VM_WARN_ON_ONCE_FOLIO(folio_test_active(folio), folio);
+> > >         VM_WARN_ON_ONCE_FOLIO(folio_test_unevictable(folio), folio);
+> > >
+> > > -       /* for folio_migrate_flags() */
+> > > -       flags =3D !reclaiming && lru_gen_is_active(lruvec, gen) ? BIT=
+(PG_active) : 0;
+> > > -       flags =3D set_mask_bits(folio_flags(folio, 0), LRU_GEN_MASK, =
+flags);
+> > > -       gen =3D ((flags & LRU_GEN_MASK) >> LRU_GEN_PGOFF) - 1;
+> > > +       /*
+> > > +        * See the comment in lru_gen_folio_seq.  For migration, comp=
+action,
+> > > +        * or any other isolation of a hot folio, try best to retain =
+its gen
+> > > +        * info. Ideally we would keep the full gen info.
+> > > +        */
+> > > +       if (!reclaiming && ((max_seq - gen) % MAX_NR_GENS) < MIN_NR_G=
+ENS)
+> > > +               folio_set_active(folio);
+> > >
+> > >         lru_gen_update_size(lruvec, folio, gen, -1);
+> > > -       if (lru_gen_is_active(lruvec, gen))
+> > > +       if (lru_refs_is_active(refs))
+> > >                 lru +=3D LRU_ACTIVE;
+> > >         __update_lru_size(lruvec, lru, zone, -delta);
+> > >         list_del(&folio->lru);
+> > > @@ -499,6 +510,7 @@ static __always_inline void folio_inc_lru_refs_fa=
+st(struct folio *folio)
+> > >                 return;
+> > >         }
+> > >
+> > > +       BUILD_BUG_ON(LRU_REFS_REFERENCED >=3D LRU_REFS_ACTIVATED);
+> > >         old_flags =3D READ_ONCE(*folio_flags(folio, 0));
+> > >         do {
+> > >                 if (lru_get_refs_flags(old_flags))
+> > > @@ -534,7 +546,7 @@ static inline bool folio_check_lru_refs(const str=
+uct folio *folio)
+> > >  static inline void folio_clear_lru_refs(struct folio *folio)
+> > >  {
+> > >         if (lru_gen_enabled())
+> > > -               folio_set_lru_refs(folio, 0);
+> > > +               folio_reset_lru_refs(folio);
+> > >         else
+> > >                 folio_clear_referenced(folio);
+> > >  }
+> >
+> > Can clear_refs race with disabling MGLRU? Once the static key is
+> > off, it can drop refs from 3 to 2 on a folio still on a gen list.
+> > The drain then subtracts it from inactive, though it was counted
+> > as active.
+>
+> Thanks for the very careful review!
+>
+> I think we are fine, folio_reset_lru_refs checks gen >=3D 0 before
+> touching things, gen >=3D 0 means the folio is manged by MGLRU, right?
+> The worst could happen is we clear PG_workingset for CLRU, which
+> really doesn't matter, one metric off by one folio for a very short
+> period and self healing, not a measurable thing even if you do that on
+> purpose.
 
+Thanks, Kairui. The refs-based accounting makes sense to me.
 
-On Fri, 13 Nov 2026 19:53:30 +0100, Krzysztof Kozlowski wrote:
-> Correct minor style issues around white-spaces (e.g. double space before
-> '=', missing space before bracket or colon) to fix dt-style-check
-> warnings like:
-> 
->   imx91-toradex-osm.dtsi:75: [redundant-whitespace] extra whitespace after :
-> 
-> 
-> [...]
+I meant the else branch in folio_clear_lru_refs(). The static key
+can already be off while the folio is still on a gen list. If
+clear_refs drops refs from 3 to 2 there, where do we subtract
+those pages from the active count?
 
-Applied, thanks!
-
-[1/1] arm64: dts: freescale: Correct white-space style
-      commit: e32bda9845c5239c3b7605c465d61f3e2d350599
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Thanks,
+Kunwu
