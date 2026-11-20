@@ -1,85 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795161570;
-	b=yNWltBUL3j96h9B4/k5uZibMQWhYKNzHnmg/lFo7t7esWpwhry4TnkBAMFdwQoaHk2xi
-	 yhYpU79/i4ccpGUP3m13rVjijsfQavzrBQHSiUjx4Sc0/go709WWW4CepNrWn/Jhnc9nE
-	 CWJycbJF2HklNzGaAn2d/n/zS4SQy31/0S6TbjSuGqhYNdvS7LKE4KmzSoysQ0BjccNlm
-	 pcJeIsAET0+MNBFf5bTF+YGeD/ZwCXSvgEGuynnWNDimQNb8/sCPRsBJ14uHraSwHbBpZ
-	 s94fbRs2Oh1+Ya3V2PIYOpP8HrGx9FEhlN69oXFYtB1lY/cTv5w4wADlAyWFqr9xS+A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161570;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 X-TM-AS-GCONF:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=F2n+4r1Qd+k8zApxHYn/nInTmDlOUducVk8dWZ2hv7U=;
-	b=K0NgdgMZbELmoFQMsuolqmy/PcQ3bv+Ci0vqM16lGHjHOl43am9EZ8SYVKq6I5FC6A6n
-	 STSiif4UMmsGqyplhLAnZzkB9xDehhkX+5SOUFwQw2yxpOfX5Oy2TrhTnSMJ5A4JR4rWU
-	 cciIMeK/S4qHErT9Oc+yL8l4sOlqyEzjmPE2OyC5A2NtcpTrBbe6v7BQheAxIH3ASnHZV
-	 QjneFqFGuEvDzcvcD4OwXws8XSNhlqawvMvgejQgznITG6Dl0pf+LqbWzgzlN5jYTxmxj
-	 mN4z6Ze25kk3CS1hk9fhiS4wcCh++bh59+dIgHoe8wdw8hqXq92+RnSJUDA0+5VDHRQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b="OEQ/sW/t";
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.3
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795161587;
+	b=JezqtKABfUe9zwQ6feaxcoGpTt6DIfs2lfnaLHAMjbY7RrMtpbgSwNfQpB1s+JjKaAZV
+	 YnrOHpUy177zwCeSQNlSND8IT2zhyW1fNJulxMSYwbQWUmXu/OgolID5tvGBaeR3jzZnC
+	 bNVKGv4kREKvcJnTTpWWheqsJCe+dqpyEeKwJbyAtoa81CZPdU+Y9Pe2htsE3TbiE9CZo
+	 0p3svaPdF1scQwdlv5TUrW3JKhJVFkenM+JMYK960xjmideZ1i+Zul2Q+CD6e4Zj6dICN
+	 v6WpAuxDkk5ZbCfK0X/XWfFvDZlFo49WGEhpUNGI/snagb/9wXRSrqTnrJmAH4I2IPQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161587;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-OriginalArrivalTime:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:Content-Type:
+	 X-MS-Office365-Filtering-Correlation-Id:X-SET-LOWER-SCL-SCANNER:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
+	b=CYUuy7PGHGhRqpNjVUyOQlsJm9Q1a4iBoGvU9VkFAwYcpI9LwXAteQdWiJ5NOx9QxJej
+	 MLHVy00/a5utnTj0HKOKvrdlfRKJTjz/Eo/0mF4EagsI69YYkMbwU4uQGPfbwF7HvmHrl
+	 LOLIsC1oLFPx7eI6Idxgc484P5BRHcqkzUM9sUzhs07RQYndKX8vqL/HT06dvq5t0aals
+	 yRqyRasg4mvRzh0sq4YXqWRGw86IRqBZ0S4PZdC/nXw8CkjEft7ZMcy7oZyAx6DkdBr3X
+	 40mCCTuWxd4PokOJTNLgpKdnM2uyU6E3RQaf12/hbOPjfn+dWp+eF14/jZf3pV4WXjw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=leica-geosystems.com;
+	spf=fail smtp.mailfrom=leica-geosystems.com;
+	dkim=pass header.d=leica-geosystems.com header.i=@leica-geosystems.com header.a=rsa-sha256 header.s=selector1 header.b="c/3qOvTj";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.3
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010003.outbound.protection.outlook.com [52.101.69.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2487606A320;
-	Fri, 20 Nov 2026 07:59:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2487606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8043606A325;
+	Fri, 20 Nov 2026 07:59:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8043606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=leica-geosystems.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=leica-geosystems.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=OEQ/sW/t
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7uNZw2531150;
-	Fri, 20 Nov 2026 07:59:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:message-id:mime-version:subject:to; s=
-	pp1; bh=F2n+4r1Qd+k8zApxHYn/nInTmDlOUducVk8dWZ2hv7U=; b=OEQ/sW/t
-	DO5k5qHIqnMFCTBcrLZMFFt05/VGISLK++OknAs3X93c9ZqUXnLdel2SWGnbjKc5
-	ORhjf6zo/I7deziCpmAgHmmghW2FjnFTPwMFWrtwq20djCQh7IMlZTlvDXRHZfAH
-	wRTy9xewnvS+ikI+kw1XGO/e5+1qvYHdyMRhCHZjxmKn7hiHLA3DyXeK5y6Mmz11
-	M674HMkpMhY1/8KzgvpysPdsC6/kMafAzmZQjIC66u2cT1GVWxXyHO78bCl4VnGi
-	zCV2KM5IYbdiRi78GCPy1hsez3iJUU2gznS1iKFxmBuIORVPpyrSSwVf9q81zvzn
-	KkDtoFeO0coIcw==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxqnb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:59:28 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7o6gk2242262;
-	Fri, 20 Nov 2026 07:59:27 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd71hwr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:59:27 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7xN5A45089144
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 07:59:23 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6069D2004B;
-	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4716E20049;
-	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
-Received: from tuxmaker (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 20 Nov 2026 07:59:23 +0000 (GMT)
-Date: Fri, 20 Nov 2026 08:59:22 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Vasily Gorbik <gor@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>,
-        linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: [GIT PULL] s390 fixes for 7.4-rc4
-Message-ID: <20261120075922.3382525Ad6-agordeev@linux.ibm.com>
+	dkim=pass (1024-bit key, unprotected) header.d=leica-geosystems.com header.i=@leica-geosystems.com header.a=rsa-sha256 header.s=selector1 header.b=c/3qOvTj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V4cAeeJKh41RZX6cHB19XVrCps5mjjgB83XPsHhDBFvIkxX92rQU7OujkxgliAVI7Sb4vxqA2nrS+cx41b0RidYgjeZNhPycJbRgBjrwO3OzVYbilyjReklgbojSp5/o5ZKBuYvN5GHuxvHCW6+pu/t1vd4R3e5Jkr8xp0VjYPqnbGAFhBJGx80d1foCbtxFbojDvK4NKnAkbiaHXzxU5G0FbGkABaSJqaUhDYtG/66SeL5vDdFNIunayJt8aYazwhtoxQlXZHtGkYef8vA0Mdl6AnLoz6k4MG6e2Cd4GCs34KKrBCuXm3UPMt9IEat3qDdEGHJp9EQH2BEBlX6ncA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
+ b=nc/KH2o1u2/aH7/Uhduxw7yLrEjOEEgAhz9ZaWYgP9/FvS6CTuU9k9MWrn1NWFy7utIgw9Ip+qILpXifNBS1g1XSx42uxDhsbShkiHzf852trzsO5Mz5/A/CYWsqsRjjyngZg7Tca11UZAy4hrkF3FPwb1SgiPeb6jqCvB3mHS/R38ZgIPCpWkUT8nxsK3JjII60SZYWs1SMnUgclz98WCeSdlvAMJi4LNmon5QN1UEOAjqUI7GdSMkclGpq9WjDEqDpyiDeWQiyOMXoienxmcAcWvxJe4SHxFay5KSDkWiAWOxMPsJ64uHIZorRUJpsgvGj4w4Ul2yktRagqOeYhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 193.8.40.99) smtp.rcpttodomain=vger.kernel.org
+ smtp.mailfrom=leica-geosystems.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=leica-geosystems.com; dkim=none (message not signed);
+ arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=leica-geosystems.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
+ b=c/3qOvTjCze0mxkCnDVkly7jYZHwpy0FA12d62aXa0d2eHmlxK7CHV8WiB3rNwPgXOe39r76fxOPuPpDO3UtoSFsKdlX+fCmwv89/yXzHyKvqJmSF6dM8N8p2xsBISonVpHExNp0crKSHZM4jiqW1Uc3uA/FXgqTgfW8u2ai7oA=
+Received: from AM9P193CA0029.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::34)
+ by AS8PR06MB7367.eurprd06.prod.outlook.com (2603:10a6:20b:31d::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 07:59:42 +0000
+Received: from ZR1PEPF0000E45D.eurprd04.prod.outlook.com
+ (2603:10a6:20b:21e:cafe::2d) by AM9P193CA0029.outlook.office365.com
+ (2603:10a6:20b:21e::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 07:59:42 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 193.8.40.99) smtp.mailfrom=leica-geosystems.com; dkim=none (message not
+ signed) header.d=none;dmarc=pass action=none
+ header.from=leica-geosystems.com;
+Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com
+ designates 193.8.40.99 as permitted sender) receiver=protection.outlook.com;
+ client-ip=193.8.40.99; helo=hexagon.com; pr=C
+Received: from hexagon.com (193.8.40.99) by
+ ZR1PEPF0000E45D.mail.protection.outlook.com (10.167.241.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 07:59:41 +0000
+Received: from aherlnxbspsrv01.lgs-net.com ([10.61.228.61]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
+	 Fri, 20 Nov 2026 08:59:41 +0100
+From: Jie Gu <jie.gu@leica-geosystems.com>
+To: Matthias Fend <matthias.fend@emfend.at>,
+	Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>
+Cc: linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jie Gu <jie.gu@leica-geosystems.com>
+Subject: [PATCH v2 0/2] leds: tps6131x: Fix torch-to-flash transitions
+Date: Fri, 20 Nov 2026 07:58:57 +0000
+Message-ID: <20261120075859.731257-1-jie.gu@leica-geosystems.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,83 +109,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: Fm_K2aGAZITDy9ygzmUp6syw-Ytz-KQX
-X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afffde0 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
- a=Cb2_Q8YfTQsDjjc_npEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: Fm_K2aGAZITDy9ygzmUp6syw-Ytz-KQX
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzMSBTYWx0ZWRfX3BpkRxfpQOqV
- p2OPiPDJPVKsgEoeBKt89m0MgT6s393Izxcw5b4SxpXDPt1gX/4C0dYo8ZneeI5HCrMvHG+CbG1
- +aZv/9v0toK6A7w+YtlX2ak7bvIp0xkuQtczIcAvQnXgnjeADnhapmqNJfBoxIDaKJ12bQN1dQ9
- WSPTdHEs2cw4Off3mi4sGpxSPDNRcn4RTl2cDgwBhX2N5suR+hYksTDkjXvtZwCUYQmk+mmMB5P
- UBRGujkRk52xGRJTNebzKBqZJEY2uH/oDbDgNEFNMbM5c2mUfRiqSu5N6d98G8VKTLZmNWf3T2s
- WWGYbcyZPdamp8nHIkHRsjvUr88tNYWwAeSxbJDwWFVn659fc9aYuq/AC4uhRFlzDh1cmE3GTcB
- 0gseYAvJ7FH9PIFizqsngJbPsWVLJyF9YVzVRuvHHtmgU3N2DZ4XDna/noEFrcVr2elkgZcmEr4
- aZASD4gewMYXzliGN2Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzMSBTYWx0ZWRfX+T67MH1GUozZ
- tP+EQP44N5ax8+q1FU+omfecfz6Jv9kx8C/ImUyLaGiG/wg1BJvNTGvsug6S3UpYUaAcrzLMl38
- Z9xEv42QUX+6sWOvUhHeCNdWb37X7tk=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
- adultscore=0 clxscore=1011 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200031
+Content-Transfer-Encoding: 8bit
+X-OriginalArrivalTime: 20 Nov 2026 07:59:41.0515 (UTC) FILETIME=[190CE9B0:01DD78C5]
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E45D:EE_|AS8PR06MB7367:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: f26f25af-dc28-420f-14ee-08df46dc3b9a
+X-SET-LOWER-SCL-SCANNER: YES
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|42112799006|82310400026|36860700016|376014|23010399003|61400799027|18002099003|16102099003|13003099007|11063799006|56012099006|261102123227099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261009223027099003|261021123027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	FyGyRAZBZj5hwLE4eOn2EE12VsyEtSd+KDC6rO42rY8+rYXBYM2egfTWfhFAmMCGLTxh3pVv7WKCcRWOhc+nAZl2ALak9YbFZ5j+BMcO2R8p0YJE1TztNOGNr+Z9kYOkzZOh5K0VSXZZNkeQa0Wl0HrpcGNNoU+hhFxZnmrkIGipPDRTqm1qdQcBh16j+aTw5DEXLsrl1G68ftSj5l6TPF0ZtF6/Je41kCo8MCjlK0Z6y8EQPqKgIwiWwGit0IUwqSK2P/sEX2eWyeHwI+GcNyyDtI0nIPiqNpF+sLmcvwAAHZczLS5aWTpuyR31HP0nGROict3cuy30xNWlOEgfta8ZZ8DohxYz4ajeQy52QNuol9dTtcci2ZGNtieuhWi0X+32HAYkdftC+yiH4JHtUhNPeYHT6HTQIeKhUwB8GE93W2defdLsTXjPV0VweRE6XjCXzvjMZw4Y1ShWDLgeGe/5qr33EGjnrBUMg8BwlYkAKbRqu07OtpiRKEkZZXa4pPRgWT1K23RbQ1uZTNheEH5AcITW6XTdiqS0VJJ07G6JaV2Sbvm6azvDWkPMSJsjJzACqDhkRaM+5nrT1+je/ET4IfctM8mqdlVu4fNPthuo8WhnR5nLaS1edAoQNO4VW3kPzJzR7NBNM1a9ov96/8XB+59TLS2G+cpCsqkaQss=
+X-Forefront-Antispam-Report:
+	CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(42112799006)(82310400026)(36860700016)(376014)(23010399003)(61400799027)(18002099003)(16102099003)(13003099007)(11063799006)(56012099006)(261102123227099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261009223027099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	+ZmzbNipRbasmZ/mlAvC4qmY5AVZd9bIawjghlbx4XXUq4mbYkQ2hx3cXTGtokBiPMs07iB40S2fC8wmqcNO9dvjnz9JP79Bj4wWV7M/5LTijBYEepO233J1JmLJTlOe8u4s4U52IeMbmw+JpT6gPLqGx15fTqXY2mS0nwoGCKDIG9WXMwIaz7pPStTJY7PrtwrSdB116iRtgHcO6/Uxm7YndL2cWzBEZiupsidTWGCwc9h/PLOylWBPRqUYPvUs97ynLnLlug5MQuVYwp0MZIhCoRvl0emniwbS8ODg1vU9U9gp/iO63/tf+MIS3qWs1bEXg4Alu370Biq/RDmsTrzpQDKyFHhU6Z9P51EsRbYhKoB+1zXsCDvoe5HqMymCDNnA/nVNjEaf5mnCVnRczj3cz1xbRAw/UG3veftuEzuEILhi8fYO2hS9ggX68B4q
+X-OriginatorOrg: leica-geosystems.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:59:41.6043
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f26f25af-dc28-420f-14ee-08df46dc3b9a
+X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.99];Helo=[hexagon.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	ZR1PEPF0000E45D.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR06MB7367
 
-Hi Linus,
+This series fixes torch-to-flash transitions in the TPS6131x driver
+by cancelling pending torch refresh work and clearing the cached
+torch brightness when flash control takes over.
 
-please pull s390 fixes for 7.4-rc4.
+Matthias Fend reviewed and tested v1 on an i.MX8MP-EVK with a
+TPS61310EVM. Thanks to Matthias for reviewing and testing, and to Lee
+Jones for the review comments.
 
-Thanks,
-Alexander Gordeev
+Changes in v2:
+- Use my full name in the author and Signed-off-by fields.
+- Capitalize the commit subjects after the driver prefix.
+- Update the cached torch brightness directly at the call sites
+  instead of using a helper.
+- Add Fixes tags.
+- Carry forward Matthias Fend's Reviewed-by and Tested-by tags.
+ 
+v1: https://lore.kernel.org/linux-leds/20261117064328.4096518-1-jie.gu@leica-geosystems.com/T/
 
-The following changes since commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4:
+Jie Gu (2):
+  leds: tps6131x: Cancel torch refresh on flash mode switch
+  leds: tps6131x: Clear torch brightness cache on flash takeover
 
-  Linux 7.4-rc1 (2026-11-01 13:26:31 -0800)
+ drivers/leds/flash/leds-tps6131x.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-are available in the Git repository at:
+-- 
+2.43.0
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git tags/s390-7.4-2
-
-for you to fetch changes up to 64ee7f863655e67f26947420516daba4e232675d:
-
-  s390/dcssblk: Initialize device semaphore before sysfs registration (2026-11-05 17:54:25 +0100)
-
-----------------------------------------------------------------
-s390 fixes for 7.4-rc4
-
-- Fix error handling for monitor start and stop operations.
-  Return failures to userspace, prevent inconsistent state
-  and potential use-after-free scenarios
-
-- Ensure skipped syscalls return -ENOSYS as expected. Preserve
-  existing ptrace behavior while separating syscall number
-  handling from the return value stored in gpr2
-
-- Fix a race during module initialization where sysfs handlers
-  could access an uninitialized device list semaphore
-
-----------------------------------------------------------------
-Gerald Schaefer (1):
-      s390/appldata: Fix error handling in appldata_generic_handler()
-
-Heiko Carstens (1):
-      s390/syscall: Set -ENOSYS return value before calling syscall_enter_from_user_mode_work()
-
-Jiale Yao (1):
-      s390/dcssblk: Initialize device semaphore before sysfs registration
-
- arch/s390/appldata/appldata_base.c | 12 ++++++++----
- arch/s390/include/asm/ptrace.h     |  4 ++--
- arch/s390/include/asm/syscall.h    |  1 -
- arch/s390/kernel/ptrace.c          | 28 +++++++++++++++++++++++-----
- arch/s390/kernel/syscall.c         | 20 +++++++++-----------
- drivers/s390/block/dcssblk.c       |  3 +--
- 6 files changed, 43 insertions(+), 25 deletions(-)
