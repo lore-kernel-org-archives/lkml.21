@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164071;
-	b=C8IvmKB/6nmAfaX02m3LyxOL0dtRu3KZklfvRUmxtbT065Fi/fHFMnxxprtryi8McPxS
-	 rC404n9N2/3n+C4/3Iym4RbZPbuYlSRLKabILo6TaxyvP4PN3z9CWre1w1HHk5BKqgf+3
-	 1pzNkoO7lVjR4zooaTmfHRgTgqH7Sz4tN8A5efNB4FJBOQIgudV7sbv1tqDqE0GSL1eGB
-	 wSLO23PU94vfFib1dI0sbZ/u+bV7CGD1jzjfeGMC8dgwjvRWylSyGaiQnjQnVfc8sEoSf
-	 72l58JKvuj3xbi1rqPMWEeVY4UvxdLRzvmrojRWxvaeRF5idf42DSq38DLMnjWngr9A==
+	t=1795164078;
+	b=au1Mx5IKm0p8cXJBnw0lwOkCdR0JkGNXFf3T1j/Cp+RS7gBhibqTYHAJx7WFVJf6kwB8
+	 eImk8PGSrhFM/Ks4ymRrzAphjGBsXz2lBhpuYfsWL1g6Qh2QmS+aKwtmLosoJgC8guzck
+	 w6hbmc5UbDLHL/Qf5SzT2gSZg4wwMjJjIOykCYMRA3ms3DFeHHOHXHD1MT/fRDzBvTXbm
+	 u1jbdX7yYmGIdXiU37ZDetwN4Xg0XmLBOOHYNAQszJFc+zmkMxLwIg/0CqIYIR7jtvZH1
+	 S8ZIBQvcNYEwkp7pRiAsutQVyDzwUM5YNPEDf7rMfDckwmrpZQYryJhRC8ewHep2pXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164071;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164078;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
-	b=u6KYXgU1QTju4otUj9iSeNvANyb7C9kg2NU3RoBN550ySyz/t4YxovLcHNhXIgyfomiO
-	 N6p/1xHh844EoVTb0IrUkmq4rkTDm1qs6Gv4ek/PvOgZh6pXT1EoFNr1pukXVEVOwfvvO
-	 WYXUd1j5LJURKR52ROZDjAhpkCtpvGbJMa5rdAF1YwEapOBMmJTu2LAJ32tiUzy8LZT2/
-	 DBkoDt1GUYYnoQ4iCJMlVno5klWnzmEr4VDUgx6y9rav894xURWUeA4CWb3Lq18d+XOzG
-	 B3fsxERW9Q3L1KkM+G23mlMsYnr13J38MwhxFGScxQTcSYoPfaKXwldTkE/2IV/C6iw==
+	bh=vX+acAcyFO4SrtgWaI02zFsEoaqyPYu5s5s/HN5VPPM=;
+	b=WAGn+QUfEv/8kgVdOGITdJ8156v1sGP+5FxSlTuE1zZC05+PmyBueU/0D1ebEF/FUARY
+	 RHUPPllkXN8VuUFOX/SQGYmCsXgui0RwRr8oA96eDvZA3DgDMaLEkyiH11ZNwzBHyd/NV
+	 px0HZgPWx3/fe5UfZza0tMjzq+xcv2ALOPNwNDUyzgpOvTa9Krh6bwuy4Z3IKMPIwiPpz
+	 D9vfBaJFlmOxQgqspv4b5UY+25/5Nqamf3zT4a7y2cM7T67FzMSaz7kqkT6mWTOR+fgw5
+	 BLIMWT5JNFeN4F9HbJO1cOmz7hOhPdD/1AZcM9OJVO/SfbOmr3vICc15xPAVGiJRC5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFxXblBq;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rd2v0wPd;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B718160A5BD5
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B718160A5BD5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4449A606A8A5
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4449A606A8A5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BFxXblBq
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-382f4710a17so1023023eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Rd2v0wPd
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-380b40319bdso804725eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164070; x=1795768870; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795164077; x=1795768877; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
-        b=BFxXblBq1otoODFiqEI2i/efkRllhYlVxPiXINOyzCa87lxGRzRvo4ysEgErBhelYs
-         8k8DFKpTnbFiViNMEIcQiEl7ek4JT8smZcZwR/XoEUg0HXOQuXzyfIWYXJ3Dm6erP4ar
-         JYZ1oZQQ5uDIg+6LlfR2OHha4IK4Ub9DWeLmUuLsYQwOOWF0dl/zF0hoiJTr48raameH
-         ZaUn6fd0Dp2ppnh6GWoz7swz1kHULWeoKiqN5seP7dAB+Nd9/y/JMeQOQeHBW2+7pXCb
-         HGJJr8XQjTy4uB1JCHT5Q0FaRY+004ORNMLRjWvcxTQ/li7WDeuwUZeG26j1d6Qo8OJy
-         Jowg==
+        bh=vX+acAcyFO4SrtgWaI02zFsEoaqyPYu5s5s/HN5VPPM=;
+        b=Rd2v0wPdfwvMv2u0VK501gIGjVDdVP5U/7/e49sNppiED2l1CFH6HT+LgnKGvn3z5N
+         tHup6H8TiXYsM30gt/1fJY91iD+QbHOnsBwNAg3UzKGXAaqWIN6GHqXgr/Ft99BsMcD3
+         moUcv3/hSUlPTEob4twN4a9qAoyq6orC81eKYFRcGj1D6mOzE/ogsV5MH5IZC0QB11of
+         drQOOrU5IXXNhqyehht9bP1z0zJxLkEvhiHHH9lisIj6Sf+4HCN9MPndaMsNILJrgewd
+         QsdgDG8fhb/s9Z1IXgFXSjM1P3iCga8KbkXC/hCzygSupEFHWg/+BAibC2rm1Edt5Opc
+         QYAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164070; x=1795768870;
+        d=1e100.net; s=20260707; t=1795164077; x=1795768877;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+q+bk6wBeU6DAMOAVWLCyHDeeW4f0hRfi2USDPpSdvY=;
-        b=GM8bZRxZvwiKN3W4/iJYkgaODX2GZLlP+mhMN3j4iTdQQNS5kUiLij2HqGg0eWkcQW
-         fH7jNd+iPXjb5e+YkHTyApNloNCdwICYFIfiGfS8JmIEwgWnI/ctd6VV9BrL36Q3Takl
-         bvdhQRIU7bFqL0Ry7wJNwZYhI2DU6iGDG6EYGzFFw2IFJ8RV90sN/U0gtgW76TIGcNBO
-         ZEPQjd9jidsA4z67FgXFOinxHYkjCSHDzDG64PEKdkkd37Eva13vZAAYQqb8dmqe5Db/
-         eK0jCIA5Ve/R0lYJwbXyEPD5SBDjytE6oek1I8scjeSPTaKTEndRxcSLdTN8+kWKRa8Q
-         YADg==
-X-Forwarded-Encrypted: i=1; AL+hErF5Uu4/5WB1o66eA2N4C78O/caaU2m9rBtikVlnhCTGCKP7KQ9IGGJNLmZlAuVBwYdlfep0YotkX/kq3y0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VO2g2Q+cVH3R65kqOT25JPgvgx5yOV92NaocHjTtSR7P1gP6a
-	KJLWWZN31272fMTJoSS7aJUplAvU/pJBBu1XHPMtMolmodaNJ856VgfP
-X-Gm-Gg: AZFdTZdiBuGnKyGuXNYYnQSfOnLeDxRZbElx8+o8OhAI/7IGe8jKZDgEy53d1Kn7Oo6
-	YrL4/G5WBrESjlBuxs9XRE6rAGlg2/upuIZQxhlsnOZI6Qnt3nOSTbwE+yBJAQh4r5cg81jTji3
-	EuHbRlf08/xVbT3w3BUOgFpBjr3Tn9npey8qlH7sPInOY1eu/LwxIpotW2zi+u6hQmsW5WB/Rxx
-	WWKk1X+QY1OwdTAWxKFAWOs63gWAtgb/3xYTIAq8ro5JksSeuUft9LbIHXdBm07JQVRuCVASQZm
-	9yKkNdGY8MwRqn9KZJbRTQIRqIC4/eL8KhX+iSfGaHAx1ALrH7ZRP5r9zgA6XOuC/8IOJQYJGtP
-	HCscsdKHtSI/qWgaWSrpCMO/YAT1YZa8JdLrd3aYKB/ABcSDbnTW6kGQOodIJX91uMK9Caz5w/N
-	M6qlUPQOZR7Q5PXa+bCDaHouC0BBmfdM9MIm2Enw3nuJhqISJUVeeb3Jj9SpsXL3/X5S30G6QV4
-	1uD9hb1g2uEtu+R9d5GwOgmaL/fimXu6CQWb7/Sv8pDZ+uDn7MENq4Vtb+iybKEokS/LVwXb8K/
-	gItdZaLosBN7ELjulS+HFL7ErkfHLKH/hrLSuWDXjCjsqebftqy9Z5a7N07iYfA275bAFXyJicQ
-	L3p6L5jo2w1WHP9FeBg==
-X-Received: by 2002:a05:7301:fc02:b0:384:c043:c5c with SMTP id 5a478bee46e88-3856c6b3470mr1883528eec.3.1795164069863;
-        Fri, 20 Nov 2026 00:41:09 -0800 (PST)
+        bh=vX+acAcyFO4SrtgWaI02zFsEoaqyPYu5s5s/HN5VPPM=;
+        b=Zex5/OJWp0KWwa3SJisXQd6TFjxULLbx6aplNutNmiKFpgUj1zGEVSvtO/nTeeIBWs
+         BGvmNG8vJR0jj6rJKY8BfmNVrV0QipSdh/FWJRAyvVPZjPPHD/ox172e3qvxtBZFy3ap
+         u3wH5lf9FT0fmJWZIGaenS9e+H8GfhmiKe8uN/814LoyG1+Pq4xqc7Md4kxmDGA4oMJ5
+         Imgj/fUFuWUv36SjiGcJD07fiSu5hBG3721AR4PJZ6ktHOOVXJUSd3zDz0KHz24wqLxC
+         yRnRXR+U326BCfp0yYev3DlHu3aUtWn4JAXCpRla96fEJ8r8CKzbSYBvQoyGf8v7BHSJ
+         EDOg==
+X-Forwarded-Encrypted: i=1; AL+hErHaoKPH7dettE32sIABovlozHe2N/F3JrNtURvQJkvOehdnYwWPOypYX6mbseEQtRRLTc1clJcry3lE4yY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ub2PhbZdHV1AUEbyAkkUQ6ARdawxTSbEDIOWFgBAXYZefTKpj
+	DNnpIATptOiiX+9pWSRDnOGpZcTGHf6/7lSjppvG/0YUIZ/BP0EN5ZdN
+X-Gm-Gg: AZFdTZffZj5Mzi2d1d4AmmGk09RpGzqQEA56zMTNuxML12DXOzPx6/77vhRDnzy6L/s
+	fec934/d1MzNywKrq+XgoWUBW+lejaz21/5jm18NCDIXVhePVRseaZEfjOZp+5lD4nxBsWQZ97g
+	vfb9rAQ1Z0ty4e7ZCHMhDxGFGPWZTZHg/FCiGr221VO1Lxpe0rX9s2HZvu6xpcsIDuLl1BlFL1W
+	S3fbRVqQcXqdtl80Q7k8TQTYyrZcLiGRo78XREF0AP/l+TMju0DID/s0W3Mpm772pbGMA4VnjTY
+	bTtspWF6MEbUmRAFcwnMD3zWK1nyf7YBoQCuehQh+TOY13qNUFSc0xPr9cSwBxh6Quc6tBx7IKZ
+	hxO/wLjrQlp+zyK1104ipjIyAtFt/VLm1tAJJNHIZ+3zrmUR8BsbGUCS2F+1jks89mQNZLo+NL4
+	fkIHzlkzYK77GWyk7w2EaF202BG5acoYsF+qsM8OSbfovpEQPrJdYhJVy8rVDsIMp6ZQuUJM2Wf
+	1w8JKrszlHEjLxKjO2EmHzZwmIZuEXgIO7QR4U1LqK1LAarnYJ6KWCKhDQaAKc2NMj5Oh5IArQa
+	0CTcjo+k5pPGUocz2RgLTbSeVuPfTNF1cRNUhEv0gJIkQXw0iwz2NrLhu0dIB3ppkV8j1SlOvgu
+	RsiV0imeYyJEdY/LRGg==
+X-Received: by 2002:a05:7301:db86:b0:384:d59d:199c with SMTP id 5a478bee46e88-3856c2c3fd0mr1889234eec.1.1795164077449;
+        Fri, 20 Nov 2026 00:41:17 -0800 (PST)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.41.08
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.41.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:41:08 -0800 (PST)
+        Fri, 20 Nov 2026 00:41:16 -0800 (PST)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:40:56 -0800
-Subject: [PATCH v3 08/14] HID: logitech-hidpp: do not retry timeouts and
- transport errors in hidpp_send_message_sync()
+Date: Fri, 20 Nov 2026 00:41:01 -0800
+Subject: [PATCH v3 13/14] HID: logitech-hidpp: fix K750 solar battery
+ feature lookup and reconnect
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +95,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-v3-8-cfe2caa1d0eb@gmail.com>
+Message-Id: <20261120-hid-logitech-hidpp-v3-13-cfe2caa1d0eb@gmail.com>
 References: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
 In-Reply-To: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
 To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
@@ -108,40 +108,52 @@ Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>,
  linux-kernel@vger.kernel.org, stable@vger.kernel.org
 X-Mailer: b4 0.17-dev-6b8b8
 
-When a transport failure or timeout occurs, the synchronous send helper
-clears the response buffer, setting its report ID to zero. Because the
-retry loop only inspects valid HID++ short, long, and very long report
-IDs to decide whether to return, a cleared buffer misses both checks and
-falls through to the busy-retry path. Every transport error and timeout
-is therefore misidentified as a busy error and retried three times while
-holding the send mutex.
+In hidpp_solar_request_battery_event(), the driver checked whether
+hidpp->battery.feature_index == 0xff instead of checking
+solar_feature_index, causing it to re-query the root feature table
+unnecessarily or misidentify whether the solar feature was resolved.
 
-Return immediately when the low-level helper reports success or a
-negative error code, and only retry when the device responds with an
-explicit busy protocol error.
+Furthermore, in hidpp_connect_event(), the HIDPP20_BATTERY block lacked
+a branch for HIDPP_QUIRK_CLASS_K750, causing wireless reconnects of a
+K750 keyboard to fall through to hidpp20_query_battery_info_1000() which
+fails because the K750 does not implement feature 0x1000.
 
-Fixes: aba7963544d4 ("HID: logitech-hidpp: Do not assume FAP in hidpp_send_message_sync()")
+Check solar_feature_index in hidpp_solar_request_battery_event() and
+re-enable solar battery reporting via the solar request helper on K750
+reconnects.
+
+Fixes: 696ecef9b587 ("HID: logitech-hidpp: add support for battery status for the K750")
 Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
 Cc: stable@vger.kernel.org
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/hid/hid-logitech-hidpp.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index 0264e4541edf..c486488efe99 100644
+index c960d26a41dd..dbf8f15f5a5b 100644
 --- a/drivers/hid/hid-logitech-hidpp.c
 +++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -364,6 +364,9 @@ static int hidpp_send_message_sync(struct hidpp_device *hidpp,
+@@ -2122,7 +2122,7 @@ static int hidpp_solar_request_battery_event(struct hidpp_device *hidpp)
+ 	u8 params[2] = { 1, 1 };
+ 	int ret;
  
- 	do {
- 		ret = __do_hidpp_send_message_sync(hidpp, message, response);
-+		if (ret <= 0)
-+			break;
-+
- 		if (response->report_id == REPORT_ID_HIDPP_SHORT &&
- 		    ret != HIDPP_ERROR_BUSY)
- 			break;
+-	if (hidpp->battery.feature_index == 0xff) {
++	if (hidpp->battery.solar_feature_index == 0xff) {
+ 		ret = hidpp_root_get_feature(hidpp,
+ 					     HIDPP_PAGE_SOLAR_KEYBOARD,
+ 					     &hidpp->battery.solar_feature_index);
+@@ -4582,7 +4582,9 @@ static void hidpp_connect_event(struct work_struct *work)
+ 		else
+ 			hidpp10_query_battery_status(hidpp);
+ 	} else if (hidpp->capabilities & HIDPP_CAPABILITY_HIDPP20_BATTERY) {
+-		if (hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_VOLTAGE)
++		if (hidpp->quirks & HIDPP_QUIRK_CLASS_K750)
++			hidpp_solar_request_battery_event(hidpp);
++		else if (hidpp->capabilities & HIDPP_CAPABILITY_BATTERY_VOLTAGE)
+ 			hidpp20_query_battery_voltage_info(hidpp);
+ 		else if (hidpp->capabilities & HIDPP_CAPABILITY_UNIFIED_BATTERY)
+ 			hidpp20_query_battery_info_1004(hidpp);
 
 -- 
 2.56.1.750.gf70dc682cf-goog
