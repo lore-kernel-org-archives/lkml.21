@@ -1,96 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.39
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795208045;
-	b=EPlLfM4Umv3FgqBjIeROtlOu/cmhBS6dFDqs6GxiGxj9+w2hf1EpEh1Ey6Yra55IktNG
-	 r5iDfof3J7J3W9+I6bLzDlGaYw3KogyRX0bIyXMNfRdZj0K1abtWKSoCRA1vdQFFXXj0t
-	 ocW92J2GOift+VGAmR5AcKF1VrDgL+UUAKvrsHNc0JKKeNLyiWYepIlIU7Qfqc1Lw4JIb
-	 fbdDjfffp8qhiUfDfUn1gxtn5CoUa3+sRuIFhOV2Vm52wSwQQVq4dETY9imSdBq6saKD3
-	 ejKEXQiFIiPkcMm3RRIjgIABc7Oq4CUs4yeR/IKT9DvMVfpCZ2S3eghpRHHt5qx4Kfw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795208045;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RyLZFkfDZ1pYXmX6+9K7BltbFhAeNweFKJJ5TC8klXA=;
-	b=xKC1GW+x++wi3OH7pw4zCTy+mUNaboNE4xWzHwUHLwb0of4Ja/AEx2jtErc7JmKGa4u/
-	 bYNz51koDg4mYgvEVr2FvVQFxZF53QwxQJPTe+CKRWvJzKftcDcmEedWTwm9/C5/W/KjV
-	 DxTWGG87/md7/TSa4YQPsCUEQZ29A5Dpjl26BEmlYaO5yANHjjwJuFpnpuCuZCXbkL7dF
-	 J9sxZT56Us9ImvEfEQ4taX3+UGPcQO3ApWLLFmWz6tvCmcLmWGhjPNP+td0+EOrfKZvLw
-	 VjhgZ6trpB4yOsmtguVwVlRBwNaJuIdfCw30EYRHthZ15gRx+9v7aZ4tpYHLfizdk4A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=E431B6Kh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.39
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011039.outbound.protection.outlook.com [40.93.194.39])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795208047;
+	b=tO/UuLhNGFZ7LWF4Q46GzRMPpxM1NgYptLrYAFH75ggf2wZafkyVCdNQQgM9boZ31yVM
+	 sAhOqQ4GDSr7lqtD17Wpyux2jB4Pm6UlEbzKlS5l9jrzdg3hWkMQ6mICn/SbUvSGonzDP
+	 Oct9NZP5xPtGrX8qvvoyBYZ5lHFcPCp8DewIPZ3MMbdDQtMaPFFlQ9Iq/MevL8PhI01Ml
+	 9omT7Q6Dcu7Qdts0hK4unik3XqqxjwgHM51jue8atillEH97JxLuG84zhQq/VnLV4p0bJ
+	 A8s20n6tgTlYCkVX7DuruwSk5CMQw3A4wVMrNOSceGq9dpUKyIv02x7GPbK+L1yjwSg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795208047;
+	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
+	bh=llJnKzPoTZyGmg3Zg2y5fd8HX957hF39RVHqH3K3+cg=;
+	b=2/wrY8msE0E1eFj0W33qeCUmxONzU8AydVqzm0EjTYhToTNvGzYJl2F2GgBPWPhKCatI
+	 Km2rTnFW9ua+bJYU6DllVgUI010b1MYqdXxzXalp8XlFV9+D5kBd4mEf5Bq5DK30S5HsE
+	 sJd2wMQGrA5TYQj3F+AOsJ91zLLy0W6aIp2eMFKvChAva3T2G0tvVGaXBBShBQxVoz7c/
+	 LRGqBoFArpGLbP4oVvx3h/Rzwm/K4jSM7e00MEqgM74sMCU2ryD5PY5ne+O+dxUn+Am4a
+	 d20xTAAU5yQ5pQWqiWkCmo1X++8IXMZmJaQiwmLHHzRfWHASZJaF+D+825d23gOuwLQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="f/5/dxf/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC38A606A690;
-	Fri, 20 Nov 2026 20:54:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC38A606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EE0A606A6B3;
+	Fri, 20 Nov 2026 20:54:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=E431B6Kh
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dFtH4REeM20jQKJmCWk3BrFZn0PxBpzjjm4bPwEjcg+qmA74l+w8eoVG+aCRtxFq9DMMCJLXjs6xUsHS/ke0X8YH/4Wc8fGsz6OX8yN7CTAu31A8P5PgsuMQaMPEmVdNyw4/66miN9ABbuGaj1z7Z1wAYtl1VXVCgYcLecsKG6a3phHiw6W9aHFUKV5MsrCprw+vCsklvRph9t3sUE1F05IibvySItsULphL/DAVVHSwaGWPIcijnKHuOTJPFn8BGpNzyufv3CGK13O9tIrHLFgnrYgZB438Ppur62mkISdNFk/9BhB/dHqaa7S5O/TBWjPn4FIQWr3w3czu/TkCgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RyLZFkfDZ1pYXmX6+9K7BltbFhAeNweFKJJ5TC8klXA=;
- b=fHGaiB4MGeIYRFNHKFOPpmeyrwNFh8yh92oSCytTqTVcM7oYE/OU5W4kuo7qO19ZuFYU9QP6MLiI+6cYO0sNq6nDwsB7Fbmy8iiRfC/HfsCDxQRQ4x24BGKdFhPFJ+Bq057bz1tMSnLK++tnrftlqhkyRf6QU+dFIcn9rBGedv9T1pEOnmNz3R6e1WvVNBJMvP//j35qr7VWLmZ6zuSuHqg+ErY2G7wzGO3DjmHpHwuelSIhmN3yGL2M+ZyRPg0iKtv5ypynzMQWIwmcBr8Gap/m/zovpCzop7ctvR3iG2ODvMBR1J7/kQKydRqNiW0kGoxX3h+c8nrfXmLplVbCzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RyLZFkfDZ1pYXmX6+9K7BltbFhAeNweFKJJ5TC8klXA=;
- b=E431B6Kh1/PJnnVVosR7QiPcSqZUrxbf5o6Cmf/sl+Y1bE9pnxlALhe5c2rZkIYWpbzX4ClbvFB0JhRbVWpK7m/pvWU/bx0aDgvKNy8X8TQ50uT9yCxlOfcc1ORKiVQ9JeIFq0eco9YOY/aIiQEmbD5fSnI2OSWkgTH9Asvc36feE6nWPrBCRqlU30qECMTRG8jLY8sS8Q+7g7j1OU2fn6HGTgR8g8E5cnhQIQGSkmEmLVbXHBSEOmKaQslFuuIVBcw2Wzor1x1MGikXCkyA7snOujhbudJoLvqpEUE96I1gNPwtlwMR0dlOd0wQlTSch7xx0e4fw0/1YNXLpADX2A==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12) by IA0PR12MB8748.namprd12.prod.outlook.com
- (2603:10b6:208:482::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
- 2026 20:54:00 +0000
-Received: from CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d]) by CHBPR12MB731189.namprd12.prod.outlook.com
- ([fe80::b0e5:123d:fe06:e10d%6]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 20:54:00 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] iommu: Hold group references across
- bus_iommu_probe()
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Peter Chen <peter.chen@oss.qualcomm.com>
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Jason Gunthorpe <jgg@nvidia.com>, 
- Kevin Tian <kevin.tian@intel.com>, Lu Baolu <baolu.lu@linux.intel.com>, 
- Johan Hovold <johan@kernel.org>, Fenglin Wu <fenglin.wu@oss.qualcomm.com>, 
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261112110747.1903321-1-peter.chen@oss.qualcomm.com>
-References: <20261112110747.1903321-1-peter.chen@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 16:53:56 -0400
-Message-Id: <179520803625.1164516.5819106673711321760.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-ClientProxiedBy: BLAPR03CA0109.namprd03.prod.outlook.com
- (2603:10b6:208:32a::24) To CHBPR12MB731189.namprd12.prod.outlook.com
- (2603:10b6:610:33d::12)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f/5/dxf/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEEB61F000D1;
+	Fri, 20 Nov 2026 20:54:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795208047;
+	bh=llJnKzPoTZyGmg3Zg2y5fd8HX957hF39RVHqH3K3+cg=;
+	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
+	b=f/5/dxf/xAqtgRu612QrTb/e7QUwFLUQq1oW2ctoeSZdD9lcaDER023G5+GR1J2bb
+	 ucDer/cck/S3I0WRZM41BbsK4hFGuDUJhWzt5FgvmG3paZ1Xn0TQINsvppxMWD8kxn
+	 fbx00NLkLQ5mhrXdmsSHpiE07jqGJY8Q6iV+5cagvu9/bMb1V5dlvQUj7EVqbLj2hL
+	 8G8/pMYcPxa/m1IPe92ZH7g2Xvb9gUWUUwo7u4jCJqIhnSSPpnpck1bs2JHrWMWgbC
+	 +PpsnemE/trc3ijcHsmkKDDDLTje5cHWP030ubEkE2ax8NyTtgSXZ/soF89weeLagA
+	 qCClvNJzgu4RQ==
+Message-ID: <sashiko-outbox-226108@kernel.org>
+From: sashiko-bot@kernel.org
+Subject: Re: [PATCH v10 18/40] selftests/sched: Test the root domain of a
+ task in deadline_bw_test
+Reply-To: sashiko-reviews@lists.linux.dev
+To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
+In-Reply-To: <a0e1f11b56620173bb409d66ade1f44ffd29d519.1795207232.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+ <a0e1f11b56620173bb409d66ade1f44ffd29d519.1795207232.git.mathieu.desnoyers@efficios.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 20 Nov 2026 20:54:06 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,115 +60,106 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHBPR12MB731189:EE_|IA0PR12MB8748:EE_
-X-MS-Office365-Filtering-Correlation-Id: 820e79c8-4d05-42b2-7955-08df474866c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|7416014|23010399003|1800799024|261021123027099003|261021121427099003|11063799006|56012099006|261022075727099003|261022105027099003|261026140227099003|261028144727099003|261026121527099003|10067099003|261102123227099003|261009223027099003|22082099003|6133799003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	19beTQzfpBje85K0iDUNW4HA+G9Xo8e16Q+nvHgSu4EcLK+BRFK10cmUYdtEIGR0zdHBpGcf/OG+J6ujsepTkjt1Ft46xs8VWGTuu5oQFid7l0NBRY1ToOrL8NVEH9uW6wDzfRsO+D+S/8bL/9G7SetP4b3WrxU1SPQNZif5FT5fkfUnSaDCel9TY3Ly6uu83cbQK1CJ35nSLq4AtNf0CR1dt/szWMfdByYRRJaB2bBzvatXnYRGkfB4Z2gZUfVkHNfMyB6eqy+/W6QKSLUe+eMyciersVt/WnV9bOYIUN1Bu7me4PX+0jcQfy+5/8e6Au2+SRHoirVEgllGlSCy3H0Yt9n2ht6mWWeU4/HHh4+UOZbNAW6otGb4qNLRMP5bSVOJcXDBMwagWhdEVlNKBigxStadz91JUaJHeWtWLDK9qK+mh1Z1/GgndDYfsy39d+91lN1QkcGZ9dIuenUIk1YjmgcIBsZ4OFUuzP0sdfCntGjamv9iAsy2SNir3XAZSSkKch09UbMyueAPNt4qRpBSj2FDEHfrqFLxgp8XsYvj7zzUGxsEBROGgLv1mSYpJ6SiLRNihPvfT0Ju7eGfgeW6sKw//e7l4G2k1woE6X2Lm5gKGSVgamMUGK8VOzThXrnCM7yPngMk1afPFeBYgjvltI2CNsJwjHzixZyg4DA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHBPR12MB731189.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(1800799024)(261021123027099003)(261021121427099003)(11063799006)(56012099006)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(261026121527099003)(10067099003)(261102123227099003)(261009223027099003)(22082099003)(6133799003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eGRsUmYreFlabFpwUW12Q3B4eTB6eE5LcGVwK0l4YTN0d21HbW5GbmdUaXp2?=
- =?utf-8?B?dlVJVzBwdG9pQVRFVHpEZ1hSVU03emUyVjlNV05uSjNqWXZKQ0QwNEdMd3A1?=
- =?utf-8?B?K3YxSlRJdjdQZWVaUkJvemRYM1VDSHBtemVXUWtSS3ZjU284Sm5rU2V6Vm12?=
- =?utf-8?B?dE8zTU9QZ24raUd3Qk5GR3dpQnh1ZnpCWSt5dWZ5Y3pZcUVTY3lmckExR2NQ?=
- =?utf-8?B?SXMzaE9OUWZPZ2pzWFBseHI3eGw2UnhweEhGZlhGOTNjTGo3aEsycE42RWdQ?=
- =?utf-8?B?V2NLSEUvUGdjSkZiaVA1YWRlUk0xTlRvQ1QzUTlWRmdUY0RtYmNZMVhwR1VY?=
- =?utf-8?B?TXNnWGRKUndBemkwdThhOG4rRmJIeFNxU0JMQk9UYkswTHd2cTR2eFk1cnox?=
- =?utf-8?B?SzV4ZDUvbGdiNEJYNkVTNXpNVVp2Qyt0SHpSSmRLSUlTSzNjdFpQSFBFSVNh?=
- =?utf-8?B?bXBZNXNVaXVpQXhlczFnUHFDQkdoemJ6anorSzR4TU5Sd0NoeGx2NDJVUjFL?=
- =?utf-8?B?MUVPY1R0dkkyN0FrZG4xZzNVUk5uMWp1eDBFYlhpSmptTFlrVSs1MHcxQU1V?=
- =?utf-8?B?bU1BV3FOSVRuby9UOFF4U09mcXFFaWViY2lhdHlKT1pTaStpOUg2V3dTQzZh?=
- =?utf-8?B?cEJKdW80aXJudDBrcnVGOHNITmxzZ2dXbWFHZFFuNmVMRmFFeDZSdWI1ajJh?=
- =?utf-8?B?K09NaWxDMHVVZWhDSTFHTXBDZDgrMWh1V3M0ZUkvaklYd3V4ZUZIaG03aWQ5?=
- =?utf-8?B?QnR2cFNJTW84LzdYWFE5Y2VnMFhzSU51cXB0ODBocGhGYUNQMGQzUVFuUlBG?=
- =?utf-8?B?NnZQbnpVUzdpd01Vanh4c3c4WWcyY0kvK0J3N2VSM0JPOER2T0t2Y1Q5TWE3?=
- =?utf-8?B?SUZ0eDk3WjI0ZVpMZzRDUnVWaHowR3A4ekV2RE0vMThpYXpiS3dFTHJ0TXdz?=
- =?utf-8?B?V0tFOGxseVdPVHYyVmxpeHlaR0dZTnY1cEZXcTd1MGdldEJZY2YzL1Zva3B3?=
- =?utf-8?B?VGtiU1FkVGpuam5FQTVEZU9mV1dzZDVjc2l0c3I4WWNTZXlBY0JSejlqNUhk?=
- =?utf-8?B?VjhDL2JIUGM0SFM3UDd5SW5IWTM2eThKaHZjWmNqQXNKODRENTVHL0UybHZR?=
- =?utf-8?B?dG1BWFppb2E5VGxGS2t0YzlNQk9UazMzQmMvenFUTlpMcURzdnBvQXhTNGx6?=
- =?utf-8?B?cWhGT082TS8zSXp0Q0JxZEdKRDF3Z0h6YWt5WDI4a3VSZmpVYnN2NVZMai9x?=
- =?utf-8?B?aUw1cWtUcTV3R2dNdGsvMHdvUDFhRmkxdk9qMTdFekxVWFY0TTJJaHoveGpx?=
- =?utf-8?B?dk1Cc1g0VGxlMk9UNGVRckZBQUNlRGpHemMvQzRWcDM2L291SHFpdzNDeXFJ?=
- =?utf-8?B?MHRsdzE2RVVJaVkrSGdyY1BFeURZSDg1Z3Y1OTBHWk9DeDVrTHNWSVpneU5P?=
- =?utf-8?B?Sm1BczgxS1BaWFF6YUl5bkU4UGhUaWwzMEFwdCtUWTlxWTFvNXg4QmlTRi8v?=
- =?utf-8?B?MmhOZ0ZzcWc3MEpTQXlKb0ZyU3NQaVE0QmFXVlhJdTJsUGc3MVVOZ1ZCSHdF?=
- =?utf-8?B?eDBJa3VzVjdOazZ2QUtLc2UwdmgwRDNHUktkQnhRK0txdjhnWG81a0ZsY2d0?=
- =?utf-8?B?eGVUQ1dXbjQzMms1V0VYMFVVL2l1OHBPMExPT2JoNU1IMTdKN3JrdzR0NTdv?=
- =?utf-8?B?STQxaXZLRlNEeWYrS0w4d0Vmb3N4bGZaMk9mVStzMEpSM3BKV0dTdFJYM1A2?=
- =?utf-8?B?eE8rU2lJNjRwZlY5SWx5ZTd4cXJUSlY2Vlhscnl6Mm5EeldVTjMvVWwrbThO?=
- =?utf-8?B?S2E4Mkl6QzJHeVlKUUhHdEhtc0RLaTNINkUzVGU4K1lDM054NWxpUitjRkVX?=
- =?utf-8?B?cEI5RkxEN2RuUmhXQWxXeXdDb1lCUGtNSVBkd2JFMUszYy9SeWhONngvM1pF?=
- =?utf-8?B?YUt5c2FRQ3VDM1c4Vjg0WjExSUpNaElwMkViS09rTFlTa1pjeVJXSys2SG9o?=
- =?utf-8?B?d0VUZkxzZEQzZUhnaUVNSUtMTTF0dno4V0ZMSUp6Z1FOM0pkeEhvV0YvMHhH?=
- =?utf-8?B?MnlKaUNrODF5dC9LczFmanJyQzdQek03VE1Db0g2WXFVQzdIN0ZmMUJlWEhC?=
- =?utf-8?B?UEdHSUs3dzY0ZXlNSEtVeE9IRmY2T1ExWmNxdmFlemVaUEU5MmQ1VUFRaXJC?=
- =?utf-8?B?SlFXYXF5VVFoM09BRnpocUpiT0NiOWNDR3ZNMmZYUzluYVJRU3hTNmtDYlRF?=
- =?utf-8?B?eFJ0K05LOUVjK3NEQmZuWTdKUktNYWRPd2xYdlRLSWRzbE8vUjhLdFA1M2hs?=
- =?utf-8?B?ZzZraGtMVWVkc2IvbDVNYmFKS09uMy9FeE9zNE5nUmc2TWZ3TlpxZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 820e79c8-4d05-42b2-7955-08df474866c7
-X-MS-Exchange-CrossTenant-AuthSource: CHBPR12MB731189.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 20:54:00.0964
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4EgUSqEX1oOylvLTDhtnNEdO2Pfcj53gkEpZybiC5Iymq5sHm95xQcbj8pj3smii
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8748
 
-> [ ... 9 lines skipped ... ]
-> This is the "iommu_bus_notifier() being triggered during
-> bus_iommu_probe()" case that commit da33e87bd2bf ("iommu: Handle yet
-> another race around registration") left open. The sequence is:
-> 
->   CPU0 (driver's of_platform_populate / of_platform_depopulate() path)
->   CPU1 (arm_smmu_device_probe() -> iommu_device_register())
-> 
->   CPU0                                CPU1
->   of_platform_device_create(T)
->                                       bus_iommu_probe()
->                                         __iommu_probe_device(T)
->                                           allocates group X,
->                                           queues X on group_list
->   platform_device_unregister(T)
->     iommu_bus_notifier()
->       __iommu_group_remove_device(T)
->         iommu_group_put(X) -> kfree(X)
->                                         list_del_init(&X->entry)
->                                           <- use-after-free
+Thank you for your contribution! Sashiko AI review found 3 potential
+issues to consider:
+- [Low] selftests/sched: missing no_hp flag for
+  partition_grows_child_valid()
+- [Low] selftests/sched: inverted tell flag in
+  partition_grows_child_valid()
+- [Low] selftests/sched: missing cpu_hotpluggable() check in
+  hotplug_top_last_refused()
+--
 
-This seems odd, like shouldn't something outside the iommu subsystem
-be serializing these two things? If some driver is calling
-of_platform_device_create() and racing it with
-platform_device_unregister() it is broken, IMHO.
+commit 31c2701ec79ac71f9d7072a6b7c9ae3a844ce21e
+Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 
-Can you explain more how this arises in the first place?
+selftests/sched: Test the root domain of a task in deadline_bw_test
 
-> @@ -1951,6 +1955,18 @@ static void iommu_group_do_probe_finalize(struct device *dev)
->  		ops->probe_finalize(dev);
->  }
->  
-> +static void iommu_group_list_put(struct list_head *group_list)
+This commit adds 28 test cases to deadline_bw_test covering root domain
+bandwidth accounting across CPU hotplug, cpuset partition changes, and
+isolated CPUs.
+
+> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
+tools/testing/selftests/sched/deadline/deadline_bw_test.c
+> index 0b53b64c7b3a2..7b0a3f2fb12b8 100644
+> --- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
+
+[ ... ]
+
+> @@ -7144,6 +7695,1779 @@ static int move_back_cpu_offline(void)
+
+[ ... ]
+
+> +static int partition_grows_child_valid(void)
 > +{
-> +	struct iommu_group *group, *next;
+
+[ ... ]
+
+> +	snprintf(buf, sizeof(buf), "%d,%d", a, b);
+> +	err =3D write_file(cs_b, "cpuset.cpus", buf);
+> +	if (err) {
+> +		ksft_print_msg("B cannot get CPUs %s: %s\n", buf, strerror(-err));
+> +		goto out;
+> +	}
+> +	if (!partition_has(cs_c, "root", 1) || partition_has(cs_c, "invalid", 1=
+))
+> +		goto out;
+
+[Severity: Low]
+Should the second call pass 0 for tell: partition_has(cs_c, "invalid", 0)?
+
+partition_has() prints cpuset.cpus.partition when the substring is absent
+and tell is non-zero.  Passing 1 here logs a message on every passing run
+when "invalid" is absent, and stays silent when cs_c fails by remaining
+"root invalid (...)".
+
+[ ... ]
+
+> +static int hotplug_top_last_refused(void)
+> +{
+> +	int i, n =3D 0, err, ret =3D KSFT_SKIP, x =3D top_cpu(1), x_off =3D 0;
+> +	char buf[256], cpus[1024], path[PATH_MAX + 32];
+> +	int go[2] =3D { -1, -1 }, ack[2] =3D { -1, -1 };
+> +	pid_t pid =3D -1;
+> +	cpu_set_t all;
+> +	char c;
 > +
-> +	list_for_each_entry_safe(group, next, group_list, entry) {
-> +		mutex_lock(&group->mutex);
-> +		list_del_init(&group->entry);
-> +		mutex_unlock(&group->mutex);
-> +		iommu_group_put(group);
+> +	if (ncpus < 3 || cs_setup())
+> +		return KSFT_SKIP;
 
-What is the mutex for? The group_list is a stack head so what are we
-protecting list del against?
+[Severity: Low]
+Should this also skip when !cpu_hotpluggable(x)?
 
--- 
-Jason
+main() sets hp_cpu if any housekeeping CPU can go offline, which does not
+guarantee that top_cpu(1) specifically is hotpluggable.  If top_cpu(1)
+cannot go offline while another housekeeping CPU can, cpu_online(x, 0)
+later in this test fails instead of skipping.
+
+[ ... ]
+
+> @@ -7960,8 +10284,36 @@ static const struct hp_case {
+
+[ ... ]
+
+> +	{ "hotplug_sibling_partition_refused", hotplug_sibling_partition_refuse=
+d },
+> +	{ "hotplug_top_last_refused", hotplug_top_last_refused },
+> +	{ "partition_grows_child_valid", partition_grows_child_valid },
+> +	{ "hotplug_isolated_partition_falls_back", hotplug_isolated_partition_f=
+alls_back },
+> +	{ "partition_takes_fallback_refused", partition_takes_fallback_refused,=
+ 1 },
+
+[Severity: Low]
+Should the partition_grows_child_valid entry set no_hp to 1?
+
+partition_grows_child_valid() does not take any CPU offline and the file
+header lists it among the ten cases in hp_cases[] that still run when no
+CPU can go offline, but without the trailing 1 initializer main() skips it
+whenever hp_cpu < 0.
+
+--=20
+Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
+t.mathieu.desnoyers@efficios.com?part=3D18
