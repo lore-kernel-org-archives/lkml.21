@@ -1,63 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795166617;
-	b=VjvJFJigly7QNiAHxQBV/0V2Ssd29swXod/tgeSd1gsAwHTYy8BYG8EjTwVe83S6kKpt
-	 yuTiJ9zvbLiolImK3KPBE+JNvntqcNdsS271nAij2PLcAZ1I+Zn402DtzNnE32DFR6XdG
-	 s6RlZmK4Sap0HhbE+HTH6bDM0LZVF+YcHXQ2ZNvBxE/UfRH7gK4uV67rW64/Pak/RphZF
-	 PCSpHZoTDuzrQDdbOwf+2KHyg3TOjBzj15H9316KKTRpb2s7Rxb6cQlDzXdUzKVxNAKGE
-	 RXZZo0lc74IHhrV7Pwux1JDAp9YNQLuN7YDiiaqR1/0vLbaoJybxvD7ch4d06UdAmgw==
+	t=1795166637;
+	b=RUWiS7KSsBKzO0a+opljjXqCRoMpt1vwZNfya/xug85N9/B4qrqzf9KucToxgV07cLg3
+	 GAZhz2nZ3v5aUQjC5Jg8OST7q8tFzB4C6o8mQGsQQfQdUe1YfEWytUBLAFoPPsxXKHVdR
+	 Q04MiHvactMKwRxcoC9XI2K1yRu5tSiVlcvV+YWNH/FAxO4kBrqkdeULCZ+1++an7thlt
+	 9U6TfKQRUztUsk2OlrS56fBNlNfdo2P5UJdWxhJe2AE6FcO8DHweVleVdhPVkFKXP4UEU
+	 3noz8D2XAzzglNo3XkurFVzQwVPahaeZB9i7b3Js3Id8HOIqpnmzVXEoZD7BVo3XGkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795166617;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=UHW4M+q/Xhm54NFX+3u4JQAN1oFui+zkbZJdU7S2zo4=;
-	b=OuRolAaS/Wm1T7OAmJBb1foqKPVx3dt/3fK7YmAw5bwChHAcC/1M/AMfZMTNtSz5CTTr
-	 /yfdGaNMSWqrARqaYqViFWdUzsgGoLfKew+NeE1N2hiPRoRA4uKojj0idbHcIGcdO+LKP
-	 pTb50N02WqgWgMw8PNIe7Uh0dFxmtR0tTAxJRjFRzJsDc1oZWuc0vtr65VXbGOrUBT9Hx
-	 3mD2hEPSyMiuVz52eV4nJ7Rb+cy8JB2rOsCVdJ/dbhKanG1sql330M3avdt1AXhXDlA/g
-	 8hcxuYXq+es2aeo8DHTwZhq777IuC8KHN5ADBA8GqTtNNlmXuRtryRa2DYDlA11iRyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795166637;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=QNoXpzyD5GfQ4mvGWevbENhC22Gs5cnrlABz42Of+y4=;
+	b=IGPf3F8I74B4YfSEYpqBW8tzzzlalYeO0Lki+KtU8p1i1Ofgo5pgwOT7H3xzypmT6lac
+	 pb5xTC1dMac55aywR5YpueR/XDC1XAOl4QwCg4UwgCyacLJIj0XsowOcWVLaRBGtdnCDq
+	 B9gNkjPkK1kJf2Ueqe8WTQLaGCenHiq22WzT5U0okjq9bw/7r+0qJD2BeawpitLLymHHQ
+	 7Dh6T5Tfun7BBt7oheAnLuVFZre+r1Mr3S6+p7S9hiSSYBcpdno7nFFYb5C+TOGxu/NMZ
+	 oOpXMkI3SAiEPRYgAh2p5wDlCBeUQmHAm24RhIolOYw97gSDEQIwG5idgbH93P1VCKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpxwFu+d;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QrmqOGTI;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECAD4606A320;
-	Fri, 20 Nov 2026 09:23:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80916606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:23:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80916606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpxwFu+d
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 456E71F000C6;
-	Fri, 20 Nov 2026 09:23:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795166616;
-	bh=UHW4M+q/Xhm54NFX+3u4JQAN1oFui+zkbZJdU7S2zo4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WpxwFu+dBnk7TT+TAVvOCeGZiO/i95AKNUlvowfDJHUSAgOn1AMEi1CBG2K2tfp/Y
-	 kRb4JmuT6xjrixrvoFrF3oQ1dT0X7AGsHkqw9WO6W/M14RzpjVe4aYupuKsArGkDRl
-	 PcbsYr6xFO+th1S+LgcDKGkvCqZSIpB6SvOhYiq2nHQ7gXfsN4d+TzFutAxgThIqwj
-	 CcXL9FpFXNqxgNeYqb5bWnsyL/0tp089iVZpGhFBSTPltZGX7jgip7ZzjQSuFF/UlC
-	 ixURzNPzCCy5x7y4QtCO7KfNLHpovSsxg+f7b/rGq0BoQQVR7Fym73XF20qh+v5oS/
-	 UlZ3cr8g877iw==
-Date: Fri, 20 Nov 2026 10:23:28 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: David Matlack <dmatlack@google.com>, kexec@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-mm@kvack.org
-Cc: Alexander Graf <graf@amazon.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	David Hildenbrand <david@kernel.org>, Hugh Dickins <hughd@google.com>, 
-	Jonathan Corbet <corbet@lwn.net>, "Liam R. Howlett" <liam@infradead.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Pratyush Yadav <pratyush@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Samiullah Khawaja <skhawaja@google.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 08/19] liveupdate: Let file handlers retrieve into an
- existing file
-Message-ID: <20261120-gedulden-rausgeflogen-spruch-cea76174d5e2@brauner>
-References: <20261111002358.1842967-1-dmatlack@google.com>
- <20261111002358.1842967-9-dmatlack@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=QrmqOGTI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=QNoX
+	pzyD5GfQ4mvGWevbENhC22Gs5cnrlABz42Of+y4=; b=QrmqOGTIfAqiPELyZZpY
+	H2Kcdwte9CEk12MCDXVWPksWdHLf/lUhVVF+MOfnCKM5dzjYrSPTbIBHK0Mc1/9f
+	8A5jNnP+nqQKhe++5Oy+0HnEthn82sC8e+cwnECwgAIZm2+R67skmzONT+uFTC17
+	p/NamNabOojfzCtGcQGx7e/+w1i71etCj+ZGUHI5CuNsV9QMzbGq//CKc80yd9Sp
+	NpqCt3j4xIim+FT3heguhezihGpUsusYJWWTZ6L8qjtvU9XkrJQ69BZnPQ5XWXJ6
+	GO1G2in/gDnOFN42flT0Fn3QSdMeSmYQI4L95L3tvkPe5PfrwnAk3K4R1QjLOYgK
+	Hg==
+Received: (qmail 1414173 invoked from network); 20 Nov 2026 10:23:44 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 10:23:44 +0100
+X-UD-Smtp-Session: l3s3148p1@gGr5zLFgvs4ujnuU
+Date: Fri, 20 Nov 2026 10:23:42 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 1/6] dt-bindings: clock: r9a06g032-sysctrl: Document
+ reset cells
+Message-ID: <awARmkCuelD_fdX6@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,36 +85,65 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JO3GButChuWibljo"
 Content-Disposition: inline
-In-Reply-To: <20261111002358.1842967-9-dmatlack@google.com>
+In-Reply-To: <20261119-rzn1-miic-resets-v1-1-feee2bb28bb4@reliablecontrols.com>
 
-On Wed, Nov 11, 2026 at 12:23:46AM +0000, David Matlack wrote:
-> A file that is restored into an existing file is already open in the
-> caller, so installing a new file descriptor for it would just leave
-> userspace with two file descriptors for the same open file. Retrieving
-> the token again later still returns a new file descriptor, like for any
-> other file that was already retrieved.
+--JO3GButChuWibljo
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks, this looks way better.
+Hi Kyle,
 
-One thing: Please just install a new fd like for every other retrieve.
-I think it's pretty meaningless to return the fd number the userspace
-just passed to the ioctl.
+thank you for this series!
 
-The fd number is also not useful as it's not tied to anything. The shmem
-handler looks the fd up once and LUO keeps a reference to the struct
-file:
+> =20
+> +  '#reset-cells':
+> +    const: 1
+> +
 
-	CLASS(fd, target)(arg->fd);
-	[...]
-	args->file = get_file(file);
-	args->fd = arg->fd;
+Maybe add the new property to the example below, too?
 
-Which means, another thread can close() that fd or dup2() something else
-over it before the ioctl returns and the fd you hand back refers to a
-different file fucking over the caller (shared fdtable etc pp).
+> diff --git a/include/dt-bindings/clock/r9a06g032-sysctrl.h b/include/dt-b=
+indings/clock/r9a06g032-sysctrl.h
+> index d9d7b8b4f426..e3059c50f7c3 100644
+> --- a/include/dt-bindings/clock/r9a06g032-sysctrl.h
+> +++ b/include/dt-bindings/clock/r9a06g032-sysctrl.h
+> @@ -146,4 +146,7 @@
+>  #define R9A06G032_CLK_UART6		152
+>  #define R9A06G032_CLK_UART7		153
+> =20
+> +#define R9A06G032_RST_TS		1
+> +#define R9A06G032_RST_MIIC		2
 
-That also gets rid of @fd in struct liveupdate_file_op_args and the
-special case in luo_session_retrieve_fd(). And a retrieve into an
-existing file then behaves exactly like retrieving the token again.
+I didn't find any listing of the resets in the RZN1 docs, so coming up
+with arbitrary numbers as we need them seems okay to me.
+
+Happy hacking,
+
+   Wolfram
+
+
+--JO3GButChuWibljo
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsAEZoACgkQFA3kzBSg
+KbbT6hAAn7FkeKpyHdjW+ucRCZDLfEffjGdzUx47GhoXUpf8gXGmshhk3zweElwa
+PAT6JfSU/apMDxuEB9pmib8LF7sgVJ+2uSC8blv//wUxSZav8u6HGQ27Kpdn/Cca
+wCYaCufM+YoYhCJhXIFkk+siScNuaq5aSwL2sq03+QjpJzq0YxoyCHYbTKJ+eDZi
+hSz8yfTDsaP5HhzP63LvxWJEaXDm7w8MPE/RlWgSSJg24D0tJad4Iq6yA/nd23cu
+iMnoRZNmfL8xjQFanq9wMqhx2P3JsWOmF9ZymshrAFT46SprmcGvbLPoFKGfuUhc
+4ukJxM4dMFAKtO16mVvCsJu9SA7mSAL6tE9dVbi430XTtUAHWiQ4ZJnwZaQ3gTER
+ZTN6iuNQs5BnAgKncHLjh/YDjuD8gOWjiGQy4quM7IubO3ro5QZ5QJ1FGaeJQpgB
+aMvxQvpG/50YWOPbM4Wy0XT08K/yX/BA0E6dY3jwl4PsblqkftwgsVEGkwYAoUEK
+ay2I+A33iwW5RvJYEFwCJjQhMK26AyNIYl68o68BhWluD5jRXm92WoFV4oMZYi7Z
+olUoeFWC/y/TycDoEH3DQ4TDuy9lCzhFtiPrIICRWF/iCh6VRdr70bxuMYYg+G8I
+9siFEQEcTeKdtcQ8C3WRri4FPbjB9dBFmgpC1/0NhZiDcolZ4jw=
+=Hyt+
+-----END PGP SIGNATURE-----
+
+--JO3GButChuWibljo--
