@@ -1,63 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168406;
-	b=Xyx0MtjIK1O0q1r9sfUFp/suAKbIpiwkg3ojspQvt9cVDQ5T/JJ+Ifk83PNKQjx2ZX/I
-	 HiRSpoVwTSFG9LAO8/EywUBOEbWvDmMcUcMI+/zDkn+/PYZpBZXZru+GdcHhLWfgi00Rk
-	 4szlL/J3bXfUAtx27dd+mmSoVWyq+Lta6aZue1reH2Ww14YGFdYt24/Eexbh2OLO/ppJp
-	 ObwHQw8sWRK8x4W+DzZdnZaHoJBERxroZnrnQCC9VceKfURpOTQKhglm165kef7M/oayr
-	 nNy9GHKvCw+gKDYDdiOqkbZO8MeEdqxE0e96RzjCOwRKcdB7TZclRolSosg9Uv1a2LA==
+	t=1795168416;
+	b=dJiF7PAi7KqgUP0JLVu6QuKTlEETQFI5Nolmm4TKBg2sTed4As+1STKJP+nFtWRQUK6A
+	 q0IHNQuUuSaD7QAKTpUrLLn5X30bTXuxtMlaiRW2nHdzH42evQ2+GcslhqHWHWekB/wLW
+	 T2frgOdbOlg0wPiqH5MIC1pWPYpR5HdKasV/7PG6mvt1LMI+Hc5myJNOVkt1Mj5+CiqiD
+	 qwM3wp6V4jq7SuqmUeRosgSWtZQS1fyAeZprqbG/+OBNpYJAzPW5YkHNP6Ags3WB2s5+x
+	 LjnWa4KrySbakEW4JPk0BmwEB+W2zlsIRg/iata3UX/1X1b1aaDmIaT1jV+V9spL3IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168406;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=lb2RFk/NPWgX4J0CsOxcCQbUGvMEOheqS1bpUpgritrFZFvE7HOrI8DtQgwJe2UlADsf
-	 ted9UBA7+kWEhRgr6tWnY0fyAwNyHJiDzQH5PNbMqPzxdVDlf8v1D/kn8fkCHsCCQXtRH
-	 0c+vAZ8FVQafiloXKcup4ozJnGRN7/ae2KiAwjJ8SYGL4Hzg74edVXAc5Qhwt1prGgjTr
-	 8AUOMW5KJjYchdevhNHruUkQkNSszeG7gYsYbweIfo5WJ7neHdxTrU4pYw0eqagqjcYTT
-	 +8JTuYSHpJTFnuVB40gxI30vtDhoUiweGvhrQb8Y1qMONNCp7ZAHs6+b6/YD8LZUb7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168416;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=wU4LlfzaVTfqT9FAZ2d8xCr1YhlqLtpgo7yVgEhBPXE=;
+	b=X54SWCs7j2r4/xrRlQrYDx8oSGpn2DvzyR6jJ8/IQqyppfqNZsguU8wk840tuNMEMpli
+	 Wpyfnl2Qm92nyZ4QPgIC5Foh+5xcaKKT9VJmg60mFMQjRaJ8dMJBLg8nvD2eD/e7FaLOX
+	 Ff/R7Dfkip4rdRDTO38E9McmNGtAGp2n/bfkGLw39deWgAfVZ/25f+bx6GEfcbyHva+/y
+	 wLouG/Mpt6bZO96xQZwnnCVrvflwJEswtOOkTnX0PHuPGgjCc/+yqDgf+fhWIf7+Mao2f
+	 JZ9owluOxZHRijQ9kSSfLlpLQ0zQdZ0zCq5PwpDt7qWGggtPnZAVNYFezg7UDAVG+Ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T9WFkA+S;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nim6ikRC;
+	arc=none smtp.remote-ip=209.85.128.70
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AAEF606A325;
-	Fri, 20 Nov 2026 09:53:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B6AD60A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:53:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B6AD60A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T9WFkA+S
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D7B11F000D3;
-	Fri, 20 Nov 2026 09:53:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168406;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T9WFkA+SD6lil9ruTWDxGrfc1ztACVA91hFrU7q2DT1t0Sq38VpLfKAhibFdzb79r
-	 ji4t0Bp7sUeE7MVMS51hbQ+v74EdCN+MjQ2/Mbu81m/lDp8Kb6v+aUaU37SPTxaSb9
-	 I7YMcDluBxpZWghSvMwkPrcfVcH8S4myhcmg8SJyAhU+iHGg9xJKaaVvk+UiXK3ASP
-	 Y3XBBR/mifg9caP2lcOAWuCG13WaJuLQFlNMHG6f2boAi01GusYwqE7kEaHVfSK+nA
-	 twwEIO3jQeSEg67/Md/aUtf21/IZbJyy8SyUpRikAXGGGwBb10am6nkclLQ5MeQbuq
-	 asqOU4lylVYhw==
-From: netdev-bot+sinfo@kernel.org
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>,
- David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Patrick McHardy <kaber@trash.net>, Florian Westphal <fw@strlen.de>,
- Hannes Frederic Sowa <hannes@stressinduktion.org>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] ipv4: fix conntrack defrag forwarding after
- ip_frag_reinit()
-Date: Fri, 20 Nov 2026 09:53:25 +0000
-Message-ID: <179516840511.3291.9188818650072138365@kernel.org>
-In-Reply-To: <20261120094700.46500-1-jiayuan.chen@linux.dev>
-References: <20261120094700.46500-1-jiayuan.chen@linux.dev>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=nim6ikRC
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4ba078f26f4so4780485e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:53:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795168414; x=1795773214; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wU4LlfzaVTfqT9FAZ2d8xCr1YhlqLtpgo7yVgEhBPXE=;
+        b=nim6ikRC/WTAbGXoW7i6eME06QvX3oaPjttXLeBQZz1VaoNrCWK2LmeoHvjzII5zit
+         rNk6PrR1FTkyAI4jenIo0A4ADkkolqv6haLxQL7Mh+HUVTBM8uguxKauGOV2IRmRxLvN
+         dLRz6nacQIy5qL6Oexp5dwKNnpYYZJFZgY5eDGb4SDJuws9+kEagEmGpfE2GAqhPWIb1
+         ecudZGQWG6GkGy0cTTe9Qm4DtrJviIVeg4z8R+idYy/cLQjnrtI3uHnntyEPn3PEIOQx
+         9eeawIsNf12frM0ftKdgGwNNNR7TBIhooEwM76od1gJu+u+rC6QdLGQpm+UzbeeI0xUC
+         FjiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795168414; x=1795773214;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wU4LlfzaVTfqT9FAZ2d8xCr1YhlqLtpgo7yVgEhBPXE=;
+        b=q8TF/hc4QgZu3H6c0bADWFx8B/GtbduQuErWLwnAKBDI3SE6N2aFzD5PVi+GrCVjY2
+         Fu7lGw+STF7l/q/wKpvGKFSQZPxqv3yjoOZYuYsLSjXn+IjnTH6ydnwhJk49ivv/LWEL
+         3telsIFIU64HvcWaiuTsEh1/6mRCzcXKWHLEAjTIYDuMZmuhea+NJnxJaywEakfsZ1ub
+         o++8/dT/o2xlDbFzWQmu776WJY5BVEBRKUisMuWrBJQENemqK+MZW9XZfS2aMTylHgoB
+         NxpHdbpSE6g3ygRnWySNIWJ6Ba0Xjhyo3YJJEtRKD1TgptUg00KlREhve8lby4FvomwP
+         2mcg==
+X-Forwarded-Encrypted: i=1; AL+hErE3lLZwqTwTxgzPw05W6O0o6Ws6SzzDmqgvQCeGBatx1EGnHNjeuiQM+9VtM69Es1e5kHIelKmvy6bc35Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EPS9U7ee9uNnaCOyCaEgt9YpHtGntRdGRPPDIIjoLYKNOlNDO
+	rX89xUGoh54wHWmVtmcIb4dZc+EzKxyYbVG9T9+PG+M0J9shr3dGKrvzf4XKWlGYMwhm+Gt22QE
+	WTErndZFU9aNjD37VHQ==
+X-Received: from wrud2.prod.google.com ([2002:a5d:4f82:0:b0:48e:3c17:c059])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4e4c:b0:4bb:6238:cd81 with SMTP id 5b1f17b1804b1-4bb88807dcemr52539295e9.10.1795168414195;
+ Fri, 20 Nov 2026 01:53:34 -0800 (PST)
+Date: Fri, 20 Nov 2026 09:53:33 +0000
+In-Reply-To: <DMZD4TXCZSRX.HN0ETV0FWFIY@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,27 +78,48 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <20261118181245.2583303-1-dakr@kernel.org> <20261119111746.3049044-1-aliceryhl@google.com>
+ <DMZ5ER6XTNLG.2ZJOF7F4100XW@garyguo.net> <CAH5fLghc63zD9c1F437pQiX+ohgSkYQe4nt3xP4gSTsqAVLzBA@mail.gmail.com>
+ <DMZD4TXCZSRX.HN0ETV0FWFIY@kernel.org>
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261120095333.2135217-1-aliceryhl@google.com>
+Subject: Re: [PATCH] rust: drm: remove DRM device private data
+From: Alice Ryhl <aliceryhl@google.com>
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: Alice Ryhl <aliceryhl@google.com>, Gary Guo <gary@garyguo.net>, airlied@gmail.com, 
+	simona@ffwll.ch, daniel.almeida@collabora.com, ojeda@kernel.org, 
+	boqun@kernel.org, bjorn3_gh@protonmail.com, lossin@kernel.org, 
+	a.hindborg@kernel.org, tmgross@umich.edu, tamird@kernel.org, 
+	acourbot@nvidia.com, work@onurozkan.dev, nova-gpu@lists.linux.dev, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi!
+On Thu, Nov 19, 2026 at 06:28:07PM +0100, Danilo Krummrich wrote:
+> On Thu Nov 19, 2026 at 12:49 PM CET, Alice Ryhl wrote:
+> > Good idea
+> 
+> Indeed, what do you think about this?
+> 
+> diff --git a/rust/kernel/drm/device.rs b/rust/kernel/drm/device.rs
+> index 774db3acb15a..8c48dcfdecec 100644
+> --- a/rust/kernel/drm/device.rs
+> +++ b/rust/kernel/drm/device.rs
+> @@ -158,7 +158,11 @@ const fn compute_features() -> u32 {
+>          open: Some(drm::File::<T::File>::open_callback),
+>          postclose: Some(drm::File::<T::File>::postclose_callback),
+>          unload: None,
+> -        release: None,
+> +        release: {
+> +            // The DRM core frees the device without running a Rust destructor.
+> +            const_assert!(!mem::needs_drop::<Device<T, Normal>>());
+> +            None
+> +        },
+>          master_set: None,
+>          master_drop: None,
+>          debugfs_init: None,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Looks good to me.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Alice
