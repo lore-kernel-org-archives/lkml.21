@@ -1,75 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795201250;
-	b=sa6YdTqSXhvEN7OArANJRFmgaTmRERDdRuDu62NqPGg2i4GPxjDgpkBGLx/ouHLrD4rP
-	 fAtqWEQvfwqLSluxs4HK8+coEA3Riids0AcEm9lOMmJ8blCZPMVSkvJakiafldqpluLJp
-	 8eaejwpmD9OswCNeIL/Wh3qml+zoQeend2IWh5/Bsg3mewQ0vloewhAwqWjWs9QXoQBXI
-	 SS35hxZjL5rQrejYMx6eZTQD9j40Imz8irM+f+bfgu5V9upyt1N4M9cT072yGgAhYqyg+
-	 6tK5sYgVFV7Fak6La1XIrjCjGpqVNRn2wehczRQhh04EJV+X0uB2SMLwUKBkbgnrXMA==
+	t=1795201252;
+	b=MY9eh1r4LGeLHEdK4H8yv6xfbnh63Xk83kWjfsWfHN7yM7nBoaV1nMLjaR2HJTqLoGHE
+	 ZfCcgMefEAQa8qZFu8uCMJpS/7n7+1jqngp9Q9A6B8Q+NNA/0EsC1RKbTcOYikE+bgtZB
+	 b9d/9mUDF6XCRn8wN6QJDivJw9+aOotIY7j9RnIc09cwh0SZGWZse1hiNdBG2gtmhv89m
+	 FPml4yGi5XbTCCq6mWOq13hecwWcEkAF+PWd6QmmZMXivdgk6legjVz1jb382y0sow43p
+	 6RtXX2jKmnVv1yFbbKGDAEZeUp5IBHs6X+KboN5c0We4TrCatN/DJGeKw/bEmQcxaLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795201250;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795201252;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=2IUJ4prZfGsGzb0Qck/GAuOjhnwEHRfiPDhs17Z4SoU=;
-	b=lmLboZ0+q+tz8A/r5fV6mcCj4nJCitibzgB6V6QPqACh2Ht/ASkS8rd7plvxVon9AZMK
-	 iesGc7vHVjFbbZCIpzWIiK02ZmO+FsfgnZEWEUyQLJP6V24k49C/YztfS94EvbRBnDAf4
-	 JhfCxoGBaw+Ek3RQIlIWuGvw9xyJByTaLDzWE1EEK/Jksv9Y4IR/NwrojYt74dbh1a9CV
-	 BZEaHzVcXeMuDcKLQtO2eWsVCvUkEeTKUHLixaj4xOtZIMNEvY0kiUR18vXgeEvAZcTa4
-	 /hOir7PVybe+vqxzg2fDSbzDhC4YaeMHCQqFoync3VbRkO1CzZ0lsjgt8JOX7iCjVeA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=UNLjbm4DATGnAXYQNaz3Ekm01BREm2qtWAOyb3LUDX8=;
+	b=jikWXX0Q5zp51ECkSiqomP0dzfpzmxSLtpfhwKg01XfC+ZlPL2VtQv6oQVxVGRTAxB5S
+	 /QDcLA8k5sQAOBUrNQfaL7ZEOtS5rJ3chXrh3Fs1nqVN8K6+aRlVA3Ky6iruc/r2jzqr/
+	 DpivnfCcBCzMOL9rQvd0vbzXAV+EHVrbBerPYQw4VQnPpc1lPNG4fD7uBR4LJGlvd3DXB
+	 kISFbzw4zj7zuF10RsEqbAC8I7tTpj4+Lslk/un1EI2C+NG5Djm3EMqXuLXCMX1reuWcm
+	 KZUJ/3LBNUFPHYf1sY8FAPi2Et/tmLFUhSzFqtjE7QSMqMgw3kfI6/2u0YjUm6F8q5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZklHrKxo;
-	arc=none smtp.remote-ip=209.85.215.199
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JAhqkxbm;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D304B60A380C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:00:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D304B60A380C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92DBB60A380B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:00:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92DBB60A380B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZklHrKxo
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cc7361c62b9so857820a12.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:00:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JAhqkxbm
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-386177b0516so2452132eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:00:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795201248; x=1795806048; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2IUJ4prZfGsGzb0Qck/GAuOjhnwEHRfiPDhs17Z4SoU=;
-        b=ZklHrKxo8PI4TUG9EcnZfURC06IahIv2QFJrF+PQZNVoeE3A2hD7BTFl/zpex/XLdE
-         OUgO2LYdQ6DKZPNOz/xkP5oEoaKaPsmZZt1Msxy8xylBNrPBPkXj0pFaW9azq+gosh8d
-         xQ/EbFB6HWiTdCNX6Fpye9Gt/xVojSVWeIfZqJsZMjWxOAS0FUS7erNcJ3tDVHS4NJGV
-         YEq3f10Fe3+KtCCb3ZfhHf52b2RLNiSYi3lOmPC8JYAy7VAMuO1Mo7NUueIj5GhHScph
-         H/rwLYUORCbyiNxh//vYtnJpjPDuA5gR+UobB0V4enDoeA+yrR+yO/fRqubGwQZx6nF8
-         oY+g==
+        d=google.com; s=20260707; t=1795201240; x=1795806040; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=UNLjbm4DATGnAXYQNaz3Ekm01BREm2qtWAOyb3LUDX8=;
+        b=JAhqkxbmIkOhtP5FM2VZ7m5v1kCutgrj5sLE0vGz+5DDXqt7FuvbPCT+mjrVhDGfPM
+         e/7ZNz7pai8TXmXAtJ8363EO+GBUrsXoja4cZg3NCHuamS0rZVqKoSIhcx8w54ri9jz4
+         AsimjJy1kYwuRzadrI+QnAzhcDljKdSRqTyMjNxFtUQZ09RZ3cwH5f9BHnO2y3tMoVce
+         zKppTqrx8viT6HVXhtGpM37P/FfRT5sr4+eqJvt3rOz+M5G6B5LApCFiBHAZs3Y5wCBH
+         lwGN/EZgjrMW+zSUhx/D5BXRedhNKumTkWPKWekFO1WMaEEV2D8LHnmeJPOqT50h4ZZT
+         bA7Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795201248; x=1795806048;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2IUJ4prZfGsGzb0Qck/GAuOjhnwEHRfiPDhs17Z4SoU=;
-        b=laIBh7TvlDrzJrahE68P+5iG2Mu04DHIBFy1+QNo/NraN4rDZm5C+h5VAFEwfuvFV8
-         0k2cLHCojJJen9Upug4tLrA29HuXheaQGZhkzf76R+kv83HD5syJLL8d57IM0h/seUBv
-         U8pVBsfgiQ9/PN3Qp9X9YC6s+RVvVBbdV6W7LP6+HBc3vqJUS53lKgJ47m/3muHx6yPg
-         5Y8QVr1dxfs53dPDCKoM5RoV/koHzfe60zOgeDxL87YzWBxd8gPJaVZ25rw9cuZP/0TK
-         SLa0nTRVHystDV68NnOhX5l/P/oYpTZaU5K4J2pKnXCUlXOjlC75UCEM5Bu/WR5aPV4B
-         Y6RA==
-X-Forwarded-Encrypted: i=1; AL+hErEPFlosiR77YqpBSiyHoaGJZImc+I07xrw97dQSk0d+QYL1f3YqIdRQtXfj8+j5uOtGCDi5eRpO4c8KO4g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KFgGSMxwnPIrTCGjybzbGMfh+PufWG4P1NHZUMBKD6z7mgaAG
-	PQO7p0aJkPcTw8yEQB/bxWQrsq5UQ7bmRP0pQK7dLQ0i4b9Aq4ZUisurfqsynGK4wvnN9J10OST
-	SxKYJgG84sA==
-X-Received: from pgiy3.prod.google.com ([2002:a63:de43:0:b0:cca:d82:9104])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:db97:b0:3dd:a006:ed90
- with SMTP id adf61e73a8af0-4014bc4e776mr3903412637.38.1795201247965; Fri, 20
- Nov 2026 11:00:47 -0800 (PST)
-Date: Fri, 20 Nov 2026 11:00:29 -0800
-In-Reply-To: <20261120190031.1587531-1-irogers@google.com>
+        d=1e100.net; s=20260707; t=1795201240; x=1795806040;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UNLjbm4DATGnAXYQNaz3Ekm01BREm2qtWAOyb3LUDX8=;
+        b=c/Yqur905RLTn85abj3WJB6vreU7WJM77lIiMO6smn+RvZhy/ioVe2TCsvXNgr8Als
+         rwRNCuScpTUrpLT1FL3dx/9JHJ/HWAysg00hU1BVcWr5vxn4RjbiQ5mnh/HMb6qTxBaN
+         TibIdw3i1AI/GAnYsvlkRHvArLVpZcEuoLOa4bi3lEDtciBAIexg3BDLUOuPIePg1/ea
+         V16VPvpJiHVGmCIll/7HPjH7PMXJcnvTQt9ap+LTO6s5PcLp07v4hfbOa1B8/xziDVy1
+         MuBXKzm9ZE0Gg73r7yBl/Q20FDLqS2U4wwesNdKU74q9vSbjMdGwOVooK2o94huOumc/
+         Tk6g==
+X-Forwarded-Encrypted: i=1; AL+hErExT2E41GYTMLXexcMRyeVmEqa1nm/ZuaX0/EACI8m5hAKmOQZtUQq9wOQzfrB6+V9xrpfnaCWWpY/IcrY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hIbbcVtXMJDyoZXaFHNpF+QUuqj3zuo0QJv6D+SOhMH262sdQ
+	P+jWpZMxyD/icJFz5TyXCEEyX+608rmutIgCt/2rzs2RSUG91S0CixiQQSUdtDhllqXog8ac2G4
+	njbNN9O/QJA==
+X-Received: from dlbuu1.prod.google.com ([2002:a05:7022:7e81:b0:1b3:ba1e:2c7])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4584:b0:1ac:9da7:e86e
+ with SMTP id a92af1059eb24-1b556908c17mr3830341c88.30.1795201239052; Fri, 20
+ Nov 2026 11:00:39 -0800 (PST)
+Date: Fri, 20 Nov 2026 11:00:28 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,10 +76,10 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261120190031.1587531-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120190031.1587531-2-irogers@google.com>
-Subject: [PATCH v2 1/3] scsi: mpi3mr: Return error on all failure exits in mpi3mr_bring_ioc_ready()
+Message-ID: <20261120190031.1587531-1-irogers@google.com>
+Subject: [PATCH v2 0/3] scsi: mpi3mr: Fix error return, start_time, and
+ timeout check in mpi3mr_bring_ioc_ready()
 From: Ian Rogers <irogers@google.com>
 To: Sathya Prakash Veerichetty <sathya.prakash@broadcom.com>, Kashyap Desai <kashyap.desai@broadcom.com>, 
 	Sumit Saxena <sumit.saxena@broadcom.com>, Sreekanth Reddy <sreekanth.reddy@broadcom.com>, 
@@ -90,53 +87,47 @@ To: Sathya Prakash Veerichetty <sathya.prakash@broadcom.com>, Kashyap Desai <kas
 	"Martin K. Petersen" <mkp@kernel.org>
 Cc: Laurence Oberman <loberman@redhat.com>, mpi3mr-linuxdrv.pdl@broadcom.com, 
 	linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>, 
-	stable@vger.kernel.org
+	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-In mpi3mr_bring_ioc_ready(), all success paths return 0 directly, while
-all failure paths either fall through out_failed or jump to
-out_device_not_present and return retval.
+Split the mpi3mr_bring_ioc_ready() error-handling and retry fixes into
+three independent patches with individual Fixes: tags as requested by
+Laurence Oberman:
 
-However, retval is initialized to 0 at function entry and overwritten
-with 0 once mpi3mr_setup_admin_qpair() succeeds. As a result, failure
-paths that do not set retval themselves - including unrecoverable fault
-checks, PCI device removal during reset or diagnostic-save waits,
-failure to reach MRIOC_STATE_RESET, and ready-loop fault/reset-history
-exits or timeouts - return 0 (success) to mpi3mr_init_ioc() and
-mpi3mr_reinit_ioc(), causing initialization to proceed against a failed
-or absent controller.
+1. Return -1 instead of 0 on failure exits in mpi3mr_bring_ioc_ready()
+   when retval is 0 (such as unrecoverable controller faults, hot-unplug
+   during reset/diag-save waits, or ready-state faults and timeouts
+   after mpi3mr_setup_admin_qpair() sets retval = 0).
+2. Initialize start_time = jiffies on entry and guard the post-enable
+   timestamp reset with a boolean flag so pre-enable failures and
+   subsequent retries never read an uninitialized start_time.
+3. Rewrite 'elapsed_time_sec < (mrioc->ready_timeout - 60)' as
+   'elapsed_time_sec + 60 < mrioc->ready_timeout' to avoid 32-bit
+   unsigned underflow if a controller reports ready_timeout < 60.
 
-Set retval = -1 at out_device_not_present whenever retval is 0 so every
-failure exit returns a non-zero error while preserving specific error
-codes from helper calls.
+v2:
+  - Split v1 into three patches, each with its own Fixes: tag (Laurence
+    Oberman).
+  - Move 'if (!retval) retval = -1;' to 'out_device_not_present:' in
+    patch 1 so a single hunk covers both out_failed fallthroughs and
+    early out_device_not_present jumps cleanly for stable backports.
+  - Add Laurence's Reviewed-by tag on patches 1 and 2, and note the
+    510s (570s - 60s) firmware timeout math from commit 9634bb07083c in
+    patch 3.
 
-Found during an x86_64 LLVM=1 allyesconfig warning audit with AI coding
-assistant help. Verified with a standalone C logic reproducer and by
-building drivers/scsi/mpi3mr/mpi3mr_fw.o with LLVM=1 W=1 (-Werror); not
-runtime-tested on MPI3 hardware.
+v1: https://lore.kernel.org/r/20261119170900.1530138-1-irogers@google.com
 
-Fixes: 59bd9cfe3fa0 ("scsi: mpi3mr: Code refactor of IOC init - part2")
-Cc: stable@vger.kernel.org
-Reviewed-by: Laurence Oberman <loberman@redhat.com>
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- drivers/scsi/mpi3mr/mpi3mr_fw.c | 2 ++
- 1 file changed, 2 insertions(+)
+Ian Rogers (3):
+  scsi: mpi3mr: Return error on all failure exits in
+    mpi3mr_bring_ioc_ready()
+  scsi: mpi3mr: Initialize start_time on all paths in
+    mpi3mr_bring_ioc_ready()
+  scsi: mpi3mr: Avoid ready_timeout underflow in
+    mpi3mr_bring_ioc_ready()
 
-diff --git a/drivers/scsi/mpi3mr/mpi3mr_fw.c b/drivers/scsi/mpi3mr/mpi3mr_fw.c
-index f0d3cd398dd0..416f27c37535 100644
---- a/drivers/scsi/mpi3mr/mpi3mr_fw.c
-+++ b/drivers/scsi/mpi3mr/mpi3mr_fw.c
-@@ -1744,6 +1744,8 @@ out_failed:
- 	    "failed to bring to ready state,  current state: %s\n",
- 	    mpi3mr_iocstate_name(ioc_state));
- out_device_not_present:
-+	if (!retval)
-+		retval = -1;
- 	return retval;
- }
- 
+ drivers/scsi/mpi3mr/mpi3mr_fw.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
 -- 
 2.56.1.750.gf70dc682cf-goog
 
