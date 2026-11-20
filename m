@@ -1,55 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191827;
-	b=L00fIRrceNg7A3exYrgTjOwbdQt8XAgLpeIu9Qcws7/4NmXfRt2NFijlIsYbqYwUgxcU
-	 A5r75rGJ6BLOxKJM81E4yD//JYxFYEJFXY+bQhVxkIGV3L1+2jmG1krqw9qLHumBqM8is
-	 JWi7rCGyVxJYBiBv3KzLF1vbwLPw38ifd/5RxO5wooiPE1RrI4xNpmDWogf0WG1v0PxxG
-	 ewLW31fdUJ8QqkAfbznwEjmYFEk/Wub/QQ45nXaKyMAUMilHjibgOZfHjQp146pfejgHA
-	 rCaC1dL7Z2UanBYDsfYThNlzEgm4eDdAVw3Di6WNtq3AyehXv2BBH9/L+5+NdhkKVcQ==
+	t=1795191878;
+	b=vNG08YmXoB9mzibXGLvemrlhcw08c8VOG7Xel7ghZEPpfM61EEz//uk9cQv9djwgXLGZ
+	 0Q2KLknfU9t5VwMZ7NfflgUuSkOspDX76Ke3UNaM16w+4BuHDtC/ZL9EQb15dZS2I0qog
+	 8duGtPq0AlsvdMLQZwpr6RIv6itYxYKjO1mdf27nL8kOPT7ENQHMje3TfW5sNsUgGDAKX
+	 iB944xYkEuW5myqwhUTaPi5ZmkOXPh0B4M8Mie0N5QrSKFiCdMkZVRDiq1gKlf7p5NxSx
+	 +U94GTclJT2jT0XTtcqQ7RErA3FSA2+Fd9kgmVpOxPs/ckJlvHdayoQPiQSj0ARDEXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191827;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=d3QBEP8dRM7vxwDgY9cDJ9vgtjYUzyf7+KDqMUm8lZE=;
-	b=mlGL9klgApJsv2G0aE3U6bc7WP1BSeKVw0mtW1oJD82SeB1sNv5hIzee9ttudFuFK6Ec
-	 E83kfL9insJTAET23N52LDjLfi+c1UQ3GFMkMlg2wRHUzWgzwdarTVpIJAczpSXN1q7E7
-	 UHWJomthZ/sL2RWE+b1lI5PUwQXFeUbyyk3CF/7NyH7RQJ3+coj6aoiLvav6LLn5MtE/r
-	 Hdei/oFUtNmZh7IRUKehdIi7mOq9pQdp1buTzqWIolre5P4yIMUE9cktNVNvZ19QhgVEz
-	 H6sii0XmKIyiRPX4jeanxYOJvPhdxH2f+JgJzsUs7/AovCIN1SSvoooouEHzySXh0VQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191878;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-SRS-Rewrite;
+	bh=uSgRzooWOEmqd5/DTLNzENLKgDWTPQQQifi1iVejMuY=;
+	b=XggnCRjI3FqrjHjSVhkKKa4CgASRrIDgIyfFjOQBZxTgugePHf91nOy9aOil1JDJM5QN
+	 /n/0v3FTDG2E1Q1raMAceqFCJiYOKmPH4KfuTk5l2OUIF7Owzsd83Wo9w+a+KlWaDoQj/
+	 mIsjOvpwsfK4fiGGmaGaxqtadINcW0YW42H7lPgTb/IPoKG55oG4jgKC4mDhgsY9cRms4
+	 Dnl4XtLh/+jrBDz2a3sqwqEM+gf163q+jCFO3TUhhNC3JfXHTT+Nz36BjUMoUIhKFgMt6
+	 TFWUkmrfbCneqNMy0ntVplOsH6hu7SgngRvWhNddlM98asC3kIJgi2QLV3V+YFd/kUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JSRXDky8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mzq9xopm;
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 8C45A606A325;
-	Fri, 20 Nov 2026 16:23:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF3F0606A330;
+	Fri, 20 Nov 2026 16:24:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF3F0606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JSRXDky8
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 1134F1F000CA;
-	Fri, 20 Nov 2026 16:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795191826;
-	bh=d3QBEP8dRM7vxwDgY9cDJ9vgtjYUzyf7+KDqMUm8lZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JSRXDky8awBoFyMHc2ZYa/qstsTfmMod7yUu3hMwHzq+8DKmkTeiCyZEcZ2j8whmN
-	 hyM0IVbMfSGnvfxxYmC76qRFIYVtAtiENd9M1Y65PPno2ppTtiPinrnAGC/r4yQHel
-	 XIIsnEP3XhLf1OoF6YOqX+xvU9JDF7ybMY7ZRmFJP5mLtmsT2NT5XygkNQznbJXwLk
-	 mwG7JM3V2OlHRFpzFWalUd/ZQq5j5XS0HwDo9keZXUjGkpPhksWaCuNmIALDzCYpEt
-	 H3tI2DOXwDzcPXA6UYHPpq4ukXbZlLmbky6KCTSGD+fiU0TWmlzvzC8gIWGOZ+gh1P
-	 Gq3cytlfMhlzw==
-Date: Fri, 20 Nov 2026 17:23:43 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org, linux-tegra@vger.kernel.org, Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH 0/2] driver: core: Allow drivers to opt out of
- driver_override
-Message-ID: <awByB3M1qPiye8JL@monoceros>
-References: <20260922-driver-override-opt-out-v1-0-58c35ded3b83@nvidia.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=mzq9xopm
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uSgRzooWOEmqd5/DTLNzENLKgDWTPQQQifi1iVejMuY=; b=mzq9xopmMML85eMYVGtHh/BSu/
+	NPK9swukjrGk5twYPSiLxE9l3BS57cYOq0UXcdX1Ehblo4jLcozzfpLHcUNB4HUqApeBIcRgjnufF
+	VZRwdx4Kw2G9kEnGUHhHzfObn6hXBKBDgkxtP3ofxD5QAqFTgD5yb/xFdF1i2ginyhtnFxfIZiY/Q
+	M2EOns+2TQZzR0mOaDpFVvPgcAalZ1ldBQGPL/vb9fMwwPyaS5kJ1DRUBDlaE0iXqme5IU4E+MM2Y
+	fo0guCrGWhcQCsx3ohuvC5Inybzg3P/cCIyzZuIs1Z6ciNbiuxK0HX8uSFReWrlCkeIH3CS9qwR+9
+	362rbg+g==;
+Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xURPg-0000000FYPz-0qrd;
+	Fri, 20 Nov 2026 16:24:36 +0000
+Date: Fri, 20 Nov 2026 08:24:36 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Qing Zhang <diasyzhangqing@gmail.com>, viro@zeniv.linux.org.uk,
+	jack@suse.cz, raven@themaw.net, djwong@kernel.org,
+	linux-fsdevel@vger.kernel.org, linux-xfs@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Dave Chinner <dgc@kernel.org>
+Subject: Re: [RFC PATCH] namei: revalidate the symlink dentry before invoking
+ get_link in RCU-walk
+Message-ID: <awB0RE6WN_v4YBbn@infradead.org>
+References: <20261118083945.1449264-1-diasyzhang@tencent.com>
+ <20261120-desillusionieren-holzhammer-mieten-8ec8551ef2b0@brauner>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,60 +67,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tc46iwcpupwpxjlw"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260922-driver-override-opt-out-v1-0-58c35ded3b83@nvidia.com>
+In-Reply-To: <20261120-desillusionieren-holzhammer-mieten-8ec8551ef2b0@brauner>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
 
+On Fri, Nov 20, 2026 at 02:59:42PM +0100, Christian Brauner wrote:
+> This only makes the window smaller.
+> 
+> XFS can still reinitialize the inode right after this check and while
+> get() is running. Then ->get_link() operates on an inode that is being
+> reset underneath it. And the !get check only catches the case where the
+> that re-init already finished before we loaded ->get_link.
+> 
+> RCU pathwalk relies on inode memory not being reused before a grace
+> period has passed. XFS itself frees inodes via call_rcu() but the
+> recycle path hands the same struct inode out again without waiting for
+> existing RCU walkers.
+> 
+> So that should be fixed in XFS, either by not recycling an inode in
+> place while RCU walkers can still see it or by keeping i_op and the link
+> state valid across a recycle.
 
---tc46iwcpupwpxjlw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 0/2] driver: core: Allow drivers to opt out of
- driver_override
-MIME-Version: 1.0
+Not recycling the inode really isn't an option, as that means there
+would cause duplicate inodes in the xfs inode cache.  Keeping i_op and
+state in place sounds a bit more feasibly, but could be iffy as well.
 
-Hello Thierry,
+The best thing would be to find a way to keep the inode alive at the VFS
+level when XFS marks it reclaimable.  That would be a huge an invasive
+change, but it would solve this and many other problems as well.
 
-On Tue, Sep 22, 2026 at 01:38:27PM +0200, Thierry Reding wrote:
-> Overriding the driver to bind to may not make sense for some drivers.
-> One example of this is platform drivers that use device data obtained
-> through device ID matching (such as OF or ACPI) and they cannot work
-> without that device data.
->=20
-> Usually the device ID matching is the only way that such drivers can
-> match against a device, so drivers shouldn't need to check that their
-> device data is valid. For such drivers, driver_override is the only
-> corner case that can lead to a case where no device data is found.
-> Instead of requiring each and every driver to handle this case, move
-> handling into the core and let drivers opt out of this override
-> mechanism if it doesn't make any sense for them.
->=20
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
-
-https://lore.kernel.org/all/cover.1795171088.git.u.kleine-koenig@baylibre.c=
-om/
-is the more promising approach that doesn't require each driver to
-opt-out of force-binding, so I'm discarding this series from my patch
-queue.
-
-Thanks
-Uwe
-
---tc46iwcpupwpxjlw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAdAsACgkQj4D7WH0S
-/k5q8Af9E9OuIg4RQEWxGrl1pehojKPkNhbBi8UGoCLQMXxGjsSvtcgWWUo+BI4d
-v74CAyb8WsBYczaaPkLSzdh5E7iRRhOsAa2hmTc/Ck5QL6uTnuti1gmDEr1+zaht
-BsqkGSM3SQ4tsXEmpAoX19LHNupGCVhb9kDCIFrOeqpgDmTCdM4qbD5hELo4OQyv
-acs+1UmnlaCJFe6WywMiNA2nq08jhd90FnVuKAVb3bleyoRx+fh40lSWmc0Kuhxp
-M5/w288ljlxEFphCHgycl8JKGg7Mj4u7DXRzh93GMJxHhpDeAILJLvsRn73FPWDd
-92wzxVeeR+jUBALI2fFoh64AI1IJfg==
-=9Efd
------END PGP SIGNATURE-----
-
---tc46iwcpupwpxjlw--
+A good reproducer for the issue would help either way.
