@@ -1,47 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196553;
-	b=EkpwKpX/LjMBqCpwEYwlmKI3bo1vzPh7HyIqX8MNI6REDPVaflK7sNe1mmUqGWBuMijs
-	 Ibp2LsaONvuRWGJ+sN8YTa1db7hXVESaQ+QIkCuB88fAznrH+gKb8CxxWKHGJ3KiKlAT4
-	 tyefShmAFP2vheB7ep4olrQQOrZ4FhrsZDShaYnf7gMmtewTkEIhX6bObYlk2ZiJVuILS
-	 qe5bXxR05Fmyf01VqfxEoG2uOI31CRCfV+86fVP34KtpLmciAese0ZtXpRMb5yPV3A1HG
-	 x4DVYBQCgCai6oxkNZWWyuKDGGRS7CSNTDH4roSFBbviVdGSqAe18D/VELESuHTAQeA==
+	t=1795196583;
+	b=zeBU7pzGYVERllBxvOy4voTo6/9blCSjnuQnSv7pejKHrz7dCduAMNrPNm7xCUBW9yYD
+	 //jyZbyetQzfnIUQ89wOYmxp6bdIIc2ORtH3+bVR+a9k5qp2fcNhs6XYaybvg1HOMtdvp
+	 hium6UfTbIGJNlFqeeoglvLrcin0rMM8b+3Wpf0wxy85HtoRsaJCzp9O9uA9PQnDzgyMx
+	 EUoDEjvZb6yV2Sgj2+XkprIIK1oyGANgE4iIOvC6a2SOhcua55hrnrHSTeFPKEkaKgfva
+	 90SSXSBxs8alCneM/4H5JJ6iXtIyknCA/m9aHYd4jDZ1DQgTK47a/vVKo5wHJdJ/uHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196553;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Bhnyfvy2KqZXAS36AJ1i0JMsTJ0vNWzr4CDn3GrGcfY=;
-	b=SxGm22mocCTMpx6/QRRwan2KcGJRFtcd1TUxIZYw3x4VA+BnBKNoe60p70LvBv3+BIxq
-	 bAkzvJJjKfS9mXYfDoGxN/SWaheIPYU/KyhbGRCJzjXw+rHrzo84/OKfxjjhjY+xJEyvo
-	 1OKNYcOSUeoK+YU4blaJ5hi7PFcUPfEn5hMFRmGD/i4AydRgyZeAN+Cw2SoKVs73hkOix
-	 /W+/MF7wmih2QYp89B3IR0xZTerurqOQn5DxfUkA3wL8ytNVDdtXq615cimUHzHstvMct
-	 oHn9zxsDlncvjIFYuvB+kan8kGKlwjX7P8YNaTSY3rIsWJWqgWv+C8+Ct0nVH1hZVxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196583;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Patchwork-Hint:Organization;
+	bh=Kc83LIrS3XsLHegWkV/NNuRNvjhaDksVGoSv2kOvNLg=;
+	b=FwgZQdM30eeEKGOlpgjvBr3YqalKAGIAtTU13ZyfYeJ03BD0p1VLqFe8ndZcQD1AS8Pk
+	 BSxYjKpgsoTWUVNPhquZKKLFAchL7YBvD14g37FRODlIOiMpJdbtQv9SUrXTSNL5nOyTP
+	 /DOq3K6DmE5go8y8fo0YxMlTDNGmFE5dHCaePN/yCiphNxFcXuCG8UImp+oxYkh5d9jXd
+	 XFewBCEF1e9ZKKGpZsnUGLr+9xcfnz08Gz1Cbp7V/eQOiEbkZp/Qjs+H1Q9TUCXqZDC2G
+	 kGkMlSZMpmV5rq00ou5xGk5QJXWCviG2ieRsi1rFfdt19GlC7c3pkLmat5/Gq4Vv16A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ckKFX1wL;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Jf1HkVpa;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 131AF606A7F2;
-	Fri, 20 Nov 2026 17:42:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA98A606A339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA98A606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ckKFX1wL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 862021F01566;
-	Fri, 20 Nov 2026 17:42:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196552;
-	bh=Bhnyfvy2KqZXAS36AJ1i0JMsTJ0vNWzr4CDn3GrGcfY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ckKFX1wLJ/UaG1cRBOg1e67ciDfy+pFb7AtJUVNzWr1+51uahBffgq/LgVw00c4A2
-	 8EzmdA+Hokb4hBwVcSRdV2LdcaLG/WO5voEGoP7DGBhNbFzH05cjnl74TrOx9eTgwq
-	 39VyLXP1H9zVPgcNJJKoI4fH6B5D3MEG8TmVOzI5NXx55ookscVwHlrD+SixrBBxzq
-	 3aDUKLw8M1ojXekVybzS6pTCIJpWzc/T6UB41b+dtiFzijQp2uteKAi3neGvaiN+p/
-	 ixJU90LraJv7+XIxpul8suA4khR+gmdgyjEJjkaRWeotqxPQZhzw7rZ1KaIswGndPW
-	 Pkax1PhSuRFLw==
-Message-ID: <525fce64-8260-447a-8362-503655d09c91@kernel.org>
-Date: Fri, 20 Nov 2026 18:42:23 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Jf1HkVpa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795196583; x=1826732583;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=ZesNmmTH+elezFnRnzpxUtzX4X1KPesleeR9OkrS3+I=;
+  b=Jf1HkVpabE+pZtWeBrWu9FWRC+QnbSS0gdMJXtP2ee/4UOaPUU1PIxX/
+   FDkTfhgK7CVnr6lMRF3JS0R4yA3gr+5OWb+aWaEnhgHYKpNIAFPo1AQCR
+   zKdwVYTCbjgWGV0L+Nf9QkJGpqH7Svnf9TO4IGImnnyI6TFTFcN4KQtSN
+   vDEeTKPK7WCa3WuftIX/s3MssgvlVslTZMmeBHjBUb9OVqZc+C69dLd/5
+   kgbvr52ZOiAaYZam1BIYe6WbIEQJcBxVEC19yiOMBeFRLjd6QkuX4mXSC
+   eIrd3A4/TGtSBPfEjJgKUZDS5SBrMFvbzG2kTSzI8UijDa/kOXBMFajZ7
+   g==;
+X-CSE-ConnectionGUID: DTZy4FrVRB2EfErm7v2tSw==
+X-CSE-MsgGUID: TlHBOLjAS8OjR682uWNZMQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4123441"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4123441"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:43:02 -0800
+X-CSE-ConnectionGUID: 9ppcSj5TQx+v07CsGbbJag==
+X-CSE-MsgGUID: yUVOLHc6TNy2a5JT+RRZsw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10744643"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.66])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:42:58 -0800
+Date: Fri, 20 Nov 2026 19:42:54 +0200
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Mario Limonciello <mario.limonciello@amd.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
+	Mario Limonciello <superm1@kernel.org>,
+	Xaver Hugl <xaver.hugl@gmail.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+Message-ID: <awCGnqjGUroPBH4B@intel.com>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+ <awB4Qe83u0l0XPKA@intel.com>
+ <8713bae1-9782-41d4-b09c-f14031203e88@amd.com>
+ <awCEezzEIrhWv5sk@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,142 +95,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] mm/vmscan: flush deferred writable TLB entries before
- unlocking the folio
-Content-Language: en-US
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
- "Borislav Petkov (AMD)" <bp@alien8.de>,
- =?UTF-8?Q?Cenk_Y=C4=B1lmaz?= <cenk@deepfinresearch.com>,
- Zhang Peng <zippermonkey@icloud.com>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>,
- Matthew Brost <matthew.brost@intel.com>,
- Joshua Hahn <joshua.hahnjy@gmail.com>, Byungchul Park <byungchul@sk.com>,
- Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Alistair Popple <apopple@nvidia.com>,
- Chris Li <chrisl@kernel.org>, Kairui Song <kasong@tencent.com>,
- Kemeng Shi <shikemeng@huaweicloud.com>, Nhat Pham <nphamcs@gmail.com>,
- Baoquan He <baoquan.he@linux.dev>, Barry Song <baohua@kernel.org>,
- Youngjun Park <youngjun.park@lge.com>, Mel Gorman <mgorman@suse.de>,
- Sasha Levin <sasha.levin@oracle.com>, Rik van Riel <riel@redhat.com>,
- Ingo Molnar <mingo@kernel.org>, Peter Xu <peterx@redhat.com>,
- Hugh Dickins <hughd@google.com>, Axel Rasmussen <axelrasmussen@google.com>,
- Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
- Qi Zheng <qi.zheng@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>,
- Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Andrea Arcangeli <aarcange@redhat.com>, Thomas Gleixner <tglx@kernel.org>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261118-file_folio_flush-v1-0-e9e739ed14e0@kernel.org>
- <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
-From: "Vlastimil Babka (SUSE)" <vbabka@kernel.org>
-Autocrypt: addr=vbabka@kernel.org; keydata=
- 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
-In-Reply-To: <20261118-file_folio_flush-v1-2-e9e739ed14e0@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <awCEezzEIrhWv5sk@intel.com>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 
-On 11/18/26 10:20, David Hildenbrand (Arm) wrote:
-> try_to_unmap() with TTU_BATCH_FLUSH transfers the PTE dirty bit to the
-> folio and defers the TLB flush.
+On Fri, Nov 20, 2026 at 07:33:47PM +0200, Ville Syrjälä wrote:
+> On Fri, Nov 20, 2026 at 11:19:13AM -0600, Mario Limonciello wrote:
+> > 
+> > 
+> > On 11/20/26 10:41, Ville Syrjälä wrote:
+> > > On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+> > >> Panel brightness is a property of a display, and thus of a DRM
+> > >> connector. Add an atomic per-connector LUMINANCE range property so
+> > >> compositors can manage relative panel luminance together with the rest
+> > >> of the display state.
+> > >>
+> > >> Keep the core backend-agnostic. Drivers create the property with their
+> > >> hardware range and implement connector helper callbacks to set luminance
+> > >> or disable panel emission. The atomic helpers sequence those callbacks
+> > >> around pipeline enable and disable, including luminance-only commits.
+> > >> The panel is left lit when the pipeline enters self refresh, and the
+> > >> luminance is only reprogrammed when it changes or a modeset enables the
+> > >> pipeline.
+> > >>
+> > >> The stored property value is independent of display power. A commit made
+> > >> while the connector is inactive is retained and applied on the next
+> > >> enable; disabling the pipeline does not overwrite it.
+> > >>
+> > >> LUMINANCE values are relative, driver-defined levels rather than
+> > >> absolute luminance in cd/m^2. The interface supports emissive panels as
+> > >> well as panels with a separate backlight.
+> > >>
+> > >> Keep the interface behind a default-off DRM_LUMINANCE option. Migrated
+> > >> drivers retain their legacy backlight class ABI unless the new interface
+> > >> is explicitly selected, allowing the DRM UAPI and legacy compatibility
+> > >> policy to remain separate.
+> > >>
+> > >> Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+> > >> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
+> > >> ---
+> > >> v11:
+> > >>   * Don't call .disable_luminance when the CRTC enters self refresh (Sashiko)
+> > >>   * Only call .set_luminance when the luminance changes or on a modeset
+> > >>     that isn't a self refresh exit (Leo Li, Sashiko)
+> > >>   * Fix the .set_luminance self refresh documentation
+> > >> v10:
+> > >>   * Add tag
+> > >> ---
+> > >>   drivers/gpu/drm/Kconfig                    | 14 +++++
+> > >>   drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++++++++++++++++++++++++-
+> > >>   drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
+> > >>   drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
+> > >>   drivers/gpu/drm/drm_connector.c            | 57 +++++++++++++++++
+> > >>   drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++++
+> > >>   include/drm/drm_atomic_helper.h            |  3 +
+> > >>   include/drm/drm_connector.h                | 16 +++++
+> > >>   include/drm/drm_modeset_helper_vtables.h   | 28 +++++++++
+> > >>   9 files changed, 255 insertions(+), 1 deletion(-)
+> > >>
+> > >> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+> > >> index 61111d50b1c65..1bbe2c2d7c76f 100644
+> > >> --- a/drivers/gpu/drm/Kconfig
+> > >> +++ b/drivers/gpu/drm/Kconfig
+> > >> @@ -33,6 +33,20 @@ endmenu
+> > >>   
+> > >>   if DRM
+> > >>   
+> > >> +config DRM_LUMINANCE
+> > >> +	bool "DRM connector luminance support"
+> > >> +	help
+> > >> +	  Expose relative luminance as an atomic DRM connector property. Values
+> > >> +	  are driver-defined levels rather than absolute luminance in cd/m^2.
+> > >> +	  Drivers provide connector helper callbacks to program their hardware;
+> > >> +	  the DRM core does not depend on a particular backend.
+> > >> +
+> > >> +	  Drivers migrated to this interface will use it instead of registering
+> > >> +	  a legacy backlight class device. Leave this disabled to preserve the
+> > >> +	  de-facto userspace ABI in /sys/class/backlight.
+> > > 
+> > > I don't think this will fly if it breaks the backlight class interface.
+> > > No one can actually enable this outside of some niche embedded use
+> > > cases where backwards compatibility is not an issue. I think what
+> > > you need is a generic backlight class implementation on top of this.
+> > > 
+> > 
+> > The idea with this was:
+> > 1) to get the series landed
+> > 2) let compositors merge solutions around it.
+> > 3) Then add backwards compatibility to kernel so we can flip the Kconfig 
+> > default.
 > 
-> Reclaim must flush the TLB before unlocking the folio, otherwise stale
-> writable TLB entries might be left behind temporarily: writeback started
-> by other mechanisms (e.g., fsync) will not find any mappings in
-> folio_mkclean(), so it will neither write-protect nor flush anything.
-> 
-> A write through a stale TLB entry after the folio was cleaned gets lost
-> once the folio is reclaimed.
-> 
-> However, reclaim currently does not flush the TLB if the now-dirty folio
-> does not get written back (e.g., gets activated or kept instead). Fix it
-> by flushing right after try_to_unmap() if the folio is dirty, which makes
-> the existing flush before pageout() unnecessary.
-> 
-> For dirty page-cache folios that reclaim activates, we will now flush the
-> TLB immediately after unmapping them instead of batching the flush, which
-> is the right thing to do. Performance-wise, it shouldn't really matter
-> much, because folios with dirty PTEs are usually young and reclaim won't
-> even try to unmap them.
-> 
-> Fixes: d950c9477d51 ("mm: defer flush of writable TLB entries")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> With that plan, I think you need to mark it BROKEN if it will 
+> actually break current setups when some unsuspecting user flips
+> it on.
 
-Acked-by: Vlastimil Babka (SUSE) <vbabka@kernel.org>
+Oh and this will not be turned on in our CI since we need to test
+the thing people are actually using. So you won't be getting any
+usable CI results with this kind of hard build time selection.
 
-> ---
->  mm/vmscan.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/mm/vmscan.c b/mm/vmscan.c
-> index 5495d9be90e88..af7831643ecf5 100644
-> --- a/mm/vmscan.c
-> +++ b/mm/vmscan.c
-> @@ -1455,6 +1455,12 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
->  				flags |= TTU_SYNC;
->  
->  			try_to_unmap(folio, flags);
-> +			/*
-> +			 * Flush deferred writable TLB entries before we could
-> +			 * drop the folio lock and others could start writeback.
-> +			 */
-> +			if (folio_test_dirty(folio))
-> +				try_to_unmap_flush_dirty();
->  			if (folio_mapped(folio)) {
->  				stat->nr_unmap_fail += nr_pages;
->  				if (!was_swapbacked &&
-> @@ -1496,12 +1502,6 @@ static unsigned int shrink_folio_list(struct list_head *folio_list,
->  			if (!sc->may_writepage)
->  				goto keep_locked;
->  
-> -			/*
-> -			 * Folio is dirty. Flush the TLB if a writable entry
-> -			 * potentially exists to avoid CPU writes after I/O
-> -			 * starts and then write it out here.
-> -			 */
-> -			try_to_unmap_flush_dirty();
->  			switch (pageout(&ctx, mapping, folio, folio_list)) {
->  			case PAGE_KEEP:
->  				goto keep_locked;
-> 
-
+-- 
+Ville Syrjälä
+Intel
