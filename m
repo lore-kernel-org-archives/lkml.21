@@ -1,69 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174568;
-	b=JMzjNbP/cBLgQvHNQWuJAx2rAQCUQu23pUSp3cU5hOFfDa6Kd5Utsx7U10YVjEQXGgHf
-	 Udk+xVHPivhtbGKp+P3C4Bff3YIcqih5uLU5XnsYFKzxcPDsBqJuL/5MqRxZYqbmgE2sz
-	 XRVzD0h0fNGJBMPQme6bYjdZMiTer9uzo/mE0S2q8jeEH/jTv7WebwfY5R6kE71h/AQ2t
-	 +Ow/XvS6PGGN1vVFevlAXArwOKEbROZoczj44FCShfJxliA5kD3vhZXw70OWpI9bCskXz
-	 JVC2g5hyF2oaLTEUda4W28quYhuTu9eC8jGqWsbH5Okvy5wxrnPYJeGuOTZ6bmU+1ww==
+	t=1795174633;
+	b=sE3kARD+ZEbWrq2B3fgMwIIerNBrsglsDBDDV+GW6nYgA28zqqzXYuJ34o4Kh2FvSsZ2
+	 Vx3LcNv16sw9pVMxgK2Psgq9JijY9M1gcgndONW+lCYC4Vg7obHh3rzUYL0PD41h1M6z1
+	 a99WqvcHdN98FQ50jzb5ch50gGVxOHig7KxUsT+DecUZCB0aJp/+HObkjRp7TP4cYqN2Y
+	 jKooSTwCHZ9iiPZabqElyd1QFMpmOiWyz7ydwKBIqS5LfTE4/lGMTfLFuCkA3H+DwkDXD
+	 lOQt4G8PLHelqUbOrd4qyJY9FHe7mYojTOQQvuIHDn4CEqYhnof0z3T07slfMP0eKSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174568;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=NIe3hOKLCnHqFNzGUF054ejmgeEIVGuZTJTbO+auWw8=;
-	b=UXM2sm5e16TEwwwHS2QZO+GocK/7SPriD6OByGgMXx6Gt4BBXJUBYaVXcb/HQXw6r9Xg
-	 rpuFKhH5qftyqIg4lkYZFVRySKrOjVZj77LECbF+e+gF1nAtkNbTkObtdm3cUf8TKl22y
-	 td+nw0p1cufk/66epB9zg2QRkc7Kv/oH2bgE9eRNfP/id6IxAd8yACYKTZ60wU3mc7Hhr
-	 CvIllzv95QXwOccLdtOrOxUDEiEFudvIqPc43oZL8tbbNKGHSGQrJIIW6U7ywzTXkpewX
-	 jWuzeMqg22PbWwlNmn+FUXVW7N9rXuLVxov1OQkTHn1yrgSik1WFeovg8k/gZkzqkdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174633;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
+	b=PrwiiLrW4BaE8AkNRQvpNcg4GUNWH1W7TCq9a2HQ8aatiXwjt6tCAYiwa9Zi4C/1eYJO
+	 h15chL+6GnrFDkP/WAu/A2l0LM93/iOitFXQzy6v7V5oOPm9tGMtcCCc7gzaOXzjiKMjL
+	 UPI3eCH0+2ttHOcWJRviSocE+fvLbWVgTIyWK6dyj+rbZ8FU3yA+yIOtvtegvYwq2VodL
+	 8kljINwoD6cKmhKlAA8omSG1/x7ySFVaI0l8wmchiKEU0cJ0SFG6HWbIVFbgOuSe8nTA3
+	 Pi92Xbbzum7aoLBoPTxLgCMdDCbo8res5aG3MSFy/41yXzMbrI0UgiWbqIF23A2Z9PA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LNVf3e2f;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nFDuMamj;
+	arc=none smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76235606A325;
-	Fri, 20 Nov 2026 11:36:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA80606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:37:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EA80606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LNVf3e2f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65C0E1F000D1;
-	Fri, 20 Nov 2026 11:36:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795174568;
-	bh=NIe3hOKLCnHqFNzGUF054ejmgeEIVGuZTJTbO+auWw8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=LNVf3e2fuB6sV6i+MOVpjyM8ou9ybEJWd/y2YnESvyNqyqZDV/JUVifcofk3GSUh9
-	 wdDRIJZgSFB03R34CTubN4uNtnYupEInqCHzDpZSNOvG391LTBj34OpEYqI8reWNJF
-	 fxGiQTz24XlLet/fihwDGBNU9jRmT5QHyqZ4XW2KeqI+1m7PNKK022IPB1zUXwsRuf
-	 o9/IvtHEr8a8yFSdiQOcoB9AEKq4dXLYytA8O11f5kEhZrEBfMs8qPfnTvKsOsJEaZ
-	 wzbWR5kBFfbuI/qOpigQGtu4DM8/GbQsjMEEquZ3MudbSYuenkNEPnv/ezcqMiAkS4
-	 oGlsk2V2hEp5A==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Christian Brauner <brauner@kernel.org>
-Cc: David Matlack <dmatlack@google.com>,  kexec@lists.infradead.org,
-  linux-doc@vger.kernel.org,  linux-kernel@vger.kernel.org,
-  linux-kselftest@vger.kernel.org,  linux-mm@kvack.org,  Alexander Graf
- <graf@amazon.com>,  Andrew Morton <akpm@linux-foundation.org>,  Baolin
- Wang <baolin.wang@linux.alibaba.com>,  David Hildenbrand
- <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
- <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
- Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
- <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
- Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
-  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
- <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
-  Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 08/19] liveupdate: Let file handlers retrieve into an
- existing file
-In-Reply-To: <20261120-gedulden-rausgeflogen-spruch-cea76174d5e2@brauner>
-	(Christian Brauner's message of "Fri, 20 Nov 2026 10:23:28 +0100")
-References: <20261111002358.1842967-1-dmatlack@google.com>
-	<20261111002358.1842967-9-dmatlack@google.com>
-	<20261120-gedulden-rausgeflogen-spruch-cea76174d5e2@brauner>
-Date: Fri, 20 Nov 2026 11:36:01 +0000
-Message-ID: <2vxz7bi73fby.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nFDuMamj
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1a3c08d6928so1109032c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:37:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795174633; x=1795779433; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
+        b=nFDuMamjSMWL/CDdCbD4zTi4BreXTa1+8T7UGi5XYDqmX7AAK7tm65AW/3zsybEMvC
+         6Q4bIwYkAALd3v44sOQGMt9rwjn7N1IPBbRmk14jJut6Fy8d1hAETlmSRia+9nVJSO6K
+         yPomTLd97CC0a50ov3QgnUsmJ+GIhRhoq6cjxcZ7PRFCiei+8v2I6aAVOO186sS5S4AJ
+         CrrWqFSErA5XkBd3HWt0ScFdusOXF+a/9kieovwYH7dZrnnwHN6Y4AbIWdZzEn94tQus
+         TeUsEWfTm8rGQ93v4Hz1gMlk2PwYRz/frgLR2hefDYIW7p9xG/POYsjVBULy+T8Md1QG
+         T0iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795174633; x=1795779433;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
+        b=MdT+HKKJ9gYz4CK9zKAV4vg/P2lfm9djk8AZgB8nLFFlh78XRuRtT5MKdXDxEot1as
+         LwfdB7Wk3TtHofFxH6lKna4h9dAPZNwMXBJeH0fU/n/1NE9j+HBVuSmKRCn9Bb8CaY15
+         iOvodu9tR3VIvo/V4Ax3bqWkCD0SRauM77XbSE34BaTtuEhhS3mQTYYnlhyflGLLP3De
+         kEA5gqoYE4II16b/ZqZM526m4Ly4vosTzm4joKgEax40xWVFdeG4HQp4I5zz65TnCzue
+         xdlsYFO+ErXee0Xx/agpEqwZ3gXM8OtoEP3L+H4wD5KSjR2r5lFBvMqor1r1pYP6TkcO
+         ZnWA==
+X-Gm-Message-State: APuU4Z9mgJv5mxnbEKLBvWfJ6XzShMVliE+qW3eK0wdSC3az76hRkW2j
+	2WtzVQGlCHLEbI0jumhTgICwkJXxVEFG29d8VJjsf097EDym5ITS/DcK
+X-Gm-Gg: AYBFou321x6x7+kCd+dwumu3W1pg5qUYXL7Pukam7Fz542WkAAbWK56x0MBhNFRy6dH
+	AXrUdywd6+7dw+Gy3mhYDKn5bNtN2E10dCNYie1Z51uK9atDCuW58iJJakfxmfTolqJkH1zg9L2
+	nbZs47F47IKiirITY4gfyvEpXsJ8htDTXzkRbm2aDs0O3aScVVCYbdfECdZYjHRcRiQoRYwK8Aw
+	0uqnivsSIrsewP5ic4dI49JZEgb0zKBQy7b/6vr3YvEn3RV5mGRh6c8rHkP7cvwzh/mUYElxyiF
+	xavR5k0QKXMcvd2DdtD83qppAMnieuNhS145XvI+bm+ADajwyAM1OuPiO3aQiTMYYWqwWulvtyy
+	ee1YU7R4qJa94wLir+PdPX8c44+5Skx5YdiCiyPscgWy/vI5/g+XZ3MxS2f3cJlgNxVs8pMEQGF
+	MzZ3SVC+0HJLEqq0OXN/iG8W3N65h8QcJ3DLRayWOhCW1/sCCnXIKUnruOOJ32RrcT3TjxPkoNr
+	IUJR3K3l1dRM1v8P5LVX6SwaqFlQwPHj/vNo+IbA7NOCRgaYW7cKnsTQI+U4rDBDkwNfvLo57WL
+	WxC/Jk8odQKvuWOVNh+Megb24A68nuuJMKm+JgD81JqKFHsxspw=
+X-Received: by 2002:a05:701b:455b:10b0:1b3:b833:6565 with SMTP id a92af1059eb24-1b5568a1550mr2404004c88.20.1795174632489;
+        Fri, 20 Nov 2026 03:37:12 -0800 (PST)
+Received: from localhost.localdomain ([103.179.231.88])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm11664119c88.9.2026.11.20.03.37.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:37:12 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: perex@perex.cz,
+	tiwai@suse.de
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] ALSA: pcm: Fix incorrect numerator selection in snd_interval_ratden()
+Date: Fri, 20 Nov 2026 11:36:32 +0000
+Message-ID: <20261120113632.2761-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,51 +94,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20 2026, Christian Brauner wrote:
+When the calculated numerator is smaller than num_min, the
+function incorrectly sets it to num_max instead of num_min.
 
-> On Wed, Nov 11, 2026 at 12:23:46AM +0000, David Matlack wrote:
->> A file that is restored into an existing file is already open in the
->> caller, so installing a new file descriptor for it would just leave
->> userspace with two file descriptors for the same open file. Retrieving
->> the token again later still returns a new file descriptor, like for any
->> other file that was already retrieved.
->
-> Thanks, this looks way better.
->
-> One thing: Please just install a new fd like for every other retrieve.
-> I think it's pretty meaningless to return the fd number the userspace
-> just passed to the ioctl.
->
-> The fd number is also not useful as it's not tied to anything. The shmem
-> handler looks the fd up once and LUO keeps a reference to the struct
-> file:
->
-> 	CLASS(fd, target)(arg->fd);
-> 	[...]
-> 	args->file = get_file(file);
-> 	args->fd = arg->fd;
->
-> Which means, another thread can close() that fd or dup2() something else
-> over it before the ioctl returns and the fd you hand back refers to a
-> different file fucking over the caller (shared fdtable etc pp).
->
-> That also gets rid of @fd in struct liveupdate_file_op_args and the
-> special case in luo_session_retrieve_fd(). And a retrieve into an
-> existing file then behaves exactly like retrieving the token again.
+This can produce an invalid interval by making the calculated
+minimum numerator larger than the maximum numerator, even when
+a valid range exists.
 
-I suggested this approach because I found it odd to return a FD that
-userspace already asked us to retrieve into. Any sane userspace would
-just end up closing one of the two. I didn't think of this race though.
-I reckon we could return -1 in the FD that LUO returns, and let
-userspace use the FD it already has to work around this. If userspace
-wants to close the FD in the meantime, that's their problem. They don't
-get the file they asked for.
+Set the numerator to num_min when it falls below the minimum
+allowed value. This allows the function to calculate the correct
+lower bound and prevents valid intervals from being rejected.
 
-While I like this more, it's not a super strong preference. So if you
-still insist on having a new FD, that's fine too I suppose.
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ sound/core/pcm_lib.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/sound/core/pcm_lib.c b/sound/core/pcm_lib.c
+index bb16738bb591..65c7472ef22e 100644
+--- a/sound/core/pcm_lib.c
++++ b/sound/core/pcm_lib.c
+@@ -966,7 +966,7 @@ static int snd_interval_ratden(struct snd_interval *i,
+ 		if (num > rats[k].num_max)
+ 			continue;
+ 		if (num < rats[k].num_min)
+-			num = rats[k].num_max;
++			num = rats[k].num_min;
+ 		else {
+ 			unsigned int r;
+ 			r = (num - rats[k].num_min) % rats[k].num_step;
 -- 
-Regards,
-Pratyush Yadav
+2.55.0
+
