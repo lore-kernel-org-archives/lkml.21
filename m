@@ -1,84 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133978;
-	b=omnBE1wtX+JQH8TIDZkxkeuJr5A4gam+yn53jbVoTUQ++zaKEb407pIIsCYl1W1zS80c
-	 AUQLcOk1WVPHLZgMjsrV1rIhZW4ZiK78nyHnSc73z9ujGDNR8bUkrIQvyYtSy0fZAzUVJ
-	 27H83pKlxFeVOSco+nmDtY4Q6CMb+kUMFAF726LXV76LQHB/z8qQCDd85ko3HqJXzp/vn
-	 jcCWWrZIrmdWsJfctFt09wy7RFnFIdDLnMsAu6rPWovwpTNUUmSIEz80ZFb1RbWPFBe1c
-	 TpmN/BEZEDJTBuSyJ1MEdaDK4uVxjPdR9EYloaxBAlF8MUfYr9s/RYxVBrbfwMW0ZmQ==
+	t=1795134008;
+	b=KGX5zMlZzXJCG45bRugIqKTJ7tr2ilmQvn1jAGX4hVUrb/82wt3MK6/IBZyVQcl54SrC
+	 TBpKb5NgyBTz/quYwN6dvErIsP85fXCZdKKhJG+l0TMn33s6c/pDeZRAHSlGxv9iTpAV1
+	 daBkwcz17FrfP2XKynEcy7DS6ovIP3Ve66x840lmYuqwSDdBKu/z3GTnacK9k1p+76tne
+	 m7MPxbTfb6i/9HAPiVm5iNGMZrOyDgeFB/W6QGsajs6w1VrHhuICpEyCi3jFPzH3kEtxl
+	 IccOjcld28deiMDLOpXw8s2+YupOZ4vzBbvPzOYa86RnrZk+qYpG2HbMCecAt6SNJ1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133978;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
-	b=cmVUeQroziIggMMzUS9G1hUdExZSmWkrauChOJZuF08IZB4VftFsZbFapxRr9Ij85FGJ
-	 7kxMaBg4ZdH8FtQe4UT5GdcUDD4F5aBJwM/Tuw4f36+jfMPJ4dXZazPS8nZeii3PU3ckN
-	 B2N7UaSVl/Bq+vQBx8TnzWoIANYNo2am97Ty0hS2fy06RzRxxSv/qh7XoQjILcSJRRFyB
-	 VgHqI0XSRYfpAZKYgcSJlzyP+n7lkLufwUqC3XkrEao0S63sE86vy1ds/GBbwVBOGvFVS
-	 8Pb2Qws9YK4dNlPPtSRCasR9gxYLNjr4ZRnDO6annEUPgyPu+K58p7CIBz7RwqD9JcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134008;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=Qpn6qAydWqmOHij+CmTZiZIlVhqlL6VvvY8KVcbTtZE=;
+	b=2lq3G/4yWVMwphoyHUxZlDHl9d/oP1kpivFZpN/vs0Wv16rk0ydQM2hUqmErGZ5HgCWk
+	 PdT7WfptjoXiBOu82yBqgQzYowRmu6uBJMCJ7odpWWLU4rmpLyioUqvh0SIiFRmCTEF+P
+	 m3ifE/VljXOgF5f1AgV41KmiOHCQa1x5oRvyF/PtvqZEwU0hZ8clEqaaVwARlbDMbUUKF
+	 PMGIlNrYu9Qxvd6C9lleBHoF2OAfzCLOBjb2QQK1q8PkNk/7KiBRCuJG/TyO9q2S7dK0j
+	 NfGKww4Ie3o/8yeHJLVvnxedg3mkHHVZ9PuZ1EmA8c1KVdVGCt6C+Pz4+iXUkNhbCOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PdhTt60H;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D0LHfYeR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40FC9606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:19:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40FC9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F1C4606A330;
+	Fri, 20 Nov 2026 00:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PdhTt60H
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f041f88577so1991595ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:19:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795133977; x=1795738777; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
-        b=PdhTt60HfDdlbgtnPHfsSmeHBydQzoPU7kBA2tY0Ozd78IUkx0lFNNH2yQEnk+t921
-         4E9Tm4vx1WTnyn6wVtiNLws9au3Om8UjAH+aHWnF9UWUCSm6dRehNZtZrRMRyiJKAdfQ
-         YnTwSvF8Sds1TTxbi5V/mZOO0ENi8tkjlt9pqsZCHwuUE36BF1CfNzDd6CjA1gvbCV0K
-         t8tBNb4lXwSyQhCSx3AtuTpJROIDOnqKE7PXyQm+EW6Ikp8UHZwMZtLLhZ8OhuurDTSV
-         31cPFPu1KFP9meTVUMuhIsGXcN1R94M301aF17ZwKIG89GFOnVfy1AAlTXsPDOoCWZDL
-         cbJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795133977; x=1795738777;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
-        b=LI88QNT0BxtgEjvxjvpxmFLeBRqIp9i/ct59dNMpahFCG3Ug++6Gpp41s6niGrNU/s
-         7U0RS8EHvuMGNG6UaRhePnxpDNP4Rc+QmDiXlw891ggcTs1RiVrvyL7ViQH1oIRg6mKu
-         vLb9gcy52K2x4AD7CftwXgG9SVu2/hCfvgNhCHHBDlpsbQhw6tjXOMiPhZ4GR0/kXecV
-         /FdBibW/Nypl+B7VLiI7W+PzKgtg4OgbnLcW/nPvSpCWRAdVgsCPMUphN1swAEK3r0Wx
-         m3erfTYfL3ylri73x2yZB5CBy1pK318m0hvdsQYTfTSxJ4jHgdeiKV2WXMA8tEXh+DA2
-         YJwQ==
-X-Forwarded-Encrypted: i=1; AL+hErFqJgdCGKvtsYuIRWFkN+vbFuzA3GHDkDbwhsyeeVbHIUcGC96kMMDhDiLZqUDFEHh/l/6Gdq+vVdlnD5k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DgA1jOoBk+ZhaDrbf52EX49n2q9cTNfEorwNoN/qVHt/1Rj8a
-	/ZmErNWl/MF9T3FDi5zKYrfnk0uRQJ1/uMLve7K7vRaXTg2JjaaiOSghEJbWtj5ccw==
-X-Gm-Gg: AZFdTZc2mYRXJqZ8wLlqQtZ8PnH+oWGtgDBT2bRihTIWjhniZeSrPSEyyDSELyjNY9G
-	8u46sWcOIs38f3GuUqfar4RMgqu08gjfZI5Nq2VTPV8EUY+VNvE5mErFpPaemo06M5ByX746nLQ
-	nMwG6KVfbx/x3ycktGpXAdHG2x/lczEwTx79gv07S3P6YqxJTIIL8WsrH4qZ2tPlNh3Z4Iyv9FP
-	MIRvrj4WHVRCBn0sjHhQkZDvNZZaVeSiF42kMu4RdCe7/tTahSGg775WWJcml1X0sexIR1Gzw2p
-	gaQsPNWcmMNfyN62wbxndGJo0BlSVTapZZsn67STl2vC7sgqQ/4i4XyLPXqsGXeVQdll7UNDRHl
-	vQNwRSET/lFgI91YXQvRDOzUpL+Be3bFm570WBVSgnFLKFd8J0soiGDl56mLdQr/PQ6nctQuPn4
-	0cFFZZs3uyhITzbKuAs6K/ZdYOoTxWRcR5uJqoNvsu0ZJQVNOLZr6BD7VomvppVB24vDcQ0fsAO
-	+f9VbJNmbjhhSsBe//igVIvSyGAkkT38wFrMPrMimVmvm1MkmBRA9F+op4QKL0W8GLUetr4TfHl
-	E4TwSSG+p5SNYDF1sHiAV2vgLq/9to8XpT0/lT4IDWFux+MhuRvoZsQJAhMq3tpF
-X-Received: by 2002:a17:902:e542:b0:2e9:6b5b:3db6 with SMTP id d9443c01a7336-2f03f1a4967mr13941365ad.30.1795133975980;
-        Thu, 19 Nov 2026 16:19:35 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0ddf40sm5969655ad.37.2026.11.19.16.19.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 16:19:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D0LHfYeR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08DC41F000C4;
+	Fri, 20 Nov 2026 00:20:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795134008;
+	bh=Qpn6qAydWqmOHij+CmTZiZIlVhqlL6VvvY8KVcbTtZE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=D0LHfYeRBdF+FOchM2If9OlMKNYnHUUykiUiUfWj7ivnncwrFiPVVcA7Q6Aez778w
+	 x6xvhq+4OcASnDqEa8v904/3C8davWTb+CYNVVzfq2doiZPCkMBOEcvoszc+HTjOV1
+	 6KI9BV+Fbs9IoSZ3M6NSF3ya211G3oURGzIiFJQbQekFeQVaHFUdWve3g/J70SzOAn
+	 zIns4UEfjOksPK/yefJXQC8xhSGg9NH4ItgZIHbROk+8Pq+t8DPZ8SqlB9J4NiBlA/
+	 yBuUph6GgkkoyDN28UaKmSKhr7ecoKUpINQDEwSuLIgtJ0G9UTZ7CacljcRC7a3N4s
+	 SXQD0OTmJl0tA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14F63808209;
+	Fri, 20 Nov 2026 00:20:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,75 +52,51 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 16:19:34 -0800
-Message-Id: <DMZLVV5YW6GW.1HMW8L8NIQ1XR@google.com>
-Cc: <ajayachandra@nvidia.com>, <alex@shazbot.org>, <amastro@fb.com>,
- <ankita@nvidia.com>, <apopple@nvidia.com>, <bhelgaas@google.com>,
- <chrisl@kernel.org>, <christian.koenig@amd.com>, <corbet@lwn.net>,
- <dmatlack@google.com>, <graf@amazon.com>, <jacob.pan@linux.microsoft.com>,
- <jgg@nvidia.com>, <jgg@ziepe.ca>, <jrhilke@google.com>,
- <julianr@linux.ibm.com>, <kees@kernel.org>, <kevin.tian@intel.com>,
- <leon@kernel.org>, <leonro@nvidia.com>, <lukas@wunner.de>,
- <mattev@meta.com>, <michal.winiarski@intel.com>, <parav@nvidia.com>,
- <pasha.tatashin@soleen.com>, <praan@google.com>, <pratyush@kernel.org>,
- <rananta@google.com>, <rdunlap@infradead.org>, <rientjes@google.com>,
- <rodrigo.vivi@intel.com>, <rppt@kernel.org>, <saeedm@nvidia.com>,
- <schnelle@linux.ibm.com>, <skhan@linuxfoundation.org>,
- <skhawaja@google.com>, <vivek.kasireddy@intel.com>, <witu@nvidia.com>,
- <yanjun.zhu@linux.dev>, <yi.l.liu@intel.com>
-Subject: Re: [PATCH v6 12/27] vfio: Enforce preserved devices are retrieved
- via LIVEUPDATE_SESSION_RETRIEVE_FD
-From: "David Matlack" <dmatlack@google.com>
-To: "Vipin Sharma" <vipinsh@google.com>, <kexec@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
- <kvm@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-kselftest@vger.kernel.org>, <linux-pci@vger.kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20261102153656.1431701-1-vipinsh@google.com>
- <20261102153656.1431701-13-vipinsh@google.com>
-In-Reply-To: <20261102153656.1431701-13-vipinsh@google.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/4] eth: mpnic: L2 address filtering
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179513400678.3940111.14124494697474875515.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 00:20:06 +0000
+References: <20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0@gmail.com>
+In-Reply-To: <20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0@gmail.com>
+To: Daniel Zahka <daniel.zahka@gmail.com>
+Cc: alexanderduyck@fb.com, kuba@kernel.org, kernel-team@meta.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, dimitri.daskalakis1@gmail.com, mohsin.bashr@gmail.com,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
 
-On Mon Nov 2, 2026 at 7:36 AM PST, Vipin Sharma wrote:
-> diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
-> index 12557d45dfee..e6ca4c3fda06 100644
-> --- a/drivers/vfio/vfio.h
-> +++ b/drivers/vfio/vfio.h
-> @@ -11,6 +11,7 @@
->  #include <linux/cdev.h>
->  #include <linux/module.h>
->  #include <linux/vfio.h>
-> +#include <linux/pci.h>
-> =20
->  struct iommufd_ctx;
->  struct iommu_group;
-> @@ -446,4 +447,21 @@ static inline void vfio_device_debugfs_init(struct v=
-fio_device *vdev) { }
->  static inline void vfio_device_debugfs_exit(struct vfio_device *vdev) { =
-}
->  #endif /* CONFIG_VFIO_DEBUGFS */
-> =20
-> +#ifdef CONFIG_VFIO_PCI_LIVEUPDATE
-> +static inline bool vfio_liveupdate_incoming_is_preserved(struct vfio_dev=
-ice *device)
-> +{
-> +	struct device *d =3D device->dev;
-> +
-> +	if (dev_is_pci(d))
-> +		return pci_liveupdate_is_incoming(to_pci_dev(d));
-> +
-> +	return false;
-> +}
-> +#else
-> +static inline bool vfio_liveupdate_incoming_is_preserved(struct vfio_dev=
-ice *device)
-> +{
-> +	return false;
-> +}
-> +#endif /* CONFIG_VFIO_PCI_LIVEUPDATE */
+Hello:
 
-No need for the ifdef here and 2 definitions here. If
-CONFIG_PCI_LIVEUPDATE is not enabled then the compiler should be able to
-optimize vfio_liveupdate_incoming_is_preserved() to false.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 16 Nov 2026 13:11:18 -0800 you wrote:
+> The mpnic device has a TCAM that is keyed on DMAC addresses in the Rx
+> path. Up to this point, the TCAM was unprogrammed, and the default
+> action was set to pass all traffic to the host. This series programs the
+> TCAM to filter Rx packets based on DMAC address.
+> 
+> The device, broadcast, sencondary unicast and multicast addresses are
+> added to the DMAC filter. Promiscuous and all-multicast modes are also
+> supported by reserving the last entry in the TCAM for inexact matches.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,1/4] eth: mpnic: add filters for dev_addr and broadcast address
+    https://git.kernel.org/netdev/net-next/c/419c42cb567e
+  - [net-next,2/4] eth: mpnic: add promiscuous and all-multicast filters
+    https://git.kernel.org/netdev/net-next/c/5f969cf59b64
+  - [net-next,3/4] eth: mpnic: sync unicast and multicast address lists
+    https://git.kernel.org/netdev/net-next/c/135603cd9dd9
+  - [net-next,4/4] eth: mpnic: support changing the MAC address
+    https://git.kernel.org/netdev/net-next/c/1b271185a32b
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
