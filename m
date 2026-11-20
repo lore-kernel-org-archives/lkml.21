@@ -1,59 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197902;
-	b=AIV/xk8NR4TflVE3ps/55zWYTCaLMpmg1VgyUtBpNE7+ybmgfCiXNqWJvspENUwnl/A5
-	 9Jir7TgwLN0vFi0FfLty55x0RX0GV5aIRO1fT73SThCLgPM820edHZqzebZ0yXKUNsqRd
-	 KiGuXb6qb5YQqmLoM16sH12YHbUdKatOt4+h2mIug3F8E+kdETcmVJIkOiRCDf1xqq3Nv
-	 BLBbtqiql+s8ubvWdJ8Q2TJzULJpH1GG9LoVBOZsQMG4JvzK8ZmOpgzpMvKCcWiN26FNS
-	 tLAB7+7z05bf1V2WnFhTo6XU8qPEAU2GBqTbel65U31pxzq/lelxlMsqwJee3b1KcbQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197902;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=HH2VG/d9poSMD2mfA7w3Eb7BZ1MJPGD/rh+PnnFtzYo=;
-	b=QUNxpteJpfQKhNNGW3k7XuNDus77igEEzpMqLh3PubJmxW4EKhJ/NDtglCdYJX3hUFKw
-	 JI1UAlnd8n7IO1QIB2nN1b4AIvg8Yu0dksIfE+AySaqXBs+iVJHTCMqmrIGQX9OzVD45i
-	 E1vPC0ClML1uDu8MHeQA62vKCriCqWg/DZOeIyCKMTg5sOaMlC/X0/KFFzQn7cYORb2wk
-	 K7brh2YbatTsNtK6MP7fSUEriOn7cgCxmhkbWVI01tIZHhXtUzRrymbxVzp3bQLL3wvaS
-	 3pTOzm9g5hg+Aj4d9137Tr+cXMV4BJv9hEHB0RtIgWBO5R8jo9ahtfcvAw2kXKSAx/Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=k3zAbMX7;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795197894;
+	b=FAFuE+2NPl1M5rtYxrj3ryez7wMho15agfd2B57ThhBgAIg8+Phic38T99JhbAhEuRBr
+	 lq1G3YDE7Gx32Bx0StTdZs3boITLWJOlJQ98S/Kt3CAXk0Y+HN22FRhvm/bYC8CXCnJ6p
+	 V0tXRadW0aoN2rBN62lsOdT9uup2DbTWYbiTiG1Zok51DkHTBIjcvbsSCiGf5Onw5T/Pm
+	 yY9kRRpDUu6yNmjipz0msDyuzZIOd8XbrRfgY/B5FIZnrp/lRXvJDfXsFnx4rlVfCaE3W
+	 2j+wUs6BwdChEQjMrZh9WL5P44QDxEdQDR26AJgLhLEmhz/ZRs+mC/JzQq1wjuZvioQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197894;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=QMLztqnULVc9ZlPFv8fZ777zhC27NMjUKNQ5wWG/h7o=;
+	b=YoaLi1e52SAePykEIctLzn7P6m2lSic+Y8gUV/RQsi1yIvPK6L7pmjPC4W+m92bTkhRg
+	 hfbU5hGQyP+XgBRgW0uk03OE/A6KVYOHMPvAlXsymLAbzUqJCOFw2oWMdayDhdq4h+UgP
+	 ilMl7c6aZVbysmNF7L8au28H59km8hI9pIXB5d7x07t5khSSwSDCwSa8Y3KQrlD92jGPz
+	 P0A3yimSM3BmFzOH2aK5wWuMSzSU/xpQXWOr3ZURvaE90PNUtcurStX9JDhxBueW6dQs7
+	 xaFE3T0FGaL7j3R1uc3gE6yO5r69QVyhSljTISv7TLJLvnYN8utJFnupgoe3sQ+YqwQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b+TsGpCD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8C8060A263E;
+	Fri, 20 Nov 2026 18:04:54 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b+TsGpCD
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795197894;
+	b=yHssccCSwkevWkpwNby3fJFvyPRzeRqtYqmjgHQD4b6HiryJXe0U0mK/3D+M4inqc2Fv
+	 UxY8Me+hP67WkS8u9qUlGR4MOySRNEBHeH20hZzrSQiZ1eXLrZ8x2oO3TbmnjjC7q0iay
+	 UICDaZxF/3yJErsM8ST/1XQ1dc1zDbny1yjeFg+t2lPEMUFcvVeDo4A7i0OVwphLTiceT
+	 Qj2K/zXu6i+eLJoqLCBMmvjBpZU+AB/X1lcyeHtxrpHW8Ev/dVONXae59ejF9hYEv+IJM
+	 XiDkMKTDxbG/uVDzl8t4s33OtjjjFrkyF49eKWgpD3T8tcB1Iudtuanxq2M+20TYYcg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795197894;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=QMLztqnULVc9ZlPFv8fZ777zhC27NMjUKNQ5wWG/h7o=;
+	b=BhXgytBqu13kHGhrnAjNyIuFyFa1zete1OXQeMDCzmyJ+uqcgR8owiVNohuI/JO53FTi
+	 CcDZuLMvSr+J1jKZ7MD48FuR6PoRLEVk5adTbFieGTwQj8LiqdAWu3n0r1g5olK1vK/SC
+	 i581aT2Kv4/hqEhm0doIlSKCnoMk9Bf8cWO78VFDjYdlIHTN1zSTH7CD/GYzFNpXLy8aP
+	 OrNcTYo7edo9b2D9UJZJGtSCiHhip2acXse/BZjqZqiSgeqbwtrfijSFiOxZkZGW4Ho1s
+	 Huv2AkVBjvKEZpAyFam8DfxeOuSdtlvT+iuACYEIOgfxevkr/lQPbG0QPev2exZHuzg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E37D0606BBE9
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:04:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E37D0606BBE9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=k3zAbMX7
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B20314E4168F;
-	Fri, 20 Nov 2026 18:04:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8532B601B9;
-	Fri, 20 Nov 2026 18:04:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DD05F11BC08D7;
-	Fri, 20 Nov 2026 19:04:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795197895; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=HH2VG/d9poSMD2mfA7w3Eb7BZ1MJPGD/rh+PnnFtzYo=;
-	b=k3zAbMX7dTFiX9xdPGKxQwJtiWolWdqNvbC2JgRD+opCXIthmZD9YqbqsZEQa6ZX8IQCHr
-	dKyRdsSlCQQPerKamFxbi2InVMCXRzMExu+OIq9JPgQ+p0lpTA3xWkkx+s9i4zUl4bGoEu
-	Q8F9mu8JWMU+y2tk3VVnP9B1B7dQAWr529YWOi5T4kfzO49Ui1ukWDqvGIgm9y4e7cJiN9
-	KN0eji8KbH8KZp89PmmuRnGNNCAS3ouH1hfhzcr1iuN9kIGkhzOkLb4DxehG9R3bn9sMDP
-	epwCXzItmPzNTNjcx4zjUl0F6oksmvtUXzu6c1SmcBOn7h+Zj72QwHLGWAbgrA==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Fri, 20 Nov 2026 18:59:09 +0100
-Subject: [PATCH v6 27/43] drm/vkms: Introduce configfs for plane format
+	by smtp.kernel.org (Postfix) with ESMTPS id 955341F000D2;
+	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197894;
+	bh=QMLztqnULVc9ZlPFv8fZ777zhC27NMjUKNQ5wWG/h7o=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=b+TsGpCD/y2C7URwFwk2nXti2dLFfROwaWd499vBXuJJ0S3GJm0YM7TYaLmPqVAjP
+	 mq/XGCKbh53oX/UAc/bIuQJCaLM0X0APFs032UG56XqEeGlgCvcujH6rXqYftJ0bRO
+	 nS36g5Qa6p7h4RQIdnE0AorsTcN2P7Ll/yM8TJRBMoMlrI4bcuczz5TnjCsPS+fdP6
+	 PYGdQUOega+zpJjrLbbPWd/rZDsp2ALGI/uSK3kZi0xt2FUVr7jt0/xCeFYZdO6a/J
+	 FxOnD7wP5pK3SIDIHO5OSR40x/RwKHIrq4Kwbry7wEoL5OJm/Hnd5aVtGFzAx/aVqJ
+	 jX/tG/vxO5Zqg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2AC8D4B8A2;
+	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
+From: Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org>
+Subject: [PATCH RFC 0/5] iio: split struct iio_dev_attr into typed core
+ attributes
+Date: Fri, 20 Nov 2026 18:03:56 +0000
+Message-Id: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,238 +85,115 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-vkms-all-config-v6-27-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
- llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6441;
- i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=RHKvjYxBm6VZrP410NfTh8ZIDvC7Bbynzl+5/Y7XGCA=;
- b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIsBuIqdJC7K53NpfS2fgIRaW1w3NPL1eH4Es
- 3xCuFuMw2qJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCLARsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOLX8w//UCBwYoMBv6+X5YGFDn5eZxEQwHmdBzt
- kENVrVztcRSRDbIejgMrpFmL/acVHgp4Mxl8mhNq5SW7OHVR7adAyUY6CBH+XuQwCn8BlD4EyR+
- xJ9lEBnwQ9yGWBZIheS5g6B04EARWYrI5NV+tcwqmVzIvvoz0vWtPzbF6J1RmB513DmTahOsF4w
- d3lRPLbOfMSN4ZJ4O5z/3G7S7chbvLoPvG4YUROaA+cdpy41ewcyHxhaW1fTrX28jirSwmXY+g3
- AtIx/8UodRTjD2QEaRigSTEOGkDi/Fh07SX0xyKpd7T0VTN7NQT4NQ+ycDmyAfMoi+NxX2TXIL2
- Up57iJWhJ2XJuWgR+4li7iiUG9Zec4lYPASrXKsLn05EqONsr2nOucLCO86Srj0rRhd1lHepUDT
- S0QPa/5Eh2QNDg1kiirNVhDc7n3gXU2ZSP/NNj1ZEooVP4Pm0njdBCi80usFoAbTULP2WqsFYWR
- Ig5FssxWS3FhGyvquYuThH6dKHqHMT39HrtzFvxe7NqYJA3cPBwTbC8Gyjx3G4PLJgwzo2DGy9r
- ha2JVwpH876c4KXf9q+H1h4gjV5uWivVxzowIbJWNdUv7jI8tM48FYRgi/l8uFULLBigHW+/dC2
- qn84t+wrM+MhKDXlp0gmr2EdumpqIvbQUX+s18A7PlqaX9sd4ihE=
-X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
- fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIyLAGsC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzNDQyMD3czMfN3k/KJU3cSSkiJdkJbUcl1DYyPjJGNLCxOzNEsloNaCotS
+ 0zAqwsdFKQW7OSrEQweLSpKzU5BKQgUq1tQAGUDehfQAAAA==
+X-Change-ID: 20261120-iio-core-attr-review-1323b39846f9
+To: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, 
+ Rodrigo Alencar <rodrigo.alencar@analog.com>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795197883; l=4276;
+ i=rodrigo.alencar@analog.com; s=default; h=from:subject:message-id;
+ bh=wA+ikYFGpnl6mFqtqCuP9Q8GUxVhzb7hcI8h1ZCXeoE=;
+ b=m3p3oBDIFBQqsHYTDHGNExVkdXn1Et3BudskqbqPPbY1PfR0yh9Bh02KsiiYc4uyBY29o3T3G
+ /vZby+C2tVIDTJ8EENlbEyv5nssVcsQHy8nAQqUxl1m386dcmPPk7Uk
+X-Developer-Key: i=rodrigo.alencar@analog.com; a=ed25519;
+ pk=ULeHbgU/OYh/PG/4anHDfLgldFItQHAhOktYRVLMFRo=
+X-Endpoint-Received: by B4 Relay for rodrigo.alencar@analog.com/default
+ with auth_id=561
+X-Original-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
+Reply-To: rodrigo.alencar@analog.com
 
-To allow the userspace to test many hardware configuration, introduce a
-new interface to configure the available formats per planes. VKMS supports
-multiple formats, so the userspace can choose any combination.
+struct iio_dev_attr does three unrelated jobs: it backs the static
+attributes declared by drivers through IIO_DEVICE_ATTR*(), the channel
+and event attributes generated by the IIO core, and the per-buffer
+attributes. Every user carries every field (l, c, buffer), whether it
+needs them or not, and the meaning of @address depends on the context:
+an info mask bit, an ext_info index, a scan index or, for events, the
+event_spec index and the event info packed together.
 
-The supported formats are configured by writing the fourcc code in
-supported_formats:
- # enable AR24 format
-  echo '+AR24' > /config/vkms/DEVICE_1/planes/PLANE_1/supported_formats
- # disable AR24 format
-  echo '-AR24' > /config/vkms/DEVICE_1/planes/PLANE_1/supported_formats
- # enable all format supported by VKMS
-  echo '+*' > /config/vkms/DEVICE_1/planes/PLANE_1/supported_formats
- # disable all formats
-  echo '-*' > /config/vkms/DEVICE_1/planes/PLANE_1/supported_formats
+This series keeps struct iio_dev_attr as what drivers use (dev_attr and
+address) and moves the core-only state into private types embedding it:
 
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+  struct iio_chan_attr   - core channel attributes (channel, list node)
+  struct iio_event_attr  - extends it with the event spec
+  struct iio_buffer_attr - extends it with the owning buffer
+
+Attribute creation is split into iio_chan_attr_prepare(), which builds
+the full name and runs the duplicate check, and iio_chan_attr_add(),
+which initializes an attribute allocated by the caller. Each context
+allocates its own type and sets its own fields, so the core needs no
+size, offset or context pointer.
+
+The intended benefits are:
+
+- Static driver attributes no longer carry the core-only fields: 32
+  bytes less per IIO_DEVICE_ATTR*() on 64-bit (72 -> 40, without
+  lockdep), for roughly 220 users in tree.
+
+- Core channel attributes fit a smaller slab class: struct iio_chan_attr
+  is 64 bytes on 64-bit, where struct iio_dev_attr was 72 (kmalloc-64
+  instead of kmalloc-96).
+
+- Shared attributes (info_mask_shared_by_*, shared ext_info and shared
+  event info) are deduplicated before anything is allocated. Today,
+  every channel after the first one allocates the attribute and its
+  name, finds the duplicate and frees both again.
+
+- Event attributes point to their struct iio_event_spec instead of
+  packing (info << 16) | spec_index into the address.
+
+- Buffer implementations no longer depend on the attribute layout to
+  find their buffer: iio_attr_to_buffer() replaces
+  to_iio_dev_attr(attr)->buffer.
+
+- Context-specific attributes become an extension point instead of yet
+  another field in a shared structure. The IIO backend framework is the
+  obvious next user: iio_backend_ext_info_{get,set}() recover the
+  backend from indio_dev->dev.parent, which, as noted there, breaks as
+  soon as a frontend has more than one backend, and
+  iio_backend_extend_chan_spec() refuses to combine backend ext_info with
+  the frontend's own. A struct iio_backend_attr carrying its struct
+  iio_backend, created through the same prepare/add steps (and so
+  deduplicated against the frontend attributes), could address both
+  without touching struct iio_dev_attr or struct iio_info. That is not
+  part of this series.
+
+No ABI change is intended: attribute names, modes and callbacks are
+unchanged.
+
+This series was developed with the help of an AI coding assistant
+(Claude Opus 5.5, through Claude Code). Over an interactive session, it
+reviewed the IIO core, discussed design alternatives, wrote the code
+under my direction and helped write the commit messages. I reviewed all
+of it, and the design choices are mine.
+
+Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
 ---
- Documentation/ABI/testing/configfs-vkms | 10 ++++
- Documentation/gpu/vkms.rst              |  7 ++-
- drivers/gpu/drm/vkms/vkms_configfs.c    | 85 +++++++++++++++++++++++++++++++++
- 3 files changed, 101 insertions(+), 1 deletion(-)
+Rodrigo Alencar (5):
+      iio: buffer: add iio_attr_to_buffer() helper
+      iio: core: add struct iio_chan_attr and split attribute creation
+      iio: event: add struct iio_event_attr
+      iio: buffer: add struct iio_buffer_attr
+      iio: sysfs: drop core-only fields from struct iio_dev_attr
 
-diff --git a/Documentation/ABI/testing/configfs-vkms b/Documentation/ABI/testing/configfs-vkms
-index 16a44cc60e4a..312631d12985 100644
---- a/Documentation/ABI/testing/configfs-vkms
-+++ b/Documentation/ABI/testing/configfs-vkms
-@@ -164,6 +164,16 @@ Description:
- 	DRM_COLOR_YCBCR_LIMITED_RANGE, 2 -
- 	DRM_COLOR_YCBCR_FULL_RANGE.
- 
-+What:		/sys/kernel/config/vkms/<device>/planes/<plane>/supported_formats
-+Date:		Nov 2025
-+Contact:	dri-devel@lists.freedesktop.org
-+Description:
-+	List of supported formats for this plane. To add a new
-+	item, write its fourcc code prefixed with '+'. To remove,
-+	use '-' prefix. Use '+*' to add all formats supported by
-+	the driver, '-*' to remove all. Reading returns the
-+	supported formats, one fourcc code per line.
-+
- What:		/sys/kernel/config/vkms/<device>/planes/<plane>/possible_crtcs
- Date:		Nov 2025
- Contact:	dri-devel@lists.freedesktop.org
-diff --git a/Documentation/gpu/vkms.rst b/Documentation/gpu/vkms.rst
-index 7e8f4fe3b392..e5280a99eee8 100644
---- a/Documentation/gpu/vkms.rst
-+++ b/Documentation/gpu/vkms.rst
-@@ -87,7 +87,7 @@ Start by creating one or more planes::
- 
-   sudo mkdir /config/vkms/my-vkms/planes/plane0
- 
--Planes have 7 configurable attributes:
-+Planes have 8 configurable attributes:
- 
- - type: Plane type: 0 overlay, 1 primary, 2 cursor (same values as those
-   exposed by the "type" property of a plane)
-@@ -108,6 +108,11 @@ Planes have 7 configurable attributes:
-   must be set too.
- - default_color_range: Default color range presented to the userspace, same
-   values as supported_color_ranges
-+- supported_formats: List of supported formats for this plane. To add a new item in the
-+  list, write it using a plus and fourcc code: +XR24
-+  To remove a format, use a minus and its fourcc: -XR24
-+  To add all formats use +*
-+  To remove all formats, use -*
- 
- Continue by creating one or more CRTCs::
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
-index 910b69f532f8..c3ace145bbf4 100644
---- a/drivers/gpu/drm/vkms/vkms_configfs.c
-+++ b/drivers/gpu/drm/vkms/vkms_configfs.c
-@@ -3,6 +3,7 @@
- #include <linux/configfs.h>
- #include <linux/mutex.h>
- #include <linux/slab.h>
-+#include <linux/string.h>
- 
- #include "vkms_drv.h"
- #include "vkms_config.h"
-@@ -576,6 +577,88 @@ static ssize_t plane_default_color_encoding_store(struct config_item *item,
- 	return count;
- }
- 
-+static ssize_t plane_supported_formats_show(struct config_item *item, char *page)
-+{
-+	struct vkms_configfs_plane *plane;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	page[0] = '\0';
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		u32 *formats = vkms_config_plane_get_supported_formats(plane->config);
-+
-+		for (int i = 0;
-+		     i < vkms_config_plane_get_supported_formats_count(plane->config);
-+		     i++) {
-+			char tmp[6] = { 0 };
-+			const ssize_t ret = snprintf(tmp, ARRAY_SIZE(tmp), "%.*s\n",
-+					       (int)sizeof(*formats),
-+					       (char *)&formats[i]);
-+			if (ret < 0)
-+				return ret;
-+			/*
-+			 * Limitation of ConfigFS attributes: an attribute can't be
-+			 * bigger than PAGE_SIZE, so bail out with -ENOMEM if this
-+			 * plane supports too many formats (more than ≈1000).
-+			 */
-+			if (ret + strlen(page) > PAGE_SIZE - 1)
-+				return -ENOMEM;
-+			strncat(page, tmp, ARRAY_SIZE(tmp));
-+		}
-+	}
-+
-+	return strlen(page);
-+}
-+
-+static ssize_t plane_supported_formats_store(struct config_item *item,
-+					     const char *page, size_t count)
-+{
-+	struct vkms_configfs_plane *plane;
-+	ssize_t ret_count = count;
-+	int ret = 0;
-+
-+	plane = plane_item_to_vkms_configfs_plane(item);
-+
-+	count = strlen(strim((char *)page));
-+
-+	if (count < 2 || count > 5)
-+		return -EINVAL;
-+
-+	if (page[0] != '+' && page[0] != '-')
-+		return -EINVAL;
-+
-+	if (page[1] == '*' && count != 2)
-+		return -EINVAL;
-+
-+	scoped_guard(mutex, &plane->dev->config->lock) {
-+		if (plane->dev->enabled)
-+			return -EBUSY;
-+
-+		char fmt[4] = {' ', ' ', ' ', ' '};
-+		u32 fourcc;
-+
-+		memcpy(fmt, &page[1], min(count - 1, 4));
-+
-+		if (page[0] == '+' && page[1] == '*')
-+			ret = vkms_config_plane_add_all_formats(plane->config);
-+		else if (page[0] == '-' && page[1] == '*')
-+			vkms_config_plane_remove_all_formats(plane->config);
-+		else if (page[0] == '+') {
-+			memcpy(&fourcc, fmt, sizeof(fourcc));
-+			ret = vkms_config_plane_add_format(plane->config, fourcc);
-+		} else if (page[0] == '-') {
-+			memcpy(&fourcc, fmt, sizeof(fourcc));
-+			vkms_config_plane_remove_format(plane->config, fourcc);
-+		}
-+
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return (ssize_t)ret_count;
-+}
-+
- CONFIGFS_ATTR(plane_, type);
- CONFIGFS_ATTR(plane_, supported_rotations);
- CONFIGFS_ATTR(plane_, default_rotation);
-@@ -583,6 +666,7 @@ CONFIGFS_ATTR(plane_, supported_color_ranges);
- CONFIGFS_ATTR(plane_, default_color_range);
- CONFIGFS_ATTR(plane_, supported_color_encodings);
- CONFIGFS_ATTR(plane_, default_color_encoding);
-+CONFIGFS_ATTR(plane_, supported_formats);
- 
- static struct configfs_attribute *plane_item_attrs[] = {
- 	&plane_attr_type,
-@@ -592,6 +676,7 @@ static struct configfs_attribute *plane_item_attrs[] = {
- 	&plane_attr_default_color_range,
- 	&plane_attr_supported_color_encodings,
- 	&plane_attr_default_color_encoding,
-+	&plane_attr_supported_formats,
- 	NULL,
- };
- 
+ drivers/iio/buffer/industrialio-buffer-dmaengine.c |   2 +-
+ drivers/iio/iio_core.h                             |  58 +++--
+ drivers/iio/industrialio-buffer.c                  | 153 +++++++-----
+ drivers/iio/industrialio-core.c                    | 278 +++++++++++----------
+ drivers/iio/industrialio-event.c                   |  99 ++++++--
+ include/linux/iio/buffer_impl.h                    |   3 +
+ include/linux/iio/sysfs.h                          |   9 -
+ 7 files changed, 361 insertions(+), 241 deletions(-)
+---
+base-commit: c1b99c6982dccade0199879966a2d97f27a0a110
+change-id: 20261120-iio-core-attr-review-1323b39846f9
 
--- 
-2.56.0
+Best regards,
+--  
+Rodrigo Alencar <rodrigo.alencar@analog.com>
+
 
