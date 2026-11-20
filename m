@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.209
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180226;
-	b=TSVdMzFmsprVhPvmrP+76r50ADsEcYouHDGILdZO8Y78uXNfhaRD2HhAgYgJaIopOWDh
-	 bnSMUgCOKHG9wBqn5IarTTKe0e0jnPuwc+yBBJap/r7eDlmML5VRgVpoZAq7uAyQ2YNzE
-	 OllzQQf/TbW9z6P5mpNSTiCwE/ko98flwcrRzglgNHAxUJkTgiSxsGONyJwHU/tDtHhII
-	 pEQe489gl9ZeVK1hqPW8f6dkgb1CGgh/t+AsSlSDDNPWHgEAcw7RnoQWgmznZb3IR+xMI
-	 w6dEbC7QzwoVkOrqdpEEA6kDBMkPsgSr6ZdJVoxeFZ14UcphGvaf4h8PIeXo7WQfe+Q==
+	t=1795180228;
+	b=grj3Q9z1njEpG/BHj3v/2b0eWAC5LbdP5UVU0c5hgguXLCV3zLpdGsJyWu/i/LTwxfoH
+	 8Ik+MjBaoFRX6ns7SDVx/onxTIUsd988AH4hz8ftyDFFKCITX3Bc2REVEKg++h+TuoA8e
+	 I4PCYW0/5rIT7Pg9bCT3GXURsU6FF5mJego+r1ZJazLdcY2Olj0hlk1UnzaTx4FSCC1uH
+	 QVTabm3vs1c6aYGE+Pt/XNjlEcc60J89LqROJEbvkFYwLJq2y0YVWtIFol5cUXlChOhLV
+	 oGhZyYs9G5bC6h+u5ITCT/Pp/wt47rF8Fom5mmC2x8S+LAbRuzPP1t1XwqTZG0SznQA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180226;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xn1IO6yTvSHdprDu/FiOyBMJU5m8bDoeHEsv2AenIc4=;
-	b=KLT23UHZdgWScrCOnz65BurK/dh8D7mbEGZWwYGJa6tIYIfqw0hc82AXCNEHwHFYXyNK
-	 N86l5uwp9C5UILKD+L3E8u3rcUUgO2aKJMuQsx1Ahgp9N8TiNbW+DrVFF6ccsGVzCslFE
-	 st93TlxDlmqj5fbD5YTU1baNwty+8U+prBS/UOuIE6LJ7Cofy6wDsZrPHi8rZz1qzsauc
-	 DJpjLHBIeJbnRZ/mtPNeNon1VlJha3ZFFQPOcClysFOwK41u3EcmIE3P3lDk7ArU704Jt
-	 mja4bL0dhmmTqZwFkLvPI9RbAgPIu4FP+5QYJmfYcIT5Bcqug0/g7e4ye596d2jZI0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180228;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=8umWhaiFQ7V+7+G3BCNO/4RuSRPm/dj5q+aSYieoro8=;
+	b=2B+6Nt9zrWBGK3by9YDFudKmvCddHMgo+V0h17jTgCaTi8ngyKPMeFlCigahBiHoI4cD
+	 AKtjzUSrZ/l1EO8XJmswrmqynLCJjc/NlSq1tKmnHS8EbYSTWo/8iW6toiLIC7aet2s3u
+	 SLtfYH7ZJsKUkIZ4fCvwMMajj+zM1+538HRYPJaNgAcxT6X8TQueK2ErI9Yb0MB6cDxrH
+	 SFyj6AKjuc1NqU2Ti94AQm2+0p+/SOypwL/fp0/8OieAB2KQxPXb0DSzn+anzufxJgOgR
+	 HLn838nrUMV4b8hD6c7k9xAQTb9MDz0B22n2vSUU/T5+twPJACLALcKW8vxZDU0KmBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HWCRpDos;
-	arc=none smtp.remote-ip=95.215.58.209
-Received: from mta1.migadu.com (out-209.mta1.migadu.com [95.215.58.209])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFIMZPr2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E132606A335
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E132606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C74A60A2606
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HWCRpDos
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=KoBbJloLNnkG9NTyYWoY5FE+8hjeV5tHp18rUKV63Mg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795180223; v=1; x=1795785023;
- b=HWCRpDosCNKt73U7lcvSyi4GbkJigFjgxoFm+/xWTLb9CqiTOlmxjHavc/n+Ri8XyWvGZUNz
- R+1qbsLJvw6sx1fKjwuivzap/x4K5iuQydKn1UDu14tvjNnjcULSsOjZIg6huoq/hlLdn1lPOfc
- aVG7Q9hpe7CfFvtzKfoPjtMI=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7a655038b72e5eef;
-	Fri, 20 Nov 2026 13:10:20 +0000
-X-Mizu-Trace-ID: 7a655038b72e5eef
-X-Migadu-Flow: FLOW_OUT
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>,
-	Tzu-En Huang <tehuang@realtek.com>,
-	Yan-Hsuan Chuang <yhchuang@realtek.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Stanislaw Gruszka <sgruszka@redhat.com>,
-	Brian Norris <briannorris@chromium.org>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v3 1/5] wifi: rtw88: free the reserved pages of an interface on firmware recovery
-Date: Fri, 20 Nov 2026 14:09:16 +0100
-Message-ID: <20261120131000.33858-1-luka.gejak@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117171003.1840491-2-mehmet.fide@gmail.com>
-References: <20261117171003.1840491-1-mehmet.fide@gmail.com> <20261117171003.1840491-2-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QFIMZPr2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EF841F000ED;
+	Fri, 20 Nov 2026 13:10:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180227;
+	bh=8umWhaiFQ7V+7+G3BCNO/4RuSRPm/dj5q+aSYieoro8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=QFIMZPr22TRhTOgG0y8onyxqJJuNkdPqX9tZr0q+dTKcuoDcumQHIS3BpNuAnvMQH
+	 xXcBTlbHj9TYhCLoVXPGhdXrXEDrynfHgkhvqdbHNRQ+3nZXiBIs2om1AXwY/b1z6Y
+	 UEkDAtGXcKDp9hvfiIyYXnGgkLIcVN6L029L7d8nUeAyCtquewqW9mYHwJYiPZebpl
+	 bzszlvdzoVQ/pW/rqVfbKY5L1Jk8Q1x0mQOr1qjWG3mRoVoLljFzdivO3Tapd3ulaX
+	 oCK7BRAH4qs6eTZ6O8rUmhuV9ZfOwaavx3odEalY9vegeKCrgR1nsxzNk0/LhvbQ+L
+	 KmY7KrDo6+nSw==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Fri, 20 Nov 2026 14:10:10 +0100
+Subject: [PATCH v12 3/9] drm/atomic: Allow filling a commit with pristine
+ object states
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,61 +53,428 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-drm-reset-state-flag-v12-3-42d63d7417fc@kernel.org>
+References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Daniel Stone <daniels@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Jocelyn Falempe <jfalempe@redhat.com>, 
+ =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
+ =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
+ Victoria Brekenfeld <victoria@system76.com>, 
+ Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15660; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=SO3nEE4TSmpoEm3FjJDcTIFRXzAKzk23zConT4QMIPY=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMblsMXnW5zZ7U0/U5U3q3/56Zi3fnCuplXXi0wiXsv
+ PP/qWt0OqayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBEvj9krC8qZ//qwPOjf09W
+ yFyhqkDeRc/8v6wy27nX+30E06czrfsu3zd4eX7/hLt/n74pD3k5aR9jvavG5Wn5aiK/TqUo7N7
+ CcVKifm1p3NScJfvrNVa/yNQJEJfZeNOPR6pLQE52fwW/l6MVAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-Hi Mehmet,
+The upcoming DRM_MODE_ATOMIC_RESET flag will need to create an atomic
+commit that brings the entire device back to a pristine state, as if
+no configuration had ever been applied.
 
-Thanks for the update. Two comments below.
+Create drm_atomic_commit_fill_with_defaults() which iterates over all
+CRTCs, planes, connectors, and color operations in the device and
+inserts a fresh default state for each one into the commit. This uses
+the atomic_create_state() hooks rather than atomic_duplicate_state(),
+since atomic_create_state() provides exactly this pristine state on a
+per-object basis.
 
-On November 17, 2026 6:09:59 PM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
+A lessee only gets the objects of its lease reset, the other ones
+keeping their current state. Partial pipelines aren't supported
+though: detaching a plane or a connector from its CRTC, and disabling
+a CRTC driving them, both need the two sides in the commit, so a lease
+that splits a pipeline is rejected with -ENOENT. validate_lease() is
+expected to keep that from happening, since it requires a lease to
+hold at least a CRTC, a connector and a plane, but it only looks at
+the object types, not at what they are bound to.
 
-> @@ -1765,6 +1768,9 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
->  	u32 size;
->  	int ret;
->
-> +	if (bitmap_empty(rtwdev->hw_port, RTW_PORT_NUM))
-> +		return 0;
-> +
->  	buf = rtw_build_rsvd_page(rtwdev, &size);
+Part of the state the atomic helpers maintain is only recomputed when
+something changed, which a reset re-applying the same configuration
+doesn't trigger. The CRTC adjusted_mode and the connector best_encoder
+are therefore carried over like a duplicated state would, and the
+CRTCs ask for a zpos normalization.
 
-Could this skip a download that WoWLAN needs? If suspend flushes the
-recovery work while it holds RTNL, ieee80211_restart_work() cannot add
-the interfaces back before rtw_wow_suspend() runs. With net detect
-configured, the station interface can still be picked for WoWLAN.
-rtw_wow_leave_no_link_ps() can power the device back up without setting
-the port bitmap again.
+The color management changes are reported through color_mgmt_changed
+for the same reason: the userspace property handlers only set it when
+a property write changes the value stored in the new state, so neither
+restoring a default nor leaving a property untouched would, even
+though the reset clears whatever is currently programmed.
 
-So rtw_wow_config_wow_fw_rsvd_page() adds the scan pages, but the check
-above returns success before downloading them. rtw_wow_fw_start() then
-tries to enable net detect with a zero page location for the NLO and
-channel tables. Could we keep the skip in the beacon update paths, or
-have suspend fall back to the normal suspend path when a restart is
-pending?
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_atomic.c | 321 +++++++++++++++++++++++++++++++++++++++++++
+ include/drm/drm_atomic.h     |   2 +
+ 2 files changed, 323 insertions(+)
 
-[ ... ]
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index 7a77051096c9..43df13aaef1e 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -1647,10 +1647,331 @@ bool drm_atomic_implements_create_state(struct drm_device *dev)
+ 
+ 	return true;
+ }
+ EXPORT_SYMBOL(drm_atomic_implements_create_state);
+ 
++/**
++ * drm_atomic_commit_fill_with_defaults - populate a commit with pristine states
++ * @file_priv: DRM file the reset was requested from, or NULL
++ * @commit: atomic commit to fill
++ *
++ * Iterate over all CRTCs, planes, connectors, and color operations in
++ * the device and insert a freshly created default state for each one
++ * into @commit. The states are created through the atomic_create_state()
++ * hooks, producing the same initial state the driver starts with rather
++ * than a copy of the current hardware state.
++ *
++ * In the default state, all objects are disabled: CRTCs are inactive,
++ * planes are disabled, and connectors are unbound. Driver-specific
++ * properties such as color pipeline settings or max_bpc may carry
++ * non-zero defaults appropriate for basic display output.
++ *
++ * If @file_priv is a lessee, only the CRTCs, planes and connectors part
++ * of its lease are reset, and the other objects keep their current
++ * state. @file_priv is optional: if NULL, it is considered to not hold
++ * any lease, and all objects are reset.
++ *
++ * Partial pipelines aren't supported. Resetting a plane or a connector
++ * detaches it from the CRTC it is bound to, and resetting a CRTC
++ * disables the planes and connectors bound to it, neither of which the
++ * atomic helpers can sort out with only one side of the pair in the
++ * commit. A lease covering a plane or a connector without the CRTC it
++ * is bound to, or a CRTC without all the planes and connectors bound
++ * to it, would thus require reaching outside of it, so the reset is
++ * rejected instead.
++ *
++ * Such a lease shouldn't exist in the first place: validate_lease()
++ * requires a lease to hold at least a CRTC, a connector and a plane,
++ * so leases are meant to describe whole pipelines. It only looks at
++ * the object types though, not at what they are bound to, so the
++ * reset still has to guard against it.
++ *
++ * This is meant to be used with the %DRM_MODE_ATOMIC_RESET flag, which
++ * needs to bring the device back to a known baseline before applying
++ * userspace property changes on top.
++ *
++ * Returns:
++ * 0 on success, -ENOENT if a leased plane or connector is bound to a
++ * CRTC that isn't leased or if the lease was revoked, or a negative
++ * error code on failure.
++ */
++int drm_atomic_commit_fill_with_defaults(struct drm_file *file_priv,
++					 struct drm_atomic_commit *commit)
++{
++	struct drm_device *dev = commit->dev;
++	struct drm_mode_config *config = &dev->mode_config;
++	struct drm_crtc *crtc;
++	struct drm_plane *plane, *crtc_plane;
++	struct drm_connector *connector;
++	struct drm_connector_list_iter conn_iter;
++	struct drm_colorop *colorop;
++	int ret;
++
++	drm_WARN_ON(dev, !commit->acquire_ctx);
++
++	/*
++	 * Private objects are ignored because none have userspace
++	 * properties we might want to reset. atomic_check
++	 * implementations will derive or infer their private obj state
++	 * from the state that will end up being committed anyway.
++	 *
++	 * The CRTCs are handled first because resetting a plane or a
++	 * connector bound to one detaches it, and the atomic helpers
++	 * need that CRTC in the commit to do so.
++	 *
++	 * A lease is always revoked as a whole, so a plane or a
++	 * connector still leased when its loop runs had its CRTC
++	 * leased when the CRTC loop ran. A revocation halfway through
++	 * can thus not leave an object detached from a CRTC that never
++	 * made it into the commit.
++	 *
++	 * The other way around doesn't hold though: a revocation after
++	 * the CRTC loop skips the planes and connectors bound to the
++	 * CRTCs it reset. Since the pristine CRTC states come with
++	 * empty plane and connector masks, neither the atomic helpers
++	 * nor the core checks would notice, and the commit would leave
++	 * those connectors bound to a disabled CRTC. The lease is thus
++	 * checked once more after all the loops ran.
++	 */
++	drm_for_each_colorop(colorop, dev) {
++		struct drm_colorop_state *colorop_state;
++
++		if (!drm_lease_held(file_priv, colorop->plane->base.id))
++			continue;
++
++		ret = drm_modeset_lock(&colorop->plane->mutex, commit->acquire_ctx);
++		if (ret)
++			return ret;
++
++		colorop_state = drm_atomic_helper_colorop_create_state(colorop);
++		if (IS_ERR(colorop_state))
++			return PTR_ERR(colorop_state);
++
++		drm_atomic_commit_set_colorop_state(commit, colorop, colorop_state);
++	}
++
++	drm_for_each_crtc(crtc, dev) {
++		struct drm_crtc_state *crtc_state;
++
++		if (!drm_lease_held(file_priv, crtc->base.id))
++			continue;
++
++		ret = drm_modeset_lock(&crtc->mutex, commit->acquire_ctx);
++		if (ret)
++			return ret;
++
++		/*
++		 * The reset disables the CRTC, which the planes enabled on
++		 * it can't stay bound to. Disabling them is only an option
++		 * for the ones the lease covers, so a CRTC driving a plane
++		 * it doesn't is rejected like the other way around.
++		 */
++		drm_for_each_plane_mask(crtc_plane, dev, crtc->state->plane_mask) {
++			if (drm_lease_held(file_priv, crtc_plane->base.id))
++				continue;
++
++			drm_dbg_atomic(dev,
++				       "[CRTC:%d:%s] drives [PLANE:%d:%s], which isn't leased\n",
++				       crtc->base.id, crtc->name,
++				       crtc_plane->base.id, crtc_plane->name);
++			return -ENOENT;
++		}
++
++		crtc_state = crtc->funcs->atomic_create_state(crtc);
++		if (IS_ERR(crtc_state))
++			return PTR_ERR(crtc_state);
++
++		/*
++		 * The userspace property handlers only set
++		 * color_mgmt_changed when a property write changes the
++		 * value stored in the new state. Since the pristine states
++		 * we create here are already set to their default values,
++		 * restoring those defaults wouldn't set the flag, and
++		 * neither would leaving the properties untouched, even
++		 * though the commit clears whatever LUT or CTM is
++		 * currently programmed. Compare with the current state
++		 * so that the drivers reprogram the color management
++		 * hardware.
++		 */
++		crtc_state->color_mgmt_changed =
++			crtc->state->degamma_lut != crtc_state->degamma_lut ||
++			crtc->state->ctm != crtc_state->ctm ||
++			crtc->state->gamma_lut != crtc_state->gamma_lut;
++
++		/*
++		 * adjusted_mode is derived from the mode by the atomic
++		 * helpers rather than set by userspace, and mode_fixup()
++		 * only recomputes it when the mode or the connectors
++		 * changed. A duplicated state carries it over, so nothing
++		 * needs to be recomputed when nothing changes, but the
++		 * pristine states we create here would be left with a
++		 * zeroed adjusted_mode on a CRTC that stays enabled across
++		 * the commit. Carry it over too, so that the drivers and
++		 * the vblank timestamping constants keep seeing the
++		 * timings currently programmed.
++		 */
++		drm_mode_copy(&crtc_state->adjusted_mode,
++			      &crtc->state->adjusted_mode);
++
++		/*
++		 * The planes come back with the default zpos, which the
++		 * atomic helpers only normalize when the planes bound to a
++		 * CRTC or one of their zpos changed. Re-applying the same
++		 * configuration on top of the reset wouldn't trigger
++		 * either, so ask for a normalization explicitly.
++		 */
++		crtc_state->zpos_changed = true;
++
++		drm_atomic_commit_set_crtc_state(commit, crtc, crtc_state);
++	}
++
++	drm_for_each_plane(plane, dev) {
++		struct drm_plane_state *plane_state;
++
++		if (!drm_lease_held(file_priv, plane->base.id))
++			continue;
++
++		ret = drm_modeset_lock(&plane->mutex, commit->acquire_ctx);
++		if (ret)
++			return ret;
++
++		/*
++		 * The pristine state detaches the plane from the CRTC it
++		 * is enabled on, which the atomic helpers can only sort
++		 * out with that CRTC in the commit. Resetting a plane
++		 * enabled on a CRTC that isn't leased would thus require
++		 * touching an object the lease doesn't cover, so report it
++		 * like any other access outside of the lease.
++		 */
++		if (plane->state->crtc &&
++		    !drm_lease_held(file_priv, plane->state->crtc->base.id)) {
++			drm_dbg_atomic(dev,
++				       "[PLANE:%d:%s] is enabled on [CRTC:%d:%s], which isn't leased\n",
++				       plane->base.id, plane->name,
++				       plane->state->crtc->base.id,
++				       plane->state->crtc->name);
++			return -ENOENT;
++		}
++
++		plane_state = plane->funcs->atomic_create_state(plane);
++		if (IS_ERR(plane_state))
++			return PTR_ERR(plane_state);
++
++		/*
++		 * Like the CRTC LUTs and CTM above, the pristine state
++		 * comes with no color pipeline, and neither restoring
++		 * that default nor leaving the property untouched sets
++		 * color_mgmt_changed, even though the commit clears the
++		 * pipeline currently programmed. Compare with the current
++		 * state so that the drivers reprogram the color
++		 * management hardware.
++		 */
++		plane_state->color_mgmt_changed =
++			plane->state->color_pipeline != plane_state->color_pipeline;
++
++		drm_atomic_commit_set_plane_state(commit, plane, plane_state);
++	}
++
++	ret = drm_modeset_lock(&config->connection_mutex, commit->acquire_ctx);
++	if (ret)
++		return ret;
++
++	drm_connector_list_iter_begin(dev, &conn_iter);
++	drm_for_each_connector_iter(connector, &conn_iter) {
++		struct drm_connector_state *connector_state;
++
++		if (!drm_lease_held(file_priv, connector->base.id)) {
++			/*
++			 * Same as the planes of a leased CRTC: the reset
++			 * disables that CRTC, and a connector the lease
++			 * doesn't cover can't be unbound from it.
++			 */
++			if (connector->state->crtc &&
++			    drm_lease_held(file_priv,
++					   connector->state->crtc->base.id)) {
++				drm_dbg_atomic(dev,
++					       "[CONNECTOR:%d:%s] isn't leased, but [CRTC:%d:%s] it is bound to is\n",
++					       connector->base.id, connector->name,
++					       connector->state->crtc->base.id,
++					       connector->state->crtc->name);
++				drm_connector_list_iter_end(&conn_iter);
++				return -ENOENT;
++			}
++
++			continue;
++		}
++
++		/*
++		 * Same as the planes above: unbinding the connector from
++		 * an unleased CRTC would need that CRTC in the commit.
++		 */
++		if (connector->state->crtc &&
++		    !drm_lease_held(file_priv, connector->state->crtc->base.id)) {
++			drm_dbg_atomic(dev,
++				       "[CONNECTOR:%d:%s] is bound to [CRTC:%d:%s], which isn't leased\n",
++				       connector->base.id, connector->name,
++				       connector->state->crtc->base.id,
++				       connector->state->crtc->name);
++			drm_connector_list_iter_end(&conn_iter);
++			return -ENOENT;
++		}
++
++		/*
++		 * drm_atomic_implements_create_state() already checked
++		 * this, but connectors can be hotplugged between that
++		 * lockless check and the iteration here.
++		 */
++		if (!connector->funcs->atomic_create_state) {
++			drm_connector_list_iter_end(&conn_iter);
++			return -EOPNOTSUPP;
++		}
++
++		connector_state = connector->funcs->atomic_create_state(connector);
++		if (IS_ERR(connector_state)) {
++			drm_connector_list_iter_end(&conn_iter);
++			ret = PTR_ERR(connector_state);
++			return ret;
++		}
++
++		/*
++		 * best_encoder is a routing information maintained by the
++		 * atomic helpers rather than a userspace property, and it
++		 * is only carried over to a new state when that state is a
++		 * duplicate of the current one. Since
++		 * update_connector_routing() uses it to detect the commits
++		 * that keep the connector routing unchanged, carry the
++		 * encoder currently in use over so that a reset on which
++		 * userspace re-applies the exact same configuration doesn't
++		 * require a modeset.
++		 */
++		connector_state->best_encoder = connector->state->best_encoder;
++
++		ret = drm_atomic_commit_set_connector_state(commit, connector, connector_state);
++		if (ret) {
++			connector->funcs->atomic_destroy_state(connector, connector_state);
++			drm_connector_list_iter_end(&conn_iter);
++			return ret;
++		}
++	}
++	drm_connector_list_iter_end(&conn_iter);
++
++	/*
++	 * Revoking a lease doesn't take any modeset lock, so it can
++	 * still happen right after this check. The loops above all saw
++	 * the whole lease then, and the commit is consistent. This is
++	 * the same window any other commit from a lessee has between
++	 * the lease checks and the commit.
++	 */
++	if (drm_lease_revoked(file_priv)) {
++		drm_dbg_atomic(dev, "Lease revoked while resetting the state\n");
++		return -ENOENT;
++	}
++
++	return 0;
++}
++EXPORT_SYMBOL(drm_atomic_commit_fill_with_defaults);
++
+ /**
+  * drm_atomic_add_encoder_bridges - add bridges attached to an encoder
+  * @state: atomic state
+  * @encoder: DRM encoder
+  *
+diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+index 72c3d420f40c..cac74d43a34d 100644
+--- a/include/drm/drm_atomic.h
++++ b/include/drm/drm_atomic.h
+@@ -701,10 +701,12 @@ int drm_crtc_commit_wait(struct drm_crtc_commit *commit);
+ struct drm_atomic_commit * __must_check
+ drm_atomic_commit_alloc(struct drm_device *dev);
+ void drm_atomic_commit_clear(struct drm_atomic_commit *state);
+ 
+ bool drm_atomic_implements_create_state(struct drm_device *dev);
++int drm_atomic_commit_fill_with_defaults(struct drm_file *file_priv,
++					 struct drm_atomic_commit *commit);
+ 
+ /**
+  * drm_atomic_commit_get - acquire a reference to the atomic state
+  * @state: The atomic state
+  *
 
-> @@ -633,6 +633,7 @@ static void rtw_reset_vif_iter(void *data, u8 *mac, struct ieee80211_vif *vif)
->  	rtw_bf_disassoc(rtwdev, vif, NULL);
->  	rtw_vif_assoc_changed(rtwvif, NULL);
->  	rtw_txq_cleanup(rtwdev, vif->txq);
-> +	rtw_remove_rsvd_page(rtwdev, rtwvif);
+-- 
+2.56.1
 
-I think the empty list warning can still happen with AP and station
-interfaces on the RTL8822C. If a station interface comes up after the
-reset clears the bitmap, rtw_ops_add_interface() sets a port before
-ieee80211_do_open() marks the interface running. The AP still has an
-empty list, and the page iterator skips the station interface until it
-is running.
-
-Can a TIM update from the AP run in that gap? For example, the station
-cleanup timer can expire a buffered frame after rtw_core_stop() cancels
-the beacon work. The worker can then see a port in use and still hit
-"Should not have an empty reserved page". Would it make sense to free
-the old pages before reinitializing the list when adding an interface
-that was already initialized, as Zong-Zhe suggested?
-
-https://lore.kernel.org/linux-wireless/96da951407ab4c39b7e229ca365950eb@realtek.com/
-
-Best regards,
-Luka Gejak
