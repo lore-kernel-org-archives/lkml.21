@@ -1,99 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795210856;
-	b=JzOEuPMVwBwHlxS6TkDXKUEKO8Nh0T0h9hH4+UOKfKLqqNf4cTxPqvaSpEOElCovf39z
-	 xHYric/1OXENMHIhrAoHkznTyIC/n2IiS8HBtQpBM34sNzK68g8tTBQ1RfA+zHBO+Ru5I
-	 LWRpqk00fyk0DCigkLB9RxE1t0BJrQMX/o5hwZZXIKjguqe5Iy2+tHEYUwZnYPeIH54/q
-	 Iupaz2RpUSVPidRfcbVEeFyMIlEvapGJvZM7L8UybRXnIjuuQ31mMuT0TRfG99rEtN0pY
-	 RZTxxwRhyglBS1wC9lF9gCrAOOqqBPpC7sXfG/1FU2AMVKJvQw3EhaYW0q9Q/7zquQA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210856;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=QImpKtA/5km3yjf8jdokal2t9YOvsyssIpZK1Sv9UwI=;
-	b=bc0fugP96ywiiJucsl+0Ct3Ib5oVWQibuZTBJ5hZ58rtcKS7DtQVsL7svLgvcCO3GF8D
-	 LEChrBEIGNzo0yFIU8Q2N1kdIXizilTLtPCIrqmBcgW9WScKHfKzfCP69BPD0OrR6mzq3
-	 FzaG9eoCFsL0JAkA2Xa1Dv7NbBUaUbbLz9cLiWQSPSe9msQIC0lYJgBLmLq0ghBFulbGH
-	 FkrAso6ukjolPKnPhkTg6dPU/0tfM+KhJDEbgLh7jF7Y170hvfMv7WeXU3EgPmjBQGlL6
-	 BxoZL6vASpwVIzmHsYCKK6CfDHr7XHiuB9lY84GR3WiXn/JjdCRhOvTbUNGz7K2FIHA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=modal.com;
-	spf=pass smtp.mailfrom=modal.com;
-	dkim=pass header.d=modal.com header.i=@modal.com header.a=rsa-sha256 header.s=google header.b=Df7mUUB1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795210870;
+	b=w16jAVBDgPqzHFfzfDkwzFH+7dR6cEDjwWEJ520Ndozu1dMbPtrhhb1FLV+MWIW0YEHJ
+	 sbZXi1pKYB8ZBIG7yHWiTSqli67U+GuEXy5zd4C700sjyNaFKuvR0mZsLU81twuT+XVDo
+	 IOHF3l+4D6aKSB4pL5ODfb2zMR8mfulUx5sd4DM9TH57shIGfRs4wVZo3NBd03emHvUR2
+	 iFbm4usKv4+Om+9kvmmD4uF7556nQQ4b6lgvdlw4glQrYGGhFPJGlzrztNcFdhKjG7yFZ
+	 79EYN+fCZPvSgKqHYToVLoSgS313aziNfgBIl7J97YHi9bO0pgJZtBwU73KknsCFQfw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210870;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
+	bh=NZXQEsjOM4B642/ZpzASwtNwupxC2GG162cV9G+p03o=;
+	b=SGGCCJdO9xDGfFW/P1QZ4KEeaHCqOFQt6Ze+gBtTe8yTM366O1oy/V70Lpo8Fn2M8oa+
+	 AVt96UyOEkue2qF0lOCeYBpnEoCXQn/jsb/Ux7HhSY3WWBZqq+/1Os8ZzFgHZRpHx1sHu
+	 fXJDNLbW17sLQ78khitPOxlI3ljGGzoycSUeHO2+DBviyj9QYgt51di8lRhheEONks4HF
+	 YzzuzFRiGxQxOHGHCKASsgETd5g9WjDvl6qoHsRpNcr9pgF59rKfqKxxaT7X15ARBBTe+
+	 joNAV3L3zZ7PLgog/Y/Tj0bE/ROdXrTKhlfm3MuXpFTZS4velw/J9ZniXul2WGQkQSg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=UP4CVf8Y;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C46B4606A698
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:40:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C46B4606A698
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=modal.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=modal.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2DDC606A68D;
+	Fri, 20 Nov 2026 21:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2DDC606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=modal.com header.i=@modal.com header.a=rsa-sha256 header.s=google header.b=Df7mUUB1
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b0d126f631so11435957b3.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:40:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795210854; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BKwmSugk0l6vZOvPopIzkuQRXJQNNlW3OzzhanR0dIrYqs85e6QF3sLKhR5gOLDHh9
-         J/NWsVTAOR6uqX5Z5JIs6c0IUBpCp5325dc/3EkQa8ByO465GIDb1naP8IbgJDyAsfs3
-         ApVNECjn/kKR7wemc8JpKZUtkam9xafQVTkPMi36epWSlWjTGmPfvNO3ZZRotK5NiGkV
-         NjMFSMah1/BNs6s/Mik14XKOYdoeDqfJPdOtD2Ns+V+rFTgsQMG2803yOy30ixmI0Ohp
-         xwroDt7xU0EK9pf2X2TLOeESkzkvXq7jxJ4m5drry2fouYlKpXxVfHbyRDe/uTU1YtWw
-         qlhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=QImpKtA/5km3yjf8jdokal2t9YOvsyssIpZK1Sv9UwI=;
-        fh=Maikmp/liYkGEGwpVXhemo0lspyS/SuF8HARCb3Ji2M=;
-        b=Jm8DlcTBMHYYy0Pc0sIOIWqtBAtvGc4QDHFG3jXzvykrr8BiyoF1GpX19PM1iyZv11
-         KTF1/3pU/BABFMhH/S1TA1efxXoDeEqm8NWDWiwl0kKjrdXvE7vpYJXu0V7J9VPol9N/
-         0shsWTzHMSowboLP7Sh73jK0aKrUTB/aKNtVnmsUhdU73Ds/5h36unStZmHh0o5cTttT
-         HRbv8tnArH9mRAsyxxJWP61J5gsnOUZ0eM3kv8kOijwUqaBo1wGTQ3jeGdd0lh7yO7yv
-         KzrljBBPIwMhEDLDGXwG8sj0Sclmp7rP0SV0VFhJFh/94r4NRp3HXPtL+ZTZcaFCbBWh
-         P3Ig==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=modal.com; s=google; t=1795210854; x=1795815654; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QImpKtA/5km3yjf8jdokal2t9YOvsyssIpZK1Sv9UwI=;
-        b=Df7mUUB1dMitJAxRQneXzSTyZs6vp7slPKQJPrQJhRUPGToIBAwQ2ztZocH82ntZ/s
-         A73VOLRcuoHmWjmeH0bXO+Wkg9ME5N4ieTGcElHVyKcRWYwElV2f1BuNuByu8DQ9YicI
-         mU3lRpeMnBlqF0UYr0SQvJIHSKPSR4jZJFnz8OiIz8Eh5pJMebhrQdqT78kseUjYuerE
-         0i1mpQ0BmIWwucNBmEE/AmJ46gEvlzAcMs26wRAlCyr0rvClySZlUmBP2s/Qlx1p9v2u
-         n+BM5K2yZu3M+BFI/biZsqzUwB0+37kuILUuuLAgiAHOt3HmwFH4Hs8H1FkzZlzD8SOW
-         pQNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795210854; x=1795815654;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=QImpKtA/5km3yjf8jdokal2t9YOvsyssIpZK1Sv9UwI=;
-        b=Uc/KqkeSMIHGnKNpOkk4UuV3dr5EWZ44RY5LvaiuNQPcbSDo0gQB118YbRAqdee2db
-         aQNpIoayQrDXpuIUWU/WpDbt6xQmOG7CTY4DrxxfcPisLdt22VzFkA6ErHKPR/xTz/0K
-         T31OyRQeNq9eFHgfbnFWD6v88sfxS89nESW5uZQvR2NZmP7KYZfbppOH0oiTbSI2yC6j
-         r7TSBPdw70MgWId2O7AGmWlSnqC7fGgHUAG8lBwvFBe1+9+dMguPMKY1BXBiRPRrzANM
-         vUhn0tKZMzO2axzS/wFle3m/nRHIQ+cuSXW+cvb3iIktRTOtYl8Ln9ruI2WexMnRoSgy
-         6z9g==
-X-Forwarded-Encrypted: i=1; AL+hErEmbfBHM+zbLL2Q/vOKpmg7zOWJYQHSryuhKfci63K7BZ2SF9xhmdD9pPE0hENf4qQ+ukB/OAetkYMHclI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/AafKd1PlGfPOCCOxpDKvgEDAep1BN/LQ19Xos6nXRxCRnsAT+
-	YvpsoOUwLocmdBTOSlrbPbED1WyxqMn0TaX7IHNBqi6YHYjrEeHIIlAFtb+VKnt8MFfnPSebvrO
-	hst8D7eHXNDc3b4kdmyzmlzGooyiYSnrOCTeO3JNKAw==
-X-Gm-Gg: AZFdTZcFVbrKqOJB0pYxvBE+WfPi8w2AAu666JV7gXfP/Vbd7cuLqRLoMnIt8gff69p
-	lhoEkZhUSJDdBQ4X3QyD7xjvntegM5JnCaEcNOP+D5MTGOx2zbD6xpZ8JtsME4tgiZGgNaBSd3k
-	VQXKZLC9R+muKOGh8kShICqYJWrdNY4p+yk3/zn6QGMEv4AIkizKbwIy/g3ntUKyKjbi6NsIuKd
-	xLX0/x2vMk9Lirtg7VasYfCOQGo/FiZyiijO9mhU4WJpTYKzvfQyd+WgSqhwpLTmbO/n5igQBzy
-	Cl+QHkm+tIuMTx/xaS2merfII2g0ELy/0rpfS9LqUSGUVqMdSlvDnxV/cDYgTEraV0vj2eW1Gqc
-	QbJZQ2h0PCBOzqnnckrRfd0ve62/01Ku/v5+PoxWGeLsF01/c0iFwlEpfxSh/
-X-Received: by 2002:a05:690c:9c02:b0:8b2:bb94:8cb2 with SMTP id
- 00721157ae682-8b5204ac257mr21219207b3.35.1795210853469; Fri, 20 Nov 2026
- 13:40:53 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=UP4CVf8Y
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description;
+	bh=NZXQEsjOM4B642/ZpzASwtNwupxC2GG162cV9G+p03o=; b=UP4CVf8Y6KwCNEDtivb0OtIv+u
+	lRWvCcDUiCJuZR0fZuuKEsrIgNf4c1W2tBuMOS07adsoO0A7PCgSSFocC3+jzVp0nreCLd15BQS0H
+	d/m5iWVJD+c7CRissT5iETIa9R54FPsu/8dCbQBvuoDG3Yfwn0p504fdR9LeXyeeXEB3wKlSPzMGD
+	Ox2ULoYLSB9JJNj5rbUnXnwBMSnw4tmpUYDDREQOsI8LvkPFah5PAiO/NaKlcT/Ak8it0qKYgkASD
+	7JFJiSN9mK84+yaMm37MLOxrlaW2opDddy1gbx/T94CwTS/yBXnciXO2bB0Qy5v0dahlG8yVEop5f
+	kR7Gai9A==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUWLp-003AbH-2j;
+	Fri, 20 Nov 2026 21:40:58 +0000
+Message-ID: <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
+Date: Fri, 20 Nov 2026 22:40:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,23 +60,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-samridh-shmem-send-v2-1-f2ea01bfc178@modal.com> <e4c0fcf1-b70e-4d22-9c4a-5829e1438ce5@kernel.org>
-In-Reply-To: <e4c0fcf1-b70e-4d22-9c4a-5829e1438ce5@kernel.org>
-From: Fnu Samridh <samridh@modal.com>
-Date: Fri, 20 Nov 2026 16:40:42 -0500
-X-Gm-Features: Aa3M54rPyk2mfbXoTl6Y5BgeHrItQVBO1R-NrW2iTa9bd2JmExDRcSiUYRlPG1w
-Message-ID: <CAKyepcSuZ49Nv2D3UGC++-niYtfMcPEE7sjAf2SSRx4KAy1oGA@mail.gmail.com>
-Subject: Re: [PATCH v2] mm/shmem: avoid zeroing new folios twice with init_on_alloc=1
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Hugh Dickins <hughd@google.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
+ MDIO devices
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Vladimir Oltean <olteanv@gmail.com>
+References: <20261119231319.1256419-1-bage@debian.org>
+ <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
+Content-Language: en-US
+From: Bastian Germann <bage@debian.org>
+In-Reply-To: <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Debian-User: bage
 
-On 11/19/26 18:06, David Hildenbrand (Arm) wrote:
-> I do wonder whether that could go into the loop, because I faintly remember that
-> user_alloc_needs_zeroing() is disabled when CPUs have dcache aliasing.
+On 11/20/26 01:33, Andrew Lunn wrote:
+> On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
+>> The "broken-turn-around" property is documented in mdio.yaml for any
+>> MDIO device, but the MDIO core currently parses it only for PHY devices
+>> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+>> switches, are registered through of_mdiobus_register_device(), where the
+>> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+>> still treat the turn-around/read failure as an error.
+>>
+>> Parse the property when registering a non-PHY MDIO device and set the
+>> corresponding bit in phy_ignore_ta_mask before registering the device.
+> What switch is causing you problems?
 
-Yep, it always returns true on CPUs with dcache or icache aliasing, so
-the flush only matters when we clear. I'll move it into the if block in v3.
-Thanks!
+It is with mv88e6085.
+
+I have just found that Nathan Rossi sent basically the same patch as
+<20210217044443.1246392-1-nathan@nathanrossi.com>.
+
+> I do wounder if the call in fwnode_mdiobus_phy_device_register()
+> should be hoisted up into of_mdiobus_register_device, were it would be
+> common for both PHYs and MDIO devices.
+>
+>         Andrew
