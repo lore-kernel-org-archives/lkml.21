@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212953;
-	b=nOcouZXZQtVYdVfBLbq5GLIU00MmANTSISRFqNvO5Jh1atmCq8TyAD48zBI1dFBFm15c
-	 zSWlUK1ddryludks6bgujPbtD46FtGFC1xLgC7Fr9VBPMCOTyhNsjhfON+h6/VSENt0+G
-	 cVdQNj6bpJwIKeBmM9Kv2fBes0sg1/uUrTek0JXj4c17xmKNc5EJn+FvQp9Ukevr/5R6X
-	 s7Fv+PS4i2BFWv37MHP5aDFyESJX5wXcZSKzDIGiAD1f32J197IDNsE9BzYUQvNaef3tO
-	 RCM2g5SyUBuNcQ247ueIj60XL4KVryHCk2UWGmXYcOyYgv2N4rOf8mJa3PqhAfMujWw==
+	t=1795212960;
+	b=aXoRDg8U8X/uTMla9HqQAjLcQhxlRvC9kBO0r0u/9J0yDO40ySAsJPGxYdZvep3sTRcm
+	 XMrkkgUJg9yZCJhxsj5/+QZtq7/pjJGUdrC7gBHONf+ErrT/TCAdX5b6j/ayqRXaRJT3u
+	 0VFmZYTc4Ch7yLjdHS64oZTCjMkhM6+I5iRCW+TdfvfwghuDFt+UH9JCC6WG4ZT/Tf4vE
+	 PmKI7u0Gb9VeNtSQG8CDIuspR8MOy8lM5IZR6LuUGjGPmm3BSrvlpTZjaSVkCP6x0hiCA
+	 3wdq2fPd9nbeRuAPfeScPCbfZaF46AFhbFUbTciu+SiZH6lqtsGsCZ9FTJ6xxrHvkvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212953;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212960;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=WR4sp0IgBSLp48NAmbVB6Wvzuz5GP2e/9tmn2eNf8a8=;
-	b=0CG6SiyNEb9A1G7s9gmyQoKqFeYZ7bSjGogbQCgahiDSrQTr6ilcnMERuUI+bvMwSvee
-	 Va+iuYsZ37EG9dLRDJYY8eDEFpnwdXyc2qzhF70RMPEagDzAZ2f4aViNdHvCD9F2PbPVD
-	 a5nlQGY6gX0bjzK7qdK8d/5qT6+0X+m860awyiG5MvZ0zPZpDUq+SodC+B7gYnQ4orVsS
-	 wY1I+yXIMhSpWQbgjXb3HmUno9bKUjqTghC6oGqAv57Cz9Pv30k7R4AYjFgJgfGYrMe6o
-	 Y4f3JBlj+KpoI7v9VKB5sMhBcpUOvZjD53KOTxBTo3Uhbml3wBuoAxpa2xLpQQOSveg==
+	bh=Smuc5oSE4Rk1CEz3klTX+3kN4HJeddocJmM5xW2MgiQ=;
+	b=Glm7YyRLN8tHLmQ8ZuN5b3CjwkqrsMYP73ZE2s62AuD9B/sBTC0MK7xnILqDOQE74D1i
+	 FP033Kb9H27j7NQp/D51DUrhqwYErgKZzJTyKcoo41JFtq+wUrOYT9cwmu0MnjygTZgIF
+	 ROijbyszNY0EFOaEaF6rp+ayABqR/UA36agQ8Bcs0pYEM7SwLvBdNLOIDApyRLT9Ds/fd
+	 99S5AcMVQSYy0moT8dzg5weU/0yYimtP6c7tuc3wgmrgZQ8j78bzGPnnc3bzC4bpU7WtG
+	 XRGz9BlnzELrKXsBUo4VbZ0nNnVHQUwsbOY/gjpUM79j1E1jnHysjz8gwJnYBen9o2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WROmI8t1;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MrEQjImY;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DADA1606A6B7
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DADA1606A6B7
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1555360A2627
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1555360A2627
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WROmI8t1
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-383ec96a7deso1546010eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MrEQjImY
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-139b62317d0so3612812c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212941; x=1795817741; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212955; x=1795817755; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=WR4sp0IgBSLp48NAmbVB6Wvzuz5GP2e/9tmn2eNf8a8=;
-        b=WROmI8t1ONeuTS4dThJBhirUwZP+ArYxlfWnYBTd4ONUCKxCThl9rhDiYN4A/c4sVa
-         HTmujYhiWqsbWcEEYtNwaGvR1hc3QjNoC83ZuHRm24SgSHfuWm6hwv9fbNNrJrwOz+uH
-         ZbNTSNwPuSDkI3RQMbc7Q1B6nKgT869fNMJXsWTJcmuu1nouSW+7tX8VxRH9mQtrJNbr
-         pUnUWL4vEFGhiPKFo4HJIBJI7JH2OvMPxJailjblO0BJEKWZBh2yX4y4OOV3RILvtQg7
-         aJcElNQVkux2KxcfKc7tG5pdxThO2YKXn7UotBqqv/0P/sxs0Wkxhb/NgPw5FaQnUDFl
-         42Zg==
+        bh=Smuc5oSE4Rk1CEz3klTX+3kN4HJeddocJmM5xW2MgiQ=;
+        b=MrEQjImYFyv3JtbxTHqmlX3EmtEZPFkPi1VTaqdBWo8uXW8YrQt4q3BiNB3Emf3aXQ
+         f/JvMyhaWPG8DWmxclAQnsydB7zKyjUg/+sasHrEtiquvvGW1kcxNAgxvoZj4w3hgK9j
+         xgtzESSr4fUOpQarp/DnyeRzX12/xu2YzKN9e5t+SUVgKM9gObsS6dt5ouRvflFoa+6q
+         vWorX8tk5KwFox1PHVzSMnAK3eUZ8sNe4qxOjEwTeuSJdE9uNz/lHJlKJWmp0aVmYsrl
+         acnT38qvbUpaxtQq7+nLiY+GSbKqoGpBA28k1vxTIdDpW1ET5iiOXuIWiBLKluQzDTlm
+         +l3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212941; x=1795817741;
+        d=1e100.net; s=20260707; t=1795212955; x=1795817755;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=WR4sp0IgBSLp48NAmbVB6Wvzuz5GP2e/9tmn2eNf8a8=;
-        b=ZPoiLwJK+lm6Ixoezu4pjlXXtj01RRs2vwjTfIQ1YMXd5AlGiIZun7CpslOXeNNKT3
-         k7ROAewh6f2oh731STatB9CjMk4ombrM+GMxkKj2//FFGC1ptVFtRhbrbdWfEE0HLcJy
-         QU/1gPsE2mAlx1PkK+wOcj48vZ/xjsnZ5QGTqNwobdQUUNiWFuHcPdMOowOCeAf/EsJ4
-         /wrn8uDa58q4kpPvnfGaw2pbYDJMl8KKyqWgJv8qxtEJwdfS1Edzf0X/Ur5yZJEDpCQn
-         bPDUZSuhNd6elMDO/SIue44ktn604hgN5Wp4z3Fby3KkI7eB19uqpJUjRMb3gymAywqd
-         8hog==
-X-Forwarded-Encrypted: i=1; AL+hErFLHA4Kw6yEqVh4QuL/5lwqJRm9TYAZAPas+QQm9dsa/KyIZtJIOjEjf4Qy9da7IC4vJ3+kpKlAC7QCF2M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dApMpopbJCeQtuPllXoV6XE/kL4qS/4vKJckKvfUq0UrNGp9O
-	ZLWehsfswJWMvzMU+QqpkyeSjDOXLrtn9Z0LSYj8rb8SvRd7IWbXtmwpxxyHSi1awz9qhGvnyqt
-	hynRsZIJvdA==
-X-Received: from dyee6.prod.google.com ([2002:a05:693c:6286:b0:386:6850:930a])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:4201:b0:385:b8f4:755d
- with SMTP id 5a478bee46e88-385b8f47ad3mr3501940eec.20.1795212940199; Fri, 20
- Nov 2026 14:15:40 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:25 -0800
+        bh=Smuc5oSE4Rk1CEz3klTX+3kN4HJeddocJmM5xW2MgiQ=;
+        b=0lgBUFL+L6OqSnJaQ0oeUPnsY+RWNtieLVztIDLZTprk2E37L6nOfwsMb+/mKYEJ+V
+         Gke+bg8MM1sQuQA3vBpQvRUKBF/4liDumk4C7A1rZHY7hfyFV68FXJ2aRjM/bsUosPTA
+         ksCkQMeRniJJ4NQgLIUP9vcyW7MANs8YtHoOxUsJ5oQJaZ5dJTODtgsSp82fowMuYHRC
+         U8fuEaLWDfkxugWrWqpbQCOiDcbYKU6l7SJkqwrCNT7bf7GOigGZGSjsiGzfXCSTx7qu
+         0B5vDof3g17ev1q48de8Dby3AMOHNn1tz6XqVAgc5kxlu6WaLQ8m5Sotzu6ywJdCRwv1
+         lKOw==
+X-Forwarded-Encrypted: i=1; AL+hErFlEDEGYgJDkmQyIYBZJ1wiYbPHdQRIYYIFyapbh+kN3tQnxcGq2MhBfaSEIwrEPABbuIKRQVyqPSolVvI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86mnbHHPNoDFlkXDujFmU8V3aM25juqsHulwcA0nFu+qslARuR
+	NsWA1PWR3Piv4NSj0gSLaSEOBUf0JqYhosZ9asLYikUKYFT096jmzzk8c4d/qzenuub8dOYk/2/
+	bKwpQrYn04g==
+X-Received: from dldyr5-n2.prod.google.com ([2002:a05:701b:4505:20b0:1b5:3561:2fe9])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:ed02:b0:14d:cb67:afc4
+ with SMTP id a92af1059eb24-1b55691d6e4mr4397957c88.41.1795212954654; Fri, 20
+ Nov 2026 14:15:54 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:28 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,9 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-25-irogers@google.com>
-Subject: [PATCH v3 24/30] perf stat: Share events between metrics and command
- line events
+Message-ID: <20261120221332.2245191-28-irogers@google.com>
+Subject: [PATCH v3 27/30] perf metricgroup: Add metricgroup__add_recorded_metrics()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -92,171 +91,501 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-The metrics added by -T, --smi-cost, --topdown and the Default metric
-groups were parsed into a separate evlist and then added to the events
-from the command line, so they didn't share events with them or, for
-the Default metric groups, with each other.
+Add metricgroup__add_matching_metric_groups() and
+metricgroup__add_recorded_metrics() to parse metrics or metricgroups
+requested on a recorded perf stat command line (or the Default
+metricgroups when no events or metrics were explicitly specified) and
+match them against the recorded events in the evlist.
 
-Parse them directly into evsel_list so that the evsel matcher of
-metricgroup__parse_groups() shares events counting the same thing. Only
-mark the newly added events as skippable and keep the evsel indices in
-list order after sorting the Default metric events, as required when
-writing the group descriptions of a perf.data file. This removes the
-copying of the metric events from the separate evlist with
-metricgroup__copy_metric_events(), which crashed for "perf stat -T" on
-an Alder Lake system.
-
-For example, "perf stat -e duration_time -T" now uses the duration_time
-event from the command line for the transaction metrics.
+When reporting commands such as 'perf stat report' or 'perf script'
+inspect a perf.data file recorded by 'perf stat record', this allows
+reconstructing the exact metrics requested at record time (including -M,
+--transaction, --smi-cost, --topdown, -d, --cputype, and --pmu-filter)
+or optionally adding all matching JSON metrics when --all-metrics is
+enabled.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-stat.c | 72 +++++++++++++++++++++++----------------
- 1 file changed, 43 insertions(+), 29 deletions(-)
+ tools/perf/util/metricgroup.c | 358 ++++++++++++++++++++++++++++++++--
+ tools/perf/util/metricgroup.h |  62 ++++++
+ 2 files changed, 407 insertions(+), 13 deletions(-)
 
-diff --git a/tools/perf/builtin-stat.c b/tools/perf/builtin-stat.c
-index f81192cec481..2b563382cf43 100644
---- a/tools/perf/builtin-stat.c
-+++ b/tools/perf/builtin-stat.c
-@@ -1975,6 +1975,15 @@ static int default_evlist_evsel_cmp(void *priv __maybe_unused,
- 		      evsel__name((struct evsel *)rhs_leader));
+diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
+index 72b552829659..d4038cb5b3e0 100644
+--- a/tools/perf/util/metricgroup.c
++++ b/tools/perf/util/metricgroup.c
+@@ -21,6 +21,7 @@
+ #include "tool_pmu.h"
+ #include "expr.h"
+ #include "rblist.h"
++#include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <errno.h>
+@@ -1454,25 +1455,35 @@ static bool metric_events__contains(struct rblist *metric_events, const struct m
+ 	return false;
  }
  
-+static bool evsel_in_array(const struct evsel *evsel, struct evsel * const *evsels, int nr)
++static void evsel_matcher__mark_default(struct evsel_matcher *matcher, struct evsel *metric_evsel)
 +{
-+	for (int i = 0; i < nr; i++) {
-+		if (evsels[i] == evsel)
-+			return true;
++	struct counter_key key;
++	bool fake = metric_evsel->pmu && perf_pmu__is_fake(metric_evsel->pmu);
++
++	evsel_matcher__key(matcher, metric_evsel, &key);
++	for (size_t i = 0; i < matcher->nr_entries; i++) {
++		struct evsel_matcher_entry *entry = &matcher->entries[i];
++		struct evsel *pos = entry->evsel;
++
++		if (!counter_key__equal(&key, &entry->key, matcher->mode))
++			continue;
++		if ((fake || (pos->pmu && perf_pmu__is_fake(pos->pmu))) &&
++		    !evsel__shares_metric_id(metric_evsel, pos))
++			continue;
++		pos->default_metricgroup = true;
++		if (metric_evsel->default_show_events)
++			pos->default_show_events = true;
 +	}
-+	return false;
++	counter_key__exit(&key);
 +}
 +
- /*
-  * Add default events, if there were no attributes specified or
-  * if -d/--detailed, -d -d or -d -d -d is used:
-@@ -1984,18 +1993,31 @@ static int add_default_events(void)
- 	const char *pmu = parse_events_option_args.pmu_filter ?: "all";
- 	struct perf_pmus *pmus = perf_env__pmus(host_env());
- 	struct parse_events_error err;
--	struct evlist *evlist = evlist__new();
-+	/*
-+	 * Add the metrics directly to evsel_list so that they share events
-+	 * with the events and metrics already there.
-+	 */
-+	struct evlist *evlist = evsel_list;
-+	int nr_orig_entries = evlist__nr_entries(evlist);
-+	struct evsel **orig_evsels = NULL;
- 	struct evsel *evsel;
--	int ret = 0;
-+	int idx = 0, ret = 0;
- 
--	if (!evlist)
--		return -ENOMEM;
-+	/* Set attrs if no event is selected and !null_run: */
-+	if (stat_config.null_run)
-+		return 0;
- 
- 	parse_events_error__init(&err);
- 
--	/* Set attrs if no event is selected and !null_run: */
--	if (stat_config.null_run)
--		goto out;
-+	if (nr_orig_entries > 0) {
-+		orig_evsels = calloc(nr_orig_entries, sizeof(*orig_evsels));
-+		if (!orig_evsels) {
-+			ret = -ENOMEM;
-+			goto out;
-+		}
-+		evlist__for_each_entry(evlist, evsel)
-+			orig_evsels[idx++] = evsel;
-+	}
- 
- 	if (transaction_run) {
- 		/* Handle -T as -M transaction. Once platform specific metrics
-@@ -2101,7 +2123,7 @@ static int add_default_events(void)
- 	if (!stat_config.topdown_level)
- 		stat_config.topdown_level = 1;
- 
--	if (!evlist__nr_entries(evlist) && !evlist__nr_entries(evsel_list)) {
-+	if (!evlist__nr_entries(evlist)) {
- 		/*
- 		 * Add Default metrics. To minimize multiplexing, don't request
- 		 * threshold computation, but it will be computed if the events
-@@ -2112,8 +2134,6 @@ static int add_default_events(void)
- 		};
- 
- 		for (size_t i = 0; i < ARRAY_SIZE(default_metricgroup_names); i++) {
--			struct evlist *metric_evlist;
+ static int add_matching_metric_evlist(struct find_matching_metrics_args *args,
+ 				      struct evlist *metric_evlist,
+ 				      bool default_metricgroup)
+ {
+ 	struct evlist *data_evlist = args->evlist;
+ 	struct evsel *metric_evsel;
 -
- 			if (!metricgroup__has_metric_or_groups(pmus, pmu,
- 							       default_metricgroup_names[i]))
- 				continue;
-@@ -2121,12 +2141,7 @@ static int add_default_events(void)
- 			if ((int)i > detailed_run)
- 				break;
- 
--			metric_evlist = evlist__new();
--			if (!metric_evlist) {
--				ret = -ENOMEM;
--				break;
+-	if (default_metricgroup) {
+-		evlist__for_each_entry(metric_evlist, metric_evsel) {
+-			if (metric_evsel->default_show_events) {
+-				struct evsel *data_evsel =
+-					evsel_matcher__find(&args->matcher, metric_evsel,
+-							    /*leader=*/NULL);
+-
+-				if (data_evsel)
+-					data_evsel->default_show_events = true;
 -			}
--			if (metricgroup__parse_groups(metric_evlist, pmu,
-+			if (metricgroup__parse_groups(evlist, pmu,
- 						      parse_events_option_args.cputype_filter,
- 						      default_metricgroup_names[i],
- 							/*metric_no_group=*/false,
-@@ -2135,26 +2150,29 @@ static int add_default_events(void)
- 							stat_config.user_requested_cpu_list,
- 							stat_config.system_wide,
- 							stat_config.hardware_aware_grouping) < 0) {
--				evlist__put(metric_evlist);
- 				ret = -1;
- 				break;
+-		}
+-	}
++	bool any_matched = false;
+ 
+ 	/*
+ 	 * Metric expressions are associated with a metric leader event and
+@@ -1515,6 +1526,7 @@ static int add_matching_metric_evlist(struct find_matching_metrics_args *args,
+ 								 pos->pmu, data_evsel);
+ 				if (!copy)
+ 					continue;
++				any_matched = true;
+ 				if (metric_events__contains(evlist__metric_events(data_evlist),
+ 							    copy)) {
+ 					metric_expr__delete(copy);
+@@ -1535,6 +1547,17 @@ static int add_matching_metric_evlist(struct find_matching_metrics_args *args,
  			}
- 
--			evlist__for_each_entry(metric_evlist, evsel)
-+			/* evsel_list was empty so all the events are for the Default metrics. */
-+			evlist__for_each_entry(evlist, evsel)
- 				evsel->default_metricgroup = true;
--
--			evlist__splice_list_tail(evlist, &evlist__core(metric_evlist)->entries);
--			metricgroup__copy_metric_events(evlist, /*cgrp=*/NULL,
--							evlist__metric_events(evlist),
--							evlist__metric_events(metric_evlist));
--			evlist__put(metric_evlist);
- 		}
- 		list_sort(/*priv=*/NULL, &evlist__core(evlist)->entries, default_evlist_evsel_cmp);
-+		/* Keep the indices in list order, as required by the perf.data header. */
-+		idx = 0;
-+		evlist__for_each_entry(evlist, evsel) {
-+			evsel->core.idx = idx++;
-+			evsel->tracking = !evsel->core.idx;
-+		}
- 
- 	}
- out:
- 	if (!ret) {
- 		evlist__for_each_entry(evlist, evsel) {
-+			/* Only events added here, not those from the command line. */
-+			if (evsel_in_array(evsel, orig_evsels, nr_orig_entries))
-+				continue;
- 			/*
- 			 * Make at least one event non-skippable so fatal errors are visible.
- 			 * 'cycles' always used to be default and non-skippable, so use that.
-@@ -2163,12 +2181,8 @@ static int add_default_events(void)
- 				evsel->skippable = true;
  		}
  	}
-+	free(orig_evsels);
- 	parse_events_error__exit(&err);
--	evlist__splice_list_tail(evsel_list, &evlist__core(evlist)->entries);
--	metricgroup__copy_metric_events(evsel_list, /*cgrp=*/NULL,
--					evlist__metric_events(evsel_list),
--					evlist__metric_events(evlist));
--	evlist__put(evlist);
++
++	if (default_metricgroup && any_matched) {
++		/*
++		 * Mark all recorded events counting the same thing as a Default
++		 * metric event, including duplicates across groups, so
++		 * perf_stat__skip_metric_event() hides unused duplicates while
++		 * leaving unrelated events visible.
++		 */
++		evlist__for_each_entry(metric_evlist, metric_evsel)
++			evsel_matcher__mark_default(&args->matcher, metric_evsel);
++	}
+ 	return 0;
+ }
+ 
+@@ -1633,6 +1656,315 @@ int metricgroup__add_matching_metrics(struct evlist *evlist, bool system_wide)
  	return ret;
  }
  
++int metricgroup__add_matching_metric_groups(struct evlist *evlist,
++					    const char *pmu,
++					    bool cputype_filter,
++					    const char *str,
++					    bool metric_no_group,
++					    bool metric_no_merge,
++					    bool metric_no_threshold,
++					    bool system_wide,
++					    bool default_metricgroup)
++{
++	struct find_matching_metrics_args args;
++	struct evlist *metric_evlist = NULL;
++	int ret;
++
++	ret = find_matching_metrics_args__init(&args, evlist, system_wide,
++					       /*match_grouping=*/!metric_no_group);
++	if (ret)
++		goto out;
++
++	metric_evlist = evlist__new();
++	if (!metric_evlist) {
++		ret = -ENOMEM;
++		goto out;
++	}
++	evlist__set_session(metric_evlist, evlist__session(evlist));
++
++	ret = metricgroup__parse_groups(metric_evlist,
++					pmu ?: "all",
++					cputype_filter,
++					str,
++					metric_no_group,
++					metric_no_merge,
++					metric_no_threshold,
++					/*user_requested_cpu_list=*/NULL,
++					system_wide,
++					/*hardware_aware_grouping=*/false);
++	if (!ret) {
++		ret = add_matching_metric_evlist(&args, metric_evlist,
++						 default_metricgroup);
++	}
++
++out:
++	evlist__put(metric_evlist);
++	find_matching_metrics_args__exit(&args);
++	return ret;
++}
++
++static void append_recorded_metric_str(char **rec_metrics, const char *m_arg)
++{
++	char *tmp = NULL;
++
++	if (!m_arg)
++		return;
++	if (!*rec_metrics) {
++		*rec_metrics = strdup(m_arg);
++	} else if (asprintf(&tmp, "%s,%s", *rec_metrics, m_arg) >= 0) {
++		free(*rec_metrics);
++		*rec_metrics = tmp;
++	}
++}
++
++void metricgroup__add_recorded_metrics(struct evlist *evlist,
++				       const char *metrics,
++				       const char *pmu_filter,
++				       bool cputype_filter,
++				       bool metric_no_group,
++				       bool metric_no_merge,
++				       bool metric_no_threshold,
++				       bool all_metrics,
++				       bool system_wide,
++				       bool default_metricgroup,
++				       bool *metric_only)
++{
++	struct perf_env *env = evlist__env(evlist) ?: host_env();
++	struct perf_pmus *pmus = perf_env__pmus(env);
++	const char **argv = env->cmdline_argv;
++	int argc = env->nr_cmdline;
++	char *rec_metrics = NULL;
++	bool rec_transaction = false, rec_smi = false, rec_topdown = false;
++	bool rec_null = false, has_events = false, had_rec_metrics = false;
++	bool rec_metric_only = false, rec_force_metric_only = false;
++	bool rec_no_group = metric_no_group;
++	bool rec_no_merge = metric_no_merge;
++	bool rec_no_threshold = metric_no_threshold;
++	bool seen_record = false;
++	unsigned int rec_td_level = 0;
++	int rec_detailed = 0;
++
++	if (metrics) {
++		metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++							cputype_filter, metrics,
++							metric_no_group,
++							metric_no_merge,
++							metric_no_threshold,
++							system_wide,
++							/*default_metricgroup=*/false);
++		if (all_metrics)
++			metricgroup__add_matching_metrics(evlist, system_wide);
++		return;
++	}
++
++	if (!argv || argc < 2 || strcmp(argv[1], "stat")) {
++		if (all_metrics)
++			metricgroup__add_matching_metrics(evlist, system_wide);
++		return;
++	}
++
++	for (int i = 2; i < argc && argv[i]; i++) {
++		const char *arg = argv[i];
++
++		if (!strcmp(arg, "--"))
++			break;
++
++		if (arg[0] != '-') {
++			if (!seen_record && strlen(arg) > 2 && strstarts("record", arg)) {
++				seen_record = true;
++				continue;
++			}
++			break;
++		}
++
++		if (arg[1] != '-') {
++			for (const char *p = arg + 1; *p; p++) {
++				if (*p == 'd') {
++					rec_detailed++;
++				} else if (*p == 'T') {
++					rec_transaction = true;
++				} else if (*p == 'n') {
++					rec_null = true;
++				} else if (*p == 'e') {
++					has_events = true;
++					if (!p[1])
++						i++;
++					break;
++				} else if (*p == 'M') {
++					const char *m_arg = p[1] ? p + 1 : NULL;
++
++					if (!m_arg && i + 1 < argc)
++						m_arg = argv[++i];
++					append_recorded_metric_str(&rec_metrics, m_arg);
++					break;
++				} else if (strchr("ptbrCxGoID", *p)) {
++					if (!p[1])
++						i++;
++					break;
++				}
++			}
++			continue;
++		}
++
++		if (!strcmp(arg, "--metrics") || strstarts(arg, "--metrics=")) {
++			const char *m_arg = arg[9] == '=' ? arg + 10
++							  : (i + 1 < argc ? argv[++i] : NULL);
++
++			append_recorded_metric_str(&rec_metrics, m_arg);
++		} else if (!strcmp(arg, "--transaction")) {
++			rec_transaction = true;
++		} else if (!strcmp(arg, "--smi-cost")) {
++			rec_smi = true;
++		} else if (!strcmp(arg, "--topdown")) {
++			rec_topdown = true;
++		} else if (!strcmp(arg, "--td-level") || strstarts(arg, "--td-level=")) {
++			const char *td_arg = arg[10] == '=' ? arg + 11
++							    : (i + 1 < argc ? argv[++i] : NULL);
++
++			if (td_arg)
++				rec_td_level = strtoul(td_arg, NULL, 10);
++		} else if (!strcmp(arg, "--detailed")) {
++			rec_detailed++;
++		} else if (!strcmp(arg, "--null")) {
++			rec_null = true;
++		} else if (!strcmp(arg, "--metric-only")) {
++			rec_metric_only = true;
++			rec_force_metric_only = true;
++		} else if (!strcmp(arg, "--no-metric-only")) {
++			rec_metric_only = false;
++			rec_force_metric_only = true;
++		} else if (!strcmp(arg, "--metric-no-group")) {
++			rec_no_group = true;
++		} else if (!strcmp(arg, "--no-metric-no-group")) {
++			rec_no_group = false;
++		} else if (!strcmp(arg, "--metric-no-merge")) {
++			rec_no_merge = true;
++		} else if (!strcmp(arg, "--no-metric-no-merge")) {
++			rec_no_merge = false;
++		} else if (!strcmp(arg, "--metric-no-threshold")) {
++			rec_no_threshold = true;
++		} else if (!strcmp(arg, "--no-metric-no-threshold")) {
++			rec_no_threshold = false;
++		} else if (!strcmp(arg, "--cputype") || strstarts(arg, "--cputype=")) {
++			const char *cpu_arg = arg[9] == '=' ? arg + 10
++							    : (i + 1 < argc ? argv[++i] : NULL);
++
++			if (cpu_arg) {
++				const struct perf_pmu *pmu =
++					perf_pmus__pmu_for_pmu_filter(pmus, cpu_arg);
++
++				pmu_filter = pmu ? pmu->name : cpu_arg;
++				cputype_filter = true;
++			}
++		} else if (!strcmp(arg, "--pmu-filter") || strstarts(arg, "--pmu-filter=")) {
++			pmu_filter = arg[12] == '=' ? arg + 13
++						    : (i + 1 < argc ? argv[++i] : NULL);
++			cputype_filter = false;
++		} else if (!strcmp(arg, "--event") || strstarts(arg, "--event=") ||
++			   !strcmp(arg, "--pfm-events") || strstarts(arg, "--pfm-events=")) {
++			has_events = true;
++			if (!strchr(arg, '='))
++				i++;
++		} else if (!strcmp(arg, "--iostat") || strstarts(arg, "--iostat=")) {
++			has_events = true;
++		} else if (!strchr(arg, '=') &&
++			   (!strcmp(arg, "--filter") || !strcmp(arg, "--pid") ||
++			    !strcmp(arg, "--tid") || !strcmp(arg, "--bpf-prog") ||
++			    !strcmp(arg, "--bpf-attr-map") || !strcmp(arg, "--repeat") ||
++			    !strcmp(arg, "--cpu") || !strcmp(arg, "--field-separator") ||
++			    !strcmp(arg, "--cgroup") || !strcmp(arg, "--for-each-cgroup") ||
++			    !strcmp(arg, "--output") || !strcmp(arg, "--log-fd") ||
++			    !strcmp(arg, "--pre") || !strcmp(arg, "--post") ||
++			    !strcmp(arg, "--interval-print") || !strcmp(arg, "--interval-count") ||
++			    !strcmp(arg, "--timeout") || !strcmp(arg, "--delay") ||
++			    !strcmp(arg, "--tpebs-mode") || !strcmp(arg, "--control"))) {
++			i++;
++		}
++	}
++
++	if (rec_force_metric_only && metric_only)
++		*metric_only = rec_metric_only;
++
++	if (rec_metrics) {
++		had_rec_metrics = true;
++		if (!all_metrics) {
++			metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++								cputype_filter, rec_metrics,
++								rec_no_group, rec_no_merge,
++								rec_no_threshold, system_wide,
++								/*default_metricgroup=*/false);
++		}
++		zfree(&rec_metrics);
++	}
++
++	if (rec_transaction) {
++		if (!all_metrics) {
++			metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++								cputype_filter, "transaction",
++								rec_no_group, rec_no_merge,
++								rec_no_threshold, system_wide,
++								/*default_metricgroup=*/false);
++		}
++	} else if (rec_smi) {
++		if (metric_only && !rec_force_metric_only && !all_metrics)
++			*metric_only = true;
++		if (!all_metrics) {
++			metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++								cputype_filter, "smi",
++								rec_no_group, rec_no_merge,
++								rec_no_threshold, system_wide,
++								/*default_metricgroup=*/false);
++		}
++	} else if (rec_topdown) {
++		char str[] = "TopdownL1";
++
++		if (metric_only && !rec_force_metric_only && !all_metrics)
++			*metric_only = true;
++		if (!rec_td_level)
++			rec_td_level = 1;
++		str[8] = rec_td_level + '0';
++		if (!all_metrics) {
++			metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++								cputype_filter, str,
++								/*metric_no_group=*/false,
++								/*metric_no_merge=*/false,
++								/*metric_no_threshold=*/true,
++								system_wide,
++								/*default_metricgroup=*/false);
++		}
++	} else if (!has_events && !had_rec_metrics && !rec_null) {
++		static const char * const default_names[] = {
++			"Default", "Default2", "Default3", "Default4",
++		};
++		struct evsel *evsel;
++
++		if (default_metricgroup) {
++			evlist__for_each_entry(evlist, evsel) {
++				if (!evsel__match(evsel, HARDWARE, HW_CPU_CYCLES))
++					evsel->skippable = true;
++			}
++		}
++		for (size_t i = 0; !all_metrics && i < ARRAY_SIZE(default_names); i++) {
++			if ((int)i > rec_detailed)
++				break;
++			if (!metricgroup__has_metric_or_groups(pmus, pmu_filter ?: "all",
++							       default_names[i]))
++				continue;
++			metricgroup__add_matching_metric_groups(evlist, pmu_filter,
++								cputype_filter,
++								default_names[i],
++								/*metric_no_group=*/false,
++								/*metric_no_merge=*/false,
++								/*metric_no_threshold=*/true,
++								system_wide,
++								default_metricgroup);
++		}
++	}
++
++	if (all_metrics)
++		metricgroup__add_matching_metrics(evlist, system_wide);
++}
++
+ static int append_metric_id_cb(const char *metric_id, void *data)
+ {
+ 	struct strbuf *sb = data;
+diff --git a/tools/perf/util/metricgroup.h b/tools/perf/util/metricgroup.h
+index 25398eafd6e2..20fb4ee3cacc 100644
+--- a/tools/perf/util/metricgroup.h
++++ b/tools/perf/util/metricgroup.h
+@@ -112,6 +112,68 @@ int metricgroup__for_each_metric(struct perf_pmus *pmus, const struct pmu_metric
+  * Return: 0 on success or a negative error code.
+  */
+ int metricgroup__add_matching_metrics(struct evlist *evlist, bool system_wide);
++/**
++ * metricgroup__add_matching_metric_groups() - Parse @str and attach metrics
++ *                                             whose events match @evlist.
++ * @evlist: The recorded evlist to attach matching metric expressions to.
++ * @pmu: PMU filter name or "all".
++ * @cputype_filter: Was @pmu specified via --cputype?
++ * @str: Metric or metricgroup names to parse.
++ * @metric_no_group: Do not group metric events.
++ * @metric_no_merge: Do not merge shared metric events.
++ * @metric_no_threshold: Ignore metric threshold expressions.
++ * @system_wide: Were the events recorded system-wide?
++ * @default_metricgroup: Mark matched events with Default metricgroup display flags.
++ *
++ * Return: 0 on success or a negative error code.
++ */
++int metricgroup__add_matching_metric_groups(struct evlist *evlist,
++					    const char *pmu,
++					    bool cputype_filter,
++					    const char *str,
++					    bool metric_no_group,
++					    bool metric_no_merge,
++					    bool metric_no_threshold,
++					    bool system_wide,
++					    bool default_metricgroup);
++/**
++ * metricgroup__add_recorded_metrics() - Add metrics for a recorded perf.data
++ *                                       evlist.
++ * @evlist: The recorded evlist to attach metrics to.
++ * @metrics: Explicit metric names requested by the reporting command, or NULL
++ *           to inspect the recorded perf stat command line in perf_env.
++ * @pmu_filter: Optional PMU filter string.
++ * @cputype_filter: Was @pmu_filter specified via --cputype?
++ * @metric_no_group: Default metric_no_group setting.
++ * @metric_no_merge: Default metric_no_merge setting.
++ * @metric_no_threshold: Default metric_no_threshold setting.
++ * @all_metrics: Also add all JSON metrics whose events match @evlist.
++ * @system_wide: Were the events recorded system-wide?
++ * @default_metricgroup: Enable Default metricgroup header/skip display flags.
++ * @metric_only: Optional pointer updated if the recorded command line forced
++ *               --metric-only or --no-metric-only.
++ */
++void metricgroup__add_recorded_metrics(struct evlist *evlist,
++				       const char *metrics,
++				       const char *pmu_filter,
++				       bool cputype_filter,
++				       bool metric_no_group,
++				       bool metric_no_merge,
++				       bool metric_no_threshold,
++				       bool all_metrics,
++				       bool system_wide,
++				       bool default_metricgroup,
++				       bool *metric_only);
++/**
++ * metricgroup__has_metric_or_groups() - Check if a metric or metricgroup
++ *                                       named @metric_or_groups exists.
++ * @pmus: The PMUs to search.
++ * @pmu: PMU filter name or "all".
++ * @metric_or_groups: A metric or metricgroup name.
++ *
++ * Return: true if a metric on @pmu is named @metric_or_groups or is in the
++ * metricgroup @metric_or_groups.
++ */
+ bool metricgroup__has_metric_or_groups(struct perf_pmus *pmus, const char *pmu,
+ 				       const char *metric_or_groups);
+ unsigned int metricgroups__topdown_max_level(void);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
