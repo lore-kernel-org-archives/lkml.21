@@ -1,46 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.16.166
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795166062;
-	b=Qi9NF4qxgkmUj8b89uCE4Dzg2hiAISFtuObggdftqgtndWrPsI/BPviaCPP8geyapEVf
-	 IHUQPfVjxRRpd9yZQ5zzuvrOIyw1ac7SIIf5wmrHuzfs9P7K+hMZeH1qN5ediVlX9Dk9c
-	 SbyPVddmMTS7onwgqRw7eG+Jn7zpdvRS1kHK1MCeesXZyLTC5omIzcUe89VCCLsh88O2z
-	 oQWI3plFVocT74hm6Vj9zYeiIef+TYraeE/rY13ipCxRE86s2VDzJDz+id1DHH4r6ak1I
-	 8G4nJds/fbqxiqfzYkXNDFMqzh9XODzItv4Jq5dLJ8ITa+pB1CzOWm1eSPf32HXnZkQ==
+	t=1795166093;
+	b=4ktl6vXp/Dx1OMyqAACJZh46ZfwoDrcsTuy5T/IPPfjF6Q0jn94rW3hIuULoxw0h6XFk
+	 dxmG8z3v3nSQsBQNiWu4DpOlKgdMBuAKyRPWUMPXiy8rugGh43IgJT/1zi2Ffd9uxzzvd
+	 RwI6xRvD+368gedjw9Dr5UPvB6lGxAcWX5WrRWKfd70yLjgrYmVT5+CDWOVo+hf0DlEOy
+	 hwWza3g0WuFSFm0rzLczgDvqxDbFXKQZs/NYd2Qtx6k1kQ8yn9Ma0NVkzh+PMaHy15Wvz
+	 kUfxLs2M/nDmSMEP22GhU+xWeuMn6a3i4e8ZxmX6rD4H8XfX+5trXc2zC6AbuVFrE0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795166062;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=fawBJBxvqntIpfmYrM+MvGMXInte1Ysn4Da6nrX5kqg=;
-	b=1/6j0VwnTDh7Gmxb40ik09ZXQxY8MJJo1ZGs5h7aubLmPxl9VDZAPXXL4UkE9MXgZZIZ
-	 K2DjxQ/qGTxjb0dgbHSpFthVVP56wYFM/60ah7ddrfcvDljCO1My7+ZlNnjJ6ComefLWX
-	 21/Ry7dFMHp75+vUbpvip5cPpcryqii23C64wulsUGZSM48We6qD6yMrBIXE8ex9bcZfe
-	 hqQenDwkJJjhOHTda6JMrthIYCQutcF3TlbJ7OduEhSU+SzfWOIR9J1Qf6hLlQ/k9zfRe
-	 CsuzHMRhpZxmaoGdnSfhH3LUsPP8SEBuvtAVIJi5CANjcfiC6pegJwH6opfs2jBdWVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795166093;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=nlOZ4k4jiEeYMcrixrMUvGbyScUaQsUnjCuRsm6rEbU=;
+	b=5AIvE8XiW3aM57rGCX6zaTzjTzx8/y15F5z0AHKxyiMfZmc/0cCRbCE9X5ja7sb2/L0J
+	 LlO9JR98JU5uZ1RfmFlvOYGvJbEgV1EE1C67UwH2D6HdVio1yFwrxoBGmIaFP84WQ3AMd
+	 CCvn6tmiQB+nDIr2NnMlOQfEy+IYrrAiXeDsHJla60JrXd6diwaEfbPTMY3i9zBKVNIvS
+	 k0ixubGIPq1ch4EscXlp9bthbL6L9N/Lt3v1vxNzF3jSe2HilZBdWwuuatPg2t+Bjpce+
+	 z7Yo5wqCZ0AbTqA4lb/dWP1iqFkwyEGJx1HzyR/NV5UbC443p38nrFb6S2ZaryQIG5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinsec.com.cn;
-	spf=pass smtp.mailfrom=kylinsec.com.cn;
-	arc=none smtp.remote-ip=54.206.16.166
-Received: from smtpbgau1.qq.com (smtpbgau1.qq.com [54.206.16.166])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=ABG0hpLd;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DDD5606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:14:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DDD5606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinsec.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinsec.com.cn
-X-QQ-mid: zesmtpsz7t1795165966t49380da1
-X-QQ-Originating-IP: RR10wvzWiKKffj+G7uXXMQNsGus0me5IDeSj1QwZdwg=
-Received: from [10.20.30.2] ( [175.0.188.152])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 20 Nov 2026 17:12:44 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 6020361651217184553
-Message-ID: <6ADB4C8146800DEE+635e4c74-fbd8-46bc-b1b7-670a35e62cb8@kylinsec.com.cn>
-Date: Fri, 20 Nov 2026 17:10:58 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9906606A320;
+	Fri, 20 Nov 2026 09:14:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9906606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=ABG0hpLd
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=nlOZ4k4jiEeYMcrixrMUvGbyScUaQsUnjCuRsm6rEbU=; 
+	b=ABG0hpLd7nzq/bFlWOiIfZqPjpaaWWiXOTa/R2vAco9LWCUdjSCeA3Q07cLJs2FqPvDqnylwXm3
+	DoLYQ5qiur52x0OvZLTsZ+aD3nv0EWhSvberQkEZ5BPhWXcuHkhjqwCc0neyhqMcYlLGONAQis3mi
+	CY1T0lLYAsxzFtE8goDWlXnFojZCf7CZqAd/pmyh9T+HlN+ywH7nSWDrw8YnxjgF4eurkGFe9Nb5c
+	PhktsApS+dLCIYcOvT7ulp9UQHLivU36bY807Oifkdkm3RaeHQ4ufPmukusJJixPFWmwuRagzTuP1
+	UsFWsPBuSdHg4/2wjwb/4NjIiPDNAEaaIeDQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xUKhb-0000000HXnf-1emh;
+	Fri, 20 Nov 2026 17:14:40 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:14:39 +0800
+Date: Fri, 20 Nov 2026 17:14:39 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: efecanicoz@gmail.com
+Cc: lukas@wunner.de, ignat@linux.win, davem@davemloft.net,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Efe Can Icoz <efe.canicoz@atlascopco.com>
+Subject: Re: [PATCH] crypto: rsassa-pkcs1 - Allocate the RSA buffer separately
+Message-ID: <awAPfzBPyJ-gdVSw@gondor.apana.org.au>
+References: <20261111113022.2033191-1-efecanicoz@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -50,159 +65,69 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] platform/loongarch: laptop: Fix backlight device lifetime
- on unload
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Jianmin Lv <lvjianmin@loongson.cn>, Yao Zi <ziyao@disroot.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>,
- Zixing Liu <liushuyu@aosc.io>, loongarch@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
- <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
-Content-Language: en-US
-From: Luo Qiu <luoqiu@kylinsec.com.cn>
-In-Reply-To: <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:kylinsec.com.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OYKM/pSuXZkt6mljoerFCnC7yAEcNQVDTVIeZicIC8cz+z7+iQ6OvGpt
-	7Tz4f2/1N1vraHij7M6M/8vk3y2aUTzHILRR3C5cDj+sAfIkUTwaILXQJN4OFMsWNXw5sSD
-	lGJgyKL4LEXjcRijhBD6LUGN8OtfKQo7whS9ejX8Zw3da4CkLk0llwZpzDxcxxH32ks2Ake
-	A42hLRrrHBUMUQDNo/peAikh8GNsBZ3JWlv6dgO8ycO1bnS+6znQF90n+Ph7w5SpASyuAL7
-	2tBaaGWU6bUebJkcJpavtZ5Wc/hqvaFGQo03vWmiaG5YZxmy64nNISrzHuJsglV3ycwer/b
-	jxcG8mDgR+0yW9WaMBk9dFAG8oNy6Z1WbjbeESDOVnU9V1B6YGg3BmD+j6SeD3Z6xISmik5
-	fQPmb1NcGhJaajwM6rOsSnieYQeTmyD66ewamX0j1c+RkLI7DYhcZWRknQh0LY6+h8vYnI1
-	IpvjESFkrMmfD6Wwci5BQlcPH50MrhfJQ6gvqiVsziG8lAGVa6Ug3i/JhObdrri9SCvDV2B
-	pXlSExW+VQVd60dl2owlQs9MVweU//C8RptDjS1Ol9UD79TtGgZ9l+L5uP37SBOLweRQWx8
-	NJDZvafHtcZzJZMyksahHq4TUmtdBsYbq3fIb8fSIzQLdyYsPk9EoSfQwoZx4+DbfJp00ZS
-	t4Wo5UOOMtiBxbZ/WaXPHPD81v62vnd4dZYOaWN60F3eI3YLxVMdrBFILPCPCL7iYc0qWBV
-	z3LDprV7e7/1gcdASkxmBebeIJCEn5Saemgn0CVgM9Gvd90U2eK57Keo2Y9NWOXxUxthOSO
-	5HO6qB+RznOyMOLpDOJ/VoWi90032BWUNp4T03+4f4Xs6IA4kO+OTvukgvQt8L6cXW3Yp9v
-	OPaswAQhmFDj7ArgLU551ML8j3zWIbJiTheKTQHSoheXaJXM8bwBvC46S7iuKQ5+HdRswyg
-	z03Se5A9M9kXOJ0PcbsBZQ7eoeM4ibMBs+vGNIf3u+IBpHR2PvJ/kT4W+c3oikwLxOu1wZ4
-	7YI7qVdY2V1zZZp+9b0oFIdYo9c1LY+6/JsGC1zY+yjBtEuaxfze2ZPJLctnW/YgLMMxLBg
-	dyDXM6mIJbL
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111113022.2033191-1-efecanicoz@gmail.com>
 
+On Wed, Nov 11, 2026 at 12:30:22PM +0100, efecanicoz@gmail.com wrote:
+> From: Efe Can Icoz <efe.canicoz@atlascopco.com>
+> 
+> rsassa_pkcs1_verify() allocates the akcipher request, its private
+> context, and the RSA input/output buffer in a single allocation.
+> The buffer starts immediately after the request context, whose size
+> is not necessarily a multiple of ARCH_DMA_MINALIGN.
+> 
+> Although kmalloc() aligns the allocation itself, this does not
+> guarantee suitable alignment of the interior buffer. On systems with
+> non-coherent DMA, the buffer can therefore share cache lines with
+> CPU-accessed request state. Updates to that state after DMA mapping
+> can interfere with the device-written result during cache maintenance.
+> 
+> This is reproducible on i.MX7D with rsa-caam, whose request context is
+> 48 bytes while the kernel DMA alignment is 64 bytes. CAAM reports
+> successful completion, but the recovered output retains the original
+> signature prefix and PKCS#1 verification fails. This prevents the
+> shipped X.509 certificates and regulatory database signature from
+> being verified.
+> 
+> Allocate the RSA buffer separately with kmemdup() so that it benefits
+> from kmalloc's DMA alignment guarantees and does not share cache lines
+> with the request context. Keep a separate pointer to the allocation
+> base for sensitive cleanup, since verification may advance out_buf
+> past the leading zero byte.
+> 
+> Fixes: 1e562deacecc ("crypto: rsassa-pkcs1 - Migrate to sig_alg backend")
+> Signed-off-by: Efe Can Icoz <efe.canicoz@atlascopco.com>
+> ---
+> Tested on a custom board with i.MX7D and i.MX8QXP, running Linux
+> 6.18.37 with:
+> 
+>      CONFIG_CRYPTO_DEV_FSL_CAAM_PKC_API=y
+>      CONFIG_CFG80211_REQUIRE_SIGNED_REGDB=y
+>      CONFIG_CFG80211_USE_KERNEL_REGDB_KEYS=y
+> 
+> During diagnosis, the selected signature driver was
+> pkcs1(rsa-caam,sha256), with a 256-byte RSA buffer and a 48-byte
+> child request context.
+> 
+> Before the change, hardware completion returned success, but
+> verification rejected the recovered output because it lacked the
+> expected leading zero byte. Its prefix matched the input signature.
+> 
+> After the change, the sforshee and wens certificates load successfully
+> and regulatory database signature verification succeeds.
+> 
+> The cache-line interference described above is supported by the
+> allocation layout and the runtime comparison; the exact corruption
+> sequence has not been directly traced.
+> 
+>  crypto/rsassa-pkcs1.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
 
-On 11/20/26 4:16 PM, Huacai Chen wrote:
-> Hi, Qiu,
->
-> On Thu, Nov 19, 2026 at 8:22 PM Luo Qiu <luoqiu@kylinsec.com.cn> wrote:
->> The driver registers a platform backlight device during module init but
->> discards the returned pointer. Consequently, the device is never
->> unregistered when the module is removed, leaving its ops callbacks
->> pointing into freed module text. After module removal, reading the
->> backlight's actual_brightness attribute can call the stale callback and
->> crash the kernel. Registration failures are also silently ignored.
->>
->> Store the returned pointer, use it for resume, and unregister it on
->> module exit. Propagate registration failures to avoid silently
->> continuing without a backlight device.
->>
->> Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
->> Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
->> ---
->>   drivers/platform/loongarch/loongson-laptop.c | 19 +++++++++++++------
->>   1 file changed, 13 insertions(+), 6 deletions(-)
->>
->> diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platform/loongarch/loongson-laptop.c
->> index 4ec56621db24..ec0742e5ed46 100644
->> --- a/drivers/platform/loongarch/loongson-laptop.c
->> +++ b/drivers/platform/loongarch/loongson-laptop.c
->> @@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
->>   static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
->>
->>   static bool bl_powered;
->> +static struct backlight_device *backlight_dev;
->>   static int loongson_laptop_backlight_update(struct backlight_device *bd);
->>
->>   /* 2. ACPI Helpers and device model */
->> @@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *dev)
->>   {
->>          int status = 0;
->>          struct key_entry ke;
->> -       struct backlight_device *bd;
->>
->> -       bd = backlight_device_get_by_type(BACKLIGHT_PLATFORM);
->> -       if (bd) {
->> -               loongson_laptop_backlight_update(bd) ?
->> +       if (backlight_dev) {
->> +               loongson_laptop_backlight_update(backlight_dev) ?
->>                  pr_warn("Loongson_backlight: resume brightness failed") :
->> -               pr_info("Loongson_backlight: resume brightness %d\n", bd->props.brightness);
->> +               pr_info("Loongson_backlight: resume brightness %d\n",
->> +                               backlight_dev->props.brightness);
->>          }
->>
->>          /*
->> @@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
->>   {
->>          int status = 0, ret;
->>          struct backlight_properties props;
->> +       struct backlight_device *bd;
->>
->>          memset(&props, 0, sizeof(props));
->>
->> @@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
->>          props.power = BACKLIGHT_POWER_ON;
->>          props.type = BACKLIGHT_PLATFORM;
->>
->> -       backlight_device_register("loongson_laptop",
->> +       bd = backlight_device_register("loongson_laptop",
->>                                  NULL, NULL, &backlight_laptop_ops, &props);
->> +       if (IS_ERR(bd))
->> +               return PTR_ERR(bd);
->>
->> +       backlight_dev = bd;
->>
->>          return 0;
->>   }
->> @@ -622,6 +626,9 @@ static void __exit generic_acpi_laptop_exit(void)
->>                                  generic_subdriver_exit(&generic_sub_drivers[i]);
->>                  }
->>          }
->> +
->> +       backlight_device_unregister(backlight_dev);
-> backlight_device_register is called conditionally but
-> backlight_device_unregister() is called unconditionally, I think this
-> is wrong.
->
-> Huacai
-Hi, Huacai.
+This issue is being addressed with patches to caam.
 
-Thanks for the review. The unconditional call is intentional and is safe
-
-because backlight_device_unregister() explicitly accepts a NULL device:
-
-     void backlight_device_unregister(struct backlight_device *bd)
-     {
-         if (!bd)
-             return;
-         ...
-     }
-
-backlight_dev is statically initialized to NULL. It is only assigned after
-backlight_device_register() succeeds and the IS_ERR() check has passed. If
-registration is skipped or fails, the pointer remains NULL, so the call in
-the module exit path is a no-op rather than a NULL dereference.
-
-I can change it to `if (backlight_dev) backlight_device_unregister(...)` in
-a follow-up if you prefer that style.
-
-Thanks.
-
-Qiu Luo
->
->> +       backlight_dev = NULL;
->>   }
->>
->>   module_init(generic_acpi_laptop_init);
->> --
->> 2.56.1
->>
-
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
