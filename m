@@ -1,123 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.145
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795142957;
-	b=ZlZO1mRavf0cPak3+Q7hCw5CVTEy8tfjCdGtnktOKWSBdAPd2x66NWqjs6hDa/1zN5ZP
-	 3WrL622trVi03qph4WWIwFTuYKwsUHrSE/AuHWdT2fftmkAMd8c7taHGlwH4pjM5LVV76
-	 hLmB9eVP0eK5Zd5ZDHIYymT8IKvQHC2wvQReMCHq+VJYpyVwB0wgh+YMwn58971SAQ0hh
-	 UDCKRgzYeR90LI3puFDiCycw8RZzSNtOvLOnTzhdAfu0l9z0j8snZWCslJm1oPH6y1RYv
-	 Z/QyFf3JrNrPu6JQYojCDngScReDNN50tcpOcfA2ne0m/7Q7zV8DBop0YC27PKI/IgQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795142957;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=6VLGH5lDRuEoZxm3qN7wUhKBcZZbsMUuJmVHOHEW82w=;
-	b=jBeP7ChfThMS2EVhgw25V0FB7jKkWWdl0mtLqU3fcZZCrhoBljXLQm1zxSr88+uA8HjA
-	 B6AlIKOUz0ezh3wvze21LKfdSSd3QaPIF87AGSChpwbg/EZDfAkQobnqUCOdmb5sK0Q18
-	 3t5+X4sdB4XSb2jDd917HzGtLXsccW4M6f9KD+Cp9MMuTCCbpUqMKSaRDPQAtLoDXUpHk
-	 aaQBMO7WvsvOhaxqQVVGC+vOlimR4RKqxoN8rwr67gS3GUUEX3ZMzaO+CQNZgIjBY/tPZ
-	 RA9Lg88f56K8VLOcndhX3GBDf4LF5bPIIrOyOcDAOSb7p96fTSpfrpMoXgqUiEgITxQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=seanlyon.dev;
-	spf=pass smtp.mailfrom=seanlyon.dev;
-	dkim=pass header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=rsBXwUOM;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=FWTq521k;
-	arc=none smtp.remote-ip=202.12.124.145
-Received: from fout-b2-smtp.messagingengine.com (fout-b2-smtp.messagingengine.com [202.12.124.145])
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795142955;
+	b=hOuESIs0kLdr8Ldzr0UVZNi+knidzprobGv/ommG6q0/0Gb1uTeTUxwcvrF3JGNuuO9L
+	 O+4l8mjoaW5h2zOZfAffBtPK8/lsMoL2YpWAQwUriJf3+Rzpb52ONflZv3fwKOUIDvtNe
+	 EnyygRVP6hC8RR8jK34Bmx2YXya1RQX8GK6aBy5zjJE3ISXuLp22sdLKGkyF0+YMb/jrd
+	 T8QT5ZUv0tOLaR/oo0w91doG9rCpBqzWPLe7MmYfwidz+n0udjFRlcq9F2yOGF2hWB+sA
+	 kT2edE6xyxLDBRsMuPRlmNSLQR4Ef8652h7DeHDVya2WFvqnchfZ9JTe0NgwInR9idw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795142955;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=iTSjbrq786fqfXSMIohgj7aM6dRY7IeVnB+W9t0jy1w=;
+	b=aA3JUY7QUaighQcl9Nqs/yq0f3icSLZUxXx2R/cHig9IQign+I8UH6wPl0eZVjqMKg8+
+	 OEiyXJx63mQzvqk7iHpdAYiCtqOa3RpetKtT/tTK9QVlDtg9Dv343VEz7Dye7sM2SwHpf
+	 qqpOPg5ruL6SNMjjul07IP5jhLBYzChcI6MICqq7XvtQakT1rvWWitdQvWHtbv+slB3l0
+	 IOJp8uBNC9A+tY2CsIwEJLUhdtailJgMPgStjwbQQCPRdtrXSR0mpkh+7OzKLexZ+TTsg
+	 dfMSJUKU107YIt+6KPHs/Y+6Dh4Hv49wldzcnGnQK3TlIpa/AX2Z95L1VavigIKmOOw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aL0qb6rB;
+	arc=fail smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C2FD606A320;
+	Fri, 20 Nov 2026 02:49:15 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aL0qb6rB
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795142955;
+	b=FpBDRXrUoHlLUzB9p9UTtO2RwHORlWFl8ru1GaHLek1OQ0epJ1d1X4GTcCS7a8u4P2DP
+	 x16lOySvY29C/nyPcurPNGHLidvTAa2+imrYGDnASIabwiE2gqVjMJYQ/A4tYyJ8eYUqG
+	 T887nwclqglA400ffMH8QyoRk3f76/BEBHMCBfTlWX3+BVpCGMparACv/HPj3UQ4deQN7
+	 MuEiHngGXXhLgUUZjsVESfqm4ByjobkMbKSeF9Z3+92jU35zxUYgkVWpUg1H+WX3FeEB+
+	 E/WKGyb62fn0hlMvcZl6DlVSl/idyVQsvK5nHDfoWNEpmmzndYtOHvGIM/Mb+Mt3YCQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795142955;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=iTSjbrq786fqfXSMIohgj7aM6dRY7IeVnB+W9t0jy1w=;
+	b=p5PyhLLZFVx7EnIMgjgLEhxB24BN1OX0MtRFH4sCDQfaBZXugSqcyAzNWZtZYTt/gOH9
+	 sTjCImocKUueRLKvmMQ0o4OIe56YbTFCaa9IX/nlnIM6+aexAPGUSrU88jTbu5CDxy2n+
+	 jMLyXsLA1Msy/DuDK47FhPDBYIrhlc4b2QkiENSuSh8SV4XTMAyTzJo56YbDi4RrQQmfE
+	 w/oZqiBCZHYs65akpL3SnqD+WTmyutYarIEoyp2glql0iS1hydv0+MKJ+Hy1G1CMkCYm2
+	 vEiC+Nr+Dxi7hwLIrm/zLGpH0ywlBPt3muYH179S1TrqDltPzk1GUX0w0lJhw3+RM+g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1CB6606A338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:49:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1CB6606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=seanlyon.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=seanlyon.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=seanlyon.dev header.i=@seanlyon.dev header.a=rsa-sha256 header.s=fm1 header.b=rsBXwUOM;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=FWTq521k
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id 5FC8E1D002D2
-	for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 21:49:16 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Thu, 19 Nov 2026 21:49:16 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=seanlyon.dev; h=
-	cc:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1795142955; x=1795229355; bh=6VLGH5lDRu
-	EoZxm3qN7wUhKBcZZbsMUuJmVHOHEW82w=; b=rsBXwUOMkqseJ0vA1rgV83eqyH
-	QGSBcKk/ND6X6ONsnuvFyIyvdcaDFFIvHejMTHd7Bd4eWG1SO6SdlcVjsA0vmohr
-	BUB4Gvq1rF7BRRbnPfv9eLkVdlGhaemROUdS/D3RTrrzziHef4msWaMpLzviiB8o
-	bow2SealgSsmiHRkhCGp7+kWE48rB3QF9HeWOOXBzvwnaII/RBhybzAs1pSwUVdd
-	gmo/dVq9K/C7XPH5D1q4gpWw3gr7ptPISNXXBbnSTk9Vip9LUhahZekCWdMcmT2y
-	zMuQ5GETvFZQiysBUlDfrCFhzuXJVeYB3/WsMVWyciEqZVp/17eICbR5foag==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795142955; x=1795229355; bh=6VLGH5lDRuEoZxm3qN7wUhKBcZZbsMUuJmV
-	HOHEW82w=; b=FWTq521kmSJbu/xu1YUzIZ0XzcS7pUWQta3RL+tO6Hf8Ub2Ebrm
-	wz5W79TrORvfZJ7cxB8ND0cmw3uBMuGZnuUuL79TETveT/79i4ZTFccuiRnEnI6K
-	xC+D8DjoSK19uP3lT6e8uOCMZbn/y5uxzQN/pVNSjwqp4+CldytCiixRsy+y9dy3
-	L2l0YnNRXOlTaNfqYoL0c00tRrvOoa2wAvRzO5UtEq3Ysc+xOm33PGLZw/Vg+onK
-	cFOx+bWw7Wbg/j27x/59VJGSQ02gakCYCFKWnCNNUhg4nc5kuctNCYS1Nlg6X+Sc
-	zJBfsZZ82S1yw+dtugsws/XeWTqCd0PureA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=seanlyon.dev a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795142955; d=seanlyon.dev;
-	mf=PHNlYW5Ac2Vhbmx5b24uZGV2Pg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:L2Z/YdlB+nFfldWt/vsBzrEE6EJBFd8/P0+U8xxAt6jfnGA
-	ThAV3saJvYRKKqOHzjzHZAlqdA0Cad2GWMlsVf7enUURYz3eh35LVNSJPdEzRmnu
-	e3VN0tNk3Y2QDr7W9U+Z+H4difS6HE2N7/8AgJcLafD30llb9U4NpNWzu4lkqkXi
-	l36lg7eZdadZPsi/L4EkcDTV4L+YEF1Tp+FO6t+mekdAyhMuN6+6SQkURA20N40J
-	xn/CiGwwIezVHRrcjioOcAd9sIHeL2Kz5VOOvS9VDd5aMTGcCDH94udqWHbZKfPl
-	OavWOcH+Qj84fHC4G1uvdkZpbw12j6YUcibKIFQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:GfVbilHG2S9WlfbFppnnbQ7kWCkq2iDTBeP0x9IgCss=:iBcyE1DcFnt6Ci5npq1nXA5h946qJXAbK8vYDTI2uuk=;
-X-ME-Sender: <xms:K7X_aiadElARPanKQCeMss6NSx9B4BLa6DvQ7_MtsYsv4kLmb2xhKQ>
-    <xme:K7X_ahRcKIDu0XkfTZntbfnK1kc4DVd1OoheTcCtvPhVQAWAg9rDBWFm6lDrVNFfb
-    FxodBVDABBqdNZn8O1Awn6_VpqeXFdAQVfM2_d-EEWg1cwLPgfvRqj52w>
-X-ME-Received: <xmr:K7X_aocTbReGrWRL01cgE7NYJXoZywWx0nLD0wawYPKGEJGXXvW20Jo-_ChS_USYAttnWK4i6DfblTsoZcwMv1TjA-E>
-X-ME-Proxy-Cause: dmFkZTFj6X27r/4o2z+Bp/YZc8Dd+snsJg3Yr/5+DBZDNFJlGVYeZhJQxOMDnIPTkUI1me
-    2ZuCwx2kUkyNtC29DdildTgJR8sxNPGT9QqW5SWn+d9p40yckkLFVWEE3DuynVZ3z4DZ83
-    RNOjpiHfaHh+RVzzRmLTE68nS0yX2pssGY789lEzWPalYJ/aZEGcFUamvguixnpv1yAMk9
-    1ZLQ89ZdzHYeFpSgO+hIUPkksTxL24oOV/To+MemT4JsMSKHkDBH3cW9U2uVkQSzn4QWiR
-    tW8wUlWckwNQ/+qa3H2lOTv/mTf6qOKlX9dxuT1hZQVwDVm7Bxf7GgZxF0no5xeU1s57qG
-    tURWoowlC5uu+yc/haSfhWh8nvSKw6uNRTxt8TAWKk2LrB0ZPcpebIU7xowp0qanQ79/3X
-    B12nwi7JPVKqiAtQZ9jtjAwFaDx2KTLqm6E8DPprsjPXigxp3mMRs3UlZOvR3U6Zx9mWVh
-    uvtCiKDiKXBE+IFkEFzMhQGL95axruGr9AaUeH810vkPrt13X94/hSAXelQ2TXqB4AScKC
-    Ap2ASCKQjI4sIb/k+2wo0GGmEhPVIji9CcuAQIlsdEth5VSoiwrwYhhZtehaMy00hsXhFq
-    v+AcMmrBehhr5Tnd3cbSUQFUkI7SmnJDhvp0vSsEsLmXPU1HrY0RdDyFCDJw
-X-ME-Proxy: <xmx:K7X_aomE417Fop9n6J0ZB1bjHn3PnaFXb7mlIITHk6MPSkRtuIBP7A>
-    <xmx:K7X_alg9qkeR6O9dq04mYdu0H24fQV7sKo26tSTdamnZ6hDGMjip0w>
-    <xmx:K7X_ahHFFBRC1A969b--Wyx_ct3wz5Mj89Fs64Q4eYVgttWGjjG6bA>
-    <xmx:K7X_asxPW6kDmw9qHBIU20QqLT86QMrhtR9VsNyDAx6g-CDgXPWO8g>
-    <xmx:K7X_asv3imRorE-HK6XsEJSkPNcEvOZMVmh6bDNFIw3YksN_zdTZk8Py>
-Feedback-ID: i07c64b5b:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 19 Nov 2026 21:49:14 -0500 (EST)
-Date: Thu, 19 Nov 2026 21:49:14 -0500
-From: Sean Lyon <sean@seanlyon.dev>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev,
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
-	patches@kernelci.org, lkft-triage@lists.linaro.org,
-	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
-	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
-	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
-	sr@sladewatkins.com
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-Message-ID: <av-1KpYIUgQtPs1A@ncase>
-References: <20261118150121.603863898@linuxfoundation.org>
+	by smtp.kernel.org (Postfix) with ESMTPS id 6CDDA1F000CA;
+	Fri, 20 Nov 2026 02:49:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795142955;
+	bh=iTSjbrq786fqfXSMIohgj7aM6dRY7IeVnB+W9t0jy1w=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=aL0qb6rBqedllN9rJmRpUFYfkfJL4u7ZISQEOCjKIz5rpWEapc2G/0gwJENRznWUo
+	 Y/SLaMaeTp6x+XNJNyUtQSpv/iye8NkzVtNVEB/cHqFdLsCuyG9M9AH8/zDU7xRf8I
+	 Zagzmb8EAoNvabG8U4AU0HlwPfUxN+ysWUJHr7UTmUJpw2B+fswB3pBlVPYJvYd8ww
+	 gn9b0KICSRlO0poWDd63AqlwSdWo0kkSUEiyRSuRQUSvgy4gngCqUK0axakEsG8yT9
+	 h+IPLJtOGjp9Cwu/hnbxrG/Rawh4kvnwvyjdXv1kMnAfEQJ3fOKtLZAwcbVtJpF/O0
+	 Azv2mxumSR3IQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id EAF0A49565;
+	Fri, 20 Nov 2026 02:49:13 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 02:49:15 +0000
+Subject: [PATCH v2 2/2] media: verisilicon: Handle VDPU2 decoder interrupts
+ like the G2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -127,24 +83,81 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-vdpu2-errreset-v2-2-8f4ef55e6dee@gmail.com>
+References: <20261120-vdpu2-errreset-v2-0-8f4ef55e6dee@gmail.com>
+In-Reply-To: <20261120-vdpu2-errreset-v2-0-8f4ef55e6dee@gmail.com>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Jonas Karlman <jonas@kwiboo.se>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795142953; l=1849;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=Gwmav0vXYvboC6SZF2cZ5MvP4EV6g8AtqTAmBOmxEqQ=;
+ b=6Y2MEjZ0evCxQSdbuO6rAczeh7bO/kLU1f3RXNMxvrg3CnbzAXF4SeVS8JgjjNyFOo/+mGP2m
+ xtTJQC5n5YbA6Poci/HB1SreBUn0mckYF/CW2GjtarN+5UFg10DkbfP
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 03:28:55PM +0100, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-Built, booted, and tested on hardware for x86_64:
+Do as the G2 interrupt handler: ignore interrupts the decoder did not
+raise, report the error type and don't finish the job while the decoder
+is still enabled. The decoder disables itself on errors, except when
+its input buffer runs empty; a later interrupt or the driver's
+watchdog then ends the job.
 
-- AMD Ryzen 9 5900X, Nvidia RTX 3080 (nouveau)
-- Intel N100
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+ drivers/media/platform/verisilicon/rockchip_vpu_hw.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-No regressions found.
+diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+index 4bc1bdb41c70..d20f295b43de 100644
+--- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
++++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+@@ -391,10 +391,26 @@ static irqreturn_t rockchip_vpu2_vdpu_irq(int irq, void *dev_id)
+ 	u32 status;
+ 
+ 	status = vdpu_read(vpu, VDPU_REG_INTERRUPT);
++	if (!(status & VDPU_REG_INTERRUPT_DEC_IRQ))
++		return IRQ_NONE;
++
++	vdpu_write(vpu, 0, VDPU_REG_INTERRUPT);
++
+ 	state = (status & VDPU_REG_INTERRUPT_DEC_RDY_INT) ?
+ 		VB2_BUF_STATE_DONE : VB2_BUF_STATE_ERROR;
++	if (state == VB2_BUF_STATE_ERROR) {
++		if (status & VDPU_REG_INTERRUPT_DEC_BUS_INT)
++			dev_warn_ratelimited(vpu->dev, "bus error detected.\n");
++		if (status & VDPU_REG_INTERRUPT_DEC_ERROR_INT)
++			dev_warn_ratelimited(vpu->dev, "decode error detected.\n");
++		if (status & VDPU_REG_INTERRUPT_DEC_TIMEOUT)
++			dev_warn_ratelimited(vpu->dev, "frame decode timed out.\n");
++
++		/* Still enabled: a later interrupt or the watchdog ends the job. */
++		if (vdpu_read(vpu, VDPU_REG_EN_FLAGS) & VDPU_REG_INTERRUPT_DEC_E)
++			return IRQ_HANDLED;
++	}
+ 
+-	vdpu_write(vpu, 0, VDPU_REG_INTERRUPT);
+ 	vdpu_write(vpu, 0, VDPU_REG_AXI_CTRL);
+ 
+ 	hantro_irq_done(vpu, state);
 
-Tested-by: Sean Lyon <sean@seanlyon.dev>
+-- 
+2.55.0
 
-Thanks!
-Sean
+
