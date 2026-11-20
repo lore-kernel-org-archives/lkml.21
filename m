@@ -1,127 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169278;
-	b=Vrx4TVWRv3SWZ89BGV7kx8z/efELbGR3uN18fo/PdfrPDncT6tX1N5D8WFsZaXBFOKnd
-	 0MaZja4yqyHremJa3wj88s3Suy6qHQUGv7OX1qB2A+p9r5cd/CtDx0WQpWrt4yAIvEvjj
-	 byw4GhkK6Fn71LmdHGcXkRjqjRC0U57RYbkNbtorWbsdud3XnkS7fX5BgyqoJJ1Bdew1F
-	 817kqs32Y3QaR9FyDl4dOoDPlJD1QrIUUV0TbdAWeYTTp8PnLN/PtjUVhodYe44Aqmylh
-	 pWIVNRYg9NLKZSHRMoHjp+k/5UKQWVnxL1OLbkmJUrBKiYe93cowOk//RqfnaLPrmCw==
+	t=1795169325;
+	b=loa9m54gGIOZWL+DXSThMAI7gadlVx6oVmqw9XJD6qpQlQRE4sZNuj0etaC4jW8cRxbb
+	 ysjFBmBtc/PKOp7uKD795fI8iCcPFPrN8oJuU20ZuUjLBmbpP1FQOPCqJR4nLgqMXELx5
+	 bh19RPjXJ4iqpICrJM/1QwRKszHAeNiJKLtActeDgl49I0U+gRUk7KH1LsVLxFniZhrbQ
+	 9dI23RYBXNGkj2I+ZkzME95hGLJBvmiLgtvbAvzQ+68W6R7GmxkiZPCyR3aTFAcSickFb
+	 uyBPvy+mLUOTz0DSMtRe4h3yz4hjjkD4rSia8ySK8w2cb4V8fJjy/2EgKqbwB7AQMAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169278;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
-	b=MG/qF7TY0Lf246nEZLwLy/SnB73x6gzOfnHf5g1q7ZEf46eU6d6ZuRNBXeWT2V1PVxR5
-	 RH+PfEhXFPkhitn/1h/oVVRqK5Y1MoYDthKnQf4KPL2cwMv2m+qU+IOvloXka4yz8gJ1j
-	 pd2NovpZxxWVO+gIokSJgm3vIIXJ4jUsIrp+gF+Os/fE7BP5v/xOx4Hmj7DcPs/BgdlWo
-	 qiQ1oAMttopGShEVBbvS05fWvnvpCCgfprkgC4ZJNhvoHSStfrJvbtNEo24EIWuRDThkb
-	 p8ifEb0+CT0bmbi+AEdvrMILcWyUH8s981uJPDSGvn1kKBnXFiWbIYQB9n6LtdHcCxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169325;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:
+	 X-Spam-Flag:X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=Jab+ND4zeJqFHCVgOsrMnfzPNlB/A24GnLYC0BcAzXA=;
+	b=32jw259T9mghIyo7PxENOxpGUz+W5K2ctsyV5Nn6lfMNq8nwoXGKMYQXO1RoIMezQTGZ
+	 x2ScztWM4TLSa9LVYteWGCJU2knBQM5uD3ybRSPUo7nBPRIDF3co18/y3ifxkvks7yOOw
+	 Au9mLnoHmt7oia4WK/qF7b+++fUddTjFzbC+X3el/YRf3NhF8x7sUwZeaxPJC6WqbPxjm
+	 vu2NHUzySm9ywQGJurwMNUNe2geGYyB5D0lEojIs/3ZrBl0Xe28DWTyxeWxBBnQwp1nmO
+	 CetzH2pV53Mes4qtcbzVIeLaPOT75mIqKdp3A70SH5iUmgTGml2QnQZ4crNleJMpv5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MqHRQxxi;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="gR/nZ5lW";
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=wOV1nd9x;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Jfdc3rqw;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=jDFZVkI7;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=evlyqQen;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EB1F606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EB1F606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A98606A326;
+	Fri, 20 Nov 2026 10:08:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A98606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=MqHRQxxi;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=gR/nZ5lW
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f9Oc1742339
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=mG/rT4UghNUXT3K+3KmB2T5h
-	Q5j4h+o5zz/Q6dODnAc=; b=MqHRQxxiczegEAQZBfwxNU22C/SoRCgiQ0fJlCqv
-	/czQxgk9Dt6LpUggnt5Eok/C0MnS3wuU01IFVPJSnQUJ8fLmi9gy1cQBnNGLF0PE
-	1exYOLwsDYM1VmVyAHfEoF5b/dCiXq5ULZPb7FrzG2sWwsJk4EC7+wCvAZPvj6Ij
-	tkJrZSBk+4X3/JDGM4LDTyzF/PsK4Z1Dc17+AXr/sCi+VnQaLD2Nja+qpUnVkNsx
-	DbOZZiPjmFXpUaDdB5AddWMI8UI1zOxNwiOcZB/zxq7Ccl0pO9xvoRyBKPtHLiQ3
-	c2cdxHU/B3rpF2ArVOJMXHBA7+xNE3DExLwrbJ5Ta6XYsg==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4yhbhj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:07:55 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92134f1eb00so11568626d6.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:07:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795169275; x=1795774075; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
-        b=gR/nZ5lWSjrcMVuk7HciyFObAo/bq4uwaY0xR+5vFDlj88VX2vqb8CELmVMI+E6DbL
-         M1yTLdwwCtisZ28m+jrobnLwAATeXa4g5nWL4a9ssDir5yhPmI/vEDU7VDlcBbH0CW9c
-         2vXSpkqo8Vt3LZ11jSTOfIX5OB3TES8emh42t1B1ASUy4UU75tOQjlc1B9xAwrZnueJ6
-         5EoKyFT1cmug5yW/TWFSu5v13z6mMz2hwahxAJSp08uxizNfXehGrgiaQv8hDqnG3CNt
-         x3esoPtff44qxh79jt3AXMaeFfGTTL1ONZDWbCBsl3urtfer267CZ6qU+HbuNpPmR74X
-         x0WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169275; x=1795774075;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mG/rT4UghNUXT3K+3KmB2T5hQ5j4h+o5zz/Q6dODnAc=;
-        b=XxoCi+KfzQCHT/3MtkPt3fZijzJUcruV6RPXfCYHNZ64k32Bc4WRewsNl00HpwiDbN
-         i4fWhy8z77mpmWXtqabOvCF6UwNzytaCAwShKFYFTP+B2X0xEw83z2XWe5A/MY/rCMhX
-         jmKTlHtetkru8CBjCerKR4xL8TIelI1yIPHCeje7QwcqJnvBKNTQu2o2VIVyL/Cs+2Wz
-         ZeP/cSpTmC2nkoea6FmzK+LxhzKV1in+bRKd1dL9zJoskhfgCLuIYJj3x/k6P6Xj+dJm
-         Av/pECAbs4W7a/kNq+NZ6JJwye0DcaM/PmRsZ5nxTcfmFLvLbX3Xjxtd4fiqmbMt7AE5
-         S8cA==
-X-Forwarded-Encrypted: i=1; AL+hErHF1AsgCIaWR0HKWF8w5YeIGrB28l8FVlpMzRJ9eVNR8q0SkEACIw3Knn/+ov07g0JnUB6b3cRxni3wv54=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ldEyjdm287wubs5XwQy5qB/yN5UUEFNnANGLL4fjHABY+JHdR
-	Cak/weqSDmqZSHqZAFAzojdO0tNUGN74p2Ub3sNhTqbuX8k+yVMz2LRCotXRbdDA4UjHjMId7Xx
-	4dTtQzlkHd4P1Q1sKPCsAzvA22hjtKH6IAAR9mY93ZwVrQzVf4e+fxrQZm0r8aNAiSGA=
-X-Gm-Gg: AYBFou1CY5YvESQHbHzLJtrFHGOV10cZSSZ/pzEpdenM7AL1noojQ7TqieFaX9DRQD9
-	yb5SZ7TZv51yTIeunyDPuE64kKJ6kgmkEyIEUYsryvlKdJrEy/uxNRg8L0bDdFDx8vztL1MPJjD
-	qWzg7ruh6Ld9SIHoxuYge1ayYZr997hZnXMcIRV33nyXg4E6Awycv7omYlaKm1G+U4W5AiSLxnj
-	hBMUH5jZHWDp34U4PTAfzIHMaxQJ+evfmNicoPBXiSTcgGI4rq+7nV1eqjHqF1fcuLfTOInvcS2
-	RCCgepE/xTp2NuTDn3tZsq0+N3pPBcsRc/dMBz1wIdZqdlKxihKsZFqZ7Qsj5+4A9a1zl9VpVAK
-	J6F/KUu8v0BM+vHqwi6e4Bp9D8q/jcsxFDgxGOH19O3q67VPa5nJ67BvWu+gBg7JR
-X-Received: by 2002:a05:620a:f11:b0:93e:5016:e3a6 with SMTP id af79cd13be357-949ba9c6e0bmr449683885a.26.1795169275057;
-        Fri, 20 Nov 2026 02:07:55 -0800 (PST)
-X-Received: by 2002:a05:620a:f11:b0:93e:5016:e3a6 with SMTP id af79cd13be357-949ba9c6e0bmr449678985a.26.1795169274365;
-        Fri, 20 Nov 2026 02:07:54 -0800 (PST)
-Received: from oss.qualcomm.com ([188.27.161.77])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f1b2sm4306233f8f.25.2026.11.20.02.07.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:07:53 -0800 (PST)
-Date: Fri, 20 Nov 2026 12:07:52 +0200
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
-        Jerome Brunet <jbrunet+clk@baylibre.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        netdev@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] clk: qcom: segcc-nord: Add I2C and TSC clock
- support
-Message-ID: <6r52ghmfpdspeeh5ucxbcbcoir2fti4j2pyptdomgwouudpo7e@qsspx4h6hjmc>
-References: <20261119-gcc_i2c_tsc_support-v2-0-dcb91a0b0013@oss.qualcomm.com>
- <20261119-gcc_i2c_tsc_support-v2-2-dcb91a0b0013@oss.qualcomm.com>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=wOV1nd9x;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Jfdc3rqw;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=jDFZVkI7;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=evlyqQen
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 73A052260B;
+	Fri, 20 Nov 2026 10:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795169317; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jab+ND4zeJqFHCVgOsrMnfzPNlB/A24GnLYC0BcAzXA=;
+	b=wOV1nd9x4ghvKw2YrlFx/GvHlzkKef+o3Sez8q4OSJUQZtrrkPRT5Qr9aBEFpMZFGX11Qa
+	A37UJhC4OUMgj2xDkFyO9PtS0qYA1tJkrn8lv8Ee4RQlpb0eKXaxHpONJPS+QyD9xjByNI
+	cs/SESIpAAHWwl7Zrw84f21OdnZJZAM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795169317;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jab+ND4zeJqFHCVgOsrMnfzPNlB/A24GnLYC0BcAzXA=;
+	b=Jfdc3rqwGp17QL0jkLMZW4Z595emOBJwEUjKhelfegEDWsY+ZURYr4HYsDlw5rNfakL605
+	iWcXtxMFbO41EYCg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=jDFZVkI7;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=evlyqQen
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795169316; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jab+ND4zeJqFHCVgOsrMnfzPNlB/A24GnLYC0BcAzXA=;
+	b=jDFZVkI72lK00s3bMYIixM6m8aPPlTLxDaEiWuk5GPR4nkHPskuwNIg66oqzDkOcA6ukn3
+	g7mmTKVVnYHaRcRTvw6UA2kdY9nrtATGrWgfkMwGm/KMxERz/J4IthM1ol1NUdy5e8pUd0
+	+FIC02q4LH1teCIqEYP/taQDhzs4zj4=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795169316;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jab+ND4zeJqFHCVgOsrMnfzPNlB/A24GnLYC0BcAzXA=;
+	b=evlyqQenFg/k0xdZNIIl/hKEw/giz3oLTovgfq3bquBeRojnmSakMQ70edXhnDplRD2VZ5
+	VE/02YblrUj4KuBw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 4D7671348F;
+	Fri, 20 Nov 2026 10:08:36 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 2GbNCiQcAGsZIQAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 10:08:36 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id D6F5325EFD; Fri, 20 Nov 2026 11:08:35 +0100 (CET)
+Date: Fri, 20 Nov 2026 11:08:35 +0100
+From: Jan Kara <jack@suse.cz>
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Amir Goldstein <amir73il@gmail.com>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
+	Jake Edge <jake@lwn.net>
+Subject: Re: [PATCH v5 5/5] Use d_for_each_positive_child() in fsnotify.
+Message-ID: <coiaib34jrxy4ja24zeqn5xq644yk6dhrxud6rtrdnecno5mnq@ew6enlw6bi5b>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+ <20261119025942.2848130-6-neilb@ownmail.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -133,40 +116,87 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119-gcc_i2c_tsc_support-v2-2-dcb91a0b0013@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6b001bfb cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=EUspDBNiAAAA:8 a=-HzP2oy_C0ZWqF548KoA:9 a=CjuIK1q_8ugA:10
- a=OIgjcC2v60KrkQgK7BGD:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX7vvPvf4DEDvR
- K8qbjS5DZ8Qrx3qN0G+BziDxl2FM6vZDaxIEt4+H775oxrxhRqL5nib8q7N9tRm6iqPDxVb0hAJ
- B9Lvha6ceJ9bP1pkBlnUqIpzQH1BNx/hWYk+FIcCO9/38aIMPhtVo5Hlhl4yWGbWCGp1wtAQi6g
- B3oXiz1gn0c6h5ReJOi4CaG/LN4hkghCi1b329ress164yHSG3g3jtWs5lisajuV1KKN5Wr+I41
- bTa0/YdGuUCxUEhDGKG7e9NC7E3U6t8YgN+s/rbGTK+pI9gEXKvfGVZTTWAgFv7cBK8Gjfa2vGA
- A8O/C1QPF1tf/MOW5u8OoJnsuLz2EN/fmsPXMWDHwtfFY1NEp2YW+BroNl9Ei0zY8HMXRxEdCeu
- kWDiY+HGwgz9SZtUIrGIXLgNJHbz7yQMISnqLW7ng0iKSgH4bmRgjlHeKXYKtwU/vIn4Nhalfx/
- FVuJvF/5PtdBspLprrA==
-X-Proofpoint-GUID: VifQWnk-uCZnDFf5qMYHQEclG1YCsWvt
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX/OQ/IP4M4clT
- FtAHR01X1HM6sTyMFNY3wvc1rkYRYNFq1R8fQYnj8HiHB3Zf6tbenyvIQBivo4HHE4KFJuGGs5S
- CxMR0ds3U7BxRVp0mVJFTUlsAPm/8jQ=
-X-Proofpoint-ORIG-GUID: VifQWnk-uCZnDFf5qMYHQEclG1YCsWvt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 adultscore=0 clxscore=1015 priorityscore=1501
- impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200040
+In-Reply-To: <20261119025942.2848130-6-neilb@ownmail.net>
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[zeniv.linux.org.uk,kernel.org,suse.cz,gmail.com,vger.kernel.org,themaw.net,lwn.net];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email,suse.cz:email,suse.cz:dkim]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.01
+X-Spam-Level: 
+X-Rspamd-Queue-Id: 73A052260B
 
-On 26-11-19 22:34:21, Taniya Das wrote:
-> Describe the I2C slave and TSC subsystem clocks, reset lines, and
-> parent PLL needed by the Nord SE GCC. This permits consumers to enable
-> and reset the hardware through the common clock framework.
+On Thu 19-11-26 13:57:05, NeilBrown wrote:
+> From: NeilBrown <neil@brown.name>
 > 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> fsnotify has been reported as source of soft-lockups when iterating a
+> long ->d_children list.  Change it to use d_for_each_positive_child()
+> which will call cond_resched() as needed to avoid soft-lockups.
+> 
+> Link https://lwn.net/Articles/1079407/
+> Signed-off-by: NeilBrown <neil@brown.name>
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Looks good. Feel free to add:
+
+Reviewed-by: Jan Kara <jack@suse.cz>
+
+								Honza
+
+> ---
+>  fs/notify/fsnotify.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
+> 
+> diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
+> index 58566e6b9679..33c5d10f78ba 100644
+> --- a/fs/notify/fsnotify.c
+> +++ b/fs/notify/fsnotify.c
+> @@ -86,16 +86,12 @@ void fsnotify_set_children_dentry_flags(struct inode *inode)
+>  	 * their d_flags to indicate parental interest (their parent is
+>  	 * the original inode)
+>  	 */
+> -	spin_lock(&alias->d_lock);
+> -	hlist_for_each_entry(child, &alias->d_children, d_sib) {
+> -		if (!child->d_inode)
+> -			continue;
+>  
+> +	d_for_each_positive_child(child, alias) {
+>  		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
+>  		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
+>  		spin_unlock(&child->d_lock);
+>  	}
+> -	spin_unlock(&alias->d_lock);
+>  	dput(alias);
+>  }
+>  
+> -- 
+> 2.50.0.107.gf914562f5916.dirty
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
