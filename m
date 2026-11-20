@@ -1,103 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795203452;
-	b=GY0sxjkvtsSgPtbbrmxsjmWrNEhDTFucLSH3tvrBuO/ifvtdPHcn6uCS1JpRSsEbE+Sn
-	 /s4AZZqgmLxbKauD0i4YDrPwZQ/tOgO2l1t+wuOiS1z+wiYLifZ0Fcu26sBkZwmNnByQS
-	 r5NKuM5CgK7tCQvHivGYW2ONOu1avBoJiVr7yPToubEo6Y2yfRQPVQ32crnR3jvEMebtc
-	 cA7HgEp9S3T4+mJHngHPt04gOpffA53JBAuKd5YtAh41UWtK0RasT8z9slo6COJ8cK/vB
-	 iZVgXLmFIvjP2QnJAWrUh9mP6m5P81VtF6csmrRfgxHpDft+A/TivG6x86+p30EyKyg==
+	t=1795203473;
+	b=WJ/aLq6qsJ9X9hagKYASDb1+WIqWgHXRsAbZqJl3VDXxCiDsnHy1Zo9jQGR9jSOPEOYW
+	 75GDmhArkjUFMU1WJeyMxtQcogkO9pR2bW3OeD18FgkYpIlKQIDXAOVLWt2aCEm4KOeVM
+	 v9Jaw/I2PgtIQSLU4r5A8YuY4wRVqLPT5QQgKUmbntij7eEAbm+PcWZVRSN7UQxvhJ5LH
+	 uOUBZ1r+oVJ+AucnilNNsssf7tvvxI56+ParfSiHnNK0HjaTpaF2FjFhPGSkAP5egyXA3
+	 Lo4gypKBCuVOXJ0O+PTsn+sgxiQbcXuhZ4TnFRJkisvePOWzoT7KgSCuf2vKPrk7wig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203452;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=HLU92PpOXK+Ktbjntwj6K/wKzrqD7ZTq4i89OR79Z88=;
-	b=JLpizN39pESAidZpzzbiY1YRE/ub+OMVhgHs40C9DeFFx0ykABATKbrymp5oxFHUedgj
-	 D22Mrjp1RiDGWddzSMyKRyRIp5OBpYLE7QisfXS4cTwMESmC0eV4NDFlVfa06IxA3zABY
-	 NnPvxGtDJ3x4PsUKTEA4WFbwq+LN+a+fRi9YUcUeVQOmHIWoSNEglqJgOx4l36jxmurv2
-	 vlBNG5x/xJduDZF0aFuqD7EnfsZEqunf1YYg/AYZ82Szox3mic3c77RufHc91qqY7bqOz
-	 jHnT5Kqz3SuiomJ2zrvXhOLPbF3KXnozX+yF97C/l7/pVhbFV1ljogAKIn+2YOiEeew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203473;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=PpkBWg73siaVtPLgU+wteCjzVixsxQxZ7WbWHzddazg=;
+	b=nzx9UdtrrEDii8/nZBZhhzm0XaJ7ytwxxCNF4Ep2X+XbuFMHQIML5Z7MQtSAfS3AtjtJ
+	 nnTAMLgPbVgWKs7ed58Q02ntp2/sjrRUUNQs2ctpqFnNDdWQ9Iizp0XGeEyHc5TNVrJSF
+	 Vk4vagyuQ2K3QbgB6hC1+3iKMQqnZ5a3/LaZDiaLhfctjMty8xMYvmMa0IOCvT/PiK3sq
+	 Q/teoul+0Kqm45rT/Iq45V6rnn4sQn4fjPCH0AbI3+oGXuYJXNu6NDl5Yn4bOqhfVBZ3A
+	 FkFbv6H2og9C1AXnttqbIHhayBoJUiwfXRltzX89suiwPvySFuZELNe4N4TBYucGoKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ejUUxyfM;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="BY+NeHy/";
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5670606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:37:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5670606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27FA6606A6DD
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:37:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27FA6606A6DD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ejUUxyfM
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b413d04c93so848735a91.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:37:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795203451; x=1795808251; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HLU92PpOXK+Ktbjntwj6K/wKzrqD7ZTq4i89OR79Z88=;
-        b=ejUUxyfMijObmR/uk71uc7wEiWG63666i4kANiVWLKS7e/TPrrDFRbh/lojYHlKQwM
-         HNgjBk6ieOzaG6ss2SQE4W8DWwsk3WblsgjSaxY7Qp7+nfp9DTkAonaPZOp8sbG+q54y
-         c5TDKfV+9GA/zeJBnGq8yYq5jZ33RdGlI/AJtHE9SD+ABUzjhinTq5mb8CvP767E2jOz
-         LfvKnL2r3Xm3oE23U5QMjMHdqNNcpz5TOnNcNbSBqx9IS1ZJjS16NX8ZCGX6PC640YBt
-         wH/V9z4epp7jQSKsNe+VwJpqiItaoWSEEIkjebRHiGz9eoJ65r7GO5uf9y1CWJ2PBXvZ
-         L12w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795203451; x=1795808251;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HLU92PpOXK+Ktbjntwj6K/wKzrqD7ZTq4i89OR79Z88=;
-        b=glotTxvzHb4a0QI7cj969aj6I+G7RJA4Wkk382sUpMjzFfZlzIHP383cGUELm0jktX
-         xryZeZ0KXR7YoBnEgEt5Kud0HpJRL1RhLOf2pSlDtufCZLQwckmovfQeNX2MA6xq1FjF
-         xm1/JH0YR/6pLDWgVVavRFUAiNZNp0Ucmt/hJvsTTA75NKONORNmVfoUQjlnOy30Cbfb
-         zyS/2FGf4IOLoFO0xqtTIDodcFVkk5KoLURVEmcrqI5VA3OwMPH5m5zPbDkPP4Z9S+sQ
-         V0xlIsupVBinlr/lrWRKKTM0j7TRYraA5MrMr0PVvV/uLOcJuS3wZ5rkoyPVHLdxQ4Rv
-         ciRQ==
-X-Forwarded-Encrypted: i=1; AL+hErHKvbgwZGsXQSG/SfMihbo5Uug0qhNxLieuVAIKUcikayjxgize1NBZn4luFj4Xmed2IqqGVGJt1gup4TY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ZmfHu8jxI66su26N+pv7uOBoR/HjtqWQFjICp0fg71jnqNzS7
-	ajAD9YRA07PqgPHJGTCFxoH+NgcQJkZGZAwLrum2QZlk4Qwq83e3SIsj
-X-Gm-Gg: AZFdTZep2N3k8AGuq9j05NByhmh2IDVuCkK9YcX5dBceyC1PlhYLgVoxYz92621lL9d
-	THxXJJsfxbihiZlRuXo6sYx6hUrWGhmPzKRAd8N1Ab84lcD4axUkrhxWEtdx+1uU14xFAXH3lQm
-	Ri82vz4PdsuTYaOPpzQBjLLLf6yZ+EzPn1yvrhh59JHKI4dBd4jVFolV1gbuYvqWHv+pnyA69nP
-	hK/3rVPOiu9ZSgthCjDY0KBA0dO7wF84M+TgfaY2JZml528QZqMQ0Kb+empjJXA8B9fyq2EWKBl
-	rmnvS67z0NAXvpr8/GiHuT7phZ4LA9B0OgXiBxS8gq0wZzyxhbk8g3uCXayjoT+GHVfk7Kf1NLy
-	jJJUppQGTp3VsglGEWF1FDciu3NT2/xtflQrA16IZ/I/7/ti/V+Z8FIibQmKwb1egcGd2QgdliX
-	05lUk8fuNb3weEWMVBoFReVJQ5dxIEVhfrGFkENRVQM6hRjysk8/XFPOnaClr0fIZLpXYccPboI
-	GXFdDbzZ8I/G3FmAbLjC7yKHcRCnjr35fxTipB3FK8a9IQcGk4y4vOhh/4xkjg56xTf44hHKAbu
-	kWxrFexrY3xOrLIXN3Qx7QsEUY64YbTDqLhlMaqpJ3kU7SpmfL+bRyfA2OAiaLI6LQqv5xEmpCp
-	Wn3sDWAY87aV3W1hPy/DRbFlSdwbpvGNjpg==
-X-Received: by 2002:a17:90b:4d10:b0:3ac:9669:846b with SMTP id 98e67ed59e1d1-3b41c852826mr3992020a91.9.1795203450819;
-        Fri, 20 Nov 2026 11:37:30 -0800 (PST)
-Received: from localhost ([153.61.198.243])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecb486sm8290165a91.16.2026.11.20.11.37.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 11:37:30 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 20 Nov 2026 19:37:29 +0000
-Message-Id: <DN0AIFQ82CFP.34SDTH6ZFZC1G@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Xu Kuohai" <xukuohai@huaweicloud.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <io-uring@vger.kernel.org>,
- <netdev@vger.kernel.org>
-Cc: "Kees Cook" <kees@kernel.org>, "Andy Lutomirski" <luto@amacapital.net>,
- "Will Drewry" <wad@chromium.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
- "Stanislav Fomichev" <sdf@fomichev.me>, "David S . Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Jens
- Axboe" <axboe@kernel.dk>
-Subject: Re: [RFC PATCH 0/3] Introduce a classic BPF filter cache for
- seccomp
-In-Reply-To: <cover.1795139109.git.xukuohai@huaweicloud.com>
-References: <cover.1795139109.git.xukuohai@huaweicloud.com>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BY+NeHy/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795203463; x=1826739463;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zy9gc1RP4EMMMJftR1/jeBO+YhbU4lMj5Uf4m6zIKlg=;
+  b=BY+NeHy/fX3l3vKDxrJBYP0Um1yjGLgBD2g1dVnCkEdU6zY7bA+D2BSF
+   HchptwtFwY2QYMNC9YEqFMhFnQqMv30C+n02Z34s35XSP6VArZzZznp8d
+   r7OQmOYpRb6yrVgHXCO0+2qmJTxSccjnU1MyH01qCA+ylxoCcd+iub0Ez
+   qH45fQj5m1hvzUt4UKt3jmV3cshJZNpge+6cH6IDx32d34YzPeZ1pjkk+
+   b85qyu6bBzuk8mc6ua3IPdPNIs6Is7VDDl4eYb941kS9iJJXoSvXZ68vn
+   Dni4VrsEpUpxzpP/DNck2C5bVKHD+JQOLcDqb8t5zwKVI1CKHlh3Hguy3
+   w==;
+X-CSE-ConnectionGUID: fiNK4LVjR8aMopWF6Ig+7w==
+X-CSE-MsgGUID: bO9wd8iQSSeofLUk5UyVkw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3972980"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3972980"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:37:42 -0800
+X-CSE-ConnectionGUID: 3+MGPmkjSyKMx9wxD7raNg==
+X-CSE-MsgGUID: RqQFEMgcSya7V0AHYMCpDw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10845732"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa001.jf.intel.com with ESMTP; 20 Nov 2026 11:37:40 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xUUQT-00000001IOl-1qNv;
+	Fri, 20 Nov 2026 19:37:37 +0000
+Date: Sat, 21 Nov 2026 03:37:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
+	Chaitanya Kulkarni <kch@nvidia.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-nvme@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/9] nvme-auth: switch to use 'struct key'
+Message-ID: <202611210315.8aA2D5rd-lkp@intel.com>
+References: <20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,27 +85,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee@kernel.org>
 
-On Thu, Nov 19, 2026 at 10:48 PM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
-> The kernel repeatedly translates and JIT-compiles these same cBPF
-> programs, wasting CPU cycles and slowing down bulk startup of
-> identically sandboxed workloads. cBPF lacks dynamic instruction patching
+Hi Hannes,
 
-There is no VM startup number in the series
-which makes me question the whole thing.
+kernel test robot noticed the following build warnings:
 
-> features like tail calls or tracing. Its JITed instructions remain
-> immutable at runtime. This makes it possible to share the same cBPF
-> filter between different processes.
+[auto build test WARNING on 68099cf27253a8c89d703a282d3d811446d9453b]
 
-Immutable is not enough. The image depends on the caps of the task
-that loads the filter.
-Also any task can time seccomp() and learn that somebody has this filter.
-seccomp_get_filter() needs CAP_SYS_ADMIN for that today.
+url:    https://github.com/intel-lab-lkp/linux/commits/Hannes-Reinecke/nvme-auth-modify-nvme_auth_transform_key-to-return-status/20261120-121400
+base:   68099cf27253a8c89d703a282d3d811446d9453b
+patch link:    https://lore.kernel.org/r/20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee%40kernel.org
+patch subject: [PATCH v4 3/9] nvme-auth: switch to use 'struct key'
+config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20261121/202611210315.8aA2D5rd-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210315.8aA2D5rd-lkp@intel.com/reproduce)
 
-fork() shares the filter already, see copy_seccomp().
-A launcher can install the common filter once and fork the VMs.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611210315.8aA2D5rd-lkp@intel.com/
 
-I don't think we need this.
+All warnings (new ones prefixed by >>):
 
-pw-bot: cr
+>> Warning: drivers/nvme/common/auth.c:154 function parameter 'keyring' not described in 'nvme_auth_extract_key'
+>> Warning: drivers/nvme/common/auth.c:154 function parameter 'keyring' not described in 'nvme_auth_extract_key'
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
