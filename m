@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160045;
-	b=FpsIoXlDouwpdZowbUwFn+QzJWsIiEECLD62cYJG/Z2XMBuUUCOmO0y3xmM00zSg92qL
-	 YoREKnDdQISiXDu4ujGFfYfRLH6oPz4oth9UrWps6CkQViWBSHIffqPali3sdhd5nTOv4
-	 5gntwqkFe05nWxOdROHvDSkYJa46L4Rn7xwQ7daUS/i/khFvnba7Esf/O05HBUBma/jtw
-	 kFACs62OdTrDQHaeSaNtADADomcssMkgJP/zpAm1xG4C47dm+42kmhvUFTiWHzATWGBGB
-	 hVopEupdyliDKex3lEVDzJD8EPHfcdHnu1ccpAIb1KEE5UvrsyGPxqzmag39E/tcq+A==
+	t=1795160047;
+	b=VE5dWdQVrYSDrdOJveBobXbo6qcd84ItBKDHkqJigzK+j1S96/l27iqb+RKVuWsn1ow3
+	 HLJEMWS1VbSMaueixiFwksh/dBsL5D2zaAFPX8yF/fKLN0aQheqpAKnyhJXidTZdwZiVD
+	 kJlfvvwekXgex1/sEYlxeQsunpxUkaj/AZZL7sXFV8zk/gH+YqQmIiPt9FidX+Q+ZsjWq
+	 zglZIwS4wpg6mq7w+/w8AAEjDPhxHAn6WNUeujKnFvC9GIBdqSP/lnvAE+jBAWNmQpIXZ
+	 LS4HmgHNhK8n0yneUz+a6LIKIk75sDMqFCOVIVqx3a7vBWa9ENCPIGihuJngNaHAWcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160045;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160047;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=dsLmXofWh30s/RrFp/am5k44VgINvU+/ItmDuae2D4c=;
-	b=nDl/FiNUtTW/cIDbldfFVtMD0tdklpbUTZtRp8ZbOs8Te5Th9ewV6y8ZYQsJEgeXRuMT
-	 MP5VFNIiNrmvPQu+9XMu2pELkC/lSrQEmkARue1e8up4wOGtIio+65WyD/aNWB871NOs2
-	 AohvWIWGFfmVI5xrrdJiFscZGTKACk+99uVTMgQf9ofl4jkjanMGpxgXJY7xkRGzCbXy0
-	 kImCrHIAQORwnWITC+OSexq8gb8Jp5NztWcUAIvi7V87UiylFLsKa7DzE3jwxNJBxTGxk
-	 1ATr58Xq/2Zi9oLvjgO2KyE3kaeloQni0jQUVZbtZf/VSfl/l+0IXj9+CjVe/knBuiQ==
+	bh=VlPXjcEHW+lGnIptKKRSC5EQ8CQecxUOoIc+hyAGrok=;
+	b=pLxUQ8aMu6hhIkcHewVBxWg48YSdwBVbmOfSwu8iQY68E1h3CSo3OhLittDOOHlo4NfB
+	 b87UysAQ65QXeLvCjYu55ffzGXAGwb1NnvYzOd1rYOk9gJxltT+vwronCpPv5gbQ2R9HP
+	 JWW62UEeRIK2V0nhl9r/QBbcl5oNYQEMAuqq+gJNgKgCZ0sgfGJRpwKiKPVwLs9kOzKRc
+	 OiXgjQAawiWitYZgdatn2M0cr2ariH6MxCgeGHPa+iI5smloFFi2wXEy4F9m8TXgKmFnm
+	 jxbUaR1dk3npnAjuD/HDKjrHtAyghOlmPkZuSRasGojXeoZvGfzpJTMS2bEGhgNYexg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UGKPN5sg;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QomUB9wk;
+	arc=none smtp.remote-ip=209.85.128.47
+Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DAA860A261B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:34:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DAA860A261B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AFED60A381D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:34:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AFED60A381D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UGKPN5sg
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so4945635e9.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:34:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QomUB9wk
+Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso15639185e9.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:34:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795160043; x=1795764843; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795160045; x=1795764845; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dsLmXofWh30s/RrFp/am5k44VgINvU+/ItmDuae2D4c=;
-        b=UGKPN5sgnx/JqyrT4bunkDQklLznRnCu7ogj28UGxAtEc6KwzYIx1NZItncO3oCsy2
-         WQwOTT4lqZnhEGkFTU2b0VsycWz3M8JsTUfgictNO4H7nhfo8Xa8SB5nE/4hoihOR+HV
-         Iz93718IqHJWyQt97zdXQoV9pzVcMYIhwQCzOi/Q6u4n0TpTFiyCGzRrt53wHObDgLxF
-         Xi3kUPiCfr4xbBx74tg/LQCT3qU9C9Tw0Ab5AOU4Xtu69qLTbTC3wJPvAMxWuXfC8r4o
-         pAz8JNmmJFL1alSsFqn0U8j113YfwK3WZqXD7BRmX4YDkKQTGUWqTicnH/hJfPsct1Jw
-         DWXQ==
+        bh=VlPXjcEHW+lGnIptKKRSC5EQ8CQecxUOoIc+hyAGrok=;
+        b=QomUB9wk5UINFnNmRIvHm/ArMbX6n/cgwMpT4/4Nyjr1QDC9P82L5pLn7KFoBaJ2S5
+         MRNX+Q93EVcI6f7taqmmyDBlHekO8S7XYnZHlzpW1YjWWrUpQ68XElhy2WriGo0TvS2Q
+         eAgH6Mhv2D/Zb+QnbtMnkIwaumlMpk4WiY4xbvX6bd0u/Gzq+Ps+Ntd2CANoqmt+k3UE
+         Xl+qpKBEwHT65+WEXab9TmclpX+XkvTgg7i+al4ZPxzRqTlhqsmXHqAPh967SXNpmCo7
+         6DfDg4dDd6a5690opLuGnSaxGtRaokNqbSVP093PUcQCdXJrl3k54pKCgW4v+blQZQd6
+         vhVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795160043; x=1795764843;
+        d=1e100.net; s=20260707; t=1795160045; x=1795764845;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dsLmXofWh30s/RrFp/am5k44VgINvU+/ItmDuae2D4c=;
-        b=tVK2Z3SqfY86wbeyLO2ycgm7QNfQrIXO/iohJnhZDLsOCRSzR0aKRX6OJiPP212JpO
-         U6g4oEzLQLZgD1HuatjjBA9xJmiNpEKjNesISYbE2N4bw3zEFzKwKncaSChsb63UCfhq
-         nQv5ud07c1vq9sjEbJSS4n9PLwbo4iwumSTU8Ns3evldv3K0Nn3j3OQRIBOhG+ldxnIF
-         wUhmdB9H9iNAojCqGlJIgLs5s/VwMO2QM5phcD5VytzQvzhviWQhl3i+cMW+LoCjDrDu
-         QuYbVCJIZNbhH65DOWsUFDDSw18OJF086B00ELZySRc7BCwXFkkO+B4IBnfXAdzo2qNz
-         I6OQ==
-X-Forwarded-Encrypted: i=1; AL+hErFow0UFNw+AGRoOA2MMiwKzs9Dwqj8//EFmJDu68OYiE+1EAWoKfV4kTwgbpEcLIrF/UaGC/elJ0nx7Q/E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9OXnJk8zdBB5ThzM77wwQBTgzAibsWB749wKbZz2C6JL9eqzO7
-	RLdYl65yiJFtZLf5qj4iISxl7l2Rf7ZrNPEb0rVm+sXgf29kld7PHu7D
-X-Gm-Gg: AYBFou3OHDq7kc8slT0g07pUzr2aWSjHDlQ2sryDGK3DRotl2IR/3qRXlN4t9IvzEdw
-	9zpM2FJYTu3LFQckKr/JXwxtZAs62nZWs/lVfKUjdwvOOhUtRxLjCbPj9RmwEbpgR3dYCu9TkAV
-	fryZLIlbl757kMNpVwePSxFJxdA4BeHSPwaWWqud5lYgeGs6d9mIfA0bIe/XBK+7XsOEnGvVPcy
-	ghZOobOVvJ+s69kjkoenAvZYhxhpaNqJpPYk6Qer7WgFL8l0Fko9ANixjwd9YXXkgCvnXQFFFiY
-	GDZis3CCTo9SN621W4rCRepY/j70qjMg7TVm+wOUOMqBCzqIBH5IcDuIOdCGYbTHYVnw8BwDOyh
-	BOoasqV8GUAzXG2oFKURFcXj7o4iMfhx4pLWh++HE2onM2T0oR+CmsywXPrp4SuHuXsGGQGbXTC
-	C/pU25ldpHqPTACAFd1b288bGrGhmSAQ5nLRxi+Sh1W14R2hR/zR9JS4S88qMmcNkYpmotVCo9g
-	zQFlLwRz7ydYHf958En9P16rHl/0IZkM3dLseaxRhGEn8AJ3YUggY0DDUZ5kJWdrqlQFiYOgjGO
-	5ndA2pyJgp2ojK/FGQ3+LpRrKHLjOmlu280NnP2iMvrOq5SY3Bxg0q6i64wOMDXiaSGdw+rxJFw
-	=
-X-Received: by 2002:a05:600c:5487:b0:4bb:5de1:e92c with SMTP id 5b1f17b1804b1-4bb88813157mr44144925e9.26.1795160043279;
-        Thu, 19 Nov 2026 23:34:03 -0800 (PST)
+        bh=VlPXjcEHW+lGnIptKKRSC5EQ8CQecxUOoIc+hyAGrok=;
+        b=LB7mMhEwrKDoujv9KsiuAaKRcl8B5RsEK3CsLTD9maIrgp6OZwhXB0RRhqO3a+Vnzz
+         RYyb/zmhQbcabTm3+Uxm2mCAGwzl0wOhMRKR1OJomo6qTZ/f3N/RTk1N3nZpZ2OvcBqL
+         +OTjQOHsvKLnZZBxmsFz+62ERQDStLnVFCeRD+ZwlmI/UUvOcb5x4a7bAqrZj5ENSeYh
+         VDPFPvsY13R42Me5yiYEfJFB8kfbWGLEsbqOGwpQwnE3TO26Lr0XXPwarKJm9MDBpIcp
+         QFV34wwFWpSXU+UlyAK0T1HcFaAi/auhtBj2TiJkkVtJYXXVXTrg/GD+kBfdtrJq8grM
+         MANw==
+X-Forwarded-Encrypted: i=1; AL+hErGtN7c5PlvEhrNeNxUCUNLhfiTiiOpaEgG3JGQaFXSHoTKb3fNFXXvzfRahgsc20WN5IbM61RVTEW3SJR8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8KkzHW3tBm2WBAOC5JCrUveL8TGZJXCIqVGJGNZdD97Stn+zM
+	/Idr4zCT74/t5NQvScQ6SztlPd/A6ePyrt31B6c47+ABVSdQl36Omz7j
+X-Gm-Gg: AYBFou09dpI1nnKFqrSvGemX+ULhyFN+FeC7xX3Kki2YwTe/uSGv37wfxQXTcZlbA9U
+	QwYR5/XEt3+DSDOgdLqPzCekg3uGy12Ype6qXG4/9lRTDt5K1FX4FwM5F3Dq2nVo7daJtV2QJoU
+	07lg8PcILqe1lA+dl6hWKTtkORLhpnDR7OIK7AyYEKvP+0qf/Q8+hwiOH9Sl4jcC9iifJYg+r5D
+	CvkBD+DR0yi2wh/yqCgWQcqKXwnOECgxbrFdgiwablJk1VB11vKKg45YL3o9O0GIdwcNkP9rY72
+	e4Igjgxy3vsKZya4iKgy4o367mYeKosgLBLQR7J54T0f3zJxoV1eP1H8TMsVxaAu1wJAk0Gvdea
+	1Z/K3lINWLdoGZoio3ro/UiOvA5oJ8AUAlDw11ewycmCD+D8YPNs9C5VvXE7rYpXUyYaU3HTa+b
+	hoEX07vwPakVmo2JigVf6B2vJBjN8HndvkU4bG6SgX9vXKig3aHuZ1gCcqSnRQh5zphFJnn6lJz
+	j9gllOF26YV79LfHUhkJj82EhoxpiAE/4ncrY1lVdWdNfpqjbRLX1TMCwgnf8SLehmcLvZrz/hd
+	ufbtjeite2HRcWMlGLWD+Rbl8OuPvx60i5ewIfyKLYG8ALGH6xlhCLYIr/rlwBN1M9zY9Zi/eSW
+	Sac6wlf3UtP/J1agUsm2S
+X-Received: by 2002:a05:600c:6749:b0:4bb:5d38:259f with SMTP id 5b1f17b1804b1-4bb8881099cmr44675865e9.12.1795160045388;
+        Thu, 19 Nov 2026 23:34:05 -0800 (PST)
 Received: from DESKTOP-BJ3EVC4.lan (178-164-182-185.pool.digikabel.hu. [178.164.182.185])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm54154045e9.10.2026.11.19.23.34.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm54154045e9.10.2026.11.19.23.34.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 23:34:02 -0800 (PST)
+        Thu, 19 Nov 2026 23:34:05 -0800 (PST)
 From: Abdur Rofik <rofikcoga@gmail.com>
 To: linux-arm-msm@vger.kernel.org
 Cc: devicetree@vger.kernel.org,
@@ -94,9 +94,9 @@ Cc: devicetree@vger.kernel.org,
 	Neil Armstrong <neil.armstrong@linaro.org>,
 	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 	Abdur Rofik <rofikcoga@gmail.com>
-Subject: [PATCH v4 03/10] dt-bindings: display: panel: add LG SW43103
-Date: Fri, 20 Nov 2026 08:33:51 +0100
-Message-Id: <20261120073358.10267-4-rofikcoga@gmail.com>
+Subject: [PATCH v4 05/10] dt-bindings: input: touchscreen: add Silicon Works SW42902
+Date: Fri, 20 Nov 2026 08:33:53 +0100
+Message-Id: <20261120073358.10267-6-rofikcoga@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20261120073358.10267-1-rofikcoga@gmail.com>
 References: <20261120073358.10267-1-rofikcoga@gmail.com>
@@ -111,107 +111,112 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Document the SW43103 FHD+ AMOLED panel used by the LG V60. The panel
-uses DSI command mode with DSC and DCS backlight control.
+Document the Silicon Works SW42902 I2C touchscreen controller, including
+its interrupt, reset GPIO, power supplies, and panel touch properties.
 
 Signed-off-by: Abdur Rofik <rofikcoga@gmail.com>
 ---
- .../bindings/display/panel/lg,sw43103.yaml    | 69 +++++++++++++++++++
- MAINTAINERS                                   |  5 ++
- 2 files changed, 74 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml
+ .../input/touchscreen/lg,sw42902.yaml         | 73 +++++++++++++++++++
+ MAINTAINERS                                   |  6 ++
+ 2 files changed, 79 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml
 
-diff --git a/Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml b/Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml b/Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml
 new file mode 100644
-index 0000000000000..7f44ac6672bda
+index 0000000000000..c5ec3bf4e545b
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml
-@@ -0,0 +1,69 @@
++++ b/Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml
+@@ -0,0 +1,73 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/display/panel/lg,sw43103.yaml#
++$id: http://devicetree.org/schemas/input/touchscreen/lg,sw42902.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: LG / BOE SW43103 1080x2460 DSI cmd mode panel
++title: Silicon Works SW42902 Touchscreen Controller
 +
 +maintainers:
 +  - Abdur Rofik <rofikcoga@gmail.com>
 +
 +description: |
-+  The SW43103 is a 1080x2460 command-mode AMOLED panel used by LG V60 (timelm).
-+  It uses Display Stream Compression (DSC) over a 4-lane MIPI DSI interface.
++  The SW42902 is an I2C capacitive touchscreen controller used on the
++  LG V60 (timelm).
 +
 +allOf:
-+  - $ref: panel-common.yaml#
++  - $ref: touchscreen.yaml#
 +
 +properties:
 +  compatible:
-+    enum:
-+      - lg,sw43103
-+      - boe,sw43103
++    const: lg,sw42902
 +
 +  reg:
 +    maxItems: 1
 +
-+  port: true
-+  vddi-supply: true
-+  vpnl-supply: true
-+  reset-gpios: true
-+  enable-gpios: true
++  interrupts:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++    description: Active-low hardware reset
++
++  vcl-supply:
++    description: 3.3 V power supply
++
++  vdd-supply:
++    description: 1.8 V power supply
 +
 +required:
 +  - compatible
 +  - reg
-+  - vddi-supply
-+  - vpnl-supply
++  - interrupts
 +  - reset-gpios
-+  - port
++  - vcl-supply
++  - vdd-supply
 +
-+additionalProperties: false
++unevaluatedProperties: false
 +
 +examples:
 +  - |
 +    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+    dsi {
++    i2c {
 +        #address-cells = <1>;
 +        #size-cells = <0>;
 +
-+        panel@0 {
-+            compatible = "lg,sw43103";
-+            reg = <0>;
++        touchscreen@48 {
++            compatible = "lg,sw42902";
++            reg = <0x48>;
 +
-+            vddi-supply = <&vreg_l14a_1p8>;
-+            vpnl-supply = <&vreg_l11c_3p0>;
++            interrupt-parent = <&tlmm>;
++            interrupts = <39 IRQ_TYPE_LEVEL_LOW>;
 +
-+            reset-gpios = <&tlmm 75 GPIO_ACTIVE_LOW>;
-+            enable-gpios = <&pm8150l_gpios 4 GPIO_ACTIVE_HIGH>;
++            reset-gpios = <&tlmm 38 GPIO_ACTIVE_LOW>;
++            vcl-supply = <&reg_ts_vcl>;
++            vdd-supply = <&reg_ts_vdd>;
 +
-+            port {
-+                endpoint {
-+                    remote-endpoint = <&mdss_dsi0_out>;
-+                };
-+            };
++            touchscreen-size-x = <1080>;
++            touchscreen-size-y = <2460>;
 +        };
 +    };
 +...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 80c1bfb66f8cc..594863936fb5c 100644
+index 28e4aac18d44a..a29019d984393 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -15211,6 +15211,11 @@ F:	Documentation/ABI/testing/sysfs-platform-lg-laptop
- F:	Documentation/admin-guide/laptops/lg-laptop.rst
- F:	drivers/platform/x86/lg-laptop.c
+@@ -25835,6 +25835,12 @@ S:	Maintained
+ F:	Documentation/fb/sm712fb.rst
+ F:	drivers/video/fbdev/sm712*
  
-+LG SW43103 PANEL DRIVER
++SILICON WORKS SW42902 TOUCHSCREEN DRIVER
 +M:	Abdur Rofik <rofikcoga@gmail.com>
++L:	linux-input@vger.kernel.org
 +S:	Maintained
-+F:	Documentation/devicetree/bindings/display/panel/lg,sw43103.yaml
++F:	Documentation/devicetree/bindings/input/touchscreen/lg,sw42902.yaml
 +
- LG V60 THINQ 5G (TIMELM) SUPPORT
- M:	Abdur Rofik <rofikcoga@gmail.com>
- L:	linux-arm-msm@vger.kernel.org
+ SILVACO I3C DUAL-ROLE MASTER
+ M:	Miquel Raynal <miquel.raynal@bootlin.com>
+ M:	Frank Li <Frank.Li@nxp.com>
 -- 
 2.39.5
 
