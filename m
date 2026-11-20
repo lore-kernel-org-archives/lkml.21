@@ -1,55 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162631;
-	b=Fs1wXHvnRE8+uvE+sdnr5FdgBnw8jXkyP4cX7cR0fa4ApmS2JN0aDsP3dB7mMKrsY9fo
-	 kS1zv864vMO9dF8FsKMSnKZzZKLEH7/Atwx48p8iG4x3dsfZKzdZc5wJjfT7Ysgd++B1R
-	 8pkd5O36Ouzv6w+lU/tZNePUQZNkDe+fMq5X0qYmPc1OaAA+aNULxDzpRZZpAHk9p5+as
-	 YUeuh+q02+1N07Jq/rnytCXMD+/H27v/FbXfTF40obze9nuBNHWcUsYcOvMIADJa98NQ6
-	 3MlDzldmCiNfFRe0s8XFjGdiDsCsPTBuy5K0OISjxbBzcRmVcGk3wi/IkzT221qYG3Q==
+	t=1795162636;
+	b=w7LIneYedoevTmWpzoRmv4+Q7HtyU0G+IM6HDa+EdN/aSS1QQGNTX6i06CPpVGCiRZIk
+	 9MFnROO0i1eNwzbQLNbknTipU+hKCK4yizp+5KPl6ixu+3zXrNOmCq4JYuVHgSo5CvaRs
+	 rNqc//vqVUYUXqDeQH8STqvhoa8JvA9GWJxr/quaHOdZlnu+mQpyeZIE+ahSNarhPP54z
+	 qwu7BkE2/ORKK/iVvhx+YhTicOpGbv3qJiKK/ugd9E3amfnYFnCfYJGzwbl94w2CfJyD/
+	 KybUKdFOZ+gckfhWmilesqXCk29YCs9xQZbR6pTUCHcL7JfQh29/dR9dEtkH0GR7HsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162631;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qqugXM/ypPq015y+cj21KufNxQ3WaxwLSFccQo4vIk4=;
-	b=vI2TbBuFw0NzqKOV1JjK+3v5oMCpjarLPlX9qLHlHbIjNAJqrXNfSpQ1q+nYrOQaxm5x
-	 gwLmGEqDD3KwZIGkjQren+O1CijwYquev1q6VCECf2NpOXcjrn0EZjECJOCNk7VQuIigv
-	 KBqe5lRzO/n/Fr9gJ7grvtRExInNgTHy+lka7sTh62cSoEsQgqDF2pvVneRSwmn4ltVm4
-	 8ufgt4X2WGrVDbaVKC9d01vuSIU6MzodtUZvaZAjm7tzhWU63qk5XkwZNsLffB9cphk61
-	 zd5HqLiCUuVQKvfU+du9euO3ZkWeFY+Dw2aYyjutdAz5WGwoJUxMCuSJJdXQ8M1A+Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162636;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=jwFTtMFfvcVwzXF6nx1Da9qZEN/vmSO2J86DAeNP2u8=;
+	b=yurh17MumB5p8qJDDl5Pfh7Dp77vXe+y8mv6m0Qu1dakPnOCsDa8qioSlJLEVs9trkKA
+	 FkOYcUQ5z+wUMAfY+mQM1HTiGVngq+ldIGLYjvs0NzumSbMfj3/bJO3idYBvmedPCnWz2
+	 mHkn24H5rI3pfSts/ugZEFXwvRm1NxbGOeExpZ3tHewSzqhaq1OL0rqEhbu/I7u+goGmP
+	 Gp3VNYK7ZZqPrJEAIRP86rU1qFMMhO+v+9lgPvxoIgrpAZoney5Nzd6u2sHW2Hq+J2Vak
+	 ufvcQRCnV8y429ypxLL7qgyJwVBjxiGHZR3Hrg++3dHqD10qgS4cfU02bnFxeDcOxiQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZhKAgtV+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=kroah.com;
+	spf=pass smtp.mailfrom=kroah.com;
+	dkim=pass header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=cEdlTmmH;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nCKLOIvw;
+	arc=none smtp.remote-ip=202.12.124.146
+Received: from fout-b3-smtp.messagingengine.com (fout-b3-smtp.messagingengine.com [202.12.124.146])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67CF560A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:17:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BB3360A2611
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:17:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9BB3360A2611
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kroah.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kroah.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZhKAgtV+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36FF1F000D1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:17:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795162631;
-	bh=qqugXM/ypPq015y+cj21KufNxQ3WaxwLSFccQo4vIk4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ZhKAgtV+iLF32YlXYM7SsKzbG9i9LAu3wAv4sqdqxIzqp3XzHbRzDczK/N6FJisKb
-	 CuBf0TrollM9fgqmfEJQTt9Axe4m7yZxD8Yb5pG0gpLJY+VGfzC10aWw5B8nOJfycB
-	 /6uUR14c/Qgp8yrT2ScZQ15qI355JkFRfqYTQcIP7DH7Lh3msYo9RfYq16NAe55iqb
-	 fJ1Xs1zf3323lmJ88AXR+/zjwbjMGmILJcSga0vLxIV9YI2DFdIw+LDjvjp4jkVjMW
-	 z3JwnRSrXbub68lNGb9cIkxdToT/OveMZD9ISOMdCepMKmTVplxNjP7YDmKkfFnr8D
-	 4VhFNlzpH0eWg==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b85b58d303so300175a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:17:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGpkA4RxT+PYI0B6f7mD/UARJLVaXp/ZFtunMzHKoqWMgVCyhor59246whM4FFXW195HT5UUXhe0BMz1UI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9raYq+bpp0ht0/iLjPI1gbb+U39WSTZEry/MgQMd6ko1QGqTgp
-	OzR197d+5d+jUMiVh7HudaXvzUNIiLroH4SiFia8Asy3jpa/dknPUXlHX1jlrAGXdi1BAs9+WPr
-	YGeWCtkQYAUtROlaDxkfjfLnKxn4YlfQ=
-X-Received: by 2002:a05:6402:a594:10b0:6b8:a711:65f3 with SMTP id
- 4fb4d7f45d1cf-6ba37e935e0mr1100699a12.14.1795162629394; Fri, 20 Nov 2026
- 00:17:09 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=cEdlTmmH;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nCKLOIvw
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfout.stl.internal (Postfix) with ESMTP id BBEFA1D0031D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:17:12 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Fri, 20 Nov 2026 03:17:12 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1795162630; x=1795249030; bh=jwFTtMFfvc
+	VwzXF6nx1Da9qZEN/vmSO2J86DAeNP2u8=; b=cEdlTmmHxEnHiI85tBQw1SRrF7
+	CFl9VZGjes1s6KQARcG7DawjivqzuAJzyP8Pj/aQFiGEiukDkbMxt9j5zV9l/d5G
+	17pcSo+78jYiW40OH082VPqINUAjQayZud2VAw4+bdaMYObDz1pYUA3DJcsBO5ov
+	kEazcCL+s62lMkeN07gLELULna9jZ1x7Jaobii2ekgYzgk3jmFgEE8J+Z42Wj+iN
+	lchTL40hJKVqeVY6UVuZzI/27QFu01XNGKCsWqNp8C8o8lDbc6D9eVgtdi+xyM8c
+	bCaoDkip/884RoF2QYw6vJb4Y36oLwK4v46h+zCX9G7XAL32dExc+rRGxJKA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795162630; x=1795249030; bh=jwFTtMFfvcVwzXF6nx1Da9qZEN/vmSO2J86
+	DAeNP2u8=; b=nCKLOIvwxfZSvqErQRD9FfYoIAsmXKcj686TgzCojf/izKYMSoV
+	eLSzYhu1ClW7N/jz34MLWhl/5AEshx5lAFBVvo+QTrItKF+zBo6c7/7ROs0Q7FaY
+	0DZQK1wy3yqVjeL15B8deGmbU79BDcXc/lJamRW5gC0AcJ3+ajmMb7cjfrkJksF3
+	VTPQZLFU5NG5nREOJ7rhjnMfuon8nYiD6pM128S7mfVMxHbJry6P3UI6lE+I7oI4
+	BsKkOxk2ZwUBWIBh+FazBXeK8SIOX2gZ/b8uTUJuQNHfs6oCVDcL/FYgV0uxe2Ev
+	F9iK4ECeW4tX8oJ4Tm2wmJx3dpQeREjOihQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=kroah.com a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795162630; d=kroah.com;
+	mf=PGdyZWdAa3JvYWguY29tPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:paOEJTNva6revFl5wVx4EE92QFJ/fxr/i6QLu5zO+cwdIk9
+	0tS+x4w3I9jl5WemSR4rfXlgwXAaNCH2BQ3iOmJf8mrWu7E0LO2Wh+zvr/lNB6mR
+	tlMWfAtrPEswWcefp/H5JYaLYOK7z/oP1qkAob+6jFHyBRYDe9yKDrq/HuoWnJcW
+	6w8W19QccL6gCAG1x4VnYvuTjDYaVeQdXHi91P5BJf8bVGhBCGneCdRyie3O4So9
+	TwVIqOeaXVoLiwhWqEtDH8qgxWCLhl1cLdbDSNrZcluS2nFIM90UqXi5u6cfCOVj
+	vJ+F4hmtOWs4bS6w9mgZ9nzHAAbnyRQPsLyFH9g==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:GX5f8IQVvBa/luY/rOY2bKax6TBVGP42jGz1Isrqisg=:WFaABMt+2M9VQuY5/ka7NDvEJk47H7/082hXEpKLbFs=;
+X-ME-Sender: <xms:BgIAa7bQjPK7h6KCyHZdv5wJdcDJW0w7-MUpDjTAQU6e7OTotMgfkg>
+    <xme:BgIAa2zhIEY1Ji-yewbI0Zoudicq9ECN_ZXt-QEOePqq-hPl4-zYwdAbPygFWgcat
+    RX4oCmW-PBKUvLCSd501Cg9n7wvb1dtVeo7L-UnR1OhzCgbN-w>
+X-ME-Received: <xmr:BgIAayaU0iA9mcaZ1mqlJodZRPymUvv45nFe8bLMBpWhGwZOsIiz7l3H9obd6Olrsda36nl-ELzGO2A6E7GII_WRD-7zaoxK2RRMzJseqEQ>
+X-ME-Proxy-Cause: dmFkZTFQ7DaCH96GS+eQ+DbvcQ6sPsqlIf+L00Ykku0I46uDDxi6HexIxb9TybVBL7Rc4K
+    LF6I66PWAXS6RNIJpNbboMGZQYc8X4ASiz6bmeI1J1EtHYtxvEpy74xuYDulpAPIWXNECs
+    81yxljtHzkcvvoeGnoyyGyTO/UV3W/i/Kjn5uPNS0jJOIY5mHPs6yR7YSYPiZm/eREVcYo
+    K+OxlfbxFoNWadz9eeCLtLPpy5+MKlm2LoZ9vJD9JoIqksG9hfxJFFtr3gHSeufxBMq8Jn
+    1Dg7o0DAwbZHtjzooFUzXq1337f5CiuA1GgjNJAmac8b0QYWeaI+5mEuPp9CRUPF/FXWUb
+    TqTDvM0dUYOjv1mNXl2BmPxbh5z9CsSNBhiZxEaoNRS8KLWM3Ow0F6HUnrhw15cvGVXOos
+    oDaBKwg8ddrhTP3cu53YxaIWlK+JQl8wOCHWNMGCfUwh+2RxNz90skJZbqJjd2FGOeQ+9O
+    e27lG8YYHWPiZyZ+CWD1h5I4WqotOJXzElkeIazxImMRWkIn5ROIQR0QRIIWPgr4wkBIEB
+    Fa8WcIFl5cCzW4MAoC+hIt+Ak88Nr9/EIrdesJIa8ViHZEuW83awuCuXhw4qjmVGQ3415n
+    oC3v/5pHr9bTZVEnerG0T404At7CwxkbSGjCYWwNKg/xAEBTEiwwDkP3Zv6g
+X-ME-Proxy: <xmx:BgIAa_xMADmTgtPoxpP021rF056i7cHHXvTMd5_VKsxhG02EDa3x8g>
+    <xmx:BgIAazHPYbdnO4RQSzd1Cix4450KdL2uOaTnrtYMFyEOcvv4Y7vRDg>
+    <xmx:BgIAa_xhXo97joRl6pqVPRK2xRTaCkz0QAHw-E0pr5PpH-RII1EuBA>
+    <xmx:BgIAa2Mls0fBHZ5eggvspoX1L9RVtWYSxp8aN5m01KUh2Rxz-XIf6A>
+    <xmx:BgIAaxO7ZioZWdikzasnlINF1D2Mkf8JdsSnpmK0SnQqecgtQDi0oyyy>
+Feedback-ID: i787e41f1:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 20 Nov 2026 03:17:09 -0500 (EST)
+Date: Fri, 20 Nov 2026 09:17:07 +0100
+From: Greg KH <greg@kroah.com>
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Cc: bryan.odonoghue@linaro.org, heikki.krogerus@linux.intel.com,
+	linux-arm-msm@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: typec: tcpm: qcom: Release connector fwnode after
+ regulator lookup
+Message-ID: <2026112052-unmapped-etching-4bca@gregkh>
+References: <20261112021836.1851-1-laixiangwu@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,119 +123,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
-In-Reply-To: <C3361EF435F90A22+20261119121937.2447021-1-luoqiu@kylinsec.com.cn>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Fri, 20 Nov 2026 16:16:58 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
-X-Gm-Features: AclHuK-3MldchjvZ2Mbp5twdDrLoLp-rfbrZ5YsXDyld-9bOwrDSw_hbmasDlbs
-Message-ID: <CAAhV-H7037=znoeU3+V086qGuDkRMVeSmt0PKe8DrdiFKcvF0A@mail.gmail.com>
-Subject: Re: [PATCH] platform/loongarch: laptop: Fix backlight device lifetime
- on unload
-To: Luo Qiu <luoqiu@kylinsec.com.cn>
-Cc: Jianmin Lv <lvjianmin@loongson.cn>, Yao Zi <ziyao@disroot.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Zixing Liu <liushuyu@aosc.io>, loongarch@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112021836.1851-1-laixiangwu@cmss.chinamobile.com>
 
-Hi, Qiu,
-
-On Thu, Nov 19, 2026 at 8:22=E2=80=AFPM Luo Qiu <luoqiu@kylinsec.com.cn> wr=
-ote:
->
-> The driver registers a platform backlight device during module init but
-> discards the returned pointer. Consequently, the device is never
-> unregistered when the module is removed, leaving its ops callbacks
-> pointing into freed module text. After module removal, reading the
-> backlight's actual_brightness attribute can call the stale callback and
-> crash the kernel. Registration failures are also silently ignored.
->
-> Store the returned pointer, use it for resume, and unregister it on
-> module exit. Propagate registration failures to avoid silently
-> continuing without a backlight device.
->
-> Fixes: 6246ed09111f ("LoongArch: Add ACPI-based generic laptop driver")
-> Signed-off-by: Luo Qiu <luoqiu@kylinsec.com.cn>
+On Thu, Nov 12, 2026 at 10:18:36AM +0800, Xiangwu Lai wrote:
+> pmic_typec_port_probe() looks up the "connector" child node with
+> device_get_named_child_node(), which takes a reference on the
+> returned fwnode.  The node is only used for the VBUS regulator lookup
+> from the connector node and the reference is never dropped, so every
+> probe leaks one fwnode reference.
+> 
+> Release the reference right after the regulator lookup, mirroring
+> the parent driver which already manages its own reference on the
+> same node.
+> 
+> Fixes: 506927b6bf29 ("usb: typec: tcpm: qcom: prefer VBUS supply from the connector node")
+> Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
 > ---
->  drivers/platform/loongarch/loongson-laptop.c | 19 +++++++++++++------
->  1 file changed, 13 insertions(+), 6 deletions(-)
->
-> diff --git a/drivers/platform/loongarch/loongson-laptop.c b/drivers/platf=
-orm/loongarch/loongson-laptop.c
-> index 4ec56621db24..ec0742e5ed46 100644
-> --- a/drivers/platform/loongarch/loongson-laptop.c
-> +++ b/drivers/platform/loongarch/loongson-laptop.c
-> @@ -56,6 +56,7 @@ static acpi_handle hotkey_handle;
->  static struct key_entry hotkey_keycode_map[GENERIC_HOTKEY_MAP_MAX];
->
->  static bool bl_powered;
-> +static struct backlight_device *backlight_dev;
->  static int loongson_laptop_backlight_update(struct backlight_device *bd)=
-;
->
->  /* 2. ACPI Helpers and device model */
-> @@ -194,13 +195,12 @@ static int loongson_hotkey_resume(struct device *de=
-v)
->  {
->         int status =3D 0;
->         struct key_entry ke;
-> -       struct backlight_device *bd;
->
-> -       bd =3D backlight_device_get_by_type(BACKLIGHT_PLATFORM);
-> -       if (bd) {
-> -               loongson_laptop_backlight_update(bd) ?
-> +       if (backlight_dev) {
-> +               loongson_laptop_backlight_update(backlight_dev) ?
->                 pr_warn("Loongson_backlight: resume brightness failed") :
-> -               pr_info("Loongson_backlight: resume brightness %d\n", bd-=
->props.brightness);
-> +               pr_info("Loongson_backlight: resume brightness %d\n",
-> +                               backlight_dev->props.brightness);
->         }
->
->         /*
-> @@ -409,6 +409,7 @@ static int laptop_backlight_register(void)
->  {
->         int status =3D 0, ret;
->         struct backlight_properties props;
-> +       struct backlight_device *bd;
->
->         memset(&props, 0, sizeof(props));
->
-> @@ -426,9 +427,12 @@ static int laptop_backlight_register(void)
->         props.power =3D BACKLIGHT_POWER_ON;
->         props.type =3D BACKLIGHT_PLATFORM;
->
-> -       backlight_device_register("loongson_laptop",
-> +       bd =3D backlight_device_register("loongson_laptop",
->                                 NULL, NULL, &backlight_laptop_ops, &props=
-);
-> +       if (IS_ERR(bd))
-> +               return PTR_ERR(bd);
->
-> +       backlight_dev =3D bd;
->
->         return 0;
->  }
-> @@ -622,6 +626,9 @@ static void __exit generic_acpi_laptop_exit(void)
->                                 generic_subdriver_exit(&generic_sub_drive=
-rs[i]);
->                 }
->         }
-> +
-> +       backlight_device_unregister(backlight_dev);
-backlight_device_register is called conditionally but
-backlight_device_unregister() is called unconditionally, I think this
-is wrong.
+>  drivers/usb/typec/tcpm/qcom/qcom_pmic_typec_port.c | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Huacai
+I picked up an earlier version of this:
+	 https://lore.kernel.org/r/20261025-typec-of-fix-v1-1-06bfc16a7846@ixit.cz
 
-> +       backlight_dev =3D NULL;
->  }
->
->  module_init(generic_acpi_laptop_init);
-> --
-> 2.56.1
->
