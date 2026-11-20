@@ -1,67 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.194.8.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170666;
-	b=0LzJqZz0VaS+agcwHwgJAJ0cf1fiUbeMBkRnuULLjWynPBaOhR+xr306JijU+MKTMGL4
-	 d3prqHouBYrxQZvubQubl2HFJYeaFm73AO0lTeddhaR+RHBEvx2NTG3ux75OzPpieqX7Y
-	 Gv42q+pSj5xPa/v+SUVkG+3eigUXK19ygnhk9n5hi6e+Rf25QrxMDId+Vlp/BV3cOKDi2
-	 oOSwshEWD4RdHu8bSyfz4+LqQdRUvLnvKGDJfQS2jmpSlRx7qBc5JiR5vtR5PM3Ue7uRV
-	 M5XbLr9kcAvFe8h27ucYvKKAxHxWQu7FH85sEnvqlSMHcV40WUeLSwfiVpBd898BrHg==
+	t=1795170687;
+	b=USn6DZVl+MWWVmNDSDvZ0v6lVgtz2vS5EQ3kK/wIznJnOILRybhtAwkMW5msE+pZ6KpT
+	 Lcuy+q83bnS0jRf8i4P6z8G8JzDjBhkCGcMprK0fb1v38LmNaBmBknpyhG7Tg5uFwO51I
+	 XWwxcOcgtWo74mAZcKoXNrzL+qfHpxX7/F6LD7SA9JVlXs5VFWb87INj1UPvck8K1m0/Z
+	 MOn2efiRmEDzt///JOE4AO9chbUr8LZRXmbi9ykSZhZEwW8eWS4nbk1YTTB4OESp9ahwF
+	 oZYDVbZNmpT6ejaK7ub6vfAiwpqTAlGeODQFM506QYgdL4iwgdRmGOaxoL+zOyU/U7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170666;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4NvHKXhj5jAm3S6feuHHzXaGQeaH4gvsk2BBP8dDlfk=;
-	b=yXDuTKTnMdQ+ZvyoTYT4r76Bt7plTmgENkUz4YWTzasLrwxsb5VEA+VmH2nKNXD2BQdB
-	 edJ9/M+K0PBllTiwkUGT3PX6gBfnG2JIFe0DNHswmJAxtbVc5xKR9j77czWZuVflLt55r
-	 lxjyMWOD9w/BeKQqJtLXkuU6tmlqB8M0qmfhqCEEmkMx5dSPNaXfkcFpXwbjtlgJRA0uU
-	 bxrKYcRoNintB10UlckNodlK9lBMmROQHag4mSRH35pGcBswyqhBsHNYJjfeCvxqzGTNA
-	 z2g03U+2NczsucNC3G7pPREyWbQj9qfKg0iwEkFABJGafftd3UskIZcTCYMjIKnZiNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170687;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=EeExxrI1zRh+cz40j3L8RqzTVQlCLBxYSPY6T51mc9g=;
+	b=HWdktVJ4ehBA/eRN8dHfhTMn8i8nYzyBsvCjbafYShR5SU+bmoDeEAqpBysPWVqNs0PZ
+	 YkC/MZXO9KHx/mxKFHybTPJXH9VsGZCY4Nng2Ie1G6JXnO4ifUwM78UkQ/HuLyppxLpY0
+	 j9xyPgjCQR4Wq1Thhu2kXNmb9gKqrbaBuyH4EfYHqHjR81bJlIYioW2ZUs5UqCjk/q/om
+	 WDbDhrzvR5djqxbut5BIIvaBDsdjyzFVrx1dUAcqx8XYGMBFezXOcpJccu4HE4fOi529v
+	 YTqnItCm1W4FIAd7XNfUjIYpNG+vP6b8JDEh3iqW2NK2ZlNRf5wKzBJh/PtgAnEqV4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=pTABLHA3;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C87FB606A325;
-	Fri, 20 Nov 2026 10:31:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C87FB606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=dolcini.it;
+	spf=pass smtp.mailfrom=dolcini.it;
+	dkim=pass header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=DgQBEAWY;
+	arc=none smtp.remote-ip=217.194.8.81
+Received: from mail11.truemail.it (mail11.truemail.it [217.194.8.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5732606A325;
+	Fri, 20 Nov 2026 10:31:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5732606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dolcini.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dolcini.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=pTABLHA3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=pTABLHA3DMizer+6TGFcFFOQEYD5yCYbfcxUXLtwzuCNVcdNUFTEYQGts+wpGdzTho5wslE0KZbYB
-	 rQNaRoULrAB+fBC0cm6hRfRy2up3jS2B+cmuLGAwIovc4axtbwgx2G1dlEl3Uk+7j12xPWCcT2BGY5
-	 CdSW2LbAGvqa8wm0=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app03-12003 (RichMail) with SMTP id 2ee36b002162a49-f4a51;
-	Fri, 20 Nov 2026 18:31:00 +0800 (CST)
-X-RM-TRANSID:2ee36b002162a49-f4a51
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.localdomain (unknown[10.55.1.72])
-	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66b00216348e-223d5;
-	Fri, 20 Nov 2026 18:31:00 +0800 (CST)
-X-RM-TRANSID:2ee66b00216348e-223d5
-From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: tongzhiwei@cmss.chinamobile.com,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dm-devel@lists.linux.dev,
-	syzkaller-bugs@googlegroups.com,
-	syzbot+1288484b13bf6af3620d@syzkaller.appspotmail.com
-Subject: [PATCH] block: fix divide by zero in queue_limit_discard_alignment()
-Date: Fri, 20 Nov 2026 18:30:13 +0800
-Message-ID: <20261120103040.610-1-tongzhiwei@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.45.0.windows.1
+	dkim=pass (2048-bit key, unprotected) header.d=dolcini.it header.i=@dolcini.it header.a=rsa-sha256 header.s=default header.b=DgQBEAWY
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id A11CE1F8F8;
+	Fri, 20 Nov 2026 11:31:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1795170684;
+	bh=EeExxrI1zRh+cz40j3L8RqzTVQlCLBxYSPY6T51mc9g=; h=From:To:Subject;
+	b=DgQBEAWYZWEaGNRmjIWOS5ryGmIYMfq5Oaq0+JNctkwAVnGwsQK5cJ/92GjHhmmgb
+	 XdfcV/kRnjNEsbes1NSlzuseQa2loItzPIYdUyrytRIhwVq0arpgAvFVvv4YssqCbT
+	 L/ckqJbOplh2yLmSeBz8edsy7Dri7WCXyYv2qX0hPyPkcter/Cl1uuy8oadF/WEF6J
+	 jhmSItONrjZJGXT7NQZm436dSt5c6L+w2JrG9HX0bzCV0jr5Ba5WHLQknbs2C2JXfl
+	 MHZzGsfH5rdBWQ8i5LGHqALEzbdQmg2NlVcpFM6NLGCa/qJ6A4KvUU2CB/Ybe1c8b8
+	 LmQZKDK36mjFw==
+Date: Fri, 20 Nov 2026 11:31:20 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.12 0000/1736] 6.12.119-rc2 review
+Message-ID: <20261120103120.GA73134@francesco-nb>
+References: <20261120054951.366579794@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,58 +68,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120054951.366579794@linuxfoundation.org>
 
+On Fri, Nov 20, 2026 at 06:57:42AM +0100, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.12.119 release.
+> There are 1736 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-NOTE: this commit is worked completely by LLM
-
-Commit e924da7d6622 ("block: Drop granularity check in
-queue_limit_discard_alignment()") removed the check for a sub-sector
-discard granularity on the assumption that lim->discard_granularity
-is always at least SECTOR_SIZE.
-
-That assumption does not hold for every queue: a backing device can
-report a non-zero discard granularity smaller than 512 bytes.  When
-blk_stack_limits() stacks such limits, only the non-zero granularity
-is checked, and queue_limit_discard_alignment() shifts the value down
-to zero and divides by it:
-
-  Oops: divide error: 0000 [#1] SMP KASAN NOPTI
-  RIP: 0010:queue_limit_discard_alignment block/blk-settings.c:645 [inline]
-  RIP: 0010:blk_stack_limits+0x1105/0x2d00 block/blk-settings.c:916
-  dm_calculate_queue_limits+0x70c/0x1510 drivers/md/dm-table.c:1823
-  dm_setup_md_queue+0x199/0x4f0 drivers/md/dm.c:2618
-  table_load+0x4fd/0x8a0 drivers/md/dm-ioctl.c:1661
-
-Restore the check, which was originally added in commit 59771079c18c
-("blk: avoid divide-by-zero with zero discard granularity") and had
-survived the move of the helper into block/blk-settings.c: with a
-sub-sector granularity there is no meaningful discard alignment to
-compute.
-
-Fixes: e924da7d6622 ("block: Drop granularity check in queue_limit_discard_alignment()")
-Reported-by: syzbot+1288484b13bf6af3620d@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=1288484b13bf6af3620d
-Signed-off-by: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
----
- block/blk-settings.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/block/blk-settings.c b/block/blk-settings.c
---- a/block/blk-settings.c
-+++ b/block/blk-settings.c
-@@ -643,6 +643,10 @@
- 	alignment = lim->discard_alignment >> SECTOR_SHIFT;
- 	granularity = lim->discard_granularity >> SECTOR_SHIFT;
- 
-+	/* sub-sector granularity: no meaningful alignment, avoid div by 0 */
-+	if (!granularity)
-+		return 0;
-+
- 	/* Offset of the partition start in 'granularity' sectors */
- 	offset = sector_div(sector, granularity);
-
--- 
-2.43.0
-
+Tested-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
