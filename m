@@ -1,77 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.91
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184170;
-	b=YViu4RociDF9rwvxBotPVGT2zrolwNkweANJ6+U0Le5SxkOYgvtYRNPx8z57wG3MSm5W
-	 JEN1/AZgFS6fTOBlI9w+HK8HmnHewHFhbwm3PWgWhuOijcWLQ2m+YrMzb8nNyDVUT0Py4
-	 BMdvc5AKp00quHQfEV78IRA6SoSsx1U3hiHh1vS1JBR3YvKwB9kcJpuYjmoWspT4RzOmj
-	 JwLq4YB3eTk5bE+XSUGgiPlvTXh5lkxM+i/kSS4rnVzUIjIBCt6byfHmdmgcLSLIHm8NN
-	 u7HqedLNSsoTcXxrNLQ4xt+Ihp8Ltj/LjVhCjo+HrRPck+On9zw6TtVP8x7Opmg6UvQ==
+	t=1795184158;
+	b=RJ6gO6j2goFOf6T8M+FZjLJz+P8i+GtSvDmwTI0hlGeL41zA3buL3QkUcBxXPhfK8tst
+	 qNsI0OHhnfcgsXaNBGEab56XHu+cdtzKC5FlQLZ8fpao7TjuCOkBZVMbju0u4K1Qo9jyH
+	 tBKB28iNRfPSGGiTvVRQBHkl8vFnNo2zDGEg0hCsL7PoKUNH5qq+CqLS7yDYY47n70vBC
+	 Km7q84NgM32XG8WG5ekxxOcnpVwcTmY/sp7QCeurQxmQnn3ej0S26hYGdxz/5HsobKSGM
+	 NoY9IqEQ6FeByv0hNevBJeOi+8dRkYdLmo1cRvss5a1v38TJ76X7HGaJ7/Hcsex9n7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184170;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
-	b=Pl6DXjDINbuAGtClmj9TVkRdbWaYA1idBEphpuukwV5GL5pjdkVobVOI3kAvy7xdmRuB
-	 m2ZSYnpR4LnuXJrjBCFLmmiZSdXv/0rrQpyPPn/LDMSxeraQIUEDIDHtEQK0yh3sRvf0L
-	 1ruAFZEO1sac0kKorLEry31Aag8OrEeNNwQSoHWDRUWxsy5/XfEeaqwdSBHIEQ1ZcYdsO
-	 zRBI3n/bwp3tmtcoTdRNrxgwm1TdTzMIW8yIo03KedWOdWVLYLELh4jrtMj7YnB0rqXSu
-	 gTRt9ARYaV/sHGq0ZNn2tnLc6kBOW0CMCmHXqGJHuC/xAUsSVUXCuzaM6x3bEnN67qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184158;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=mFh+dAlIh89UuUDw9mliDsW1ZkhnuL29C/bIIMkCoV0=;
+	b=RSzgQfC+FZqRiX4dBUSd7Bz3LU3CgKeherp0bj7GQeKugQxVrth8qrnauL1YLx1NXhnO
+	 /zpUczim8SnolME5XpdVDaw9iPAPnxgLk3NGIEWO8q934XjyXf7yD1CzKOmou7NrQF1yi
+	 keM3xl3egrcfnfZ3720yB+f+2cpdMQc/6Fh23eq30GUK2h9O9t1Sv7s3Qs/ryuM8onvKX
+	 bclkgcvS+Bd5pwETKlmAHGr1WmadQBW/6mC8SYC2cZ/RG/DGSYb9BkoJONogR4mqf+0St
+	 DF65W6gYijNI3un3EabZIIMOb9RPLeJy6NvBkFyqfh0GSV2EaQZoIApxJRdVn/nZupQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=vqY2SizF;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=+Dq8tZ5d;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=okxXx9bj;
+	arc=none smtp.remote-ip=91.218.175.91
+Received: from mta0.migadu.com (out-91.mta0.migadu.com [91.218.175.91])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E2B3606A33D;
-	Fri, 20 Nov 2026 14:16:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E2B3606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C57D7606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C57D7606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=vqY2SizF;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=+Dq8tZ5d
-Date: Fri, 20 Nov 2026 15:16:06 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795184168;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
-	b=vqY2SizFoIEUCCa098XYAAv3YNeSt4AZm705itlAKiagcD1S6b3ONMTnJbV2n+YhTcfkm1
-	GGgjjYxmKAcGT618g1YJJCD71cKiTVak5mvkWhzyfcRpuHEKbVHy9luJTRtOjJecBfqWQq
-	JuLw6Dzi31l0v1cOIv0Cuemc25HmkAxw/BO/LTlkOV2ojeMvvnDWDQ5o1D2WJ8rI2JTOlV
-	Aj+HwFMGbuDcjhgD9DAgHZ7dHYizz0QbZj/klDqC2rzzWm7Nuho34dg9u9Sj7hc7qefbqD
-	6JX56FTzG6Q0tf/spltrwHDPSgSzj3gl4KL3lVF2RiAAKJ9JClZ6cFd//9Yjzg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795184168;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RS6E0aCrGfHttoJoLg3wAvtdViYdywflW1zClO3xhHU=;
-	b=+Dq8tZ5dyt4Wnm5ctlcJpvCmR5gW0XTGHXCOpzBJ5weC1A76NpVe1BaEFM8d53sSSUIg6n
-	bu1Btrf06Y4xxACA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
- enqueue
-Message-ID: <20261120141606.zcwyHZ3P@linutronix.de>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
- <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=okxXx9bj
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=IxY/RMDxRESNWi5qd2dGR2bSpXOJklWLECvCrSdEVx8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795184156; v=1; x=1795788956;
+ b=okxXx9bj/Cnv8Wk9oPUXQ0LPws6YoaC65B4oxmVwOYiCY+gZ2NTWdxjaIzAd0U9whuvyUiNe
+ jfAfZLJVy54+HW8lcoeZG5aw0V5pKEIhBhBpyBw2XjtXlk54ftBtuMptZTcS+ov1PBlVw4D3/cF
+ H1f8AywxUtwx1FYVOPLakLAQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 6bc853064f227431;
+	Fri, 20 Nov 2026 14:15:55 +0000
+X-Mizu-Trace-ID: 6bc853064f227431
+X-Migadu-Flow: FLOW_OUT
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Mehmet Fide <mehmet.fide@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>
+Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v13 3/3] wifi: rtw88: time the countdown downloads from the TBTT
+Date: Fri, 20 Nov 2026 15:15:53 +0100
+Message-ID: <20261120141554.68116-2-luka.gejak@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118231940.3950-4-mehmet.fide@gmail.com>
+References: <20261118231940.3950-1-mehmet.fide@gmail.com> <20261118231940.3950-4-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,31 +70,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
-> > Also use smp_load_acquire() when checking pending_work in
-> > the exclude_kernel warning path to ensure the read is properly
-> > ordered.
-> 
-> I am confused by the use of smp_*() and cmpxchg() here. Where is the
-> multi-cpu scenario?
+Hi Mehmet,
 
-The same event is used in process context and NMI
-|        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
-|        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
+Thanks for the v13. One comment below.
 
-I don't see how to deal with this without cmpxchg. And the same event is
-also used by other task
+On November 19, 2026 12:19:40 AM GMT+01:00, Mehmet Fide
+<mehmet.fide@gmail.com> wrote:
 
-|        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
+> diff --git a/drivers/net/wireless/realtek/rtw88/fw.c b/drivers/net/wireless/realtek/rtw88/fw.c
+> index 9d5df3e65b97..c24932d00e14 100644
+> --- a/drivers/net/wireless/realtek/rtw88/fw.c
+> +++ b/drivers/net/wireless/realtek/rtw88/fw.c
 
-which makes me thing that it could be pinned to another CPU (unless
-there is something that impossible and it is strictly per-CPU).
+[ ... ]
 
-The smp load/store macros is my fault as it looked better to do this
-than plain stores (given that we have the cmpxchg already).
+> +	div_u64_rem(rtw_fw_read_tsf(rtwdev), interval, &rem);
+> +	delay = interval - rem;
+> +	if (delay < RTW_CSA_TBTT_MARGIN_US)
+> +		delay += interval;
 
-Sebastian
+[ ... ]
+
+> +				     usecs_to_jiffies(delay +
+> +						      RTW_CSA_TBTT_MARGIN_US));
+
+Does the short interval case need a smaller margin here as well?
+With a beacon interval of 19 TU and a download that finishes 10 ms
+after a TBTT, the next two TBTTs are about 9.5 and 28.9 ms away. This
+queues the next step about 38.9 ms later, two beacon intervals away.
+
+Several counts can then go out twice even when the work runs on time.
+That seems to put the AP further behind a station that timed its
+switch from an earlier count. Could the queue and hold paths use a
+margin that fits the beacon interval?
+
+Best regards,
+Luka Gejak
