@@ -1,54 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.234
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200365;
-	b=V7A2DQneQnR1OPhUd8AJabJN6tOYnOHMPo3iSIULBDJxTHbUbKoDgKlynsbgAVRvPMiA
-	 Z3Uwjx+BwUDToLaiENfThWas0LXz6z5S/j2YYKOwxupIVh984VKjtDDP7UpRcNLooneix
-	 jmjfMb0je704Ei2DnznIyGpj6yYgM6zZqx4UpulAfk1Fnl4OpzgG9n1TRQoB/5P+qmAyt
-	 MTIH30/K+tn03Yza+yfc5l/pSOpENuGdxoon7cUULV/Yn5ErrBQaSev3SLCRURcXvYGHr
-	 EXgyj6jggbsNSIGTDMQqK6tK9QR4DOdHmx9vwJG/SDs3v8shQr9AKSD2qKoPUOob6HA==
+	t=1795200437;
+	b=topNzUJdIRzkmI5vJUTNuEZfUCVSpFP5PPGn4W/4w3e4lEzapfZSYqVVxm+68GtK3xCU
+	 51qQbG33FXG33y+XGjnWq3921wM001FyU+szuPARzSZdkhANxu1jnbm/+XGG9ECqb7xaW
+	 ppfx4j18cLyqfrI9wEdAztJILfQU+ucym8nA10vPOXwqxoPD/R/a5lcUCG1yJ88NC114u
+	 v/ESC2oi1ftk59bwaLR8buVZeOk7QiiE3Xyyo22+OKXXPWQj03izBLNF71bGP7+MdEqLb
+	 il0CPpydSb4oRsSwjCUJ16NoNIQxSi4f88mutlmopnumOWbO01VZahOU/B9uIMgIVSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200365;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=SkASd/qNBkxxFs06CQ7eeDuHU5EZJ14PhndgF/1gZLk=;
-	b=yYTUjb92f/X5iZsiObuLcZ6ZcrqpRYWWQ+ha1PLK7ll8B2eaSlAB2GMpWxo7WPzuxT2d
-	 4E4y2rfI0sMtmo2G9TYoDyYLctsdg4UT4RwFiFDcu3SIyUCLqz01nprkuFWLB/8wgoesD
-	 H2WiPEn6kd3M4QBf3epC6G1/56ked61ADWyc6KybYfqKDBvjX9RYu8P6Z9knTMEfiZ4gz
-	 42Rh+1NN38lan9OVVwrv1NT9GLgFjNvH6tpI1yi6cQS/GR2t+3mUlo7W+WP5ScgIYGZz8
-	 YP4E2Wj6cDGeZBMEeoIw1DVGpf/lKAnMwo0xAGinl5/5zDeQKUkPBdlSPuKvR62rPjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200437;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Debian-User;
+	bh=QvNQ8UvOrZsTAC+SyQ2hsqhbrbCksakJyw3ueyHejds=;
+	b=Eah9p+M9u9os+jdE1BVayIBwEiJOV+AsestAzD+bXFi/158lzjEO2gkIOUoUTdPxb0q6
+	 652nKVS0nvoFSWmanlaA+R8fAwE+GEP3laPl0ZJy45rTQAzpshA7+BAskkOeG6fiyspcG
+	 kB+aMIfrC2LzlYYt77nZVysxPc6KupFJEu4PuW7FGEHlkTFKPJk2hnhozwZ5KVGufaJaz
+	 u68KdD0GsUHFHag+oBgUu+uwyn+6MuP6RTeGa/ut2KYgqHrZ4IJMzrDVa305rnrSkKoxx
+	 4cKAGBnaQqlEIyhav6pgnM0K1nuBHepzore7h8IPMtDX1YfGBT7d9yibAvr7SvW9HTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xteX8paw;
-	arc=none smtp.remote-ip=95.215.58.234
-Received: from mta1.migadu.com (out-234.mta1.migadu.com [95.215.58.234])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=Qvp9Juu9;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9849A606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:46:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9849A606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D63A660A2616;
+	Fri, 20 Nov 2026 18:47:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D63A660A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xteX8paw
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=EIH8iRjUa5W8iIljbsoNc3X3NMc7UBZb7RaLAO5PA7Q=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795200362; v=1; x=1795805162;
- b=xteX8paw+ARfkgWbet8X09Evv26cs5EIroZncU8VebEyko21SLXFuqQopFNDRI5Rp+9Y7q9z
- F9jFhP9hDVF8R1Q9uz5oqd927vDR9LrwdIgO8jyir3PqpAce6rlxYOHq6Y7ypz8mfwr7pX6Qj5v
- 5KLtbjsco4dPS5i71wM2IhIA=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 23cfc07e8818ea36;
-	Fri, 20 Nov 2026 18:46:02 +0000
-X-Mizu-Trace-ID: 23cfc07e8818ea36
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <97e94491-ce19-45a1-8737-b30b49e997e8@linux.dev>
-Date: Fri, 20 Nov 2026 18:46:01 +0000
+	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=Qvp9Juu9
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QvNQ8UvOrZsTAC+SyQ2hsqhbrbCksakJyw3ueyHejds=; b=Qvp9Juu9QuNwr+hsllXSMbOi7N
+	tomwb50LiQzZk0ut0yYeQlOwOTHsJc1sTfcNsXdQkU1skkMe2djrrKIC/Hs7VbsTUPMDu72GN2q4g
+	x/TEGMAs3t7tht0sw0zsdTZmMfXJb/vH1N/Joox8iggaL6N2plPAnkBFV6EI1r7ZC1mh4FgRA/ZjW
+	PeGBqUTILnmsJC518yfaA+yt0hw8qz1lvsBf+3Pr+G2rPtdxpQfXRRjo8cKYAjplMgzxlS2/MeBGS
+	lARmEx9solW4xl4eQyKiMsPH7kpSNGFZJJe38yRCydgJAZxciLqFlsOIeA6ym13ZHYVziYCQ/D4qN
+	wgHrJaKQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xUTdW-0034bG-3A;
+	Fri, 20 Nov 2026 18:47:03 +0000
+Date: Fri, 20 Nov 2026 10:46:58 -0800
+From: Breno Leitao <leitao@debian.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Christian Brauner <brauner@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] bootconfig: Free the initrd memory used by bootconfig
+Message-ID: <awCVkOPTQaQUHANF@gmail.com>
+References: <179495924003.237695.10973676765152260584.stgit@devnote2>
+ <179495926058.237695.12800083196053168375.stgit@devnote2>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,184 +70,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
-To: David Laight <david.laight.linux@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org, hpa@zytor.com,
- gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com,
- nathan@kernel.org, morbo@google.com, justinstitt@google.com,
- linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
- linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev,
- kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev,
- dgreid@meta.com
-References: <20261119213147.1094488-1-usama.arif@linux.dev>
- <20261119213147.1094488-3-usama.arif@linux.dev>
- <CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
- <20261120113825.234bee1c@pumpkin> <20261120124252.14ff8a74@pumpkin>
-Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261120124252.14ff8a74@pumpkin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179495926058.237695.12800083196053168375.stgit@devnote2>
+X-Debian-User: leitao
 
-
-
-On 20/11/2026 04:42, David Laight wrote:
-> On Fri, 20 Nov 2026 11:38:25 +0000
-> David Laight <david.laight.linux@gmail.com> wrote:
+On Wed, Nov 18, 2026 at 08:47:40AM +0900, Masami Hiramatsu (Google) wrote:
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 > 
->> On Thu, 19 Nov 2026 14:28:04 -0800
->> Nick Desaulniers <ndesaulniers@google.com> wrote:
->>
->>> On Thu, Nov 19, 2026 at 1:32 PM Usama Arif <usama.arif@linux.dev> wrote:  
->>>>
->>>> With KSTACK_ERASE, every return to user space poisons the part of the
->>>> task stack that was used since the previous return. The generic
->>>> __stackleak_poison() does that one word per loop iteration, so a syscall
->>>> that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
->>>> running many small VMs, stackleak_erase() accounts for about 1.5% of
->>>> non-idle host kernel cycles.
->>>>
->>>> Override __stackleak_poison() on x86-64, as s390 already does, through
->>>> the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
->>>> specific stackleak poison function"). Fill spans larger than 512 bytes
->>>> with REP STOSQ and keep the word loop for shorter ones, where the fixed
->>>> startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
->>>> about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
->>>> slower.
->>>>
->>>> The fill is inline asm, so the noinstr function still makes no calls.
->>>> memset64() would be the same instruction, but it is only static inline,
->>>> and with KMSAN it is an out-of-line function.
->>>>
->>>> In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per return
->>>> to user space (71 ns to 46 ns, scan included) over a futex, epoll, procfs
->>>> and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
->>>> sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
->>>>
->>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
->>>> ---
->>>>  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
->>>>  1 file changed, 25 insertions(+)
->>>>
->>>> diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
->>>> index 77488ff5eb8c7c..049231d484ad0e 100644
->>>> --- a/arch/x86/include/asm/processor.h
->>>> +++ b/arch/x86/include/asm/processor.h
->>>> @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
->>>>                                current_stack_pointer) < THREAD_SIZE;
->>>>  }
->>>>
->>>> +#ifdef CONFIG_X86_64
->>>> +#define __stackleak_poison __stackleak_poison
->>>> +static __always_inline void __stackleak_poison(unsigned long erase_low,
->>>> +                                              unsigned long erase_high,
->>>> +                                              unsigned long poison)
->>>> +{
->>>> +       unsigned long count;
->>>> +
->>>> +       /* Short spans do not amortize the startup cost of REP STOSQ. */
->>>> +       if (erase_high <= erase_low + 512) {
->>>> +               while (erase_low < erase_high) {
->>>> +                       *(unsigned long *)erase_low = poison;
->>>> +                       erase_low += sizeof(unsigned long);
->>>> +               }
->>>> +               return;  
->>
->> gcc 13 onwards makes a meal of that - https://godbolt.org/z/KPP4h8xz6
->> It does manage to unroll the loop once - which is good because the intel
->> cpu (I've got) won't execute a 'one clock loop' (the zen5 will); but the
->> setup code is horrid.
->> But I also think some of the more recent cpu can execute more than
->> one write per clock.
->> If you unroll the loop 4 times it may run a lot faster.
->> Perhaps:
->> 	long count = (erase_high - erase_low) / sizeof(unsigned long);
->> 	if (count <= 64) {
->> 		while ((count -= 4) >= 0) {
->> 			*(unsigned long *)erase_low = poison;
->> 			*(unsigned long *)(erase_low + 8) = poison;
+> get_boot_config_from_initrd() removes the bootconfig from the initrd by
+> decrementing initrd_end in place. However, the whole initrd including
+> the bootconfig is reserved, e.g. reserve_initrd_mem() reserves
+> [initrd_start, PAGE_ALIGN(original initrd_end)), and do_populate_rootfs()
+> frees it with free_initrd_mem(initrd_start, initrd_end). Thus the full
+> pages in [PAGE_ALIGN(new initrd_end), PAGE_ALIGN(original initrd_end))
+> are never freed. This leaks up to 8 pages for a 32KB bootconfig.
 > 
-> The add (probably) needs to be in the middle...
->  			erase_low += 32;
->> 			*(unsigned long *)(erase_low - 32 + 16) = poison;
->> 			*(unsigned long *)(erase_low - 32 + 24) = poison;
->> 		}
->> 		if (count & 2) {
->> 			*(unsigned long *)erase_low = poison;
->> 			*(unsigned long *)(erase_low + 8) = poison;
->> 			erase_low += 16;
->> 		}
->> 		if (count & 1)
->> 			*(unsigned long *)erase_low = poison;
->> 	} else {
->> 		...
->> 	}
->>
->> Except that gcc makes a mess of it again.
->> I don't think the 'erase_low += 32' is going to execute at the
->> same time as the last (two probably) writes so costs a clock.
->> So it may need to be asm.
+> Save the original initrd_end in initrd_mem_end when trimming the
+> bootconfig, and restore initrd_end before freeing the initrd memory.
+> The bootconfig data has already been copied by xbc_init() at that point.
+> The trimmed initrd_end is kept when the initrd is retained, so that
+> /sys/firmware/initrd does not expose the bootconfig.
 > 
-> I threw in enough OPTIMIZER_HIDE_VAR() to stop the optimiser breaking
-> the code. https://godbolt.org/z/nx477T4M1
-> gcc then generates:
->         movq    %rdx, (%rdi)
->         movq    %rdx, 8(%rdi)
->         addq    $32, %rdi
->         movq    %rdx, -16(%rdi)
->         movq    %rdx, -8(%rdi)
-> .L32:
->         subq    $4, %rcx
->         jns     .L22
-> for the code loop (clang is a bit worse - but should be ok).
-> I think that will be a 'two clock loop' on cpu that can do
-> two writes/clock; zen3 and ice lake).
-> For 'stack splatting' rounding up to a multiple of 32 bytes
-> will save all the 'remainder' code.
+> Fixes: de462e5f1071 ("bootconfig: Fix to remove bootconfig data from initrd while boot")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-
-The range can't be rounded: erase_low is wherever the poison search
-stopped, and erase_high is the stack pointer or the bottom of pt_regs
-(168 bytes, so only 8-byte aligned). Rounding up writes live stack,
-rounding down can write STACK_END_MAGIC when the stack was used to the
-end.
-
-
-> 
-> David
-> 
->>
->>>> +       }
->>>> +
->>>> +       count = (erase_high - erase_low) / sizeof(unsigned long);
->>>> +       asm volatile("rep stosq"
->>>> +                    : "+D" (erase_low), "+c" (count)
->>>> +                    : "a" (poison)
->>>> +                    : "memory");    
->>>
->>> Surely this isn't the only place using `rep stosq` in the tree, right?
->>> It's not, see memset64 in arch/x86/include/asm/string_64.h.  
->>
->> Which seems to have very few users.
->> memset_p() and memset_l() have almost no users.
->>
->> David
->>
->>>   
->>>> +}
->>>> +#endif
->>>> +
->>>>  #ifdef CONFIG_PARAVIRT_XXL
->>>>  #include <asm/paravirt.h>
->>>>  #else
->>>> --
->>>> 2.53.1-Meta
->>>>    
->>>
->>>   
->>
-> 
-
+Reviewed-by: Breno Leitao <leitao@debian.org>
