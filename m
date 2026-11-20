@@ -1,94 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=60.244.123.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158236;
-	b=eeQwUKlzKv82DKNhzvq8rb/DGsEBV0YVviont0n91PqruITWhE2PPj0O98u2AT20xbLs
-	 0YDP61o+iLDogzmfBKe7zpleDGsOvk4G0wJhdFud8CIeV4BpeUhFsIsugHTgLx5T/EJTM
-	 e1VIaReaxaxoLsHYb6RhNLzoo4f+3mBPgC2EG6AVwSzx1sFedQPZpc4GN12IsZkE7+kaP
-	 oWCpr3F1OqSibSJ8X0basGbUZO+jZRep6wQBAqJJp5jjxsUhWLL7oLNav3PnxWMjo6AVW
-	 RDatL3KoQbJEqZGh/bmj2fGV6dE66jK6v0TZLbyIvRXriWeNv+ehDv/0iWU8tpy2b/g==
+	t=1795158246;
+	b=W1JYjepFc8iCBMnX9B3gf3NaIcuNMbTJJhlYFtiyFBI6BINTQyTHP30CUJgu1t1BfHIt
+	 0Wyb0E6ZcF1htLDv6f7v7q55pL2qGJyBRf22R03i4YywFhlDwWmXoFF9JktPfCttrziCA
+	 98IcqXnCBkF7kOc4SS9cIieNhy1m0bMDW8QTG8IwNM1IrkOPbyTPJJFAT/pJHl6rDkYtd
+	 zcdYAM+kIXdIlzXX4mEiEZ0MgoikI3mZ3qRCusTnSaFEp1FaNxQXA3hGPAUKshxsSI2JZ
+	 JYhHDnt0bJAkMQ/gr8bFuV264nSqmhVy9LQPWN4Ffgvy+dMnm8oPnHIm6f8xr1Z6A/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158236;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ZR4A6YUH4hCv1AIMj7A+LPbhIN+DuoZDEw4O6M9OAVM=;
-	b=GXeCaE59m2ulDdzqQH96xCHxt2LZgGIgsQqgGJnvN+x04lL3Lawj9qD3nPCsZ1ZomWkU
-	 3AZz2dRKPcTCrIEtEZWsKKYSrRGT91wEmPFF8MV9xy9zYXYeL/0Mkr6lvaryPUoQuGGF1
-	 8uOFOXc6ntPshTfFXiGQqCe7NXnKpuH0ggt1UlBcmUuSqj+C4tjSqF+VFlvKdWtFPgMdg
-	 qKhhrIppkO0SYXuO+A4h3mOzt00J6hit+cg33lk2joDWQN+Z4lR/nKT1X2O8Xi+ZQ09Ko
-	 i+ILHleCp1u5e8ZE36BU8tWKdqZarhf1gaNv2oJWt/Bm88PvCPr6rC05lirAAHRkEtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158246;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:X-MTK;
+	bh=iQd0szpodWCkedCEQ6y+wHscJHQCmXAqsdXrKfYkri4=;
+	b=kFAh8lGgAm0wYYJKJ/mcyERsk9QGAevmR7VQLiRYMiZV5Q3qQ89yVM9LY7KMD3BXVCIe
+	 MTidupo1uzlxXFloBb9ryHuMjEATxXI3hRDtPIP9xE9L1xYSDG9623STNqlAx521i/ftZ
+	 toqGSQF7OXnT5XdnJQFScFDyRDIApLq9GeQfzUq108rvuEAFBlKM4ahIo9vHfakc/10VS
+	 N5du3OrCaHor6KIeRjXVAvQ4WCDA1iCzsE31UJyojdcPgR7Qe73w/pVrciVJ0qECfKLUe
+	 32hTzBnIcqNR16EU1EhNuIwXi0kI+WoELdk6+G4ku0LoTfkYKShkcVPPn0itE+fJBbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wkennington.com;
-	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nj9ywtiZ;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=airoha.com;
+	spf=pass smtp.mailfrom=airoha.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b="L/emeiig";
+	arc=none smtp.remote-ip=60.244.123.138
+Received: from mailgw01.mediatek.com (unknown [60.244.123.138])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 470F8606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:03:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 470F8606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29625606A320;
+	Fri, 20 Nov 2026 07:04:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29625606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=airoha.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=airoha.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nj9ywtiZ
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f041f88577so3440875ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:03:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1795158235; x=1795763035; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZR4A6YUH4hCv1AIMj7A+LPbhIN+DuoZDEw4O6M9OAVM=;
-        b=nj9ywtiZS2EuwcSsgBzz4ba4pM3CQiOPTIbo3sADrS3FLCDXMtI+bZQKRJT2g+APeG
-         FigZ8jXZuaLKrVogkOIYteQVFb+lDZRpecRRfMfKpcWZcz6diK9yD2xwj/MNUwONcWSH
-         TLdMKpoZw4XhlJYy08mu4X7knrpc/5T/BRhx7jHXYyIVykFVcUmyHFkzXvwEsMghOAGO
-         WO3TVUgk/Nc8z59XfZcJx2tHXV+dtxZJjIKxyPtppu63MsfT9YgbhiACVUl9ICUizZJU
-         NpHCh1etz/FvUSU1Yn9mu6WERV19UNoS0dQ8P5wKud7F/WmbJVWdWSn6H9KTuQnuOrdw
-         W6jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795158235; x=1795763035;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZR4A6YUH4hCv1AIMj7A+LPbhIN+DuoZDEw4O6M9OAVM=;
-        b=PHe+BEDTmzNC81QKfo7XtxjVpAMa0g7l3DNe2KV5s40/7jIZYy0k0esd0SVNHGxZz+
-         Qhl8DTZam5UvH3WUtigzybzLVfqWLtMNITPLe5h4470qiIkjo/IU87V+Rw2EZ8QzpBdO
-         lqAXExyw/SpM4qjKq061oRP8pUIVg9Z4ds7ai7yo7TN9vLlPSbgA4oOBcLZCckuDsXeY
-         2vzg5/+f4e7KG59519qsRir1+p5/Rcvj0PIKYC70n949c+t0p1eIv7QRjr8v2iFkX1hD
-         XehJP1rYNMsoo+uIc65eUrghV8sOYKeEk3YslSeW5QCW773khJH5ihGIU7weN9GjOmK3
-         ZtSg==
-X-Forwarded-Encrypted: i=1; AL+hErF9l7HtDV8Uh6RhLBpeZOIPOGm+GJEJEoNaSXMdn3B0GZse3pFcJVEDSh8u+Kyj+6ET3/0PxFd8SF7DfBc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Skwhy2W+vpXItLbkqSpjr/YVfB5ELW0upHUNx5/i0lr0ce6V1
-	qhw64XmhkloVxKnHc/wEtKQ81Gk6CetIkPkEoskFr85PJep9CjAnXHcQ01yfB2APxEQ=
-X-Gm-Gg: AZFdTZfXI2NJy71PUZH5cvxjxukvKpWBkoagSioWo7SIf7N1LAWJR3ProjiRfhIQciv
-	VS4Fw5RGdJyIq8jgNAFrR5DGB2M/o7mGO+Axm8W4VwLfWhQYcqxytICdO++EW5uIiIR5Ev5ItmE
-	Bdn31v10c2zL08VnGjaDcaa9Y8dRadavYytPBAQ76zdLARpyGzoUq7b19K2fu+5rTj4EX3LpwaD
-	gm2uEY/cWRwT0qkdN3ZUMEhjW6RO8XSlSjhvhIt79De9qEDY27f750dM9ucpkqv9Srk0bEuHuxx
-	tmQmucj0dg+1Ynp8VuSWcWLpheju+jAgOPt4qTqpBKY1jYhuDx81Dc+HLDATAqXJz7gkR/ZVT+p
-	eW4L/ft2XoG7YQBTR945nIx706CrbutlmR2v4quE51bxvoh/ypBKyNWnfDliX4bkDXseuvRxzy+
-	kkjx7zt77m14Z/tlt8hlbslBmGVMGSOqIy/7rWx3IpyjY+Wc+hMkplAeab/OW3TYJFE490aaV4L
-	sWw5QLEMnXOX0YBs9H7e1VT7Z5uf0q0P9OnBxnIB1Cx0rms/H+1zo6c+sH42Zl5tPiRPOEvQh6s
-	n45nk1Ed+KHeSy6MLAvOJsNkPd+sn4WmeFyEytiKuJRVOiprO0Yp7+R1qkDmVoGxDL3qeEqJzFd
-	rdKKPmiYYd0d2Vl2QOaIg5LoCmE0FTkTXh3o=
-X-Received: by 2002:a17:902:eccf:b0:2e9:64b9:a333 with SMTP id d9443c01a7336-2f03f17c766mr24418635ad.19.1795158235021;
-        Thu, 19 Nov 2026 23:03:55 -0800 (PST)
-Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee844acsm10434305ad.2.2026.11.19.23.03.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 23:03:54 -0800 (PST)
-From: "William A. Kennington III" <william@wkennington.com>
-To: Oliver Neukum <oneukum@suse.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Havard Skinnemoen <hskinnemoen@google.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"William A. Kennington III" <william@wkennington.com>
-Subject: [PATCH v2] USB: cdc-acm: refuse writes after disconnect
-Date: Fri, 20 Nov 2026 07:03:53 +0000
-Message-ID: <20261120070353.956978-1-william@wkennington.com>
-X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=L/emeiig
+X-UUID: 8b3b7d6ae4b011f1b1788b6acf885367-20261120
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=iQd0szpodWCkedCEQ6y+wHscJHQCmXAqsdXrKfYkri4=;
+	b=L/emeiigxAoj+4EhZZagBCq/pLrb5vXDCa6wdSs+0qxytjfLcGy2+hErnIjaNdOKZnoH/kdzirt/CAb5bYqx/eTeQ7UAUbjW1saaDZwzgRVzBc/9YnKfap2VzMXv4LK95+l4hsh1vuRi/n5xdhwnNjAugiTOgPpBAVIK4BHhpyc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:5c51ba4a-7192-4b52-bf66-73c1359d538f,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:b0318ac,CLOUDID:3e4819f7-eb8c-45c4-ab5e-2cec3871e65a,B
+	ulkID:nil,BulkQuantity:0,SF:81|82|83|102|836|865|888|898,TC:-5,Content:0|1
+	5|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
+	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 8b3b7d6ae4b011f1b1788b6acf885367-20261120
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <zhengping.zhang@airoha.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 694821014; Fri, 20 Nov 2026 15:03:52 +0800
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.53; Fri, 20 Nov 2026 15:03:52 +0800
+Received: from mediatek.com (172.18.153.129) by mtkmbs11n2.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Fri, 20 Nov 2026 15:03:52 +0800
+Date: Fri, 20 Nov 2026 15:03:52 +0800
+From: Zhengping Zhang <zhengping.zhang@airoha.com>
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+CC: <linusw@kernel.org>, <lorenzo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <brgl@kernel.org>,
+	<naseefkm@gmail.com>, <benjamin.larsson@genexis.eu>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<lei.dong@airoha.com>, <ansuelsmth@gmail.com>
+Subject: Re: [PATCH 04/12] pinctrl: airoha: an7581: fix PHY LED GPIO group
+ assignments
+Message-ID: <av_w2OD7cYYWNYRS@mediatek.com>
+References: <20261110094339.749110-1-zhengping.zhang@airoha.com>
+ <20261110094339.749110-5-zhengping.zhang@airoha.com>
+ <5e681d92-9772-42e3-aae8-47faacf6d850@iopsys.eu>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,111 +86,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <5e681d92-9772-42e3-aae8-47faacf6d850@iopsys.eu>
+X-MTK: N
 
-Commit 7fb57a019f94 ("USB: cdc-acm: Fix potential deadlock (lockdep
-warning)") stopped clearing acm->dev in acm_disconnect() and replaced
-ACM_READY() with acm->disconnected, but left the write path checking
-!acm->dev and dropped the disconnect check from acm_tty_write_room().
-Because acm_disconnect() frees the write buffers with
-usb_free_coherent() and acm_probe() only pins acm->control, a late
-acm_tty_write() call dereferences freed memory.
+Hi Mikhail,
 
-This can happen when a CDC-ACM device disconnects while a file
-descriptor remains open with a line discipline such as mctp-serial
-attached. Hangup closes the line discipline, but a subsequent reopen of
-the hung-up TTY calls tty_reopen() -> tty_ldisc_reinit() from the saved
-c_line before acm_tty_open() fails with -ENODEV. Because the original
-descriptor keeps tty->count non-zero, the reinitialized mctp-serial
-instance stays attached and faults in memcpy() inside acm_tty_write() on
-the freed wb->buf when transmitting.
+Thanks for checking this. Could you please share the version of the
+7581 datasheet (sometimes also referred to as the Programming Guide)
+you are referring to, and the relevant pin-function table? It appears
+to differ from the pinctrl info available to me.
 
-Pin acm->data alongside acm->control until acm_port_destruct() so the
-unlocked dev_vdbg() in acm_tty_write() stays valid across disconnect,
-check acm->disconnected at the start of the write_lock critical section,
-report zero room in acm_tty_write_room() once disconnected, and set
-acm->disconnected under write_lock in acm_disconnect() so any concurrent
-writer finishes before the URBs are poisoned and the buffers are freed.
+The GPIO lists the eight pads as follows. The key point is the mapping
+between the mux bits and the GPIO pins.
 
-Fixes: 7fb57a019f94 ("USB: cdc-acm: Fix potential deadlock (lockdep warning)")
-Cc: stable@vger.kernel.org
-Signed-off-by: William A. Kennington III <william@wkennington.com>
----
-Changes in v2:
-- Drop READ_ONCE() and WRITE_ONCE() on acm->disconnected to match the
-  rest of the driver (Oliver Neukum).
-- Link to v1: https://lore.kernel.org/linux-usb/20261118145636.3534234-1-william@wkennington.com/
+GPIO    Function           IOMUX control signal    SCU register
+------  -----------------  ---------------------  ----------------
+GPIO33  LAN0 LED1           RG_GPIO_LAN0_LED1_MODE  0x1fa20214[4]
+GPIO34  LAN1 LED1           RG_GPIO_LAN1_LED1_MODE  0x1fa20214[6]
+GPIO35  LAN2 LED1           RG_GPIO_LAN2_LED1_MODE  0x1fa20214[8]
+GPIO42  LAN3 LED1           RG_GPIO_LAN3_LED1_MODE  0x1fa20214[10]
+GPIO43  LAN0 LED0           RG_GPIO_LAN0_LED0_MODE  0x1fa20214[3]
+GPIO44  LAN1 LED0           RG_GPIO_LAN1_LED0_MODE  0x1fa20214[5]
+GPIO45  LAN2 LED0           RG_GPIO_LAN2_LED0_MODE  0x1fa20214[7]
+GPIO46  LAN3 LED0           RG_GPIO_LAN3_LED0_MODE  0x1fa20214[9]
 
- drivers/usb/class/cdc-acm.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+On the AN7581 EVB, I tested the configuration assigning lan0_led0
+through lan3_led0 to GPIO 43 to 46, respectively, and observed
+working hardware-controlled LAN LEDS. Register readback during testing
+showed:
 
-diff --git a/drivers/usb/class/cdc-acm.c b/drivers/usb/class/cdc-acm.c
-index 666969ffd194..1d594ddabfaf 100644
---- a/drivers/usb/class/cdc-acm.c
-+++ b/drivers/usb/class/cdc-acm.c
-@@ -762,6 +762,7 @@ static void acm_port_destruct(struct tty_port *port)
- 	if (acm->minor != ACM_MINOR_INVALID)
- 		acm_release_minor(acm);
- 	usb_put_intf(acm->control);
-+	usb_put_intf(acm->data);
- 	kfree(acm->country_codes);
- 	kfree(acm);
- }
-@@ -848,6 +849,11 @@ static ssize_t acm_tty_write(struct tty_struct *tty, const u8 *buf,
- 	dev_vdbg(&acm->data->dev, "%zu bytes from tty layer\n", count);
- 
- 	spin_lock_irqsave(&acm->write_lock, flags);
-+	if (acm->disconnected) {
-+		spin_unlock_irqrestore(&acm->write_lock, flags);
-+		return -ENODEV;
-+	}
-+
- 	wbn = acm_wb_alloc(acm);
- 	if (wbn < 0) {
- 		spin_unlock_irqrestore(&acm->write_lock, flags);
-@@ -855,12 +861,6 @@ static ssize_t acm_tty_write(struct tty_struct *tty, const u8 *buf,
- 	}
- 	wb = &acm->wb[wbn];
- 
--	if (!acm->dev) {
--		wb->use = false;
--		spin_unlock_irqrestore(&acm->write_lock, flags);
--		return -ENODEV;
--	}
--
- 	count = (count > acm->writesize) ? acm->writesize : count;
- 	dev_vdbg(&acm->data->dev, "writing %zu bytes\n", count);
- 	memcpy(wb->buf, buf, count);
-@@ -890,6 +890,9 @@ static ssize_t acm_tty_write(struct tty_struct *tty, const u8 *buf,
- static unsigned int acm_tty_write_room(struct tty_struct *tty)
- {
- 	struct acm *acm = tty->driver_data;
-+
-+	if (acm->disconnected)
-+		return 0;
- 	/*
- 	 * Do not let the line discipline to know that we have a reserve,
- 	 * or it might get too enthusiastic.
-@@ -1400,6 +1403,7 @@ static int acm_probe(struct usb_interface *intf,
- 	acm->data = data_interface;
- 
- 	usb_get_intf(acm->control); /* undone in destruct() */
-+	usb_get_intf(acm->data);
- 
- 	minor = acm_alloc_minor(acm);
- 	if (minor < 0) {
-@@ -1627,7 +1631,9 @@ static void acm_disconnect(struct usb_interface *intf)
- 	if (!acm)
- 		return;
- 
-+	spin_lock_irq(&acm->write_lock);
- 	acm->disconnected = true;
-+	spin_unlock_irq(&acm->write_lock);
- 	/*
- 	 * there is a circular dependency. acm_softint() can resubmit
- 	 * the URBs in error handling so we need to block any
+  SCU 0x214: 0x000042a8
+  SCU 0x22c: 0x00000000
+  SCU 0x27c: 0x00043210
 
-base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
--- 
-2.56.1.750.gf70dc682cf-goog
+The LED-related bits set in 0x214 are bits 3, 5, 7 and 9, consistent
+with the GPIO overview above.
 
+Could this be a naming difference between the documents? the key
+relationship is the GPIO pad controlled by each SCU mux bit,
+together with its LED mapping register and PHY LED channel. The patch
+aims to correct that relationship, rather than rename LED0 and LED1.
+
+I would like to reconcile the documentation before deciding wheter
+to retain or drop this patch.
+
+Best Regards,
+Zhengping
+
+On Sun, Nov 15, 2026 at 05:02:12PM +0300, Mikhail Kshevetskiy wrote:
+> according to an7581 datasheet
+> * LED0 uses GPIO33-35 and GPIO42 * LED1 uses GPIO43-46 so patch is not
+> needed
+> 
