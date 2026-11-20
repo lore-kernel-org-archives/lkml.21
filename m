@@ -1,85 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216238;
-	b=nN2mWO7xMuoa/6BQzFwj9ZRuVhVeRWsK2iyEUNTk8fD4+JmcwAA5PBa15NXXqjcXSIeN
-	 Apx9iRKR6z/og3bFF9daDLAON2al8rp7K8kCHRFIVXWWqNbXGzWC6MgIL4u3AV2k0yrka
-	 VmOU8UWjAeljR+Dp4ZSNlgH8hGJscCffqg/8WlDcNLgicNxP/nrdEe7sYATfimG3DZonF
-	 OoyXFDFKWDsSPLWDNH3mlHwjZk337+wZ9vjr90oVyKoPi//S3Dd7o8m+Pb+ALdo9BlmsX
-	 QuqXI4L/qDlZ9hHl090JrIjyItx9zmGO027UlaCpHjdflf6aJy8Vx7qF9vLTREgGAUg==
+	t=1795216428;
+	b=WekAT/LPJnBnTyMoqvUGT/t4K11DkaILlhvpkxrz7WnFv84p5iaw2D/HhY0+F0ruPIKc
+	 p93tIGp5rIjkmF3HGQO98AHXNo/DSKOJp/nDvNuzkScnbeQ1UuNBfIY+ig9QMkLDP9ZOG
+	 yRJ6hJfu+nTU0CTirKa9NXRx21CljykNLUGlJWeDEZS3ZfGo+jYgJODO1w/gguppqFqDv
+	 ZGrZYsQb2qzAYzBcie5JECPzQEjV8GaTwieGTEmKnI+zAGyMA1rLMyZKz1BJ4atn8NKL7
+	 XlpRsinPM50jL3LMwkYXBQUmAqU69JI7pprHolhKo3Hd+mIOsOyBdLZOsH4Z1IBMNPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216238;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=H7IgPj/cGkUGfI22HQa4cXM5+YTMvEzdbQOzvIOqNzM=;
-	b=HdpJK6zSkkgcfj43xzJ8E5OBnoIlfA7WgzLUbvvUlg+XYFLlUogirkViztg4QV3YrllZ
-	 BpfpWziErUGRLS/IiIQQrrB71Ap0qo8lzF6H455z5jqmFcY6eHdmcnRRIk1o6LKNMZsw5
-	 3EUEvNYSTu54hRgVu6liHCaNF1xMzoLavQtfve9XKlyyiQAFCHWxf8FBN2GrGbhDppC6V
-	 qIwLl197TLK2NWHPnR5ZLHkDZro87/TzuY2UxHKns/H/k5DD5YmeS/OEjixM04sJC2/zj
-	 dFWNwpLdFdrkNAtkUsWFl1FJlt9esZzkWwe8Y47TwrkIlBwvd2my1NOMyBoBvgAntmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216428;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=ivVh0a31rtiZv8Of/UYSSj04P/7JrnjrfkqBrVy67PE=;
+	b=QYrCp3IJw7Nok15dI1T1kTmwcd6/xn0gkTut/Ju3zAaJj2g960we3weUOQKNAuhEbe0E
+	 /trMTpQ1BgTm1/ASMkOQdFLa97avfb+DB1/C5VAT+dv31YyDwmIFVfrKEuW7F9qCY6oiU
+	 8H3bGTZlNnR/notLKY3OQaUZ2loDHalbyr2W0xeKp2JxKZ0MVf32jLQCotXdlulSe84Qy
+	 KQDdsNvnYYx3TYk7YNku0g6SD6oeYhKO9dlhXbU5aY1HDga66KJDvI55KWO7REC61YT0m
+	 TaY4hVzsaAqg0+tOVcNUL/cqdDUoN9Zpev8G9/QamT3mmbsGxwI6ekmlrQsK6uOqrpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linuxfoundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=VL7HSqlQ;
-	arc=none smtp.remote-ip=209.85.167.178
-Received: from mail-oi1-f178.google.com (mail-oi1-f178.google.com [209.85.167.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=roeck-us.net;
+	spf=fail smtp.mailfrom=roeck-us.net;
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=bP3ktZhf;
+	arc=none smtp.remote-ip=44.202.169.39
+Received: from omta040.useast.a.cloudfilter.net (omta040.useast.a.cloudfilter.net [44.202.169.39])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68CA9606A6AC
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:10:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68CA9606A6AC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA4D606A690
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:13:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA4D606A690
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=VL7HSqlQ
-Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-4af81963f35so960060b6e.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:10:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1795216236; x=1795821036; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=H7IgPj/cGkUGfI22HQa4cXM5+YTMvEzdbQOzvIOqNzM=;
-        b=VL7HSqlQMHG7OiXxOaPDemnt8QHXpLfmPyRnEgPeBCXL3Q0dJk3S6iJ+MKGG326ZSl
-         fKtFsA/X3fJXQoA7O7e6nFpjzg5nWlIT6+dzXuxysJFifySuUzrLtHNirR4oR3RJdu7M
-         BHc0r3gIMJVUKE9xX4ke3uSHmbdTyANQLJvgs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795216236; x=1795821036;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=H7IgPj/cGkUGfI22HQa4cXM5+YTMvEzdbQOzvIOqNzM=;
-        b=p3BDTFUzjLV8rxDjvdb08lazTc6zTtv4FBAw8BsiBqtF3fP27Tx00LwCOG4w9FRdUh
-         /uuPpbuYdGpA7Oojo/ijNx4Vi4gGP3Mxa0CvPBlzAknIPFP9/mQfjC+tJOjVO0Lij0+/
-         kxyBZ1dkTWQFAKTeI63ulZwnmo3huw+K+FXR6z6CyWfoVXqXy52XHa6gssMNpajj7R0y
-         lIRnF/ZYEa8P+JDiOtaxdSy4Xfubdk/fvNTk7Whq7XYyvafR+jeI+PsRZgX2GNcw3njY
-         bWGVRpYJSDxcs/VUfNTP0yNk18/lrqvUqw+b6+uCM1sVk/EEf9t9UFSlbKR1kb8xDuIm
-         IqOQ==
-X-Forwarded-Encrypted: i=1; AL+hErGo3nQbcvvZPGSid+gdLPvnqvznrgmTSHACXfZd2Rug9qa5n32JGS5/NuXNOmhtNNTf9u0GC2lZ2SpLm0E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CjI+Xm4Kji0RCU7DrCnI2tg/8GOME7W1Tvgt1KFsD0pAridKe
-	4GnAo/p82jo2SsOMOG2TmkHWcWiw1STNRhz4GCmRhqXYryr/vPZfsydec7DEK0CNhEw=
-X-Gm-Gg: AYBFou01dwEhdhqwdYHO8Rjt6TMK/8t3QOvwwSSXwDIwWWyMPn4G5nbqgnWprwoVfhi
-	pHIOJcnnxbXJiOGHMKoLIM7DAClx3c3Ev72OIF+Sqgyg4gDZ6nho4x8Bi/s6iLGZcUauIuyt40C
-	+Eolm99EAL99CzO6Fud12OncCCeC0DB4xo4JNoaS1cGyU0vJBizFH9NKVtkD4ZnpqsfDX37fdw0
-	im7ys4kfWplrfH+4NFybXbUrQIIJrWWr5F8GumG6+B0UCUks6rwj5TTs5LlI4USS5XokDgQTfjc
-	RoKGk/uet/EyFQJkbG711elA6ME47vsj29DvMiOPDVBIPkFYO/J0IJkHMgt+dZe02Iwf2//KbOB
-	7QMTtKHLF7XBe5zznDTgJWaidbZ2X4VFZcREZoPUDlwo14TW5u/taYvvPE/2ck3vlev+GG0jOgS
-	px60/Td9rSNE9ZJKfyme1N4+HrIycFR5EEkU8pcr3w2a6DbeWuGXDdUdEa0zSOJ7HEjtdM2Wm/Z
-	AeLmTvAyaqEsPCLne61pXMFSnS55Nsd8blPIfKYIZoa7RvuBFHQl7IRl8yibnCGtdLOyiK63MQE
-	Mr/YYVQGji6TyAUkKzp/ICe9VXeta5uMahIjnw==
-X-Received: by 2002:a05:6808:19a0:b0:4d7:17d5:6c9b with SMTP id 5614622812f47-57a06d19fcamr4954554b6e.9.1795216236254;
-        Fri, 20 Nov 2026 15:10:36 -0800 (PST)
-Received: from [192.168.1.128] ([38.15.57.99])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-57a34250fa1sm3068142b6e.5.2026.11.20.15.10.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 15:10:35 -0800 (PST)
-Message-ID: <8c9cdfcd-4520-48c1-ad58-c8b90518ed35@linuxfoundation.org>
-Date: Fri, 20 Nov 2026 16:10:32 -0700
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=bP3ktZhf
+Received: from eig-obgw-6001b.ext.cloudfilter.net ([10.0.30.143])
+	by cmsmtp with ESMTPS
+	id UV83x81U8OOJnUXnVxpgdY; Fri, 20 Nov 2026 23:13:37 +0000
+Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
+	by cmsmtp with ESMTPS
+	id UXnUxxO7edRrRUXnUxjzNW; Fri, 20 Nov 2026 23:13:36 +0000
+X-Authority-Analysis: v=2.4 cv=LOhmQIW9 c=1 sm=1 tr=0 ts=6b00d420
+ a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=Y_4GkthKQrV17t-anMIA:9 a=QEXdDO2ut3YA:10
+ a=KPbNTLLc3YvdawN95zVk:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
+	List-Archive; bh=ivVh0a31rtiZv8Of/UYSSj04P/7JrnjrfkqBrVy67PE=; b=bP3ktZhfItD+
+	cjT9M9X24SsysF11MCOtXaS54iXh+5ONE/XvAgv4FXzRD5zZugi8aTEtuTGRkAYbUzSbbeFzE4mAs
+	WeYgvfhZiEPwPgf9wEbjWSGFAA/jmxDN51HPgq3glwta3b7n4bnniB0msQYlmuf2Kyo9g1OuzwLOf
+	9QbfGTB472jtoPlZXsmKpVzjY2JWb3m8rs8K22DZ79IE34B8j2VC93rUElYPv5sDhDT/b/nXTsFai
+	c4PMN0xhp2dD+dglPTR/h5onmjvDCqaGjNqjGILOTgUNWQSmEBjzI89+TNKyOm44vm0g8MzT0hjO2
+	pKfkr0ufwqssD9+W2w35jw==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:43994)
+	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.100.1)
+	(envelope-from <linux@roeck-us.net>)
+	id 1xUXnU-000000030BU-1Hj0;
+	Sat, 21 Nov 2026 04:43:36 +0530
+Message-ID: <8710a71f-a2fe-4dd4-83b1-8ca2cca00985@roeck-us.net>
+Date: Fri, 20 Nov 2026 15:13:35 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,60 +77,112 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7] usbip: make remote list honor parsable output
-To: Jason Colapietro <jason@suedeai.ai>
-Cc: shuah@kernel.org, valentina.manea.m@gmail.com, greg@kroah.com,
- i@zenithal.me, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <CA+Z0x2JTGOsnu7gNPWBfxCZD0vesbezJ7-yhT1sOOuUdmdcQRQ@mail.gmail.com>
- <CA+Z0x2+wLqeT84WGYsWQ1bPu1mz_A72_Ka3vv9u6RHdtQvc_Xg@mail.gmail.com>
- <96eedd54-7d2d-49a8-97a4-44342460c9fc@linuxfoundation.org>
- <CA+Z0x2KoEghFkYKmXckq3ezLo5bvgHJ7yG=JqjHu6Ga3t1wuew@mail.gmail.com>
- <1557ed70-d2da-424c-8ba6-10c898bbb81c@linuxfoundation.org>
- <05047d41-499a-4e96-ac64-bebdc0b330c9@linuxfoundation.org>
- <CA+Z0x2J9iCWO8aaGaLBOf-pK6vaCpatQH-GORPRaJMn6NgZJeA@mail.gmail.com>
- <CA+Z0x2J7S+0d=ceG3tnpkcB5nfEtNNzUcNkhVvJmzy=yHPb06w@mail.gmail.com>
- <CA+Z0x2L9ho_Yq-BCSy2hBhQP6Yp9pmMaC741_YSk==0vS_gmeA@mail.gmail.com>
- <dda50295-e49d-4424-bd80-32da6d562966@linuxfoundation.org>
- <CA+Z0x2Lg3d-BTQqeWiUjz6GN17QAsHsqhTWZcfA2szT2Jvrz7g@mail.gmail.com>
+Subject: Re: [PATCH] watchdog: sp805_wdt: re-enable the clock in the restart
+ handler
+To: David Yang <mmyangfl@gmail.com>, linux-watchdog@vger.kernel.org
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, linux-kernel@vger.kernel.org
+References: <20261120201029.1685193-1-mmyangfl@gmail.com>
 Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <CA+Z0x2Lg3d-BTQqeWiUjz6GN17QAsHsqhTWZcfA2szT2Jvrz7g@mail.gmail.com>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20261120201029.1685193-1-mmyangfl@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - roeck-us.net
+X-BWhitelist: no
+X-Source-IP: 108.223.40.66
+X-Source-L: No
+X-Exim-ID: 1xUXnU-000000030BU-1Hj0
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net [108.223.40.66]:43994
+X-Source-Auth: guenter@roeck-us.net
+X-Email-Count: 1
+X-Org: HG=direseller_whb_net_legacy;ORG=directi;
+X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfA1NNFZAd5W1mCjPjj99aeGkpqB0M0hClyRNA/0wIbrRizRUkPriD18Nizn28VE47HyWpDfnziZm8ne9SXiykYNL0vNveP+JzY9xX9yWbVOI1ZCJB7L8
+ Oqre51MN3l/xVhbhFslbno1/jmUoJaFMk+gHtGiY3vSPbyRsnmY9WI1DBZUpJzS4TqBG7bs5kgpX2LkQezD/GObK4aYs2sqLyKer5THIFZx92JPXMXMgeq4S
 
-On 11/20/26 13:52, Jason Colapietro wrote:
-> Hey Shuah,
+On 11/20/26 12:10, David Yang wrote:
+> wdt_restart() fail to reboot the system if the watchdog counter clock
+> was previously disabled: If userspace cleanly stops the watchdog, the
+> core calls wdt_disable() which disables wdt->clk. No reset comes.
 > 
-> The issue is pretty simple. |usbip list -p -r <host>| shows the device and exits with 0, but it ignores |-p|. So if a script is looking for |busid=| to figure out what to attach, it comes back empty even though the device is there. You can still attach it by hand.
+> Re-enable the clock in it as in npcm_wdt.
 > 
-> With the patch I got |busid=2-1#usbid=46f4:0001#| from that same command.
+> Link: https://lore.kernel.org/r/20260911031916.A8E051F000FF@smtp.kernel.org
+> Signed-off-by: David Yang <mmyangfl@gmail.com>
+> ---
+>   drivers/watchdog/sp805_wdt.c | 3 +++
+>   1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/watchdog/sp805_wdt.c b/drivers/watchdog/sp805_wdt.c
+> index a14ff7ac0db4..20b2fbb7334d 100644
+> --- a/drivers/watchdog/sp805_wdt.c
+> +++ b/drivers/watchdog/sp805_wdt.c
+> @@ -138,6 +138,9 @@ wdt_restart(struct watchdog_device *wdd, unsigned long mode, void *cmd)
+>   {
+>   	struct sp805_wdt *wdt = watchdog_get_drvdata(wdd);
+>   
+> +	/* For reset, we start the WDT clock and leave it running. */
+> +	clk_prepare_enable(wdt->clk);
+> +
+>   	writel_relaxed(UNLOCK, wdt->base + WDTLOCK);
+>   	writel_relaxed(0, wdt->base + WDTCONTROL);
+>   	writel_relaxed(0, wdt->base + WDTLOAD);
 
-Thank you.
+This probably needs a fix similar to commit 4e83ea5b2219 ("watchdog: npcm:
+fix sleeping clock call in restart handler") - leave the clock prepared
+all the time and only enable / disable it when starting or stopping the
+watchdog.
 
-Please don't top post - it is lot harder to follow the thread.
+Guenter
 
-$ /opt/usbip-before/usbip list -p -r 192.0.2.1
-Exportable USB devices
-======================
-  - 192.0.2.1
-         2-1: QEMU : QEMU USB mass storage (46f4:0001)
-            : /sys/devices/pci0000:00/0000:00:03.0/usb2/2-1
-            : (Defined at Interface level) (00/00/00)
-exit=0
-
-After, on the same client against the same host:
-$ /opt/usbip-after/usbip list -p -r 192.0.2.1
-busid=2-1#usbid=46f4:0001#
-exit=0
-
-This change removes lot of details about the device. How is
-this helpful other than for a script that could be written
-to get these two pieces of information: 2-1 46f4:0001
-from the output.
-
-I don't think this patch helps, it makes the display harder
-to understand. I won't be taking this patch.
-
-thanks,
--- Shuah
