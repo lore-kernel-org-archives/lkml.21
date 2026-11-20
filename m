@@ -1,68 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795161400;
-	b=oYDnA0KlDKPY2lKW1WQtidyCUwzBjPa73mNvuuXuGANFDxEQRP8Cs/GwsNna2pZkBmPu
-	 hx2uF4NeLpE75DnZ6Ol39EwK4MVuhoj0hhXnPMzT+3LGhgJcKQ6CwAdRXqeIo5oPf13NF
-	 yosJaGjO6iGMqcmHEOUn+wIo60uFllnKZM3EHqDfYvyn+LtjTKC6/G4xGzC+8QA4698yG
-	 eR1W6ebcw2j6kOLHR+rK+2HAEibkI5ah4/mwYl0glsYEIaJAGsqqhrJIL7+GAqkwZshmI
-	 RkG0aXE7Xjy+1tD8THk6rkqHnbFXiNLFMzCv62CNVfv83rUW8VsiT0KWBD/T0Y6s3LA==
+	t=1795161394;
+	b=Yw9hitqyXePX1jV1OaTyl8gJOv8wA+YV4Q1kCmzD5AQd3tghfrqh65N6+0APWNyTHoyd
+	 qimwHj46kOhTwAZkH9hCCFhkZ+yOjrfTLvBz3eOiwnYRK7VzE+7NcGXp4mDWnsN8bdFpC
+	 zXMPm9mRQ9OtEvEzqt1OEDG2ig+KIU7hj5Bwzds3BWS8zT+bIUkNebEMcBPtYCCn+oNPp
+	 vNxz01TE03H+cVfW57kBpEEs6ig8pPsWRO6p2zYChwcovKWOWSzVW7evM96LDpnQJ4/Gi
+	 Z+l1DucUAbI+KfoGSSjS4rOwF46Lf1ZfhqFOn5TMh4oR131sm1YKG7Zjbj2gVpxmYeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161400;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Cc:Subject:To:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=pXCHGKA1G7cd/VId4mg2mOO5ekeYsaGiTDz18bBD4jE=;
-	b=2lQYXo0oLZAUMrVg8TjcTLHxPcHdwTvnKoz1oU4medm+xTWGwRLRzWvvRDfOyCCbCxsj
-	 Oo1Ke5b4O6HFGhODkUpgZ62/yDHpL+BqGsXs/nth8j7y2ZrNEp2ymiOMqT5ZrpFrDkIha
-	 QeE496h3M6/L0JuKDqYoAmnwOqjtKP+ujmcNpSB16FbO4XEAAgjgwekgpcnWAvsBDape+
-	 f34DmoUInsnhza3vPsgqWEixy1mgVj/qrFBZkJcNA1kmcxP1z2IlcxTDAj/0yy7Sz6w/1
-	 qYGkQTe3g65qdD+TOmp7Hhz3bGZRofbXUEQTR5fjSUB1cfUq1K/cQXBUoL3apiyUSrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161394;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=gAl2ZVcUXTJM4d+7Xp/kQi7sWyZ9rO0zFNBkXMsjWX0=;
+	b=mNAfCXQBA5jo9TgDU0qwhnhk0kFNUuIeCtfRm7MS059eFCWE3f6wePrsEcpGf4d69Gc3
+	 Wk+Dqx2XK7/PXnfKjUo9e/vyz+CosjNde72f2JFLKZhIMLUv47OqWOxO+fc9VzrM8qoSn
+	 Wfe/7noxQsWOaDf9BpP7SnX+aVd41wOqa4kPMbQ1qReqKylffq/SIG4gyN3vXXmiD9MdG
+	 D1DM7PkTCbdK9cyUhH9ljOF9M03tddp1DU5MH9yoJJiAhhE5fNvOrU72ao2uS1HcyQpOU
+	 1NRdrpVmKPWA931Cpy5x1QSarMjor9GqSpy05fHACIC3fVTQEjaJFk/fEy9BBZwjtTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K5yIYbmY;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=YExmTbxo;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19F96606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:56:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19F96606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA07B606A320;
+	Fri, 20 Nov 2026 07:56:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA07B606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=K5yIYbmY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795161399; x=1826697399;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=MdVnYq1kvVwJX6MP5qqwK4gVFp5jkS8xTQJjppXpv0k=;
-  b=K5yIYbmY1wQPvjhtMCXExxzF4VJ5nQsPW00BNgsB2noYlb6nIQr1skND
-   M886VeJNzwhKKth3PemKkDkyPRygIgy3vWvuCRG3l8wu2I3BWQUPwH5gf
-   /yfOOWXK3yu/xe/WBco6i1JA03mF8XSfoDIwynlfSl4u54tvEkByto8Cj
-   Rmb9gDvE3eCh8IRZtp1mGABdIEJrd7PAVKVUZej+148kUYxC2JHjk5XZ0
-   9QMVgIGNMYmOTvFyb+ebHZ3PLjU04NhsT3flc5Z+Q6u79opWmkUEWiz6F
-   WfvYH3JIakZuXSpOK/KrH0Q3vH8UnFRBrEL0dwIVcNHC2cpJvMA1Fg8tc
-   w==;
-X-CSE-ConnectionGUID: 6vP95KulSpacy0iH9ViiHA==
-X-CSE-MsgGUID: RdWKMsDwRuatIUhrSSAbjw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4042905"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4042905"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 23:56:39 -0800
-X-CSE-ConnectionGUID: pYagR8l/QES8QaQSKz7jgg==
-X-CSE-MsgGUID: asRCAulVTzy9DCCGKC+r1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10530155"
-Received: from unknown (HELO [10.238.1.144]) ([10.238.1.144])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 23:56:37 -0800
-Message-ID: <56be2b4e-aefb-413b-8f72-0bea1f9e96db@linux.intel.com>
-Date: Fri, 20 Nov 2026 15:56:34 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=YExmTbxo
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id DB895206E9;
+	Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id zA6t1mgFjdmQ; Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 1CE272068C;
+	Fri, 20 Nov 2026 08:56:30 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 1CE272068C
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795161390;
+	bh=gAl2ZVcUXTJM4d+7Xp/kQi7sWyZ9rO0zFNBkXMsjWX0=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=YExmTbxoI6nYtIM8/QLDjhOYs26udnaL7I7uqi4vL1gEQZDn3Mx2FtbXG2xxIRNob
+	 Fg9tUFz/jQ8/e9E4ELFmrOSNBaq9ZsxFPtFC2VF0YjSMiVtjoLpsBW4eQGawRnlSZW
+	 PdixfvJfCJDRhMWkWZaLmbYeFp09nJ83We1ZFxkFHFJUDZbIPtppKYQ8LvbRLB6Ztl
+	 rUVAZ5tDh8bUGdma5mmtUdBdmHcgdTquuhFVGAcV5UYFN+FNNvlgezTdRXnJspxVAG
+	 S9CpXPandEuK+fVDaRWaQxIjnIP2u43xXjxIpEx2HiV7uKIU0EJ7VRDF8RhUbRt3eG
+	 NqnqAC/Kvbd+g==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Fri, 20 Nov
+ 2026 08:56:28 +0100
+Received: (nullmailer pid 1740373 invoked by uid 1000);
+	Fri, 20 Nov 2026 07:56:28 -0000
+Date: Fri, 20 Nov 2026 08:56:28 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Rustam Mustafin <rmustafin@cloudlinux.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH ipsec] xfrm6: gate the local error on the frame's own
+ socket
+Message-ID: <av_9LIb7im4b-HcG@gauss4>
+References: <20261114125552.1319352-1-rmustafin@cloudlinux.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,83 +83,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Robin Murphy <robin.murphy@arm.com>,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] iommu/io-pgfault: reject partial faults after device
- removal
-To: Qihang <q.h.hack.winter@gmail.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
-References: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20261117015409.25492-1-q.h.hack.winter@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261114125552.1319352-1-rmustafin@cloudlinux.com>
+X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-On 11/17/2026 9:54 AM, Qihang wrote:
-> iopf_queue_remove_device() kfree()s the entries on
-> fault_param->partial without unlinking them, leaving the list head
-> pointing into freed memory.  Since a74c077b9021 the fault parameter is
-> refcounted and can outlive the drain, a report that took its reference
-> earlier can still list_add() through those pointers.  Unlinking
-> instead turns that into a leak: the late node lands on a parameter
-> that is no longer on queue->devices, whose final put does not free
-> partial faults.
-> 
-> This needs a device removed from its iopf queue while a non-last
-> (partial) request is in flight, with the caller not blocking new reports
-> for the duration.
-> 
-> Patch 1 unlinks each partial before freeing it, matching
-> iopf_queue_discard_partial().
-> 
-> Patch 2 adds fault_param->removing, set and tested under
-> fault_param->lock: a late partial is either drained, or rejected and
-> freed by report_partial_fault() (-ENODEV).  It covers partial-list
-> admission only; callers must still quiesce reports for the remaining
-> lifetimes.
-> 
-> Both patches are scoped to fault_param->partial, not the group path,
-> the attach handle, or paths that never call iopf_queue_remove_device().
-> 
-> Verified on v7.4-rc3 with KASAN + DEBUG_LIST and the iommufd mock
-> driver, its caller-side IOPF serialization deliberately removed and
-> test-only delays added; this shows the mechanism, not production
-> reachability.  The runs cover queue-before-removal,
-> removal-before-insertion, concurrent late reporters and re-enable.
-> Each round queues one partial before the removal and then races the
-> late reporters against the drain, so a clean run ends with every node
-> accounted for: 1800 = 900 + 900 and 3600 = 900 + 2700 (allocated =
-> drained + rejected), counted at a final removal with no reporter in
-> flight.  Nothing was left on fault_param->partial and KASAN stayed
-> quiet.
-> 
-> With patch 1 reverted, the report is:
-> 
->    BUG: KASAN: slab-use-after-free in __list_add_valid_or_report
->    Freed by task 1: kfree <- iopf_queue_remove_device
->    56 bytes inside a freed 64-byte region (struct iopf_fault, list.prev)
-> 
-> With patch 1 only, the same reproducer runs 1460 rounds without a KASAN
-> report and leaks one late node per round, which patch 2 addresses.
-> 
-> Reachability on an unmodified production kernel, and any security
-> impact, remain unconfirmed: the test shows memory corruption and a
-> KASAN panic on the modified mock driver, not a user-triggerable bug on
-> a stock kernel.
-> 
-> An AI coding assistant helped find this defect and build the
-> reproducer and instrumentation, which are available on request along
-> with the KASAN logs.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+Author: Rustam Mustafin <rmustafin@cloudlinux.com>
 
-+Jason
+xfrm6: gate the local error on the frame's own socket
 
-The issues addressed by both patches are false positives. They rely on a
-fault being reported for a device after iopf_queue_remove_device() has
-been called for that device. The iommu driver must not allow that.
-Pending i/o page faults must be drained before the device is removed
-from its iommu's io page fault queue.
+This commit changes __xfrm6_output() to check skb_to_full_sk(skb) instead
+of the sk argument before calling xfrm_local_error() on an oversized packet.
 
-Thanks,
-baolu
+> diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
+> index 44b221a09a0c8..54fcf4b430915 100644
+> --- a/net/ipv6/xfrm6_output.c
+> +++ b/net/ipv6/xfrm6_output.c
+> @@ -95,7 +95,10 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
+>  	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+>  		skb->ignore_df = 1;
+>  		goto skip_frag;
+> -	} else if (!skb->ignore_df && toobig && sk) {
+> +	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+> +		/* xfrm_local_error() reports to skb->sk; a forwarded frame
+> +		 * sent through a UDP tunnel has none, sk is the tunnel's.
+> +		 */
+>  		xfrm_local_error(skb, mtu);
+>  		kfree_skb(skb);
+>  		return -EMSGSIZE;
+
+Should the earlier xfrm6_local_dontfrag(sk) check in __xfrm6_output() also
+use skb_to_full_sk(skb), as xfrm6_tunnel_check_size() does?
+
+net/ipv6/xfrm6_output.c:__xfrm6_output() {
+    ...
+	if (toobig && xfrm6_local_dontfrag(sk)) {
+		xfrm6_local_rxpmtu(skb, mtu);
+		kfree_skb(skb);
+		return -EMSGSIZE;
+	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+		skb->ignore_df = 1;
+		goto skip_frag;
+	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
+    ...
+}
+
+When a caller passes sk == NULL while skb->sk is a local UDPv6 or RAWv6
+socket with IPV6_DONTFRAG set, such as ip6_tnl_xmit() ->
+ip6tunnel_xmit(NULL, skb, dev, 0) where skb_scrub_packet() clears
+skb->ignore_df, xfrm6_local_dontfrag(sk) evaluates to false on NULL and
+this change routes the packet into xfrm_local_error() instead of
+xfrm6_local_rxpmtu() (or into ip6_fragment() via
+ipvlan_process_v6_outbound() -> ip6_local_out(dev_net(dev), NULL, skb) when
+skb->ignore_df remains 1).
+
+Conversely, if a forwarded frame (skb->sk == NULL) is sent through
+udp_tunnel6_xmit_skb() on a tunnel socket with IPV6_DONTFRAG set,
+xfrm6_local_dontfrag(sk) returns true, xfrm6_local_rxpmtu() does nothing
+because skb_to_full_sk(skb) is NULL, and the frame is dropped without
+reaching ip6_fragment() to send an ICMPv6 Packet Too Big.
+
+In addition, callers such as vrf_process_v6_outbound() pass raw skb->sk as
+sk to dst_output(), so if skb->sk is a TCP_NEW_SYN_RECV or TCP_TIME_WAIT
+mini-socket, xfrm6_local_dontfrag(sk) reads sk->sk_protocol and
+inet_sk(sk)->inet_flags out-of-bounds past struct tcp6_request_sock or
+struct tcp6_timewait_sock.
