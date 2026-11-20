@@ -1,57 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210259;
-	b=MkmsVKFQqzSyNPCWTQhMsmgo9LswEg2mmPlzdxbYUItqfwnRA1q98jgvRA/mIFu/QImD
-	 xvXnCX1ERQyRt/uu8sn+Ior+z04H4WVJLYx8GjWx4+4A9Xfu3ICedrh+688jhmLAVn//Y
-	 pvTOMAyOnRZmpzsu1LlQFC4jZM+pvtJpRkj1OhKz+91ypUsn5BrvUFWLmNo4DuKDRzSop
-	 20E8EPf5M8neGGUpNP2hxBvr8WH62ecql9KCDL9JHJx1e1rhmnC0usmB6Xa4pUcekovzL
-	 sUDT/L8HzTZsdKXhyG3o/9Nj4C57D/FNil+ekiT7fVG1lJHV5+mNJl0FUcbpDUGlHBQ==
+	t=1795210291;
+	b=ejlpe4JjmCptKHOqbsoc8nkD1SXda155pAP/+Wk6P3XKIJeIRwstIh+B0lOQmeG3yOLS
+	 Jh9uWOx3wtDbcnw7ZRcOKcYPI4hVXZTJU9SFZMm1AgKPAkI9Uqcj5ybUr16PaNMGMxYuZ
+	 hdR94MsG66CKTXH7akLAJ+trO8YK3gP80FEBnMqrgIYrGQDC/6tjFJbkGEaDN+QsJ8TqY
+	 loaTjnu+hyjtLxhkQpiLhuDyqcdbs21qLicuI+oS8F3m1oIVYtmwT6+tvkU0Yhyzr5vfq
+	 jyR3g+8DKYWFq5BtXVrPTWXY5xyHkQQXS5dkdJMPtLDBGWIyC8tBIqC558ILw1hc1ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210259;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=xEZ6Vr/i8fYUxPX4yWZQadVpW4+uFsP7w6mvAv5fdzs=;
-	b=1aLsRdscW4HzOtAg40NCJ+eLjWtunvBMFKbhPchlfdnWf093Ly+hpKObjwR6vj9lafIN
-	 h52BgxfP7UD41sxFP5ch/nFFkcrpZrjSMjJi1ZJCi+ibuBaho8FvXJCtxQQmUuUMvYCAw
-	 e8sZV30oTyQcGm8/PUsDsjiB2+igE2mqTY3aHPJtnXDEBpt0azUTOdD8D/QXIoDBb1qww
-	 j2C2d5He2aUFXR1zrPSNA7NaPnG9Wj2unSet/8SLpcdXsCWD80+sBvAH/jT3q+8oH/Uoo
-	 0C/wnkdPDJZ07jIWdT1wmLzpgtiGrM8mIEGs1OpmTnMURyiWMYFIg6g4qDUhf4zPxag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210291;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=Hre9/kYvnxV6FE+cSP1phJsMVFoDyXzQDpFxO2GUIh4=;
+	b=Z3zHXFFT3XTIEqp3LRaabBfBp2H30mCXcJh4C5UnoAU5Q1IIR/9/RSyT2ISFOZ53fmnC
+	 8QHjT6CV6Y0LO//yMVxXTieZIHVsmPzCZcP7TQ1tW9lfJDqrpwgaGRvd2HDtn4bhhnPpc
+	 M2wY1LDYL5TuYh0vPQizTaC45sacAvucJ231R82e8g0dN/mNkX9qLbNkTmGEC0ijAi2Xj
+	 yoHzv3yWn1C9jIKxC8ownSMqzXpyxJ+7NBghjfIwQ93mBof55ESixMaz/UnILNWrj4OJ/
+	 8q5lOm8sxG/F7BCkAmxHysQ8aR0gLtQd767Z8kyNU6NdLmY7Y/u5AIkWm9TEVLDRH8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWnWkNBE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=ideasonboard.com;
+	spf=pass smtp.mailfrom=ideasonboard.com;
+	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=Y7+pEitH;
+	arc=none smtp.remote-ip=213.167.242.64
+Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id AF1D8606A6B5;
-	Fri, 20 Nov 2026 21:30:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FE82606A69B;
+	Fri, 20 Nov 2026 21:31:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FE82606A69B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWnWkNBE
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id B8A021F000C6;
-	Fri, 20 Nov 2026 21:30:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795210259;
-	bh=xEZ6Vr/i8fYUxPX4yWZQadVpW4+uFsP7w6mvAv5fdzs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PWnWkNBEXYqUCr3N2VyzKy+b+dPXlWJWXcIbRYSFcbRsa1f9nOY9ho5L90G3EjPr/
-	 H/A+gJ+9eDlmqWqGMFnwi07Lhu8bkh+Uv4vUP0dBGOGwUKLuUHQU8k3ZLFr1VBYB++
-	 PbC1zoa30W/MNlTnBWL8/Q4Ra512DbH6sj1iUG0oNSyeKEGZEN5/mOGFnLT6S8X2a3
-	 0kIs0LOUsgyTx5/gj+JYUIGjhGZrLkbAXipt1nhUkcvIZ3CBcL8MoHYIkoU0uWW6SF
-	 vGdxqMzdnvXEbDrebYIB/qU9ihkW8BPP/UkfjVprAocCtdGiROIriAkWaebpk0JTWj
-	 f4obhMSzyDcEg==
-Date: Fri, 20 Nov 2026 23:30:55 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	linux-integrity@vger.kernel.org, linux-kernel@vger.kernel.org,
-	surenkj@amazon.com, noodles@meta.com,
-	David Laight <david.laight.linux@gmail.com>,
-	Stefan Mahnke-Hartmann <stefan.mahnke-hartmann@infineon.com>,
-	kernel-team@meta.com
-Subject: Re: [PATCH v4 0/2] tpm: Stop retrying TPMs that have stopped working
-Message-ID: <awC8D-17ShOMXkp2@kernel.org>
-References: <20261120-tpm_unresponsive-v4-0-b9043735ec1b@debian.org>
- <awC70MnZ4eXVQrdS@kernel.org>
+	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=Y7+pEitH
+Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 6FA714E6;
+	Fri, 20 Nov 2026 22:28:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1795210127;
+	bh=M7Qcq8V3Jr2gLoOzs+ayK8dikX5kJkrE/bo1yp+s4tA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Y7+pEitHa7rz0OLH9JT3Q9uw0F6+sdkuHT9Va5Ttw9M7zug6ogtix7wCXpSlsVxCG
+	 NHanSRRXOK5a+B19zRjoYv+jA1z9LQvpvNAX6SSyN9Yzpd/EtJGvqYv9+kyTipz/Ck
+	 xjilVepncVyQs3BTnJRFx+9YYuNn0i87hLlfnmmw=
+Date: Fri, 20 Nov 2026 23:31:16 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Svyatoslav Ryhel <clamor95@gmail.com>
+Cc: Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Sowjanya Komatineni <skomatineni@nvidia.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Mikko Perttunen <mperttunen@nvidia.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Cong Nguyen <congnt264@gmail.com>,
+	Faisal Mukhtar <mukhtarfaisal03@gmail.com>,
+	Dan Carpenter <error27@gmail.com>,
+	Hungyu Lin <dennylin0707@gmail.com>,
+	Hao-Qun Huang <alvinhuang0603@gmail.com>,
+	Yury Norov <ynorov@nvidia.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	linux-media@vger.kernel.org, linux-tegra@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Subject: Re: [PATCH v1 01/10] staging: media: tegra-video: Move driver to
+ media/platform/nvidia
+Message-ID: <20261120213116.GB2472094@killaraus.ideasonboard.com>
+References: <20261113161819.36847-1-clamor95@gmail.com>
+ <20261113161819.36847-2-clamor95@gmail.com>
+ <20261120143147.GA2466366@killaraus.ideasonboard.com>
+ <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,106 +84,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <awC70MnZ4eXVQrdS@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
 
-On Fri, Nov 20, 2026 at 11:29:56PM +0200, Jarkko Sakkinen wrote:
-> On Fri, Nov 20, 2026 at 12:47:06PM -0800, Breno Leitao wrote:
-> > On Meta's datacenter, given the size, TPMs that stop working write about
-> > 54 million lines a day to the kernel log, because nothing in the kernel
-> > gives up on them.
-> > 
-> > Two cases make up nearly all of it.
-> > 
-> > Some TPMs stop responding. Every command then fails only after the
-> > transport timeout, while the hwrng thread and userspace keep sending
-> > more.
-> > 
-> > Other TPMs get reset under the running OS, and answer every command with
-> > TPM_RC_INITIALIZE (256) from then on, while the hwrng thread retries
-> > every 10 seconds:
-> > 
-> >   tpm tpm0: A TPM error (256) occurred attempting get random
-> > 
-> > The goal is to retire TPMs that are not properly working, similarly to
-> > what was done for EFI in commit 4b2c033b5bc971 ("efi/runtime-wrappers:
-> > retire the worker if a wedged call ever returns")
-> > 
-> > Patch 1 disables the chip once two commands in a row have timed out,
-> > instead of keeping it in this desolate state. Patch 2, from Jarkko,
-> > disables it once it answers TPM_RC_INITIALIZE to anything but
-> > TPM2_Startup.
-> > 
-> > Disabling the chip makes the failure explicit: every later command
-> > fails at once instead of timing out.
-> > 
-> > A health-check daemon, such as machine checker, can then detect
-> > the broken hardware and send the machine to repair.
-> > 
-> > Signed-off-by: Breno Leitao <leitao@debian.org>
-> > ---
-> > Changes in v4:
-> > - Replace the count of timeouts and the tpm.max_missed_responses
-> >   parameter with TPM_CHIP_FLAG_MISSED_RESPONSE: one timeout is
-> >   tolerated, and a second one in a row disables the TPM (Jarkko)
-> > - Say in patch 1 when TPMs stop responding (Jarkko), and drop the
-> >   claim that some of them recover
-> > - Fix sashiko findings:
-> >   - A timeout while a signal is pending no longer counts, since some
-> >     drivers return -ETIME when a signal interrupts the wait
-> >   - tpm1_do_selftest() clears the flag on the timeouts it expects from
-> >     TPM 1.2 chips that block during the self test
-> > - Link to v3: https://patch.msgid.link/20261113-tpm_unresponsive-v3-0-8138c8e283b8@debian.org
-> > 
-> > Changes in v3:
-> > - Rename tpm.max_unanswered to tpm.max_missed_responses and
-> >   nr_unanswered to nr_missed_responses, and drop a redundant comment
-> >   (Jarkko)
-> > - Document tpm.max_missed_responses in kernel-parameters.txt (Jarkko)
-> > - Check the limit with a modulo (Jarkko), guarded so that 0 still
-> >   means never
-> > - Link to v2: https://patch.msgid.link/20261112-tpm_unresponsive-v2-0-7454d2c899ef@debian.org
-> > 
-> > Changes in v2:
-> > - Disable the TPM after 60 commands in a row time out, instead of after
-> >   ten minutes of timeouts, and make the limit the tpm.max_unanswered
-> >   boot parameter (Jarkko)
-> > - Open-code the check in tpm_transmit() and drop the "timeout" field
-> >   names (Jarkko)
-> > - Replace the hwrng failure counter with Jarkko's patch, which disables
-> >   the TPM on TPM_RC_INITIALIZE
-> > - In that patch, move the check ahead of the RETRY/TESTING break, where
-> >   it never ran, and skip TPM2_Startup, which a TPM that is already
-> >   started fails with TPM_RC_INITIALIZE
-> > - Fix sashiko findings:
-> >   - Two timeouts ten minutes apart no longer disable an idle TPM
-> > - Link to v1: https://patch.msgid.link/20261111-tpm_unresponsive-v1-0-42ac1b965eb9@debian.org
-> > 
-> > ---
-> > Breno Leitao (1):
-> >       tpm: Disable a TPM that stops responding
-> > 
-> > Jarkko Sakkinen (1):
-> >       tpm: Disable TPM on TPM_RC_INITIALIZE
-> > 
-> >  drivers/char/tpm/tpm-interface.c | 20 ++++++++++++++++++++
-> >  drivers/char/tpm/tpm1-cmd.c      |  1 +
-> >  drivers/char/tpm/tpm2-cmd.c      |  2 ++
-> >  include/linux/tpm.h              |  1 +
-> >  4 files changed, 24 insertions(+)
-> > ---
-> > base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
-> > change-id: 20261110-tpm_unresponsive-a5f71c1db026
-> > 
-> > Best regards,
-> > --  
-> > Breno Leitao <leitao@debian.org>
-> > 
+On Fri, Nov 20, 2026 at 05:31:17PM +0200, Svyatoslav Ryhel wrote:
+> пт, 20 лист. 2026 р. о 16:31 Laurent Pinchart пише:
+> > On Fri, Nov 13, 2026 at 06:18:10PM +0200, Svyatoslav Ryhel wrote:
+> > > The Tegra Video Input drivers are mature and developed enough to be moved
+> > > from staging into the media subsystem. No other changes are introduced.
+> >
+> > The driver should at least be converted to be MC-centric before being
+> > moved out of staging. I haven't checked if other changes would also be
+> > needed.
 > 
-> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+> Does the media subsystem deny video-centric devices from even being
+> moved into it? I have not seen this restriction imposed; could you
+> please point me to where this is stated in the media subsystem
+> documentation?
 
-It's considered enough. If a tree falls somewhere because of this, we
-deal with that separately (and it's just life).
+There's a consensus that devices that require control of camera sensors
+(i.e. "MIPI" cameras) must be MC-centric. That's not documented, we
+should probably fix that.
 
-Br, Jarkko
+> I would like to convert this device, but that may take quite some time
+> and may case regressions if not done carefully. This patchset apart
+> from moving to media is mostly fixes to work correctly with mt9m114
+> and tegra114 bring-up which is quite simple and straight forward
+> change.
+
+Converting to the MC API will require some changes in userspace. That's
+why it's important to make this change before destaging the driver.
+
+> BTW, may you ack mt9m114 get_fwnode_pad change[1]. I have updated it
+> to your liking, Sakari seems to ignore it.
+> 
+> [1] - https://lore.kernel.org/lkml/20261006153619.304520-1-clamor95@gmail.com/
+
+In the review of v1, I wrote in my last message
+(https://lore.kernel.org/linux-media/20260721103845.GJ50424@killaraus.ideasonboard.com/)
+that the issue seems to come from a bug in the VI driver. Let's continue
+the discussion there.
+
+> > > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> > > ---
+> > >  drivers/media/platform/nvidia/Kconfig                           | 2 ++
+> > >  drivers/media/platform/nvidia/Makefile                          | 1 +
+> > >  .../media => media/platform/nvidia}/tegra-video/Kconfig         | 0
+> > >  .../media => media/platform/nvidia}/tegra-video/Makefile        | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/TODO   | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/csi.c  | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/csi.h  | 0
+> > >  .../media => media/platform/nvidia}/tegra-video/tegra20.c       | 0
+> > >  .../media => media/platform/nvidia}/tegra-video/tegra210.c      | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vi.c   | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vi.h   | 0
+> > >  .../media => media/platform/nvidia}/tegra-video/video.c         | 0
+> > >  .../media => media/platform/nvidia}/tegra-video/video.h         | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vip.c  | 0
+> > >  .../{staging/media => media/platform/nvidia}/tegra-video/vip.h  | 0
+> > >  drivers/staging/media/Kconfig                                   | 2 --
+> > >  drivers/staging/media/Makefile                                  | 1 -
+> > >  17 files changed, 3 insertions(+), 3 deletions(-)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Kconfig (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/Makefile (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/TODO (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/csi.h (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra20.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/tegra210.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vi.h (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/video.h (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.c (100%)
+> > >  rename drivers/{staging/media => media/platform/nvidia}/tegra-video/vip.h (100%)
+> >
+> > --
+> > Regards,
+> >
+> > Laurent Pinchart
+
+-- 
+Regards,
+
+Laurent Pinchart
