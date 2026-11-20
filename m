@@ -1,99 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795157882;
-	b=F0FH5OqxWVVLJJI0sSOQ8OqNpEiFmUAavY8b7jJdiSegTpJMBC+jv2Aqqx8ZBCbWBR3X
-	 JiheKWF2kKaTt8uf0XwRoy97c0GkLmgRUeT5Eu/xjmgLy9VGrGmYN+bsZKDvgGkUKjmh0
-	 SrrFIHLTPbTlg3PKu/KHobyPOudsNX7YoZ9BT9w6JQZyIEcpRX7/P7VnlSfER2xajJOjY
-	 nzIstmEVeCNTXu4Z0kVTUn4xYd2q6ntjNJee9r9AZeSLpt2nYMBztrRGt9yr0nyrbce4F
-	 iq2PnmlUijWr89EAfxh5NFY/PlpGnCu2nwMboQKqcJjILiSbXPwr31fPOqHfpNIUenw==
+	t=1795157955;
+	b=UAODx6hbT9EokLJph4DODUdU7N1n4ffQoe3mI/q1+w4D/JmP3ni9DYRJSw8d7uiOgsLt
+	 OOmck6Nm6p76+7Pxn67sxPjmHkhXWHtFiTEU8HbMTE/BzOVPxouOAHcj/kpbcZDFmGdVR
+	 yV9N/yxTrMTI9QT5zaMWmtydfiQygS1pdB+Dpn2PzrZLAncR7NJ7UZo7vZrIIrnIKVp+Q
+	 xNwp1gwCjKWxSzRiRlUax5sJl+L6008PNhojZJ4e6N6bXFito21bYdFxuiApDsxSdoauW
+	 2vecWjzT75IBodlDn0u6bC3w3ZOuxw9/5/YbFHc6qPXZLYKa26eYiOGy3CiXsi8Ikfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157882;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157955;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ZVpa8bveNQUoF8hBZFsntHBuieSxDrBoOl7r8tSBYPM=;
-	b=g6FoYk0KSzKX/4TxhUexLPmB5AJ8wmaGgDoS9/yQZ5dLiJEMXa3LxPOtKioF8uaGpTtM
-	 o3bzCwzHCQ29HiV8eGkxfe3Bn3b+kecaRABl6yBir/LhR8bsipcaeEr9HyvCMinxQJBv9
-	 joK4kyHs06hCDGHLMX86MDdsYvYsdVD5tobL5huJJq+Yqc4Yy4jP1vEY0NS8Z003gmgZ5
-	 9dbfkI1y4qTcNfto1WIINxnJ+OMQLPfLJe6RpvNCj6WDy0ThbQ4hGldwkZ4Wd8Vd51Xh2
-	 D61ZtSK1eAfPe76ZWN5O8zYJI15hE9pxRBmrig9rJGLnQtqUriFV6N1pd1VXz4y4V4Q==
+	bh=cX4zSLaSUrPhGRSAbtNwMchSN74feKAjOFl7wGwOka4=;
+	b=WizSliZpSoVZTU4cKylcw3XrebwV0aAans6RI805TBgVrjHm1RCw7wbpW+Ykfevln03Q
+	 TUY/2ExWzcJa02FHpRRu0qzw9avLnkmtNY5iSMdkRcjZ+Vsdwl1BZjunP4nkL3qAqVq16
+	 g3R/bXOcrTzD4jHVdF+35/NgHEDnMI1+gWLqJS6gtUTELYbXPIJ9OvzK0g2g3Frdjf1ca
+	 ALCwswAHeWYDJ2SIHVRhFGFBTUVMTZp7Ewosxawgglwo8MZAaRIS6tDWB/A/O/fwUcFqU
+	 daOEiDYd1dFoW4KQlxYDiIWtykUzhVSaOWjb7H2qAeXncAsRqu4WgFJxc4LSzTzMcXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudlinux.com;
-	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=Fqs2Lawh;
-	arc=none smtp.remote-ip=209.85.221.48
-Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B+ayur8N;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07AA1606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:58:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07AA1606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41117606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:59:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41117606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=Fqs2Lawh
-Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4a9be758734so287263f8f.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:58:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B+ayur8N
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a56e05568aso1008565e9.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:59:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795157880; x=1795762680; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795157953; x=1795762753; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZVpa8bveNQUoF8hBZFsntHBuieSxDrBoOl7r8tSBYPM=;
-        b=Fqs2LawhrfmjHFt0TwOTf/b3Avrczi1UW+HtHVl1gfPi8kos949p1mvwnoq9jkGCET
-         Nq86gGhLMStvAAPMJJU1tp5JHbW2PbN+OqSeXSpKvSM3q9ugrK7Re2JMUG/+Q9NroZGI
-         HQoayp/xpu1ibdlH1xf4HCPIfVSr+c05dsTZkYQX00OsV9/V8XULu/KTBpaT/zj32/yu
-         GXKzTSpTYQHDXN/XgilgvwyEmx/iJgLTYohJvZ8Cp8jM7lV7Ixt6nsx6+eBRZiBxKhbj
-         26JWqfKh2KnvalYsiggZYpsgjcL8gF2CAjBJ8jiWLGjX+5qTmy+m9iVun94S7ykqm1KT
-         tOng==
+        bh=cX4zSLaSUrPhGRSAbtNwMchSN74feKAjOFl7wGwOka4=;
+        b=B+ayur8NVY5Cl/rajdqV95YrqS724UV1tmlCmzVWef+sET9W2kHQnTzSsJo2UldC+j
+         WodZg/VICXi6ZeJuotPMLoyy3zch5pFwecFwpdJoufnmV5qqNVVTB3wwfYETHwnyZ9WI
+         qL4XatKPMv1QebuPO29XCMC7VWfu8BmCOn1pdq3rKB7Wrpohvmx3EgLKknyO3LHota51
+         np/y9eo5zFX8nBqIvWSfJUcLD1AMvgTqf6HEiSY4TeOKmAtD/agQVtHhyc0UXEf6dRNf
+         Gk2fLrvuDkH2afQYJD7v+/lWIcjpYSASsJW405nTC0T0cUrbkAyMnIfR3YlfHEBjN5VX
+         OfoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795157880; x=1795762680;
+        d=1e100.net; s=20260707; t=1795157953; x=1795762753;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZVpa8bveNQUoF8hBZFsntHBuieSxDrBoOl7r8tSBYPM=;
-        b=LxYs5k6USPbthMglb/lTkdIPPacT4WcK9SB5z+8XFi+Sx2eIZR2X+oPTFRMGrMhZoM
-         xT63uHr/hm42tIAwkkAef3ll29C1jXkXz/NGJHntOVZNi/aBr9IvFfGYhlLNtBMwewI3
-         s2cfRb7hEemnvIGyd+xnCzf4Z0hRs1y8QsJuI7tvjk5hjZoLCoWHQ89EuvvUm0ZoXC+Q
-         RAiXz0LqBxE3Au3CidX5FohIff9in3OoKindDEjiHHaTFBuR8fuRpKpjtqp4pvGmpDTC
-         STNNUe2lSYA5QW9/6zJ4FuBj63fk1vuqOW/xE42Arb67s+IJEoNXQe54i0+Z3qn+isbR
-         1GyA==
-X-Forwarded-Encrypted: i=1; AL+hErFDkl2W1E4zrdpkO/uccbL/LfoieGEzNsvjG+Gf1IxVIUdu0oiQY6PhDZuLlYmF2sNrbuuvUye05fx86Wc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/D+LP6hy4Jd4TirBF8kmkMR983cSVdAgnPSLJ9HbdEJbBfw1vS
-	I9B70uy9lhxNSQwTDe4RSFktJx66ugwbXVWTWEzt6h/Ms8NIweuCVhX7MHFOyAeG9Co=
-X-Gm-Gg: AZFdTZcAnhUNuI3v2VXpna2A72dT2ncnzDOUmLI7U6TC6cLriIva44Mt6AAgGrvUZhh
-	ZXftS75kbxKQiUbAC964VQiQff1LT3GAXojTQQ6sLmJq89Lf7aFCM+CsBW9LpDbyZ9OPUenu19+
-	3BhtZO0FInvN+Lb7wKf81rTH6AqBqRwwgs8Yy11WY6G0JvzJElMKkb+LZx1tYMfIEFvateVoCc3
-	RVEzFP+cIViYWNENmGvlu8axCj3PYJlviYqXhrwzGfmQC6/OFvIjGyrkkJGB9ugY6WOBDCmkfAL
-	w9o1NAp4GdwYSnw7re5s25lGThehv5RuiODF58LwOjhw50QgeAiFsGXCYAp7JzrETKiL3BYNdw+
-	5sKPqFeQMN17l+P2UeGbvbjqh9zLnO6aWr5cLJmdA68AdDN5ZEzXPgwWEptPNbYwGFmP2nnG5/D
-	M9TdoP38xOsfM+a3aeFoQfc+xS579u7+cAL2Q0LdkVAjG0e+/ysXMWeEos+0HVPPtft5ydt+Kyl
-	60hbQYV1urVpKuODQeIq4CpsIMXtB5gtsNyXlVfQsghSdJjztCbj1T9rZQRI2ycGnbJT/5N4Tlp
-	3OWsoR3vGaB4Xdxj5eTJyIh9ygJfy8mejwnvMMA0J+pwbw==
-X-Received: by 2002:a05:6000:2c13:b0:48d:f95e:6e8 with SMTP id ffacd0b85a97d-4abab02d26emr3388137f8f.1.1795157880406;
-        Thu, 19 Nov 2026 22:58:00 -0800 (PST)
-Received: from dev1.kernelcare.com ([2a01:4f8:172:1c85::2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm4190080f8f.21.2026.11.19.22.57.59
+        bh=cX4zSLaSUrPhGRSAbtNwMchSN74feKAjOFl7wGwOka4=;
+        b=RvQz7jw5Us6h1D6eANXUqH1fdd1oAmC46CxNEHzvgkAbfINgQ1N2YTJsjNr24MnAJk
+         m3KKHnuTTXwy02O6hagNPx7T7SU3WIaYDG7HeA9UJSxJPQgyipruvxbDh7EWVUrOXTx8
+         BjyKD9ykLq5v7QQY0hI5hocHR8lNKhJpDXFfgUkqloUtl8IsRyQMRdnI8WBavL9bKQlF
+         Fq8o5nNwG/yCtmjR2edWk9hHClGMJqwMd9ClWLQzYc+lmMAequQYr1upA9Fcn+bGwJvl
+         jb+SWWBSV6MUaZ8C/EMNIGLxs4x5mH8Vok0YTm7oDDvj1hNAydqSo/8/Q//YVwOb73Za
+         VJFQ==
+X-Forwarded-Encrypted: i=1; AL+hErHJEZmeS6hylAd9cfxNWqUXxli0d1W3CX5DyyVCILbFN1oEIExFSEqPMaLkv9moLZyQ2pl3HrRUnQxLtUU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9avJkG6ulqEzSxcfPTCjmj5o4sV811oRWDA4hGrh0vfllAmI9o
+	PT/ZjHqBIdSV/krEhljn6npNeYAYP9AZeQDiFixGAM5xnuemF3goUE20
+X-Gm-Gg: AYBFou2hGj5h4480ZtmCa3lFJfgstj/+5LIdPtBanL+DkixQjWq5ALykjInnNOMQRsV
+	6m6+nLAKPgZibRKUrbjVl8ScQ3XWy/ngbaecA4hxN2PxAy0F7+/50RGUPASK+OoNBcsCiE18llz
+	kEaCukv0U5Te6jysN3YfDYD92LVUgopIHf0s5dPv1LaQwxqUSB90b59gjZnTXDtS5YpT86M+PN9
+	vhqE0hp/lWt3uxgVwhXE7TIdWqmflpLEoVbvOCS/6ZSmZjZWmR0y7jGK5dWEDOaUxpp9ubqXEaj
+	I0by/wcrI4rQiCsNZcPc21lPU+rP2bpkwH2D3rnFwv7RJclBgDa+k+N6wnRqWKqugjcPo8dwrYu
+	C8A8+Ab3a1wYGquLdrwQetDlSmX0PIWGExcAtv3tz/aDOOrMT+ZPVW9RLkFhN+BwH8VQ2zEBZFM
+	zYp9UeGEn620piw72e9MEaIiKQ65o/BTSMSi//QLxkXwK1u2ZS1a++8o6Vsa973man7HhXej5OK
+	TRCONM4P6dJgS6ArVFzYBC5wG9T0IoMuPlRz/RMoNe2sy+gG1Lc5m3umsNrRZ2ZpMY53Kv7JIWp
+	e4w6XCxNQSCzh5L1Z+YT2MQ9zsAQPIgLRBeFabrbox4cjrJCFQzRXVjpZjTduKsx/jTi3VU=
+X-Received: by 2002:a05:600c:828e:b0:4bb:7ad9:2f22 with SMTP id 5b1f17b1804b1-4bb887853e1mr42068645e9.0.1795157953446;
+        Thu, 19 Nov 2026 22:59:13 -0800 (PST)
+Received: from Nuel20.localdomain ([102.90.128.131])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884911e3sm68378915e9.6.2026.11.19.22.59.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 22:57:59 -0800 (PST)
-From: Andrey Misiurov <amisiurov@cloudlinux.com>
-To: Alexander Aring <alex.aring@gmail.com>,
-	Stefan Schmidt <stefan@datenfreihafen.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: linux-wpan@vger.kernel.org,
-	netdev@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
+        Thu, 19 Nov 2026 22:59:13 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-kernel@vger.kernel.org,
-	amisiurov@cloudlinux.com
-Subject: [PATCH net v2] ieee802154: keep the original error after a netns rollback
-Date: Fri, 20 Nov 2026 07:57:49 +0100
-Message-ID: <20261120065750.3274661-1-amisiurov@cloudlinux.com>
-X-Mailer: git-send-email 2.43.7
+	skhan@linuxfoundation.org,
+	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Subject: [PATCH net-next] selftests: net: reuseport_addr_any: report epoll_wait timeouts honestly
+Date: Fri, 20 Nov 2026 07:58:55 +0100
+Message-ID: <20261120065855.22628-1-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,44 +104,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-cfg802154_switch_netns() moves all of a phy's netdevs into a new netns. If
-one move fails, it jumps to the errout label and moves the already-moved
-netdevs back to the old netns.
+receive_once() waits 3ms for a packet but only checks for errors
+(i < 0). On timeout (i == 0) it falls through and uses ev.data.fd
+uninitialized. recv() on a garbage fd fails with a misleading
+"failed to recv" (or worse, blocks or returns a bogus fd). Report
+the timeout for what it is; errnum 0, since epoll_wait sets no
+errno on timeout.
 
-That rollback loop overwrites the same 'err' variable with the result of
-each move-back. The move-backs succeed, so 'err' ends up 0 and the function
-returns 0 -- success -- even though nothing moved and the phy stayed in the
-old netns. nl802154_wpan_phy_netns() then tells userspace the move worked.
-
-Give the rollback loop its own 'err' so the original error survives and is
-returned.
-
-Fixes: 66e5c2672cd1 ("ieee802154: add netns support")
-Signed-off-by: Andrey Misiurov <amisiurov@cloudlinux.com>
+Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
 ---
-v2: shadow 'err' inside the rollback loop instead of adding a separate
-    variable next to it (Miquel Raynal).
-
-Found during a backport review.
-
-On debian13 6.12.88, "iwpan phy phy0 set netns name T" reported success
-(returned 0) while phy0 and its wpan0 interface stayed in the original
-namespace; internally the move had failed with -EEXIST, but the function
-returned 0 anyway. With the fix the same command correctly fails
-with "File exists".
-
- net/ieee802154/core.c | 2 ++
+ tools/testing/selftests/net/reuseport_addr_any.c | 2 ++
  1 file changed, 2 insertions(+)
 
-diff --git a/net/ieee802154/core.c b/net/ieee802154/core.c
---- a/net/ieee802154/core.c
-+++ b/net/ieee802154/core.c
-@@ -255,6 +255,8 @@ errout:
- 	list_for_each_entry_continue_reverse(wpan_dev,
- 					     &rdev->wpan_dev_list,
- 					     list) {
-+		int err;
-+
- 		if (!wpan_dev->netdev)
- 			continue;
- 		wpan_dev->netdev->netns_immutable = false;
+diff --git a/tools/testing/selftests/net/reuseport_addr_any.c b/tools/testing/selftests/net/reuseport_addr_any.c
+index 1c43401a1c807..2e8aa83f68dd0 100644
+--- a/tools/testing/selftests/net/reuseport_addr_any.c
++++ b/tools/testing/selftests/net/reuseport_addr_any.c
+@@ -155,6 +155,8 @@ static int receive_once(int epfd, int proto)
+ 	i = epoll_wait(epfd, &ev, 1, 3);
+ 	if (i < 0)
+ 		error(1, errno, "epoll_wait failed");
++	if (i == 0)
++		error(1, 0, "epoll_wait timed out waiting for packet");
+ 
+ 	if (proto == SOCK_STREAM) {
+ 		fd = accept(ev.data.fd, NULL, NULL);
+-- 
+2.43.0
+
