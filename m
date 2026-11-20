@@ -1,116 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187855;
-	b=nAXqFYAOXsgcRmWzrgmKV3RyaRhdX5AMw6/uqHU02C/EFce7gDw/pKZ9hJJBD/ShEqKj
-	 R+bWogXhOGza9ZVPhLiSF12xeyhwJj5Rhu4Z/k5q/tVbN2a+ie7MJcUG5qS7NBOhFgRFC
-	 oeLeQ6eazX1ZwHKUNH9pPEfnQ78AjoJyFkgAJya4Uh5hPOk68nZ17/BiOgQGyh6haEsHi
-	 IMQhUuoyRf7fmrtlJE+0Bp//lXbrDlDcg7jAZr0EkeV5mG9QyfWLt5Fx5q1o/evi//yIw
-	 a7pXS1xAsRyZ2zVXjE6TNXxbFKJGci0eWRl+xQzk9YRbKLdukvHhZGbVcblZ2/H4TJg==
+	t=1795187923;
+	b=qkyahRRpGB24sEX8soPf8/uOg2/hI7LmRfEHXaarq2RVEQ703Xb7QSceZWbZxrWDxe5v
+	 ORvIno7FVJv6cSTaMAL1LacAogfX04dFw195k0byfRiwYN2wQkQcK8NAejH8hThFwALDZ
+	 Q/NOYbipVts0UslgiqFkabZ0WNhT1iJx9tealSOh48+TdT6piKtknsta0B+HRHKW0Yrei
+	 33HAlEB46ZV0EksdCwA0nyFleiS5bWAkOj+oIZPXYflkioK4f59pjUZEqO3j+UNPMpL6R
+	 nganK0A5Aiq8n7xbteFF6PMosRaQiwT5ZyAT4e4CGdTe1EiVSJ4yOQ3HQ4y0ecz7TUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187855;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187923;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
-	b=elEHCqqeC+3uamit8YcQBpIAKCA/5PICiKFsvyXJzLNjlX7vhTLioH7auupw2OCp1qui
-	 SFdCz6OXglxUA6LK/XT2ZSIeOdqcDEtsnPKzULJpNLhCFGYXDgrggA6MSjGkTvq2VopOV
-	 PJFt0AXRrFSrGNEWpmNykDtotcjH1qV5UqisHfqf9jZo9DI0QVnhaK07UKYcJxIc6jZz6
-	 IWv6xZ6JaFQ4RKnEW+e/QT2f6+Vzx7fOdsat7l88d7btGMfi9AMrzupAR8O3qySaHbh6R
-	 RfyaNRmaVoRqtfqUyG02G4UsJ/AoM3Aa/v3SIWsuKrnmcbT+GqDIaplzJlV98brPCfg==
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
+	b=fJPkPFV4lbPO8PsIujK7jyRJNiBEyvnXeOuk+50EtUF6PrqGNHX2J+J9giYkO80nYGqG
+	 IDFeHF/uVrxDn7izyhDuE2oyBnqubT96jWgxn39dMhPoLpfJjMvtZ0rKi61ltN7Cl6SeK
+	 YGq9WI64tEV+1m7Uo8CCOMUo3M3CX2iPPXx070sVGvHnw3P/h4xsPEwUc0f1QZ9tGPHb7
+	 w1+S32g6Dwo0H7ZPIPMjmi4JomF+pJBEyaU89nXnEUvji1F+nDHJJJF8GnTDpviqfffq0
+	 Jx/vYz9Smv67BJkrBYs+umfPqK96AANRJwiLgLiJf5SAX7bGZQQUY5APYuNGiLiHniA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZsBZbY9r;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
+	dmarc=pass header.from=linaro.org;
+	spf=pass smtp.mailfrom=linaro.org;
+	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=VI5rgciH;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E41B606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:17:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E41B606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3326E606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:18:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3326E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZsBZbY9r
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-150ef97e790so7385c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:17:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=VI5rgciH
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a07078200fso616470b3a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:18:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795187854; x=1795792654; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
-        b=ZsBZbY9rhrhfiMH0sIHuSlkXAHu76ZIvXMLxoLYKzwh8PjT4CLxStoojunbuP0/iA/
-         W90zitn5Ubkfby50lAuwhDOazB2L6R/imqoZQrr5T2qH6KWT0/Oi7Sz1JcBbXdE3dDzw
-         snDvkyJlfwkEk6pXFI3AHJmDTiQdkJuRleFOmaN5NVQG5880pyvAK9iBugmfOftYOo+v
-         rAaNCKf4p5tV+po35L3klIxGqj+ugGAu/Ok0TpBPaFpfLMMtzEpqE3GuXOGoxX3Z2t7c
-         lxFQfro0U36zTDNKHVXh5rBMyIfmzQRVpydIrZoC6Q6+KZ0L8XzhdBsO2aJGCJ6u6OzM
-         9oDQ==
+        d=linaro.org; s=google; t=1795187921; x=1795792721; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
+        b=VI5rgciH+NelPukarvxPksemY15+vM0C872yQBDjnvmYO0mEdZ1yU0qL527S10bzAB
+         lx9fhmDo+3hmYNxdGuAqyY70k49ZDtFVMK49wo/egoKCgoUNM6BUV1i1omX2YHtbQws1
+         2h18MfVyFPsqgjDlol5//H0c5aqLvZlDiWLEJZfD1h8dg4ZLbEn2iN+vk+ZCq8hMllmH
+         0GAnNvxiKMGy1Ukraq5kyAdwlcepLS2v3Mb7RmxoD/BX1bKwKtJ4ESAU/kiMrgO20Zj9
+         v1XFcP3SYyedkXfBS7coTqDIiMJz388N4BWEiwY8gRjeBUNzTbGmZ4t5P5FgctQTqwDU
+         uAiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795187854; x=1795792654;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qAjYne+BgcE8DA63sQsMZ990H8S9yK78zgr2NZdv76Y=;
-        b=bbGqd6wWPzJDHH4tA/nYh34M/qZkIhPCACNEKAIa9DljVMbUiuVJJeMeqsjp6Xoa7g
-         djxreXpn5ji/kw2T5+7PQ9NGDHHz79wLR4P/Dchj6RjKr4w8N46RofwqNY3SAXf1EsQW
-         JOxiX4Gdxga9toiReuWVY0GbwcdXyjivq1JXqOmW1NiZkbwCZsO6HOlgoQyYKET4wRWV
-         qCWga3Ut4l95BW8p04fmyaHjMen+j+CANYQppEKWj2tnDGeKYf+kJjR8YnXGhqfDJi8t
-         UpZsZLJ4yvqViT4ERYID2/hTFShyzMyyrrahATezgSsPoNWTbmBNrPfY7cpuQIIgdkyF
-         lXFw==
-X-Forwarded-Encrypted: i=1; AL+hErE9KKe1hVRHI7KAPiVaCfhgCMzesRA5Xj5IDMzA/lBVmHtCHrlaEP9agsunQ92MA0xP8XnG+N3jvTMovYo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9usvaT7LwIXccihEHSZMMg6tncuvG1wMHZ8GVcx+ItR1g6WlH2
-	tG2OhYfnHOCtf9L9JiUIrlMY9L18BGLVILl+Fw5H2A/DCTcb8XxRlZdoYhgD9wPlWQ==
-X-Gm-Gg: AYBFou2qX26GHTc8f2StLLFjfHtd0OQ8sZFTEQR6TzSepEGAhSf09VsC0M4C1kv0T/i
-	XWB6jAfhGWW+mcWBsxeNz+dl5NsyZOTi4rJ92O588GVk+2/nUIuaKUYtqtyCZX90WGwU0Xk8JFV
-	nD+Gv/EuKlrQjwTn66+ji2YZp9Xx6Xe0lD3CZYAwlyLAgbezDLYDFTCd2NZUIoytQHBXo2pxldU
-	NOOV50WP+0woTGMuHmBE8VKLoAddNscNgLblZsEfV18AZLTpapJ3E9eMxC9ll1mzUVujzgQB8uY
-	oiq1w/lmIwmtWWgbtDsqWAz9Yi8hRWqYjiODibKTzaJ06ViRUNlicuKTn3W79ngBjtHT0h07BhY
-	o3B0P086jSFps/sIZGrefZKh63nSLbCbF6xvyZqBuWtOcreIJKgdJzj4+I3MExPo5ecFmEuCS2C
-	sdHSDdaCam2CxhH5xKtHAKjcq6MM0q83EBbb6C74OCdEJnSJU9YJmLdllLi9bR9rJ/6AOez8ekA
-	W+3ytgKau18qR4MpvA/5a4ygVNud9wQFf3vif4Xms/5SIBUenrcAfBnMjyEAiDTfS/tcf53iWpf
-	R6FYB6cWmJoaHYjl/H7qnVWm94/bKN+70OnpJ/05jx+OmaZiRIAPzCpZx3QxiPYh9VAkJw1eN7z
-	lP4HkE/72fLxr
-X-Received: by 2002:a05:701b:4516:20b0:1b3:c4ba:8e0b with SMTP id a92af1059eb24-1b557b69270mr1215594c88.2.1795187852837;
-        Fri, 20 Nov 2026 07:17:32 -0800 (PST)
-Received: from google.com (105.211.142.34.bc.googleusercontent.com. [34.142.211.105])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm7441365c88.3.2026.11.20.07.17.26
+        d=1e100.net; s=20260707; t=1795187921; x=1795792721;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
+        b=H2m87nha9ZuP+IUWXCibD5UHxJip3LkyOgZqxQB+a0LKf5ekI/fupd88G54ihGEuKc
+         LhWJH0oSwPNAT+tEucTT3u782z0q35KOjOIZaH4y85qfqoyreiKTkAcd5CueJzBe94Ve
+         HegoVRhFn6UxklJCUU9h8rMO6xaUMr2qHwsXbKp4xTFqP5ax4XOcna4itC4qOFGHZWTO
+         yIkoufePCpdPxFsbyKJLP+o9Kzu2Y0yhK50XzbXF9Ew6Aw05PrUmpWqoxfYU7P2fdcF7
+         3KB5p97eLbT8EkVVQ3tWgIm0Ls0zrsWQjVw2tt0yYzZw6CnCMOHxiCO8NUdJhdeSyBiq
+         cGeQ==
+X-Forwarded-Encrypted: i=1; AL+hErFbXklwAN2QpBfCXNIP+dPLDBLvKccUb87IoLIyJGf9NAjgeIMKWtHtXvQW3U/PesmJl8awDjw0LTysZjY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8B2tWgtivXLtpzyShRM5pc0LjgYHBW53DK+PY5a4XiMidPzoA6
+	uZ5WkAMGQcqW3mhCyiYJHavUX20tBeAoLfG+GrgttdRLyduxtQAFC3b1Kch3ij5oe3o=
+X-Gm-Gg: AYBFou0h8vClbipPhFeCMEHYu7KMTy2KimTvIh76T+Q+KgDOCSMB775Gh0KNGBuudJz
+	xMNY9czL+gq4sDWRsBP6h54skOvzwYOG/FTvpl0EeOgAPPzEjNLdjxGiAVFcO/xcs9MpykPezvf
+	GtUfiUR8gXM6tcsStRaFsHo0VMmgySo3qHvzzEziJ7uaJ6CAWpvFr3oo1CZJHIuRQjAUE1cCC1W
+	9NS935lm9i7Lvogr5o2Q4d39noTieGC0SgUJ2Xke/p8qaqa0kP24VYC82/IWTqYFLOQwT0C0YVp
+	uclgA1LpZkq9b/gUw2jBxKGAqDVbBq/XrHCq4a8PLPtr0RLL+SkWGB9NhCP/n7JRxObML2AQ+NS
+	GdJu1R/8IlaulrvZrKX50QSNtchZn6OxYvTNGO8su2vvOwcgD9OZ2r6w/05Az1N/KR0zOk2+pCo
+	0/TRZ0G4qOSOpQ4hGK93ITVQF3sMRSd7KCMr+CQi/zy5y2Z0ZXghQ9Y18iS69PYbsXriK+NHTGA
+	HD6lfqNnBOLJzgxHyqYS7jPq8dOEQW7EebOQMjCBeDx21BDiySAYX88Wc9cSvG3MicIsOfhU3vB
+	5V2sJIgk6cmScWSrvAojzMp11E8NSanc
+X-Received: by 2002:a05:6a20:6a1b:b0:3f8:2d33:217a with SMTP id adf61e73a8af0-4014e35c5bbmr3604027637.59.1795187921441;
+        Fri, 20 Nov 2026 07:18:41 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:7124:798f:1b98:bea5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6c9c7dcbsm1534544a12.0.2026.11.20.07.18.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:17:32 -0800 (PST)
-Date: Fri, 20 Nov 2026 15:17:23 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org,
-	Adithya Jayachandran <ajayachandra@nvidia.com>,
-	Alexander Graf <graf@amazon.com>,
-	Alex Williamson <alex@shazbot.org>,
-	Alex Williamson <alex.williamson@nvidia.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Chris Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Jacob Pan <jacob.pan@linux.microsoft.com>,
-	Jason Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>,
-	Josh Hilke <jrhilke@google.com>,
-	Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner <lukas@wunner.de>,
-	Mike Rapoport <rppt@kernel.org>, Parav Pandit <parav@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Saeed Mahameed <saeedm@nvidia.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Vipin Sharma <vipinsh@google.com>, William Tu <witu@nvidia.com>,
-	Yi Liu <yi.l.liu@intel.com>
-Subject: Re: [PATCH v11 09/13] PCI: liveupdate: Adopt ACS controls in
- incoming preserved devices
-Message-ID: <awBkg0ODE436CZy0@google.com>
-References: <20261118223704.3286085-1-dmatlack@google.com>
- <20261118223704.3286085-10-dmatlack@google.com>
+        Fri, 20 Nov 2026 07:18:40 -0800 (PST)
+Date: Fri, 20 Nov 2026 09:18:38 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] remoteproc: elf_loader: Make
+ rproc_elf_load_segments() more generic
+Message-ID: <awBkzr_uxBxgeLvs@p14s>
+References: <cover.1794483181.git.u.kleine-koenig@baylibre.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -120,84 +103,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20261118223704.3286085-10-dmatlack@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <cover.1794483181.git.u.kleine-koenig@baylibre.com>
 
-On Wed, Nov 18, 2026 at 10:37:00PM +0000, David Matlack wrote:
-> Adopt Access Control Services (ACS) controls on all incoming preserved
-> devices (endpoints and upstream bridges) during a Live Update.
+On Thu, Nov 12, 2026 at 12:39:49PM +0100, Uwe Kleine-König wrote:
+> Hello,
 > 
-> Adopting ACS controls avoids changing routing rules while memory
-> transactions are in flight from preserved devices. It also keeps IOMMU
-> groups from changing during or after Live Update.
+> Changes since v3 (available at
+> https://lore.kernel.org/linux-remoteproc/cover.1793879714.git.u.kleine-koenig@baylibre.com):
 > 
-> The adopted controls are recorded by the pci_save_state() call in
-> pci_bus_add_device(), which runs before drivers bind, so they are
-> reapplied by pci_restore_state() if the device is reset. Allocate the
-> ACS save buffer for incoming preserved devices even if they match a
-> device-specific ACS quirk, since their adopted controls live in the ACS
-> capability, and panic if it could not be allocated.
+>  - Improve kdoc comment for new callback describing what it is supposed
+>    to do as requested by Mathieu.
 > 
-> To simplify ACS adoption, reject preserving any devices that require
-> quirks to enable ACS as those quirks would also have to take Live Update
-> into account. If such a quirk matches an incoming preserved device
-> anyway, e.g. because it was added in the new kernel, log a warning and
-> adopt the device's ACS controls regardless, rather than reprogram a
-> device in the path of a preserved device's memory transactions.
+> I'm currently working on another remoteproc driver that cannot use
+> rproc_elf_load_segments() as is because the remoteproc's va isn't mapped
+> into the local CPU's memory address space in a useable way. With the new
+> callback the amount of code that must be repeated is reduced, similar to
+> how the imx_dsp driver's load routine is reduced.
 > 
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> ---
->  drivers/pci/liveupdate.c | 75 ++++++++++++++++++++++++++++++++++++++++
->  drivers/pci/liveupdate.h | 16 +++++++++
->  drivers/pci/pci.c        | 13 +++++--
->  3 files changed, 102 insertions(+), 2 deletions(-)
+> Best regards
+> Uwe
 > 
-> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
-> index 00d6fa5236e9..b99a88c2c199 100644
-> --- a/drivers/pci/liveupdate.c
-> +++ b/drivers/pci/liveupdate.c
-> @@ -123,6 +123,9 @@
->   *
->   *  * The device cannot be a Virtual Function (VF).
->   *
-> + *  * The device cannot require device-specific quirks to enable Access
-> + *    Control Services (ACS).
-> + * 
+> Uwe Kleine-König (2):
+>   remoteproc: elf_loader: Create new callback for copying segments to
+>     remote cpu
+>   remoteproc: imx_dsp_rproc: Implement .memcpy_tova()
+> 
+>  drivers/remoteproc/imx_dsp_rproc.c         | 120 ++++++---------------
+>  drivers/remoteproc/remoteproc_elf_loader.c |  64 ++++++-----
+>  include/linux/remoteproc.h                 |   7 ++
+>  3 files changed, 74 insertions(+), 117 deletions(-)
+>
 
-[...]
-
-> +#include "liveupdate.h"
->  #include "pci.h"
->  
->  DEFINE_MUTEX(pci_slot_mutex);
-> @@ -1071,9 +1073,13 @@ static void pci_allocate_acs_save_buffer(struct pci_dev *dev)
->  	/*
->  	 * Devices that rely on device-specific quirks to enable an ACS
->  	 * equivalent keep that configuration outside of the ACS Control
-> -	 * register, so they are configured from scratch on restore.
-> +	 * register, so they are configured from scratch on restore. The
-> +	 * exception is devices preserved across a Live Update, which always
-> +	 * adopt the ACS controls established by the previous kernel and need
-> +	 * the buffer to keep them across resets.
->  	 */
-> -	if (pci_need_dev_specific_enable_acs(dev))
-> +	if (pci_need_dev_specific_enable_acs(dev) &&
-> +	    !pci_liveupdate_was_incoming(dev))
->  		return;
->  
-
-The ACS save buffer is forced for incoming devices that match an
-enable_acs quirk, but neither existing quirk keeps its controls where
-the generic code saves them (Intel PCH Root Ports have no ACS cap, 
-SPT/UPT has the Control register at +8, not +6). Is the intent that 
-such devices just lose their adopted controls if they ever lose config
-state later? (e.g. a Root Port D3 cycle after pci_liveupdate_finish())
-If so, maybe worth calling it out in a comment?
-
-Apart from that:
-
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Applied.
 
 Thanks,
-Praan
+Mathieu
+ 
+> 
+> base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+> -- 
+> 2.56.0.rc1
+> 
