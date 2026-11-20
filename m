@@ -1,49 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195207;
-	b=lgRCg68aSWJeG13YaintU60A09AUEwhlnYxlDbH8C45RiSa7Uo5+KAsH+unJ66U4xukM
-	 lY+QikHsIlQDYCMnFT6DG2/xDEO2rGD3OgHxaAJHCoxRl1kH+OHezXAPqnMqt+/5n/oqG
-	 4q6K/JMAw6acYRmr5Gth6j5ztmBdOf4BCmp0GBF1bFv7JaEpnlTNZdRSuZqX7L7rayJAI
-	 QFfD8CDX6LQrVUqqgS3WtWCt4Mz4ed0YU2hyjg+GROWLmcZGmD9Zmorkt4jv1AwfFtOCs
-	 98Ql9g/7oka1PwBYA6fjEDsvF7edqNcxBDCC3a2DgCPsZcU9FL2b77shcRJKEf+GVDg==
+	t=1795195213;
+	b=JCImGmrriTX3BQRbPG/gNDQD6zzpQLKxwOGXvBC83tTvsGOck3mhqsnPtovbTqLyWKCg
+	 s74BXAT+ECfr4kiSjxrzlJMNREhJEJJihITZmrSKSPCeip3Ca+AeYOVa5ec3bCOONLKrP
+	 E6USwQrKz8blikrczpZKDt9FikXauusac7XBYF1MxCi44j/6pWcZZgcjQq0uuV2TvBTY5
+	 fUTBHpLvXSELzZH41zcOOycn2TljLooVjIFljClexR/Pnz9wQcX3Mg8SHiKr+K6k+koGY
+	 ZqU085mk9YRtvJXoMwfEIIjhm88T5zv+2WrtJ7M6w7u9przrRKpYR2rxFSlZYbJXpPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195207;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=stbY6RyBYX0J6lQyHoEKH3y5E24DblkhJDBPRzo9SDI=;
-	b=qrW5gekGn1OvQ+jfwAFGZMcTV9sB4UtOBsZLgO4Q8O41Mt7lbsUeT5C56rLzijSV4Hgy
-	 C1mAc0i4Y1ZcDb7VOpFZT0qSbX4xtfZtjuMSic1nQqLcdYpH1c1Xo4YJA5g9fC34JQkhl
-	 VHFuaYFuUTp80wKP5D7Fy1S7GcY7NNnUPoK70derkYvoIvREszT3JBly4LQUv9Jv2aYft
-	 txEzYFM5txBQm+FLBW0UeaYusHYK4CAC/APWz2t2PCkpYcsVKEcrcjaVZKFKWZy54QpvF
-	 K6IzcNsxzwghtScfNKxhM2SsPDfMXgyzC7n9Azf0KMr4S0+yOpIE/T9sUw4KOJgBXMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195213;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Psbw3M5QFo2PG3uijKfFP4lY6XlQCRXfFYDjnQLDsQA=;
+	b=2ju9pY0ryIDgRvimnRJnivX1aAZy5+/RGiMhlOhCXUAMVmQ1Mz2nNl2mEIE6rFbHFcQP
+	 /CkgQuz/61saMqcI0i69kTLFQnjwugeIuoeNI0ZvXBg1F4fYJJoy34JnEC5ICY/fWJLp2
+	 sCtdcvcbgbfmkFIMZ6zQMc3iDdm9DgvZ+Ut0DSH//9eT0zzHq0qcr12iecULlftzqnGLt
+	 /1Ev556bUDnlYfb1IRIMR+GK1voZu5STs1UDtdS1YVRR5173q7ypve5RdGxSB1PXTurwS
+	 JzBcqXTnseU73q/SptqbHKdgtTPf5shSm5t289lGd9vbq1TuYoZSnZfBfxhJgTAQSew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L0PqarrS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BNlWgqV1;
+	arc=none smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2DF3606A320;
-	Fri, 20 Nov 2026 17:20:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7767660A2605;
+	Fri, 20 Nov 2026 17:20:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7767660A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L0PqarrS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81FE31F000C4;
-	Fri, 20 Nov 2026 17:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795195206;
-	bh=stbY6RyBYX0J6lQyHoEKH3y5E24DblkhJDBPRzo9SDI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=L0PqarrSZ77qq1IRI+M0p1GXieOSuZLf6CpmHdd7W0rAC4LFcXS7PgJu7mqbAuj1B
-	 gfndqnjC/s/G9k3zqZheM6THqmHhoJvaR2Lv4YBrfqGW6qs4CvcdCv6xReFsrb53np
-	 iGTxOJAr7IB6FyH9A0t2bdHnO/WbXgg30anxjKeyNiICRdU2FCfI+S1Vz+UEyc1n6m
-	 keg7OzhAcADdaMdwxtRk0/wLGZp3Z5ALacHvzMpalkgAgvU5FR3qTuSxRKE1ilV8Dq
-	 lmf7rVZGC5z6yKmYIglnquyswDddBR+MFiQ6GOsGxoEacCwFUB9MhBXC2yzrhYnzLG
-	 kbTfXKl2xBBdA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 775763809A88;
-	Fri, 20 Nov 2026 17:20:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BNlWgqV1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795195212; x=1826731212;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=1gWduC7hWiArbKNOehbUAr8ojhXyukCpKp9UeihBdZs=;
+  b=BNlWgqV1ZbbGW1QPXA1mVqdTXikUOuDIJra2CClaGs9gyaHXkFGtZ61S
+   IkgYCFtjSBUyHiwITIgOtl0K7eIgSlUOy2AwAkcwupHs8KYWm3C9B4/Vw
+   K79hYLAnI84/L1oC/2+L+Wsa/kvviN6Ftaxf8XTBjMDrp6n370c36gbXo
+   MyfTAvy4XeNG8a2Xo2odPIAeFHFDO+mG6Q+YyEQcvuQim4cv/EXIfWN3j
+   NCo2T1FbMESb+a7LWn9AKsE1BC1Ev3NbLuJ1TaoUaaEahm0GXCDw2d2+D
+   gNeTvjxgLIWaLO8HH/XTc+vUy/9wp7D+Jax4pI3EmC1FMtisNXCWqbJmN
+   A==;
+X-CSE-ConnectionGUID: K/w0O6rmTvi81UQ1n71nmw==
+X-CSE-MsgGUID: Ll51otKPTZ6pC0MO69KIwg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157244"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4157244"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:11 -0800
+X-CSE-ConnectionGUID: 8kcDrLSeT3KO3HI08gXPGw==
+X-CSE-MsgGUID: hzquPt2mQYitaDjNozKSuw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10867803"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:09 -0800
+From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Len Brown <lenb@kernel.org>
+Cc: Colin Ian King <colin.i.king@gmail.com>,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 01/42] ACPICA: components: Fix typo "Supress" -> "Suppress"
+Date: Fri, 20 Nov 2026 18:18:22 +0100
+Message-ID: <ea95dedff9e3c834ecf6612ca51a9392f26c20aa.1795194329.git.maciej.wieczor-retman@intel.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
+References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,48 +86,40 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 0/2] Bluetooth: MSFT: Only enable the advertisement filter
- with monitors
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: 
- <179519520528.673037.13658094971187951302.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 17:20:05 +0000
-References: <20261120-msft-filter-monitors-v1-0-8192f0c0791a@pm.me>
-In-Reply-To: <20261120-msft-filter-monitors-v1-0-8192f0c0791a@pm.me>
-To: Thomas de Gruijter <thomasdegruijter@pm.me>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, brian.gix@intel.com,
- howardchung@google.com, mcchou@chromium.org, apusaka@chromium.org,
- luiz.von.dentz@intel.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org
 
-Hello:
+From: Colin Ian King <colin.i.king@gmail.com>
 
-This series was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+There are typos in comments. Fix them.
 
-On Fri, 20 Nov 2026 02:13:34 +0100 you wrote:
-> On MediaTek MT7922 (USB 0e8d:0616, BT firmware build 20260724) LE
-> discovery and passive scanning find nothing, because msft_do_open()
-> enables the MSFT advertisement filter on every power on even when no
-> advertisement monitor is registered, and this controller then drops
-> every advertisement.
-> 
-> Patch 2 only enables the filter while at least one monitor is offloaded.
-> It is the first user of msft->filter_enabled, which does not follow the
-> controller when it reports the filter as already being in the requested
-> state, so patch 1 fixes that first.
-> 
-> [...]
+Link: https://github.com/acpica/acpica/commit/b4c87a6253ad
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+---
+ drivers/acpi/acpica/exconvrt.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Here is the summary with links:
-  - [1/2] Bluetooth: MSFT: Record the filter state on Command Disallowed
-    https://git.kernel.org/bluetooth/bluetooth-next/c/75d6b9d82c35
-  - [2/2] Bluetooth: MSFT: Only enable the advertisement filter with monitors
-    https://git.kernel.org/bluetooth/bluetooth-next/c/4a8f9b7fb4f5
-
-You are awesome, thank you!
+diff --git a/drivers/acpi/acpica/exconvrt.c b/drivers/acpi/acpica/exconvrt.c
+index b51f20d0978e..ce5bdf519886 100644
+--- a/drivers/acpi/acpica/exconvrt.c
++++ b/drivers/acpi/acpica/exconvrt.c
+@@ -334,7 +334,7 @@ acpi_ex_convert_to_ascii(u64 integer,
+ 			hex_char = (u8)
+ 			    acpi_ut_hex_to_ascii_char(integer, ACPI_MUL_4(j));
+ 
+-			/* Supress leading zeros until the first non-zero character */
++			/* Suppress leading zeros until the first non-zero character */
+ 
+ 			if (hex_char == ACPI_ASCII_ZERO && supress_zeros) {
+ 				continue;
+@@ -421,7 +421,7 @@ acpi_ex_convert_to_string(union acpi_operand_object * obj_desc,
+ 			/*
+ 			 * From to_hex_string.
+ 			 *
+-			 * Supress leading zeros and append "0x"
++			 * Suppress leading zeros and append "0x"
+ 			 */
+ 			string_length =
+ 			    ACPI_MUL_2(acpi_gbl_integer_byte_width) + 2;
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.56.0
 
