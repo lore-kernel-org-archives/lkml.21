@@ -1,56 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187745;
-	b=PqYTvSbWS7T+LmX6f8LYcRiA5Ashp1GSFzwCDpaq6uCFreBQS2i0aA/BcbZAll432WOq
-	 f97nGA+CRMHuidOUQIx/+TBQgJ5nInEpJ7E2FeIXaM96Q2dhV5hFvZN3/P7eZWX9Ax8Gu
-	 ANO1s4ASuDqeWg4TNzyXe1B1Qm13LtKgXiFZBZVV94I5yfs58G07ht6am/zXnpsYzyqmG
-	 sYEhkhhVVjedIGeK6LJFd8djWvPnL20euYyDEg+jGdP+xPGS0fziIdRWKXMUTqNPjAqkx
-	 c0aSMbcwpskcgtmP3+V889vy/h9szgrD0OgKQo2kOuj2hoM2TpYmaUYnZzQVrNUMpKA==
+	t=1795187750;
+	b=zsrtNNB/7BGLdsV8ucCPTJgWd87jfqYDAWc5xyLGxMciE1yEXC3KXnTI4EFkdsZFRVxu
+	 wbdCdsLXkWnfCYMYcdxuas147WvIQqd1fxC1HnQMZUuLg6gdtFchPQtbfbdrfDk0DLyNB
+	 axpD+rjxujwQ+PIy+aEcxpSOhXxrsUi3AHOlTuDX7DNWhA470JqfndPUHcGQhsn9TrT/Z
+	 NuMJXDw1EH1sT1Wi8gdfIO6vuEkSVhkY85A3lGOWHSsKve0ccdCjE9zeaX5EmAzUSG16U
+	 Iwu+u26ymWDiNUTYEkBdr9Yxrt45yRYkT2Uk9PXMIWlVpZW1/XwmILLTAHAjo9bxSlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187745;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=5PvVbdw1H4TaeeEEy3gzS8gsdBLbvbj7MYrxcM3C5gE=;
-	b=Da/QyhTdWwDw0w3fxqN3ijiV6zoOde9JCGtaN7yeMlBfb73QIVHCWKKGl9GSn9QRcJ7l
-	 sUm1f1vIS+8Fe0dnF5iO13oMvwX8+5P/DCUr9oJvYUeMyKbzfEEuSE90/DBrgmyrTqtV3
-	 ekZCJlmYBN1xK44KkY8CNrQR3NLZgERcFyeIb7pYmkuVlf333NrQny/7hyfQX3IDTJsqb
-	 l4/VNsouuRmY57YutmAxmCNZKoQNmmO+059EqlgGAXYlPxzlXiyCDfIBtdIVtN3hcktrm
-	 sl+WIOkyfBVjdT8Hg5bFrDjhHI5+AklOFGhBlFZLtU3RaNZuIVQx0g5T3u2kebxcMwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187750;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=ihZfSgxIvjEMkXvmyda1NP7Q3LgCpF1cCr/6VrpGnao=;
+	b=l5T9g6sNJg7B+4hxBe4LWnMHSq9itIhSboPTRHahvS51OPiW+NOyAeiUP7AQlspDer8Y
+	 5UdFHI89m8XotebISQ/GMlYAPGd6+Q9igviBspsWGfYvpyzVQMuNF39Du+hLcHMP/g4BS
+	 21RmlikRQmMymmLugdMaoL1dlCFU2VsEgpxlvr/t00W+Al33RArgENEZ/jK6+rv5aHqWs
+	 FYf8mTC6aM42/vLnEj9NJzkcPM2zRBia/rt5zEsIHISCqwukPVBOT5d4TTw3ObBaIJ1Q0
+	 tsymS3rMaT35VHmtAtVJM5zjM2QMBt6EmUmC/tOMhtbkxiJJAC2BMFAkNmVn6hyOo7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNPz6git;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2SdLCLl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F0F7606A32A;
-	Fri, 20 Nov 2026 15:15:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE791606A33B;
+	Fri, 20 Nov 2026 15:15:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MNPz6git
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 010C01F000C0;
-	Fri, 20 Nov 2026 15:15:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2SdLCLl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61B771F000CA;
+	Fri, 20 Nov 2026 15:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795187745;
-	bh=5PvVbdw1H4TaeeEEy3gzS8gsdBLbvbj7MYrxcM3C5gE=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=MNPz6gitvITlFlI/IrUP0B85yEFWhKJAQbcUfuOqS+hoeqD3PQUgEum1j2RzFD66r
-	 +EJEqSk5fXaiXFwqNXfQEfiYm40Efp3iofToYc7VKbTbrNeDnkJBhG6vd58pHyNwiz
-	 d/2d0nQ20nfQwOnAE4acaJHXaAkplcRGuHhjw6jSnw2eOSiIyARNjcImOavyoKL5re
-	 M9BBY1ymEmMNN4bOPLb8lpdswRp8A34lZYJsjBxxoRXD+mGx39JTPJK0RKnEsuIjT+
-	 /Zyia5oFWZVJRY7fi04TiSvQxCyEMJQ0XtIDQir7WBWFX/HRdDZVnfJpUTp1IsYq0N
-	 YG5hUARYDorEw==
-Message-ID: <sashiko-outbox-225444@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v5] ARM, ARM64, LONGARCH, XTENSA: Delay HW BP
- notification to task_work()
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>, linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-In-Reply-To: <20261120144553.TjgAd_G6@linutronix.de>
-References: <20261120144553.TjgAd_G6@linutronix.de>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 15:15:44 +0000
+	s=k20260515; t=1795187750;
+	bh=ihZfSgxIvjEMkXvmyda1NP7Q3LgCpF1cCr/6VrpGnao=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=V2SdLCLl+PH46TsluxaAncAdCSR9/8rtkneR5aa2+XVpBg2n7i5eN61n5cLrPCib7
+	 Y1zs7LkeLUtQHrxcc20V7hPvUP9By06ovOk3iQTAmN7J3oH6MYzGl0HY05tTzkI+B9
+	 u/9dKgxi4O6o0Yh380pbhyF1vPo1Zrf5PGADjiauViB+YF/jzuMERHVtnTX/bql5Gi
+	 +1nUjCdWbZN56Z9I6mR55wZQkOhJnTdRQAJiICTpxYaLwdTX7LO1u+nmJjGRI2+jMd
+	 Ze3CRwcUqYqb0MS134tJx0N4UrdoQh6Eya2Ye/HI88d1y8sofiW9rEoG95Q2alL72z
+	 BzPxn460AJnUw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Myeonghun Pak <mhun512@gmail.com>
+Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Ijae Kim <ae878000@gmail.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
+ Darren Ye <darren.ye@mediatek.com>, Jiaxin Yu <jiaxin.yu@mediatek.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>
+In-Reply-To: <20261112011708-afe-v2-0-mhun512@gmail.com>
+References: <20261112011708-afe-v2-0-mhun512@gmail.com>
+Subject: Re: [PATCH v2 0/5] ASoC: mediatek: fix AFE IRQ registration and
+ removal ordering
+Message-Id: <179517904754.6016.16269615530838300307.b4-ty@b4>
+Date: Fri, 20 Nov 2026 12:50:47 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,87 +64,64 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2005; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dSDkHmfmCeNxORnUsZPpEUBtYzLsL2QTxwlCUj1j5No=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZUhRfLDdqKWWb3LEh1FVrp2l39H3BnQd6bWoPShsfn
+ Lls+9Z1HaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZhIsScjwx+bYs4LHKEzxes+
+ S92Pay44tVhO67TrulBDmRstCW8VnjL8r+p8UPu9RtY4RXbrMr6NlamTQhtecNl6Z6y6wp0qGfa
+ HAQA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [High] loongarch: ptrace: do_watch() forces SIGTRAP before
-  perf_arch_hwbp_send_sig()
---
+On Thu, 12 Nov 2026 01:17:44 -0500, Myeonghun Pak wrote:
+> ASoC: mediatek: fix AFE IRQ registration and removal ordering
+> 
+> This series fixes IRQ lifetime ordering in the MT8186, MT8188, MT8189,
+> MT8195 and MT8196 AFE drivers.
+> 
+> Request each IRQ after regmap initialization so it is freed before
+> the regmap. Where remove() shuts down the AFE, free the IRQ first.
+> Also balance MT8186's IRQ wake setting.
+> 
+> [...]
 
-commit e42e3194215f3def1d0ba2e055fc294e66e5d8ac
-Author: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Applied to
 
-ARM, ARM64, LONGARCH, XTENSA: Delay HW BP notification to task_work()
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-This commit defers ptrace hardware breakpoint signal notifications on ARM,
-ARM64, LoongArch, and Xtensa to task_work via perf_hwbp_notify() so that
-sighand->siglock is not acquired with interrupts disabled on PREEMPT_RT.
+Thanks!
 
-> diff --git a/arch/loongarch/kernel/ptrace.c b/arch/loongarch/kernel/ptrac=
-e.c
-> index be38430f7e280..27e7e64591592 100644
-> --- a/arch/loongarch/kernel/ptrace.c
-> +++ b/arch/loongarch/kernel/ptrace.c
-> @@ -384,9 +384,7 @@ static int lbt_set(struct task_struct *target,
->  /*
->   * Handle hitting a HW-breakpoint.
->   */
-> -static void ptrace_hbptriggered(struct perf_event *bp,
-> -				struct perf_sample_data *data,
-> -				struct pt_regs *regs)
-> +void perf_arch_hwbp_send_sig(struct perf_event *bp)
->  {
->  	int i;
->  	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
-> @@ -479,7 +477,7 @@ static struct perf_event *ptrace_hbp_create(unsigned =
-int note_type,
->  	attr.bp_type	=3D type;
->  	attr.disabled	=3D 1;
-> =20
-> -	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, ts=
-k);
-> +	bp =3D register_user_hw_breakpoint(&attr, perf_hwbp_notify, NULL, tsk);
->  	if (IS_ERR(bp))
->  		return bp;
+[1/5] ASoC: mediatek: mt8186: Keep the AFE IRQ within its resource lifetime
+      https://git.kernel.org/broonie/sound/c/420be55fe0e2
+[2/5] ASoC: mediatek: mt8189: Keep the AFE IRQ within its resource lifetime
+      https://git.kernel.org/broonie/sound/c/4f4067c2d110
+[3/5] ASoC: mediatek: mt8196: Keep the AFE IRQ within its resource lifetime
+      https://git.kernel.org/broonie/sound/c/eb9a5be4c2c1
+[4/5] ASoC: mediatek: mt8195: Keep the AFE IRQ within its resource lifetime
+      https://git.kernel.org/broonie/sound/c/eac2ac34a18d
+[5/5] ASoC: mediatek: mt8188: Keep the AFE IRQ within its resource lifetime
+      https://git.kernel.org/broonie/sound/c/94d0e251e7d7
 
-[Severity: High]
-Does deferring force_sig_ptrace_errno_trap() to task_work cause do_watch()
-to queue a generic SI_KERNEL SIGTRAP first and drop the TRAP_HWBKPT
-siginfo?
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-On LoongArch, do_watch() runs with interrupts disabled and forces SIGTRAP
-before returning through irqentry_exit():
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-arch/loongarch/kernel/traps.c:do_watch() {
-	...
-	bool need_sigtrap =3D !!current->ptrace;
-	...
-	if (test_tsk_thread_flag(current, TIF_SINGLESTEP)) {
-		...
-	} else {
-		need_sigtrap |=3D breakpoint_handler(regs);
-		need_sigtrap |=3D watchpoint_handler(regs);
-	}
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-	if (need_sigtrap)
-		force_sig(SIGTRAP);
-out:
-#endif
-	irqentry_exit(regs, state);
-}
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-Previously, breakpoint_handler() and watchpoint_handler() ran
-ptrace_hbptriggered() synchronously, queueing SIGTRAP with TRAP_HWBKPT, the
-slot index in si_errno, and the breakpoint address in si_addr before
-do_watch() reached force_sig(SIGTRAP), which __send_signal_locked() then
-ignored via legacy_queue().
+Thanks,
+Mark
 
-With perf_arch_hwbp_send_sig() deferred to TWA_RESUME, force_sig(SIGTRAP)
-in do_watch() now runs first while interrupts are still disabled.  That
-queues a generic SI_KERNEL SIGTRAP, causing __send_signal_locked() to drop
-the subsequent TRAP_HWBKPT siginfo from perf_arch_hwbp_send_sig(), and
-still acquires sighand->siglock in atomic context on PREEMPT_RT.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/20261120144553.TjgA=
-d_G6@linutronix.de?part=3D1
