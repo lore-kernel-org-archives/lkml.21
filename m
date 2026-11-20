@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795198300;
-	b=d0d6MsA6vgAJbj4lXfL6Z0XGqBCZLF1use8UqadXxPOL4VoS/nmsLMc+pzymGdhnxvyW
-	 3uR8L7w6HCIDYWhJ89up2p7kolVTfFbfSPHCJbQYfSRFWIIv7+EkXA1bVRXPHdbqQoRJX
-	 rEaiR+ItTnYhOMr5i0I5j//YohcuShRWbZSfyBvJB/8i1xCk8x/RIXDyUk0DjBpWcW+5f
-	 xj0ieZPfJIXh0ryEkTbkm3ZF2dZYexcit1NRllIcmFsU9QyqkMQY0AogaWQwckJ0VSDpG
-	 5ohjVk0TpYLyJyTske80JJUo+ouKETIY5DKYLzaqrStPTYL7rNZBTXUWLPjT3+edD4Q==
+	t=1795198283;
+	b=eY+e2pdNj9mJxzhDOq94pRAmhat/5OUBqe01J4+R0Zh7kowa+29ZLDANxo6QAghkhv0P
+	 62X7HM9PBKAILwEVi5AIjUJDM0/+/ZYgI+pf1XltcyK4AKOTo3xtu+jkwWjDW4kc8hr33
+	 9x62re3jSqkcgx61LECTKDNnd5h+4E3hmA1mtwBVSzUdH4+fxjgXyQ1HknFA7KUUpLORL
+	 i/0ThL13V0BL+1rdDz8XDVFSTyzcroiv6mIKrU77JrpI/H6qQwOKvwmjJniLC6oGBArnz
+	 cU0VMCE0G42iKo3Ml4Lw0nW6/BJ4AqtlMjsai1bgFKT6/bSkm3GaPn+XnFnakrv3y/A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198300;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198283;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nTdGtBd9go6Lwo9FeBOm72FpreXMakZmzpwJjehQh8I=;
-	b=RvVHCm0x1tbFnVs7f/B7U5lXDQxGeNT6RJM7iAOVVEatIKprlEJBRhUMupmldXhVvXBi
-	 3ON++tdVwwC2kkUy26T2Uyyygi3/myDgMMIFtftyhwmLNSTg+5Y6VJK83MyMPIjg4JcK2
-	 Dr6Wn6BWc06NqmTxuhMfgNCewa4XuJPU+THxUj/cp/sJu3Gyei46D4wlt6LikyRSRWu42
-	 C9l4JjFvlisChigVSDqBzIRgSfjiwH16Dk8FcR8SpoS1pd5E4btvipC3OXoduJXPUr8yw
-	 ZeP4Z4z8cGvpyUAXhamHIgdhmEzHWjx8LDuNKeRzO+AJyvzXgvHOcavYTAbxHgs7cdQ==
+	bh=TQvkf96abxWVFEUo9sjHkKJXaCoPqvmmPh2ACSZu1fA=;
+	b=SzF3ioJf0btbe/5G0KdqkT7zkbNA8l+D4Z3TaUSi3bjFKSWg/xjUIJo5PTq7l4rUFwnk
+	 I4UgqjDRbIQ3sHuPyBi5mAx2vXv4ycEvUKikXGjc7cVV1VdHcA+OjObv0A6MQLW+mjNBP
+	 8s+uh/pDuHaXyD7Tb9aipWfiSP4lfuq2W4leTjryWBnf/7FKDpxEcS2meWgfk0/n0CuSX
+	 SLnFV0E4icdFEYgcXpamT8xZBTGmiC5Us6oTzDzxSwVlOVvJFOOtHgW1m0u9IM6cDWzxd
+	 1Rwaq+sUuafFeVyPBh8U8k+NzTEDFDSuXtemwMA/Y0PhUc8hugbk6hs4KlYNSnCL6Sg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="mJsm3/Zb";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNTNraWT;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC75607BB11;
-	Fri, 20 Nov 2026 18:11:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8A8C606B230;
+	Fri, 20 Nov 2026 18:11:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mJsm3/Zb
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UNTNraWT
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795198300;
-	b=Dn78puIYhqIMB/XwJxu18oGmkDwJR2OI8qLSevdcOSTY9p9kbec5rckyqT2GOisW2gFj
-	 T1kkJP3kbagjNvdwbEJH+c6vnI/eUA7YvWR7CcMGk9Wrc+D7pjD+fuqL6Jf1VNh3vhNx4
-	 LdoCQGOsLtDPo0yniUtxU7lcehdp0uXBmwFo4EgPrd3Ml7Ff5oWgm369NKPF1caTi2sAc
-	 HOYdJZ0Mv3V617YhONYbmDNezDwAvjBTUIDEpRz2I/ZqShWcRFwcr8QKIl4gAGl4zfqkz
-	 ZpFoRcoe2ea3Z7weQsTGiyhhxl5iWq+SpT5WKVpxXDVgF+XeUJdskB4D/hStBpwX6dA==
+	t=1795198283;
+	b=wfJlkCoi5xGZknMQ69V9xEUEQwZ1xTnGAwONaJiMV0yGk+vWSJZqpttOigdOH2XqvEQT
+	 tflqYrVGniVzYUeZpbEHQY6R8z6LnBykRTUJn8F2r8QaTnctKKLC7WvVEXcDtgZmqyaxb
+	 WtKlPhtSfQeoFCnIyH+t6rBP5zGrO/1Y0Iea73BKirH9u7IdjAMEy+7jtV4OMwnISffRU
+	 BhzkxBO7Vor9yA3sPZKYAldGKMIhKtRt2cz78zhkWeo8JMV4XHBZQiaCmQXpR+4tgD3L0
+	 2bsmJ2iK5BAYDYD0yJ/rlZN14djpBUXwBwEriLIfDzAQ0b9540lJjW/OfwP7xY8Dr3w==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795198300;
+	c=relaxed/relaxed; t=1795198283;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nTdGtBd9go6Lwo9FeBOm72FpreXMakZmzpwJjehQh8I=;
-	b=Kcv5kKO9BvM7gR36G2ytCflSRVsQ4HaPa0uKjNA95DXQlThKL2YnQf4hQdGYt0fY5frN
-	 DWjEtwJi3PsoTSmyhdoBN2vq4J0kK3y6D3seFPTzbaTHcKJbrodazLYISjYNGQsiFEToc
-	 rVVwD/OaXG/HwwmIe+WwdcdqL1QTpxrBKcUWtbi9hUeu/NBDgxVQvVyb9fcl61bSZE+l+
-	 /41RX0Lzgpp2YnW7WTGbcKOR37lttmQfRkvxfWx03oY+qPTmGXAtwQiz6xIurcXqkL1WH
-	 5bMqsNTb4B7q0i3nuz4pplWQ8nEYwW3cwYINWoabYtHBQAYRdmhV1o5Bd5o1zokCaFg==
+	bh=TQvkf96abxWVFEUo9sjHkKJXaCoPqvmmPh2ACSZu1fA=;
+	b=I7VOlYBA2OW6JY3rkyUZfopxsZ9ESQuSam5OD9Cy+rO1ZjD33mVrh7uFgWYFLI0Mi2K0
+	 JM2JN0LAfWC0IJUBmiAmewkk9t8LFCyvqejMWIaJCBExQ9XMLBSU6XliePeU+c2N9IJg1
+	 bB1z5O6oat4NkPnUpsqNoExE8v/XhWl3n+0tuxTXu424sG0LAUE16SenNbqgW4Zl/caHL
+	 7DS3oXi90HLXkeFZqFGgbb947f34WKWpr0xFuXCixpQsBmiYM1EM0UxHTcAdAOpov+FtV
+	 SIPms6LE6EUUKb5SHuqw2TtN89SGGYkNG8bF+QKrexGsNSaZ4fe0gS8PBdVuzAhvLMA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D639F1F0180C;
-	Fri, 20 Nov 2026 18:11:19 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A983D1F01563;
+	Fri, 20 Nov 2026 18:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795198300;
-	bh=nTdGtBd9go6Lwo9FeBOm72FpreXMakZmzpwJjehQh8I=;
+	s=k20260515; t=1795198283;
+	bh=TQvkf96abxWVFEUo9sjHkKJXaCoPqvmmPh2ACSZu1fA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=mJsm3/ZbvdaIcPDcKFRnsB5MQxKsSFD5PEbsZ6rjRLcFUjGFcCDjE8IXjdrwZN30R
-	 AH0Q2tG6Z5vdVBUGuUUH+nEpbl1tqkQqs5Vnla6572RL9YJelsqupHZVKIwsTep6gL
-	 vbelieow6F60QqRxbFy8NyWsV2aWyGQn0m+XSxCwOfJLC9N7SZ2O4AcrwLiRVtr7NC
-	 ZjGwL1l0DzZgzX6LKBEUvXh7iZnzaPrzJtp8cCwpnOUMqTLd70UZU9wbkUqxRZEgXm
-	 d0Aj9mrwBkNyPH52tk7FT6UZd6oCCIYkeZkpxsS5qtz4JiG/oiJ9wzsnq/J3Aw5Cm5
-	 Ao+2x2y9xqYLQ==
+	b=UNTNraWTumxKV9QbXszL82xr6WsskTiKxkHxI0mu6JTlxTFoXGDbaDLlal0lAfF9r
+	 1C6Nc78Ax1tL6B91VNuktoZCSStmsQHS0RnPwqH2uQ4IQsYfYDY9XCN8EFMenWPU9g
+	 M2x5YuIflN/mcUyL9jzJ5joFzr9Ip07zwVcGfKjuFp2PY1yAsGZFe8uq4bpLupkjHz
+	 645fZcRFD6uI6AQNRIO8eGXyLp0/Hc05piMxhRgMBRZcCq9CfpFWEfe/eAke+Zbaam
+	 2M6HHf51YoKhNdXDNewwt7Pm3MzKGsP+oWBcz7BR9SD7Abf/IhC7Tz/cdxhYHhzdPR
+	 AODU60HNIVGyQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F1AFA4B9A4;
+	by lkml.kernel.org (Postfix) with ESMTP id 79D214B994;
 	Fri, 20 Nov 2026 18:09:23 +0000 (UTC)
 From: Gregory Price via B4 Relay <devnull+gourry.gourry.net@kernel.org>
-Date: Fri, 20 Nov 2026 13:09:48 -0500
-Subject: [PATCH 57/60] selftests/dax: test private kmem devices and
- services
+Date: Fri, 20 Nov 2026 13:09:44 -0500
+Subject: [PATCH 53/60] mm/mempolicy: add MPOL_F_PRIVATE_NODES for private
+ node bindings
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-private_nodes_v6-v1-57-74f5f9a115c2@gourry.net>
+Message-Id: <20261120-private_nodes_v6-v1-53-74f5f9a115c2@gourry.net>
 References: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
 In-Reply-To: <20261120-private_nodes_v6-v1-0-74f5f9a115c2@gourry.net>
 To: Yury Norov <yury.norov@gmail.com>, 
@@ -141,11 +141,11 @@ Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
  cgroups@vger.kernel.org, nvdimm@lists.linux.dev, 
  linux-kselftest@vger.kernel.org, "Gregory Price (Meta)" <gourry@gourry.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795198154; l=14437;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795198154; l=11909;
  i=gourry@gourry.net; s=20261120; h=from:subject:message-id;
- bh=idwblUguxyP7auq0Q+zpWj4PVxwt1E+r+ThtiJ7hgoY=;
- b=q38uwmfyBBphWMLKJXDTdBPM/s7/vheYjpqhQqz8er6+qA0nSHp7/JIQj+oBGXwL5FZ4NEhDy
- QhTrU4jaD6UBBeMn0zc1N7bBnEUpeIq3wusDWh309Qg6huBW/kMik9h
+ bh=qpDp9Uw5U7Holq6SO9FpvmrnHTCzndjaolkmwUv4n7U=;
+ b=waLUxFwVjjK1r6z4uQauHS9EmVfZ5EzEf3NftvJiPHdtba1GeE5pQkOh+uFgsoD0FSgI7Qh0m
+ 90Gt5kKZDi0BUk8WRLzEx00KWBPydIAE+btm2kQOwM3mOTEjAL0xccQ
 X-Developer-Key: i=gourry@gourry.net; a=ed25519;
  pk=BZWDlx4htkR5KcvGjGtSDfx1tM0E5dlyBR43FEhjWVc=
 X-Endpoint-Received: by B4 Relay for gourry@gourry.net/20261120 with
@@ -156,467 +156,296 @@ Content-Transfer-Encoding: 7bit
 
 From: "Gregory Price (Meta)" <gourry@gourry.net>
 
-Test dax/kmem private mode on a device-dax instance:
-  - the private attribute across memory hotplug: private memory joins
-    has_private_memory, the mode changes only while unplugged, and
-    online common memory cannot become private.
-  - services on the private node: kswapd and kcompactd run,
-    nodeN/reclaim and nodeN/compact are accepted, and HugeTLB pool
-    growth stays off the node.
+Private bindings behave differently from ordinary ones: they are strict,
+never rebound, and fail with SIGBUS instead of invoking the OOM killer
+when their node is exhausted. Callers should know they are opting into
+that behavior explicitly.
 
-The tests reconfigure a device, so they run only when DAX_KMEM_TEST_DEV
-names one (daxX.Y), or is "auto" to pick a device whose memory is not
-online. The device's original configuration is restored on exit.
+Add MPOL_F_PRIVATE_NODES, an mbind() mode flag that binds a mapping to
+one private node in N_MEMORY_MEMPOLICY. Without the flag, private nodes
+in a mask are ignored - the same as nodes outside the cpuset.
+
+Older kernels reject the flag, so userspace can probe for it.
+
+A private binding must name exactly one node. The private zonelist
+covers only that node, and a memoryless node left in the mask would
+widen the binding once it gains memory.
+
+The flag selects a rebind mode like MPOL_F_STATIC_NODES and
+MPOL_F_RELATIVE_NODES, so it excludes both: a private binding is never
+rebound. policy_nodemask() already ignores a binding with no node in the
+current cpuset, so revoking access suspends the binding to common
+memory, and restoring access resumes it.
+
+The flag also excludes MPOL_F_NUMA_BALANCING, since NUMA balancing does
+not act on private memory.  This can be loosened in the future.
+
+Reject private bindings on HugeTLB mappings. Pool reservations are made
+at mmap() time against global counts, and pool growth and dequeue use
+the common zonelists, so the binding could never be satisfied. This
+can also be loosened in the future if a use case grows HugeTLB support.
+
+set_mempolicy() rejects the flag, because a task policy also steers the
+task's kernel allocations.
+
+Policies other than MPOL_BIND only apply to common memory nodes.
+This can also be loosened later if a use case appears, but no compelling
+use case has been proposed in 2 years of discussions.  This minimizes
+the overall complexity of the base HBM/GPU use case considerably.
+
+Use policy_nodemask() for the existing cpuset and zone checks, then
+select the local private zonelist only when the effective target is
+eligible private memory.
+
+set_mempolicy_home_node() rejects a home node other than the bound
+private node, since there is no fallback behavior in either direction,
+an unmatched home node is nonsensical.
+
+numa_maps reports private bindings as "private".
+
+Document the flag in the admin guide.
 
 Signed-off-by: Gregory Price (Meta) <gourry@gourry.net>
 ---
- tools/testing/selftests/dax/Makefile               |   3 +
- tools/testing/selftests/dax/config                 |   2 +
- tools/testing/selftests/dax/kmem_private.sh        |  94 ++++++++++
- .../testing/selftests/dax/kmem_private_services.sh |  97 ++++++++++
- tools/testing/selftests/dax/private_node_common.sh | 208 +++++++++++++++++++++
- 5 files changed, 404 insertions(+)
+ .../admin-guide/mm/numa_memory_policy.rst          | 22 +++++++
+ include/uapi/linux/mempolicy.h                     |  4 +-
+ mm/mempolicy.c                                     | 76 +++++++++++++++++++---
+ 3 files changed, 92 insertions(+), 10 deletions(-)
 
-diff --git a/tools/testing/selftests/dax/Makefile b/tools/testing/selftests/dax/Makefile
-index 25a4f3d73a5b..55d2ba0de8d9 100644
---- a/tools/testing/selftests/dax/Makefile
-+++ b/tools/testing/selftests/dax/Makefile
-@@ -2,5 +2,8 @@
- all:
+diff --git a/Documentation/admin-guide/mm/numa_memory_policy.rst b/Documentation/admin-guide/mm/numa_memory_policy.rst
+index 90ab26e805a9..f2dc59cd6acc 100644
+--- a/Documentation/admin-guide/mm/numa_memory_policy.rst
++++ b/Documentation/admin-guide/mm/numa_memory_policy.rst
+@@ -341,6 +341,28 @@ MPOL_F_RELATIVE_NODES
+ 	MPOL_PREFERRED policies that were created with an empty nodemask
+ 	(local allocation).
  
- TEST_PROGS := dax-kmem-hotplug.sh
-+TEST_PROGS += kmem_private.sh
-+TEST_PROGS += kmem_private_services.sh
-+TEST_FILES := private_node_common.sh
++MPOL_F_PRIVATE_NODES
++	This flag binds a VMA to a single private memory node (see
++	Documentation/mm/numa_private_nodes.rst).  Without it, private
++	nodes in a policy's nodemask are ignored, as nodes outside the
++	task's cpuset are.
++
++	Only mbind() with MPOL_BIND accepts the flag, and its nodemask
++	must name exactly one private node that permits userspace
++	placement.
++	A private binding is never rebound when the task's allowed nodes
++	change.  While its node is ineligible (outside the task's cpuset,
++	or no longer private memory that permits userspace placement),
++	the binding is suspended and allocations use common memory.  It
++	resumes when the node becomes eligible again.  If the node returns
++	as common memory, the binding acts as an ordinary binding to that
++	node.
++	get_mempolicy() reports the original nodemask.
++
++	MPOL_F_PRIVATE_NODES cannot be combined with
++	MPOL_F_STATIC_NODES, MPOL_F_RELATIVE_NODES or
++	MPOL_F_NUMA_BALANCING, and cannot be used on HugeTLB mappings.
++
+ Memory Policy Reference Counting
+ ================================
  
- include ../lib.mk
-diff --git a/tools/testing/selftests/dax/config b/tools/testing/selftests/dax/config
-index 4c9aaeb6ceb4..42853ed9e99f 100644
---- a/tools/testing/selftests/dax/config
-+++ b/tools/testing/selftests/dax/config
-@@ -2,3 +2,5 @@ CONFIG_DEV_DAX=m
- CONFIG_DEV_DAX_KMEM=m
- CONFIG_MEMORY_HOTPLUG=y
- CONFIG_MEMORY_HOTREMOVE=y
-+CONFIG_NUMA=y
-+CONFIG_COMPACTION=y
-diff --git a/tools/testing/selftests/dax/kmem_private.sh b/tools/testing/selftests/dax/kmem_private.sh
-new file mode 100755
-index 000000000000..ceba05e69e14
---- /dev/null
-+++ b/tools/testing/selftests/dax/kmem_private.sh
-@@ -0,0 +1,94 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Exercise the kmem "private" attribute across memory hotplug: when it may
-+# change, and whether onlined memory joins has_private_memory or
-+# has_common_memory.
-+#
-+# Needs root and DAX_KMEM_TEST_DEV=<daxX.Y|auto>, see private_node_common.sh.
-+
-+# shellcheck disable=SC1091
-+DIR="$(dirname "$(readlink -f "$0")")"
-+. "$DIR"/../kselftest/ktap_helpers.sh
-+. "$DIR"/private_node_common.sh
-+
-+trap pn_unbind_kmem_private EXIT
-+pn_setup
-+
-+if ! echo unplugged > "$D/state" 2>/dev/null ||
-+   pn_node_in "$PN" has_memory; then
-+	ktap_exit_fail_msg "private memory cannot be unplugged"
-+fi
-+
-+ktap_set_plan 8
-+
-+name="private mode can be selected while unplugged"
-+if echo 0 > "$D/private" 2>/dev/null && echo 1 > "$D/private" 2>/dev/null &&
-+   [ "$(cat "$D/private")" = 1 ]; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="invalid private setting is rejected"
-+if ! echo invalid > "$D/private" 2>/dev/null &&
-+   [ "$(cat "$D/private")" = 1 ]; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="private online publishes private memory"
-+if echo online_movable > "$D/state" 2>/dev/null &&
-+   pn_node_is_private "$PN" && ! pn_node_in "$PN" has_common_memory; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+# Writing the current value again is accepted.
-+name="private mode cannot change while memory blocks exist"
-+if ! echo 0 > "$D/private" 2>/dev/null &&
-+   [ "$(cat "$D/private")" = 1 ] && echo 1 > "$D/private" 2>/dev/null; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="unplug removes the private node from memory lists"
-+if echo unplugged > "$D/state" 2>/dev/null &&
-+   ! pn_node_in "$PN" has_memory &&
-+   ! pn_node_in "$PN" has_private_memory; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="common mode preserves normal kmem behavior"
-+if echo 0 > "$D/private" 2>/dev/null &&
-+   echo online_movable > "$D/state" 2>/dev/null &&
-+   pn_node_in "$PN" has_common_memory; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="online common memory cannot be reclassified as private"
-+if ! echo 1 > "$D/private" 2>/dev/null &&
-+   [ "$(cat "$D/private")" = 0 ]; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+name="private mode can be restored through an unplug cycle"
-+if echo unplugged > "$D/state" 2>/dev/null &&
-+   echo 1 > "$D/private" 2>/dev/null &&
-+   echo online_movable > "$D/state" 2>/dev/null &&
-+   pn_node_is_private "$PN"; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
-+
-+ktap_finished
-diff --git a/tools/testing/selftests/dax/kmem_private_services.sh b/tools/testing/selftests/dax/kmem_private_services.sh
-new file mode 100755
-index 000000000000..df5d17fdb947
---- /dev/null
-+++ b/tools/testing/selftests/dax/kmem_private_services.sh
-@@ -0,0 +1,97 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Check which MM services a private kmem node gets: no HugeTLB pool pages,
-+# but kswapd, kcompactd and per-node compaction and reclaim.
-+#
-+# Needs root and DAX_KMEM_TEST_DEV=<daxX.Y|auto>, see private_node_common.sh.
-+
-+# shellcheck disable=SC1091
-+DIR="$(dirname "$(readlink -f "$0")")"
-+. "$DIR"/../kselftest/ktap_helpers.sh
-+. "$DIR"/private_node_common.sh
-+
-+trap pn_unbind_kmem_private EXIT
-+pn_setup
-+
-+ktap_set_plan 5
-+
-+# Use the default size: a gigantic page may not fit the device at all.
-+hsize=$(awk '/^Hugepagesize:/ { print $2 }' /proc/meminfo)
-+pool="$NODE_BASE/node$PN/hugepages/hugepages-${hsize}kB/nr_hugepages"
-+global=/sys/kernel/mm/hugepages/hugepages-${hsize}kB/nr_hugepages
-+name_node="per-node HugeTLB pool growth skips private memory"
-+name_global="HugeTLB pool growth falls back to other nodes"
-+if [ -z "$hsize" ] || [ ! -w "$pool" ] || [ ! -w "$global" ]; then
-+	ktap_print_msg "HugeTLB pools unavailable"
-+	ktap_test_skip "$name_node"
-+	ktap_test_skip "$name_global"
-+else
-+	before=$(cat "$pool")
-+	echo $((before + 8)) > "$pool" 2>/dev/null
-+	after=$(cat "$pool")
-+	echo "$before" > "$pool" 2>/dev/null
-+	if [ "$after" = "$before" ]; then
-+		ktap_test_pass "$name_node"
+diff --git a/include/uapi/linux/mempolicy.h b/include/uapi/linux/mempolicy.h
+index 7f6fc9599693..4dcdf8f68803 100644
+--- a/include/uapi/linux/mempolicy.h
++++ b/include/uapi/linux/mempolicy.h
+@@ -31,13 +31,15 @@ enum mempolicy_mode {
+ #define MPOL_F_STATIC_NODES	(1 << 15)
+ #define MPOL_F_RELATIVE_NODES	(1 << 14)
+ #define MPOL_F_NUMA_BALANCING	(1 << 13) /* Optimize with NUMA balancing if possible */
++#define MPOL_F_PRIVATE_NODES	(1 << 12) /* mbind() to a private memory node */
+ 
+ /*
+  * MPOL_MODE_FLAGS is the union of all possible optional mode flags passed to
+  * either set_mempolicy() or mbind().
+  */
+ #define MPOL_MODE_FLAGS							\
+-	(MPOL_F_STATIC_NODES | MPOL_F_RELATIVE_NODES | MPOL_F_NUMA_BALANCING)
++	(MPOL_F_STATIC_NODES | MPOL_F_RELATIVE_NODES | MPOL_F_NUMA_BALANCING | \
++	 MPOL_F_PRIVATE_NODES)
+ 
+ /* Whether the nodemask is specified by users */
+ #define MPOL_USER_NODEMASK_FLAGS (MPOL_F_STATIC_NODES | MPOL_F_RELATIVE_NODES)
+diff --git a/mm/mempolicy.c b/mm/mempolicy.c
+index 9d2e56017ebe..cb5419cb7ee8 100644
+--- a/mm/mempolicy.c
++++ b/mm/mempolicy.c
+@@ -451,9 +451,13 @@ static int mpol_set_nodemask(struct mempolicy *pol,
+ 	if (!pol || pol->mode == MPOL_LOCAL)
+ 		return 0;
+ 
+-	/* Check N_MEMORY_COMMON */
+-	nodes_and(nsc->mask1,
+-		  cpuset_current_mems_allowed, node_states[N_MEMORY_COMMON]);
++	/* Private bindings name a private node; others use common memory. */
++	if (pol->flags & MPOL_F_PRIVATE_NODES)
++		nodes_and(nsc->mask1, node_states[N_MEMORY_MEMPOLICY],
++			  node_states[N_MEMORY_PRIVATE]);
 +	else
-+		ktap_print_msg "private-node pool grew $before->$after"
-+		ktap_test_fail "$name_node"
-+	fi
++		nsc->mask1 = node_states[N_MEMORY_COMMON];
++	nodes_and(nsc->mask1, nsc->mask1, cpuset_current_mems_allowed);
+ 
+ 	VM_BUG_ON(!nodes);
+ 
+@@ -488,6 +492,13 @@ static struct mempolicy *mpol_new(unsigned short mode, unsigned short flags,
+ 	}
+ 	VM_BUG_ON(!nodes);
+ 
++	/*
++	 * The private zonelist covers a single node, so a private bind must name
++	 * exactly one node; a memoryless bit would later widen the binding.
++	 */
++	if ((flags & MPOL_F_PRIVATE_NODES) && nodes_weight(*nodes) != 1)
++		return ERR_PTR(-EINVAL);
 +
-+	gbefore=$(cat "$global")
-+	echo $((gbefore + 64)) > "$global" 2>/dev/null
-+	gafter=$(cat "$global")
-+	after=$(cat "$pool")
-+	echo "$gbefore" > "$global" 2>/dev/null
-+	if [ "$gafter" -le "$gbefore" ]; then
-+		ktap_print_msg "HugeTLB pool could not grow on any node"
-+		ktap_test_skip "$name_global"
-+	elif [ "$after" = "$before" ]; then
-+		ktap_test_pass "$name_global"
-+	else
-+		ktap_print_msg "private-node pool grew $before->$after"
-+		ktap_test_fail "$name_global"
-+	fi
-+fi
+ 	/*
+ 	 * MPOL_PREFERRED cannot be used with MPOL_F_STATIC_NODES or
+ 	 * MPOL_F_RELATIVE_NODES if the nodemask is empty (local allocation).
+@@ -580,6 +591,9 @@ static void mpol_rebind_policy(struct mempolicy *pol, const nodemask_t *newmask)
+ 
+ 	if (!pol || pol->mode == MPOL_LOCAL)
+ 		return;
++	/* Allocation checks a private binding against the current cpuset. */
++	if (pol->flags & MPOL_F_PRIVATE_NODES)
++		return;
+ 	mpol_rebindable_mems(&mems, newmask);
+ 	if (!mpol_store_user_nodemask(pol) &&
+ 	    nodes_equal(pol->w.cpuset_mems_allowed, mems))
+@@ -1587,6 +1601,21 @@ static long do_mbind(unsigned long start, unsigned long len,
+ 	if (err)
+ 		goto mpol_out;
+ 
++	/* Private nodes cannot hold HugeTLB pages; this is unsupported. */
++	if (new && (new->flags & MPOL_F_PRIVATE_NODES)) {
++		vma_iter_init(&vmi, mm, start);
++		for_each_vma_range(vmi, vma, end) {
++			if (vma_is_hugetlb(vma)) {
++				err = -EINVAL;
++				break;
++			}
++		}
++		if (err) {
++			mmap_write_unlock(mm);
++			goto mpol_out;
++		}
++	}
 +
-+compact="$NODE_BASE/node$PN/compact"
-+name="kswapd and kcompactd run for the private node"
-+if ! pgrep -x "kswapd$PN" >/dev/null; then
-+	ktap_print_msg "kswapd$PN is not running"
-+	ktap_test_fail "$name"
-+elif [ ! -e "$compact" ]; then
-+	ktap_print_msg "kcompactd unavailable without compaction"
-+	ktap_test_skip "$name"
-+elif pgrep -x "kcompactd$PN" >/dev/null; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_print_msg "kcompactd$PN is not running"
-+	ktap_test_fail "$name"
-+fi
+ 	/*
+ 	 * Lock the VMAs before scanning for pages to migrate,
+ 	 * to ensure we don't miss a concurrently inserted page.
+@@ -1771,6 +1800,11 @@ static inline int sanitize_mpol_flags(int *mode, unsigned short *flags)
+ 		return -EINVAL;
+ 	if ((*flags & MPOL_F_STATIC_NODES) && (*flags & MPOL_F_RELATIVE_NODES))
+ 		return -EINVAL;
++	/* A private binding is never rebound or balanced. */
++	if ((*flags & MPOL_F_PRIVATE_NODES) &&
++	    (*mode != MPOL_BIND ||
++	     (*flags & (MPOL_USER_NODEMASK_FLAGS | MPOL_F_NUMA_BALANCING))))
++		return -EINVAL;
+ 	if (*flags & MPOL_F_NUMA_BALANCING) {
+ 		if (*mode == MPOL_BIND || *mode == MPOL_PREFERRED_MANY)
+ 			*flags |= (MPOL_F_MOF | MPOL_F_MORON);
+@@ -1851,6 +1885,11 @@ SYSCALL_DEFINE4(set_mempolicy_home_node, unsigned long, start, unsigned long, le
+ 			err = -EOPNOTSUPP;
+ 			break;
+ 		}
++		if ((old->flags & MPOL_F_PRIVATE_NODES) &&
++		    !node_isset(home_node, old->nodes)) {
++			err = -EINVAL;
++			break;
++		}
+ 		new = mpol_dup(old);
+ 		if (IS_ERR(new)) {
+ 			err = PTR_ERR(new);
+@@ -1888,6 +1927,10 @@ static long kernel_set_mempolicy(int mode, const unsigned long __user *nmask,
+ 	if (err)
+ 		return err;
+ 
++	/* A task policy also steers the task's kernel allocations. */
++	if (mode_flags & MPOL_F_PRIVATE_NODES)
++		return -EINVAL;
 +
-+name="private-node compaction is accepted"
-+if [ ! -e "$compact" ]; then
-+	ktap_print_msg "per-node compaction unavailable"
-+	ktap_test_skip "$name"
-+elif echo 1 > "$compact" 2>/dev/null; then
-+	ktap_test_pass "$name"
-+else
-+	ktap_test_fail "$name"
-+fi
+ 	err = get_nodes(&nodes, nmask, maxnode);
+ 	if (err)
+ 		return err;
+@@ -2124,7 +2167,8 @@ bool apply_policy_zone(struct mempolicy *policy, enum zone_type zone)
+ 	 * if policy->nodes has movable memory only,
+ 	 * we apply policy when gfp_zone(gfp) = ZONE_MOVABLE only.
+ 	 *
+-	 * policy->nodes is intersect with node_states[N_MEMORY_COMMON].
++	 * policy->nodes is intersect with node_states[N_MEMORY_COMMON], or with
++	 * the private N_MEMORY_MEMPOLICY nodes for MPOL_F_PRIVATE_NODES.
+ 	 * so if the following test fails, it implies
+ 	 * policy->nodes has movable memory only.
+ 	 */
+@@ -2495,10 +2539,20 @@ static struct page *alloc_pages_preferred_many(gfp_t gfp, unsigned int order,
+ static struct page *alloc_pages_mpol(gfp_t gfp, unsigned int order,
+ 		struct mempolicy *pol, pgoff_t ilx, int nid)
+ {
++	unsigned int alloc_flags = ALLOC_DEFAULT;
+ 	nodemask_t *nodemask;
+ 	struct page *page;
+ 
+ 	nodemask = policy_nodemask(gfp, pol, ilx, &nid);
++	if (nodemask && (pol->flags & MPOL_F_PRIVATE_NODES)) {
++		int private_nid = first_node(*nodemask);
 +
-+reclaim="$NODE_BASE/node$PN/reclaim"
-+name="private-node reclaim is accepted"
-+if [ ! -e "$reclaim" ]; then
-+	ktap_print_msg "per-node reclaim unavailable"
-+	ktap_test_skip "$name"
-+elif err=$(export LC_ALL=C; echo 1M 2>&1 > "$reclaim"); then
-+	ktap_test_pass "$name"
-+elif [[ $err == *"Resource temporarily unavailable"* ]]; then
-+	# An idle node may have nothing to reclaim.
-+	ktap_test_pass "$name"
-+else
-+	ktap_print_msg "$err"
-+	ktap_test_fail "$name"
-+fi
-+
-+ktap_finished
-diff --git a/tools/testing/selftests/dax/private_node_common.sh b/tools/testing/selftests/dax/private_node_common.sh
-new file mode 100644
-index 000000000000..57c5231e768b
---- /dev/null
-+++ b/tools/testing/selftests/dax/private_node_common.sh
-@@ -0,0 +1,208 @@
-+# SPDX-License-Identifier: GPL-2.0
-+# shellcheck shell=bash disable=SC2034
-+# Helpers shared by the kmem_private*.sh selftests, sourced after
-+# ../kselftest/ktap_helpers.sh.
-+#
-+# DAX_KMEM_TEST_DEV=<daxX.Y|auto> opts into reconfiguring a device-dax
-+# instance as private kmem memory. "auto" only uses devices whose memory is
-+# not online and that no process has open or mapped. A named device is used
-+# whatever its state. Either is restored on exit.
-+#
-+# pn_setup() sets D to the sysfs directory of that device and PN to its node.
-+
-+DAX_BASE=/sys/bus/dax/devices
-+NODE_BASE=/sys/devices/system/node
-+
-+# Whether nodelist $1 (e.g. "0-2,4") contains node $2.
-+pn_nodelist_has()
-+{
-+	local nid=$2 token low high
-+
-+	for token in ${1//,/ }; do
-+		low=${token%-*}
-+		high=${token#*-}
-+		if [ "$nid" -ge "$low" ] 2>/dev/null &&
-+		   [ "$nid" -le "$high" ] 2>/dev/null; then
-+			return 0
-+		fi
-+	done
-+	return 1
-+}
-+
-+# Whether node $1 is in the node state list $2, e.g. has_memory.
-+pn_node_in()
-+{
-+	[ -r "$NODE_BASE/$2" ] &&
-+		pn_nodelist_has "$(cat "$NODE_BASE/$2")" "$1"
-+}
-+
-+pn_node_is_private()
-+{
-+	pn_node_in "$1" has_private_memory
-+}
-+
-+# Whether any process has device node $1 open or mapped.
-+pn_dev_in_use()
-+{
-+	local fd
-+
-+	for fd in /proc/[0-9]*/fd/*; do
-+		[ "$(readlink "$fd" 2>/dev/null)" = "$1" ] && return 0
-+	done
-+	grep -qs " $1\$" /proc/[0-9]*/maps
-+}
-+
-+# Record the original configuration of device $1, bound to driver $2, for
-+# pn_unbind_kmem_private().
-+pn_record_kmem()
-+{
-+	# Binding the recorded device again keeps its original configuration.
-+	[ "${PN_DEV:-}" != "$1" ] || return 0
-+	PN_DEV=$1
-+	PN_ORIG_DRIVER=$2
-+	PN_ORIG_STATE=$(cat "$1/state" 2>/dev/null)
-+	PN_ORIG_PRIVATE=$(cat "$1/private" 2>/dev/null)
-+	PN_NEW_ID=
-+}
-+
-+# Move device $1 from driver $2 to kmem and online it as private memory on
-+# node $3.
-+pn_online_private()
-+{
-+	local dev=$1 driver=$2 nid=$3 name
-+
-+	name=$(basename "$dev")
-+	if [ "$driver" = kmem ]; then
-+		echo unplugged > "$dev/state" || return 1
-+	elif [ -n "$driver" ]; then
-+		echo "$name" > "/sys/bus/dax/drivers/$driver/unbind" || return 1
-+	fi
-+	# A private node holds the memory of this device only.
-+	if pn_node_in "$nid" has_memory; then
-+		return 1
-+	fi
-+	if [ "$driver" != kmem ]; then
-+		echo "$name" > /sys/bus/dax/drivers/kmem/new_id || return 1
-+		PN_NEW_ID=1
-+	fi
-+	echo unplugged > "$dev/state" &&
-+		echo 1 > "$dev/private" &&
-+		echo online_movable > "$dev/state" &&
-+		pn_node_is_private "$nid"
-+}
-+
-+# Online device $1 as private kmem memory, or return 1 if it is unusable.
-+pn_bind_kmem_private()
-+{
-+	local dev=$1 name driver nid
-+
-+	name=$(basename "$dev")
-+	nid=$(cat "$dev/target_node" 2>/dev/null) || return 1
-+	driver=$(basename "$(readlink "$dev/driver" 2>/dev/null)" 2>/dev/null)
-+	if [ "$driver" = kmem ] &&
-+	   [ "$(cat "$dev/state" 2>/dev/null)" != unplugged ]; then
-+		# Leave online kmem memory alone unless it is ours or was named.
-+		if [ "$DAX_KMEM_TEST_DEV" = auto ] &&
-+		   [ "${PN_DEV:-}" != "$dev" ]; then
-+			return 1
-+		fi
-+		if [ "$(cat "$dev/private" 2>/dev/null)" = 1 ] &&
-+		   pn_node_is_private "$nid"; then
-+			pn_record_kmem "$dev" "$driver"
-+			return 0
-+		fi
-+	elif pn_node_in "$nid" has_memory; then
-+		return 1
-+	elif [ "$DAX_KMEM_TEST_DEV" = auto ] && pn_dev_in_use "/dev/$name"; then
-+		return 1
-+	fi
-+
-+	pn_record_kmem "$dev" "$driver"
-+	if ! pn_online_private "$dev" "$driver" "$nid" 2>/dev/null; then
-+		pn_unbind_kmem_private
-+		return 1
-+	fi
-+}
-+
-+# Restore the device recorded by pn_bind_kmem_private(), if any.
-+pn_unbind_kmem_private()
-+{
-+	local dev=${PN_DEV:-} name
-+
-+	[ -n "$dev" ] || return 0
-+	PN_DEV=
-+	name=$(basename "$dev")
-+	if [ "$(basename "$(readlink "$dev/driver" 2>/dev/null)")" = kmem ]; then
-+		echo unplugged > "$dev/state" 2>/dev/null || return 1
-+		if [ -n "$PN_ORIG_PRIVATE" ]; then
-+			echo "$PN_ORIG_PRIVATE" > "$dev/private" 2>/dev/null
-+		fi
-+	fi
-+	if [ "$PN_ORIG_DRIVER" = kmem ]; then
-+		case "$PN_ORIG_STATE" in
-+		unplugged) ;;
-+		offline)
-+			# kmem cannot restore blocks onlined behind its back.
-+			ktap_print_msg "$name was offline and is left unplugged"
-+			;;
-+		*) echo "$PN_ORIG_STATE" > "$dev/state" 2>/dev/null ;;
-+		esac
-+		return 0
-+	fi
-+	if [ -e "$dev/driver" ]; then
-+		echo "$name" > /sys/bus/dax/drivers/kmem/unbind 2>/dev/null
-+	fi
-+	if [ -n "$PN_NEW_ID" ]; then
-+		echo "$name" > /sys/bus/dax/drivers/kmem/remove_id 2>/dev/null
-+	fi
-+	if [ -n "$PN_ORIG_DRIVER" ]; then
-+		echo "$name" > "/sys/bus/dax/drivers/$PN_ORIG_DRIVER/bind" \
-+			2>/dev/null
-+	fi
-+	return 0
-+}
-+
-+pn_skip()
-+{
-+	ktap_skip_all "$1"
-+	exit "$KSFT_SKIP"
-+}
-+
-+# An explicitly selected device must provision, auto may find none.
-+pn_skip_or_fail()
-+{
-+	if [ "$DAX_KMEM_TEST_DEV" = auto ]; then
-+		pn_skip "$1"
-+	fi
-+	ktap_exit_fail_msg "$1"
-+}
-+
-+# Print the KTAP header, check the prerequisites and bind a private kmem
-+# device, setting D and PN.
-+pn_setup()
-+{
-+	local dev nid
-+
-+	ktap_print_header
-+	[ "$(id -u)" = 0 ] || pn_skip "must be run as root"
-+	[ -n "${DAX_KMEM_TEST_DEV:-}" ] ||
-+		pn_skip "set DAX_KMEM_TEST_DEV=<daxX.Y|auto> to select a test device"
-+	[ -e "$NODE_BASE/has_private_memory" ] ||
-+		pn_skip "kernel lacks private memory nodes"
-+	modprobe -q kmem 2>/dev/null
-+	[ -d /sys/bus/dax/drivers/kmem ] || pn_skip "dax kmem driver unavailable"
-+
-+	for dev in "$DAX_BASE"/dax*; do
-+		if [ "$DAX_KMEM_TEST_DEV" != auto ] &&
-+		   [ "$(basename "$dev")" != "$DAX_KMEM_TEST_DEV" ]; then
-+			continue
-+		fi
-+		nid=$(cat "$dev/target_node" 2>/dev/null) || continue
-+		[ "$nid" -ge 0 ] 2>/dev/null || continue
-+		pn_bind_kmem_private "$dev" || continue
-+		D=$dev
-+		PN=$nid
-+		return 0
-+	done
-+	pn_skip_or_fail "no private kmem device"
-+}
++		if (node_state(private_nid, N_MEMORY_MEMPOLICY) &&
++		    node_state(private_nid, N_MEMORY_PRIVATE)) {
++			nid = private_nid;
++			alloc_flags = ALLOC_ZONELIST_PRIVATE;
++		}
++	}
+ 
+ 	if (pol->mode == MPOL_PREFERRED_MANY)
+ 		return alloc_pages_preferred_many(gfp, order, nid, nodemask);
+@@ -2520,24 +2574,26 @@ static struct page *alloc_pages_mpol(gfp_t gfp, unsigned int order,
+ 		    pol->mode != MPOL_WEIGHTED_INTERLEAVE &&
+ 		    (!nodemask || node_isset(nid, *nodemask))) {
+ 			/*
+-			 * First, try to allocate THP only on local node, but
++			 * First, try to allocate THP only on the selected node, but
+ 			 * don't reclaim unnecessarily, just compact.
+ 			 */
+ 			page = __alloc_frozen_pages_noprof(
+ 				gfp | __GFP_THISNODE | __GFP_NORETRY, order,
+-				nid, NULL, ALLOC_DEFAULT);
++				nid, (alloc_flags & ALLOC_ZONELIST_PRIVATE) ?
++					 nodemask : NULL, alloc_flags);
+ 			if (page || !(gfp & __GFP_DIRECT_RECLAIM))
+ 				return page;
+ 			/*
+ 			 * If hugepage allocations are configured to always
+ 			 * synchronous compact or the vma has been madvised
+ 			 * to prefer hugepage backing, retry allowing remote
+-			 * memory with both reclaim and compact as well.
++			 * memory with both reclaim and compact as well. A
++			 * private binding stays on its local zonelist.
+ 			 */
+ 		}
+ 	}
+ 
+-	page = __alloc_frozen_pages_noprof(gfp, order, nid, nodemask, ALLOC_DEFAULT);
++	page = __alloc_frozen_pages_noprof(gfp, order, nid, nodemask, alloc_flags);
+ 
+ 	if (unlikely(pol->mode == MPOL_INTERLEAVE ||
+ 		     pol->mode == MPOL_WEIGHTED_INTERLEAVE) && page) {
+@@ -3651,12 +3707,14 @@ void mpol_to_str(char *buffer, int maxlen, struct mempolicy *pol)
+ 		p += snprintf(p, buffer + maxlen - p, "=");
+ 
+ 		/*
+-		 * Static and relative are mutually exclusive.
++		 * Static, relative and private are mutually exclusive.
+ 		 */
+ 		if (flags & MPOL_F_STATIC_NODES)
+ 			p += snprintf(p, buffer + maxlen - p, "static");
+ 		else if (flags & MPOL_F_RELATIVE_NODES)
+ 			p += snprintf(p, buffer + maxlen - p, "relative");
++		else if (flags & MPOL_F_PRIVATE_NODES)
++			p += snprintf(p, buffer + maxlen - p, "private");
+ 
+ 		if (flags & MPOL_F_NUMA_BALANCING) {
+ 			if (!is_power_of_2(flags & MPOL_MODE_FLAGS))
 
 -- 
 2.56.1
