@@ -1,92 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205386;
-	b=LSJzg5LDEQGTlXGB68PyBRF9jlF06wVknahtwJvV4wSI5x8t9ghxH8JxlHNiX+ifRzci
-	 KzJIot3dZ3QoAFED9PkQFIBP/B2G3pA7zqxgCSk3gF4iBt8UmoY8/GZ2IRgqro5aFUdoN
-	 UnFf/y+fagX6Oy3xAKGyrDzWjbirMa+93d1Yo7ljIamx94n0axgJFFzsTIm6YPL7npZgN
-	 4CxQGy4qgHkY/XNS9baHvexK3qGN8DqNNHXk4CoNJUFj4tjv6ZYHMDXI5ufu0omknQOg5
-	 eCzAZWCs9RJT3VOvJIDwSDg9SQifcz2jKaA5eKBED/1gr/Gx8XtGE9XjifnbQxTWyxg==
+	t=1795205442;
+	b=qEnP+3HbC6C68cZIjJnFtwv4l8mHdBOpJS95mCLN21jia6yorLq6JWNkYvOUI0ilRcwh
+	 CRS6rlUF1cABEM1h/jmNS4CY+IUd7zaAVcBqiYZf7chT9L33UyLRbyGwldtqXm40rW8CS
+	 fg5909mmVLlUm+i5gSpTuP4T7xUh7a0h5mup4N9y+luELi+HwVUVTyZR5kZj3ROE5Z9FQ
+	 b9g54qlplzzfWxuBoqXsMnS6Zb9GZG9O5naIwm4QVDMXgJ0Nmwb2OFzJApo1baZPaMM3J
+	 ZT5HtVIZwfxRZQty8qd5+svxNAAZvBF1bKjTqREZEEbxzTd3KO412ZI+3gyx2SRtz0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205386;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205442;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=0vblFSre3MiOJ1U1d0ar++bbAIQ+Yx+HItU4giCjIDQ=;
-	b=bLVx+PTvqZBUUUUYtQNpnufRH/RH0l5KqC+WvLGLd2A1P5/azgmF9tasySmaF/51QkMf
-	 nymXF97IuO6YfrZiYX+G0b1Syf8om6pSZJF8FAWj2PKY4+tuppKW+6WT1YSIZn0eSZ0t1
-	 bbU+/S6yq8wDuQsaBtjPXkD2745g+7WYMwWXLfeLot+iyvzRlTk8kvD3d+KZDvN7YJhEq
-	 xPkT2x5Z+PAjly9tUCF2+MUUF8yiFhMdk0P0O3TLG8hxdKl6Xs01cnwntV+O97KJR/SJE
-	 uuq454Jaj5rC15oKqOk4N53AZgS+dait18psSxMAyIFwIKNl0cYimDOS319yFd178kA==
+	bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
+	b=oTU5owgLlBNTB8A0xZrn2K92M5K3DGuyZpAeeYHY+ENU3ieBq/Ywt1QebnmkdfuwPEmj
+	 ClYfO9nb8dUZaO5yW2PNAthWsJQjCr4VJgFqXSQ4SWgrHUT6jpewOq2WZjR7VvoNtAvJL
+	 7NJNDGkf/daNv3MpQJUZyZUz7DfvOszFZua6Q51Uoc+BzIh4oLfdc9S7wWZcmV5EG3WYt
+	 UeHCbO2u1X5wvXd+DPHC8kMuPkc4zoqSN8SgrBjGltbqrIOlDdsI8+ApwlsWM4Ey6ZSXQ
+	 qe58U6cOSyVEIgnTl9rzK662wMprRBRqaSLMxZ0SpAZVB2tLX57ooLt6FbiNc+sJyYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nQNKJgNb;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r4Jknyks;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A329B606A6C9
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:09:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A329B606A6C9
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99ECE606A6F5
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:10:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99ECE606A6F5
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nQNKJgNb
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-498f5fa4f70so1091802f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:09:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r4Jknyks
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so873388b3a.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:10:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795205377; x=1795810177; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795205437; x=1795810237; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0vblFSre3MiOJ1U1d0ar++bbAIQ+Yx+HItU4giCjIDQ=;
-        b=nQNKJgNbi5WNjZLZZ3ynpZRwNGTPUS+Yun1AMIQCdwkIKF3lX27zriptMSbfAF7hmz
-         ESMHhJhtMC1dKOVASGJJfPza4MLeQkPDvM/Ql6gx0eD8vK9MwdmMkeqi5LNyc6Fej6CU
-         FZLXCcSvBkQHGmgF8npPM4EoRJ7Skri59uaQUk496pncWdmoNd4JaDEFdRQPl7eKPDQi
-         rpPGRGJpWUQ5YUSJrGCjlXBy60GCHXpwpPMpWM05jEWsF2I1z2caCpKIkFx6Vobjx57/
-         AvdykvH1NSZ/2HP3/m3VthTpvU/yrREdUcEY4xV7t/Pcq0m2QwAmMosE1jG/42fFs6w9
-         qffg==
+        bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
+        b=r4JknyksnkeFoXBitM2CtrdTAt/WByFNDdLy8fW8o6C+SCZHcfi3haoQwrCcoxrSPQ
+         /thSr3/NDKFBjjugwQ3XfxvkApFm0SR3J6zXBVhDJlv7BN2Y07A4ssVX8yys65ZyaIZ6
+         lBSjfDDHKq50FuHmmchlfoMqcC2sY4pzJhNGwCXu96Tonp/aO5WrpgNPPCQ7Fligl8vF
+         fIRsbh6s2fGkotYFjUEDBYUkglEEAEe3Jv4ArntzTm2mQRU6sjDp3uoOu0FXzhSN+Iyv
+         vww2suKoXeMaqE9r8Yk6vcgwx1LW6Lh7NIV/DtRq3KU+1fxNHNsKhK9KnwWPNN8s8E79
+         5oxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205377; x=1795810177;
+        d=1e100.net; s=20260707; t=1795205437; x=1795810237;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0vblFSre3MiOJ1U1d0ar++bbAIQ+Yx+HItU4giCjIDQ=;
-        b=NJCEjIYecL+p7rZ4ph+4eT8K10XJ54mzGX7CATWJzybn3aQtQkD+vTHAbO++xwirrB
-         CUgF5X8SluDWUJLNYm2LM65vr/FucMHPlYXhPiaYwxdHMiSr7+Th36Zztc6tFHIMzFhZ
-         waqDa+K9d24aI94O5NK2avaVB/yaj19FsNdUY5aTqXO7IrAuU63V1BQoRSxLLPMxwbXW
-         pfT/UaTNZynS6KgLmG8EMSGfh+oODrYa+dq8U7jbDwU15F8+9EaO49HdklPvEJDUS71f
-         DoqSEXmmdiaXsu4Q2ZOIEH4u8oNuoFggN7f9NlNh2R95mEAZx+r1mIsVM+xeJW/CZcg6
-         CntA==
-X-Forwarded-Encrypted: i=1; AL+hErEUpm/iWuLAPLgIqQiHmoOPIbDo8Fx5QQSiYrx+LefS3ueVX70qqwtKc2f2BKP0FLeFlCxw+H6k6rdMzKs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+pm19EW9jG8oO9EUqA7f170/gS1bl4bKk0qec/VVyT5/XE3Okh
-	JkB22uKID165lASZed8HDGxj5+z1VR4zPOVnJPeo0z0iEMfSEh+Ow1Ev
-X-Gm-Gg: AZFdTZeQlpHEwBICFxNmN/eAASsM8E/g1QuczS1fy+m66WocvW6OJEdJ5DING7VljFw
-	FAD0SPYCuFjf8vI2yLi9dkmDAI9D/qUYdDhUGApI3/SRWH44nOM4xbLPzuwkqV6SAl3VLAtKNj3
-	wcBj3wiv4OGUI5xm47wWdCLjHjBvlYTQifozjgjMu03o/yE88PN3APThtOkWA8uRWEkGwlVn7DO
-	larfuu2ob4e/ILKrNqoQMFmzdr8ukjBp/JPKnD3dNpGt7V2B5UHjPyjTxIMF3UzWzww5ej0NgYb
-	hwsYbGKdUi1Blc14vO4v4/Nnq45WEmBH51XJ9N5J0cjr4xbadL3sYQ9ai5dm3vNQ1eycELT7/9y
-	IkBbqFHd3ctggZAjoDB18oMt8DivGtllDvdFaODlxL0XL6fo8KcfL36+/kfRQ7FpnNR2bv2gZ+q
-	WekLGba4uPOcJzRMn906FOBOoDyIzm0PphOd7sB5euVutqYd0+GAlYIME4SNhvMjhRN4oG9MQuZ
-	e1u2Uyw1nHMJF9NA0+S/tRmYiQ0YCBKF+C0Kfamlviz+pFqGW93nu347hiZcxu38CZL+oIR76aJ
-	pevVmrPcCXk/K0Pfw5TFzHZWkpjIhDob3l1vlMSaJYbedQHIozk=
-X-Received: by 2002:a5d:5d03:0:b0:492:cd78:7137 with SMTP id ffacd0b85a97d-4abaa9764d3mr9017536f8f.8.1795205376952;
-        Fri, 20 Nov 2026 12:09:36 -0800 (PST)
-Received: from vivobook-s16.fritz.box ([2a02:908:e843:f280:6cae:291b:a1:8362])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b1ebsm7869233f8f.33.2026.11.20.12.09.36
+        bh=48fG40u44IzRAj1aROD5Y2Q1HOpJ9Yh55cmOS8ndJXw=;
+        b=bL5fXRQE5iXzpO1o2Mq4cph0NjctSlxkRaGT5jLPKtMko072759Zoe/sRtx1x06bXM
+         97wc3r1nzLQGcfzGnuk3Mv36MV1IzHj4mH3kRHcPDeHhFniY+a7uCApCYJztgqlOa6O2
+         u44l1TkjmVieyLCvD8ZXrpzgM7OktSdRDCJeYsJyY86Q+zXrepKnmvTcGtZRKeeh+jJ4
+         lLT6cN+JhflGSyAa/3I2+rpjMqsy5Pu+8gWBkAuco4HWcbSLpJOgFTP+udW5W3BELI/J
+         Dgz/URMjVyOz6jSVpEu6zC2rLKpelNnDrwDqEi3zeXv1KTzl/AlE4hpcXBqWxv2L7YOH
+         QNNQ==
+X-Forwarded-Encrypted: i=1; AL+hErF0Ek4WAUQegw60TsEJ3nnUxJk0MpexodVc4Iy3w14vsrvU6olecYas6lWYbb65jUZObLpBPomilFG60aE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3xA+MPaGc1IYUqcvZOIW2kZpBxqQr+S9rrTFm1KgLVVViBkOf
+	BE9OAOHGDklnmG0HqIWgEmr5t59YPE5wSul1LqP2FQrpZkzxXH+JAR1G
+X-Gm-Gg: AZFdTZeS1CgkgtvVFVCMct/A+j0N28FtNwlILHrPE1NMlnNZUHJN1tgRcnaqnA6+ZTv
+	jXej7PJoIAbx90Uy/Q7dzfCYNwXpEtzPBM8/+vJxDZjdf9nXbPH/eIq78K6EHQv1BTt651qfmBy
+	fBeRxGcKpG1Bqo1a21HTlLHkECvi9KG3k7FDX7YX/g6JCdnev9wildFPxhS5WpI1S7rWxqC/BPZ
+	1DonPhPwbmN6h8UMj89ZGfBTqDfb0HnqANgQhYUrore4rFXEy+Kqeqm5fLIHCHaB3Ht1jWbhK3S
+	wLix/yFS9D00dIiwPb/k61MdVE5GenpZnOv1M/dIAEg8xnmqDKivu11NNvWkltr2R5tDjdIrYWd
+	V98QRl1aTWyQlPvbq/g8x2qZ3wAogYMbdZkFwYmST80XK17wP3PK5JdqhRJyQ9f+O+3j9l+c1Is
+	Q0TnKRz/FubzL1lerc+PhMpxgfdE2armgR+xzeE/+NZsrohcf7r7nNuqTKkLFbVvvdXvSDj+ctk
+	RR40L+mZS1BV8RXKEaS1H6ru345YataAAzD3OxkdJ3O7KQOH7OZad67mg4nX2mOToNCvhgWt/ct
+	UqJ0X47t6lSnx5+X20qiDRUG99usBX8StjDgi8lcMJbe9Oa1bTWQ/0mKZ40x4aTCIwMBSKuKYQ=
+	=
+X-Received: by 2002:a05:6a00:3d44:b0:8a0:5eff:ad5b with SMTP id d2e1a72fcca58-8c7ddfafeecmr3911362b3a.33.1795205436562;
+        Fri, 20 Nov 2026 12:10:36 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c86d821637sm2075227b3a.0.2026.11.20.12.10.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:09:36 -0800 (PST)
-From: "Ingo A. Kubbilun" <ingo.kubbilun@gmail.com>
-To: Jeff Johnson <jjohnson@kernel.org>
-Cc: linux-wireless@vger.kernel.org,
-	ath11k@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Ingo A. Kubbilun" <ingo.kubbilun@gmail.com>
-Subject: [PATCH] wifi: ath11k: use the NFA765 firmware on the ASUS Vivobook S16 S3607QA
-Date: Fri, 20 Nov 2026 21:09:34 +0100
-Message-ID: <20261120200940.81577-1-ingo.kubbilun@gmail.com>
-X-Mailer: git-send-email 2.47.3
+        Fri, 20 Nov 2026 12:10:36 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
+To: linux-watchdog@vger.kernel.org
+Cc: David Yang <mmyangfl@gmail.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] watchdog: sp805_wdt: re-enable the clock in the restart handler
+Date: Sat, 21 Nov 2026 04:10:26 +0800
+Message-ID: <20261120201029.1685193-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,44 +99,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The ASUS Vivobook S 16 S3607QA carries a WCN6855 hw2.1 NFA765 module
-(Windows board data: bdwlan_wcn685x_2p1_nfa765a_AS_SA_S3607QA.elf).
-With the default WCN6855 hw2.1 firmware the target crashes right after
-the board data download; the NFA765 build from linux-firmware
-(ath11k/WCN6855/hw2.1/nfa765/) works.
+wdt_restart() fail to reboot the system if the watchdog counter clock
+was previously disabled: If userspace cleanly stops the watchdog, the
+core calls wdt_disable() which disables wdt->clk. No reset comes.
 
-Add the machine to the usecase firmware table, replacing the deprecated
-firmware-name property in the device tree.
+Re-enable the clock in it as in npcm_wdt.
 
-Developed with the help of an AI coding assistant (Anthropic Claude),
-which drafted the changes from the Windows ACPI tables, existing device
-trees and test logs; reviewed, built and tested on the device by the
-submitter.
-
-Signed-off-by: Ingo A. Kubbilun <ingo.kubbilun@gmail.com>
+Link: https://lore.kernel.org/r/20260911031916.A8E051F000FF@smtp.kernel.org
+Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- drivers/net/wireless/ath/ath11k/core.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/watchdog/sp805_wdt.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/net/wireless/ath/ath11k/core.c b/drivers/net/wireless/ath/ath11k/core.c
-index 766ae27306f4..37e443a18d31 100644
---- a/drivers/net/wireless/ath/ath11k/core.c
-+++ b/drivers/net/wireless/ath/ath11k/core.c
-@@ -1049,6 +1049,7 @@ static const struct __ath11k_core_usecase_firmware_table {
- 	const char *compatible;
- 	const char *firmware_name;
- } ath11k_core_usecase_firmware_table[] = {
-+	{ ATH11K_HW_WCN6855_HW21, "asus,vivobook-s16-s3607qa", "nfa765"},
- 	{ ATH11K_HW_WCN6855_HW21, "qcom,hamoa-iot-evk", "nfa765"},
- 	{ ATH11K_HW_WCN6855_HW21, "qcom,lemans-evk", "nfa765"},
- 	{ ATH11K_HW_WCN6855_HW21, "qcom,monaco-evk", "nfa765"},
-
-base-commit: 6d582d78fad9d828e575ca0cdcff8ea47a77220b
-prerequisite-patch-id: ae6c33cce4db2472b5aa360b5e6cbf29763cfd69
-prerequisite-patch-id: 85373c0c0ff98ec4cda496c612feffd19f715d52
-prerequisite-patch-id: d752bf7c6f8768fa3d4d39387455c3d4551a8481
-prerequisite-patch-id: 56220a324770319f2420a2b114db8fd8c0c6b7e9
-prerequisite-patch-id: 78692cb7c49dbb17552ec082f147c878aaf38761
+diff --git a/drivers/watchdog/sp805_wdt.c b/drivers/watchdog/sp805_wdt.c
+index a14ff7ac0db4..20b2fbb7334d 100644
+--- a/drivers/watchdog/sp805_wdt.c
++++ b/drivers/watchdog/sp805_wdt.c
+@@ -138,6 +138,9 @@ wdt_restart(struct watchdog_device *wdd, unsigned long mode, void *cmd)
+ {
+ 	struct sp805_wdt *wdt = watchdog_get_drvdata(wdd);
+ 
++	/* For reset, we start the WDT clock and leave it running. */
++	clk_prepare_enable(wdt->clk);
++
+ 	writel_relaxed(UNLOCK, wdt->base + WDTLOCK);
+ 	writel_relaxed(0, wdt->base + WDTCONTROL);
+ 	writel_relaxed(0, wdt->base + WDTLOAD);
 -- 
-2.47.3
+2.53.0
 
