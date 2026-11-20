@@ -1,50 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182991;
-	b=cCksTl64oMg3csEgoraJx4JjS7dx++ttx6VAgCTqIviH86lt77DZ5NJDd3QUgeOPuuNK
-	 yCD8bPVCbOc32hxJ17vnN19hFwxmLfQDcVjz0zSGvvOlknyvZn5VMGC6n1idE+AGFi4BR
-	 fV1jcR7r6G4L9kJVe74RmZ2gVN9TjfH7Bc0koMtX/QsbWQHbPmy9GsfbunMp+pF15LL/k
-	 a4cH4Lj8hdtha77HCKbqZcGOaVlcFSC5DoxFeYilQY/tDGat8mcGI7/kBt8+MHpp99rXB
-	 RpdsJ4O+oB/8A/S9d7P7KX6Kc5drmTFoGEQjc8l4tjD4FVzo20UDA39NoKtyz2WFWBQ==
+	t=1795182999;
+	b=vBgwbXHU4hzmXbZNQrE1zEFqB/QtgK7iM8XN64g5vStdW1+VpeXghWxD1oCbBoL53jWu
+	 Bn+4FCvmA/zeHRt/2gmRnMmlzTn59MUongNqB4Rwy0dQ7S04roKigKga8V9HeB9oHtqQN
+	 wh8CjnQ276ObXqfVvz9QsncBLpMmbzjAGB9tMhx6SZhKXN2pRiPHNKU8UM/CyCATj40My
+	 WHxWf01mjaPSoPlTWPKmPGt9hy0C6DbUWUNtrH9x9wVqR7nVUySUy1KQUZNMqqYR35pXM
+	 aVYRC3mxOlY2IRfV0CwGiNL1G8O/ToYkz2lvZdsb0VuO6IjHPuOcx/mQbFlwDoVBEOw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182991;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=BpU18IWaroVx9VLeTDIGQTSjsxfJY8D08qRc4/Tkf0g=;
-	b=BkMpSE/32LxnBRwEw1RyM7ytLX2kVn3bjV1+FGD+KVoSzRsqV50tF/MNvlBSA+rVHiLL
-	 V1DgXd6Z2EQaMoOZ8mZdEQqpBWkU6yMBi6gYUbneuJx8g9kPLdsPjATu5i2sssfManusH
-	 J4HmHaLAV89r9DyCliW3QUhX+cJ9/TYXQlmh5uszSBEckxUlJkG+M4V36JUtiKDHXvxLF
-	 pTxLPOS3SL2gPDXdZSq5QtzE7aASa/SOPpQRvQc4y+MDoOYrQtV2Dq/tpM+IfUsOm9nPK
-	 A9vLgFhvNEOX9nAmYczMkNqRF7MQ3RA7d2+TB7UnXU680kn/9OzTH9kcBWwtIXJL5Vw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182999;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=1wiuOTBHUfvZeBmhO8viOZzk1cxLMeoaIYwnU/zl3gw=;
+	b=e/eCn9TFhREMUQzCdmR0iGor/LLcH5RqaEVmkCIJdHh94LySMzvdLB/YBNbUgMh6uQkF
+	 GZm2zh+bnWprCe+dsFS3WYZW4OMQEffEnRN2zymEZP1+Vj+lOGL75O8PQZd4jVGcqetxu
+	 9bsWLvPA37G+rboU0qR7j5qzRxiJb7nMU6wfFoA8XZwiHkbzkLI9wWtnmleAdvnd8TNQE
+	 oF7f/8gENNfFhW2p3NlvPMy3+N3c6WsHAX+6E0pHQru/t9+7WHStt0OGG4UN+rPTKqri+
+	 gKeqxHTL3ILyEjWeXy1AjjUz0TvCaJQ+XDA5vJ+1o26NBJPr0IivM9tEhXqrtkkWLFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=WjSiwlRP;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aP30F5Ov;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFB3D6074CF4
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:56:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFB3D6074CF4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AB686074CF4
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:56:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=WjSiwlRP
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 600C94E6;
-	Fri, 20 Nov 2026 14:53:57 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795182838;
-	bh=Aar6XZczj/4btUv+pjLkVDhGtVoJXtRsa+7PZSfK/vQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WjSiwlRPN5GTQ+4eWSR1eK2LcBuiAy779feehu9+FUTGvJycfCjcK6MruVBUKIPdI
-	 5bbFSa7fShPG8lTS1taz/aCKyP+UVwTDuN9TxyHFJNj3XRNg1m2DYoM5vHgAYRUz7P
-	 nYzTATGTYuA9hJ99ynhQ6lF5C3CXZ8MufzWGBdmc=
-Message-ID: <e40cd28f-eb52-4205-a799-8340b59c0a60@ideasonboard.com>
-Date: Fri, 20 Nov 2026 15:56:24 +0200
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aP30F5Ov
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C675D1F01562
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:56:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182998;
+	bh=1wiuOTBHUfvZeBmhO8viOZzk1cxLMeoaIYwnU/zl3gw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aP30F5Ovej1bfFb/CohrzuZh938PW2NRqoBY5u15ydmw7Lle0wF7k6RjgHH0Td7Uc
+	 2mmflR29YXyAMy5lvTZ9Fv1ufM2PBbqLkiBkJKJqXitW1LsoLwEUIyZqVtwEQLeIZK
+	 2pCUmjnDmPQw7KXmGqAGs/5yTkzfl5lqnTjnRP12LNOhpxGoBKtNhqHsRLKYIvXSMD
+	 Dn0lfuOzlM4lrvGMlKVLoTzB7YPBIl/VqvINVRr+vUSutDyHcYWZL4WkwnDbjN+de1
+	 J4uHhxutwyYvnBDAF2vETN/OFpkkw8EuItcTNMu+SSJt0KC4rUGxpMl1zpyzlNvXJ/
+	 N+mo0UknhDn7w==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3acd239776cso7115021fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:56:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErG/VKIxaK1Ck4jG+G88cMCgX9LbA+i62w82BIQ0NUOWUlpLsHP7wsreN4G2O4nZ/moSe5LIcrFJnNfQoxA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TVwPslitmTpTkLxpvzC/0J7eZqpQG4ilc63CJEplMzDHymX5a
+	zWoXd9yZ4awlviy605PrAkk+bgbTsEeZ5/Z3XoQnOEBF/aWfRCDtsH9XRMypqmUebgOvaus9Wg/
+	R534tKwQZrwpp8ltTo/7zwk7IBSygkw4=
+X-Received: by 2002:a05:651c:a1a3:b0:3ae:25c8:dc9a with SMTP id
+ 38308e7fff4ca-3ae7f9b2228mr11292111fa.5.1795182997003; Fri, 20 Nov 2026
+ 05:56:37 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,184 +59,367 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] drm/bridge: cdns-mhdp8546: Add suspend resume support
- to the bridge driver
-To: Benjamin Robin <benjamin.robin@bootlin.com>,
- "Kumar, Abhash" <a-kumar2@ti.com>
-Cc: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, s-jain1@ti.com, y-d@ti.com,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- devarsht@ti.com, u-kumar1@ti.com, sjakhade@cadence.com
-References: <20260601095041.3042950-1-a-kumar2@ti.com>
- <f1089720-2a8e-4f0f-b995-fc7ef0836da0@ti.com>
- <73ebfed6-a3ad-4134-a8b9-d17213442fa9@ideasonboard.com>
- <oN6DWNeSTbeo_5NexR3j3A@bootlin.com>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-In-Reply-To: <oN6DWNeSTbeo_5NexR3j3A@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261109082832.496-1-baorliu@amd.com> <20261117071709.428-1-baorliu@amd.com>
+In-Reply-To: <20261117071709.428-1-baorliu@amd.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 14:56:24 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0gxGtEENP9kBmwFvcrSxPMyguYsYoYKpa6oa7hhvAvN=A@mail.gmail.com>
+X-Gm-Features: Aa3M54qMGTerQhE_Nm0y29KaS6q9nXPh-orCIudbnnqELVntdJmHR5gWcAI8JeY
+Message-ID: <CAJZ5v0gxGtEENP9kBmwFvcrSxPMyguYsYoYKpa6oa7hhvAvN=A@mail.gmail.com>
+Subject: Re: [PATCH v8] ACPI: button: Report wakeup key only for power button wakeups
+To: "Baorui.Liu" <baorliu@amd.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	Robert Moore <robert.moore@intel.com>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, acpica-devel@lists.linuxfoundation.org, 
+	kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+On Tue, Nov 17, 2026 at 8:17=E2=80=AFAM Baorui.Liu <baorliu@amd.com> wrote:
+>
+> The ACPI button driver reports KEY_WAKEUP from the Power Button input
+> device to let userspace know that the system was resumed by a power
+> button wakeup.
+>
+> However, reporting KEY_WAKEUP from generic system resume paths can make
+> userspace observe a Power Button wakeup even when the system was resumed
+> by a different wake source.
+>
+> This is reproducible on an AMD Android 15 Xen guest. With a kernel
+> without this fix, a non-power-button S3 resume:
+>
+>   echo mem > /sys/power/state
+>   xl trigger android s3resume
+>
+> makes the Power Button input device report KEY_WAKEUP. The same test on
+> a kernel with this fix no longer reports KEY_WAKEUP from the Power Button
+> input device.
+>
+> Track whether a power button event/notify is observed while the ACPI
+> button device is suspended, and report KEY_WAKEUP on resume only in that
+> case.
+>
+> When the fixed power-button status bit is set during early S3 resume,
+> clear it to avoid a deferred KEY_POWER delivery to userspace, and set a
+> sleep.c-owned flag so button resume can still report KEY_WAKEUP. Do not
+> call into the button driver from that IRQ-disabled path. Also clear
+> wakeup_pending before setting suspended, with a compiler barrier, and
+> drain ACPI notify work before clearing suspended on resume. Report
+> KEY_WAKEUP before clearing suspended so a late notify cannot drop both
+> KEY_WAKEUP and KEY_POWER.
+>
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/r/202609290454.LJrhMCb3-lkp@intel.com/
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202611030112.cVsBZFFE-lkp@i=
+ntel.com/
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202611030545.3st9p1ha-lkp@i=
+ntel.com/
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202611100542.1xljQv20-lkp@i=
+ntel.com/
+> Signed-off-by: Baorui.Liu <baorliu@amd.com>
+>
+> Changes since v7:
+> - Guard acpi_sleep_pwr_btn_wakeup_pending() with CONFIG_ACPI_SLEEP,
+>   matching its definition in sleep.c, so button resume does not link
+>   against a missing symbol when CONFIG_PM_SLEEP=3Dy and CONFIG_ACPI_SLEEP
+>   is unset (0day/LKP ERROR on x86_64 randconfig).
+>
+> Changes since v6:
+> - Include <linux/types.h> in include/acpi/button.h so the bool
+>   declaration/stub of acpi_sleep_pwr_btn_wakeup_pending() builds when
+>   the header is included without prior bool typedefs (0day/LKP ERROR
+>   via nouveau_connector.c on parisc64-defconfig and arm64-randconfig).
 
-On 20/11/2026 15:11, Benjamin Robin wrote:
-> On Wednesday, October 14, 2026 at 3:25 PM, Tomi Valkeinen wrote:
->> Hi,
->>
->> On 06/10/2026 11:49, Kumar, Abhash wrote:
->>> Hi,
->>>
->>> On 10/1/2026 1:10 PM, Tomi Valkeinen wrote:
->>>> Hi,
->>>>
->>>> On 29/06/2026 13:32, abhash wrote:
->>>>>
->>>>> Hi Tomi,
->>>>>
->>>>> Thanks for the review.
->>>>>
->>>>> On 18/06/26 14:19, Tomi Valkeinen wrote:
->>>>>> Hi,
->>>>>>
->>>>>> On 01/06/2026 12:50, Abhash Kumar Jha wrote:
->>>>>>> Add system suspend and resume hooks to the cdns-mhdp8546 bridge
->>>>>>> driver.
->>>>>>>
->>>>>>> While resuming we either load the firmware or activate it. Firmware
->>>>>>> is loaded only when resuming from a successful suspend-resume cycle.
->>>>>>
->>>>>> It's not clear from the patch if this is a fix or improvement. It
->>>>>> sounds a bit like a fix, but it doesn't mention any kind of issue in
->>>>>> the driver. So, why is this patch needed?
->>>>>
->>>>> The driver lacked support for suspend-resume as stated in the todo on
->>>>> the driver, So the patch adds this improvement.
->>>>
->>>> The patch doesn't remove any todo lines. Was that just a miss, or is
->>>> there more to add wrt. PM?
->>> Yeah, i will remove the TODO in the next revision.
->>>>
->>>> What does it mean it didn't support PM? Does the driver not work after
->>>> suspend-resume cycle? Or does the driver prevent a proper suspend?
->>>
->>> When we resume, the cdns_mhdp_link_up function fails.
->>>
->>> Failure log at resume:
->>>
->>> [  55.329452] tidss 4a00000.dss: PM: calling tidss_resume [tidss] @
->>> 1053, parent: bus@100000
->>>
->>> [ 183.381228] cdns-mhdp8546 a000000.bridge: Failed to read receiver
->>> capabilities
->>>
->>> [ 191.391548] cdns-mhdp8546 a000000.bridge: get block[0] edid failed: -110
->>>
->>> [ 193.392713] cdns-mhdp8546 a000000.bridge: Failed to read register
->>>
->>> [ 261.415544] cdns-mhdp8546 a000000.bridge: Failed to read register
->>>
->>> [ 263.946153] tidss 4a00000.dss: Timeout waiting for framedone on crtc 0
->>>
->>> [ 391.991358] cdns-mhdp8546 a000000.bridge: Failed to read receiver
->>> capabilities
->>>
->>> [ 392.026847] tidss 4a00000.dss: PM: tidss_resume [tidss] returned 0
->>> after 336689133 usecs
->>>
->>> I guess it is fair to say that the driver does not work after suspend-
->>> resume cycle.
->>>
->>>>>>> If resuming due to an aborted suspend, loading the firmware is not
->>>>>>> possible because the uCPU's IMEM is only accessible after a reset
->>>>>>> and the
->>>>>>> bridge has not gone through a reset in this case. Hence, Activate the
->>>>>>> firmware that is already loaded.
->>>>>>>
->>>>>>> Use genpd_notifier to get the power domain status of the bridge and
->>>>>>> accordingly load the firmware.
->>>>>>>
->>>>>>> Additionally, introduce phy_power_off/on to control the power to
->>>>>>> the phy.
->>>>>>
->>>>>> If you write "also" or "additionally" or such in a commit desc, you
->>>>>> should stop and think if that part should actually be a separate
->>>>>> patch. Also, why is that change needed?
->>>>>
->>>>> The phy device could be powered off while resuming. So we are
->>>>> explicitly powering it on.
->>>>>
->>>>> The phy driver api also recommends to always call phy_init() first
->>>>> followed by a phy_power_on().
->>>>>
->>>>> "Some PHY drivers may not implement `phy_init` or `phy_power_on`, but
->>>>> controllers should always call these functions to be compatible with
->>>>> other PHYs"
->>>>
->>>> It still sounds like a separate patch to me: the current driver is
->>>> missing phy_power_on/off from the probe/remove functions.
->>>>
->>> I will add that as a separate patch
->>>>>> Overall, this sounds fragile/hacky to me.
->>>>>>
->>>>>> The first thing is that usually you shouldn't use system suspend/
->>>>>> resume in a bridge driver. When a system suspend happend, the
->>>>>> display pipeline will be disabled, so this driver will get an
->>>>>> atomic_disable() call, and enable when resuming. You can use runtime
->>>>>> PM hooks if you need resume/suspend hooks.
->>>>>>
->>>>> Thanks for the suggestion, I will use the runtime PM instead.
->>>>>
->>>>>> The second thing is the PD notifier. Is there really no way we can
->>>>>> see the state from the MDHP IP registers?
->>>>>
->>>>> The other way that i found was to read the MHDP KEEP_ALIVE_p register
->>>>> twice to know if the firmware is incrementing the counter.
->>>>>
->>>>> Based on that we can decide if the bridge is active or not. Do you
->>>>> think this approach would be okay over the PD notifier?
->>>> I think it would be best to be able somehow to ask this from the HW to
->>>> find the true state, instead of guessing it second hand from the PD
->>>> notifier (which also doesn't tell us the initial HW state at probe).
->>>>
->>>> KEEP_ALIVE_p sounds fine. Or what does the mdhp IP do if you send a
->>>> message to the firmware when it's not up? Say, if you always do
->>>> cdns_mhdp_set_firmware_active, what happens if the FW has not been
->>>> loaded? I would guess that there's a timeout, and that could be used
->>>> to find out the FW is not up.
->>>>
->>> Yes, there is a 2 second timeout if we send a message and the firmware
->>> is not up. I would prefer the KEEP_ALIVE_p method, as that is a better
->>> indication of the
->>
->> But that's a driver imposed timeout, and it sounds rather arbitrary (and
->> bad). How quickly does the firmware usually reply? What would be the
->> situation where the firmware takes e.g. 1.5s to reply? I would guess
->> that if the FW updates the KEEP_ALIVE_p every N us, it would also reply
->> to us in that time.
->>
->> In any case, changing MAILBOX_TIMEOUT_US would be another patch.
->> KEEP_ALIVE_p sounds fine if you know how often the FW updates it.
->>
->>    Tomi
-> 
-> Hi,
-> 
-> I wanted to check on the status of this series, as I'm quite interested
-> in it since my series [1] depends on it.
-> 
-> For my use case, the suspend/resume support isn't essential, but the
-> calls to phy_power_on() and phy_power_off() are.
-> 
-> Thanks for any update.
-> 
-> [1] https://lore.kernel.org/all/20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com/T/
-> 
+Sashiko has feedback on this:
 
-Yep, it could as well be sent separately. Abhash, are you working on 
-this still? Can you send the phy power on/off as a separate patch.
+https://sashiko.dev/#/patchset/20261117071709.428-1-baorliu%40amd.com
 
-  Tomi
+Please let me know what you think about it.
 
+Also, if you decide to send a new version, please do so in a new thread.
+
+Thanks!
+
+> ---
+>  drivers/acpi/button.c | 63 ++++++++++++++++++++++++++++++++++++-------
+>  drivers/acpi/sleep.c  | 47 +++++++++++++++++++++-----------
+>  include/acpi/button.h | 19 +++++++++++++
+>  3 files changed, 104 insertions(+), 25 deletions(-)
+>
+> diff --git a/drivers/acpi/button.c b/drivers/acpi/button.c
+> index c41fba556030..9a80a27e4297 100644
+> --- a/drivers/acpi/button.c
+> +++ b/drivers/acpi/button.c
+> @@ -203,6 +203,7 @@ struct acpi_button {
+>         bool last_state;
+>         ktime_t last_time;
+>         bool suspended;
+> +       bool wakeup_pending;
+>         bool lid_state_initialized;
+>         bool gpe_enabled;
+>  };
+> @@ -488,7 +489,11 @@ static void acpi_button_notify(acpi_handle handle, u=
+32 event, void *data)
+>
+>         acpi_pm_wakeup_event(button->dev);
+>
+> -       if (button->suspended || event =3D=3D ACPI_BUTTON_NOTIFY_WAKE)
+> +       if (button->type =3D=3D ACPI_BUTTON_TYPE_POWER &&
+> +           READ_ONCE(button->suspended))
+> +               WRITE_ONCE(button->wakeup_pending, true);
+> +
+> +       if (READ_ONCE(button->suspended) || event =3D=3D ACPI_BUTTON_NOTI=
+FY_WAKE)
+>                 return;
+>
+>         input =3D button->input;
+> @@ -510,6 +515,12 @@ static void acpi_button_notify_run(void *data)
+>
+>  static u32 acpi_button_event(void *data)
+>  {
+> +       struct acpi_button *button =3D data;
+> +
+> +       if (button->type =3D=3D ACPI_BUTTON_TYPE_POWER &&
+> +           READ_ONCE(button->suspended))
+> +               WRITE_ONCE(button->wakeup_pending, true);
+> +
+>         acpi_os_execute(OSL_NOTIFY_HANDLER, acpi_button_notify_run, data)=
+;
+>         return ACPI_INTERRUPT_HANDLED;
+>  }
+> @@ -519,7 +530,15 @@ static int acpi_button_suspend(struct device *dev)
+>  {
+>         struct acpi_button *button =3D dev_get_drvdata(dev);
+>
+> -       button->suspended =3D true;
+> +       /*
+> +        * Clear wakeup_pending before marking suspended. Otherwise a pow=
+er
+> +        * button SCI between the two stores could set wakeup_pending and=
+ then
+> +        * be overwritten here, losing a real wakeup. barrier() prevents =
+the
+> +        * compiler from reordering the stores relative to that IRQ handl=
+er.
+> +        */
+> +       WRITE_ONCE(button->wakeup_pending, false);
+> +       barrier();
+> +       WRITE_ONCE(button->suspended, true);
+>         return 0;
+>  }
+>
+> @@ -527,21 +546,45 @@ static int acpi_button_resume(struct device *dev)
+>  {
+>         struct acpi_button *button =3D dev_get_drvdata(dev);
+>         struct input_dev *input;
+> +       bool report_wakeup =3D false;
+> +
+> +       /*
+> +        * Drain notify work queued while suspended so a late power-butto=
+n
+> +        * notify still observes suspended =3D=3D true, sets wakeup_pendi=
+ng, and
+> +        * does not synthesize KEY_POWER for userspace.
+> +        */
+> +       acpi_os_wait_events_complete();
+> +
+> +       /*
+> +        * Sample and report KEY_WAKEUP before clearing suspended. Otherw=
+ise a
+> +        * notify that arrives after sampling but before suspended is cle=
+ared
+> +        * can set wakeup_pending and then be dropped without KEY_WAKEUP =
+or
+> +        * KEY_POWER. Clear suspended before wakeup_pending so a new SCI =
+sees
+> +        * suspended =3D=3D false and takes the normal KEY_POWER path; ba=
+rrier()
+> +        * keeps that store order.
+> +        */
+> +       if (button->type =3D=3D ACPI_BUTTON_TYPE_POWER) {
+> +               report_wakeup =3D READ_ONCE(button->wakeup_pending) ||
+> +                               acpi_sleep_pwr_btn_wakeup_pending();
+> +               if (report_wakeup) {
+> +                       input =3D button->input;
+> +                       input_report_key(input, KEY_WAKEUP, 1);
+> +                       input_sync(input);
+> +                       input_report_key(input, KEY_WAKEUP, 0);
+> +                       input_sync(input);
+> +               }
+> +       }
+> +
+> +       WRITE_ONCE(button->suspended, false);
+> +       barrier();
+> +       WRITE_ONCE(button->wakeup_pending, false);
+>
+> -       button->suspended =3D false;
+>         if (button->type =3D=3D ACPI_BUTTON_TYPE_LID) {
+>                 button->last_state =3D !!acpi_lid_evaluate_state(ACPI_HAN=
+DLE(dev));
+>                 button->last_time =3D ktime_get();
+>                 acpi_lid_initialize_state(button);
+>         }
+>
+> -       if (button->type =3D=3D ACPI_BUTTON_TYPE_POWER) {
+> -               input =3D button->input;
+> -               input_report_key(input, KEY_WAKEUP, 1);
+> -               input_sync(input);
+> -               input_report_key(input, KEY_WAKEUP, 0);
+> -               input_sync(input);
+> -       }
+>         return 0;
+>  }
+>  #endif
+> diff --git a/drivers/acpi/sleep.c b/drivers/acpi/sleep.c
+> index 7c1fb5b844be..a17318a7a3d6 100644
+> --- a/drivers/acpi/sleep.c
+> +++ b/drivers/acpi/sleep.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/syscore_ops.h>
+>  #include <asm/io.h>
+>  #include <trace/events/power.h>
+> +#include <acpi/button.h>
+>
+>  #include "internal.h"
+>  #include "sleep.h"
+> @@ -105,6 +106,23 @@ u32 acpi_target_system_state(void)
+>  EXPORT_SYMBOL_GPL(acpi_target_system_state);
+>
+>  static bool pwr_btn_event_pending;
+> +static bool pwr_btn_wakeup_pending;
+> +
+> +/**
+> + * acpi_sleep_pwr_btn_wakeup_pending - Consume fixed power-button wake h=
+int.
+> + *
+> + * Returns true once if acpi_suspend_enter() observed and cleared the fi=
+xed
+> + * power-button status bit during early S3 resume. Used by the button dr=
+iver
+> + * to report KEY_WAKEUP without sleeping in that IRQ-disabled path.
+> + */
+> +bool acpi_sleep_pwr_btn_wakeup_pending(void)
+> +{
+> +       bool pending =3D READ_ONCE(pwr_btn_wakeup_pending);
+> +
+> +       WRITE_ONCE(pwr_btn_wakeup_pending, false);
+> +       return pending;
+> +}
+> +EXPORT_SYMBOL_GPL(acpi_sleep_pwr_btn_wakeup_pending);
+>
+>  /*
+>   * The ACPI specification wants us to save NVS memory regions during hib=
+ernation
+> @@ -504,12 +522,12 @@ static void acpi_pm_finish(void)
+>
+>         acpi_resume_power_resources();
+>
+> -       /* If we were woken with the fixed power button, provide a small
+> -        * hint to userspace in the form of a wakeup event on the fixed p=
+ower
+> -        * button device (if it can be found).
+> -        *
+> -        * We delay the event generation til now, as the PM layer require=
+s
+> -        * timekeeping to be running before we generate events. */
+> +       /*
+> +        * If woken by the fixed power button, provide a wakeup event on =
+that
+> +        * device. KEY_WAKEUP input reporting is handled by the button dr=
+iver
+> +        * via acpi_sleep_pwr_btn_wakeup_pending() / wakeup_pending; do n=
+ot
+> +        * synthesize KEY_POWER here.
+> +        */
+>         if (!pwr_btn_event_pending)
+>                 return;
+>
+> @@ -625,14 +643,13 @@ static int acpi_suspend_enter(suspend_state_t pm_st=
+ate)
+>         /* Reprogram control registers */
+>         acpi_leave_sleep_state_prep(acpi_state);
+>
+> -       /* ACPI 3.0 specs (P62) says that it's the responsibility
+> -        * of the OSPM to clear the status bit [ implying that the
+> -        * POWER_BUTTON event should not reach userspace ]
+> -        *
+> -        * However, we do generate a small hint for userspace in the form=
+ of
+> -        * a wakeup event. We flag this condition for now and generate th=
+e
+> -        * event later, as we're currently too early in resume to be able=
+ to
+> -        * generate wakeup events.
+> +       /*
+> +        * ACPI 3.0 (P62): OSPM should clear the fixed power-button statu=
+s bit
+> +        * so the event does not reach userspace as KEY_POWER. Only set p=
+lain
+> +        * flags here: this path runs with IRQs disabled, so do not call =
+into
+> +        * the button driver (it may take sleeping locks). Button resume =
+later
+> +        * consumes pwr_btn_wakeup_pending for KEY_WAKEUP; acpi_pm_finish=
+()
+> +        * uses pwr_btn_event_pending for the PM wakeup event.
+>          */
+>         if (ACPI_SUCCESS(status) && (acpi_state =3D=3D ACPI_STATE_S3)) {
+>                 acpi_event_status pwr_btn_status =3D ACPI_EVENT_FLAG_DISA=
+BLED;
+> @@ -641,8 +658,8 @@ static int acpi_suspend_enter(suspend_state_t pm_stat=
+e)
+>
+>                 if (pwr_btn_status & ACPI_EVENT_FLAG_STATUS_SET) {
+>                         acpi_clear_event(ACPI_EVENT_POWER_BUTTON);
+> -                       /* Flag for later */
+>                         pwr_btn_event_pending =3D true;
+> +                       WRITE_ONCE(pwr_btn_wakeup_pending, true);
+>                 }
+>         }
+>
+> diff --git a/include/acpi/button.h b/include/acpi/button.h
+> index af2fce5d2ee3..83f5dd373f39 100644
+> --- a/include/acpi/button.h
+> +++ b/include/acpi/button.h
+> @@ -2,6 +2,8 @@
+>  #ifndef ACPI_BUTTON_H
+>  #define ACPI_BUTTON_H
+>
+> +#include <linux/types.h> /* for bool */
+> +
+>  #define ACPI_BUTTON_HID_POWER  "PNP0C0C"
+>  #define ACPI_BUTTON_HID_LID    "PNP0C0D"
+>  #define ACPI_BUTTON_HID_SLEEP  "PNP0C0E"
+> @@ -15,4 +17,21 @@ static inline int acpi_lid_open(void)
+>  }
+>  #endif /* IS_ENABLED(CONFIG_ACPI_BUTTON) */
+>
+> +/*
+> + * Set in acpi_suspend_enter() when the fixed power-button status bit is
+> + * observed (IRQ-disabled context). Consumed by the button driver on res=
+ume
+> + * so KEY_WAKEUP can be reported without calling into the button driver =
+from
+> + * that early path. Defined in sleep.c under CONFIG_ACPI_SLEEP. CONFIG_P=
+M_SLEEP
+> + * can be enabled without CONFIG_ACPI_SLEEP, so the stub keeps button.o
+> + * linkable in that case. Safe when CONFIG_ACPI_BUTTON=3Dm.
+> + */
+> +#if IS_ENABLED(CONFIG_ACPI_SLEEP)
+> +bool acpi_sleep_pwr_btn_wakeup_pending(void);
+> +#else
+> +static inline bool acpi_sleep_pwr_btn_wakeup_pending(void)
+> +{
+> +       return false;
+> +}
+> +#endif
+> +
+>  #endif /* ACPI_BUTTON_H */
+>
+> base-commit: 0069320cef67ba6ca745a05868c40e4c46b61284
+> --
+> 2.34.1
+>
