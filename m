@@ -1,79 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795188664;
-	b=qa6tmiBHvAZp6/ptUZ7CdEelLB0RtbNw2N3ZEz3wBjkSBFwOSD7Nwyd65jQdLNkNlDjW
-	 uI6sYyZ42CX7gzzkRyYukUzbc9/epQI0/donGYjhGnSzAWs3uOGF8qTf1utxP6SfDVqxO
-	 CPlxhUEDt4/p4mSfscV/osTKjVHKqcd5xQlp+4gk7/Ur/emLBtWq2tvcgjPy/89Wi6JE3
-	 Q+RF8dHWWIqvaLYtnEbxzwcJlaU5wpGtKAFVr/D1Nl9K5ODuQlQDh8kkFwY5fwXSFL80v
-	 w8cPtBz2N5hS4da3mhavSwMFn57l1ow/TQxXIFimdx0YngrZM1F5P5d4W1/p5trjOqA==
+	t=1795188690;
+	b=FbHPcKuSVQtXaSHYKPGrNK5tSudyUuV+kJ3FmLU+kacmQapbVrKFqx8unaI1VTKL+dqA
+	 OIXnqrvzSafvOAWcPBU291gDPJuvwGMAYpZt3bMOYWlg88MfVUuNSM52bnBZLAIT9llkC
+	 udaKMA3vApWt2p6kVnpAOtm2r6ji63lSbz8XlWX4R7POYPzkiOV6vD0LFQoExMV058Ci6
+	 tayKnU1JJiMYhV+Q9TDGlFON7FQwGPCDZn6mfwNP4ozNIQ/YI48anSdzZc1+AofuMq+r8
+	 MXj5g7NtT35m1MivheNrcSR8taplMdsrp8sq7r/5D+M8vuaL0MXsgw3F9L3fmKnIkng==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188664;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ic/Tkesv9swqUgqf5iFVky14aDs798pTEmP4wTv+sGw=;
-	b=ycn5mGSoRppTb8eGUvdJ7q7mdItUn+XQdZCiukk/fkM3gwqEdV7+ZHARKYr5mwNJ2o6h
-	 NCug7RjhmekRCQhKPr5neS0Ye5TVy8V4vm+Pq/Ef4cmIXorR0QK2fj4JQ+PvisQWRqe+7
-	 ywy8MGw06215+D6J94pkQKzvwJz5e677pL3wLfGuZ4/AzVnxt/47WnY0Dy0gH3WANC3OK
-	 QSg2+H9wPz14zrb9Eo+q79VKaSD07cXKO/qpOb+ovq+Oc2MMK4hMRhymUwRoTis6fo4rK
-	 3/n0SjsxSiNGjSHmZue/fvwpssXLX7NiElDrKXnigkb2Pb51pUBer3/+/AcshUbCoLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188690;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=FJdGxpeLcA+HNojMQbXEX8uXEAU5T/sehUXMK1DtacQ=;
+	b=z44CybbVTDBEO0f0wpVeCfqTsg/HtMqoA126DJVg+TglKmVDgzUTCKTP/7vkO0eYO0/4
+	 PkJ4dYjf+GsXDMNC/36Vj3/uFEZRRCZIaek3+Xu3Y5RgVLJrzppU7/2Inioe4vAaAZw4J
+	 taPBA44XGiRi2S4NNhdH/QAExzfaY77aXkslNw7jGjus8bUdBTF+Tgjz9Ms/REbg7g6px
+	 GGpaoTGiAqovvZ+W99zOuBpekh+0YGoHe4aLznhUmajWxYrY0RfXXFncFeuPbdK5xgDYD
+	 YVwDWwfBiXB2PAqDgYTtNeTrSWRxTFUDWp+CxHjI4trkM/pgAJqBz0KJzvkr7L9oFwA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFXWRAbD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42B58606A320;
-	Fri, 20 Nov 2026 15:31:04 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PFXWRAbD
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795188664;
-	b=2Sr5qRwqiJogqUwmNPr94QqJinb9l9DOwhXT97/ytYIvjOh5v756+Y8b/hW4KqU8diFq
-	 GTbVd6o/8x8N1R7HvQuadcXlTK1bbi+ov5SGd5EBkFwGSe4I0OXWintgclidniwMJDw0g
-	 ucwcQW8dwdN7xwZ1hnvrSB3V9Ratdlr0L5699H/q2FhNdorHut+91mKvzpH43sawNCzv+
-	 4JBd7fLAI68Noe+7H95/DkpVBAil2vebDRF3ZdrWh0wYxkU8CtV+QfRWryJwYVdS0fR6G
-	 o0rcNwnzpUtyxJJ/OwoQzXF7+vpLhFTT4l1Vy//641S2i8B6Oy3TmCIfPHdrN4KCSpA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795188664;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Ic/Tkesv9swqUgqf5iFVky14aDs798pTEmP4wTv+sGw=;
-	b=2mghJqf5BBy0DBpoyja+CVjfDKeifQzpXzu+RjlbAWN2n2FJfkTj6++HcIee35cLuLgF
-	 /2buvZ43PNwnJcfTUU+k4jWpV3fy9USGKh5HAThBO4Phllu3xtyTD1VBj4m6rTRijdm4S
-	 kBfA5rkabuU6YV18QRpPT0xzoksLgD89LTFRiDpaHT8e/GgcwgCjGY1KG0yS9rLJrcfbX
-	 hVeFjeqBXtq4CfiNDxiuAyRsEIht/PIF5cDQjXrbaCUSzAZrA8cz6QnMuX2k6JCk3gwJO
-	 arDNrKPI8tcvASRSEvBf6DmMdGXu2yb5toAPE+HNeLxTPoyXL4Z6O7+kbAoRBk3KTYQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rYiUfnZS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4D9961F000EC;
-	Fri, 20 Nov 2026 15:30:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795188664;
-	bh=Ic/Tkesv9swqUgqf5iFVky14aDs798pTEmP4wTv+sGw=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=PFXWRAbDHnVeDhOsbJ/YOzYlq3EGhCPm/TXcy5PrFKNI1WIo6ziKoBF4MJwNLEqHg
-	 c3X/sjGTAOe9pngXh9jDEWRv5zKGM7+2g7yFU6nZwWK6YCJqW6ICzbl1qmIf2VfNO5
-	 axGxQTMeebuWN//Qia/eUC2bw+UmWzStUZrsoskQ2WfXxMrHQYyxbNi101j5dy3aYY
-	 jNEINEDD6lHawMaYR2cO6SxU5Sn8qe658eiegQDQCT/HN0twJYhDjFoRt3soE2QGFy
-	 QVVPluX5hYFY7YgeBXXxtVOFaQf/BqFEy3R+Q6Fsd6xWjCz4panHK4v3igR11yXHsi
-	 P6O1vTk08HzvQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CD6AC49904;
-	Fri, 20 Nov 2026 15:30:55 +0000 (UTC)
-From: Zhendong Liu via B4 Relay <devnull+yzddmr6.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 23:30:53 +0800
-Subject: [PATCH v2] dma: swiotlb: Allocate the restricted DMA pool slot
- array with kvzalloc()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E3F2606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:31:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E3F2606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rYiUfnZS
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3712b6d9843so970986eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:31:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795188689; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VQApX2aL2A99pD44fF15mm2JMRnV4l9QBLJTEO83VkOz9NVhld1cBxBDO/Yb2ZVSdT
+         oco7uQojXUlZ7hknn32XnAr02hE3gupTP9CHI02VjngxAxocy5GQX2MXYiRIG7OkvGaP
+         Au2MAfD2wNuSxJbQe4Mgydvsohf8opBLLOeDLMKX331lQJWL16HKmAF/z5kviFXCCYfn
+         JZvhq6TC2dUw7i3k3KwRTkxDIVABwVExd2XCIlfa8KA++MuQGIE5pegdBQsPgQgbVIkl
+         9bb9+sVdIiGdcw4IUZDF8fZN+x9gQXkdimbgXEjYKE1WDhMR6rIpPjeLkz9SHKt8oLDy
+         tJQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FJdGxpeLcA+HNojMQbXEX8uXEAU5T/sehUXMK1DtacQ=;
+        fh=G1eotGVWkuEccYzatVLlz978IIn3/2Y7D1LE2dQzdKA=;
+        b=JDEhbwLYYIk1BXLjiMnBc75xuWaRW8HwWRHR2FL47RP8s7KVstGbsED1mYvzb2y0Y5
+         DvLKDuhyMsu/b8Ctp2PhxnjkTwOo4afPRhRkY0o/IH+P0Z4juoA0VkeMte+jaQIJhPTn
+         2xPrCL8/FcILYuPTc/DRQ8lgh06oqIMNlWgY0WFfw/cwpX03c3hhXIgnY9fyfQ2z40N0
+         2k+QKeTznK5DsVPlI33ws54Pg9RH68xzHYsrdUEaEMdEZ/tJHc4cmY1QNkGKKOXjP39R
+         leMM3eItBTFuWSBpf32OkdOdN+M6qQ73ysjsU/4Sh9Z1wwawAr4QTLC209uN/aSlbcmD
+         KVrw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795188689; x=1795793489; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FJdGxpeLcA+HNojMQbXEX8uXEAU5T/sehUXMK1DtacQ=;
+        b=rYiUfnZSuaoielxLAtDf6tRtT09b3z0BbTf3Snshk09+yIK85WTu2JSCR8wJWNFFyE
+         BONIXUlNMREfqT8nZtaskrOX9zSYxi5AXvSf30rqFA66oJ3LYHi7J3Mvj5THz6yVbEDE
+         iK5wnp8bWy13CPECQBGqxn+SElETm1hRIy5Qam6OqXUD78v+dd6R5PcUnhTiC4ynJ+6T
+         ZwdF3ery1c9v5wDocw5m2zc0VAUoNmiEaKySbXM1G28Z5oMGiNN++MUS0Fq9qykbeQuj
+         AIBkQy/5BAYptgfXI0Au85iL2L2BqDxHptajlHv8Jnbkj6e3aibZBPHiotbwD8DmFSVd
+         qCuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795188689; x=1795793489;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FJdGxpeLcA+HNojMQbXEX8uXEAU5T/sehUXMK1DtacQ=;
+        b=nP9B+LjFYrU+O0AU2VgUj1aKtXX0fVZ1YBP9vsn5d3zErESjtxuB5sQcIrxmjONA9h
+         VCNQydTQQo7JTTiDMiU+jfp/CIEBH9sIsqGa4jZdPS3LBAHq/rB6rMqKscW9MQI5+ZAA
+         odHs2f1Uz1wkFmOZaQ6GQTHLfEO3+a373YTTOGMraVzzj/5cRFGmxfHofuKaOj5EHCVo
+         LDl38DeLK7aY8T4Z6tTcopTZNEXmGUgRjCO4Y6f0XqZknWcGcaUV04fhOyYse3Ziwq5W
+         b8jOpk9Yfbqi1s3kDh4zpmwuDYqGYA/y2B7Y4/pxRR3U2er50DKwNgXhZQMrbYkDCX7+
+         jSQA==
+X-Forwarded-Encrypted: i=1; AL+hErHcq8mzwHxktotOZkCdjSmVcIkGu6faFhj8LPXuwN4MqZUQHIHcg9ujPivbT8Fh96CXDBx2mtf3RFFXJ8E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BO80rPXa8IEiw3zKd30SzOEqljev1hG35DMFr0wFWYq0ZR6jy
+	D2vTCXkASxgM77xfVPPrTQScV5qG5yW0MsGQgjFQEdDQGOMnQyubGsRjfbhWLLWdgukMg2pra+t
+	T23dx1tdT3EHvu9XEv6Ff3UT1O4qgzvPXJ1ON
+X-Gm-Gg: AZFdTZclT1OvUT9tpZs4ZBubFje9tckVAwNBNRKBaNHU+ZdPB6UtTSzTjfHOF/N5f4Q
+	C8ITu/A6kB0HH5zXivcl+fTpemkB1yXfy2M1wIrBZpLvQDICZBoNB0zCdwgli2oCVdVsUO4TLNN
+	2B2c7rU4fyI8Vv7zjEwjVc3gmQAt6aqlySIxgG/5beM3X9ghty7isO2BUvxbMipwdkG05e62kYI
+	URFW5I2fRZfUWJ5E/jJeZpnjSWyIKjaXOftRVH9URygk7wLQR7nU9d+/FLTZaehGFBXYJD6XR2f
+	nCxCGjqYq+lrwOpTABdk2C0C7w+07Dr448XchUQZWPYudjWUj1BWXhgAgU8/h3nGmX/69yLjEkx
+	yo1cm7aom3MepGU+Yxd++aNZjrsDNV7IZBp+XxZMwg1iTVFc95T6EyHoDOHl8+S8s1L0E93TeWb
+	1p4YVJLphgavBfY5k8z/31ds+oJY9WD1JdirQ7QR8Wjz73QBnnoag=
+X-Received: by 2002:a05:7301:6408:b0:383:1bfc:f1c0 with SMTP id
+ 5a478bee46e88-38570f27a56mr3129077eec.32.1795188688670; Fri, 20 Nov 2026
+ 07:31:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,127 +105,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-upstream2-swiotlb-rmem-kvzalloc-v2-1-cc5732dddb6b@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAKxnAGsC/42OzQ6DIBCEX6Xh3G0Vo4k99T0aD4CL0oIYQPpjf
- PeiJj03e5qdyTczE49OoSeXw0wcRuWVHZKgxwMRPRs6BNUmTWhGqzynGUyjDw6ZoeCfygbNwRk
- 08IgfprUVICvBKyExq1lBEmV0KNVra7g1u/YTv6MIK3ZNcOYRuGOD6NfXr+C8Ga1hsANStFc+W
- Pfe1sZ8Rf4/LOaQTpSy5mVWUFpcO8OUPglrSLMsyxcnCgudCwEAAA==
-X-Change-ID: 20261120-upstream2-swiotlb-rmem-kvzalloc-f6cb6cfe09a3
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Zhendong Liu <yzddmr6@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795188654; l=4063;
- i=yzddmr6@gmail.com; s=20261028; h=from:subject:message-id;
- bh=n5WsBNFSSTY++xySoe4Lh6qAZ7+HFLIrorjS4M0Xd3I=;
- b=qpNujyU5LVEecmTJsbr9Kv82yZ6BGA0fvstIKHTLBgxAXuO2n1vVfjnSaVCkcTzNapi2xhZoB
- Al43Wdsl6TdBBXvUugeeZ3oEFCh7YVWtS23i5e3Kcyo3VGK3DL4+EXO
-X-Developer-Key: i=yzddmr6@gmail.com; a=ed25519;
- pk=QLT2mwairk4R38oU379hkHynqjoLrlqd0Cl1ERUqIqY=
-X-Endpoint-Received: by B4 Relay for yzddmr6@gmail.com/20261028 with
- auth_id=1489
-X-Original-From: Zhendong Liu <yzddmr6@gmail.com>
-Reply-To: yzddmr6@gmail.com
-Content-Transfer-Encoding: 7bit
+References: <20261113161819.36847-1-clamor95@gmail.com> <20261113161819.36847-2-clamor95@gmail.com>
+ <20261120143147.GA2466366@killaraus.ideasonboard.com>
+In-Reply-To: <20261120143147.GA2466366@killaraus.ideasonboard.com>
+From: Svyatoslav Ryhel <clamor95@gmail.com>
+Date: Fri, 20 Nov 2026 17:31:17 +0200
+X-Gm-Features: Aa3M54rmNUuNZyda5qhpJslp9i1jTMK9Hg275DVhPVt4wZMMMc9yhIUe9r0PTkY
+Message-ID: <CAPVz0n3u3oe1+H_w9jE2afb9PQT0VLtYVqfHeVNc3D+tLN6NDQ@mail.gmail.com>
+Subject: Re: [PATCH v1 01/10] staging: media: tegra-video: Move driver to media/platform/nvidia
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Sowjanya Komatineni <skomatineni@nvidia.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Mikko Perttunen <mperttunen@nvidia.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Cong Nguyen <congnt264@gmail.com>, 
+	Faisal Mukhtar <mukhtarfaisal03@gmail.com>, Dan Carpenter <error27@gmail.com>, 
+	Hungyu Lin <dennylin0707@gmail.com>, Hao-Qun Huang <alvinhuang0603@gmail.com>, 
+	Yury Norov <ynorov@nvidia.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	linux-media@vger.kernel.org, linux-tegra@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Zhendong Liu <yzddmr6@gmail.com>
+=D0=BF=D1=82, 20 =D0=BB=D0=B8=D1=81=D1=82. 2026=E2=80=AF=D1=80. =D0=BE 16:3=
+1 Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> =D0=BF=D0=B8=D1=88=D0=B5:
+>
+> On Fri, Nov 13, 2026 at 06:18:10PM +0200, Svyatoslav Ryhel wrote:
+> > The Tegra Video Input drivers are mature and developed enough to be mov=
+ed
+> > from staging into the media subsystem. No other changes are introduced.
+>
+> The driver should at least be converted to be MC-centric before being
+> moved out of staging. I haven't checked if other changes would also be
+> needed.
+>
 
-rmem_swiotlb_device_init() allocates one struct io_tlb_slot per 2 KiB
-slot of a restricted DMA pool with kzalloc(). The struct is 24 bytes on
-64-bit, so with 4 KiB pages and the default MAX_PAGE_ORDER of 10 the
-array is larger than KMALLOC_MAX_SIZE (4 MiB) for any pool above about
-341 MiB. For such a pool kzalloc() refuses the request with a
-WARN_ON_ONCE() in ___kmalloc_large_node(), the pool is not set up, and
-of_dma_set_restricted_buffer() warns that it failed to initialise the
-pool. The devices assigned to it then lose the restriction without
-their probe failing, and use the default DMA path.
+Does the media subsystem deny video-centric devices from even being
+moved into it? I have not seen this restriction imposed; could you
+please point me to where this is stated in the media subsystem
+documentation?
 
-The slot array is only accessed by the CPU and does not need to be
-physically contiguous. Allocate it with kvzalloc_objs() and free it with
-kvfree(). The other pools are not affected: the slot array of the
-default pool comes from memblock, and the buffers of late and dynamic
-pools are limited to MAX_PAGE_ORDER, which keeps their slot arrays
-small.
+I would like to convert this device, but that may take quite some time
+and may case regressions if not done carefully. This patchset apart
+from moving to media is mostly fixes to work correctly with mt9m114
+and tegra114 bring-up which is quite simple and straight forward
+change.
 
-Pools of this size are needed when large buffers go through the pool
-for their whole lifetime: this was hit with an arm64 Gunyah protected
-VM whose virtio-gpu resources stay mapped in the pool, and a desktop at
-3392x2400 needed more than 341 MiB.
+BTW, may you ack mt9m114 get_fwnode_pad change[1]. I have updated it
+to your liking, Sakari seems to ignore it.
 
-The problem was analysed and this change written with the help of an
-AI coding assistant.
+[1] - https://lore.kernel.org/lkml/20261006153619.304520-1-clamor95@gmail.c=
+om/
 
-Fixes: 0b84e4f8b793 ("swiotlb: Add restricted DMA pool initialization")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhendong Liu <yzddmr6@gmail.com>
----
-Reproduced in QEMU on the base commit below (arm64 defconfig, 4 KiB
-pages): virt machine with 2 GiB, a 512 MiB restricted-dma-pool added to
-the DT and referenced by every virtio_mmio node, one virtio-rng device
-with iommu_platform=on (modern virtio-mmio, so VIRTIO_F_ACCESS_PLATFORM
-is negotiated), and swiotlb=track_hiwater. Without this patch the WARN in
-___kmalloc_large_node() fires, every transport reports "failed to
-initialise "restricted-dma-pool" memory node", no debugfs directory is
-created for the pool, and reading /dev/hwrng works without any bounce
-(io_tlb_used_hiwater of the default pool stays 0). With it there is no
-warning, every transport is assigned the pool, and its debugfs
-directory shows 262144 slots, with io_tlb_used_hiwater already at 17
-once virtio-rng has probed. W=1 shows no new warnings in kernel/dma/.
-
-The change is also used in the guest kernel of the Gunyah VMs
-mentioned above.
-
-I used an AI coding assistant for this work. It analysed the failure,
-wrote this patch and changelog and set up the QEMU reproducer. I have
-reviewed the change.
----
-Changes in v2:
-- Use my legal name in the From: and Signed-off-by: lines, as requested.
-- Link to v1: https://patch.msgid.link/20261120-upstream2-swiotlb-rmem-kvzalloc-v1-1-1c5f9b503223@gmail.com
----
- kernel/dma/swiotlb.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 786954bc5e6a..51c7c064b62f 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -2042,7 +2042,7 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
- 			return -ENOMEM;
- 		pool = &mem->defpool;
- 
--		pool->slots = kzalloc_objs(*pool->slots, nslabs);
-+		pool->slots = kvzalloc_objs(*pool->slots, nslabs);
- 		if (!pool->slots) {
- 			kfree(mem);
- 			return -ENOMEM;
-@@ -2050,7 +2050,7 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
- 
- 		pool->areas = kzalloc_objs(*pool->areas, nareas);
- 		if (!pool->areas) {
--			kfree(pool->slots);
-+			kvfree(pool->slots);
- 			kfree(mem);
- 			return -ENOMEM;
- 		}
-@@ -2067,7 +2067,7 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
- 			if (ret) {
- 				dev_err(dev, "Failed to decrypt restricted DMA pool\n");
- 				kfree(pool->areas);
--				kfree(pool->slots);
-+				kvfree(pool->slots);
- 				kfree(mem);
- 				return ret;
- 			}
-
----
-base-commit: 14866e632fa48a0b4c385ab0121526575eb8f88c
-change-id: 20261120-upstream2-swiotlb-rmem-kvzalloc-f6cb6cfe09a3
-
-Best regards,
---  
-Zhendong Liu <yzddmr6@gmail.com>
-
-
+> > Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
+> > ---
+> >  drivers/media/platform/nvidia/Kconfig                           | 2 ++
+> >  drivers/media/platform/nvidia/Makefile                          | 1 +
+> >  .../media =3D> media/platform/nvidia}/tegra-video/Kconfig         | 0
+> >  .../media =3D> media/platform/nvidia}/tegra-video/Makefile        | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/TODO   | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/csi.c  | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/csi.h  | 0
+> >  .../media =3D> media/platform/nvidia}/tegra-video/tegra20.c       | 0
+> >  .../media =3D> media/platform/nvidia}/tegra-video/tegra210.c      | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vi.c   | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vi.h   | 0
+> >  .../media =3D> media/platform/nvidia}/tegra-video/video.c         | 0
+> >  .../media =3D> media/platform/nvidia}/tegra-video/video.h         | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vip.c  | 0
+> >  .../{staging/media =3D> media/platform/nvidia}/tegra-video/vip.h  | 0
+> >  drivers/staging/media/Kconfig                                   | 2 --
+> >  drivers/staging/media/Makefile                                  | 1 -
+> >  17 files changed, 3 insertions(+), 3 deletions(-)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+Kconfig (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+Makefile (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+TODO (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+csi.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+csi.h (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+tegra20.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+tegra210.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+vi.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+vi.h (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+video.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+video.h (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+vip.c (100%)
+> >  rename drivers/{staging/media =3D> media/platform/nvidia}/tegra-video/=
+vip.h (100%)
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
