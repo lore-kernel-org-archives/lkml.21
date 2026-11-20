@@ -1,122 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179924;
-	b=vQceyD7Ke5OjPEqH6ITj3Ci4/VRfsyH0vDdlWhVog7xKx22TsesW4A639DdowFhXDggn
-	 Z3raW5mnkfHdKqTR8S8pc5lXPQePrUO2nAocFbDKdrOHGztpllHrpn33md8tlfNl2zQFV
-	 qFj6FIllhZQJN756mGedfN8hq7BYIHgpu3PorBQweU8RL/9vQxIZiAFp6Js9yxmcpP7uO
-	 +O0JhSavAywbwwMw6/w3d4RByRzcZ1tedR1tsGhJrDGm5Hq6JYUwxz2oZF2otjbdRavY1
-	 SO/Wi4AXdrQZJUl7YzRG3LeNLC0pp/9Y099KWrthNjofEp2FJDa1IrN9I4Xzr7laKXg==
+	t=1795179927;
+	b=yCMlTYGgcLeBNMsJJOTY/7tYBdqX9GA/L7zagqCeKQv/81qk/RkFk1wQH8+x08ttn40E
+	 2ZbNX26LH9kZ1bKFDY2VCBxKOqicpFmxAgrEO3hKZLFZsE+e7gGlcQSbHZM1plrSOJ9xr
+	 fV3gkdJ2nC9k6UokUqqGgB3qkxnGXeFOFvle4IMmpibevuanLYvpDDs01cKG/dbiwlrTF
+	 HfZjhudQTHz06fhJhG+a274tGUwtvHDEXzGuLhCPIQT1FxUrOLfqjsYh2OtmYs0xlQ08X
+	 EYgkM6XbOlOI10T63D33U3GxDJs1KDnbYPlIx7YCM8w3adN+et/lQwtnuHZzhGdJBnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179924;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=P1l8hjvVS49GyIA6u6rGG13XCHYYHrZ9VUNaIusOyIk=;
-	b=cjHLAES3IGj16xAeEt4iIySW5mVYwH20XPGTkVHqlmx/9OiT45olxAjcJPlMP3hGjGde
-	 NhcMsnU4+HToyN76CzB7S2dptaZa+vIJ9wpHV62KKCS1m+uhLTFxYM3gLfY7kXm7NMfqx
-	 +2tNWPLD+yxVIv4Mc25IUF2xPj0E+oznqPphbyPAIJ9Mrneu9/BdjlpLKTO1O/Oga99Cr
-	 ujJgn4pbfVAeqdnR7dLVA7iE31DMX8KQ+RY+sEVRBJpeBQHiIuALcXh0xLxHorCL1dCCQ
-	 QvbN4z7EwUlBFHxUt/98rLVS/uJGHZpAAz9hDvxVuDsorRcA4fP4RjWQ9WCMS4i9VdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179927;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer;
+	bh=gqmSsujEZXQg/C2ZCfVpBFjystcF2wHK9RFK4L6jPuo=;
+	b=m9wv5DIlpwfwJiZnpcm7Hq6SOTC2OlH30wN97EB9c84GEp4EoKDCByxyM5s8H/ZutK2l
+	 mN2lBpAadkaTWkWIQ3i+LXr7uMMAXOaLaP8tipCkzEfk+yqaof1HNZVEarNH9NLCrDCnl
+	 gR74hZ1qc/YR7CxFEBTw9f2CimKyOU5x0aj+DlIOSYoyOVAMHmS89fw88UT8t0gpsf4eB
+	 6jtAjXOyMPWJBXYNmL/RRgXLCFAn5k5ONn1G3KMBFu42CfPP8bsx6EHuQxMqpIrun0Rhq
+	 I9aQWQ+urFA2QmYrtJZ7HEsx2UcCEOlaj6dTLjvLCMqJWfEQSpnfdqZPAfFNo7B1RzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=bZ9xd49f;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="a7E5Q/at";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+CkSXp9;
+	arc=none smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7902606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:05:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7902606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BE9C60A2603
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:05:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BE9C60A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=bZ9xd49f;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=a7E5Q/at
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795179922;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P1l8hjvVS49GyIA6u6rGG13XCHYYHrZ9VUNaIusOyIk=;
-	b=bZ9xd49fLutU4LSmBTMdKOZW1VQh3P3GkozyoTTwkrm9tSFwPeccX+Tzq2umIJU/7PyQ6l
-	byyeXpFsJ2PulJVS0EkuEPyrH75v8Mv2QVFg4RJJk/ToMHjdfEeFM8e6+yqUD29mRk5x6x
-	DrD5zsEOF/t7ZRzmEWh1FeubHTbpbO4=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-120-oAsmoTJMMk6rdXSQhgh7fg-1; Fri, 20 Nov 2026 13:05:20 +0000
-X-MC-Unique: oAsmoTJMMk6rdXSQhgh7fg-1
-X-Mimecast-MFC-AGG-ID: oAsmoTJMMk6rdXSQhgh7fg_1795179920
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48e0461e040so720172f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:05:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k+CkSXp9
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d581da0aaso111511466b.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:05:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795179919; x=1795784719; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=P1l8hjvVS49GyIA6u6rGG13XCHYYHrZ9VUNaIusOyIk=;
-        b=a7E5Q/ataALL+4CgEZhd1/J5a6wtd4Qr7q0QjAm+vqgoEh1WazQWKqUvtZeABshdr5
-         BZ8w0ow4XI0vd6Aws7ckDJEyccq1QNcI6suKHQHvEEyvIjtiLTuCkowo8BpJyelOWYgy
-         /UOE2YHL2iWIVODyvLYMaEPe0ANXjRSe/Cfh8QFcyZY053+EzqA+hW36Ez418LE4lU2R
-         GzmNt8iAVXH5KSugNbLql1JDi1189UOHJ9DiE3xrrw4i5QCQEgMmNhL+m8oPavLfal/h
-         qNslfkxBK16Akwij5pxzwWlixaepoQY02h3PBfIvbW/Zcgbzk3v2zKinRBjyeev8MdbO
-         pUWg==
+        d=gmail.com; s=20260707; t=1795179925; x=1795784725; darn=vger.kernel.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=gqmSsujEZXQg/C2ZCfVpBFjystcF2wHK9RFK4L6jPuo=;
+        b=k+CkSXp9kOPZceCs9rssE5gepAg2i/1PPVHEemu5533NMPs8XHYiODjHzOaN/FNCeq
+         KorhfoGRjk9IeoM+y2//W0rltSlIOZwdCZ5j6QhkIr70d2qNugpQdykprr4fz/ev8tPP
+         HplAT6n1lu0UX3m8W4wY91p3bNRUaHNSC8IKlaP/q564MQ++qkRmNbd0koEr0/uZyO8V
+         hrpQkp4OyXEDTrX51G0Cvh+OIaW+sduZIlHJC8HPiZInHsySuMOV/SdzZuiie3v2dOQs
+         WuZBczTi9xhxVnjlFffyHWhKZ8T7KESSbVdfSgJx1uJvouLrYtmPLhSewGTC1eV3fMNV
+         scKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795179919; x=1795784719;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P1l8hjvVS49GyIA6u6rGG13XCHYYHrZ9VUNaIusOyIk=;
-        b=Ik26HTE1TKw3fl4TtMnYB0HDpeepMMhGT8788gqSLHzDVaxWMHLbDTmqw8QMK4pXfM
-         gMjwoQoh6dfHgIqokgC13e/vLh7lJv2OwwNwG/gYknccVJyZOS/L5CQki9Cn36Z+84y3
-         EY4N0WLaTEM1ZVSHbYGy/Yh6XHZ3opkvf6TlEe5LnWPohp/CJuX9eqylUgxneAdCjSGw
-         pF75wqWOwtaQnyvLndACfRNSHhK/x/69RxuJtSLyPN1IyXbIG5KgcdyZyLKYrbVlvUOu
-         IlE5cmLFlSg6jc3W/q8T+Fr2w40OHEFMAuenhmj95SxBFnUjJXh8xPeLPge9kCTEDYQz
-         8NrQ==
-X-Forwarded-Encrypted: i=1; AL+hErEEvdAxlTUovaDytOZ37WRapSXbckmUmiSGK1uVBDeMb+kMwXbCD9pMzDsv2sfTkaUGPVWiedpDR6oPvdI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/0VvavTP+PsqXfyN8LIT/O0bfgq2TjTybMZfMojO0fW0mFCAI+
-	Bg+HBVnuxQyRgVoWTYFJyWcwV3ueKlz+VWE5yvUNOXRlga6PNzJrSBr5kIDGjsNKNyuJcIHD6ZD
-	+PE0COnMKTG5SS0uKY2BNqeIXKEjzrAJ9yHJNjhoWTrt3N7Mx2ETI4iVF/nsGMwoCoA==
-X-Gm-Gg: AYBFou0x70domGL5X82sX29GMNVqEs5lyrkZ/1rs18cq2QG7/+8Wcu93tJeNNwSXH2a
-	8Jy4ZRGjU6sC8+6sshQ5kHVMCHsckFGHc1v5c/Dp6lX7G9lhSw4n7SER6uErcCaeVSuhVlnFRsj
-	7VFo8854uAZ7Eysq2HYehuc4qAmut0eEZ714KBbloa/zr+imAT3A0WBl+rqnFxAkg+SDNPGcGCN
-	motEdaS7mBp+pqMsqx2RklHk3DauEmUGOxdG5npajeu8uvvf2pepP7Uk3GzpZgCy5ZBzNzXWET7
-	UxXPHqRFlXK1zxlPo0GJ32C2pa3wU1AMoQPWB3VXIdRJEyQNlrkw+JCl63k0w7F11aoElJslWQI
-	WDOYl+WWpnEJEISQw1fj6oMf3ru/3zyMJuY5u9l+I9PqUwWSLRUZFOicVKv32+1AQvBR7GE/yOO
-	/ypQ4=
-X-Received: by 2002:a05:600c:820c:b0:4bb:6f6a:1976 with SMTP id 5b1f17b1804b1-4bb887c2923mr64602995e9.2.1795179919581;
-        Fri, 20 Nov 2026 05:05:19 -0800 (PST)
-X-Received: by 2002:a05:600c:820c:b0:4bb:6f6a:1976 with SMTP id 5b1f17b1804b1-4bb887c2923mr64602195e9.2.1795179919119;
-        Fri, 20 Nov 2026 05:05:19 -0800 (PST)
-Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm85099165e9.7.2026.11.20.05.05.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:05:18 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:05:15 +0100
-From: Juri Lelli <juri.lelli@redhat.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: peterz@infradead.org, mingo@redhat.com, vincent.guittot@linaro.org,
-	tglx@kernel.org, will@kernel.org, boqun@kernel.org,
-	dietmar.eggemann@arm.com, rostedt@goodmis.org, bsegall@google.com,
-	mgorman@suse.de, vschneid@redhat.com, kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it, mathieu.poirier@linaro.org,
-	longman@redhat.com, ridong.chen@linux.dev, tj@kernel.org,
-	hannes@cmpxchg.org, mkoutny@suse.com, shuah@kernel.org,
-	bigeasy@linutronix.de, clrkwllms@kernel.org, parri.andrea@gmail.com,
-	m.szyprowski@samsung.com, kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com, linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v5 00/17] sched/deadline: first bandwidth accounting
- fixes and selftests
-Message-ID: <awBFi0bwFt5KoEq-@jlelli-thinkpadt14gen4.remote.csb>
-References: <cover.1795115075.git.mathieu.desnoyers@efficios.com>
+        d=1e100.net; s=20260707; t=1795179925; x=1795784725;
+        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gqmSsujEZXQg/C2ZCfVpBFjystcF2wHK9RFK4L6jPuo=;
+        b=C9AK+isqVkKUPrvHaKOshlkQUDDC3zmC6pmoHhW8D1K+cwcwZ2JdbJSKIf+I4gdZLL
+         7oY8VWxuMjOdZ/TMz6aL2mER+c9AHT+WF2T1rw1w5aW3wC40AflLv2DgjrCXV5AVdW0l
+         g5mDFUaLrMcIAMujMeS129i7h0XlL1ycJOIEuTYDHJBqD3Sfk/1QRXhpS8uiT2PnIJL9
+         eRPBk8zYe6ldvAmSEiZAX8Nj7zBa7VuG9fjqjPk8M6KE0gJs7wmebYknKIJBSU3VxO8s
+         FHYR7NqjRdCY42aMN7hhOjIAzj4dIySD306zu+tEkgGgBrhPlaEzqxtEL46LAFIkCk9T
+         ms9w==
+X-Forwarded-Encrypted: i=1; AL+hErH+4bo3iNNhpgB/ug+PMjebb3/EiSYP/2HsC1LnXY0kLhxswajeYj/Xd8rDcZPzBtxlhUwaTA6pCm386sk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9HGqY0aBdMPDakFg2fVcVS4CY9nP/3mlgz+ihFZxZPD+cjjETI
+	y/qsY/sx1sIPQPHg5vWRPk7KWDRQITepK+7FdLluhI4lb1IThE7ZTLXA
+X-Gm-Gg: AZFdTZdn/q7dmrUYyVuCEIETqHQ8Zsfd9i4CJmG1KkcuHzA2iIpOnWX86z+6PLP2GGh
+	NA3Vr9/F3E9Xs/hW/YSB9m3QqrSMrbAFXEqQ6BAuJP6MCq6uvKO/oXIYfB9YSpuis3tjYk2zqzz
+	jLZn3NDNx2NJ2JVNW96oGjyqaXr690w+zqod41mBd+9qcLWw3RcXdhUKezGtUOQRBVcYozWIoqv
+	hvaGBOOVxowbsSCFJtU56elP8oasoACNX6kvlOU6zo8j+cjSHVwWr4S1K5/WZpHB9+nRxg9h+Q4
+	Z9uK3fDXMtMqHMBZQCp5c90siqVwTjXKfB2S4w8bLzo2JMowlIND0IX2L7o1GqJwh7JLT1ha0mM
+	Vh2yrmXHq2cNLH2/qogx1mZhM3ZCXZafZAA5NlYJyjaSu0a3ZDmaGrawiP80lN5Sf1g0Q3j78IQ
+	ErI+f1tp7P5praF8N7H15qTpEsDLdOyEl9feY1SK6UM6ffKO+xEOe30QaNrrZj/bDLHsyhDUW9a
+	ZAvTYpsQcmCYEVgB+9om+wqS0sgCxgHnAo8ImeopuvFzmym13xN2HZ5iLl6huokW8+Tw1VrsNpg
+	dsf0shkLREmGqnCpdt2db3lw31Za9ns/utIF3vxDejyC6YEM0DCzi+35
+X-Received: by 2002:a17:907:2d9f:b0:c50:5802:f665 with SMTP id a640c23a62f3a-c513a99aa7fmr319750966b.15.1795179925318;
+        Fri, 20 Nov 2026 05:05:25 -0800 (PST)
+Received: from localhost (c-85-228-45-68.bbcust.telenor.se. [85.228.45.68])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8ce16sm95100766b.37.2026.11.20.05.05.24
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 20 Nov 2026 05:05:24 -0800 (PST)
+From: Eli Billauer <eli.billauer@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	Eli Billauer <eli.billauer@gmail.com>
+Subject: [PATCH v3 0/8] char: xillybus: Fix issues reported by Sashiko
+Date: Fri, 20 Nov 2026 14:04:54 +0100
+Message-Id: <20261120130502.17056-1-eli.billauer@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -125,33 +92,47 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795115075.git.mathieu.desnoyers@efficios.com>
 
-Hello,
+This series is a follow-up to the previously submitted patchset [1].
+It addresses Sashiko review comments on surrounding code. This v3 series
+is the result of Sashiko's comments on v2 [3], which in turn was the
+result of comments on v1 [2]. Another reason for this v3 is to rebase
+after the insertion of commit 4dd10fbbeb9c ("treewide: Convert
+devm_kmalloc() family to the devm_kmalloc_obj() family").
 
-On 19/11/26 14:06, Mathieu Desnoyers wrote:
-> Hi Ingo, Juri,
-> 
-> This series fixes 14 bugs of SCHED_DEADLINE. Then it shows the deadline
-> bandwidth of each runqueue in sched_debug, and adds two selftests. The
-> fixes come first, so that stable can take patches 1 to 14.
+One Sashiko comment from [2] is not addressed in this patch set:
 
-Thanks for the respin. v5 passes here: deadline_switch_test 5/5 and
-deadline_bw_test 46/47 (move_cancelled skips), also with scx_simple
-loaded (the server cases run on ext_server, hotplug_server skips). The
-sched_ext selftests pass 40/40, test_cpuset_prs.sh passes, and there are
-no splats with lockdep on. So you can drop "not tested with sched_ext"
-from the cover.
+"Can unbinding the device while a file descriptor is open cause a
+use-after-free in xillybus_write()?" This remark is correct, but
+will be fixed in a future set of patches, which makes the PCIe
+driver hot-pluggable.
 
-I replied to 10 separately, with a readability nit that is not a huge
-blocker.
+The comment about autoflush_skipped in [2] was repeated with a better
+motivation in Sashiko's comment [3], so it's followed in this patch
+set.
 
-Peter, Ingo, I have the impression this is starting to look good, what
-do you think?
+Regards,
+  Eli
 
-Thanks!
-Juri
+[1] https://lore.kernel.org/all/20261009074557.19996-1-eli.billauer@gmail.com/
+[2] https://sashiko.dev/#/patchset/20261109112800.48663-1-eli.billauer@gmail.com
+[3] https://sashiko.dev/#/patchset/20261117115902.41359-1-eli.billauer@gmail.com
+
+Eli Billauer (8):
+  char: xillybus: Improve sanity check
+  char: xillybus: Safer access of unaligned pointers
+  char: xillybus: Return error in fops read method handler
+  char: xillybus: Rely on FMODE flags in poll method
+  char: xillybus: Refactor flush function
+  char: xillybus: Correct handling of wait queue
+  char: xillybus: Avoid indefinite sleep of work item
+  char: xillybus: Cancel delayed work items before teardown
+
+ drivers/char/xillybus/xillybus.h      |   3 +
+ drivers/char/xillybus/xillybus_core.c | 109 ++++++++++++-----
+ drivers/char/xillybus/xillyusb.c      | 166 +++++++++++---------------
+ 3 files changed, 153 insertions(+), 125 deletions(-)
+
+-- 
+2.17.1
 
