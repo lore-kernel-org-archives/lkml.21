@@ -1,94 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145812;
-	b=3BP6liACapQtSn4PdxoICWgiu5AuuNst9chKivf155+wPhjE7KEq978+HpSRxHCsb6JT
-	 2C1uRbatJ0/iRB8x7hzxJ2m/u5YboVsOEdWBwIPBeSpo1dKPTDe0fw2W6nIjtugZUkUQH
-	 klYTyE9A0e13QY1qfXtg/cCRjLuuu9DccuaDP65Ezqt5sKgxYh+mMYVDb+fYiQsdz4m29
-	 IWI6PETcSnZjM85L7Rj6QJGHYZKVW4Zvhw7z85q53AwEv1zMc3pAr5QrUWcq/z8O5fnGw
-	 WncEtL6S++ZQVrQLg5O6a7rsjD8TYX7WSgOKPe8v3KroGJoI1Fn1IZUZ4plURRazdJQ==
+	t=1795145981;
+	b=lObNNR/JT7NRMjGD5v7gCvM/6qU71OxjkeJzNDk/wXnjdcxWt1PaP3XjA37nntUGz0JP
+	 A9ktQGnr2YBGmF2zBUt1HqXRYHu/LmbHDh4tWzd8qBB0xDXHiR/HE2lFRSh/+530u3JJo
+	 9jAXLOjSiBiCHuw+jK2dZC8IzVyPt8TD0EgsdDVjyNW+GQlEuOT+IjFPDDY4ijQ2dIRev
+	 vFwvX5PASSXQpwJL9Tv4rgrWRJHxbas9HtcYUQ9ClgLWFbdviaxmz8iLh4hRihLMtQghI
+	 4P+XkTm3qA+HH+69RHuIgt0I+EZGRzoliqunylGYZDhfyWi1+aRF4yoTyppnHPghKcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145812;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
-	b=ZH/ZyEn+ckx9vYh0E+U1D1kF67cJuoIeLEJN8e8pSW2amTfQCt3CKtcAJaD65H38cB8/
-	 LAKqKN7nNQJ0GnXqOSUdZ6BrAs4AlEc7ca45mTJrq3CENmSxYJljYBi9zpmok9LFtgF77
-	 Z7yJ5v3U2OqSezltL7i/r/sS04WvQ2LUZt3oJTiwIIeZfsVzuNmUiKXPo5v+qH3dBfNvb
-	 9f5jFFCTopeXw07Cmaez7zd9ytKQbahvskX8+RGsTaaJHmX11kUIPrXyu0mAT2HdKZjiB
-	 TW11H+IcqHFHQdkCCPKZnle3NsfLQxnpFxTgY5N4QuLDq061G0J0NmEn9XSvwmjrJ0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145981;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=6ID25TASgB9mY3j+/9ivqOm1LKio+2OprW84VL0Grno=;
+	b=F2ALR8kWF+f2XIYn8F3lJk8/GtFX8i3YBmcimttYcBddQT97WN7CwP4jXielDHFNgawP
+	 G7yjceeqT4f2L7VQk3ZScpAQxquDGSPIGuhzfIZSpEzPcTAfe2Zc480XI7ot4wbzfXtRM
+	 SPK2YApzRXeNH85enKTobynNbsS2hefxNXHBzXXDGgqBmrVAOl67wayA00DJUxzx2DpT/
+	 INNJDQGJ3NwnHGCQ/tYt9WQRTrZjUKjoMsyL/vraaQeF2vpi3zulfJrMKYD5P8zp1c6St
+	 ozfeGD55l+FC0+64wPP5dH2vxg6p4VdR75uhRcyPQrPlENbYcvztNpzLBrTEij7Z20g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WWLQQSFC;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=RaDWpzLq;
+	arc=none smtp.remote-ip=54.204.34.130
+Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 603C9606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:36:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 603C9606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72A38606A325;
+	Fri, 20 Nov 2026 03:39:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72A38606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WWLQQSFC
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-385c497bf94so456104eec.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:36:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795145811; x=1795750611; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
-        b=WWLQQSFCS4ynPz3MDQQN+2srUsJXfSACEjDNn4aPY5yuqJIeJgXXOkH9JZnRHWQERS
-         FAHDuBj+ASqN9RwgLxGLAqFDY+KRkly5fAsnRiDtdYsGNeIsh824wjAN6hPCIeOftw6Q
-         L+fsf9Lk/uv9YJRyxARVncHptGi56d59adUqa4tuKJ52ZOXAOdUj1vnqGHQwyGZ1SXzc
-         N7h65crNW192X60Y6CA1P+Xio1+fVJWLlCX2aP0tLabCNuBzZPVyGmldtusx8kIiQT/2
-         5Pwx+BUPG1ozLCkVf42X8RkFZ9nmlNO0jpjURUyEmVkiFy9z5cZiweyo0NhihzztUsBU
-         UuMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795145811; x=1795750611;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MI0ADFbz8sRruSBF8RUNgyc7izln8BOExEANme5gYDY=;
-        b=wbEmrdJMcrBfV3bWkIQmGK9LMzo+/DtkE8G+vs91SFN0uMhB5zKxL3Akzw2BrVxL2C
-         l43l/WkuM/ztanYAQ5XmDW9HRuuC5rxrMiEdcsKL1ooJCOr84jxb4lNQlKbcynngTQvf
-         37n2+rAOizMz59XVSvJh91Q1KZatMS34xFuPnA1iC74+vtNT9BusRQpJU8RhkjhT+L61
-         uRV3rM4ZD/sONDmYUeLB5UYBFFT6tSy72z8DPkC8FSwyHVYdYY73PwVnGkeNr/0bLwaI
-         a/nkPtKY0XTUzHzAphnO8DrdkPdE8BOxmMArQNoV5FHUc52rzMrVhIEL62/6v9pPmjkA
-         j5vw==
-X-Forwarded-Encrypted: i=1; AL+hErE04jfceKQ4xPjpFw4Gqn6XdxXY2kK6qVZYWr2kQiGKNhX2g3z1Sz3ItAyOEFPRYdcBP/Ab5YckJZcZtU8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+waCmv3Hq5Nbmqoe2gz8OAm6RmWEOFpi+Yv8TA+I913peXAoV0
-	2ThyKInBy+zDOQDAWXt2RZgpi7yq+Pa67LH9vKARcC6snMnSSMxULbF1
-X-Gm-Gg: AYBFou3duKCsDKutDzW5MO4/NCVaS6Tjh16Y2s4FcFmUsBCTpstwMqnxuppoDiVwkkY
-	4N1SH5A6hdmcInqzFLNAYRowLdlaaTJPm9M65mZ3n+f61twzcIi5u653o7bruwPlSd/lrGoPmh3
-	AIPZqrfc9CjbkeWBSv6RfWm1czjy7PNtgJjM5tW5MH6R9W5kr4fIJaNriaY2rTDtipPqXciIYOD
-	iwjMzALIMNz7CUXYO7C5Q1wjFLNdRTrcB2zMQVNAqzEOU6EFGAphO/vlYIHN30FRCdxQZkyVmNo
-	bz2QwW9HNx8BUZ4CnZ31tH6unVYKUdYe7KmXIolRwvcXmf29fpRFHRBGFb2d2/zgMFF1bxKev+o
-	J3m4HIz5taokF6331PTPfHcoplOgmLz6DP1T7lmpnWcT0K1mBQ8MAJmAEIYvFspGD4qFiv8+ipB
-	CYen0mRsdZx8sYvChZSz2735ieXJokYu0hHPzJ+z4hIfqNhP6MoNxm9+51QJoQXlFQ0tSxkei5D
-	46kvuWs82fNtWyJCVmV2HLk3mbhzbwtpoVA0i/rIhUjpdae6AYYtOFJNV4WWDilVklUhyyEn51i
-	qvNVm67JrcuLZXjY3U+ZBgJTHpfCGArT2l+s6CvBz8pkcTV+SQEGfkrkeeXaoUqw5w==
-X-Received: by 2002:a05:7300:108:b0:375:50d9:474e with SMTP id 5a478bee46e88-3856c0d0bb4mr1785949eec.4.1795145811208;
-        Thu, 19 Nov 2026 19:36:51 -0800 (PST)
-Received: from MacBook-Pro-8.lan ([27.125.146.195])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm2982064eec.16.2026.11.19.19.36.48
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 19:36:50 -0800 (PST)
-From: Ding Feng <dingf3ng@gmail.com>
-To: Christian Brauner <brauner@kernel.org>
-Cc: Ding Feng <dingf3ng@gmail.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jan Kara <jack@suse.cz>,
-	Ian Kent <raven@themaw.net>,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] statmount: retry an overflowed string before reporting -EOVERFLOW
-Date: Fri, 20 Nov 2026 11:36:44 +0800
-Message-ID: <20261120033644.99834-1-dingf3ng@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (1024-bit key) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=RaDWpzLq
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795145912;
+	bh=6ID25TASgB9mY3j+/9ivqOm1LKio+2OprW84VL0Grno=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=RaDWpzLqCdYYGRlKySuGUQaSPqkaLKbto6xE75Z7DkWkxQkTgTfeRG0R94NcJFHIo
+	 wZa943Zh1rATL+aq0YIJh0YyEYetiF/YBgVPubX62zIUIoXfixEo6Rm6SQSyUkWBcf
+	 FklDE/31hdDk2EvwxWiT95VlBDo+MowuMgkvLIjc=
+X-QQ-mid: zesmtpgz9t1795145907t2b7c356a
+X-QQ-Originating-IP: 2Dvc6PhiaE8wquu067dn3SVToxhwDgWWzXwvNhwqyak=
+Received: from PEN202512010004 ( [113.57.152.160])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 20 Nov 2026 11:38:25 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 5714097690566660774
+EX-QQ-RecipientCnt: 10
+From: raoxu <raoxu@uniontech.com>
+To: mst@redhat.com
+Cc: jasowangio@gmail.com,
+	eperezma@redhat.com,
+	davem@davemloft.net,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	raoxu@uniontech.com,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] vhost/net: Fix receive queue test in busy poll
+Date: Fri, 20 Nov 2026 11:38:24 +0800
+Message-ID: <1B3A1B72438119BC+20261120033824.681219-1-raoxu@uniontech.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,79 +75,96 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: N4kMhpKju7/pug6xHKTvHbdchBT/IBEy6aGk8cOlUz33hi8Qj9qKk5tl
+	QKAN9A5QI2vypQtXDC+lvRXzrp5RxsvkTRBRys8mK7lGs2KZ5tmCHrfrirdFMSmIHiCXJAK
+	clPUZd9F7/qorsVB4CddiztQNYlu6beQmVo2r2yLggA3uu0YVK1vCu2B3BVSo8LA3zP+rDn
+	28sdh0LC+Jg1Ys4G2x7+/9IjRVZ4+9NyAV3l9J+fjQ26kFFD3dhO/qTWmI+xuTM52kQaf//
+	plUnZL0+GUDFWBERGBdjY2pi/S6j4bh+gicodXtr6nDl21mF7eXU0KZNVzNr2z48XMAdT2f
+	x26Os8BHGNLwS5F3WCnmZ/fcpTjF1RiPJi6gKw+yrY9XwCZi6BTP2AYYLi22R2frK+uN0Xu
+	mVcsRkiP0M915XrEjLSXh+5UzyKS0MtKDbvXMO838UfyOI325p5SGFsKbWyt3R5qcAhQ4Tm
+	w5HCaIsSEBDvqVeN81rWamaJgR+U5sh8rLwZvMXt749NSaeh/+kM9GJaiP7pT8K8VAyFYtK
+	ZoLPQoTZeiYhsrBVmOrjpbbxZSjpqV8JUviv+ppXjvM5YlrzPHvnTzuMPfzwbkOlwyhPKul
+	3CtLQOubykvgiyPC8zOiUmM0I2edOoxuZ+74AWoFV/kdPcpZz4+nC7Mhr0W9AYKeLFDKXlY
+	9Gp52SqGvXltQvcgqC6s3avxCWBoItbpHA4acWscVPYPVhqg0kSJYgB/d+EL633dhDFeGEE
+	F2GaPqnpLCJdMreuggwjoNSj1qeGJxWfbS1sYgeEVJzyHWGS6+Do9iuZzq9FnlFRoXB+4oq
+	qJHSUQYqXjz2aoWMOWZTrTIXmL0qWir3Qw/5bV+5seH+ZtwKW9zZNnPBTjULfdS6vlvgKQ5
+	GGhG439/uZDSx0JPnJ1LLausWze/MXqKfI89LSwOxJRMR9q3VlTP/8V8Z7Oj6zztWIFMLGm
+	TC2ACTEPbeIO3xN5aTP6lmfbjDGjyYhEKyraEG3b8tPgX6LfGJSzFJGFWQKr17eneavmVjH
+	6WVi4a4cjyB2E+NRkl4irctZ/s+7PSxK2g6Wa4OeVpWFyo7yEcVHLgWJBoDvbDZ2R0xgnpC
+	p6J483PVEMJ76aQYexPo3g=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 
-statmount_string() compares the seq_file count with the caller's buffer
-size before it checks whether the seq_file overflowed. After an
-overflow, seq->count equals seq->size, so every buffer of up to
-sizeof(struct statmount) + seq->size bytes gets -EOVERFLOW, and the
-retry with a larger seq buffer never runs.
+From: Xu Rao <raoxu@uniontech.com>
 
-The result can still fit in such a buffer. statmount_mnt_root() and
-statmount_sb_source() write escaped strings and unescape them in place,
-so the escaped form can overflow the 3 * PATH_MAX seq buffer while the
-final string is much shorter. A bind mount whose root is a 3765-byte
-path of spaces needs a 4.3 KiB buffer, but STATMOUNT_MNT_ROOT fails
-with -EOVERFLOW for every buffer up to 12800 bytes and succeeds from
-12801.
+sock_has_rx_data() returns a positive value when receive data is
+available. For sockets without a peek_len() callback, however, its
+fallback returns skb_queue_empty(), which has the opposite meaning.
 
-Check for the overflow first, so the string is regenerated in a larger
-seq buffer and the size check sees its final length.
+An AF_PACKET SOCK_RAW socket is accepted by get_raw_socket() as a
+vhost-net backend, and its socket operations do not provide peek_len().
+With busy polling enabled for this backend, an empty receive queue is
+treated as ready and a nonempty queue as not ready. This can make
+vhost_net_busy_poll() stop polling prematurely or fail to stop for
+queued receive data, and invert its receive-side scheduling decision.
+TUN and TAP backends provide peek_len() and are unaffected.
 
-Fixes: 68385d77c05b ("statmount: simplify string option retrieval")
-Assisted-by: Claude:claude-opus-5-5 Frama-C
-Signed-off-by: Ding Feng <dingf3ng@gmail.com>
+Negate skb_queue_empty() so the fallback matches the callback and the
+readiness checks in vhost_net_busy_poll().
+
+The issue was found during AI-assisted code review. The helper's
+incorrect result was confirmed on x86_64 running 6.6.0-amd64-desktop
+using a temporary diagnostic module containing the original and fixed
+helpers. An AF_PACKET SOCK_RAW socket, without PACKET_RX_RING, was
+bound to loopback in a private network namespace. Across three cycles
+of sending and receiving a 60-byte frame, the original helper returned
+1 for an empty queue and 0 for a queued frame. The fixed helper returned
+0 and 1 respectively, matching socket readability in all nine checks.
+This tests helper copies on real sockets, not the running vhost-net
+busy-poll path; the vhost-net module was not replaced.
+
+The patched drivers/vhost/net.o was also build-tested on the net tree
+with x86_64 GCC 12.3 and W=1 under allmodconfig and allyesconfig.
+No end-to-end vhost tests or kernel selftests were run.
+
+Fixes: 1576d9860599 ("tun: switch to use skb array for tx")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xu Rao <raoxu@uniontech.com>
 ---
+Changes in v2:
+  - Target net and add the introducing commit's Fixes tag.
+  - Explain the raw packet socket backend and busy-poll decisions.
+  - State the AI-assisted discovery method and document the diagnostic
+    module test, its results and its helper-level coverage.
+  - Document the targeted build tests.
+  - Keep the code change unchanged from v1.
 
-Notes:
-    Tested on v7.4-rc3 (65e4fd942), arm64 tinyconfig in QEMU. The test bind
-    mounts a tmpfs directory whose path below the tmpfs root is 15 names of
-    250 spaces (3765 bytes, about 15000 bytes escaped) and calls statmount()
-    with STATMOUNT_MNT_ROOT; the result needs 4279 bytes:
-    
-      bufsize   unpatched    patched
-      1024      EOVERFLOW    EOVERFLOW
-      4096      EOVERFLOW    EOVERFLOW
-      8192      EOVERFLOW    ok
-      12800     EOVERFLOW    ok
-      12801     ok           ok
-    
-    A plain mount gives the same results on both kernels (1024 ok, 512
-    EOVERFLOW).
-    
-    With this order, a buffer too small for a string longer than the seq
-    buffer now costs one or more retries before -EOVERFLOW, instead of
-    failing at once.
-    
-    This came up while proving statmount(2) against its man page with
-    Frama-C/WP.
+v1: https://lore.kernel.org/virtualization/20261110051642.249640-1-raoxu@uniontech.com/
 
- fs/namespace.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+AI assistance: OpenCode was used to inspect the history, prepare and run
+the diagnostic module test, run build checks, and revise this message.
+The code change is unchanged from v1. The discovery method was confirmed
+by the author.
 
-diff --git a/fs/namespace.c b/fs/namespace.c
-index aecd05ac0..2c4987942 100644
---- a/fs/namespace.c
-+++ b/fs/namespace.c
-@@ -5813,15 +5813,15 @@ static int statmount_string(struct kstatmount *s, u64 flag)
- 	 */
- 	if (seq->count == start)
- 		return ret;
-+	/* signal a retry */
-+	if (unlikely(seq_has_overflowed(seq)))
-+		return -EAGAIN;
-+
- 	if (unlikely(check_add_overflow(sizeof(*sm), seq->count, &kbufsize)))
- 		return -EOVERFLOW;
- 	if (kbufsize >= s->bufsize)
- 		return -EOVERFLOW;
+ drivers/vhost/net.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/vhost/net.c b/drivers/vhost/net.c
+index 4570a4ffbab2..10ed2d55ff07 100644
+--- a/drivers/vhost/net.c
++++ b/drivers/vhost/net.c
+@@ -538,7 +538,7 @@ static int sock_has_rx_data(struct socket *sock)
+ 	if (sock->ops->peek_len)
+ 		return sock->ops->peek_len(sock);
  
--	/* signal a retry */
--	if (unlikely(seq_has_overflowed(seq)))
--		return -EAGAIN;
--
- 	if (ret)
- 		return ret;
+-	return skb_queue_empty(&sock->sk->sk_receive_queue);
++	return !skb_queue_empty(&sock->sk->sk_receive_queue);
+ }
  
+ static void vhost_net_busy_poll_try_queue(struct vhost_net *net,
+
+base-commit: 435cbdaf9b03687498dc16fe4af8d16a977e21d0
 -- 
-2.47.3
-
+2.50.1
