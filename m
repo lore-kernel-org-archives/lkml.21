@@ -1,96 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.113
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795182777;
-	b=dM4uXif/ZEhr3OZpbWSiLl6MVA0ZVb3u1Q5S/0HBVpOhvP8sLdJHqYNTgZkr85IZQV6P
-	 elGwNYzLYy7w8UtkNkmYVU+Xh+NqVNL8Tw/YBHWIAbwVYMYWwZx84DqLHnxyv0EW8mwz4
-	 eyj9gH8kjTAmYOgYmN5GIQ9YGrmKZwVv0oBIukQi0pNQ30CLivL7xblXUhOpCWiKQluHW
-	 0lAXJXcV8/xwPE4dcNiyukfsOID7j1izqm17mrcp0b7cPXd1dA2rStv/jSZnIG6tHXb6w
-	 wOKwZvt74dTbFPiyizt2nsb23hzQomM7qPo0o/FlVXRbQ6GQfrhEsASuKQ5juuZt+lA==
+	t=1795182778;
+	b=XySekJi+yDZREiUph/Fn5bR70iXGrqoEc4VRFE6p8ADhd2PJ7rbAS0++3KuNCU75kRg4
+	 wsM3Y7H2+Qs5gb3mtpO3IVv0TemsVUnyNVLKS0nVnZ9w7hh+KQSa2ZfTeLvPNNf1Rbayg
+	 yaJODm7aDF9h1TD5zzaXvTx4uRLvz6kzM2/ycCojqLZMn9q8f9tLCqh7C9OXJjfoNADfh
+	 j8QYRtK31aGByyVaxOud8UOXEyyZYcLBkXYBWTLo0SHNyncWlZtyll3lCbujuKPltpIaK
+	 IOOxyfmGl0OM4+XUZGLl54oHO+CHqVbfHZnVihv/0g5jLdf2xBenUXZUEBJOHPuVKzQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182777;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=W9+ukhaIbiKG4qeeiOVrxXDzLhps5J9IRk9I79UUpAk=;
-	b=gvRHwAxgvZE5u7s0fJ+6cGg0YScjxQxYNalZmFHcyZ+pGClHGw34WQ+4TEeHHcgaYAc0
-	 V7j/gYNr289eH+ayD+S9f3KjALjlbghgZgjRtltfquJBu+NiH9el3dqhGA6lTMrRlPQdC
-	 b27oNN2Ls7BKGLbbrQzhoQgWxVAQQ3D8WlP9cMnylquZ1tjJtBvaroRXyi+55iFmDtSWr
-	 O/d0o9lcgfGKrwaXNkwId5bOTBrXUjsszuD/9Ca9Cy4e6frNl/nEjxe6C5V9c2n/02i7+
-	 wdxf8gMxtTgxaWrlU/qXTT6qOJqSdxSfokwnS/Hugj/8GoQo+N+FfjXUx4SHCbS2mAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182778;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CfeJt3/PREnoBpv4S0EeQNn7rVtzqEdjGPbzOJ6zZn4=;
+	b=OKvdPJT0JGUE7cE4gLGy/B7Hqklo66BehjZ++SP9qTu0ISwnk4/8TkPpcHo9+95H83+M
+	 3GP6tCdEXtTzgOV8PS7Skk4OYMWeoxFkjtwE9mZBPBdr8m3zTDvvYsJMXTSclvFIWjwoI
+	 HG/K+PtOhUIGmIJIW7wswdAqADOT39+UpcT6iGM9oRzY6bFFDtsNMQVrkz1pKR6a/6Hsi
+	 9NCqrOGP8fcvk2GXyJ/EeGxkMgirRJRN4ETFzFARr666av+9f2Chh2UDWPlaUL4KyyJjP
+	 XP0/T+DP3nuTpCtNTEeDQf/mtsQsm0ctGJLVCS+p7+tSZXJ43VIycqNodYS6DH6LgOw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=mOHB9Gg0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.113
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020113.outbound.protection.outlook.com [52.101.189.113])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=nC40FRtx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 157DF606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:52:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 157DF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C0C3606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:52:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C0C3606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=mOHB9Gg0
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nyxRaMpeIiYDddUmThQWQmq35Fio9IBEp3KEEwi+5WEo/OXxtL6XNLYSO/GbT735hzLiU1nXqzvKW7JCDIxHC+qio8sujG1B2t3qM9DhdX8kLRkXHcm4zLrEgM+aqdHQtYIR8OCBxdonT2K2aaVnR0XAcnnlfFBqrBeE7YscX61SGC999OVdonzZrAUMJZKrsUI7rs9+tYvzI0gUtALOLM1zMFgPa5yvRju+HmP8c9B1cvsYWEotL+D5XPmYabG0FWkD/a5ughESwkoGQkOl3xbUT2z0zHQIgzCECAbNMdh9uizb5iabIxwP7/ouU6YNO3FeXOk8AoILU7kYU8fjdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W9+ukhaIbiKG4qeeiOVrxXDzLhps5J9IRk9I79UUpAk=;
- b=KoXMF3zn8RssxS6r4BPJ9V0tp4D0kNGjBly5TG3jdIhYQrLjll/ZTc+PqE4ScKPQYyeZvrjf2pFCltbG0a2ne0TZQpdSO2WfcicngdGWHDTlon6S0bpgUFRXJDQOnUPwAjsev3v79CAh2Z7lFFd3Mi5DImPTBfBWz90DSyymPsaNjnPb+WX1exvEmfMb3cjni7SuHJFiueeyBG/pFF5FT5tZ1g0O/VOM6yZK7hhZmlmqpMrVnWXzheSdS7ZjEj0rr/xKgbLM3MqB32vqBg546+CpscK4v+K3/KOZhaWx9p1fy/mXA8q/bH6M1Tsz9n2mijLAoyxBa82tKx+VyvsGDg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W9+ukhaIbiKG4qeeiOVrxXDzLhps5J9IRk9I79UUpAk=;
- b=mOHB9Gg0cmj9GhOX3qDMwhUyIl/NPYvwWeeymjDmDDjrYYDBPhcATvC73WFn8MLcTMnjuSfi9R8JL/qwj6ZwMjrQpWGahLBPQL/tU4XyZjQnmbHcjsw0ka/3a+X3pZGwUwkxo9U9DbU1uctVaALQW8rKApl5euWccKM7BjGT5dh3F/Y749RWwDgWtghJdxMDne77IT+hZPCOHLrv/+x8kNEZsBBw4iMwhFVb8gI17FnTrZaEW1uiDq3v1OBr6jkRv5fn/rV+otWLwZ41XZAsaLEK8tCBRl5ApnYvh+C5Cx8gJhNX8+KosZlBmeMPkPQLFMt7hLosVw/51S2g/mWdFg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YQ1PR01MB11587.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:a2::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 13:52:55 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 13:52:55 +0000
-Message-ID: <496b5bc1-8ae9-49a5-9cb4-2534b654f60a@efficios.com>
-Date: Fri, 20 Nov 2026 08:52:54 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 26/33] sched/deadline: Start a period for a task that
- enters the class blocked
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
- <b218275f5c0dabbb914bf1ae9cf6a32f0551dd0e.1795116791.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-224078@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-224078@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0259.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:68::20) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key, unprotected) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=nC40FRtx
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c50e26763a4so174119466b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:52:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795182776; cv=none;
+        d=google.com; s=arc-20260327;
+        b=PHv+vETDYVXfBfZ+3lvRu3BQQ4CHvLDV4W+zGqsMrt21y5BMxnIEuAqaxPmWJ+mgZl
+         piUoaQWLkHuNjZwAbD1i/j/vYGUfblj8V1mFfXA4t02dnRfrUlDG3VAeC2uhqRehyCpw
+         Y0lK4oEKyHABErjXEGBiPeRVMoXYPgBt2r5vtOgYNi4qcNPOOey7yjYeMEuUVyrfTTUO
+         LSrYydWM8LypO5nXfUIkiS2HoO1rWSuUl5mZiXNOOtJj2D2gJcZXFz0lHODpAXvrSfw1
+         lv5mC9YXsv1lEnrgcbuNTphoLyDMFpjWcFGk9YqwzubVvNCMDh3hIKUlCYLsUnTE+QKU
+         hbSQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CfeJt3/PREnoBpv4S0EeQNn7rVtzqEdjGPbzOJ6zZn4=;
+        fh=GJOV7jyiRN3Nqrq6QVrJc+EM6in8nsctTPPypoOUjno=;
+        b=IWIKqVQmWUyIBqqA1r0X9k1YqGcKwItoiKBrFy+qzu2PSi6HFzPUdEU4XRYKb3FiYv
+         cLoOA3nU2Ck+lBizZmeuCMuKMRH5oFShZbbCJ+jV+CrJ99VFaV6Ru7UNPXCiecnDECIK
+         m/cjsB7FBYB1XD7WPbbGoYNXyGL+W/P7MPRNFiR5aq5dystqhpCDxxmSUsuqEvW3E6Fn
+         K5qVji/dFdE5Ohy1bPpJ3P1l8Yf2LLN7AcbqWrvmZvC+HvPBZ2yEqJmRrgrBuqaZcDnr
+         DgKyHIJYNwPeUkIx+z9pZvQ8mmffEV60HwuFT9nC1j/uCd86Gbs/+oe+Ig7mzDAs19g8
+         ZQXg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1795182776; x=1795787576; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=CfeJt3/PREnoBpv4S0EeQNn7rVtzqEdjGPbzOJ6zZn4=;
+        b=nC40FRtxYgk0BbJCLn8b5EroXSKSJ88MrRs7GFxMehO5WBFc96o9b5xiz1XPNhoANF
+         pedO+USxC/ZagEErtEaHcSHj463uI3tJ8cCxXL9SLlXmgz/ldvT6doBc/vt8UMnzbO9D
+         WyOQ6t8Mq+IJUgLmPefOAQPdsZ0d1WuXyzEZqLQW9BXFGtj9zZoArzNo4ikuT3i8oEn8
+         pcZpHGrqwTd+J+Jh9ByGpXsco2YQCc6vE5M6jQKsiuE9oMnU+L5DoD39XGstKyhS2uFG
+         KHemC8OpP+hkCkOmj7K8Mpj3yJtXnVF9sN5njOkBC0b+jRK21iManY5gJK4BiFCXq04h
+         ssug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795182776; x=1795787576;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CfeJt3/PREnoBpv4S0EeQNn7rVtzqEdjGPbzOJ6zZn4=;
+        b=sNS+tlBArwVPuep3Qg4HTO8zjTV9snqz/9kXBqCxPb1nF01jLbZCWTrlqKo/FRRmH7
+         gevsXWeytKcUpfFK02Bit1AkAfjPIoTEMQdK5vhYnxJaJn+HOAMf3Uqfpdjn7V/iXtIW
+         ZtEXU/8sdIVWmiNL42oxKATnTEIaX34M3upJdWVmhYhi0BC/TbJJdFP9A8dULkCYas/y
+         vKMZEvnHt57qbm8NV3b9Y0Ssfm3ErFkARjmk0h5/YHpZc4Xh16/fwHrJa7pVZ05569eJ
+         EkCpOC6ve46zyUSw3BgS3glmfkyd5vaZ5+wmktbwd7PS+a8WrzsFJVO6sO2DAeTiZiOW
+         c/lw==
+X-Forwarded-Encrypted: i=1; AL+hErFx4hMUuEuVqZIWU7J5fwJOtDeVgg7bK/qx0IM6bsUQuJjh12Kf1s2R530RkMaKhXf576HQnsiUZV6tJWY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/s7sBcHyYSWu2hfxV8gNh/0weZHUGWoL+59PFPz25WAklgNuiE
+	gZIa8+Bi/qfkGlt0zEu+ElzhJAgxx56CLjxw/0RFQjbn/EzaGJvGPik9ZzUnv6Q8wCkJdLZeRIX
+	eBPkbrg+WcfQZ6OS2uSZA1YC2tpq6aKZWffgK/YsMzg==
+X-Gm-Gg: AYBFou0dXd0mo6642eGPS4jXeP1aasL8Hzj0qkaRhoJ8LMvnJ1Dr2RwW6QmzDZbwc24
+	GCnObnm39SBqGKrBqwJJyDOqxKYrXlvDBJLg6qESYIz2HzRZzvSnQBFLaubxe5NDNgdFi7OzrWN
+	XfGoCMjEDo5tNIwWbIhTv7ssva5oJ2+3nh2+4sALCUFEA0PAZ/9kvPEQkW2pvJNWm3FIt9sBWBJ
+	D4CXf9FN8RQMZREyzyPcYnzwkCow1JE19jfVSC0eUA09dQPAXSfdFI1GeawYnzTU8kLeEO8CMeZ
+	ZCuJbnhWu8m7aDDydDolTSdDiCbWEz8aLAdeAicfMweIA/Ilpvdvkb2jP2WDV7vmJAu6R5GRKXE
+	5dltrjWn3EbtvewObZ3nEYzY3IS453Inq8XaN7HKEBa5DS6PcbKCkRi8FDT3KA8CwYx7LzA==
+X-Received: by 2002:a17:906:a099:b0:c2e:350b:7220 with SMTP id
+ a640c23a62f3a-c513a99a637mr271625966b.9.1795182776578; Fri, 20 Nov 2026
+ 05:52:56 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,109 +104,64 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YQ1PR01MB11587:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6614689-3f87-4b20-0619-08df470d9410
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|5023799004|4143699003|261021121427099003|261102123227099003|56012099006|261026140227099003|261028144727099003|261022105027099003|261026121527099003|10067099003|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	KBxWoSQe26naG4Z/X0BE1qpgSkodDLVkiJ57X76alexOSirE6APt/bL39aAI6sDU+M2TmxDipur8ZASBZoqFLCHfnAsxQrvel4Ybyx8xswLCx7rcP+6Fp50m1pEnLDI6NU+vldcq630Do/BqPjRrv6zrs66fv1Rj9IzS/WmSgshnqbMLwQxpSBRnaI8R7wX8xgkOEfB3iJWy1MqkYsi8V6U1zesRUYKzDrcW2pVjkCmKvpXraISkfGnPO8dnUCRs4aXr9SmA5jsa51FPwjiFRBShYMcAdDnTrL/gkUS6oP4XLRk2KOwD/km5i7bRCFwycXBWWTXHHwk3/bjESwidCxStMybKUPx3Cgr0Ye7sImOh+MraNxObnAnNFuPlmUVZeXwxm0rdSvpJQmJnP+ljSF7vIUAldBvykSxmYwc9xHUEooNeMhnWKqpIZZ/8WSm9a0217iigwpHehvPLBcZHBdu6Gz6T5oXJIDIcmQe3Wp5GeT/i3fSwMVeXhUfs7lj8DLoUkgQWPkFqBXmm26CSRVUrGCb1Db4+0o7En6sLKZrfosnqcncfyTqPR4lTqhTalhU+nSpSK7u4P5KlogAkTK8lHikliwGuzNS17ijT6cc=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(5023799004)(4143699003)(261021121427099003)(261102123227099003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261026121527099003)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NHJjbjlkRHk5KzNTYi9xckJjOXNyeEJ2WmZ1elJnMFZxUUNXTmkrNmRrcEdT?=
- =?utf-8?B?emk4VUpLemFORFJIVEpvaEtIZXl2NFV0N1JBUHp5YlU5M0RPOWhNNEFFYk5K?=
- =?utf-8?B?d3RSOWJYVFFram5TQmJsOEpWNG5sbHBCdFgremg2YWlpVHloQ2dScUtEd2xm?=
- =?utf-8?B?andVNTJheWtMMW8ybHB1V3FDcTlzUnN5RExjbEd1UmJyb01Hek56T1dIZlhm?=
- =?utf-8?B?UTR3cXRUMndYcWlBa1VDU2VuS2Nid0RzbVZHZElBQmZ3SzRLNTYxVWo3ZmhV?=
- =?utf-8?B?M3NXMHovY20zNTV1aHhPRmNNa29BeHRCeitaVjdSV0JwaHZJN2ZpMEpyMTJy?=
- =?utf-8?B?RHZyejdPTjFpcytXZis2SmNIZ1EyZUN4NDZmOWdCV2t2YlozVjJPNlhieXFO?=
- =?utf-8?B?cWkyR0ZtMGltcUVtR3FTZ3pMa2RTTE5Dd2FkR09jejl1OWtCQVBKblJ2Rm4v?=
- =?utf-8?B?MEpKMFhzUFdwWllhQ1NrdFN1c0hKYVl1VzAyUlAvNlpYd1pZYjhOU09HcHBY?=
- =?utf-8?B?MlJwVjlsaVpnSy9NMFBWdW4vZ2t1bzVNUHdhdzRleUZQT3ZEL1FzMjB0a0dT?=
- =?utf-8?B?UFFFVGFCYjB5eGcyWlBDQm8rOW9JZ2wwckJHOU9QNmZkTE93eHo4YkZTNGpT?=
- =?utf-8?B?V3pKUUt3aExOMTRnVTBjbTB1U0hQUFlwR2FVQ0JuNjN4MjQ3N2RiY0VVMlBW?=
- =?utf-8?B?SzlDODZ1YWV2Q2dlK3pNSGhXT0w2TDJobFRJaFZjNFUramMvVXdjcXl3Rk01?=
- =?utf-8?B?SzdlR3QyeHowdmN5VDNSeS9ocEU2azFwcktjRERSSUZ2aElZWkZocW4ySHhU?=
- =?utf-8?B?TWY5aEUzV2lzRzlWekh0MTNGbzJrdVN5TGZFbW1IZ3k5THRBYnN5UmJrT2di?=
- =?utf-8?B?TCtqMFY0aklNL0dud04vSVNkU3lKdGVOSGtTc2puaWs0ZnllZFdob0MwSmdh?=
- =?utf-8?B?L0U4b2o5ZnA5aEFsUmFwMExSbEFRNitZYXI0VnpPaUNNTEVzMzR0ZmJ5REx4?=
- =?utf-8?B?dVgxaEFRL1phWGJtTXBtdks2V3dpVEswaitQWmNVd1Y2T0ZXTGNDdWh0WW1m?=
- =?utf-8?B?VWxscmI3cEs0U0N1bEwyRHlZZXpzOEYxM1h5ZGZ2S05rVVJYR1lqRTF1UEUx?=
- =?utf-8?B?aGtQK1FEUFdSVzkzUm5zZWtvZlhIak1RYmJrU05iM3FmWHBJYVYxYTYzdnQ4?=
- =?utf-8?B?aVZkNjJZeWF1cWV0akZRU1dKbytLSWYxeis0RzhuallMNGx6OFJzYUswcmZZ?=
- =?utf-8?B?SmNGWnJxdE1MUjlWaFM4YjNGVHVRdzZ3c3l3dW9hTldXWUl3Vm8xbmFQSGJm?=
- =?utf-8?B?SnJ3VjhkaUx3ZGNHOTFZeTFpdDNEdXZ6ZTloejZqbTlMWXFhaUZveWNhVUUz?=
- =?utf-8?B?dGUxdzB6enNDaWZCNVhDN052dStsZzYxTmhNQ3F3UWRSWVhia0RIQnBTWWFW?=
- =?utf-8?B?bmFoUG9ySmdIdjZFc0ZpOG45ekJRQjBpVGVFUkR0YjEvQVhIY01CQmtjNlNB?=
- =?utf-8?B?cTAySENCbjU1b0FzSS9SaVk0cjVxMFNYY3czelh3Z2xObnhhM1VPZTNtcWtB?=
- =?utf-8?B?UTFYSmtGczJvdG5xcVJqNFhJMWIrazBYRE1tNWZjSmNUV3Y5LzRxT1JMaWZr?=
- =?utf-8?B?WGkwMmwxOGlPdXRnbFdpRXJPNkpIZjIxZm4zaFl4V0VxK2FPMmlWNklTODZE?=
- =?utf-8?B?ZTA2RUlTdG01ZWEwS2NNRkNzZnNEbzZUT1JXN2ZtdkRaZ0tES3k1NzFqVFRH?=
- =?utf-8?B?d2J4Z1E3YmxJZmNXdzJJQmppM2JCckNZU21DQVh5RzBIMnU1dm81Zk1WSGlp?=
- =?utf-8?B?c3lTNWJITWpyNzQ0dUQrZzlWT1FLcFhXTkNBWWt4YW1QM2lmRDgySitLZkVK?=
- =?utf-8?B?Mk55M2dSWnFMK3VJWFdpeXFMYkFFMXdZMkdvT3ViL1BlL0xWSGRZT2tPWi9U?=
- =?utf-8?B?WE9nSk1YQ2tLNXE3aEs5TDNqZmluNmh5MW1hd2Y1d3ZSZDBPcHJsVW5WcHQw?=
- =?utf-8?B?NmorMEF5TzBEWkE2clNHbE9oYUFlZkRBODUrMkk0cFVIUUtZYnZadFhiYnNW?=
- =?utf-8?B?MmtWQ0hDbm9ocCtIUEpCT2VudUw1WjBOVU83aVozYWh1Uk11VXd2ZDVuM0xI?=
- =?utf-8?B?c2xzcFJTdlhQdG9KRVZBUXZ1MXIxblZkWEhjVGx1MjRGYjFuaDJJcGZIcWxo?=
- =?utf-8?B?c0wxRWM5SEtxcW55NG10bktoMnRkenFrendsd2ZCL2xEdDA5MGVpTjVuNExq?=
- =?utf-8?B?aEZHMDlobFJEVmpBWHYrL25CZkIyTEFJNDVWZEtVdGFubUhFUU83RUlXUXg1?=
- =?utf-8?B?d2dQZm0rQWgvVlhQNWJGOFVuS2ZiSGFRT2l3ZVdYL0hPRFFjbG5PVzVWY251?=
- =?utf-8?Q?Qggrh3ZadnghbDv1jWndgnnQjnk6qOEDuiGvg?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6614689-3f87-4b20-0619-08df470d9410
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 13:52:55.4848
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8slSpCHp0T76MjAZmExTpQ8Cap393IJjVUvkCzm1iqrr5V5N/pXw8+7qGcHCxXzsKjwFbkqRJGiHIl38AjYwF+EA6Eq/bYrQGqu+MMkhhR0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YQ1PR01MB11587
+References: <20261117-fusb302-irq-read-error-v1-1-a85d45b91912@flipper.net> <awBFWmpR9hPkcerN@black.igk.intel.com>
+In-Reply-To: <awBFWmpR9hPkcerN@black.igk.intel.com>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Fri, 20 Nov 2026 17:52:45 +0400
+X-Gm-Features: AclHuK_VIZlrGFHXDuTJlI-KT2ULB_-F_s02FUea_6KmXVP_7WAbNp_FalPVFPw
+Message-ID: <CAKTNdwES7sRRDjvgFdGttesY9dppOkfBjNhwsJuwUWN1T9DFvA@mail.gmail.com>
+Subject: Re: [PATCH] usb: typec: fusb302: Keep interrupt flags across a failed
+ register read
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Guenter Roeck <linux@roeck-us.net>, 
+	Yueyao Zhu <yueyao@google.com>, Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> Does gating replenish_dl_new_period() on dl_task_pi_blocked() leave
-> p->dl.deadline at 0 for tasks that sleep with p->pi_blocked_on == NULL?
+Hi Heikki,
 
-Yes, by reading, for the requeue: FUTEX_CMP_REQUEUE_PI copies the stale
-deadline into the waiter. v7.4-rc2 does the same. This patch covers only
-a task with pi_blocked_on set. A fix would start a period at the proxy
-lock, when the deadline has passed. I would rather do it in a follow-up,
-with a test.
+On Fri, Nov 20, 2026 at 5:04=E2=80=AFPM Heikki Krogerus
+<heikki.krogerus@linux.intel.com> wrote:
+>
+> Hi Alexey,
+>
+> On Tue, Nov 17, 2026 at 12:25:31PM +0400, Alexey Charkov wrote:
+> > Reading INTERRUPT, INTERRUPTA or INTERRUPTB clears its flags in the chi=
+p,
+> > so bailing out on an I2C error in a later read loses the flags already
+> > read. On Flipper One, a NACK on INTERRUPTB just as a source raised VBUS
+> > lost VBUSOK. The driver kept treating VBUS as off, so TCPM never attach=
+ed
+> > as a sink and left every Source_Capabilities unanswered.
+> >
+> > Keep the flags pending until they are handled, and retry the reads a fe=
+w
+> > times, as such errors pass. Otherwise a flag left pending waits for the
+> > next interrupt.
+>
+> I did not quite understand this. What's the i2c error? Shouldn't the
+> i2c adapter driver take care of the retries?
 
-Your second case, a sleeping owner with a deadline of 0, is older too.
-It belongs with the missing boost check of patch 32: same follow-up.
+Any I2C transactions can fail - that's why the accessors return status
+codes. And they do, e.g. if another device on a shared bus misbehaves
+and hogs the bus down, or if there's any intermittent interference,
+etc. The I2C controller won't rerun the failed transaction and will
+propagate the error code to the caller instead. In my case it was
+-ENXIO when another device on the bus interfered with reading the
+interrupt status registers midway, causing the irq_work function to
+exit early and drop the flags it has already read without acting on
+them. The result was a permanently desynchronized TCPM state machine
+vs. what the partner saw on the wire.
 
-Your third case is not a bug. The owner is not a waiter, so nothing uses
-its deadline until it wakes up. The wakeup then runs update_dl_entity()
-from its donor.
+> > Fixes: c034a43e72dd ("staging: typec: Fairchild FUSB302 Type-c chip dri=
+ver")
+> > Signed-off-by: Alexey Charkov <alchark@flipper.net>
+>
+> No stable?
 
-> Can checking !dl_se->dl_deadline in dl_boost_blocked() miss a non-deadline
-> task that recently left SCHED_DEADLINE before its 0-lag time?
+Cc: stable would make sense; my oversight. Thanks for spotting that.
+Shall I resend with it added?
 
-Yes, by reading. The waiter is then sorted by an expired deadline. On
-v7.4-rc2, a deadline waiter blocked past its deadline is sorted the same
-way. A follow-up can also start a period for a task out of the policy
-whose deadline has passed.
-
-> What happens when sched_setattr() gives a SCHED_DEADLINE reservation to a
-> blocked task that is already in dl_sched_class (for instance, because it
-> was boosted into the class by priority inheritance)?
-
-The state stays consistent. A boosted task runs on its donor's
-parameters, and its waiter takes the deadline it runs with. Its own
-parameters apply at the deboost. dl_deboost() then starts its own period
-and checks its runtime. The chain walk requeues the waiter.
-
-Thanks,
-
-Mathieu
-
--- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Best regards,
+Alexey
