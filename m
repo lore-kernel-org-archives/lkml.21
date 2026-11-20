@@ -1,95 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193006;
-	b=BGDDQDLUq192LCC//GLnJIdkyMsRT/739OR4g25TZj0hGh2E/4tg9t8MHftvcos4KbpH
-	 E500E178gseI39yebYR0/2Xov1tDkHWrJUoBSiu9QC0SoPM7TKrkA2RdKjfRw8q3gsWgc
-	 OtRe4botzZ4XYZNWBpTsP0X9eNEEGD5VL/sirdyL2xNF/XouWsJ0OVzu4pl8BhNIW3JZu
-	 wYeckdUNmdEhKQfyT4DZ8oAXIQKGeXCn2jcWwoyMqd9YNemVu9Er1+IeTNZU1t5LehkRp
-	 mbqFHpSJSxAwL+1vE41sw60rJxcRP/sus6xRT27cbss9wPLz7/bOWo0mUO+jy+qlN0g==
+	t=1795193051;
+	b=P8sLk4i44wsMSFvHBKuchNrVuCl48Z7FfXnwxrxi/hAKc+vKE/gYJ/hPDAFqMGoWVbiX
+	 5/u+WcX1i2ti9fWocipdEBGu8sa+NgmjGV6r+9+aiaBlWzflb9Q3JKnTsUOk1sL9GA2BE
+	 +E+No7x/mKgEn1ptopi+BFvNof6j7nDuLOtP9VU4KxKLaLB9IZ2mvPRxjCEwl8fv9ozMJ
+	 Kx0RU3vAJbugR7BVEaQFj2fJS3dcE2/UqmcXTTpDHha44PvmX4GyjOUtuTOFij7+OungW
+	 YHXmb66IeJN9TU3Z47S7bXPIKNt4fQfh2/E4Bdn2v+iXzU2XO7mNwJ6HfJFM+4OXLvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193006;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
-	b=gzZoYUUghs8M6AR1yPq2EVF0EGzlYNEr9xIAukNfCSowJeCDkcukSMbtptrf6hZnvbEr
-	 unEsqnxNXanvT0ssImsBH2Dm+ZqQI4IJpIWVDCNlYUHW0Ye5bKSupyPgSKQSXWhdVc72f
-	 wT+y2oMsC1gOhINcml7Yc8Fujz/YVhTqBEIEkm7lScA0NGYOuQ/4gxdeYFxNXDwziBwKj
-	 qDbZBwqldboPm/VV9LQRfjE57HgCYFsnzrci0ionGLKHQIBvid84fSiVBtfejzBj+636P
-	 IYGT0REabkJAz4QZo4TcmKqgpmP9s98KBfsUmY7Gkzg9lKeH3Lv2klf3rD5ERaqGyWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193051;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=muOyMM4tBGa8o1Glo4zMSPldaLPuNzEu577/jxDjA58=;
+	b=sfRCgUq40FUgjU3FXDnZScEe39+pumCoTgRN45UeU8w+mgy95PZo+5mEVdISoadg1ZQZ
+	 9PUBM6CK/mMpZJDQqnen9RMYPOiR343JQBGmyBg32w+MyjOXVJIuvA6aVohdvL08AXdPb
+	 QMGqJ+BIgStD4w6v4XR2b4XpPl6/L5FonYUgrrkq1qGWlQ2dC/JDvLR5f3bjAFFYEly7b
+	 nEbKMti8VQUvPN3Ms29KSr9jreaRY65AoVKW2EhqnrgKYKTrwRaplfOMYnRhOkWXoPcf9
+	 argjbZK1jlldgwHKLtgTzthrPS7mkbpUv6ZI/YH4OWB2lhUd/SusIs9M9uc9M8wRkMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eCbaT1wM;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MY2ZerGv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B398606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:43:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B398606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2B10606A33F;
+	Fri, 20 Nov 2026 16:44:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eCbaT1wM
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso12378155e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:43:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795193004; x=1795797804; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
-        b=eCbaT1wMQMGTehrBs05zZnZkIoaKciHE2kFhoCVK5epPcJSjiz440luNXjDTDqcfy3
-         WPnya8aBMjlaKu8/GbLNvaJjyxhr8hDat96pEPCh7x5vuqQTivIfjTjy5G8kic3Wnhyy
-         +K8AvUSkWyBXSJ3TO1hBXW7ZwacX8XCeV+H7lzS3IjgsngaJnkWexyBZGIy64uhfJoh5
-         oNHaDASnfgq504eIvU9xMvzgD4x5/BqwOI6AVJPncGR3wh/dT+YDhl9H2R1bQ/0oR1/J
-         ijpNLISsF0bZhVzYkaSczT0cXo5W/iKKk1ywhXNtkvenjGTiMZKgB0VgmldCuQ82q4Al
-         uyyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795193004; x=1795797804;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EBkiqUUdh/y0Dl1qxnhAaecylqgVBg7HXrokp1VAnJY=;
-        b=xgLUsqQRfsEIqjbrUVgdUOi4ivzPAdZbC8CzCI3BCGH7AJKyd/Qc7n3Nxtq7sWeQ2K
-         wUD58iXLQliT3rLLgPXPlkt3MUBRCj8reIwbJWxzXplP6teqeXAapmPg5xIF46r3M/s5
-         4KkuYisYBKN/I+2pKF0JkRJo5K2/bIRPaIpvvPeOonodwIdSTDPesx4+O4B7rtg8BLri
-         komQunCdVtzJOpInGK9ueCfQrGEUfzb2Tzqtx4BGbDWeJWuPiPaarWDBfVut4PzjbHEz
-         ReTv/Y3IWdIq4TXM9KdTiTMh2IP9KqgIhlbhpAS/lNNVmXENs4ilno0VmYwQLocLD2FW
-         WBTw==
-X-Forwarded-Encrypted: i=1; AL+hErEPxzpTSjJ9xuJKGw8CSD1mD4okNXjc31OgFcnbuDj+MO1lMdvSWTkuDhVYhPczJy1SoMHi0dQr6FDDxNY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z86QZdj3c17gD8RM33sCEarq9rmYDPnAmoIwgOv+TAvBNeMHt24
-	NzRuCmDNixn+SkjenUfFzSeG8v7as7VIVQQ8caE4aJKvTKsE+5pFDxLNbAIzmQ==
-X-Gm-Gg: AYBFou2MuzqMghsQ1mfoRzkIgHzcHSRMP8ahAzBnbM6/zWR5y8ybsQIhR6TsHBoWT4L
-	+JtTKFvJQQiPhUK/Eg/BCY7XQBc+bzxKpxrrDlmoslGYIWTjjyxS2cmUH5VXMIR3T7omzMRw9fO
-	tFH/J/OLw4vW2Xeew9Bpu6In4IspGBNc/iiTYLfcpsNbiGopgswtESfNLsqeenYaQjO6FYfNP2T
-	7/Y57ba2stfORkoRhYYwvkTfIqCA+lMuQxCY5k1evLzWaw99yGNnhwTjYDlO6z1Mt1ADoEbm/3m
-	LD3OLr5zAxoAL9J4oAdq69c/lg/8SQD/SHe4WTeY4eCNEDaCzXGen6cVoYlJVRh8bfZq6/WUGbY
-	NrizsdIeYAKY0GnVj3bHyLa7G1NF+K9SnUx1NkWw7JgV4FBfRseAgssiysyHK6sNfxBlOu2ye+I
-	oKhIIReCKwPwKzm/FfX7HzPv6J89YwshIDsJWRJ3p/szwJlngkfxSL5h20LpbW9Zh5U9uT9of1/
-	ej3p9W7Uknsj/S4CaAKmwtrZugtiA9IO4hUWNuANZcbh0FUlvfyVLFKsvHf+cmGKESJMKGNx0Bi
-	30FBr/7EXnJfrFpVaKwjVZ64UTcpsR1qbG8qIQUHH1uAT75puc+tT9ZRoKCRH6iNzIo14HTIdjt
-	InIR2mkQ=
-X-Received: by 2002:a05:600c:530e:b0:4b2:2ec5:8a2b with SMTP id 5b1f17b1804b1-4bb887fe8f1mr85315575e9.10.1795193003759;
-        Fri, 20 Nov 2026 08:43:23 -0800 (PST)
-Received: from beelink0 (host86-181-68-246.range86-181.btcentralplus.com. [86.181.68.246])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a15absm86679555e9.9.2026.11.20.08.43.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:43:23 -0800 (PST)
-From: Graeme Harker <graeme.harker@gmail.com>
-To: Finn Thain <fthain@linux-m68k.org>
-Cc: geert@linux-m68k.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] m68k: delay: Fix rounding of short udelay() and ndelay()
-Date: Fri, 20 Nov 2026 16:43:22 +0000
-Message-ID: <20261120164322.1034075-1-graeme.harker@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org>
-References: <5783b448-b34a-58a5-0bc0-98b1a806f182@linux-m68k.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MY2ZerGv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF9261F000C6;
+	Fri, 20 Nov 2026 16:44:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193051;
+	bh=muOyMM4tBGa8o1Glo4zMSPldaLPuNzEu577/jxDjA58=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=MY2ZerGvNJh7NzD8YriAopHPbodyOMaJ60KrcqgWbHTwx1vOLUE//u3mH/GMAP2KU
+	 KNC08sO2rCdJ7Y3HXEEZOOQlaUUkU7BfZuRha8Zrhtty9ZYoSyUYUbqzGzC5IllT9a
+	 9paPW2KYR3kSJIwQc+aPWHInuv3zbXh6s8rKTwUMa+ncZbrw0clm+vGDP5nAKlcAmZ
+	 jwcDRL9JjKZmN1VbM0MPBxrCMvQ7L7ty4mDtmdF5LnZbaW+5IKUlCQcWdGWWttcQxk
+	 0KiNaz6wsi2PxReKccsP8PzTN9fEpDUWK/kpL0n9Hpg+PbFvJTVWSrsPycV9D2FsNl
+	 sDEOKLk8D+5Nw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Linus Walleij <linusw@kernel.org>
+Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20261120-ux500-asoc-handsfree-gain-v1-1-56379df0a6d3@kernel.org>
+References: <20261120-ux500-asoc-handsfree-gain-v1-1-56379df0a6d3@kernel.org>
+Subject: Re: [PATCH] ASoC: ab8500: Add AB8505 handsfree output gain
+Message-Id: <179518654497.6016.12233932109137524077.b4-ty@b4>
+Date: Fri, 20 Nov 2026 14:55:44 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,48 +58,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1111; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=v+54QrLDrUF7PasmTHHSD+jD7uzKsdnCCkF75tXpqoo=;
+ b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZKm6ox7q2eT0M4pxd8rTkjYO1SNGG746z7s7q6bu5K
+ /PKgQmRHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjI7v0M/9NPf/ZRFHnpU9l1
+ wOfcj+CI04GXfhjkxH1/3+Ab9LxtoRUjw3zBpAipyuZ/6caRRrOEee7wycq4yOWyGt91eWSS/FS
+ AEwA=
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 
-Hi Finn,
+On Fri, 20 Nov 2026 09:41:37 +0100, Linus Walleij wrote:
+> ASoC: ab8500: Add AB8505 handsfree output gain
 
-Thanks for running it again, and with both interrupt settings.
+Applied to
 
-> test_ndelay(40)	 191E-09 -> 17.0E-09
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
 
-I think this one has wrapped the timer as well. 400000 calls only fit
-in T2's 83.7 ms if each takes less than 209 ns, and 17 ns is less than
-one clock on the LC040. With one wrap it would be 226 ns, which is
-longer than before, as ndelay(400) now is. 40000 calls should show it.
+Thanks!
 
-> test_ndelay(40000) 38.7E-06 -> 46.5E-06
-> test_ndelay(400000) 366E-06 -> 456E-06
+[1/1] ASoC: ab8500: Add AB8505 handsfree output gain
+      https://git.kernel.org/broonie/sound/c/9fe20364e431
 
-These show a real problem with the patch: long ndelay()s now run about
-15% long. The 5 I took from x86 is 2^32 / 10^9 rounded up, but
-2^32 / 10^9 is 4.295, so every ndelay() asks for 16.4% more loops than
-it should. Combined with your udelay(1000) of 979 us (2% short), that
-predicts 453 us for ndelay(400000), and you measured 456 us. The old
-code was short instead, from rounding loops_per_jiffy down to a
-multiple of 2048.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-I can't explain the old ndelay(4000) of 6.03 us without knowing
-loops_per_jiffy. What does your machine calibrate to?
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-I can see three ways to go, and I'd like to know which you and Geert
-would prefer:
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-1. Keep 5, as x86 does. Delays are never short, but up to 16% long.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-2. Use a closer constant, e.g. __xdelay(nsec * 4 + ((nsec * 1209) >> 12)),
-   which is 4.29517, within 0.005% of 2^32 / 10^9 and still never
-   short. It costs another multiply and a shift on every call, and the
-   second term overflows for delays above 3.5 ms, which ndelay() should
-   not be asked for anyway.
+Thanks,
+Mark
 
-3. Leave ndelay() as it is and fix only udelay().
-
-Option 2 seems the most accurate, but ndelay() is mostly used for short
-delays, and for those the call overhead you measured matters more than
-the constant.
-
-Graeme
