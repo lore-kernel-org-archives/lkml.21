@@ -1,103 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.115
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143313;
-	b=zW5nh5Nj9qWZ4mfYRZHRcf+Q/X7U9fAG5lBdwqTYn3oJPpD9lGk1IgmXEMjRU8dBOna9
-	 u5NhfI76eGnKfFVyIgBvk6pV1QaJIHdC2PdRMCrwHMUjm+0Znui2BIP3w8M2tViPhFjBg
-	 UfpN0rZTRNMs/0U7ri4WOV1/jQTm72UxNrRfpWDTSQV67Ohf6CimZUsOr316+2PZoZ13q
-	 EJG1Z+PXLVxHs6vqNGdOX29e39qMcok7JcotR9rpTNa9qmc/f83fVu5PgqMBqptWxrTpH
-	 7DBlxXyQ42ZXu3t474osksrFWbIDimbY7S9Hk1Ak/ZEVcoTLAdkcAlsqfd0igARvW5Q==
+	t=1795143329;
+	b=dMf000Nei48YIk/jhPOkX2xvk/22wLGIIJVZqP8C7aV0mFr7L0FiNh7H7jS31k8IJEOP
+	 Vzuv+pRsXkr5sci31NrLjh4/ubZDIcoWudS+S+ZK9THkpd6YR0v8s1dz/15Sg4OzrHYYc
+	 D6Ap+TlYE/cc8/BXz3NrGp0C9ZcMXMF6x0wBRYRWjN9xNVuYM69rXXhC2sDyrggvYIESb
+	 F9qgcq7W4N1SNrGjPvHUPJ7UtqIFAQL035rjxVjYjm7bAd2qTQDf5qcd+eD8Jq48pSswx
+	 0+CorGGm0KXt6gr0EhxKY1Bc1QkJELko8KqW64K3DgqaEFlxfX5TVq/TaTTXaShzrYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143313;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Rjhg0kwaD/wTpUnBxoXJn8jVRPigfkaeSmbsFggc+7k=;
-	b=0kpUUw19wh8U3Bs4cbv52MMrKJJ2dJXYXmeag/KoYbapsr/zGjvJIBI7rDjsuCU/JgPE
-	 TGBkH2owC8xulMcU66b/IcHsM27bI4/KnEG7VqUHywq9ouMRd7aPvJbmofZcmMBrRK0Wv
-	 ZAFgi0qf1OsoG7gB+whbq9oTFI62vqOxLcKKISRzYCEubAx2EfzfBAMffo/qNpulFIXxM
-	 /7feF/G6xw1i4dSR9wc/Ly6cC3qB0BoBPnFB0NJfeDE91aewAD0+/ImnFup1bFKVwOmdh
-	 KknyGP1TlHb87lhZ9VoI1G/6iwJa8K0xNs15ifpJ/yiDOKOvH3T9t0ZqCMk0ZWcJPIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143329;
+	h=DMARC-Filter:DKIM-Signature:Content-Transfer-Encoding:To:Message-Id:
+	 Mime-Version:X-Mailer:Content-Type:Subject:X-Original-From:
+	 X-Lms-Return-Path:Cc:From:Date;
+	bh=JxYQWk4OJe8idSu6UNkb8TEj89mTwP1uH2AqM7RQiCk=;
+	b=S/jtD3JM8NATnnWJlVGL4B04HnbwMoearkVBeO4DQ0Tu0xLb3Z80DA7cEPlprAx5qQzN
+	 a8yvn+Ubhwvpu2VZG98l5NhL6pv0cZlFFyCGUJd2IX3ZZcFp3XNgZli8OtfNZLXo7Gaxu
+	 ukIIwHWZ5jDqa08AdrTugWNdJfPTRRz+bt6Hmr0ly9xphQNZWZ2mBOKaPGQpSZaalcJKW
+	 p+WLQgm38CG+7+zqHvNaG/s3dPj1h04Jn/82Oame/06UoLrr7HgzmGwg1kCDjRpsyx37a
+	 gS0d9xyAC9VsjPzACxHE96WkezAIQddA13JKVfErB+dX+JbUlqjf9oSbYZKdTa1wHfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JuorWREu;
-	arc=none smtp.remote-ip=209.85.160.178
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=dYL3NRMh;
+	arc=none smtp.remote-ip=209.127.230.115
+Received: from va-1-115.ptr.blmpb.com (va-1-115.ptr.blmpb.com [209.127.230.115])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EE1D606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:55:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EE1D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63BAD606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:55:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63BAD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JuorWREu
-Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-5366ae57896so4731871cf.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:55:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795143311; x=1795748111; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rjhg0kwaD/wTpUnBxoXJn8jVRPigfkaeSmbsFggc+7k=;
-        b=JuorWREuLl5FNO3te+6cIjPitDzDBIbPtyfeVNd8KLBi51kMuC3ztk7OY44XqKV2I+
-         VLYGQfX+Nbj7E3ZcoRVB13yC8yjGxM4UVrLXoqkwVnpahRjK4ppu0/wC/9AWwDpmmGIK
-         66KxBcnLuF4VJDVPHtA3N+h2H8HKBWIvMMyNKFxWm/2ETCPKQmr/gMNrjqlHaqq2LnQz
-         PHuH0PKKyqndCP9ITzjafVc+u70bvGCQp1T6GixnL4MIndq9alftttlwMWsO8H3nFrJE
-         zw6R5JU1hV1k1re17nA/Tcl1Y6O3IsidZtgNFLHqSodAXQqihZqIdcWgVTRGxohHo/TE
-         uHeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795143311; x=1795748111;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rjhg0kwaD/wTpUnBxoXJn8jVRPigfkaeSmbsFggc+7k=;
-        b=yKh6ln+pIq44gSVzDsMDkL2hQUdZtxThS8VaQ86HgstYl6GPei1yUXheVAMSF3CLdY
-         T51L4ZmjrR18uhcN8wzTy4ZisXXHg/L9GDuYKPVYUgD5F7cuQX4ILz5H194Hs+YGQbJm
-         aK+YrULsrCho3rN0LiYLpoiMNO3Cfj8JAVeLW9GyJ0GO61euJcFywHhTf+kXF0nsUwGB
-         H65V9mhlAxKURRepWSbuPoJ28eQpTwTJKugzCaBAwKgH0Kcj0sLZliNt7UWyGJvx6bJI
-         Y7KeuSnhXeikWYABsc7P9Kt1V983yF8jBky3NXtHOUlzdeCtGus3CiecUAaa0U4L+zcy
-         4rhw==
-X-Forwarded-Encrypted: i=1; AL+hErFUXjdMXC/yZgElFfBEjSQso7Phkq1PzhYg2wPQhn0L5l7qcX69InHl5dKDYfxJsN0YccaubO7jtOkdcck=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Rdu+5yk02PU5id3zMBRjbrPU29lbGGMLIobwVgyCfI9/GBDTq
-	MP7XPbOhWL8nyMrryrkfjMMm95egUDAbLB8vm3hIqQ31AtcscjwUcU5P
-X-Gm-Gg: AYBFou05HxmBfg8CE9pJXxJ7a68RDUVwCSzSViPifkbML/prZGJ+Ll7KHk46XrCkHSG
-	aNj0zyoTpgxpozQffQnbxMPATEKCHdkSlAI4TR3JdYSW1Dhi04dQXE/iwKmww+Dvf6IgmIGsNZI
-	0sIUUCNCu1KVriJdWOvCcnV6wBkl6WdD5ODCxs/sjTmBwm+iZ0KZNmv9Z++PQLkwSCZmew5mLEj
-	WA5G7KPZzsMwEORyrU4Pq8T1QV1YC3y2r6uVNFwnCctQX6h85W1kXDJzJSMzrsTwkxBFn73D8U2
-	nCy60SPLetWBdhjcoBk08mPc2kMniV6YHt8j82CQgwe6KAL4USLGbgDfpzUN6E428el91pKM38N
-	zDKf5Qm/UJWqqbSPrZhhDHTpcsyDCQqW0zmZHyJe0/2MXhY4mv/AdYRPwPe2FqADOT8fLLDS3c/
-	mLqbtKiDrekWjv6qAndszT6QFtIg94JGy5L9pb+p7IyNFvFzBK4w5ChbMonNa4h4XqPjHVR6xGw
-	Q55ooED/UPpPGZ7Hs8BBpVCG+xIi5GdRy8vpo60Zr/XFVUtlVGZ8KDT9hk+boyaXW2ipEZpoxzW
-	whMRAWhWrF9i14hay8kxs+ih8t/QwIuyGAo04d6H3rx43aCinUhbDWYzW1IZDpxvDONTYC8qqZE
-	=
-X-Received: by 2002:a05:622a:58b:b0:533:3192:7a8e with SMTP id d75a77b69052e-55d76a76454mr34189001cf.43.1795143311326;
-        Thu, 19 Nov 2026 18:55:11 -0800 (PST)
-Received: from linux.. ([8.34.174.240])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b456csm14398686d6.13.2026.11.19.18.55.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 18:55:10 -0800 (PST)
-From: Changyul Lee <lcy8047@gmail.com>
-To: Saeed Mahameed <saeedm@nvidia.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Mark Bloch <mbloch@nvidia.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Boris Pismenny <borisp@nvidia.com>,
-	Jianbo Liu <jianbol@nvidia.com>,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Changyul Lee <lcy8047@gmail.com>
-Subject: [PATCH net v2] net/mlx5e: IPsec, Fix RX mapped ID leak when adding a rule fails
-Date: Thu, 19 Nov 2026 21:55:01 -0500
-Message-ID: <20261120025501.1675212-1-lcy8047@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=dYL3NRMh
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795143322; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=JxYQWk4OJe8idSu6UNkb8TEj89mTwP1uH2AqM7RQiCk=;
+ b=dYL3NRMhnBhEKId8d++mXkhPk9wXMOxL9vnlZRQaPoLytEsF9cPbCad0HD4Xt8Hza6BppK
+ 6Srf4WtXQ1gSsBR3D/hAvdf1e8BISKvZhjGUx+X+g3ef6cxG8blzoH8h7bfkb+ZSB+7i1m
+ 6ZqBNiZaPfHLci2ZjqxbF6D965J0k70ITw4HW6MjttcZe5ImH0jzOK9AH3OjRi4fM+Q/c5
+ zrJkJVTFUJRVFAvspDuUWo9IYEl02l1+t8ZNRhdGlOpqpsCjoAZmNmIKo62VWb7yZLo3+A
+ F860e9xX0aQlZCckVEinZD7i2YHpMRMsJkZRkJUfGgbrEpXSLtPrHAtUKecZAg==
+Content-Transfer-Encoding: 7bit
+To: <linux-ext4@vger.kernel.org>
+Message-Id: <20261120025459.70290-1-zhaogongyi@bytedance.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,59 +54,95 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+Content-Type: text/plain; charset=UTF-8
+Subject: [PATCH v3 0/2] ext4: reject impossible group free cluster counts
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
+X-Lms-Return-Path: <lba+26affb698+dc4492+vger.kernel.org+zhaogongyi@bytedance.com>
+Cc: <linux-kernel@vger.kernel.org>, <tytso@mit.edu>, 
+	<adilger.kernel@dilger.ca>, <libaokun@linux.alibaba.com>, <jack@suse.cz>, 
+	<ojaswin@linux.ibm.com>, <ritesh.list@gmail.com>, <yi.zhang@huawei.com>
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+Date: Fri, 20 Nov 2026 10:54:57 +0800
 
-In switchdev mode, rx_add_rule() calls
-mlx5_esw_ipsec_rx_setup_modify_header(), which allocates a mapped ID for
-the SA in ipsec->ipsec_obj_id_map. If a later step fails, the error path
-frees the modify header but leaves the ID in the XArray, and
-mlx5e_xfrm_add_state() then frees the SA entry. Each failed inbound
-packet offload SA leaks one of the 2047 IDs. Once they are used up, no
-new inbound SA can be offloaded until the IPsec context is cleaned up.
+ext4 initializes its free-space counters from the group descriptors. A
+corrupt descriptor can advertise more free clusters than its group can
+hold. Journal block replay can also replace the superblock and group
+descriptors that were examined when mounting.
 
-Release the ID on the error path under the same condition that maps it.
-This label is reached only after the mapping succeeded and stored the
-new ID in rx_mapped_id, so the copy that mlx5e_accel_ipsec_fs_modify()
-passes in never loses the ID of the original SA.
+This series adds an optional JBD2 recovery callback and uses it in ext4
+to validate the recovered geometry and group descriptors. It checks the
+metadata before fast commit replay and checks the descriptors again
+after fast commit replay. Both halves of the group free-cluster count
+are read under the group lock.
 
-Fixes: 91bafc638ed4 ("net/mlx5e: Handle IPsec offload for RX datapath in switchdev mode")
-Signed-off-by: Changyul Lee <lcy8047@gmail.com>
----
-Changes in v2:
- - Release the ID under the same condition that maps it, as suggested
-   by Jianbo.
+Changes since v2
 
-v1: https://lore.kernel.org/all/20261118051247.3885308-1-lcy8047@gmail.com/
+- Skip restoring and writing out superblock error information when
+  journal load fails.
+- Drain deferred EA inode evictions before checking descriptors after
+  fast commit replay. If replay fails, drain the work before restoring
+  the read-only flag. Leave fast commit state cleanup to the mount
+  failure path.
+- Reject changes to the casefold feature and encoding settings during
+  journal recovery.
+- The JBD2 patch is unchanged.
 
-Found with a static analysis tool we are developing.
+Changes since v1
 
-Jianbo tested the same change on ConnectX-7 in switchdev mode with fault
-injection on one RX SA add: 46 of the 2047 IDs were lost without the
-fix, none with it:
-https://lore.kernel.org/all/96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com/
+- Keep the descriptor checks needed to load the internal journal and
+  defer full validation on recovery mounts until block replay completes.
+- Revalidate the recovered geometry and reload the descriptor table
+  when replay changes its layout.
+- Put the JBD2 interface in its own patch and read the free-cluster
+  count under the group lock.
 
-On our side it is compile-tested only, with x86_64_defconfig plus
-MLX5_CORE_EN, MLX5_ESWITCH, MLX5_EN_IPSEC and W=1.
+Testing
 
- drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c | 2 ++
- 1 file changed, 2 insertions(+)
+Built fs/jbd2/ and fs/ext4/ with arm64 GCC 15.2 and W=1 at both
+patch boundaries with CONFIG_UNICODE enabled.
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
-index 5c69e89b13a7..1f0ed8ab75d5 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
-@@ -2163,6 +2163,8 @@ static int rx_add_rule(struct mlx5e_ipsec_sa_entry *sa_entry)
- err_pkt_reformat:
- 	if (flow_act.modify_hdr)
- 		mlx5_modify_header_dealloc(mdev, flow_act.modify_hdr);
-+	if (!attrs->drop && rx == ipsec->rx_esw)
-+		mlx5_esw_ipsec_rx_id_mapping_remove(sa_entry);
- err_mod_header:
- 	kvfree(spec);
- err_alloc:
+Runtime tests of v3 covered these cases.
 
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
--- 
-2.43.0
+- Mount rejected out-of-range free-cluster counts. The recovery
+  callback rejected corrupt descriptors with an empty journal and
+  when corruption persisted in a separate descriptor block after block
+  replay. Recovery succeeded with valid descriptors after block replay.
+- When post-replay validation failed, ext4 skipped the superblock
+  writeback used to restore error information.
+- Read-only recovery completed fast commit replay and reached the
+  second callback. Deferred EA inode eviction completed without an
+  EROFS error or warning.
+- When fast commit replay failed with pending EA inode evictions,
+  recovery drained the work before clearing the replay state.
+- Recovery of an existing casefold filesystem loaded its encoding.
 
+Earlier testing verified recovery of a previously resized image at
+the expected size. In a separate test, the recovered superblock
+reported four groups, up from two before replay. Recovery reached
+descriptor validation and rejected the block bitmap location for
+group 2. It remains to be established whether JBD2 replayed a valid
+group 2 descriptor into the block that ext4 read.
+
+Successful recovery of an online resize across a group descriptor
+block boundary remains unverified. Rejection of casefold settings
+changed by journal block replay also remains untested.
+
+Link: https://lore.kernel.org/linux-ext4/20261102042428.65204-1-zhaogongyi@bytedance.com/
+Link: https://lore.kernel.org/linux-ext4/20261119122601.85293-1-zhaogongyi@bytedance.com/
+Link: https://lore.kernel.org/linux-ext4/sashiko-outbox-223131@kernel.org/
+
+Zhao Gongyi (2):
+  jbd2: add a metadata validation hook to journal recovery
+  ext4: reject impossible group free cluster counts
+
+ fs/ext4/balloc.c     |  10 +-
+ fs/ext4/ext4.h       |   2 +
+ fs/ext4/super.c      | 332 +++++++++++++++++++++++++++++++++----------
+ fs/jbd2/journal.c    |  22 ++-
+ fs/jbd2/recovery.c   |  38 +++--
+ include/linux/jbd2.h |   7 +-
+ 6 files changed, 316 insertions(+), 95 deletions(-)
+
+base-commit: 4aa05e642bade8cf8405936b03cabf848fe6c456
