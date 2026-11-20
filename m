@@ -1,58 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=141.14.17.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170243;
-	b=Wc19nw09I1XroQz/dL+0S2og42/8nlxaDm29aDGb5qf2xxqk4fpWxlhNjTftq1UL+JRf
-	 8TNjxiaWrcNIhOYGnteE+YIFo7/ixj4wejEDM76r6SgTnrob8gQcT8EuMdTHqqpkdY757
-	 WKIpgkoU6BW+3VG3Dop3DdSRU8Fa8AiDZWTf48OnU39rcj9LvfUn0Jgoq5QRBbMu92fxQ
-	 v2R6SY1G20lROn7iUl+j6l7s2TDCU+TyW8Vi0J4I2PcHpQ7NLrABUYD2u8MJO6xLoGR0O
-	 40Xrrhnk5vMhjLDUkYGkU9JGQJKnQ5zSgU+nBcNgGnbXDLKgKrf0NErLpxS1NyU3DsA==
+	t=1795170245;
+	b=VktG3TZy9eck6IA1BeyaJiAn8DOjvQsosr/PLYv5aVm99EP+6pmQ+Tcr3Hhtxo16r2ws
+	 478sUd237uFqq/pZkacvCrbyEi3C1HLXUuC3SnDlohRX3v/amJ5wZvm5msPKBJzYEPCjs
+	 /9btjWN3W3WHvSM83bT3RcQZuRyG/pJZpOgtz+NJ16M+lW/DADaU8badK1Dc24uExofQp
+	 X3cIKfugaRcqIyP6/F0tNbRYXGAvirLL4dn1RDIg7v9f6l9xGJ9m9AxJK3fDrJMYuKdIT
+	 k9hbvpb1H/0Uyz8TJm0SKgOWR4yWjE3RPMNkh3JWeHdXgkWllXiWJ3IsmOAkGTEFg5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170243;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:DKIM-Signature;
-	bh=cVfqNllX9psHaNp12DgFISsct/0PG6DEg+CaJsd/m3A=;
-	b=yy+ZcJ5OmfAEydUNbqPklADYhwjdvsaWCt9Q0sasLJnWZvwtgYwF/SUsaMkSJBtmZTZO
-	 A9Cy3UaNhcMvgu7fBg2Xf9lxaorlyC+T4UinKX/DZdKU5CpzVP/4PzmDi3MY0/FqSUjNa
-	 IGPlWpDP3gYVPBO1nTm5Y5b9o5uD/MsYI2XFxStYlKTh40kVkSr6TmRli7kEvrbMgRnMX
-	 FopS0HmYY2kJzBkeTlOarZIBqWwCiOKXXK0v82iZLnyLt4HcOkHZZe6f7l2/hIAMl5lnd
-	 hGKxmtwRXlJIhy/3Ou7IhVM9lzCRSRsthIzqS/aD2zEGw2XNalo6w1qHhA43HA9n+5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170245;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
+	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=h6r3Ix1xwC9XchGuTQiH8mjQfK7hpJKLEMuo4rJ/E3A=;
+	b=eSgs3OO5UsypFRUl1ZQhHCMbKTBaqcHmEUvq+I/nODCsxrTJXqRbnOwdxUOTH96HEWbY
+	 V2En5hkM6u7DPKfcjB+/Rc4DGKd8WXgMEC3z/XYrhibiZAmV2/laW7Pw7sDbvQN8EGxCM
+	 p2mATIcbuujCflYiYMhZ/V122BJBunUeONzPz0qg10dd9VihXFiu5LXtN1qPCFcg3mrvA
+	 hDZJGNRsp7y+m6NN2zk0UP9qNxXD6FPEAe29qfwBWIU446PX3zop68wJxychVjjVtMM4x
+	 oVToj0S07DEq+W9RebXqRMZSRoOhvJDdRM67nfFTkRl1blXxqUrHKgj4eTjC29EhtTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=molgen.mpg.de;
-	spf=pass smtp.mailfrom=molgen.mpg.de;
-	dkim=pass header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=E9D0948W;
-	arc=none smtp.remote-ip=141.14.17.11
-Received: from mx3.molgen.mpg.de (mx3.molgen.mpg.de [141.14.17.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKVhaMIt;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A75F606A325;
-	Fri, 20 Nov 2026 10:24:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A75F606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=molgen.mpg.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=molgen.mpg.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79D6B60A260B;
+	Fri, 20 Nov 2026 10:24:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79D6B60A260B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=molgen.mpg.de header.i=@molgen.mpg.de header.a=rsa-sha256 header.s=20260906 header.b=E9D0948W
-Received: from abreu.molgen.mpg.de (g42.guest.molgen.mpg.de [141.14.220.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pmenzel)
-	by mx.molgen.mpg.de (Postfix) with ESMTPSA id BD7564C2F3FFBD;
-	Fri, 20 Nov 2026 11:23:16 +0100 (CET)
-From: Paul Menzel <pmenzel@molgen.mpg.de>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Kees Cook <kees@kernel.org>,
-	Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Diogo Ivo <diogo.ivo@siemens.com>
-Cc: Paul Menzel <pmenzel@molgen.mpg.de>,
-	linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] watchdog: intel_oc_wdt: Stop the watchdog during system sleep
-Date: Fri, 20 Nov 2026 11:23:09 +0100
-Message-ID: <20261120102311.621074-1-pmenzel@molgen.mpg.de>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=mKVhaMIt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795170245; x=1826706245;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5AE1nAjcNJJU2gyRZqdIvf+1tgh3aoinnWqjDwIMxtc=;
+  b=mKVhaMItGT4Egy9ekVKEvtO/c4tlR1ahSvTD7iZqTHGrqD1/+uKkt3sh
+   EjbRpWLccNYyLX1+ejQSNkQenJBk9+pNoQFTuungUpOr5kKIk3Tfztcsl
+   PF6j3qpL2mt8kMd1qFgEcVnxuQ8x6ZPob6PppYBWkBrSZOUSyqFmQzrz9
+   kTql10AE/VVxZG28yM0XdANvoFbFoX3uCEIskOA2iataPgSpkxxGEyvTc
+   UqD9sjfbqm0HkOCWxE5bepmOtie7BE/Esh61NktmJeJbqVIZZBDsLkjrE
+   5QnTvY/SscTMhrVFJ2J39OplbI0cPYJZ7Qq0FikYmcifZpaU3+fIO5IKt
+   Q==;
+X-CSE-ConnectionGUID: KTrMrvBrS9u4x6xrRXJOqw==
+X-CSE-MsgGUID: 94iKO1WxSGehrN0oM3oMgg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4090283"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4090283"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 02:24:05 -0800
+X-CSE-ConnectionGUID: 3EQSMVKRQL2pukqWbfAhzA==
+X-CSE-MsgGUID: 09jZu8IhSkmZ7Zy8sYdLzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="12375021"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.253])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 02:24:03 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id E079E121B79;
+	Fri, 20 Nov 2026 12:24:01 +0200 (EET)
+Date: Fri, 20 Nov 2026 12:24:01 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Nguyen Hai Phu <nguyenhaiphu06@gmail.com>
+Cc: Bingbu Cao <bingbu.cao@intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] staging: media: ipu7: Remove unused struct
+ ia_gofo_secondary_boot_config
+Message-ID: <awAfwSVfYQTB_FCC@kekkonen.localdomain>
+References: <20260507151446.153614-1-nguyenhaiphu06@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,160 +86,22 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=molgen.mpg.de; s=20260906; 
-	t=1795170197; 
-	h=from:from:subject:date:message-id:mime-version:content-type:content-transfer-encoding; 
-	bh=cVfqNllX9psHaNp12DgFISsct/0PG6DEg+CaJsd/m3A=; 
-	b=E9D0948WYT4XQGSDlwqClbYwSMsgu4Z7IOCCeUZrEaXk4Xmivxu9lutVdODzUjX/JGyF7XUSEDWu
-	27e7IHwkFSDbJ6Fd/5qeKoxJuIKs7QJzcsmWZjHmElbOQS17KVDBTRGSeyn90eWvB5kiNJAd9vcmvj
-	Tf6ONk/mSwr8RKTtwZTuwOtt4cvWqGbYb1yTIAnlH+RtqibXY00wIZCV27OVtMB2ZQZu2RzcZf4K3y
-	YkMjUD4FfKUn5VQ1X9CpinLrLNl5ZPNXWuEhT9RqVilhv1PepTdq7zfBfpNXc8FN1IzhL9WurCb9Dy
-	XOhiz+Se8uDKX0G4rmSN/Jjyx2iEy1oA==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260507151446.153614-1-nguyenhaiphu06@gmail.com>
 
-The driver has no system sleep callbacks, so a running watchdog keeps
-counting in suspend-to-idle. Suspend-to-idle stops the tick, so neither
-user space nor the watchdog core can ping it, and the watchdog resets
-the machine once the timeout expires.
+Hi Nguyen,
 
-On a Dell XPS 13 9310 (Tiger Lake, BIOS 3.17.0, no ACPI S3) with systemd
-`RuntimeWatchdogSec=30s` on /dev/watchdog-oc, both `rtcwake -m freeze -s
-900` and `rtcwake -m freeze -s 60` resulted in a reset about 30 s after
-entering suspend, without any message in the journal or in pstore. With
-the systemd runtime watchdog disabled, the system stayed in
-suspend-to-idle for 900 s and resumed normally.
+On Thu, May 07, 2026 at 10:14:27PM +0700, Nguyen Hai Phu wrote:
+> The struct ia_gofo_secondary_boot_config in abi/ipu7_fw_boot_abi.h is
+> not used in the driver. Remove it to cleanup the ABI headers.
+> 
+> Signed-off-by: Nguyen Hai Phu <nguyenhaiphu06@gmail.com>
 
-Stop the watchdog in the noirq suspend phase and restart it, with a
-reload, in the noirq resume phase, as iTCO_wdt does. Check the enable
-bit in hardware rather than watchdog_active(), so a watchdog started by
-the firmware, which only the watchdog core pings, is covered too. If the
-control register is locked, the watchdog cannot be stopped, so leave it
-alone.
+The patch is fine but we're about to remove the whole driver so I'm taking
+fixes only at this point.
 
-Also program the timeout again on resume, whether or not the watchdog
-was running: the platform firmware may reset the control register, and
-when resuming from hibernation, it holds the timeout the boot kernel
-set. intel_oc_wdt_start() only sets the enable bit, so a timeout set
-with WDIOC_SETTIMEOUT would otherwise be lost.
-
-Unlike iTCO_wdt, do this for all sleep states and not only for
-suspend-to-idle, as it is not documented whether the platform firmware
-stops the OC watchdog in ACPI S3 or S4. Hangs in the device suspend and
-resume callbacks outside the noirq phases are still caught.
-
-Tested on a Dell XPS 13 9310 (BIOS 3.17.0) with the module built for
-7.4.0-rc1 and systemd RuntimeWatchdogSec=30s:
-
-- rtcwake -m freeze -s 120 resumes normally; the stock module reset the
-  machine in 2 of 2 attempts.
-- TOV restore: with the watchdog armed, overwrite TOV with 0x3b (60 s) via
-  outl, as the firmware might, then rtcwake -m freeze -s 60. v1: register
-  0x0080603b after resume (TOV 60 s kept). v2: 0x0080601d (TOV 30 s
-  restored, EN set), watchdog still running 40 s later.
-
-Fixes: 535d1784d8a9 ("watchdog: Add driver for Intel OC WDT")
-Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
----
-
-Notes:
-    Changes in v2:
-    - Program the timeout (TOV) again on resume, also when the watchdog was
-      not running, as the firmware or, after hibernation, the boot kernel may
-      have changed it (Sashiko review of v1)
-    
-    v1: https://lore.kernel.org/all/20261119210358.610521-1-pmenzel@molgen.mpg.de/
-    
-    Tool use: Claude Code (claude-opus-5-5) found the reset while measuring
-    s2idle power, wrote the change and the commit message; compile-tested with
-    W=1 (CONFIG_PM_SLEEP=y/n), checkpatch-clean.
-
- drivers/watchdog/intel_oc_wdt.c | 52 +++++++++++++++++++++++++++++++++
- 1 file changed, 52 insertions(+)
-
-diff --git a/drivers/watchdog/intel_oc_wdt.c b/drivers/watchdog/intel_oc_wdt.c
-index 0b012aeb18e15..4400a2a8811c9 100644
---- a/drivers/watchdog/intel_oc_wdt.c
-+++ b/drivers/watchdog/intel_oc_wdt.c
-@@ -44,6 +44,7 @@ struct intel_oc_wdt {
- 	struct resource *ctrl_res;
- 	struct watchdog_info info;
- 	bool locked;
-+	bool suspended;
- };
- 
- static int heartbeat;
-@@ -204,6 +205,7 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
-+	platform_set_drvdata(pdev, oc_wdt);
- 	watchdog_set_drvdata(wdd, oc_wdt);
- 	watchdog_set_nowayout(wdd, nowayout);
- 	watchdog_stop_on_reboot(wdd);
-@@ -212,6 +214,55 @@ static int intel_oc_wdt_probe(struct platform_device *pdev)
- 	return devm_watchdog_register_device(dev, wdd);
- }
- 
-+/*
-+ * Neither user space nor the watchdog core can ping the watchdog while the
-+ * system sleeps, and in suspend-to-idle the counter keeps running, so stop the
-+ * watchdog late in suspend and restart it early in resume. Check the hardware
-+ * enable bit, as the watchdog may also have been started by the firmware.
-+ */
-+static int intel_oc_wdt_suspend_noirq(struct device *dev)
-+{
-+	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
-+
-+	oc_wdt->suspended = false;
-+
-+	if (oc_wdt->locked ||
-+	    !(inl(INTEL_OC_WDT_CTRL_REG(oc_wdt)) & INTEL_OC_WDT_EN))
-+		return 0;
-+
-+	intel_oc_wdt_stop(&oc_wdt->wdd);
-+	oc_wdt->suspended = true;
-+
-+	return 0;
-+}
-+
-+static int intel_oc_wdt_resume_noirq(struct device *dev)
-+{
-+	struct intel_oc_wdt *oc_wdt = dev_get_drvdata(dev);
-+
-+	if (oc_wdt->locked)
-+		return 0;
-+
-+	/*
-+	 * The timeout in hardware may have been reset by the platform firmware
-+	 * or, when resuming from hibernation, set by the boot kernel, and
-+	 * intel_oc_wdt_start() does not program it.
-+	 */
-+	intel_oc_wdt_set_timeout(&oc_wdt->wdd, oc_wdt->wdd.timeout);
-+
-+	if (!oc_wdt->suspended)
-+		return 0;
-+
-+	intel_oc_wdt_start(&oc_wdt->wdd);
-+	intel_oc_wdt_ping(&oc_wdt->wdd);
-+	oc_wdt->suspended = false;
-+
-+	return 0;
-+}
-+
-+static DEFINE_NOIRQ_DEV_PM_OPS(intel_oc_wdt_pm_ops, intel_oc_wdt_suspend_noirq,
-+			       intel_oc_wdt_resume_noirq);
-+
- static const struct acpi_device_id intel_oc_wdt_match[] = {
- 	{ "INT3F0D" },
- 	{ "INTC1099" },
-@@ -223,6 +274,7 @@ static struct platform_driver intel_oc_wdt_platform_driver = {
- 	.driver = {
- 		.name = DRV_NAME,
- 		.acpi_match_table = intel_oc_wdt_match,
-+		.pm = pm_sleep_ptr(&intel_oc_wdt_pm_ops),
- 	},
- 	.probe = intel_oc_wdt_probe,
- };
 -- 
-2.54.0
+Kind regards,
 
+Sakari Ailus
