@@ -1,94 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180189;
-	b=Vdhh0zxWJKNgEvt46Z4GWgUw7fCJff4HR1G0kW3thHGim9i148gTKa6pncHAwoM3CnWq
-	 lnsbZUrsRcvIq1LIEQ/SNCXI3hj5jqgkVeYX2Mhn48SEXsFHkU3fvHDcZKkUYJyVqwG5z
-	 u2toAT3NRVm/FZ6fGBIbKYVg4+2cbiF0mHq6tC0NLp9oCgChJY1Jwbe7mqwLl+aoiljv/
-	 K5TKtSM6vB1bSKwH0moT+QwwwXPqexB5fcP9Vi58c+2ALvIa6kfaLknfV6pY+4x2bN+tC
-	 +j52zZsnWoEK34gZwRTvhm5eLgjxC9QHXMKnoA1ADTzkdDArAcGVmOv0VbKrBNuG+Bg==
+	t=1795180218;
+	b=0vb08UhQy/KmiGEhlDp4hK6MbXfbxgqb39hWr6HEwhWEXy1A7lP2d92UbKN2iswxk9jr
+	 hRwKttvOqroYZ/fNhnjxvLUsy6CmQgvQLuQpygkN9wR2dJLjJSn2ORMt+aajp6GsDWrUc
+	 RCb0LDqeP1Zn0tIicIajdB5FczOZimWk7pEsilvvmnQJjaEKa6fLh/AqLOjMJRST6XVya
+	 LXEEtDw8DYCXPN0cw6Az30m3LD64ppzEt2mt30leV6CA/+rqstCPL6NUcDXnMML34+vBT
+	 QcH2xOcNWkt5Mt6Cktx4shr86hsX8xRQDcdMP/dDbUtf6JVazlrh2pJ/frdszcSzInw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180189;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-	b=DzZQMFCMMD4OXBbKqdguGBHrlTC3Db2QHilAdHtoklvmBgbpCCS0P/PTaXJWa95VpO0n
-	 TKtkSvP/e6iqOLAfuWXYIMdbuml4CE5IdmTMOxCpA/c9ZdLMlIAuMvLfDBLpIPeMTzCNO
-	 hB9s+2JRPooqTqr2hh3bOTLa+Shru4OCAoA864CQ07h/iNTLggRJt6i10ZPyVbuOlRDMq
-	 d+DYMdmSwgirpEagIQ3w71xbI82osY260ptnU4P0YYgN6ifka2NzAmtrYnmKQ2Rert04G
-	 h1HxtCxm36XolcwNQ2PkF5Mf0H2OIaXDtjr/bY8OSplVXZwXHWJMwrB8IhxAnlo773Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180218;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Bh0XbDrI2hg3GpbJADUXfor6MClrFyYoyxbyUQk7gjc=;
+	b=cMooWix9vsdJqsEPyTTS3Lu+po4HEzXooyGw4n/FuBboy/zIK2hoh4JxcPTqiCHSQYu+
+	 n7frwJNNVlriR4z6rJgVyctaasj4Gu6Xk15dyTPVD4oyknkD2Y4A5EEVr/wJcxqWI1BIA
+	 a9JPPMb52g4WJxdMsadM9HGNUq41tu0Dl4AR5MZ7jyObWzwLPpyhUHplSwlyFMjxS6y7w
+	 zXGbBLjY9mJ/UqBUHww78mPqHRKGcCCVaHCo4uy0qtWtfwqTDYPGbMh83BRhHIP2lnii6
+	 R9qQ3e//35cp02u6fOYev/IQIc1j+Mhq3dbj2COYSAh5ExczUiyk2zcxxS4n1ovNaYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=drzTDjW4;
-	arc=none smtp.remote-ip=209.85.128.48
-Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WbWSOIOW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD386606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:09:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD386606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBDFE606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=drzTDjW4
-Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-4bb606491faso4484575e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:09:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795180187; x=1795784987; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-        b=drzTDjW4/nNLRZEdJoCJx1omj6WL1lebcgmuj0Eb0nlFTRlwDk9qfHsmxL8nwMbx3I
-         Qs3y7WVIrAnMyxeNL1T7t69ozdoDb/cnDLgNuYO3KG6uypPDlyVPmmTtaYnY23orgGON
-         t0i/LO8MlcEdq/i4LW8F/29zpR/hwoN8jJEc7dkEpZoDxywH3XARYRK/lzwRr9trqjXN
-         9/E/AzRi/pjJ/dFia5u8N7nCSHbUlCPaeVifslbZVyrpCjPh4JNg8khdZIiFzfHVocs9
-         QPEyCnoeO/MgAYT/VKiPogIE51kSCM5BJm16sYfyZx6PG4+4HcvB68zRb/Qcs2yHMDqo
-         9fCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795180187; x=1795784987;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PCl9o2L0h4hjzIUzxQ9Hw7xDucu8RfGeY02waG4S6Mk=;
-        b=iLmb3USfoegO1suJc/wMKVqiUI7widJ43FCKyn9fyC//MDh9GAmaRxf/TrWCDnCsGU
-         9DW4uoT8WVV3P0mZX4NBVXMSclbmIMQvoMOPpYt7gqVqnnExYd1fIZr7j+4Z91FRp6C+
-         b31XeaWL0SxPzUuQAlzFIwOPJHabDwHBXFFey/vvB/neGFkeNpw4M7QWR60XP6z2NEe1
-         /3b9BT2i1LDPwU6dGSSp8KNCQ6zVgw4mdCdlh/UB9VWTwSo1F1R9N/Frp8anTynao8ul
-         OigWI5khjCch2gJM8D4tiy7cjvNCFp+QlRxr2y1PNpw5PikrkfApExlj2sFzXn8jhFI1
-         nqdA==
-X-Forwarded-Encrypted: i=1; AL+hErFi60e7Uj3GKD9e2vHjVsYXz/aknlhOFPTC5qeR1uh9myO3FxCksK9h5WP9rEfni3AWOP5GmUhDet6r6ls=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MD8Eggx0FCGgPKL17ATGsyyfeV7JlZ1WK8ZtlU9LZbKnXc5HD
-	wJXzYu5JTxuvZdK/N7ybq1xX+lbCu9wmBpPmuHKiEdlZKgxv4+zsh1IUzXNF4yv+Nf4Q2Pnil+Y
-	XlpqNnds=
-X-Gm-Gg: AYBFou24ryfUlkEe6HCMa95majQkVmq427XcVhWYZquC5HnjSAX9J6g0d4vfXcVlfCd
-	E2koDvhBQ5CbvJeqVRwFfYluZKVrfkjLDlcRiXYJEmxaUqwNW9hwDG+gY1ir7GtfupgyS99XpyU
-	pgd2cZXewAIb3EnQwH7HHnc5u/4nf1t8e8pT0a0PCeaQTFluxQ0MFYtzVxxi8uhBSGpr4KF1u9n
-	YOV2ksF8C1J76TH2xY9wZlIcRHm015zIzyyiysNwNk5iim4o0bdPjwelUCytpB+1REWW+reuhx0
-	y1aByYHAm1FVqAV/dvFBqZtQEire6Db8d8MPyWGjWU9o+DkCi9jWLE8UYZgqB7SMupnWGC2Hatr
-	ePck6+dI+YNnmnbVmAulJwietOFy6iM+gH8Y4JGzJgYG0FhGD7yG8nxptUxjobTvegZykd4ZBTd
-	w/jIRTsj6pSHhwRuPiEsFFjBSiz7JhyxhAbOK4BVAqXGMIJaOheOQXAzCtpOdgCg4VIS50S2X58
-	bZ9Kf9a+bSKBb7FszoDC9bvYynMHn7larFejNMKrbAKBXYeuDq3VBriSmH8BvgSRl0bmIZXGEnL
-	oBM7KUD46kF687GU/Es2RFCXtgTC7/w=
-X-Received: by 2002:a05:600c:8210:b0:4a1:dbdf:17a8 with SMTP id 5b1f17b1804b1-4bb887e25e8mr70450305e9.2.1795180187116;
-        Fri, 20 Nov 2026 05:09:47 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884b8429sm129169365e9.14.2026.11.20.05.09.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:09:46 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:09:43 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: john.ogness@linutronix.de, rostedt@goodmis.org,
-	senozhatsky@chromium.org, paulmck@kernel.org,
-	printk@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] printk: ringbuffer: Annotate speculative record reads
-Message-ID: <awBGl4wZKT6tmgqG@pathway.suse.cz>
-References: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WbWSOIOW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48ED91F000D0;
+	Fri, 20 Nov 2026 13:10:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180218;
+	bh=Bh0XbDrI2hg3GpbJADUXfor6MClrFyYoyxbyUQk7gjc=;
+	h=From:Subject:Date:To:Cc;
+	b=WbWSOIOWM7apluZo0JJ51s90y4wJj8uDc19GKxP5+fFORH9J75F7ozHHRceBDLjLW
+	 mCarsiWVCqm/AxgYCUprgi66Bpw6h1/ZHoA0nIcJKcaRiQ5SaQE4/WBLvHuwz745Op
+	 HiD3wjoLP/RWdNfs9qK9dQvXI8IteV7vd6LOmBVRIEkoFqbB6iSzGBoY62y4PUGfsG
+	 SQbQ4+Tjn5zVpMzxLVOKgXM2gJmp7+zUga/QzH6CTyr5KVC4hZ/vQHwDJdLp1eyAnD
+	 T/O9IST3hxFQOFa9E336ITXxFLgtUnvRivMfpM5L2ZP7q/85gbiylEuzpxsSS8H2X5
+	 +GyzSvZkC+WEw==
+From: Maxime Ripard <mripard@kernel.org>
+Subject: [PATCH v12 0/9] drm: Add DRM_MODE_ATOMIC_RESET flag
+Date: Fri, 20 Nov 2026 14:10:07 +0100
+Message-Id: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,25 +53,202 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/4XTS24bMQwG4KsMtDYLUu/xqvcospBGlCM0tltpY
+ iQIfPdiEqCeQhC65eIj+YP8EI1r4SaO04eofCutXC/iOJE8TGJ5DpcTQ0niOAmJ0qJDD6meoXL
+ jFdoaVob8Ek4gc5TROKI8O3GYxK/Kubx9uj+eDpN4Lm291vfPNjfaqv8BbwQIi3Jpmb3R3qTvP
+ 7le+OXbtZ7EJt7kQ/EkB4oEBJ7twqQUudQr6qHMw1kUIMxojMOsvAu6U/ROoZGiAcGERGiVw4y
+ mU8xfhZDsQDGAkEKSyepoZxU7xe4UOcrFAkJWNlmN0bGzneJ2isKB4gBBszEcOLD1qlP8QyEcb
+ eS3XDAn1DY6NLlT5p1Co1nmLZcUkaVVUgfsFMI9MwqGcLs7ziEQJzS2vxiivTNairb7Vc5HlV3
+ krOQ/zv3rRSr/fi2trF9/ImJoDMv1fC7rcdrYc2kLXPhtha0bEAHN4ul+/wNREL9ctgMAAA==
+X-Change-ID: 20260708-drm-reset-state-flag-2fb2b5711f97
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Daniel Stone <daniels@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Jocelyn Falempe <jfalempe@redhat.com>, 
+ =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
+ =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
+ Victoria Brekenfeld <victoria@system76.com>, 
+ Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
+ Daniel Stone <daniel@fooishbar.org>, Leo Li <sunpeng.li@amd.com>, 
+ Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ amd-gfx@lists.freedesktop.org, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Rob Clark <robin.clark@oss.qualcomm.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Abhinav Kumar <abhinav.kumar@linux.dev>, 
+ Jessica Zhang <jesszhan0024@gmail.com>, freedreno@lists.freedesktop.org, 
+ Oarora Etimis <oaroraetimis@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6841; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=Oh7HL7XBFWKY3ltxWWE6ykCPewGxD6IZnl6uZB6OJrI=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbpvqzqkVvnt6an9TrdKx9YdYExdLn831VTz6fp5t8
+ rrcgssrO6ayMAhzMsiKKbI8kQk7vbx9cZWD/cofMHNYmUCGMHBxCsBE4q8x1scsVY9KOf7yWctx
+ W6avCWwLWWPKFS83+elqTpAr/lJ/KejpUtEe2ST9s1sNvz2JlzWZw9gwf7LmJacdEhYfHYz2X9i
+ kn85+2qC17tprGbs9sd+ZND6nZYSmPE5+9fPWxMdhuXYurzUB
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-On Fri 2026-11-13 15:50:38, Zhu Jun wrote:
-> Readers may copy a finalized record while a writer recycles its storage.
-> prb_read() checks the descriptor again after copying and rejects records
-> that have changed, but the plain metadata and text accesses still trigger
-> KCSAN reports.
-> 
-> Annotate the speculative copies, line counting and length read with
-> data_race(). The descriptor validation continues to determine whether
-> the copied record can be used.
-> 
-> Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
-> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Hi,
 
-JFYI, the patch has been committed into printk/linux.git,
-branch for-7.5-trivial.
+Userspace currently has no atomic way to bring a display pipeline back
+to a pristine state. A compositor that wants to start from a known
+baseline must explicitly set every property on every KMS object to its
+default value, which requires tracking which properties exist and what
+their defaults are. This is fragile and must be updated every time a
+new property is added to the kernel.
 
-Best Regards,
-Petr
+This series introduces a new DRM_MODE_ATOMIC_RESET flag for the
+atomic ioctl. When set, the kernel fills the commit with default
+states for all KMS objects before applying the properties supplied in
+the request. Properties not explicitly included remain at their
+defaults. This allows userspace to describe the desired end state
+declaratively, without caring about the current state or the full set
+of properties.
+
+A driver-specific property is added to vkms planes for testing.
+Standard properties are impractical for this: compositors like Mutter
+enumerate all known properties, making it hard to isolate the reset
+behavior in a test.
+
+Mutter has a working implementation using the new flag, with a
+vkms-based test exercising the reset behavior:
+https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/5309
+
+And we have IGT tests as well:
+https://lore.kernel.org/r/20261112162147.766264-1-mripard@kernel.org/
+
+Let me know what you think,
+Maxime
+
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+Changes in v12:
+- Re-add drm_lease flag to differentiate an empty from a revoked lease
+- Link to v11: https://lore.kernel.org/r/20261116-drm-reset-state-flag-v11-0-378b3f7bef32@kernel.org
+
+Changes in v11:
+- Reorder object state allocations to be more robust against lease revocation
+- Bring back lease revocation check
+- Link to v10: https://lore.kernel.org/r/20261112-drm-reset-state-flag-v10-0-cefaa1ed056d@kernel.org
+
+Changes in v10:
+- Stop trying to make partial lease work, they aren't meant to exist, so
+  we can simply error out when they happen
+- More tests for zpos and color management
+- Fix DPU1 issues reported by sashiko
+- Link to v9: https://lore.kernel.org/r/20261110-drm-reset-state-flag-v9-0-ddb0e26324a0@kernel.org
+
+Changes in v9:
+- Add a flag to know if leases have been revoked or are empty
+- Handle the situation where a leased plane or connector being reset
+  would disable an unleased CRTC
+- Add more kunit tests to cover the new issues reported by sashiko
+- Fix reset-related bugs in amdgpu, vc4 and msm DPU
+- Add a vc4 kunit test for its reset related bug
+- Link to v8: https://lore.kernel.org/r/20261106-drm-reset-state-flag-v8-0-50fd046b705f@kernel.org
+
+Changes in v8:
+- Fix more leases issues
+- Drop applied patches
+- Link to v7: https://lore.kernel.org/r/20261030-drm-reset-state-flag-v7-0-4e55eaeae683@kernel.org
+
+Changes in v7:
+- Fix a whole bunch of sashiko issues to deal with color_mgmt_changed,
+  leases, partially leased devices (like a plane leased but it's crtc
+  isn't) and the interaction with PAGE_FLIP_EVENT better
+- Fix crtc create_state implementation for ssd130x
+- Actually make it possible for a compositor to recreate the same whole
+  state without passing ALLOW_MODESET
+- Fix EDEADLK bugs with kunit tests
+- Don't report DRM_CAP_ATOMIC_RESET on !atomic drivers
+- Fix error handling in vkms for the new property
+- Add more kunit tests for the new corner cases
+- Link to v6: https://lore.kernel.org/r/20261022-drm-reset-state-flag-v6-0-f36d640b7e76@kernel.org
+
+Changes in v6:
+- If using a lease, only considered the leased objects
+- Fix amdgpu plane atomic_create_state implementation
+- Link to v5: https://lore.kernel.org/r/20261016-drm-reset-state-flag-v5-0-dad2d64b693b@kernel.org
+
+Changes in v5:
+- Fix bisection issue
+- Improve the documentation
+- Fix connector hotplugging issue
+- Added kunit tests for drm_atomic_commit_fill_with_defaults()
+- Link to v4: https://lore.kernel.org/r/20260918-drm-reset-state-flag-v4-0-5ad106370f05@kernel.org
+
+Changes in v4:
+- Improve the drm_atomic_get_private_obj_state and
+  drm_atomic_get_connector_state array reallocations
+- Return void on functions to insert an object state into a commit when
+  it cannot fail
+- Rename drm_atomic_can_create_state() into
+  drm_atomic_implements_create_state()
+- Move capability check from drm_atomic_commit_fill_with_defaults to its
+  caller 
+- Added IGT test
+- Link to v3: https://lore.kernel.org/r/20260908-drm-reset-state-flag-v3-0-905570f387a4@kernel.org
+
+Changes in v3:
+- Rebased on top of the latest atomic_create_state series
+- Sebastian Wick created and tested this work with mutter and vkms
+- Fix colorop locking
+- Link to v2: https://lore.kernel.org/r/20260812-drm-reset-state-flag-v2-0-e96ce13317dd@kernel.org
+
+Changes in v2:
+- Fix bisection
+- Add capability to let userspace know if it can reset the state
+- Link to v1: https://lore.kernel.org/r/20260708-drm-reset-state-flag-v1-0-c37dc985485d@kernel.org
+
+---
+Maxime Ripard (8):
+      drm/lease: Add a helper to tell whether a lease was revoked
+      drm/atomic: Add drm_atomic_implements_create_state() helper
+      drm/atomic: Allow filling a commit with pristine object states
+      drm/tests: atomic: Add tests for drm_atomic_commit_fill_with_defaults()
+      drm/amd/display: Take over the current stream and dc_state
+      drm/vc4: Carry the HVS channel over to created CRTC states
+      drm/msm/dpu1: Carry the mixers over to created CRTC states
+      drm/vkms: Add driver-specific plane property for testing
+
+Sebastian Wick (1):
+      drm/atomic-uapi: Add DRM_MODE_ATOMIC_RESET flag
+
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c |  50 +++
+ drivers/gpu/drm/drm_atomic.c                      | 373 +++++++++++++++++++
+ drivers/gpu/drm/drm_atomic_uapi.c                 |  44 ++-
+ drivers/gpu/drm/drm_ioctl.c                       |   5 +
+ drivers/gpu/drm/drm_lease.c                       |  30 ++
+ drivers/gpu/drm/msm/disp/dpu1/dpu_crtc.c          |  23 ++
+ drivers/gpu/drm/tests/drm_atomic_test.c           | 435 +++++++++++++++++++++-
+ drivers/gpu/drm/vc4/tests/vc4_test_pv_muxing.c    | 105 ++++++
+ drivers/gpu/drm/vc4/vc4_kms.c                     |  16 +-
+ drivers/gpu/drm/vkms/vkms_drv.h                   |   3 +
+ drivers/gpu/drm/vkms/vkms_plane.c                 |  63 +++-
+ include/drm/drm_atomic.h                          |   4 +
+ include/drm/drm_auth.h                            |  11 +
+ include/drm/drm_lease.h                           |   2 +
+ include/uapi/drm/drm.h                            |  10 +
+ include/uapi/drm/drm_mode.h                       |  22 +-
+ 16 files changed, 1186 insertions(+), 10 deletions(-)
+---
+base-commit: e6e635c4407e5bb8ddc6017a2e9825c17240e799
+change-id: 20260708-drm-reset-state-flag-2fb2b5711f97
+
+Best regards,
+-- 
+Maxime Ripard <mripard@kernel.org>
+
