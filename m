@@ -1,70 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795175841;
-	b=dhbQ4Ye1GIz+rUhJ6bspiX7LmKJkojky/LSCer+/9E3LVqF1+rkvv8/qiokUE9rY9Ajq
-	 KZueKWFgEMX46263x4fED9+v3IW8lX+MFrXsYKEXErYh6ydU03SSbjoT0SL73oUQVD+FV
-	 ZS8rJZxPjYOhGSfXKw8M59l96EIxYKfvAx72MvLJl+s/Mc/WfC6M8oQCbQwTIAfweGCdG
-	 d0/fpYD12pUECdxxRrhElhlHVMiiZBdnoWk4LoG9QQ36tFwgpzefyOMoRSyoTzIEw6Gq4
-	 P03VezCytMOVibnygNXs2oUjEo1SHbkbSccfMnk5HcLqiU3B3QZe9j1bc9c9LJN3haw==
+	t=1795175846;
+	b=uv4XtgF78LcdSljell7Y6m+7SDBWsU0F2OPNu0HJykW5inPYb+k7QL3eLeg7PHjL2pb9
+	 jq8UzooTQcHfi6kNRuTaacwt+kphds+Eh0NPRIwHHKIpB+bLrM+z8t2PPL3TuVcLdQPSX
+	 /d+fSRoH2SaX1m1bWfrVaL5X/grTmy7XyBnuTcn14GA1jbnkjQoykt3xGAmh1R7WlWY6o
+	 fF/Ss7MqKNeFg75rGAjYbERLrykinDvvn+74L+u4fT+s35gs4Cc8o+vliaIKGkQ5Wwag8
+	 WD4pOSwUgDJ3oAw30LCLvRpkZl1MHyKft8+vVMCasHRwfoNvc0g/+Fl8UHgC83X+CfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795175841;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=umK9BxZ9uNfGeg/503cnqAcy+jmP/Vgln6/Lj88MWiY=;
-	b=EFYhOIVvsMnWL6qIuD1v8gllWmorjkrjPFo/bFdX0ywaBOLBcgFEjptpH4Bqdu6tg1J9
-	 FdoLI1q/0Y0U3zhulJWhUPYxKRDoOcvwNdLGLmmPNHrJ8FzXQv4iebI88FDuHYi7T0WvG
-	 OPrDxioz7b6IMW0rbDldlPSgmF2fWrLOLWFaX4LsfJsdbCgJ/9F5pHunF4fQlM22KKG+u
-	 Odgchx+lUUMmoR0KeGJB06NraGD66myoEMo1il5rOrIskueyLgzmm+L4YrUE7gHIa5cKE
-	 h1hHNu2mY68HXvGhUPj408WBduJ8HJJ46hniSHOtgsJI36CKZ+qd7R1sqtopBRGUJKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795175846;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=2UfyX4HcTgglDLDCpVQRwII+hpQZMq7tsHEziWfbiTU=;
+	b=Q/yfV7KBwstk7AIH+FOZp6bSj+NcBlScvJknHzxST2mMaNFWAwwedBjbAXF3CYZ0FYix
+	 F09xN53IR5OEMKwJ/GTN/9RxLUY4nWGct+3OVmOUiCq7ZY8mRbHqAHhVFlfxws8QpebYQ
+	 xPHU9Wr5fkNp5jCtHZDiR0nTnVOmqNacRe7Ays1sMHUS32D4WGg1s8RD2jQak46mBQAci
+	 Db0jnLlM0l0Cx1LW9t+Qlwu4e47Y7kPUMeMHkH2ZEyDJEz1gV35gRuiPrWO1NDqVzxbmk
+	 pYJatacp5lq77Be77alWuQ4dvFP+AeYGXB20WnmNgZOvENvH7jzUp7aAifgS7UFw8XA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aFTrvwPz;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="aPxq/8Jr";
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=neGXudo8;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="aPxq/8Jr";
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=neGXudo8;
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD48B60A2619;
-	Fri, 20 Nov 2026 11:57:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD48B60A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8FEE606A33F;
+	Fri, 20 Nov 2026 11:57:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8FEE606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aFTrvwPz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795175840; x=1826711840;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=sfh6BX8UdBk8t6SWtgg4gMnHcEmd5MxePz+bstQ4eAU=;
-  b=aFTrvwPz6DkLm+jAVl50VAzzLqy1ntrtzjyPNnal+qCINeeMpPKO7Lt0
-   mByNHURdAoCkrPqxlSzD1J7QeBGa6Bwgb3IbuUHYH0qzz/Yk7s3erVJ/a
-   K2nkadIvbEJChat6o4pPonQnX9i8rzt4qL2gk9L4UlgxEt8Bhgc4K6sLu
-   Y0tDW09ZrZ1njN/D3pJ0jHZVgoQnWW3t/2iu2SadMvZESkeEXHwkFsN0k
-   sQkrL388a3V7gE+Tf7JC2N+SOWcQ5zDJaXvTmO1/QCbtdDAZlE4T3PUbg
-   DtWL0SPn5UUQU7PPGzwHjZjjsx6Kqy9GZwRcf9tbciKYQ0MrubqIw8CwT
-   g==;
-X-CSE-ConnectionGUID: mx/Q7YNERNu502IyQ9Kd2w==
-X-CSE-MsgGUID: lmqK7cS5T1i2kl9fGSFBtw==
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="67053186"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:57:20 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Fri, 20 Nov 2026 04:57:19 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 04:57:16 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Fri, 20 Nov 2026 12:56:59 +0100
-Subject: [PATCH net-next v3 2/9] net: sparx5/lan969x: free the FDMA buffers
- on init errors and deinit
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=aPxq/8Jr;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=neGXudo8;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=aPxq/8Jr;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=neGXudo8
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 022D01F441;
+	Fri, 20 Nov 2026 11:57:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795175844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2UfyX4HcTgglDLDCpVQRwII+hpQZMq7tsHEziWfbiTU=;
+	b=aPxq/8JrK7TX5/4zb61bR0lNbw+ULbGnJx7r8UWPT1s/w1td1wy6y5QQ5dMqQaqtKnotMG
+	0wuJBaEw0oWI0WHGN3bT2LIwVZqB2BZnhUuEh4mwBvbNzHMQ7cztp0gRFRWAlG5MrbOsfI
+	YBkUHP+j/PSV0xGH52dneXTl/+Xzcxk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795175844;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2UfyX4HcTgglDLDCpVQRwII+hpQZMq7tsHEziWfbiTU=;
+	b=neGXudo8yCIZnK/u9k9axSwtuJRv4LtRqBsee9U9/HSxjThsg40KfQ1q5ujZJJ+jxbCZVt
+	GdWCbnIWyiGdHLBg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795175844; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2UfyX4HcTgglDLDCpVQRwII+hpQZMq7tsHEziWfbiTU=;
+	b=aPxq/8JrK7TX5/4zb61bR0lNbw+ULbGnJx7r8UWPT1s/w1td1wy6y5QQ5dMqQaqtKnotMG
+	0wuJBaEw0oWI0WHGN3bT2LIwVZqB2BZnhUuEh4mwBvbNzHMQ7cztp0gRFRWAlG5MrbOsfI
+	YBkUHP+j/PSV0xGH52dneXTl/+Xzcxk=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795175844;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2UfyX4HcTgglDLDCpVQRwII+hpQZMq7tsHEziWfbiTU=;
+	b=neGXudo8yCIZnK/u9k9axSwtuJRv4LtRqBsee9U9/HSxjThsg40KfQ1q5ujZJJ+jxbCZVt
+	GdWCbnIWyiGdHLBg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C57FC1348F;
+	Fri, 20 Nov 2026 11:57:23 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 4gHRJ6M1AGu0EAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 11:57:23 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 4C6B225F40; Fri, 20 Nov 2026 12:57:23 +0100 (CET)
+Date: Fri, 20 Nov 2026 12:57:23 +0100
+From: Jan Kara <jack@suse.cz>
+To: Pedro Falcato <pfalcato@suse.de>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Zi Yan <ziy@nvidia.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Lorenzo Stoakes <ljs@kernel.org>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, linux-ext4@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, Baolin Wang <baolin.wang@linux.alibaba.com>, 
+	Nico Pache <nico.pache@linux.dev>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Kiryl Shutsemau <kas@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Kairui Song <kasong@tencent.com>, Qi Zheng <qi.zheng@linux.dev>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Axel Rasmussen <axelrasmussen@google.com>, 
+	Yuanchu Xie <yuanchu@google.com>, Wei Xu <weixugc@google.com>, Baoquan He <baoquan.he@linux.dev>, 
+	Michal Hocko <mhocko@kernel.org>, linux-fsdevel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH RFC 0/5] mm: GUP dirty + ->release_folio() fixes
+Message-ID: <yawwmyxucwkzmay55hkcngm2bvaqjdrrvssgasf54zy5nwpfxl@6ocrzft2w6gy>
+References: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,300 +122,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261120-sparx5-mtu-change-v3-2-55c272fe1acc@microchip.com>
-References: <20261120-sparx5-mtu-change-v3-0-55c272fe1acc@microchip.com>
-In-Reply-To: <20261120-sparx5-mtu-change-v3-0-55c272fe1acc@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>, "Richard
- Cochran" <richardcochran@gmail.com>, Russell King <linux@armlinux.org.uk>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Robert Marko <robert.marko@sartura.hr>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>, Simon Horman <horms@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-gup-dirty-what-v1-0-236d69f25c24@suse.de>
+X-Spamd-Result: default: False [-16.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_COUNT_THREE(0.00)[3];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_TLS_LAST(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLc5chj8mdhigtayhgqted7wkp)];
+	MISSING_XM_UA(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.com:email]
+X-Spam-Score: -16.80
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-The FDMA RX buffers are skbs on Sparx5, and pages from a page_pool on
-lan969x, which are handed to the FDMA through the RX DCBs. On lan969x,
-the TX DCBs also have an array holding the state of the TX buffers.
+On Thu 19-11-26 20:10:43, Pedro Falcato wrote:
+> Sooo.... It turns out GUP dirty and ->release_folio() interact really
+> weirdly. This was initially reported by some AI agent, and David let me
+> know.
+> 
+> The basic issue is:
+>  - ->dirty_folio() relies on buffers/IFS/etc being attached to the
+>    folios. It _cannot_ attach them itself, as dirty_folio() cannot
+>    block.
+>  - certain MM paths (reclaim, khugepaged, folio split, etc) are very
+>    trigger-happy when it comes to asking filesystems to release them. In
+>    most cases, barring any dirty folios, buffers, it will just drop
+>    them.
+>  - there is no problem in usual IO submission, but issues start to pop
+>    up with GUP, where the code flow (roughly) becomes:
+>         [get_user_pages(), etc]
+>            ->page_mkwrite() called here, or before
+>              ->private correctly populated with whatever the filesystem
+>                expects.
+>              folio is marked as dirty, initially.
+>        *write finishes*
+>        folio_lock();
+>        folio_mark_dirty();
+>          ->dirty_folio()
+>               dirty_folio expects ->private to be populated by
+>               ->page_mkwrite(), ->write_begin().
+>        folio_unlock();
 
-These are not all freed. On Sparx5, the RX skbs are never freed, and if
-the TX buffers cannot be allocated, the RX DCBs are not freed. On
-lan969x, if the RX DCBs cannot be allocated, the page_pool is not
-destroyed, if the TX buffers cannot be allocated, only the RX DCBs are
-freed, and lan969x_fdma_deinit() never frees the TX buffer state, nor
-the TX buffers that are still in flight. On both, the return value of
-fdma_dcbs_init() is also ignored for RX, so if a buffer cannot be
-allocated while filling the RX ring, the FDMA is started with a partly
-filled ring, and on lan969x, lan969x_fdma_free_pages() later puts the
-pages that were never allocated.
+As John writes in much more detail, if you're modifying folio contents (and
+then dirtying a folio), you're supposed to grab folio pin which should
+among other things prevent the reclaim of fs private metadata. At least
+that was one of design ideas behind folio pins. Maybe something got broken
+or there are paths we missed that modify folios but before coming up with a
+different mechanism I'd like to understand why the current scheme doesn't
+work...
 
-Add sparx5_fdma_rx_free(), which frees the RX skbs and DCBs,
-lan969x_fdma_rx_free(), which returns the pages to the page_pool and
-frees the page_pool and the RX DCBs, and lan969x_fdma_tx_free(), which
-releases the TX buffers still in flight and frees the TX buffer state
-and the TX DCBs, and use them on the error paths and on deinit. Check
-the return value of fdma_dcbs_init() for RX. To know which RX buffers
-are still owned by the driver, clear the RX buffer slot once the buffer
-has left the ring on Sparx5, either to the stack or dropped, and make
-lan969x_fdma_free_pages() skip and clear the empty slots of the ring.
-The two-step PTP skbs are owned by the PTP code, which may already have
-freed them when a TX buffer is released, so store the length of the
-mapped TX buffer, and use it instead of the skb length.
+> What happens if any filemap_release_folio() runs (and succeeds) between
+> the initial dirtying (plus eventually writeback) and the write to the
+> folio completes? Welp, it's unpredictable. ext4 for example will
+> WARN_ONCE, and likely drop data (see ext4_dirty_folio()).
+> 
+> So, what can we do about it? It's complicated, hence why this is an RFC.
+> For the possible solutions:
+>  - ->dirty_folio() attaching this FS information itself is not really
+>    possible in many cases. ->dirty_folio() can't block, nor is it even
+>    guaranteed to hold the folio lock while being called.
+>  - Can pincount help? Kind of. Things like folio_maybe_dma_pinned() are
+>    rough, and don't deal with the usage of get_user_pages(FOLL_WRITE).
+>    pincount itself isn't available in the common order-0 case, and not
+>    available on order-1 as well on 32-bit, but who cares about that^W^W^W^W^W
+>  - Could get_user_pages() ban FOLL_WRITE? Mayhaps. I would not be
+>    opposed to that, but that's probably a larger change than ideal for stable,
+>    and I'm not familiar enough with GUP requirements to decide to go that way.
+>    This would require migrating all FOLL_WRITE users to
+>    pin_user_pages().
+>  - Can the whole system be reworked? Probably, but not for stable.
+> 
+> This patch series is really rough but kind-of works. Instead of using
+> folio_maybe_dma_pinned(), which only interacts with pin_user_pages(), I
+> introduce a new helper that helps places deal with the folio refcount
+> directly. In that case, we can also deal with GUP. On the other end,
+> moar problems:
+>  - NFS private data itself takes refs on folios. Now private data (that
+>    we could perhaps release if only we tried) is keeping us from
+>    releasing that same data. What?
+>  - ext4 data=journal has some funky usage of buffer_heads. Data journalled
+>    filesystems will not, in any way, dirty BHs. Instead it will,
+>    *only if it was DMA pinned*, set the checked flag. ext4 skips
+>    dropping those buffers if the checked flag is set.
 
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- .../microchip/sparx5/lan969x/lan969x_fdma.c        | 85 +++++++++++++++++-----
- .../net/ethernet/microchip/sparx5/sparx5_fdma.c    | 30 +++++++-
- .../net/ethernet/microchip/sparx5/sparx5_main.h    |  1 +
- 3 files changed, 95 insertions(+), 21 deletions(-)
+Yes, that code is funky and there's a big comment in front of
+ext4_journalled_dirty_folio() trying to explain what's going on. We
+attach folio buffers to the transaction on ->page_mkwrite. When the
+transaction commits, we must writeprotect the folio again to be notified
+about next write so that we can attached buffers to the next transaction.
+But what will you do with pins and users modifying folios through them? You
+can't just "writeprotect" against an existing pin. So we just note with
+folio_set_checked() that this folio has newer data than what is in the
+journal and then in a more relaxed context, we do the journaling dance and
+record the updated data in the journal. But you don't have to worry about
+this too much. Ted plans to rip out data=journal mode in the near future
+and then this will go away.
 
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-index fd532c89f9110..5f96910df5383 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-@@ -67,13 +67,13 @@ static void lan969x_fdma_tx_clear_buf(struct sparx5 *sparx5, int weight)
- 		if (!fdma_db_is_done(fdma_db_get(fdma, i, 0)))
- 			continue;
- 
--		db->dev->stats.tx_bytes += db->skb->len;
-+		db->dev->stats.tx_bytes += db->len;
- 		db->dev->stats.tx_packets++;
- 		sparx5->tx.packets++;
- 
- 		dma_unmap_single(sparx5->dev,
- 				 db->dma_addr,
--				 db->skb->len,
-+				 db->len,
- 				 DMA_TO_DEVICE);
- 
- 		if (!db->ptp)
-@@ -90,12 +90,26 @@ static void lan969x_fdma_free_pages(struct sparx5_rx *rx)
- 	struct fdma *fdma = &rx->fdma;
- 
- 	for (int i = 0; i < fdma->n_dcbs; ++i) {
--		for (int j = 0; j < fdma->n_dbs; ++j)
-+		for (int j = 0; j < fdma->n_dbs; ++j) {
-+			if (!rx->page[i][j])
-+				continue;
-+
- 			page_pool_put_full_page(rx->page_pool,
- 						rx->page[i][j], false);
-+			rx->page[i][j] = NULL;
-+		}
- 	}
- }
- 
-+static void lan969x_fdma_rx_free(struct sparx5 *sparx5)
-+{
-+	struct sparx5_rx *rx = &sparx5->rx;
-+
-+	lan969x_fdma_free_pages(rx);
-+	fdma_free_coherent(sparx5->dev, &rx->fdma);
-+	page_pool_destroy(rx->page_pool);
-+}
-+
- static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
- 						 struct sparx5_rx *rx)
- {
-@@ -172,14 +186,18 @@ static int lan969x_fdma_rx_alloc(struct sparx5 *sparx5)
- 		return PTR_ERR(rx->page_pool);
- 
- 	err = fdma_alloc_coherent(sparx5->dev, fdma);
--	if (err)
-+	if (err) {
-+		page_pool_destroy(rx->page_pool);
- 		return err;
-+	}
- 
--	fdma_dcbs_init(fdma,
--		       FDMA_DCB_INFO_DATAL(fdma->db_size),
--		       FDMA_DCB_STATUS_INTR);
-+	err = fdma_dcbs_init(fdma,
-+			     FDMA_DCB_INFO_DATAL(fdma->db_size),
-+			     FDMA_DCB_STATUS_INTR);
-+	if (err)
-+		lan969x_fdma_rx_free(sparx5);
- 
--	return 0;
-+	return err;
- }
- 
- static int lan969x_fdma_tx_alloc(struct sparx5 *sparx5)
-@@ -205,6 +223,44 @@ static int lan969x_fdma_tx_alloc(struct sparx5 *sparx5)
- 	return 0;
- }
- 
-+/* Release the TX buffers that are still in flight. The two-step PTP skbs are
-+ * owned by the port tx_skbs list, so they are only unmapped.
-+ */
-+static void lan969x_fdma_tx_release(struct sparx5 *sparx5)
-+{
-+	struct sparx5_tx *tx = &sparx5->tx;
-+	struct sparx5_tx_buf *db;
-+
-+	for (int i = 0; i < tx->fdma.n_dcbs; ++i) {
-+		db = &tx->dbs[i];
-+
-+		if (!db->used)
-+			continue;
-+
-+		db->dev->stats.tx_dropped++;
-+		tx->dropped++;
-+
-+		dma_unmap_single(sparx5->dev,
-+				 db->dma_addr,
-+				 db->len,
-+				 DMA_TO_DEVICE);
-+
-+		if (!db->ptp)
-+			dev_kfree_skb_any(db->skb);
-+
-+		db->used = false;
-+	}
-+}
-+
-+static void lan969x_fdma_tx_free(struct sparx5 *sparx5)
-+{
-+	struct sparx5_tx *tx = &sparx5->tx;
-+
-+	lan969x_fdma_tx_release(sparx5);
-+	fdma_free_coherent(sparx5->dev, &tx->fdma);
-+	kfree(tx->dbs);
-+}
-+
- static void lan969x_fdma_rx_init(struct sparx5 *sparx5)
- {
- 	struct fdma *fdma = &sparx5->rx.fdma;
-@@ -331,6 +387,7 @@ int lan969x_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
- 
- 	db_buf->dev = dev;
- 	db_buf->skb = skb;
-+	db_buf->len = skb->len;
- 	db_buf->ptp = false;
- 	db_buf->used = true;
- 
-@@ -354,7 +411,6 @@ int lan969x_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
- 
- int lan969x_fdma_init(struct sparx5 *sparx5)
- {
--	struct sparx5_rx *rx = &sparx5->rx;
- 	int err;
- 
- 	lan969x_fdma_rx_init(sparx5);
-@@ -376,7 +432,7 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
- 
- 	err = lan969x_fdma_tx_alloc(sparx5);
- 	if (err) {
--		fdma_free_coherent(sparx5->dev, &rx->fdma);
-+		lan969x_fdma_rx_free(sparx5);
- 		dev_err(sparx5->dev, "Failed to allocate TX buffers: %d\n",
- 			err);
- 		return err;
-@@ -391,14 +447,9 @@ int lan969x_fdma_init(struct sparx5 *sparx5)
- 
- int lan969x_fdma_deinit(struct sparx5 *sparx5)
- {
--	struct sparx5_rx *rx = &sparx5->rx;
--	struct sparx5_tx *tx = &sparx5->tx;
--
- 	sparx5_fdma_stop(sparx5);
--	fdma_free_coherent(sparx5->dev, &tx->fdma);
--	fdma_free_coherent(sparx5->dev, &rx->fdma);
--	lan969x_fdma_free_pages(rx);
--	page_pool_destroy(rx->page_pool);
-+	lan969x_fdma_tx_free(sparx5);
-+	lan969x_fdma_rx_free(sparx5);
- 
- 	return 0;
- }
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-index 8a847ec067de6..f1d44e5e080b6 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-@@ -147,6 +147,10 @@ static bool sparx5_fdma_rx_get_frame(struct sparx5 *sparx5, struct sparx5_rx *rx
- 	if (unlikely(!fdma_db_is_done(db_hw)))
- 		return false;
- 	skb = rx->skb[fdma->dcb_index][fdma->db_index];
-+
-+	/* The skb leaves the ring here, so clear its slot */
-+	rx->skb[fdma->dcb_index][fdma->db_index] = NULL;
-+
- 	skb_put(skb, fdma_db_len_get(db_hw));
- 	/* Now do the normal processing of the skb */
- 	sparx5_ifh_parse(sparx5, (u32 *)skb->data, &fi);
-@@ -245,6 +249,21 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
- 	return NETDEV_TX_OK;
- }
- 
-+/* Free the RX skbs owned by the driver, and the RX DCBs */
-+static void sparx5_fdma_rx_free(struct sparx5_rx *rx)
-+{
-+	struct fdma *fdma = &rx->fdma;
-+
-+	for (int i = 0; i < fdma->n_dcbs; i++) {
-+		for (int j = 0; j < fdma->n_dbs; j++) {
-+			consume_skb(rx->skb[i][j]);
-+			rx->skb[i][j] = NULL;
-+		}
-+	}
-+
-+	fdma_free_phys(fdma);
-+}
-+
- static int sparx5_fdma_rx_alloc(struct sparx5 *sparx5)
- {
- 	struct sparx5_rx *rx = &sparx5->rx;
-@@ -255,10 +274,12 @@ static int sparx5_fdma_rx_alloc(struct sparx5 *sparx5)
- 	if (err)
- 		return err;
- 
--	fdma_dcbs_init(fdma, FDMA_DCB_INFO_DATAL(fdma->db_size),
--		       FDMA_DCB_STATUS_INTR);
-+	err = fdma_dcbs_init(fdma, FDMA_DCB_INFO_DATAL(fdma->db_size),
-+			     FDMA_DCB_STATUS_INTR);
-+	if (err)
-+		sparx5_fdma_rx_free(rx);
- 
--	return 0;
-+	return err;
- }
- 
- static int sparx5_fdma_tx_alloc(struct sparx5 *sparx5)
-@@ -431,6 +452,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
- 	}
- 	err = sparx5_fdma_tx_alloc(sparx5);
- 	if (err) {
-+		sparx5_fdma_rx_free(&sparx5->rx);
- 		dev_err(sparx5->dev, "Could not allocate TX buffers: %d\n", err);
- 		return err;
- 	}
-@@ -440,7 +462,7 @@ int sparx5_fdma_init(struct sparx5 *sparx5)
- int sparx5_fdma_deinit(struct sparx5 *sparx5)
- {
- 	sparx5_fdma_stop(sparx5);
--	fdma_free_phys(&sparx5->rx.fdma);
-+	sparx5_fdma_rx_free(&sparx5->rx);
- 	fdma_free_phys(&sparx5->tx.fdma);
- 
- 	return 0;
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-index f6316086e6ecb..19b38922823ec 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.h
-@@ -180,6 +180,7 @@ struct sparx5_tx_buf {
- 	dma_addr_t dma_addr;
- 	bool used;
- 	bool ptp;
-+	u32 len;
- };
- 
- /* Frame DMA transmit state:
+>  - ext4 move_extents seems to have suspicious usage of
+>    filemap_release_folio() as well.
 
+Yeah, that whole code is hairy and I agree these calls are probably
+problematic.  We should hold invalidate_locks over the whole operation and
+should bail if any of the folios has a pin before calling into
+filemap_release_folio().
+
+								Honza
 -- 
-2.34.1
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
