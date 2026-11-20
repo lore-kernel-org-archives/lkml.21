@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.73
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200224;
-	b=kxjSxLXGT4t3XRZycV+JHEttTIy8KFNqguH4WBwyHiKBSVMiJb3hyCINQufIpMsD65A5
-	 nNjfyCwmgG+bVLkSHsD78Ja6DUmwK8PoA8IRu9YHaleHl0Zeh2YH4aftpCdE0E3Y6+y+N
-	 lTABn7j5CaeN6+4OW7hHijUqG7SqBDhMyz5kEGv9GC+toGpVQTU0SvdCqOXBxsrwF7z5G
-	 3Y8KAD5XiWK7oy7rQl0P7glNO7WFr0jhzY+SDxsvtfWerghAiz9eW04TRkjLbidAN84hP
-	 HkhX4c876WpSQS7xduVyV/oAyHo9LsvWIjcStSkoEHe2j3gn3NeWeRAVUg59XGT6L7g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200224;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=IMJq8Im5jvUubCjaXWzkBzQ8ky3UlCewww95Sx3qer4=;
-	b=JwyhkPkuZWqZEU9aI/TnI3aLg4jvnmYIeDqz2LKZV2oomKW3bOdcq3zwOUSKXfxMA62h
-	 bAcIyFTELyIWpDxoAQu1JyPHFNjsOgaT8ZKIllmlGdZWBD/iC1qhEc8xpIJuk5NteIu0q
-	 gE2qWe4r5OSqZXlqH3vPpaABnV3ZFvgV2LU5Waw7vAqMqyq+0cAYAsuUdKvVE5JT6y5rb
-	 fMrSvzBpQ2A3HcpSGfmTHaHYL2ENf0hIdhcwLE2C3O9dpQUUAs0gbEWOKUMxFskl+OIke
-	 gFsy9HRqdySopNqcFNDM4jfGM0YhwdRjVgFmHZKZW9DonVb3jtG5kfFRLy8Wc+lWkzQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NIGqwzcq;
-	arc=none smtp.remote-ip=91.218.175.73
-Received: from mta0.migadu.com (out-73.mta0.migadu.com [91.218.175.73])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795200266;
+	b=Of5ezFQSMSpu6R4uxEJIOo+e8hio9gCavlvlGReKXeBMFO0N5B/WNT0Iu+PAN5YlO5JF
+	 uQLBBx17vM0jI1jsLHeBAU/yZ6QoTDisl9wj1MibZpEkKeF2rPNu9m4RbUeDauaVKdsc8
+	 ujlu4f+x/WteSHITgcYvD1KMUeF4weikj1IXDV1zkce8prsG6ecfYSV8CDVrgJ7vLN+EE
+	 nidz+HM+XDwoQPJUS2/TcCmza1YlVRxbnwU0ZIpdzxnNm8REFb//4PpNN/gaR0IXIxLND
+	 eYFJZLPgkt9F0EI/jpp8CpMijxlaikx5O3Em1UeXGGJGtQ0Ei6DfzUpfO13iYZcT5Dg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200266;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 Content-Language:To:CC:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=RLAfYDWVDjak8vu2G/LSTZhDqGcC/NWEMSvQZonLANk=;
+	b=AykHEmnGo9HTRFrVKPGctyClq9YVxDitYqidxIoSjVJEMzFzIWtYqP91ewzR+k12HQOy
+	 L0ogz2mpszzFFX/el/qnmykc6Z4PuEqJ1dj+sK+Dt/hmSuIFFI1cgbDaheZIY1lEfV/yQ
+	 +vXGtuePZN4hFLE3RxSCLUzVBb5UdCcgFKov98qdBecQm+E1Rr3D+voS+kX/wPJiF0Vwm
+	 rK46ChHNPQqPOTTSm7VRNga5/Eje9UWUHFinmEaaBP9v19yPLDZzgrQM8vSZJB0UUM7qf
+	 u5cXqYDtyW8Uf6WkUBIgnHFz/KUA2E1czAB/Wubu59adt801zRXwZMHVcQrsGVhitsg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="sjPAdS/3";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.31
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011031.outbound.protection.outlook.com [52.101.52.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E0C460A2613
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:43:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E0C460A2613
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D991606A33D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:44:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D991606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=NIGqwzcq
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=h2XsgNE9NNIRa2pO1XoeMNvVdBFBn17o1mxzypbSArw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795200219; v=1; x=1795805019;
- b=NIGqwzcqsBbGBirPSnXcqypOpVK/y9EN4QIbMMgiREDGf1I4HXaxR5zosOecCUT9r93U3Vok
- ScuTNlkZG+xFEIr8MqupcNQyZoxIX1GgHdUlLxGw60/LpE4hTc6yEoLVjc9y1DGTPrXi0WTZXdL
- Iv4Cka+ju4W7nM5e1rtuUOZU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 6fc50e7af3291122;
-	Fri, 20 Nov 2026 18:43:38 +0000
-X-Mizu-Trace-ID: 6fc50e7af3291122
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <bad389b1-f4a6-43d4-9531-54b75e067c7a@linux.dev>
-Date: Fri, 20 Nov 2026 18:43:38 +0000
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=sjPAdS/3
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=V2kLdzm5uyIZVoo1zK1ea2srziORyiKyMTaVASPvuq7ekh4AzjYIlZf/RGgSs7lkgTSLUL1+OjNbm69vlYYR08eozyNup2+08HuArfiV1ejGVqOCREgJFxFG5TVwOluYLgAA1RsUeLQ/EZj4ee66H/Ewa1BNc9+tMRl/1sR84vIAPZNSMFf0tc0ncaSITqoXgLI8KTJMeFtqune/3+60vxGmUkz0ypGInMszvaKyjvO7x/9SIGIDeWgiCx9D0KrXh8F/SIuWMZA6lel7TGw4WPrq+CWOT10oLGwqsyG0IvTMejqYpVL7gj+yTHWZeYJK8xLq7p8kQVUc8RMRXssbsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RLAfYDWVDjak8vu2G/LSTZhDqGcC/NWEMSvQZonLANk=;
+ b=MTBYjzYfrGaDDGWuvM9sIZwLOml/x7fu88TQx6NdYQj3OcAOeHZ8TVMXWQdlN2tBftP/x1cNDF8rrqcwwlHgIKrK8k/9seJ4DY5d9y2kz7Ccd0IWJXJF5NX1TUobWhOaRf2m5d4xiMx8Jt6RghZXYk35MzsgF156vSYkUxI56YWTuMfp+zNs9qnyF8g9BtkRFO2tuhVOafaNM49B+BlaBA6RnLVID1ojio5xnuKScdJot3evM+jUctv3ZClLhx/STctZxAaoKwohb6zGRmQKG8ByyadQZ1ZFVuOsa+oo6UE16LxkoyZMFlFlSmcpqDUpKCu+bghbcY3YMYgUFpCA6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RLAfYDWVDjak8vu2G/LSTZhDqGcC/NWEMSvQZonLANk=;
+ b=sjPAdS/33BXxUb/khxPqNC22HmfFEMDjTB5yd3Sf4BghdqW/c5PdklzzZAPc2/EmQSSo3z8sygjb4VEVPtcXsQW6G8+0Vp126p880pg2hJTVcRQEz4M1XWIUxg4Bb0DxDN8d29TSgGdtHI8qxpQkJNSNQZGO7qjAKY8XG150TmY=
+Received: from CH2PR14CA0002.namprd14.prod.outlook.com (2603:10b6:610:60::12)
+ by MW3PR12MB4409.namprd12.prod.outlook.com (2603:10b6:303:2d::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Fri, 20 Nov
+ 2026 18:44:19 +0000
+Received: from CH2PEPF0000013B.namprd02.prod.outlook.com
+ (2603:10b6:610:60:cafe::53) by CH2PR14CA0002.outlook.office365.com
+ (2603:10b6:610:60::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
+ 20 Nov 2026 18:44:18 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH2PEPF0000013B.mail.protection.outlook.com (10.167.244.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 18:44:18 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
+ 2026 12:44:18 -0600
+Received: from [172.19.71.207] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Fri, 20 Nov 2026 12:44:17 -0600
+Message-ID: <a94437f4-f0e0-dccf-3dac-1bc1f0dda835@amd.com>
+Date: Fri, 20 Nov 2026 10:44:11 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,282 +101,124 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
-To: Peter Zijlstra <peterz@infradead.org>, ndesaulniers@google.com,
- David Laight <david.laight.linux@gmail.com>
-Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org, hpa@zytor.com,
- gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com,
- nathan@kernel.org, ndesaulniers@google.com, morbo@google.com,
- justinstitt@google.com, linux-hardening@vger.kernel.org,
- llvm@lists.linux.dev, linux-kernel@vger.kernel.org, riel@surriel.com,
- shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com,
- atish.patra@linux.dev, dgreid@meta.com
-References: <20261119213147.1094488-1-usama.arif@linux.dev>
- <20261119213147.1094488-3-usama.arif@linux.dev>
- <20261120104534.GO2668564@noisy.programming.kicks-ass.net>
- <20261120122635.GJ2669272@noisy.programming.kicks-ass.net>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH V1] accel/amdxdna: Reject a zero sized buffer in
+ amdxdna_gem_prime_import()
 Content-Language: en-US
-From: Usama Arif <usama.arif@linux.dev>
-In-Reply-To: <20261120122635.GJ2669272@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: =?UTF-8?Q?Christian_K=c3=b6nig?= <christian.koenig@amd.com>,
+	<ogabbay@kernel.org>, <quic_jhugo@quicinc.com>,
+	<dri-devel@lists.freedesktop.org>, <mario.limonciello@amd.com>,
+	<karol.wachowski@linux.intel.com>, <max.zhen@amd.com>,
+	<linaro-mm-sig@lists.linaro.org>
+CC: <linux-kernel@vger.kernel.org>, <sonal.santan@amd.com>
+References: <20261120023540.888381-1-lizhi.hou@amd.com>
+ <48d1dd13-9ec6-402f-8a72-ce417f331332@amd.com>
+From: Lizhi Hou <lizhi.hou@amd.com>
+In-Reply-To: <48d1dd13-9ec6-402f-8a72-ce417f331332@amd.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000013B:EE_|MW3PR12MB4409:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1c84940f-c49d-4792-7b04-08df473648e8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|22082099003|18002099003|4143699003|261026121527099003|261102130727099003|56012099006|261028144727099003|261022105027099003|11063799006|261009223027099003|261102123227099003|261022075727099003|261021121427099003|261026140227099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	xfR7OvZKgNs1NyUnAWTqd4zvctPRX7q9nS+WEWonWoS5TlUIAM/W9l0AatYp49xnZaMylMQklgsDF9bwfGZXhS+L7pXjWQzHway2Jj+USAu79WWtXl7/PMTggjx++cP1iSRqZABvlMNNKVuvUMUwwMXERRMnuXbnPUo+NTKCXvM0cNQzgRgnlbgPzjscj+Xa/MhKtaC5Dbnr4pYjzIoWTtgx8C1SiTCbtD8lLaJfGknuXNoDCWFwcWAY/VF2J0NdLHKsWdDqvns+01V8YXKDAmpYps2I21W55mprTYZdbqIiLDcW3DyOyrvzir7oRCB9Pf0JX5s+NPyaQKBZ7WoFoPXXUpq4mbH8H3iRArwZoo+IfRki7apwdfErulmR0uD/8RCfE6iXRAmWxXhh3knCeOknCqd5L1Nz5+EWFiG2SKDyj4vOSZm9af/8zISLnGnR2bgUUvqX2gSYHopTCMlI3yVvKiq6JKOdOora7o9NbC6uuQl0/JfHQP0bWkgu7xNzBpIEfo4wqkgSpxaHGkfi3u0Mp3XfiVKxoINVtpYhptV2SYy+E1PqkJxfdV5fj2+7+UcJ6uwYuvQTNbfHcIeD4bvlbwriMPAYxKUyiMcBHvLdnAkH8PKXggiJLdox5VAkyFgWicMuMswnewr7IQHGiFZf5HWc+d5AAjKymcUPFeZca6B4suvGxZR2YyCHpznN66Q3zUszk/jrdxj4cudhvA==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(22082099003)(18002099003)(4143699003)(261026121527099003)(261102130727099003)(56012099006)(261028144727099003)(261022105027099003)(11063799006)(261009223027099003)(261102123227099003)(261022075727099003)(261021121427099003)(261026140227099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	quTx6Wi2oI9tzACiUO6J8WvUmyjgeN3bmjwGlRld6hWhfxq2FIe5Jj/51sXkZG32KudymdlMqwiSYk7GZddzBsQiedPD7msFH12CiKf7Me5HPOkwQlk0lSm8uDZgpiti3U0Wyr1bYG4Q+//vFHXTmiXa2vUJTW1gxk7LLyWa8PavlNTfIEH3TKnrqpbYkTQHex2hAAWb0wWHtqoO7Q/3ML+IXWuRqQTX7bnCeoVb2at6irj49k0acKGMp0bGAuK0chn94WMUfZq5hVhDi5PaPxLG8jkCQHTxkRi+KJuFMib4LpT25SrBaJwcTuRohVx4rJ3L0BytA2wz634QWlJp5ShsaxCyhNI3Eiim2AIxU6bfX6fJ0kxGmXlJeqVWJFXihKk3a+3ZR+SvsiFRI9pHLisrYQ1mJNZ1iuusyNn/Zo4GQRzbFSQBfGlR2KgmsmWP
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 18:44:18.6579
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1c84940f-c49d-4792-7b04-08df473648e8
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CH2PEPF0000013B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4409
 
 
+On 11/20/26 04:32, Christian König wrote:
+> On 11/20/26 03:35, Lizhi Hou wrote:
+>> Zero sized buffer is not supported. Check the buffer size and return
+>> -EINVAL if the size is zero.
+> Oh that is surprising a zero sized buffer shouldn't be supported by DMA-buf in the first place.
+>
+> Doesn't DMA-buf check that somewhere?
 
-On 20/11/2026 04:26, Peter Zijlstra wrote:
-> On Fri, Nov 20, 2026 at 11:45:34AM +0100, Peter Zijlstra wrote:
->> On Thu, Nov 19, 2026 at 01:31:08PM -0800, Usama Arif wrote:
->>> +#ifdef CONFIG_X86_64
->>> +#define __stackleak_poison __stackleak_poison
->>> +static __always_inline void __stackleak_poison(unsigned long erase_low,
->>> +					       unsigned long erase_high,
->>> +					       unsigned long poison)
->>> +{
->>> +	unsigned long count;
->>> +
->>> +	/* Short spans do not amortize the startup cost of REP STOSQ. */
->>> +	if (erase_high <= erase_low + 512) {
->>> +		while (erase_low < erase_high) {
->>> +			*(unsigned long *)erase_low = poison;
->>> +			erase_low += sizeof(unsigned long);
->>> +		}
->>> +		return;
->>> +	}
->>> +
->>> +	count = (erase_high - erase_low) / sizeof(unsigned long);
->>> +	asm volatile("rep stosq"
->>> +		     : "+D" (erase_low), "+c" (count)
->>> +		     : "a" (poison)
->>> +		     : "memory");
->>> +}
->>> +#endif
+No. I built a local test to reproduce.  The test driver calls 
+dma_buf_export() with exp_info.size=0, and it successes. Then, import 
+that buffer and get the stack.
+
+It looks other drm drivers check the size as well, e.g. 
+drivers/accel/qaic/qaic_data.c, qaic_gem_prime_import().
+
+Maybe it is better to add the check to dma_buf_attach()? Or I can use 
+the check in amdxdna for now?
+
+[89432.394897] RIP: 0010:amdxdna_gem_prime_import+0xb/0x120 [amdxdna]
+[89432.394905] Code: a2 29 c1 5d 31 f6 31 ff c3 cc cc cc cc 66 90 90 90 
+90 90 90 90 90 90 90 90 90 90 90 90 90 90 0f 1f 44 00 00 48 83 3e 00 75 
+14 <0f> 0b 48 c7 c0 ea ff ff ff 31 d2 31 f6 31 ff c3 cc cc cc cc 55 b8
+[89432.394908] RSP: 0018:ffffd04344fd79d8 EFLAGS: 00010246
+[89432.394911] RAX: ffffffffc10b4bb0 RBX: ffff8ddb05863a00 RCX: 
+0000000000000000
+[89432.394912] RDX: 0000000000000000 RSI: ffff8ddb084ebc00 RDI: 
+ffff8dd94b17f000
+[89432.394914] RBP: ffffd04344fd7a10 R08: 0000000000000000 R09: 
+0000000000000000
+[89432.394915] R10: 000000000000000c R11: 0000000000000000 R12: 
+ffff8dd94b17f000
+[89432.394916] R13: ffffd04344fd7ad0 R14: ffff8ddb05863b20 R15: 
+ffff8ddb084ebc00
+[89432.394917] FS:  00007f8216e08740(0000) GS:ffff8de0c09bd000(0000) 
+knlGS:0000000000000000
+[89432.394919] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[89432.394921] CR2: 000055c3644b51e9 CR3: 000000011237f000 CR4: 
+0000000000750ef0
+[89432.394923] PKRU: 55555554
+[89432.394924] Call Trace:
+[89432.394926]  <TASK>
+[89432.394929]  ? drm_gem_prime_fd_to_handle+0xdb/0x220 [drm]
+[89432.394974]  ? __pfx_drm_prime_fd_to_handle_ioctl+0x10/0x10 [drm]
+[89432.395003]  drm_prime_fd_to_handle_ioctl+0x37/0x50 [drm]
+[89432.395029]  drm_ioctl_kernel+0xb0/0x110 [drm]
+[89432.395069]  drm_ioctl+0x2d6/0x580 [drm]
+
+
+Thanks,
+
+Lizhi
+
+>
+> Regards,
+> Christian.
+>
+>> Fixes: e486147c912f ("accel/amdxdna: Add BO import and export")
+>> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
+>> ---
+>>   drivers/accel/amdxdna/amdxdna_gem.c | 3 +++
+>>   1 file changed, 3 insertions(+)
 >>
->> Gemini seems to suggest 16-32 words would be sufficient to amortize the
->> REP STOS setup. It was also adamant I try and unroll that earlier loop.
->>
->> How about something like so, does that make sense? Also, I suppose we
->> should make memset64() __always_inline if we use it here. I'm not at all
->> sold on the unroll here, the asm is pretty horrid for what it does.
-> 
-> This one is much improved:
-> 
-> --- a/arch/x86/include/asm/processor.h
-> +++ b/arch/x86/include/asm/processor.h
-> @@ -28,6 +28,7 @@ struct vm86;
->  #include <asm/vmxfeatures.h>
->  #include <asm/vdso/processor.h>
->  #include <asm/shstk.h>
-> +#include <asm/string.h>
->  
->  #include <linux/personality.h>
->  #include <linux/cache.h>
-> @@ -580,6 +581,35 @@ static __always_inline bool on_thread_st
->  			       current_stack_pointer) < THREAD_SIZE;
->  }
->  
-> +#ifdef CONFIG_X86_64
-> +#define __stackleak_poison __stackleak_poison
-> +static __always_inline void __stackleak_poison(unsigned long erase_low,
-> +					       unsigned long erase_high,
-> +					       unsigned long poison)
-> +{
-> +	unsigned long count = (erase_high - erase_low) / sizeof(unsigned long);
-> +
-> +	/* Amortize the startup cost of REP STOSQ. */
-> +	if (count < 32) {
-> +		unsigned long *ptr = (unsigned long *)erase_low;
-> +
-> +		while (count) {
-> +			unsigned long mod = (count-1) % 4;
-> +			count -= mod+1;
-> +			switch (mod) {
-> +			case 3: ptr[count+3] = poison; fallthrough;
-> +			case 2: ptr[count+2] = poison; fallthrough;
-> +			case 1: ptr[count+1] = poison; fallthrough;
-> +			case 0: ptr[count+0] = poison; break;
-> +			}
-> +		}
-> +		return;
-> +	}
-> +
-
-Hello Nick, Peter and David,
-
-Thanks for the reviews! I should have used memset64 from the get go :)
-
-I have tested 2 possible revisions now as well as this one from Peter,
-have added both of them at the end of the reply.
-
-- v2.1 where you loop upto 512B and then memset
-- v2.2: 4 stores per loop up to 512 B, then 64-byte aligned memset64()
-
-I timed stackleak_erase() in a Zen 5c guest over a futex/epoll/procfs/unix
-syscall:
-
-  No patch                             68.3 ns per erase
-  v1 (loop up to 512 B, then REP)           46.6 ns
-  v2.1 (loop up to 512 B, memset64())       46.6 ns
-  this version                              46.4 ns
-  v2.2 (4 stores/iteration, aligned REP)    43.7 ns
-
-
-The switch doesn't seem to help.
-
-Either way I kept 512 bytes: REP STOSQ only wins from ~430 bytes on Zen
-5c against the plain loop (~850 against the unrolled one), and from ~320
-on Cooper Lake.
-
-
-My personal preference is v2.1, as its much simpler code and the difference
-in performance between v2.1 and v2.2 isn't actually that much. But if there is
-a stronger preference for v2.2, I can send that as it is faster.
-
-
-v2.1:
-
-diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-index 77488ff5eb8c7c..3d205ae8566114 100644
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -28,6 +28,7 @@ struct vm86;
- #include <asm/vmxfeatures.h>
- #include <asm/vdso/processor.h>
- #include <asm/shstk.h>
-+#include <asm/string.h>
-
- #include <linux/personality.h>
- #include <linux/cache.h>
-@@ -580,6 +581,26 @@ static __always_inline bool on_thread_stack(void)
-                               current_stack_pointer) < THREAD_SIZE;
- }
-
-+#if defined(CONFIG_X86_64) && !defined(CONFIG_KMSAN)
-+#define __stackleak_poison __stackleak_poison
-+static __always_inline void __stackleak_poison(unsigned long erase_low,
-+                                              unsigned long erase_high,
-+                                              unsigned long poison)
-+{
-+       /* Short spans do not amortize the startup cost of REP STOSQ. */
-+       if (erase_high <= erase_low + 512) {
-+               while (erase_low < erase_high) {
-+                       *(unsigned long *)erase_low = poison;
-+                       erase_low += sizeof(unsigned long);
-+               }
-+               return;
-+       }
-+
-+       memset64((u64 *)erase_low, poison,
-+                (erase_high - erase_low) / sizeof(u64));
-+}
-+#endif
-+
- #ifdef CONFIG_PARAVIRT_XXL
- #include <asm/paravirt.h>
- #else
-diff --git a/arch/x86/include/asm/string_64.h b/arch/x86/include/asm/string_64.h
-index 2dae70c2b01465..73cc91254b1381 100644
---- a/arch/x86/include/asm/string_64.h
-+++ b/arch/x86/include/asm/string_64.h
-@@ -54,7 +54,7 @@ static inline void *memset32(uint32_t *s, uint32_t v, size_t n)
- }
-
- #define __HAVE_ARCH_MEMSET64
--static inline void *memset64(uint64_t *s, uint64_t v, size_t n)
-+static __always_inline void *memset64(uint64_t *s, uint64_t v, size_t n)
- {
-        const auto s0 = s;
-        asm volatile (
-
-
-
-
-
-v2.2:
-
-diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
-index 77488ff5eb8c7c..5e76e1140908d7 100644
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -28,7 +28,9 @@ struct vm86;
- #include <asm/vmxfeatures.h>
- #include <asm/vdso/processor.h>
- #include <asm/shstk.h>
-+#include <asm/string.h>
-
-+#include <linux/align.h>
- #include <linux/personality.h>
- #include <linux/cache.h>
- #include <linux/threads.h>
-@@ -580,6 +582,48 @@ static __always_inline bool on_thread_stack(void)
-                               current_stack_pointer) < THREAD_SIZE;
- }
-
-+#if defined(CONFIG_X86_64) && !defined(CONFIG_KMSAN)
-+#define __stackleak_poison __stackleak_poison
-+static __always_inline void __stackleak_poison(unsigned long erase_low,
-+                                              unsigned long erase_high,
-+                                              unsigned long poison)
-+{
-+       unsigned long *p = (unsigned long *)erase_low;
-+       unsigned long *end = (unsigned long *)erase_high;
-+       unsigned long i;
-+
-+       /* Fewer than four words, or nothing to do. */
-+       if (erase_high < erase_low + 4 * sizeof(*p)) {
-+               while (p < end)
-+                       *p++ = poison;
-+               return;
-+       }
-+
-+       /* Four stores per iteration; the last four may overlap. */
-+       if (erase_high - erase_low <= 512) {
-+               end -= 4;
-+               while (p < end) {
-+                       p[0] = poison;
-+                       p[1] = poison;
-+                       p[2] = poison;
-+                       p[3] = poison;
-+                       p += 4;
-+               }
-+               end[0] = poison;
-+               end[1] = poison;
-+               end[2] = poison;
-+               end[3] = poison;
-+               return;
-+       }
-+
-+       /* REP STOSQ is faster from a 64-byte aligned destination. */
-+       for (i = 0; i < 8; i++)
-+               p[i] = poison;
-+       p = (unsigned long *)ALIGN(erase_low + 1, 64);
-+       memset64((u64 *)p, poison, end - p);
-+}
-+#endif
-+
- #ifdef CONFIG_PARAVIRT_XXL
- #include <asm/paravirt.h>
- #else
-diff --git a/arch/x86/include/asm/string_64.h b/arch/x86/include/asm/string_64.h
-index 2dae70c2b01465..73cc91254b1381 100644
---- a/arch/x86/include/asm/string_64.h
-+++ b/arch/x86/include/asm/string_64.h
-@@ -54,7 +54,7 @@ static inline void *memset32(uint32_t *s, uint32_t v, size_t n)
- }
-
- #define __HAVE_ARCH_MEMSET64
--static inline void *memset64(uint64_t *s, uint64_t v, size_t n)
-+static __always_inline void *memset64(uint64_t *s, uint64_t v, size_t n)
- {
-        const auto s0 = s;
-        asm volatile (
-
-> +	memset64((void *)erase_low, poison, count);
-> +}
-> +#endif
-> +
->  #ifdef CONFIG_PARAVIRT_XXL
->  #include <asm/paravirt.h>
->  #else
-
+>> diff --git a/drivers/accel/amdxdna/amdxdna_gem.c b/drivers/accel/amdxdna/amdxdna_gem.c
+>> index ffe12a722dfe..4d7f3de88cd3 100644
+>> --- a/drivers/accel/amdxdna/amdxdna_gem.c
+>> +++ b/drivers/accel/amdxdna/amdxdna_gem.c
+>> @@ -1133,6 +1133,9 @@ amdxdna_gem_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+>>   	struct sg_table *sgt;
+>>   	int ret;
+>>   
+>> +	if (!dma_buf->size)
+>> +		return ERR_PTR(-EINVAL);
+>> +
+>>   	get_dma_buf(dma_buf);
+>>   
+>>   	attach = dma_buf_attach(dma_buf, dev->dev);
