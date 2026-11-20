@@ -1,56 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218267;
-	b=WM1mcu43FA6i/gnW1gNVrZKLmBdajyPT/9Q4xQFXk5+EvnzcbbfeIOe16NbYpjcRT76Q
-	 4BKWx7NqwGyIJ6C6bxHx2scgg1X23FDNY12Eg8yAeWbRilJxuf3k4G0FaFq7neCqOTezr
-	 WyWNXVXoL1K+oy5EjlBQZWgJ7A2Bxck5Jq39wdSN6HsifZupIVtVa2VUfs78IjXtLQEF3
-	 LF1OFGtW3q+XMSZRQ96avehJwGndXX8t5/2672S23bSCWKAJ6MPPYzIF7PCCTMwOTsdLd
-	 Ach80PTgzMzWGuQBtPITmzdi5wIKT7b2GK/2CofhsvMJbkm2DiACS8GXw26p/0+aE1w==
+	t=1795218310;
+	b=rVtFS3Jz5ftpPUR3wtHo+wzHchslOkQC5ZYtH66xGS0wqwVYO4S36yauxtnnL9a3oOr9
+	 bjRXTowlrrJCx7/1VEDGiPOxqxxrEk7lkxzwf3OFICkxvxg71qLOHd8qh3DpmuqjRYhwB
+	 WLv9YwkXFZ/HfPJHP0V8W7raO3+93yDPTv7Dgr+bkYuBr/Z0Qfem+/DPfGQKNHOWdOa6n
+	 I/wUfPvQyGaQSTGyQcZzdqkGuuZsx0nxSeKJdofIzR4dV+TuydFwXLbIU8UdnpNaZ44KO
+	 kBTkVynQySnqj7SYhl3nFBlZspu92XjA7OnDjmFK7PxrzSqFXWIpV0xngmIoFygXksA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218267;
-	h=DMARC-Filter:Received:Date:From:To:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LJpIE8ztP+KbGnnCOb1LC8LShPiTmCttfBKwQc2Yr7s=;
-	b=j56LdonZ8/gX8r6LGL1b1LKLTR3XxRp2YeD1RpcLYQBDjl44jfhH/oYzzmftgAO/W4gf
-	 nJg4Qzd/0mEC6eNYAI6ysUc9QMaSCQrIG9ZvgJ1PdD1yNpcTCFUdSpX8ozp5H0AHFGbun
-	 YwtFPdP5dsBJLZaMrXs7Ry79DPGrgSAMtl7nVeBx8NfGIwupcUvFqNmPsb0NWrBpgV64D
-	 DLR2FnUU5mpRnFTwouIpBml6cOyn6VBDLJ+npOkLX2B34fkqrgOjevrr0+5zySSaZCMbj
-	 l05Yv9WeeT1xzYaIUtAaNVVJiMRlfny2lilJzUavjjXK56JMq0pU3GJHhaUsxII+nNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218310;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
+	b=npcuzIHLzYSIHNdAvHVMVXimzJRyOIPL8/Em6GVdZLZZOJiwk3pPUNmLjNXrFI9hd2vv
+	 4DfrIPWzxylpFpuVZKXsatFkl2V9nmNrNL4hnf08ZYfJ81cjuz63FR0N8iuZQtOpfqzs9
+	 oHRiVw2GXbscftDYS78YVvz5Guz0nbFREMl3t9BLsSLZ3/I60BdBlHDYOdTkz5t5UFOjQ
+	 6iw23TW91x7EfH4vHHcPXCcfN74gm/JvKa91rVAqnlrkJNIq6qlDluoWI7uePgnddBbaG
+	 tanmyE/ZOlzixZulPVxBd0+AgUh0+HMSwyCEagAAOJl8sVM1d9tM0StoLaGuZq9hIJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=makrotopia.org;
-	spf=pass smtp.mailfrom=makrotopia.org;
-	arc=none smtp.remote-ip=185.142.180.65
-Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lwKTFDAC;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="JQB/QXYJ";
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFA73606A687;
-	Fri, 20 Nov 2026 23:44:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFA73606A687
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
-	 (Exim 4.100.1)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1xUYH8-000000002gK-0Biv;
-	Fri, 20 Nov 2026 23:44:14 +0000
-Date: Fri, 20 Nov 2026 23:44:05 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Alex Bee <knaerzche@gmail.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 7/7] media: rkvdec: hevc: check the RPS scratch allocation
-Message-ID: <4644e528c71a780a238edb23e41f54f1359e1c3d.1795217229.git.daniel@makrotopia.org>
-References: <cover.1795217229.git.daniel@makrotopia.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FB9D606A6B8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FB9D606A6B8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lwKTFDAC;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=JQB/QXYJ
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKI9Wks3120613
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=4xSyU6EJ+T1zz5ShxMW3u6
+	/dSlAPbOtpJKNFH9TQlEA=; b=lwKTFDACLwzsupeiPPRJSmcrg7v2QAKjq8q4xy
+	CbdlRt2Uuk/j+6hS8UGwAGE+CuhYLgMHzNK8niCK/1qGdtcMNYxHsNFxvlD64T64
+	b3DqsBj5eMTc4da26u3ZxqsFKhZ5p3/GCkQa2lgG9qjc+p0058G9xes7rSth6CXN
+	J3UYZM77/lr0IL4PyD9/vQAsJLdXUY8tFLV5Tn9zjHRSbCqQ8GeYG9VGxJQhSzGp
+	idkbEzajhcJsPYZ2jExuwsDLTXOzKZRLjH0rLiBKIHaRFfCTvbvG8BJTwztvFO5p
+	zsnAZ/U5dV4SP9tVuuimxS5Zb6ZjYWatWmt7NsOzFdargVVw==
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2u8691g7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:45:07 +0000 (GMT)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3847a8f4e77so206431eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:45:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795218307; x=1795823107; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
+        b=JQB/QXYJxZ3WuyD4IVRUe9ofFmZ1jVvZ+5PF2Ub0aeq7BLh5F42mi24UcEQjNWIX70
+         9bIU3UoArIYnOCIMRxGK6ql3kT+euqfyJgrqj1Xf8cfKXsOHHI6z4R4QUEy83wjtLyOj
+         cSC4RlLjR5qYL8H2hoKRLu3nQ/OvLALLzP3aLaF0UpHlwgSlDtsrvigzYVDBlzzpeAju
+         /cmyhgI0QhKrdN0s71X4wVXnA3hjc02QqWrzC8QrHG6Sd0evyk3sF+SYfjA4Z/bHhO75
+         fSMVOc+ibCDL4/fpLs9Cr9skJIoOQUbRoazITXWaq4B3vj98IanQv7EacWHjfKWCvxAF
+         bPkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795218307; x=1795823107;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=4xSyU6EJ+T1zz5ShxMW3u6/dSlAPbOtpJKNFH9TQlEA=;
+        b=a9cB+UeGPcDww6wiVC42+VvfVd2xiamgbS1WMDyEFEZomY+oKeVdh9SgxXb4mbdI8k
+         QFFQwaf8lZITzigLgeCProV3p4xlEy2PwX1dX62rD3P9myYLEbv92QlV+Tv/aTSG9aPX
+         LrHFZMDPp9+cuV8IZJ/mBcdTYju2MUsdeyM9FvFc4GCp/jJN/KEtU7n3RZp0vYiT2k5T
+         04xD5+LsAgefg0hEEB3vZeUtTgUjL4lu+S8UqgiKnnDwl7lPV8mXTJDtzpzu74TfdHvm
+         C8c3C6GpYdNbcbUyAtSpnLEP7Ezb7HU9D7BOa+reHjgkdPYixTeOtZo3sVjS8I6Jd9dS
+         DXBw==
+X-Forwarded-Encrypted: i=1; AL+hErE/5Nav4dH5ihZ+eB0xAluuJYzd3iNIyRzJpcERVJ+i7TYhlRAYlSg3J4m0/8OX1kKOSRd4E6T8gdT23pU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9spwG1f/Kh+/QMC3v7YajIEq/Q2eb87BK21bsf9G1jzOSGUbk6
+	sHJUJl5n+16OhBkehHGPJKstykG2WL2g/H5M5tyOHZKzttTh7hIm08L/IHAH8Fnw9XWknWeUXQ0
+	Pq+eukbRK1iYQJ8K9ebCjDIc+WRn7BSCmoQkABR+1PhrZd6F8W7movTfF+dGr5CrNbrpCExRbCH
+	Q=
+X-Gm-Gg: AZFdTZeWn60OGzoAmm8bvMZnsmhGW4duS8WxEvH6lJTkl5Hal8yb+3pwxH3/pOd2NuJ
+	cEF+oR7JsFVYoNpLLrLcjz52VbLhQfmLC4STxT2wuU6p+wzh51ghgWqi7DqTDOJQP0nIDXuygf4
+	ykJXhX8P4IRPrArSODrxxm9wgDQmJi8605JtmSaaO0jYMrzZipxM4Xaxk7iigeEsDgPOjW3jlmS
+	p949mPr89/095XOdmN0zfCNoYyg8G85y9OK1X7GIb+AtZlH7xTMCi+NhzZ/hTKnKPvvpc7o8svP
+	6brAN1US8k/NMuCwBQJhHYdHyxz4dNIghHGSRwe1iruktTtwBBpShOnTfSYXig6q0Qhn+gHySHU
+	Zk4bFawmyqJPEmN2XJTqZ7bxeEzJguiNYZHPF2k2YpNuRateFt1lmsWs5xwjx7DB83k5/HTBBD3
+	v0xP6Erhs41nKrj0tk/28NBdRGWNaxJvS7yg==
+X-Received: by 2002:a05:693c:26cb:b0:381:6297:8f99 with SMTP id 5a478bee46e88-3856e748babmr6295650eec.2.1795218306478;
+        Fri, 20 Nov 2026 15:45:06 -0800 (PST)
+X-Received: by 2002:a05:693c:26cb:b0:381:6297:8f99 with SMTP id 5a478bee46e88-3856e748babmr6295591eec.2.1795218305794;
+        Fri, 20 Nov 2026 15:45:05 -0800 (PST)
+Received: from gu-dmadival-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm14669862eec.4.2026.11.20.15.45.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 15:45:05 -0800 (PST)
+From: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
+Subject: [PATCH v11 0/5] Implement Region of Interest(ROI) support
+Date: Fri, 20 Nov 2026 15:45:01 -0800
+Message-Id: <20261120-enc_roi_enable-v11-0-c00b95ea1b81@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,153 +116,214 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1795217229.git.daniel@makrotopia.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH3bAGsC/3XSzWrDMAwA4FcpPi/Ftvy7095jjGLL8hpoky3Zw
+ kbpu8/pYQ24vhgk8GdJ1oXNNPU0s+fdhU209HM/DiUQ4mnH8BiGd+r6VBJMcmm4EaajAQ/T2B9
+ oCPFEnUrgNCrrIBArlz4myv3PTXx9K/Gxn7/G6ff2wCLWbJNaRMe7TBlRkTUZ4GWc5/3ndzjhe
+ D7vy8FWcZF3xQpVKbIoBoyD7FNEyg0F7orjtQJFIQ7RSBlkUq6hqI0iRKWoogj0FKTiOsaWore
+ KrhRdlETJK5V5RtvqyNwV/0AxRZE+JYUuIuaWYjeKrOdi1+nmYJWAkCVgQ3EbBXiluLUW9Nxl4
+ ORN66f9vyI4rzvyRXEgUJZiNEbRUATfMI/Wjhcnoo4JbCx7Rw+c6/X6B0qaPRksAwAA
+X-Change-ID: 20260616-enc_roi_enable-4d385c4783ae
+To: Mauro Carvalho Chehab <mchehab@kernel.org>,
+        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Bryan O'Donoghue <bod@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>,
+        kernel test robot <lkp@intel.com>,
+        Hans Verkuil <hverkuil+cisco@kernel.org>,
+        Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795218304; l=7510;
+ i=deepa.madivalara@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
+ bh=vuvbM02Jw397PqVJCFo6HMCpDsTVFguB5riWZWCmN8k=;
+ b=ySOp/VmfIJQVbybVM75RIyvjMJ/GePe6DCqs9GsA17tgrJ6K6zpVCRSMdxyG+s8UWt9pVVcJ0
+ /cQguObGoq4BIcwrzSAMTQ7XxxjrHSFXqjvjGXwjp18bquDCTlZfaOO
+X-Developer-Key: i=deepa.madivalara@oss.qualcomm.com; a=ed25519;
+ pk=MOEXgyokievn+bgpHdS6Ixh/KQYyS90z2mqIbQ822FQ=
+X-Authority-Analysis: v=2.4 cv=X+zHu2Te c=1 sm=1 tr=0 ts=6b00db83 cx=c_pps
+ a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=QyXUC8HyAAAA:8 a=l3oWgaDpQndWrbxot-sA:9
+ a=QEXdDO2ut3YA:10 a=scEy_gLbYbu1JhEsrz4S:22
+X-Proofpoint-ORIG-GUID: 9srQ2vyicjEpBELW_UeGAWkaoXSRPz4W
+X-Proofpoint-GUID: 9srQ2vyicjEpBELW_UeGAWkaoXSRPz4W
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfX3sDmUy1eoPVn
+ PQ4gGh6euM2UV5fWgadDuQCaJVFC45U9JSBmWBVIx74svyuR9+Uy56llED4E7x/gNWuiiCeXlfc
+ HHdYX+WPPaU4pPeeWbL4pUkna5OJLPc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA5NCBTYWx0ZWRfXztN0BpzIePvS
+ hv2X3Tu4+j/GFMlNfEyyZ6N4FzhaydfjpO7ayRjVKaZAk/oUMzp/XHMzOqdH/wIYRYaXiF66t9U
+ 4hCEEgAQ6ZM9PNlkyDoyxoWdy+zbnMBKC4+fgkqNp3ZMZxPy8WyWpV++GTd8s/EmbNgBx0z4UQ+
+ KHJt3GY9YxphAni2OYdka0V9x7EAmsubsOggyX4MKWwSPpVVtdbkJvy2UJlYkqcfmTS/g/D2ElY
+ wb7/QJCgFEw/kqTgc9bsOaL/Fk0IqM7v/eHu1Oj+KHUTHe3tGkV1Khqo8i3nfhsQHha/3MTYGLk
+ F5uwX0nqmoZv3KitL6EwLzn4nML0BYafsDdVBuN0NCeUR3S31TUZyH7mt1dsR/n5qrf9GhARWLG
+ 1I/JsOeBqVzB0n34ob1NXyGKzF8YHAFVJ4nuWlX/jweKFbKLb0cmrE33fBF30YHYpLYoHUIteaC
+ VARAvXUE0qIVlPQGhDg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200094
 
-The buffer for the calculated short-term sets is used without checking
-that its allocation succeeded. Return -ENOMEM and fail the decode job
-in both back ends.
+Hi all,
 
-Fixes: c9a59dc2acc7 ("media: rkvdec: Add HEVC support for the VDPU381 variant")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+This patch set implements region of interest(ROI) support for
+video encoder to be configured as a MB based delta_qp for
+the whole frame. Custom controls V4L2_CID_MPEG_VIDEO_ROI_MB_DELTA_QP
+and V4L2_CID_MPEG_VIDEO_ROI_MB_SIZE are implemented to achieve this. 
+Corresponding support is added in iris encoder to implement this
+feature.
+
+This submission and design is based on the feedback received
+from community for the RFC[1] series posted earlier. 
+Initial testing is done by adding support to v4l2-ctl[2] to test this
+control setting and its functionality.
+
+[1]https://lore.kernel.org/linux-media/20260113-iris_enc_roi-v1-0-6c86eba38587@oss.qualcomm.com
+[2]https://lore.kernel.org/linux-media/20260616-enc_roi_enable-v1-1-252792d27894@oss.qualcomm.com
+
+Results:
+
+v4l2-ctl -d /dev/video1 --list-ctrls
+...
+enc_mb_roi_delta_qp 0x00990b92 (s8)     : min=-31 max=30 step=1 default=0 dims=[139264] flags=has-payload
+        roi_mb_size 0x00990b93 (u8)     : min=16 max=32 step=1 default=16 value=16 flags=has-payload
+
+v4l2-compliance -d /dev/video1
+...
+Buffer ioctls:
+        test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK
+        test CREATE_BUFS maximum buffers: OK
+        test VIDIOC_REMOVE_BUFS: OK
+        test VIDIOC_EXPBUF: OK
+        test Requests: OK (Not Supported)
+        test blocking wait: OK
+
+Total for iris_driver device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+./v4l2-ctl --verbose -d /dev/video1 --set-fmt-video-out=width=176,height=144,pixelformat=NV12 --set-fmt-video=pixelformat=H264 --set-ctrl=enc_mb_roi_delta_qp=-20,-2,-22,9,-16,-2,14,-9,-19,3,-26,19,-23,30,1,0,-6,-7,7,2,-2,15,-15,-24,-24,-26,-26,5,-1,-1,9,-11,15,-25,-11,26,-11,7,-26,-27,-8,-18,7,-4,-12,-23,-11,22,-7,7,-14,24,6,-8,-7,2,7,-26,2,-25,-1,-3,-4,-6,-26,-11,7,16,-30,-22,-15,30,-14,-29,-11,-8,8,6,19,15,-17,21,-27,30,-17,-28,-10,-20,1,22,29,-19,-2,28,10,12,-10,7,-4 --stream-mmap --stream-out-mmap --stream-from=/media/foreman_qcif_nv12.yuv --stream-to=roi_try.h264 --stream-count=10
+
+Validated on SM8550 MTP.
+
+Thanks,
+Deepa
+
+Signed-off-by: Deepa Guthyappa Madivalara
+<deepa.madivalara@oss.qualcomm.com>
+
+Signed-off-by: Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
 ---
-Changes since v1:
-- Rewrite the commit message
-- No code change
+Changes in v11:
+- Fix kernel test robot or Media CI issue.
+- Rebase onto media-committers next
+- Reported-by: kernel test robot <lkp@intel.com>
+  Closes: https://lore.kernel.org/oe-kbuild-all/202610182259.q2CvO4TK-lkp@intel.com/
+- Link to v10: https://lore.kernel.org/r/20261016-enc_roi_enable-v10-0-bc5bd37b6f3e@oss.qualcomm.com
 
- .../rockchip/rkvdec/rkvdec-hevc-common.c      | 26 ++++++++++++++-----
- .../rockchip/rkvdec/rkvdec-hevc-common.h      |  4 +--
- .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     |  7 ++++-
- .../rockchip/rkvdec/rkvdec-vdpu383-hevc.c     |  7 ++++-
- 4 files changed, 33 insertions(+), 11 deletions(-)
+Changes in v10:
+- Do not enable ROI subscription for unsupported platforms (Bryan)
+- Address comments to use BIT, DIV_ROUND_UP, ALIGN and others for clarity (Bryan)
+- Link to v9: https://lore.kernel.org/r/20261005-enc_roi_enable-v9-0-831c24135cb1@oss.qualcomm.com
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-index e3449ab0d415b..80df05bacaeba 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-@@ -329,24 +329,27 @@ static void st_ref_pic_set_calculate(struct rkvdec_hevc_run *run, int idx,
- 	st_rps->num_delta_pocs = st_rps->num_positive_pics + st_rps->num_negative_pics;
- }
- 
--static void rkvdec_hevc_prepare_hw_st_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
--					  struct rkvdec_hevc_st_rps_cache *cache)
-+static int rkvdec_hevc_prepare_hw_st_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
-+					 struct rkvdec_hevc_st_rps_cache *cache)
- {
- 	u8 num_sets = run->sps->num_short_term_ref_pic_sets;
- 	size_t size;
- 	int idx;
- 
- 	if (!run->ext_sps_st_rps)
--		return;
-+		return 0;
- 
- 	size = num_sets * sizeof(*cache->sets);
- 	if (cache->num_sets == num_sets && !memcmp(cache->sets, run->ext_sps_st_rps, size))
--		return;
-+		return 0;
- 
- 	struct calculated_rps_st_set *calculated_rps_st_sets =
- 		kzalloc(sizeof(struct calculated_rps_st_set) *
- 			run->sps->num_short_term_ref_pic_sets, GFP_KERNEL);
- 
-+	if (!calculated_rps_st_sets)
-+		return -ENOMEM;
-+
- 	for (idx = 0; idx < run->sps->num_short_term_ref_pic_sets; idx++) {
- 		const struct v4l2_ctrl_hevc_ext_sps_st_rps *rps_data = &run->ext_sps_st_rps[idx];
- 
-@@ -362,13 +365,22 @@ static void rkvdec_hevc_prepare_hw_st_rps(struct rkvdec_hevc_run *run, struct rk
- 
- 	memcpy(cache->sets, run->ext_sps_st_rps, size);
- 	cache->num_sets = num_sets;
-+
-+	return 0;
- }
- 
--void rkvdec_hevc_assemble_hw_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
--				 struct rkvdec_hevc_st_rps_cache *st_cache)
-+int rkvdec_hevc_assemble_hw_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
-+				struct rkvdec_hevc_st_rps_cache *st_cache)
- {
--	rkvdec_hevc_prepare_hw_st_rps(run, rps, st_cache);
-+	int ret;
-+
-+	ret = rkvdec_hevc_prepare_hw_st_rps(run, rps, st_cache);
-+	if (ret)
-+		return ret;
-+
- 	rkvdec_hevc_assemble_hw_lt_rps(run, rps);
-+
-+	return 0;
- }
- 
- struct vb2_buffer *
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-index f6a3dec6ff4ad..32f192743c8c8 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-@@ -71,8 +71,8 @@ void compute_tiles_uniform(struct rkvdec_hevc_run *run, u16 log2_min_cb_size,
- void compute_tiles_non_uniform(struct rkvdec_hevc_run *run, u16 log2_min_cb_size,
- 			       u16 width, u16 height, s32 pic_in_cts_width,
- 			       s32 pic_in_cts_height, u16 *column_width, u16 *row_height);
--void rkvdec_hevc_assemble_hw_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
--				 struct rkvdec_hevc_st_rps_cache *st_cache);
-+int rkvdec_hevc_assemble_hw_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
-+				struct rkvdec_hevc_st_rps_cache *st_cache);
- void rkvdec_hevc_assemble_hw_scaling_list(struct rkvdec_ctx *ctx,
- 					  struct rkvdec_hevc_run *run,
- 					  struct scaling_factor *scaling_factor,
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-index 8388421a68a48..2a239114759a2 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
-@@ -593,6 +593,7 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- 	struct rkvdec_hevc_run run;
- 	struct rkvdec_hevc_ctx *hevc_ctx = ctx->priv;
- 	struct rkvdec_hevc_priv_tbl *tbl = hevc_ctx->priv_tbl.cpu;
-+	int ret;
- 
- 	rkvdec_hevc_run_preamble(ctx, &run);
- 
-@@ -606,7 +607,11 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- 	rkvdec_hevc_assemble_hw_scaling_list(ctx, &run, &tbl->scaling_list,
- 					     &hevc_ctx->scaling_matrix_cache);
- 	assemble_hw_pps(ctx, &run);
--	rkvdec_hevc_assemble_hw_rps(&run, &tbl->rps, &hevc_ctx->st_cache);
-+	ret = rkvdec_hevc_assemble_hw_rps(&run, &tbl->rps, &hevc_ctx->st_cache);
-+	if (ret) {
-+		rkvdec_run_postamble(ctx, &run.base);
-+		return ret;
-+	}
- 
- 	config_registers(ctx, &run);
- 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-index 47f236295f1e5..52554c75f47f4 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
-@@ -542,6 +542,7 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- 	struct rkvdec_hevc_ctx *hevc_ctx = ctx->priv;
- 	struct rkvdec_hevc_priv_tbl *tbl = hevc_ctx->priv_tbl.cpu;
- 	u32 timeout_threshold;
-+	int ret;
- 
- 	rkvdec_hevc_run_preamble(ctx, &run);
- 
-@@ -560,7 +561,11 @@ static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- 	rkvdec_hevc_assemble_hw_scaling_list(ctx, &run, &tbl->scaling_list,
- 					     &hevc_ctx->scaling_matrix_cache);
- 	assemble_hw_pps(ctx, &run);
--	rkvdec_hevc_assemble_hw_rps(&run, &tbl->rps, &hevc_ctx->st_cache);
-+	ret = rkvdec_hevc_assemble_hw_rps(&run, &tbl->rps, &hevc_ctx->st_cache);
-+	if (ret) {
-+		rkvdec_run_postamble(ctx, &run.base);
-+		return ret;
-+	}
- 
- 	config_registers(ctx, &run);
- 
+Changes in v9:
+- Fix Media CI error.
+- Rebase onto media-committers next
+- Reported-by: kernel test robot <lkp@intel.com>
+  Closes: https://lore.kernel.org/oe-kbuild-all/202610051710.bnOqLkUl-lkp@intel.com/
+- Link to v8:
+  https://lore.kernel.org/r/20260930-enc_roi_enable-v8-0-2c908f30e963@oss.qualcomm.com
+
+Changes in v8:
+- Moved p_s8 below p_u8 (Hans)
+- Update Documentation for V4L2_CID_MPEG_VIDEO_ROI_MB_DELTA_QP (Nicolas)
+- Update returns to a sngle line (Vishnu)
+- Update n_shift calculation logic to ilog2 (Vishnu)
+- Link to v7: https://lore.kernel.org/r/20260924-enc_roi_enable-v7-0-6fa7413af23c@oss.qualcomm.com
+
+Changes in v7:
+- Add V4L2_CTRL_TYPE_S8 to v4l2_ctrl_type_op_validate and check_range (Hans)
+- Rebased onto media-committers next.
+- Link to v6: https://lore.kernel.org/r/20260915-enc_roi_enable-v6-0-29dd4c8bccff@oss.qualcomm.com
+
+Changes in v6:
+- Update documentation from custom to array, __s8 to __s8 array (Hans)
+- Update documentation and handling for non MB Size aligned frame resolution (Hans)
+- Rework patch 1 and 2 to add V4L2_CTRL_TYPE_S8 type first followed by ROI control (Hans)
+- Simplify handling for V4L2_CTRL_TYPE_S8 in v4l2-ctrls-core.c (Hans)  
+- Link to v5: https://lore.kernel.org/r/20260815-enc_roi_enable-v5-0-ded944f0fc7f@oss.qualcomm.com
+
+Changes in v5:
+- Fix Media CI errors.
+- Rebase onto media-committers next.
+- Link to v4: https://lore.kernel.org/r/20260811-enc_roi_enable-v4-0-1c9ea2405bb8@oss.qualcomm.com
+
+Changes in v4:
+
+- Updated Documentaion, clean stray lines (Bryan)
+- Use BIT(16) for header version (Bryan)
+- Split patch3 in the series to reflect enumeration of
+  the platform and adding metadata support and implementation (Bryan)
+- Link to v3: https://lore.kernel.org/r/20260804-enc_roi_enable-v3-0-e03b622a2d48@oss.qualcomm.com
+
+Changes in v3:
+- Updated Documentation (Hans) 
+- Reuse ROUND_TO_RANGE_RANGE for p_s8 (Hans)
+- Rebase onto media-committers next.
+- Link to v2: https://lore.kernel.org/r/20260714-enc_roi_enable-v2-0-63683f9dbcef@oss.qualcomm.com
+
+Changes in v2:
+- Fix issues detected by Media CI robot and kernel test robot.
+  Reported-by: kernel test robot <lkp@intel.com>
+  Closes: https://lore.kernel.org/oe-kbuild-all/202606171554.03yt9utn-lkp@intel.com/
+- Rebase onto media-committers next.
+- Update to handle p_s8 in std_validate_elem correctly. 
+- Link to v1: https://lore.kernel.org/r/20260616-enc_roi_enable-v1-0-fefcc4e76f33@oss.qualcomm.com
+
+---
+Deepa Guthyappa Madivalara (5):
+      media: v4l2-core: add new control type V4L2_CTRL_TYPE_S8
+      media: uapi: Introduce new control for video encoder ROI
+      media: iris: Add ROI delta QP control support for HFI Gen2 encoders
+      media: iris: Add HFI metadata buffer delivery support for Gen2 encoders
+      media: iris: Add BUF_ROIMB_DELTAQP metadata buffer for ROI delta QP
+
+ .../userspace-api/media/v4l/ext-ctrls-codec.rst    |  27 +++++
+ .../media/v4l/videodev2.h.rst.exceptions           |   1 +
+ .../userspace-api/media/v4l/vidioc-g-ext-ctrls.rst |   4 +
+ .../userspace-api/media/v4l/vidioc-queryctrl.rst   |   6 ++
+ drivers/media/platform/qcom/iris/iris_buffer.c     | 114 +++++++++++++++++++++
+ drivers/media/platform/qcom/iris/iris_buffer.h     |  22 ++++
+ drivers/media/platform/qcom/iris/iris_ctrls.c      | 114 ++++++++++++++++++++-
+ drivers/media/platform/qcom/iris/iris_ctrls.h      |   2 +
+ drivers/media/platform/qcom/iris/iris_hfi_common.h |   1 +
+ drivers/media/platform/qcom/iris/iris_hfi_gen2.c   |  14 +++
+ .../platform/qcom/iris/iris_hfi_gen2_command.c     |  63 ++++++++++++
+ .../platform/qcom/iris/iris_hfi_gen2_defines.h     |   3 +
+ .../platform/qcom/iris/iris_hfi_gen2_packet.c      |   6 +-
+ .../platform/qcom/iris/iris_hfi_gen2_packet.h      |   3 +
+ .../platform/qcom/iris/iris_hfi_gen2_response.c    |  29 ++++++
+ .../platform/qcom/iris/iris_platform_common.h      |   5 +
+ drivers/media/platform/qcom/iris/iris_venc.c       |   4 +
+ drivers/media/platform/qcom/iris/iris_vidc.c       |   2 +
+ drivers/media/v4l2-core/v4l2-ctrls-api.c           |   1 +
+ drivers/media/v4l2-core/v4l2-ctrls-core.c          |  19 ++++
+ drivers/media/v4l2-core/v4l2-ctrls-defs.c          |  10 ++
+ include/media/v4l2-ctrls.h                         |   2 +
+ include/uapi/linux/v4l2-controls.h                 |   2 +
+ include/uapi/linux/videodev2.h                     |   2 +
+ 24 files changed, 452 insertions(+), 4 deletions(-)
+---
+base-commit: ccf78740d63813c452c035b57d17a650492562fa
+change-id: 20260616-enc_roi_enable-4d385c4783ae
+
+Best regards,
 -- 
-2.56.1
+Deepa Guthyappa Madivalara <deepa.madivalara@oss.qualcomm.com>
+
