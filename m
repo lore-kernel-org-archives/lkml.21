@@ -1,78 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795192349;
-	b=Xih52IIMaV++VisoUXBbXQYZVqAYLWJRirN/H1myaj2G1rcLCOKVRJee2aRk9PGcquWl
-	 WJUBKrYmreDN2ZPdiMh4V1nSpt+rB126MT6mWyZp18kCVGVR6Il8vYvuia84y1teFDCBD
-	 N4vSe3oZwd6w7+8U06RX9v8QaXd7JLBwwOKc8ewsM13wEMJq7Vk95LsNkNJDOjd80RxSa
-	 8H6m808AhhHQSYlEbvDQrTcNMD1+HsfjCrk8IaeD+Vg+9n9VZKYqqW8CzD4mgEgxsVvtW
-	 42MycBrPI4w2wbNSnHrJ6DdzGUbfXWmYuogR3fFsJYzSBk/tdls6hOB0MdSl+XvdxXA==
+	t=1795192465;
+	b=whqDlsxv2SVvwwSBcFe6hC5jUthIBdP83x8vic1hJj4ljNce7vPoE8/xPtSWwYz3rFD6
+	 QEtoA3HsGU4/9VciZm5hD2zsrWCUJsPDuH8tcYrdjYS4gKFEJHyGl6LHtNcjB+F57fkuO
+	 gzVxS4s03FhnOIwdXEWoN8tJKKoN8/lP8G5T80E9bj4e+99ue2LcYa6UttOcccyh/wu6O
+	 lbsC5eIen4iFfEGd9XsP9+10LhdrmdThZNspEM/79fVBDMBZUYvuDeQ7fkdst8ObpkOXb
+	 9niNKHPqHEzbb4t2Aw+oIkDq7JZNiKSso2PbCgF4Kef6whNIt7iJH4szFtRZO9IlG7A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192349;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xFXT3t1CiYZhcwKGWduI7MEsRw+SOFCG4fBp9+M6zRk=;
-	b=N80kkLfdGPY12Owc7eYaNJztu2mEF0iRFgpQr34bbCKu9HbLDVvTeaE96f4oT5iBaEed
-	 eadwL0BgujzKjBD8+BgmsDFSz2NSNHbTbFqk4kA7mBKubMYzVXdtcDBSWsCl/UARovHDd
-	 5XFmUX0S3cAUmgqwZY/dzt+RIKqtjDY5mEz0K8AaWxNSUZr9MLKDdEWgonmTyOVsNWRAB
-	 /PDoq9PxC6kgzFIg2aqrvEmIAS6l7kKDGcHOFgCHUy8uZHYGLKq+fkiF32o2eQFMfzlpw
-	 GSJ4lroDUBP+iPkTflYL0+3hdzeMQYuSQubcPypYoFRFKjS/Cguaxdl1d8JRZITugDQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192465;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=nC3Y8PFe3wYNyqsZ4bQVAufvMs2EZ2DXu02JtfGvlOA=;
+	b=GTHgcFdMcRh5aNQm2tdw/AJTZFM1BN2bxdygfsVKbSHRgLfROD6lbbtBoaYBj/ckrlBH
+	 qv3WFXYalUg7bHjTZC6Y2o8StrrtuCB+QgH8U/Y/QDhBBLTCa31iqSycmUOpGHMedgn6F
+	 /5fm3tO9PS7LRQpulHTRdLs9nIu0OxO4BBTu3YTSuA4KF7lys3L34U8Aq6h0/cX4HMY6m
+	 HiNV+OeLm+01FU2b/TkqLATQWvDYzhAtfSh0RmyzE2qZheGHTok5PiZUuLYICkDINs+XX
+	 dR/lSEWvWlQtq7ENprSBY0kPF3i8yz13UQRe7RyOZ5O8t+CfYreOhtjFRt1/dbO02ug==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDzsQyRJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 014EB606A331;
-	Fri, 20 Nov 2026 16:32:28 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDzsQyRJ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795192348;
-	b=bbbrNx2lxXvL3lqiTXNFOOvd5L5OWuoPdkFty4r4QWfeuE2O32tpF2ISjkaqIFxHkvua
-	 p0krKt/EKnN+W0k528v76I4gp8GKOUAAekdU2Zai8wqWzjw1QUelmIfRvxfpjNbUyp8nQ
-	 DDsEvbJPoAObNP32CqDp9twOCdJvMe6n/zafADWIpYy7XAthSHAKZ2NZ5gmC171DAIKL9
-	 2E7CA32tN95MEcLe3JbHYmiWFTx7mWxnDZMmllGt3bGKb6Pomo3V2MTOjhijppFpu5CDI
-	 aU1uejvK5bdP+yXYM4F53anPHLMz3lVuvrsizAp0n2DS6Wkyss6MiWchLiG2rqKaWHQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795192348;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=xFXT3t1CiYZhcwKGWduI7MEsRw+SOFCG4fBp9+M6zRk=;
-	b=GfpWxJAequCRvXM1DsOqb5A0Pm0iVt3fxPWMM6snoOuoHe+EtYJydCOrI4N5t1ssoOWV
-	 Hbb5mhXNeNVjrg66fT+QUxfyJO5Em3TKm0tRCEwUVuxDay+Ik9fw68bayjHI8YJgYkiLw
-	 MfuBGvdfsS2gZ9e2xRfq1Ntq+6WLZfA7UHDKB1rdfwnaXS2TsX4u4iPsA+1fRyoMiX03O
-	 OLNdm6AUxpYg55c/cccRg1IAdnBfSdfMdrizMOR0lcR6HWIOmDqq4d6K1rhZtcUpzJtgb
-	 H8UPBYZepWTreILpYDu51e9ckV7AWcfSgaKFY2rnrr2gpH1T0pM4omnVvWoqnZDSr0Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PBIN1JR4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
+Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B8CEA1F000C6;
-	Fri, 20 Nov 2026 16:32:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795192348;
-	bh=xFXT3t1CiYZhcwKGWduI7MEsRw+SOFCG4fBp9+M6zRk=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=XDzsQyRJNzR7qXzq9YFHZZgsaqfXAouys19tTsE8wGKzpFxipIBeG2L5YZU/QZGkO
-	 FnhEdiKnEL/0NCb0EyYCGc+SL6YG7Hrs8PECK7nTaNoDYTTBdKLZYWANmIp+50SO8R
-	 oJtsV2d/wdcOEgE/LllIRS4R2LUdf8wGzjQjd3ElI8EdSWWAk0NHYaC9FmgOKCjYfA
-	 ykuFnnfUW3WE+LAW9hkLMLGTqB+Q8NP2H3RAUzZUPjyFp4O7uF4zQyeAY4WrJdLW7K
-	 f+c4kUSx5SkQoozJyjVsXP48G17FUq0eFtZxP+AUSCk2+DI8porAJf/DX7agK1uibk
-	 1KK1y2ijuQkTw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 347B64994E;
-	Fri, 20 Nov 2026 16:32:20 +0000 (UTC)
-From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 17:32:12 +0100
-Subject: [PATCH] rust: put C helper exports in a dedicated namespace
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 691D6606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:34:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 691D6606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PBIN1JR4
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c0f0e04628so62922e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:34:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795192463; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ev3WjctZaaI4nr2+jr48U+toeqD6ycoyzG5NvFDpZ8v3UuPr+4G0Dh8hTHuoRxWiYA
+         Jh4MHWfqZ2gz9vLq2mF4u2Ol1V8pzG5iR2hhqwWF6s2WbHrHwh9E3eB66PFuXs0uCH4f
+         FwktBYl1nU+UlGTlNFYcVK4VVfEnLUAmEBfWjELM9aJ4Lf1oyqNl/nhrI7j7HNVC1Ziv
+         xye6g5ENbTxWheZ/DKqe033n0i7a78ypy0LjL4aZOBH9gPZ3FR+n0e3MWCLGTqqlSVU6
+         4ZBJPqDUonqD/YGo2ryoB1e6yIVifodSiXBP6MVoNeTeb+8to+f9ho7GqtRZXq/BbXwl
+         W+Yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=nC3Y8PFe3wYNyqsZ4bQVAufvMs2EZ2DXu02JtfGvlOA=;
+        fh=9j6J+gxVa5DaGaQc80Sq4sX1q1VYAAZ5TLsX6p8d0ZA=;
+        b=FL33CCbthVEgoy1toBNkLUNW4AtzyylG21moMGGqjRxxCGlanrD05OqKEOLL8fb/AN
+         0moL7E/3vm6Jnd/x/KBTNJwv74q2cv+sOBY6prAu0GhniyGpSOkmvhCBH7KuM3Ioq3p5
+         bARbWX3HYNbIFolBugoopO+OnBmnbXiu4wZC11T8Bz5YRnhdZzVcBNEiDtD9TMrejQYF
+         4o6lW7EZHpjRo5stX2izGHIUDY9IsQY505yxn/zRIipLJZVVMfsnaeaesE5F9iXbsemf
+         S+nqfBh6jctYvxbfijcE1RhcpWgdzy4vwTd4Z110kRM/AaNfoEtMEp+7gaDmYV5zfcOU
+         qNmA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795192463; x=1795797263; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nC3Y8PFe3wYNyqsZ4bQVAufvMs2EZ2DXu02JtfGvlOA=;
+        b=PBIN1JR4U5r3qyhOBJhFDoZHEKQteUgVsi+UQOHvUWCMUsKte9+vLKf7/S5XxRhn3O
+         WymdpLThCMjsVl438IqLfVuuksvDStQqzGh1eIoUV0NUl1m9QfVTQ5uypVvckAfkrbmi
+         4bTvq5IqyTpsDHUNjCWuLqHmSneVjLbbwpdrdnHmUvbpFF+ZVhAUfFelqZSmf+s9zzZh
+         muFSiSxVaodK63XtUTRDO+OBWT1ZFcQPCKpWUOVHRaUloopyY9wTdqHo3v+pV2qDDrjL
+         yv/2iNNsmH6ZncQdfCZu2raj5i30B81e3k9ccKy8az6GxlsZntIlSnMNMLFHVU9CKt/J
+         effA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795192463; x=1795797263;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nC3Y8PFe3wYNyqsZ4bQVAufvMs2EZ2DXu02JtfGvlOA=;
+        b=vOlpFM6fxkqelI3ZUX8EfPN12E5AKnET9ow6xbcG6wQW+P45JSvkRaxAK8G6DfY+LM
+         oSmCqNDuDFVlLD7EsoDtMo5cjXzAUCbS8d0liVSY2UvBpyaR4Rb4+cQYLTq3BBCB2l7Y
+         RAhD5/70nL/63h2Hr1is5lXqhwe7EfMFd2Ngs+IV2woTNrgcv8qoMYqMp1dXwZJfZ4wP
+         DBcZdLjOCzDXP/8Esa7+JxYCpci/jUc19koOB3EduYdsV0/+lMWfffH/6PYRi7AACCCO
+         7uJAYDk3ki00KOwlaVRB1pApABit0dPVESHE3UrOj+5mS9N3u880EQ0bMbEwgfXLsr7X
+         0dig==
+X-Forwarded-Encrypted: i=1; AL+hErFAmiiuBjzg/1F3sB1DZoHqNsMgcr7HwlGMGjI1RJ+FYmGIXvYUclmCPH9VoWYX4oWFtDbdf8j6GMiGR+E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Cu9I6dNKQgMrRetAvP6aYt6JSaEGygh8QD8hE0Q7E+K6eZnEq
+	MuIjUowQQlKjzyRe4WB/ZbDG+1CLhfOOiwf0Bm3NOoFqKs9NdK9NHli7dziYY8kAyAFYhVJVA8H
+	JirQ68kuPW2b+XCx0MPS2u0dIw47gh7c=
+X-Gm-Gg: AZFdTZftzzyiG2ksiqo3ccxr/KIww+QiYJ7NdZMivv/ILriSOwwRZGxpcVr+go+bsFW
+	Ji6cyuqBH7NV2Y9yhvpxuZ9JC15xvjx5e7bqNwuRmZJHRz4GjkDwfDgzpaWD5y9t9+Rl4J4Lxko
+	9hOoDX7mMK51PLbbYj377LD0ihGbh/C9L4pO1+BorDxA3vXaQLRL9X2FCVWs0ziFAA7ipUdOMPs
+	y33fx4j0X0QlBS67lHG7dsbEDErQSjxi7lADiTJHYMIJ7i7SMjPVp8Afu+e/1vkW1JhfKrYjFSS
+	STwhck1CTUgZDLViAeWAduQQQpmNICGiBM3UNPbuiEFOHVpRyAVzhjk+X2hjM87oVb4FqvlTmaD
+	yF9hZ55Oa+lPL+dSWYJ1sayMS0szemPAzYVxXNHeiJOgNB7PRkFoddYUIzpWskpaVKqBgMygG2b
+	VVSw19EfygSOcHG/xUaWvJ5UJLpUXPLJxTMF/duaSAqAB4/359dgJBrIE0azfexGtBOnz5ON1s0
+	hFesURvqfIewFEKykjIqwlqZ00TxRR+mkm6z1WEUNAS7rymcTIFNRNYkZnVaUnYOOc2yXK/DgM=
+X-Received: by 2002:a05:6512:31d5:b0:5bf:f87e:3d25 with SMTP id
+ 2adb3069b0e04-5c1bc6b22b3mr1458709e87.2.1795192463418; Fri, 20 Nov 2026
+ 08:34:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,133 +106,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-rust-helper-namespace-v1-1-3b9a05553ff6@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAt2AGsC/yWM0Q6CMBAEf4Xcs420RjH+ivHhKIvUSG3uiiEh/
- LsUH2ezMwspJEDpVi0k+AYNn7iBPVTkB45PmNBtTK52F2tdbWTSbAa8E8REHqGJPcy5wdWfGqD
- petrcJOjDvHfvjz/r1L7gc4mVR8sK0wpHP5RpSpoFPB73fsScaV1/Kuql2p4AAAA=
-X-Change-ID: 20261120-rust-helper-namespace-57e8c37ee7df
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
- Aaron Tomlin <atomlin@atomlin.com>, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-modules@vger.kernel.org, 
- Wedson Almeida Filho <wedsonaf@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795192339; l=3698;
- i=peder.bergan@gmail.com; s=kernel-contributions;
- h=from:subject:message-id;
- bh=5abfNuTCOBRWevTCg/nJxA+AusAhHZG6K5llcZxRyjI=;
- b=kHhyiIoVhUVvEZ39eIExpOF7QUtA1sz03mr1zCe+6+mUbacftH2am3hofEnCEBIkZ6Y7elFJw
- 1dEuwYZ8hHfADPm4c37j0mG/eJgltFQ5TJZ0LLUmtyK2jVAim1/mjBu
-X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
- pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
-X-Endpoint-Received: by B4 Relay for
- peder.bergan@gmail.com/kernel-contributions with auth_id=1395
-X-Original-From: Peder Bergan <peder.bergan@gmail.com>
-Reply-To: peder.bergan@gmail.com
-Content-Transfer-Encoding: 7bit
+References: <20261119-fix-schedstats-bindgen-layout-v1-1-0599dd230ffd@gmail.com>
+ <CANiq72kcDMqswODJ0OqcqecDG+8mVn7Q43v48=ED5d6tsFOWQQ@mail.gmail.com> <nh-e30bf2f4-acc5-411c-89f2-b5dd827aa4d5@google.com>
+In-Reply-To: <nh-e30bf2f4-acc5-411c-89f2-b5dd827aa4d5@google.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Fri, 20 Nov 2026 17:34:12 +0100
+X-Gm-Features: Aa3M54ql_SOOsMze1HazvjgluNX1SS-NF43fsAY8uNsD-xH6a3BgMusqBnpQfFc
+Message-ID: <CANiq72=9EeVT74BW7RA=hVgvx7QE=41QZ80G5CyiNhmJy5yw4A@mail.gmail.com>
+Subject: Re: [PATCH] rust: bindgen: Preserve sched_statistics alignment
+To: peder.bergan@gmail.com
+Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
+	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
+	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+	Carlos Llamas <cmllamas@google.com>, rust-for-linux@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
+	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>, 
+	Jules Mercier <jules@les-mercier.fr>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Peder Bergan <peder.bergan@gmail.com>
+On Fri, Nov 20, 2026 at 4:38=E2=80=AFPM <peder.bergan@gmail.com> wrote:
+>
+> I looked into bindgen 0.73.1. The layout diverges earlier at
+> task_struct.se, and my v1 leaves that offset unchanged.
+>
+> I ran a reduced test and found that making the type opaque can worsen
+> field placement on 0.73.0 and 0.73.1. Would you prefer limiting the
+> workaround to 0.73.2 with scheduler statistics disabled?
 
-The rust_helper_ prefix marks these C wrappers as Rust implementation
-details. Their exports use the default namespace, so GPL-compatible
-modules can link against them without an explicit import.
+I don't think we need to do that: `bindgen` 0.73.0 and 0.73.1 had
+other layout bugs and, anyway, it doesn't really matter fields are off
+by 1 byte or many, i.e. they are completely wrong either way... :)
 
-Export the wrappers in RUST_HELPERS so modpost can detect accidental
-dependencies at build time by flagging a missing namespace import.
-Have module! supply the import when the helpers are exported, since
-inlining and generic instantiation can introduce calls through ordinary
-Rust abstractions.
-
-External modules that call these helpers without module! need to
-declare the import explicitly.
-
-Suggested-by: Wedson Almeida Filho <wedsonaf@gmail.com>
-Link: https://github.com/Rust-for-Linux/linux/issues/216
-Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
----
-The two Rust sample modules loaded and unloaded under x86-64 QEMU
-with namespace enforcement enabled. Removing the import made modpost
-reject the sample. The exports and imports were also checked with helper
-inlining enabled and disabled.
-
-OpenAI Codex assisted with coding and testing.
----
- rust/Makefile         | 4 +++-
- rust/exports.c        | 2 ++
- rust/macros/module.rs | 5 +++++
- 3 files changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/rust/Makefile b/rust/Makefile
-index 0165626decbe7..17c559052e936 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -569,9 +569,10 @@ $(obj)/helpers/helpers.bc $(obj)/helpers/helpers_module.bc: $(src)/helpers/helpe
- 
- rust_exports = $(NM) -p --defined-only $(1) | awk '$$2~/(T|R|D|B)/ && $$3!~/__(pfx|cfi|odr_asan)/ { printf $(2),$$3 }'
- 
-+rust_export_macro = EXPORT_SYMBOL_RUST_GPL
- quiet_cmd_exports = EXPORTS $@
-       cmd_exports = \
--	$(call rust_exports,$<,"EXPORT_SYMBOL_RUST_GPL(%s);\n") > $@
-+	$(call rust_exports,$<,"$(rust_export_macro)(%s);\n") > $@
- 
- $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
- 	$(call if_changed,exports)
-@@ -585,6 +586,7 @@ $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
- # function either. Therefore, we export all symbols from helpers and bindings.
- # In the future, this may be revisited to reduce the number of exports after
- # the compiler is informed about the places codegen is required.
-+$(obj)/exports_helpers_generated.h: private rust_export_macro = EXPORT_SYMBOL_RUST_HELPER_GPL
- $(obj)/exports_helpers_generated.h: $(obj)/helpers/helpers.o FORCE
- 	$(call if_changed,exports)
- 
-diff --git a/rust/exports.c b/rust/exports.c
-index 1b52460b0f4ee..fde2a52d2a1ae 100644
---- a/rust/exports.c
-+++ b/rust/exports.c
-@@ -14,6 +14,8 @@
- #include <linux/export.h>
- 
- #define EXPORT_SYMBOL_RUST_GPL(sym) extern int sym; EXPORT_SYMBOL_GPL(sym)
-+#define EXPORT_SYMBOL_RUST_HELPER_GPL(sym) \
-+	extern int sym; EXPORT_SYMBOL_NS_GPL(sym, "RUST_HELPERS")
- 
- #include "exports_core_generated.h"
- #include "exports_bindings_generated.h"
-diff --git a/rust/macros/module.rs b/rust/macros/module.rs
-index 0a7b9e24c9600..ac3376fa8fb85 100644
---- a/rust/macros/module.rs
-+++ b/rust/macros/module.rs
-@@ -467,6 +467,11 @@ pub(crate) fn module(info: ModuleInfo) -> Result<TokenStream> {
-         }
-     }
- 
-+    // Inlined kernel code can introduce calls to C helpers in any Rust module.
-+    if !cfg!(CONFIG_RUST_INLINE_HELPERS) {
-+        modinfo.emit_only_loadable("import_ns", "RUST_HELPERS", false);
-+    }
-+
-     // Built-in modules also export the `file` modinfo string.
-     let file =
-         std::env::var("RUST_MODFILE").expect("Unable to fetch RUST_MODFILE environmental variable");
-
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261120-rust-helper-namespace-57e8c37ee7df
-
-Best regards,
---  
-Peder Bergan <peder.bergan@gmail.com>
-
-
+Cheers,
+Miguel
