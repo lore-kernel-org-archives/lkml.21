@@ -1,68 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135270;
-	b=Ive4LDefZ+C+Y6/QN8WKoy4CsGLM6a4kEofSww3+/VyClpmJW7FmSNPKghsB+BWg6MNJ
-	 3YEy0Bl8L0BvTH0EgXpC3h8sR2qn/3ecHu5tpOVWSKuGUKT3DyVHMi6DEvcI9fVgtqX48
-	 Ub64C37XynkXKlUdDIzaA5eRMVLcNEesid+KPqem1MT0vEsQy9oksKEEmXX85LL7Vrn8A
-	 5wD1P0oAKD4Z7V9fPkLJWNBLTdW5uh62MDJXoeMKOgv1o0GCRJWTzFXBK5zIRbG+B3rLw
-	 DtZRvwU80pQYfDEsc874LsPEsogwZA0CPWYVffsFsQ2AlUBwjGQBwtB3LbQNuPTc50w==
+	t=1795135314;
+	b=bKea6C2mjuhn75yp/rAhy3G5D1wYSVciX7CgWW6v8RjeU8wpWpmX5w3n0OgMKHfIg3ON
+	 E67yzNp1+LzDNbDa0ZMSUh6oyO4555QCqq2uRrBsgSzHQcc4idsdCD8JYR6xFldRq9f4o
+	 sbcnxBVf34ejV+2uDoPTaux8Nt5DIe4DR6T3B4qpbDpsDVXoOSaazdJpIBZyxPfuYTkv2
+	 iJH0J8GSYJwTgHeftNqr9Ue0ByFw2uYBr8hD2kGjW56aG8sUhx5Wll8lFKyCwNrLd5+c4
+	 VOuE278rZwisX7MhDT3kY2l1l+FTyB2FE61Bsap0vaTUHSJFqz5+yt+rI+Hp9S1tcBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135270;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:References:From:Content-Language:
-	 Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=RemctTAsKfFE5hgGbUMHNWElV4P9jPp7WqrpoBRZIbI=;
-	b=UzHSMWQd0HDTknEjcy2Z9OKaZ9GPL31ACPYmkMl6tucug3ssHz3RWVKArKXRrxYEbNKB
-	 0WFkrePPBhHXNT+HU0TX6rVHblSSrkR3ZeM3khHLDAarX2WG+ZjndrOjtw1sIkOUKJj4y
-	 LZX0XdB/D+Yh8y/2aTYMH+pDGlRgag05JifW01S4QM8dZofOD8iAwFrDoyRwTCZYUn60P
-	 /dKKy1IM+miG43VUlrumWyX7qQvghSt7Dtyek4Nk11Qo+Usb0TXdTy0D33o+CDVgQwrUh
-	 Ii+17et2AptHG2q2zS/UFunqL4yjb2H0ko09c30XAA9UjrmVD4B0faYHL1BX29XX2LA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135314;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=cnjKBIJ05Q1s49fHgd6kk3d8IJTU42NYzeIDTxhsvQQ=;
+	b=4dr+Q5mgBA27VYEe2/MBkV50eBVglaCZS+g+HFC0nhNqCDbCBE3Es1vSsg3n81JkJDl2
+	 dMcLBD3Chcf62UGz08kwwtDVkJP5vpG7kK6OtnmicS3iGVB8ZFnNAHMuWBHfbH7ESiaw6
+	 dnqwj0rk8vDhIS9IpgObvoBl3agjMCSJKWaUVjjNdkjLBpNDD+bu/1/mVVHrtgCEPZ6vA
+	 TKt/QhM2K99Px2fFwX6P1ZU/r5fCOdhk/qm1G/XWjGqepUaNzt9cIaox03wH36qzKQy3n
+	 A+9G+r57Rv3yb3770LMR9WM6+oUx06EU0AcG9C9B0YmGtucgfkvKeDi6h9/AUoaJqWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hhSvY8Io;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hHohB7cf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FBA2606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FBA2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA507606A320;
+	Fri, 20 Nov 2026 00:41:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hhSvY8Io
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795135269; x=1826671269;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=RemctTAsKfFE5hgGbUMHNWElV4P9jPp7WqrpoBRZIbI=;
-  b=hhSvY8IoxlykfvzzcySnSNPa5CWBXNZURdvKpfGQ97S6/GvUC31ByeOm
-   bVt2wWOtRpgZTae8jtAHURdyLps0lABUVcFYOXRAQNGa8MSKpfmbNSEjn
-   T4meepbnpg24xa1MdZ68Zp4b+4/MP1j1oL6mluW+wJmIOnETOJRI9cedZ
-   8jlOFfyAmYw0fLgU6ttd5JFv0gBohiN71IvAAjcZFpnhOi3KDV/PWrppf
-   ak2CZ5VVb1sy4lN7iPMMZ4PiDKYh3p4tYlE8wlVZJp2JsS/uCQCelFTnn
-   ylOu+AZBpix3suqioEp5X0wO6hADJ5QQH1oc96AnWMsD20wZHpgmE7sPI
-   Q==;
-X-CSE-ConnectionGUID: RYxA8LZ8QhCP9lCcvH4rgA==
-X-CSE-MsgGUID: pF6LmSzvQdSdU5XJhc+QcA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3894956"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3894956"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:41:09 -0800
-X-CSE-ConnectionGUID: 8Hd2+tbwTWCmkxJZARcP/A==
-X-CSE-MsgGUID: hfEWvVniRESXU2jlqr3q4g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10986652"
-Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:41:08 -0800
-Message-ID: <b136b9da-7089-4232-ad96-6174a48844d9@intel.com>
-Date: Thu, 19 Nov 2026 16:41:04 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hHohB7cf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA9ED1F000D0;
+	Fri, 20 Nov 2026 00:41:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795135314;
+	bh=cnjKBIJ05Q1s49fHgd6kk3d8IJTU42NYzeIDTxhsvQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hHohB7cflFrPXH1DBkE8glqGnVd+IsAmoLc7ukWBvBnR1BeIaPKaRlWLmmPNS8Ieh
+	 +MYMV099B/96z11uJTZZWyRStZNsQn4+N3ihrdjICgZM04esn89DfwdHHEUPjffmcP
+	 gUjDx/Hslg2E1Qzf877wBd8XUWuWQsPCgBkOo4g/P3yjcbay+HIMFK5G7hdECknuBb
+	 b0r8AzreSblmCwqvvowxPfpXEZY8J8zLH8WntFEnTmBlPa4/mDSKlKRqMCG+MObDv3
+	 pefvxsgF+Wi/nbxPuiVJbiqQGJlQXpDZ3PhiSNryZQnhvLFlFBlJLzijbgg8uMQYD4
+	 ic44T3Kwp986A==
+Date: Thu, 19 Nov 2026 16:41:52 -0800
+From: Drew Fustini <fustini@kernel.org>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Sunil V L <sunilvl@oss.qualcomm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup.patel@oss.qualcomm.com>,
+	Chen Pei <cp0613@linux.alibaba.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
+	Zeng Heng <zengheng@picoheart.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Ben Horgan <ben.horgan@arm.com>, James Morse <james.morse@arm.com>,
+	Tony Luck <tony.luck@intel.com>,
+	Adrien Ricciardi <aricciardi@baylibre.com>,
+	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
+	Gong Shuai <gong.shuai@sanechips.com.cn>,
+	Gong Shuai <gsh517@gmail.com>, Weiwei Li <liwei1518@gmail.com>,
+	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
+	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
+	Samuel Holland <samuel.holland@sifive.com>, guo.wenjia23@zte.com.cn,
+	liu.qingtao2@zte.com.cn, Dave Martin <Dave.Martin@arm.com>,
+	Babu Moger <babu.moger@amd.com>, Fenghua Yu <fenghuay@nvidia.com>,
+	Peter Newman <peternewman@google.com>,
+	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-acpi@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [External] [PATCH 3/3] riscv_cbqri: Bind to RQSC platform devices
+Message-ID: <av-XUDYxM9laU1_W@thelio>
+References: <20261117-acpi-rqsc-v1-0-381ce645751e@kernel.org>
+ <20261117-acpi-rqsc-v1-3-381ce645751e@kernel.org>
+ <CAEEQ3wnnYTdVvH+NVWLSG+rk2bTZrDF4bF1F74R0jSuhQWzaGQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,71 +85,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] x86/kprobes: Fix boundary check in insn_jump_into_range()
-To: linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- nik.borisov@suse.com, rppt@kernel.org, peterz@infradead.org,
- mhiramat@redhat.com
-References: <20261120003621.GA13347@didi-ThinkCentre-M920t-N000>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20261120003621.GA13347@didi-ThinkCentre-M920t-N000>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAEEQ3wnnYTdVvH+NVWLSG+rk2bTZrDF4bF1F74R0jSuhQWzaGQ@mail.gmail.com>
 
-On 11/19/26 16:36, Jinke Han wrote:
-> Since there is no reported failure, I'm fine with dropping the Fixes:
-> tag if you'd prefer to treat this as a cleanup. I can also post a
-> separate change that makes the check use the actual optimized length
-> instead of the open-coded DISP32_SIZE, if you think that's the better
-> direction, and add a regression case under
-> tools/testing/selftests/kprobes.
+On Thu, Nov 19, 2026 at 07:12:10PM +0800, yunhui cui wrote:
+> Hi Drew,
 
-The Fixes: is fine, but it would be nice to have a better changelog
-about what's going on.
+Hi!
 
-Not voluminous, just better, please.
+[..]
+> > @@ -101,15 +154,13 @@ static int cbqri_capacity_probe(struct platform_device *pdev)
+> >         ret = riscv_cbqri_register_cc(&info);
+> >         if (ret) {
+> >                 dev_err(dev, "failed to register capacity controller: %d\n", ret);
+> > -               goto out_put;
+> > +               return ret;
+> >         }
+> 
+> The same multiple-controller case applies to RQSC-described devices here:
+> 
+> https://lore.kernel.org/all/CAEEQ3w=voZYrfcMuKC_SQG9U8hYN_thcc02nf_PgMu5UyuG32Q@mail.gmail.com/
+
+I would prefer to handle that scenario in a future series as I am not
+sure how I would test it.
+
+Do you have hardware that you can test it on?
+
+Thanks,
+Drew
