@@ -1,47 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191167;
-	b=uK29Yd5SkH9QfusEOoq3Wb6UwM9BXnfL4f7voQj+wZh24wHQIgSnOR7SSo2WUekxSeYD
-	 rLFKfqSC06e7tZbDFTg4DSjZO+FkymJXmlSjtlUMW0t9zxq4dT2wH2i5Aam+2vla6VqCe
-	 w+Qj6zHcZiQ20V0n2RPwB8ED0weDlgzv2vQpBGQS8tV2Qhp+gjfiYnsBmOp9Z82Zi9SRl
-	 kA8qYLlJbpu3v/phZL4FEj+Txz4CZoFA92Ednx+H4ixdFb1YPPpkAtfnhErUukUfIWMga
-	 n/WJwvZEE665Ml467pmQdvJmW+DF56AEdLUGpoIpiEMOTuZbctLF/uBdXDqqMe1ZzXA==
+	t=1795191221;
+	b=DqNq8jujT8thbyhpzab+lxaW7PvW3IdvsCosfiSJrNaH1oWjUNVGfYDntPE4SWnXCP7D
+	 EAMG4Vk4oHKCO39Ds+SbVxypoB072pSoo6yrv55TE9aJGWx6bhLPWpqWorKudO8bGtb3I
+	 J9Hk3lWep1GghY/1B0wuTP9pUWZDJNylAlAWMdZs3ouB9CkieesQEuQHVkPJ3bWk1amkm
+	 8vNE3DCoqa7EtN97DkFHEX55ZLzZHn8MD0dinxAExndDuuCK2u7LbGS7ic2YbTpo45Jyu
+	 6p0R5gL0y0aTBPcx4tvgmQUBdwNYDzD8GC6uymP4oeTHS7JntCqhC2HolxE1Q3pig1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191167;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PUJvVwnS6EwZUWjv8S7z217586V6G8XCo6hR7Yn1lq0=;
-	b=PT/tvN6DuFYWQsZvdogeb7pu+FIRx9n5/ER7ZuFl/ipAtjKLa/+HmCX2na5EZUo4BFj0
-	 P1+WNHBv0w181wOUbIi+DHVCPzmmlRYnzm3dV/LIbpGCFpA/8lxwQYRffQVf/ecLZ4Lbj
-	 4U51COFLesWZIVG/dOS1bNcr7EEVmVHdA1ID2CTgahsdmtMJ/X16KXdT3UihHQysMRgqu
-	 5NSJWwwCVNctn76VcoM0NKb1MLc8ZetdBc2ZGAsXBfoKsJtk8+q4tCo1o3TNHnpjIvU6s
-	 5OBdF840itZAHTgZ1aloeiBW1/dMCB6ziHt1pKhOMMOAV9ueW27JAXI6D7sVZUDnDbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191221;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=ske43Fh9A8yW85CHf4qvTL9iEMX6C/Nlv/vlJ5RihTM=;
+	b=yWHvvO6f9TLV0L9NMm3kgtm7taRKC6UhFN4f8E2SOsyIGFXsk0UKJSP1f5RLJv2iD0X4
+	 O7YysRXtu/N0eCQL0JOAY8eZhlsY7yumNHUs/VrnvrnSdjmJhOtwAc2RINSMAKxp/YVs/
+	 cIjdQKaNwIVKmXIevjttAGEcvMbyhs3XwYZd+DuZWsdHetjoegklp8C+ZMMHpbFkULawF
+	 97T235+CSHu5c5sRakAcsE1C+6lOl0A9XFJA0lGc2lS/JtQk/eUTNfwKkAccQAiNCxQYE
+	 vxcikCzFP++ETjGbAaiTtEv75ENch+Iz1hLfSaNgEdsg892B/u7udyyeVD2VGH9VHRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N3c+DUy8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=rowland.harvard.edu;
+	spf=fail smtp.mailfrom=g.harvard.edu;
+	dkim=pass header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=DVTGNfn0;
+	arc=none smtp.remote-ip=209.85.222.170
+Received: from mail-qk1-f170.google.com (mail-qk1-f170.google.com [209.85.222.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C81CF606A320;
-	Fri, 20 Nov 2026 16:12:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC35D60A2608
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:13:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC35D60A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rowland.harvard.edu
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=g.harvard.edu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N3c+DUy8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE61E1F000D2;
-	Fri, 20 Nov 2026 16:12:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795191167;
-	bh=PUJvVwnS6EwZUWjv8S7z217586V6G8XCo6hR7Yn1lq0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=N3c+DUy89OIYNJgYet53Hm9+y5kiCcBKKZbBXIgkjsYAK5yjkwgXVZbeD48X7nwdA
-	 hDQJUeRAu+B+4t4XjNVIHy/iuVs95mDJS0kZgR5CN8anJoII4Vld5DKJBkh20xXK93
-	 phMXJ1zWA4QMMtyNClcFo6ReKQJKUIuDWmzeDHpe4FkLZl6RX0KgSwPoBD9Rs4mt8O
-	 OPUlVTXN5fUMpAjnq1Cqta7D0BYDXjVgPqmIWOoLM8EEB34x18uD0iqkMNE76ut6Rs
-	 NAls7oApGHHqdH7NKzXh1+ryzpAvZa/XL+0uweigCWoORdnzhsyhen+I7baKCliFQx
-	 kp5lKhfwsx7TQ==
-Message-ID: <8c9bd441-db5e-4857-8e39-79f147422454@kernel.org>
-Date: Fri, 20 Nov 2026 17:12:25 +0100
+	dkim=pass (2048-bit key) header.d=rowland.harvard.edu header.i=@rowland.harvard.edu header.a=rsa-sha256 header.s=google header.b=DVTGNfn0
+Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-94961b68685so93517585a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:13:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rowland.harvard.edu; s=google; t=1795191218; x=1795796018; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ske43Fh9A8yW85CHf4qvTL9iEMX6C/Nlv/vlJ5RihTM=;
+        b=DVTGNfn0RcRD8xfB+MwwKXCzdG/2IJTQQR9aTVOkOmsK3ahaMAX0zhRCFOIygzDqw9
+         f3lz3ZzXi8QI3ehzyGCslUcbAG/gxV+tGhZ2KFcrn0+zcIopkJ4NNcm7Xoo7X9OmJfoL
+         jVuQ3eimiXdBh2Ma/je3e2nCkdrkPLU8V5x5rwXabvZ+6TiAfOX0/74y3dTxKkn4KPzE
+         bktoH0I6MrCWADpcafmc+zr6zdmWr0G6JB/wYAQMl08Glz5W8nAdMN0os9EN4/U0JaEn
+         AYvjOMByY49vLrNOZiK51nREyf43nfkrxaHvZc8Iyd00OjdfpqYCqcwhg+MuZvgqpiLy
+         KIJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795191218; x=1795796018;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ske43Fh9A8yW85CHf4qvTL9iEMX6C/Nlv/vlJ5RihTM=;
+        b=f52tWchFw1XhfpdU1/BXU33QRvjjYzJes2FraxhRE2Sj1JpRKY5EG42xp+C/9qBuqS
+         SemW8Ak+FhKAtBlZXVYkEsD2Cseg8WvGiSA8v9ZMfJSxNI8xWmEbJ3s/L4K6matYoE5y
+         2VdUxf+eRPbN1qbbUMwTcRBg8HlLhn4qr7xNESQcke5G7UMkFgZg6JjPu69hlFddc/nz
+         NpYSDFUZkLmZcr4x6ujA9pR4mGmhlI94TGxlMvqjqXXFYihuDMfN82Yd6zFSNivcER/I
+         6po6vvpynTPBkTLkcVGxUnu47axCFqFeoPlaJh744kODgYgBXebu7kA5jqGSVLS0J2y3
+         /Whg==
+X-Forwarded-Encrypted: i=1; AL+hErGQ6yQSExmCbKI+wY3iHE/YNbA67+GqCl2izmnl6TuPfqhgNO0eXLUU2F3e1OeMdqWej7XNuWeYPpZSfgk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9B7mBu5/2/RmzM6efn+DbIA791gpaUI7UWho31pN16jU/XNfVJ
+	W8eXWImg/fM2xa1BLy4NYDk2w5yDr8BBsrYC3e3cMGEoPIMLyOFBPOoeG6U01cit1Q==
+X-Gm-Gg: AYBFou3osCR2tyktB60iZ/P7Mfv+8JU1/byINbTJHL9bcD/fvDE9W0YuMuUTXKCR3JY
+	Rae3eoIHcLRjOmu9EWf/dwnb9E5J4LyImEStdTkN3wgiWjbrJ2QQE9orvjG3J/02rpVdy5IAiaB
+	cqw2f1zRTluZHvp9xjPhVJdnRM+Ca33eA8ouC0bbH8KMn3Q6gwOc9bm41EqlbWU3t5Fpl1YQdof
+	ab4DA9i54Rp3rd+W2NKA9ONWr+apMkbgeOBxn/kIv12sY++2iv5BZvqjgKqCvK0XP6M4v0BZbtH
+	agId1KgPfa8FA1EU1fc1T1FKcGoiVHJP3hURn6JR2xG/zmw/4VJwwQdNud0rAMyHFm9ukgtMl34
+	lvs1wj/2a2CwMjNCI5G3tJOe6TQOoF7Qtsuk99EjRMtDqq0l/UD9S2HjSxiQEVloHsQDja3BJfT
+	qS0i7wtai+9flB5NbpTomfVVWvEGkVKv/YgBp5hdj5l8KnXn+Ps7z8hjusgj63dCiGGUH9jws26
+	oz30N8wzfXJiRthXNWWM4jNj2clvpLWEPnSs7rA5fxm+pZwN92ZlDSH+VDoSWsLUR8gR5OVxoVb
+	Xm07zazWH9UeA/a8mu9tN4mSi+eYIQ==
+X-Received: by 2002:a05:620a:4488:b0:949:91c6:973e with SMTP id af79cd13be357-949bab66f99mr562619185a.65.1795191217744;
+        Fri, 20 Nov 2026 08:13:37 -0800 (PST)
+Received: from rowland.harvard.edu ([2601:19b:d00:161a::d398])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41c105sm217536885a.39.2026.11.20.08.13.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:13:37 -0800 (PST)
+Date: Fri, 20 Nov 2026 11:13:34 -0500
+From: Alan Stern <stern@rowland.harvard.edu>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Shihuang Liu <shlomojune6@gmail.com>, linux-input@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Marcus Folkesson <marcus.folkesson@gmail.com>,
+	Ville Syrjala <syrjala@sci.fi>,
+	Henk Vergonet <Henk.Vergonet@gmail.com>,
+	Henrik Rydberg <rydberg@bitmath.org>,
+	Alejandro Colomar <alx+linux-hardening@kernel.org>
+Subject: Re: [PATCH v2 RESEND 1/6] USB: add usb_make_subpath() for formatted
+ device subpaths
+Message-ID: <c3579747-1dce-4444-8635-5c3e836afb6b@rowland.harvard.edu>
+References: <20261021123146.17202-1-shlomojune6@gmail.com>
+ <20261022070929.20820-1-shlomojune6@gmail.com>
+ <20261022070929.20820-2-shlomojune6@gmail.com>
+ <2026112032-pecan-knoll-4f4c@gregkh>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,102 +107,72 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
- for DMA and CoCo
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Luigi Rizzo <lrizzo@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Jens Axboe <axboe@kernel.dk>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>,
- "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Harry Yoo <harry@kernel.org>, Christoph Lameter <cl@gentwo.org>,
- David Rientjes <rientjes@google.com>,
- Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>,
- Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>,
- Jann Horn <jannh@google.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich
- <dakr@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Simon Horman <horms@kernel.org>, Jesper Dangaard Brouer <hawk@kernel.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Willem de Bruijn <willemb@google.com>, Kuniyuki Iwashima
- <kuniyu@google.com>, Joshua Washington <joshwash@google.com>,
- Harshitha Ramamurthy <hramamurthy@google.com>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Christoph Hellwig <hch@lst.de>, Jason Gunthorpe <jgg@ziepe.ca>,
- Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>,
- Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
- Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org,
- iommu@lists.linux.dev, netdev@vger.kernel.org, linux-block@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261109182533.3594984-1-lrizzo@google.com>
- <20261120010655.467825-1-lrizzo@google.com> <awBYFhnpFGtEXZ6r@gremlin>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <awBYFhnpFGtEXZ6r@gremlin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026112032-pecan-knoll-4f4c@gregkh>
 
-On 11/20/26 15:54, Lorenzo Stoakes (ARM) wrote:
-> TL;DR: NAK. All of it. (And yeah, I'm steeling myself for the inevitable 'oh
-> Lorenzo' :)
+On Fri, Nov 20, 2026 at 02:13:53PM +0100, Greg Kroah-Hartman wrote:
+> On Thu, Oct 22, 2026 at 03:09:24PM +0800, Shihuang Liu wrote:
+> > USB drivers often build device paths by calling usb_make_path() :and
+> > then appending a subpath. Several callers use the deprecated strlcat()
+> > API for this.
+> > 
+> > In preparation for removing the deprecated strlcat() API[1], add
+> > usb_make_subpath() to format the USB device path.
+> > 
+> > Link: https://github.com/KSPP/linux/issues/370 [1]
+> > Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
+> > ---
+> >  include/linux/usb.h | 29 +++++++++++++++++++++++++++++
+> >  1 file changed, 29 insertions(+)
+> > 
+> > diff --git a/include/linux/usb.h b/include/linux/usb.h
+> > index 1da4ad1610bca..c90ccea0cdbf6 100644
+> > --- a/include/linux/usb.h
+> > +++ b/include/linux/usb.h
+> > @@ -14,6 +14,7 @@
+> >  #include <linux/errno.h>        /* for -ENODEV */
+> >  #include <linux/delay.h>	/* for mdelay() */
+> >  #include <linux/interrupt.h>	/* for in_interrupt() */
+> > +#include <linux/stdarg.h>	/* for va_list */
+> >  #include <linux/list.h>		/* for struct list_head */
+> >  #include <linux/kref.h>		/* for struct kref */
+> >  #include <linux/device.h>	/* for struct device */
+> > @@ -987,6 +988,34 @@ static inline int usb_make_path(struct usb_device *dev, char *buf, size_t size)
+> >  	return (actual >= (int)size) ? -1 : actual;
+> >  }
+> >  
+> > +/**
+> > + * usb_make_subpath - returns a stable device path and formatted subpath
+> > + * @dev: the device whose path is being constructed
+> > + * @buf: where to put the string
+> > + * @size: how big is "buf"?
+> > + * @fmt: format string for the subpath, without the leading slash
+> > + * @...: arguments for @fmt
+> > + *
+> > + * Return: Length of the string (> 0) or negative if size was too small.
+> > + */
+> > +static inline __printf(4, 5)
+> > +int usb_make_subpath(struct usb_device *dev, char *buf, size_t size,
+> > +		     const char *fmt, ...)
+> > +{
+> > +	struct va_format vaf;
+> > +	va_list args;
+> > +	int actual;
+> > +
+> > +	va_start(args, fmt);
+> > +	vaf.fmt = fmt;
+> > +	vaf.va = &args;
+> > +	actual = snprintf(buf, size, "usb-%s-%s/%pV", dev->bus->bus_name,
+> > +			  dev->devpath, &vaf);
+> > +	va_end(args);
+> > +
+> > +	return (actual >= (int)size) ? -1 : actual;
+> 
+> -1 is not a valid error number.  Please use a real error code, AND spell
+> this if statement out.
 
-Oh Lorenzo ... you are absolutely right.
+Also, why is this an inline routine?  Why not just make it a normal 
+subroutine, and put it close to where it gets used?
 
--- 
-Cheers,
-
-David
+Alan Stern
