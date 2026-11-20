@@ -1,53 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176003;
-	b=xO/AUXNBNtUnM5ypcUbsGo86gXUPjD2msdP/HynZybU9BTo+hcVASiVt5/aVjvrFVeKY
-	 Uiq63vpvCAjR+B6uosqHAZOXm29HtQtGRCYq2iOlhEmTYnY7vfFri08cLOIW4+5hOsWD8
-	 B9u+6+jPBFKmmMjD8EqD+nW1jQwZQxjWMsm49J2Cldy+0mK4daxaYPtKOPsMBX8o2azmk
-	 d0ig+YzB4agcy7tFKMjbLJEmz4SLUeJcWYXLuKexIs5RW7Q/t1vKJz2Qx7qAwFRmMxp1s
-	 RktADO95bvJ6qASk6wjbZFE9XwxxvhAMJt3sLTfehLjLpwVDzua/xyLgoEE7Cm2SjgA==
+	t=1795176014;
+	b=AjZspcFvlBomZpEpYUcUO3G6OUwR1FRmpV+0o0i3MHA3CECDIyaBh2pqJ9Z4mCRbJ2wA
+	 FnSnGo74gLM7HQOpHkJMnRSsYicMLudePQabGW/wGkvO/BMUWsnSyb4mNkmxyRH9jJzDc
+	 KvMAn9sDGhy15vj4aVy0G8S1LfEAkbu9FQjm4N4Y4m3ENiiaIOI5YZ6lcjH757r74FNJK
+	 oe8x6DCTkd5MbxdP+1oKTRnuFbOrmE5aQcMQd4bg7+BTOLq+BwR8iVzaJw4dB7jCNrlKr
+	 dpYcTBXHJNw9j6efmKpb9l2ntfCNFr29nptjIgT/HHTXBrQr425KksyiK9aPpsnfgXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176003;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-Cookie;
-	bh=KLUTSIveEurvUqHqIjngzrWjsY2g92AlHoHn4R1Phnk=;
-	b=cHsF7yxTqULUmPdpNUR6yLIbSxXa9XOQAL8pJhbl3I40QHForc61kHiP3lz8RWbijFJ+
-	 znxejrVlLsYE9BGSYUEBMvsCRDCnI/TedLmYN+gTMRIKPFQsGiYRFetUwfZmJ9ILpiITi
-	 c9M0b/VicV7cEdJYvrPBcxcIUqUR8VOPT+Lmi5aWMRk88+2yMG8VnKzhZJzx9NapP2DM+
-	 PoElku0eD+lONZd1tNOBVxcbHJQFt4inLZoIS5so5PCvJdc4SIy0z1Ui+CGjpe4VpGclq
-	 IpsZ+yvUrs+wlTwC1Q/fTRsOqcEHYNLZB/gPPv8UaI/y3mO4CwOmfOB0bP6HkQd/9LA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176014;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=iwjXZysY45ID9OUtrlIHm6lO++zTF+9as4iaG9vYPqE=;
+	b=kxCfXip+ce6xJTeKo93NkgmhFYrp6fxD+hEQS+yBkca/kFPnD5zDcDAmn+83EVGFVEU5
+	 CnhSf4NgPa85JJu6fVzrIQCccPTnpRa6vIP7Q9ya/rjwyQz0rsIjBc2/xxBOpAVOuQZgp
+	 Vytf4d3Lf85t9WeFOJ83L4zBe3uJzUupWrgFkTOeeoUYmB+VE5lJ0SXYyz3sPiCBPaUJ5
+	 2vMoRjcJ7IFqRWlAhjUdmFi8/0BWGZJJDF0sTrXza8bvGdYREIijOU63QU1d5zXvW7iuC
+	 mCX2Cefp8n620xi3DKRT5Hs3+Jw9fzUNqutoIry7weJNxLeOapj42kUsgphvvLyhUPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nIyQwCfN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hPIalulG;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3937D606A33B;
-	Fri, 20 Nov 2026 12:00:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C255360A260D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:00:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C255360A260D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nIyQwCfN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCC471F000F4;
-	Fri, 20 Nov 2026 12:00:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795176002;
-	bh=KLUTSIveEurvUqHqIjngzrWjsY2g92AlHoHn4R1Phnk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nIyQwCfNw0q2bcaPZ9MUGSS4h/2F8oapmy/EdlaFhJviZUWEN6Vxo2Pte4MX4L+jk
-	 lSf4KKb3/XjcGHT+FiDNmC7v16ecemwrkpfP6dV4QlL/d15UEFbjJMa2pv06BCyS2m
-	 I4/aAHJizYUdXZmJze9Fz+6ywTFMk4gLCQ4Xext9oHkAJ2wX6X9TaCJxsE6C3u31rD
-	 DFnYb5jlUHKmi4HKTACr9nV2sdaPc/094qNi8P6pUtws+DO9I3S1Hlb2nlGwvGpe3c
-	 GtrGmN7+aH8qJS4iX9FPCsh0DoCnrkPqzvQis0JNYogBLS9I1K00LvBqGbme7BTBTy
-	 G8b6GHi1yNY7Q==
-Date: Fri, 20 Nov 2026 11:59:58 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: rdunlap@infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools/spi: Return failure from spidev_fdx on I/O errors
-Message-ID: <7ef05c23-9038-4886-ae5e-618ffc7eeb2d@sirena.org.uk>
-References: <20261120061922.98182-1-zhujun2@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hPIalulG
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 859FF4E4162B;
+	Fri, 20 Nov 2026 12:00:12 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 47DD86017D;
+	Fri, 20 Nov 2026 12:00:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 652F311BC00A8;
+	Fri, 20 Nov 2026 13:00:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795176007; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=iwjXZysY45ID9OUtrlIHm6lO++zTF+9as4iaG9vYPqE=;
+	b=hPIalulGRF0TrNw4ax7k9wmgiHVy5JrOxKbvsDiIm4VmF7bTAvist+tOs20fOM3bDf6hmJ
+	XCteHXf2ZxU6yV8CUq0o8r57xJTwDcsN36GIXEQvfn0CtgPCxvI0V6Pd+P6SpI/MgzF3cW
+	qgF0WV05Pq3/mBcuD/kXqfMW/U7PKffvjOOj4rRbyWucS1xkGzBq6/WxovjWLZJ4PonwQl
+	GSQ8Y4HCwzhfNIivXe5Q3jfjUXO3ESRjP3VHCP09fSQ9C9aWjRREgkv1+lkdmO36k/a07b
+	TuE2kycTQYGo5bAnKHIUuOkUzG6KiSNp6WfgzMU9WyNUBGdcGnxeGLVs1UsF9A==
+From: Paul Cercueil <paul.cercueil@bootlin.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
+	Tanmay Jagdale <tanmay@marvell.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	George Cherian <gcherian@marvell.com>,
+	Witold Sadowski <wsadowski@marvell.com>,
+	Paul Cercueil <paul.cercueil@bootlin.com>
+Subject: [PATCH v5 6/7] spi: cadence-xspi: Rework resource discovery
+Date: Fri, 20 Nov 2026 12:59:24 +0100
+Message-ID: <20261120115925.173568-7-paul.cercueil@bootlin.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120115925.173568-1-paul.cercueil@bootlin.com>
+References: <20261120115925.173568-1-paul.cercueil@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,42 +77,118 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="joXPQyofIiPowM9P"
-Content-Disposition: inline
-In-Reply-To: <20261120061922.98182-1-zhujun2@cmss.chinamobile.com>
-X-Cookie: Error in operator: add beer
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
+From: Tanmay Jagdale <tanmay@marvell.com>
 
---joXPQyofIiPowM9P
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+The previous code worked, but calling
+devm_platform_ioremap_resource_byname() on ACPI where resources aren't
+named causes warnings to be printed, one per call:
 
-On Fri, Nov 20, 2026 at 02:19:22PM +0800, Zhu Jun wrote:
-> spidev_fdx logs failed ioctls and failed or short reads, but always
-> exits successfully once the device opens. Return an error from the
-> helpers and translate it to a failing exit status after closing the
-> file descriptor.
+cadence-xspi PRP0001:02: error -EINVAL: invalid resource (null)
+cadence-xspi PRP0001:02: error -EINVAL: invalid resource (null)
+cadence-xspi PRP0001:02: error -EINVAL: invalid resource (null)
+cadence-xspi PRP0001:02: error -EINVAL: invalid resource (null)
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+We can avoid these warnings by first obtaining a pointer to the resource
+with platform_get_resource_byname() and fallback to
+platform_get_resource() if it fails, and then ioremap the resource using
+devm_ioremap_resource().
 
---joXPQyofIiPowM9P
-Content-Type: application/pgp-signature; name="signature.asc"
+Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
+Co-developed-by: Paul Cercueil <paul.cercueil@bootlin.com>
+Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
 
------BEGIN PGP SIGNATURE-----
+---
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsANj0ACgkQJNaLcl1U
-h9DhWgf/fxW8PVku+fLvFyvU7Rk9PbTXKD1+BvuM3ajWzXG+DolqmiN8+PQyt40/
-VMXhq6FhbV1HKKvQtTxfTwxS1D6B2IV4Y8ZqRUDm0u3Acv2I+1jt1z6v0DnIMU8t
-S2XlKqClhn2CPBv+Alr5q7298y9Sg+4H1fIhx6PaMph6hTXa9Xw1pAnrrf+dwAFE
-V9DokzqMQz5VSqeZdvf2L1Utxk1Lw76/r480a2w9wYKDwZUEr+VEdWj2zTGJRFxT
-+hrs1S1CxOfiyH2M7jt8ZZX8lBueeF+6Qt6hmFBk9LoPSM01uCUEhqBlwoZnpTmY
-orJ7S9J9A8YUxSobfpHn4amUdeYuWg==
-=tMZr
------END PGP SIGNATURE-----
+v2: - Drop warnings. devm_ioremap_resource() already warns.
 
---joXPQyofIiPowM9P--
+v3-v5: No change
+---
+ drivers/spi/spi-cadence-xspi.c | 56 ++++++++++++++++------------------
+ 1 file changed, 27 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/spi/spi-cadence-xspi.c b/drivers/spi/spi-cadence-xspi.c
+index c752328bf267..dbfb07e6751f 100644
+--- a/drivers/spi/spi-cadence-xspi.c
++++ b/drivers/spi/spi-cadence-xspi.c
+@@ -1415,48 +1415,46 @@ static int cdns_xspi_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return -ENODEV;
+ 
+-	cdns_xspi->iobase = devm_platform_ioremap_resource_byname(pdev, "io");
+-	if (IS_ERR(cdns_xspi->iobase)) {
+-		cdns_xspi->iobase = devm_platform_ioremap_resource(pdev, 0);
+-		if (IS_ERR(cdns_xspi->iobase)) {
+-			dev_err(dev, "Failed to remap controller base address\n");
+-			return PTR_ERR(cdns_xspi->iobase);
+-		}
+-	}
++	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "io");
++	if (!res)
++		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++
++	cdns_xspi->iobase = devm_ioremap_resource(dev, res);
++	if (IS_ERR(cdns_xspi->iobase))
++		return PTR_ERR(cdns_xspi->iobase);
+ 
+ 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "sdma");
+-	cdns_xspi->sdmabase = devm_ioremap_resource(dev, res);
+-	if (IS_ERR(cdns_xspi->sdmabase)) {
++	if (!res)
+ 		res = platform_get_resource(pdev, IORESOURCE_MEM, 1);
+-		cdns_xspi->sdmabase = devm_ioremap_resource(dev, res);
+-		if (IS_ERR(cdns_xspi->sdmabase))
+-			return PTR_ERR(cdns_xspi->sdmabase);
+-	}
++
++	cdns_xspi->sdmabase = devm_ioremap_resource(dev, res);
++	if (IS_ERR(cdns_xspi->sdmabase))
++		return PTR_ERR(cdns_xspi->sdmabase);
+ 	cdns_xspi->sdmasize = resource_size(res);
+ 
+ 	ret = cdns_xspi_dma_init(cdns_xspi, res->start);
+ 	if (ret)
+ 		return ret;
+ 
+-	cdns_xspi->auxbase = devm_platform_ioremap_resource_byname(pdev, "aux");
+-	if (IS_ERR(cdns_xspi->auxbase)) {
+-		cdns_xspi->auxbase = devm_platform_ioremap_resource(pdev, 2);
+-		if (IS_ERR(cdns_xspi->auxbase)) {
+-			dev_err(dev, "Failed to remap AUX address\n");
+-			return PTR_ERR(cdns_xspi->auxbase);
+-		}
+-	}
++	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "aux");
++	if (!res)
++		res = platform_get_resource(pdev, IORESOURCE_MEM, 2);
++
++	cdns_xspi->auxbase = devm_ioremap_resource(dev, res);
++	if (IS_ERR(cdns_xspi->auxbase))
++		return PTR_ERR(cdns_xspi->auxbase);
+ 
+ #ifdef CONFIG_64BIT
+ 	if (cdns_xspi->driver_data->mrvl_hw_overlay) {
+-		cdns_xspi->xferbase = devm_platform_ioremap_resource_byname(pdev, "xfer");
++		res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "xfer");
++		if (!res)
++			res = platform_get_resource(pdev, IORESOURCE_MEM, 3);
++
++		cdns_xspi->xferbase = devm_ioremap_resource(dev, res);
+ 		if (IS_ERR(cdns_xspi->xferbase)) {
+-			cdns_xspi->xferbase = devm_platform_ioremap_resource(pdev, 3);
+-			if (IS_ERR(cdns_xspi->xferbase)) {
+-				dev_info(dev, "XFER register base not found, set it\n");
+-				// For compatibility with older firmware
+-				cdns_xspi->xferbase = cdns_xspi->iobase + 0x8000;
+-			}
++			dev_info(dev, "XFER register base not found, set it\n");
++			// For compatibility with older firmware
++			cdns_xspi->xferbase = cdns_xspi->iobase + 0x8000;
+ 		}
+ 	}
+ #endif
+-- 
+2.47.3
+
