@@ -1,99 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795155643;
-	b=QehRX1UpCW/0gfDQ8iufyq8zltxpQuF1lC2ULNcZWd+7sjgk8Xytxvl63/6oDSKIYP1o
-	 cwF+We+491ucX2FHbiRi9S0qIFvdidZkFgtfMILPhhjaVFsanm4ZJuex2MQGNn/Dsk1cd
-	 iEocJkZu/Z6yek9QM+NJHsIXsvt8hwfQVx598Xjy6Kgt1BYdwATXWU1LWP/zKunyUA/1K
-	 Lqix77zuTyaZ8sAvd16QspnBxj38l6YTMfXaGHEIbMOOlI5EQgSNc8Nxq5VLlNEEnZo8p
-	 oQYrVLx7r0RYX8MOiXO2NxDAqFBRlDYFY8gfGgxPD+Sm/zznPjRKzFtHXH+58Mg1FZg==
+	t=1795155670;
+	b=NBil7fGzo0aEgqQTWOnmaC+qFqSp4s6oGRnQXRTvV6ArFFP198nrxZZ4lbTdhD2a0G5C
+	 u6MmngZSP0gHVDJO8Hx4A2MZ6pLC8GXvxxfjld+Tw20YBZEo2WGrKDkAHYD2Pk9NQ7Ms/
+	 uC18Y0CyRkT2h0FmxrcYC9FHs20w/YliPN4PB2YLZEjVzT+dZLW51rYUTzy1VQUNj3xWw
+	 yKeoLIjneJGTMQMuCIoWqaiI3b1hp4WULRtrHeaMpEoOMQIupZWsXR9ly7ggEewfuKS5/
+	 aWp2T/52pPu0iDClDpoJNaajv/ItfO9ctlFEwNtZU4h2Ust27QTi7X8f2NLOTyY8rCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795155643;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795155670;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nA0GNsDUy1tpumaxLh3EkNJc+6NgtbUCraObGF4AZjY=;
-	b=Vj83+SMhD3wNcTK0dYu5WRM1mbO3jmcjWlLknQHMZEDhUPwoaa7aXVHXhBTP7BDuET5n
-	 5irvBwE21MY0vQjpG+tEOjVg2mbNq7FhGfu0arN1NzULayiEyoXxPXkVt9LoYdXm4cN0E
-	 whSiYQmt4hAJriBSE+IRtgGNqGUM/8QpAwkEDv0Q2dI3RgrzzbxRLrJ41vaFAKZK91I0g
-	 XihuAIjoHWqTZo6hmHSmuSw3FjCxDtuNQ2UY1ExMFJNI9Lg3aNM/25hhdvqNeCQt+JybL
-	 oNt0SrHVWLQ/qh2C20U7wNXvAmMst3l+hD6lNHzayOHRzMoCHKBvGoWZ8W5/7hgh9NA==
+	bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
+	b=GMy/gMkqzjf+GS19eeAjBjOtkJA4Frg5SFyseaolRbBC751gWQqOLsPLx0x8eLvxKnbb
+	 ExRcpACfVyh6eldviYLHrd6Ha0eGVHRncvjNshyCdNG4UYTrO7wYxBcFg70nLaAkVgZoE
+	 IKA6xkLmvHVtdVfTU3QSnwUCS6FhQ1VMsRAmtbFZSLi3ggkrMtMZZVhVz9tgw3lRJoV8h
+	 CKVO5S47MSIqCwhXJPKKIx+vpIScuQX+/OWdk8c4ADLRt6Z0G3DOxl+kgElqpGOoXY74J
+	 nNm/ujoPr9fEOX95NJ3JZpS2fxl9H6hAh44NAb5L9NVRZBVYpRY/h5qailcl4EQlPnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PncEarci;
-	arc=none smtp.remote-ip=74.125.82.169
-Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jf9CV78f;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30AB2606A514
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:20:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30AB2606A514
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4B1560A2602
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:21:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4B1560A2602
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PncEarci
-Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-382c3c9671fso724976eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:20:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jf9CV78f
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-33fb4680717so1361670eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:21:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795155626; x=1795760426; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795155669; x=1795760469; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nA0GNsDUy1tpumaxLh3EkNJc+6NgtbUCraObGF4AZjY=;
-        b=PncEarciuvlhtNkKI7kdDXieIM1JkCT0+mCHiLspX4FhLZl0oNFcY8lctmD1TanzBw
-         Ns5mvnbGFgGHq+vEWpgMupEtPp4j8s5suBJeddc7pWy9mlnf4KvdRMucju44eI6o8P91
-         K3R+UauadWVMYMgxZTTZ1L9+QxrOjp2Qg4K7aIxEjdXMmgEjGcLhOp2kJbDXDYnNWFL2
-         sqcsLW8dMQKbnp+YRco03AI4gcNFhCGrXZJpko+OSlKK6xwAdV672RpNd6AxOGa1fj3h
-         ZSLcUUqLf3T0Rm3ALYubcjcCpTIAepE4CPuvsZuROt8O7zeXPqOqAd+x7uFTpxWsW1nH
-         +pIA==
+        bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
+        b=jf9CV78fTEHK77xABUNuLqeS77oUBYpR+16bljYgb0KLdAWnIC/IJI+3N04IHXm2Yc
+         xciabRbXXTjGCK+TPK2aBYJ9r+9vAennl2WJGwAvxCC6ACdA3fbxP+Zoul6dm0x1GjSd
+         lWLSGdMfwzub5nLl87rkdWrulgyYQ9zJlv0ufpxSqpXN+QchkFHOCJILENf9gwiEFBAI
+         7V7uqpre3uWfn7D9a1XitMGgfCp2C9XLDzS/TC5Vy7GKAXhFgMN3eNRDH0oDqsrIhaky
+         vXMoB/AkH9LNqSmfgh6vvRRVrJ78mqMoDymPL/bkhgNgjJLbEazlcR2RdfLxD4MFWjvf
+         t0ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795155626; x=1795760426;
+        d=1e100.net; s=20260707; t=1795155669; x=1795760469;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nA0GNsDUy1tpumaxLh3EkNJc+6NgtbUCraObGF4AZjY=;
-        b=rmUlJK8L6BJAzlZDPs6nVZqMwfTDMlYAnHMXenS92AZXwIYrFTgZrBvg1pKtq84ZCy
-         fQHxz8BzyOkJ3ffZu+wMxakC09C6p+Da9/rB8m1lIWii8YbtvfJ+JCeuShTK4Cx7w7Lm
-         HD62JPRoUKGMx7bTm1pP1qg8DnNTimJFvdfeB2ea1OUq3W1pVk/Dj89lDcrR7og8zaIE
-         2qtNRZ+2A48Dv+A0VxBN0fOkqMZ1H5bOuIh4WSu3PayFOEvK0U6eUErsagUaz5z7Nxbh
-         FA/DmNW94VFcwGS9Pr9lPFQTcbuwbxqQxi+AccHudfzQWRyl6rCptWCFXccAjMawgnPI
-         Kocw==
-X-Forwarded-Encrypted: i=1; AL+hErHiJKzRf2IrcWFjetFOGV88n/ain8+H6z3W52HZEYcZZBqAq3kKennT0uAK4FzfatvT+odKGpaI1LMI7EY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+W/fMOyV/zr58am8M71YRCieEnSi5l3y01RLJ5xvjEL5/YBS+J
-	jOWTpPoqlz2d+KUhSiUWAqai1CckM/VddJeiQBcEq2FW47BzrmlN/Aq8
-X-Gm-Gg: AZFdTZcY40IkTyJL+Lv+bejFuB8qv6ilBfA3AvXb+N5VtWwSdTFniXgpVIoXZzfUHrY
-	Ljf2BYYz5yKvVUNjuXhtl1HBA6yAvV109pVWiio9qTgYn8OwbZ1Yopj0GSHDwhGJ0D95TdrD72v
-	iWvcs7FAloU2Iu1pyDNtqPHIJBonMUI7NKkiDX0ZuKR9ktZXeoHrlqFoFyZkV72gBrgItCzKVDt
-	G6oMOxkhLOtwr9QZ1UxF8UI8Lu2lNIPM6ECRBhgCeLCubxWEcZbNk0MUzDGeMOr4+KcTN7lrtxX
-	d9+eNNZoJAW8MUuXFK2yHuLGxXgK2aJBUIL91LUxe2/Y6ur/bg1WY4y/PallBDj0FYIzbu+eORP
-	AHr4QQlX+dot1nhTfI4dcxJMeFbAgjo2ChtalV0eL7j/eYGgnkR353pooz1NQGW101qInRB5GPV
-	RBLrbqitcwQKf/yEif2Pliw4fWMwQ/tgGaXzmt61kxy1EOsI9ZL8xxyYtq9G288ly7xMmQtkWuM
-	zkZOnYM9F/OPeJqeUU2cJai33a1NkfrC2EnTRWZ+kaivhqF8dunEfni/nsAOhBgOzlMbOsoeGp7
-	TrtVjHP4Y6pT/uYcACeX36GTCu4z/EhdoGHkloHe88b4jhuqX7/YSbo=
-X-Received: by 2002:a05:7300:6da7:b0:384:5885:2f81 with SMTP id 5a478bee46e88-3856c0c7c05mr2512258eec.5.1795155626034;
-        Thu, 19 Nov 2026 22:20:26 -0800 (PST)
-Received: from G7XWH7K1F3 ([2408:8256:2e80:7371:84c0:a687:3d35:47b0])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm2920863eec.24.2026.11.19.22.20.16
+        bh=ylQ5NpR+7iB87MylzEu3DJ9CieEThMAM4Vq8MsEW9S4=;
+        b=X4H38/iQryToGMshupLSV8Zl/PR9eTX6pyPsB9SudewReYqRNfW+1fEnJoud83jEIb
+         VgqAsMhWomVqB/X+wXmf0YyBSVJ/mwrJSTJD8dFkOEEm6dqqET02Cmqlz1ZFQ2fdTe2b
+         HaFfBoMoAUBhqJ6gM8mqZNUd8sQHTuayAn6PY9qFMIY14cVxjUk0a3l7ee8GbILFRqJA
+         22EoCiP8bKpjSw1BaJpwRRRmzipaLDykcXNYSfJWqfUb6vvj/x/goY+dFQKTHqpw0T4m
+         caU6PImvKUIg+OdZip2MihhMImaTV7rHcL9XP58y1bRQmhUK7qREDsPzKzWgmtBco2nq
+         URTw==
+X-Forwarded-Encrypted: i=1; AL+hErFLd/RptwK6sMKVkXt1vkOEXuShDkRpBowzxI1k14BXvBS+FwivS5llKGBJ/ETLjxiMmB9HVh8BlZUW+14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8dbcGQhIM6ja30Y40PXIplkxiH2XndMDK7KKBW9ZW5/DT68fqS
+	3f7j98hoIc3bnlRvml5Cp+wdXzGm1msz3eB8A+7kpiVvH84Bsnq0BCim
+X-Gm-Gg: AZFdTZfVblRTq3/AosVoLkvhuRpEUi7Mf4E9EE7K03xAveamlLCwXQAfLwdGadjmQub
+	wSsvtycg01N3oyGedv4mLQnfkvT6ToKnPaV87n2nfWSotpF6G2J8jESNmAP9Pi8U30GQaLFawJ3
+	+GZZHADUsTVc5//pV3StyBjXBbwruV6WYgJX2dJ1uHu1jD+rHPv9Er0S6SAqKe7VFVu/yE1U4Vy
+	nojk7IleL20oTutNWeS0/8V9GvB/jOMYAR8RKnOI3YoCqeXzJcmDLneuRJ9OmkSySDDmiaQ7Ns3
+	ZblrnNhOOAHGCql7YNdXoJ5SjnMG+xKLBTGDJiCfK7fj78rFuq3oAGD2OQ5pbepg+/tvgTez2sb
+	oA+AbHgG64wFpz0M9Yq08u9FoyKrNrWFaY/Chxk33Z7S2f7iL+hf1DD4ygijL/1WRv6+o49/OQX
+	Cy/G+Xa7wOXXJ5gEzUArwA1wCGM/JYrCtqbXs4xD0x3hX6LXqu+VHIpogstHSWVDzjFemMmYyRg
+	Qs4pBMB/yUeSwPrmLaebciBsRp8cnuWehLtw31CsGSb44N7V2tOQ/G/Slp1COcE/p8aaEk2vVnG
+	0OQO1AVmyqqx7GwXTMkcrXhv8eW2++VNm+ZdKxlUGtsnDWpimw==
+X-Received: by 2002:a05:693c:80cd:b0:385:b8f4:756a with SMTP id 5a478bee46e88-385b8f47b36mr999820eec.12.1795155668669;
+        Thu, 19 Nov 2026 22:21:08 -0800 (PST)
+Received: from G7XWH7K1F3 ([139.177.225.240])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm5476880eec.5.2026.11.19.22.21.04
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 19 Nov 2026 22:20:25 -0800 (PST)
+        Thu, 19 Nov 2026 22:21:08 -0800 (PST)
 From: Zhao Li <enderaoelyther@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Eric Woudstra <ericwouds@gmail.com>,
-	=?UTF-8?q?Bj=C3=B8rn=20Mork?= <bjorn@mork.no>,
-	"Lucien . Jheng" <lucienzx159@gmail.com>,
-	netdev@vger.kernel.org,
+To: Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: linux-bluetooth@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	Michael McAllister <me@michaelmcallister.org>,
+	stable@vger.kernel.org,
 	Zhao Li <enderaoelyther@gmail.com>
-Subject: [PATCH net-next v2] net: phy: air_en8811h: check PBUS register read errors
-Date: Fri, 20 Nov 2026 14:20:01 +0800
-Message-ID: <20261120062001.38233-1-enderaoelyther@gmail.com>
+Subject: [PATCH v2] Bluetooth: hci_serdev: stop write_work before closing the port
+Date: Fri, 20 Nov 2026 14:20:48 +0800
+Message-ID: <20261120062048.40310-1-enderaoelyther@gmail.com>
 X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -106,127 +100,78 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-an8811hb_check_crc() ignores the return value of its PBUS reads. When
-the status read fails, the loop tests a stale or uninitialized
-pbus_value and can stop waiting before the check has finished. When the
-result read fails, the PASS or FAIL message tests the status value.
+With HCI_QUIRK_NON_PERSISTENT_SETUP, hci_uart_close() clears
+HCI_UART_PROTO_READY without hu->proto_lock and closes the serdev port
+without waiting for write_work. The hci_uart_flush() just before it
+re-enables write_work and may replay a recorded wakeup, and
+hci_uart_tx_wakeup() queues it from any caller that passed the
+HCI_UART_PROTO_READY test, such as the serdev write_wakeup callback.
+write_work can then call ttyport_write_buf() while ttyport_close()
+releases the tty, so it writes through a released tty.
 
-en8811h_print_fw_version() also ignores a failed read, which leaves
-priv->firmware_version at 0 on the first firmware load, or when the
-bootloader's running firmware is kept. en8811h_read_status() then
-handles it as firmware older than 24011202 and guesses the link
-partner's 2.5GBASE-T ability from the link speed.
+A partial frame that write_work leaves in hu->tx_skb also survives into
+the next open, which flushes nothing, and would be sent first to the
+controller after it is powered on again.
 
-Return the error from each of these reads. A failed version read now
-fails the firmware load or the probe, as the other PBUS errors there
-do.
+Quiesce the transmit path as hci_uart_unregister_device() does: clear
+HCI_UART_PROTO_READY under percpu_down_write() so that no wakeup is in
+flight, cancel write_work, free the leftover frame, then close the port.
+A wakeup sets HCI_UART_SENDING and HCI_UART_TX_WAKEUP before it queues
+write_work, so clear both after the cancel: a work cancelled while
+still pending would leave SENDING set, and the next open, which reuses
+hu, would never queue write_work again.
 
-Found by an AI code review agent; not triggered. Compile-tested with W=1.
+Found by code review. Compile-tested with W=1.
 
+Fixes: de8892df72be ("Bluetooth: hci_serdev: Close UART port if NON_PERSISTENT_SETUP is set")
+Cc: stable@vger.kernel.org
 Signed-off-by: Zhao Li <enderaoelyther@gmail.com>
 ---
 v2:
-  - retarget to net-next, drop the Fixes: and Cc: stable tags (Andrew Lunn)
-  - also check the version read in en8811h_use_running_fw(), added in
-    net-next by 89f0fb60afdb
-v1: https://lore.kernel.org/netdev/20261118182436.32455-1-enderaoelyther@gmail.com/
+- Clear HCI_UART_SENDING and HCI_UART_TX_WAKEUP after cancelling
+  write_work. A pending write_work cancelled there left SENDING set, so
+  the next power-on never queued write_work (Sashiko's review of v1).
+v1: https://lore.kernel.org/linux-bluetooth/20261118124821.3990-1-enderaoelyther@gmail.com/
+
+Before 6.16 the quirk test in hci_uart_close() reads
+test_bit(HCI_QUIRK_NON_PERSISTENT_SETUP, &hdev->quirks); with that
+context line the patch applies to 6.12.y, 6.6.y, 6.1.y, 5.15.y and
+5.10.y. It applies as is to 6.18.y and 7.3.y.
 
 No new W=1, sparse or smatch warnings.
 
- drivers/net/phy/air_en8811h.c | 36 ++++++++++++++++++++++++++---------
- 1 file changed, 27 insertions(+), 9 deletions(-)
+AI assistance was used.
 
-diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
-index ef20b41ed5cb..c48ada43ab6b 100644
---- a/drivers/net/phy/air_en8811h.c
-+++ b/drivers/net/phy/air_en8811h.c
-@@ -378,18 +378,25 @@ static int an8811hb_check_crc(struct phy_device *phydev, u32 set1,
- 					  AN8811HB_CRC_RD_EN);
- 	if (ret < 0)
- 		return ret;
--	air_phy_buckpbus_reg_read(phydev, set1, &pbus_value);
-+	ret = air_phy_buckpbus_reg_read(phydev, set1, &pbus_value);
-+	if (ret < 0)
-+		return ret;
- 
- 	do {
- 		msleep(300);
--		air_phy_buckpbus_reg_read(phydev, mon2, &pbus_value);
-+		ret = air_phy_buckpbus_reg_read(phydev, mon2, &pbus_value);
-+		if (ret < 0)
-+			return ret;
- 
- 		/* We do not know what errors this check is supposed
- 		 * catch or what to do about a failure. So print the
- 		 * result and continue like the vendor driver does.
- 		 */
- 		if (pbus_value & AN8811HB_CRC_ST) {
--			air_phy_buckpbus_reg_read(phydev, mon3, &pbus_value);
-+			ret = air_phy_buckpbus_reg_read(phydev, mon3,
-+							&pbus_value);
-+			if (ret < 0)
-+				return ret;
- 			phydev_dbg(phydev, "CRC Check %s!\n",
- 				   pbus_value & AN8811HB_CRC_CHECK_PASS ?
- 					"PASS" : "FAIL");
-@@ -403,14 +410,20 @@ static int an8811hb_check_crc(struct phy_device *phydev, u32 set1,
- 	return -ENODEV;
- }
- 
--static void en8811h_print_fw_version(struct phy_device *phydev)
-+static int en8811h_print_fw_version(struct phy_device *phydev)
- {
- 	struct en8811h_priv *priv = phydev->priv;
-+	int ret;
+ drivers/bluetooth/hci_serdev.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/drivers/bluetooth/hci_serdev.c b/drivers/bluetooth/hci_serdev.c
+index 194f11251cc5..a5e4b3d32144 100644
+--- a/drivers/bluetooth/hci_serdev.c
++++ b/drivers/bluetooth/hci_serdev.c
+@@ -164,7 +164,20 @@ static int hci_uart_close(struct hci_dev *hdev)
+ 	 * open may drain the battery.
+ 	 */
+ 	if (hci_test_quirk(hdev, HCI_QUIRK_NON_PERSISTENT_SETUP)) {
++		percpu_down_write(&hu->proto_lock);
+ 		clear_bit(HCI_UART_PROTO_READY, &hu->flags);
++		percpu_up_write(&hu->proto_lock);
 +
-+	ret = air_phy_buckpbus_reg_read(phydev, EN8811H_FW_VERSION,
-+					&priv->firmware_version);
-+	if (ret < 0)
-+		return ret;
- 
--	air_phy_buckpbus_reg_read(phydev, EN8811H_FW_VERSION,
--				  &priv->firmware_version);
- 	phydev_info(phydev, "MD32 firmware version: %08x\n",
- 		    priv->firmware_version);
++		cancel_work_sync(&hu->write_work);
++		clear_bit(HCI_UART_SENDING, &hu->tx_state);
++		clear_bit(HCI_UART_TX_WAKEUP, &hu->tx_state);
 +
-+	return 0;
- }
- 
- static int an8811hb_load_file(struct phy_device *phydev, const char *name,
-@@ -527,7 +540,10 @@ static int en8811h_use_running_fw(struct phy_device *phydev, int err)
- 	if (status != EN8811H_PHY_READY)
- 		return err;
- 
--	en8811h_print_fw_version(phydev);
-+	status = en8811h_print_fw_version(phydev);
-+	if (status < 0)
-+		return status;
++		/* Do not send a stale partial frame after the next open. */
++		if (hu->tx_skb) {
++			kfree_skb(hu->tx_skb);
++			hu->tx_skb = NULL;
++		}
 +
- 	return 1;
- }
- 
-@@ -575,7 +591,7 @@ static int en8811h_load_firmware(struct phy_device *phydev)
- 	if (ret < 0)
- 		goto en8811h_load_firmware_out;
- 
--	en8811h_print_fw_version(phydev);
-+	ret = en8811h_print_fw_version(phydev);
- 
- en8811h_load_firmware_out:
- 	release_firmware(fw2);
-@@ -1179,7 +1195,9 @@ static int an8811hb_probe(struct phy_device *phydev)
- 		goto err_dev_create;
+ 		serdev_device_close(hu->serdev);
  	}
  
--	en8811h_print_fw_version(phydev);
-+	ret = en8811h_print_fw_version(phydev);
-+	if (ret < 0)
-+		goto err_dev_create;
- 
- 	/* mcu has just restarted after firmware load */
- 	priv->mcu_needs_restart = false;
 
-base-commit: 0742ef27cd72f155e6d355d13c49133116f19c89
+base-commit: 1d79f61152c315e30e758116e525871732181a98
 -- 
 2.56.1
 
