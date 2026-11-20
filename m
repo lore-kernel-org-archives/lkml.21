@@ -1,68 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.66.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196049;
-	b=yB4xl0B4FTQkxBNsDy3BobZVk4IaqDHkHz/RyRZpJAfNXOZYqcAzQEIG6cXNIzihnAPi
-	 d3YL3SfWUxqk5YHZYoo4AutFbAkE/t1GzO9RDxlhLHXFJIO0EOZanyDEffE0N1oLGOE4J
-	 rICB+FZt5agOxeCT4F7EgjUCyMks0FMCu7XDEDA87NZ7r9hgS0gXeAUvFYxPuQrnwL0nD
-	 xO9eS9be02m+XMCwfkQceX0j54wDSi357LzE0IddWKVMUIUUCzGrl3czye4VUNEuC87PD
-	 6/VscNKhscm+B9BGL6KCb+1G/zNcZFf4Hdym9Ql+mFN6Lw+wFhb6Mgk29NCEFmn+Bzg==
+	t=1795196089;
+	b=vnyexLVSbr18MqUWM1NPfcy6UQ6y13g89GaPckHXN1B2DehpYYLvplE9yFj4VAO4C7i7
+	 8u7dxMs7isw4h9gRmee3dhLxNxxQLhLpRdlZMZ4QIXYD2N3UrCsjkaHNrsCmMiOE2qqtG
+	 F1Mv7shl6RZkgBDeLSUF+CoS5Q5tIv2SBCJXJuq/6SbR9JNaWz5r/zoJR9FmRYuIrqF+D
+	 XgfQdhD7sd9IuUXZyfbx554bpmS392WMDrcHCQhb8emzI0+bPl0fnJwM4AlxZ8qo2QN9F
+	 dd5eR3COEhiQTqgIodanmDu34o11UTt4kcehzs1coMofMmN1eUGN1ndciQmYkqilpzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196049;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=77/C6SYfI38rig3b5Xhp6zxSG4ayQ0fXmak+LEOxmn0=;
-	b=r6toZx8q7i0HBAymrwKhgmTDcJFrXSpB5R9iQl03ecjzkrf42l75CbvfUCN0WJF6HsQW
-	 kll2XdtWkG2IDQ3WmF85kcsPKm7cGoMjbahDJqcrVrSZcl0PM2/4c9b1iy33CTmoemQt7
-	 xxrnaOleb+NYIHjmSDjasTA+6UedbxqJoBDI3vquqBpbNPEaYZKp0R112fB7nZofF8yUW
-	 babA0PC8zVL8cxDtyfxX1RcaamVrKr8WAfXjD+sfQZPTU2B8xUT7ZESwp5P2SZVh6yMz+
-	 GnLVqV5f60hqWxTny4y/G2r4H0+1UPR3OH5hBAn9boHaM0aQQXxz7vHfpjpLjALJPpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196089;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:From:Content-Language:To:Cc:Subject:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=IJSoYfDGNElU2HGzFeCIxk25wKCRD+genvhBATiMOo0=;
+	b=TIOglbMUwa3J41iNYBO6oM4n8evTjNruHOEujNnUbh4o1k1ksLoYhmcIKIXXK7FdkwvY
+	 cuPJcqm00wcuiMK9HpBFW7LLVQIXIlDsH+xazJ1dnZTS70pq4AJdC+8crEvy+2J/9319q
+	 NyDKtx35T5T5RnmXE3fizGhbx2xyW9EIiEh2i21xEbblzZp0OvJSZQJQxlKx/IWOezSXI
+	 1qC7pcDiLWtJ88YCiAAwOTtOZWfd1WedXBeie0niwbGdWJgTElowzMPqU9eCecdrSCqgI
+	 JSWzm41IKwDbdt3M+l8mJNlQ3+yZfA1YbaXXb1k91I6zITPKmiCQZM7T7bXIS5PuVtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hallyn.com;
-	spf=pass smtp.mailfrom=hallyn.com;
-	dkim=pass header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=OjjnOtnM;
-	arc=none smtp.remote-ip=178.63.66.53
-Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="SbgitGF/";
+	arc=none smtp.remote-ip=192.198.163.9
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69514606A330;
-	Fri, 20 Nov 2026 17:34:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69514606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hallyn.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hallyn.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2246606A32A;
+	Fri, 20 Nov 2026 17:34:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2246606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=OjjnOtnM
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hallyn.com; s=mail;
-	t=1795196044; bh=tqr7JujF5uPqlUHh7F9lKO+IL/G70y7dJOo/+zScl8c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OjjnOtnMigu7ogGoTDg3h0S4qj/bYFjLfh33PSJkRSsFNOnUBQSWhxWWJAovRBcwt
-	 hVPlPBAgmHCGPIToIygykBN/mfX2J34V83UQwX8CG0zcuQF5Z5kWE9wmrao7Imq47K
-	 tTHrjTxlSwa/sbBf1m8nPUQsMXb/PYAIXJCMM03VoboukgKYezk4bK4rzZo5aAKLZH
-	 aGIGNi/6rGJHjFF61569cAgrSwXaqTHz8UCnMVup4sZOQVVPjWLVOOBx0NsbdE3Rj7
-	 AXHV8s7cM5CbPbMPTeW+r67raMu5DjCRZAb4M5kXUL82b0m+HM/EFOotIee/llvd4l
-	 lZZJOwtdmvqtQ==
-Received: by mail.hallyn.com (Postfix, from userid 1001)
-	id C11251B33; Fri, 20 Nov 2026 11:34:04 -0600 (CST)
-Date: Fri, 20 Nov 2026 11:34:04 -0600
-From: "Serge E. Hallyn" <serge@hallyn.com>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Paul Moore <paul@paul-moore.com>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morris <jmorris@namei.org>,
-	David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	"Andrew G. Morgan" <morgan@kernel.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
-	Bradley Morgan <brads@mainlining.org>
-Subject: Re: [PATCH v11 1/3] userns: don't let setns() lend CAP_SETFCAP
-Message-ID: <awCEjJ8syhv+f4vd@hallyn.com>
-References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
- <20261117-b4-setfcap-userns-v11-1-2be11a2c32f4@toxicpanda.com>
- <awCB3UkCPzLGRBTk@hallyn.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SbgitGF/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795196088; x=1826732088;
+  h=message-id:date:mime-version:from:to:cc:subject:
+   content-transfer-encoding;
+  bh=tVIl1oy/CboezVgy3jBsegn6rNWOcKOdQzuPeDENzoM=;
+  b=SbgitGF/iT6IekcXrApIhHi5oZEucUKgys2wJ2frx+/uWPXVtXoEzci1
+   aPCg791pNyu6otvmNKns8oonCgby0vUDGs/5n8QBQm3sgpY2x22Wd4wz4
+   YJtAIKK8fQSJ+0aFZKldMTR2v3GKEpUGOfeS//5IAZcQvqHBp9l2msURw
+   A6hygmOFlgb8yKT+mnlwiqpXHmdirdP1EoSUi4y75gvhZyFaCRSfwKruD
+   XKl5MVcoeRCOdRsU+YFdIO1Fc0IOtnFxMR7rK2qey/ZhNzZMBbGZfGG7T
+   fIwTdpGAHAYqiHGyOy//FUhm3BNXJqfKJRpsRWtnquBAGAXHReSxiQY6J
+   w==;
+X-CSE-ConnectionGUID: Y3aj2JqpTvSHnPZZVIpcxQ==
+X-CSE-MsgGUID: bl73grPvQ6inXnlC+I5lkA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3962504"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3962504"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:34:47 -0800
+X-CSE-ConnectionGUID: 9YT1AebQQ4WvpXnE14ZqNg==
+X-CSE-MsgGUID: im+REL5qScq/4oV8ZIehrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10561234"
+Received: from jjgreens-desk24.amr.corp.intel.com (HELO [10.125.109.138]) ([10.125.109.138])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:34:46 -0800
+Message-ID: <c2b42261-71e8-46c1-b847-16b12ee81676@intel.com>
+Date: Fri, 20 Nov 2026 10:34:45 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,182 +72,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awCB3UkCPzLGRBTk@hallyn.com>
+User-Agent: Mozilla Thunderbird
+From: Dave Jiang <dave.jiang@intel.com>
+Content-Language: en-US
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "linux-cxl@vger.kernel.org" <linux-cxl@vger.kernel.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ Alison Schofield <alison.schofield@intel.com>,
+ Davidlohr Bueso <dave@stgolabs.net>, Jonathan Cameron <jic23@kernel.org>,
+ Vishal Verma <vishal.l.verma@intel.com>
+Subject: [GIT PULL] Compute Express Link (CXL) Fixes for 7.4-rc4
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 11:22:37AM -0600, Serge E. Hallyn wrote:
-> On Tue, Nov 17, 2026 at 07:54:24PM +0000, Josef Bacik wrote:
-> > A uid 0 task that gave up CAP_SETFCAP can get it back by joining a user
-> > namespace that another root task created.  Commit db2e718a4798
-> > ("capabilities: require CAP_SETFCAP to map uid 0") keeps such a task
-> > from mapping uid 0 into a namespace it creates itself, because tasks in
-> > that namespace could then write file capabilities for its root user.
-> > setns() gives a joiner a full capability set in the namespace too, so
-> > it can do the same there:
-> > 
-> >   task A: uid 0, full caps          task B: uid 0, no CAP_SETFCAP
-> >   unshare(CLONE_NEWUSER)
-> >                                     setns(A's user ns)
-> >                                       allowed, euid == ns->owner
-> >                                     write "0 0 1" to /proc/self/uid_map
-> >                                       A had CAP_SETFCAP -> allowed
-> > 
-> > If A's namespace already maps host uid 0, at any uid, B can set
-> > security.capability on a file right away.  Either way uid 1000 can then
-> 
-> "Either way" here means whether it already maps host uid 0, or whether
-> it has no mappings yet?  I'd just drop 'Either way'.
-> 
-> > run that file with CAP_SYS_ADMIN, which the selftest at the end of this
-> > series shows on an unmodified kernel.
-> > 
-> > The check doesn't look at the joiner's uids, which it can change while
-> 
-> >From here until the 'Fix by', it is confusing whether any given statement
-> refers to the pre-patch or post-patch state.
-> 
-> > keeping its other capabilities, and CAP_SYS_PTRACE doesn't stand in for
-> 
-> Is this a reference to the next patch?  But that's a completely different
-> commit.
-> 
-> > CAP_SETFCAP.  What gets refused is a task without CAP_SETFCAP that has
-> > CAP_SYS_ADMIN over a namespace that maps the joiner's root user, or that
-> > has no uid_map yet while its parent maps that root user, so that it can
-> > still be mapped.  If that is uid 0 of the parent and the creator of the
-> > namespace didn't have CAP_SETFCAP, the join is let through: only a
-> > writer with CAP_SETFCAP in the parent could map it then.  Containers
-> > that don't map the joiner's root user, tasks with CAP_SETFCAP and
-> > unprivileged users are not affected.
-> > 
-> > Like verify_root_map(), the check is about uid 0 of the joiner's own
-> > namespace.  The root user of an ancestor that it maps at another uid,
-> > and a root user stored through an idmapped mount, are left to whoever
-> > set up that map or mount.
-> > 
-> > Fix by refusing setns() when the joiner doesn't have CAP_SETFCAP and
-> > tasks in the namespace can write file capabilities for the root user of
-> > the joiner's namespace.
-> > 
-> > Suggested-by: Serge Hallyn <serge@hallyn.com>
-> > Link: https://lore.kernel.org/all/fd159e68-c613-4c7d-bfba-8af0a3f3a96e@hallyn.com/
-> > Fixes: db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
-> > Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-> 
-> The code looks good to me,
-> 
-> Reviewed-by: Serge Hallyn <serge@hallyn.com>
-> 
-> If you don't mind making the commit message and comments shorter and
-> clearer, I think that would help.  In the words of the reverend
-> Maclean, "Half as long".  If you feel like I"m being unreasonable or
-> misguided, or would prefer I rewrite them, please let me know, but imo
-> it'd be good to keep this entirely yours :)
+Hi Linus, please pull from:
 
-Never mind.  I see it has been applied to Christian's tree.  Let's just
-leave it as is then.
+git://git.kernel.org/pub/scm/linux/kernel/git/cxl/cxl.git tags/cxl-fixes-7.4-rc4
 
-> > ---
-> >  include/linux/capability.h |  3 +++
-> >  kernel/user_namespace.c    |  4 ++++
-> >  security/commoncap.c       | 49 ++++++++++++++++++++++++++++++++++++++++++++++
-> >  3 files changed, 56 insertions(+)
-> > 
-> > diff --git a/include/linux/capability.h b/include/linux/capability.h
-> > index 622137f66f09..9ebcdab56937 100644
-> > --- a/include/linux/capability.h
-> > +++ b/include/linux/capability.h
-> > @@ -34,6 +34,7 @@ struct cpu_vfs_cap_data {
-> >  #define _USER_CAP_HEADER_SIZE  (sizeof(struct __user_cap_header_struct))
-> >  #define _KERNEL_CAP_T_SIZE     (sizeof(kernel_cap_t))
-> >  
-> > +struct cred;
-> >  struct file;
-> >  struct inode;
-> >  struct dentry;
-> > @@ -222,4 +223,6 @@ int get_vfs_caps_from_disk(const struct mnt_idmap *idmap,
-> >  int cap_convert_nscap(const struct mnt_idmap *idmap, struct dentry *dentry,
-> >  		      const void **ivalue, size_t size);
-> >  
-> > +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns);
-> > +
-> >  #endif /* !_LINUX_CAPABILITY_H */
-> > diff --git a/kernel/user_namespace.c b/kernel/user_namespace.c
-> > index 50c374ed4687..34becacaccd6 100644
-> > --- a/kernel/user_namespace.c
-> > +++ b/kernel/user_namespace.c
-> > @@ -1390,6 +1390,10 @@ static int userns_install(struct nsset *nsset, struct ns_common *ns)
-> >  	if (!ns_capable(user_ns, CAP_SYS_ADMIN))
-> >  		return -EPERM;
-> >  
-> > +	/* Don't hand back CAP_SETFCAP to a root task that gave it up. */
-> > +	if (cred_borrows_setfcap(current_cred(), user_ns))
-> > +		return -EPERM;
-> > +
-> >  	cred = nsset_cred(nsset);
-> >  	if (!cred)
-> >  		return -EINVAL;
-> > diff --git a/security/commoncap.c b/security/commoncap.c
-> > index d47ab3022343..96ac039fddad 100644
-> > --- a/security/commoncap.c
-> > +++ b/security/commoncap.c
-> > @@ -131,6 +131,55 @@ int cap_capable(const struct cred *cred, struct user_namespace *target_ns,
-> >  	return ret;
-> >  }
-> >  
-> > +/*
-> > + * @ns has no uid_map yet.  Could @caller_root_kuid still be mapped into it,
-> > + * so that tasks in @ns get CAP_SETFCAP over it?  A writer in the parent can
-> > + * map any uid that the parent maps.  If that is uid 0 of the parent, a task
-> > + * in @ns can only map it if the creator of @ns had CAP_SETFCAP, a writer in
-> > + * the parent only if it has CAP_SETFCAP there, see verify_root_map().
-> > + */
-> > +static inline bool userns_may_map_root(struct user_namespace *ns,
-> > +				       kuid_t caller_root_kuid)
-> > +{
-> > +	uid_t caller_root_in_parent = from_kuid(ns->parent, caller_root_kuid);
-> > +
-> > +	if (caller_root_in_parent == (uid_t)-1)
-> > +		return false;
-> > +	return caller_root_in_parent != 0 || ns->parent_could_setfcap;
-> > +}
-> > +
-> > +/**
-> > + * cred_borrows_setfcap - Check whether a userns gives back CAP_SETFCAP
-> > + * @cred: The credentials of a task that joins @ns or traces a task in it
-> > + * @ns: The user namespace
-> > + *
-> > + * A task without CAP_SETFCAP can't map uid 0 of its namespace into a user
-> > + * namespace it creates, see verify_root_map(), as tasks there could then
-> > + * write file capabilities that are honoured for that root user.  Tasks in
-> > + * @ns can do that if @ns maps it, at any uid, or if it can still be mapped
-> > + * into @ns, see userns_may_map_root().
-> > + *
-> > + * Like verify_root_map(), this only looks at uid 0 of @cred's namespace, not
-> > + * at the root users of ancestors that it maps at another uid, and a root
-> > + * user stored through an idmapped mount is up to whoever sets up the mount.
-> > + *
-> > + * Return: true if @cred doesn't have CAP_SETFCAP and tasks in @ns can write
-> > + * file capabilities for the root user of @cred's namespace.
-> > + */
-> > +bool cred_borrows_setfcap(const struct cred *cred, struct user_namespace *ns)
-> > +{
-> > +	kuid_t caller_root_kuid = make_kuid(cred->user_ns, 0);
-> > +
-> > +	if (!uid_valid(caller_root_kuid) ||
-> > +	    cap_raised(cred->cap_permitted, CAP_SETFCAP))
-> > +		return false;
-> > +
-> > +	if (READ_ONCE(ns->uid_map.nr_extents))
-> > +		return kuid_has_mapping(ns, caller_root_kuid);
-> > +
-> > +	return userns_may_map_root(ns, caller_root_kuid);
-> > +}
-> > +
-> >  /**
-> >   * cap_settime - Determine whether the current process may set the system clock
-> >   * @ts: The time to set
-> > 
-> > -- 
-> > 2.55.0
+...to receive a small collection of CXL fixes. These have all appeared in -next
+for a few days with no reported issues.
+
+---
+
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
+
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/cxl/cxl.git tags/cxl-fixes-7.4-rc4
+
+for you to fetch changes up to a02576de05178f15ffe6fc7551496de7de8acfde:
+
+  cxl/port: Fix endpoint RAS error unmasking (2026-11-17 15:37:49 -0700)
+
+----------------------------------------------------------------
+cxl fixes for v7.4-rc4
+
+cxl/port: Fix endpoint RAS error unmasking
+cxl/test: Free the decoder registry when cxl_test_init() fails
+cxl/region: Reject a repeat write of an endpoint decoder to targetN
+cxl/region: Restore a target's position from its slot after sorting
+
+----------------------------------------------------------------
+Alison Schofield (2):
+      cxl/region: Reject a repeat write of an endpoint decoder to targetN
+      cxl/test: Free the decoder registry when cxl_test_init() fails
+
+Davidlohr Bueso (1):
+      cxl/region: Restore a target's position from its slot after sorting
+
+Richard Cheng (1):
+      cxl/port: Fix endpoint RAS error unmasking
+
+ drivers/cxl/core/region.c    | 11 ++++++++---
+ drivers/cxl/port.c           | 16 +++++++++-------
+ tools/testing/cxl/test/cxl.c | 24 +++++++++++++-----------
+ 3 files changed, 30 insertions(+), 21 deletions(-)
