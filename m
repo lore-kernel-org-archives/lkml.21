@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170750;
-	b=JVeCs7nHjlTON54mcN+R9O3ZVwPnq6GVG2PrkFYYH3RPhQJ7rlOSxmnNf1cbt05CoTyZ
-	 YHttXVNGLNEHmMJvcszhvjgNyh4ECVV1SL8ADmGvboRlpaRQlnTyRYYEntZ33Uyq5QsEs
-	 Fv4xlLa1lQyOK+gC2bTpGOaoQPMcrZ3BQATrs3HRqEzK18h4lLX7MHpZAc7FkaiFLOCAk
-	 /C8c2WRb/HxwbjH4fwhmxP7gi89z6EhIGnPeh0p13BLGqrGLggPFChYJmmch7o9IOuxvr
-	 71hKdcffSVpmTe6Zs0MPyXYWbBvgSpMfzoPO7M7u+VeyOw9Tx0Aj/rgUEcVUayYd5qg==
+	t=1795170758;
+	b=KcZ7IkR5t7e3pATGs4J5zdyPYkMFVdk7Vue652X2N0CliY94L1igY5Rwiadtqh/09dDr
+	 yAVja1y6EJwNRKVZmtTZGT6awZ/qU0ZQqhXnH3CiEpzn7qZqS4tCLYd95/DUBCjXGtL4x
+	 IBY7dIXwGE1RB0Jft4nwfTXW+ukmEggxigydBgek/UsbuImAfizEJCh4wgF2zOaQhXUI0
+	 qfj9SdWZ/InasMUSs/5gwzR2M2A3J3eOy2sjhhx/v3CCTOAMLi6UNwLh86V6hwTXs+uYG
+	 ZFfe0IvGIsW1Z6DbgCbc2BWfh88FuaLdBhGL4gOFyDdKCF94Yh7vqOX2PMQy6Uw2Gig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170750;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170758;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=SnAqAg381veESmVUGrbbBgkSnsyfEytJcfyGHNrIA2Q=;
-	b=5IKwMeGbP8sxviKYxjCdD7YRGY35xe0YvPvTN39c7+usWSIxA4h7w2ClYvZMyVD7gZB9
-	 YPidHfxQ438zfk3TBazUWIdeOvnuffybxC1jCfsjBR4HUbk0sxwy4Z11QiyzHGD0G8A8T
-	 tLPH+K3xzuzIZTM8H/PCjCfTYIMhq6KtuCggqaMnJqxEN6N4/xllbkotbtARzHb9qGhIh
-	 RpQjPFFxqj+au7DMRVRglfOTblOXcRvHwhE2Pl2Aa3+cWhlOBd9lEruVx0kX70p9sJ764
-	 2h+54siFtHnHv744AZzKYHz92dmkFEp6omQ/3VK1JaiSJh0f39j1LX9OinnsPqbADvQ==
+	bh=4w47F1oOudqCCMJksXFKfd7JVduY8lHHMV19vhSptJo=;
+	b=k0579IQqCCLj72BvghrqocWcNd9zQ8GucWAMazf1pRaXN4/EslTw3O4Z9owX4soOc+AQ
+	 gSZjzvrGxrjNzo1lCZUdw0np7xVnB5KgGVuTP9/KBxk8A3PMqahZ/daS4fvfd3kTrpisz
+	 XypFEkLj6Xl3ODphYRxNgjlps3dbYGcaCZJh9usNHPunvKaLhwkanTHV7MJH5E2XYrO4r
+	 uCujUkRJvc8stA1hZMdapT1ibjV61q7Z2DL6zo7crfBFWbxMr9IFamnvoPMFGfK/ckdmb
+	 qavcLfhlk9BfS2NPctVl7OCvL+oiKgAOGxDgo3qyPkFs3ivnsB+lgX/9yTsUDPMMbCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgQ7xvOM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PALy035L;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADAFC606A320;
-	Fri, 20 Nov 2026 10:32:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA0F606A338;
+	Fri, 20 Nov 2026 10:32:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cgQ7xvOM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 610A31F000C4;
-	Fri, 20 Nov 2026 10:32:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PALy035L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B553D1F000E0;
+	Fri, 20 Nov 2026 10:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170750;
-	bh=SnAqAg381veESmVUGrbbBgkSnsyfEytJcfyGHNrIA2Q=;
+	s=k20260515; t=1795170757;
+	bh=4w47F1oOudqCCMJksXFKfd7JVduY8lHHMV19vhSptJo=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cgQ7xvOMY1CUiX0aYkbIQvGng8ZlUuGeFzZrfjUbTaFNa9DN6kgoTbyvXMWxe6Ljl
-	 CEec0denXCUf8fkH7k6AhvvSJGL+/F5tM2hbgbIcpxQAm1+zf0ha7900xL6zC3crrb
-	 Qtp3ODAO47xlsrDeTFJ44S/aFm8cnO/yYp2P8gqndS/3Wh8lzOWrul9KpCkcfrS5ql
-	 6ndE/zg8mjWAQ9UZvHKdfnDubebQe3tYHDDVX7YlhhXyj5mOb/B2uKfhU4pJQqM/6c
-	 gCeRiU+8qgwrycImQB5N5T8syCYIndrRKwCkKqxJuPYb6lLt+gFPtYrHysuoz8IXJK
-	 BeikglWnY4ZEA==
-Subject: Re: [PATCH net-next v4 1/3] ipv4: Check a Fragmentation Needed
- against each path of a multipath route
+	b=PALy035LgsUPHsychnN6eW9sJZvQZ416VbtvD2aHoRuz5jP/MoLSYjqwdbQRfFsfE
+	 Ohpi2Q40SSuwGRpHELNWO0lEmlNCWMKu3yAZwxG/MfAtoWuLYnuBHKCrsMl6WVxzny
+	 a4JmJdJfKkkw2Uk1b+E/HtNnf4nIo68sO84ox2rRLljKuNXuDM/GL6la0gjFhxgtsI
+	 nEUf3hTWUJZA3xJ/ZT7FhPto8HyjGjI3NscMDathwjHyDA/cx7Bqtnw3EQf9kLu8Ba
+	 RzZyvQTCkYhvbP27SPob0QOXJOBJqyI+RLxg5DI33RAsM376ZiCB7LrqNMJXUFCHty
+	 Ccl8vyyNE6RTQ==
+Subject: Re: [PATCH net v3 05/10] net: au1000: serialize TX completion with
+ packet submission
 From: netdev-bot+sashiko@kernel.org
-To: deliran@verdict.gg
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Fri, 20 Nov 2026 10:32:28 +0000
-Message-ID: <179517074893.3136.1226707623351287544@kernel.org>
-In-Reply-To: <20261117193141.27004-2-deliran@verdict.gg>
-References: <20261117193141.27004-2-deliran@verdict.gg>
+To: f.fainelli@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
+ runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
+ linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
+Date: Fri, 20 Nov 2026 10:32:36 +0000
+Message-ID: <179517075632.3136.4816970691265925776@kernel.org>
+In-Reply-To: <20261117193223.2795612-6-f.fainelli@gmail.com>
+References: <20261117193223.2795612-6-f.fainelli@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +67,10 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,179 +78,81 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In net/ipv4/route.c, fib_nhc_pmtu() does not measure a path
-  the way its comment and the commit message say.
-- [Medium] ipv4: premature mtu clamping in __ip_rt_update_pmtu() locks
-  narrower paths
-- [Low] The fib_nhc_pmtu() comment (net/ipv4/route.c:1051-1055) says the
-  function returns 0, leaving the path alone, when what the path uses…
+- [Medium] au1000_tx() (drivers/net/ethernet/amd/au1000_eth.c) now holds
+  spin_lock_irqsave(&aup->lock) for the whole transmit path.
 
 --
 
-ipv4: Check a Fragmentation Needed against each path of a multipath route
+net: au1000: serialize TX completion with packet submission
 
-This patch adds fib_nhc_pmtu() and calls it from __ip_rt_update_pmtu().
-Before the mtu of a Fragmentation Needed is cached in a nexthop exception,
-it is now checked against each path of a multipath route. The early
-returns based on the looked-up dst are kept only for callers whose dst is
-the path of their flow (from_lookup == false).
+This patch takes the IRQ-safe aup->lock in both au1000_tx_ack() and
+au1000_tx(), so TX descriptor reclamation and queue state changes are
+serialized. When au1000_tx() reclaims a completed descriptor at tx_head,
+it now also advances tx_tail. The skb is now freed with
+dev_consume_skb_any() after the lock is released.
 
-> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
-> index d0a5f6d77094c..b90eed715fb5a 100644
-> --- a/net/ipv4/route.c
-> +++ b/net/ipv4/route.c
+> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+> index 1935b1d4b1738..805aabc6721b8 100644
+> --- a/drivers/net/ethernet/amd/au1000_eth.c
+> +++ b/drivers/net/ethernet/amd/au1000_eth.c
 
 [ ... ]
 
-> @@ -1046,54 +1048,87 @@ out:	kfree_skb_reason(skb, reason);
->  	return 0;
->  }
+> @@ -972,21 +976,25 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
+>  	u32 buff_stat;
+>  	struct db_dest *pDB;
+>  	int i;
+> +	unsigned long flags;
 >  
-> -static void __ip_rt_update_pmtu(struct rtable *rt, struct flowi4 *fl4, u32 mtu)
-> +/* The pmtu to cache on a path for the mtu of a Fragmentation Needed, 0 to
-> + * leave the path alone: what it uses now, as ipv4_mtu() reports it, is not
-> + * above the mtu, or its pmtu is locked. An exception about to expire is
-> + * refreshed, a locked mtu is capped at what the path uses.
-> + */
-> +static u32 fib_nhc_pmtu(struct fib_nh_common *nhc, const struct fib_info *fi,
-> +			__be32 daddr, u32 mtu, bool lock)
-> +{
-> +	struct fib_nh_exception *fnhe = find_exception(nhc, daddr);
-> +	struct net *net = dev_net(nhc->nhc_dev);
-> +	u32 path_mtu = 0;
-> +
-> +	if (fnhe && fnhe->fnhe_genid == fnhe_genid(net) &&
-> +	    time_before(jiffies, fnhe->fnhe_expires)) {
-> +		if (fnhe->fnhe_mtu_locked)
-> +			return 0;
-> +		if (!lock && fnhe->fnhe_pmtu == mtu &&
-> +		    time_before(jiffies, fnhe->fnhe_expires -
-> +					 net->ipv4.ip_rt_mtu_expires / 2))
-> +			return 0;
-> +		path_mtu = fnhe->fnhe_pmtu;
-> +	}
-> +	if (!path_mtu)
-> +		path_mtu = fi->fib_mtu;
-> +	if (!path_mtu)
-> +		path_mtu = READ_ONCE(nhc->nhc_dev->mtu);
-> +	path_mtu = min(path_mtu, IP_MAX_MTU);
+>  	netif_dbg(aup, tx_queued, dev, "tx: aup %x len=%d, data=%p, head %d\n",
+>  				(unsigned)aup, skb->len,
+>  				skb->data, aup->tx_head);
+>  
+> +	spin_lock_irqsave(&aup->lock, flags);
 
 [Severity: Medium]
-Does path_mtu here match what ipv4_mtu() reports for the path? The comment
-above and the commit message both say it does.
+With this lock taken here, the rest of au1000_tx() runs with local hard
+IRQs disabled until the spin_unlock_irqrestore() at the end. That
+includes the packet copy and the zero padding loop:
 
-ipv4_mtu() goes through ip_dst_mtu_maybe_forward(), which ends with:
+	pDB = aup->tx_db_inuse[aup->tx_head];
+	skb_copy_from_linear_data(skb, (void *)pDB->vaddr, skb->len);
+	if (skb->len < ETH_ZLEN) {
+		for (i = skb->len; i < ETH_ZLEN; i++)
+			((char *)pDB->vaddr)[i] = 0;
+	...
 
-include/net/ip.h:ip_dst_mtu_maybe_forward() {
-    ...
-	res = mtu - lwtunnel_headroom(dst->lwtstate, mtu);
-    ...
-}
+On Au1000/Au1500/Au1100, MIPS_ALCHEMY selects DMA_NONCOHERENT. That
+makes the dma_alloc_coherent() buffer uncached, so every store into
+pDB->vaddr is an uncached bus write. A full frame is up to about 1514
+bytes.
 
-rt_set_nexthop() sets rt->dst.lwtstate from nhc->nhc_lwtstate. The
-existing ip_mtu_from_fib_result() does the same subtraction:
+The RX side has only NUM_RX_DMA (4) hardware buffers, and they are
+serviced only from au1000_interrupt()->au1000_rx(). Before this patch,
+the RX interrupt could preempt the copy.
 
-	return mtu - lwtunnel_headroom(nhc->nhc_lwtstate, mtu);
+Could this longer IRQ-off window on every transmit lead to more RX
+overruns (RX_MISSED_FRAME) under combined TX/RX load? It would also add
+interrupt latency for the rest of the system on these single-core
+parts.
 
-fib_nhc_pmtu() takes fnhe_pmtu, fi->fib_mtu or nhc_dev->mtu and does not
-subtract the nexthop's lwtunnel headroom.
+The copy does not appear to need the lock. Suppose au1000_tx() has
+checked, under the lock, that TX_DMA_ENABLE and TX_T_DONE are clear at
+tx_head:
 
-For from_lookup == false, the check kept in __ip_rt_update_pmtu() still
-uses ipv4_mtu(dst):
+  - au1000_tx_ack() stops at the first descriptor without TX_T_DONE.
+  - It never touches the tx_db_inuse[] buffers or tx_head.
+  - ndo_start_xmit is already serialized by the TX queue lock.
 
-	if (!from_lookup && (rt->rt_mtu_locked || ipv4_mtu(dst) < mtu))
-		return;
+Would it be enough to hold aup->lock only for the descriptor state
+check, the tx_tail/tx_full handling, and the final len, buff_stat and
+tx_head updates, and do the copy and padding outside it?
 
-Take a nexthop with an lwtunnel encap of headroom H (MPLS, seg6, ...) and
-an ICMP mtu M, where dev_mtu - H < M <= dev_mtu:
-
-- ip_rt_update_pmtu() rejects M.
-- ipv4_update_pmtu() and __ipv4_sk_update_pmtu() accept M and create an
-  exception.
-- After that, ipv4_mtu() reports M - H for that path.
-
-The lock branch, min(mtu, path_mtu), also caps against the raw device or
-metric value rather than the ipv4_mtu() value.
-
-Should fib_nhc_pmtu() subtract lwtunnel_headroom(nhc->nhc_lwtstate, ...)
-the way ip_mtu_from_fib_result() does? If not, should the comment and
-commit message describe the raw value it actually compares against?
-
-> +
-> +	if (lock)
-> +		return min(mtu, path_mtu);
-> +	return mtu > path_mtu ? 0 : mtu;
-
-[Severity: Medium]
-When the Fragmentation Needed reports an mtu below ip_rt_min_pmtu,
-__ip_rt_update_pmtu() sets lock and replaces mtu with ip_rt_min_pmtu.
-This happens before any path has been compared against the reported
-value. fib_nhc_pmtu() only ever sees the clamped mtu, and its lock
-branch returns min(mtu, path_mtu), which is never 0.
-
-Take a path where path_mtu < reported mtu < ip_rt_min_pmtu. That needs
-either a device or route mtu below 552, or a raised
-net.ipv4.route.min_pmtu.
-
-The commit message's rule is to cache the mtu only where it is lower,
-so this path should be left alone. Instead:
-
-- fib_nhc_pmtu() returns path_mtu.
-- update_or_create_fnhe() then creates or overwrites an exception with
-  fnhe_pmtu = path_mtu and fnhe_mtu_locked = true, on a path that was
-  already narrower than the reported bottleneck.
-
-Before this patch, the old_mtu < mtu check ran ahead of the clamp. So
-on a single path route this could not happen. Now it happens for every
-path reached from ipv4_update_pmtu() and __ipv4_sk_update_pmtu(),
-single path routes included. It also happens for the narrower legs of
-a multipath route reached from ip_rt_update_pmtu() when the flow's dst
-is a wider leg.
-
-A locked exception there is not harmless:
-
-- rt_mtu_locked makes ip_dont_fragment() return false for
-  IP_PMTUDISC_WANT sockets. DF is cleared and traffic on that path
-  gets fragmented.
-- fib_nhc_update_mtu() does not raise a locked fnhe_pmtu when the
-  device mtu grows, so the path stays at the old value.
-- fib_nhc_pmtu() itself returns 0 for a locked exception. Every later
-  Fragmentation Needed for that destination is ignored on that path
-  until the exception expires.
-
-Should fib_nhc_pmtu() also be passed the mtu as reported? It could then
-leave the path alone when path_mtu is below that value, and only apply
-the ip_rt_min_pmtu clamp and the lock to paths the report actually
-narrows. Or is locking an already narrower path intended here?
-
-[Severity: Low]
-The comment says the path is left alone when what it uses now "is not
-above the mtu". This line returns 0 only when path_mtu < mtu.
-
-Take path_mtu == mtu with no valid exception, so path_mtu came from
-fi->fib_mtu or nhc_dev->mtu. This returns mtu, and __ip_rt_update_pmtu()
-calls update_or_create_fnhe() for that path. That call:
-
-- allocates a new fnhe whose pmtu equals the mtu the path already uses
-- may evict another fnhe through fnhe_remove_oldest()
-- marks nhc_rth_input and every per-CPU nhc_pcpu_rth_output of the
-  nexthop DST_OBSOLETE_KILL
-
-This also seems to contradict two statements in the commit message:
-
-  cache the mtu only where it is lower
-
-and:
-
-  A Fragmentation Needed that changes nothing costs the ICMP callers a
-  fib lookup and a look at the exception of each path.
-
-Should this return 0 at equality when path_mtu did not come from an
-exception that needs refreshing?
-
-> +}
+>  	ptxd = aup->tx_dma_ring[aup->tx_head];
+>  	buff_stat = ptxd->buff_stat;
+>  	if (buff_stat & TX_DMA_ENABLE) {
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193141.27004-1-deliran%40verdict.gg
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117193223.2795612-1-f.fainelli%40gmail.com
