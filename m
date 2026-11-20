@@ -1,82 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182492;
-	b=ga8ImmP6dVOTuLDYi9A11rGZPjayclMJW+N+sKIm1bANsjFxUruWLMYe/KpzwHRNoib6
-	 hv2xedxYx/4172KMUGPlviKzg0br5LLoFcCJPx+jeJeBWmgLKdGm1xJckQOh2OjinIgHL
-	 vFNxWm6kFNJx5KPrrT1sMlVIjWOl/md4wTk0gv89OJ9uo0GbmQ1tZabUKQlGrpwAKlXKd
-	 5AccDQogh7t4aHpQAkKH9uvI2lKOkC+Zpo8GkEl+NTB3zgtiSwp4XXWWHqIYSZOwXEJck
-	 8ZyzJQzGzXtRgvp/szDCGmlq/yteqQy5ipZ9XZZcuV2jW7fYcfC3ncZX+OR2gp42lIg==
+	t=1795182495;
+	b=hGuBWi1OW4j1f1KctnQcTLV50nDgDxorC8LsYrOWj7MuSurSE/qGKW8LgYzgqnA8pMqW
+	 HAAdbR1xaPhLfe0nxaYwKK8GIvrOt86ZasrdesjQE7yPsN77gfyGsXpY9K1AuWPNOAdNM
+	 ewkLV2wNZGlxA2ofg4AJ3AUCPBoQyU+AyMUmPdiGF5D9WK1S9PW+32cjZ8wu+Nul9675D
+	 ywUKegp0itjAtc6DW/tN2aDaMP/zKzASpMFf2itkKu9SJwzHUTZJCoB2ZEISHAKrEBnTS
+	 XB4nxIQ6rQiKCwoafypoYT8jLR0tvlWwHXTIx5bsIg0/5GSUnhCBTGAP6W+JttBkcBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182492;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=TbkfL66m9ECDiQK36aAmap5xmwD9r6tD/pr0s1W5frk=;
-	b=ekmS9dycJgK5OW4+/yUKFY0VSu4FnjG8QWrwe1aaD0XlRUsfpOxekZ0K0/4fiI9zimFx
-	 CzokrcvTLzx5BHGHFiwUmJFUpfRdqzW33aWL5k/kicgPo4zCWbIl9qyvNAzmsSfgIpSJX
-	 Ok49wbvjuW3/g4//Dd5XhJcCDfrqRIIei48YKzxcHQCQ4K/9bmtnKLXbKWwPIr0Y1mCyT
-	 fOs8YeFVlpGYXfBjsMEOnOFeiCpRl5X6wzR9lxGZ68vpJBAhFaOmZOqnXr8lodXZmXb+P
-	 I4VtOuSHbYBG3PFLdscsRptB8+0pqAg2UkqypljEWHfJsxTewevc7RHYXqqJshVbMjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182495;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=yorVyrvEjsI/pI08tOMR7k/hNLNcrp+wcKXtqgKnxic=;
+	b=Gv2bIjNkDqpaw/3vsHLYnKzjltHZXCnqfd2IEggHpxpfRp5NgaCM+R+NnP7QtKJ4S22y
+	 rxvuGLWH13BA/nG1qtp3aVWmyfWRWYtgGVf2Bha3UuSG+N7/pg73szO4iLm74aLz1L5dV
+	 ku+D0vGpHDZRWvI3OKO1VTT4LK9LS4+DQPmQO7CoCv9Fk4OFmHrnG/b5s9S1+67ENiR5y
+	 ozwfqteNrLjHN46vFHSQIOxX6hMK9sA8FWO+51gxGT5U43SRXc8zvNJOpK/5B+8+HQY7z
+	 l+qKixkFP8AjvpVcfkLvCTiOeB4GwY24v2rXl79BRCfhKflCJB0BvdCsDg/7xoQaeQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="ZFVJ8/W2";
-	arc=none smtp.remote-ip=198.175.65.11
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gjNKNbCj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BCA4606A320;
-	Fri, 20 Nov 2026 13:48:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BCA4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 796BF60A2600;
+	Fri, 20 Nov 2026 13:48:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZFVJ8/W2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795182493; x=1826718493;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=7geqW9zhuBY3AfdSKl5WstwumJN3yFgf/R+Sx8dEEX8=;
-  b=ZFVJ8/W20uulw7H8ajmZqIld7QSdnIAa7IBrw4b6ShmTzTdWI/Ci4wbY
-   nCo32IvACI2yCnluBUmq/xgJwhMopUrHPgA0riXPT75uSLJ+bVWW0gqOc
-   T6m99AR/7MUheI2CYTkmYzIpGRsGh7DvZTcH5qYArSnwsAJAq5oxIku8f
-   ESnVij7Tzbyu/yxsBnXQxhBQMJykYb0IIfeP5z6oRW2dOjiQK5R4C0YMJ
-   PemoUpps3NWaQ6u8F2PyrhwBMhU5Pg7kmHUPnvbQ7+gJpHs8xvW4Hzq0Q
-   FugINW1mDq4Y9/sQIiiLWfXu9OY3oZynjkznkrGt5cQazQbpL9hc5f4wI
-   w==;
-X-CSE-ConnectionGUID: w+29hkMkTZmX3bPOLZICVQ==
-X-CSE-MsgGUID: eE7AiM63TmuoYZuprzPy+g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3955114"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3955114"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:48:12 -0800
-X-CSE-ConnectionGUID: IFTuiv81ToO1OlzGznR03A==
-X-CSE-MsgGUID: gMTNQYk5RNGsOj/b2rQcGQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10971348"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:48:09 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2 04/16] PCI: Add pci_assign_unassigned_slot_resources()
-Date: Fri, 20 Nov 2026 15:46:59 +0200
-Message-ID: <20261120134716.3027-5-ilpo.jarvinen@linux.intel.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
-References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gjNKNbCj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62A131F000D1;
+	Fri, 20 Nov 2026 13:48:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182494;
+	bh=yorVyrvEjsI/pI08tOMR7k/hNLNcrp+wcKXtqgKnxic=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gjNKNbCjycSt+/Uu6JA9sGv396EGxM5YQ8Xic84aS6TCMnHWuQq5ClUiUQKy4G9uT
+	 MbjoWqHcftw9z6k2g/MA/e5fMHVe3xa0rAn2d7IHPdhMzcnSvCFEa5o6dFBVsM98QH
+	 /qVg54D/kNX02CrSEdVaYfXHDfUTq8VpVSXhiEMK27BmVbAXzUgf5AmlGTsJA9QG4Q
+	 TavsgG582d39DAXSuKX7xRl05YAjJ73s8EJYsnk8sLlwgp1hFTJC61RnJBLVupUbfp
+	 pdAhROrD6SFV1C16QZRi7p2rQC9OFwyovQ2O/ph/EYdwglGcIHSSH3flsZLAIBEzOs
+	 GjH7kDuRTv/Ow==
+Date: Fri, 20 Nov 2026 14:48:09 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Viacheslav Dubeyko <slava@dubeyko.com>, glaubitz@physik.fu-berlin.de, 
+	frank.li@vivo.com, hch@lst.de
+Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	vdubeyko@coreweave.com, linux-xfs@vger.kernel.org, "Darrick J. Wong" <djwong@kernel.org>
+Subject: Re: [PATCH v5 1/5] iomap: add iomap_dio_end_io() helper
+Message-ID: <20261120-flach-befanden-notaufnahme-b0a663466be3@brauner>
+References: <20261118004844.3849979-1-slava@dubeyko.com>
+ <20261118004844.3849979-2-slava@dubeyko.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,83 +58,39 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118004844.3849979-2-slava@dubeyko.com>
 
-Bridge window sizing and resource assignment need locks that are held
-across both phases. acpiphp open-codes
-pci_assign_unassigned_bus_resources() with a slot filter by calling the
-internal sizing and assignment functions directly, so it would have to
-duplicate that locking.
+On Tue, Nov 17, 2026 at 04:48:40PM -0800, Viacheslav Dubeyko wrote:
+> The helper updates i_size without any locking, so it can be used only
+> by file systems that issue all direct writes extending i_size
+> synchronously (IOMAP_DIO_FORCE_WAIT) under inode_lock.
 
-Add pci_assign_unassigned_slot_resources() which sizes only the bridges
-in the given slot, and implement pci_assign_unassigned_bus_resources()
-with it.
+Meh, this should really not be named so it looks like its the default
+completion handler. iomap_dio_end_io() really sounds like it.
 
-Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
-Cc: stable@vger.kernel.org
----
- drivers/pci/pci.h       |  1 +
- drivers/pci/setup-bus.c | 23 +++++++++++++++++++++--
- 2 files changed, 22 insertions(+), 2 deletions(-)
+Name it after what it does. Plus, check the rule. With
+IOMAP_DIO_FORCE_WAIT the completion runs in the context that still holds
+the inode lock, so the branch that updates i_size can assert that:
 
-diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-index 77efa4c5c960..ce29d9ca0194 100644
---- a/drivers/pci/pci.h
-+++ b/drivers/pci/pci.h
-@@ -542,6 +542,7 @@ void __pci_bus_size_bridges(struct pci_bus *bus,
- void __pci_bus_assign_resources(const struct pci_bus *bus,
- 				struct list_head *add_list,
- 				struct list_head *fail_head);
-+void pci_assign_unassigned_slot_resources(struct pci_bus *bus, u16 slot);
- bool pci_bus_clip_resource(struct pci_dev *dev, int idx);
- void pci_walk_bus_locked(struct pci_bus *top,
- 			 int (*cb)(struct pci_dev *, void *),
-diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
-index 10b9d3eb2864..7d135ddd93b2 100644
---- a/drivers/pci/setup-bus.c
-+++ b/drivers/pci/setup-bus.c
-@@ -2489,19 +2489,38 @@ int pci_do_resource_release_and_resize(struct pci_dev *pdev, int resno, int size
- 						    exclude_bars);
- }
- 
--void pci_assign_unassigned_bus_resources(struct pci_bus *bus)
-+/**
-+ * pci_assign_unassigned_slot_resources - Size and assign resources of a slot
-+ * @bus: PCI bus
-+ * @slot: Slot whose bridges to size, or %PCI_SLOT_ALL_DEVICES for all
-+ *	  bridges on @bus
-+ *
-+ * Size the bridge windows of the bridges in @slot and assign unassigned
-+ * resources on @bus.
-+ */
-+void pci_assign_unassigned_slot_resources(struct pci_bus *bus, u16 slot)
- {
- 	struct pci_dev *dev;
- 	/* List of resources that want additional resources */
- 	LIST_HEAD(add_list);
- 
- 	down_read(&pci_bus_sem);
--	for_each_pci_bridge(dev, bus)
-+	for_each_pci_bridge(dev, bus) {
-+		if (slot != PCI_SLOT_ALL_DEVICES &&
-+		    PCI_SLOT(dev->devfn) != slot)
-+			continue;
-+
- 		if (pci_has_subordinate(dev))
- 			__pci_bus_size_bridges(dev->subordinate, &add_list);
-+	}
- 	up_read(&pci_bus_sem);
- 	__pci_bus_assign_resources(bus, &add_list, NULL);
- }
-+
-+void pci_assign_unassigned_bus_resources(struct pci_bus *bus)
-+{
-+	pci_assign_unassigned_slot_resources(bus, PCI_SLOT_ALL_DEVICES);
-+}
- EXPORT_SYMBOL_GPL(pci_assign_unassigned_bus_resources);
- 
- void pci_bus_size_and_assign_resources(struct pci_bus *bus)
--- 
-2.47.3
+	if (size && i_size_read(inode) < iocb->ki_pos + size) {
+		lockdep_assert_held_write(&inode->i_rwsem);
+		i_size_write(inode, iocb->ki_pos + size);
+		mark_inode_dirty(inode);
+	}
 
+> +static inline
+> +int iomap_dio_end_io(struct kiocb *iocb, ssize_t size,
+
+This is an ->end_io callback so its address ends up in struct
+iomap_dio_ops. Please make it a regular exported function in
+fs/iomap/direct-io.c instead of a static inline in the header.
+
+> Several file systems implement an almost identical ->end_io callback
+> for direct writes: if the write succeeded and went beyond the current
+> end-of-file, update i_size and mark the inode dirty (for example,
+> ext2_dio_write_end_io()). Add a generic iomap_dio_end_io() helper for
+> this case, so that file systems don't need to open-code it.
+
+Hopefully that gets a follow-up patch right away and converts ext2.
