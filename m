@@ -1,52 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.223
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.108.3.166
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149438;
-	b=X65sUzUI54vx+bd6oTHCd34CEhAzDUBrVfYGuKcDhKWrwkOwJdaXdLSwno0vjJZiHvLo
-	 CUNMd5W5OQIH1Hxzz053nWl3jFX9C1PuMrp9NOgC+xkkT3OMVuzBer0a6AmGbzSjqJPoa
-	 1wzRFTqn/wC1fhDueCVbF4m5S7l5azoyvs2yTfXjGfKUW2grrAAhhxy6h+ocGt5eE9Lxs
-	 MjAs4+GO9mVPylLm/ALwUjp1ONiGflF4DqAFVj1Lm45WdzU9X/vHc6R3fdVmjCR4spD8u
-	 kU8fdD/9xa9NZcgcqU/cBrYMYw+vzsRbcULZMXst3rwFa3ycqeHfkFXZBU2C2v5XHNw==
+	t=1795149445;
+	b=e6UpYK+jMXtyll9/NAgZmMqi5bWZULKahecklBx8kjHilOex4NK9XxBAU8o5t43Hzswz
+	 QH8Ij5JOguOrLH+4DF3cWKKnk0Y0gt4bWvzpHj5VVcsD7AQnszqMqTg+B9/d1gufX6UXt
+	 st7yyM1lDnj1PQNZkJqcnLEIlif9Pcjrc4QE2ZiKwUmLx5mm/1KLl21XPBAwpAd4ElbvR
+	 g9rD/SGkj6Iz9JtCTHWp6gG0z4L+CPy2ZL9WUaU6fekW1fD5dI3ST/YKG3AgVHDGRWnkb
+	 XjJ13b/Q1AxVwQJf5rZ4/NQRLzZko4kdM4Yqe0RXMLQJgA2PRMy8qLUL1kKqedQPtLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149438;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=wC9eJUz4DKLJpJ6vBDEqFE43JAvCeQg51GGXML5L67M=;
-	b=ezj4itxBnS+zE+msk+CRRLFM6VQ25scV/aMDYbLSsCuUjOrx0jhFOb1Sl136AqpYSmkh
-	 IR3WrosmQTv4miZ3q/4OG/6ihNj9joBomDav1Lxbi4GY9RTSgCJxV4lsFy1hbwrflKYXi
-	 2cvGdCG+Inj75UX1cbNg4q9QxkENaIt0P3ZVcIPro26QVM1Aw1BxjUvzudq2V8wCoY2pA
-	 qNBWkunlQO7cFCmFc5henAmSL/vHOKxA00W3YXRgOrzCaA0KH8/rvmCe6EQOTRGA1GEkT
-	 iUCAt3lsJy0A+wt9XR0BJbBennkqaW85cBw9f61aNW+FF4wjmEieNz0K+nGiCJ/pfdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149445;
+	h=DMARC-Filter:DKIM-Signature:X-SMAIL-HELO:Received:X-Sender:X-Auth-ID:
+	 X-SMAIL-MID:X-SMAIL-UIID:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=yXSpHCXjG8Bt6YepxA4OsIZfdP6BYPNbHrx0PkUKp3Y=;
+	b=2xVS+8gg6TnF4KsumOFTeXQfZYRWF3b5tu/rnpH7WmQ4JbvaYUc/RiBv6fvzP9cM3pLk
+	 A++Dv/uTMBuBb4fRuu9BWorfz6fKlSM/5H+MIayJ5Z8cwghKntFaHNGD1zLTVYnjSrRez
+	 2nMM3LMLZP+EFI7W9HJKpO/g6MZZzSmIRxMZuhFoMyVLEnzPuFMtEXZr0AyH1H236L9lD
+	 8KccQ6PFB7lmA3RGdF74l0kWTMSWCd/P69OOAcZnzet/17UhL0/5SIs/62YOlqu6ZDUol
+	 2mk9P6M+qzJKzbRrOH8YKUSpEx74tgQ04OSGhMGLj/pd9dvBeqak7gfeSsvsyg9L3Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="m/FcdppI";
-	arc=none smtp.remote-ip=91.218.175.223
-Received: from mta0.migadu.com (out-223.mta0.migadu.com [91.218.175.223])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=sina.com;
+	spf=pass smtp.mailfrom=sina.com;
+	dkim=pass header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=MmJqcTZr;
+	arc=none smtp.remote-ip=202.108.3.166
+Received: from mail3-166.sinamail.sina.com.cn (mail3-166.sinamail.sina.com.cn [202.108.3.166])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B000606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B000606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D500606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D500606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=sina.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sina.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m/FcdppI
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=zcFjEBIqj6cBYiwCe459AugAgTcvIrqKO3mRoQbcdtQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795149436; v=1; x=1795754236;
- b=m/FcdppIgHJYfuLm3Jz15SS48v1ECsydPsIwzykwvxsv7uWMy2hNOLPu29xj4bQ7ffnTZgw4
- UBEFF6PBVpWC50sOXx3+vAEXgueh73gIGzUqHz6KmFuqFB/R6826ht7kMXpbyK0v/h4WgY3rGV+
- YvflVYmruXWy+w3ZAXB+u2co=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id eddd8fd8e6334fde;
-	Fri, 20 Nov 2026 04:37:16 +0000
-X-Mizu-Trace-ID: eddd8fd8e6334fde
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (1024-bit key, unprotected) header.d=sina.com header.i=@sina.com header.a=rsa-sha256 header.s=201208 header.b=MmJqcTZr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sina.com; s=201208; t=1795149443;
+	bh=yXSpHCXjG8Bt6YepxA4OsIZfdP6BYPNbHrx0PkUKp3Y=;
+	h=From:Subject:Date:Message-ID;
+	b=MmJqcTZrRnuCMJeAv9F/msKPeu15C1/umORmjGfYyGYaBzTxFlR4Qe3syQEtNK+RU
+	 5HLTv2vBUp0uGuEW8ced2wbWGe8Y/ru3P9TPiwaHnd4awjzTNeU2ymkUch2suVACLT
+	 2o58P/5iNyMyHIurDqvz/Gdj9Yp5I3o+6dQnak/0=
+X-SMAIL-HELO: lxu-pcd
+Received: from unknown (HELO lxu-pcd)([111.198.225.163])
+	by sina.com (10.54.253.31) with ESMTP
+	id 6AFFCE7600004FE7; Fri, 20 Nov 2026 12:37:12 +0800 (CST)
+X-Sender: eadavis@sina.com
+X-Auth-ID: eadavis@sina.com
+Authentication-Results: sina.com;
+	 spf=none smtp.mailfrom=eadavis@sina.com;
+	 dkim=none header.i=none;
+	 dmarc=none action=none header.from=eadavis@sina.com
+X-SMAIL-MID: 8121826815960
+X-SMAIL-UIID: A43E84E0A2184041AEA62D24FAFD1FFA-20261120-123712-1
+From: Edward Adam Davis <eadavis@sina.com>
+To: syzbot+ee09ee2112d03c35f1f7@syzkaller.appspotmail.com
+Cc: joern@lazybastard.org,
+	linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	miquel.raynal@bootlin.com,
+	richard@nod.at,
+	syzkaller-bugs@googlegroups.com,
+	vigneshr@ti.com
+Subject: [PATCH] mtd: Use I/O memory accessors when in an uncached
+Date: Fri, 20 Nov 2026 12:37:09 +0800
+Message-ID: <20261120043709.99845-1-eadavis@sina.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <6afd0433.8f566acc.2517be.000f.GAE@google.com>
+References: <6afd0433.8f566acc.2517be.000f.GAE@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,205 +74,80 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 04:37:15 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Kunwu Chan" <kunwu.chan@linux.dev>
-Message-ID: <c766c294502b5df1cf14e5941f79080a61f17bcf@linux.dev>
-TLS-Required: No
-Subject: Re: [RFC PATCH v4 13/18] mm/swap: drop swap active plist
-To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
- <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
- <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
- <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
- Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
- "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, linux-hardening@vger.kernel.org
-In-Reply-To: <9ccd81f6f036eb1c3e50d396b44b5e43cff77d2a.1794666741.git.lianux.mm@gmail.com>
-References: <cover.1794666741.git.lianux.mm@gmail.com>
- <9ccd81f6f036eb1c3e50d396b44b5e43cff77d2a.1794666741.git.lianux.mm@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+When registering a phram device via module parameter or sysfs invokes
+register_device() with pdev = NULL, which causes new->cached to be false.
+As a result, phram_map() maps the physical memory region using ioremap()
+(mapped as PROT_DEVICE_nGnRE on arm64) and forces the pointer into mtd->
+priv, yet phram_read(), phram_write(), and phram_erase() access it using
+standard memcpy() and memset() instead of I/O memory accessors (like
+memcpy_fromio()). When scanning partition headers (e.g., ftl_add_mtd()
+reading a 68-byte header via mtd_read()), arm64's memcpy implementation
+issues pair-load (ldp) instructions at unaligned offsets, which triggers
+an alignment fault (FSC = 0x21) on Device memory and crashes the kernel.
 
-Thanks,
-Kunwu
+In phram_read/write/erase(), standard memory accessors are used when in
+a cached; otherwise, I/O memory accessors are used.
 
->=20
->=20From: Kairui Song <kasong@tencent.com>
->=20
->=20Remove swap_active_head and the associated plist_node. Device identit=
-y
-> lookups can use the writable swap_info iterator without ordering.
->=20
->=20Keep priority ordering for the block-cgroup swap throttle target by
-> walking the priority queue under the topology reader. Choose the first
-> unmasked, writable, non-offlist device with a backing block device.
-> Check OFFLIST as well as the pointer tag because full transitions can
-> temporarily leave an unmasked entry, and keep the explicit WRITEOK
-> check. The disable transition already publishes its mask before
-> releasing the topology writer.
->=20
->=20This read-only lookup does not consume per-CPU allocation quotas or
-> change retry cursors. It avoids making the throttle disk depend on
-> swapon's swap-type assignment order when devices have different
-> priorities.
->=20
->=20Signed-off-by: Kairui Song <kasong@tencent.com>
-> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
-> ---
->  include/linux/swap.h | 1 -
->  mm/swapfile.c | 60 +++++++++++++++++++++++---------------------
->  2 files changed, 32 insertions(+), 29 deletions(-)
->=20
->=20diff --git a/include/linux/swap.h b/include/linux/swap.h
-> index d31f3f023d36..ce8a800751ca 100644
-> --- a/include/linux/swap.h
-> +++ b/include/linux/swap.h
-> @@ -263,7 +263,6 @@ struct swap_info_struct {
->  struct percpu_ref users; /* indicate and keep swap device valid. */
->  unsigned long flags; /* SWP_USED etc: see above */
->  signed short prio; /* swap priority of this type */
-> - struct plist_node list; /* entry in swap_active_head */
->  signed char type; /* strange name for an index */
->  unsigned int max; /* size of this swap device */
->  struct swap_cluster_info *cluster_info; /* array, one entry per cluste=
-r */
-> diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index 6b2dbaf33cb6..bd098114ee4b 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -42,7 +42,6 @@
->  #include <linux/completion.h>
->  #include <linux/suspend.h>
->  #include <linux/zswap.h>
-> -#include <linux/plist.h>
->=20=20
->=20 #include <asm/tlbflush.h>
->  #include <linux/leafops.h>
-> @@ -91,12 +90,6 @@ bool swap_migration_ad_supported;
->  static const char Bad_file[] =3D "Bad swap file entry ";
->  static const char Bad_offset[] =3D "Bad swap offset entry ";
->=20=20
->=20-/*
-> - * all active swap_info_structs
-> - * protected with swapon_rwsem, and ordered by priority.
-> - */
-> -static PLIST_HEAD(swap_active_head);
-> -
->  static inline struct swap_info_struct *__swap_iter(int *i, unsigned lo=
-ng flag)
->  {
->  lockdep_assert_held(&swapon_rwsem);
-> @@ -3535,7 +3528,6 @@ static void __swap_device_enable(struct swap_info=
-_struct *si)
->  spin_unlock(&si->lock);
->  atomic_long_add(si->pages, &nr_swap_pages);
->  total_swap_pages +=3D si->pages;
-> - plist_add(&si->list, &swap_active_head);
->  add_to_avail_list(si);
->  }
->=20=20
->=20@@ -3555,9 +3547,8 @@ static int swap_device_disable(struct address_s=
-pace *mapping,
->  int err =3D -EINVAL;
->=20=20
->=20 percpu_down_write(&swapon_rwsem);
-> - plist_for_each_entry(si, &swap_active_head, list) {
-> - if ((si->flags & SWP_WRITEOK) &&
-> - si->swap_file->f_mapping =3D=3D mapping) {
-> + for_each_avail_swap(si) {
-> + if (si->swap_file->f_mapping =3D=3D mapping) {
->  err =3D 0;
->  break;
->  }
-> @@ -3583,8 +3574,6 @@ static int swap_device_disable(struct address_spa=
-ce *mapping,
->  spin_lock(&si->lock);
->  del_from_avail_list(si, true);
->  spin_unlock(&si->lock);
-> -
-> - plist_del(&si->list, &swap_active_head);
->  total_swap_pages -=3D si->pages;
->  atomic_long_sub(si->pages, &nr_swap_pages);
->=20=20
->=20@@ -3913,7 +3902,6 @@ static struct swap_info_struct *alloc_swap_info=
-(void)
->  */
->  }
->  p->swap_extent_root =3D RB_ROOT;
-> - plist_node_init(&p->list, 0);
->  p->flags =3D SWP_USED;
->  percpu_up_write(&swapon_rwsem);
->  if (defer) {
-> @@ -4323,12 +4311,7 @@ SYSCALL_DEFINE2(swapon, const char __user *, spe=
-cialfile, int, swap_flags)
->  if (swap_flags & SWAP_FLAG_PREFER)
->  prio =3D swap_flags & SWAP_FLAG_PRIO_MASK;
->=20=20
->=20- /*
-> - * The plist prio is negated because plist ordering is
-> - * low-to-high, while swap ordering is high-to-low
-> - */
->  si->prio =3D prio;
-> - si->list.prio =3D -si->prio;
->=20=20
->=20 /*
->  * Publish swap_file before making the percpu ref live, then add the de=
-vice
-> @@ -4454,7 +4437,33 @@ int swap_dup_entry_direct(swp_entry_t entry)
->  #if defined(CONFIG_MEMCG) && defined(CONFIG_BLK_CGROUP)
->  static bool __has_usable_swap(void)
->  {
-> - return !plist_head_empty(&swap_active_head);
-> + return READ_ONCE(total_swap_pages) > 0;
-> +}
-> +
-> +static struct swap_info_struct *swap_queue_first_usable_bdev(void)
-> +{
-> + struct swap_prio_ring *ring;
-> + struct swap_info_struct *si;
-> + unsigned int ring_idx, dev_idx;
-> +
-> + lockdep_assert_held(&swapon_rwsem);
-> + for (ring_idx =3D 0; ring_idx < swap_queue_len; ring_idx++) {
-> + ring =3D swap_queue[ring_idx];
-> + for (dev_idx =3D 0; dev_idx < ring->size; dev_idx++) {
-> + si =3D READ_ONCE(ring->dev[dev_idx]);
-> + if (swap_device_masked(si))
-> + continue;
-> + si =3D swap_device_unmask_ptr(si);
-> + if (!(READ_ONCE(si->flags) & SWP_WRITEOK))
-> + continue;
-> + if (atomic_long_read(&si->inuse_pages) &
-> + SWAP_USAGE_OFFLIST_BIT)
-> + continue;
-> + if (si->bdev)
-> + return si;
-> + }
-> + }
-> + return NULL;
->  }
->=20=20
->=20 void __folio_throttle_swaprate(struct folio *folio, gfp_t gfp)
-> @@ -4478,14 +4487,9 @@ void __folio_throttle_swaprate(struct folio *fol=
-io, gfp_t gfp)
->  return;
->=20=20
->=20 percpu_down_read(&swapon_rwsem);
-> - plist_for_each_entry(si, &swap_active_head, list) {
-> - if ((si->flags & SWP_WRITEOK) &&
-> - !(atomic_long_read(&si->inuse_pages) &
-> - SWAP_USAGE_OFFLIST_BIT) && si->bdev) {
-> - blkcg_schedule_throttle(si->bdev->bd_disk, true);
-> - break;
-> - }
-> - }
-> + si =3D swap_queue_first_usable_bdev();
-> + if (si)
-> + blkcg_schedule_throttle(si->bdev->bd_disk, true);
->  percpu_up_read(&swapon_rwsem);
->  }
->  #endif
->
+Fixes: f3d45ac21e46 ("mtd: phram: Module parameters add writable permissions")
+Fixes: 285133040e6c ("arm64: Import latest memcpy()/memmove() implementation")
+Reported-by: syzbot+ee09ee2112d03c35f1f7@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=ee09ee2112d03c35f1f7
+Signed-off-by: Edward Adam Davis <eadavis@sina.com>
+---
+ drivers/mtd/devices/phram.c | 21 ++++++++++++++++++---
+ 1 file changed, 18 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mtd/devices/phram.c b/drivers/mtd/devices/phram.c
+index b42cadcd76b1..95bd5a9d7e48 100644
+--- a/drivers/mtd/devices/phram.c
++++ b/drivers/mtd/devices/phram.c
+@@ -43,8 +43,13 @@ static LIST_HEAD(phram_list);
+ static int phram_erase(struct mtd_info *mtd, struct erase_info *instr)
+ {
+ 	u_char *start = mtd->priv;
++	struct device_node *np = mtd_get_of_node(mtd);
++	bool cached = np ? !of_property_read_bool(np, "no-map") : false;
+ 
+-	memset(start + instr->addr, 0xff, instr->len);
++	if (cached)
++		memset(start + instr->addr, 0xff, instr->len);
++	else
++		memset_io(start + instr->addr, 0xff, instr->len);
+ 
+ 	return 0;
+ }
+@@ -66,8 +71,13 @@ static int phram_read(struct mtd_info *mtd, loff_t from, size_t len,
+ 		size_t *retlen, u_char *buf)
+ {
+ 	u_char *start = mtd->priv;
++	struct device_node *np = mtd_get_of_node(mtd);
++	bool cached = np ? !of_property_read_bool(np, "no-map") : false;
+ 
+-	memcpy(buf, start + from, len);
++	if (cached)
++		memcpy(buf, start + from, len);
++	else
++		memcpy_fromio(buf, start + from, len);
+ 	*retlen = len;
+ 	return 0;
+ }
+@@ -76,8 +86,13 @@ static int phram_write(struct mtd_info *mtd, loff_t to, size_t len,
+ 		size_t *retlen, const u_char *buf)
+ {
+ 	u_char *start = mtd->priv;
++	struct device_node *np = mtd_get_of_node(mtd);
++	bool cached = np ? !of_property_read_bool(np, "no-map") : false;
+ 
+-	memcpy(start + to, buf, len);
++	if (cached)
++		memcpy(start + to, buf, len);
++	else
++		memcpy_fromio(start + to, buf, len);
+ 	*retlen = len;
+ 	return 0;
+ }
+-- 
+2.43.0
+
