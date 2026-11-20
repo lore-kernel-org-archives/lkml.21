@@ -1,48 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.112
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143355;
-	b=VqRDstH9b/GiZfU9bXdDdZX9islWZXHR9J2xxmzOO8oSKIdOEDEpRFRMsmYDcoMTmCFC
-	 TaM8B1nfVqnGzpGvTEPeYqPxW/321FTRPBt8MNg9O+GtRnu0sTh3XZP7Xwgy8w69KCuSv
-	 DOJJcBhO9WE/l4POKW5SAwSuhStNSYqh/iIt6LfGmCZ4LEGEoxM0r0aWLbeticwExobzK
-	 Ti1NL6cxGPUnK7r7ae37KbH9Aywb60dBB+FgxG1zIwuG82COzZfTbyQz8MrxiOfR1bcUL
-	 +R8as8Bl3HmFCBZiuNBmzCtWNnQs+Wdh+4F5ERp/8eCW8BMFui7/zeuqM9j7eQIzPoA==
+	t=1795143374;
+	b=ElbSjjfdWYotNZG/gPnS1dxi5E6Hc9sN8tN5/k30dWwA9o1u3n3aCpyrng8kRUbcrEzO
+	 CgSFCPToBJNtwd/tFOQ7EZVPdqLAhHgbys6taop81WNNtuxBuBa8dEDH8mQFeZR56abgN
+	 aZluZ5EMXlg+FYauzE2aWU43RJpWZsIcLPTkKz4UK7FvdyOWHeKCMKZi8eVpAb4I76rpI
+	 MWayWlroxlD6EBiw/ahaT2G+fx42u7kaVjvV2ekddhacPKFx7vXzLQuaC038vfIF8odiY
+	 wPtoU0vh98AYFPeoTOl1SIHxwagbup1B1Rc/pR/LoB3WJYFEzPV7vvcu9q319WuTsyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143355;
-	h=DMARC-Filter:DKIM-Signature:Mime-Version:X-Original-From:Subject:
-	 Date:X-Mailer:Content-Type:From:Message-Id:Content-Transfer-Encoding:
-	 X-Lms-Return-Path:To:Cc;
-	bh=juM1+8sqQHExnx7dticPglEVplrLkcQAD1B43yUSAM4=;
-	b=khy4OWt87sxTaIhQHXBE3OdTPdLeXzI+DMU/hoO2pPMK6YEiV8XueHnFDdREUamNuM1f
-	 /UJyXfRJwDvbHOjkRKXMsFdKEP6ZfIEkNXO3fdOHE7/ojfh4bh2bq5qJtFceWDYO71sLQ
-	 lhO2r3yIX8WV6hBQgq5lfy0jhxNmkLXJORJ/MNd4w+Qwg5PJEqxDd8VcT8cCWQXj/NYRk
-	 n+oPSD7U5BdLOOSxQbmOqZgo5cjzzwFGQZkL0q3ouN4L3whF8+9PBZURmskVaCjSRpcO6
-	 O71JxhMTg6teGsEJJCLluQQyiYkY5jbTUxLC+vLrnHfhlOgHTqXyfM2wVx7PUryq/cw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143374;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=dKnCDV+ucW27s1+PYFWZiBr7bc8fW+CJcx287Vos/Tw=;
+	b=IR2XiCwjfuXJ2XynA3I3wgOXaAHKZg+QpsmC6MlGSuWIX4WJzi0RZpf20ZH3hMK8tjUm
+	 J8Chris4oQY2O0Jz1bTvQF/6bQXviUL7ZOhoRHS0M9cRnMTQJhZ0v129iWSydgxjR28as
+	 mjUD7BjjcvIOj41Ih0TAKIxFSktzFb09OLPr7kXYhYQWNHMSWCrEI3ZyEtR7rSoja21vP
+	 0J9UUUYFqQAydFD4ayT+lW3+2CF48fEj+MGTJkPa6Bfb+/GUCbZIs2YMflHXcsHwyXfCy
+	 b2D3fn1UidU6Oa18PY/CD6i24KnQ+apAlSDH3v9moYmacVtpzDoy2Kw7jZ89bjmOAHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=cY7ft5Yg;
-	arc=none smtp.remote-ip=209.127.230.112
-Received: from va-1-112.ptr.blmpb.com (va-1-112.ptr.blmpb.com [209.127.230.112])
+	dmarc=pass header.from=smartx.com;
+	spf=pass smtp.mailfrom=smartx.com;
+	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="PxETNb/m";
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6154C606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:55:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6154C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62B30606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:56:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62B30606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=smartx.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=smartx.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=cY7ft5Yg
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=2212171451; d=bytedance.com; t=1795143349; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=juM1+8sqQHExnx7dticPglEVplrLkcQAD1B43yUSAM4=;
- b=cY7ft5YghbGXm9p8qZUUylbAtpRbjX7kfNifUa8KyDtx5Gma6xo4FFgS1qsqOlgkQ+RndZ
- VJ2HUynl5iwEvwTR2WuSIKRM/MDLCdrkaOiZdpsku0Nc+3JOeJOV6O6tV974ZNDwxONGld
- wCWbZejsA5WFxboVxLFU3fCNs29ch8VFe1HQmoShs1u3WsjS0zllaUMbnTQtsMnqFXnbZ7
- oT98kOpBk84UBMyp3+9+av69gyIFSDvt90DBEWIv/yr05SHcdMQayOjIdye+q3sgJCsZPV
- YFVY8pSfAkt2Jy7uamH6aMaeuWcZo49r4eucx4z6BzI1TioD+nPZJOy3KO5KUw==
+	dkim=pass (2048-bit key) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=PxETNb/m
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-ccca948203aso476322a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:56:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143374; x=1795748174; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=dKnCDV+ucW27s1+PYFWZiBr7bc8fW+CJcx287Vos/Tw=;
+        b=PxETNb/mK/nN9/3uvLQZG6cDjlR84AaWjZmzJ0Jl3PlQuq2mzx2QAbomFj3RMM8cSl
+         UVB32kYW3lgcXGYspUo8PCk1AjOgmR7xu9kyJedzBeWqhUm+K2eEH4MDo8MVPowub76N
+         LqrIF99F534ogFeshyh69sd4axdrKYd1+GBFPPl3Yv/TJiCcNKmybSeotHyGdC9OAcjj
+         4uxFnP4GDfZxZ/3dc2KR3TKNV0/0QH8sYeB8YMF1S/v5Jb5HwOQp6dKquZe5pw8r5E/x
+         tdiXY6U0E6z8vR8uJyMRzC71Hq2UYBLuJ2UuLsU1nuOTqeEjkY3qdv93xZRAFN7HlWYO
+         QNbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795143374; x=1795748174;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dKnCDV+ucW27s1+PYFWZiBr7bc8fW+CJcx287Vos/Tw=;
+        b=i51aLMwfWiVP7HKV57jZdDV7udohqxBdD/+kY5ixQ5/qIq8dXzkdBYKIWsDtlRELrr
+         10xRZNfDag0eaYB6Tk/2qerjWIknsCF3TFGi1pXwUkFmWTlyr0L13g4ROTO42AaJ77Uh
+         B9AgVC2RjAMBo7zQXjCeJqmDfw0vkogdctHL8sf8wfFX63QmW0o3NOxcPrIQC2KHVIyV
+         tx7K7OdVkrtFNDN8y1wGxyKuMFO8hnHwVtjNWLPS1dfAUCoL/Z/WiFRrjAWKD3LcxkJa
+         nJ1OiQEKQZrD8mF6V4eALpHzGxKRTspkS8N3saY16rNbgXu99MEY0Z4emyjmDH7l5hcH
+         RyVw==
+X-Forwarded-Encrypted: i=1; AL+hErHyIQUaFcxi8k9svBw9NRK0zUADOIDl9G9ZqrTMVTtlfUS66BRqKA46stG/oYeXsN7MQK7oaQrInX6kPik=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/VLoM56IMj2vResyIof8VYMW/n6z8vePkZX6yN3leAR6PuPnbp
+	BS22jOXMJL+MbkOChzyX4MGJoOrUY78gPu0aDtannTG28UJlcMdtFb96YvpSnMfCRGP/+YmDzPO
+	9UvNdjGPP+cZLdDG6G+NA0ndBQjkzulJjnrvOT4RAB6ZToYqCr3wJztTHaN68yA3Jhdp83663dE
+	+n28lD
+X-Gm-Gg: AZFdTZenWEOlmawi2iMIOT/5K47dYErpQGU62ti9EJzxSKiWDYMeQi51a9IjWe4Lu0s
+	9vpBtjc8kxwCTovLb3kaGl1mjtubPKFi9wORzfiT27I7HplVSZP7qZRbfheGsjkNCyX4pvdGg6h
+	WDc3jrNS1gz05/n3q/STsOoqsYCzy3BlplPq+mNGuTwwbR3gNghmsT9A3k5eV96SdAI+dyJ9CZv
+	86gN4JyeBNQS6tUx7xX4iaJiynfrv0hAzeJ5fggeV3BhFPqRp3mEH7n434wbKsWoZwXuoTIp65P
+	6LuIX3yCV+0CGuRxsJvSfgYjRyYejNwXsch24Q1t109Y6TOiASzE1b1m9FasX2sjEtXAWBNIvwt
+	dNxGLN4a3pFkRhWQdttecKm2CsH76HJ/4rAvdccsrLBeazsHuUt31lsWMDH4zz22iZYVIwgAJZH
+	oanjVBAmbaPgYwU+63ODb8AU3ah9uB2iPcLxcp8N6xL1kGdrG2ZuzGFfXmGCrPreoxcxkS7bDg2
+	i8j+FR8WQGSlzPxYRGA0SfLdtugLQrExWkH0Kiio97B+RBR4KQ3z4vOmKaq+fcmqysVp20oAcGz
+	YqF1VEGwz0RCBtt/4jFHl7Xi0kLvWzZw8Ch9Fw==
+X-Received: by 2002:a17:90b:4d10:b0:3b1:b66a:c05 with SMTP id 98e67ed59e1d1-3b41c8e0c5dmr1228572a91.14.1795143373636;
+        Thu, 19 Nov 2026 18:56:13 -0800 (PST)
+Received: from localhost.localdomain ([103.26.8.217])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5546461a91.8.2026.11.19.18.56.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 18:56:13 -0800 (PST)
+From: Lei Chen <lei.chen@smartx.com>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Lei Chen <lei.chen@smartx.com>
+Subject: [PATCH v2 1/5] block: expose blk-mq tag sets through debugfs
+Date: Fri, 20 Nov 2026 10:56:00 +0800
+Message-ID: <8e4918919fb43522f28d907987edf03d50da26d5.1795143228.git.lei.chen@smartx.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1795143228.git.lei.chen@smartx.com>
+References: <20261009030111.57784-1-lei.chen@smartx.com> <cover.1795143228.git.lei.chen@smartx.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,200 +99,509 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
-Subject: [PATCH v3 1/2] jbd2: add a metadata validation hook to journal recovery
-Date: Fri, 20 Nov 2026 10:54:58 +0800
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-Content-Type: text/plain; charset=UTF-8
-From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
-Message-Id: <20261120025459.70290-2-zhaogongyi@bytedance.com>
-Content-Transfer-Encoding: 7bit
-X-Lms-Return-Path: <lba+26affb6b3+3fef10+vger.kernel.org+zhaogongyi@bytedance.com>
-To: <linux-ext4@vger.kernel.org>
-Cc: <linux-kernel@vger.kernel.org>, <tytso@mit.edu>, 
-	<adilger.kernel@dilger.ca>, <libaokun@linux.alibaba.com>, <jack@suse.cz>, 
-	<ojaswin@linux.ibm.com>, <ritesh.list@gmail.com>, <yi.zhang@huawei.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Filesystems can need to validate metadata that block replay has changed
-before fast commit replay consumes it. They can also need to check
-metadata that fast commit replay updates before completing recovery.
+The existing block debugfs hierarchy exposes request queues and hardware
+contexts, but has no directory for the tag set they share. This makes it
+difficult to inspect tag set configuration and CPU mappings or identify
+which request queues share a tag set.
 
-Provide an optional callback after block replay, including when the
-journal is empty, and after fast commit replay. Propagate validation
-errors before resetting the journal. Keep the existing replay flow for
-callers of jbd2_journal_load().
+Add a tagset/<id> directory under the debugfs root for each allocated
+tag set. Expose its configuration, flags and attached queues, along with
+CPU-to-hardware-queue mappings in map/<map-index>/cpu<cpu-id> files.
+Expose tag information in tags/<hctx-index> and shared_tags, using
+symlinks to shared_tags for entries that reference the shared tags.
 
-Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
+Tie the directory lifetime to tag set allocation and release. Recreate
+the tags directory when the number of hardware queues changes so that
+its entries reflect the updated tag array. Use a NOIO allocation scope
+when creating debugfs entries to prevent reclaim from issuing I/O to
+frozen queues.
+
+Serialize reads with hardware queue updates using update_nr_hwq_lock.
+Tag reads must use down_read_trylock(): blk_mq_update_nr_hw_queues()
+removes the tags directory while holding the write lock, and debugfs
+removal waits for active reads to finish. Using down_read() would allow
+the following deadlock. Both lock operations refer to
+set->update_nr_hwq_lock, and time flows downward:
+
+  blk_mq_update_nr_hw_queues()        Debugfs reader
+  -----------------------------     --------------
+  down_write()
+    |
+    |                               Acquire active reference
+    |                               blk_mq_tagset_tags_show()
+    |                               down_read()
+    |                                 |
+  debugfs_remove()                    Wait for writer to unlock
+    |                                 |
+  Wait for active read to finish      |
+    |                                 |
+    +---------- DEADLOCK -------------+
+
+Return -EAGAIN when the read lock cannot be acquired, allowing the read
+to finish and debugfs removal to proceed.
+
+Signed-off-by: Lei Chen <lei.chen@smartx.com>
 ---
- fs/jbd2/journal.c    | 22 ++++++++++++++++------
- fs/jbd2/recovery.c   | 38 +++++++++++++++++++++++++++-----------
- include/linux/jbd2.h |  7 ++++++-
- 3 files changed, 49 insertions(+), 18 deletions(-)
+ block/blk-mq-debugfs.c | 316 +++++++++++++++++++++++++++++++++++++++++
+ block/blk-mq-debugfs.h |  22 +++
+ block/blk-mq.c         |   8 ++
+ include/linux/blk-mq.h |   8 ++
+ 4 files changed, 354 insertions(+)
 
-diff --git a/fs/jbd2/journal.c b/fs/jbd2/journal.c
-index eb8e944..383606a 100644
---- a/fs/jbd2/journal.c
-+++ b/fs/jbd2/journal.c
-@@ -2079,20 +2079,24 @@ void jbd2_journal_update_sb_errno(journal_t *journal)
- EXPORT_SYMBOL(jbd2_journal_update_sb_errno);
+diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
+index 6754d8f9449c..fd9eb17e97b9 100644
+--- a/block/blk-mq-debugfs.c
++++ b/block/blk-mq-debugfs.c
+@@ -7,6 +7,7 @@
+ #include <linux/blkdev.h>
+ #include <linux/build_bug.h>
+ #include <linux/debugfs.h>
++#include <linux/idr.h>
  
- /**
-- * jbd2_journal_load() - Read journal from disk.
-+ * jbd2_journal_load_with_callback() - Read journal from disk.
-  * @journal: Journal to act on.
-+ * @callback: Optional validation callback for recovery.
-+ * @data: Private data for the replay callback.
-  *
-- * Given a journal_t structure which tells us which disk blocks contain
-- * a journal, read the journal from disk to initialise the in-memory
-- * structures.
-+ * Read the journal from disk and initialise the in-memory structures.
-+ * Call @callback with after_fast_commit false after block replay,
-+ * including for an empty journal, and with true after fast commit
-+ * replay. A callback error stops recovery before the journal is reset.
-  */
--int jbd2_journal_load(journal_t *journal)
-+int jbd2_journal_load_with_callback(journal_t *journal,
-+				    jbd2_replay_callback_t callback, void *data)
- {
- 	int err;
- 
- 	/* Let the recovery code check whether it needs to recover any
- 	 * data from the journal. */
--	err = jbd2_journal_recover(journal);
-+	err = jbd2_journal_recover(journal, callback, data);
- 	if (err) {
- 		pr_warn("JBD2: journal recovery failed\n");
- 		return err;
-@@ -2125,6 +2129,12 @@ int jbd2_journal_load(journal_t *journal)
- 	write_unlock(&journal->j_state_lock);
- 	return 0;
+ #include "blk.h"
+ #include "blk-mq.h"
+@@ -827,3 +828,318 @@ void blk_mq_debugfs_unregister_sched_hctx(struct blk_mq_hw_ctx *hctx)
+ 	debugfs_remove_recursive(hctx->sched_debugfs_dir);
+ 	hctx->sched_debugfs_dir = NULL;
  }
-+EXPORT_SYMBOL(jbd2_journal_load_with_callback);
 +
-+int jbd2_journal_load(journal_t *journal)
++/* Tag set debugfs --------------------------------------------------------- */
++
++static DEFINE_IDA(blk_mq_tagset_debugfs_ida);
++static DEFINE_MUTEX(blk_mq_tagset_debugfs_mutex);
++static struct dentry *blk_mq_tagset_debugfs_root;
++
++/* Prevent debugfs allocation reclaim from issuing I/O to frozen queues. */
++static unsigned int __must_check blk_mq_tagset_debugfs_lock(void)
++	__acquires(&blk_mq_tagset_debugfs_mutex)
 +{
-+	return jbd2_journal_load_with_callback(journal, NULL, NULL);
++	unsigned int memflags = memalloc_noio_save();
++
++	mutex_lock(&blk_mq_tagset_debugfs_mutex);
++	return memflags;
 +}
- 
- /**
-  * jbd2_journal_destroy() - Release a journal_t structure.
-diff --git a/fs/jbd2/recovery.c b/fs/jbd2/recovery.c
-index cac8c2c..be4fd27 100644
---- a/fs/jbd2/recovery.c
-+++ b/fs/jbd2/recovery.c
-@@ -37,8 +37,9 @@ struct recovery_info
- 	int		nr_revoke_hits;
- };
- 
--static int do_one_pass(journal_t *journal,
--				struct recovery_info *info, enum passtype pass);
-+static int do_one_pass(journal_t *journal, struct recovery_info *info,
-+		       enum passtype pass, jbd2_replay_callback_t callback,
-+		       void *data);
- static int scan_revoke_records(journal_t *, enum passtype, struct buffer_head *,
- 				tid_t, struct recovery_info *);
- 
-@@ -270,6 +271,8 @@ static int fc_do_one_pass(journal_t *journal,
- /**
-  * jbd2_journal_recover - recovers a on-disk journal
-  * @journal: the journal to recover
-+ * @callback: optional check after each replay stage
-+ * @data: private data for the replay callback
-  *
-  * The primary function for recovering the log contents when mounting a
-  * journaled device.
-@@ -279,7 +282,8 @@ static int fc_do_one_pass(journal_t *journal,
-  * blocks.  In the third and final pass, we replay any un-revoked blocks
-  * in the log.
-  */
--int jbd2_journal_recover(journal_t *journal)
-+int jbd2_journal_recover(journal_t *journal,
-+			 jbd2_replay_callback_t callback, void *data)
- {
- 	int			err, err2;
- 	struct recovery_info	info;
-@@ -300,14 +304,14 @@ int jbd2_journal_recover(journal_t *journal)
- 			  be32_to_cpu(sb->s_sequence), be32_to_cpu(sb->s_head));
- 		journal->j_transaction_sequence = be32_to_cpu(sb->s_sequence) + 1;
- 		journal->j_head = be32_to_cpu(sb->s_head);
--		return 0;
-+		return callback ? callback(journal, data, false) : 0;
- 	}
- 
--	err = do_one_pass(journal, &info, PASS_SCAN);
-+	err = do_one_pass(journal, &info, PASS_SCAN, NULL, NULL);
- 	if (!err)
--		err = do_one_pass(journal, &info, PASS_REVOKE);
-+		err = do_one_pass(journal, &info, PASS_REVOKE, NULL, NULL);
- 	if (!err)
--		err = do_one_pass(journal, &info, PASS_REPLAY);
-+		err = do_one_pass(journal, &info, PASS_REPLAY, callback, data);
- 
- 	jbd2_debug(1, "JBD2: recovery, exit status %d, "
- 		  "recovered transactions %u to %u\n",
-@@ -365,7 +369,7 @@ int jbd2_journal_skip_recovery(journal_t *journal)
- 
- 	memset (&info, 0, sizeof(info));
- 
--	err = do_one_pass(journal, &info, PASS_SCAN);
-+	err = do_one_pass(journal, &info, PASS_SCAN, NULL, NULL);
- 
- 	if (err) {
- 		printk(KERN_ERR "JBD2: error %d scanning journal\n", err);
-@@ -585,8 +589,9 @@ skip_write:
- 	return ret;
- }
- 
--static int do_one_pass(journal_t *journal,
--			struct recovery_info *info, enum passtype pass)
-+static int do_one_pass(journal_t *journal, struct recovery_info *info,
-+		       enum passtype pass, jbd2_replay_callback_t callback,
-+		       void *data)
- {
- 	unsigned int		first_commit_ID, next_commit_ID;
- 	unsigned long		next_log_block, head_block;
-@@ -936,10 +941,21 @@ chksum_ok:
- 		}
- 	}
- 
--	if (jbd2_has_feature_fast_commit(journal) &&  pass != PASS_REVOKE) {
-+	/* Only PASS_REPLAY can carry a validation callback. */
-+	if (callback) {
-+		if (success)
-+			return success;
-+		err = callback(journal, data, false);
-+		if (err)
-+			return err;
++
++static void blk_mq_tagset_debugfs_unlock(unsigned int memflags)
++	__releases(&blk_mq_tagset_debugfs_mutex)
++{
++	mutex_unlock(&blk_mq_tagset_debugfs_mutex);
++	memalloc_noio_restore(memflags);
++}
++
++#define BLK_MQ_F_NAME(name) [ilog2(BLK_MQ_F_##name)] = #name
++static const char *const tagset_flag_name[] = {
++	BLK_MQ_F_NAME(TAG_QUEUE_SHARED),
++	BLK_MQ_F_NAME(STACKING),
++	BLK_MQ_F_NAME(TAG_HCTX_SHARED),
++	BLK_MQ_F_NAME(BLOCKING),
++	BLK_MQ_F_NAME(TAG_RR),
++	BLK_MQ_F_NAME(NO_SCHED_BY_DEFAULT),
++};
++#undef BLK_MQ_F_NAME
++
++static int blk_mq_tagset_flags_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++
++	BUILD_BUG_ON(ARRAY_SIZE(tagset_flag_name) != ilog2(BLK_MQ_F_MAX));
++
++	down_read(&set->update_nr_hwq_lock);
++
++	blk_flags_show(m, set->flags, tagset_flag_name,
++		       ARRAY_SIZE(tagset_flag_name));
++	seq_putc(m, '\n');
++
++	up_read(&set->update_nr_hwq_lock);
++
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_flags);
++
++#define BLK_MQ_TAGSET_VALUE_SHOW(_name, _type, _member, _format) \
++static int blk_mq_tagset_##_name##_show(struct seq_file *m, void *v) \
++{ \
++	struct blk_mq_tag_set *set = m->private; \
++	_type value; \
++ \
++	down_read(&set->update_nr_hwq_lock); \
++	value = set->_member; \
++	up_read(&set->update_nr_hwq_lock); \
++ \
++	seq_printf(m, _format, value); \
++	return 0; \
++} \
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_##_name)
++
++BLK_MQ_TAGSET_VALUE_SHOW(nr_maps, unsigned int, nr_maps, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(nr_hw_queues, unsigned int, nr_hw_queues, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(queue_depth, unsigned int, queue_depth, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(reserved_tags, unsigned int, reserved_tags, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(cmd_size, unsigned int, cmd_size, "%u\n");
++BLK_MQ_TAGSET_VALUE_SHOW(numa_node, int, numa_node, "%d\n");
++BLK_MQ_TAGSET_VALUE_SHOW(timeout, unsigned int, timeout, "%u\n");
++
++#undef BLK_MQ_TAGSET_VALUE_SHOW
++
++static int blk_mq_tagset_hctx_tags_shared_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	bool shared;
++
++	down_read(&set->update_nr_hwq_lock);
++	shared = blk_mq_is_shared_tags(set->flags);
++	up_read(&set->update_nr_hwq_lock);
++
++	seq_printf(m, "%d\n", shared);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_hctx_tags_shared);
++
++static int blk_mq_tagset_queues_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	struct request_queue *q;
++	int ret;
++
++	ret = down_read_interruptible(&set->update_nr_hwq_lock);
++	if (ret)
++		return ret;
++
++	ret = mutex_lock_interruptible(&set->tag_list_lock);
++	if (ret) {
++		up_read(&set->update_nr_hwq_lock);
++		return ret;
 +	}
 +
-+	if (jbd2_has_feature_fast_commit(journal) && pass != PASS_REVOKE) {
- 		err = fc_do_one_pass(journal, info, pass);
- 		if (err)
- 			success = err;
-+		else if (callback)
-+			success = callback(journal, data, true);
- 	}
++	if (list_empty(&set->tag_list))
++		seq_puts(m, "(none)\n");
++
++	list_for_each_entry(q, &set->tag_list, tag_set_list)
++		seq_printf(m, "%s\n", q->disk ? q->disk->disk_name : "(no-disk)");
++
++	mutex_unlock(&set->tag_list_lock);
++	up_read(&set->update_nr_hwq_lock);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_queues);
++
++static int blk_mq_tagset_map_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	unsigned long index = debugfs_get_aux_num(m->file);
++	unsigned int map = index / nr_cpu_ids;
++	unsigned int cpu = index % nr_cpu_ids;
++
++	down_read(&set->update_nr_hwq_lock);
++
++	seq_printf(m, "%u\n", set->map[map].mq_map[cpu]);
++
++	up_read(&set->update_nr_hwq_lock);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_map);
++
++static void blk_mq_tagset_debugfs_create_maps(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir, *map_dir;
++	unsigned int cpu, i;
++	char name[20];
++
++	dir = debugfs_create_dir("map", set->debugfs_dir);
++	if (IS_ERR_OR_NULL(dir))
++		return;
++
++	for (i = 0; i < set->nr_maps; i++) {
++		snprintf(name, sizeof(name), "%u", i);
++		map_dir = debugfs_create_dir(name, dir);
++		if (IS_ERR_OR_NULL(map_dir))
++			continue;
++
++		for_each_possible_cpu(cpu) {
++			/* Encode the map and CPU indices in the auxiliary data. */
++			unsigned long index = (unsigned long)i * nr_cpu_ids + cpu;
++
++			snprintf(name, sizeof(name), "cpu%u", cpu);
++			debugfs_create_file_aux_num(name, 0444, map_dir, set,
++						   index, &blk_mq_tagset_map_fops);
++		}
++	}
++}
++
++static int blk_mq_tagset_tags_show(struct seq_file *m, void *v)
++{
++	struct blk_mq_tag_set *set = m->private;
++	long index = (long)debugfs_get_aux_num(m->file);
++	struct blk_mq_tags *tags = NULL;
++
++	/*
++	 * use trylock here to avoid deadlock
++	 *
++	 * blk_mq_update_nr_hw_queues
++	 *     down_write(update_nr_hwq_lock)
++	 *     blk_mq_tagset_debugfs_remove_tags
++	 *         wait active reads
++	 *
++	 * blk_mq_tagset_tags_show (active reads)
++	 *     down_read(udpate_nr_hwq_lock)
++	 *
++	 */
++	if (!down_read_trylock(&set->update_nr_hwq_lock))
++		return -EAGAIN;
++
++	if (index == -1L)
++		tags = set->shared_tags;
++	else if (index >= 0 && index < set->nr_hw_queues)
++		tags = set->tags[index];
++
++	if (!tags) {
++		up_read(&set->update_nr_hwq_lock);
++		return -ENODEV;
++	}
++
++	seq_printf(m, ".nr_tags=%u\n.nr_reserved_tags=%u\n.active_queues=%u\n",
++		   tags->nr_tags,
++		   tags->nr_reserved_tags,
++		   READ_ONCE(tags->active_queues));
++
++	up_read(&set->update_nr_hwq_lock);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(blk_mq_tagset_tags);
++
++void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set)
++{
++	if (IS_ERR_OR_NULL(set->debugfs_dir))
++		return;
++
++	debugfs_lookup_and_remove("tags", set->debugfs_dir);
++}
++
++void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir;
++	unsigned int i;
++	char name[20];
++
++	if (IS_ERR_OR_NULL(set->debugfs_dir))
++		return;
++
++	dir = debugfs_create_dir("tags", set->debugfs_dir);
++	if (IS_ERR_OR_NULL(dir))
++		return;
++
++	for (i = 0; i < set->nr_hw_queues; i++) {
++		struct blk_mq_tags *tags = set->tags[i];
++
++		snprintf(name, sizeof(name), "%u", i);
++		if (tags && tags == set->shared_tags)
++			debugfs_create_symlink(name, dir, "../shared_tags");
++		else
++			debugfs_create_file_aux_num(name, 0444, dir, set, i,
++						    &blk_mq_tagset_tags_fops);
++	}
++}
++
++static void blk_mq_tagset_debugfs_create_files(struct blk_mq_tag_set *set)
++{
++	debugfs_create_file("nr_maps", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_nr_maps_fops);
++	debugfs_create_file("nr_hw_queues", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_nr_hw_queues_fops);
++	debugfs_create_file("queue_depth", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_queue_depth_fops);
++	debugfs_create_file("reserved_tags", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_reserved_tags_fops);
++	debugfs_create_file("cmd_size", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_cmd_size_fops);
++	debugfs_create_file("numa_node", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_numa_node_fops);
++	debugfs_create_file("timeout", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_timeout_fops);
++	debugfs_create_file("hctx_tags_shared", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_hctx_tags_shared_fops);
++	debugfs_create_file("flags", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_flags_fops);
++	debugfs_create_file("queues", 0444, set->debugfs_dir, set,
++			    &blk_mq_tagset_queues_fops);
++	blk_mq_tagset_debugfs_create_maps(set);
++	debugfs_create_file_aux_num("shared_tags", 0444, set->debugfs_dir, set,
++				    -1, &blk_mq_tagset_tags_fops);
++	blk_mq_tagset_debugfs_create_tags(set);
++}
++
++void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set)
++{
++	struct dentry *dir;
++	unsigned int memflags;
++	char name[24];
++	int id;
++
++	memflags = blk_mq_tagset_debugfs_lock();
++
++	if (!blk_mq_tagset_debugfs_root)
++		blk_mq_tagset_debugfs_root = debugfs_create_dir("tagset", NULL);
++
++	if (set->debugfs_dir || IS_ERR_OR_NULL(blk_mq_tagset_debugfs_root))
++		goto out_unlock;
++
++	id = ida_alloc(&blk_mq_tagset_debugfs_ida, GFP_KERNEL);
++	if (id < 0)
++		goto out_unlock;
++
++	snprintf(name, sizeof(name), "%d", id);
++	dir = debugfs_create_dir(name, blk_mq_tagset_debugfs_root);
++	if (IS_ERR_OR_NULL(dir)) {
++		ida_free(&blk_mq_tagset_debugfs_ida, id);
++		goto out_unlock;
++	}
++
++	set->debugfs_id = id;
++	set->debugfs_dir = dir;
++	blk_mq_tagset_debugfs_create_files(set);
++
++out_unlock:
++	blk_mq_tagset_debugfs_unlock(memflags);
++}
++
++void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set)
++{
++	mutex_lock(&blk_mq_tagset_debugfs_mutex);
++
++	if (set->debugfs_dir) {
++		debugfs_remove_recursive(set->debugfs_dir);
++		set->debugfs_dir = NULL;
++	}
++
++	if (set->debugfs_id >= 0) {
++		ida_free(&blk_mq_tagset_debugfs_ida, set->debugfs_id);
++		set->debugfs_id = -1;
++	}
++
++	mutex_unlock(&blk_mq_tagset_debugfs_mutex);
++}
+diff --git a/block/blk-mq-debugfs.h b/block/blk-mq-debugfs.h
+index 49bb1aaa83dc..aea278bdc4e7 100644
+--- a/block/blk-mq-debugfs.h
++++ b/block/blk-mq-debugfs.h
+@@ -7,6 +7,7 @@
+ #include <linux/seq_file.h>
  
- 	return success;
-diff --git a/include/linux/jbd2.h b/include/linux/jbd2.h
-index 69f1236..28358c6 100644
---- a/include/linux/jbd2.h
-+++ b/include/linux/jbd2.h
-@@ -1565,9 +1565,14 @@ extern int	   jbd2_journal_set_features
- 		   (journal_t *, unsigned long, unsigned long, unsigned long);
- extern void	   jbd2_journal_clear_features
- 		   (journal_t *, unsigned long, unsigned long, unsigned long);
-+typedef int (*jbd2_replay_callback_t)(journal_t *journal, void *data,
-+				      bool after_fast_commit);
- extern int	   jbd2_journal_load       (journal_t *journal);
-+int jbd2_journal_load_with_callback(journal_t *journal,
-+				    jbd2_replay_callback_t callback, void *data);
- extern int	   jbd2_journal_destroy    (journal_t *);
--extern int	   jbd2_journal_recover    (journal_t *journal);
-+int jbd2_journal_recover(journal_t *journal,
-+			 jbd2_replay_callback_t callback, void *data);
- extern int	   jbd2_journal_wipe       (journal_t *, int);
- extern int	   jbd2_journal_skip_recovery	(journal_t *);
- extern void	   jbd2_journal_update_sb_errno(journal_t *);
+ struct blk_mq_hw_ctx;
++struct blk_mq_tag_set;
+ 
+ struct blk_mq_debugfs_attr {
+ 	const char *name;
+@@ -34,6 +35,11 @@ void blk_mq_debugfs_register_sched_hctx(struct request_queue *q,
+ void blk_mq_debugfs_unregister_sched_hctx(struct blk_mq_hw_ctx *hctx);
+ 
+ void blk_mq_debugfs_register_rq_qos(struct request_queue *q);
++
++void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set);
++void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set);
+ #else
+ static inline void blk_mq_debugfs_register(struct request_queue *q)
+ {
+@@ -77,6 +83,22 @@ static inline void blk_mq_debugfs_register_rq_qos(struct request_queue *q)
+ {
+ }
+ 
++static inline void blk_mq_tagset_debugfs_register(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_unregister(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_create_tags(struct blk_mq_tag_set *set)
++{
++}
++
++static inline void blk_mq_tagset_debugfs_remove_tags(struct blk_mq_tag_set *set)
++{
++}
++
+ #endif
+ 
+ #if defined(CONFIG_BLK_DEV_ZONED) && defined(CONFIG_BLK_DEBUG_FS)
+diff --git a/block/blk-mq.c b/block/blk-mq.c
+index a26a11c73ee3..e3e6d87f21a7 100644
+--- a/block/blk-mq.c
++++ b/block/blk-mq.c
+@@ -4914,6 +4914,10 @@ int blk_mq_alloc_tag_set(struct blk_mq_tag_set *set)
+ 
+ 	mutex_init(&set->tag_list_lock);
+ 	INIT_LIST_HEAD(&set->tag_list);
++#ifdef CONFIG_BLK_DEBUG_FS
++	set->debugfs_id = -1;
++#endif
++	blk_mq_tagset_debugfs_register(set);
+ 
+ 	return 0;
+ 
+@@ -4956,6 +4960,8 @@ void blk_mq_free_tag_set(struct blk_mq_tag_set *set)
+ {
+ 	int i, j;
+ 
++	blk_mq_tagset_debugfs_unregister(set);
++
+ 	for (i = 0; i < set->nr_hw_queues; i++)
+ 		__blk_mq_free_map_and_rqs(set, i);
+ 
+@@ -5137,6 +5143,7 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
+ 		blk_mq_debugfs_unregister_hctxs(q);
+ 		blk_mq_sysfs_unregister_hctxs(q);
+ 	}
++	blk_mq_tagset_debugfs_remove_tags(set);
+ 
+ 	/*
+ 	 * Switch IO scheduler to 'none', cleaning up the data associated
+@@ -5194,6 +5201,7 @@ static void __blk_mq_update_nr_hw_queues(struct blk_mq_tag_set *set,
+ 		blk_mq_remove_hw_queues_cpuhp(q);
+ 		blk_mq_add_hw_queues_cpuhp(q);
+ 	}
++	blk_mq_tagset_debugfs_create_tags(set);
+ 
+ out_free_ctx:
+ 	blk_mq_free_sched_ctx_batch(&elv_tbl);
+diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
+index af878597afb8..882ed11e7c2b 100644
+--- a/include/linux/blk-mq.h
++++ b/include/linux/blk-mq.h
+@@ -14,6 +14,7 @@
+ struct blk_mq_tags;
+ struct blk_flush_queue;
+ struct io_comp_batch;
++struct dentry;
+ 
+ #define BLKDEV_MIN_RQ	4
+ #define BLKDEV_DEFAULT_RQ	128
+@@ -530,6 +531,8 @@ enum hctx_type {
+  * @update_nr_hwq_lock:
+  * 		   Synchronize updating nr_hw_queues with add/del disk &
+  * 		   switching elevator.
++ * @debugfs_dir:   Debugfs directory for this tag set.
++ * @debugfs_id:    ID used as part of the debugfs directory name.
+  */
+ struct blk_mq_tag_set {
+ 	const struct blk_mq_ops	*ops;
+@@ -554,6 +557,11 @@ struct blk_mq_tag_set {
+ 	struct srcu_struct	tags_srcu;
+ 
+ 	struct rw_semaphore	update_nr_hwq_lock;
++
++#ifdef CONFIG_BLK_DEBUG_FS
++	struct dentry		*debugfs_dir;
++	int			debugfs_id;
++#endif
+ };
+ 
+ /**
+-- 
+2.43.0
+
