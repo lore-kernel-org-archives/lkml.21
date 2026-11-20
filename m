@@ -1,64 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194621;
-	b=p+ZYP8UYz2skF+NLwSsv4Z3yZYmX3Fr3SniST76nm42C9d5kC/o2RuhEioomS8NcfaKW
-	 dGGs+FlxAbifFdjTxbNaQruALGaXugf0Fs3jWZ4lYi66Wvx3SNlAYpAAc4cIzQP6a1Lx3
-	 /0jwb/ckt5RfUQrsL1KhKAtEVjKEalMlI/JMLTLxqTVOY2+ty9tCekcxsEOnSNWKxkUF2
-	 be0/se2zqhc+EbK2xN4BuEvjn4/OEpV+8mU7+APjk+1PghXs6/9Oeww/WHgbrL8K59GnY
-	 JsU8taoV4dl5ZZMw6quBRjGJE/xsMK/G2t8gBdQ9YSGB8ktxt4fDNwLjj7hmGfaAlPA==
+	t=1795194651;
+	b=MVIm+/EEXIqsTEmXbNOB1RVbViHhoTx5QQTMkbFSNWhhtqcHXQtjBHCvPrRy+FG7fqQs
+	 wR8I4Nu0FZ28cmjuKmo0UyBxpLISG6c/GTQJsfW70PxIZcED2EwE2wac+yvwHqCy3gDfL
+	 tgRyhVRRCrDTTwTa/GtOxk6Q0sLk4dJlseqg+OW+nccTeYonHFDGFcbEY75LYhGAkhJr2
+	 yLV9hiEkATP3NlZZi7GvRwg8wtHNWovRRHs8Ls96lAMma1XiiEistK1rnV9nhsWBAc0r5
+	 +q290xbMCHU2kle0P3jFXbjCkkS0Gh0dlk6zQ0eQLGpNQQlhMWSxP4+wKNwZvdf9FtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194621;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:Organization:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=BCrbRJEI3FmidgytAkajQBd7EJHV6pZe27NxHm/eDQo=;
-	b=BrGDRYMUVjG1VLwaDSchlU22zIn5cmfvKNspvLN9zWwynO5t3pP1V/Nj1TxUQDVziUrT
-	 R+B7RbOCNJFPSWDoNHCIAyLW0w+2Nd+eMiSabbT0vidNrj0Zwh+4ktI3UVc7pA73h50VA
-	 h/i+cm5NYoCicMtW8R1cmhjqQj3snALBhOxLk9y12xe+6yDC/s6obbd3pVRTK1390eh7E
-	 rWLO3MqDdMFXHwUxUYS4pShFihyud4KJ1H1fFdguhP+EKDuxoT09hnW0+FPah9nURPaXa
-	 q5Mj9WrJUaM0SAcmptEPOmCLaeiqSmiS54H8Uu1n+HmbCBL5yp+euF7kIWAklO8D8Gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194651;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GmtUShSZk8dAryboQHhYbp46r+uxEVP1de+hNEmgKDY=;
+	b=lPtBoDxvrpSWyT+yMbfsg65aRGfoHGHnCoECxcqkHSCuZ3m0WReVDCQttiXgavbVkq+P
+	 pWQ29BQIFc0xo3NWVFxiXptbsyp9k08WO/PXUMdqZnJapoOt/2A1bqxsa/rP5+3kAnXvl
+	 x3WQX32InNGLxk8f9kOpzvUh2nHVI/kTTnUFCtVeeN5kpqADjlHFZG0AYXsEM5IspBIW6
+	 AReVRrl2sRPFLVogGcKiGEabDtM2GbVvJz4xlNzAzxW2mqnsEsutAF0DusGapCMFG1Dlt
+	 8namxU/Ckt8Xg1tu82J/+Fuslzr8QEfcbiIw7VbZgP1ZnL82dP/EBRK8Sos/TLQh+Ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nen37E9n;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E1ED460A2625;
-	Fri, 20 Nov 2026 17:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1ED460A2625
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6flx0zT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD74C60A2602;
+	Fri, 20 Nov 2026 17:10:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=nen37E9n
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF95D1575;
-	Fri, 20 Nov 2026 09:10:13 -0800 (PST)
-Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 762C03F632;
-	Fri, 20 Nov 2026 09:10:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795194616; bh=hqSsN2fuakU0TLaUzJxfRCMFwMgrGLnW5FmVIoMUQ0I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nen37E9n7YXZkwtkpHbNCVzwW552IlNclcRDZRADm0xR79n2+SJbOjitS0/NbEMvf
-	 HIWhV208u8iIWQi0STJcU5s1JxGbKH1TISA+UcslQxdMqAdKpTY3QPiqyuwNI5YjbD
-	 yfLdzZ0UY5kPXm3ekPCB/PGPtF2OxeFdbiPU2PCI=
-Date: Fri, 20 Nov 2026 18:10:10 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Cc: aiyengar1990@gmail.com, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] arm64: dts: allwinner: orangepi-zero2/zero3: Set
- the SPI NOR supply by label
-Message-ID: <20261120181010.59d5f7c0@ryzen.lan>
-In-Reply-To: <20261120-zero2-spi-nor-dual-read-v3-1-1cbb0caaed91@gmail.com>
-References: <20261120-zero2-spi-nor-dual-read-v3-0-1cbb0caaed91@gmail.com>
-	<20261120-zero2-spi-nor-dual-read-v3-1-1cbb0caaed91@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6flx0zT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0943E1F000C4;
+	Fri, 20 Nov 2026 17:10:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795194651;
+	bh=GmtUShSZk8dAryboQHhYbp46r+uxEVP1de+hNEmgKDY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=k6flx0zTNWTz/4HHWmMhyY7XQf2WCk/uNzeZZTqGKCzfu1dKOX7SgmCicX+0to2u8
+	 Myl/hBnLWfHAB/5fDKCAagwnHqqrTiwho5PFTwQnlnNdI6JGh3ow/8zKU48W23rGgn
+	 Ps7YuHNVPATTtC5KRjRNRFQqBGSetnFR27mmq0LlMWGvAhC0tiHOWGORsD8t8YfUEJ
+	 SB1yCX7JvsbzXLH4slxguLnjoezNYUGQjHkBE2xzt6eCrwgay5usOmT/dluFSm+Tso
+	 iEXLy3t7dvPYjvEHkktd4EVwfuUqIoFrw8uWLHhmp13xdDc+jjiGBKM5b1Ahro/ZhJ
+	 E+pc9WXKmyTnw==
+Date: Fri, 20 Nov 2026 11:10:50 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Rob Herring <robh@kernel.org>, Jeff Johnson <jjohnson@kernel.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, mhi@lists.linux.dev,
+	linux-wireless@vger.kernel.org, ath11k@lists.infradead.org,
+	qiang.yu@oss.qualcomm.com
+Subject: Re: [PATCH v6 3/7] PCI: Add pci_lnkctl2_bus_speed() to convert
+ lnkctl2speed to pci_bus_speed
+Message-ID: <20261120171050.GA891038@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,92 +66,66 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119-bwscale-v6-3-9a9a715fcb46@oss.qualcomm.com>
 
-On Fri, 20 Nov 2026 06:30:08 +0000
-Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-wrote:
-
-Hi Arun,
-
-> From: Arun Iyengar <aiyengar1990@gmail.com>
+On Thu, Nov 19, 2026 at 06:26:35PM +0530, Krishna Chaitanya Chundru wrote:
+> Add a exported function to convert lnkctl2speed to enum pci_bus_speed,
+> so that other kernel drivers can use it.
 > 
-> Label the flash node in the shared dtsi, so each board sets its supply
-> through the label. The Zero2 keeps reg_aldo1. On the Zero3 the flash VDD
-> is on the 3.3V rail from the AXP313A DLDO1 pin (schematic v1.2), so it
-> gets reg_dldo1.
-> 
-> Suggested-by: Andre Przywara <andre.przywara@arm.com>
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Andre Przywara <andre.przywara@arm.com>
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+
+Nit below.
 
 > ---
-> Andre: reg_dldo1 instead of reg_aldo1 on the Zero3. Schematic v1.2
-> sheet 4 labels the 3.3V net "ALDO1", but it comes from AXP313A pin 12
-> (DLDO1, VCC33-DLDO); pin 15 (ALDO1) is the 1.8V VCC18-ALDO. The flash
-> VDD (U61 pin 8, net DCDCE) is on that 3.3V net. Not tested, no Zero3
-> here.
-
-Ah yeah, indeed, the schematic is super confusing in this respect. The
-flash chip uses DCDCE(!) as the supply label, which then goes on to
-connect to some unused label "ALDO1", but also to VCC33-DLDO, which is
-the actual PMIC connection. And the chip needs definitely more than
-2.3V for its operation, according to its datasheet, so 3.3V is the right
-voltage.
-
-So my bad, and thanks for checking this thoroughly.
-
-Cheers,
-Andre
-
-> ---
->  arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi | 2 +-
->  arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts | 6 ++----
->  arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts | 4 ++++
->  3 files changed, 7 insertions(+), 5 deletions(-)
+>  drivers/pci/pci.c   | 15 +++++++++++++++
+>  include/linux/pci.h |  1 +
+>  2 files changed, 16 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-> index 0d3e761f6466..cd1f67ad7c2b 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero.dtsi
-> @@ -104,7 +104,7 @@ &spi0 {
->  	pinctrl-names = "default";
->  	pinctrl-0 = <&spi0_pins>, <&spi0_cs0_pin>;
+> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> index 7c6f2aba8144..a89955617bec 100644
+> --- a/drivers/pci/pci.c
+> +++ b/drivers/pci/pci.c
+> @@ -6056,6 +6056,21 @@ int pcie_link_bandwidth_mbps(struct pci_dev *pdev)
+>  }
+>  EXPORT_SYMBOL(pcie_link_bandwidth_mbps);
 >  
-> -	flash@0 {
-> +	spi_flash: flash@0 {
->  		#address-cells = <1>;
->  		#size-cells = <1>;
->  		compatible = "jedec,spi-nor";
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-> index 90c25e12e189..2f8a16d1c9aa 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-orangepi-zero2.dts
-> @@ -148,8 +148,6 @@ &pio {
->  	vcc-pi-supply = <&reg_aldo1>;
->  };
->  
-> -&spi0 {
-> -	flash@0 {
-> -		vcc-supply = <&reg_aldo1>;
-> -	};
-> +&spi_flash {
-> +	vcc-supply = <&reg_aldo1>;
->  };
-> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-> index c51d4d9120de..afa753dead30 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero3.dts
-> @@ -103,3 +103,7 @@ &pio {
->  	vcc-ph-supply = <&reg_dldo1>;
->  	vcc-pi-supply = <&reg_dldo1>;
->  };
+> +/**
+> + * pci_lnkctl2_bus_speed - convert Link Control 2 Target Link Speed to pci_bus_speed
+> + * @speed: Target Link Speed (TLS) value from Link Control 2 register (0-4 for 2.5 GT/s - 32 GT/s)
+> + *
+> + * Convert the Target Link Speed (TLS) field value from the Link Control 2 register
+> + * to the corresponding enum pci_bus_speed.
+
+Wrap these to fit in 80 columns like the rest of the file.
+
+> + * Return: pci_bus_speed corresponding to the TLS value
+> + */
+> +enum pci_bus_speed pci_lnkctl2_bus_speed(u32 speed)
+> +{
+> +	return pcie_link_speed[speed];
+> +}
+> +EXPORT_SYMBOL(pci_lnkctl2_bus_speed);
 > +
-> +&spi_flash {
-> +	vcc-supply = <&reg_dldo1>;
-> +};
+>  /**
+>   * pcie_bandwidth_available - determine minimum link settings of a PCIe
+>   *			      device and its bandwidth limitation
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 352079393edb..d12875c95491 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -1739,6 +1739,7 @@ int pci_cfg_space_size(struct pci_dev *dev);
+>  unsigned char pci_bus_max_busnr(struct pci_bus *bus);
+>  resource_size_t pcibios_window_alignment(struct pci_bus *bus,
+>  					 unsigned long type);
+> +enum pci_bus_speed pci_lnkctl2_bus_speed(u32 speed);
+>  
+>  #define PCI_VGA_STATE_CHANGE_BRIDGE (1 << 0)
+>  #define PCI_VGA_STATE_CHANGE_DECODES (1 << 1)
 > 
-
+> -- 
+> 2.34.1
+> 
