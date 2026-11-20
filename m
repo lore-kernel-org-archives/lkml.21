@@ -1,96 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.22.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795183569;
-	b=4z2ORRkr2kzdVgrGvvX0RS7jPJOIH1MIHWUvQPd+UuXQaRB0PoqVIYlWIVro/eli/XIP
-	 GgqgpeV9sSVwgB8/qAbvEouDE2s63ydgdT+1SxlcoGY4uk1yuwl2//6Od6GyKMua2smlu
-	 LykESP9YugEou3PZ8F713ydpIHaFP63oTkt3e5isPbEfkYOh9vj+U4zK1fDKk7SH05biy
-	 mZYWnT3jZLZOPodAuQgkeRUVHcfukUI0VIMgOW9uc1pytDJGOMn3YwVfH4397nOBJ0QnN
-	 1MqzVYMc8WXfMth7JPGaqczth6is7l5TVXbgchWxLQkTSukGb55TZt+jK1xXM/psXwA==
+	t=1795183603;
+	b=Vn7xfmjf/yMI889jjPSVKKgHvRgaQv0q+IelOEtgObP/sufkBo1UEEmouyPUjTdwPJei
+	 F+4gglNctJGoZNifUs6QNwMp0sMmnBRYzZ0EBf8tZyY8l6VWiDDa/ZQcV0L4fnB7sSgLl
+	 Vd3DBzdoooaFlij9OzAwL3YRGim15DNFZB8j+bAcDKZ1U70H1VsAE7Be06wCtffSZZJ8i
+	 6vVtSXWgBnyHsFnqhuuoRJmhJCU6Gg8ta6i1EqlINhn7RNCG10dbekBa0O1ZNwMgEfYeh
+	 TqVu1VmHQtYrvBcS2oX4btJ6RQfYEFiIxnIL2+I4TunHOyceHBGoHvWT2Kn4tDYFZCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795183569;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=el8AgDiIhYuS9gvOIIjYF21nBvQahKMjOTotFy671xs=;
-	b=V/AKATy1yOfoO+Cm0sZ4NzAD2+SDXc/Ogu3Dya3LyPUn+O1U5IoYFexQJCfT84qngs8E
-	 SZuenqmGstXr32JJuGDZzy4c8dy9aK9WereXOOassgY8QodCYZARgktQXhw/avbwqNRRz
-	 wyv0mOrrxFsI0mVBSJU/Ky25Cr5pobQTgbSCHbpolSbH/fqQ6qdmY2fXTT/c3sZ+V1h5i
-	 eTTkUOYBOHY9ZjCI8Yor9NpTDx6cmz8QJlMqfL6VycNeatPfEgoZPpYj1c/05S5gR2RZs
-	 Q49l22WvdaWwoWKpkHWaBeTzHCxx/RCqqK2knNAaIvd3dajnvOjqrJNo9XnshC8YxQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795183603;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=nNZhtmRIM047yhBKT8X8RLzUb8LET8YKY7Oa6BiQeSc=;
+	b=dWINgyurYkKbeveDlL3it+V03ufKQ/xKJdvq23m8GMnlOl1HOLaL9sYs9HesNeCtpZsn
+	 H11LB9yBuJwu2nqtrUOBmNtw9wwr0szBB+NpFsE9FgoetuPgX5+/4eo98YPNyXSm5Haxa
+	 FbXy9YyC7sl2Bt0Y6L+ZK1a7tbjuD3QfMTq3pZX+PSmbg2s+mnIORx8pUrUdAw1j0m+Cb
+	 s+1v9tgfBdQNx6xNOkfx1QPGnZQUIDGKXpD/EmgR1HG3sXN0cgiCHo8l5Lz6+M6a9Di0Y
+	 3WQKXqGpoOCJ1X+yIe/tfRRSnhSRx6jcJH40CS8ZVBjcVeXlEd7njQBcuSSzsjfPsPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ottLvP5O;
-	arc=none smtp.remote-ip=209.85.222.49
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com [209.85.222.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=rustsbi.com;
+	spf=pass smtp.mailfrom=rustsbi.com;
+	arc=none smtp.remote-ip=54.207.22.56
+Received: from smtpbgbr2.qq.com (smtpbgbr2.qq.com [54.207.22.56])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 836C0606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:06:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 836C0606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ottLvP5O
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-98301b325c4so280775241.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:06:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795183568; x=1795788368; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=el8AgDiIhYuS9gvOIIjYF21nBvQahKMjOTotFy671xs=;
-        b=ottLvP5OB4M6YzuggN61jHSHJKLdzUIJ6y75d6/5xy+0AaLgS39nzJmIKh2Wll9rUF
-         p36J27dubIjTFrWg9OMSdQ3fMT/N3AvLkZ1NaPgsrr+IPAe+EkgT8DKnT/SJoEmA9YYJ
-         W3sj3JVWOcGMgiJu+gy9Ro6VR1RzF/uSaB2GIGped4Fk/tcEq4ijB7Q4fniRNwrwOn0T
-         yGcjHYux0/gA5236aZiGR4vRxK8hhoopGicsT1zwOOvyJJnn3MPlVt1H8CTDuO+b90QN
-         z/202DzebyrCkrYZDmsTUrtEeKJ1qLvaLd+WGlFivEs3BHuWL/vXR/0KwRzsscuFlMeh
-         oSrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795183568; x=1795788368;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=el8AgDiIhYuS9gvOIIjYF21nBvQahKMjOTotFy671xs=;
-        b=LAZHawbumeDzXyGQxf8MD0tk7Efq/PHCNKnjXibI/MmExsdrRMBB0wWzLAfBaeHcfF
-         T6iwdMXAJXRojKndmr6dHxV2m6xlV2OvbN1Hq811bassfknjlSQFKrB4SuJL+17S0UPL
-         3rdjpUxv4I0uBJNuTBjNYDNdYuk7zwT9pN4Qa/GK4AndMw0juWC+dREjLGaDMYNWQQQc
-         cRNsWRZdN8xjWnWbiajiJ25CXO4KxNsoUiTA0JnmhC79C0J/fZtF6KobQmiWOCqCJK2n
-         SKVwj815TABZuF8yDTgAo6rRfahJM4MxvtTMZXmW3FLigIqnlpitIQJYCw/mwD3A7TKx
-         mElA==
-X-Forwarded-Encrypted: i=1; AL+hErGWdYt4YhdClVWUjJxtw4i+RorO+ZbHOIcdcRREQuKR5mh600UAuMoxdONbL7FaSsdiIpLCRFR2X6H13iU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9kBx2rHuOhctBiYrkCd3WT0JeRy2rmNciyjCN5Vhh3o5Oxyfwy
-	P9fjokwaHUr6ZuLo4nJW4h9WOHpY6nDFKZYDAwBQZPaXr89ItxRh4KVc
-X-Gm-Gg: AZFdTZfFB4n+V6fCykED8olXKcW/2qubWLY84h0sAwKAaC9mna3JWEAVamaXFsnyTHT
-	2B44n1bDJtlyWfEQqRpG36qOy+zoDBaglEt62hugW+EZ+N02saQQI/Fd+8p9HqpsDfrrHWsXe9+
-	n87+He3KuLErTNaEAol+DG+JlZlSgZH/uUqslYNhVO7zhtzOUUdxRKs4jcLyOTj1W+Jgx/khvon
-	kAtpj4D8bG0YNTxztZiaSfNsPLVDzfYOC9YSyCuMrc8XqnivoJQafyDSbZc3VssqOxIQ0rLGqiG
-	lvhGMi9/CQ5IdE+9PjMwftE9iP1zgfvsVKtGdKIpqTxf3tuTppHIg7Tkm+/35lAQwESAhGhBMJJ
-	G9BMaVwvQZYLldxFwhnupfBwG+/7T8XXmIzsf/YQuiqBXksvakEKFGxCX7a5wuoTJaZfvV8ZDUU
-	r82jfike28ktsZ1Ab35fowFYExKHtt0El3SUk3uhCsxZosIUPkm7cWQ9qA+O0Ms2C7YEQxYZAIa
-	SL5JcbHZb8FTzslU99nJfdGubGO6H6IvoNPEFo/fZfGWMokBnkX4rOyO8le/p6bn5wiiiZ0FqE0
-	HUughat7YXpt/YBHBaCn1pEy00VOAE1Zod1kkak+aCUH97vdoglm6U2khWfT4/BgjOzU1v3i2iB
-	DE4fU2ut8MAj+6BuzVF3amgoyn9WWbGVR5SS2bCcdQk7+T/0OWoI3l8pFl7KrlDeEVtAzBp5iBy
-	GTdZ6RQaVMAhBGLoJzWSqn4GVkAt8=
-X-Received: by 2002:a05:6122:421c:b0:5d6:7f46:b8dc with SMTP id 71dfb90a1353d-5ee8af5f40dmr1423602e0c.21.1795183568236;
-        Fri, 20 Nov 2026 06:06:08 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a4d9:d040:5fad:8738])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349eae11sm26195616d6.25.2026.11.20.06.06.07
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 06:06:07 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: Bernard Metzler <bernard.metzler@linux.dev>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Leon Romanovsky <leon@kernel.org>,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH rdma-rc v2] RDMA/siw: Reject opcodes a user send queue may not use
-Date: Fri, 20 Nov 2026 09:06:05 -0500
-Message-ID: <20261120140605.62810-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 084DA606A325;
+	Fri, 20 Nov 2026 14:06:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 084DA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=rustsbi.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rustsbi.com
+X-QQ-mid: zesmtpsz5t1795183587t5e1ea204
+X-QQ-Originating-IP: Suueltk2ejW08uvMajlx+AId6WW+hxY2z+cJdixf2pY=
+Received: from LAPTOP-H63V2Q11 ( [36.110.52.2])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 20 Nov 2026 22:06:23 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16130469025861869900
+EX-QQ-RecipientCnt: 15
+From: Zhouqi Jiang <luojia@rustsbi.com>
+To: linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Dongliang Mu <dzm91@hust.edu.cn>,
+	Anup Patel <anup@brainfault.org>,
+	Andrew Davis <afd@ti.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>,
+	linux-api@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Vivian Wang <wangruikang@iscas.ac.cn>,
+	Alejandro Colomar <alx@kernel.org>,
+	contact@rustsbi.com
+Subject: [PATCH v2] riscv: sbi: expose firmware identity in sysfs
+Date: Fri, 20 Nov 2026 22:05:58 +0800
+Message-ID: <8AA327A849404B45+20261120140557.776-2-luojia@rustsbi.com>
+X-Mailer: git-send-email 2.53.0.windows.2
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,238 +69,205 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:rustsbi.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: M4K5nIxZYv59/6EhryRLMXjr2dRVc5qRkusdMysni4BIshNeP3fqpgbe
+	I0jRSJrjh35o5jFfDtiJ/H4bXuLH8xqK6z95XvZbxcZgjuGdGlxkdfHIzOVHe19HbmedgQ2
+	770krGixGqJLLJobB5OfNnXsg3WPbWsi1el9R+QRHywXPhxJY4MN4sQkALXZSlX7/G/A1Hp
+	FEWAEK7DXmmpk7/jQvCaJvAHOXTyYEXFjXfJFf+xts77l9/3vpWpu7EIKhbndBiQ9RQF81r
+	BASihpVZ7Tdl3g9C9500xlcX26/RFi24GlqQ1phj8lulhLR4IaVBTrH6xE5U82eNbLUb5ey
+	M9q0HZgTv5q9eUZ+fk2b02PnbHnK9UJ+mmT+19pcIhkatHlSPbuzEIiM2Zh+9agwhQbMIXj
+	taVoeBfF2lIbljQrqUcRsmXMBojS/4IzKY2WiM7U8taACzkP/s9+HChcljeAKnLYI0qfZ0P
+	Hw8cBhkeoPtBEzpVlXpmyYeynRs346DiE90hliwVhL15THxiMwcAftYJ/cvy8LI91MSHwZ4
+	LclXQ3dg9MddyPkRdyie6nY3hn5IIbHueT8cZLkAT4zjfwe/PpY+QOnGuJbhRAqtbExftvm
+	Fzx036kR7rp8wZjl6LuU6rWWAx2UoUoOlPipPuDS+PNyvt2yUQ+BZMNrQzQhlVIUWM1lOFp
+	MPPONyVz1kqg0osa9d0RsJ84/VBUb9soUdFTzycjzAqrTiogOK4kIRIF2rzbYufrskZrdjF
+	ihQS1Gc6dL7cBczW3nstUQSooEDBMH1+83MaTuNR+Qedk2vfKOvdqfAeWAFqTlbUZ/XEoOj
+	uB4QXpm+zzi4Gh5ssKpB50fkSjF0od/lY+cLrHF8uxV5Lrzk6AcQMxy91pNdafSp+w0HBy1
+	py61acsVPVgulZU5kM+GPkFiBlbal38gs1xCMoAdYwY5W7lRVD2ItIwy1WDezqIaqwRNuxf
+	2mJhsvUPkRfkTte8XaqVGoSRfvJquhMgou/EGyCqO7GjIHgg07CgsgQXYhgwjxI4Dpbnvul
+	wM8NE4Yg9rARnW3uB6iddfifJHHlyjHvbteCHPJI+Ds4/Zf0Zp
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-A user QP's send queue is mapped into the process, and
-siw_activate_tx_from_sq() only checks that an SQE's opcode is below
-SIW_NUM_OPCODES. siw-abi.h marks SIW_OP_INVAL_STAG and SIW_OP_REG_MR as
-valid for in-kernel clients only, but a user process can still post
-them. For SIW_OP_REG_MR, siw_fastreg_mr() then uses the user supplied
-base_mr value as a kernel pointer to a struct ib_mr.
+Linux queries the SBI specification and implementation identity during
+boot. It caches the specification version, but discards the
+implementation ID and version after logging them. Userspace therefore
+has no structured interface for this immutable firmware metadata.
 
-The uverbs device is mode 0666, so once an administrator has created a
-siw device any local user can trigger this. With an unmapped base_mr,
-as an unprivileged user under KASAN:
+Cache the implementation ID and version and expose the available values
+as read-only attributes under /sys/firmware/sbi:
 
-  Oops: general protection fault, probably for non-canonical address 0xe000042828282002: 0000 [#1] SMP KASAN NOPTI
-  KASAN: probably user-memory-access in range [0x0000414141410010-0x0000414141410017]
-  CPU: 1 UID: 65534 PID: 116 Comm: siw003 Not tainted 7.4.0-rc3-gaebb72744764 #16 PREEMPT(lazy)
-  Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-  RIP: 0010:siw_qp_sq_process+0x38b/0x3c10
-  Code: 0f 85 fe 36 00 00 8b b5 8c 02 00 00 48 85 db 0f 84 15 26 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7b 14 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 d9
-  RSP: 0018:ff1100000559f860 EFLAGS: 00000203
-  RAX: dffffc0000000000 RBX: 0000414141410000 RCX: ffffffff98233fb5
-  RDX: 0000082828282002 RSI: 0000000093e50e00 RDI: 0000414141410014
-  RBP: ff11000005786000 R08: 0000000000000001 R09: 000000000000000b
-  R10: 0000000000000000 R11: 00000000c8f9259d R12: ff110000057df400
-  R13: dffffc0000000000 R14: ff1100000565a000 R15: ff1100000578628c
-  FS:  00007f1b60b7d740(0000) GS:ff110000caf2e000(0000) knlGS:0000000000000000
-  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  CR2: e000042828282002 CR3: 0000000005732000 CR4: 0000000000751ef0
-  PKRU: 55555554
-  Call Trace:
-   <TASK>
-   ? __pfx_siw_qp_sq_process+0x10/0x10
-   ? siw_activate_tx_from_sq+0x865/0xc20
-   siw_post_send+0xecf/0x20b0
-   ? kasan_save_track+0x14/0x30
-   ? uverbs_try_lock_object+0x51/0xa0
-   ? rdma_lookup_get_uobject+0x1ea/0x360
-   ? __pfx_siw_post_send+0x10/0x10
-   ib_uverbs_post_send+0xf28/0x1610
-   ? nbcon_get_cpu_emergency_nesting+0x5/0x30
-   ? __pfx_ib_uverbs_post_send+0x10/0x10
-   ? __pfx__raw_spin_lock_irqsave+0x10/0x10
-   ib_uverbs_write+0x899/0xd30
-   ? __pfx_ldsem_down_read+0x10/0x10
-   ? __pfx_ib_uverbs_write+0x10/0x10
-   ? _raw_spin_lock_irqsave+0x86/0xe0
-   ? __pfx__raw_spin_lock_irqsave+0x10/0x10
-   ? mutex_unlock+0x7b/0xd0
-   ? file_tty_write.isra.0+0x4f8/0x8f0
-   ? selinux_file_permission+0x373/0x540
-   vfs_write+0x227/0xcd0
-   ? do_sys_openat2+0xd1/0x170
-   ? kmem_cache_free+0xba/0x3a0
-   ? __pfx_vfs_write+0x10/0x10
-   ? __pfx_do_sys_openat2+0x10/0x10
-   ? fdget_pos+0x53/0x4b0
-   ksys_write+0x17c/0x1c0
-   ? __pfx_ksys_write+0x10/0x10
-   ? __hrtimer_rearm_deferred+0x156/0x450
-   do_syscall_64+0xdf/0x4c0
-   entry_SYSCALL_64_after_hwframe+0x77/0x7f
-  RIP: 0033:0x7f1b60d4f574
-  Code: c7 00 16 00 00 00 b8 ff ff ff ff c3 66 2e 0f 1f 84 00 00 00 00 00 f3 0f 1e fa 80 3d d5 ea 0e 00 00 74 13 b8 01 00 00 00 0f 05 <48> 3d 00 f0 ff ff 77 54 c3 0f 1f 00 55 48 89 e5 48 83 ec 20 48 89
-  RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
-  RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
-  RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
-  RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
-  R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
-  R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
-   </TASK>
-  Modules linked in:
-  ---[ end trace 0000000000000000 ]---
-  RIP: 0010:siw_qp_sq_process+0x38b/0x3c10
-  Code: 0f 85 fe 36 00 00 8b b5 8c 02 00 00 48 85 db 0f 84 15 26 00 00 48 b8 00 00 00 00 00 fc ff df 48 8d 7b 14 48 89 fa 48 c1 ea 03 <0f> b6 14 02 48 89 f8 83 e0 07 83 c0 03 38 d0 7c 08 84 d2 0f 85 d9
-  RSP: 0018:ff1100000559f860 EFLAGS: 00000203
-  RAX: dffffc0000000000 RBX: 0000414141410000 RCX: ffffffff98233fb5
-  RDX: 0000082828282002 RSI: 0000000093e50e00 RDI: 0000414141410014
-  RBP: ff11000005786000 R08: 0000000000000001 R09: 000000000000000b
-  R10: 0000000000000000 R11: 00000000c8f9259d R12: ff110000057df400
-  R13: dffffc0000000000 R14: ff1100000565a000 R15: ff1100000578628c
-  FS:  00007f1b60b7d740(0000) GS:ff110000caf2e000(0000) knlGS:0000000000000000
-  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  CR2: e000042828282002 CR3: 0000000005732000 CR4: 0000000000751ef0
-  PKRU: 55555554
+  spec_version
+  impl_id
+  impl_version
 
-The task is killed. When its files are closed on exit, uverbs warns:
+SBI v0.1 systems expose only spec_version because the implementation
+fields were introduced by the SBI Base extension in v0.2.
 
-  ------------[ cut here ]------------
-  WARNING: drivers/infiniband/core/rdma_core.c:956 at __uverbs_cleanup_ufile+0x2cc/0x390, CPU#0: siw003/116
-  Modules linked in:
-  CPU: 0 UID: 65534 PID: 116 Comm: siw003 Tainted: G      D             7.4.0-rc3-gaebb72744764 #16 PREEMPT(lazy)
-  Tainted: [D]=DIE
-  Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-  RIP: 0010:__uverbs_cleanup_ufile+0x2cc/0x390
-  Code: 00 65 48 2b 05 3d a0 a0 03 0f 85 ca 00 00 00 8b 44 24 04 48 81 c4 f8 00 00 00 5b 5d 41 5c 41 5d 41 5e 41 5f c3 cc cc cc cc 90 <0f> 0b 90 e9 3a ff ff ff 48 b8 00 00 00 00 00 fc ff df 4c 89 ea 48
-  RSP: 0018:ff1100000559fb38 EFLAGS: 00000202
-  RAX: 0000000000000001 RBX: ff1100000575b640 RCX: ffffffff981e7f19
-  RDX: 00000000ffffffff RSI: 0000000000000004 RDI: ff1100000575b640
-  RBP: dffffc0000000000 R08: 0000000000000001 R09: ffe21c0000aeb6c8
-  R10: ff1100000575b643 R11: 00000000846d9113 R12: 0000000000000001
-  R13: ff1100000575bd70 R14: ff1100000575b600 R15: ff1100000575b700
-  FS:  0000000000000000(0000) GS:ff110000cae2e000(0000) knlGS:0000000000000000
-  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  CR2: 000055859422a0b8 CR3: 0000000074c72000 CR4: 0000000000751ef0
-  PKRU: 55555554
-  Call Trace:
-   <TASK>
-   ? __pfx___uverbs_cleanup_ufile+0x10/0x10
-   ? __pfx_down_write+0x10/0x10
-   uverbs_destroy_ufile_hw+0x6d/0x260
-   ib_uverbs_close+0x46/0x270
-   __fput+0x2f8/0x9e0
-   fput_close_sync+0xe2/0x190
-   ? __pfx_fput_close_sync+0x10/0x10
-   filp_close_sync+0x18/0x30
-   put_files_struct+0x181/0x310
-   do_exit+0x6ab/0x25f0
-   ? ksys_write+0x17c/0x1c0
-   ? __pfx_do_exit+0x10/0x10
-   ? __hrtimer_rearm_deferred+0x156/0x450
-   make_task_dead+0xf2/0x2a0
-   rewind_stack_and_make_dead+0x16/0x20
-  RIP: 0033:0x7f1b60d4f574
-  Code: Unable to access opcode bytes at 0x7f1b60d4f54a.
-  RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
-  RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
-  RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
-  RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
-  R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
-  R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
-   </TASK>
-  ---[ end trace 0000000000000000 ]---
+Format impl_id as unsigned decimal to match the SBI implementation ID
+table. Expose the implementation-specific version encoding in
+hexadecimal.
 
-The exit never finishes. Thirty seconds later, sysrq-w shows the task
-blocked in siw_destroy_qp():
+This gives tools such as lssbi a native source for basic SBI identity
+information and starts moving those queries away from out-of-tree
+kernel modules.
 
-  task:siw003          state:D stack:25848 pid:116   tgid:116   ppid:93     task_flags:0x40010c flags:0x00080801
-  Call Trace:
-   <TASK>
-   __schedule+0x18da/0x4c00
-   ? __pfx___schedule+0x10/0x10
-   schedule+0x70/0x1f0
-   schedule_preempt_disabled+0x11/0x20
-   rwsem_down_write_slowpath+0x47c/0x13a0
-   ? make_task_dead+0xf2/0x2a0
-   ? __pfx_rwsem_down_write_slowpath+0x10/0x10
-   down_write+0x10b/0x130
-   ? __pfx_down_write+0x10/0x10
-   ? siw_destroy_qp+0x1a3/0x410
-   ? kfree+0x121/0x390
-   siw_destroy_qp+0x1b2/0x410
-   ? __pfx_siw_destroy_qp+0x10/0x10
-   ? __pfx___wait_for_common+0x10/0x10
-   ? complete+0x1d/0x230
-   ib_destroy_qp_user+0x30f/0x4f0
-   ? __pfx_ib_destroy_qp_user+0x10/0x10
-   ? handle_bug+0x11c/0x2a0
-   uverbs_free_qp+0x7c/0x150
-   destroy_hw_idr_uobject+0x7e/0x130
-   uverbs_destroy_uobject+0xdf/0x770
-   __uverbs_cleanup_ufile+0x18b/0x390
-   ? __pfx___uverbs_cleanup_ufile+0x10/0x10
-   ? __pfx_down_write+0x10/0x10
-   uverbs_destroy_ufile_hw+0x6d/0x260
-   ib_uverbs_close+0x46/0x270
-   __fput+0x2f8/0x9e0
-   fput_close_sync+0xe2/0x190
-   ? __pfx_fput_close_sync+0x10/0x10
-   filp_close_sync+0x18/0x30
-   put_files_struct+0x181/0x310
-   do_exit+0x6ab/0x25f0
-   ? ksys_write+0x17c/0x1c0
-   ? __pfx_do_exit+0x10/0x10
-   ? __hrtimer_rearm_deferred+0x156/0x450
-   make_task_dead+0xf2/0x2a0
-   rewind_stack_and_make_dead+0x16/0x20
-  RIP: 0033:0x7f1b60d4f574
-  RSP: 002b:00007fffd2b4e098 EFLAGS: 00000202 ORIG_RAX: 0000000000000001
-  RAX: ffffffffffffffda RBX: 000055859422a180 RCX: 00007f1b60d4f574
-  RDX: 0000000000000020 RSI: 000055859422a238 RDI: 0000000000000004
-  RBP: 000055856deca0d4 R08: 0000000000000078 R09: 0000000000000000
-  R10: 0000000000000000 R11: 0000000000000202 R12: 000055859422a180
-  R13: 00007f1b60b7d6b8 R14: 000055859422a000 R15: 000055859422a0c0
-   </TASK>
-
-Posting an unsupported atomic or SIW_OP_RECEIVE instead hits the
-WARN(1, "undefined WQE type") in siw_qp_sq_process() and leaves the
-memory region named in the SQE pinned after the process exits.
-
-No opcode from SIW_OP_FETCH_AND_ADD up is valid on a user send queue,
-so reject them all.
-
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with the same tool and reviewed
-by me.
-
-Fixes: f29dd55b0236 ("rdma/siw: queue pair methods")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+Tested-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Zhouqi Jiang <luojia@rustsbi.com>
 ---
-v2: Include the full dmesg trace, as Leon asked, with the uverbs warning
-and the blocked task that follow the oops. No code change.
-v1: https://lore.kernel.org/linux-rdma/20261120000211.63217-1-astellman@stellman-greene.com/
+Changes in v2:
+- Use unsigned decimal for impl_id and update the ABI documentation.
 
-Tested in QEMU with KASAN on v7.4-rc3. The patch applies unchanged to
-rdma for-rc. With this patch the post returns -EINVAL for REG_MR,
-INVAL_STAG, FETCH_AND_ADD and RECEIVE from a user QP, user SEND and RDMA
-WRITE still complete, and rping over siw works.
-A reproducer is available on request.
+The RFC was built with a RISC-V defconfig and boot-tested on QEMU virt
+with OpenSBI v1.3 and RustSBI v0.4.1. Conor tested it on PolarFire HSS.
 
- drivers/infiniband/sw/siw/siw_qp.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+RFC resend: https://lore.kernel.org/r/A039A2DE1DF8F274+20261119130356.1537-1-luojia@rustsbi.com
 
-diff --git a/drivers/infiniband/sw/siw/siw_qp.c b/drivers/infiniband/sw/siw/siw_qp.c
-index bb780e3904a2..10876cefc0bb 100644
---- a/drivers/infiniband/sw/siw/siw_qp.c
-+++ b/drivers/infiniband/sw/siw/siw_qp.c
-@@ -869,6 +869,12 @@ static int siw_activate_tx_from_sq(struct siw_qp *qp)
- 		rv = -EINVAL;
- 		goto out;
- 	}
-+	/* No opcode from FETCH_AND_ADD up is valid on a user SQ */
-+	if (!rdma_is_kernel_res(&qp->base_qp.res) &&
-+	    wqe->sqe.opcode >= SIW_OP_FETCH_AND_ADD) {
-+		rv = -EINVAL;
-+		goto out;
-+	}
- 	if (wqe->sqe.flags & SIW_WQE_INLINE) {
- 		if (wqe->sqe.opcode != SIW_OP_SEND &&
- 		    wqe->sqe.opcode != SIW_OP_WRITE) {
+ Documentation/ABI/testing/sysfs-firmware-sbi | 29 +++++++++++++
+ MAINTAINERS                                  |  1 +
+ arch/riscv/kernel/sbi.c                      | 62 +++++++++++++++++++++++++++-
+ 3 files changed, 91 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-sbi
 
-base-commit: e7732ec135b501e87ab060d992b3b5f2ec4396c9
--- 
-2.43.0
+diff --git a/Documentation/ABI/testing/sysfs-firmware-sbi b/Documentation/ABI/testing/sysfs-firmware-sbi
+new file mode 100644
+index 000000000000..ade66f3608ac
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-firmware-sbi
+@@ -0,0 +1,29 @@
++What:		/sys/firmware/sbi/spec_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI specification version available to Linux, formatted as two
++		unsigned decimal integers separated by a period and followed by a
++		newline. For example, SBI v0.2 is represented as "0.2".
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_id
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation ID, formatted as an unsigned decimal
++		integer followed by a newline. For example, OpenSBI is
++		represented as "1". The ID is assigned by the SBI specification.
++		This attribute is present only when SBI v0.2 or later is available.
++Users:		lssbi
++
++What:		/sys/firmware/sbi/impl_version
++Date:		August 2026
++Contact:	Linux RISC-V mailing list <linux-riscv@lists.infradead.org>
++Description:
++		The SBI implementation version, formatted as lowercase hexadecimal
++		with a 0x prefix, no leading zero padding, and a trailing newline.
++		Its encoding is specific to the SBI implementation identified by
++		impl_id. This attribute is present only when SBI v0.2 or
++		later is available.
++Users:		lssbi
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0b42e898f4d8..707afa1af1a0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23494,6 +23494,7 @@ Q:	https://patchwork.kernel.org/project/linux-riscv/list/
+ C:	irc://irc.libera.chat/riscv
+ P:	Documentation/arch/riscv/patch-acceptance.rst
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
++F:	Documentation/ABI/testing/sysfs-firmware-sbi
+ F:	arch/riscv/
+ N:	riscv
+ K:	riscv
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index c443337056ab..cb3b87f1bfdc 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/bits.h>
+ #include <linux/init.h>
++#include <linux/kobject.h>
+ #include <linux/mm.h>
+ #include <linux/pm.h>
+ #include <linux/reboot.h>
+@@ -18,6 +19,9 @@
+ unsigned long sbi_spec_version __ro_after_init = SBI_SPEC_VERSION_DEFAULT;
+ EXPORT_SYMBOL(sbi_spec_version);
+ 
++static unsigned long sbi_impl_id __ro_after_init;
++static unsigned long sbi_impl_version __ro_after_init;
++
+ static void (*__sbi_set_timer)(uint64_t stime) __ro_after_init;
+ static void (*__sbi_send_ipi)(unsigned int cpu) __ro_after_init;
+ static int (*__sbi_rfence)(int fid, const struct cpumask *cpu_mask,
+@@ -659,8 +663,10 @@ void __init sbi_init(void)
+ 		sbi_major_version(), sbi_minor_version());
+ 
+ 	if (!sbi_spec_is_0_1()) {
++		sbi_impl_id = sbi_get_firmware_id();
++		sbi_impl_version = sbi_get_firmware_version();
+ 		pr_info("SBI implementation ID=0x%lx Version=0x%lx\n",
+-			sbi_get_firmware_id(), sbi_get_firmware_version());
++			sbi_impl_id, sbi_impl_version);
+ 		if (sbi_probe_extension(SBI_EXT_TIME)) {
+ 			__sbi_set_timer = __sbi_set_timer_v02;
+ 			pr_info("SBI TIME extension detected\n");
+@@ -707,3 +713,57 @@ void __init sbi_init(void)
+ 	if (!srst_power_off)
+ 		sbi_set_power_off();
+ }
++
++static ssize_t spec_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%lu.%lu\n",
++			  sbi_major_version(), sbi_minor_version());
++}
++
++static ssize_t impl_id_show(struct kobject *kobj,
++			    struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "%lu\n", sbi_impl_id);
++}
++
++static ssize_t impl_version_show(struct kobject *kobj,
++				 struct kobj_attribute *attr, char *buf)
++{
++	return sysfs_emit(buf, "0x%lx\n", sbi_impl_version);
++}
++
++static struct kobj_attribute spec_version_attr = __ATTR_RO(spec_version);
++static struct kobj_attribute impl_id_attr = __ATTR_RO(impl_id);
++static struct kobj_attribute impl_version_attr = __ATTR_RO(impl_version);
++
++static umode_t sbi_attr_is_visible(struct kobject *kobj,
++				   struct attribute *attr, int n)
++{
++	if (sbi_spec_is_0_1() && attr != &spec_version_attr.attr)
++		return 0;
++
++	return attr->mode;
++}
++
++static struct attribute *sbi_attrs[] = {
++	&spec_version_attr.attr,
++	&impl_id_attr.attr,
++	&impl_version_attr.attr,
++	NULL,
++};
++
++static const struct attribute_group sbi_attr_group = {
++	.name = "sbi",
++	.is_visible = sbi_attr_is_visible,
++	.attrs = sbi_attrs,
++};
++
++static int __init sbi_sysfs_init(void)
++{
++	if (!firmware_kobj)
++		return -ENOMEM;
++
++	return sysfs_create_group(firmware_kobj, &sbi_attr_group);
++}
++subsys_initcall(sbi_sysfs_init);
 
+base-commit: 1b78070aaef63512688aebfbc82365ef9d6660f1
