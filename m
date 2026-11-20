@@ -1,99 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187923;
-	b=qkyahRRpGB24sEX8soPf8/uOg2/hI7LmRfEHXaarq2RVEQ703Xb7QSceZWbZxrWDxe5v
-	 ORvIno7FVJv6cSTaMAL1LacAogfX04dFw195k0byfRiwYN2wQkQcK8NAejH8hThFwALDZ
-	 Q/NOYbipVts0UslgiqFkabZ0WNhT1iJx9tealSOh48+TdT6piKtknsta0B+HRHKW0Yrei
-	 33HAlEB46ZV0EksdCwA0nyFleiS5bWAkOj+oIZPXYflkioK4f59pjUZEqO3j+UNPMpL6R
-	 nganK0A5Aiq8n7xbteFF6PMosRaQiwT5ZyAT4e4CGdTe1EiVSJ4yOQ3HQ4y0ecz7TUw==
+	t=1795187953;
+	b=4yDJGfRwEpXegbwxBhUbdG14j7NNDOhjpvs/6VslVxYcdf0t1m7cY3UxhseTWLeXjTlR
+	 fzMjiTd2mD2PNxdO37dVo/gKuukRM83uRqA3uqHt6Qje2ngZdLfCU6Me59fgv6OL30OtN
+	 V7YlH196fjagoQ+zakzK6EP+dDmbAxg+meQluQTCTUcbBXZtzwT2QFHcqULHAw0AXxuho
+	 7WHOtjfaKyp0h+jApzv+GyBNv7/NfeQAcFE8Z7bJtTTsgHxTGfDzrPqUIqdsExYxt+mVt
+	 9FGBMCY0X9g6iPiP0w60zGQwxhTJtE2WxxPp1BqbB835ld/XDR1kYb8oP4EF/rHnCIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187923;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
-	b=fJPkPFV4lbPO8PsIujK7jyRJNiBEyvnXeOuk+50EtUF6PrqGNHX2J+J9giYkO80nYGqG
-	 IDFeHF/uVrxDn7izyhDuE2oyBnqubT96jWgxn39dMhPoLpfJjMvtZ0rKi61ltN7Cl6SeK
-	 YGq9WI64tEV+1m7Uo8CCOMUo3M3CX2iPPXx070sVGvHnw3P/h4xsPEwUc0f1QZ9tGPHb7
-	 w1+S32g6Dwo0H7ZPIPMjmi4JomF+pJBEyaU89nXnEUvji1F+nDHJJJF8GnTDpviqfffq0
-	 Jx/vYz9Smv67BJkrBYs+umfPqK96AANRJwiLgLiJf5SAX7bGZQQUY5APYuNGiLiHniA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187953;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=7F4bERX0P3M8HgFONy23qpY2BHjYG6KR4ZXWBDo/tjo=;
+	b=irzQ37k4p2qo2lfgIVbTLhwcKTv43d0dT6G1gu8dD45plFkukMUEc/xZd82i0Wg59BS8
+	 LW8lxPDoMbs43MtYxnz4WiIH5j+ppa2qE/ahGys/t2H717GRshGyZNpBAFwoStinOcRkc
+	 Se97Cm+JX2Q32+JzJkHvEURiywS9RupcA4Qu1QyJttmnXFgBC0yExrYSjXt+Dm8PDvX0x
+	 D3gD++JOGUGOSr+hpudyLmcckexXY79QS6+k3/khMcHX/AXaB4ucYSqGw973QYKn6yiSz
+	 Iam88fk/N5YdOcGOC1q4GWnxBpqxbAddhHwURZzJDlB3Suo9JQ/buZGlU3RwwCAGuvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=VI5rgciH;
-	arc=none smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Beo5Hfl0;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3326E606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:18:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3326E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 111FE606A325;
+	Fri, 20 Nov 2026 15:19:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 111FE606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=VI5rgciH
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a07078200fso616470b3a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:18:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795187921; x=1795792721; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
-        b=VI5rgciH+NelPukarvxPksemY15+vM0C872yQBDjnvmYO0mEdZ1yU0qL527S10bzAB
-         lx9fhmDo+3hmYNxdGuAqyY70k49ZDtFVMK49wo/egoKCgoUNM6BUV1i1omX2YHtbQws1
-         2h18MfVyFPsqgjDlol5//H0c5aqLvZlDiWLEJZfD1h8dg4ZLbEn2iN+vk+ZCq8hMllmH
-         0GAnNvxiKMGy1Ukraq5kyAdwlcepLS2v3Mb7RmxoD/BX1bKwKtJ4ESAU/kiMrgO20Zj9
-         v1XFcP3SYyedkXfBS7coTqDIiMJz388N4BWEiwY8gRjeBUNzTbGmZ4t5P5FgctQTqwDU
-         uAiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795187921; x=1795792721;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=qAgfBb2bvJuIizWOsW8GgX2po5iAc1jJk7JX8yj2LjY=;
-        b=H2m87nha9ZuP+IUWXCibD5UHxJip3LkyOgZqxQB+a0LKf5ekI/fupd88G54ihGEuKc
-         LhWJH0oSwPNAT+tEucTT3u782z0q35KOjOIZaH4y85qfqoyreiKTkAcd5CueJzBe94Ve
-         HegoVRhFn6UxklJCUU9h8rMO6xaUMr2qHwsXbKp4xTFqP5ax4XOcna4itC4qOFGHZWTO
-         yIkoufePCpdPxFsbyKJLP+o9Kzu2Y0yhK50XzbXF9Ew6Aw05PrUmpWqoxfYU7P2fdcF7
-         3KB5p97eLbT8EkVVQ3tWgIm0Ls0zrsWQjVw2tt0yYzZw6CnCMOHxiCO8NUdJhdeSyBiq
-         cGeQ==
-X-Forwarded-Encrypted: i=1; AL+hErFbXklwAN2QpBfCXNIP+dPLDBLvKccUb87IoLIyJGf9NAjgeIMKWtHtXvQW3U/PesmJl8awDjw0LTysZjY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B2tWgtivXLtpzyShRM5pc0LjgYHBW53DK+PY5a4XiMidPzoA6
-	uZ5WkAMGQcqW3mhCyiYJHavUX20tBeAoLfG+GrgttdRLyduxtQAFC3b1Kch3ij5oe3o=
-X-Gm-Gg: AYBFou0h8vClbipPhFeCMEHYu7KMTy2KimTvIh76T+Q+KgDOCSMB775Gh0KNGBuudJz
-	xMNY9czL+gq4sDWRsBP6h54skOvzwYOG/FTvpl0EeOgAPPzEjNLdjxGiAVFcO/xcs9MpykPezvf
-	GtUfiUR8gXM6tcsStRaFsHo0VMmgySo3qHvzzEziJ7uaJ6CAWpvFr3oo1CZJHIuRQjAUE1cCC1W
-	9NS935lm9i7Lvogr5o2Q4d39noTieGC0SgUJ2Xke/p8qaqa0kP24VYC82/IWTqYFLOQwT0C0YVp
-	uclgA1LpZkq9b/gUw2jBxKGAqDVbBq/XrHCq4a8PLPtr0RLL+SkWGB9NhCP/n7JRxObML2AQ+NS
-	GdJu1R/8IlaulrvZrKX50QSNtchZn6OxYvTNGO8su2vvOwcgD9OZ2r6w/05Az1N/KR0zOk2+pCo
-	0/TRZ0G4qOSOpQ4hGK93ITVQF3sMRSd7KCMr+CQi/zy5y2Z0ZXghQ9Y18iS69PYbsXriK+NHTGA
-	HD6lfqNnBOLJzgxHyqYS7jPq8dOEQW7EebOQMjCBeDx21BDiySAYX88Wc9cSvG3MicIsOfhU3vB
-	5V2sJIgk6cmScWSrvAojzMp11E8NSanc
-X-Received: by 2002:a05:6a20:6a1b:b0:3f8:2d33:217a with SMTP id adf61e73a8af0-4014e35c5bbmr3604027637.59.1795187921441;
-        Fri, 20 Nov 2026 07:18:41 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:7124:798f:1b98:bea5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6c9c7dcbsm1534544a12.0.2026.11.20.07.18.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:18:40 -0800 (PST)
-Date: Fri, 20 Nov 2026 09:18:38 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/2] remoteproc: elf_loader: Make
- rproc_elf_load_segments() more generic
-Message-ID: <awBkzr_uxBxgeLvs@p14s>
-References: <cover.1794483181.git.u.kleine-koenig@baylibre.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Beo5Hfl0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795187952; x=1826723952;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=5M1Z5YSrDuTeo6cQzD4cmL4zm21l1WKD71AHqgBrddA=;
+  b=Beo5Hfl0NzYYiHmQi44qbSkP3O1+XNxmZCZU7rZ/fBTfoUqaJQ0OZ2pn
+   B4+YNxa5g2S8B+RGVHzuO3SpUMgnJjXcdd0tE9pqPzewczz4RpUXUzdOz
+   1a5gWGNovrsSeqk75uNx6UWsVcwGli4HkD2brE6LDze1BtLFREolP+7+R
+   FDyk5YzVFtxZ9yEhlB4fcEfY5f7N/NhTBz1FN36c8+J2o8CJeYIQ8WyvF
+   3XH8b5hevi3P8Mo1pEWSsiQJLnTU5f6ZUaeF0Tw2YdeLYz1IJhysdA9EG
+   e0gF76boxuGiYyorXQQntSIbYyYXb26TRkqtw+zKBKWGTU1Az17wWkYFj
+   A==;
+X-CSE-ConnectionGUID: j08phKH3Sri6LZhGf91GfA==
+X-CSE-MsgGUID: OXF7lbq6S7CWMSStGn6vrw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4057020"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4057020"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:19:11 -0800
+X-CSE-ConnectionGUID: LBWH3rNTSa60NjxNv7zu6g==
+X-CSE-MsgGUID: Lyrk/WzwSbecIvq+aKWInA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11296140"
+Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.123]) ([10.125.109.123])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:19:11 -0800
+Message-ID: <c5940627-54df-4ce7-86fe-f73520b61791@intel.com>
+Date: Fri, 20 Nov 2026 07:19:07 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,47 +72,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <cover.1794483181.git.u.kleine-koenig@baylibre.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] x86/virt/seamldr: Support large TDX module
+ binaries
+To: Chao Gao <chao.gao@intel.com>
+Cc: linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+ kvm@vger.kernel.org, yilun.xu@intel.com, arjan.van.de.ven@intel.com,
+ binbin.wu@linux.intel.com, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Kiryl Shutsemau <kas@kernel.org>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>
+References: <20261119074925.3933804-1-chao.gao@intel.com>
+ <20261119074925.3933804-2-chao.gao@intel.com>
+ <bed831ec-b4e8-4762-83e1-f4a72075fa9a@intel.com> <av-3OatHEGZXmWr0@intel.com>
+Content-Language: en-US
+From: Dave Hansen <dave.hansen@intel.com>
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <av-3OatHEGZXmWr0@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 12, 2026 at 12:39:49PM +0100, Uwe Kleine-König wrote:
-> Hello,
+On 11/19/26 18:58, Chao Gao wrote:
+> I tried to describe the ABI structure briefly in words, but that was not
+> clear enough. Here are the before and after data structures.
 > 
-> Changes since v3 (available at
-> https://lore.kernel.org/linux-remoteproc/cover.1793879714.git.u.kleine-koenig@baylibre.com):
-> 
->  - Improve kdoc comment for new callback describing what it is supposed
->    to do as requested by Mathieu.
-> 
-> I'm currently working on another remoteproc driver that cannot use
-> rproc_elf_load_segments() as is because the remoteproc's va isn't mapped
-> into the local CPU's memory address space in a useable way. With the new
-> callback the amount of code that must be repeated is reduced, similar to
-> how the imx_dsp driver's load routine is reduced.
-> 
-> Best regards
-> Uwe
-> 
-> Uwe Kleine-König (2):
->   remoteproc: elf_loader: Create new callback for copying segments to
->     remote cpu
->   remoteproc: imx_dsp_rproc: Implement .memcpy_tova()
-> 
->  drivers/remoteproc/imx_dsp_rproc.c         | 120 ++++++---------------
->  drivers/remoteproc/remoteproc_elf_loader.c |  64 ++++++-----
->  include/linux/remoteproc.h                 |   7 ++
->  3 files changed, 74 insertions(+), 117 deletions(-)
->
+>     Before (one 4KB page):            After (chained 4KB pages):
 
-Applied.
+How is it that the ABI supports this? How can the module tell the
+difference between a chained and non-chained one?
 
-Thanks,
-Mathieu
- 
-> 
-> base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
-> -- 
-> 2.56.0.rc1
-> 
+Why don't the data structures look like this disagram?
