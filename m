@@ -1,89 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199194;
-	b=XYrxdC1SRj03nymmI+HFqL/Hpq2L1wUuwop/hXa4dqdSFUDr/Xp8A8JzVXyiH1q/2Xob
-	 Se0UQDX/QPd6JFr2/GCZg9GizRfF2Pktz6R3n2EVdeT3Y1nxuHTlBuTvMVXam1+dH/CEp
-	 4YHxmyCz4qrBQ4Toik4t3zrkJ5AX7MKgbDeUZAYamC8OuY3PHW6FDOo1po/Jokpf0TZ0g
-	 xXvsoFGRUTadpVVHV9vuVR9AzdFULhg9xFlFPfaF0qiFsukOJ21r+N8bUs4oGDlcTZDG+
-	 tyLiClZZ01vUWhldu1caVZ6DAvKc7vUUuxqe9oVmUD1NVxMhHFnNa6thvR4+c04PTbw==
+	t=1795199214;
+	b=Hv7fldF4o8AgAcpVnLUOpSPFTc3TTzeWflP0UgYnHOhcjyIPS+z4iCUCH3UzXvnpa5/t
+	 midSbHk3GRgYgAxTLmzSRap23s3u10Tq3C1I3GP8jtpVYqlau/EK29uJ/1PCPkIm0tXeB
+	 H9+tv7RSnDrsYQjo4Mop692B/9fkkzGBkv75vwz9Mv1+U8/JZPzc7p3GpVerdtcn6xHkL
+	 Hh6T5DD6qm0NWlBbcrZzST5hN0pvsFWzkDgzVwivSewz6dcrQBhza47aUzXI4r/15CZzs
+	 vUzwkyiMrQWYMtNOeS2+lWk2eNv/qGw7wPOQ9wPqYWOBuD7kXcw2NV62TCLOnyQqRXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199194;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
-	b=JRsWWSbOOgw4C+LdZTqsRxBgbPx1UerqQzW2Iq32ZuDwenNWIA9/fQiYnOkSDF9xpa0W
-	 onwdQkR3PIsb4I89X2svvhXQUBGszsoGaMu3LIHUoAp9CC5WtAZ95rudrE1KQ4TdYvtsx
-	 Dk5g/oFzdyUkWaVm4cI1iEhJj3BbQiws+ujV0xtrrNsJjH/pC1ACe08CNrZ1p47+Yocmn
-	 dT46c0gmvQE3cth8+7J2zo/yM/TPnXIAJue0+uX0tucU1lNLQsQPrj0CQHKZgUSgeJJXl
-	 h1/ZeBFFR58lC/N2aD1G3bkEjT1axLjFS7ilvqfJXtXxvKZFBBcr5KXTZjw0+rvvWpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199214;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=19/rJLdqgzkfioz5z77MWazyV2zGFDrwOkdLp6n6ci4=;
+	b=1mzwkrPc8nhr1V2CDGXjo6l3e+F7fQtcrsVR9IVqU7lmgEY3/Rv5gJhBvz4nCQPAE9Y8
+	 960XUqfEvI6KnmCCWaT+AQJG1leisgoIyX/SZij/Ex2aYzSCWK1JfN2wjZEYxtF9MrU1T
+	 I+v9B3SoX9kyrYIwTcph/MNdvWsm0BPNGqAei5iQTR/z5jxqrDjZxDxRKh+p5lSsjgigw
+	 KWwEuOhMUq3+DHEP0/eTwI8LiCDTr3TR9NU6iuGVTZLtQn0aylh6tZspwcWcpwdOdjLmX
+	 Wgs0q5oO6d/phQUpuRxLf5QGyxUBdEnI1Tb4ELhP+cYAfridx2d8xKdAfnrZgDObLPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="a/3ha5sa";
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DFEE606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:26:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DFEE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=a/3ha5sa
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-38699cf08dfso23818eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:26:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795199193; x=1795803993; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
-        b=a/3ha5saUfvEW5Ua5HPuBbNQ1V1As+4BM/acXODn/gT96QZO5WsVwMU47R3EGbaYN8
-         AgaVEeT6V/mSy8VRWYTCW3WJ6vbjs3XIfS/nrVfUv8a2uhndA1h5cZTKC+AE+bLHAWlN
-         dLoI05Wi+YyOKZ4+Xspl9XF3dhYQDCZ3gjyLykfqzWnMtirh6NCHdoonV9OYz9M9EY9S
-         OsIqZLzny5QD+mkPwqEpKeyTC70n4TE8amHOki8mkM2PCU8GfcKhVqrbTw5cEnbQJTwN
-         SkBvrcVknPEmCXbXQ7G4wSjuQBhGJpH9/5ulrcjioJaD+ETnVrInfpZgenGBCkZDghrU
-         puqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795199193; x=1795803993;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hiyFKVpmmZxy1WJhIZ2wQOiq0flu9/jgh5TB7ONFXc4=;
-        b=n7dyP2v6ehaZjzBfw/7jEeWU1Ig+9ALvVfOCMmvPpfwdIU3jhGwyeMwg+kNuSZL7gF
-         EJClC3BwWgHfGq91Ea42JW/srj00f5cj+iEziXM7nNM2K9/uRU63Yu7C99GEFOYcfbpd
-         PiVnsHq14DZjIy9TegVfXImDjhMX36k/7N25sKpzF0QncSwwVgj1056Dw2D5TSA3WC8k
-         Ia+TcY9rL1pHhZqZJt3OwBwTPi2Qc6ALAAL0tWUYVPJVK5OGHDZKqKl7sBJBhJ3T42m9
-         k44k4FRwLs4xW/w87byRM8D++apOzDrM349rw17DxFWBxW4C1LmyZfMuTBaGDhJoinh8
-         JlqQ==
-X-Forwarded-Encrypted: i=1; AL+hErHgh/ITp9/FZHAOsLX8sVtJZQKpgXJqGDg+dKgjUnUjqTccOP5+a+GPYwNO7+1rIBpzD7wmrIVdQZwy0dM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96+Kg20l4iyBBpTekhGtEF0mh5hM3Fdob6jPNEPYxZtJeJf8Ys
-	QT8A2KGgfAS0SsfZ6yIOiTLrG8fsRsgsHZFZ696EX64HBaf0Q0RdMA/K
-X-Gm-Gg: AZFdTZdRcg5sxMqGxZYv1i+MjwRuGxRHfttvvw9Z5Kvj9xU/xHsDkYwz1Xcs+bj5dYU
-	aH1U7wWWiBDcXyfnE2mWHEXXBUeKdEUKbPvz4nzZOZcJBKFrYqCclmFyNFK58ZZ7BCKSurgxt3f
-	/E+0+dCV09griuC5H7TdCqOeQGw3d4dbGfnasSFYeDqi5YdVWEdz5HIvMKPPb/VnXnyonilIFlw
-	JYfuKWWQckuUrhLZHLryNvtTy2Bfi5hSkvlVzp/80iIXiJigr4PdFNLxWdqHTVBbcR0A5ntkJ/x
-	ql0Ff3ncbWxhcRbiih9kLfwN34Z3UQoAU2d2/uMbUpZh8/gHecNYI2uXpLPOJWbv4FujutmkJD8
-	bRKsODKE4kKwlq3PNX9GaySExyUmlSz+DuUb6NRJQjz3xM+/WhPjRwnR4jaXeDBnxAMshFpTpYP
-	zlWN9TxVlOh1E1SuxCSzeFfOfTjJhQAGx4BIZEATSqFmRQlnf47k4nPOqNlbKlRunu5Q5yxOvbm
-	GU2aBm7EFEgDxnkVPUkFcmIJ4PxOwbxbX73gyZIOoTYRwLU1UbZeeTFIvnibeXYItRrViV5rDg1
-	bk2P1c04l9soac8fMx5bOHCrBuRjH66bV5+sMLxbWgXZVNZ2j2V56Z/6jmDbFFWTO75re+j48al
-	eWJ4=
-X-Received: by 2002:a05:7300:7c08:b0:384:3123:a0cb with SMTP id 5a478bee46e88-3856ff5b880mr5515943eec.27.1795199193306;
-        Fri, 20 Nov 2026 10:26:33 -0800 (PST)
-Received: from ?IPV6:2a03:83e0:1151:15:18db:c1e7:4974:be38? ([2620:10d:c090:500::5:5388])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38577214c2dsm9144539eec.17.2026.11.20.10.26.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 10:26:32 -0800 (PST)
-Message-ID: <cf523269-53c1-4357-a628-87e25e5a6ae0@gmail.com>
-Date: Fri, 20 Nov 2026 10:26:32 -0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55748606A32A;
+	Fri, 20 Nov 2026 18:26:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55748606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id EF17E6732A; Fri, 20 Nov 2026 19:26:48 +0100 (CET)
+Date: Fri, 20 Nov 2026 19:26:48 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Viacheslav Dubeyko <slava@dubeyko.com>
+Cc: glaubitz@physik.fu-berlin.de, frank.li@vivo.com, hch@lst.de,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	vdubeyko@coreweave.com, brauner@kernel.org,
+	linux-xfs@vger.kernel.org
+Subject: Re: [PATCH v5 5/5] hfsplus: convert regular file I/O to iomap
+Message-ID: <20261120182648.GE2183@lst.de>
+References: <20261118004844.3849979-1-slava@dubeyko.com> <20261118004844.3849979-6-slava@dubeyko.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,213 +49,226 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
- TC rule
-To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
-References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
- <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
- <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
- <194e1103-0d28-45d4-986a-819955e11268@nvidia.com>
- <acd93d7c-1e91-45f4-b178-07c6afea7fe5@gmail.com>
- <0a9b34c9-32d8-4325-aaef-c358c41a9f5a@nvidia.com>
-Content-Language: en-US
-From: Mohsin Bashir <mohsin.bashr@gmail.com>
-In-Reply-To: <0a9b34c9-32d8-4325-aaef-c358c41a9f5a@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118004844.3849979-6-slava@dubeyko.com>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
+On Tue, Nov 17, 2026 at 04:48:44PM -0800, Viacheslav Dubeyko wrote:
+> Switch the HFS+ regular file data path from buffer heads and
+> blockdev_direct_IO() to iomap.
+> 
+> Add iomap.h and iomap.c with hfsplus_iomap_ops,
+> hfsplus_write_iomap_ops, hfsplus_writeback_ops and
+> hfsplus_write_dio_ops. iomap.c implements __hfsplus_iomap_begin(),
+> hfsplus_write_iomap_end(), hfsplus_iomap_cont_expand() and
+> hfsplus_writeback_range(), which are the basis of the HFS+ iomap
+> operations. Direct write completion uses the generic
+> iomap_dio_end_io() helper.
+> 
+> Implement iomap-based hfsplus_file_llseek(), hfsplus_file_read_iter()
+> and hfsplus_file_write_iter(). The volume capacity limit for writes is
+> enforced by generic_write_checks(), since s_maxbytes is already set
+> from the volume capacity.
+> 
+> Redefine hfsplus_aops as iomap-based operations for regular files.
+> As a result, hfsplus_direct_IO() is removed as a user of
+> blockdev_direct_IO(), and the LEGACY_DIRECT_IO dependency is dropped
+> from Kconfig. hfsplus_file_truncate() extends regular files by means
+> of hfsplus_iomap_cont_expand(), while other inodes still use the
+> write_begin/write_end path.
+> 
+> HFS+ does not support holes, so a write or truncate that extends a
+> file first zero-fills the range between the old end-of-file and the
+> new one by means of hfsplus_iomap_cont_expand(). Introduce
+> hfsplus_iomap_extend_size() that grows i_size, zero-fills the gap and
+> rolls back on failure, and use it in hfsplus_file_write_iter() and
+> hfsplus_setattr(). Introduce hfsplus_iomap_size_rollback() that waits
+> for in-flight direct I/O, sets i_size, truncates the page cache beyond
+> it and calls hfsplus_file_truncate() to release the blocks allocated
+> past it. It is not called when phys_size is below the new size, since
+> hfsplus_file_truncate() would zero-fill again in that case.
+> 
+> In hfsplus_file_write_iter(), roll back after the data write if fewer
+> bytes than requested were written: to the original size if nothing
+> was written, or to the current i_size after a short write. Queued
+> asynchronous direct I/O is skipped, because direct I/O beyond
+> phys_size is forced to be synchronous, so a queued request never
+> extends the file.
+> 
+> cc: Christoph Hellwig <hch@lst.de>
+> cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> cc: Yangtao Li <frank.li@vivo.com>
+> cc: linux-fsdevel@vger.kernel.org
+> Signed-off-by: Viacheslav Dubeyko <slava@dubeyko.com>
+> ---
+>  fs/hfsplus/Kconfig      |   2 +-
+>  fs/hfsplus/Makefile     |   6 +-
+>  fs/hfsplus/extents.c    |  40 +++++--
+>  fs/hfsplus/file.c       | 187 ++++++++++++++++++++++++++++-
+>  fs/hfsplus/hfsplus_fs.h |  17 +++
+>  fs/hfsplus/inode.c      | 155 ++++++++++++------------
+>  fs/hfsplus/iomap.c      | 254 ++++++++++++++++++++++++++++++++++++++++
+>  fs/hfsplus/iomap.h      |  17 +++
+>  8 files changed, 583 insertions(+), 95 deletions(-)
+>  create mode 100644 fs/hfsplus/iomap.c
+>  create mode 100644 fs/hfsplus/iomap.h
+> 
+> diff --git a/fs/hfsplus/Kconfig b/fs/hfsplus/Kconfig
+> index ca8401cb6954..b4432c64db3b 100644
+> --- a/fs/hfsplus/Kconfig
+> +++ b/fs/hfsplus/Kconfig
+> @@ -5,7 +5,7 @@ config HFSPLUS_FS
+>  	select BUFFER_HEAD
+>  	select NLS
+>  	select NLS_UTF8
+> -	select LEGACY_DIRECT_IO
+> +	select FS_IOMAP
+>  	help
+>  	  If you say Y here, you will be able to mount extended format
+>  	  Macintosh-formatted hard drive partitions with full read-write access.
+> diff --git a/fs/hfsplus/Makefile b/fs/hfsplus/Makefile
+> index 82738ce7ca4d..3ddea69a9c69 100644
+> --- a/fs/hfsplus/Makefile
+> +++ b/fs/hfsplus/Makefile
+> @@ -5,9 +5,9 @@
+>  
+>  obj-$(CONFIG_HFSPLUS_FS) += hfsplus.o
+>  
+> -hfsplus-objs := super.o options.o inode.o file.o ioctl.o extents.o catalog.o dir.o \
+> -		btree.o bnode.o brec.o bfind.o tables.o unicode.o wrapper.o bitmap.o \
+> -		part_tbl.o \
+> +hfsplus-objs := super.o options.o inode.o file.o iomap.o ioctl.o extents.o \
+> +		catalog.o dir.o btree.o bnode.o brec.o bfind.o tables.o \
+> +		unicode.o wrapper.o bitmap.o part_tbl.o \
+>  		attributes.o xattr.o xattr_user.o xattr_security.o xattr_trusted.o
+>  
+>  # KUnit tests
+> diff --git a/fs/hfsplus/extents.c b/fs/hfsplus/extents.c
+> index bb5a1508498d..0928d64684aa 100644
+> --- a/fs/hfsplus/extents.c
+> +++ b/fs/hfsplus/extents.c
+> @@ -15,6 +15,7 @@
+>  
+>  #include "hfsplus_fs.h"
+>  #include "hfsplus_raw.h"
+> +#include "iomap.h"
+>  
+>  /* Compare two extents keys, returns 0 on same, pos/neg for difference */
+>  int hfsplus_ext_cmp_key(const hfsplus_btree_key *k1,
+> @@ -610,20 +611,33 @@ void hfsplus_file_truncate(struct inode *inode)
+>  		inode->i_ino, (long long)hip->phys_size, inode->i_size);
+>  
+>  	if (inode->i_size > hip->phys_size) {
+> -		struct address_space *mapping = inode->i_mapping;
+> -		struct folio *folio;
+> -		void *fsdata = NULL;
+> -		loff_t size = inode->i_size;
+> +		if (S_ISREG(inode->i_mode)) {
+> +			res = hfsplus_iomap_cont_expand(inode, hip->phys_size,
+> +							inode->i_size);
+> +			if (res)
+> +				return;
+> +
+> +			mark_inode_dirty(inode);
+> +		} else {
+> +			struct address_space *mapping = inode->i_mapping;
+> +			struct folio *folio;
+> +			void *fsdata = NULL;
+> +
+> +			res = hfsplus_write_begin(NULL, mapping,
+> +						  inode->i_size, 0,
+> +						  &folio, &fsdata);
+> +			if (res)
+> +				return;
+> +
+> +			res = generic_write_end(NULL, mapping,
+> +						inode->i_size, 0, 0,
+> +						folio, fsdata);
+> +			if (res < 0)
+> +				return;
+> +
+> +			mark_inode_dirty(inode);
+> +		}
+>  
+> -		res = hfsplus_write_begin(NULL, mapping, size, 0,
+> -					  &folio, &fsdata);
+> -		if (res)
+> -			return;
+> -		res = generic_write_end(NULL, mapping, size, 0, 0,
+> -					folio, fsdata);
+> -		if (res < 0)
+> -			return;
+> -		mark_inode_dirty(inode);
+>  		return;
+>  	}
+>  
+> diff --git a/fs/hfsplus/file.c b/fs/hfsplus/file.c
+> index 6b14095b2aa6..f34cd80351e5 100644
+> --- a/fs/hfsplus/file.c
+> +++ b/fs/hfsplus/file.c
+> @@ -3,9 +3,11 @@
+>  #include <linux/fs.h>
+>  #include <linux/uio.h>
+>  #include <linux/mount.h>
+> +#include <linux/iomap.h>
+>  
+>  #include "hfsplus_fs.h"
+>  #include "hfsplus_raw.h"
+> +#include "iomap.h"
+>  
+>  static int hfsplus_file_open(struct inode *inode, struct file *file)
+>  {
+> @@ -14,6 +16,7 @@ static int hfsplus_file_open(struct inode *inode, struct file *file)
+>  	if (!(file->f_flags & O_LARGEFILE) && i_size_read(inode) > MAX_NON_LFS)
+>  		return -EOVERFLOW;
+>  	atomic_inc(&HFSPLUS_I(inode)->opencnt);
+> +	file->f_mode |= FMODE_CAN_ODIRECT;
+>  	return 0;
+>  }
+>  
+> @@ -113,10 +116,188 @@ int hfsplus_file_fsync(struct file *file, loff_t start, loff_t end,
+>  	return error;
+>  }
+>  
+> +/*
+> + * Fall back to buffered I/O for the tail of a write that
+> + * iomap_dio_rw() could not perform directly (unaligned tail,
+> + * or no blocks could be mapped without allocation
+> + * outside the direct path).
+> + */
 
+Here you can use up the entire 80 characters as well.
 
-On 11/20/26 10:06 AM, Mark Bloch wrote:
-> 
-> 
-> On 18/11/2026 2:52, Mohsin Bashir wrote:
->>
->>
->> On 11/17/26 2:14 PM, Mark Bloch wrote:
->>>
->>>
->>> On 17/11/2026 23:52, Mohsin Bashir wrote:
->>>>
->>>>
->>>> On 11/17/26 11:18 AM, Mark Bloch wrote:
->>>>> On 17/11/2026 5:13, Mohsin Bashir wrote:
->>>>>> From: Mohsin Bashir <hmohsin@meta.com>
->>>>>>
->>>>>> In switchdev mode, mlx5 offloads police only when other actions follow
->>>>>> it. TC needs no extra action for a police-only rule to work. The mlx5
->>>>>> driver makes every police rule forward to the post meter table, but for
->>>>>> a rate police it adds that forward only after verify_attr_actions() has
->>>>>> checked the rule, so the check rejects it. The ok result of police is
->>>>>> also handled as pipe. In TC, ok accepts the packet and ends the action
->>>>>> list, whereas mlx5 goes on with the actions after police.
->>>>>>
->>>>>> Support police as the only action of a rule. Set the forward while
->>>>>> parsing police, as is already done for police with mtu, and forward
->>>>>> an ok result to the end of the TC chains, as the driver does when it
->>>>>> offloads the gact ok action. The upcoming selftest series also relies on
->>>>>> such rules for TC offload validation.
->>>>>>
->>>>>> The patch was tested on a ConnectX-7 in switchdev mode with the command
->>>>>> below, and it was verified that the rule is offloaded and limits the
->>>>>> matching traffic to the configured rate, using the hardware drop counter.
->>>>>>
->>>>>>      tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->>>>>>        ip_proto udp dst_port 5201 \
->>>>>>        action police rate 100mbit burst 1m conform-exceed drop/ok
->>>>>>
->>>>>> Cc: Carolina Jubran <cjubran@nvidia.com>
->>>>>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
->>>>>> ---
->>>>>>     drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
->>>>>>     drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
->>>>>>     2 files changed, 5 insertions(+), 1 deletion(-)
->>>>>>
->>>>>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>>>> index 1bd1c94fb977..52295f5d644c 100644
->>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
->>>>>> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
->>>>>>                   MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
->>>>>>                 return -EOPNOTSUPP;
->>>>>>     -        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>>>>             attr->flags |= MLX5_ATTR_FLAG_MTU;
->>>>>>         } else {
->>>>>>             attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
->>>>>>             attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
->>>>>>         }
->>>>>>     +    attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>>>
->>>>> This makes every police that is the lact action pass verify_attr_actions()
->>>>> not only ok case described.
->>>>>
->>>>> what happens with:
->>>>> "police ... conform-exceed drop/pipe"
->>>>> with this not writes to FTEID_TO_REG so what happens once a packet
->>>>> reaches the port action table?
->>>>>
->>>>> also what about:
->>>>> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->>>>>        ip_proto udp dst_port 5201 \
->>>>>        action police rate 100mbit burst 1m conform-exceed drop/pipe \
->>>>>        action police rate 100mbit burst 1m conform-exceed drop/pipe
->>>>>
->>>>> won't this create a loop?
->>>>>
->>>>
->>>> Thanks for reviewing Mark.
->>>>
->>>> Ahh! I missed the loop case. I had a patch to handle pipe on the last police but I dropped it, since my testing showed the post_act table still passed the packets up. Let me respin and send pipe and jump on the last police to the end of the TC chains. Would that work in your opinion?
->>>
->>> Yes for PIPE.
->>>
->>> For JUMP, we need to check the target. tcf_action_exec() counts from
->>> the start of the action list, so even the last police can jump back
->>> to itself or an earlier action. If we can't offload that, we should
->>> probably reject it.
->>>
->>> That's how I read tcf_action_exec(), but please correct me if I'm
->>> missing something as I'm not really a tc expert.
->>>
->>>>
->>
->> Yeah, jump restarts the list. Before this patch police as the last action was rejected anyway, so I believe rejecting jump there in the respin should be okay?
->>
->>>>>> +
->>>>>>         return 0;
->>>>>>     }
->>>>>>     diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>>>> index 1d35c97aea0b..8685e41487f3 100644
->>>>>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>>>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
->>>>>> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->>>>>>             attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->>>>>>             break;
->>>>>>         case FLOW_ACTION_ACCEPT:
->>>>>> +        attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->>>>>> +        attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
->>>>>> +        break;
->>>>>>         case FLOW_ACTION_PIPE:
->>>>>>             err = set_branch_dest_ft(flow->priv, attr);
->>>>>>             if (err)
->>>>>
->>>>> This also changes rules where police is not the last action.
->>>>> The conform result defaults to ok when it is not given.
->>>>>
->>>>> action police rate 100mbit burst 1m conform-exceed drop \
->>>>>            action mirred egress redirect dev eth2
->>>>>
->>>>>
->>>>> won't with this change the conforming packets go to the tc end table
->>>>> and not to the redirect dev?
->>>>> The rule is still reported as offloaded and installs the redirect
->>>>> which can't reached now.
->>>>>
->>>>
->>>> Maybe I am missing something here, but when the conform action is not given, doesn't it default to ok? For example, if we have
->>>>     action police rate 100mbit burst 1m conform-exceed drop action drop
->>>> shouldn't conforming packets still be pushed up rather than dropped by the following action, making the action drop (or the action mirred) dead code?
->>>>
->>>
->>> Yes, agreed, the following action is dead code in software too,
->>> a separated cleanup patch maybe?
->>>
->>
->> Yeah probably.
->>
->>> What about packets that reach the rep? I don't see anything in
->>> the ACCEPT path that tells software TC the packet has already been
->>> processed. For example:
->>>
->>> tc filter add dev eth2 ingress pref 100 protocol ipv6 flower skip_sw \
->>>       ip_proto udp dst_port 5201 \
->>>       action police rate 100mbit burst 1m conform-exceed drop/ok
->>>
->>> tc filter add dev eth2 ingress pref 200 protocol ipv6 flower skip_hw \
->>>       ip_proto udp dst_port 5201 \
->>>       action drop
->>>
->>> Wouldn't a conforming packet reach software, skip the first rule and
->>> get dropped by the second, despite already being accepted in hardware?
->>>
->>> Can you test this? The existing gact ok path might have the same issue.
->>
->> Yeah, in both cases (police and gact ok) the conforming packets are pushed up, where they get dropped by the skip_hw rule. My understanding is that with existing behavior the restore doesn't happen on accept path, so sw tc takes the packet through classification again.
->>
-> 
-> Hi,
-> 
-> Sorry for the delay. I had other things to deal with and wanted to
-> go through the original internal reviews before replying.
-> 
-> I'm fine with supporting this, provided we preserve TC semantics:
-> 
-> - ok stops processing; later actions are not executed.
-> - jump executes the correct target, or we reject the offload.
-> - pipe executes the next action, or ends processing if it is last.
-> 
-> Please address the issues discussed in the next submission.
-> 
+> +static ssize_t hfsplus_fallback_buffered_write(struct kiocb *iocb,
+> +						struct iov_iter *from)
+> +{
+> +	loff_t offset = iocb->ki_pos, end;
+> +	ssize_t written;
+> +	int ret;
+> +
+> +	iocb->ki_flags &= ~IOCB_DIRECT;
 
-Hey, thanks for getting back. Please have a look at v2 here: 
-20261119040010.1405900-1-mohsin.bashr@gmail.com
+Does this need to wait for a zero i_dio_count just as it has been fixed
+in various files recently?
 
-I believe v2 addresses P1 and P3 fully. P2 needs some feedback. I reject 
-jump only if police is the last action.
+It would be kinda nice to factor all this fallback logic into a helper
+so that we have one maintained set of this logic instead of a copy in
+various file systems.
 
-I can update it to reject jump unless police is the first action and the 
-target is within the action list. That way jump always land on the same 
-action as in TC or it gets rejected. What do you think about it?
+> +	ret = iomap_dio_rw(iocb, from,
+> +			   &hfsplus_write_iomap_ops,
+> +			   &hfsplus_write_dio_ops,
+> +			   dio_flags, NULL, 0);
 
-> Mark
-> 
->>> Mark
->>
->>
-> 
+You can use up the space available:
+
+	ret = iomap_dio_rw(iocb, from, &hfsplus_write_iomap_ops,
+			&hfsplus_write_dio_ops, dio_flags, NULL, 0);
+
+> +		if (iocb->ki_pos + iov_iter_count(iter) >
+> +		    HFSPLUS_I(inode)->phys_size)
+> +			dio_flags |= IOMAP_DIO_FORCE_WAIT;
+
+Add a comment on why the wait is forced?
 
