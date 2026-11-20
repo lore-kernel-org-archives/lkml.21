@@ -1,49 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.30.148.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158287;
-	b=kGyQg0TQXJeY6uE58YX2MN8nO93J8Mf7vNRQdcDsWHvFi6z6kTOxv94ioL22YF+33xIP
-	 m7y3mPhDsolViJU3NHkqIsUXMf01NbxxlLgkHI+DJpwbBG708b/WoQxG3SFamfxGjX7tQ
-	 wwV7sEeSZdJyNEcbrCevgP92sS3mz+Wlm+TP2D/DU8HLVnHxydh68syqBER1asRXUoqe5
-	 kO7g0Ewdhmqegu4nIByzj9VFiW14LocbAASjyNfmo1YxoQrCtQ1WUuRJLst4UsEpg+g2h
-	 VqaszAZxA5TZ2N1hdaIQrMR7nyQ57eb/rls7bqXtHYzbQpZUch7E+sUnKXBW8UNvpqg==
+	t=1795158292;
+	b=n7D0sx//3xYtHg4z0Ac93V/2NWmWebE8QBbtJRU2wd+ksPbE6JT2OwBa+rCgjUyOLWBi
+	 cWQ6IncS3VoXVatRKiQf2Ktd+HPIeRLcnBw/sqE7iqQuDhGPXE6YofQ/V1mEWEyy0t8Uv
+	 PonN/6nGxrvK1AeaIM9Vv7cP7cinlRvqX9rv+5tFjpqtjcBAK965iQHtoX51Aru+ZZGEN
+	 96yMwzGHsrB44R0VRvkw9YjmFJa/fzbWC+pjiRZgLByv1Xu1AiI7+1E4d9w7Ujn8RltoM
+	 zwuBHUUTd9Ung/lV1meSNO4F+3rF1ZWvrdZU3ZAIpsGOOkrxKvgm8bo6cMSyfPEBZkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158287;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=3OAgcRg9EnbY/PPSzXn+hugpxwFSYehyNculrW0hUPM=;
-	b=hPjYIiscKuvphN75jp+MmRNvUd6Hpql2ubvFj0zBc5eSYjHQE2MUisFR4ktjJs2FBm54
-	 9pjU3wgQg//woG8tH37Ya7i90AYU4FyqhsUy9nR5EtM0ZS9bNUZITANSBDwrTOrL5PHIE
-	 lHtdyYfZSaxPDTcwNBFi2HNqBcKc5AePSC8GnBBnAfKVBC63016B0uVSZB5nhebcoGxED
-	 siWX3utTDPoux1+TQmjXeJDvu/3YWRPQYRbza03nkc43bt+0VVb8Hj4fk1/TWysJFcY7z
-	 Ir2JZMyh/U2G6pcwca815X2rdX+cOGp+EoACCRBwDEiOML9/nXlYZXhyNN4/GjHks3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158292;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Zmail-TransId:X-Mailer:Message-ID:In-Reply-To:References:Date:
+	 Mime-Version:From:To:Cc:Subject:Content-Type:X-MAIL:X-TLS:
+	 X-ENVELOPE-SENDER:X-SOURCE-IP:X-CLEAN:X-Fangmail-Anti-Spam-Filtered:
+	 X-Fangmail-MID-QID;
+	bh=Wdwxx5GH93eKF2T3s2xALcMpz827RuJ1VUwIbt8SdrY=;
+	b=zGXmBJ51LXuNUUP1mFHgzcjlUES43x9NgiWuReuApiXPGi9bhWz+6tNFWC17DBMiDGpB
+	 WE7uVd9qrTLfGHy3M/lyw3kKCZxUz0hfK2kW+7ZaOmRXP1nYIc2nD/Kvhf5qjTVrP+pOs
+	 aaQywk5hQg2aTNHAoZAGrt8Zeokh6wq+Y25SwDe71Vwh9nawUCljmK9aNnCIJMwxh95+8
+	 cjoQpNvGlIFBABO6M3CFRZQPaBY1r8ECa/WirX/9VIFBY8j6f3MN+SHhJyzKAF7zs8Sca
+	 zMDdspdlNntlOj0Fwnk0MSyJlsU4DKWBR+1AUgEwyreFgZ213gl/qfL/G0g5I3B+u6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=d4aFD2UJ;
-	arc=none smtp.remote-ip=115.124.30.100
-Received: from out30-100.freemail.mail.aliyun.com (out30-100.freemail.mail.aliyun.com [115.124.30.100])
+	dmarc=pass header.from=zte.com.cn;
+	spf=pass smtp.mailfrom=zte.com.cn;
+	dkim=pass header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=IuPfR+9E;
+	arc=none smtp.remote-ip=160.30.148.34
+Received: from mxhk.zte.com.cn (mxhk.zte.com.cn [160.30.148.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61E0D606A334;
-	Fri, 20 Nov 2026 07:04:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61E0D606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC2F9606A330;
+	Fri, 20 Nov 2026 07:04:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC2F9606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=zte.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zte.com.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=d4aFD2UJ
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795158282; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=3OAgcRg9EnbY/PPSzXn+hugpxwFSYehyNculrW0hUPM=;
-	b=d4aFD2UJIIb4eH1FRHl/28m2Ij9G+lXS//SYj4IpcacVMUunlALlrcH8OOh4RDlrJ41p0LIw+q3Pow3sRpOd9LxavhWLzBGqsd00DqjcUGzIyaQcZugmP6cUmqtP1H3igi1L29bBaaFnm2wVRJ5sKbERfZZvp5ZoKurmiKHYxY4=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=qinyuntan@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0XF5YGBo_1795158278;
-Received: from 30.178.66.186(mailfrom:qinyuntan@linux.alibaba.com fp:SMTPD_---0XF5YGBo_1795158278 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 20 Nov 2026 15:04:40 +0800
-Message-ID: <565e4075-2788-4310-8309-7739b9ee94ed@linux.alibaba.com>
-Date: Fri, 20 Nov 2026 15:04:37 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=zte.com.cn header.i=@zte.com.cn header.a=rsa-sha256 header.s=z202610 header.b=IuPfR+9E
+Received: from mse-fl2.zte.com.cn (unknown [10.5.228.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mxhk.zte.com.cn (FangMail) with ESMTPS id 4jW5tn1q7mz4yjjL;
+	Fri, 20 Nov 2026 15:04:49 +0800 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=zte.com.cn;
+	s=z202610; t=1795158289;
+	bh=4+1lyQmiJ7E7/9yDQHEf7/ul7FAGyjQEtWwm73lcZYI=;
+	h=In-Reply-To:References:Date:From:To:Cc:Subject;
+	b=IuPfR+9EzrXbn3u2TjqmaEePVwT1D0MakmVfmuw4o7NHFTCKKeH7t4CYkU7KLId4l
+	 SXZ0ntXK8dONEVqjuVVSbzurJBIqdnTl0+jo8FgC0+8SYv1B4jIb51Dlr4ZK7K5x32
+	 GZ11QQ4+My0lhkAIpnyV5IMxfE/Uyd9ciwN44Uyigm43zTPyhkCjme5ZB+o0SU7Dek
+	 QjCkOGzorZ0VDblHZ3sHsyCSXJVTEVELl8NU2H4U7Ouvr4cnAWeP5RhdzCUM0sxLDb
+	 41Ysr1JdpB1McXVf9FCOZqkImQnD8P743C3eSjKnXIBMrGdNkJpkwGCmyZJhU6DTSM
+	 b5sFDzWT+9FLg==
+Received: from szxlzmapp01.zte.com.cn ([10.5.231.85])
+	by mse-fl2.zte.com.cn with SMTP id 6AK74ZFv028056;
+	Fri, 20 Nov 2026 15:04:35 +0800 (+08)
+	(envelope-from lv.yating@zte.com.cn)
+Received: from mapi (szxl2zmapp07[null])
+	by mapi (Zmail) with MAPI id mid16;
+	Fri, 20 Nov 2026 15:04:37 +0800 (CST)
+X-Zmail-TransId: 2b096afff1055e3-354eb
+X-Mailer: Zmail v1.0
+Message-ID: <20261120150437672HnkUOWm6mhr5u-3Ha2pJQ@zte.com.cn>
+In-Reply-To: <20261120145117988UPrFJYA461pgTds3xOCwH@zte.com.cn>
+References: 20261120145117988UPrFJYA461pgTds3xOCwH@zte.com.cn
+Date: Fri, 20 Nov 2026 15:04:37 +0800 (CST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,85 +72,304 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 RESEND 0/5] mm: restore per-memcg reclaim for NONSLAB
- shrinkers under nokmem
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: hannes@cmpxchg.org, mhocko@kernel.org, roman.gushchin@linux.dev,
- shakeel.butt@linux.dev, muchun.song@linux.dev, mkoutny@suse.com,
- david@kernel.org, ziy@nvidia.com, baolin.wang@linux.alibaba.com,
- usama.arif@linux.dev, david@fromorbit.com, qi.zheng@linux.dev,
- yosry@kernel.org, nphamcs@gmail.com, chengming.zhou@linux.dev,
- xlpang@linux.alibaba.com, ryncsn@gmail.com, gourry@gourry.net,
- cgroups@vger.kernel.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20261105092233.3558950-1-qinyuntan@linux.alibaba.com>
- <20261109215053.85df5685da951ab47ef858f1@linux-foundation.org>
-From: Qinyun Tan <qinyuntan@linux.alibaba.com>
-In-Reply-To: <20261109215053.85df5685da951ab47ef858f1@linux-foundation.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+From: <lv.yating@zte.com.cn>
+To: <lv.yating@zte.com.cn>
+Cc: <pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+        <rdunlap@infradead.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <liu.qingtao2@zte.com.cn>,
+        <he.yilin@zte.com.cn>, <ye.zhihao1@zte.com.cn>,
+        <zhang.cheng35@zte.com.cn>, <hu.shengming@zte.com.cn>,
+        <linux-doc@vger.kernel.org>
+Subject: =?UTF-8?B?W1BBVENIIHYyIDIvMl0gcmlzY3Y6IGh3cHJvYmU6IEFkZCBMZWFwUmlzZSB2ZW5kb3IgZXh0ZW5zaW9uCiBmcmFtZXdvcmsgc3VwcG9ydA==?=
+Content-Type: text/plain;
+	charset="UTF-8"
+X-MAIL:mse-fl2.zte.com.cn 6AK74ZFv028056
+X-TLS: YES
+X-ENVELOPE-SENDER: lv.yating@zte.com.cn
+X-SOURCE-IP: 10.5.228.133 unknown Fri, 20 Nov 2026 15:04:49 +0800
+X-CLEAN: YES
+X-Fangmail-Anti-Spam-Filtered: true
+X-Fangmail-MID-QID: 6AFFF111.000/4jW5tn1q7mz4yjjL
 
+From: Lv Yating <lv.yating@zte.com.cn>
 
-On 11/10/26 1:50 PM, Andrew Morton wrote:
-> On Thu,  5 Nov 2026 17:22:28 +0800 Qinyun Tan <qinyuntan@linux.alibaba.com> wrote:
-> 
->> With cgroup.memory=nokmem, the THP deferred split shrinker and the
->> zswap shrinker are degraded in two ways.
->>
->> First, both shrinkers are missing the SHRINKER_NONSLAB flag, so
->> shrinker_memcg_alloc() demotes them to non-memcg-aware shrinkers:
->> limit-induced reclaim of a cgroup neither splits its partially
->> unmapped THPs nor writes back its zswapped pages.  v1 of this series
->> [1] restored the flag to fix that.
->>
->> However, as Sashiko's review of v1 pointed out [2], the flag alone
->> is not enough.  __list_lru_init() also collapses every list_lru into
->> per-node lists under nokmem, so even with the flag restored, the
->> objects of all cgroups share one list per node: the per-memcg
->> shrinker bit is only set for whichever memcg happens to repopulate
->> the empty list, so pressure in other cgroups may not even trigger
->> the scan, and when it does, the scan walks everyone's objects.
-> 
-> Thanks.  Sashiko still has significant-sounding things to say:
-> 
-> 	https://sashiko.dev/#/patchset/20261105092233.3558950-1-qinyuntan@linux.alibaba.com
-> 
-> It also says "failed" for reasons I don't understand and it doesn't
-> seem to have emailed anyone.  Please check it out?
+Add RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0 (key 17) and the
+supporting vendor extension framework entries for Beijing LeapRise
+Technology Co., Ltd.
 
+The key is recognized by riscv_hwprobe() and reports an empty
+bitmask for now: no LeapRise vendor extensions are defined yet.
+Recognizing the key allows userspace to distinguish a kernel that
+supports LeapRise vendor extension probing (empty bitmask) from an
+older kernel that does not know the key at all (key set to -1), so
+LeapRise userspace libraries can be prepared ahead of the first
+hardware shipping vendor extensions.
 
-Hi Andrew,
+Follow-up patches will register extensions as they are defined.
 
-Sorry it's taken me this long to get back to you. I've had a very busy
-couple of weeks.
+Signed-off-by: Lv Yating <lv.yating@zte.com.cn>
+---
+ Documentation/arch/riscv/hwprobe.rst          |  4 ++++
+ arch/riscv/Kconfig.vendor                     | 14 +++++++++++++
+ arch/riscv/include/asm/hwprobe.h              |  3 ++-
+ .../include/asm/vendor_extensions/leaprise.h  | 17 ++++++++++++++++
+ .../asm/vendor_extensions/leaprise_hwprobe.h  | 20 +++++++++++++++++++
+ arch/riscv/include/uapi/asm/hwprobe.h         |  1 +
+ arch/riscv/include/uapi/asm/vendor/leaprise.h |  3 +++
+ arch/riscv/kernel/sys_hwprobe.c               |  4 ++++
+ arch/riscv/kernel/vendor_extensions.c         | 10 ++++++++++
+ arch/riscv/kernel/vendor_extensions/Makefile  |  2 ++
+ .../riscv/kernel/vendor_extensions/leaprise.c | 12 +++++++++++
+ .../vendor_extensions/leaprise_hwprobe.c      | 19 ++++++++++++++++++
+ 12 files changed, 108 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/leaprise.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/leaprise_hwprobe.h
+ create mode 100644 arch/riscv/include/uapi/asm/vendor/leaprise.h
+ create mode 100644 arch/riscv/kernel/vendor_extensions/leaprise.c
+ create mode 100644 arch/riscv/kernel/vendor_extensions/leaprise_hwprobe.c
 
-Thanks for pointing me to the report. I looked into the two issues
-Sashiko flagged in patch 2/5.
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index 8454a6ae6fd1..336a2c5b05d9 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -431,3 +431,7 @@ The following keys are defined:
+   * :c:macro:`RISCV_HWPROBE_EXT_ZIC64B`: The Zic64b extension is supported,
+     as defined in the RISC-V Profiles specification starting from commit
+     b1d80660 ("Updated to ratified state.")
++
++* :c:macro:`RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0`: A bitmask containing the
++  leaprise vendor extensions that are compatible with the
++  :c:macro:`RISCV_HWPROBE_BASE_BEHAVIOR_IMA`: base system behavior.
+diff --git a/arch/riscv/Kconfig.vendor b/arch/riscv/Kconfig.vendor
+index 3c1f92e406c3..03af8bc0f903 100644
+--- a/arch/riscv/Kconfig.vendor
++++ b/arch/riscv/Kconfig.vendor
+@@ -16,6 +16,20 @@ config RISCV_ISA_VENDOR_EXT_ANDES
+ 	  If you don't know what to do here, say Y.
+ endmenu
 
-Sashiko pointed out that mem_cgroup_id() identifies the cgroup
-directory. We reproduced the ID collision on v4: after disabling and
-re-enabling the memory controller on the same cgroup, the old and new
-memcgs had the same mem_cgroup_id(). Once the new memcg has its own
-LRU list, a lookup for the old memcg can therefore find the new list.
++menu "LeapRise"
++config RISCV_ISA_VENDOR_EXT_LEAPRISE
++	bool "LeapRise vendor extension support"
++	select RISCV_ISA_VENDOR_EXT
++	default y
++	help
++	  Say N here to disable detection of and support for all LeapRise vendor
++	  extensions. Without this option enabled, LeapRise vendor extensions
++	  will not be detected at boot and their presence not reported to
++	  userspace.
++
++	  If you don't know what to do here, say Y.
++endmenu
++
+ menu "MIPS"
+ config RISCV_ISA_VENDOR_EXT_MIPS
+ 	bool "MIPS vendor extension support"
+diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
+index 9b04377c0f98..e37e5a8afbb4 100644
+--- a/arch/riscv/include/asm/hwprobe.h
++++ b/arch/riscv/include/asm/hwprobe.h
+@@ -8,7 +8,7 @@
 
-I think memcg->css.id would be a better fit for the list_lru index.
-Each per-memcg list belongs to a particular memory CSS, and its ID can
-only be reused after the last reference to that CSS is dropped and an
-RCU grace period has elapsed. That keeps the indices distinct for as
-long as the old CSS can still be accessed.
+ #include <uapi/asm/hwprobe.h>
 
-The second finding is the same race that Shakeel's patch [1] addresses.
-It predates this series: a folio can move to the root memcg between
-the two lookups in folio_memcg_list_lru_alloc(). Shakeel's patch
-rechecks whether allocation is needed after taking the memcg reference.
-That also prevents the unnecessary allocation at index 0 that Sashiko
-flagged in v4.
+-#define RISCV_HWPROBE_MAX_KEY		16
++#define RISCV_HWPROBE_MAX_KEY		17
 
-Does using the CSS ID for the list_lru index sound reasonable? I'd be
-happy to incorporate any suggestions and send a v5.
+ static inline bool riscv_hwprobe_key_is_valid(__s64 key)
+ {
+@@ -25,6 +25,7 @@ static inline bool hwprobe_key_is_bitmask(__s64 key)
+ 	case RISCV_HWPROBE_KEY_VENDOR_EXT_THEAD_0:
+ 	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
+ 	case RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0:
++	case RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0:
+ 		return true;
+ 	}
 
-Best regards,
-Qinyun Tan
+diff --git a/arch/riscv/include/asm/vendor_extensions/leaprise.h b/arch/riscv/include/asm/vendor_extensions/leaprise.h
+new file mode 100644
+index 000000000000..0d4ab8f03983
+--- /dev/null
++++ b/arch/riscv/include/asm/vendor_extensions/leaprise.h
+@@ -0,0 +1,17 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_LEAPRISE_H
++#define _ASM_RISCV_VENDOR_EXTENSIONS_LEAPRISE_H
++
++#include <asm/vendor_extensions.h>
++#include <linux/types.h>
++
++/*
++ * Extension keys should be strictly less than max.
++ * It is safe to increment this when necessary.
++ */
++#define RISCV_ISA_VENDOR_EXT_MAX_LEAPRISE			32
++
++extern struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_leaprise;
++
++#endif
+diff --git a/arch/riscv/include/asm/vendor_extensions/leaprise_hwprobe.h b/arch/riscv/include/asm/vendor_extensions/leaprise_hwprobe.h
+new file mode 100644
+index 000000000000..980402df0095
+--- /dev/null
++++ b/arch/riscv/include/asm/vendor_extensions/leaprise_hwprobe.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _ASM_RISCV_VENDOR_EXTENSIONS_LEAPRISE_HWPROBE_H
++#define _ASM_RISCV_VENDOR_EXTENSIONS_LEAPRISE_HWPROBE_H
++
++#include <linux/cpumask.h>
++
++#include <uapi/asm/hwprobe.h>
++
++#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_LEAPRISE
++void hwprobe_isa_vendor_ext_leaprise_0(struct riscv_hwprobe *pair, const struct cpumask *cpus);
++#else
++static inline void hwprobe_isa_vendor_ext_leaprise_0(struct riscv_hwprobe *pair,
++						   const struct cpumask *cpus)
++{
++	pair->value = 0;
++}
++#endif
++
++#endif
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 9a121ee3b436..6907ca4648ef 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -124,6 +124,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZA64RS	_BITULL(5)
+ #define		RISCV_HWPROBE_EXT_B		_BITULL(6)
+ #define		RISCV_HWPROBE_EXT_ZIC64B	_BITULL(7)
++#define RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0	17
 
-[1] https://lore.kernel.org/linux-mm/20261112061231.2469026-1-shakeel.butt@linux.dev/
+ /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
+
+diff --git a/arch/riscv/include/uapi/asm/vendor/leaprise.h b/arch/riscv/include/uapi/asm/vendor/leaprise.h
+new file mode 100644
+index 000000000000..9ee13f1ca559
+--- /dev/null
++++ b/arch/riscv/include/uapi/asm/vendor/leaprise.h
+@@ -0,0 +1,3 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++
++/* LeapRise vendor extensions: none defined yet */
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index cd7cf272e6e1..e60facabdd86 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -15,6 +15,7 @@
+ #include <asm/uaccess.h>
+ #include <asm/unistd.h>
+ #include <asm/vector.h>
++#include <asm/vendor_extensions/leaprise_hwprobe.h>
+ #include <asm/vendor_extensions/mips_hwprobe.h>
+ #include <asm/vendor_extensions/sifive_hwprobe.h>
+ #include <asm/vendor_extensions/thead_hwprobe.h>
+@@ -364,6 +365,9 @@ static void hwprobe_one_pair(struct riscv_hwprobe *pair,
+ 	case RISCV_HWPROBE_KEY_VENDOR_EXT_MIPS_0:
+ 		hwprobe_isa_vendor_ext_mips_0(pair, cpus);
+ 		break;
++	case RISCV_HWPROBE_KEY_VENDOR_EXT_LEAPRISE_0:
++		hwprobe_isa_vendor_ext_leaprise_0(pair, cpus);
++		break;
+
+ 	/*
+ 	 * For forward compatibility, unknown keys don't fail the whole
+diff --git a/arch/riscv/kernel/vendor_extensions.c b/arch/riscv/kernel/vendor_extensions.c
+index bb4a75923685..e7372194096e 100644
+--- a/arch/riscv/kernel/vendor_extensions.c
++++ b/arch/riscv/kernel/vendor_extensions.c
+@@ -6,6 +6,7 @@
+ #include <asm/vendorid_list.h>
+ #include <asm/vendor_extensions.h>
+ #include <asm/vendor_extensions/andes.h>
++#include <asm/vendor_extensions/leaprise.h>
+ #include <asm/vendor_extensions/mips.h>
+ #include <asm/vendor_extensions/sifive.h>
+ #include <asm/vendor_extensions/thead.h>
+@@ -17,6 +18,9 @@ struct riscv_isa_vendor_ext_data_list *riscv_isa_vendor_ext_list[] = {
+ #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_ANDES
+ 	&riscv_isa_vendor_ext_list_andes,
+ #endif
++#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_LEAPRISE
++	&riscv_isa_vendor_ext_list_leaprise,
++#endif
+ #ifdef CONFIG_RISCV_ISA_VENDOR_EXT_MIPS
+ 	&riscv_isa_vendor_ext_list_mips,
+ #endif
+@@ -53,6 +57,12 @@ bool __riscv_isa_vendor_extension_available(int cpu, unsigned long vendor, unsig
+ 		cpu_bmap = riscv_isa_vendor_ext_list_andes.per_hart_isa_bitmap;
+ 		break;
+ 	#endif
++	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_LEAPRISE
++	case LEAPRISE_VENDOR_ID:
++		bmap = &riscv_isa_vendor_ext_list_leaprise.all_harts_isa_bitmap;
++		cpu_bmap = riscv_isa_vendor_ext_list_leaprise.per_hart_isa_bitmap;
++		break;
++	#endif
+ 	#ifdef CONFIG_RISCV_ISA_VENDOR_EXT_MIPS
+ 	case MIPS_VENDOR_ID:
+ 		bmap = &riscv_isa_vendor_ext_list_mips.all_harts_isa_bitmap;
+diff --git a/arch/riscv/kernel/vendor_extensions/Makefile b/arch/riscv/kernel/vendor_extensions/Makefile
+index bf116c82b6bd..1f76fd4050c7 100644
+--- a/arch/riscv/kernel/vendor_extensions/Makefile
++++ b/arch/riscv/kernel/vendor_extensions/Makefile
+@@ -1,6 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+
+ obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_ANDES)	+= andes.o
++obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_LEAPRISE)	+= leaprise.o
++obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_LEAPRISE)	+= leaprise_hwprobe.o
+ obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips.o
+ obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_MIPS)  	+= mips_hwprobe.o
+ obj-$(CONFIG_RISCV_ISA_VENDOR_EXT_SIFIVE)	+= sifive.o
+diff --git a/arch/riscv/kernel/vendor_extensions/leaprise.c b/arch/riscv/kernel/vendor_extensions/leaprise.c
+new file mode 100644
+index 000000000000..bdc2eed288ba
+--- /dev/null
++++ b/arch/riscv/kernel/vendor_extensions/leaprise.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <asm/cpufeature.h>
++#include <asm/vendor_extensions.h>
++#include <asm/vendor_extensions/leaprise.h>
++
++/* LeapRise vendor extensions: none defined yet */
++
++struct riscv_isa_vendor_ext_data_list riscv_isa_vendor_ext_list_leaprise = {
++	.ext_data_count = 0,
++	.ext_data = NULL,
++};
+diff --git a/arch/riscv/kernel/vendor_extensions/leaprise_hwprobe.c b/arch/riscv/kernel/vendor_extensions/leaprise_hwprobe.c
+new file mode 100644
+index 000000000000..260a2b38e4d6
+--- /dev/null
++++ b/arch/riscv/kernel/vendor_extensions/leaprise_hwprobe.c
+@@ -0,0 +1,19 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <asm/vendor_extensions.h>
++#include <asm/vendor_extensions/leaprise.h>
++#include <asm/vendor_extensions/leaprise_hwprobe.h>
++#include <asm/vendor_extensions/vendor_hwprobe.h>
++
++#include <linux/cpumask.h>
++#include <linux/types.h>
++
++#include <uapi/asm/hwprobe.h>
++#include <uapi/asm/vendor/leaprise.h>
++
++void hwprobe_isa_vendor_ext_leaprise_0(struct riscv_hwprobe *pair,
++				   const struct cpumask *cpus)
++{
++	/* No LeapRise vendor extensions are defined yet. */
++	pair->value = 0;
++}
+-- 
+2.27.0
