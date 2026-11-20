@@ -1,74 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795211510;
-	b=mPxpbhPp2FsOHOorQr9Votvg/Km40dL1HnZuuCK+ij9N2Z6TPkFGLVPOdPJJ9FNX0+ku
-	 CqC9WHGKudSTKVpURMCcuumRR3RAQZ9A3MPSYyOFz3gljAjcgWdCIcYNnLWz5ZQAZvcOq
-	 fZVxTLgaPNODd9AXs9OK7qDGLgyk21tXFYWZZjNAU+2lL5d9eLp/C0jXKOKeHP7c+Y3KK
-	 z/gtGmtvSETk4HCkWUlj21RNBzS38c2tgy5xAQOiojGzj7/xt2GMUnsHsaE4qELm8WsIY
-	 +nIEdHrTSBCIWXY4WiYgUpipY48390cqrjN85xfA6FY3ALW/gEy4AK48b7FE94U0Orw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211510;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=vb0BtL0SwPfR29AbCMJeyoaWqzNe8n8+/BbGnf3liw8=;
-	b=ZSe7V1jNdpZGIF+7vH9dJoznrshd/UImeeljI4GE6Tem5WIgmDd//Vd0pVPegPtLNMYL
-	 jeQjeEF1v57wm7XCFCMOeFMcyDs8Grt5Hs2VC+EtjLoJNQuyZZlzTZismxrg7Nw3vphEe
-	 3O1RxwwVMFfFGxASmhCTUEVArhikorRaBMjurEwY6s/8bO2b4woMU67tFW4zjY/CYAY0p
-	 zhIF/GFtr6ekLEyvy5nQlqDlJj5TdtMrWMMRkFpU595e2X4oxtZ08oXIfuqKiYeAs3RdQ
-	 tGe2f81fQw0hrfu9HwI33AsQUmr7Q9E/uelzdVSFpptXzC95uuWbqpo62O0X5FD4z6g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lCMP2b9Q;
-	arc=none smtp.remote-ip=198.175.65.14
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795211517;
+	b=KQL2ckaz3/j87PgGfgWg/vKx2Z3VDyenYLCv6ps+Pvbr7PiTa7Fic/h6UZvbQMgdUH03
+	 o6FBbfFBsZlNP1SS1VJrB/uixuzjcUy23BjDDql3fWDiPLxqLz0EsKqt+wrZBJxmqt8fQ
+	 2jurwQFeVXYTiI/7RYTOQXZwQ5K9RRldA5dTQREV/ktc8zKZ2SYmRFTwJmEkBxD9gk7LE
+	 y87meyb2GWmYo2eUs2F+wlwft3tjT+Kfud81O8eumWeCoVhU8mUuPl/8dmqpRQ7uMpbxZ
+	 cMpgM612s1URftl9ZBLkrJs464dhfvR1qSKQe/vCtwEpmTZ2OzmfX39g+fwD75TgVow==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211517;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=QXn3BxyfcaTRVPKnRds+vZOyXItuUDy8pAU3lM3mH/k=;
+	b=XKfBLXX88q8bz+foE9UM09+Q6tVYb3VU3WvGwuVKZQyIhKFXH57wXQ2fE0WiNTa3Gne9
+	 2paEXDGVSP4VJvCVP9o5YbbubtoYk65A/A0op0rD5IYKcGaVOFxySRFYXhEwZUMgKcb8i
+	 1qK/nAGCOJq0jgaGBBYsNUCc66No48oy3BC1WKjBdMOpZfTxq4pWvknQsB5LWpX1ZC/dW
+	 lCBo0g+5rGLdrFMruD+ZZihTiLsVfcngVmzWeGSFlngczrh2Bc/BU2j1LmKRIk2tIDAWl
+	 5crKFRTDScRQ1O/sc4ZASn+4eCsl4CHcDcqAiNo1/9CnDUJ00tVItCZplgNscmPH8QA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=AgPu5J62;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.177
+Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AEC9606A6B6;
-	Fri, 20 Nov 2026 21:51:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AEC9606A6B6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 81634606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:51:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81634606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=lCMP2b9Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795211508; x=1826747508;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=BSy9VGRSNIwqBEbRYwLTCL5barbmZqz/wRpxdNRBijs=;
-  b=lCMP2b9Qxag15Rwwq/Twx2vyMHMZpuzDRaRubtqrjiHBnU1i6y4jxhbh
-   rnYC8r0h5BDhVOK0dxHA9E86uV1oJDDs0tWl8NItJ+/0xMWhTFXyRHnli
-   tEG/+QH3wf7iSFI6ANvCpUWpvcSv7ZxfwbvQlGV5SBXNj/ug31efhCMWZ
-   HGQyQQZfEwJKu7xNQ2HDmTnwBE2s4R30M898l4nm+BsPrb7aB2/9r6bbe
-   1g1zpyPbFgZNJcVkspDPNyNXjPhYfHuEMmfNeNJQyIuVREeXGeicgxpEL
-   f7ckQjFXAFWxMCaRX8NuIUDdgPBB2cLTdzfJlVS8c+Kacv7XGpOGazwIe
-   g==;
-X-CSE-ConnectionGUID: zRne1lBvQoenms+bpjyfsQ==
-X-CSE-MsgGUID: DEEJKLWdTp+5jaW3SAqTqw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3988988"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3988988"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:51:47 -0800
-X-CSE-ConnectionGUID: yi0fD+64SXaM/L/OYLziGQ==
-X-CSE-MsgGUID: e4z9353ITQSEpBwhCh+aIA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11009868"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:50:11 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Fri, 20 Nov 2026 23:50:08 +0200 (EET)
-To: Ondrej Zary <linux@zary.sk>, Hans de Goede <hansg@kernel.org>, 
-    Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-cc: platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] Introduce Synology NAS x86 platform driver
-In-Reply-To: <20261120214014.4188702-1-linux@zary.sk>
-Message-ID: <b3be68b5-b363-85bb-513a-733ab31cf1b7@linux.intel.com>
-References: <20261120214014.4188702-1-linux@zary.sk>
+	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=AgPu5J62
+Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cde5a7d7849so674976a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:51:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795211514; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SK4yNdmhQtMUBb/uYteE0XdgeEOW3zOmAQeZO6PuS/sLIXc1V27byFnX3anMWsBlJZ
+         5jevpbvz7wS+Q+TKbj6N5hPjxdrYP3LKjxNU8CQAfm7xPOGApEPRHgHrnaQ7uh333QCl
+         4FK+MslrOmQRDAAU95y3sO2yNi+d7HKAwkdYRyJAKdjfa+v/z6cFxfvJ9fEDQNfZqqaO
+         f5dpOjxcY/P8Wh6yaXng/rofNrDLjsRlE+aJeYB4E9hNMLYvXne1JTncDwCDtCQVMJNi
+         R2CrbBFmh2ynXLMK8GZBIC8HFOELYlW+hw5SbcnPAh/3pTpEXdOuKjWysvnIAtTHJgxH
+         GE7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QXn3BxyfcaTRVPKnRds+vZOyXItuUDy8pAU3lM3mH/k=;
+        fh=CxopVGBeivC3+4s3lNFpwTvLWgYCeY/YCHCpRfqFAE8=;
+        b=ELuLOeuTFMZMKNDiKp1RxqnTJCDYKurJY+tConGYZxWyw6UAyvHmiM37Hj/tJGrxsC
+         rMupKp1c1GkklaZUALwdlHgdYFVCKfKducjCeviKPvw8P62KQmlXTXHC1IdRi5KJejdu
+         FqueKuWXQiE+6HpB72NGa5hdb91j5/pZx89BVeBNpwWdI1Q6laVX9s0DHIC9oAWDJpJj
+         EzvcW0TTOdzItEwHrU+ggkHfqtHXh2OLGk1DN036PRzHm3A/HH/2DrNamVTdszoVxiHh
+         9+H4gDcKZTe2eb5O8dkd36hFV4m9K3BNr0/ijFGsWawlID9TGDRiXd0qVjdsyszkZCHv
+         t3ug==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=paul-moore.com; s=google; t=1795211514; x=1795816314; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QXn3BxyfcaTRVPKnRds+vZOyXItuUDy8pAU3lM3mH/k=;
+        b=AgPu5J62QchcMUFXnKGeHGbhznBH6/4T7KsyEkUOY27M7C4mEFFSzy3D0ukukqTs+v
+         UdDLQh9qODUhqfGqFsRY3RqFnN8uTMHP1xeNP3cvDMwmgCPX4Mh9/RW5fC4sFN8V0uTn
+         rU7AJPDQYLS821tOzruzDeD6nTadcmIZcqcMg8/4CMjmseE7wxWIgYPV4emZX9th4PF/
+         eW1doKHM0VaUDJeBjIj5UGavF+VbJvuhjne7xwCi5+CvJ9jFe4lnge6932l/u3shVWyB
+         WP2/riBG8FPPVN5srrNlbcNZ/Er2N1sDRsJb8wvAsxiv4vGiQ3YH3XA0C+ow9fDDXmBH
+         jbfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795211514; x=1795816314;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QXn3BxyfcaTRVPKnRds+vZOyXItuUDy8pAU3lM3mH/k=;
+        b=BU1zpWQ3NxGOONjVNiDLHNe1RR/bTlDaet4ybeHIyVZqQP/0hf6NmXBUE7kWjWvjh8
+         wpYzM8cPwVtyTjFIJ7cu+oSnjruIWa/4NfQO7NHg93A55bTqYe/bIpjpV9Sq1EDXV68V
+         mUbMP7mNdhqT6UtJ7gdzQ9zbg+Yrb0214I7fJ+nmx8CrSFhZm5uSyXj3zE3+aRR/BqvR
+         togfWHROdmfR1V3I4vmXQZPRVky8/u5TKqHKGulfFND1GGsbwZ7Gd7SAP4e3mdcxS7zG
+         vnu6xWAwSBOH1sqDhlBefrUVWYYLolJBZ7H7quSD7q3oKHa5q17v2HEpuzKfkcMruCx9
+         F57w==
+X-Forwarded-Encrypted: i=1; AL+hErEE5UyE0Ai1cjdJw+xffLZCpXHHkTwyUodYgOIZq79hNV3upuJL4pm6NU43Hs7fvSoG4t3CXtjS7R6H+fw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/RHJOopluqG8X2JO1y2nsLmGYc4vN2fepNfY0PlbAWXmjYDY60
+	MssFifKTdzHpfvAxS3hdN5wHa3s3Fk28Nc5xe2CPHOLHYUGlZHhYfdfQnyExetxXLh23K+cRRE6
+	s7OBAqW11lhnBjV89FU/tPg8unrcfqzaTkmXDrnHv
+X-Gm-Gg: AZFdTZcjK4dxy3HnpOdpq3RFSwilblBRu+SX/DIe3rfuo1jn5+lLSDXYj5xCwlUEQVA
+	/S6QWMG3vs+on3Op/uFvRgOtdEr+91DIitv7SfbXm+YvIsFN+gx761CnM8IxRJZhG8dBlPkhi6F
+	tW1azwTT1MAijtWc+d5ebPDvYlyd7tj3aaX9Dx3cv7aZmMGL1/DXJlwDqA4irgkV6zT5Es9cm8V
+	SlWRzW+7uThWMZfqapUIaMiaG4WG9zv/GzmHEPBj7oEgyswCYL6tlhD+7zXRanovp0xrrG9N1RU
+	hYuMhXM1WVYFTKugreS87hkiPUwftVPSl8xpwk07cJH4P3tPYUibNjmVHJH2D2KPXIC5hxFmUKk
+	Q3/WbOxTNGxYi1mjgZ7WfBCTESp0S/nd2hEpof3aIT5x4WQNYIlXjlrdu5GLaBal81GTj
+X-Received: by 2002:a17:90b:4d86:b0:3ac:7c52:faeb with SMTP id
+ 98e67ed59e1d1-3b41c93b0dfmr4530278a91.41.1795211513818; Fri, 20 Nov 2026
+ 13:51:53 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,219 +104,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+References: <20261115144508.71543-1-jiayuan.chen@linux.dev> <cbaa372f-6ec1-4ceb-a012-30eaac5ae8eb@redhat.com>
+In-Reply-To: <cbaa372f-6ec1-4ceb-a012-30eaac5ae8eb@redhat.com>
+From: Paul Moore <paul@paul-moore.com>
+Date: Fri, 20 Nov 2026 16:51:42 -0500
+X-Gm-Features: AclHuK_GGiWFUVKZSpr8dYR-2FHgC-uowX04GimNX21-i66RpifdzgYCCqwHyG8
+Message-ID: <CAHC9VhTBf7wHMsneqUTT0p3pABkbD0GHuTJXFehKhA10NvWgxQ@mail.gmail.com>
+Subject: Re: [PATCH net] ipv6, calipso: fix data-race in calipso_cache_add()
+ bucketsize check
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, Huw Davies <huw@codeweavers.com>, 
+	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, 20 Nov 2026, Ondrej Zary wrote:
+On Tue, Nov 17, 2026 at 7:26=E2=80=AFAM Paolo Abeni <pabeni@redhat.com> wro=
+te:
+> On 11/15/26 15:45, Jiayuan Chen wrote:
+> > Issue found by sashiko when reviewing my data-races patch [1]. This is
+> > not a plain READ_ONCE() annotation like the rest of that series but a
+> > real fix, so it is sent separately.
+> >
+> > calipso_cache_add() reads calipso_cache_bucketsize twice: the "<=3D 0"
+> > guard on entry, then the "size < bucketsize" test after taking the
+> > bucket lock. A writer can flip it to 0 in between:
+> >
+> >    CPU0                                    CPU1
+> >    calipso_cache_add()
+> >      calipso_cache_bucketsize =3D=3D 10 (> 0)
+> >                                            proc_dointvec()
+> >                                              calipso_cache_bucketsize =
+=3D 0
+> >      spin_lock_bh(&bucket.lock)
+> >      size(0) < calipso_cache_bucketsize(0) -> false
+> >      -> else branch, but the bucket is empty
+> >
+> > On an empty bucket the else branch takes list.prev (the list head
+> > itself), list_del()s it and then list_add()s through the now poisoned
+> > head:
+> >
+> >   Oops: general protection fault, probably for non-canonical address
+> >   0xdead000000000108
+> >   RIP: 0010:calipso_cache_add+0x2f0/0x380
+> >   Call Trace:
+> >    <IRQ>
+> >    calipso_cache_add+0x4c/0x70
+> >    netlbl_cache_add+0x4a/0xa0
+> >    selinux_netlbl_skbuff_getsid+0x1ac/0x280
+> >    selinux_skb_peerlbl_sid+0x7d/0x100
+> >    selinux_socket_sock_rcv_skb+0x2d3/0x460
+> >    security_sock_rcv_skb+0x86/0x150
+> >    sk_filter_trim_cap+0x56/0x730
+> >    sock_queue_rcv_skb_reason+0x1e/0x80
+> >    rawv6_rcv+0x679/0xb20
+> >    raw6_local_deliver+0x1f0/0x5b0
+> >    ip6_protocol_deliver_rcu+0x215/0x9a0
+> >    ip6_input_finish+0xb0/0x1b0
+> >    ip6_input+0xa8/0x250
+> >    ipv6_rcv+0x14b/0x1c0
+> >    __netif_receive_skb_one_core+0x8f/0xe0
+> >    __netif_receive_skb+0x23/0xb0
+> >    process_backlog+0x27a/0x950
+> >    __napi_poll.constprop.0+0x61/0x2c0
+> >    net_rx_action+0x372/0x800
+> >    handle_softirqs+0x109/0x570
+> >    __do_softirq+0x10/0x18
+> >    do_softirq.part.0+0x47/0xd0
+> >    </IRQ>
+> >    <TASK>
+> >    __local_bh_enable_ip+0xf0/0x120
+> >    __dev_queue_xmit+0x578/0x23f0
+> >    neigh_resolve_output+0x278/0x3c0
+> >    ip6_finish_output2+0x4b1/0xcb0
+> >    ip6_finish_output+0x2b6/0x6b0
+> >    ip6_output+0x122/0x400
+> >    ip6_local_out+0x61/0xb0
+> >    ip6_send_skb+0xa0/0x260
+> >    ip6_push_pending_frames+0x2b/0x40
+> >    rawv6_sendmsg+0x1b7a/0x2750
+> >    inet_sendmsg+0xa1/0xb0
+> >    __sys_sendto+0x2fe/0x350
+> >    __x64_sys_sendto+0x7f/0xb0
+> >    do_syscall_64+0xe1/0x450
+> >    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> >
+> > Snapshot the sysctl into a local once and use it for both tests, like
+> > cipso_v4_cache_add() has since commit dd44f04b9214 ("cipso: Fix
+> > data-races around sysctl.").
+> >
+> > [1] https://lore.kernel.org/netdev/179428999963.994134.1690454450089005=
+3668@kernel.org/
+> >
+> > Fixes: 4fee5242bf41 ("calipso: Add a label cache.")
+> > Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+> LGTM, but let's wait for Paul's explicit ack.
+>
+> @Paul: please LMK if you prefer we apply this kind of
+> simple, clean fixes directly.
 
-> Add platform driver for Synology x86-based NAS devices to support HDD LEDs
-> controller by ICH9 GPIO pins.
-> 
-> Only DS411+II is supported for now (DS411+ should be the same except CPU).
-> 
-> Unfortunately, the DMI data in BIOS is not very helpful to identify the
-> device as almost all strings are "To be filled by O.E.M.". Match also the
-> BIOS date and then check presence of the onboard SiI3531 SATA controller
-> and i82574L ethernet controller to avoid activation on other systems.
+Looks good to me too, thanks Jiayuan for working on this!
 
-Hans, Andy,
+Acked-by: Paul Moore <paul@paul-moore.com>
 
-Do you have an opinion on the selected approach?
-
-> Buttons and other LEDs are not supported by this driver because they're
-> controlled by a PIC MCU (connected through serial port).
-> 
-> Signed-off-by: Ondrej Zary <linux@zary.sk>
-> ---
-> Changes in v2:
->  - fixed includes (order, added missing, removed kernel.h)
->  - added missing DMI and PCI dependencies to Kconfig
->  - added PCI device presence check details to changelog
->  - used %pe for error message
-> 
-> ---
->  drivers/platform/x86/Kconfig        |  16 ++++
->  drivers/platform/x86/Makefile       |   3 +
->  drivers/platform/x86/synology-x86.c | 128 ++++++++++++++++++++++++++++
->  3 files changed, 147 insertions(+)
->  create mode 100644 drivers/platform/x86/synology-x86.c
-> 
-> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
-> index 9ce384e0475e..14b366cca2dd 100644
-> --- a/drivers/platform/x86/Kconfig
-> +++ b/drivers/platform/x86/Kconfig
-> @@ -1059,6 +1059,22 @@ config OXP_EC
->  
->  source "drivers/platform/x86/tuxedo/Kconfig"
->  
-> +config SYNOLOGY_X86
-> +	tristate "Synology x86 NAS Platform Driver"
-> +	depends on DMI
-> +	depends on GPIOLIB
-> +	depends on LPC_ICH
-> +	depends on GPIO_ICH
-> +	depends on LEDS_CLASS
-> +	depends on PCI
-> +	select LEDS_GPIO
-> +	help
-> +	  This driver provides support for the HDD LEDs on Synology x86 NAS
-> +	  devices.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called synology-x86.
-> +
->  endif # X86_PLATFORM_DEVICES
->  
->  config P2SB
-> diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
-> index 229057234d00..a1806eb0efc9 100644
-> --- a/drivers/platform/x86/Makefile
-> +++ b/drivers/platform/x86/Makefile
-> @@ -166,3 +166,6 @@ obj-$(CONFIG_SEL3350_PLATFORM)		+= sel3350-platform.o
->  
->  # OneXPlayer
->  obj-$(CONFIG_OXP_EC)			+= oxpec.o
-> +
-> +# Synology
-> +obj-$(CONFIG_SYNOLOGY_X86)		+= synology-x86.o
-> diff --git a/drivers/platform/x86/synology-x86.c b/drivers/platform/x86/synology-x86.c
-> new file mode 100644
-> index 000000000000..80831c8c45d8
-> --- /dev/null
-> +++ b/drivers/platform/x86/synology-x86.c
-> @@ -0,0 +1,128 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Synology x86 NAS platform driver
-> + *
-> + * Inspired by platform/x86/meraki-mx100.c
-> + *
-> + * Copyright (C) 2026 Ondrej Zary <linux@zary.sk>
-> + */
-> +
-> +#include <linux/array_size.h>
-> +#include <linux/dmi.h>
-> +#include <linux/err.h>
-> +#include <linux/gpio/machine.h>
-> +#include <linux/leds.h>
-> +#include <linux/module.h>
-> +#include <linux/pci.h>
-> +#include <linux/pci_ids.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/printk.h>
-> +#include <linux/string.h>
-> +
-> +static const struct gpio_led synology_leds[] = {
-> +	{ .name = "synology:green:hdd1"	},
-> +	{ .name = "synology:amber:hdd1" },
-> +	{ .name = "synology:green:hdd2" },
-> +	{ .name = "synology:amber:hdd2"	},
-> +	{ .name = "synology:green:hdd3" },
-> +	{ .name = "synology:amber:hdd3"	},
-> +	{ .name = "synology:green:hdd4" },
-> +	{ .name = "synology:amber:hdd4" },
-> +};
-> +
-> +static const struct gpio_led_platform_data synology_leds_pdata = {
-> +	.num_leds	= ARRAY_SIZE(synology_leds),
-> +	.leds		= synology_leds,
-> +};
-> +
-> +#define GPIO_ICH_DRIVER_NAME "gpio_ich"
-> +
-> +static struct gpiod_lookup_table synology_leds_table = {
-> +	.dev_id = "leds-gpio",
-> +	.table = {
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 16, NULL, 0, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 18, NULL, 1, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 20, NULL, 2, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 32, NULL, 3, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 33, NULL, 4, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 34, NULL, 5, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 49, NULL, 6, GPIO_ACTIVE_HIGH),
-> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 55, NULL, 7, GPIO_ACTIVE_HIGH),
-> +		{}
-> +	}
-> +};
-> +
-> +static const struct dmi_system_id synology_systems[] __initconst = {
-> +	{
-> +		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
-> +		.matches = {
-> +			/* Synology did not put anything in DMI strings */
-> +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "To Be Filled By O.E.M."),
-> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "To Be Filled By O.E.M."),
-> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
-> +			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
-> +		},
-> +	},
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(dmi, synology_systems);
-> +
-> +static struct platform_device *synology_leds_pdev;
-> +
-> +static int __init synology_init(void)
-> +{
-> +	int ret;
-> +
-> +	static const struct pci_device_id pci_sii3531[] = {
-> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531, PCI_VENDOR_ID_CMD, 0x3531) },
-> +		{ }
-> +	};
-> +
-> +	static const struct pci_device_id pci_i82574l[] = {
-> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3, PCI_VENDOR_ID_INTEL, 0x0000) },
-> +		{ }
-> +	};
-> +
-> +	const struct dmi_system_id *dmi = dmi_first_match(synology_systems);
-> +
-> +	if (!dmi)
-> +		return -ENODEV;
-> +
-> +	/* DS411+ DMI match is too generic, confirm by onboard PCI devices */
-> +	if (!strcmp(dmi->ident, "DS411+")) {
-> +		if (!pci_dev_present(pci_sii3531) ||
-> +		    !pci_dev_present(pci_i82574l))
-> +			return -ENODEV;
-> +	}
-> +
-> +	pr_info("Detected Synology NAS %s\n", dmi->ident);
-> +
-> +	gpiod_add_lookup_table(&synology_leds_table);
-> +
-> +	synology_leds_pdev = platform_device_register_data(NULL,
-> +		"leds-gpio", PLATFORM_DEVID_NONE, &synology_leds_pdata,
-> +		sizeof(synology_leds_pdata));
-> +	if (IS_ERR(synology_leds_pdev)) {
-> +		pr_err("error registering platform device: %pe\n", synology_leds_pdev);
-
-Won't these be prefixless and you should add the usual pr_fmt line?
-
-> +		ret = PTR_ERR(synology_leds_pdev);
-> +		goto err;
-> +	}
-> +
-> +	return 0;
-> +
-> +err:
-> +	gpiod_remove_lookup_table(&synology_leds_table);
-> +	return ret;
-> +}
-> +module_init(synology_init);
-> +
-> +static void __exit synology_exit(void)
-> +{
-> +	platform_device_unregister(synology_leds_pdev);
-> +	gpiod_remove_lookup_table(&synology_leds_table);
-> +}
-> +module_exit(synology_exit);
-> +
-> +MODULE_AUTHOR("Ondrej Zary <linux@zary.sk>");
-> +MODULE_DESCRIPTION("Synology x86 NAS Platform Driver");
-> +MODULE_LICENSE("GPL");
-> 
-
--- 
- i.
-
+--=20
+paul-moore.com
