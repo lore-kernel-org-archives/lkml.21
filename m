@@ -1,86 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795206883;
-	b=PpZ+hWexX1a/0CAwJ7UWg1pF4ECYzhr54Q/Ya141udHDQm2fwCXP7uoXTrQ/ezos0/w1
-	 u2tHNG2ugECy9FuWk50tRMGmL5lwaOnka9UjFhLpkNJ+jZrqnkhHh+ipH7QwC8wBbVOAt
-	 tcGoKJ1Q5+Wguo7Blu2bzfUxvIwGwlxdbMLa/OZpEDlEJSfk2ILf+Zt5nxhS2zbGacryU
-	 YlYsCTxVZ+8DpfTM/hPGziKjBCPxobhQMqZFnX8guUGXiB3eKp1W3BECrTb5NePIUsUDI
-	 6HB2t96NrjB5IwKxlvb2YmdLv7gw9vcWgzCJe+0SZiEtxW8dACTzyRRYpcJgWh1vohQ==
+	t=1795207013;
+	b=QzQSSq0ELZSHm/WV3BrbmFc2T36D+vM93FBALEJ4Edq6/5g4iL5EEDU+OeyKa6ntX0MP
+	 qfuECpevGF7vy1tZ7TsPMVctpylEx/2taEe62NBmWNJXFlYSqHs8vxiVOMv6TiuuR0rZz
+	 7mv6Tm9dVk+B09fSnqyKYrsKAc2hD7lLP5o3Kz0anqlfX1NTibXgPBqR9ruD/4AfT8aP/
+	 JA4CmUWlfaa/PnSWgt6UOp6qeJQoxNy0Bsu5zM3wbcVz9ogA7RcnYVDX4t0JmbbdiLaEU
+	 4t2pURn0xeW+oklbSE5iG/5bcGUfVItg3rvcOi0o7YpnvJqKGw6XvZjNHTTTm+e0jXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795206883;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
-	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
-	bh=qtEU8b+Rw7oaJsWf+sYIPuoXL8GdHMocWcBYKlWujUQ=;
-	b=1C88QrRSLB/XrC1KDB/6pFH45tCJL4k/ksZYDKHr2t4pPgxlbtpAXROW8dbNptSovObw
-	 X7SlOMt8qze0P1WSe6jrd8x02WFNCHRhSCx9SjsieCg5p9Nc84h/FY5uUheetr5Qrr116
-	 WdyixycPIHZIkK4AfopCFddE40ynrdU0rkszRBt8QtxrXjf+hIxCJwhxwWFnGYiozAE0w
-	 LXCcklhvSK3ebzDkKlRq6LHzSeRPru5GNoymDqOzLqdQZu74FmPpsy3VEVq9eMM3ikRVo
-	 uNTRMEUleq3hHcxc7hF8NEcbm5qgoGYx3z1dcnbyrvxff1qDL8WmbSoLX/PUBuzOs8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207013;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version:X-Rspamd-Queue-Id;
+	bh=NaPReRPJ1oLYrJ6cWmfrT2XB8nUvdUbNMjhFYYlgHCg=;
+	b=lAfug1iZxsiwyFf4NJsfHJ0T920eG8okTXQCHm+A83ui2BdeOwjtm0fYX2vkhKScXkpK
+	 CwU050V4BzH3gmwSTp+k8Jgeqp+Y7VLL4ivPVEH0MIGzmqkVYekxHd4dEV8UFvRgIQ4pv
+	 QMg2LOhnC5rplgCYvobZiMwh+wd3Y315AvXGcARtvOalKtIg7RvTRJK2qoJqOQpZgtjl7
+	 vjfupx12zHK57BeQI9Dl6CHVuhZatEtUBe592GXU4+wXG8eiBJuWW7uXS624qG+U5LHam
+	 C6lTINj/BxR4+uL1xHfF99WqKxxzMOvYSsl7lVO7NnlW/D5ygsU41qa3quQgdAN3t4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q5yeIS2J;
-	arc=none smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=steffen.cc;
+	spf=pass smtp.mailfrom=steffen.cc;
+	dkim=pass header.d=steffen.cc header.i=@steffen.cc header.a=rsa-sha256 header.s=MBO0001 header.b=SN4eTt1h;
+	arc=none smtp.remote-ip=80.241.56.151
+Received: from mout-p-101.mailbox.org (mout-p-101.mailbox.org [80.241.56.151])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48B68606A6D1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:34:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48B68606A6D1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35CDB606A6ED;
+	Fri, 20 Nov 2026 20:36:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35CDB606A6ED
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=steffen.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=steffen.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q5yeIS2J
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55d2f5f1e26so14772871cf.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:34:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795206882; x=1795811682; darn=vger.kernel.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=qtEU8b+Rw7oaJsWf+sYIPuoXL8GdHMocWcBYKlWujUQ=;
-        b=q5yeIS2JOBZN8SyUZivBafXJ5weCfBqketjq0eLDKLrN7YZ2N6gR0MhBibsYavzWKn
-         Xe9K3kyC6GDMe4ASXmusLzO6cObMlo7JgOQb0MTVxP7sB0Xk9qz4THLnTU1Atze6HCLu
-         ckY6hAPQXY62JFVKV81+brWd3wGIQQZ1nCHZofTLRe4aHHo5WvHvIAbo5mzkZ1XJrv9E
-         X5KqaS+8FI65FlF9mm48fUb9Ks1ShjexokRsIq+aSICvVEdu7Sti8Ha/yFb3H7ZALz/R
-         a+eEJUcPqupQcPO4y9CawPOhtI0i1T/as35JX8fDYOsjurYeArNxBQKygKvO0eCRlc1o
-         9+YQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795206882; x=1795811682;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qtEU8b+Rw7oaJsWf+sYIPuoXL8GdHMocWcBYKlWujUQ=;
-        b=OaLJDDPuxEncaDzFHsP4ZcPc5lMTsXvgGJoTNtE6bFz7hScKDnNAV9t26dbegKUrpR
-         De3+SP3rwB85hyLrGFHyq2ftYQvNv02V+LOzaOIejcJSV7NzPXuCmzHNBivCUBszVuV2
-         FYvKqxjMCTePfy8eJ99LZI16lAIgog5z5NHTK9B7wWninoeWujVmgjAeO7QJidz99N1C
-         waxfAzcNs6E7rgdt6HRc3HtfPytiXJk4Yf214IWJ2Cbi1oWf3TM4R5WLIjckyR3Y8qZK
-         kmcSVOF/V65Kh9wLW0hilUL/EXf/VuTo1zw1YvczKTzsH20gXL3caLe2A/qMxm1ASAkV
-         U53w==
-X-Forwarded-Encrypted: i=1; AL+hErGbqmMgRE7mtau3q6ReJlQpnGpnun/31x7WFDTWXjXqrBtPfLFqU7vzaXJRpewiI6Fgda7CvrF29DHc3BA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9n8vtekCAIo2ph6+iGum/lqLTifw4rGR9sUQ8ZQWK/gnwPW0wM
-	BfkquTyyd4Yyc5ezbRX/QOegFAiuKgGomyS+AteL/1I3NaitQYByvgap
-X-Gm-Gg: AYBFou0QDT49nU6V+DLAqVemPzPiBl2nw2CUH2Ug3AGNRKyOchYu5Y7DeGHhNX6CW6u
-	WaTKwFttL78Q+k5TkpkL4CqC3hQg7mGvfbeW1wRMRw80n7suaAtyUwWh+r8AGiM/9LfOdoCZoyS
-	q1+knAfAJxuU0WXez7YxwZpaNm1Eg3rkwKV3vQpAIulM7OKrYMKuhQRzGQrtH0NojEP84atui/F
-	sNOzq6WK8co3h/h20GZB/m6o8hgpr/rbefzHM5KzNPiyVqXW9wSMaD1MwDnWVp+9Z5pBxxRnhK0
-	213qSDKfTGBuQjXUeVqhiQD5oGBznS62DdyAKCYkoZqyGDbben9H8Ksl4AaoXvzBzgJZFCV5oE7
-	JqOaK063bFVTI2FHFaS9LRFbE3CqiXvzNt/aIoVUcz4rVoWD+35019iaosLfJwYseJyiCYv9MXe
-	hMW3IpBnT3ALHvGxTMh3w1lt9AqyXqfVKmTWXCJD+6U5tvLGGSawWqS7sK1JL9AJkCFvs1FjP0m
-	x+vqMmFQ6phAgl9vXH1N2CMKTe1+v4OwioEUhZdM8+rksf3CoBcoVOV+oAh7VM7QlH3BbI9u9sF
-	//Z3bnhe8TW/OAWngOAIjnWCdv0B86ch3BDiTkeyVrAifTG9bHeFYvlkTmra
-X-Received: by 2002:a05:622a:1901:b0:536:6856:f590 with SMTP id d75a77b69052e-55d76a269dfmr80867651cf.18.1795206882285;
-        Fri, 20 Nov 2026 12:34:42 -0800 (PST)
-Received: from smtpclient.apple ([199.30.143.73])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7844f9bcsm32619781cf.1.2026.11.20.12.34.41
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 20 Nov 2026 12:34:42 -0800 (PST)
-Content-Type: text/plain;
-	charset=us-ascii
+	dkim=pass (2048-bit key, unprotected) header.d=steffen.cc header.i=@steffen.cc header.a=rsa-sha256 header.s=MBO0001 header.b=SN4eTt1h
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4jWRvZ3970z8vVN;
+	Fri, 20 Nov 2026 21:36:42 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=steffen.cc; s=MBO0001;
+	t=1795207002;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NaPReRPJ1oLYrJ6cWmfrT2XB8nUvdUbNMjhFYYlgHCg=;
+	b=SN4eTt1h8lCCIob+lm9xaExLasOJ/vJ4P1xR2KXWt+x6QlsKdWM/7iUynFmbp4s5FBJXl3
+	ALxFw5fRFvvhRzwOL2CvPeIMwc+/Wy68pxMo1UR+5JVKTa15nVo5W0KnAkCeZ0J6QTB7Ax
+	xpXseGy9yZovQMHVNpHy2wsobdq267vQiRDlGOeqtt0ug1/CXdvJv4SmG8oupGxX/gssyF
+	ahilF7aByTejLe/n5R0PgAudR3qFrjWjAcN3hVG2pVwIZRwjGXJXCV1n24od3T3Z2eiJLl
+	gMYeyM0ukAe34Gwb9o+nbjIm41uUlCM3pkEP5kstNgUtGig9r9VuHxgp6P/5mQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of lists@steffen.cc designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=lists@steffen.cc
+Message-ID: <78dafd3129be731571810229c6ec8b2ec969625b.camel@dirkwinkel.cc>
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+From: Steffen Dirkwinkel <lists@steffen.cc>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
+	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+	rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ 	achill@achill.org, sr@sladewatkins.com
+Date: Fri, 20 Nov 2026 21:36:37 +0100
+In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
+References: <20261120055248.913352689@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.62.1 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,45 +79,30 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.700.51.1.1\))
-Subject: Re: [PATCH] usb: gadget: f_fs: fix use-after-free in ffs_func_unbind
-From: Shuangpeng <shuangpeng.kernel@gmail.com>
-In-Reply-To: <2026112053-skating-swimsuit-9c33@gregkh>
-Date: Fri, 20 Nov 2026 15:34:39 -0500
-Cc: viro@zeniv.linux.org.uk,
- r.baldyga@samsung.com,
- balbi@ti.com,
- linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <C24E320A-EF6F-413E-A618-FB7FAF023F79@gmail.com>
-References: <20260815013818.39466-1-shuangpeng.kernel@gmail.com>
- <2026112053-skating-swimsuit-9c33@gregkh>
-To: Greg KH <gregkh@linuxfoundation.org>
-X-Mailer: Apple Mail (2.3864.700.51.1.1)
+MIME-Version: 1.0
+X-Rspamd-Queue-Id: 4jWRvZ3970z8vVN
 
-
-
-> On Nov 20, 2026, at 05:21, Greg KH <gregkh@linuxfoundation.org> wrote:
-> 
-> On Fri, Aug 14, 2026 at 09:38:18PM -0400, Shuangpeng Bai wrote:
-> 
-> Are you sure this is ok?  This means you now have a double reference.
-
-The get is paired with a put at the end of the function, but taking and
-dropping an extra reference isn't the cleanest way to fix this. The real
-problem is the ordering: ffs_func_unbind() keeps using ffs after
-functionfs_unbind() drops the reference. I'll send a v2 that moves
-functionfs_unbind() to the end of ffs_func_unbind() instead, so no extra
-reference is needed.
-
-Best,
-Shuangpeng
-
-
-> 
+On Fri, 20 Nov 2026 06:58:20 +0100, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2642 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>=20
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+>=20
+> The whole patch series can be found in one patch at:
+> =09https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-7.3.6=
+-rc2.gz
+> or in the git tree and branch at:
+> =09git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.g=
+it linux-7.3.y
+> and the diffstat can be found below.
+>=20
 > thanks,
-> 
+>=20
 > greg k-h
 
+Tested on 24 device types (booting, general system tests, rt).
+
+Tested-by: Steffen Dirkwinkel <s.dirkwinkel@beckhoff.com>
