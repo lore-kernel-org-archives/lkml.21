@@ -1,101 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795150512;
-	b=A/uV9JZeartJZ0em+HWm0LQFrG3pl5phvKxD16ZPv7T7iGNx0bImxgFo4CRajfXeATqf
-	 bj08PLGi1XWy1rI79Vn0gyN1FIApRswRHexmXDSTNMk6GV/oJFI0HL9oYLsSXcUDKlejv
-	 hWF2LHY+5X41H9Shnd7OlxQFs8Lnm9AGwlR30i7eh+ml4D3BHN0Lj8n+sU7pCbjUHbOzp
-	 t2GhGLKknOKVn3e+DYjdJe46lhQCXM3Cpizh9CLaXft+JUk53tCFCNaFE8aL2UYoFJNw7
-	 /8Z4WkrE5zWOChpICVKbplP7p/Z13FMfBgkTAQb90ZfOn5aY/P0JWq7pSf+0w62FhcA==
+	t=1795150728;
+	b=b/tykK9i+P2snzqVdtB8yKZha7Pooi3IitlGvQGB4ip3UPqQT+RDCb2LC8uK8D6A2Zjr
+	 8GZzum8k9mf4wdSuvYnGg5nDy72TTZfjUELkeI0Ak+mbHsEUQSjGCuvrGdHopSksrKP6R
+	 QC4zuWqn4u3zkYm2BlP5LH/2PTGO462iAaIXCF38wHBTOcA7Lvyu3WoYCg2HSGBJhWfUn
+	 Lak+HjMBri4MraN5IrGlx9+HVtSUa8oYAZqyztoF6BC8X4qTXv4Vlp5MhVxaCZxoTMsZm
+	 gtVzohrWiBIwtdwiGEo2/8KKeb5oRL4Dw1o/KraxRw3yXgDV04kjjgNy0MLHVklQ+TQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795150512;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
-	b=3FZmdqVXLpaI8P7pqFvLji6ewZYfAyL4oJaWlLqiHdjCIxdmge76OeEsxVTJSVP50ADk
-	 UxZ+srPeIQwrdprKDEHOWnioERFj6q9z4gIgy2lHWVwGj+32HJ78UJJf66drQ8WHdsry5
-	 azcQsRfBfHqb+JjSAum4KBT+ls+HFL1oX0OQZGRO3rBijXnboWr8hzqhHqKou6yU1EhfF
-	 FPCnR+X7Fp5KdoO3RnaAp3sqb7jK3EDyntemkwcgk55ypipq9srUgRvjUw0blMpVrEi9z
-	 CSSDOS4l7mP93HFXkLM6wAHD0WmppM9F6PLOPY7rFuYYuNDJayaHIVVQGQ28aT70qug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795150728;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=aPqSmjxMQ+I7RBkvZTBS+fVtcupINHXalkw/kOXPt5Q=;
+	b=n0n2bt0lTyhqlIue1GUXt273dIgCFb0MyN0QH/nwGn2XEYJtBu6aSoMSm1iOECR/NWYD
+	 sZSUyHBierdYClvOYQ0DMzYtFP85Gb6eYKzBXqkWmi4Hq1AyzAL5Cg2Bu5IsX7ObaJlTI
+	 EfA6yVSPBzJWPqV1lr/kuTDdlWrW4JeOWKTKVLWi+mcgdaV8gZN+vDg0bIla4Nx5I4PJU
+	 mdJt4Jk8wyv1jNI3m1AU1sULw4O8Wl0b2um27QDa8h0yGAtw7lmNuwsWbjji53RZ1Kpv8
+	 MdnlZNEPmVtlZyBgRDnPmXCKCZ6GNSwQiykaZ9ad2VBi8QztiYPKe5UFcPxvBjOX9jA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQRXPFvg;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=ssi.bg;
+	spf=pass smtp.mailfrom=ssi.bg;
+	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=6h2NWFMr;
+	arc=none smtp.remote-ip=193.238.174.39
+Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E32D5606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:55:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E32D5606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 903B6606A33C;
+	Fri, 20 Nov 2026 04:58:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 903B6606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OQRXPFvg
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38587f3de36so522910eec.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:55:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795150511; x=1795755311; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
-        b=OQRXPFvgbSwnd0BPSVz+i9nknnhmYWeFGubuUys7HEd6bnKi0+1wqaw/Ohfnu/Rkdf
-         kuOzX/bj3K7AJmAykWhiOu6PgZbsW7xhW9BgzvAjYX488lOYW3I1SWiW7e+7e5Ro/N5d
-         H19ndzy3r34Zp3pzZHbMAUXtc5qkMtf4ZDdK4ki3t4Pn/qwN5tpRJJnuRuAGrtf9O9LG
-         DFRRt7jj3+qtim4U5zMajd9708s+FbCybT4f7GA4ef4U6Q+HJJoFaShk3Em8hVh9DHyy
-         xhmuQz5Ux3uR4kKOeuZxH8AaC7FAaSog9Q7IAgJBLt/JqQVlAuRd81bmCeisAFyUO43p
-         NNIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795150511; x=1795755311;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=b425B+NzbMYveC6zvY2QQ/ZSXAP0RoAZgNUrzyAtO5M=;
-        b=gftmVL9tmCwjsdTGlX4uRmgFXl5i7ufOSJUMk87wthm7JXJ4FxSiGG0PBQBFIbaTBv
-         746QYK+xV11n08trLLRpUE9Cj3eXxbkQw5S9OPLsiVdf0uO0s9cBKmkLRB5vPfjNicLc
-         DUikkmWUbLsypFCop1WDLfvVcxwCP4Bv8BjxbnW0gi4TVgnvgxol+25xyUoIObobrJb6
-         AmMwgWF4RK0j/zKXjZ+GYkAtk6PbD+N7aE//L8s4omNem6gYdNPvPVpqeYZry5F9YeFL
-         AckoMRAnDmONATZf9aRGY3aOhugYeNC2BTzpWPCc05PCE/hHk8q8EDLznvx+LT6oyGmJ
-         dVAQ==
-X-Forwarded-Encrypted: i=1; AL+hErGxCey6fWEkA3Ic7r6+7qW12/MNMf3xd2AjttbWqkEHr/qEPlM+9CB50juJ36GCecERxEKg3kZxGzEne0E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/dSj3VQNS4GESyuReW64w9kOCXrmUrUH34tK0argJ7UlbhSh4Z
-	mSA0sXkUnAs3vOg/r+UyYj8EnVIBuiPl38SIxpTvW6zpwRyhL4dQr7Ru
-X-Gm-Gg: AZFdTZdy0lvEr3OKVj4Utwi9312THINBlm2vtG4e9yJAl+uhmeNf3ogin7m45JUNQan
-	uQ94xf1Dd/1BA9wIw+k8X4snFA/xQaXhnBjBOAOIG95RiJA6ov1KbE+ZAg6aBCrElDDtktDm5Jh
-	raorDpWjf3Kln0laLg9hFveO5TWTXLeL7i7um+InaBUt2HKMhD+SRLosiYUqF0IWSr9bGE+XANY
-	tPaAUV48PT9SKe1PoTMaCtgzn6ZZ02vrmUAKSCjcfZ9PG7jpo9Onud3y4QKMS2HLfEErrTN4tDm
-	ke9cS70yn3IqQmGLYOxPwLv/P9b/HDUDY5K8XvqlZK+H/mltS08I0fOwpFYjpdRj0LwZodMNQx3
-	G6DtKKD8ms0m8VxbUqB2RDIqw2OTGWaGXkmDM55d5glK87Adhw/ILnOQQGK5UPsZT1zpPtFSWbj
-	f95fyXPslosbjuXz+Z+BhoD7GhcpgsvFT3pS0Tafp+ItYdnSrNJRa9RWhGG8F7yU1hWN0enWe2/
-	gNzz2Czdg0uTouNwCEgFW3n1y6MiG/e6upj4M8e9ayI4mgn0mwgmFXCItQODI+j2wJiu1Wc5EgN
-	U8So7J5fMWNtLR1qiRwhn6Sppguh96V30clnKdHHMbkQxl1+HgmKE3NyTt8ssrmBEUE=
-X-Received: by 2002:a05:7300:c7c4:b0:376:13e5:e8fe with SMTP id 5a478bee46e88-3856c4b839cmr1475580eec.3.1795150511071;
-        Thu, 19 Nov 2026 20:55:11 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646632b9sm3623340eec.1.2026.11.19.20.55.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:55:10 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Xin Long <lucien.xin@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Jun Yang <junvyyang@tencent.com>,
-	linux-sctp@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] sctp: fail the association when the INIT-ACK cannot be processed
-Date: Fri, 20 Nov 2026 13:55:05 +0900
-Message-ID: <179514851805.604157.8527055700821138420@gmail.com>
-In-Reply-To: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
-References: <CADvbK_citvtZ4eumLcx_szUvth7sQMP1oKu0mLbo0a3bD-eSxQ@mail.gmail.com>
+	dkim=pass (4096-bit key) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=6h2NWFMr
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 4D90621FD3;
+	Fri, 20 Nov 2026 06:58:45 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=aPqSmjxMQ+I7RBkvZTBS+fVtcupINHXalkw/kOXPt5Q=; b=6h2NWFMrDuIC
+	41dqED0VgMjOiiUIhXtM7/AeObFHl7OYoASDJPWGCMnfMUkizVfUW9DWBXXGJPEl
+	+YERT6Myk/5ifhkDtjIjWyW/p277qBsQ+z5vhzHeqVYmOc8vRhllmKC003qcX3iC
+	OKUtmAYZnESzGImPReXLwEk3xjoxgKf8tB/BUT4l4sj/VdXGEoXrwqVoO9bhUiCq
+	eTYfZ51LBqHOoBu2IzbyC9lSn1qqvgjANO/zHpqpPV35vQEEsgOzIDkK38lTKXxR
+	0sNEecGCzpioO4sx6arTgb5e6UmMbN5YpB05e3VrvRVIcy7lGeOsw3mR9hhQq915
+	BDa7dVQ+sZmi0hw317dX07u9zmpFNnij197ckAzGJXBnswflCzYFrgIYr18i35NM
+	bTEjYZrflPO6GxXvbAQyizHNRLNMZ7gk5fyNakzQlZksKrkWJeKbG4W2yA0zXCAs
+	36gisgvGvtmDkej4TqWsN5DZWNGXyD7INo9CZBOIAeVoGKHJ0Pd86iv6OrWYPSMQ
+	E7J3cZ9iKnLZELg2YXfSjjhJy/CFroktzv8zyqL4W6D1uxhsItdnQH0LOR/CN3en
+	6iYrq5iVhihl6Y0PuLI6Woa9lsLXv4OmruqjyQuPMhRLD19Tbqq+xxaHF8BhS87R
+	8v8DHNERSn7+FdSV5Rj6BtzM6Aw/zCw=
+Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Fri, 20 Nov 2026 06:58:45 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by box.ssi.bg (Potsfix) with ESMTPSA id ABA50604A8;
+	Fri, 20 Nov 2026 06:58:44 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AK4wh0Z006393;
+	Fri, 20 Nov 2026 06:58:43 +0200
+Date: Fri, 20 Nov 2026 06:58:43 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: Yingjie Wang <x-professor@outlook.com>
+cc: "lvs-devel@vger.kernel.org" <lvs-devel@vger.kernel.org>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "horms@verge.net.au" <horms@verge.net.au>,
+        "pablo@netfilter.org" <pablo@netfilter.org>,
+        "fw@strlen.de" <fw@strlen.de>, "phil@nwl.cc" <phil@nwl.cc>,
+        "davem@davemloft.net" <davem@davemloft.net>,
+        "edumazet@kernel.org" <edumazet@kernel.org>,
+        "kuba@kernel.org" <kuba@kernel.org>,
+        "pabeni@redhat.com" <pabeni@redhat.com>,
+        "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
+        "coreteam@netfilter.org" <coreteam@netfilter.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH nf v3] ipvs: avoid wrapping persistent service timeouts
+In-Reply-To: <039a17bffd0d0e765d1c3e07a33083da90ffa0e3.1795058541.git.x-professor@outlook.com>
+Message-ID: <f0b3611d-d042-09bb-f6f1-a750a2d8f25f@ssi.bg>
+References: <039a17bffd0d0e765d1c3e07a33083da90ffa0e3.1795058541.git.x-professor@outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,180 +88,375 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
 
-sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-If either fails to allocate memory, sctp_cmd_interpreter() stops there,
-but the association stays: with the peer marked AUTH capable and
-asoc->shkey still NULL, a chunk that the peer wants authenticated, such
-as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
-on the NULL key:
 
-  BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113)
-  Write of size 4 at addr 0000000000000018
-  Call Trace:
-   sctp_auth_shkey_hold (net/sctp/auth.c:113)
-   sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
-   sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
-   sctp_close (net/sctp/socket.c:1564)
+	Hello,
 
-Process the INIT-ACK and set up the association key directly in
-sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
-SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
-remove them.
+On Thu, 19 Nov 2026, Yingjie Wang wrote:
 
-Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-Suggested-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-v2:
-- As Xin suggested, process the INIT-ACK and set up the association key
-  directly in sctp_sf_do_5_1C_ack() and fail the association with
-  SCTP_CMD_INIT_FAILED, instead of skipping AUTH in sctp_auth_send_cid().
-  Remove SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-v1: https://lore.kernel.org/netdev/179505710266.3511678.14017674052424733262@gmail.com/
+> ip_vs_add_service() and ip_vs_edit_service() convert an unchecked u32
+> timeout from seconds to jiffies with u->timeout * HZ. Both operands are
+> unsigned int, so values above UINT_MAX / HZ wrap.
+> 
+> With HZ=1000, 4294968 seconds becomes 704 jiffies and is reported back
+> as 0 seconds. Persistence templates copy svc->timeout, so their timer is
+> armed for 0.7 seconds and a client can be moved to another real server
+> long before the configured timeout.
+> 
+> ipvsadm limits service persistence and protocol timeouts to 31 days.
+> Enforce the same limit in the kernel and reject larger values with
+> -EINVAL. Convert accepted values through a common helper that clamps
+> them to MAX_JIFFY_OFFSET / HZ on 32-bit systems. Use the helper for
+> timeouts received from the synchronization protocol as well, since those
+> values do not pass through the service configuration checks.
+> 
+> Change the service timeout and protocol timeout tables to unsigned long
+> because they store jiffies. With HZ=1000, 31 days is 2678400000 jiffies,
+> which does not fit in the signed int used by the protocol tables. This
+> also allows the global protocol timeout interface to represent the full
+> 31-day range on 64-bit systems.
+> 
+> The overflow was reproduced in an x86-64 QEMU guest with HZ=1000. A
+> persistent one-packet UDP service was set to 4294968 seconds, and two
+> datagrams sent 1.5 seconds apart were directed to different real servers
+> after the template expired.
+> 
+> On the x86-64 test kernel with HZ=1000, 2678401-second service timeouts
+> were accepted and 4294968 seconds read back as 0, while a 2678400-second
+> protocol timeout was rejected. With this change, 2678401 and 4294968
+> seconds are rejected, a failed edit leaves the previous service timeout
+> unchanged, and 2678400-second service and protocol timeouts read back
+> unchanged.
+> 
+> On an i386 test kernel with HZ=1000, the accepted 2678400-second values
+> were clamped to 1073741 seconds by the 32-bit jiffy limit and read back
+> as such through both interfaces.
+> 
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Suggested-by: Julian Anastasov <ja@ssi.bg>
+> Link: https://lore.kernel.org/r/5fa37fba-530c-2c5b-038e-9cb95e34023d@ssi.bg
+> Signed-off-by: Yingjie Wang <x-professor@outlook.com>
 
-The patch was written with LLM assistance; we reviewed and tested it.
-With it, the reproducer from the report no longer triggers the report,
-also when the injected failure hits sctp_process_init() instead of the
-association key.
+	The patch looks good to me, thanks!
 
- include/net/sctp/command.h |  4 ----
- net/sctp/sm_sideeffect.c   | 40 --------------------------------------
- net/sctp/sm_statefuns.c    | 15 +++++++++++---
- 3 files changed, 12 insertions(+), 47 deletions(-)
+Acked-by: Julian Anastasov <ja@ssi.bg>
 
-diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
-index 2058fabffbf6..8596e96c321a 100644
---- a/include/net/sctp/command.h
-+++ b/include/net/sctp/command.h
-@@ -34,7 +34,6 @@ enum sctp_verb {
- 	SCTP_CMD_GEN_SACK,	/* Send a Selective ACK (maybe).  */
- 	SCTP_CMD_PROCESS_SACK,	/* Process an inbound SACK.  */
- 	SCTP_CMD_GEN_INIT_ACK,	/* Generate an INIT ACK chunk.  */
--	SCTP_CMD_PEER_INIT,	/* Process a INIT from the peer.  */
- 	SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
- 	SCTP_CMD_CHUNK_ULP,	/* Send a chunk to the sockets layer.  */
- 	SCTP_CMD_EVENT_ULP,	/* Send a notification to the sockets layer. */
-@@ -86,7 +85,6 @@ enum sctp_verb {
- 	SCTP_CMD_ASSOC_CHANGE,	 /* generate and send assoc_change event */
- 	SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
- 	SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication event */
--	SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys */
- 	SCTP_CMD_T1_RETRAN,	 /* Mark for retransmission after T1 timeout  */
- 	SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
- 	SCTP_CMD_SEND_MSG,	 /* Send the whole use message */
-@@ -117,7 +115,6 @@ union sctp_arg {
- 	struct sctp_association *asoc;
- 	struct sctp_transport *transport;
- 	struct sctp_bind_addr *bp;
--	struct sctp_init_chunk *init;
- 	struct sctp_ulpevent *ulpevent;
- 	struct sctp_packet *packet;
- 	struct sctp_sackhdr *sackh;
-@@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK,	struct sctp_chunk *, chunk)
- SCTP_ARG_CONSTRUCTOR(ASOC,	struct sctp_association *, asoc)
- SCTP_ARG_CONSTRUCTOR(TRANSPORT,	struct sctp_transport *, transport)
- SCTP_ARG_CONSTRUCTOR(BA,	struct sctp_bind_addr *, bp)
--SCTP_ARG_CONSTRUCTOR(PEER_INIT,	struct sctp_init_chunk *, init)
- SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
- SCTP_ARG_CONSTRUCTOR(PACKET,	struct sctp_packet *, packet)
- SCTP_ARG_CONSTRUCTOR(SACKH,	struct sctp_sackhdr *, sackh)
-diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
-index 35f540fb15fc..a95bf10b852b 100644
---- a/net/sctp/sm_sideeffect.c
-+++ b/net/sctp/sm_sideeffect.c
-@@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_seq *commands,
- 	sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
- }
- 
--/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
-- * inside the cookie.  In reality, this is only used for INIT-ACK processing
-- * since all other cases use "temporary" associations and can do all
-- * their work in statefuns directly.
-- */
--static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
--				 struct sctp_association *asoc,
--				 struct sctp_chunk *chunk,
--				 struct sctp_init_chunk *peer_init,
--				 gfp_t gfp)
--{
--	int error;
--
--	/* We only process the init as a sideeffect in a single
--	 * case.   This is when we process the INIT-ACK.   If we
--	 * fail during INIT processing (due to malloc problems),
--	 * just return the error and stop processing the stack.
--	 */
--	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
--		error = -ENOMEM;
--	else
--		error = 0;
--
--	return error;
--}
--
- /* Helper function to break out starting up of heartbeat timers.  */
- static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
- 				     struct sctp_association *asoc)
-@@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
- 					SCTP_CHUNK(new_obj));
- 			break;
- 
--		case SCTP_CMD_PEER_INIT:
--			/* Process a unified INIT from the peer.
--			 * Note: Only used during INIT-ACK processing.  If
--			 * there is an error just return to the outter
--			 * layer which will bail.
--			 */
--			error = sctp_cmd_process_init(commands, asoc, chunk,
--						      cmd->obj.init, gfp);
--			break;
--
- 		case SCTP_CMD_GEN_COOKIE_ECHO:
- 			/* Generate a COOKIE ECHO chunk.  */
- 			new_obj = sctp_make_cookie_echo(asoc, chunk);
-@@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_type event_type,
- 			sctp_cmd_peer_no_auth(commands, asoc);
- 			break;
- 
--		case SCTP_CMD_ASSOC_SHKEY:
--			error = sctp_auth_asoc_init_active_key(asoc,
--						GFP_ATOMIC);
--			break;
- 		case SCTP_CMD_UPDATE_INITTAG:
- 			asoc->peer.i.init_tag = cmd->obj.u32;
- 			break;
-diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
-index 64519fd8f943..598eafdc5261 100644
---- a/net/sctp/sm_statefuns.c
-+++ b/net/sctp/sm_statefuns.c
-@@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct net *net,
- 
- 	initchunk = (struct sctp_init_chunk *)chunk->chunk_hdr;
- 
--	sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
--			SCTP_PEER_INIT(initchunk));
-+	if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-+			       sctp_source(chunk), initchunk, GFP_ATOMIC)) {
-+		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-+				SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-+		return SCTP_DISPOSITION_CONSUME;
-+	}
- 
- 	/* SCTP-AUTH: generate the association shared keys so that
- 	 * we can potentially sign the COOKIE-ECHO.
- 	 */
--	sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
-+	if (sctp_auth_asoc_init_active_key((struct sctp_association *)asoc,
-+					   GFP_ATOMIC)) {
-+		sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-+				SCTP_U16(SCTP_ERROR_NO_RESOURCE));
-+		return SCTP_DISPOSITION_CONSUME;
-+	}
- 
- 	/* Reset init error count upon receipt of INIT-ACK.  */
- 	sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL());
--- 
-2.43.0
+> ---
+> 
+> Notes:
+>     Changes in v3:
+>     - Remove the jiffies.h include, as requested by Julian Anastasov.
+>     - Rebase after f3aff3d80b579 ("ipvs: update flags and seqs in backup
+>       server under lock").
+>     
+>     v2: https://lore.kernel.org/r/969309eb180c2e577dd6bb54a7d28afcbb2efeb3.1793513714.git.x-professor@outlook.com
+>     v1: https://lore.kernel.org/r/4f420fda8690ac470be44b3da284b65501c77bb5.1793430892.git.x-professor@outlook.com
+>     
+>     Based on nf/for-netdev-nf-26-11-16 at 5367e14e92bb.
+>     
+>     Retested service and protocol timeout boundaries on x86-64 and i386
+>     with HZ=1000. On x86-64, also exercised incoming synchronization records
+>     for new and existing connections/templates, values above 31 days, and
+>     the zero-timeout template default, with KASAN and lockdep enabled.
+>     Built the IPVS directory with W=1 under x86-64 allmodconfig and
+>     allyesconfig. The kernel IPVS selftest was not run.
+> 
+>  include/net/ip_vs.h                   | 19 ++++++++++++---
+>  net/netfilter/ipvs/ip_vs_app.c        |  3 +--
+>  net/netfilter/ipvs/ip_vs_ctl.c        | 35 ++++++++++++++++-----------
+>  net/netfilter/ipvs/ip_vs_proto.c      |  4 +--
+>  net/netfilter/ipvs/ip_vs_proto_sctp.c |  6 ++---
+>  net/netfilter/ipvs/ip_vs_proto_tcp.c  |  6 ++---
+>  net/netfilter/ipvs/ip_vs_proto_udp.c  |  6 ++---
+>  net/netfilter/ipvs/ip_vs_sync.c       |  6 ++---
+>  8 files changed, 51 insertions(+), 34 deletions(-)
+> 
+> diff --git a/include/net/ip_vs.h b/include/net/ip_vs.h
+> index 8dc80d5d42dc..47a753d76fe5 100644
+> --- a/include/net/ip_vs.h
+> +++ b/include/net/ip_vs.h
+> @@ -55,6 +55,18 @@
+>  #define IP_VS_CONN_MAX	(1 << 24)
+>  #endif
+>  
+> +/* All timeouts up to 31 days */
+> +#define IP_VS_TIMEOUT_MAX_SECS	(86400U * 31)
+> +
+> +static inline unsigned long ip_vs_timeout_ticks(unsigned int secs)
+> +{
+> +	secs = min_t(unsigned int, secs, IP_VS_TIMEOUT_MAX_SECS);
+> +#if BITS_PER_LONG <= 32
+> +	secs = min_t(unsigned int, secs, MAX_JIFFY_OFFSET / HZ);
+> +#endif
+> +	return (unsigned long)secs * HZ;
+> +}
+> +
+>  /* svc_table limits */
+>  #define IP_VS_SVC_TAB_MIN_BITS	4
+>  #define IP_VS_SVC_TAB_MAX_BITS	20
+> @@ -776,7 +788,7 @@ struct ip_vs_protocol {
+>  struct ip_vs_proto_data {
+>  	struct ip_vs_proto_data	*next;
+>  	struct ip_vs_protocol	*pp;
+> -	int			*timeout_table;	/* protocol timeout table */
+> +	unsigned long		*timeout_table;	/* protocol timeout table */
+>  	atomic_t		appcnt;		/* counter of proto app incs. */
+>  	struct tcp_states_t	*tcp_state_table;
+>  };
+> @@ -938,7 +950,7 @@ struct ip_vs_service {
+>  	atomic_t		refcnt;   /* reference counter */
+>  	__be16			port;	  /* port number for the service */
+>  	unsigned int		flags;	  /* service status flags */
+> -	unsigned int		timeout;  /* persistent timeout in ticks */
+> +	unsigned long		timeout;  /* persistent timeout in ticks */
+>  	__be32			netmask;  /* grouping granularity, mask/plen */
+>  	struct netns_ipvs	*ipvs;
+>  
+> @@ -1845,7 +1857,8 @@ struct ip_vs_pe *__ip_vs_pe_getbyname(const char *pe_name);
+>  int ip_vs_protocol_init(void);
+>  void ip_vs_protocol_cleanup(void);
+>  void ip_vs_protocol_timeout_change(struct netns_ipvs *ipvs, int flags);
+> -int *ip_vs_create_timeout_table(int *table, int size);
+> +unsigned long *ip_vs_create_timeout_table(const unsigned long *table,
+> +					  size_t size);
+>  void ip_vs_tcpudp_debug_packet(int af, struct ip_vs_protocol *pp,
+>  			       const struct sk_buff *skb, int offset,
+>  			       const char *msg);
+> diff --git a/net/netfilter/ipvs/ip_vs_app.c b/net/netfilter/ipvs/ip_vs_app.c
+> index 2c1b47702da2..918d9936d814 100644
+> --- a/net/netfilter/ipvs/ip_vs_app.c
+> +++ b/net/netfilter/ipvs/ip_vs_app.c
+> @@ -93,8 +93,7 @@ ip_vs_app_inc_new(struct netns_ipvs *ipvs, struct ip_vs_app *app, __u16 proto,
+>  
+>  	if (app->timeouts) {
+>  		inc->timeout_table =
+> -			ip_vs_create_timeout_table(app->timeouts,
+> -						   app->timeouts_size);
+> +			kmemdup(app->timeouts, app->timeouts_size, GFP_KERNEL);
+>  		if (!inc->timeout_table) {
+>  			ret = -ENOMEM;
+>  			goto out;
+> diff --git a/net/netfilter/ipvs/ip_vs_ctl.c b/net/netfilter/ipvs/ip_vs_ctl.c
+> index be818bf7d380..9c53ce6103a5 100644
+> --- a/net/netfilter/ipvs/ip_vs_ctl.c
+> +++ b/net/netfilter/ipvs/ip_vs_ctl.c
+> @@ -1832,6 +1832,9 @@ ip_vs_add_service(struct netns_ipvs *ipvs, struct ip_vs_service_user_kern *u,
+>  	int ret = 0;
+>  	bool grow;
+>  
+> +	if (u->timeout > IP_VS_TIMEOUT_MAX_SECS)
+> +		return -EINVAL;
+> +
+>  	/* increase the module use count */
+>  	if (!ip_vs_use_count_inc())
+>  		return -ENOPROTOOPT;
+> @@ -1930,7 +1933,7 @@ ip_vs_add_service(struct netns_ipvs *ipvs, struct ip_vs_service_user_kern *u,
+>  	svc->port = u->port;
+>  	svc->fwmark = u->fwmark;
+>  	svc->flags = u->flags & ~IP_VS_SVC_F_HASHED;
+> -	svc->timeout = u->timeout * HZ;
+> +	svc->timeout = ip_vs_timeout_ticks(u->timeout);
+>  	svc->netmask = u->netmask;
+>  	svc->ipvs = ipvs;
+>  
+> @@ -2037,6 +2040,9 @@ ip_vs_edit_service(struct ip_vs_service *svc, struct ip_vs_service_user_kern *u)
+>  	struct netns_ipvs *ipvs = svc->ipvs;
+>  	int af_id = ip_vs_af_index(svc->af);
+>  
+> +	if (u->timeout > IP_VS_TIMEOUT_MAX_SECS)
+> +		return -EINVAL;
+> +
+>  	/*
+>  	 * Lookup the scheduler, by 'u->sched_name'
+>  	 */
+> @@ -2097,7 +2103,7 @@ ip_vs_edit_service(struct ip_vs_service *svc, struct ip_vs_service_user_kern *u)
+>  	 * Set the flags and timeout value
+>  	 */
+>  	svc->flags = u->flags | IP_VS_SVC_F_HASHED;
+> -	svc->timeout = u->timeout * HZ;
+> +	svc->timeout = ip_vs_timeout_ticks(u->timeout);
+>  	svc->netmask = u->netmask;
+>  
+>  	old_pe = rcu_dereference_protected(svc->pe, 1);
+> @@ -3136,9 +3142,8 @@ static int ip_vs_info_seq_show(struct seq_file *seq, void *v)
+>  		}
+>  
+>  		if (svc->flags & IP_VS_SVC_F_PERSISTENT)
+> -			seq_printf(seq, "persistent %d %08X\n",
+> -				svc->timeout,
+> -				ntohl(svc->netmask));
+> +			seq_printf(seq, "persistent %lu %08X\n",
+> +				   svc->timeout, ntohl(svc->netmask));
+>  		else
+>  			seq_putc(seq, '\n');
+>  
+> @@ -3437,36 +3442,38 @@ static int ip_vs_set_timeout(struct netns_ipvs *ipvs, struct ip_vs_timeout_user
+>  		  u->udp_timeout);
+>  
+>  #ifdef CONFIG_IP_VS_PROTO_TCP
+> -	if (u->tcp_timeout < 0 || u->tcp_timeout > (INT_MAX / HZ) ||
+> -	    u->tcp_fin_timeout < 0 || u->tcp_fin_timeout > (INT_MAX / HZ)) {
+> +	if (u->tcp_timeout < 0 ||
+> +	    u->tcp_timeout > IP_VS_TIMEOUT_MAX_SECS ||
+> +	    u->tcp_fin_timeout < 0 ||
+> +	    u->tcp_fin_timeout > IP_VS_TIMEOUT_MAX_SECS) {
+>  		return -EINVAL;
+>  	}
+>  #endif
+>  
+>  #ifdef CONFIG_IP_VS_PROTO_UDP
+> -	if (u->udp_timeout < 0 || u->udp_timeout > (INT_MAX / HZ))
+> +	if (u->udp_timeout < 0 || u->udp_timeout > IP_VS_TIMEOUT_MAX_SECS)
+>  		return -EINVAL;
+>  #endif
+>  
+>  #ifdef CONFIG_IP_VS_PROTO_TCP
+>  	if (u->tcp_timeout) {
+>  		pd = ip_vs_proto_data_get(ipvs, IPPROTO_TCP);
+> -		pd->timeout_table[IP_VS_TCP_S_ESTABLISHED]
+> -			= u->tcp_timeout * HZ;
+> +		pd->timeout_table[IP_VS_TCP_S_ESTABLISHED] =
+> +			ip_vs_timeout_ticks(u->tcp_timeout);
+>  	}
+>  
+>  	if (u->tcp_fin_timeout) {
+>  		pd = ip_vs_proto_data_get(ipvs, IPPROTO_TCP);
+> -		pd->timeout_table[IP_VS_TCP_S_FIN_WAIT]
+> -			= u->tcp_fin_timeout * HZ;
+> +		pd->timeout_table[IP_VS_TCP_S_FIN_WAIT] =
+> +			ip_vs_timeout_ticks(u->tcp_fin_timeout);
+>  	}
+>  #endif
+>  
+>  #ifdef CONFIG_IP_VS_PROTO_UDP
+>  	if (u->udp_timeout) {
+>  		pd = ip_vs_proto_data_get(ipvs, IPPROTO_UDP);
+> -		pd->timeout_table[IP_VS_UDP_S_NORMAL]
+> -			= u->udp_timeout * HZ;
+> +		pd->timeout_table[IP_VS_UDP_S_NORMAL] =
+> +			ip_vs_timeout_ticks(u->udp_timeout);
+>  	}
+>  #endif
+>  	return 0;
+> diff --git a/net/netfilter/ipvs/ip_vs_proto.c b/net/netfilter/ipvs/ip_vs_proto.c
+> index 0046aed1fb38..3796cd93c028 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto.c
+> @@ -185,8 +185,8 @@ void ip_vs_protocol_timeout_change(struct netns_ipvs *ipvs, int flags)
+>  }
+>  
+>  
+> -int *
+> -ip_vs_create_timeout_table(int *table, int size)
+> +unsigned long *
+> +ip_vs_create_timeout_table(const unsigned long *table, size_t size)
+>  {
+>  	return kmemdup(table, size, GFP_KERNEL);
+>  }
+> diff --git a/net/netfilter/ipvs/ip_vs_proto_sctp.c b/net/netfilter/ipvs/ip_vs_proto_sctp.c
+> index cb34bcceb4f6..abb256b92e5d 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto_sctp.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto_sctp.c
+> @@ -334,7 +334,7 @@ static const __u8 sctp_states
+>  #define IP_VS_SCTP_MAX_RTO	((60 + 1) * HZ)
+>  
+>  /* Timeout table[state] */
+> -static const int sctp_timeouts[IP_VS_SCTP_S_LAST + 1] = {
+> +static const unsigned long sctp_timeouts[IP_VS_SCTP_S_LAST + 1] = {
+>  	[IP_VS_SCTP_S_NONE]			= 2 * HZ,
+>  	[IP_VS_SCTP_S_INIT1]			= (0 + 3 + 1) * HZ,
+>  	[IP_VS_SCTP_S_INIT]			= IP_VS_SCTP_MAX_RTO,
+> @@ -559,8 +559,8 @@ static int sctp_app_conn_bind(struct ip_vs_conn *cp)
+>  static int __ip_vs_sctp_init(struct netns_ipvs *ipvs, struct ip_vs_proto_data *pd)
+>  {
+>  	ip_vs_init_hash_table(ipvs->sctp_apps, SCTP_APP_TAB_SIZE);
+> -	pd->timeout_table = ip_vs_create_timeout_table((int *)sctp_timeouts,
+> -							sizeof(sctp_timeouts));
+> +	pd->timeout_table =
+> +		ip_vs_create_timeout_table(sctp_timeouts, sizeof(sctp_timeouts));
+>  	if (!pd->timeout_table)
+>  		return -ENOMEM;
+>  	return 0;
+> diff --git a/net/netfilter/ipvs/ip_vs_proto_tcp.c b/net/netfilter/ipvs/ip_vs_proto_tcp.c
+> index 25d4576d0e12..2511c78a7780 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto_tcp.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto_tcp.c
+> @@ -333,7 +333,7 @@ static const int tcp_state_off[IP_VS_DIR_LAST] = {
+>  /*
+>   *	Timeout table[state]
+>   */
+> -static const int tcp_timeouts[IP_VS_TCP_S_LAST+1] = {
+> +static const unsigned long tcp_timeouts[IP_VS_TCP_S_LAST + 1] = {
+>  	[IP_VS_TCP_S_NONE]		=	2*HZ,
+>  	[IP_VS_TCP_S_ESTABLISHED]	=	15*60*HZ,
+>  	[IP_VS_TCP_S_SYN_SENT]		=	2*60*HZ,
+> @@ -672,8 +672,8 @@ void ip_vs_tcp_conn_listen(struct ip_vs_conn *cp)
+>  static int __ip_vs_tcp_init(struct netns_ipvs *ipvs, struct ip_vs_proto_data *pd)
+>  {
+>  	ip_vs_init_hash_table(ipvs->tcp_apps, TCP_APP_TAB_SIZE);
+> -	pd->timeout_table = ip_vs_create_timeout_table((int *)tcp_timeouts,
+> -							sizeof(tcp_timeouts));
+> +	pd->timeout_table =
+> +		ip_vs_create_timeout_table(tcp_timeouts, sizeof(tcp_timeouts));
+>  	if (!pd->timeout_table)
+>  		return -ENOMEM;
+>  	pd->tcp_state_table = tcp_states;
+> diff --git a/net/netfilter/ipvs/ip_vs_proto_udp.c b/net/netfilter/ipvs/ip_vs_proto_udp.c
+> index ab3ab9524168..3d0d8dac1da2 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto_udp.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto_udp.c
+> @@ -402,7 +402,7 @@ static int udp_app_conn_bind(struct ip_vs_conn *cp)
+>  }
+>  
+>  
+> -static const int udp_timeouts[IP_VS_UDP_S_LAST+1] = {
+> +static const unsigned long udp_timeouts[IP_VS_UDP_S_LAST + 1] = {
+>  	[IP_VS_UDP_S_NORMAL]		=	5*60*HZ,
+>  	[IP_VS_UDP_S_LAST]		=	2*HZ,
+>  };
+> @@ -438,8 +438,8 @@ udp_state_transition(struct ip_vs_conn *cp, int direction,
+>  static int __udp_init(struct netns_ipvs *ipvs, struct ip_vs_proto_data *pd)
+>  {
+>  	ip_vs_init_hash_table(ipvs->udp_apps, UDP_APP_TAB_SIZE);
+> -	pd->timeout_table = ip_vs_create_timeout_table((int *)udp_timeouts,
+> -							sizeof(udp_timeouts));
+> +	pd->timeout_table =
+> +		ip_vs_create_timeout_table(udp_timeouts, sizeof(udp_timeouts));
+>  	if (!pd->timeout_table)
+>  		return -ENOMEM;
+>  	return 0;
+> diff --git a/net/netfilter/ipvs/ip_vs_sync.c b/net/netfilter/ipvs/ip_vs_sync.c
+> index 7e562e745ab5..cfac362a0e8a 100644
+> --- a/net/netfilter/ipvs/ip_vs_sync.c
+> +++ b/net/netfilter/ipvs/ip_vs_sync.c
+> @@ -864,7 +864,7 @@ static void ip_vs_proc_conn(struct netns_ipvs *ipvs, struct ip_vs_conn_param *pa
+>  			    unsigned int flags, unsigned int state,
+>  			    unsigned int protocol, unsigned int type,
+>  			    const union nf_inet_addr *daddr, __be16 dport,
+> -			    unsigned long timeout, __u32 fwmark,
+> +			    unsigned int timeout, __u32 fwmark,
+>  			    struct ip_vs_sync_conn_options *opt)
+>  {
+>  	struct ip_vs_conn *cp_new = NULL;
+> @@ -975,9 +975,7 @@ static void ip_vs_proc_conn(struct netns_ipvs *ipvs, struct ip_vs_conn_param *pa
+>  	 *  - No problem.
+>  	 */
+>  	if (timeout) {
+> -		if (timeout > MAX_SCHEDULE_TIMEOUT / HZ)
+> -			timeout = MAX_SCHEDULE_TIMEOUT / HZ;
+> -		cp->timeout = timeout*HZ;
+> +		cp->timeout = ip_vs_timeout_ticks(timeout);
+>  	} else {
+>  		struct ip_vs_proto_data *pd;
+>  
+> 
+> base-commit: 5367e14e92bbb0779612d36cce7c6e95d3bc5e68
+> -- 
+> 2.43.0
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
 
