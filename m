@@ -1,65 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.107
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177952;
-	b=Pp8nIhrwlsOyndHCheOCfK/KI+yEDuNnwseEi28bEkSccCERMsiYBBHUgxZA5a+NwJ3M
-	 8jInXCzAcwEG+uIySajiCvU5r/A2FFJzWaG80jf1/xisTgxdzDRUYJ/ipiKPgR9n+aB5E
-	 QpQHYPkHpXQwSgY7Xm75IexeR+55GoOHJlU500dBt2kNI9nvUZLqfDO/N17XgJNRt3GzN
-	 9Lqx1NxeALew/7OTRnO0/L+I2JPOdJ8NflVc4dLyBaZ6UMebvrxHm2aYqh3ryM5Fi6vEY
-	 bstr6u/W9TMAmwFPKXEWA3wJYMZwVRglP2SWHF9hD8XduHyP/DWeGUtC4QmncRm0wvw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177952;
-	h=DMARC-Filter:DKIM-Signature:X-Pm-Submission-Id:From:Date:Message-ID:
-	 In-Reply-To:References:To:Cc:Subject:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=xJgqJ1GzLT0Cz85cGPOr0HyND/H8SVlikDVF2XvQ3RU=;
-	b=3NgwGtA6/W/S6usaIbknMMoBpsImN+TlcQpmeAz8lZKIyMtOUdiUBIfKTlfAjJLgQM82
-	 d0WpFu5VSWJ9+yDrBVFrs4R2kWGhtj54qgAbiRed7kovizKpr2CNdbnlD4H2O1Jexs8nX
-	 IedgTZ1gRzN6yRZfe0Y6mx3JYV/bQpRJDUdZuefV3Jtxa2MupcxmuPcXMrrC/+e9wThrn
-	 WSn004wMPMK92mcQM6a3qfPfEfFzSSZc+LVImsP98TwT9mc9J5HJrWclOwWR+//GZLSZj
-	 +s0M6gY1n8X2AlnK3pwbqHy3hd00zKWt1Mlm92enylQ9XKATgUbzX91kJtcNNGFxFFA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=aclaesson.com;
-	spf=pass smtp.mailfrom=aclaesson.com;
-	dkim=pass header.d=aclaesson.com header.i=@aclaesson.com header.a=rsa-sha256 header.s=protonmail header.b=dQdQelpQ;
-	arc=none smtp.remote-ip=109.224.244.107
-Received: from mail-244107.protonmail.ch (mail-244107.protonmail.ch [109.224.244.107])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795177962;
+	b=FUTD3yxRLz1WG1Z9khaLTj1hWJKfvRHmcpU6v6zNMSzCUEeVwXJ4qvW5vU2xfbW+D9rk
+	 49jVtVeQ8U/uXsgvjBBn68gN8L3ldnWfXCj+UKfdNQjKkbtTPgkYJQnn0Lrog4u11JfL0
+	 eSwIPaet0Jd++atyyv5Kc7sO4VZYPHAo6okAs3jEvmROLZ/J1FenyjbnfN/H96VGLQktS
+	 Dr9XW1LBdGKha9Wk9kbjgQR1WsjSyfigzykq+hMitNzFfq9N+x5WlZXFJvyf5ZhUCDLoz
+	 oKUlDwuf9czscFF3mg2w/ZyodR0vNUoILIwR3qC6siGmb2jtCCCdRMvZE7zqUKy45yA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177962;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=xM8zd7mva/7paJ8J9UlH77WsTtA2rrm/e2ObbIB52RA=;
+	b=Ft96aVz0XPqyOci9cKd+B+hF3ZL08sr27wDdBxJotzsAD0zucZvyFshDZFr0/LB9et2T
+	 K8uPKCvWjuljzOI4o3VaqFPyzTeSdI8GmDtz0Pq3Fz+x7z/9PXe8wmuYkFXRaazAgRcCj
+	 P4ktwwJt6zQZ1WMJpfOZzgtBcfaXNtuzIC2/a6L3lIComzYm1bOnzI0wanG9Wv/lZIAYp
+	 xN8EXHXMZzfz9Y535rkmwqQP7RTVOfbg2kbxnN4s7NPtZG+YLAgSlAhy4It2vlmuCwMF4
+	 orrx+SZScck9jkbAS8XUZEWzG5OSNr12Jqbpy2VpEtSZSsSd6GwpTJ8xOkPfmxRerZg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Q5jGjtGl;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011020.outbound.protection.outlook.com [52.101.52.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE279606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:32:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE279606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=aclaesson.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aclaesson.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5857606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:32:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5857606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=aclaesson.com header.i=@aclaesson.com header.a=rsa-sha256 header.s=protonmail header.b=dQdQelpQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aclaesson.com;
-	s=protonmail; t=1795177948; x=1795437148;
-	bh=xJgqJ1GzLT0Cz85cGPOr0HyND/H8SVlikDVF2XvQ3RU=;
-	h=From:Date:Message-ID:In-Reply-To:References:To:Cc:Subject:From:To:
-	 Cc:Date:Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=dQdQelpQE6ziXihNgnYqxdHRHwR4Ng0knHbXzOlXKtBgb3AClyGog0tku0wLWcOJA
-	 ALeYMY1F0zEP29de/HxmWxgzh/HFOCt738weODI/naeYiIwZCuwDGkzFvkX0F6MuFA
-	 4SZg1l9HBO61dFpDuMCPvncc6jGNbzqvvmbnOw7o91tx6OwjqkTMX+V1S9u54yTtsb
-	 j5dKbwwkFKG0MlxEeC/hAxVweEit577pLna8IbHNWYhMHIhAVWXwvw/yuHn/IK78JE
-	 gDoX350uKaZqFn8KjFJ7tXHbwvLE2jFECOkNyFO2CC1AOHzlMJP/kMC5p9K2tv1w5l
-	 mHfw48bFsto8g==
-X-Pm-Submission-Id: 4jWF8n1n5Zz1DDr2
-From: Andreas Claesson <andreas@aclaesson.com>
-Date: Fri, 20 Nov 2026 12:32:24 +0000
-Message-ID: <179517794443.913379.16756320627305412346@aclaesson.com>
-In-Reply-To: <30po4s0s-7n8n-1q84-40r3-623n6n45p005@xreary.bet>
-References: <20261109-hid-corsair-k90-uaf-v1-1-0621c2c5c451@aclaesson.com>
- <30po4s0s-7n8n-1q84-40r3-623n6n45p005@xreary.bet>
-To: Jiri Kosina <jikos@kernel.org>
-Cc: Benjamin Tissoires <bentiss@kernel.org>,
- Chen Changcheng <chenchangcheng@kylinos.cn>,
- Danish Khateeb <danishkhateeb03@gmail.com>, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject:
- Re: [PATCH] HID: corsair: cancel LED work again after unregistering the LED
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Q5jGjtGl
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UPPMLRrDzaPxpiv+G3QGemVjWruF9GZh8nxJ2LuqMTLwtPuTr0HSjAr4WnvoEdtH/m/aouOBhLstBqXNovIMmCtF4grS9HYKWqKfc4XKYgXbDfnaw8iGNLaHm38uxIQa9a3M2Lr9yQ1Yk26g0V3Je4bQaX2TUAfTUG16uI7r190rqW3rGLOR40DLAWMRfIYvxe2V0r5UwotViveG2I3REtVEEaK9+OwXU7JE9Vt9mNsZtLRAhL8y/xUGQfvz0UD2jiNXK5A7NTHBYjrOthXq9h0UQhZ3Y9ugAPPvm6v4MS2mUT3kXAUnzKY/MPs3iuGAclSpg43HljQAiaO4iW7yMA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xM8zd7mva/7paJ8J9UlH77WsTtA2rrm/e2ObbIB52RA=;
+ b=W/PlRnP9/iJLcJf7HVoOj7SsET6GtEf+jOQV0J/cNYrag0V/qnwntM0OJDn7nOVH1le+lkLpr4y7lBgaKTOUVigkv9o/W6p/0Xj4CumIIIxTl5po18PQQSwFIV/SmA70e/V0y88O2ozFb+C6DcBrQtS5+o5rHb9ZtCtm4Dc/Ftc/gI+2T835uS6PX+gC/DzzfEHPE5eTVjorsh+ZpUeT3YCqqhj1YS4+R1za0dAeX0dJz6U0VKfnLX+F7eFuTUVsmKpQvRQ+6/RXkOYTO8mziKdJDeBft3N8dYQlASydKo2tQZ8df2BrGPnk1Y/TNLSfowYOPux1ark/7sOoyBV71g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xM8zd7mva/7paJ8J9UlH77WsTtA2rrm/e2ObbIB52RA=;
+ b=Q5jGjtGlGVcf+g/AOKOSiAA0dBe32LFuvbwWSJ1oVlf6jXyghOJOhR0ZSVbCNWerfAd6AVCAuVCWEDc5ugdbDJbKNDppXz1LgxcPBuIZOdDxoxSha+WygUQ8baR0PCErOnW0zEJoII0A4s1rhAmnAyuO6kAEAOUx3QS0htXgqfQ=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by IA1PR12MB6602.namprd12.prod.outlook.com (2603:10b6:208:3a2::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 12:32:33 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 12:32:33 +0000
+Message-ID: <48d1dd13-9ec6-402f-8a72-ce417f331332@amd.com>
+Date: Fri, 20 Nov 2026 13:32:25 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V1] accel/amdxdna: Reject a zero sized buffer in
+ amdxdna_gem_prime_import()
+To: Lizhi Hou <lizhi.hou@amd.com>, ogabbay@kernel.org,
+ quic_jhugo@quicinc.com, dri-devel@lists.freedesktop.org,
+ mario.limonciello@amd.com, karol.wachowski@linux.intel.com,
+ max.zhen@amd.com, linaro-mm-sig@lists.linaro.org
+Cc: linux-kernel@vger.kernel.org, sonal.santan@amd.com
+References: <20261120023540.888381-1-lizhi.hou@amd.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20261120023540.888381-1-lizhi.hou@amd.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MN2PR10CA0032.namprd10.prod.outlook.com
+ (2603:10b6:208:120::49) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,23 +99,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|IA1PR12MB6602:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4846c150-ea42-4305-91ac-08df47025995
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|18002099003|22082099003|11063799006|56012099006|261026121527099003|261021121427099003|261009223027099003|261102123227099003|261102130727099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	8PuRhdZa78FEAcKjcON1voiV8afiolppodLfNoI3jdabEaalumLQPiaaDnWd37mOtvXsnjb3UrDSJOCPb5ocDHLPvRmjaBDqDU/593Qd+O7XMdhRWaQ2nmcwBijkuqlFU4afO2uW4rBTg4I5Al6SOdXzIFyBriFLZvO9MppGQhmTb0EFap1aY7cgiRypqnrpYVEI3M+G+z06b0I9umLZeW0jlCO9yVyBoa+9oQ45FgNvT/4kRHWeI7SV8IRyIN7E6qwHIiHTVGNhdoiDbUEOtBfZXlClulne/mukg2PKt2+9R8/nc1diB3kAaqFLRG9pnIVKqYhrx5PznF5MTrNKYtNN2xDiPn8y9Q1aSOMqByZ8Us51TUHUUwKNwfIKUYcG2yRYaam7ViPLzEJhEAjqTUqOIufVtpTDe9iprPoKhYUgafv9lUNaMcF/i/Dm9T43TkCg+iL+lV3VgPvDXyXEoN6YzCwsnE6FLtaTJAJUcGQwD+lokje3GfOjAI+bPv9X0dk90RV6tL1wWRPdmQLIQsBmM+z/HEZwDb+CXtLCfyANO7N2/JP38421vPPpbOouSIUXkznMApBtsWn9CBMehg6Yfe1oIXujEG1KaIOkLqvSBkbdZY47EAjWYpx7W6l4BL0X4lFW/aBUXBlCUqoXVMBDOmExV3xTu/8FwUOW3Q4=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(18002099003)(22082099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261009223027099003)(261102123227099003)(261102130727099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?VmQ3Ry9kQ1poYTlkT2lqNXJMMTJId1V1SGZtV3RJcHplVFkycTBkVmFnLysw?=
+ =?utf-8?B?L3V1OUd1dWNCN2YyWi8xcUlvTWNmaTQ2VkQ0NEN4a0NuMG9EeEI4ZWxOODE1?=
+ =?utf-8?B?ampoN1NzS0RuMFJXK0hDOHBtd09KdEZCVUlUNjJiUTdnNWJWcGpIWW1kQy9T?=
+ =?utf-8?B?QXE0ZzA3WTVHNm9USGhmbnh5WXkwcm1ZamJIVktLQ0lxcjFyY2ljajJ2S0xs?=
+ =?utf-8?B?dTN4UjBtZlNYWW40VWdVODdRVU8rUndXTEFpWHJYRmhzOHkxdXhqM05UR29k?=
+ =?utf-8?B?YjMrVDZORDNSc2NZTG40N0U1d3NiR09vRDdHMXF5bWxSMlZCbE81OC9kZEZ3?=
+ =?utf-8?B?UXgrYlB1Ny8xOFQwMlZJdEt3d0k1Mm5ZTmozaXZ4dHo5RFUxMHdhMW95cXJI?=
+ =?utf-8?B?RUhhWFpHQWs2TmtmUTVodTU0RWkwb2dqYWszdityMzA5aW1tUld6U0RFYzh5?=
+ =?utf-8?B?K3dqKzYrTmhEYjFIRUJlYmtGUjYzYjV5a2tzbGtqR0pJSUNkL3RlSC9UUU1B?=
+ =?utf-8?B?UUpic1FlYlZXSVU1Tzh5N1JHY1dGZDhWY2ZUZWdab3hmeHI3STViTFNjME1p?=
+ =?utf-8?B?ZXBBM2FqeVJkVkxHRDRmQXByMHBTVjJXZUxTdVVFU0hsRVpBYXNsR3hmWSs2?=
+ =?utf-8?B?TDFVTm9EaU5IQTAwMmQ1bVduVE5BcU9zZStHanNETW5selgraWptU3NlRThK?=
+ =?utf-8?B?VnUxZjJWUzc3M0dYUHBqVmhiY3p2dHBGWEJUTXNIVDJFWmc1eTJ4amhVTXF0?=
+ =?utf-8?B?U3FwTzNnSUhDRVhNeGpteXllVXBnTnR2aEdnWHRYMnVPbWxDcjJnNjdUdTNV?=
+ =?utf-8?B?SkQwcXNDUzNPUGFYT1lQZFZRTHI4TEF2V3F3SzRZUGtRdFNDYUFDVGEvMHBh?=
+ =?utf-8?B?MklZWGtsbk9LekZZamIrNXVLNjhHRCtuRENYcjhobVFxdkxuam5tay81RW0v?=
+ =?utf-8?B?Z3ZPUy9rQmNaR2pNemIxN0FOK21ST095WUM2UnZqVzR0VGp2UUNUM2tubXJ2?=
+ =?utf-8?B?VHNlN2dwV3ZFcjh1OW5tTGZLT3E4L2RYeW1xWVdtek81ek9SRTNMdDlzcWNJ?=
+ =?utf-8?B?ZExkVEp4cmdUaENyYmRtS2FpdWlROUhiTTRyb0UrTGxGRFRyTTVPS1Nqajk1?=
+ =?utf-8?B?T3IxY1JlVDhNbWdzWHM4a0ZsQnRmdmd3QkJ1MWJCU0ZzWG1kdVRLdzFUR0J2?=
+ =?utf-8?B?WXRsOXQrdXM5cGV6S05BeFJldURtaUZmcUdGTis2MHFJeTFmcFcyZStYYXJQ?=
+ =?utf-8?B?NWVndUhjTElwRUNpaUdhS3E1eVQ0TzYrMUFJYis3anE2VWdzZnlaUWM4QUNs?=
+ =?utf-8?B?aGJmNExwdnZLU0RtYVRRWkRCNlNUQWlZbksyOXg4RXpGaFlyanVNMCtwUjRK?=
+ =?utf-8?B?MGF4MVF3cThocUkySHI2dGxWUnBsdDU2amlTSm1IOWxTZmxsdUpGd2Q3VlRv?=
+ =?utf-8?B?UE9mMEdCYzZQT2U0d3ZjUXkxT1c4aEJlcmhIc1U3NzFTRFQ0Y1IvUVU1a3hX?=
+ =?utf-8?B?SDBUaE0rZWFFSDVjWHdkQjdEUjQ2WWJFOW0zNjcxUGFyRDRLam5aSXk4TSt0?=
+ =?utf-8?B?U05yN2s3NDB4RWFTMTV1U2RRWlc0VTloVGY3aTF6K01FTDkzUkdDQ3FqblBX?=
+ =?utf-8?B?aXBLL3Z3R2N0VmpHS2wzVGE3WFlrUmd2SmxienBhZENLV0dLQUhLM3FHUHhJ?=
+ =?utf-8?B?TDJZTVpXRDdpUmVEN0JYejlMTWJjaTZROGRYaHZ3ZFROem44a1VoQ3Z2MC8r?=
+ =?utf-8?B?RXZpbE5HalhqenM5cWh4Ty85NXVEalB0ZEhkZlZ3WXBNT3hhL3JGNFVDNDYw?=
+ =?utf-8?B?V0xzM0x5dGdnVjFJQzNuYUR4VmQ2eW5ESEMvTlZWYkN3UytubXRGbytVKzdz?=
+ =?utf-8?B?ckwzTTB1MTB2VVNjcTIzSnVienhaQTRMQ2hhNkNSQmdUZ2hodlN2MWZVNVBh?=
+ =?utf-8?B?WVEybVJIeUVlRjg0NHo2WnVhNUcxQXBPN0hWUHU0L3k5ZEN5a2RkbU5rMWg5?=
+ =?utf-8?B?VDI0RGR0UG5EL09iQlAydW55MnViS1pnQ0p2K2NvVTZ0TDR6K1pRNmQxOGdu?=
+ =?utf-8?B?ZCtRVGZlK0xtTEovWVpNRFArOWNJelJWM0oydkE5OTNlcFVISmRjaElIMTlU?=
+ =?utf-8?B?aE5YS0RybzlOOFc2OGZIeXZ6a3piQ3VKUzV3TGIzeG1paHlsRXk5WFo0Sm9S?=
+ =?utf-8?B?eUFvdHZrNWZoV0ZFVDlWY0xYNEVneC9mMU1ySks0NktxcmxiajdtNGtGVWpL?=
+ =?utf-8?B?UVExZUhMN29YYklMTVF3NXAwTGNhNXdOb2RlaHkvYnh4UHFRdGhsTWpGN3JW?=
+ =?utf-8?Q?cX0QVWjp92IhEHQb5V?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4846c150-ea42-4305-91ac-08df47025995
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 12:32:33.1155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lsHv9tfRtw32v2ZgLSAW1MuYgKNCnIqcX3rKD0q40d2pob6RW3C+cy0JS/TxHNwp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6602
 
-On Thu, 19 Nov 2026, Jiri Kosina wrote:
-> Applied to hid.git#for-7.4/upstream-fixes, thanks.
+On 11/20/26 03:35, Lizhi Hou wrote:
+> Zero sized buffer is not supported. Check the buffer size and return
+> -EINVAL if the size is zero.
 
-Thanks, but I think this one should be dropped again, sorry for the
-noise.
+Oh that is surprising a zero sized buffer shouldn't be supported by DMA-buf in the first place.
 
-for-7.4/upstream-fixes also has cc8d022e8679 ("HID: corsair: use
-disable_work_sync() to tear down the LED workers") from Danish, which
-fixes the same bug and which I had missed when I sent mine. With the
-work disabled before led_classdev_unregister(), the LED-off request can
-no longer queue it, so the cancel_work_sync() calls my patch adds on
-top (e624a56578e5) do nothing, and the comment it adds is no longer
-true.
+Doesn't DMA-buf check that somewhere?
 
-It is harmless, so if dropping it is inconvenient I can send a revert
-instead, whichever you prefer.
+Regards,
+Christian.
 
-Thanks,
-Andreas
+> 
+> Fixes: e486147c912f ("accel/amdxdna: Add BO import and export")
+> Signed-off-by: Lizhi Hou <lizhi.hou@amd.com>
+> ---
+>  drivers/accel/amdxdna/amdxdna_gem.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/accel/amdxdna/amdxdna_gem.c b/drivers/accel/amdxdna/amdxdna_gem.c
+> index ffe12a722dfe..4d7f3de88cd3 100644
+> --- a/drivers/accel/amdxdna/amdxdna_gem.c
+> +++ b/drivers/accel/amdxdna/amdxdna_gem.c
+> @@ -1133,6 +1133,9 @@ amdxdna_gem_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+>  	struct sg_table *sgt;
+>  	int ret;
+>  
+> +	if (!dma_buf->size)
+> +		return ERR_PTR(-EINVAL);
+> +
+>  	get_dma_buf(dma_buf);
+>  
+>  	attach = dma_buf_attach(dma_buf, dev->dev);
+
