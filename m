@@ -1,68 +1,52 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173341;
-	b=J3Q+IJLTvwIVxZvZ3hb1uitw5AO66hvdcWsLgzXLyUSCVFbNSJyS+17uhsTeZSDv+qyX
-	 V2wMHjiiUXGEkzPan2p5QjjvPv61eDbYnA5fnaeqaNjBTNIy9x7MtOmJa8z7H38UqnPaE
-	 emz8dpVO6mE2FmRnxoFXL/eIAlOjNCABvkyHj1pQ3SnJc/wpnEN1fI9ILiua36Zx7F4z1
-	 yiHex1zozAy8cfP6iUoGTok59u0swIIWVFjMye+fth9LzKZX1p9cB3r5EErjY1pv5wQ8g
-	 mQZSL0s9zBiVajwI1inA/9zsWSbJkW/WerLftIevkKcrAQ3gONXdduzMO7rfxm6WofQ==
+	t=1795173377;
+	b=Z9bctU9qs/VtEaxHAz14hDXzGY2A/ILKxxufXn0REhUmD2dfa8ssjWiw2m3+pYA0jiUr
+	 Yq15sshkUh5eYcNRajoxqQ0vQdDpov0hn/Mtypv/a4BTJI0/hpj6AcbeIsYwJ/lW8UsJ+
+	 k4IjcE2eSP+9ovu8jeZNW+mtQ8Go97K0JKeJQdx4U8nkUP6bh9eWCYtC2ECaeaj7912ZQ
+	 9Ljn0hI8mZ/SbHk5ByMyyA1wrBv4j8NVs1X4c4bkK4JDDkkyJEEIpbYlZ6Ni+6zV7jNWP
+	 661gyU7a84641WLjqIrlrc2lfnRvAZ+gwZiqLuJEEb5RNPjQ1REtE326Pld/ToOkPHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173341;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=4q/HAzNWIc8z/Kxp9yRP6YEkL7lf8pSJ0VxSvJc2osU=;
-	b=p2zl3k9V1fsAg51qNzAUFjXe5uONU/HMHTl0n+7aWNfW8++KGWyllQt8hfG/RRXM1B9j
-	 abdtFOkeRY2WpbCgAfYEsLvVMWicXq/J8TCLhYcrjBw/svL+MpJE7DMf39upXTVFBXV5b
-	 WF9xkJGE/1e4sJUMf3BKa47/RSocttw2fE4a3c5/Yo/UCZkLtZif1JKVRK0ndy3qzKZir
-	 N+zM53RBTwP29wS+aeifDWpYRydBOcrs58jEChT8Efl1vyjuxJxxSz5mO47mPQhCwyh4K
-	 ju37C3h3AUBt8NAEzkFWfulNj/Ae2vMlwPz3LQ+XWYrbLnb1USilm+QQ1aovQ7eadhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173377;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pl136nzpOFQ345cNO6L/r1uz90t3NzllIlAz7VRcMtI=;
+	b=LMA27b4LpHPoVE5EW4x+xZDKtf0HVHQ+/GHROJ9mdLGCyUU9mUzbSkqkCaX8itayGd51
+	 KCI4VD0kp4CwVp90okjdqYncrUbuf0jkOcMSXeYEyA8x4H63ezWWFUOGLzTVoPqA8+QF+
+	 xX9oZF8KGhHvI4W0pxu5053G19uwWvdpiBeIM5AblCu70SHGEPIJeemlQWol7HlGeC6kN
+	 GZuDnywwZnmxsS2Y5rKCIVodUQ+S4BADEUA0loNZFZ5Kvxr6wnXY3C79pDKP2jLTQgD+u
+	 nxeuWp9XlSiTC1CgaFzfZqmwW/vJOmBVrBp2EV7o9bsUmglmvUUnjmI0vEGG5kq7wyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eiQFT9Am;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=zUySvkkH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DCEB606A320;
-	Fri, 20 Nov 2026 11:15:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E485C606A320;
+	Fri, 20 Nov 2026 11:16:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eiQFT9Am
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 631FE1F000E6;
-	Fri, 20 Nov 2026 11:15:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173340;
-	bh=4q/HAzNWIc8z/Kxp9yRP6YEkL7lf8pSJ0VxSvJc2osU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=eiQFT9AmZXE80k4vQiQVbH6zGKuabiTwvqQFRzxu32eu1FITxzhp6ynTVFOKGWIYc
-	 kdt1ABR1nlY1lXBi21g6qB4xy50TYfMLG9JmYyI3xud/sDdL0BZw9ANPtDHZLwQryW
-	 CCpH0Hhfd8DgR8jKwZGeQedWSfEuCyYEqOcljny15MzC/AhsZEKPbyCj8I7Xxh0e7S
-	 zUj9rDDS3ujW4FY2JfUfbNk9Qm+e3G/+IWEJNSMyMrAiW+P3glbGmOPyJLrc9jvroF
-	 7BxRY3IzC/wbNUIiDAHAn+Kfn/hojteAjPxdyBf1vKZNdYdwr9rAyqQJN8eZxA0XXo
-	 BMVJFKbr5u18w==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
- <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
-  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
- <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
- <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
- Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
- <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
- Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
-  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
- <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
-  Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 07/19] liveupdate: Add helpers to track the files
- that LUO manages
-In-Reply-To: <20261111002358.1842967-8-dmatlack@google.com> (David Matlack's
-	message of "Wed, 11 Nov 2026 00:23:45 +0000")
-References: <20261111002358.1842967-1-dmatlack@google.com>
-	<20261111002358.1842967-8-dmatlack@google.com>
-Date: Fri, 20 Nov 2026 11:15:33 +0000
-Message-ID: <2vxzbj7j3ga2.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=zUySvkkH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9DC51F000C0;
+	Fri, 20 Nov 2026 11:16:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795173376;
+	bh=pl136nzpOFQ345cNO6L/r1uz90t3NzllIlAz7VRcMtI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=zUySvkkHhPiH3OWBBhmtbPX5N22IOKGeVTdc3jos3pj0U8ksV8GdleYy1i/sdZgnU
+	 fDrPAzJJtMEYCSbG+7qnnH9VcS4tGvjl2XPwDImU+5xFNR1U7FTob/VsFWLfkuapHl
+	 +YiHkeWBdYslE/3KxNS+ET0Em1HSiUoZdeijhRFc=
+Date: Fri, 20 Nov 2026 12:16:13 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Tristan Madani <tristmd@gmail.com>
+Cc: Neill Kapron <nkapron@google.com>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Tristan Madani <tristan@talencesecurity.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v4] usb: gadget: f_uac1_legacy: fix copy_buf lifetime on
+ queue handoff and free
+Message-ID: <2026112033-gummy-backward-5436@gregkh>
+References: <20261104125346.2552742-1-tristmd@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,76 +56,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261104125346.2552742-1-tristmd@gmail.com>
 
-On Wed, Nov 11 2026, David Matlack wrote:
-
-> Add luo_track_file() and luo_untrack_file(), which add a file to and
-> remove it from luo_preserved_files, and use them instead of open-coding
-> xa_insert() and xa_erase() with luo_get_id() for preserved and retrieved
-> files.
->
-> The next commit lets file handlers make LUO track the file they retrieve
-> into, which adds more users. The helpers keep the key and the -EBUSY
-> behavior in one place.
->
-> No functional change intended.
->
-> Signed-off-by: David Matlack <dmatlack@google.com>
+On Wed, Nov 04, 2026 at 12:53:46PM +0000, Tristan Madani wrote:
+> From: Tristan Madani <tristan@talencesecurity.com>
+> 
+> f_audio_free() tears down the f_audio structure without cancelling
+> playback_work or releasing audio buffers.  The pending work can access
+> the freed structure, and queued audio buffers leak.
+> 
+> Additionally, f_audio_set_alt() and f_audio_out_ep_complete() transfer
+> copy_buf to play_queue without clearing audio->copy_buf.  When
+> playback_work later consumes the buffer from the queue, audio->copy_buf
+> becomes a stale reference.
+> 
+> Clear audio->copy_buf when its buffer is queued to play_queue, so the
+> pointer reliably reflects ownership.  In f_audio_free(), cancel
+> playback_work, drain the play_queue, and free copy_buf when it was not
+> queued.  Use IS_ERR_OR_NULL for the copy_buf check because
+> f_audio_buffer_alloc() returns ERR_PTR on failure and f_audio_set_alt()
+> stores the result directly in audio->copy_buf.
+> 
+> Fixes: c6994e6f067c ("USB: gadget: add USB Audio Gadget driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
 > ---
-[...]
-> @@ -395,8 +407,7 @@ void luo_file_unpreserve_files(struct luo_file_set *file_set)
->  		luo_file->fh->ops->unpreserve(&args);
->  		luo_flb_file_unpreserve(luo_file->fh);
+> 
+> Changes in v4:
+> - Fix the root cause of the stale copy_buf reference: clear
+>   audio->copy_buf at the two sites that transfer ownership to
+>   play_queue (f_audio_out_ep_complete inside the spinlock, and
+>   f_audio_set_alt alt 0) so playback_work consuming the buffer
+>   can no longer leave a stale pointer (sashiko-bot)
+> - Simplify f_audio_free drain: no buf == copy_buf comparison
+>   needed since copy_buf is now reliably NULL when its buffer
+>   is on the queue
+> 
+> Changes in v3:
+> - Guard copy_buf free with IS_ERR_OR_NULL because
+>   f_audio_buffer_alloc() returns ERR_PTR on failure (sashiko-bot)
+> - Attempted to detect copy_buf during queue drain, but that
+>   missed the case where playback_work already consumed it
+> 
+> Changes in v2:
+> - Added play_queue drain and copy_buf free (sashiko-bot)
+> 
+>  drivers/usb/gadget/function/f_uac1_legacy.c | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/usb/gadget/function/f_uac1_legacy.c b/drivers/usb/gadget/function/f_uac1_legacy.c
+> index 7c8d60c7e87d1..cba7b447b09e3 100644
+> --- a/drivers/usb/gadget/function/f_uac1_legacy.c
+> +++ b/drivers/usb/gadget/function/f_uac1_legacy.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+> +#include <linux/err.h>
+
+Are you sure this is needed?  If so, why here in the list?
+
+>  #include <linux/device.h>
+>  #include <linux/atomic.h>
 >  
-> -		xa_erase(&luo_preserved_files,
-> -			 luo_get_id(luo_file->fh, luo_file->file));
-> +		luo_untrack_file(luo_file->fh, luo_file->file);
->  		module_put(luo_file->fh->ops->owner);
->  
->  		list_del(&luo_file->list);
-> @@ -668,9 +679,7 @@ int luo_retrieve_file(struct luo_file_set *file_set, u64 token,
->  		return err;
->  	}
->  
-> -	err = xa_insert(&luo_preserved_files,
-> -			luo_get_id(luo_file->fh, args.file), args.file,
-> -			GFP_KERNEL);
-> +	err = luo_track_file(luo_file->fh, args.file);
->  	if (err) {
->  		/* A retrieved file is new, so it can't be tracked already. */
->  		WARN_ON_ONCE(err == -EBUSY);
-> @@ -788,8 +797,7 @@ int luo_file_finish(struct luo_file_set *file_set)
->  		luo_file_finish_one(file_set, luo_file);
->  
->  		if (luo_file->file) {
-> -			xa_erase(&luo_preserved_files,
-> -				 luo_get_id(luo_file->fh, luo_file->file));
-> +			luo_untrack_file(luo_file->fh, luo_file->file);
-
-This looks dangerous.
-
-Since the previous patch set luo_file->file when xa_insert() failed,
-this will trigger in a failed retrieve. Except, the file was never
-tracked to begin with.
-
-While I don't see anything that actually breaks because of this today,
-I think it is a bug in the making.
-
-I think the below is a bit better. Although this change probably makes
-more sense in the previous patch, since that introduced the problem.
-This patch should just replace the xa_erase() with luo_untrack_file().
-
-	if (luo_file->file)
-		fput(luo_file->file);
-
-	if (luo_file->retrieve_status > 0)
-		luo_untrack_file(luo_file->fh, luo_file->file);
-
->  			fput(luo_file->file);
+> @@ -338,6 +339,7 @@ static int f_audio_out_ep_complete(struct usb_ep *ep, struct usb_request *req)
+>  	if (audio_buf_size - copy_buf->actual < req->actual) {
+>  		spin_lock_irq(&audio->lock);
+>  		list_add_tail(&copy_buf->list, &audio->play_queue);
+> +		audio->copy_buf = NULL;
+>  		spin_unlock_irq(&audio->lock);
+>  		schedule_work(&audio->playback_work);
+>  		copy_buf = f_audio_buffer_alloc(audio_buf_size);
+> @@ -670,6 +672,7 @@ static int f_audio_set_alt(struct usb_function *f, unsigned intf, unsigned alt)
+>  			if (copy_buf) {
+>  				list_add_tail(&copy_buf->list,
+>  						&audio->play_queue);
+> +				audio->copy_buf = NULL;
+>  				schedule_work(&audio->playback_work);
+>  			}
 >  		}
->  		module_put(luo_file->fh->ops->owner);
+> @@ -942,7 +945,15 @@ static void f_audio_free(struct usb_function *f)
+>  {
+>  	struct f_audio *audio = func_to_audio(f);
+>  	struct f_uac1_legacy_opts *opts;
+> +	struct f_audio_buf *buf, *tmp;
+>  
+> +	cancel_work_sync(&audio->playback_work);
+> +	list_for_each_entry_safe(buf, tmp, &audio->play_queue, list) {
+> +		list_del(&buf->list);
+> +		f_audio_buffer_free(buf);
+> +	}
+> +	if (!IS_ERR_OR_NULL(audio->copy_buf))
 
--- 
-Regards,
-Pratyush Yadav
+How can it be an error?  This is usually a sign something else is wrong,
+right?
+
+thanks,
+
+greg k-h
