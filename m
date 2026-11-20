@@ -1,54 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193051;
-	b=P8sLk4i44wsMSFvHBKuchNrVuCl48Z7FfXnwxrxi/hAKc+vKE/gYJ/hPDAFqMGoWVbiX
-	 5/u+WcX1i2ti9fWocipdEBGu8sa+NgmjGV6r+9+aiaBlWzflb9Q3JKnTsUOk1sL9GA2BE
-	 +E+No7x/mKgEn1ptopi+BFvNof6j7nDuLOtP9VU4KxKLaLB9IZ2mvPRxjCEwl8fv9ozMJ
-	 Kx0RU3vAJbugR7BVEaQFj2fJS3dcE2/UqmcXTTpDHha44PvmX4GyjOUtuTOFij7+OungW
-	 YHXmb66IeJN9TU3Z47S7bXPIKNt4fQfh2/E4Bdn2v+iXzU2XO7mNwJ6HfJFM+4OXLvA==
+	t=1795193060;
+	b=awiyw/CDEOFPHVRfmg5sCQac/PWLZsi0MVIBCWW8hCGkDsqOO3Flt5NFd/Tnor94RUHA
+	 IJ8r1Hdu+gXqlQsq7/a3n3DOGxtt4WUl0/E/56HUq59/zkY/ChgfH6ZL0f/IRnre1OvEM
+	 zvj6D0uZ4tz8NLeGCAF+1uF/xEMU14eEjSXFOiTpMWyDnCZ/O/Srs8YVPGKHPtpsqnOAb
+	 2sVWKa69htcC0N0TzdY/58q3tJTvZAsYwnmBBAX+l6Ufy/BZHJM6W8DwDtl4oUyjOCYEc
+	 6GDzXATD4luzeTkCgPb6gyZl9j3XwarZ65BfNmWCQNkDEyWmcyuRzezQrcVQ1L8OkXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193051;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=muOyMM4tBGa8o1Glo4zMSPldaLPuNzEu577/jxDjA58=;
-	b=sfRCgUq40FUgjU3FXDnZScEe39+pumCoTgRN45UeU8w+mgy95PZo+5mEVdISoadg1ZQZ
-	 9PUBM6CK/mMpZJDQqnen9RMYPOiR343JQBGmyBg32w+MyjOXVJIuvA6aVohdvL08AXdPb
-	 QMGqJ+BIgStD4w6v4XR2b4XpPl6/L5FonYUgrrkq1qGWlQ2dC/JDvLR5f3bjAFFYEly7b
-	 nEbKMti8VQUvPN3Ms29KSr9jreaRY65AoVKW2EhqnrgKYKTrwRaplfOMYnRhOkWXoPcf9
-	 argjbZK1jlldgwHKLtgTzthrPS7mkbpUv6ZI/YH4OWB2lhUd/SusIs9M9uc9M8wRkMg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193060;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=iFnY1r7VPZMvfsmIdgKeHitSyOhWnW2d8B1Ry5abjKs=;
+	b=lrH5VKmcHkQ6wV1X9B2eVwINeyJmFUXbt8fQPn52nW5LsgBbp7DIMbYjzARUNoben64Q
+	 nLTZcnxarSvVOVZAbRSthZsseGZgPO+R94NXPRwWrSzADa/bdH9mY194txtsuI906zVh8
+	 FnIeTIAHjN9hNnCpCx9HdMS56hm0+kugn26k5zmM/I/kji3hCSYXZYXUvHZ2EosVayfky
+	 a8l/pJEpTK8cfFbXl4zx4wXlqw1lVqNbRyJSwOKx3uyChQdorXrcTX0pOJMdDdgFe0RP6
+	 qPQfYF2OCvude/J/ZlJAi9qK45tQ13DAQE4+4MEoeOrAkEPB9KvJZdBLbjXxuvL3VZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MY2ZerGv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2B10606A33F;
-	Fri, 20 Nov 2026 16:44:11 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MY2ZerGv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF9261F000C6;
-	Fri, 20 Nov 2026 16:44:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795193051;
-	bh=muOyMM4tBGa8o1Glo4zMSPldaLPuNzEu577/jxDjA58=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=MY2ZerGvNJh7NzD8YriAopHPbodyOMaJ60KrcqgWbHTwx1vOLUE//u3mH/GMAP2KU
-	 KNC08sO2rCdJ7Y3HXEEZOOQlaUUkU7BfZuRha8Zrhtty9ZYoSyUYUbqzGzC5IllT9a
-	 9paPW2KYR3kSJIwQc+aPWHInuv3zbXh6s8rKTwUMa+ncZbrw0clm+vGDP5nAKlcAmZ
-	 jwcDRL9JjKZmN1VbM0MPBxrCMvQ7L7ty4mDtmdF5LnZbaW+5IKUlCQcWdGWWttcQxk
-	 0KiNaz6wsi2PxReKccsP8PzTN9fEpDUWK/kpL0n9Hpg+PbFvJTVWSrsPycV9D2FsNl
-	 sDEOKLk8D+5Nw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Linus Walleij <linusw@kernel.org>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261120-ux500-asoc-handsfree-gain-v1-1-56379df0a6d3@kernel.org>
-References: <20261120-ux500-asoc-handsfree-gain-v1-1-56379df0a6d3@kernel.org>
-Subject: Re: [PATCH] ASoC: ab8500: Add AB8505 handsfree output gain
-Message-Id: <179518654497.6016.12233932109137524077.b4-ty@b4>
-Date: Fri, 20 Nov 2026 14:55:44 +0000
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DBCB606A33C;
+	Fri, 20 Nov 2026 16:44:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0DBCB606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id BBAFB6732A; Fri, 20 Nov 2026 17:44:16 +0100 (CET)
+Date: Fri, 20 Nov 2026 17:44:16 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: linux-block@vger.kernel.org, Md Haris Iqbal <haris.iqbal@linux.dev>,
+	linux-kernel@vger.kernel.org, Christoph Hellwig <hch@lst.de>,
+	Keith Busch <kbusch@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org
+Subject: Re: [v4 0/3] block: delay support for error injection
+Message-ID: <20261120164416.GA32719@lst.de>
+References: <20261111215838.103356-1-haris.iqbal@linux.dev> <179501806989.17649.3138860274842922761.b4-ty@b4>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,46 +49,30 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1111; i=broonie@kernel.org;
- h=from:subject:message-id; bh=v+54QrLDrUF7PasmTHHSD+jD7uzKsdnCCkF75tXpqoo=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZKm6ox7q2eT0M4pxd8rTkjYO1SNGG746z7s7q6bu5K
- /PKgQmRHaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZjI7v0M/9NPf/ZRFHnpU9l1
- wOfcj+CI04GXfhjkxH1/3+Ab9LxtoRUjw3zBpAipyuZ/6caRRrOEee7wycq4yOWyGt91eWSS/FS
- AEwA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179501806989.17649.3138860274842922761.b4-ty@b4>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
-On Fri, 20 Nov 2026 09:41:37 +0100, Linus Walleij wrote:
-> ASoC: ab8500: Add AB8505 handsfree output gain
+On Wed, Nov 18, 2026 at 09:07:49AM -0700, Jens Axboe wrote:
+> 
+> On Wed, 11 Nov 2026 22:58:35 +0100, Md Haris Iqbal wrote:
+> > Error injection can only fail a bio today.  This adds a delay_us option so
+> > that a rule can hold a bio back first, to model a slow device.  The delay
+> > happens above the driver, so it tests the code waiting above the block
+> > layer, not the blk-mq timeout handler.
+> > 
+> > A delayed bio is marked with a new BIO_ERROR_INJECTED flag so the rules
+> > are not applied to it again, even after a split.  Christoph asked on v2
+> > to avoid the flag by allowing a delay only together with an error.  I kept
+> > delay-only rules, as a slow device that succeeds is the more useful case,
+> > so the flag question is still open.
+> > 
+> > [...]
+> 
+> Applied, thanks!
+> 
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
-
-Thanks!
-
-[1/1] ASoC: ab8500: Add AB8505 handsfree output gain
-      https://git.kernel.org/broonie/sound/c/9fe20364e431
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+Hmm.  This still has rela issues as pointed out by Sashiko.  I'd very
+much expect a resend to address them.
 
