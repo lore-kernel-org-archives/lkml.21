@@ -1,96 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795161237;
-	b=GaKckmGDJOeZwxVJvd+OMd3qLQvELIt/0lRsL3a6BW/C/vqsf6IdMMkUYfg5PMCFRUlw
-	 71hTl9wr42K3/tcmd3LSXTlPz2/A0ddoCzICChy5mQ71J/fMD/LocKmwK8PwxRBFxthvW
-	 8wBHzC8/oTIpwMDiLnKSPhxMzJaNCMWT8qA9hK/6wME6vTt7VYWpzLCi8DW1NmKZ3TnDr
-	 w6UmsSlYVgQHWwfO5agRZ81cn80PuX08gfMX95KzaMQm/6028dx73uMKV0R+jEqT65EHh
-	 UynpyxwYVXlqSsVin++NBDiYV+GJphE0V0E826WUEQlO1kF7HMLlBjCvL9Ipm2svKnQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161237;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=gqoh9E5UoylLr9novogTvMxxvzfIFR1SGhIcki7oMnk=;
-	b=5YBzYSVEb5pcwfvydTIOgmAO9w09QCty1NtKOypb++iWNbs2ykz6mDh17gLOPtfN3oum
-	 FE550jgkdfPWTyebtpQ/9HBe4lcCW7P7bPmfkczOEv/qddK1ZW+hdJBYnS8x2XZLurrr1
-	 QeTNELuik5Aa8/LygQ3WWB2GFzHD6/fus+48WEw50Lc0R+g0TBresW/q5F/JWVwsPiYRR
-	 P6VkXzj1NDlS8KqnlskGYAcMao+/VUmc6sVoBRYR0rowdVAJbmDmSDxYyC6MNmxEQUAbU
-	 Yjom5cW4e7WMbWS7tr+PSSdgsJM32TY+JaS4ZEMwQn3whdBZM30dfS/881h871v2fIQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JW508CXX;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795161378;
+	b=GIrOnfG6/vFqGk9eVueavC8ToUAbr6Mf/YTpcZcKovAtQhPA2+QaAAVLjGUVb3SSpAOR
+	 togEnRtYX0Oi1aiSp8g7p7S6zg3RZmb9q4SKXQ4LMV3bMu6uXmx6q5f3MUBgFsImlCvdU
+	 ad2Pky1cVtl7sW03+XJ+aSGn4f+bhig2O4HaEBqcL+WTH29r+cm8jZCpQvHTPYyBnAdb8
+	 FfXliOEZZTXzjM3Zx5mWqFlLyVErOWGkXDRs+X+9z/W27PcvpgGxKMRq6lPIfWRxqdUTT
+	 Degkd4QAtMV05HNWy521/z9D80YHMKbXFOHt5jQ0wQkM80SapnhMD66eqa+9ACTMYsg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161378;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
+	b=w9FeRyw1V4iQIeMFeqotXMRrJAItzwYM0SJb1QIWNJhc5j0VuB7qZNgGOb9/385DDKgh
+	 Iol8delWuTFHuJgdT1zPR1T6Mjt2YPQSlYcD6/tZFOzIOsn+p/13d+4Jkcgj2nJYlaD/z
+	 8MDiW3kVzUvrzSH07Ua5m+8e9YEY41kzpn1FNXptTwvBuS62UzuZAmeE34A1VTsJOz0Gm
+	 sU3CB2xuNl6danYVlofPLQy8vq45QIL72aDsE7SEb9UHDmTzj8fhDlUMu/pZLGSU8DgYO
+	 EbNefoDSOtSX5yPsCF44/pw1E3ii1R1Fzsocvn6TaLhkSS19vnjrlKRADK+RYt/I3MA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ygo7u8hh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E47D60A2600;
-	Fri, 20 Nov 2026 07:53:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E47D60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9468606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:56:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9468606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=JW508CXX
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3ub1d1982102;
-	Fri, 20 Nov 2026 07:53:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=gqoh9E5UoylLr9nov
-	ogTvMxxvzfIFR1SGhIcki7oMnk=; b=JW508CXXxJ5rUZn9FhTmxuX1B2l0bvv5i
-	cksS3pXDbHgTe8hE/Kod9SaWPitsh1L6Rf3BLRjPX68Mx0YjMneTVxDT6BmA6O7q
-	4mwj6kTkINBSrvWm6oiGxomA7IeZNe0N1MfQ+/k6/gJ//EDRZk02li69nXTZF4dk
-	/j4sU8Mf67oO3c70ZeLTa596hhiM/0DILAhYzuLEnaupcXYC90nAxi9cBIqp4001
-	31t1zUoViOgu+rFDY5m/ySEOhCt0QhL7Gf/e88n1oKVOE5yTIfgz4tuBZDQaZVt5
-	a9Kw1K/BcFWg/+gVEnrGykfJNKD8KZbDloZ6a1kKIf4ScB0PYSLuQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tf1ur-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:53:55 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7o19x2242164;
-	Fri, 20 Nov 2026 07:53:54 GMT
-Received: from smtprelay05.dal12v.mail.ibm.com ([172.16.1.7])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1hd71hjm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:53:54 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
-	by smtprelay05.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7rqIA29491820
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 07:53:53 GMT
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CD87D58056;
-	Fri, 20 Nov 2026 07:53:52 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AA1275803F;
-	Fri, 20 Nov 2026 07:53:50 +0000 (GMT)
-Received: from b46lp13.lnxne.boe (unknown [9.87.84.240])
-	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 07:53:50 +0000 (GMT)
-From: Gautam Gala <ggala@linux.ibm.com>
-To: kvm@vger.kernel.org
-Cc: linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Steffen Eiden <seiden@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Marc Zyngier <maz@kernel.org>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH v1 2/2] KVM: s390: make kvm_s390_vm_stop_migration() void
-Date: Fri, 20 Nov 2026 08:53:45 +0100
-Message-ID: <20261120075345.116521-3-ggala@linux.ibm.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261120075345.116521-1-ggala@linux.ibm.com>
-References: <20261120075345.116521-1-ggala@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ygo7u8hh
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b8786bb305so726837a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:56:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795161376; cv=none;
+        d=google.com; s=arc-20260327;
+        b=clb8Vazws9cpHf94fHnkW33MrI2o7qVTVN7B31+l90oIBNksnZ26Cbqq0imHh29OHJ
+         xfY36CyhOXcjGTx3F72u/p9CQFTSB/XWpehVQigYVLMFeg9CAz54i5RWRxsL4mLDw4Ds
+         oAN14mqO75ATu19v3+fhqBlZIB1n4iEv8VgXd5E/uOMjs6rfDQIHAV84WgPvohXjdXhg
+         zYkU49DAtnJ7jUyJVf6ENt/2NwKDqme+txCFh71MQTiJBmzYESYKxncJjkzxpU8Ht+W/
+         r4t7jg+p0r7Ud0o3zhGPoo3h9rbYx/escxYko+JX6qK7PZu7jfH6yfYr6fs1LLAKz8kY
+         sl3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
+        fh=CEqEPJX5bjDftyqOejEJQgwQ9nPyyaI22Xga8awQ4Go=;
+        b=fKCGI2fMt0W9AKVV5veb6TarQuc20LDWtNL1VuqsrFj2lwlPA2rRwXWZTzPKSByulp
+         voNQHsyOyH0z7D/RjgYtTcVJiire2l3akkXrbbLPtc+rgCDOGtA5sHvIs6iEP0oAH+BU
+         4bqIYTy9hPUkQD7fgVnXzd8lW0QPR1uF54GMTO3NtWhBsQNHCV+FHHKmzNhcdSgURnz5
+         do+0jWVElZN3BhFlhHkWSvMjfHMVnrapBNn3cshFq5pQkIVkOlCJ04bCm/fVAzFq3wdq
+         pVUqq3rpbsWU0ElyU+9CS0LjgTjYsbDsPnzqxgslEwywzYGIwRvHXGV2MxGZbe9tmZCh
+         DJpQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795161376; x=1795766176; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
+        b=Ygo7u8hhmT8ZRlQdmS0vOD0LtKqCRvNQy8jKtH4jKR6rqYRw55nOxHH49oSqwd7310
+         tqh0K6hEP33VvvjziZCuo3m8QswhaN3kPeoSMEm0e3vamqxNJYSzr1ogjhjwG8x5kgoA
+         O6hNEcPAPWKodC+kQWJklTSqcn8hda7Sja3R2uUvsbTtUVBI27nqXzheiNBf38ERo3NX
+         ey6XMfzoNtmgqw/zJqTMOnp03ljHQz5A4Y4uXTPodouzp1/HYxnKXzq3R0cHZrICpabx
+         ixSDKTsTv3sotbbXlaJs4vwkgaS8TSHoUl8mw0inid7Y0tkejNrg13cwdskBxffkK1Jq
+         GO/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795161376; x=1795766176;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=D6D46AsAqBpehZlFwumznPvfnW8E6n53WMjbxwAnW40=;
+        b=Ddkq3OJ2RL6OVg08hRuZr4H0zZF/Ytw6yGZKTONhOjuMKvjleTfwES0nuxrnJPeMPH
+         Fm59MurLmtGYUzbrt88CeirTFWXFXljztY5aOQDWn8SNgMahLuAra5iVn8PC8WWiI9/b
+         jVm9N6mvVxPr6VELBJvRRorj+zkjONBZrvc0WJe0Kr96gesU0EGm+S3NKcxCm0wehZDf
+         DBiPZfNSjbJvQb6CXe9nVkRgTbrZQ32T5zO55R2Aq+mvQpQ/Ogbd6TllgLyAttvgGOi/
+         Rvy3WqFEIT/4dXQtnHKAl0GlAOwoPkMb9P60XjeWQrK1T8o201WqPbwkcKXAXisfRF5x
+         f/9w==
+X-Forwarded-Encrypted: i=1; AL+hErH9S/gHUu85DoMyP/xdYvV0E+gWPG4AyIsRupxoCJCh9jszuF9tGWZ3wIya13+klc/t8+RTgUMihoiyT6Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+TRp3K9C6FjJofPQ3Jan3B/6V/m5G1ukbayLb+2NdV/hD+wqIn
+	O1SqOs5Vfx6ksGv1VLElWbG3weDIFas/mEEWIFZKuic08+7NKxvwAl2mKDJVo/XEY5N2oqUx0pq
+	NfSzkuakrn221TZeHY0WP+49KcwpJkoE=
+X-Gm-Gg: AZFdTZdVfmGq7oeKWIQKYengmsmxCrIz/oKgOnpg/vpb/9sMaSKodJuOWn3dqSBtvgN
+	reBdScFdp46roEfwZcx46mgH3ZSi79u4tFzl9IyNSL4MKiwsbs1TrCAZVoneb3ybaTAlMsu5sWu
+	Qz4BdLB2tkztwbUk4dga0lJ4TIsF1GshubcOotoZuHP/E7PdloqWr0tR8LnH+nziCyyK99tFGxL
+	VOfynK/DuwE4FTel+0OG40DRFYO/lzaADkuEyTUSeFA9x0fnrFe5KmcQOzNK7p8UCT7jFTziEAw
+	5/YtK9ZPoELOUH6uRj2DefKPTCtMtDYWA/FbXL7DfiiZgw5oPaR783sM1VHRt2SV53uemQzdYWL
+	jgysapQHwKDl07iUmGanLOHEf4y3kEnaSEPmd0tWEf8qB1hNq5dcd3QMjgyJiFe44R0We
+X-Received: by 2002:a05:6402:c6c8:20b0:6b4:1037:2bb1 with SMTP id
+ 4fb4d7f45d1cf-6ba37e90658mr958557a12.22.1795161376138; Thu, 19 Nov 2026
+ 23:56:16 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,142 +104,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afffc93 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=rddqQMZ5Lc7RoAzGgboA:9
-X-Proofpoint-ORIG-GUID: L2Gw-S1kV6v3M1pjb3inyXpjcR-PhxTV
-X-Proofpoint-GUID: L2Gw-S1kV6v3M1pjb3inyXpjcR-PhxTV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX8OGCrEr7LOjK
- bv1QFyFfR8gf/TamZUYxdKhKepDNMZBg4dSWQVqzIIduLZrMVhzkoETxlamF20vmFM/TP5sZzel
- GD0eTHbBJF9iqD5qh6maB0tDzJA83i1j0RQaGPwDf1yFtXd2ymHEBbNsDbnzvexlKQ3G4+igJjI
- c+8Q9Bh71jnd+uq8qEU19qLwkh8VyxHHclAayyzcnpW8i7TQPx7m+dVqoyOrNf4nMNXJ3gJ7xLY
- v+Z2Cf/cLi/NG8J7ZcaSq9SUKTC5MY59rNCJQzPXaAAZ2WOmxXF3SOb0ppnz62ZavTfS2xTbiVL
- jJWuzD9THWKESq+8NxfAt1oXQ+Axi5ak8O2kT2k7RSRu24o7YD5fgNtL/Gr8F4//QjnayvLq5J8
- JgH6WuIIUju6RKXiL6XIL7yOcL9BJY2/QJyPC2ottJLvmgwGgq8Uz6Gwo9IQe34xplqZNeztzhw
- NrN/VbkSdZcFtZrTHEA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXzzMrZOF0INMd
- xNiukBrmhjv955TOUGYh0EBWkVsAl8Ugb6Cps/iz3N+iPULfEVg4GBKpLuIzADK5ezv5XXMSWzp
- o5UoHAaO8jRsNFeou4txap+nhww6jKU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200029
+References: <20261119-nfsd-copy-same-file-v1-1-ef18e53a00d0@kernel.org>
+In-Reply-To: <20261119-nfsd-copy-same-file-v1-1-ef18e53a00d0@kernel.org>
+From: =?UTF-8?Q?Aur=C3=A9lien_Couderc?= <aurelien.couderc2002@gmail.com>
+Date: Fri, 20 Nov 2026 08:55:00 +0100
+X-Gm-Features: AclHuK8gGGskXGfFPzME8Y_v-1TiWdShNUYoz4-qwshh3EGdWiYpATvAHeQokQw
+Message-ID: <CA+1jF5rurDObkiP0pg3Kp1vgB+sdxU6FYBaUUPWLJoHsoJ_6oQ@mail.gmail.com>
+Subject: Re: [PATCH] NFSD: Reject a COPY whose source and destination are the
+ same file
+To: Jeff Layton <jlayton@kernel.org>, nfsv4@ietf.org
+Cc: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, 
+	Olga Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Anna Schumaker <Anna.Schumaker@netapp.com>, linux-nfs@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-kvm_s390_vm_stop_migration() returns 0 on all paths; it cannot fail.
-Its caller in s390_kvm_mmu_prepare_memory_region() wraps it in
-WARN(), producing a condition that is always false. The arm64 stub
-returns -EINVAL but is unreachable because
-kvm_s390_is_migration_mode() returns false there.
+On Thu, Nov 19, 2026 at 6:44=E2=80=AFPM Jeff Layton <jlayton@kernel.org> wr=
+ote:
+>
+> RFC 7862 Section 15.2.3 says that COPY MUST fail with NFS4ERR_INVAL
+> when SAVED_FH and CURRENT_FH refer to the same file, whatever the
+> ranges. NFSD never checks for this. A same-file COPY with
+> non-overlapping ranges succeeds, and one with overlapping ranges fails
+> only because the VFS rejects it.
+>
+> The overlap-only rule applies to CLONE (Section 15.13.3), so leave
+> nfsd4_verify_copy() alone. Instead, check in nfsd4_setup_intra_ssc(),
+> after both stateids are verified. For an inter-server copy, SAVED_FH
+> names a file on another server, so that path is not affected.
+>
+> The Linux client never sends a same-file COPY, so this does not change
+> its behaviour. Found by pynfs COPY11.
 
-Change the return type to void and drop the dead WARN(). The
-KVM_S390_VM_MIGRATION_STOP attribute handler sets its result to 0
-explicitly; userspace behavior is unchanged since stopping
-migration never failed.
+Why should COPY within the same file be blocked?
 
-Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
-Reviewed-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
----
- arch/s390/kvm/arm64/arm.h    |  3 +--
- arch/s390/kvm/gmap/kvm_mmu.c |  3 +--
- arch/s390/kvm/s390/s390.c    | 10 +++++-----
- arch/s390/kvm/s390/s390.h    |  2 +-
- 4 files changed, 8 insertions(+), 10 deletions(-)
+For example: Windows FSCTL_OFFLOAD_READ+FSCTL_OFFLOAD_WRITE is used
+exactly like that by databases like Oracle. Even advertised as a
+"database accelerator" feature...
 
-diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
-index 760230685ca1..e60801e4a467 100644
---- a/arch/s390/kvm/arm64/arm.h
-+++ b/arch/s390/kvm/arm64/arm.h
-@@ -50,9 +50,8 @@ static __always_inline void kvm_s390_update_cmma_dirty(struct kvm *kvm, const st
- }
- 
- /* should never be called */
--static __always_inline int kvm_s390_vm_stop_migration(struct kvm *kvm)
-+static __always_inline void kvm_s390_vm_stop_migration(struct kvm *kvm)
- {
--	return -EINVAL;
- }
- 
- #endif /* ARCH_S390_KVM_ARM64_H */
-diff --git a/arch/s390/kvm/gmap/kvm_mmu.c b/arch/s390/kvm/gmap/kvm_mmu.c
-index 120980cf6ac6..f1d1374c92a1 100644
---- a/arch/s390/kvm/gmap/kvm_mmu.c
-+++ b/arch/s390/kvm/gmap/kvm_mmu.c
-@@ -99,8 +99,7 @@ int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
- 		 */
- 		if (change != KVM_MR_DELETE &&
- 		    !(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
--			WARN(kvm_s390_vm_stop_migration(kvm),
--			     "Failed to stop migration mode");
-+			kvm_s390_vm_stop_migration(kvm);
- 	}
- 
- 	if (change == KVM_MR_FLAGS_ONLY)
-diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
-index 18fb200f854a..04e4fa7dfd1d 100644
---- a/arch/s390/kvm/s390/s390.c
-+++ b/arch/s390/kvm/s390/s390.c
-@@ -1242,11 +1242,11 @@ static int kvm_s390_vm_start_migration(struct kvm *kvm)
-  * Must be called with kvm->slots_arch_lock to avoid races with ourselves,
-  * kvm_s390_vm_start_migration() and kvm_s390_get_cmma_bits().
-  */
--int kvm_s390_vm_stop_migration(struct kvm *kvm)
-+void kvm_s390_vm_stop_migration(struct kvm *kvm)
- {
- 	/* migration mode already disabled */
- 	if (!kvm->arch.migration_mode)
--		return 0;
-+		return;
- 	/*
- 	 * Unset the flag and propagate to all vCPUs. From now on the cmma_d
- 	 * bit will not be touched on any PGSTE.
-@@ -1255,7 +1255,7 @@ int kvm_s390_vm_stop_migration(struct kvm *kvm)
- 	 */
- 	WRITE_ONCE(kvm->arch.migration_mode, 0);
- 	if (!kvm->arch.use_cmma)
--		return 0;
-+		return;
- 
- 	kvm_s390_sync_request_broadcast(kvm, KVM_REQ_STOP_MIGRATION);
- 	/* Clear cmma_d on all existing PGSTEs and set cmma_dirty_pages to 0. */
-@@ -1266,7 +1266,6 @@ int kvm_s390_vm_stop_migration(struct kvm *kvm)
- 	 * cmma_dirty_pages is 0, and all existing PGSTEs have their cmma_d bit
- 	 * set to 0.
- 	 */
--	return 0;
- }
- 
- static int kvm_s390_vm_set_migration(struct kvm *kvm,
-@@ -1282,7 +1281,8 @@ static int kvm_s390_vm_set_migration(struct kvm *kvm,
- 		res = kvm_s390_vm_start_migration(kvm);
- 		break;
- 	case KVM_S390_VM_MIGRATION_STOP:
--		res = kvm_s390_vm_stop_migration(kvm);
-+		kvm_s390_vm_stop_migration(kvm);
-+		res = 0;
- 		break;
- 	default:
- 		break;
-diff --git a/arch/s390/kvm/s390/s390.h b/arch/s390/kvm/s390/s390.h
-index 9ed1af5583e3..45f397663d5f 100644
---- a/arch/s390/kvm/s390/s390.h
-+++ b/arch/s390/kvm/s390/s390.h
-@@ -474,7 +474,7 @@ int __kvm_s390_mprotect_many(struct gmap *gmap, gpa_t gpa, u8 npages, unsigned i
- 
- bool kvm_arch_setup_async_pf(struct kvm_vcpu *vcpu);
- void kvm_s390_update_cmma_dirty(struct kvm *kvm, const struct kvm_memory_slot *old);
--int kvm_s390_vm_stop_migration(struct kvm *kvm);
-+void kvm_s390_vm_stop_migration(struct kvm *kvm);
- 
- 
- /* implemented in diag.c */
--- 
-2.56.0
+Better tix the NFSv4.2 COPY spec at RFC level then...
 
+Aur=C3=A9lien
+--=20
+Aur=C3=A9lien Couderc <aurelien.couderc2002@gmail.com>
+Big Data/Data mining expert, chess enthusiast
