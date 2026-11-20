@@ -1,90 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174633;
-	b=sE3kARD+ZEbWrq2B3fgMwIIerNBrsglsDBDDV+GW6nYgA28zqqzXYuJ34o4Kh2FvSsZ2
-	 Vx3LcNv16sw9pVMxgK2Psgq9JijY9M1gcgndONW+lCYC4Vg7obHh3rzUYL0PD41h1M6z1
-	 a99WqvcHdN98FQ50jzb5ch50gGVxOHig7KxUsT+DecUZCB0aJp/+HObkjRp7TP4cYqN2Y
-	 jKooSTwCHZ9iiPZabqElyd1QFMpmOiWyz7ydwKBIqS5LfTE4/lGMTfLFuCkA3H+DwkDXD
-	 lOQt4G8PLHelqUbOrd4qyJY9FHe7mYojTOQQvuIHDn4CEqYhnof0z3T07slfMP0eKSA==
+	t=1795174709;
+	b=IiQg1IvV2tkOskyLBvX5H9PN5hZAsw+Nz90AdT14ncO9eR/uGYAgH4wQpdrT+NUkXXaG
+	 1OorkZ1ySJ6ZAU9TPVKDReFwHkiJ8XiqJ/r2JqUN4ulQUW4ZN7h3ok3Y+Orcny4Io7sSg
+	 Ie9UGB8xFCMUI3xM3SlD8ZudpGDxhBqQ26Rl8vpAsgyIbLwZ3Rm77jszyTyMse7BqGGax
+	 /pzNFS8riK4fi1dQJB5quUfjFpMcmO+ELp4iMWQhnC2Snu+7K4m6ioSQU1fvmhDo+Jpqv
+	 p3tXPBCQEJdTZcv96WW+d3K3pxsbquhM5gG3EajSfhYuaM6tmWPXv+Zo74cgsRfcIFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174633;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174709;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
-	b=PrwiiLrW4BaE8AkNRQvpNcg4GUNWH1W7TCq9a2HQ8aatiXwjt6tCAYiwa9Zi4C/1eYJO
-	 h15chL+6GnrFDkP/WAu/A2l0LM93/iOitFXQzy6v7V5oOPm9tGMtcCCc7gzaOXzjiKMjL
-	 UPI3eCH0+2ttHOcWJRviSocE+fvLbWVgTIyWK6dyj+rbZ8FU3yA+yIOtvtegvYwq2VodL
-	 8kljINwoD6cKmhKlAA8omSG1/x7ySFVaI0l8wmchiKEU0cJ0SFG6HWbIVFbgOuSe8nTA3
-	 Pi92Xbbzum7aoLBoPTxLgCMdDCbo8res5aG3MSFy/41yXzMbrI0UgiWbqIF23A2Z9PA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=RXY63Zo5uvZhPFI98Q/TScgGLzf2IyKlYtsZMNa3YBs=;
+	b=etGkjvRLIjQUgh8gyFqLzmCBIU3F3iQ/0ollzyZJ8lU4RFoh/F824XWdEEMNovAGU7Xb
+	 lj+qRLX2lfiD/1R38zgIa2s0Iy4gX+WXk9pPz0ErDAVRMKK0zs7Bn4eIYLHibiUqTVhNX
+	 UBiYs6zkw+3Gj0wkk9wqtZibpAqWEV2P6ICVlSQnk/bnF40hjVZ+SSExzRZyhaJ4D9jkd
+	 B+P/bqVZjJkXsxP6pqGxmizDZpsH2+AY6n7RJ59bqbiEdgiLp+9afRW0YlHLbAsKabxTg
+	 y803R8Xc40Oj4uoxjnF+htiqDlD+RShRTisP8t+n2a29zp96003A05s7d9gEamScdDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nFDuMamj;
-	arc=none smtp.remote-ip=74.125.82.51
-Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="ndmq/QHu";
+	arc=none smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EA80606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:37:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EA80606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2442D606A33D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:38:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2442D606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nFDuMamj
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-1a3c08d6928so1109032c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:37:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ndmq/QHu
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4a34ffd3e39so412195f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:38:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795174633; x=1795779433; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
-        b=nFDuMamjSMWL/CDdCbD4zTi4BreXTa1+8T7UGi5XYDqmX7AAK7tm65AW/3zsybEMvC
-         6Q4bIwYkAALd3v44sOQGMt9rwjn7N1IPBbRmk14jJut6Fy8d1hAETlmSRia+9nVJSO6K
-         yPomTLd97CC0a50ov3QgnUsmJ+GIhRhoq6cjxcZ7PRFCiei+8v2I6aAVOO186sS5S4AJ
-         CrrWqFSErA5XkBd3HWt0ScFdusOXF+a/9kieovwYH7dZrnnwHN6Y4AbIWdZzEn94tQus
-         TeUsEWfTm8rGQ93v4Hz1gMlk2PwYRz/frgLR2hefDYIW7p9xG/POYsjVBULy+T8Md1QG
-         T0iw==
+        d=gmail.com; s=20260707; t=1795174707; x=1795779507; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RXY63Zo5uvZhPFI98Q/TScgGLzf2IyKlYtsZMNa3YBs=;
+        b=ndmq/QHuoRBguIFOggKUs+Sda5GQg1fiH1RA9eEH9T57jYVFZoFNsvmwVdrVqbrSSP
+         /Np4fGfEiynF37xan6NwwLXOdGIBUp0o+dr3PLXqYFAGK1HxaA6MpIdCT5G5vW9153QZ
+         hfAJo8NG3VH7YlZx9Hopf66bfQHtgFAFLFcDVH2qXGtf+mmnpLcNRURNpY3ZK6en4ed6
+         J9PZys+UILNabCIsX6e/5FM9DStyEt8Hoxkder3nPUMb344q/WR9+AsxYbktonX0qHY0
+         Xr94sHBh/tMqNzpZJTMP1oasdbKFeP/vOPnkXOga7AnMB5g6ZZZ9W9esiPCLF1ebynsD
+         ZLaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795174633; x=1795779433;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=T+MRoJIYchkQ3oCmVwFfC1vPxUbNjMmgS5BbaHmzrQE=;
-        b=MdT+HKKJ9gYz4CK9zKAV4vg/P2lfm9djk8AZgB8nLFFlh78XRuRtT5MKdXDxEot1as
-         LwfdB7Wk3TtHofFxH6lKna4h9dAPZNwMXBJeH0fU/n/1NE9j+HBVuSmKRCn9Bb8CaY15
-         iOvodu9tR3VIvo/V4Ax3bqWkCD0SRauM77XbSE34BaTtuEhhS3mQTYYnlhyflGLLP3De
-         kEA5gqoYE4II16b/ZqZM526m4Ly4vosTzm4joKgEax40xWVFdeG4HQp4I5zz65TnCzue
-         xdlsYFO+ErXee0Xx/agpEqwZ3gXM8OtoEP3L+H4wD5KSjR2r5lFBvMqor1r1pYP6TkcO
-         ZnWA==
-X-Gm-Message-State: APuU4Z9mgJv5mxnbEKLBvWfJ6XzShMVliE+qW3eK0wdSC3az76hRkW2j
-	2WtzVQGlCHLEbI0jumhTgICwkJXxVEFG29d8VJjsf097EDym5ITS/DcK
-X-Gm-Gg: AYBFou321x6x7+kCd+dwumu3W1pg5qUYXL7Pukam7Fz542WkAAbWK56x0MBhNFRy6dH
-	AXrUdywd6+7dw+Gy3mhYDKn5bNtN2E10dCNYie1Z51uK9atDCuW58iJJakfxmfTolqJkH1zg9L2
-	nbZs47F47IKiirITY4gfyvEpXsJ8htDTXzkRbm2aDs0O3aScVVCYbdfECdZYjHRcRiQoRYwK8Aw
-	0uqnivsSIrsewP5ic4dI49JZEgb0zKBQy7b/6vr3YvEn3RV5mGRh6c8rHkP7cvwzh/mUYElxyiF
-	xavR5k0QKXMcvd2DdtD83qppAMnieuNhS145XvI+bm+ADajwyAM1OuPiO3aQiTMYYWqwWulvtyy
-	ee1YU7R4qJa94wLir+PdPX8c44+5Skx5YdiCiyPscgWy/vI5/g+XZ3MxS2f3cJlgNxVs8pMEQGF
-	MzZ3SVC+0HJLEqq0OXN/iG8W3N65h8QcJ3DLRayWOhCW1/sCCnXIKUnruOOJ32RrcT3TjxPkoNr
-	IUJR3K3l1dRM1v8P5LVX6SwaqFlQwPHj/vNo+IbA7NOCRgaYW7cKnsTQI+U4rDBDkwNfvLo57WL
-	WxC/Jk8odQKvuWOVNh+Megb24A68nuuJMKm+JgD81JqKFHsxspw=
-X-Received: by 2002:a05:701b:455b:10b0:1b3:b833:6565 with SMTP id a92af1059eb24-1b5568a1550mr2404004c88.20.1795174632489;
-        Fri, 20 Nov 2026 03:37:12 -0800 (PST)
-Received: from localhost.localdomain ([103.179.231.88])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm11664119c88.9.2026.11.20.03.37.09
+        d=1e100.net; s=20260707; t=1795174707; x=1795779507;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RXY63Zo5uvZhPFI98Q/TScgGLzf2IyKlYtsZMNa3YBs=;
+        b=IktzElYlbb4JQ0ZQsqucj/HafsomJFxvhpLPyUdNLF6tfOH/39c00G0qa0CkvdYEBI
+         Y+4z91jzEU5uvD8OcD8Tc5Cq+/AShWeP/I8Z2WhqE8JwXwC2u9BHDis0O+QkeWaJQxzC
+         KvDRghKWuk5vjP8zubKDP94XDSXRi7aryY7kwWbgDl5fIUKTfJyTa0xjmW3Zho6Z46PK
+         WXAgpG7NrFWQE6XsDgyinNKKWdKokduoQQeDZNl14vEzamSU+bZ6imu4Gm80w98UbSrL
+         9f1eb16BujdXgviyVXFFL3U9SaP6Uup5E7Rhl3L+Bitu7ZJtixGnEgo0LreqI5U/Qv4z
+         ayXw==
+X-Forwarded-Encrypted: i=1; AL+hErEpnn5p6fJ5nh68/Da3W2Z8zEN1C1VEWfQ+zU44Iaje8jliGGMtE6VH+E+naWeX1LJak9FmjTU4tGwysAY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91yh8jK+xl4nBc39s6Vlr7etnrgs1ixOYtM+kdYSn806HagUNA
+	8tSnez4NuIQ4W3Dv4VtLIyTfPyJkXPimAOWMNrD49srlIznRy8wEZJ9gFDdPk/ZM
+X-Gm-Gg: AZFdTZfEskMIMq4KLmvkBVPq92HJXONwHMuyWPdap/3rrwt0uvLdiKlv8a6ELkskkaD
+	YmYHnka3xuLykPpm45Ho9NS8krCokwpwhBY7p7qlDoIJtFalO7PetYSnZDXVu2SA16TzWv1x090
+	Ti8ZAzkBQsNkKbJwawJe0HVkaqOzGndaWbx1nNYfOQaZEmyp5WyQt7Pn+dWzauO4iUt/Qxy0w0z
+	bLBQjGrWjL2ivhIQQ45WR8nt5iz5BR+RvWg8I+T2orY/3aMWr++CopRWGQsXq1NgWFBHQnW1hBs
+	T4Ls+Wa9SmckAFj2GgtGazGjhC3vhgp3xrvT3ApSEU5/r7YEsWSvasmluizzMs2qXzNo3JFnoQv
+	f+z9tC3r7/BYVNM8dtEOwQv+utnWYI0RE89nYdZURaqdL2hZl9IgmEK3T308O4AxD3dN5MkbDmt
+	7hdLnoJnZZRKQ3NzjAT5P4DYioe5hmsEGmP5pGAmDcV89oNnfkP3zeVAPNAGVSv+NkATSYBnDW+
+	LaWxgh3/hUR9B06D9WsD/O/hyhdrtco6vGjmAeR7oRi4fFSN2vsFW7Uvc/RfEPXb0yHJUP/LLLL
+	9a+DygIzx69EMQmM71xg7NFAnPh4Al0N9/5wW5kmD/47MBRmyrqQ/soMCP2Lpt48kA==
+X-Received: by 2002:a05:6000:47ca:b0:4a8:9702:6cbe with SMTP id ffacd0b85a97d-4abb2dda46bmr3489036f8f.27.1795174707260;
+        Fri, 20 Nov 2026 03:38:27 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2c8csm5347378f8f.2.2026.11.20.03.38.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:37:12 -0800 (PST)
-From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-To: perex@perex.cz,
-	tiwai@suse.de
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
-Subject: [PATCH] ALSA: pcm: Fix incorrect numerator selection in snd_interval_ratden()
-Date: Fri, 20 Nov 2026 11:36:32 +0000
-Message-ID: <20261120113632.2761-1-sreekuttan2156239@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        Fri, 20 Nov 2026 03:38:26 -0800 (PST)
+Date: Fri, 20 Nov 2026 11:38:25 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Usama Arif <usama.arif@linux.dev>, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org,
+ hpa@zytor.com, gustavoars@kernel.org, ardb@kernel.org, hca@linux.ibm.com,
+ nathan@kernel.org, morbo@google.com, justinstitt@google.com,
+ linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, riel@surriel.com, shakeel.butt@linux.dev,
+ kernel-team@meta.com, rkeilty@meta.com, atish.patra@linux.dev,
+ dgreid@meta.com
+Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack
+ fills
+Message-ID: <20261120113825.234bee1c@pumpkin>
+In-Reply-To: <CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
+References: <20261119213147.1094488-1-usama.arif@linux.dev>
+	<20261119213147.1094488-3-usama.arif@linux.dev>
+	<CAKwvOdnzNU_xtLeb4vXSFe3DLN9QmdNSSReUmQahsLX+1pZxCw@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,37 +107,130 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-When the calculated numerator is smaller than num_min, the
-function incorrectly sets it to num_max instead of num_min.
+On Thu, 19 Nov 2026 14:28:04 -0800
+Nick Desaulniers <ndesaulniers@google.com> wrote:
 
-This can produce an invalid interval by making the calculated
-minimum numerator larger than the maximum numerator, even when
-a valid range exists.
+> On Thu, Nov 19, 2026 at 1:32=E2=80=AFPM Usama Arif <usama.arif@linux.dev>=
+ wrote:
+> >
+> > With KSTACK_ERASE, every return to user space poisons the part of the
+> > task stack that was used since the previous return. The generic
+> > __stackleak_poison() does that one word per loop iteration, so a syscall
+> > that went 1-2 KiB deep pays for 128-256 separate stores. On Meta hosts
+> > running many small VMs, stackleak_erase() accounts for about 1.5% of
+> > non-idle host kernel cycles.
+> >
+> > Override __stackleak_poison() on x86-64, as s390 already does, through
+> > the hook added by commit 491a78663e03 ("stackleak: allow to specify arch
+> > specific stackleak poison function"). Fill spans larger than 512 bytes
+> > with REP STOSQ and keep the word loop for shorter ones, where the fixed
+> > startup cost of REP STOSQ does not pay off. REP STOSQ starts to win at
+> > about 300-400 bytes on Zen 5c and Cooper Lake, so on both no span gets
+> > slower.
+> >
+> > The fill is inline asm, so the noinstr function still makes no calls.
+> > memset64() would be the same instruction, but it is only static inline,
+> > and with KMSAN it is an out-of-line function.
+> >
+> > In a Zen 5c KVM guest, stackleak_erase() got about 35% cheaper per retu=
+rn
+> > to user space (71 ns to 46 ns, scan included) over a futex, epoll, proc=
+fs
+> > and Unix socket syscall mix. Same-vCPU futex wake/wait and Unix socket
+> > sendmsg()/recvmsg() ping-pong round trips got 5-8% faster.
+> >
+> > Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> > ---
+> >  arch/x86/include/asm/processor.h | 25 +++++++++++++++++++++++++
+> >  1 file changed, 25 insertions(+)
+> >
+> > diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/pr=
+ocessor.h
+> > index 77488ff5eb8c7c..049231d484ad0e 100644
+> > --- a/arch/x86/include/asm/processor.h
+> > +++ b/arch/x86/include/asm/processor.h
+> > @@ -580,6 +580,31 @@ static __always_inline bool on_thread_stack(void)
+> >                                current_stack_pointer) < THREAD_SIZE;
+> >  }
+> >
+> > +#ifdef CONFIG_X86_64
+> > +#define __stackleak_poison __stackleak_poison
+> > +static __always_inline void __stackleak_poison(unsigned long erase_low,
+> > +                                              unsigned long erase_high,
+> > +                                              unsigned long poison)
+> > +{
+> > +       unsigned long count;
+> > +
+> > +       /* Short spans do not amortize the startup cost of REP STOSQ. */
+> > +       if (erase_high <=3D erase_low + 512) {
+> > +               while (erase_low < erase_high) {
+> > +                       *(unsigned long *)erase_low =3D poison;
+> > +                       erase_low +=3D sizeof(unsigned long);
+> > +               }
+> > +               return;
 
-Set the numerator to num_min when it falls below the minimum
-allowed value. This allows the function to calculate the correct
-lower bound and prevents valid intervals from being rejected.
+gcc 13 onwards makes a meal of that - https://godbolt.org/z/KPP4h8xz6
+It does manage to unroll the loop once - which is good because the intel
+cpu (I've got) won't execute a 'one clock loop' (the zen5 will); but the
+setup code is horrid.
+But I also think some of the more recent cpu can execute more than
+one write per clock.
+If you unroll the loop 4 times it may run a lot faster.
+Perhaps:
+	long count =3D (erase_high - erase_low) / sizeof(unsigned long);
+	if (count <=3D 64) {
+		while ((count -=3D 4) >=3D 0) {
+			*(unsigned long *)erase_low =3D poison;
+			*(unsigned long *)(erase_low + 8) =3D poison;
+			*(unsigned long *)(erase_low + 16) =3D poison;
+			*(unsigned long *)(erase_low + 24) =3D poison;
+			erase_low +=3D 32;
+		}
+		if (count & 2) {
+			*(unsigned long *)erase_low =3D poison;
+			*(unsigned long *)(erase_low + 8) =3D poison;
+			erase_low +=3D 16;
+		}
+		if (count & 1)
+			*(unsigned long *)erase_low =3D poison;
+	} else {
+		...
+	}
 
-Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
----
- sound/core/pcm_lib.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Except that gcc makes a mess of it again.
+I don't think the 'erase_low +=3D 32' is going to execute at the
+same time as the last (two probably) writes so costs a clock.
+So it may need to be asm.
 
-diff --git a/sound/core/pcm_lib.c b/sound/core/pcm_lib.c
-index bb16738bb591..65c7472ef22e 100644
---- a/sound/core/pcm_lib.c
-+++ b/sound/core/pcm_lib.c
-@@ -966,7 +966,7 @@ static int snd_interval_ratden(struct snd_interval *i,
- 		if (num > rats[k].num_max)
- 			continue;
- 		if (num < rats[k].num_min)
--			num = rats[k].num_max;
-+			num = rats[k].num_min;
- 		else {
- 			unsigned int r;
- 			r = (num - rats[k].num_min) % rats[k].num_step;
--- 
-2.55.0
+> > +       }
+> > +
+> > +       count =3D (erase_high - erase_low) / sizeof(unsigned long);
+> > +       asm volatile("rep stosq"
+> > +                    : "+D" (erase_low), "+c" (count)
+> > +                    : "a" (poison)
+> > +                    : "memory"); =20
+>=20
+> Surely this isn't the only place using `rep stosq` in the tree, right?
+> It's not, see memset64 in arch/x86/include/asm/string_64.h.
+
+Which seems to have very few users.
+memset_p() and memset_l() have almost no users.
+
+David
+
+>=20
+> > +}
+> > +#endif
+> > +
+> >  #ifdef CONFIG_PARAVIRT_XXL
+> >  #include <asm/paravirt.h>
+> >  #else
+> > --
+> > 2.53.1-Meta
+> > =20
+>=20
+>=20
 
