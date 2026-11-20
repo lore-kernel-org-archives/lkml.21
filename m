@@ -1,116 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795138030;
-	b=UaNU33kOXVoYMUjV3Ss753DcDgs6hDqJrwvWs6WEmB8P3yEbGNEvHaQibagptPZYZwCa
-	 uLWsYkfFmGI+KBYCYxwt2cYEjChowEMzhmonYDKJyQfn8qKcsuVAn1PuC+ym3QLqWVama
-	 CMZpIQEAvvJ9yb+RGCV0iOcXsXZFHLVl36CGhmUpAchb9F/OKwiNjTOohsHOihQi2gVUP
-	 De+sCnN0/Ejxd0OKFohzf/Q8EMvhFQXYInkqk8fpa+uv1b691AKhzOye+H9JwZToDtY+n
-	 v1brrzq1VbcouQAAAZO/PwV7LiFdzSdvfTmCUjCkk2enTLipdCGEsS65+q40IhWLIlA==
+	t=1795138054;
+	b=4FrUTFmLlM1MwGARYzTZDT9aM0usOA5R9wcZDoO5y7pncMfk4kqKz0gGNjW6pskv3VJ8
+	 AtLJacmmaeNNdSLzPUEm3QEQPk3SJ60URyxIv4J8RRwDe2eygoASEFiAVH/0+4rjFBN5s
+	 ZH5S1HhVhsuMAWISGAXeX0PV4d1ebi29sSP9PdG8j+6kDxysGA7eWCLCECF+5lQtS1CJl
+	 2FVPr9cGLZAsuvNjxvHfM+a9XKab6xhkUOT32r/ZfDx1gxQTy1jCAVM0nKeMEpFDX5ry4
+	 5iCztehxHW7ytD+/hmoVMI2ex3gwLcqSoXUPtQD1uFeysRLPkpD85nqiHSuxsL3Tpzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795138030;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795138054;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=YPbHP917yUHY/BF57YXHo4DEomZ+zhTMb9fbIaZ6CZ4=;
-	b=vHEh+koTe6y8reVCEIZKC875VQcqZ8yo9lt8POzmiqDZcicqC4peEC9v0JJDNwGFhu19
-	 kyU+8nLxlJanolxvyRGxKL80O9gBsRjejABN4Ki1YkYiUuSLMTpt/40pZ1FL/cjosLPwe
-	 aa9ekGB19ijrSGb5dPcO17ol8cgQw1yMYvIYt7xhXxlpr5mpModiUj9Pi63vAmMl6Iehd
-	 odptlpcjaRbrsA67LlGE8mqCeaRnMcLg0DkDaNPG1884LUs5iN9Pkef1XrBdybVtB51KJ
-	 YN/AWX3TgCXziktBkMlxBzCIh1GHd7ug6xwVwVpzEDBSXMyAaO7mbKdFWO7pfY9GgvA==
+	bh=uP51RJdgbbJaC7Ut67HTzDX7rHk2rGZZvFLYY2qw35k=;
+	b=LoPVYrEEp+7DOkaME755SMk3zfGcMRQbLX7qteOeSmeR6wvXTxjvbs7ddiOFE1bJwcub
+	 rM0H2y0NXxrBlGn1NSwXpUduwWGPbyw3ilbb5Ql4NRh4uqcrWZ0x6rlxUCEN0kAXfAP/w
+	 f/tVWi4gsNTzKRB9jDnjFq+++POlB55rYPUC/sDNnH7BOGEMmb161vFbDAqnp/SPk5+4f
+	 hBcsAGv3xxt+kW+JrA/zGT2iXW6Y8S2TxFn6GgZjXY1OM2h1RhLPpW1r1z8O5Mm4SA6fK
+	 5bVAtYFyY0lz/yRM42tCwGkW8lIFSX4ydWxFjtocZpZRb04UPildSBBRbxmcR0DE/bA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jclark.com;
-	spf=pass smtp.mailfrom=jclark.com;
-	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oT5TT9gF;
-	arc=none smtp.remote-ip=209.85.215.181
-Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mliWifsE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 163B2606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:27:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 163B2606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C80A9606A320;
+	Fri, 20 Nov 2026 01:27:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=oT5TT9gF
-Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso177405a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:27:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795138029; x=1795742829; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YPbHP917yUHY/BF57YXHo4DEomZ+zhTMb9fbIaZ6CZ4=;
-        b=oT5TT9gFVeRsVpTIRpd7uVSqmIfR9E7HLDq2Z0TbkOyEee0JmDRfsxeBDU+HFuRvdM
-         HcggF3/dyEQ8otgi5HAxGJaevGnotQqnq7jqFzIz96tQOjSB8r/6PJnlFjT516lVoRtj
-         UFQ/YZR0j7lgtbQ017QIHjwf4wrLs8u+zg72Z5BNwh4m5vI+VnG9hpn8zZshlpuihvyH
-         GTnutHBlMsVbpryYQYyOKJOsdeYBCVluqFoVMxhQ25lZKbZiOKzYQmdHcqDHb0QOHwOo
-         8i8f3X9HZvrq0zTbebY9d0sPIJRedlPqOykfPGl73ZaJ0T36q2sWbbpBbx4ilTsirvkl
-         CFwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795138029; x=1795742829;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YPbHP917yUHY/BF57YXHo4DEomZ+zhTMb9fbIaZ6CZ4=;
-        b=GzJYoRHxyFfaPasf5ZBxS8/rsUDVmFDpBvoZBd297QCzbT3vVmXE54EARl4wi6vlpW
-         5KOHQuevlyfseHRQXqyMY5SWA8yK02kWeEGa+UCE01PNHaSTOuEZzXJajTbIv4vPC4qU
-         Pe6ML1SmDbpkWW5SqkrwIv3POfBgsuU9x6DlyUBrCa7yxbG3zU90UgJKL0GDI3kHNoKX
-         00VMJUdbpIoavw9NgIdQV8h1pnle9Oa7ZDRliI6pZDUxSxeIt8lmsZIf9xnIacZgB4Dh
-         pAfcTte5Ujs7b3GzbENdINWhIdehPCs3Bk4IQca/tT5juPjLPKPJQ6lYh7ma3qvedqHu
-         b/DQ==
-X-Forwarded-Encrypted: i=1; AL+hErF79yHbmfK5Lm0wFYISxaFCOW8XWnN9ZsqPgsjvJQgdHFoE1BSb5YzYjnb6YsNsW4L5hUqc9DhA/vmEJYc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xmDY2EFU9wVkX73F939pK5sr9NP3SuHpoGHEAceAjZLYjs/bb
-	sJFERB476RUIW7HTTqKB7Y2y+6ey4/4Kp1Ui8YGTlOGNYHA6fPMQXQU6bAoN9fnvwA==
-X-Gm-Gg: AZFdTZfnqfczsFrizeq+OtVd3jSVRWqYHqxxLwocMDQ7aoRlYJZnW00dyfuS2qOx8GS
-	OzVmTnFFRPDaAnDBMmdXMsDwoPaqp7AOkAR/KKx7NGPJrCmIZvB+TKTef9biRPkbOwnTX0edYMt
-	Rj1Jwf/gd86fpufXYK6hsfvX3aUIK99aFeTU/r1cjl8ytkQVrvY9f68jWyTk+v5DmLKUQm2pPcN
-	EITt3aJle17VUbH9V106S1gzl9ywQL359i9BWqUmH3WZ4qQg7UbVE35e0JHa96cAPmAwAVDHjRk
-	FOcaxNuSzHLf4F/4AzRkH0pC8Nit/gAOCwuJCjzVEU4TrEP63BWzze1A9U95jeg3wFyOMyKCrQn
-	3hK0chF2xrCTdIuERp5nb0EYTpDVoO8BnbqN3o7//FIqK+764xwWlf4V5V0Vmfb7KUwhH4R7C7I
-	6/Pny7nn7x+4eSbzeRjZjEZeWSY0LGTio49DkR4Ecs0IYen3v7GjUVCnFgcvOISSUte8MSrGIim
-	+hPVbQUR70MDPIT8Qeym6ELvxu/kI6sXbikS8NgYMlNR6/0IoWQ56EoEpeQbGnn+Lx3Wt95I6Kl
-	2ttUkPCbHQPTzTacr+eqttKqG2l1RU81zKkAuFzGgczWSvBDV7g2pbVWp6wPwuF7XmINqMNi/CI
-	/TC9NMhCVnnpS+ZLI
-X-Received: by 2002:a17:90b:4c0b:b0:3b4:12a9:2e1 with SMTP id 98e67ed59e1d1-3b41c931d36mr1334543a91.33.1795138029298;
-        Thu, 19 Nov 2026 17:27:09 -0800 (PST)
-Received: from cantal.lan ([58.136.72.57])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b2c4sm1763326a91.4.2026.11.19.17.27.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:27:08 -0800 (PST)
-From: James Clark <jjc@jclark.com>
-To: Rob Herring <robh@kernel.org>
-Cc: netdev-bot+sashiko@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	richardcochran@gmail.com,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	lee@kernel.org,
-	s-vadapalli@ti.com,
-	rogerq@kernel.org,
-	bigeasy@linutronix.de,
-	martin.kaistra@linutronix.de,
-	vadim.fedorenko@linux.dev,
-	r-sharma3@ti.com,
-	robertcnelson@gmail.com,
-	nm@ti.com,
-	vigneshr@ti.com,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	mfd@lists.linux.dev,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mliWifsE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F16211F000C4;
+	Fri, 20 Nov 2026 01:27:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795138054;
+	bh=uP51RJdgbbJaC7Ut67HTzDX7rHk2rGZZvFLYY2qw35k=;
+	h=From:To:Cc:Subject:Date;
+	b=mliWifsEoWZE1zqpx1Vu6OK+OXeR4QCj7U+ybaknK6U6MJaApyMqlQYXo2O1fi5E5
+	 vaiykFvTNEQcvzoV+B5yUYF4zPCQM/yny41BWJoW6X/wUmp4Uvia910Z34LEQcQtTD
+	 6Gwa9V2ROSE2xvRhMpLIEFyUAEQI3CrjOmk8Ve5zkz0t9ry6EEu8BJBacSaTg0ihPO
+	 9f1gCJF0SxplACtA6HAj+3IsBG1g+1GkV0BlNzCP/H13y+25eZdpqCyNu/R14b++YX
+	 q+MgkmoYa0q+6O+z5nysAE/bEjC4OGR1rKBEh6uEO5CUcVPqJHgDQhUGvN9Z2gL3Iu
+	 Mr66+NFO9AJDA==
+From: guoren@kernel.org
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	guoren@kernel.org,
+	arnd@arndb.de,
+	fustini@kernel.org
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next 3/3] net: ethernet: ti: am65-cpts: implement PTP_SYS_OFFSET_PRECISE
-Date: Fri, 20 Nov 2026 08:27:00 +0700
-Message-ID: <20261120012700.1878745-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119230614.GA1147583-robh@kernel.org>
-References: <fd826c118aec02c06bde92ff9c20f1958c214b3d.1794284248.git.jjc@jclark.com> <179446830443.2199510.10552580927894870264@kernel.org> <20261117004133.1594972-1-jjc@jclark.com> <20261119230614.GA1147583-robh@kernel.org>
+	linux-arch@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Leonardo Bras <leobras@redhat.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Han Gao <gaohan@iscas.ac.cn>,
+	Yao Zi <me@ziyao.cc>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Xiaoguang Xing <xiaoguang.xing@sophgo.com>,
+	Paul Walmsley <pjw@kernel.org>
+Subject: [PATCH V6] riscv: errata: Add ERRATA WRITE_ONCE fixup
+Date: Thu, 19 Nov 2026 20:27:12 -0500
+Message-Id: <20261120012712.1957564-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,36 +71,217 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Rob,
+From: "GUO Ren (XuanTie)" <guoren@kernel.org>
 
-Thanks for the review.
+The early version of XuanTie C910 core has a store merge buffer
+delay problem. The store merge buffer could improve the store queue
+performance by merging multi-store requests, but when there are not
+continued store requests, the prior single store request would be
+waiting in the store queue for a long time. That would cause
+significant problems for communication between multi-cores. This
+problem was found on sg2042 platform with the qspinlock lock torture
+test.
 
-On Thu, Nov 19, 2026 at 05:06:14PM -0600, Rob Herring wrote:
-> > There is no other user in the tree currently. If in the future something
-> > else in the kernel wants to use it, then the solution would be a small
-> > driver to mediate this.
->
-> Would doing this imply a DT change? If so, your binding is not future
-> proof.
+So appending a fence w.o could immediately flush the store merge
+buffer and let other cores see the write result.
 
-I don't think a driver would need a DT change. The property only says
-which CPTS input the GTC push event is routed to. It does not say which
-bit the GTC exports. The role of the driver would be to mediate the
-choice of bit in the GTC_CFG0_PUSHEVT register. The driver would bind
-to the ti,am654-gtc node. It would not need a regmap of its own, since
-the register is ordinary MMIO, so the node can stay a syscon. The CPTS
-driver would use the same phandle to find that driver and ask for the
-bit, instead of writing the register itself.
+This will apply the WRITE_ONCE errata to handle the non-standard
+behavior via appending a fence w.o instruction for WRITE_ONCE().
 
-> Not the kernel's job to validate the DT. If something in DT is optional,
-> then whether it is missing or wrong doesn't really matter.
-[ ... ]
-> Is that true for *every* kernel version? Again, better user experience
-> IMO to just warn if something is missing and continue on enabling
-> whatever you can.
+This problem is only observed on the sg2042 hardware platform by
+running the lock_torture test program for half an hour. The problem
+was not found in the user space application, because interrupt can
+break the livelock.
 
-On reflection, I agree. For v2, if the ti,gtc-push lookup fails, I will
-make the driver warn and continue without enabling
-PTP_SYS_OFFSET_PRECISE.
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Reviewed-by: Leonardo Bras <leobras@redhat.com>
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Tested-by: Han Gao <gaohan@iscas.ac.cn>
+Tested-by: Yao Zi <me@ziyao.cc>
+Cc: Chen Wang <unicorn_wang@outlook.com>
+Cc: Xiaoguang Xing <xiaoguang.xing@sophgo.com>
+Cc: Paul Walmsley <pjw@kernel.org>
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+---
+Changelog
 
-James
+v6:
+ - Refine the title
+ - Focus on SG2042 fixup
+ - Rebase on v7.4-rc3
+
+v5:
+https://lore.kernel.org/linux-riscv/20260421143154.1590156-1-guoren@kernel.org/
+ - Add Acked-by: Arnd Bergmann <arnd@arndb.de> for asm/generic
+ - Add Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+ - Rebase on v7.0
+
+v4:
+https://lore.kernel.org/linux-riscv/20260412143116.1445893-1-guoren@kernel.org/
+ - Add Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+   (https://lore.kernel.org/linux-riscv/1cfdf6c1-a384-43ad-9588-284335d073f7@ghiti.fr/)
+ - Add Tested-by: Yao Zi <me@ziyao.cc>
+ - Rebase on v7.0-rc7
+
+v3:
+https://lore.kernel.org/linux-riscv/20260125063941.443777-1-guoren@kernel.org/
+ - Rebase on 6.19-rc6.
+ - Remove errata_list_vendors patch which has been merged.
+ - Add Tested-by tag.
+
+v2:
+https://lore.kernel.org/linux-riscv/20250713155321.2064856-1-guoren@kernel.org/
+ - Add new header file for errata_list_vendors.
+ - Rebase newest kernel version.
+
+v1:
+https://lore.kernel.org/all/20241214143039.4139398-1-guoren@kernel.org/
+Signed-off-by: GUO Ren (XuanTie) <guoren@kernel.org>
+---
+ arch/riscv/Kconfig.errata                    | 17 ++++++++++
+ arch/riscv/errata/thead/errata.c             | 20 ++++++++++++
+ arch/riscv/include/asm/errata_list_vendors.h |  3 +-
+ arch/riscv/include/asm/rwonce.h              | 34 ++++++++++++++++++++
+ include/asm-generic/rwonce.h                 |  2 ++
+ 5 files changed, 75 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/include/asm/rwonce.h
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index 4f77b3c6d7fd..331438bb5e0a 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -179,4 +179,21 @@ config ERRATA_THEAD_GHOSTWRITE
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_THEAD_WRITE_ONCE
++	bool "Apply T-Head WRITE_ONCE errata"
++	depends on ERRATA_THEAD
++	default y
++	help
++	  The early version of T-Head C9xx cores of sg2042 & th1520 have a store
++	  merge buffer delay problem. The store merge buffer could improve the
++	  store queue performance by merging multi-store requests, but when there
++	  are no continued store requests, the prior single store request would be
++	  waiting in the store queue for a long time. That would cause signifi-
++	  cant problems for communication between multi-cores. Appending a
++	  fence w.o could immediately flush the store merge buffer and let other
++	  cores see the write result.
++
++	  This will apply the WRITE_ONCE errata to handle the non-standard beh-
++	  avior via appending a fence w.o instruction for WRITE_ONCE().
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 6f1c683f0ec0..64683882d50b 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -168,6 +168,23 @@ static bool errata_probe_ghostwrite(unsigned int stage,
+ 	return true;
+ }
+ 
++static bool errata_probe_write_once(unsigned int stage,
++				    unsigned long arch_id, unsigned long impid)
++{
++	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_WRITE_ONCE))
++		return false;
++
++	/* target-c9xx cores report arch_id and impid as 0 */
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_BOOT ||
++	    stage == RISCV_ALTERNATIVES_MODULE)
++		return true;
++
++	return false;
++}
++
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -183,6 +200,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 
+ 	errata_probe_ghostwrite(stage, archid, impid);
+ 
++	if (errata_probe_write_once(stage, archid, impid))
++		cpu_req_errata |= BIT(ERRATA_THEAD_WRITE_ONCE);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list_vendors.h b/arch/riscv/include/asm/errata_list_vendors.h
+index 02b5ab0d23a8..678cd0d42b42 100644
+--- a/arch/riscv/include/asm/errata_list_vendors.h
++++ b/arch/riscv/include/asm/errata_list_vendors.h
+@@ -19,7 +19,8 @@
+ #define	ERRATA_THEAD_MAE 0
+ #define	ERRATA_THEAD_PMU 1
+ #define	ERRATA_THEAD_GHOSTWRITE 2
+-#define	ERRATA_THEAD_NUMBER 3
++#define	ERRATA_THEAD_WRITE_ONCE 3
++#define	ERRATA_THEAD_NUMBER 4
+ #endif
+ 
+ #ifdef CONFIG_ERRATA_MIPS
+diff --git a/arch/riscv/include/asm/rwonce.h b/arch/riscv/include/asm/rwonce.h
+new file mode 100644
+index 000000000000..081793d4d772
+--- /dev/null
++++ b/arch/riscv/include/asm/rwonce.h
+@@ -0,0 +1,34 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __ASM_RWONCE_H
++#define __ASM_RWONCE_H
++
++#include <linux/compiler_types.h>
++#include <asm/alternative-macros.h>
++#include <asm/vendorid_list.h>
++#include <asm/errata_list_vendors.h>
++
++#if defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE)
++
++#define write_once_fence()				\
++do {							\
++	asm volatile(ALTERNATIVE(			\
++		"nop",					\
++		"fence w, o",				\
++		THEAD_VENDOR_ID,			\
++		ERRATA_THEAD_WRITE_ONCE,		\
++		CONFIG_ERRATA_THEAD_WRITE_ONCE)		\
++		: : : "memory");			\
++} while (0)
++
++#define __WRITE_ONCE(x, val)				\
++do {							\
++	*(volatile typeof(x) *)&(x) = (val);		\
++	write_once_fence();				\
++} while (0)
++
++#endif /* defined(CONFIG_ERRATA_THEAD_WRITE_ONCE) && !defined(NO_ALTERNATIVE) */
++
++#include <asm-generic/rwonce.h>
++
++#endif	/* __ASM_RWONCE_H */
+diff --git a/include/asm-generic/rwonce.h b/include/asm-generic/rwonce.h
+index 52b969c7cef9..4e2d941f15a1 100644
+--- a/include/asm-generic/rwonce.h
++++ b/include/asm-generic/rwonce.h
+@@ -50,10 +50,12 @@
+ 	__READ_ONCE(x);							\
+ })
+ 
++#ifndef __WRITE_ONCE
+ #define __WRITE_ONCE(x, val)						\
+ do {									\
+ 	*(volatile typeof(x) *)&(x) = (val);				\
+ } while (0)
++#endif
+ 
+ #define WRITE_ONCE(x, val)						\
+ do {									\
+-- 
+2.40.1
+
