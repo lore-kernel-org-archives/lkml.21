@@ -1,52 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.241
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795149482;
-	b=SegUly4OLJWbBqJsaO+xqc3fSiEiajKc2Cxv3UEiKEkmRocvahSLa8JKFsoSfjORFZc4
-	 pNf/IZsFSks4qK48NLXxmiiepR9mniwqad6g6fD9CfcUw/QWsqsGwhLEjYTJtRXJfkcbh
-	 OPid80+lz2lqTDNFwrOT4F4ZRQkRXi72+0FetQB9DaW3AyAEItD+TSyNXFooVfQWPgDNK
-	 FT/3BTqNwSZX7xNqRer+80cESbsn6m+z3cqHy77GLzY/bOpvxwX02WA0gVSGTL05HvZn/
-	 JPFjVdwYriJ2WdXdGMfxajyoVeToyK57Yo/+Vp0zeUBUr48eIHjaWOR3lUfkqOKeBvg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795149482;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
-	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
-	 In-Reply-To:References;
-	bh=d7/buK6g7QI/wSja3F3yrr5kbRI73yc4vQHvL0Z70sU=;
-	b=S0hJRr6KTLqK4t84neQtgaO7eRhxwRLcWB2HMqwIBPQ429ddofLRCWlzyXz7T/jF0qmp
-	 bVY/CmofCv+/5tpmUehybUIBicbjTBeBWRtmgxrV8K3n7bgowA+hlR/HvKAuWoHCOYviK
-	 DFlBNOv2FLuvszlNKOG6+7Cjpyi6HTTkREyTd1Xu/EZvmF+mcqEctcPUTjP04a4CkJkj0
-	 hrUP1uWKK6JPW46PsdsWlLn39jVwwyVjysx1QIp1HUwNi0U7byl+KnfagriUPJvvxYWt2
-	 rs40XxMKoOFJ6yDaiPtjviS/OZ1OHAwXvFNcmpSaGEBPlRCHpj4IgRX4+V0gORnbUog==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YxJ2kPsO;
-	arc=none smtp.remote-ip=91.218.175.241
-Received: from mta0.migadu.com (out-241.mta0.migadu.com [91.218.175.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795149483;
+	b=equKcZbMpN1cQDX8zN4dOM1QyHTHsI4qo6mcnrT3RMoa0OAIKXe8L57IcTD9kV4/yBkC
+	 BNhrTpGoqEV1XzreOdvb69lZKN4bQrMK3f6LdjndzQGYYBNWBtWGGZmipeDMPUnvYA5FV
+	 UOINiryRsVtHVSsXz8QNgoEfxuGnzrG5qI/6dT07H2e99yZOSvglvOxmSO/Wkrl9FgXwE
+	 WNzqoGYQMcTXuWcA75t+WZshqIZetjv0Yioj9XvTkWvhFdEQzPNnmvuMzU0ItWTlROxZD
+	 v8QXjeCQPod80uBHe3cmb94xgKTkp9Rm+BTHo2gtROcm/Fep143869gvxnjUC1v6b+A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149483;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:X-Microsoft-Original-Message-ID:MIME-Version:
+	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SLBlob-MailProps:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=OOOIpm5ozwa0+odOudtoeZ1Hcuxpdb+FHu4DsIuK8mE=;
+	b=CJj3eIcEyKuw+iFmXbokJ8wSc6lXCk8NUObtNEo90KPNxXYyVDWaXhukKk8wmcA1Dl7J
+	 hBmXsTcSkfQAV1lnAoZoqfLGEwYM/Yol1YHZiWBeiXTaj5sk7Y6Y79j6eR6MyRP/e1hI6
+	 l0FW5iruTpM1LeEI34IcgB9uT0ckD/TlHlx9eeMI1MdLJVJT/bKeygAd/ZH/hTYinAivk
+	 XVZyJ4+bk0igSCyHfYeAmKPLot9LTz6I4VQi2qz52s/PrC4xLQ2IoyVZI3nuzWM4QIh5I
+	 nYgp9jZremmisZt7xrH0XJ17XxOtKYLzjpxZFwqZBDocUlYhzF2Fi8mEnTaBjcI8ybw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=outlook.com;
+	spf=pass smtp.mailfrom=outlook.com;
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=iOKJLGRM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.22
+Received: from OS0P286CU011.outbound.protection.outlook.com (mail-japanwestazolkn19010022.outbound.protection.outlook.com [52.103.66.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9E3E606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:38:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9E3E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 175B5606A333;
+	Fri, 20 Nov 2026 04:38:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 175B5606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=YxJ2kPsO
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=/aPF9fCXwB7LIyQFCDkDmSR064YxzP6iZGZjFNQ3pnE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795149480; v=1; x=1795754280;
- b=YxJ2kPsOCbJtqYLGpQI2iHwQKKldu1MSbbpwAO8eeoJ+GwlQaM3iPDOYmy/O5ORtO/OfEGI7
- 7byZgsGuI0OMZRDNP7MTqqZNOexvpOlstETOiwc+2XbAouuUgCTw63r6QOSdGJG9eqsL4f7Sj1B
- d2etvYhU3+gLdkOSuS3zGrcc=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 4d7de7b7add841ce;
-	Fri, 20 Nov 2026 04:37:59 +0000
-X-Mizu-Trace-ID: 4d7de7b7add841ce
-X-Migadu-Flow: FLOW_OUT
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=iOKJLGRM
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=W+ADtDyAOfQytsvE5z4dIv5mFQKwz/Q3fz7l0CanZan3Rm5kdLGo748FsTXBlAn1P4CCt5axUfy/EtZmecZGgCbmhjOTnUXkf+TQ5ibevhcaeKaPtHC5tjSigOSp0ETfdMV+ovzqD+/NoO6I3L5iyOBRpAoLHdZuoUKgsw0fO2Ika4DdInXWNwLTOLNNg6yPhHipW/9qUFrbToib4juwBTHbOWYTwVGxEchHN/dKkGSB0643k4GT8dnGuQqtKC6hADMqPShUQi1XwGlmHwDJCAS0e2YVtApIO8cI0jD1r+LSfbFKTkEwxuVG9K1Iy6QRTn+grvjRHbzjvV08uhu5aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OOOIpm5ozwa0+odOudtoeZ1Hcuxpdb+FHu4DsIuK8mE=;
+ b=tnS1uEr7jf1zMc677YQg4yJFYyn5fngaCMO9NJUTfILIAn8778GHYTikNQua6I7tPYa9Df6nVqGm2XkQCfN38xDezceZu3jWroq1h7QOx3oTB5696nUbpWfFzLguqsyLpEv8axQBtSMpP0wvujF2/shTxKsXywf34Vowf6T4OH49vamC4tKcSrl3gUYTqt5+eR3hxhcdYWQETOcnYnXDqmdVZU/aOWmDwsX3x0+JPFSgt0/tg8naDhrgErXxD5L2SsC7N/221e/f3GaFk9mwIXtaqvr5sOvNUxlvNmGaNkqxTwlbIvzfECiq9rj2KziTvj65tjI+7Hsg28qsf4MVBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OOOIpm5ozwa0+odOudtoeZ1Hcuxpdb+FHu4DsIuK8mE=;
+ b=iOKJLGRMRBxDpeYwQ+/Lb55uYuusJjT3yyb0JSPB4lOXFI8Oepllr3KQp75WQbEZRWf3wBlaZx7HgpUzDdrH0xE3m2lge3HYVQsS3/MGLApyLJANt7kdTozvgaBYQIfaN+cJh49nUwoWVvwjd0MD7RPP1lAyB/dTir2mGL+W4DCURyKy6fC//whzY9jb+FguTfiAuJh0xcV19joLG58H7SL0xECsAlM3hqMP/4E/GQj3J9Iw2fdxPFzrwMMoE9Wu9yO7O0jMaOjGh9ze5Oz6WE/Yosl8GtLhWmMRgrtDygdotSfALLeFp3eK+TmZao0RUQwDYLyQ3yYi/nxr5VGMSA==
+Received: from OSCPR01MB15019.jpnprd01.prod.outlook.com
+ (2603:1096:604:3ab::14) by OS3PR01MB8586.jpnprd01.prod.outlook.com
+ (2603:1096:604:19d::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 04:37:57 +0000
+Received: from OSCPR01MB15019.jpnprd01.prod.outlook.com
+ ([fe80::d06:4844:6b2f:9fa2]) by OSCPR01MB15019.jpnprd01.prod.outlook.com
+ ([fe80::d06:4844:6b2f:9fa2%4]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 04:37:57 +0000
+From: Shiji Yang <yangshiji66@outlook.com>
+To: linux-wireless@vger.kernel.org
+Cc: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shiji Yang <yangshiji66@outlook.com>,
+	Mark Brown <broonie@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] wifi: mt76: simplify power calculation for mt7603 and mt7615
+Date: Fri, 20 Nov 2026 12:37:27 +0800
+Message-ID:
+ <OSCPR01MB1501903E2E380B1E9D1B5CD56BC782@OSCPR01MB15019.jpnprd01.prod.outlook.com>
+X-Mailer: git-send-email 2.53.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0025.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::13) To OSCPR01MB15019.jpnprd01.prod.outlook.com
+ (2603:1096:604:3ab::14)
+X-Microsoft-Original-Message-ID:
+ <20261120043728.711-1-yangshiji66@outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,150 +104,129 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Fri, 20 Nov 2026 04:37:59 +0000
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-From: "Kunwu Chan" <kunwu.chan@linux.dev>
-Message-ID: <cf699b4c6b1ef0e34316d9b67a19082ee996aba7@linux.dev>
-TLS-Required: No
-Subject: Re: [RFC PATCH v4 15/18] mm/swap: reuse per-CPU queue readers across
- priority changes
-To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
- <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
- <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
- <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
- Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
- "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
- A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
- <tglx@kernel.org>, linux-hardening@vger.kernel.org
-In-Reply-To: <c7ee52cc6aa423b40c67d4c24dcb9d30b7e07824.1794666741.git.lianux.mm@gmail.com>
-References: <cover.1794666741.git.lianux.mm@gmail.com>
- <c7ee52cc6aa423b40c67d4c24dcb9d30b7e07824.1794666741.git.lianux.mm@gmail.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSCPR01MB15019:EE_|OS3PR01MB8586:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e3ee0c2-35be-4a1b-0d81-08df46c00ce0
+X-MS-Exchange-SLBlob-MailProps:
+	dx7TrgQSB6cUe9t9Fs5HiQGsDL5YS4QszQuhS+QOn0viA4x1VlGsdlUonrWSHsLert3ibLrEU23mAN/7sggLNnm46C6UyMHbxUPDyg9G+3K4iEIbC0PpE0JBXOHMPYJJh6giki2ah3pXVFqQ2MIVr2NIKY+5DYsBAM0W67L65gJt4t28zOGQUrpdwtmAEmE+OIhr7YNkSHeee+uoSSPAcZW7vbCad/wSVYn4P0rA1LoOaBqUrgEom9Og58JdQXgeNyJ5vzuM6Yr4vcPmQL2KaED16oSPDH36xVX/7SlT1qj/lflOjfCzI5HxU9Jc3YlSIBmtWZ6HOpyFdA8HE8ACo7ZCpVHRb7sBtGwfsT8OJlNqjDznVnjVvDIsGOKvjnGUO2WMH0xOpnH2By8/YpBSIuxsmnUCqYDVbfdacwon/v2U/X9piYKyuJIhZW8aptTitt2zt74m8Slc1hDe9RpgkDM+IJ1Gm3aweeO3GF8jDoOkv9MQkLpwu338TLyh2p0VU69P7HtpkPpb53r5iiUK+KnUmXTkunb7s23yfnsZZZwnDOVcZH0SMmIaEtVS7SUPb8hpwBzs/sHYI5+BdsW8WeXGb7j+zkjm/xcIBnGYLUueVMNYl/eF2hwGhgpeBluhYye69wL8srppdB3XEDL+yv6CgXV6hgEdTQbfRvpnw7TDcMjmb+9y67s+HH0jiAaOmUXAuDpzJIUvSH+cKZ2tNprZEUJNEfPdFHXuEtZHcg6U9a0etZ79f/G+cgQ+d9pQDWig32rmqR0=
+X-Microsoft-Antispam:
+	BCL:0;ARA:14566002|8060799015|19110799012|260925184616899003|24121999003|5072599009|25010399006|4140399003|22091999003|24021099003|23021999003|5062599005|15080799012|40105399003|52005399003|3412199025|440099028|1710799026;
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?rtWPmp/yJfamElciCQOyIdEQEzkQC8fSDvqzbJXPGEfvAhTwF+B48oJjSA43?=
+ =?us-ascii?Q?tZ7la99Kch0grIx/1QO4qiSPVosSlTQgVXdExWhf7HK3/uqvACG6D8tdVV0g?=
+ =?us-ascii?Q?Eak8hnj+XEZVW5+eU5MOFXRZUTSvVR6jhm3kZbp1cGdRSzuS7nueuIjRgnKb?=
+ =?us-ascii?Q?3KIBaO/ZmD9YYENM/jyN1F8WLN2tMstDtuTe+Y7SlHJ84jcSDbsFJIFhweu6?=
+ =?us-ascii?Q?QelFvaHqCq+9n2/UgoWoxceE65qHK1IlbHuJUp/Z3ImYqU/E2gtYvKlFPeTJ?=
+ =?us-ascii?Q?OFFoe22biTV8rmCGsRpv/wsap9g3I3WQ4CziWbknx9mqvkuYzzK63KPVaWcH?=
+ =?us-ascii?Q?BEb6draZThSQoV/34juWNjyu2cfonIW8cN531Czo4yM9NleI8MMzpbSEdwZA?=
+ =?us-ascii?Q?HO0o/Jo+JueFnHuS86ReWyq95djSEOH+RfZs746LPihYZ7sO82ArpL5W5PU0?=
+ =?us-ascii?Q?hwXuykFCpdkGohMLL7X7t4qsO9hyHG0mIgkEk3fRyL/GcsJ1CwFYTDiQCZPZ?=
+ =?us-ascii?Q?2VzP8Jsec6HCVaS2ULzZ5UtqNY1dUkvVxOUvplnDrZQQcjbBlpn+NVfIHdlL?=
+ =?us-ascii?Q?xx/gwjZJHoiRQOEv9+uwTdFuUcc7G/tXaDOUaUzsvMUWM7iL6FG1Fs02bwTN?=
+ =?us-ascii?Q?4fCDz18Dq8UZoCCald8z22o34bC6VDmDGFpaDlX7hvvkJOHyqSmQkCv99MuU?=
+ =?us-ascii?Q?41Dl2+EI/einjE6JH27ytOFb1PnMcztaNiV7fbjJAaJk7/gK2uUsT2CHzpJC?=
+ =?us-ascii?Q?oPMXvfdZ+UJC9rzXDc6eis94tFi6cYzIKh8PGgJMn/8HmLTE66iA3mMdL4BP?=
+ =?us-ascii?Q?K6hOP9uxOCYz7tQvfkiLDxpaGuDmxflMZcTPUUyPt9PSwwkvToNjeTZhZdvb?=
+ =?us-ascii?Q?PYBSTd5Fm1UWVe9hXCq4TzSwhmUFsAPr3A2zld4xVeYu4OfeLQ1w5hETzwH6?=
+ =?us-ascii?Q?8HaJko4vOZYY9laLjlzcVA3kOTVNGQ1mzScXf4SkHsJLBpPbJyjlyGHO+qbC?=
+ =?us-ascii?Q?BGvTWwn1v2y1NCfWuyMPaf914R+IjQ0EZrVTeeiLU3i28Ik0Evu37VO+SRmY?=
+ =?us-ascii?Q?qzh6KpOH?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?FTSIWi9SC2D4oNOxSsGfZmAgBtZxxQuYjDfpYRm+5ts2Kpkcff7XgV7edWG0?=
+ =?us-ascii?Q?z5qFPm0jJEMCX6ZvME5FQKcHtV3Ze7aSa4FlJ38Y28SmHZ++CM6kZlaI0rst?=
+ =?us-ascii?Q?hChNAnteuK3ExqlOpddufS8hlxOodwI/vr/JAyXRw4kcOx4Vr2S8PclGqWXu?=
+ =?us-ascii?Q?vOHEixjDwhKv6KADHVqpdOKytc7YVAU1+T+mrlYQpknktm39qNjnQOP8V7sI?=
+ =?us-ascii?Q?A193CDZYEtTVXeIr6ehzVaVtnI2r3bDalkt0J+8X1syjaBxl8srW+cHEOKHT?=
+ =?us-ascii?Q?J1rXkO0Cfqxzkd6y0bPJG/O4SJ64o2wATfwbCzf//uUOWeZVOGYtcGCc8MAN?=
+ =?us-ascii?Q?CS2LlaCTxPB3Q7R1HFlvceXhYj47jhf+3JQSMQnPaQA429WW7dAdWC30Jtqz?=
+ =?us-ascii?Q?0yWpfbRyCq+a//lzWgnCUSKGjgI2LfGva5c7huF9p/KVfA3t9pjw4vpkS4GZ?=
+ =?us-ascii?Q?zf+CdLNT03cSN+VI2WF8swmAPttHirA9F0URz8UmPz6ZZKJfz6C1O9kQ++z/?=
+ =?us-ascii?Q?bz1r6t30J4PWU6DCWgREZYlbKqcL5QQ3EmrRjwcnG+jECtp9D5IFWL6rZAPg?=
+ =?us-ascii?Q?fF7RYK2f77qI1O9thoGdE/44mps4NTW4pdoYkFButOAYRD3FVdUBMQDrmi4/?=
+ =?us-ascii?Q?yXC4Vlez1/zjJr6LTrvFVT30Qggbqb4Wr8vz3DzzboAoNmQiYFvKVAPGPF1Z?=
+ =?us-ascii?Q?oOTqGVZgs4Yt9n749VtKhj8PXyv43aeBz/sVGQhW4rmAEGP8t5dYg5L4GRHG?=
+ =?us-ascii?Q?FIcLzTzNXtFjDJvweH+QxBAQYZdWlUVtUsLXqfPul4wQV5KWcVO92QOXAtIq?=
+ =?us-ascii?Q?7xhfEj2AeD5Q8k3eUJzA3D8VgJ/BK/fRdnGwmmy0Dh+oTvs+Amq/UhoPE3Sn?=
+ =?us-ascii?Q?pasrwRMY1M084rhhK7iOTLRrepnRfSPzKDmjsCtgaH7dS1NJuihnK4ygRxNP?=
+ =?us-ascii?Q?D489gvnIUniDQyRLRaNHp47ojF3D1rbXBRt0qw15texdAPWdFFue+LpqU5Yx?=
+ =?us-ascii?Q?dLpXGd1gunVa8Jod1cIM3Z7/k/I70LnJNWEtZGsl29wCX39wrO4x9d3553jQ?=
+ =?us-ascii?Q?EZuleAygvXGW5Lnl95ezPTgzLkUttvorl94ZRiU2bgVa3r353RuZiDRG7X9z?=
+ =?us-ascii?Q?MXpGiu/jVQm54QI2PV2nP3Tcp9YLiehHqv3zACVU/c9d9i1kODXlIeSBN/Be?=
+ =?us-ascii?Q?o83cgjtb2HFBMV3LzlErEVgDec3BXHrFE1ywRvoLfuh1i4FZ5euCv/9Rxn8x?=
+ =?us-ascii?Q?frbeenavsMeXUIa4llHRcht/fHJthq6NlNDK3YxKsM2XmyDsDzsIpPlyXUK0?=
+ =?us-ascii?Q?H2o0p6XTowtbXF0/SUBTR5YoAcG7J0DyqMuynq42hcQS70/Hwg8IXbwHxAA5?=
+ =?us-ascii?Q?wBVEsO6fcTk9+b9XhHyIeE0JYtk+?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e3ee0c2-35be-4a1b-0d81-08df46c00ce0
+X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB15019.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 04:37:57.6414
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB8586
 
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
+Use the mt76_get_power_bound() helper to simplify the code.
 
-Thanks,
-Kunwu
+Signed-off-by: Shiji Yang <yangshiji66@outlook.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7603/mcu.c | 6 ++----
+ drivers/net/wireless/mediatek/mt76/mt7615/mcu.c | 5 ++---
+ 2 files changed, 4 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
+index e432cce97640..e921b4956aad 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7603/mcu.c
+@@ -402,8 +402,8 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
+ 		.tx_streams = n_chains,
+ 		.rx_streams = n_chains,
+ 	};
+-	s8 tx_power = hw->conf.power_level * 2;
+ 	int i, ret;
++	s8 tx_power;
+ 
+ 	if (dev->mphy.chandef.width == NL80211_CHAN_WIDTH_40) {
+ 		req.bw = MT_BW_40;
+@@ -413,9 +413,7 @@ int mt7603_mcu_set_channel(struct mt7603_dev *dev)
+ 			req.center_chan -= 2;
+ 	}
+ 
+-	tx_power = mt76_get_sar_power(&dev->mphy, chandef->chan, tx_power);
+-	if (dev->mphy.antenna_mask == 3)
+-		tx_power -= 6;
++	tx_power = mt76_get_power_bound(&dev->mphy, hw->conf.power_level);
+ 	tx_power = min(tx_power, dev->tx_power_limit);
+ 
+ 	dev->mphy.txpower_cur = tx_power;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+index ff57ede87f71..57d7ec8fa49a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7615/mcu.c
+@@ -2011,8 +2011,8 @@ static void mt7615_mcu_set_txpower_sku(struct mt7615_phy *phy, u8 *sku)
+ 	struct mt76_power_limits limits;
+ 	s8 *limits_array = (s8 *)&limits;
+ 	int n_chains = hweight8(mphy->antenna_mask);
+-	int tx_power = hw->conf.power_level * 2;
+ 	int i;
++	s8 tx_power;
+ 	static const u8 sku_mapping[] = {
+ #define SKU_FIELD(_type, _field) \
+ 		[MT_SKU_##_type] = offsetof(struct mt76_power_limits, _field)
+@@ -2068,8 +2068,7 @@ static void mt7615_mcu_set_txpower_sku(struct mt7615_phy *phy, u8 *sku)
+ #undef SKU_FIELD
+ 	};
+ 
+-	tx_power = mt76_get_sar_power(mphy, mphy->chandef.chan, tx_power);
+-	tx_power -= mt76_tx_power_path_delta(n_chains);
++	tx_power = mt76_get_power_bound(mphy, hw->conf.power_level);
+ 	tx_power = mt76_get_rate_power_limits(mphy, mphy->chandef.chan,
+ 					      &limits, tx_power);
+ 	mphy->txpower_cur = tx_power;
+-- 
+2.53.0
 
->=20
->=20Inserting a new priority allocates a replacement per-CPU reader array
-> even when earlier ring removal left enough storage. An unnecessary
-> allocation can add swapon work or fail despite sufficient capacity.
->=20
->=20Track the installed reader capacity and retain its high-water mark
-> until the queue becomes empty. Reuse existing storage when the new ring
-> fits, initializing every valid ring index for the new topology. Prepare
-> larger storage outside the writer only when growth is required and
-> recheck capacity under the writer before publishing.
->=20
->=20Preserve the existing prepare/install ownership and failure rollback
-> protocol. Device removal continues to avoid per-CPU shrinking allocatio=
-n
-> under the writer.
->=20
->=20Signed-off-by: Lian Wang <lianux.mm@gmail.com>
-> ---
->  mm/swapfile.c | 28 ++++++++++++++++++----------
->  1 file changed, 18 insertions(+), 10 deletions(-)
->=20
->=20diff --git a/mm/swapfile.c b/mm/swapfile.c
-> index bd098114ee4b..5e5c1aef010f 100644
-> --- a/mm/swapfile.c
-> +++ b/mm/swapfile.c
-> @@ -202,6 +202,8 @@ struct swap_queue_cursor {
->  };
->=20=20
->=20 static __percpu struct swap_queue_reader *swap_queue_readers;
-> +/* Keep the high-water capacity until the last priority ring is remove=
-d. */
-> +static unsigned int swap_queue_readers_capacity;
->=20=20
->=20 static inline bool swap_device_masked(struct swap_info_struct *si)
->  {
-> @@ -241,7 +243,7 @@ static bool swap_queue_needs_readers(int prio)
->  return false;
->  }
->=20=20
->=20- return true;
-> + return swap_queue_len >=3D swap_queue_readers_capacity;
->  }
->=20=20
->=20 /*
-> @@ -289,13 +291,15 @@ static void swap_queue_reset_readers(void)
->  }
->  }
->=20=20
->=20-static void swap_queue_install_readers(struct swap_queue_reader __pe=
-rcpu *readers)
-> +static void swap_queue_install_readers(struct swap_queue_reader __perc=
-pu *readers,
-> + unsigned int capacity)
->  {
->  int cpu;
->=20=20
->=20 lockdep_assert_held_write(&swapon_rwsem);
->  free_percpu(swap_queue_readers);
->  swap_queue_readers =3D readers;
-> + swap_queue_readers_capacity =3D capacity;
->  if (!readers)
->  return;
->=20=20
->=20@@ -432,7 +436,8 @@ static int swap_queue_add(struct swap_info_struct=
- *si,
->  }
->=20=20
->=20 /* No ring at this priority: insert a new one at pos. */
-> - if (!*readers || nr_readers <=3D swap_queue_len)
-> + if (swap_queue_len >=3D swap_queue_readers_capacity &&
-> + (!*readers || nr_readers <=3D swap_queue_len))
->  goto failed;
->  new_queue =3D kmalloc_array(swap_queue_len + 1, sizeof(*swap_queue), g=
-fp);
->  if (!new_queue)
-> @@ -460,8 +465,12 @@ static int swap_queue_add(struct swap_info_struct =
-*si,
->  memalloc_noreclaim_restore(noreclaim_flag);
->  kfree(old_queue);
->=20=20
->=20- swap_queue_install_readers(*readers);
-> - *readers =3D NULL;
-> + if (swap_queue_len > swap_queue_readers_capacity) {
-> + swap_queue_install_readers(*readers, nr_readers);
-> + *readers =3D NULL;
-> + } else {
-> + swap_queue_reset_readers();
-> + }
->  return 0;
->=20=20
->=20 add_to_ring:
-> @@ -504,10 +513,9 @@ static void swap_queue_del(struct swap_info_struct=
- *si)
->  }
->=20=20
->=20 /*
-> - * Shrinking the small topology arrays is optional. Keep reader storag=
-e
-> - * until a new priority is inserted or the queue is empty: per-CPU
-> - * allocation must not run under this writer's noreclaim scope, which
-> - * can grant backing pages reserve access.
-> + * Shrinking the small topology arrays is optional. Keep reader capaci=
-ty
-> + * until the queue is empty: per-CPU allocation must not run under thi=
-s
-> + * writer's noreclaim scope, which can grant backing pages reserve acc=
-ess.
->  */
->  gfp =3D GFP_NOIO | __GFP_HIGH | __GFP_NOMEMALLOC;
->  noreclaim_flag =3D memalloc_noreclaim_save();
-> @@ -550,7 +558,7 @@ static void swap_queue_del(struct swap_info_struct =
-*si)
->  swap_queue =3D NULL;
->  }
->  if (!swap_queue_len)
-> - swap_queue_install_readers(NULL);
-> + swap_queue_install_readers(NULL, 0);
->  }
->  spin_unlock(&swap_queue_update_lock);
->
