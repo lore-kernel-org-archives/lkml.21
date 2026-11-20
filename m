@@ -1,108 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.196
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164708;
-	b=RW8OJakBKa2IZfNQJsWT/vatI/Pahdpm0WJLvYF6OPY2PHPbLwl+dor2wf6qPRe8/Sje
-	 7JBUA/KfCyXQaOfeOwaA3MCRKD8oN1PsFnOJ0XfjYHB+quVQ9y9MgQnfLvWXt76PI8MIi
-	 LoAhS3wKIPywNKu+cQu0C7iMvDMKA3+Y4v0a6doNJ9reZs1N9Jocb/MMT37n+q68PwXeT
-	 PKXzT/FjljzxGBQKhRJndpwul3koT/BGLakb/+5aMuveBV24YxIgwOWhEEW1k0HHf4ZkU
-	 vANLADf53ZwInyKJ/ugVuEY5kzcGEY/x3fyq7utgjlKa/UDuZf2dBzOF1xdfE1wEqWg==
+	t=1795164716;
+	b=mZ7sIrZkd0pb6hpZelmK5juxL7D2mVFBuHcg05WnhOzJ+Jw9Qt1hSITnycQ55dc4psOq
+	 2B55K3vWGpykeWbvdmkdeIAX00xY7DXtpy0jii1ypGnk5y+fuLT0FuDPbc76mUb72i7Lp
+	 umrqx+Qe+DO3GbRMFaGr6njY6VDsymHeKKR6iJ2PWAokzj5eNitfXwIMHQyfYxZkfVo2k
+	 a1Eh9FwyIpzz3DtHV95IKNY5NRo37ijWd3al3BZpDXHAbyr8PWo8JGZyxdMj00cw4coW7
+	 hU4sJL8UlVrMw0qQne4aX12EGhzKM0Kcm5pgNSMvGIaaywowxx8UJAJCqQHp0s3md/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164708;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=KKdx234HIc0ImmFL6/W/0CUujjCP+++uYg5Sa1Vuj70=;
-	b=0H0Capoa092VT/GPlKpgc1FiAUdf0mVIJIsvOIu4H/luCrip1rCvGsklWBVZ9WSm3zs7
-	 Jqrks0vyeDbwL8cB8mE6CBS68IrD9y4Qqikxc2LkkCwiWhCEYKwIZg7ek4dbO6loVG8oa
-	 L4F3ClqorsOlPQFvlLl7BHE5ChJiRlyGce7ivMbuzLwl4xZdFNf2Hx5QqPGxTjH39Ptrn
-	 5dllEIRcMxIeC0MGXhqGkz8pmxFfqsFSIs6oVfaT7dQoq1EVM43WQno7k4EN1wqWMJiJS
-	 PzfxKDnjzbp/wtCoyiaixVFE/+WtkgGBQL3ke6YnrNW2UpQ7zH11pPe7v7ucVB2DDNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164716;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=O29ozXrRa1nWnNxSLjjwsMRtxZK+i1ptmKe8i27enGA=;
+	b=Jet9X4osq4BSUqSn8Oiy4E0Qp5RQSevwIjEepCCJR14xASBF3VWtxBruRTK0dz3+3Lja
+	 bm9SK7w3RayhgoIKg9Tr02zOmQjvuvdxJHhVEPZsbCeRPdAbmIJJn6BcTlv7u8j0n0Orz
+	 xPmmKwGbASqt954VXNWHxa9uYJcoXs9gtc6QCGCpxjNmrsVzqxeu22LnfGED5A7G89wCi
+	 WZLZUgajaOobpYQTvSb47ds5CZjf8xhz6DdwdBhxh4gOzcwmF5n5JVg5CrjnlUqP8LHtn
+	 80Lb+Iy4bWzDWHV4boXXEmE/bj2aClxunuw5/EbPHeWx+WQiETklwh/hI1m/gKlUFAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	dmarc=fail header.from=linux-m68k.org;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="GsxEN/3F";
-	arc=none smtp.remote-ip=74.125.82.196
-Received: from mail-dy1-f196.google.com (mail-dy1-f196.google.com [74.125.82.196])
+	arc=none smtp.remote-ip=209.85.217.53
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com [209.85.217.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3CCF606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:51:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3CCF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 540A2606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:51:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 540A2606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GsxEN/3F
-Received: by mail-dy1-f196.google.com with SMTP id 5a478bee46e88-38564b4b017so670772eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:51:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164707; x=1795769507; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KKdx234HIc0ImmFL6/W/0CUujjCP+++uYg5Sa1Vuj70=;
-        b=GsxEN/3FGlHyHllEDootP16iud5WiCrZc73xDVDAHfJkuu05N65EVXrykG1lW3GaW0
-         qvcJYJ5ND7nDAWsyDu5U/34h0PGvGS0UaTrccNRYGm2yIb86vN3SO1Nw5EH94n3WeuAm
-         OFfxY9Y9So+11iDr0O9jhFezi/7BhsAmACc9fB9S5q+TFy57ptCl9tH1YCrheKUm1oks
-         AhpXvfkUX3T2ewVmHBw9Cy6SkMkpsK0scXtCbsoEUqeOb2a2/K976S++NDcOAE24tXJk
-         OTBow42b0GbQfzb/rBEWIrPCtFxz71d9ZIZ6rn0cl8Y0ZWuqQCv2XDkwBc9Oxr+F2K26
-         Ki1Q==
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-7d2db6408cfso427032137.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:51:56 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164707; x=1795769507;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KKdx234HIc0ImmFL6/W/0CUujjCP+++uYg5Sa1Vuj70=;
-        b=ERHTj5n1qBbk2w9jrJMXmvNG1sa0+lnkuoPvuwXv7o5pCadycPLfQyc0n0f911MN6C
-         c3vVujD7If5UNgArLnxjysLTwxCS9jQOmmbIyBSCO6v3MmkPIr5IjKemvQE48WVTIQll
-         Dh17bOW1AED+GzOkdniF6RuOXV0dDxgGDcpWe3hm7kRomgB6eNKSyElPv3dcvcvsqFf7
-         1ALRyhTcHirJ0WypwIvyQ77ExSrxHpfvlcxClolkCEPxdN3AxHqiG74f3AGbt4alzVb/
-         ER45YFwu07LOAeNivevBwpU6/GYjsOXKVxkbwUkrNO0Yrn1UXJ6ucvMmlygALqR+IkKr
-         Df5g==
-X-Forwarded-Encrypted: i=1; AL+hErHcQyo3k0NJ29OVD0OryOAJ3ng0HSURrqITYglRVo8yJvyLbq7vcj6ceuA8BCBMAwIpcO5M1cnQMJn5yHw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QJ4v8OHLlAOOycH4SPMKmTRRgYEu6XKBytd49UnGTU3uNBuH1
-	8XOyqADLbEOh/97S9H+ZtfHQCmO6ZbE4uOY5D0Kqtep+K8LzegYNjn2D
-X-Gm-Gg: AZFdTZceJckb3eqZyPq8RwEBe1q/yZqBGWnEDGW+wCLFtk2nmvU0zGjtMLwByK8sxMs
-	+LtIwzaCJi6yh8qHRHYqyDl2UqPmMwyqKgK5sI7cexOi49x+xW5Jzn8bHHG37mOuqB4uwqo0L9J
-	gFXhk52CDryP247l7+hIBi6qthgR+QnWvsoHKHuOLv7VcjUusklqupmfoUMo68l4qpc2Ogb/Du7
-	zqWraSn+3B7lLhw21UGOaTlkod9bIjF9YnOYmnxBI2+0z2ls6Meb9O8futJEMwq/ZPP9/OAhqrh
-	UtLKbUc3cnldSzaQM9TPu+6HY9wxvYKmwmY61fsEdfnC7eKuQAi2SkJ9jGeMBza1pL+g2zPQIvB
-	dxAjK2zdpF+OK00FcdMQfxmusjg08UrVFY3pHF4xkVJgovcqVXi6fbt1yJ0PKLwEQhuucfn0NgV
-	nhjnPKg2I88E8OgTaYGX+G6wJ5HKCo4ywTgzjhIxa18chiukm/E2FEICQroiZyZ+jn3UIh+Ihvu
-	9n1gnB1SWXoTs4quwGYvrlIy5vB+mh1G4SRbEo8ZtMiGGDox2xVIoyHwIE58TVcOdrxGuwYBW9S
-	UmudJlGTE1yhcQ+V3AKSL1yb/4W4l9xQTqtE30LBNkFRUjG2oCEQxDPF1dqnN1wVgOuUfiOxiGm
-	ais5bis8XXIIFWjO6xTQaXGj6aUwKNw42H0JaqA==
-X-Received: by 2002:a05:7300:fb07:b0:36d:158c:e31d with SMTP id 5a478bee46e88-384b446d603mr3319103eec.18.1795164706953;
-        Fri, 20 Nov 2026 00:51:46 -0800 (PST)
-Received: from localhost.localdomain ([98.148.34.5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm3495445eec.13.2026.11.20.00.51.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:51:46 -0800 (PST)
-From: Hungyu Lin <dennylin0707@gmail.com>
-To: hannes@cmpxchg.org
-Cc: surenb@google.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	cerasuolodomenico@gmail.com,
-	mic@digikod.net,
-	gnoack3000@gmail.com,
-	didtldms2525@jnu.ac.kr,
-	linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dennylin0707@gmail.com
-Subject: [PATCH v2] sched/psi: Check CAP_SYS_RESOURCE in the initial user namespace
-Date: Fri, 20 Nov 2026 08:51:18 +0000
-Message-ID: <20261120085135.40368-1-dennylin0707@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795164715; x=1795769515;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=O29ozXrRa1nWnNxSLjjwsMRtxZK+i1ptmKe8i27enGA=;
+        b=Bqtfxr+6yT5RIrkyJMPZ3IPMol//w5aXhIX918lALIJ620GctZGaT0m4IZERBJZ3q2
+         2D9EYwtkS52KknQ26Qlabv8yw2kR2+2YUFgScRBHYeWh/GmbdaI9xJ8BOrxRUR4ywTKR
+         lW/kMnDUo+8QrnCuS48MYwHeUHrdboObX9CaRBV+1C4SWD8AxUxKwPIEVRVVXIWqVvJg
+         f37TP/R0LrZeo+hXDctTc+nvSK+d6YhtwMq5g+YXtKPJ4HNlInCpJbWgXoan7lV34eZs
+         GoJ3a0C1rE+85JCudu1ooI4H+2lI1MXS5aks/G1dHdEN7zWVsAcnpZ+x59CmoLqaAobQ
+         j8bQ==
+X-Forwarded-Encrypted: i=1; AL+hErHvoJ0p9mFr2JEsrgHEqpu6LyKuiCu95fMB6RHJpES4xgOBLpkENWhmCTy3Ev/HL+azVleMmC/F7WbMxDQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8bS5Jtn7pQp8KUc0i/geY90e6sR3eaEKMlKY+65bS9QlO/37vR
+	Vx1lXQWwffPW2tz38NqPZsvVE1w7yeAnBnXfaPEd9m6d6aHjPwhHiJjWAitvj+Hp
+X-Gm-Gg: AZFdTZco6wtJrJZNXRZOrnVLyS9kYrd1tbswORRXlAgNJjsjiDwGwYcLFAfPq4HGCJN
+	4AqAlTVqHP+pmmzHuHZUmVha/rukQwbymB/AhFJp4DEsn16zORUcj8F/GVk9rURdeOPGrAeX3RD
+	hyQVwF5LXSaxurplofyacGJnOyheKV4Op4t5AU0Nwk+JRuwNANMqjyk1+bcr8xfk/bx+eMj40Mg
+	vbiQkifNDsXfzjhg6A13YJqhkvsrCkKMUn6YKgBbEnRI0PuooFYSJ5r0KP0SM9C06LchKIspLEV
+	jq7AfhQMrPVAkJG18ekyJskNehL8j2nolka+6Y9o1/plvEYM6PZI7pStbbmYFOqXT18Oa6W5fOG
+	q2aasgF+vFSq7Q9k4ah2SBJIMOtQkaUuEYmoG9LUlsEDFfAUouLs4fyWJFNUR+YXVa0S3SlVSfU
+	Dww3TxacCQa4MbitzXUu6B65MhWPaZnqcLbNilXSw+l9PI8TN2tzkzCPBbNmfsYw+cfxHXIeYRv
+	nIwMxJk9cG4OA13QBBMV7Od1ELLjm+cdEqvWLqVSsRS8vT45Pn4aPjOzbNVFbNqKQkWKuPddulD
+	2ENU6ZeUdJ6RiYz27LfXbNIm0/kKUU5DES9Optwkq0bLKwfM2AfZXKBQwE6TRxXxYxw=
+X-Received: by 2002:a05:6102:3911:b0:7c3:2b19:6267 with SMTP id ada2fe7eead31-7d73968ae33mr921971137.32.1795164715193;
+        Fri, 20 Nov 2026 00:51:55 -0800 (PST)
+Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e6e0686b1sm2395735241.10.2026.11.20.00.51.54
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 00:51:54 -0800 (PST)
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-99e740a7131so162561241.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:51:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErES2sdhE/moWdz3wCVAqFw9NMq+TX/pIcC3kpQKNR0S9j1HI+sGx0LPm1s5ngf6lV00v6z3N8HObulmZcw=@vger.kernel.org
+X-Received: by 2002:a05:6102:1a1a:b0:7d2:b348:6355 with SMTP id
+ ada2fe7eead31-7d7395e01bbmr694434137.23.1795164714287; Fri, 20 Nov 2026
+ 00:51:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,57 +80,103 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
+ <20261120084335.3492524-1-rabenda.cn@gmail.com>
+In-Reply-To: <20261120084335.3492524-1-rabenda.cn@gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 20 Nov 2026 09:51:43 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUrCkbjJW3Ld1nFbfj_Dfa4YwhUoK5g7rAn89yz=bYy4g@mail.gmail.com>
+X-Gm-Features: Aa3M54r6LC9IQldUg86oiQcyOqnhN_8FdF1As7xILWU1aB_YhbizNGLY-xXfwEM
+Message-ID: <CAMuHMdUrCkbjJW3Ld1nFbfj_Dfa4YwhUoK5g7rAn89yz=bYy4g@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Drop the ARM architecture dependency
+To: Han Gao <rabenda.cn@gmail.com>
+Cc: gaohan@iscas.ac.cn, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Michal Simek <michal.simek@amd.com>, 
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Commit d82caa273565 ("sched/psi: Allow unprivileged polling of N*2s
-period") moved the CAP_SYS_RESOURCE check for psi triggers from the
-open() of the /proc/pressure files to psi_trigger_create(), so that the
-credentials of the opener decide whether a trigger is privileged. In
-doing so it replaced capable(CAP_SYS_RESOURCE) with a direct test of the
-opener's effective capability set:
+Hi Han,
 
-	privileged = cap_raised(file->f_cred->cap_effective, CAP_SYS_RESOURCE);
+On Fri, 20 Nov 2026 at 09:43, Han Gao <rabenda.cn@gmail.com> wrote:
+> On Fri, 20 Nov 2026 09:26:47 +0100 Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > On Fri, 6 Nov 2026 at 20:40, Han Gao via B4 Relay
+> > <devnull+gaohan.iscas.ac.cn@kernel.org> wrote:
+> > > From: Han Gao <gaohan@iscas.ac.cn>
+> > >
+> > > The SCMI core and the mailbox and shared memory transports only use
+> > > generic kernel interfaces. Transports that need architecture support,
+> > > such as SMC, already carry their own dependencies.
+> > >
+> > > Drop the ARM and ARM64 dependency so that other architectures can use
+> > > SCMI. Depend on HAS_IOMEM instead, for devm_ioremap().
+> > >
+> > > Suggested-by: Michal Simek <michal.simek@amd.com>
+> > > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
+> >
+> > Thanks for your patch, which is now commit fe87ede443a15969 ("firmware:
+> > arm: scmi: Drop the ARM architecture dependency") in scmi/for-linux-next.
+> >
+> > > ---
+> > > This was patch 1 of the Zhihe A210 SoC series [1]. As Michal asked, it
+> > > now goes on its own through the SCMI tree.
+> > >
+> > > Since [1], it depends on HAS_IOMEM: Sashiko found that UML, which has
+> > > no HAS_IOMEM, failed to link devm_ioremap().
+> > >
+> > > Build tested on x86_64 without OF, i386, loongarch64, ppc64le, riscv64
+> > > and arm64. On UML, SCMI can no longer be selected.
+> > >
+> > > [1] https://patch.msgid.link/20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn
+> >
+> > > --- a/drivers/firmware/arm_scmi/Kconfig
+> > > +++ b/drivers/firmware/arm_scmi/Kconfig
+> > > @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
+> > >
+> > >  config ARM_SCMI_PROTOCOL
+> > >         tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
+> > > -       depends on ARM || ARM64 || COMPILE_TEST
+> > > +       depends on HAS_IOMEM || COMPILE_TEST
+> >
+> > Please extend the dependencies to RISCV (from the link above, I assume
+> > you are targeting riscv?) instead.  There is no point in showing this
+> > option on architectures that have no users of SCMI; one already has
+> > too many relevant symbols to configure.
+> > People who want to build test on x86_64 without OF, i386, loongarch64,
+> > ppc64le, ... can just enable COMPILE_TEST.
+>
+> Following Michal's suggestion[1], I'm dropping ARM/ARM64.
+>
+> [1] https://lore.kernel.org/all/3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com/
 
-Unlike capable(), cap_raised() does not check against the initial user
-namespace and does not go through the LSM capable hook. A task that
-creates a user namespace has a full effective set inside it, so an
-unprivileged user gets privileged triggers on /proc/pressure/* and on
-delegated cgroup pressure files: windows that are not a multiple of 2s,
-served by the SCHED_FIFO psimon kthread, which the N*2s rule was meant
-to keep from unprivileged users. LSM policies that deny CAP_SYS_RESOURCE
-are not consulted either.
+Yes, I read that.
 
-Use file_ns_capable(), which checks the opener's credentials against the
-given user namespace through security_capable(). This brings back the
-user namespace and LSM checks of the capable() call it replaced.
+For reference, other firmware interfaces are also not exposed to the
+whole world:
 
-Fixes: d82caa273565 ("sched/psi: Allow unprivileged polling of N*2s period")
-Reported-by: Sieun Yang <didtldms2525@jnu.ac.kr>
-Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
-Tested-by: Sieun Yang <didtldms2525@jnu.ac.kr>
-Tested-by: Mickaël Salaün <mic@digikod.net>
-Reviewed-by: Mickaël Salaün <mic@digikod.net>
-Cc: stable@vger.kernel.org
----
-v2: Collect Reported-by, Tested-by and Reviewed-by tags; no code change.
-v1: https://lore.kernel.org/all/20261106120004.90041-1-dennylin0707@gmail.com/
+$ git grep -w ARCH_SUPPORTS_ACPI
+arch/arm64/Kconfig:     select ARCH_SUPPORTS_ACPI
+arch/loongarch/Kconfig: select ARCH_SUPPORTS_ACPI
+arch/riscv/Kconfig:     select ARCH_SUPPORTS_ACPI if 64BIT
+arch/x86/Kconfig:       select ARCH_SUPPORTS_ACPI
+drivers/acpi/Kconfig:config ARCH_SUPPORTS_ACPI
+drivers/acpi/Kconfig:   depends on ARCH_SUPPORTS_ACPI
+$ git grep -w "config EFI"
+arch/arm/Kconfig:config EFI
+arch/arm64/Kconfig:config EFI
+arch/loongarch/Kconfig:config EFI
+arch/riscv/Kconfig:config EFI
+arch/x86/Kconfig:config EFI
 
- kernel/sched/psi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks!
 
-diff --git a/kernel/sched/psi.c b/kernel/sched/psi.c
-index 7c5381423334..cf2593183b25 100644
---- a/kernel/sched/psi.c
-+++ b/kernel/sched/psi.c
-@@ -1347,7 +1347,7 @@ struct psi_trigger *psi_trigger_create(struct psi_group *group, char *buf,
- 	 * Checking the privilege here on file->f_cred implies that a privileged user
- 	 * could open the file and delegate the write to an unprivileged one.
- 	 */
--	privileged = cap_raised(file->f_cred->cap_effective, CAP_SYS_RESOURCE);
-+	privileged = file_ns_capable(file, &init_user_ns, CAP_SYS_RESOURCE);
+Gr{oetje,eeting}s,
 
- 	if (sscanf(buf, "some %u %u", &threshold_us, &window_us) == 2)
- 		state = PSI_IO_SOME + res * 2;
---
-2.43.0
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
