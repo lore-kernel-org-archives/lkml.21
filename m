@@ -1,101 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.201
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795191673;
-	b=IIXYHMQ7+ekQqn+On6EZuYOtTvN17LwtKs617o+koZQfFSOs01aGnh4c7ZUUI2Ufnee7
-	 bm7e1jBfkVTzAphl180A37OH8Qp7faC0yiJvudVsuhzdanwabcBwSiQw1p54DDH9NOUMH
-	 vc7ngm9BvEJi3Qi4ZwmdEb4NUMNeXDrmXiXgAphWcHLoU7aqWEtgFEqLMdgwL9F4ubLU2
-	 W3+UkTk+JR1158420M3hH8kITOqwakdBH1qnBHP++zZQd3uM5q0ZeZT9mU5CwOKpcOtiS
-	 QIK8koyYVo4w7pqleCAtVHcm33L7jMlr+/d2EnnmVhxG3qihuuGhMSh7B5/+wad2PiQ==
+	t=1795191688;
+	b=ZVqmUtOFG5Tjss7gt2s/Rcz4fi4GYeNCh90ldkKHl2/SFrp9RODE4uJw7MRKmooac4CP
+	 oDyLipLMpXEDS6Hfrf/NZ8zOS0UrRNJL/4ncFthAfcG+GaMaH5mzYgcFBWYrMeghHKbvi
+	 Z73ZlLC+MUlAolPef1gBxnWehsqmJvj3KFzbJrZeF6kNUfGeKvYaygvEcImgopJDOo0nO
+	 8OONYrz/hJG+ybcFZWr89RxkDarj8RqpuGuCBZN3aPmMQ2yacEcnBgc7n6fHEtkcqyDaG
+	 Y/MXvN12977g7PSqtdqjPJJutKDbEu1d5kipFRzmLFZL+FnBxsfRyxUC1r3ySp3K1Bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191673;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
-	b=gJEmuyZkf1h5ggz7wbOgD9onCkEmvqcqxvbyMmEb3dwuOOzQSweCSi2WD5B6WGDVa4hd
-	 AC1UbvKhlK4NzmXXdDo8CCvebwnXAH3OJQHxzAo9/UDYDbl0tTSbgCIwoqE0U2GGdW3xg
-	 xpg3eqU4frOzyVG3G4EBAjWG7uTPuNdCUyP09R35LP+pS0OjJSyjjdMO7YpkV1ij76RuM
-	 Hab/JMxvJZsq/G65ShW4iUsZGxRq5xk8wSAj6Ebe5wo9TWzBV/ZN8jBZefd4k0IoMi8jV
-	 kWwOEkhBzg4xSWVxylTiDW82+/7X4esMxWKVvMtHfya0SFFPTFgKglW029wA2fHJI+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191688;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=HKukrA1kjAzflkPDlnKuOwVAtlMx2svX9Z2jpFZQYgY=;
+	b=GFY3WA4d0okkIV9cypQJf2vJ4/wv2E+h3WZ5aajThNjgCRQlwRRsIE3LqTu9ure5ipq6
+	 XtnCHHqqLTqNan5oGSGSPuV6dCYJ+pKdolqf5qvw3u0kVcF04M0raO9pPIxif10YTFtKl
+	 HtLFJArl968pmRPg0Omc5u1SZVzXvbl/nh5FZF0nGgFDmiTjYexHqBa6+l4HJJqfKKIT+
+	 yqRtmQHjaJv3N0GMJJwvxjNTcznbMGtiWIqFoKw8IFAdQ5N5XNq2lUqJXPfXIGZ9D8CIG
+	 yVGYF5D4yRjc2oorIYm0OilmQM/flqdzOD4Jq5BvwRozlZPbuJrr7Z2K3vsjKqzs7Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QFIMvXBw;
-	arc=none smtp.remote-ip=74.125.227.201
-Received: from mail-pi2-f9.google.com (mail-pi2-f9.google.com [74.125.227.201])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=u3X231A4;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7BB606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:21:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7BB606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 389AB606A325;
+	Fri, 20 Nov 2026 16:21:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 389AB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QFIMvXBw
-Received: by mail-pi2-f9.google.com with SMTP id 41be03b00d2f7-cdd9779aac8so181900a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:21:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795191672; x=1795796472; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
-        b=QFIMvXBwT5UZma+RH3dkZsdOYQvdRV5lMg2aPbcMemqkf8Dupdo41EKmwIjAfGV4QA
-         Rp/STC14Fr5kxpZn+8zkLj31m1bjMjxlpVWu5+0//Z8eCJbmEBx3iIRpFCCMESlrrf9Q
-         74BR4tGYR7QwgQcBkHvI2flO0QSGZaaSskVdakj/+23kYau/j0GxnIcVBm3nNd5igetR
-         HGiHwoG0tUTt/5hlWBXpo2Q8eAbrCY5t5yCGNINLQ0L+yQv+Ww8SSN4ZSQZtyT1IqnWr
-         gdzRJT0GAx4L7UAT6H4ozbogf5xYExqjbow2iVzPZ+99dtMfu3s32l3yKwAv/yQqsHNG
-         Cuqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795191672; x=1795796472;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
-        b=iy4m7QaX+FurMzDa2VHgchc1f8TjMQzwjSq+4/dSUIYGJs3aLd4lju1sxxADxV5w7l
-         v8TfJbq4oAj4HMLfaY1A+g8vOD9+u2RuW4fe9+dzaBaZqrBwsUwm7qmZzbYV2CpLOBb9
-         1B3xcAN6Q3o9UuY0dC/eDMKKyKR3maOB3eWNDcCS/GzNvLJIUnx55MI49/VGdmAT5Ecm
-         qEMqo+wK75/uvpFaG5fNVLO6/ytYXIodaHQrDAjDlNIpfYUt1vVcry4PAFo+lEwbKBP9
-         TPpVPH57laDCOjOfpgmTnoVtDm/yOlWq4oP66+dgpPLmiqGHHGU1DTDzronNQDqBJlQc
-         jniQ==
-X-Forwarded-Encrypted: i=1; AL+hErH3jk02L6r30686/kn1YerkweI5twBisn18jQJFs+232gnJqXhpicC+WlplsABHKxH6+zWaDmXUbdCXD90=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8e9lxe897/Df+wzhFJZXllLDC/4sme313wD8UwuwrNjhTgPLk/
-	d6QHvkDtRIf2hSArACElsJdKCP09GAg/tWrQuk/meM/hU29If8tTtNtlpU/TET2ci+8=
-X-Gm-Gg: AZFdTZdOeBjd2oBHB6Wh+fWmMvhFcQqcfLm2cbmpeKLGNDgfw+y2IeARhiKMyxX6FHn
-	xlBYvM/hX8GpJLyrtC6x8YOo7yqwLAyP+sRcD30D2eMsHMIZGexUfbNx4pa6uvtkMJW/QSRhBsg
-	DphQF7zFbV6ksKXmuthfbGUdphuXpq+cofaOXGL1GG5u6+qxuwg5ulXVZsaji3+01zU40y9hhvY
-	TFzPsuhOr4w3SoSZy4I8CjGz3eMKOCHg59L09h95u6/PN7Y0iatwOp9Kl4yYjSt3MnhSFvQQDvh
-	ueJ73FIH0AtebXM5BLyJ7vYGPrt9AaGCh2tymurpMynniB3ZlhFJtn2C6xyHDq4G9jKuiIE8tD+
-	t2eNIuS+36TWJ3bedBXdWImyzr+lBlgHCt+o1Bmj3yi6fdBJ9xodtvHJuZLnER2tTP3zU+3Becn
-	meuZ4uqVUSHgXOje8X1WU57LG2TP3ZCIQRWmDtNCbDlMLYKyeYM09Gnz7xPh/LMDvcCSJ1mioPG
-	qgDGDyQpggyZbv/53NnnXAcyJ8ti7bKjIPKG2Z5zCswfQWjqcqD2uSAwlSdwknWYm6tY1weEiRL
-	tE46Vu2kygFQ1IRg65PfN+0=
-X-Received: by 2002:a05:6a00:1c97:b0:8b5:7fc8:866f with SMTP id d2e1a72fcca58-8c87d32b004mr3231608b3a.44.1795191671804;
-        Fri, 20 Nov 2026 08:21:11 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:60::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45e32sm1696071b3a.24.2026.11.20.08.21.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:21:11 -0800 (PST)
-Date: Fri, 20 Nov 2026 08:21:05 -0800
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
-	Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Rik van Riel <riel@surriel.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Pedro Falcato <pfalcato@suse.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, stable@vger.kernel.org
-Subject: Re: [PATCH net 1/4] net: skbuff: limit folio refcount when copying
- skb frag references
-Message-ID: <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
-References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
- <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=u3X231A4
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=HKukrA1kjAzflkPDlnKuOwVAtlMx2svX9Z2jpFZQYgY=; b=u3X231A4KUeZGq4hvlYQYBqPhN
+	sxdxe3Mrtjjr9bCPh7ceBF37Gi7+q22vIKAvt2dNvsF0LZD29Rlzw9evxDlAx5V2B9eLcOgBHwS6K
+	AUot5Yo6xpccZ1AEtOhiIdW4RNDsYzegSNUg6jDtxRmg67ShFrQnwzge4m0JJTuDXapsvjlZe8Z9s
+	DKpc3dT+uuqWZ4c+CSuz4EfXskeXsaPl7CsNuRdto9KBepJuajlLKo5YH5tX3wlA13VMzYFr2EhRj
+	7YOBnFyvdpm3LD0WVbbaSawCZ4pdXfTisD5kEjGy1ySWtc3xkH3HAqJDxfzUrUuJshRjIuNEoGX58
+	WzmoDX4g==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xURMa-00000007mOY-2Ed8;
+	Fri, 20 Nov 2026 16:21:24 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C42BE3008D6; Fri, 20 Nov 2026 17:21:23 +0100 (CET)
+Date: Fri, 20 Nov 2026 17:21:23 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tejun Heo <tj@kernel.org>
+Cc: Tao Cui <cui.tao@linux.dev>, void@manifault.com, arighi@nvidia.com,
+	changwoo@igalia.com, mingo@redhat.com, sched-ext@lists.linux.dev,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	Tao Cui <cuitao@kylinos.cn>
+Subject: Re: [PATCH 1/2] sched/core: Pass ENQUEUE_RQ_SELECTED on initial
+ enqueue
+Message-ID: <20261120162123.GS2668804@noisy.programming.kicks-ass.net>
+References: <20261112144935.583937-1-cui.tao@linux.dev>
+ <20261112144935.583937-2-cui.tao@linux.dev>
+ <598bee2c48b23aee00c404d1183b581a@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,76 +71,33 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
+In-Reply-To: <598bee2c48b23aee00c404d1183b581a@kernel.org>
 
-On 11/18, David Hildenbrand (Arm) wrote:
-> Various networking features copy frag references of an skb, for example
-> when unsharing a cloned skb (AF_PACKET trimming a clone), when copying an
-> skb (nft dup) or when building NFQUEUE messages. This is an effective
-> way for multiplying folio references held by an skb, allowing for
-> exceeding folio refcount limits.
+On Sun, Nov 15, 2026 at 05:06:35AM -1000, Tejun Heo wrote:
+> On Thu, Nov 12, 2026 at 10:49:34PM +0800, Tao Cui wrote:
+> > select_task_rq() sets WF_RQ_SELECTED and ttwu_do_activate() maps it to
+> > ENQUEUE_RQ_SELECTED so enqueue_task_scx() knows whether ops.select_cpu()
+> > ran. wake_up_new_task() also calls select_task_rq() but activates the
+> > new task without the flag, so on the fork path ops.enqueue() never sees
+> > SCX_ENQ_CPU_SELECTED and SCX_EV_SELECT_CPU_FALLBACK never counts a
+> > fork-path fallback: a misbehaving select_cpu() leaves no trace in the
+> > counters, and schedulers testing SCX_ENQ_CPU_SELECTED run a redundant
+> > select_cpu_dfl() on tasks select_cpu() already placed.
+> >
+> > Set ENQUEUE_RQ_SELECTED on the initial enqueue when select_task_rq() was
+> > called, matching the wakeup path. Only sched_ext consumes the flag.
+> >
+> > Fixes: 9b671793c7d9 ("sched_ext, scx_qmap: Add and use SCX_ENQ_CPU_SELECTED")
+> > Signed-off-by: Tao Cui <cuitao@kylinos.cn>
 > 
-> This is not specific to large pagecache folios, but with them it is a
-> lot easier to reach the refcount limit, as page table mappings can cheaply
-> create many references.
+> Acked-by: Tejun Heo <tj@kernel.org>
 > 
-> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
-> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
-> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
-> and their callers handle that.
-> 
-> Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
-> Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
-> Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
-> Cc: stable@vger.kernel.org
-> Acked-by: Pedro Falcato <pfalcato@suse.de>
-> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
-> ---
->  include/linux/skbuff_ref.h | 53 ++++++++++++++++++++++++++++++++++++++++++++++
->  net/core/skbuff.c          | 35 +++++++++++++++++++-----------
->  2 files changed, 76 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
-> index b6f6da556ee90..560ddc863bbec 100644
-> --- a/include/linux/skbuff_ref.h
-> +++ b/include/linux/skbuff_ref.h
-> @@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
->  		       skb->pp_recycle);
->  }
->  
-> +/**
-> + * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
-> + * @skb: the buffer
-> + * @f: the fragment offset
-> + *
-> + * Like skb_frag_ref(), but acquires non-page_pool page references using
-> + * try_get_page(), refusing additional references to a page whose refcount is
-> + * at its limit.
-> + *
-> + * Return: True if a reference was acquired, otherwise false.
-> + */
-> +static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
-> +							  int f)
-> +{
-> +	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
-> +
-> +#ifdef CONFIG_PAGE_POOL
-> +	if (skb->pp_recycle && napi_pp_get_page(netmem))
-> +		return true;
-> +#endif
-> +	if (netmem_is_net_iov(netmem)) {
-> +		net_iov_inc_ref(netmem_to_net_iov(netmem));
-> +		return true;
-> +	}
-> +	return try_get_page(netmem_to_page(netmem));
-> +}
+> Peter, how do you want to route this? I can take it through sched_ext too
+> given that the flag is only consumed by sched_ext.
 
-I don't see you removing original skb_frag_ref implementations after
-the conversion, any specific reason? Do we still have any skb_frag_ref
-callers left? Maybe at least you can make skb_frag_ref do 'return
-(void)skb_frag_try_ref' to avoid duplicate code?
+Yeah, take it through sched_ext; I don't think I've got any conflicts
+around there.
 
-(optional) Also, an easier way to migrate might be to make the existing
-skb_frag_ref return bool, convert everything, and then add __must_check.
+Thanks!
