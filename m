@@ -1,89 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164270;
-	b=28D2EiociYd4qyfccM3JM2NBjZjUoVmJil47fT9XjSO1n0NkIvJFLOh7zlLPZaVFlWM1
-	 Elawb7/+cpDaBMWqpMCHcvh/60sjhr5gPSSk7kXXGHE9plMJ4PvRonLTFR2Z0f4n0GFO/
-	 H+hnd3TM+1h1xxa7MrW7z1wxLbqIJcsiYUfUeKHdN4K4J1dtCJesWvXs1QL8QFJDcT7kL
-	 va60N8G2p/SF1PeVLVyL50mEGh30+KVL0YRov1zc6x9vbfvbRCARe5RgPGkSTTX7KeNxe
-	 qXKMF2vleJKRNr/NUgs3VjzTeBrRkiszwwxIRtZtXDBT5auqcoLQKO8X51JvAzpu5Jw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164270;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=AXkV0k6Xfrn5k73f3TaWD8N4csl7C8uRYph441/Su9o=;
-	b=wEGCtIA4ZUylq4ZFvhiT3KkwgFMeiSbOPK0oZJTQ9DyV/FN7n24vuNJzHmzVwoQnm645
-	 KPmSLbgasELPT8MNMmywu/YSsklPaQsASOZQpq+vPNF1Ae0/V3iHX1XEU6h/NYdi4VrLa
-	 jmRdUnJ4Sn2Cq8Duht46W0usW5RTOxMbu13pvtId6NO7vo/O+GUQMwdDU/TOYQHVp0rHD
-	 hR7n8o/ACfthxIez3TI7j6tEom4naLoF+9+CBsd12Gz9X6CRiqWSDX3cLxLgbTwGrsxSP
-	 XHqcNDXXiJ55OQ3kHOpCC2U0qD6lFIIFfKdMobKigQtOvpwhzYD8iVdhKFcCItLpoIA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="irH/rjJ9";
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795164276;
+	b=Ztw8m0kprcpQ8DZPEt591IqZ0aN6MnP5ZdHUpsdD091rWe4SECrVupg56G8fCGJkXR+O
+	 vBTjyapgfiCUYy/sTVS5A0UUmPzHepH8MxYgxJTwz5976FP0RQJcLu1gW9RVMdggrirdJ
+	 1+7ZeOTNEgjB1A2Qlo2TcBRt+46xULZ5rvnLNAgwt4QF2Z/O7xY9cjP/5OshJtMVo74Hs
+	 QKfOGFrHGjOR8YJcrBsKwg2BFbhdrq6HojYiEKKBuCdZB9dRqoQvlrf8pJxYGKAaEsq67
+	 sSoeIDl0OlDQuH85PS2IOV6aOq1pcm952wSd1e+nmPCuS/ydHbh7C6wgkm00W2hg/8g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164276;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jhUFxAY0wd/op5pav1e2eI8Q+uytDZi3dMtUnW/Jyrg=;
+	b=WwX1h+19yNAloDNnPQChIQTwycI1K00+PuxEU+eY4dl1UQ8J5b8WzTDDw+xZ88Rfr8hw
+	 MTSFRxyl+STKYy0reIQO7lThh+m7fX7bCH+jadt0SywUkSdD1jR/u14sR82YpIQQDW3D+
+	 mgYuT5iNvZlrpObUYEmCx74LJ8aO9ySETXXBrbjyMHiDBTMYGQEdc1lqSEfwiHqRPJEz0
+	 yfffmdDI/e+eRb+tJdulSzI9+Q/mk4LbEsV9XxzGGeB8pNgyDJAmA480LRZ6kQcuh0qa2
+	 OyOjfjDsnuTubq3Nts2Oya5VtqD0pk+3JdW2zLObmsuLRnbpKOToHA3xmFo2ch5/fMA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="a/OI4FdI";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36919606A7F6;
+	Fri, 20 Nov 2026 08:44:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a/OI4FdI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795164275;
+	b=eR07bOsCuoQ0hvQc/mz0PwwSvNBuJWLHwOnebSQO7XLHqzCuncRjtPyEKVUQ8TFYThj8
+	 MoT6QfzRYjYrGjyedWth06S8R7L6mOyTx2vWHex/cfUWVmA//kLNttlHm5jc0kFilrWGT
+	 G08frT7BRl/VCSW++dHtjmcYpj3qf9Mt7IogtNLGDNYdBWinCsNUzBnpSdB0QCf4wUiMS
+	 V1VtM5nuY9stj9jvoWbZ2eubNdLjFFkcvlW7RT/8BPNF+pcVq01mxSxlynnw7OxWKc3Vt
+	 eSBIClBOHRkGjeQI9Qqp+/2SzH9ndWlD8wMh0RNSY8/sPPg0LAAUcOt+Qsm/00ucgGA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795164275;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=jhUFxAY0wd/op5pav1e2eI8Q+uytDZi3dMtUnW/Jyrg=;
+	b=I4Ows92HTzzlcfnzpddiIx6QnkEJbXSKsXJLjc6dcoWIp4oVEkZjMudEUK+74taMNe0v
+	 jxG/tKmcG3TowoodNyhJazRwzU7oyFDFwfqEEctOkI9kT55moGzKwg0fJuiYaApklEryy
+	 bfTY4HhKwNAvVXiy9Kh6wQZp+TJ8cojcYnuXat6mtp/ELy3Cad6zlOBVHgVMtuUXom08/
+	 BXPD2HgVTQO3JZ7+P2jp9rLcKnlU/uYEEE51mBWVRaHve0wWcrFOuA30BFrGYpU3tvmPU
+	 ojDOtn92fI5PQHhyznHVB4/9lTyDSgpi0L7WmhPtlUx6nBJbGvSYbpJ3L1NS+A2khHQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1406160A6F6B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1406160A6F6B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=irH/rjJ9
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1a3c08d6928so933415c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164269; x=1795769069; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AXkV0k6Xfrn5k73f3TaWD8N4csl7C8uRYph441/Su9o=;
-        b=irH/rjJ9NRx/EyIbX5urK3G5MDBjsgd5zUmo92edP4uBGDcnXNj8oKyeURkWMhbO+7
-         yQ69dlGRvJZDmwM4sh77x2B3burrr+2EhDP8KL3XuRop425V1g4sQe+aqAjQ2LQK9N8t
-         nwvCL4JDXxSAkh9xBGiGcRIHqVt/c3uxVS8OPr+bO6AN7Lfq/qU9lLCyP3p+2MKqkq1u
-         mbNBhWxl0ihOpJ8NiJBBUa0GPPkl6a4lXT4WFPlOV/hmzqlwBMAS6TzvUA21wUzHZAxA
-         frLbnyMCyRsX/aLxRTMvuZlufSDG4iRHEYSn7PNltQa0AXeNOm4oN1DrgslURi9cseBb
-         0Tig==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164269; x=1795769069;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AXkV0k6Xfrn5k73f3TaWD8N4csl7C8uRYph441/Su9o=;
-        b=KDNTInZZJrivOzkl4gUBv7lRWoBvdnf7Tk9q6RG3YHtdlFOwPx4D+xmQqdd4BSDEMn
-         CLEUlQ/msnrCJvfh8efzMtYn8mQ4WlIKznK0V6TSjJ51xGSj0nKKAfBKnUH/mOIXadlC
-         s8djHcqLYjon0WhetL2iDwhFfxj7cUAfHwWwSX4eSUx02u9W2oQifccwZrd4QwN4J/7A
-         3uPsDxSdRiEdEdAPoRF9Wfbq1Gbmx3KmcOFF87Mld9BAguj+ZYnsH+L8Q/4cxTVzzvuj
-         ICiK9xalV5vGjJ0mYWPY0aGWxFU7QS1ZRbxfTv1uA+dcF7+FL43vCGInAjYzfyBXT4gA
-         FZGQ==
-X-Forwarded-Encrypted: i=1; AL+hErHxSbNlAjN7b8RL96Z/qZkHxP7kGxem371RuSLr0OqcdJ71KfzBI2vCcXE4ooDnS2avaENP+R9nil+wFSY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BLgRdghBHpJ/SZPXdxb9C0TaXxjY/suiiHD8WHmOGf4bkNpi2
-	5T2yG1ekM2Y5t32qTmzsHLT3CBb0Q4yo5FSgZjphkG52/3H3KOdi7+5V
-X-Gm-Gg: AYBFou0D0QkJ0a77xDp1tbEhtzWY4EdkmimR+4bzmHDU/oLtBNWs/PGC71WDE4HY21c
-	QDbaIW0bYrcKyY5zuo6tzhrslfiklVwmNeZptnJEeXkQ/9nnwnSYWxWvth1ltb2k0Y5M0guXERo
-	xS0mJlrLV7NwwqVRM5ATS+hRtU7uhGKW2g1prtb+KHT2A4/F3PxirI7qzWADzyp4KnQESxJouY5
-	FjPrpI9MVpPOJefuVBuOxSuiIwEDr/DUX2AKswYZR3UawvSSv6PEVODwENXAe1yJO2h7gi/5nEk
-	OztHWTgd8dlbBnXwNRNdvey62astaA64tzWGFXsp1G+Ds3oWFvKL+3E39A60F/Rt83tgEyBRnmQ
-	C12aAMkymiPM+PSXNQC69zFISFSucD4Dkz39WCNn9WbUhrtWJcji8JDYUOdMK20XvMRVpJFKiJl
-	PSIuXqVg2+RRUfBBzr1TTxvz7bd3PcF6p2+pYX7s6eJCI77wKoNrlDTJM1N37q+ZGWxnTiI6YUZ
-	I8Y5aHrEOPDAvjARijE/lt29WHqD+IjD+tIRfdS8Yw5f7vqembj3kgvhQ7dYvNqMH07tJD46Q7c
-	pE4i6YOG+YeAr66OxrDsqAyil1sBW4yVBCIk7PWMzHft0qeSFntLWKFM7ZQggKbbnGSGBAz8+5M
-	jeISfGYompSTspKlvVQ==
-X-Received: by 2002:a05:701a:815a:20b0:1b2:4e29:92f4 with SMTP id a92af1059eb24-1b5568eaf10mr1948385c88.39.1795164269206;
-        Fri, 20 Nov 2026 00:44:29 -0800 (PST)
-Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:44:28 -0800 (PST)
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Fri, 20 Nov 2026 00:44:03 -0800
-Subject: [PATCH v3 12/18] HID: logitech-hidpp: store device serial as a
- byte array
+	by smtp.kernel.org (Postfix) with ESMTPS id 357AF1F000C6;
+	Fri, 20 Nov 2026 08:44:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795164275;
+	bh=jhUFxAY0wd/op5pav1e2eI8Q+uytDZi3dMtUnW/Jyrg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=a/OI4FdI3fA/cjty8xeasNxVbXTEvh9uoTMjRNPzwgsewxwYTVsONgi3ziLYlKZw1
+	 bxpG1cSjRB6cCWe0NdTplI4ar0TrpnRxNNPcCmQ3M14DNPOo4+rrEBZti6nKHek3yl
+	 0eCYIYn8MXM0IGvsgsjL7xwY6w88vXcEIEgRD4ThPafB7AhulGTVZVBB1F0/dUCj9v
+	 uXh5MUIRik7nrGiqMB0GNETjerUmyOAPgyYLn1UXhZwspky3YoTnHXj2gwhI7PjQ7J
+	 4JWYbFlzFMCQbC2J1R0i/Vm+VMeliErGf+zIbw2cndHQubFFmU1oZIIHaZW/y+XxqI
+	 o/4pyaDdy60CQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B2409497B1;
+	Fri, 20 Nov 2026 08:44:34 +0000 (UTC)
+From: Hang Zhengyang via B4 Relay <devnull+hang.zhengyang1010.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 16:44:22 +0800
+Subject: [PATCH sched_ext/for-7.5 1/2] sched_ext: idle: Don't stack a sync
+ wakee behind a higher-class task
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,127 +84,111 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-scx-fix75-v1-1-254f782ff9b0@gmail.com>
+References: <20261120-scx-fix75-v1-0-254f782ff9b0@gmail.com>
+In-Reply-To: <20261120-scx-fix75-v1-0-254f782ff9b0@gmail.com>
+To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, 
+ Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>, 
+ Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Juri Lelli <juri.lelli@redhat.com>, 
+ Vincent Guittot <vincent.guittot@linaro.org>, 
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, 
+ Mel Gorman <mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, 
+ K Prateek Nayak <kprateek.nayak@amd.com>, Shuah Khan <shuah@kernel.org>
+Cc: Kuba Piecuch <jpiecuch@google.com>, 
+ Jonathan Bastari Thamrin <thamrinjonathan@gmail.com>, 
+ Hui Su <sh_def@163.com>, sched-ext@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org, 
+ Hang Zhengyang <hang.zhengyang1010@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795164273; l=3366;
+ i=hang.zhengyang1010@gmail.com; s=20261008; h=from:subject:message-id;
+ bh=XDlfptL4/63rv6xAwJeSPuaqpC6qexTX9EZsXa6XdeE=;
+ b=+041VgJyuR080Y7h/zrFkwlzfmEXSrTActdVaCPfTvYKiDijZMidGqycmug0BVWAySZtC+EO0
+ 2NNuASmdAXDD3trtjhj9q2R1TZdKG0rJKoRLJrsGFG6ehfgS4OCidu5
+X-Developer-Key: i=hang.zhengyang1010@gmail.com; a=ed25519;
+ pk=5drRny3PqRPLhKVB0YIQXN5YyD8miKCpXWhnEPvafAI=
+X-Endpoint-Received: by B4 Relay for hang.zhengyang1010@gmail.com/20261008
+ with auth_id=1133
+X-Original-From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
+Reply-To: hang.zhengyang1010@gmail.com
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-hid-logitech-hidpp-next-v3-12-ba39242d4336@gmail.com>
-References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
-To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
- Gideon Heinz <gideonheinz02@gmail.com>
-Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
- Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
- Edwin Velds <e.velds@gmail.com>, 
- Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
- Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.17-dev-6b8b8
 
-Device serial numbers are read from 4-byte protocol payloads only to be
-formatted as raw byte sequences with %4phD. Storing them as u32 requires
-unaligned pointer casts and dereferences that depend on endian-neutral
-memory layout, and the FAP-based serial helper reads from the RAP union
-member instead of the matching FAP payload.
+From: Hang Zhengyang <hang.zhengyang1010@gmail.com>
 
-Represent device serial numbers as 4-byte arrays, copy the payload bytes
-with a fixed serial length constant, and read the FAP device information
-response from the FAP payload directly.
+On a sync wakeup, scx_select_cpu_dfl() can return the waker's CPU. It
+does this when the waker's local DSQ is empty and some CPU is idle,
+because the waker is expected to give up its CPU soon.
 
-Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
-Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+This is wrong when the waker's CPU runs an RT or DL task, or a fair
+task in partial mode. The BPF scheduler can't preempt such a task. The
+wakee waits on the local DSQ until that task blocks, or until the ext
+dl_server runs the wakee. Meanwhile, other CPUs are idle.
+
+The waker may not sleep at all. pipe_write() and sock_def_readable()
+always set WF_SYNC, even if the writer keeps running.
+
+This affects every BPF scheduler that leaves CPU selection to the
+kernel, or that passes SCX_WAKE_SYNC to scx_bpf_select_cpu_dfl() or
+scx_bpf_select_cpu_and(). In an 8 vCPU guest with scx_simple, an RT
+task on CPU 0 wrote to a pipe and kept spinning. In 16 of 16 wakeups,
+the reader ran on CPU 0, 169 ms to 1.5 s later. With an eventfd write
+instead, which is not a sync wakeup, the reader ran on an idle CPU
+within 0.1 ms.
+
+SCX_OPS_ALWAYS_ENQ_IMMED doesn't fix this. It re-enqueues the wakee,
+but in the same test the wakee still ran 16 to 483 ms late. The fair
+class doesn't have this problem. wake_affine_idle() also picks the
+waker's CPU, but select_idle_sibling() only uses it if it is idle.
+
+Skip the shortcut when a task of a higher class than EXT is running,
+or about to run, on the waker's CPU. rq->next_class shows this, and
+rq_is_open() uses the same check for SCX_ENQ_IMMED. The wakee then
+goes to an idle CPU, as in any other wakeup. Sync wakeups between EXT
+tasks don't change, unless a higher-class task is about to run on the
+waker's CPU.
+
+Signed-off-by: Hang Zhengyang <hang.zhengyang1010@gmail.com>
 ---
- drivers/hid/hid-logitech-hidpp.c | 28 +++++++++++++---------------
- 1 file changed, 13 insertions(+), 15 deletions(-)
+ kernel/sched/ext/idle.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
-index 16fb52634437..053cbfe8cb6f 100644
---- a/drivers/hid/hid-logitech-hidpp.c
-+++ b/drivers/hid/hid-logitech-hidpp.c
-@@ -48,6 +48,7 @@ MODULE_PARM_DESC(disable_tap_to_click,
- #define HIDPP_REPORT_SHORT_LENGTH		7
- #define HIDPP_REPORT_LONG_LENGTH		20
- #define HIDPP_REPORT_VERY_LONG_MAX_LENGTH	64
-+#define HIDPP_SERIAL_LENGTH			4
+diff --git a/kernel/sched/ext/idle.c b/kernel/sched/ext/idle.c
+index 922fbc3065cc..bf4dd8cb4255 100644
+--- a/kernel/sched/ext/idle.c
++++ b/kernel/sched/ext/idle.c
+@@ -534,6 +534,7 @@ s32 scx_select_cpu_dfl(struct task_struct *p, s32 prev_cpu, u64 wake_flags,
+ 	 * If WAKE_SYNC, try to migrate the wakee to the waker's CPU.
+ 	 */
+ 	if (wake_flags & SCX_WAKE_SYNC) {
++		const struct sched_class *next_class;
+ 		int waker_node;
  
- #define HIDPP_REPORT_SHORT_SUPPORTED		BIT(0)
- #define HIDPP_REPORT_LONG_SUPPORTED		BIT(1)
-@@ -898,7 +899,8 @@ static char *hidpp_unifying_get_name(struct hidpp_device *hidpp_dev)
- 	return name;
- }
- 
--static int hidpp_unifying_get_serial(struct hidpp_device *hidpp, u32 *serial)
-+static int hidpp_unifying_get_serial(struct hidpp_device *hidpp,
-+				     u8 serial[HIDPP_SERIAL_LENGTH])
- {
- 	struct hidpp_report response;
- 	int ret;
-@@ -912,11 +914,7 @@ static int hidpp_unifying_get_serial(struct hidpp_device *hidpp, u32 *serial)
- 	if (ret)
- 		return ret;
- 
--	/*
--	 * We don't care about LE or BE, we will output it as a string
--	 * with %4phD, so we need to keep the order.
--	 */
--	*serial = *((u32 *)&response.rap.params[1]);
-+	memcpy(serial, &response.rap.params[1], HIDPP_SERIAL_LENGTH);
- 	return 0;
- }
- 
-@@ -924,14 +922,14 @@ static int hidpp_unifying_init(struct hidpp_device *hidpp)
- {
- 	struct hid_device *hdev = hidpp->hid_dev;
- 	const char *name;
--	u32 serial;
-+	u8 serial[HIDPP_SERIAL_LENGTH];
- 	int ret;
- 
--	ret = hidpp_unifying_get_serial(hidpp, &serial);
-+	ret = hidpp_unifying_get_serial(hidpp, serial);
- 	if (ret)
- 		return ret;
- 
--	snprintf(hdev->uniq, sizeof(hdev->uniq), "%4phD", &serial);
-+	snprintf(hdev->uniq, sizeof(hdev->uniq), "%4phD", serial);
- 	dbg_hid("HID++ Unifying: Got serial: %s\n", hdev->uniq);
- 
- 	name = hidpp_unifying_get_name(hidpp);
-@@ -1031,7 +1029,8 @@ static int hidpp_root_get_protocol_version(struct hidpp_device *hidpp)
- 
- #define CMD_GET_DEVICE_INFO				0x00
- 
--static int hidpp_get_serial(struct hidpp_device *hidpp, u32 *serial)
-+static int hidpp_get_serial(struct hidpp_device *hidpp,
-+			    u8 serial[HIDPP_SERIAL_LENGTH])
- {
- 	struct hidpp_report response;
- 	u8 feature_index;
-@@ -1048,22 +1047,21 @@ static int hidpp_get_serial(struct hidpp_device *hidpp, u32 *serial)
- 	if (ret)
- 		return ret;
- 
--	/* See hidpp_unifying_get_serial() */
--	*serial = *((u32 *)&response.rap.params[1]);
-+	memcpy(serial, &response.fap.params[1], HIDPP_SERIAL_LENGTH);
- 	return 0;
- }
- 
- static int hidpp_serial_init(struct hidpp_device *hidpp)
- {
- 	struct hid_device *hdev = hidpp->hid_dev;
--	u32 serial;
-+	u8 serial[HIDPP_SERIAL_LENGTH];
- 	int ret;
- 
--	ret = hidpp_get_serial(hidpp, &serial);
-+	ret = hidpp_get_serial(hidpp, serial);
- 	if (ret)
- 		return ret;
- 
--	snprintf(hdev->uniq, sizeof(hdev->uniq), "%4phD", &serial);
-+	snprintf(hdev->uniq, sizeof(hdev->uniq), "%4phD", serial);
- 	dbg_hid("HID++ DeviceInformation: Got serial: %s\n", hdev->uniq);
- 
- 	return 0;
+ 		/*
+@@ -559,9 +560,19 @@ s32 scx_select_cpu_dfl(struct task_struct *p, s32 prev_cpu, u64 wake_flags,
+ 		 * insufficient as the local DSQ of the waker could have tasks
+ 		 * piled up on it even if there is an idle core elsewhere on
+ 		 * the system.
++		 *
++		 * Also don't put @p behind a task of a higher class (RT, DL,
++		 * or fair in partial mode). The BPF scheduler can't preempt
++		 * that task, and it may keep the CPU for a long time. @p would
++		 * wait on the local DSQ until that task stops, or until the
++		 * ext dl_server runs @p. ->next_class also shows a higher-class
++		 * task that is about to run here. Reading it without the rq
++		 * lock is fine, since this is only a hint.
+ 		 */
++		next_class = READ_ONCE(cpu_rq(cpu)->next_class);
+ 		waker_node = scx_cpu_node_if_enabled(cpu);
+ 		if (!(current->flags & PF_EXITING) &&
++		    !sched_class_above(next_class, &ext_sched_class) &&
+ 		    cpu_rq(cpu)->scx.local_dsq.nr == 0 &&
+ 		    (!(flags & SCX_PICK_IDLE_IN_NODE) || (waker_node == node)) &&
+ 		    !cpumask_empty(idle_cpumask(waker_node)->cpu)) {
 
 -- 
-2.56.1.750.gf70dc682cf-goog
+2.53.0
+
 
