@@ -1,132 +1,119 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170432;
-	b=lkvXlkVwRyRg+o62Mm/y4t/u11y7+xU193y8FgCTQ+1N+Tk0CebfhqWKRD0xSnWlNGxF
-	 npva4uN7G/ObteG/TMrLtRy1hVr07ApT00fadRO02VpWmmr8OUSxrIOeK20wxpmyk6P5g
-	 vq+mkxFaTGxYe+WLcVWNk1nV41vzJihbEkHETl4mMXFcTKmAKgr5nh/etdSJos/yINUqZ
-	 LS7I62AOOyMdapfXsla1b8Jh7fAvi8MC+UoPbkODblNLj0/lChX898N4AgRmO6wOAsoPU
-	 x8NLxi3LABYUdVYu6LS4W6QrWl59eJCtYCMsSbFLLBQHUjYaL1TBW49wfojIlorHxMw==
+	t=1795170453;
+	b=M1gHExxr8HDYIc2Wb9YCCEgPYkyVnlDw9B5l58x4D8H5+LV9BT4j6V5HJOi9ixKDYk40
+	 1K6zMbZaZu6liUfs/JcVuFvtpRU0WswpJcOhx81Qn8rc2PrO4F55i1QApmOv6Uckr62EU
+	 yc8Lv5tuUr8yZ1iCpzeANeAoptWNk8pwdR0/1HvqKwH30I2vae8A2NlgDU+eC6yNLtbVM
+	 f75FeFVupkbGpTOIwqCQRpPwE7IAb+Yjfhsd1/AVR1b5JGLiD8BLWai9OBxeKIfpm1jjn
+	 zz0d/8YTMGKKtL6wd5j0JfgGb9Uw4prygQm42ncKRuK8uQ/j4RolRXkZc1BYWyE50Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170432;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=TDi4z+Ry6J5IfKVSHZnQfjVSJF3Eiv71kFCtVQwFZH8=;
-	b=mrVDVM6oQw+XLxzxTtSQNG3CWkvN3OP79CZdwMrjKbrDt0KWDbgYZToz9Kh2BRl01gtK
-	 peznzMzGvd12D3XQHVMqNL3og87ScyYGsH1FVH4bOfUbwbgVqjC6wVzFQq0+XKfm79Hia
-	 YM6G6C8EQOu9YtrUvD+YFxyIB0ZaTFW95e2x9L5F6tdY205hC1ZjVaejHS9AbxEVD2/+I
-	 hggSWA2lwQmNbzVid0zDDnDcYziRcmZzxpef8P3DcyKuD8yvut5WTjxkHSYB9JeckdPLN
-	 7PL04+KWqHCuhtvPACBkfTW5dT7iM035pAPvEZC93i5lTJ29+mm+61lEgtX2N58/5CQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170453;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=J03hAPreVl/WdlY67XpnWOO6QMbJJDuPrc/TmqPAXow=;
+	b=2Tfs2bsecsWXOvgS9jA4XTKJOLF1xYQZ43B7v5p7a80e8JZqPCXb0g2Qxg1kMgC8O4yG
+	 HNng0o58mGuwO7TTavzuOIDHNxwnAy+t8tsUDwUUryHyh50zOoYoRylTPrYclcATUP+D0
+	 D23YqB+HKK123sJ3PDHXCMVYWHtFp5/5/0n/wrXV2pcFvI/iUBrwyoMB8/gQc1VjGe3yh
+	 gLmS7zDpt5zP9gut+CjYtA0dICF9HRwfFKLtb5pjTUsoIOi8mqwEyB1YPSBvLdmIwvbI/
+	 E4GnnIP5znplx9AWR4RbGdl295fiBjKgBRLFkAFDpYGkIuJEkCacV6NBlWuRMIH7oAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="UCMsjjL/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b4NsjePq;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RQSSrIcH;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A6C260A260B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:27:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A6C260A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D288606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:27:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D288606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UCMsjjL/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=b4NsjePq
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7errJ1268354
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:27:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=TDi4z+Ry6J5IfKVSHZnQfjVS
-	JF3Eiv71kFCtVQwFZH8=; b=UCMsjjL/gYj1YrSdI3mPgoWUFkroEwEenVvkoLXV
-	PD94DQq8IzopQvJZfDxnY0WgkkSJ802KdnU64vveupJkHK94Vza9+P9sJlnMq0zJ
-	udeo4Qy322jsgEcxOr9jUP9zBHUU3vN2NN79Cx6C9KJkLFTAGoQtyeLNM4nRaM1+
-	azSHW6pr5RYxLmsWaQZ4wEAtjXWxFV8i52y0KhGij+4bI3OE8bGyv7xQ+eyMNtK2
-	8gVIKnh4y8um/clEGne0POIVBK47mW2eRvG1ER2xjjbE/X2eRNrZBCmM0iTd0AAY
-	XGXjSNTZeLfL2VeXgd6+f8pVHNnk8E5nRDeOgF4L/l2l2A==
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2cd1sy0s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:27:10 +0000 (GMT)
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-30bcb065bfdso768454eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:27:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=RQSSrIcH
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so5103755e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:27:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795170430; x=1795775230; darn=vger.kernel.org;
+        d=suse.com; s=google; t=1795170451; x=1795775251; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=TDi4z+Ry6J5IfKVSHZnQfjVSJF3Eiv71kFCtVQwFZH8=;
-        b=b4NsjePqA8nFOVCsLyIf6NVtNyyBD1S9Iduf/zsHvj9VpxcK/yxRxeSbtrbF5tn6qu
-         qXtQjt/e/DeeblQ2efRNwg0QY1+W6Aoel0N2eYiS21LB7Fk2hvnLc6apzp/kjsfJMUgb
-         2hD2oaG987Y6kd/tHGpW02AT/zHGXUWzvrJJZesczBeJRvwGstmDpxpj3IKh4NPLyWSK
-         dMVoJzbc5sDyLCu3BJVCU6tvnNuaTiAxOB0d3W+3oOzdPuPV0Z6rzeAvh+TckElfBcce
-         JY1MKaIUrPnHCALqbX5bUzaf4dehpK4yAC0Jmapvz7Ts14IlCSSAaC1a/QG12b93sZkB
-         xqvg==
+        bh=J03hAPreVl/WdlY67XpnWOO6QMbJJDuPrc/TmqPAXow=;
+        b=RQSSrIcHe3nsThu/qsuyCLRVp6kBKamHvjbg0Wu/b4lbX6CZewJC366PZCYxE40TAB
+         6Iy4qlHNGqxtgMz+Y67CO7Pe+PkXP5BwzddMfG0OwvrThdC2iJc1KjRK2nov4QSoIR0v
+         YNTEOAIJw81hO88t0rMWbJvNSD2anaMtRYHdCd9dqK6nP4EeSnyQQdvoQnjbteaZRXyM
+         4K0TXZt/kJlXBxW6515aaPUhXn3SJcvjfaNqdCyBhRnpjMMsBVY0B+WkU5pR6m16HLAa
+         GCewYpObVjoq4lgFJaezb25HUXFm0ujZzRYFYEJ/NjQc3D7bwhwqDPz4Auj0T3IyBaSe
+         VeNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795170430; x=1795775230;
+        d=1e100.net; s=20260707; t=1795170451; x=1795775251;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TDi4z+Ry6J5IfKVSHZnQfjVSJF3Eiv71kFCtVQwFZH8=;
-        b=Q5qT4cTwQZrrao8MWtq+3Yc4wNKOC6TpOLAvhrmMhl5d1qRc4Lf7k9lW9GBysVGrJP
-         JZMR1vVxAUQxNIZJ8c6epPpqSdNb4LTDThBjfRvFqgIdLuHvD1C7c87knugdLeQ3/au8
-         Rl5/oOpgO3muIeJodq492EPKWTp5grWc4rXJGDoLAZjj3+01TnAdGCi4UDZmKDQfljh/
-         CCftgwKuSDowOBvxN5k3o7fVPwy4diUaiXM4XvjIa/ZfmCqo+IpL4TX8Z2ji4dQVaEtu
-         lKQc5/2mV7CyFsHSL9O3GC91D4HkjU4+FP9v+xGN0VONFHZOquHc3MTq4si2h13cAHHo
-         ynkw==
-X-Forwarded-Encrypted: i=1; AL+hErGSmf+dUh/GkBWYK6OXSAGC7epWHsy6ibfVnubOcHCB+/pbi3bHbNdY78yB240m806Fk/o/RHlgzG6M8lc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9RdqyYAWZCqB1PUsdKRLpvaq1+bIlFxMwvPW+ijFyCqcu4s4Yq
-	BbN6jCQ4uAOGClWgBd1wQExyqm9VJrxG50x8Z0V8PBH6n5uro4/vksIwzQtKKYQzX906O1mYpRm
-	10j82onFGpz/vmD84VgqcjmnIYbdr31pPlaNU7XWK4XBGXfdu83sINVumnMHGf7rJkrs=
-X-Gm-Gg: AZFdTZdM+Zu33hfnZiRiEJyT+CpA3U/prtRQYqPgOPOTcknLH7vBXayfa1DrSeBadxr
-	Gie27Vj73PJbHriotBi0+TlEhoyHOouxAOUsDn746GSx/EPdK2NAdOYAvntCYDcgLBeqE6Y1YbR
-	cYWyTwFfWzKsdfU4g7UbwnRvqKV6ww/7EvPQ3ac8eaqhuvklXtBkaDc5TBuDGeWfmpPLGmPlluc
-	nBb/N4aFC0M8WFcmh7ez51g3zkGyPsftZ/QKky8xeE2KfewmzAWyE4Oj2moSAfBHx2v3RizBTG0
-	XYx/JouNasklcbt+nm/CmSSA+qhaEqppxPF/x9op1uMhVsxGVy1hbWKsUI5a16sow5VaUsvjcRZ
-	Y7xNtLZt8eS608GBcvn5DAURli3vzCz8Y+zvDjvTa+Nv/q78moadYHA0k+tTL7cXdTRN/5JaJCg
-	Sz
-X-Received: by 2002:a05:693c:600a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3863f13587fmr543232eec.4.1795170429483;
-        Fri, 20 Nov 2026 02:27:09 -0800 (PST)
-X-Received: by 2002:a05:693c:600a:b0:37b:4a2b:81a with SMTP id 5a478bee46e88-3863f13587fmr543199eec.4.1795170428857;
-        Fri, 20 Nov 2026 02:27:08 -0800 (PST)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm6982026eec.6.2026.11.20.02.27.03
+        bh=J03hAPreVl/WdlY67XpnWOO6QMbJJDuPrc/TmqPAXow=;
+        b=G+yhHj9MAMa2biq7gURgq4+ApTn9ebsDzCANSlffb8UbmK/NqvnxTPDdYz+gMKnRnj
+         XBsbqi1tyMH3cxalN2wQ1ExAkifciG8VFxHSWuo5gVOj7cT3hYCmtPeUiIqIvUww9Fd9
+         koXNg2GS/ltyvDTBCx6cZ1olCu7tNJajSwf7LlYxma7fSxl9294sAPIEdD9V5waMNnQk
+         qUKTMtPJ/19egQcGV+HQi6xBT4oB5Ab6BNFczYLZjFNnue03ItDbno/zRxInhlpwaW3E
+         lnHjzskVLzrWylE5t1lGS7iCJRRBqSGHFqrGouunLzVy6MTTyhj3Z2jL7UBPoOYmXIzb
+         1Xmw==
+X-Forwarded-Encrypted: i=1; AL+hErGoYjcbQrok23M7nyQemmP7TZQp3dPgFvKS4uYVteJlZlcIOTgqtYejoFYGZ2vU82R8o89BR9pDVAmnlO0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vyC4t9LfeItwvZX0BrveGBxrgJ4wPEkhC9+ZkNrhHZZrFYD/c
+	3UGm+ae6phgRWJMZf0rmvySMSc1asxWFG8pN3fEixF0jF7D9jCla9VHC8Ew3TDR7t8k=
+X-Gm-Gg: AYBFou3RdzRdi2ERViMp87tGwonE9CYWXV6dtcBETFp+FTKDuuj2SFdNRw/OqluuoGa
+	jvIjT+oQP98pKJvoSyNlJdzDvy0ODIL9bkD4sVgbeQXoR2QTZOolEDvVHnOutVuGVXb1dcasXmV
+	2/dtRwFtK2BtAmfv+dvpmiSUmEmRe1GSLTe6dIszrUZapBwBXyAslDauOBlEKnnSespz5doH5TZ
+	Ai1xZ0MPFpnaDVGgZ0MEdlAhDg3Nw2s6VKi5E1rUjFuAkNKlDTZFK54EBnyoS587bkT7xH+X41a
+	joTjoERCNGqq10e1McwoIZhXCnH0VO6lNO+9q/FJdaUdaYekoanE8RCu2RBC8s4xTXdj2RS5Rsq
+	UJW4HYFI9WErruo5XaBbqcdWo6OLMOOhC/aswhhrAnuTuYtN2o2Y1tY9AiVIWPbKkEzlXUcaeya
+	b8BAkJ6PIgmGgXAMZtN7mSCNv+S9RfQ8GFqDYxaZl6lth5bBMRq/EJqgP8NnP7xwaIOVoFrjckN
+	GO0NdScPrhLg4OBuZ4sOIA8HR1hq8xJyOubCQS5iMct6aGP5vaZLxtvvpUNrHQfB669IlqNswTO
+	/YQmn7hAjgcuraT8u7vO
+X-Received: by 2002:a05:600c:4ecd:b0:4a3:12fb:1ef1 with SMTP id 5b1f17b1804b1-4bb8881e81cmr57015215e9.29.1795170451305;
+        Fri, 20 Nov 2026 02:27:31 -0800 (PST)
+Received: from pathway ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm108779875e9.15.2026.11.20.02.27.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:27:08 -0800 (PST)
-Date: Fri, 20 Nov 2026 15:56:59 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Raviteja Laggyshetty <raviteja.laggyshetty@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Xueyao An <xueyao.an@oss.qualcomm.com>,
-        Sneh Mankad <sneh.mankad@oss.qualcomm.com>,
-        Monish Chunara <quic_mchunara@quicinc.com>,
-        Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
-        Rakesh Kota <rakesh.kota@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, bibek.patro@oss.qualcomm.com
-Subject: Re: [PATCH] arm64: dts: qcom: shikra: Mark RPM message RAM as
- no-memory-wc
-Message-ID: <20261120102659.gaylk2rqi63vmq66@hu-mojha-hyd.qualcomm.com>
-References: <20261117-rpm-memory-non-wc-v1-1-e246fc6bc66c@oss.qualcomm.com>
- <20261117161904.2hecbffviqjz2dub@hu-mojha-hyd.qualcomm.com>
- <6965d3c1-1823-469f-8777-17fc52e132df@oss.qualcomm.com>
- <20261118125534.7iyzuefhz4te35st@hu-mojha-hyd.qualcomm.com>
- <a116e2b0-8857-48c8-85f6-be3a62325515@oss.qualcomm.com>
+        Fri, 20 Nov 2026 02:27:30 -0800 (PST)
+Date: Fri, 20 Nov 2026 11:27:28 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Zack Rusin <zack.rusin@broadcom.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <baoquan.he@linux.dev>, Mike Rapoport <rppt@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Dave Young <ruirui.yang@linux.dev>, Borislav Petkov <bp@alien8.de>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>, x86@kernel.org,
+	Joel Granados <joel.granados@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, virtualization@lists.linux.dev,
+	bcm-kernel-feedback-list@broadcom.com, linux-kernel@vger.kernel.org,
+	John Ogness <john.ogness@linutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Kees Cook <kees@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Bo Gan <bo.gan@broadcom.com>,
+	Brennan Lamoreaux <brennan.lamoreaux@broadcom.com>,
+	kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Maaz Mombasawala <maaz.mombasawala@broadcom.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	Michael Kelley <mhklinux@outlook.com>,
+	Ian Forbes <ian.forbes@broadcom.com>,
+	Bradley Morgan <brads@mainlining.org>
+Subject: Re: [PATCH v4 4/4] x86/vmware: Report guest crashes after kmsg
+ dumpers
+Message-ID: <awAgkNoIKpFx764w@pathway>
+References: <cover.1794980455.git.zack.rusin@broadcom.com>
+ <d0f9c1188b5f78bb20bb43737b3cf80c5c0f94f4.1794980455.git.zack.rusin@broadcom.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -138,82 +125,126 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a116e2b0-8857-48c8-85f6-be3a62325515@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=Dt/Da2/+ c=1 sm=1 tr=0 ts=6b00207e cx=c_pps
- a=cFYjgdjTJScbgFmBucgdfQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=a3soqENLMLS3xwJGqFMA:9 a=CjuIK1q_8ugA:10
- a=scEy_gLbYbu1JhEsrz4S:22
-X-Proofpoint-GUID: KjrEl4BbCljZhkrTsl0hgRBRSflxqOwt
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfXyNKyxcLoF+uZ
- VbUa8qCjjMkkjF2OSAITPKQLIPqgoUb6n3CO56gEwvKaxa6QzKiT9euf5XXvGoOA3Z6BljdLVqt
- SthGgGDbJgpXZ9EuxczQOGEmmXEuMQDIbaIg3yoJmhwcDsRnbIh4qk2hJBTiiEaZYmligF09K0X
- H+c6Gb7ULBcwAxxW5LOQ1rM0xF99hFQqmsa3PlCMnn3rA4vVfviaT1fN7fct8j2AHhXTrklhPiZ
- VseH8zqOrcLcsahWfY6RQvh8vK8IGqw9hM6UrrWKpMDueQtma7TqrB47AR8bKxCXSfXBEUSsbvx
- h3Cnq/S7AU67sQgipROWmYcprtK0DeZIEZN2jhw0FKG8vIdUAseY5mIgmkAaV4nPCyFfrPXVzJr
- B2KPkHPQ85dDDTLooY+5F3B4DoWaa6+BNPtzRssHk3wcAHhHHpaf38zjVrr8rEX/DxWM80I2sGO
- Ap4tHTIaGjDGUlTTqwg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX/1DuvuumihFu
- oI5qZJPj6E7AcRQn1Br415BhWLuCU+cXk2uAV8a2n4EuvIBP8NuXUx+pENzqPfk+9VYS4h+0UJ2
- H6T6fYJoCdtrHwRzb3A2THBODThGXYM=
-X-Proofpoint-ORIG-GUID: KjrEl4BbCljZhkrTsl0hgRBRSflxqOwt
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 lowpriorityscore=0 bulkscore=0
- malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200041
+In-Reply-To: <d0f9c1188b5f78bb20bb43737b3cf80c5c0f94f4.1794980455.git.zack.rusin@broadcom.com>
 
-On Fri, Nov 20, 2026 at 03:06:50PM +0530, Vishnu Santhosh wrote:
-> 
-> On 18-11-2026 06:25 pm, Mukesh Ojha wrote:
-> > On Wed, Nov 18, 2026 at 04:35:55PM +0530, Vishnu Santhosh wrote:
-> > > On 17-11-2026 09:49 pm, Mukesh Ojha wrote:
-> > > > On Tue, Nov 17, 2026 at 01:35:50PM +0530, Vishnu Santhosh wrote:
-> > > > > The RPM message RAM is shared with other subsystems, and parts of it
-> > > > > are not accessible to the APSS. It is expected to be mapped as Device
-> > > > > memory.
-> > > > > 
-> > > > > The "mmio-sram" compatible makes the SRAM driver map the region as
-> > > > > write-combined (Normal Non-cacheable) memory instead, which allows
-> > > > > speculative reads into the protected parts and results in XPU
-> > > > > violations.
-> > > > > 
-> > > > > Add no-memory-wc so the region is mapped as Device memory.
-> > > > > 
-> > > > > Fixes: 66664b5701da ("arm64: dts: qcom: Introduce Shikra SoC base dtsi")
-> > > > > Signed-off-by: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
-> > > > Why only for Shikra ?
-> > > This XPU violation was seen only on Shikra, and only with Linux
-> > > running at EL2 (KVM). It is not seen on Shikra when Linux runs at
-> > > EL1 under Gunyah. So, I kept the change to Shikra.
-> > Thats not explained in this commit, why this issue not seen under
-> > Gunyah ?
-> 
-> Under Gunyah, Linux runs at EL1 and Gunyah maps this region as Device
-> memory at stage-2. The stricter stage-2 type applies, so the
-> write-combined mapping from the SRAM driver has no effect.
-> 
-> With KVM, Linux runs at EL2 (VHE) and there is no stage-2, so the
-> write-combined mapping takes effect and speculative reads reach the
-> protected regions.
-> 
-> The region is expected to be mapped non-write-combined regardless of
-> the exception level, so I kept the commit message to that. I can add
-> the EL2 detail in v2 if you prefer.
+Hi,
 
+this patch looks a bit messy, But maybe, I just do not know enough
+about VMvare.
 
-Thank you! Please add this in the commit text. Also, I think this is
-applicable to all such Qcom SoCs.
+On Wed 2026-11-18 01:01:51, Zack Rusin wrote:
+> VMware accepts a structured guest-crash event, but a host configured with
+> backdoor.coredumpOnCrash may terminate the VM before the hypercall
+> returns. Keep this event separate from the log sender, which runs
+> earlier in panic.
 
-> 
-> Vishnu
-> 
-> > 
-> > 
+I am a bit lost here ;-)
 
--- 
--Mukesh Ojha
+What exactly means the "structured guest-crash event"?
+Which hypercall are we talking about?
+
+Is this primary about synchronization of vmware_panic_log_notify()
+against termination of the crashing guest by the host?
+Or is this about something else?
+
+What exactly does vmware_hypercall1(VMWARE_CMD_REPORTGUESTCRASH, 0)?
+Does it _block_ or _trigger_ backdoor.coredumpOnCrash?
+
+> Register a panic-only kmsg dumper with late_initcall_sync(), after built-in
+> dumpers registered by then.
+
+Is this ordering important?
+
+> Skip the event while a crash kernel is loaded
+> so the host cannot terminate the guest before kdump saves its vmcore.
+
+This suggests that vmware_hypercall1(VMWARE_CMD_REPORTGUESTCRASH, 0)
+actually triggers the external crash dump procedure made by the host.
+
+> Issue the event at most once. With CONFIG_PRINTK=n, use a late INT_MIN
+> panic notifier. An unexpected dumper registration failure with printk
+> enabled leaves reporting disabled rather than overtaking working dumpers.
+
+This is another mystery. What do you want to achieve when
+CONFIG_PRINTK is not defined, please?
+
+Note that printk() is a NOP when CONFIG_PRINTK is not defined.
+There is nothing to dump in this case.
+
+Honestly, I would not complicate the code by this.
+I doubt that anyone is using kernel without CONFIG_PRINTK.
+
+> --- a/arch/x86/kernel/cpu/vmware.c
+> +++ b/arch/x86/kernel/cpu/vmware.c
+> +static int __init vmware_crash_report_init(void)
+> +{
+> +	int ret;
+> +
+> +	if (!hypervisor_is_type(X86_HYPER_VMWARE))
+> +		return 0;
+> +
+> +	ret = kmsg_dump_register(&vmware_crash_report_dumper);
+> +	if (!ret)
+> +		return 0;
+> +	if (IS_ENABLED(CONFIG_PRINTK)) {
+> +		pr_err("failed to register crash report dumper: %d\n", ret);
+> +		return 0;
+
+This is weird. As I said, printk() is a NOP when CONFIG_PRINTK
+is not defined. So, you would achieve the same with:
+
+	ret = kmsg_dump_register(&vmware_crash_report_dumper);
+	if (ret)
+		pr_err("failed to register crash report dumper: %d\n", ret);
+	return 0;
+
+But wait, this means that the code below is never reached.
+
+Ah, I see, you wanted to run the code below when CONFIG_PRINTK
+was disabled. It was far from obvious. And I do not understand
+the motivation much.
+
+Anyway, it won't work because kmsg_dump_register() returns -EINVAL
+when CONFIG_PRINTK is not defined. err != 0 ...
+
+Let's take a step back.
+
+Why do you want to use kmsg_dump infrastructure for notifying
+host about the crash, please?
+
+The kmsg_dump API should be used to dump the printk messages.
+But this just notifies the host about the crash. It looks like
+an API misuse.
+
+> +	}
+> +
+> +	ret = atomic_notifier_chain_register(&panic_notifier_list,
+> +					     &vmware_crash_report_nb);
+> +	if (ret)
+> +		pr_err("failed to register crash report notifier: %d\n", ret);
+> +
+> +	return 0;
+
+IMHO, you either want to use the panic_notifier list.
+
+Or you might even use the new panic_notifiers_platform_list
+if you make sure that this is called as the last event
+and you really want to stop the guest at this point.
+
+My assumption is that the "host" will stop the "crashing guest"
+when it gets notified about the crash.
+
+> +}
+> +late_initcall_sync(vmware_crash_report_init);
+> +
+>  #ifdef CONFIG_PARAVIRT
+>  static struct cyc2ns_data vmware_cyc2ns __ro_after_init;
+>  static bool vmw_sched_clock __initdata = true;
+
+Best Regards,
+Petr
+
+PS: It looks to me like Sashiko AI completely failed here. It did not
+    mind if the commit message made sense. It did not see the big
+    picture. And it even missed that the code did not work with
+    CONFIG_PRINTK undefined.
