@@ -1,49 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.209
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180224;
-	b=tug1WfbtYpEqhrZj6IMId3Z9yASIFLgCquDfKgsogzF4Nkhe1uPl2W5vglLAPITQoC3m
-	 7FLEBO79Lsit5a0WPnJ9WRGGox3bLx14xVaEZdMctpeuUbspK/CgktPDdSrMj8UoSoEO7
-	 9/NdQGs2aokgrQEgUp/MRcpc9Vkg1vZMCfcYWvu8oiT5tSE2b5M7ir4VUrWZt8kLHRYyb
-	 xwSBoMi9nUadG4CRZ7ygNOnj2M8YohCRI7rYXaEQzyve6qhzooilS9zEm2jU5nxK613qd
-	 /oaRUNvkdFklUV8jnj9rHQN66qboafWNtHkofts5y0kDI2wjMDSHMCM4qfHOpo6qDBA==
+	t=1795180226;
+	b=TSVdMzFmsprVhPvmrP+76r50ADsEcYouHDGILdZO8Y78uXNfhaRD2HhAgYgJaIopOWDh
+	 bnSMUgCOKHG9wBqn5IarTTKe0e0jnPuwc+yBBJap/r7eDlmML5VRgVpoZAq7uAyQ2YNzE
+	 OllzQQf/TbW9z6P5mpNSTiCwE/ko98flwcrRzglgNHAxUJkTgiSxsGONyJwHU/tDtHhII
+	 pEQe489gl9ZeVK1hqPW8f6dkgb1CGgh/t+AsSlSDDNPWHgEAcw7RnoQWgmznZb3IR+xMI
+	 w6dEbC7QzwoVkOrqdpEEA6kDBMkPsgSr6ZdJVoxeFZ14UcphGvaf4h8PIeXo7WQfe+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180224;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=9PM2w9+ZdAbkirqUaelWFEVysP1HxWv35WZ7WYMciGA=;
-	b=tpI0j7ZhssC593x6CDDt3yhP1Dc2NyrGXwWvmoOuzG4EwznD7y5VrtyP+qXTisawci28
-	 AbZQ8SaiScKf4apvDHEptUbzPOQ9/RENHRl9JWk4cK48nzRo0gohM3CdBOe99UqOSIujg
-	 eHsGOjryUmEQlo+qqL5mNeUT7WeAkb2rmoywQ4J8ZR5q9aDFPorlGZK+sG2xiNPE+qMpM
-	 qAYbzhXMszLRn2zIH/r+ua8lpiKMMZaZA0MWgNDKgK79SaAr7ENZjxJscPwOKBtMfOdL9
-	 Jhu0VMtt5AqPUvQuTgl32q8bvf7TbQjVOxrPrcZ/3dF6jIXHRDNJzdEB9HqCu0Ru51A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180226;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xn1IO6yTvSHdprDu/FiOyBMJU5m8bDoeHEsv2AenIc4=;
+	b=KLT23UHZdgWScrCOnz65BurK/dh8D7mbEGZWwYGJa6tIYIfqw0hc82AXCNEHwHFYXyNK
+	 N86l5uwp9C5UILKD+L3E8u3rcUUgO2aKJMuQsx1Ahgp9N8TiNbW+DrVFF6ccsGVzCslFE
+	 st93TlxDlmqj5fbD5YTU1baNwty+8U+prBS/UOuIE6LJ7Cofy6wDsZrPHi8rZz1qzsauc
+	 DJpjLHBIeJbnRZ/mtPNeNon1VlJha3ZFFQPOcClysFOwK41u3EcmIE3P3lDk7ArU704Jt
+	 mja4bL0dhmmTqZwFkLvPI9RbAgPIu4FP+5QYJmfYcIT5Bcqug0/g7e4ye596d2jZI0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvIYfK5f;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HWCRpDos;
+	arc=none smtp.remote-ip=95.215.58.209
+Received: from mta1.migadu.com (out-209.mta1.migadu.com [95.215.58.209])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8262606A336
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E132606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E132606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hvIYfK5f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124361F000D2;
-	Fri, 20 Nov 2026 13:10:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180224;
-	bh=9PM2w9+ZdAbkirqUaelWFEVysP1HxWv35WZ7WYMciGA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=hvIYfK5ftS9pgxIs18QzOJ70iTlgkLSu1H5zoehHDZZCJAtcLjREaGgN/P5T7aj/y
-	 6s5D9wdoZsLCdY4wlY/enNhIt1yejHIDAMCc28sppLHI/lIUeW/x7Ns6g5osU8ZLL2
-	 OFu8YR56hmEsqLjHb5EKVfvp6emYz9PKTmmZO3wE2hKTMtN+NFY9tP4VZWhFG5vHvb
-	 2ZcJfetmSxvg3whW54qOal1wYHz2NrPF7zzlWHIcSmej108PckYaJFiyT8LodC9e/n
-	 aE8+HMVuAsrbV19wHQ7+analypKskoZZx62kDTuWsFYOZ6z1AlBgJHy0rShQW/FWi8
-	 DABmZ4I1cuv1Q==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Fri, 20 Nov 2026 14:10:09 +0100
-Subject: [PATCH v12 2/9] drm/atomic: Add
- drm_atomic_implements_create_state() helper
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=HWCRpDos
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=KoBbJloLNnkG9NTyYWoY5FE+8hjeV5tHp18rUKV63Mg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795180223; v=1; x=1795785023;
+ b=HWCRpDosCNKt73U7lcvSyi4GbkJigFjgxoFm+/xWTLb9CqiTOlmxjHavc/n+Ri8XyWvGZUNz
+ R+1qbsLJvw6sx1fKjwuivzap/x4K5iuQydKn1UDu14tvjNnjcULSsOjZIg6huoq/hlLdn1lPOfc
+ aVG7Q9hpe7CfFvtzKfoPjtMI=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7a655038b72e5eef;
+	Fri, 20 Nov 2026 13:10:20 +0000
+X-Mizu-Trace-ID: 7a655038b72e5eef
+X-Migadu-Flow: FLOW_OUT
+From: Luka Gejak <luka.gejak@linux.dev>
+To: Mehmet Fide <mehmet.fide@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>,
+	Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>,
+	Brian Norris <briannorris@chromium.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v3 1/5] wifi: rtw88: free the reserved pages of an interface on firmware recovery
+Date: Fri, 20 Nov 2026 14:09:16 +0100
+Message-ID: <20261120131000.33858-1-luka.gejak@linux.dev>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261117171003.1840491-2-mehmet.fide@gmail.com>
+References: <20261117171003.1840491-1-mehmet.fide@gmail.com> <20261117171003.1840491-2-mehmet.fide@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,137 +76,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-drm-reset-state-flag-v12-2-42d63d7417fc@kernel.org>
-References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
-In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Daniel Stone <daniels@collabora.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Jocelyn Falempe <jfalempe@redhat.com>, 
- =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
- =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
- Pekka Paalanen <pekka.paalanen@collabora.com>, 
- Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
- Victoria Brekenfeld <victoria@system76.com>, 
- Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3638; i=mripard@kernel.org;
- h=from:subject:message-id; bh=RmXHPbjUrR0EibhXpIQxQVKQPswSv0z+XMj4h5ZLCnU=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMbpuXmrt0R/o2C/rFek1mY+hgjcxcxLJi7qrJb8zzb
- s379/VWx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZgI52fGhvezD8zq7y0s18yM
- U+Ism7789bfZQna8Z4WOvS3rmvnPzWta39zWrXf+f9ZZsrfeqPlSBGM1e+c9iXlP5p/x5pTxP8n
- Cdy2dp62zzettW2wG1+3bK5UMNz1c1/xennmpx4PpV3/d3dYPAA==
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Transfer-Encoding: 8bit
 
-The atomic reset path will need to create pristine default states from
-scratch for every plane, CRTC, and connector. This requires all of them
-to implement the atomic_create_state hook.
+Hi Mehmet,
 
-Introduce a drm_atomic_implements_create_state() helper that iterates
-over all planes, CRTCs, and connectors and returns whether they all
-provide the hook. Color operations are excluded since they always use
-drm_atomic_helper_colorop_create_state() directly.
+Thanks for the update. Two comments below.
 
-This will be used both as a precondition before filling a commit with
-default states, and to report the device capability to userspace.
+On November 17, 2026 6:09:59 PM GMT+01:00, Mehmet Fide
+<mehmet.fide@gmail.com> wrote:
 
-Reviewed-by: Daniel Stone <daniels@collabora.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/drm_atomic.c | 49 ++++++++++++++++++++++++++++++++++++++++++++
- include/drm/drm_atomic.h     |  2 ++
- 2 files changed, 51 insertions(+)
+> @@ -1765,6 +1768,9 @@ int rtw_fw_download_rsvd_page(struct rtw_dev *rtwdev)
+>  	u32 size;
+>  	int ret;
+>
+> +	if (bitmap_empty(rtwdev->hw_port, RTW_PORT_NUM))
+> +		return 0;
+> +
+>  	buf = rtw_build_rsvd_page(rtwdev, &size);
 
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index 81591173265d..7a77051096c9 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -1598,10 +1598,59 @@ drm_atomic_get_new_bridge_state(const struct drm_atomic_commit *state,
- 
- 	return drm_priv_to_bridge_state(obj_state);
- }
- EXPORT_SYMBOL(drm_atomic_get_new_bridge_state);
- 
-+/**
-+ * drm_atomic_implements_create_state - check if a device supports creating pristine states
-+ * @dev: DRM device
-+ *
-+ * Check whether every plane, CRTC, and connector in @dev implements the
-+ * &drm_plane_funcs.atomic_create_state, &drm_crtc_funcs.atomic_create_state,
-+ * and &drm_connector_funcs.atomic_create_state hooks respectively. These hooks
-+ * are required to create default states from scratch rather than duplicating
-+ * the current state.
-+ *
-+ * Color operations are not checked because they always use
-+ * drm_atomic_helper_colorop_create_state() and do not have a per-driver hook.
-+ *
-+ * Returns:
-+ * True if all objects implement atomic_create_state, false otherwise.
-+ */
-+bool drm_atomic_implements_create_state(struct drm_device *dev)
-+{
-+	struct drm_connector_list_iter conn_iter;
-+	struct drm_connector *connector;
-+	struct drm_plane *plane;
-+	struct drm_crtc *crtc;
-+
-+	/*
-+	 * colorops don't have an atomic_create_state hook but
-+	 * drm_atomic_helper_colorop_create_state()
-+	 */
-+
-+	drm_for_each_plane(plane, dev)
-+		if (!plane->funcs->atomic_create_state)
-+			return false;
-+
-+	drm_for_each_crtc(crtc, dev)
-+		if (!crtc->funcs->atomic_create_state)
-+			return false;
-+
-+	drm_connector_list_iter_begin(dev, &conn_iter);
-+	drm_for_each_connector_iter(connector, &conn_iter) {
-+		if (!connector->funcs->atomic_create_state) {
-+			drm_connector_list_iter_end(&conn_iter);
-+			return false;
-+		}
-+	}
-+	drm_connector_list_iter_end(&conn_iter);
-+
-+	return true;
-+}
-+EXPORT_SYMBOL(drm_atomic_implements_create_state);
-+
- /**
-  * drm_atomic_add_encoder_bridges - add bridges attached to an encoder
-  * @state: atomic state
-  * @encoder: DRM encoder
-  *
-diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
-index 3ae35b09c0cf..72c3d420f40c 100644
---- a/include/drm/drm_atomic.h
-+++ b/include/drm/drm_atomic.h
-@@ -700,10 +700,12 @@ int drm_crtc_commit_wait(struct drm_crtc_commit *commit);
- 
- struct drm_atomic_commit * __must_check
- drm_atomic_commit_alloc(struct drm_device *dev);
- void drm_atomic_commit_clear(struct drm_atomic_commit *state);
- 
-+bool drm_atomic_implements_create_state(struct drm_device *dev);
-+
- /**
-  * drm_atomic_commit_get - acquire a reference to the atomic state
-  * @state: The atomic state
-  *
-  * Returns a new reference to the @state
+Could this skip a download that WoWLAN needs? If suspend flushes the
+recovery work while it holds RTNL, ieee80211_restart_work() cannot add
+the interfaces back before rtw_wow_suspend() runs. With net detect
+configured, the station interface can still be picked for WoWLAN.
+rtw_wow_leave_no_link_ps() can power the device back up without setting
+the port bitmap again.
 
--- 
-2.56.1
+So rtw_wow_config_wow_fw_rsvd_page() adds the scan pages, but the check
+above returns success before downloading them. rtw_wow_fw_start() then
+tries to enable net detect with a zero page location for the NLO and
+channel tables. Could we keep the skip in the beacon update paths, or
+have suspend fall back to the normal suspend path when a restart is
+pending?
 
+[ ... ]
+
+> @@ -633,6 +633,7 @@ static void rtw_reset_vif_iter(void *data, u8 *mac, struct ieee80211_vif *vif)
+>  	rtw_bf_disassoc(rtwdev, vif, NULL);
+>  	rtw_vif_assoc_changed(rtwvif, NULL);
+>  	rtw_txq_cleanup(rtwdev, vif->txq);
+> +	rtw_remove_rsvd_page(rtwdev, rtwvif);
+
+I think the empty list warning can still happen with AP and station
+interfaces on the RTL8822C. If a station interface comes up after the
+reset clears the bitmap, rtw_ops_add_interface() sets a port before
+ieee80211_do_open() marks the interface running. The AP still has an
+empty list, and the page iterator skips the station interface until it
+is running.
+
+Can a TIM update from the AP run in that gap? For example, the station
+cleanup timer can expire a buffered frame after rtw_core_stop() cancels
+the beacon work. The worker can then see a port in use and still hit
+"Should not have an empty reserved page". Would it make sense to free
+the old pages before reinitializing the list when adding an interface
+that was already initialized, as Zong-Zhe suggested?
+
+https://lore.kernel.org/linux-wireless/96da951407ab4c39b7e229ca365950eb@realtek.com/
+
+Best regards,
+Luka Gejak
