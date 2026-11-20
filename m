@@ -1,101 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.246.77.92
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795172318;
-	b=46v9Auri/Ss4FQ09q7LwnDwDDiHHfubAgTM6euqdzChwe+Nh4uEAeurkrkqrLsJ05jSB
-	 fiJef1t40Txee9cSQrpGGk85O9m7jh5XcMRZjq7+cpihPYsAJc2qjYWKeJzx7b70beJOP
-	 Flej+Jl1YJJM0TfMlGYYMc97SQzS6HVpGsWC/NQdTHsuoIGBrfB5/f4v49H+snM4MVmQY
-	 BoYN3p4gGdQegI1sSENvO6dJ/YjGZcswvEYyF5Vu1yAX9KYc1ZKmKBi+jVVoUFQ3rSHAa
-	 nVxkVLB9BxtMScFay4CsQ2nnoYNtWVaoOt/bkclQ/IvX8jOMqaAF+mu2J7ot0LUkrgg==
+	b=Q5cCjoslEeSWNH3BcTy0ZPW/D8zZFen/u1SH6I9ACzQgcLRE5XzO4RDm5AYA/1ErZYJ7
+	 qGqkKAQ0vfJkFECrM+r//+tDg0MvlEsYrFFInTiVbOz00EplyKRBVoJjIMnq0pgKidR49
+	 ypwukwUkz6i7/1unUqBOytOxCna6XQwfhT4NqsSjhYKQrG388iOio8eor/kCqMqweigHP
+	 5pGtsn5fl1iIpZjgqqs4E52StILSrCgMqH3p7js7RI3Nx+lXt7C9a/n2MqMK76wHKTFPg
+	 dWbDNgIs2KRl8M8w7k07RQpOlqpViHX5tTdZW1PyQhhL/5WqM1USsI+5OTDtjaJhNHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795172318;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ex6Z1jSQ+4dxlVRkCcqyees5rqcGmwfbNgXE+eJUW5s=;
-	b=MGrzbV4mgplh22OgIVM1EiBsELSas7zqMiR8+9EpktWyY16wFD4q05sSRxY5Tann8EzU
-	 O746A/hnL5TyMIM8Crh1a/0STZ9vCGIfb6+rpoK+ccSdGwiTA1CJr6rDLQnL9RAEpoo/0
-	 jujkEtcS4jOJTqw+OyzMMHXBwGdQvtZ63+w63w7MpGIr7XdSAF1B3efG46n8JVu3jBk1o
-	 kkiH1hjVmXLAccbRuilh8n5aRNM6QIDVAe4orRSMPy6o6SxXukVgU5HkXD1U4FS8/ShHr
-	 P8TUXUKvcdadODj7vSLOC1W8dT5MkQFLyV6TWdlTVvj/GjPpka0aRrMDLu7vIQu0Xbg==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=a47GnPmA7yCvByu942AqUHzg7fboFgq9NmdfW+J4hM0=;
+	b=rQGCO/StWRxOOreK8TId+QeQ55PtHbs1dV//KjOqEcUPrOhIQNFeBGkWKVMXL/A6WITd
+	 5chxZs/LezchLGC2AadNd6aetJU1vfZXS80s1xgwqT51SdBbN6QJp5U5YErVELNrCr4qh
+	 hnjqEaPABIx8q1LwShXogV0M4Sd+0pKjeY9V2eYQe9IvDoeufa6S8eLCxiEcuG3MCHg6L
+	 mJbNqorcMHx5aRxhxAqqUbzB0XPskuHmhe3EU8CqCxlFG0TmWDsksCb0Yw9U0h5iqH+CV
+	 9oc2DwVjbyY3uUwYF9xqhTLb7nmO/EPKdTPDBG54i+bc1TXJ4BAkeC0lIMYFW5+2nWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x4cODoLm;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=amazon.de;
+	spf=pass smtp.mailfrom=amazon.de;
+	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=phlDasCG;
+	arc=none smtp.remote-ip=44.246.77.92
+Received: from pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com [44.246.77.92])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F36EB606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:58:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F36EB606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DD1C606A33D;
+	Fri, 20 Nov 2026 10:58:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DD1C606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x4cODoLm
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50a4a2132cso115515066b.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:58:37 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=phlDasCG
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795172316; x=1795777116; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ex6Z1jSQ+4dxlVRkCcqyees5rqcGmwfbNgXE+eJUW5s=;
-        b=x4cODoLmAW83GYAIaFRCuxIT6N0LYpC30QEtfS4462cRHjQMTIIVo93y07NiFLQ7Vk
-         Zl4qMcypwawUtqxIjo6ePDrcRjR4Tw2KMkrVCe4o2eh6A7vwqfBc9DK2OMua9NvWgsAU
-         NUnAaxXIIIj1yG46RTPLzBo9Mj0C+VPk0Wsb91PiRh/RUh7oHP42XCrwkT7+5ESafeVK
-         76HwVKAqDkdPdQZeHlDTXGJO9SqtYdgh7T58+NCG732FL1kW2fnOsEvwp9KIFg4FP1iR
-         6iXLgAltWtDJswWKlPZTOTFs745LhS8Yknu1Vnk5X5GmSE8r/SjhnJwj4YTQVcLscHrn
-         5BxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795172316; x=1795777116;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ex6Z1jSQ+4dxlVRkCcqyees5rqcGmwfbNgXE+eJUW5s=;
-        b=1vgpNwEqnaFPo7TiaV2gdTLoxsJtuCwm4SN6yuoVKDnk0dV+V5LfRjmpgNa9756Luy
-         /wAh4aGKpLMxak2U3xZPf1U0EUaFufY0QQJOgd0ikIW1dvF7xJZuhEvxxfxVcgBzr1ap
-         UrwPAxRS/dDmzyWv7s13attiVTzHbiO2MLTNoOUpE7J7erHaVfAogf+PudqMhgVsk5+3
-         19q4pXIOvHjuLrixC7FEdeWXZyAlVNxVI7UshKKBqouWAVcLLN+z30uKnx9/IkVMEbs0
-         KBOkJF4BUQt9laxUlMLOPY2+E8F0VPMIBagsdaTKpTmq5zv2NQnOf0iEi1wYxSVRc88w
-         0fDw==
-X-Forwarded-Encrypted: i=1; AL+hErHi2BYUlilqPkwWj7NBCY7vzEEStjZy0yJPrU/nf5Lss1gvqdpjbM88Z4MhW+VZsuCv4p3nZliopwzUbmg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9fso4BRPbbyJOvUJ8ClcepXdoH9uYHdYwTAtuR1rnBtd13E3n7
-	mLYCC0Rp5Vj6mJ5FTPhOmPoYECdDt5Y9xRbepJ/bmmixzqAl8pgAq56Hg/V7lOjzRU4=
-X-Gm-Gg: AYBFou2ZzXBKtdbFap1w3slb/L+5DMFHoAWYk704rNe7cnwF4eM/hQM5WKa7QiS4oYL
-	ANaZ7rmWSk99jOPPd7mQOXkrmbaGKvcLMSUnqA5jqSza4NvbU6NsCH5StAoGZaq0PjvuyovvpfP
-	mL6XWlmJHjotg1e2qjEw75gBetf9Zkb38pvqQLbZZexQznJe/pnurSFE9LSgpojXRtI93sj8RTF
-	vhhKWZksdeMN+mKW7+84PFbnyMRRA1b+9hh7fd9Nv84Db5zbTk1ZsrbbNwuW741pulvYcz9Wnxi
-	5uDGwF/cxt2HR5/dDzZk8MWJ/YVRkIqmYHJqTc7JVA2isN7Vn/95hhTgNrf7pkn/o8EXV+BtFV6
-	bclBHBcaJW+/ZK4B7n3Ohexl5a0970siW765YG++mXQS7qoGv4ji9yvYazoaYNLvahI2lGiZRWy
-	f6mKmulCxz/Fpjp/V4PP7MIRYLFHcPQ0jJvYhk6ckBkAuXRxy3jmzYNhMqBra2Rm2sDmgbW1L18
-	EtOPHys68csl7BncbOd0U4xwqLhATl9+y+rHID9tMEmIkQohT80ASa/F/GN9cIV4Nkw8BcP5zUi
-	SYa7k7yrzoeLbBsTpB75jUFVzaMv+V8ogZKIzxJJayTIEedWKexg+pWsCwNjQpjTZzU9L00dXgF
-	mZWmvNBbyX4sgUkrWCwF1bOjM3avUa99PeT6hGuRsTjA=
-X-Received: by 2002:a17:907:9625:b0:c49:c76f:dad4 with SMTP id a640c23a62f3a-c513ab36170mr274998766b.31.1795172316192;
-        Fri, 20 Nov 2026 02:58:36 -0800 (PST)
-Received: from nixos-macbook (20-144-89-188.ftth.glasoperator.nl. [188.89.144.20])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513aea31e4sm86608566b.39.2026.11.20.02.58.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:58:35 -0800 (PST)
-Date: Fri, 20 Nov 2026 11:58:33 +0100
-From: Jacob Procee <sn125164@gmail.com>
-To: Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>, Heikki Krogerus
- <heikki.krogerus@linux.intel.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: typec: tipd: cd321x: replay the plug on resume
-Message-ID: <20261120115833.53ab9076@nixos-macbook>
-In-Reply-To: <20261117124710.GA515128@robin.jannau.net>
-References: <20261112113005.16418-1-sn125164@gmail.com>
-	<avw1kOqmrUii-msr@black.igk.intel.com>
-	<3bc5a31a-ab2b-40cd-a030-d0498002776a@kernel.org>
-	<20261117131713.2db5294d@nixos-macbook>
-	<20261117124710.GA515128@robin.jannau.net>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; aarch64-unknown-linux-gnu)
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
+  t=1795172318; x=1826708318;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=a47GnPmA7yCvByu942AqUHzg7fboFgq9NmdfW+J4hM0=;
+  b=phlDasCGlh1h8dQzpAowqXeOz55TOB8Pg72G3z86VMgdUyqQ7o5X1xUc
+   YnoM+1wJ+56j5Fj0/oEerNF0Me85UYA2MkBdjY5s2s3WHew3ZtUMUz1sy
+   6mmGY2OwiDIcCab370eCkp7MyC7V3GkET9dUqg26q9zAHwYPJtdUiXwzq
+   F5+gPMqmJ9EWPgEDBsLYKt9nuVhMRCJ6SYNqkM1N5zF19S6sueL+/W4iN
+   YtJ4cdgr0+JslusnCzNTv0TVuvQ+bVxZRcnvFsoKRuwxIsgrrDSJz/2+s
+   shHLNW5aKXhoXu6j5GEu+/0BAP4yKZwxLHXTa75dIae7J8Xt2NJeboPJQ
+   g==;
+X-CSE-ConnectionGUID: z9WgkFkHTkySKwhTBDOFtQ==
+X-CSE-MsgGUID: +0w82pwKSWezz4jNi3tZyQ==
+X-IronPort-AV: E=Sophos;i="6.27,222,1787011200"; 
+   d="scan'208";a="34639978"
+Received: from ip-10-5-6-203.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.6.203])
+  by internal-pdx-out-004.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:58:37 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.182:17362]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.36.222:2525] with esmtp (Farcaster)
+ id df07f201-4bfe-4000-b03d-94666382f153; Fri, 20 Nov 2026 10:58:37 +0000 (UTC)
+X-Farcaster-Flow-ID: df07f201-4bfe-4000-b03d-94666382f153
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57;
+ Fri, 20 Nov 2026 10:58:37 +0000
+Received: from dev-dsk-lshahed-1a-d9c3b839.eu-west-1.amazon.com
+ (172.19.123.145) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Fri, 20 Nov 2026
+ 10:58:34 +0000
+From: Ibrahim Elshahed <lshahed@amazon.de>
+To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
+	<vincent.guittot@linaro.org>
+CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
+	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Josh Don <joshdon@google.com>, Shuah Khan
+	<shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Fernand Sieber
+	<sieberf@amazon.com>, Roman Kagan <rkagan@amazon.de>
+Subject: [PATCH v2 2/3] sched/core: Don't take the idle fast path while the core is forced idle
+Date: Fri, 20 Nov 2026 10:58:21 +0000
+Message-ID: <20261120105822.7770-3-lshahed@amazon.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120105822.7770-1-lshahed@amazon.de>
+References: <20261120105822.7770-1-lshahed@amazon.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,50 +92,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: EX19D031UWA002.ant.amazon.com (10.13.139.96) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 
-On Tue, 17 Nov 2026 13:47:10 +0100
-Janne Grunau <j@jannau.net> wrote:
+Since v6.12, with commit 3dcac251b066 ("sched/core: Introduce SM_IDLE
+and an idle re-entry fast-path in __schedule()"), an idle CPU with an
+empty runqueue skips pick_next_task() when it is rescheduled. Under
+core scheduling that pick also ends or re-examines the core's forced
+idle.
 
-> The interrupt controller (AIC) doesn't have functionality to configure
-> IRQs as wake up source so it should set IRQCHIP_SKIP_SET_WAKE. Does
-> wake from USB keyboard work with that changed?
-> You might also need to add "wakeup-source" to the dwc3 nodes.
+A core-wide selection chooses a task for an idle sibling and reschedules
+it. If the chosen task is migrated away before the sibling schedules
+and it was the sibling's only task, the sibling goes back to idle
+through the fast path. When that selection also forced the other
+sibling idle, because its runnable tasks did not match the chosen
+task's cookie, the core stays forced idle with nothing running on it,
+and two things go wrong:
 
-No, it still doesn't wake. I tested on Asahi 7.3.4 (j314s) with a
-local test patch:
+- Without the previous patch, the idle sibling's rq->core_pick keeps
+  pointing at the migrated task, and with schedstats enabled the forced
+  idle accounting keeps writing through it, even after the task and its
+  cgroup are freed:
 
-- AIC and AIC2 irq_chip .flags = IRQCHIP_SKIP_SET_WAKE
-- dwc3-apple: device_init_wakeup(dev, true) in probe, and PM ops
-  that call enable_irq_wake() on the dwc3 IRQ in suspend when in
-  host mode and device_may_wakeup(), disable_irq_wake() in resume
+  BUG: unable to handle page fault for address: ffff8d6b205f7018
+  #PF: supervisor write access in kernel mode
+  #PF: error_code(0x0002) - not-present page
+  RIP: 0010:__cgroup_account_cputime_field+0x3c/0x70
+  Call Trace:
+   __sched_core_account_forceidle+0xd8/0x140
+   __schedule+0x1390/0x18d0
+   schedule_idle+0x1a/0x30
+   cpu_startup_entry+0x29/0x30
+   start_secondary+0x11e/0x140
 
-The keyboard is behind a USB2 hub on b02280000. I had to enable
-power/wakeup on the hub by hand (usbhid only sets it on the keyboard
-itself), plus the xhci and root hubs.
+- The forced-idle sibling keeps waiting with runnable tasks until some
+  unrelated event reschedules the core. Likewise, when the forced-idle
+  CPU itself loses its last task, the reschedule that
+  sched_core_dequeue() sends to end the forced idle also ends in the
+  fast path.
 
-On suspend, enable_irq_wake() returns 0 for both IRQs (113 and 115),
-so the AIC flag does what it should. The keyboard stays connected
-through s2idle and is still there after resume. But a keypress doesn't
-wake the machine, and /sys/power/pm_wakeup_irq is empty afterwards, so
-no interrupt seems to reach the kernel at all.
+Take the SM_IDLE fast path only when the core is not forced idle. A
+pending rq->core_pick needs no check of its own: the previous patch
+clears it when the picked task is dequeued, so a CPU with an empty
+runqueue has none.
 
-I didn't add "wakeup-source" to the DT: as far as I can see, neither
-dwc3 core nor dwc3-apple parses it (only some glue drivers like qcom
-do), so it would add nothing beyond device_init_wakeup().
+Fixes: 3dcac251b066 ("sched/core: Introduce SM_IDLE and an idle re-entry fast-path in __schedule()")
+Cc: stable@vger.kernel.org
+Co-developed-by: Roman Kagan <rkagan@amazon.de>
+Signed-off-by: Roman Kagan <rkagan@amazon.de>
+Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
+---
+ kernel/sched/core.c | 19 +++++++++++++++++--
+ 1 file changed, 17 insertions(+), 2 deletions(-)
 
-My guess is that the halted xHC doesn't raise its interrupt on remote
-wake, and a separate wake interrupt is needed, like qcom's
-hs_phy_irq/dp_hs_phy_irq. Do you know whether the ATC PHY or some
-other block on Apple has such an interrupt, or how macOS gets woken
-here?
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index b1718ba5a4d1..d2f7532fc7cf 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -347,6 +347,15 @@ void sched_core_dequeue(struct rq *rq, struct task_struct *p, int flags)
+ 		resched_curr(rq);
+ }
+ 
++/*
++ * An idle CPU with an empty runqueue must still call pick_next_task() while
++ * the core is forced idle. Only that pick ends or re-examines the forced idle.
++ */
++static inline bool sched_core_idle_needs_pick(struct rq *rq)
++{
++	return sched_core_enabled(rq) && rq->core->core_forceidle_count;
++}
++
+ static int sched_task_is_throttled(struct task_struct *p, int cpu)
+ {
+ 	if (p->sched_class->task_is_throttled)
+@@ -550,6 +559,7 @@ void sched_core_put(void)
+ static inline void sched_core_enqueue(struct rq *rq, struct task_struct *p) { }
+ static inline void
+ sched_core_dequeue(struct rq *rq, struct task_struct *p, int flags) { }
++static inline bool sched_core_idle_needs_pick(struct rq *rq) { return false; }
+ 
+ #endif /* !CONFIG_SCHED_CORE */
+ 
+@@ -7285,8 +7295,13 @@ static void __sched notrace __schedule(int sched_mode)
+ 	 */
+ 	prev_state = READ_ONCE(prev->__state);
+ 	if (sched_mode == SM_IDLE) {
+-		/* SCX must consult the BPF scheduler to tell if rq is empty */
+-		if (!rq->nr_running && !scx_enabled()) {
++		/*
++		 * SCX must consult the BPF scheduler to tell if rq is empty,
++		 * and core scheduling may need pick_next_task() to end forced
++		 * idle.
++		 */
++		if (!rq->nr_running && !scx_enabled() &&
++		    !sched_core_idle_needs_pick(rq)) {
+ 			next = prev;
+ 			rq->next_class = &idle_sched_class;
+ 			goto picked;
+-- 
+2.47.3
 
-Power cost, in case it matters for the default: overnight s2idle runs
-with a key plugged into f02280000 (lid closed, battery) came to
-2.29 W with wakeup enabled (atc2_usb stays on) against 1.96 W with
-wakeup disabled (domain off, device re-enumerates on resume). So
-keeping the domain on costs about 0.33 W.
-
-Thanks,
-Jacob
