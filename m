@@ -1,100 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795192747;
-	b=WkcB5RLUumtn3HVZ6t6Q1DB0HWlADgOdndFuDyi6celh9q8D7t7wQt6zHKzl0nAvP0iv
-	 FVh4fOeHHu3oOMlTlx8bsoGmuDzeW3cm4Ju1ISu85CLrKQHFFDzkyiBYggWuF8cDv1v2k
-	 OZ1YtHMG4hAg3BD7LDb5Vdtrv+/uVU1c6pEHiyCjmigB5/uqZLRU1gYWucdsoZAIBh48F
-	 oWHx9u56H6yXuB03VT3eW1uaFYcgsyqZxej/qbdxnJjpqoxk848KmuYzckpChD3dTWZwE
-	 G/48thPmZFzvnRI9/OoqwT0b1cjkgqk0THecT++XpgjdgKnQhbuuCaCXNa9xpRhLuhg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192747;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=EhyQZs78XQFN3n2l0teC/H+aO7J33z3X0XEI3I1dEuk=;
-	b=mAXgFFc5Vp2zsAQFp+4peWb6TTCs9qUht1ipmF24HUWtIbBW+kLKANuws+FHnbZK234Y
-	 IYBF9IUBc7kSy7SoWiU7u4jjdnEPLr/59JLqzhjoBT6nSzAKzWckMDmb6Ft3ZL+LsrpRA
-	 N+DnpJWUkHhOSAPrF8QHA3395nWHmU6nter6D9XCsprKgWGFxEmX54//Un4lZcUWl4Fp9
-	 zIfX7tXcYjxRRH/bIC4/3W4qvROJufwVRwb7dcCBO0nc846fiuabMnSwLsUmpNqMOhnGS
-	 +Ekty7Zl7x2k3FEcpx2xJspHNaDThLqbUY0VO9536Ua6GE4kpQjlVGR4bRsBaRQt8DQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=exBV0BpG;
-	arc=fail smtp.remote-ip=209.85.208.52
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795192751;
+	b=lBKIwZAv7b20VlkWtXAsgVqiknIPGZQsiHAAmuOpfiGJIg9/ySO3O/9ugfgXIJT1ii/4
+	 IhXCnQCGj3uqnaLn4uneJnAiZw2ev5lAlV3Q06Dv4x9taAafu8yfjvEs0kC8b1VLxsh8Y
+	 bRf2IbCECLwMX/1NQYGsgIsEZvIijuLkIb7k7GC/oo3nb5kk0N9hacAWuM+oXh1ZsPgwV
+	 qpiDm9QVKhtl4I6WJCj4LAGck3L6ICvbB+Tp2OjylXlJFyLYMMVXvDYIe5zbPCqB//aB/
+	 cS3Kr5nIv0ud4r75q/nxlqJhOZi1ctd8744KEqwQGtpC6FQpvqpsPzfedAwoodQ6xAw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192751;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=o2Gchlovjpt7GczhTpNg1ZhDn2KN/WvMSeZUox3Hoa4=;
+	b=BeScogtzm/Cuv50qjrBhdSPegj1XYoLZN7lnoENmC82Es8LaS+vXlyhHMHHo6IdeQ/DU
+	 5lWjwFzLqoQWvEHYTgwuvhqLM3FlFyjhSz0UxO6ma72HY6WsnpeefUJ/MqmOvMHywGZC5
+	 5e1HOGEkyxl7Y0sAPCYoHI9vnaJgsuP0T9kIjOIefazuXb5xg10z3NT9UbFtbXjWT3gkj
+	 sRfAcbyQFx4v06FtcMj9k0ZIF8iOHKByVBsah4Xbd4HdXVVHOcPKV6D0OjNLg8dUTsK5u
+	 PdirvmcgIzc1YNGGKvLVsOx9Q7dFMrKxZYXxTWoyBFImN20ooKWSXKNgzKGU/IB9UuQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R0diO3R0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3CAF606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:39:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3CAF606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F05CC606A338;
+	Fri, 20 Nov 2026 16:39:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=exBV0BpG
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6ba4ce91e21so6949a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:39:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795192745; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HrzNLsLs8woo13J2RZQd410xavjlJ65w+URl3EG1pfhoYQItR/szi9+6mDWNKcIQmr
-         8a3izE6b/UAI21iOhSB7eZp2b7ZguyCnQW+L2eejJ1W8ujilNa7TDxbclpGmSa8PdGHU
-         LBbpvxRqHvK/Lmk+4mzHOhG+tSE2B7E4zvZdIhLlvaAryOmLhNMHoQgO9opqtwwZCzuv
-         Jow+eWe/BixXWKKDNh2UNXGeXdG33otF7Rt633yxZvpj5o7pOEb26CEu48D1UWAD/tiH
-         PTuodIAL3M2X/oJjt/RYyis92S/XRxvwJfO+ArVp6kR0zw4mQags8stDnOhHZ3/Xx7eQ
-         Cuaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=EhyQZs78XQFN3n2l0teC/H+aO7J33z3X0XEI3I1dEuk=;
-        fh=QDhsGEaAtdz5lpFhj7eLABQ2efHPr0/YQPVCQClhLnA=;
-        b=OV6hYQ/ZvOi9RMFyBrW1RUuIUYb6LT83gmmENqnt+GHEWAxfWR5eY3FwrbKdXhbtfb
-         Zz4bYB+lrIk0qDRiAMfqlxEZg9DTcukOqYMrazXVM1pZvqO5Mxw8ONY12lAQmKAC/ABB
-         CT8SK+URx/Zs/qzExMaHSn0ec4aNAA5s8gV7uwXBpGFcy98y4QlxEbhRdEPsrTj+jPj1
-         1fzwB4vZe/4wnn8xCASdydnZhGC2Dkrf6Sy/ETAbCi8MHZTC4hXPcxz0iDj109CfBa9z
-         fVhvm1+lUKt0j/yOUKb2IywjSTqWbC3EarmXM3+2CP2g5u96E4zd5hQB9URVizQkOFi6
-         Jh/g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795192745; x=1795797545; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EhyQZs78XQFN3n2l0teC/H+aO7J33z3X0XEI3I1dEuk=;
-        b=exBV0BpGps5XdMiPxKLol86gpdtksfxwUBQOPNI/CX+Vjag7OL0AUTtUePEOEP8WrI
-         RUlzfZV7tuY75+XXDgA2FE996IdeAwfOOQS71YLa3PVsYS5lYtvNykQXpLbu2IIk5Xo+
-         a8hyM88U/z9KAR34tZG+Af7cXNA9wfKV2vvz43XNigXc3hnBJvtspPOn971ezY8WhRYk
-         WGT7FhtNaw7YsBotMKoktHlPZY9bmmEaGf319WakY49a3oR3EgabQSfSpsLo6R3n4vGN
-         xOyBFLseGL/E3NrU51a9p94L/ZXXx3Urm/HtJqUwhfNw4+eQb6KkyPFtmTNtcDHwyTsL
-         BL7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795192745; x=1795797545;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EhyQZs78XQFN3n2l0teC/H+aO7J33z3X0XEI3I1dEuk=;
-        b=XFxPulYri69NoRl0GrE9DwwSf/9ejx+kyIo/e2yhzzfFAKkYmR3A+U6r3oqesiSGTC
-         IfQvqEGNq8BwaNourm+jwIpZox3j3ZgU1SMBtWsjHXUzdblFBOE43++AmhJ5C3sYo/7n
-         R80p9hQaRaOkuvz/rjiIKpcQei3ayF2H3IrHb4HrmBmf/kJ8bc3SIk2ApyBO80ii3iBN
-         WFHzImjvD9lwEUE3wtQufwKr4LVVzVBVvEeBGEtIoXuxLtoPAeOcpLFKkSVhS9SDZcIx
-         OfgfELZ/ZPTUyFEu6P8IoZv2u0YpCelHab8hjB4mMRcx+/fHGSh1FPziMN12PTOv1pxe
-         cxsw==
-X-Forwarded-Encrypted: i=1; AL+hErF1CULc+MkJ9O/2j0WKbBRsznCl66w82QjIpV+ZoWaMlwqLXRRio478B60HFVYZXCFabDSdcBHohlugn5Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8PtGVho/XgpDNJIyG4ekEsZkafT1zGvrSR8jmRxdTJjai1okre
-	TAlPJlJjxaFazaOH9H7VaRRLe5bC3/PBHL4kaKyrUx3kA5Dx/AhFduIElr4aDqPUNMWmHP5NNT2
-	wBaF2ZcCvowV1PDZ9VkYQVil0MoxhcBmi9dw67uqO
-X-Gm-Gg: AZFdTZenwwP5eh/hRcomdwVh4pLdSAVmtVhXxBF8UhPsgCr8COu0SkcT2eoySrDIsxU
-	OJG3AaWK7R5NnRkbn933Ouv0opWpqmRy5QW9uQuwSZGBbSFx+6sIPv3DySKVh544XFKGC6AYhco
-	7ps+G3D8R1ArwUX0mdkBsqM+xgHDAHqDuHWIxVswL2eHHYwbzMG9RWLvBwCV9kTHaos5F2HJc+D
-	h+m8JKomF4GSXswmVkK627zB9774RjJZJyA9+pEhgVcd1wXH92Et3ZNl8bPHar+sHp5yoMOI0y0
-	BvHis8ZF3qL/WPgbkq4t6pvDqEguismRKRxIuu6O7jHEKWC4BvuQOWZtClEj+NJNs4o8ElBrC0q
-	I1C2JGJQOt5pQAcBrsh/r08U0hEbXvWZbYt6wmQ==
-X-Received: by 2002:a05:6402:c4c6:10b0:6b5:77a4:e7c9 with SMTP id
- 4fb4d7f45d1cf-6ba38153010mr103871a12.2.1795192744560; Fri, 20 Nov 2026
- 08:39:04 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R0diO3R0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BB11F000F0;
+	Fri, 20 Nov 2026 16:39:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795192750;
+	bh=o2Gchlovjpt7GczhTpNg1ZhDn2KN/WvMSeZUox3Hoa4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=R0diO3R0IwdCFQBi8ev6UvmGHq45+73ZelTh5K2rpzujd/HbZ0CqAoOtQdRCTuPzu
+	 YIrI0q+UudpMC3trJzl1eS6cCYK9kk2VtN0jEhD2ODYeXpeAeAsjuY+8IGegifY9aj
+	 JLriM43csRHqFXYmI5b029uPhNAKPYa3JPQ7v1a0kTw2/XQ+BD7jkGxdBNxZ+eI0lm
+	 FQuS2Xb1RB0wDngBTXTHMSHPMOth3MhnSF2fyx5CdKXN26ZhIQA8kKbEJpm4KPDPoL
+	 EFOSJ4I8MLb6F/LDKvT1Jc0KwNseYtZvUKo/5jzy9GDGW8Ipb7sxwqo59WUG3gMvrO
+	 XbmLk9Iib6yaw==
+Date: Fri, 20 Nov 2026 10:39:09 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Richard Cheng <icheng@nvidia.com>
+Cc: dave@stgolabs.net, jic23@kernel.org, dave.jiang@intel.com,
+	alison.schofield@intel.com, vishal.l.verma@intel.com,
+	helgaas@google.com, iweiny@kernel.org, ming.li@zohomail.com,
+	linux-cxl@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, tglx@kernel.org, wangruikang@iscas.ac.cn,
+	alifm@linux.ibm.com, shawn.lin@rock-chips.com,
+	lihaoxiang@isrc.iscas.ac.cn, 18255117159@163.com,
+	xiangzao@linux.alibaba.com, vidyas@nvidia.com, kaihengf@nvidia.com,
+	kobak@nvidia.com, newtonl@nvidia.com, kristinc@nvidia.com,
+	Benjamin Cheatham <benjamin.cheatham@amd.com>,
+	Alex Williamson <alex@shazbot.org>
+Subject: Re: [PATCH v3 1/2] PCI/MSI: Skip MSI/MSI-X restoration when config
+ space is inaccessible
+Message-ID: <20261120163909.GA878361@bhelgaas>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,76 +65,169 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110183826.2927274-1-tariqt@nvidia.com> <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
-In-Reply-To: <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
-From: Mina Almasry <almasrymina@google.com>
-Date: Fri, 20 Nov 2026 08:38:52 -0800
-X-Gm-Features: Aa3M54qvoBN2Yfkw1kEqj7wTtv_eM2s0F8mqRYMDR_EgYh3FvB_9-0cl5hbrfvs
-Message-ID: <CAHS8izMhSVabXgMmNbHHLm8cYqW_EVQbpXME2z_tUEJuN2BTnA@mail.gmail.com>
-Subject: Re: [PATCH net-next V2 00/13] net/mlx5e: Add netdev support for data direct
-To: Dragos Tatulea <dtatulea@nvidia.com>
-Cc: Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
-	Bobby Eshleman <bobbyeshleman@meta.com>, Carolina Jubran <cjubran@nvidia.com>, 
-	Cosmin Ratiu <cratiu@nvidia.com>, Daniel Borkmann <daniel@iogearbox.net>, David Wei <dw@davidwei.uk>, 
-	Erfan Sharafzadeh <erfansh@meta.com>, Gal Pressman <gal@nvidia.com>, 
-	Jacob Keller <Jacob.e.keller@intel.com>, Kaifeng Wang <kaifengw@google.com>, 
-	Leon Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, 
-	Matt Fleming <mfleming@cloudflare.com>, Nikolay Aleksandrov <razor@blackwall.org>, 
-	Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Stanislav Fomichev <sdf.kernel@gmail.com>, William Tu <witu@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av_8-NLyjXUQC0lK@MWDK4CY14F>
 
-On Fri, Nov 20, 2026 at 6:39=E2=80=AFAM Dragos Tatulea <dtatulea@nvidia.com=
-> wrote:
->
-> Hi all,
->
-> On 10.11.26 19:38, Tariq Toukan wrote:
-> [...]
+[+cc Ben, Alex]
+
+On Fri, Nov 20, 2026 at 04:09:13PM +0800, Richard Cheng wrote:
+> On Mon, Nov 16, 2026 at 01:09:39PM +0800, Bjorn Helgaas wrote:
+> > On Mon, Nov 16, 2026 at 02:52:28PM +0800, Richard Cheng wrote:
+> > > PCI state restoration runs even when a reset fails. If the device's
+> > > config space remains inaccessible, MSI-X restoration still writes the
+> > > MSI-X table. The table lives in device memory space, and these MMIO
+> > > accesses can trigger additional errors, including DPC.
+> > > 
+> > > MSI is programmed entirely through config space, so it doesn't issue
+> > > such MMIO accesses. Restoring it is still pointless when config space is
+> > > inaccessible: reads return all ones and the restore path writes back
+> > > values derived from them.
+> > > 
+> > > Check whether config space of pci device is accessible or not at the
+> > > start of both MSI and MSI-X path, after msi_enabled/msix_enabled test
+> > > and before any config access, and skip the restoration if the device is
+> > > inaccessible.
+> > > Make the helper non-static and declare it in pci.h so the MSI code can
+> > > use it, too.
+> > > 
+> > > Signed-off-by: Richard Cheng <icheng@nvidia.com>
+> > > ---
+> > > Changelog:
+> > > 
+> > > v2 -> v3:
+> > > - Cover MSI restoration path as well (Farhan)
+> > > - Use pci_dev_config_accessible() instead of open-coding the check, and
+> > >   make it non-static (Farhan)
+> > > - Move the check before any config space access in the restore
+> > >   functions (Farhan)
+> > > - The return value of the PCI Command read is no longer checked, since
+> > >   the helper only tests for an all-ones value.
+> > > - Update the subject and commit message accordingly
+> > > ---
+> > >  drivers/pci/msi/msi.c | 6 ++++++
+> > >  drivers/pci/pci.c     | 2 +-
+> > >  drivers/pci/pci.h     | 1 +
+> > >  3 files changed, 8 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/drivers/pci/msi/msi.c b/drivers/pci/msi/msi.c
+> > > index 8a0133a6a286..2865f73f5ead 100644
+> > > --- a/drivers/pci/msi/msi.c
+> > > +++ b/drivers/pci/msi/msi.c
+> > > @@ -524,6 +524,9 @@ void __pci_restore_msi_state(struct pci_dev *dev)
+> > >  	if (!dev->msi_enabled)
+> > >  		return;
+> > >  
+> > > +	if (!pci_dev_config_accessible(dev, "restore MSI state"))
+> > > +		return;
+> > 
+> > Sigh.  I hate the fact that pci_dev_config_accessible() is
+> > proliferating even though it's obviously racy.  Maybe it's the best we
+> > can do, but I just feel like we're digging this hole deeper.
 > >
-> >  .../ethernet/mellanox/mlx5/core/data_direct.c |   9 +-
-> >  drivers/net/ethernet/mellanox/mlx5/core/en.h  |  14 +
-> >  .../ethernet/mellanox/mlx5/core/en/params.c   |  18 +-
-> >  .../ethernet/mellanox/mlx5/core/en/params.h   |   2 +
-> >  .../mellanox/mlx5/core/en/reporter_rx.c       |   1 +
-> >  .../mellanox/mlx5/core/en/reporter_tx.c       |   1 +
-> >  .../ethernet/mellanox/mlx5/core/en_common.c   |  38 ++-
-> >  .../ethernet/mellanox/mlx5/core/en_ethtool.c  |  67 +++++
-> >  .../net/ethernet/mellanox/mlx5/core/en_main.c | 253 +++++++++++++++++-
-> >  .../net/ethernet/mellanox/mlx5/core/en_rx.c   |  33 +--
-> >  .../net/ethernet/mellanox/mlx5/core/en_tx.c   |   4 +-
-> >  .../net/ethernet/mellanox/mlx5/core/main.c    |   1 +
-> >  include/linux/mlx5/driver.h                   |   1 +
-> >  include/net/netdev_queues.h                   |   1 +
-> >  include/net/netmem.h                          |  24 ++
-> >  net/core/devmem.c                             |  85 ++++++
-> >  net/core/devmem.h                             |   6 +
-> >  net/core/netdev_queues.c                      |  51 ++++
-> While working on V3 I realized that keeping the core part in
-> this series is not the best approach. Initially it made sense
-> because the change was small.
->
-> I think I should re-spin it in a separate series with netdevsim
-> based selftests for the new APIs. I would base it on Mina's devmem
-> leased queues unregister [1].
->
-> Any reason not to?
->
+> Hmm I agree this is racy even though we're holding the device lock
+> throughout the reset/restore process.
+> 
+> I assume you mean something like a separate sources DPC happened and
+> make the device inaccessible , some scenario like that ?
 
-I honestly wanted to comment that you should base it on the leased
-queues series from me but didn't want to be annoying, especially
-because I made you wait for the previous series.
+Yes.  A PCI device can stop responding at any time, e.g., it got
+physically removed from a slot, a cable was removed, its internal
+firmware crashed, power failed, etc.
 
-My series creates binding->bind_dev, and binding->map_dev, and core
-will (should) handle things correctly across both devices. This seems
-perfect for you, because you have a bind device and a separate map
-device and their lifetime is different.
+> > Also, this is called in the pci_restore_state() path, which is full of
+> > other things that also write to config space and will also fail in
+> > this situation.
+> 
+> Actually I was trying to cover the whole pci_restore_state() in v1 [1],
+> and Benjamin raise the concern about the drivers may depen on PCI state
+> having been restored by the time reset_done() runs.
 
+I think you're referring specifically to Ben's comment [2] that driver
+.reset_done() handlers expect that pci_restore_state() has already
+been completed, and your "[PATCH 3/4] PCI: Skip state restoration when
+configuration is inaccessible" patch calls .reset_done() without any
+restoration if the device was inaccessible:
 
---=20
-Thanks,
-Mina
+  static void pci_dev_restore(struct pci_dev *dev)
+  {
+        const struct pci_error_handlers *err_handler =
+                        dev->driver ? dev->driver->err_handler : NULL;
+
+ -      pci_restore_state(dev);
+ +      /* MSI-X restoration may access device MMIO. */
+ +      if (pci_dev_config_accessible(dev, "restore state"))
+ +              pci_restore_state(dev);
+
+        /*
+         * dev->driver->err_handler->reset_done() is protected against
+         * races with ->remove() by the device lock, which must be held by
+         * the caller.
+         */
+        if (err_handler && err_handler->reset_done)
+                err_handler->reset_done(dev);
+
+I think Ben is absolutely right that .reset_done() handlers expect the
+device to be accessible and config state to have been restored, and I
+don't think it's reasonable to expect every driver's .reset_done() to
+handle that generic problem.
+
+I think pci_restore_state() needs to return failure and callers need
+to figure out how to deal with that.  There are a lot of callers, so
+it's messy, but we should recognize that it can fail.
+
+> What my bug actually hit was MSI-X table write triggered DPC, I can't
+> justify for all kinds of driver, so I limited the scope.
+> 
+> If you think a broader check in pci_dev_restore() is a better place to
+> handle this, I'm happy to give a deeper research and revisit it.
+> 
+> Best regards,
+> Richard Cheng.
+> 
+> [1]: https://lore.kernel.org/all/20260929020405.9724-1-icheng@nvidia.com/
+
+[2] https://lore.kernel.org/all/8a19d63c-db9a-40ab-a811-5d761252638f@amd.com/
+
+> > >  	entry = irq_get_msi_desc(dev->irq);
+> > >  
+> > >  	pci_intx_for_msi(dev, 0);
+> > > @@ -877,6 +880,9 @@ void __pci_restore_msix_state(struct pci_dev *dev)
+> > >  	if (!dev->msix_enabled)
+> > >  		return;
+> > >  
+> > > +	if (!pci_dev_config_accessible(dev, "restore MSI-X state"))
+> > > +		return;
+> > > +
+> > >  	/* route the table */
+> > >  	pci_intx_for_msi(dev, 0);
+> > >  	pci_msix_clear_and_set_ctrl(dev, 0,
+> > > diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> > > index 7c6f2aba8144..671ffe4da1c8 100644
+> > > --- a/drivers/pci/pci.c
+> > > +++ b/drivers/pci/pci.c
+> > > @@ -714,7 +714,7 @@ u16 pci_find_dvsec_capability(struct pci_dev *dev, u16 vendor, u16 dvsec)
+> > >  }
+> > >  EXPORT_SYMBOL_GPL(pci_find_dvsec_capability);
+> > >  
+> > > -static bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
+> > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg)
+> > >  {
+> > >  	u32 val;
+> > >  
+> > > diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> > > index 77efa4c5c960..98dd3dbd5edb 100644
+> > > --- a/drivers/pci/pci.h
+> > > +++ b/drivers/pci/pci.h
+> > > @@ -240,6 +240,7 @@ enum pci_mmap_api {
+> > >  int pci_mmap_fits(struct pci_dev *pdev, int resno, struct vm_area_struct *vmai,
+> > >  		  enum pci_mmap_api mmap_api);
+> > >  
+> > > +bool pci_dev_config_accessible(struct pci_dev *dev, char *msg);
+> > >  bool pci_reset_supported(struct pci_dev *dev);
+> > >  void pci_init_reset_methods(struct pci_dev *dev);
+> > >  int pci_bridge_secondary_bus_reset(struct pci_dev *dev);
+> > > -- 
+> > > 2.43.0
+> > > 
+> > 
