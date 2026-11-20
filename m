@@ -1,89 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795154923;
-	b=H7v6G+1HiVNckhQjrpfDw38qw+nDLn8YZM2oY1FTvXTlgHZQ3abETkpxLp/kFsw4moDD
-	 IdaNw3cz9iWSBR7XILOzuJ2xSmJnylzzCL4ZGLRIILUCyzbTR8uinaypHp5IHxfl2SXm+
-	 ry/FJoDs2kQpC3rVt7cCa9Ea3pmXuPNkEqLwlM1KH5m1E6rdbT1ILlf3U4X5ar6lpW1ru
-	 YN0iVju3LZ8YOCt4fHQFEu+pIP3BEG7oEsr7beuxBVTbwy+vXfj2EIh+GQXTQXn6vuTlq
-	 lJzC+x1Ls/+8abJ0iJQfIe7nVWRcQ5cGmVIy1YsUv+mIr+gDVOX5B4XWyLHzyrAjUFA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795154923;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:cc:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=p95UrQA2ZjM3sDJiu69VdilYW3D+lfsUq1prVd9Q3po=;
-	b=OfgM2v+XEws1WpphgPOEKKk/aIb6IxLmRlamojpGDxss1mBcTjJlZGNL4Fl0GX367k1V
-	 hydUaZWWOqZkrxRhuZQsAbokhffkeSbIDlMGr3Dl1GNRnPk9g+f2tf6ssToXIci8GrrC0
-	 LQ1/Gt6Q+0Wup9KTGr9h/nJwduzxNNll/D3et0Q1VQiZW2XIXFeJ8LNVV3ZstGqAAcgm1
-	 ISRvq8OyK/Yw1WGriNMv58CB6GKb3TA7H8GZM05S57PJZEwWybq3S4ZSHYEWd0DGWIfvE
-	 73qKnMMKAbp/fmDgsc5ylopwN+UfsqcDJEIEJPPIDVbzqLZiBHmOsEPFvqXvUrc2LAw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uK1sqaEM;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795154933;
+	b=niY3yRf995YqAqOPIiIlFnnMJROz29t387DMFkgFrdqYaRI17wMwpZWTWMqebu8qGxoF
+	 SV8B4oArQFbRblP4HYq42b5GcmcK4+LVLUsdqEoAGDLNVQ6Wcrhj8wSQ0gFXx3gIAiQNy
+	 gtsRfmFs6uHLF6YY2sFIh9QPVT0YHNMuqt0EAfBrjK7KgPtMFe3PqUWyyAUw41UIhUlAt
+	 t2MhYEKHLp4DKcgA21aMDoLyCE36JQ8k9plRebpWtqFYzTWkZBV6+IY1/pwAdRTTGuHIB
+	 /9pHPrK8HtRpxvz47CzNZsXO4SqdGdX8lDrFlDK/XDeqSM3cKjDHXcgBmO1NwxbW3Qw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795154933;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=rlbZO7pNV1lTYUSlw/FximBGJb1DPj1XKj8ViDmfz2k=;
+	b=ukSx7pWqKlT+pv3F2TndW3RWJG0DJWvO6me0wtCI5uWzTqtUt7KH0/zdtTYfObW5RbfJ
+	 NMoq//wPPuYcuOj45dkuowSMyBCOOOp+PWWXksm2bdRZquIDM0qPqYv0nM3XXl2hdsKqX
+	 3Os1R4ddW4SmZphZNdOryky13sS2Sm77NErpTDZ8ulthkuR5bHYI+NRmaDHL8KhGLfXJ/
+	 ++1YBBzaDqonHgpcUIXShzDsQ9Pg6Bj9m7rJnNmh4weZ6Yuikavc/9BujQqzCgM+gskVl
+	 +O2NfKXpedQyNKA9c7fLyUri+rQNnqSY7iPBLyY3+Bk91ADRYR2yVcaQupguTvPsptQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KlU1zaYE;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=aE1EtESX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C864E606A524
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:08:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C864E606A524
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4787A606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:08:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4787A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uK1sqaEM
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f048476ab9so1179335ad.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:08:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795154922; x=1795759722; darn=vger.kernel.org;
-        h=content-type:mime-version:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p95UrQA2ZjM3sDJiu69VdilYW3D+lfsUq1prVd9Q3po=;
-        b=uK1sqaEMgQlc0lh6kj0PznYNzSKUj0cCbMBEpTQcZdFRbFpLmuQY4atHeCFxaxeBAc
-         tDL3IMvr71cBBe5q6678FpmHuxTSuGDN6kZtPlJp+aiZj4vzGwg8izMKQFm5pJ2+Y5eO
-         2ZhMgEc5X/kaoKeCvOoulutfwhBu2utktvA+LFVLTEsa/UkpsWxbHpJBi+iJ08lA78Sf
-         +4CzMIcz8vZ7q6dHYNO+cQ1FYQVGvpZDMbQmSFoZU6n1z6hl7Cf6yKl+VtptTjhp3mS7
-         qMywt8pwbi0+2nIDUEGRceWblaai7cs/tYPr3xyXp7/TxkrA7Kds7HhSkNARDJRViNPw
-         rojw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795154922; x=1795759722;
-        h=content-type:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=p95UrQA2ZjM3sDJiu69VdilYW3D+lfsUq1prVd9Q3po=;
-        b=kvCtjW5zFcLP76cIhSlIl95cXdi7l2opfY8SigIzzKavMYXTTnhPDBwvi0g20bR835
-         +pMze1wVcDz1VA9usAQ8pfF3bjreBC23aQ2xKLiI3Djp9m1JZNFMrJ5369dlZXVgjVaU
-         DgLqgVCFxUlQjv4O2bzB/FnhYsq6x0ZfM1KjoGrl7FJef6D+AsTuO0MYMdTXYL2Sv8l7
-         H51gIoCldW0YJUwpnL0pRut5xNz+R/vskwFw8AGUEOm8biolsbsQbvnkN1s9tFpmq2cL
-         f+G4nA/vMzbsCgYYZy1PgdO33Zr8g4Svi3irY88/QyRy2oPpERqt95LEghqXKnL+1vNd
-         maRQ==
-X-Forwarded-Encrypted: i=1; AL+hErEpVPYodGA9XjEhIfHOoiZObmVn2xhxU+nohxRZKgg155bcRttOB3m7RxSUaBWj7DiXzlS7vPXV+/CfPRU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7EFz5sa8+0wP5l27c79iW2bATBH7/9LXkrrY6hgr6HwtZebZf
-	aX2kfNRudD+f0bYWkAM1dFGTtDa6GkrgtUIp9xeWpZ8krngALiw43Tlg
-X-Gm-Gg: AZFdTZfnsH1lw7S4d2UfuZR3XSmTaLgyCa4bqAXP/RII/VA5K7KWk663wHJmcaDU7Ka
-	vUo36TtHECV8W7JJtJUDm9nr07BRefpAVmJK2nqGUHnDWeQIR/M1rupS8yve3mJ5HmUQ+YopYv7
-	f27UlQNHaAaE1DXx7aZf5rtqRjSbHJOzcWfEzfcqch/KDtAZMs62SgHUTuspLPboO4tE+ZyPSu7
-	a7iY+59Ejxgjuu5++IlD/Iqel4wxmnkrO5FOW7KJF/eeGjFcpdEBMXEyD3jZG5EVu7QuKmB0QOv
-	buJbmexgOxKuiTrjEKP7PEoT7DiTJygnK0zbAufpfys3+HMdafOmnH6+qCCtdFgM1YqKze6Ccnl
-	wKsW0D1eRK9V+F6Xdz9mbWr6mj725eec4EpHC4pHmEC80ZC/GGeNb6ijYy+H4HvNoIMwUVCK+1v
-	Qo4lJjlkBx3B4lO79NyhP6h1zuKFi8rUF69qpbjpnKulMtK/x+Jylbn+zZ49JymeuXuF5AZd3So
-	fOy+pGdS1bPnQlWiESc0MUaLv0GqSQHT0d0gbesXE3mkuXKrTzEOsoAdF6flI9b/4LyKubTBPMa
-	PHLtKUCiG8nbUtxOrb1fz7yE0GaxvO025TZBB3uiTJQXEooURQTskk1zDk+h0U5DJPrY4nCzLk+
-	2x1xvqHh99WA=
-X-Received: by 2002:a17:90b:1c08:b0:3b0:9deb:d990 with SMTP id 98e67ed59e1d1-3b41cafd549mr1739331a91.39.1795154922012;
-        Thu, 19 Nov 2026 22:08:42 -0800 (PST)
-Received: from DESKTOP-7QP7L26 ([45.190.211.142])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm6322499a91.8.2026.11.19.22.08.39
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Nov 2026 22:08:41 -0800 (PST)
-Date: Fri, 20 Nov 2026 03:08:38 -0300 (Hora oficial do Brasil)
-From: dev12124 <joaoanandalima@gmail.com>
-To: linux-mm@kvack.org, linux-kernel@vger.kernel.org
-cc: vbabka@suse.cz, david@redhat.com, hch@lst.de
-Subject: [RFC] mm: alloc__by: create a function for allocate pages in small
- microsseconds in boards no-MMU 
-Message-ID: <1ee9b247-6758-c146-2d03-0acea98db33f@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KlU1zaYE;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=aE1EtESX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795154934; x=1826690934;
+  h=date:from:to:cc:subject:message-id:references:
+   content-transfer-encoding:in-reply-to:mime-version;
+  bh=gN9A69vtnoW7bgSftkoNfxeWn+tb7mQjGfx2I8cXfIM=;
+  b=KlU1zaYECKYjAYi0hOHuRW/MZau+P3y7eGPe1gmv4cphvQtNfDwGRmBe
+   KafhhBR3ZNsIP+keK+QEoNW0CBk22qkFlCXpMKTTrZiR+oGIzC5xcA1SR
+   oDwpOYdg3mbNi7MEM97dsLWCRg2aMnLIsYzBwJeOCyPTTSK9kdog+mzts
+   w6O8gBe5blNaTyL8JvuERYLJXi9uzO0dF3WZvdQEn8I0qGCv9OgcTQBdq
+   kmHtToMd2gWnzpxo+U2xhF1c/81h4gj0K5t+OvfYA+BiqDy3tnylQkSxd
+   T/b17cirGeQAz5JQmWs8Ms2YREp3tSPfhXbdoIECGY/tcinHxzl7VpxV4
+   g==;
+X-CSE-ConnectionGUID: mCNu6UJASFanvQ6MqgMEeQ==
+X-CSE-MsgGUID: A8RIXt53TNOHj4n73VcI1Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4107680"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4107680"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:08:54 -0800
+X-CSE-ConnectionGUID: h56VBpApQ4eW5cpC+3erlA==
+X-CSE-MsgGUID: ByX+ozuBSu+DAU5aFqjwyw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10522765"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 22:08:53 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 22:08:51 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 22:08:51 -0800
+Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.12) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 19 Nov 2026 22:08:50 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XVtSFBEdVBozvX4LPMogyjZ2GZRJBtuaUJYAT/nQVtrgBFGwmHeKPJtDWn/1DQbU3t87cBBMg8igrvx29Zn+pHUH8uVgh/sAQlf6EIsTR4Wy09A7ExwC4/xGccNDB3qLuzfYgLh5EIm90ZQStaek5dkwI9o4pFyXAgSX74p8T4UPbmzIvv4LEZ7YVLhQ+WdrHivZLhpV+NS2ceNEogZoW3MXtSvZzxwhkdjR/t73qVU3wRP689i9IrC7QXhodwWt1Fo5C0qtF8GSQCdCusDPSmeU5ur+5W4dArYrNRoQ8G9dRs1YG8X5BuJ9lENMwUzb6ke6u/a8TMyugmvCGhmn1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rlbZO7pNV1lTYUSlw/FximBGJb1DPj1XKj8ViDmfz2k=;
+ b=pFUwCg4A1zIxs9VMm4qIFBBoe4+XnI2Xq9Xpl0PDRtXfiOV3kv/jbTZ+sUsBkIGw3ccw4BPhOqjpwfpjGGoF+jb7kHzQsh+DDED2mY55EcPCWZcpHxcNFDdiprcFiYJXSJvG2YBP5HdjKrRnfz5B5zQlMsct+gHTMxZxjBc7a/CgD9k0wKJJynS7bNgVX6mrRxrxmAnfYL1sm8WSZb6hbFYfZ2iI9Tir+SH4RCY22ojwD4fxKEmB5zB3YgfS9H/dZOszU8boil8RKICkoKsZLo1GyCKGC3ak2wpXnVgY6gNWRWewJRGo2qgqt48+U94Vt6DHpHtxAwTb7lpXRdF3+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rlbZO7pNV1lTYUSlw/FximBGJb1DPj1XKj8ViDmfz2k=;
+ b=aE1EtESXse6fi2oE2qMEyDXK24RmDQXs/O/hTJ8Q+uGof5QG+MvgQBDW9ulSVN0fgRJqK/44dY3FAvU278zWj2mvETpRW9eF3MtyAFjxSFMco8HGusnexJjFqd1/xdFQeqYpLelQMaWLrb3kF54Et2Ht278s6Ug8Heg5f6UFpBA=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
+ by DM4PR11MB7182.namprd11.prod.outlook.com (2603:10b6:8:112::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 06:08:47 +0000
+Received: from CO1PR11MB4787.namprd11.prod.outlook.com
+ ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
+ ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 06:08:46 +0000
+Date: Thu, 19 Nov 2026 22:08:44 -0800
+From: Matthew Brost <matthew.brost@intel.com>
+To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
+CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
+	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
+	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
+	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
+ =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
+Subject: Re: [PATCH v3 16/33] drm/xe: Back off beneficial-order reclaim under
+ defrag pressure
+Message-ID: <av/j7EK3KrghOu3L@gsse-cloud1.jf.intel.com>
+References: <20260711025619.2540575-1-matthew.brost@intel.com>
+ <20260711025619.2540575-17-matthew.brost@intel.com>
+ <au6w5cfqYazBEGNx@nvishwa1-desk>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <au6w5cfqYazBEGNx@nvishwa1-desk>
+X-ClientProxiedBy: MW3PR06CA0018.namprd06.prod.outlook.com
+ (2603:10b6:303:2a::23) To CO1PR11MB4787.namprd11.prod.outlook.com
+ (2603:10b6:303:95::23)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,50 +149,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="7872875-14611-1795154921=:13716"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|DM4PR11MB7182:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9f8a0dfa-dc50-49d2-8d39-08df46ccbcab
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|10067099003|4143699003|11063799006|56012099006|261021121427099003|261022105027099003|261028144727099003|261026140227099003|261026121527099003|261022075727099003|261102123227099003|261009223027099003|261009221227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: A66aOQmwhI6JPVr2HcqAkY/girDNkPgnqrkJZS6qwosptW9zkIHNm8XcyPZTDTidxkbGRlQlZvc3o/X7snKDBbuU+/Gs0/cwC79MDhUgexbXVcqdKzdIyFoklSAyTdbiupromXjY0xoug2lzW08JO8VKrt2d2F0utyYe4BXGadJT/ZG6SCK0XMOIsCtQ3K0/8l70/cgXXVC16rF4rBfqmUI6x2UWcG9hxj9nf6Z3stNteN6WfJQTDnMxhai+Qi0DskN5mpXsxHCrYznUdpeLBjV9AoZ2oiou4ldkbOhVdQ/eVaOCDHXAJHKmVVxTzLWN2AOAl+ZuF6RJK3CDzlLieEubpORbAw2BW5tutsAxh+mJJNzssL9DG7L8CLUzlkPhOZ0Bpqlb32c+HS6TP1r4xLzuRwXapyM/8dkcvIh3xtGOzaq/Vxv6YKBqMYvoSLGVYrqOi3wq4vkzPXGXTPLZEtWQN0VPCJx6RO74VBNCLfUWWtbP7akclinQ2tmHQbiOL57b91Ci73g7wIv012jvC32MVIvNsM/IyTCByrGFZPC8X/7cDACHZ9snlr0yWGUZxUu3/rDPpHekdH0d2YNtMg0IawH5aDY2EnFrVYPWGiRu0ZYQoqCPbQk/EWE81x4q6G/UT5v+vKT/qNc45XE90xrZXj8NOA5BoNsVQ5SBvEA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(10067099003)(4143699003)(11063799006)(56012099006)(261021121427099003)(261022105027099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022075727099003)(261102123227099003)(261009223027099003)(261009221227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?T2d6WVpiRi9qRTU2enA0eXdubk1kb3FRVGtqNjRvSisrZmdEWnROUWZ0THlo?=
+ =?utf-8?B?aGFtNjlieFZZTzJkMi9iSXRMODR4UG9nTjR5bC9tTjFBUHB1MWZjZGNKelQr?=
+ =?utf-8?B?Y05jd3JOZVBUbDNwbk1UVk9LQmprUmMzaGg3cUxSVE9PS0sxS1ArZUJiWURF?=
+ =?utf-8?B?S0VWdEFwbFNFUHVoRXdXZGtkU0pCazVqaGhNeFJaSWFjZUx0Vnh4WjlUL0la?=
+ =?utf-8?B?dE9keEw3alRaRE1XdTR1Y3JIY2wyam9YNkR1VEhkcWt0dmFzNjlybTZaY2FZ?=
+ =?utf-8?B?U3N0VDJZY09MNVduWUxhbUZDZmtUUUd6K3RlWTlGS0U1SlJKSS94S0pUUlBx?=
+ =?utf-8?B?UHJHQ0FJdTRJWXJLMFpqd2ZEU2szMmFlbEcwUGE2VndUalBXVVdNa1RaRkVT?=
+ =?utf-8?B?NHVRSUF5OXFHeUljZHo0aG9VZ3NSRzFXcTZXRHdUNzBKeXl1eEMvVXQ4WVYy?=
+ =?utf-8?B?WE41RitzbGY1bDcxMXdBY1loNnFNbit3V204T2QzbldxRlcwTDRPNFEvKzJ4?=
+ =?utf-8?B?VTRqczB3U0dSam9IUzJzbWJyTTRLbzVrTU9DVWtEK3J1dWtmaEF5eHhHNTl5?=
+ =?utf-8?B?TnJqY3crZGMvRTlPSzlGV1IzTHRtWVd5YXQvSlZvR3FaRXl1REREQzF5WWI4?=
+ =?utf-8?B?TFFBNFo2TWZCbWNyV2RwZVJ3ZENudlJzYjNZaE5nQ1Y4Q2pqekF5UEMreXJH?=
+ =?utf-8?B?bDM5WG1VQk1UTVdwT3RpcHVkZVJGSkVsa2pUOGwxZmZteVpNQnNoU3hpOTRG?=
+ =?utf-8?B?TDFoSHZqZ05LV2NkSDNaR0ZVdVpCVkRIVGF2M0JjN2IxTEkrcXM4cG54MzBo?=
+ =?utf-8?B?aFRCdmwrL2ZrakFmWkJmbFhtR1M0UG9mRWRCa1ZuOVVJSUdVUEcyK3lwN1ps?=
+ =?utf-8?B?VEUwWWJwaUQxK2RKMW0rMnhQU3lGMlpwVEIzQ3ZGNWVlM2RCL24waW4weitE?=
+ =?utf-8?B?eHp3VUFEeS9zYnZuMWlPbFdxSWZzaFdNbUMxMnZ3VGR3Qm1wWm9KeFVvMWJP?=
+ =?utf-8?B?dndQVkpjZmRaTzFJREhhNkk1Nm9qUkpqZHJpcDRqM2RpODNFWDBsUTF0T01a?=
+ =?utf-8?B?Sy81SGpFbnpFQXNIZ25xYmVHK3BCTzlhMGdyVEtpT2JQUVg3TDJ0ejRHbUtq?=
+ =?utf-8?B?dFp1NFErTVpnNUFSUXZnNmZtQVVqYk9HUFh1TlV4NENIYjVqTG85V3hqN0FH?=
+ =?utf-8?B?YnBLd3NWOFBMR2Jvd2xUd0NvNXYrNWdFUXRMUndPQUt3OExLeVk3VWNxTTFZ?=
+ =?utf-8?B?eWE1K2pXZTN1UWoydGw0Y0J5WWtrSjMvZ2IvWlJkK1ZOK21GeHlFeTJxa1p1?=
+ =?utf-8?B?NnJHZG9LVUJ3MlJieDVHbEJqRm1xbFhVbDc5WW9yV1YvcVByWmdRY1NHZUN1?=
+ =?utf-8?B?OVNwTUUvVXZLKzJzU1E5VlE1WGw3OTRqL3RDeUZqRW9ZY1BTMlRaQ1ZHNHNq?=
+ =?utf-8?B?Wmg1R3pOVUt6OFBlcnJiai81ZStSOWRZcnJaR0xTaWkwa2Z6eXVzendXalpZ?=
+ =?utf-8?B?Sks1aTZTNUdEYjJzbnJweGJIV2JCN3Fad2U2K1JObE96enhhdFdRNDl2Q2pp?=
+ =?utf-8?B?VVF4aWpoKytoSUw0eVZ3MDFYb0p6bjFicmJRRVd3RTd6Z3RNMGpZM1plUi9a?=
+ =?utf-8?B?QnNDcmtYaXpNa3hoRUJqbDZxQlpsNXRkck1jYjllR3QrZlc5cXJXRHVPeU5E?=
+ =?utf-8?B?dUlIMi9GN3d4YkdNQzFCN0Y0QTFCNTBUOWhLQStPZWVGelRPWXd4RXdlVHdE?=
+ =?utf-8?B?RXRld1I1OWFFWTFSZHhwOGszSXNXaUd2R0UyZEg3ME9sZnNKVEliRkpVcjQ1?=
+ =?utf-8?B?V2MvcVQvTnY2TjhSMU0vYmhRSUNNWGNFUy9lK29lbVY3Q29BZkIvckdoQkxF?=
+ =?utf-8?B?bndHaXQxYUxZMVVITkNsbTlNNXdoN25OenlpTmRUb0RYYjFrb1pOUUwyQzhu?=
+ =?utf-8?B?dlRjTWJCWjB1bW5pSFN4VnpVVUZQR013Rm9YdEw3U3h2OEY0b001RTVkLzhh?=
+ =?utf-8?B?RGg4YVNBNUZSYzR4RVNGZU9Dbk05SVZwQTFTcHNCeFRHMFp2WXdiN0theFlu?=
+ =?utf-8?B?WU1BZkNRNEFQanRaTzJOVWRUOHdUSzBwN2hvcVNMcEp1MDFDL2JLMVVKQ2pw?=
+ =?utf-8?B?Y3NmZXFZTHlpY21nN1BMN09PY0tTamlIZTZWQm14QjFFNE5Vby9WN1pSM3VQ?=
+ =?utf-8?B?aHFsUWV5Tk9kN0plSEFyODBodFJxSFYrQ1krbnpzeW83YjB4OXlTYXpQQThY?=
+ =?utf-8?B?dnF4TjdnZ2RucG1QdTJwKzRCVUk0dWZYQjF6dWpRdGdHNVFBR1ZzMXNlbTNa?=
+ =?utf-8?B?ZUZIcGEyOXdyejhGRDkvdnRhOE9GN0dTTUxOTzY4d1FEZnVnSXozSjNBaWdt?=
+ =?utf-8?Q?95z3HtOYJ9Ymsrdc=3D?=
+X-Exchange-RoutingPolicyChecked: a+Gm1gafamMnrttbxLQknItRSw+Qd3Pxw+F98DsH+L5lq7GeQ8ttpV+yylqxsZwp1AsegTqxzbNdfh11PTw/yw9l4pVzJySiV9D43+Yr9lxKSh411U8GTAj0vGd3FikGNXxlLvKsfnILwXjkK0nGQJuRWGwVZ9CFHFkSJI83dMArSn6UftzWpYKUVGw0X/CcDQZVzIIH8Q9IBM8EykG+VDjdik2nTqyY6qZ8wv00iJIbcrppJURI9mDfLDEcY4Zf20xW3oO7RnVyWNvtrFlti34pCj8roFt9Yadt5TOREHtdeNNdAHOOX3tqqfuNA/NFZnJeLY6UHZrduPA+3gUa/A==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9f8a0dfa-dc50-49d2-8d39-08df46ccbcab
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 06:08:46.3850
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x8rT1J8/ieY/66ex+POqig4lkCI8j1eMWBx05tMjBLaFdKj7vqky+X1nXjwZTqwPAUJ/6CyFlLDwuUQoTsmlJg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB7182
+X-OriginatorOrg: intel.com
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Fri, Nov 06, 2026 at 09:02:29PM -0800, Niranjana Vishwanathapura wrote:
+> On Fri, Jul 10, 2026 at 07:56:02PM -0700, Matthew Brost wrote:
+> > Once a meaningful number of BOs are already tracked as being backed at a
+> > sub-optimal order, continuing to push hard for beneficial-order pages
+> > during populate mostly wastes time in reclaim/compaction.
+> > 
+> > In xe_ttm_tt_populate(), set ctx->beneficial_reclaim_backoff when the
+> > device defrag count reaches XE_BO_DEFRAG_RECLAIM_BACKOFF_THRESHOLD (2)
+> > so the TTM pool backs off and allocations make forward progress. The
+> > deferred defrag pass is responsible for upgrading these objects to
+> > beneficial order later.
+> > 
+> > Cc: Carlos Santa <carlos.santa@intel.com>
+> > Cc: Ryan Neph <ryanneph@google.com>
+> > Cc: Christian Koenig <christian.koenig@amd.com>
+> > Cc: Huang Rui <ray.huang@amd.com>
+> > Cc: Matthew Auld <matthew.auld@intel.com>
+> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> > Cc: Maxime Ripard <mripard@kernel.org>
+> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> > Cc: David Airlie <airlied@gmail.com>
+> > Cc: Simona Vetter <simona@ffwll.ch>
+> > Cc: dri-devel@lists.freedesktop.org
+> > Cc: linux-kernel@vger.kernel.org
+> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
+> > Assisted-by: GitHub_Copilot:claude-opus-4.8
+> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
+> > ---
+> > drivers/gpu/drm/xe/xe_bo.c | 14 ++++++++++++++
+> > 1 file changed, 14 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/xe/xe_bo.c b/drivers/gpu/drm/xe/xe_bo.c
+> > index ff324caab6da..02395968d613 100644
+> > --- a/drivers/gpu/drm/xe/xe_bo.c
+> > +++ b/drivers/gpu/drm/xe/xe_bo.c
+> > @@ -41,6 +41,14 @@
+> > #include "xe_vm.h"
+> > #include "xe_vram_types.h"
+> > 
+> > +/*
+> > + * Once this many BOs are tracked on the device defrag list (i.e. were backed
+> > + * with a sub-optimal page order), request that the TTM pool backs off from
+> > + * aggressive reclaim at the beneficial order during populate, so that
+> > + * allocations make forward progress instead of stalling.
+> > + */
+> > +#define XE_BO_DEFRAG_RECLAIM_BACKOFF_THRESHOLD	2
+> > +
+> > const char *const xe_mem_type_to_name[TTM_NUM_MEM_TYPES]  = {
+> > 	[XE_PL_SYSTEM] = "system",
+> > 	[XE_PL_TT] = "gtt",
+> > @@ -598,6 +606,12 @@ static int xe_ttm_tt_populate(struct ttm_device *ttm_dev, struct ttm_tt *tt,
+> > 	if (ttm_tt_is_backed_up(tt) && !xe_tt->purgeable) {
+> > 		err = ttm_tt_restore(ttm_dev, tt, ctx);
+> 
+> Assisted-by: LLM
+> 
+> Don't we need to to backoff in restore path also? If it is intentional,
+> probably add a comment?
+> 
 
---7872875-14611-1795154921=:13716
-Content-Type: text/plain; format=flowed; charset=ISO-8859-15
-Content-Transfer-Encoding: 8BIT
+Yes, we do need backoff in the restore path. There a couple other places
+in this series that miss the backoff too (e.g., CPU fault) - the divide
+we want is anything the foreground no reclaim, and only reclaim in
+background outside of dma-resv (defragmenter). 
 
+> > 	} else {
+> > +		struct xe_device *xe = ttm_to_xe_device(ttm_dev);
+> > +
+> > +		if (atomic_read(&xe->mem.defrag.count) >=
+> > +		    XE_BO_DEFRAG_RECLAIM_BACKOFF_THRESHOLD)
+> > +			ctx->beneficial_reclaim_backoff = true;
+> > +
+> 
+> - beneficial_reclaim_backoff is not cleared if count comes below
+> threshold. If the same ctx is used for multiple BOs, they all
+> will backoff even when count has moved below threshold.
+> 
+> - Looks like self-reinforcing feedback loop causes spike in backoff.
+> 
+> count ≥ 2 → backoff on → new populates land sub-optimal → BENEFICIAL_ORDER_FAILED
+> → added to defrag list → count stays ≥ 2 → backoff stays on → ...
+> 
+> Is it intentional? If so, may be a comment explaining it would be helpful?
+> 
+> - Will there be any value is heuristically adjusting threshold instead
+> of using static value (2)?
+> 
 
-Hi memory subsystem,
+As mentiond above / last patch - I'm just going rip this out have clear
+divide between foreground / background setting the reclaim flags
+correctly.
 
-Actually, boards no-MMU do not have an integrated MMU to translate 
-physical to virtual addresses or support hardware paging and; for this, a 
-few points:
+Matt
 
-I. Requirement for Contiguous Memory
-Without an MMU, the kernel cannot combine scattered physical blocks to 
-simulate a continuous space, making the search for and allocation of 
-larger blocks very slow due to fragmentation.
-
-II. Demand Paging
-The system cannot defer physical allocation via page faults; instead, it 
-must reserve entire blocks in advance.
-
-III. Use of simplified allocators
-such as SLUB_TINY or linear free-list scans (instead of the standard 
-SLUB); it saves space by 
-scanning simple lists of blocks, but it performs very slowly during 
-allocation.
-
-IV. Proposed approach
-The function alloc_by(size, address_initial, flag) haves:
-* pre-reserved pool per size order;
-* cache fast-path no global lock;
-* bitmap O(1) of free contiguous blocks.
-This bitmap, more specifically the blocks, have the pre-reserved pool (per 
-size order)and the pool have word 2:
-* Word 1: The initial address (starts in cache fast-path)
-* Word 2: The final address.
-For example, a Program allocates 277 bytes, the alloc_by() enter and 
-verify the bitmap -> viewing the request is 277 bytes, the aproximated 
-size is 512 bytes and alloc_by alloc 512 bytes.
-
-Thanks,
-Jo�o Guilherme da Silva Freitas Lima <joaoanandalima@gmail.com>
---7872875-14611-1795154921=:13716--
+> Niranjana
+> 
+> > 		ttm_tt_clear_backed_up(tt);
+> > 		err = ttm_pool_alloc(&ttm_dev->pool, tt, ctx);
+> > 	}
+> > -- 
+> > 2.34.1
+> > 
