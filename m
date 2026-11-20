@@ -1,85 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209902;
-	b=4sQ8rzN8rmF9AR4rVLeSxLYl7J1OByy0yRke5i1137uWgnIiA1DUmFj8lR3uUBwjwV7w
-	 JpC7Puz4Kx2Bq6/6aBODcFIO5kh1IA+V+UOgGB7G9Z0TLRT2JYmw+ui8hMkdwhhvBDZzy
-	 zjorcw2mhhSY8b60kxHLVvG0EF35OAI80rcK6MYEg8Fz89l1fLyvUlhaHYHxV8Awkxys5
-	 wr8uRL51wfq0k5YgLP3QPNeaR0MIAjKeraohc/8raVTJzjdRolh49YnypiVRV4864gO++
-	 fddR2KhGJjcugjUr3e6oR4/hMMpI72bWzSTmqn9rDtjLtLg2AiN7bJK5oXk30O2RQbA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209902;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=/JpHNIopQS3bT7Pb+e9AXJagd6f44ibcj9PBm0s68jQ=;
-	b=BKKXSneN9PmUJVlWpVQwwYx73br2HpnjmDXeTgIhQiBY14vA3iMCrhHbtuw3etnBDJ1l
-	 6SvtVZUmnHAow/Pe4H29V8OtMcExlsVXKGb4CbRWX5ddpOqhiPg4QD+GnnBXQd8tUVsBF
-	 8lRQn+tzwh05WYpH15yL2gKBiKjd/P+MlY2KpN/R9OnGJZ6EGuhCf4jW35GgxRNXoKhsL
-	 v2YfgFR2oQB785yL/udkHVBTofO4unXj1FjaJcLI6ekoeKJLAqKRyyuCLJBIY+aLUA20/
-	 BQF6tF9U3RxKJyaXQj6D/8KBWZonUSnf0uEJ5tXnSvjui5ZmTEu5nKnnqJ1DPF/pY6Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=MxFBBD+R;
-	arc=none smtp.remote-ip=212.227.17.20
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795209904;
+	b=Ldw38CFJyT2l+lXGV+dfdUoWtQmVivQzEE/19caEFod0rLo20BgWQgtP+ycQmKU4DVUd
+	 Vh2FbxiT5VrUI1fGheE5KL57SHC6zF2KVVdtiwY/j6/jJRQMh7hD+osKpIRgW/QfDiiC9
+	 5Mfi+vU2BlXyRGrGfiZLWjcWABKC1HEtrNE7dpeC+eZhBa/cJhaHbdCarL8PluIklqTm8
+	 PyR8NW+NdLDo/OeteLXQchepWKPcnMFiGgANmfV4eLPP6eDSNXR7W/PqrINuiZBz88eTw
+	 0XTKfIrnqSZIQz3oRgTtVFS79iEe0HVcGcFAM5ejR8Z+VZ8etqTOpIcGUd8Tz1WpcAA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209904;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
+	b=Vz9D6ozUV5wIAWorHAxeI0Yukt71HCrFC/Uke3jMzHNeLRcjkQS2olQSAA0+SYMawjhJ
+	 HJIToJEC2ITtUy4r9Y+lz3+Zkt6BxbHIlGVxNMZEYWNhswrqJmXGHxwVNNHoN6ApDwE+i
+	 +BLpDOHoHetJ99OYsOcXhxJCE0KWONoCsZ1Cq63NiCGWkXpPxGUiiWOy5OwEAhOyGgEmi
+	 2ItbiNEqml459MovnEsbULl8gu6jmVH0Z4kZepIR7pMwt3ndcxkBuw5baVjFi1xtwpiSP
+	 ldjdozVQ1N516h5xw9BIgl3tS6MAMQgO0Deo/tN2g1NVh5naHAPPOBdX2xgDsBCa9nA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="E/40exfq";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.44
+Received: from mail-ua1-f44.google.com (mail-ua1-f44.google.com [209.85.222.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D763606A69A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D763606A69A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF5D7606A6B9
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF5D7606A6B9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=MxFBBD+R
-DKIM2-Signature:  i=1; m=1; t=1795209898;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:ElO833bdkuilccjN5Qv8eu9n0AMS
-   5Oj2JvWFJnEBIsmi1Sx5cGPNWwk/fqUyHo3mBcSeCgjbBHGVTIoIMf87OH64Gc1QaT78+5M1TyG
-   lLQY1CrH7sD2m3Ytm5bw5xxBTQ2E8Itbh3RAi38I9+Epxink6r3F6qc6gC7Jtzv39a0ztZdSNem
-   B2IIxjimsLvHOZ5JHnp+lOmqIUXrrzeKlRerT3zEp7eHPuFOrkEigqe4kFdELaD8xHjnFOyRLSD
-   DKVX+IdT2O5R43hafO1C0f4N/9E+hXGsJQsvAjUYxfC1nsc+w+5QNHtUfh1whAOWF/QZzVbIOSA
-   CXcmwniJW/ibAg==;
-Message-Instance:  m=1;
- h=sha256:
-   OQIyvhKJ6zo4mqoH37bmHUpbHRbJhlYEnYxkoCMRMBg=:
-   SZ6/gs9Gmr6oxSfI1EOGFhxpNlXErdplg7z+xtp7f9k=,
-  sha512:
-   T4MUxTGz6oy3F4xeYsp92tQN2DPa7PgjpIcom5fxqYc27iI7yiLiYV4HDxjQ1wV60V5sp3k3Tov7zQ/VASjcaw==:
-   SWrj8WjrdwoYg6Tjjw5cLfySRQNCNkn0W1KWEEGHbYrgSMs4HKUEnZSm240fI0GZTGpx1fB8W1IhOmdN7jvH2g==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795209898; x=1795814698; i=w_armin@gmx.de;
-	bh=/JpHNIopQS3bT7Pb+e9AXJagd6f44ibcj9PBm0s68jQ=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=MxFBBD+Rj6BkSO2INaw834DpFuxDcLMfyxyC/s9iq1XdrMQ7OY47zy+WglYBGlRI
-	 Kzi/xr06K/+uJvFTaAeIDRe/yqB/bkyO9sNWUWPYjr6DEVksflVLLwK3zT2jLDij/
-	 czsUOHQKCjSj9YvwJKCINYBGdFx+w9MNcRjDdpdUjfF5gZ/l+g/AQGKFArmZQQTZd
-	 LY7qLJ9eHz8aIoPDhtmIL96MVk7UsPFC46ZCrZV5AWGGNgaZKa62q2hpdjX2eJaTp
-	 cCHxmrV3LBQjzQzv8wMoC0tK5VAI8j4xuKxg7qR3K3heRl9QSn395Elu+hnf/PYY3
-	 cP2wJS2l3TcDX86YKw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N5GE1-1yVODU2rLB-00xZcu; Fri, 20
- Nov 2026 22:24:57 +0100
-From: Armin Wolf <W_Armin@gmx.de>
-To: lee@kernel.org,
-	pavel@kernel.org
-Cc: linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	i@rong.moe
-Subject: [PATCH v3 11/11] leds: multicolor: Adjust maximum subled intensity during initialization
-Date: Fri, 20 Nov 2026 22:22:28 +0100
-Message-ID: <20261120212431.152081-12-W_Armin@gmx.de>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
-References: <20261120212431.152081-1-W_Armin@gmx.de>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=E/40exfq
+Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-9906870a9baso731276241.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:24:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795209893; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fIx3GMjuzflIcyj1kISNj2ZFVHwOI/B/F9oQgqY8nw8dLTw+K7+9RL/S0+tAsFnUkr
+         fxt8xJoaZVjhcJ6C0qQDl7MKAR2e8/q/o5uKePFfe1XiJl6LS6K7YXKHzZAB41Dy5sSO
+         SbG93lP/J7xaeEkj9Rw2yo5YuK+uS7A2kFpSWlvhq5zz+ER7z2EewCk9l+sSZh2NKiMr
+         2Jg77mzSGY/Rqebx6eFxO+QhrXnY5MLl2OtExU9HGyFz3U/WuG3SJprB49eW+e3xQbzv
+         GlSgbIM2bdeIp5xHW3Rz3cG+vu7DRkSnDDu/0+NrubWuv7soolsX0EDZTLjI2LMyX/vT
+         bupQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
+        fh=fvFcrCoVpSBW0Fpg2zjM3Ps11AJmcG/+g586zv5jBdc=;
+        b=LcMJK01+2oWwpXcp0KZD3f9Q8WjGRDUH21LPOIDfCeDHMViNNkycqkjj5zFjWH9oZt
+         HuJKtQ7jyd8RgU9xQvKnfrW3N75bmCacD8sa90r4lpWNQNgQpe/n+c2ILJaLij5LhK27
+         2YhPn4nAZ48R6P7BmnzVpfl+ENEjZr9Y+AONvqOlSfBV7pVAN9DslOtcJ9YmL0qY1jmK
+         0icRvMOwK++1A7zavRw0yyleG9V85p/URsbJy/pF2ATBRI+KNe8BN+NOrXTeODV65cI6
+         y8mnh8w0DH4E6TEZVQjgP/q97kI/I8nDl/GZWzV25k1PnBx7r2RKh47gfv+IpQkveiBk
+         SdGA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795209893; x=1795814693; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
+        b=E/40exfqtM+dThAPB+qlxLIEYF/AnZPRFWd69sTeq2lJPxrBNUTo4c7rAMf/88sbrN
+         2iTp5bZeyfHqIoUL3+dh091zwJqekWGZQfKRNS8APaO61TMZ8lWZn73rFe3cEprFMTuJ
+         ko5lkrBW2jQf1Ulqmq5ZyS99zm5berzXY/i6q9+2I1GBpvtlntnQdbIpKYlIa6E2PSAZ
+         6cjcXHoG4Bf3MLgnFTzl8HkWXW+c9Tt2PniOHS+qkE97/f/mBtMPIx1DClV/6F0Gy9Hr
+         aKd5TBXFk/UlY/cxPRKThJIX7IO8pOWeLrumn2vnZL+FwmttEEEVskWDD2FOfwEDDZXb
+         1nmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795209893; x=1795814693;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bITuzVEfmK2u8ql0xrA72ELRr2YY5Eit7w0sg9Y24hY=;
+        b=NY11zd3GNL/Mv3OSzCLaRMf2kg6I/QXFZjQLAjOFxio3DKxbWAmxrHJYPwaPNMO1XT
+         1PKF9C8YEI65HnxXdTgroApr8TBIIyLr74xDmtGsYOBQCT47k9TqUrXAWoJ7RK59Sdlw
+         9qqsttXnFa+md14LjZ+ubXvsLjA383OXzGOUrLPfeR6jUx1pWEUpsjKvi9l0ute5qZGO
+         cwj8/kTqPdgPg7zrLYknbXnKz1wmmQz/yNQvEElwQPwyXYwFjrqqeeHb5GEApoJfBlEI
+         e6T3+J5iSXJI4GuO/SySFlXpHqBGhOAe21PRvKa/4lp0bGqgPd8Xe4xJ0u8tfZGsk2HG
+         2tIg==
+X-Forwarded-Encrypted: i=1; AL+hErFiWLAKusm5BZKroWxI0+ybwAIx2bo/POvCLjrmG5S9eJXhcH1B8EF48OEnR8oxmuTWCChMbaEhllAschU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z88g4qeCmG3FqehMXT5QuIUMGL/pCBFRSJ7Ye38cy1DOQr5UFyj
+	qebizQFnJ2Q2xNkIxIjM6QILCTnmtNjWCsCDx5xjG2qQqkOr1ZxWra6XvSP2a4/7YNkyrCzC22q
+	/lYHVO0g4/k5vMvuo2VjNe2FajAj3JznN36VQSVpA
+X-Gm-Gg: AZFdTZeW3iLOGHAOjDxttnNheKFtVMrg2UszQtuH/EDttEpVXJKVAvkskrvcA2QGswq
+	Do2AueHk4/6+MGxpVA46L4M9X3apDbxRzUpmgIPcoVuJuzpCjRtgXHU9hPcoDdxjkrze3/zyhWz
+	R9lGMmhZ0vzoF/dsDeUDRWuvlxme+pMOKh1us9FXGHMG0DG+kXlHIskww4vIQMEeCBMYNYgTL2w
+	DU7UDid9Ipg0hIbyl1Cly73SNb5JydMadF8ilqc+37NrfOnudRYUhKiSQ6g+8kST1tRQIloPFdq
+	+a6BoKrlY99xEHQAkoQAlnzC6pc+SBJvPnJPV94H1ASl9KhiDAY8bIkB/zh5emWEBzfxIAMg7XT
+	GIUP9r2y9ktVbfvmtOznHoivbJbHcKSuKoYa3
+X-Received: by 2002:a05:6102:374c:b0:7d2:8dd6:e2c2 with SMTP id
+ ada2fe7eead31-7d73963c573mr2445359137.29.1795209892946; Fri, 20 Nov 2026
+ 13:24:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,202 +104,433 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <cover.1786230311.git.jpoimboe@kernel.org> <73024f3fce343bd6fba3d08fa366a61b4e2c0fa1.1786230311.git.jpoimboe@kernel.org>
+In-Reply-To: <73024f3fce343bd6fba3d08fa366a61b4e2c0fa1.1786230311.git.jpoimboe@kernel.org>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Fri, 20 Nov 2026 13:24:42 -0800
+X-Gm-Features: Aa3M54q00e7eFLXrWdso2Zy4lofaH4uwGilO3mLmdcGkjW-Fq6HTshHMHcZHXiQ
+Message-ID: <CADBMgpx9TZ6P5KVWc=emKbT5zfv6psB-woLW6dnwh2XcwPDg5g@mail.gmail.com>
+Subject: Re: [PATCH v4 20/22] objtool/klp: Introduce objtool for arm64
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Song Liu <song@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, Mark Rutland <mark.rutland@arm.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, Miroslav Benes <mbenes@suse.cz>, 
+	Petr Mladek <pmladek@suse.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:S/hP04TqM6cWC5sVo06LeaKrBNm8iAJYty0Y2OfUcr2gyaVsbTA
- WeSh3g8C7UtY22yqh3iAkFjpVxzhSag4JOmIqlHrerfbp6BrrthiD9QQ3pSS8UKNMNqoDRQ
- BN4Hq3TQ/TS5/3tkJVULH3AgZagKwE0EKC6pD98Z/lv7rFk0f5nOKRkHp8zKUiyU1Lj1IaS
- XUzCOgHNv4g+UN7iA9XZg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:5epJUBnvRds=;ehBZinYzE+xCY6NNYO9Nizyuw0f
- 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
- wx5+YJhSw==
 
-The maximum brightness of a LED device is fixed after having called
-led_classdev_init(), so performing the adjustment during runtime is
-no longer necessary.
+Hi Josh,
 
-Signed-off-by: Armin Wolf <W_Armin@gmx.de>
-=2D--
- drivers/leds/led-class-multicolor.c | 40 ++++++++++++-----------------
- 1 file changed, 16 insertions(+), 24 deletions(-)
+On Sat, Aug 8, 2026 at 4:21=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
+ wrote:
+>
+> Add basic support for arm64 on objtool.  Only "objtool klp" subcommands
+> are currently supported.
+>
+> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+> ---
+>  arch/arm64/Kconfig                            |   2 +
+>  tools/objtool/Makefile                        |   4 +
+>  tools/objtool/arch/arm64/Build                |   2 +
+>  tools/objtool/arch/arm64/decode.c             | 177 ++++++++++++++++++
+>  .../arch/arm64/include/arch/cfi_regs.h        |  11 ++
+>  tools/objtool/arch/arm64/include/arch/elf.h   |  15 ++
+>  .../objtool/arch/arm64/include/arch/special.h |  21 +++
+>  tools/objtool/arch/arm64/special.c            |  30 +++
+>  8 files changed, 262 insertions(+)
+>  create mode 100644 tools/objtool/arch/arm64/Build
+>  create mode 100644 tools/objtool/arch/arm64/decode.c
+>  create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
+>  create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
+>  create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
+>  create mode 100644 tools/objtool/arch/arm64/special.c
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 11e733b6a3cf3..06b30924509ac 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -209,9 +209,11 @@ config ARM64
+>         select HAVE_HW_BREAKPOINT if PERF_EVENTS
+>         select HAVE_IOREMAP_PROT
+>         select HAVE_IRQ_TIME_ACCOUNTING
+> +       select HAVE_KLP_BUILD
+>         select HAVE_LIVEPATCH
+>         select HAVE_MOD_ARCH_SPECIFIC
+>         select HAVE_NMI
+> +       select HAVE_OBJTOOL
+>         select HAVE_PERF_EVENTS
+>         select HAVE_PERF_EVENTS_NMI if ARM64_PSEUDO_NMI
+>         select HAVE_PERF_REGS
+> diff --git a/tools/objtool/Makefile b/tools/objtool/Makefile
+> index a4484fd22a96d..94aabeee97367 100644
+> --- a/tools/objtool/Makefile
+> +++ b/tools/objtool/Makefile
+> @@ -11,6 +11,10 @@ ifeq ($(SRCARCH),loongarch)
+>         BUILD_ORC          :=3D y
+>  endif
+>
+> +ifeq ($(SRCARCH),arm64)
+> +       ARCH_HAS_KLP :=3D y
+> +endif
+> +
+>  ifeq ($(ARCH_HAS_KLP),y)
+>         HAVE_XXHASH =3D $(shell printf "$(pound)include <xxhash.h>\nXXH3_=
+state_t *state;int main() {}" | \
+>                       $(HOSTCC) $(HOSTCFLAGS) -xc - -o /dev/null -lxxhash=
+ 2> /dev/null && echo y || echo n)
+> diff --git a/tools/objtool/arch/arm64/Build b/tools/objtool/arch/arm64/Bu=
+ild
+> new file mode 100644
+> index 0000000000000..d24d5636a5b84
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/Build
+> @@ -0,0 +1,2 @@
+> +objtool-y +=3D decode.o
+> +objtool-y +=3D special.o
+> diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64=
+/decode.c
+> new file mode 100644
+> index 0000000000000..47658c76e1af0
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/decode.c
+> @@ -0,0 +1,177 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +
+> +#include <stdio.h>
+> +#include <stdlib.h>
+> +#include <objtool/check.h>
+> +#include <objtool/disas.h>
+> +#include <objtool/elf.h>
+> +#include <objtool/arch.h>
+> +#include <objtool/warn.h>
+> +#include <objtool/builtin.h>
+> +
+> +const char *arch_reg_name[CFI_NUM_REGS] =3D {};
+> +
+> +int arch_ftrace_match(const char *name)
+> +{
+> +       return 0;
+> +}
+> +
+> +s64 arch_insn_adjusted_addend(struct instruction *insn, struct reloc *re=
+loc)
+> +{
+> +       return reloc_addend(reloc);
+> +}
+> +
+> +bool arch_callee_saved_reg(unsigned char reg)
+> +{
+> +       return false;
+> +}
+> +
+> +int arch_decode_hint_reg(u8 sp_reg, int *base)
+> +{
+> +       exit(-1);
+> +}
+> +
+> +const char *arch_nop_insn(int len)
+> +{
+> +       exit(-1);
+> +}
+> +
+> +const char *arch_ret_insn(int len)
+> +{
+> +       exit(-1);
+> +}
+> +
+> +int arch_decode_instruction(struct objtool_file *file, const struct sect=
+ion *sec,
+> +                           unsigned long offset, unsigned int maxlen,
+> +                           struct instruction *insn)
+> +{
+> +       u32 ins;
+> +
+> +       if (maxlen < 4) {
+> +               ERROR_INSN(insn, "can't decode instruction");
+> +               return -1;
+> +       }
+> +
+> +       /* arm64 instructions are always LE, thus no bswap_if_needed() */
+> +       ins =3D le32toh(*(u32 *)(sec->data->d_buf + offset));
+> +
+> +       /*
+> +        * These are the bare minimum needed for static branch detection =
+and
+> +        * checksum calculations.
+> +        */
+> +       if (ins =3D=3D 0xd503201f) {
+> +               /* NOP: static branch */
+> +               insn->type =3D INSN_NOP;
+> +       } else if ((ins & 0xfc000000) =3D=3D 0x14000000) {
+> +               /* B: static branch, intra-TU sibling call */
+> +               insn->type =3D INSN_JUMP_UNCONDITIONAL;
+> +               insn->immediate =3D sign_extend64(ins & 0x03ffffff, 25);
+> +       } else if ((ins & 0xfc000000) =3D=3D 0x94000000) {
+> +               /* BL: intra-TU call */
+> +               insn->type =3D INSN_CALL;
+> +               insn->immediate =3D sign_extend64(ins & 0x03ffffff, 25);
+> +       } else if ((ins & 0xff000000) =3D=3D 0x54000000) {
+> +               /* B.cond: intra-TU sibling call */
+> +               insn->type =3D INSN_JUMP_CONDITIONAL;
+> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x7ffff, 1=
+8);
+> +       } else if ((ins & 0x7e000000) =3D=3D 0x34000000) {
+> +               /* CBZ/CBNZ: intra-TU sibling call */
+> +               insn->type =3D INSN_JUMP_CONDITIONAL;
+> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x7ffff, 1=
+8);
+> +       } else if ((ins & 0x7e000000) =3D=3D 0x36000000) {
+> +               /* TBZ/TBNZ: intra-TU sibling call */
+> +               insn->type =3D INSN_JUMP_CONDITIONAL;
+> +               insn->immediate =3D sign_extend64((ins >> 5) & 0x3fff, 13=
+);
+> +       } else {
+> +               insn->type =3D INSN_OTHER;
+> +       }
+> +
+> +       insn->len =3D 4;
+> +       return 0;
+> +}
+> +
+> +size_t arch_jump_opcode_bytes(struct objtool_file *file, struct instruct=
+ion *insn,
+> +                             unsigned char *buf)
+> +{
+> +       u32 ins;
+> +
+> +       ins =3D le32toh(*(u32 *)(insn->sec->data->d_buf + insn->offset));
+> +
+> +       switch (insn->type) {
+> +       case INSN_JUMP_UNCONDITIONAL:
+> +       case INSN_CALL:
+> +               ins &=3D ~0x03ffffff;
+> +               break;
+> +       case INSN_JUMP_CONDITIONAL:
+> +               if ((ins & 0xff000000) =3D=3D 0x54000000)
+> +                       ins &=3D ~0x00ffffe0;                /* B.cond */
+> +               else if ((ins & 0x7e000000) =3D=3D 0x34000000)
+> +                       ins &=3D ~0x00ffffe0;                /* CBZ/CBNZ =
+*/
+> +               else
+> +                       ins &=3D ~0x0007ffe0;                /* TBZ/TBNZ =
+*/
+> +               break;
+> +       default:
+> +               break;
+> +       }
+> +
+> +       ins =3D htole32(ins);
+> +       memcpy(buf, &ins, 4);
+> +       return 4;
+> +}
+> +
+> +u64 arch_adjusted_addend(struct reloc *reloc)
+> +{
+> +       return reloc_addend(reloc);
+> +}
+> +
+> +unsigned long arch_jump_destination(struct instruction *insn)
+> +{
+> +       return insn->offset + (insn->immediate << 2);
+> +}
+> +
+> +bool arch_pc_relative_reloc(struct reloc *reloc)
+> +{
+> +       switch (reloc_type(reloc)) {
+> +       case R_AARCH64_PREL64:
+> +       case R_AARCH64_PREL32:
+> +       case R_AARCH64_PREL16:
+> +       case R_AARCH64_LD_PREL_LO19:
+> +       case R_AARCH64_ADR_PREL_LO21:
+> +       case R_AARCH64_ADR_PREL_PG_HI21:
+> +       case R_AARCH64_ADR_PREL_PG_HI21_NC:
+> +       case R_AARCH64_JUMP26:
+> +       case R_AARCH64_CALL26:
+> +       case R_AARCH64_CONDBR19:
+> +       case R_AARCH64_TSTBR14:
+> +               return true;
+> +       default:
+> +               return false;
+> +       }
+> +}
+> +
+> +void arch_initial_func_cfi_state(struct cfi_init_state *state)
+> +{
+> +       state->cfa.base =3D CFI_UNDEFINED;
+> +}
+> +
+> +unsigned int arch_reloc_size(struct reloc *reloc)
+> +{
+> +       switch (reloc_type(reloc)) {
+> +       case R_AARCH64_ABS64:
+> +       case R_AARCH64_PREL64:
+> +               return 8;
+> +       case R_AARCH64_PREL16:
+> +               return 2;
+> +       default:
+> +               return 4;
+> +       }
+> +}
+> +
+> +#ifdef DISAS
+> +int arch_disas_info_init(struct disassemble_info *dinfo)
+> +{
+> +       return disas_info_init(dinfo, bfd_arch_aarch64,
+> +                              bfd_mach_arm_unknown, bfd_mach_aarch64,
+> +                              NULL);
+> +}
+> +#endif /* DISAS */
+> diff --git a/tools/objtool/arch/arm64/include/arch/cfi_regs.h b/tools/obj=
+tool/arch/arm64/include/arch/cfi_regs.h
+> new file mode 100644
+> index 0000000000000..49c81cbb6646d
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/include/arch/cfi_regs.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +#ifndef _OBJTOOL_ARCH_CFI_REGS_H
+> +#define _OBJTOOL_ARCH_CFI_REGS_H
+> +
+> +/* These aren't actually used for arm64 */
+> +#define CFI_BP 0
+> +#define CFI_SP 0
+> +#define CFI_RA 0
+> +#define CFI_NUM_REGS 2
+> +
+> +#endif /* _OBJTOOL_ARCH_CFI_REGS_H */
+> diff --git a/tools/objtool/arch/arm64/include/arch/elf.h b/tools/objtool/=
+arch/arm64/include/arch/elf.h
+> new file mode 100644
+> index 0000000000000..418b90885c501
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/include/arch/elf.h
+> @@ -0,0 +1,15 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +#ifndef _OBJTOOL_ARCH_ELF_H
+> +#define _OBJTOOL_ARCH_ELF_H
+> +
+> +#define R_NONE         R_AARCH64_NONE
+> +#define R_ABS64                R_AARCH64_ABS64
+> +#define R_ABS32                R_AARCH64_ABS32
+> +#define R_DATA32       R_AARCH64_PREL32
+> +#define R_DATA64       R_AARCH64_PREL64
+> +#define R_TEXT32       R_AARCH64_PREL32
+> +#define R_TEXT64       R_AARCH64_PREL64
+> +
+> +#define ARCH_HAS_INLINE_ALTS 1
+> +
+> +#endif /* _OBJTOOL_ARCH_ELF_H */
+> diff --git a/tools/objtool/arch/arm64/include/arch/special.h b/tools/objt=
+ool/arch/arm64/include/arch/special.h
+> new file mode 100644
+> index 0000000000000..8ae804a83ea49
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/include/arch/special.h
+> @@ -0,0 +1,21 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +#ifndef _OBJTOOL_ARCH_SPECIAL_H
+> +#define _OBJTOOL_ARCH_SPECIAL_H
+> +
+> +#define EX_ENTRY_SIZE 12
+> +#define EX_ORIG_OFFSET 0
+> +#define EX_NEW_OFFSET 4
+> +
+> +#define JUMP_ENTRY_SIZE 16
+> +#define JUMP_ORIG_OFFSET 0
+> +#define JUMP_NEW_OFFSET 4
+> +#define JUMP_KEY_OFFSET 8
+> +
+> +#define ALT_ENTRY_SIZE 12
+> +#define ALT_ORIG_OFFSET 0
+> +#define ALT_NEW_OFFSET 4
+> +#define ALT_FEATURE_OFFSET 8
+> +#define ALT_ORIG_LEN_OFFSET 10
+> +#define ALT_NEW_LEN_OFFSET 11
+> +
+> +#endif /* _OBJTOOL_ARCH_SPECIAL_H */
+> diff --git a/tools/objtool/arch/arm64/special.c b/tools/objtool/arch/arm6=
+4/special.c
+> new file mode 100644
+> index 0000000000000..5a6424a59e1c5
+> --- /dev/null
+> +++ b/tools/objtool/arch/arm64/special.c
+> @@ -0,0 +1,30 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +#include <objtool/special.h>
+> +
+> +/*
+> + * On arm64 a zero-length replacement means the alternative has a callba=
+ck,
+> + * whose address is stored in the replacement offset.  It must be preser=
+ved.
+> + */
+> +bool arch_alt_ignore_new_reloc(struct section *sec, unsigned long offset=
+)
+> +{
+> +       return false;
+> +}
+> +
+> +bool arch_support_alt_relocation(struct special_alt *special_alt,
+> +                                struct instruction *insn,
+> +                                struct reloc *reloc)
+> +{
+> +       return true;
+> +}
+> +
+> +struct reloc *arch_find_switch_table(struct objtool_file *file,
+> +                                    struct instruction *insn,
+> +                                    unsigned long *table_size)
+> +{
+> +       return NULL;
+> +}
+> +
+> +const char *arch_cpu_feature_name(int feature_number)
+> +{
+> +       return NULL;
+> +}
+> --
+> 2.54.0
+>
+>
 
-diff --git a/drivers/leds/led-class-multicolor.c b/drivers/leds/led-class-=
-multicolor.c
-index 0656ca2361b3..09c52bc1a55a 100644
-=2D-- a/drivers/leds/led-class-multicolor.c
-+++ b/drivers/leds/led-class-multicolor.c
-@@ -14,24 +14,6 @@
- #include <linux/uaccess.h>
- #include "leds.h"
-=20
--static unsigned int led_mc_get_max_intensity(struct led_classdev_mc *mcle=
-d_cdev, size_t index)
--{
--	unsigned int max_intensity;
--
--	/*
--	 * The maximum global brightness value might still be changed by
--	 * led_classdev_register_ext() using devicetree properties. This
--	 * prevents us from changing subled_info[X].max_intensity when
--	 * registering a multicolor LED class device, so we have to do
--	 * this during runtime.
--	 */
--	max_intensity =3D mcled_cdev->subled_info[index].max_intensity;
--	if (max_intensity)
--		return max_intensity;
--
--	return mcled_cdev->led_cdev.max_brightness;
--}
--
- int led_mc_calc_color_components(struct led_classdev_mc *mcled_cdev,
- 				 enum led_brightness brightness)
- {
-@@ -53,12 +35,10 @@ static ssize_t multi_max_intensity_show(struct device =
-*dev,
- {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
- 	struct led_classdev_mc *mcled_cdev =3D lcdev_to_mccdev(led_cdev);
--	unsigned int max_intensity;
- 	int len =3D 0;
-=20
--	for (int i =3D 0; i < mcled_cdev->num_colors; i++) {
--		max_intensity =3D led_mc_get_max_intensity(mcled_cdev, i);
--		len +=3D sysfs_emit_at(buf, len, "%u", max_intensity);
-+	for (unsigned int i =3D 0; i < mcled_cdev->num_colors; i++) {
-+		len +=3D sysfs_emit_at(buf, len, "%u", mcled_cdev->subled_info[i].max_i=
-ntensity);
- 		if (i < mcled_cdev->num_colors - 1)
- 			len +=3D sprintf(buf + len, " ");
- 	}
-@@ -98,8 +78,8 @@ static ssize_t multi_intensity_store(struct device *dev,
- 		goto err_out;
- 	}
-=20
--	for (int i =3D 0; i < mcled_cdev->num_colors; i++) {
--		max_intensity =3D led_mc_get_max_intensity(mcled_cdev, i);
-+	for (unsigned int i =3D 0; i < mcled_cdev->num_colors; i++) {
-+		max_intensity =3D mcled_cdev->subled_info[i].max_intensity;
- 		mcled_cdev->subled_info[i].intensity =3D min(intensity_value[i], max_in=
-tensity);
- 	}
-=20
-@@ -187,6 +167,18 @@ int led_classdev_multicolor_register_ext(struct devic=
-e *parent,
- 	if (ret < 0)
- 		return ret;
-=20
-+	/*
-+	 * The maximum global brightness value might have been changed by
-+	 * led_classdev_init() using devicetree properties. Because of this
-+	 * we can only adjust subled_info[X].max_intensity after said function
-+	 * was called.
-+	 */
-+	for (unsigned int i =3D 0; i < mcled_cdev->num_colors; i++)
-+	{
-+		if (!mcled_cdev->subled_info[i].max_intensity)
-+			mcled_cdev->subled_info[i].max_intensity =3D led_cdev->max_brightness;
-+	}
-+
- 	led_cdev->dev->type =3D &led_multicolor_device_type;
-=20
- 	return led_classdev_add(led_cdev, init_data);
-=2D-=20
-2.56.1
+Flagging an issue I'm seeing, in case you haven't encountered it yet:
+applying this patch to v7.4-rc3 (with the new objtool klp unit tests)
+I'm getting a failure building with LLVM:
 
+$ make -C tools/objtool ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu- LLV=
+M=3D1 tests
+make: Entering directory
+'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
+make[1]: Entering directory
+'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/lib/subcmd'
+make[1]: Leaving directory
+'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/lib/subcmd'
+make[1]: Entering directory
+'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
+make[1]: Leaving directory
+'/usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tools/objtool'
+TAP version 13
+# preflight
+#   objtool   /usr/local/google/home/dylanbhatch/worktrees/arm64-clang/tool=
+s/objtool/objtool
+(klp: yes)
+#   compiler  Debian clang version 21.1.8 (3)
+#   arch      arm64  (host x86, cross)
+#   tmpdir    /tmp  (each test builds in a fresh directory here)
+# not run: 6 tests in x86/ (this run is arm64)
+1..46
+                                                            not ok -
+test-abs-and-addressable: abs_and_addressable.c does not build: 1
+error generated.
+...
+
+I haven't been able to dig into it too closely, but my AI tool is
+suggesting adding -mcmodel=3Dlarge for llvm, or putting '.set abs_sym,
+0x1234' in a separate object and using partial_link.
+
+Thanks,
+Dyaln
