@@ -1,81 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168202;
-	b=Ho5AoF10KaAaRKt8ZVirxuw5s3vVSztYZTcr/eVEE1OcP32p+bPZS4/XZ3xmtWoD5o/q
-	 ailvtQaZppB8SLCnIXLLCwoOkzwbXZwRgjhHHWrSv4aLxYbo9zCwLwurZMZBhqj2ZcJu1
-	 Qxrfnm3V1vox/mYIH6ysCZsi0SICbFqce9N2LzdKS7Tq2ruzj7KJOaT1YqNQsrXhykFwL
-	 1ukctREoPC9mhCscubWJAN2UIUujlReGN5t15bJKFba+M8WglQVpU2KtMsSmjs4rAfwrF
-	 m9Ajt9ZA0+zH5qtgWu1UdlVlr6RrQQDLGWmINhKgEJBireDvKCUxGSDfjJ0TfS39BCw==
+	t=1795168219;
+	b=IjYrVfUTMzRu5aYA5R5R9wrCx/6jfGOeGrwiyWEwMU9XOqJlI8JAas3k2Q9NE4f7bNXG
+	 kLMkZMOXogGLKkKfaDqdkXdgm+lWhBrJ2n2Ocqbv6ARzwSyPtyhJ9ztiIIDQSrRv6iKRv
+	 tUS+HBxnz1w63IFKuUa/vTRwZBu7V9STn8Fb2b1OD5Gk6iW9bh3cCL+RgHuKIefEssmtU
+	 FSKIO5JDJLuKjisIPNOyelajqHg95qKXMIuBzEGCy0fmVlxYvbc5HEfNJgHccDaYu3EN0
+	 EvoEjJ+yVWeRgqz2J6B1GgLG0ZriVML6RLYDp8jtHxE3FRdVziIMEb4OW6LoC9vhb5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168202;
-	h=DMARC-Filter:X-UUID:X-CTIC-Tags:X-CID-P-RULE:X-CID-O-INFO:X-CID-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=lh33mMZKlVO2Az+vYHEZ3Fz3R7ZSYhBcAIVt8l6o+9Y=;
-	b=EVQk0Cx//AvZ/twIDzYu9HlRmA1ra2KLdlSUanUJVOCzpHs9FDw6SuToJ7lCh/vlKnZg
-	 EOZfSZxD9PJhfW4wIoZIBPUBuENXmX8xzQolNNn8J5dSFZR+nPp9k9F9SyzKDonc0zex9
-	 cThMeb03n0ZFZMhW27Tt2akD+aObO0G1gneaNt/5twIa2d7yEHQqf0LVbSiuRK1O0qzwg
-	 y7SzKkAsvNFdZ0/tWLHm9yzoiM0qpmWjmBSi3sJ65X5RFaXmtupMCieeZ15eQl92vf7al
-	 hYYgTuJu3f5JWy358E3/wUmN91ePLW/9rhdyukVp5KYWoOi6H3fKw8hUC9AN8LiX0ZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168219;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=F8y3ngxftG0ENPhoLrdIy/L2Ib00nYENk3A0Xinf4Y8=;
+	b=Gxqcc+zTxTZ4FjOlsDFQhlCQxdIR+eee182H2F8T2i8woLh8ZkTQWjCYTS1RnQlIQWSl
+	 MtB8iY6YmtJerrw10Ju3AhxhGjiGDTGB1W+EvYcQymWX3Vqu/ngwZ8tWCjqjWTalK/1nT
+	 in3R0WHqdkVgIc8+7ia8IcIi8I4bxsPY5KvI9QZn91L9PvxqxX2SNUmzjXdI8K6M7LEK4
+	 ufq9k8c/4m2QTzuaj0XApwY1hOgUCkvJGZS6TIdZIpzEMsKUFHuIEcof4yAAFzG7+H1Ix
+	 pGhv+sKGP8H5rgDc9asXhYpS9i1dLkMVjbEJohDHooq3ESNjMMlNbImYrdsUMguKk4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b="SXQ/CEAk";
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 912BC606A326;
-	Fri, 20 Nov 2026 09:50:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 912BC606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: bc112cfce4c711f19a56ed5b684f684d-20261120
-X-CTIC-Tags:
-	HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CC_NO_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_NAME
-	HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER, HR_SJ_NOR_SYM
-	HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT, HR_TO_DOMAIN_COUNT
-	HR_TO_NAME, HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED, SA_TRUSTED
-	SA_EXISTED, SN_TRUSTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
-	DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS
-	GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:c5ab480e-477b-4bc3-8d62-adcb90228800,IP:10,
-	URL:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:35
-X-CID-INFO: VERSION:1.3.19,REQID:c5ab480e-477b-4bc3-8d62-adcb90228800,IP:10,UR
-	L:0,TC:0,Content:0,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:35
-X-CID-META: VersionHash:7db8b62,CLOUDID:925ad11916f6df59c4ffbacb147413ae,BulkI
-	D:261120174956KPP190RS,BulkQuantity:0,SF:10|38|66|78|102|127|153|865|898,T
-	C:nil,Content:0|15|50|99,EDM:5,IP:-2,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil
-	,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: bc112cfce4c711f19a56ed5b684f684d-20261120
-X-User: sunshaojie@kylinos.cn
-Received: from sunshaojie-pc [(114.244.3.119)] by mailgw.kylinos.cn
-	(envelope-from <sunshaojie@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 777979842; Fri, 20 Nov 2026 17:49:53 +0800
-From: Shaojie Sun <sunshaojie@kylinos.cn>
-To: Tejun Heo <tj@kernel.org>,
-	sched-ext@lists.linux.dev,
-	Andrea Righi <arighi@nvidia.com>,
-	David Vernet <void@manifault.com>,
-	Changwoo Min <changwoo@igalia.com>
-Cc: Emil Tsalapatis <emil@etsalapatis.com>,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	Shaojie Sun <sunshaojie@kylinos.cn>
-Subject: [PATCH v2] tools/sched_ext: Add "arena" BTF type tag to the __arena qualifier
-Date: Fri, 20 Nov 2026 17:49:34 +0800
-Message-ID: <20261120094934.979574-1-sunshaojie@kylinos.cn>
-X-Mailer: git-send-email 2.50.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41D0B606A325;
+	Fri, 20 Nov 2026 09:50:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41D0B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=SXQ/CEAk
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=F8y3ngxftG0ENPhoLrdIy/L2Ib00nYENk3A0Xinf4Y8=; 
+	b=SXQ/CEAkEl4P6uDfTOq0HyKwpyL6AD4/eU5WMfxxtOWIvNdlkDTETKXyvFUADi2/hbAbOVQ6fzW
+	9W8jUDDDZ5PPfNRTmCGsvk3+Dkj4Z5eB1s9MVrDcIdQPaMj8ajBVomlee2zujyxQ9FDAKB62y2qHK
+	Bhe35QFgOXPigP6wDgCz/8TwOyrQv+34h+PgoW+5yPkmNyDIW1zG6IFbUKQaBEt/0oy9zm+5z14ou
+	wWQskJeK+WvItIUql5WR6YO2Sids11jh1G4Z3UBgOnSoEwgrZsJ56pFz80YFPLEWVcuej/A2Lv9R7
+	iPHYLJrEbOLRAW0QtpsdIWoXCt/9e9SxZtOw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xULG0-0000000HYYw-1Bsn;
+	Fri, 20 Nov 2026 17:50:13 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:50:12 +0800
+Date: Fri, 20 Nov 2026 17:50:12 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: aiyengar1990@gmail.com
+Cc: Corentin Labbe <clabbe.montjoie@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] crypto: sun8i-ce - Add AES-XTS for the H616
+Message-ID: <awAX1GM9UHkGkgPk@gondor.apana.org.au>
+References: <20261110-sun8i-ce-h616-xts-v2-1-0b99efabc1d8@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,63 +69,92 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261110-sun8i-ce-h616-xts-v2-1-0b99efabc1d8@gmail.com>
 
-tools/testing/selftests/bpf/libarena marks __arena types with
-btf_type_tag("arena") so that whether a type belongs to an arena can be
-determined from BTF alone:
+On Tue, Nov 10, 2026 at 06:25:05AM +0000, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> The H616 crypto engine has a separate RAES unit (algorithm type 0x30)
+> that does AES-ECB, AES-CBC and AES-XTS. Its XTS mode (symmetric mode
+> 0b1001) takes the two keys back to back at the key address, the tweak
+> at the IV address, and an xts_first/xts_last pair of flags that mark the
+> first and the last block of a data unit. The key size field gives the
+> size of one of the two keys: 128 or 256 bits, there is no 192-bit XTS.
+> 
+> Register xts(aes) for the H616: each request is one data unit, so both
+> flags are set and the request IV is the tweak of its first block. XTS
+> returns no IV, so the CBC write-back of the last block is skipped.
+> Ciphertext stealing (lengths that are not a multiple of the block size)
+> and two 192-bit keys go to the fallback, as do the requests that the
+> existing checks already send there.
+> 
+> The engine is much slower at XTS than the CPU's ARMv8 AES instructions:
+> 4 times slower for 64 KiB requests (213 against 861 MB/s), 8 times for
+> 4 KiB and 17 times for 512 bytes. Register it below every CPU
+> implementation of xts(aes) (priority 90), so that the CPU stays the
+> default, for dm-crypt too, and the engine is only used when it is
+> asked for by driver name.
+> 
+> The other variants get CE_ID_NOTSUPP for the new mode, so nothing
+> changes for them.
+> 
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+> The H616 crypto engine can do AES-XTS in its separate RAES unit. This
+> patch registers xts(aes) for the H616, below the CPU implementations
+> because the engine is slower than the ARMv8 Crypto Extensions; it stays
+> available by driver name (xts-aes-sun8i-ce) for users who want to
+> offload the CPU.
+> 
+> Testing on an Orange Pi Zero2 (H616), v7.3-based kernel with this
+> patch (sun8i-ce is unchanged between v7.3 and cryptodev-2.6):
+> - the boot-time self-test of xts-aes-sun8i-ce passes, and the testmgr
+>   vectors run on the engine (debugfs request counters);
+> - 21 known-answer vectors (IEEE 1619 and generated, including
+>   ciphertext stealing lengths, which go to the fallback) pass, and 3000
+>   random requests (10% with misaligned buffers) give the same result as
+>   xts-aes-ce;
+> - dm-crypt with capi:xts-aes-sun8i-ce-plain64, 512 and 4096-byte
+>   sectors: 48 MiB written and read back with matching sha256, and the
+>   raw sectors decrypt with xts-aes-ce; with this priority, xts(aes)
+>   and plain aes-xts-plain64 resolve to the CPU's xts-aes-ce;
+> - the existing ECB/CBC ciphers, hashes and the TRNG still match their
+>   software implementations.
+> Throughput, engine against xts-aes-ce: 20/352 MB/s for 512-byte
+> requests, 98/759 MB/s for 4 KiB, 213/861 MB/s for 64 KiB.
+> 
+> This patch was developed with Claude (Anthropic) as a
+> coding assistant: it investigated the problem, wrote the code and
+> the commit messages. I reviewed it, and it was tested on an
+> Orange Pi Zero2 (H616) as described above.
+> ---
+> Changes in v2:
+> - Select CRYPTO_XTS: the xts(aes) transform allocates an xts(aes)
+>   fallback in sun8i_ce_cipher_init(), which fails without it (found by
+>   the Sashiko AI review).
+> - Link to v1: https://patch.msgid.link/20261110-sun8i-ce-h616-xts-v1-1-2fff3eb0807a@gmail.com
+> 
+> To: Corentin Labbe <clabbe.montjoie@gmail.com>
+> To: Herbert Xu <herbert@gondor.apana.org.au>
+> To: "David S. Miller" <davem@davemloft.net>
+> To: Chen-Yu Tsai <wens@kernel.org>
+> To: Jernej Skrabec <jernej.skrabec@gmail.com>
+> To: Samuel Holland <samuel@sholland.org>
+> Cc: linux-crypto@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-sunxi@lists.linux.dev
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  drivers/crypto/allwinner/Kconfig                   |   1 +
+>  .../crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c    | 102 +++++++++++++++++----
+>  drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c  |  44 +++++++--
+>  drivers/crypto/allwinner/sun8i-ce/sun8i-ce.h       |  21 ++++-
+>  4 files changed, 142 insertions(+), 26 deletions(-)
 
-  commit a0fa68d8ce75 ("selftests/bpf: libarena: Add "arena" BTF type
-  tag to __arena qualifier")
-
-tools/sched_ext defines the same __arena qualifier but without the
-"arena" BTF type tag.  Add the tag so that both describe arena types the
-same way.  Add it to the fallback definition too so that older LLVM
-versions and BPF_ARENA_FORCE_ASM builds record the tag as well.
-
-checkpatch reports a false positive on the new definition:
-
-  ERROR: Macros with complex values should be enclosed in parentheses
-
-The macro value is a sequence of declaration attributes, not an
-expression, so it can neither be parenthesized nor wrapped in a
-do-while loop.  The selftests copy of the qualifier has the very same
-definition and triggers the same warning.
-
-Reviewed-by: Andrea Righi <arighi@nvidia.com>
-Signed-off-by: Shaojie Sun <sunshaojie@kylinos.cn>
----
-
-Changes in v2:
-- Add the tag to the fallback definition of __arena as well, so that
-  older LLVM versions and BPF_ARENA_FORCE_ASM builds record it too
-  (Andrea Righi).
-
- tools/sched_ext/include/scx/bpf_arena_common.bpf.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-index 2043d66940ea..9f6373218106 100644
---- a/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-+++ b/tools/sched_ext/include/scx/bpf_arena_common.bpf.h
-@@ -16,7 +16,7 @@
- 
- #if defined(__BPF_FEATURE_ADDR_SPACE_CAST) && !defined(BPF_ARENA_FORCE_ASM)
- #ifndef __arena
--#define __arena __attribute__((address_space(1)))
-+#define __arena __attribute__((address_space(1))) __attribute__((btf_type_tag("arena")))
- #endif
- #define __arena_global __attribute__((address_space(1)))
- #define cast_kern(ptr) /* nop for bpf prog. emitted by LLVM */
-@@ -74,7 +74,7 @@
- 		     , [as]"i"((dst_as << 16) | src_as));
- #endif
- 
--#define __arena
-+#define __arena __attribute__((btf_type_tag("arena")))
- #define __arena_global SEC(".addr_space.1")
- #define cast_kern(ptr) bpf_addr_space_cast(ptr, 0, 1)
- #define cast_user(ptr) bpf_addr_space_cast(ptr, 1, 0)
+Patch applied.  Thanks.
 -- 
-2.50.1
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
