@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795218866;
-	b=PEqRGKzFpppQT5/hNDI7X8h0CngNJLgnJl4WSBPJaU2V/Hw6JD51HmHU1od4ib9WQ2/f
-	 Y1JzBBIpoeVKgnmvQ113UvJZ0+5DGM4wJK+vtEE/GaBjI73TFzF5dqWSgkQef7eEpgNCK
-	 KxWq9vlrkldRKE/asRJBvtrmjUFwykdn0EUMPu+VYrDGFB/rgT7vwSBNE50X4MmyIPvv7
-	 nBIKLTQ9RuzkHracUyQ7Z/vPZ2PK2Yhd39ipA4XaXlcpqOG/Y7ZuSSt/lTwwXHamX+9Bp
-	 rT7iu/JWwRbxNU+TAC3kQBwwr1tkRym2pkUjUpMzSMN3so1IsOC///v7rI7tib5Oc0g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795218866;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795218918;
+	b=iYD3hpDzWn0czmaTQXbOW2v59kDqhBnf1YjOL8rKxCbIy2cTZTa2yMBu8giQo/DR4iSP
+	 tg9MwWLe+awnundlDYOdnncOkG01jEGe7lCzp1A52IgTNot7ArhvPEr7NUnUYJ5ZmRgCd
+	 8JCEfUDhvIwECdzx/blnSVf83Ln7p9lTGOkpSsTosJWf42JB+vWILgX1HyJv3p8VKE0nO
+	 xiZ2wgDw50FyUwMddRzD/3JL3V81Xppl8dPz/Ff3EYMSlKItTjxjHKUDBw6RY9hOU9AWZ
+	 KO32Vj3L6dGUSJyC4x0UTcnArg236vHdsXbxMyJCMTlZThFkpS0VyvHTOt6W1CFOg+g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795218918;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
-	b=NiEPSEvzngcdMdjh7fR9MwT0m+4HF3imXKjCoTfV5Aqu4kycSJz/b4Gbefh4fvoOawte
-	 aPrGq7lbbj1LFs62bKcDk2ADn9XsIQ5FawQg6BZ/rIUwd0J3yFcwPqWgqOmJeGc3S0t+I
-	 71DfQ3+2579maXxTqYI4gpHC8cEHVx8HwOhaWfWm4U2dihIP4N8vKsaeX6evdvo9FfZS0
-	 a4B2xyioM4rQ1qd2/CJGhG9fL0lXugFZHPoSOudUUu9I1qBmEthyf73uqNP7NS6HVv9u5
-	 0X1e+GvqBal4mKyjVfgZi9Wmr/QmVV8NyrzKb6t+KBNdhtQVjTwt7IhKer607bVaZJg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YsHal6o5nRWNnSKiS+O4IM67tsy/StPXyCl5eMW8G3Q=;
+	b=qUffM2K2KrWVQPtT1UKVurGQYlI0mthtrDF+8h8lzEMuC+k8kTgx3q4PmtG8+1cGuhOV
+	 Q1daZyp1T7BTVy5tyMGJNsfBorOMTkOl3Q6QNj8FsAPZzFOtSF5m5C+ArMldrHW5nOSRO
+	 zQv5Pp37CO1PKtnMm+Kl9EytALGFc776YI3O2Pm01yi5o5k9tG3swwYuSs7smXyojS5Ab
+	 PIYoFUT/bvwPgoKr6eMhNj5kIhrtZQceoMYe9gpAC8Lfi9evhoUTa6ci+xHipBqO29OBH
+	 CPMcOAUgf9sn6X6C892SV5EGjz9fU95bCoSEf2IxvDjueL7NhnUdKUi5gELeUREnzPQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dwjz0sQ1;
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Csm9Tg3j;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E219E606A6BC
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:54:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E219E606A6BC
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 142E060A2603
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:55:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 142E060A2603
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Dwjz0sQ1
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a2153c8525so11589935e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:54:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Csm9Tg3j
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-491971ac844so1275487f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:55:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795218915; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CjTm0ONqeiiNXLUyPEOnta23f6MMC2ujccsG+OsyJ00uZzqpIBWZ+Z9aLctSbkuKaF
+         ShjNALS7SoPju9sp/O8el9WKCu9iAUBDlRjeYS88b91Iat1w3JxnnB/iAtag5MToUyA5
+         RWdZrZDvTb8pB2bbcvCEVSjq5iRO9WQt/DMENTbaDfcpywlsLm0P1lVoAIzMpg+ciyJc
+         lmmXi/ctgnYGozMb6J7/zS709aCkLdvg0N6tPX1sPT9bWcC+doMSvjbwsDAIhOV+nNyo
+         e1UU9YHtvv8z/NgFE10NLBY1ZBi78c2/XdixQDh+Zsa6Xao7Zwu+sbCKgBYix/rCaCU3
+         J8hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YsHal6o5nRWNnSKiS+O4IM67tsy/StPXyCl5eMW8G3Q=;
+        fh=7c2Pg4VOyfZQnb1pFpOskwN2QDQmGpUTYEYUIfTnVvM=;
+        b=iies9flK2aDaYhTpHBY64F+HyJMxNHMWe+idFPiKEkmReoNTAP+pPnOvR8D/ZUoGb7
+         +E/dvIlkygSZut4inZbfipUPHmCI6+5uxixOj1jencNyXoAWK2Xr1uJwoOhyVSUqPRTq
+         Zd+LnGRHRm7JThbHO/7mp+cD8u+tpWK/7b7fvFWA/e2gnRnOT9K1dE+8jxnxDSznoK8q
+         gBsBjjVob0cqaHctA+hemetLNkCu/HD+NhAd8BGHywlPA86hsCYZcWqm0ki3cQnQKJHM
+         aCec3ED+JF03uravpxrqLoBsW/ctP/mvVBCmjRgrP0o17AZTKtqAPjkRqzhQuqEhYdUT
+         Qz6g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795218857; x=1795823657; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
-        b=Dwjz0sQ1v3COzUGY8HZbrkfCm7c6BUrGjxjSTBQdrnFHqhXKVqObKmm/vezoGl/bun
-         CbiQXBY5/L7m8NLsEa3IKQySQC71tGkCyEfVhW5kCipwOEYVPllXjsdgl4f5l8xI0rfc
-         KQgqrrtxsKusGd+xzO4KCmsVbeQRethoafcfF3Gh7dc9+dH/Ad9RE/j4g41Z8c6TQ44Y
-         lULCUv0yy1XYldsgUKGSjq7S7yN/y/RObd5uNnZF0oh6skNNb6uWDfbc+8/o+egrxyny
-         mrUWAdwrzbJn1yRacVKeuRZiE1QINUITMdEmorL8c4KRZObRLRf5HV1fCDl7KN1JOZB6
-         bKhA==
+        d=gmail.com; s=20260707; t=1795218915; x=1795823715; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YsHal6o5nRWNnSKiS+O4IM67tsy/StPXyCl5eMW8G3Q=;
+        b=Csm9Tg3jGKy/kxu9G1xVa2paK9LVdqHbfFCRxAEKE5jp4PMccjLCHg7IbtHA+WpxRL
+         pV0jrZCbSwYEzQ3W1qZkNsFJ1/7H6s/bnOJV1Ud95MXgq6XmTYbJay6f/kLz1L9mAFTM
+         k0Gm/4eGOaA65yofqRaA1h+XOuUwbKN6odRZR7Pf7ePl6D9Grh6uQ1P/4IcOvcb3n6KI
+         9PQQh1xjBfvzi7S8yiPoyE6kNS7GscEpceAtH75w/uIc5hLRPxazc/oZYkCee1cROJ2j
+         KmGz+pwqfINMnd8wn6V6wp0CM5XAc4qwEiDQBGJwyXhT8XyTv8hYvXmuZM5B7G7dzGga
+         yqVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795218857; x=1795823657;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hZJLnBgFl9nUYZKgeEIFAhh/Wdlz3vw3VQH6GGzsoIo=;
-        b=Ma1mklphfL3zohSAmCDfl9s23veuM126SzKYdHDptD3FaBaz2YR/X7e1i3WYF2YfWH
-         tA7vfEyeQieED3pG6ud2JV2C+A5oPfXJw96t5O47ToLP+Aezj1RfXx4mgzUreKjw0/a8
-         3U+oIjQomBIsp1Z1ELjX7OtWArFW4P9yvEfZujSmznamYGNOrgDuqlqSXJmlIh0QN4vm
-         HZ4NjuVQBoomQiGR0DE+emP14EZjQOS2JQQuQNYDs8KL2oTcugMoBabmB0uAMwKQfBLV
-         L0Z+VK/65ogBK3n0nPIj/v+iKqmy7bXtFXN/4YOrCTB+kUosu7h+O6Hp4Hsyq6+XlB68
-         Vdow==
-X-Forwarded-Encrypted: i=1; AL+hErH4ilXlB+1zMp1RSvSbIDlpdzOwmIgtc4eVmNvSh8hc5JUKV6R5MpPlrIJ3Nq0eLqLcWqUaXaUEppM6kyk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9P9m2c3iWoxsFQLatxPVVEa2xEYX3eGwld5JCs/uGVd3PcAzas
-	Lz66bKUAlDAVhTuCBLOxjBGKSTVmz/PQQ6I1HMDfeMZSXxfMjtVuy68T9GLe
-X-Gm-Gg: AYBFou2pgStUAVeufsJu33ghVZtXWhY4iBGDU8fifa9iH+3aHR2tRuCUEHQL7IbEIV0
-	HEFN1d8bRYrr+ptxct729MFfNkl23BMw+7ffPTvOnQoyq4UrG9Yz+iER/ZHrxB4PEJikPYc95yS
-	OehT6s2zcvipvrn7QdHQKc4MOniC/HvFW19af/QciHvwJ40IKrLas2pXg18QUtYPEtTOe7+Ts82
-	a6J7tFTwBA18WaM89PbMHxGNNRLW3ptn3h1HZBG47pCjmckOxFgy/UeQBCnWPP3NqKsmLyopQem
-	JHJ6wYfx4xYM6jkLuMAiXFnhYp9YXH/kIYcBxnXv9j79sWjQzZKOCVNWetziytJgOQSleC2wzPw
-	1ahxBxmpb4+G7o/PG/R+JK5h6YyUab9aOEWzL/5w+FmTA+S0gLcOpgqB4XBXyWUQO9ApYXMRXlS
-	AeiBYzAqhk0VyBAPzuXfY24dtwjJ5nemg0v7aqJwDItT4YNX2wqYxFjdfUEz74LoUR6QolZcqgC
-	++JWdbaFctGq6DWf0kiC51DcrqsFdbc/fQzA3LEeYUDzBYhQ6j6ysBjEcEyjmwJuGdDBJ2E9t5D
-	FHhoEL3VdJ64w+k=
-X-Received: by 2002:a05:600c:4515:b0:4bb:6f67:ca0b with SMTP id 5b1f17b1804b1-4bb888267f4mr109008965e9.29.1795218857190;
-        Fri, 20 Nov 2026 15:54:17 -0800 (PST)
-Received: from localhost.localdomain ([2001:41d0:303:db6b::])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb90660cb4sm29426445e9.2.2026.11.20.15.54.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 15:54:16 -0800 (PST)
-From: Tristan Madani <tristmd@gmail.com>
-To: Samuel Mendoza-Jonas <sam@mendozajonas.com>,
-	Paul Fertser <fercerpav@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Tristan Madani <tristan@talencesecurity.com>
-Subject: [PATCH v2 net 1/2] net/ncsi: add missing rcu_read_lock to netlink and device list walks
-Date: Fri, 20 Nov 2026 23:54:06 +0000
-Message-ID: <20261120235407.1911365-2-tristmd@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120235407.1911365-1-tristmd@gmail.com>
-References: <20261120235407.1911365-1-tristmd@gmail.com>
+        d=1e100.net; s=20260707; t=1795218915; x=1795823715;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YsHal6o5nRWNnSKiS+O4IM67tsy/StPXyCl5eMW8G3Q=;
+        b=2aT9IenG4wqcaJT3YzA9GDIa8zG5H+g489S7PzAEGt+na6y3RWp3TZg104qUYzLJ3Q
+         LBBwby3v1l7iSiZNFpUFvA92gBDMEwv7FBeRSdceg/B87I4ETCu8BOsP50B1DAtEeGmq
+         h1QLoVA2JoG3kwEp6Alc3Zl1vAgz7a4gt8mwoGhZ8oualCqcRqlgi1A0RiYd/UNhgKDp
+         Nqa2eI3Hy81XMJrsJHi6LMERqQMUOg8gx8ElRpT6WnlaJx8Or5KDbRMUWjbN3DlHt9Vc
+         X1TE7W/4VU7otTFiAbdlWr9upifx+mkocBUPudkDuY36lRIh+fj3ruWe97ezCnGZtDhe
+         VFSw==
+X-Forwarded-Encrypted: i=1; AL+hErHt9Y9QdNM9Y3yC237dPWOlBABt3fKeQwXz6OoHtbK/io/yCCw/yiGE6JRekX6ekrZWNwNjjJsVXpnThI0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EiRklBDvg7djaIA3xSiDT5ysVbt9dSiGW5LombmrHMJrRlY37
+	gKuiuHz2C+vxTnPbxTdniRn+WrN33ehzcQtMcs6gSxJFE8p6sOxRCkLGHHHcckHdBtAaUnEh8Dj
+	oo/0oiIFoIksBtxnSW1y01N+RWArFI7Q=
+X-Gm-Gg: AZFdTZeQOmyCyjk1JhRMB2twc63QZCjIVOFsnj9DkLh8BMGOTgSI6UgJ4xFqzZM5RWI
+	kLdS+Czs2yvV0vAj0hEwmA4fkn60DLXkgoJ2HyIzUv2YHCD8Z6ydAVZQ04HELtVldcUmUNkCzow
+	B7W32/L+j/yCQ1berGj2N1sMkUOYKn6rVmo6YjmNzocKwaR6x7f81wCPCMK4OGpIezD/pgqt3OL
+	KdHNq1jMoMLhzLG+Wr3ICCUVAeRAyZaz8+kamqr04X7mK2DCUaeUQFy4UOZkxBAgDkeretMkhVw
+	9/8VU9na6uU+x5oJejwFYTOK+XoXI9QLFc/zjFBAjmAinbeY2k3PIUdwIz0yLuJxPDgq8J1iowD
+	KlEyO907EJosk8Pjm8ZCuBEwRNBcFw+T5t6UapVHtIGPoWfkB8/hIzFVhGLuTaYGv7FzyYb0Erc
+	cceaeLjcRuQYJyo5lmC6k42SCGO0rRGgi+PTyeUSPr1pFPvHjLbJ1tc5E=
+X-Received: by 2002:a05:6000:4381:b0:4a6:ed6f:7a6d with SMTP id
+ ffacd0b85a97d-4abb1d93c3emr9288838f8f.28.1795218915387; Fri, 20 Nov 2026
+ 15:55:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,163 +105,316 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120041906.5785-1-kanchanapsridhar2026@gmail.com> <20261120041906.5785-9-kanchanapsridhar2026@gmail.com>
+In-Reply-To: <20261120041906.5785-9-kanchanapsridhar2026@gmail.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Fri, 20 Nov 2026 15:55:04 -0800
+X-Gm-Features: Aa3M54oUDY9bCyxtNFZ-ITKxLcqccLM_og5aWM-IgYq9zskwWDXgegX58dgm7ho
+Message-ID: <CAKEwX=NtUEd7+Q2rW79LtObnjHT5uNFAUKfkRJJN1Wppe4Yc6g@mail.gmail.com>
+Subject: Re: [PATCH v4 8/8] mm: zswap: Batched zswap_compress() for storing
+ large folios in batches.
+To: "Kanchana P. Sridhar" <kanchanapsridhar2026@gmail.com>
+Cc: hannes@cmpxchg.org, yosry@kernel.org, chengming.zhou@linux.dev, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, herbert@gondor.apana.org.au, 
+	davem@davemloft.net, linux-crypto@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, rientjes@google.com, willy@infradead.org, 
+	senozhatsky@chromium.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Tristan Madani <tristan@talencesecurity.com>
+On Thu, Nov 19, 2026 at 8:19=E2=80=AFPM Kanchana P. Sridhar
+<kanchanapsridhar2026@gmail.com> wrote:
+>
+> A new batching implementation of zswap_compress() is provided for
+> compressors that do and do not support batching. This eliminates code
+> duplication and facilitates code maintainability with the introduction
+> of compress batching.
+>
+> The vectorized implementation of calling the earlier zswap_compress()
+> sequentially, one page at a time in zswap_store_pages(), is replaced
+> with this new version of zswap_compress() that accepts multiple pages to
+> compress as a batch.
+>
+> When the crypto_acomp is used to set up the per-CPU acomp_ctx
+> during CPU onlining, the compressor's batch_size is obtained by calling:
+>
+>   crypto_acomp_batch_size(acomp_ctx->acomp)
+>
+> This is bounded by ZSWAP_MAX_BATCH_SIZE to limit the memory
+> overhead and to reflect the store batch constraint of max # of pages in
+> a batch. The clamped batch_size is stored in the per-CPU
+> acomp_ctx->comp.compr_batch_size.
+>
+> As noted in previous commits in this series, ZSWAP_MAX_BATCH_SIZE
+> per-CPU compression buffers are available for sequential and batching
+> compression algorithms.
+>
+> Regardless of compression batching, we always process large folios in
+> batches of ZSWAP_MAX_BATCH_SIZE.
+>
+> If the compressor does not support batching, each page in the batch is
+> compressed sequentially. For batching compressors, up to
+> acomp_ctx->comp.compr_batch_size pages in the batch are compressed per
+> call to crypto_acomp_compress(). The first phase of zswap_compress()
+> thus only calls crypto_acomp_compress() until all pages in the batch
+> have been compressed. When this finishes, the compressed buffers and
+> compressed lengths for the batch are available in the
+> acomp_ctx->comp.sg_table->sgl scatterlists.
+>
+> A new zswap_update_entries() then iterates through the (up to)
+> ZSWAP_MAX_BATCH_SIZE SG lists in acomp_ctx->comp.sg_table->sgl,
+> allocates zsmalloc memory and copies all compressed buffers to
+> the compressed pool. All existing functionality on zswap
+> writeback_enabled (or not) fallbacks under various error conditions
+> denoted by the crypto_acomp_compress() return value [and with this
+> commit, also stored in the individual acomp_ctx->comp.sg_table->sgl
+> sg->lengths in the crypto_acomp_compress() fast path], is essentially
+> preserved.
+>
+> A significant zswap architectural change is that the batched
+> zswap_compress() incorporates Herbert's suggestion for SG lists to
+> represent the batch's inputs/outputs to interface with the crypto API
+> [1].
+>
+> The introduction of zswap_update_entries() presents an opportunity to
+> optimize the task of storing a batch of compressed buffers. Subsequent
+> patch series will be submitted to optimize this phase by replacing
+> zsmalloc with the SLUB allocator to improve zswap_store()/zswap_load()
+> latencies.
+>
+> The batching framework introduced in this series improves zswap_store()
+> latency by a lot.
+>
+> Performance testing: usemem30 with 100% over-commit:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D
+> Validation was done with mm-unstable as of 11-17-2026 (Baseline: commit
+> 866f761fd414) and with this patch series.
+>
+> v4 was validated on an Intel Xeon Sapphire Rapids bare-metal instance wit=
+h
+> 48 cores.
+>
+>  Bare-metal instance specs:
+>  --------------------------
+>  - 48 physical cores
+>  - 190G RAM
+>  - 200G SWAP disk partition
+>
+>  Workload: 30 concurrent usemem processes, each allocates 10G:
+>  -------------------------------------------------------------
+>  The vm-scalability "usemem" test (unmodified version) was run in a
+>  cgroup with memory.high fixed at 150G. There is no swap limit set for th=
+e
+>  cgroup.
+>
+>  To quantify the performance benefit of zswap compress batching at scale,
+>  30 usemem processes were run ("usemem30"), each allocating and writing 1=
+0G of
+>  memory, and sleeping for 10 sec before exiting.
+>
+>   usemem -w -O -b 5 -s 10 -n 30 10g
+>   echo 0 > /sys/module/zswap/parameters/shrinker_enabled
+>
+>  Performance validation methodology:
+>  -----------------------------------
+>  These settings were used to minimize variation:
+>
+>  - All cores were fixed to run at 2.4GHz with "performance" scaling gover=
+nor.
+>  - Turbo boost was disabled.
+>  - CPU power-saving C-states restricted with:
+>
+>      GRUB_CMDLINE_LINUX_DEFAULT=3D"intel_idle.max_cstate=3D1 processor.ma=
+x_cstate=3D1"
+>
+>  The usemem30 experiments were run with the baseline mm-unstable as of
+>  11-17-2026 (commit 866f761fd414) and with this patch-series.
+>
+>  After booting into each kernel:
+>
+>   1) Constrain the cgroup's memory.high to 150G.
+>
+>   2) Run 2 warm-up iterations of usemem30. Don't use this data for benchm=
+arking
+>      since sys time typically skews higher for initial runs.
+>
+>   3) Next, run 10 benchmarking iterations of usemem30:
+>      - Log these high-level metrics: Sys time and individual usemem throu=
+ghput.
+>
+>   4) Sys time and Throughput metrics were gathered for three mTHP setting=
+s:
+>
+>      - 2048kB
+>      - 1024kB
+>      - 64kB
+>
+>   5) Benchmark summary data includes Sys time and Throughput components f=
+rom the
+>      10 iterations of usemem30:
+>
+>      - Total Samples
+>      - Mean Value
+>      - Std Deviation
+>      - CoV (Variance): Coefficient of variation (relative standard
+>        deviation) measures spread relative to the mean rather than
+>        statistical variance.
+>
+>  An LLM was used to help generate the benchmarking and data processing sc=
+ripts.
+>
+> usemem30 Benchmarking Summary:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D
+>
+>  ---------------------------------------------------
+>     Improvement with v4 zswap compress batching
+>  ---------------------------------------------------
+>   mTHP enabled:       2048kB     1024kB       64kB
+>  ---------------------------------------------------
+>       Sys time:      -13.87%     -2.64%     -1.72%
+>     Throughput:       +3.85%     +0.42%     +1.31%
+>  ---------------------------------------------------
+>
+> Detailed usemem30 benchmarking data:
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>  1) 2048kB mTHP:
+>  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>  ------------------------------------------------------------------
+>  2048kB mTHP usemem30 benchmark suite: 10 runs (Limit: 150G).
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)        (sec)
+>  ------------------------------------------------------------------
+>  [Run 1/10]  Sys Time:    1581.414s    1356.252s
+>  [Run 2/10]  Sys Time:    1642.874s    1478.929s
+>  [Run 3/10]  Sys Time:    1594.458s    1411.252s
+>  [Run 4/10]  Sys Time:    1580.988s    1380.959s
+>  [Run 5/10]  Sys Time:    1579.654s    1380.609s
+>  [Run 6/10]  Sys Time:    1627.765s    1345.582s
+>  [Run 7/10]  Sys Time:    1593.872s    1334.485s
+>  [Run 8/10]  Sys Time:    1623.189s    1405.471s
+>  [Run 9/10]  Sys Time:    1661.954s    1433.365s
+>  [Run 10/10] Sys Time:    1602.098s    1329.813s
+>  ------------------------------------------------------------------
+>
+>  ------------------------------------------------------------------
+>  METRIC: System CPU Time (Sys Time) : 2048kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)            (sec)
+>  ------------------------------------------------------------------
+>  Total Samples    :              10               10
+>  Mean Value       :        1,608.83         1,385.67
+>  Std Deviation    :           28.67            47.47
+>  CoV (Variance)   :           1.78%            3.43%
+>  ------------------------------------------------------------------
+>  METRIC: Per-Process Throughput : 2048kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                              (KB/s)           (KB/s)
+>  ------------------------------------------------------------------
+>  Total Samples    :             300              300
+>  Mean Value       :         292,261          303,508
+>  Std Deviation    :          12,946           20,806
+>  CoV (Variance)   :           4.42%            6.86%
+>  ------------------------------------------------------------------
+>
+>  2) 1024kB mTHP:
+>  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>  ------------------------------------------------------------------
+>  1024kB mTHP usemem30 benchmark suite: 10 runs (Limit: 150G).
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)        (sec)
+>  ------------------------------------------------------------------
+>  [Run 1/10]  Sys Time:    1567.639s    1594.696s
+>  [Run 2/10]  Sys Time:    1537.577s    1456.113s
+>  [Run 3/10]  Sys Time:    1538.562s    1521.887s
+>  [Run 4/10]  Sys Time:    1626.176s    1531.962s
+>  [Run 5/10]  Sys Time:    1593.955s    1528.733s
+>  [Run 6/10]  Sys Time:    1643.519s    1558.482s
+>  [Run 7/10]  Sys Time:    1510.613s    1480.177s
+>  [Run 8/10]  Sys Time:    1632.018s    1584.093s
+>  [Run 9/10]  Sys Time:    1569.424s    1528.915s
+>  [Run 10/10] Sys Time:    1552.747s    1570.451s
+>  ------------------------------------------------------------------
+>
+>  ------------------------------------------------------------------
+>  METRIC: System CPU Time (Sys Time) : 1024kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)            (sec)
+>  ------------------------------------------------------------------
+>  Total Samples    :             10                10
+>  Mean Value       :       1,577.22          1,535.55
+>  Std Deviation    :          45.13             43.79
+>  CoV (Variance)   :          2.86%             2.85%
+>  ------------------------------------------------------------------
+>  METRIC: Per-Process Throughput : 1024kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                              (KB/s)           (KB/s)
+>  ------------------------------------------------------------------
+>  Total Samples    :            300               300
+>  Mean Value       :        289,904           291,114
+>  Std Deviation    :         15,385            14,553
+>  CoV (Variance)   :          5.31%             5.00%
+>  ------------------------------------------------------------------
+>
+>  3) 64kB mTHP:
+>  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>  ------------------------------------------------------------------
+>  64kB mTHP usemem30 benchmark suite: 10 runs (Limit: 150G).
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)        (sec)
+>  ------------------------------------------------------------------
+>  [Run 1/10]  Sys Time:    1914.525s    1878.483s
+>  [Run 2/10]  Sys Time:    1869.412s    1863.177s
+>  [Run 3/10]  Sys Time:    1944.049s    1863.502s
+>  [Run 4/10]  Sys Time:    1942.757s    1900.144s
+>  [Run 5/10]  Sys Time:    1866.505s    1887.285s
+>  [Run 6/10]  Sys Time:    1877.716s    1861.668s
+>  [Run 7/10]  Sys Time:    1861.741s    1868.788s
+>  [Run 8/10]  Sys Time:    1904.735s    1816.372s
+>  [Run 9/10]  Sys Time:    1891.074s    1850.435s
+>  [Run 10/10] Sys Time:    1893.366s    1849.747s
+>  ------------------------------------------------------------------
+>
+>  ------------------------------------------------------------------
+>  METRIC: System CPU Time (Sys Time) : 64kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                               (sec)            (sec)
+>  ------------------------------------------------------------------
+>  Total Samples    :              10               10
+>  Mean Value       :        1,896.59         1,863.96
+>  Std Deviation    :           29.86            22.96
+>  CoV (Variance)   :           1.57%            1.23%
+>  ------------------------------------------------------------------
+>  METRIC: Per-Process Throughput : 64kB mTHP
+>  ------------------------------------------------------------------
+>                Baseline mm-unstable   v4 zswap compress batching
+>                              (KB/s)           (KB/s)
+>  ------------------------------------------------------------------
+>  Total Samples    :            300               300
+>  Mean Value       :        239,114           242,254
+>  Std Deviation    :          9,090             6,419
+>  CoV (Variance)   :          3.80%             2.65%
+>  ------------------------------------------------------------------
 
-The NCSI_FOR_EACH_DEV, NCSI_FOR_EACH_PACKAGE and NCSI_FOR_EACH_CHANNEL
-macros wrap list_for_each_entry_rcu(), but several callers never enter
-an RCU read-side critical section.
+The numbers look nice, but what's the zswap setup here? What's the
+compressor? And how much of the win comes from this patch v.s the last
+patch?
 
-ncsi_find_dev() walks the global ncsi_dev_list without rcu_read_lock().
-ncsi_write_package_info() walks the package and channel lists in process
-context from the NCSI_CMD_PKG_INFO netlink handler, which does not
-require GENL_ADMIN_PERM -- any unprivileged user can trigger the walk.
-The dumpit callback ncsi_pkg_info_all_nl() has the same issue in its
-initial package lookup.
-
-Without RCU read-side protection these walks race with
-ncsi_unregister_dev() which removes entries via list_del_rcu().
-kfree_rcu() on the free side would be ineffective without matching
-rcu_read_lock() on the reader side.
-
-Add rcu_read_lock()/rcu_read_unlock() around the list walks in
-ncsi_find_dev(), ncsi_write_package_info() (converting the early returns
-to a goto to consolidate the unlock), and ncsi_pkg_info_all_nl().
-
-The GENL_ADMIN_PERM handlers (set_interface, clear_interface,
-set_channel_mask) also walk these lists without RCU protection; they are
-less critical since they require CAP_NET_ADMIN, but should be addressed
-in a follow-up series.
-
-Found by manual code inspection; not triggered at runtime.
-
-Fixes: 955dc68cb9b23 ("net/ncsi: Add generic netlink family")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tristan Madani <tristan@talencesecurity.com>
----
- net/ncsi/ncsi-manage.c  | 11 ++++++++---
- net/ncsi/ncsi-netlink.c | 32 +++++++++++++++++++++-----------
- 2 files changed, 29 insertions(+), 14 deletions(-)
-
-diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-index 1d63958c4429b..ec7c0d8cf3d9f 100644
---- a/net/ncsi/ncsi-manage.c
-+++ b/net/ncsi/ncsi-manage.c
-@@ -419,13 +419,18 @@ void ncsi_free_request(struct ncsi_request *nr)
- struct ncsi_dev *ncsi_find_dev(struct net_device *dev)
- {
- 	struct ncsi_dev_priv *ndp;
-+	struct ncsi_dev *nd = NULL;
- 
-+	rcu_read_lock();
- 	NCSI_FOR_EACH_DEV(ndp) {
--		if (ndp->ndev.dev == dev)
--			return &ndp->ndev;
-+		if (ndp->ndev.dev == dev) {
-+			nd = &ndp->ndev;
-+			break;
-+		}
- 	}
-+	rcu_read_unlock();
- 
--	return NULL;
-+	return nd;
- }
- 
- static void ncsi_request_timeout(struct timer_list *t)
-diff --git a/net/ncsi/ncsi-netlink.c b/net/ncsi/ncsi-netlink.c
-index 8cc538358f6a3..f3b403e1a2f2e 100644
---- a/net/ncsi/ncsi-netlink.c
-+++ b/net/ncsi/ncsi-netlink.c
-@@ -106,37 +106,42 @@ static int ncsi_write_package_info(struct sk_buff *skb,
- 	}
- 
- 	found = false;
-+	rcu_read_lock();
- 	NCSI_FOR_EACH_PACKAGE(ndp, np) {
- 		if (np->id != id)
- 			continue;
- 		pnest = nla_nest_start_noflag(skb, NCSI_PKG_ATTR);
--		if (!pnest)
--			return -ENOMEM;
-+		if (!pnest) {
-+			rc = -ENOMEM;
-+			goto out_rcu;
-+		}
- 		rc = nla_put_u32(skb, NCSI_PKG_ATTR_ID, np->id);
- 		if (rc) {
- 			nla_nest_cancel(skb, pnest);
--			return rc;
-+			goto out_rcu;
- 		}
- 		if ((0x1 << np->id) == ndp->package_whitelist)
- 			nla_put_flag(skb, NCSI_PKG_ATTR_FORCED);
- 		cnest = nla_nest_start_noflag(skb, NCSI_PKG_ATTR_CHANNEL_LIST);
- 		if (!cnest) {
- 			nla_nest_cancel(skb, pnest);
--			return -ENOMEM;
-+			rc = -ENOMEM;
-+			goto out_rcu;
- 		}
- 		NCSI_FOR_EACH_CHANNEL(np, nc) {
- 			nest = nla_nest_start_noflag(skb, NCSI_CHANNEL_ATTR);
- 			if (!nest) {
- 				nla_nest_cancel(skb, cnest);
- 				nla_nest_cancel(skb, pnest);
--				return -ENOMEM;
-+				rc = -ENOMEM;
-+				goto out_rcu;
- 			}
- 			rc = ncsi_write_channel_info(skb, ndp, nc);
- 			if (rc) {
- 				nla_nest_cancel(skb, nest);
- 				nla_nest_cancel(skb, cnest);
- 				nla_nest_cancel(skb, pnest);
--				return rc;
-+				goto out_rcu;
- 			}
- 			nla_nest_end(skb, nest);
- 		}
-@@ -145,10 +150,11 @@ static int ncsi_write_package_info(struct sk_buff *skb,
- 		found = true;
- 	}
- 
--	if (!found)
--		return -ENODEV;
-+	rc = found ? 0 : -ENODEV;
- 
--	return 0;
-+out_rcu:
-+	rcu_read_unlock();
-+	return rc;
- }
- 
- static int ncsi_pkg_info_nl(struct sk_buff *msg, struct genl_info *info)
-@@ -236,9 +242,13 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
- 
- 	package_id = cb->args[0];
- 	package = NULL;
-+	rcu_read_lock();
- 	NCSI_FOR_EACH_PACKAGE(ndp, np)
--		if (np->id == package_id)
-+		if (np->id == package_id) {
- 			package = np;
-+			break;
-+		}
-+	rcu_read_unlock();
- 
- 	if (!package)
- 		return 0; /* done */
-@@ -255,7 +265,7 @@ static int ncsi_pkg_info_all_nl(struct sk_buff *skb,
- 		rc = -EMSGSIZE;
- 		goto err;
- 	}
--	rc = ncsi_write_package_info(skb, ndp, package->id);
-+	rc = ncsi_write_package_info(skb, ndp, package_id);
- 	if (rc) {
- 		nla_nest_cancel(skb, attr);
- 		goto err;
--- 
-2.47.3
-
+This patch series, and this patch in particular, seem like a lot of
+complexity. I'd like to understand better the win before adding all
+this complexity to the codebase.
