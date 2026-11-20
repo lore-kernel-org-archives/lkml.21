@@ -1,110 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182181;
-	b=k5aY4A9Vg8ju1AJORLuyuOB1X8ZjAIJ922+iBHSeQwD5YBRvUzBa3RZ1afQuU5Ez/fxF
-	 hEZSIvUA41cXyr6uZIRH5SbHH2htawj54+1lTxF1V/Mv2pkkQ+XUWmEZE3Wko+zr8fRi7
-	 /kXjdA0JeNVlANYg/deXdyzHPHx/oejee06rxP3cpajfhlvq5Q75+RxIUxK76L4MUNzTi
-	 qh+i8awLLkZuLxOENn1hN+yZAfWlXpYYnrUq+PafEAgzI6FwVFPZqfe6sl+1JzX34zBFz
-	 3n9h5+HVQEEaw1EjW5lmmaB/b2kC3NkllqtaC9puqIlnbJTSmWfQlDds4gS8zfHooQA==
+	t=1795182179;
+	b=t60mkSbhguuGpHuZZIFRBU+C8QeH39gGFRZT8rpTDEqmEzXYik56l4zNKPM9rScj1Trt
+	 DY16HovQN6JiQ4wRSKFTBF9jGWFLQfVbkzsA7DJTamqe2NVNb45IKbuMqIT7omurmJMo7
+	 e3cMZv9ODRnuHG3AeD/NYWXfJjaUF/4hiqhkHeL7iZJPZ+eud7fptBpSEPHxHzcEi02T/
+	 K8esRBMGDW+n1fDU7TSbiN8WEoW+hFvgG/4+W8SXqieYytIoio1CNTBMIXfGDIjomnN94
+	 ypPgXDsHIrl04Y6szYr5CLGqZZIYhQUsYctm0wg29pI42GdpnyDHE57msMqBy/bRkZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182181;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=3/jsMe/Qc48pu/imVYvdVloDOJ6fnxt5dXnAjgruQUk=;
-	b=qjAB3DF+lLCiGIkkRpui5matoDEEUtrAGREPPdGQZiKEMUm5H+I5RockZzJC7lz84lWL
-	 CqVV7WpLuxVS7QTBtDkFBtC1xEQ2fv8MMpuhyArLrd28Yq9xKP+6WGBVpM4orzL2Sn6/Q
-	 t/0PiwYiHALES9G9ogS2EWssBRUXKtgEhg/TW9NGVsP39dknFs4mM1JMZatuxFSRkoClQ
-	 j9G/VAIKFnNzihJ/ACbah8SqYsFrepprPnS/+zoMmpTj7y/dfWKw/DhXkfsWp1jXxVscu
-	 chwtkwq4I1sI3rm/7WqGWa82bO1yKgQM0wKSz1J6nMx0Cdg/ueCCclhtG10Vz24PwBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182179;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=SvA7m/49Gi2iaxV+gXZZS3T1rvAfQr6LUzbleK9RmJI=;
+	b=RO+qma/a19X6vHyr39lcGPq+fnnrsOCifgjnRbtxNoU59BpYdPNB2iZv6xKfFxb+Qeax
+	 cpXCCTeak87bJ2ck9DnPJ61+hzGkmM32AppLm6+JqhWaCLItaar09QVGpNTru++nbWsdB
+	 q11yftSWju9dxCEuT2c+jV6ZhgXzD+tW0hjgVmGVatVm4klT8LARhkdAgIvbkbgTUrsl6
+	 KwpPGwwL+70EIP57FsaKRVDyfk7jc2HR7p599S0kLJAt2+0VjgyVYkGyxzZ0sMhRj2N0q
+	 h1z1VZxF8veJn6JsV0q3ZzMB95JXJKgAnlJSBJ3EPBN4MInzyAJ5yDVAC9fJaLKkrgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zLL2HUR0;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gv+2tT+1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2B497606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:43:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B497606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3141360A2601;
+	Fri, 20 Nov 2026 13:42:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zLL2HUR0
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-372bdb942dbso1193671eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:43:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795182180; x=1795786980; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3/jsMe/Qc48pu/imVYvdVloDOJ6fnxt5dXnAjgruQUk=;
-        b=zLL2HUR0zbNT0dI+dqlO/gnbeZZPSJ36DaIKtjlXIsD+cKtMGMUz9+4YszSK9IgPVx
-         oC/YhdWZq+27Zj78E1GpdJojye9GzGsefATEDY9SDka4mVvGfXbGWlUINjjNvgVKXiKd
-         M0pmFecUf4uSt5+X7HNYcPcXO+gqHmdlhCJqoSe3xUKDLlgn9wVtzc7CwdE1YCl/E/IQ
-         mwmYg7E2D6Pv/BPdlCpNkvc2lnCWxD56fpVyFVp9TYzKMWUBpawa+yraMXMM16kZRHHu
-         1dCljwPObetMZAcdLK+D7+0+T6JeJVV/TzD1xOhPRczlDa6kfZt+SGu77g6koelVWYJp
-         comA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795182180; x=1795786980;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3/jsMe/Qc48pu/imVYvdVloDOJ6fnxt5dXnAjgruQUk=;
-        b=wvKP7QrPJLKA7nGHucn/QCtUWwlwQ52Zfr9VkvhPvU6whtGfjpd6UUSOxuPWVgGMZV
-         h8/1I0VxWU9PD+7/fKJtNwKVf02bFRdS/Pb2DXiucAQ5gpchqpsPgYhlPB7MHD24KdvN
-         ixoewL+umUP++kUSMr2wlmvD+ibbRW241SuWPy7LI7IFRlThtDQJYfwlgC2MwLxMcBvB
-         NffJYUgn42DcbsoNBa5oLyD/IptcFz32Y0E+SqK068NMw5WdjftdWDimdWf7RcmZs5W0
-         xQgNG6pg2EmmtJ1OKgtv4gcybbtQ/zkwz0sQrdmAlQ+92rPWXnMH9190jaZah2vpa5kW
-         BH3g==
-X-Forwarded-Encrypted: i=1; AL+hErEZWepPhkc7KDh4HYueRxK8jG/E1RCF4q8cSpdl3ljUFj/4JQEDRvnvrqmEOKQ0sl6kjzfwMndcqGt2CW8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+YMGvr8t+sIcmkKoEs4hgTSegDSG3NSg8YRRBOo3r0auz7VLTj
-	lEuLv9WP3IcMGehGB7qp5n00k2ms9mA8pfyhZXaxGzFEv45KzF3chgki
-X-Gm-Gg: AZFdTZca47JTL15WCFJWs4ihkqkuLvNVPabukfnZwR987PxB4yL2GOtRxCu8A4WD+RO
-	P8ZiS7QmuhYwuLECUsB2lExbqb/udNkynEmLuIe6bdVjhmnkS6Z225IVLqHWAOLgqbInAO0KR9m
-	zJGr0ZnimNT7p29tnFlRr5pCmCdGLjYIYi7bDFEYq3CWDtAu9gHJA3PWGw40C2Am/Ne71WXMhh8
-	ybivpDk5Qd2BzoFmR0g6pSgE2DlSQf6HlKYiikjGr0EQjLqavY3Lza4wQ/HUJWKJSqsHICcGeje
-	YWLZPN5IDVkuAHqKeZ47Cmyj2Et7fnry51RnDjvU9Ed6cS4VKKr1fmi771wfeoO7UPj8sN4OwUw
-	Zqck1MbU2BSfa6U1uVR3iIzTotLXpoPREz1aljYK7CsHDSM/ZtNjitD29P0wDeswPbas5bRgS3R
-	PFtNppg6SIhfMo/0yKarKUusw07QUAMSeidNh4ZB5eeICxYFAAmCk0c5Nx8AqI5bUfXKn7QT3dC
-	twrtIz13J0YJpXQuOuUWBFuntIn6PDJt4Y8DodXXKGQZs27uFcZ6XkOwHwWcU1NLQjF5pGgKzOl
-	6niCQ5PKbd+vo8vOAqmx
-X-Received: by 2002:a05:693c:87d2:20b0:381:ad6f:75ea with SMTP id 5a478bee46e88-3856f14748amr2810204eec.13.1795182179979;
-        Fri, 20 Nov 2026 05:42:59 -0800 (PST)
-Received: from a1-free ([161.33.196.121])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm9590857eec.28.2026.11.20.05.42.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:42:59 -0800 (PST)
-From: TAKANO Mitsuhiro <takano32@gmail.com>
-To: linux-perf-users@vger.kernel.org,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
-	John Garry <john.garry@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-kernel@vger.kernel.org,
-	TAKANO Mitsuhiro <takano32@gmail.com>,
-	Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Leo Yan <leo.yan@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>
-Subject: [PATCH v12 1/2] perf vendor events: Fix misspelled keys in the event tables
-Date: Fri, 20 Nov 2026 13:42:51 +0000
-Message-ID: <20261120134252.1036963-2-takano32@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120134252.1036963-1-takano32@gmail.com>
-References: <20261120060931.711483-1-takano32@gmail.com>
- <20261120134252.1036963-1-takano32@gmail.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Gv+2tT+1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F2561F0156C;
+	Fri, 20 Nov 2026 13:42:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795182178;
+	bh=SvA7m/49Gi2iaxV+gXZZS3T1rvAfQr6LUzbleK9RmJI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Gv+2tT+1IZbGG7xXQKEdMg/FYlWBO7XabOVcDaMmr03D4t6fMlRIDb1kJkaajwQz3
+	 ycPKoGHjCcIsTEGOLBgPo6IZKhdPRM83zUVqbUMN0J9QjgeOSmej/Ndlt9SlWw+DW3
+	 1JyISUe6zlOqNYmm3c5IKjy1bdBsJqAWbFeBeWj0=
+Date: Fri, 20 Nov 2026 14:42:56 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Cc: nkapron@google.com, linux-usb@vger.kernel.org,
+	Thinh.Nguyen@synopsys.com, bigeasy@linutronix.de,
+	target-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	lgs201920130244@gmail.com
+Subject: Re: [PATCH] usb: gadget: f_tcm: do not dequeue UAS stream requests
+ in BOT mode
+Message-ID: <2026112031-sandlot-idealness-df6f@gregkh>
+References: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,201 +56,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
 
-Sixteen objects in arch/arm64/ampere/ampereonex/mmu.json carry
-"PublicDescrition" and one object in each of amdzen4/cache.json,
-amdzen5/load-store.json and amdzen6/load-store.json carries
-"BriefDescript6ion".  jevents.py reads only the keys it knows by name, so
-these fields have no effect: the text is dropped without a word and never
-reaches the generated tables.
+On Fri, Nov 20, 2026 at 08:39:56PM +0900, Yehyeong Lee wrote:
+> usbg_aborted_task() starts by reading stream->req_out->status.  The
+> stream requests are allocated by uasp_alloc_stream_res() for the UAS
+> alternate setting only, so in BOT mode they are NULL.
+> 
+> The target core calls .aborted_task() from target_handle_abort() for an
+> aborted command whose CMD_T_TAS is clear.  A BOT command gets there when
+> a LUN RESET arrives on another fabric that exports the same backstore
+> and the backstore has emulate_tas set to 0: core_tmr_drain_state_list()
+> aborts every command on the device, no TASK ABORTED status is owed, and
+> the core calls .aborted_task(), where the read faults.  With the default
+> emulate_tas of 1 the core sends TASK ABORTED status instead.
+> 
+> Return early unless the function is in UAS mode.  A BOT transfer uses
+> fu->bot_req_in and fu->bot_req_out, not the stream requests.
+> 
+> Reproduced on dummy_hcd in BOT mode with a fileio backstore that is also
+> exported through tcm_loop and has emulate_tas set to 0: a WRITE(10) has
+> its data stage held while SG_SCSI_RESET_DEVICE on the loopback disk
+> issues the LUN RESET.  Without this patch 3 of 3 boots oops as below;
+> with it none do, and the write does not reach the backing store.
+> 
+>   BUG: kernel NULL pointer dereference, address: 000000000000005c
+>   #PF: supervisor read access in kernel mode
+>   #PF: error_code(0x0000) - not-present page
+>   PGD 0 P4D 0
+>   Oops: Oops: 0000 [#1] SMP NOPTI
+>   CPU: 1 UID: 0 PID: 30 Comm: kworker/1:1 Not tainted 7.4.0-rc3-FT9NNM-00395-g8dac6df92a2e #1 PREEMPT(lazy)
+>   Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+>   Workqueue: target_completion target_abort_work
+>   RIP: 0010:usbg_aborted_task+0x2d/0xc0
+>   Code: fa 55 53 48 8b 87 e0 01 00 00 48 89 fb 48 8b 50 38 48 8b 52 30 48 8b 2a 8b 57 24 48 8d 14 d2 48 8d 14 d0 48 8b b2 58 03 00 00 <83> 7e 5c 8d 74 2b 48 8b b2 50 03 00 00 83 7e 5c 8d 74 58 48 8b b2
+>   RSP: 0018:ffffc90000107e40 EFLAGS: 00010246
+>   RAX: ffff88800540d000 RBX: ffff888006c6c870 RCX: 0000000000000001
+>   RDX: ffff88800540d6c0 RSI: 0000000000000000 RDI: ffff888006c6c870
+>   RBP: ffff8880053febc8 R08: 8080808080808080 R09: ffff88800491c218
+>   R10: ffff888005031cc0 R11: fefefefefefefeff R12: ffff88807db295c0
+>   R13: ffff888006c6c9a8 R14: ffff888005031805 R15: 0000000000000000
+>   FS:  0000000000000000(0000) GS:ffff8880f9e92000(0000) knlGS:0000000000000000
+>   CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>   CR2: 000000000000005c CR3: 0000000003030002 CR4: 0000000000770ef0
+>   PKRU: 55555554
+>   Call Trace:
+>    <TASK>
+>    target_handle_abort+0x6b/0x130
+>    process_one_work+0x19e/0x3f0
+>    worker_thread+0x180/0x2f0
+>    ? __pfx_worker_thread+0x10/0x10
+>    kthread+0xee/0x120
+>    ? __pfx_kthread+0x10/0x10
+>    ret_from_fork+0x186/0x230
+>    ? __pfx_kthread+0x10/0x10
+>    ret_from_fork_asm+0x1a/0x30
+>    </TASK>
+>   Modules linked in:
+>   CR2: 000000000000005c
+>   ---[ end trace 0000000000000000 ]---
+>   note: kworker/1:1[30] exited with irqs disabled
+> 
+> Fixes: 76003eb6d09278 ("usb: gadget: f_tcm: Handle abort command")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+> ---
+>  drivers/usb/gadget/function/f_tcm.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+> index 9e6d4f39900a27..57e2ec81f29a8a 100644
+> --- a/drivers/usb/gadget/function/f_tcm.c
+> +++ b/drivers/usb/gadget/function/f_tcm.c
+> @@ -1614,6 +1614,10 @@ static void usbg_aborted_task(struct se_cmd *se_cmd)
+>  	struct uas_stream *stream = &fu->stream[se_cmd->map_tag];
+>  	int ret = 0;
+>  
+> +	/* the stream requests exist only in UAS mode */
+> +	if (!(fu->flags & USBG_IS_UAS))
+> +		return;
 
-For the three AMD events that leaves them with no description at all, and
-the text comes back.  The AmpereOneX events carry the same text in
-BriefDescription and the generator drops a duplicate long description, so
-the generated arm64 tables are unchanged.
+What prevents the flags from changing right after you read them?
 
-This is the same change as "perf vendor events arm64 AmpereOneX: Fix
-misspelled PublicDescription keys" (Message-ID
-<20261113065253.746615-1-takano32@gmail.com>) and "perf vendor events amd:
-Fix a misspelled JSON key" (<20261108184600.3810059-1-takano32@gmail.com>),
-squashed into one patch so that this series applies on its own.
+thanks,
 
-Written with Hermes Agent, an LLM assistant; the author reviewed it and
-ran the generator as described.
-
-Fixes: 16438b652b46 ("perf vendor events arm64 AmpereOneX: Add core PMU events and metrics")
-Fixes: 658448281d19 ("perf vendor events amd: Add Zen 4 core events")
-Fixes: 45c072f2537a ("perf vendor events amd: Add Zen 5 core events")
-Fixes: 2f42fb0661d9 ("perf vendor events amd: Add Zen 6 core events")
-Acked-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Signed-off-by: TAKANO Mitsuhiro <takano32@gmail.com>
----
- .../arch/arm64/ampere/ampereonex/mmu.json     | 32 +++++++++----------
- .../pmu-events/arch/x86/amdzen4/cache.json    |  2 +-
- .../arch/x86/amdzen5/load-store.json          |  2 +-
- .../arch/x86/amdzen6/load-store.json          |  2 +-
- 4 files changed, 19 insertions(+), 19 deletions(-)
-
-diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
-index 66d83b680651..9457f9be4ecc 100644
---- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
-+++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/mmu.json
-@@ -30,37 +30,37 @@
-         "BriefDescription": "Data TLB translation cache hit on S2L2 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Data TLB translation cache hit on S2L1 walk cache entry",
-+        "PublicDescription": "Data TLB translation cache hit on S2L1 walk cache entry",
-         "EventCode": "0xd805",
-         "EventName": "MMU_D_TRANS_CACHE_HIT_S2L1_WALK",
-         "BriefDescription": "Data TLB translation cache hit on S2L1 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Data TLB translation cache hit on S2L0 walk cache entry",
-+        "PublicDescription": "Data TLB translation cache hit on S2L0 walk cache entry",
-         "EventCode": "0xd806",
-         "EventName": "MMU_D_TRANS_CACHE_HIT_S2L0_WALK",
-         "BriefDescription": "Data TLB translation cache hit on S2L0 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Data-side S1 page walk cache lookup",
-+        "PublicDescription": "Data-side S1 page walk cache lookup",
-         "EventCode": "0xd807",
-         "EventName": "MMU_D_S1_WALK_CACHE_LOOKUP",
-         "BriefDescription": "Data-side S1 page walk cache lookup"
-     },
-     {
--        "PublicDescrition": "Data-side S1 page walk cache refill",
-+        "PublicDescription": "Data-side S1 page walk cache refill",
-         "EventCode": "0xd808",
-         "EventName": "MMU_D_S1_WALK_CACHE_REFILL",
-         "BriefDescription": "Data-side S1 page walk cache refill"
-     },
-     {
--        "PublicDescrition": "Data-side S2 page walk cache lookup",
-+        "PublicDescription": "Data-side S2 page walk cache lookup",
-         "EventCode": "0xd809",
-         "EventName": "MMU_D_S2_WALK_CACHE_LOOKUP",
-         "BriefDescription": "Data-side S2 page walk cache lookup"
-     },
-     {
--        "PublicDescrition": "Data-side S2 page walk cache refill",
-+        "PublicDescription": "Data-side S2 page walk cache refill",
-         "EventCode": "0xd80a",
-         "EventName": "MMU_D_S2_WALK_CACHE_REFILL",
-         "BriefDescription": "Data-side S2 page walk cache refill"
-@@ -90,61 +90,61 @@
-         "BriefDescription": "Level 2 instruction translation buffer allocation"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S1L2 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S1L2 walk cache entry",
-         "EventCode": "0xd901",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L2_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S1L2 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S1L1 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S1L1 walk cache entry",
-         "EventCode": "0xd902",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L1_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S1L1 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S1L0 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S1L0 walk cache entry",
-         "EventCode": "0xd903",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S1L0_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S1L0 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S2L2 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S2L2 walk cache entry",
-         "EventCode": "0xd904",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L2_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S2L2 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S2L1 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S2L1 walk cache entry",
-         "EventCode": "0xd905",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L1_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S2L1 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction TLB translation cache hit on S2L0 walk cache entry",
-+        "PublicDescription": "Instruction TLB translation cache hit on S2L0 walk cache entry",
-         "EventCode": "0xd906",
-         "EventName": "MMU_I_TRANS_CACHE_HIT_S2L0_WALK",
-         "BriefDescription": "Instruction TLB translation cache hit on S2L0 walk cache entry"
-     },
-     {
--        "PublicDescrition": "Instruction-side S1 page walk cache lookup",
-+        "PublicDescription": "Instruction-side S1 page walk cache lookup",
-         "EventCode": "0xd907",
-         "EventName": "MMU_I_S1_WALK_CACHE_LOOKUP",
-         "BriefDescription": "Instruction-side S1 page walk cache lookup"
-     },
-     {
--        "PublicDescrition": "Instruction-side S1 page walk cache refill",
-+        "PublicDescription": "Instruction-side S1 page walk cache refill",
-         "EventCode": "0xd908",
-         "EventName": "MMU_I_S1_WALK_CACHE_REFILL",
-         "BriefDescription": "Instruction-side S1 page walk cache refill"
-     },
-     {
--        "PublicDescrition": "Instruction-side S2 page walk cache lookup",
-+        "PublicDescription": "Instruction-side S2 page walk cache lookup",
-         "EventCode": "0xd909",
-         "EventName": "MMU_I_S2_WALK_CACHE_LOOKUP",
-         "BriefDescription": "Instruction-side S2 page walk cache lookup"
-     },
-     {
--        "PublicDescrition": "Instruction-side S2 page walk cache refill",
-+        "PublicDescription": "Instruction-side S2 page walk cache refill",
-         "EventCode": "0xd90a",
-         "EventName": "MMU_I_S2_WALK_CACHE_REFILL",
-         "BriefDescription": "Instruction-side S2 page walk cache refill"
-diff --git a/tools/perf/pmu-events/arch/x86/amdzen4/cache.json b/tools/perf/pmu-events/arch/x86/amdzen4/cache.json
-index e6d710cf3ce2..01c848a9dbb3 100644
---- a/tools/perf/pmu-events/arch/x86/amdzen4/cache.json
-+++ b/tools/perf/pmu-events/arch/x86/amdzen4/cache.json
-@@ -182,7 +182,7 @@
-   {
-     "EventName": "ls_inef_sw_pref.all",
-     "EventCode": "0x52",
--    "BriefDescript6ion": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-+    "BriefDescription": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-     "UMask": "0x03"
-   },
-   {
-diff --git a/tools/perf/pmu-events/arch/x86/amdzen5/load-store.json b/tools/perf/pmu-events/arch/x86/amdzen5/load-store.json
-index b1994539ece8..774da0bfa0dd 100644
---- a/tools/perf/pmu-events/arch/x86/amdzen5/load-store.json
-+++ b/tools/perf/pmu-events/arch/x86/amdzen5/load-store.json
-@@ -351,7 +351,7 @@
-   {
-     "EventName": "ls_inef_sw_pref.all",
-     "EventCode": "0x52",
--    "BriefDescript6ion": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-+    "BriefDescription": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-     "UMask": "0x03"
-   },
-   {
-diff --git a/tools/perf/pmu-events/arch/x86/amdzen6/load-store.json b/tools/perf/pmu-events/arch/x86/amdzen6/load-store.json
-index 4291eb59426f..4adba70bffb1 100644
---- a/tools/perf/pmu-events/arch/x86/amdzen6/load-store.json
-+++ b/tools/perf/pmu-events/arch/x86/amdzen6/load-store.json
-@@ -351,7 +351,7 @@
-   {
-     "EventName": "ls_inef_sw_pref.all",
-     "EventCode": "0x52",
--    "BriefDescript6ion": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-+    "BriefDescription": "Software prefetches that did not fetch data outside of the processor core for any reason.",
-     "UMask": "0x03"
-   },
-   {
--- 
-2.53.0
-
+greg k-h
