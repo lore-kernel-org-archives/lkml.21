@@ -1,103 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795164269;
-	b=h3Mu+Y0tu8xaZ+sKuYp9kfOokKPm+iknX/x0cz4AHak520fcEdp0eRkQK2jEFH9gJWwZ
-	 n4C77FPUOwiBm8zpetdwaAkpzZp6LB9rGo0KWbklQB+HdVm5jNfOvbplJ8xGDHE6EYV04
-	 Z7CACez4sXQ7kAxMrGbP6fKrnr31BS48rF44pvKCosyZTUUkw7TiRBdfxjamHQFkqyJKt
-	 N4NyJWgvRn/fIK6f7H/3NduRbUcUolZgyOw0i8Gu3Y9BSPgoI2ag79mkp1FyhuSKvvjK2
-	 3hO1OL7VSQccj5gGmj9JxOeZcleZgwu74UeTvYFJTJiWIvxLxg4glB1EqWBlw+O4bLQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	b=iq+bAPT/8+FUT5IFQvSDuUDxByJCEqqpAgXajuO7QAOpi1Ib98A03J0uGJvp+URiy+Cy
+	 Gytah0CDf+ZY8GEyodzWSGytyW97seT1DOX8ya3cJnF1SGFF1GsM1/jr9YmzZDsZvjEBI
+	 DCiToel8f44/EOnM9MNANE8SZ1SpzTrtbw4sr8OXkK+nPVsLMEfv/gmMl3lLfWsWHVEvw
+	 vllylK4gYNuvKWUH1tkOZPSvkuy66WKKx/43FKmHm+vu3RyR3AvIYe+uacNTwstOkx5n1
+	 7RASN3BDZIZHyMEsmLtBuMpn6H7LX5KvvqTEE8msWhOaj+oeyYatr2KIsh04SNKClYg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795164269;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-ID:X-B4-Tracking:X-Change-ID:To:CC:
-	 X-Mailer:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
-	b=SUt1b7uW5EmFXDUn6PBpg28uo0d7UOQbpTfOtyvbI4QxdJRUclxQemcDSTVmMRaDZ84P
-	 JPpkCBrFgw/kqeQ4KyHw8hpFkqGt+kFoCX+9KyOO1sLhyeajzx1+n4TJnmpF4abi78r/7
-	 xfuCbsNYfFFVSjVIsJfCW7ioOSFuA9UiJtnZWQXwgxUjAMXqMf/+ylU8icq3RtezjAI1Q
-	 4nfO4YtOhye6oKsMiLuE3cxpMlMtduJs9YV3YaCBald8S4l39tt/sNJi8i6ipKPWTgVRq
-	 Zag3j2D14cDv2Y2CKWE+9wHUEoJqpREe58vSp9b+EsQyncyyqhwv05aZEt1kxrcObCA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.29
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010029.outbound.protection.outlook.com [52.101.201.29])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=KKrF/3OPdL6xEz+lwHbSUSyJUkI7uH9V+JtYaC3j1O4=;
+	b=bDx+1AAw3j72b8hoByGTigISZop8/xNxHaBgoBwsROiJaw27RJ2+7tW+0rXy2Vc0pZ7z
+	 pzKIeJLFO4ctk0mcUEoQIAlXKvuXQe+JLoXPs19GEnbGzM7vZT+iRQU8O6jAmA9qJJ6dq
+	 9g0bIzDVKbwbsr128/4GpGeEpK0Jm0vw049+5d1FmebV3JTg1PTIOYnLRCoP1i2HLr+TG
+	 JcT6pIoJCLCRZCqluljUUD6cD2NX8IIkPW5E8LO/kOe3/Qa3Sy1pnNxIiRNMFNDDE1CjW
+	 p5IjoFdxvwcwupIYDXG4PoWRh0nSpR+bYpxhXqOyLbriTkcc9xREAI4KKBroUP9psaw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yd9jYDWx;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CFFA60A5BCB;
-	Fri, 20 Nov 2026 08:44:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CFFA60A5BCB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E74A960A6F53
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E74A960A6F53
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=r2VGvuuC
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AhZJxyVX8ijao1uKcD/kl1Lfc9jrsYE7cYQZcP2+Yv91HLjVGxEXzWrnGccUOAm5rA2QTJQwmYT7D93XeFMz2MD2vY6miCRGy0Ti4/jTXjzcpminxg/iAgFsehNYMZZc0pHIUm6FSwxsIw0gTD9gH7OL1XeFyUpivtCM5A96VokqmaxApcwDcVe0iVvFjjVfcEkqANY4sOcCTHfsMtakECGy4klwQZsLp4XujaR8ZobI1pLKuFVBR2aVL2pcGiZCwcK/7rZ/aoUJqUjqMm3N+f/+SmJzWBm570JJOsgc0bDPEcEaIwlbm/Vgb9iikwZeu+URPtgp0cvsH9ZbiOHurg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
- b=o8oTPNS9yUl+/NAT3vFq7ebCJ2FwFI7D6aUAxiHh8drO7kwXhrBENctwsfjKXLRukdjlnOEo/+A9B788UxnPOvYBJpU2QDY8I+rTJrpjh61YQMP//kWkzWxteuF/Nl4GLFUEpxKI7ydhnNbtLnAc4Uh2ZTzRjgma4Ou1GVvZCoT3PWy3BHvAm0ox/ThgsyEYy9fmUTZaQIRydjV/6oCHokHB1mNa1etaf8QKX6xN/XMdd+Aa8XXnFsQeyYVD1eftG/WwIBCikY6enA2ZLQnBclCS3QeLqvt/xXwedb9COuNmoCCsuY9gc5x/j8E8ol+hxfdR0LQEUxWkKTRQ/kVPiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oOzxgcxraIXd3FZnNGqXvCXY6Ep4qrJuDvKtBDXn9ZI=;
- b=r2VGvuuCBZ+0Hp0M3M3p1zNY4azhM8b9ZCMatthQ4FnVbTPfISGbsAAhkbjfrw0XmDHR2qNYdfiKhwiEwM58FAe4e9d5oWM1KZ2MHT9ny7YW2NEVn4c3tHoeuYerZyoFmCYmA2hNHM+kmmw9qPFMCgWb0rfnXZAix667QIug7dE=
-Received: from PH5P220CA0013.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::10)
- by PH7PR12MB8121.namprd12.prod.outlook.com (2603:10b6:510:2b5::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 08:44:24 +0000
-Received: from SJ1PEPF00002326.namprd03.prod.outlook.com
- (2603:10b6:510:34a:cafe::3b) by PH5P220CA0013.outlook.office365.com
- (2603:10b6:510:34a::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 08:44:24 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF00002326.mail.protection.outlook.com (10.167.242.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 08:44:23 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 02:44:21 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 02:44:21 -0600
-Received: from xcbalexaust42x.amd.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57 via Frontend
- Transport; Fri, 20 Nov 2026 02:44:20 -0600
-From: Alex Austin <alex.austin@amd.com>
-Date: Fri, 20 Nov 2026 08:44:04 +0000
-Subject: [PATCH net] sfc: create PPS workqueue before registering phc
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yd9jYDWx
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-382f4710a17so1027412eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795164268; x=1795769068; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KKrF/3OPdL6xEz+lwHbSUSyJUkI7uH9V+JtYaC3j1O4=;
+        b=yd9jYDWxSnmgfJHfqSyZKGNcKL/4y3T65i/88mjFwS/JVSxqz54bPJPG4GqpAnZcnI
+         k2ffPZi6N+Qkdf2dCKrjADsxfVgg8BDLybdEkLUNSldSHnR+vCIzHW3i2NTvL8olii7B
+         Qqd34k+aOruNNgNBnpcT4OtsUY9vffa4DqX5atq7pb7NHNnbRaRzqMgy+DKoKhmErgZx
+         iUO99Pi/nnXWxbU4qBAngA8LqSmIJnT+HaqSoXxvZmnvpSKD71tQm9jRNVNVA68pK9C2
+         PNQl6q3sfbokF7YW6N+1hlR7NDIf9036MRnwbbO1FLQeZu9aYSY8OPPo2Mdd7f1orZ54
+         GCrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795164268; x=1795769068;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KKrF/3OPdL6xEz+lwHbSUSyJUkI7uH9V+JtYaC3j1O4=;
+        b=arSnsQu9IGHq2DgGbOBrbzNd2nUCIKoUjarF8jta/3x9IX92KI9+tFO2oaN3916KPD
+         hFkSjbCl4iaC+5624t7JN24Xcb0EcxWMYUM41jNFgCppnZGzY3xV/0d9MGEX5JmFh3Se
+         YNhmBRHShg0g1eSSLi18Fz5AJk/g0Gsb1YB4P0QTr1D7NL87Yja/ofrglL5XmVxoEfW3
+         Qqu7z03EMfldsisuUTLJdI8KxP+yOREEvuWPxZVSj3paUpuKVZqArVU0pWJX06Ej3qQ1
+         QBVm+26sYxUvA3RZeBsIoGFJyQdGCCv2LYpuTMSzD6zmCw3nX2byCIk+EJ7W0TGu44y+
+         D+kw==
+X-Forwarded-Encrypted: i=1; AL+hErG4QoO0ujEPm1JTtJtVJHgYDqT8eU7MMTBaVpWrosV+RVCbM4glpte/BlNJDyLnDBXbU1NxMFq7yBUm7Sc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+JjCF2EJtZf+s9g7S2rvTKJeqcq4Dn8CqYswPXVpAZYmnEZn+C
+	umFVSA3P51vUYRD7GqmyVXSc/xfSDLDESACPKXO3y1fLSefkaFHnAU9x
+X-Gm-Gg: AYBFou1z2JLiw6Z6nBjUg8S6lHP+jAZpa09q8PR+E4Z19jfiRPh9BjgMbicHY6e26TJ
+	K5RwL1sAZc4ATgncqP9eadzNIt+lorJydnyp28j/Q0NzNMAcpko5OJLWYCA+KjJGN16kIMXlloL
+	wrkpaDLVRyBOwL313+8/p9vHwcyQr/6vHnIuKwaV6J5iwtnuA1njQSYkyeK6VBnhFR6bJhtoKQc
+	z9nIUnIShVJRkar4+qCGESPTEqxDH/B20Xn4qmXFAmlZ1OkTvFK+YqXY2e0EYnX6pRG6i2bQ7gy
+	SA16pn885g9FVc3v3uiUXnvxCAWXA9XB3nZVolCvrtBJ779PmXBXpjcrOHUS5p0Z7+DhV/QY0h6
+	53g02Cf5N48HPOuxyHqMdqfEFBqyFw9uQfq6cyvlhYyWuvTa5UmOZk2cbsTXLUMxLu9Q/uIg3vX
+	Yrtsf1KS7oCgNt5WF7X03qDrwoSE4BJyZdf/GPxynhpVOpXMwGg5JKBorbSpkcHaVxqMA1xO+ip
+	d91CLya3O4vw9XD/sfYP7fJVzAZ+UIeEWk1yNjWFLrqdlv4pK0D7CVGdRHt3tQOCHIIr9D9fkNd
+	a/jKscTuElL2Mo6GtyhcIE1y2A90UAn6bIUH68EoMlv7ekIAFAGpFO3f6Gr8QxqIxhXeCD4XytR
+	J/WT2I/D5rZFK8eaW3w==
+X-Received: by 2002:a05:7023:a5b:20b0:191:a5b2:ef4a with SMTP id a92af1059eb24-1b5568b9f5dmr2015605c88.28.1795164267919;
+        Fri, 20 Nov 2026 00:44:27 -0800 (PST)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:44:27 -0800 (PST)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Date: Fri, 20 Nov 2026 00:44:02 -0800
+Subject: [PATCH v3 11/18] HID: logitech-hidpp: use unaligned accessors for
+ multi-byte values
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,123 +95,204 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261120-sfc_pps_wq_fix-v1-1-5837aeb14a4f@amd.com>
-X-B4-Tracking: v=1; b=H4sIAFQIAGsC/yWMywrCMBQFf6WctYEmRhf+ikjQ21O9LmLMrQ8o/
- XejLmdgZoaxKg27bkblU01vuYFfdZDLMZ/pdGiM0Iet96F3NkoqxdLrnkZ9u8AhUiTKOm7QolL
- Z9G+4R+aEw1/a43SlTN8VluUDtEcVgncAAAA=
-X-Change-ID: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
-To: Andy Moreton <andy.moreton@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Richard
- Cochran" <richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-net-drivers@amd.com>,
-	<linux-kernel@vger.kernel.org>, Alex Austin <alex.austin@amd.com>
-X-Mailer: b4 0.15.2
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002326:EE_|PH7PR12MB8121:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87752a44-3e44-4583-4a57-08df46e27a26
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|23010399003|376014|36860700016|1800799024|18002099003|11063799006|56012099006|261022105027099003|261026140227099003|261026121527099003|261028144727099003|261102123227099003|261021121427099003|261021123027099003|261009223027099003|261009220027099003|261009221227099003|261009223327099003|261021135927099003|261009221727099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	+hWBd6gk8BFuZjni6g+q3vv04xC34RiPlOZgAP4+CINjontVDjsIxerTIrCKX/Gzi6ILtqlljNwrHGmo9KZVLS75s52ePD4wuZO3zbEdLtDfC/xRoQVPmLKLST1TH9iLYbkzJgPwDqB2U2RffpGiN0u8rRS7nUU9TwSvdPXVf4mQ1GgjvtxYbjTX3FY5wpe6iPzKmYkuqGzOrIqnrbxJmLeV5xEQellFhRBCwu+/ToXdGBZ2uOC4YIrrO6I+3GuJ4CikYvDNRYyc2axmpiNyH3eKESJwNY4oPVHw8yJrnYcX+ma1gjFXdcTiY1V+8i40j9ii9JT+357c7Mzv+bkDcf7L0cFXtlltD9YuezEbmz7Z3yht46pXKGJ/CuwiII/1fs8bWPKIOOASBv07DASYVLY1W0TcnT+5QOg+GA6eWIz1I/mEZhL64Y4B/T2NoBDNmcY3pkuPBvjf3csFlX9T/EdKk4KRZITP687G1jEtLgrnP5yr6KZ4/DBOjeOfmcMd+/FnyexD0T0TQEkwkKa0RWxqhN6LNPgu/1FFaSBTv0opgIJh4QrhqmiSOV5QdsEAIhUtcnRZcgXQAVBtTfjTnTi+T98s4U6846+rIKbnq4pXNN8UqV7KoEYZFrQewHviZRHAMdz158MljEMQ2TZRa8zWhDDawh7Wh0uRek561Zqs3PzsPqA3nLMrRmlEWwC/1U1dUiHzK5MCDpXY0oRfMQ==
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(36860700016)(1800799024)(18002099003)(11063799006)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(261102123227099003)(261021121427099003)(261021123027099003)(261009223027099003)(261009220027099003)(261009221227099003)(261009223327099003)(261021135927099003)(261009221727099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	OQCzSCEOZl7xMeQmOeYJY/uS3/uWJWOjJTPZbk+egnUX04WpRA8EXHZ0nle76KGFqa+GTpSC3AjI2AoBw5wWRCi41rVETcL6a2FWuspYeew2sHgsHFLOdJ4jeuhXGuFfJG0GXsCbCmmcY9Fj3dR5nf/by0odFXDgLc34mJYtALl6ebAVmUjpkV6/5kAdx1ZzxEPbdltFDuWIjm5k37dkb/936H2I4bEID7SwAujmb7DF8BRfro7gW7Fc9w5wLqUp3g1xSG/V52K5rCp3WyS/zfxV55FrhcvqSZDlbP9y8OvFKOA3tgDraZ/tGRBfEsL6ylhiyhzCKLcu6DbWnemapqU8rPDqfW9gWMbFdGq/MG0SdVV0LYscmUfs4XJv0YL1VIr0lggUPvJjwTaENbxp7H9+OwIfKE+Rvuzoxm8G+rJQCjEMdZr/84++bpv2nnmi
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:44:23.4885
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87752a44-3e44-4583-4a57-08df46e27a26
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF00002326.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8121
+Message-Id: <20261120-hid-logitech-hidpp-next-v3-11-ba39242d4336@gmail.com>
+References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ Gideon Heinz <gideonheinz02@gmail.com>
+Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
+ Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+ Edwin Velds <e.velds@gmail.com>, 
+ Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+ Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.17-dev-6b8b8
 
-Registering the PHC before creating the PPS workqueue leaves a small
-window for PTP_CLK_REQ_PPS to be requested and a NIC generated PPS event
-to arrive before the workqueue exists. Create the PPS workqueue before
-registering the PHC.
+Several paths in the Logitech HID++ driver manually split and reassemble
+16-bit protocol values using shifts and masks instead of using standard
+kernel helpers, which obscures endianness intent and adds unnecessary
+noise.
 
-Fixes: 7c236c43b838 ("sfc: Add support for IEEE-1588 PTP")
-Signed-off-by: Alex Austin <alex.austin@amd.com>
+Replace open-coded 16-bit big-endian packing and unpacking with
+get_unaligned_be16() and put_unaligned_be16().
+
+Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/net/ethernet/sfc/ptp.c | 26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
+ drivers/hid/hid-logitech-hidpp.c | 84 +++++++++++++++-------------------------
+ 1 file changed, 31 insertions(+), 53 deletions(-)
 
-diff --git a/drivers/net/ethernet/sfc/ptp.c b/drivers/net/ethernet/sfc/ptp.c
-index 37511f234d76..ad6a4e7d990f 100644
---- a/drivers/net/ethernet/sfc/ptp.c
-+++ b/drivers/net/ethernet/sfc/ptp.c
-@@ -1633,26 +1633,26 @@ int efx_ptp_probe(struct efx_nic *efx, struct efx_channel *channel)
- 
- 	if (efx->mcdi->fn_flags &
- 	    (1 << MC_CMD_DRV_ATTACH_EXT_OUT_FLAG_PRIMARY)) {
-+		INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
-+		ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
-+		if (!ptp->pps_workwq) {
-+			rc = -ENOMEM;
-+			goto fail3;
-+		}
+diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
+index 54e7ee824063..16fb52634437 100644
+--- a/drivers/hid/hid-logitech-hidpp.c
++++ b/drivers/hid/hid-logitech-hidpp.c
+@@ -960,7 +960,9 @@ static int hidpp_root_get_feature(struct hidpp_device *hidpp, u16 feature,
+ {
+ 	struct hidpp_report response;
+ 	int ret;
+-	u8 params[2] = { feature >> 8, feature & 0x00FF };
++	u8 params[2];
 +
- 		ptp->phc_clock_info = efx_phc_clock_info;
- 		ptp->phc_clock = ptp_clock_register(&ptp->phc_clock_info,
- 						    &efx->pci_dev->dev);
- 		if (IS_ERR(ptp->phc_clock)) {
- 			rc = PTR_ERR(ptp->phc_clock);
--			goto fail3;
--		} else if (ptp->phc_clock) {
--			INIT_WORK(&ptp->pps_work, efx_ptp_pps_worker);
--			ptp->pps_workwq = create_singlethread_workqueue("sfc_pps");
--			if (!ptp->pps_workwq) {
--				rc = -ENOMEM;
--				goto fail4;
--			}
-+			goto fail4;
++	put_unaligned_be16(feature, params);
+ 
+ 	ret = hidpp_send_fap_command_sync(hidpp,
+ 			HIDPP_PAGE_ROOT_IDX,
+@@ -2113,7 +2115,7 @@ static int hidpp_solar_battery_event(struct hidpp_device *hidpp,
+ 
+ 	switch (function) {
+ 	case EVENT_SOLAR_BATTERY_LIGHT_MEASURE:
+-		lux = (report->fap.params[1] << 8) | report->fap.params[2];
++		lux = get_unaligned_be16(&report->fap.params[1]);
+ 		if (lux > 200)
+ 			status = POWER_SUPPLY_STATUS_CHARGING;
+ 		else
+@@ -2415,7 +2417,6 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ 					  &response);
+ 	if (ret)
+ 		hid_err(data->hidpp->hid_dev, "Failed to send command to device!\n");
+-
+ 	atomic_dec(&data->workqueue_size);
+ 	kfree(wd);
+ }
+@@ -2460,23 +2461,18 @@ static int hidpp_ff_upload_effect(struct input_dev *dev, struct ff_effect *effec
+ 
+ 	/* set common parameters */
+ 	params[0] = old ? data->slots[effect->id] : 0;
+-	params[2] = effect->replay.length >> 8;
+-	params[3] = effect->replay.length & 255;
+-	params[4] = effect->replay.delay >> 8;
+-	params[5] = effect->replay.delay & 255;
++	put_unaligned_be16(effect->replay.length, &params[2]);
++	put_unaligned_be16(effect->replay.delay, &params[4]);
+ 
+ 	switch (effect->type) {
+ 	case FF_CONSTANT:
+ 		force = (effect->u.constant.level * fixp_sin16((effect->direction * 360) >> 16)) >> 15;
+ 		params[1] = HIDPP_FF_EFFECT_CONSTANT;
+-		params[6] = force >> 8;
+-		params[7] = force & 255;
++		put_unaligned_be16(force, &params[6]);
+ 		params[8] = effect->u.constant.envelope.attack_level >> 7;
+-		params[9] = effect->u.constant.envelope.attack_length >> 8;
+-		params[10] = effect->u.constant.envelope.attack_length & 255;
++		put_unaligned_be16(effect->u.constant.envelope.attack_length, &params[9]);
+ 		params[11] = effect->u.constant.envelope.fade_level >> 7;
+-		params[12] = effect->u.constant.envelope.fade_length >> 8;
+-		params[13] = effect->u.constant.envelope.fade_length & 255;
++		put_unaligned_be16(effect->u.constant.envelope.fade_length, &params[12]);
+ 		size = 14;
+ 		dbg_hid("Uploading constant force level=%d in dir %d = %d\n",
+ 				effect->u.constant.level,
+@@ -2511,20 +2507,14 @@ static int hidpp_ff_upload_effect(struct input_dev *dev, struct ff_effect *effec
+ 				effect->u.periodic.waveform);
+ 			return -EINVAL;
  		}
- 	}
- 	ptp->nic_ts_enabled = false;
+-		params[6] = effect->u.periodic.magnitude >> 8;
+-		params[7] = effect->u.periodic.magnitude & 255;
+-		params[8] = effect->u.periodic.offset >> 8;
+-		params[9] = effect->u.periodic.offset & 255;
+-		params[10] = effect->u.periodic.period >> 8;
+-		params[11] = effect->u.periodic.period & 255;
+-		params[12] = effect->u.periodic.phase >> 8;
+-		params[13] = effect->u.periodic.phase & 255;
++		put_unaligned_be16(effect->u.periodic.magnitude, &params[6]);
++		put_unaligned_be16(effect->u.periodic.offset, &params[8]);
++		put_unaligned_be16(effect->u.periodic.period, &params[10]);
++		put_unaligned_be16(effect->u.periodic.phase, &params[12]);
+ 		params[14] = effect->u.periodic.envelope.attack_level >> 7;
+-		params[15] = effect->u.periodic.envelope.attack_length >> 8;
+-		params[16] = effect->u.periodic.envelope.attack_length & 255;
++		put_unaligned_be16(effect->u.periodic.envelope.attack_length, &params[15]);
+ 		params[17] = effect->u.periodic.envelope.fade_level >> 7;
+-		params[18] = effect->u.periodic.envelope.fade_length >> 8;
+-		params[19] = effect->u.periodic.envelope.fade_length & 255;
++		put_unaligned_be16(effect->u.periodic.envelope.fade_length, &params[18]);
+ 		size = 20;
+ 		dbg_hid("Uploading periodic force mag=%d/dir=%d, offset=%d, period=%d ms, phase=%d\n",
+ 				effect->u.periodic.magnitude, effect->direction,
+@@ -2541,17 +2531,13 @@ static int hidpp_ff_upload_effect(struct input_dev *dev, struct ff_effect *effec
+ 	case FF_RAMP:
+ 		params[1] = HIDPP_FF_EFFECT_RAMP;
+ 		force = (effect->u.ramp.start_level * fixp_sin16((effect->direction * 360) >> 16)) >> 15;
+-		params[6] = force >> 8;
+-		params[7] = force & 255;
++		put_unaligned_be16(force, &params[6]);
+ 		force = (effect->u.ramp.end_level * fixp_sin16((effect->direction * 360) >> 16)) >> 15;
+-		params[8] = force >> 8;
+-		params[9] = force & 255;
++		put_unaligned_be16(force, &params[8]);
+ 		params[10] = effect->u.ramp.envelope.attack_level >> 7;
+-		params[11] = effect->u.ramp.envelope.attack_length >> 8;
+-		params[12] = effect->u.ramp.envelope.attack_length & 255;
++		put_unaligned_be16(effect->u.ramp.envelope.attack_length, &params[11]);
+ 		params[13] = effect->u.ramp.envelope.fade_level >> 7;
+-		params[14] = effect->u.ramp.envelope.fade_length >> 8;
+-		params[15] = effect->u.ramp.envelope.fade_length & 255;
++		put_unaligned_be16(effect->u.ramp.envelope.fade_length, &params[14]);
+ 		size = 16;
+ 		dbg_hid("Uploading ramp force level=%d -> %d in dir %d = %d\n",
+ 				effect->u.ramp.start_level,
+@@ -2568,18 +2554,12 @@ static int hidpp_ff_upload_effect(struct input_dev *dev, struct ff_effect *effec
+ 	case FF_SPRING:
+ 	case FF_DAMPER:
+ 		params[1] = HIDPP_FF_CONDITION_CMDS[effect->type - FF_SPRING];
+-		params[6] = effect->u.condition[0].left_saturation >> 9;
+-		params[7] = (effect->u.condition[0].left_saturation >> 1) & 255;
+-		params[8] = effect->u.condition[0].left_coeff >> 8;
+-		params[9] = effect->u.condition[0].left_coeff & 255;
+-		params[10] = effect->u.condition[0].deadband >> 9;
+-		params[11] = (effect->u.condition[0].deadband >> 1) & 255;
+-		params[12] = effect->u.condition[0].center >> 8;
+-		params[13] = effect->u.condition[0].center & 255;
+-		params[14] = effect->u.condition[0].right_coeff >> 8;
+-		params[15] = effect->u.condition[0].right_coeff & 255;
+-		params[16] = effect->u.condition[0].right_saturation >> 9;
+-		params[17] = (effect->u.condition[0].right_saturation >> 1) & 255;
++		put_unaligned_be16(effect->u.condition[0].left_saturation >> 1, &params[6]);
++		put_unaligned_be16(effect->u.condition[0].left_coeff, &params[8]);
++		put_unaligned_be16(effect->u.condition[0].deadband >> 1, &params[10]);
++		put_unaligned_be16(effect->u.condition[0].center, &params[12]);
++		put_unaligned_be16(effect->u.condition[0].right_coeff, &params[14]);
++		put_unaligned_be16(effect->u.condition[0].right_saturation >> 1, &params[16]);
+ 		size = 18;
+ 		dbg_hid("Uploading %s force left coeff=%d, left sat=%d, right coeff=%d, right sat=%d\n",
+ 				HIDPP_FF_CONDITION_NAMES[effect->type - FF_SPRING],
+@@ -2670,10 +2650,10 @@ static void hidpp_ff_set_autocenter(struct input_dev *dev, u16 magnitude)
+ 	params[0] = g920->slot_autocenter;
+ 	params[1] = HIDPP_FF_EFFECT_SPRING | HIDPP_FF_EFFECT_AUTOSTART;
+ 	/* set coeff to 25% of saturation */
+-	params[8] = params[14] = magnitude >> 11;
+-	params[9] = params[15] = (magnitude >> 3) & 255;
+-	params[6] = params[16] = magnitude >> 9;
+-	params[7] = params[17] = (magnitude >> 1) & 255;
++	put_unaligned_be16(magnitude >> 3, &params[8]);
++	put_unaligned_be16(magnitude >> 3, &params[14]);
++	put_unaligned_be16(magnitude >> 1, &params[6]);
++	put_unaligned_be16(magnitude >> 1, &params[16]);
  
- 	return 0;
- fail4:
--	ptp_clock_unregister(efx->ptp_data->phc_clock);
-+	destroy_workqueue(efx->ptp_data->pps_workwq);
+ 	hidpp_ff_queue_work(data, HIDPP_FF_DOWNLOAD_EFFECT, params, ARRAY_SIZE(params));
+ }
+@@ -2685,8 +2665,7 @@ static void hidpp_ff_set_gain(struct input_dev *dev, u16 gain)
  
- fail3:
- 	destroy_workqueue(efx->ptp_data->workwq);
-@@ -1702,16 +1702,16 @@ void efx_ptp_remove(struct efx_nic *efx)
+ 	dbg_hid("Setting gain to %d.\n", gain);
  
- 	cancel_work_sync(&efx->ptp_data->work);
- 	cancel_delayed_work_sync(&efx->ptp_data->cleanup_work);
--	if (efx->ptp_data->pps_workwq)
-+	if (efx->ptp_data->pps_workwq) {
- 		cancel_work_sync(&efx->ptp_data->pps_work);
-+		destroy_workqueue(efx->ptp_data->pps_workwq);
-+	}
+-	params[0] = gain >> 8;
+-	params[1] = gain & 255;
++	put_unaligned_be16(gain, params);
  
- 	skb_queue_purge(&efx->ptp_data->rxq);
- 	skb_queue_purge(&efx->ptp_data->txq);
+ 	hidpp_ff_queue_work(data, HIDPP_FF_SET_GLOBAL_GAINS, params, ARRAY_SIZE(params));
+ }
+@@ -2716,8 +2695,7 @@ static ssize_t hidpp_ff_range_store(struct device *dev, struct device_attribute
  
--	if (efx->ptp_data->phc_clock) {
--		destroy_workqueue(efx->ptp_data->pps_workwq);
-+	if (efx->ptp_data->phc_clock)
- 		ptp_clock_unregister(efx->ptp_data->phc_clock);
--	}
+ 	range = clamp_val(range, 180, 900);
  
- 	destroy_workqueue(efx->ptp_data->workwq);
+-	params[0] = range >> 8;
+-	params[1] = range & 0x00FF;
++	put_unaligned_be16(range, params);
  
+ 	error = hid_hw_open(hid);
+ 	if (error)
 
----
-base-commit: 9068e05d35f3b02a802f520e664032f802bcd2e9
-change-id: 20261120-sfc_pps_wq_fix-2ed4ecc4c345
-
-Best regards,
---  
-Alex Austin <alex.austin@amd.com>
+-- 
+2.56.1.750.gf70dc682cf-goog
 
