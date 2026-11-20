@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189455;
-	b=NoAXFcFDoM0X47DYGsdTf05b1SferWjBCbI4ktXsjQvyWRTVd/wJ6gx128m/k/DBgr/I
-	 LmGzQh3Ej+gxddHZ5ghIlmVh487fLmFH7S6peKMmoqCq5qkBMR1tF8nVeD1sLiVxtMVBF
-	 bLCG9hS/rwp+Q+dU7/W65M0LSBEs6KGgX7KQ/05Eql0Sgw8tFScUwWa0LEGuf7r4QqkEp
-	 CdAffTwX/eCKWlUChfktdxzqz7vGZsN66StsLpBBz1cNX9yqA1pIgWD+evm3XKVbZxker
-	 JncB8uxzPdK8Mne/tD17w9AnHqwwTUfvFHoqSm8HGjl4oREjWuVXws79/7Wr+rKimeg==
+	t=1795189475;
+	b=sb9hHsLnKacuchD28SCo6Fz2pF70T7dtmebC63hq5EEsWtUwKmXyazJKPl7gAPCtrLne
+	 rOF7oiDnQz8x/h0fAE/YrLNe/AKID7wfCDEr3+0h9XjMH1FcByiDS9+YtQwzsDPvpupSv
+	 XZxa0DLmnCaFtJydFqPQ00TjWhJyv4FJ1ScXP0NWxYre0Ay9IvRwp2aaAOmAlwrZcFxmb
+	 8E0jrS4owpWmVFQXfv6aW4ypFI5GUotSx0lnMtv6AJ315cIXSrbtAohbf9BKCX3p4/OX8
+	 ux90ojd0jOloyxa+yyEfWa+bDTftr75Fd31XHxVoHG1ajcz2MZ78aDGYGwSj0L/NjNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189455;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=MpAFJKoRLBHWua5zVfwBOUWeo6j4cvTXzjQs1AqjA18=;
-	b=QBQU3ZgAS0wmjuFY+vBYZQCSv/ELGhrP6J4lrzLcFskSQ4/d586e1AMwRKplM+XVpEWI
-	 P3xM6dbFoViMcZKQMqZF30v8pKcq7hgAE5FFDvLvt33oZirNiNL7AGQN/vYmVwTPmiqEX
-	 koaJBJm6VkI3gP/luKBC9GPfTnMSQuPolkNqk7dMS8Blx++8wivND8QxhbSpNI0+lZeYq
-	 thf7bsx0P71tIQ9PKeOHqPY9+sUdPJwLOqS33Um1mXGv1xOtu6PTYZ6Nrdsp89rkc6Uiq
-	 xR73LxEnFmQQY7jmURRWryNGBgrugAwiO5Oqr5SgPhaiaaehFGg5jsuc3hVeBAseQnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189475;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=NGj0qVuLIFFATf6LyggXZB3De6ZTU5Fq7s/WOWKevVw=;
+	b=YOz2w8eRjqgxNJjmeA/h4VHib/bVugHG/tEZI6vCpVsQxgRpJVWI/c1EigQU6h9bC2SJ
+	 cH612WI7XL/lVzaDxtkT8XZUBW1x60ZcyIK0ubd+/w1lqKwieBJZT4Fkzdp62P3wL6ia5
+	 UEbfW4EDCmNX+AnV24q4GIEKOrPZduSVC53cbe0Bdhw+FYQPwOfLtVPIVF3YsoaKt5N9E
+	 mCcFj/RTPLiW9tAaYMm67V1fDRIpl1QV+rVUA9Oni4mIMQ46tZeRZyLKNGGWhEIf0HFoU
+	 kO98Q/YaTeKfLsTlYxmvCf7fwZ9UVxlRNiGE2l7WCc586kC6Q2ULEhxosqjADItvyCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmeJ271N;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C82E606A325;
-	Fri, 20 Nov 2026 15:44:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C82E606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id A190E68AFE; Fri, 20 Nov 2026 16:44:09 +0100 (CET)
-Date: Fri, 20 Nov 2026 16:44:09 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Jan Kara <jack@suse.cz>
-Cc: Christian Brauner <brauner@kernel.org>, Christoph Hellwig <hch@lst.de>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Jens Axboe <axboe@kernel.dk>, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, io-uring@vger.kernel.org,
-	linux-block@vger.kernel.org, linux-nvme@lists.infradead.org,
-	linux-scsi@vger.kernel.org, target-devel@vger.kernel.org,
-	linux-unionfs@vger.kernel.org, bpf@vger.kernel.org,
-	linux-nfs@vger.kernel.org, stable@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
-	Boqun Feng <boqun@kernel.org>, Waiman Long <longman@redhat.com>
-Subject: Re: [PATCH 07/12] zloop: take freeze protection when recording
- write pointers
-Message-ID: <20261120154409.GD28611@lst.de>
-References: <20261114-work-fs-frozen_writes-v1-0-f5ae61c898b1@kernel.org> <20261114-work-fs-frozen_writes-v1-7-f5ae61c898b1@kernel.org> <20261116064820.GB2964@lst.de> <20261116-biegen-flaute-flanke-cebddae97444@brauner> <t73376p7ip4bvetjbqijzugvglhi2rdxsqt62l3uuqtmt3tqgk@2rlkkdy33hwk>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8911606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:44:35 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmeJ271N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B4D1F000CF;
+	Fri, 20 Nov 2026 15:44:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795189475;
+	bh=NGj0qVuLIFFATf6LyggXZB3De6ZTU5Fq7s/WOWKevVw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=mmeJ271N5f02C0B1RJgXSd6hkgBzr5xSxlMsyenlDXMd0wCPGTa7FRYam0L+pK+Nd
+	 2nDwSnDOv012h1FYqMdYNMO6bs1iHUSB9PaeWSr6tD3E999ON/i1nZJrZlbyopx/zH
+	 1WOxAslRKxAb9EIJj4yAqjf8N6R6HgMZS6aqktcvJIpdXVTkB3T81w8/pracVLAw5I
+	 wSJIVpaYPJpzClqE6eNqFKYfrkrqP4tYZGjR6OqUAdtKVVC5HgrjgK71tSO2C0h5E2
+	 +yEM8XVc3jF9BMQI6AHMNt7a5VhqmQ68piHOjE1DJhS6l88PoRjNwWQFZutTDw4942
+	 yHBaa6mbzgwGw==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Chris Down <chris@chrisdown.name>
+Cc: Pratyush Yadav <pratyush@kernel.org>,  Pasha Tatashin
+ <pasha.tatashin@soleen.com>,  Mike Rapoport <rppt@kernel.org>,  Andrew
+ Morton <akpm@linux-foundation.org>,  Samiullah Khawaja
+ <skhawaja@google.com>,  kexec@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  linux-mm@kvack.org
+Subject: Re: [PATCH v2 2/2] mm/memfd_luo: keep memfd frozen until finish
+In-Reply-To: <20261114220528.f7d9874a014dbb5d@chrisdown.name> (Chris Down's
+	message of "Sat, 14 Nov 2026 22:05:28 -0800")
+References: <20261110175855.2437084-1-pratyush@kernel.org>
+	<20261110175855.2437084-3-pratyush@kernel.org>
+	<20261114220528.f7d9874a014dbb5d@chrisdown.name>
+Date: Fri, 20 Nov 2026 15:44:31 +0000
+Message-ID: <2vxzcxrz1p9c.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,32 +64,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <t73376p7ip4bvetjbqijzugvglhi2rdxsqt62l3uuqtmt3tqgk@2rlkkdy33hwk>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Type: text/plain
 
-On Mon, Nov 16, 2026 at 12:57:09PM +0100, Jan Kara wrote:
-> On Mon 16-11-26 10:41:49, Christian Brauner wrote:
-> > Fwiw, the check can't go into __vfs_setxattr(), __vfs_setxattr_noperm()
-> > or __vfs_removexattr(). cap_inode_killpriv(), IMA and EVM call those
-> > from ->write_iter() via file_remove_privs() and kiocb_start_write()
-> > hides the freeze protection from lockdep for aio and io_uring. I have
-> > not bothered to figure out why. Maybe you already know? In any case,
-> > until that's fixed we can't place it there which means this doesn't
-> > catch IMA/EVM at which point this patch becomes pointless.
-> 
-> It's because of AIO and io_uring - if you don't hide the protection from
-> lockdep, it will complain about it when returning to userspace while IO is
-> still in flight (and thus protection is held). Sadly lockdep does not
-> support releasing resources by anybody else than the process which acquired
-> it so we fool it in this way...
+On Sat, Nov 14 2026, Chris Down wrote:
 
-Can we try to escalate this to the lockdep folks instead of piling hacks
-deeper and deeper?
-> 
-> 								Honza
-> -- 
-> Jan Kara <jack@suse.com>
-> SUSE Labs, CR
----end quoted text---
+> Hi Pratyush,
+>
+> Pratyush Yadav writes:
+>>+ * Restrictions
+>>+ * ============
+>>+ *
+>>+ * While a memfd is preserved, and after it is retrieved until the session is
+>>+ * finished, its size can't be changed and holes can't be punched in it.
+>>+ * Operations that would do so (``ftruncate()``, ``fallocate()``, writes past
+>>+ * the end of the file) fail.
+>
+> Not a big deal, but there's one more thing that fails in this window and
+> isn't listed here. Adding F_SEAL_WRITE to a retrieved memfd before finish
+> now waits about 150ms and then fails with EBUSY. That's because
+> memfd_wait_for_pins() sees the reference kept from kho_restore_folio() as
+> an extra reference on every folio. Once the session is finished it
+> succeeds straight away. The same already happens while the memfd is
+> preserved in the old kernel, so maybe it's worth mentioning here for both?
+>
+> Also, fallocate() fails with EPERM in every mode while the file is frozen.
+> That includes FALLOC_FL_KEEP_SIZE inside i_size, which neither changes the
+> size nor punches a hole. "Operations that would do so" makes it sound like
+> only some fallocate() calls fail.
+>
+> Otherwise I've tested this across a kexec and it works well.
+>
+> Once those are fixed, please feel free to add:
+>
+> Reviewed-by: Chris Down <chris@chrisdown.name>
+> Tested-by: Chris Down <chris@chrisdown.name>
+
+Thanks! I'll fixup the two documentation things and send out a v3.
+
+-- 
+Regards,
+Pratyush Yadav
