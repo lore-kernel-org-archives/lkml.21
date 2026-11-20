@@ -1,44 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180089;
-	b=mPnSJE/d/NfeXv1Ztm5lK5YBlZwdlok5IO6L9JbzRNXKfIpv/X7U7TEyvVb5P+cWt31+
-	 XNeUhEppvA+rwFtXhrZbJc3FcsQlsUOXlFk1HhiDHkm/YABsX2+VoDxWPtloSKBozQswt
-	 mfVAwcSMOMqz9ydaAEbMX7ofKWBnPFTHDRfznVHIh16AUJhpJg0f3y4JJyPbanVBCnaqj
-	 AnpD2yKPkW5OR69EmTpZr2X89NuTP7qY2itlkDKmP1yICPUG+GRYky8hnx6oy3VtIvmCz
-	 XbonsMWWhE0W22NfgIwhKmbBPQtpA9E2Levk6odfp/BKC4DbeuEuBcmR8bg505HxPJA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180089;
-	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
-	 From:To:Subject:Cc:X-Mailer:References:In-Reply-To;
-	bh=bp1gpixkccc6LO466CpvyGIblODxrqd8Ot9b3hg+I+E=;
-	b=E6nrtoCA4zqtQx6TgfQoQ4gQnUylE2zyIY3awzzutYvFQR27AxtnpgTkAp6j5tzb/Pu1
-	 icOOFcXPLauZD04/U3JRIDsAK9cPvriXjrnGcFCTJgE5fFlXcp/pcAPuRIRkNRj6wMzbU
-	 RikRfmvkuLPyHOh6UeM6/5xSfQXRThY/OC7wcHKjqVTCIanQgrwown4iWHq6VaqAE1dV9
-	 ZiTOAPMymTRqN6zt7f8Crk71qDaMEkhZ/03mKmeoYeOWsyXGVBlVby8M9c4t7ZOShREDy
-	 X4lwNkuJ+x9y3M8LvlM+2x9UrOkFBQHGfIIM3w7jBaoNhqMDgi9ZuD/7VmzyWTe70Xw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZlwrzCG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795180160;
+	b=NmPuFO3hFeCtplHhq1T8dhDCk1dADteRa/b/z8xvBSZyqbtKCe/tzaMZIr8i9dODSRpR
+	 TW6ujq4Hxhwx3MJHS4LVMmsPrSQtyfQPSIB8gcGSrhKW60nph1BSZDK+GXHDC/Gs+9//I
+	 Ns5IIc1bicEhiMwa4KN3KcEQIpWg0REzNOnK8UZ0mwiGaRIwoUzH42EdcjMxu3nqTH/L4
+	 /7VOTylY4mseLKenx3W/uGN2O+wUFjuDQDsFXYWrIakNnEwAFxFaBvTO4MRckyi8otndg
+	 HciQeexon99fxGUaZSS/Sy8h8QoXg+fXUVKCBEZ8P6uLrCWwk+99quewL8WSdhGb+kg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180160;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Message-ID:
+	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Importance:User-Agent:X-Mailer;
+	bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=;
+	b=m5CYqxN0HGXghUJ/TkSPcIlTwc17CKP0Y6OAxeSnZ74bwhxB5sBrelx8eJwauuLyG2DM
+	 id+ogIhdNbuZHRN/4eoLVXfSE5AotY6hXT+/opkPX4uGAIhqLbB+3Us6SxbrrCf1p8B0/
+	 rC7kdyk68RhNcb1OV+yfAENr6PVBv2H9Blwgyysu04gA6E+fVz5BsqXkG2yf/kxWi6m3b
+	 WfEILEip2uAaK94TYs1B69y5Jsxiot9+QKRNPQB0oDEFIUQchhWSFI/MbDzgzUxwrVbWy
+	 5EDXsmgptKKbj/ujtw4svRul0RGKv735MJ5Y+floPcmXgX4USa9quatb6JPavOJA+SQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=collabora.com;
+	spf=pass smtp.mailfrom=collabora.com;
+	dkim=pass header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ehbxFn6Q;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.11
+Received: from sender6-op-o11.zoho.com (sender6-op-o11.zoho.com [165.173.180.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B5D99606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:08:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D26606A320;
+	Fri, 20 Nov 2026 13:09:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91D26606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=collabora.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=collabora.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZlwrzCG
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 06F311F000C4;
-	Fri, 20 Nov 2026 13:08:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180089;
-	bh=bp1gpixkccc6LO466CpvyGIblODxrqd8Ot9b3hg+I+E=;
-	h=Date:From:To:Subject:Cc:References:In-Reply-To;
-	b=mZlwrzCGvf31KzfYa5T3DOIKSP3YJywSc1QEISzBmNDGt/ublb4ZU2/ottafIC0/1
-	 5uh1GXbnD/ibf/Tzl7mAt3C3kcc9hZZcSX6q41BR89qOUqdBvaU7s+eBYG/BKO6nkd
-	 32w+j8lSKt2FVDsozWoYD0IMlyLnPR9+vEydAltTxuAmND1RSZ+/WLW5rYhWkftAVy
-	 Eshr4U6/eUGpEfxVH9YIKek8S0WyazvQRuvPuzRaiw19W4g7YAGscoCE4dXZY9Ia8K
-	 38tIIB1S9iQ9u43QsiSAtUKpHAZdFzSC4pv11ZmpWxYMqrFdNC80c824fZAQQ74Tw/
-	 nsSm1TwzWtxtg==
+	dkim=pass (1024-bit key) header.d=collabora.com header.i=@collabora.com header.a=rsa-sha256 header.s=zohomail header.b=ehbxFn6Q
+ARC-Seal: i=1; a=rsa-sha256; t=1795180132; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=FYuT9fhElAX47KBGkB2SllZszrMGccBSGnyXiMEX3YyCdM+qz2KtfxinqDTV0gnBxd7yL1QjJk62yM6TZYzHg7HN8T0fwLQvz8MlW3Nh/5Z8Fmfsk0rFHXd7i7DT1Nz40qqIUfmm42YhlDKF3hcOZiBttATAo9+v27L9plRC+H8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795180132; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=; 
+	b=ZvoUZTyPgb2vfXKImZEhHSAbdbVhjmCzBRjYcu6VXR90/d3TPkzip110xHwT9jQopXhZZyymkcmaT+hs2loUQtQJNdUao3WN0bJBD5ToCXonxp7vH/9WwJUypvvvngNIyFQ2ODELpu9gb2gKFl6HcsFWy+Vycxb2Lwe5ACDY4cU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.dufresne@collabora.com;
+	dmarc=pass header.from=<nicolas.dufresne@collabora.com>
+DKIM-Signature: a=rsa-sha256; b=ehbxFn6Q8yTrPbnsU7wE9E48PYRCjMfiX6+/+ropJDEv7ZZJUwwiOwqGBdAKwHfXE50PWuhmohKp7qW3kRr5IezHe5AfOzOAWWZ0ENmw8J/IIAJQS9I2Ndy6j11Wd4BteUiDNonSiNc+Ny8gPbFJcnssEkziiKPJBPidYaiBhew=; c=relaxed/relaxed; s=zohomail; d=collabora.com; v=1; bh=sf4AH1zOcw+3m6cCakkCBTqDSIqFr2QBiWyWayVrX3Q=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 1795180130356352.2454153669245; Fri, 20 Nov 2026 05:08:50 -0800 (PST)
+Date: Fri, 20 Nov 2026 08:08:50 -0500
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: <aiyengar1990@gmail.com>
+Cc: <hverkuil@kernel.org>, <mchehab@kernel.org>,
+	<benjamin.gaignard@collabora.com>, <p.zabel@pengutronix.de>,
+	<mripard@kernel.org>, <paulk@sys-base.io>,
+	<gregkh@linuxfoundation.org>, <wens@kernel.org>,
+	<jernej.skrabec@gmail.com>, <samuel@sholland.org>, <jonas@kwiboo.se>,
+	<linux-media@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rockchip@lists.infradead.org>,
+	<linux-staging@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <ckoever@outlook.de>,
+	<aiyengar1990@gmail.com>
+Message-ID: <1a1f912f033.2efff015191157.7190884739957848478@collabora.com>
+In-Reply-To: <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com>
+References: <20261119-b4-cedrus-mpeg1-v1-0-aa5ba1192822@gmail.com> <20261119-b4-cedrus-mpeg1-v1-2-aa5ba1192822@gmail.com>
+Subject: =?UTF-8?Q?Re:=C2=A0[PATCH_RFC_2/2]_media:_cedrus:_mpeg2:?=
+ =?UTF-8?Q?_decode_MPEG-1_as_V4L2=5FPIX=5FFMT=5FMPEG1=5FSLICE?=
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -47,385 +74,306 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Fri, 20 Nov 2026 14:08:05 +0100
-Message-Id: <DN028AALEL5P.BR73QEJF46H1@kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Weimin Wu" <wuweimin@huaqin.corp-partner.google.com>
-Subject: Re: [PATCH] [v5] mtd: spi-nor: gigadevice: Add support for
- GD25LQ255E & GD25LQ256H
-Cc: <linux-kernel@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
- <pratyush@kernel.org>, <takahiro.kuwano@infineon.com>,
- <tudor.ambarus@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260527032823.771616-1-wuweimin@huaqin.corp-partner.google.com> <20260728064954.3474270-1-wuweimin@huaqin.corp-partner.google.com>
-In-Reply-To: <20260728064954.3474270-1-wuweimin@huaqin.corp-partner.google.com>
-
---72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Importance: Normal
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
 
 Hi,
 
-I'm going through the backlog of patches, excuse my very late reply.
 
-On Tue Jul 28, 2026 at 8:49 AM CEST, Weimin Wu wrote:
-> Add support for the GD25LQ255E & GD25LQ256H (JEDEC ID c8 60 19),
-> a 256Mbit (32MB) SPI NOR flash chip which supports SFDP.
+---- Le jeu., 19 nov. 2026 11:34:53 -0500
+devnull+aiyengar1990.gmail.com@kernel.org a =C3=A9crit ----
+
+
+> From: Arun Iyengar
 >
-> GD25LQ256H shares the same JEDEC ID (c8 60 19) with GD25LQ255E.
-> Since GD25LQ256H supports DTR (Double Transfer Rate) mode while
-> GD25LQ255E does not, use the post_bfpt hook to detect this capability
-> via SFDP and dynamically redirect the info pointer. This allows both
-> chips to be supported correctly without breaking write protection on
-> GD25LQ255E.
+> The engine has an MPEG-1 mode, selected with the MPEG-1 decoder type in
+> the trigger register, and takes the full pel flags and the picture
+> coding type (D-pictures included) in the picture header register.
 >
-> Without this patch, The WP status cannot be obtained using flashrom:
-> device:/ # flashrom --wp-status
-> ...
-> linux_mtd_wp_read_cfg:
-> ioctl: Operation not supported on transport endpoint
-> Failed to get WP status: failed to read the current WP configuration
+> Enumerate V4L2_PIX_FMT_MPEG1_SLICE on every variant with the MPEG-2
+> decoder (tested on H616 only), with the MPEG-2 limits, and select the
+> MPEG-1 mode from the coded format. try_ctrl accepts the MPEG-1 flag, the
+> full pel flags and D-pictures only with the MPEG-1 format. A job whose
+> sequence control does not match the coded format fails, as do field
+> pictures in MPEG-1 sequences.
+
+
+MPEG2 requires MPEG1 support. The new format simply add noise, you can fix =
+cedrus with V4L2_MPEG2_SEQ_FLAG_MPEG1 alone.
+
+
+Nicolas
+
+
+
 >
-> and with this patch:
-> device:/ # flashrom --wp-status
-> ...
-> Protection range: start=3D0x00000000 length=3D0x00000000 (none)
-> Protection mode: disabled
-> SUCCESS
->
-> Link: https://download.gigadevice.com/Datasheet/DS-00562-GD25LQ255E-Rev1.=
-2.pdf
-> Link: https://download.gigadevice.com/Datasheet/DS-01085-GD25LQ256H-Rev1.=
-3.pdf
->
-> Signed-off-by: Weimin Wu <wuweimin@huaqin.corp-partner.google.com>
+> Signed-off-by: Arun Iyengar
 >
 > ---
-> Changes in v5:
-> - Add a feature to distinguish between GD25LQ256H and GD25LQ255E by detec=
-ting whether DTR is supported.
-> - Link to v4: https://patchwork.ozlabs.org/project/linux-mtd/patch/202605=
-27032823.771616-1-wuweimin@huaqin.corp-partner.google.com/
-> - Link to v3: https://patchwork.ozlabs.org/project/linux-mtd/patch/202604=
-18084253.792395-1-wuweimin@huaqin.corp-partner.google.com/
-> - Link to v2: https://patchwork.ozlabs.org/project/linux-mtd/patch/202603=
-13133806.2390946-1-wuweimin@huaqin.corp-partner.google.com/
-> - Link to v1: https://patchwork.ozlabs.org/project/linux-mtd/patch/202602=
-13144133.1778932-1-wuweimin@huaqin.corp-partner.google.com/
+> drivers/staging/media/sunxi/cedrus/cedrus.c | 22 +++++++++++++
+> drivers/staging/media/sunxi/cedrus/cedrus_dec.c | 1 +
+> drivers/staging/media/sunxi/cedrus/cedrus_hw.c | 1 +
+> drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c | 38 ++++++++++++++++++=
+++---
+> drivers/staging/media/sunxi/cedrus/cedrus_video.c | 7 +++++
+> 5 files changed, 65 insertions(+), 4 deletions(-)
 >
-> Refer to the following documents:
-> https://docs.kernel.org/driver-api/mtd/spi-nor.html#minimum-testing-requi=
-rements
->
-> For GD25LQ256H
-> 1. Specify the controller that you used to test the flash and specify the=
- frequency at which the flash was operated:
->
-> This flash memory has been successfully tested at 100Mhz frequency on a C=
-hromebook device running the Intel Patherlake platform, which is currently =
-under development.
->
-> 2. Dump the sysfs entries and print the md5/sha1/sha256 SFDP checksum:
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/partname
-> gd25lq256h
->
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
-> c86019
->
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
-> gigadevice
->
-> root:/ # xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-> 53464450070102ff00070114300000ffc8000103900000ff84010102c000
-> 00ffffffffffffffffffffffffffffffffffe520fbffffffff0f44eb086b
-> 083b80bbfeffffffffff00ffffff42eb0c200f5210d800ffd4299dfe84d2
-> 14c7ec6316337a757a7507b3d55c190614ff885018010000000000008800
-> 00000000f6f5ffffffffffffffffffffffffffffffffffff002050169ff9
-> 7764fc8bffffffffffffffffffffffffffffffffffffffffffffffffffff
-> ffffffffffffffffffffffffff8e00fe215cdcff
->
-> root:/ # sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-> 09f61fe623df200d86b4ab47c48e3a13718fadbb450fcd430b3cdc49a902b1f6  /sys/bu=
-s/spi/devices/spi0.0/spi-nor/sfdp
->
-> 3. Dump debugfs data:
-> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
-> Supported read modes by the flash
->  1S-1S-1S
->   opcode	0x13
->   mode cycles	0
->   dummy cycles	0
->  1S-1S-1S (fast read)
->   opcode	0x0c
->   mode cycles	0
->   dummy cycles	8
->  1S-1S-2S
->   opcode	0x3c
->   mode cycles	0
->   dummy cycles	8
->  1S-2S-2S
->   opcode	0xbc
->   mode cycles	4
->   dummy cycles	0
->  1S-1S-4S
->   opcode	0x6c
->   mode cycles	0
->   dummy cycles	8
->  1S-4S-4S
->   opcode	0xec
->   mode cycles	2
->   dummy cycles	4
->  4S-4S-4S
->   opcode	0xec
->   mode cycles	2
->   dummy cycles	2
->
-> Supported page program modes by the flash
->  1S-1S-1S
->   opcode	0x12
->  1S-1S-4S
->   opcode	0x34
->
-> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/params
-> name		(null)
-> id		c8 60 19 c8 60 19
-> size		32.0 MiB
-> write size	1
-> page size	256
-> address nbytes	4
-> flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_16BIT_SR | NO_=
-READ_CR | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET
->
-> opcodes
->  read		0x0c
->   dummy cycles	8
->  erase		0xdc
->  program	0x12
->  8D extension	repeat
->
-> protocols
->  read		1S-1S-1S
->  write		1S-1S-1S
->  register	1S-1S-1S
->
-> erase commands
->  21 (4.00 KiB) [1]
->  5c (32.0 KiB) [2]
->  dc (64.0 KiB) [3]
->  c7 (32.0 MiB)
->
-> sector map
->  region (in hex)   | erase mask | overlaid
->  ------------------+------------+----------
->  00000000-01ffffff |     [   3] | no
->
-> 4. Use mtd-utils and verify that erase, read and page program operations =
-work fine:
-> Because Chromebooks lack the necessary mtd-utils directives, the correspo=
-nding data cannot be provided.
->
-> For GD25LQ255E
-> 1. Specify the controller that you used to test the flash and specify the=
- frequency at which the flash was operated:
->
-> This flash memory has been successfully tested at 100Mhz frequency on a C=
-hromebook device running the Intel Patherlake platform, which is currently =
-under development.
->
-> 2. Dump the sysfs entries and print the md5/sha1/sha256 SFDP checksum:
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/partname
-> gd25lq255e
->
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
-> c86019
->
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
-> gigadevice
->
-> root:/ # xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-> 53464450070102ff00070114300000ffc8000103900000ff84010102c000
-> 00ffffffffffffffffffffffffffffffffffe520fbffffffff0f44eb086b
-> 083b80bbfeffffffffff00ffffff42eb0c200f5210d800ffd4299dfe84d2
-> 14c7ec6316337a757a7507b3d55c190614ff885018010000000000008800
-> 00000000f6f5ffffffffffffffffffffffffffffffffffff002050169ff9
-> 7764fc8bffffffffffffffffffffffffffffffffffffffffffffffffffff
-> ffffffffffffffffffffffffff8e00fe215cdcff
->
-> root:/ # sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-> 09f61fe623df200d86b4ab47c48e3a13718fadbb450fcd430b3cdc49a902b1f6  /sys/bu=
-s/spi/devices/spi0.0/spi-nor/sfdp
->
-> 3. Dump debugfs data:
-> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
-> Supported read modes by the flash
->  1S-1S-1S
->   opcode	0x13
->   mode cycles	0
->   dummy cycles	0
->  1S-1S-1S (fast read)
->   opcode	0x0c
->   mode cycles	0
->   dummy cycles	8
->  1S-1S-2S
->   opcode	0x3c
->   mode cycles	0
->   dummy cycles	8
->  1S-2S-2S
->   opcode	0xbc
->   mode cycles	4
->   dummy cycles	0
->  1S-1S-4S
->   opcode	0x6c
->   mode cycles	0
->   dummy cycles	8
->  1S-4S-4S
->   opcode	0xec
->   mode cycles	2
->   dummy cycles	4
->  4S-4S-4S
->   opcode	0xec
->   mode cycles	2
->   dummy cycles	2
->
-> Supported page program modes by the flash
->  1S-1S-1S
->   opcode	0x12
->  1S-1S-4S
->   opcode	0x34
->
-> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/params
-> name		(null)
-> id		c8 60 19 c8 60 19
-> size		32.0 MiB
-> write size	1
-> page size	256
-> address nbytes	4
-> flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_16BIT_SR | NO_=
-READ_CR | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET
->
-> opcodes
->  read		0x0c
->   dummy cycles	8
->  erase		0xdc
->  program	0x12
->  8D extension	repeat
->
-> protocols
->  read		1S-1S-1S
->  write		1S-1S-1S
->  register	1S-1S-1S
->
-> erase commands
->  21 (4.00 KiB) [1]
->  5c (32.0 KiB) [2]
->  dc (64.0 KiB) [3]
->  c7 (32.0 MiB)
->
-> sector map
->  region (in hex)   | erase mask | overlaid
->  ------------------+------------+----------
->  00000000-01ffffff |     [   3] | no
-> root:/ # cat /sys/bus/spi/devices/spi0.0/
-> driver/                          mtd/                             statist=
-ics/                      uevent
-> driver_override                  power/                           subsyst=
-em/
-> modalias                         spi-nor/                         supplie=
-r:regulator:regulator.0/
-> root:/ # cat /sys/bus/spi/devices/spi0.0/s
-> spi-nor/                         statistics/                      subsyst=
-em/                       supplier:regulator:regulator.0/
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/
-> jedec_id      manufacturer  sfdp
-> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/
->
-> 4. Use mtd-utils and verify that erase, read and page program operations =
-work fine:
-> Because Chromebooks lack the necessary mtd-utils directives, the correspo=
-nding data cannot be provided.
-> ---
-> ---
-> ---
->  drivers/mtd/spi-nor/gigadevice.c | 33 ++++++++++++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
->
-> diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigad=
-evice.c
-> index ef1edd0add70..9fc97feb2849 100644
-> --- a/drivers/mtd/spi-nor/gigadevice.c
-> +++ b/drivers/mtd/spi-nor/gigadevice.c
-> @@ -33,6 +33,34 @@ static const struct spi_nor_fixups gd25q256_fixups =3D=
- {
->  	.post_bfpt =3D gd25q256_post_bfpt,
->  };
-> =20
-> +static const struct flash_info gd25lq256h_info =3D {
-> +	.name =3D "gd25lq256h",
-> +	.id =3D SNOR_ID(0xc8, 0x60, 0x19),
-> +	.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_4BIT_BP | SPI_NOR_HAS_TB | SPI_NO=
-R_TB_SR_BIT6,
-> +};
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> index c3331b4f3f02..60b296032a90 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus.c
+> @@ -77,6 +77,26 @@ static int cedrus_try_ctrl(struct v4l2_ctrl *ctrl)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0c=
+tx->bit_depth =3D bit_depth;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0c=
+edrus_reset_cap_format(ctx);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
+> +=C2=A0=C2=A0=C2=A0=C2=A0} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_MP=
+EG2_SEQUENCE) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_m=
+peg2_sequence *seq =3D
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ctrl->p_new.p_mpeg2_sequence;
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct cedrus_ctx *ctx =
+=3D container_of(ctrl->handler,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st=
+ruct cedrus_ctx, hdl);
 > +
-> +static int
-> +gd25lq255e_post_bfpt(struct spi_nor *nor,
-> +		     const struct sfdp_parameter_header *bfpt_header,
-> +		     const struct sfdp_bfpt *bfpt)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (seq->flags & V4L2_MP=
+EG2_SEQ_FLAG_MPEG1 &&
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ctx->src_fmt.pixelforma=
+t !=3D V4L2_PIX_FMT_MPEG1_SLICE)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+return -EINVAL;
+> +=C2=A0=C2=A0=C2=A0=C2=A0} else if (ctrl->id =3D=3D V4L2_CID_STATELESS_MP=
+EG2_PICTURE) {
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_m=
+peg2_picture *pic =3D
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ctrl->p_new.p_mpeg2_picture;
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0struct cedrus_ctx *ctx =
+=3D container_of(ctrl->handler,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 st=
+ruct cedrus_ctx, hdl);
+> +
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (ctx->src_fmt.pixelfo=
+rmat !=3D V4L2_PIX_FMT_MPEG1_SLICE &&
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (pic->picture_coding_ty=
+pe =3D=3D V4L2_MPEG2_PIC_CODING_TYPE_D ||
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pic->flags & (V4L2_MPEG=
+2_PIC_FLAG_FULL_PEL_FORWARD |
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD)))
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+return -EINVAL;
+> =C2=A0=C2=A0=C2=A0=C2=A0}
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0return 0;
+> @@ -90,12 +110,14 @@ static const struct cedrus_control cedrus_controls[]=
+ =3D {
+> =C2=A0=C2=A0=C2=A0=C2=A0{
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.cfg =3D {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.=
+id=C2=A0=C2=A0=C2=A0=C2=A0=3D V4L2_CID_STATELESS_MPEG2_SEQUENCE,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+.ops=C2=A0=C2=A0=C2=A0=C2=A0=3D &cedrus_ctrl_ops,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0},
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
+> =C2=A0=C2=A0=C2=A0=C2=A0},
+> =C2=A0=C2=A0=C2=A0=C2=A0{
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.cfg =3D {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.=
+id=C2=A0=C2=A0=C2=A0=C2=A0=3D V4L2_CID_STATELESS_MPEG2_PICTURE,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+.ops=C2=A0=C2=A0=C2=A0=C2=A0=3D &cedrus_ctrl_ops,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0},
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
+> =C2=A0=C2=A0=C2=A0=C2=A0},
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+> index 9f8b0555b7dc..6657d6060c39 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_dec.c
+> @@ -41,6 +41,7 @@ void cedrus_device_run(void *priv)
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
+> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0run.mpeg2.sequence =3D ce=
+drus_find_control_data(ctx,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0V=
+4L2_CID_STATELESS_MPEG2_SEQUENCE);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0run.mpeg2.picture =3D ced=
+rus_find_control_data(ctx,
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+> index 444fb53878d1..fd3ee8f5e9a5 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_hw.c
+> @@ -44,6 +44,7 @@ int cedrus_engine_enable(struct cedrus_ctx *ctx)
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
+> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_MODE_DEC_MPEG=
+;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0break;
+>
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> index 10e98f08aafc..18d91b9b1e4a 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_mpeg2.c
+> @@ -48,6 +48,30 @@ static void cedrus_mpeg2_irq_disable(struct cedrus_ctx
+> *ctx)
+> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_CTRL, reg);
+> }
+>
+> +static bool cedrus_mpeg2_is_mpeg1(struct cedrus_ctx *ctx)
 > +{
-> +	/*
-> +	 * GD25LQ255E and GD25LQ256H share the same JEDEC ID (c8 60 19).
-> +	 * We can differentiate them by checking if the chip supports DTR
-> +	 * (Double Transfer Rate) mode, which is only supported by GD25LQ256H.
-> +	 *
-> +	 * SFDP parsing sets the DTR hwcaps if supported.
-> +	 */
-> +	if (bfpt->dwords[SFDP_DWORD(1)] & BFPT_DWORD1_DTR)
-> +		nor->info =3D &gd25lq256h_info;
-
-We got a new .match which should help you here. You can add both
-entries and add a .match. windbond.c should have enough examples you
-can look at.
-
--michael
-
-> +
-> +	return 0;
+> +=C2=A0=C2=A0=C2=A0=C2=A0return ctx->src_fmt.pixelformat =3D=3D V4L2_PIX_=
+FMT_MPEG1_SLICE;
 > +}
 > +
-> +static const struct spi_nor_fixups gd25lq255e_fixups =3D {
-> +	.post_bfpt =3D gd25lq255e_post_bfpt,
-> +};
+> +static bool
+> +cedrus_mpeg2_format_matches(struct cedrus_ctx *ctx,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ const struct v4l2_ctrl_mpeg2_sequence *seq,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ const struct v4l2_ctrl_mpeg2_picture *pic)
+> +{
+> +=C2=A0=C2=A0=C2=A0=C2=A0bool mpeg1 =3D cedrus_mpeg2_is_mpeg1(ctx);
 > +
->  static const struct flash_info gigadevice_nor_parts[] =3D {
->  	{
->  		.id =3D SNOR_ID(0xc8, 0x40, 0x15),
-> @@ -82,6 +110,11 @@ static const struct flash_info gigadevice_nor_parts[]=
- =3D {
->  		.size =3D SZ_16M,
->  		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
->  		.no_sfdp_flags =3D SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
-> +	}, {
-> +		.id =3D SNOR_ID(0xc8, 0x60, 0x19),
-> +		.name =3D "gd25lq255e",
-> +		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
-> +		.fixups =3D &gd25lq255e_fixups,
->  	},
->  };
-> =20
-
---72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCawBGNRIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/gRDgF/fJCUEJYxwNTbxPHtVJZ1JjljPnC3BV2q
-6SfUvh2OjGdz/5D7MfoVaiC/hbBSuljNAYDbaFnQ21h9QcZtGCaju75x0Ts2YY6q
-vQADc2E4phYwD8og2BdaKgfKJFA+eyJmgN0=
-=WQXo
------END PGP SIGNATURE-----
-
---72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de--
+> +=C2=A0=C2=A0=C2=A0=C2=A0/* try_ctrl checked the controls against the for=
+mat set at that time. */
+> +=C2=A0=C2=A0=C2=A0=C2=A0if (mpeg1 !=3D !!(seq->flags & V4L2_MPEG2_SEQ_FL=
+AG_MPEG1))
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return false;
+> +
+> +=C2=A0=C2=A0=C2=A0=C2=A0if (mpeg1)
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return pic->picture_stru=
+cture =3D=3D V4L2_MPEG2_PIC_FRAME;
+> +
+> +=C2=A0=C2=A0=C2=A0=C2=A0return pic->picture_coding_type !=3D V4L2_MPEG2_=
+PIC_CODING_TYPE_D &&
+> +=C2=A0=C2=A0=C2=A0=C2=A0 !(pic->flags & (V4L2_MPEG2_PIC_FLAG_FULL_PEL_FO=
+RWARD |
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD));
+> +}
+> +
+> static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, struct cedrus_run *=
+run)
+> {
+> =C2=A0=C2=A0=C2=A0=C2=A0const struct v4l2_ctrl_mpeg2_sequence *seq;
+> @@ -63,6 +87,9 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx, s=
+truct
+> cedrus_run *run)
+> =C2=A0=C2=A0=C2=A0=C2=A0seq =3D run->mpeg2.sequence;
+> =C2=A0=C2=A0=C2=A0=C2=A0pic =3D run->mpeg2.picture;
+>
+> +=C2=A0=C2=A0=C2=A0=C2=A0if (!cedrus_mpeg2_format_matches(ctx, seq, pic))
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0return -EINVAL;
+> +
+> =C2=A0=C2=A0=C2=A0=C2=A0quantisation =3D run->mpeg2.quantisation;
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0/* Activate MPEG engine. */
+> @@ -101,8 +128,10 @@ static int cedrus_mpeg2_setup(struct cedrus_ctx *ctx=
+,
+> struct cedrus_run *run)
+> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_Q_SCALE_TYPE(pic->fl=
+ags &
+> V4L2_MPEG2_PIC_FLAG_Q_SCALE_TYPE);
+> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_INTRA_VLC_FORMAT(pic=
+->flags &
+> V4L2_MPEG2_PIC_FLAG_INTRA_VLC);
+> =C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_ALTERNATE_SCAN(pic->=
+flags &
+> V4L2_MPEG2_PIC_FLAG_ALT_SCAN);
+> -=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VE=
+CTOR(0);
+> -=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_V=
+ECTOR(0);
+> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_FORWARD_VE=
+CTOR(pic->flags &
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0V4L2_MPEG2_PIC_FLAG_FULL_PEL_FORWARD);
+> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D VE_DEC_MPEG_MP12HDR_FULL_PEL_BACKWARD_V=
+ECTOR(pic->flags &
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0V4L2_MPEG2_PIC_FLAG_FULL_PEL_BACKWARD);
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_MP12HDR, reg);
+>
+> @@ -183,8 +212,9 @@ static void cedrus_mpeg2_trigger(struct cedrus_ctx *c=
+tx)
+> =C2=A0=C2=A0=C2=A0=C2=A0u32 reg;
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0/* Trigger MPEG engine. */
+> -=C2=A0=C2=A0=C2=A0=C2=A0reg =3D VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC=
+_MPEG_TRIGGER_MPEG2 |
+> -=C2=A0=C2=A0=C2=A0=C2=A0 VE_DEC_MPEG_TRIGGER_MB_BOUNDARY;
+> +=C2=A0=C2=A0=C2=A0=C2=A0reg =3D VE_DEC_MPEG_TRIGGER_HW_MPEG_VLD | VE_DEC=
+_MPEG_TRIGGER_MB_BOUNDARY;
+> +=C2=A0=C2=A0=C2=A0=C2=A0reg |=3D cedrus_mpeg2_is_mpeg1(ctx) ? VE_DEC_MPE=
+G_TRIGGER_MPEG1 :
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 VE_DEC_MPEG_TRIGGER_MPEG2;
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0cedrus_write(dev, VE_DEC_MPEG_TRIGGER, reg);
+> }
+> diff --git a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> index ad4ec3490775..8979693e9109 100644
+> --- a/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> +++ b/drivers/staging/media/sunxi/cedrus/cedrus_video.c
+> @@ -40,6 +40,11 @@ static struct cedrus_format cedrus_formats[] =3D {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
+> =C2=A0=C2=A0=C2=A0=C2=A0},
+> +=C2=A0=C2=A0=C2=A0=C2=A0{
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.pixelformat=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D V4L2_PIX_FMT_MPEG1_SLICE,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.capabilities=C2=A0=C2=
+=A0=C2=A0=C2=A0=3D CEDRUS_CAPABILITY_MPEG2_DEC,
+> +=C2=A0=C2=A0=C2=A0=C2=A0},
+> =C2=A0=C2=A0=C2=A0=C2=A0{
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.pixelformat=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D V4L2_PIX_FMT_H264_SLICE,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0.directions=C2=A0=C2=A0=
+=C2=A0=C2=A0=3D CEDRUS_DECODE_SRC,
+> @@ -125,6 +130,7 @@ void cedrus_prepare_format(struct v4l2_pix_format
+> *pix_fmt)
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0switch (pix_fmt->pixelformat) {
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
+> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_H264_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_HEVC_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_VP8_FRAME:
+> @@ -352,6 +358,7 @@ static int cedrus_s_fmt_vid_out_p(struct cedrus_ctx *=
+ctx,
+>
+> =C2=A0=C2=A0=C2=A0=C2=A0switch (ctx->src_fmt.pixelformat) {
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG2_SLICE:
+> +=C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_MPEG1_SLICE:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ctx->current_codec =3D &c=
+edrus_dec_ops_mpeg2;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0break;
+> =C2=A0=C2=A0=C2=A0=C2=A0case V4L2_PIX_FMT_H264_SLICE:
+>
+> --
+> 2.55.0
