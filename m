@@ -1,91 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182967;
-	b=QpMdihjSHrQn81oR4C5sVnKD2r850OJoOTSCSFeELJhHoM6wKUVesE5VfuCBFy+Gr7fh
-	 TjrW2+gkNRtY9ig//ENmorbsQ/gljrMwbPOPn1FfdxNstgNJGQLGcx7qPecECRYyOSBjj
-	 R3haj9Lhvx1FE/ARNE+IFcvyx0SZQYmtRcb7gEpDXv+IAX6Cwdd1hToMdIZ75amaxEHxi
-	 A+4DoiRfpRsygLBwVmXRIrZE/DJN+b/zCLqYwTA16MzxzChqpUZX5od8q5ahjmyaocfMd
-	 bUi2Exx5EOnEfDxV9BEiCMTQx4aEJsP5yRCHfepXIYoMbYWjbbaNqYURKePLzdaEzxw==
+	t=1795182980;
+	b=PSJITi+GX7iLnAxyNqlgZKAKEHoV+KH/4DO+QyETCMxgTNGUA/IplPQW/qjTQmK0LToQ
+	 Kpyrt9sNFZtOaOxpaR7ASGcaHDU7w9qR9VIKbzv9b1yZtxfD0JlMooSBJ/O9/hwjQ0Zuv
+	 9MJNmQl3ES46I3P48SDbmFxh+zwSHNCwlNWSl8WB3O4TvUYMjh9XQgr+KuqWbCifCq9wz
+	 /+EFvTrjrs+SuuxFSGC/1n8NQHZIBYTP0CEKGGFtNwbawhfGM8KHssq9M5PBq9B1Zof21
+	 EReJ1w3hj9DnrG81HPuORxeT1aMJ66GXorbNOXb77SgGWw2R/u5ZbQDHhZ+Up/WBEsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182967;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=dIcLfpnWy+IFfuTmvDgmMI3a4ch+Bj9z2ea7SoZBPnY=;
-	b=xEEQym9dUsJGxv4TKD2XKliiC/q/XKUHwCVWlyIweweDsZ6zpj0/7Sdlh3revWcvbvl/
-	 GPPRdSzBTRTmT88El8Q9sTVRDfWeGemCc6ewzE2FNcb3UaoEyKjqFBB0nh/VjYi9Bxkng
-	 jfpmqgWOFDfxJ9QFiWC6ppAdvSm5rqZaO+snzwhqa4JxfohWclv02cufDWX7uBqxeEHUU
-	 LPdXoGJqUAyNfY0aNyVkucF9tw7pgO28QBWdH5ezvtq0XwdcqD428nkadZbAyJg9SXi7c
-	 weeii+XdxLFda31c/psXSLtqJBKe5qfSNqxb3ckvP8Sc29hdBuccSMCKfv+7shVKZHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182980;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=zF42Mi5y8Ib0X4sHCH0GaZJRw3qLxhz9wgJMlHfgL9E=;
+	b=FeFSn2zL+14k1F1zJp9feUIm2cJfzsrD0NFLmJxqrR1aCV4S22bLigpaXmquujdPgMqK
+	 aP1mA7hCe08qhMqttK54invqJ+i4hgfStvydOlzdTj0WDKQg9UPXqhXSYQ52tSSJNfZpp
+	 9qBuzh5roUgfqFrvKW5EoBdiDiQoZ6PxaG45BwkkJjzT23C3B7RIkgoxBSqE9T+TXtOoe
+	 jajqIV7g3oEIXs+ytEuFCC1+cAOyrujmFs82kh4EznEIutTMR8xepRkBEpVCbNrGVlNC0
+	 Z41ajUf7pM4RcukLFYzCtYcBYtHKrNCeHzUWmCqlyaCA81AgDPOoIEgRc08t0H1jBBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kIOhK8No;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmByupct;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BB1760A261C;
-	Fri, 20 Nov 2026 13:56:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BB1760A261C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC61860A380F;
+	Fri, 20 Nov 2026 13:56:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=kIOhK8No
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795182963;
-	bh=dIcLfpnWy+IFfuTmvDgmMI3a4ch+Bj9z2ea7SoZBPnY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kIOhK8No6cCIpARIqfWa9zV+yi22TaclPaSHyMVf0gVhxld/jPYuBjqOzae2L5nDM
-	 zRDRYv9lXjY1AtVj6wnyHnF1YCw+gJ5lbMsOHvBH+OM1nW5fRfUN+sISlX9oy2+FtS
-	 gfeUcjG7M9DLR/ggENOcTOdr/ewRiBr48P41n+TEmnuIT7WvbHHwfoS/7wa8WB5h1U
-	 u3xj6QWceUx+fRzyzo4UD5ws029Gfvc9V7UqqVd+u7WTTVZtWV7OS4gk7/XCF9yVBZ
-	 BAxv+K7ECRV4QIZRUR65Dgz1FFF72ehV4p+90o0fJJ9vD/PRa9deDa6uyQoGuxLlDx
-	 1WHJzfy9G1coQ==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWH1H6Cb6zSnk;
-	Fri, 20 Nov 2026 08:56:03 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v9 26/33] sched/deadline: Start a period for a task that enters the class blocked
-Date: Fri, 20 Nov 2026 08:55:49 -0500
-Message-Id: <8c4afb25de793f30e480c975d5c4f94d27e51c02.1795181240.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mmByupct
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1A0A1F00ACF;
+	Fri, 20 Nov 2026 13:56:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182979;
+	bh=zF42Mi5y8Ib0X4sHCH0GaZJRw3qLxhz9wgJMlHfgL9E=;
+	h=From:Subject:Date:To:Cc;
+	b=mmByupctFo9HTSIllwteEG9JbCq5ZTKBNwT/RVCi5r6LltM42qjnk1hFVvM9qZapB
+	 zzyXVf/pk70xWbkMs2WZi8/KbXvxZZXeefgKbumN6SqOP/lqaeC8xbLDr+b2XAUEqy
+	 /xUc57cJJCOfFT9BKhcuKtVWWJdH36W06LH8eIEMFeyozeK2MZGQvjoyBj4Eq5XXpZ
+	 ZQDJT+KQPv+NMQtBPkL9Prj97QgEgO/H55AloW2CaaWmceVJbVR6wBqYaOv9/t/Hki
+	 ySnJdJ8kzNtZb0K0zqLn98KB4r1JoVHIREYfSgXclgJpC90oGVtiydIvJb9rVCmPKm
+	 xH0yFxvJ6KwsQ==
+From: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Subject: [PATCH v5 0/2] Add support for SA8255P in the
+ phy-qcom-snps-femto-v2 phy driver
+Date: Fri, 20 Nov 2026 14:56:03 +0100
+Message-Id: <20261120-phy-qcom-snps-femto-v2-8255-v5-0-86a9880ee5a5@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,156 +54,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33Qy2rDMBAF0F8JWneKNHrYzqr/EbKw7FGstrFcy
+ RUNwf9eOS19EPDywuVcZq4sUfSU2H53ZZGyTz6MJeiHHeuGdjwR+L5khhwNr7CBabjAWxfOkMY
+ pgaPzHCAj1Kg1NNw5qkylOBesCFMk5z9u+uH4ldO7faZuXsm1Mfg0h3i5zWex9r6XJN9cygI41
+ La2TguuW1M/vVAc6fUxxBNbpzL+YrUU2xgWrO+MaCrnehL2DpM/mOActzFZMKlQK7R9Yztzh6k
+ /GFbbmFrPLP9EWXJr5D9sWZZPJeEkWMABAAA=
+X-Change-ID: 20260729-phy-qcom-snps-femto-v2-8255-90ffe7674001
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+ Sriram Dash <quic_sriramd@quicinc.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4187;
+ i=mkorpershoek@kernel.org; h=from:subject:message-id;
+ bh=jZrp9wHdk2cj+vXmr5WjanzvROeJV+DE0ZhEYl72FmA=;
+ b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBrAFGA10fCOQaYHF42xNAxYqyPZpKSbWpcDkaC1
+ PGFnPe9sweJATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCawBRgAAKCRAZDR20Zk4Z
+ NfptCACDIi2reevB1Uv+IEOMSOlQvy2z2QugJbB7Oj1lnMbiruEE055T8QlNxcf4xewYHAajdKI
+ +9nxGADlW5obBWyto7vxXUl8IKdloQG5Vt2tUQseDCQEf1G3wLiGOYbDDHrB4H9Pc2Jl2YaYLq+
+ QGM3dKThQsOZ1lQggQqsyqaN8lzje0Kiqe/8e9AwOA2b/6iEjOB/JQz/EikLSP/pkbCsvraZG3Q
+ HjgKbIimI1rUBstodaATYj4q9q5IACtI9NuzcN8Jg8tvd/ILr+pTaO/88aqIFGHa3ARjLR/zDZ8
+ Mkbu7Ul4kVzYlvrCDyyk+YKQqLjf+Eydc0hHub+e5P6To4NB
+X-Developer-Key: i=mkorpershoek@kernel.org; a=openpgp;
+ fpr=8234A35B45C0D26B31C1A2DA570338B018144F28
 
-Commit fb00aca47440 ("rtmutex: Turn the plist into an rb-tree") sorts
-the waiters of an rt_mutex by priority. For deadline tasks, "the one
-with the earliest deadline wins". A waiter takes the deadline of its
-task.
+The Qualcomm automotive SA8255p SoC abstracts resources such as resets,
+clocks and regulators in firmware. The SCMI firmware exposes multiple
+protocols to control such resources which are identified by protocol_id.
 
-A task can enter the class while it waits on an rt_mutex.
-sched_setattr() can make it SCHED_DEADLINE. A priority inheritance
-boost can also put it in the class, if it owns another rt_mutex.
-switched_to_dl() leaves a task that is not queued to its wakeup. But
-the chain walk reads the deadline first, and copies it into the waiter.
-A task new to the class has a deadline of 0.
+For this USB phy, 2 SCMI protocols are exposed by the firmware:
+* power domain management protocol (protocol_id=0x11)
+* performance domain management protocol (protocol_id=0x13)
 
-So the waiter goes before every other deadline waiter. It takes the
-rt_mutex first, whatever their deadlines. Those waiters can then miss
-their deadlines. It also boosts a deadline owner whose own deadline is
-earlier.
+The power domain has 2 indices: 'core' and 'transfer'.
+* core controls the regulators, the clocks and the reset
+* transfer only controls the clocks
 
-Fix this by starting a new period in switched_to_dl() for a task that
-waits on an rt_mutex, if its deadline has passed. The period uses the
-reservation the task runs on: its own, or the copy a boost made. This
-is what setup_new_dl_entity() does at an enqueue. At the wakeup,
-update_dl_entity() then checks that period as for any wakeup.
+For example, to power on/off the PHY, we should use the 'core' domain.
+To disable data transfer and keeping power enabled, we should use the
+'transfer' domain.
 
-A new donor of a task with no parameters of its own needs the same. For
-a queued task, the enqueue of the boost starts a period from the new
-donor. For a blocked task, dl_boost_blocked() starts it at the boost.
+Note: the performance domain (0x13) exposes opaques values (0xa to 0x11)
+for which we don't have any information. Since it is not mandatory
+for the PHY to be functional, we have omitted it from the bindings and
+the driver.
 
-The setattr_blocked_keeps_order and boost_blocked_keeps_order cases,
-added to deadline_bw_test later in this series, test this. Both fail on
-v7.4-rc2 and on the series without this patch. The triage of the Sashiko
-AI review of this series found the bug.
+Patch 1 adds the binding for sa8255p. Similarly to what has been done
+for I2C [1], this is a separate binding.
 
-Fixes: fb00aca47440 ("rtmutex: Turn the plist into an rb-tree")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: stable@vger.kernel.org
+Patch 2 adds the driver change, which is based on a public vendor
+patch from qualcomm [2].
+I did the following changes on top of that:
+* Use devm_add_action_or_reset() for dev_pm_domain_detach_list() instead
+  of implementing a driver .remove()
+* Changed power domain names to drop 'usb_' prefix
+* Fixed various error handling paths
+* Added suspend/resume support
+
+This has been tested on next-20261026 with a Ride4 SA8775P board that
+has SCMI firmware (which is compatible).
+
+[1] https://lore.kernel.org/all/20260617-enable-i2c-on-sa8255p-v7-1-ad736dbeab57@oss.qualcomm.com/
+[2] https://git.codelinaro.org/clo/le/meta-qti-auto-kernel/-/blob/LY.AU.0.1.0.r1-16800-gen4meta.0/recipes-kernel/linux/files/usb/0014-PENDING-phy-qcom-snps-femto-v2-Add-support-for-SA825.patch
+
 ---
- kernel/sched/core.c     |  4 ++++
- kernel/sched/deadline.c | 46 +++++++++++++++++++++++++++++++++++++++++
- kernel/sched/sched.h    |  1 +
- 3 files changed, 51 insertions(+)
+Changes in v5:
+- Rebased on phy/next (non trivial conflicts due to IPQ9650 changes)
+- Moved fw_managed to phy_config_data
+- I have kept Mani's R-b on this since the patch still has similar
+  changes to v4.
+- Link to v4: https://patch.msgid.link/20261027-phy-qcom-snps-femto-v2-8255-v4-0-874023825a63@kernel.org
 
-diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-index d3a9b590f608..77cb55c93917 100644
---- a/kernel/sched/core.c
-+++ b/kernel/sched/core.c
-@@ -7969,8 +7969,12 @@ void rt_mutex_setprio(struct task_struct *p, struct task_struct *pi_task)
- 			if (!dl_prio(p->normal_prio) ||
- 			    (pi_task && dl_prio(pi_task->prio) &&
- 			     dl_entity_preempt(&pi_task->dl, &p->dl))) {
-+				bool new_donor = p->dl.pi_se != pi_task->dl.pi_se;
-+
- 				p->dl.pi_se = pi_task->dl.pi_se;
- 				scope->flags |= ENQUEUE_REPLENISH;
-+				if (!scope->queued && new_donor)
-+					dl_boost_blocked(p);
- 			} else {
- 				dl_deboost(&p->dl);
- 				/*
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 6511f1de0baa..c57bbc7a9536 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -125,6 +125,12 @@ void dl_deboost(struct sched_dl_entity *dl_se)
- 	}
- 	dl_drop_boost(dl_se);
- }
-+
-+/* Return true if @p waits on an rt_mutex. The caller holds its pi_lock. */
-+static inline bool dl_task_pi_blocked(struct task_struct *p)
-+{
-+	return p->pi_blocked_on;
-+}
- #else /* !CONFIG_RT_MUTEXES: */
- static inline struct sched_dl_entity *pi_of(struct sched_dl_entity *dl_se)
- {
-@@ -139,6 +145,11 @@ static inline bool is_dl_boosted(struct sched_dl_entity *dl_se)
- {
- 	return false;
- }
-+
-+static inline bool dl_task_pi_blocked(struct task_struct *p)
-+{
-+	return false;
-+}
- #endif /* !CONFIG_RT_MUTEXES */
- 
- static inline u8 dl_get_type(struct sched_dl_entity *dl_se, struct rq *rq)
-@@ -1162,6 +1173,30 @@ static inline void replenish_dl_new_period(struct sched_dl_entity *dl_se,
- 	trace_sched_dl_replenish_tp(dl_se, cpu_of(rq), dl_get_type(dl_se, rq));
- }
- 
-+#ifdef CONFIG_RT_MUTEXES
-+/*
-+ * Start a period from the new donor of @p, if @p has no reservation of its
-+ * own and waits on an rt_mutex. The enqueue does this for a queued task, in
-+ * replenish_dl_entity(). A blocked task is not enqueued, but the chain walk
-+ * copies its deadline into its waiter.
-+ *
-+ * The caller calls it only when the donor changes. A new period changes the
-+ * deadline, so the chain walk finds the waiter out of date and goes on. In a
-+ * ww_mutex cycle, a new period at each step would never let the walk stop.
-+ *
-+ * The caller holds the rq lock and the pi_lock of @p, and has updated the
-+ * rq clock.
-+ */
-+void dl_boost_blocked(struct task_struct *p)
-+{
-+	struct sched_dl_entity *dl_se = &p->dl;
-+
-+	if (!dl_se->dl_deadline && !dl_se->dl_throttled &&
-+	    dl_task_pi_blocked(p))
-+		replenish_dl_new_period(dl_se, task_rq(p));
-+}
-+#endif
-+
- /*
-  * We are being explicitly informed that a new instance is starting,
-  * and this means that:
-@@ -4692,6 +4727,17 @@ static void switched_to_dl(struct rq *rq, struct task_struct *p)
- 	if (!task_on_rq_queued(p)) {
- 		add_rq_bw(&p->dl, &rq->dl);
- 
-+		/*
-+		 * A task that waits on an rt_mutex cannot wait for its wakeup.
-+		 * The chain walk sorts its waiter by its deadline first. A task
-+		 * new to the class has a deadline of 0, which goes before every
-+		 * real one. Start a new period now, as setup_new_dl_entity()
-+		 * does at an enqueue.
-+		 */
-+		if (dl_task_pi_blocked(p) && !p->dl.dl_throttled &&
-+		    dl_time_before(p->dl.deadline, rq_clock(rq)))
-+			replenish_dl_new_period(&p->dl, rq);
-+
- 		return;
- 	}
- 
-diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-index 7b9762b06d9f..0d216caaf67b 100644
---- a/kernel/sched/sched.h
-+++ b/kernel/sched/sched.h
-@@ -358,6 +358,7 @@ extern int  sched_dl_overflow(struct task_struct *p, int policy, const struct sc
- extern void __setparam_dl(struct task_struct *p, const struct sched_attr *attr);
- #ifdef CONFIG_RT_MUTEXES
- extern void dl_deboost(struct sched_dl_entity *dl_se);
-+extern void dl_boost_blocked(struct task_struct *p);
- 
- /* End the boost of @dl_se. The caller holds the rq lock of its task. */
- static inline void dl_drop_boost(struct sched_dl_entity *dl_se)
--- 
-2.47.3
+Changes in v4:
+- Don't control regulator, clk and reset in SCMI path (Mani)
+- Rename helper functions to qcom_snps_pds_{enable,disable}_all and
+  qcom_snps_pd_{enable,disable}_transfer (Mani)
+- Add some more helper functions to keep probe() cleaner.
+- Dropped Neil's R-b due to the above driver changes
+- Link to v3: https://lore.kernel.org/r/20261002-phy-qcom-snps-femto-v2-8255-v3-0-342542bd9bc6@kernel.org
+
+Changes in v3:
+- Applied R-b from Krzysztof and Neil
+- Link to v2: https://patch.msgid.link/20260831-phy-qcom-snps-femto-v2-8255-v2-0-dc6197ffde1b@kernel.org
+
+Changes in v2:
+- Move 'core' as first domain, before 'transfer' (Krzysztof)
+- Reworded binding commit message to be more precise about the various
+  domains ('core', 'transfer' and 'perf') (Krzysztof)
+- Link to v1: https://patch.msgid.link/20260730-phy-qcom-snps-femto-v2-8255-v1-0-8b8bf5105a68@kernel.org
+
+To: Vinod Koul <vkoul@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Mattijs Korpershoek <mkorpershoek@kernel.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-phy@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Mattijs Korpershoek (1):
+      dt-bindings: phy: Add sa8255p high-speed USB PHY
+
+Sriram Dash (1):
+      phy: qcom-snps-femto-v2: Add support for SA8255P
+
+ .../bindings/phy/qcom,sa8255p-usb-hs-phy.yaml      |  52 ++++
+ drivers/phy/qualcomm/phy-qcom-snps-femto-v2.c      | 261 +++++++++++++++++----
+ 2 files changed, 270 insertions(+), 43 deletions(-)
+---
+base-commit: 6bdfbe223ed4735073c299a6645ebd3faac3f51f
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git next
+change-id: 20260729-phy-qcom-snps-femto-v2-8255-90ffe7674001
+
+Best regards,
+--  
+Mattijs Korpershoek <mkorpershoek@kernel.org>
 
