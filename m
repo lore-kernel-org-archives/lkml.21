@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.49
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197838;
-	b=SQgqWXQKjghCLGerH6aW3cbst+hf2VB0WOW7IZtbu0IDHflzxsscmk6yukUfc/gxOSz3
-	 sas0YgyL/tKTzNTCkzGtEDOeKNVbiIK+uJmz0flsi7xOBwH6Azc3e2fEUkN91wWEnOue6
-	 jwrOovyGJktl8BLI/3XEHLOxwLXL+hL06V8EsTg0dYD38fMdbPCFxCLMkF7r5PNlXcRHy
-	 8coeieT/vQE5+0u8T2lLm0gyvt/Fkvd3WovY1hL2LGQxePWEE3MijmEqYN68fcF3VoFdb
-	 OLt46/28xGA1d4fO4zS3unhVPYSWuvkXWPfDsQrrlSmDAIsYDTp2yuc+iVMALyr/Xeg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197838;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
-	b=ZTzU097nGvXrQMoufTl0Hcc4nLPAoosRiBvqCVnFvzmU7ntHHo64IFrRssG6g/l/I6Vy
-	 tkRjaa4h6AGNG1fZtXzX6odqDy6DjA/Qr9965ZI/NU39idKvuXqxL00ExMbNIZoFD+6sB
-	 7sV3VJe4Au/YXlKg3BvftYE13Xl+6d56CSbVFyB34P+2TLI0XVhz+9+tI+ZSoKB8q1Ocn
-	 NZt/IrHv8xbpGicokscSoBfirRNN9WoKYC7FACrCerD1O2AOA8IAyS/3yeFvcggbtgq1p
-	 RAz2zX4O2MsEqlyxH9xXDfa4WltxIVPNT+evncoy9k6U70UO83sh+9rQR7PKDbfEMYg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=purestorage.com;
-	spf=pass smtp.mailfrom=purestorage.com;
-	dkim=pass header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Qn9xrzae;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.49
-Received: from mail-oo1-f49.google.com (mail-oo1-f49.google.com [209.85.161.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795197849;
+	b=guBTF/3Qu6q0UsOgs0lVrkrHLV2p9rH/pFWRxrQDk0dNAkY1v2sv0UOGiy8vm1gOfYHT
+	 Erx88aH5UCQOwZ7ZK61qGGazAG5h9cdkCTC7pmLVxApexx/sEv83DT9/J+OgWIsvqgzXM
+	 4Hi9f1eRoZyp0q4YRa3V1v5hhKOW6dytaKuH3KzVMuYcxndKvBgbplsu2OZ5Y9DP/Bz47
+	 BpH9nchlfx56WhfVJD4r0lAopwmrgXmM3FYm9GRJ3dY1dOjzG/ecymlnFMZ9XR8d5fokN
+	 p0x4cLUgiKuPzZFoiN+rO5jWbcBk7+Q6Ctlp+foBG5l6ewLMrLvRi4TrIasMg2WPyGA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197849;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=cb/Z49GOdF0yhnrGMPBIli0QFaYOE4T0zI22A2vgSV4=;
+	b=GTEwpxiCzD+8QN/2dbUVuPcpMd6KBKYpy9c0KXCKYNmLj7eLNpzG9SyDwwreY93nYwGC
+	 VQ1YMxHKRaEs9/I0tj/FxiZI5JTN/sOHitdWCRY6dEhiCJN3YkjbRwa1daqba8EcZkYyD
+	 6YGBROKg9xhhCXqKdWzxTzFJ6wlZHgQXxXvrBchDpH6oHYpu99Y/bPnBg3Mb3cFUJYvx1
+	 754P1/KHfU7dSW2Xj8oIhbzrr3VSfznbqcRAtu3sm3thCV9qBfVKfncmN1bJNyLa6HiRx
+	 PMMJ9c4IztBnGTAbZkv9LGo6qm00jJ27dF7+pHUN9E3UOry02MIEllAbtvXrWoSMRYA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="NsTyS/Z6";
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F8EF606A33C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:03:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F8EF606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=purestorage.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CC7D60A260C;
+	Fri, 20 Nov 2026 18:04:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CC7D60A260C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Qn9xrzae
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-703e2625ce6so60137eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:03:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795197823; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jg9DQlIe/m0Jy7RkeP+Pc6p3SRiHvMN+mMdbli2cI5BWI1M36I0U46hYPyeRP0CNzh
-         y4LhHnu7C4N4NVqzGPeQ1nw0eVfAODL+Prnf7qurvgmOJLx5GFGxjQMfP5VaiJkdAIc6
-         FV78ezAViZSzkIIx0+/2JwckD/3lpI0wJ2i4pU6L1On4gaRDs8cNwvtpK0E3GHmfFmd1
-         4i8I4jwloLIS1IDgvetVAsz3IdSRJV1wvUCzYxFCLdlgwfTLMpbgsUEBae4DAL++sWay
-         voV+zbQJtHP3i3MlAonM2CBMnIZ3DM6YM54CPqhWo05/K3RTWsYs6gZIUykYk016xsGu
-         1k1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
-        fh=D7XUQhP4ZcePf48R0av69wMET9pwSBJHyhh6N0qgl78=;
-        b=AVXudJ0E4UgENKesRu7KVhbVYAjooRwWyejCaUuZZv5/ornPcZZZ2aKppjKcoG5ICq
-         /CLFYufdZwhWBU6Fxk0Be1qDfhMKwCKTIUsaZqxT2aQJBp3HuqVnRDjCN7tU5HCUu3h3
-         YS+IgCwtF6oxyA0SOUS0dHMYkkJtk7PWQr4Ln+NV1yCV+p3MpEBdEHaUzYG1vxEKLmx0
-         2eUDT6lP0C9SpymJyKkwMAJTeOYI2afNeiJ+3p+fEbL7FT57B9QQZbaGJQF9Ozs0BSKw
-         ZginCnE/JtbyfIvdKEkTPIHVtUJWjWNp6e7KmFZG6pdr3gi3w7BvAaFIBIkdE0NDV/Dr
-         ciBQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=purestorage.com; s=google2022; t=1795197823; x=1795802623; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
-        b=Qn9xrzaeM6NC/lNCk5HvJjlS74/wdHgv02t9aWq6wVtdOIP2N4hJzHGr8euQzMOiRO
-         7DjB5MpA5ALDBuo1PTYyDk58lc88mdxJ/YHZSBj/8lauORp1/rVM69euVsu0nhkCPzYm
-         0TpqTqXhUmRJavCOrHaCCJp8KDISHRadqrkthIv9p+cTeJOAX5QBPK3OCW6V8C9s0+gw
-         s6fZf8r8Zf4j4/DoshqTXTkcgI1d2zrDBwDWJ4sSZbk2CW8CcaUzAPCqKP/BXm0Rj8rC
-         aHGAkEleTKW+y+YMHGjBMkm1fH46bIiwQLJRWzBMZ44tWlpht6WCm3mQIaXieelfoDV/
-         4dRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795197823; x=1795802623;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
-        b=N5B1kaHt2d8LQW2zlJc3EJbyP+dSA12eMS2AaC5oSjEvvUeH9EGlcbl94rViYtv3cB
-         ViOxBO1VY+SsnHG+SyfStJyS2TkY5b7vu6C0xPzMdticQP5wDEdcf7m9tMls2OaFsPFb
-         B02g22pw5xo5yryyoaZBGvgdtyhPOgK8XJwlNUWKrN7qZHlreUM3LP8sCpmIdhxfKNLi
-         RWgcvu1DMFHoZqoRzyWg/zBDiNYSFKvhFKUJTLF76K7jJJNrrB7yXQCJ1GsvlRbfb6zb
-         25YGOXa72eyd2D/GYRNJkp+Rgthy24zhs5Y7xHI3ejq7qd/8Q9+wFtKIjoC3xMsLnrrW
-         /PfQ==
-X-Forwarded-Encrypted: i=1; AL+hErG+2cpMTpBrJFv9WoWFtyRejekPI3BmR49oIIAEQyagfa8zUjofq9ssnt2XjajoQ3y+piiQyGUfASh0QPk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/tUyPMTmeouvHF0B0FVuoRovOG+3h8uJqzu3PhJqfvqlrGOfAS
-	7/7x1d+xKzptxgST4jKskuDg3guXGqMQVoSesvJOMmZU2Nz4NqWZb745mR0+SGtynovdy66uSbW
-	rivLriW4w/AvjNYt4OKW7qSZ/+8lPDL6m50x4BWD7Iw==
-X-Gm-Gg: AYBFou3XivUd8S+68TcHykRbnmVYjP8I6HgWFFj7hiUwYhYor4oUm4FHkqg3exySKp8
-	AmkvySy8H3zS74Pg2TmbrfMdWSMob2norO2u+U2xV6DNaGEPea0GoSsaFMAeaY8GEFtIA66mSiU
-	9aXfpwuooGZF2PI3GPDUYnBvMjEWPcPeLKdTrMP8R2yCAcAar6JhA24jshYcTyfY6qxzdyed7im
-	sr2Dn26dlKqEzz2BE6CN5SbZkdXM4NeHUq61ApMZNPVo/5YVrCpLM5Ci2viIXyTeLmelJPe8c43
-	9kJpkYsSmF8sfmkWnXh5LvDQ7OUPk06UnZDH+6+iIBDKKr348iMVqzhCtKADyKygorDxboc0yTa
-	ZuzaBhjqRLKJYMaW9GYco63U8F1AcpLlQSyjCc7x30tJbsuhBuysU0DQgqQ==
-X-Received: by 2002:a05:6820:840d:b0:71a:ee8a:5d26 with SMTP id
- 006d021491bc7-71b3903669fmr3370770eaf.0.1795197823321; Fri, 20 Nov 2026
- 10:03:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=NsTyS/Z6
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 15A5A4E41690;
+	Fri, 20 Nov 2026 18:04:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D84A7601B9;
+	Fri, 20 Nov 2026 18:04:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D67A611BC0627;
+	Fri, 20 Nov 2026 19:03:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795197845; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=cb/Z49GOdF0yhnrGMPBIli0QFaYOE4T0zI22A2vgSV4=;
+	b=NsTyS/Z672Ga97LeNAcqGw2xk/9+aqknpMHbbFqFJuzj0jYKXyjTT51ndif2xvJIOsJor9
+	EJmvl0xKRWgSgRo0TSHnbm6/eOhYQ9VldDAcsJEZKyQzBZrtLSyAoMwW/4zmYuJNcO4RPb
+	88jj4JOnM8jQY7/JUUgZXXnI2hfuoRaWh2Bs/IUy1MJGdL4aKSUck4J/sFZH/+iQinxeJT
+	6JaIjYClkrsH/k5mqkBL8PEM6zA3I63Fw/4UMyqDfVIJfqCtmcip9OIODgcY8B8m0+YjG0
+	EIXc9BAwuh7b9Dunu3Ha5vYoxY6pJ1BMlp6re3MT+IdH6exrDWQGEbCK9NYq6A==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Fri, 20 Nov 2026 18:58:57 +0100
+Subject: [PATCH v6 15/43] drm/vkms: Simplify plane_release code
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,90 +63,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <202611150127512368BGQ07ZNIRAIwClkam-8u@zte.com.cn> <20261115012754244CUh01sEOwZp4S8maAbDDM@zte.com.cn>
-In-Reply-To: <20261115012754244CUh01sEOwZp4S8maAbDDM@zte.com.cn>
-From: Caleb Sander Mateos <csander@purestorage.com>
-Date: Fri, 20 Nov 2026 10:03:32 -0800
-X-Gm-Features: Aa3M54pd1WfunxbMR_7rgO7xsdkMjIOdAlBuB31wGQur8IoVOOkbFLJHq_cPaug
-Message-ID: <CADUfDZppuZYzPyOeAc8GfW=KjpGQj5wK0T0D-UXBHokG67Zxbg@mail.gmail.com>
-Subject: Re: [PATCH 2/5] nvme: map passthrough data when the length is nonzero
-To: shao.mingyin@zte.com.cn
-Cc: kbusch@kernel.org, axboe@kernel.dk, hch@lst.de, sagi@grimberg.me, 
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-vkms-all-config-v6-15-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
+ llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1030;
+ i=louis.chauvet@bootlin.com; h=from:subject:message-id;
+ bh=B5PM6W0vulahUUbfuhv5KpB093DKmScfUhoYA1BRCRg=;
+ b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIr/R7PpFpksTfLgK4M1WsKIZ+X/fHJw4Eo3k
+ BptWgtELfSJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCK/xsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOLjSA/9G4BWoCRvV7ItG+o3suAYmXVBO3mKIP1
+ 8lGsPLIMnO6rOYDQ+nIenc8oFgVcG987eX7ZNvFRYl3/TIEFOJ6VlKrkS/cy+GKRmZ3Lz7T33uo
+ F1F0N/+wNDrJ5f62JYQSdU3aZhNG5XQ8/vJK5EQBXHQwvq3GavSvdp6hycJpyVoFTG9O3ooqKDL
+ H4spwX4GVBEB1EpTDhRot71sfH2T1mFgJ0/FcLmfvd3FlyZnYHizXbZ8buSbsLQoo4hA2tSx6mH
+ n1JEd0tAaOL5f/LqiqUHWgmGRxgBfIIQWOUbLCsKJwOMcWmgOFHMIKryJqzd8VdA2iiLxMDgfZ6
+ oaod4upZewUA5SQo0cvJMjG7nBebj8B3Hr6rnM9ujrSrHa6tFZPfk2JhUeO1IO3oQLxhSli3n5p
+ Ulk9KKLdJqNoGlvI4riaFBjiCN91fM5EoHKeBArbOo/sJxlYaT11LTv9zOoCBPvuMt3pupyfhkd
+ 0oB6ILATTqGuvvOI6dM2cv3sV3ppJx1F5uceGxHrcRWtUDYhl3IzUryQKrj2AJDEl/Awr7wIFhA
+ XB/8QBVVS3c7m0yExDht+/0Vr/sUzQKHmCJozkfscLc0hJmw1+TN18IIpbST5Dd2XnMywIoJi15
+ k3le8BhyxZ5faMbjkoVpK8kgk6E3MSaQ6NQSONYJBI2VhCcu4jfA=
+X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
+ fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Sat, Nov 14, 2026 at 11:13=E2=80=AFAM <shao.mingyin@zte.com.cn> wrote:
->
-> From: Shao Mingyin <shao.mingyin@zte.com.cn>
->
-> nvme_submit_user_cmd() skips mapping when the user address is zero,
-> even if a nonzero data length was supplied.  Passthrough ioctls and
-> NVME_IOCTL_SUBMIT_IO can therefore submit a data-transfer command
-> without a mapped payload.  For example, the loop target returns a
-> Data SGL Length Invalid status instead of rejecting the user buffer.
->
-> Map whenever a length is given and let the mapping helper validate the
-> address.  This also permits address zero if the process has valid
-> memory mapped there, matching the io_uring passthrough behavior from
-> commit 99fde895ff56 ("nvme: map uring_cmd data even if address is 0").
->
-> Fixes: d29ec8241c10 ("nvme: submit internal commands through the block la=
-yer")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
-> ---
-> Tested on 7.3.0-next-20261030 (QEMU/TCG guest) with the loop transport
-> and a file-backed namespace.
->
-> NVME_IOCTL_IO_CMD with addr=3D0 and a nonzero data_len skips the mapping
-> on the unpatched kernel and submits the command with an empty data
-> pointer, so the target rejects it with "Data SGL Length Invalid" (status
-> 0x600f).  With the patch the mapping helper rejects the null user
-> address with -EFAULT before the command is submitted:
->
->   unpatched                            patched
->   control read (valid addr) ret 0      control read (valid addr) ret 0
->   read  addr=3D0 len=3D4096 ret 0x600f     read  addr=3D0 len=3D4096 -EFA=
-ULT
->   write addr=3D0 len=3D4096 ret 0x600f     write addr=3D0 len=3D4096 -EFA=
-ULT
->
->  drivers/nvme/host/ioctl.c |    2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/nvme/host/ioctl.c b/drivers/nvme/host/ioctl.c
-> index a87c9ca9d06c..22efc5412416 100644
-> --- a/drivers/nvme/host/ioctl.c
-> +++ b/drivers/nvme/host/ioctl.c
-> @@ -207,7 +207,7 @@ static int nvme_submit_user_cmd(struct request_queue =
-*q,
->                 return PTR_ERR(req);
->
->         req->timeout =3D timeout;
-> -       if (ubuffer && bufflen) {
-> +       if (bufflen) {
+plane_release  code used multiple intermediate variable, remove those in
+favor of direct access.
 
-This is a potential UAPI change if a userspace process was setting
-only the addr field 0 in struct nvme_user_io/nvme_passthru_cmd to opt
-out of data mapping. (This seems quite possible if a struct
-nvme_passthru_cmd is reused for multiple commands, one with data and
-one without. Or if userspace isn't bothering to initialize data_len
-when it sets addr =3D 0.) I agree I would have used this condition if I
-were designing this UAPI from scratch, but I'm concerned about
-breaking existing users. Are there real applications mapping data at
-virtual address 0? The change for nvme_uring_cmd was needed to work
-with kernel io_uring registered buffers, where addr =3D 0 represents
-"from the start of the registered buffer".
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/vkms/vkms_configfs.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-Best,
-Caleb
+diff --git a/drivers/gpu/drm/vkms/vkms_configfs.c b/drivers/gpu/drm/vkms/vkms_configfs.c
+index 5f5aa0a1812b..a7ddcfd4e86e 100644
+--- a/drivers/gpu/drm/vkms/vkms_configfs.c
++++ b/drivers/gpu/drm/vkms/vkms_configfs.c
+@@ -331,13 +331,9 @@ static struct configfs_attribute *plane_item_attrs[] = {
+ 
+ static void plane_release(struct config_item *item)
+ {
+-	struct vkms_configfs_plane *plane;
+-	struct mutex *lock;
+-
+-	plane = plane_item_to_vkms_configfs_plane(item);
+-	lock = &plane->dev->config->lock;
++	struct vkms_configfs_plane *plane = plane_item_to_vkms_configfs_plane(item);
+ 
+-	scoped_guard(mutex, lock) {
++	scoped_guard(mutex, &plane->dev->config->lock) {
+ 		vkms_config_destroy_plane(plane->config);
+ 		kfree(plane);
+ 	}
 
->                 ret =3D nvme_map_user_request(req, ubuffer, bufflen, meta=
-_buffer,
->                                 meta_len, NULL, flags);
->                 if (ret)
-> --
-> 2.43.0
->
+-- 
+2.56.0
+
