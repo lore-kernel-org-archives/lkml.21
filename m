@@ -1,75 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.142.180.65
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216675;
-	b=Fj43aHAWyMbQnHKiWHd+N23Znrn0MSTErpyLKsGofAs4snSJSAAjoJ9TKOmDYBG6rlNP
-	 sOdW139twRCY3PGXarqKDtstpkk/eh0oD7AT7plrPx0EPoaEj4PZTu+BfbzbCkyl3AiUy
-	 nu0aePs437T7r9VQwTjq1wW/PUJA5k3PehO1Pkvo1SBr5TOUUH/sVzJ2toNHvu3OPJP95
-	 DEfYq94sXFGDk4AFhYDoCuQm/QIs7oSCjXF9L7eDiyIzsSx7qcrXAUTWVURP7hVCEnToY
-	 dpeRTw6OHCwqqf9UGYtAYXAqJHCucXhlh3WR4RNhGYrWgknwUecIoNnTbZ/BwsnWBzQ==
+	t=1795216683;
+	b=wAHqzxBtYIrStlEfcCrnOm+dxIdEPjt/1uamuT/laJeuQbDu5k8YLxYSEh8uY/RSTIY7
+	 H/AVdwqDKErPyKc/W7ORKkNEGpth1vhoE7gUDgzHjWcEtBTp/n+TaVRq8KJTtF1xjyX4w
+	 80lkBJEvW/t3SJvAXDGrXOhubr0Li566JV+oe4FXHFYlNFmv8DSGUSG+8ZiRyp3xC7scF
+	 4Oi8NseeX2G/YUUeBmbg8CehuiQh7JIOW43tCGi0bblyZhHomSAuxI3qzbLOqmtWWvyOf
+	 8mLnotCPp9gST9mt950uLFvxYHv7TyUDe2VlGlm7D20QvAf/u7L6OKEn0TuCljxLf/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216675;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=KaufFdBJJM6uHUO0RxAk0mis1hBr3eWXheXkcNAnmWQ=;
-	b=JJj+IfP/uw80swm0q2TzWd5hz4s7N6c4I1IFpFClPJ4iZR8Iq5YG1HWFS+zccjQwOShl
-	 jkKl+L8AsXq+HcT/Z0SANeWJ/mvcXtrJeIJr7N5/lJbR/TkHkElc8dvPnbhcnTeQ0nktz
-	 lJbLOkU/BDvVDs93Zs0/lIPipEbEPA1IwoyMjRkIo28CNQB9pci8c00QPSvLSxQGReWCw
-	 gsDSRmgU1ccbQsNjlR4gIbKurVAcqrsR1P0TgrS0853krHQ8qFPgHC5g6KhxRMGebPJcs
-	 RzJLKD4X4Gf1b/pPxz0XV8ORnuyoCi778c3x0T2mQ+HexyWOMfpqfyWeHB0ZoL91orQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216683;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=AMvdsJFzYJevO2T5BugHtOY5r9UDNyXdokVGV9enPe8=;
+	b=aZLAv+X7zzzp6kOxRvrb9gGJVr+und3w+nZXtf4BUlJd37Qha97F84ABEDrI+PLfQurA
+	 +WEdia4oDjoc/T2J38Xk9aNVfiIF4uXcMtsskIug1ek3i+n/DZUiAxvpJFnrbQ/Wh03n7
+	 38QOlsDmIk/cdLeuDs+e1aMUb0mqfU7byaS5ol04PRNcnpCfoZFrmDk8j1b7E3dhslGs5
+	 +Bol3BPV0el0IrY3xDNXcNhdYUuoaPF6qFIrVbQ3b5S99RcSuINF3Egzccvy7UBpfWKln
+	 0UOmnb2umRACmS8bWUDF5vi4AWwQBnW82dljb8E7Zl3Z3iFT621HNOwzXTrryAwU8PQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MhmMipq9;
-	arc=none smtp.remote-ip=209.85.210.71
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=makrotopia.org;
+	spf=pass smtp.mailfrom=makrotopia.org;
+	arc=none smtp.remote-ip=185.142.180.65
+Received: from pidgin.makrotopia.org (pidgin.makrotopia.org [185.142.180.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D022606A695
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:17:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D022606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MhmMipq9
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-86313f7f4faso1629868a34.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:17:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795216674; x=1795821474; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KaufFdBJJM6uHUO0RxAk0mis1hBr3eWXheXkcNAnmWQ=;
-        b=MhmMipq9RgPptx/lndDmkQMVJ8aYvft29vz4F2CxWYa76ZsbvX+XLz+/hlu1nA8CFc
-         hPAprRZ8mok+/IaSEZoIGIj33oWy1JQE+F4Z/VDkuIkpM95ZZCYalzy02a4GHouPw876
-         iUEcF8OYiun4XKyx4z64IimBjdqXDtQMx4cVC+qGBEqD6Cw78Ncv/SZXcJYuHmYhRssn
-         KYr2JaahL4vaDTYlwyMiwF3F891zf1CulgkwbJpdQztDKKFx8v9yHhNMlIb5Irf0sLIT
-         SqjDZ90eKkT2gkUMqiThhqdfv2eKSOkqPEaD26EwEuLHwPJq1QS/1VYxmh6whHJZPj3p
-         Y38Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795216674; x=1795821474;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KaufFdBJJM6uHUO0RxAk0mis1hBr3eWXheXkcNAnmWQ=;
-        b=vx55KlPM64Thf+QYH8IwUucBW4Fcd+HplNdbZ+M9PoGfKajPaZ1DQhJFcvhdGHRXIs
-         1lAH1pv7MhcewBBpZonSTM51KCsF5cMjysKRrIu3LNppKMaDXJ5pSQp/wFMsaOxocu8k
-         N8pNDqBiBKb4oWm0Rzj8Ob+V9kR8+vng6B5O7k7lk0oCN+7x5ys6MUzWHfJjw3rF8KXp
-         Qr4aLDcHGXNIGICOs6zGubiDNYNs9TB5819Np8Xe/eimxb5mSXK6NdLshm5Xns3g0aHf
-         3tJAyA60oa0g6NgcDQFlxUEPjaZjsf8A9ol28XSqFD9OzUZlU+bhvfJ1Fba+ktwjT8ey
-         Atww==
-X-Forwarded-Encrypted: i=1; AL+hErHah+6hGIi9kR11+mK2c4BcRMKUPAUKoEs2F/1djiFBp3QciO0etDsjb1BZ6tQtjArPPUQmq6JhT4NGdvk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8H3LZfgx+hktXd6IhMnZaf1E6a1Zhvhq21bLWHmG37HUXiI4iR
-	plArWtP3NI56eX9pLWTfJC2zqRE8D/VY0uN4kfrOLE8tUuQgInTEgURjEAc7wB1TdEAbUS9nu7K
-	8TfYkmD53xHsuf045SdccD/CdPA==
-X-Received: from ilb26-n2.prod.google.com ([2002:a05:6e02:531a:20b0:53d:d5c4:1e46])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:c12b:b0:572:86c8:6b4c with SMTP id 5614622812f47-57a07d19c74mr5405322b6e.6.1795216674015;
- Fri, 20 Nov 2026 15:17:54 -0800 (PST)
-Date: Fri, 20 Nov 2026 23:17:53 +0000
-In-Reply-To: <iyfa5sagkdapb4plle575uhbxbmjdcxvbe35nnlxkqzfqnztqd@mmweqvqmil6x>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21757606A681;
+	Fri, 20 Nov 2026 23:18:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21757606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=makrotopia.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=makrotopia.org
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256:X25519MLKEM768)
+	 (Exim 4.100.1)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1xUXrc-000000002XZ-17Ii;
+	Fri, 20 Nov 2026 23:17:52 +0000
+Date: Fri, 20 Nov 2026 23:17:42 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Alex Bee <knaerzche@gmail.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/7] media: rkvdec: hevc: bound the RPS reads by the
+ control size
+Message-ID: <awDU_2e2yIVP5VMx@makrotopia.org>
+References: <cover.1794645268.git.daniel@makrotopia.org>
+ <bb9c44d0f56221874b105394169e5c377ef21b42.1794645268.git.daniel@makrotopia.org>
+ <6ae6d1101d3f7095d11462579a5a3313153533e6.camel@collabora.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,75 +62,41 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261119185105.626343-1-coltonlewis@google.com> <iyfa5sagkdapb4plle575uhbxbmjdcxvbe35nnlxkqzfqnztqd@mmweqvqmil6x>
-X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261120231753.1170879-1-coltonlewis@google.com>
-Subject: Re: [PATCH] KVM: arm64: nv: Fix guest stage-2 mapping leak on
- sub-block unmap
-From: Colton Lewis <coltonlewis@google.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Steffen Eiden <seiden@linux.ibm.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <6ae6d1101d3f7095d11462579a5a3313153533e6.camel@collabora.com>
 
-On Fri, 20 Nov 2026 06:35:12 +0000, Wei-Lin Chang <weilin.chang@arm.com> wrote:
-> > result, every sub-block invalidation followed by a re-fault leaks a
->
-> Doesn't the block tracking node get leaked regardless of whether a
-> re-fault happens?
+Hi Nicolas,
 
-Yes, the stale entry is left behind on the first TLBI. Re-faulting is
-just what lets L1 accumulate additional entries.
+thanks for the review and sorry about the messy text.
 
-> For this third paragraph can you improve it by stating how the problem
-> is fixed upfront? The first two paragraphs describe the problem, then
-> you started to talk about stage2_unmap_walker all of a sudden (which I'm
-> not sure how much it helps), and the fix itself is not emphasised. The
-> combination makes it pretty difficult to get what the patch is doing.
+On Mon, Nov 16, 2026 at 08:49:44AM -0500, Nicolas Dufresne wrote:
+> Le samedi 14 novembre 2026 =E0 10:22 +0000, Daniel Golle a =E9crit=A0:
+> > The RPS helpers read num_short_term_ref_pic_sets elements of the
+> > EXT_SPS_ST_RPS control and num_long_term_ref_pics_sps elements of the
+> > EXT_SPS_LT_RPS control, however many elements userspace passed.
+> >=20
+>=20
+> What did you want to say?
 
-Agreed, the commit message was unclear. In v2 I will drop the
-kvm_remove_guest_s2_mappings() approach in favor of ignoring TLBI
-IPAS2E1 when the guest-supplied TTL is smaller than the mapped granule
-(as Marc suggested), and rewrite the commit messages to be shorter and
-clearer.
+The number of RPS entries comes from the SPS control, the entries
+themselves from the EXT_SPS_ST_RPS/LT_RPS array controls. The driver
+never checks that the arrays are as long as the SPS says, so it reads
+past the end of what userspace passed. I will reword the message
+along these lines in v2.
 
-> > In addition, suppress exact-match duplicate insertions in
-> > kvm_record_guest_s2_mapping() when concurrent faults or -EAGAIN retries
-> > record an identical (nested, canonical) range on the same shadow MMU.
->
-> I believe this is better split into its own patch, it's doing another
-> thing.
+>=20
+> > Beyond
+> > the passed elements they read stale entries of the control's array,
+> > and past its allocation once the SPS counts more sets than the control
+>=20
+> More broken text, can you work a bit on your messages, be concise, precis=
+e,
+> don't get into details but into the understanding of what you are achievi=
+ng. The
+> code is precise enough.
 
-Makes sense. I will split it into a separate patch in v2.
-
-> > Fixes: 5491980c1a41 ("KVM: arm64: nv: Track guest stage-2 mapping removal")
-> > Fixes: c2778d14cd2f ("KVM: arm64: nv: Track guest stage-2 mapping creation")
->
-> Since there isn't a real bug in the original implementation do we need
-> these tags?
-
-Good point. I will drop the Fixes tag on the duplicate-avoidance patch
-and point the TTL patch at the commit that added FEAT_TTL handling
-instead.
-
-> > +	scoped_guard(spinlock, &kvm->arch.guest_s2_tracking_lock) {
-> > +		if (!guest_s2_mapping_exists(mmu, mapping)) {
-> > +			interval_tree_insert(&mapping->nested,
-> > +					     &mmu->guest_s2_mappings);
-> > +			interval_tree_insert(&mapping->canonical,
-> > +					     &kvm->arch.mmu.guest_s2_mappings);
-> > +			mapping = NULL;
-> > +		}
-> > +	}
-> > +
-> > +	kfree(mapping);
->
-> In my understanding kfree() can be called while holding locks, so we
-> don't need the extra level of indentation.
-
-Yes, kfree() is safe under the spinlock. I will keep guard(spinlock)
-and call kfree() directly there.
+Got it. Reading it again now I understand your point, I may have been a
+bit too excited about my findings on a Saturday morning...
