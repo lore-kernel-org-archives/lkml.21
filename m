@@ -1,55 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162817;
-	b=HpdBuNzIU2sLjAfzh9Zo5hvyvmwLxCcfXSd9Jw3gC3kzfrKNEjWMYl6mzSBJaZe02JkX
-	 prolKzha5evGcg3GBJ5Rn1PSOaYhNVVhRhpl+zoDr7FZYZBzRMj9hW13wXFnWhiGC1DUL
-	 vId3diqhXa/gho4RU5zOfSVe1qV/Y7XAZTueuLX67Qaoxz40x3L4aSdBGX+9pzxv6V0OI
-	 Anxf9zlzmbCTwi2jX+8ShjeENqV0/UCaMxmpL12VglX5o8FvgZF4vRcQ050jT/C2sRrdH
-	 lWx4KohC8vrChLKbdBZlVIN1WWnkHG7uxX3ACrxjtP5rjU3nYsvlIXPsoV4/UvkMCCQ==
+	t=1795162830;
+	b=L5Vs7AZGXYOQvGarns0JnjShLwyZ+ytX4SaoDIO5B3ao/0qGE6/xT36s2SoeyeReP4wH
+	 EX7daoBUgvufrYvKpk6SDsmp3FGx0kS79cPSJskAZLJFkHN30eHbSzDU94sjo4XQTfrkg
+	 QK9jvqKUjacQaqni0HW8F6GHOmT9nVBOoxBCiJw0x4GdjDw3qGDNvcTz019cZNH30TkQV
+	 iiliMQa6/eZrHyTTOtgPqFPIzTj32HzK41bIVV65TOcYf+iiHuU8Ew2OxOYF8gO6fhnBG
+	 wFkPin5mlx3eeKDczqy9Z2iuZBETV+AkpoXH/9gqlJhBaBw8BnBm4IMC5gmaTogNm2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162817;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=YrezAQ7e02vT8+Swx+rmAAedFzytCEs8zwyhSyPMrmg=;
-	b=SOFwLhmedfjFt5MrsqwJeVGT+hdSUsW21NTdTEFpjDkMwW9/iEQhr14fHlUyHlmBGBDJ
-	 orazuSZulD8j59vfKX6qFkrFemgWsE+9liQk9quZAgIxF7ECxTthrtPb+0tgdNZd1Gugg
-	 juEJspDIT4+BCwR6klFwMVjni+H12nkSDb96ZTDBPbdbuyixBGfaFPcvKAFqSYY/ZvB7/
-	 aJ8FfhaELo0zCiLoPCt03xwx0799wwCxSQK7g84qzrgFJt2QpbqxrpjDAVPg8wC9IRv+Z
-	 TyuiE6QSM9Ystlo9VvDGUDoxpRhBG638f+fArOIeeHlO7n3qK7qlqlAjxAOek6tpAQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162830;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=jQvpyKaLfdZKOFmMbpsSFbP7raLwzSlOfDUVM2Aqbec=;
+	b=5SUWt1SUVNYeZdm2lbb6gZbVaFqwxIXDDHon7r+JOMR1bQmHvLHe3EBh4BNPGZTNe9uQ
+	 3siF+b15I4swNR6/kt1VkWS04tk5oAb3PaL0mPCp6kxv4PTKqaP9YQZlFdDzd8ufhvcfO
+	 Gl0IVaj4dd8F9WkQrfNBNt2//6zgui8TO1eXyNc/m36nRNFfTivSdXnjNoxgxfeo1uXBX
+	 fy0xYria3nSOXIPHzxPFx3WzliyYz7XCnX2LuC5KCLEHfMZ1Mhrx+SkD2uSjZShm8rMz9
+	 YgcIAfvRr1YaVCkPdxJ/5HdtYkczpd1aUo/a9t8GrfeL5p2lL/ZKSVZ++WQusDowt8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LrXi9y8X;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fc5AM36G;
+	arc=none smtp.remote-ip=209.85.167.53
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23B00606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:20:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0BDD60A2609
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:20:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0BDD60A2609
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LrXi9y8X
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1ACE1F000E6
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:20:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795162816;
-	bh=YrezAQ7e02vT8+Swx+rmAAedFzytCEs8zwyhSyPMrmg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=LrXi9y8X8jjdE6yEgzJwcgu1p/UOdN7422Y+PduJ7Jxvv8AvYxo/zOir+iF8nLXpQ
-	 Bkrxa51bADXUuwK97jo82FLdKcYZFq6ZEoQhKTFyk5X91tOkJVoTpv55aLahVARV2M
-	 PntYTTvtYpKL5EuTFZcOPrcPN2rAAf4XaT9BkfVbTJYXcE8oizzpzG+3jxR4jK1OWq
-	 4X7Lk5xyXAQpx2QJAsfnQ8EsjYD7UeZT3q0CAkm/gotPlAiEmkqkU0GWN2Y1e0sYSv
-	 wF9XcfoLYPsKIXJ3jDeZpiAeQ0xvv0ZwDgkmv9diOYcxRviZNkwgSG3OmhFI7p30fC
-	 pv7pwvkf3GnGQ==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so677427a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:20:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHDJQgtFcj722T0f//cFWaXXQSbdetE3ROFTitLuZBkwjhHB02ZEF6mbDrIozmOp5ABEAVj1JMzhCHJrHo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+UYWvvDa/xvJ4qDh28rTvfxHqaGnea6/LBZ/fziNAVOoJFRabv
-	ChfY9f3wyB1GfmG+8ICvKIcWZtVIxmx4dE/racoKisjDJRFFwmnkoZKLgEnui4eVmDRCuRdViGn
-	DpSWOh5Pi8lHND8eZYb6BvVffTPn/0vY=
-X-Received: by 2002:a05:6402:3608:b0:6b8:77ad:62e8 with SMTP id
- 4fb4d7f45d1cf-6ba37ee17c3mr1286897a12.44.1795162815520; Fri, 20 Nov 2026
- 00:20:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fc5AM36G
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5bfbc67991cso363490e87.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:20:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795162828; x=1795767628; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jQvpyKaLfdZKOFmMbpsSFbP7raLwzSlOfDUVM2Aqbec=;
+        b=fc5AM36GdktGMDpoqt5SSgfE5z2ejcEw0do7btOxbCGr9edQU+oAdfSBVJ0shBsOZn
+         Y+tjijkasKiGMOjAABMHTdUBOMTv4jSizprmMg/cswB85i6sXT/SqUVT7e7NDPLfc0O3
+         ak9zxhgOjl9VBO13/yt3Mb3Gf9Of94k6v8XenNO+gkHrt9M4EcIPzSJTc+95EB1MQ85S
+         MueMUhy0sunRIo6gXwfk6TybGdaAUgxanN0PSCqioSaDlow8vsXepsZKLDiAllVCOkQ0
+         QvSIu59sKN1/ZIoTxfyERrqzPflJHqpbXb9f+RwsXFdNaZh1+XA/YQPp84HP8yiwK2xS
+         TZSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795162828; x=1795767628;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jQvpyKaLfdZKOFmMbpsSFbP7raLwzSlOfDUVM2Aqbec=;
+        b=hleNgrTZpgmdA62ugw7TGRY58NwAVKsmhNd0IodE/26F+XSzrnC5wHcn3ZjDmAdq4y
+         9B+gCfvfRU3ghsTBo5Ug2fwxQOyajm9neFomqBXPWmV3cPhn+R7Tu3mNHlPgBayUBbZy
+         Fwdh3dC/E1upuCviLo/R2TIzIFwiEUysbwWMZm9k+Glbn1776xQuEu7SIBjEB+kCxor0
+         u3sVYZiA0I9K/0jIkg/UkbWpxB3mJGHmNmdh0AyxzMu3O5f0wP2UpKgDK10d1NJJzg2i
+         oh6dcmg+G72u3oEgXtFF9KVQtL7a0263T8fhqY6almOjfkxKKWk8WBRRKIXWpV+C3ywk
+         CVnA==
+X-Forwarded-Encrypted: i=1; AL+hErH+U7YyEVdS08t8ew1RQl9wbp04R9YDMJJ8MdgfzvzY7mCI7nBBm3ZOeZd0j5KevIlnpvARaKdo0AMFrJU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+iVaQwrwOVcer4tK0nvFGNR39MF3PpnGCsIkgbVPMTcZ6B7aLI
+	cYAssSDaqvRXRN3IGk7bDZlKosE3SzsUtRjl1U7RhW28LHO6xfsxNtlx
+X-Gm-Gg: AZFdTZe7O5B56S0A3KkXtEIcR9D0pp36Vk2X+xtd9fcXug8gdYD16X66k+n/FSaE4mg
+	nhG62scAxLe0n9qJi52EZxhafrJdwIqGc55rUwCEseXUPRPZ/VtUgxWPSTRRa6NT5wKkJaZoJfR
+	+m3XcSq6PXBHUFwlkPNaFTfhSxutidotCyvjpgzlDuGuqzpb1fTNwwRF2Xvtt5p2vZAKBZmlJ6H
+	5q7VSh7d0O2MYMOkhlK8ZrZ1643YgxSSIkx4158ck0/com9bYRLMCHIgQ+3VGULNwiQbKbdDY4X
+	LouDai2aSSp2UDK6FiVMaTOJEt8im4Vjwnz+tPOTr0kVFXylOaxRKZFnOHhjJrq8v2Rui0LLbsd
+	LMgGxIoASaN/eithDRYITmJ36xlfU/Ix++ZxTm1rBG6jAxOK/DWpDX8jPr2fAoboKEFcNhcmEWP
+	gJ8OnXJ7nX70XAQ7BRNr+vBiOQc6kgbCcd6emVAd1ootDozkVRVwV6f5sh3AdeGhnign+Z0kaPJ
+	f0/6M1FZ1kEKbx3Ob83Spm6zIvrbdTSYzMbyQqASyC/bnx7Ud4o++Wx/OMwgg1UJyCdKB2ENEp7
+	wBC4Sj67jGdD/RSKGiemNnABZ+o1mxcFjhyBxidk+tZbDAIz/MlYSJM8wA==
+X-Received: by 2002:ac2:51c5:0:b0:5c1:ac84:668a with SMTP id 2adb3069b0e04-5c1bc7d39eemr622417e87.29.1795162827934;
+        Fri, 20 Nov 2026 00:20:27 -0800 (PST)
+Received: from archlinux ([194.28.181.64])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c1bd04451csm399958e87.59.2026.11.20.00.20.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:20:27 -0800 (PST)
+From: Ivan Tverdokhleb <mbkchelofficialdev@gmail.com>
+To: rust-for-linux@vger.kernel.org
+Cc: Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Aaron Tomlin <atomlin@atomlin.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	linux-modules@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] rust: macros: document emit_base in ModInfoBuilder
+Date: Fri, 20 Nov 2026 10:20:24 +0200
+Message-ID: <20261120082024.17776-1-mbkchelofficialdev@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,63 +112,51 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261029172956.20791-1-dongtai.guo@linux.dev> <20261029172956.20791-4-dongtai.guo@linux.dev>
-In-Reply-To: <20261029172956.20791-4-dongtai.guo@linux.dev>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Fri, 20 Nov 2026 16:20:06 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4A8gYGEMkbPk6MEkjLtdEe4OFwBUkERvdpXjiXfriuZw@mail.gmail.com>
-X-Gm-Features: AclHuK-h6bybNetTU_MMXuMJwO3eew7bSt_laDSgKQt1od1cbyCQa8XfhqZT6Vs
-Message-ID: <CAAhV-H4A8gYGEMkbPk6MEkjLtdEe4OFwBUkERvdpXjiXfriuZw@mail.gmail.com>
-Subject: Re: [PATCH v6 3/8] kho: Include linux/mm.h in kho_block.c
-To: George Guo <dongtai.guo@linux.dev>
-Cc: rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org, 
-	ardb@kernel.org, shuah@kernel.org, ilias.apalodimas@linaro.org, 
-	akpm@linux-foundation.org, baoquan.he@linux.dev, ruirui.yang@linux.dev, 
-	guodongtai@kylinos.cn, kernel@xen0n.name, graf@amazon.com, 
-	liukexin@kylinos.cn, loongarch@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-mm@kvack.org, 
-	linux-kselftest@vger.kernel.org, linux-efi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-I have applied this one as a preparation for others.
+Add documentation for the emit_base method within the ModInfoBuilder
+struct. Explain its role in formatting metadata strings, handling the
+differentiation between built-in and loadable modules, and managing
+linker sections and conditional compilation.
 
-Huacai
+Signed-off-by: Ivan Tverdokhleb <mbkchelofficialdev@gmail.com>
+---
+Changes in v2:
+  - Fixed the typo in my last name in the From and Signed-off-by lines.
+  - Reworded the documentation: dropped an unverified claim about the
+    reason for the module name prefix, and documented the `param`
+    argument.
 
-On Fri, Oct 30, 2026 at 1:30=E2=80=AFAM George Guo <dongtai.guo@linux.dev> =
-wrote:
->
-> From: George Guo <guodongtai@kylinos.cn>
->
-> kho_block.c calls virt_to_phys() and phys_to_virt(). With CONFIG_KFENCE=
-=3Dy,
-> the LoongArch implementations use offset_in_page() and page_address(),
-> which are provided by <linux/mm.h>.
->
-> Include <linux/mm.h> explicitly to avoid implicit-declaration build
-> errors for these helpers.
->
-> Co-developed-by: Kexin Liu <liukexin@kylinos.cn>
-> Signed-off-by: Kexin Liu <liukexin@kylinos.cn>
-> Signed-off-by: George Guo <guodongtai@kylinos.cn>
-> ---
->  kernel/liveupdate/kho_block.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/kernel/liveupdate/kho_block.c b/kernel/liveupdate/kho_block.=
-c
-> index 0d2a342ef422..0d56891b2f4c 100644
-> --- a/kernel/liveupdate/kho_block.c
-> +++ b/kernel/liveupdate/kho_block.c
-> @@ -25,6 +25,7 @@
->  #include <linux/kho/abi/block.h>
->  #include <linux/kho_block.h>
->  #include <linux/slab.h>
-> +#include <linux/mm.h>
->
->  /*
->   * Safeguard limit for the number of serialization blocks. This is used =
-to
-> --
-> 2.53.0
->
+v1: https://lore.kernel.org/rust-for-linux/20261028155005.174417-1-mbkchelofficialdev@gmail.com/
+
+ rust/macros/module.rs | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+diff --git a/rust/macros/module.rs b/rust/macros/module.rs
+index 0a7b9e24c..6f4aacfe7 100644
+--- a/rust/macros/module.rs
++++ b/rust/macros/module.rs
+@@ -49,6 +49,20 @@ fn new(module: &'a str) -> Self {
+         }
+     }
+ 
++    /// Emits a single metadata entry into the module information table.
++    ///
++    /// This method formats a `field=content\0` byte string and places it into the
++    /// `.modinfo` linker section, except on macOS where `link_section` is omitted.
++    /// For built-in modules (`builtin == true`), the string is prefixed with
++    /// `<module>.`; for loadable modules, it is emitted without a prefix.
++    ///
++    /// The `param` flag selects which token stream receives the generated item: when
++    /// `true`, the entry is appended to `param_ts` (used for module parameters via
++    /// [`Self::emit_param`] and placed inside `mod module_parameters`); when
++    /// `false`, it is appended to `ts` in the main generated module code.
++    ///
++    /// The method also generates a unique static identifier using an internal counter
++    /// and applies `#[cfg(not(MODULE))]` or `#[cfg(MODULE)]` based on `builtin`.
+     fn emit_base(&mut self, field: &str, content: &str, builtin: bool, param: bool) {
+         let string = if builtin {
+             // Built-in modules prefix their modinfo strings by `module.`.
+-- 
+2.56.1
+
