@@ -1,54 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193376;
-	b=MOSICR3e9Vu+z1wi8iBKrqsqWj5GB6R0C1EoIYKyMcSoWPr2cUmRUTGrkMVPRUUUujs2
-	 fvtBx+4tYHgYEi4wW0bx/EhA9ofjz0rAafDHuqyd2uZjnmCFhLQSiBpnmkKOTs7IvS/Ff
-	 p33juWuAZeElMMV6eSnjz/hVlhyo0MPwa+bJQmAmVLvLU3/Ojqu35R+frsaStKmUfHKNx
-	 Mt0wIt3H7Gu6OGTPmvnUjJnAAKQWIsqZuWy2u2V81flzkmXH9rna9J6VCipR2AXtVV8kk
-	 dy1ublwhYAZwPj7tkKf02XQ2qIbjtRtTMozsFiVK70DGcluTM5umx6dEoZdP1GqYTcw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193376;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=mn5he0+K8znliFOyTTFpEswHVtosrnYpIk2OlL8JzzI=;
-	b=GtQf4cM4dEC7t/uG+AW5kdQaf3IpBcjd5F6A+QYFSiTSa7Od01I6IZoM8WnDFwTwlALy
-	 tBKNdxwBJDykfRlA7BLyBU6Y3Q13QFOgw8/YWAAKrOF5CjjDG9dNl1EZWOPWljixectul
-	 y5sVWZGkE7i3Yyn5wzsAMVo5ugdP5ATDYjVz1DqmdKNOD9NHwF8q5GBiYSUwaBHxc/gp3
-	 3khg2uV9T+TUroDXQsUBJnyTBgcTSgP4kkmTtqQsUqV9t6VUVABpaH85ZkvuY27gvYLSD
-	 iXHsGaaBtBdFhb2xXieeWKJ9Y7RfVhPiM5KaHjQtw5UdJMdifLOXzt9GTrFksEcKBOg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=igalia.com;
-	spf=pass smtp.mailfrom=igalia.com;
-	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=ql6WNg2N;
-	arc=none smtp.remote-ip=213.97.179.56
-Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795193410;
+	b=1oQUBIgQVVawhiwe29nRRq2EQriwv9frSUIPiddTx0u1t/gwy6RjCdgLd/GGpUTD/k6H
+	 96tccanJ7OlqjDyJP7TGp7GlLUk7KLATLGisZi9OiZdnYd/s2xNLHKYfNUW0Q25eOP6kJ
+	 0p34uQvAvWZ4bd9mfnzDh9bTVesxfgYGrcLc88OaXWStnLZGAV4H652TKKH2G7SYfzMOx
+	 Rki6N/IcGwnNci3gItAuNQQRsUfvo0RGte1N2eMPHrr0jXM6fDMKvbEm0WbzRy2MFLArG
+	 Wmf0NGfK4vLQH0p3V6OVyB7kPSzC6HfiHnnZXhamLXGi13lZUMEi6JHwTYyg4XgzyyQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193410;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=FLfv1oOYE2gAwNkq9Vh2bVuQc6vMwDn27WwnZe7RwSs=;
+	b=zfzWD5iiVsbs+FBp4wFDnrZ1MP8wfSTmX6thJ3jn2iqcJg1j+dWRfBsIhFRD3JnE7Q3/
+	 Tn+zd1T2uX9BkSJPjxaWnSVCGsiYI8z7L/siqNBJCm9qw6QG8iebULXzxtuZ5IZjqJgEL
+	 4xJduubjbi4jhKbl0A1iJYw9UFV7kcau4IZwAyCxUNOOSwlakZ2STV+UWCIl4J3Ofr99Y
+	 lzVAEEsRtHeViWIxysVh8MoyrFNWm/ZCkVPsAwEHcbns32ES6WvP1bE6D7puSOvbJIfFL
+	 2dVoGjuvar7c1PL3PsSnz2e4fqMbG/O6WJsPe/LRhSN9+UNNY4F5aDSUnmOkwVNkz+Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPEJkERw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4562606A32C;
-	Fri, 20 Nov 2026 16:49:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4562606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A815360A2609;
+	Fri, 20 Nov 2026 16:50:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=ql6WNg2N
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=mn5he0+K8znliFOyTTFpEswHVtosrnYpIk2OlL8JzzI=; t=1795193375; x=2110553375; 
-	b=ql6WNg2Nu8sFlS3EIMSQyAIkckrq4/+slNOOEu0vGVMVyTF78qqTACSRwRnEjTfhMgC7Pswh+DT
-	7oq2Oam8IeVTW9o01SuI+sK5vCSNDlOiet//jU/BLRaLVe9QkB+UVkY4FEWVxPF0Jid0YgeMqsyVU
-	z844AVS3mUegD95RnMzqi2di0fpzL4DMppsBeTGDDNfpRyquAhfRomp+Il78tCA0ze9E60ZuHJN7P
-	DenGiy3+kFOwnMRZ4IzTG4rapHKzliHaa/ETA04XmkNXOwalFV2FFPMlyAFxSA65Yfbr4LgyyF52d
-	Vv0EJEwM9ChwKOGyrz5ik97RK0NAnQlj3Jbw==;
-Received: from [179.105.94.163] (helo=[192.168.0.4])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1xURni-00000001wrv-1TkD;
-	Fri, 20 Nov 2026 17:49:26 +0100
-Message-ID: <3f029973-1a52-4118-acd5-4a433fb49710@igalia.com>
-Date: Fri, 20 Nov 2026 13:49:19 -0300
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPEJkERw
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795193410;
+	b=FnON4Bnxc4y78vqApqa58XyWYFLckE3MOKFnBGqUZQBqhpZo9+m1VZIDtGI9Z9oFwj/B
+	 ZcHlu0ThJyj8rjSyetdLFp1vA2yGvjjrN4k9OeDqQhl9Zsa+gHw63Fv/0fPfkEGlwS03L
+	 CaxfnFro8BkjYEx15YgkV5W8gNCt4IL9tetGkOV3Fqd9dijKPqrBGPRI/gas8n4mOzI0w
+	 ogab6kIBpOAn1/Cg821V/BXJ0DeqjGYS5SYpxvnUydqJNzcH5pTH3d0H7qMcB07PMp+cq
+	 bmlsjkRh1kVvk3Z/n3GSyqQ41DRcdstyBsn2+JFpEt1fmK6D3Mt5ZUSXT4JsdzvlVeg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795193410;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=FLfv1oOYE2gAwNkq9Vh2bVuQc6vMwDn27WwnZe7RwSs=;
+	b=eJ8ZbsMaMx1/qVcyEH4kZUuVWxPBTF2nJdeOf2kEa9a4rkDjfTFjiPH1xqUyB1IZ3WU6
+	 MtsZkmcUS+pks1n19GKqurSAl1GIodSSPt5NKnYbSdbjN9wvn3kJUXAbNiRqX+uNTOv3z
+	 dfd02s8/mPaRG5Kt+SS5h+Za32tYtxVSZckKAVmPHiQNQ6g6KFlOiF+9MgJ9bt7sjL1S/
+	 6/d7wO3DDvMuAbA3K/dNJ+N1dBxjYkiUS2W0hZEOGetKB+JQtTj05btFRd4+1rhit0Znn
+	 uCfTHjtG0Od66hl+nfOCBbzKqNoRibDQxhAYWckmtfvl/iK4Pp2u9FPDSaBY+IAKv6g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 42EE31F000C6;
+	Fri, 20 Nov 2026 16:50:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795193410;
+	bh=FLfv1oOYE2gAwNkq9Vh2bVuQc6vMwDn27WwnZe7RwSs=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=WPEJkERwiaKUGAScKiK/gSb11VYs7OUtzlH2ImWx2z7vkrTsurwyq1QzFzBPFIzX3
+	 BPQYQgHPrWDBmrUd8MHL8I7HYj1CilBtVEVxgqy2aqahBUKFg6rzyh7zK8ayCCW+Kt
+	 5Hl2CqnW4K9ZaheQEM4CYYkhurKS2Yc64cB7/3ZjQw3XVkLHvyDv2HgSISarb4pND3
+	 oMyQ3jCJfmjG6FbNC8cf5EPs2M95i7CJ8SKSQZAO74u77y9ShSw3SRKWbGnyHbegYZ
+	 K87/E45MHylN40N/0Bk7We/xVGvuCc5+js2SfBJXk66wUvec8NHEJvecoOrDFQcFku
+	 lKCGiSHl/uIiw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C3D924AB68;
+	Fri, 20 Nov 2026 16:50:02 +0000 (UTC)
+From: Blake Alexander via B4 Relay <devnull+contact.blakejalexander.com@kernel.org>
+Date: Fri, 20 Nov 2026 17:48:21 +0100
+Subject: [PATCH v2] usb: typec: ucsi: log invalid UCSI version of 0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,164 +82,113 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/v3d: Fix double free of query arrays on parse
- failure
-To: Xiaolei Wang <wangxiaolei01@kaihong.com>, mwen@igalia.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, tvrtko.ursulin@igalia.com
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, Iago Toral Quiroga <itoral@igalia.com>
-References: <20261120022828.2612091-1-wangxiaolei01@kaihong.com>
-From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Content-Language: en-US
-Autocrypt: addr=mcanal@igalia.com; keydata=
- xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
- /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
- gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
- SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
- G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
- AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
- dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
- P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
- O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
- GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
- 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
- FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
- TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
- Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
- 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
- LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
- T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
- wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
- zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
- it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
- Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
- uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
- raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
-In-Reply-To: <20261120022828.2612091-1-wangxiaolei01@kaihong.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-log-ucsi-firmware-quirk-v2-1-bb9aebf0b308@blakejalexander.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNTQ6CMBBGr0K6dgxtFNCV9zAsSpnK8FedAmIId
+ 7fgAVy+5PveW4RHJvTiGi2CcSJPrg+gDpEwle4fCFQGFipWiZTyAq17wGg8gSXu3poRXiNxA5m
+ 1JktNWp6UFeH9ZLQ07+Z7/mM/FjWaYdNti4r84Pizpye57f5XJgkSktAo01gn8pzdilY3WOsWZ
+ 92XyEfjOpGv6/oFIuNBGNoAAAA=
+X-Change-ID: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Blake Alexander <contact@blakejalexander.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795193306; l=3351;
+ i=contact@blakejalexander.com; s=20261119; h=from:subject:message-id;
+ bh=b0MQKohAyz7nav2UR2M4JLiTqoUm2vbglbqr05OCohE=;
+ b=LqAwu7AW+izohmMiI8d9jjRUAzGwOvHNIHeOCSKLxjeiiFRRgtaD8JsHdJ+R7f+lpDeiy9cLy
+ LU+KVCiA7OCAns87eXb8Cx4adhVfHUoGCxeQpuCKCiTfGMxZd795vO9
+X-Developer-Key: i=contact@blakejalexander.com; a=ed25519;
+ pk=csAgv2qq1q6RTYXyATg9ngFwpSFPE0yWA9R9nSvVxW0=
+X-Endpoint-Received: by B4 Relay for contact@blakejalexander.com/20261119
+ with auth_id=1565
+X-Original-From: Blake Alexander <contact@blakejalexander.com>
+Reply-To: contact@blakejalexander.com
+Content-Transfer-Encoding: 7bit
 
-Hi Xiaolei,
+From: Blake Alexander <contact@blakejalexander.com>
 
-On 19/11/26 23:28, Xiaolei Wang wrote:
-> v3d_get_cpu_timestamp_query_params(), v3d_get_cpu_reset_timestamp_params(),
-> v3d_get_cpu_copy_query_results_params() and v3d_copy_query_info() -- the
-> latter shared by the reset and copy performance parsers -- free the query
-> array on their error paths through v3d_timestamp_query_info_free() and
-> v3d_performance_query_info_free().
-> 
-> The same job is then released by v3d_submit_cpu_ioctl()'s failure path
-> (v3d_submit_cleanup_jobs() -> v3d_job_cleanup() -> v3d_job_put() ->
-> v3d_cpu_job_free()), which calls the same helpers on the same query_info.
-> On these error paths query_info->count was never assigned -- it was only
-> written after the parse loop completed -- so the syncobj loop ran zero
-> times and no syncobj was put twice, but the "if (query_info->queries)" test
-> still succeeded and the dangling pointer was handed to kvfree() a second
-> time.
-> 
+Some devices ship bugged firmware which sets the version of the UCSI
+mailbox to zero. In such cases the ucsi_register() will return -ENODEV
+and the driver will silently fail to bind. There is otherwise no
+indication as to the cause of the probe failure.
 
-====
-> Every failure inside the parse loop takes this path: -ENOENT from
-> drm_syncobj_find(), -EFAULT from get_user(), or -ENOMEM from
-> kvmalloc_array() in v3d_copy_query_info().
-====
+While existing (and future) machine-specific workarounds may resolve
+this issue by assuming a known-good UCSI version, future devices or
+older firmware revisions with this issue will still silently fail.
+Both users and developers will benefit from a clear diagnostic message
+when troubleshooting this particular bug.
 
-Needless paragraph.
+Add a dev_err() log message when a UCSI version of 0 is reported during
+ucsi_register() hinting towards a potential firmware bug.
 
-> 
-> Fix the ownership instead of the symptom: the query array, and the per
-> query kperfmon_ids, belong to the job and are freed exactly once, by
-> v3d_cpu_job_free().  The parsers no longer free anything; they only fill
-> the array in and record how far they got:
-> 
->    - query_info->count is set before the parse loop, so the helpers know how
->      many entries were touched when parsing fails halfway;
-> 
->    - the arrays are allocated with kvzalloc_objs(), so entries that were
->      never reached carry a NULL syncobj and a NULL kperfmon_ids;
-> 
->    - the helpers walk the full count but test every entry, so they put
->      exactly the syncobj references that were taken, keeping
->      put-count == find-count on all failure paths;
-> 
->    - the inline kvfree() of kperfmon_ids in v3d_copy_query_info() is dropped
->      for the same reason;
-> 
->    - the count argument of v3d_timestamp_query_info_free() and
->      v3d_performance_query_info_free() goes away, as the count now lives in
->      query_info itself.
+Signed-off-by: Blake Alexander <contact@blakejalexander.com>
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+---
+Hi,
 
-You don't need to describe every single detail of the code in the commit
-message.
+I have a ThinkPad T14 Gen 2a which is failing to negotiate a DisplayPort
+Alt-Mode connection to a monitor-hub with a USB-C cable.
 
-Please, make your commit message for human-readable.
+I spent quite some time troubleshooting the issue and identified the
+root-cause only to find that a patch which fixes this issue was already
+submitted:
+- "[PATCH v2 0/2] usb: typec: acpi: Zero version quirk for Lenovo ThinkPad T14 Gen 2a" <20261103-ucsi-lenovo-t14g2a-v2-0-e85c659b56a2@resetko.pl>
 
-[...]
+Similar issues with other laptops have also been recently submitted:
+- "[PATCH] usb: typec: ucsi: acpi: Add quirk for ASUS ROG Zephyrus Duo 16 GX650PI" <20261009-usb-next-v1-1-95a2288ad9b2@gmail.com>
 
-> diff --git a/drivers/gpu/drm/v3d/v3d_sched.c b/drivers/gpu/drm/v3d/v3d_sched.c
-> index 1924e3440dc9..6ee64fbacae9 100644
-> --- a/drivers/gpu/drm/v3d/v3d_sched.c
-> +++ b/drivers/gpu/drm/v3d/v3d_sched.c
-> @@ -95,34 +95,44 @@ v3d_sched_job_free(struct drm_sched_job *sched_job)
->   	v3d_job_cleanup(job);
->   }
->   
-> +/*
-> + * The query arrays are owned by the job: they are allocated by the extension
-> + * parsers in v3d_submit.c (which also publish ->count before they start
-> + * filling the entries) and they are released only here, from
-> + * v3d_cpu_job_free().  The arrays are zero allocated, so on a parsing failure
-> + * the entries past the last one set up are all zero and get skipped.
-> + */
+And existing quirks are also already handled in mainline:
+- Acer Nitro ANV15-41: commit 8c51ea651d04 ("usb: typec: ucsi: acpi: Assume UCSI 1.2 on Acer Nitro ANV15-41")
 
-This comment is superfluous. Please, delete it.
+In the hope of saving future developer's time, this patch adds a
+dev_err() log message when the UCSI version register reads zero. The
+log message hints towards a potential firmware bug and gives an 
+explicit cause of the driver's probe failure.
 
->   void
-> -v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info,
-> -			      unsigned int count)
-> +v3d_timestamp_query_info_free(struct v3d_timestamp_query_info *query_info)
->   {
-> -	if (query_info->queries) {
-> -		unsigned int i;
-> +	unsigned int i;
->   
-> -		for (i = 0; i < count; i++)
-> -			drm_syncobj_put(query_info->queries[i].syncobj);
-> +	if (!query_info->queries)
-> +		return;
->   
-> -		kvfree(query_info->queries);
-> +	for (i = 0; i < query_info->count; i++) {
+Tested on ThinkPad BIOS R1MET65W (1.35), EC R1MHT65W without the
+relevant quirk patches.
+---
+Changes in v2:
+- Fixed comment style as per feedback from Greg K-H.
+- Link to v1: https://patch.msgid.link/20261119-log-ucsi-firmware-quirk-v1-1-6d42d70a6158@blakejalexander.com
 
-Stop the loop at the first NULL syncobj.
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-usb@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/usb/typec/ucsi/ucsi.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-if (!query_info->queries[i].syncobj)
-     break;
+diff --git a/drivers/usb/typec/ucsi/ucsi.c b/drivers/usb/typec/ucsi/ucsi.c
+index 9e453d216c16..3dddcec2f425 100644
+--- a/drivers/usb/typec/ucsi/ucsi.c
++++ b/drivers/usb/typec/ucsi/ucsi.c
+@@ -2396,8 +2396,14 @@ int ucsi_register(struct ucsi *ucsi)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (!ucsi->version)
++	/*
++	 * Version of 0 is not valid but some vendors may report it due to bugged
++	 * FW and there may not already be a workaround quirk to correct it.
++	 */
++	if (!ucsi->version) {
++		dev_err(ucsi->dev, "UCSI interface reported version 0.0.0: possible firmware bug.");
+ 		return -ENODEV;
++	}
+ 
+ 	/*
+ 	 * Version format is JJ.M.N (JJ = Major version, M = Minor version,
 
-> +		if (query_info->queries[i].syncobj)
-> +			drm_syncobj_put(query_info->queries[i].syncobj);
->   	}
-> +
-> +	kvfree(query_info->queries);
->   }
->   
-
-[...]
-
-> @@ -915,7 +885,8 @@ v3d_copy_query_info(struct v3d_performance_query_info *query_info,
->   		    struct drm_file *file_priv)
->   {
->   	unsigned int i, j;
-> -	int err;
-> +
-> +	query_info->count = count;
-
-Leave this in the functions that call v3d_copy_query_info() and remove
-count from v3d_copy_query_info()'s parameters.
+---
+base-commit: f11fe7603df07fbb9fa02b0d385c1696c87a6dab
+change-id: 20261119-log-ucsi-firmware-quirk-8ffc87c7d42f
 
 Best regards,
-- Maíra
+--  
+Blake Alexander <contact@blakejalexander.com>
 
 
