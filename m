@@ -1,101 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.43
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795211396;
-	b=GZFhwZskhvkaNFU8r47Gr0Xqt88gEORJM28RZP1MgIBPkJPcikrqBWlk5i+etjY6nXFf
-	 Yl0yCvgBHq3ENtzHBKYlhHJZb2gftQik/9Q2PdBMc6n2OSdjD3NJxpSobewiADgR/E/zt
-	 R8cfmiLb0jqIIsVOvkE2YXztPeLVBktR594vtoKMzlefLil/EitCWmOEzO89eMlU95l7K
-	 CvjcVwalhVbbgW4Cu56fbua9gJZ9N/HYMFUf6bke7YlIFr1rEpqXv0OlCDIh998ijuK1l
-	 zsrpZXL0FpG+DSAXMVDInxlBCoT9KELomg5IfEtYPukP+B8UGXohwvbCk/eCdK9sRAg==
+	t=1795211424;
+	b=aTSaAObzxe4tNgZnA7KAGazf2KJwi6jlnF3mZT9P99a8MQynmO0Z3ijYXLJZiu6cbkhg
+	 QYNj5LuY3DY7tTDgpKNDLesUup/IXc5zWGih2GFK2zkFEmcrL+IKEH2huYjsDo3ZVn5CT
+	 jw49VQgCztxrFXh5aQ9fi6IV9Mu4Bswx2yCHQ3bGpFrDHCfimmISXzG0Rl92+vF+z7+YW
+	 lEALUcoYuO8wFxbdCwst1v0oKhDELZnCf45AUKB90F51+ej0vqyk3XqmgKZrNqJfvN4Ln
+	 cHc9g6ZGT3H2Je3w9dfzptmXa2nixdfwqXab0DTuStOo7hP+KBGlDZFWPdrmOtFAo3Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795211396;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=E5uDN/vzQdjrsq85f8uIb4z/yYhd7+ao5rN+lXxRb7E=;
-	b=SqL3k90ifk3Qr5jxIj5iPlnsz3BUf7owrPH6Q9xou+4FNU9b6YQGJCA2Cem36n5AFtsS
-	 VfPZzEDFNleRrbZIdrpZrpS6pBTOLI+adiEiSrbMPtniRVH8dJqh1kgcaLqMmQovh76+m
-	 MfJfv09cesdyRtAfRrwEvDTggxaJHEfym4iEZTj4RZEdzXRLUe/8ltbIEJeFVTPSVTv/Z
-	 Ifqyd5BeDLIyVz4qZ1JwDqTD2M6Q6DQAby2MCjMOnijkEGOD13zbFqHO9ZbTaPKxqzPWI
-	 GMf2H9rz7/C79DgRojkt2tdxYH8vhif2hH7GdX8hVI3MuF8LokaYQNI/NtMqiQmrZUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795211424;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=FifjGHjtBoRtzkOOJ+i+OfzI8gb85lACJmrrh0Mq/7g=;
+	b=5pr2ZOcCMp33EeWwHbYaDq0Iodoqsq1jRPX58wiVOGiNVSnbQ7dD7zrRbuRDudJ7Tr3d
+	 7XfDhX/5rB5ZhuRTPbZpduEkjjGYtSiZbAhev21Zc8Gh7P/ZHLjAa+wV8F2Cdi8TaJIDs
+	 xle4blTmnegolliX8OvVGGpXXN6hnD7+KpPJTssc+afWCHDM5/dkgCu5qOPS5P6IHT5wr
+	 A5LQoEYALj5w8JNRM426CM0/zBLKgVJf1g08QGGA3MMJWDCfNbLSwUM/ii21AGYZ7rahl
+	 Y0Et+i+BRld8PYQB6TRkFddj9TkyDN45YQ4Gkse4v3w8w5xhtyDNkwGdQcaqF1NEaVA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=qJz+Mnps;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.43
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU7oXRwB;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA39760A2601;
+	Fri, 20 Nov 2026 21:50:23 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NU7oXRwB
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795211422;
+	b=Vomt4wKq3pwx7mfiiijT03kZngLrWTPDfEi3uFeQG8LTzVj3qqC4XRb9ZaBwjLYMb3Qr
+	 L6NpYzkCFFRzGhKnbBdHNDlm/ybUeqGfSYrqBkSEx6TAMWAwyLpptUQjuy9UToIBpVmtx
+	 2zalH/3pm6gH+VUpN9K1JuK63NlHX/lFQBuY7Mbyjqa/+6di4w5v0ho59Teq2Qd7LwlQr
+	 agqgbHBf3TuVHe4Duo+rC8XqF4+vLDE81CCeKZ6thUsX9f4z7KGhDJljTkNrfKkE6vxoW
+	 ZHz0DZCG6URtVlRm3zksR0am4GiNyNWI2ZDw/PJcfkCsja9RvI5rG8keWwkMeDaomEg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795211422;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=FifjGHjtBoRtzkOOJ+i+OfzI8gb85lACJmrrh0Mq/7g=;
+	b=F7RuItdZu1nb6qGLIiHTrMDIy7HMKCdyrlV2wbv5T1HtYb242d3IBldwQe6pXMesqnUJ
+	 s7vVfyntQuxwtcdbI2SPns7G/xFw6RbypLotG91kEDJoQQsr83O2f40aTuKuc1vXcEYCR
+	 iGWy4bYfPqdOdGeL3KnIrkVR8SndPd5DG2hD6hXbxxBSv6CIk+3zRTKj//wVgU0R2EAN7
+	 IqTPuzHXbeaOz2ymX0ob4omkPURivh+KhnN9kEQR0SvGzTVsyz3M0uamBMXFHkYdmhQIf
+	 jS9SYFswlnXsHCID5tCyV16EFwvryZtw4LmGUyouog+p9BGLYhnYasNuAy1G5Yz8MBw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97663606A695
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:49:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97663606A695
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=qJz+Mnps
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6ba2a448540so3372a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:49:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795211385; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GKd9RpZyr6qkOt8Xkr/ZCuHbUTyVVr4RBYCwo1O9ChmV2cSomTa6Vllv7SBojFtENg
-         szHx/gLs1Nmca+dALiSPi77lj3ytv70nk8eQ4Pofb6U1MzMzAkVp7q6QBuC1UGuVPP1o
-         ppb4lE174CHEXoiWZJYp5vdXMpOM03nKcTG3BNae5Ce9OYlVmilZmmYHCLApkrPCmWHS
-         H23y81/d6qVJY9wEfZG63PMu0b6/I79UQraGZ9swxqnP5G3QTmK5zNY+pg704AXV25MQ
-         ZJUgB85x/Ry8p1X4dOv633JyxU9JGY1IExBfbRD08CyL54THNiuzdQWF7pI/MUDyLExO
-         OU5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=E5uDN/vzQdjrsq85f8uIb4z/yYhd7+ao5rN+lXxRb7E=;
-        fh=/wWhamrkE4tvO0C4qpaZdMalKSOsDIH/z4EMyKQ0XmQ=;
-        b=XkvTqihlab3FAELw7Ugj2Q+H0aGLVBvMMlHJ6xy/9u8sU9eOsUyrl5AOAZqRzSiHC0
-         ziV8bCKVqITuYBL8SjL7Pec810Iy+qvsbp2gc/KpqGV+uclWUm+o50An4ELMlacdnkLr
-         c5ZvWZLmRZBiLylrD8nJLsSJyJmZfoZal0eUzCyLfmAMPmttXZzTIPmJceSBeBFYDXr8
-         8ckJWuIiIFwj/zIDAp2euN5tobu+5agt48j87Qf9y3DBylpLZc2KfwXfG1mTI5nUeeua
-         cf4dpGpluONuQJ1G6bObQD9bIgNFo9QoV9ejIVNspoGyeUF2tL9jOq4xAcTk7WlD+d/6
-         OxDw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795211385; x=1795816185; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=E5uDN/vzQdjrsq85f8uIb4z/yYhd7+ao5rN+lXxRb7E=;
-        b=qJz+Mnps1I/Xh/CqKRpVPCeeCwuORxO8W2dXz3iZcVzJKj7O9Rci4ZqwCCt/jp7YH4
-         YxL8FrL11v32wAgYC2ugM1Oqyv9Yx3oPl47IhMIGufygdqe340OU9oZCXJpnkzP8i3l7
-         RLcxqOR527m+EVkU0UhyYqgz126edkKimX+lZuM7OIsiiphMZRkp35aKD8HuCfgBq/IC
-         3pE41C458OXsnTw57Hfl0NnKtXak6JxuUIIKexTKZX5nvlnZsbuGtI80igOW2OiqKpNa
-         NEoFCU1v5Zp6rJwKCP4/prT/mi6VZowqkbl0gm+zTiIfmOSEQHFDmdj3ywTov8KEml+O
-         UI1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795211385; x=1795816185;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=E5uDN/vzQdjrsq85f8uIb4z/yYhd7+ao5rN+lXxRb7E=;
-        b=mAsztQKmuxynffy1ydtBYLH5wCBOpLaSjWoLNqc8TfpVd8KRfbtfY1+QmyMBAjNDqf
-         zI1dl9MkuL2l0qE5eHIJqzTpFlZShIqT+8rBbXxlIzXfkktaLDKUkaKjY34CeYb3HSWD
-         O80JW1wuVzONrFKNIfQdoQo9ud7+JC3qETqLrcC5TeTChlx6bP7GNTSe4RoHP71ZuMoD
-         uUuwxMtvZJ8/m/9vLZ6SYK0iGPzMMTGfXNL8YqeCRnf7l7dSdVGflc+vwNYKL7JUi31z
-         L7PKVyNVMVyo6hBZ76lPb7uLhfxb/C2lUJQNR50Iuk9owsTDtUzoRXTXm/3Hm8P90cfr
-         YL9Q==
-X-Forwarded-Encrypted: i=1; AL+hErGQcLAdUSQM43BcskZb0fS7YVQ0+5hgt40lXMtE+QgQeYLx7YO3MNLZWX3LSuNphfQ1KbWTZTvXFiyqO9I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/F/HQqTD2hvwNd1bnY59W5TLF1w15Dfrqb3+8whjVRkmBQ9UcM
-	0YSiZon1w4H30amMTz2eIigQYfM49EWCK5mRZf4O4ImkHpw0VFTX0eVvuUVAEIxU98aFHuwfbZD
-	xsTkyBONy6kiM8n9hhtSwVLzwk7FzncxYnUReCwbH
-X-Gm-Gg: AZFdTZeRHK4OUsusNnD5WvTApOrOsC0baIbcCJBh61rcREpLRg3aYVr6EHBxON5xvB+
-	x1uBNkper7um/jYe1gID74T1JbMLc4a91x+xQzhpAEXk6JV387Jct6MmS1Udwkjbxz8Y8UR0ufq
-	O7YZqO+tjwCKnLceprPmR/DpvvUVJNat+7Yb8WZH4acMn6Cd2Ahc0lfF7koyEGM7sHULJvPZ9P9
-	dSHQvEOyS0W9+sMjshBkQX7F/+v4OSMfrmNug59DpN5OMI/AJP0rk/BkHkJQVUrhGwBrIsvQBGP
-	vSzXwoqIUDSfpROuT1RLJxN9qY9bxZ7YA6ecCWnMusNJdaPCJcRrtaYv3q/bta0Htp0mWk+Nddi
-	LUIAG2xb/d3WbSn+b2g19/fY3a5czODgPMIXRYFplR7QoeQ6PxUtFnoZz0dpjymki5XOSCzlhN0
-	k3X1TW+AYNsluu9AvSWIip1Y/YtPeM6I9uT/KIJEoehtt9og==
-X-Received: by 2002:a05:6402:1ed6:b0:6b1:c6fc:aba0 with SMTP id
- 4fb4d7f45d1cf-6ba6edb6b8dmr7974a12.7.1795211384379; Fri, 20 Nov 2026 13:49:44
- -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3BBA91F000C6;
+	Fri, 20 Nov 2026 21:50:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795211422;
+	bh=FifjGHjtBoRtzkOOJ+i+OfzI8gb85lACJmrrh0Mq/7g=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=NU7oXRwB0rf7uT20WX7gY+yESLJQpNqR4bfzCJ6ppyifZRxkW8wuv0DvtVtkEtq8i
+	 17axIhz6cURhNbLFFInZFNYd2ByxP7RnVkd5kDxBLDGTJcMCH9Rq9saI7BBGs5gq7m
+	 8zXJUeYmnxEL7QgG/Ue3f9D4eysoveE5r+r0RjgfplXL67Bnsv6A3u0Yt8O3I6OiWG
+	 OkZIGU4hdJgxjR3eBSYqyybwBiFMvNzPuTg7NZBt6+pbR43SOgTIWCe85V8iTBwJYx
+	 bOyaSndPw4ek7tgo7B2zcZ/FzHdJ9Mb7ociAXZ3nmXbG961qbfUmbD9HPIR2Iepe5E
+	 oQCs4SLAAeiaw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BFCDF4BA44;
+	Fri, 20 Nov 2026 21:50:12 +0000 (UTC)
+From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 21:50:12 +0000
+Subject: [PATCH] mfd: syscon: Give each syscon its own lockdep class
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,86 +82,151 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116071325.263682-1-hao.ge@linux.dev> <20261116071325.263682-3-hao.ge@linux.dev>
- <CAJuCfpHOZS6mp_no3wKmU3-S4HKspnbriUw8Mwtxf3nmw0-pfw@mail.gmail.com>
-In-Reply-To: <CAJuCfpHOZS6mp_no3wKmU3-S4HKspnbriUw8Mwtxf3nmw0-pfw@mail.gmail.com>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Fri, 20 Nov 2026 21:49:31 +0000
-X-Gm-Features: Aa3M54qncu_g5WX6d_gqnAW-RhgHGus495VL2_o1wphopDeOUeDevYVBGMQXiF4
-Message-ID: <CAJuCfpFv=sCeib+SDWJNW6oqbNnhT+m3YjnfKh8jNkquzuYORg@mail.gmail.com>
-Subject: Re: [PATCH v5 02/11] mm/kmsan: undo the shadow mapping when the
- origin mapping fails
-To: Hao Ge <hao.ge@linux.dev>
-Cc: Uladzislau Rezki <urezki@gmail.com>, Dev Jain <dev.jain@arm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>, 
-	Shrikanth Hegde <sshegde@linux.ibm.com>, Alexander Potapenko <glider@google.com>, 
-	Marco Elver <elver@google.com>, Dmitry Vyukov <dvyukov@google.com>, Dennis Zhou <dennis@kernel.org>, 
-	Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, linuxppc-dev@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-mm@kvack.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-syscon-lockdep-v1-1-aed779a004b8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWO3W7CMAxGX6XK9YzmpA0tmqa9x8RF7Dosoz+sb
+ tEQ4t0Jf5dH+nyOz0ZlSqJmU5zNJMekaRwy4Fth+CcMO4HUZjb23XpErEBPyuMA3cj7Vg7QonO
+ RqpoticlHh0li+r8Lv7cP1oV+heeb5bmY5G/JpfkxM72ohntpU3w8Q80rxN0elhDhiIDQchlKR
+ hJXua9dH1K34rH/vGkpqECGPs35faa19TV572ouESM7G93aSeMroZpCIw1ZKs32crkCfN8YTwM
+ BAAA=
+X-Change-ID: 20261115-syscon-lockdep-d133fb58c2be
+To: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: mfd@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Mark Brown <broonie@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Arun Iyengar <aiyengar1990@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795211412; l=3821;
+ i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
+ bh=WqiBN6Xp2Rqa6ZfdIfM4Z9bo5BDV1QpOV4b8/NaDhLA=;
+ b=bV7qC6N8PcVutSRsBfSL/nmmHW3NwY1Keqwl447bgS/qvzvVny8vuxfTo+l50SKkegBdNZ7VK
+ mp5l1YLaOh8Cm9JkXuRnrzzNyNU8T4HtjAak3io8yApvq2tBKt2sVnL
+X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
+ pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
+X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
+ auth_id=1480
+X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
+Reply-To: aiyengar1990@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 9:14=E2=80=AFPM Suren Baghdasaryan <surenb@google.c=
-om> wrote:
->
-> On Mon, Nov 16, 2026 at 7:13=E2=80=AFAM Hao Ge <hao.ge@linux.dev> wrote:
-> >
-> > kmsan_vmap_pages_range_noflush() first maps the shadow pages and then
-> > the origin pages. If the second mapping fails, the first one is left
-> > mapped, and the callers do not roll it back. The next vmap of the
-> > same metadata range hits the stale PTEs again and fails with a
-> > WARN_ON() and -EBUSY in vmap_pages_pte_range().
-> >
-> > Undo the shadow mapping on that error path, the same way
-> > kmsan_ioremap_page_range() cleans up after a partial failure.
-> > __vunmap_range_noflush() only clears the PTEs; nothing has touched
-> > the shadow mapping, so no TLB flush is needed.
+From: Arun Iyengar <aiyengar1990@gmail.com>
 
-After a second thought, kmsan_ioremap_page_range() does not skip TLB
-flushing. __vunmap_range_noflush() comment at
-https://elixir.bootlin.com/linux/v7.4-rc1/source/mm/vmalloc.c#L497
-says:
+All syscon regmaps share one lockdep class, as regmap_init_mmio() uses a
+static key per call site. Lockdep then mixes up unrelated syscons: on
+RK3588 the clock-gated VO1 GRF calls clk_enable() under its regmap lock,
+while the CRU's GRF gates take the SYS GRF regmap lock under enable_lock.
+This is reported as a circular dependency and disables lockdep.
 
-The caller is responsible for calling flush_cache_vmap() before
-calling this function, and flush_tlb_kernel_range after it has
-returned successfully ...". There are no mentions of guarantees that
-mapped PTEs require explicit access to be cached. Please double-check
-if this is safe.
+Lock each syscon regmap with its own spinlock and lockdep class.
 
-> >
-> > Fixes: 47ebd0310e89 ("mm: kmsan: handle alloc failures in kmsan_vmap_pa=
-ges_range_noflush()")
-> > Cc: stable@vger.kernel.org
-> > Suggested-by: Suren Baghdasaryan <surenb@google.com>
-> > Signed-off-by: Hao Ge <hao.ge@linux.dev>
->
-> Reviewed-by: Suren Baghdasaryan <surenb@google.com>
->
-> > ---
-> >  mm/kmsan/shadow.c | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> >
-> > diff --git a/mm/kmsan/shadow.c b/mm/kmsan/shadow.c
-> > index 0c88d89bf0d6..212449db34a1 100644
-> > --- a/mm/kmsan/shadow.c
-> > +++ b/mm/kmsan/shadow.c
-> > @@ -258,6 +258,11 @@ int kmsan_vmap_pages_range_noflush(unsigned long s=
-tart, unsigned long end,
-> >                                             o_pages, page_shift);
-> >         kmsan_leave_runtime();
-> >         if (mapped) {
-> > +               /* Undo the shadow mapping set up above. */
-> > +               kmsan_enter_runtime();
-> > +               __vunmap_range_noflush(shadow_start, shadow_end,
-> > +                                      gfpflags_allow_blocking(gfp_mask=
-));
-> > +               kmsan_leave_runtime();
-> >                 err =3D mapped;
-> >                 goto ret;
-> >         }
-> > --
-> > 2.25.1
-> >
+Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+---
+Tested on an Orange Pi 5 (RK3588S) with a 7.3 based kernel that has
+out-of-tree DisplayPort patches, lockdep and KASAN on. Without the patch
+lockdep reports the cycle during boot. With it /proc/lockdep shows one
+syscon lock -> enable_lock and enable_lock -> another syscon lock, there
+is no report and lockdep stays on. Build-tested on for-mfd-next.
+
+Applies on top of "mfd: syscon: Put the clock after regmap_exit()":
+https://lore.kernel.org/r/20261119-syscon-clk-uaf-v1-1-dc4a4c1be353@gmail.com
+
+Developed with Claude (Anthropic), which wrote the code and the commit
+message. I reviewed every change.
+---
+ drivers/mfd/syscon.c | 36 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 35 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/mfd/syscon.c b/drivers/mfd/syscon.c
+index 3ff4e024542b..34f278dfd2a8 100644
+--- a/drivers/mfd/syscon.c
++++ b/drivers/mfd/syscon.c
+@@ -13,6 +13,7 @@
+ #include <linux/err.h>
+ #include <linux/hwspinlock.h>
+ #include <linux/list.h>
++#include <linux/lockdep.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+@@ -20,6 +21,7 @@
+ #include <linux/reset.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/slab.h>
++#include <linux/spinlock.h>
+ 
+ static DEFINE_MUTEX(syscon_list_lock);
+ static LIST_HEAD(syscon_list);
+@@ -29,8 +31,29 @@ struct syscon {
+ 	struct regmap *regmap;
+ 	struct reset_control *reset;
+ 	struct list_head list;
++	spinlock_t lock;
++	unsigned long lock_flags;
++	struct lock_class_key lock_key;
+ };
+ 
++static void syscon_lock(void *arg)
++__acquires(&syscon->lock)
++{
++	struct syscon *syscon = arg;
++	unsigned long flags;
++
++	spin_lock_irqsave(&syscon->lock, flags);
++	syscon->lock_flags = flags;
++}
++
++static void syscon_unlock(void *arg)
++__releases(&syscon->lock)
++{
++	struct syscon *syscon = arg;
++
++	spin_unlock_irqrestore(&syscon->lock, syscon->lock_flags);
++}
++
+ static const struct regmap_config syscon_regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+@@ -114,12 +137,21 @@ static struct syscon *of_syscon_register(struct device_node *np, bool check_res)
+ 	if (!syscon_config.max_register)
+ 		syscon_config.max_register_is_0 = true;
+ 
++	lockdep_register_key(&syscon->lock_key);
++	spin_lock_init(&syscon->lock);
++	lockdep_set_class(&syscon->lock, &syscon->lock_key);
++	if (!syscon_config.use_hwlock) {
++		syscon_config.lock = syscon_lock;
++		syscon_config.unlock = syscon_unlock;
++		syscon_config.lock_arg = syscon;
++	}
++
+ 	regmap = regmap_init_mmio(NULL, base, &syscon_config);
+ 	kfree(syscon_config.name);
+ 	if (IS_ERR(regmap)) {
+ 		pr_err("regmap init failed\n");
+ 		ret = PTR_ERR(regmap);
+-		goto err_regmap;
++		goto err_key;
+ 	}
+ 
+ 	if (check_res) {
+@@ -159,6 +191,8 @@ static struct syscon *of_syscon_register(struct device_node *np, bool check_res)
+ 	regmap_exit(regmap);
+ 	if (!IS_ERR(clk))
+ 		clk_put(clk);
++err_key:
++	lockdep_unregister_key(&syscon->lock_key);
+ err_regmap:
+ 	iounmap(base);
+ 	return ERR_PTR(ret);
+
+---
+base-commit: 1cb7268b6638c411fc32f373e965eb8ba9e9b2b4
+change-id: 20261115-syscon-lockdep-d133fb58c2be
+prerequisite-message-id: <20261119-syscon-clk-uaf-v1-1-dc4a4c1be353@gmail.com>
+prerequisite-patch-id: 7cf33abeabb3eeaf1ba8ac6c461726fca87702cd
+
+Best regards,
+--  
+Arun Iyengar <aiyengar1990@gmail.com>
+
+
