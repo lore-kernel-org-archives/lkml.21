@@ -1,77 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135865;
-	b=0yvhhxmG0nAwXQa8mBsBMVp51HpPiVJJg3g+/AHtS5jlU5w6KDrGWAaay7BDE912mqUr
-	 3K5ktDD2zJ2u1gnVyrJGAkfSso8gpjHC8NklG0ynP3wlXRKlw49rtMDhjT8XSkX3vr7qL
-	 r9Npl4X4Qruq8KmZa4nqBBxwGFZrUzKwnpUkwxqL7C4sUfrmdGHL0WTUgdT8/9MQ9Gok5
-	 2XMEJJBFU6+TvX/VPiwkygjJmSZ9KHQhEvpFcTww1elRh/kLt/cLZwrL7HHUOTSDFcbzf
-	 L0pY2JYrXcQxwdLfIZTx7X2C6eufsl2s+KaGhoLbykkWobt8MZy0xMeESDa69QhZwAQ==
+	t=1795135886;
+	b=biXNXOwvyxt4tDDRO8hCh9aP63EM7N7aWqCVZwnK/ZovD9YI7tqC/MCbjx/bETah/+Ly
+	 kKzt3uVSpdaEDc6/15uD1xWw5tokPWiD0rJhe4bMwmunMe5OAaSP6R213lUGA4RtwoCDN
+	 4grrDarFPJPiDGMjz1ShwrhQ1fzsplBW0l/9Hwwukwkdqt/FVjSTa83dQQNF5YgTkXzaC
+	 1BshYmSPt5bccPmu03w0dN90uAhennL876X2xH3V5YaIib7nsGX72gsGnYKj4SG/FDPeC
+	 G2lN8fLsB3am6kIYCkl7fVz9vSBSMa0jyDpn2KQzCWAOOwquYy47odgpQARjAOOm/6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135865;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=04JSIZhHjKFEu/YxzRiw0+EhqATPIIfOkPMS5Z9474I=;
-	b=LnGTng9Umrawz7oWn0yU11Zz0ZkssTXggU3NAIkrZkNMP91D2AstWFuwKd+HJRrY4GCl
-	 HqroBpVaP2K5PCjs6KaXlVYtEb43YIzGXINCi24dWYHejcww93w+3Gu2HBRWoJJbvCmif
-	 1pqmie7bfUkZZdvO4UJ4Wgd8k5/+Yc5oVsBtgX1jGggJagOfGrG7SqM3EDYZIy9JXEvMP
-	 ajfcIg6gG5I1sDQASlyVl77X2r26J1KASF2XIZEpKlHNNVDtwwpydySID6C1OJt/7xvQM
-	 kZ0f4oLSOctQZG+i/380K/SEOLkHkwXKJ+AzDMDHF/+hIQZM3p6B8z5A+G1u0e4UfJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135886;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=g8O/N1Mv6d2abG52ExtYvgGkqCuCECcr9aNaSVENX6E=;
+	b=2ymAdi5kVSKO4uqb2aCS3MSX1WN0RmWlySm8fN2G/FJwaX6SLirKLPvWXV7JQ6Jif/PA
+	 HyoJuwsldQunfWXtdWhKxI4/7dUALNlOM5X7zNa4HDp/US2GMkQ0z431ePSlJ/vQCETlZ
+	 v1CxaNVyz21VlQxgjEHuYSJovz5NXaSwV9+Lzm0k+SpXqUJtcrbYl7l7+NMeGtnlT/UPa
+	 fHxdKp1HiispTFpYibNut+Vmr0oMOge2nADj+PHf7JDqxVvYJeIIc7yVGLFkvx00mKelN
+	 2vYb5qpax4RUqwMB7HIAc4IHgbe9I8BqiV3r5/cvsbrEA6efMq815diOXJGgwf3Qxdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hAPjT4Ft;
-	arc=none smtp.remote-ip=198.175.65.12
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TQdkukrh;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D8FC606A325;
-	Fri, 20 Nov 2026 00:51:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D8FC606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E646606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:51:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E646606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hAPjT4Ft
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795135866; x=1826671866;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   in-reply-to;
-  bh=PiQQ53VfPmAKE6LrwH/r/v6LsS18HY/qWJCCHOSzdls=;
-  b=hAPjT4Ft5T2T3cnoVAdzwHTtPIuAQvTLiMvWqlklHjR9N5JI7oPa9yFn
-   IlxuRkV2CXd3TCAhrbpexYKd3f/FF/YCEWSR1l82FadSuVs0pfzR+fcca
-   KsFRMP3OI4nes808G6fD+ELDErtTnjJ4C80erPPzCm2uHM7lun00RyZRJ
-   UvydMUExmbny4m/vW5mufvbw18RXTitSHTFqWPpvTvzW4XifseYcGMD5I
-   oVR5e6T9Te+RpXXPmiB+cWnp0Nc4QbZUWShM5e5HxwD9BsUM5CzdlE5jO
-   SoeNtZWbYzAtojJuljrrnGWbh/dRKmLcL33Of6GnBkOP4DaZuq5RcICEq
-   A==;
-X-CSE-ConnectionGUID: T4Q5rm6YQfy/XDVFepjGQA==
-X-CSE-MsgGUID: an+bCtG4RUGF03bObRvI3A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3891155"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="3891155"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:51:05 -0800
-X-CSE-ConnectionGUID: NfSyXI7OSyirTKo5cJZuig==
-X-CSE-MsgGUID: YeiBLmiMThqLC+jjX7H3Hg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="10462099"
-Received: from ly-workstation.sh.intel.com (HELO ly-workstation) ([10.239.182.64])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:51:01 -0800
-Date: Fri, 20 Nov 2026 08:50:58 +0800
-From: kernel test robot <yi1.lai@intel.com>
-To: Sinan Turunc <enscrpt@pm.me>
-Cc: oe-lkp@lists.linux.dev, lkp@intel.com, keyrings@vger.kernel.org,
-	David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>, paul@paul-moore.com,
-	jmorris@namei.org, serge@hallyn.com,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, yi1.lai@intel.com
-Subject: Re: [PATCH] keys: serialise instantiation against keyctl_chown_key
-Message-ID: <202611192204.aa82996f-lkp@intel.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TQdkukrh
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb76bb36c7so182405e9.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:51:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795135884; x=1795740684; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g8O/N1Mv6d2abG52ExtYvgGkqCuCECcr9aNaSVENX6E=;
+        b=TQdkukrhBBkFfoTiiiGJGY0UEZ4/oft8+p1wL+VxvK5DACg9U7lVDzr+Ce6lOSv1pb
+         TuL7gj5RjQnzw+wFNjQW5WARPqC/lKaRQOuyUh4T3NJHJsT8Bo9KBHLJW9BxeC5SZhJH
+         BG4UhRJBmDRKLfKRb3cPYz3NHbqBv9yCukpO4/6L2L4HAr9b8Ny59pH5q3EZF2dnnpml
+         mrnplb17wZXRZjec42lZ13qhKQVOL4BmSpnIBiRAr3ilLfRYKrPLzI+brj8Ack6cZRSz
+         ZWIqm4sGSGLEkK7NR49xzqPeZhq5ZBMJUsGaNvE7tGeoWpS5t/l4VWQVlwtpnq9BZ0Ck
+         uLKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795135884; x=1795740684;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g8O/N1Mv6d2abG52ExtYvgGkqCuCECcr9aNaSVENX6E=;
+        b=T1uKvgKeUWq0XWmJRjcW6MJBN278bHwTeKeBYkfp3Cer8GS+4mGonPyDVxhrIJTsxY
+         VBcLBjZwnA9ESl6fLJryxsqZo3XMWdcntLzr5QnL5UvR3aAySVa5fGTI+yR/f4PENzXh
+         OfKxOgYJoGn1d0LN4wQy4JjqrFajOLhH0jVcOIshOL6hbcnxLkpeqcVTdlDDt9uQNuu5
+         YVibuOxMb/89mfn0ZOHXbjMYSwowya+8aazMeQHJdP57xT8Vr6ZOgkqPk2unY/W86gT+
+         LnsYxW7WJFo2ZZl4NMfnzUnXkVaQeEG+HNVArUA964RzWSRSclhk/hu+Tdw+Wy4FPeiv
+         rMnw==
+X-Forwarded-Encrypted: i=1; AL+hErEZg4njio9UsMFyLHFouMhc3iDI55stXKO6DBmEFqJFujJXVtsXWK4Uuoeqorp6G5uR0+kSi/LzbGdGG3k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rqi7sGlVWs2rBYoQgprCLinBP7oGdGvNfk8KXGm3a2cb8F3lI
+	2fDyNJmANeLHfYypiptBd3mjMkB/tw/BaiT2X1jtpaikrPW54+JTyAAL
+X-Gm-Gg: AZFdTZeMrZ0U9SwsHBAqMnIih2hizapIV6xdfaHKSc6KVK442jVkFT1Wyg5fFBKl0Kd
+	oT+qdXMZaIFcU/NWxe8dqP3DiebbDhGY0oOiXB3fHI1fUBpDCmSTgLt68caQ920BK5p9UxT8zR7
+	JKYhjdi1K+ObdV4t5GhPurcrApfNXyVNRmQIrKimpwagNLqKYFMjoH81JBtJ2KCeo5jk5yoZ1oJ
+	zixFM4sajJYvEd1fbKE8StU6Dz8+i89TSHAG2gCTeLTbs0rYuCMWEcEfDozXnjqA29Tbct4GtiN
+	vPg86KZLpG3XaqnLFLXtlZtWZNGRk/wVCP43W6a17aD89YWOyRgWRRQNNoZbTZkSX8AxCZ0EJPj
+	px32KlCnJMf9HNLqmFKhhezSKcPssWk7GOmNts8Own5pUj4VVX0qIHphuZBOiv5o5GVfk7K1P3U
+	d+jCCHuJF4NcsG5QNLuIEiL3Ja4to5KPykir5/5uL7fy8EsHKTKuf4Uy/a7x+oyC7wq+nVn5DAw
+	1LHZ2JIATWR6AJbSOF056O9L3hx27UGLwWH+oGQf9K4j2QpndXiqsfHtV6LyC/AKNMe/T0FYcbG
+	kSfBYxsCm6xtW/qjmYfrU0YFrwe0oQDDGcmWlTCx0OCr3j3IyRcSZd8eM8znnxn/wGIpDZRLYA=
+	=
+X-Received: by 2002:a05:6000:4817:b0:48e:eb:56a5 with SMTP id ffacd0b85a97d-4abb097b298mr2128827f8f.4.1795135884298;
+        Thu, 19 Nov 2026 16:51:24 -0800 (PST)
+Received: from Nuel20.localdomain ([105.112.222.112])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf685asm2269315f8f.20.2026.11.19.16.51.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 16:51:23 -0800 (PST)
+From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Subject: [PATCH net-next] selftests: net: socket: fix inverted failure diagnostic
+Date: Fri, 20 Nov 2026 01:51:02 +0100
+Message-ID: <20261120005102.18132-1-emmaonana18@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,150 +103,37 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115121722.206-1-enscrpt@pm.me>
+Content-Transfer-Encoding: 8bit
 
+When socket() succeeds but the test case expected failure, the error
+branch prints "expected success got err" with strerror(errno), both
+backwards (reality is "expected err, got success") and stale (errno is
+meaningless after a successful call). Mirror the sibling fd<0 branch:
+name the expected errno via strerror(-s->expect).
 
-Hello,
+Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+---
+ tools/testing/selftests/net/socket.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-kernel test robot noticed "WARNING:possible_circular_locking_dependency_detected" on:
-
-commit: a22ea46d3e3ee6e7fbea90bd9b1ff61cdcdc96c1 ("[PATCH] keys: serialise instantiation against keyctl_chown_key")
-url: https://github.com/intel-lab-lkp/linux/commits/Sinan-Turunc/keys-serialise-instantiation-against-keyctl_chown_key/20261115-121740
-base: https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git 23c62304dde29abe92013d85910d03a77dada35d
-patch link: https://lore.kernel.org/all/20261115121722.206-1-enscrpt@pm.me/
-patch subject: [PATCH] keys: serialise instantiation against keyctl_chown_key
-
-in testcase: trinity
-version: trinity-x86_64-216a8b36b-1_20261116
-with following parameters:
-
-	runtime: 300s
-	group: group-02
-	nr_groups: 5
-
-
-config: x86_64-randconfig-121-20251020
-compiler: gcc-14
-test machine: qemu-system-x86_64 -enable-kvm -cpu Haswell-noTSX,enforce -smp 4 -m 16G
-
-(please refer to attached dmesg/kmsg for entire log/backtrace)
-
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <yi1.lai@intel.com>
-| Closes: https://lore.kernel.org/oe-lkp/202611192204.aa82996f-lkp@intel.com
-
-
-[  227.133561][ T1501] WARNING: possible circular locking dependency detected
-[  227.137692][ T1501] 7.4.0-rc2-00717-ga22ea46d3e3e #1 Not tainted 
-[  227.138989][ T1501] ------------------------------------------------------
-[  227.140436][ T1501] trinity-c3/1501 is trying to acquire lock:
-[  227.141691][ T1501] ffffffff838679e0 (keyring_serialise_link_lock){+.+.}-{4:4}, at: __key_move_lock (keys/keyring.c:1305) 
-[  227.143815][ T1501] [  227.143815][ T1501] but task is already holding lock:
-[  227.143815][ T1501]
-[  227.143815][ T1501] but task is already holding lock:
-[  227.143815][ T1501]
-[  227.143815][ T1501] but task is already holding lock:
-[  227.145340][ T1501] ffff88812a091e08 (&type->lock_class/1){+.+.}-{4:4}, at: __key_move_lock (keys/keyring.c:1298) 
-[  227.147290][ T1501] 
-[  227.147290][ T1501] which lock already depends on the new lock.
-[  227.147290][ T1501]
-[  227.147290][ T1501] which lock already depends on the new lock.
-[  227.147290][ T1501]
-[  227.147290][ T1501] which lock already depends on the new lock.
-[  227.147290][ T1501]
-[  227.149447][ T1501]
-[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
-[  227.149447][ T1501]
-[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
-[  227.149447][ T1501]
-[  227.149447][ T1501] the existing dependency chain (in reverse order) is:
-[  227.151296][ T1501]
-[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
-[  227.151296][ T1501]
-[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
-[  227.151296][ T1501]
-[  227.151296][ T1501] -> #2 (&type->lock_class/1){+.+.}-{4:4}:
-[  227.152939][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
-[  227.154012][ T1501]        __lock_acquire (locking/lockdep.c:5288)
-[  227.155085][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
-[  227.156219][ T1501]        lock_acquire (locking/lockdep.c:5907)
-[  227.157219][ T1501]        down_write_nested (locking/rwsem.c:1757 (discriminator 1))
-[  227.158300][ T1501]        __key_instantiate_and_link (keys/key.c:451)
-[  227.159581][ T1501]        key_instantiate_and_link (keys/key.c:549)
-[  227.160804][ T1501]        keyring_alloc (keys/keyring.c:541)
-[  227.161819][ T1501]        blacklist_init (blacklist.c:337)
-[  227.162888][ T1501]        do_one_initcall (main.c:1419)
-[  227.163950][ T1501]        do_initcalls (main.c:1481 (discriminator 1) main.c:1497 (discriminator 1))
-[  227.164975][ T1501]        kernel_init_freeable (main.c:1517 main.c:1732)
-[  227.166136][ T1501]        kernel_init (main.c:1622)
-[  227.167132][ T1501]        ret_from_fork (x86/kernel/process.c:158)
-[  227.168163][ T1501]        ret_from_fork_asm (x86/entry/entry_64.S:245)
-[  227.169265][ T1501]
-[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
-[  227.169265][ T1501]
-[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
-[  227.169265][ T1501]
-[  227.169265][ T1501] -> #1 (key_construction_mutex){+.+.}-{4:4}:
-[  227.170969][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
-[  227.172036][ T1501]        __lock_acquire (locking/lockdep.c:5288)
-[  227.173115][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
-[  227.189495][ T1501]        lock_acquire (locking/lockdep.c:5907)
-[  227.191295][ T1501]        __mutex_lock (locking/mutex.c:646 locking/mutex.c:821)
-[  227.193002][ T1501]        mutex_lock_nested (locking/mutex.c:874 (discriminator 1))
-[  227.194980][ T1501]        __key_instantiate_and_link (keys/key.c:443)
-[  227.197215][ T1501]        key_instantiate_and_link (keys/key.c:549)
-[  227.199432][ T1501]        keyring_alloc (keys/keyring.c:541)
-[  227.201173][ T1501]        look_up_user_keyrings (keys/process_keys.c:116)
-[  227.202572][ T1501]        init_root_keyring (keys/process_keys.c:1044)
-[  227.217442][ T1501]        do_one_initcall (main.c:1419)
-[  227.219309][ T1501]        do_initcalls (main.c:1481 (discriminator 1) main.c:1497 (discriminator 1))
-[  227.221127][ T1501]        kernel_init_freeable (main.c:1517 main.c:1732)
-[  227.223114][ T1501]        kernel_init (main.c:1622)
-[  227.224834][ T1501]        ret_from_fork (x86/kernel/process.c:158)
-[  227.226598][ T1501]        ret_from_fork_asm (x86/entry/entry_64.S:245)
-[  227.228485][ T1501]
-[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
-[  227.228485][ T1501]
-[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
-[  227.228485][ T1501]
-[  227.228485][ T1501] -> #0 (keyring_serialise_link_lock){+.+.}-{4:4}:
-[  227.231311][ T1501]        check_noncircular (locking/lockdep.c:2219)
-[  227.233160][ T1501]        check_prev_add (locking/lockdep.c:3209)
-[  227.235032][ T1501]        validate_chain (locking/lockdep.c:3328 locking/lockdep.c:3952)
-[  227.236844][ T1501]        __lock_acquire (locking/lockdep.c:5288)
-[  227.238525][ T1501]        lock_acquire (trace/events/lock.h:23 (discriminator 1) locking/lockdep.c:5905 (discriminator 1))
-[  227.240157][ T1501]        lock_acquire (locking/lockdep.c:5907)
-[  227.241603][ T1501]        __mutex_lock (locking/mutex.c:646 locking/mutex.c:821)
-[  227.242975][ T1501]        mutex_lock_nested (locking/mutex.c:874 (discriminator 1))
-[  227.244070][ T1501]        __key_move_lock (keys/keyring.c:1305)
-[  227.245152][ T1501]        key_move (keys/keyring.c:1634)
-[  227.246096][ T1501]        keyctl_keyring_move (keys/keyctl.c:618 (discriminator 3))
-[  227.247227][ T1501]        __do_sys_keyctl (keys/keyctl.c:2023)
-[  227.248314][ T1501]        __x64_sys_keyctl (keys/keyctl.c:1885 keys/keyctl.c:1885)
-[  227.249389][ T1501]        x64_sys_call (kbuild/obj/consumer/x86_64-randconfig-121-20251020/./arch/x86/include/generated/asm/syscalls_64.h:251)
-[  227.250447][ T1501]        do_syscall_64 (x86/entry/syscall_64.c:61 x86/entry/syscall_64.c:89)
-[  227.251533][ T1501]        entry_SYSCALL_64_after_hwframe (x86/entry/entry_64.S:121)
-[  227.252848][ T1501]
-[  227.252848][ T1501] other info that might help us debug this:
-[  227.252848][ T1501]
-[  227.252848][ T1501] other info that might help us debug this:
-[  227.252848][ T1501]
-[  227.252848][ T1501] other info that might help us debug this:
-[  227.252848][ T1501]
-[  227.255005][ T1501] Chain exists of:
-[  227.255005][ T1501]   keyring_serialise_link_lock --> key_construction_mutex --> &type->lock_class/1
-[  227.255005][ T1501]
-
-
-The kernel config and materials to reproduce are available at:
-https://download.01.org/0day-ci/archive/20261119/202611192204.aa82996f-lkp@intel.com
-
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
+diff --git a/tools/testing/selftests/net/socket.c b/tools/testing/selftests/net/socket.c
+index 9e270548dad80..7f075acc0b19c 100644
+--- a/tools/testing/selftests/net/socket.c
++++ b/tools/testing/selftests/net/socket.c
+@@ -71,10 +71,11 @@ static int run_tests(void)
+ 			close(fd);
+ 
+ 			if (s->expect < 0) {
+-				msg1 = strerror_r(errno, err_string1, ERR_STRING_SZ);
++				msg1 = strerror_r(-s->expect, err_string1,
++						  ERR_STRING_SZ);
+ 
+ 				fprintf(stderr, "socket(%d, %d, %d) expected "
+-					"success got err (%s)\n",
++					"err (%s) got success\n",
+ 					s->domain, s->type, s->protocol,
+ 					msg1);
+ 
+-- 
+2.43.0
 
