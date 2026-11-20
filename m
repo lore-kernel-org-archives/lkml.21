@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.185
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174048;
-	b=QJVeMA3SmTKKvcYMcQlgrUONDrk7oyIXm5lVMh9f8G48PrFsjN+RolJJi+mCQ8z/1Sni
-	 AuLNXHr3fllaG8VU/cyDOyoGg08dMm1LW54tkdlj6v/fWlSM/Ys/MTBAs1a/qXB7798u0
-	 KSbWjcQ9J1l9gphe+jifSx84EC3lizZe9tEGYtLwDjuBicxgGlMKXE0pThFoQmFF1tIBw
-	 QNPokNA0udGbIQtKm8w/Ad+XMrS/3WjCliXqPz4Gs99ZFzqD64GF+wq8As8EqUwlDb9PI
-	 wb9ZRP608LE2y7IPNO6+9vOOqmPeUMIptAgawWci8dtyvb73rIRnWXZPftXC+ujgk/g==
+	t=1795174051;
+	b=xstN4hWjPs9jRawmUSGQrGz2RXarCa3KFZAbWsQn2pvSpcrOxjxP9tbvwxYx6LLuG06W
+	 1ym8w7oeIb4UM7LUT5JoXOlrRE+6Zy1gKuGtHHJObCMgJmiD1bSgDJWtZNI4d5fzTW31W
+	 5Qdqt62EOACq0m9TAE/xI3l4BM1F+KO7SzOSM/JP8TXmxy9mO7kIxGzOXZN585y1Mhlnz
+	 3XE1UgahB8rgeFgIJbLeABcXywNxthJFU1XennaN4R0ZCdGvEkFFNCUkfSr9xN2Uzy0eY
+	 ALnHFFU9CFlyC2Xb7YXBODoFOUDp/oxW8K7JUnGtuVtW/OYNPkde/GHeEx2YXCmxhZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174048;
-	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
-	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
-	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
-	bh=SXK/SZxRntgRyvv+mxr4LUsXIJfJSPnef+5p0Sj7gNc=;
-	b=NoumM4kJNjEQxclppAyXOaLOGoVe0yUxE3ovZVQyVRePZT3TIa0OKDED2lZzm16grG6T
-	 bCxPbTX7FLrDXUIzt2kxm5B1BUSlwhPVUUQpxYr1bMxL7VZG2MvV+FbqZEvA0S5K+hABa
-	 yR96aP4kVTBMxd29TAWKwXxW4+DlxpNlE1qQKQ4YutkMhfAh3B8Jto4voOc/fyxisrDjd
-	 FfSGtxu4AK9KfXIFA2xqFmwQHOm5BTklyRJc1dEsToUWCUl9Hb8VpbTliCTfhp8IZCTIN
-	 B8j5TZkv7V2hDgjZqJeyg96CBaL0he2+V/fB0AooOftWhdes7hTposwNcHPeCu3YVqQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174051;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ASWa0rCwAwWSXr/9bmTm1YRMhd5ao8PveDcuQoxadiY=;
+	b=1ddhA+ux2ns9YcDSbDg5CnhwBGl9P+c8Ku8I7LhJ/XAdYhJxECwqHhxFgKoQGT1OCAZq
+	 pdhJIHwmobKSIjk3zGBPBY+DXsywMWL3ZSU0A9EuKOw0tB6QaQvUEiFw2hBt52YHD/O03
+	 d5QXZEkCArJfP19c383jqIbxL3DwFQ6tjYngsIrs3541lV+nt9Ze+5XzePt+3BxbWWu9M
+	 jMk7lLZTUi55ICHaySD7UaNPbNtwJcazBxcqQW2cAQ4RALKNDTv1VI7UWrSi/UjCfo73G
+	 l4npikPeMPuqIIpMpP3VCanIlzgK7cZCLuK6+WfgbkYxs7I3BLox6QR6oKlItHMcmBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=xs4all.nl;
-	spf=pass smtp.mailfrom=xs4all.nl;
-	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=OVC82ucR;
-	arc=none smtp.remote-ip=195.121.94.185
-Received: from ewsoutbound.kpnmail.nl (ewsoutbound.kpnmail.nl [195.121.94.185])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KX0JszoF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2097B606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:27:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2097B606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C371C606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:27:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=OVC82ucR
-X-KPN-MessageId: 5ba30fd0-e4d5-11f1-964c-005056999439
-Received: from mta.kpnmail.nl (unknown [10.31.161.190])
-	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
-	id 5ba30fd0-e4d5-11f1-964c-005056999439;
-	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
-Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.190])
-	by mta.kpnmail.nl (Halon) with ESMTP
-	id 5ba19b57-e4d5-11f1-92a0-0050569977a2;
-	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xs4all.nl; s=xs4all01;
-	h=content-type:mime-version:subject:message-id:to:from:date;
-	bh=SXK/SZxRntgRyvv+mxr4LUsXIJfJSPnef+5p0Sj7gNc=;
-	b=OVC82ucR55v0Bw1JGf2Wp4pndBzc2/97tO2xIuG8FfT5uTgs3lHuolNb8wMo0hXGow1T0eMG96gHm
-	 Ayi/TqXqe4yeEbUBpse1sJYkU6C58CCGrCZDYMNW0v+sFOE6AxOWWiDaA4GSYIjdKB81uI5GeA+ddX
-	 +9seIo3tgKo3b18ilraNO0Tcb0gTmF4KZB5JNoMRV+SQO0kDGkqbXb0zHyTPx3Fp1fY9IXZDli+j2L
-	 JRPWH9NSHevT4AKeznbqR+F3DcPv1fe4HFjO3LgqTCHyszPnsUYvQqavhj4zmk1sQ5HXq1jtRx/KOR
-	 PJrJHz21e5GyHD9Tqr/nuWy9kC7T2hQ==
-X-KPN-MID: 33|gxolvIubzIz4owOj8/OH1wLITMnTIAk72PI12p/KYa3hhZVuBVzG2/moSUpJtbw
- LDnX2zkpdtVLX9YgxDUhE4a7WcpBhNXmvWnt1AygC8i4=
-X-CMASSUN: 33|yILptPHw52JfC+h5HlK3xLYKy/4pdGkvIqaO9i5zBuVYRoDSlP0K5f1+sU76d46
- mfxY/KLTukGyADy9mHYPOVA==
-X-KPN-VerifiedSender: Yes
-Received: from cpxoxapps-mh07 (cpxoxapps-mh07.personalcloud.so.kpn.org [10.128.135.213])
-	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
-	id 5b9669c7-e4d5-11f1-94ba-005056995d6c;
-	Fri, 20 Nov 2026 12:27:24 +0100 (CET)
-Date: Fri, 20 Nov 2026 12:27:24 +0100 (CET)
-From: Jori Koolstra <jkoolstra@xs4all.nl>
-To: Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	=?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?= <ricardo@marliere.net>
-Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-ID: <936710069.2100225.1795174044091@kpc.webmail.kpnmail.nl>
-In-Reply-To: <13c6ec9c-c4ea-4471-b5e8-77d1a786796b@linuxfoundation.org>
-References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
- <13c6ec9c-c4ea-4471-b5e8-77d1a786796b@linuxfoundation.org>
-Subject: Re: [PATCH 0/3] selftests: add option to print the time spent per
- test
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KX0JszoF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02DC41F000D4;
+	Fri, 20 Nov 2026 11:27:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795174051;
+	bh=ASWa0rCwAwWSXr/9bmTm1YRMhd5ao8PveDcuQoxadiY=;
+	h=From:To:Cc:Subject:Date;
+	b=KX0JszoFy7WOkRSRQohyhEw9oq4ueePNK9uZIe3F3UiFaAwOojTr9CEp33d2MRDGZ
+	 wWGS5pw1soMSNX9fZm/0umk685jRuj+HkLdkVEVvLwWVix2OixHZyN21X1KeNk4Ze9
+	 4OcRAsXq/towdZxjlkR1K6e/HqqU/9S6ACCTW5xgxM8WLa8WsIpwWVl+qJangn0kK0
+	 4LgMZ0XfaaB96DWY6rxptGSHbWMMxVZod/Lchmx6QTKtWjh2RocMjU2ZGNDnpsYLCs
+	 Mqqdonhxc6HuRg0SQnQS1PQpex3OFYVEkwQVQ/I3YgB3JVnWCwYPfEsPEX7A5N9k+R
+	 mpz4/6FOnJbrw==
+From: Philipp Stanner <phasta@kernel.org>
+To: Sumit Semwal <sumit.semwal@linaro.org>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] dma-buf/dma-fence: Remove dma_fence_later()
+Date: Fri, 20 Nov 2026 12:27:04 +0100
+Message-ID: <20261120112702.2970576-3-phasta@kernel.org>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,67 +60,75 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Priority: 3
-Importance: Normal
+Content-Transfer-Encoding: 8bit
 
+dma_fence_later() does not have any in-tree users anymore.
+dma_fence_is_later() is available as an alternative.
 
-> Op 18-11-2026 11:15 EST schreef Shuah Khan <skhan@linuxfoundation.org>:
-> 
->  
-> On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
-> > For CI/CD purposes it is useful to know how much time each selftest
-> > took to complete, for instance, to know which suites to run for a
-> > quick-fail diagnostic, or what percentage of tests you can expect to
-> > complete on a paricular --override-timeout value.
-> > 
-> > Add a -T/--timed option to run_kselftest.sh. When it is set, run_one()
-> > prints a KTAP diagnostic line with the elapsed wall-clock time just
-> > before the result line of each test that is actually run, e.g.:
-> > 
-> >        # selftests: timers: nanosleep
-> >        # time: 12.34s
-> >        ok 3 selftests: timers: nanosleep
-> > 
-> > The other two patches clean up the use of 'local' in runner.sh and fix a
-> > bug when using --netns in run_kselftest.sh. Strictly these could be sent
-> > as separate patches, but "selftests: add option to print the time spent
-> > per test" builds on these, and it would otherwise require needless
-> > rebasing for two small fixes.
-> > 
-> > Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
-> > ---
-> > Jori Koolstra (CIQ) (3):
-> >        selftests: use local variables consistently in runner.sh
-> 
-> Please spilt the convention related changes and real changes.
-> 
+Remove the surplus function.
 
-Do you want me to send it separately or drop it altogether? It isn't really
-important really, just a clean up. I have some more changes submitted a
-couple days ago that I'd like review more than this.
+Signed-off-by: Philipp Stanner <phasta@kernel.org>
+Reviewed-by: Christian König <christian.koenig@amd.com>
+---
+Changes in v2:
+  - Rebase onto misc-next due to conflict.
+  - Add Christian's Rb.
+---
+ drivers/dma-buf/dma-fence.c |  3 ---
+ include/linux/dma-fence.h   | 26 --------------------------
+ 2 files changed, 29 deletions(-)
 
-> >        selftests: pass the timeout override to tests run in a netns
-> >        selftests: add option to print the time spent per test
-> 
-> These two look good to me. I will pull them all as a series once you
-> fix the problem with patch 1/3
-> 
+diff --git a/drivers/dma-buf/dma-fence.c b/drivers/dma-buf/dma-fence.c
+index 0776ca7c795e..ab02afdb0f18 100644
+--- a/drivers/dma-buf/dma-fence.c
++++ b/drivers/dma-buf/dma-fence.c
+@@ -1115,9 +1115,6 @@ static bool dma_fence_flags_valid(unsigned long flags)
+  * refcount after committing with this fence, but it will need to hold a
+  * refcount again if &dma_fence_ops.enable_signaling gets called.
+  *
+- * context and seqno are used for easy comparison between fences, allowing
+- * to check which fence is later by simply using dma_fence_later().
+- *
+  * External locks are a relic of legacy use cases that needed a shared lock
+  * to serialize signaling when no out-of-order signaling was possible through
+  * &dma_fence_ops.signaled. Drivers have abandoned this concept since the
+diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
+index 56c4e5beaafe..513d9dbbff47 100644
+--- a/include/linux/dma-fence.h
++++ b/include/linux/dma-fence.h
+@@ -626,32 +626,6 @@ static inline bool dma_fence_is_later_or_same(struct dma_fence *f1,
+ 	return f1 == f2 || dma_fence_is_later(f1, f2);
+ }
+ 
+-/**
+- * dma_fence_later - return the chronologically later fence
+- * @f1:	the first fence from the same context
+- * @f2:	the second fence from the same context
+- *
+- * Returns NULL if both fences are signaled, otherwise the fence that would be
+- * signaled last. Both fences must be from the same context, since a seqno is
+- * not re-used across contexts.
+- */
+-static inline struct dma_fence *dma_fence_later(struct dma_fence *f1,
+-						struct dma_fence *f2)
+-{
+-	if (WARN_ON(f1->context != f2->context))
+-		return NULL;
+-
+-	/*
+-	 * Can't check just DMA_FENCE_FLAG_SIGNALED_BIT here, it may never
+-	 * have been set if enable_signaling wasn't called, and enabling that
+-	 * here is overkill.
+-	 */
+-	if (dma_fence_is_later(f1, f2))
+-		return dma_fence_is_signaled(f1) ? NULL : f1;
+-	else
+-		return dma_fence_is_signaled(f2) ? NULL : f2;
+-}
+-
+ /**
+  * dma_fence_get_status_locked - returns the status upon completion
+  * @fence: the dma_fence to query
+-- 
+2.56.0
 
-Just sent the v2. Thanks for the review.
-
-> > 
-> >   tools/testing/selftests/kselftest/runner.sh | 50 ++++++++++++++++++++++-------
-> >   tools/testing/selftests/run_kselftest.sh    |  8 +++++
-> >   2 files changed, 47 insertions(+), 11 deletions(-)
-> > ---
-> > base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
-> > change-id: 20261117-kselftest-run-timer-df3ac531652e
-> > 
-> > Best regards,
-> 
-> thanks,
-> -- Shuah
-
-Best,
-Jori.
