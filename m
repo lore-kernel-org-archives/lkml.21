@@ -1,78 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195251;
-	b=uj0yEewWKfxiObOCzZID7c3g8JY5R+JsVi6LbvOcgo1jlr+5BowZ1TP1sHgPaPcnOUkv
-	 gZr7QGvJnPYyux3cpSzIU4LZkx1kGmkIWzg3ujQ+MtagvkTdJzFJBuNC5SkgS83RBTwMc
-	 flxWbUh7FyzWesOCkEfyGXAyz6hf1E6SzSEges6vcd0My4UadAcC05ReDy6H2h0V2D4Yi
-	 GGPqxQyc+TpQF1iWSYuEY1EHIm9kbm1LLyqn0Z9tIqs5JV9vc8sePZiD+bXn5H2MOKJY2
-	 HE4KbL/rlx25R1QXOLoF99hJLU7Y5q2bs0/Qt62Uc3NcOUzw2t2ruNcVj1jiirdcu3Q==
+	t=1795195256;
+	b=MBfRpQh3vneVDod5TVnRbfeKFO0juxZYV1dEOye42lTa4ZYTla58s2WY8pvrQvdRueIl
+	 9a9O2NSFsm//d/5bzzuxQbHb/mGXae3cvIeMhlAQsnF6M+82vY8F9ypODso+sMuUcJxb2
+	 lHsJY2B9zSaAsbqAKRFD9Rr8LA7Qbus/fi2RvgINjNeAwCVINP/1/VYWGD0HRJyUaryyX
+	 obaBDTSLKj73DI2fTztU70uoxh/K4HZF3iFm8473jLq2VMppmYnE+7YB+lUMIOzCGvtHX
+	 3Jk9Cg8ZgKkKULHCdTnNeorUEWSajPbBTGcrz60zqp6BR4invDUlXYBgoa/ppkjvARA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195251;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195256;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=oPl6Fm7k6C0w0fOYmre6kId3JLuNwQWiJIvWNgvEQuQ=;
-	b=ytNB6iRpeGMRbN+9Jcr6mrjD6r7/tevEoeHy30gQdAw4eNTCkQCoJQnohaSEneBsUSoL
-	 q5Nr/fZjDoqNLmk7oljvQ0APduU/JvYNVsUU76vceBZOi4Jncjl1ferF6nz6AzJ2SGB9t
-	 JO5mubDm088WdPTuL2j7pAmsPFlLIUcsVtixts3cedrScDjfXwWwv+O4A7CYFElpA1Cn5
-	 uePExEBBGLRemL17FvKdDZBqwV32APBdUY6RMAc4E7xnECUqMj4EJvsqvSMLU92l3WKGe
-	 EPiS9jw2ZNMFXTqtv8ckbI3FPbto0M3MWPi40BpU5vsHG8HFgMi1HzYeX2A0+vOGKOQ==
+	bh=qJPHQhYfedjCOJYrgLzd0ECOSbf8JTv2hZq1jKTSmrI=;
+	b=ltSJLGjAPopPKTSn01FMfyAl3gI1L6nCP0q/EIJL3Xy6jS7dECX15YeQCc1UW2k/jmQf
+	 BjuYsQzvEZfNMBMgIQ0bYYmJIqC2iuV9u1eclUSTbmeJ0TNz8IVdRl1ALtvNIdE8Mu48N
+	 NAWx9HxKxIVE09dVZa26ln2qYemlepTa5dq3PoPoUkqhI+AvXvnQ0tt7AVN4bQibEgGxQ
+	 P5kNQ91Vy+rRUMVp49uOpdt76xeCzELu4l+rU5Ag+XFo/mkqrBKu7jBAajomRxJRXL5+f
+	 9KFA5DncMT+sWreFEVzRa2xqzuNtLqeOHuimB9MTSBfPS5ekuA9I60x07XQD1OdvahA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fUrux4ve;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KoARb4BS;
 	arc=none smtp.remote-ip=198.175.65.21
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0CDA60A3813;
-	Fri, 20 Nov 2026 17:20:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0CDA60A3813
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 657DC60A3834;
+	Fri, 20 Nov 2026 17:20:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 657DC60A3834
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=fUrux4ve
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=KoARb4BS
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795195246; x=1826731246;
+  t=1795195256; x=1826731256;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=jjzuCUGTPS9NeooTCYIT0kb2dtW5hLkhmusAkgysMUk=;
-  b=fUrux4veDv2V3Y9bkqj/FnSYSL/V7lWxYEbUSr/30AWnqRPFHj2YwzP7
-   7hQz1QFouItaWVDCUGkcwDekOPp5Run5EyXK5IOkeeE+J+4xF12/hJbB/
-   fMQurVr3w3Go0nOaQ7eJWYGVhh3LCfCFM+7auwtUipyLYNWm40bXhzK9h
-   jYZEptMqsiSAQULwjkI0pmItw/3mXM8H47ubnugSUIwQHbM2BRsWEMdoW
-   Bj41lcE8oYj8GAJeuP67FEbHGkjO1n2eje368R6kNas2Oa5afcv8LtGfF
-   FMF1e02SAC06OT1V94ffhVLxFIwhZHEnPk3vI6s5XAcek15hjohNSu+VB
+  bh=ultTTMBLv2vDOVju1DP16lSpu87uKSHH9VOkiMbZsK0=;
+  b=KoARb4BSaGdF5/vnOOCHp00vg0+VNjUrXNE9RvJPeXqEWmdcGAyxZ4T+
+   zsYNiLyJ17TG915kPXYFeujIJp5BbhBdM6bxHA6T77M6Wgk/omugENKwZ
+   T8SPZ57TZKAguEgelGV4VVynTx88NyPro+9fed0NfpLvp39CLPHREpOAs
+   FBN99yZ/XmbCwKWbANerh7v1E1DprUYZnr+NGuQIdGvS/QyM12R0WCsmo
+   YpMSq7OpfBhIQODAoBr8ZtxX/68aDrTy15HRy2CCvhG51OheCz80LIrMZ
+   /5YVEYYjoAzwFORIf8DCMz/rGSq2l1R18IJw1euaIdEjdpvNLsTqPrAMa
    A==;
-X-CSE-ConnectionGUID: /WqiIdMMSMeHuzOU7JKPQA==
-X-CSE-MsgGUID: GbFskiPASVu+oEzpLR7NrQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157368"
+X-CSE-ConnectionGUID: jGC59BfKQt+bufSyMARkOA==
+X-CSE-MsgGUID: 1AY3bGVIRuuLPfkXq05Q7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157402"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4157368"
+   d="scan'208";a="4157402"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:46 -0800
-X-CSE-ConnectionGUID: Xu7fnT3vQz+CiKSOqkdLpw==
-X-CSE-MsgGUID: fqqPAZU4RF6SoVn+DfFp4g==
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:55 -0800
+X-CSE-ConnectionGUID: iw8AZoajSvC0GCTfN3JU/g==
+X-CSE-MsgGUID: X3200TdbSyOFihYGkQAB7A==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10867973"
+   d="scan'208";a="10868005"
 Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:43 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:52 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
 	Pawel Chmielewski <pawel.chmielewski@intel.com>,
 	Len Brown <lenb@kernel.org>
-Cc: ikaros <void0red@gmail.com>,
+Cc: Rong Zhang <i@rong.moe>,
 	linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 13/42] ACPICA: Fix object reference update to skip non-local notify types
-Date: Fri, 20 Nov 2026 18:18:34 +0100
-Message-ID: <acd59dc3f22a2bcb19980f5919d070583c4e9251.1795194329.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH v2 16/42] ACPICA: parser: Set AML length for bytelist
+Date: Fri, 20 Nov 2026 18:18:37 +0100
+Message-ID: <d32f3fdc439e5aa8153a14f5ea979465b3ee87c4.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
@@ -87,31 +87,51 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: ikaros <void0red@gmail.com>
+From: Rong Zhang <i@rong.moe>
 
-Link: https://github.com/acpica/acpica/commit/53d7ddc850a8
-Closes: https://github.com/open-acpica/acpica/issues/1181
-Signed-off-by: ikaros <void0red@gmail.com>
+The sanity check introduced in [1] leads to failures for
+resource templates. AcpiDmIsResourceTemplate compares the Length
+variable to BufferLength - the problem being that Length was never
+set. This causes the decompiler to decompile valid resource
+templates as plain buffers.
+
+Fix it by setting the AML length properly.
+
+[1] https://github.com/open-acpica/acpica/commit/3ce09021b677
+
+Link: https://github.com/acpica/acpica/commit/bb546a65fa3e
+Signed-off-by: Rong Zhang <i@rong.moe>
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- drivers/acpi/acpica/utdelete.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/acpi/acpica/psargs.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/acpi/acpica/utdelete.c b/drivers/acpi/acpica/utdelete.c
-index e8180099d01f..57a0de6a49d6 100644
---- a/drivers/acpi/acpica/utdelete.c
-+++ b/drivers/acpi/acpica/utdelete.c
-@@ -517,6 +517,10 @@ acpi_ut_update_object_reference(union acpi_operand_object *object, u16 action)
- 				prev_object =
- 				    object->common_notify.notify_list[i];
- 				while (prev_object) {
-+					if (prev_object->common.type !=
-+					    ACPI_TYPE_LOCAL_NOTIFY) {
-+						break;
-+					}
- 					next_object =
- 					    prev_object->notify.next[i];
- 					acpi_ut_update_ref_count(prev_object,
+diff --git a/drivers/acpi/acpica/psargs.c b/drivers/acpi/acpica/psargs.c
+index 4643c839df7f..b0f5a11f9696 100644
+--- a/drivers/acpi/acpica/psargs.c
++++ b/drivers/acpi/acpica/psargs.c
+@@ -760,6 +760,8 @@ static union acpi_parse_object *acpi_ps_get_next_field(struct acpi_parse_state
+ 
+ 				ASL_CV_CAPTURE_COMMENTS_ONLY(parser_state);
+ 				arg->named.value.size = buffer_length;
++				arg->named.length = (u32)ACPI_PTR_DIFF(
++					pkg_end, parser_state->aml);
+ 				arg->named.data = parser_state->aml;
+ 			}
+ 
+@@ -933,9 +935,9 @@ acpi_ps_get_next_arg(struct acpi_walk_state *walk_state,
+ 
+ 			/* Fill in bytelist data */
+ 
+-			arg->common.value.size = (u32)
+-			    ACPI_PTR_DIFF(parser_state->pkg_end,
+-					  parser_state->aml);
++			arg->common.value.size = arg->named.length =
++				(u32)ACPI_PTR_DIFF(parser_state->pkg_end,
++						   parser_state->aml);
+ 			arg->named.data = parser_state->aml;
+ 
+ 			/* Skip to End of byte data */
 -- 
 2.56.0
 
