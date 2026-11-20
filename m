@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182301;
-	b=oBS6v01LxOHTX6FvPAm5nsRwqT8XzhRZLG4NoRlK1Yb6uhEIuVGNUTUCeLjUX6qyHJa7
-	 +tmIgfjg1p+LUtjGvxmTn6+AsN7YbuPGfU07R8f4jC8RaEdgv8E7A/Q8tseLTkj8xhyHp
-	 C+3CgPZCUWRIlUw1ZRS0USqq+ay/QkIZ227SQDFL/9pKqgh/d4KktqCZbmbmZLXnt8RL+
-	 6NRzo3O7n2xElVIv3UEv4meyIIdPR1+kdAZz240X1VPU2R2kStRu3ZybUsw2aq/DWFpO+
-	 rK0/Kt+RSTxYPg6Pe6StaqROk3mso+zTRSTPJUBKu7ZUX3dCQT2rOiKjl1OqGcO+P5A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182301;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795182334;
+	b=bbNqhfrkTEBy+1n+tLioM0aGKWfhHjnQGNTBPEsIH4oWuM/0jrmGCasiYn1S9a7bSdWD
+	 afhryETpZIFUB2Ohgp7ES30M7rKfNDiQdzcDas8DCFRIHdmFm3rNtcY/a8eZLGFMm2+YE
+	 InhRjtM2vAHbezre5v60pIgLFwwB5lYsSWA3wAboSPHvOZW9LBHVDHDRj6W71bvr7Nt6i
+	 wvVLIO3AeOniFEcKn9d4qAPi6pNUjEMQj4/+V7ia1HE3MdyFASA9jhoe1ENBH4i3hfIwh
+	 y404u76Qm8rqMQLNaG7VsKddO1Ljmdb0JC6nAneb9OF3tMfxa0hIl5O7PqNB8rdA4GA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182334;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=lLv8k8lrm+YaEOIWRLJsJHy/ct/axSyoAyIjwlu8Pmg=;
-	b=b76GgWc3/CusvajIBtVJ57UXFhJVNbxhiErSIWO+UNh9G128VkyGpTPL6tu6LPKJioS6
-	 m6/RJWjFSXW1RSGNY43zK3U45UQ4w68HCpZojDs326KzM6uOL4bEfO7d2FjRj800k+QuA
-	 OTgbcOmaS1VJ0ArTqaliZ0G9SmERyH3Yq8E148IQcvuw/XBWWmRomKSh1+juznF52mIOq
-	 Rvod69+G8+iP4VkcJALSP6DltRpk6dJS13Z6z0ro5XZakEsyq0Ia6ENFLGM54LU8E2wmA
-	 EoO+G4/htxii4EQBgIDWvesqjy5oMnzuSuY0cspLgRp55mH06fofR0BsFSh8prEjF1Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="D6L+OL//";
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=seRZcfAAqkTD1W6q2JPJ+SdU9zOrZB5PtU+99DV2EQA=;
+	b=DcMYkL1gOyOZC1mG4kaXKDu3LirCQWRYASU9Fa2HsHU4dR3JQspY+2qM2FswqK48/Vsk
+	 LyIa+JQNoS8swb5HBVkvSAG9tdokAKIZXSqCwodmoi4L/weZSYvfvGe2KwEBRxIjXMBud
+	 L8b7vQflRtHBfYGXXvHP/dPFpeo68mSFpx5ScHq/oak69vNjY+/BU5/0zfKtXE3UzP4nW
+	 A5R0++CV3CxhKfNh8JsOrX9HH+81pDu18dAp81G37aItTIIwy3RJz8+vZH8YXWpSiCQMY
+	 wbPpUoWiBcNQJwIVpJ9D1RXY2Cf6O/ipRCfcmg9IKdOY+qV5hRSPWsN9+7180QmfLag==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oWMy3zlE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.172
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A858D606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:45:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A858D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BC21606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:45:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BC21606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D6L+OL//
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so6829345e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:45:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oWMy3zlE
+Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-54492d8a988so278221cf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:45:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795182332; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sVinWHqKHTXVx9vnYSOoUcmW9pqS7TJ5vva70hNlD2luOe0GqzQzjm1nIiFoKypjqf
+         Nm97dyogGNDjPEw/GkL9uPDm0dxNwoWLu85KjmWCjYMHqXRblFLlg6oOrNz3fWQWuv9W
+         x0Ve5Pmh5g8jb1jTL/G+St+jzDwC+nzRENQuG0PxFWHFgviAus6dtJGZ2i8nEfYVaiNp
+         F8+gfy52dzuDPS/ZNrcS+uihQDHOlnH767UAJmgTvBRjwdxkUCEULVS8z6daN/5NEJwa
+         3HODM38VGBLhJ7ePbrj5asaWQ3bIg9cAYcJbv5k+FVBY7Q3wZuV0VvvcucvM4Q3mT6X5
+         alFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=seRZcfAAqkTD1W6q2JPJ+SdU9zOrZB5PtU+99DV2EQA=;
+        fh=tQ/acgCkX5AUWucfW+BItLKLGv3FBZqSFQQ28Ij0dgw=;
+        b=bNWj399uBwy9IROIOLo2s+JEroMS1Js8USXgC0FDQArV5OocBVU+6t8X59hMT7qoqK
+         ijq7tzkvIf21qRDhmeQ9AflBlQmFJjN2hHZTIrJfjF+eJv0YF5mjMz7npFbAhI6u/gK1
+         Aut1io+l3YaJMZfdBbJEmqluPeh2Uc0OibEqTGuKubjkKuHACPzb/FAuBXs+C65t3unA
+         vCRFUZwOtbmhDEVGk5mvKnBDAyurGywFfQ9BLXVZpEoUgIfoqfAH1+Sf6diJb8dJt6Dj
+         zBLpfpQK9eAu5dB1sut4u1wWgK9L+v+HWk/sZ5JcEOR/YKA9ACZh6QQ8c5HBAsLXiBvP
+         Pstg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795182299; x=1795787099; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=google.com; s=20260707; t=1795182332; x=1795787132; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=lLv8k8lrm+YaEOIWRLJsJHy/ct/axSyoAyIjwlu8Pmg=;
-        b=D6L+OL//esz9ADmr+k5uDLbPEXaBVNenZxs4ZYUZrOGb+TLjunAew1zBpaURdvDZJ5
-         ciaX24R13FLDpimb1IBzZWH+uX1UjPHQ5DStoN33jMBJTVsL8JfKVMTNnArLy+d/GtJu
-         HzdTNPIXbiMQCXWMofox9ZNfv51ZMZJBsl5UXhs1KBSijsvUs36dyaJyFDr/KGqgEKOj
-         hpsZgcyoTLh3TY1Z/r/TW1/wBlm/KQBWm2YdiNUpZBvDcRfDY59YWL14ZVAzlz0Wj8AX
-         yxgYWUmFoyyAMh2vhHt7bORyvbRxoPfA7qwTYl2xxA7NUBPXyvwt1t5Xsn+NyIqlWp22
-         N89Q==
+        bh=seRZcfAAqkTD1W6q2JPJ+SdU9zOrZB5PtU+99DV2EQA=;
+        b=oWMy3zlEz/r8lL+NgJsVg55RcKCKj/PFVSPOfRnr4OdnO4rVhaC5w6TnzhsbEh2qzk
+         HlKGlVlKi00Hl2AUDWjKoPx7VA/ix7YMvP1OjxQTwMpGZNqA71ZP4W0/Tx8u/ndLe1tu
+         ZbQp+9U1QzqCg0SyX6OP2efB0X5TTU1yG2ldjJfNUiEGMLb1sPK4I8EsTe5uMHgORfjn
+         yT5hSxjapiiFivdTqt3DVZyIbUd+RYCP/Mr0VO8Inm3Z7Pg+GU4UzXvEu5tXZd56naWn
+         yydAe3zUcl5xTgxsS1dN8yhE4g9mpXOVl6sweYDO/Av6vLpqA5b8RgXOzFUOH03Nj+Y5
+         zwWQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795182299; x=1795787099;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795182332; x=1795787132;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lLv8k8lrm+YaEOIWRLJsJHy/ct/axSyoAyIjwlu8Pmg=;
-        b=0ZpaDI/RY7LttAa+enYWv9JbMYwmWrkhYSNVU1aW8Ef4e80doW2P7O4OkAsOerFadb
-         YZtMpEFPDChsz7qfHQ1+K4BfNnlyDO7E04EyPj2wbc1xgdK5i4dvacJOabzezH0ZB3xg
-         LXOly51JeTY00lFYcE6aS5Jv0Zf+etJWt7sMxgzCwvuc+5aIw4NxKsynOg4ir8KRq53o
-         aJBq5MgjoUZoOhpQ3BSHzpNgH4WiiRsaTz+j7iqJEBlVPo4PC/lKQs5A1/Lm0ib2bmRu
-         mGk2eUwOKSfld9dcCpv0E5B0ZyjqODlcrXF1LXL72zrhdGbfnxSoGYZ+Sb+Lqs1LGWzP
-         V0qw==
-X-Forwarded-Encrypted: i=1; AL+hErEh+u8bzEhMlcDcEYawv96UoCiCMROBKr/rMLoEBS1DW0rI/yG9hg3XCneLi1eNPNQ1W5sTvLmFiDT9DFE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/TTiNWQiF3ywgEHP6wI8WZZvdv4Pz2tz7xVLJQyQYWTPdP73rb
-	COcCIDObgpQtAi8I3iPfEqcUoxr8bmJ7r1PaF+Ue+4UBd3JTXIaJgnBy
-X-Gm-Gg: AYBFou0vfcW8Fyfgn+NxLcu4h39267B20gnofQ5H2e8olhHV3ZByF5DVrMLk903yRm1
-	P7XUh9OdCWN/IqmeqDlWpKsIJQCgc9NPASngVvL1hxHIxUqwBshaoexSOB1tzbnKPY8nGJwGP9O
-	Tv6CzcV9bO2GuUoJhFt4hheMpidxuJVdEd35CYOui+d4ZhQ9Ru5O9bSneFCjJ2RKapHpU7NT6P4
-	7PKykV6ZKfvEgErUQ3JbGWNKERQ5aynIZvuXxGhj+8csYwb8jKLn6m2MEt665q5IipyfLLx642Q
-	vvSP1SYhvivSB4C9hc5x+cR3Se9T7C6IkVsg7WF+xPCw/VRFpo89HtKGTmiJBIZzo6OnEFDxzQF
-	WBYAngnJiaySE+QvkhuA6EUnuwwuAKxb+kUp4IT0t+QqpzDHowhvhv2r0KCrtMhpfUh2GJpi+rw
-	ub6VgDGaqfdfjl1Ka0wcM9h6KbCaHbLzWiN3uMHU1WKu+S+SFDGiA2VaeXu4vhTHhGptF0eh7pn
-	GHo4uYnEK5WVUexSj2+jdW598t4LQ/iNlz7xN6yJ3SjIDoAOVdj7jISKSvJgEpvWZ1RR/MEua78
-	IYdkYl06riK/KvdZiENOkJP1IzUiCTy0aRFEjcAonL+mZ/1NxC3uuqaXCkUAQPZSMQ==
-X-Received: by 2002:a05:600c:a08b:b0:4bb:6651:9eda with SMTP id 5b1f17b1804b1-4bb88922ca4mr64148625e9.14.1795182298763;
-        Fri, 20 Nov 2026 05:44:58 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8960068fsm25958065e9.4.2026.11.20.05.44.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:44:58 -0800 (PST)
-Date: Fri, 20 Nov 2026 13:44:57 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ilpo =?UTF-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>
-Cc: Mario Limonciello <superm1@kernel.org>, Mario Limonciello
- <mario.limonciello@amd.com>, Hans de Goede <hansg@kernel.org>, Ma Jun
- <Jun.Ma2@amd.com>, Evan Quan <quanliangl@hotmail.com>,
- platform-driver-x86@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] platform/x86/amd: send WBRF DSM payload as buffer
-Message-ID: <20261120134457.19baa19c@pumpkin>
-In-Reply-To: <65fb4293-0c29-266b-28bb-7f7540735a70@linux.intel.com>
-References: <20261102-superm1-wbrf-v2-1-28b02bb4ce61@kernel.org>
-	<65fb4293-0c29-266b-28bb-7f7540735a70@linux.intel.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=seRZcfAAqkTD1W6q2JPJ+SdU9zOrZB5PtU+99DV2EQA=;
+        b=fVaQfGsQNSXfNMHESldrC1yHJ7aMbvRq5qJgQnjN0Q/+sW6xFDcY4eSHH5KJfKnaHu
+         YMiHUbPZ058Oj3e3lDY0ez52EOZ0SapsTHtXfSiPTuKS4jiI5IH7/J3NH1PIDQUKILgv
+         hcZKyQAeY7HRNR65nGgzDeBX8C+vZKKs2I2LAg+eS+d958WN4O4HE7pGB5oZUFx6Pcs3
+         P+GgSoKJEC8IJiYTMwYa8J8GXZGg3zvRTg4QbQMIRMsL+ojnrlGD/QsCe0ufj5zxJglh
+         HNARFha3yfX8bSW28l8nYBGgYOo7jpkgpCpvq4ZWlNKc05JPQRE12kABr0/qXzIWgjVr
+         c47A==
+X-Forwarded-Encrypted: i=1; AL+hErEHkuwNh4z8ZZDywKFaW9ez8Azn7/guXp3KeG/FYLFKJmk3YZ8N7ScvwUWNUdsbE7gMMpz+bue729Eu4Ps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81aVfHUBzBA8AXs8s1T9qQoSxat3ovkXRNT9SBIe+xs2PcJltS
+	l1YPi4EL8BLP7r2MQS5ZCmBWyW9GE4WeRxJuOm1DTRVh9cgjhOfKJbT2svhyjTv8/y5CpI7YX/n
+	/+suKg3eUS7MUcXoyPxWXzXWMjDFFSFHoSAEYSKC9
+X-Gm-Gg: AYBFou25+6GlNrvBXOB/ecZ5Yp3PCOetFGdOYq3zDkPf+vY6+OcKLugR1zvEX9y4Cwg
+	vsLVGVzCfzCYfDAfjNpspO293W94pVb3Yxu4ATjvxafRpzMtdq7sDuWpmB2elWGQZlLwUghcwQS
+	Gv9ye7xbPg1ZMUE3fDw6V9IrwILKy0FF/A53MOnQIVUEicy0JxeDXcz4E6H3My6MD7SjjjVHwMR
+	mV0Em9nSs0m1TUEMiHZcB3C7wWLxjLET8P7/sDb8qLB0brnucdu2oiP0q8sHlOcEPJcC1HSfHwh
+	0ZSjbbraOYNVWCNv6dYORVe8tc69+qIBazlIwbyHJC6/z6TaNOGLkeGLzaPZ4p1dIHQqO7bVex5
+	Fw3xk0aFawuN0fDQ3LIwGOPn6mMKpyVhE7YGOAzcQA3UyHJbY9bOYzf4PJ1jr6GqdCjT9Zzwx
+X-Received: by 2002:a05:622a:8c8:b0:55b:ce7e:e65 with SMTP id
+ d75a77b69052e-55d7a37902amr16415831cf.12.1795182331264; Fri, 20 Nov 2026
+ 05:45:31 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,208 +104,299 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20261117103028.4105609-1-arighi@nvidia.com>
+In-Reply-To: <20261117103028.4105609-1-arighi@nvidia.com>
+From: Vineeth Pillai <vineethrp@google.com>
+Date: Fri, 20 Nov 2026 08:45:19 -0500
+X-Gm-Features: Aa3M54o-Xl-ufX2u6AxfLWTThRvPOrY3hGBTM6OrSKPVciSpyC7xweEMoobIj3g
+Message-ID: <CA+HDTgQ0mx0PgXDps2h2kd8TbJsFWOmJGJmDRGEHZgBZ_qSVwQ@mail.gmail.com>
+Subject: Re: [PATCH v2 bpf-next 0/3] bpf: Import external pages into an arena
+To: Andrea Righi <arighi@nvidia.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	John Fastabend <john.fastabend@gmail.com>, Tejun Heo <tj@kernel.org>, 
+	David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>, Josh Don <joshdon@google.com>, 
+	Peilin Ye <yepeilin@google.com>, Zhi Wang <zhiw@nvidia.com>, Lee Trager <ltrager@nvidia.com>, 
+	Balbir Singh <balbirs@nvidia.com>, Shameer Kolothum <skolothumtho@nvidia.com>, 
+	Himadri Chhaya-Shailesh <himadrics@protonmail.com>, NchangRoy <royfru44@gmail.com>, bpf@vger.kernel.org, 
+	sched-ext@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, 20 Nov 2026 12:12:03 +0200 (EET)
-Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com> wrote:
+Hi Andrea,
 
-> On Mon, 2 Nov 2026, Mario Limonciello wrote:
->=20
-> > Spec defines the WBRF record _DSM argument as a single buffer that packs
-> > the header and frequency ranges. The driver instead built a package of
-> > integers, so firmware on some systems abort \WBRF with AE_AML_OPERAND_T=
-YPE
-> > when dereferencing Arg2[0].
-> >=20
-> > Encode the payload into a little-endian buffer and hand it as the lone
-> > package element.
-> >=20
-> > Fixes: 58e82a62669d ("platform/x86/amd: Add support for AMD ACPI based =
-Wifi band RFI mitigation feature")
-> > Signed-off-by: Mario Limonciello <superm1@kernel.org>
-> > ---
-> > Changes in v2:
-> > - Declare payload with __free(kfree) at the kzalloc() site, after input
-> >   validation, instead of initializing it to NULL at the top of
-> >   wbrf_record() (Sashiko)
-> > - Compute payload length with struct_size_t() so it no longer depends on
-> >   payload being declared earlier (Sashiko)
-> > - Link to v1: https://patch.msgid.link/20261102-superm1-wbrf-v1-1-b58d8=
-d85277c@kernel.org
-> > ---
-> >  drivers/platform/x86/amd/wbrf.c | 75 +++++++++++++++++++++++----------=
---------
-> >  1 file changed, 43 insertions(+), 32 deletions(-)
-> >=20
-> > diff --git a/drivers/platform/x86/amd/wbrf.c b/drivers/platform/x86/amd=
-/wbrf.c
-> > index 3281357185d1f..2afb574e4327d 100644
-> > --- a/drivers/platform/x86/amd/wbrf.c
-> > +++ b/drivers/platform/x86/amd/wbrf.c
-> > @@ -6,6 +6,8 @@
-> > =20
-> >  #include <linux/acpi.h>
-> >  #include <linux/acpi_amd_wbrf.h>
-> > +#include <asm/byteorder.h>
-> > +#include <linux/slab.h> =20
->=20
-> Please put asm one into own group.
->=20
-> > =20
-> >  /*
-> >   * Functions bit vector for WBRF method
-> > @@ -29,6 +31,17 @@ struct amd_wbrf_ranges_out {
-> >  	struct freq_band_range	band_list[MAX_NUM_OF_WBRF_RANGES];
-> >  } __packed;
-> > =20
-> > +struct wbrf_record_entry {
-> > +	__le64		start;
-> > +	__le64		end; =20
->=20
-> Include
->=20
-> > +} __packed; =20
+Thanks for the v2 and for sharing the scx_pvhost/scx_pvguest demo
+branch. Thought of discussing the possibility of using the pvsched
+transport with the bpf arena framework implemented in this series.
 
-Even, why __packed (for both).
+On Tue, Nov 17, 2026 at 5:30=E2=80=AFAM Andrea Righi <arighi@nvidia.com> wr=
+ote:
+>
+> As discussed in the BPF track and the sched_ext microconference at Linux
+> Plumbers 2026 [1][2], shared BPF arenas can provide a generic channel for
+> bidirectional zero-copy communication between BPF programs running on a h=
+ost
+> and its guests, for example to exchange scheduling hints between host and
+> guest sched_ext schedulers.
+>
+> v1 [3] exposed a pinned arena as a sized bpffs file and gave the guest it=
+s
+> share of it as a NUMA node. Following the review, this version drops that
+> approach and teaches the arena to map pages that it didn't allocate, base=
+d on
+> Alexei's prototype [4].
+>
+> Background
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> An arena can only map pages it allocated itself, so its memory can be sha=
+red
+> only with the BPF programs and the user space that map the arena.
+>
+> Sharing it with a guest through a NUMA node, as in v1, has two fundamenta=
+l
+> problems: the node is ordinary guest RAM, so the guest arena's pages go b=
+ack to
+> the guest's buddy allocator when the guest scheduler exits, while the hos=
+t can
+> still write to them; and memory block granularity makes it wasteful (16M =
+of
+> guest memory for one shared page) and limits it to a few hundred guests p=
+er
+> host scheduler.
+>
+> Design
+> =3D=3D=3D=3D=3D=3D
+>
+> The arena gains a single primitive, arena_map_ext_pages(), which maps pag=
+es
+> supplied from outside at a free arena address. Each call creates one impo=
+rt,
+> kept in an interval tree with its pages, which belong to their supplier, =
+not to
+> the arena:
+>
+>  - bpf_arena_free_pages() over any of them releases the whole import: the
+>    pages are unmapped and unpinned, and the range goes back to the arena,=
+ so
+>    the arena doesn't grow as guests come and go,
+>  - they are released when the arena is destroyed,
+>  - they are not counted in the arena memory usage,
+>  - the arena mapping raises SIGBUS on them (SIGSEGV with
+>    BPF_F_SEGV_ON_FAULT): user space accesses them through their supplier.
+>
+> Two sleepable kfuncs for syscall programs supply the pages, one for each =
+side
+> of a host/guest shared arena:
+>
+>   int bpf_arena_import_memfd(void *map, void __arena *addr,
+>                              u32 page_cnt, int fd, u64 off);
+>
+> Host side: pins the pages of a memfd, or of any file on tmpfs or hugetlbf=
+s,
+> with memfd_pin_folios() like udmabuf does. The host hands the same file t=
+o the
+> VMM as a memory backend, with no change to the VMM.
+>
+>   int bpf_arena_import_dax(void *map, void __arena *addr,
+>                            u32 page_cnt, u64 src);
+>
+> Guest side: the VMM exposes the file as a virtio-pmem or NVDIMM device, w=
+hich
+> the guest turns into a device-dax device (/dev/daxX.Y). The kfunc pins th=
+e
+> device-dax pages mapped at an address of the calling task, and holds a
+> reference on their dev_pagemap until it releases them.
+>
+> Both sides then see the same pages as arena memory, at an offset known to=
+ both
+> of them, so they can agree on a layout in-band, with plain BPF loads and
+> stores, and keep pointers to it in the rest of their arena state.
+>
+> Use case: paravirt scheduling
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+>
+> The git tree below has an additional [DEMO] commit, not meant for upstrea=
+m,
+> that provides a real, tested use case of this functionality: a pair of
+> sched_ext schedulers, scx_pvhost on the host and scx_pvguest in every gue=
+st,
+> which share a few pages per VM through their arenas. The host publishes w=
+hich
+> vCPUs it has preempted, its idle CPUs and every VM's fair share of the ho=
+st
+> CPUs; the guests publish their demand and the state of their vCPUs. With =
+that,
+> the guests stop queueing work behind preempted vCPUs and fold onto their =
+share
+> of the host CPUs only while that pays off.
+>
 
->=20
-> Include
->=20
-> > +
-> > +struct wbrf_record_payload {
-> > +	__le32			num_of_ranges;
-> > +	__le32			action;
-> > +	struct wbrf_record_entry	ranges[];
-> > +} __packed;
-> > +
-> >  static const guid_t wifi_acpi_dsm_guid =3D
-> >  	GUID_INIT(0x7b7656cf, 0xdc3d, 0x4c1c,
-> >  		  0x83, 0xe9, 0x66, 0xe7, 0x21, 0xde, 0x30, 0x70);
-> > @@ -42,8 +55,9 @@ static BLOCKING_NOTIFIER_HEAD(wbrf_chain_head);
-> >  static int wbrf_record(struct acpi_device *adev, uint8_t action, struc=
-t wbrf_ranges_in_out *in)
-> >  {
-> >  	union acpi_object argv4;
-> > +	union acpi_object args[1];
-> >  	u32 num_of_ranges =3D 0;
-> > -	u32 num_of_elements;
-> > +	size_t payload_len;
-> >  	u32 arg_idx =3D 0;
-> >  	int ret;
-> >  	u32 i;
-> > @@ -64,45 +78,39 @@ static int wbrf_record(struct acpi_device *adev, ui=
-nt8_t action, struct wbrf_ran
-> >  	if (num_of_ranges !=3D in->num_of_ranges)
-> >  		return -EINVAL;
-> > =20
-> > -	/*
-> > -	 * Every input frequency band comes with two end points(start/end)
-> > -	 * and each is accounted as an element. Meanwhile the range count
-> > -	 * and action type are accounted as an element each.
-> > -	 * So, the total element count =3D 2 * num_of_ranges + 1 + 1.
-> > -	 */
-> > -	num_of_elements =3D 2 * num_of_ranges + 2;
-> > -
-> > -	union acpi_object *tmp __free(kfree) =3D kzalloc_objs(*tmp,
-> > -							    num_of_elements);
-> > -	if (!tmp)
-> > +	payload_len =3D struct_size_t(struct wbrf_record_payload, ranges, num=
-_of_ranges); =20
->=20
-> Include.
->=20
-> > +	struct wbrf_record_payload *payload __free(kfree) =3D =20
->=20
-> Include for __free()
->=20
-> > +		kzalloc(payload_len, GFP_KERNEL);
-> > +	if (!payload)
-> >  		return -ENOMEM;
-> > =20
-> > -	argv4.package.type =3D ACPI_TYPE_PACKAGE;
-> > -	argv4.package.count =3D num_of_elements;
-> > -	argv4.package.elements =3D tmp;
-> > -
-> > -	/* save the number of ranges*/
-> > -	tmp[0].integer.type =3D ACPI_TYPE_INTEGER;
-> > -	tmp[0].integer.value =3D num_of_ranges;
-> > -
-> > -	/* save the action(WBRF_RECORD_ADD/REMOVE/RETRIEVE) */
-> > -	tmp[1].integer.type =3D ACPI_TYPE_INTEGER;
-> > -	tmp[1].integer.value =3D action;
-> > +	payload->num_of_ranges =3D cpu_to_le32(num_of_ranges);
-> > +	payload->action =3D cpu_to_le32(action); =20
->=20
-> Include
->=20
-> > -	arg_idx =3D 2;
-> > +	arg_idx =3D 0;
-> >  	for (i =3D 0; i < ARRAY_SIZE(in->band_list); i++) {
-> >  		if (!in->band_list[i].start || !in->band_list[i].end)
-> >  			continue;
-> > =20
-> > -		tmp[arg_idx].integer.type =3D ACPI_TYPE_INTEGER;
-> > -		tmp[arg_idx++].integer.value =3D in->band_list[i].start;
-> > -		tmp[arg_idx].integer.type =3D ACPI_TYPE_INTEGER;
-> > -		tmp[arg_idx++].integer.value =3D in->band_list[i].end;
-> > +		payload->ranges[arg_idx].start =3D cpu_to_le64(in->band_list[i].star=
-t);
-> > +		payload->ranges[arg_idx].end =3D cpu_to_le64(in->band_list[i].end);
-> > +		arg_idx++;
-> >  	}
-> > =20
-> > +	argv4.package.type =3D ACPI_TYPE_PACKAGE;
-> > +	argv4.package.count =3D ARRAY_SIZE(args); =20
->=20
-> Include.
->=20
-> You're missing lots of headers, admittedly, many are pre-existing=20
-> problems.
->=20
-> > +	argv4.package.elements =3D args;
-> > +
-> > +	args[0].type =3D ACPI_TYPE_BUFFER;
-> > +	args[0].buffer.length =3D payload_len;
-> > +	args[0].buffer.pointer =3D (u8 *)payload;
-> > + =20
->=20
->=20
->=20
-> >  	union acpi_object *obj __free(kfree) =3D
-> > -		acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
-> > -				  WBRF_REVISION, WBRF_RECORD, &argv4);
-> > +		acpi_evaluate_dsm(adev->handle,
-> > +				  &wifi_acpi_dsm_guid,
-> > +				  WBRF_REVISION,
-> > +				  WBRF_RECORD,
-> > +				  &argv4);
-> > =20
-> >  	if (!obj)
-> >  		return -EINVAL;
-> > @@ -236,8 +244,11 @@ int amd_wbrf_retrieve_freq_band(struct device *dev=
-, struct wbrf_ranges_in_out *o
-> >  	param.string.length =3D 0;
-> >  	param.string.pointer =3D NULL;
-> > =20
-> > -	obj =3D acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
-> > -							WBRF_REVISION, WBRF_RETRIEVE, &param);
-> > +	obj =3D acpi_evaluate_dsm(adev->handle,
-> > +				&wifi_acpi_dsm_guid,
-> > +				WBRF_REVISION,
-> > +				WBRF_RETRIEVE,
-> > +				&param);
-> >  	if (!obj)
-> >  		return -EINVAL; =20
->=20
-> Two unrelated space only changes.
->=20
-> I don't think the n line version is even an improvement in the former=20
-> case.
+As Josh mentioned on v1, we have been developing pvsched [5] -- a
+lightweight guest/VMM/host paravirt transport (with QEMU and Cloud
+Hypervisor support) based on the "guest allocates ordinary RAM, passes
+GPAs via a small PCI BAR + synchronous doorbell, host pins via
+/dev/pvsched" model. We recently added external-policy support so the
+shared pages after a small negotiation header are completely opaque to
+the kernel framework.
 
-Or either case. One parameter per line isn't a sane style.
+Looking at Patch 1, arena_map_ext_pages() (along with import_memfd for
+host/userspace sharing) already takes an arbitrary struct page ** array
+and maps it contiguously into arena VA space. That means for VMs we can
+layer your shared-arena model directly on top of the pvsched transport
+(on both host and guest) and get the best of both approaches:
 
-David
+1. No extra memory backend or devdax/nvdimm stack:
+   Instead of a separate 16 MiB pmem file per VM (plus guest ZONE_DEVICE
+   memmap overhead, libnvdimm/dax_pmem config, and sysfs rebinding) for
+   sharing a few pages at a hardcoded 2 MiB offset, the guest allocates
+   ordinary 4 KiB RAM pages (including from the right guest NUMA nodes)
+   and registers their GPAs in BAR1. Both sides still map that page
+   list as a flat, contiguous virtual slice in their BPF arenas via
+   arena_map_ext_pages(), and Patch 2 (import_dax, along with its
+   dev_pagemap unbind blocking and mem_hotplug_lock ordering) wouldn't
+   be needed for VMs.
 
->=20
+2. Clean lifetime and synchronous revocation:
+   In the guest, pvsched_guest owns the allocated RAM pages across
+   guest scheduler reloads, so scx_pvguest exiting never returns shared
+   pages to the guest buddy allocator while attached; on driver unbind
+   or kexec, a synchronous DOORBELL=3D0 detaches on the host first. On
+   the host, /dev/pvsched detach callbacks know the exact instant a VM
+   detaches or exits and can synchronously unmap the imported arena
+   PTEs (relying on ex_handler_bpf zeroing loads/dropping stores),
+   avoiding stale writes or blocked device unbinds.
 
+3. Up-front negotiation, authoritative vCPU identity, and doorbell:
+   BAR0 + the page header give an explicit handshake for policy name,
+   version, and layout before anything goes live, and /dev/pvsched
+   binds pages directly to VMM runner TIDs and KVM vcpu_ids (avoiding
+   inotify + /proc/*/maps + thread comm scraping across QEMU, CHV,
+   Firecracker, crosvm, etc.). BAR0 also provides a kick doorbell and
+   optional KVM boundary hooks when a policy wants event-driven wakeups
+   in addition to polling.
+
+4. Consumer-agnostic on both ends:
+   Decoupling the transport from the consumer lets scx_pvhost <->
+   scx_pvguest use shared BPF arenas as in your demo, while also
+   allowing mixed setups -- e.g., keeping stock EEVDF in the guest
+   (publishing via thin in-kernel hooks without replacing guest task
+   scheduling, which you noted in scx-pvsched.md's TODO) consumed by a
+   host sched_ext scheduler or kernel module.
+
+5. Live migration and Confidential VMs:
+   With memfd + arena->kern_vm, host BPF writes go through init_mm and
+   aren't tracked by user PTE / KVM dirty logging during pre-copy
+   migration, and x-ignore-shared conflicts with VMs whose main RAM
+   uses shared memfd (e.g. for vhost-user). With guest-RAM pages +
+   pvsched, pages migrate as normal guest RAM: source VMM detaches at
+   stop-and-copy (unmapping the arena import and marking pages dirty
+   before the final sync), and destination VMM replays BAR1 into
+   destination /dev/pvsched before vCPU resume (immediately disabling
+   via header status if the destination runs no host scheduler, with
+   zero blackout). Guest-allocated pages also map naturally to CoCo VMs
+   via set_memory_decrypted() before GPA registration.
+
+On the pvsched side, supporting scx_pvhost/scx_pvguest cleanly would
+just mean:
+ - making the pvsched PCI transport + /dev/pvsched arch-independent so
+   arm64 works alongside x86_64,
+ - allowing an ordered multi-page VM slice in BAR1 (not just 1 page per
+   vCPU), and
+ - exposing a thin kernel helper around arena_map_ext_pages() /
+   arena_unmap_import() in kernel/bpf/arena.c so host and guest kfuncs
+   can import and synchronously revoke those pages.
+
+I am working on a PoC using the paravirt transport from pvsched for the
+bpf arena framework in this series. Will share it soon.
+
+We are also thinking of extracting the transport side of pvsched into a
+standalone pvshm framework, with pvsched as a consumer of pvshm. I am
+envisioning pvshm as the transport framework for guest/host BPF arena
+imports as well, while pvsched remains a standalone scheduling
+framework supporting kernel-module or BPF-based policies.
+
+Please let me know your thoughts about this.
+
+Thanks,
+Vineeth
+
+[5] https://github.com/pvsched/linux
+
+> On an NVIDIA Vera host (arm64), with 8-vCPU VMs on QEMU or Firecracker, a=
+t 2x
+> and 6x overcommit, compared to stock VMs, the paravirt pair is 2.2-3x as =
+fast on
+> hackbench, 1.3-1.9x on a kernel build and serves 1.6-2x the requests of s=
+chbench
+> and nginx; tools/sched_ext/scx-pvsched.md in the [DEMO] commit describes =
+the
+> design, the results and how to run it.
+>
+> Known limitations
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+>  - Imports are released whole: freeing part of an import releases all of =
+it.
+>  - Imported device-dax pages keep the device in use: unbinding it blocks =
+until
+>    the arena releases them. Revoking them would need a notification from =
+the
+>    dax core and a way to tell the BPF programs that the memory is gone.
+>  - BPF programs have no machine check recovery: on a real NVDIMM, the sup=
+plier
+>    has to keep bad pages out of the arena.
+>  - There is no doorbell: the sched_ext use case polls the shared pages at
+>    scheduling events.
+>  - Confidential VMs would need the guest to keep the shared pages shared =
+with
+>    the host, which the device-dax import doesn't handle yet.
+>
+> References
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> [1] https://lpc.events/event/20/contributions/2429/
+> [2] https://lpc.events/event/20/contributions/2482/
+> [3] https://lore.kernel.org/r/20261010224902.1232178-1-arighi@nvidia.com/
+> [4] https://lore.kernel.org/r/DM6HVNSP3USV.AJSWS289Z3I9@gmail.com/
+>
+> Git tree: git://git.kernel.org/pub/scm/linux/kernel/git/arighi/linux.git =
+scx-pvsched
+>
+> Changes in v2:
+>  - Drop BPF_F_ARENA_NO_FREE, BPF_F_ARENA_EXPORT and the sized bpffs file,=
+ and
+>    map pages that the arena didn't allocate instead (Alexei Starovoitov)
+>  - Import the host's pages from a memfd with memfd_pin_folios(), the VMM =
+uses
+>    the same file as a memory backend (Alexei Starovoitov)
+>  - Replace the guest NUMA node with a device-dax import, so the guest's p=
+ages
+>    never go back to its buddy allocator (Alexei Starovoitov, Josh Don)
+>  - Release an import with bpf_arena_free_pages(), instead of keeping the =
+arena
+>    at its high watermark (Alexei Starovoitov, Josh Don)
+>  - Map the shared pages at an offset known to both sides, instead of
+>    discovering it out of band (Josh Don)
+>  - Track imports in an interval tree instead of a second range tree and a
+>    list, so that a release finds its import without allocating
+>  - Link to v1: https://lore.kernel.org/r/20261010224902.1232178-1-arighi@=
+nvidia.com/
+>
+> Andrea Righi (3):
+>       bpf: Allow importing memfd pages into an arena
+>       bpf: Allow importing device-dax pages into an arena
+>       selftests/bpf: Test importing pages into an arena
+>
+>  kernel/bpf/arena.c                                 | 461 +++++++++++++++=
++++++-
+>  .../selftests/bpf/prog_tests/arena_import.c        | 451 +++++++++++++++=
++++++
+>  tools/testing/selftests/bpf/progs/arena_import.c   |  93 +++++
+>  3 files changed, 994 insertions(+), 11 deletions(-)
+>  create mode 100644 tools/testing/selftests/bpf/prog_tests/arena_import.c
+>  create mode 100644 tools/testing/selftests/bpf/progs/arena_import.c
