@@ -1,68 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.59.177.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795143525;
-	b=4fSNARwxK6qVzXE78DboRdMiRDG9h9JRv7qDRrdgZ0krP9NNQ0tZQlU5U3OfMLJrSOAQ
-	 K9nnmMwuJU6HHtWzNes+3XRd0JtknWa4046jT2IwQZ1qH31/Nxm91qKeo8SEOBYxitk4F
-	 j8gS4A8ch1cx/hCYyCYz+fHWrQJO4JZpSrFWtD9igDh2YeY+aM6RSrEW60xIeEsnG++c+
-	 9heuZNwtGtne3y8i9ARyo6vCzRLcQlIatqnia7mB3mb2ioemeK90SNpdDZJSD7qH2C/me
-	 5tto82SLNLeNtLyoC/nR6xm0bwfCjLRMlCp58E1hx22uUrniZ0BrBw/KdFR4RDFbWIA==
+	t=1795143578;
+	b=n8Ob1czW9VcOIPjwG9QvRy0Tw2Ewvj72GXdLxSAPtu9aYdMNbMeRlCbTiAZhtx4RXL6R
+	 XqcMY7DbcQJ4bTefLO40h2uWckXVhEGuFEHV8jUgc6mGcUoFnDEQ1bMGOSgzSRWZskhxo
+	 zPbHUv0evX1Rbei5w8T4ufN+WCFhXzxSt4sboKyCiiiqpQJSv3XLJA2029gkt9AFQSevI
+	 LxI4lPStLNGI/39T3cny7t/20GHAnae2aB9/69nGFBmcz7n+HJuaWHNGeBIkjGfnWfNJq
+	 6UIfTHSQLb21BUcz6IgtWSPoNgll3a9qQ8aCamj/RDlM+dWdW7K3xBSz9yXh0g82T4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795143525;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
-	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=PCoHANnt4ozFp4dVRkXapIGxL+OwB2BSxkhEs5tpDFA=;
-	b=KRnnsmVHLhBkL8nGw0ToPU6xEn2CiqDtmcrvkR2+gGwSI55V/EYs4sYT3ZY75PTFWJAd
-	 PsyGTDQacAqYF+wCxySlAZphvcgpKH4ryjSb0w2IYmlbzSZt/XjK4aHtApnktTe5MPF6x
-	 9c55YkZpOrfLKcNq6CKveTY7tAjKdrEqOuY0n6TK6P+1Z/n6G/GLcRiJsFsEtXhguQXuf
-	 bfhg5ZKrx0b6Ag8RFJvraync8u8ush/+dMId5jFxTT9hDbj3lTBXyScr0i/JZtvMclzSw
-	 xkTDgUMVeXBpjvzHNAIpwqTM4NJYUi8XG5hx8vsluOfShcj2pdhbZvaIHcON0QJLSNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795143578;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Fvu+xmi6UAM2iEO+qK5+UmYLpk5vCo6FIx3dU82MR8E=;
+	b=1MyodvA5ICU8uJi4hyGXCEauOWM2vcoep0hlQvQufYDqlkg1v/8CEo2UNXW1Zu1JhPA6
+	 NWk2/l4ElUA6kuMbXkKGHP+YvUe1rFQ/GJ1JBsWonpbdy3L4/7TkXwecUvHm532YwXnOb
+	 UjRYadP8oZyIhVV1DJLTfvOKT/BnX/O7CsfM+DD6HuumXbwsGpBX9qVX+HhW8bcZ4uy0r
+	 YOoSN5A5eH8MygyTv3q68MCnEQ9wSw9cEmLYu+/lG4XY6/70/4Kpaj7MvZIyyLLg8P/1O
+	 HuXMV3n64eqX0CNQ+DFY5LaaulxvkaNPXNoe5R50siAS++pnmf4hz8dMT+LGzEr0fsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=djCu+4Dk;
-	arc=none smtp.remote-ip=52.59.177.22
-Received: from smtpbgeu1.qq.com (smtpbgeu1.qq.com [52.59.177.22])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oSSHBxkz;
+	arc=none smtp.remote-ip=95.215.58.43
+Received: from mta1.migadu.com (out-43.mta1.migadu.com [95.215.58.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79B1F606A326;
-	Fri, 20 Nov 2026 02:58:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79B1F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D65D606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:59:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D65D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=djCu+4Dk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1795143493;
-	bh=PCoHANnt4ozFp4dVRkXapIGxL+OwB2BSxkhEs5tpDFA=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=djCu+4DkM8d5FngHnYvYnMnewkrvi9+Yfpqpxiui0/FE1Zsf3SZ9ehxuxDZ+a8OGd
-	 Tka3jd4u/YwD4DnafQZ/M4SQSTuKpH7WCSK4pgCVDuo2vIytxTILs5GLIe2uJICooU
-	 1l6Y+d+s1f9/8jTCqI9JRWobW3Md3tqlJ2C0NkUk=
-X-QQ-mid: zesmtpgz4t1795143486te6ef8ac8
-X-QQ-Originating-IP: sGlIpOj26tPcbAOSTVx6aQ6mUiBk9EL+afXPC0Cz/y4=
-Received: from localhost.localdomain ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 20 Nov 2026 10:57:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 10726218846586734631
-From: Siqi Chen <chensiqi@uniontech.com>
-To: nish.malpani25@gmail.com,
-	jic23@kernel.org
-Cc: crofts@kernel.org,
-	nuno.sa@analog.com,
-	Michael.Hennerich@analog.com,
-	dlechner@baylibre.com,
-	andy@kernel.org,
-	linux-iio@vger.kernel.org,
-	linux@analog.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] iio: gyro: adxrs290: propagate chip ID read errors
-Date: Fri, 20 Nov 2026 10:57:54 +0800
-Message-Id: <20261120025754.4075038-1-chensiqi@uniontech.com>
-X-Mailer: git-send-email 2.20.1
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oSSHBxkz
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=xf1Ty42kwvSN/jnqX8X1h+tJ+g/k4LBm2sjhuEXhJYk=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795143575; v=1; x=1795748375;
+ b=oSSHBxkzlInc8+y/vBw+9o6iJl/SFY/CXEaSardW5xhMTA3dOeG7HV0CUE7PMWjEeCtLASBx
+ P4FLOxLvb/a/b/Yj5qIntLCfhSDmJ8TrQWn212Nmg7I2fiG0Mnsv4lRvPcXQKf0reosWEq7kCBP
+ szI2/fHhE+RXhW2yqIZvsXVU=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 7819671ee5c7563b;
+	Fri, 20 Nov 2026 02:59:34 +0000
+X-Mizu-Trace-ID: 7819671ee5c7563b
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <aa414751-9913-43ac-9782-aa9043b77517@linux.dev>
+Date: Fri, 20 Nov 2026 10:59:26 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,103 +58,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: MWuij3vnURa5A6zHho1zuflw7NRAP7c08zXc8HD3nUrJTAHS+RbotJei
-	/Dpt4U6tK9HbJ+y+ePeuOsaiQLsUDDtlhFZbeJMQ4XFFl3PbKL+MS8tyWt7l95s1t53+ptv
-	p7o2Uvh/4xaQTI/dQy+s0icIcm57YjyN0dZaGtV97M7vQ0XaowwkAVLLL1WBQY5Jr5tA7XU
-	aUnT1UKoQdOHol1iPUuBe+XI48NqnxJtmrReunfkZcX/E0S3Av2mpRkJmFhshR6insYH5Vv
-	GumbBFFNbF9kCBrMDm5QxNq0Cq0Bp0CFb7vSMCaUYeNX2SPYIDdbf/LkYoN/ENu27jpoHCM
-	nFZpWf6jFP+gXeIVZtrO1wXgF2I3wG7FpcGGXAdCw83xnWs/8ScAUJgOLKniYo44FaD1RPj
-	M/zbYeoCSe2+FofJvXvZyvBDnrJKx1+Ibv6NkjxOW148Yxlt8UWa2qZvCQ+KPCBNAJoH2On
-	HCpPVPZuwhpqrVFXftFvavR28gzH8Vw/mwpr6PVurLTHngvEqHJS2z5fXv6jvkKfjS8Hmvp
-	KqhHayzFtkMm9/nH4NXxkh7Jc2uVv5Eyk62ZXuCDHInAU4hQDHSe+mF89NSj7ZbjL1/JTIz
-	ivmmaoe/dUiqNDOzvEfluj3czqmbIuL4D5uGIdgVT5cVo2FTKhC+YelHwc62mweolVDHGY4
-	XGLjm7cCtbv3G8MiRnNUP1PKPVOmLH7F3IfSGPqXZGe+bjh5sgvw8P7nmgq+lPgpqpXDyWm
-	/H6e/PpGVNpUCgDqASsxIHCnajqKHBnKQXp7u8CQ/pbqihxo7LKOkLtD32SaYTPM4SWvJDm
-	1lmRtDrLssP2m2W9c+Frjv3CdwcYaUH43y1hmHt1L0Ur2LicBjIQj/VLmzp8QjLDVRPM9l2
-	t8wG8WjhpM4QUP2uAs6WzSbEYEg0kaIWR225EuiE9yLoBY2WSTyCQVnxffHxyCAtUEhHJEC
-	GczGpMoyulL22dab0u3wbZFiOUXnMCDKnjLhDXNfER5pKIsFH8tRMMeODX4q4w3+qlQy4lS
-	6ZkAncQS116XCVyAqGgsFht2KAKnxhy2M7I0Qn8ZJb/tdyasR33VrHqAKO7D1rPiXob4weG
-	w==
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] lib/test_hmm: fix alloc tag leak when splitting
+ device-private folios
+To: Nilay Vaish <nilayvaish@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Balbir Singh <balbirs@nvidia.com>, David Hildenbrand <david@kernel.org>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
+ Alistair Popple <apopple@nvidia.com>, Zi Yan <ziy@nvidia.com>,
+ Suren Baghdasaryan <surenb@google.com>, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20261119233119.1721789-1-nilayvaish@google.com>
+Content-Language: en-US
+From: Zenghui Yu <zenghui.yu@linux.dev>
+In-Reply-To: <20261119233119.1721789-1-nilayvaish@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-spi_w8r8() returns either an unsigned 8-bit value or a negative error.
-The probe function stores its return value in a u8, truncating errors and
-treating them as unexpected chip IDs. Consequently, an SPI transfer failure
-is reported as -ENODEV instead of the actual error.
+On 11/20/26 7:31 AM, Nilay Vaish wrote:
+> For device-private memory, test_hmm backs each fake device folio with
+> real system RAM of the same order, allocated with folio_alloc() in
+> dmirror_devmem_alloc_page().
+> 
+> When the core MM splits a large device-private folio, the driver's
+> ->folio_split() callback, dmirror_devmem_folio_split(), has to split
+> the backing memory as well. It does that by hand: clear_compound_head()
+> on the tail pages, folio_reset_order() on the head page, and
+> folio_set_count() on each of them. dmirror_devmem_free() then frees
+> every backing page as an order-0 page.
+> 
+> This open-coded split does not split the allocator's metadata. The
+> allocation tag and the page_owner record still describe one high-order
+> allocation, and PG_head stays set on the head page. When the pages are
+> freed one by one, the tag is debited for only one page when the head is
+> freed, and the tail pages carry no tag at all. With
+> CONFIG_MEM_ALLOC_PROFILING, running the HMM selftests and unloading the
+> module reports the leak:
+> 
+>   lib/test_hmm.c:808 module test_hmm func:dmirror_devmem_alloc_page has 16744448 allocated at module unload
+> 
+> and with CONFIG_MEM_ALLOC_PROFILING_DEBUG freeing a tail page triggers:
+> 
+>   alloc_tag was not set
+>   WARNING: ./include/linux/alloc_tag.h:164 at ___free_pages+0x2a0/0x2d0
+> 
+> The backing memory is a private buffer of the test driver and nothing
+> requires it to be a folio. Allocate it with alloc_pages() instead and
+> split it right away with split_page(), which splits the allocation tag,
+> page_owner and memcg state and is already exported to modules. It is
+> still allocated as one high-order block rather than as individual
+> order-0 pages because the driver finds the backing page of the Nth page
+> of a device folio by offsetting from the first backing page, so the
+> backing pages have to be physically contiguous. Every backing page is
+> then an independent order-0 page for its whole lifetime, so
+> dmirror_devmem_folio_split() only has to point the new device folio at
+> its backing page, and dmirror_devmem_free() frees the backing pages one
+> at a time.
+> 
+> As the backing pages no longer form a folio, take the order from the
+> device folio rather than from the backing page, and index and copy the
+> backing pages individually instead of using folio_page() and
+> folio_copy().
+> 
+> With this patch the device-private HMM selftests pass and the module
+> unloads without the messages above.
+> 
+> Fixes: 56ef39899643 ("mm/memremap: add driver callback support for folio splitting")
+> Reported-by: Zenghui Yu <zenghui.yu@linux.dev>
+> Closes: https://lore.kernel.org/linux-mm/be9a8bae-9223-4966-bba9-2cbe39c8f4de@linux.dev/
+> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+> Link: https://lore.kernel.org/linux-mm/8ef6e92d-4cb3-444e-857e-fdbf88c035ea@kernel.org/
+> Signed-off-by: Nilay Vaish <nilayvaish@google.com>
 
-Store each result in an int and return negative errors before validating
-the chip IDs.
+Tested-by: Zenghui Yu (Huawei) <zenghui.yu@linux.dev>
 
-Fixes: 2c8920fff145 ("iio: gyro: Add driver support for ADXRS290")
-Signed-off-by: Siqi Chen <chensiqi@uniontech.com>
----
-Changes in v2:
-- Reuse ret for chip ID reads instead of adding a separate variable.
-- Log chip ID mismatches at info level.
-- Move the OpenCode disclosure and testing information below the
-  separator.
-
-OpenCode was used to identify the issue and draft the code and changelog.
-
-Compile-tested with CONFIG_ADXRS290=m using:
-
-  make O=/tmp/opencode/linux-build-adxrs290 W=1 \
-       drivers/iio/gyro/adxrs290.o
-
-No hardware or SPI fault-injection testing was performed.
-
-Link to v1:
-https://lore.kernel.org/r/20261119030709.3792433-1-chensiqi@uniontech.com
-
- drivers/iio/gyro/adxrs290.c | 24 +++++++++++++++---------
- 1 file changed, 15 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/iio/gyro/adxrs290.c b/drivers/iio/gyro/adxrs290.c
-index b61cc81122a6..2e0bebf2ed26 100644
---- a/drivers/iio/gyro/adxrs290.c
-+++ b/drivers/iio/gyro/adxrs290.c
-@@ -622,21 +622,27 @@ static int adxrs290_probe(struct spi_device *spi)
- 
- 	mutex_init(&st->lock);
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_ADI_ID));
--	if (val != ADXRS290_ADI_ID) {
--		dev_err(&spi->dev, "Wrong ADI ID 0x%02x\n", val);
-+	ret = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_ADI_ID));
-+	if (ret < 0)
-+		return dev_err_probe(&spi->dev, ret, "failed to read ADI ID\n");
-+	if (ret != ADXRS290_ADI_ID) {
-+		dev_info(&spi->dev, "Wrong ADI ID 0x%02x\n", ret);
- 		return -ENODEV;
- 	}
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_MEMS_ID));
--	if (val != ADXRS290_MEMS_ID) {
--		dev_err(&spi->dev, "Wrong MEMS ID 0x%02x\n", val);
-+	ret = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_MEMS_ID));
-+	if (ret < 0)
-+		return dev_err_probe(&spi->dev, ret, "failed to read MEMS ID\n");
-+	if (ret != ADXRS290_MEMS_ID) {
-+		dev_info(&spi->dev, "Wrong MEMS ID 0x%02x\n", ret);
- 		return -ENODEV;
- 	}
- 
--	val = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_DEV_ID));
--	if (val != ADXRS290_DEV_ID) {
--		dev_err(&spi->dev, "Wrong DEV ID 0x%02x\n", val);
-+	ret = spi_w8r8(spi, ADXRS290_READ_REG(ADXRS290_REG_DEV_ID));
-+	if (ret < 0)
-+		return dev_err_probe(&spi->dev, ret, "failed to read DEV ID\n");
-+	if (ret != ADXRS290_DEV_ID) {
-+		dev_info(&spi->dev, "Wrong DEV ID 0x%02x\n", ret);
- 		return -ENODEV;
- 	}
- 
-
-base-commit: 903941a9b06ae445c70646ab061b604c2dea17d3
--- 
-2.20.1
+Thanks!
+Zenghui
