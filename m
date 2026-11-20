@@ -1,59 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795201525;
-	b=gwBdwbrp6KMLuk0+n2u40g08JAtdgpq4jQjfcnrDMBHrvYOsmacQJSN/xfNyr6m3A3y8
-	 9SXRHkTRnBmWedEIRR53ksVGWw1xbPUA7+bxppXGDmDsP4NVoalOfEcdnr293R8V9HDNX
-	 y0IvAxhXlnO26+3RLZ2lMAoqyiHYaeutrnDOBKqXqR0L+PD7okvXNKqG7ZYWW0RAgI15b
-	 ziSPn6MuVIYpI89MrVvhSdNh9SHHHZoUVHkhp6lVTp4t3A68Y4Lqo0urVlFrtHZUli/rt
-	 AM8H9rmULQ3VsFsLNuADeT+x2YqZ3AUgm1G9pwGGPQNiJkJEGkZ4VtGSGxT7LsBqmng==
+	t=1795201528;
+	b=V1Ogydg4bkOaUaNy6GoezcSzQDcyJ6QNqS8LJLm1ckAJDWFzAEDvA6j1ef2TwA+1aZoV
+	 eHDN0Q/ymFwRYoLB/nZ0WhiUOKZY2e1tlAoWPIhjJ/BFHwN9knR/+/e7pueRKnR4nPQVy
+	 4Z78fnKOaHmilrsWAs8E/Mepa1K/mc4QJWtMIeVKBSq+Lk8C1QVdI9dToFfaT7aUFBKqG
+	 +o+RfUCF3fqUoG6MPmYuKXNwAQc8JkBjGlxLWjkJH9m3t0vXDAFL2RjlB2R8ptHV1E9F/
+	 EZg7/n3qUOtbanDvXE5O/LP3EsjA9mORaFLe8sz/SbNabxaw+BPn5yd9g3RzQdL4m/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795201525;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=OHUdfdJuFdkLiCDSC25vd9dlFBeZzojZJSwQE6bKq78=;
-	b=kuN+Ke/yV+2LPts/4oNviaG8giJQ42cdrZAozsfbDohzvCvYgrXyfT3Jzk10Xek+HaGV
-	 DVmT186bVPaknCpPkutKz6HeFh55BoK8Rkahj7EmkIpl5w7s/GFSuSYYCXGL/MMoFZp06
-	 6/ey9UOXtV6Upr8dFqcgcgjOGr5QC9bX5yKT4pPU89dg1JXxHt/NoRwB6K+V1zGwWFpGp
-	 z9i+Dc3ua1pdqp5HMopR58YSHrfNCJjuH6hNlrYIMCUyqXW7SUwGlh5PFuH9wCEVUvZGj
-	 yIS53BlwPtXj7dxccuUuAevSboQnQvfMMPRawpI6zyvyVNekZg6rUDwEiyXR4JQyl/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795201528;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=X2bBvR1QxOsCaUt0RYJzY4W8RFF0dAdEhClCcOQk3Dk=;
+	b=qWbxY615U5rUrcc+rpi5GF1e/jO+hnfFmlPmtFsIzKDzovPpR1QslwoCh5hYuVhbuKRE
+	 p+BLlwaCRWpqrqakaEFTjJ7VUTwQM+8hX92E4SEd8n2tcU5vxhbU9eB7pMFFPINbXkBVn
+	 /+FEVnwWl44WmubH3lW0YTGgdxdEwo3rJIPdbMhKc5pTHCNi6/5nOto053Em8St8wiw9h
+	 6FVNdd6BKAFBrGgbiilW26U6xDw0N1gpp3V+TXFAxEUi/f52WyZBMMMfX9YbReo//hqH6
+	 CBX6KfVY7EX5A7QAvpTyHik4HrVFWKaR5alQCrEIDdeHGdQ1DQntkAsCyAdXuRQJW2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YuRs/szp";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=MIfreRE2;
+	arc=none smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF3AB60A2624;
-	Fri, 20 Nov 2026 19:05:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E361460A263F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:05:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E361460A263F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YuRs/szp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAEB91F000D4;
-	Fri, 20 Nov 2026 19:05:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795201525;
-	bh=OHUdfdJuFdkLiCDSC25vd9dlFBeZzojZJSwQE6bKq78=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YuRs/szpWRCHcRJopChOIyKkJfQmlxZag+6Y3/iZ2CmD2YDXcj5J6fL+dN3tw6bU+
-	 WIErB8/LYzwnUOKRWrRcI+lNfNMI1ygKoFM5VZ8h/uIE8W3FgwagMXsWG8LqKKYwhm
-	 uPoiBvD2EfX5iopZWhJmw2s+Sp9rI74ZZgfekEC0JgA0ScICDANC7JtGCMHqgNEfiy
-	 v1/4Lvevw7P6yMidSbowUlcRMR+X3awHceGp1pfERCpETbJQqaODs0eT2YzMrGvykf
-	 v5512IW+jQG3FmDY3ndkj1f2Z/YtC9Lcg7iX3WPaQ0Nl959FJcnc4WQ444zfz8Flt0
-	 5jwFC3/4wzz+w==
-Subject: Re: [PATCH net] rxrpc: Fix RxGK server to reject an expired ticket
-From: netdev-bot+sashiko@kernel.org
-To: astellman@stellman-greene.com
-Cc: dhowells@redhat.com, marc.dionne@auristor.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-afs@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 19:05:24 +0000
-Message-ID: <179520152436.3135.2656252511958141770@kernel.org>
-In-Reply-To: <20261119184541.26343-1-astellman@stellman-greene.com>
-References: <20261119184541.26343-1-astellman@stellman-greene.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=MIfreRE2
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-92130d3ee15so13610856d6.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:05:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795201527; x=1795806327; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=X2bBvR1QxOsCaUt0RYJzY4W8RFF0dAdEhClCcOQk3Dk=;
+        b=MIfreRE2J8AwfTzPZk2IdSi2L5hHh75Xpae6ylFFyqVQxm2ucQK00S4dQ2JYBLHXMl
+         RRYr/AynNCmJNMbYBNPF/kT6bZIFfXDH3cTo6eoia0eP7y8y6YPLYFAhwjSbpxGTMHb5
+         BS+CfnMv6C1FVW5JMYmfRZCY0+bQPa08rQtT3v1HWWd4Az4baFbKahnyya9YIhJoYbkx
+         Y0KswDV19BZzolnSFr6TUbKYxcLUjXex1Gszr4uSs80cHUUiGL2+DRj+UPbvTbS81fQS
+         XmBWJm882ur5qa1MK2eHJ9zdRj03+csacZi74KumzJjVWtiwBIDWuBoCjO3jSsKbeexf
+         y/Ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795201527; x=1795806327;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=X2bBvR1QxOsCaUt0RYJzY4W8RFF0dAdEhClCcOQk3Dk=;
+        b=sMrjr3YSZrAd/9CFdNJPjuVUqL3mdZElEbukJ1nfiX+QJCHuHSgG2MC+KlzktIQYT3
+         YkmOjMa6ckMoj8xpAge2PuPhKvb2i44rGOc9He0ZMLPdBEKII13GPwHSfGEV4+Vee+/z
+         IbqsSrBx3DrNfJ42asnvMKET/j1MfbxYZiked8DPepe1im8gvZo62SYC+nmc99lDre8M
+         mq72B4MWyFTgyq5yJhqEJPPOtjrqPuRAtQuetVY9+YuoedAb1tG1GhfrjvX49QSFieH+
+         O2Db061OWZlhvNGAfR2CTGHRyGoK/Xu7qgexHkiKfMOPMafoUq4sHwWrXZx6eQL59IHg
+         2gpw==
+X-Forwarded-Encrypted: i=1; AL+hErHTjQm7trsORhSlvMJO5+TSyIWTLJ8VM26gkceGU11Ys7XXvaXsWFOiFmL43iQh6LQDcqQf/RZe3tO5QGI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8OlojLn1Yy8iTSD9QzbZwli5kyBJy8Q3TPccK4LqSq6rv9oTg2
+	9otlXJZQEnVcroy9ZKvhPAUJ6RI1nA//CY2DIr/ibyZfhDSkDUyhjbwOqj0MaAV+6aw=
+X-Gm-Gg: AZFdTZeGqIYqVNKnKOUa1hVeX8KFf682Jr9T7l9YN/72Qmp5VtzxRX/HTZpYUaLP+eD
+	e14/uVEXzNOuXj+ucZ7Y/131aHWDKxhhS9nmFiCgt/NfwrzVmn0QNkP4Z9woTuipY29Uiw9a1BU
+	vfJ1fqHWtc1Vv7vshhdZof8vmhetU5okNA16GYIDezTjdGhL007X2BuU0xJxZ59FLUOY8hBRD72
+	xgv/OMOmF2HL+hHrwEBJ0UHwudUeEqn9198TAfASRTDy6lb5laVZwO3nW/5hgNLtRKQWuOXLFD5
+	Ik4UMWVuulMPXnOv+F+EttegoT3fS9g47Da3mRt4R8KYSeMiqG1UEBe/0M2490VZfa2nRhHN4cM
+	jayoiD5TLVAAY5eakmpiyB1YT4uBHq1j7POCsp89M/yq2r49t8lyytxJ9GV+RThwFl/XGoH4rdE
+	Ale/1bhXnGPdywuuYkRuaGaiYv/8gMgpuGPkktgvuH10Q6U58J47JhKSXz+qnLxFszzLISh/tvh
+	hio4s4E7TI9AuF/baTKRUai87Mo4Mjy6Hz6OWh/6EykbKqHxS46zjYtCTiXjopMHIii1lu94WqZ
+	JjMLiGOO05PyM08qcKTbk0T8+aOq
+X-Received: by 2002:a05:6214:acf:b0:921:231f:b614 with SMTP id 6a1803df08f44-92134b5bac0mr71317106d6.39.1795201526852;
+        Fri, 20 Nov 2026 11:05:26 -0800 (PST)
+Received: from ziepe.ca ([142.166.156.71])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bf848dsm32999036d6.44.2026.11.20.11.05.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 11:05:26 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xUTvJ-00000004nGK-2Csw;
+	Fri, 20 Nov 2026 15:05:25 -0400
+Date: Fri, 20 Nov 2026 15:05:25 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
+	will@kernel.org, Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org
+Subject: Re: [PATCH V3 00/14] arm64/mm: Enable 128 bit page table entries
+Message-ID: <20261120190525.GC1133597@ziepe.ca>
+References: <20261117070613.1183243-1-anshuman.khandual@arm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,76 +106,16 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117070613.1183243-1-anshuman.khandual@arm.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Tue, Nov 17, 2026 at 12:35:59PM +0530, Anshuman Khandual wrote:
+> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
+> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
+> arm64 platforms with FEAT_D128 enabled will now have two different memory
+> translation systems i.e VMSAv8-64 and VMSAv9-128.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Please don't forget to update arm_smmu_sva_supported()
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] rxrpc: rxgk_yfs_decode_ticket() misses negative and epoch-
-  truncated expiries
-
---
-
-> diff --git a/net/rxrpc/rxgk_app.c b/net/rxrpc/rxgk_app.c
-> --- a/net/rxrpc/rxgk_app.c
-> +++ b/net/rxrpc/rxgk_app.c
-> @@ -147,6 +147,13 @@ int rxgk_yfs_decode_ticket(struct rxrpc_connection *conn, struct sk_buff *skb,
->  	if (ret < 0)
->  		goto error_key;
->  
-> +	ret = key_validate(key);
-> +	if (ret < 0) {
-> +		ret = rxrpc_abort_conn(conn, skb, RXGK_EXPIRED, ret,
-> +				       rxgk_abort_resp_tok_expired);
-> +		goto error_key;
-> +	}
-> +
->  	token = key->payload.data[0];
->  	token->no_leak_key = true;
->  	*_key = key;
->
-
-[Severity: Medium]
-This check only works when the ticket's expirationtime turns into a
-positive number of seconds in key->expiry. Two cases get past it.
-
-First, if expirationtime is at least one second before 1970-01-01,
-rxrpc_s64_to_time64() returns a negative value. In that case
-rxrpc_preparse_xdr_yfs_rxgk() jumps to its expired label, so
-key_instantiate_and_link() itself fails with -EKEYEXPIRED. That error
-takes the existing "if (ret < 0) goto error_key" just above and never
-reaches the new rxrpc_abort_conn() call.
-
-Back in rxgk_extract_token(), the cant_get_token switch only handles
--ENOMEM, -EINVAL and -ENOPKG. -EKEYEXPIRED falls through to
-temporary_error, so the RESPONSE is quietly ignored instead of the
-connection being aborted with RXGK_EXPIRED. The connection is left
-sitting in the challenging state as if the error were transient.
-
-Second, a non-zero endtime within one second of the epoch, in either
-direction, is truncated to 0 by rxrpc_s64_to_time64(). The "expiry <
-0" test in rxrpc_preparse_xdr_yfs_rxgk() lets that through, so
-key->expiry ends up as 0. key_validate() treats 0 as "never expires",
-so this expired ticket is accepted.
-
-Both cases need a ticket encrypted with the server key, so they are
-edge cases. Still, the point of the patch is to reject expired
-tickets.
-
-Would it be better to also map -EKEYEXPIRED from
-key_instantiate_and_link() to the RXGK_EXPIRED abort? That could be
-done here or in the cant_get_token switch. Separately, a non-zero
-endtime that truncates to 0 could be treated as expired in
-rxrpc_preparse_xdr_yfs_rxgk(). Alternatively, the ticket's endtime
-could be compared directly against the current time here rather than
-going through key->expiry. Which approach do you prefer?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119184541.26343-1-astellman%40stellman-greene.com
+Jason
