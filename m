@@ -1,55 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196965;
-	b=j/EewoqXrFO4U5+SFK5F5BVE3FGlxs0v1bf05pBVb6OQodIl5dbFFxvfeGOpQaB5ItPn
-	 N8FyIC4QNsUK2Vtf3V/mo7rLxVJjDhDqZo73jAE5IoKHXw9mm7wDvHCCUxVSjvnuFvZpb
-	 V/S6ZKJ5iupRI/B9Kdwz84+2DnDcdDhmo5Vgtv/CRnDpQWZR2j9DAAxJzIShgonJNEG3o
-	 UAMUImxn9S8Ti2c+IOTRu9lla6F5IOlBkm0nKpzd6zUai5gsVY9x0jmYB9wxu9Cd7NTMI
-	 va5ojylpgmdl5Ara5bG24xuIqViaMWRN4H3QQxEnUJL7Y9rXiMT3rlInEk6kj5UZ0lw==
+	t=1795196988;
+	b=oO1OQQHZo8SLRTcL7AQ+jGa2Ej+nt4IytkEg/FXgz6aDdf/h3Kxdjoch0laVfL10i3o0
+	 WTkmxgN7iXiqnQqjGcXwDY/CRMvqNy9ULTy95asQ+1fgF/7e90UyscJgma7ZVvcCcJ5s7
+	 YMtYqLRgAEVn/Wzi42H6eL+bdEoE1JGa+HUPce302AmwiwLNxgOi563ww5+Xtss0lnzFj
+	 TmWFFBwz8lVuEuY/NkodtgN6S+GXYuxsHzokAAby4TgLVlG+ZbbCM5vZGAjf1HHTDGXyP
+	 SQtF9EuprDRLjfA6VsPcKUx/e+XcV2c8ZSD7wb+Np80/GTzzuFt5KYWExI+xzV6kOKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196965;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Y/XrfF1iafL1OhzM7cC6hZHkTDa8Jg8Ue2qP5IV6kV0=;
-	b=hSNY86vCs9XWTM9jYcTpPpGHJFPX0LXuByzQvjZ8e9ZsONBHUVqcjBcAbqNiKMMG8HTt
-	 oQbMfpSBbREx1FA35pfjDtkkAItpnbCiAGcm57OFlceRzp2TwhLaQgUnFCX1Diph/7b5w
-	 aIrBxY2zQYZwJa0EIvVgYd6rWl67kflZeA0o3XoURKCqgVcwCpUP+m7X3B5srX01gWuh5
-	 9XO35sxs/9c066xeDZjvyML1FtrqcLGV1Nw7bDZ9A/q76owLsi7advJkmZafLLEbW48xD
-	 lSEWZCW/p8D2XovP4WytFjutzGmq9xTwbkzrVfa0W47bxhzbP24bV8Lof1QX3zMs99A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196988;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=X9sTiAwexVAObjjO0yopQUmoE9pS2g/a0zw7hrGwxqQ=;
+	b=lKgFnMKqCc6zFTEsBuP3+Ti6aE7wrVxy2wd3bgXi23Q70luR1TNNtSrbGp8AInpRDiQr
+	 KuBBNaCv2vi+ZuIjEhfDw7PVvRK8Fddfn7BFFwv8t8yig+lO5hxVh8DCNJjC0m5aaxE4G
+	 js+3DfzecKJ1pbmzc6BPEYeyDFg5WxqaOArcm7Wi51b3EelrKG7M9wjRQ3vjLb08TBpzA
+	 M5GmxJO4QiE4d0QnLWlUApxGcYpfid+vw06ldO95Qj1929rnx8XLluKmPkz0QrMOq6j5t
+	 8UIZo1fmCqEYy9xzNWsv0wZXXJ8CGMC8t27yWBcUm/GN5a8XDM6REhPxE+sbMk3EIeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Moupq8tR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=fBrceXMZ;
+	arc=none smtp.remote-ip=90.155.50.34
+Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3756B606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:49:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A40B860A2602;
+	Fri, 20 Nov 2026 17:49:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A40B860A2602
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Moupq8tR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC5F61F000ED
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:49:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196964;
-	bh=Y/XrfF1iafL1OhzM7cC6hZHkTDa8Jg8Ue2qP5IV6kV0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Moupq8tRf/frKBhqrnzxKlNCRWttNTqfFdpVhQCv75R856KR50zl8vdkuLpbECtsA
-	 RQA0q/g1PqRUTc9fkIr1/WisCwSC0a7VLPHN5qxdRXUQbEws2fgeNVxEd7PZXDKtPh
-	 LUJhpFD4K6qoKlh0kjc1RpVYi10CMNwZAOFqCwytkIbH8rvpZZqLX+iHkbgkQCoW8U
-	 B0rq+XWXX+d8momjovjVRFyWrZEFQtKRUSw8lpNyuYG5BRO4EtC6FJ/LeIw4xQMriM
-	 17Zh9C+A0MMZVg9BavsrMJwwBR9Dh/2MkhIhMf71szlC6qFHUI+oQR2aHcOUOpt9+v
-	 2TT2PeYi3sDfg==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3adff684a52so9851851fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:49:24 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFe5yti68HPnR/BLHhSrIXQJ8gnszKqaxMBhyiuqjk2Xn9dCm9GaXEzKs9/jtKuTgwuUOlG+vv3kVVfUv4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DXMIcJjsdi7wvs2Bykq42wrn/OUAqeQdkyZkDt9m66uKZw9pf
-	diJiT04JMcYq3VkvZ3YQdJvpLJaSQ+ApatSviagfKypMMr8bZxfwO0MEns/HdxEIiGI8zYdL7RS
-	5hBiAYYtSfVIEwGVk4d/I9vn+W0bB/YM=
-X-Received: by 2002:a05:651c:883:b0:3ae:796:8143 with SMTP id
- 38308e7fff4ca-3ae7b7ce452mr12303131fa.10.1795196963149; Fri, 20 Nov 2026
- 09:49:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=fBrceXMZ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=X9sTiAwexVAObjjO0yopQUmoE9pS2g/a0zw7hrGwxqQ=; b=fBrceXMZxLu9dkavRu91bKqobn
+	c4SljQl4pMq13dyCPr9lx7lxXwJm/QXcSoOKnzElYV9n6QSbxnbtOGlnm6sWhbOaUNGpFYk6ZoezL
+	2Xaz6drKtpYt7jZwTcMekvYp9TSyGVxtvH1zZmtm7cXe6bKWvmuZ/IO/N6YbhLbWv9Kt3lSc54MRG
+	MCr9JDpBJ5et6AuT2sS/IXj4JnhDzBJsOPApp2VImVdRyDiXAQD+5uHGLGTcATvIM6laMevevRAOD
+	GNMb3IXTv55HWVqpnSslFr3E5TffDwsRjaH6aStkcOTopQ6CUc+MRMHeUdYbM1CJxoGdgr5kf1gT3
+	Ic3/M85g==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUSk3-00000009AP0-0w0l;
+	Fri, 20 Nov 2026 17:49:43 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id BAC36301185; Fri, 20 Nov 2026 18:49:42 +0100 (CET)
+Date: Fri, 20 Nov 2026 18:49:42 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120174942.GU2668804@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
+ <20261120154959.zw08JC0V@linutronix.de>
+ <20261120160140.GR2668804@noisy.programming.kicks-ass.net>
+ <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
+ <20261120172831.5XwELZY5@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,177 +80,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116084201.30092-1-trieu2.huynh@lge.com>
-In-Reply-To: <20261116084201.30092-1-trieu2.huynh@lge.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 18:49:11 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gDyN8hmjUTKgjvKGimH9==0sgT-ZUQyy3tW5420Ekg1Q@mail.gmail.com>
-X-Gm-Features: Aa3M54rY6oa4RhJemsGCZ_SCoTo-jhNt4IbKx7tcOrnPWEnAJ5PlvZcoH9pNCxs
-Message-ID: <CAJZ5v0gDyN8hmjUTKgjvKGimH9==0sgT-ZUQyy3tW5420Ekg1Q@mail.gmail.com>
-Subject: Re: [PATCH v3] PM: hibernate: exclude unusable free pages from image preallocation
-To: Nhat-Trieu Huynh-Pham <trieu2.huynh@lge.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120172831.5XwELZY5@linutronix.de>
 
-On Mon, Nov 16, 2026 at 9:42=E2=80=AFAM Nhat-Trieu Huynh-Pham
-<trieu2.huynh@lge.com> wrote:
->
-> hibernate_preallocate_memory() derives the number of page frames to
-> preallocate for the image from the per-zone NR_FREE_PAGES counters.  Thos=
-e
-> counters count every free pageblock regardless of its migratetype,
-> including MIGRATE_HIGHATOMIC and MIGRATE_CMA pageblocks. Such pages are
-> free from the buddy allocator's point of view, but they cannot be used by
-> the order-0, non-movable, non-reserve GFP_KERNEL allocations with which t=
-he
-> image is preallocated (GFP_IMAGE =3D GFP_KERNEL|__GFP_NOWARN).
->
-> (*) Reported free vs usable free:
->
-> The mm subsystem already accounts for this in
-> __zone_watermark_unusable_free() [1]. For order-0 GFP_KERNEL neither
-> ALLOC_RESERVES nor ALLOC_CMA is set, so the allocator subtracts the free
-> high-order atomic [2], and the free CMA pages from the free count before
-> checking the watermarks. The hibernation preallocation, however, computes
-> its target from the unadjusted NR_FREE_PAGES value, so it asks for about
-> half of the unusable pages more than the allocator can deliver.  On arm64
-> (no CONFIG_HIGHMEM) the highmem fallback in the failure path is a no-op,
-> hence even a small shortfall aborts hibernation, see [4] for example.
->
-> (*) Why those pages are not usable by GFP_KERNEL:
->
-> (**) CMA is reserved for movable allocations, so GFP_KERNEL has no
-> ALLOC_CMA, and MIGRATE_CMA is not in the unmovable fallback list. Free CM=
-A
-> pages are therefore never handed to these allocations.
->
-> (**) The high-order atomic reserve is only handed out to atomic, order > =
-0,
-> __GFP_HIGH allocations (ALLOC_HIGHATOMIC), which GFP_KERNEL order-0 is no=
-t.
-> These pages can be unreserved under memory pressure [3], but only all but
-> one pageblock per zone and only after an allocation has already failed, s=
-o
-> counting them as available still overestimates what the preallocation can
-> obtain without failing first. Excluding them is conservative.
->
-> (*) Consequence of not excluding the unusable pages:
->
-> With M =3D managed, S =3D saveable, F =3D free, U =3D highatomic + CMA an=
-d
-> R =3D reclaimable, count =3D S + F - totalreserve and alloc is about coun=
-t / 2,
-> while the allocator can actually provide about (F - U) + R pages. The
-> shortfall is therefore inflated by exactly U compared with the usable
-> memory.
->
-> From [4], with U =3D 11430 unusable free pages (5120 highatomic + 6310 CM=
-A),
-> the preallocation target is inflated by about U / 2 =3D 5715 pages, while=
- the
-> allocator ends up 1247 pages short and hibernation is aborted even though
-> the system is able to create the image.
->
-> (*) What changes after excluding the unusable pages:
->
-> Subtract U from the per-zone free accounting used to compute count and
-> avail_normal. Then count' =3D count - U and, since max_size is roughly
-> count / 2, max_size' =3D max_size - U / 2 and alloc' =3D alloc - U / 2.
-> max_size' remains well above minimum_image_size() in practice, so the
-> resulting image is effectively unchanged while hibernation no longer abor=
-ts
-> unnecessarily.
->
-> Testing
-> =3D=3D=3D=3D=3D=3D=3D
-> (*) SA6155P running on AAOS with S2D feature
-> (*) backport locally on GKI 6.1
->
-> References
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> [1] commit f27ce0e14088 ("page_alloc: consider highatomic reserve in wate=
-rmark fast")
-> [2] commit c928807f6f6b ("mm/page_alloc: keep track of free highatomic")
-> [3] commit ac3f3b0a5551 ("mm: page_alloc: unreserve highatomic page block=
-s before oom")
-> [4] Example of an abort:
->     Mem-Info:
->      free:344621 free_pcp:931 free_cma:6310
->     DMA32 free:973864kB reserved_highatomic:8192KB free_cma:25240kB
->     Normal free:404620kB reserved_highatomic:12288KB free_cma:0kB
->     PM: hibernation: Image allocation is 1247 pages short
->
-> Signed-off-by: Nhat-Trieu Huynh-Pham <trieu2.huynh@lge.com>
-> ---
-> Changes since v2:
-> (*) Rebased on v7.4-rc3
-> (*) Updated the stale comment above the min() clamp: it still referred to
-> nr_reserved_highatomic, but the code reads nr_free_highatomic, and the
-> clamp is needed because the counters are sampled separately (Reported by:
-> Sashiko).
->
-> Changes since v1:
-> (*) Added a reference to commit c928807f6f6b, and correct the words and
-> quotes in the description as well.
-> (*) Switched from zone->nr_reserved_highatomic to
-> READ_ONCE(zone->nr_free_highatomic) to accurately fetch the active free
-> highatomic counter, reflecting c928807f6f6b (Reported by: Sashiko).
->
-> Link to v1:
-> (*) https://lore.kernel.org/lkml/20260921101446.1193565-1-trieu2.huynh@lg=
-e.com/
-> Link to v2:
-> (*) https://lore.kernel.org/lkml/20261001084115.2549761-1-trieu2.huynh@lg=
-e.com/
->
->  kernel/power/snapshot.c | 26 ++++++++++++++++++++++++--
->  1 file changed, 24 insertions(+), 2 deletions(-)
->
-> diff --git a/kernel/power/snapshot.c b/kernel/power/snapshot.c
-> index d5dba0e50b2e..24ba09db7fe6 100644
-> --- a/kernel/power/snapshot.c
-> +++ b/kernel/power/snapshot.c
-> @@ -1867,11 +1867,33 @@ int hibernate_preallocate_memory(void)
->         highmem =3D save_highmem;
->         size =3D 0;
->         for_each_populated_zone(zone) {
-> +               unsigned long free, unusable;
-> +
->                 size +=3D snapshot_additional_pages(zone);
-> +
-> +               /*
-> +                * Pages reserved for high-order atomic allocations
-> +                * (MIGRATE_HIGHATOMIC) and free CMA pages cannot be used=
- by
-> +                * the order-0 non-movable GFP_KERNEL allocations that
-> +                * preallocate the image, so do not count them as availab=
-le.
-> +                * This mirrors __zone_watermark_unusable_free().
-> +                */
-> +               free =3D zone_page_state(zone, NR_FREE_PAGES);
-> +               unusable =3D READ_ONCE(zone->nr_free_highatomic);
-> +#ifdef CONFIG_CMA
-> +               unusable +=3D zone_page_state(zone, NR_FREE_CMA_PAGES);
-> +#endif
-> +               /*
-> +                * free is a per-CPU vmstat approximation and is not
-> +                * sampled atomically with unusable, so free - unusable
-> +                * can transiently underflow.  Clamp unusable to free.
-> +                */
-> +               unusable =3D min(unusable, free);
-> +
->                 if (is_highmem(zone))
-> -                       highmem +=3D zone_page_state(zone, NR_FREE_PAGES)=
-;
-> +                       highmem +=3D free - unusable;
->                 else
-> -                       count +=3D zone_page_state(zone, NR_FREE_PAGES);
-> +                       count +=3D free - unusable;
->         }
->         avail_normal =3D count;
->         count +=3D highmem;
-> --
+On Fri, Nov 20, 2026 at 06:28:31PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2026-11-20 17:26:04 [+0100], Peter Zijlstra wrote:
+> > Also, sending signals on software events seems utterly insane. But I
+> > don't support we can go limit that now :-(
+> 
+> Tengda: Is this an actual valid use case that you have here or did an AI
+> figured out that this broken?
 
-Applied as 7.5 material, thanks!
+I *think* the below is sufficient.
+
+ - sigtrap implies a per-task event; task_work is local to the current
+   task (+- the context switch thing from 2/2).
+
+ - task_work_run() is written such that the work handler can do
+   task_work_add(), therefore the early clear in the handler doesn't
+   matter.
+
+And while recursive software events are tedious, I think the below fix
+is simple enough to not worry about too much.
+
+---
+Subject: perf/core: Prevent duplicate sigtrap task work enqueue
+From: Tengda Wu <wutengda@huaweicloud.com>
+Date: Thu, 19 Nov 2026 09:51:00 +0000
+
+From: Tengda Wu <wutengda@huaweicloud.com>
+
+The sigtrap handling in __perf_event_overflow() checks
+event->pending_work before calling task_work_add(), but only sets
+pending_work after the task work has been queued.
+
+This leaves a window where an NMI can interrupt task_work_add() and
+re-enter __perf_event_overflow() for the same (software/tracepoint)
+event. Since pending_work is still zero, the nested invocation can
+enqueue the same pending_task again.
+
+The re-entrant call path looks like this:
+
+  __perf_event_overflow()
+    task_work_add()
+      <NMI>
+        __perf_event_overflow()
+          task_work_add()
+
+The nested invocation may enqueue pending_task before the outer
+invocation does. When the outer invocation resumes, it inserts the
+same task work entry again, potentially creating a cycle in the task
+work list.
+
+As a result, perf_pending_task() may be executed repeatedly, leading
+to unbalanced event reference counting.
+
+Fix this by atomically claiming pending_work with cmpxchg_local()
+before calling task_work_add(). This ensures that only one invocation
+can enqueue the task work, even when another overflow occurs
+re-entrantly from an NMI.
+
+Notably: sigtrap events must be per-task, meaning that the there is no
+concurrency, only re-entrancy.
+
+[peterz: clarify and rewrite]
+Fixes: c5d93d23a260 ("perf: Enqueue SIGTRAP always via task_work.")
+Signed-off-by: Tengda Wu <wutengda@huaweicloud.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+---
+ kernel/events/core.c |   24 +++++++++++++++---------
+ 1 file changed, 15 insertions(+), 9 deletions(-)
+
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -10950,16 +10950,22 @@ static int __perf_event_overflow(struct
+ 
+ 		notify_mode = in_nmi() ? TWA_NMI_CURRENT : TWA_RESUME;
+ 
+-		if (!event->pending_work &&
+-		    !task_work_add(current, &event->pending_task, notify_mode)) {
+-			event->pending_work = pending_id;
+-			local_inc(&event->ctx->nr_no_switch_fast);
+-			WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
+-
+-			event->pending_addr = 0;
+-			if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
+-				event->pending_addr = data->addr;
++		/*
++		 * Software events can nest and attempt this recursively;
++		 * claim the pending_work before task_work_add() recurses.
++		 */
++		if (cmpxchg_local(&event->pending_work, 0, 1) == 0) {
++			if (!task_work_add(current, &event->pending_task, notify_mode)) {
++				event->pending_work = pending_id;
++				local_inc(&event->ctx->nr_no_switch_fast);
++				WARN_ON_ONCE(!atomic_long_inc_not_zero(&event->refcount));
+ 
++				event->pending_addr = 0;
++				if (valid_sample && (data->sample_flags & PERF_SAMPLE_ADDR))
++					event->pending_addr = data->addr;
++			} else {
++				event->pending_work = 0;
++			}
+ 		} else if (event->attr.exclude_kernel && valid_sample) {
+ 			/*
+ 			 * Should not be able to return to user space without
