@@ -1,98 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795136697;
-	b=D1bGhCHW8BDIE4AQu+Khwo2DHl+pc1sOfQCzGqS8XWiHyJ/SoHZdVIX+AuaVahkbx8Kj
-	 TLYq7QE67o0IE/UwuauAgZR/pJIiyV+W8QL2bFC1FdADQC9zG8vDCKxEy9bF0MWIVdmol
-	 Eh8BLRHnTeeR9+iw9A0FlOdG5fu6ZYDBR+0FGbMKwKKaZ89NCV3nM/DU/Ol2EDrWloQFY
-	 ld7wwafy42eOQ3CzZycDHfYO1ScRGO4Y6XZw2h4ejyPf/vUHonVqkUaUQfR6NwZP7p3lh
-	 NIhbM0UM9UQkX6WyrvqOp3F25Fu5LwTtDT0gQS9CsFQ6V2K96L2GfRGnTu1QJg0oi9g==
+	t=1795136746;
+	b=uyZMh0j4+5mCmjgz1k7wWkj+pd7InrWEZt5CCqGcSjK+p7+By2HTRwVbvQEJSV+ULKq4
+	 OTT193pICumFSiQo3zV/UUkVg2XbKwUpNGnJ7kZFOl/cFiLerBlcnPnNaqT2ltjD2FaQY
+	 hnSv2VHh1WLexai/mQKgjARhi+enDkFcmAD5wHvhbuXiWsPXKFi9cmBw7M334D5Z8yx2Q
+	 bjp98JLkO4x7UPbrlM0o88+cmIZGo21Dn0feaGcF9RC997MbJG1YhcuFELYjpQze0mwsD
+	 tuIb/Wg1tp9mIwJwcKvhEg1L4Qw7kanXI/EXJ4CJ/r/FPELj2qHO2b4ndQt6s+ipUDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795136697;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795136746;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=14zjSChbGtPtuIEC/eCtCmUR3/Z1H0ubiZMVkNUw7Yg=;
-	b=K8r8EoxvFscvwfNHGhU50dtfxOrd6SL7V2JMMkXWmhumKcntiXnz5EREKBPbWSI3hznn
-	 mWts9ZRSxeB1EoTsaYzsSXhygkhLyRWQzGA+mUd0ZNSuaVXa+0qooEfgTyTEgrQXwOj2z
-	 wFO1+DKZYmcIff/NbxU49GkuFaasPKSVGp3Tz6k56QSOh03qS7pMaJDVM/exXs+Gr7mJF
-	 PC2nZG8Gv8QzbSUjyD6B9NmEXL6K7kP02eE3L4A4gkRSXQ5yM4HcG9rTpu1b6kviuSxaE
-	 DRzQQmPojPtKK4TQiIA/Zg2EOgQ2iK+VJMsX+1EW6KygKpVqULC4Os387eLE6kVte5Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=OpzooKDHNgCiysUKol+Ja6SYQLhEkHVY1LVwsqINVmM=;
+	b=nm9vwaBtUPocyn9QAk7+lTbq/RQqyHsM2cdSdkoRNP6LyO3iI43tRsWWWIo2cLc4WcXK
+	 w8bexiIaYTySMFtn/RRJOQmLUDykdsvHmadeJNQ3M+nO8FPw+S4XjnZicgUORLHuYYziW
+	 GgDhSYvoyM4wRZ8Yn9hIV15yu7yaAu6+Cm00uL3mnKrdYV4bkBI8Jao3vJy+0rUerocHg
+	 RcvdyBkDgwYVBNjpO9Lcyfk2ML8PzXjwvMtmmNoaVbhOy/nf+ee7KxnE4yYM5aRWDqP4D
+	 gr7lcgutYIoyww5ddgfCeLbPTHgdN0HmvFyO++FLsX2xlr72crjm2VF/VgOL+dDWVmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=everpuredata.com;
-	spf=pass smtp.mailfrom=everpuredata.com;
-	dkim=pass header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=i1o4eelO;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IUWp6nVD;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F293F606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:04:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F293F606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=everpuredata.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=everpuredata.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38253606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:05:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38253606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=i1o4eelO
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso171220a12.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:04:56 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IUWp6nVD
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1a3c08d6928so516786c88.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:05:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=everpuredata.com; s=google; t=1795136696; x=1795741496; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=14zjSChbGtPtuIEC/eCtCmUR3/Z1H0ubiZMVkNUw7Yg=;
-        b=i1o4eelOcxxhAremUNpz1jVTTkbHb9fjYyAAI1GwOBG80DImiTshgnqTEGaWDDvPju
-         KVcRJf2HM16eIKYbsplf4q/pLBqBzwIPc406R8rsw3kAaDn/CCtvU3o7ymbdVvBfQ9UE
-         UsjqIvYPJARjRdN6mR9S8kkw9kmNNUBbiz2DxhVeBAzOj4t/tSRuaP2k4S1Q/phBRzin
-         s2vrTvlriAymj5jAuAUARck6dKaC8KMKVLJp+RpFa1X4IOLTY+2YcdpaZmhtWsBULYSq
-         qZBDzvqFk9mJ3jKkBAlxqC5+8+DvaqPSOM0Z6sARqyVJhRL1FH6CNwxZjYN0Bmm9Ubxe
-         R99g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795136696; x=1795741496;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795136745; x=1795741545; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=14zjSChbGtPtuIEC/eCtCmUR3/Z1H0ubiZMVkNUw7Yg=;
-        b=xfAiTjX6yWZaz1vvU5TXwBPUCTxYyzrbbuqtO4oj0daTiPvQBMVKXfOpNMy/zHEkW7
-         X6+jLSOteC1cLL4qes2obTJH0k0XoDzDatk7bK2F7Aq4ao6t2NoZskTPYeUuzMn9mRSH
-         vTvXDaitgzMBpcZTN+QKofZX/22gf0HC8zVp1bnt5iepuSAseh0aFQLh2gMu75jL2ai4
-         vobKYW2d0VJ82AUEsNg4fVKacKPfwg1e3KYdqRRgSdBOE4AFqdB+AFgufPQvmLMqORaq
-         /f8m6Zm6FTtnrDE+mjdK+CJJJxFAaLRai83cLcekPOWYBHILLtdjLay7NckB6FHv9fpF
-         /nCQ==
-X-Forwarded-Encrypted: i=1; AL+hErGoDmjCIT9SxMWeoma5fPp7SMAMn3mRLuKzqOdZzOkWFZEJHm1yeD2nnEgi1PGEi9kPxVpIqLEWIqQNVzw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nGbnoS1bXn/oYXfeJmqbkyL8ucfpDocbRqkxnl7ThGqazxf0o
-	GdivegCdR4GCvdA0l+qy5DiuPyivFbw0AOzg4rxToSqBZYbDofVhvcFZtMbGIwN01dzTEFrnFkR
-	2aECLrnpSzhNhqLSLbptMxnXKQ7O+ztGhfxQW
-X-Gm-Gg: AZFdTZco3wdpppsvDzMuunYZhFIombMMrPqXmJsxdViPjbhonvrtxCH341AWBphtj2R
-	/2AJRPmZeJNF2NKlNrOCsyYLS1aeD7K/ukeCGKape0kEGaCOdsZjiVxyCZgdR74QPsJikClc486
-	8GyqJ9jsXmO+nIXdNYM6RQy+25hkKBADPJwGnHa8QEajziuYgqI/kf+yV0PaoqL5yBCd4VNwC8R
-	vTXtOidPckWG/L/YffVxW8FK3gK5LD/zTCwz3nPrcxdc8PpiTbaiLdKK3HerYdX6p3szo5JDD4M
-	9dUpwu6KYwGQO8zIRFM2akb1/i591xbO3T/jC0WHHcXFnFTkF6vJpHWwRW0xHk4P037DAmbV7jB
-	hJfVNk7Lyt/72sJOlUoPVJlNSjI/lrpcK+QSE3fA=
-X-Received: by 2002:a17:90b:4ec4:b0:3b3:bf8f:9ccb with SMTP id 98e67ed59e1d1-3b41c8ffa94mr1008239a91.18.1795136696119;
-        Thu, 19 Nov 2026 17:04:56 -0800 (PST)
-Received: from c14-smtp-2023.dev.purestorage.com ([208.88.158.129])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41ae59fa2sm822937a91.8.2026.11.19.17.04.55
+        bh=OpzooKDHNgCiysUKol+Ja6SYQLhEkHVY1LVwsqINVmM=;
+        b=IUWp6nVDYBX5bW+ppvRphFePfE+SGvSsGg3yM4B+6k/G7yBH9MY1k94ICPKtn+3B90
+         QjL4IonBDVBiz/loGfjoUoIpQvoKlJeHBogHrNhgnYIdwKJwTWLZLTdvM5SAG1NEEJlt
+         eC23OT+IjWbnP5D3r2Tv2/IFBlM4L8KIO+BPGT+f+UwnPGH7dIIL+mkUkBppA5wNyZuj
+         hJ5ZQRXYEubO0gObZR2BdirJGm0ZAO4THy/Pff4oE/KfwF9/L3NnxjcUBv47sITYqd64
+         yVmWuyEd0wlFrF+ZRddyW8YpBFTnGFlPYHlAlR6aS0p+X5+vzDWBcTdIAGRZcYeTlVKH
+         K92Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795136745; x=1795741545;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OpzooKDHNgCiysUKol+Ja6SYQLhEkHVY1LVwsqINVmM=;
+        b=SP7oXhDWI1fNpq56GRBVKJKH83Y1Gz0+ItRBvlmAQE2vRvBhxET5sk+U6103hwxWXK
+         WkZimeaWtSUBSDAAr4g82TU8mq5YtI7rJ1aLPff6VwCNvGogB97hh2kaTwicXUHrVJQv
+         kHkvXnHKT03Cop2faumz7jUc3/aji7mFkeZhYSu/iwc5mZpbO+wT1ZDAcgPXhKCaaPNU
+         oiWgPgfHTapngHfP9FqaEPNgSDKRrFDEcQV6ywnmqcn/3RZ1GIcUWUkeJdnkvH4ci1a8
+         LDCyk31VZ+qp5FVTU1Edfqb1TMSfWsEns35vRJvXRBtpibRO7JAtAzrhOEMLzos85jW0
+         5h9A==
+X-Forwarded-Encrypted: i=1; AL+hErEGggZ9aQxqav5/rLWq4/rRoEz03PGm99RIM89DpQchtwBo442eljpYqsVLUQH9XY2/WHuPtr6XD3Mj1L0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84b9P/vSM3iURqQ0GU8l7SopTw26aqXB/VfV7pE9yMsbCEyrTk
+	vYa55qpDHRbhSpcHlXbzQupXIME0SblMORuZTgdV0RRQLTbAbyTDmP4=
+X-Gm-Gg: AYBFou3AKcbMEmDxd+E6Tkbyj9+I6UhWLxnnES8jus17fhHGAx8JGnKCLZshGBlgCaV
+	KBoiX/zziSXNPlOb2rqy7e1UPkP7XL5sydAXyQqXO4wzPdAcNLhqy+cwPvjqGElgTWdHLYjXzMU
+	cNR8fVvSm+W8QPzbg4+iY3YcMic2CdIdHxH6QTDhtYyo2bJW1xO25I1QLBf2GF0rAuPgwoBV7z/
+	0sArqAWg3ydm1fnVVPHHKFLxfXMNZFYOk+Jhua05KXTarNbFC039ieWzc0dbHFH5++xN9HRai7F
+	YKd7WXk4sgYP3rfxfr8i+CpewMEYXVtlGqKz0eMcrH3baRI1N5+z0MLDl4QBqPLpoQb34EvvOjQ
+	60teCNIWLxcrHkQpM4xF+vZlwVRHP0Dc1tQ/ryiukEShO5GHEaaii98z8Pjc52aUePagVUIHUU/
+	ZTJrf/o16j4GQD/A2ka/Egb03nuRzn9KhCi7fPZ/5LShafGEarvqmYjNTgJGwTSCpC0J8aCmgj1
+	aKDJcQGlLAY1uuQ6C4+Fh7ZZYcKtzGKaG6VbCyxpCyM14u8Dz5cHlFwVLkANWJocHO7gAzzB9Og
+	RNCctLdf7awK6wBftMNvMrQv3vHghO3TPNXGFFyi0h/tjGH7UZYuWs1Oxrtxdw==
+X-Received: by 2002:a05:701b:2604:b0:1a3:dbb2:478a with SMTP id a92af1059eb24-1b5568b9037mr1336710c88.27.1795136745320;
+        Thu, 19 Nov 2026 17:05:45 -0800 (PST)
+Received: from at-Standard-PC-Q35-ICH9-2009 ([27.60.23.101])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55682d301sm2292732c88.10.2026.11.19.17.05.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 17:04:56 -0800 (PST)
-X-Relaying-Domain: everpuredata.com
-Received: from irdv-tmenninger.dev.purestorage.com (irdv-tmenninger.dev.purestorage.com [10.32.149.15])
-	by c14-smtp-2023.dev.purestorage.com (Postfix) with ESMTPS id E95133400BB;
-	Thu, 19 Nov 2026 17:04:54 -0800 (PST)
-From: Tim Menninger <tmenninger@everpuredata.com>
-To: Trond Myklebust <trondmy@kernel.org>,
-	Anna Schumaker <anna@kernel.org>
-Cc: Benjamin Coddington <ben.coddington@hammerspace.com>,
-	linux-nfs@vger.kernel.org,
+        Thu, 19 Nov 2026 17:05:44 -0800 (PST)
+From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+To: lukas@wunner.de
+Cc: atharvatiwarilinuxdev@gmail.com,
+	bhelgaas@google.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	hpa@zytor.com,
 	linux-kernel@vger.kernel.org,
-	Jon Curley <jcurley@everpuredata.com>,
-	Eric Badger <ebadger@everpuredata.com>,
-	Shiva Lingappa <slingappa@everpuredata.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] NFSv4/pNFS: Don't cancel I/O when re-checking a deferred layoutreturn
-Date: Fri, 20 Nov 2026 01:04:54 +0000
-Message-ID: <20261120010454.2153387-1-tmenninger@everpuredata.com>
-X-Mailer: git-send-email 2.53.0
+	linux-pci@vger.kernel.org,
+	mingo@redhat.com,
+	tglx@kernel.org,
+	x86@kernel.org
+Subject: Re: [PATCH] PCI: Add quirk to mask ACSViol on XHCI on iMac20,1 And iMac20,2
+Date: Thu, 19 Nov 2026 20:05:36 -0500
+Message-ID: <20261120010536.1182-1-atharvatiwarilinuxdev@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <avrfAD_puIZm1yR1@wunner.de>
+References: <avrfAD_puIZm1yR1@wunner.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,86 +107,27 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-pnfs_layout_need_return() runs whenever a reference to a layout header
-is put while a return is pending. It marks the segments covered by the
-pending return and, if none of them is still in use, lets the caller
-send the LAYOUTRETURN; otherwise the return stays deferred until they
-drain.
+> See this discussion:
+> 
+> https://lore.kernel.org/r/CAL0aDZ_HOq1Sof90GJoBDzPo7Gmr7P_rSnYJaN75QH4K+iodpw@mail.gmail.com/
+> 
+> It's an LTR message with a zero Requester ID.  This needs to be fixed
+> more generically, not with a model-specific quirk.
+> 
+> Thanks,
+> 
+> Lukas
 
-Since commit b739a5bd9d9f ("NFSv4/flexfiles: Cancel I/O if the layout
-is recalled or revoked"), this re-check also requests cancellation of
-I/O on matching segments still in use. Changed-layout recalls,
-error-driven returns, and file bulk returns already request cancellation
-when initiating the return.
+I also did not really like the patch tbh. it is now obsolete however
+the problem was in the thunderbolt controller, we are basically done
+fixing thunderbolt (all apple systems from alpine ridge to icelake)
+you can see the code here if you want to:
 
-As segments drain, the pending return's sequence cutoff can advance,
-so a later re-check can also cover newly acquired segments. Cancelling
-their I/O can perpetuate a cancellation and retry cycle.
+https://github.com/kaiT2en/KaiT2en-Fedora/blob/main/patches/runtime/thunderbolt/0001-thunderbolt-add-Titan-Ridge-and-Ice-Lake-RTD3-on-Apple-T2-Macs.patch
 
-Disable cancellation in the deferred re-check, while retaining segment
-invalidation and waiting for outstanding references to drain. Explicit
-cancellation by the initiating paths is unchanged.
+(this is not complete, some acpi methods like TRPE and SXFP are missing, we
+are trying to add that, and the code should be done)
 
-This was observed on 7.4-rc3 on a one-client one-DS system under
-sustained direct-read I/O over pNFS/RDMA after restarting the nfs
-service on the DS, with "NFS/flexfiles: Don't treat a locally aborted
-read as a DS failure" applied. Once LAYOUTRETURNs were being sent again,
-the re-check kept cancelling the reads of freshly obtained segments, at
-about ten transport reconnects per second. With this change, once the DS
-was back no reads were cancelled and no transports were reconnected.
+Thanks,
 
-Fixes: b739a5bd9d9f ("NFSv4/flexfiles: Cancel I/O if the layout is recalled or revoked")
-Cc: stable@vger.kernel.org
-Signed-off-by: Tim Menninger <tmenninger@everpuredata.com>
----
- fs/nfs/pnfs.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
-
-diff --git a/fs/nfs/pnfs.c b/fs/nfs/pnfs.c
-index 14f4a4b12ffd3..a60df3bdab921 100644
---- a/fs/nfs/pnfs.c
-+++ b/fs/nfs/pnfs.c
-@@ -480,15 +480,16 @@ pnfs_mark_layout_stateid_invalid(struct pnfs_layout_hdr *lo,
- 
- static int pnfs_mark_layout_stateid_return(struct pnfs_layout_hdr *lo,
- 					   struct list_head *lseg_list,
--					   enum pnfs_iomode iomode, u32 seq)
-+					   enum pnfs_iomode iomode, u32 seq,
-+					   bool cancel_io)
- {
- 	struct pnfs_layout_range range = {
- 		.iomode = iomode,
- 		.length = NFS4_MAX_UINT64,
- 	};
- 
--	return pnfs_mark_matching_lsegs_return(lo, lseg_list, &range, seq, true,
--					       NULL);
-+	return pnfs_mark_matching_lsegs_return(lo, lseg_list, &range, seq,
-+					       cancel_io, NULL);
- }
- 
- static int
-@@ -903,7 +904,7 @@ pnfs_layout_free_bulk_destroy_list(struct list_head *layout_list,
- 		list_del_init(&lo->plh_bulk_destroy);
- 		if (mode == PNFS_LAYOUT_FILE_BULK_RETURN) {
- 			pnfs_mark_layout_stateid_return(lo, &lseg_list,
--							IOMODE_ANY, 0);
-+							IOMODE_ANY, 0, true);
- 		} else if (pnfs_mark_layout_stateid_invalid(lo, &lseg_list)) {
- 			if (mode == PNFS_LAYOUT_BULK_RETURN)
- 				set_bit(NFS_LAYOUT_BULK_RECALL, &lo->plh_flags);
-@@ -1405,7 +1406,8 @@ pnfs_layout_need_return(struct pnfs_layout_hdr *lo)
- 		return false;
- 	return pnfs_mark_layout_stateid_return(lo, &lo->plh_return_segs,
- 					       lo->plh_return_iomode,
--					       lo->plh_return_seq) != -EBUSY;
-+					       lo->plh_return_seq,
-+					       false) != -EBUSY;
- }
- 
- static void pnfs_layoutreturn_before_put_layout_hdr(struct pnfs_layout_hdr *lo)
-
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.53.0
-
+Atharva
