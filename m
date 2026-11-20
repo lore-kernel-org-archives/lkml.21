@@ -1,71 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172103;
-	b=q9rjVWN4JbGXT32ucd6/cBCit5iDX2TtUNvtmrSUuJRtv0f26b9dXyKmhMmdlklhcvec
-	 Jy/PzA7Oh5cOGKRPnQj3tPkwEZX/jQa3f6KCRTqgHOd9f3DA3BqAigBZ84DZKehnL5HGw
-	 qJNFcb+ZKwBTZNfnnIjPruyldQFOd3GRhFnw3fdb7EuCODxQzynLJU2+LT5KFVQcHHp6c
-	 QWYuo9uc0Weetnlnqq6JvnVdqpzTkT32B9izCDyAU/QOObZGvYwc1MLuE+kCihpk2oCkj
-	 pqpz0igystsk59UKIoCeck0SO4YgmB+V6PJr5nObJ8bn5OQ2MdMvvKGa/5QAiBFkdow==
+	t=1795172125;
+	b=SmYeTeRdTjUqD2YIo6iN8ULco6wc4d9YxcueqMM0l0oKEbRgMSMU75C3myMwdjdOSK0N
+	 KTtP/nFG05KLsY5oufwG3MWfVGGd5xHO3MzrStpBxday1zzq+o14vBK1xho7UWEpaqRvo
+	 mxOORKI0wTS8ZG+MqxWJW/vDOyJcvgov1yJO8avp3QaIAyoRtLZFvk0Z/MNQVABJ9V/7C
+	 B5J6pn+K3A2BEsjYdD71wLFeT332ruVz8Y0YMCJw+cRFKM+Q7Cijeok/va8b0hUIBXWiL
+	 Sdfz10xI2sa5cdYfTpjQmizH+iH87wC1S/IIrWZKnne5ZJ/kVb8VaYP77PVcAQbyH8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172103;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=cvPLEmeTUHEF2wrMMepAaUi4M7a6trP9s7NRe1oef+U=;
-	b=e9v29iI4JSxMM6WueoeMdudvvhKOgKUQlsbZezgPVPiyBPsJGaezY6c8Y+Su1SkFqrR1
-	 BKZL0+WIbkLflL8M24GMBxzBnNSFbicGJUCXkoLMlDAl1/Y5RJuvNw6mJ8BicvJLpfPxJ
-	 czRgp4ugmXPEblN2pYb4kOh5tnEEamiaSVNvmQ5f610XCXhdA2QYnV93sx81xN0seLMNH
-	 qRSWD0G/C32F5QTupA6RRA69ifxPeACuzj3HwQau6rfLOBdOrEeD75xKI3b5F+s3U1qem
-	 jux76381iTQV0S0CgGsBOj013RUEICCclffcGkChoSopBAzOMCAtJpf4DrN0N/N2WRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172125;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=bLcMDaVf3ij0ZSaF2zMGac0vrTlfz0+kPwjMSXMIj5U=;
+	b=2LjgPf6KKfd954VpdbdKc4lwbGrwY9H1Yj6ZmwBGnfXQP/X1Jb+Fq5J+7Gyak9ssCzzl
+	 C2uBQRxx8ROTnvstqDFqw96tkhLKZcMLydleouWr7aaNbBUqlwsJrJBOgYxb6YGLIhKE5
+	 a/cZAposzXr5KbzJQ8hUQui0BjeyGnSarTru8voYYwuQFbFsGRLqotRGtiMAFRm0/b5Ob
+	 iA9rNwUkUPAYQuG5CMVnTrYoe1ofKhgbj2D2UXJcsaT/Mjcl+E1lzLn2fpqjSkuvBXg6A
+	 ZB2gooaJAoeWPbNQiKMhdpwOupUDup74akRg68TPQvgLD6ou3kI+9BuX5y7WULIvluw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=n3+RjC5J;
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Ye2Uw0Ba;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A71EA606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:55:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A71EA606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6261606A320;
+	Fri, 20 Nov 2026 10:55:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=n3+RjC5J
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=cvPLEmeTUHEF2wrMMepAaUi4M7a6trP9s7NRe1oef+U=; b=n3+RjC5J57jvE+SwR8pFzZJj8Y
-	xnGH2NuMq4sgwkpSZg3mOyvaFB2EyjPKl89NCCMwTf7TZQXmwy+cTyKaJoZcr/oY4mhDeRzm6iu3x
-	OV+GWORJd6xgBfgxNedFG/0nXJ7KGGCc11GRRLv+RDEFw+VFquoZQcDILd/OuiAIz6PRoD6HW6V4K
-	zjUDEw21U4aW5y1NfYnDaixFQXNvoVGG4ylYpP5FnmSio8Cn1iI9l+ulttWpozKXQSR6z05WZNMC5
-	Kvgz43gKy+aP8Cs1GhLEiphMfKAqWf3EOah8A/9+bl+Xt6W4qC18wRzjjUOwsUo1UbgbkzG0U3J1c
-	F/fH7TaA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUMGf-000000032dv-0Xwc;
-	Fri, 20 Nov 2026 10:54:57 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A0E9C3008D6; Fri, 20 Nov 2026 11:54:56 +0100 (CET)
-Date: Fri, 20 Nov 2026 11:54:56 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Srikar Dronamraju <srikar@linux.ibm.com>
-Cc: Ingo Molnar <mingo@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/3] sched/fair: Exclude delayed-dequeued tasks from
- sum_nr_running
-Message-ID: <20261120105456.GP2668564@noisy.programming.kicks-ass.net>
-References: <20261120014946.1355234-5-srikar@linux.ibm.com>
- <20261120014946.1355234-6-srikar@linux.ibm.com>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=Ye2Uw0Ba
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 224B91F000C4;
+	Fri, 20 Nov 2026 10:55:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795172124;
+	bh=bLcMDaVf3ij0ZSaF2zMGac0vrTlfz0+kPwjMSXMIj5U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ye2Uw0BaRJIp043gaYaatqhZcquHMIrhJuynKF97QNz+Ch42NO2pqrLTPNjg3fDfm
+	 MZQ7CncA6i3012fas8Nf+LNGld+EmAhejvbXF7JJCFFKPnkniqj+9orq1lmb7WOMd6
+	 y9nELxsav1QFC9sDf/zomNaXkKhcUQmt+LB5HJzs=
+Date: Fri, 20 Nov 2026 11:55:22 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Cc: nkapron@google.com, linux-usb@vger.kernel.org,
+	Thinh.Nguyen@synopsys.com, bigeasy@linutronix.de,
+	target-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	benquike@gmail.com
+Subject: Re: [PATCH v8 2/4] usb: gadget: f_tcm: zero the CBW buffer the
+ status path sends
+Message-ID: <2026112008-parakeet-unblessed-17ed@gregkh>
+References: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
+ <20261118124005.2428068-3-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,45 +59,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120014946.1355234-6-srikar@linux.ibm.com>
+In-Reply-To: <20261118124005.2428068-3-yhlee@isslab.korea.ac.kr>
 
-On Fri, Nov 20, 2026 at 07:19:48AM +0530, Srikar Dronamraju wrote:
-> Delayed dequeue keeps a sleeping task on the CFS runqueue until its
-> accumulated lag is repaid. While such tasks remain accounted in
-> rq->nr_running, they are no longer runnable and are not eligible to
-> consume CPU time.
+On Wed, Nov 18, 2026 at 09:40:03PM +0900, Yehyeong Lee wrote:
+> bot_prepare_reqs() allocates fu->cmd[0].buf with kmalloc(), one endpoint
+> maxpacket in size, and the only thing ever written into it is the 31-byte
+> CBW the host sends.  The rest is never initialised.
 > 
-> update_sg_lb_stats() currently uses rq->nr_running when computing
-> sum_nr_running. As a result, delayed-dequeued tasks contribute to group
-> load statistics even though they are effectively sleeping. This can
-> inflate the apparent load of a group and influence load balancing
-> decisions.
+> When a command is rejected before its data stage, bot_send_bad_status()
+> points the status request at that same buffer and queues it to the IN
+> endpoint for a read, and bot_err_compl() re-queues it until the length the
+> host declared in the CBW is satisfied.  So the host gets the buffer's
+> contents back, a maxpacket at a time, for as long a transfer as it asked
+> for, and whatever lies past the CBW it never wrote.
 > 
-> Other metrics collected by update_sg_lb_stats(), such as group_runnable
-> and h_nr_runnable, already focus on runnable work. Counting delayed
-> entities in sum_nr_running makes it inconsistent with the rest of the
-> load-balancing statistics.
+> Allocate it with kzalloc().
 > 
-> Exclude cfs_h_nr_delayed() tasks from sum_nr_running so that load
-> balancing decisions are based on runnable tasks rather than entities
-> waiting to complete delayed dequeue accounting.
+> On a dummy_hcd gadget with a 512-byte bulk maxpacket, a rejected IN
+> command declaring 4096 bytes returns 4096 bytes to the host, of which 72
+> are non-zero and begin with the previous CBW's "USBC" signature.  The
+> part no CBW ever writes read back as zero there, both before and after
+> this patch, so what that buffer held beforehand was not observed; what
+> the test does show is that the host is handed a buffer it only ever
+> wrote 31 bytes of.
 > 
-> Signed-off-by: Srikar Dronamraju <srikar@linux.ibm.com>
-> ---
->  kernel/sched/fair.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-> index d4cc0caee626..21f2b17894e3 100644
-> --- a/kernel/sched/fair.c
-> +++ b/kernel/sched/fair.c
-> @@ -12296,7 +12296,7 @@ static inline void update_sg_lb_stats(struct lb_env *env,
->  		sgs->group_runnable += cpu_runnable(rq);
->  		sgs->sum_h_nr_running += rq->cfs.h_nr_runnable;
->  
-> -		nr_running = rq->nr_running;
-> +		nr_running = rq->nr_running - cfs_h_nr_delayed(rq);
+> Hui Peng's multi-driver fix of 2026-09-19 zeroed this buffer too; the
+> reviewer asked for it to be split per driver and it was not applied.
 
-
-h_nr_runnable already excludes delayed; its is h_nr_queued that includes
-it.
+Why is this line in the changelog?  It shouldn't be.
