@@ -1,82 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160445;
-	b=L+VpDKuFhkGuZwgn4lPL/TYOaNAEgB5IHmpv1OfT01lHSy9rT1i4voUwZYY8yJByTPl7
-	 cgiFuC0SY5T/ODBZNBQeojchhlCCoZBB94f0ur5Eoq0HItXFrtZGDVIDNfI1ObWHV6Yb5
-	 w9qGFRrhlJXTGg8GVZUlJ04fvkTBJ0tqbjcgTEpvXBi4i/fU13G5HFmpX+Z6s9qZXuLWi
-	 QoebWtmZKQEMyZO+fs5aKquh5OBO4XcuiTuNzPTRl1ewKKKnOAW3D25NbN31+u4uZNlqI
-	 5/JF4/6zE9zxpScs+4FEG8y3DnRk4AypOlB3J/iYZqVmEsbBlZgeoi0JuH8E5wpoCjA==
+	t=1795160509;
+	b=JLk7CLo/0R/XtNVhBLHW2hpbv4h2AQA00ESunV6ImGTOewiyhY2ULJGEQDeL15AGcYL5
+	 IMXSPMlChLM5t2VX4kob2CyPztVBabC/zH9s8bgMqS/ce8joZhORON7qEjfAOcpsYftQ7
+	 eyh+3PEs6ft4x0HCGav4D8SVFPiEjFm6Pzy404XqvkkEYwmkYhioH1pEM+H5SdyJwmW95
+	 qC/sHk2izYI6u4fUNOwb3uBzFqpls1j9hSnDkfCMF2gFUoJGttvyM5pjPaXwAWWHHt5jy
+	 Q4v3PB6MoRs6uE2dvKjV17FK4jYP6Q7u2Dj9wJr0lKVtU4a7uWfxZs6B3ipaN1SetLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160445;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=vXp0hy8i8EssNCH31fRKL6Cul/GRpRbRIXs/wnt65A4=;
-	b=pkiKYbRC3S5h2+DUMlYYUBNlB+aX5B2n3GTS09KnxJZcxV9qe7F2N+L4HZKfC3HUk114
-	 I2nQumUn8NkHqfYoIJEvt7/kn14Nvwh7vDBwj3OhCtvdhXI4cXFkIyZJk9vRAU1zvJ5GA
-	 a7DHF+1SV3WY0Viw9B5JQ63s5RjgxwkSLznyPN6UkrvahbwtBzwwTUnQSlxZgGlCjHZxs
-	 In17/eN0U4C1RXFfX+4SzncaRkdoJejCQ+N/bFlF2GjUnadE+lhtAtmxxP4tcbZPADR74
-	 CirUqJKyZXiTubBixaGscHLtJb1F2zCHfV+OjeMDcePMKosn5jyFgUDQs3/8p40AfWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160509;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=cqjUXY2lS/ifY7N0hU3WutIFq+hkCUqoWWB4fNr8nFI=;
+	b=W3xYMCLwt1Y68bnn9aLIK6vkVeLGyIru/XHn28dZZs8F1VCMBxJ+iyDdHkAbJMgIvHSp
+	 g4+JePS3b50P/TnW0WcJt1YzAfgkWCzbRLPYs/VftWd0ByjLN3ypPR2ph7IrsIv8rRMuk
+	 PHUkd58L/5tO9nG1lhM5ctAF4pjame5Qv5zH+WFDNOm1GmsYUgaylXBccuGnrkka1KnRA
+	 ZJGRyPwcJopoZnyzBw0Lbg99OUAhZWaWnoDMJQe+PyoPzBB9weLI7gm0u7YNVHQBArsj5
+	 wQ/ULQsOb5TGM5G856wJrNOuEC//vYujekxVKvmfPKMZ4p2j6IyUO/Ybvx4tKISrNdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=e1tqSNmw;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=UkpFrErN;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4274E606A32A;
-	Fri, 20 Nov 2026 07:40:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4274E606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CE3C606A320;
+	Fri, 20 Nov 2026 07:41:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CE3C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=e1tqSNmw
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3ueHL2135766;
-	Fri, 20 Nov 2026 07:40:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=vXp0hy
-	8i8EssNCH31fRKL6Cul/GRpRbRIXs/wnt65A4=; b=e1tqSNmwaAyrwlg7gcza7q
-	Hf/bjdZ/M1Zh86wnv9omHpFDmOASN/zFaiQrsvouF15IyHwBEdGvo8OLA5XjDU7s
-	I32v83laDSFO7b8QxIQpJNvFR13k997IdChv6Hk6J/Y8pMRZ5liVys8YgW2xRjW4
-	7OUD6G3kW6nMu6TbYzUbFfJLi7Vmu1w4qLvMS+8Xf/+0lKNGB5NVY3l8o4OEbGKs
-	QyvXYiq885NR7zELusiGEMJKvFcvlF2Pw3ojgjLixbP0fqYznOkN26ayoRfy0UKG
-	sR/P6LOyNuunsLKoUhuNLixO8zniSlcJFCL2vqAIa6rN0KHEUn5ApEKdeVA5ujZA
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105npwc8-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:40:31 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7CEZd600861;
-	Fri, 20 Nov 2026 07:40:31 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1bb5jugr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:40:28 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7eOuv15728976
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 07:40:24 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id ACB882004F;
-	Fri, 20 Nov 2026 07:40:24 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1DF1420040;
-	Fri, 20 Nov 2026 07:40:21 +0000 (GMT)
-Received: from [9.124.218.70] (unknown [9.124.218.70])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 07:40:20 +0000 (GMT)
-Message-ID: <32518152-863e-4ce0-831b-d4d69caa491b@linux.ibm.com>
-Date: Fri, 20 Nov 2026 13:10:20 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=UkpFrErN
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2944410FEAE;
+	Fri, 20 Nov 2026 08:41:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795160497; h=from:subject:date:message-id:to:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=cqjUXY2lS/ifY7N0hU3WutIFq+hkCUqoWWB4fNr8nFI=;
+	b=UkpFrErN5qeJm8+O+gxMVUi+gYgtTmWk6xHNw/Z08CnjroEpkxTOvW1Z3JUjz4lkGakeTX
+	QO6AmOShUtPlWSj5eMkhcWSN4VYORcaeruez71cCWMh2TbO4V33Y5imxL+wK8MMXUVn6pZ
+	yOWT6oOwGsb7F0QnUkwl8k/1+42Vv3GxApfHL+KOknTnou91nlLbcF+mWha3Db8qaU29YK
+	sLKG+PAyPhRr204h5XmfTKMnK583cLDUE3TVxlo3cbzqtQHv2jyzOM6w2hJVmoamUKimFg
+	FwZ9Liyix+2/dR1zUVkT5OMBW1f13potj6VnFd8yKPxHQcrqJyCt+ES4WyOeZg==
+Message-ID: <77bbefd5-3e05-45e4-9e0a-02063ebf3e06@nabladev.com>
+Date: Fri, 20 Nov 2026 08:41:33 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,79 +56,76 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/5] powerpc: Add RTAS based error injection support
- for pSeries
-To: tasmiya <tasmiya@linux.ibm.com>,
-        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: sourabhjain@linux.ibm.com, Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
- <b6a7ba26-e3f1-4dfe-a429-8dd3379e665a@linux.ibm.com>
+Subject: Re: [PATCH] arm64: dts: st: stm32mp2xxx: Remove undocumented,
+ unapproved eeprom0wl alias
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, kernel@dh-electronics.com,
+ linux-kernel@vger.kernel.org
+References: <20261117133747.244933-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <ac1a1214-98dd-48da-b8e1-bc8ef9f09316@nabladev.com>
+ <93acb3fb-98ae-4dba-a3de-fcf1772239eb@oss.qualcomm.com>
+ <e9bfca58-666c-45d8-bd5d-9405b068bd08@nabladev.com>
+ <8d0810f5-e90e-4a70-be9d-89215d02b74c@oss.qualcomm.com>
 Content-Language: en-US
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-In-Reply-To: <b6a7ba26-e3f1-4dfe-a429-8dd3379e665a@linux.ibm.com>
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <8d0810f5-e90e-4a70-be9d-89215d02b74c@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXy7B1r++FB5Fw
- ZojBzibZI6xckz2pppZAq1PSuh63OHyb9HReryXRpPZEKVauZF5lW08Bq54wK+8m1oEkb6mBiop
- ahj5tBGcD8vlwsISV/OLaSCYCLwL6E9u53zk4lk4ZmC0Eu1+mKnIAtM9tmHQVINgEf3VjjOuylv
- R+qAlsNHteO1J1tfGNHaHC1bk5W9Ez3Ti5tK2Jyhk9tE3SS4htSJYzVt3itGLvVVGcj9CwGF9Iu
- ZkkeJu9brPGg+qmzfus4yiiBoTc7+SPxkQxH8tX08wBXSks5LcbyZyKnlUzocQ5b4WPjLo0umiS
- MGBqXOwC4CjMcH5N1YRj680R0Ot91b74WKuhl9qe3eTx+7FI5zf82e3FULJyIa2s+JUl6nOK2XO
- P7YmmfT3iSQ0+WkyekELhdDdDI7sRBO8Yn2+RK9FXNe55ogNZBupaGmtQeDiFwNE9yWAc+Q5TO2
- bW6dM+9A9WBqdlK4cig==
-X-Authority-Analysis: v=2.4 cv=HN9WhYtv c=1 sm=1 tr=0 ts=6afff970 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=16zvxxa8fA1V9JArBYkA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: H97DVM_Yt6Ct0DG7o4Vqy7xcnja9aFNR
-X-Proofpoint-ORIG-GUID: Gn4MdoIDlrOUk-tbAyCDtKSYwoCw11-9
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfX8T2SDEwp9hDw
- 5+//8Os6yPD7YKmIGLa2jWuilP/rM/bKSaycfi3ipo/3XJweBAGZbvQD5W15qOt5kYlJ7mGNI7N
- ULQ2+cHYAeonhxoaBI4f3pDvsbT0Y2s=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 suspectscore=0 malwarescore=0
- adultscore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200029
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Tasmiya,
+On 11/18/26 1:07 PM, Krzysztof Kozlowski wrote:
+> On 17/11/2026 17:24, Marek Vasut wrote:
+>> On 11/17/26 4:13 PM, Krzysztof Kozlowski wrote:
+>>> On 17/11/2026 14:41, Marek Vasut wrote:
+>>>> On 11/17/26 2:37 PM, Krzysztof Kozlowski wrote:
+>>>>> The eeprom0wl alias was never approved by Devicetree maintainers,
+>>>>> because it was never documented as actual ABI.  There is no in-kernel
+>>>>> user of it, although there might be U-Boot.  External DTS users cannot
+>>>>> rely on undocumented ABI, thus these are pretty safe to drop.
+>>>>>
+>>>>> No new custom aliases are allowed for years now.
+>>>>>
+>>>>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>>>>> ---
+>>>>>     arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi | 1 -
+>>>>>     1 file changed, 1 deletion(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+>>>>> index bcf63e2ea989..5795b352fccf 100644
+>>>>> --- a/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/st/stm32mp2xxx-dhcos-som.dtsi
+>>>>> @@ -10,7 +10,6 @@ aliases {
+>>>>>     		serial0 = &usart6;
+>>>>>     		serial1 = &uart8;
+>>>>>     		eeprom0 = &eeprom0;
+>>>>> -		eeprom0wl = &eeprom0wl;
+>>>>>     		rtc0 = &rv3032;
+>>>>>     		rtc1 = &rtc;
+>>>>>     	};
+>>>>
+>>>> U-Boot depends on the alias, so please don't drop this one.
+>>>
+>>> As explained, U-Boot CANNOT depend on undocumented ABI. U-Boot is not a
+>>> user as understood in Linux kernel policy "we do not break users".
+>>> Especially that U-Boot does not even consume that DTS! We do not break
+>>> U-Boot as long as it is about documented ABI.
+>>>
+>>> Here U-Boot won't be really affected, because updating DTB in the
+>>> kernel, does not update the one in bootloader. It does not go that way.
+>>> It could go opposite, so from bootloader -> kernel, but not the other
+>>> way around.
+>> U-Boot does consume Linux DTs via its CONFIG_OF_UPSTREAM .
+> 
+> Cannot, otherwise it would have document that ABI. That is the
+> requirement of using OF_UPSTREAM - you also use upstream ABI. You cannot
+> use upstream DTS with downstream ABI.
+What option do I have here that does not break existing use case ? (I 
+can patch the U-Boot board code which depends on this, that is a non-issue)
 
-On 11/11/26 12:51 AM, tasmiya wrote:
-> Greetings,
-> 
-> I have tested this patch on my KVM guest environment. I am able to 
-> inject EEH errors from host console as well as on guest console using 
-> location code for a VFIO passthrough device.
-> 
-> Tested-by: Tasmiya Nalatwad <tasmiya@linux.ibm.com>
-> Reported-by: Tasmiya Nalatwad <tasmiya@linux.ibm.com>
-> 
-> 
-Thanks for testing both host and guest error injection paths.
-
-I'm addressing the review comments and will post v7 with some
-code restructuring. It would be helpful if you could retest
-the next revision as well.
-> 
-> Thank you
-> Tasmiya
-
-Thanks,
-Narayana Murty
-
+Is there a schema which lists approved aliases now ?
