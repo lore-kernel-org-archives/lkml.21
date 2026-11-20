@@ -1,68 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795186880;
-	b=cFK9fVjUOnJLJ5jPgYKn5MECgv0FyFQ/GEbk5GJpY6/fQvdAai1E+xTrNpUZQaNtaP/Z
-	 j82+PCMUOv/rYB0rjuPzKVO0uejhB4HzM8XlIjmYLY0aSZWMr3AVcLgQwEwO+3GLWVpx8
-	 Qd6vC/msXb5XEU9VIkKK3GG0Ygiwae2NSMqLIYegXzJhl3bKCgKmC1xu982Ai3uCUf75n
-	 JBIuJqFkqtOBEnKhquJMFaNgfFvz2zCru6ekRDHkeh3Dma8sir7g4iC5Zia/km19KNurH
-	 2DA5gOSy/V8MDnU1ICRDK4VPbeUiyrXJbwEmtESK9uLritmBB42yK1Qu+0CvoONesSA==
+	b=XFbzVzZhCujKpR7DdmpnRms4QxkHr1rPpaPMAH7q84zZiNpx7Jl5cjw930v3JsqsBHJt
+	 2udQ6Am1GiDmueVZOzdZUCTtsvwX1LGqC0wgoUQF0sdOgf/S7ABy7mo30QdUfYRYbl8oU
+	 7DKZ+cJ1t0WcshymZzkbf3x/3hxvx7xhJIZWAnAQK8iB+KcFQw6AkuyCG2r3Rn9VvWlQz
+	 tSHUg6bRqtOvFqt6e8sD1LcgUFyxuipiAUJww8xa16xrmYBDqlmnX4SmHfPFfyUujTwvn
+	 CPMhpadK8aBSQRBo/zoNE0WUe4VLBYzpZ4tBLsogRFCkgMe520j6X0HujYJIZS+A66A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795186880;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=O/61q62gvasmCL59xNnECoaUy283F9i0rFiASLGXdtg=;
-	b=3n9r/hEXgHB0cZsIXDalil69wSQ2gPTvz7cn0ipaWBh1VtQHKvZNbL/DXZ7mlXAF6bdH
-	 fKIaNk/WbzrVg42a5wRaSv7o48AklElzReni8yLHYmc/Wt58JYe2bYxNLy8FhKX9D4ywQ
-	 uN+2udXgr+kZMIF7xxxUErcvMBRzsX20hZp+m/ooWekduSm/WfiYSfH44mnBbldfOeFN2
-	 zyrHuI9ePfj3OVjOtb2Yx9hVu55TB1S969vpLDf0nWNs8//GmN6HdK5vNlNc6USthSprP
-	 /b+sQrr4GElNDCnTOR4wpdD8VS05IXmYnSneeMb3kpM0gJ4//ntm+8Jxr7dd54XN8fA==
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=mCRm+l6ZHE272rkjlmN9VUDSwPrbwgekcccIxZDKOHc=;
+	b=BgyIjCU0RG3MeY+2uxF9wNx82aBie/+uI7xPYJRAObFaVLqQQsp2oyhmnup3LJ6koNaa
+	 PsmyZPDO2l56wbBPKZis/tRwU5Y7ewYJiROek/8r8F6Ndve6ftRi4LrXjUBGcRZ4fE5KY
+	 D6/XMv1CVzWEjOLHOulMum6PRg83KvVKUqu5Ui7/m0IQLU9aoBbj/jL/UC+9u6lTT4DAH
+	 S1A0k9Uc59rHDO6KzSUl9WS+xb7TXOIZswm8k9/ydo4BN2ofjYHCe0qAqAJi4xxbj3wuy
+	 vJEBw4DqNIyMk5e+qaz2mIy5L6YXvjgZPlf6aWX8+D6ekuif7Zv6uNoTI5tgJtTXk4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgVUIfv+;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JvSz+61v;
+	arc=none smtp.remote-ip=209.85.214.170
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FE3460A383C;
-	Fri, 20 Nov 2026 15:01:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FE3460A383C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CE3460A5BC7
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:01:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CE3460A5BC7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgVUIfv+
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8B2C7C62220;
-	Fri, 20 Nov 2026 15:01:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C1A4E601B9;
-	Fri, 20 Nov 2026 15:01:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D034C11BC0284;
-	Fri, 20 Nov 2026 16:01:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795186867; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=O/61q62gvasmCL59xNnECoaUy283F9i0rFiASLGXdtg=;
-	b=cgVUIfv+N6JKf9LGvNH/jFTiL52g8RBI/iUIgBKnQOZgsYS93kGbCIwgi8UgyqeCjF/NmR
-	Gaw5UYojk7EeSbSqNXN6ZTeSkfkC5jLjPX9K0XxMQksyhXQOeCtzltP3hi6X7F6Z2VWMyl
-	Q48uhtr6f/ZFxWQmtMEHAvVQTzaWWwvdtwTY8TqtczB+p+DNC9lOxOISmmJrffh7/Q4rf0
-	H+MhRqyZrGL/lHboY+hsGIYVvdl4fRekAPx+4GhbJveFWxcjSQnFpen9ftgaBDx6uqXRbi
-	FnCf8mhnSBs+D+II5xXKq8iEyLNsxnOHaF+5pJbgNrVfJlQtObILSZw8DEruiA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH] mtd: serialize dynamic partition registration with removal
-In-Reply-To: <20261108-submit-mtd-partition-publication-v1-v1-1-cbff20b1351e@gmail.com>
-	(James Hilliard's message of "Sun, 08 Nov 2026 14:13:59 -0700")
-References: <20261108-submit-mtd-partition-publication-v1-v1-1-cbff20b1351e@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 20 Nov 2026 16:01:05 +0100
-Message-ID: <87h5hba6oe.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JvSz+61v
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f0414c1062so5258035ad.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:01:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186880; x=1795791680; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mCRm+l6ZHE272rkjlmN9VUDSwPrbwgekcccIxZDKOHc=;
+        b=JvSz+61vQyUZqYJyiTfG07ysQ2zpBtbFrcR6lmftpISADf4xgS1s7hF9NFLDmqknVj
+         v+x2IBguo7+M9xKQdefS1WSvzXB8KlfUg6m4NwfgrkWKs6lRk7XWHNTrXg7p4MvZOfQT
+         yDhMmyx7P84x5WEU/WLZg9UBxV+gdSGQhF1Ykww4UyHSIfTmqWdpMjzzX/HQBCByoE6l
+         /8dY27abJx6u/+GSsi+24FRWophKKvPATbynOHgbL/XlxfG2iTOfg2S3xSvkC31ay1r7
+         atGPb68ZBnLSOt3keQPpWiK6aEr/sMsm/KaTAZGOW9jnuLMkVCIs0uTQTfQqaj+ra71T
+         WfVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795186880; x=1795791680;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mCRm+l6ZHE272rkjlmN9VUDSwPrbwgekcccIxZDKOHc=;
+        b=Fr520GlsATihSwgp33SxlpGcc/xvL3k6vx8+2SjIydgXpbc+J0vmcoa3NyHCzf3mLz
+         iRMUPmBaPSZ3owWrzE4gVHXuau17zm6iSeU5eo7gAm+CTu3ihSyD37CKzF5ur1OuWhfI
+         iFHtyQJrX2uce3NSgnYkO3RgIPawG3SMZVux3D08sesk6kHZU84bkEf7gvdeAPVRosZi
+         W5MksQ3MAfqYs2Ocu7fNTNNDFQJXkEnGc5lewIGQo7SGa/8JsLyzm/n7BzQ7ksdNRu8N
+         ui4WdHDmAAupZ8HYtE0EGVawUXO2mGjGkCNNHIjrp8CJvXQcZh9uEdxicyDSsQq20y+V
+         hYmQ==
+X-Forwarded-Encrypted: i=1; AL+hErEwM2LuM784fiDX/wviH6weEvCmGiAZLRyAWoKwtiachbrpJFul8cqIv/TeNUlLJTPcddZk/84cL1pUg84=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8l85o/6+LcFYQ/UhM8kQxNqtFe9TR6dIDoOmEzqwEk2U9nZzfT
+	RFd24pMfSmcxoaI/zu7qIqpOSQ/yJVM4Vu+oNFVeqctApgDguI4Gh4uyZ0epLYsxkK698RG2Lfy
+	hBggKJg4=
+X-Gm-Gg: AZFdTZcL2hdmmV+sY0ixBmKzoHaReobv6RLsHHtpLZjoKhU1yamK+mAdF8+dNbbB1vd
+	f9pnj+OXC42keI5RfrOjvjyp61CPKEftiqLLzgPjHLo2NYS9ng7eMzJYfxhFKaXdnf1gQLAUFa9
+	iRW0cSEmRiKW5Mh3d5BRzRTFH3u8sTfJNZUCvpTsdE8PGo5PWXdsH54vCmEwY84S6VIBqOtjUCb
+	uIEtBWFdAQomVdy/STX82KvRhGQKeRk0TuEoe9Na9S3gyoRtVMbUTkgcW4EMW6Z9Vc6M/PCObuM
+	vnPXvyNLgIrcVCaOLrPFTupaWOXdbWSasgBuDQ1Zp+Uc+Ko5MMknaY4hDHyq1pUbAGUDJ5c6NGN
+	+aZaMHrwV/CXgDlt5w17GvKkWN1upjBcvcP9wqGRclWBMiz1E2OaVXt6afDnMhYTI89nA2RrzCE
+	S28UEOfKdUYF/zbdnb3VcUz91Jh/Z4MTKQ8q69RIRaPmn3Ii5wfH+18aiOaaCmX/3hAiIkLyApV
+	l+zQkgvIx5own5U0JhFFm+i9CYIsLnlc0QNyfT/eh00epy0a0umwuSnJGhkq469Mm+NuAeojc9s
+	UeZV/VaRXD95XH66X5q/flk1nUGgs8nutbzhoUUXPSagHyZONTl5q6hLIQB6lBiMxdYs52cGoYC
+	S+ld7WWkpUR8cDUqx9DwI7+aw1ff4R6Cg1LND
+X-Received: by 2002:a17:902:e551:b0:2ed:ff4a:6d21 with SMTP id d9443c01a7336-2f03f1beef6mr33867465ad.73.1795186879777;
+        Fri, 20 Nov 2026 07:01:19 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f12028dsm15024705ad.60.2026.11.20.07.01.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 07:01:19 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: ram.vegesna@broadcom.com
+Cc: dwagner@suse.de,
+	mkp@kernel.org,
+	jsmart2021@gmail.com,
+	hare@suse.de,
+	michael.christie@oracle.com,
+	James.Bottomley@HansenPartnership.com,
+	linux-scsi@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] scsi: elx: efct: fix target session lifetime against node teardown
+Date: Sat, 21 Nov 2026 00:01:14 +0900
+Message-ID: <20261120150114.3128328-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261021130802.2691833-1-yhlee@isslab.korea.ac.kr>
+References: <20261021130802.2691833-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,45 +107,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 08/11/2026 at 14:13:59 -07, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+On Wed, Oct 21, 2026 at 10:08:02PM +0900, Yehyeong Lee wrote:
+> efct_scsi_new_initiator() hands a bare struct efc_node pointer to lio_wq
+> and returns EFC_SCSI_CALL_ASYNC, so the node state machine keeps running
+> while efct_lio_setup_session() is still queued. Three things go wrong
+> over that window.
 
-> mtd_add_partition() drops partitions_lock after linking the new child
-> but before registering its MTD device and adding the partition sysfs
-> attributes. Concurrent removal can unlink that child before it has been
-> registered, or release it after registration but before the attributes
-> are added. It can also finish deleting partitions before a new child
-> is linked, leaving a partition published after master removal.
->
-> Keep partitions_lock held across allocation, publication and attribute
-> creation. Record that master unregistration has started under the same
-> lock and reject new dynamic partitions from that point. Check before
-> allocation, which can scan the parent's bad-block markers, so it cannot
-> start hardware access after removal has passed this synchronization point.
->
-> Initialize the state when registering the master, allowing drivers that
-> reuse their MTD object to register it again.
->
-> Fixes: 5daa7b21496a ("mtd: prepare partition add and del functions for io=
-ctl requests")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-> ---
+This is superseded by v3:
+  https://lore.kernel.org/all/20261021142818.2782104-1-yhlee@isslab.korea.ac.kr/
 
-...
-
-> --- a/drivers/mtd/mtdpart.c
-> +++ b/drivers/mtd/mtdpart.c
-> @@ -278,28 +278,34 @@ int mtd_add_partition(struct mtd_info *parent, cons=
-t char *name,
->  	part.size =3D length;
->  	part.offset =3D offset;
-
-Open question: would a guard(mutex) prevent most of the code churn
-here?
-
-Miqu=C3=A8l
+Best regards,
+Yehyeong Lee
