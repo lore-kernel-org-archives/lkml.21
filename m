@@ -1,103 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795177929;
-	b=OriLqEzhACjj4WWMH0Fd/Fm5+vHzKX32CQzgiXrPOtSZ3vExTdpoiuAiKE8DG9qGPM9y
-	 J8j3YzrJVhI5AttxunZFZG/ZiRSPKEEoldCJNESTBtmugiyaBP+U45pip8mz1De6eRh9A
-	 NUjvQNdfTux+f3p6srAkEBnq/rCqtr/cfKMICM1V6369RPNLZOQuMrCcNISzKITN+kEEB
-	 ewTedVpEeB/L4rIQI2QryvjNEF4HE0WYcb50lCv07ljX09Y8BznenX6iBlkBME7BPbGLf
-	 ZqWE5zamQ66vgNJ6cCe2g7RyXe2XaKWsoTQYSEwvto/Sv5kKRdddbJJXmC3VNq876Fw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177929;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795177930;
+	b=ThnacTy//iFdP15MFJ3/fNTsEVIzeKdOSAjyvZ4Em5JcNzYpD5Weomd7mxasudyZ++nG
+	 Quv1VY1Hkrr938qxcfeO+bKvxKTxCKDsUA6ft4GbBE32XCugoa1XFKQHTzEnq/XaGYw+m
+	 h0JdDnglRdxZ6ezR+GyW/L1zKXJ/vHpO1LanwYM+ms7h6A84YfoCfTRK5armZwiFh4TkH
+	 F7XUVbyAOSCnbAbaHJoYr/YiBmg1eYcnrlfqEtBpxWBqlcb6Jnk92YOjXmExHYOffZJyj
+	 x3hDjnpnlrayKy0EJznqcVYPnww419rU3FAf/WMrITK3O9NDUI4hZqi5vXUkNokACTQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177930;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=IhiE/LJFQy9yi5YvfPy9sO4qIb7WIlTpzeu36y0dLyM=;
-	b=PRWQEdhU7A1IoCGRM6cfUqcvfRg2iTF3mZ91AUyEDHLvLLGwZgGZgnsbUL7G1I+Rduzk
-	 vD5hFqfjVUEU/+m6A/lUPwyNwlZ+anfBkRBwDpEI6167UGG9JhxEKTQKTaliFmTy9cKHO
-	 x6HGNcNzBjY5q/VYMv0IX7pSz54UcUoyk01aXMQyexYHbSngfBdMmuRoYKO42oj+naXQN
-	 fz6h4IKGejsc0px9aEkgiFKKIwPRlDEhlvANJlbVbMLBJzIxauG8eXePzxhxa/WKlySBc
-	 zqNeIHMOWDjUXqqRRXYOvBvGMmoVUIzfJ8+AsPjrqJG1GT+MCFXHnm4TjP3vFhznpVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QDmwuMBh;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
-Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=DHHoC2g4FGQOaFmO9WWGdPe07q737sEuTQ3ZoHdBQAU=;
+	b=oT4FGQ2DAY9hmzaN2NRBYLYcCZtyR2VnpO7mKOON0yF6h2kbGaBgdoBNGAPcVeRW9mlk
+	 x1jz69M92rsCEkxJ9Dsmtbfav6WVIZyyKnZCI02KduNagcGzmilHtp4HsbkTfU7a6oOZ8
+	 5/cHVU+MbO9SvQi6XMJAz//c7EdekJde4yW1FlT0rww2ik9rqsSd0hHY7aNUpD7CFHhB7
+	 Fx08nTZrVEzynMYWI08KdxMX53fvPDJvcilwd0b95/fbvO0lVlYr+pQ/I9zbFwsK5RToF
+	 AF6klF4AWN2T/GEW63LPjzR3SJgy4/Ctv5Rvg1fqFxQS3abOqHKClSFV6rHjxY99urQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EwaulaKU;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0BCE606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7317B606A330
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:32:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0BCE606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7317B606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QDmwuMBh
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3adb75e65ecso639551fa.1
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=EwaulaKU
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so7303175e9.1
         for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:32:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795177927; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PzcJnjba3iwETnnuz1uXDZmxU9OJ4dH1kI4GzDQnuAyIQXv2/qB9H/GG1fkkLU8C9t
-         /1mxIyLE0yXhllRFaHWiy24eptzgPxeOCETCzNOzCrbmQg7oQ2j7W61jLeMWWwREyD8L
-         xODzVySctO3IM3E/efmJTyNKofo8DDNuNYji9GWTmwEqHVWFpTv4tgmsGr/XxnzJcM32
-         eyBvFVN7fByjBoRlhCcuwGhpra2O8zTL4BACLxeSwjX8aSo3Dsa9yIGF6CgN66QPuPzy
-         XkoT5rXBHUvfmfI6Dd/3eQT2WEbL2Xkf63a08rDJpgI00R0BG3YP47Axun5TR5Fc/QPb
-         jDwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=IhiE/LJFQy9yi5YvfPy9sO4qIb7WIlTpzeu36y0dLyM=;
-        fh=cm64oJUOB2i6GIYDyGa3naWXvmNlcPeMJp/2LRuF4rc=;
-        b=FPCg3WHtilGelXUgQPNsfDqAZnF8M7XgWZ4P/CB7Sy3/qFwfNWaBg8BHkwcCYM+ixv
-         1HHPCb9xsqZEN9kryi9z3xJVHSv7t7oNCfAJDO9MEo2oT0NsUrp01tNB6Sj5DANZws0C
-         fYSOKq+sseTMSmDleH8IVREZskKJAwzQxcU7A9qb3a9B9x1ILPr+4gnQIxCNnI6YOw+r
-         NTw1QMlV/TALwLnmbtrVs33pkF9ajcvRhOXj+tTlsD8lNHaSFwoFpE+lKV1yKiVlhMHe
-         E2ey5Dqekau+tEE+n/kM7K59cqCqfSxWDeFEW7zQeo+zUj5dG0Wj234/M/rWKWttKvwf
-         LvnQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795177927; x=1795782727; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=suse.com; s=google; t=1795177927; x=1795782727; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=IhiE/LJFQy9yi5YvfPy9sO4qIb7WIlTpzeu36y0dLyM=;
-        b=QDmwuMBhSpTqnt8KZvPmDtpegZio09coWGXg5ZEFJ0HQ2BZKSYNl29jzbBxRtoour8
-         WjzeD/x0LXOjsGErS/402inLq2+slzulYjk4LJKocMxKvgNz3EhH6NthHh686TY1kHsk
-         kYq6H9szHwIVKBE8HaoHmF7dJWayeZ51W8MKNEG+mid6f3petDzIAw1aqnkMTjwCqo2Z
-         4P76Z7zUmv5qzbhsa6t8Vc7TyqVVHS/C6G+t7V6nR8PjeWFf4ByO1/OH2KnXSCWfYMzk
-         gY8tX+IhAv/GYC7ZTJNJoIp63FCAVaptkfuPj7bHSniq4kogSZymU3auX9w+Hk9Y2ROZ
-         oUQw==
+        bh=DHHoC2g4FGQOaFmO9WWGdPe07q737sEuTQ3ZoHdBQAU=;
+        b=EwaulaKU/ihxVGtFGLFWWQgrXrtqtB8wxtNGJ/BTiRId8UfvCjDMiFgGq/P5STLF0y
+         vXbuudxH41LM/RIyeH4iZW8go/+5NtwFapXKpClSWAFHwfLvnrNPGseejfvJWmYci7ll
+         7yyAxWtkElpXxXD65SEod4OOvjO3bqwoUS/B5Qh+sCvn1hricxS2Uy7lQD9sh0Gg72Xt
+         Gst7/xgPnsSoPAXuPUcjxMqCER02RBNsHGH//VpQtQFk3FTm5Puh4mPd7dcWyP/9Ha+8
+         phsQHO1NrRvuX7K3Y3fjdMpUFESRrHqOLFdSKFVkApvnVbWs+Q1f4gq7RV7/WgodxHTV
+         coeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795177927; x=1795782727;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=IhiE/LJFQy9yi5YvfPy9sO4qIb7WIlTpzeu36y0dLyM=;
-        b=ybQWF2TRLcGFbX0sNTMHz9a4OnY+OmAxuwTnsGjD8Yl/Xi3Zp/ETDbNJKv3iA4v+ZG
-         cUbKw7JCUQXHSHtbr1xxRZPsqo7VsYpGPaYi9SvG6gkifpt6sWLTsQ2s82LX6zNX/U3O
-         99eWoCfj1/iuPKooaGG88eraO3JbphFrduwkNfFgTdWwbZVILyFMZQ+rx9G7WMgwogXa
-         Kc1GOEcD3yeF/5eEz5izjO/QLwU2N7q6b9+9uxPZifV++3DdmdLop8gNPq0nHYk2rdFu
-         9KgrCsvbIlAjOODmrSWJKMZmnZH9DXJKblW8s1djMAx9mOmWBxkTOOIl+D9b++Rv4PQq
-         854g==
-X-Forwarded-Encrypted: i=1; AL+hErFvoWniLr2Xlg2WXyamK6axy5Ehx1SMPFd+okva5vk8TdKwh7ujXPShmqfUTPdj9A1aPP8ffj1+KqFGM1U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8itnJ/wRG8gGiHtW3qAOOmDGHb/wGvX1Nq08dc43gmPxVINIoT
-	glgQzYjkDrppdf845JMnzZJtAebOZM7RYhvq9D4LtIREd/mkRn42cscmscncCoxr6TvqtyqGlHz
-	sdVY2DwjiBTlKfB2Iijn7ECl4jHzekgI=
-X-Gm-Gg: AZFdTZf3ewoZxS91ZdsM/R3YktFLJvvxwZhQXw+guHXKCgH1k6CQo2QB8jI1xZgfp1I
-	i+AngXDHK+XZOPkN+8gADLCihwTP4lGwyZiwFiBotd7fmAO/HPE6OcYBQ/XV/4JmgX6bEl0Py4+
-	719jPxt9jH8NYV6ZEdYLxJeylLvNPqqi2FctJNJf5BTvsuThed39FvTLGclr0x6a94BERXC2LPX
-	C3FqqHkRXVCiClDw0czhKFANw5gYDAzBH+MF2CuHP3m0rRFL0c3jeTy5NfTdSyGDV6CcBpimf1e
-	x/HJ8HQDBkj5FT+KGRoOKhffyhYOBRR4zYGwmtab6BgUrhxJw0ta6RZ2wrtq8Kj1Zlmeg9+Lj+E
-	d/jWi7F/o+hFhILF1fsDSgge4L0VHzZLDBGQYlbKiVTI3xBcYi1chVcx62YLIXOWTG7wAetA1HZ
-	2Z/SM/AXGnGRa/lUpTLrkh5PnyBmQPhd2ThHevMbu12R0psrPnSMSvmRHCo+kUGKvlb6RQTdrb4
-	HIbCBBzVs6vzm87f2S4ARE/Mvulmxg7W1epzWDXGN29l8XzGA8WjBJ1aJ1/l0U8x0w1ND5gWtgG
-	N5h6yDcoIT4Cttu/tg==
-X-Received: by 2002:a05:6512:6313:b0:5c1:ac32:9904 with SMTP id
- 2adb3069b0e04-5c1bc80e619mr987431e87.3.1795177926726; Fri, 20 Nov 2026
- 04:32:06 -0800 (PST)
+        bh=DHHoC2g4FGQOaFmO9WWGdPe07q737sEuTQ3ZoHdBQAU=;
+        b=mlLgSU2UnvjxbmStM9lBlylE5InJyS9DqVXl+NOrgzpHTFC+Plxfrd3l8IRx31hPnw
+         yL7kqbNoOhrp2vCFzp4AUSLArCbfL8pJfA9bpP8VQwlu1erlpeWPleNCBWPbr/pOtbNJ
+         tb3U/XK1f7Gysl6Nrklq/eVUFR0LwMiC46ytjTPzZCTYNIKtxHMS3ansnjUoQRM75XJ9
+         DUF6bR/Xxyaxzeg4nUu9umZ+AaK5RZdPFN9yQlK8qQq/M3cQT8+9mIRyKIO92YiB8ybw
+         KjrPvLheeVUAMSwXSErENQtj5HIub7gND6jsvYZu3Vf+gsrn5F8n6njSDAPulBDtFMbE
+         znJw==
+X-Forwarded-Encrypted: i=1; AL+hErHjmiynhT8ksWRt3d7UWo7Uo8gk9bfX4R6QcMlJvOpZOyguZPfYsToixnBURJt95SonzuJpefSv3zSojIQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/IbWTKg448FPq4cDW9ky/p6sn53W6HJYz2UurgId4lNkeeEJds
+	Qddo9UfxfAjzUGVkGC8YpghVEOHdN1/2QQSv+dXG202aCBChJJX8W/xzqCeld0HpoXE=
+X-Gm-Gg: AYBFou11vrQGtWgoyyVTlBUeCahgIDnX72clFnFVT6HwHFO/qHMoBtv4ea9vsC5ahry
+	45GErcxTIczEhO+SCyk4qQi8fPQ+XzwFgVvt6c8iKiB84TtYnIetQedkEWyo0+ZzGrNPR32+VQK
+	2qUuomK7UGucPs78A1M0Mk6xha1csgFe2r7DMNLt3uZqJDtuUiABhCR0rkjZweijTqDkGcEahbc
+	bTvF3DofKOej723/OFQNy6/fkt4v0fCnAFGiTbwjGdh41WLGGBhom+rC0l7dT/BnsCrmSHEdVbZ
+	xDbgvgPsRTdUQSsROGzSP0fazREGkwguB9PLXyZKZ/AJ49pfmq3b2fUA9oPUaHNqIWaD1UB3rqQ
+	NIHM6eKMaZzs/TNCU/SnQm1mFOctfLNGGKNNUEwsw4/60Nq9q5qgJo0fEJOcRCke7HiqE1oh5EO
+	SPhPA56+WRHsi1U7KTs2GX3eUUlvfssLRzC/1frcnTPDhtOXzS/KFVMnnskNcFqF12trZ43bc+Q
+	frBLi7uYQuMhstpIgFJQ3SC0bj5kkzcgD5UvASzohzWhARX5J4LnCD0rXhs0Sk8Xcmy3FvrPorS
+	PlvGHETFFO/hJESmOkBmGAJ6Dkp4Ii6Myfp4GVjVWw==
+X-Received: by 2002:a05:600d:600b:b0:4a2:cbe:bec2 with SMTP id 5b1f17b1804b1-4bb8882375cmr65235245e9.32.1795177927382;
+        Fri, 20 Nov 2026 04:32:07 -0800 (PST)
+Received: from pathway ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm179842545e9.4.2026.11.20.04.32.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 04:32:06 -0800 (PST)
+Date: Fri, 20 Nov 2026 13:32:02 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+Cc: john.ogness@linutronix.de, rostedt@goodmis.org,
+	senozhatsky@chromium.org, paulmck@kernel.org,
+	printk@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] printk: ringbuffer: Annotate speculative record reads
+Message-ID: <awA9wqUfXuX92d4k@pathway>
+References: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -107,80 +97,26 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-fix-schedstats-bindgen-layout-v1-1-0599dd230ffd@gmail.com>
-In-Reply-To: <20261119-fix-schedstats-bindgen-layout-v1-1-0599dd230ffd@gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Fri, 20 Nov 2026 13:31:55 +0100
-X-Gm-Features: Aa3M54rcMiGp8tEKzqSGwq9pN9j_ip44fxmLfK1-urL5STB7swv0NRy8cxr5owE
-Message-ID: <CANiq72kcDMqswODJ0OqcqecDG+8mVn7Q43v48=ED5d6tsFOWQQ@mail.gmail.com>
-Subject: Re: [PATCH] rust: bindgen: Preserve sched_statistics alignment
-To: peder.bergan@gmail.com
-Cc: Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot <acourbot@nvidia.com>, 
-	=?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
-	Carlos Llamas <cmllamas@google.com>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, =?UTF-8?B?QXJ2ZSBIasO4bm5ldsOlZw==?= <arve@android.com>, 
-	Todd Kjos <tkjos@android.com>, Christian Brauner <christian@brauner.io>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113075039.172176-1-zhujun2@cmss.chinamobile.com>
 
-On Thu, Nov 19, 2026 at 8:33=E2=80=AFPM Peder Bergan via B4 Relay
-<devnull+peder.bergan.gmail.com@kernel.org> wrote:
->
-> With CONFIG_SCHEDSTATS disabled, struct sched_statistics is empty but
-> still cache-line aligned. Bindgen emits the empty definition without
-> that alignment.
+On Fri 2026-11-13 15:50:38, Zhu Jun wrote:
+> Readers may copy a finalized record while a writer recycles its storage.
+> prb_read() checks the descriptor again after copying and rejects records
+> that have changed, but the plain metadata and text accesses still trigger
+> KCSAN reports.
+> 
+> Annotate the speculative copies, line counting and length read with
+> data_race(). The descriptor validation continues to determine whether
+> the copied record can be used.
+> 
+> Fixes: b6cf8b3f3312 ("printk: add lockless ringbuffer")
+> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 
-Link: https://github.com/rust-lang/rust-bindgen/issues/3549
+Looks good:
 
-Most importantly, this is about a bug that happens to be exposed in
-bindgen 0.73.2 only, as far as I can see -- could you please confirm?
+Reviewed-by: Petr Mladek <pmladek@suse.com>
 
-> In the reported arm64 build, Rust
-> Binder reads the wrong pointer via CurrentTask::mm() and rejects mmap()
-> with -EINVAL.
-
-Cc'ing the Binder folks.
-
-> Fixes: 313c4281bc9d ("rust: add basic `Task`")
-
-Given this is a `bindgen` bug, this tag should instead be:
-
-Cc: stable@vger.kernel.org # 6.12.x (Rust is pinned in older LTSs)
-
-> Jules Mercier reported the layout mismatch on arm64.
-
-Reported-by: Jules Mercier
-
-(I asked Jules about an email in the issue)
-
-> +# Bindgen drops the alignment of empty structs. Keep the cache-line alig=
-nment
-> +# of sched_statistics when CONFIG_SCHEDSTATS is disabled.
-> +--opaque-type sched_statistics
-
-This seems OK as a temporary workaround, but I would probably write
-something like:
-
-    # Bindgen drops the alignment of empty structs and bindgen 0.73.2
-does not add
-    # explicit padding before over-aligned fields either, thus the
-fields that follow
-    # get misplaced: https://github.com/rust-lang/rust-bindgen/issues/3549
-    # By making these structs opaque, we recover their alignment.
-
-(In addition, it would still be nice to have a debug Kconfig symbol to
-enable the layout tests as discussed in the issue, but that is an
-independent patch, of course -- I am thinking of gating it under a new
-`BINDGEN_VERSION`, plus particular architectures where we can confirm
-it is clean, and maybe `!COMPILE_TEST` in the beginning too...).
-
-Thanks!
-
-Cheers,
-Miguel
+Best Regards,
+Petr
