@@ -1,65 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164055;
-	b=vcAvJjpTV/Tia2nRaU47HOnuly4dEjSuiAR6Gb7u2rQn0fPmobU0mrbZAe4cSAy5Pyhf
-	 mjN2wSXIxwdFF9AeY6OUOI0dYzJhN2uf3Z1cQe/M4OD/DFuTfmgSioXmGrN/kB2sBxSmn
-	 1E4tyBFp7guREWLGjaE9ozkTv8T4/V+I+xDhNfjRRHatUdvxSlOVLiBYrsHw3Djb+48Ds
-	 XJL0DuwridJ+zzL1RygLJ7j2sxhwKVnLXtPN1rGmmk/evRm5VFIbBCLMcdAxWWwJh7Xtk
-	 0laFPsEY7HjvYN2UpdWvtvwaJAvSVTXPLBo/Glqkdhdxm8scVG/ogoFhbfo8cnM8ZfQ==
+	t=1795164059;
+	b=LpEpy3BkcdeqZhWqk8ioOzHfdzYZbrsIZryO2PYNQnH/0dLQ6BApvPJqAiFYyoMaR8UH
+	 /atycFs4XhMpBCsQQx+8LesJ3lOZ2TIP2K1WhyrtiW889J4n8Xuu2BeuNw1TTyx1kdKSY
+	 eNFwUvMmxMN+GGHS7QipaH3YYXHshWQnEZblRVrZ4I+6KFBCXP5eRG7AEd99pjFUmK2vL
+	 h78xSGQwRPXFEZuVmK9EAKQMOe8yELFkSQWxwyTOz1zppEzQou/YAy+7CNfXwtMTV+f4E
+	 Jl+OLr4h8I5K6GPPMSHIafeP6EuQ4vTIGMw5veDyjJjuzmEcVucjcplH6Ab84+b7Pdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164055;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wB5TcM3TKDwZOHSt+qV1TwEFeoH9YjtD3PvS6F3A1ac=;
-	b=ILEca2aNhF2Ed6jMOoNxtvUIg4hsGx44xtR9YrejRWNNFf7xkRvKmoO0TE/4FoQ7y7qT
-	 duvTXbHPCTyakLB8nneQlquOvkCXFNvldhsBQ60lr6ADMmnO1OviJL9KqNqmDEKIHYmvu
-	 +57zPm0q9nxlrdGZlhkJ+3BZEYhoRdlvveBESUHVnuF1fIxR+k1uHb4BqP0OWiCz8dcmj
-	 +tvqJZFKT6Bf0LWyCXlI9M04ODo1XRW78r+PwcAY7JbrZ3Dn8EGAypOVlAgFYZTzhCKJD
-	 z6AFW9IopEgv78obtYl6VDKrhX4Qjmlz9JeWFCVw5+/5ylc7nnNhyMyE+7EQvN8gUEg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164059;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=rgy5Vju6ditzf8RwMLDG8EIp/gd3Q1etcgAz1qHp3+Y=;
+	b=lGSx4Uu6BCURgMQtJ8Bv6IASMFL0+cByx70xRmAZosmNSFChMuL7F9lGZt3qK8h5xymj
+	 lmLIbZPuflvMH/lWGs5xv285lEycR42jmyO7MdN56yQzuM7BBJpVDpQIOVj7WoLrZ8pyq
+	 6M3+xX1udxf2+haF9m15aiN9UdFC6aIchjazcM656mp6ZysXgS4BtD6IQSV1VloUSibbR
+	 K3kSnTix8uaC1VFtGZbFtquiETjQCBIRCUr/RvYvikaP8ZPcZuBV2KpOGGxl4q9WblP6E
+	 2Ii/Z/GCtTqzRJgAyLf7QzJrjmVMv+u0waoqktQk2+SqBPGX4wAN76EFDj6A1G22t4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Krs+74Av;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 47AE9606A339
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:40:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47AE9606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zVEt2lt6;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B86C0606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:40:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B86C0606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Krs+74Av
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zVEt2lt6
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-36a315ed211so689020eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:40:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=Krs+74AvlQOgIZ4lmMEArzL83mE6I0NKSD+QRwQ8t3wNvIKxRLX6VAqrNoNYeoXEKbiL8YcomTqcj
-	 s9eLxFF/fbovTQ96sdV/baWVV+azUC/CKea8S3P3gjnNSUILD4T0kYnWGfwMYAGIZg5ocRDe2kX9oT
-	 55dkyMP9KDHRzOYg=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b00078eb95-27be8;
-	Fri, 20 Nov 2026 16:40:46 +0800 (CST)
-X-RM-TRANSID:2ee76b00078eb95-27be8
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from Z04181454368174 (unknown[10.55.1.71])
-	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66b00078a732-1e62b;
-	Fri, 20 Nov 2026 16:40:46 +0800 (CST)
-X-RM-TRANSID:2ee66b00078a732-1e62b
-From: zhangjiao2 <zhangjiao2@cmss.chinamobile.com>
-To: linux@treblig.org
-Cc: jdmason@kudzu.us,
-	linux-kernel@vger.kernel.org,
-	trivial@kernel.org,
-	zhang jiao <zhangjiao2@cmss.chinamobile.com>
-Subject: [PATCH] NTB/msi: fix error cleanup mw index in ntb_msi_setup_mws()
-Date: Fri, 20 Nov 2026 16:40:39 +0800
-Message-ID: <20261120084039.1954-1-zhangjiao2@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+        d=gmail.com; s=20260707; t=1795164058; x=1795768858; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rgy5Vju6ditzf8RwMLDG8EIp/gd3Q1etcgAz1qHp3+Y=;
+        b=zVEt2lt6j3RSrcMzVrDWhPt37eB4VammH3c6O5mGP6/7MqQwj3QDPk2mo2fzhjy7aA
+         /KQo3Ab1IAt7w4ico/AVlo5hxInhIxuN88zBm4HljIlrGtWR2uEA1gAlxKaazlv5b1Gz
+         qmQF+tf7a//+Z4W8mT5Bm/O98mUdTlCyg1ge7VEtLCPdZDA91A75BkPJ0ynqLsu/MXJC
+         xPe4Pjr3iIqBRbFfzuTqj1iAWRHfVC3nYtpyo16Xo2h08IVs48wQGxH9cFiqxAkFkseG
+         cBEcGGF4zemaWuDQevaAU+bFFbQBKPuFXhJD6dnEap9O7V9j2xRYu9dFypkT/kn2qpo5
+         UO2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795164058; x=1795768858;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=rgy5Vju6ditzf8RwMLDG8EIp/gd3Q1etcgAz1qHp3+Y=;
+        b=wkB25Lh0XEov+56lv6u8avDBWUgWQuELaZIKSvr5B00lTIsazfDdvw8X+D7eRYE+jP
+         /d3N2thgqJDnubvvRRxQ3MgmfcPC5vEli/I5NCGHGdrP6KAG7yuE633crBbhM+pQx0uZ
+         VyDCa9WUu6K0P93nG7GWR2kj8whMt/XMbxR6IOvlNwN1RCTZt71poItQbR6w8LPuBRZJ
+         9ztAA84ZoDszYPN6yw++leGifAoY53++l/A/ONDBIj0aAOzf2BV3y+MvTiR6WN7i4Ysd
+         s7trqVUuWhO19of4rIMLRCsbVB4pPPSoLSaZuCvOAz9tekxaFF71liWfxxPX8MAwYBtA
+         sT5A==
+X-Forwarded-Encrypted: i=1; AL+hErFsNhF9r96VXJEAo772KubuVXermy1Da7+WQ9G51RBYESZPZBPlp2UTrG9F6/DnVGKUb5W7Pxls4TQwtpw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91WScHTmv8sg7Rj8eUXULU7YdxNlo5sJiUmbjS/M/gdgnSsTft
+	8O8WAqw4X5KDVL4UpTI/IhHj22jaaUo2ayb2sPtaDFzIsyx02d92Loq/
+X-Gm-Gg: AZFdTZeWCUZJf7NKXXFvUjuN+NgTyiuP9McUKnT27y8j6M2l9fMDUZ7liuhH6L5SHPe
+	j18tGGFzzdf+4RUrvPE5mk917r3iKzmGO5zhrC9bvBxa6t6l9dRLof/aLysHeFbxaJRg2V/HNyv
+	kqDoS+VaG9lmRS1Jk1pKayheWozm1hOcn5OxO6HTp/J5Zpb+/TZ6T2pUUdHDgNfYv87r0tQ7ir1
+	9mGJDOCdMQ/Gp0gs0ZmxjAhdnRhEKzYcdXrDZCsFmHxCT5X9c3wYzpsZ2wH5Yra0/B8cDWYpSVO
+	ISavjXCeRNQCZ3WNa8d7VU33lLkFb1ziop90fussTHiuQdmVO+yXadpgWFYGZ43xhtaGHOXlOa0
+	foIcQw6DwVMpBssXwW345DAMy54uMhClrrQitw2ppBip5hXpdFLWgXPYTdQ/BlOfbrblrEXGUwU
+	tzzlemaHZRWePmadkkcehuRnI4DIZEH+HV9vPWpwCfGYpgfzZMxKvYT6bFOmTTH7WjCeib0b8x3
+	mxuOWGWVntN6yGH0BrHhYy9K1z9fQGMpzAjgoYrSOTEXn5AtYkW6N9xu7jZc+nWsepptlUK/bj8
+	iFKWDu9oKK9l40IiOZM5UUI+tOFXZhLDBsmDufFYZ4G2u9m5LXGIZ2/feQrL/KaBGyQfUjqE/es
+	g+1vJq6eNxa1fUDrdMg==
+X-Received: by 2002:a05:7300:d18f:b0:36c:fdba:ee36 with SMTP id 5a478bee46e88-38570e2a37dmr1891976eec.12.1795164057789;
+        Fri, 20 Nov 2026 00:40:57 -0800 (PST)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm5793181eec.23.2026.11.20.00.40.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 00:40:56 -0800 (PST)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Subject: [PATCH v3 00/14] HID: logitech-hidpp: G920 force-feedback and
+ battery fixes
+Date: Fri, 20 Nov 2026 00:40:48 -0800
+Message-Id: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,41 +93,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJAHAGsC/22Oyw6CMBBFf4V0bUkfpBRX/odxAbTQUaGkxUZC+
+ HdbdMHCzSQnuffcWZHXDrRH52xFTgfwYMcI/JSh1tRjrzGoyIgRJiilBBtQ+Gl7mHVrEkwTFlI
+ WTdeImhcSxeLkdAfvXXq9fdm/mrtu52RKCQN+tm7ZVwNNud8AqUi6PGdSloILTLEaYHZLHvP2Y
+ Wy49EMNz7y1A0ruwA7t/+8FhgnmpCy4rqiSvDkqtm37ACiyhEAEAQAA
+X-Change-ID: 20261110-hid-logitech-hidpp-6884bfb6a348
+To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
+ Gideon Heinz <gideonheinz02@gmail.com>
+Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
+ Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+ Edwin Velds <e.velds@gmail.com>, 
+ Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+ Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+X-Mailer: b4 0.17-dev-6b8b8
 
-From: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+Per Jiri Kosina's request, the v2 series has been split into this
+14-patch bug-fix series targeting v7.4 and a separate 18-patch rework
+and cleanup series targeting v7.5. The open-evdev-across-unbind
+force-feedback teardown use-after-free (v2 patch 22/33) is now handled
+in input core ("Input: destroy force-feedback device on input
+unregistration") and has been dropped.
 
-In the error_out cleanup path of ntb_msi_setup_mws(), the loop
-iterates over the peers configured so far using the loop variable
-'i', but ntb_peer_highest_mw_idx() is incorrectly passed 'peer'
-(the index of the peer whose setup just failed) instead of 'i'.
-As a result every iteration looks up the highest memory window of
-the failing peer, so ntb_mw_clear_trans() clears the wrong window
-index for each configured peer and the intended translations are
-left enabled.
+This series starts from Gideon Heinz's report of Logitech G920
+force-feedback initialization timing out in v7.3 and addresses several
+pre-existing bugs and lifetime races in hid-logitech-hidpp.
 
-Fix it by passing the correct loop index 'i'.
+The force-feedback and teardown fixes temporarily enable device I/O
+around g920_get_config() in hidpp_input_configured(), switch
+hidpp_ff_queue_work() to GFP_ATOMIC since callbacks run under the input
+event spinlock, drain the G920 FF workqueue before closing the HID
+transport on input close, synchronously disable driver work items and
+disconnect input devices with device I/O enabled before stopping the
+transport on removal and probe failure, avoid storing an ERR_PTR in
+battery->ps on registration failure, avoid NULL pointer subtraction in
+the HID++ 1.0 consumer keys report fixup, and fix an off-by-one in G920
+slot tracking that made the 63rd user effect in slot 64 unusable and
+leaked it across reopen.
 
-Signed-off-by: zhang jiao <zhangjiao2@cmss.chinamobile.com>
+The transport and battery fixes update hidpp_send_message_sync() to stop
+retrying timeouts and transport errors, initialize response buffers
+before publishing send_receive_buf to eliminate races with concurrent or
+spurious packets, fix HID++ 1.0 battery mileage event parsing and state
+updates, properly propagate negative errors in ADC measurement (0x1f20)
+queries, mark devices online on unified battery (0x1004) events while
+gating 0x1000/0x1004 dispatch, fix K750 solar battery feature lookup and
+reconnect handling, and expose and correctly map the charge_type
+property for the battery voltage (0x1001) feature.
+
+Note that device removal teardown still has limitations due to how HID
+core's hid_device_io_start() and hid_device_io_stop() (via
+driver_input_lock) gate both driver raw command/response I/O and
+subdriver event forwarding, disabling I/O before .remove() and
+hid_disconnect(). For instance, HIDPP_QUIRK_DELAYED_INIT devm-managed
+input devices are still unregistered after hid_hw_stop(), and
+hidpp_connect_event() publishes hidpp->input before input registration
+completes. Resolving these teardown edge cases cleanly will require
+follow-up work in HID core and driver input registration.
+
+Thanks.
+
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- drivers/ntb/msi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+- Split out the 14 bug fixes into this series for v7.4 per Jiri Kosina,
+  moving the 18 rework and cleanup patches into a separate series for
+  v7.5 and dropping v2 patch 22/33 in favor of input core teardown.
+- Collected Tested-by tags from Gideon Heinz on all unchanged patches in
+  this series (omitted from patches 12 and 14 which were updated after
+  v2 testing).
+- Gated event dispatch in hidpp_raw_hidpp_event() on
+  HIDPP_CAPABILITY_UNIFIED_BATTERY so 0x1000 and 0x1004 events are
+  routed to their respective handlers instead of cross-corrupting
+  battery state.
+- In hidpp20_battery_map_status_voltage(), set charge_type to unknown
+  when status is unknown, to none when discharging, full, or not
+  charging, and to standard, fast, or trickle only when charging.
+- Reset charge_type to unknown on wireless disconnect in
+  hidpp_connect_event().
+- Link to v2: https://patch.msgid.link/20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com
 
-diff --git a/drivers/ntb/msi.c b/drivers/ntb/msi.c
-index 6817d504c12a..13e9f52ec8cc 100644
---- a/drivers/ntb/msi.c
-+++ b/drivers/ntb/msi.c
-@@ -154,7 +154,7 @@ int ntb_msi_setup_mws(struct ntb_dev *ntb)
- 
- error_out:
- 	for (i = 0; i < peer; i++) {
--		peer_widx = ntb_peer_highest_mw_idx(ntb, peer);
-+		peer_widx = ntb_peer_highest_mw_idx(ntb, i);
- 		if (peer_widx < 0)
- 			continue;
- 
+Changes in v2:
+- Rebased the series on top of linux-next.
+- Collected Tested-by tags from Gideon Heinz for 17 v1 patches (omitted
+  from patch 4 where hidpp_remove() was significantly altered).
+- Reorganized the series to place all 14 stable bug fixes upfront,
+  followed by next refactorings and modernizations.
+- Updated hidpp_remove() to enable device I/O while draining work
+  items and disconnecting hidinput so in-flight transfers and
+  force-feedback teardown can receive device replies (noting that
+  complete resolution of delayed-init and transport teardown ordering
+  requires follow-up work in HID core).
+- Stopped retrying non-busy errors (timeouts and negative transport
+  failures) in hidpp_send_message_sync().
+- Initialized response buffers before publishing send_receive_buf to
+  prevent stale response reads on concurrent or spurious events.
+- Fixed HID++ 1.0 battery mileage event parsing to read capacity from
+  the correct report byte and update battery state.
+- Handled negative transport and timeout errors properly in ADC
+  measurement (0x1f20) queries.
+- Marked devices online when receiving unified battery (0x1004) events.
+- Fixed K750 solar battery feature lookup and reconnect handling.
+- Exposed charge_type property for battery voltage (0x1001) feature.
+- Link to v1: https://patch.msgid.link/20261109061103.2887636-1-dmitry.torokhov@gmail.com
+
+---
+Dmitry Torokhov (14):
+      HID: logitech-hidpp: fix G920 force-feedback initialization timeout
+      HID: logitech-hidpp: use GFP_ATOMIC in hidpp_ff_queue_work()
+      HID: logitech-hidpp: drain G920 FF workqueue before closing transport
+      HID: logitech-hidpp: disable works before stopping transport
+      HID: logitech-hidpp: do not store ERR_PTR in battery->ps
+      HID: logitech-hidpp: avoid NULL subtraction in consumer key report fixup
+      HID: logitech-hidpp: fix off-by-one in G920 force-feedback slot tracking
+      HID: logitech-hidpp: do not retry timeouts and transport errors in hidpp_send_message_sync()
+      HID: logitech-hidpp: initialize response buffer before publishing send_receive_buf
+      HID: logitech-hidpp: fix HID++ 1.0 battery mileage event parsing
+      HID: logitech-hidpp: handle negative errors in hidpp20_get_adc_measurement_1f20()
+      HID: logitech-hidpp: mark device online on unified battery 0x1004 events
+      HID: logitech-hidpp: fix K750 solar battery feature lookup and reconnect
+      HID: logitech-hidpp: expose charge_type property for battery voltage feature
+
+ drivers/hid/hid-logitech-hidpp.c | 150 ++++++++++++++++++++++++++++-----------
+ 1 file changed, 107 insertions(+), 43 deletions(-)
+---
+base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+change-id: 20261110-hid-logitech-hidpp-6884bfb6a348
+
+Thanks.
+
 -- 
-2.33.0
-
-
+Dmitry
 
