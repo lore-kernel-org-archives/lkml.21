@@ -1,58 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170188;
-	b=KP7hToCJwWK49685l+jYU3e3tos9aR2PCDzx9/73YxF0UUVvl6183ui6R4wfu9g85PaU
-	 7mVG2vxfTVXUS+ybV59c7ROEq5SvBqlCO5pZPeFDO3MNDt7KNgTRuEizBzzs56MRDiw7A
-	 q4XGmERZDitudIgfTAh1jLzjXZrj+5Idkpskk8Cj+utZwjFhnNfPy4K1GkXwgls20zGRc
-	 oF9xC5ULlPHnhH4PQZ9MHYkUirogRXdJcnwKAcsJgb4xq9TGUfZNmzZ3ckU/z/056abOx
-	 0EGkCkATyFWbq/lS9pDzL06RNPquAxTgBkNY9XI94hnyKfIy394g3gOL/ACyjFAUU6Q==
+	t=1795170231;
+	b=T60Yxto+x+9+l+F7cOqYO0eit/fFn/1+rN0vLwcgNkPqd00gwlgpzGu3pKC0JvY/affD
+	 Fzr0LVDhZgVr+VP6jj/BXtP7ZMCaRhMvynuwcfOMn3MOXIh+Xd/2USWx/Dg97F8nWoyoS
+	 8nGMlOd4z9IaYAyf53Njb6OLuIKES1GYOe3bMbrV1bNdHWQsYdvW0qEdwTPuz2V59K2fE
+	 +BtGZ4ihJTKWMwMdY6xs9weAuX3MhHzFHUpkXmO/fOFhPWRecNBZZXdV/CNNVTkN0flms
+	 augzUJ4ZgI3dhxpaTq/gveFb67PQP+oAvs/bDJ/opLHJUmWLK55PgMwb0NBLlXXsVzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170188;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=l0oOPOqoS6O4eTceK2XRqL1eFQ1+GtanbURyb8V/HdM=;
-	b=xUXGehp8y+00NMW7qa628kbWdFh7GqjbVyuWSFvnjZlWnywhz6Ds+tdz60oltS/+M8C9
-	 t+ZR+Xsk28gVDsRJ1IaEaNuFZdXTFB0flNEe25dw6MMGMR4NGwN2BxygC7OwIbJ82Uaxu
-	 IU83aQFoyxrRI7WZX4H5HBDtfCbboZD8PeLNkqv4LMIo3wzHy/PazGY6K+Fu8/0fVbZNp
-	 6k7+RtV8Ok1+R+eyodhdugPuIFi/IjgMzVE2b/yrDsh53Sepel1+fXOMIypAisjHHG4tL
-	 hpSPcQOx3dxAj+2s7khuTn/h83AMSzQylXXn5eFsL8D5fuskwEDimdqRi2voQ277qBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170231;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
+	b=WaB+zmksT/i4A2OrBNe2n2prFKsDlJIRhmP0ahiHU+jeiHfHlOqNi297xTyUC9CqQ+IH
+	 2FkMONSsuIrW443BHzy6cxZ0c3nB+9aW6Ih1ykFzi9XG2EpihC4WL8xEbb9QQrwdHp5Ag
+	 GOSkdZ9zPlOG28NFTVHJosbiO3Mwp10gaftBDy9M65oDtciqhXfMBmFTT7rOD7ZZ5h/kH
+	 c9+G4Kf7HrfqaMAfkeWF/pCeJKaUSF+Z3v4O/HubWjS/iVKQXsXMeLCePjnNAhGb2/PWF
+	 5fGAeLfUUJrdCU/Qqlw+fH5eGFD4907OimxbXDGgeinHQKE1OiZ8bUkSsYdWE+ezkIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="ahd7y3/K";
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUjJhogu;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DvAiTvQQ;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 953B2606A320;
-	Fri, 20 Nov 2026 10:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 953B2606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADE1606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADE1606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=ahd7y3/K
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D55FA1A173D;
-	Fri, 20 Nov 2026 10:23:05 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9FD656017D;
-	Fri, 20 Nov 2026 10:23:05 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4C9E11BC12B8;
-	Fri, 20 Nov 2026 11:22:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795170184; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=l0oOPOqoS6O4eTceK2XRqL1eFQ1+GtanbURyb8V/HdM=;
-	b=ahd7y3/KRLuGXbKFuJU+sxd+SulSkEpFUj0w5OZpcYq5//6lLr9VGTmhC5bn1uNU34NAFQ
-	VgMt1quyUhSy/wdHc6zIdOlgPHtlRkc8egnwFMyV2IS/Tb9i+qWitgDT0rjkcMlO2/FgE0
-	+yJtKtQbgPFvWRA5jJRxVWPgmpG1SVOB8PXKmwdia1f3KT3MaIjDwIWhtEH7+hKrPoRHIv
-	HNPRjRYbVxc7PWTBTiYblxaDqOpob+PAg1ig0X+T9oNuuU5HrLqeZ+K1s5ZXClDSeXGfbl
-	t6xJTj64pdfciybVB7yE5UI1JOS40s0qXFGUYDBda26jPjV1149d4nh9LCXtHw==
-Message-ID: <4f7183c4-5a59-4c4d-8f33-a307fad4d7e3@bootlin.com>
-Date: Fri, 20 Nov 2026 11:22:55 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=fUjJhogu;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=DvAiTvQQ
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f4Or1742148
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=8TcUmke74uRIjwI8jkOaFTKa
+	ZBFJu17S8g+x0u6+YBA=; b=fUjJhogutELs2uVD7hnzyFBThyKIi0WEy+eTSFcR
+	cX811Sw3p+NmQjf3221rW1b1mqT/vLupUqlV1+tZNiXSDv+nOEZm7lTfeCz1vvnt
+	Moc586UGO2NbfG+Yc+bHNnrmL6HjIrhVH45lqGATN1zNQ9/3ug8j/N/ID+nLlTnc
+	oUcI2EKojh+n/X36HL+8MenRFmhRxsI6nhWW9926PIrcJeh90s0N0VYzNrTQuvnO
+	5r3yrJLN8CBdWxBmyJQI0IwGho5cqXZkbRKazYaQN/tGdx4i022WxwZll4KFh0rM
+	wDNl+Y1doBoMLQpJysXkYpU6mp5E8PiafBGlLYQtImgHVg==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4yhdn6-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:23:49 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-93f37c94ceeso346841985a.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:23:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795170229; x=1795775029; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
+        b=DvAiTvQQ8Rck6OpoqHVsHQKyFrZsIDOaG0lE6t1v9pYEoRg7g3CsYLWbBOqvgX1Iqn
+         HvDDtJAiCbXSQFzk+IzAA7PNArtqs/oVz8ftMo7vebwnpLTOXvKtX/72fianSv+P2uyQ
+         hxD26mPz7aWu/fEN4Tdq1Wfpvo5Ze4iXPeBFxDBEPARX0GqmsqIbYFHPJw0J/Jed254z
+         cVr3oKBQeC82FmjnL4GITmvPQREM5lcWDuSIYr/IITUDhW++mMEVLi5HDZ+RFgsle9sg
+         QCDrH7sYx/PiqaNslADuR07sXI1tFE0KAFNnFqzYJKm5qH6zmSkCg8/mVEs2IU6YMDpM
+         xbJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795170229; x=1795775029;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8TcUmke74uRIjwI8jkOaFTKaZBFJu17S8g+x0u6+YBA=;
+        b=Lw7W3CRTqpzxYKm8hnsFUuvmzK6doM+YsQXOQDA0bYfrujeaj8B75eqD1b3RJu6P85
+         Mj1UbXeMRJNFJI3FVlTRbQHooUXuGvRN4sHwF08xwp8TcP4R7Z16fTztt9/WZVz3zDmL
+         W5CeLc+Q9DG3B9040HGd8Ry0Zzx124D3WDuAiEXlbYugvWL9v1YhXoTXr3CabOqNSzeU
+         qJq1vpuZQMfOwytVJ7/b/C7lqSdGgdMY1kI/YOhY2xmIM7/w92KtxVXCOHzSNFKQu+Zj
+         E3ZdZtFCqXxm4IjB1ao5fbqhdlBTm35wBRLz7VC3Fxclhc7+12kkA4VuVF7itsxdfTts
+         9T3Q==
+X-Forwarded-Encrypted: i=1; AL+hErEPMEmIzh2FUjhVglf1kfZrBnwBHHvhHaXaBGm0lkZ3akfx4+vXscRuXzJARIWZcXnPmIB1Efr3cY17xnw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Vlu/uLOlqE9gi92Dz/gqOTXXOcd5hS2ldiN2vdRRvLZzbxhAX
+	V05eAB+O/nr9b1g301pVKP9qPR3gUoJRfMKYjjKzPYk0o26EBOTiZrmfR0EHkRZAQlhtaBCQFMY
+	0huzbEyhTDfVc2dHw9o1Ijn81yQsDGwxTv4sMQtA4wQZWXAgy3Uwfz7fuZbfhaSNysI4=
+X-Gm-Gg: AYBFou3LcFGqzLWXz9KnK2nMrSCxX0xN5s1UakgRpaYTTmW8JXj8/w93Lsd4oML7kpW
+	dGRIBC1GT5hNKQ2FL2sva3dfQdPRfw3oippJqbTtpsUSL7WOQkB0+vBu/PNSAwd05PGyu3P/e3e
+	d4Y9w0mhMn8rHnYID5aQc1RPU9BuRKK3rixQbdlN1v8FvC9nUJf6oIdBLPKmHHoLIYrKLTC+J+g
+	4qgTTs4C48Pj7OU4XOy1RTxeeRTWrY8UeO80bNUBsXzhfSnPvmY7MEHmAGAEjblbQpzV1Nb5iNI
+	qgR845zpnrhiyyTJwakMU6PmPRNOud5Pb9H5MqcRv2WplxyA7gICeqBEIZ8OwYCRQz01kYLrSKe
+	/xjZXBNJ1+dXB/nnY0sUfNpM2DblMY0e8OJnvBuSLdby+lN+OIZMt3sxV09Ca4liy
+X-Received: by 2002:a05:620a:4085:b0:93c:d209:4ea1 with SMTP id af79cd13be357-949b35cf4ccmr548458785a.24.1795170229033;
+        Fri, 20 Nov 2026 02:23:49 -0800 (PST)
+X-Received: by 2002:a05:620a:4085:b0:93c:d209:4ea1 with SMTP id af79cd13be357-949b35cf4ccmr548456785a.24.1795170228426;
+        Fri, 20 Nov 2026 02:23:48 -0800 (PST)
+Received: from oss.qualcomm.com ([188.27.161.77])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm4698002f8f.3.2026.11.20.02.23.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:23:47 -0800 (PST)
+Date: Fri, 20 Nov 2026 12:23:46 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] clk: qcom: gcc-shikra: add PWM XO512 source clock
+Message-ID: <dtjei3tsuc37fzaxokznqtxxmkbuk3h6dn3yxnqcru7hggkuuu@igwaugqrjxfd>
+References: <20261116-pwm_clocks_shikra-v1-0-55fc11501821@oss.qualcomm.com>
+ <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,161 +128,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type
- from the descriptor
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
- ovidiu.panait.rb@renesas.com, recv.jo@gmail.com,
- muhammad.nazim.amirul.nazle.asmade@altera.com, thomas.petazzoni@bootlin.com,
- alexis.lothore@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
- <179510815456.3136.11469597684415088@kernel.org>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <179510815456.3136.11469597684415088@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-pwm_clocks_shikra-v1-2-55fc11501821@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6b001fb5 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=qo5-9WyrHJ9SuE11QxkA:9 a=CjuIK1q_8ugA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX79Y3I+zVSx0u
+ FHbalxjfS9XnNMnqz9+pXQaItpNNcIm72qQRD7IzDUJC1lWdzVLcU2viODKtNYqgHpNwhTJdnGW
+ ba+wytRc2u48ZgAYS/Up/Lc3BbDaFcYgm1COnToLLdqAKX/J8OqF00GxV84zM5B1q2l6wOgtvmR
+ rqbvBc4AgrQdQR3wIzPHyUlBV5rUYkDa43i1EHHHL8N9w4Y4TLYhcZPE4QIUOJKXejnt1K1pUbh
+ YQR21nJ9XTFOdt/CDGx+BuiqxRz4jxVoLSs/8cXCZ4IULRLjORj543QNK0nHyOSJx4SzKr7IJ/m
+ DJpmJj0eEBO18fkwCXwtv5CEqWSNMUJUA8Xz7Gs8p/u2nYp21X17MyiwgPJ96EbuFkvEq2fc2jQ
+ gmUIai5CyHj7df9kDQ5VHCSQuCOzFQtxgFg5NQ1R2+0JM8S/rST6kj6L8+7WoJnGOn10jhGpUb/
+ m0rHsrvBFjsS+QmkxVw==
+X-Proofpoint-GUID: 19N6pAIJgy3Yk18QxiQQJUHIA3Vj_m0e
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX6/SJ/eEhI+EN
+ 5IIEbb6VTmgQXVeNlhp7vSHxkJAYdG9jyFxfhk5KhwF6gchKh4VNRYkMlLlqR6kVpXAtGzzYQjC
+ ukY2hL+o6b1je8zqplvT9+Pu99/tgLA=
+X-Proofpoint-ORIG-GUID: 19N6pAIJgy3Yk18QxiQQJUHIA3Vj_m0e
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 adultscore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200041
 
+On 26-11-16 10:57:45, Taniya Das wrote:
+> Add the programmable PWM XO512 divider sourced from bi_tcxo and make
+> GCC_PWM0_XO512_CLK its child. This permits PWM consumers to select their
+> PWM core rate through the common clock framework.
+> 
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 
-
-On 11/19/26 18:09, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] This patch is a bug fix but carries no Fixes: tag, and the
->   subject reads like a new feature ("Report the VLAN tag type from the…
-> - [Low] The ET/LT macro names in dwxgmac2.h disagree with how the new
->   dwxgmac2_wrback_get_rx_vlan_proto() reads them.
-> 
-> --
-> 
-> net: stmmac: xgmac: Report the VLAN tag type from the descriptor
-> 
-> This adds a get_rx_vlan_proto() desc op for XGMAC. The op decodes the
-> RDES3 ET_LT field and reports either ETH_P_8021AD or ETH_P_8021Q as the
-> stripped outer tag type. vlan_rx_hw() now uses that op when it exists and
-> keeps ETH_P_8021Q as the fallback.
-> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> index 6719ac6e395bc..71ce2bc9b5e11 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
->> @@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
->>  	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
->>  }
->>
->> +static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
->> +{
->> +	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
->> +	case XGMAC_ET_LT_VLAN_STAG:
->> +	case XGMAC_ET_LT_DVLAN_STAG_STAG:
->> +	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
->> +		return ETH_P_8021AD;
->> +	default:
->> +		return ETH_P_8021Q;
->> +	}
->> +}
-> 
-> [Severity: Low]
-> This isn't a bug, but the macro names in dwxgmac2.h don't match how they
-> are used here. The only comment on them is:
-> 
-> drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h:
-> /* Error Type or L2 Type(ET/LT) Field Number */
-> #define XGMAC_ET_LT_VLAN_STAG		8
-> #define XGMAC_ET_LT_VLAN_CTAG		9
-> #define XGMAC_ET_LT_DVLAN_CTAG_CTAG	10
-> #define XGMAC_ET_LT_DVLAN_STAG_STAG	11
-> #define XGMAC_ET_LT_DVLAN_CTAG_STAG	12
-> #define XGMAC_ET_LT_DVLAN_STAG_CTAG	13
-> 
-> Read outer-first, XGMAC_ET_LT_DVLAN_CTAG_STAG means an outer C-tag, yet
-> dwxgmac2_wrback_get_rx_vlan_proto() returns ETH_P_8021AD for it. Likewise
-> XGMAC_ET_LT_DVLAN_STAG_CTAG falls through to ETH_P_8021Q.
-> 
-> The commit message says "note inner/outer is reversed in the macro
-> names", but nothing in the tree records that. Could the macros be renamed
-> (for example XGMAC_ET_LT_DVLAN_OUTER_STAG_INNER_CTAG), or could a comment
-> in dwxgmac2.h give the tag order? Otherwise a future user of these
-> constants could easily invert the mapping.
-> 
-> If the names do follow the databook's outer-first order, the mapping for
-> values 12 and 13 would be inverted. That can't be checked without the
-> databook, so it would help to confirm which reading is correct.
-
-I don't have the databooks. The AgileX5 doc is pretty clear about which
-value is what though, we could rename the macros but that's not very
-urgent IMO.
-
-> 
-> [ ... ]
-> 
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> index fb9aad748cb34..bf23d82e9f383 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
->> @@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
->>  {
->>  	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
->>  		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
->> +		u16 proto = ETH_P_8021Q;
->>
->> -		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
->> +		if (hw->desc->get_rx_vlan_proto)
->> +			proto = hw->desc->get_rx_vlan_proto(rx_desc);
->> +
->> +		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
-> 
-> [Severity: Medium]
-> Should this patch carry a Fixes: tag? It looks like it fixes a
-> user-visible regression on XGMAC.
-> 
-> On XGMAC, __stmmac_dvr_probe() advertises NETIF_F_HW_VLAN_STAG_RX and
-> enables MAC-level stripping by default:
-> 
-> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:__stmmac_dvr_probe() {
->     ...
-> 	if (priv->plat->core_type == DWMAC_CORE_XGMAC)
-> 		ndev->features |= NETIF_F_HW_VLAN_STAG_RX;
-> 
-> 	if (dwmac_is_xmac(priv->plat->core_type)) {
-> 		ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_RX;
-> 		priv->hw->hw_vlan_en = true;
-> 	}
->     ...
-> }
-> 
-> stmmac_fix_features() also keeps STAG_RX tied to CTAG_RX on XGMAC.
-> Because of this, every frame with a stripped 802.1ad outer tag went
-> through the old vlan_rx_hw() and reached the stack labelled as
-> ETH_P_8021Q. 802.1ad VLAN uppers received no traffic and QinQ between
-> hosts failed.
-> 
-> The sibling commit da17990421d7 ("net: stmmac: Disable S-Tag processing
-> on dwmac4") describes this exact failure and carries a Fixes: tag. Its
-> message says the dwxgmac2 side can be fixed using the RDES3 ET_LT field,
-> which is what this patch does.
-> 
-> Without a Fixes: tag, stable trees that pick up the dwmac4 half would
-> still mislabel S-tags on XGMAC. Would this be a suitable tag?
-> 
-> Fixes: 534df0c1724b ("net: stmmac: dwxgmac2: Add support for HW-accelerated VLAN stripping")
-
-That's not strictly speaking a regression, I'm ok sending this to
-net but I'm not sure this is worth.
-
-Maxime
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
