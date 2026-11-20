@@ -1,78 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187178;
-	b=Cg7ftEQqvIesgCXt6ybzWTR3UCY/rEPxBAad/Wva6i7LxC3KbhOee0/csua9x+MNvA9m
-	 39I4XNCVSnerjKUdDJMkyQINXn6g06UrfNHyUWOUSLxvWQfPRivV6LTct76LFDTYwlrQm
-	 Rgh8Ny0YdJfC9C4spGxvUA59z0VWlZNxKmaMXBx+dSrsYSAg/rgYcaRcIGSR6W1NTqubX
-	 oIt40zHveoS/CJrR+8A85qpvcj8tpQTV+H7F2wxTaNCKCVpshXGNzC2yxL2EWWsTfijoJ
-	 o8H/45SbnBu8/lkyVCOCidiwg3YThAGx7zQHbbza9hCrCjdbqo47yvMFwZk4HdH91Gg==
+	t=1795187224;
+	b=Obg61SMjmLByOv3eL5vkuyKwIhqkNSou3n3OxA6UHWEiTiw27yY7akpQ8P39ioGWH07D
+	 g7p9FZrfMQ5jWplCmRuvC37ZAqOLhzI1K5wgK4Kjnx1XHz/WEMu6cYH5zT0Ty3IqRh5gf
+	 rXIF8ajQMkTcssTUhYHei3n3fg4PLPo0oKsqPbNg2USzrFtbVxD6tbLih7nu9Q5yLSFxK
+	 gXfYgB1Tm0FgIkjgcX0iOLHfUGSDoLekGEoXd5PKN23ddMNZpZjSrh75DctmNhNyBFnBv
+	 T9q1wFMB+TXOXpMIkSy/bv+kAGn6zwqryxXZjG9b8zpBbNfrZ1Bne58X9CToGT6NpGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187178;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=EAuWYfFjbXXdRKGkMUFxtHe0TJlcXwp3sYIp4VPcpKc=;
-	b=NcohnFSymh3a0Ch1N6Apmdex6Ok7fdF8rgvQ9VJbeNNUsXt/DrcvE8UQJJUE7qJqwsUO
-	 afWi6aX1ZF3C5hz9T6ar83mQQ+U1N5nNFZU990XcflNvzEPTfK/kd/Xp0S0fEgBwLIi9Y
-	 gXbwAQ4v/Udt/aE8MIV145vdR8F1/Lrv+11EaZI7oxsLqOUIfGy1byMlnBSQQnIERUWVF
-	 GmzJNPf+WF5TauwEv6zPTgXHKNlCaIlBq7TR+E5iLd5BQ0UIZ0mY8yu7t8/rbfG1h/d7u
-	 SquSlZc6al/KOU7TGdqg/sfIRZVJHV+RwZLIGuDPJjwoWct3Iqs8X2dWpFm/GFcwTkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187224;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=O0TPK5M5hrUDnQg4DmTQaVPUwM9tdKMHp47PNrEqGW0=;
+	b=fXn0nGpbKfQFmyt4q0GZVwrPiBsJzn1304IojSAlNIDLLdlZV5UgKk2qgaXYDcAYDidp
+	 O1F5LVjAekR2hhmj/Vi06wbdY4Rh7VUvuIJ4r1SkixmDZsVAys5tfFgFT1demjyrclAKP
+	 K5iraWxOIHPipq+Z+1KXuJpva88OPh0w5wdaP43qYLHGsLYLCbl8sd0LvUnVNh3XQN3kZ
+	 etIP0+50sv47A76MiBa4z5YFp+TB6TmxYFmJYAKiM6AAKE1M539MucMiaW4mibSrRCEoY
+	 TVK+YyLuvavHwrgLAu+UrEcns4kEZf6k22QKG80etLXINdV71sdZ+ZcwXipBXGqtGUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S2Kkd8fx;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="XdrLx/Fm";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=atf+HUNm;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F43606A326;
-	Fri, 20 Nov 2026 15:06:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6F43606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA6CB606A33E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:07:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA6CB606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=S2Kkd8fx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795187177; x=1826723177;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=HF/fhKFXWR+yqPn0rejXIeI42zfVDMjdRvsE+UApABE=;
-  b=S2Kkd8fxBU0KtIhDO3CKvXe3DT8E4xoste2tlrFin8K5NxKrQUTOCJLj
-   yYeE806AvW/xaDz0oYhi2RSUZkk/jQZBzpq/4dNU3Tq43RgaBdRLwAZVa
-   iEYdWT/uWOJkFg4kvQY9YgsOiaoyGGn01+FlWJKgkcJGL4lPw9rg9vmNJ
-   9ZPKJcWBqv54mfkjis2wfMuaJ6cCujzbenoBeHzKOX3E+uiYVtsAWOPYz
-   Svpj2aj0F97JyNs2TNke1vS6NU/eCC6CD+7kngCPnpeQiM6AX7PdFKXND
-   OghTOYPMICTrJvAEqahfZZfATEVEiKwjNQIepzWtbHthgbkzQSeQ6r8v5
-   g==;
-X-CSE-ConnectionGUID: pZTtAYwjQ9u0etzCv7dTgw==
-X-CSE-MsgGUID: zrY+PZPuRjGktE5D6yT1Mg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4108597"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4108597"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 07:06:17 -0800
-X-CSE-ConnectionGUID: QBC5tPAkRS2xjJdTSVRM9Q==
-X-CSE-MsgGUID: QHE77ujPRVq+PEwtDmHPtg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="11050941"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Nov 2026 07:06:15 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id 7A0DA99; Fri, 20 Nov 2026 16:06:14 +0100 (CET)
-Date: Fri, 20 Nov 2026 16:06:14 +0100
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
-Subject: Re: [PATCH] usb: typec: hd3ss3220: Propagate regmap_read() errors
- from attached-state check
-Message-ID: <awBh5m0bWIgf_eVO@black.igk.intel.com>
-References: <20261119170650.1521609-1-irogers@google.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XdrLx/Fm;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=atf+HUNm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795187222;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O0TPK5M5hrUDnQg4DmTQaVPUwM9tdKMHp47PNrEqGW0=;
+	b=XdrLx/FmbHYG2Blycneuwo7L9BekQbbh4y4ZRFX4OrcKe+XagU7Exm05UbnhaDl++rQ0l/
+	TXn8pFkksRMm1/aAHUUkbD/+rmHdZD+guzjNODJYNMgnZovGTcUurbwMqwNirF9xec4R06
+	qq1mVSJOq0tLzHBJ5k6IJw35ND7q1NA=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-549-Rlz2A8E_Pm6oOId1jNpFGQ-1; Fri, 20 Nov 2026 15:07:00 +0000
+X-MC-Unique: Rlz2A8E_Pm6oOId1jNpFGQ-1
+X-Mimecast-MFC-AGG-ID: Rlz2A8E_Pm6oOId1jNpFGQ_1795187220
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb8da397aaso3375435e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:07:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795187219; x=1795792019; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=O0TPK5M5hrUDnQg4DmTQaVPUwM9tdKMHp47PNrEqGW0=;
+        b=atf+HUNmIBtmeaxP3vFbVrI+iI6bplrGsWSan3oKdQlkKy8nQDteKVtqhoIvR3ythv
+         GC2ncmOWH1UTgRqbpoLNnevwHkuwhWc24xcTkm6OylKD9fZffeGFyQL0QVV6fZcylUrh
+         RMvcH/2r23T2FAJNE4MlUsxDvRmsd2pkO9yMD7OEpJpJu0fhCMCTNOrKxHTo7j4ymghA
+         YotOoY3WuVXq81fH9b9lJXDTqkli1YuM1ZCxNjZMyZziQjLow6cedw+l6Fi3/3G/Ay4t
+         jtCD1cdBzsPzp1t2IE18g9h8yUBzShi1YJgw0xIb8mBJ0kMQsgZamfMVJz7VpzmafFHe
+         DvGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795187219; x=1795792019;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=O0TPK5M5hrUDnQg4DmTQaVPUwM9tdKMHp47PNrEqGW0=;
+        b=XYqBMWGTM655HlsMQ7S3z/Sifb6+nUKIuhRouYuBW7O9JZTog/fv1uSkWyrJjk800m
+         IWxcF+faPzXAMs/74KA+BOGEYYDvckUANrASy01cNpa+3OYlfmdzjmN5nKacAFZd53gE
+         COkTVF7/928cCW8FWcn/njBx84uEBPWrGC1aQmDWqtXfSt5Guxum8PwGKj1SYSGyR39Z
+         L3k2RWYhJdr1wtueG+xlKooM7Lk47pBSwXiYhuhmTs+0aya8K0B6cxQ5857WLMLRbcVq
+         D3024SIO/mKvGZUGuBg9odRiDb+GywoFSAVPDBWL3wt10+ukekpxszuRSV0DWSugJ1MX
+         97MQ==
+X-Forwarded-Encrypted: i=1; AL+hErE1mJsE3+1JjGauuU+LJIsZJvELgIYvbYSTvY16lKmYPNG9JHy7nwkFj9Y0JDXQMZ9OcnCUXYVspCiMOQM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Wu6u6eeKuRbXB3PHR6LdMjlQrUIE7QyzlZ6dNrFO+PiZllxIw
+	MMtvYC0VJOEuXrSy/Ij9Jhc9AAUw0jV5kCKRJUTuyoQ3A5W0tbgOS1nPDuxYFwGG9/0lopSWGqI
+	N9/i+EvdaWZ9Rj5eSmaGzahzQvVD6nmjPdAMkjPEjNV3qw2IYks7CyftbXMTXCVq/Dw==
+X-Gm-Gg: AYBFou0H1OoQuigldRO01R2tFkCky4Qh+B4+Wi671t4TpfkRCj5xHGk1sb9Gn6vz4uU
+	JAT0RRS0HFh7qe7B597nGG7RZjMiRCESpczBOJBue6w0LyDQd40x8TWSAnAhT7KlfW5xaK2+nd1
+	kUgWEVp+1rBReYKQqijw7Ky/n6q5Dg9IXPTiHiMPfcIcw49dsAUSu7XbOeuOcstnprZc0E9qQn0
+	feCpYkRI3twZLjJ5F2eVh7iy2i9X0NxGiqG/NZ2+m9cIvncGGhG9ne1qOpT+Pl2UAg0uHqFZQNI
+	GPbV8NN8xTXB7TMQG1btZrUEJTaKVQY9nuMmEoxE6ritk8WEtM6ygovUO1VvQZeDWZWawEE+EU1
+	oQLl1C9SAClSPTLO8x1Uk5wsYNOBJO2+YCMYH5oDXUXED1ZHq6ueSJ/oK35Z6tFKqzzlz+yOP2T
+	PYSRY=
+X-Received: by 2002:a05:600c:4585:b0:4a1:c6f5:2450 with SMTP id 5b1f17b1804b1-4bb8881b8e4mr73498305e9.17.1795187219443;
+        Fri, 20 Nov 2026 07:06:59 -0800 (PST)
+X-Received: by 2002:a05:600c:4585:b0:4a1:c6f5:2450 with SMTP id 5b1f17b1804b1-4bb8881b8e4mr73497495e9.17.1795187219045;
+        Fri, 20 Nov 2026 07:06:59 -0800 (PST)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([151.29.158.90])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8849247asm92714315e9.7.2026.11.20.07.06.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 07:06:58 -0800 (PST)
+Date: Fri, 20 Nov 2026 16:06:55 +0100
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: kernel test robot <yi1.lai@intel.com>, oe-lkp@lists.linux.dev,
+	lkp@intel.com, linux-kernel@vger.kernel.org,
+	aubrey.li@linux.intel.com, yu.c.chen@intel.com, ltp@lists.linux.it,
+	cgroups@vger.kernel.org, rcu@vger.kernel.org,
+	linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	luca abeni <luca.abeni@santannapisa.it>,
+	Yuri Andriaccio <yurand2000@gmail.com>,
+	Yuri Andriaccio <yuri.andriaccio@santannapisa.it>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun@kernel.org>, Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang@linux.dev>, Davidlohr Bueso <dave@stgolabs.net>,
+	Tejun Heo <tj@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Qais Yousef <qyousef@layalina.io>,
+	John Ogness <john.ogness@linutronix.de>
+Subject: Re: [PATCH v3 6/8] sched: Limit sysctl sched_rt_{period|runtime}_us
+ to RT_GROUP_SCHED
+Message-ID: <awBiDzEvUch_5ZJn@jlelli-thinkpadt14gen4.remote.csb>
+References: <20261113-sched_dl-v3-6-a76ffa1cdeee@linutronix.de>
+ <202611192004.cca8bf73-lkp@intel.com>
+ <20261119142348.MkPQ2Fby@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,108 +149,62 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261119170650.1521609-1-irogers@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119142348.MkPQ2Fby@linutronix.de>
 
-On Thu, Nov 19, 2026 at 09:06:49AM -0800, Ian Rogers wrote:
-> hd3ss3220_get_attached_state() has return type 'enum usb_role' (an
-> unsigned enum) yet returns negative regmap_read() error codes directly.
-> Neither hd3ss3220_set_role() nor output_poll_execute() checks for errors;
-> on a transient I2C failure (such as -EIO, cast to 0xfffffffb),
-> hd3ss3220_set_role() passes the bogus value to usb_role_switch_set_role()
-> and disables VBUS power. On role-switch providers without a .get callback
-> (where sw->role caches the value passed to usb_role_switch_set_role()),
-> reading /sys/class/usb_role/*/role subsequently indexes usb_roles[role]
-> out-of-bounds.
-> 
-> Return an int status from hd3ss3220_get_attached_state(), pass the
-> resolved enum usb_role via an output pointer, and leave the current role
-> and VBUS state unchanged on I2C read errors.
-> 
-> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
-> -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
-> coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
-> -Wimplicit-int-enum-cast; not tested on TI HD3SS3220 hardware.
-> 
-> Fixes: 1c48c759ef4b ("usb: typec: driver for TI HD3SS3220 USB Type-C DRP port controller")
-> Signed-off-by: Ian Rogers <irogers@google.com>
+Hello,
 
-LGTM, but no stable?
+On 19/11/26 15:23, Sebastian Andrzej Siewior wrote:
+> On 2026-11-19 22:11:10 [+0800], kernel test robot wrote:
+> >  [1;31mBroken: [0m
+> >     • proc_sched_rt01
+> > 
+> >  [1;31mFailures: [0m
+> >     • proc_sched_rt01
+> > 
+> > Session stopped
+> > LTP test details
+> > ----------------
+> > starvation: starvation.c:115: TCONF: Skip test due to slow kernel configuration
+> > proc_sched_rt01: proc_sched_rt01.c:45: TFAIL: echo 0 > /proc/sys/kernel/sched_rt_period_us expected EINVAL: EBADF (9)
+> > proc_sched_rt01: proc_sched_rt01.c:47: TFAIL: echo -1 > /proc/sys/kernel/sched_rt_period_us expected EINVAL: EBADF (9)
+> > proc_sched_rt01: proc_sched_rt01.c:53: TFAIL: echo -2 > /proc/sys/kernel/sched_rt_runtime_us expected EINVAL: EBADF (9)
+> > proc_sched_rt01: proc_sched_rt01.c:62: TBROK: Failed to open FILE '/proc/sys/kernel/sched_rt_period_us' for reading: ENOENT (2)
+> 
+> The test writes to those fies and now complains because the files don't
+> exist. My intention was to remove those files because writing to them
+> serves no purpose and people don't know this and _assume_ they disable
+> RT throttling.
+
+I agree on the RT throttling part. Before this series, writing to them
+does serve a purpose, though. 5/8 moves that functionality to sysfs,
+which leaves the files without a purpose, and 6/8 then removes them. So
+existing users don't lose a useless knob; they lose the working one,
+which has moved somewhere else. LTP is not the only one that will
+notice, I'm afraid.
+
+This is what I meant with "yes and no" in the RFC thread: we need an
+interface for admission control, and I wasn't sure how much breakage
+moving it would cause. Now we have a first data point. :)
+
+You suggested yourself back then to keep the files and make them apply
+to DL only. I think that's something like:
+
+ - keep sched_rt_{period,runtime}_us for !RT_GROUP_SCHED, backed by the
+   same code as the new dl_{period,runtime}_us (sched_dl_try_boundary()),
+   keeping the current validation semantics (the LTP test checks the
+   EINVAL cases, and 0 is a valid runtime today)
+ - pr_warn_once() on write saying they only control DEADLINE admission
+   control and that RT throttling is handled by the fair_server,
+   pointing to where its knobs are
+ - fix the documentation as you are doing already
+
+That way nobody gets surprised anymore, which was your point, and we
+don't break anyone? We can still discuss deprecating the procfs names
+later, once the new interface has been around for a while maybe?
 
 Thanks,
+Juri
 
-> ---
->  drivers/usb/typec/hd3ss3220.c | 22 +++++++++++++---------
->  1 file changed, 13 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/hd3ss3220.c b/drivers/usb/typec/hd3ss3220.c
-> index 60d6de9ba339..212c3624961c 100644
-> --- a/drivers/usb/typec/hd3ss3220.c
-> +++ b/drivers/usb/typec/hd3ss3220.c
-> @@ -163,10 +163,10 @@ static int hd3ss3220_set_source_pref(struct hd3ss3220 *hd3ss3220, int prefer_rol
->  				  src_pref);
->  }
->  
-> -static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
-> +static int hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220,
-> +					enum usb_role *attached_state)
->  {
->  	unsigned int reg_val;
-> -	enum usb_role attached_state;
->  	int ret;
->  
->  	ret = regmap_read(hd3ss3220->regmap, HD3SS3220_REG_CN_STAT_CTRL,
-> @@ -176,17 +176,17 @@ static enum usb_role hd3ss3220_get_attached_state(struct hd3ss3220 *hd3ss3220)
->  
->  	switch (reg_val & HD3SS3220_REG_CN_STAT_CTRL_ATTACHED_STATE_MASK) {
->  	case HD3SS3220_REG_CN_STAT_CTRL_AS_DFP:
-> -		attached_state = USB_ROLE_HOST;
-> +		*attached_state = USB_ROLE_HOST;
->  		break;
->  	case HD3SS3220_REG_CN_STAT_CTRL_AS_UFP:
-> -		attached_state = USB_ROLE_DEVICE;
-> +		*attached_state = USB_ROLE_DEVICE;
->  		break;
->  	default:
-> -		attached_state = USB_ROLE_NONE;
-> +		*attached_state = USB_ROLE_NONE;
->  		break;
->  	}
->  
-> -	return attached_state;
-> +	return 0;
->  }
->  
->  static int hd3ss3220_try_role(struct typec_port *port, int role)
-> @@ -231,7 +231,10 @@ static void hd3ss3220_regulator_control(struct hd3ss3220 *hd3ss3220, bool on)
->  
->  static void hd3ss3220_set_role(struct hd3ss3220 *hd3ss3220)
->  {
-> -	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
-> +	enum usb_role role_state;
-> +
-> +	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) < 0)
-> +		return;
->  
->  	usb_role_switch_set_role(hd3ss3220->role_sw, role_state);
->  
-> @@ -258,9 +261,10 @@ static void output_poll_execute(struct work_struct *work)
->  	struct hd3ss3220 *hd3ss3220 = container_of(delayed_work,
->  						   struct hd3ss3220,
->  						   output_poll_work);
-> -	enum usb_role role_state = hd3ss3220_get_attached_state(hd3ss3220);
-> +	enum usb_role role_state;
->  
-> -	if (hd3ss3220->role_state != role_state)
-> +	if (hd3ss3220_get_attached_state(hd3ss3220, &role_state) == 0 &&
-> +	    hd3ss3220->role_state != role_state)
->  		hd3ss3220_set_role(hd3ss3220);
->  
->  	schedule_delayed_work(&hd3ss3220->output_poll_work, HZ);
-> -- 
-> 2.56.1.708.g77570a6a1d-goog
-> 
-
--- 
-heikki
