@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.247
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795137919;
-	b=c4yTN0HxYdXk1abPlyBP36H8mG4CALNmkKaGAZpX+fPszE4gmwEApPaeCfejN1GJvyc0
-	 quM0KPmBtEoUbsXxySEre/UNo7Zt6VEaIukwFl33kh87I2bYnGGGtOnm5ypH2h7YiUefb
-	 lZe+cbwB+oTv93WphmL4C9GZBBesOAearLavwRtjKHMhVRoo0wlvUPDklwKWmJFjq0bzr
-	 dU6rnQU/PkMGI/MXoLxosd8o37yeezSKhI3C38h68Dq1x4svouGAoGvoFCZPCKJ5NKNOP
-	 uF8//5wsp3jYlElDZ6MxKrksx6ZVBYvNswfWTEsL2XyiiXyHYV2bFMwtCWhkOrHxrqg==
+	t=1795137933;
+	b=OBx37VAuohC7F5deWyS4uFcx+lS8g8jmWQ83T2XjjfrLF3Cxnu59W88o4i9/6BZ+bUGd
+	 k/lLTVCcJF66X8FwOMV0Dy3Kn3xt5x6KFSL8szvl6KMfC0aZGiZEkCKVtV+pjJ32yzE+l
+	 nOJqNX/yixFv+5+MD23uwa7b2tWB17vBM/p3arhjdNKbOC2ON24Wj9mqjO9/yU18/AU3r
+	 E2fMEebKEvoW4h5qMAiMaJgN3KWWKTAeaIB/QYn0AwiIYOKNFFyo1oXWSVgckU/5J2b9i
+	 jNX2fcD92rieFt8fLGncnnifTeHYOUhUdlFCglftXjqvA1f8Kh1NAP/RZszEWmqZrVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795137919;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137933;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer;
-	bh=JbJuKhab/Vgh190FqNXMcJ4FqvMOMsZQYdK5z3+jxO4=;
-	b=AVfAtErogDd6zxEPv5FgYqqDQAYnM1MXJOaI5quJ0IhpsxdvyfhXtQCL3W0+QxL16ouz
-	 PaRW/gyjbO7zA/UV42OADEpDOy5vYcyVuZ0F+dTwcRTE46zKzc3NSIoqVoWHdyf80eHCl
-	 K5nWueznI22Uvot/PWlMwTLPVVxWhp6LwopcLSlZbrPagpFFCahqJ15TznY18qSsYo/NH
-	 LAq506tmjBGxaSIaGl1+QQxkhwGG45Uyf63T4VjNDgH76ITGYGQg6yqJTtroesf+iJhnc
-	 hy2s+TlYN+o2AvKYaeAFf0SU5a0lM4XWEVyQ85fmEO8ro7STiGBPYQJGQUk3I2rXDgg==
+	bh=2gSV0needxPj0T4ZOpzhkN7DJbnt1l+TnjQVhyw0V2o=;
+	b=OS0AzKv+JjGlvW4JiV6dOVitkdEhl8LDkjpTunBT8Wrm4AEbXjcZLlhK2u/3+3yZ8M2r
+	 6uKiqz7FQFx8O9I3IjkBW2DymfObM2oNOK3lLYlH0TcBYL/4ondyQwNjEglYIWTDYzF3m
+	 RjJTfC66KM712iwrDOyrh3z/xzKHS6AB2Her683JOggPDyQX1ZMy59lWum+FkGTroKQ4z
+	 orXEi60eF87UdQAj3ppmc8+58EIBGP6XcYRZL+zWU3CG7UI4TmBIM7hJkBKeHghVqr0Wz
+	 +6kPmPYh5LSEc9a59XhYpBuKBk6yZ3j+bmi+BKJULkBJnMnbJUJfAvO6SAzWBaZCgvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tsBr0+wo;
-	arc=none smtp.remote-ip=91.218.175.247
-Received: from mta0.migadu.com (out-247.mta0.migadu.com [91.218.175.247])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n3gJemzn;
+	arc=none smtp.remote-ip=95.215.58.6
+Received: from mta1.migadu.com (out-6.mta1.migadu.com [95.215.58.6])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC4AD606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:25:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC4AD606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E54E3606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:25:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E54E3606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=tsBr0+wo
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n3gJemzn
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=3YcJAy1yoKXk+ufpr0EPa26/P7xaYqN6s9qsKgZQrww=;
+DKIM-Signature: a=rsa-sha256; bh=GjCy52YedJyFjyXxDoBsnPsbz64C4vxsF8XxpUrpVoU=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795137916; v=1; x=1795742716;
- b=tsBr0+woW1ZL0k7u69sBnUmdTlEjbiODwWRiRNA7GV9G+vWGRNjteww+5q8+3Jze0++gXcQW
- CBimJTJaXuErsKmVuSlo9uy9pPcLfjjxaW1KhFrqS85/hyX4rBaErelWGPyOGRt4GZnFTpV0tFZ
- tBYqMwURB+a/zzx3Cyq5O7vA=
+ t=1795137931; v=1; x=1795742731;
+ b=n3gJemznAzKVtwRj9FZK3+el0ULIy4pegns48KOU8cCRu9we6OHUH+BCa9hGFM9qyh+Ap+DI
+ 1YBLMKGKDpNTfWKQ73ylRa6MfoCHHGCXiE50qMOd4qK7IzynRYrWshWu0Jt5Qx1k4BtzoiXk+BR
+ tuhoKHW7//qyiUVXZcebzO9o=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1f686c37af51896e;
-	Fri, 20 Nov 2026 01:25:16 +0000
-X-Mizu-Trace-ID: 1f686c37af51896e
+Received: by smtp.migadu.com with ESMTPS id 1bd11eee1c74e2dd;
+	Fri, 20 Nov 2026 01:25:24 +0000
+X-Mizu-Trace-ID: 1bd11eee1c74e2dd
 X-Migadu-Flow: FLOW_OUT
 From: Qiliang Yuan <qiliang.yuan@linux.dev>
-Date: Thu, 19 Nov 2026 20:25:01 -0500
-Subject: [PATCH v6 1/3] nvme-multipath: keep a large delayed_removal_secs
- from wrapping around
+Date: Thu, 19 Nov 2026 20:25:02 -0500
+Subject: [PATCH v6 2/3] nvme-multipath: apply delayed_removal_secs changes
+ to a pending removal
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,7 +62,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261119-bug-nvme-mpath-set-live-srcu-v6-1-da85b18b274b@linux.dev>
+Message-Id: <20261119-bug-nvme-mpath-set-live-srcu-v6-2-da85b18b274b@linux.dev>
 References: <20261119-bug-nvme-mpath-set-live-srcu-v6-0-da85b18b274b@linux.dev>
 In-Reply-To: <20261119-bug-nvme-mpath-set-live-srcu-v6-0-da85b18b274b@linux.dev>
 To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
@@ -72,59 +72,104 @@ Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
  Qiliang Yuan <qiliang.yuan@linux.dev>
 X-Mailer: b4 0.13.0
 
-nvme_mpath_remove_disk() delays the removal of a namespace head that
-lost its last path by delayed_removal_secs, which it converts to
-jiffies as delayed_removal_secs * HZ.
+With delayed_removal_secs set, removing the last path of a namespace
+head doesn't delete the head right away. nvme_mpath_remove_disk()
+queues remove_work with the configured delay, and bios submitted in the
+meantime wait on head->requeue_list in case a path comes back.
 
-delayed_removal_secs is an unsigned int, so the product is computed in
-32 bits and wraps around for values above UINT_MAX / HZ. With HZ=1000,
-4294968 seconds turns into a delay of 704 jiffies, and the head goes
-away in under a second instead of after about 50 days.
+A write to delayed_removal_secs only takes effect for removals that
+start later. A removal that is already pending keeps the old delay, so
+clearing the attribute leaves the queued bios waiting until that delay
+expires instead of failing them, and lowering or raising it doesn't
+move the pending removal either. When paths remain but none of them is
+usable, for example because they are ANA inaccessible, nothing
+resubmits the queued bios after the attribute is cleared at all.
 
-Compute the delay in 64 bits and cap it at MAX_JIFFY_OFFSET.
+Requeue a pending remove_work with the new delay when the attribute is
+written, cancelling it first so that the module reference taken for it
+carries over. Have nvme_init_ns_head() cancel the pending removal
+before it drops subsys->lock rather than after, so that a write to the
+attribute cannot requeue the removal once a path is back. When the
+attribute is cleared, kick requeue_work, so that the queued bios fail
+right away if there is still no usable path.
 
-With delayed_removal_secs set to 4294968 at HZ=1000, removing the last
-path deletes the head after (mean of two runs, min-max in parentheses;
-"> 10000" means it was still there 10 s later):
+With delayed_removal_secs set and no path left, the attribute is
+changed two seconds later and the head is removed after (mean of two
+runs, min-max in parentheses):
 
-  before (ms)     after (ms)
-  858 (856-860)   > 10000
+  delay (s)  before (ms)            after (ms)             change
+  30 -> 0    26311 (26103-26518)      8.5 (8-9)            -99.97%
+  30 -> 5    28281 (28037-28525)     5293 (5198-5388)      -81%
+  10 -> 30    8110 (8097-8122)      30094 (30057-30130)    +271%
+
+A direct read queued before the 30 -> 0 write fails this long after
+the write, with no path left and with the only path ANA inaccessible
+("> 15000" means it was still queued 15 s later):
+
+  paths         before (ms)            after (ms)   change
+  none          26261 (26071-26451)    4.5 (4-5)    -99.98%
+  inaccessible  > 15000                4.5 (4-5)    < -99.97%
 
 Fixes: 62188639ec160 ("nvme-multipath: introduce delayed removal of the multipath head node")
+Suggested-by: Nilay Shroff <nilay@linux.ibm.com>
 Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
+Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
 ---
- drivers/nvme/host/multipath.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/nvme/host/core.c      |  7 +++++--
+ drivers/nvme/host/multipath.c | 11 +++++++++++
+ 2 files changed, 16 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
+index f4aa02869b790..48d432c5d7aeb 100644
+--- a/drivers/nvme/host/core.c
++++ b/drivers/nvme/host/core.c
+@@ -4231,12 +4231,15 @@ static int nvme_init_ns_head(struct nvme_ns *ns, struct nvme_ns_info *info)
+ 
+ 	list_add_tail_rcu(&ns->siblings, &head->list);
+ 	ns->head = head;
+-	mutex_unlock(&ctrl->subsys->lock);
+-
+ #ifdef CONFIG_NVME_MULTIPATH
++	/*
++	 * Cancel a pending head removal under subsys->lock, so that
++	 * delayed_removal_secs_store() never requeues it once a path is back.
++	 */
+ 	if (cancel_delayed_work(&head->remove_work))
+ 		module_put(THIS_MODULE);
+ #endif
++	mutex_unlock(&ctrl->subsys->lock);
+ 	return 0;
+ 
+ out_put_ns_head:
 diff --git a/drivers/nvme/host/multipath.c b/drivers/nvme/host/multipath.c
-index ae8059366b57d..9958d08cd3829 100644
+index 9958d08cd3829..df96933f49459 100644
 --- a/drivers/nvme/host/multipath.c
 +++ b/drivers/nvme/host/multipath.c
-@@ -724,6 +724,15 @@ static void nvme_requeue_work(struct work_struct *work)
- 	}
+@@ -1251,6 +1251,13 @@ static ssize_t delayed_removal_secs_store(struct device *dev,
+ 	mutex_lock(&head->subsys->lock);
+ 	head->delayed_removal_secs = sec;
+ 	assign_bit(NVME_NSHEAD_QUEUE_IF_NO_PATH, &head->flags, sec);
++	/*
++	 * Apply the new delay to a removal that is still pending. The module
++	 * reference taken for it carries over to the requeued work.
++	 */
++	if (cancel_delayed_work(&head->remove_work))
++		queue_delayed_work(nvme_wq, &head->remove_work,
++				   nvme_delayed_removal_jiffies(sec));
+ 	mutex_unlock(&head->subsys->lock);
+ 	/*
+ 	 * Ensure that update to NVME_NSHEAD_QUEUE_IF_NO_PATH is seen
+@@ -1258,6 +1265,10 @@ static ssize_t delayed_removal_secs_store(struct device *dev,
+ 	 */
+ 	synchronize_srcu(&head->srcu);
+ 
++	/* Resubmit queued bios, so that they fail without a usable path */
++	if (!sec)
++		kblockd_schedule_work(&head->requeue_work);
++
+ 	return count;
  }
  
-+/*
-+ * Convert delayed_removal_secs to jiffies, capped at MAX_JIFFY_OFFSET so
-+ * that a large value doesn't wrap around into a short delay.
-+ */
-+static unsigned long nvme_delayed_removal_jiffies(unsigned int secs)
-+{
-+	return min_t(u64, (u64)secs * HZ, MAX_JIFFY_OFFSET);
-+}
-+
- static void nvme_remove_head(struct nvme_ns_head *head)
- {
- 	if (test_and_clear_bit(NVME_NSHEAD_DISK_LIVE, &head->flags)) {
-@@ -1523,7 +1532,7 @@ void nvme_mpath_remove_disk(struct nvme_ns_head *head)
- 	 */
- 	if (head->delayed_removal_secs && try_module_get(THIS_MODULE)) {
- 		mod_delayed_work(nvme_wq, &head->remove_work,
--				head->delayed_removal_secs * HZ);
-+			nvme_delayed_removal_jiffies(head->delayed_removal_secs));
- 	} else {
- 		list_del_init(&head->entry);
- 		remove = true;
 
 -- 
 2.43.0
