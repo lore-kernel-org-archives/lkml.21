@@ -1,84 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196629;
-	b=WqRAxZvtpp70SsdQWVv9TK3aKyw4X0uUT1FkebOEnflBvkke8XhbsRYck1e171SLNYF2
-	 1fOxXTXNVjuBAJ2Gcy0ccT7yMFyTRWBE9ny5nDeSGMlY15tkv6+EXMvkYSYsSjm2CwyXN
-	 KaKb489TTVqIIk1Lcbls5UcMNyjXLvoCDbt0d++Zu1j5/xqn1GKpyaPQQY+KifU3zfQK8
-	 N7mLzZHGn4gLVUjwS9DLrSL0ttaE6kJnS4PxyZbZBLOpmgYIt+e5kXBnFykh0xgkIS35h
-	 9Jwn/0Bk5d2jmxBlQIRIrP/5Fp41E8dpprJ3UWcrqCqNcEcV0GTnr64oHw2at/B3NRw==
+	t=1795196625;
+	b=ir0rBGLT72sYHVroMHXW0KPnouj5wc+vrzudhzrocOi5gGjmVxp6nMVAagioNMTyRWtp
+	 +3Gqm0cqP5ihcETCufeaeypaJqhz9Wgur3V2mkvP5/AmTjHenkYE0pVSjpt+CCPbMkSog
+	 q3Nt+Jxqax1n66dHJ6hTH1Q0OxCNrw7t9TTN0GDP+Pq48CPaGFs2Zm58ZaSoD/Rs+HcfY
+	 qfEchQzYeOino6ISFpcI1mUNWR7s4EeRW4ORVhUwyAX/cKXlzw91Fe+UHbOCw8iVCgft0
+	 U1lRw3PjzM0O+sC1RQw+af5x9jpc8/K5MG9c8DMbO7B7adFVnRAVeVLLVVk2oDxUnSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196629;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196625;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=v7KGyIjjX8jZtUtHgLg9K/kkFR1h+yrC9ZS5X10Hz+M=;
-	b=DXO35+2htuTfGMGpitMfRRLpn+xazbV79OlmsIQY4pNxzt8+XgDQ8vfPggyji/Nv7snS
-	 zVUkyVV+gA2USTke7f4CVZsJ+Zo71zaXYlXotdpOtia3K32l+XqzT21eZcP10eakWeMmj
-	 2P1Dgs2/PhzIaUyUYO+jsf94YP67St0fdb4ydig+dMp4rgYyY1Bhfe//LxdpVFEeltOgi
-	 SvkLL4D1V+W7mLyqd6Zf39OqvJp1PpIzQ5cZohgBXqTCwOXqLiirpQi2ogOGxAKmwVCx4
-	 QBup/lmCxEveEaRgXll/spbSEPG1jP+FbCkjAHjZTsx2YlR/kFkXnFVDnJJc7bhX94Q==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+	b=OvKAYwi7ke7LJ5gFgdjukuXZpfABGp/JaFi1q8U/D9In1jbPGIqm0elmCn1NjvJdgyfZ
+	 V0vAqAS5OGdOoY998/+LQ67EmYgbP5HrNbw0nVvn2wPteNsLWyURH2L1HmFYvM6GjUNNd
+	 oeRMhXhC2lcUYeng4HHryIOnhnEd2TBO7o9fHgUu/8kYT4/WggrgtXGsVT7LThgOvIPjW
+	 AVJFk0SSLA+uwkmrIVhupWdVEAdF6Bv4B+tNspGse4lumFb+GwqWHv5Ul3gqMdrTn5xTz
+	 jEFGgqiIpT98+VAucaPv7fzarhzMwEg0UpcDCZML4nbA7cpuUhCLwl3wEYL4j3J7BMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A6xI3fT1;
-	arc=none smtp.remote-ip=209.85.217.54
-Received: from mail-vs1-f54.google.com (mail-vs1-f54.google.com [209.85.217.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="znst8q/z";
+	arc=none smtp.remote-ip=209.85.222.45
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC7AA606A7FF
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC7AA606A7FF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07554606A7C8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:43:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07554606A7C8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A6xI3fT1
-Received: by mail-vs1-f54.google.com with SMTP id ada2fe7eead31-7cc603a168fso417266137.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:43:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=znst8q/z
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-992f6d8cb51so262871241.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:43:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795196627; x=1795801427; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=v7KGyIjjX8jZtUtHgLg9K/kkFR1h+yrC9ZS5X10Hz+M=;
-        b=A6xI3fT1lI8DKPJhlyClzuqgbSyUXbUKKP5S3dMl6Icz57s5HODVzTDdw4sdaPLsmS
-         hNYEY1v+ZNq/AFAx6FoYKJOvIbBPdntq5z4+hdJdmHCN7m33SXREUCaIY1Qxjvo55Ynb
-         /ZxrGyFlN76Ei6SUku+eUs0e5JEwWRdqHFie9/55QHAZD/p6sdJVXo7KIvSOecSPhWwk
-         x6IiIc6nb378CNK3LnsbGLZNRDG/e2IjX3B/ZleCRaHLRxdvvoHs4x2TtB4pPJj079d6
-         2AmlAr0MPJCW/uf3NP7PFuutwfvtfabMiCTKGHm1ycSSg7B26WU7Qo20ZXMhiEQrjeFl
-         exig==
+        d=gmail.com; s=20260707; t=1795196624; x=1795801424; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+        b=znst8q/zgI1dTcSh+97WdgRu1/7fSZ/YVcxApvB9sqUs7XECM7vkrHOqnlyTsAkq4m
+         Keo2PN2Fle/zyfoibUcwc/l3XWkZFvnbQN9Riw2C+YFt8webA6Ld7xML3JuFTVmKaz9K
+         0tLV+w0Z5Cd4lD0CWM8pIZepoDQEuFQrTZrYy7lRgzsaFboJiL9ieGwleMa01Au81/yR
+         sJnXpsssLc6Cun8Aj7JFPkxio/r6ebHLYTLvyXy+3LSRNou1x8M4nVl2vA9Xpa3Q61M9
+         vE7cicjhqH02ympWsnYRYQn6gk1P7buW0QYksCRuPOCf0vkn3lXeN3EPjoxdyXW/Xiii
+         kpQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196627; x=1795801427;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=v7KGyIjjX8jZtUtHgLg9K/kkFR1h+yrC9ZS5X10Hz+M=;
-        b=V0lgkpsBVL6ObVVI87MV8xV9z9yWvt/+bF8Rt8LIu7RzxjPe4YK66Bh+5+Z5rVN6Ev
-         MRiCPy7FQtjyPBXNa9z3PRXLRd/WpL59vmOfR5Q2AcCK7VY7yHqJ2UliNL7GnrPM/asH
-         T5EKS/rGGK6BNRNo9KiHweeRROgdaOOh8jnYHN7YmL1bLSWf4JRe1d1GgsPTfwqvDNSI
-         2mJp3LyTRUmFk+FjArsr8P9GegkdDCY+TgRNUJflnsjQKXenyqwBPFvIS3in9t8x7hFZ
-         wZJSqTH36HRhdD5ygMeoBwLjCYy9uG6yy+NEr7NrI+J/V8YgKJEAeAuyY+GNQ7o/tuPU
-         E2tw==
-X-Forwarded-Encrypted: i=1; AL+hErElbCurVkkn4epwRubA6b5lq2HKDx/36QY3uPB5/wruF+ztLh5sRFweppq2Uy/1/PalXOvFiFyJ6UUT2dY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JT7aH28Z03skyY1AzZy+5zeIRAfXwI5+YpaVR+voDo3rs43KY
-	f82ASEuuyvQHY3+Q8n3Rg6cf2y+AHlD9G9PlxnfXAXWxfhqdlFw/TC1U
-X-Gm-Gg: AZFdTZexUxmD+5+yUX6V627MZ5PzawXYhU45b8j829xVx4ILHbKCjgP4Jf8lHQv3Bp5
-	QhE/mi8HRK7fvTkJ/xwWvDYvvr7MBafKYi/Dd3hScpJR1xR/VSAtjJzkdzApKnJM5HM4eh1l29D
-	gAzxq0M1GoSrFJ5hIXRNR/UrTSM8ecP/t9IhhKDAgFxuyBDxQFmbPx3ZNfp7ZOXjEAQDZpDJcPf
-	sRAYVwiKRRCriDiAyHXyIu+JhBXZ0F/pHhBP8PVvZAedCEeYTzlQZ7/0xaXOhOG+77dyfMzGQ8A
-	KoUTAzubt+1PwPdSOsDKTAUoxnGHpABv+giiIC++r1U6K5I67T+vrIJsEELvW1wAX+DcUSkHhty
-	Bq9zWHm+CO0YuUZnEo+I6Fg3mIvs2PwzKvS02APssAmwf/FKf1ADBnU6EWskkbkkvG0fpENWHMm
-	bQn6krWBFsYvlENvKUDJO0G9xY0B1ispuvD3omPhEHHTQHfaeh3Yj8xDIoX8ByMiZyVZT+WDu6R
-	Q7qcFz13INHZlsJHZXqkonvaUhMMGjR4L1omRQAFlvuWlvxrudb189UFNI0VlI4yW7dpOvostNE
-	itMM18EQPmUI4srXTh75/9S8coz8fJA8hzQEaBqpUwwIfDe4MIZi4ggHkuXB6LjuUq/MjUk7nMd
-	MQx/MbkbLlKIHgJo=
-X-Received: by 2002:a05:6102:41a3:b0:7d2:754c:23e7 with SMTP id ada2fe7eead31-7d7396d1b09mr1556174137.35.1795196626639;
-        Fri, 20 Nov 2026 09:43:46 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795196624; x=1795801424;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5z1EgR65emUydSCqho9zKh6KfG5YB5vPm248oYuEGq0=;
+        b=uIFtENvRVF+7wIPOTL2Njvn1BDRDqfNDSo1Za3yTYIKm6iVBrZy+6XoRLimPk/psMO
+         bFDNEbU603foO0Rsa3h9XY6DBezSmfMgAY4pIrEiOwzhPgnayR2Vq+5JVG4tF3AJLyZ+
+         x7LzrEVeg85JEQH1oMu+jLAnHiCnCRaceXyjSMHrY8QBie0qORZTGiVYjn5sPMcuZszG
+         4aQ3LCAhYzZGwJygUlCc6SJDkMZWatLm8uZ/tFw1wSUimEq75RlMIpikvxY4dbHFjGX/
+         +iOUSRkwu0iYf8lam8tifx3vVnT3gaMkAytNPkNPDY3lcqvDG2SlW6jsYj0UPuZU5vj/
+         dHPw==
+X-Forwarded-Encrypted: i=1; AL+hErGDjTM1l7n2wvL6LLJgiLMSWlLo0cLYeSMl8czEHeUfh5+/hV2p+LCLaRA+L8oHeIyHO4uJBKJ/kESRQcI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z87L3L77twyW8anDlupFDoprYy5k7UbbM8vIpgaI/FaIiMmXCg6
+	YxK8ZQnVvx7Ve+us++bOgw95ujeeT0a9kgXghRRst0o7Tpq5qkdzV076
+X-Gm-Gg: AZFdTZeDTlW+ytUGTZnbwMPsluR2zw81oUIi1Wt+Dx5uBnG5LCV2vv6TUB5uhJdwV9w
+	BcAb0kdW4qrHWRZCcWiUmswdiOKCmpUlSTPCOXrq1FEDgW/Oqoi2ggJuyXln52DIX3zTgcxMkY6
+	G0x1e5JmcUESxkjKChNB8N4USSFLafy3/Vfh8JnD0FOxamw0tc/LRuGM09IqbWZaJja4JcP3v34
+	/UobRvX3TVGE80avRYoOKLhL7c47HsIL3md+IDXicrUkCYpIzJVm77vfmSHj7Iq0OFB0qRPSkcG
+	OhWhUMOIaQkyE6q6pZ7kNkTpwjF+TjVQU9X9X8pgsqY61JKNaiE8m+8ikzGnN4wEI25cjVzS/YG
+	W70MleadINB87VCd5wN/j4fjl4NGl7te8+/dXffjZNgy4QBjlwNcOcw7C3wIq/4KOUafhZSBsvU
+	HNia60CE558GmQGR6MYs0qn5VwDS/U7sccdprJ7xP98brxI9Ons6+pR6VM3F2StAFRDBDUHVM0W
+	O0MZxpFQXf2JzpwR8Y3LqHRLB4iOejEt6NJf7OyrHo8eh4xMQE01WJiyQGyRdfbnTNDmEcX7j04
+	ojgdTo6rGgVlLfdr2+2l69jqM4v21MPaanfUnCQoUQMQhgU7Si+W5tWcuR/oWEtONhG6AA==
+X-Received: by 2002:a05:6102:3f13:b0:7c3:9a36:bbda with SMTP id ada2fe7eead31-7d72b368b75mr1845474137.5.1795196622985;
+        Fri, 20 Nov 2026 09:43:42 -0800 (PST)
 Received: from localhost.localdomain ([2603:9000:d440:53a:a9cf:4432:7fb7:e8])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.45
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e7d784b3sm3571363137.2.2026.11.20.09.43.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 09:43:45 -0800 (PST)
+        Fri, 20 Nov 2026 09:43:42 -0800 (PST)
 From: Juan Agustin Niccolini <juanagusnicco@gmail.com>
 To: "David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
@@ -93,12 +91,10 @@ Cc: Simon Horman <horms@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net 3/4] udp: Ignore a connect()-set device in the bind conflict check
-Date: Fri, 20 Nov 2026 12:43:40 -0500
-Message-ID: <20261120174341.35873-4-juanagusnicco@gmail.com>
+Subject: [PATCH net 0/4] udp: Fix bind conflict check bypasses
+Date: Fri, 20 Nov 2026 12:43:37 -0500
+Message-ID: <20261120174341.35873-1-juanagusnicco@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261120174341.35873-1-juanagusnicco@gmail.com>
-References: <20261120174341.35873-1-juanagusnicco@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,203 +106,35 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The bind conflict checks compare sk_bound_dev_if, which connect() also
-writes, for a link-local or multicast IPv6 peer.
+An unprivileged user can get a UDP socket bound to an address and port
+that another user's socket holds, in a state bind() would have refused,
+and receive that socket's datagrams. This series fixes three bugs that
+allow that and adds a selftest.
 
-This is only safe if the device is the one that bind() reserved. A
-socket bound with no device holds its port on every device, but while
-it is connected to such a peer it looks bound to one device, so a bind
-of the same port on another device is admitted.
+These are sibling vulnerabilities of the TCP one fixed by my
+commit f675070191f2 ("tcp: Fix the SO_REUSEPORT bind cache admitting a
+conflicting socket"). The one in patch 1 has the same kind of cause: a
+SO_REUSEPORT shortcut that lets one matching socket stand for every
+socket on the port. The other two predate git. All were discovered
+during an LLM-based audit.
 
-As a result, an unprivileged user can bind a port that another user's
-socket holds, and receive the datagrams that arrive on its device once
-that socket disconnects:
+Juan Agustin Niccolini (4):
+  udp: Fix bind conflict check stopping at the first reuseport socket
+  udp: Keep the bound device on disconnect unless connect() set it
+  udp: Ignore a connect()-set device in the bind conflict check
+  selftests: net: Add UDP bind conflict tests
 
-  victim:   bind([::]:P), connect(fe80::1%eth0)
-  attacker: SO_BINDTODEVICE(eth1), bind([::]:P)   /* should fail */
-  victim:   connect(AF_UNSPEC)
+ include/net/sock.h                            |   4 +
+ net/core/sock.c                               |   3 +
+ net/ipv4/udp.c                                |  69 +++++-
+ net/ipv6/datagram.c                           |  25 +-
+ tools/testing/selftests/net/.gitignore        |   1 +
+ tools/testing/selftests/net/Makefile          |   1 +
+ .../testing/selftests/net/udp_bind_conflict.c | 228 ++++++++++++++++++
+ 7 files changed, 317 insertions(+), 14 deletions(-)
 
-Compare the device that bind() reserved instead: none for a socket
-whose device connect() set, which SOCK_CONNECT_DEV records. A VRF
-master that connect() narrowed to one of its interfaces does not get
-the flag and is compared as before.
 
-Note that the checks read the flag without the other socket's lock, so
-it is ordered against the device with barriers: seeing the device
-before the flag would trust a connect()-set device again.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
----
-Notes:
-- A connect() that sets the device and is undone again, both between
-  the two reads of the flag, can still be seen as a bound device, so a
-  conflicting bind can be admitted. Not fixed here because closing it
-  needs a sequence count in struct sock, a larger change for a window
-  that the other socket's owner has to open within two loads.
-- connect() also narrows the local address of a wildcard-bound
-  socket, which opens the same window through the address. It is not
-  fixed here: connect() moves the socket to the secondary hash slot of
-  the narrowed address, so a specific-address bind on a busy port never
-  scans it. Closing that needs either a full scan on every bind or no
-  rehash on connect, which slows down binds or lookups on busy ports,
-  so I leave it for a separate patch.
-
- net/core/sock.c     |  2 ++
- net/ipv4/udp.c      | 46 +++++++++++++++++++++++++++++++++++----------
- net/ipv6/datagram.c | 12 ++++++++++--
- 3 files changed, 48 insertions(+), 12 deletions(-)
-
-diff --git a/net/core/sock.c b/net/core/sock.c
-index 5ce4aefc514d..48ec344a3a8b 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -650,6 +650,8 @@ static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
- 
- 	/* Paired with all READ_ONCE() done locklessly. */
- 	WRITE_ONCE(sk->sk_bound_dev_if, ifindex);
-+	/* Pairs with the first smp_rmb() in udp_bound_dev_if(). */
-+	smp_wmb();
- 	WRITE_ONCE(sk->sk_userlocks, sk->sk_userlocks & ~SOCK_CONNECT_DEV);
- 
- 	if (sk->sk_prot->rehash)
-diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
-index 9f1f45afee53..a13bf32cbdb9 100644
---- a/net/ipv4/udp.c
-+++ b/net/ipv4/udp.c
-@@ -131,11 +131,35 @@ EXPORT_PER_CPU_SYMBOL_GPL(udp_memory_per_cpu_fw_alloc);
- #define MAX_UDP_PORTS 65536
- #define PORTS_PER_CHAIN (MAX_UDP_PORTS / UDP_HTABLE_SIZE_MIN_PERNET)
- 
--static bool udp_lport_same_bind(const struct sock *sk, const struct sock *sk2)
-+static int udp_bound_dev_if(const struct sock *sk)
-+{
-+	int dif;
-+
-+	if (READ_ONCE(sk->sk_userlocks) & SOCK_CONNECT_DEV)
-+		return 0;
-+	/* Pairs with the smp_wmb() before SOCK_CONNECT_DEV is cleared. */
-+	smp_rmb();
-+	dif = READ_ONCE(sk->sk_bound_dev_if);
-+	/* Pairs with the smp_wmb() after SOCK_CONNECT_DEV is set. */
-+	smp_rmb();
-+	if (READ_ONCE(sk->sk_userlocks) & SOCK_CONNECT_DEV)
-+		return 0;
-+	return dif;
-+}
-+
-+static bool udp_bound_dev_overlap(int dif, const struct sock *sk2)
-+{
-+	int dif2 = udp_bound_dev_if(sk2);
-+
-+	return !dif || !dif2 || dif == dif2;
-+}
-+
-+static bool udp_lport_same_bind(const struct sock *sk, int dif,
-+				const struct sock *sk2)
- {
- 	return sk2->sk_family == sk->sk_family &&
- 	       ipv6_only_sock(sk2) == ipv6_only_sock(sk) &&
--	       sk2->sk_bound_dev_if == sk->sk_bound_dev_if &&
-+	       udp_bound_dev_if(sk2) == dif &&
- 	       sk2->sk_reuse == sk->sk_reuse &&
- 	       inet_rcv_saddr_equal(sk, sk2, false);
- }
-@@ -145,6 +169,7 @@ static int udp_lib_lport_inuse(struct net *net, __u16 num,
- 			       unsigned long *bitmap,
- 			       struct sock *sk, unsigned int log)
- {
-+	int dif = udp_bound_dev_if(sk);
- 	kuid_t uid = sk_uid(sk);
- 	struct sock *sk2;
- 
-@@ -157,14 +182,13 @@ static int udp_lib_lport_inuse(struct net *net, __u16 num,
- 		    sk2 != sk &&
- 		    (bitmap || udp_sk(sk2)->udp_port_hash == num) &&
- 		    (bitmap || !sk2->sk_reuse || !sk->sk_reuse) &&
--		    (!sk2->sk_bound_dev_if || !sk->sk_bound_dev_if ||
--		     sk2->sk_bound_dev_if == sk->sk_bound_dev_if) &&
--		    inet_rcv_saddr_equal(sk, sk2, true)) {
-+		    inet_rcv_saddr_equal(sk, sk2, true) &&
-+		    udp_bound_dev_overlap(dif, sk2)) {
- 			if (!bitmap) {
- 				if (sk2->sk_reuseport && sk->sk_reuseport &&
- 				    !rcu_access_pointer(sk->sk_reuseport_cb) &&
- 				    uid_eq(uid, sk_uid(sk2))) {
--					if (udp_lport_same_bind(sk, sk2))
-+					if (udp_lport_same_bind(sk, dif, sk2))
- 						return 0;
- 					continue;
- 				}
-@@ -184,6 +208,7 @@ static int udp_lib_lport_inuse2(struct net *net, __u16 num,
- 				struct udp_hslot *hslot2,
- 				struct sock *sk)
- {
-+	int dif = udp_bound_dev_if(sk);
- 	kuid_t uid = sk_uid(sk);
- 	struct sock *sk2;
- 	int res = 0;
-@@ -194,13 +219,12 @@ static int udp_lib_lport_inuse2(struct net *net, __u16 num,
- 		    sk2 != sk &&
- 		    (udp_sk(sk2)->udp_port_hash == num) &&
- 		    (!sk2->sk_reuse || !sk->sk_reuse) &&
--		    (!sk2->sk_bound_dev_if || !sk->sk_bound_dev_if ||
--		     sk2->sk_bound_dev_if == sk->sk_bound_dev_if) &&
--		    inet_rcv_saddr_equal(sk, sk2, true)) {
-+		    inet_rcv_saddr_equal(sk, sk2, true) &&
-+		    udp_bound_dev_overlap(dif, sk2)) {
- 			if (sk2->sk_reuseport && sk->sk_reuseport &&
- 			    !rcu_access_pointer(sk->sk_reuseport_cb) &&
- 			    uid_eq(uid, sk_uid(sk2))) {
--				if (!udp_lport_same_bind(sk, sk2))
-+				if (!udp_lport_same_bind(sk, dif, sk2))
- 					continue;
- 				res = 0;
- 			} else {
-@@ -2207,6 +2231,8 @@ int __udp_disconnect(struct sock *sk, int flags)
- 	sock_rps_reset_rxhash(sk);
- 	if (userlocks & SOCK_CONNECT_DEV) {
- 		WRITE_ONCE(sk->sk_bound_dev_if, 0);
-+		/* Pairs with the first smp_rmb() in udp_bound_dev_if(). */
-+		smp_wmb();
- 		WRITE_ONCE(sk->sk_userlocks,
- 			   sk->sk_userlocks & ~SOCK_CONNECT_DEV);
- 	}
-diff --git a/net/ipv6/datagram.c b/net/ipv6/datagram.c
-index 0296207dbeb0..37a093f74724 100644
---- a/net/ipv6/datagram.c
-+++ b/net/ipv6/datagram.c
-@@ -141,9 +141,12 @@ EXPORT_SYMBOL_GPL(ip6_datagram_release_cb);
- 
- static void ip6_datagram_connect_dev(struct sock *sk, int old_dif, int dif)
- {
--	if (!old_dif && dif)
-+	if (!old_dif && dif) {
- 		WRITE_ONCE(sk->sk_userlocks,
- 			   sk->sk_userlocks | SOCK_CONNECT_DEV);
-+		/* Pairs with the second smp_rmb() in udp_bound_dev_if(). */
-+		smp_wmb();
-+	}
- 	WRITE_ONCE(sk->sk_bound_dev_if, dif);
- }
- 
-@@ -275,9 +278,14 @@ int __ip6_datagram_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
- 		np->flow_label = old_fl6_flowlabel;
- 		inet->inet_dport = old_dport;
- 		WRITE_ONCE(sk->sk_bound_dev_if, old_bound_dev_if);
--		if (!old_bound_dev_if)
-+		if (!old_bound_dev_if) {
-+			/* Pairs with the first smp_rmb() in
-+			 * udp_bound_dev_if().
-+			 */
-+			smp_wmb();
- 			WRITE_ONCE(sk->sk_userlocks,
- 				   sk->sk_userlocks & ~SOCK_CONNECT_DEV);
-+		}
- 		goto out;
- 	}
- 
+base-commit: 19a227903e65c7a9c179156485660a4e017575fe
 -- 
 2.43.0
 
