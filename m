@@ -1,74 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212827;
-	b=IX/sPrJHN3Lc1NKbgwIj7yzXsUAzIbNbtrEAV2zOtJNpU/NHuqj55Zy4trwbxVS/OG5p
-	 Kk5DGb5G0revV0U1RJbjzBOAtigYEABU9uWZHKfl9u0hDYXIHbas+R3x2hSkA2Lyoy8MG
-	 kxbWPN3mr6tlJV58D5LPkxJxYG8y5Ql3KPc1imelx8PUVNRT7xJ/rufRR/Zxv31KEyh9b
-	 +Vw6mH1uKRFAGrbXXM0lMsSs8JuQ90dIB/Vw6+SKLC2kU0xErVFtARjZsdC/zyhrBXeP0
-	 gchuQ5R0iYKCa29b+G1eUGjpdRAVpPashB/heA7CcHRfXfuDZh3jmBT5QHsi0/tObzg==
+	t=1795212836;
+	b=FGgBHjZF9vVLAJpYqCnQdSWPtPbHtQKKxdgQfQLZKzgDWdwACETO5xVRAyzewsjip5su
+	 fFctqjFTXpnvUVATU9duEFUdiop5R+/IgW9daMMSvF/hL6UROlHICbhQ3XpQ0K2naon3I
+	 XqgBHa49Zu4VN67UQXvUuzOVxDgP22nqPzV+ool0vSIHxwOS1xP97KImJT9Uiv+4G6HHx
+	 8MH82ewjfkyjA5V1L7Ytrny/LZLKnvsXEteenB2h0cy0eeeArDiQeSOxGALNJKOuz8rqG
+	 9knCY7DUsM25vQqkXcHS3b1TuY0FoZoJhl6hF2JO0Vo8Q6pNYwrdpwrrTLmh29mJ/Sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212827;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212836;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=/iqd1s6yIkM3QgjlFuj6dLBfLTgftpemZYmyudK9OX0=;
-	b=lRbxKTAg3CgfnJOsXNchlJ8UYdTVqUBGhSa6YG1kaDbei+Zw05JC5zXkoD3yM1+wgu/b
-	 MdAzMak4sWOqFkVY5rGcVc5oY+9RYsQ5AoKNOnVe/rRu/x1+snb70wJYjF0JXcSWFLnOB
-	 N7BLaprBJhzz9Oar41NgaSfgdoszupDRE8FSh5rtAa5Q3PmG8+pymJkovVmlIfm7f/V6x
-	 UA+ejh78eiGeckTywesfHbR/YbdCbTxVJ8JmB7LsZm03XjUWxYqhkGgHEqA2LRAEoq0z3
-	 2/dW2PNS3/+WnrVFBKZESQ5+yZSgkGAoQoTlO7m/knn89pPX1sqrnfT0tVR64QVctZw==
+	bh=qZdMAm29i2lB188sbmGGTc+2IJf3WyF7WYFVB9nwzmw=;
+	b=k0+eSuiyhV2exKrOS0sCzPM5LIOcS26XG1qkIpMFOUiIauaZOy05Jl57H+SESSY/+x5q
+	 +Y8obHY7ATIYbvOK8l/ePWTTN6Y2yOuEkuVS+Ym7Bbk+nrvbuaV3OBZra2J2aZJKtFeRq
+	 8MKrZHI45fs25eEPeVqxVbVlAQcFWxCreCRthS1oWz9mnrxoRfL1rEiHhS6cCgG0GSYFU
+	 w+zr8h8P0Sp1Lfop+Bzp6SbMoXJjTki573JDgVRgTPICJvha7vH/W4Irn8sao0W1bCEG/
+	 QNPeqXvUoWl6cOjlg8FdyWTRcGJzM4WYuzlHrrq0N8LAyf4tQ0tjLUjih/vtir91t0g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=h8xCOweh;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WEtgcrIk;
 	arc=none smtp.remote-ip=74.125.82.199
 Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 722B3606A6B6
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:13:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 722B3606A6B6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED1B6606A680
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:13:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED1B6606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=h8xCOweh
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-370230d93efso4226693eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:13:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=WEtgcrIk
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so1310489eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:13:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212825; x=1795817625; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212834; x=1795817634; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=/iqd1s6yIkM3QgjlFuj6dLBfLTgftpemZYmyudK9OX0=;
-        b=h8xCOwehtj+kfV7SY8E7fMyWYaLTjBfcFyMDlOoSRuK0P83xLZTMDfK/frahTNL7Hw
-         Z6PM5dfmNvqVL8qWfBcfhQK8Mc+KLAwYD+HVdMFLeckznFlPaKHAiHhQeUZHegTFW+wB
-         l+1C2jinEvjTt0wISFoUusWNKIlDzngyCv5Jo+mcIPoim2Hsg+vEtEsbIC6J69ueXlGk
-         /rk2IDZNA08nHgpeAwuDgPTRDups4rv7qiSS7VBR60+au2FSJ9kmA5P4zu8LrE5eaHut
-         ZsLI2EhsENoV8L5vB43ghsExLZHG94gEH5/26WsX2DfDEON6874e8hip/+mwgpizu7Sv
-         e7/Q==
+        bh=qZdMAm29i2lB188sbmGGTc+2IJf3WyF7WYFVB9nwzmw=;
+        b=WEtgcrIkVFQTqXNb3RiVYhcNLtxmqjybnhFcRSCqB19B2dnO72V+8JUXIVQesJR54T
+         RWXU4QtQghYyIi0BLW0RW/VdPKM33HSaBSgYJ2TobNmpKe5p4CV0iaXP0JeQE6OmczvD
+         ncLQZTWTIFtCJosQR6x7xr1ecj5QuDT5RSGmcoFfIIn8uVPuDF3ZGJNub5bjMRi6v3ZR
+         5tJZAkfrTnOljhdmFoEzYFWtounRgFOu+FCIc6ojbOcMlesoIC6e+YAkcew31zwDrWua
+         oePg4fxbTACeZrBxcn0ZrOCSugGlBZRki7mcLl0KVLDUcNBE8q6ZJfUJaNfdEOR5xpmk
+         TFSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212825; x=1795817625;
+        d=1e100.net; s=20260707; t=1795212834; x=1795817634;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/iqd1s6yIkM3QgjlFuj6dLBfLTgftpemZYmyudK9OX0=;
-        b=pQXYSn14uO59zt27Mxwkx0+KguqmwuviPkk2WGqAPuXRdSImXq0xBotzL3F8Uomav1
-         nvzvz+wbXLbBCRl95gn9xESaRFTPXDf0zuoBc6OqtwZ5ncRtxWuaSgnpm/nBMcCjFURS
-         RJHTOMDdRkUECzup3Gyb8y3vl/V72vNblcXnKpTG+amsNqYDC8DnyO0xEq2H1kwCqGab
-         gix+fpCPucp6lDiCzwuRBLz+GWjG13pO7kEkiX72PVtSRpF7chA2HNIJKnR1cY/EA2Ru
-         qdQMlOQejKa5LwWHA1J+yQr1P+fgZno2/9lN1NS1yOu6dlFWNsTVkfCrWov5HZHkYke+
-         9xoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGo71hxlH8+o9CXtTfgSZvXLBuezOd1T+/ouD9nNWnQ8cq9xipB9RzN8aEMZrAbjOVe2db8xQgzrHZCLHw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/l/0xSK9VrfYUtt21fxiFth+iZw/NwkbH46iuB1xCB0m/cXXhW
-	OL25jCWV9ROIGUbvC2ll96bCA1v8XUsld5pQ2/IKg5cWahvg+Hw2IaSeabgz0qrQB2WN/yBOq+9
-	VgcM32DVZ5Q==
-X-Received: from dyev10.prod.google.com ([2002:a05:7300:430a:b0:343:520f:7a80])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d090:b0:386:8bd2:da2c
- with SMTP id 5a478bee46e88-3868bd2db9amr1848412eec.2.1795212824252; Fri, 20
- Nov 2026 14:13:44 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:03 -0800
+        bh=qZdMAm29i2lB188sbmGGTc+2IJf3WyF7WYFVB9nwzmw=;
+        b=oV6FlMtwjBNsEkoZl5nSVBAJZfBib4XUIbPUV2zdhtpqTRvcK+5yO0Uq62rTCvlcLL
+         8vnZcX/i2HxxDE+3N4H4l8MXUjFbBVsjFt+ZywdMKEGe5PZfCG1aWu9HkdRCbD9g5jKd
+         F9OXS48C+oWtUywHBEO4qVGG35UwHVSZXd4NUw5Z+Lxh3yOca5qOF2BkaWi67ZYXiOQR
+         L/OXJuPOwJY4RzU6GFe4SWikHAVEO+MuEjb7ZT1NEo6APm3b5EPvbPPaILa4Qf5RqKni
+         k9obq0fT+dFtBuOWseyGumiYMQc32P4i4AgLIxYHcStU0G58igDp7foKnQUQxjy80TFc
+         kfxA==
+X-Forwarded-Encrypted: i=1; AL+hErEMjjyhSanU5j+ZhNPBijcB19CRYgyDCuPNiDpMNqHBv3FHq31JzhgeTghqxnY/AdxEiye5bm604iMK8no=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DOM1KBB+m+7CSKwOFDRyJNG4DjtxxnxtQLfb0+rETQOvJCF3N
+	ktnUUwrUDDgZVzmGcRKRytMCNmp3kOk0K9LocVli/f3HY4HNwzD7V44+OpDaWNFASJSM0zZ2GvB
+	2EgkXzLd6zw==
+X-Received: from dyah11-n2.prod.google.com ([2002:a05:693c:83cb:20b0:384:337f:4c9d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d205:b0:36a:1f8:a56e
+ with SMTP id 5a478bee46e88-3856fe564a1mr3602765eec.23.1795212833694; Fri, 20
+ Nov 2026 14:13:53 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:05 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,9 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-3-irogers@google.com>
-Subject: [PATCH v3 02/30] perf script: Fix metrics computed from samples
+Message-ID: <20261120221332.2245191-5-irogers@google.com>
+Subject: [PATCH v3 04/30] perf metricgroup: Don't prefer tool events for
+ displaying a metric
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -91,134 +92,40 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-perf script -F metric computes metrics from the sum of sample periods of
-the events, but the computed values were wrong and the output was
-garbled:
+pick_display_evsel() selects the event of a metric that perf stat shows
+the metric alongside, preferring an event that isn't a tool event, such
+as duration_time, and that is used by the fewest metrics. A tool event
+used by fewer metrics replaced a non-tool event, so whether the metric
+was displayed with a tool event depended on the order of the metric's
+events. For example, CPUs_utilized could be shown alongside the
+duration_time tool event rather than cpu-clock, and cpu-clock not shown.
 
- - perf_stat_process_counter() replaces each count with its delta from
-   the previous raw count. As counts were left as deltas, the next sample
-   computed negative deltas for the counts of all CPUs and threads other
-   than the sample's. Restore the counts to the running totals after
-   processing.
+Only compare the number of uses of events that are both, or both not,
+tool events.
 
- - Metrics for all events were displayed after every sample. Only display
-   the metrics associated with the sampled event.
-
- - The new_line callback started a metric line that the next metric
-   started again. Each metric starts its own line, so make it a no-op.
-
- - The metric value was written to stdout rather than the event's output
-   file.
-
-For example, with whitespace reduced:
-
-  $ perf record -e '{cpu_core/instructions/,cpu_core/cycles/}:S' -a sleep 1
-  $ perf script -F comm,cpu,event,period,metric
-
-Before:
-
-  perf [001]  2206 cpu_core/cycles/:
-  perf [001] metric: 42972.00 tma_info_inst_mix_instructions
-  perf [001] metric: perf [001] metric: 1.20 tma_info_thread_cpi
-  perf [001] metric: perf [001] metric: 0.83 tma_info_thread_ipc
-  perf [001] metric: 51762.00 tma_info_thread_clks
-  perf [001]   804 cpu_core/instructions/:
-  perf [001] metric: 18446744073709549568.00 tma_info_inst_mix_instructions
-
-After:
-
-  perf [001]  2206 cpu_core/cycles/:
-  perf [001] metric: 67668.00 tma_info_thread_clks
-  perf [001]   804 cpu_core/instructions/:
-  perf [001] metric: 46758.00 tma_info_inst_mix_instructions
-  perf [001] metric:     1.45 tma_info_thread_cpi
-  perf [001] metric:     0.69 tma_info_thread_ipc
-
-Before, the cpu_core/cycles/ sample is followed by the metrics of both
-events, such as tma_info_inst_mix_instructions that only uses the
-instructions event, rather than just tma_info_thread_clks. The CPI and
-IPC lines repeat the "perf [001] metric:" prefix as script_new_line()
-started a line that script_print_metric() started again. The following
-cpu_core/instructions/ sample shows tma_info_inst_mix_instructions as
-18446744073709549568, a negative delta, as the counts of the other CPUs
-were left as deltas by the previous sample. The same deltas made the
-before tma_info_thread_clks value of 51762 too small.
-
-After, each sample is followed only by the metrics of the sampled event,
-one per line, and the metric values are computed from the running totals
-of the sample periods of all CPUs.
-
-Fixes: 4bd1bef8bba2 ("perf script: Allow computing 'perf stat' style metrics")
-Fixes: 3622990efaab ("perf script: Change metric format to use json metrics")
+Fixes: c8035a496141 ("perf metricgroup: Add care to picking the evsel for displaying a metric")
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-script.c | 32 ++++++++++++++++++--------------
- 1 file changed, 18 insertions(+), 14 deletions(-)
+ tools/perf/util/metricgroup.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index b6691ebb1b4e..c5a9651a197c 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -2340,18 +2340,14 @@ static void script_print_metric(struct perf_stat_config *config __maybe_unused,
- 	if (color)
- 		color_fprintf(mctx->fp, color, fmt, val);
- 	else
--		printf(fmt, val);
-+		fprintf(mctx->fp, fmt, val);
- 	fprintf(mctx->fp, " %s\n", unit);
- }
+diff --git a/tools/perf/util/metricgroup.c b/tools/perf/util/metricgroup.c
+index 779fe56fe8d0..98f3ba8f9533 100644
+--- a/tools/perf/util/metricgroup.c
++++ b/tools/perf/util/metricgroup.c
+@@ -1388,8 +1388,10 @@ static struct evsel *pick_display_evsel(struct list_head *metric_list,
+ 		struct evsel *candidate = metric_events[i];
+ 		size_t candidate_uses = count_uses(metric_list, candidate);
  
- static void script_new_line(struct perf_stat_config *config __maybe_unused,
--			    void *ctx)
-+			    void *ctx __maybe_unused)
- {
--	struct metric_ctx *mctx = ctx;
--
--	perf_sample__fprintf_start(NULL, mctx->sample, mctx->thread, mctx->evsel,
--				   PERF_RECORD_SAMPLE, mctx->fp);
--	fputs("\tmetric: ", mctx->fp);
-+	/* Each metric is printed on its own line by script_print_metric(). */
- }
- 
- struct script_find_metrics_args {
-@@ -2524,7 +2520,6 @@ static void perf_sample__fprint_metric(struct thread *thread,
- 	};
- 	struct perf_counts_values *count, *old_count;
- 	int cpu_map_idx, thread_map_idx, aggr_idx;
--	struct evsel *pos;
- 
- 	if (!init_metrics) {
- 		/* One time initialization of stat_config and metric data. */
-@@ -2593,14 +2588,23 @@ static void perf_sample__fprint_metric(struct thread *thread,
- 	/* Update the aggregated stats. */
- 	perf_stat_process_counter(&stat_config, evsel);
- 
--	/* Display all metrics. */
--	evlist__for_each_entry(evsel->evlist, pos) {
--		cpu_aggr_map__for_each_idx(aggr_idx, stat_config.aggr_map) {
--			perf_stat__print_shadow_stats(&stat_config, pos,
--						aggr_idx,
--						&ctx);
-+	/*
-+	 * Processing the counter replaced the counts with deltas from the
-+	 * previous raw counts. Restore the running totals so that only the
-+	 * next sample's period is added to the aggregated stats.
-+	 */
-+	for (unsigned int cpu_idx = 0; cpu_idx < perf_cpu_map__nr(evsel->core.cpus); cpu_idx++) {
-+		for (int thread_idx = 0;
-+		     thread_idx < perf_thread_map__nr(evsel->core.threads);
-+		     thread_idx++) {
-+			*perf_counts(evsel->counts, cpu_idx, thread_idx) =
-+				*perf_counts(evsel->prev_raw_counts, cpu_idx, thread_idx);
- 		}
- 	}
+-		if ((selected_is_tool && !evsel__is_tool(candidate)) ||
+-		    (candidate_uses < selected_uses)) {
++		bool candidate_is_tool = evsel__is_tool(candidate);
 +
-+	/* Display the metrics associated with the sampled event. */
-+	cpu_aggr_map__for_each_idx(aggr_idx, stat_config.aggr_map)
-+		perf_stat__print_shadow_stats(&stat_config, evsel, aggr_idx, &ctx);
- }
- 
- static bool show_event(struct perf_sample *sample,
++		if ((selected_is_tool && !candidate_is_tool) ||
++		    (selected_is_tool == candidate_is_tool && candidate_uses < selected_uses)) {
+ 			selected = candidate;
+ 			selected_uses = candidate_uses;
+ 			selected_is_tool = evsel__is_tool(selected);
 -- 
 2.56.1.750.gf70dc682cf-goog
 
