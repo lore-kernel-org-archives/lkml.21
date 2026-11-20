@@ -1,67 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.63.66.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195893;
-	b=ja8UYysfHN2jaj+4a+tOoydfZV2uEoLWWR8jKzTQYgoIVcNBrOAHLd7Xl1VwovezHDpU
-	 yUNxv72U1tTBl1n4O4Ua+m1NHOFCYeIDsKCKinvdwpHvNoNOa1ai0ZFlQXciUAOkfC52v
-	 qmedVVepq+gC6K3dTgIBna+PwO/AotEj/YYE5ntJaNmWJcYkntv10ST7llNp7EjR9+QQH
-	 3Jc6StHgM8nAqWI4FtVdvQxObFdK36QR8UFgoiG9T4t19n8OaLfLAB2RZZ8e6VFHcRY+P
-	 7YDhZQ6jOWa5xH2xmni+I/0eZgupRpdZph7lHzcvC9a5vSeQxHsmbMxiM5jh8r+ouzg==
+	t=1795195901;
+	b=ZE7kNE2zgy4nfVaHQh2+Ck9FuxLNmb1wEE7gdiqi0mUAPmOikxnpkT1ZsDsYuyvUKLx6
+	 7hIb9rKc/FmwBmF1ED3xpVRyvQ3RdBjrdggpb+bnpT8cR8shhVOHBYeHnCNzn0RKzrWNl
+	 psSRgGbgCluu8PrxBRGd+Wt4fvOdz2NO5cLk8rdqKRfYKG0PTRNsN3Gzp3JbOSe6HAWDm
+	 HElQvB/cN0G/Zsx0tRYcqnccFdQuAEp3KifWxJOowjROg6GiwZrv0unk5tmT4rImciZK9
+	 P4VjQXYWvmm8J6pNNH4jD/XWC21usWJOqKVNQzq2Z0BLn01pVbwVv9A6nERvwHhfimg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195893;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=RmXXL6prA+gj0EqPX17yTWiJ+j3T7ElTxOwOyMvMOIA=;
-	b=1PgTnK3P4hRk2XrJ0C+p9MF8OWH3PHlfnGB9NhYkP4eV1gqYvz2hlLiU3bITn0BTM6Fr
-	 5jHcfDa17dnbSwsqfRYdOD0a+fNd1OVHdZVJ9Yn9ZzzY+H4PmlYCkEpWNwf/jTimAgJAp
-	 Y0wnbu9Ahz/0J3TH9PCAjBqyaFhe8TRw/1r8SSpV7qFLpT0HlC4G+5WqhNSme7XlDOwr+
-	 cUcIVHOZuTOx/ZyN/jWEgol4Tt9N8b4d8JePh6LkHH3GciLu+GNt6/oHjyYSoofm6uEkJ
-	 2/VZm+YCL95yWja8Ncr74407S/AiWUM2LsagVDbyZ461pEzfix6sxVZUe8bMcd2vKEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195901;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
+	b=nuLFmP2hXuyjp+tjNOhEOVQZIefvUEw6aNfyJqG8ibgUph+gk2lptrHL6BqRhE2Vg0NN
+	 x5yKZMTB8XPgukgtYdKNYczj5AmY2FoXlAUmyoOGiLGLFYQHeU2r/DyHMtFzkotUK7OdH
+	 4nLwB7vovl61VrLIsGj2+W2HhgbqKhjeatW6wLrdWK5+/K0p9dErAN9o6QtMlBov9XVgv
+	 rw0XsQW5uKVq4x+mPgIhflz1RXXiXOJHdvx53aX6KNb+dtfG2oQI7P8SZFSpAycFCysYX
+	 MWq2BQlp3J20ZT7n8Qn6RY0imNW2o12JMVk6MGPLqtqEJBQHcCigPdmH/VItIQjW2MQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hallyn.com;
-	spf=pass smtp.mailfrom=hallyn.com;
-	dkim=pass header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=BmLBlAGK;
-	arc=none smtp.remote-ip=178.63.66.53
-Received: from mail.hallyn.com (mail.hallyn.com [178.63.66.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h6UztEPa;
+	arc=none smtp.remote-ip=209.85.214.181
+Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4FDB60A261A;
-	Fri, 20 Nov 2026 17:31:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4FDB60A261A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hallyn.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hallyn.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF1E1606A339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:31:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF1E1606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hallyn.com header.i=@hallyn.com header.a=rsa-sha256 header.s=mail header.b=BmLBlAGK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hallyn.com; s=mail;
-	t=1795195890; bh=U3tolJxSPQb1OFSMmSa2W8e93k/5HR19c97fCZrytt4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BmLBlAGKb09/DhuPXciK/c1Ip7DjEmhmCF11jxqWfU3HU3iuEDw7C687Gyp2PnQSc
-	 fTbiOUAkMOlB0LC/AyREO4wB5+P7ZOhkaO2Sr6tzuAJMUCmP4gndguO7ZS6ri3guGr
-	 6PO/K2loed+atiSZF8sNoKEHAKnSrCo+6CmxnuvMtdsS75He5qKA+vk0LxACYqCc+i
-	 mrBSMVtRoM86Eae48aWpmJdydRaWK34Z7FYSJq+xC3cAT01pmeV854+rqon43zZiTu
-	 Ii5CnwFJsOoUwfdCSIDM6ra69zMdNtIf47Pn168o1PjKihntdA649SeC0ccdB48AxG
-	 Th8i79YuYvZSw==
-Received: by mail.hallyn.com (Postfix, from userid 1001)
-	id 1066F28C; Fri, 20 Nov 2026 11:31:30 -0600 (CST)
-Date: Fri, 20 Nov 2026 11:31:30 -0600
-From: "Serge E. Hallyn" <serge@hallyn.com>
-To: Josef Bacik <josef@toxicpanda.com>
-Cc: Paul Moore <paul@paul-moore.com>,
-	Christian Brauner <brauner@kernel.org>,
-	James Morris <jmorris@namei.org>,
-	David Howells <dhowells@redhat.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	"Andrew G. Morgan" <morgan@kernel.org>,
-	Serge Hallyn <sergeh@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
-	Bradley Morgan <brads@mainlining.org>
-Subject: Re: [PATCH v11 2/3] capabilities: don't let ptrace borrow CAP_SETFCAP
-Message-ID: <awCD8l6XoAeUMF+n@hallyn.com>
-References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
- <20261117-b4-setfcap-userns-v11-2-2be11a2c32f4@toxicpanda.com>
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=h6UztEPa
+Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2f04ad2c46dso4503435ad.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:31:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795195900; x=1795800700; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
+        b=h6UztEPas0J1ez1Yuh9unLqPaR1gDwtjlSvghhiSA9vaXNPrRi5uxF5XEJRGkESiUd
+         lRKd1Wx9WDP6/GvtOIgzygcN8Ir0csDzBM47drzwYJkDExX7qaqcrGuvB5kfqo5AgVyn
+         tCgkqmAja/nlGi4MFQMTlf/BWdsQwRzgAChDghUENbT+UCRDtKEo6NCCned5mLOSgJFC
+         VcyluTbKGOOqYmC+NIOZqGt1fcOy4nMjdTuJCGIJsNUktotD4q7DQVgyF39jjv95aZT0
+         pjjbTtCPbYJmKL+VT/Fy9v4YtXuX7drAsoAk1VQTGMiEivSpHruSjmRhsEEmpErZRVur
+         fo4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795195900; x=1795800700;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bxKwdrIUuzixTrlHwEraSTTfViGb7kgcBDYdj0LG20I=;
+        b=CAfjXngT/ihsIwHjMLFc6Cv8rVI5Nhb5JnWGL6sFOF7cjfL73+9EpBhqkQXY/q4awQ
+         Dq4oeA17v8VQ4fHxGfmSv3hgwqXYrjzQepSanNTxIxbo6sfPyCnlqUA5fJsHI+0mGdVS
+         igHzomOn/fCeESLsvySr9xR9bulyh8aUsTtkk7UjKTxu2uTFoix3a8oJE9vLPSbLIefV
+         kkSz17HWqsikwKdh//JOOwTqg7wpi357I7uA3vhfZI0cJxIL0cW9lReQnjUbkpSEvaaH
+         glBHOwacTBnfCGBHda2qliOLNcj7LQ5XO3zbhUBVRFQ3VYMhrWWJPV5aTzt6tEHiznHL
+         ojSg==
+X-Forwarded-Encrypted: i=1; AL+hErFgUyZbSLO9nSQU2xTlKSAiE9gjGdZxTjnKM97r0KJp+23gFSlFJGs+QIpkLCXWTsiQGfvmDNBu8Yc3xOw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8TDo9kkAL9nCZOsrPzYTKCK3tLF/Pr2QEd6j6fJdP+vuz0fZjU
+	2arXVJYV+xrk7e1pxI7lLNklRAUTDqoR3OU/Y8X8dvhpbXFSGHFft8EbCL0LmCnWHws=
+X-Gm-Gg: AZFdTZcFNAYm7dJHHDw9IfJOX/M2QPWVD7EOsMJapYqLy7ts0ZExM9fSiOcA/YNH45s
+	vj4AnD1Ve1C8GwmrcVqcjyHntiRDccW2Euu6ZGcMl0BWluciVIKIE4yZm7j8MZO/F5eK5Blz8Yx
+	XbwQEsQMWA/nLJQYUn7ZB2RJJwesWqTvG7U9gfO/W4xtua9fKITL3uNLGA3gMoY0d4eOtzXSwea
+	MO0PXTLSGZFErINynn5jHI2R9suN4P7MEFkXBmKKByWuj2f7o8xZqXx+wGokJuYlstn+/CZ+G5S
+	mAWqQ4mx0npT52o6U51ydZNZb408XTXKcjc3P0Is4Kcs9SkO2CjOUcPzJv1tXLXNzR1H6C4K2jS
+	rXgev0sCFwJIhRv5zl3YhsdGVBR/3RuVkxhnn9rfA+0hp/E6hArOhXuANdDy6NRUz00JRr9tC08
+	DQkJylZeSLmxZ2dOc8ABOTZPz0qC2DdAaoycW4DhrwJe4IDtcVi1UjpJ4Rq1X8NtUamWBq6t5+C
+	6Qfft0ALyMkrvKoudFRaYeoaCrsl9zDu/R6Wx/kLR/g/HnhWREzraX1oA5Gv9/oyjE58/FoKcIE
+	reJQV/X+r5YfcBkslmwoAF1Y4TZQqyFdUnK8NTn3PBCdO6EI8aQ7MWBtTc7VOuqrA9EUhIjeY+N
+	IeQRrJ12TXpPm5GnQ5txH8WROCPL2W5LoGTCy
+X-Received: by 2002:a17:902:dac1:b0:2ef:f819:3aa1 with SMTP id d9443c01a7336-2f03f1f0a26mr46054785ad.56.1795195900424;
+        Fri, 20 Nov 2026 09:31:40 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1482c3sm17173225ad.73.2026.11.20.09.31.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 09:31:40 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: gregkh@linuxfoundation.org,
+	nkapron@google.com,
+	linux-usb@vger.kernel.org
+Cc: Thinh.Nguyen@synopsys.com,
+	bigeasy@linutronix.de,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	benquike@gmail.com
+Subject: Re: [PATCH v8 0/4] usb: gadget: f_tcm: fix infoleaks, sleep, and UAF in the BOT path
+Date: Sat, 21 Nov 2026 02:31:34 +0900
+Message-ID: <20261120173134.3286557-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
+References: <20261118124005.2428068-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -71,142 +104,20 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-b4-setfcap-userns-v11-2-2be11a2c32f4@toxicpanda.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 07:54:25PM +0000, Josef Bacik wrote:
-> A uid 0 task that gave up CAP_SETFCAP and CAP_SYS_PTRACE can still
-> attach to a task in a user namespace that another root task created,
-> and have it write file capabilities for its root user.  For a target in
-> a child namespace cap_ptrace_access_check() asks for CAP_SYS_PTRACE over
-> that namespace, and cap_capable() grants every capability there to a
-> task whose euid owns it, whatever it gave up:
-> 
->   task A: uid 0, full caps          task B: uid 0, no CAP_SETFCAP,
->   unshare(CLONE_NEWUSER)              no CAP_SYS_PTRACE
->                                     ptrace(PTRACE_ATTACH, A)
->                                       euid == ns->owner -> allowed
->                                     make A write "0 0 1" to its uid_map,
->                                     or set file capabilities
-> 
-> The same goes for /proc/<pid>/mem, process_vm_writev() and
-> pidfd_getfd().  setns() refuses B now, so ptrace is the way left into
-> the namespace.
-> 
-> The target's own capabilities are no guide.  A target that gave up
-> CAP_SETFCAP can still get it back from its inheritable set on execve(),
-> take it from another task of its namespace if it kept CAP_SYS_PTRACE, or
-> write "0 0 1" to its namespace's uid_map while there is none yet.
-> 
-> Every PTRACE_MODE_ATTACH check is refused, so reading /proc/<pid>/mem,
-> /proc/<pid>/stack and process_vm_readv() of such a target go too.
-> PTRACE_MODE_READ, a tracer and target in the same namespace, and targets
-> in namespaces that setns() lets the tracer into are not affected.
-> Within one namespace the usual rules apply, as for every other
-> capability.  A tracer with CAP_SYS_PTRACE but not CAP_SETFCAP is refused
-> as well: whether CAP_SYS_PTRACE lets it take CAP_SETFCAP from a task of
-> its own namespace depends on LSMs such as Yama.
-> 
-> Fix by refusing PTRACE_MODE_ATTACH and PTRACE_TRACEME across user
-> namespaces when the tracer doesn't have CAP_SETFCAP and setns() would
-> refuse it the target's namespace.
-> 
-> Suggested-by: Serge Hallyn <serge@hallyn.com>
-> Link: https://lore.kernel.org/all/fd159e68-c613-4c7d-bfba-8af0a3f3a96e@hallyn.com/
-> Fixes: db2e718a4798 ("capabilities: require CAP_SETFCAP to map uid 0")
-> Signed-off-by: Josef Bacik <josef@toxicpanda.com>
+On Wed, Nov 18, 2026 at 09:40:01PM +0900, Yehyeong Lee wrote:
+> Yehyeong Lee (4):
+>   usb: gadget: f_tcm: queue the BOT status requests with GFP_ATOMIC
+>   usb: gadget: f_tcm: zero the CBW buffer the status path sends
+>   usb: gadget: f_tcm: reject a short write data-out transfer
+>   usb: gadget: f_tcm: clear the scatter list when reusing the BOT status
+>     request
 
-Thanks!
+1/4 is in usb-linus as 69b3b657087f.  The other three are superseded by
+v9:
+  https://lore.kernel.org/all/20261120172829.3286180-1-yhlee@isslab.korea.ac.kr/
 
-Reviewed-by: Serge Hallyn <serge@hallyn.com>
-
-> ---
->  security/commoncap.c | 34 ++++++++++++++++++++++++++++++----
->  1 file changed, 30 insertions(+), 4 deletions(-)
-> 
-> diff --git a/security/commoncap.c b/security/commoncap.c
-> index 96ac039fddad..4a78939d149b 100644
-> --- a/security/commoncap.c
-> +++ b/security/commoncap.c
-> @@ -195,14 +195,31 @@ int cap_settime(const struct timespec64 *ts, const struct timezone *tz)
->  	return 0;
->  }
->  
-> +/*
-> + * A tracer that setns() keeps out of a namespace mustn't take control of a
-> + * task there either, whatever that task holds itself: it can get CAP_SETFCAP
-> + * back on execve(), from another task of its namespace it traces, or by
-> + * writing the uid_map of a namespace that doesn't have one yet.  Within one
-> + * namespace the usual rules apply, as for every other capability.
-> + */
-> +static bool cap_ptrace_borrows_setfcap(const struct cred *cred,
-> +				       const struct cred *child_cred)
-> +{
-> +	return cred->user_ns != child_cred->user_ns &&
-> +	       cred_borrows_setfcap(cred, child_cred->user_ns);
-> +}
-> +
->  /**
->   * cap_ptrace_access_check - Determine whether the current process may access
->   *			   another
->   * @child: The process to be accessed
->   * @mode: The mode of attachment.
->   *
-> - * If we are in the same or an ancestor user_ns and have all the target
-> - * task's capabilities, then ptrace access is allowed.
-> + * For PTRACE_MODE_ATTACH, if we don't have CAP_SETFCAP and the target task
-> + * is in another user_ns that setns() would keep us out of, then ptrace
-> + * access is denied.
-> + * Otherwise, if we are in the same or an ancestor user_ns and have all the
-> + * target task's capabilities, then ptrace access is allowed.
->   * If we have the ptrace capability to the target user_ns, then ptrace
->   * access is allowed.
->   * Else denied.
-> @@ -223,11 +240,15 @@ int cap_ptrace_access_check(struct task_struct *child, unsigned int mode)
->  		caller_caps = &cred->cap_effective;
->  	else
->  		caller_caps = &cred->cap_permitted;
-> +	if ((mode & PTRACE_MODE_ATTACH) &&
-> +	    cap_ptrace_borrows_setfcap(cred, child_cred))
-> +		goto deny;
->  	if (cred->user_ns == child_cred->user_ns &&
->  	    cap_issubset(child_cred->cap_permitted, *caller_caps))
->  		goto out;
->  	if (ns_capable(child_cred->user_ns, CAP_SYS_PTRACE))
->  		goto out;
-> +deny:
->  	ret = -EPERM;
->  out:
->  	rcu_read_unlock();
-> @@ -238,8 +259,10 @@ int cap_ptrace_access_check(struct task_struct *child, unsigned int mode)
->   * cap_ptrace_traceme - Determine whether another process may trace the current
->   * @parent: The task proposed to be the tracer
->   *
-> - * If parent is in the same or an ancestor user_ns and has all current's
-> - * capabilities, then ptrace access is allowed.
-> + * If parent doesn't have CAP_SETFCAP and current is in another user_ns
-> + * that setns() would keep parent out of, then ptrace access is denied.
-> + * Otherwise, if parent is in the same or an ancestor user_ns and has all
-> + * current's capabilities, then ptrace access is allowed.
->   * If parent has the ptrace capability to current's user_ns, then ptrace
->   * access is allowed.
->   * Else denied.
-> @@ -255,11 +278,14 @@ int cap_ptrace_traceme(struct task_struct *parent)
->  	rcu_read_lock();
->  	cred = __task_cred(parent);
->  	child_cred = current_cred();
-> +	if (cap_ptrace_borrows_setfcap(cred, child_cred))
-> +		goto deny;
->  	if (cred->user_ns == child_cred->user_ns &&
->  	    cap_issubset(child_cred->cap_permitted, cred->cap_permitted))
->  		goto out;
->  	if (has_ns_capability(parent, child_cred->user_ns, CAP_SYS_PTRACE))
->  		goto out;
-> +deny:
->  	ret = -EPERM;
->  out:
->  	rcu_read_unlock();
-> 
-> -- 
-> 2.55.0
+Best regards,
+Yehyeong Lee
