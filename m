@@ -1,109 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.24
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169360;
-	b=ORrWJ8RTXQCLvnl5dkRKhoPN4OFq2ip2o/jKioYtzk4YRupHXL9EfNNmsS6EOfFsXXt9
-	 5uKvnJe+YPScecDfVkQkTSEAt/VEOzSmU7dkO5Vtb1jCrRwJ4GEVVtsNwTACmST7Qccs6
-	 icHv5jptDEtFJQcrmRP5I3Ydl5e399VxwbD3jzs3YKIFWXR43J72R7XYTW/cyTRcHD4Wx
-	 6bZ+arNXLr0g3gXj6TfIv0h0rpRT/TkzLjcxzgO9taoyswRxm9otKE3TUT6qC6bZ80cpw
-	 z4y+DsKPgtvog6Hp4m010M9NwWzqCwAOUojLDvA/5HWCg3tCLh7085ntp0Br73qYgtA==
+	t=1795169362;
+	b=coVjXjvLK/lhcYrq71NDiv63+badFAv3nuELyIkvRxKHTJtGZpSy6QscHBJiOX/BXJgY
+	 7he9V0xAt2oXljTGfsE7C7kHu1/QGkevh4nkvRNAoUMLYBpqSRrwAnfftSz0XKTDpQKZW
+	 gFMEyVMjnk31yrv993w744r8nVMfQFSUaiKY5iqtdGpdSHVQKVNnToKx/nXjToz4zH5jB
+	 weaklczCBbJtVRwpLs+U202d9ua2HlFK66n5u5mWQRLfF2SZce2FbbH8dLt/w51jmL0va
+	 4CEJmbnWME0eH0Hussnf88rED6fS0znR+OI6v0ZYRxEdyfxgvQOgoZ0I9cb5uVv01yA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169360;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=TLxSkfYLhAc7bq+V5pE9s9/jugosIWK4kuSFM2AGReM=;
-	b=J6tBzziur2nkuiHBl/8vumlJF5ygg4ZmRslb6xR+I6S8b4o5ZsqWB2dVSFVB87ni1aIx
-	 8gR/gntM++vDZWflk7h0W9Iy/Bq8G3RopOOdIuQiHBwsD+I2/M6xaSh0cnlzsqhyXevx5
-	 6vUH0QlyvUm+B5Q/ojKxkybCQpzd7YWNWCYtqUQU3WBLy7S+WpdTdIyfbgRTk2J9JBYC9
-	 WhcsxpRCKi7GrWemskltqDqzX0O0u+EAaSEQqxPREDM6J5ukyDSi7VoJqaexJ4Aihs3g2
-	 6mEYFH1NXN19aFWzhHrDzmL8MvupD0ZPYWg2k0Ryhzgqu/pKsDEP//h7TmYaMCKd2tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169362;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8l1rxUVHALrLazVSWALlznjCgIYdHTWqcToTvFjFBKg=;
+	b=j2jdKoC2/3E8Igt7hxLL4saqmIJQVrgeaIVDSW8t3vIXL1mL1hbOFqrVoCTzYrm6JdFi
+	 gT9bNvUigqmyla4Xas64NWkQN1N0wv3FzFrYhsTrrkqCNhBTc/0Vn7ex+08fy3T1T5i3c
+	 G+Kdqn6AkY5DKdjB09dRcO0XIBxJwolLy454jyBAvHMupffT32BK5BMok9mu1vqHS5Y73
+	 VLxtkLrCFjbAPGcqcwvu1YYw8RF9bEHRtweVFHCum9r+er0R3ZYQXPn22hdT9g1Wdvi78
+	 lFxgGhpTx6JfcDXZxRlKhlgLXmGTXzml62bPXoohMbYOqOsYLIkBWFuxm/HaJKS3BGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bytedance.com;
-	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=cmjl8K0i;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="KK4/wbl6";
+	arc=none smtp.remote-ip=95.215.58.24
+Received: from mta1.migadu.com (out-24.mta1.migadu.com [95.215.58.24])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 051B460A260A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:09:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 051B460A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9960960A261B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:09:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9960960A261B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=cmjl8K0i
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so701693a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:09:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795169359; x=1795774159; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TLxSkfYLhAc7bq+V5pE9s9/jugosIWK4kuSFM2AGReM=;
-        b=cmjl8K0iEbrd8n36d5k3xh+v3CDVwiKSm+UgZszOp+0vYDmh2aiCH9pX6f2hhlamYR
-         /SASuBGQRYmwcvYlCZLn4esfxenTlcBPZmz/ufD+8u2P/x8td/geXNfZupV0XylWN+aZ
-         qYEc+LdG/aeldoWXQ6x7M6qNm3lgUtgH6zpk26laK4hYXkfkBgvem9zi0xlWj+L4PteN
-         2ZDbApdqLLM/+BkQHjLDT4+HDfHyvNRtVp7xiWHfVtSiifXuX6ggLx9oD67MV/VvsyjK
-         Y85xS9XsSMuAQaPthQ5swK9Ix2RaUEsVJiEkMiBLDA/Noy1hr1Dg0vEAYo0kJ7uDp+SQ
-         C7FA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169359; x=1795774159;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TLxSkfYLhAc7bq+V5pE9s9/jugosIWK4kuSFM2AGReM=;
-        b=a30b6r1yIkc6Sy1o34WjKnGshWyK/S9yDRfbdt34ORWBSopnYxSY4UCJcOYQS+NbaW
-         6iZqGAI8SKRs1+nEolkoJnil4jpd1OjNhYDmUcECFgG5TeKDWGU38sdMLgA3pT80brAg
-         uzn0lBoX+Dk+2Rf8RZShVoheh6MkgUERY55KAgOkjsx61MievfsqH5wjy/PwyDqe3BHN
-         9Dflvc+xH3m+8kbSuWIIaiDwkCaCHUhgCgwSYqi2gQv9uFwgjzRIaWg7ihhZ4wO01BZn
-         2fMe0zIf1OTnG24AU1aTzdfAPmLURJkf9aflku5lhBHW2MkMAlZ7B9CTH7fCMbMqY0eW
-         VLQg==
-X-Forwarded-Encrypted: i=1; AL+hErHPTuBRYgTTKdLJDxyQSwsu6SKM3GW631Y8PzxGhr2n7RHkrCZFlwuPuWLzkdTAjIOy7I40PWQAAKmHO7A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9gGCP8FZai6BCuo9GGKyA9bDGSfwPQd/lQKj/752OY/H9AujXk
-	yeZJkMd8s4ENgXEevBmWwN2BcscYd82jt7x/w31BheX78BE6+LhvM31gsvt1HmYK/78=
-X-Gm-Gg: AZFdTZfmO2W7WIhVJZXCqwMh66nQc0JoB0EBi762dN01Ecq05ojiGPZgXYjVuIWsxH4
-	c/DGi+j9Byh7uV/vNgQL02GFtDdU1kumyZTOkTM/E0sCgHlFkBwXGfEIoPMkiSPWHlI+ojQkWI4
-	Ek0Les5fQp5N9coevodHyJq43af+/+CM6uSSr27uShBz9Lit5HXbQE8nkaYGFi4jY1wxpXzpL2n
-	X3+Hp5vp2sDthfns6u3glaS9C/BCQLimwGpASpUGnPQ/SLbDotnCTWbjNiYz1vY7G8jWWv39bZG
-	5rBTOnx4yRNYJ9RDoujf/9Pl83k+BCODdKiWgwXp4mGyYAdlasp22Z2v7PJL/w3J4AYxtz6bF+w
-	j0bdt8vWtx4yPXfkAKSmQUqYm9jm9NRoJHc3BSAnxFtt5bQuynsA3jmyIcCc5MpPjdW5K2kPz1X
-	iNKbvxO8CcpU0qmXBMqSIvYA/tuEfnyN0l03jbgW5INDWCzyT+5oURxXQHC73n+MXwjTpc11gxg
-	PQeXUuMuS/wEkbtsfAayB+fmk+tewb5vA27H9T7SAJnvR1BaE4CijmHcumqHm1cGDNPD3v9r+20
-	4+Z28638hTGyv2nP9y6hfK5yQNMF6Dn4JIHP+CMDBOm1Dv+0VijEnb0YE7VQU3o5k+IlRQ==
-X-Received: by 2002:a17:90b:278c:b0:3b3:b0e5:57ee with SMTP id 98e67ed59e1d1-3b41c97ac48mr2625681a91.54.1795169359317;
-        Fri, 20 Nov 2026 02:09:19 -0800 (PST)
-Received: from G6L4RL2QG9.bytedance.net ([203.208.167.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm3727321a91.17.2026.11.20.02.09.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 02:09:18 -0800 (PST)
-From: Muchun Song <songmuchun@bytedance.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Oscar Salvador <osalvador@suse.de>,
-	Mike Rapoport <rppt@kernel.org>
-Cc: "Liam R . Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Li Zhe <lizhe.67@bytedance.com>,
-	Andrew Popple <apopple@nvidia.com>,
-	Balbir Singh <balbirs@nvidia.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	James Houghton <jthoughton@google.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v3 01/11] mm/mm_init: verify zones for template-initialized pages
-Date: Fri, 20 Nov 2026 18:08:46 +0800
-Message-ID: <20261120100856.16929-2-songmuchun@bytedance.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261120100856.16929-1-songmuchun@bytedance.com>
-References: <20261120100856.16929-1-songmuchun@bytedance.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=KK4/wbl6
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=lmupTUCv65fg5pP75anIseOQtkdlOKkZnDml59Hx+vg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795169359; v=1; x=1795774159;
+ b=KK4/wbl619CRE9joqmaw8LIvKdOKg2jk4pyiVIF4hVznoWuyV3N6otfaoXWUnWgbBhC6H2rj
+ QAV0ijBAhkGuwRWbSwbaVe4Et5hMFScAWdZATXbMESpD6ibOrOzRRufWfOb8Gbmq+aOep6XNsbd
+ QDMcI1kaejZZPt53EQ3B6JTM=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 3039bbd6bb4976e6;
+	Fri, 20 Nov 2026 10:09:19 +0000
+X-Mizu-Trace-ID: 3039bbd6bb4976e6
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <4198a993-1c7c-4ca5-8d31-8f8e36778702@linux.dev>
+Date: Fri, 20 Nov 2026 18:09:09 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -113,44 +58,108 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] tcp: fix negative sk_forward_alloc after
+ MSG_ZEROCOPY append
+To: netdev@vger.kernel.org
+Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller"
+ <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Soheil Hassas Yeganeh <soheil@google.com>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Wei Wang <weiwan@google.com>,
+ linux-kernel@vger.kernel.org
+References: <20261120094605.46063-1-jiayuan.chen@linux.dev>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <20261120094605.46063-1-jiayuan.chen@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Template-based ZONE_DEVICE initialization bypasses
-__init_single_page(), which means copied struct pages do not run the
-vmemmap zone consistency check.
 
-Verify each destination after copying the template so the fast path gets
-the same validation as regular page initialization.
 
-Signed-off-by: Muchun Song <songmuchun@bytedance.com>
-Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-Reviewed-by: Lance Yang <lance.yang@linux.dev>
----
-v3:
-- Retarget zone verification to
-  zone_device_page_init_from_template() after integrating the helper
-  series (suggested by Mike Rapoport)
-- Collect Reviewed-by from Lance Yang
+On 11/20/26 5:46 PM, Jiayuan Chen wrote:
+> Our local syzbot reported the following warning:
+> 
+>   WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
+>   Modules linked in:
+>   CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
+>   RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
+>   Call Trace:
+>    <TASK>
+>    tcp_sendmsg+0x2c/0x50
+>    inet_sendmsg+0x62/0xb0
+>    __sys_sendto+0x2fe/0x350
+>    __x64_sys_sendto+0x7f/0xb0
+>    x64_sys_call+0x1375/0x27e0
+>    do_syscall_64+0xe4/0x470
+>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+>    </TASK>
+> 
+> The problem is here:
+> 
+>   if (!skb_zcopy_pure(skb)) {
+>           copy = tcp_wmem_schedule(sk, copy);
+>           if (!copy)
+>                   goto wait_for_space;
+>   }
+> 
+> When MSG_ZEROCOPY data is appended to a skb that already holds copied
+> data, only the user length is scheduled, but the pinned pages are then
+> charged by their truesize:
+> 
+>  skb_zerocopy_iter_stream
+>    __zerocopy_sg_from_iter
+>     zerocopy_fill_skb_from_iter  //truesize += PAGE_ALIGN(copied + start)
+>     sk_mem_charge(sk, truesize)  //sk_forward_alloc goes negative
+> 
+> For example, sending 8 iovecs of 1 byte each schedules 8 bytes and
+> charges 32768 with 4K pages.
+> 
+> On a later sendmsg() without MSG_ZEROCOPY, if sk_wmem_schedule() fails
+> (e.g. tcp_mem hard limit is reached), tcp_wmem_schedule() returns
+> min(copy, sk->sk_forward_alloc), which is negative. The negative copy
+> is passed to skb_copy_to_page_nocache() and triggers the warning, and
+> sendmsg() fails with -EFAULT.
+> 
+> A few options were considered:
+> 
+> 1) Schedule the truesize up front. It is not known before the pages
+>    are pinned, it depends on the iovec layout.
+> 2) Do not append zerocopy data to a non pure skb. This splits a small
+>    header and its zerocopy payload into two skbs.
+> 3) Schedule the missing part right after the pages are charged. They
+>    are already in the skb at this point, so this can not fail.
+> 
+> Go with 3).
+> 
+> Fixes: 849b425cd091 ("tcp: fix possible freeze in tx path under memory pressure")
+> Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+> ---
+> v1: https://lore.kernel.org/netdev/20261119090828.343748-1-jiayuan.chen@linux.dev/
+> 
+> Changes in v2:
+> - Only call sk_forced_mem_schedule() for non pure zerocopy skbs (Eric)
+> ---
+>  net/ipv4/tcp.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+> index d510e982dcea..343f6d61b408 100644
+> --- a/net/ipv4/tcp.c
+> +++ b/net/ipv4/tcp.c
+> @@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+>  			if (err < 0)
+>  				goto do_error;
+>  			copy = err;
+> +			if (!skb_zcopy_pure(skb))
+> +				sk_forced_mem_schedule(sk, 0);
 
-v2:
-- Apply the zone verification in memmap_init_page_from_template().
-- Collect Reviewed-by from Mike Rapoport.
----
- mm/mm_init.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index a9d848c92678..0129152b74d8 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -1082,6 +1082,7 @@ static void zone_device_page_init_from_template(struct page *page,
- 		set_page_address(template, __va(pfn << PAGE_SHIFT));
- #endif
- 	memcpy_nontemporal(page, template, sizeof(*page));
-+	vmemmap_optimization_verify_zone(page);
- }
- 
- /*
--- 
-2.54.0
+I think I should move such code before the 'if (err < 0)', like the sashiko said:
+
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119090828.343748-1-jiayuan.chen%40linux.dev
+
+>  		} else if (zc == MSG_SPLICE_PAGES) {
+>  			/* Splice in data if we can; copy if we can't. */
+>  			if (tcp_downgrade_zcopy_pure(sk, skb))
 
