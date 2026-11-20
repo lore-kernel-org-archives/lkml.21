@@ -1,21 +1,21 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.43.8.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200644;
-	b=mJPuNs8CPTV+Kbzd+q1Ycg1jH3+nlNTnBF6qSpSLe/oRT1jcJYuH2k2WLtAAgyU5RGSD
-	 IOGVGb8LKBT9X+xVlSWW+5HxbAvMLxzZvo4e2AFKUknR2bLFH5GQ6FqYN23YRqLR+cY/X
-	 y8r+OU46J6q03wQUtMet11QmuI17iYHpJMjkiI8p5jPRp3Wx2bFdhzTNskTu/IMAy5807
-	 TrL/1UmvMzYzRagyoiFZxzdZaGmMkciFmsHQEF+r/EBVjiJINMOrucF395MsF3u8bYuXC
-	 eg6SU6larCgo/kjgYMod0YgeZo7bMY/2zsOEgf5MbLg5ZdChQ7dPHI7o4dLebeltHTg==
+	t=1795200686;
+	b=MN3TM4dW1dUSK8tdT40/VuFL5nPicJ4BOusyBjizYkAPxkxp0rB1/kI7t85BMIWcuJ3e
+	 IumiiXYSNV21vk6d09VxvenQlZLPYz0IFPSKxgJEdp6vO9D8TqLqdsJTZHNuTRoTq44p/
+	 K9l2CBtvD493dV8zVtm5TppFLnzoYl1sdFMrU+2HZQChby1KZPL0xmYkA0qZzm0zb7zEr
+	 G24mh7FqqPs5jpuc28bgMlDae1vY0uDvL6CnPm5E0Ct9LQ/m4HeV5Wm65VO9NbBThsefg
+	 QRXybqcdIJd8VVq8Jick/8vNxNaEkZytIRv+IF1X7g4iFBXvinpGOcjMEjhwUDZlrgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200644;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200686;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=6N+EXJI4Dy+T2ZX1vwniFs2XRa31yIRuqEE8O0WaxGw=;
-	b=rsuJ+XzLabOq1KkigTN1ENdJlvn/P7ZSBASyDqBEF2cuQEe7FtVNLAaxHpPvKv3crX4+
-	 IaP3Fv0ke3Bu7J+AKhgMracCqGifZ0JIH0S9tpLOj9EFqP0/XTlRn5tK5As2xEyyks1HX
-	 BvUVSdoQDhZ4U8w5MdckVbEWVHT2GffLzVinnP8MEnjDfxOP4fbwskP/vqz6H624q/jce
-	 MlUWF56VDaqOMeQZRUX72DidL865tHZ1XQYvhkNd28U/sdv0SXYTP78v4XbLYIbhL0kwX
-	 Hyu37gwISgwoys49+1i3ZxAfmp14ssz6ZL794M307VOExd0U4D2+w3je03FRu2V7T0Q==
+	 MIME-Version:Content-Transfer-Encoding:X-Spam;
+	bh=f0NPUJ892xaj0+0KhMNZGFUOB30Dh3J4cZ6PGJ5pzlo=;
+	b=bpLByFQ5M3EMmzi0SX4ent4dAM5CKmQC4yyisI/RjOkiX6AX+lpHhOYMZQ4s9njrnMp+
+	 by6WrqYPuEQED6J0YRVJBNUqywgMx2As98xiywxqCCBEIa9NBc1I0nxk1P8jXqvbz84au
+	 S5zBSUgSX6vj88p9HCMG0Enf0Rz02FDa0vzosuMtf2QSxTGh/BCQ0FqxcTcP79jxZNKsz
+	 rkYnlv8YPeieaL5fSk53Zr3hj6KV1QRBoz0Yd96OlC6gy12VSCS4nC0B/mE0lEckHFdbz
+	 fhBavBOmlR1IFUYxpt123LbxJ80r3WOSlk8unVZne9zGSxKJDGwcFTU3DAE4MnaQs1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=altlinux.org;
 	spf=pass smtp.mailfrom=altlinux.org;
@@ -24,15 +24,15 @@ Received: from air.basealt.ru (air.basealt.ru [193.43.8.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA3EC60A2629
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:50:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA3EC60A2629
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85C2860A260C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:51:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85C2860A260C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=altlinux.org
 Received: from altlinux.ipa.basealt.ru (unknown [193.43.11.2])
 	(Authenticated sender: kovalevvv)
-	by air.basealt.ru (Postfix) with ESMTPSA id 2D3932337B;
-	Fri, 20 Nov 2026 21:50:38 +0300 (MSK)
+	by air.basealt.ru (Postfix) with ESMTPSA id 870EF2337B;
+	Fri, 20 Nov 2026 21:51:23 +0300 (MSK)
 From: Vasiliy Kovalev <kovalev@altlinux.org>
 To: Alasdair Kergon <agk@redhat.com>,
 	Mike Snitzer <snitzer@kernel.org>,
@@ -42,9 +42,9 @@ To: Alasdair Kergon <agk@redhat.com>,
 Cc: linux-kernel@vger.kernel.org,
 	lvc-project@linuxtesting.org,
 	kovalev@altlinux.org
-Subject: [PATCH] dm zoned: fix NULL pointer dereference in dmz_load_sb()
-Date: Fri, 20 Nov 2026 21:50:37 +0300
-Message-ID: <20261120185037.614445-1-kovalev@altlinux.org>
+Subject: [PATCH] dm-verity: give each FEC buffer slab cache a unique name
+Date: Fri, 20 Nov 2026 21:51:23 +0300
+Message-ID: <20261120185123.614550-1-kovalev@altlinux.org>
 X-Mailer: git-send-email 2.50.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -56,22 +56,27 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Spam: Yes
 
-When the primary super block is not valid, dmz_load_sb() searches for
-the secondary one with dmz_lookup_secondary_sb(). If the search fails,
-zmd->sb[1].dev is NULL, and the error is then reported with
-dmz_dev_err(zmd->sb[1].dev, ...), which dereferences the device to
-print its bdev:
+verity_fec_ctr() creates a slab cache for the FEC buffers of every
+verity target that uses FEC, always under the name
+"dm_verity_fec_buffers". With CONFIG_DEBUG_VM=y, as soon as two such
+targets exist at the same time, for example two FEC-enabled devices or
+a table reload of one, the second kmem_cache_create() trips the
+duplicate name check:
 
-device-mapper: zoned metadata: (ram0): Invalid meta magic (needed 0x445a4244, got 0x00000000)
-Oops: general protection fault, probably for non-canonical address 0xdffffc0000000000: 0000 [#1] SMP KASAN NOPTI
-KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
-CPU: 2 UID: 0 PID: 1412 Comm: syz.1.17 Not tainted 7.4.0-rc1-next-20261104-alt-syz-box-drivers_md_bcache #1 PREEMPT(lazy)
-RIP: 0010:dmz_load_sb drivers/md/dm-zoned-metadata.c:1259 [inline]
-RIP: 0010:dmz_ctr_metadata+0x2389/0x4a20 drivers/md/dm-zoned-metadata.c:2897
+kmem_cache of name 'dm_verity_fec_buffers' already exists
+WARNING: mm/slab_common.c:111 at kmem_cache_sanity_check mm/slab_common.c:111 [inline], CPU#2: syz.1.18/4545
+WARNING: mm/slab_common.c:111 at __kmem_cache_create_args+0xab/0x450 mm/slab_common.c:352, CPU#2: syz.1.18/4545
+Modules linked in:
+CPU: 2 UID: 0 PID: 4545 Comm: syz.1.18 Not tainted 7.4.0-rc1-next-20261104-alt-syz-box-drivers_md_bcache #1 PREEMPT(lazy)
+RIP: 0010:kmem_cache_sanity_check mm/slab_common.c:111 [inline]
+RIP: 0010:__kmem_cache_create_args+0xae/0x450 mm/slab_common.c:352
 Call Trace:
  <TASK>
- dmz_ctr+0xb53/0x1df0 drivers/md/dm-zoned-target.c:873
+ __kmem_cache_create include/linux/slab.h:402 [inline]
+ verity_fec_ctr+0x9eb/0x1070 drivers/md/dm-verity-fec.c:709
+ verity_ctr+0x1a6a/0x1ed0 drivers/md/dm-verity-target.c:1650
  dm_table_add_target+0x7c2/0xf30 drivers/md/dm-table.c:749
  populate_table drivers/md/dm-ioctl.c:1602 [inline]
  table_load+0x38b/0x910 drivers/md/dm-ioctl.c:1645
@@ -84,38 +89,49 @@ Call Trace:
  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
  do_syscall_64+0x112/0x630 arch/x86/entry/syscall_64.c:89
  entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x00007f443b88a829
+RIP: 0033:0x00007f213c87a829
  </TASK>
 
-Loading a "zoned" table on top of devices that carry no dm-zoned
-metadata is enough to trigger it.
-
-The secondary super block always resides on the same device as the
-primary one, so report the failure against zmd->sb[0].dev, which is
-always set at this point.
+The buffer size depends on the number of RS roots of each target, so a
+single cache can't be created at module init. Append a unique sequence
+number to the name, as dm-bufio does. The slab core copies the name, so
+a stack buffer is enough.
 
 Found by Linux Verification Center (linuxtesting.org) with Syzkaller.
 
-Fixes: 977ff73e6415 ("dm-zoned: remove the ->name field in struct dmz_dev")
+Fixes: 4c39529663b9 ("slab: Warn on duplicate cache names when DEBUG_VM=y")
 Cc: stable@vger.kernel.org
 Signed-off-by: Vasiliy Kovalev <kovalev@altlinux.org>
 ---
- drivers/md/dm-zoned-metadata.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+With panic_on_warn the warning panics the kernel.
 
-diff --git a/drivers/md/dm-zoned-metadata.c b/drivers/md/dm-zoned-metadata.c
-index 094b63215882..f7aa04954d2f 100644
---- a/drivers/md/dm-zoned-metadata.c
-+++ b/drivers/md/dm-zoned-metadata.c
-@@ -1256,7 +1256,7 @@ static int dmz_load_sb(struct dmz_metadata *zmd)
- 		ret = dmz_lookup_secondary_sb(zmd);
+ drivers/md/dm-verity-fec.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/md/dm-verity-fec.c b/drivers/md/dm-verity-fec.c
+index c79f60df3a90..dfe44f25a5eb 100644
+--- a/drivers/md/dm-verity-fec.c
++++ b/drivers/md/dm-verity-fec.c
+@@ -594,6 +594,8 @@ int verity_fec_ctr(struct dm_verity *v)
+ 	struct dm_target *ti = v->ti;
+ 	u64 hash_blocks;
+ 	int ret;
++	char cache_name[64];
++	static atomic_t seqno = ATOMIC_INIT(0);
  
- 	if (ret) {
--		dmz_dev_err(zmd->sb[1].dev, "Read secondary super block failed");
-+		dmz_dev_err(zmd->sb[0].dev, "Read secondary super block failed");
+ 	if (!verity_fec_is_enabled(v)) {
+ 		verity_fec_dtr(v);
+@@ -706,7 +708,9 @@ int verity_fec_ctr(struct dm_verity *v)
  		return ret;
  	}
  
+-	f->cache = kmem_cache_create("dm_verity_fec_buffers",
++	snprintf(cache_name, sizeof(cache_name), "dm_verity_fec_buffers-%d",
++		 atomic_inc_return(&seqno));
++	f->cache = kmem_cache_create(cache_name,
+ 				     f->rs_k << DM_VERITY_FEC_BUF_RS_BITS,
+ 				     0, 0, NULL);
+ 	if (!f->cache) {
 -- 
 2.50.1
 
