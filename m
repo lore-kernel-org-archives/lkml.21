@@ -1,57 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209854;
-	b=PYgDApCk1Fhw+094gFs/z/ETEZmNjInxMi/BtFwgTeQHpxPtqiCuVWsuEmRGUaF8DFrX
-	 fJHSFfLrF1aiQH/Uy8S9m04S23RTrgtq/ZzE4MeJCfe/DU1oot3QDFOdrezuzp6cRxdux
-	 4eTCOMHRcFoHAQ410PSNjymPVFdU5w+Hjj0bhXJQ0tGz80rzPgtCGsNRPjaWmyMPBit8g
-	 XyVuDm+MR0mVW+H3SAS4vksJz4OB+wAWtoDcwl/QUr/wAmP+U2Q6eJliH94l210fWCFuM
-	 O/3HZBcdv+KqPQSPzs11dc0iOSmTmRIckZUZSRX8lay4dkFqv/xqG41pDuqMHSE2Mrg==
+	t=1795209880;
+	b=SXS8tsgcNyoXW+zamD9wC5WZCKLKlSyyKK8Zq0Gto1lAyPKt3AagbwQ6ucy/OCjDEoUG
+	 vK3kAnFyUqmUpCD2ZFYO2kgF7OS4+n+jHZIRNYZlJp0onXzOLkvoBSPA00kxxZ6+j4MLV
+	 Yjz/mHYy3Y6dxIFo8W7S8vfujRNMeQB0M6XVg5MdMjS52o32Uv/MsMfLBJ+ylRyslZXzl
+	 xx39EOlXbMkEwufr2xRg6saGJ7g6yNBwB7cfsrQDB9W4Qd4iOUBAGRgzZ4/ocSlMRt+6V
+	 u+a0+YyeuttP/bS83JWfQubXPhqprjsnPr68KAqOxaEmhMU42VrHLrUpwKGMlI5U+Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209854;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=zRoJRslp6kqg0jms8lDN9+y86oBP3loPDzrCd/J/5vM=;
-	b=cUNrccNbCQRqWQUSWT60VWuOF/7zI9CS5G+Dk5dMYGeP8DvOT9tOMfakxFw+ProdXrlO
-	 5LN/a/C87e2SPownfgX/EFBQxT+shVf2kJ9MuADCKpG9Af+XVSBfm4ZA4M0bXNTuwefjA
-	 KwOiSwd+yipAyESGN98oySWeWSCbITz/IeTGYoraXDzY1hW3M/fDgpwBXaohX6hckQGMb
-	 b/GRdDodILntPs7vuSXZ66Oq/bAH8+KxSq35/twSx4Dvho/WbuvYTJy2wKhXoqahMdDbZ
-	 wFsRcah47QD49FXffenx1fk7uezbtFXUvHxe9o49M05nwLFAXts9P6htGHcf2AbIiUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209880;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Provags-ID:
+	 X-Spam-Flag:UI-OutboundReport;
+	bh=5IieO+srsJYomyk2t/trHg9m7DFtEx5t2GRKX+T4Usc=;
+	b=5KctrgA7BkLVn4sFK9RzqxLjWshmlnT5pYCR3X3GKmrvGkV12OEYpsKj7ZVl4aIc4cx2
+	 UpazaqmnV5sfcAEupbOHjdmUkX0qSdP2h1W3uv8HgUUX8n+1U2sc0+Z5VMmkUKUjPM9yp
+	 lRi5+8FpUlVdAQCGZmSjpxrK83bX+mcmVlo30LR6xcmodwHpKG38NC2frmG9D54ic4wle
+	 gUHRPBSclORxW65wKAfyDoxrkdi3Cu4tSr1lE0Jlr759mtJoBa2JtaONB8W9/Q+7EQPlS
+	 dUu/3AV0Hzul9ZkXC7QxawFEbqdRLFql7XIRcj2atBjmZTdofzsKrIncsgr54YQuK+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ehWSoh3v;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=gmx.de;
+	spf=pass smtp.mailfrom=gmx.de;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=cC1PoBp8;
+	arc=none smtp.remote-ip=212.227.17.20
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68220606A6A0;
-	Fri, 20 Nov 2026 21:24:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D298A606A6AA
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:24:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D298A606A6AA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ehWSoh3v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6E401F000C6;
-	Fri, 20 Nov 2026 21:24:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795209854;
-	bh=zRoJRslp6kqg0jms8lDN9+y86oBP3loPDzrCd/J/5vM=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=ehWSoh3vh0Bp2lJD4iG1lVr4iqAk03IUX2TG/GestpqNf1IJ1xMzsSTEphFc9dNMd
-	 zzsOoeHLMwQVc1AYOsdOe76YNoNtwC8JYCpSQIMBzyhbqjjSDMPVeo2mCsA+edigFO
-	 Mj+pyZ7Fx5OXfoFtoajILx+eLUFlwzRwiBeVby+0ddg8CMR4h6AdfHpgwQ2h5BgCxB
-	 1PQEHOYH+aLvKHx4MG2rk6NOaisHcjNDbByM8bIr7RnTC0aC986hQD0QSvFgaH+Fxa
-	 xOn1cxHipIp20Vg3R7SAAZAatvIJkpItonvrij2jkhkDlDHvbpJ6hoqhq0tY9zAGk7
-	 5z9LbznMEUm0w==
-Message-ID: <sashiko-outbox-226170@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v10 30/40] sched/deadline: Start a period for a task
- requeued onto an rt_mutex
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <6c7be87e201d405bdf589989cb45afca9160c2e4.1795207232.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <6c7be87e201d405bdf589989cb45afca9160c2e4.1795207232.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 21:24:13 +0000
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=cC1PoBp8
+DKIM2-Signature:  i=1; m=1; t=1795209875;
+ mf=PFdfQXJtaW5AZ214LmRlPg==;
+ rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.de;
+ s=s31663417:rsa-sha256:pdmmuA2lPFelLU7k9Uk0XhWb+jly
+   NNIemYmwbvorS9vwYKYxt+69ZZbKZAzfhDUVodtAa+64sXS2nTTyjzic75psT84iodQ/fZkCXng
+   iekuPQ3C4KvsP+cgiDyq4rXuJsC7gDOX3ilqyckfhana5J4YN24PVi9K1y7YWnpyYbsQLRhYzdk
+   +579a2eNL4ygOgFAAbOVitnsXE5mVivssMzIK1ICP3knZs6KZikE7Zk73qf2UUeGeh5rOIXtA44
+   iX4GrdZA/ZL2cdhv8lhXFF3wtxG5fnf4WZK1Py1/wk6zoLGEuzH+gOtySFf+U/rO7+xMBLv13OC
+   Sq9f64CGxkhrVg==;
+Message-Instance:  m=1;
+ h=sha256:
+   hye+AKXEIs9qAdXY/Xu9xnoPLQl86UBjbOoxtazhnFI=:
+   LDRW7dy7hV5VKbzVhLSWCeZG/OlYhbfpPWhqIjxwyhY=,
+  sha512:
+   IW4sLNaQnLEDeJUWtOC9uIqlZJT/B7tEZ4vCakM/u+g3SraxBJ0XHIG6cV54TzWGqdT+wpasMgfuN5YcBJolvw==:
+   6lVfey7ETIneuR6zsGFwtKMaLM1la/u3Ll1hfiVYlAnyEb7ty1ACxnuYMzeEZOuqZkChd/z+HENYHVU1Sf5tig==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1795209875; x=1795814675; i=w_armin@gmx.de;
+	bh=5IieO+srsJYomyk2t/trHg9m7DFtEx5t2GRKX+T4Usc=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=cC1PoBp8Vl2/gN1wdEHGyIICc1nqW/hSGgtnj9SU9wt3UPjFsQ3MDGrfZ3O82EWq
+	 /6zd3G0KKiGuiekieUhrRMlU9WjjBczSSlAjN86XXAJTwDjRIql4DAZy6ZAfBNNof
+	 b4M/WFR6sFApP0xJjS0e9ArZKkInMIywySXg7PL7pjW2mUFwEzkF60KtQvIlxyOe5
+	 7Xynsx8IFDxBXL4YZjAGTLFPG/X3NQfg7yjNtasS1ks2cKBA2EkJ9nUzBL+Y51FXS
+	 nysGbHa4c4HONvFBn37d/0T6HcOiBug3a12LjvNFccGoCB5jF04zgSZNu9K3QSWkc
+	 Rd6Vkp6/xG0c3ieNsA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1McY8T-1y79Ek2BMT-00bQIh; Fri, 20
+ Nov 2026 22:24:35 +0100
+From: Armin Wolf <W_Armin@gmx.de>
+To: lee@kernel.org,
+	pavel@kernel.org
+Cc: linux-leds@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	i@rong.moe
+Subject: [PATCH v3 00/11] leds: class: Support custom sysfs groups on multicolor and flash LEDs
+Date: Fri, 20 Nov 2026 22:22:17 +0100
+Message-ID: <20261120212431.152081-1-W_Armin@gmx.de>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,152 +86,161 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:cr1l8mcb/nd7WKI3ezPpzfRM4Mz0AVsiL4WLPGtmxjgUlr+nYV3
+ 5VXLi1F8wOZ3MfrNVQAmmKQbrjRPx+OZDelRkJzGYG/69fwmoK1qM8NhNnkE76YRQCigEIX
+ ISDaAjzjD/CYmDMef2PYP4I8Z0uy6R7yPMBXdDcGbIsiS7G/wXC1PWum9X+FKzgIQema7WU
+ T7NghsBVzWczsUAV++QaA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:stdFiHZz8BM=;YZK08fuNSuxY1kqDHUyPqNZ5wio
+ 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
+ EZdhy
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issues to consider:
-- [Medium] sched/deadline: dl_proxy_block() skips period start for
-  PI-boosted tasks
-- [Medium] locking/rtmutex: proxy lock steal uses stale deadline before
-  dl_proxy_block()
-- [Medium] sched/deadline: missing dl_entity_overflow() check in
-  dl_proxy_block()
-- [Medium] sched/deadline: dl_proxy_block() skips period start for zero
-  constrained deadline
---
+Until now drivers are unable to atomically register custom sysfs
+groups below multicolor and flash LED class devices, because the
+led_cdev->sysfs_groups field is being overwritten inside the
+associated initialization functions. This patch series tries to
+fix this.
 
-commit ccbb5e6cd761023e5e38a79f3d3be937fad4a331
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+The first three patches constify the sysfs attributes of all three
+LED flavors, while the next four patches fix various unrelated issues
+affecting LED device initialization. The next two patches migrate
+the multicolor and flash LEDs to use struct device_type for
+registering their sysfs attributes, so that led_cdev->sysfs_groups is
+not touched anymore. The last patch contains a minor optimization
+for multicolor LEDs.
 
-sched/deadline: Start a period for a task requeued onto an rt_mutex
+All patches have been tested on real hardware, with the flash LED
+interface being tested using a custom kernel module.
 
-This commit adds dl_proxy_block() to start a new period for a sleeping
-SCHED_DEADLINE task when it is proxy-locked onto an rt_mutex, so the
-waiter node does not use a deadline of 0 or a deadline in the past.
+Changes since v2:
+- fix issue inside KTD202X driver
 
-> diff --git a/kernel/locking/rtmutex.c b/kernel/locking/rtmutex.c
-> index b09816977d4e5..5ff123d24b2a6 100644
-> --- a/kernel/locking/rtmutex.c
-> +++ b/kernel/locking/rtmutex.c
-> @@ -1245,6 +1245,9 @@ static int __sched task_blocks_on_rt_mutex(struct r=
-t_mutex_base *lock,
->  		return -EDEADLK;
-> =20
->  	raw_spin_lock(&task->pi_lock);
-> +	/* A proxy lock: @task sleeps, and its deadline can be stale. */
-> +	if (task !=3D current)
-> +		dl_proxy_block(task);
->  	waiter->task =3D task;
->  	waiter->lock =3D lock;
->  	waiter_update_prio(waiter, task);
+Changes since v1:
+- use READ_ONCE() inside brightness_hw_changed_show()
+- fix possible deadlock in led_classdev_notify_brightness_hw_changed()
+- set led_cdev->dev to NULL when initialization fails
+- call device_set_node() after device_add()
 
-[Severity: Medium]
-Can __rt_mutex_start_proxy_lock() steal the rt_mutex using a stale
-task->dl.deadline before task_blocks_on_rt_mutex() runs dl_proxy_block()?
+Armin Wolf (11):
+  leds: class: Constify sysfs attributes
+  leds: multicolor: Constify sysfs attributes
+  leds: flash: Constify sysfs attributes
+  leds: class: Create "brightness_hw_changed" attribute atomically
+  leds: class: Fix race condition when creating the device
+  leds: class: Access brightness_hw_changed exactly once
+  leds: class: Use correct type for brightness_hw_changed field
+  leds: class: Split led_classdev_register_ext()
+  leds: Support custom sysfs groups on multicolor and flash LEDs
+  leds: rgb: ktd202x: Initialize max_brightness before registering LED
+  leds: multicolor: Adjust maximum subled intensity during
+    initialization
 
-__rt_mutex_start_proxy_lock() calls try_to_take_rt_mutex(lock, task, NULL)
-before calling task_blocks_on_rt_mutex().  When the target PI futex has
-just been unlocked and is in the handoff state with waiters,
-try_to_take_rt_mutex() tests rt_mutex_steal(task_to_waiter(task),
-rt_mutex_top_waiter(lock)), which reads task->dl.deadline before
-dl_proxy_block() refreshes it:
+ drivers/leds/led-class-flash.c      | 153 +++++++++---------
+ drivers/leds/led-class-multicolor.c |  76 ++++-----
+ drivers/leds/led-class.c            | 233 +++++++++++++++++++---------
+ drivers/leds/leds.h                 |   3 +
+ drivers/leds/rgb/leds-ktd202x.c     |   4 +-
+ include/linux/led-class-flash.h     |   5 -
+ include/linux/leds.h                |   2 +-
+ 7 files changed, 278 insertions(+), 198 deletions(-)
 
-kernel/locking/rtmutex.c:try_to_take_rt_mutex() {
-    ...
-		if (rt_mutex_has_waiters(lock)) {
-			/* Check whether the trylock can steal it. */
-			if (!rt_mutex_steal(task_to_waiter(task),
-					    rt_mutex_top_waiter(lock)))
-				return 0;
-    ...
-}
+=2D-=20
+2.56.1
 
-A requeued task with a deadline of 0 or a passed deadline can then steal
-the lock from a woken top waiter with an earlier real deadline, and
-because try_to_take_rt_mutex() does not call rt_mutex_adjust_prio(), the
-new owner remains unboosted once wakeup assigns its real later deadline.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index b1346be9e81da..1c5888b1717de 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -1573,6 +1573,36 @@ static inline u64 dl_next_period(struct sched_dl_e=
-ntity *dl_se)
->  	return dl_se->deadline - dl_se->dl_deadline + dl_se->dl_period;
->  }
-> =20
-> +#ifdef CONFIG_RT_MUTEXES
-> +/*
-> + * FUTEX_CMP_REQUEUE_PI makes @p wait on an rt_mutex while @p sleeps.
-> + * The waiter node of @p takes its deadline, before any wakeup. @p would
-> + * not run with a deadline of 0, which it has if it entered the class
-> + * asleep. Nor would it run with a deadline that has passed. Start a new
-> + * period then, as its wakeup would. Leave a task past its deadline and
-> + * before its next period: its wakeup throttles it until that period.
-> + *
-> + * The caller holds the pi_lock of @p.
-> + */
-> +void dl_proxy_block(struct task_struct *p)
-> +{
-> +	struct sched_dl_entity *dl_se =3D &p->dl;
-> +	struct rq_flags rf;
-> +	struct rq *rq;
-> +
-> +	if (!dl_task(p) || is_dl_boosted(dl_se) || !dl_se->dl_runtime)
-> +		return;
-
-[Severity: Medium]
-Does returning early on is_dl_boosted(dl_se) or !dl_se->dl_runtime leave
-p->dl.deadline at 0 (or expired) when p was PI-boosted while sleeping in
-FUTEX_WAIT_REQUEUE_PI?
-
-While p sleeps in futex_wait_requeue_pi(), p is not queued and
-p->pi_blocked_on is NULL (so dl_task_pi_blocked(p) is false).  If p holds
-another rt_mutex and a SCHED_DEADLINE waiter blocks on it, both
-dl_boost_blocked() and switched_to_dl() skip replenish_dl_new_period()
-because dl_task_pi_blocked(p) is false, leaving p->dl.deadline at 0 or at
-a passed deadline.  When FUTEX_CMP_REQUEUE_PI then requeues p onto a
-second rt_mutex, dl_proxy_block() returns early instead of starting a
-period from pi_of(dl_se), and waiter_update_prio() copies the 0 or
-expired deadline into waiter->tree.deadline.
-
-> +	rq =3D __task_rq_lock(p, &rf);
-> +	update_rq_clock(rq);
-> +	if (!task_on_rq_queued(p) && !dl_se->dl_throttled &&
-> +	    dl_time_before(dl_se->deadline, rq_clock(rq)) &&
-> +	    (dl_is_implicit(dl_se) ||
-> +	     !dl_time_before(rq_clock(rq), dl_next_period(dl_se))))
-> +		replenish_dl_new_period(dl_se, rq);
-
-[Severity: Medium]
-Should an implicit-deadline task also start a new period here when
-dl_entity_overflow(dl_se, rq_clock(rq)) is true?
-
-When an implicit-deadline task sleeps in FUTEX_WAIT_REQUEUE_PI past its
-0-lag time (or has its parameters shrunk via sched_setattr() while
-sleeping) and is requeued before its old dl_se->deadline passes,
-dl_entity_overflow(dl_se, rq_clock(rq)) is already true.  Because the
-task is asleep, update_dl_entity() will unconditionally see
-dl_entity_overflow() (or a passed deadline) at wakeup and call
-replenish_dl_new_period().  Without checking dl_entity_overflow() in
-dl_proxy_block(), waiter_update_prio() copies the old dl_se->deadline that
-the task would never run with, causing it to sort ahead of waiters whose
-deadlines are earlier than its wakeup deadline.
-
-[Severity: Medium]
-What happens if a constrained-deadline task has dl_se->deadline =3D=3D 0 wh=
-en
-rq_clock(rq) is still before dl_next_period(dl_se)?
-
-If sched_setattr() switches a task sleeping in FUTEX_WAIT_REQUEUE_PI to
-SCHED_DEADLINE with dl_deadline < dl_period, dl_se->deadline is 0.
-Because dl_is_implicit(dl_se) is false, dl_proxy_block() evaluates
-dl_next_period(dl_se), which computes dl_period - dl_deadline (or
-dl_period after commit "sched/deadline: Keep the start of the period
-across a change of dl_deadline") as if a period had started at t =3D 0.  If
-rq_clock(rq) < dl_next_period(dl_se), dl_proxy_block() skips
-replenish_dl_new_period() and leaves waiter->tree.deadline at 0.  Checking
-!dl_se->deadline before testing dl_next_period(dl_se) would avoid this.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
-t.mathieu.desnoyers@efficios.com?part=3D30
