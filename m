@@ -1,55 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184751;
-	b=su6BNfZpop9E+NqyGv3KdSaa5UcmehlS1PFKj19sPPJ4j4AhpQoiRw02OclscieFfYyk
-	 UCPvF8GATAaJRcSNZz6IR5HXORNgqpp+lHVtW+aSdUP05+6RFiDpqvjJQWf+/ujxxZhV7
-	 awffqKblea+/r4t57mjJg3S2HvzlNoTHoegc5lbsTwSyPtAiDX/n5wkzjdrBatb3CP+Ij
-	 6DQ4F3arTEtfotyctC97GWzKXu/Sfqx7L+vK4eVSm0fPJEKz4oMZGm2wdqgQBNwIgoHAv
-	 5dLdORTH/nIgxftZgM5Vct3Im7J7VKWz7wSHLhKZZ1xmTHbahnPH94Cu1IffBiEHIJA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184751;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Q1QGjoYaE6UMgYTk/6OhkgIovHiFq9oX5Rd20qQXkcM=;
-	b=ml8izqbnmVDiwjuTL8Wy9kegLyT11j7oWRzA9sqWx6+3yJaOs4XJHrEFMAvbcaAR0pYl
-	 qLZZ9QZ4F+9cdSf5I0boq0qjLb05xKmlXTRipHHtx0tsqHyU8ML/9rkXB+MurdjVpvXP1
-	 7fLkXItarjHxUWCs4O4dKKhCTYsq4RqoMsFcI6tQKe97qZ9PDF+x1Cra6PWgaJ0w8smF5
-	 M0FVrzg5a9lsGAL4ZFlDEKjcU8nFIkp8w2i2Z3UsYfOv2MePUUbU2XRIRISVvAJiUZhyB
-	 syuCmr/MSIneE/cJKeRTL94wgrxhRTFETo/UDDZyoz8+xiTEHzaztYy+j2eJA9uygPw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSW7egoy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=74.125.224.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795184778;
+	b=LTk7HNv1snateCEdrmpv8bT+x2rSE2S/bEDO/YAbpEZaCRNhnQMJMjFa0UVtdO/w4ht3
+	 vnkNa4LvWYwZIegPSxeesh3NbvgUz3vLFZiWYsP3sLOorFvUhTFlMxit3x4VdMrMS6Udu
+	 SjOfzG9jP5ovaEIR4buGeymBdDQ6Pw7nrTgt1cWavOmn2u4H71zeO5ldg5Thg7DUTZoSv
+	 voeMhC/OGe44a9MgtAyvgZXcHEda6HWMl9LIALDP5zGNvI3o86Map3D2KZFyaHsuUR1J7
+	 /zZPxLxBwDvL5+tum9BDejfJnDmTvZepiAN59pC1bEQFENUeFAaCNNBvh5FpU+VuimQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184778;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=xcn2AQuf2ta2YXdrV1a8uRQUDEFs6AHRKa6oE6FM3L8=;
+	b=Ew1ukqB6j1d+bpVWxPDv+sctA6qIxbzYOvpc3aPaHPcZ9QwVqJqYQStUKlCPLKAD7RF/
+	 ffrQwgGBJAx5qGsoHGH67YDZBOPsOXxaExdTUqJC11cwM3kqA1L8WOFsv7n64nBi75fZd
+	 eql8w1Nq12zHKfG7F9KPdKuFLdx5WAwAvoI0MxajyjcEruH8gaIyG7/9+ZKuySCV1l5e7
+	 HtIKsXW0Hle409W9OUUxlWSzFVLyLw01o1ZRqQdeDvbaxwAb/WIVwM8EsuRPf+2q6Ym1I
+	 R8va6Xg609knsvhvC/tbwZ+NeS16Nzwi1CHBW5D0zyCd4vXxV/nQ8qQvVgf5WvfOh4w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N1f1RhkT;
+	arc=fail smtp.remote-ip=74.125.224.49
+Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04012606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:25:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B268606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:26:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B268606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RSW7egoy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 479271F000CF
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:25:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795184750;
-	bh=Q1QGjoYaE6UMgYTk/6OhkgIovHiFq9oX5Rd20qQXkcM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RSW7egoy9rhg8xJqUJfVlTEMIPnXfmxsfrzMietR33CDO/vMXcIJb8S7O97FRX6X0
-	 jQMkYRSteW/+ukOvx77auvDZByVeqIuRl9H+p8Tc/Rf9oPhd8b1pnQkusUyB5PjZaG
-	 Hp5KtsQhnFA/cEF2zHz471AFXMlCLV02xKAetKzzNqRGklWotzvN194O+RdQXXpLya
-	 X7+D1xlE7pN+y8hAvta7NuDExL+8ijyd78DOwzoTPznOTDj5O6yyJYcIozA/YATaQ/
-	 aBLTDXaF7Da5r46R5Qe5LCPFfv2k02zJm2ciPswr0yoq4KiQ+QENRJgVk5OEHHKLWG
-	 sD39FHBWjP3Gg==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5c10dc41270so920454e87.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:25:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFj8JUtKT0xRcSjyfOm7/lOQKOoyZKmCCKlVJpWjM7MUqxuAYMK2BWDa9LLPuiNHM0dyBqObWH3auVchxw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+WhmrgjVVZNIFsCRkWHykn9tsoz8Lh4FhNzSJH9F6W2+uyIEgW
-	tgEj98bKb5lg50jLUesomxEUaRMnHcFGtFNsq4NEfwEdkPEb60Y5036RTL3/9Wf/X3jduBTqNsF
-	u0eiNlytIusqHFxp6YjU5atwV+T3qoyY=
-X-Received: by 2002:a05:6512:1393:b0:5c0:b5c:4044 with SMTP id
- 2adb3069b0e04-5c1bc690966mr1003471e87.1.1795184748672; Fri, 20 Nov 2026
- 06:25:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N1f1RhkT
+Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-6798eb0d190so867809d50.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:26:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795184777; cv=none;
+        d=google.com; s=arc-20260327;
+        b=E5pHndbsD8s3DVeZ8dakx69vELb+9jcNWYJbMhxRtsOu92n1CYutpOlJFfpR4CRwr+
+         h90nYnj14vl/EtNEpnlpHQsW/B8cFlaCclk5j2KB2+WB0E+2Mgl5BW94TtyWed99ktYD
+         aEvI/FPComcCdhgDvsaV8VP1zf/pPvPHQ5e1kLiiHJtlKaJOqXxxd7OCxG3g4db/YwXb
+         Ph3ZtxpS2fBKudplQxezg2Wt7jXHAMod7PRNi+uE0gcS1mVP40qZVj/l5ThLPoCZj3Xe
+         mhwroWqynFggM8pMGvNVgPeUiOsD+lsDq4Xt9a1CC3Z3PrDBcgX99ii5MK7VQE600USn
+         nuIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=xcn2AQuf2ta2YXdrV1a8uRQUDEFs6AHRKa6oE6FM3L8=;
+        fh=cnLIm80befVNBh4ZQHBhQl3TGIThs6X5g4PTPSa/mqk=;
+        b=q1Y5+V0+8VNqlEvKmGiBXuMoWUVsrI18MK3LzKRXq4HaASiaXCHj0peg9iE8fTuZF0
+         I7JS1Zxp4y7dWFq54CkF111Y5G33eClbF9D9SHxROVFZS/meFQw71XILcu+FqNG9q4ki
+         Dy2RD9Esd1kHSWmsCeeKAIINhvOGlQ9D7fwgaNX+C4fymwKLHviA3OMPt/fgKWcny4O3
+         huJZoKvWSvj7NFrAzeh3Kj/DaZvTE/XkubBU/ISQhOEAJsD9U15z0L6/UA+uc69mH71n
+         FEI3zoStMA4DO8jGK0UvVYXwViLNwb23BV18y7UntbNuO+rpHHBzrtO1n4Qr5PnhEp+k
+         rx2Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795184777; x=1795789577; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xcn2AQuf2ta2YXdrV1a8uRQUDEFs6AHRKa6oE6FM3L8=;
+        b=N1f1RhkTN6QXGTBex5swCSX7bKt6VzVd5jQLXgm+4lbZ/Ezd1NPPUe7VZFqNjQUQfn
+         kxEeBQ10Ag7+5jNe7ASubr2TDx5e0hwx8detiWZiQKMDLMyLgOMpBbgaJObe0YBaUZ0P
+         PO7gon9M9PGyKOAcknjJj+JBPcLQObeC8jeI2Eye9dp5I2P5c7NBDqh88Vrso9YvphkJ
+         7FAmXnIOGXyfgGkBkrEOvbB7/IM5w5qL4EE+3ffg49cGxPFg+/Q1vcgQMCeQKuoTbwY4
+         PUW2bAUNFYweBbdojGvCsXQSAhoThyF5l9bUc7vG5/7ZMu3PmML53Z1XaCVJUW3+Q9DM
+         sEEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795184777; x=1795789577;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=xcn2AQuf2ta2YXdrV1a8uRQUDEFs6AHRKa6oE6FM3L8=;
+        b=BOWmldRCjlZKwVREImxFcN7a8aWrXeRxPeHAq6t1KMHCVq3+kzj0lF6pxCV6fsKns4
+         2VLacGORDR+mcE6JzpHaJAjehG6828mRaB1DaWNw87ktkIqpuDDN4PWFwAHOADej7aWw
+         UjnNG6NuiMN0RXBRYvNwlZtf3jrHv5TYRJ387GF9QKp3DQnO0i095kOLoei93KDmN4aa
+         WFghgTow17JowO2Gdw6frHJm10glTE3zsxCfZNXtiYE8d1ArxC99HPPbco2CjgbR4mf1
+         EUcsTvIhw1Lu+3g36QIZE+gekyqZCvXVZx0t2YSPb18LN6FOagOApYQtW1iOHMqQtbZn
+         dIEg==
+X-Forwarded-Encrypted: i=1; AL+hErHmrfQFzek/jZVw+G/uKBwaxK7fEXznGykRD0zizufwB21tI4KCY3XQVlOW7yQKeKamFEMF4Iv/U+uJqW0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9lvBq5DGTTM0Bn8sC2KhMj5lwSxM47vK8ZMsAwUky7skrrV5AO
+	9EhdHqOvWAhCYLOE9ZCSyhfXQ4OwBRPbgabwDD93Q/iXrZKeia59b99Yfhrw+bgiCjP+4V3nGN1
+	9acuMNBalXi6ujmGBynRoYHPUGeszPk0=
+X-Gm-Gg: AZFdTZeWyX4lQnHDUjwPkszJK+CGWVWlIjEpar9V6n58tqAFZv0HdMHeWx3yAPzoRCM
+	wLNDn4UHd5TzXVPhCoa/bnrfPFFYj3idA+QJSL0+xfZi7LxHLrYYjd0rKqOBTslYFVb9g2NsmlP
+	dg/kK4tdtQAtv45uOJF3N3Q1nlpk9EwIbezFfaFjfhqTTJz7Svb+CjCLekCJXcIqhQ6UWYFCX1+
+	yz1gQ6o4F4HmuZnGwZhTMcz6b+NX2QIhtdXFt4aovvmIL2OgxoO5QcEKx3X0VBLz8gdlZKs3S4g
+	2zitjzZgcQFT/cAMIwYbU8jFHfLAdYDf9ev8IWabLpZoyRuPmJ0MrPW5L5U5AVMc3f5DisRrECG
+	zKrVAqM9fm3rs6M1lfplXnSLAGcwNasoC7URPUFNOUMh7xCnNYWWSPg6aNzh80iAJrOgfpiQN
+X-Received: by 2002:a05:690e:4513:20b0:677:cb45:a479 with SMTP id
+ 956f58d0204a3-67df4430e87mr1069873d50.68.1795184777535; Fri, 20 Nov 2026
+ 06:26:17 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,86 +103,29 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120125722.209609-1-paul.cercueil@bootlin.com> <CAJZ5v0jNd7GofuUwWHvebMg6Sptwi_t_tV8ooncCA-DJjfyDbw@mail.gmail.com>
-In-Reply-To: <CAJZ5v0jNd7GofuUwWHvebMg6Sptwi_t_tV8ooncCA-DJjfyDbw@mail.gmail.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 15:25:36 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hfRXxT4TwFvTLbWLTr7zQwBR+dOGFHGDob6YM6eu8d+g@mail.gmail.com>
-X-Gm-Features: Aa3M54povqz_jWT6xQy-9VjAiLWN-eILkjZ44bDZBGY43v6tsG8vP17rvzL8oWU
-Message-ID: <CAJZ5v0hfRXxT4TwFvTLbWLTr7zQwBR+dOGFHGDob6YM6eu8d+g@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] ACPI: platform: ACPI 6.5 fixed clock support
-To: Paul Cercueil <paul.cercueil@bootlin.com>
-Cc: Russell King <linux@armlinux.org.uk>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com> <d966bcfd-1718-43b5-a2cb-ee5932bb361e@yahoo.com>
+In-Reply-To: <d966bcfd-1718-43b5-a2cb-ee5932bb361e@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Fri, 20 Nov 2026 11:26:06 -0300
+X-Gm-Features: AclHuK8IjZ56gnZT6oyb7irgAwS55Z1W7BkwG7Vqas5F9wBeh5-GbC7FzdoY3iU
+Message-ID: <CAK+kzgxDs7KW_fZo82zSvxpniVrzNRwnGRj0k2spU938-hWoFw@mail.gmail.com>
+Subject: Re: [PATCH net-next v12 09/13] net: dsa: realtek: rtl8365mb: use raw
+ VID for PVID on family D
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 3:24=E2=80=AFPM Rafael J. Wysocki (Intel)
-<rafael@kernel.org> wrote:
->
-> On Fri, Nov 20, 2026 at 1:57=E2=80=AFPM Paul Cercueil <paul.cercueil@boot=
-lin.com> wrote:
-> >
-> > Hi Rafael, Russell,
-> >
-> > Here's the v4 of my patchset that adds partial support for ACPI 6.5
-> > clock resources.
-> >
-> > Sashiko complained about the clock names being too long still, as
-> > ACPI device names can be up to 17 characters and the limit of clock
-> > names is 16 characters; so I now name them "acpi-clkX".
-> >
-> > Note that I expect warnings from Sashiko that I got on my v3 and didn't
-> > correct, because they are bogus.
-> >
-> > On the clkdev patch:
-> > "When clk_find(dev_id, NULL) is called, does incrementing match here
-> > give a (dev_id, con_id) entry a higher score than an exact
-> > (dev_id, NULL) entry?"
-> >
-> > My answer is that you call clk_find(dev_id, NULL) when you know you onl=
-y
-> > have one clock provided, so you don't need to care about matching
-> > priorities.
-> >
-> > On the ACPI patch:
-> > "Should the con_id argument to devm_clk_hw_register_clkdev() be NULL
-> > instead of name? [...] Setting con_id to "<dev_name>-<idx>" instead of
-> > NULL prevents wildcard connection matching in clk_find(), so any
-> > consumer driver calling clk_get(dev, con_id) with a non-NULL con_id
-> > fails with -ENOENT."
-> >
-> > That's completely ignoring the first patch, which addresses this issue.
-> >
-> > So I consider that those two issues can be ignored.
-> >
-> > Changelog since v3:
-> >
-> > - [2/2]:
-> >   - Change clock names to "acpi-clkX", because ACPI devices names can b=
-e
-> >     up to 17 characters long, and our clock name must be 16 characters
-> >     max.
-> >
-> > Cheers,
-> > -Paul
-> >
-> > Paul Cercueil (2):
-> >   clkdev: Improve clock discovery with clk_find()
-> >   ACPI: platform: Add basic support for ACPI 6.5 fixed clock resources
-> >
-> >  drivers/acpi/acpi_platform.c | 64 ++++++++++++++++++++++++++++++++++++
-> >  drivers/clk/clkdev.c         |  4 ++-
-> >  2 files changed, 67 insertions(+), 1 deletion(-)
-> >
-> > --
->
-> Sashiko has feedback on this series:
->
-> https://sashiko.dev/#/patchset/20261120125722.209609-1-paul.cercueil%40bo=
-otlin.com
->
-> Please let me know what you think about it.
+Tested on a TP-Link EX511 v2 (RTL8367S-VB), v12 as is: PVID registers at
+setup, PVID set and clear on access ports, untagged frames dropped without
+a PVID and taken in with one, priority-tagged frames taken into the PVID,
+and a PVID change in a VLAN-unaware bridge with no effect on traffic.
 
-Ah, you've already done it, sorry for the noise!
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+
+Thanks,
+Gustavo
