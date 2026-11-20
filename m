@@ -1,71 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168424;
-	b=34bsj3Y3fYOv5snszLKbhumMgYI/cAeTXO1Xcov6YCkcEh0PddApuloZXf+wprTQbhHQ
-	 H06TBKOWQSkad/VvEfjviyti1ihJ8ywMgggzNZvgP9M3iDbBuyaUX+QBDBE7NlfxGx3Xt
-	 N54hDuPvd5e8P7yiukPM67zETN8iw4z25tLcoUT4wg5rel+zTmzSQnZIDMuMYSKcSKO5B
-	 6U4gbJB+XrWnk/da1UHNb8Z88FO0s4cgFiESf6Bf/a7HYK+nB9v6Fu5I+s8soMG5J8YEk
-	 JtcgSv5sZJfPKoJHAaRPxEPVvk3xmOZS14RCONnY88BT9+PGtCSF56ouZCPEd7TxjOA==
+	t=1795168419;
+	b=YJz1aZbO4lJHA4giU8AGj55pb2dUUxL4oX4dVEHhBckiXQatZzBkwvoMqcvRZBPhTj1N
+	 CvKVHQ1XYh6peKI3ORWHhHvRfYRlKGVQclR8MuFY2ZwzCUZ2zm+7rqF5utZCTKXwsOgH8
+	 TCE+eY1dMDvtJ+hAuVwqvDRevcRUvxBzWhCimqAyxboEs3FtSWhLMZ3h6a85Jzzit1KJR
+	 foaNVGP/nFeORWd6Joqucq4dQGdZVDcq1JEMpSZosvmFN7ItjuOgvqIR92AKLjakobWKb
+	 E0+JsNOIlQenE7TnOMEBWE7jzN6ZYR8vqZVUL9tDn+WfM3K5P9D6qM0/I6GUYpE4LxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168424;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=kVAcCf7YdsZJpIS81TVP41dIPlcYyJk0wj4QR9M2Nb8=;
-	b=HFtkXN+DluUC1kV9u4m801UtWF/u8qhM4eKpjrQihSWvxgtOazf43iOq6sdxF499zltl
-	 UN31g7HNf8jkJ2n3Baa8p9p/3pVcbQ2dyUyw/Gh9LHCqcgO/AyvI14P97DXOmjilzAr7C
-	 7JM73dPkbTMfG0+W17sajLhRHSzFKMj1rZqmW4vKjQKtjsAvFyW5JdR86XY8YfQjoxNLg
-	 zGdbJqBXLlYfJuwpupkNNvYquSZqN34VheQPCa3AYyqJXLClD+eu4UeipVkcmPs6+lY5d
-	 4LkkeXH740xVNFG5OdlfmkW4EGDpTSndaCppEARNIky0L65hwAlEoQq0z9KfmV52aBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168419;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2byWnC76isCs4cT22MWKTLO0lb0D1/ZneG1MUnYIDh4=;
+	b=sSgALl5TvM7BqR5ej55ggnHCbymVqN/l9XiVF7CxRfTXX5fhK+PiFUDGaocuVmJ3Uv1i
+	 TJEwFyP7e6bdupQvlc4a6xYdyKGdlXUfAru0Bc30QshxVufPF6+gKq32RVO77um1eI2Et
+	 nDWhgpvOgL8SZXzelpJqIeuhMchDvtHkDH993Ufl4fgbi6h2gp0+mNHVogiA9UbSAEQXK
+	 R1kAcVabbmcoSgfw4U+5a9GjUVCIYdSk7rPmombiX1SB7UXMyCnIkUwok9oBGV5vBATzK
+	 igeXmR8dIKfLvYLKdfuLVCpyR3ublTxQjWBACaCgW/cnr8NKrYq0MdiITBKwyupmdOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 138B9606A339;
-	Fri, 20 Nov 2026 09:53:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138B9606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=gondor.apana.org.au;
+	spf=pass smtp.mailfrom=gondor.apana.org.au;
+	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=E+OjnCrP;
+	arc=none smtp.remote-ip=180.181.231.80
+Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A64260A2600;
+	Fri, 20 Nov 2026 09:53:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A64260A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=jKc5z3qn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=jKc5z3qnKaFLYzTTaMZdrjHSZGTI6l4WURly0La+uATyMXCkG+81DAVnbeIfu4zIqYKzQBT99uMte
-	 d2WIixcAirOlJcrEqqAHv+Rb3lAcr/8rYhKCvDLnDldu7+q2iVm/bw0Te7eRXI3kRR3GqqM0jSaLP2
-	 eiTTlxyRCuek+oTk=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26b0018a3f77-645bd;
-	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
-X-RM-TRANSID:2ee26b0018a3f77-645bd
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96b0018a1aad-20e06;
-	Fri, 20 Nov 2026 17:53:39 +0800 (CST)
-X-RM-TRANSID:2ee96b0018a1aad-20e06
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] net: hso: cap the MTU and drop oversized frames
-Date: Fri, 20 Nov 2026 17:53:37 +0800
-Message-ID: <20261120095337.1088-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179513801218.3291.4900870389760727017@kernel.org>
-References: <179513801218.3291.4900870389760727017@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=E+OjnCrP
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=2byWnC76isCs4cT22MWKTLO0lb0D1/ZneG1MUnYIDh4=; 
+	b=E+OjnCrPuiP7LU7YdQ9NxWOY8UKFqA6JOACVMMopCa+2wpFYvzGp8sT9K3wby5u+fPSOCQjvE8J
+	Yy4KVME5SM06915STXG0ty/BYC7wSToTNZ1eHHYKCGoiNxb/tOIASeVNCI2ytTaF8YS87iWJVXZ2/
+	yaR0B8S8Rljhr7CggKy7jidW2otfKjgBc+aD+oYJv5pO6tPm9MbMknjazvjulwq+IwzqiicP8lSqW
+	82XWePLdTuYRApr5H6gWWq7fjOvPjxZlD+QC8yxUhHhEHT4a6RiLiE3jSYnSRysBo9nj/Byz7fa9w
+	1XUUpLjCtUJ2JqEvg9OccUJyCSqCOS50ekOQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1xULJA-0000000HYfs-3Cwt;
+	Fri, 20 Nov 2026 17:53:29 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:53:28 +0800
+Date: Fri, 20 Nov 2026 17:53:28 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: mail@andrewgigena.dev
+Cc: Abel Vesa <abelvesa@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Bart Van Assche <bvanassche@acm.org>, Bean Huo <beanhuo@micron.com>,
+	Stanley Jhu <stanleyjhu@google.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Andy Gross <agross@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-scsi@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: crypto: ice: document sm8150
+ compatible
+Message-ID: <awAYmFxtWpAaFhhC@gondor.apana.org.au>
+References: <20261111-sm8150-ice-rfc-v4-0-0311eac35609@andrewgigena.dev>
+ <20261111-sm8150-ice-rfc-v4-1-0311eac35609@andrewgigena.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,24 +80,23 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111-sm8150-ice-rfc-v4-1-0311eac35609@andrewgigena.dev>
 
-Hi,
+On Wed, Nov 11, 2026 at 05:53:21PM +0000, Andrew Gigena via B4 Relay wrote:
+> From: Andrew Gigena <mail@andrewgigena.dev>
+> 
+> SM8150 uses a standalone ICE node, so its compatible must be listed.
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Andrew Gigena <mail@andrewgigena.dev>
+> ---
+>  Documentation/devicetree/bindings/crypto/qcom,inline-crypto-engine.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Same provenance as for v1: the missing bound was found by code inspection,
-after the automated review of the companion skb_tx_buf fix in this driver
-reported that hso_net_start_xmit() copies skb->len bytes into the fixed
-2048 byte mux_bulk_tx_buf without a bound check, and that hso_net_init()
-never sets max_mtu.
-
-The overflow itself was not triggered at runtime; it is statically
-decidable from the code.  The additional paths listed in the review of v1
-(AF_PACKET with PACKET_VNET_HDR, tpacket_snd() with a vnet header, and a
-route MTU metric above the device MTU) are covered by the length check
-added in v2, which drops such frames with SKB_DROP_REASON_PKT_TOO_BIG and
-tx_dropped accounting.
-
-Thanks,
-Aibing Chen
-
-
+Patch applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
