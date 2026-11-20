@@ -1,52 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210881;
-	b=sqneUbcnT/G4ftgqZIFktegkUVouIdr4SJpC6j3XSPyluMEWvDshkqYsm74I26RGighU
-	 hN3/y9pFLzM9e29Hul1c+ucnQl/Sy6DA+CJSixPYCnDx6mUGIacm8j+aLBK5tk9pp2AEx
-	 pJnPhwtsUeCdnA0YWc41T1q1O6AA8/OgptPJAAMrAwEQavd+n/cx9AIDFJXEsgHn8uXNy
-	 gVqGJYv+NS7zLASQn+zoCWGQ0ocNRropfmh0kxR64WYIsQl2pA0mlmnr6usg90lkZ7dKL
-	 c1hTKoY7wrsOS3pL9SKIRdms/L8bEj71W4q9pIXZELRK/xAkbMATRUOWd4ZsaPe2LPA==
+	t=1795210965;
+	b=i9Lcvj4EYa0w+dJh1k0rWkKhAflIgH+jCWN05OYLTVGKxCJYiRtxMBCts+lG21OnfvVV
+	 +gq5aYROiWJlOYfN/sC65o8FNJ27pWii5gSt5fe4+OH2Bi6hzFEohCtl3ljjjTJiziVuy
+	 7Eys8rvP2pyeD9pU4yt/nQ4I62JesKkJqiV5BXuz6bECoyEd9qT0q7eh1iszzz1Y80mKC
+	 xjrovyiDsC0/MnX/kHatQefxElQQvJz38WI7MS0GXRG4zIDzA935BqW1xlaq2H5D2Ywks
+	 EiksUw7BDFUC4y9YC9xdP4SM7DHVAT7M1t0CNzA18q2kQZsma/JK0I2SQvWEtKQ77IQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210881;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=yO0+P2z7OqcwcmXkYZCD4xrp2SZnKWNRDw7SRN86hlU=;
-	b=urK+rRIVvJkYvbIHWeNJZdn8wRBsYsjzyrzyBD5mk+YiYOooX6N98+yALWCC3mKZcgxV
-	 zv5RT5T2p4CJaUynllbz0JDaW/hFMOrYhaioyLLlRE1NwI0+FSyS756z1zz7wvmoqpp3y
-	 m3BTypaLtTFsuuoARkHuGOfi8yhVOtJWP0wWPpLCkMtZhZfwD7JJJ4LDpGANmyH3Yjl2k
-	 OSOMpkrMLOH6p1x6/936ATbu2n1JUoNzg1zzmMfsU7BeAIMdyKemzSkoeGm+p9O8NdnVN
-	 WwMIo2RbEULReGfgMn6qNBCaFqoAVUeYlLA3mta7hZ1y1HTCms2Ggn3v2I39kBAgMzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210965;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=aR8UDv+47K++yUoDlU50BxWptzQ7MVDDJcNW48Jvpqg=;
+	b=QbrKR7JBujrjDmC0ntKupGXBfJRpTh8wHzWPjia+vAboeatveskiUW62wivGYndXk4r1
+	 D+10AIhJj/T7Kh+zycmF4kC+2b7YHxI3rfyasHE1q49IJVuiP6d1CxgGkjJE4zX+HNJXN
+	 b4KEdBjz9bQjB0NXIsB4ymmeHAIZ+gTg+sYBk2yCPoqKQQTMe5sEnN2IcltxXNAcLrgse
+	 MYeKuLlBd7sBa3nUoyWxIn0x33jUjRlRf246IrIfK3akVGIuWj2CO8EBV9naVeS7YIJeE
+	 3tS0bV2oUbvJxjKsT3aMKovN7Gk0ucZdk+KSXm8+sLO5b0nim3bKYJaaI6sYj629wbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yoxcu.de;
-	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=vCms8MKd;
-	arc=none smtp.remote-ip=194.36.144.171
-Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CF+NNqJ8;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9180606A6AA;
-	Fri, 20 Nov 2026 21:41:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9180606A6AA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 699E0606A6A0;
+	Fri, 20 Nov 2026 21:42:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 699E0606A6A0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=vCms8MKd
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 70F051D87186;
-	Fri, 20 Nov 2026 22:41:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795210869; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
-	bh=yO0+P2z7OqcwcmXkYZCD4xrp2SZnKWNRDw7SRN86hlU=;
-	b=vCms8MKdqvQCVuZdDXwpX5ZnDH4545rdbaVTEzd9KZJOKtHXwwgKUT8RlnFBUj6zsOEY8G
-	BV6POQ/ycgJ6VA8UWWkU0rVBoBEiB5PLgAgAuhZcouvo+M/kVxLS+Q8zHP8ycmH8vl9Mhe
-	IT5qBSwebpWqx8ddEvR3tEcL+6vC2aq3IOQSq1Hg4xiBnFMb39m0VARPOldGHkEmwIrjFc
-	e6Wx/+RIkqdv57MIpDiD4EWeS9GLDXXV2kvlSZm/nm+96MdEGEv5AkerWmnMpaXTyT/rk6
-	ByIzutds/VLTZ/2D+CFL1PoKaqVetObqp5mceEE4wzxDhEpqFykTLH2+O64+IA==
-Message-ID: <6e30e65c-3fa7-409c-90da-2740f7bf0a24@yoxcu.de>
-Date: Fri, 20 Nov 2026 22:41:02 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CF+NNqJ8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795210960; x=1826746960;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=uNXAh5poC50WYU+EWy35yqL9KuLdt66I8wkni2AeE2w=;
+  b=CF+NNqJ8lrbNfUCzukFBrDDVCn3PPVhzIsq27B1l4/1Or2PbXP5IGzm6
+   O13bWsv4FJfu5udtZ9KLo46KCNsl/wq96rBFfxH3T5jdVtj9NGKb1r8LG
+   EKUKKB1kB/DK9KIm3mEiYMzTo+YRJ8QjWM6QGX9pXMG5UkndGO/A6C0We
+   QJ720+J3DIGt+hsu97ZX0DW7XIzppK4OegihAjV/M5nHCxVO5hXUw5iA5
+   x0OS7MMXslVo+QUoLeUlVzzn/XdYCl+nsn8s6CM31f/q2REp/RWhLuAp4
+   ICrRN+cJLS7/nM4I50dYXZnmVGi5iXM12y5c9QSDYVTFhu7w9TLeqFYjg
+   w==;
+X-CSE-ConnectionGUID: J8Jzo5piSuSiSMvPKuxKtQ==
+X-CSE-MsgGUID: d5cS8EFaTmuKWBswxhybpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3987427"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3987427"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:42:39 -0800
+X-CSE-ConnectionGUID: Pkd4JHxuREqIinlA/PmXgA==
+X-CSE-MsgGUID: fLyMe3iISE2pGUryopp/og==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10689840"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:42:38 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 20 Nov 2026 23:42:35 +0200 (EET)
+To: Sourav Nayak <nonameblank007@gmail.com>
+cc: LKML <linux-kernel@vger.kernel.org>, platform-driver-x86@vger.kernel.org
+Subject: Re: [PATCH V2] platform/x86: hp-wmi: fix platform profile values
+ for Victus 15-fb0xxx (8A3D)
+In-Reply-To: <20261025034539.4565-1-nonameblank007@gmail.com>
+Message-ID: <1061c0e1-9e05-a09f-3eb6-5702f4fbcf08@linux.intel.com>
+References: <20261024202658.13149-1-nonameblank007@gmail.com> <20261025034539.4565-1-nonameblank007@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,177 +78,125 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] interconnect: qcom: bcm-voter: Clear the ALC vote left
- by the bootloader
-To: Georgi Djakov <djakov@kernel.org>
-Cc: Konrad Dybcio <konradybcio@kernel.org>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Mike Tipton <mike.tipton@oss.qualcomm.com>, Ard Biesheuvel
- <ardb@kernel.org>, linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261120122152.198114-1-mick@yoxcu.de>
-From: Michael Auer <mick@yoxcu.de>
-Content-Language: en-US
-Autocrypt: addr=mick@yoxcu.de; keydata=
- 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
- ShbHn51QMVl4y3nkTQ==
-In-Reply-To: <20261120122152.198114-1-mick@yoxcu.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=US-ASCII
 
-Hi,
+On Sun, 25 Oct 2026, Sourav Nayak wrote:
 
-A sashiko review of this patch found that the wake and sleep writes
-never reach the hardware. rpmh only caches them, the (0, 0) wake write
-replaces the (12, 0) wake value from the active-only write, and
-rpmh_flush() skips entries with equal sleep and wake values.
-
-That matches the OnePlus 6: the rpmh cache has ALC at sleep 0 and
-wake 0, and the APPS DRV vote read back after a night with 139
-suspends is still 0x20030000, so (12, 0). What I tested is the
-active-only (12, 0) vote alone, held through suspend, and with it the
-SoC reaches CX collapse.
-
-Konrad, did you mean ALC to drop to (0, 0) in sleep? Then the wake
-write has to go, so that rpmh_flush() programs both sets. I can test
-that. If the active vote is enough, I would drop the wake and sleep
-writes in v3, so the code does what was tested.
-
-The review also found that bcm_voter can be unbound while the voter
-stays on the bcm_voters list. That is older than this patch... I can
-send a separate patch that sets suppress_bind_attrs.
-
-Best,
-Michael
-
-On 11/20/26 13:21, Michael Auer wrote:
-> The bootloader can leave a vote on the ALC BCM. No icc node maps to
-> ALC, so Linux never touches it and the vote stays. On SDM845 this
-> keeps DDR out of its sleep state, and the SoC never reaches CX
-> collapse or AOSS sleep in suspend.
->
-> Clear the vote when the voter probes: (12, 0) in the active-only set,
-> as the downstream kernel does, and (0, 0) in the wake and sleep sets.
->
-> Tested on a OnePlus 6 (SDM845). Before, cxsd and aosd in qcom_stats
-> stayed at 0. With this change, CX collapse was reached in 139
-> suspends over one night, for about 7.6 of 8.9 hours, and the average
-> current over the night was about 27 mA. The active-only vote stays
-> (12, 0) after suspend and resume, and the awake idle current with the
-> display off did not change.
->
-> Suggested-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Assisted-by: LLM
-> Signed-off-by: Michael Auer <mick@yoxcu.de>
+> Currently Victus 15-fb0xxx (8A3D) takes victus_s_thermal_params,
+> which causes it to register as incorrect EC layout while cold boot.
+> 
+> - On other hand windows Omen Gaming Hub registers EC offset as 0x95,
+> - which is set in driver as HP_OMEN_EC_THERMAL_PROFILE_OFFSET.
+> - So, address it by adding victus_s_ec_thermal_params.
+> 
+> - Also perfcontrol modes as performance (0x1), default (0x0), quiet
+> (0x3) registers. So, add support for quiet mode.
+> 
+> Also, hp_wmi_fan_speed_max_reset() caused fans to freeze during loads at
+> 0RPM, introduce a 'if' statement to resolve it by calling hp_wmi_fan_speed_max_set(0),
+> and passing platform active again to reactive curves. Test data:
+> 
+> auto/max:
+> hp-isa-0000
+> Adapter: ISA adapter
+> fan1:        5400 RPM
+> fan2:        5200 RPM
+> 
+> mannual[255]:
+> hp-isa-0000
+> Adapter: ISA adapter
+> fan1:        5800 RPM
+> fan2:        5800 RPM
+> 
+> Tested-by: Sourav Nayak <nonameblank007@gmail.com>
+> Signed-off-by: Sourav Nayak <nonameblank007@gmail.com>
 > ---
-> Changes in v2:
-> - Drop the dt-bindings change and the dummy ALC node. Clear the vote in
->    bcm-voter at probe instead, with the code Konrad suggested.
-> - Link to v1: https://lore.kernel.org/r/20261013202611.3070778-1-mick@yoxcu.de
->
-> This runs for every voter on every SoC that has an ALC entry in
-> cmd-db. SDM845 only has the apps voter. Should it be limited to the
-> apps voter?
->
-> Ard, the code is different from v1, so I did not keep your Tested-by.
-> A retest on the C630 would be great.
->
->   drivers/interconnect/qcom/bcm-voter.c | 42 +++++++++++++++++++++++++++
->   1 file changed, 42 insertions(+)
->
-> diff --git a/drivers/interconnect/qcom/bcm-voter.c b/drivers/interconnect/qcom/bcm-voter.c
-> index 0880a287b0c0..f9d51f3d586d 100644
-> --- a/drivers/interconnect/qcom/bcm-voter.c
-> +++ b/drivers/interconnect/qcom/bcm-voter.c
-> @@ -390,6 +390,46 @@ int qcom_icc_bcm_voter_commit(struct bcm_voter *voter)
->   }
->   EXPORT_SYMBOL_GPL(qcom_icc_bcm_voter_commit);
->   
-> +/*
-> + * ALC is not modeled by any icc node, but the bootloader may leave it voted,
-> + * which prevents the SoC from reaching CX collapse and AOSS shutdown.
-> + */
-> +static void bcm_voter_clear_alc(struct bcm_voter *voter)
-> +{
-> +	struct tcs_cmd cmd;
-> +	u32 addr;
-> +	int ret;
+>  drivers/platform/x86/hp/hp-wmi.c | 30 ++++++++++++++++++++++++++++--
+>  1 file changed, 28 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/platform/x86/hp/hp-wmi.c b/drivers/platform/x86/hp/hp-wmi.c
+> index 615b4cf6fc45..ee6de96b3280 100644
+> --- a/drivers/platform/x86/hp/hp-wmi.c
+> +++ b/drivers/platform/x86/hp/hp-wmi.c
+> @@ -121,6 +121,13 @@ static const struct thermal_profile_params victus_s_thermal_params = {
+>  	.ec_tp_offset	= HP_EC_OFFSET_UNKNOWN,
+>  };
+>  
+> +static const struct thermal_profile_params victus_s_ec_thermal_params = {
+> +	.performance	= HP_VICTUS_THERMAL_PROFILE_PERFORMANCE,
+> +	.balanced	= HP_VICTUS_THERMAL_PROFILE_DEFAULT,
+> +	.low_power	= HP_VICTUS_THERMAL_PROFILE_QUIET,
+> +	.ec_tp_offset	= HP_OMEN_EC_THERMAL_PROFILE_OFFSET,
+> +};
 > +
-> +	addr = cmd_db_read_addr("ALC");
-> +	if (!addr)
-> +		return;
+>  static const struct thermal_profile_params omen_v1_thermal_params = {
+>  	.performance	= HP_OMEN_V1_THERMAL_PROFILE_PERFORMANCE,
+>  	.balanced	= HP_OMEN_V1_THERMAL_PROFILE_DEFAULT,
+> @@ -164,6 +171,11 @@ static const struct hp_wmi_board_params victus_s_board_params = {
+>  	.fan_profile		= &victus_s_fan_profile_params,
+>  };
+>  
+> +static const struct hp_wmi_board_params victus_s_ec_board_params = {
+> +	.thermal_profile	= &victus_s_ec_thermal_params,
+> +	.fan_profile		= &victus_s_fan_profile_params,
+> +};
 > +
-> +	tcs_cmd_gen(&cmd, 12, 0, addr, true,
-> +		    voter->tcs_wait & BIT(QCOM_ICC_BUCKET_AMC));
-> +
-> +	ret = rpmh_write(voter->dev, RPMH_ACTIVE_ONLY_STATE, &cmd, 1);
-> +	if (ret) {
-> +		dev_err(voter->dev, "Error sending ALC AMC RPMH request (%d)\n", ret);
-> +		return;
-> +	}
-> +
-> +	tcs_cmd_gen(&cmd, 0, 0, addr, true,
-> +		    voter->tcs_wait & BIT(QCOM_ICC_BUCKET_WAKE));
-> +
-> +	ret = rpmh_write(voter->dev, RPMH_WAKE_ONLY_STATE, &cmd, 1);
-> +	if (ret) {
-> +		dev_err(voter->dev, "Error sending ALC WAKE RPMH request (%d)\n", ret);
-> +		return;
-> +	}
-> +
-> +	tcs_cmd_gen(&cmd, 0, 0, addr, true,
-> +		    voter->tcs_wait & BIT(QCOM_ICC_BUCKET_SLEEP));
-> +
-> +	ret = rpmh_write(voter->dev, RPMH_SLEEP_STATE, &cmd, 1);
-> +	if (ret)
-> +		dev_err(voter->dev, "Error sending ALC SLEEP RPMH request (%d)\n", ret);
-> +}
-> +
->   static int qcom_icc_bcm_voter_probe(struct platform_device *pdev)
->   {
->   	struct device_node *np = pdev->dev.of_node;
-> @@ -409,6 +449,8 @@ static int qcom_icc_bcm_voter_probe(struct platform_device *pdev)
->   	INIT_LIST_HEAD(&voter->commit_list);
->   	INIT_LIST_HEAD(&voter->ws_list);
->   
-> +	bcm_voter_clear_alc(voter);
-> +
->   	mutex_lock(&bcm_voter_lock);
->   	list_add_tail(&voter->voter_node, &bcm_voters);
->   	mutex_unlock(&bcm_voter_lock);
->
-> base-commit: 3fd56a2833c22f62eb84297d0dbd47739632f1a0
+>  static const struct hp_wmi_board_params omen_v1_board_params = {
+>  	.thermal_profile	= &omen_v1_thermal_params,
+>  	.fan_profile		= &victus_s_fan_profile_params,
+> @@ -245,7 +257,7 @@ static const struct dmi_system_id hp_wmi_feature_boards[] __initconst = {
+>  	},
+>  	{
+>  		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8A3D") },
+> -		.driver_data = (void *)&victus_s_board_params,
+> +		.driver_data = (void *)&victus_s_ec_board_params,
+>  	},
+>  	{
+>  		.matches = { DMI_MATCH(DMI_BOARD_NAME, "8A44") },
+> @@ -2121,10 +2133,14 @@ static int platform_profile_victus_s_get_ec(enum platform_profile_option *profil
+>  	 * but logically it should have tp == 0x30 || tp == 0x31, as
+>  	 * corrected by the Omen Gaming Hub on windows. Hence accept both
+>  	 * of these values.
+> +	 * Since boards like 8A3D write 0x3 to EC offset 0x95 to
+> +	 * engage quiet mode. Map this to PLATFORM_PROFILE_LOW_POWER.
+>  	 */
+>  	if (tp == victus_s_thermal_params.performance ||
+>  	    tp == omen_v1_thermal_params.performance) {
+>  		*profile = PLATFORM_PROFILE_PERFORMANCE;
+> +	} else if (tp == victus_s_ec_thermal_params.low_power) {
+> +		*profile = PLATFORM_PROFILE_LOW_POWER;
+>  	} else if (tp == victus_s_thermal_params.balanced ||
+>  		   tp == omen_v1_thermal_params.balanced) {
+>  		/*
+> @@ -2657,7 +2673,17 @@ static int hp_wmi_apply_fan_settings(struct hp_wmi_hwmon_priv *priv)
+>  				 secs_to_jiffies(KEEP_ALIVE_DELAY_SECS));
+>  		return 0;
+>  	case PWM_MODE_AUTO:
+> -		if (hp_wmi_fan_control_supported()) {
+> +		/*
+> +		 * Victus models like 8A3D, calling hp_wmi_fan_speed_max_reset()
+> +		 * freezes fans at 0 RPM under load. Instead, disable max fans and re-apply
+> +		 * the active platform profile, so the EC firmware thermal curves regain control.
+> +		 */
+> +		if (hp_wmi_thermal_profile() == &victus_s_ec_thermal_params) {
+
+Please do not add magic if's like this.
+
+Instead, use the board params data structure to store the information in a 
+more generic way (add a quirk there?).
+
+> +			ret = hp_wmi_fan_speed_max_set(0);
+> +			if (ret < 0)
+> +				return ret;
+> +			ret = platform_profile_victus_s_set_ec(active_platform_profile);
+> +		} else if (hp_wmi_fan_control_supported()) {
+>  			ret = hp_wmi_get_fan_count_userdefine_trigger();
+>  			if (ret < 0)
+>  				return ret;
+> 
+> base-commit: 5b0764a53235d3c77e1ed674e836e1b3fe1a4b1f
+> 
+
+-- 
+ i.
+
