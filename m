@@ -1,55 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167027;
-	b=zjQ0VcKf5gizcwgC+PGt0+qvnbCgcNwokj9cHf9dWQ04CaiOck0dFU1zHIw/Cx5hyaQX
-	 CxcqReE0MmyD0w0FaJlI1oNArXvIR/N6fJx0w/kgvUMB7CJXEAUQmZjxVczW0RmbEcBEn
-	 lZxRLcN38Di2iDTrAH4sQv5ZLCnyYlZt7kjqPyGOzfq5ToxflszLkjlYXEJjmIdcl1Fwu
-	 008KMXgOMS82845LX15Aw6Vt8BRE0Y4bhA8qKDdXQIwi9w4UBogR1qq5dU7ojYnbjJJT5
-	 1PWwf9a7lwHVPDq32SEY3Sf1/9QWVzs4ctL57SOzAG/NSyh1JjlNydBy/AJPE6fKLWw==
+	t=1795167067;
+	b=whSHCI6v5Po+MJgUGA3I6WpuHQkhfCWz/qrEamYlH3uy1tVVVRvx7SC2L1OWHdenhV4W
+	 Wd6aIg+aPR8Gwy3zJ9zhpxjRNoVVrcbx+JCJkVg7OXVtl/G1HXmf7HgDMNz0hwuvF5boR
+	 GhOWrdA/YvGN2X8YvQ5YXftg3Ors5tTiajak65TWAjqAjQ94f52Lnc9Yb0jXyclRz6moL
+	 /LlYYtG/pFy/ttbXFFHPZSTw61sPdL6DSeNtv8kI+3xfQbTNMaLt1BFilL1illW/h1Fi6
+	 97OJCI5sxx0TfQHGq7VIUgGwIjAyQgyI93xXwk/yDIANh0bui0l3goYjaJ8fOXpYj+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167027;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=oOA5sojz3IyHwjBcMt46WVGtF9TFbsnAvrVh1f5zgLI=;
-	b=CnzDSQPNXL+YF++P3xh4EW2mvunuYLf74Qyg1PpTFVxXdPj9gq71PSEITZ2oCdTftdn9
-	 +24YnaIXLs4bkgPtw/TMAbvkkYB3gnS4ie1lgyDklEN+Mybu0cz6f/rdN8acotBEGVdWS
-	 WFzZy8vKV96oomOI6MuoAhb/q4qg8if/0EaBIMjyO+WmDkFFLY5zIT63gZ1Jbwns0ME1J
-	 RQGAo4k76lNALT8FuS/j1sHFbIslZe0Ug3v2JDSTO568Pj1W7hBao9D0YLtctVGpMgBl4
-	 Tlg+Jz7usn0LHSn2ql2y5Aq/MtWf9bU0wCASyoO+7ZPUdXITDNHdw8yc8pY7/4NRdXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167067;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=OCf75Fx8Ai6t0lF3SSBe/SqcSWFA8siREMgmIjNPvtw=;
+	b=Tg59wmMhSprmyavcWJBBmggm/lNFT82PQLZCq1j55CMCvX8ZxZGuXfd7l9yh/RG2t91Z
+	 2VW75TCY8NJfDAqybjPTGzfao74SysP2sErmRcf1FM3D5hc82hI+W+M52iZzMkHPkpbep
+	 KP1So45kHfHX0ZLooUCoP0/Vl8qjbNhDZOOgqnilwtkYY/Bn69aZOXbHGdtm2bT8l3pyK
+	 oYdLhjPmldEOIPoYIxncgSVn/YX+yXqwMWkHV9hZm5KBb3YBszLNB5F3g5QXb9vW3IO6E
+	 zred5kHU548OzuyXf99Nwx9JJUWQrKbkyn23qsNOVaQTIRVOEzlm2I2Vx2Irn4ovT4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WSQyZ+fq;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=j4zY14Ej;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEDD5606A325;
-	Fri, 20 Nov 2026 09:30:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E876606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:31:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E876606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WSQyZ+fq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C5E71F000C6;
-	Fri, 20 Nov 2026 09:30:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795167027;
-	bh=oOA5sojz3IyHwjBcMt46WVGtF9TFbsnAvrVh1f5zgLI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=WSQyZ+fqBS11QMpXvIGyboFhX1si193gW4KUCzOKobWN5gwwQk0CljEZI3KmTzGu3
-	 /2tmQyWr2CwKnUbtQzTIvWtCiYa6AfxMaSqcmI807y8ClUzt4sfNLIP6qOCfFJyzXH
-	 ufwa3vGNDcwNwhhGhFs69UXfZJxiYVs8rT2axpDimGGyzbNHPdgUehifalVPyCwa9j
-	 zVb07CiqzKyq6qKYDFhuGcfGosSgk0bNNxx/PoCgQNI2zmJP9gci6Ug89Orh1qhcZo
-	 nDo3Yt5jnukBo0wZ69z0m1fn6EN7kPBE9T6HFgOmHaUhf+Wb2icGPC4JJHjCC7dezP
-	 EnpLcxJoOeLvQ==
-From: Christian Brauner <brauner@kernel.org>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: viro@zeniv.linux.org.uk, jack@suse.cz, linux-fsdevel@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- syzbot+c4a4cf7debda88305d2b@syzkaller.appspotmail.com
-In-Reply-To: <20261111064717.17165-1-zhujun2@cmss.chinamobile.com>
-References: <20261111064717.17165-1-zhujun2@cmss.chinamobile.com>
-Subject: Re: [PATCH] pipe: annotate lockless checks of the file count
-Message-Id: <20261120-teilen-unehrlich-spangen-c789498d4645@brauner>
-Date: Fri, 20 Nov 2026 10:30:23 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=j4zY14Ej
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=OCf7
+	5Fx8Ai6t0lF3SSBe/SqcSWFA8siREMgmIjNPvtw=; b=j4zY14Ejcq6UA7scHG1f
+	sESzw7YadTEDxETZXBudXGp9uvTVn7bd9oesG+nqEtKkcIXrpmgpvGqxIiwLPnFC
+	s7ZstBwtDTAbU9VCDYsuXdc9SDXSe8sCzGmAiVRi0Hw7Hw+Li+w7dAtgueHMNtFj
+	XNMnBbkGXftLrqlVwtMxjnKoWfmnZSmZZ/pDRvrYH11QCfNAIZCJBuiJ8hoalwhN
+	70LDwn9iZEnqgohgMGBl9FVpJptbRSd6KEA4/c0yQYhWBQy27Af/deQwdMabAE1N
+	ewpV+My+wK4S4K9rMKGuzKIr5QfY2bV/kKFdq5tNkGpDKiAlD9jJun26nbDYcZ1z
+	PA==
+Received: (qmail 1416495 invoked from network); 20 Nov 2026 10:31:01 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 10:31:01 +0100
+X-UD-Smtp-Session: l3s3148p1@fT0E57FgbpsujnuU
+Date: Fri, 20 Nov 2026 10:30:59 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 2/6] clk: renesas: r9a06g032: Add reset controller
+Message-ID: <awATU_lyjPBxThwq@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,37 +84,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev-04696
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="wI2vg4tZYniA4rpi"
+Content-Disposition: inline
+In-Reply-To: <20261119-rzn1-miic-resets-v1-2-feee2bb28bb4@reliablecontrols.com>
 
-On Wed, 11 Nov 2026 14:47:17 +0800, Zhu Jun wrote:
-> pipe_lock() and pipe_unlock() inspect pipe->files without inode->i_lock,
-> while opening or closing a pipe changes the count under that lock. KCSAN
-> reports these checks racing with put_pipe_info().
-> 
-> Only the zero/nonzero distinction matters here: a caller's file reference
-> keeps the count nonzero for a regular pipe or FIFO, and an internal splice
-> pipe has no files. Use data_race(READ_ONCE()) to document that distinction
-> and take a single snapshot without changing the file-count writers.
-> 
-> [...]
+--wI2vg4tZYniA4rpi
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied to the vfs.fixes branch of the vfs/vfs.git tree.
-Patches in the vfs.fixes branch should appear in linux-next soon.
+On Thu, Nov 19, 2026 at 09:57:44AM -0800, Kyle Hendry via B4 Relay wrote:
+> From: Kyle Hendry <khendry@reliablecontrols.com>
+>=20
+> The rzn1 system controller has two resets that need to be cleared for the
+> mii converter to work. They are not directly associated with any clocks
+> so they need a reset controller to set them.
+>=20
+> They are documented in the PWRCTRL_SWITCHCTRL (0x4000C188) register as:
+>=20
+> Bit 3: RSTN_CLK25 - Active low Reset for Timestamp signal selection logic
+> Bit 4: RSTN_ETH - Active low Reset for RGMII/RMII Converter (50 MHz).
+>=20
+> Add a reset controller and add resets for those bits.
+>=20
+> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
 
-Please report any outstanding bugs that were missed during review in a
-new review to the original patch series allowing us to drop it.
+General approach looks good to me, just some minor comments...
 
-It's encouraged to provide Acked-bys and Reviewed-bys even though the
-patch has now been applied. If possible patch trailers will be updated.
+> +static const struct regbit r9a06g032_resets[] =3D {
+> +	RB(0x188, 3),
+> +	RB(0x188, 4),
+> +};
 
-Note that commit hashes shown below are subject to change due to rebase,
-trailer updates or similar. If in doubt, please check the listed branch.
+Please add the DT name of the reset as a comment after each line.
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
-branch: vfs.fixes
+ +	RB(0x188, 3),	/* RST_TS */
 
-[1/1] pipe: annotate lockless checks of the file count
-      https://git.kernel.org/vfs/vfs/c/12a0e69b748c
+or similar.
 
+> +static int r9a06g032_reset_set(struct reset_controller_dev *rcdev,
+> +				  const char *func, bool set, unsigned long id)
+> +{
+
+*func was likely debug help and is unused now and can go.
+
+> +	struct r9a06g032_priv *priv =3D rcdev_to_priv(rcdev);
+> +	unsigned long flags;
+> +
+> +	spin_lock_irqsave(&priv->lock, flags);
+> +	clk_rdesc_set(priv, r9a06g032_resets[id], set);
+> +	spin_unlock_irqrestore(&priv->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int r9a06g032_reset(struct reset_controller_dev *rcdev,
+> +			  unsigned long id)
+> +{
+> +	r9a06g032_reset_set(rcdev, "reset", true, id);
+> +	udelay(5);
+
+For future reference, please add a comment pointing to chapter in the
+docs where it is saying 5us is needed.
+
+Rest looks good!
+
+
+--wI2vg4tZYniA4rpi
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsAE1MACgkQFA3kzBSg
+KbY8qBAAqsju+kzP2C7aoqbzO/2VbVOoegIp6nxG4ePZzZi7fWZwQQ2my2PZX8sJ
+Fv6oyXmr2Jh0iG+CBCfQTRRa34ya9bPAQv+wUspgT/B0TPGRxhuQ8jP1LUzfBidR
+ypH4KLVRvDAJMsKK9rdD2i4yI/3xqNpI0km+15IkqriDMXxU3J3fyWGTxCETKB8v
+KGT2dVv/GDC57K5DY5DCP8rczMcIBhFQgV07CJmrDo2w5Ze8dMABgqm3xe8SzDYU
+yVRl0Ccv2fLJpPmccasQzgg1aJi8KIbDAIVSTvMRVoZhiLRSOzUYQfuYJRpkMM6n
+OyYKl0mDwnJyeIJs8qGjEXl0w2osrHSKMdi7ItK/ndH3l/s2h3mK7KuTPWwg7aJW
+GuFgkcF1sbAS5EZN+Bv1nKPXFEEpgSWz1Kvwb3Yshn0PaGWP59NNq68u1oPzYrXc
+00HOP2cPycotBuSjW5YJm3F72vbRDV3uOX/+RcAyNj59elduY2oNFIYlYPDXDS+E
+8Zkcn9m5vGhJXyy8Qg2ysoc287fsThgO4EVyB4lYn4JmRW/1X4L4b7Zx9Lz5rK7M
+f2mrPxtHz1DpLc5bcIPfwlDr2zEgyeJKpNRmRwj4Q+DQRGFXL9pGSVCrvb9/e/9j
+sB6P90kZ2406EN8+l5Tf6AKtRh3gynP4vZpZ3ilJUpNcdsUFevg=
+=CdDX
+-----END PGP SIGNATURE-----
+
+--wI2vg4tZYniA4rpi--
