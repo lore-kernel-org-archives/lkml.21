@@ -1,96 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.79
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795182695;
-	b=ixQpX02AFnPnj4oYF5RPv1lD0TcZ6WINGJakt6qZ9lou5My0eUiOmkdpVuZyHN0Gxqse
-	 /OhGBuIGcsshsDKFFjkcz9AK1J97KxMM9OXrg0dhRVjxCdMBDbEqWyuycuymarI9UX/s8
-	 disPoQaDbpi8DYCK0+vqYYqacWWkBPNWkBDGiHUowSo1ftwG4c/iCJDubY+W3XulLmS+9
-	 YfdlRLrHcFal0+h3m4yeu6YKQIl5ipmM/xrl3Q/1ohRTkJPu5a283jnS41NaZWePjDdLh
-	 9U6oTwq7ZMwQBfCjVE2pddHF0pVU293lljJ3mJTPNa2XwcRAB17mS1XuByoQNnyK6lA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182695;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=b55ASP5RoZ3EndgqFSNWcWAFL+HcyGuOfpErXnGal88=;
-	b=GkT8q0iGd2OXdn1FhchpppsyD0A8mp3yAVYahbb3QTzCpGVbHD1jMGqmUgQ3k/yI9DDO
-	 pdGHjwCFD4qMRcFhEvVb7DapQAleuEKdRjoHqpOw9zyIcc22I8jfU0HurcU8eeGPAGlSr
-	 1rYlLQLDLLweUyGpY/M2wlsi6lUVUxM5LvyPpyANZOMocwJytYGgJ+n2g4J8cyoom+qzS
-	 6ZhtjD3xgprdn90txaCYCAPeC+vEzpkC2YRKe2QKJvUeo28EwZNz8mZ4AROGjhY5GeXYH
-	 XooGILCWFB/8ptFxPuE8ieZDnRHLIgclyn8fjLWB90EGaR18b+sNqePuvLYdIzNWhLQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Q4U98P88;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.189.79
-Received: from YT3PR01CU008.outbound.protection.outlook.com (mail-canadacentralazon11020079.outbound.protection.outlook.com [52.101.189.79])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795182716;
+	b=pias3zURDiNMKG67VF5/W4hfLbi09PwcRElwR/NiXotvwXOTvc234oO4G56De0Ws/QZO
+	 dWPw1plj+DQ/6+C8pUVVurHNJqe/bQ3apUoHPqT3ejBVFI77c/T0PP+uJ1YEKMt7l/g96
+	 9/3+GYmikPUYpJDh0lRGAKLpKo7oMjjp/6pj8fiM1mp/MLkxbQFIuFX/bPIuQ/tqa8Gtq
+	 YUHXJuVYzp2Hn9hJLbnFuLBtAKiEpzvJDImi/rmd2/6zPJ6xJNelTpesf8w0mDeZOfU6L
+	 wNLrFTcJ3GkVJUMH4tZxgX6u1MPFX5ILqX7jQgaMxL3oyiW4JSqjGycVgy847JvE0Kw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182716;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=HhtzTxT7Xmxzpq9ra1ZfnNJHdc7bWI31MU+RT/7wItY=;
+	b=bsn76NB/DsbeyOFU7SLgNgmeAoreyxcK9jvqt7i5aDPdXn1pv1wqa/uqyi6i1VuBVq4G
+	 S3FLTiX/E4d/3Xk+Z84nS9VaS/YsTei3mjHzkoyroxMISGXg0aoTZ9tWOatted2fPhXSG
+	 Ae7rRr4bnjOuKn9dQsZxDE8149qi14R9ygeHE+DEn27tvaDwlIL218WuzbsQpbQsxV7p8
+	 b5bPnj4LSFOjByg4STKkuvZ6NLuwJuFubfu1y0wBE6r24Ucf5KsowHeIg+jWMZ2f3ZQL/
+	 dOBBOzaXhNrI/uazTr1YlNsOwOhGEkUuPwSc0GTy0n+T452QqcgatD0zDmi9Lyhz4aQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RDg9vl3D;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C599360A2603
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:51:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C599360A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D359606A320;
+	Fri, 20 Nov 2026 13:51:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=Q4U98P88
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xKraQCI9/7GINThgPH+i2KxYuAsrihydZvmpNf0oaBvF3Cr1CUkFrhAZp2GMCcVpRYVmxPBQBuTDgkuzhno/iNyWsGYF2DU09FTNvEy1bNFlqLQbTmG1yQDz81ak3JnxBjJGBohtRc3EVzW2M4ptGuBY77HmQ5l9qZiV9kjyBwpCW/MDleXcqXDB0ATh7zwRxdV6auJtvOOrc2Ngs2Fahfd4UlTz7qE2RgkXORH9qqIEDaDKwkGwN8W8yTYYbvNogzrA+Mi3bIf6JXPYadNvAlIutyH8PkQYYVPJbXb/rNde9rV97TLEoebaunLFpu0TyAh6hlmq8m44Lvtj5FM9lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b55ASP5RoZ3EndgqFSNWcWAFL+HcyGuOfpErXnGal88=;
- b=U9UdtMDz2w0a9rS9g1StR8oD96o7eVjTUg6KgkGp11x+XoUB9Pb6GyyO52Qn88yfWW7k63FHB5mMJV0B3umO4z9w52AQYGy8HRGu1OVY3Ud48eYi82lCNnF5SqE+nCD0/jZ0r3p9ZVc7509dm0KSklqqL8DthSvcbk4+JP1J9dZHymFU2gS3Ur5pQo5kisMSQu1GFxEAb53HSW2FkqVNrqUBn4l8+xcOKB38vOYDhtRrusRR4rbOx6PK/FBvimZSn8UDCgwG09tLmkHjbGCihag1/PRvW4gEV4qPkRHIvxDk5bWWfNZNY8fn5oN3+zjxGXXQjNNJbg0+mfvlZ2ElGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b55ASP5RoZ3EndgqFSNWcWAFL+HcyGuOfpErXnGal88=;
- b=Q4U98P88NXTpaC9AoKTJVfJrba5+zTdPVE4lmyL33ej/n7YwcNH+i2z7/Rh7zFWy2NgWAz0KeymL41hpVcCKQ2ppK+NTgtv8tgVWF8O8faPBRWPvw8TcJrP5EqX9s1F60BK0vqN2eHfaSKDQju28C+ToSJhmsZ4jrxGOqOcWS83459GhtUiqtEFW864W4BH3Si6Po+j1dJ73DzDqEWI336dwkAs9p4GruNcdsZK4hrkQ6B994CXWStrl3PjtzhvkerMSyW9qH3ta3y9zIE9zy0OCcRDk2Y/EecoF67elQ1/8xzrb3yE0sxkrFxOo3I/nM7XAnOvOaF+wFTBpFpoXkA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT6PR01MB165033.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b00:200::6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 13:51:33 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 13:51:33 +0000
-Message-ID: <c7877bf6-7951-4a58-9315-89ea52b3bdc2@efficios.com>
-Date: Fri, 20 Nov 2026 08:51:32 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 17/33] cgroup/cpuset: Refuse to take a deadline task
- out of its root domain
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795116790.git.mathieu.desnoyers@efficios.com>
- <b9c82782e39a90f12daa052f5189fbfc97e2eb11.1795116791.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-224041@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-224041@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQBPR0101CA0260.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:68::34) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RDg9vl3D
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA871F000C6;
+	Fri, 20 Nov 2026 13:51:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795182716;
+	bh=HhtzTxT7Xmxzpq9ra1ZfnNJHdc7bWI31MU+RT/7wItY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=RDg9vl3Dhj7ib++zLccr4Z8NcH2Mh0BTDHYXvQ3RBjIBNr+/Cm7k72IMJBIpoLISg
+	 zJgGt+jxnnif1sgb7ZvoUMfsyqSp0NW5tBDkpZIXz4alSBrRxfOqmgMdSSEJizmvup
+	 OGmb6tvG7GKtoq8rDAyueMu1pSRViSwVNM/ujo/+3WdWF/qifOxUbW+Iag9N3kuFfO
+	 xFcw6J2l7/DoZzaPPirTlinjd1hmwAUbKLUXO0Br5ZfL489RDi9mrvek9JsvEHu4eo
+	 dKEKMVs9G8Coyh1xwG4z54t/Dnn3ZK5dvkReV0+nIBJl1eoHdwh8zOM61yENULGOfE
+	 ZZ7U5LMp6AHLQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
+  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
+  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
+ <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
+ <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
+ Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
+ <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
+ Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
+  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
+ <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
+  Vlastimil Babka <vbabka@kernel.org>
+Subject: Re: [PATCH v4 12/19] mm/shmem_luo: Retrieve tmpfs files into a file
+ created by userspace
+In-Reply-To: <20261111002358.1842967-13-dmatlack@google.com> (David Matlack's
+	message of "Wed, 11 Nov 2026 00:23:50 +0000")
+References: <20261111002358.1842967-1-dmatlack@google.com>
+	<20261111002358.1842967-13-dmatlack@google.com>
+Date: Fri, 20 Nov 2026 13:51:50 +0000
+Message-ID: <2vxzpkvz1uh5.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,96 +72,362 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT6PR01MB165033:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bfe8be7-2f20-41e6-3723-08df470d632b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|4143699003|261009223027099003|56012099006|261026140227099003|261028144727099003|261022105027099003|261026121527099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	7F5nDJIrajz73+W4l94qd9jp302xvxd6sExLFMsqNixGHNtrJ3a6/ngzsm4ylBJcdmu93V77L1LjWTJaI1rvNfNMGGirPR4GjghGaw7Me2pJfCjwilvRb7+rEZlQzx3pQIcDtnDhNKpaQOfSSN8M+eACYOFkH0pYN0wiJMDNthWCGC7jpnlvWOdQvslxWfZt4uY56ynAyLuegWLEKrnrkgszg88dJkdW+jHBq7ZaDBGaUQikrGr+DPUQzKYoXDar52NshIJoTNArungLmfTR9lePgCx7iijkzKquDS0OhFUwzKOBG2fOmMHNouJchj03V1RuAXvI3Ey2SRNtcLjXN2WCzsExc7OzZSdPOWfICmnrOem8TDftN9U/FOL/5nDEZEhN6snrI7qBWjlPOmRAUYOYJe9MHMhcPlPDCm29aDhwHpbfQ3EEkbDNa+lPzFxgPSFDzM/Q49ldF/md2UvBCGWLfcjFTTk/W6xbTKZQMwdKgDUzA+pairkUuK+cmP9wPINBymCQWqIJj8yOZi8IIkeNIaa8XrWKyuhClI7aqooHI3ITG4x33bv7OlbVAlE7HA0pP1T13NExsSo4YnLXs9Qg5BeB6OX2jmVBt9GVnZ8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(4143699003)(261009223027099003)(56012099006)(261026140227099003)(261028144727099003)(261022105027099003)(261026121527099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?YlRNMHV4Q0xBWEZGa1RhRlloVThXdXpSaVNNV2d1WWc2cHVVV0lYaTFTSUNl?=
- =?utf-8?B?QkVDakU0S3Q0L3hwemFLRk9qSW0xR2NGTjlEcmJrcUl2R0d2eGZqRVFscFBx?=
- =?utf-8?B?dkl2bEJlSEJPbWxlVEE0RW5nNUVaeEtuL3lhNEdxYXA4VVRPcC93Ri80SG1t?=
- =?utf-8?B?ZDlCMTNkbzZwTktKc1lRS0JhYmxQalB6ZVNQb2xIejNBTDAyeHg5ZEZRRVp1?=
- =?utf-8?B?VUJ0TDBqSTdvczNDVzJnbUtrUzZRbmZFbHBETWd0UVNHdTFrc0RnVFhydGky?=
- =?utf-8?B?aGJ0VGlCWTZpZ0FyVDRmeS9hbnRXRVYwWXI3WWpkb2hIOTNVUGFHN015bUZD?=
- =?utf-8?B?STJUNmlOV0tTSTNwUVcvdUVLZVZLTldPZHRwTllDUnllYkxHNlpXUS8zZTBK?=
- =?utf-8?B?R0h1ejgzTzg3RlBWL2dFNGkydFJIaHZVQ2hSZE1uN0QxWVhKNVBTOGhhMkpj?=
- =?utf-8?B?MUc3N0E4YTJ6N0VUOXNnNEZpK2czTmFxdVlLdkZzOFc2MldGQi9CZWhWT2ln?=
- =?utf-8?B?N1ZNMWdFblVBd3pwVGxSUktaL3JvUEpkS25OMHN4QmZ2Sks4OHlpM2JuWE9m?=
- =?utf-8?B?WndLQm5wVDhCUmdkTHZTRHNHMGJoYWg1NVVJWkNnQnlCdGQ5emVuMURRc1Vy?=
- =?utf-8?B?V1QyWXpzMWpqNGI0N3lqRCtxOFROa0NuME9VVWRheHFkK1U0dDErYUdLT09L?=
- =?utf-8?B?NlN2R0x5QmJWNytXdlAwbkJUMEhLMWovUlZTN2xoTmJrSTNlL0lFMWpKS1Yv?=
- =?utf-8?B?ek5HSDdxTlpkVXBnU2FWSnhUOGNyL2NCVDkrZ0dTTFdoN0pUM29aWVF6Mk9H?=
- =?utf-8?B?S0ZFai8yUnlWYUJWRUQ1K2ZDQ2NsWDZucDlWSzhpMnZBM1Uxb09hem4zTEdM?=
- =?utf-8?B?ZkJTVERKaDBQSXpGVW40M2FiQkVYNGxWeEZNc0NZdWdybmlWdWRDc2FPVXVt?=
- =?utf-8?B?TExkcGg3NHU4SUQ3VUc0Q1Y4dUxZV3BnaTd6NmlCci9GMERjQ1h5MlRTRHps?=
- =?utf-8?B?M1RBdUxiSTJvMkdzM25xQVo0VDYrOGo4WTlNSGpGelh5djZvcU56RE9sNHI5?=
- =?utf-8?B?QXR4RWdSd3hSRnpmTjI5ZlV6Y0sycndvdmZyblUxM29OaVpmMVAzM0M3SktH?=
- =?utf-8?B?Z1BhNFd2UGJVK2NEL3R4b0JQZ2Q3UXo4WUtldDJTc1gwcy9tV1lkanNWckti?=
- =?utf-8?B?YUxoRnBXUHpwL2gyazlyQ3ZTWjAwMlp2Y3pHb2ttbkpYM0VqekhDbm5ad2Zw?=
- =?utf-8?B?cElQQmJCNS9NWkpZTEIvSk5MKzc1NVRCQllsQ0ZUcm9NbnBhMHhEdmxjQXcr?=
- =?utf-8?B?RHhlZU1jeSt0aWI5c0psSVp6c3NBNFNBNUd5L2F3cnFtTFBQTUlCRkFjQWh4?=
- =?utf-8?B?SWZRZitRTzl2aTFDODA3UTFZOG5maDFOaCsvVXhad0xLZjZJRVpqblJ0c2ZS?=
- =?utf-8?B?aG9GeE14S3VNTVQ4SzFkbFk5R3dFQ3NiOEtPb3RLallabzVMUjVnWG9lQlpn?=
- =?utf-8?B?Ylc2L29XSW9pbUZzQ1Z4SW5pOExKd2ErYXU1TlMvOTI1YklwZm1MTTFxemUz?=
- =?utf-8?B?OWRzclBIVGlUa2puWDhoU1VqRDZaQndHYUJyeUlYQmtDYzVWc3FidzBJb0tF?=
- =?utf-8?B?YlRwcWZ6UVlOamIzTXZmZDRNSjBnTGRRb05XcDZqaVBDT09yVERCS05HMU55?=
- =?utf-8?B?eE80NmZBOTFJdkVCR21HWG1wS1RFWTRWUThGWXVKb2c0NU5EOTJ3RnhJWDA4?=
- =?utf-8?B?akI3bG5BeEdCa2xXMFY5ODBNcTBteHhzV3B5amJtWHhEVGFIQkNKRklRcWRL?=
- =?utf-8?B?UEs3YnMwRFlKeStzMDl3QXhXUDhrUGp6YVNXZkZyVy9VbTNHaFZvamlONkJZ?=
- =?utf-8?B?NzRNQ0lveG52Zi82aEl0TktqOTcvTW4rYWVYbmQzS2ZUbGF4MjhkQ2ltR1ZT?=
- =?utf-8?B?bnZmMUl3S2pyUnVhZDdLT0lxeEFjU1JvQWkxeVd5Snh2bFRNT1doS3kxY05M?=
- =?utf-8?B?T3BDbHFXRzdGc0pqd0g3Vmk2L1d0UTVFZnF6K2xuaWhNMnBFWG4zUTlzdnI4?=
- =?utf-8?B?alVWNjVCYXp1UW9hVG83d0l4dHJZa1FtWUVvbkthQW53Z1lDMHVTWXRJdSt2?=
- =?utf-8?B?QVFZd0tmU1Z2WE5ZOEJhRVZpRklJUVlZcVdGQ1ZwcnIrV0VNQTZyR0IyNHJm?=
- =?utf-8?B?cEJ1eXA3bjE1T2k3aG1IS3lHeFpjUXYyMzZNRkJmRWp3L0xZQnB6NDBsckJp?=
- =?utf-8?B?Q3VxOWZZMHdtQnNqV3lMeEg4MDFCejYvSW93U1NlVU1KYjhrK1JSZ1FER0t3?=
- =?utf-8?B?K0NadFhJUzNEek5yb2Y2SEZLNEdiR00wSDZRVDB1bUFYUFJCZXRVa2N5MmZ2?=
- =?utf-8?Q?2ZNi8HhZNpPoS3jiw9QyHd0HPGIXWtWIy9tHI?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bfe8be7-2f20-41e6-3723-08df470d632b
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 13:51:33.4641
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JC+TXNwqoqHSN+j/nlcm7ZyrDe5HajebjvQKOujnLfCJh3hwG7SRn6T9woua+vA4I3j+b5pceKW69yVQ2JtssCfbiCTEgO3P83O9sDZp2CM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB165033
+Content-Type: text/plain
 
-> Can dl_tasks_keep_without() here reject a valid partition recovery with
-> PERR_DLTASK because the root domains have not been rebuilt yet?
+On Wed, Nov 11 2026, David Matlack wrote:
 
-Yes, by reading. The refusal is false: the child partition stays invalid
-with PERR_DLTASK until its next update. No bandwidth is lost. A fix needs
-the span of the root domain that the rebuild will make. I would rather
-do it in a follow-up.
+> Add support for retrieving files that were preserved from a tmpfs mount
+> by restoring them into a file that userspace created on a tmpfs mount.
+> Add struct liveupdate_shmem_retrieve_arg, which userspace passes as the
+> retrieve argument of LIVEUPDATE_SESSION_RETRIEVE_FD with a file
+> descriptor for that file, and record which files were on a tmpfs mount
+> with a new SHMEM_LUO_FLAG_TMPFS flag in struct shmem_luo_ser. The next
+> commit allows preserving tmpfs files.
+>
+> The mount a tmpfs file was on doesn't exist in the new kernel, and the
+> path, owner, mode, extended attributes and other metadata of the file
+> are not preserved. Userspace knows what they should be, so let it create
+> the file, e.g. with O_TMPFILE, and only restore the contents and size of
+> the preserved file into it. Userspace can then link the file at the path
+> it wants. LIVEUPDATE_SESSION_RETRIEVE_FD returns the file descriptor of
+> the file instead of a new one.
+>
+> This also fixes a bug: shmem_luo_can_preserve() is meant to only accept
+> memfds, but it only checks that the file has no links, so it accepts
+> unlinked tmpfs files by mistake. They are then retrieved as memfds,
+> which moves them off their mount and out from under the size limit and
+> quotas of the mount. Retrieving such a file without an argument now
+> fails with -EINVAL if it was preserved by a kernel with this commit. The
+> new flag uses an existing field that is zero otherwise, so a kernel
+> without this commit ignores it, and still retrieves tmpfs files as
+> memfds.
+>
+> The target must be an empty regular file on a tmpfs mount, opened for
+> writing. Like the preserved file, it must be on a tmpfs mount, so that
+> memfds stay memfds and tmpfs files stay tmpfs files. Files on tmpfs
+> mounts always have exactly F_SEAL_SEAL, so there are no seals to
+> restore. The file position isn't restored either, since the open file
+> belongs to userspace.
+>
+> A preserved file with unknown flags or seals, or a tmpfs file with
+> seals other than F_SEAL_SEAL, can't be restored, so fail its retrieve
+> permanently.
+>
+> Fill the target like a write does: with write access to the superblock
+> and the inode lock held, calling file_modified() before and
+> fsnotify_modify() after. Add the folios while i_size is still 0, and set
+> i_size last. Reads, page faults and memfd_pin_folios() don't look past
+> i_size, so nothing sees the folios until the file is complete, and if
+> adding them fails, they can be removed again to leave the target empty.
+>
+> Claim the target with liveupdate_claim_file() before modifying it, so
+> that a file that LUO already manages is rejected, e.g. a file that is
+> preserved in an outgoing session and whose size is frozen.
+>
+> Like the other failures before the folios are restored, problems with
+> the argument and the target can be retried.
+>
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> ---
+>  Documentation/mm/shmem_preservation.rst |  12 +-
+>  include/linux/kho/abi/shmem.h           |  22 +++-
+>  include/uapi/linux/liveupdate.h         |  37 ++++++
+>  kernel/liveupdate/Kconfig               |   6 +-
+>  mm/internal.h                           |   1 +
+>  mm/shmem.c                              |   9 ++
+>  mm/shmem_luo.c                          | 152 +++++++++++++++++++++---
+>  7 files changed, 210 insertions(+), 29 deletions(-)
+>
+> diff --git a/Documentation/mm/shmem_preservation.rst b/Documentation/mm/shmem_preservation.rst
+> index e79bf8afaa9e..193c044ca637 100644
+> --- a/Documentation/mm/shmem_preservation.rst
+> +++ b/Documentation/mm/shmem_preservation.rst
+> @@ -1,14 +1,14 @@
+>  .. SPDX-License-Identifier: GPL-2.0-or-later
+>  
+> -==========================
+> -Memfd Preservation via LUO
+> -==========================
+> +====================================
+> +Memfd and Tmpfs Preservation via LUO
+> +====================================
+>  
+>  .. kernel-doc:: mm/shmem_luo.c
+> -   :doc: Memfd Preservation via LUO
+> +   :doc: Memfd and Tmpfs Preservation via LUO
+>  
+> -Memfd Preservation ABI
+> -======================
+> +Memfd and Tmpfs Preservation ABI
+> +================================
+>  
+>  .. kernel-doc:: include/linux/kho/abi/shmem.h
+>     :doc: shmem Live Update ABI
+> diff --git a/include/linux/kho/abi/shmem.h b/include/linux/kho/abi/shmem.h
+> index b61687e358a2..ec4f7594a7b6 100644
+> --- a/include/linux/kho/abi/shmem.h
+> +++ b/include/linux/kho/abi/shmem.h
+> @@ -18,8 +18,8 @@
+>   * DOC: shmem Live Update ABI
+>   *
+>   * The shmem file handler, which preserves memfds created without
+> - * ``MFD_HUGETLB``, uses the ABI defined below for preserving their state across
+> - * a kexec reboot using the LUO.
+> + * ``MFD_HUGETLB`` and tmpfs files, uses the ABI defined below for preserving
+> + * their state across a kexec reboot using the LUO.
+>   *
+>   * The state is serialized into a packed structure `struct shmem_luo_ser`
+>   * which is handed over to the next kernel via the KHO mechanism.
+> @@ -69,12 +69,24 @@ struct shmem_luo_folio_ser {
+>  			     F_SEAL_EXEC)
+>  
+>  /**
+> - * struct shmem_luo_ser - Main serialization structure for a memfd.
+> + * SHMEM_LUO_FLAG_TMPFS - The file was on a tmpfs mount.
+> + *
+> + * Set for files on a user-visible tmpfs mount. Such files can only be retrieved
+> + * into a file on a tmpfs mount, and never as a memfd.
+> + */
+> +#define SHMEM_LUO_FLAG_TMPFS		BIT(0)
+> +
+> +/* The set of flags this version supports. */
+> +#define SHMEM_LUO_ALL_FLAGS		SHMEM_LUO_FLAG_TMPFS
+> +
+> +/**
+> + * struct shmem_luo_ser - Serialized state of a memfd or tmpfs file.
 
-> Does dl_task_keeps_root_domain() mismatch cpuset_update_tasks_cpumask() when
-> offline CPUs are present in top_cpuset?
+Nit: "Serialized state of a shmem file"?
 
-Mostly not. The span is normally inside cpus_mask, and cpus_mask inside
-the user mask. If the user mask has no active CPU of the new mask, the
-span has none either, and the check refuses. Your case needs a root
-domain that grew after the affinity was set. set_cpus_allowed_ptr() then
-fails with EINVAL, and the task keeps its old mask.
-cpuset_update_tasks_cpumask() ignores that error on v7.4-rc2 too.
+>   * @pos:       The file's current position (f_pos).
+>   * @size:      The total size of the file in bytes (i_size).
+> - * @seals:     The seals present on the memfd. The seals are uABI so it is safe
+> + * @seals:     The seals of the file. The seals are uABI so it is safe
+>   *             to directly use them in the ABI.
+> - * @flags:     Flags for the file. Unused flag bits must be set to 0.
+> + * @flags:     Flags for the file (SHMEM_LUO_FLAG_*). Unused flag bits must be
+> + *             set to 0.
+>   * @nr_folios: Number of folios in the folios array.
+>   * @folios:    KHO vmalloc descriptor pointing to the array of
+>   *             struct shmem_luo_folio_ser.
+> diff --git a/include/uapi/linux/liveupdate.h b/include/uapi/linux/liveupdate.h
+> index 4ebbd578d2d5..8e86891d5a62 100644
+> --- a/include/uapi/linux/liveupdate.h
+> +++ b/include/uapi/linux/liveupdate.h
+> @@ -250,4 +250,41 @@ struct liveupdate_session_get_name {
+>  #define LIVEUPDATE_SESSION_GET_NAME					\
+>  	_IO(LIVEUPDATE_IOCTL_TYPE, LIVEUPDATE_CMD_SESSION_GET_NAME)
+>  
+> +/**
+> + * struct liveupdate_shmem_retrieve_arg - Argument to retrieve a tmpfs file
+> + * @size: Input; sizeof(struct liveupdate_shmem_retrieve_arg)
+> + * @fd:   Input; The file to restore the preserved file into.
+> + *
+> + * Passed via &struct liveupdate_session_retrieve_fd.arg to retrieve a file that
+> + * was preserved from a tmpfs mount. Such files can only be retrieved with this
+> + * argument, and memfds can only be retrieved without it. Otherwise, the
+> + * retrieve fails with -EINVAL.
+> + *
+> + * The kernel restores the contents and size of the preserved file into @fd,
+> + * which must be an empty regular file on a tmpfs mount, opened for writing,
+> + * and returns @fd in &struct liveupdate_session_retrieve_fd.fd, instead of a
+> + * new file descriptor. Everything else about the file, e.g. its path, owner,
+> + * mode and file status flags, is up to userspace, which creates the file. To
 
-The test of your last paragraph can only refuse more often, never less.
+Nit: perhaps "... and file status flags are left unchanged" is slightly better?
 
-Thanks,
+> + * keep anyone from accessing the file before it is complete, userspace can
+> + * create it with O_TMPFILE and link it with linkat() after the retrieve. The
+> + * blocks of the file are charged to the mount of @fd.
+> + *
+> + * LUO keeps a reference to the file until the session is finished. Since the
+> + * file is open for writing, it can't be executed until then (execve() fails
+> + * with -ETXTBSY).
+> + *
+> + * If @fd is not a file descriptor opened for writing, the retrieve fails with
+> + * -EBADF. If it isn't an empty regular file on a tmpfs mount, the retrieve
+> + * fails with -EINVAL, and if it is immutable, with -EPERM. If LUO already
+> + * manages @fd, e.g. because it is preserved in an outgoing session, the
+> + * retrieve fails with -EBUSY. These errors can be retried with another file.
+> + * Errors while restoring the contents, e.g. -ENOMEM, or -ENOSPC if the
+> + * contents don't fit on the mount, are permanent, and retrieving the token
+> + * again returns the same error. @fd is left empty in that case.
 
-Mathieu
+Nit: This is kinda hard to parse. I reckon a list would be easier to
+read. Perhaps the below?
+
+ * The following errors are retriable:
+ *
+ * - EBADF: @fd is not a file descriptor opened for writing.
+ * - EINVAL: @fd is not an empty regular file on a tmpfs mount.
+ * - EPERM: @fd is immutable.
+ * - EBUSY: LUO already manages @fd, e.g. because it is preserved in an
+ *   outgoing session.
+ *
+ * The following errors happen while restoring the contents. They are
+ * permanent. Retrieving the token again returns the same error.
+ *
+ * - ENOMEM: Out of memory.
+ * - ENOSPC: The contents don't fit on the mount of @fd.
+ */
+
+> + */
+> +struct liveupdate_shmem_retrieve_arg {
+> +	__u32	size;
+> +	__s32	fd;
+> +};
+> +
+>  #endif /* _UAPI_LIVEUPDATE_H */
+> diff --git a/kernel/liveupdate/Kconfig b/kernel/liveupdate/Kconfig
+> index 79fbf4aa4842..98373af5fcd8 100644
+> --- a/kernel/liveupdate/Kconfig
+> +++ b/kernel/liveupdate/Kconfig
+> @@ -76,9 +76,9 @@ config LIVEUPDATE_SHMEM
+>  	depends on SHMEM
+>  	default LIVEUPDATE
+>  	help
+> -	  Enable live update support for shmem files, i.e. memfds created
+> -	  without MFD_HUGETLB. This allows preserving memfd-backed memory
+> -	  across kernel live updates.
+> +	  Enable live update support for shmem files: memfds created without
+> +	  MFD_HUGETLB and files on tmpfs mounts. This allows preserving their
+> +	  contents across kernel live updates.
+>  
+>  	  This can be used to back VM memory with memfds, allowing the guest
+>  	  memory to persist, or for other user workloads needing to preserve
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 566cbd2dce48..6cacbf1f5c7d 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -1432,6 +1432,7 @@ int shmem_add_to_page_cache(struct folio *folio,
+>  			    pgoff_t index, void *expected, gfp_t gfp);
+>  int shmem_inode_acct_blocks(struct inode *inode, long pages);
+>  bool shmem_recalc_inode(struct inode *inode, long alloced, long swapped);
+> +bool shmem_inode_on_internal_mount(const struct inode *inode);
+>  
+>  #ifdef CONFIG_SHRINKER_DEBUG
+>  static inline __printf(2, 0) int shrinker_debugfs_name_alloc(
+> diff --git a/mm/shmem.c b/mm/shmem.c
+> index af21a89abb0f..ad6beb328553 100644
+> --- a/mm/shmem.c
+> +++ b/mm/shmem.c
+> @@ -468,6 +468,15 @@ bool shmem_recalc_inode(struct inode *inode, long alloced, long swapped)
+>  	return first_swapped;
+>  }
+>  
+> +/*
+> + * Whether @inode is on the internal shmem mount, which is used by
+> + * shmem_file_setup() and thus by memfd_create().
+> + */
+> +bool shmem_inode_on_internal_mount(const struct inode *inode)
+
+Nit: perhaps shmem_inode_internal()? Bit less wordy.
+
+> +{
+> +	return inode->i_sb == shm_mnt->mnt_sb;
+> +}
+> +
+>  bool shmem_charge(struct inode *inode, long pages)
+>  {
+>  	struct address_space *mapping = inode->i_mapping;
+> diff --git a/mm/shmem_luo.c b/mm/shmem_luo.c
+> index bdf90aac5820..7242664ee4ae 100644
+> --- a/mm/shmem_luo.c
+> +++ b/mm/shmem_luo.c
+[...]
+> @@ -577,6 +603,86 @@ static int shmem_luo_restore_folios(struct file *file,
+>  	return err;
+>  }
+>  
+> +/*
+> + * Restore a preserved tmpfs file into the file that userspace passed in the
+> + * retrieve argument.
+> + */
+> +static int shmem_luo_retrieve_into(struct liveupdate_file_op_args *args,
+> +				   struct shmem_luo_ser *ser)
+> +{
+> +	const struct liveupdate_shmem_retrieve_arg *arg = args->arg;
+> +	struct inode *inode;
+> +	struct file *file;
+> +	int err;
+> +
+> +	if (!arg)
+> +		return -EINVAL;
+> +
+> +	CLASS(fd, target)(arg->fd);
+> +	if (fd_empty(target))
+> +		return -EBADF;
+> +
+> +	file = fd_file(target);
+> +	inode = file_inode(file);
+> +
+> +	/* Like the preserved file, the file must be on a tmpfs mount. */
+> +	if (!shmem_file(file) || shmem_inode_on_internal_mount(inode))
+> +		return -EINVAL;
+> +
+> +	if (!(file->f_mode & FMODE_WRITE))
+> +		return -EBADF;
+> +
+> +	/* Fill the file like a write, which also takes these locks. */
+> +	file_start_write(file);
+> +	inode_lock(inode);
+> +
+> +	err = -EPERM;
+> +	if (IS_IMMUTABLE(inode))
+> +		goto unlock;
+> +
+> +	err = -EINVAL;
+> +	if (i_size_read(inode) || !mapping_empty(inode->i_mapping))
+> +		goto unlock;
+> +
+> +	err = liveupdate_claim_file(args, file);
+> +	if (err)
+> +		goto unlock;
+> +
+> +	err = file_modified(file);
+> +	if (err)
+> +		goto unclaim;
+> +
+> +	/* The preserved state is consumed from here on. */
+> +	args->retryable = false;
+> +
+> +	/*
+> +	 * The folios are past the end of the file until i_size is set below,
+> +	 * so reads, page faults and memfd_pin_folios() don't see them, and
+> +	 * they can be removed again if adding one fails.
+> +	 */
+> +	err = shmem_luo_restore_folios(file, ser);
+> +	if (err) {
+> +		shmem_truncate_range(inode, 0, (uoff_t)-1);
+
+Nit: would be more uniform if you add a label called "truncate", and do
+a goto truncate here.
+
+Since I only have small nitpicks, feel free to add once fixed
+
+Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+
+> +		goto unclaim;
+> +	}
+> +
+> +	i_size_write(inode, ser->size);
+> +	inode_unlock(inode);
+> +	file_end_write(file);
+> +	fsnotify_modify(file);
+> +
+> +	args->file = get_file(file);
+> +	args->fd = arg->fd;
+> +	return 0;
+> +
+> +unclaim:
+> +	liveupdate_unclaim_file(args, file);
+> +unlock:
+> +	inode_unlock(inode);
+> +	file_end_write(file);
+> +	return err;
+> +}
+> +
+[...]
 
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+Regards,
+Pratyush Yadav
