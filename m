@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795191645;
-	b=H7WFz15VvvSq1bqZrcPVeJi3MU78g3UhCkb/pqgSZI2k+5Ab7tmwZTZuaqlsnPfiTGOJ
-	 rEfj7bo0WY7GnBt7xxkc0MBuDSTXqax53P/czXkwyBxQjrH1dMKxtm9mpez7oNlC+8iVP
-	 jMreO5k+EBmFIrsKSe498HlOqupv23u4As8P4Sa5kz5JnQcAM0VXXQB1OmWQ4WanIqPbM
-	 +EAZJspITw7owTRF444QtzwkdzodVqEm3no2XiMr71hcKCyTU5S03RErVIeAy/w8aOzLL
-	 /xHKywOshLQo2J5B4610OIN/7ylakvXaMGkQEnpzHxc8fURw40fTmdBwD5giTKUdeew==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191645;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.201
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795191673;
+	b=IIXYHMQ7+ekQqn+On6EZuYOtTvN17LwtKs617o+koZQfFSOs01aGnh4c7ZUUI2Ufnee7
+	 bm7e1jBfkVTzAphl180A37OH8Qp7faC0yiJvudVsuhzdanwabcBwSiQw1p54DDH9NOUMH
+	 vc7ngm9BvEJi3Qi4ZwmdEb4NUMNeXDrmXiXgAphWcHLoU7aqWEtgFEqLMdgwL9F4ubLU2
+	 W3+UkTk+JR1158420M3hH8kITOqwakdBH1qnBHP++zZQd3uM5q0ZeZT9mU5CwOKpcOtiS
+	 QIK8koyYVo4w7pqleCAtVHcm33L7jMlr+/d2EnnmVhxG3qihuuGhMSh7B5/+wad2PiQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191673;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=nFviYrq5o1Aunl789XsU4c1vTFdvhxxqWOma4Om+z08=;
-	b=sJzVcYGRAB0NNADDoEfoG+9MtJ4bAfYyxRl3x1a/QR9C21BbAeVhMdNC5aULeoT8aS8P
-	 eapAHBZ1FSNLn9bNlufif2xkWs9cClOYFWtJJm68PWtXHkCxrfhlIYfHIRYUaAKTevcyD
-	 Krv/eZUGoGjPCB8WMXFvZTY71dGDsC7tsjKt9oTVi3rVcfSZ6ZTCy2piO/JzK7bkUxBlw
-	 DIUjrQAU0Rk3H3HaKKrZjvc/JEg/JTqhRsZByN3Vj/i/Zi4qQOcBjzxqaynGZ2RGO4/qP
-	 SeIS2/AAw423AHVV5fCEjBis67WlEL8dCrGTqVUIrFkn/fCiVJTKrnVtv5bDKxjZ0pg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
+	b=gJEmuyZkf1h5ggz7wbOgD9onCkEmvqcqxvbyMmEb3dwuOOzQSweCSi2WD5B6WGDVa4hd
+	 AC1UbvKhlK4NzmXXdDo8CCvebwnXAH3OJQHxzAo9/UDYDbl0tTSbgCIwoqE0U2GGdW3xg
+	 xpg3eqU4frOzyVG3G4EBAjWG7uTPuNdCUyP09R35LP+pS0OjJSyjjdMO7YpkV1ij76RuM
+	 Hab/JMxvJZsq/G65ShW4iUsZGxRq5xk8wSAj6Ebe5wo9TWzBV/ZN8jBZefd4k0IoMi8jV
+	 kWwOEkhBzg4xSWVxylTiDW82+/7X4esMxWKVvMtHfya0SFFPTFgKglW029wA2fHJI+Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZA5Lm80;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QFIMvXBw;
+	arc=none smtp.remote-ip=74.125.227.201
+Received: from mail-pi2-f9.google.com (mail-pi2-f9.google.com [74.125.227.201])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2B8B606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:20:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2B8B606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC7BB606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:21:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC7BB606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xZA5Lm80
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so17448075e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:20:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795191643; cv=none;
-        d=google.com; s=arc-20260327;
-        b=H2tMyppTddjhAMtfgrK2R0U5wIIl4y1bfXJotpP1d/yGl0fMEE1lLd1x0shU7pfG7A
-         gI+Y62vYt5ciJEulSXF4+czjwEnaGZ/7FS33N4wIqvbC8mB+prCMYfgE2B+NCKg3XkVz
-         9OIQDBL8Qwq1yNamKt62bIkZg/AJitCAWU+PZoLgob19CjdFzCHCsBVKuLKQntItYr7h
-         2eWwd2SrEMJIg5sKILhvtTWSg1v+u2TRs8UmSx5Y2CW/F1SsGJ4rxOd0metxj6ibdw43
-         XYhB9DsBXHgKoZDsh08AdWu2VggYn3CEbuHoBbaMtzVBOGbqCDeTbM6TrLNXPXrSXmL6
-         sjWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nFviYrq5o1Aunl789XsU4c1vTFdvhxxqWOma4Om+z08=;
-        fh=b4cgb+byHKrD/j1XlgHGBDbp2mkYH00GRkSKZrpL/jo=;
-        b=rM+a81EHPgQuyHscOJDW0cRNO+PDbSxOd7fzloZclprTd7MWRai34rZOy6b/BzdRCN
-         2bh+81zfYLzKpYo2OME+1Xj1DC3ZqlmXTR1mgSUKN7yhpW9bXi5L3vTlwldLcrHpAdDr
-         CwG8XmSWGPIb4nuiEEQBsBSAP3wxnD+wuaDVCI1acsnPJO58Njg+D7DmeNPtb7ozfayI
-         fEcnKrCDYuxM5i2qfkyvZpBgor4rvFrPzDrxvdmej4Zsi6MLS4nhXWfgwdsPkGUgDGFz
-         +sLqXg5DSEDO2TrxZUSSnkyP/ZOsVkhJNLJi0Uz9Nb7GIJI+hf91EzBO7DbXOl1LP9B3
-         RyDQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QFIMvXBw
+Received: by mail-pi2-f9.google.com with SMTP id 41be03b00d2f7-cdd9779aac8so181900a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:21:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795191643; x=1795796443; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795191672; x=1795796472; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=nFviYrq5o1Aunl789XsU4c1vTFdvhxxqWOma4Om+z08=;
-        b=xZA5Lm80+LmwnUw/ns35xz13xjfstKAn+btE7x5CEnUfuPMX9rtmTlrF1HCNHn3wTA
-         PBf7UOKGidfFBVxjBDPe/Ylm1BLDpT69s8c3/6YvhqNPnvEZ4Z4t8jq5XHgiSbtXcf3G
-         ljZcejKzQgNKLnk/3S4a7Mgu0GlyteWhwqPwUQpQTnDOZiaINidP3xqmE4vxE8s2Opds
-         YFLlC0yro7uc1n+fM+UlN5PrtKMKNzD5PEAZYSfXMgDU/ub5SI9IK5H2rT4SRp6LQ736
-         0vD9WMMa213cajcUFtNGIDK0Qhn6c7Mko4FoV8RHP7DouH34MmkI1r3kWdVXK2qW2Ulc
-         m8xg==
+        bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
+        b=QFIMvXBwT5UZma+RH3dkZsdOYQvdRV5lMg2aPbcMemqkf8Dupdo41EKmwIjAfGV4QA
+         Rp/STC14Fr5kxpZn+8zkLj31m1bjMjxlpVWu5+0//Z8eCJbmEBx3iIRpFCCMESlrrf9Q
+         74BR4tGYR7QwgQcBkHvI2flO0QSGZaaSskVdakj/+23kYau/j0GxnIcVBm3nNd5igetR
+         HGiHwoG0tUTt/5hlWBXpo2Q8eAbrCY5t5yCGNINLQ0L+yQv+Ww8SSN4ZSQZtyT1IqnWr
+         gdzRJT0GAx4L7UAT6H4ozbogf5xYExqjbow2iVzPZ+99dtMfu3s32l3yKwAv/yQqsHNG
+         Cuqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795191643; x=1795796443;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795191672; x=1795796472;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=nFviYrq5o1Aunl789XsU4c1vTFdvhxxqWOma4Om+z08=;
-        b=HH1tcCqZS5m866zhuSqZnkEsqm/deKI10GcbQe4d/4xa+WKLnH+i3JePqm8nk1bdvO
-         crvU3i7ir9a6ceZxpgBuXbP2RiG5lfFV4mojWFnSmRY8ypsoYWv28ShnSMpGZyYGcg5D
-         tROMYn3Pc6f6SNvEmBfGoT996hQLhqvINpFEW6XV50VIHwb2cBRFWCSTJcOUKW35CV/a
-         bi9vR22X4BwmOQx/SKLNC3AAGsRXAiF95ilIIKpFc/nXZW3KdDB+MwAnJ8pJjfI34jpd
-         qu0tGnyHMO14HzxOVUtATnhG205cLshpS9Z+Mmg4KscHyVcR6CVyxNBDZ5vNZLtH6J1N
-         8ZYg==
-X-Forwarded-Encrypted: i=1; AL+hErHBDLPc1DPKKrV20DWfOr6F5Ak5fHLjea3a9+xtLK+qRTlechMEekglMSzzBjK2odZZ0TOeQvkzof58Y08=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hVIVvqyuICJr0uEKCUJ/xn/+CeFF2EHgA9G9baHDkeB8gDRdk
-	dOzCpqQwCmwe7e6Sj/fRCHA+Ol62Qgi7Ra6Ab1wvhHv5XSEEofYKJEXPd8Z1OhBe7oTsSjPWEEg
-	2ayvC2sP8KTVxAD8Oo/QN6x/v6Fecv3g=
-X-Gm-Gg: AYBFou01vBleCzZaXgbGIgnQ+AtGAbDB14D8Bj82mOtgjwWnbun7bogZh7TMOZp02zP
-	AowxnLVLWwRQBt72uHl13bvqKio1Jxxq1duGnpM3NsEAHUU4H4q9GO04LhfNFqSbKr5PlPYPj5e
-	IXlLPOEqeG+C1WJ/LMWLeXlXBbmZ7vS9bnNvy3b9nIL+tMzfy792FtaQ1RpQAX4eluz2H1D8mbh
-	r+LtbW1YtF16KojVmmfKQWQofZ/qHptgf/286eIoX4PsQCgurxLDnSJ3U3saAuMoVASUDDPU6mt
-	Mt+fvrESX98LVLr6KDii0JQRwm1TXMsOO2Mq+Z6FAebsNKriXxhu7cVSUOvEye2hBERdJgW/c6U
-	0HXWPBmDsQJ6Ic/2ov7CFiFKUxL3z6IfiGL4Vtrw0RpT78Tq4tKLUSqXmBerStW6+WuGul4iLte
-	IkAKPCsyxV74rJhNF0kRk=
-X-Received: by 2002:a05:600c:37c6:b0:4a1:88df:8a2a with SMTP id
- 5b1f17b1804b1-4bb88812a84mr79631575e9.13.1795191642448; Fri, 20 Nov 2026
- 08:20:42 -0800 (PST)
+        bh=DlHp18CPjbRy2dBjwYmV0o13g/8Est+vNGExs52wGVI=;
+        b=iy4m7QaX+FurMzDa2VHgchc1f8TjMQzwjSq+4/dSUIYGJs3aLd4lju1sxxADxV5w7l
+         v8TfJbq4oAj4HMLfaY1A+g8vOD9+u2RuW4fe9+dzaBaZqrBwsUwm7qmZzbYV2CpLOBb9
+         1B3xcAN6Q3o9UuY0dC/eDMKKyKR3maOB3eWNDcCS/GzNvLJIUnx55MI49/VGdmAT5Ecm
+         qEMqo+wK75/uvpFaG5fNVLO6/ytYXIodaHQrDAjDlNIpfYUt1vVcry4PAFo+lEwbKBP9
+         TPpVPH57laDCOjOfpgmTnoVtDm/yOlWq4oP66+dgpPLmiqGHHGU1DTDzronNQDqBJlQc
+         jniQ==
+X-Forwarded-Encrypted: i=1; AL+hErH3jk02L6r30686/kn1YerkweI5twBisn18jQJFs+232gnJqXhpicC+WlplsABHKxH6+zWaDmXUbdCXD90=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8e9lxe897/Df+wzhFJZXllLDC/4sme313wD8UwuwrNjhTgPLk/
+	d6QHvkDtRIf2hSArACElsJdKCP09GAg/tWrQuk/meM/hU29If8tTtNtlpU/TET2ci+8=
+X-Gm-Gg: AZFdTZdOeBjd2oBHB6Wh+fWmMvhFcQqcfLm2cbmpeKLGNDgfw+y2IeARhiKMyxX6FHn
+	xlBYvM/hX8GpJLyrtC6x8YOo7yqwLAyP+sRcD30D2eMsHMIZGexUfbNx4pa6uvtkMJW/QSRhBsg
+	DphQF7zFbV6ksKXmuthfbGUdphuXpq+cofaOXGL1GG5u6+qxuwg5ulXVZsaji3+01zU40y9hhvY
+	TFzPsuhOr4w3SoSZy4I8CjGz3eMKOCHg59L09h95u6/PN7Y0iatwOp9Kl4yYjSt3MnhSFvQQDvh
+	ueJ73FIH0AtebXM5BLyJ7vYGPrt9AaGCh2tymurpMynniB3ZlhFJtn2C6xyHDq4G9jKuiIE8tD+
+	t2eNIuS+36TWJ3bedBXdWImyzr+lBlgHCt+o1Bmj3yi6fdBJ9xodtvHJuZLnER2tTP3zU+3Becn
+	meuZ4uqVUSHgXOje8X1WU57LG2TP3ZCIQRWmDtNCbDlMLYKyeYM09Gnz7xPh/LMDvcCSJ1mioPG
+	qgDGDyQpggyZbv/53NnnXAcyJ8ti7bKjIPKG2Z5zCswfQWjqcqD2uSAwlSdwknWYm6tY1weEiRL
+	tE46Vu2kygFQ1IRg65PfN+0=
+X-Received: by 2002:a05:6a00:1c97:b0:8b5:7fc8:866f with SMTP id d2e1a72fcca58-8c87d32b004mr3231608b3a.44.1795191671804;
+        Fri, 20 Nov 2026 08:21:11 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:60::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45e32sm1696071b3a.24.2026.11.20.08.21.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:21:11 -0800 (PST)
+Date: Fri, 20 Nov 2026 08:21:05 -0800
+From: Stanislav Fomichev <sdf.kernel@gmail.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
+	Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Rik van Riel <riel@surriel.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	Pedro Falcato <pfalcato@suse.de>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, stable@vger.kernel.org
+Subject: Re: [PATCH net 1/4] net: skbuff: limit folio refcount when copying
+ skb frag references
+Message-ID: <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
+References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
+ <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,114 +105,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com>
- <20261119-mglru-fg-v5-6-9eee2fe97a2d@tencent.com> <CAN_Opa_jb1pN=-Z+4WRoXVDSe0YfppeY319iagMdQoMgtOQSSg@mail.gmail.com>
- <CAMgjq7DbK8sc7-0CTOj5iZBmkLmG7ggj75mdTxVkunGzmi=NWQ@mail.gmail.com>
-In-Reply-To: <CAMgjq7DbK8sc7-0CTOj5iZBmkLmG7ggj75mdTxVkunGzmi=NWQ@mail.gmail.com>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Sat, 21 Nov 2026 00:20:30 +0800
-X-Gm-Features: Aa3M54pZxa4hRHw0Lgws3rEOfSeNigcJ3vp4dRWPeqYAT3KKSQ-I1gkfiyUitiM
-Message-ID: <CAN_Opa93a7Z0wmPxLGFeKF+BssvZeioFHU6tcnBioXTQKWKP-g@mail.gmail.com>
-Subject: Re: [PATCH v5 06/17] mm/mglru: frequency guided workingset promotion (MGLRU-FG)
-To: Kairui Song <ryncsn@gmail.com>
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
-	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
-	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
-	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
-	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
-	Joanne Koong <joannelkoong@gmail.com>, Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, 
-	cgroups@vger.kernel.org, damon@lists.linux.dev, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
 
-On Fri, Nov 20, 2026 at 5:36=E2=80=AFPM Kairui Song <ryncsn@gmail.com> wrot=
-e:
->
-> On Fri, Nov 20, 2026 at 4:09=E2=80=AFPM KunWu Chan <kunwu.chan@gmail.com>=
- wrote:
-> > > +/**
-> > > + * folio_inc_lru_refs - Update the folio's LRU refs and lazily promo=
-te it.
-> > > + * @folio: The folio being accessed.
-> > > + * @flags: The type of ref: FD access, or mapped access optionally w=
-ith
-> > > + * executable access.
-> > > + *
-> > > + * Used by both cache access (flags =3D=3D 0) and page table access =
-(flags =3D=3D
-> > > + * LRU_REF_MAPPED, optionally with LRU_REF_EXEC).
-> > > + * Context: The caller must keep the folio alive by a reference or t=
-he page
-> > > + * table lock of a mapped folio.
-> > > + */
-> > > +void folio_inc_lru_refs(struct folio *folio, unsigned int flags)
-> > > +{
-> > > +       int max_gen;
-> > > +       int type, refs, old_gen, gen;
-> > > +       unsigned long new_flags, old_flags, max_seq;
-> > > +       struct lru_gen_folio *lrugen;
-> > > +       struct lruvec *lruvec =3D NULL;
-> > > +
-> > > +       type =3D folio_is_file_lru(folio);
-> > > +       old_flags =3D READ_ONCE(*folio_flags(folio, 0));
-> > > +       do {
-> > > +               new_flags =3D old_flags;
-> > > +               old_gen =3D lru_get_gen_flags(old_flags);
-> > > +               refs =3D lru_get_refs_flags(old_flags) + 1;
-> > > +               gen =3D old_gen;
-> > > +               if (old_gen < 0)
-> > > +                       goto out;
-> > > +               /*
-> > > +                * Lock the lruvec if the folio is on-list. We are al=
-ready
-> > > +                * doing lazy promotion so in theory we don't need th=
-is,
-> > > +                * but for now, concurrent aging would still corrupt =
-the
-> > > +                * size counters.  This is a temporary limitation and
-> > > +                * will be lifted very soon, so the lock here is not =
-a
-> > > +                * performance concern.
-> > > +                */
-> > > +               if (!lruvec) {
-> > > +                       lruvec =3D lruvec_live_lock_irq(folio_lruvec(=
-folio));
-> > > +                       lrugen =3D &lruvec->lrugen;
-> > >                 }
-> >
-> > Can we do the lookup under RCU and preserve IRQ state here?
-> > filemap_read() can reach folio_lruvec() without RCU held. On non-RT,
-> > lruvec_unlock_irq() can re-enable IRQs while KVM's hva_to_pfn_retry()
-> > still holds gpc->lock.
->
-> Thanks for the careful review!
->
-> We can, but not in this commit, and in a later patch we did convert to
-> RCU convention, so this lock is just an intermediate state because it
-> may race with aging hence race with the active / inactive number
-> update. In a later commit we changed how inactive/active is reported
-> for MGLRU so this is no longer needed. We are basically lockless after
-> this whole series (I mean, RCU lock only).
->
-> Perhaps I should add a TODO in the comment here so reviewers won't got co=
-nfused.
+On 11/18, David Hildenbrand (Arm) wrote:
+> Various networking features copy frag references of an skb, for example
+> when unsharing a cloned skb (AF_PACKET trimming a clone), when copying an
+> skb (nft dup) or when building NFQUEUE messages. This is an effective
+> way for multiplying folio references held by an skb, allowing for
+> exceeding folio refcount limits.
+> 
+> This is not specific to large pagecache folios, but with them it is a
+> lot easier to reach the refcount limit, as page table mappings can cheaply
+> create many references.
+> 
+> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
+> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
+> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
+> and their callers handle that.
+> 
+> Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
+> Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
+> Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
+> Cc: stable@vger.kernel.org
+> Acked-by: Pedro Falcato <pfalcato@suse.de>
+> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+> ---
+>  include/linux/skbuff_ref.h | 53 ++++++++++++++++++++++++++++++++++++++++++++++
+>  net/core/skbuff.c          | 35 +++++++++++++++++++-----------
+>  2 files changed, 76 insertions(+), 12 deletions(-)
+> 
+> diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
+> index b6f6da556ee90..560ddc863bbec 100644
+> --- a/include/linux/skbuff_ref.h
+> +++ b/include/linux/skbuff_ref.h
+> @@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
+>  		       skb->pp_recycle);
+>  }
+>  
+> +/**
+> + * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
+> + * @skb: the buffer
+> + * @f: the fragment offset
+> + *
+> + * Like skb_frag_ref(), but acquires non-page_pool page references using
+> + * try_get_page(), refusing additional references to a page whose refcount is
+> + * at its limit.
+> + *
+> + * Return: True if a reference was acquired, otherwise false.
+> + */
+> +static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
+> +							  int f)
+> +{
+> +	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
+> +
+> +#ifdef CONFIG_PAGE_POOL
+> +	if (skb->pp_recycle && napi_pp_get_page(netmem))
+> +		return true;
+> +#endif
+> +	if (netmem_is_net_iov(netmem)) {
+> +		net_iov_inc_ref(netmem_to_net_iov(netmem));
+> +		return true;
+> +	}
+> +	return try_get_page(netmem_to_page(netmem));
+> +}
 
-Thanks, Kairui. Keeping the temporary lock for the accounting
-makes sense to me.
+I don't see you removing original skb_frag_ref implementations after
+the conversion, any specific reason? Do we still have any skb_frag_ref
+callers left? Maybe at least you can make skb_frag_ref do 'return
+(void)skb_frag_try_ref' to avoid duplicate code?
 
-Kunwu
+(optional) Also, an easier way to migrate might be to make the existing
+skb_frag_ref return bool, convert everything, and then add __must_check.
