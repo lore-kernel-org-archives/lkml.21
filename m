@@ -1,89 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176103;
-	b=PRHDWwWJP4kxpjXm20PLCSJ1ldzMm2hdMfLd1LBYEgkAO9O2gdgTfJUZeEqMxfP03xMX
-	 KeXDslhRoLRXVgMM7boA1A4lFWTv0U/FJBuTpO5/OdKzTjUROjxoTSXZIz6yuLDBKHHuu
-	 YUXO7CxJ1KmQWW4sc0C44ZxnfSpVMh2CwJZ5cU6qZcwtueZughhCWoMmpHsmk0hz5mkLQ
-	 0RWMVKI6K+SBLu3nh9ox7tNzvV87X1o4XUzD7DDabUyOLR88ZkF6dzUJ588y9tHZaH3HV
-	 5p8CoeND+6l66lmusUQTrXVS2WJcnp6hsAxTpG1ioNxnygwRiYMJLMcS4zxoy4lplJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176103;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795176133;
+	b=smHOKvoYwDugoC9wKlX0H5YauH7ovHpvYLE/sPopgr9w2t6zF+tk36TdC3NQKqKNoeYL
+	 uBqLua5Y96EJTDtIDrubjQcfZB7csXCbyYtUtTb+5x4xu4UMd1y5sH7pjuJpKJtiNmmKm
+	 hNj1IsF87J/GfLhInBy47oFF21iBegWH6q01Z0Hr1XWIMJcB//a2YpJp8XtltfcVQFSU6
+	 Y5w/Idc/KDsf1peqpInhdSkyVaxEqs7a4PFdYzjfId1VH/4+1hTDmkknx2KRf1kJkVDa1
+	 wTT6XhICufSTQgJOYX0njrInprMMPtwp+94BrBrlIvrqMZUHBMzi1Qa3U3o3zwTcQAw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176133;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=MAU1alsnTI2aWDlPsrvvBfpXKOIn933Znnm/A0R9ZLc=;
-	b=Dk53nRot8d33KzszkuI8JH0xZ0BMH1ye7gz4u7ISzUcEo0Cccj0ogH2EVhYHqqp/qyXW
-	 YDvtivV/SgT4hjpqifgGc1OS38mRPuYE1Js7YfFGYGWQlxYaxWlzXeHsa+KgrGHd4lhey
-	 N7mO78IBh2AmXuy4/n2tZl+x48Xm04AKUf2wox7dgrouwO3zMaapD65e4afODJKFreh+U
-	 Pv3pB2LSDcCmHKxcvKQxHvlLRh0XRjA/RhI2O9hABNnVebvo2FyiW0lF5jX9nnDk0ZmO+
-	 KpHH2NqJYENBnHkh3GdvX8ZjxKm+WMVmStIyA2YfSTdq3SmbwkYbUCKDOnJz+eJ9qVw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=M0GVSOJEv4Fg5tAe9BmtD544Iu6fdkKfVtmzI5e60Pc=;
+	b=140NXfBRMfDNZ5gNUUIynJ8+D+iODvTbBurAzU9ZRqfjd6uxD1iiVDz9kBTiwZAzFOPC
+	 Znmh3F04WZvFVeDP3Jq2Qaz8L328IweSz2MkI2DJlkt4jdZBSBlGhDlVI+MU8m+DZbNBS
+	 XYs/EEFP5HmoLD87afHWSI9sc9nxjUOhXN9B5LoODqueS828AU8xoEQfGWj5+Xe/rgV5b
+	 H/ilouVCXZ+SbyRVxjzuGoXPedbC2uyBJ4o3shEyPMnKp/p4ZGlcF5Fn/T44wBfVKQwrQ
+	 V5boED9/usxA9Hy+v+rPrg0meTQNiTpUKeOlkRSTG/zemRBhQIWo01uZ6HoCZuq4njg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BsVfFHBz;
-	arc=none smtp.remote-ip=209.85.208.177
-Received: from mail-lj1-f177.google.com (mail-lj1-f177.google.com [209.85.208.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=elnT9W+K;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C5CF606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:01:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C5CF606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E9C8606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:02:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E9C8606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BsVfFHBz
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3acef9307c7so6404381fa.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:01:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=elnT9W+K
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so135166466b.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:02:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795176131; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TkmBs8d70cH0Er8sYI5zfPk0tkpHLtTaFJoBxs3amLkf2VC/TimLd0Ay5LAc5zjJLK
+         w8odlOgOYmOridcQKamoJpTcpzjSc3pEZRUOd0u/0qRYx/6cuYAd3Tbn/wCyIxxtSV5p
+         v/iyCLMaSodDXeANdL4ipvb8L6jlj0x+K0lgGLdNmjH2pc/iAlOHZ8WtDJ9JupO+LxZd
+         XtwMj+Kmmed9JE0LHgnKK/B+k/RiXWWDdXN5cRnSBcOch3kPydZVDYeSaj5QfDh2mJZC
+         o8XVz0ycOl9rNGzBccAF4aO1Zn0y1x0Kpk/wq9bXk6HtUYlN84UQdxzITk08mLgrEkwp
+         xKcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=M0GVSOJEv4Fg5tAe9BmtD544Iu6fdkKfVtmzI5e60Pc=;
+        fh=L4dKoD6lubz6kBzL6SkvJ10FJ9HRx0upIoJLJN5yo9g=;
+        b=NyLOc82DgNJ5e3vWWF//GHC8W8a0BKkaw0G/tZApB8mINGEqmSD50IKDUy/rghEY43
+         jVIcTOVT5fIPCfQQn4e/GeUR4NtiBQ/a3l2G0T/JT5Ptx95NbA3YDscwgnYcChRDaI4G
+         P9Jmf95mX/dtN6qFePhD6ueC6fug9c/4f1YYr6ZGPJNWq3wJ1owQxCS2VqpolTuObS3I
+         GajkVkhdtFWuvFIgVKFhZqSzfeX1/p9T9/Cijpbvwl6eWWJer0hqBidM4m+eGr8S8rUh
+         SG2orkHx3ff3W6p4Cj8kEXyFtR5odD/0Z8gnmSrQ8IENXvWbvDrLrysrY9lqjz/W8fRe
+         vQcw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795176101; x=1795780901; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MAU1alsnTI2aWDlPsrvvBfpXKOIn933Znnm/A0R9ZLc=;
-        b=BsVfFHBzdir5k0WfQJg7M2TKjqOQlCznxkryG6RC+SXvakiGG3qoADnIipX3jLyW3k
-         wYG+y/NBBdMX7kMd57swLmjdawwqSMGbYRqAe+IGN/evNX/aTFynUaG+PB34OtUMFiGG
-         fI3PzFc8pGoQH+NgdxjfD1mkOKTPDCdddPvvdg9i3r6bTEs9TLK2BxJuEKY39pnYJn6C
-         hSefyInd50J2VDe7NfW9nHWMRncvyeKq6xhMHdCbQEmoAib+YaU2jRy0suhdEUKel2dr
-         h5GfuVwNBone6cywL7EKfYtsY62ftNf5C9ySC51aplwfsocKVSUaZKP3V7thbyINLeq9
-         P8UQ==
+        d=gmail.com; s=20260707; t=1795176131; x=1795780931; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=M0GVSOJEv4Fg5tAe9BmtD544Iu6fdkKfVtmzI5e60Pc=;
+        b=elnT9W+K/n8i6yiUeG/vwm+AuWZDS7DoUKbFQYRBMAXKO57CxAdbGuvEp7yGT/ng4A
+         xJpGl84wP3dz5FzRKXe1mxeZZWeFygWYXwT6EcOzt3WuouvhCpt8slCtE+Rm50c3bBbG
+         jZD32of3vcH4juNQdSqKW5qUD7leYDJAhDOQxBXy6f4E1VVwgUGsrWFBgn5AWyIRQSc6
+         JcQ6v7aum1SoOt22UQcGQfTxneDcBIs/uwdywGcQfTLz0l74MV/l6wVVpNUg2sG+iumT
+         sirvXsRGU3I3K+iqC1yO/eBQ8zKNZV/FNXSNl9BBJxM7mKFqWRkVuWq/6Wfdj9Uc+XEP
+         6KSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795176101; x=1795780901;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MAU1alsnTI2aWDlPsrvvBfpXKOIn933Znnm/A0R9ZLc=;
-        b=gilyHLZUsBLO66p0kKtzGR5V0/PqAk5dq5yheUpyk88qXuKSvDXrHYpPHPr/OhIGmm
-         Wpuvn7ujYT97dwC6mqHaOdDY7QMrRqaOPL8Nsk6Ahmxh8/HORb5p7vw9DmkwRUJ+GrTm
-         2/Wz9Ijne2PsAuVKRSsSPzGI3xp4MNnU115LgBJ5ICaGZl7lJN16nZnr7QwDzFzlhzse
-         G6ILmqxv5AnsUPyRZborFHVzl5lYukmoy8IaJwH6HQ34xPva7PWPLU7PmA3Bg2dIzmNp
-         NZaBtHvj1Dozne/UL8pE/BXWFwISkbwUoxQQ0CRX0XrvQXkTKQMYSclmFOWgQSUFiBDC
-         0hlA==
-X-Forwarded-Encrypted: i=1; AL+hErFU3UgC1jvM4orLfZXIHhYE28vFONclxeC/3xBbrUqjhuIuIse9lgWxkjUfXlREdfhZ8NXTQ5UkUUtNPb8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8tIFbZLwNrbWt3Af7LEQ48AFP/kJcutCBT+fJ/ym3ajlI3yK9v
-	BAt0qPoEsgx087tj8XsRda9tgGrOw0lzYfi/qAd2M0D5CiMbdtBA1+Bf
-X-Gm-Gg: AZFdTZcqsejPym7cZgZ/V/Z56UdffdkxVnB8Fat9W57l4eF6Dqj9VkHvI0LdkT/mgji
-	o5xwobx6R8O53kVis8Zc9+tyf4oHjdUQ/nmE21X6tvgTjwUiISYHYMXxY3ilXzOUv5d0Hwi2erD
-	uQbA9ORP3NBjH1klbysbBGseCaj9nYK01/PTB+ZHn5FLIX3ZbDg0MZNVbJY+sUj3k2AE+F+B89q
-	zTVrNvb63W3Uwke7xs9c1QBEOH0+h6OD6MD+18uEwPqXVHW+aAurbJhe5JZB3fOsRxy0dqfqWom
-	9CxYiXenRQHlbNnR8f9ZMmmBJje6CuD3vr2Iea6EM8YcytS/rZdATXNO/v7dDtX0Yc6yP1B1euh
-	DtfExsD9LOWCZFkxfY+h6f7YrUYW0jwg+8UTBtxO7rpYZuXHbPLuVwwVveel5Qsz8FngQu4QQqF
-	cjjZ8vNVKDhh6u2EzQQodTNK7xqOv0tyzsTSxQrhzTMNPKeAmFaFacKZGhdGbJJ6hDqxTxEcpJf
-	+uxlevbNd+3f8AaB4PwnvcNwIo+BJDzPPWYSrQstrFzgM093HplQA6vUzR8rK/AL3+ieZU304Nc
-	jutOB1uz19EKe+s2x7coinlz1zuWyjAYgM3bt3RFxpJLnTKtUQ4v+kpUkre0VTwrta+zW01IYj0
-	31UHE1YUipUW6VVJn8HWRhBvjGjpm5Ck=
-X-Received: by 2002:a2e:be8d:0:b0:3a6:6f81:1027 with SMTP id 38308e7fff4ca-3ae7fa94f03mr8379171fa.24.1795176099614;
-        Fri, 20 Nov 2026 04:01:39 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8055cf80sm6924401fa.36.2026.11.20.04.01.37
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 04:01:37 -0800 (PST)
-Message-ID: <bf0dd82b-e1a5-4ab9-9ab7-1641181d303f@gmail.com>
-Date: Fri, 20 Nov 2026 14:01:36 +0200
+        d=1e100.net; s=20260707; t=1795176131; x=1795780931;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M0GVSOJEv4Fg5tAe9BmtD544Iu6fdkKfVtmzI5e60Pc=;
+        b=pe1G2ZdWNFoPGm13qEz1f8O3GMNGNtZnuwBNQZWoyyr/HQP11+LO0fLPk6eYFK/2uP
+         X4niMOknUCT1ZOYbvujV+AH18npJKA7lK8KV1KuFi7m2yE6gPy5wlLLpG65uM73mNIdV
+         ZbYMmBuY0urDS3FGIbQmMTAC9G2uNC6sPI4HNn+Sn/0t7Umz4Jrjtb8FS3r4nXimopQg
+         Lf8sS2czQSrdcz4vHOO8pZLyFRH4K3HJac00OPTbdneC516/wMWVZdTLvsSL7YLp566u
+         Xv1dB3PkPjKxBJ4NAKwlVGSPtNfyhOqtZjjt0xUJCqSugOoo5/QVg7f1LLDUfeV7DFg1
+         8zMA==
+X-Forwarded-Encrypted: i=1; AL+hErFPKKYP0Qx2VCdqflrPT6Ir45mmQSEK4e4gzwYa0VUJbem7wny3xu8V19s7HxhxcbhEC6pZv9hckctjWAc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84tLiFNfdvJzW4N/e6Gk8AjyEkWu/64bcDkoSn6Z1gggsarqas
+	4rOP02oeNUyOnp+Du4cwSsJHZbK+5MlaXzeg9FGm85cKTzK92UdN9linuzA5is1+eEIq8rkiuQu
+	61xHfYH8Eg2pkMnHnhcR62HnPE4W+Etc=
+X-Gm-Gg: AZFdTZdfxrh1iqFVM6nGtbd2/ecgqG9iuu1uw3lVHEVKywm4Z4m6gbNZ3rd5G7a4Dki
+	Gi6Bv/TmSctXyUkVWfdl4sVQag9ltfoINnhx0xE8P3FjABYzQrQ0iYagsIKXz/3b8PbNLSOpJ/y
+	hy9FbJS85DJohtwPdMG9WDPaPigbK0c04vw3Kq9eCeE5J9f+zsqAR2DpSVUt9sxMZNaAlXfymWW
+	veudR0YrAA/Ow4q4q5cdMvtS2Iu+uPDIg8EcXOcMnGjgA1+Fwr69W7VOkrEAecLqgAcS5WEasyV
+	VgQBRD3PSe35B6LtCMqHTmV32pa7P5Mgs5HQQeoCN01svszQn/o8T9gGUy67GRFCPsUNAbh6llu
+	GTt5DtXEqScP7DB8UW/3qjrVjDlH6zt0MK+v+gxoqcWBoky3O/vnlbeI7qHsWowstXkcWhA==
+X-Received: by 2002:a05:6402:4048:20b0:6b6:e857:19d8 with SMTP id
+ 4fb4d7f45d1cf-6ba37e69801mr1554757a12.10.1795176130876; Fri, 20 Nov 2026
+ 04:02:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,102 +104,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: iio: Support ROHM BD79111
-To: Conor Dooley <conor@kernel.org>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Matti Vaittinen <matti.vaittinen@linux.dev>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Marcelo Schmitt <marcelo.schmitt@analog.com>,
- Joshua Crofts <joshua.crofts1@gmail.com>, Radu Sabau
- <radu.sabau@analog.com>, Janani Sunil <janani.sunil@analog.com>,
- Salih Erim <salih.erim@amd.com>,
- Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
- Antoniu Miclaus <antoniu.miclaus@analog.com>,
- Jakub Szczudlo <jakubszczudlo40@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <cover.1795009599.git.mazziesaccount@gmail.com>
- <f69b996cc07fad1712871fb8b0436c71abd435b9.1795009599.git.mazziesaccount@gmail.com>
- <20261118-ancient-ominous-4f2a4a37369b@spud>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <20261118-ancient-ominous-4f2a4a37369b@spud>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261118-b4-ovl-containerized-sync-v7-0-54f45743fe55@toxicpanda.com>
+ <CAOQ4uxhXTeTv_ydiQoq6-dvbw-ttFKkdNVUJanKmF6haSnbFWg@mail.gmail.com>
+In-Reply-To: <CAOQ4uxhXTeTv_ydiQoq6-dvbw-ttFKkdNVUJanKmF6haSnbFWg@mail.gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 20 Nov 2026 13:01:58 +0100
+X-Gm-Features: Aa3M54rz6j7Tjpjymbfp8C8fSyvFWnIM9Qg1tGNKh3Bsrszg_pg9YMNZMouy94Y
+Message-ID: <CAOQ4uxgMO7DQVFwOsK2NTad2bwyktYr4fyeCEFWWVZK5pmqdAA@mail.gmail.com>
+Subject: Re: [PATCH v7 0/7] ovl: only sync what was written through the overlay
+To: Josef Bacik <josef@toxicpanda.com>
+Cc: Miklos Szeredi <miklos@szeredi.hu>, Christian Brauner <brauner@kernel.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, 
+	Christoph Hellwig <hch@infradead.org>, Chris Mason <mason@kernel.org>, 
+	Chengguang Xu <cgxu519@mykernel.net>, linux-unionfs@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Chengguang Xu <charliecgxu@tencent.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 18/11/2026 19:37, Conor Dooley wrote:
-> On Wed, Nov 18, 2026 at 04:19:11PM +0200, Matti Vaittinen wrote:
->> From: Matti Vaittinen <mazziesaccount@gmail.com>
->>
->> ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
->> where pins can be configured to be either used as GPIO or ADC inputs.
->> ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
->> sources.
->>
->> The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
->> for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
->> promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
->> the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
->> clock.
->>
->> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
->>
->> ---
->>
->> Note, I had to change the 'root-level' additionalProperties: false to
->> unevaluatedProperties: false in order to allow the properties in the new
->> allOf:
->>    - if:
->>       ...
->>
->> section. It seems to me this is what a few other bindings in IIO do, but
->> I suppose it makes this "less strict". Well, since I am terrible with
->> writing bindings, I'd better point this out and ask if it's ok, or if
->> there are better way(s) to handle this?
-> 
-> I don't think you should have to do that though, since the children are
-> described in the same file.
-> If you instead retained the pattern properties section, and lowered the
-> restriction to channel@<any number> with reg with the max of 31 and in
-> the conditional section constrained reg to a max of 16 does it work
-> without the unevaluatedProperties change? We typically want properties
-> defined at the top level and constrained in conditional sections anyway.
+On Wed, Nov 18, 2026 at 7:14=E2=80=AFPM Amir Goldstein <amir73il@gmail.com>=
+ wrote:
+>
+> On Wed, Nov 18, 2026 at 6:03=E2=80=AFPM Josef Bacik <josef@toxicpanda.com=
+> wrote:
+> >
+> > v1: https://lore.kernel.org/all/20261027-b4-ovl-containerized-sync-v1-0=
+-802e512379a6@toxicpanda.com/
+> > v2: https://lore.kernel.org/all/20261029-b4-ovl-containerized-sync-v2-0=
+-4e9f08e4a052@toxicpanda.com/
+> > v3: https://lore.kernel.org/all/20261104-b4-ovl-containerized-sync-v3-0=
+-8daa20144f53@toxicpanda.com/
+> > v4: https://lore.kernel.org/all/20261106-b4-ovl-containerized-sync-v4-0=
+-6ddde0b7dd8a@toxicpanda.com/
+> > v5: https://lore.kernel.org/all/20261107-b4-ovl-containerized-sync-v5-0=
+-d34b4ae57fdf@toxicpanda.com/
+> > v6: https://lore.kernel.org/all/20261110-b4-ovl-containerized-sync-v6-0=
+-43d1be16a4d6@toxicpanda.com/
+> >
+> > I've completely redesigned this, because there were so many problems
+> > that I kept tripping over trying to maintain state between the upper an=
+d
+> > the lower inode. I'm not in love with this design either, but it's the
+> > simplest. I'm hoping somebody spots something obvious and we can do it =
+a
+> > different way.
+>
 
-Gah. Either I don't know how to do this properly (which is likely), or 
-there is a slight caveat. When I tried to do what you suggest, the 
-binding allowed channel@X, where the <X> was is out of the range. Sure 
-thing this was caught by 'reg' being out of the range, but it still 
-allowed odd combination of
+I assume that you asked your alter ego Claude this question, because it gav=
+e me
+some tips of how to do it differently.
 
-channel@X, reg = <Y>, if Y was in accepted range.
+I guess it depends on how you ask...
 
-I suppose the 'X' and 'Y' in previous example are expected to always be 
-the same, but I would still like to catch this type of an error.
+I asked for less complexity, easier to review, and keep the requirements
+that syncfs duration remains low in the worst case.
 
-I am about to spin v2 where I use the BD79112 limits (channels 0 to 31 
-allowed) in the pattern properties, and then do:
+I also asked to look at Chengguang's v12 work from 2020 which
+I remembered was simpler to review, but had some problems:
 
-"^channel@(1[6-9]|2[0-9]|3[01])$": false
-to exclude 16 - 31 from the BD79111.
+https://lore.kernel.org/r/20200506095307.23742-1-cgxu519@mykernel.net/
 
-I am not super happy with it, but it seems to work and is still decently 
-understandable even for someone yaml -illiterate like myself. :/ (At 
-least for as long as we only have ICs which don't increase the amount of 
-default channels. That might cause the exclusion regexp on other ICs to 
-become ridiculously long or hard to read. Well, I don't have such ICs on 
-sight for now.)
+I got a few suggestions that I liked:
 
-Well, let's see what people think of it :)
+1. Serialize syncfs calls with ovl s_sync_lock and use dirty list as v12 di=
+d
 
-Yours,
-	-- Matti
+One list for the tracked/dirty
+local spliced list for syncfs
+Which workload would it hurt? anything important?
+Certainly won't matter for the unmount case that triggered this patch set.
+Holding upper s_umount shared during the walk will remove complexity
+around freeze of upper and reduces the 3 states to just one dirty/tracked s=
+tate.
+Less logic to reason about.
 
--- 
-Matti Vaittinen
-Linux kernel developer at ROHM Semiconductors
-Oulu Finland
+2. Replace inode references and shrinker with reclaim list
 
-~~ When things go utterly wrong vim users can always type :help! ~~
+Only an evicted tracked an linked ovl_inode needs to be added to the
+reclaim list and ihold the upper inode
+syncfs synced the tracked list (no extra upper ref) and the reclaim
+list (with extra upper ref)
+This should get rid of the shrinker hooks
+
+This is not simple but maybe a lesser evil than the shrinkers?
+Not sure.
+
+3. Try to gate more ovl_track_inode() in existing helpers
+
+Similar to ovl_copyattr()
+Many metadata modification already have to be gated by ovl_drop_write()
+or the higher level ovl_{rename,link}_end()
+we can add both old new to the rename helper
+even make them scoped
+
+I will wait for your feedback before diving into review of v7.
+
+Thanks,
+Amir.
