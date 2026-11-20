@@ -1,102 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185168;
-	b=VHhdjkjX+4X7QzVPVNQjLyLuSQIxN0cZV8hbqSwovvkxguZTJYaYk+N1Qav9y1IgEZrL
-	 a3Y3fou5Y5KJ1Q1odP8NuDReMyYElA2LfTjrnN6yO4/FYfsCzrT/5GanFoOv2ug0BnlMF
-	 V1WWdxXNDOTz7sCVb4rjFaDqS0P3zn1WLpsItyi40IHRW/vnmUt3AjFrRLDP+rfJdM1wV
-	 +uxdM/5brGoU52J8/tp4jQ/YytobwRa9YAf5ea71Vq6VIZRkXdoVbn1N7rFIEv/2+PvJO
-	 tZI7/9UdEuA2cKa3TMAX+5oSyciwdo2uiYIT3QlOJQB9PyknRGTIrLnyWyXYV86QJ6A==
+	t=1795185233;
+	b=VDYBpHwIrTp216hwcHEmRpFT5ySee2qvr0GhMwwqGsdXLgVhFDp92hUPM5/V6MOqtCFO
+	 IIyuAAowyMDQAJ6W1fI9K/hiT6bV5B9ErO/Vc5q0iKqqwSdW2HDVn3UTtnY75Om4+5D0v
+	 TCd5nd+t/3DD+A50xqgt5dHUDRNAVY6z6YkhX/yB/KWiarWnafLpjHOrX2hMYZYKoL4ND
+	 xjS8YHq7W+pkOWg6FulrD7XWWrsimMUkI7rLmnEhKyfrqGt3Ahdm55gJevDU9sh6fTi9L
+	 METT4H3iaAiO8udv89eGI/oY0Gqme3Hpo6W0POx+LLvlBwJO9feGE5VJbUDH/Cdz6HA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185168;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=cimqzB4bCIhynChpt7iVluTD5pnTnQawyp+LKN/vPns=;
-	b=U1Q0VE3UzzShMVzsGJ9Ks7EE/4RaUzjK72NA6ULqC+Xg21xGEE9s8nUz3jykkjaEQ7Z7
-	 YIia0RmM/XXEOqSyIDOQN9F9QrinqvzHx15tz6IyMgI9h6YpDzIUEr/FlHf+1mi3f8wTL
-	 s9aJzx02WcW9+VdcbGmjS4PDbpjpFE81H5eVhsDvHh76jjwDfW4fx970BBonIMYofjgoZ
-	 EBsmeTm1KgJEuRVwNyFTJRwIuKu3QOmp01c2XX9yp0C84NbRlHzFuGSYG9NCDAWaV6gA1
-	 kk2BXv4E6Gw0Mt8V/6DiCA7fxXtQOuANlpCm0mQk880/XtJup4ZUssIHdnyvXwzJZ4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185233;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Fy3WW09hB+rkP27DDiDOsr/F2JQ6kUcBqy1wnUqOGKY=;
+	b=mXhaquO4z3eDnguqkzL4IOq9hoZDwmn9o+pcvFzrZhF3Q5MEubjo4meWE8zkr3tjmusY
+	 Pq6AxjzKKxJmxSrJ4DA+8w06JjAlIUJksA90yVPdgkOpD+nm+0nE8Dohx8ynC3eWv24N/
+	 dd7o1mSUY4yn2/vtcB23gV2VJRJbFDhRVI3pBEVkXFqGgY9QRnTaZrVopGDE3wjKxoMVo
+	 3bxOzEjCCyb/MPqc236++mao7eSrlhvpMpOzoRa2/c7PncThYCYWeP6/QzNYUdczCGTgp
+	 mJNd8n1FH1poKH1cQ6LurCq9NYwPCFo0Qe0CpYCU41rIxhqhGwNkPU1OUAM5X5ihFOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jUHtFhSD;
-	arc=none smtp.remote-ip=209.85.128.42
-Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kP6gHav2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 419EF606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:32:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 419EF606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C78D8606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:33:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jUHtFhSD
-Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb61185057so6638015e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:32:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795185165; x=1795789965; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cimqzB4bCIhynChpt7iVluTD5pnTnQawyp+LKN/vPns=;
-        b=jUHtFhSDBnbqBMyhJvyDfCTxz50/DKdaprUBQCLoo+W/0p+loIqw95F4H3m/N1RyrL
-         etUndpapCO8VqIvzg+0JSA29fYm/GWY4xRzVyhpsOJ//KSUVCuWvUXSnk0PYE6atw20l
-         CCwI11N5GZWnvt+fzS8SESwg4YY2kuhfT+A4HzWuXAfSFqvxHm+unSPxw0TT3IUzkyyP
-         IoiGDNF7O2YvOvtznD/kV7CTWoL0N0BpXvIdkpx0s6yqqMWKynnBDA10Dizjgu0pLdzb
-         sAEdaTEcwEV1nJ/h6bwByovzVUhxjDMaLX/DJXJYP9c3zZA2iKM0A/gcEJZfiCvQoqOx
-         XCHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795185165; x=1795789965;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cimqzB4bCIhynChpt7iVluTD5pnTnQawyp+LKN/vPns=;
-        b=BlklYUkxCrX9RMMpwbB0E3yrxOEZm8TylxURL1pb127PHSCl+DB6sARSYlPgxS7NjF
-         rYjjNjET3QAlrVjiS8lVpoR8mhUZc2M+LrgvCVF0IUg/R8PEpkQnK5SbYuMR9U+1pSCP
-         Nv6svHVYErdlLxZtV3BBN58Ow7sGK5GaCxNRnX8Y9odKzkLt/1V96lab/GFlDj5w+ca5
-         6+ZMEFhVPuKjv1PJJe2R647ZA9Uxon/lf7IMIpD6qAJLtU/WX3UTQ3a9wO2g5rL+UdEe
-         06ynhbTN/6PEDefuwweqVe4WLxxNCRApXa6btP03psEWzCTh6ZzrgSasSDLerUFW5fTt
-         9rPA==
-X-Forwarded-Encrypted: i=1; AL+hErGr3GcAojrPs+DpE9BeOut7a7ArslZw5nNvSfc9pV/V05mwZo9iI/+SPu/6WOBo6jNvmR8jN1qYf+RIbv8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/q9EAEHLCnYbLKv8w3q2Vg7XB5RuKBGQMkJ+Gntmlc9o6koCoN
-	uV3Ax1N7gg7TWcC49ZirB7MM0Gk6lCn9+zBI6o4Q3igDBdHD0PflsdBShFonAw==
-X-Gm-Gg: AYBFou3RSITO88dpezOwoWlhDdwUAx0HEX3IQnEUkYBkoAeGR3kmxwrUMH7yoEPAcyG
-	qykYrbxisWLoh1ORzFrDpk68WY+weQf3k1RXakvAkGNxHHHmdFzGeevDXKSSsnfNmgQUXkdw03U
-	/maCGobyS5hU3uKsmQCfYRK9CIzVbZCyhyo/NqCn3PU7gbpHWE+h4Td4x6X+WNLQNLLpvWDfgbE
-	S5D1ygtZoZLhNiQdi9E4ueEUldjnJt3EqNQpbDcHnj1XVfFDpunFcgSrPH3onKfeTXVrzliBT2R
-	uT7X8q1NpkdKK6BwxsC8lV3y/bGFRzYz0kF1/I6R3eNSM24XksDlMdHe8fvl7GgEpq/Gh5Rk1cN
-	hkwQZ3+ZNTg57keiTDyGousDeq7t61T8YKm057A6OyXuwXXbNSwGhZCAv2jbebYo5749c0Guycg
-	L26D7+aQWndrqAuZXi5IK9eFE8tKyt2jg3ArxAEO1FTV3WxN6xLwPO3ctZs7nXJxTvHBvqu6k0j
-	Qt8eEFD7ExXGHykcXTLbPgGtHAG53zhasmiRx5Dt/j8G5VJ5CeSeP82We+jrafR++WkHrRRqto8
-	7O2ljTcfbbPnoTu/kHispcdQXpCapZCZwtrwuHvWhO/lbVe0XZLrh/wZ4FrnBhwIc79C+zBTzhx
-	d5ChN3AAarG7xP+jFMwIVpJrwZSXm2I0/+/nvt7l+IN928ns=
-X-Received: by 2002:a05:600c:8b5c:b0:4bb:741d:ea0 with SMTP id 5b1f17b1804b1-4bb8880f621mr78246415e9.17.1795185165293;
-        Fri, 20 Nov 2026 06:32:45 -0800 (PST)
-Received: from GLaDOS.station ([193.207.36.37])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm6378286f8f.59.2026.11.20.06.32.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 06:32:44 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v1 1/1] arm64: dts: freescale: imx8mp-var: Add Cortex-M7 support
-Date: Fri, 20 Nov 2026 15:32:41 +0100
-Message-ID: <20261120143241.17297-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kP6gHav2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8AC1F000E6
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:33:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795185233;
+	bh=Fy3WW09hB+rkP27DDiDOsr/F2JQ6kUcBqy1wnUqOGKY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kP6gHav2GQa1iDKRIlyXbUNoVUUQ6bzwiY7KGVt3Uongi7Bl7i9cci9WDEWJZvztc
+	 hLsgKPBSH4JeI815Pd5DnJhZPovR0y2xXsfHmHIgfIUgHYpKVk0N7Z8PU5XBhh6sAz
+	 9bgZE1ipS6hJRYKcOK6TPxiu3TZuZ0oIhTelgC6e9xioMq+hEtjju95EmN/Etqsn/B
+	 A/EdQ037JyB0JGZ7XFHpZq20+429ZWh6bLiO7NqovbhoG9gus7Lj2hUxR4gN9jLc3V
+	 Ij5Ju0kv+Stfhlda76toyjwXtXTe/lkynCTO2Rsz8gBtW5QFLRyxg0PeepL7yVdNPd
+	 0XiEPWR2s/7dg==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae0a5c1715so20283221fa.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:33:53 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE+W5HBlkd3rV9d+XwVC9SFoe26QdtuHbIUYqlWVcjIhCMbKsgfVLvT8LO4SlqzyItmOLY4aEUKMY7vFT0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8AGMBCF6xX3X9dmz5ocr8P+G8C8WQKFFBUM4oYaB/ZxFPKpwWw
+	FBHx+YEwVljL5CJ5E06E46FeAkvUtm2nV8D3I/9tTANyWiAYmlvSWB8XQQnZt93uIsBUyfkMMeQ
+	92Pa4FI4wAX8IbvG6+/Cn0PrYPpxFv/s=
+X-Received: by 2002:a05:6512:3052:b0:5c1:4ede:6fcb with SMTP id
+ 2adb3069b0e04-5c1bc822591mr845358e87.8.1795185231609; Fri, 20 Nov 2026
+ 06:33:51 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,257 +59,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com> <20261120134716.3027-6-ilpo.jarvinen@linux.intel.com>
+In-Reply-To: <20261120134716.3027-6-ilpo.jarvinen@linux.intel.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 15:33:39 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hPOdbnWVrD8gVGS9L=WoXyO7REhWSgCJ26F8Fkzf94yw@mail.gmail.com>
+X-Gm-Features: Aa3M54os8iRJ1ey_0RncgK8uRQ3y9Pr0ZgaUI1JtUGreQJfTIibpDnX303gkn5g
+Message-ID: <CAJZ5v0hPOdbnWVrD8gVGS9L=WoXyO7REhWSgCJ26F8Fkzf94yw@mail.gmail.com>
+Subject: Re: [PATCH v2 05/16] PCI: acpiphp: Use pci_assign_unassigned_slot_resources()
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Rob Herring <robh@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Fri, Nov 20, 2026 at 2:48=E2=80=AFPM Ilpo J=C3=A4rvinen
+<ilpo.jarvinen@linux.intel.com> wrote:
+>
+> enable_slot() calls the internal sizing and assignment functions
+> directly to size only the bridges in the slot. Use
+> pci_assign_unassigned_slot_resources() instead.
+>
+> Sizing now happens after scanning all bridges in the slot instead of
+> right after scanning each bridge. Sizing a bridge window only walks the
+> hierarchy below that bridge, so the order does not matter. Sizing now
+> also holds pci_bus_sem.
+>
+> Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+> Cc: stable@vger.kernel.org
 
-Add Cortex-M7 configurations for DART-MX8M-PLUS on Sonata,
-VAR-SOM-MX8M-PLUS on Symphony and VAR-SMARC-MX8M-PLUS on Echo.
+LGTM
 
-Share the reserved memory and remoteproc configuration through a common
-include, and add board overlays and combined -m7 DTBs for remoteproc and
-RPMsg support.
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
 
-Mark the UART, I2C, SPI and CAN controllers used by the Cortex-M7 firmware
-with "reserved" status. Disable PCIe on Symphony and USB-C on Echo,
-since their reset and role controllers depend on the I2C buses reserved
-for the M7.
-
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- arch/arm64/boot/dts/freescale/Makefile        | 13 ++++
- .../dts/freescale/imx8mp-var-common-m7.dtsi   | 68 +++++++++++++++++++
- .../freescale/imx8mp-var-dart-sonata-m7.dtso  | 31 +++++++++
- .../freescale/imx8mp-var-smarc-echo-m7.dtso   | 36 ++++++++++
- .../freescale/imx8mp-var-som-symphony-m7.dtso | 36 ++++++++++
- 5 files changed, 184 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-common-m7.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-dart-sonata-m7.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-smarc-echo-m7.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony-m7.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index ae28e6b02a5c..3745688a5b4a 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -723,9 +723,22 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-ultra-mach-sbc.dtb
-+
-+imx8mp-var-dart-sonata-m7-dtbs := imx8mp-var-dart-sonata.dtb imx8mp-var-dart-sonata-m7.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-dart-sonata.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-dart-sonata-m7.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-dart-sonata-m7.dtbo
-+
-+imx8mp-var-smarc-echo-m7-dtbs := imx8mp-var-smarc-echo.dtb imx8mp-var-smarc-echo-m7.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-smarc-echo.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-smarc-echo-m7.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-smarc-echo-m7.dtbo
-+
-+imx8mp-var-som-symphony-m7-dtbs := imx8mp-var-som-symphony.dtb imx8mp-var-som-symphony-m7.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony-m7.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony-m7.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw71xx-2x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw72xx-2x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-venice-gw73xx-2x.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-common-m7.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-common-m7.dtsi
-new file mode 100644
-index 000000000000..9d554a175fbf
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-common-m7.dtsi
-@@ -0,0 +1,68 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Common Cortex-M7 configuration for Variscite i.MX8M Plus modules
-+ *
-+ * Link: https://www.variscite.com/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+#include <dt-bindings/clock/imx8mp-clock.h>
-+
-+&{/} {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		vdev0vring0: vdev0vring0@40000000 {
-+			reg = <0 0x40000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: vdev0vring1@40008000 {
-+			reg = <0 0x40008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table: rsc-table@400ff000 {
-+			reg = <0 0x400ff000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: vdev0buffer@40400000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x40400000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		/*
-+		 * Keep this region aligned with the Cortex-M7 DDR region in the
-+		 * boot firmware's RDC configuration.
-+		 *
-+		 * RDC DDR addresses are encoded as:
-+		 * (physical address - 0x40000000) >> 1.
-+		 */
-+		m7_reserved: m7@7b000000 {
-+			reg = <0 0x7b000000 0 0x1000000>;
-+			no-map;
-+		};
-+	};
-+
-+	cm7: imx8mp-cm7 {
-+		compatible = "fsl,imx8mp-cm7";
-+		clocks = <&clk IMX8MP_CLK_M7_CORE>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu 0 1
-+			  &mu 1 1
-+			  &mu 3 1>;
-+		memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>,
-+				<&m7_reserved>, <&rsc_table>;
-+		memory-region-names = "vdev0buffer", "vdev0vring0", "vdev0vring1",
-+				      "m7-reserved-ddr", "rsc-table";
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-dart-sonata-m7.dtso b/arch/arm64/boot/dts/freescale/imx8mp-var-dart-sonata-m7.dtso
-new file mode 100644
-index 000000000000..c5cc032fb4be
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-dart-sonata-m7.dtso
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M7 support for Variscite DART-MX8M-PLUS on Sonata-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/sonata-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-var-common-m7.dtsi"
-+
-+/* Reserve the peripherals used by the Cortex-M7 firmware. */
-+&ecspi1 {
-+	status = "reserved";
-+};
-+
-+&flexcan1 {
-+	status = "reserved";
-+};
-+
-+&i2c3 {
-+	status = "reserved";
-+};
-+
-+&uart3 {
-+	status = "reserved";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-smarc-echo-m7.dtso b/arch/arm64/boot/dts/freescale/imx8mp-var-smarc-echo-m7.dtso
-new file mode 100644
-index 000000000000..2b91511084f4
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-smarc-echo-m7.dtso
-@@ -0,0 +1,36 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M7 support for Variscite VAR-SMARC-MX8M-PLUS on Echo-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/echo-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-var-common-m7.dtsi"
-+
-+/* Reserve the peripherals used by the Cortex-M7 firmware. */
-+&ecspi2 {
-+	status = "reserved";
-+};
-+
-+&flexcan1 {
-+	status = "reserved";
-+};
-+
-+&i2c2 {
-+	status = "reserved";
-+};
-+
-+&uart4 {
-+	status = "reserved";
-+};
-+
-+/* The USB-C role controller is on I2C2. */
-+&usb_dwc3_0 {
-+	status = "disabled";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony-m7.dtso b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony-m7.dtso
-new file mode 100644
-index 000000000000..710ddff2fb11
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony-m7.dtso
-@@ -0,0 +1,36 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M7 support for Variscite VAR-SOM-MX8M-PLUS on Symphony-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/symphony-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mp-var-common-m7.dtsi"
-+
-+/* Reserve the peripherals used by the Cortex-M7 firmware. */
-+&ecspi2 {
-+	status = "reserved";
-+};
-+
-+&flexcan2 {
-+	status = "reserved";
-+};
-+
-+&i2c4 {
-+	status = "reserved";
-+};
-+
-+/* The PCIe reset GPIO is provided by the expander on I2C4. */
-+&pcie {
-+	status = "disabled";
-+};
-+
-+&uart4 {
-+	status = "reserved";
-+};
--- 
-2.47.3
-
+> ---
+>  drivers/pci/hotplug/acpiphp_glue.c | 5 +----
+>  1 file changed, 1 insertion(+), 4 deletions(-)
+>
+> diff --git a/drivers/pci/hotplug/acpiphp_glue.c b/drivers/pci/hotplug/acp=
+iphp_glue.c
+> index 632344f34cae..fc95d5814ecb 100644
+> --- a/drivers/pci/hotplug/acpiphp_glue.c
+> +++ b/drivers/pci/hotplug/acpiphp_glue.c
+> @@ -497,7 +497,6 @@ static void enable_slot(struct acpiphp_slot *slot, bo=
+ol bridge)
+>                                 acpiphp_native_scan_bridge(dev);
+>                 }
+>         } else {
+> -               LIST_HEAD(add_list);
+>                 int max, pass;
+>
+>                 acpiphp_rescan_slot(slot);
+> @@ -511,12 +510,10 @@ static void enable_slot(struct acpiphp_slot *slot, =
+bool bridge)
+>                                 if (pass && dev->subordinate) {
+>                                         check_hotplug_bridge(slot, dev);
+>                                         pcibios_resource_survey_bus(dev->=
+subordinate);
+> -                                       __pci_bus_size_bridges(dev->subor=
+dinate,
+> -                                                              &add_list)=
+;
+>                                 }
+>                         }
+>                 }
+> -               __pci_bus_assign_resources(bus, &add_list, NULL);
+> +               pci_assign_unassigned_slot_resources(bus, slot->device);
+>         }
+>
+>         acpiphp_sanitize_bus(bus);
+> --
+> 2.47.3
+>
+>
