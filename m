@@ -1,85 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.85
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204888;
-	b=ZrlE+/y1dkrYdQmPcB5X+6Bp5w5AijH98DAN/nl7Ulf+FiwQegRWQ0TKp+YJbmV7D+mN
-	 fyjxF5XTi+YqWqKd8H3loFYMbTNkoXOYj2/J/C19JTnXlB1kgF8kb/yMPXvhBWe4Q22j0
-	 2XFbqaFcQexWQRHDpbTXSglareR/EPfUHZOlJaSnbbAzna746LWPijkEKq9jsN9usx5QN
-	 mu6w+YFySAZBvowa1c7QvGnRxwCRNdp9M61/syLhnFv6lO014bGOSZddMSxJxGPVh9mpN
-	 MpyEEuCfGR4NjMgOvNz0VctV3BFDfCYVz2avlTWYUHo7r6btMrgl9Zt9G41jCHRG8QA==
+	t=1795204962;
+	b=EHg/sivOWbfLoQP2UnuSipRQETf/ltzmDCYo9B90ludHpY+yF5rvJEw5RxF1zSEqRaed
+	 1EEUKdAhmcR28PX6GjdgNeH6jqcf0IoP3gJSVyd6xXWHR2RBylKoIxwqdCJyd5sf4FDWC
+	 jS3htoO1XXZATpdJdlaMhiFy8NFblbMLQ3LBF3QtnERDyJvDgU/Fj1gRbX2l88rKkKLde
+	 v5j+jb8NNEp4qEhy6rZA1WAkU4YKxwi++Ix1Y3iBCOneeCxQPlZ5vNI0uC4Hl5IDPr77S
+	 QcACPxcANyr2bsPO/2uMZvB5hxW5BpFF3R+jHDp9PDYxcP1JyGC6TTGhJbLzpCUfIwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204888;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=iSGO4LNksZXfBpmglfcOy2L8jlCLunM6n2azCj2uMuQ=;
-	b=rjBKwiMYDI+Ir9FH5fdMszfokb+FJ7YWam/QgjPWMEIVfXDohBuNy2Y+jjGd6MjkhqD7
-	 q8mxu50HCsggn3PnJxAHHhmrmOhwZbjDJVJ+WMsKaSk9oHg3NuwyI8tyUSOruI0F6HoZo
-	 +/aY/UDmjCUuv0D0oIrl74YsnY69zqzHw4PB0sETZxp8nD1LingACTB0FxHnEikvpoMiL
-	 D3A3mS7bk0DV865lwtyARnfxI8y7SQqleeJ7ymZpKmgzHOrBOGB7OT1qBKVWEXroUl9k0
-	 7MnKHiDlvBjXVEsqQpEgyw3+NwlPnHafaEAr3TK2Gs5V6gWPE687URHrddm4IypD1mw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204962;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=35g51n9yT0O+2qdfSgrvgmxnc3ZbtEGQlMJoh7Vkd7I=;
+	b=IHTUJKQth6j00THuCJqp6V34UcwO+YwzzssgkNqwmmLBoZj9cdVfyG1HRDI8o1PYvJoT
+	 LIECv2vuTedSg5oNW1tf14FZ3ab7HR3nYKHIflOeWcQydw7+YGrBe4PEbOrIDghRNe5/8
+	 58tSoXuL99kMjXl6aFVp4qhOAZjBDnP1YY1tVZKvlmnzCBID+hDcAwTS9ylhPbwV+0doW
+	 WBDIm57cS0CaMZpYYgXwQqKFs8sM8hCLeuKlBF2oGBgxL3MXfnsnb3/AJh7Ax65EenDWj
+	 PpbBcmQ/wewovqgI0l8k8HqUsd7E/g+rymukKPEYZCExZK0kj2L8wlRPrEpY5eceEzw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linuxfoundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=fDBnhl7y;
-	arc=none smtp.remote-ip=209.85.161.50
-Received: from mail-oo1-f50.google.com (mail-oo1-f50.google.com [209.85.161.50])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Vur21Cac;
+	arc=none smtp.remote-ip=95.215.58.85
+Received: from mta1.migadu.com (out-85.mta1.migadu.com [95.215.58.85])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D84D8606A6E2
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:01:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D84D8606A6E2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C79E606A6E9
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:02:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C79E606A6E9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=fDBnhl7y
-Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-717080a2d50so1198080eaf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:01:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1795204886; x=1795809686; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iSGO4LNksZXfBpmglfcOy2L8jlCLunM6n2azCj2uMuQ=;
-        b=fDBnhl7y/DbSsOMl/RAnyGdtT6LuKWjdhBOA8/KRPGLuAlMzxz2vJ0MyTzF9vZR1XB
-         l+yhPV5RlzKajGdl3BTOJpVuDiDfjd+dTpl1F2+7g4GllslwpYw2w6DvjLMe0IYgmSB+
-         HClgl3YAPX+e+82/dscEH2F0dngNex9YhHcrA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795204886; x=1795809686;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iSGO4LNksZXfBpmglfcOy2L8jlCLunM6n2azCj2uMuQ=;
-        b=SD8HGYHZxUzqug/i4PWTCVPljjB3iGXpQDzp7u2+e2BwfFNPWgczTimwW78m8XCM4t
-         seOuhNiqg+jCRtnr7nX/YvFlrOcS/BsUXc2EofRPLsuoHedMwQTm1zN2rpdJe6ZVgtuS
-         Ht/2kb4oZuLBANi9xCwWozD/f2CxVZ69qrdkqQ2qPkvfwREegFprdMAlGtUYQjnDHs+e
-         GbL6xT+mion+oCgXS7R1G/aFCdtz28qo1qIA7TyB4aupNSdJ8uBFOyR0umLqoyVuSVgx
-         wb+XqnSHnPSfuADMmhf9ujrRH8UuoNOw9a3F1T6j+ATQbBPM7GzGxdfioPGNt82/Xri8
-         NwXQ==
-X-Forwarded-Encrypted: i=1; AL+hErFAdyeoHdBKoG6Gk8f33VnE90Py5GzRQM3SVB9g9VKlrD5JA75iTAyRjUHWbWf0l8ZKldhR8K2E37zCZP0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/t8mbMyh0P76WU1kaXHsj6G7WdtII76Lq6hOQrvgu/337kI2yC
-	wh49m2HB9NrZzDO00VNvb0/4yz8XbgP00OosU10h/p9uIuvlrDD7u940TPXqv9muu0c=
-X-Gm-Gg: AYBFou2Hqbb2RT3wKO5MEM5HumVfyUXsqUtGOup22Ynoax3NNpRWPvVGRQR9FVPDKlD
-	ykPpxb0m4Xd6lzuSFKqkAFRFsqSAYVCud9YJFAOTP/Gf0m+lN/EC1dXLWJ8X9A2uLlwUQnpfTFv
-	/cwzchusXlv2FcE0bVHRGN8AvGSUP/NerceQOkiIX5icn92JzOqVD4rrSOEDMRRDnfdEyUzZsno
-	SJD7HkUa10R4pnYOdKCD8hqO6OiHDov+Qw3IEv0Vr6y2k6+O7wmNj9dnefml2XORsQ681oJCE9v
-	k82WRgnmF+cdjkxW3GtU5EG+JLS3QF7dcwJLqo+4P0ajO6BSB3VeyRO4JPfMM4O14ZFtZ5RoSYR
-	ivj/ROS+U94Lepiwo52zKgaji7INl10T47UPJX1BWe9DMmCyxeqNDRlhCcRfSygjlyO0g+oBsYl
-	GnlfnQpFGx7cT1rUGLibVYc+Bm/k7rYcg1NpLTzXSrNR9vc1sZUFN5GtoWx8weMF0RtaO52t1gn
-	QSKuFvC+j8qLrp3M65cFS8MMx64+JPSGW2vfMXcITGrc2R+mieXHLxnH9dbuSJE5kN+KP4qlaSX
-	gjleNscykSnIbOOuyjG1L5op+IXDB4AMJj5bYwFzoo2O0+HTlFkLjX2osP7p
-X-Received: by 2002:a05:6820:a511:10b0:6d7:d91d:d77d with SMTP id 006d021491bc7-71b395172a7mr2502103eaf.58.1795204885592;
-        Fri, 20 Nov 2026 12:01:25 -0800 (PST)
-Received: from [192.168.1.128] ([38.15.57.99])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631670c44dsm2751259a34.0.2026.11.20.12.01.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 12:01:24 -0800 (PST)
-Message-ID: <f3bdc42c-8c28-4b5c-bfa0-41ac31b37a43@linuxfoundation.org>
-Date: Fri, 20 Nov 2026 13:01:21 -0700
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Vur21Cac
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=uQshDafHy9BozPUOwHTJ4xHyL9EhNB+AO68YPNEcvlA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795204958; v=1; x=1795809758;
+ b=Vur21Cacc+79jrXsU/M9LO/uvmk2sTAEZZl45vWMgYpWQ6tTT1zxCKUI8n3hZNq9GV+qHzCT
+ sivy0zIw7l4xzU//ItmqwvsklG7lSDM8MyKCInMOeT9Aj5+ideiIJvrzNjsmZ/8ukYvRTEtWpjv
+ dBcrFGErqCbIfoDVDTr65zVc=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id c47a9709b21efdbb;
+	Fri, 20 Nov 2026 20:02:38 +0000
+X-Mizu-Trace-ID: c47a9709b21efdbb
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <e0a15bd8-c37e-4736-913e-e926bdbd12e5@linux.dev>
+Date: Fri, 20 Nov 2026 20:02:37 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -90,77 +59,241 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] selftests: use local variables consistently in
- runner.sh
-To: Jori Koolstra <jkoolstra@xs4all.nl>, Shuah Khan <shuah@kernel.org>,
- David Ahern <dsahern@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Hangbin Liu <hangbin.liu@linux.dev>,
- =?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?= <ricardo@marliere.net>
-Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
- <20261118-kselftest-run-timer-v1-1-53a838b2d62b@xs4all.nl>
- <8a436334-d306-4a34-bb7b-efc713aed0f8@linuxfoundation.org>
- <1254980601.2097872.1795173276553@kpc.webmail.kpnmail.nl>
+Subject: Re: [PATCH 3/3] perf/core: Don't zero perf_sample_data in
+ do_perf_sw_event()
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, rkeilty@meta.com, atish.patra@linux.dev,
+ dgreid@meta.com, riel@surriel.com, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20261119211235.99805-1-usama.arif@linux.dev>
+ <20261119211235.99805-4-usama.arif@linux.dev>
+ <20261120091150.GN2668564@noisy.programming.kicks-ass.net>
 Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <1254980601.2097872.1795173276553@kpc.webmail.kpnmail.nl>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261120091150.GN2668564@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/20/26 04:14, Jori Koolstra wrote:
-> 
->> Op 18-11-2026 11:13 EST schreef Shuah Khan <skhan@linuxfoundation.org>:
->>
->>   
->> On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
->>> run_one() and run_many() assign their working variables without
->>> declaring them local, so they leak into the global namespace of
->>> whichever shell sources runner.sh, i.e. run_kselftest.sh or the
->>> RUN_TESTS recipe in lib.mk.
->>>
->>
->> Hmm. so if a timeout value of say 60 seconds comes from a test
->> settings file, does it persist? Can you see that if you run a
->> few tests using TARGETS variable?
->>
-> 
-> No, because it is doing
-> 
-> 	export kselftest_timeout="$kselftest_default_timeout"
-> 
-> at the start of run_once(). I was just trying to get it to be a bit more
-> consistent and less bug-prone. We could also add readonly, which is in
-> POSIX. But that seemed too much.
-> 
->>> Declare these variables local so that local is used consistently
->>> throughout the file and the sourcing shell's namespace is not polluted.
->>> This does not add a new requirement on the shell: local is already used
->>> in run_many(), in_netns() and run_in_netns().
->>
->> Makes sense.
->>
->>>
->>> Also, obey the convention to use upper case names for variables that are
->>> constant once assigned.
->>
->> Can you elaborate on this convention?
->>
-> 
-> It seems to be what was used for runner.sh, local variables set once are in
-> uppercase.
 
-Drop the change. There is no need to add churn to fix something
-that doesn't need to be fixed. There is no strict convention here.
 
+On 20/11/2026 01:11, Peter Zijlstra wrote:
+> On Thu, Nov 19, 2026 at 01:10:46PM -0800, Usama Arif wrote:
 > 
->> I don't want to see these changes combined. We don't combine
->> cleanup and convention changes with real changes.
+>>  kernel/events/core.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
 >>
+>> diff --git a/kernel/events/core.c b/kernel/events/core.c
+>> index 57ea7e3c01a025..fa10ad7cfd99af 100644
+>> --- a/kernel/events/core.c
+>> +++ b/kernel/events/core.c
+>> @@ -11212,7 +11212,7 @@ static void do_perf_sw_event(enum perf_type_id type, u32 event_id,
+>>  				    u64 nr, struct pt_regs *regs, u64 addr)
+>>  {
+>>  	struct swevent_htable *swhash = this_cpu_ptr(&swevent_htable);
+>> -	struct perf_sample_data data;
+>> +	struct perf_sample_data data __uninitialized;
+>>  	struct perf_event *event;
+>>  	struct hlist_head *head;
+>>  
 > 
-> I'll separate it out.
+> I like this one, didn't know about the __uninitialized thing. But I
+> think we wants to be more consistent with this.
+> 
+> A little git-grep seems to suggest we ought to do the same elsewhere.
+> Shall I fold the little something below in this patch?
+> 
 
-Send just the real change patch.
 
-thanks,
--- Shuah
+Thanks! I went through the below. perf_tp_event(), perf_bp_event()
+and perf_swevent_hrtimer() call perf_sample_data_init() for each event,
+like do_perf_sw_event() does. The side-band emitters only use the
+sample ID fields, which perf_event_header__init() writes and
+perf_event__output_id_sample() reads under the same sample_id_all
+check. So they are all fine to do.
+
+But they do need the fix in patch 2 to work.
+
+There is another fix that I found looking at your next reply.
+Would you like me to send all the fixes and you can then send
+the below patch (and the next one?)
+
+
+> 
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -9123,7 +9123,7 @@ perf_event_read_event(struct perf_event
+>  			struct task_struct *task)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	struct perf_read_event read_event = {
+>  		.pid = perf_event_pid(event, task),
+>  		.tid = perf_event_tid(event, task),
+> @@ -9390,7 +9390,7 @@ static void perf_event_task_output(struc
+>  {
+>  	struct perf_task_event *task_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data	sample;
+> +	struct perf_sample_data	sample __uninitialized;
+>  	struct task_struct *task = task_event->task;
+>  	int ret;
+>  
+> @@ -9534,7 +9534,7 @@ static void perf_event_comm_output(struc
+>  {
+>  	struct perf_comm_event *comm_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  
+>  	if (!perf_event_comm_match(event))
+> @@ -9625,7 +9625,7 @@ static void perf_event_namespaces_output
+>  {
+>  	struct perf_namespaces_event *namespaces_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  
+>  	if (!perf_event_namespaces_match(event))
+> @@ -9748,7 +9748,7 @@ static void perf_event_cgroup_output(str
+>  {
+>  	struct perf_cgroup_event *cgroup_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  	u16 size = sizeof(cgroup_event->event_id) + cgroup_event->path_size;
+>  
+> @@ -9859,7 +9859,7 @@ static void perf_event_mmap_output(struc
+>  {
+>  	struct perf_mmap_event *mmap_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int size = sizeof(mmap_event->event_id) + mmap_event->file_size;
+>  	u32 type = PERF_RECORD_MMAP;
+>  	u16 misc = PERF_RECORD_MISC_USER;
+> @@ -10155,7 +10155,7 @@ void perf_event_aux_event(struct perf_ev
+>  			  unsigned long size, u64 flags)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	struct perf_aux_event {
+>  		struct perf_event_header	header;
+>  		u64				offset;
+> @@ -10188,7 +10188,7 @@ void perf_event_aux_event(struct perf_ev
+>  void perf_log_lost_samples(struct perf_event *event, u64 lost)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  
+>  	struct {
+> @@ -10240,7 +10240,7 @@ static void perf_event_switch_output(str
+>  {
+>  	struct perf_switch_event *se = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	u32 type;
+>  	u16 misc;
+>  	u16 size;
+> @@ -10307,7 +10307,7 @@ static void perf_event_switch(struct tas
+>  static void perf_log_throttle(struct perf_event *event, int enable)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  
+>  	struct {
+> @@ -10363,7 +10363,7 @@ static void perf_event_ksymbol_output(st
+>  {
+>  	struct perf_ksymbol_event *ksymbol_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  	u16 size = sizeof(ksymbol_event->event_id) + ksymbol_event->name_len;
+>  
+> @@ -10450,7 +10450,7 @@ static void perf_event_bpf_output(struct
+>  {
+>  	struct perf_bpf_event *bpf_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	int ret;
+>  
+>  	if (!perf_event_bpf_match(event))
+> @@ -10540,7 +10540,7 @@ static void perf_callchain_deferred_outp
+>  {
+>  	struct perf_callchain_deferred_event *deferred_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	u64 nr = deferred_event->trace->nr;
+>  	u16 size, id_size, max_payload;
+>  	int ret;
+> @@ -10615,7 +10615,7 @@ static void perf_event_text_poke_output(
+>  {
+>  	struct perf_text_poke_event *text_poke_event = data;
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	u16 size = sizeof(text_poke_event->event_id) + text_poke_event->tot + text_poke_event->pad;
+>  	u64 padding = 0;
+>  	int ret;
+> @@ -10686,7 +10686,7 @@ EXPORT_SYMBOL_GPL(perf_event_itrace_star
+>  static void perf_log_itrace_start(struct perf_event *event)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	struct perf_aux_event {
+>  		struct perf_event_header        header;
+>  		u32				pid;
+> @@ -10721,7 +10721,7 @@ static void perf_log_itrace_start(struct
+>  void perf_report_aux_output_id(struct perf_event *event, u64 hw_id)
+>  {
+>  	struct perf_output_handle handle;
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	struct perf_aux_event {
+>  		struct perf_event_header        header;
+>  		u64				hw_id;
+> @@ -11603,7 +11603,7 @@ void perf_tp_event(u16 event_type, u64 c
+>  		   struct pt_regs *regs, struct hlist_head *head, int rctx,
+>  		   struct task_struct *task)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct perf_event *event;
+>  
+>  	/*
+> @@ -11949,7 +11949,7 @@ void perf_event_free_bpf_prog(struct per
+>  #ifdef CONFIG_HAVE_HW_BREAKPOINT
+>  void perf_bp_event(struct perf_event *bp, void *data)
+>  {
+> -	struct perf_sample_data sample;
+> +	struct perf_sample_data sample __uninitialized;
+>  	struct pt_regs *regs = data;
+>  
+>  	/*
+> @@ -12403,7 +12403,7 @@ static int perf_event_set_filter(struct
+>  static enum hrtimer_restart perf_swevent_hrtimer(struct hrtimer *hrtimer)
+>  {
+>  	enum hrtimer_restart ret = HRTIMER_RESTART;
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct pt_regs *regs;
+>  	struct perf_event *event;
+>  	u64 period;
+
