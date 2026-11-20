@@ -1,54 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185792;
-	b=MQjF3wHTuZYXTmvBRP8DrDJKbudo41Rn4j/uNMlkpYfdJtrEo3kfxrthjxXf1gQlU0Ds
-	 8zTyD0G00hnLjZ1QAtciU8j7uVB0F2ACUMkAz7hH9DBusk0isqyL3jePpCXEhJcVGz+UC
-	 89aQaj1+9RfcewKiNfxMoH4ROiYPnxTpBwcYKmcnfjXFJ9jxBrsdh0uIfFCpiGtr1dzm+
-	 R+bxDIN9EtYKALsV1S6XbU4ZLgnfqW1bBxJiH37KAGCa4JQNHS4XNAJsc+szlXpeiIPe5
-	 eFMbrJy64/m6F1YaZ4y6IkDCee51lOdcuckHZu1Nto1dgeyBMNKKRFlp50+t2gXUzKQ==
+	t=1795185874;
+	b=eKu2boo1vphM0KFQ2ES1aQ3Wx/uaGYFkuM8f3plUw6NRRMni3qsjPVBpiFaAfRYx8nuA
+	 XeM6q/eoN8lCDBKZo9HqJqgTG4153uZnMIFLQot0tQJtjV2swKf/hpCoF5w3PN2+z9DQ0
+	 trAefmUVJIoZBvFU54KQ8xI6OHiSih7yhnKP7JMGOa9/891oKQTRAOlWMNDXGeOJ5T9eG
+	 erTlZLd/osGveFETL0nVP9bci1PwRJJMvgyjbVZ2fC4lrW7xnggBhbFmJiqFU6p+bVKQA
+	 bgBtC6dcewGTtgsjlXIyIfGK8zgKhUsrnN4Rj06GqzUzIAKLNE8Y6mYIWvYfZ0sbLdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185792;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=yixQ1SGo4cJcxPp4lugRtTsKJNeATESWf0Ug1fQZCEk=;
-	b=ZhgAKAb0wm0HaEX476oXdPLuin9D6w2zvz3IFsDMyeJO9sxyGJh+8WPIVjWnUzDWsq7D
-	 M4BB/ra88jdAoFEY12c1Qgcq7lwBk/GuxDT01t2brT/ZQkBM7PhZ2KuMjITAbAeMXY7Tw
-	 DirV1HF+V69XR/2K8q3ShuLVMZYiykHN3DZtjkmf2WKkhaa7EW952+CBVBKicxxuMtjwH
-	 4Sgs6WUZcSTCUmzwvwSMHXD4BbuU+JC/T43RNQLjcJCacaNCvaJ68mQ4dwdnJ6e7ui62H
-	 iizr4/wbOX4QY/KTHgr2PAk7TgcuKLg4GFEsaDBwha7YjB+VXWq9lF6nbvPqphO14lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185874;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=m38xEXFjByfiKAzO4g/0gPgc29AKU9uTE7VRz7Geb/Q=;
+	b=C0jYEuiIMCrF+CQjhzW6lluTAyhZFoig/0SZqFDvKpWbFSGxNxiSPTdyT0yDj2HahWzj
+	 bAN0z3/kq1hXGO1Xsm0rpFN2nxwbUImI47S7YJ2JCUYTNGo4TjHkm4Lq3HDRBsemA8Psm
+	 z+RL5q3fH/eyiAJbee+UFAhiawJ6/VJU3jx4VO9jBGmir6k37MW4kysx5g8+GDQb4J6u0
+	 X1Od0+20PdhutJqrRfB3IcQ+NpMUysuIQKQtK5a/UO/WYmvc1hC334g+KjeGG0zmisfWs
+	 OigCHvOQuk9zx3TABjp8MWKKL6eQ0VIc1pLwnmq+7b7IJir0expWCU645hpPFKORBEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="D/79QOC4";
-	arc=none smtp.remote-ip=91.218.175.184
-Received: from mta0.migadu.com (out-184.mta0.migadu.com [91.218.175.184])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="RL/dp9Ey";
+	arc=none smtp.remote-ip=209.85.221.45
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4295606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:43:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4295606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E3D6606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:44:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E3D6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=D/79QOC4
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=S7L6rbBejoaXnnbji1W9tw5YAp0Tvh6lqzaVd2kGCDU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795185790; v=1; x=1795790590;
- b=D/79QOC4xtbtIDKUe83AQbLg9pCO9CqBIDilnT7hGCf9MisMkZ41b7dEWdnImcre2jWe0jsv
- /mzRf62rY7IcpM2HteXkDbTwZk59WC+hsceYn3bSn2gZFNVM5BA03VUq0RgwpCxqDQ/zto0aZci
- KInZK3+B9FUsvh3zWJfF2BiU=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 8ce2be2b52f1686f;
-	Fri, 20 Nov 2026 14:43:09 +0000
-X-Mizu-Trace-ID: 8ce2be2b52f1686f
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <2909361d-d4d2-4f7e-9754-ec0f5dc5bbd3@linux.dev>
-Date: Fri, 20 Nov 2026 22:43:01 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RL/dp9Ey
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-49a92144733so498661f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:44:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795185873; x=1795790673; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=m38xEXFjByfiKAzO4g/0gPgc29AKU9uTE7VRz7Geb/Q=;
+        b=RL/dp9Ey9w11tTYSnWl/GfKTENXwG/NTsBETPFGblppDQ2px8PAe3X56P7oZweN1XC
+         eo3I9BiL4fhxrOaVziS0QzQSh0P/l2gU1XFFG1aLIUf2bz2nH7bAugEIZKk21G3NvoDU
+         ioMlLkbTNSL18YKm1GT4KKHYu20peTtSGG4aB5hXPk8gAq+HvxdRlOdnFhqOf/SYwEHi
+         QNt/cJKkXEyF/b37VPqpy+p0E6Wd/Orz1e7xxlsGjP7qigYzw6gPtpAdtnuGIALnuEA7
+         drhGHInsVCSxt1rp8XNZYbADgUQj9FKfgBs3DTtVZe9DHkr5ry1Az5JtH+OuDFj65/SO
+         in4w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795185873; x=1795790673;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=m38xEXFjByfiKAzO4g/0gPgc29AKU9uTE7VRz7Geb/Q=;
+        b=0RlQoiHG9RJLjtxjaoJrTc9rPVSIv8NcnK2DzrcJb1/sHRkakhye73PkqrgZHRMxg0
+         RY2vA+p+0rscfSeCld79VFUYo8lL6VO9o6o7W7tVasUAOuaE7rO7X2jnphvaL/jKdeG1
+         wrnToZXszt+ad6378w/lbISpsa1m5VZYkqPm6q1l/Xa0BCqpUmyQyFJ5RSKhTQJekyyx
+         rlLrQsG1tj1Dh00VGOONFB/MgJUUjzdluN7ScmqXV1T7yv2I7ajdu8S71edQC1YN6AvM
+         RFUANAKyEorCdM5R5N1PL1h8lrjFOTfe9hEIlfAsy2V4NNvBzYBlro74m+NRiHIVwoxa
+         Ywww==
+X-Forwarded-Encrypted: i=1; AL+hErHWVODhBigQATO5tvzIPKWLA5pRgFCFOBL8CPe7YVDSEZvLXioauP83U/7sjkQqn4+XfEIfWfcKtmfp+bE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/X7nA2+18bYNVU0LP3CkWBQVwUrf1JFr324xbbrssye1i3kyWk
+	e4DW0CEwKG5SeUpODdkFlHB4VXb7HD+BSm+5a8TX09LeqGC0Rn92OAW2NVgy/u7s
+X-Gm-Gg: AZFdTZf4oHYb95XsdWc6Vr+m7BB3R2G2JC/nur95r1FB65sTWtl0lzTrKnno6MbG7/q
+	Gtr+8pViT9IxvvGm5wpqW7ETQjfZfRijL40i5xeiQvFvryI1g4okylxB2SqEJcMBGsSTAPERnZo
+	WPXzeAWFQFlXNA+e1jXP2aYPvvfUpfxvD4DHfgyWS31KMCwRhZd7cL+hkxEepue+UtTt6wVsj0k
+	MhHoPxWjp221f31BeXhvxF0WbrQ3827GPruh3b82BpS21iRiUHet9UUaDv6nyrr2xjC/ixgErsR
+	OGxyZc/jWYsIf9CIlCz2PBvDgX7bIQcPoehG5LK3MivqF987oaATDic4TNoVmQZx/JtoDI1f2Hx
+	sAXPS6XUV64xPIA84X1c8wjK2HZDbrBTsuJgRJAXDkPdW6NmFhi1yoXeTMuwdO5MzP5aCTmGhoS
+	ASpy1jc+iVaXL6VNTIYS+sRpxQbkw16ycjP/dX2HuJ1Rscpp00eaBjKbYy/8fHbpbboba9HYiW+
+	6lBYdoTlRPSK6l2sd3hxjQPBabWFmHpNMPq1XQDYR9mBz5Rrc3EtB2se7OtphotXuTCvkMZCZz4
+	j/cdoLQVJoWRawH3aTMncUAPDCM9ouVV4MW8MoUts++rrYJAljxWbQCHxDSBA2I2m4Y=
+X-Received: by 2002:a5d:5f91:0:b0:48d:f9dd:e3df with SMTP id ffacd0b85a97d-4abb386134bmr6418979f8f.18.1795185872700;
+        Fri, 20 Nov 2026 06:44:32 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm5994516f8f.47.2026.11.20.06.44.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:44:32 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:44:30 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Tina Zhang <zhang_wei@open-hieco.net>
+Cc: x86@kernel.org, puwen@hygon.cn, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, hpa@zytor.com,
+ linux-kernel@vger.kernel.org, yangzhen@hygon.cn, dengqiming@hygon.cn,
+ stable@vger.kernel.org
+Subject: Re: [PATCH] x86/cpu/hygon: Work around XSAVES Erratum 1386
+Message-ID: <20261120144430.0b1b43a3@pumpkin>
+In-Reply-To: <22eb33f3-a6f7-43b6-837b-74c8f5a3428b@open-hieco.net>
+References: <20261028235712.383977-1-zhang_wei@open-hieco.net>
+	<20261120094627.513b216e@pumpkin>
+	<22eb33f3-a6f7-43b6-837b-74c8f5a3428b@open-hieco.net>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,81 +102,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] docs/zh_CN: Add core-api/irq managed_irq Chinese
- translation
-To: Zixin Wang <w1355457260@gmail.com>
-Cc: linux-doc@vger.kernel.org, alexs@kernel.org, si.yanteng@linux.dev,
- dzm91@hust.edu.cn, corbet@lwn.net, linux-kernel@vger.kernel.org,
- Chao Liu <chao.liu@processmission.com>
-References: <20261119103147.112197-1-w1355457260@gmail.com>
-Content-Language: en-US
-From: Zenghui Yu <zenghui.yu@linux.dev>
-In-Reply-To: <20261119103147.112197-1-w1355457260@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hi Zixin,
+On Fri, 20 Nov 2026 22:12:59 +0800
+Tina Zhang <zhang_wei@open-hieco.net> wrote:
 
-Thanks for your effort.
-
-On 11/19/26 6:31 PM, Zixin Wang wrote:
-> Translate Documentation/core-api/irq/managed_irq.rst into Chinese
-> and add it to the zh_CN irq toctree.
+> Hi David,
 > 
-> Update the translation through commit bb6a85b4b652
-> ("Documentation: Add managed interrupts")
 > 
-> Signed-off-by: Zixin Wang <w1355457260@gmail.com>
-> Signed-off-by: Chao Liu <chao.liu@processmission.com>
-
-You should use the Co-developed-by/SOB pair if Chao Liu is a co-author of
-this patch, and put your own SOB after it. See
-
-https://docs.kernel.org/process/submitting-patches.html#when-to-use-acked-by-cc-and-co-developed-by
-
-> ---
->  .../translations/zh_CN/core-api/irq/index.rst |   1 +
->  .../zh_CN/core-api/irq/managed_irq.rst        | 147 ++++++++++++++++++
->  2 files changed, 148 insertions(+)
->  create mode 100644 Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
+> On 11/20/2026 5:46 PM, David Laight wrote:
+> > On Thu, 29 Oct 2026 07:57:12 +0800
+> > Tina Zhang<zhang_wei@open-hieco.net> wrote:
+> >   
+> >> The XSAVES malfunction described in AMD Erratum 1386 also affects
+> >> certain Hygon Family 18h processors. Under specific conditions, XSAVES
+> >> may fail to save XMM register state, allowing stale register values to
+> >> reappear after the state is restored.
+> >>
+> >> None of the affected processors enumerate supervisor XSAVE state
+> >> components. XSAVEC is therefore equivalent for their enabled state
+> >> components and is not affected by the erratum.  
+> > Would it just make sense to use XSAVES unless there are bits set in XSS
+> > MSR that the kernel might need to request be saved?  
 > 
-> diff --git a/Documentation/translations/zh_CN/core-api/irq/index.rst b/Documentation/translations/zh_CN/core-api/irq/index.rst
-> index ba6acc4..7951d69 100644
-> --- a/Documentation/translations/zh_CN/core-api/irq/index.rst
-> +++ b/Documentation/translations/zh_CN/core-api/irq/index.rst
-> @@ -20,3 +20,4 @@ IRQs
->     irq-affinity
->     irq-domain
->     irqflags-tracing
-> +   managed_irq
-> diff --git a/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
-> new file mode 100644
-> index 0000000..366320e
-> --- /dev/null
-> +++ b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
-> @@ -0,0 +1,147 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +.. include:: ../../disclaimer-zh_CN.rst
-> +
-> +:Original: Documentation/core-api/irq/managed_irq.rst
-> +
-> +:翻译:
-> +
-> + Zixin Wang <w1355457260@gmail.com>
-> +
-> +.. _cn_managed_irq.rst:
-> +
-> +=============================
-> +亲和性托管中断（managed IRQ）
-> +=============================
-> +
-> +IRQ core 支持按指定 CPU 亲和性管理中断。
-> +正常运行时，每个中断关联到某个特定的
-> +CPU。如果该 CPU 离线，中断会被迁移到
-> +另一个在线 CPU。
+> Did you mean that the kernel could prefer XSAVEC when no supervisor 
+> XSAVE state needs to be saved, rather than clearing X86_FEATURE_XSAVES 
+> on the affected processors?
 
-I think the length of each line is unnecessarily too short.
+Or when there can never be any supervisor XSAVE state to be saved.
+I rather lost track of these instructions after XSAVEOPT.
 
-Thanks,
-Zenghui
+David
+
+> 
+> That sounds reasonable in principle, although IIUC it would require 
+> changes to the current xstate instruction selection logic.
+> 
+> Thanks,
+> Tina
+> 
+
