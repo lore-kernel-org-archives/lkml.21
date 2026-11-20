@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795178899;
-	b=0higuNZTYGuUrXv+lJ3D4uB1XVAkr1UCQEHo8xjpj7vqe1Oumu5DWbJJZz1D0iTHQA52
-	 4m5uvYN/nP5fbaodSJXrgUBG0zBNt17ua1XjfQbh96mU2p0nqegGG73V4YAk5uUyhENfu
-	 CQR46tVuyVUaZqaVRvmJlSxq+5ebttxbPpJJ0wfG69G3cyF615VPUwetrRl0TEw+kXNdw
-	 e9dGU2KFN2q3VtvFALv0AcMUIXiiaKilbV58KX3LztGxLcMW2aRbANotWBzrbMtxbYuVc
-	 pzEV+zllFvtuwj0Eb02QzDG6oDIlfsPt8HTT07Ojt/8VPFSGbctWCqDwpsGlIq0zFpA==
+	t=1795178934;
+	b=1aOiX5NcD4+FeNpIwdIBgPATLVKRe6gSg/KDvGIBg7kTGrgJ3qusN2g96+o7etF17VeU
+	 GgLluEhEf/lHaZQ1YsYrMnpBHzeH5n22GKy7s2NAq5GyZofbhCQBUK1ady3IdTLabtaJs
+	 o6DZQ18LCcVIg/MZ0JiuoxUEHJ1+G0hMm/E8WHdnu7XA15dRQVfRUT5YAEe9IOuUPi6bp
+	 g2go5NMCaAMxaxhMn+y+LUQCqnbW679RycdeILwtzn8loR/OueQuvCXncjbRSRFhCnXO/
+	 Sj9xlN/D8hHBZAoHLECuvk98fOREbgxp2/yF7bucKbjf5cR4NB3O3WZQ5POIZE+qJ0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795178899;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=1D63QB71/TghLgtzvuEvuDkopznjceCiCu2ItkknAg4=;
-	b=gEzWPL1Nt9c/r96qkdUrz1oClPOpppz4ckVeej4OrqtbK4XJ8QERGZB45n1yz8skkHAp
-	 VCRMHSgdgQNVt1HoOp0h3dEV/Pa0IBgDHv6afEc5s0lf5V/CiHVivU+qUjgH21AU1QE5E
-	 ADWTrUSHbU4yv7UjJ4uqK+E0fn+LbIDbwqhddum1EP5+QGS+q5qEcaqT5zzgI1FMr7Esb
-	 Gwt8b04H8bvu9asnRiZ7tIyNhlgZV9uFO0Mn9sG1BKDpb4rBC58uma1B7Rlv/LSTaRI0x
-	 9UTdQ5zgfZLsrHUYwEyyVezWrvXVrltLOkP2X2eEpZVPFj/FTzw1tcrakfnHDOu+WGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795178934;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=5y5IiZafi4/ONiuYWfUibW0wvSSUQMFqt9ROxWxYZJE=;
+	b=qSu1rL+Ga5IQMjthiQULRuQ5rCtlSZxf6Ps3MLzNoDFOLKzybwr+NHd/tc2BgZLqN6ni
+	 eQSv+MxnDS1Q8WaZyLZxZN7yjQnzABboGJ/Tv+XTIYz8sTh0sq93AIbszSQFtIG+1v2ve
+	 MTqVnMW/gclENWAxx8xjXqlWWaqf99IGPil/n+3C4VwMmyS0YOKuFpRsQmOSkFw1lpKot
+	 Bzl1MHP6vQW+n4edd6Equwo7ZSo/CjhT1GEmpnaABWskpRw1ew0v2IooGKUWTU798zkbV
+	 MK3syO3bAHFVZstPF2ZwsXD968XdTeJGemds4jh0UhBX/AWRKpivx6jQUVsxIIwqwOg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.71
-Received: from mail-ot1-f71.google.com (mail-ot1-f71.google.com [209.85.210.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n7QsPB7t;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8371606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:48:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8371606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f71.google.com with SMTP id 46e09a7af769-8615687aa4eso1959629a34.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:48:18 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795178898; x=1795783698;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=1D63QB71/TghLgtzvuEvuDkopznjceCiCu2ItkknAg4=;
-        b=Rn8TpeJOu4vK143Na7zkKwHodHysLkNz0/WYDEnNXo+x7JOit7MJ1cRjKQuR+zPdTL
-         KXJ6i9lTw85N9v9HvIIA4vNp282vd/dVojADJgHDlMruyMIpo99rbSfgMILNAwOswh9+
-         ASu5wzIUIHIqIvkBJOcinV25lHL1o/eo422CZ5vG5F1or2XRbRBFfmcyY4pnYZed/Dl8
-         qIOAxVX33gbuLKgNh87EsF84M+1Y3XAKjI7DddmwLkIlSUrOOJkQCGnJyfsN4C4D8Mdz
-         PPe8hktAmMKYzeXGV/UOUVQSTmH1S5u2aZw+n6sygzV1d9mascuBA9GF9gtvJ3TNC+61
-         RPTQ==
-X-Forwarded-Encrypted: i=1; AL+hErFpW5K8erGcu3Fojcxj1AIR7dWNq1AmtonPovB5zm3ZhmX8UQfmSRlf5WORUDUuID7w5NTX5Fym4lr27fE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+HlFmKJSr9W+r7kRsRvg758YxACj/G+K6eoQEZYTiMEXRaZk0R
-	nZUJKs7+1srxfrZO4UI/MyrEcsRANXVX38TP3r1GD3nrhf879vbUEQoZxbUQ4kPPtNsnZT5jdeM
-	EmLGOgdNKQAMLgSkTkVhUSJhUcmbb7+nZdFOud6HHeIDm3dlUrP9deu7H5tc=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAEEE606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:48:54 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n7QsPB7t
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390F01F000D3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:48:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795178934;
+	bh=5y5IiZafi4/ONiuYWfUibW0wvSSUQMFqt9ROxWxYZJE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=n7QsPB7tDEbc/4rDSlloRLPnpIttBc234LywkWhE2F1MBc9XBEon+dcBXu+PpQRQk
+	 O7TdTG1IkShgPlzzjSm+HAsAKnzjKmfMEVd0iDZWJlUUQ1MP4VHjEEs+0pnUj+mAEW
+	 0ynPs+MOFw6wWj9w8uBF9DuRfLajcb8o10QQwFZoO6WJP0XwtzQq9AmbyGLQd8p5UT
+	 i/Sijc2yy7SGwQomPzWLbwdt+PImJ+aTRYi3jZ+KnuafUvrcwxkFDhV4gs9CcMUPot
+	 RzMErHQAVKy9EYzJVPuynvxE8GrAHlNu7PhiFXxlTvHrCF8vkn0A1vNZdWUI1l5zvS
+	 jtYGcpeRZ3tsw==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so498544e87.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:48:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF3lbAlu2tq/havEKYmpY2gS0zsefBjrMF9EKzD4DFGy0+uhzI/JKj0GB1Hn9m+Lt9Aj21zTnUBiZIXquM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+xfwvAo53hws/Jp6drvlRoMGENjeps36r6swrcbwADTHYp9zj4
+	4b62Ag/E7EYEUEfXwRv8BIJpfDmos4ccNVh3HxDKYTKORJDLMIJJId/7fGBgi9UNiLFIe1YgP7M
+	UUPfVGUvq2I7kJlV3O7mQ2E4Cy9VdTbw=
+X-Received: by 2002:a05:6512:31c3:b0:5c1:465b:ebe3 with SMTP id
+ 2adb3069b0e04-5c1bc7be4b6mr1079661e87.13.1795178932584; Fri, 20 Nov 2026
+ 04:48:52 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,124 +59,460 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:6414:b0:4d6:9133:cfea with SMTP id
- 5614622812f47-5797e590039mr3947059b6e.47.1795178897977; Fri, 20 Nov 2026
- 04:48:17 -0800 (PST)
-Date: Fri, 20 Nov 2026 04:48:17 -0800
-In-Reply-To: <ed43cd15-5740-4f45-88a2-0a700962d7c3@gmail.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b004191.c48d0c14.ca62.001a.GAE@google.com>
-Subject: Re: [syzbot] [exfat?] WARNING in vfat_update_dotdot_de
-From: syzbot <syzbot+b0aebd03565f5774f7f8@syzkaller.appspotmail.com>
-To: krystianmkaniewski@gmail.com
-Cc: hirofumi@mail.parknet.co.jp, krystianmkaniewski@gmail.com, 
-	linkinjeon@kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sj1557.seo@samsung.com, 
-	syzkaller-bugs@googlegroups.com
+References: <20261116152403.2672-1-ilpo.jarvinen@linux.intel.com> <20261116152403.2672-6-ilpo.jarvinen@linux.intel.com>
+In-Reply-To: <20261116152403.2672-6-ilpo.jarvinen@linux.intel.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 13:48:40 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hgt_S26dy2MELqz4SiRo73hzZY_rU+_VfHpPKYPHEGLw@mail.gmail.com>
+X-Gm-Features: Aa3M54q3kudao5rnwautljy_IwjQT-qBAN--yV6WVw8dUPc3lfjm_3FYqQRJszw
+Message-ID: <CAJZ5v0hgt_S26dy2MELqz4SiRo73hzZY_rU+_VfHpPKYPHEGLw@mail.gmail.com>
+Subject: Re: [PATCH 05/13] PCI: Serialize bridge window sizing and resource assignment
+To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Rob Herring <robh@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Alex Williamson <alex@shazbot.org>, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> On 9/14/26 18:38, syzbot wrote:
->> Hello,
->> 
->> syzbot found the following issue on:
->> 
->> HEAD commit:    5225b8eec4c9 mailmap: update entry for Jens Axboe
->> git tree:       upstream
->> console output: https://syzkaller.appspot.com/x/log.txt?x=11cd61f9580000
->> kernel config:  https://syzkaller.appspot.com/x/.config?x=5e4e3a0e188a497e
->> dashboard link: https://syzkaller.appspot.com/bug?extid=b0aebd03565f5774f7f8
->> compiler:       Debian clang version 22.1.8 (++20260613092233+e80beda6e255-1~exp1~20260613092250.77), Debian LLD 22.1.8
->> syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=11b455f9580000
->> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=13a1b615580000
->> 
->> Downloadable assets:
->> disk image: https://storage.googleapis.com/syzbot-assets/fdabe739a017/disk-5225b8ee.raw.xz
->> vmlinux: https://storage.googleapis.com/syzbot-assets/ef60d7040756/vmlinux-5225b8ee.xz
->> kernel image: https://storage.googleapis.com/syzbot-assets/ccb7b942e430/bzImage-5225b8ee.xz
->> mounted in repro: https://storage.googleapis.com/syzbot-assets/be5074fab5f0/mount_0.gz
->>   fsck result: failed (log: https://syzkaller.appspot.com/x/fsck.log?x=16cd61f9580000)
->> 
->> IMPORTANT: if you fix the issue, please add the following tag to the commit:
->> Reported-by: syzbot+b0aebd03565f5774f7f8@syzkaller.appspotmail.com
->> 
->> loop0: rw=8912896, sector=102, nr_sectors = 1 limit=63
->> syz.0.17: attempt to access beyond end of device
->> loop0: rw=8912896, sector=103, nr_sectors = 1 limit=63
->> syz.0.17: attempt to access beyond end of device
->> loop0: rw=8390657, sector=98, nr_sectors = 1 limit=63
->> Buffer I/O error on dev loop0, logical block 98, lost sync page write
->> ------------[ cut here ]------------
->> !buffer_uptodate(bh)
->> WARNING: fs/buffer.c:991 at mark_buffer_dirty+0x299/0x410 fs/buffer.c:991, CPU#0: syz.0.17/6146
->> Modules linked in:
->> CPU: 0 UID: 0 PID: 6146 Comm: syz.0.17 Not tainted syzkaller #0 PREEMPT(full) 
->> Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 08/05/2026
->> RIP: 0010:mark_buffer_dirty+0x299/0x410 fs/buffer.c:991
->> Code: 4c 89 f7 e8 a9 01 d8 ff 49 8b 3e be 40 00 00 00 5b 41 5c 41 5e 41 5f 5d e9 74 52 fb ff e8 ef 00 68 ff eb 8c e8 e8 00 68 ff 90 <0f> 0b 90 e9 a5 fd ff ff e8 da 00 68 ff 90 0f 0b 90 e9 cf fd ff ff
->> RSP: 0018:ffffc90003b57858 EFLAGS: 00010293
->> RAX: ffffffff825fc9c8 RBX: ffff888076b98460 RCX: ffff888020348000
->> RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000002
->> RBP: dffffc0000000001 R08: ffff888076b98467 R09: 1ffff1100ed7308c
->> R10: dffffc0000000000 R11: ffffed100ed7308d R12: ffff88806768a434
->> R13: 0000000000000000 R14: ffff8880544440b0 R15: ffff88807688ba08
->> FS:  00007fa0804ca6c0(0000) GS:ffff888124cd2000(0000) knlGS:0000000000000000
->> CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
->> CR2: 00007ffdc870d998 CR3: 0000000035986000 CR4: 0000000000350ef0
->> Call Trace:
->>  <TASK>
->>  mmb_mark_buffer_dirty+0x2c/0x1f0 fs/buffer.c:624
->>  vfat_update_dotdot_de+0x90/0x1c0 fs/fat/namei_vfat.c:917
->>  vfat_rename_exchange fs/fat/namei_vfat.c:1140 [inline]
->>  vfat_rename2+0xe3e/0x1c90 fs/fat/namei_vfat.c:1171
->>  vfs_rename+0xbd9/0xef0 fs/namei.c:6208
->>  filename_renameat2+0x533/0x9a0 fs/namei.c:6326
->>  __do_sys_renameat2 fs/namei.c:6355 [inline]
->>  __se_sys_renameat2+0x5a/0x2c0 fs/namei.c:6350
->>  do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
->>  do_syscall_64+0x166/0x520 arch/x86/entry/syscall_64.c:84
->>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
->> RIP: 0033:0x7fa07f59e159
->> Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
->> RSP: 002b:00007fa0804ca028 EFLAGS: 00000246 ORIG_RAX: 000000000000013c
->> RAX: ffffffffffffffda RBX: 00007fa07f826090 RCX: 00007fa07f59e159
->> RDX: ffffffffffffff9c RSI: 0000200000000480 RDI: ffffffffffffff9c
->> RBP: 00007fa07f63503b R08: 0000000000000002 R09: 0000000000000000
->> R10: 00002000000004c0 R11: 0000000000000246 R12: 0000000000000000
->> R13: 00007fa07f826128 R14: 00007fa07f826090 R15: 00007ffc6d0e6af8
->>  </TASK>
->> 
->> 
->> ---
->> This report is generated by a bot. It may contain errors.
->> See https://goo.gl/tpsmEJ for more information about syzbot.
->> syzbot engineers can be reached at syzkaller@googlegroups.com.
->> 
->> syzbot will keep track of this issue. See:
->> https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
->> 
->> If the report is already addressed, let syzbot know by replying with:
->> #syz fix: exact-commit-title
->> 
->> If you want syzbot to run the reproducer, reply with:
->> #syz test: git://repo/address.git branch-or-commit-hash
->> If you attach or paste a git patch, syzbot will apply it before testing.
->> 
->> If you want to overwrite report's subsystems, reply with:
->> #syz set subsystems: new-subsystem
->> (See the list of subsystem names on the web dashboard)
->> 
->> If the report is a duplicate of another one, reply with:
->> #syz dup: exact-subject-of-another-report
->> 
->> If you want to undo deduplication, reply with:
->> #syz undup
+On Mon, Nov 16, 2026 at 4:25=E2=80=AFPM Ilpo J=C3=A4rvinen
+<ilpo.jarvinen@linux.intel.com> wrote:
 >
-> #syz test: git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
-
-Patch testing via #syz test is temporarily disabled.
-See https://github.com/google/syzkaller/issues/8122 for details.
-
+> Bridge window sizing and resource assignment are started from multiple
+> entry points: rescan and hotplug under pci_rescan_remove_lock, and BAR
+> resize from sysfs or driver probe under device_lock() only. The entry
+> points hold pci_bus_sem only for read, so nothing prevents two sizing
+> and assignment passes from running concurrently on the same bridge
+> windows and BARs. E.g., a rescan may assign a BAR that a concurrent BAR
+> resize has released, or restore a resource the resize has already
+> assigned.
 >
-> -- 
-> Krystian Kaniewski
+> Looping BAR resize through sysfs against a rescan of the parent bus on a
+> system with a BMG GPU triggers the add_list sanity check. The rescan
+> sizes the Downstream Port's prefetchable window while the resize assigns
+> it, and the sizing values overwrite the assigned window. The resize then
+> programs these values into the Downstream Port, outside the root bus
+> resources and overlapping System RAM [mem 0x100000000-0x4075ffffff]. The
+> rescan skips assigning the window as it looks assigned, which leaves its
+> add_list entry unused:
+>
+>   pci_bus 0000:b7: root bus resource [mem 0xd6000000-0xddfbffff window]
+>   pci_bus 0000:b7: root bus resource [mem 0x2e0000000000-0x2effffffffff w=
+indow]
+>   pcieport 0000:b9:01.0: bridge window [mem 0x800000000-0x1000ffffff 64bi=
+t pref] to [bus ba] add_size 4000000 add_align 800000000
+>   pcieport 0000:b9:01.0: PCI bridge to [bus ba]
+>   pcieport 0000:b9:01.0:   bridge window [mem 0xdda00000-0xddbfffff]
+>   pcieport 0000:b9:01.0:   bridge window [mem 0x800000000-0x1000ffffff 64=
+bit pref]
+>   add_list && !list_empty(add_list)
+>   WARNING: drivers/pci/setup-bus.c:1546 at pci_assign_unassigned_bus_reso=
+urces+0x9e/0x130, CPU#58: srf8-resize-rac/2861
+>   CPU: 58 UID: 0 PID: 2861 Comm: srf8-resize-rac Tainted: G S            =
+      7.4.0-rc1-g6628e7d4c6b2 #59 PREEMPT(full)
+>   RIP: 0010:pci_assign_unassigned_bus_resources+0x9e/0x130
+>   Call Trace:
+>    pci_rescan_bus+0x20/0x40
+>    dev_rescan_store+0x6e/0x90
+>
+> Other trigger vectors are possible as well. Hotplug takes the same locks
+> as the sysfs rescan. BAR resize walks the bridge windows up to the Root
+> Port to make room for the resized BAR, and then sizes and assigns the
+> whole hierarchy below the Root Port. Thus, hotplug anywhere below the
+> same Root Port can race with the resize, e.g., when connecting a
+> Thunderbolt device. Instead of the sysfs resize, a driver can resize a
+> BAR during probe, e.g., after unbind and bind.
+>
+> pci_rescan_remove_lock cannot be taken under device_lock() because the
+> device removal path takes them in the opposite order.
+>
+> Add pci_res_setup_lock and hold it across sizing and assignment in all
+> entry points, including acpiphp which calls the internal sizing and
+> assignment functions directly. Assert the lock is held in the
+> functions that modify resources deeper in the call chains. In
+> pci_do_resource_release_and_resize(), take the lock before selecting the
+> bridge window and setting the BAR size as both depend on or change
+> resource state.
+>
+> The race was also reproduced in QEMU, which found more symptoms.
+> Looping BAR resize through sysfs against a rescan of the parent bus on
+> a guest with 512M of RAM, using a synthetic host bridge with a Root Port
+> and an Endpoint with a Resizable BAR, triggers the following failures:
+>
+> 1) Both the rescan and the resize release the Root Port's prefetchable
+>    window. Both find it assigned, but the rescan releases it first, and
+>    the resize then dereferences the NULL parent in __release_resource():
+>
+>      pcieport 10000:00:00.0: bridge window [mem 0x940000000-0x97fffffff 6=
+4bit pref]: releasing
+>      pcieport 10000:00:00.0: bridge window [mem size 0x40000000 64bit pre=
+f]: releasing
+>      BUG: kernel NULL pointer dereference, address: 0000000000000038
+>      Oops: Oops: 0000 [#1] SMP
+>      CPU: 0 UID: 0 PID: 49 Comm: init Not tainted 7.4.0-rc1-00001-g4aa3ac=
+aaeb08 #1 PREEMPTLAZY
+>      RIP: 0010:__release_resource+0x8/0x70
+>      Call Trace:
+>       release_resource+0x22/0x40
+>       pci_release_resource+0x54/0x90
+>       pci_do_resource_release_and_resize+0x1f3/0x3d0
+>       __resource_resize_store+0xf0/0x180
+>
+> 2) The rescan restores a resource that has already been assigned:
+>
+>      WARNING: drivers/pci/setup-bus.c:136 at pci_dev_res_restore+0x32/0x9=
+0, CPU#0: init/1
+>      CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 7.4.0-rc1-dirty #6 PREEM=
+PTLAZY
+>      RIP: 0010:pci_dev_res_restore+0x32/0x90
+>      Call Trace:
+>       __assign_resources_sorted+0x2db/0x570
+>       __pci_bus_assign_resources_one+0x57/0x190
+>       __pci_bus_assign_resources_one+0x12d/0x190
+>       __pci_bus_assign_resources+0xd/0x30
+>       pci_assign_unassigned_bus_resources+0x6f/0x80
+>       pci_rescan_bus+0x1a/0x30
+>       dev_rescan_store+0x46/0x60
+>
+> 3) The rescan assigns the BAR while the resize is assigning it, failing
+>    the resize:
+>
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x90fffffff 64bit pref]: r=
+eleasing
+>      pcieport 10000:00:00.0: bridge window [mem 0x900000000-0x90fffffff 6=
+4bit pref]: releasing
+>      pci 10000:01:00.0: BAR 0 [mem size 0x40000000 64bit pref]: can't ass=
+ign; no space
+>      pcieport 10000:00:00.0: bridge window [mem 0x900000000-0x93fffffff 6=
+4bit pref]: assigned
+>      pci 10000:01:00.0: BAR 0 [mem size 0x40000000 64bit pref]: failed to=
+ assign
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x93fffffff 64bit pref]: r=
+eleasing
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x93fffffff 64bit pref]: a=
+ssigned
+>      pci 10000:01:00.0: BAR 0 [mem size 0x40000000 64bit pref]: resource =
+restored
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x90fffffff 64bit pref]: o=
+ld value restored
+>      pci 10000:01:00.0: Failed to resize BAR 0: -28
+>
+> 4) While one pass is sorting a released bridge window for assignment,
+>    the other pass assigns it, which clears IORESOURCE_STARTALIGN. The
+>    window then has zero alignment:
+>
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x93fffffff 64bit pref]: r=
+eleasing
+>      pcieport 10000:00:00.0: bridge window [mem 0x900000000-0x93fffffff 6=
+4bit pref]: releasing
+>      pcieport 10000:00:00.0: bridge window [mem 0x900000000-0x90fffffff 6=
+4bit pref]: assigned
+>      pcieport 10000:00:00.0: bridge window [mem 0x900000000-0x90fffffff 6=
+4bit pref]: alignment must not be zero
+>      pci 10000:01:00.0: BAR 0 [mem 0x900000000-0x90fffffff 64bit pref]: a=
+ssigned
+>
+> 5) BAR 0 loses its flags and the Root Port's prefetchable window gets
+>    programmed over RAM, after which every BAR resize fails with -EINVAL:
+>
+>      pci 10000:01:00.0: BAR 0 [mem size 0x10000000 64bit pref]: can't ass=
+ign; no space
+>      resource: remaining [mem 0x000000001ffdf000-0x000000001fffffff] avai=
+lable
+>      resource: avoiding allocation from e820 entry [mem 0x1ffdf000-0x1fff=
+ffff]
+>      pci 10000:01:00.0: BAR 0 [mem size 0x10000000 64bit pref]: failed to=
+ assign
+>      pci 10000:01:00.0: BAR 0 [mem size 0x10000000 64bit pref]: can't ass=
+ign; no space
+>      pci 10000:01:00.0: BAR 0 [mem size 0x10000000 64bit pref]: resetting=
+ resource
+>      pci 10000:01:00.0: BAR 0 [??? 0x00000000 flags 0x0]: failed to assig=
+n
+>      pci 10000:01:00.0: BAR 0 [??? 0x00000000 flags 0x0]: resetting resou=
+rce
+>      pcieport 10000:00:00.0: PCI bridge to [bus 01]
+>      pcieport 10000:00:00.0:   bridge window [mem 0x20000000-0x200fffff]
+>      pcieport 10000:00:00.0:   bridge window [mem 0x10000000-0x1fffffff 6=
+4bit pref]
+>      pci 10000:01:00.0: Failed to resize BAR 0: -22
+>
+> Fixes: 8bb705e3e79d ("PCI: Add pci_resize_resource() for resizing BARs")
+> Fixes: 91fa127794ac ("PCI: Expose PCIe Resizable BAR support via sysfs")
+> Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+> Cc: stable@vger.kernel.org
+
+LGTM
+
+Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+
+> ---
+>
+> Bjorn,
+>
+> It's up to you if you want to keep all those qemu reproduced cases in the
+> changelog. You usually seem to prefer the log messages for easier googlin=
+g
+> in case somebody happens to hit the issue so I added them all.
+>
+> I couldn't get the rest to trigger on a real host but that could be due t=
+o
+> serial output that was too slow to keep up with the test loops which migh=
+t
+> have affected timing.
+>
+>  drivers/pci/hotplug/acpiphp_glue.c |  1 +
+>  drivers/pci/pci.h                  |  1 +
+>  drivers/pci/setup-bus.c            | 40 ++++++++++++++++++++++++++++++
+>  drivers/pci/setup-cardbus.c        |  3 +++
+>  4 files changed, 45 insertions(+)
+>
+> diff --git a/drivers/pci/hotplug/acpiphp_glue.c b/drivers/pci/hotplug/acp=
+iphp_glue.c
+> index 632344f34cae..d3987be044e3 100644
+> --- a/drivers/pci/hotplug/acpiphp_glue.c
+> +++ b/drivers/pci/hotplug/acpiphp_glue.c
+> @@ -502,6 +502,7 @@ static void enable_slot(struct acpiphp_slot *slot, bo=
+ol bridge)
+>
+>                 acpiphp_rescan_slot(slot);
+>                 max =3D acpiphp_max_busnr(bus);
+> +               guard(mutex)(&pci_res_setup_lock);
+>                 for (pass =3D 0; pass < 2; pass++) {
+>                         for_each_pci_bridge(dev, bus) {
+>                                 if (PCI_SLOT(dev->devfn) !=3D slot->devic=
+e)
+> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+> index 77efa4c5c960..660a83b0045a 100644
+> --- a/drivers/pci/pci.h
+> +++ b/drivers/pci/pci.h
+> @@ -124,6 +124,7 @@ unsigned char pcie_get_link_speed(unsigned int speed)=
+;
+>  extern bool pci_early_dump;
+>
+>  extern struct mutex pci_rescan_remove_lock;
+> +extern struct mutex pci_res_setup_lock;
+>
+>  bool pcie_cap_has_lnkctl(const struct pci_dev *dev);
+>  bool pcie_cap_has_lnkctl2(const struct pci_dev *dev);
+> diff --git a/drivers/pci/setup-bus.c b/drivers/pci/setup-bus.c
+> index 5b2d870ca13d..314c649c648f 100644
+> --- a/drivers/pci/setup-bus.c
+> +++ b/drivers/pci/setup-bus.c
+> @@ -26,6 +26,7 @@
+>  #include <linux/ioport.h>
+>  #include <linux/cache.h>
+>  #include <linux/limits.h>
+> +#include <linux/lockdep.h>
+>  #include <linux/sizes.h>
+>  #include <linux/slab.h>
+>  #include <linux/acpi.h>
+> @@ -38,6 +39,17 @@
+>  unsigned int pci_flags;
+>  EXPORT_SYMBOL_GPL(pci_flags);
+>
+> +/*
+> + * Serializes bridge window sizing, resource fitting, and assignment.
+> + * pci_rescan_remove_lock cannot be used for this because BAR resize and
+> + * some drivers run these operations under device_lock() during probe.
+> + *
+> + * Context:
+> + *  - Nests inside pci_rescan_remove_lock and device_lock().
+> + *  - Nests outside pci_bus_sem.
+> + */
+> +DEFINE_MUTEX(pci_res_setup_lock);
+> +
+>  struct pci_dev_resource {
+>         struct list_head list;
+>         struct resource *res;
+> @@ -133,6 +145,8 @@ static void pci_dev_res_restore(struct pci_dev_resour=
+ce *dev_res)
+>         int idx =3D pci_resource_num(dev, res);
+>         const char *res_name =3D pci_resource_name(dev, idx);
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (WARN_ON_ONCE(resource_assigned(res)))
+>                 return;
+>
+> @@ -611,6 +625,8 @@ static void __assign_resources_sorted(struct list_hea=
+d *head,
+>         unsigned long fail_type;
+>         resource_size_t align;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (!realloc_head)
+>                 realloc_head =3D &dummy_head;
+>
+> @@ -893,6 +909,8 @@ static void __pci_setup_bridge(struct pci_bus *bus, u=
+nsigned long type)
+>  {
+>         struct pci_dev *bridge =3D bus->self;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         pci_info(bridge, "PCI bridge to %pR\n", &bus->busn_res);
+>
+>         if (type & IORESOURCE_IO)
+> @@ -973,6 +991,8 @@ static void pci_bridge_check_ranges(struct pci_bus *b=
+us)
+>         struct pci_dev *bridge =3D bus->self;
+>         struct resource *b_res;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         b_res =3D &bridge->resource[PCI_BRIDGE_MEM_WINDOW];
+>         b_res->flags |=3D IORESOURCE_MEM;
+>
+> @@ -1077,6 +1097,8 @@ static void pbus_size_io(struct pci_bus *bus, resou=
+rce_size_t add_size,
+>         resource_size_t children_add_size =3D 0;
+>         resource_size_t min_align, align;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (!b_res)
+>                 return;
+>
+> @@ -1286,6 +1308,8 @@ static void pbus_size_mem(struct pci_bus *bus, stru=
+ct resource *b_res,
+>         resource_size_t children_add_size =3D 0;
+>         resource_size_t add_align =3D 0;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (!b_res)
+>                 return;
+>
+> @@ -1457,6 +1481,7 @@ void __pci_bus_size_bridges(struct pci_bus *bus, st=
+ruct list_head *realloc_head)
+>
+>  void pci_bus_size_bridges(struct pci_bus *bus)
+>  {
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>         __pci_bus_size_bridges(bus, NULL);
+>  }
+> @@ -1486,6 +1511,8 @@ static void pdev_assign_fixed_resources(struct pci_=
+dev *dev)
+>  {
+>         struct resource *r;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         pci_dev_for_each_resource(dev, r) {
+>                 struct pci_bus *b;
+>
+> @@ -1550,6 +1577,7 @@ void __pci_bus_assign_resources(const struct pci_bu=
+s *bus,
+>
+>  void pci_bus_assign_resources(const struct pci_bus *bus)
+>  {
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>         __pci_bus_assign_resources(bus, NULL, NULL);
+>  }
+> @@ -1663,6 +1691,8 @@ static void pci_bridge_release_resources(struct pci=
+_bus *bus,
+>         struct pci_dev *dev =3D bus->self;
+>         int idx, ret;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (!resource_assigned(b_win))
+>                 return;
+>
+> @@ -1860,6 +1890,8 @@ static void adjust_bridge_window(struct pci_dev *br=
+idge, struct resource *res,
+>         resource_size_t add_size, size =3D resource_size(res);
+>         struct pci_dev_resource *dev_res;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         if (resource_assigned(res))
+>                 return;
+>
+> @@ -2192,6 +2224,7 @@ void pci_assign_unassigned_root_bus_resources(struc=
+t pci_bus *bus)
+>         int pci_try_num =3D 1;
+>         enum enable_type enable_local;
+>
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>
+>         /* Don't realloc if asked to do so */
+> @@ -2270,6 +2303,7 @@ static void pci_bridge_size_and_assign_resources(st=
+ruct pci_dev *bridge)
+>         int tried_times =3D 0;
+>         LIST_HEAD(fail_head);
+>
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>
+>         while (1) {
+> @@ -2328,6 +2362,8 @@ static int pbus_reassign_bridge_resources(struct pc=
+i_bus *bus, struct resource *
+>         unsigned int i;
+>         int ret =3D 0;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         while (!pci_is_root_bus(bus)) {
+>                 bridge =3D bus->self;
+>                 res =3D pbus_select_window(bus, res);
+> @@ -2398,6 +2434,8 @@ int pci_do_resource_release_and_resize(struct pci_d=
+ev *pdev, int resno, int size
+>         unsigned int i;
+>         int old, ret;
+>
+> +       guard(mutex)(&pci_res_setup_lock);
+> +
+>         b_win =3D pbus_select_window(bus, res);
+>         if (!b_win)
+>                 return -EINVAL;
+> @@ -2495,6 +2533,7 @@ void pci_assign_unassigned_bus_resources(struct pci=
+_bus *bus)
+>         /* List of resources that want additional resources */
+>         LIST_HEAD(add_list);
+>
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>         for_each_pci_bridge(dev, bus)
+>                 if (pci_has_subordinate(dev))
+> @@ -2505,6 +2544,7 @@ EXPORT_SYMBOL_GPL(pci_assign_unassigned_bus_resourc=
+es);
+>
+>  void pci_bus_size_and_assign_resources(struct pci_bus *bus)
+>  {
+> +       guard(mutex)(&pci_res_setup_lock);
+>         guard(rwsem_read)(&pci_bus_sem);
+>         __pci_bus_size_bridges(bus, NULL);
+>         __pci_bus_assign_resources(bus, NULL, NULL);
+> diff --git a/drivers/pci/setup-cardbus.c b/drivers/pci/setup-cardbus.c
+> index dcb8e2b3f73b..6a473a1694b9 100644
+> --- a/drivers/pci/setup-cardbus.c
+> +++ b/drivers/pci/setup-cardbus.c
+> @@ -6,6 +6,7 @@
+>  #include <linux/bitfield.h>
+>  #include <linux/errno.h>
+>  #include <linux/ioport.h>
+> +#include <linux/lockdep.h>
+>  #include <linux/pci.h>
+>  #include <linux/sizes.h>
+>  #include <linux/sprintf.h>
+> @@ -39,6 +40,8 @@ int pci_bus_size_cardbus_bridge(struct pci_bus *bus,
+>         resource_size_t b_res_3_size =3D pci_cardbus_mem_size * 2;
+>         u16 ctrl;
+>
+> +       lockdep_assert_held(&pci_res_setup_lock);
+> +
+>         b_res =3D &bridge->resource[PCI_CB_BRIDGE_IO_0_WINDOW];
+>         if (resource_assigned(b_res))
+>                 goto handle_b_res_1;
+> --
+> 2.47.3
+>
