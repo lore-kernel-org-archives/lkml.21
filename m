@@ -1,65 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=154.81.10.146
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187414;
-	b=wONSmUeweobfEFC/Ouqsoz1fvcd0P/kJnRfjFc39XPAr0Bh7O8brPBZcxVcE2bzZ7Ipv
-	 CrsO6LHUD4O4kpfZOAuglpBGgrYAMAVQKa9qsveNNRiibWZiOjaXn1SG4WgKC+phieFYR
-	 ui5k/gdzUIqGPw39TR+OglQxRAkNrK/FUsZzrUrFJiHUZKmT78trNBGhW20jHp5KWt9LH
-	 /Y+jC7w3W9ylgJi2NPaO3cfjaYrXanvrG0A+p8XCXxkcyCaGPYaPHKLSDsx5w4xQDyySu
-	 eHguhVqpwN+MTjnwy9IaKry//Sh33MQJEp8pyv3IT6OG65k3BWRSgPXXBHrsfXMLpNw==
+	t=1795187421;
+	b=3FmVB/LoPcfBE0qHS2vCExDInz96LqeaVUiFX6LyVhMcY2r8d1b0UMMamALoPiHHFx0g
+	 x1yAk6ReCAGnXIOWJYMtAWfTqbvAJvoN6XpIDvfxktitvVLiUDRXOzy0CXayVNY9jzAwt
+	 gUBVdF7kXLfpTZgb3jz2SRwjQIGI/2U9h6KRhnJyFPhqvnAK12IviuPR2ITSWfpLE+qJ8
+	 C9WDc9z+mjsujl5ED9RUfxGvVkCIHKsm+jbque+bX/UiVZxc6+jOeaOVni7En5IwhuDYv
+	 RGUQwBOh3gLUjfvHF5rpjtwpSZ0dCqlzVMVlmLzN+H5eXSukh1hf1rY9Zi1hsFmaTZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187414;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=us7mbpzByrc6IYYiZEo/0XS2sJm4gcQN7+6PoaPd6bI=;
-	b=WRZa5dfVDLckyLFyJ64d/9GaOiDxm59pxktFqp3RijJJgd3IEdFLeZfR47d2mXRwyG92
-	 ygxPx0g+vlXhIExkLZ8BaZOxjRDIabPwMC/ctcK5LQ5X8UdnDxxGhcC0kBLeWCb7eLkV2
-	 ANV9+8wmPHywizNaKmokm5q5SpgEozkoiDqdYa/saesAC1qxuqTCAxnA21zYHqYUtLBoK
-	 OWDwJu5OY7OWbYrzdtp62/1hhUYA2SuMNyeTlT/5/UkMqEz5nZAl8iRb1zqGsKQ5BIJ4P
-	 2zztssiZ9qgFYPXbEXi94R3DumrJdgcjtgwUWc74oi6iPBDlIBXuQ5aq50vY7GhrELQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187421;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
+	b=m6FPNs1rVQlih5rI87SmBHf04eNhqxrVjcNLhKlhX0jRdeYg+zRaBV+0T94Iliiap0ch
+	 InLLKGbMiX39JfUKzsdlQnxIUIcFjyY6tqgp26J6oN3kQrVh9rPr0MK5myX6kaBOQx1FZ
+	 KyEte8U8HPlo3JqvkomHtAO4AHVa7r9y+fTywbOZjGHTO1TPwexAwrrl6XdXhWZcpAeo1
+	 glppQ/rwiD2Jp3US/K8CLEQrOnM0j0yZ9OhGTCG/vFxnoSnJHJEADi1ieRJoUU4zLZCku
+	 aymJftGAi9yg97OeRz3aHHFTvocdMLaTwt6ISB7jM2hPjTd1+PekgxCa8QAe49ddu7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rock-chips.com;
-	spf=pass smtp.mailfrom=rock-chips.com;
-	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b="fDE1ROF/";
-	arc=none smtp.remote-ip=154.81.10.146
-Received: from mail-m10146.netease.com (mail-m10146.netease.com [154.81.10.146])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="OUX/lrvJ";
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IAoGx9P4;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D77E1606A320;
-	Fri, 20 Nov 2026 15:10:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D77E1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15449606A338;
+	Fri, 20 Nov 2026 15:10:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15449606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=fDE1ROF/
-Received: from localhost.localdomain (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5571b3b0d;
-	Fri, 20 Nov 2026 23:10:00 +0800 (GMT+08:00)
-From: David Wu <david.wu@rock-chips.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	maxime.chevallier@bootlin.com,
-	joabreu@synopsys.com,
-	peppe.cavallaro@st.com,
-	luis.la@mail.de,
-	lorenzo.bianconi@oss.qualcomm.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	Anandu.Padinhare@electrifex.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	David Wu <david.wu@rock-chips.com>
-Subject: [RESEND PATCH net] net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
-Date: Fri, 20 Nov 2026 23:08:05 +0800
-Message-Id: <20261120150805.763415-1-david.wu@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OUX/lrvJ;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IAoGx9P4
+Date: Fri, 20 Nov 2026 16:10:17 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795187419;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
+	b=OUX/lrvJURJO8B/bRcp1KZOhz1W0eXw6NIP2IBMY8qkuYXGlUs6iMbipujxmPkzsIOFQ3W
+	3VBh7otPD7vX1rf7drGmNjmvpndwa//iyUGtx46uMCgy3LVI/2BsUndZqchz+25I36nAcK
+	DKlnshuEHGOVFdnQxChEOlf+gKCLGz9RlFOHxcI0C+OwPTiVnjbGwmYTBeYC1PEbBEUjtq
+	J9M1bw3ECuKpYBN+NA7VgWHPuvAonecMFp26Mxf3sucAxDJSkTGzBAgd9mcozfau4MjJXU
+	FSODWpAWAtny0C/gsBZ8PrSOOVeLk0DxTOwOdiK8TV9/jNApOidq6NuSryhPZA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795187419;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
+	b=IAoGx9P4ncOm9hSQfXJorUUR2w+oqVmjqkKbhoJG+hMFDa45LVImFg3VwXkZh0xQYaL2jJ
+	pH4W6J/Uvnz8v3Dg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120151017.mKJ_Y_u0@linutronix.de>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
+ <20261120141606.zcwyHZ3P@linutronix.de>
+ <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,73 +83,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1f981df5809cckunm25b76740482ac3
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHx5DVh1JS0xLGUJLHU5JSlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=fDE1ROF/HErXOzZTrk28RcFqanGnvxfppXJn0ml7GTDlqAr7HYyapRj46zeBq4jyjXe4IAoEghzTvvstOo7oUVtomK8Qg5sIfvvuImaDoKdwMd6FbmRgm4+yaBJfwLMQQ7TEgR4Mkhl0CRPnrPYWaCvA80JoLh1TWGQBbXXwNrk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=us7mbpzByrc6IYYiZEo/0XS2sJm4gcQN7+6PoaPd6bI=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
 
-Once the RX ring is exhausted, the RX DMA enters the suspend state and
-no more Receive Interrupts can be generated: incoming frames are kept
-in the MTL RX FIFO and are dropped once it overflows. The RX DMA only
-resumes after software refills the ring and updates the RX tail
-pointer, which is done by the RX NAPI poll (stmmac_rx_refill()).
+On 2026-11-20 16:04:52 [+0100], Peter Zijlstra wrote:
+> On Fri, Nov 20, 2026 at 03:16:06PM +0100, Sebastian Andrzej Siewior wrote:
+> > On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
+> > > > Also use smp_load_acquire() when checking pending_work in
+> > > > the exclude_kernel warning path to ensure the read is properly
+> > > > ordered.
+> > > 
+> > > I am confused by the use of smp_*() and cmpxchg() here. Where is the
+> > > multi-cpu scenario?
+> > 
+> > The same event is used in process context and NMI
+> > |        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
+> > |        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
+> > 
+> > I don't see how to deal with this without cmpxchg. And the same event is
+> > also used by other task
+> 
+> You can do CMPXCHG (without the LOCK) prefix; the helper is called
+> cmpxchg_local().
+> 
+> > |        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
+> > 
+> > which makes me thing that it could be pinned to another CPU (unless
+> > there is something that impossible and it is strictly per-CPU).
+> > 
+> > The smp load/store macros is my fault as it looked better to do this
+> > than plain stores (given that we have the cmpxchg already).
+> 
+> It is confusing as all heck. This is all task-local, and a task can only
+> ever run on one CPU at the time.
 
-Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
-enabled the RBU interrupt for dwmac4, but the interrupt handler only
-updates the statistics counter without scheduling the RX NAPI. The RX
-NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
-the RX path hangs forever once the ring has been exhausted.
+Given the two pids I was assuming (!knowing) that two CPUs could be
+involved.
 
-Schedule the RX NAPI when the RBU interrupt is received, aligning the
-dwmac4 behaviour with XGMAC (commit 6338488356d2 ("net: stmmac: xgmac:
-Add RBU handling in DMA interrupt")).
+So you are saying cmpxchg_local() and a plain assign/WRITE_ONCE rather
+than the smp.* given that this is all task local.
 
-This can be observed on a GMAC4 based platform with Split Header (SPH)
-enabled under high TCP RX pressure, where the slower RX refill path
-lets the RX ring run dry.
-
-Tested with Split Header (SPH) enabled, running a large file download
-over TCP:
-
-- Without this change, the RX path hangs permanently once the RX ring
-  is exhausted: the RX tail pointer is never updated again and the
-  DMA channel status register latches the RBU bit, while the TX path
-  keeps running.
-
-- With this change, each RBU interrupt is handled and the RX path
-  recovers by itself. e.g. 3 RBU events within 6 ms during a download
-  peak, each one self-recovered (the RX tail pointer resumes advancing
-  right after), with no further RBU events afterwards.
-
-Signed-off-by: David Wu <david.wu@rock-chips.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-index 02aa1a3dd1e2..de6bd6f8a7d5 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
-@@ -155,8 +155,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
- 
- 	/* ABNORMAL interrupts */
- 	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
--		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
-+		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
- 			x->rx_buf_unav_irq++;
-+			ret |= handle_rx;
-+		}
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
- 			x->rx_process_stopped_irq++;
- 		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
--- 
-2.25.1
-
+Sebastian
