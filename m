@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.135
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165234;
-	b=0jOMerBiBUHMawGXMNvay4UxDR9PVWkdiOQXCoao/ptJrgZmCjfoZRVU+ZUo3IUiBG1b
-	 JhY1bbZthj4yerIXoFufEN9Pn4WMusD4fBIbhyBndtqt1J4V8l6ek5EjSl0oxwBu3/W4o
-	 D1abKyAL1En6TCUnDa0I98u+6A+J5//rmt8KEbtMzintLAV3GGxj/q/3GSichw9t9b+q0
-	 3boFZp99LNRYnoAR0+g79c56eBBEBAw+poh4MQTfHLYTnnz1hNKMZdYjKiif9cO10MJ5u
-	 NpBJT2S0ZzGFrXPcLGVFMZ86hs+jgFGnVX7gi8CvjlJQaH5GqA+YrzC28+hOI+Frp+g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165234;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795165261;
+	b=WkuXLMdvINqimv71OZnxAQcjeQZShLXkXilXID7R9gw3SPzdXGc1rRCIi94cXrL5DGe9
+	 iK4mZED5oedMYlq9e3S3/g34SgbRj0IdNdb9jB9XTF7kRjhMlpKzvhErOnRXYhB/SAiwM
+	 qKrpSrQHCrrzzGcxePRIwVntdGrk0CCv5xEYF29GoevPr9ieRqRvCFVxa/0ZMHq5Gnt8D
+	 ttR2sG8CDgPEheJid6tP0rSbrTRv36hg1Nitwe/oNrOJzHTpByZNS6Ja0qu2w/47MlTLx
+	 2DsG1hs1RrIcUTeuq0Y42CYTd7QcOEV8JHL8ASWYtMU3MqHpzUm3qNcj3ZSEkUUCwSg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165261;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=uRLlYOEziP+a1oXd/cGM2I2LC+HLInwDhPv3Q1J/hWc=;
-	b=I3wS53UYbHQ8pky3ueVLBf9ho3SY9S1cu7fuVse2uuZIIsNGun1Emyw6/FrqgHvoZr6Z
-	 AKj1FUUqGdqs0poWQdUiEBizgBD3UMCo4JHl7aCOPxwkl/3Z8ass8XG6I2DIhBzq7LByv
-	 Y3By0U729lA0NQhr3t0IBdjYe2MGNLKs0mdPyKcrnwNdT18az4VWjstquK3G6xuMxejJ/
-	 4OHqFOLG8FhHYuUeZssYqfylJkAyYLlkY9gJ/Kf1yq/PAPYLDKQ8T2Z3NtBiGDtoEPKCg
-	 YR8/pm2EOrq7uZiPg/7OmT5JIf30QnQ2ceiSGxArimhgtYMQIPL5D5jggSjMo461PvQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MucD5h4A;
-	arc=none smtp.remote-ip=74.125.229.135
-Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PZieRENVmUX5OHXGvmzJIcsoS8CWVu3mfuhhXe7ha4o=;
+	b=h6qC9y4o5JZnTxnqDoBu8uWD3xmuB8IPMZdUoNpkH32F3DKHtlism86yk1zMrLDfUH18
+	 SP4Kkp5ibYxtUL/JP+ny8NOPksaSVF4iNqJb4v21LYeDKrHOsTOh7SphIAxN7YKoxPafY
+	 IlnN02LruIwzKzipObeHsR1j49IcPNOxpUZlk1njpA5LWtGC1ty+lJfjk+Bawp5D0LFOh
+	 TQCWG/gbemKfK/xwgbVm1lAP4SmcBBRLx8OJ8om/eg6hO4NoFe3ILc9IB5hHyq0hCh6Se
+	 Wk7abwc2avRZnbApp+3xBlaBzBtIEb5ucK7HhZVyopSz232pHU/t/wWXxRiqPwBkPpA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=futuring-girl.com;
+	spf=pass smtp.mailfrom=futuring-girl.com;
+	dkim=pass header.d=futuring-girl.com header.i=@futuring-girl.com header.a=rsa-sha256 header.s=google header.b=Z8BgscY9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F767606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:00:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F767606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 988E9606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:01:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 988E9606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=futuring-girl.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=futuring-girl.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MucD5h4A
-Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-13985f8229aso263293c88.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:00:33 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=futuring-girl.com header.i=@futuring-girl.com header.a=rsa-sha256 header.s=google header.b=Z8BgscY9
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4d427836e9so101631966b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:01:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795165259; cv=none;
+        d=google.com; s=arc-20260327;
+        b=VVdmHXxebM5IzZS4YAatTAgNfN+xRj9ac31Oz17sQCUsbKQ0R9UMTqaVhtCvObKHs9
+         5cxjGDN00XytHV1IrECsDmFu+AV6eLmrnTKvyYrMRbDBy6yLMTaOo+vWtW2nu1Tv8Y0A
+         dzU8Zcq406pRwTMZTSTTjdBRr6GxRTeY0/JUf85pprfuU9LfC1OIximV1+qcajI/2om3
+         +wzgrZUZHaFqaJJndszrF2DxUtkfU6tV4QEwmIwLFhhiy70rLgnnwoxPuO/e63SVbvqe
+         hdYBF0h9yR3WCdZTkXXMhv3BjMU74lKS4Y1fSuZIvjUgOsaUdCXpXCUQRsgiLC3N8pjf
+         j8MA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PZieRENVmUX5OHXGvmzJIcsoS8CWVu3mfuhhXe7ha4o=;
+        fh=HyyYcWnpwdfVOLVzc+dzsvyNkHWHWTBH1ZQkD7UREFE=;
+        b=GGSJMwFNpqT9t9sVXya2nPujpi4PzgAm/fJU+kp5JsWGk37mM3PYjbH67sjjGjQGgm
+         yCKPFsqDy68NVsR/i42x1Ht0zzvAW+/QHvyCaJ6xpskHIbkiq39MzZX8sahrqLhJzo5y
+         XgaIAl7xEBklW6zASJpLonxY0+2JHdJFJWwJ7G+gqfKam9YQRtAvfVdDieIA89LCK1uL
+         IDVuaWXkZpz45Vm53B9oY4Av8K85rM5kQyxR/hSuoeBEdQO8vJTuAgGg1BQNGkj8qPkw
+         2n83aeXSQbFt68KBHR4Vk/eGRdExBf7RTFr/I8BUMPLxabBGW+vZ0FuOVPy9Wt2YM62w
+         N3TQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795165233; x=1795770033; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uRLlYOEziP+a1oXd/cGM2I2LC+HLInwDhPv3Q1J/hWc=;
-        b=MucD5h4AIQ0AJqGbNtCpVYblqZpdkUvK8v3R9eZt10f8zMkw/ORab+h7idKrGQQnfw
-         vFyTj6xewtg7F84nVHtZP51D617be92xfDS3iCpnh1jGC6YTnPmAsmLOV/m8lQ2/11xN
-         Bd2GOJLfDfb3Suq3VJY8M7tM6G3qn7lfgBdzK6ZgWxiZerpn9ear4fl/FBGDo0NX7NeB
-         z47F/jLOjl8Jpw22jGrm27FG4OZ2TEbQiUZh3Fhd0okpvagqettX5GYAns/v211STXtB
-         MAu1fOnoHJKCR/zaqzZQUVyGezrsi+hy96HMRcqPX2cR71xjfNfTdstUa1AsVsdhrvj8
-         2bXg==
+        d=futuring-girl.com; s=google; t=1795165259; x=1795770059; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PZieRENVmUX5OHXGvmzJIcsoS8CWVu3mfuhhXe7ha4o=;
+        b=Z8BgscY9/G3ijVbCwygY0Yd337nhLe18Bd+5uOZ3zsKqXXymvoeoIeywGgl6rlt8Wo
+         OXbMS0NIKAcYL+f5s02X+TlFlXpNhe9ccM40x7CEyMqlTDXxytBSPFVFL1kI6+dZeKml
+         /UbAc90eQaF3ip7q9UUc2GqCT05+qFsgfsV/j1YvsVAzanZqgz+SuKNLZNTxedQdLaFp
+         jJR9GVfwADTrzuuUR2ELE6iMSNNO2pnaPoUqD+hmV0AOQeA2ZJqLaMdPT4rxWCfM6Rqg
+         zZKbrixug+C9Z/vHTL+3hjeokbli7hhlhU782Ctq4gtFk7idNQEGpHQC/UNqgkABzCG0
+         kSfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795165233; x=1795770033;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uRLlYOEziP+a1oXd/cGM2I2LC+HLInwDhPv3Q1J/hWc=;
-        b=qd7aUKY7e3HtLmraAwg2EpIvTmTY0XH+i8ZozsU3X9UcM/D4S3ybYJ6nGahmPj/JYY
-         JVCs4F33DRSaGzoij/fVZQ63/bb4qxeuvfpQrRALFliKQNFCWvN8iirQX8Q8kqQc70jf
-         W7q5bDd8eOV4BUrupjKZhQ65CKcDGO2Ew5PJRrOBV2u0YceULkV1rBwAhUy1qQXKd5fw
-         pdlTri+2at4D1PyaMngVpz8i/ZaUXjvg1FQUsz3SugSGnc2aU5QNa5WwSbFiCki6cdXw
-         DUmurjF31BURvyqimZmam3Ukt1CM/LEb3BkhNrw7LhvXEsONlueGxPL1Sgn4EohF24Pu
-         4bnQ==
-X-Forwarded-Encrypted: i=1; AL+hErFxTLlVLgijWbg/1kYvzNE/ZRT9pGlS9klr+SM+AXJnC2R9nrMnBe7v+YUcI294HcuIk5OwWHmetpV8mlk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/szs9NXD3e3sNQi+3mcVhfdr4DWcjhGXkK9aCgk1Zl4GN3kSjb
-	0AkEDbZl4f+KAqj56J7zWeEWWyqnJ1Phm9J4hKJB/UkrFOYU3UlC6m7m
-X-Gm-Gg: AYBFou1UVgX+aZ4tveoXeX6C9YQgj5LhU1ZH4v81YVqPvlVFnk0MSI3wcmrXIYKNwVe
-	Kx/xoOCCcuBpOEdplhBZKD+wkDIRtKQeVEExsjzAeMg1zd3Mbmj1B2Z+EzMNblT9CBC/KPgdXzo
-	DjwF1RIAxK/ahVaIxJuSwhn9juJZDMMbXdI0PfQ/8zR9Feqpr2SS8lQ/w6RbjQC5vvi5rzR+9GW
-	qrkLmlSheUTN4027ZfS9QXHoPaZGglleK1/khNTNZYU6EnOE2zmCk/tQINIq6VjBw4L/yZtCysB
-	pvSNiNmP+FqkxTQCJv5rwe59rV3sMY3VF0aHuVNnXUONyJPGioZR211dzChu86YHn4sVErDHBnn
-	PrPPfb9CrdZBLGHOcFgOTXa+jbZ1yJJEsAgWmioEphD6ionmSO1IivtMUWisykDLZ4Rixa3eHvR
-	M8oxrQGBre0RuQS47bs1Wrol0G8FZp2zGG8Q3/+0Hq4MR0gIkxyzjOOEUyYuhxzcDvl2NXQkhZu
-	xpWlAGB/V4td8M5+bO3h1R3BMMPvWerhAwf/qYbgrzyCWGOEJKayZv9Qs40NoE0EW5XzcTLw74f
-	TZdJ0d3p8ahTZdDFZXkpvxuf1wQRUiE8FNNHYpyXiL2w4brJ2MI4HMMlY2hxyCdO0h791jTVJtY
-	iszV+6mugBhBF7mD/u4uBfNpg4c5wH2XSTK1FKg==
-X-Received: by 2002:a05:701b:2616:b0:1b3:ba92:145a with SMTP id a92af1059eb24-1b5568e0a27mr2106719c88.19.1795165233115;
-        Fri, 20 Nov 2026 01:00:33 -0800 (PST)
-Received: from localhost.localdomain ([98.148.34.5])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b55681301asm5189502c88.8.2026.11.20.01.00.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 01:00:32 -0800 (PST)
-From: Hungyu Lin <dennylin0707@gmail.com>
-To: tony.luck@intel.com,
-	reinette.chatre@intel.com
-Cc: x86@kernel.org,
-	Dave.Martin@arm.com,
-	james.morse@arm.com,
-	babu.moger@amd.com,
-	ben.horgan@arm.com,
-	fustini@kernel.org,
-	tglx@kernel.org,
-	fenghua.yu@intel.com,
-	josef@toxicpanda.com,
-	linux-kernel@vger.kernel.org,
-	dennylin0707@gmail.com
-Subject: [PATCH v2] fs/resctrl: Use open-time credentials for task move permission checks
-Date: Fri, 20 Nov 2026 09:00:22 +0000
-Message-ID: <20261120090022.44526-1-dennylin0707@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1795165259; x=1795770059;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PZieRENVmUX5OHXGvmzJIcsoS8CWVu3mfuhhXe7ha4o=;
+        b=GYm0cyzSutSECxyJkcQ8yqox37e+5SdMrbjpqagIzMkiyfb4MFC4VtJjabA+htT7aQ
+         YruL+1eJJKerw84obd4Vled5Q37dhcKHvAXFwQYQaIcVJa12OdrWUBWtQSgPLJDeji4B
+         mYAIci/f3/ztIDLuzPhE+DRilzlPqPM5gBzcT3mLMZaWHtUeiyRptXzGh9+GBLixzUbg
+         isIrwTK57EJ2W9Ow2DFPHO3Ehi3Yu146RJsdelfTELBDhLMPD5r3O1atE/x4WlkLRCV7
+         bbgOYbR/zAZMZzYm4Y9ODIPax43dBRBAQOyEBnaMheSJmVskCNDbBSzjd3wz4oJzjVWh
+         AImQ==
+X-Forwarded-Encrypted: i=1; AL+hErHPf89A3u1BsucAEDaQxG6I+B7ZUEBWjuOFP2yw5KDMW/V5wNHG2Zai9ZPsbzxuP7ie310EcNpGWUi7VuY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uaWRcXJ0vrE/myoPNW+9NxHNr0qykHJ2SsHUtWUP+ijKGgf3U
+	VI5uUJ/v3GvW/E+CKZboLQFjgxYml1+cp2imwOBu8jsY4PSpeSgk7BXNpkB0OZzKv2AEhlS45s8
+	UMvZ/xuIcNhv58AMWfzXCygD+ecczzK+mz9oeEOBcrA==
+X-Gm-Gg: AZFdTZekYTRC+Dhcz8abDx8TPYLLPOakDdoVQRC/SHGfxsX6YsGfF4QVMks5ZhEsptI
+	S/vbm2ZW+HUuN5lHrTAEFQS3tqBPMAqCZmzDKZCQCImdDWSDV4atRbEsf12AdONMNCWraypsOlJ
+	CJwqhG0cmeVEzXZ4mecpmu0UbopZM9+xHYGpRcGUGqEEeZEn5Jhf5f+LSbMhtvUVq0n+glvvFih
+	UWdX+u9zd/psO5Al1h6JNhfVcoK9bcjcw9plAjsYa2xjT3q8u3zyiBNgXtSG3hGK2co9Lvmx0tY
+	9bc4rgDOIxMCuGF4QlMnS9z/KD/fjL+xrJwkXFzLwhgymNrqkL0jIUoj3oOnif6QXVs49inhSwH
+	IP542etJy9562kmZNUI1O5ggaxFYnwfjzhIzK
+X-Received: by 2002:a17:907:2d9f:b0:c50:f0f9:ad74 with SMTP id
+ a640c23a62f3a-c513a99aa4fmr235834066b.9.1795165257779; Fri, 20 Nov 2026
+ 01:00:57 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,48 +104,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261120055248.913352689@linuxfoundation.org>
+In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
+From: Takeshi Ogasawara <takeshi.ogasawara@futuring-girl.com>
+Date: Fri, 20 Nov 2026 18:00:41 +0900
+X-Gm-Features: Aa3M54rlZA_OBwjiZKWCvnO1fS0Oy5SCnCxiMl_HpsSggZDP4dM965l7S2Cnigk
+Message-ID: <CAKL4bV6kN20uHLeG=ZV3FHe2HghsA-yRp3+YgCVgTvGybek5Hw@mail.gmail.com>
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
+	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+	rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, 
+	achill@achill.org, sr@sladewatkins.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Writing a PID to a resctrl group's "tasks" file moves that task into the
-group. Whether the move is allowed depends on the PID written, so
-rdtgroup_task_write_permission() checks it at write time, applying the
-same cred_ids_allow_move() rule as __cgroup1_procs_write().
+Hi Greg
 
-It checks current's credentials. That may allow a less privileged
-process to trick a more privileged one into writing into a fd that it
-opened. Commit 1756d7994ad8 ("cgroup: Use open-time credentials for
-process migraton perm checks") closed the same hole in cgroup by using
-the credentials saved at open time. rdtgroup_task_write_permission()
-still uses current_cred().
+On Fri, Nov 20, 2026 at 3:04=E2=80=AFPM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2642 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+>         https://www.kernel.org/pub/linux/kernel/v7.x/stable-review/patch-=
+7.3.6-rc2.gz
+> or in the git tree and branch at:
+>         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable=
+-rc.git linux-7.3.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
 
-Use of->file->f_cred instead, as cgroup1 does.
+Linux version 7.3.6-rc2 tested.
 
-Fixes: e02737d5b826 ("x86/intel_rdt: Add tasks files")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
----
-v2:
-- Rebased onto commit 27369da9c651 ("fs/resctrl: use
-  cred_ids_allow_move()") in linux-next.
-- Dropped the comment change.
+Build successfully completed.
+Boot successfully completed.
+No dmesg regressions.
+Video output normal.
+Sound output normal.
 
-v1: https://lore.kernel.org/all/20261107093253.62518-1-dennylin0707@gmail.com/
+Lenovo ThinkPad X1 Carbon Gen10(Intel i7-1260P(x86_64) arch linux)
 
- fs/resctrl/rdtgroup.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+[    0.000000] Linux version 7.3.6-rc2rv-gd6a022cc5dc8
+(takeshi@ThinkPadX1Gen10J0764) (gcc (GCC) 16.2.1 20260810, GNU ld (GNU
+Binutils) 2.47) #1 SMP PREEMPT_DYNAMIC Fri Nov 20 17:29:14 JST 2026
 
-diff --git a/fs/resctrl/rdtgroup.c b/fs/resctrl/rdtgroup.c
-index 6e81b58e4cb8..c9b35fc2b513 100644
---- a/fs/resctrl/rdtgroup.c
-+++ b/fs/resctrl/rdtgroup.c
-@@ -725,7 +725,7 @@ static int rdtgroup_task_write_permission(struct task_struct *task,
- 					  struct kernfs_open_file *of)
- {
- 	const struct cred *tcred = get_task_cred(task);
--	const struct cred *cred = current_cred();
-+	const struct cred *cred = of->file->f_cred;
- 	int ret = 0;
- 
- 	/*
--- 
-2.43.0
+Tested-by: Takeshi Ogasawara <takeshi.ogasawara@futuring-girl.com>
