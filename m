@@ -1,54 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185334;
-	b=Ind0Mn3wpR27RA2YJN4RFMJUYUCHYhRlBQtDcdsuXAzRU38bjcTm5eDtD07QS2GsF4OU
-	 kMlXuIiHMXdTgpwZe5CpMEqdhGOU3KX7ftFGsFgXR56noqBI3PoyAuU1M8CvRsipNxVbN
-	 1vLLmi3yeot5BKozK2b/FkmP69Zjj5o+Usmtp+a7A43SNnJkYbJMqlu8GcdgFnHHNpT11
-	 41nxG8AHwCTbd3VnDgnxtgP9XpVFId1iDR0GhtfbKr2vw7P6lper7cVc2MWRqwt8i/l/y
-	 uNz/w95vhJzvo2AqM9DQNORUTfhZg+REn23775eLsX08EBKE7NmHFe49OMS64ENwhag==
+	t=1795185378;
+	b=4rsm1foqnkpu+T54GblDZWTH64ZsrcvUp+CzjnhT85jZVkSUX3w8uZrU1cv4NonVLLWz
+	 xAjZ3b+KMOLRa9As7hWYgrkzwJWCbB7M1ejM0uMpBwuRjL0Crr6O6498CG1HW7hq3Hd9x
+	 YpQ1Sp//bdqpRH7uSK63qsRZIya68IbZUiY4ZmqIu1+xCZPtzrxQn+FNZkdDWrARGNZOl
+	 FoiAUSS7g332dcXjghKXNwD9lHjNXbp49wIqhOFf+iDeXYzquF8C7UHZiCooTnIbRXcUP
+	 0vSqWs6GHbYch4sB8KSc+STuL3Qobx8vfKzZpTbv2kE139CfL4+20glcVgRkyJrMxkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185334;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=/FdR1q9O9I2L2zxw02LwOzMzKMzS0D65RjqrFU2qEZA=;
-	b=QucRmHiY83sLWD3erlqBLOuHTghvbpli9EofgifSvrC6C1CBr8n1k0TGOanfQLmjU+Ga
-	 RON8FmjK2RMQ6dZe+3IP8cMG6VifDS1mcZFO30Zul49sd94lg+w2bL2HzGVkaFCfw7YSU
-	 6bj2vvaln2VW+oeS2H1X+Bfqw5Y5fv8F9YdUjz63GMHUoe1F59tTDj+4SNgYOHMdbhhH0
-	 1wWeWEZNA6dgQcXQJfoWjzJ80ZdeHY499z0ejRmiUMi8Ue3mBz4pKMQij/eGL3WrwkXVl
-	 sbuzuiaA8AIrc15cdTj+YD203/91IednD9gewm57Aqg/9QAZgRvJkTCaegtNqjieH3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185378;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
+	b=SXbV2UmOan9DT0ZkCT6fAX+8M0In42eG3MPoqKJ+Ti/EbDZ0BdKuqYlaRxcHqj3qFZIE
+	 WV6Ps4CHTkT3rTdg3CHME/D6b+qbbdfTqC4qpAnK/+lfUWG4ufGlI2edMJRqFguDfYVPb
+	 2gB/hB7w/rjY/2kNKnldwKkgdfdXUjbbHXWDIVkHVDGMM+Y5a4x8SnjFWrxvZ9BBqIDLl
+	 0sOq4mXgnAy9zqBpdagCR/hBZkiEJ/3oCH+fvFwBq8wd6MGKjERet6tWJAsr/QlTE+4Vj
+	 gemtetjuOGn4Q2VMRTuL3ViAlXNlsDQ2aZR7hnKcsJ0o5x4VeyGi1qKekJG7bimU8Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B5aTzMzw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="RF/8DK12";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03C24606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:35:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BA5606A320;
+	Fri, 20 Nov 2026 14:36:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B5aTzMzw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1D8E1F000D3;
-	Fri, 20 Nov 2026 14:35:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RF/8DK12
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634851F000CA;
+	Fri, 20 Nov 2026 14:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795185333;
-	bh=/FdR1q9O9I2L2zxw02LwOzMzKMzS0D65RjqrFU2qEZA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=B5aTzMzwj0L56nERf5V40KTzCopI5tEdklPnWaEE3mMgjcOXsjaXyQHm6Nw5Zucnh
-	 YLxH3bNmIuyHtdoniHwoj8Lri3pHtSC9kkYO2V9uT4qhY5qU9ealm/ppUhffgK7fAT
-	 AeujDuTX0ENNhGIYYwJZp57ZBAzOQZhss/jcf/XFAMNdV6lfmhkWup6r0lMeYZEbwJ
-	 9REc3/g/wFcOfjpWPEmHD4pVhgWjpDwamjcKR8ZAZEuCabkDxgImJ11Y/oMBNTZCu6
-	 Xno17w/OVWBC5K53fMAA428euutdSc9rL8OlLId8e1dNZ2gutPaIaLBopJR6Q1Q0mt
-	 VDSfaIAJbnOHA==
-From: Mark Brown <broonie@kernel.org>
-To: Victor Chernyakin <chernyakin.victor.j@outlook.com>
-Cc: linux-kernel@vger.kernel.org, Andy Shevchenko <andy@kernel.org>
-In-Reply-To: <SN1PR12MB2528812E26B65457239E9EEDA57F2@SN1PR12MB2528.namprd12.prod.outlook.com>
-References: <SN1PR12MB2528812E26B65457239E9EEDA57F2@SN1PR12MB2528.namprd12.prod.outlook.com>
-Subject: Re: (subset) [RFC PATCH v2 0/2] regmap: add APIs to bypass
- regmap_field and work with reg_field directly
-Message-Id: <179518320476.6016.16423558619154368104.b4-ty@b4>
-Date: Fri, 20 Nov 2026 14:00:04 +0000
+	s=k20260515; t=1795185377;
+	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RF/8DK121mnm1zavjVGPB5fyWIqpsPt3RkMcjQSO7nVuLPyzhULSY7VJ8tgWd92Wp
+	 m5/EkyNoU7Wy4FnigM6acB0fR/zU0d3cp8AC20ZBhGM89M7sbu+VtMLyw7smiDGJ7o
+	 qmEKeFVaAhuRrAiQ+TtwLA1QhlytBk+Rsa/JEFprCx9SYgRIT8gVSpAjDxclmIO0rp
+	 GLaWW4nrUAxaPB1Jp2uViccsPQI9r+3tNEFsHjAkkI8hAsb+Y/lNbK9SIufkMhzsWe
+	 1kZV6p0c5oYrljsBgA65aUmPYzUz4Xzgg/0LNXnoqGa/PAie0cI8Ui6afRuhiln2Dv
+	 Hox4znu0xNXxQ==
+Date: Fri, 20 Nov 2026 14:36:06 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Luigi Rizzo <lrizzo@google.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Jens Axboe <axboe@kernel.dk>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
+	"Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
+	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, Matthew Wilcox <willy@infradead.org>, 
+	Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Simon Horman <horms@kernel.org>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
+	Willem de Bruijn <willemb@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, Christoph Hellwig <hch@lst.de>, 
+	Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
+	netdev@vger.kernel.org, linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
+ for DMA and CoCo
+Message-ID: <awBaxljohIuCg-UY@gremlin>
+References: <20261109182533.3594984-1-lrizzo@google.com>
+ <20261120010655.467825-1-lrizzo@google.com>
+ <20261120135013.GO3115493@ziepe.ca>
+ <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,56 +86,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1648; i=broonie@kernel.org;
- h=from:subject:message-id; bh=K0ynlG3BDXTJwCrALZ6g9wprnzm0zkDKhJw8Qil5l4g=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZojYFeBROun3qzokskbXvP5xXlvmW7ROc8DNtUfBJh
- 8y8oMOnOkpZGMS4GGTFFFnisrhf1pe8XsN3cGEbzBxWJpAhDFycAjCRcGeGvxL7phl+dp5bmD5j
- 1zVWfWkLazXzJWFVORMeVz8+oD9hUy/Df5cv1zcwfGqqrlnyeJ6FieBfhZ02ER97W5ekbXZp3tc
- sxgIA
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
 
-On Fri, 13 Nov 2026 00:55:44 -0600, Victor Chernyakin wrote:
-> regmap: add APIs to bypass regmap_field and work with reg_field directly
-> 
-> Working with the existing regmap_field_* APIs requires you to define
-> a reg_field, then use one of the regmap_field_*_alloc functions to turn
-> it into a dynamically allocated regmap_field. But reg_field and
-> regmap_field are practically the same struct; all the *_alloc functions do
-> is shuffle the data around. So this RFC proposes adding functions that
-> cut out the middleman and take reg_field directly. Patch 1 adds two
-> of them: regmap_reg_field_read and regmap_reg_field_write.
-> 
-> [...]
+On Fri, Nov 20, 2026 at 03:19:34PM +0100, Luigi Rizzo wrote:
+> On Fri, Nov 20, 2026 at 2:50 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> >
+> > On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
+> > > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PISA
+> > > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
+> > > Documentation/core-api/pisa.rst (patch 25/25), which has the details.
+> >
+> > I thought the conclusion was to just do this stuff in netdev pagepool,
+> > now you come with an enormous AI series spread across the entire
+> > kernel?
+>
+> There were surely comments claiming nothing outside net/ cares or needs this.
+>
+> I respectfully disagree, witness is the fact that e.g. there was already an
+> io_uring proposal which is smaller, but does not address applications
+> that want to use the standard disk I/O paths (libaio, buffer cache etc)
+>
+> Nothing has changed from the initial series in terms of size, use cases or
+> subsystems involved. Large files are placed where they should,
+> the series covers the same three use cases (disk, network, CoCo), and
+> touches three parts which it has to touch: mm (most of it; it is a
+> memory allocator
+> extension after all), dma (it hooks into map and unmap, not a large change)
+> and net (the pagepool change is a couple of lines; the tx path needs to
+> touch more places because the current stack assumes all paths have
+> the same I/O requirements).
+>
+> For CoCo, there are very fine grained controls so the bounce buffers
+> can be enabled only when they don't pose a risk, which in turn
+> depends on the threat model.
+>
+> Specifically, for network tx buffers or disk writes, the user-to-kernel copy
+> is basically a bounce buffer provided it is used correctly and not leaked
+> elsewhere (which is the design; of course the implementation
+> needs to be verified and possibly fixed so that it matches the design).
+>
+> cheers
+> luigi
 
-Applied to
+NAK.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regmap.git for-7.5
+Cheers, Lorenzo
 
-Thanks!
-
-[1/2] regmap: add regmap_reg_field_* APIs
-      https://git.kernel.org/broonie/regmap/c/39e628387d32
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+--
+Cheers, Lorenzo
