@@ -1,96 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174804;
-	b=2kDniQdl/0xTt0/imsoNTbY/PmS5z4u4rxhggptwIZmIcAiDRNvpP3byd11KWDjS/CAe
-	 527wHqZqQOzmDaWsTkcBV53CDif4WSoP5g3sysjmOCKk4+uuBOusn7aV9cXcKtpkL4U1J
-	 CuejmK/FKs9fTv294027RcXsm4rfL0craKNOoqN2jOqNAWsXfaW8NiOy+z7oVX9XaCPRA
-	 OmuOUX8+pVIN4MtGZikBgUVs1zv5WtdolVyAjbZndAIc6XcEH3fhKLhKosI+FjuPBt3J6
-	 IuFpbV/NI43hZvWBOLHT4kiFsTFmeiQeA3DMA0wSUIb94GAVf2vzAKUkV1DTTeOUCyA==
+	t=1795174815;
+	b=hObOGs4F1C9yq1PqDBI4UCUUgKa5oXdaExxIAAAIzWhmRyctWXFkE4gdcOmqfRwWikgp
+	 byYID9sQK5EVUMdn5t66plAdDutE6OIYLZ7jgQ1DGTduRKobAwkfUkpyidcP4pnoCa0jj
+	 kq4LN43FbVcn3ZvdeOjAt9mkHpyyW64pXbCqOY8O3SX7Bon0GXri2mMZFJZTl6h+u4BsX
+	 Kbqbht6jTVTcXjMkZYMaBO9movW4sHwT3ew4QK4/lA8upwbv9kjcC8/bfwoMUawzDY3G5
+	 FD24qIOMgTIANA7PKlnXB5JFZQhY9fVwZ2L8igdIzerf56ka65WXdpYivAZvJEEYlkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174804;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
-	b=p5Mcxq4rN77TLoy2TI9wlewHuEYG8HvlcT2QdlbjQhrXXSeRZfTiENGVZ7PMCLESTgkZ
-	 IaH4PUVqy6hhUF1Yl/3a9fwyko9cXbaJiHMB7dkqkXlYeMw9mYiOCZXFWhd0rhq41I+Pt
-	 71xYJwUe7iVmA3opGrAPUuwN91piSxDT8VjlE5o8EU5KQdRDiybayCD+8Z9yHYzWc7Q9U
-	 MiWicKI2OVwky+ngadlIt9XtB8fZ1eqb4WnlH9A1RQ9f+gL4+ndnktVzGRV4MyC9rBsVW
-	 OFLpq2oFuxkhMaHld/Eef22w06yJNtTR6ybgHg9zTK7oJ7gcKSy2+tfMdFyw53spZjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174815;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=i+lg4nLC+uzFLi4OFxqGmkndCe2y/4xpXOrngpW21MQ=;
+	b=lcv9K9fBTCqLaw5E/o1Ci1rjggCNmjDZKWF9/sk6CX7m6DPCniiqfT5Xs7DvVLCMomzf
+	 t5nXUNNovSzhqSH7Wyfx0AhWgSA7d1xQAA+6iXzqQvG+vKwk2xhPahBhMC8IHTASR6+3C
+	 9PUYU3ZcFMDRPgec8O/pxSnZqwMOw0ZSGxUHSUYieBX3zQoeTqTrLuFirhO6XTQkYD5FA
+	 13s1lLjCvGfKi6GD/qX4i+cWg9Onu5JfX5LDXQ4kaUhyZFS52wqyl5Iqmqpj6qSRPDAs9
+	 LF/lOSRiqrYGRfW+G33MOSEOpwX+azWePsRwwmFsOHDLrersrb3n9qv+b97e7IinNMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lUlAVEGt;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CwdKajE7;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A081C606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:40:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A081C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20410606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:40:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20410606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lUlAVEGt
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b10ca4e3f9so463596a91.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:40:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795174803; x=1795779603; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
-        b=lUlAVEGtCzgQoqRaac1b9s6fKHZs3qxeQ9EPPmSA8N9uuHg0iwfUQsKNtKz1c1OLE5
-         whOj1BCqqbGngi+8dwLzQ/0+MDnBzsiDBsSn6tQHvk46/J95vSB8A3m5Ylsr31WFry4u
-         PKkRVhGqemZNfNRHKuZFQMve81yAhNW6lzGCYIPRjobnJ55776QfXwTAf8L+dj4ryOIT
-         mT4oBNfqrbYORbQ6I9SLlP6lzmcIXSrvyiMAhixboxEuviYVNvp3hhnhpx/v0iswyj6Y
-         2nFXe+Bf4t0T72YtcRygi23Lbnqx1bY1beSmZUOoE6Ikf2v0e4MNoZjEpEBhataizVsk
-         zxlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795174803; x=1795779603;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
-        b=nKO474tACYYrZP5xq1o9/zFzQvb6+fy7bsAuU9dfvJuLK4ZUsjOcIqzWLldTKjmbJz
-         Q52MCAT81gG17SPS088zpgmaKY6hsHMKX2HTngYG/tqKCb3qTFp/ARjME9HC/MAF9C9e
-         Hn1JPBzxw40hAmjDjRmRPm4VPJQg1JZ6KJraBk0mGCMwMKaOSPOyaaEWGsKYxf/2ynxN
-         QH8wu1BWtW7juI4F5vLLcwYseFJqah0RMKZnwn4greQpdSHnx3D+rI7IoAaEUzbTvigW
-         3vRwRaFEdiGbKs66JW55e/agLgJUYE138QBQb9QcNjtI/1QQ+USA61RYmj1vPkv9hoxG
-         ONWA==
-X-Forwarded-Encrypted: i=1; AL+hErHrxNgxki25GduTx5u69KpUUPo0P9GhFzW/UgXdIlfajbKHEWVCTmsoQLTnKe23EgO9JyUAwXpducjV3hI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DjpFgP6N8XT3eT3eaqD8YO7cGaysDg82sSOqrwHml2Ep1pl5E
-	bNpxZPq2BvyznCo+EMHkLuxZOlrfkpxePAKoOvGtroMqLB5kMkz9hDvi0sR+NCQKIiw=
-X-Gm-Gg: AZFdTZdKZVRs1Y5MrV8Ge3AMF/oXKTx+bTq6/6k3/mo7RS2JZNfyEYb03heGH3z5Yuu
-	InEuiW0kcTZxabrv+ysNgFQsEDsWSvqjbNnaTct5AADv3UvCauUyR012Fn23kxBj2U8GL+HdBTc
-	W7AeFuzfO3lBqGOZt++kpGNhvcbAfnG5iImiyyBITA0iu0ZhbG94z9OTRTXf/g7dkDW+Sz2yEUN
-	Gml3jrQCJgGQMGuglP5KpnGI+4gU7KFTVm3wSZY0G2Du/hjdG78rDYhdNV6sR6PbTH6GIqT67zD
-	vnLYCtrMJYw+GL0TLqKB8lQX/FRjb7VgddM197G/Vr0lzGgsSaO9hxjluBEX7BqsoD5+E5w+6yj
-	WeSAs2I4tftndtkoUJ24bORG+n0yFDT9uEYl9dMDAWgFAMppzVxhP2j1PnemMxZCHMrdFuTydSA
-	UZ+iXVFeg+cyU2DhHakEHUMvGJc/zLp/X/6gQLxl52IOQawniaTFsGzHBJ1rkoxbKA+B3QegQbT
-	EGcEtNawqF5ubUTY9U3tLN5EW9CRfdHQpuVqkVUpGQGa42NYNMthwW28zBnMNkz0RL2mTaLxtTT
-	1lPI0MuNoc/+HcLrKYtum+VSmJjDL6KtuhwLuhNe4rMhpgwXrRjnNNJeKOnkTh7U3McKVSVWPfM
-	X4WS56nFVIzPC9eqxNCCO5kPlSV9snUShkylc
-X-Received: by 2002:a17:90b:3fc7:b0:3ac:7874:639e with SMTP id 98e67ed59e1d1-3b41caf5efamr2323448a91.46.1795174802943;
-        Fri, 20 Nov 2026 03:40:02 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea748csm1173293a12.4.2026.11.20.03.39.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:40:02 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: gregkh@linuxfoundation.org,
-	nkapron@google.com,
-	linux-usb@vger.kernel.org
-Cc: Thinh.Nguyen@synopsys.com,
-	bigeasy@linutronix.de,
-	target-devel@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=CwdKajE7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id BE5351A1745;
+	Fri, 20 Nov 2026 11:40:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 91D7E6017D;
+	Fri, 20 Nov 2026 11:40:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0611911BC0D5A;
+	Fri, 20 Nov 2026 12:40:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795174812; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=i+lg4nLC+uzFLi4OFxqGmkndCe2y/4xpXOrngpW21MQ=;
+	b=CwdKajE7lKA73pERdXGhkhjOnFq4zf2OZ6deEZ2cNLn26gJ1EA4bVAnhLI7aMg9f1CJKZ5
+	/MMXwVoENfejf17XgGPmEjlZIGca7K42MwNIijCujRBSX1z4azdIhjzhODTdo4dJIs08Ut
+	vx3oQvwUU9kWPPNskWFUwdKtswEcR6fTESo7mlLLor67Yhl0bvoZodgtFEQ1S+SF/0oxMO
+	Md1D8Gq70e6p/PDnOh/HJrih4FfHjX28NeWMbNd5KchrVjHOh+fezGzyU4sdHNkapm7HSc
+	fSXVOBfvHHyWQtlQpxFnfffjYhNEQ27yrriUZ/0P/YjhaHiNhTsuyFDv9dTzrA==
+From: Paul Cercueil <paul.cercueil@bootlin.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
 	linux-kernel@vger.kernel.org,
-	lgs201920130244@gmail.com
-Subject: [PATCH] usb: gadget: f_tcm: do not dequeue UAS stream requests in BOT mode
-Date: Fri, 20 Nov 2026 20:39:56 +0900
-Message-ID: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	George Cherian <gcherian@marvell.com>,
+	Sujeet Baranwal <sbaranwal@marvell.com>,
+	Paul Cercueil <paul.cercueil@bootlin.com>
+Subject: [PATCH v2 2/2] mailbox: marvell-mhu: add Marvell MHU driver
+Date: Fri, 20 Nov 2026 12:39:52 +0100
+Message-ID: <20261120113952.168265-3-paul.cercueil@bootlin.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120113952.168265-1-paul.cercueil@bootlin.com>
+References: <20261120113952.168265-1-paul.cercueil@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,87 +79,336 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-usbg_aborted_task() starts by reading stream->req_out->status.  The
-stream requests are allocated by uasp_alloc_stream_res() for the UAS
-alternate setting only, so in BOT mode they are NULL.
+From: George Cherian <gcherian@marvell.com>
 
-The target core calls .aborted_task() from target_handle_abort() for an
-aborted command whose CMD_T_TAS is clear.  A BOT command gets there when
-a LUN RESET arrives on another fabric that exports the same backstore
-and the backstore has emulate_tas set to 0: core_tmr_drain_state_list()
-aborts every command on the device, no TASK ABORTED status is owed, and
-the core calls .aborted_task(), where the read faults.  With the default
-emulate_tas of 1 the core sends TASK ABORTED status instead.
+Add support for Message Handling Units on Marvell OcteonTx and OcteonTx2
+platforms. The module uses mailbox controller interface to provide
+communication between SCP and AP using SCMI protocol over a single
+shared memory communication channel.
 
-Return early unless the function is in UAS mode.  A BOT transfer uses
-fu->bot_req_in and fu->bot_req_out, not the stream requests.
-
-Reproduced on dummy_hcd in BOT mode with a fileio backstore that is also
-exported through tcm_loop and has emulate_tas set to 0: a WRITE(10) has
-its data stage held while SG_SCSI_RESET_DEVICE on the loopback disk
-issues the LUN RESET.  Without this patch 3 of 3 boots oops as below;
-with it none do, and the write does not reach the backing store.
-
-  BUG: kernel NULL pointer dereference, address: 000000000000005c
-  #PF: supervisor read access in kernel mode
-  #PF: error_code(0x0000) - not-present page
-  PGD 0 P4D 0
-  Oops: Oops: 0000 [#1] SMP NOPTI
-  CPU: 1 UID: 0 PID: 30 Comm: kworker/1:1 Not tainted 7.4.0-rc3-FT9NNM-00395-g8dac6df92a2e #1 PREEMPT(lazy)
-  Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
-  Workqueue: target_completion target_abort_work
-  RIP: 0010:usbg_aborted_task+0x2d/0xc0
-  Code: fa 55 53 48 8b 87 e0 01 00 00 48 89 fb 48 8b 50 38 48 8b 52 30 48 8b 2a 8b 57 24 48 8d 14 d2 48 8d 14 d0 48 8b b2 58 03 00 00 <83> 7e 5c 8d 74 2b 48 8b b2 50 03 00 00 83 7e 5c 8d 74 58 48 8b b2
-  RSP: 0018:ffffc90000107e40 EFLAGS: 00010246
-  RAX: ffff88800540d000 RBX: ffff888006c6c870 RCX: 0000000000000001
-  RDX: ffff88800540d6c0 RSI: 0000000000000000 RDI: ffff888006c6c870
-  RBP: ffff8880053febc8 R08: 8080808080808080 R09: ffff88800491c218
-  R10: ffff888005031cc0 R11: fefefefefefefeff R12: ffff88807db295c0
-  R13: ffff888006c6c9a8 R14: ffff888005031805 R15: 0000000000000000
-  FS:  0000000000000000(0000) GS:ffff8880f9e92000(0000) knlGS:0000000000000000
-  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-  CR2: 000000000000005c CR3: 0000000003030002 CR4: 0000000000770ef0
-  PKRU: 55555554
-  Call Trace:
-   <TASK>
-   target_handle_abort+0x6b/0x130
-   process_one_work+0x19e/0x3f0
-   worker_thread+0x180/0x2f0
-   ? __pfx_worker_thread+0x10/0x10
-   kthread+0xee/0x120
-   ? __pfx_kthread+0x10/0x10
-   ret_from_fork+0x186/0x230
-   ? __pfx_kthread+0x10/0x10
-   ret_from_fork_asm+0x1a/0x30
-   </TASK>
-  Modules linked in:
-  CR2: 000000000000005c
-  ---[ end trace 0000000000000000 ]---
-  note: kworker/1:1[30] exited with irqs disabled
-
-Fixes: 76003eb6d09278 ("usb: gadget: f_tcm: Handle abort command")
-Cc: stable@vger.kernel.org
-Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+Signed-off-by: George Cherian <gcherian@marvell.com>
+Co-developed-by: Sujeet Baranwal <sbaranwal@marvell.com>
+Signed-off-by: Sujeet Baranwal <sbaranwal@marvell.com>
+Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
 ---
- drivers/usb/gadget/function/f_tcm.c | 4 ++++
- 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
-index 9e6d4f39900a27..57e2ec81f29a8a 100644
---- a/drivers/usb/gadget/function/f_tcm.c
-+++ b/drivers/usb/gadget/function/f_tcm.c
-@@ -1614,6 +1614,10 @@ static void usbg_aborted_task(struct se_cmd *se_cmd)
- 	struct uas_stream *stream = &fu->stream[se_cmd->map_tag];
- 	int ret = 0;
+v2:
+ - Add Kconfig dependency on PCI
+ - Order includes properly
+ - Remove duplicated macros
+ - Pass a pointer to the "mhu" variable to mrvl_mhu_setup_irq(), instead
+   of getting it from drvdata. Then we don't even need to set drvdata.
+ - Use devm functions unconditionally. This fixes an issue where
+   pci_free_irq_vectors() was called while IRQs were still in place.
+   It also allows to drop mrvl_mhu_remove().
+ - Use pcim_iomap_region() instead of pcim_request_region() +
+   pcim_iomap().
+ - Enable IRQ in .startup(), disable it in .shutdown().
+ - ACK the IRQ after calling mbox_chan_received_data()
+ - Fix register used for polling TX done
+ - Clean up macros
+---
+ MAINTAINERS                   |   1 +
+ drivers/mailbox/Kconfig       |  11 ++
+ drivers/mailbox/Makefile      |   2 +
+ drivers/mailbox/marvell_mhu.c | 239 ++++++++++++++++++++++++++++++++++
+ 4 files changed, 253 insertions(+)
+ create mode 100644 drivers/mailbox/marvell_mhu.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8f6f98acc8fc..06c49bef8390 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -15830,6 +15830,7 @@ M:	Sujeet Baranwal <sbaranwal@marvell.com>
+ M:	George Cherian <gcherian@marvell.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/mailbox/marvell,mhu.yaml
++F:	drivers/mailbox/marvell_mhu.c
  
-+	/* the stream requests exist only in UAS mode */
-+	if (!(fu->flags & USBG_IS_UAS))
-+		return;
+ MARVELL MV643XX ETHERNET DRIVER
+ M:	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index ab869769e278..62744399cdb8 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -195,6 +195,17 @@ config MAILBOX_TEST
+ 	  Test client to help with testing new Controller driver
+ 	  implementations.
+ 
++config MARVELL_MHU
++	tristate "Marvell Message Handling Unit"
++	depends on (ARM64 || COMPILE_TEST) && 64BIT
++	depends on PCI && OF
++	help
++	  This driver adds support for Marvell MHU controller.
++	  The MHU mailbox is used by SCMI for OcteonTX and OcteonTX2
++	  to control various aspects of platform operation like cpufreq
++	  or sensors. The controller supports single channel to SCP.
++	  Say Y here to build this module. If unsure say N.
 +
- 	if (stream->req_out->status == -EINPROGRESS)
- 		ret = usb_ep_dequeue(fu->ep_out, stream->req_out);
- 	else if (stream->req_in->status == -EINPROGRESS)
+ config POLARFIRE_SOC_MAILBOX
+ 	tristate "PolarFire SoC (MPFS) Mailbox"
+ 	depends on HAS_IOMEM
+diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+index 45dc59bb3e7f..83b26e7bbd27 100644
+--- a/drivers/mailbox/Makefile
++++ b/drivers/mailbox/Makefile
+@@ -49,6 +49,8 @@ obj-$(CONFIG_BCM_PDC_MBOX)	+= bcm-pdc-mailbox.o
+ 
+ obj-$(CONFIG_BCM_FLEXRM_MBOX)	+= bcm-flexrm-mailbox.o
+ 
++obj-$(CONFIG_MARVELL_MHU)	+= marvell_mhu.o
++
+ obj-$(CONFIG_POLARFIRE_SOC_MAILBOX)	+= mailbox-mpfs.o
+ 
+ obj-$(CONFIG_MCHP_SBI_IPC_MBOX)		+= mailbox-mchp-ipc-sbi.o
+diff --git a/drivers/mailbox/marvell_mhu.c b/drivers/mailbox/marvell_mhu.c
+new file mode 100644
+index 000000000000..9b618b3fe276
+--- /dev/null
++++ b/drivers/mailbox/marvell_mhu.c
+@@ -0,0 +1,239 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Marvell Message Handling Unit
++ *
++ * Copyright (c) 2023, 2026 Marvell
++ */
++
++#define DRIVER_NAME	"marvell-mhu"
++
++#define pr_fmt(fmt)	DRIVER_NAME ": " fmt
++
++#include <linux/acpi.h>
++#include <linux/device/devres.h>
++#include <linux/interrupt.h>
++#include <linux/mailbox_controller.h>
++#include <linux/pci.h>
++
++#define SCP_INDEX	0x0
++#define DEV_AP0		0x2
++#define SCP_TO_AP_INTERRUPT	2
++#define INT_VECS_MIN	0
++#define INT_VECS_MAX	3
++
++#define XCP_ADDR(offt, xcp_core, device_id) \
++	((offt) | ((uint64_t)(xcp_core) << 36) | ((uint64_t)(device_id) << 4))
++
++#define DEV_TO_XCP_MBOX_LINT(xcp_core, device_id)  \
++	XCP_ADDR(0x000E1C00, xcp_core, device_id)
++
++/* The transmit interrupt status register */
++#define AP0_TO_SCP_MBOX_LINT    DEV_TO_XCP_MBOX_LINT(SCP_INDEX, DEV_AP0)
++
++/*
++ * Doorbell-Register: XCP(0..1)_DEV(0..7)_XCP_MBOX
++ * Communication data from devices to XCP. When written, sets
++ * XCP(0..1)_DEV(0..7)_XCP_MBOX.
++ * PS: it doesn't matter what is written into this register,
++ * Attempting to writing 'anything' would cause an interrupt
++ * to the target!
++ */
++#define DEV_TO_XCP_MBOX(xcp_core, device_id) \
++	XCP_ADDR(0x000E1000, xcp_core, device_id)
++
++/* AP0-to-SCP doorbell */
++#define AP0_TO_SCP_MBOX         DEV_TO_XCP_MBOX(SCP_INDEX, DEV_AP0)
++
++/*  Register offset: Enable interrupt from SCP to AP */
++#define XCP_TO_DEV_XCP_MBOX_RINT_ENA_W1S(xcp_core, device_id) \
++	XCP_ADDR(0x000D1C40, xcp_core, device_id)
++
++#define SCP_TO_AP0_MBOX_RINT_ENA_W1S XCP_TO_DEV_XCP_MBOX_RINT_ENA_W1S(SCP_INDEX, DEV_AP0)
++
++/* Rx interrupt from SCP to Non-secure AP (linux kernel) */
++#define XCP_TO_DEV_MBOX_RINT(xcp_core, device_id) \
++	XCP_ADDR(0x000D1C00, xcp_core, device_id)
++
++/* The receive interrupt status register */
++#define SCP_TO_AP0_MBOX_RINT  XCP_TO_DEV_MBOX_RINT(SCP_INDEX, DEV_AP0)
++
++struct mrvl_mhu {
++	/* SCP link information */
++	void __iomem *base; /* tx_reg, rx_reg */
++
++	int irq;
++
++	struct mbox_controller ctrl;
++	struct mbox_chan chan;
++};
++
++static irqreturn_t mrvl_mhu_rx_interrupt(int irq, void *p)
++{
++	struct mrvl_mhu *mhu = p;
++	u64 val;
++
++	/* Read interrupt status register */
++	val = readq_relaxed(mhu->base + SCP_TO_AP0_MBOX_RINT);
++	if (val) {
++		/* Poke mbox */
++		mbox_chan_received_data(&mhu->chan, (void *)&val);
++
++		/* Clear the interrupt */
++		writeq_relaxed(1ul, mhu->base + SCP_TO_AP0_MBOX_RINT);
++
++		return IRQ_HANDLED;
++	}
++
++	return IRQ_NONE;
++}
++
++static int mrvl_mhu_send_data(struct mbox_chan *chan, void *data)
++{
++	const u64 doorbell = 0xff;  /* Arbitrary value, SCP requires a value */
++	struct mrvl_mhu *mhu = chan->con_priv;
++
++	/* signal SCP */
++	iowrite64(doorbell, mhu->base + AP0_TO_SCP_MBOX);
++
++	return 0;
++}
++
++static bool mrvl_mhu_last_tx_done(struct mbox_chan *chan)
++{
++	struct mrvl_mhu *mhu = chan->con_priv;
++	u64 status;
++
++	status = ioread64(mhu->base + AP0_TO_SCP_MBOX_LINT);
++
++	return status != 0;
++}
++
++static int mrvl_mhu_startup(struct mbox_chan *chan)
++{
++	struct mrvl_mhu *mhu = chan->con_priv;
++
++	/* Enable interrupts only if there is client for data */
++	writeq_relaxed(1ul, mhu->base + SCP_TO_AP0_MBOX_RINT_ENA_W1S);
++
++	enable_irq(mhu->irq);
++
++	return 0;
++}
++
++static void mrvl_mhu_shutdown(struct mbox_chan *chan)
++{
++	struct mrvl_mhu *mhu = chan->con_priv;
++
++	/* Could be using SCP_TO_AP0_MBOX_RINT_DIS_W1S if we knew where it was */
++	disable_irq(mhu->irq);
++}
++
++/* Define operations related to mbox */
++static const struct mbox_chan_ops mrvl_mhu_chan_ops = {
++	.startup = mrvl_mhu_startup,
++	.shutdown = mrvl_mhu_shutdown,
++	.send_data = mrvl_mhu_send_data,
++	.last_tx_done = mrvl_mhu_last_tx_done,
++};
++
++static void mrvl_mhu_free_irq_vector(void *d)
++{
++	pci_free_irq_vectors(d);
++}
++
++static int mrvl_mhu_setup_irq(struct mrvl_mhu *mhu, struct pci_dev *pdev)
++{
++	struct device *dev = &pdev->dev;
++	int ret, nvec;
++
++	nvec = pci_alloc_irq_vectors(pdev, INT_VECS_MIN, INT_VECS_MAX, PCI_IRQ_MSIX);
++	if (nvec < 0)
++		return nvec;
++
++	ret = devm_add_action_or_reset(dev, mrvl_mhu_free_irq_vector, pdev);
++	if (ret)
++		return ret;
++
++	mhu->irq = pci_irq_vector(pdev, SCP_TO_AP_INTERRUPT);
++	if (mhu->irq < 0)
++		return mhu->irq;
++
++	return devm_request_irq(dev, mhu->irq,
++				mrvl_mhu_rx_interrupt, 0, "mvl-mhu", mhu);
++}
++
++static const struct of_device_id mrvl_mhu_dt_ids[] = {
++	{ .compatible = "marvell,octeontx-mhu" },
++	{ .compatible = "marvell,octeontx2-mhu" },
++	{ .compatible = "marvell,cn10-mhu" },
++	{ },
++};
++MODULE_DEVICE_TABLE(of, mrvl_mhu_dt_ids);
++
++#define PCI_DEVICE_ID_CAVIUM_OCTEON_MHU	0xa067
++static const struct pci_device_id mrvl_mhu_ids[] = {
++	{ PCI_VDEVICE(CAVIUM, PCI_DEVICE_ID_CAVIUM_OCTEON_MHU) },
++	{ 0 },
++};
++MODULE_DEVICE_TABLE(pci, mrvl_mhu_ids);
++
++static int mrvl_mhu_probe(struct pci_dev *pdev, const struct pci_device_id *id)
++{
++	struct device *dev = &pdev->dev;
++	struct mrvl_mhu *mhu;
++	int ret;
++
++	/* Only support PCI devices with a corresponding OF node. */
++	if (!dev->of_node)
++		return -ENODEV;
++	if (!of_match_node(mrvl_mhu_dt_ids, dev->of_node))
++		return -EINVAL;
++
++	mhu = devm_kzalloc(dev, sizeof(*mhu), GFP_KERNEL);
++	if (!mhu)
++		return -ENOMEM;
++
++	mhu->chan = (struct mbox_chan) {
++		.con_priv = mhu,
++	};
++
++	mhu->ctrl = (struct mbox_controller){
++		.chans = &mhu->chan,
++		.num_chans = 1,
++		.txdone_poll = true,
++		.txpoll_period = 100,
++		.ops = &mrvl_mhu_chan_ops,
++		.dev = dev,
++	};
++
++	ret = pcim_enable_device(pdev);
++	if (ret)
++		return ret;
++
++	mhu->base = pcim_iomap_region(pdev, 0, DRIVER_NAME);
++	if (IS_ERR(mhu->base))
++		return PTR_ERR(mhu->base);
++
++	/* Configure IRQ from SCP to AP */
++	ret = mrvl_mhu_setup_irq(mhu, pdev);
++	if (ret)
++		return ret;
++
++	return devm_mbox_controller_register(dev, &mhu->ctrl);
++}
++
++static struct pci_driver mrvl_mhu_driver = {
++	.name = DRIVER_NAME,
++	.id_table = mrvl_mhu_ids,
++	.probe = mrvl_mhu_probe,
++	.driver = {
++		.name = DRIVER_NAME,
++		.of_match_table = mrvl_mhu_dt_ids,
++	},
++};
++module_pci_driver(mrvl_mhu_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("Marvell Message Handling Unit");
++MODULE_AUTHOR("Sujeet Baranwal <sbaranwal@marvell.com>");
++MODULE_AUTHOR("George Cherian <gcherian@marvell.com>");
 -- 
-2.43.0
+2.47.3
 
