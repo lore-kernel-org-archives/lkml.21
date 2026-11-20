@@ -1,25 +1,25 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204486;
-	b=1W9/fGoDlaeFR1UlzyTbO5QPJELPKFs6FkGykF4hKm6dzqMHlmOcjg1hj28oL/YyTSZr
-	 mnI5azD7ALCNDRboPv1wYYLGJUtAr+wT3WFvkl9ywapdRSaCDIcCvjt4xFxvMl1e+tjtl
-	 fNxDAPGw/o3pRryoRDYuJBohn6PrXAAd22sg7tnegpvRUhat5XRe0nxajNMJhdrHqLPWr
-	 YS6ZBI0r5rfQc4pi6KRXM4+bt5ergtsWDq2X2P6eJHA2oxVXCPoSy8s/uUVy8sqHVXOqb
-	 9faavn/rI3wTiLpZZF1Y4uXuXxLp5QN7usy9o7ULJ0doz5/0MBcIxAqm7Vun2vvNPAg==
+	t=1795204489;
+	b=XQj/IXZZ8VPKA2DykIeC/v1NhVCz9YcLSFxY9aApVdlCIBzkdVCo7T4LsP8ckEHeAlXU
+	 Ft1r7POCh/3kEoE1Y9XqjW0Yt84WqyjpIDACsK5S04u6CkdYHNWHnCGz97VAinUufNgva
+	 y6jsM1XsakrutFlfa9a1nUlrG9tWre/XWY17q84eyFUWU2sqmyIm26XbJiHPmeHsDcpxZ
+	 aumYj08rY7d5Sxh5h1w4rwgqFbU+uySLyxWWjy3vKfYjUlm6rGjWJhO1san930G60xHzQ
+	 jM/s3WGXLs6SzFizewdpWCeJL6pppzk3lGpC3LlU7/n/sXvz3OqNZ6N9+eC5C2kl7iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204486;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204489;
 	h=DMARC-Filter:Received:Received:Received:Received:From:To:CC:
 	 In-Reply-To:References:Subject:Message-ID:Date:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:X-Mailer:X-FB-Internal:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version;
-	bh=jf0k2jZ5GT4jqtEGuqrJuKzcyXCpPc0FQ7ztUI+mW1o=;
-	b=3AsFzVCrH2cXOdkMQ42ZZibnvr8KuXuD8uJpJ8xS3n3SwGJlG/4natlqK7VcP3i3cBgg
-	 oDfgijpR7L+jzsvIQ06+p9AWz9R8OudwiL19FQtGfSbz4KJOHgE8SsQrk4PBRwMYvteEH
-	 QX3Pm/jqcq56SIo3rSWwjuLPn7y7bPt3Ohl0DzpmUgwKE7VFHBYXKwWZdUEFGFhfs0Vqd
-	 LQP6jikU3LFSYK735YyM3wQk1mCyvzi6tTghYFJIUqiQfI8kDTAWe3gN5WSu36R2NQ5eU
-	 v0w4ppKJ7f6CNU0qkmGl4EziT4DPBikYOBvBfw6ovTpHv0p6cWKy53mq0EKUr0BG5uw==
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version;
+	bh=eo0+yx3GhZH+2NEI9cv9dZEY9GTkOnGCKzMkei2rOj4=;
+	b=oJstGJbLYUnw/griM5G9A33PFZJGhXZtxAnM0aSmWUDPPCS+EM+kRO4OjNl6kkSqI0gH
+	 TZ5PXo4C5irMZl6s+hHV+nMRr4bDRCRCpFD5/0WDeoE0zNYmZ1Dtdme9m/QruOKDwk1w/
+	 cHlU4EWBpMwi3SP8/FGTVPxV8jRDreKXtMXGchi/x+LFLgmmRwUEpMMsloIv+JWKyoV8T
+	 9wymMX3i2SY6faHm9L7kge3LuJVI/l292nkDSbK7ZeqvWDhtIWs2nJwEyK7pA2uarSAbT
+	 xwW1ulieQi3V29w5Z7FtWTMArgTqVqHHKgMf+shycUwf/YLNRsy88O0Xv6CNaFeu0hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=kernel.org;
 	spf=pass smtp.mailfrom=meta.com;
@@ -28,34 +28,34 @@ Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.14
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 619CF606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:54:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 619CF606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 063B4606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:54:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 063B4606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=kernel.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
-Received: from pps.filterd (m0528007.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKHAegR2935013
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:54:44 -0800
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j2tcjha7x-12
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKGwatX4130555
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:54:47 -0800
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j2t6vsdup-7
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:54:44 -0800 (PST)
-Received: from twshared98463.15.frc2.facebook.com (2620:10d:c085:208::7cb7) by
- mail.thefacebook.com (2620:10d:c08b:78::c78f) with Microsoft SMTP Server
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:54:47 -0800 (PST)
+Received: from twshared24494.03.snb2.facebook.com (2620:10d:c0a8:1c::1b) by
+ mail.thefacebook.com (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
  15.2.2562.56; Fri, 20 Nov 2026 19:54:40 +0000
 Received: from devbig197.nha3.facebook.com (localhost [IPv6:::1])
-	by devbig197.nha3.facebook.com (Postfix) with ESMTP id B6B8F2F4934E3;
-	Fri, 20 Nov 2026 11:54:24 -0800 (PST)
+	by devbig197.nha3.facebook.com (Postfix) with ESMTP id D42FD2F49353A;
+	Fri, 20 Nov 2026 11:54:35 -0800 (PST)
 From: Keith Busch <kbusch@kernel.org>
-To: <axboe@kernel.dk>, <hch@lst.de>, <sagi@grimberg.me>,
-        <linux-nvme@lists.infradead.org>, <shao.mingyin@zte.com.cn>
-CC: <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
-In-Reply-To: <20261115012806699yIujDZo6TywlxuhhSIktO@zte.com.cn>
-References: <20261115012806699yIujDZo6TywlxuhhSIktO@zte.com.cn>
-Subject: Re: [PATCH] nvmet: fix the CSTS state iteration in debugfs
-Message-ID: <179520446474.200156.8716970202832870904.b4-ty@kernel.org>
-Date: Fri, 20 Nov 2026 11:54:24 -0800
+To: <linux-nvme@lists.infradead.org>, Gleb Chesnokov <gleb.chesnokov@scst.dev>
+CC: <hch@lst.de>, <sagi@grimberg.me>, <kch@nvidia.com>,
+        <linux-kernel@vger.kernel.org>
+In-Reply-To: <0099f610-a48b-4557-8515-e4df444262e8@scst.dev>
+References: <0099f610-a48b-4557-8515-e4df444262e8@scst.dev>
+Subject: Re: [PATCH] nvmet: report backend transport errors as path errors
+Message-ID: <179520447586.200813.7403174515660179966.b4-ty@kernel.org>
+Date: Fri, 20 Nov 2026 11:54:35 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,47 +69,45 @@ Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
 X-FB-Internal: Safe
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA3OSBTYWx0ZWRfX6ORk1mUSQumh
- FNVk2D3IDW8bvas31jWeuzsETuO8RVngJUwiQ6sCYpSBB4ICuufh1OnTFsv8C/Y7ARsWOVfZPvd
- C2C+eGvhByrvNBlxZXrKzsNiNnp8JRs=
-X-Authority-Analysis: v=2.4 cv=bMWDs/+Z c=1 sm=1 tr=0 ts=6b00a584 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+X-Proofpoint-GUID: 01ZIFukv5TueibqQM6eDhcT1BUu9AR3y
+X-Authority-Analysis: v=2.4 cv=CuQq4X4D c=1 sm=1 tr=0 ts=6b00a587 cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
  a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=4h92JMTCafKA-fb_NiOh:22
- a=1RTuLK3dAAAA:8 a=VwQbUJbxAAAA:8 a=n7hJ2mYiLs74TmPVfwwA:9 a=QEXdDO2ut3YA:10
- a=kRpfLKi8w9umh8uBmg1i:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA3OSBTYWx0ZWRfX4YCjd2ufGkgm
- HxuqxTJ3wqyAVaRTG5/7/6X2lm/tXDVk5aNrkIeoFqokibgHyytA+vh2CfD6lTszZKqdoLPxUkT
- RUPoZw1/AvIIwtjF4Qz/ecdJ/JTkMa0zeD0EnnTv8Lr1wwwcMOwhOm4lIeeTHf/O+PSc7W7q18i
- JM8wiKlpwPma48X5a4HdCCusovMY234iYXyvhbe67MaQFvw2atfcnM22pUhXKs+Sc3FQ9/VPF3v
- FltPFVBUuLZIdW7xifGLB+rJNewqOFvokKo/WcVQIOSgsMP5TR1jAD4SW/xQeq/qK5fAzrx3Qni
- 6bBpFxqjO+zWPAPHZGYhhDLGHGIyKDaDXQfcz1mL6DAqeagVQhWx4xgEeW5AAYeubU3HCJDcA9o
- 0fZChUxIoEZWDM1Cs5wByZdwE0BvEjUYPoHwg/wH00Tf0LWm+9bDL4SzEveiJUilF34pEfUmUdk
- BcpRl+40wH2iZoNYuAQ==
-X-Proofpoint-ORIG-GUID: xv5PTs8T-YfJHjcdT0VyQ8z63vWfWHHk
-X-Proofpoint-GUID: xv5PTs8T-YfJHjcdT0VyQ8z63vWfWHHk
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=PAz_-FQ8hEVmOPYdF0yf:22
+ a=VwQbUJbxAAAA:8 a=iTW6AIvZo88YF_rOJHYA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
+X-Proofpoint-ORIG-GUID: 01ZIFukv5TueibqQM6eDhcT1BUu9AR3y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA3OSBTYWx0ZWRfX6F29WMWJosF7
+ MvctdqkIFjCkQ9HrxxuzA8/wJtx54ce6tkRD1QHz3Nb432uDXKvtcOZczwOYPDl3GbLldhuZ+nJ
+ CFpbqKc/jJmEW7neHzajz91kWQmxUlpSuVVf+xqIE1N2gWz3Yw4RCv93AVqsSw19c7Rkxga3QFm
+ P6es8llG3MgATLSh3WM1/HQqu1tQ739uixn/twPJOUkZ2Lci30Mmk7lx6+nQMEH9hiqfJ9+NdzW
+ ZQtACaqB2gbXMRFwmdwAxDE7JigB5PMGFTPpILKMojPNo+tF/FBcl2/1TYGxB17ClkIpgtPNX8i
+ x4uqpsJvW68Z/qqt3BeB79gbnBKvvQ4/gRD8wB7xBpGb0qFsXmzihPIonraHYt0jIKnIeiF4++y
+ WU5/9ctatXaMYAPPQa+KB1Zm/uK9xMEmIA3lBnraqSkv91kZV1JBbXVreaKAeCUxX9PYa2KjHj9
+ v+L/U9WFQ3R65GNvT3A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA3OSBTYWx0ZWRfX4J+Ic6+QHwUA
+ 0K9jE3/MGc0pKNLW4j2iIo1WOnOKWGj9wXLLCW1FzfBbWZUqiyRlzRjA6Gt2R/IVBoPFSQxi9l6
+ ZqU8kFu+ro+OHQ6fx7//0VQuGZSHys0=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
 
-On Sun, 15 Nov 2026 01:28:06 +0800 (CST), shao.mingyin@zte.com.cn wrote:
-> nvmet_ctrl_state_show() uses the size of a sparse name array as a
-> bit count.  Its last index is NVME_CSTS_PP (BIT(5)), so the loop has
-> 33 iterations and evaluates BIT(32).  This exceeds the width of an
-> unsigned long on 32-bit systems.  With GCC on x86 this can make a
-> normal ready status print "ready|ready".
+On Fri, 13 Nov 2026 14:02:47 +0300, Gleb Chesnokov wrote:
+> The block backend maps BLK_STS_TRANSPORT to NVME_SC_INTERNAL with DNR
+> set. This discards the backend's transport error classification. A Linux
+> native multipath host completes the request before considering path
+> failover, even if another controller can still access the namespace.
 > 
-> Iterate over the 32 bits of csts instead.  Check the name array bounds
-> before indexing it and print unknown bits as unsigned values.  The
-> out-of-bounds lookup requires a reserved status bit; the current target
-> code does not set those bits.
+> Map BLK_STS_TRANSPORT to NVME_SC_INTERNAL_PATH_ERROR without DNR instead.
+> The transport failure is behind the controller, so report an internal
+> path error rather than a host path error. Associate the error log entry
+> with the namespace, as for the existing access-denied status.
 > 
 > [...]
 
-Thanks, applied to nvme-7.4.
+Thanks, applied to nvme-7.5.
 
-[1/1] nvmet: fix the CSTS state iteration in debugfs
-      commit: fedfd360c2f6e00d7c566ee5ed52e2ee46c99b8d
+[1/1] nvmet: report backend transport errors as path errors
+      commit: 3b90e37012c0c5297ccbd7b531287b943c818bba
 --
 Keith Busch <kbusch@kernel.org>
 
