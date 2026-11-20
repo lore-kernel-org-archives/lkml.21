@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.222
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180232;
-	b=gLVF99KGvgNfJHhw+mHjd94oxCatPvU4dtSz9xcHwcXf2C7huZRER5CiMbD8ChFXM/gK
-	 fYS+7BYoxYKnAAlQuD/S0jcQgBEM+0MU4axTPQVTuqL5rf+BPz7DXvxNtAm/FPcRhASWa
-	 dU3JvkZpLoJyYjplUrXaLUqCdmIgJQDZzhAMeB9bksmNJICQLZnYHcZV9xPd7zd7JZG+m
-	 NSs9ymcb9/RGyOJWJTqLJPCE6jQhXX9a0Kuo6X3/WWW2jARDLrHbCVUUxUCMPfE0GwKak
-	 X68ovWUnrR1ttXCDsRIVVT5kxCk1nWMeZb430EZiUScm88SCu2MYFXbvDJusKCw8/HA==
+	t=1795180235;
+	b=yaBZcfNsqFEZ683Inu0rp+8NT6R6eHnICFIWG5Sms6rr3z17VwugM0aGa9nSXzRRckam
+	 CcaOo0Rri81+3Gan8BCQwvzjJPnFk7VrJEyrZRfmgf6x43+lf3C3+PXDS372fEnZ1Otcg
+	 HPso0o2HuV9Uh4LkBlt6dDJ8udJkHiSfvTim/8XM3mtt8a1mEAT3JHDYtzCILSPz8LK4W
+	 JCBnbB5l6YFWXD1XvkpeGnnuyaPulRHPZw5Nf5ygaIcoH0ftvlxwG/u5uC8/B2Z82Ihu/
+	 vN+lwVDxe+QKVDX06Pcg6/Em7MZsBYQaHlZn//W1XteHY5Do1V3vGOykN4f2itRzDiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180232;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oC2Xml7xr7+uwxJyejTC2FJlifBGOJbIE+T4dQDTGjM=;
-	b=Nt/S590AVzQ32lt0+DF5Wx9rSJoei2+QKBsKTP0C2jJd9gJuITsjOiSjD5qzdzsEOc1o
-	 mCgNmydQwAqorfdhN923EPohYAmBqZDtCHkdeI6H9KHlCvxNcSGOIwp0fhYHcByBD6Thd
-	 bBCIH6ceKIe8G1gPWRY0DqfgQMRlJnW1rIdAW2KwHS2l9OiFavq2MOsVdaw3VBkYIGvdN
-	 NF/JoPu8OHnlPHA3kyLJ9t4PUSQoK/X0ItEbwSsYqbFuRwQpADjZ321uWaXFg7teVoVtW
-	 yTqzWwk6gvLFv4gZrrSD8s5aF0FdPdWprHFp3r30kaKF8dDrygiwHFfZJE8YwmXgtIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180235;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=SfJfDs7eRLaWgJWCrBHrHS+0aR5Z5G5czSxokvRK4+4=;
+	b=3oBjV2uzy05aJ9jBmy1mPvK/LsQDa0ADW9RZXkuCQDod59b6ziR5q91M5fQqJbwbDBsV
+	 Xo4lzFDDw5lvCzjQG1PGRtwObPUedBdsC9o+4wQ5Q2p6xNVMwoxS9icq0rm4wnSWhBAI/
+	 oRZ9SDvg7c6LJinQds1PnuUtnT9rbu6UQM19xCz9MRYCW9aPpvR1sJMdYwFx2wGAN7J25
+	 wRJI0rTuFb8P7F6f9ME/OD2dxEhxixIxjdDM45t08UcAcY8eltvlJRDa2QCU0elTjaJDW
+	 OkGoq+lQo0Sq5QD80vqfl/8erIzDVN6j+nl4NREakUZn6YMbBNBAnGyTDfO2netPuaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xE3x1sFp;
-	arc=none smtp.remote-ip=95.215.58.222
-Received: from mta1.migadu.com (out-222.mta1.migadu.com [95.215.58.222])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePqPVFS1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BAAD60A2602
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BAAD60A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FFAD60A260A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:10:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=xE3x1sFp
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=L59gNiF9CiuuxqSAlrzDgp3oWvnP1Ae2UbpPyCDb2Pw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795180230; v=1; x=1795785030;
- b=xE3x1sFprZ2Exv1s83T0rmoS8Xzt6pAlaDqcK74C2+bebtPInbtqfMkpDMLqGelTGTSwZbc2
- gyc4zlzRD8/ES2K+M4wE25Odycy2D7+cqLb+ZP5ntHJzkjmlz7tUKibx+oTp+EBednOCNqXdt5Q
- vFMP9pW4WYKklecqOvQxYXfs=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7e0faf6437fe5d58;
-	Fri, 20 Nov 2026 13:10:28 +0000
-X-Mizu-Trace-ID: 7e0faf6437fe5d58
-X-Migadu-Flow: FLOW_OUT
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Mehmet Fide <mehmet.fide@gmail.com>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>,
-	Tzu-En Huang <tehuang@realtek.com>,
-	Yan-Hsuan Chuang <yhchuang@realtek.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Stanislaw Gruszka <sgruszka@redhat.com>,
-	Brian Norris <briannorris@chromium.org>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v3 2/5] wifi: rtw88: report the frames purged from the TX report queue
-Date: Fri, 20 Nov 2026 14:09:17 +0100
-Message-ID: <20261120131000.33858-2-luka.gejak@linux.dev>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261117171003.1840491-3-mehmet.fide@gmail.com>
-References: <20261117171003.1840491-1-mehmet.fide@gmail.com> <20261117171003.1840491-3-mehmet.fide@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ePqPVFS1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F15A1F00ACF;
+	Fri, 20 Nov 2026 13:10:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180234;
+	bh=SfJfDs7eRLaWgJWCrBHrHS+0aR5Z5G5czSxokvRK4+4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=ePqPVFS1ta7XhtSVdjxIKX8QUsmgKw1+hc/uQpzDiFefg6qbiTsZCbfEHQg6Q0xrX
+	 9dqecUujmNV2TqnRDUbCDEMp6KWQ3FcFWJPUlbl7AwOcd5fLlKdoj41ye17Ec5tJV2
+	 tpkKfd9r5zbquMxkFYZws3k340Ktq7suDC1gvSb46tcPeODvCHxtf5puIdn5JIwFxd
+	 3l9IR5tN51VyURkm38W7P/J9fahRO1AR0aA8Fhz2H+VE8M8R1zRMsPGfHBOpz7fBbG
+	 /ib4usaptjFfjOI30rPA6uF4cTmYS5D/zqwuGWgckaJ/PDdZ5zo5p/FE3bV27jPx9A
+	 QaNu2QphoUSfA==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Fri, 20 Nov 2026 14:10:12 +0100
+Subject: [PATCH v12 5/9] drm/amd/display: Take over the current stream and
+ dc_state
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,32 +53,144 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20261120-drm-reset-state-flag-v12-5-42d63d7417fc@kernel.org>
+References: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+In-Reply-To: <20261120-drm-reset-state-flag-v12-0-42d63d7417fc@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Daniel Stone <daniels@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Jocelyn Falempe <jfalempe@redhat.com>, 
+ =?utf-8?q?Jonas_=C3=85dahl?= <jadahl@redhat.com>, 
+ =?utf-8?q?Michel_D=C3=A4nzer?= <mdaenzer@redhat.com>, 
+ Pekka Paalanen <pekka.paalanen@collabora.com>, 
+ Sebastian Wick <sebastian.wick@redhat.com>, Simon Ser <contact@emersion.fr>, 
+ Victoria Brekenfeld <victoria@system76.com>, 
+ Xaver Hugl <xaver.hugl@kde.org>, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, Maxime Ripard <mripard@kernel.org>, 
+ Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>, 
+ Alex Deucher <alexander.deucher@amd.com>, 
+ =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+ amd-gfx@lists.freedesktop.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4875; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=jMZyKlQM+O8dO3fSECDw/33k6M92+XJBu0DQueQcSjw=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDNkMblv3GO71rFhuxs3JybLRYqlp/BKbrRf6Itjn68fb8
+ PLEKDh2TGVhEOZkkBVTZHkiE3Z6efviKgf7lT9g5rAygQxh4OIUgIkUvWBsuDzz3Y+Dhh4MM1Z8
+ P9R4lvvdqvINKs7KSw/N6j0cIttt3Lu09tn9XYGnj/Pusrq50MX2HWPD7M+8YjZHX33+FnXwq8+
+ 2KEXPGHeHFZmzm0QP6HLUP5K98pg17fZvsb6ARkXRmFr5EzUA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 
-Hi Mehmet,
+drm_atomic_commit_fill_with_defaults() builds its commits out of
+states created through atomic_create_state() instead of duplicating
+the current state. A created state comes with no stream nor dc_state,
+while a duplicated state carries the ones in use, with their
+reference.
 
-Thanks for the patch. One comment below.
+The update passes of amdgpu_dm_atomic_check() release the stream and
+dc_state in use and clear the pointer of the new state, on top of the
+reference the current state drops when it gets destroyed. Those
+releases are only balanced if the new state brought a reference of
+its own, so a commit that disables or reconfigures a live CRTC or
+plane through a created state over-releases and frees the stream
+early, leading to a use-after-free when the current state gets
+destroyed. The paths that keep a CRTC or a plane enabled without a
+modeset also work on the stream and dc_state through the new state,
+and hit BUG_ON(dm_new_crtc_state->stream == NULL) since it never had
+one.
 
-On November 17, 2026 6:10:00 PM GMT+01:00, Mehmet Fide
-<mehmet.fide@gmail.com> wrote:
+Take the stream and dc_state of the current state over, with a
+reference, at the beginning of amdgpu_dm_atomic_check(), like a
+duplicated state would have carried them. This has to happen before
+the update passes clear the stream of the new states: past that
+point, a state whose stream was cleared can't be told apart from a
+created one.
 
-> +	spin_lock_irqsave(&tx_report->q_lock, flags);
-> +	skb_queue_splice_init(&tx_report->queue, &purge);
-> +	spin_unlock_irqrestore(&tx_report->q_lock, flags);
-> +
-> +	ieee80211_purge_tx_queue(rtwdev->hw, &purge);
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
 
-As far as I can see, an AP peer probe that times out can report an ACK
-signal and a link ID from the old TX control fields. On x86_64,
-status.flags and status.link_valid overlap control.vif. The firmware
-report path clears the status before handing the skb back, but the
-purge path passes it straight to mac80211. The timer can do this while
-the AP is still up.
+To: Harry Wentland <harry.wentland@amd.com>
+To: Leo Li <sunpeng.li@amd.com>
+To: Rodrigo Siqueira <siqueira@igalia.com>
+To: Alex Deucher <alexander.deucher@amd.com>
+To: Christian König <christian.koenig@amd.com>
+Cc: amd-gfx@lists.freedesktop.org
+---
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 50 +++++++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-ieee80211_report_ack_skb() reads those fields for a null frame even
-when it was dropped. cfg80211_probe_status() can then include both
-attributes in the event without an ACK. Could we clear the TX status in
-rtw_tx_report_enqueue() before saving the sequence number?
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index 0ea45ab12119..b2eddb87dd5c 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6279,10 +6279,60 @@ STATIC_IFN_KUNIT int amdgpu_dm_atomic_check(struct drm_device *dev,
+ 	struct drm_dp_mst_topology_state *mst_state;
+ 	struct dsc_mst_fairness_vars vars[MAX_PIPES] = {0};
+ 
+ 	trace_amdgpu_dm_atomic_check_begin(state);
+ 
++	/*
++	 * A CRTC or a plane that stays enabled keeps its stream and
++	 * dc_state: a duplicated state carries them over, with their
++	 * reference, but a state created through atomic_create_state()
++	 * comes with neither. Take them over from the current state,
++	 * with a reference, like a duplicated state would.
++	 *
++	 * The reference is needed when the update passes below
++	 * reconfigure the CRTC or plane: they release the stream and
++	 * dc_state in use and clear the pointer of the new state then,
++	 * on top of the reference the current state drops when it gets
++	 * destroyed, so that release is only balanced if the new state
++	 * brought a reference of its own. The pointer is needed when
++	 * they don't: the paths that keep a CRTC or a plane enabled
++	 * without a modeset work on the stream and dc_state through
++	 * the new state.
++	 *
++	 * A stream or a dc_state in the current state means the CRTC
++	 * or the plane is enabled, since they are cleared when it gets
++	 * disabled, so the conditions below already single out the
++	 * live objects. They deliberately don't check whether this
++	 * commit keeps them enabled on top of that: the update passes
++	 * release the stream and dc_state of the CRTC or plane being
++	 * disabled too, so their new state has to bring the reference
++	 * just the same.
++	 *
++	 * This has to run before the update passes below clear the
++	 * stream of the new states: past that point, a state whose
++	 * stream was cleared can't be told apart from a created one.
++	 */
++	for_each_oldnew_crtc_in_state(state, crtc, old_crtc_state, new_crtc_state, i) {
++		dm_old_crtc_state = to_dm_crtc_state(old_crtc_state);
++		dm_new_crtc_state = to_dm_crtc_state(new_crtc_state);
++
++		if (!dm_new_crtc_state->stream && dm_old_crtc_state->stream) {
++			dm_new_crtc_state->stream = dm_old_crtc_state->stream;
++			dc_stream_retain(dm_new_crtc_state->stream);
++		}
++	}
++
++	for_each_oldnew_plane_in_state(state, plane, old_plane_state, new_plane_state, i) {
++		struct dm_plane_state *dm_old_plane_state = to_dm_plane_state(old_plane_state);
++		struct dm_plane_state *dm_new_plane_state = to_dm_plane_state(new_plane_state);
++
++		if (!dm_new_plane_state->dc_state && dm_old_plane_state->dc_state) {
++			dm_new_plane_state->dc_state = dm_old_plane_state->dc_state;
++			dc_plane_state_retain(dm_new_plane_state->dc_state);
++		}
++	}
++
+ 	ret = drm_atomic_helper_check_modeset(dev, state);
+ 	if (ret) {
+ 		drm_dbg_atomic(dev, "drm_atomic_helper_check_modeset() failed: %pe\n", ERR_PTR(ret));
+ 		goto fail;
+ 	}
 
-Best regards,
-Luka Gejak
+-- 
+2.56.1
+
