@@ -1,73 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.5
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145417;
-	b=xZHy1pxC1OdbYT4mx579TygD6VYb8ZWYb2k8AcxbD0LTaW3TAkCgLU0XyJfRzQRZxJ8a
-	 G32vEcE0czpM0fyiTwmfQAVXWiC21f2rkRdEvJI0HdYUevb/UvXELovAmysjqxKZ1pEKy
-	 wCk09dfofHp5NYD06SoPlElkS6jpSEeHW/402Zohn2J7KhmtSAJR9nsepyMgMHoOD5hS/
-	 jgSKye9ke1CrWvP4jDv5WxuocIjLlk+fJWp8vwp4dwdX7L6GwPQTuYhj3VUKWAgziYGD7
-	 89P6pTtHVmPBQaHdVXivDTMI49nmMofttehXMeZxETCqZHc7CbNb/k7pVAxwd7np14A==
+	t=1795145422;
+	b=GLLFfPMRjMMqoqunQawz96b+DTZODZa55bj1o88IOnVBxoiOUypGkoLZYwpWq8HFX79y
+	 zf7gZZBbZClqc5jRhEiodLl8tna98S6J44wtEgvgwQz9HSwM4MbEKpwv3bs6Y+GJ6RIVT
+	 XJ4RgAlf8+wwtV2qqsrjCnzfA9Ub3EFWI3YgfLgov/TbQX4iKj8arQteib5VsX7hFRb5N
+	 ZOPWvTkpRmitC1badNXzpA30FKN5DjEnd8210IAxOH7TlbREab0cfeINY70PWtBQi389y
+	 totMS8h6ocu7YTJLnHazW1gm+hHGm6eGBNfG8R0BpWtEpIxM1urjcIdXlK9kbXKDfPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145417;
-	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
-	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=gDW1MGVDIOlb1DWUR4TOUcK83wNVzFBVTR8SHHNo9iM=;
-	b=InQNXYxAgZwaxlL1B1BMczMc1eyl5xpf3a8SYh6fL00w55va1NOaCALpH4Gbl0vr8CfA
-	 VNBzVyYkzp/mgOdvrifMJbgYBGTIOkX4Tr8jTKjcvah/kvjb2XJw+n7cHeSshOnSCtnha
-	 rhMCwmrWklfW7NqGhRt6TgjyyH+H+rEf7QH6exw3PYG8R43EO37TuQw7Ax0exuBI+T/It
-	 0gESsUklo3G1v0SnYs1Koe26tRMJnn5SH55occQKV0QRE2aO2Z3pJ7aqwGqu/l/Rsiw+w
-	 LQAs8RWwqUCBgUWJKYWmpPDV6MpOWDTuesXLC0+xRNWHFEcgSNV1lE5xn7r+gpjMQXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145422;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=G4CRmLsM2FeO2FoUhWeUWlm1ZB2WhalSLCCny6IP3jc=;
+	b=ZH7F0+znBporoD+Z7Uiv/7myXTc3I1pZ/8duPwPTp7KYXMs+trcxTwBBrFudLehV8w0F
+	 8lmp2j7v6l+X9jHfGQjjcea0LDQafPVR1P5squwJMNtlKbosMu4pEx1Nt5TuKsMU8yOO1
+	 +cOqre/BPOOYed5WpSXeNcIBWd7mwtScJRuMQWMlFSVMCef8/0iMBLAvmFXGATUOXcsKm
+	 YyA1XyFqTtEu9jpflwJcKEtCycTMhgEckvLSt9JxCPC9v/qSBtKVY+w0tHygr0d5nBDKL
+	 +Ygw+/iFYvIqPTkOB0GyttasEo0HNmdFVvcjRsUwbYTA8mQmbQFywatC6JZYAg2podw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kylinos.cn;
-	spf=pass smtp.mailfrom=kylinos.cn;
-	arc=none smtp.remote-ip=124.126.103.232
-Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="0U45S/vk";
+	arc=none smtp.remote-ip=74.125.229.5
+Received: from mail-dy2-f5.google.com (mail-dy2-f5.google.com [74.125.229.5])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55F36606A330;
-	Fri, 20 Nov 2026 03:30:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55F36606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
-X-UUID: af7a03a4e49211f19a56ed5b684f684d-20261120
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:1c157bf3-f4d2-4ccb-ba34-7fa6219501be,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:afea6c6527a53b11ad3bb14aac0e74de,BulkI
-	D:nil,BulkQuantity:0,SF:102|850|865|898|915,TC:nil,Content:0|15|50|99,EDM:
-	-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: af7a03a4e49211f19a56ed5b684f684d-20261120
-X-User: fuqingshuang@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <fuqingshuang@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 650950593; Fri, 20 Nov 2026 11:30:08 +0800
-From: Qingshuang Fu <fuqingshuang@kylinos.cn>
-To: Andy Whitcroft <apw@canonical.com>,
-	Joe Perches <joe@perches.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Bala-Vignesh-Reddy <reddybalavignesh9979@gmail.com>,
-	Wei Yang <richard.weiyang@gmail.com>,
-	Amin Vakil <info@aminvakil.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christian Brauner <brauner@kernel.org>,
-	Aleksa Sarai <cyphar@cyphar.com>
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Qingshuang Fu <fuqingshuang@kylinos.cn>
-Subject: [PATCH] selftests/proc: stop depending on glibc for the mount API
-Date: Fri, 20 Nov 2026 11:30:04 +0800
-Message-Id: <20261120033004.1599189-1-fuqingshuang@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9720606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:30:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9720606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0U45S/vk
+Received: by mail-dy2-f5.google.com with SMTP id 5a478bee46e88-36f936424f2so85737eec.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:30:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795145421; x=1795750221; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=G4CRmLsM2FeO2FoUhWeUWlm1ZB2WhalSLCCny6IP3jc=;
+        b=0U45S/vk9WRKBnCn6RYGKf/TAqpbqLSlkXBPMY0JzKh51R48SnePWuc3LJjcZ98tKi
+         ocRMD/Mq1tqLWwydwPVQSdwCPIq33FELluyXlVPcpK+Hvsg5EnbvqNuLZaR9d5t5DsMP
+         AD5+JArv+bioUaVJYat3BqRv/S4Kfg6C9AYinJez9x9A8Cw0zq2n4VrcYCeH4EyZUR5o
+         zeuCG1nT00VAynoXNvBUXV3JTDz1AxN59EgNXLcM86ZdZFJENgeS5VduuxozL570hzO8
+         u2mAKqAkyDCNSmEHj/YiM2pZw/DXXrDwspFhjwLS1v6yvGogjHq4NhexTLdIeu+8w//9
+         xRgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795145421; x=1795750221;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=G4CRmLsM2FeO2FoUhWeUWlm1ZB2WhalSLCCny6IP3jc=;
+        b=p8pytJ2rp0U8m4v5kZHM/FVZls1SVEC0hRbIeb+Hj91t3BdT9OyxLHWL5j+VZHt2R3
+         98KcL9BHBIKqJp1E9fkRU5+2GY276CwWiHnoQ2btgxGE3kxwYT/FSrz6xf8gAajWpwg4
+         xUtamH6E+oGPoFmloHrpHBeNVMX71o+IG4h1UXoTmAW+X5eep7rtFFW08N1ZBLAU+h1V
+         Bh3OZvLlRdvJhSP5/msENAIyJkdZgpLfNJyvbVQxWOvlIgHU/95ZPF2deqsRyaSZEoQL
+         OcyNDlLuqinRNTgJSVdp8/5L7iZ6xZzWtA35MHCKAVsiotUIUTrTNhBLp4AOKiDIutXj
+         vpOA==
+X-Forwarded-Encrypted: i=1; AL+hErHDQspE+444GWbbI0YfRU2+1a5w6pJBNK6FEFqnhn5LsyRam8VvY9SVLMOCi1vYjPTAxOod7v21IyN9KKE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8O4XZQVhul8AMFwDaN3majDcGWHrxZ6XrF51rGNQbkg2k8hlcg
+	uCtzP8lj5cTqiZhBHvloDQMnvd2rIuIaCp6i4nCNnA+xNxMRFqZEFpSs
+X-Gm-Gg: AYBFou31qhg10/hZOWTlUstj39aG1t6Y0fzRR04hhMwLbgtLJ/GlSwooyVNvEUwqwy+
+	CK22IkiedhMfhlyDwLIFaVmWhSdvwPUqMKs4YBmwIhCeLjsyDBqVYJG1k0UBgfXyP/XzD1ywukq
+	LKe18gSf4y+Wxfsu5AY4HIyndvS/EJ//4miwEV1qIBzaCx8oaqLvCOyVwgg4vka8XxkEKHhCoBw
+	ASMOAxFGjGHCf3wF14A742y5OMU+lP9fZmJ80Z4FIv46/q5NYhuaa5QrdsV13w/WDi0aSTBep1x
+	rKhK+RCBaUIIsKv2QUWw82CB0RcYaQeXFYeNBWTc+6E9Bea/njfldz1vVNGFPoJfiHSFtkH/DDY
+	prqjdYOik91ME55yCRtTjAmROoQRebH2uyfYbHD+xyrU1qvDz1WitQY5TlY6luM0eVZRMnaf7VO
+	qFFNFI55pkpBPxqtrqsvvWhSjJU6WHItkVTq3kbwZ6twfroWx6mGPEinNy8L9V+RoT3ZlrkKypg
+	wj4UkRwh3BEPovkgDTtD+hdLOobZz9EJO7xZYHQgkzM5pRyv6lLgb0ZfA6aWWaHcKApKTK9xaex
+	6bZkUVO5Ip4jfb/C2//82/VeYCk04ek5kh3t91smZA==
+X-Received: by 2002:a05:7022:1187:b0:1b5:31e4:9970 with SMTP id a92af1059eb24-1b55689ee2dmr1602946c88.8.1795145421007;
+        Thu, 19 Nov 2026 19:30:21 -0800 (PST)
+Received: from intel.company.local ([122.11.210.25])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e644dsm4362507c88.5.2026.11.19.19.30.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 19:30:20 -0800 (PST)
+From: Wandun Chen <chenwandun1@gmail.com>
+To: david@kernel.org,
+	akpm@linux-foundation.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Cc: ljs@kernel.org,
+	liam@infradead.org,
+	vbabka@kernel.org,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	ziy@nvidia.com,
+	matthew.brost@intel.com,
+	joshua.hahnjy@gmail.com,
+	byungchul@sk.com,
+	gourry@gourry.net,
+	ying.huang@linux.alibaba.com,
+	apopple@nvidia.com
+Subject: [PATCH 3/3] mm/migrate: batch PTE restoration for device-private folios
+Date: Fri, 20 Nov 2026 11:29:49 +0800
+Message-ID: <20261120032949.2036731-4-chenwandun1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120032949.2036731-1-chenwandun1@gmail.com>
+References: <20261120032949.2036731-1-chenwandun1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -79,127 +113,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-proc-pidns.c calls fsopen(), fsconfig() and fsmount() directly and uses
-the FSOPEN_CLOEXEC, FSCONFIG_* and FSMOUNT_CLOEXEC definitions.  glibc
-only grew declarations for these functions in 2.36 and does not provide
-the related constants at all, so older toolchains fail to build the
-test:
+From: Wandun Chen <chenwandun@lixiang.com>
 
-  proc-pidns.c:118:28: error: 'FSOPEN_CLOEXEC' undeclared
-    (first use in this function)
+Device-private PTEs encode PFN as softleaf offset. set_ptes() does not
+handle this encoding when constructing subsequent PTEs, such as on
+arm64 with a 16KB page granule, leaving device-private destinations
+folio unbatched.
 
-Switch to the sys_fsopen(), sys_fsconfig() and sys_fsmount() wrappers
-from filesystems/wrappers.h, the same approach already used by the
-mount_setattr test.  The wrappers issue the same syscalls directly and
-pull in <linux/mount.h>, which the proc Makefile already provides via
-$(TOOLS_INCLUDES).
+Add set_device_private_ptes() to construct subsequent entries with
+pte_next_swp_offset(). This enables remove_migration_pte() to batch
+PTE restoration for device-private folios.
 
-Fixes: 5554d820f71c ("selftests/proc: add tests for new pidns APIs")
-Signed-off-by: Qingshuang Fu <fuqingshuang@kylinos.cn>
+Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 ---
- tools/testing/selftests/proc/proc-pidns.c | 39 ++++++++++++-----------
- 1 file changed, 21 insertions(+), 18 deletions(-)
+ mm/migrate.c | 22 +++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/proc/proc-pidns.c b/tools/testing/selftests/proc/proc-pidns.c
-index 6f7c10fe97b3..00ca9ccb5a83 100644
---- a/tools/testing/selftests/proc/proc-pidns.c
-+++ b/tools/testing/selftests/proc/proc-pidns.c
-@@ -17,6 +17,7 @@
- #include <sys/stat.h>
- #include <sys/prctl.h>
+diff --git a/mm/migrate.c b/mm/migrate.c
+index e000ef77ea87..3d3d91fd61c7 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -345,6 +345,19 @@ struct rmap_walk_arg {
+ 	bool map_unused_to_zeropage;
+ };
  
-+#include "../filesystems/wrappers.h"
- #include "kselftest_harness.h"
++static void set_device_private_ptes(struct mm_struct *mm, unsigned long addr,
++				    pte_t *ptep, pte_t pte, unsigned int nr)
++{
++	for (;;) {
++		set_pte_at(mm, addr, ptep, pte);
++		if (--nr == 0)
++			break;
++		addr += PAGE_SIZE;
++		ptep++;
++		pte = pte_next_swp_offset(pte);
++	}
++}
++
+ /*
+  * Restore a potential migration pte to a working pte entry
+  */
+@@ -442,8 +455,7 @@ static bool remove_migration_pte(struct folio *folio,
+ 		} else
+ #endif
+ 		{
+-			if (folio_test_large(rmap_walk_arg->folio) &&
+-			    !is_device_private_page(new)) {
++			if (folio_test_large(rmap_walk_arg->folio)) {
+ 				unsigned long end_addr = pmd_addr_end(pvmw.address, vma->vm_end);
+ 				unsigned long max_nr = (end_addr - pvmw.address) >> PAGE_SHIFT;
  
- #define ASSERT_ERRNO(expected, _t, seen)				\
-@@ -115,13 +116,13 @@ TEST_F(ns, pidns_mount_string_path)
+@@ -463,7 +475,11 @@ static bool remove_migration_pte(struct folio *folio,
+ 							 pvmw.address, rmap_flags);
+ 			else
+ 				folio_add_file_rmap_ptes(folio, new, nr, vma);
+-			set_ptes(vma->vm_mm, pvmw.address, pvmw.pte, pte, nr);
++			if (unlikely(is_device_private_page(new)))
++				set_device_private_ptes(vma->vm_mm, pvmw.address,
++							pvmw.pte, pte, nr);
++			else
++				set_ptes(vma->vm_mm, pvmw.address, pvmw.pte, pte, nr);
  
- TEST_F(ns, pidns_fsconfig_string_path)
- {
--	int fsfd = fsopen("proc", FSOPEN_CLOEXEC);
-+	int fsfd = sys_fsopen("proc", FSOPEN_CLOEXEC);
- 	ASSERT_SUCCESS(fsfd);
- 
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_SET_STRING, "pidns", "/tmp/dummy/pidns", 0));
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_SET_STRING, "pidns", "/tmp/dummy/pidns", 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
- 
--	int mountfd = fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
-+	int mountfd = sys_fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
- 	ASSERT_SUCCESS(mountfd);
- 
- 	ASSERT_ERRNO_EQ(-ENOENT, faccessat(mountfd, "1/", X_OK, 0));
-@@ -133,13 +134,13 @@ TEST_F(ns, pidns_fsconfig_string_path)
- 
- TEST_F(ns, pidns_fsconfig_fd)
- {
--	int fsfd = fsopen("proc", FSOPEN_CLOEXEC);
-+	int fsfd = sys_fsopen("proc", FSOPEN_CLOEXEC);
- 	ASSERT_SUCCESS(fsfd);
- 
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_SET_FD, "pidns", NULL, self->dummy_pidns));
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_SET_FD, "pidns", NULL, self->dummy_pidns));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
- 
--	int mountfd = fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
-+	int mountfd = sys_fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
- 	ASSERT_SUCCESS(mountfd);
- 
- 	ASSERT_ERRNO_EQ(-ENOENT, faccessat(mountfd, "1/", X_OK, 0));
-@@ -165,19 +166,20 @@ TEST_F(ns, pidns_reconfigure_remount)
- 
- TEST_F(ns, pidns_reconfigure_fsconfig_string_path)
- {
--	int fsfd = fsopen("proc", FSOPEN_CLOEXEC);
-+	int fsfd = sys_fsopen("proc", FSOPEN_CLOEXEC);
- 	ASSERT_SUCCESS(fsfd);
- 
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
- 
--	int mountfd = fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
-+	int mountfd = sys_fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
- 	ASSERT_SUCCESS(mountfd);
- 
- 	ASSERT_SUCCESS(faccessat(mountfd, "1/", X_OK, 0));
- 	ASSERT_SUCCESS(faccessat(mountfd, "self/", X_OK, 0));
- 
--	ASSERT_ERRNO_EQ(-EBUSY, fsconfig(fsfd, FSCONFIG_SET_STRING, "pidns", "/tmp/dummy/pidns", 0));
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_RECONFIGURE, NULL, NULL, 0)); /* noop */
-+	ASSERT_ERRNO_EQ(-EBUSY, sys_fsconfig(fsfd, FSCONFIG_SET_STRING,
-+					     "pidns", "/tmp/dummy/pidns", 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_RECONFIGURE, NULL, NULL, 0)); /* noop */
- 
- 	ASSERT_SUCCESS(faccessat(mountfd, "1/", X_OK, 0));
- 	ASSERT_SUCCESS(faccessat(mountfd, "self/", X_OK, 0));
-@@ -188,19 +190,20 @@ TEST_F(ns, pidns_reconfigure_fsconfig_string_path)
- 
- TEST_F(ns, pidns_reconfigure_fsconfig_fd)
- {
--	int fsfd = fsopen("proc", FSOPEN_CLOEXEC);
-+	int fsfd = sys_fsopen("proc", FSOPEN_CLOEXEC);
- 	ASSERT_SUCCESS(fsfd);
- 
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_CREATE, NULL, NULL, 0));
- 
--	int mountfd = fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
-+	int mountfd = sys_fsmount(fsfd, FSMOUNT_CLOEXEC, 0);
- 	ASSERT_SUCCESS(mountfd);
- 
- 	ASSERT_SUCCESS(faccessat(mountfd, "1/", X_OK, 0));
- 	ASSERT_SUCCESS(faccessat(mountfd, "self/", X_OK, 0));
- 
--	ASSERT_ERRNO_EQ(-EBUSY, fsconfig(fsfd, FSCONFIG_SET_FD, "pidns", NULL, self->dummy_pidns));
--	ASSERT_SUCCESS(fsconfig(fsfd, FSCONFIG_CMD_RECONFIGURE, NULL, NULL, 0)); /* noop */
-+	ASSERT_ERRNO_EQ(-EBUSY, sys_fsconfig(fsfd, FSCONFIG_SET_FD, "pidns",
-+					     NULL, self->dummy_pidns));
-+	ASSERT_SUCCESS(sys_fsconfig(fsfd, FSCONFIG_CMD_RECONFIGURE, NULL, NULL, 0)); /* noop */
- 
- 	ASSERT_SUCCESS(faccessat(mountfd, "1/", X_OK, 0));
- 	ASSERT_SUCCESS(faccessat(mountfd, "self/", X_OK, 0));
+ 			ptes += nr;
+ 		}
 -- 
-2.25.1
+2.43.0
 
