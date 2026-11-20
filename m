@@ -1,63 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173394;
-	b=YKVw+uwipdDraFwsZJhD2rLkSoVaZnlRk2IHv9diJh0qI2Ofv19rbwpfGRosOHoSyj0i
-	 UFHhspHUfG38ylp9LAsJff39oL2lKFqS4gmmF8hCMQq7h/w6BHIo00SFdnHldqPAm7QDW
-	 ER59yuAvW26s3qo+ALlpWr8/0ItSNqclUAqp/7T55IDk35JEkLocTDdfa8QokjoFC6bcN
-	 90eTsz9Gd6DSbUjzAmYCPmY5ansEy8N+5Uctd5HUqCk6oeXBk+zfei9yiDnUk1pGs0e12
-	 rp6zODIT814ko2ksU5+3c+MwgGlCxkrojQPBFD5z1l3v5BnezKRRF6Z8f35LCi6fEEg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173394;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=1rA97F5/npt/N9vCtRHW4c9+9dN2t8X2ZribjEzABLY=;
-	b=KktHN+jyPoQVUNjhjvKcgvJEILldr1Ouj9XxQNRVnxmqQT4/4atXmqGYDlJ2HeG+a/Jl
-	 U1O5ITe3e+OkEqeInfssGDwQy/zwDtgUchpkOQd25RoziGfmIWAJSTnOxdzEkLMgmufye
-	 8663QPW75UkaAem5dgoN+rMdamB+bQdUabjuokMw69YD3Q7ki8PJm014VxRmopqTKWnr4
-	 rzxClIm/mzYNQ4SlA5EgNeB9THyHuE3kI+kcYMQCHlB0+RtQTasIWRRFG6biPcD+9EkZV
-	 n2lB38tjeIFFIbQ3nYv14qCJcl86HwDb4PXdBo7N2Ta0KfBzLUsojsvjchN6717JFDg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luUsY8wS;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795173412;
+	b=VPwwkq6vxmE1OOlwSPOL/9M0chRei24pI5Aun4X337KcNUV2eiUNN92+q5Gvp+gviNaw
+	 FqVuZJteFOKi7ghqEFW+rSXAqYdA/SAycFa1Y8Ig9zupVttZ8UIOw156Ue0wbDsg9KRZc
+	 AVxRjY3Px1e6OZuUeM6tcJo0e2hzh+JQv71O2kYGYlnSDw1ilMTBVyN4eBuc1t9EHzTj/
+	 dIVptTqdyoRvmxNoATOiJPTbHR6xi8BHW7r8tDdW61TgKJfcFF7dznCoTaGzS81boblXY
+	 E2abT4oT79AqtsJzs8hbZow4gj9Cg9ok4y5teyDl61PBxbpb2eiNHCDG5Un6eD1KBmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173412;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=0NaMGQ4Owpl3Co7yhqKVZHVr+kTFNUk1Lb3ecw2usVA=;
+	b=ZL7DPX3l6ompgTe3hFnSmjoNVcf6woPGWuu/n4Qb/RJFrGaTdJ7rgGDbm6F4C2M5TaId
+	 tdkpOmyepjcwUjAosnJmH/+pX//KbI29tyLDFMQvECdcFkD6cTQnQfUR2ej9RoZQO05gE
+	 tc2QjXHx//HJjcK0zKqsIPPcfDNe2eK/T8BxKBwP01PnBvNc6f1/a4uxzPWY/X6+wuwgg
+	 1W1U2gKnQESB9Wm3cQ2SePWRyhb3s/ticOL8zCTtWApGKAEJyMYma49MtBbF/iNrK81ZB
+	 FKMNR7UBk4+Vaa0RXZMpDA2ywJGLwK6IIZ1VQJbzeOPpinHXcL6huPh0m7rVvdzBKcg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dg0qNTaw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.44
+Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com [209.85.218.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3E7A606A334;
-	Fri, 20 Nov 2026 11:16:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B68A606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:16:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B68A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=luUsY8wS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0E411F000CA;
-	Fri, 20 Nov 2026 11:16:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173393;
-	bh=1rA97F5/npt/N9vCtRHW4c9+9dN2t8X2ZribjEzABLY=;
-	h=From:To:Cc:Subject:Date;
-	b=luUsY8wSZU63nKy52IFDDfqhhiq+t+o+hbbc/+Gd5ufIEz12jspoREg0hXHaDM0g2
-	 4vywmRiBQTJA9vtfNKZdpz/vBuQnEOMbD6wj4/QdQZAXihIoqmYtXdFWdonlCJ1TD1
-	 WWZJcI4PnLlKrTiUOX+vl+u2U7jCCeMDWw5F2AsDs5RwFz15dHivHC2RoB75rJBw9N
-	 gdOqhTarpq+gXjliwH93PoH5hpi3br5bYXk4lgcuOgxcptm8Twc+rtDvmJ1vN6pU3m
-	 3TwCyECKZPZxWoO6scqt8iVrSMKu0aFfNJyF3SEsoD2FHnZSY83xIaM9CV1iMXhbWq
-	 AjvfBKriIPurA==
-From: Philipp Stanner <phasta@kernel.org>
-To: Sumit Semwal <sumit.semwal@linaro.org>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Philipp Stanner <phasta@kernel.org>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Chris Wilson <chris@chris-wilson.co.uk>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Gary Guo <gary@garyguo.net>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Daniel Almeida <daniel.almeida@collabora.com>,
-	Tvrtko Ursulin <tvrtko.ursulin@igalia.com>,
-	"Paul E . McKenney" <paulmck@kernel.org>
-Cc: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v4] dma-buf/dma-fence: Prevent misordering for error checks
-Date: Fri, 20 Nov 2026 12:16:16 +0100
-Message-ID: <20261120111615.2940647-2-phasta@kernel.org>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=dg0qNTaw
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c50cc8e0f84so127005566b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:16:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795173410; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ert+xaw6WCMRnDyAlNUTNrOuzBTtiNV5N1v7j7TlFPFwza+jTN9Otg4vozeXYn4pe2
+         FFHKjdyF8txz4pPj4c1SZM6+Uv1ZB9+w/GiWM0vFbQlKnQiad+X3eDbYkHMpjUpAFsGu
+         kWp3AoNEj3gpCzSa+HeRe8ulh1zLI5t6aSPbsT63A3swa8o7EbgO0VUOjhuLkN+rHmvR
+         Av1gALWMKcCHf5BBNE86PZX7k8fqa3rxrFnAd8ayxQDHgfhfg/31woAPqvgfuK9Om6u1
+         ohy81/09EwpXBi2TP2Ry2w9//oaZVpZOUL2qVe6Cpbrqea/W6KXNghYk9myFFOt79boL
+         ToJQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=0NaMGQ4Owpl3Co7yhqKVZHVr+kTFNUk1Lb3ecw2usVA=;
+        fh=h/1W6gFGYFj3AwU0h3d8/cc9kD31kKVLWgch6CI/NPs=;
+        b=siQFEtPku/QjVTzCEoP9IqUrJaNFD2MSrsfQOnyOwzR++JMXZQoOh+WbHl3Rq0+Gr5
+         wC8aCPLfsinKXtI0OfboMaAr5qdTtPw2H84hxLRYPfEnN7oKmROyz90FwuOdqMhdP/6b
+         NE927grrbAt7e7P1gDKVqONOcMy34TEDS4djpexZtYUeJKzpICEe6jruegoegIjC52Yk
+         sxsTrheuHOf5QIisfEpvVijP3oOvCpsR58oVdG19qHlhvuEcYJK9bNljZBwgKckkAUoN
+         NGyxPBem+fgWGFrsqKgY7JBHsf/rCjbbfWMWFvK16gVecOsh0LIg+uRaikANtp/NNgZG
+         jz1g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795173410; x=1795778210; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0NaMGQ4Owpl3Co7yhqKVZHVr+kTFNUk1Lb3ecw2usVA=;
+        b=dg0qNTaw1I2FaQAtzF9Y7WtNR27A4Rv9Gpi6OeW4VqDaX+wfWjw4ofghPyRQkqlbX3
+         QBPsfWsfquSDRqV0JKcgNBvei06W6DbpFeVHjNn/yIXk5cn3hBKOfU2ovzx6qaoswy45
+         N3lS2HywAUUOlvpAM0RiyBr2j8lbDIdVIunwVAXI9YP3Z9nNOPxtpGAY+NtZuFHBAjMQ
+         KNODN0cu1psGJpIR9i9C3P/sbOssnq865mc2HSWIPpz+3JuSvJVs/h5G5ZZnj6tPOvc9
+         AmNmtgavvxMNUJK3wCyQrWliBPcdDTKyZhWwEf8RdanEMh1JyuFchDfRuOF1fJVOq6tD
+         MrhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795173410; x=1795778210;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0NaMGQ4Owpl3Co7yhqKVZHVr+kTFNUk1Lb3ecw2usVA=;
+        b=oK8JDViF3KH63ymAYi0DR7QXZc4kcV6d0y8ktkkSJDk+J784oeI8Zw9oTZl3DErRcF
+         DNwdz5SX98tm40NlyNrkehgNSfLIwEuFnWCPmr1jywQrjdy/RMGL2Q3kSGb152jQBgpA
+         GxiVJyiXxj8B6YNzoq9SFszhQFwp35+sBBPrfHc/gm9qLDF/bEZNgH5IiJHepiLXA9hp
+         RGIQYIoqTItfg3LPeH1tIjCBNpfxQih6b3jhSxPm8YRIkXxfMuOmznBSYKA5XISdSkOh
+         xsYQ8BslXhVnEUddP3ILN7xLhyzpQyS3EIwshE0S6EWlUYZuXvUHnqcMXP0nm4trsUFr
+         G3Dg==
+X-Forwarded-Encrypted: i=1; AL+hErGcahUwyVmEAF41FbIGbZVylb8bbWJYrqBTZ8ikTwiyMmq9DHZDoNexrrjMpl8WuBumD+kO1aWNb/76WkU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fATn3RDv6+vLsfhSo+QzDlCjLWD29uUMkR833IBkhZg0mFQUe
+	OWuoV7ee2Ts67F7UZrzdSb2D+uUUI3GNkE9U7oI0Biq5+17cLtoE5h7xPVjsGrNxxTEloCgKc5E
+	gmUi+4ZzFPN7TUIs8h4+B5O0JjVwvQYQ=
+X-Gm-Gg: AYBFou2YWif/W4sOBQw3O+792O+SSgwWIlB7EKQ/fNXDWKNq2Y0vsjAofWPkzNzHpxq
+	RpiKSZRVyV02jbPMpwoNFIjBiPKIorFBIK0vOaEAIdQGhjV4ezbUWGUHhbC+Gu+m4xuRWXgtDJA
+	mI6OAetXp8K4bIBCaIuIb5HNtDJl+w9IGHXF9DHL8a71510fZMvjgtITLZKWY1GbVJgM5bAmk9Y
+	AQzU3yivmuEY6SwwxvLNRTsUD6mO4I8itGYA5rIzYQAim++dHPtoZP81RWa+l99MRf+7i4zjVEz
+	MA6N3t+yOA6KC9e3vUMmclEGQKMZmcLKIvKXv969+qRpg4EXb9vXQOd26diYer0EFNHRZyLlVMT
+	CnT1SmWm6R0CFgmoCOcoWFrcGbrSHljUUel4Zr9JhXjE+hdqWuDMhlr6ovDob7gY1c/V0YQ==
+X-Received: by 2002:a17:907:73cd:b0:c40:38b5:d784 with SMTP id
+ a640c23a62f3a-c513a614467mr280155766b.22.1795173409664; Fri, 20 Nov 2026
+ 03:16:49 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,83 +104,168 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119154001.9b9f953136935a09e8a50af6@linux-foundation.org>
+In-Reply-To: <20261119154001.9b9f953136935a09e8a50af6@linux-foundation.org>
+From: Kairui Song <ryncsn@gmail.com>
+Date: Fri, 20 Nov 2026 19:16:12 +0800
+X-Gm-Features: Aa3M54pc2xETNqoexA8P5jVd0jSnzthhaZdG2Uuuwphbutgg3FiGQAMnp8Ovueo
+Message-ID: <CAMgjq7Dd=Y+GekSD9WO5oGdoa+S1eG3T-U=VsCexopvb723zFA@mail.gmail.com>
+Subject: Re: [PATCH v5 00/17] mm/mglru: frequency guided promotion (MGLRU-FG)
+ and flag cleanup
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, Johannes Weiner <hannes@cmpxchg.org>, 
+	Muchun Song <muchun.song@linux.dev>, Qi Zheng <qi.zheng@linux.dev>, 
+	Ying Huang <ying.huang@linux.alibaba.com>, Chris Li <chrisl@kernel.org>, 
+	Baoquan He <baoquan.he@linux.dev>, Nico Pache <nico.pache@linux.dev>, 
+	Usama Arif <usama.arif@linux.dev>, Michal Hocko <mhocko@kernel.org>, 
+	Roman Gushchin <roman.gushchin@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	David Hildenbrand <david@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
+	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
+	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
+	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
+	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
+	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
+	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
+	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
+	Xiang Liu <liuxiang.277@bytedance.com>, Ehab Ababneh <ehab.ababneh@intel.com>, 
+	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, Lian Wang <lianux.mm@gmail.com>, 
+	Joanne Koong <joannelkoong@gmail.com>, Kunwu Chan <kunwu.chan@gmail.com>, 
+	Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
+	damon@lists.linux.dev, linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Many users of dma_fence do things like:
+On Fri, Nov 20, 2026 at 7:40=E2=80=AFAM Andrew Morton <akpm@linux-foundatio=
+n.org> wrote:
+>
+> On Thu, 19 Nov 2026 05:03:32 +0800 Kairui Song <kasong@tencent.com> wrote=
+:
+>
+> > This series implements MGLRU-FG following the idea proposed at LSF/MM/B=
+PF
+> > this year [1], based on current mm-new. Depending on the workload, it
+> > improves the performance or reduces IO by roughly 10% to over 50%,
+> > fixes multiple long-standing issues with MGLRU metrics, and drops one
+> > page flag.
+>
+> This is looking really good - great stuff.
+>
+> Review is thin, so I'll remain in wait-and-see mode for now.  What do
+> people think?
+>
+> I told LLM to put this series through its paces.  The performance gains
+> were confirmed (actually muchly exceeded) and it couldn't find a way to
+> break anything.  It found a smallish slowdown in writes to clear_refs,
+> which doesn't seem very important?
 
-// Thread A
-dma_fence_set_error(f, -EINVAL);
-dma_fence_signal(f); // <- test_and_set_bit() orders against the above.
+Thanks! Glad to see another positive report. And yeah I think
+everything is fine.
 
-// Thread B
-if (dma_fence_is_signaled(f)) // <- Does test_bit(), no ordering.
-	pr_info("err: %i\n", f->error); // <- Can be loaded first.
+The reply below is a bit long (and 99% not LLM generated :-), so
+TLDR: We fixed a long standing "bug" here in with a small (IMO)
+interface performance drop, and that interface's user was already broken
+(which we fixed), and I think the performance can be easily recovered too.
 
-There is no memory ordering between reading of the signaled-bit and
-reading of the error code. This can result in outdated, wrong error
-codes being evaluated by the user. That's a significant bug when we
-consider that fences' purpose is to propagate the state of jobs running
-on hardware.
+("bug": it's just messed up metrics readings, there is no leak or
+race, just these values are just no longer meaningful in anyway and
+are breaking real world usage, see appendix)
 
-dma_fence_get_status() does take the fence lock, presumably to ensure
-ordering, but it is broken, too, because the read misordering can simply
-happen within the critical section.
+A slightly (~10% end to end, that one interface only) clear_refs
+writer slow down is expected, smap is the only user for that (maybe
+DAMON too but it works differently and won't cause this many calls).
+However, the thing is smap reading was almost broken for MGLRU in
+mainline, just like K8s users have to disable MGLRU by default for
+years because it keeps giving gibberish readings (See Link [20],  the
+refs and workingset are tangled in PID controller / aging in a
+hard-to-describe way so we see seeing unrealistic values).
 
-It's not entirely clear since when this bug exists, but at least since
-dma_fence_get_status() was added, which is why its birth commit is
-marked as the Fixes commit here.
+This series fixed that, metric readings are now sane, stable and
+accurate, close to CLRU and provide useful data for workingset
+estimation, so the trivial slowdown of a lessly used interface seems
+very reasonable, and we only slow down the even colder hard reset
+part, readers are good as before. (We'll also need to update the tools
+ABI part later, but that's too long for now, and I think we can live
+with it for a little longer considering it has been broken for so long
+time...)
 
-Ensure ordering for everyone evaluating the error code centrally by
-using test_bit_acquire() in dma_fence_test_signaled_flag().
+Meanwhile, if we want better smap reset performance (I'm not sure if
+we really need that, since it is costly by itself already, a whole VMA
+locked walk & PTE update per page, and ruins the hotness info), we can
+do this:
 
-Cc: stable@vger.kernel.org
-Fixes: d6c99f4bf093 ("dma-fence: Wrap querying the fence->status")
-Signed-off-by: Philipp Stanner <phasta@kernel.org>
----
-Changes in v4:
-  - Keep the hint at the function being opportunistic. (Christian)
-
-Changes in v3:
-  - Be more precise in code comments and commit message about how the
-    ordering works. (Gary)
-  - Update the function's documentation to inform about ordering
-    semantics.
----
- include/linux/dma-fence.h | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
-
-diff --git a/include/linux/dma-fence.h b/include/linux/dma-fence.h
-index dd07d128adc3..64330bf52561 100644
---- a/include/linux/dma-fence.h
-+++ b/include/linux/dma-fence.h
-@@ -487,16 +487,23 @@ const char __rcu *dma_fence_timeline_name(struct dma_fence *fence);
-  * with the fence in any way. The user must, therefore, ensure through other
-  * means that fences get signaled eventually.
-  *
-- * This function uses test_bit(), which is thread-safe. Naturally, this function
-- * should be used opportunistically; a fence could get signaled at any moment
-- * after the check is done.
-+ * Naturally, this function should be used opportunistically; a fence could get
-+ * signaled at any moment after the check is done.
-+ *
-+ * This function provides acquire ordering. This means that all stores
-+ * preceding the signaling of a fence are visible in correct order to users of
-+ * this function.
-  *
-  * Return: true if signaled, false otherwise.
+diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
+index a2442e49aca2..45808f7ae50c 100644
+--- a/include/linux/mm_inline.h
++++ b/include/linux/mm_inline.h
+@@ -562,10 +562,12 @@ static inline bool folio_check_lru_refs(const
+struct folio *folio)
   */
- static inline bool
- dma_fence_test_signaled_flag(struct dma_fence *fence)
+ static inline void folio_clear_lru_refs(struct folio *folio)
  {
--	return test_bit(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
-+	/*
-+	 * The release counterpart is the test_and_set_bit() in
-+	 * dma_fence_signal_timestamp_locked().
-+	 */
-+	return test_bit_acquire(DMA_FENCE_FLAG_SIGNALED_BIT, &fence->flags);
+-       if (lru_gen_enabled())
+-               folio_reset_lru_refs(folio);
+-       else
++       if (lru_gen_enabled()) {
++               if (folio_lru_refs(folio))
++                       folio_reset_lru_refs(folio);
++       } else {
+                folio_clear_referenced(folio);
++       }
  }
- 
- /**
--- 
-2.56.0
 
+It should speed it up instead for most cases, I didn't include it just
+to keep the code a little bit simpler. Smap and DAMON are the only two
+users, so it's safe to squash this into Patch 10 "convert to LRU refs
+based operations for MGLRU" directly.
+
+In fact, if we really care about smap performance we should start
+batching it instead of doing things page by page like right now, I
+think that may bring a much larger speed up.
+
+And a Appendix: Measuring the smap Referenced, and active / inactive
+reading during a build test (LLM did help on this :-D ):
+
+      =E2=94=82 smaps Referenced/Rss % min/med/max =E2=94=82 span =E2=94=82=
+ stdev
+CLRU  =E2=94=82  99.4 / 100.0 / 100.0              =E2=94=82  0.6 =E2=94=82=
+  0.0
+MGLRU =E2=94=82  38.0 /  99.6 / 100.0              =E2=94=82 62.0 =E2=94=82=
+ 12.3 - erratic and unstable
+FG    =E2=94=82  99.9 / 100.0 / 100.0              =E2=94=82  0.1 =E2=94=82=
+  0.0 - matches CLRU
+
+      =E2=94=82 active_anon % min/med/max =E2=94=82 span =E2=94=82 stdev
+CLRU  =E2=94=82   0.0 /   1.1 /  24.9     =E2=94=82 24.8 =E2=94=82  4.5
+MGLRU =E2=94=82   3.7 /  96.4 / 100.0     =E2=94=82 96.3 =E2=94=82 23.7 * c=
+haotic, almost random
+FG    =E2=94=82   0.0 /   0.9 /  12.3     =E2=94=82 12.2 =E2=94=82  1.9 - m=
+atches CLRU
+
+      =E2=94=82 active_file % min/med/max =E2=94=82 span =E2=94=82 stdev
+CLRU  =E2=94=82  34.1 / 43.8 / 52.2      =E2=94=82 18.1 =E2=94=82  4.7
+MGLRU =E2=94=82   0.0 /  0.1 /  0.1      =E2=94=82  0.1 =E2=94=82  0.0 * en=
+tirely wrong, always ~0
+FG    =E2=94=82  24.3 / 33.5 / 42.2      =E2=94=82 18.0 =E2=94=82  5.7 - ma=
+tches CLRU
+
+Pool over 3 test run with make -j48, defconfig, ZRAM as swap, 3G memory.
+
+It can be seen clearly that the metrics readings before FG were almost
+gibberish, FG fixed that just fine. These are causing issues that
+describe in the Link [20] above, and many other components. And they
+don't write to clear_refs, they just read meminfo, smap is also
+included here but less used.
+
+The active anon reading for both CLRU and FG seems a bit low, mostly
+because this task is under heavy pressure and aging/reclaming fast,
+and FG also provides the way to tweak it in the future
+(LRU_REFS_ACTIVE). And FG reporting a bit lower is somewhat reasonable
+since it does reclaim better.
+
+Note, the goal here is not to match CLRU, but CLRU was clearly doing
+much better on this, so using that as an reference shows the
+reworked readings are indeed normal and reliable.
