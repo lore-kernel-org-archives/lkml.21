@@ -1,82 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795209929;
-	b=pavIvT2/1YxcU6OTXdBOGSFgP+ZMl7BuyJzQff8bthEnEFaj7UHM9xVSWvLZzf1H2df3
-	 JA3vOJMuyj+S0/jSLRBbcQJzvaVjRJtsShPKy61pWJfLejkKN9RrfIA8zQY7bI9RbL5er
-	 JrfkA4KEtPXlIYHfhRXHlCDwraAikTRj1oSQlojtAO1kdk8kpcJfDNUvP/3NikjvDk6nA
-	 rQH4Lt+vuY7IvnuoilYV0/9Yyx9QJlJ2bIWo/6wOdMX3iqdtzsxVmP2KMH9JlWCUfkNOD
-	 l1D823gcU0yMxBdo2vr+52ef3r33Sh+9Ff/joRWuVQPEFwhdo0HT6B4CSPEiUGwxZYQ==
+	b=bA5416Bij9IlDJu1A4ZRknwIhJHw0Tw2ydORAFZhfwsEvAeqFzMukJTSldbCfuoccXPF
+	 jDqkyUMlK64bGsD4n4zqQ5V4Q05jZBJXm27YhIJqscC7+SgS7h+jyOG0SV6vCHkIcKcRu
+	 7MnIoJuBypuyN7a32Ck8t0VWYJ7rzEwa8EougWunEE1ytuCtsK55P/wWLYASpsXx+gXWV
+	 tFdadGV4RYTO0Sk9OrawNPSEj9jlVLRJGvgvpQbsSjsdDZpk+UTwd8Sp9qPQQwzl4/q+z
+	 WqlW3ckGVfsqPpueyskWhjcrczGJsCIzh17rlFLSzwRpgIdnsfGCmMxFYISJPAkjhHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795209929;
 	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
 	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=ImiBtORCgr9VjxOX4rTfnqz8JE1K2nTyAZOsPgUQvJM=;
-	b=miDhx/Fxc7nx160VYYdHY8ryFpfQNxcoiJ24m9brI7iO5ktjQjFxdmodiOEnOU5gqAOW
-	 uQ0wSGHGH1tW+sIbvFKi0bDoLAIRPb+CK6KhD0M2/v3DNV9L56WpBpn6BIPtyQ7Ksj+6g
-	 nZcr+RxTj/QJ/Bb6+HWxlo4v+SYbZCt6ljyxzG7z57HSOLNAxyEMtEBKak9BdY/zsAXOY
-	 PRRwBmmu5iQlzckxb3vCCFk8U1noi8ME7m87Dgv8zOOqpbniQ57xLxrtPuspQixGk4L8+
-	 6kNGL5dKoP1mZFqKhw4bypUYiXBOs/xuqUIa+1i88dTy+g3Xn0lhqHVQj8xc5+Lb3oA==
+	bh=TNPMFYgAwFN2NrARfx3WacETp012VuuTfzB5PFZwkmU=;
+	b=KXPe9HxwjAuDyiBgAKXAuyix6LdxjMLAt08JPgNdOM4g86C7m8Gb+RqRbl78cA4mUSY9
+	 Nz1o2wvkh7GJfWYJGNfKT3P+uoAnlAzQnQSSCA6vaCCdN27q1CHsL4WOs1G6/9ltuDkM4
+	 vDTz0MWm7Vj7RZkUCB382fzmuQomrKLqy06X792FTHjEpCEP5i+FrRU+4IHOA/9QEldK5
+	 6ZYOUs3dKigs3FYb6qQjuyUjHgXDJSLxzR9irOLwhv4PUtHbGq8D0b+EYs1B8Yitkkd30
+	 pqREJQ/Pimskrl0AzE5TfICMQNsG47gCbB/DugPAmWTsuSaGXGEixwcRinOIK8BF7Hg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmx.de;
 	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=jx0ZoZNZ;
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=sh+TAl30;
 	arc=none smtp.remote-ip=212.227.17.22
 Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1070C606A68D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1068C606A33D
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:25:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1070C606A68D
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1068C606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=jx0ZoZNZ
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=sh+TAl30
 DKIM2-Signature:  i=1; m=1; t=1795209924;
  mf=PFdfQXJtaW5AZ214LmRlPg==;
  rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
  d=gmx.de;
- s=s31663417:rsa-sha256:buxDZJZdVO9zCavioTASs/8vnsDY
-   oorcoc+6ZIPKh8oBJdVF1CW1L1+68FH9yzg0C09ZFg3l0+AOfQJAmIQTSiUkgyOR8uKZ99/1Idw
-   YhNXD/WU6eShlQBYNYIMbsgDASYT6uPmmBCmtIpi8t3W0jVAuabZI73T2/ifrFebkW1HZ7QGUVc
-   8pU95iKjjuY8VGicnFl3lI3ldvCsqddnprZlpVpQrMqaMAZ/Px/RmTWJbApSetwunOHgPu3byI+
-   WEi46ytth8hfY1sWuB5XbRnc61WXPf91Yp6jC3JDlztEWUmJEYyY6JKG4dSw3JX71NoJ5mv/Ju8
-   VHGWSUK/nGmwvQ==;
+ s=s31663417:rsa-sha256:rxaccdoBsCsF99qAwfEwXJC/lkM7
+   EWuWkA/YJkHBYFZSrFgFr6nw8RJdQFAf8SH2mIPpkIASYlaYqQRmE+AY1dwY0wn8iH7dtGDqARZ
+   qmrym9xzB0BHeyGD/R10muZ03ygvt5KJr6ZhUtps29OM/LzAjUBff6i3xNUKJnWlRYsB2BVMuGP
+   1r4XI8a8NilLFdrYIBNpzi+jQYBdKkhhl08WbXyjIUoqpv8bcwfjznZ1DZKgTn45L51yE/ek4hi
+   F7P+inJa1xTTb4yVRc+ibo6jXheV2HVi82ImqngOdK2+zs3l5rk9Gcu/8TngyEp5PTUYBWlnTTG
+   w/3d5NhP2Ow63w==;
 Message-Instance:  m=1;
  h=sha256:
-   HBEaeqXw+spsABbEpAtri+N4cYKUhWOdOUr7ElZ29N0=:
-   sofMOaMwYi955RUv89mMRDswtMaX9EO3NFCh5fHT/BI=,
+   YK5hzQCwNy/pnGPdYK0dNzUv3tZGXdXuGVdQqUq40hA=:
+   zB1vefYU/huGeLfABVto+yL3GQvTRIu6nRtZC7XoK9o=,
   sha512:
-   gWfCAQP2Jbs9X2PAD8QU3T3IfiGiAXhJ+bIEooX0Kjlim78OkeVkGuIfA4vCfIfPELEvsUo2zCFbG6sAXnCTKg==:
-   Asm6+NdZuBWmDrnBhrsfvV6SNpjxFgI8lCC2rFP1qx9VYu7nnOdeV2wtVDve3552JQfEgg+FDCzq6B0vJu3jMw==;
+   s5pHHqgbsny0V0xZyMdNZ2dZtukeoETS8Yg3dNk+hFj3dLwDPTiO9AKMvpQBBksTHXb8j/7O23jxCWyvHNjcEg==:
+   fNa8FRApOTYZ6swOz9w5Yz7nQCH6kyj46/vItreKFwB1r4KnznrrFcvBnqyg9LAI2TqMOl9UziaqeJAP/sHkWA==;
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795209894; x=1795814694; i=w_armin@gmx.de;
-	bh=ImiBtORCgr9VjxOX4rTfnqz8JE1K2nTyAZOsPgUQvJM=;
+	s=s31663417; t=1795209896; x=1795814696; i=w_armin@gmx.de;
+	bh=TNPMFYgAwFN2NrARfx3WacETp012VuuTfzB5PFZwkmU=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=jx0ZoZNZ3JV1SsAGU1i2OPQdgB91qnkzaUfqkZCH0sa9bIfJqtHuG6STiFQ2d4hu
-	 T7KQp7yI1UtLmYmNt6AXhCBdIDUW0X7o/tRT6Lltmwc8JTXAZXU8cQcSH4TitBsr3
-	 8X2EmtRwpIRMdDXo1idOK/4i7xqM9/00PbQOcpffDfodnCNkGphpe6dp0T1q0Mh6B
-	 GZTUyhPGdK+7ew9tMLJhA5tXWvr+GEo+LQWxfl+vphE22MmR5gg4JKhtgVjTMjKtD
-	 ETGTTaxSvjeOAqNa0MdTYkO0rJPB1MwTcbJP2TxvxYYSjymksIl5xnpK+5V0vb2Fs
-	 ADrRP8Hv2dMrCnny2w==
+	b=sh+TAl30gkYqhb6SAM7vcZZih5Zh5RhNbuuGcS1FZ9IUjjwVAyvsyxTc9bvVW3C+
+	 sEPKdCo/MFdarTw24y7DJoNgk2V2J3l+s1xKdFMgXPi3E5Dva54TNBoCbdjBnGNra
+	 jVSzrWYPC3PYMVplvAyDNPRZ1Eaq/oXax3aybJL/sPs7s5uKENcN4FJ1so1Y9AUXe
+	 UetrElQF36wuyE1fTH7ZjEY0dxecec3XhjY73dlfz1TbaZEsj47TJtjmtxFUIafR4
+	 ihf7n02UN4e2DSCf/SerR6dX3BeM7RB2icNVM34kRj/JRQkTSIOTVdK3DiiIkX0L6
+	 sgS7BpEN8Lrmk+99yw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MY68T-1y2u5o3K5F-00XFOg; Fri, 20
- Nov 2026 22:24:54 +0100
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MeU0q-1y4gGR2dKW-00p4Mq; Fri, 20
+ Nov 2026 22:24:55 +0100
 From: Armin Wolf <W_Armin@gmx.de>
 To: lee@kernel.org,
 	pavel@kernel.org
 Cc: linux-leds@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	i@rong.moe
-Subject: [PATCH v3 09/11] leds: Support custom sysfs groups on multicolor and flash LEDs
-Date: Fri, 20 Nov 2026 22:22:26 +0100
-Message-ID: <20261120212431.152081-10-W_Armin@gmx.de>
+Subject: [PATCH v3 10/11] leds: rgb: ktd202x: Initialize max_brightness before registering LED
+Date: Fri, 20 Nov 2026 22:22:27 +0100
+Message-ID: <20261120212431.152081-11-W_Armin@gmx.de>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
 References: <20261120212431.152081-1-W_Armin@gmx.de>
@@ -90,405 +90,158 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:MSlu6xrufcGa91ZQIwQcQciZYNFiqd+mhvMvlRviYFjpzQ2zGcB
- oCNJOjWOOEQba0kHGPsCv4iULKjFzmoOIDZ53TllVuoimr9++vZ+3/UJb+BoYg82CFrz3Lf
- yzjh5tDtZDjSKGCnszQ9CY8KYruSc1IdWJO/jYhbdlrfPANY21jV2BNnHQxju7pp+bIGbu2
- 9uc/2nFUnvAFMKcNCmXaw==
+X-Provags-ID: V03:K1:Jh3nP2KFDTcit2m1gCTG2lp5UJRcWmowHtUEb/tkSgTSTvuEiiP
+ ujZM0NHJV9YyZ0utY75lyIB4e4MZLS4MvgkfpYYFmJOsLww/O262+jrKIAxhTm9Pmj/EZJS
+ une+TdNlPGIlVrJBm0u0W1vPsQdFaqaVQox+JbiRdla9/fn59gR7EZpxRvJ3ebp9DsPpVgJ
+ z8Ilg1DXNySxLij9paISA==
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:A+UIKQFIwCg=;cmA4nqUVpvPns61MYkEPIiza0T7
- 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
- EqY/vD1NH47vHudDkkg==
+UI-OutboundReport: notjunk:1;M01:P0:aVhg/vxbtWQ=;oOEjNt3t5ToYBHk8fOspVnqMJgK
+ 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
+ 8vNI2uLH15BU+aYXvJsyLLSUGXFg==
 
-Drivers registering multicolor/flash LEDs currently cannot use
-led_cdev->groups due to said field being overwritten by the
-multicolor/flash LED registration functions. Fix this by assigning
-each LED type a seperate device type ("multicolor" and "flash")
-that carries the sysfs attributes instead.
+Initializing max_brightness after having already registered the LED
+class device will overwrite any adjustments made via devicetree and
+mess up the multicolor LED fallback path for multi_intensity_max.
 
-Also assign a device type for standard LEDs ("standard") for symmetry.
+Fix this by initializing max_brightness brefore registering the LED
+class device.
 
+Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
 Signed-off-by: Armin Wolf <W_Armin@gmx.de>
 =2D--
- drivers/leds/led-class-flash.c      | 107 +++++++++++++---------------
- drivers/leds/led-class-multicolor.c |  15 +++-
- drivers/leds/led-class.c            |   6 ++
- include/linux/led-class-flash.h     |   5 --
- 4 files changed, 68 insertions(+), 65 deletions(-)
+ drivers/leds/rgb/leds-ktd202x.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/leds/led-class-flash.c b/drivers/leds/led-class-flash=
-.c
-index 33cfc5d082c1..2e98f030cda6 100644
-=2D-- a/drivers/leds/led-class-flash.c
-+++ b/drivers/leds/led-class-flash.c
-@@ -13,6 +13,7 @@
- #include <linux/module.h>
- #include <linux/slab.h>
- #include <linux/sysfs.h>
-+#include "leds.h"
+diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd20=
+2x.c
+index 143020945e23..2f5d0694c9c9 100644
+=2D-- a/drivers/leds/rgb/leds-ktd202x.c
++++ b/drivers/leds/rgb/leds-ktd202x.c
+@@ -477,9 +477,11 @@ static int ktd202x_add_led(struct ktd202x *chip, stru=
+ct fwnode_handle *fwnode, u
 =20
- #define has_flash_op(fled_cdev, op)				\
- 	(fled_cdev && fled_cdev->ops->op)
-@@ -207,42 +208,56 @@ static ssize_t flash_fault_show(struct device *dev, =
-const struct device_attribut
- }
- static const DEVICE_ATTR_RO(flash_fault);
+ 	if (color =3D=3D LED_COLOR_ID_RGB) {
+ 		cdev =3D &led->mcdev.led_cdev;
++		cdev->max_brightness =3D KTD202X_MAX_BRIGHTNESS;
+ 		ret =3D ktd202x_setup_led_rgb(chip, fwnode, led, &init_data);
+ 	} else {
+ 		cdev =3D &led->cdev;
++		cdev->max_brightness =3D KTD202X_MAX_BRIGHTNESS;
+ 		ret =3D ktd202x_setup_led_single(chip, fwnode, led, &init_data);
+ 	}
 =20
--static const struct attribute *const led_flash_strobe_attrs[] =3D {
-+static const struct attribute *const led_flash_attrs[] =3D {
- 	&dev_attr_flash_strobe.attr,
--	NULL,
--};
--
--static const struct attribute *const led_flash_timeout_attrs[] =3D {
- 	&dev_attr_flash_timeout.attr,
- 	&dev_attr_max_flash_timeout.attr,
--	NULL,
--};
--
--static const struct attribute *const led_flash_brightness_attrs[] =3D {
- 	&dev_attr_flash_brightness.attr,
- 	&dev_attr_max_flash_brightness.attr,
--	NULL,
--};
--
--static const struct attribute *const led_flash_fault_attrs[] =3D {
- 	&dev_attr_flash_fault.attr,
- 	NULL,
- };
-=20
--static const struct attribute_group led_flash_strobe_group =3D {
--	.attrs_const =3D led_flash_strobe_attrs,
--};
-+static umode_t led_flash_is_visible(struct kobject *kobj, const struct at=
-tribute *attr, int n)
-+{
-+	struct device *dev =3D kobj_to_dev(kobj);
-+	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
-+	struct led_classdev_flash *fled_cdev =3D lcdev_to_flcdev(led_cdev);
-+
-+	if (attr =3D=3D &dev_attr_flash_strobe.attr)
-+		return attr->mode;
-+
-+        if (attr =3D=3D &dev_attr_flash_timeout.attr && fled_cdev->ops->t=
-imeout_set)
-+                return attr->mode;
-+
-+	if (attr =3D=3D &dev_attr_max_flash_timeout.attr && fled_cdev->ops->time=
-out_set)
-+		return attr->mode;
-+
-+	if (attr =3D=3D &dev_attr_flash_brightness.attr && fled_cdev->ops->flash=
-_brightness_set)
-+		return attr->mode;
-+
-+	if (attr =3D=3D &dev_attr_max_flash_brightness.attr && fled_cdev->ops->f=
-lash_brightness_set)
-+		return attr->mode;
-+
-+	if (attr =3D=3D &dev_attr_flash_fault.attr && fled_cdev->ops->fault_get)
-+		return attr->mode;
-=20
--static const struct attribute_group led_flash_timeout_group =3D {
--	.attrs_const =3D led_flash_timeout_attrs,
-+        return 0;
-+}
-+
-+static const struct attribute_group led_flash_group =3D {
-+	.is_visible_const =3D led_flash_is_visible,
-+	.attrs_const =3D led_flash_attrs,
- };
-=20
--static const struct attribute_group led_flash_brightness_group =3D {
--	.attrs_const =3D led_flash_brightness_attrs,
-+static const struct attribute_group *led_flash_groups[] =3D {
-+	&led_flash_group,
-+	NULL,
- };
-=20
--static const struct attribute_group led_flash_fault_group =3D {
--	.attrs_const =3D led_flash_fault_attrs,
-+static const struct device_type led_flash_device_type =3D {
-+	.name =3D "flash",
-+	.groups =3D led_flash_groups,
- };
-=20
- static void led_flash_resume(struct led_classdev *led_cdev)
-@@ -254,30 +269,6 @@ static void led_flash_resume(struct led_classdev *led=
-_cdev)
- 	call_flash_op(fled_cdev, timeout_set, fled_cdev->timeout.val);
- }
-=20
--static void led_flash_init_sysfs_groups(struct led_classdev_flash *fled_c=
-dev)
--{
--	struct led_classdev *led_cdev =3D &fled_cdev->led_cdev;
--	const struct led_flash_ops *ops =3D fled_cdev->ops;
--	const struct attribute_group **flash_groups =3D fled_cdev->sysfs_groups;
--
--	int num_sysfs_groups =3D 0;
--
--	flash_groups[num_sysfs_groups++] =3D &led_flash_strobe_group;
--
--	if (ops->flash_brightness_set)
--		flash_groups[num_sysfs_groups++] =3D &led_flash_brightness_group;
--
--	if (ops->timeout_set)
--		flash_groups[num_sysfs_groups++] =3D &led_flash_timeout_group;
--
--	if (ops->fault_get)
--		flash_groups[num_sysfs_groups++] =3D &led_flash_fault_group;
--
--	flash_groups[num_sysfs_groups] =3D NULL;
--
--	led_cdev->groups =3D flash_groups;
--}
--
- int led_classdev_flash_register_ext(struct device *parent,
- 				    struct led_classdev_flash *fled_cdev,
- 				    struct led_init_data *init_data)
-@@ -291,26 +282,26 @@ int led_classdev_flash_register_ext(struct device *p=
-arent,
-=20
- 	led_cdev =3D &fled_cdev->led_cdev;
-=20
--	if (led_cdev->flags & LED_DEV_CAP_FLASH) {
--		if (!led_cdev->brightness_set_blocking)
--			return -EINVAL;
-+	if (!(led_cdev->flags & LED_DEV_CAP_FLASH))
-+		return led_classdev_register_ext(parent, led_cdev, init_data);
-=20
--		ops =3D fled_cdev->ops;
--		if (!ops || !ops->strobe_set)
--			return -EINVAL;
-+	if (!led_cdev->brightness_set_blocking)
-+		return -EINVAL;
-=20
--		led_cdev->flash_resume =3D led_flash_resume;
-+	ops =3D fled_cdev->ops;
-+	if (!ops || !ops->strobe_set)
-+		return -EINVAL;
-=20
--		/* Select the sysfs attributes to be created for the device */
--		led_flash_init_sysfs_groups(fled_cdev);
--	}
-+	led_cdev->flash_resume =3D led_flash_resume;
-=20
- 	/* Register led class device */
--	ret =3D led_classdev_register_ext(parent, led_cdev, init_data);
-+	ret =3D led_classdev_init(parent, led_cdev, init_data);
- 	if (ret < 0)
+@@ -488,8 +490,6 @@ static int ktd202x_add_led(struct ktd202x *chip, struc=
+t fwnode_handle *fwnode, u
  		return ret;
+ 	}
 =20
--	return 0;
-+	led_cdev->dev->type =3D &led_flash_device_type;
-+
-+	return led_classdev_add(led_cdev, init_data);
- }
- EXPORT_SYMBOL_GPL(led_classdev_flash_register_ext);
-=20
-diff --git a/drivers/leds/led-class-multicolor.c b/drivers/leds/led-class-=
-multicolor.c
-index 57df0b2e785b..0656ca2361b3 100644
-=2D-- a/drivers/leds/led-class-multicolor.c
-+++ b/drivers/leds/led-class-multicolor.c
-@@ -12,6 +12,7 @@
- #include <linux/slab.h>
- #include <linux/sysfs.h>
- #include <linux/uaccess.h>
-+#include "leds.h"
-=20
- static unsigned int led_mc_get_max_intensity(struct led_classdev_mc *mcle=
-d_cdev, size_t index)
- {
-@@ -159,11 +160,17 @@ static const struct attribute *const led_multicolor_=
-attrs[] =3D {
- };
- ATTRIBUTE_GROUPS(led_multicolor);
-=20
-+static const struct device_type led_multicolor_device_type =3D {
-+	.name =3D "multicolor",
-+	.groups =3D led_multicolor_groups,
-+};
-+
- int led_classdev_multicolor_register_ext(struct device *parent,
- 				     struct led_classdev_mc *mcled_cdev,
- 				     struct led_init_data *init_data)
- {
- 	struct led_classdev *led_cdev;
-+	int ret;
-=20
- 	if (!mcled_cdev)
- 		return -EINVAL;
-@@ -176,9 +183,13 @@ int led_classdev_multicolor_register_ext(struct devic=
-e *parent,
-=20
- 	led_cdev =3D &mcled_cdev->led_cdev;
- 	led_cdev->flags |=3D LED_MULTI_COLOR;
--	mcled_cdev->led_cdev.groups =3D led_multicolor_groups;
-+	ret =3D led_classdev_init(parent, led_cdev, init_data);
-+	if (ret < 0)
-+		return ret;
-+
-+	led_cdev->dev->type =3D &led_multicolor_device_type;
-=20
--	return led_classdev_register_ext(parent, led_cdev, init_data);
-+	return led_classdev_add(led_cdev, init_data);
- }
- EXPORT_SYMBOL_GPL(led_classdev_multicolor_register_ext);
-=20
-diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
-index 2f62141268ab..161b85db04f3 100644
-=2D-- a/drivers/leds/led-class.c
-+++ b/drivers/leds/led-class.c
-@@ -654,6 +654,10 @@ int led_classdev_add(struct led_classdev *led_cdev, s=
-truct led_init_data *init_d
- }
- EXPORT_SYMBOL_GPL(led_classdev_add);
-=20
-+static const struct device_type led_device_type =3D {
-+	.name =3D "standard",
-+};
-+
- /**
-  * led_classdev_register_ext - register a new object of led_classdev clas=
-s
-  *                             with init data.
-@@ -672,6 +676,8 @@ int led_classdev_register_ext(struct device *parent,
- 	if (ret < 0)
- 		return ret;
-=20
-+	led_cdev->dev->type =3D &led_device_type;
-+
- 	return led_classdev_add(led_cdev, init_data);
- }
- EXPORT_SYMBOL_GPL(led_classdev_register_ext);
-diff --git a/include/linux/led-class-flash.h b/include/linux/led-class-fla=
-sh.h
-index 775a96217518..5204ef60dc4b 100644
-=2D-- a/include/linux/led-class-flash.h
-+++ b/include/linux/led-class-flash.h
-@@ -28,8 +28,6 @@ struct led_classdev_flash;
- #define LED_FAULT_LED_OVER_TEMPERATURE	(1 << 8)
- #define LED_NUM_FLASH_FAULTS		9
-=20
--#define LED_FLASH_SYSFS_GROUPS_SIZE	5
+-	cdev->max_brightness =3D KTD202X_MAX_BRIGHTNESS;
 -
- struct led_flash_ops {
- 	/* set flash brightness */
- 	int (*flash_brightness_set)(struct led_classdev_flash *fled_cdev,
-@@ -79,9 +77,6 @@ struct led_classdev_flash {
+ 	return 0;
+ }
 =20
- 	/* flash timeout value in microseconds along with its constraints */
- 	struct led_flash_setting duration;
--
--	/* LED Flash class sysfs groups */
--	const struct attribute_group *sysfs_groups[LED_FLASH_SYSFS_GROUPS_SIZE];
- };
-=20
- static inline struct led_classdev_flash *lcdev_to_flcdev(
 =2D-=20
 2.56.1
 
