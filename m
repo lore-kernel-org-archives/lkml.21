@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795213617;
-	b=ks0kTfyJOhij6zU+fD2se/WS/6MW4xccmF87QHR/1JLdDsDpd+Ee/zhrDqKF+09Tg+tJ
-	 Si9MyprrJmM4ziqPyXXxJmbyt/NDPcXen7ni1I0g5YLKwYqcmnf+wz/PHp4VFEO84qohe
-	 in5FCo3HgAPrXxFqD3pnQ3we7N04Ot+Y4ONKaLM0MSwUfArozIEm1qQnTXIIRnyKqodBV
-	 Km96YYGdfr2/prRj5mOXX/FFSW4GGYGWQwYpNZkTZhRZfpqP4dazxzxlmwLylYN90OJ4a
-	 z5dyohhjNGQV6bGgI67uJR6a1y/nFcuQcHKgEB4kgOzCJXsOgQMLA8QmwkCMHiIg3IA==
+	t=1795213619;
+	b=OovekvTfSf3iXpTBdjB+T3QjRqiQgNvIlyBycXuNKET0E1yK2QYDWsEgUg1KI/A9PI2E
+	 JB21P0vwwyKZ+uVQSb1ZNIwnXnMZjtdqbbgZf8KcB1lB3TtZVcF3hla9b3dLrwoeDDXnw
+	 oDxj/VVh007ZQduXTXejAMgyP27QDqxe2fNnmZmCN9fO6ihuuuQhV5Hyryxlu6gwuk+A/
+	 BrJzeCuTa75CQWkM4JaNUE6JVy707rjBjkOuBinYVsIWZwEsmaadzAqBog0ZDMoUB+Kg1
+	 Etove9+L1arDyIBfCtUQidZuV61UxfYhQ7zlA+EisYm+502EiZrA9klO1DE+IvxhB5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795213617;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795213619;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=zoCOY8d84LUWk0NAgOOudXDsOloWKN7w7lXOGZbAXyM=;
-	b=ODIN2CzOug/0lyiwI6NkDbRgPvCrMeOh/s4BBw8k2drl4h8N4zzEkX+NmBOuPNvDDsVX
-	 WVPmt3LeenTDWz17gkoZ81s35ILODveLZY53dm1jqBDftrEmknhIoDjnnEQgynvTzjUIb
-	 fYKwESPs0jiolV+PKpwcOYVt+acobXYPPEWDRFORtKu87ljTfaPD9lMEEZkqwvLYxZ2ps
-	 ZDBItp5a5HOMIS+1LIBwDKsQeyYW1zri3gzM/P5jAtFb8dujbDmznjAOO8hD2jhzkGW9k
-	 IlD1uNO6DB8a7Qz7K0YG7mEOMHrNCa9zu7f4qI502qqNIKfSusqCvxxexkpBPchB5vA==
+	bh=e32iL6f8BD46i5H3EYbcVjG/ZVXtuxRUMvq7INvVP4A=;
+	b=zapkRJIhVnTcH0m1dZc55x+Eeuf/7AJ/rVXyfMB0nc0wLVp8xss5tMDr27ze5KK7lCLl
+	 z4+0Mc81+Jz+GRCfOMGEB/kE1Ak20R+1gyQaykTjA1SXit2Ya+iCAltF9dvsrTtXJM5le
+	 d9RuG97XuCi7VYMtl3ACBHb1UqzIcS5f6/rXmP1o+Qaf07ZQY42I+2hu/Ggz6HS4c9D8T
+	 VL84Tr/nm4/UniXlwarTCgCSWHdUR+3ycvTiDInzZ03HaDVqvBnglUFtLOY5iw2/K/nVU
+	 cen7QkrYatbFj42b0D3DlDgKPhEbXCJ6FoKfeWgy1rQHGDxEjg5UsVvOfRbDlrSrb0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=f6ZIsuze;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="hUG4vOe/";
+	arc=none smtp.remote-ip=74.125.82.198
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFCC3606A6AD
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:26:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFCC3606A6AD
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75271606A68D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:26:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75271606A68D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=f6ZIsuze
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-38355b03cb8so1319105eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:26:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=hUG4vOe/
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-384c78aa0dbso1829463eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:26:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795213609; x=1795818409; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795213618; x=1795818418; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zoCOY8d84LUWk0NAgOOudXDsOloWKN7w7lXOGZbAXyM=;
-        b=f6ZIsuzek51qwjpixalVoBEUmvjC+tbF5eENhxegul03fEZ58UB8rJ/4znJU0ATioj
-         tGZQNzy/HOO6NcsiHm2pKAgxlocB8Atq+rfm+bMq9XZn5DaONAAsRo4czjFXPvElLM6F
-         mY2qIiRdjLxa5EgjLHZ9aqAG3zBIsNJRh31MYzhxCauXf/o7Cw5nsVT/QsIuJZnTT4EM
-         4b2ZYPG4g2lDil5b9hxO0qHmsohWzISbtpgbS8sNDEf5RT5r2Nx8Oh2jhc1IkdU7E9L3
-         S03c/+rnRji0sQODUKJOXGSakjTDD4rjF7gs5F6PBQ7v+ZOjDgRBMaU7mgUlwJKyaYP7
-         YiZQ==
+        bh=e32iL6f8BD46i5H3EYbcVjG/ZVXtuxRUMvq7INvVP4A=;
+        b=hUG4vOe//A4LqOLNe6JlqMPj/K4/kibHORdCaZeri6KZM5YoL+Yr9+O7wJTQbXl8L7
+         GjZFrFRZYks2pXTaI/EznKWu6rYhSmimkj8Cegzn+WoPt/VmeNJzhocNs9WkR7NiJCK3
+         gnhNXJE9Pp+C4XEude6JFhyqt+lfxEbAT/WzTBk3aJLVUuCx1AHYXY3ySlKoslFXu443
+         G+EDDiY3ymU4LPH89rMHuNSwDKOf5mEk0Iak118HwQChuirhVBbooalkeE1UTBBwwl6T
+         6MuiDEJ92dgD16UCEy+6L91a8cBMyvWpnjwT4prpnP3LpS+toWppo/5L1QWKtcWAXGr1
+         LHdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795213609; x=1795818409;
+        d=1e100.net; s=20260707; t=1795213618; x=1795818418;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zoCOY8d84LUWk0NAgOOudXDsOloWKN7w7lXOGZbAXyM=;
-        b=oFuZ+zxHZWZGIHgCp4zGH0dOjZFv8CYFS4lqaMkRYow2w3tUJ0ttsEdPbm5iLIhSIJ
-         UeQHKpY5HoT1G+hwh5LL/cX1wpODjSvxcvvCWfJFo/oRpBKWJxLVwTTzdbwd3M74qqlE
-         xzfB/NVdv4q40miO1ONkVeXi6wKrUi2+qiaO/M9SLQscRNJ+ATYsu2PJgAXOD3mnfnBs
-         U/LKCpQbS8DLWFz9xI4raBnoPgPzHM8epu/8EXm43H3fPGuLmGSPygGLjFKrPMcTy9YD
-         O+Zgmji9VO7NjJdm/ffF0w8Gwygv88gHoip8e++Y/MeyazGxpYdlU0MLJ1ue3Qbfuf8a
-         dVEg==
-X-Forwarded-Encrypted: i=1; AL+hErEVY2LSbxThAbMpz5tOUe033J8RNucLFJL6Rh47ud6ORPnOyjSCUTZJJoYMc4t+zsAbfVKRoCRFzlPz/Go=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/RveYfqzPsj0R7K6p0aYsuLZ7d1Z6wgw/NgNdhzcmtIVqV0LsO
-	TcPAU12HfEQxMjGIE+pvRRJPOBsXtkQKwiq+jyiyBFU7FoQIbTkoLBkqWLmfR3jL5fXGP4wt27M
-	ynPBZtqq7yg==
-X-Received: from dyx8.prod.google.com ([2002:a05:693c:8208:b0:36c:a092:ca28])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:693c:8083:b0:375:e4de:96d3
- with SMTP id 5a478bee46e88-3857083f7d3mr4393077eec.31.1795213605628; Fri, 20
- Nov 2026 14:26:45 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:26:04 -0800
+        bh=e32iL6f8BD46i5H3EYbcVjG/ZVXtuxRUMvq7INvVP4A=;
+        b=PooZfYlKkyJ4ae/3d1/A9rDlgpRD62jz2PKwSUMk7APyagJOs48pKaeDlkMYiKggML
+         Rx09yMnKIgbW1DbJHZsuzBk/Ybh2zLi9GSJMrxTgz2yyx+zmWXCG8ChKdIXxpGLUTe4y
+         T0Ikzv0nuCHjfrg1iWiyeDfV4k5EHnIxsq9iEtS0UHAZCMzgF6JuI2ZNCvlbO07d3Axw
+         4F3jFlLb4CLCWL5E1ULWIb1DxHeab8AMnkrOiEGFPaZKr8qzRGP4QRUfHwauyFToozfC
+         JhWP+kUL/MX31WqldKJvBaAgF0XbqKvDBQdZoHb6wCvChyYUCyTp7leo7DCwEQ9qw0QX
+         qYbw==
+X-Forwarded-Encrypted: i=1; AL+hErH8Je2jqpLi/MXGiDfG706VnkFKKwHksJj5kqb7oM2et0xxPiZE7hr+sIdlXL++GxlSTFyvUS/A9YJzazw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9pkzA6kJ2DB4ezKMU21fwQ01zeaz4c/XrAweYwjS6jgovSv7s
+	bfCyDWOcqZ65rg7LnU6406vxYVM9CqZI6x7CWUjbkIkvqqxaFEpCpXt+Rc43N+9K9F6tnsvBFnG
+	PZ7MAarwZ/g==
+X-Received: from dyclx1.prod.google.com ([2002:a05:693c:2181:b0:36e:f67b:23ab])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:391c:b0:379:f7aa:1013
+ with SMTP id 5a478bee46e88-3856fd59fcemr4266843eec.15.1795213617260; Fri, 20
+ Nov 2026 14:26:57 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:26:06 -0800
 In-Reply-To: <20261120222615.2291168-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120222615.2291168-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120222615.2291168-6-irogers@google.com>
-Subject: [PATCH v3 05/16] perf pmu: Probe precise_ip levels
+Message-ID: <20261120222615.2291168-8-irogers@google.com>
+Subject: [PATCH v3 07/16] perf pmu: Probe execution and AUX area features
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -91,89 +91,396 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Extend perf_pmu__probe() to probe supported precise_ip levels (1..3) and
-populate probed.precise_mask and probed.max_precise.
+Extend perf_pmu__probe() to probe event execution and grouping features
+via perf_event_open() and ioctl(PERF_EVENT_IOC_ENABLE):
 
-Some PMUs that do not implement hardware precise sampling (such as
-software, breakpoint, or AUX trace PMUs) silently ignore attr.precise_ip
-even on non-sampling events (sample_period == 0), whereas PMUs that
-genuinely validate precise_ip either reject precise_ip > 0 on counting
-events or are sampling-only PMUs. Check for this before probing levels
-1..3 so non-precise PMUs are not misreported as supporting precise_ip,
-while still detecting higher precision levels when core events are
-forwarded to hardware sampling units (such as AMD IBS).
+ - Group leader sampling (PERF_SAMPLE_READ with PERF_FORMAT_GROUP)
+ - Grouping software events with the PMU's events (can_sw_grouping)
+ - Child task inheritance (attr.inherit)
+ - Dynamic frequency mode (attr.freq)
+ - Overwrite ring buffer mode (attr.write_backward)
+ - Pinned and exclusive event attributes (attr.pinned, attr.exclusive)
+ - Lost-event read format (PERF_FORMAT_LOST)
+ - Auto-counter reload when the PMU exposes format/acr_mask (can_acr)
+ - AUX area actions on auxtrace PMUs (aux_start_paused, aux_pause,
+   aux_resume, and PERF_SAMPLE_AUX snapshot sampling)
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/pmu.c | 60 +++++++++++++++++++++++++++++++++++++++++++
- tools/perf/util/pmu.h |  4 +++
- 2 files changed, 64 insertions(+)
+ tools/perf/util/pmu.c | 338 ++++++++++++++++++++++++++++++++++++++++++
+ tools/perf/util/pmu.h |  32 ++++
+ 2 files changed, 370 insertions(+)
 
 diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index e965a47bf3b4..53ce3e5fae3b 100644
+index 49e3c66c94f1..eacb8719f801 100644
 --- a/tools/perf/util/pmu.c
 +++ b/tools/perf/util/pmu.c
-@@ -3485,6 +3485,66 @@ static void __perf_pmu__probe(struct perf_pmu *pmu, int pmu_cpu)
- 	if (pmu->probed.can_sample)
- 		probe_sample_types(pmu, &base_attr, pid, cpu, flags);
+@@ -2870,6 +2870,7 @@ void perf_pmu__delete(struct perf_pmu *pmu)
+ 	free(pmu);
+ }
  
-+	/*
-+	 * 3. Precise sampling support (:p, :pp, :ppp).
-+	 * PMUs that do not validate attr.precise_ip (such as software,
-+	 * breakpoint, or intel_pt) silently accept precise_ip > 0 even when
-+	 * sample_period == 0. A PMU that genuinely implements precise_ip
-+	 * either rejects precise_ip > 0 on non-sampling events or is a
-+	 * sampling-only PMU (such as AMD ibs_op).
-+	 * Note: On AMD, core events like cycles:P are forwarded to IBS and
-+	 * support higher precision than advertised in sysfs caps/max_precise.
-+	 */
-+	if (pmu->probed.can_sample && !pmu->auxtrace) {
-+		bool ignores_precise_ip = false;
++#define MAX_PROBE_GROUP_SIZE 64
+ #define MAX_PROBE_CANDIDATES 16
+ #define MAX_TRACEPOINT_PROBE_CANDIDATES 3
+ 
+@@ -3289,12 +3290,52 @@ static void probe_sample_types(struct perf_pmu *pmu,
+ 	pmu->probed.can_weight = !!(pmu->probed.sample_types & PERF_SAMPLE_WEIGHT);
+ }
+ 
++/*
++ * Pack @value into the perf_event_attr config field named by the sysfs format
++ * @name of @pmu, e.g. "rdpmc" defined as "config1:1". Returns false if the
++ * format doesn't exist or uses an unsupported config field.
++ */
++static bool probe_format_pack(const struct perf_pmu *pmu, struct perf_event_attr *attr,
++			      const char *name, __u64 value)
++{
++	struct perf_pmu_format *format = pmu_find_format(&pmu->format, name);
++	__u64 *vp;
 +
-+		if (pmu->probed.can_count) {
-+			struct perf_event_attr c_attr = base_attr;
-+			int fd;
++	if (!format)
++		return false;
 +
-+			c_attr.sample_period = 0;
-+			c_attr.freq = 0;
-+			c_attr.sample_type = 0;
-+			c_attr.precise_ip = 1;
-+			fd = sys_perf_event_open(&c_attr, pid, cpu, -1, flags);
-+			if (fd >= 0) {
-+				close(fd);
-+				ignores_precise_ip = true;
++	perf_pmu_format__load(pmu, format);
++	switch (format->value) {
++	case PERF_PMU_FORMAT_VALUE_CONFIG:
++		vp = &attr->config;
++		break;
++	case PERF_PMU_FORMAT_VALUE_CONFIG1:
++		vp = &attr->config1;
++		break;
++	case PERF_PMU_FORMAT_VALUE_CONFIG2:
++		vp = &attr->config2;
++		break;
++	case PERF_PMU_FORMAT_VALUE_CONFIG3:
++		vp = &attr->config3;
++		break;
++	case PERF_PMU_FORMAT_VALUE_CONFIG4:
++		vp = &attr->config4;
++		break;
++	default:
++		return false;
++	}
++	perf_pmu__format_pack(format->bits, value, vp, /*zero=*/true);
++	return true;
++}
++
+ static void __perf_pmu__probe(struct perf_pmu *pmu, int pmu_cpu)
+ {
+ 	struct probe_candidates cands = { .nr = 0 };
+ 	struct perf_event_attr base_attr;
++	struct perf_event_attr group_attrs[MAX_PROBE_GROUP_SIZE];
+ 	char uprobe_exe_path[PATH_MAX];
+ 	__u64 uprobe_offset = 0;
++	size_t nr_group_attrs = 0;
+ 	unsigned long flags = perf_event_open_cloexec_flag();
+ 	int keepalive_fd = -1;
+ 	pid_t pid = 0;
+@@ -3520,6 +3561,48 @@ static void __perf_pmu__probe(struct perf_pmu *pmu, int pmu_cpu)
+ 		keepalive_fd = sys_perf_event_open(&ka_attr, pid, cpu, -1, flags);
+ 	}
+ 
++	group_attrs[nr_group_attrs++] = base_attr;
++
++	for (size_t i = 0; pmu->type != PERF_TYPE_TRACEPOINT &&
++	     i < cands.nr && nr_group_attrs < MAX_PROBE_GROUP_SIZE; i++) {
++		struct perf_event_attr cand_attr;
++		int fd;
++		bool dup = false;
++
++		memset(&cand_attr, 0, sizeof(cand_attr));
++		if (!parse_candidate_attr(cands.names[i], &cand_attr))
++			continue;
++
++		cand_attr.sample_period = base_attr.sample_period;
++		cand_attr.freq = base_attr.freq;
++		cand_attr.sample_type = base_attr.sample_type;
++		cand_attr.exclude_user = base_attr.exclude_user;
++		cand_attr.exclude_kernel = base_attr.exclude_kernel;
++		cand_attr.exclude_hv = base_attr.exclude_hv;
++		cand_attr.exclude_idle = base_attr.exclude_idle;
++		cand_attr.exclude_host = base_attr.exclude_host;
++		cand_attr.exclude_guest = base_attr.exclude_guest;
++		cand_attr.disabled = 1;
++
++		for (size_t j = 0; j < nr_group_attrs; j++) {
++			if (group_attrs[j].type == cand_attr.type &&
++			    group_attrs[j].config == cand_attr.config &&
++			    group_attrs[j].config1 == cand_attr.config1 &&
++			    group_attrs[j].config2 == cand_attr.config2) {
++				dup = true;
++				break;
 +			}
 +		}
++		if (dup)
++			continue;
 +
-+		if (!ignores_precise_ip) {
-+			for (int level = 1; level <= 3; level++) {
-+				struct perf_event_attr p_attr = base_attr;
-+				int fd;
++		fd = sys_perf_event_open(&cand_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			group_attrs[nr_group_attrs++] = cand_attr;
++		}
++	}
 +
-+				p_attr.sample_period = 10000;
-+				p_attr.sample_type = PERF_SAMPLE_IP;
-+				p_attr.precise_ip = level;
-+				fd = sys_perf_event_open(&p_attr, pid, cpu, -1, flags);
-+				if (fd < 0 && p_attr.exclude_kernel && p_attr.config2 == 0) {
-+					p_attr.config2 = 1;
-+					fd = sys_perf_event_open(&p_attr, pid, cpu, -1, flags);
-+				}
-+				if (fd >= 0) {
-+					close(fd);
-+					pmu->probed.precise_mask |= (1u << level);
-+					pmu->probed.max_precise = level;
-+				}
+ 	probe_candidates__exit(&cands);
+ 
+ 	/* 1. Counting vs Sampling support */
+@@ -3618,6 +3701,261 @@ static void __perf_pmu__probe(struct perf_pmu *pmu, int pmu_cpu)
+ 	pmu->probed.exclude_guest =
+ 		test_exclude_flag(&base_attr, pid, cpu, flags, PROBE_EXCLUDE_GUEST);
+ 
++	/* 5. Execution features */
++	if (pmu->probed.can_sample) {
++		struct perf_event_attr l_attr = base_attr;
++		struct perf_event_attr f_attr = nr_group_attrs > 1 ? group_attrs[1] : base_attr;
++		int l_fd;
++
++		l_attr.disabled = 1;
++		l_attr.sample_period = 10000;
++		l_attr.sample_type = PERF_SAMPLE_IP | PERF_SAMPLE_READ;
++		l_attr.read_format = PERF_FORMAT_GROUP | PERF_FORMAT_ID;
++
++		f_attr.disabled = 0;
++		f_attr.sample_period = 0;
++		f_attr.sample_type = 0;
++		f_attr.read_format = 0;
++
++		l_fd = sys_perf_event_open(&l_attr, pid, cpu, -1, flags);
++		if (l_fd >= 0) {
++			int f_fd = sys_perf_event_open(&f_attr, pid, cpu, l_fd, flags);
++
++			if (f_fd >= 0) {
++				if (ioctl(l_fd, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) >= 0)
++					pmu->probed.can_leader_sampling = true;
++				ioctl(l_fd, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP);
++				close(f_fd);
 +			}
-+			/*
-+			 * Sampling-only PMUs, like AMD ibs_op, can't be checked
-+			 * with a counting event. If every level, including 3
-+			 * that few PMUs support, opened then assume precise_ip
-+			 * is ignored.
-+			 */
-+			if (!pmu->probed.can_count && pmu->probed.precise_mask == 0xe) {
-+				pmu->probed.precise_mask = 0;
-+				pmu->probed.max_precise = 0;
++			close(l_fd);
++		}
++	}
++
++	{
++		struct perf_event_attr l_attr = base_attr;
++		int l_fd;
++
++		l_attr.disabled = 1;
++		l_fd = sys_perf_event_open(&l_attr, pid, cpu, -1, flags);
++		if (l_fd >= 0) {
++			struct perf_event_attr sw_attr;
++			int sw_fd;
++
++			memset(&sw_attr, 0, sizeof(sw_attr));
++			sw_attr.type = PERF_TYPE_SOFTWARE;
++			sw_attr.size = sizeof(sw_attr);
++			sw_attr.config = PERF_COUNT_SW_DUMMY;
++			sw_attr.disabled = 0;
++			sw_attr.exclude_user = base_attr.exclude_user;
++			sw_attr.exclude_kernel = base_attr.exclude_kernel;
++			sw_attr.exclude_hv = base_attr.exclude_hv;
++			sw_attr.exclude_idle = base_attr.exclude_idle;
++			sw_attr.exclude_host = base_attr.exclude_host;
++			sw_attr.exclude_guest = base_attr.exclude_guest;
++
++			sw_fd = sys_perf_event_open(&sw_attr, pid, cpu, l_fd, flags);
++			if (sw_fd < 0) {
++				sw_attr.config = PERF_COUNT_SW_CPU_CLOCK;
++				sw_fd = sys_perf_event_open(&sw_attr, pid, cpu, l_fd, flags);
 +			}
++			if (sw_fd >= 0) {
++				pmu->probed.can_sw_grouping = true;
++				close(sw_fd);
++			}
++			close(l_fd);
++		}
++	}
++
++	{
++		struct perf_event_attr inh_attr = base_attr;
++		int fd;
++
++		inh_attr.disabled = 1;
++		inh_attr.inherit = 1;
++		/*
++		 * Inheritance only applies to task events, CPU events (pid
++		 * -1) accept but ignore it, so probe with the current task.
++		 */
++		fd = sys_perf_event_open(&inh_attr, /*pid=*/0, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_inherit = true;
++		}
++	}
++
++	if (pmu->probed.can_sample) {
++		struct perf_event_attr freq_attr = base_attr;
++		int fd;
++
++		freq_attr.disabled = 1;
++		freq_attr.freq = 1;
++		/* A low frequency is below perf_event_max_sample_rate. */
++		freq_attr.sample_freq = 1;
++		freq_attr.sample_type = PERF_SAMPLE_IP;
++		fd = sys_perf_event_open(&freq_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_freq = true;
++		}
++	}
++
++	if (pmu->probed.can_sample) {
++		struct perf_event_attr wb_attr = base_attr;
++		int fd;
++
++		wb_attr.disabled = 1;
++		wb_attr.sample_period = 10000;
++		wb_attr.sample_type = PERF_SAMPLE_IP;
++		wb_attr.write_backward = 1;
++		fd = sys_perf_event_open(&wb_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_write_backward = true;
++		}
++	}
++
++	{
++		struct perf_event_attr pin_attr = base_attr;
++		int fd;
++
++		pin_attr.disabled = 1;
++		pin_attr.pinned = 1;
++		fd = sys_perf_event_open(&pin_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_pinned = true;
++		}
++	}
++
++	{
++		struct perf_event_attr exc_attr = base_attr;
++		int fd;
++
++		exc_attr.disabled = 1;
++		exc_attr.exclusive = 1;
++		fd = sys_perf_event_open(&exc_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_exclusive = true;
++		}
++	}
++
++	{
++		struct perf_event_attr lost_attr = base_attr;
++		int fd;
++
++		lost_attr.disabled = 1;
++		lost_attr.read_format = PERF_FORMAT_TOTAL_TIME_ENABLED |
++					PERF_FORMAT_TOTAL_TIME_RUNNING |
++					PERF_FORMAT_LOST;
++		fd = sys_perf_event_open(&lost_attr, pid, cpu, -1, flags);
++		if (fd >= 0) {
++			close(fd);
++			pmu->probed.can_format_lost = true;
++		}
++	}
++
++	/* 5c. Auto-counter reload (acr_mask / ratio-to-prev) */
++	if (pmu->probed.can_sample && perf_pmu__has_format(pmu, "acr_mask")) {
++		struct perf_event_attr l_attr = base_attr;
++		struct perf_event_attr f_attr = nr_group_attrs > 1 ? group_attrs[1] : base_attr;
++		int l_fd;
++
++		l_attr.disabled = 1;
++		l_attr.freq = 0;
++		l_attr.sample_period = 200000;
++		l_attr.sample_type = PERF_SAMPLE_IP;
++
++		f_attr.disabled = 0;
++		f_attr.freq = 0;
++		f_attr.sample_period = 100000;
++		f_attr.sample_type = PERF_SAMPLE_IP;
++
++		/*
++		 * Equivalent of the group
++		 * '{cycles/acr_mask=0x2/,cycles/acr_mask=0x3/}'.
++		 */
++		if (probe_format_pack(pmu, &l_attr, "acr_mask", 0x2) &&
++		    probe_format_pack(pmu, &f_attr, "acr_mask", 0x3))
++			l_fd = sys_perf_event_open(&l_attr, pid, cpu, -1, flags);
++		else
++			l_fd = -1;
++		if (l_fd >= 0) {
++			int f_fd = sys_perf_event_open(&f_attr, pid, cpu, l_fd, flags);
++
++			if (f_fd >= 0) {
++				if (ioctl(l_fd, PERF_EVENT_IOC_ENABLE, PERF_IOC_FLAG_GROUP) >= 0)
++					pmu->probed.can_acr = true;
++				ioctl(l_fd, PERF_EVENT_IOC_DISABLE, PERF_IOC_FLAG_GROUP);
++				close(f_fd);
++			}
++			close(l_fd);
++		}
++	}
++
++	/* 5d. AUX area event actions (start_paused, pause, resume, aux_sample) */
++	if (pmu->auxtrace) {
++		struct perf_event_attr a_attr = base_attr;
++		int l_fd;
++
++		a_attr.size = max_t(__u32, base_attr.size, PERF_ATTR_SIZE_VER8);
++		a_attr.disabled = 1;
++		a_attr.aux_start_paused = 1;
++		l_fd = sys_perf_event_open(&a_attr, pid, cpu, -1, flags);
++		if (l_fd >= 0) {
++			close(l_fd);
++			pmu->probed.can_aux_start_paused = true;
++		}
++
++		a_attr = base_attr;
++		a_attr.disabled = 1;
++		l_fd = sys_perf_event_open(&a_attr, pid, cpu, -1, flags);
++		if (l_fd >= 0) {
++			struct perf_event_attr f_attr;
++			int f_fd;
++
++			memset(&f_attr, 0, sizeof(f_attr));
++			f_attr.type = PERF_TYPE_SOFTWARE;
++			f_attr.size = max_t(__u32, base_attr.size, PERF_ATTR_SIZE_VER8);
++			f_attr.config = PERF_COUNT_SW_CPU_CLOCK;
++			f_attr.sample_period = 10000;
++			f_attr.sample_type = PERF_SAMPLE_IP;
++			f_attr.exclude_user = base_attr.exclude_user;
++			f_attr.exclude_kernel = base_attr.exclude_kernel;
++			f_attr.exclude_hv = base_attr.exclude_hv;
++			f_attr.exclude_idle = base_attr.exclude_idle;
++			f_attr.exclude_host = base_attr.exclude_host;
++			f_attr.exclude_guest = base_attr.exclude_guest;
++
++			f_attr.aux_pause = 1;
++			f_attr.aux_resume = 0;
++			f_fd = sys_perf_event_open(&f_attr, pid, cpu, l_fd, flags);
++			if (f_fd >= 0) {
++				close(f_fd);
++				pmu->probed.can_aux_pause = true;
++			}
++
++			f_attr.aux_pause = 0;
++			f_attr.aux_resume = 1;
++			f_fd = sys_perf_event_open(&f_attr, pid, cpu, l_fd, flags);
++			if (f_fd >= 0) {
++				close(f_fd);
++				pmu->probed.can_aux_resume = true;
++			}
++
++			f_attr.aux_resume = 0;
++			f_attr.sample_type = PERF_SAMPLE_IP | PERF_SAMPLE_AUX;
++			f_attr.aux_sample_size = 64;
++			f_fd = sys_perf_event_open(&f_attr, pid, cpu, l_fd, flags);
++			if (f_fd >= 0) {
++				close(f_fd);
++				pmu->probed.can_aux_sample = true;
++			}
++
++			close(l_fd);
 +		}
 +	}
 +
@@ -181,20 +488,54 @@ index e965a47bf3b4..53ce3e5fae3b 100644
  		close(keepalive_fd);
  	pmu->probed.checked = true;
 diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-index 658485faa05d..fea65e314547 100644
+index a7d794d67bf2..8efffbac3cbf 100644
 --- a/tools/perf/util/pmu.h
 +++ b/tools/perf/util/pmu.h
-@@ -238,6 +238,10 @@ struct perf_pmu {
- 		char *probe_event;
- 		/** @probed.open_err: errno if open_supported is false. */
- 		int open_err;
-+		/** @probed.max_precise: Maximum precise_ip level (0..3) supported. */
-+		int max_precise;
-+		/** @probed.precise_mask: Bitmask of supported precise_ip levels (1..3). */
-+		unsigned int precise_mask;
- 		/**
- 		 * @probed.sample_types: Bitmask of supported
- 		 * enum perf_event_sample_format flags.
+@@ -228,12 +228,44 @@ struct perf_pmu {
+ 		bool can_sample;
+ 		/** @probed.can_branch_stack: Supports PERF_SAMPLE_BRANCH_STACK. */
+ 		bool can_branch_stack;
++		/** @probed.can_leader_sampling: Supports group leader sampling (:S). */
++		bool can_leader_sampling;
++		/**
++		 * @probed.can_sw_grouping: Supports grouping software events
++		 * with this PMU's events.
++		 */
++		bool can_sw_grouping;
++		/** @probed.can_inherit: Supports perf_event_attr::inherit across child tasks. */
++		bool can_inherit;
++		/** @probed.can_freq: Supports dynamic sample frequency (perf_event_attr::freq). */
++		bool can_freq;
++		/** @probed.can_write_backward: Supports overwrite ring buffer (write_backward). */
++		bool can_write_backward;
+ 		/** @probed.can_callchain: Supports PERF_SAMPLE_CALLCHAIN. */
+ 		bool can_callchain;
+ 		/** @probed.can_data_src: Supports PERF_SAMPLE_DATA_SRC. */
+ 		bool can_data_src;
+ 		/** @probed.can_weight: Supports PERF_SAMPLE_WEIGHT. */
+ 		bool can_weight;
++		/** @probed.can_pinned: Supports perf_event_attr::pinned. */
++		bool can_pinned;
++		/** @probed.can_exclusive: Supports perf_event_attr::exclusive. */
++		bool can_exclusive;
++		/** @probed.can_format_lost: Supports PERF_FORMAT_LOST. */
++		bool can_format_lost;
++		/** @probed.can_acr: Supports auto-counter reload (acr_mask / ratio-to-prev). */
++		bool can_acr;
++		/**
++		 * @probed.can_aux_start_paused: Supports aux_start_paused
++		 * (PERF_PMU_CAP_AUX_PAUSE).
++		 */
++		bool can_aux_start_paused;
++		/** @probed.can_aux_pause: Supports aux_pause action on group followers. */
++		bool can_aux_pause;
++		/** @probed.can_aux_resume: Supports aux_resume action on group followers. */
++		bool can_aux_resume;
++		/** @probed.can_aux_sample: Supports AUX area snapshot sampling. */
++		bool can_aux_sample;
+ 		/** @probed.exclude_user: Supports perf_event_attr::exclude_user. */
+ 		bool exclude_user;
+ 		/** @probed.exclude_kernel: Supports perf_event_attr::exclude_kernel. */
 -- 
 2.56.1.750.gf70dc682cf-goog
 
