@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795140565;
-	b=G8NZp9KIhImB5lqp3NJeuciit+p2ge/3m8s41fsPJuPOPbFFiWx1ES8JLKfd33d/AI9+
-	 G67v5E8uLNf1AdbtaVn3iBltuSBYHrqjoGbMMZG2UV/8JPp3+I1OdMIJo1X0G3beMvnHH
-	 jUhchmGxyaQqbjuLlIO7FlK+9Y6Cfs1ydhRyJ7+/U6HVd2MmEtpcXSMo4hegupT+xQQi7
-	 mQaKe30DmVFRjKkiAKIz3KWK9ADqNr3KexL5/8CjJLt4ZlpWXGzjHuk5QvETdZzkcBH8C
-	 wiiPTWd7Pemf/gTT07yR9y15+TH1JLhWLIBEae151zNswZro1JQEEYt5oFq+1GQ4rCw==
+	t=1795140570;
+	b=szFRmcN7kJXXQh1WwmWRjQfiCnCGlCjSQhfJ9I8HAaVow/CpEM0VWQZ5ev/1xyUhlmNb
+	 G4/3KuId9ktC/8J45T0w+pX/UY0EACvrz8Mmh+CR9uEslIlsPty/7abrRprHp1aT5BNRm
+	 cLe0lmA3zWoNU88Du7JwQgn2ttBxQEw9ddWa5i07HpLAHRin43xZjMyuqNq94ikVGFP9V
+	 +pJnQzIR3eg6sFZlgz/TiZ7B8ZmL7yn8It/ldwNTpoFflej5q/NCZaxDUYSctEejMkmIx
+	 qrlPxl4wZIUwSNLXYfB8qKoLjqUzae7EblAxqn1cihcdc4DYpXZXyXrvSIc56di+KOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140565;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140570;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=k9mf9kp/ztzdtwNyY6F2Of7TRSCeQdigol2FqO2J41o=;
-	b=BB9ujuZRG0feI4FcelYD7vZcdLdL6+zcrgAwXIyPffDlU5gYc1/LiZy7F4pyV2qNSOJ9
-	 A1T0BPtkTLjqzLOpFxXx0ph6KNOV6a4fWSZvak1WuHw6o3d50k9ilAjaLaH2YXzjFOuDF
-	 693jwbfypT7csNCZuKjYqwZZfYEdcxp4bC58dGCM1V1M3RURJVLOL9DcYr9nfwFSmBOqe
-	 b3LdlaJct31ImmlnbQtSe1SUJ/MqKMak8J3ru6NNOZMcqXX+ptTZ6QM5LOLeSmLYzlpKK
-	 2r6eL7ZKdgbu9EB5Eat+J0qXtrP58Si2BFAfxvj42w+lqEAea37SjiQZ9sYzdRq423g==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=H22hd88t0S0qNnIQH1JWdpVPsC/ZXcsrJtl+PbwAaOE=;
+	b=Yp8hGjuKPIz53IOe7WHDjyeS3iWjicXKGxdnbOjx1E03JqiqDATOI++acbZZx3ACLsSY
+	 FWle4RQooyIK+yTcRnWhfoKKgV6qvB6BMjWJ0xIU1ZXhtkHTH+95NenfyjBVDkZtNsNam
+	 zbcK03xuxL/FDNfvP8HQ95jvFCPsLAfZOhqZJUVStwFKleCJmKg5vo7KfoWqcjC06+WHd
+	 IvHqKUlROQ43lnGBt+FcMwgus0s7HF9yj9H+K2bFiFVQ40+GkVRpL+BQedlmk/nx5ildj
+	 2ekQX1bF4U5gOH2yVljwpHH4oVaMNmwzVPK6mBHUftCYr+GB7LFLmpcGE3KCG0DrkLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AzBenF0b;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5IuIL8T;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4208B606A333;
-	Fri, 20 Nov 2026 02:09:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A748606A32C;
+	Fri, 20 Nov 2026 02:09:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AzBenF0b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 794F41F000D2;
-	Fri, 20 Nov 2026 02:09:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J5IuIL8T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E4AA1F00A19;
+	Fri, 20 Nov 2026 02:09:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795140564;
-	bh=k9mf9kp/ztzdtwNyY6F2Of7TRSCeQdigol2FqO2J41o=;
+	s=k20260515; t=1795140569;
+	bh=H22hd88t0S0qNnIQH1JWdpVPsC/ZXcsrJtl+PbwAaOE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AzBenF0bXWAEeXZRA45RxgbxRIa/NRq0QMOYy9PET1anYBA17ju0ey/41OcJSrbwi
-	 GlphR2hU4DSn0EkpsT4llPsKZRAy9LmNwMlUA07BxbRu5+KbDYABGI6cmZmwM2fl8U
-	 V01eHc3jQFPS+Mokh0cIu2zQErdy/T+OJBlc+5oBoL3g2jjFS3wU2enwHTCNRPmVeu
-	 K9LZsFc+xHRafOAA2bzEOwXKoYHmtzEZCkZpl0iABCAS99fXoyYB5rpOjytpK3OEGV
-	 OfepbGHFFWx9PZo8CdQ83zCtEk93/HrJhrtx44/jzGuwdJ0VhQ0pHWcXBYD0xvHRLo
-	 8CRvvB1GOjK0w==
+	b=J5IuIL8TwG/d4JE851Ks236J1XCGkkHX+4z/BY+UhP4DNnIJ6nLIouPce4T915iwy
+	 Uo27v2UakhpLUNYboHDp9GwQcitNd43T0nmPxoVg0rePuF7TPwCmmASc1qfJL/wU+d
+	 PjuyvkN4T2P6839eC+GdKx4hUP75vBErRVZgJzMuo6byyyfESaBhHjaOGSAQQs9tj6
+	 kFhsA69itTtI0W3+UHXtsGDPntBjmspPDuDErf87nw423qtju5YK86HIiA8Lajbqc5
+	 GXz/2d8JS3RgYdyYFsb1Gbe7aH5VkDzAANNPI6gRwBiFAmSkTZ2e5YlfYKTf8nVjBR
+	 Bgqprwwt9zW+g==
 From: Sasha Levin <sashal@kernel.org>
-To: Shuah Khan <skhan@linuxfoundation.org>
+To: Joungmin Lee <leejm516@gmail.com>
 Cc: Sasha Levin <sashal@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	stable@vger.kernel.org,
@@ -62,16 +61,13 @@ Cc: Sasha Levin <sashal@kernel.org>,
 	hargar@microsoft.com,
 	broonie@kernel.org,
 	achill@achill.org,
-	sr@sladewatkins.com,
-	Brett A C Sheffield <bacs@librecast.net>,
-	"Barry K. Nathan" <barryn@pobox.com>,
-	Dominique Martinet <asmadeus@codewreck.org>
-Subject: Re: [PATCH 5.10 0000/1848] 5.10.275-rc1 review
-Date: Thu, 19 Nov 2026 21:09:04 -0500
-Message-ID: <20261120020908.2320910-7-sashal@kernel.org>
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
+Date: Thu, 19 Nov 2026 21:09:07 -0500
+Message-ID: <20261120020908.2320910-10-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <2cc4e958-33bc-45f7-bbd9-c6763fa3a8d0@linuxfoundation.org>
-References: <20261118145911.150052362@linuxfoundation.org> <2cc4e958-33bc-45f7-bbd9-c6763fa3a8d0@linuxfoundation.org>
+In-Reply-To: <088f8590-0ee5-41e8-9a2c-48566d6ced82@gmail.com>
+References: <20261118150121.603863898@linuxfoundation.org> <088f8590-0ee5-41e8-9a2c-48566d6ced82@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,18 +77,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 18, 2026 at 06:02:21PM -0700, Shuah Khan wrote:
-> net/core/filter.c:5867:26: error: implicit declaration of function ‘seg6_get_srh
-> ’ [-Werror=implicit-function-declaration]
+On Thu, Nov 19, 2026 at 03:49:39PM +0900, Joungmin Lee wrote:
+> [    3.060808] genirq: Setting trigger mode 3 for irq 87 failed
+> (amd_gpio_irq_set_type+0x0/0x180)
 
-This is e8b084646b94 ("bpf: Validate the SRH which End.DT6 uncovers in
-End.BPF"), which calls seg6_get_srh(); 5.10 does not have that function.
-It is dropped from the 5.10 queue together with 434324c611a9 ("bpf: Pull
-the inner header for End.DT6 in End.BPF"), which relies on it.
-427e751a231a ("bpf: Update the SRH state if End.B6 fails late") stays.
+That line comes from 44c232e80adc ("pinctrl: amd: add timeout to irq-enable
+readback"): with it amd_gpio_irq_set_type() gives up after 1 ms and returns
+-ETIMEDOUT. It is dropped from the 7.3, 6.18, 6.12, 6.6 and 6.1 queues.
 
 -- 
 Thanks,
