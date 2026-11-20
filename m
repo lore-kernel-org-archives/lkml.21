@@ -1,127 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192685;
-	b=Da1h6NtbP52Dy6vUnK2g9LcZTjKhrgx83IcY3MZc3ub9pP+oPUtr/r22UrDx4xdwCMwP
-	 Nl0DJ7ECkLLLOnInNsRxpYDbn2hJDuvlgCBQrINPBLl2383vyDw4bWh4LANEVr6Bt0iD6
-	 voBkSxJZKXGbj5AYHoOetJM6Ex6Tela0KfWno1F8irn6r9HYSU75XEIbTbP7vvZrflZkP
-	 of/3BfDE3UTY+0gtLIxUEAo2n+Lk6ignbLHW2TbO5Shu6k31iENre5uZeQInQ+c3ON2kA
-	 tsL6WsOoSWQawIsBvCaqzdtU5Ml54qSnS0bNsKr2KBWEePN9u6aH4B+e2y8HyVldCqQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192685;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
-	 References:Autocrypt:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=A8m4Gnh8MPzABO/tiaVZwdQcVxLqr3KuTyQbxXbnRDU=;
-	b=v6+3Qv2f3MFbfNAevNZNOTye0JdZwZggM4po/Zbmc/eFpySSY0rQY8S8KTewnwTR3S+j
-	 A493ODjWYCcQNWNJHY1FEhUZ8smcm8xMa/TLka7tMLi+kxsXw8K8B6r2bABFI/gqBD6is
-	 CClA7OyGLvg/kxs6V14eb6kbpuFQrzMu/lj3RDmu0ll9VcWpP0fvEhh+EN22GpuTRceld
-	 5BU8uIVlmHCMI3i9EeLtA5lg7AGSkU8Z1sLxN2f6hG0rm51ecjIktcHImUI0FaDQoLr+m
-	 OGFDWIJdTHlqExXXCP0LAbSHkXyke3xzfkEfwUprup+tiI9Fgndj0m7YtI80XcAYCog==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IiYlc4kK;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=eXzMuqUk;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795192687;
+	b=G0822f9YF2PRcT9L942nAYOf9dVaQkV2IvQ7MnYK1nyYMSeO3TKMNmpbwl1twf/PERTQ
+	 n+YMKC+g61r9KVmX2MXqvQd0zeZjsnkR3Vmcd2vfkOlxu2FSTlWqsB7Xru+T5YHBEfs98
+	 7/m5aePDAcV5XxR7wOBNdyYs/JOV8IlBrYUYhfj2UCAKR3tTfPFsI2JpokFd233KC24uX
+	 8GwyF588ZDAaTc2gE3aFKlkCHXnvznAqPseuPKsUR0Mt8o0C/HUCkwOWTi7j2MZDCsAbV
+	 +FUAJwstjSHQSWpn22JuauW8uPy6dvAJIyWlJLnME4k5hW1Jg1PSVJUQa1Qv9iLDAQg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192687;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/oGLgv2EGjY/057Nhd/tACC3teTCpMDzSsNuVqbdjFg=;
+	b=j27vrauepm047iSmUpM2Im6QCBy5BKDuzTCtRwFHjuxM0EIVPsIiymhShBHUnpCDwXLJ
+	 YY9z5YwelPCJvxCKbcNpJoQQEr9o/QHD7WwiX7CCeQ2/IoDv2/ABrZAq2xBujUo70iF3s
+	 UTjP1yWpFyXFFDhgV5lyS26R8TyMWzLbkok0GwBRTdQhzKd2IwySFnksNI7ocPDHIzt5o
+	 tS67JaiAdtS8ssu7DXWM1T19XU/ubrkJudYlE8649OsZ6vzHt5c+n8virQDOaXw3BhvV/
+	 sEIIbNW9Od2yi3b0ihSyamgOCmA6j2CVfdSegeYiaKH963dIPC4q8y5oP1NJ8FCMWhQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=HK5c1d9I;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.61
+Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011061.outbound.protection.outlook.com [52.101.70.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14516606A334
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:38:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14516606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C1C4606A33F;
+	Fri, 20 Nov 2026 16:38:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C1C4606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IiYlc4kK;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=eXzMuqUk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795192683;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=A8m4Gnh8MPzABO/tiaVZwdQcVxLqr3KuTyQbxXbnRDU=;
-	b=IiYlc4kKOEImBIla/vXVqxBJ21ACAQVIlo7pldbn57pfY0b1wVOouxKtf6ERJezwbdk3gu
-	FLYfPIH5oBGqdBEs18Zkq4lzs8mdEEFi4zKU/337Ri+wvbCVoPFkCEBME59zhWBwqoOLWP
-	AHqu39gUiPsA/WTvnBHEneQLlLU8Dug=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-625-beeHVBp4P-qD_EKl5D7mTA-1; Fri, 20 Nov 2026 16:38:00 +0000
-X-MC-Unique: beeHVBp4P-qD_EKl5D7mTA-1
-X-Mimecast-MFC-AGG-ID: beeHVBp4P-qD_EKl5D7mTA_1795192678
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4ad3d35e899so8872445e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:37:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795192678; x=1795797478; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=A8m4Gnh8MPzABO/tiaVZwdQcVxLqr3KuTyQbxXbnRDU=;
-        b=eXzMuqUkAy4oZ5HLjoNW2VxAmPVjLFbm8Q8i91txWBrt3YbjLYH7ZkshDXOn8VcMEA
-         YwLxESPiZIwL+SrS0wpAOcatf2jegRE/v5XYObucSeccFRGO6iQQ/raEU1mnqcWi3wNI
-         AiUVWKcWZ6yX+Nxn4g/qrW1kC4ycbGTGby/p9MJeqhGX0YEDXNOgAeZZbXSJ7n5GHWeR
-         2AqOpyDZOFg/0y3vu2fZGYpX+tLVYuU6c5vnR6jMpCfV3TNiJWJgGUCTB6peMGhf05M2
-         VAupivFOpmva07hnzVqNzVJNq82lrfKC9GZKpiMAy6bJOXEDydRxuCaUyi+pAyYiFZZ9
-         C/qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795192678; x=1795797478;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :autocrypt:references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=A8m4Gnh8MPzABO/tiaVZwdQcVxLqr3KuTyQbxXbnRDU=;
-        b=A6a9Jygx+7kWYTXQ5HG3u4LLjUcHZIVwhiKizYHfgvD4gXj9yOHxjSwRL6+HSwCkkt
-         l26gIB/L9UW6O+JDNlSRn9qSNppZDcEvEnNJ8YGxnVkjbuLfOnRHFYFeEpvxngH0bCov
-         0lnRWXhnxs+3b1BsNOnrzvFBsCTbAFt+gzjrgRwyH4NjmFX4uVTohE6Z1oiyqx3sRTAt
-         slSsrhWXaentN1LvdSEOwDI7/zQBItulLx+OXWCoTeKRNU/2JSk7mznJx+41UXCR7PBu
-         OIHL6xhPL6LyXjW4tp86/YFJMy+bc5Z9+ln7/5M6wQ60uY1Ef2V0vP3LCj6K+SSz3+u0
-         Lf2Q==
-X-Forwarded-Encrypted: i=1; AL+hErHtVrgP2GrwJv3kA4Pyf1I/fkd2V8aPio8No+ayD0zc/9ek6nWakCyTxnAUEA8SveHK1+34Zp4P3NkCLss=@vger.kernel.org
-X-Gm-Message-State: APuU4Z92cm68yN68TYyEdFQnv0+EO7INPzTaceJ32hkyOUSWPGWHNtMw
-	bSghOmFAXpQe8auDs8DyKGS+l7G0dCsJEba32e6xiS3K7AwlEltMlRX3DT43suxjUlX+k/Knuas
-	lm6n0uEBBHI9ybGqfspbFVr7Y11YfFajewaSmALMgzH81gbwGX1Q7WIKwfpwW6TTUHA==
-X-Gm-Gg: AYBFou109rvyn2Il77qZUAgkFHACLLeCnarfSCBSL43n2cTyuFsmcaMKBkyRNJqRYTN
-	5FCHREzy6qr8jbRkjlA86wUdR4Spw4dHcCRknwC1uSpxCJSHpi654aTLeCNzTdlUN7sc91lPaPh
-	XuHlsLYoQtq7rO4HpUAouThdWUdOGc4oLcyDEHLogPTbQu+J5tpqKKDbJYyMZgMwCQ7YFKk9tgs
-	3slzuQtCffuSedgeodUdGlYo1cX8+SI7TIP1U2bS0pgjLfd4UWXdtpW3jkgvcqa9wNaiWAdoRRp
-	4LH+i1ZdlCWyPZkYoyzxzG/NBNuaPbvUua6w6f5ZId7s7n8YoCgFg3zH5SBK/JnYvuIBtT5dWcf
-	hQjFInKalpmQlJzYg63t1Qwp35S3PszzApIO4cH4964jRPoPIzgwPP3YeS1oDB4n0dqGv9Hk0eN
-	TZ
-X-Received: by 2002:a05:600c:a0b:b0:4b7:6a8b:9df2 with SMTP id 5b1f17b1804b1-4bb8882432bmr79973725e9.25.1795192678059;
-        Fri, 20 Nov 2026 08:37:58 -0800 (PST)
-X-Received: by 2002:a05:600c:a0b:b0:4b7:6a8b:9df2 with SMTP id 5b1f17b1804b1-4bb8882432bmr79972945e9.25.1795192677449;
-        Fri, 20 Nov 2026 08:37:57 -0800 (PST)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.168.96.228])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm78504535e9.0.2026.11.20.08.37.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:37:56 -0800 (PST)
-Message-ID: <df35b9bf6b509a02b96d8aea8224ad538275e356.camel@redhat.com>
-Subject: Re: [PATCH v8 11/14] rv: Add tlob hybrid automaton monitor
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: wen.yang@linux.dev
-Cc: Nam Cao <namcao@linutronix.de>, linux-trace-kernel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 17:37:55 +0100
-In-Reply-To: <3471283eefd839c47fdd0fd2cfd6ac4e28a342dc.1793900349.git.wen.yang@linux.dev>
-References: <cover.1793900349.git.wen.yang@linux.dev>
-	 <3471283eefd839c47fdd0fd2cfd6ac4e28a342dc.1793900349.git.wen.yang@linux.dev>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0BrZXJuZWwub3JnPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmjKX2MCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfIQuAD+JulczTN6l7oJjyroySU55Fbjdvo52xiYYlMjPG7dCTsBAMFI7dSL5zg98I+8
- cXY1J7kyNsY6/dcipqBM4RMaxXsOtCRHYWJyaWVsZSBNb25hY28gPGdtb25hY29AcmVkaGF0LmNvb
- T6InAQTFgoARAIbAwUJBaOagAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgBYhBMrKEfgLgd0WcK
- eo9u9KbElYeE3yBQJoymCyAhkBAAoJEO9KbElYeE3yjX4BAJ/ETNnlHn8OjZPT77xGmal9kbT1bC1
- 7DfrYVISWV2Y1AP9HdAMhWNAvtCtN2S1beYjNybuK6IzWYcFfeOV+OBWRDQ==
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=HK5c1d9I
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A1Qc6rzadYMXGxMkaR7BXi5xXTAF3asNpYCJgQ5fW4Ba077B9ILJGsylUVxyMLWuKigrlxIjQ5TLw+7HFG2cCUyKzGqk7abneBBUOtVDCiqYno4w7OP5nLNbroNfhiKliVZQ3KwZ/zUaZ1cnh3NRt+dQv+yRa/q9S89ACpBT39gPHuloQ3Za5txgW7p0IczPjZsn4CxTTEAM3l3jk413mnmFYZdW23DMcYAjy1f2g59Y4qh5oWedF6+73k6j23YDgCDBaWJ9vGutIJdByrbwWi1xL2U38CGnA0chi8POly2XnsJk38SeNR3I04VjNVdd1pP2u9VuchqDAA8gRKrUIQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/oGLgv2EGjY/057Nhd/tACC3teTCpMDzSsNuVqbdjFg=;
+ b=NsZ2J0O/iVRHhsIZ4fc7j8g9P950RyMTPSEpYlHwuf8rSXcfvj+4uYT7c0BfdsGtyt0p6hBrYKCqf0P7i7j87YNSEmqNH7CyrrJ7ISey7rjuk6PUODku7hb6EsjsA7JwrVQv72I0It018JB2Pl+Ylu3ioZERHWAU9dzODEuSaaT1n2w6uKj8fKCpKtWW0KU3DGN8hIMzU8pNx6l9E8Cwb+H9FKNszxQI1pegeT9rlOxcm2Q0Cp/1KKGntoAdDuMbw7DqQMkvYD0PKJq98Ba6fLSI8za2ZFk3I6fFqPzyvM8Cim9gO9A4MPQkrgF6cEF7SS/cNsgy6NUwFqgLJZ7CVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/oGLgv2EGjY/057Nhd/tACC3teTCpMDzSsNuVqbdjFg=;
+ b=HK5c1d9IRBUPiHP61VRDzE0PdA1QesWXYTBC49AFaheKGQzH27V6cFq9IzbEKjZK+pp/6dYZgb6O/JllL4mIZq7MeqOKX3lXuam8rAQHVLzyXLaX8DuKgIw0toPmOnjc1mAjZW7w5ZET/UTISHHegekedClMb/ExCiWQal3OHOD0sVyOClCqB2tdlt8h1UTiSW9BCdlIcQ4E6T0ANUn19iwIDquXkI17TAVpBYzNsnY1rl/WXVXCvix9f/Nmv10wzPkcY54t9dfoI+wnmhvQ9g4W/rR3C5pCsLDA0JbGVh/+7oZWoRHHFffSrG8pxdKxkxR1VHgs5rnNRq0eAG/PjA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by WA4PR04MB867629.eurprd04.prod.outlook.com (2603:10a6:1d0:109::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 16:38:02 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 16:38:02 +0000
+Date: Fri, 20 Nov 2026 10:37:52 -0600
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: dmaengine@vger.kernel.org,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Frank Li <Frank.Li@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	Serge Semin <fancer.lancer@gmail.com>
+Subject: Re: [PATCH v2] dmaengine: dw: Use devm_clk_get_optional_enabled() in
+ dw_probe()
+Message-ID: <awB3YOGuJO6nZAGx@SMW015318>
+References: <4267a49d-89b0-4564-b22b-995de017f52b@web.de>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4267a49d-89b0-4564-b22b-995de017f52b@web.de>
+X-ClientProxiedBy: PH8P221CA0030.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d8::15) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -131,906 +102,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|WA4PR04MB867629:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8cf93ed8-592c-4e1e-1ca7-08df4724a51a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|19092799006|10067099003|261022075727099003|11063799006|56012099006|261021123027099003|261009223027099003|261102123227099003|261021121427099003|261026121527099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	siwyM1KyReJcJRtqM5LdyFgrLe7Rgh8lE0miqyBiIvdK8QSWfiApUrXPpjnajEPFhehLikC66qQhPRFo7rURF7C3Z5i9Cw0nLh75A4sRUgmOjBOu267UocnksxRIMdtVOZA4xwWpwcioRPHdXGWJ1PEYrQepCzLYuWk7oez1AHrY1R9onFaovaYJMWQYk8gPhdATQjAG7LcUSPkoI0k24ilnOAycMyrO4/z8MoCr8F1cAptdL3I1w6W5Znko5svoZOmpzlk0KX3XMRJJLf5/1+nxopbyFjVbN8unGfJZdWRx0vG5VXVpF8+GOpYjQjVM9bKzQKq0YwMwsj35QjB3n7CdV+ILhKOnfcK+fmdQ10kE++vbOoWywO4bN2VwldKe0iwGMMFU9MKH1JrQpPEVmKQ2H9CEDH6UIwgoLpoYlCzhPOFYZzZuUvXEQbafNyRTmTBN7hREXQilrgfPQCmN5yrGQUcpOPCS1qHp/c0jqiHPeBwGpzQsIjTKWxOtcxkKS0AfVdmcHAujicFkjvJPy3p9O7s84066jT+T758RdnUrm8CUSu2PscSH6NjKOUa6GCpEj/wmviN4F9Efjf1uNJ/5uv1andO4Kf2pZRKtQKH6XS8VE56+QsHatuq3z5dFNfuGCj8oDMEDnQawAbx/t2CRQ8uUE+WKiB31N1QO774=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(19092799006)(10067099003)(261022075727099003)(11063799006)(56012099006)(261021123027099003)(261009223027099003)(261102123227099003)(261021121427099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?NllySDRMb2JwNzFYb1RGa25mRUgwRVM2T2lONVYyd2JuMnRoNVdSUndpaUNB?=
+ =?utf-8?B?OEVadFkxd2drbEJ6OXdBSGV1elhRQWpNSkNISTBRdWluazUzNXMxY1MvTVJI?=
+ =?utf-8?B?T1NwUjQzN3hzMUM0dlQ0cDVhUTR4S3RYNVdrM0tqK01XLzNFUHMyUDlqQzNQ?=
+ =?utf-8?B?ZG5QT1RNaE1OUjVOYTB5a1NjT1hEdmZSWDVQaEpkTHpzM2FNcHZxdWZqdmdX?=
+ =?utf-8?B?amRqT24zRFJ5bGlJTXRyRlhLcDJsS1R6MTJrcmtwMVFMaFVXNlEyZ2tWVms2?=
+ =?utf-8?B?S2tMaEZNb2s4cE9xSVVKOHFpalREbEt1bGN5WldrRWdDRDU0bFVxWDF6TzQ3?=
+ =?utf-8?B?VmltaFB6Y3FYSnc4ZURxV3NobFA1aVFCZ3dZTFFBbzdUUi92OXA5UnNreGQr?=
+ =?utf-8?B?U3dMSVZLL2RmOHZmZTk2M1F5eHc5a1h4Sm11RzZTY1JiR1FESkxXbVVtTHA0?=
+ =?utf-8?B?MEFyNHV3UG1JYjFsbG91cllVUWZ5L3d1UzVBMDVNTHlkWE9Wcmk2eTRDKzZ0?=
+ =?utf-8?B?WHhQYXF6T1pNU0ZEUkc2eWdLRzViaGVHVFJ1YzRVL2swd3o4OWlQVVpVcDNZ?=
+ =?utf-8?B?eHFyWlI4SEpUc1ZBb2M0Z2U4c1VQS1Y3NWd0aEkyam1sNUtaZHp0ZFQyLzcx?=
+ =?utf-8?B?QVJ3TUJYTjlkZmtwS3p3azF6MXpSU09jNmVtMldheFEyMzB0NFlZM1Y1WmFt?=
+ =?utf-8?B?WVVORm9CSitxVjRIVzRoMjhrc0JkcDhVOUE5eGhIV2hETGRmbDNjQXVYN09w?=
+ =?utf-8?B?N3Byd1NiTUIwZ2JQalkrMGN1bURadGxDbHB1VnlhemhobGVlTUZwN2ZiQm1T?=
+ =?utf-8?B?WlZSK0RaU21xUEJ0bkdGUDR6Ly9UaEl1d0w2TDh1NkhSc3ZxaEVxZ2JNRzlQ?=
+ =?utf-8?B?dzd0ak8vNld1SzI2OWJxOG5aUld3MGx5WG5Ta3hyZExqbkpSUWRRZEN6ZkVU?=
+ =?utf-8?B?Z0xRTC8zTmlZODlCbUpBM25Tdm5jSStEdTFwZ3M2eGp0RitpVzJRbnB0TmVR?=
+ =?utf-8?B?WEwweEZtVXZXWVJqSEZUWEVWbjUyUFY0TFExVmxUV0JwQjNISkk5bXhBYi9O?=
+ =?utf-8?B?YVllN1hBc2pVcTdNUHcrVkFUbWliTmxZNXZxK3BLVXdPQWlMaTJUaDB5Sk9u?=
+ =?utf-8?B?OFEzNXRoZG9ZQjVVWityUC9KTUdQaEI2d2MyL2JFdmVDNUlUS3RiK1p1TUlU?=
+ =?utf-8?B?MFg3a2VLZ0hTNUpqNHhlSlhySEJQTWR0anpSVDhQdHp1cnYwVVpFWWttRURs?=
+ =?utf-8?B?eFQvN1g4emdVa1ZJNWZhZnVSdDZFNFFDeGNCUkNUckNsR1JoQTZwZDdUbXFG?=
+ =?utf-8?B?QnB5ZFRueW5pR045c3EyOVlOVjZlVTk1L1NycXdwdDFTRlVkaVNnM2Jkdmht?=
+ =?utf-8?B?c3ZHSWowVUFWRTVqU05oSDdhY0s2WVJSSnpjem14R0dkNENnOVp1ZHBWaS9o?=
+ =?utf-8?B?UHNXZWU3T2R1VThZUlQ5NVJQcWNuUEhwekZUWEV0bDRpb2RId2V2ZGdKak5p?=
+ =?utf-8?B?Z3gvbEJ2UjlQVlBVY29tMU9BL1NRSHRyVk1JSCsvWDdWcFRSeUVldHF6blZQ?=
+ =?utf-8?B?WlQ5eEQ2SUZLVFliaDlyQWg0QmRweThHZ0JYQlFYS2dyV01TQ2hTVlljbUhW?=
+ =?utf-8?B?S1AzWjl3NkhOaElQamNlcnVRdi9vZXFLSlR5YmllSDAwUlJwczdybEtuUWFx?=
+ =?utf-8?B?ZGU1QW0zbXhPdlNlK0pFQkJoMWx4QUcxOHZndHAxeWVCR3NGV0dUaGVHd3J5?=
+ =?utf-8?B?bGw5ODJPNGRscWhYczhxbUpOR1ExUWZhTllEQlRyOURHU0ZHMTJyS3Y2OEJY?=
+ =?utf-8?B?VEdWZDl4THB6LzFJT3RXM01ieG84MjRSOUs0T25yQmFPWVhtMFI0ZytCb2RB?=
+ =?utf-8?B?akk1SS9KeGxZTlFTcUVuUEt5S3plZjVaVDhkVTI4L1MyVGk5WTBxN2dqRmRt?=
+ =?utf-8?B?MElXUElqUU9ydHkzMENldWJDcng1c2tLZlJZMlYvUTk5SGkzOHBWMkI1MDlM?=
+ =?utf-8?B?QXpld2JkeTZKZ3RBRE9nUVVjV0VUcXZ1blMwNGpNQk5IOHFQOFNLUHdiWkth?=
+ =?utf-8?B?azVMQUZpays5S2NVWUxESkpyZGxTSFplSjRSaG51MDFXQzJFeUk1RlVSZCsx?=
+ =?utf-8?B?R2JuMXpkY1REWHVwUzdDUUxidW14ZTNOT2dVWXVQYUJudU1Lc3dHc1REK0x3?=
+ =?utf-8?B?S0E2YmFueVJaTFNKbk5PcE9SVDAwRERMV21WVkxMTWJhL2UvOHUraGt5a1U0?=
+ =?utf-8?B?bUhiaWZhQm1qbEU4bnRtL0Nvb3RDNXRBRCs1SXY3M3lFdURBZmp2VkhiS2d3?=
+ =?utf-8?B?VFhmQWhyL1oxTVY0L3Q0dEVoakhSNnQ1VllmSEVFNkd4djAvZ1JLREs5R0VZ?=
+ =?utf-8?Q?abxhEkGGEXDdx63ay9qFFJu2bBfSUmfO3ytEW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8cf93ed8-592c-4e1e-1ca7-08df4724a51a
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:38:02.6496
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bpfPfFtg4A7oul2IIJPuDpSm9UwnwLW4SjkwKu6DwZooN5CfKNDcheETHTGagvgaGR/ewa8OBHhx/YpaFcwbAsdTO2t+mafthQ6vLmcV9a56574J4GVA1j0FvFw4G7TP
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: WA4PR04MB867629
 
-On Fri, 2026-11-06 at 01:49 +0800, wen.yang@linux.dev wrote:
-> From: Wen Yang <wen.yang@linux.dev>
->=20
-> tlob (task latency over budget) is a per-task hybrid automaton RV
-> monitor that tracks wall-clock time across a user-delimited code
-> section and emits an error when the elapsed time exceeds a configurable
-> budget.
->=20
-> The monitor tracks four states (running, waiting, sleeping, stopped)
-> driven by sched_switch and sched_wakeup tracepoints.=C2=A0 A single clock
-> invariant, clk_elapsed < BUDGET_NS(), is enforced by a per-task hrtimer
-> (HRTIMER_MODE_REL_HARD).=C2=A0 On expiry error_env_tlob is emitted; which
-> phase consumed the budget (running, waiting or sleeping) is recovered
-> from event_tlob in user space.
->=20
-> Tasks are registered for monitoring by writing to the tracefs monitor
-> file using the ftrace uprobe_events convention:
-> =C2=A0 echo "p:myregion /path/to/binary:OFFSET_START OFFSET_STOP threshol=
-d=3DNS" \
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 >> /sys/kernel/tracing/rv/monitors/t=
-lob/monitor
->=20
-> The per-task monitoring record is embedded directly into struct
-> da_monitor_storage via DA_OBJ_EMBEDDED_TYPE, eliminating the need for a
-> private mempool, separate RCU reclamation, or parallel OPEN/CLOSED/RETIRE=
-D
-> states. Window transitions and reentrancy are managed directly by the
-> automaton model and framework storage lifecycle.
->=20
-> Suggested-by: Gabriele Monaco <gmonaco@redhat.com>
-> Signed-off-by: Wen Yang <wen.yang@linux.dev>
+On Fri, Nov 20, 2026 at 03:13:01PM +0100, Markus Elfring wrote:
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Fri, 20 Nov 2026 14:23:13 +0100
+
+Any tools issue ? your patch look strange. Why this information at body
+
+>
+> * Reuse existing functionality from devm_clk_get_optional_enabled()
+>   instead of keeping duplicate source code.
+
+Needn't *
+
+>
+> * Omit a clk_disable_unprepare() call on an error handling path
+>   and in the implementation of the function “dw_remove”.
+
+Clean up disable_unprepare() at error handling patch and dw_remove()
+
+Frank
+
+>
+> This issue was detected by using the Coccinelle software.
+>
+> Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
 > ---
-
-That's the right direction, I still have a few comments.
-Remember the goal here is to keep handlers/constraints as simple as
-possible and as close as possible to what rvgen gives, so the source is
-an almost direct product of the model.
-
-...
-
-> diff --git a/kernel/trace/rv/Kconfig b/kernel/trace/rv/Kconfig
-> index 2bc412304293..68f0b9bc2dc3 100644
-> --- a/kernel/trace/rv/Kconfig
-> +++ b/kernel/trace/rv/Kconfig
-> @@ -82,6 +82,7 @@ source "kernel/trace/rv/monitors/wakeup/Kconfig"
-> =C2=A0source "kernel/trace/rv/monitors/stall/Kconfig"
-> =C2=A0source "kernel/trace/rv/monitors/deadline/Kconfig"
-> =C2=A0source "kernel/trace/rv/monitors/nomiss/Kconfig"
-> +source "kernel/trace/rv/monitors/tlob/Kconfig"
-
-This shouldn't be here, otherwise it's breaking the generation script
-for new deadline models.
-
-> =C2=A0# Add new deadline monitors here
-> =C2=A0
-
-It should be here (like you had on V7 and like rvgen does).
-
-> =C2=A0# Add new monitors here
-> diff --git a/kernel/trace/rv/Makefile b/kernel/trace/rv/Makefile
-> index 8dc14a1819b8..99a8dceb829f 100644
-> --- a/kernel/trace/rv/Makefile
-> +++ b/kernel/trace/rv/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_RV_MON_OPID) +=3D monitors/opid/opid.o
-> =C2=A0obj-$(CONFIG_RV_MON_STALL) +=3D monitors/stall/stall.o
-> =C2=A0obj-$(CONFIG_RV_MON_DEADLINE) +=3D monitors/deadline/deadline.o
-> =C2=A0obj-$(CONFIG_RV_MON_NOMISS) +=3D monitors/nomiss/nomiss.o
-> +obj-$(CONFIG_RV_MON_TLOB) +=3D monitors/tlob/tlob.o
-> =C2=A0obj-$(CONFIG_RV_MON_WAKEUP) +=3D monitors/wakeup/wakeup.o
-> =C2=A0# Add new monitors here
-> =C2=A0obj-$(CONFIG_RV_UPROBE) +=3D rv_uprobe.o
-> diff --git a/kernel/trace/rv/monitors/tlob/Kconfig
-> b/kernel/trace/rv/monitors/tlob/Kconfig
-> new file mode 100644
-> index 000000000000..4f072a9a4da2
-> --- /dev/null
-> +++ b/kernel/trace/rv/monitors/tlob/Kconfig
-> @@ -0,0 +1,12 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +config RV_MON_TLOB
-> +=09bool "tlob monitor"
-> +=09depends on RV && UPROBES && HIGH_RES_TIMERS
-> +=09select HA_MON_EVENTS_ID
-> +=09select RV_UPROBE
-> +=09help
-> +=09=C2=A0 Enable the tlob (task latency over budget) hybrid-automaton RV
-> +=09=C2=A0 monitor.=C2=A0 tlob tracks per-task elapsed time across a
-> +=09=C2=A0 user-delimited code section and emits a violation when the
-> +=09=C2=A0 elapsed time exceeds a configurable per-invocation budget.
-> diff --git a/kernel/trace/rv/monitors/tlob/tlob.c
-> b/kernel/trace/rv/monitors/tlob/tlob.c
-> new file mode 100644
-> index 000000000000..fe7d88df62f1
-> --- /dev/null
-> +++ b/kernel/trace/rv/monitors/tlob/tlob.c
-> @@ -0,0 +1,732 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * tlob (task latency over budget) RV monitor.
-> + *
-> + * A per-task hybrid automaton that checks a task's elapsed time against
-> + * a configurable budget across a user-delimited code section.
-> + */
-> +#include <linux/ftrace.h>
-> +#include <linux/tracepoint.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/init.h>
-> +#include <linux/rv.h>
-> +#include <linux/fs.h>
-> +#include <linux/namei.h>
-> +#include <linux/security.h>
-> +#include <linux/ctype.h>
-> +#include <linux/seq_file.h>
-> +#include <rv/instrumentation.h>
-> +#include <rv/rv_uprobe.h>
-> +#include <rv.h>
-
-It seems you're using some includes that aren't quite needed. I can
-build fine without fs, seq_file and ctype.
-
-> +
-> +#define MODULE_NAME "tlob"
-> +
-> +#include <rv_trace.h>
-> +#include <trace/events/sched.h>
-> +
-> +struct tlob_uprobe_binding;
-
-Do you really need to forward declare this struct and define it later?
-Cannot you just define it here?
-
-> +
-> +/*
-> + * Per-task monitoring record, embedded directly in struct da_monitor_st=
-orage
-> + * via DA_OBJ_EMBEDDED_TYPE. Allocated and freed with the storage.
-> + */
-> +struct tlob_record {
-> +=09u64=09=09=09=09threshold_ns;
-> +=09struct tlob_uprobe_binding=09*binding;
-> +};
-> +
-> +#define DA_OBJ_EMBEDDED_TYPE struct tlob_record
-> +#define RV_MON_TYPE RV_MON_PER_OBJ
-> +#define HA_TIMER_TYPE HA_TIMER_HRTIMER
-> +#define DA_MON_POOL_SIZE TLOB_MAX_MONITORED
-> +#define EVENT_NONE_LBL "budget_exceeded"
-> +
-> +#include "tlob.h"
-> +#include <rv/ha_monitor.h>
-> +
-> +#define BUDGET_NS(ha_mon) (ha_get_target(ha_mon)->threshold_ns)
-> +
-> +static u64 ha_get_env(struct ha_monitor *ha_mon, enum envs_tlob env,
-> +=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u64 time_ns)
-> +{
-> +=09if (env =3D=3D clk_elapsed_tlob)
-> +=09=09return ha_get_clk_ns(ha_mon, env, time_ns);
-> +=09return ENV_INVALID_VALUE;
-> +}
-> +
-> +static void ha_reset_env(struct ha_monitor *ha_mon, enum envs_tlob env,
-> +=09=09=09 u64 time_ns)
-> +{
-> +=09if (env =3D=3D clk_elapsed_tlob)
-> +=09=09ha_reset_clk_ns(ha_mon, env, time_ns);
-> +}
-> +
-> +/*
-> + * clk_elapsed <=3D BUDGET_NS in running/waiting/sleeping; stopped exemp=
-t.
-> + */
-
-These functions significantly deviate from rvgen's output mostly for no
-reason. That makes it harder to maintain, please stick to what rvgen
-gives you with 1 exception (see later).
-
-> +static inline bool ha_verify_invariants(struct ha_monitor *ha_mon,
-> +=09=09=09=09=09enum states curr_state,
-> +=09=09=09=09=09enum events event,
-> +=09=09=09=09=09enum states next_state,
-> +=09=09=09=09=09u64 time_ns)
-> +{
-> +=09if (curr_state =3D=3D stopped_tlob)
-> +=09=09return true;
-> +=09return ha_check_invariant_ns(ha_mon, clk_elapsed_tlob, time_ns,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0 BUDGET_NS(ha_mon));
-> +}
-
-The reset_env is called by ha_verify_guards(). The compiler should
-produce mostly the same code anyway.
-
-> +
-> +static inline void ha_setup_invariants(struct ha_monitor *ha_mon,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum events event,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 enum states next_state,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 u64 time_ns)
-> +{
-
-Here you're actually doing some optimisation that does make sense,
-please at least keep the original prototype (also curr_state) even if
-you don't need all arguments.
-
-I couldn't find a trivial way to represent what you're trying to do here
-from the generator. rvgen is a bit too zealous with invariants, arms and
-cancels every time, since you have a subgraph sharing the same
-invariant, it makes sense to keep it stable.
-
-But let's at least make it /looking like/ what rvgen gives you, then in
-the future we can think if rvgen can support this case:
-
-=09static inline void ha_setup_invariants(struct ha_monitor *ha_mon,
-=09=09=09=09=09=09   enum states curr_state, enum events event,
-=09=09=09=09=09=09   enum states next_state, u64 time_ns)
-=09{
-=09=09if (next_state =3D=3D curr_state)
-=09=09=09return;
-
-=09=09/*
-=09=09 * Only a start arms the timer.  Every other transition keeps
-=09=09 * the anchor, so the timer already points at the right expiry and
-=09=09 * re-arming it would just take the hrtimer base lock on every
-=09=09 * scheduler event of a monitored task.
-=09=09 */
-=09=09if (event =3D=3D start_tlob)
-=09=09=09ha_start_timer_ns(ha_mon, clk_elapsed_tlob, BUDGET_NS(ha_mon), tim=
-e_ns);
-=09=09else if (next_state =3D=3D stopped_tlob)
-=09=09=09ha_cancel_timer(ha_mon);
-=09}
-
-
-> +=09if (next_state =3D=3D stopped_tlob) {
-> +=09=09ha_cancel_timer(ha_mon);
-> +=09=09return;
-> +=09}
-> +
-> +=09/*
-> +=09 * Only a start re-anchors the clock.=C2=A0 Every other transition ke=
-eps
-> +=09 * the anchor, so the timer already points at the right expiry and
-> +=09 * re-arming it would just take the hrtimer base lock on every
-> +=09 * scheduler event of a monitored task.
-> +=09 */
-> +=09if (event !=3D start_tlob)
-> +=09=09return;
-> +
-> +=09ha_reset_clk_ns(ha_mon, clk_elapsed_tlob, time_ns);
-> +=09ha_start_timer_ns(ha_mon, clk_elapsed_tlob, BUDGET_NS(ha_mon),
-> +=09=09=09=C2=A0 time_ns);
-> +}
-> +
-> +static bool ha_verify_constraint(struct ha_monitor *ha_mon,
-> +=09=09=09=09 enum states curr_state, enum events event,
-> +=09=09=09=09 enum states next_state, u64 time_ns)
-> +{
-> +=09if (ha_verify_invariants(ha_mon, curr_state, event,
-> +=09=09=09=09 next_state, time_ns)) {
-> +=09=09ha_setup_invariants(ha_mon, event, next_state, time_ns);
-> +=09=09return true;
-> +=09}
-> +
-> +=09/*
-> +=09 * The event itself found the budget exceeded, so it reports the
-> +=09 * overrun and closes the window.=C2=A0 Without the reset the transit=
-ion
-> +=09 * would still be taken with the timer left armed, and the expiry
-> +=09 * would report the same overrun a second time.
-> +=09 */
-> +=09da_monitor_reset(&ha_mon->da_mon);
-> +=09return false;
-> +}
-
-Then you also restore this and you should have equivalent behaviour with
-minimal (though justified) modification from rvgen's.
-
-> +
-> +/*
-> + * One registered uprobe pair. Multiple bindings can be active simultane=
-ously
-> + * on different binaries or on disjoint ranges of the same binary.
-> + */
-> +struct tlob_uprobe_binding {
-> +=09struct list_head=09=09list;
-> +=09char=09=09=09=09name[TLOB_MAX_NAME];
-> +=09char=09=09=09=09binpath[TLOB_MAX_PATH];
-> +=09loff_t=09=09=09=09offset_start;
-> +=09loff_t=09=09=09=09offset_stop;
-> +=09u64=09=09=09=09threshold_ns;
-> +=09struct path=09=09=09path;
-> +=09struct rv_uprobe=09=09start_probe;
-> +=09struct rv_uprobe=09=09stop_probe;
-> +};
-> +
-> +static LIST_HEAD(tlob_uprobe_list);
-> +static DEFINE_MUTEX(tlob_uprobe_mutex);
-> +
-> +static int tlob_start_task(struct task_struct *task, u64 threshold_ns,
-> +=09=09=09=C2=A0=C2=A0 struct tlob_uprobe_binding *binding)
-> +{
-
-This function is over-engineered. Nobody is checking the return value,
-why all the reporting?
-
-> +=09struct tlob_record *rec;
-> +=09struct da_monitor *da_mon;
-> +
-> +=09if (!da_monitor_enabled())
-> +=09=09return -ENODEV;
-
-Alright, I'd skip this but I see you want to short circuit before doing
-any other decisions. This isn't a hot path though.
-
-> +
-> +=09if (threshold_ns < TLOB_MIN_THRESHOLD_NS ||
-> +=09=C2=A0=C2=A0=C2=A0 threshold_ns > TLOB_MAX_THRESHOLD_NS)
-> +=09=09return -ERANGE;
-
-This is functional, should stay.
-
-> +
-> +=09scoped_guard(rcu) {
-> +=09=09da_mon =3D da_get_monitor(task->pid, NULL);
-> +=09=09if (da_mon) {
-> +=09=09=09rec =3D da_get_target(da_mon);
-> +=09=09=09if (WARN_ON_ONCE(!rec))
-> +=09=09=09=09return -ENODEV;
-> +=09=09=09/*
-> +=09=09=09 * A record left by a removed binding is adopted: the
-> +=09=09=09 * task is between windows and nothing owns it.
-> +=09=09=09 * Anything else starting it while it still belongs
-> to
-> +=09=09=09 * another binding would silently shadow that window.
-> +=09=09=09 */
-> +=09=09=09if (rec->binding && rec->binding !=3D binding) {
-> +=09=09=09=09trace_error_tlob(task->pid,
-> +=09=09=09=09=09=09 model_get_state_name(da_mon-
-> >curr_state),
-> +=09=09=09=09=09=09
-> model_get_event_name(start_tlob));
-> +=09=09=09=09return -EALREADY;
-> +=09=09=09}
-
-You aren't supposed to do custom event handling, that can go very wrong
-very fast (no reactor, no proper reset, etc.)
-
-> +=09=09=09/*
-> +=09=09=09 * A START while the window is still open is a model
-> +=09=09=09 * violation (running/waiting/sleeping x start). Hand
-> it
-> +=09=09=09 * to the model for reporting, but leave the record
-> +=09=09=09 * untouched: adopting the new budget here would
-> change
-> +=09=09=09 * the window that is already running.
-> +=09=09=09 */
-> +=09=09=09if (da_monitoring(da_mon) &&
-> +=09=09=09=C2=A0=C2=A0=C2=A0 READ_ONCE(da_mon->curr_state) !=3D stopped_t=
-lob) {
-> +=09=09=09=09da_handle_event(task->pid, NULL, start_tlob);
-> +=09=09=09=09return -EALREADY;
-> +=09=09=09}
-
-The model already does exactly this, I see you don't want to update
-before the error but it's mostly duplicated code.
-
-> +=09=09=09rec->binding =3D binding;
-> +=09=09=09rec->threshold_ns =3D threshold_ns;
-> +=09=09=09/*
-> +=09=09=09 * Not da_handle_event(): a violation reset the
-> +=09=09=09 * monitor, and a plain event is dropped while
-> +=09=09=09 * !da_monitoring(). This restarts it and runs start.
-> +=09=09=09 */
-> +=09=09=09return da_handle_start_run_event(task->pid, NULL,
-> +=09=09=09=09=09=09=09 start_tlob) ? 0 :
-> +=09=09=09=09=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -
-> ENODEV;
-> +=09=09}
-> +=09}
-> +
-> +=09struct tlob_record init_rec =3D {
-> +=09=09.threshold_ns =3D threshold_ns,
-> +=09=09.binding =3D binding,
-> +=09};
-> +
-> +=09if (da_handle_start_run_event(task->pid, &init_rec, start_tlob))
-> +=09=09return 0;
-> +
-> +=09/*
-> +=09 * The framework reports a disabled monitor and an exhausted pool the
-> +=09 * same way.=C2=A0 Storage is published only once a pool slot was cla=
-imed,
-> +=09 * so its absence means the pool is what ran out.
-> +=09 */
-> +=09scoped_guard(rcu)
-> +=09=09da_mon =3D da_get_monitor(task->pid, NULL);
-> +=09if (da_mon)
-> +=09=09return -ENODEV;
-> +
-> +=09pr_warn_once("%s: no free record, task %d stays unmonitored\n",
-> +=09=09=C2=A0=C2=A0=C2=A0=C2=A0 __stringify(MODULE_NAME), task->pid);
-> +=09return -ENOSPC;
-> +}
-
-So essentially here you could do pretty much only
-
-=09da_handle_start_run_event(task->pid, &init_rec, start_tlob)
-
-Then you'd lose:
-1. Error on a sequential binding
-2. Reporting for no free space
-3. After unbinding and re-binding, we no longer update
-
-Is 1. really a use case? I suppose you could create a dummy
-"start_shadowed" event only possible in an "unreachable" state and
-trigger it on every start with different binding, but do you really have
-to?
-
-2. is something we may want to report on a framework level. Essentially
-we could transform the unlikely(!da_mon) into a WARN_ON_ONCE(!da_mon)
-after da_prepare_storage() and be done with it.
-
-3. I would really like to just destroy the storage during unbind and
-have the framework fill it again during the next start, I'm afraid that
-might require some care though.
-If that gets too complicated, I guess it's alright to just override it
-when binding is NULL during start and let the model continue with that.
-
-Would this be enough?
-
-> +
-> +static int tlob_stop_task(struct task_struct *task,
-> +=09=09=09=C2=A0 struct tlob_uprobe_binding *binding)
-> +{
-> +=09struct tlob_record *rec;
-> +=09struct da_monitor *da_mon;
-> +
-> +=09if (!da_monitor_enabled())
-> +=09=09return -ENODEV;
-> +
-> +=09scoped_guard(rcu) {
-> +=09=09da_mon =3D da_get_monitor(task->pid, NULL);
-> +=09=09if (!da_mon)
-> +=09=09=09return -ESRCH;
-> +
-> +=09=09rec =3D da_get_target(da_mon);
-> +=09=09if (WARN_ON_ONCE(!rec))
-> +=09=09=09return -ENODEV;
-> +=09=09if (binding && rec->binding && rec->binding !=3D binding)
-> +=09=09=09return -EINVAL;
-
-Now I wonder what are all these covering. Why do we need to account for
-an invalid event? Can it really happen or are you just being over
-cautious? Nobody checks the return value anyway.
-
-I assume this kind of stop during a window happens only for overlapping
-windows, which aren't allowed, are they?
-
-> +
-> +=09=09/*
-> +=09=09 * A budget overrun already closed the window and reset the
-> +=09=09 * monitor; the STOP that follows must not report again.
-> +=09=09 */
-> +=09=09if (!da_monitoring(da_mon))
-> +=09=09=09return 0;
-
-Do you really need this? If you aren't monitoring, the model is already
-ignoring the event.
-
-> +
-> +=09=09da_handle_event(task->pid, NULL, stop_tlob);
-> +=09}
-
-All in all in this function I'd really just da_handle_event(), which
-should do everything you need. Then always return 0.
-
-> +=09return 0;
-> +}
-> +
-> +static void handle_sched_switch(void *data, bool preempt,
-> +=09=09=09=09struct task_struct *prev,
-> +=09=09=09=09struct task_struct *next,
-> +=09=09=09=09unsigned int prev_state)
-> +{
-> +=09if (!preempt && prev_state !=3D TASK_RUNNING)
-> +=09=09da_handle_event(prev->pid, NULL, sleep_tlob);
-> +=09else
-> +=09=09da_handle_event(prev->pid, NULL, preempt_tlob);
-> +
-> +=09da_handle_event(next->pid, NULL, switch_in_tlob);
-> +}
-> +
-> +static void handle_sched_wakeup(void *data, struct task_struct *p)
-> +{
-> +=09da_handle_event(p->pid, NULL, wakeup_tlob);
-> +}
-> +
-> +static void handle_sched_process_exit(void *data, struct task_struct *p,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bool group_dead)
-> +{
-> +=09da_destroy_storage(p->pid);
-> +}
-> +
-> +static int tlob_uprobe_entry_handler(struct uprobe_consumer *self,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0 struct pt_regs *regs, __u64 *data)
-> +{
-> +=09struct tlob_uprobe_binding *b =3D
-> +=09=09container_of(self, struct tlob_uprobe_binding,
-> start_probe.uc);
-> +
-> +=09tlob_start_task(current, b->threshold_ns, b);
-> +=09return 0;
-> +}
-> +
-> +static int tlob_uprobe_stop_handler(struct uprobe_consumer *self,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0 struct pt_regs *regs, __u64 *data)
-> +{
-> +=09struct tlob_uprobe_binding *b =3D
-> +=09=09container_of(self, struct tlob_uprobe_binding,
-> stop_probe.uc);
-> +
-> +=09tlob_stop_task(current, b);
-> +=09return 0;
-> +}
-> +
-> +/*
-> + * tlob_release_binding - stop tracking the windows opened by @binding
-> + *
-> + * A binding may be removed while tasks are still inside its windows.=C2=
-=A0 Their
-> + * timers are armed and would report an overrun against a binding that n=
-o
-> + * longer exists, so reset those monitors once no handler can run anymor=
-e.
-> + * The record is left in place and its owner cleared: a later START, pos=
-sibly
-> + * from another binding, adopts and restarts it.
-> + *
-> + * Runs after rv_uprobe_unregister_sync(), which is what makes the walk =
-free
-> + * of concurrent writers to rec->binding.
-> + */
-> +static void tlob_release_binding(struct tlob_uprobe_binding *binding)
-> +{
-> +=09struct da_monitor_storage *mon_storage;
-> +=09int bkt;
-> +
-> +=09guard(rcu)();
-> +=09hash_for_each_rcu(da_monitor_ht, bkt, mon_storage, node) {
-> +=09=09struct tlob_record *rec =3D da_get_target(&mon_storage-
-> >rv.da_mon);
-> +
-> +=09=09if (rec && rec->binding =3D=3D binding) {
-> +=09=09=09rec->binding =3D NULL;
-> +=09=09=09da_monitor_reset(&mon_storage->rv.da_mon);
-> +=09=09}
-> +=09}
-> +}
-> +
-> +static void tlob_unbind(struct tlob_uprobe_binding *b)
-> +{
-> +=09rv_uprobe_unregister_nosync(&b->start_probe);
-> +=09rv_uprobe_unregister_nosync(&b->stop_probe);
-> +=09rv_uprobe_unregister_sync();
-
-I wonder if this further sync should be part of the framework (now
-it assumes tracepoints only), but it would probably add some duplicate
-waiting.
-Leave it for now, but it's something to think about.
-
-> +
-> +=09tlob_release_binding(b);
-> +
-> +=09iput(b->start_probe.inode);
-> +=09iput(b->stop_probe.inode);
-
-This is what I meant in the uprobe series, cannot we just pass the
-path around and let rv_uprobe handle inodes?
-
-> +=09path_put(&b->path);
-> +}
-> +
-> +static int tlob_remove_uprobe_by_name(const char *name)
-> +{
-> +=09struct tlob_uprobe_binding *b, *tmp;
-> +
-> +=09guard(mutex)(&tlob_uprobe_mutex);
-> +
-> +=09list_for_each_entry_safe(b, tmp, &tlob_uprobe_list, list) {
-> +=09=09if (strcmp(b->name, name))
-> +=09=09=09continue;
-> +=09=09list_del(&b->list);
-> +=09=09tlob_unbind(b);
-> +=09=09kfree(b);
-> +=09=09return 0;
-> +=09}
-> +
-> +=09return -ENOENT;
-> +}
-> +
-> +static void tlob_remove_all_uprobes(void)
-> +{
-> +=09struct tlob_uprobe_binding *b, *tmp;
-> +=09LIST_HEAD(pending);
-> +
-> +=09guard(mutex)(&tlob_uprobe_mutex);
-> +
-> +=09list_for_each_entry_safe(b, tmp, &tlob_uprobe_list, list) {
-> +=09=09list_move(&b->list, &pending);
-> +=09=09rv_uprobe_unregister_nosync(&b->start_probe);
-> +=09=09rv_uprobe_unregister_nosync(&b->stop_probe);
-> +=09}
-> +
-> +=09if (list_empty(&pending))
-> +=09=09return;
-> +
-> +=09rv_uprobe_unregister_sync();
-> +
-> +=09list_for_each_entry_safe(b, tmp, &pending, list) {
-> +=09=09list_del(&b->list);
-> +=09=09tlob_release_binding(b);
-> +=09=09iput(b->start_probe.inode);
-> +=09=09iput(b->stop_probe.inode);
-> +=09=09path_put(&b->path);
-> +=09=09kfree(b);
-> +=09}
-> +}
-> +
-> +static int tlob_add_uprobe(const char *name, const char *binpath,
-> +=09=09=09=C2=A0=C2=A0 loff_t offset_start, loff_t offset_stop,
-> +=09=09=09=C2=A0=C2=A0 u64 threshold_ns)
-> +{
-> +=09struct tlob_uprobe_binding *tmp_b;
-> +=09char pathbuf[TLOB_MAX_PATH];
-> +=09struct inode *inode;
-> +=09struct path path __free(path_put) =3D {};
-> +=09char *canon;
-> +=09int ret;
-> +
-> +=09guard(mutex)(&tlob_uprobe_mutex);
-> +
-> +=09if (binpath[0] !=3D '/')
-> +=09=09return -EINVAL;
-> +
-> +=09struct tlob_uprobe_binding *b __free(kfree) =3D
-> +=09=09kzalloc_obj(*b, GFP_KERNEL);
-> +=09if (!b)
-> +=09=09return -ENOMEM;
-> +
-> +=09strscpy(b->name, name, sizeof(b->name));
-> +=09b->threshold_ns =3D threshold_ns;
-> +=09b->offset_start =3D offset_start;
-> +=09b->offset_stop=C2=A0 =3D offset_stop;
-> +
-> +=09ret =3D kern_path(binpath, LOOKUP_FOLLOW, &path);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09if (!d_is_reg(path.dentry))
-> +=09=09return -EINVAL;
-> +
-> +=09inode =3D d_real_inode(path.dentry);
-> +
-> +=09/*
-> +=09 * Names are unique, and so are ranges on the same binary: a task
-> +=09 * runs one window at a time, the second would silently shadow the
-> +=09 * first. Direction normalised so a reversed start/stop still
-> matches.
-> +=09 */
-> +=09list_for_each_entry(tmp_b, &tlob_uprobe_list, list) {
-> +=09=09loff_t s1, e1, s2, e2;
-> +
-> +=09=09if (strcmp(tmp_b->name, name) =3D=3D 0)
-> +=09=09=09return -EEXIST;
-> +=09=09if (!rv_uprobe_is_registered(&tmp_b->start_probe))
-> +=09=09=09continue;
-> +=09=09if (tmp_b->start_probe.inode !=3D inode)
-> +=09=09=09continue;
-> +
-> +=09=09s1 =3D min(offset_start, offset_stop);
-> +=09=09e1 =3D max(offset_start, offset_stop);
-> +=09=09s2 =3D min(tmp_b->offset_start, tmp_b->offset_stop);
-> +=09=09e2 =3D max(tmp_b->offset_start, tmp_b->offset_stop);
-> +=09=09if (s1 <=3D e2 && s2 <=3D e1)
-> +=09=09=09return -EEXIST;
-> +=09}
-> +
-> +=09canon =3D d_path(&path, pathbuf, sizeof(pathbuf));
-> +=09if (IS_ERR(canon))
-> +=09=09return PTR_ERR(canon);
-> +=09strscpy(b->binpath, canon, sizeof(b->binpath));
-> +
-> +=09b->start_probe.uc.handler =3D tlob_uprobe_entry_handler;
-> +=09ret =3D rv_uprobe_register(inode, offset_start, &b->start_probe);
-> +=09if (ret)
-> +=09=09return ret;
-> +
-> +=09b->stop_probe.uc.handler =3D tlob_uprobe_stop_handler;
-> +=09ret =3D rv_uprobe_register(inode, offset_stop, &b->stop_probe);
-> +=09if (ret) {
-> +=09=09tlob_unbind(b);
-> +=09=09return ret;
-> +=09}
-> +
-> +=09b->path =3D path;
-> +=09path_get(&b->path);
-
-Do not path_get() to compensate the cleanup, it's confusing.
-This is an unconventional one because it isn't a pointer,
-apparently to borrow the path you can do memset(&path, 0, sizeof(path))
-(what no_free_ptr would do if it were a pointer), see
-__trace_uprobe_create() in kernel/trace/trace_uprobe.c , you can copy
-the comment from there.
-
-
-> +
-> +=09list_add_tail(&no_free_ptr(b)->list, &tlob_uprobe_list);
-> +=09return 0;
-> +}
-> +
-> +static void *tlob_seq_start(struct seq_file *m, loff_t *pos)
-> +{
-> +=09mutex_lock(&tlob_uprobe_mutex);
-> +=09return seq_list_start(&tlob_uprobe_list, *pos);
-> +}
-> +
-> +static void *tlob_seq_next(struct seq_file *m, void *v, loff_t *pos)
-> +{
-> +=09return seq_list_next(v, &tlob_uprobe_list, pos);
-> +}
-> +
-> +static void tlob_seq_stop(struct seq_file *m, void *v)
-> +{
-> +=09mutex_unlock(&tlob_uprobe_mutex);
-> +}
-> +
-> +static int tlob_seq_show(struct seq_file *m, void *v)
-> +{
-> +=09struct tlob_uprobe_binding *b =3D
-> +=09=09list_entry(v, struct tlob_uprobe_binding, list);
-> +
-> +=09seq_printf(m, "p:%s %s:0x%llx 0x%llx threshold=3D%llu\n",
-> +=09=09=C2=A0=C2=A0 b->name, b->binpath,
-> +=09=09=C2=A0=C2=A0 (unsigned long long)b->offset_start,
-> +=09=09=C2=A0=C2=A0 (unsigned long long)b->offset_stop,
-> +=09=09=C2=A0=C2=A0 b->threshold_ns);
-> +=09return 0;
-> +}
-> +
-> +static const struct seq_operations tlob_monitor_seq_ops =3D {
-> +=09.start=09=3D tlob_seq_start,
-> +=09.next=09=3D tlob_seq_next,
-> +=09.stop=09=3D tlob_seq_stop,
-> +=09.show=09=3D tlob_seq_show,
-> +};
-> +
-> +static int tlob_parse_uprobe_line(char *buf, char **name_out, char
-> **path_out,
-> +=09=09=09=09=C2=A0 loff_t *start_out, loff_t *stop_out,
-> +=09=09=09=09=C2=A0 u64 *thr_out)
-> +{
-> +=09unsigned long long thr =3D 0, stop_val =3D 0;
-> +=09long long start_val;
-> +=09char *p, *name, *path_token, *token, *colon;
-> +=09bool got_stop =3D false, got_thr =3D false;
-> +
-> +=09if (buf[0] !=3D 'p' || buf[1] !=3D ':')
-> +=09=09return -EINVAL;
-> +
-> +=09p =3D buf + 2;
-> +=09while (*p =3D=3D ' ' || *p =3D=3D '\t')
-> +=09=09p++;
-> +
-> +=09name =3D strsep(&p, " \t");
-> +=09if (strlen(name) >=3D TLOB_MAX_NAME || !is_good_name(name))
-> +=09=09return -EINVAL;
-> +
-> +=09if (!p)
-> +=09=09return -EINVAL;
-> +=09while (*p =3D=3D ' ' || *p =3D=3D '\t')
-> +=09=09p++;
-> +=09path_token =3D strsep(&p, " \t");
-> +=09if (!path_token || !*path_token)
-> +=09=09return -EINVAL;
-> +
-> +=09colon =3D strrchr(path_token, ':');
-> +=09if (!colon || colon - path_token < 2)
-> +=09=09return -EINVAL;
-> +=09*colon =3D '\0';
-> +
-> +=09if (path_token[0] !=3D '/')
-> +=09=09return -EINVAL;
-> +
-> +=09if (kstrtoll(colon + 1, 0, &start_val))
-> +=09=09return -EINVAL;
-> +=09if (start_val < 0)
-> +=09=09return -EINVAL;
-> +
-> +=09while (p && (token =3D strsep(&p, " \t")) !=3D NULL) {
-> +=09=09if (!*token)
-> +=09=09=09continue;
-> +=09=09if (strncmp(token, "threshold=3D", 10) =3D=3D 0) {
-> +=09=09=09if (got_thr)
-> +=09=09=09=09return -EINVAL;
-> +=09=09=09if (kstrtoull(token + 10, 0, &thr))
-> +=09=09=09=09return -EINVAL;
-> +=09=09=09if (thr < TLOB_MIN_THRESHOLD_NS ||
-> +=09=09=09=C2=A0=C2=A0=C2=A0 thr > TLOB_MAX_THRESHOLD_NS)
-> +=09=09=09=09return -ERANGE;
-> +=09=09=09got_thr =3D true;
-> +=09=09} else if (!got_stop) {
-> +=09=09=09long long sv;
-> +
-> +=09=09=09if (kstrtoll(token, 0, &sv))
-> +=09=09=09=09return -EINVAL;
-> +=09=09=09if (sv < 0)
-> +=09=09=09=09return -EINVAL;
-> +=09=09=09stop_val =3D (unsigned long long)sv;
-> +=09=09=09got_stop =3D true;
-> +=09=09} else {
-> +=09=09=09return -EINVAL;
-> +=09=09}
-> +=09}
-> +
-> +=09if (!got_stop || !got_thr)
-> +=09=09return -EINVAL;
-> +=09if (start_val =3D=3D (long long)stop_val)
-> +=09=09return -EINVAL;
-> +
-> +=09*name_out=C2=A0 =3D name;
-> +=09*thr_out=C2=A0=C2=A0 =3D thr;
-> +=09*path_out=C2=A0 =3D path_token;
-> +=09*start_out =3D (loff_t)start_val;
-> +=09*stop_out=C2=A0 =3D (loff_t)stop_val;
-> +=09return 0;
-> +}
-> +
-> +static int tlob_parse_remove_line(char *buf, char **name_out)
-> +{
-> +=09char *name =3D buf + 2;
-> +
-> +=09if (buf[0] !=3D '-' || buf[1] !=3D ':')
-> +=09=09return -EINVAL;
-> +=09if (strlen(name) >=3D TLOB_MAX_NAME || !is_good_name(name))
-> +=09=09return -EINVAL;
-> +
-> +=09*name_out =3D name;
-> +=09return 0;
-> +}
-> +
-> +static int tlob_create_or_delete_uprobe(char *buf)
-> +{
-> +=09loff_t offset_start, offset_stop;
-> +=09u64 threshold_ns;
-> +=09char *name, *binpath;
-> +=09int ret;
-> +
-> +=09if (buf[0] =3D=3D '-' && buf[1] =3D=3D ':') {
-> +=09=09ret =3D tlob_parse_remove_line(buf, &name);
-> +=09=09if (ret)
-> +=09=09=09return ret;
-> +=09=09return tlob_remove_uprobe_by_name(name);
-> +=09}
-> +=09ret =3D tlob_parse_uprobe_line(buf, &name, &binpath, &offset_start,
-> +=09=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0 &offset_stop, &threshold_ns);
-> +=09if (ret)
-> +=09=09return ret;
-> +=09return tlob_add_uprobe(name, binpath, offset_start, offset_stop,
-> +=09=09=09=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 threshold_ns);
-> +}
-> +
-> +static ssize_t tlob_monitor_write(struct file *file,
-> +=09=09=09=09=C2=A0 const char __user *ubuf,
-> +=09=09=09=09=C2=A0 size_t count, loff_t *ppos)
-> +{
-> +=09char buf[TLOB_MAX_PATH + TLOB_MAX_NAME + 128];
-> +
-> +=09if (count >=3D sizeof(buf))
-> +=09=09return -EINVAL;
-> +=09if (copy_from_user(buf, ubuf, count))
-> +=09=09return -EFAULT;
-> +=09buf[count] =3D '\0';
-> +=09if (count > 0 && buf[count - 1] =3D=3D '\n')
-> +=09=09buf[count - 1] =3D '\0';
-> +=09if (!buf[0])
-> +=09=09return count;
-> +=09return tlob_create_or_delete_uprobe(buf) ?: (ssize_t)count;
-> +}
-> +
-> +static int tlob_monitor_open(struct inode *inode, struct file *file)
-> +{
-> +=09int ret;
-> +
-> +=09ret =3D security_locked_down(LOCKDOWN_TRACEFS);
-
-Umh, that's something we probably want also for the other files, I'm not
-too familiar with this thing though.
-
-Thanks,
-Gabriele
-
+>
+> V2:
+> Andy Shevchenko and Frank Li requested further adjustments according to
+> the proposed changes.
+>
+>
+>  drivers/dma/dw/platform.c | 7 +------
+>  1 file changed, 1 insertion(+), 6 deletions(-)
+>
+> diff --git a/drivers/dma/dw/platform.c b/drivers/dma/dw/platform.c
+> index 7e76391475ac..13c44ee5e047 100644
+> --- a/drivers/dma/dw/platform.c
+> +++ b/drivers/dma/dw/platform.c
+> @@ -64,12 +64,9 @@ static int dw_probe(struct platform_device *pdev)
+>
+>  	data->chip = chip;
+>
+> -	chip->clk = devm_clk_get_optional(chip->dev, "hclk");
+> +	chip->clk = devm_clk_get_optional_enabled(chip->dev, "hclk");
+>  	if (IS_ERR(chip->clk))
+>  		return PTR_ERR(chip->clk);
+> -	ret = clk_prepare_enable(chip->clk);
+> -	if (ret)
+> -		return ret;
+>
+>  	pm_runtime_enable(&pdev->dev);
+>
+> @@ -87,7 +84,6 @@ static int dw_probe(struct platform_device *pdev)
+>
+>  err_dw_dma_probe:
+>  	pm_runtime_disable(&pdev->dev);
+> -	clk_disable_unprepare(chip->clk);
+>  	return ret;
+>  }
+>
+> @@ -106,7 +102,6 @@ static void dw_remove(struct platform_device *pdev)
+>  		dev_warn(chip->dev, "can't remove device properly: %d\n", ret);
+>
+>  	pm_runtime_disable(&pdev->dev);
+> -	clk_disable_unprepare(chip->clk);
+>  }
+>
+>  static void dw_shutdown(struct platform_device *pdev)
+> --
+> 2.56.1
+>
