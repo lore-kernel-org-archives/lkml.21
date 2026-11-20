@@ -1,89 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.29
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192580;
-	b=Wqhoj015P+vaa0xbGwSuzH9YAxbnDLSW9dKKEuzYNkReNw+IJAs8F9nTe+vzFjuEnw4p
-	 T/pXXy6KnSxWrcEmy3nLABrx46jkOi/UKccO9kzTVa4PVNDeoUZKy/VjyC/une/IO4a+l
-	 pMrzkqb10pBjh6N6OFSQYDN4bfslcRYyq5nlM2ilD73KKQvzdmVifpoeahmlqjgD9eTq1
-	 gefaYNjsnwwuts7Bp3BX7qw26I7zzugeIPB9QEiH9pxkuOxV/D9X8u579hvnVzKlQkcA+
-	 YZDLqKmd4c85AMN/Zob9WYoa2wsrHRS4UPTXCnRjv30TwCriiH5ahQQtGSOliHCDBxg==
+	t=1795192593;
+	b=XCFgniXbrcCGvhm91xqms/RJbDmiD95XG480xyoUV0wR37xoTTN264967OyTsgnOtTBK
+	 j2ro0v/n5tDC2VzLipGXIUOmzdiA62LvN1w0FYYRVg9dgUYlljdEuRdKPBLa96OUIP5MH
+	 /u3nt+XtMUlnLFFje19kuZuM6IzWTmwE/NQnGuCgaMvjz3L3RgtmSsLt+fvqtw7QGOxh+
+	 KwEeFcwhvOqiILgIAZzbVbsjyJNgq8f7lI/f/AsfSrjvgTj03yDkGU4FfkVW8nj7MHODO
+	 jZz3LX/Q5BoEYF+xQGCeyw4QNo9uyOo/30dBV1z5BowUKr6BaoET1wIEKWHNPDqsi/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192580;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:From:Reply-To:Subject:To:Cc:
-	 References:Content-Language:Autocrypt:Organization:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=S9EqDOm+9yGN2oqvjOr/ElwRnZRpzarNDWQs/yelBOc=;
-	b=cHMiCmbvVcW+y/xY1NeH13aOLdE/4mKZHJUi6fMixFCZvWUle9mDIJAkEefhk2VuhwqB
-	 nuiKKneb+VkAer/+E8DjmEa0ZhE7voV5igqBP9ESP9HQnFe/XbYNUbWAr9YNA86hhxLnh
-	 /T4YJN9hSIPg3CimN2nzZ6m+dVYpvBGs3Wxh+AU91jaa5gDy2NxSiUuXTVSyrP0Os+pMx
-	 6vRdMaqWq77YVkkoat4R5BjsIWtQwaJ3apQxDGSvDvqSciiFRwMd3XKoYKqRE0cmjzMIs
-	 6gv1hF6kI/qPoptBdM51VbbHJyAvTp8NtC9PllCb2F4cIP8/67Ayk/LR8zfV90Clv/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192593;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=TCHJhQ2/VbpYPCu0wGNcmFTWOl0tkhhd7T5k+lzPoW8=;
+	b=pwZ0hUMGXStvvnQ+b1ehl8Y1jKGODHYNZ2KZH8HwRzUQgtsF3GtUWdTE14bejlX2/P0t
+	 ErAGOzouphOO9ZBqqh/ZrDwBvHg7mNZxcxwrRoNoOzXuT9TC2eH6Wfcjblv22ueD011rv
+	 KnR5+cwmdXQD/0OaUDbuiyHCZl9uX8Z4oUAxO96FhexwZdx7gwznKiAEX6d/0MOy+L/G6
+	 y+hyYT67hm54623xMQR4xifihjtMo1WywMBbfXBVXMaK4JfvEA8N8KJFSCQPSqBQSV6P0
+	 DRw30viCdoLeu6xQaBZktHdVw9nPiuLKlw18WbiQnpGUyS6VVoEg/6QpIMNApF/tr4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=e8k2BilT;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nJ1+7KYb;
+	arc=none smtp.remote-ip=79.135.106.29
+Received: from mail-10629.protonmail.ch (mail-10629.protonmail.ch [79.135.106.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B5A9606A331
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:36:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B5A9606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DAD2606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:36:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DAD2606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=e8k2BilT
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so11943915e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:36:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795192577; x=1795797377; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S9EqDOm+9yGN2oqvjOr/ElwRnZRpzarNDWQs/yelBOc=;
-        b=e8k2BilT7XijSj3DULur05y6rfSJjuisVxNdu46fXnvxJGtJBBZf+dWSo4961ZO2l0
-         3MAW3doFFyiBx57LyDvYs3miVYOY5lrTMikypOxSO/aDbSZktxnxumrz5tdw+UPu9nz5
-         ZXtffIr74F7l5XqmIq98NUPEye/Dz7M+WPIUiFYD698yST00rF7VCzKdq4xg2ePTqpKx
-         Xw2Eg0RSlrMOeo7XrWG74eVbRmVU7EszkkNUxeGSmO8junIUtbKL08lh8+77YsU77lpw
-         Kv4+pzzbCMPUf0aqAQDcDN0Ob/DiWSD/oropcFuY09Dowftpw7XArzzu+Ny86GHGFJft
-         Xoog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795192577; x=1795797377;
-        h=content-transfer-encoding:content-type:in-reply-to:organization
-         :autocrypt:content-language:references:cc:to:subject:reply-to:from
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S9EqDOm+9yGN2oqvjOr/ElwRnZRpzarNDWQs/yelBOc=;
-        b=0Yc6hH1gIuvVB+UcxcKROz51m7lJQ51UbiH9FIFbiMxPxnffRmdz8qLnfVutWCoef5
-         +zVVqoCeDW9sFABw5xDaZFwkRJw5ea2YcEx0zdKuERWMmlBI/GxozNpvFMxNH8chJqYL
-         2ckcMg/KbjgnDNNOa4hLsUZ1BxlL+zBD6yN8WB/7yo4w2OQoSqOCIFgic/7ely6488HI
-         8nWVCyLteFTt4KCTISpMSMGi2uvRP89J/ApW3uxPpmsuDKDcgOZ4MInsY1J4jKx3MdeQ
-         OA2Qy9pfbLPKasQyYgVctr6tCH+bom5G6Em2p0eITd1cjRb2Uxka/wQ1k2v7xqIOqnnW
-         9Jbg==
-X-Forwarded-Encrypted: i=1; AL+hErGrCBzoeWX79PmrZXLY7pUdgvYCIda7q6Pe17K/pp5Ufy/1kE+f+62/FZrNJaw58CrGHUfje7ERl5h1nc0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+E8PCLxyMZCNHVpAS03XsWPNa5mlSfynlxmfhhF3nACqq3O/5V
-	/omkVhY8PfpH4Nk9NF5iMEoPN/EdSzykQ0mroZEO5/LnchYtnujeDAoxNgt3MnzG1tY=
-X-Gm-Gg: AYBFou03AYpbWNnp0GFStZp5GojYiKy96GnFQWijl/6dLi3Ms4P9L4BfxuB+1buxtDQ
-	rlroHykeqzdwny0ZCRiUl+JLbv1Evoye4KT/87gXVnFTztvzaDA4Q1eTTmMFRjIFX6rGlXhPtdT
-	jdNiu9aL19BKWdanQvTaOQs+iyNCWxUTGnooRMWY8e7QP/babYlxFTddNs7PvbhkYtgTF1f/xpM
-	DAv8G6jl6aKJIN/n4Cauc2o0vYESY0YNj7x5UZtoZStzVidNn9lX2afJhexrGI/cgrWCHReMkN8
-	jcoRonDjP7ExAwgbp2AAhyzWEkXcE4V1Aa1F4uSaVVG1U81OdNSo/b16ihWKBrlRPnhK8O38eMC
-	GmFRHZWvAAFHlZA3kTdoDosiUmfZpcqsSEaxr76c/TIsj1FO9dFcJrVn/avLibCQxwqDtWJ7sdT
-	4kvweQWpSEj8lPGQdHoK6zB/i28R6jToBphFoX2pQkz2BZA3/nbKvOAXwoUSJAV8jvdt1yi71S/
-	3GZOIfGmiB3qsYYLG3aPWmG4JgsCWc04NTnm5DtuUS8Af2W5Olp52cXHZPi+yIvUETTJy8nxcJd
-	Ph6sXfK9TxCczKgyoDsdwynHmCpwQUD56HZZYqwNdTF/202ovq1cjvlIa9P1Fk1G1u4YmFQYsPb
-	3tOlZ+pAw3w==
-X-Received: by 2002:a05:600c:4585:b0:4a1:83f0:7c91 with SMTP id 5b1f17b1804b1-4bb8882948dmr81012225e9.18.1795192577228;
-        Fri, 20 Nov 2026 08:36:17 -0800 (PST)
-Received: from ?IPV6:2a01:e0a:106d:1080:3374:165a:45ca:24fb? ([2a01:e0a:106d:1080:3374:165a:45ca:24fb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm139206125e9.11.2026.11.20.08.36.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 08:36:16 -0800 (PST)
-Message-ID: <07840e02-4cc0-4e90-aee6-5ed4b82f39e5@linaro.org>
-Date: Fri, 20 Nov 2026 17:36:15 +0100
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=nJ1+7KYb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795192590; x=1795451790;
+	bh=TCHJhQ2/VbpYPCu0wGNcmFTWOl0tkhhd7T5k+lzPoW8=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=nJ1+7KYbcB5jo+Am/FeHvLEgIATqMLXvamsY3DQL10+N9Ooy+Y7exXi7FGkc/in15
+	 iaTFqTYL9/+7o4vyh1Dldn89O+oRKdmiT54r7cKgtaAyfEezFCp1XcdyR1dwfjDH7J
+	 eVnFy27M8oQTD77X2zgpSqSIoqe2J5D+KsWVZdlQEX5JOiRTn/8lV1Jj5p0bVFzgnE
+	 N2JZjGymPfsdbeoVEwKU77WTO+APwc2F483xiwYcCbkrth36nlPsPPQitFnmMI6VY6
+	 6MQLjPPVAocSPVBBolQYyvA4tCSt+xrJj49m69Kp9X805F8ech8k+YdkIEykUGnlmJ
+	 B5Lk2GCn3NgiA==
+Date: Fri, 20 Nov 2026 16:36:23 +0000
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+From: Sergey Lebedev <lsa.uz@pm.me>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev, linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, achill@achill.org, sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+Message-ID: <20261120163615.21429-1-lsa.uz@pm.me>
+Feedback-ID: 113843758:user:proton
+X-Pm-Message-ID: 96ca51afebb2f71b026ceb62afe24bde01959978
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -93,83 +61,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH RFC 19/23] ASoC: qcom: sc8280xp: allow using the sc8280xp
- card with lpass-cpu
-To: Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Abel Vesa <abelvesa@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
- Brian Masney <bmasney+clk@redhat.com>,
- Jerome Brunet <jbrunet+clk@baylibre.com>,
- Srinivas Kandagatla <srini@kernel.org>,
- Rohit kumar <quic_rohkumar@quicinc.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Konrad Dybcio <konradybcio@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
- linux-arm-msm@vger.kernel.org, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- linux-gpio@vger.kernel.org
-References: <20261113-topic-sm8650-el2-v1-0-5183f6aab9fc@linaro.org>
- <20261113-topic-sm8650-el2-v1-19-5183f6aab9fc@linaro.org>
- <179518897124.6016.130748488943015768.b4-review@b4>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <179518897124.6016.130748488943015768.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On 11/20/26 16:36, Mark Brown wrote:
->> Add the missing DAI ids and set the ops to allow using
->> the sc8280xp card with lpass-cpu and keep the sm8650 sound
->> card bindings working with either Audioreach or lpass-cpu
->> interfaces.
->>
->> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
-> 
->> @@ -533,12 +540,11 @@ static void sc8280xp_add_be_ops(struct snd_soc_card *card)
->>   	int i;
->>   
->>   	for_each_card_prelinks(card, i, link) {
->> -		if (link->no_pcm == 1) {
->> -			link->init = sc8280xp_snd_init;
->> -			link->exit = sc8280xp_snd_exit;
->> +		link->init = sc8280xp_snd_init;
->> +		link->exit = sc8280xp_snd_exit;
->> +		link->ops = &sc8280xp_be_ops;
-> 
-> This now applies to everything for all cards, that feels like it needs a
-> lot of care?
-> 
+Built with Ubuntu's config (Rust off) and booted on a Surface Pro 11
+(Lunar Lake, Intel BE201 Bluetooth over btintel_pcie). Ten s2idle
+cycles: no suspend failures, no alive-interrupt timeouts, and Bluetooth
+up and scanning after each resume.
 
-Yes I need to figure out how to handle that, I hope I can use the same
-card driver for both use-cases...
+The debugfs_create_str() warnings I reported on rc1 are gone: no
+WARNING at boot, and the SoundWire firmware_file entries are created.
 
-Neil
+Tested-by: Sergey Lebedev <lsa.uz@pm.me> # Surface Pro 11, btintel_pcie s2i=
+dle
+
