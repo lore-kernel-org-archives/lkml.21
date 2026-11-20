@@ -1,52 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172995;
-	b=GaltkeaBr6QFMTK/OJ5kX5FXABvmSkvAQDeeqBrgQIkN2yejJCxwNC8CloRB12w8F+SW
-	 JCDTDdkLoLAZrWxBWUhzPo+RmzNUzrdnqTMajip/1jMEpxkKvVB+wmB4GC0/qHqZx1emY
-	 wa9SjjxPUkPfE+D+2WUwKSjA5sItL82DKwPg/0gUfwds1FYYSMRZEIPBaUrSv4SzqSE2i
-	 EbHxZo3X9BEqsT2seI9AJOdTo/lQH+So8aFGHfmVnTRunKwCZ+zWNUKrkbvQUTLVZfYMD
-	 y9IjS08Nvhi9DPU/HN8g1EdRBWTSr5isj3s7I5+/CMFtX5b/2JAdlc9bWT1+y54bphQ==
+	t=1795173054;
+	b=gpC5YpdlU3oERjGMlE/rtnl4dqo7iEStwGRGJs0RrfZssSRP+ErCzhAXpH4LfMieaUlR
+	 DP5puifLHY3CddpHgmuAFLSljfTRkS1bCgBmrZOzHuBrWlh/r0KnRSYoNK4iEiLeq/T4L
+	 puiTn8wfMA1IwyRPcC9yGd6USt1bXFud/i4Sq3cUHuOUbmFosZYUx/6l4/O10Q9lU2xay
+	 glYoYfxHHT1Q5xyQNZ1mkAgerCBQKAxYd4Wg+o61Um0a+X6LpN533i4mfyVCQ63/OjLw3
+	 bg4m2Ec2UkwFzNOtS4fmgqriHj4JUxhvpb8CRG4/DTiwIsMuq4x8I8WDW9a2lolBocw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172995;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=w9myFnwj5zB1QE7elWWV13KgJsaU9TxgOrmcx9HYe1I=;
-	b=5EDPYEF7WuGc6PoNUx7rY6siuSVxgHOEmn6wYGTCpzzf42Cio4Rh5/BoEHunpqEB3PpJ
-	 STPQtao/6PgUEfkPs23TCvYr5YERx3t3phFu91Urz9EihyW8Cv25voZd7D2ukENOfeuYP
-	 yc92y5QIzG/U2xmF2rbvwBNTISfjGc47/ZFi+2te1Ohnnryz3IUrfSO5D89gpXjRYyl+U
-	 gCJ/QX0rkUbRHgUVCS0+PmQpC7W2rPz8KVjA5Hg82LU5QE91hFUwZxEYPJHBNhq7WuuK8
-	 LlRACAU3ppQ2jRgArIrWoY+Wbdo2NAHNKfCKBA8SLofTZxkTj1hAfLg4XQpF91aGxiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173054;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=2bj2WTnjPiLjsE3k43qjyadZlVuZzndDK7/3eTPwHqQ=;
+	b=aAihYe/vJ4lApYROn/f9u0naFnDAakSz7fNtkmpOHXI3xBvJiVGO1y41baKZFcZTGP78
+	 QU5hwUukIPzxorOpVtCP/9FN+4OsK3oB2Fvtvt6g32kXO1FzhW5XHzXoqLEjlT3zc6C1T
+	 042NPqKpR5dCCbrCK8rryJlyQmFNJ/nn8+CGXEW+bdChDcqzzV4rtGFF0vzNoiiOuf4kS
+	 KFt8iQgal0WYdEfJmfN3ppU1USnVCSPCr9Duv4HCBrJt1gwPrnXaqeClNiDHpysZHoJSD
+	 MSGeeTUVJltbGweHr/nnagsy89D57ctZ5vGlImXsOdazqfHbTQXYuO3jm/tlqAKAbvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=K0DICIEk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z4gIouMy;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D20E1606A325;
-	Fri, 20 Nov 2026 11:09:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91A9E606A336;
+	Fri, 20 Nov 2026 11:10:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=K0DICIEk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875FA1F000D3;
-	Fri, 20 Nov 2026 11:09:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795172995;
-	bh=w9myFnwj5zB1QE7elWWV13KgJsaU9TxgOrmcx9HYe1I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K0DICIEk4a8jSFRZWbz47M8Blj4HRTjqjY1my6J5SSUCLsVWuJJZuBr7wHBt70U3t
-	 lkAuXx/Xpsx1vw20mg/B3RUFWRhK2FZfcGyn0Iiwmbd3ypLBJOr0MFqVKcZDBLVUKI
-	 o7+3CQF/XX3dOZ4YPL9vxL/qNSHRApZAWZfRGA70=
-Date: Fri, 20 Nov 2026 12:09:52 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-Cc: linux-usb@vger.kernel.org, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	target-devel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v4] usb: gadget: f_tcm: reject a short write data-out
- transfer
-Message-ID: <2026112028-starless-aching-bdfd@gregkh>
-References: <20261013043951.2534225-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z4gIouMy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 434E11F000D8;
+	Fri, 20 Nov 2026 11:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795173054;
+	bh=2bj2WTnjPiLjsE3k43qjyadZlVuZzndDK7/3eTPwHqQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Z4gIouMy2gpXBaY3WJ92xqOrONrBgfanHc39m1N5Hu9RlQQcAyvzr41n0hCNe+1z7
+	 m9cpuNaO0X4sTrpy1GWC+mYR05yX3WG8ac//p95Bz1Kz7glAHpg3rJ5k+nJgy5N/4l
+	 C5FDahJrW/v4Z4zKunw95Z9W3W73+9m7YxBITsLCmWJ8tz92cu2Ti0keTDiuF4n4bL
+	 brIgEo77x3MD++ZDTy5bWXBAb6JOuCY4JObzTt5Z5HZloAi/fDjQU37f3GOjGpUskZ
+	 iwWqPQoyMMDRPvzjXzSpzirRx/CjpQUV6HZGzHBT38rZNa7YHWjXC93Bu9T9zNkvdc
+	 PXWpWEXjV2SQg==
+Subject: Re: [PATCH net v4 2/2] selftests: netfilter: cover IPv6 FIB prefix
+ suppression
+From: netdev-bot+sashiko@kernel.org
+To: leonard@lausen.nl
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 11:10:52 +0000
+Message-ID: <179517305282.3136.16580929973360319234@kernel.org>
+In-Reply-To: <20261117110813.9894-4-leonard@lausen.nl>
+References: <20261117110813.9894-4-leonard@lausen.nl>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,79 +66,85 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261013043951.2534225-1-yhlee@isslab.korea.ac.kr>
 
-On Tue, Oct 13, 2026 at 01:39:51PM +0900, Yehyeong Lee wrote:
-> usbg_data_write_cmpl() copies se_cmd->data_length bytes out of the bounce
-> buffer into the command's scatter-gather list without checking how much the
-> host actually sent.  A BOT host can declare a larger OUT transfer than it
-> delivers and end the data stage with a short packet: req->actual is then
-> shorter than req->length, but the completion handler still commits the full
-> declared length.  The tail past req->actual is whatever was already in the
-> kmalloc'd bounce buffer, which is not zeroed, so uninitialised kernel heap
-> is written to the backing store and can be read back by the host.
-> 
-> Fail the command when req->actual does not match req->length instead of
-> committing the stale tail.  The short packet means the host has already
-> ended the OUT stage, so mark the command and report the residue in the CSW
-> without re-arming ep_out to drain data that will never arrive, the way
-> f_mass_storage treats a short_packet_received.
-> 
-> A short 8192/4096 WRITE then commits nothing to the backing store instead
-> of 4096 bytes of stale heap, and the CSW reports a residue of 8192 with no
-> OUT drain queued.
-> 
-> Fixes: c52661d60f63 ("usb-gadget: Initial merge of target module for UASP + BOT")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-> ---
-> v4:
-> - Keep cmd->data_len so the CSW still reports the untransferred length as
->   the residue.  v2/v3 cleared it, which reported a residue of 0 and told
->   the host the whole transfer had been accepted.  Skip the ep_out drain
->   with a command flag instead, matching f_mass_storage.
->   v3: https://lore.kernel.org/linux-usb/20261013015416.2503787-1-yhlee@isslab.korea.ac.kr/
->   v2: https://lore.kernel.org/linux-usb/20261013005854.2470384-1-yhlee@isslab.korea.ac.kr/
->   v1: https://lore.kernel.org/linux-usb/20261012154422.2436134-1-yhlee@isslab.korea.ac.kr/
-> 
->  drivers/usb/gadget/function/f_tcm.c | 14 +++++++++++---
->  drivers/usb/gadget/function/tcm.h   |  1 +
->  2 files changed, 12 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
-> index 9e6d4f39900a2..d686fbcf36f72 100644
-> --- a/drivers/usb/gadget/function/f_tcm.c
-> +++ b/drivers/usb/gadget/function/f_tcm.c
-> @@ -120,7 +120,8 @@ static void bot_send_bad_status(struct usbg_cmd *cmd)
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
+
+Low priority / nit picks for your consideration:
+
+- [Low] The new in-tree comment before the IPv6 prefix-suppression block
+  in tools/testing/selftests/net/netfilter/nft_fib.sh says "The router's…
+
+--
+
+selftests: netfilter: cover IPv6 FIB prefix suppression
+
+This adds IPv6 checks to nft_fib.sh for suppress_prefixlength 0. They
+verify that a default route is suppressed while a more-specific route is
+retained, and that blackhole, unreachable and prohibit routes (including
+a blackhole nexthop object) stay terminal. The checks run after the
+existing default-table tests.
+
+The commit message says:
+
+> The router's logging RPF rules have already been removed by then,
+> allowing neighbour discovery during intentionally different reverse-route
+> states.
+
+The same statement appears as a comment in the patch, covered inline
+below.
+
+> diff --git a/tools/testing/selftests/net/netfilter/nft_fib.sh b/tools/testing/selftests/net/netfilter/nft_fib.sh
+> index 04544905c2164..25e13197f0578 100755
+> --- a/tools/testing/selftests/net/netfilter/nft_fib.sh
+> +++ b/tools/testing/selftests/net/netfilter/nft_fib.sh
+
+[ ... ]
+
+> @@ -845,6 +889,52 @@ test_fib_type "default table"
+>  ip netns exec "$nsrouter" nft delete table ip filter
+>  ip netns exec "$nsrouter" nft delete table ip6 filter
 >  
->  	csw->Residue = cpu_to_le32(cmd->data_len);
->  
-> -	if (cmd->data_len) {
-> +	/* a short data-out already ended the phase; draining it would hang */
-> +	if (cmd->data_len && !(cmd->flags & USBG_CMD_OUT_SHORT)) {
->  		if (cmd->is_read) {
->  			ep = fu->ep_in;
->  			req = fu->bot_req_in;
-> @@ -1090,8 +1091,15 @@ static void usbg_data_write_cmpl(struct usb_ep *ep, struct usb_request *req)
->  		return;
->  	}
->  
-> -	if (req->status) {
-> -		pr_err("%s() state %d transfer failed\n", __func__, cmd->state);
-> +	/* a short data-out left the buffer unwritten; don't commit stale data */
-> +	if (req->status || req->actual != req->length) {
-> +		struct usb_gadget *gadget = fuas_to_gadget(cmd->fu);
-> +
-> +		if (!req->status)
-> +			cmd->flags |= USBG_CMD_OUT_SHORT;
-> +
-> +		dev_err_ratelimited(&gadget->dev, "%s() state %d transfer failed\n",
-> +				    __func__, cmd->state);
+> +# Keep the earlier IPv6 checks on the path without custom rules.
+> +# The router's logging RPF rules have already been removed here.
 
-Why is this needed?  And __func__ is never needed for dev_() calls.
+[Severity: Low]
+Is this comment accurate? Earlier, the script calls
+load_pbr_ruleset "$nsrouter", and that installs a logging RPF check in
+table inet filter:
 
-thanks,
+load_pbr_ruleset() {
+    ...
+table inet filter {
+	chain forward {
+		type filter hook forward priority raw;
+		fib saddr . iif oif gt 0 accept
+		log drop
+	}
+}
+    ...
+}
 
-greg k-h
+Between that load and this block, the only deletions are
+"nft delete table ip filter" and "nft delete table ip6 filter", after
+each test_fib_type call. Table inet filter is not flushed until the
+"flush ruleset" in load_ruleset_vrf().
+
+The prerouting nft_rpfilter logging rules from load_ruleset() are gone
+at this point, since the earlier "nft flush ruleset" removed them. The
+forward-hook "log drop" chain is still loaded, though.
+
+The new probes (ping to dead:1::1) and neighbour discovery are delivered
+locally and never reach the forward hook, so the checks still pass.
+Could the comment, and the matching sentence in the commit message, say
+that it is the prerouting nft_rpfilter rules that have been removed,
+rather than all of the router's logging RPF rules?
+
+> +if ip -net "$nsrouter" -6 rule add pref 100 to dead:1::99 table 128 \
+> +	suppress_prefixlength 0; then
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117110813.9894-2-leonard%40lausen.nl
