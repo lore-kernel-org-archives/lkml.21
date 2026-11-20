@@ -1,63 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.15
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199419;
-	b=1rBjQDvCmgI1GbOInPbX2Yx5F9CT2BMYsaAOymUnAzgA0yhI8y67PPk1M2Pq0fp4xG0l
-	 yIAijDdHvvzuh16ujLtBTWGSxw07dLGL12z1q8zq30Un4iMeDKYp3orjtMQ2AfUNKRods
-	 hL3dpQHF3CT8a5Wesv+JYaeJhf2So3+k0xJGAQBKprI3ovlqBEKZV0ewchxOSrot64JFn
-	 0cPkhev1cMSKfLgm5iUojV2KWdCM7Uh3xQsCsqo3fSa9zTh9C6E92s/0LWFlJ8XX6KNNe
-	 ObZS0SilouaOtOz/xjoQs6Cra7JtFoGfy03WVdXvdMBE/xAZel/Q44EYYn4iBPcnX8w==
+	t=1795199508;
+	b=JVQ3j9njLcD6dEk7GgcTgBs3ojlBqmKFGEaVMGadejvjtA97XnGRj8bk+kStObcPseLQ
+	 2S1bNjxXhtSkQOeFM1hupZl9w0ADPmo5DmM1j0T4q1YLhu6LQusb1afuUg2P4ZmD01Zuy
+	 r0JPAcN5prydZOlbAJ8aQ7GzVL8p4FSfgjRP+Bn+/BQ8FxNdePTeAuyVCZNYi+uj0sRVH
+	 YpCgKB5BxTnGirI8c+r+8yT7Ip+/jgVVj8RgVlsNjpacpOnOW38zxZE2+GMlM3ZTj6j2r
+	 YUJZUS57nVrjY4xS68u3hNYAxw8OXXy0Ya0wT5xuzV03n7CGjN//DGCEVuvzFadHvSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199419;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Stat-Signature:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-Spam-Status:X-Session-Marker:X-Session-ID:
-	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=l2m5v/v7BbSAnIjBG2TF11IeAHyRTQCFhijqsfz1G5c=;
-	b=Xanez1mnh1IK3jmongl3QBXAvYW+LcqT3cj5QjfKEU2CxBfU/duYn75zpkpex4MGChvn
-	 af34MYiPF9LxPzgyFgWn1EkX8b+pZac7BHXcdDYYgo4SaQqkPmidQEm4B3W2fA2nPirvL
-	 M+jrrCc6CYPSuils1XPrF77TJyXCJpvRIGTot0/lUn1l00uk6p7FE+QQbrxnfszPs2UU3
-	 C4LG8DWs/LxnKhWiHD8lJwV1NMnbhheRFrOZy4jbydjj7WNk4LmwskvyqcjjfX1EMZYWT
-	 U0Yi3aDtUk/mqFA1J6CYcqwTJL3nFoYhfELSxU6ITDmMshfISykcd7KXfPi3gloS3Tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199508;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=qYJcWfTYpnC74yUaIMEVR0tCkz3lShOSI0xSlCRIQVg=;
+	b=nmzYwlPDe0Sm0YwzfLM2i9eFJ53SyW7a7eYXJQxo9+dvLWNI5EVpnyRvdHo5XsUayi0Y
+	 Pd1JPB5eHvBTjmFqnu7IKA53afYhGhP2lSizaM8LSNjExsY1eZiJMpgPneHBpnYQAQY+f
+	 9N9ItEeFVKQwRRdGttbBQ1zgNaVxa8IBrxiUEDmjNaVo/Z94C2r4YTJzDwZD/k+HA62V8
+	 XMmvClkWc2jdvko6oUmjBd1poresrtP/wj6jRugVPfEMhOG62VCXJ0yHrqXCFO7c1vo7/
+	 Nu1Jdvg5yD5ZX248Cg+Ufpcy3KJXOCA7aEGwXu7EheKKarioaLMgYSus9Ax0htsOIoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=ZQarPiHT;
-	arc=none smtp.remote-ip=216.40.44.15
-Received: from relay.hostedemail.com (smtprelay0015.hostedemail.com [216.40.44.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CE6C606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:30:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CE6C606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=ZQarPiHT
-Received: from omf13.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay09.hostedemail.com (Postfix) with ESMTP id 69F3380160;
-	Fri, 20 Nov 2026 18:30:08 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf13.hostedemail.com (Postfix) with ESMTPA id DAABC2000E;
-	Fri, 20 Nov 2026 18:30:04 +0000 (UTC)
-Date: Fri, 20 Nov 2026 13:30:03 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: linux-kernel@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>, Amit Machhiwal
- <amachhiw@linux.ibm.com>, Baek Kyu Kim <pocj8ur4in@gmail.com>, Breno Leitao
- <leitao@debian.org>, Brian Norris <briannorris@chromium.org>, Chaosheng Qu
- <chaosheng.qu.linux@gmail.com>, Christian Aurich Zanettini Martins
- <christian.aurichzm@gmail.com>, David Carlier <devnexen@gmail.com>, Jaewon
- Jung <jaewon8868@gmail.com>, Kyle Zeng <kylebot@openai.com>, Pengfei Li
- <ljdlns1987@gmail.com>, Vincent Donnefort <vdonnefort@google.com>, Vineet
- Gupta <vineet.gupta@linux.dev>, Wenwu Hou <hwenwur@gmail.com>
-Subject: [PATCH 0/32] tracing: Fixes for v7.4
-Message-ID: <20261120132901.25da22b1@gandalf.local.home>
-In-Reply-To: <20261120173852.687189370@kernel.org>
-References: <20261120173852.687189370@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F4E9606A330;
+	Fri, 20 Nov 2026 18:31:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F4E9606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id E84EA68AFE; Fri, 20 Nov 2026 19:31:42 +0100 (CET)
+Date: Fri, 20 Nov 2026 19:31:42 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: Matheus Alves de Almeida <matheus.aalmeida@inf.ufrgs.br>
+Cc: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>,
+	linux-fsdevel@vger.kernel.org, brauner@kernel.org,
+	djwong@kernel.org, hch@lst.de, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 5/8] fat: drop ->write_begin() and ->write_end()
+ usage from fat_cont_expand()
+Message-ID: <20261120183142.GB2339@lst.de>
+References: <20261118020150.1023865-1-matheus.aalmeida@inf.ufrgs.br> <20261118020150.1023865-6-matheus.aalmeida@inf.ufrgs.br>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,349 +49,21 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: 6y1enu4n7umgb78k4wysagdw8ar8wy35
-X-Rspamd-Server: rspamout06
-X-Rspamd-Queue-Id: DAABC2000E
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX196o6rlnzZZLPVksYXB0MBw9kUDmqi3Hgk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=l2m5v/v7BbSAnIjBG2TF11IeAHyRTQCFhijqsfz1G5c=; b=ZQarPiHT0BuqPAexN4Y9pVUDbHtHYQ5t0CrpBWLCOqekNCBfl+kiX7mIw44nmjspcQdq+sdzl9fnhFlCtfdSVe/CyxNY6S4fUlFVquONsUKgcVBZ02c92UhiUC/g0z5WOVZg9t9Ouo1pocapR1xBnD/pdToB3IiSN77DErnfKs0=
-X-HE-Tag: 1795199404-245582
-X-HE-Meta: U2FsdGVkX19SCCGACPExa8zwExsaAqecWDzguJd4Bu4ZavZGZihYztZwtrmBFq56Bbn0WUyXPe0zcxLQwusmyGAdeS2YE9oFTrnSAiZ/iKcDVdCk2RR5pWcBK0LmcHBlvBtphvYjN0Tn/2bGikmWaLOMRfOgjTeC2XU5zoRGG84+21yoIF4oLaiF/2wNcoR0W7AFsdU+NvLGYAbO/o+lV5FXmoOjDcfalizaHiG6Hr59NWPTJL/HDrF8lO562iWYBTr1wInIVl4mB+Ya7xdPpjeOED9SsgnuiLpZEGFzO/EqH/5/hTFsZ2HAvnPqGIWVIB2YxieR7kwgY/1xsxt7qf+HO+T0gtm9dnBlg+umkT37fM2pJYFDSA==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118020150.1023865-6-matheus.aalmeida@inf.ufrgs.br>
+User-Agent: Mutt/1.5.17 (2007-11-01)
+
+On Tue, Nov 17, 2026 at 11:01:45PM -0300, Matheus Alves de Almeida wrote:
+> +	while (pos < new_size) {
+> +		index = pos >> PAGE_SHIFT;
+> +
+> +		folio = __filemap_get_folio(mapping, index, FGP_LOCK | FGP_CREAT,
+> +					    mapping_gfp_mask(mapping));
+
+This code would benefit a lot from moving the per-folio logic into
+a helper.  And given that all of the code until marking the folio dirty
+is entirely generic, can we have it in common code?  Did this get copied
+from somewhere else or are there other obvious users that can share the
+code?
 
-
-[
-  Hmm, looks like my script died on the cover letter (an email had an extra
-  comma in it :-p) Here's what it was supposed to be.
-]
-
-tracing fixes for v7.4:
-
-- Do not WARN when trace_rb_cpu_prepare() fails to allocate on CPU startup
-
-  The per CPU ring buffers are allocated when a new CPU comes online. If the
-  system is under memory pressure it shouldn't trigger a WARN_ON if the
-  buffer fails to allocate. Switch the WARN to a pr_warn() message.
-
-- Copy trace_marker to all instances even if one fails
-
-  Each instance can set a flag that it wants what is written into the
-  trace_marker file to be copied to its ring buffer. Currently, if one of
-  the instances has tracing disabled, the copy will fail. The loop that
-  copies to each ring buffer detects this failure and stops copying to the
-  rest of the instances. This is not what is expected as the copy should be
-  tried to all instances even if it fails on one.
-
-- Prevent perf from using filter logic to read kernel memory
-
-  Perf can use filtering on addresses supplied by user space system calls to
-  look at kernel address space and depending on the result of the filter
-  determine what was in that address. Prevent perf from this type of filter.
-
-- Fix filter logic on zero length dynamic strings
-
-  The string filter match expects the length passed to it to include the nul
-  terminating byte. Dynamic strings may be zero in length and have no nul
-  byte. Have the filter logic for this strings pass in an empty string ("")
-  instead.
-
-- Fix boot filtering on common fields of events
-
-  The common fields (like the CPU or PID of the event) are initialized after
-  boot filtering is processed. This prevents boot filters from using them.
-  Initialized the common fields before processing the boot filters.
-
-- Fix ref counting of synthetic events
-
-  When an instance is removed, it calls clear_event_triggers() on its
-  events. This function does not properly release the synthetic event ref
-  counters keeping them "busy" indefinitely. Fix the function to properly
-  release the reference of the synthetic events they contain.
-
-- Reject the size of zero for histograms
-
-  Make it an error if the user tries to create a histogram of size zero. Not
-  only does it not make sense, it is invalid to call to roundup_pow_of_two()
-  as it is undefined.
-
-- Fix tail matching of filtering fixed size strings
-
-  The filtering of the end of string (*end) does not work properly for fixed
-  sized string fields. This is because it matches the end of the fixed size
-  and not the string itself. That is, if a fixed string field of 16 bytes
-  has "abcd" and the match is to be "cd" the compare is done to the last
-  three bytes of the 16 (including '\0'), which will likely not be the "cd".
-
-- Fix the filter match of not-equal for out of range CPU masks.
-
-  When a compare of a cpumask is out of range, the test returns nr_cpus and
-  the match function will return zero (not matched) on that. But if the
-  filter has a negative value (!=) then it should be a match. Fix this by
-  returning "pred->op == OP_NE" which would return true if it should be a
-  negative match and false otherwise.
-
-- Fix out-of-bounds read in unfinished filter match
-
-  If the filter passed in is "ip ==" without a value after the conditional,
-  the parsing logic will increment one passed the nul byte and read the
-  memory after it, possibly reading out-of-bounds memory. Detect this case
-  and return an error immediately.
-
-- Fix false success when failing on filtering of system groups
-
-  A filter may be placed on a system group where the filter is then applied
-  to each event. This returns success if at least one event succeeds. But
-  the logic in the loop of all events reset the failure condition at the end
-  of each iteration meaning that it would always return success even if no
-  event was successful at applying it. The only way it would fail is if the
-  first event failed on a memory issue.
-
-- Free created option descriptors on instance creation failure
-
-  If an instance were to fail to be created after creating its options, it
-  would then leak them. Clean them up on failure.
-
-- Allocate shadow stacks inline when enabling function graph hooks
-
-  The current method of allocating the shadow stacks used by function graph
-  (and which is now the backend of kretprobes), allocates 32 stacks,
-  iterates over all tasks under an RCU lock and adds the stacks to the tasks
-  that do not have them yet. After it has depleted and assigned all 32
-  stacks, it would break out of the loop, allocate another 32 stacks and
-  repeat. Unfortunately, this meant that it would iterate all the tasks it
-  had already assigned stacks to before assigning new stacks. For machines
-  running 1000s of tasks, this would take an exponential time to complete.
-
-  This logic was created when the loop of all tasks required more locking
-  and allocating during the loop wasn't recommended. Instead, still allocate
-  the 32 stacks outside the RCU atomic but only use them if the allocation
-  of a stack with GFP_NOWAIT fails. This brings down the time to enable a
-  kretprobe from over 200 seconds down to 0.92 seconds on a machine with
-  400,000 tasks.
-
-- Do not start kthread in timerlat user space mode
-
-  Timerlat has a mode that you can assign a user space task to it. Normally
-  the code would not start a kernel thread in this case, but if a CPU comes
-  online, it does not check if its in user space mode and starts a kernel
-  thread regardless. This triggers a WARN_ON on clean up as timerlat is not
-  expecting to have a kernel thread running. Prevent kernel thread start up
-  when a CPU comes on line while timerlat is in user space mode.
-
-- Do not free user events when an event probe is attached to it
-
-  Event probes can attach to any other event. User events are events created
-  that can be controlled by user space. Event probes can attach to these
-  events, but they currently do not add a reference to them when they do.
-  This means that the user event can be destroyed leaving the event probe
-  attached to a stale event which can cause a use-after-free bug.
-
-  On destruction of the user event, return -EBUSY if there's a dynamic event
-  attached to it. Also make it persistent so that the event can be destroyed
-  once the last fd is closed for it.
-
-- Synchronize the clearing of the copy marker flag
-
-  The marker_copies link list contains all the instances that are to copy
-  the trace_marker writes. When the flag is cleared, and the instance is
-  removed from the list, wait an RCU synchronization, otherwise if the flag
-  is set again, it can cause the same write to be written twice as the
-  instance would be added to the end of the list and a current copy walk of
-  the list would hit the same instance again.
-
-- Use copy_from_user() and not __copy_from_user() when reading user addresses
-
-  When a system call event reads the user space address (like reading the
-  path string of an openat system call), it users __copy_from_user() which
-  assumes the address has been verified. Use the copy_from_user() function
-  instead to verify that the address is OK for user space to read. Note,
-  this has no security concern as this data read is only visible by the
-  tracing system which in turn is only visible by admins.
-
-- Fix shadow stack marking of the function graph infrastructure
-
-  An old implementation of the shadow stack set bit zero of the shadow stack
-  frame to denote tail function calls. This is no longer the case and the
-  setting of the bit can trigger a WARN_ON in some cases.
-
-- Do not do a reader-page swap when head is on tail
-
-  The remote ring buffer does not handle swapping the buffer when the head
-  is on the tail page. Prevent it from happening.
-
-- Fix race between reader and writer of remote ring buffer reader page
-
-  When there's data in the buffer, the reader first checks the meta page
-  counter and then reads the data on the page. But because the writer
-  updates the content of the pages before updating the meta data, the reader
-  receives NULL unexpectedly. Swap the checks around so that the reader
-  still returns the data if there is some before checking the meta data.
-
-  Also fix the data ordering of remote buffer page time accounting.
-
-- Fix wrong unit used in hwlat tracer accounting
-
-  The tr->max_latency stores nanoseconds (even though its updated from user
-  space in microseconds, but its converted over). The hwlat tracer assumes
-  that the tr->max_latency is in microseconds and updates it accordingly.
-  This causes the output to user space to be off by 1000. Do all
-  calculations in the hwlat in nanoseconds.
-
-- Properly match filter strings that start with numbers
-
-  The set_ftrace_fiter file can take numbers to set functions via an index
-  into the file instead of having to search all tens of thousands of files
-  for a match. This code is shared with the event filtering logic as well.
-  But this caused some of the event filters to get confused by strings
-  matching numbers and turning it into an index which did not apply to
-  events.
-
-  Have the function tracing handle indexes directly and remove that logic
-  from the event filtering so that the indexing only affects the
-  set_ftrace_filter file and nothing else.
-
-- Protect the ring_buffer ioctl from concurrent readers
-
-  The ring_buffer ioctl call that maps the ring buffer can race with
-  concurrent readers. Have it take the trace_access_lock().
-
-- Prevent user events from defining a system name
-
-  Currently, user events is the one dynamic event that does not allow the
-  API from defining its own system (all user events go into the
-  "user_events" system). But nothing prevents the user from trying to create
-  one. As systems are denoted with '/' to separate the system from the event
-  name, the API simply takes the entire string (the '/' and all) as the
-  event name and tries to create a file with it. This causes the tracefs
-  file system to be corrupted.
-
-  Have the system call fail with -EINVAL if '/' is used.
-
-- Do not use si_mem_available() in early boot for ring_buffer allocation
-
-  When allocating the ring buffer, the amount allocated is compared to the
-  amount of memory available so that it doesn't allocate too much and cause
-  a system failure. It uses si_mem_available() to get an approximate amount
-  of memory it can allocate. On systems with CONFIG_DEFERRED_STRUCT_PAGE_INIT
-  and on early boot up, the value returned by si_mem_available() is derived
-  by NR_FREE_PAGES and can under report the amount of free memory. This
-  makes it nearly impossible to allocate the ring buffer and do early boot
-  tracing on these systems.
-
-  For this case, use LONG_MAX as the maximum amount available. If it
-  allocates too much and crashes the system, that's on the sysadmin that
-  asked for too much memory for the ring buffer on the kernel command line.
-
-- Add notrace to event functions that use function hooks 
-
-  A few options in the event code hooks into the ftrace function hook
-  mechanism. These functions must be marked with notrace. When
-  CONFIG_FUNCTION_SELF_TRACING is enabled, event functions can be traced by
-  ftrace and because these functions are not marked as notrace when they are
-  traced, it causes an infinite loop and the system triple faults. Normally
-  this wasn't a problem because without the SELF_TRACING set, all files in
-  the tracing directory are marked as notrace.
-
-  Mark the individual functions that are used in the event code with ftrace
-  as notrace so that the rest of the code can still be traced by ftrace.
-
-- Ignore .function field modifier if the event is already a function event
-
-  Perf can hook to the ftrace function event which is special and is marked
-  as a "function" event where its fields can be filtered against function
-  names. If the perf uses adds a filter to the ftrace event and adds the
-  ".function" modifier (which converts the field to a function field to be
-  searched with function names), the double conversion confuses the logic as
-  the code for the ".function" does not work with function events (only
-  normal events with unsigned long fields). This can end up with a NULL
-  pointer dereference.
-
-  If the ".function" modifier is used on a function event, simply ignore it,
-  as the processing will work the same.
-
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/trace/linux-trace.git
-trace/fixes
-
-Head SHA1: 56ce4ed6316cae9536ea891d6686b92f1d930c00
-
-
-Amit Machhiwal (1):
-      ring-buffer: Do not check si_mem_available() before deferred init completes
-
-Baek Kyu, Kim (1):
-      tracing: Free tracer resources on instance creation failure
-
-Breno Leitao (1):
-      fgraph: Do not mark index 0 in every shadow stack frame
-
-Brian Norris (2):
-      tracing: Properly match strings that start with numbers
-      tracing: Add tests for globbing number-based strings
-
-Chaosheng Qu (1):
-      tracing/osnoise: Don't start a kthread in timerlat user-space mode
-
-Christian Aurich Zanettini Martins (1):
-      ring-buffer: Do not WARN when trace_rb_cpu_prepare() fails to allocate
-
-David Carlier (4):
-      tracing: Define common event fields before enabling boot events
-      tracing: Drop the synthetic event ref when clearing hist triggers
-      tracing/user_events: Don't free an event that a dynamic event still references
-      tracing: Ignore .function on the function trace event
-
-Jaewon Jung (2):
-      tracing: Keep copying markers when one instance is stopped
-      tracing: Avoid undefined shifts for zero histogram map size
-
-Kyle Zeng (3):
-      tracing: Restrict perf filters that read kernel strings
-      tracing/filters: Treat zero-length dynamic strings as empty
-      tracing: Validate user addresses in faultable buffer copies
-
-Masami Hiramatsu (Google) (4):
-      tracing/filters: Fix MATCH_END_ONLY regex matching for fixed-size strings
-      tracing/filters: Handle out-of-range CPU for OP_NE in cpumask comparison
-      tracing/filters: Check for missing operand after operator in parse_pred()
-      tracing/filters: Fix false success return in process_system_preds()
-
-Pengfei Li (1):
-      tracing: Wait for marker writers when copy_trace_marker is cleared
-
-Steven Rostedt (3):
-      fgraph: Read the task->ret_stack with a smp_load_acquire()
-      tracing: Do not allow user events to add a system name
-      tracing: Add notrace to event functions that hook to ftrace
-
-Vincent Donnefort (5):
-      ring-buffer: Skip remote reader page swap when on tail
-      ring-buffer: Check remote reader page commit before meta entries
-      ring-buffer: Order remote page commit with data and timestamp
-      ring-buffer: Increment pages_read on remote ring buffer page swap
-      tracing: Take trace_access_lock() in tracing_buffers_ioctl()
-
-Vineet Gupta (2):
-      fgraph: Allocate shadow stacks inline with GFP_NOWAIT
-      fgraph: Use scoped_guard() for the task list walk
-
-Wenwu Hou (1):
-      tracing/hwlat: Do the latency calculations in nanoseconds
-
-----
- kernel/trace/fgraph.c                   |  59 +++++-----
- kernel/trace/ftrace.c                   |   3 +-
- kernel/trace/ring_buffer.c              |  60 +++++++---
- kernel/trace/simple_ring_buffer.c       |  26 +++-
- kernel/trace/trace.c                    |  45 ++++---
- kernel/trace/trace.h                    |   3 +-
- kernel/trace/trace_events.c             |   8 +-
- kernel/trace/trace_events_filter.c      | 203 +++++++++++++++++++++++++++-----
- kernel/trace/trace_events_filter_test.h |  12 +-
- kernel/trace/trace_events_hist.c        |  25 ++--
- kernel/trace/trace_events_trigger.c     |   2 +
- kernel/trace/trace_events_user.c        |  12 ++
- kernel/trace/trace_hwlat.c              |  41 ++++---
- kernel/trace/trace_osnoise.c            |   8 ++
- 14 files changed, 375 insertions(+), 132 deletions(-)
