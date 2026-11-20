@@ -1,99 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795164223;
-	b=VvFNSWK9ojuqj0zBBGrEy6ePyjE8pfyJPVjn41FGG3aNrSIQkiQHg15baWXv/4Ej2oR8
-	 /Sp9PPUidzz9L3dZ15jZn3b9935IflRdGJ6FepwsaPNpOMluH/o9US5VNdXj7zf7DK4CF
-	 b7mp7dUnlxyKby+OuX2S1S6RPHjACM4f6oYGySre0IkUIE0h9VvNgh2DonTqPyguHnXTl
-	 rNyO45UPQ425ioHKscpBbIDxwYM9sViojvn/glr1BFpDs+BLvZpAOoYcf/PRt2lt6xYEi
-	 4b7o7jAP68+ritBlHxJLO8GauiO4LxGmox7jhNM5qUg4Q74Lj2rJL34gcVqK6LcSQxg==
+	b=1P3WnBMypJejxUTxf9mfYIf908MDfFVZBF+NIZyJdsJ+bUdfs8KpHcw3JT2uGe/q8aum
+	 04Clj0ggSU/lPHRHfMeaz36CaaDuteu0f41jR9lUe0uCJJfNyjSfj3FC+To8/ZatsWEoj
+	 yQDxiPNaNK42Z1dwqOM2zh88RcJbPj0nZAqmIBkSixUO6o699MtHHoWnRCQ1fQVwaz0cF
+	 5vUuXl0QkvYz9Bs11hAlQ0tdlDAxLFFW6n4D3EHKakenJ9zVS7kj2rpqvgX+0ObZOmqGs
+	 NCPNBLtddq7yNszhIlKAozgVoxERNkUWSKd1csaVbZz1J2Gws6lgdnc0LUemB5noMAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795164223;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=an9c/AwHDCpMgy31fhAcNA3Rgkyae//mKDjGvqRP4jw=;
-	b=K6w4uIIwdw7djB7uU9T5g3dNy8wTdPYZstwEuNaLKQTx/x1R4SJBrJxb7ZYUrExetlAT
-	 WlSs6j8lm14KGbOaTQOEjz8GvbmAxlP+5zYdEGJsEM9GvgBE0/5N54X/sUx6U74rUgNUr
-	 BLNLj+l1EnbxYEoBn90+SWVuMb2BboE9GpAaJZxGtDOcyPlcuvw23FnyeJu73TlPTPra/
-	 XOuJNuTP41GlXjtZY9PoyS+r4rN4oCDnTzW8RRLrGhRZTzUYc8kabU4niKam9jgDvMmO+
-	 52mfxP8GUb0KBLhFnIg+4/ldrlgEXCsyMX4UALhBPrrcuGRWbyci/PnsLTUXLNn4wWA==
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=OTWzE3tPyYLNMb0ejf7cfGY68Ow193sxZEFuqZx+Eu0=;
+	b=1ph/5IAWpvr0NjZzTLOg/oObCUhLvFjLqw9bWDazWAVQcEJJv7okH+xGRb6ptm9QLyKJ
+	 2mXjN/gGiiaTdPx64G2I6T/uN1r9yZM1K5j+xCF23pehHuKfpjgAlRBK7uoBJ+2zmtfPH
+	 PiW8wm+XXY2mn+Mh4nT92HFTXyjOg4Bh2Ec3zmfynRQekCDIS4E1UBneqrNjjK8flPBTl
+	 EsTIjyn4PoDrtoaunJnqnID/Uw9i/164/QJjQSM6yPdGF9JMAEGghpzFTTnMtSxFC1LWV
+	 Gbl6/SpANkC/CX59hvL/fthI1yNr8Wi5ZlLkztVWfTWvYF83Nj4brC7O5LracdCKDwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MJr9NmRc;
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D2hT3iUK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD508606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:43:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD508606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F121C606A335;
+	Fri, 20 Nov 2026 08:43:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MJr9NmRc
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8a0880a46e7so387020b3a.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:43:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164222; x=1795769022; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=an9c/AwHDCpMgy31fhAcNA3Rgkyae//mKDjGvqRP4jw=;
-        b=MJr9NmRcBq9CNM82yR1kqIG9ac5QZPSSDghjUod3oyQsEpX6fnUUnwPByqiXhrKhFE
-         xtWEqJo+Apvs5Ywa2gCp9vtyszK7nxJHleaxw+D5hA0T7UvbmzWC52exvqu6DYVaTG5M
-         jslEUCXj/UttQbtulnB6VM7+KEa1ywlV68USklHzDLrrBxPRdtJtb6sbSADnSa476/VU
-         qHdzpDQX0KdibBJjr+Ijx668XWMGOmxKikg6+G5DoAhLmciHI1KQuAeXnsTl2gQAQ0DJ
-         FxcKNo5PhX5170z5l0tO05vgmtRmO3olL/Oc4sBW+A2t2D/Y/HThP2RNgeNhpgjRkpr1
-         jxtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164222; x=1795769022;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=an9c/AwHDCpMgy31fhAcNA3Rgkyae//mKDjGvqRP4jw=;
-        b=dDLQrXlEg38O9VK8vNWCAidQ/3Kcxq1ExxUMOpH/yOdIKqCKalz9X2GQq4SrrbcgXg
-         8Nrd3yT79UyMA4EPKkPBpQRq17fKWKtB3l7Nl7iCoHejJmm+cptM3AWYRjrX29KH0LK9
-         xXSCsvoMt0TjMT/1GWsz4g/t6caDezpa9j2u+NNxPFSZvQf06Yj+lk32GPZ04s+vN0ZN
-         0yvny18zUKYvtWN/iLXB0athdTw+5JbHKkbD5wa4fCQCDoi/5CqJGieDg0jLn+OJ4Xcw
-         m0alJQ2AhupXh1qxi4LhYMztWvanE3GTJ+zDi4shoyVvAFqyAAEdOvmcYNbAs7j/qjti
-         EWhA==
-X-Forwarded-Encrypted: i=1; AL+hErG3knM2TjRuufqJrpEPdEZbsh9mnYIBOMyolZHicVlFlRh4+ZtHZ/thLxXd7yOzWxukrnHE8hUOGK2EHj0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8DGSTdpryhsdwAI0sV4HaK3brSrq+tcK1YHxHRpjn3rNDTFXl9
-	iLtkqT3cLatn4J2d1ghS5ezolEBO+Vm1IpzVMXCKNJGUzOHBQhCsQw85
-X-Gm-Gg: AYBFou0KEzZzUMmLTokchD9yBpxm0KD1+7IIW3S4dlEsjK8VuXUA/EtjJkw9LtNF71Z
-	h1OZVBRBeBEn3tlUuORNtZdKpN7rusZsmRae7+he+C/c+ipm2K5NuQbwVSKrmZKFtWtI0m3ON7s
-	HK8uLrsv165Zj9hDmYWdgO2yeoe+SqKft1zCFQK3DIWH0FL6CbJMLJvEv9CgWF5jmNT2MRuWLIE
-	nPbhTPoqPO6fIRYyOetMCCyukSCMsmKjUCqsCd73NkSF0I/jKlCMrvg053G4bq1CF9FXt3QtP8D
-	s7m3ulqmQTDN5lNmNSEEj88Fyyrk5wMyEhQueL24xAqiaB1if2bBAydJzUDtFIzTreWM89bsDLc
-	H3IMcZTam84LR1bO3slqvOJIHWwMZMnXXucNRLXdqtbWcBxFwjS6xi+0RJg1EFMx33beVd/vi7j
-	KMW/Fq0fvsnwf2uu5JyrdtGokey0gHxod16+HzrspN/dXoEqaABJ+rmsDX/VViJ5yWAYWeb5K9E
-	66AT/lo5DRf3a0/ekoXOxasDSWtQ8HYaalGnKF2fAHxZyjb7ZgcbuE1Lsp+6nr0vqyPa099j5k/
-	J3zXv/GhEtgM7cnJjNjk0vFAQNZ+F+Wb1lIAivszSFMl1CoXrQiZKWcVWO4=
-X-Received: by 2002:a05:6a00:2eaa:b0:8b5:fbd0:cb49 with SMTP id d2e1a72fcca58-8c7dd9d6a22mr2795672b3a.21.1795164221763;
-        Fri, 20 Nov 2026 00:43:41 -0800 (PST)
-Received: from localhost ([2.27.148.107])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f83dsm1163978b3a.39.2026.11.20.00.43.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:43:41 -0800 (PST)
-From: Han Gao <rabenda.cn@gmail.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	gaohan@iscas.ac.cn,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Michal Simek <michal.simek@amd.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Drop the ARM architecture dependency
-Date: Fri, 20 Nov 2026 16:43:31 +0800
-Message-ID: <20261120084335.3492524-1-rabenda.cn@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
-References: 
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D2hT3iUK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54D1A1F000C6;
+	Fri, 20 Nov 2026 08:43:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795164222;
+	bh=OTWzE3tPyYLNMb0ejf7cfGY68Ow193sxZEFuqZx+Eu0=;
+	h=Date:Subject:To:References:From:In-Reply-To;
+	b=D2hT3iUKUhsmZgksXY+ApF6KbfHbJpcstAdQ/zKMHLgSraLKRqW7wanQOO0976RGX
+	 7i9NvcaxN8ksQG+k4A4ws+OB/cYxec0N3iUNWiWmWnMFQL+MVJ/8eFzBjFGK1yqavM
+	 8r/hvFO7Lxg3v3wA618WSuS9wHgiH2MT3+wxbW4SH4CpN4zMUPiUcoCsW6DiXdAt3j
+	 EOHKenKlAWiz+wID5LDK62Y4J25A5fCimz5sn1vmuh62uJBhBRHgmAG+PCfOJvRyM/
+	 kl7PuGUdFP3bqRPOPdeL73x3+DPsxshEoe5jMaoDNYzUEpbokJncSe3uk5Ai5JTVzt
+	 2eBV4frcYgZIQ==
+Message-ID: <fdb2526b-2fbf-46f7-b7ad-c4ec0385464e@kernel.org>
+Date: Fri, 20 Nov 2026 09:43:39 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,75 +51,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] btrfs: add a per-subsystem agent file
+To: Qu Wenruo <wqu@suse.com>, linux-btrfs@vger.kernel.org,
+ workflows@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <df1c1fa031ba7e66486348dc37d1a7be53c18e43.1794894953.git.wqu@suse.com>
+ <63566373-86cc-4a55-8e09-741f283e6786@kernel.org>
+ <eb62aa0a-b027-4fc7-8d84-05fc5329576c@suse.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <eb62aa0a-b027-4fc7-8d84-05fc5329576c@suse.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 09:26:47 +0100 Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+On 19/11/2026 22:15, Qu Wenruo wrote:
+> 
+> 
+> 在 2026/11/19 20:44, Krzysztof Kozlowski 写道:
+>> On 17/11/2026 06:58, Qu Wenruo wrote:
+>>> I believe btrfs is not the most affected sub-system, but a lot of
+>>> newbies without common senses are doing more harm than help.
+>>> E.g. wasting a lot of human review time on very low value fixes, filled
+>>> with long paragraphs and useless test steps/results.
+>>>
+>>> So it would be better to let those agents to stop being stupid and
+>>> follow the more common practices here, and hopefully those newbies can
+>>> build some common sense.
+>>>
+>>> I hope the agent file is clear and short enough, that is not only
+>>> readable for LLMs, but also for humans who want to be long term
+>>> contributers.
+>>
+>> Then it should be a maintainer profile. We should write docs for humans,
+>> which can be used by agents. Not the other way around.
+> 
+> In that case, what's the proper file that can also be applied to LLM?
+> 
 
-> Hi Han,
-> 
-> On Fri, 6 Nov 2026 at 20:40, Han Gao via B4 Relay
-> <devnull+gaohan.iscas.ac.cn@kernel.org> wrote:
-> > From: Han Gao <gaohan@iscas.ac.cn>
-> >
-> > The SCMI core and the mailbox and shared memory transports only use
-> > generic kernel interfaces. Transports that need architecture support,
-> > such as SMC, already carry their own dependencies.
-> >
-> > Drop the ARM and ARM64 dependency so that other architectures can use
-> > SCMI. Depend on HAS_IOMEM instead, for devm_ioremap().
-> >
-> > Suggested-by: Michal Simek <michal.simek@amd.com>
-> > Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
-> 
-> Thanks for your patch, which is now commit fe87ede443a15969 ("firmware:
-> arm: scmi: Drop the ARM architecture dependency") in scmi/for-linux-next.
-> 
-> > ---
-> > This was patch 1 of the Zhihe A210 SoC series [1]. As Michal asked, it
-> > now goes on its own through the SCMI tree.
-> >
-> > Since [1], it depends on HAS_IOMEM: Sashiko found that UML, which has
-> > no HAS_IOMEM, failed to link devm_ioremap().
-> >
-> > Build tested on x86_64 without OF, i386, loongarch64, ppc64le, riscv64
-> > and arm64. On UML, SCMI can no longer be selected.
-> >
-> > [1] https://patch.msgid.link/20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn
-> 
-> > --- a/drivers/firmware/arm_scmi/Kconfig
-> > +++ b/drivers/firmware/arm_scmi/Kconfig
-> > @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
-> >
-> >  config ARM_SCMI_PROTOCOL
-> >         tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
-> > -       depends on ARM || ARM64 || COMPILE_TEST
-> > +       depends on HAS_IOMEM || COMPILE_TEST
-> 
-> Please extend the dependencies to RISCV (from the link above, I assume
-> you are targeting riscv?) instead.  There is no point in showing this
-> option on architectures that have no users of SCMI; one already has
-> too many relevant symbols to configure.
-> People who want to build test on x86_64 without OF, i386, loongarch64,
-> ppc64le, ... can just enable COMPILE_TEST.
+I just wrote... why would the LLM skip the most important document for
+given subsystem - the maintainer profile? It wouldn't...
 
-Following Michal's suggestion[1], I'm dropping ARM/ARM64.
-
-[1] https://lore.kernel.org/all/3d38c4a5-1a12-4af1-ac2e-413a457ce4c5@amd.com/
-
-> 
-> >         help
-> >           ARM System Control and Management Interface (SCMI) protocol is a
-> >           set of operating system-independent software interfaces that are
-> 
-> Gr{oetje,eeting}s,
-> 
->                         Geert
-> 
-> -- 
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
-
-Sent using hkml (https://github.com/sjp38/hackermail)
+Best regards,
+Krzysztof
