@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795171242;
-	b=S9qZ/U2J6zCuc5wW198Z5ZkqgyBnbBvn1ZJZVwo3im2GY6v5BmmtoivyzkNDW0ZP5SYX
-	 QtqFWezVDpFDA4zqGnA19PbXG/xaM8ElaYLG+fMm6HU3E7B1A/1RplZbJHGIBOB/0hw3J
-	 3HgH+8luuRv5ywHPwTUZL/B9fHRwGWcLxuf2SkGxKF8Wn+Gx8MWtYJcL+X5PHD6aiHxC0
-	 nGmJM8kzeda8b1feyaQwtrEpm3YHd7d5pRefknonEeb+NabggXbVB1vMyvFMhBdoFDXfi
-	 KCDCMTxML6ZqaSYXgkWBB337vIf0NfhQJVy7y0euQ8IhjxflcKEUULM2fcVyg0fqSyA==
+	t=1795171244;
+	b=PyLDd5DnMIsR9CMK1XPjYn2/ke2S9wBDI3BsCxKc+6tfo2HKo7/AqDyPJNf7tY/vdubq
+	 pR4TKBtZ/9hLrKuDSN2UXlsK/SBt/5kVnr4USXk6Woh4+A5W7NV24atp4ghSiBINo/hv5
+	 Ok9/fOy9XmWLVuX+KVZo48RvtIUrtkm1ldzrXGaGfpADXGHhaZnaTKJTj+3TPS0GMHfxl
+	 Vd/ascW2awWz1O/Zm/fTDnNant/OvedrQr61fF6txLo3eCxFQsAd5yM6Pphyc4eZ+GU2v
+	 XYgcfVJuxSWtm+cI3fAeoIB42JJp+dbux2wo9bvIpGCjmSJ5+ZEJT5D3XNOHETx96tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795171242;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171244;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=b/qJoLFhb7whNR1fmKsxBm/CKb6ds1LT3YrumeDpyEA=;
-	b=HIx1EOUgtB2ddCoH1YscJcKqWZ3lHVW9VEaDmuOSPJwJHf/GjhdmTCDNGFyyD2FnG0oE
-	 iK7nLrHuL6ikASSOqGKROHODhtpM3m8orYSPgOmRLZrPBVjGMzOq9CEi7Gi4r3IguBc6v
-	 YQ9fPleGtgyFXSbUENwiwImlZPXQ8kCX3ZnFi45oMmgX89Sk3uWlq1n8ygxCtQuEU7tuU
-	 I3QFJbO9MgYZU6ewbPPr8KoA+gZMILAPaZTwpPD84tcYXlJaE5n1/7ypQ4ZPzpuz9iIBD
-	 VVGaXTnUo4OQJFUYJvU5FhBSC5wLkwq+r9ExnJkmsXKOg9Yll0V0XTU7Jl603nzabgw==
+	bh=r3AE3zLxK428z7+9j+YfGisNu564r6/G6Af0bQmzPVk=;
+	b=DrK+0MUQLcOwaIk7ag92fDDN2qPcw/9SeEn9rCtNp/i66RAItlCC79yjdFkoZQU8+u99
+	 3T5shsPmi3sv7DbDU3aRbjxpR9hvHDLRTJsXarzxVEmD+zod8hlqVtjsWuC1bjSRVEJJd
+	 VMR0C004UqRnHftxza397q79LZsAdQM3u7kvuyqT+A0BmQ+dnE/2tvqc9GQF7xkS8XQ2O
+	 OerpGcBn1rh+6c+86DspEzFJyFLWhAECY81YI44y7AdthdSWFtRM8c2I5BXW8qqZV78Fu
+	 mLzEs0fGdF+aKJ2UyMwG7F4jJ5KCWjR3wx6O36+qkbV2s6CW7v2h89IDL+5dwOmbShg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKgUim0r;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DnroLXjE;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93F5F60A261B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:40:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93F5F60A261B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4044C60A260F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4044C60A260F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZKgUim0r
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso3993105e9.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:40:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DnroLXjE
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a210470b49so6025105e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:40:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795171241; x=1795776041; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795171242; x=1795776042; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=b/qJoLFhb7whNR1fmKsxBm/CKb6ds1LT3YrumeDpyEA=;
-        b=ZKgUim0rUZuHfYVFIJQdTBiAgXhJzoCrWHB93DvsBZdBGKDfBfGl3kpelBjiXan22S
-         CBrUIDAZc9B2LwKIhcuuyQHbnAeCquZ/xN/8hHRdtO94QpeOaWxAe4fiAzUuapfR8RRK
-         aFSyiUoW/FzDJkXf7LO05NkuhS2dlKA67Y+y6jhy3UauBn3vFshCukALpJnJa++fHj3Z
-         oE29efZczgW5k5ECINREzUo/Fkk1X9S0dcMVGz5VGsYzJ4Yfd9HkkFjxf9G6JkFy0bey
-         wRREtDymPWNlUNOCyKP/7p7chf7QCo7AgBFv6OpE8MmiFblDWFiQa2orWUqDbb8Qg3Uy
-         +ZVQ==
+        bh=r3AE3zLxK428z7+9j+YfGisNu564r6/G6Af0bQmzPVk=;
+        b=DnroLXjE1j6hQroEqAwd5rsIdm7hjkiA5mI1X6cusYxa5KyzrHybu74B3gx7nPjboz
+         EANaMn1pVh3wZv01Q9tnlE9VWRXvkRllZyNkjhv+GswT4DTzbA/kGnnw3to9WVXbYEK3
+         4bVkXjc0FKc0UH0dIeLY2h4sajhAr8rJzeNbPZodS9Ne7tnhyyHhsK8d4/0axS537DA7
+         TdLOi+r4YOH0pAxOV2XfbbaN0A7X/2gzhehwpZPn9jmZmJBBMhPRa5sZV9pl5y6s6CXl
+         JQf4XjwEq1AADqvmYtqCK4i65avHr6zjoX+FZxX0J8iCS7Ak0oFDtPWZ3e/t9Z6liUup
+         U+Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795171241; x=1795776041;
+        d=1e100.net; s=20260707; t=1795171242; x=1795776042;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=b/qJoLFhb7whNR1fmKsxBm/CKb6ds1LT3YrumeDpyEA=;
-        b=TTUKAK5jwpJpjXcDGajor0QWfYYLAhUxKOqZJSUYf1WAw/nYCx6xSQkOUsd/AbzfKa
-         aVAMozn2boWxqyHpS0tIMfLJQZ7VXkKfoDf/5G+L4JS2Bu97R6ucb5PnKkSJDhVKjc6a
-         Xb+Z+cuk4KX2vxHDJe2LuZUdgDXWOfZUa5y89WMC7PjkwGBU8O+ZrnxUYiCmn76l30bK
-         HQA63kgKpt2WXpTfdkljG/Ii5L/q69YbU7KR2bxHOR+Qk5YOEz569ubjQ8WV4n5wg78x
-         4nxDaEwYgPoNz0Uanlod+B8mqwCpYAcCPGe1Y+iC1zvZ/HCEhmCv+Ji8wjFEsBjQ5yln
-         Lsdg==
-X-Forwarded-Encrypted: i=1; AL+hErFjjKSj93qnX5vao46H5LI63G4Tr7g6LttJkdFgZ6s9c9p5pj3YoQRdoQivc2BgYwZvdzZixuZpeKQZql4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2wxo5cLYKaL6tTtTYAyaYQmz5jKYlGZg2CIN8xyRIJNCVg+ga
-	QFj6JqhW5bkrfVQcGMpbPrT5+2UzdWnT1BaICwWEiSR51jU0Edw1Dbgo
-X-Gm-Gg: AYBFou3hM0u9d9Vg7soFWyzCrjPxav6tv5L/od9xo/m4ArTO/GfHoAedToEzPyhxZZl
-	0m2dMkH7Ve9tq7UiUyoVRkYAtBK3K1uQuVMcZ02MpZfKrmhd/K1ARKA03UrXQGushleuC7AINtw
-	V9TUJKWwWdub+/RVlovzYFkh6pmASbR4hj5LRhbYRlA+x9cxCAP5rlSGXIXA18sxn9cKQCMJEXb
-	0Yro5peiS/oWilHCUz9ABDUHXxkOAy3LFaR3yMQ6OwZCpLWXaPwnYg1piau/6zhIw3a3PVHRRq4
-	ZogsaKA7+xXg88YCsxLphdIz4wCmIWDMyjKXghmKk+87jMQCWXDBcGNrAwgI+C/znejvuESqEQF
-	V07jQbR2TvhgtxzOVdviE9K7hvVLuQYSC3clfADF0+6piaIS4QVulmQtBQbyExREcv+oMimsE5S
-	IY5Let0w8O6HIwSvF5V+3IbsRR2kpqCipDPq4e/vmYeO785wS2cp/2wMKyZUNqSjdTCsH19/Mi9
-	1UW/ZKeuSLAjTKXEqMHqF1otzeannNt7moJ48R/zd5KfKCUzY5D+EUwmtYgpb7P1Bh6dLQeqVf7
-	3R+EzMHw6WNc9NSRHA9cD9nvtsGaUak0/d3X2ITeHtjXTiexM2uShpR6qhtiIqVGZP6z397+yn/
-	f3npMEfHNtS6b/QHlCH1sGRDrXONrOKHjDtS4Z61XY6SYbMy2jQI=
-X-Received: by 2002:a05:600c:5303:b0:4a2:1655:87db with SMTP id 5b1f17b1804b1-4bb88785d2fmr58497555e9.0.1795171240966;
-        Fri, 20 Nov 2026 02:40:40 -0800 (PST)
+        bh=r3AE3zLxK428z7+9j+YfGisNu564r6/G6Af0bQmzPVk=;
+        b=oZZ7gn58ACeMk2fXyndXiD3y0zjYTGhEpmSxFBA4Cp3LAmFi3I8xrcGNtHV7uwEhr+
+         5mYsg85GUGRq0Vt59S8hWNQRSz9ry/6/9pzyw5rL91H1ephwq4acLufOniboPCC0RKGg
+         zzrNmAfmcB0tLi/5syDHeBuKD0EDSugi4jo8vXww5U1ASi48W07IL8NylHPcxwZIVkzp
+         k1dX4IriOszvp1V+2OyRxO86RQOVBU+xHcPgj0TN4GVswh8LMhFz1kHJV8OKPJ8zGlTN
+         iC9qDKELwwDwuHGKvRwOlQ0NDXR3AqtGwljOO/hVdS/2yVwFcQJk61BGWAcLFdGdJ3qU
+         ShtQ==
+X-Forwarded-Encrypted: i=1; AL+hErH3p+/Ws19/0WEN7Pr9bh4E+WU6VSe+HJLUA9PQbeva1FOhZOv/LvjTbyCcB9hNSTDO1KBA1MCPREZQSec=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FL3h3Mi/49OkvowmFfydZ/vMz7A8WdRKsFGfpaWHnYaSQQSOJ
+	278Hd2f9dHIkOIGMnFroX1R0syiKt3y3qeT3wweh5sK3PhkQr+FIrxn/
+X-Gm-Gg: AYBFou1gnWqrhuCGOqegtu/w1x3HZjnpA1qwKYk2Ufc8lJbrUsVvwuxToEyNmy7m8Hq
+	PStlMiocFTW5C9HmK8U20ChrcwIWlQ0mWDJZjnkZaNT8keix/2AkzDIKsIFrnIV/X/B04ZRuVVV
+	VP3GuT6qeQcWav9/cxIEAd0+9djHxPow1S/pcrTWGHtPxIyj/2PGz5K5lRvBBAxunLG2/gKJarc
+	N1WyYe1ImwirPJolYNQ+Q747pD+yuZt6kv57dTpdxdPHiNQ4yo4rAT0WxrSOQkPXqG5Px9eiWMc
+	1RLAop1fcK16fRhiUXcnH7CKU3ZZkcIU4fYrYMxPHAw9H4A5bbeiT2TiaGFqGGba0hclcWPvsfn
+	bce9jrybFn+KUcq+jgs2jpv3RlUFHqN/mJKb5JEVjrdSlWISnS6vIR4aHvXRJflh5PkUonf6ueh
+	fR3R3Wf/MMwigpvf4CN+7A/yXpmOibGPbibvOP3ondtDJoe8027yFBXiSysm380v5yAMceMboCl
+	A2vviOkyCakpJo4RRMj9js55Osa4zkFHl4pk1PVj3J/i6PjJwVqYCvPKhr/e8v0Snz49jyGkl74
+	tR6dImn6OZDtHkqSJdlC+G/hqyLtzRV2yH0APiQZJ7BENBmJ6iH3SC1Pu8kLD8ZK6nCQeHJZRRf
+	cbY5218RUHMuTWPmcftNGPPmcvvwcSsbKibYahJYtRHtGeRtLOKw=
+X-Received: by 2002:a05:600c:a08b:b0:4a5:87b3:ddc1 with SMTP id 5b1f17b1804b1-4bb88922c52mr52970985e9.13.1795171242458;
+        Fri, 20 Nov 2026 02:40:42 -0800 (PST)
 Received: from localhost.localdomain (80-108-121-211.cable.dynamic.surfer.at. [80.108.121.211])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895eec06sm22297535e9.2.2026.11.20.02.40.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895eec06sm22297535e9.2.2026.11.20.02.40.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:40:40 -0800 (PST)
+        Fri, 20 Nov 2026 02:40:41 -0800 (PST)
 From: Christian Gmeiner <christian.gmeiner@gmail.com>
-Date: Fri, 20 Nov 2026 11:40:30 +0100
-Subject: [PATCH 4/7] drm/etnaviv: Don't change the clock of a suspended GPU
+Date: Fri, 20 Nov 2026 11:40:31 +0100
+Subject: [PATCH 5/7] drm/etnaviv: Change the GPU clock between jobs
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-etnaviv-gpu-freq-trace-v1-4-445fc6eacddf@igalia.com>
+Message-Id: <20261120-etnaviv-gpu-freq-trace-v1-5-445fc6eacddf@igalia.com>
 References: <20261120-etnaviv-gpu-freq-trace-v1-0-445fc6eacddf@igalia.com>
 In-Reply-To: <20261120-etnaviv-gpu-freq-trace-v1-0-445fc6eacddf@igalia.com>
 To: Lucas Stach <l.stach@pengutronix.de>, 
@@ -105,94 +105,152 @@ To: Lucas Stach <l.stach@pengutronix.de>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>
 Cc: kernel-dev@igalia.com, etnaviv@lists.freedesktop.org, 
  dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- Christian Gmeiner <cgmeiner@igalia.com>, stable@vger.kernel.org
+ Christian Gmeiner <cgmeiner@igalia.com>, stable+noautosel@kernel.org
 X-Mailer: b4 0.14.3
 
 From: Christian Gmeiner <cgmeiner@igalia.com>
 
-pm_runtime_suspended(..) only looks at the runtime PM status and takes
-no reference. It returns false while a suspend or resume is in flight,
-and nothing stops a suspend from starting right after the check. So the
-cooling device can write the clock while the GPU turns its clocks off.
+Thermal throttling changes the core clock while a job is running. This
+can hang the GPU. On a GC7000 rev 6009 I toggled the cooling state
+every 200 ms during glmark2 runs and got 25 hang recoveries in 24 runs.
+With this change I got none in 34 runs.
 
-Check gpu->state under gpu->lock instead. The state is RESET or higher
-only after the runtime resume or the init reset has programmed the
-clock. A GPU that is suspended or not reset yet only stores the new
-scale, and the next resume or the init reset applies it.
+Hold back new jobs in etnaviv_gpu_submit(..) and wait for the queued
+ones before changing the clock. A hang recovery counts the dropped
+jobs as completed, so it ends the wait too. If the GPU suspends while
+we wait, the resume applies the new scale.
 
-Take gpu->lock in every place that sets the state below RESET:
-etnaviv_gpu_rpm_suspend(..), etnaviv_gpu_unbind(..) and the failure
-path of etnaviv_gpu_init(..). etnaviv_gpu_init(..) also keeps
-the lock from its state change until the init reset is done. Otherwise
-a cooling request during the reset is not applied until the next
-resume.
+The wait gives up after one job timeout. Then the clock changes while
+a job is running, as it did before. The timeout is needed because a
+hang recovery stops the scheduler, which waits for the run_job work,
+and this work can be the job held back in etnaviv_gpu_submit(..).
+
+drm_sched_wqueue_stop(..) is no alternative. The hang recovery uses
+the same pause_submit flag and resubmits jobs without looking at it.
+
+A cooling request now blocks until the GPU is drained, up to one job
+timeout, and with it the thermal zone if a governor made the request.
+The held back submit blocks the scheduler workqueue, which also cleans
+up finished jobs. So the IRQ handler wakes the waiting clock change
+itself.
 
 Fixes: bcdfb5e56dc5 ("drm/etnaviv: add etnaviv cooling device")
-Cc: stable@vger.kernel.org # 6.6+
+Cc: <stable+noautosel@kernel.org> # needs store_release_wake_up(..)
 Signed-off-by: Christian Gmeiner <cgmeiner@igalia.com>
 ---
- drivers/gpu/drm/etnaviv/etnaviv_gpu.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/etnaviv/etnaviv_gpu.c | 51 ++++++++++++++++++++++++++++++++++-
+ drivers/gpu/drm/etnaviv/etnaviv_gpu.h |  1 +
+ 2 files changed, 51 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/etnaviv/etnaviv_gpu.c b/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
-index 0a28e21feb8b..c819f5fc4418 100644
+index c819f5fc4418..9b112d053abd 100644
 --- a/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
 +++ b/drivers/gpu/drm/etnaviv/etnaviv_gpu.c
-@@ -886,9 +886,12 @@ int etnaviv_gpu_init(struct etnaviv_gpu *gpu)
- 	    (gpu->identity.minor_features10 & chipMinorFeatures10_SECURITY_AHB))
- 		gpu->sec_mode = ETNA_SEC_KERNEL;
+@@ -1452,6 +1452,14 @@ struct dma_fence *etnaviv_gpu_submit(struct etnaviv_gem_submit *submit)
  
-+	/* the cooling device may change the clock from here on */
-+	mutex_lock(&gpu->lock);
- 	gpu->state = ETNA_GPU_STATE_IDENTIFIED;
--
- 	ret = etnaviv_hw_reset(gpu);
-+	mutex_unlock(&gpu->lock);
+ 	mutex_lock(&gpu->lock);
+ 
++	/* a clock change waits for the queued jobs, don't add new ones */
++	while (gpu->clock_change_pending) {
++		mutex_unlock(&gpu->lock);
++		wait_var_event(&gpu->clock_change_pending,
++			       !READ_ONCE(gpu->clock_change_pending));
++		mutex_lock(&gpu->lock);
++	}
 +
- 	if (ret) {
- 		dev_err(gpu->dev, "GPU reset failed\n");
- 		goto fail;
-@@ -952,7 +955,9 @@ int etnaviv_gpu_init(struct etnaviv_gpu *gpu)
+ 	gpu_fence = etnaviv_gpu_fence_alloc(gpu);
+ 	if (!gpu_fence) {
+ 		for (i = 0; i < nr_events; i++)
+@@ -1542,6 +1550,13 @@ void etnaviv_gpu_recover_hang(struct etnaviv_gem_submit *submit)
+ 		event_free(gpu, i);
+ 	spin_unlock(&gpu->event_spinlock);
  
- fail:
- 	/* the GPU is not used, a resume must not set it up */
-+	mutex_lock(&gpu->lock);
- 	gpu->state = ETNA_GPU_STATE_UNKNOWN;
-+	mutex_unlock(&gpu->lock);
- 	pm_runtime_mark_last_busy(gpu->dev);
- pm_put:
- 	pm_runtime_put_autosuspend(gpu->dev);
-@@ -1792,7 +1797,8 @@ etnaviv_gpu_cooling_set_cur_state(struct thermal_cooling_device *cdev,
++	/*
++	 * The dropped jobs never complete, count them as completed so a clock
++	 * change does not wait for them. Resubmitted jobs get new fences.
++	 */
++	WRITE_ONCE(gpu->completed_fence, gpu->next_fence);
++	wake_up_all(&gpu->fence_event);
++
+ 	etnaviv_gpu_hw_init(gpu);
+ 
+ 	mutex_unlock(&gpu->lock);
+@@ -1652,12 +1667,20 @@ static irqreturn_t irq_handler(int irq, void *data)
+ 			 * we can end up processing event 0 first, then 1.
+ 			 */
+ 			if (fence_after(fence->seqno, gpu->completed_fence))
+-				gpu->completed_fence = fence->seqno;
++				WRITE_ONCE(gpu->completed_fence, fence->seqno);
+ 			dma_fence_signal_timestamp(fence, now);
+ 
+ 			event_free(gpu, event);
+ 		}
+ 
++		/*
++		 * A clock change waits on fence_event for the queued jobs.
++		 * Job cleanup wakes it, but a submit held back for the clock
++		 * change blocks the ordered scheduler workqueue and with it
++		 * the cleanup. So wake it from here as well.
++		 */
++		wake_up_all(&gpu->fence_event);
++
+ 		ret = IRQ_HANDLED;
  	}
+ 
+@@ -1789,6 +1812,7 @@ etnaviv_gpu_cooling_set_cur_state(struct thermal_cooling_device *cdev,
+ 				  unsigned long state)
+ {
+ 	struct etnaviv_gpu *gpu = cdev->devdata;
++	u32 fence;
+ 
+ 	mutex_lock(&gpu->lock);
+ 	if (state == gpu->freq_scale) {
+@@ -1798,8 +1822,33 @@ etnaviv_gpu_cooling_set_cur_state(struct thermal_cooling_device *cdev,
  
  	gpu->freq_scale = state;
--	if (!pm_runtime_suspended(gpu->dev))
-+	/* a suspended or not yet reset GPU picks up freq_scale later */
-+	if (gpu->state >= ETNA_GPU_STATE_RESET)
+ 	/* a suspended or not yet reset GPU picks up freq_scale later */
++	if (gpu->state < ETNA_GPU_STATE_RESET) {
++		mutex_unlock(&gpu->lock);
++		return 0;
++	}
++
++	/*
++	 * Change the clock between jobs: hold back new jobs and wait for the
++	 * queued ones, as a job that runs across a clock change can hang the
++	 * GPU. The wait must be bounded: a hang recovery stops the scheduler,
++	 * which waits for the job held back in etnaviv_gpu_submit(), and that
++	 * job waits for the clock change. So give up after one job timeout and
++	 * change the clock anyway.
++	 */
++	WRITE_ONCE(gpu->clock_change_pending, true);
++	fence = gpu->next_fence;
++	mutex_unlock(&gpu->lock);
++
++	if (!wait_event_timeout(gpu->fence_event,
++				!fence_after(fence, READ_ONCE(gpu->completed_fence)),
++				gpu->sched.timeout))
++		dev_dbg(gpu->dev, "clock change while jobs are running\n");
++
++	mutex_lock(&gpu->lock);
++	/* the GPU may have suspended while waiting, the resume applies it */
+ 	if (gpu->state >= ETNA_GPU_STATE_RESET)
  		etnaviv_gpu_update_clock(gpu);
++	store_release_wake_up(&gpu->clock_change_pending, false);
  	mutex_unlock(&gpu->lock);
  
-@@ -1888,7 +1894,9 @@ static void etnaviv_gpu_unbind(struct device *dev, struct device *master,
- 	}
+ 	return 0;
+diff --git a/drivers/gpu/drm/etnaviv/etnaviv_gpu.h b/drivers/gpu/drm/etnaviv/etnaviv_gpu.h
+index e89d591d7404..dddeabce6eb4 100644
+--- a/drivers/gpu/drm/etnaviv/etnaviv_gpu.h
++++ b/drivers/gpu/drm/etnaviv/etnaviv_gpu.h
+@@ -136,6 +136,7 @@ struct etnaviv_gpu {
+ 	u32 next_fence;
+ 	u32 completed_fence;
+ 	wait_queue_head_t fence_event;
++	bool clock_change_pending;
+ 	u64 fence_context;
+ 	spinlock_t fence_spinlock;
  
- 	/* the GPU is not initialized any more, a resume must not set it up */
-+	mutex_lock(&gpu->lock);
- 	gpu->state = ETNA_GPU_STATE_UNKNOWN;
-+	mutex_unlock(&gpu->lock);
- 
- 	if (gpu->mmu_context)
- 		etnaviv_iommu_context_put(gpu->mmu_context);
-@@ -2031,8 +2039,10 @@ static int etnaviv_gpu_rpm_suspend(struct device *dev)
- 
- 	etnaviv_gpu_hw_suspend(gpu);
- 
-+	mutex_lock(&gpu->lock);
- 	if (gpu->state != ETNA_GPU_STATE_UNKNOWN)
- 		gpu->state = ETNA_GPU_STATE_IDENTIFIED;
-+	mutex_unlock(&gpu->lock);
- 
- 	return etnaviv_gpu_clk_disable(gpu);
- }
 
 -- 
 2.56.0
