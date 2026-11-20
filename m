@@ -1,88 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202495;
-	b=HhUux36OXo9X/U3g0qvtvkP0bVmPHCRL1qjRCzK/Yrv2ehNvuZeViuo/Z8tBJI1JT+9W
-	 3Mrr9bOt9vK86n+KQF8O5m8yRkJwwaKSEveWxi5mVj2WPlQcw19BS0wnpeXblPSStj+8m
-	 lDKDeysLslrdALUPG8Pmv++ci/Eclnh5obc2QR4JpjsntOmoMMffj6EcYY3qMK838TFiA
-	 Mgjo3gUQk4g9opZR0ks7VH/gJyWaedogGSXOic8U/ufZvdHD95sf7+FLPxEPAyRmTqUN1
-	 eHL/l87x9xZerd3IAthg9faGyfGWfUKW2bxInTdhqrHpP1SzX9IzRUlm4w6fEQpmqtQ==
+	t=1795202502;
+	b=rVR8McoiHSxVQ4PXwzbPoq7FdYxsqw0VCR04bh/nexASrriICDHdRr84wz+/CLPnQT1t
+	 sD4k92E7GhFypDmYklgmqA0IObqMRvNwMasQvVA2/mXV7MeagYl0yR+hVrrrAIeruHaJ4
+	 j7kTZAo/ykhd3MTgdLD4jCDXfqXEk6Y+UMw2a+Y01acAU2ueCg2Tk8ac+RvaCAmMsZA1E
+	 M0zWhwIMuWPDRPAMnbV79MKfQPetM1UKi2HxvfFw+eaRHMoz2tKwQ94WVyKJwGmbWiW6t
+	 yvYmMRZfMT5lAsFauhVQeQTayeaY5rMpEXPrwo79/fq50ZaQxeCJBl3L6RDWVhG5JsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202495;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202502;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=xesNbGJs7Ie8NeKfIsZ40AvzJTC0edKlZNHQZDSDZ0c=;
-	b=YU1LIqwl/ppD8BQW1QTQPGng46bUSi1/oXvFw+avcYTUqQlNNZUQgpMYJBocXCmTPqxD
-	 tzHWMcrek8+DqEMBLEO7IgTV9t3LBMQwPfnN8Uus3WtIYeeztzrDZxovx/qrCiFLVk7/g
-	 WRJWiE9pejeg8oHneFo4wZgUTFUftBohZIjtdt/rSRyCx+RG7WidEx83ORxbLgzOMBmk5
-	 bOGhGowLBJHAXcxZ5RF4yl2o8L1flBPCfwSBrZa2Siibx1KswNSB6JPjkEe99jQoESuZ6
-	 fhd/MdqSyMi80dXOLvR99/5QG2Af2lfz2u/sj51ThbKC5e4+HAbRxrz9KHM2KKAhdFw==
+	bh=qEVHtiKYBLIel8um/QH5PKwY2ZuAggHrE4chfoek6uE=;
+	b=1YIVQ/WBZCHwq3VQDcQNh6ceGBYxjHd/bk6NvfZq/Yodeko3um+ZHSZNYvyJ2OyLILFf
+	 +Vh0u5eF3W0l244lkA+wR9pr85Inj36HXkgIJXvrvecJ4K9NbLKZmgIZXgPPpz+F4meJg
+	 GeO3Lk7f8qmmqYkozTX58EIhyZAeSK8uPJGldysz9zPW9tjnCnleFXLgmW7itqQVA01nK
+	 YObzBQulFKNUo6XLznb8aoIAIFDcxmyU/we6whNoP6naRPayt/MKh9OTS13v0xkXhENza
+	 xKh9xSSceOw791tSF+omnYU6zVXnzSLg7munkZgW5SO2260SeQhYMrpoj3s5SBHPbTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sfpuq6I9;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hMrXUZAR;
+	arc=none smtp.remote-ip=209.85.128.50
+Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8935060A260E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:21:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8935060A260E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DA38606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:21:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DA38606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Sfpuq6I9
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a9be758734so830912f8f.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:21:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hMrXUZAR
+Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so8600745e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:21:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795202488; x=1795807288; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795202498; x=1795807298; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xesNbGJs7Ie8NeKfIsZ40AvzJTC0edKlZNHQZDSDZ0c=;
-        b=Sfpuq6I9WtE34joaFMGoElKollInkUzNfoJ6lgfLtSWvPCu0z5TkjqaCYQCPYqMGe9
-         1eq3RVDxsXA0SbA5kmK2iaVdRdetvcLBoUpWadfa0Ez4emf3QAEzckF6KO4BcrpRWTXU
-         0uXi0G8SClHUkHkuWN4DVhnnYApC8idhsoIyKh4d9yAJQfYwoKxdufDoUUoZhNlgpKcr
-         RAtB0ANqniGyfwsQ6x/kEegDOnvAvSh9wBKJYwIW7/r5wQoD9XrhoTUcpOM4FkKcFx+E
-         szWO4Y4iDf42TVA8tfksNQkL1teESoD+i7XSVOAnG0ovzeI2ZqBbhJwsWOSihYln343Y
-         0lUA==
+        bh=qEVHtiKYBLIel8um/QH5PKwY2ZuAggHrE4chfoek6uE=;
+        b=hMrXUZARRGU59FPPHgFv4/IGmhhGJOHVMMpSO1vlaR+Ih+NlsThC7FRn5On4gWfx79
+         WMyakxNhdUwTRSJ674ERC2DyAJpEY1TrEkGY0aXaT0eGDQy01Fl6gfcxrc1g2HOKMo0X
+         7IMEUW8DQPbZ8B46kS7OZsK1oH3yrf49uY6eoRemcWpK8CRyu6N80NKu6A7p7Clpf8UN
+         1dOOz9hXQkR7FkIpZOLY4BmeC5+ifv77XlvBtaM4xFPwwspKwLuYglrxGOexxhAtrtBL
+         trYL5OJngGbZGlSdpkrRoC6nOiOjGbI3IiCXYxPXv1flEDvLtUhJqw6a5lF1yzT9azA0
+         vFhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795202488; x=1795807288;
+        d=1e100.net; s=20260707; t=1795202498; x=1795807298;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xesNbGJs7Ie8NeKfIsZ40AvzJTC0edKlZNHQZDSDZ0c=;
-        b=Z6m81oXLP4Y4bry8qj4SOXP76skkcrkJzin8xflc8LtNE6zAD12HjUpGi9qApGcA1I
-         ZNrjcPB5XGip4wwi1WJJIqTENXTnZrVyz9b9RS8hdoYdO2lZBBDkAiidSeD4rm5J0wUC
-         WqT1rnbcPi0DU4BKNxmcSJrKklrNo/JTdBaL4M7oc4KRoxH+JeB8xZNtslXmjOzI9JH7
-         XguE4O8UKWVpPVyVrMuK+TeTQL2vYen86ELDby7kmfcJFnGNJtgcSSpz9kR5owfHPztV
-         etqMr+L7zQmEcwIw4W7DiT+5l+oFeoyzyfJAQrdCgWff0iILBO7BN26RIEWQ2BufEy8B
-         5c/g==
-X-Forwarded-Encrypted: i=1; AL+hErFmaPEf21tmpiW0RDK0aIce22oGxVHel/ljxftNyvWW5ZnUs58tAwyTZsigKYE1x10tCqgMlzu7l/tAst0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/4rIMPgH4n2BrwKa048yFGs7jG9vh/ZFmUQYp1U4nhBont4Ptb
-	JChel/ALiL52gCG/qE2OrhFKNSg9PnQp4iLxuNjOp41mzWuFeYqfv2D0
-X-Gm-Gg: AZFdTZf7EayWECS0eK4EEa+4nkWARTQuPPexDE9pGdiraB1q4m+ib8qBiUBDgYvlgnw
-	P0DbhjWTgMSwVtr1I0Yd7w9WrvWcr6RXSTsNHLOpjERf4yDrkaZVQCtmq5dPqQRZSjJgPoYfqix
-	HeCqmQx0sEjkCuRR4zUxOxO+4717oGghtlkWtVtt2Y2U+y1sQhIaaCmcz+/vYFQbGf3NOcPlA49
-	3e3bfK+vArctRo2nnFiYJtei/2Rqgcl2VRNffocXHFC8NBngvORNT6XekyXj88vshS7WWLcrGNN
-	Hp7HYVMO6/Lnh6GoCBbVW9/qakWCJ8XR8tzkI3dC2OxuxvnpbtQBUidtFmV2LVJ3cu1bX3VHotB
-	gDnIStqsekqZaEb4Y8Kc5rnyjNlMStxOCW65YFZD7DncdabU7T67Elwa85QNEUbpLWX1XrEBgb1
-	+CzphEPT87E8uMqx8i4vF8piMYso4P1Hs7UOlPZrL5JM03ZWSVKYsRHUI3nvv/TpcZE+EeuM9Jc
-	qoR7+u+8sAf6wgexTkvtXqqACRpsuGnHCoJIdHU30XHvTNLUcnEvEItfmCm/7s8VQpf4/eSOTt7
-	m4l6RRgq1bWj5+hW+6ALMVCwAUrSHYT3lGZw5RT6
-X-Received: by 2002:a05:6000:46cb:b0:4a7:f35a:5f97 with SMTP id ffacd0b85a97d-4abb4b85b7dmr6559867f8f.52.1795202487831;
-        Fri, 20 Nov 2026 11:21:27 -0800 (PST)
+        bh=qEVHtiKYBLIel8um/QH5PKwY2ZuAggHrE4chfoek6uE=;
+        b=YDD/BUqnruMQbaoupO3gdL2paOsq6xw/PO3lVZ/qK6W3g/+gmo2ceRSyZsqvdxH9Zq
+         CHjAi619aP0KeFeQS0ljwV6f0Zh0zQEh/ut4kFO5we9MhK3qEO443hLgiYkDOz1lOVus
+         D5Zl8xTsVK8ZgtOOoC3E8SFMNjn9GsaqwKngrQIU6T6yNKcSx9iImNCvJ+BJu2RYFut4
+         fXqlqWc0BQBeti1RuKcKoVHbVeKoZ9H7HrdWPyjn9VeDvWtzo6kSz+PQO8lFTE5SRaTK
+         jVuhShUWUFqe7X11R/dsL/Wj29EL52be2X6ZFqDgUQ2ijwgI703BiGMUUx8U5pQjJN6i
+         B6/Q==
+X-Forwarded-Encrypted: i=1; AL+hErE2IYmvNgl/qxBu/OHPWztC44U+T6Y7wkGBT4qb9BCfKsqY9JcA3wKobNlnUQnQ190BwKqmHRI0Sg3we1M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+W0VQ5dp+uXVbdAf6cdzVvIeMPiA27XRAP1m+tKJfWNyeIFxOf
+	hd9KWMvjpo0I6vv1tkXnhyEMf7kIH+GXldihhlxsjMABXFIr2yc1sSqj
+X-Gm-Gg: AYBFou0qzK2ZbVS9lcAqCih7CW78P4cOieSwyTUrW9cK9mOOcz/Z4QA0O2Him1tSuuq
+	PJNtUZOUXTzhgXUM1CDhlcWYwgRLTop5923w959lFWf2Z+88QyhxhCEtOKK0EuZDtUB7LnlywXp
+	UkrxKNavZnxYrb4mrDfkCMbqxLcexwa+ZJP9yIWOxIahPPXqW5GAGODKxbRPtgV0fUtWS6nFaPd
+	VesK9k+uSzmuduFcFsrg6uRJ9/ILp1hLmk4TEihcVxmd3fWJCZFV2v92fy01bpzVTZpwhlHXZu6
+	D0gNxXg5+DU2tDO4fss+lDwGE5jfVwasCWgjBzDrDqTGX1gWh/eEPiL/s8FNyE/RpOI0hUiH8xQ
+	R7xVq8S6IWd5EzO9WVBbFEkir/on7fzD+gM6l2jRR3d8BF/iVtlUWIfjtlRrdWVdeatOCvPTvUW
+	TttjIf74DPI92lr2EoOe9QNXkPXegtZZokpjDI6J0G1JEBoSXfkmcJdf5sa9yU25AaWbIWo5LD3
+	PVoUx/u28lUKERNkAXAwb5KrAKM5Bvb3B6Y0DUU+EqPxc1Wt/by7mcRwLTcFC5hoAnv9tjWg6kx
+	1Wxu25g2DXUfXQC0MDID+rkR6KiXH65JboB7ZGmn
+X-Received: by 2002:a05:600c:a085:b0:4bb:85d9:156e with SMTP id 5b1f17b1804b1-4bb8880fe46mr94748195e9.11.1795202497703;
+        Fri, 20 Nov 2026 11:21:37 -0800 (PST)
 Received: from [192.168.0.2] ([197.250.160.206])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm8405703f8f.21.2026.11.20.11.21.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm8405703f8f.21.2026.11.20.11.21.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 11:21:27 -0800 (PST)
+        Fri, 20 Nov 2026 11:21:37 -0800 (PST)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Fri, 20 Nov 2026 22:20:53 +0300
-Subject: [PATCH 4/6] phy: zte: Add a zx29 USB PHY driver.
+Date: Fri, 20 Nov 2026 22:20:55 +0300
+Subject: [PATCH 6/6] ARM: dts: zte: Declare the HSIC controller node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20261120-zx29usb-v1-4-b0433258e51b@gmail.com>
+Message-Id: <20261120-zx29usb-v1-6-b0433258e51b@gmail.com>
 References: <20261120-zx29usb-v1-0-b0433258e51b@gmail.com>
 In-Reply-To: <20261120-zx29usb-v1-0-b0433258e51b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -110,294 +110,62 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, mfd@lists.linux.dev, 
  linux-pm@vger.kernel.org, linux-phy@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9160;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1349;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=7XGAKP/u0GbzZCcgeEO6bPBl2TU8fS3aHFtWQRJOwl4=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBrAJ2W1HckV/rfYaqvXirfmSoxSbuudpx0nQq2C
- eHOOXsd3C2JAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCawCdlhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiLsbRAAhdCtkEwBOlgEeAOCdAckLAPpsEE0WAg
- pfu4FWdpNrye7+4zN75Wyc4vnxe4Sk5+wwPNgAM6RAIojMVJKX3SOt+dXb9RVl60XhViu+J/nOn
- 4lh0issMLOnCYGgBpgnhicqIHa6tJy5aN7/B/723axH+am0EmLqS66Ba9u2bjfpu0wwCc4me4Kl
- R8/bRwkf3fI1k576MfVjEmsG3TgJK6cVm6b2xW6vXncIhlBZZn6B6uUvhc0GvhyIDMms4fG00RG
- x4B9ivoAxuXPENCjnJwgMs4JA/MjpJBV0ZC2Vt1Uoa4JbvhwXVllYlPz3+2lVEbO03DPAWz0hHV
- VQHKwJckTRLPh8AABjRTK+dJpJsdqLRGsqUBD2IADoYLXdPswlyeQq2rG2gvk8YuoQEpoBt0/l5
- ukIT/Y6gWfp313i0q8n6Amk8O0VEWGfzvqd+FY9RZyc6XjbIftiEpeCJb7sAHMOLzX7W6RGOpWX
- jvgTVLrsPQko207y8WEES5eRrmapFnGWpz4UPugkMKp/K1l5n8ur3GJOlNc92CeNEpADX8BjxMe
- rtEI55OQt4iNZmyhX31XYXJesTXgW8MCzq4Lip4uSOVk1lJ89N4qL0BFh6hoNV68Ntm1nlCyOdL
- EeJdKkwuvJF7DSkjh7BGjmZvkPK5/lALxxVFw6hO8Tye7EHI+G9E=
+ bh=ShJdMtJccnJuS9VlQL1+Bdgxlkv6uh6Giop1oqviKs0=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBrAJ2XBrdRPG9C3eFKyU7PnA49Uabdls/WYzMcO
+ WkzRMyqm46JAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCawCdlxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiK5Iw//cCN+OqmdHZIesFYbXSmmMdBzwCEi/5E
+ A++ezMAgQAwIgDawlimHqrPh8v7KOZ21+gTKfEh7ncmonS3duzqqXvwBNE0ZWZJLuI6VB8oQrxR
+ Spms7VnDkKnCWCJY9lwTNTZHiR06DLnlF+2DrauSlWa/6nEsPpIeO5t7IjWkdMC82Nx45kt2kTi
+ CRIMWib3xl/OUol5GZ0JplSVHjEeawQNpdTHI9+iaGClORXVFFm6BL5FN+h7/OCFmRt7iqFhrg7
+ 3637vNdQgvX0WkYq1tg/tCsBt70ZDMbsgxdrD88lrKg1DvkCToKB5r5+KK2TlKEXAz8P1c6z/ug
+ 4R8tFWrCZxsZkzFTb1a8eLWVt8/3dI99n+163gd1Zu+4t3/AksqtGaMDgXA5ERJ2shUqZhFs/Xb
+ q8G4njYOSnTSmqKoYENf/26Kw24xW/ttjqcWploIYjRp7vR82311DAoRXKTzhKZODzPbWYliMj4
+ RJtZCS3ZazBCo84x1e5pyyQbQV+tcj8HuVm5jSfvIf2KqK6q7TvAYnooGaIrQo0Yu4LscP8xmwI
+ ToFA0xXUfKHLdUVApN4c9tawezCexUY6fasofMNz7kToQ4wuTsKTm9NEFut8zjOFqv5m+xBpEAA
+ Hrwn4mejfFyqzdQpJuSwZcy/rL9bARrA+TKCmztVmIi69bu2+A14=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 
-This driver's responsibility is the correct reset sequencing of the USB
-and HSIC PHYs. Before the ready flag is set in topcrm+0x84, the dwc2
-controller mmio space reads zeroes. Waiting for them is therefore
-necessary to avoid race conditions on boot.
+This is for documentation purposes. I have not seen any board yet that
+actually connects anything to it. On newer boards it seems to be removed
+entirely.
 
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-
 ---
+ arch/arm/boot/dts/zte/zx297520v3.dtsi | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-Possible future features are host mode support and adjusting the USB PHY
-to mpll over/underclocking. But both are unlikely to have productive use
-on this platform. None of the zx29 boards I have seen so far can provide
-power on VBUS.
-
-The PHY driver reuses the topcrm node for the MFD child device because
-the PHY subsystem enforces that the device either matches the of_node or
-is a parent of the of_node (__of_phy_provider_register). Krzysztof
-rejected a PHY child node [0] for the purpose of satisfying the check.
-
-One issue - and that's possibly the reason for the PHY subsystem's
-behavior - is that nothing prevents the phy driver from being unbound
-because the DT producer-consumer relationship targets the MFD parent. I
-have set suppress_bind_attrs = true, but that feels ugly and only solves
-half the problem. The module can still be unloaded without first
-releasing the USB consumer.
-
-0:
-https://lore.kernel.org/linux-arm-kernel/20260717-uncovered-feathered-groundhog-eab16e@quoll/
----
- MAINTAINERS                |   1 +
- drivers/phy/Kconfig        |  11 +++
- drivers/phy/Makefile       |   1 +
- drivers/phy/phy-zx29-usb.c | 183 +++++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 196 insertions(+)
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index e394e0044f1f..1d47080b2290 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4038,6 +4038,7 @@ F:	arch/arm/boot/dts/zte/
- F:	arch/arm/mach-zte/
- F:	drivers/clk/zte/
- F:	drivers/mfd/zte-zx297520v3-crm.c
-+F:	drivers/phy/phy-zx29-usb.c
- F:	drivers/pmdomain/zte/
- F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
- F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index d151c05297d7..c4829038bfeb 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -169,6 +169,17 @@ config PHY_XGENE
- 	help
- 	  This option enables support for APM X-Gene SoC multi-purpose PHY.
- 
-+config PHY_ZTE_ZX29_USB
-+	tristate "ZTE zx29 USB phy"
-+	depends on MFD_SYSCON && OF && (ARCH_ZTE || COMPILE_TEST)
-+	select GENERIC_PHY
-+	help
-+	  This option enables support for ZTE zx29 USB PHYs. You will need this
-+	  if you have a ZTE zx29 board and want to use its external USB
-+	  connector for data transfer. This driver is not required purely for
-+	  providing power to the board. If M is selected, the module will be
-+	  called phy-zx29-usb.
+diff --git a/arch/arm/boot/dts/zte/zx297520v3.dtsi b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+index 2fc888b10006..56d6b46a8ed1 100644
+--- a/arch/arm/boot/dts/zte/zx297520v3.dtsi
++++ b/arch/arm/boot/dts/zte/zx297520v3.dtsi
+@@ -199,5 +199,24 @@ usb@1500000 {
+ 			phys = <&topcrm ZX297520V3_USB_PHY>;
+ 			phy-names = "usb2-phy";
+ 		};
 +
- source "drivers/phy/allwinner/Kconfig"
- source "drivers/phy/amlogic/Kconfig"
- source "drivers/phy/apple/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index c6dd02003bbe..e135e96b4930 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -19,6 +19,7 @@ obj-$(CONFIG_PHY_NXP_TJA1145)		+= phy-nxp-tja1145.o
- obj-$(CONFIG_PHY_PISTACHIO_USB)		+= phy-pistachio-usb.o
- obj-$(CONFIG_PHY_SNPS_EUSB2)		+= phy-snps-eusb2.o
- obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
-+obj-$(CONFIG_PHY_ZTE_ZX29_USB)		+= phy-zx29-usb.o
- 
- obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
- 					   amlogic/	\
-diff --git a/drivers/phy/phy-zx29-usb.c b/drivers/phy/phy-zx29-usb.c
-new file mode 100644
-index 000000000000..8dfbcb468c26
---- /dev/null
-+++ b/drivers/phy/phy-zx29-usb.c
-@@ -0,0 +1,183 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * ZTE zx29 USB2 PHY driver
-+ *
-+ * Copyright (C) 2026 Stefan Dösinger <stefandoesinger@gmail.com>
-+ */
++		/* The HSIC controller exists primarily on older hardware, but I haven't seen any
++		 * device that is actually connected to it on any board.
++		 */
++		usb@1600000 {
++			compatible = "snps,dwc2";
++			reg = <0x01600000 0x40000>;
++			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&topcrm ZX297520V3_HSIC_WCLK>, <&topcrm ZX297520V3_HSIC_PCLK>;
++			clock-names = "otg", "utmi";
++			dr_mode = "host";
++			resets = <&topcrm ZX297520V3_HSIC_RESET>;
++			reset-names = "dwc2";
++			power-domains = <&socsys ZX297520V3_PD_USB>;
++			phys = <&topcrm ZX297520V3_HSIC_PHY>;
++			phy-names = "usb2-phy";
 +
-+#include <dt-bindings/phy/zte,zx297520v3-topcrm.h>
-+#include <linux/err.h>
-+#include <linux/iopoll.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+/* This driver controls the PHY reset bits found in zx297520v3-topcrm register 0x80 and waits for
-+ * the ready bits in 0x84.
-+ *
-+ * More USB related controls can be found in zx297520v3-socsys+0x20 and 0x24:
-+ *
-+ * Bit 0: Limits the PHY to USB 1
-+ * Bit 1: Unknown
-+ * Bit 2: DWC2 controller endianness
-+ * Bit 3: DWC2 DMA endianness
-+ * Bits 7:4: PHY clock adjustments. Adjusting these is necessary if mpll is changed from its default
-+ *           624 MHz.
-+ * Bits 9:8: PHY electrical configuration. Setting them both to 1 allows operating in host mode.
-+ *
-+ * They are a fairly useless curiosity though. So far no zx297520v3 based device has a working 5v
-+ * VBUS supply, so host mode only works when injecting power externally. The clock bits are too
-+ * coarse to be of much use. The default value is 2 (0b0010). Setting it to 1 allows lowering mpll
-+ * from 624 to about 530 MHz. The next higher setting might be around mpll=718 MHz, but the SoC is
-+ * not able to operate stably at that frequency anyway.
-+ */
-+
-+struct phy_zx29_drv_priv;
-+
-+struct phy_zx29_phy_priv {
-+	struct phy_zx29_drv_priv	*drv;
-+	struct phy			*phy;
-+	u32				resetflag;
-+	u32				waitflag;
-+};
-+
-+struct phy_zx29_drv_priv {
-+	struct regmap			*regmap;
-+	struct phy_zx29_phy_priv	phy[2];
-+};
-+
-+static const struct {
-+	const char			*name;
-+	u32				resetflag;
-+	u32				waitflag;
-+} phy_data[] = {
-+	{"usb",		0x8, 0x2},
-+	{"hsic",	0x1, 0x1},
-+};
-+
-+#define PHY_ADDR_ZX297520V3		0x80
-+
-+static int phy_zx29_init(struct phy *phy)
-+{
-+	struct phy_zx29_phy_priv *phypriv = phy_get_drvdata(phy);
-+	struct phy_zx29_drv_priv *priv = phypriv->drv;
-+	int res;
-+	u32 val;
-+
-+	dev_dbg(&phy->dev, "Initializing, reset 0x%x, wait 0x%x\n",
-+		phypriv->resetflag, phypriv->waitflag);
-+
-+	/* If the bootloader used the USB device it sometimes fails to re-initialize without a
-+	 * reset.
-+	 */
-+	res = regmap_clear_bits(priv->regmap, PHY_ADDR_ZX297520V3, phypriv->resetflag);
-+	if (res)
-+		return res;
-+
-+	fsleep(10);
-+
-+	res = regmap_set_bits(priv->regmap, PHY_ADDR_ZX297520V3, phypriv->resetflag);
-+	if (res)
-+		return res;
-+
-+	/* The wait time is usually in the single digit microsecond range, but it can be
-+	 * considerably longer in some situations. The upper ceiling isn't clear though - 50 us is
-+	 * not reliably enough, but every time I add timing, the usb wakeup time goes back below 10
-+	 * us.
-+	 */
-+	res = regmap_read_poll_timeout(priv->regmap, PHY_ADDR_ZX297520V3 + 0x4, val,
-+				       val & phypriv->waitflag, 10, 500);
-+	if (res) {
-+		dev_err(&phy->dev, "PHY reset failed: %d\n", res);
-+		regmap_clear_bits(priv->regmap, PHY_ADDR_ZX297520V3, phypriv->resetflag);
-+	}
-+
-+	return res;
-+}
-+
-+static int phy_zx29_exit(struct phy *phy)
-+{
-+	struct phy_zx29_phy_priv *phypriv = phy_get_drvdata(phy);
-+	struct phy_zx29_drv_priv *priv = phypriv->drv;
-+
-+	return regmap_clear_bits(priv->regmap, PHY_ADDR_ZX297520V3, phypriv->resetflag);
-+}
-+
-+static const struct phy_ops phy_zx29_ops = {
-+	.init		= phy_zx29_init,
-+	.exit		= phy_zx29_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static struct phy *phy_zx29_xlate(struct device *dev,
-+				const struct of_phandle_args *args)
-+{
-+	struct phy_zx29_drv_priv *priv = dev_get_drvdata(dev);
-+
-+	if (args->args_count != 1)
-+		return ERR_PTR(-EINVAL);
-+	if (args->args[0] >= ARRAY_SIZE(priv->phy))
-+		return ERR_PTR(-EINVAL);
-+
-+	return priv->phy[args->args[0]].phy;
-+}
-+
-+static int phy_zx29_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct phy_zx29_drv_priv *priv;
-+	unsigned int i;
-+
-+	device_set_of_node_from_dev(dev, dev->parent);
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+	platform_set_drvdata(pdev, priv);
-+
-+	priv->regmap = syscon_node_to_regmap(dev->of_node);
-+	if (IS_ERR(priv->regmap)) {
-+		return dev_err_probe(dev, PTR_ERR(priv->regmap),
-+				     "Failed to get regmap\n");
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(phy_data); ++i) {
-+		priv->phy[i].drv = priv;
-+		priv->phy[i].waitflag = phy_data[i].waitflag;
-+		priv->phy[i].resetflag = phy_data[i].resetflag;
-+
-+		priv->phy[i].phy = devm_phy_create(dev, NULL, &phy_zx29_ops);
-+		if (IS_ERR(priv->phy[i].phy))
-+			return dev_err_probe(dev, PTR_ERR(priv->phy[i].phy),
-+					"failed to create %s PHY\n", phy_data[i].name);
-+
-+		phy_set_drvdata(priv->phy[i].phy, &priv->phy[i]);
-+	}
-+
-+	phy_provider = devm_of_phy_provider_register(dev, phy_zx29_xlate);
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct platform_device_id phy_zx29_ids[] = {
-+	{
-+		.name = "zx297520v3-usb-phy",
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(platform, phy_zx29_ids);
-+
-+static struct platform_driver phy_zx29_driver = {
-+	.probe	= phy_zx29_probe,
-+	.driver	= {
-+		.name		= "zx297520v3-usb-phy",
-+		.suppress_bind_attrs = true,
-+	},
-+	.id_table = phy_zx29_ids,
-+};
-+module_platform_driver(phy_zx29_driver);
-+
-+MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
-+MODULE_DESCRIPTION("ZTE zx29 USB2 PHY driver");
-+MODULE_LICENSE("GPL");
++			status = "disabled";
++		};
+ 	};
+ };
 
 -- 
 2.56.1
