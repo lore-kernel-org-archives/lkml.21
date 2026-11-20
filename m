@@ -1,59 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156530;
-	b=RNmPFo4aQNCxNSNHOkYIRvbZkO586YtK4WVEUFQwWIDLGaUD4j8NbO66TlgAQzZ63s9i
-	 YYHWeJJfZnu+tA43vTtqm3aHZNxBzYlnjCEFwkHjRPTxMUO+ioRRXIHIJSjc9HfMladbp
-	 zYk1WTHi6PFDOZRSVU6E53Fqkrvvb26TEFVRk+33E2aa2a3mxutmY2xQALrNe94tVA3WN
-	 4Okdl7q4eg5cfksetIJBhwt8bBJT+6Y7fpP+f9zXy1zfkpzqgEafLsi9jbDd0B4qc7MJg
-	 0pWPe5uYy1yzcdXu0BfTh0e/9CtEUtyC6UbHDl9Toiic3RPWjcNEwjCFjlycMw1K5+A==
+	t=1795156773;
+	b=XRCF8zdPg2a0vAbEt0vb1F7Xanh8wTJ5G+4vE/w36h1JMGKt0XIzIAabORpY0uK7uDl8
+	 t2ISF7SGg8sjujCY4/9nws8keCHrinGwXFr34cVCLzx0sQQRt0pZS+k/HpD4Pyg+nJHdb
+	 KeyweJt4/JxLmfVl8cZS0E/lj1yC5ID+RuPqchLY1gBmsIbrw7DoUYRXjSAevxlqV0SAR
+	 NVfCeeVpYEyKZKpZErJEiVUTxB8osJ1+lQImxk3x/zoGC9LxVjN+ENCvORW4JpTgwciCH
+	 5lDDIXt44VLJcmleh1YpqkJkne49RnxdXpZsfMgEj1dN44feD3Zy3Hj9neBJIh1voxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156530;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=G0zRAkGF+KSljQO9yS6uVarLN8Ga3GC3k9CquE6CytE=;
-	b=a8VYvW05iGf8JqjgPcl6SJmpbb1npM6GP23Ht6rYdQLLwqkYMCBsYkea7ILa5DeUuuqH
-	 E7u8nAYbsbenisZ5Y9gCzTJnH4jxwnfHI6pLgVOtWjCGqtVqoAtNjV3KZ0Lh3NdzJuVB5
-	 bdhFvG8Y1CZ6XvzSSA1x+yPwJ7e2VcqS+duV9cSc6FayhMWOHear4Qe6T1MAkJBQWMzeQ
-	 W737wdPHuOvmSouTUW/mhr8BKo4lhBA5AePhIloavfHnXRBcjfEbTDzxL2lcWtEaWsd43
-	 knzwCalOj9/mXkJZ80z0nLhESXSnXV3Di8mmr6PIi3gazio2dPj/zFZbtUn5MBsDw+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156773;
+	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
+	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
+	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-MTK;
+	bh=bM/x8mW1K8KY6JBLdtbGHOmsga/Cv/oa26lN+auSggw=;
+	b=qp+MvhfchrGyZn4x2IADxX7LHoQ5+Hda3zYtw6eiMXrt5SY6NmDRCt3Pp2eApZ3Rl7ek
+	 +dmjKCFugM4e0PQAaWzOA7p3x1WiyjhojwHhlVa7J9llnYdy+Lck0NmkZ/V2i4fW8v9rT
+	 hCrPzTGdweBALpkJJYpO1yvCT9Ipn/97mpRIrCVQe0tlsNE+IAMaPihCObhSPB3zlij4q
+	 Wg/VdVY2LXhz3cJTckK9JVSkGGUlX3KDPMRBZUQOzUdftyUDwTnfzL2b4VhSCwUmdsYel
+	 gySSTxStMbKCtt9jMA4KuipxekPUF9zFm7r8l6Q6GV9tbX0OYZG0QoVytCdAWbuJe2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=arm.com;
-	spf=pass smtp.mailfrom=arm.com;
-	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Di93BNen;
-	arc=none smtp.remote-ip=217.140.110.172
-Received: from foss.arm.com (foss.arm.com [217.140.110.172])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 66254606A320;
-	Fri, 20 Nov 2026 06:35:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66254606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
+	dmarc=pass header.from=airoha.com;
+	spf=pass smtp.mailfrom=airoha.com;
+	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=HZ1IwjqT;
+	arc=none smtp.remote-ip=210.61.82.184
+Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEBFB606A320;
+	Fri, 20 Nov 2026 06:39:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEBFB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=airoha.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=airoha.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Di93BNen
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CA231596;
-	Thu, 19 Nov 2026 22:35:24 -0800 (PST)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A5F23F673;
-	Thu, 19 Nov 2026 22:35:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1795156527; bh=9NBvwpZWWadQFsksHSrJpVxb+kXxaiMwW0jNcvt09fU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Di93BNenvzv0wKdOUq8XuyZIWeSMqudpmup+ZeGHxESB3mFad4ROccBlHY+KY1RMq
-	 YmpSudlqMEGiUgBwc4t4ChCNRiUewCRr+yAnqnYnQ9lahA7yJhyNWy/UyUcdIbcCt2
-	 VKbK6kzV42daCTPUI60IKJmjJeTXTuFCc4qYwvKo=
-Date: Fri, 20 Nov 2026 06:35:12 +0000
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Steffen Eiden <seiden@linux.ibm.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: nv: Fix guest stage-2 mapping leak on
- sub-block unmap
-Message-ID: <iyfa5sagkdapb4plle575uhbxbmjdcxvbe35nnlxkqzfqnztqd@mmweqvqmil6x>
-References: <20261119185105.626343-1-coltonlewis@google.com>
+	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=HZ1IwjqT
+X-UUID: 20cf9b1ce4ad11f18dc8c9802ae25ab1-20261120
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=bM/x8mW1K8KY6JBLdtbGHOmsga/Cv/oa26lN+auSggw=;
+	b=HZ1IwjqTTxYGMWsFFoLVY5ZWcxJeweUisOaNwGATZgm+J5dn13ifLMOJ0XS2Spv8Lt/DXvenDvrk7d97MZTH9lptGKTx9odBGWCgVe1+I2U8VVcCxzWIJa6SxjqnXimAj1/+v8PqfkydnbrD6Lf6wcbLEeeYejfQvLKQmZBfDrM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.21,REQID:3567d6ca-f02b-41f0-88be-6baf12db3c52,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:b0318ac,CLOUDID:88da8d66-4b51-4c95-bb1b-80ac6aad9c96,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
+	0|15|50|99,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
+	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 20cf9b1ce4ad11f18dc8c9802ae25ab1-20261120
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <zhengping.zhang@airoha.com>)
+	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1910565177; Fri, 20 Nov 2026 14:39:25 +0800
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 20 Nov 2026 14:39:24 +0800
+Received: from mediatek.com (172.18.153.129) by mtkmbs11n1.mediatek.inc
+ (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Fri, 20 Nov 2026 14:39:24 +0800
+Date: Fri, 20 Nov 2026 14:39:24 +0800
+From: Zhengping Zhang <zhengping.zhang@airoha.com>
+To: Linus Walleij <linusw@kernel.org>, Mikhail Kshevetskiy
+	<mikhail.kshevetskiy@iopsys.eu>
+CC: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, <lorenzo@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<brgl@kernel.org>, <naseefkm@gmail.com>, <benjamin.larsson@genexis.eu>,
+	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<lei.dong@airoha.com>, <ansuelsmth@gmail.com>
+Subject: Re: [PATCH 00/12] pinctrl: airoha: configure GPIO muxes explicitly
+ and fix pad mappings
+Message-ID: <av_rHJ5W-mq3UAZ3@mediatek.com>
+References: <20261110094339.749110-1-zhengping.zhang@airoha.com>
+ <695991a0-ae67-4ce0-9b92-f191ae97a468@iopsys.eu>
+ <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,205 +88,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20261119185105.626343-1-coltonlewis@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
+X-MTK: N
 
-On Thu, Nov 19, 2026 at 06:51:05PM +0000, Colton Lewis wrote:
-> When a shadow stage-2 block mapping (for example, 2M at PMD level) is
-> partially invalidated by a smaller guest unmap such as a 4K TLBI
-> IPAS2E1IS, kvm_pgtable_stage2_unmap() shatters and clears the entire
+Hi Mikhail and Linux,
 
-"shatters" sounds like it breaks the block into page mappings, so maybe
-just "clears the entire block.."?
+Thanks for the feedback. I investigated the formatting issues on my
+side, but have not yet been able to reproduce the problem.
 
-> block descriptor in mmu->pgt. However, kvm_remove_guest_s2_mappings()
+I sent this series using git-send-email 2.43.0, without manually
+copying or pasting the patches into an email editor.
 
-nit: I think "the shadow page table" is clearer than "mmu->pgt"
+I also retrieved the series from lore using:
 
-> only removes a struct kvm_guest_s2_mapping node when its entire
-> [nested_start, nested.last] span lies within the unmap range. As a
-> result, every sub-block invalidation followed by a re-fault leaks a
+  b4 shazam 20261110094339.749110-1-zhengping.zhang@airoha.com
 
-Doesn't the block tracking node get leaked regardless of whether a
-re-fault happens?
+All 12 patches applied successfully on top of my local pinctrl/for-next
+at bc843179e208a. I also checked the archived patch messages and found
+no apparent encoding issues. I understand that these checks do not
+rule out formatting problems in the copies you received.
 
-> stale block-sized tracking node in mmu->guest_s2_mappings and
-> kvm->arch.mmu.guest_s2_mappings until the shadow MMU is destroyed,
-> allowing an L1 guest to grow host kernel memory and degrade subsequent
-> TLBI IPAS2E1IS walks to O(N) under write_lock(&kvm->mmu_lock).
+Comparing the archived messages, I found that, for example, tabs are
+preserved in the original patch 05/12 and in the quoted code in
+Sashiko's reply:
+
+Original:
+https://lore.kernel.org/all/20261110094339.749110-6-zhengping.zhang@airoha.com/
+
+Sashiko's reply:
+https://lore.kernel.org/all/sashiko-outbox-206823@kernel.org/
+
+However, the corresponding quoted code in Mikhail's reply has tabs
+expanded to spaces:
+https://lore.kernel.org/all/80e72b60-3128-4594-a4bf-bb184ffc754b@iopsys.eu/
+
+I noticed that tabs are preserved in Mikhail's reply to Miquel's SPI
+patch, so this does not appear to happen with every reply:
+https://lore.kernel.org/all/37fc133b-a5f3-4b4d-ba2a-002239bbcebc@iopsys.eu/
+
+Could you please share one affected incoming patch as a raw .eml
+attachment, if possible? It would also help to know how you retrieved
+or saved the patches, and wheter the formatting problems are visible
+in the original message source. This would let me narrow down where
+it changed.
+
+Thanks for the suggestion to use b4. I will use it to manage subsequent
+revisions, and will address the code review comments separately.
+
+Thanks for your help tracking this down.
+
+Best Regards,
+Zhengping
+
+On Wed, Nov 18, 2026 at 10:15:15PM +0100, Linus Walleij wrote:
+> On Sun, Nov 15, 2026 at 3:10 PM Mikhail Kshevetskiy
+> <mikhail.kshevetskiy@iopsys.eu> wrote:
 > 
-> Conversely, unconditionally removing any overlapping tracking node on a
-> sub-block unmap would be unsafe when a shadow block mapping has been
-> split into a child table (such as on a page-granule fault under dirty
-> logging or a racing shared walk returning -EAGAIN), because sibling
-> sub-page PTEs outside the unmapped range remain live in mmu->pgt and
-
-What are sub-page PTEs? :P
-
-> still rely on the block-sized tracking node for host MMU notifier
-> unmaps.
+> > Hello Zhengping Zhang,
+> >
+> > Please fix your patches. Looks like you insert patches to the e-mail body,
+> > thus your patches were converted to "mail encoding"
+> > * tabs was replaced by spaces
+> > * unchanged empty lines "<space>\n" were converted to just "\n"
+> > * long lines were split with "=\n"
+> > * "=" were replaced with "=3D"
+> >
+> > and so on. So please use "git send-email" for patch sending.
 > 
-> Since stage2_unmap_walker() unlinks empty child page tables in
-> KVM_PGTABLE_WALK_TABLE_POST as soon as their last valid entry is
-> cleared, check mmu->pgt via kvm_pgtable_get_leaf() on partial-overlap
-> candidates: when no valid entry or split sub-table remains at or below
- 
-You use "or" here.                ^^
-
-> the recorded mapping granule (!kvm_pte_valid(pte) &&
-
-but this is an AND?                                 ^^
-so I don't quite understand.
-
-> kvm_granule_size(level) >= map_size), remove and free the tracking node;
-> otherwise retain it to cover surviving split sub-entries.
-
-"sub-entries" doesn't really make sense to me..
-Maybe "... to cover other entries within the range"?
-
-For this third paragraph can you improve it by stating how the problem
-is fixed upfront? The first two paragraphs describe the problem, then
-you started to talk about stage2_unmap_walker all of a sudden (which I'm
-not sure how much it helps), and the fix itself is not emphasised. The
-combination makes it pretty difficult to get what the patch is doing.
-
+> I agree, I can't work with this, maybe review a little.
 > 
-> In addition, suppress exact-match duplicate insertions in
-> kvm_record_guest_s2_mapping() when concurrent faults or -EAGAIN retries
-> record an identical (nested, canonical) range on the same shadow MMU.
-
-I believe this is better split into its own patch, it's doing another
-thing.
-
+> If possible use the b4 tool to manage your patch set(s).
 > 
-> Fixes: 5491980c1a41 ("KVM: arm64: nv: Track guest stage-2 mapping removal")
-> Fixes: c2778d14cd2f ("KVM: arm64: nv: Track guest stage-2 mapping creation")
-
-Since there isn't a real bug in the original implementation do we need
-these tags?
-
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm64/kvm/nested.c | 68 ++++++++++++++++++++++++++++++++++++-----
->  1 file changed, 61 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index 4d83281a7a28b..2b1c85de5b719 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -896,6 +896,30 @@ static unsigned long s2_mapping_to_nested_start(struct kvm_guest_s2_mapping *map
->  	return mapping->nested.start & ~S2_MMU_IDX_MASK;
->  }
->  
-> +static bool guest_s2_mapping_exists(struct kvm_s2_mmu *mmu,
-> +				    struct kvm_guest_s2_mapping *mapping)
-> +{
-> +	struct interval_tree_node *node;
-> +
-> +	for (node = interval_tree_iter_first(&mmu->guest_s2_mappings,
-> +					     mapping->nested.start,
-> +					     mapping->nested.last);
-> +	     node;
-> +	     node = interval_tree_iter_next(node, mapping->nested.start,
-> +					    mapping->nested.last)) {
-> +		struct kvm_guest_s2_mapping *curr;
-> +
-> +		curr = container_of(node, struct kvm_guest_s2_mapping, nested);
-> +		if (curr->nested.start == mapping->nested.start &&
-> +		    curr->nested.last == mapping->nested.last &&
-> +		    curr->canonical.start == mapping->canonical.start &&
-> +		    curr->canonical.last == mapping->canonical.last)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
->  				 gpa_t nested_ipa, size_t map_size,
->  				 struct kvm_guest_s2_mapping *mapping)
-> @@ -915,9 +939,32 @@ void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
->  
->  	tag_s2_mapping_mmu(mapping, mmu);
->  
-> -	guard(spinlock)(&kvm->arch.guest_s2_tracking_lock);
-> -	interval_tree_insert(&mapping->nested, &mmu->guest_s2_mappings);
-> -	interval_tree_insert(&mapping->canonical, &kvm->arch.mmu.guest_s2_mappings);
-> +	scoped_guard(spinlock, &kvm->arch.guest_s2_tracking_lock) {
-> +		if (!guest_s2_mapping_exists(mmu, mapping)) {
-> +			interval_tree_insert(&mapping->nested,
-> +					     &mmu->guest_s2_mappings);
-> +			interval_tree_insert(&mapping->canonical,
-> +					     &kvm->arch.mmu.guest_s2_mappings);
-> +			mapping = NULL;
-> +		}
-> +	}
-> +
-> +	kfree(mapping);
-
-In my understanding kfree() can be called while holding locks, so we
-don't need the extra level of indentation.
-
-> +}
-> +
-> +static bool guest_s2_mapping_unmapped(struct kvm_s2_mmu *mmu,
-> +				      gpa_t nested_start, size_t map_size)
-> +{
-> +	kvm_pte_t pte;
-> +	s8 level;
-> +
-> +	if (!mmu->pgt)
-> +		return true;
-> +
-> +	if (kvm_pgtable_get_leaf(mmu->pgt, nested_start, &pte, &level, 0))
-> +		return false;
-> +
-> +	return !kvm_pte_valid(pte) && kvm_granule_size(level) >= map_size;
->  }
->  
->  void kvm_remove_guest_s2_mappings(struct kvm_s2_mmu *mmu, gpa_t nipa,
-> @@ -937,17 +984,24 @@ void kvm_remove_guest_s2_mappings(struct kvm_s2_mmu *mmu, gpa_t nipa,
->  	node = interval_tree_iter_first(&mmu->guest_s2_mappings, nipa, nipa_end);
->  	while (node) {
->  		unsigned long nested_start;
-> +		size_t map_size;
->  
->  		next = interval_tree_iter_next(node, nipa, nipa_end);
->  		mapping = container_of(node, struct kvm_guest_s2_mapping,
->  				       nested);
->  		/*
-> -		 * Tracking must be conservative on removal, only remove
-> -		 * mappings that are within the unmap range.
-> +		 * A sub-block unmap tears down an unsplit shadow block entry
-> +		 * in mmu->pgt, whereas a split block may still have valid
-
-Does "split block" make sense? Either it is a block mapping or a page
-mapping.
-
-> +		 * sub-page entries outside [nipa, nipa_end]. Remove the
-
-Same "sub-page entries" wording issue here.
-
-Thanks,
-Wei-Lin Chang
-
-> +		 * tracking entry when it lies within the unmap range or no
-> +		 * mappings remain across its span in mmu->pgt.
->  		 */
->  		nested_start = s2_mapping_to_nested_start(mapping);
-> -		if (nipa <= nested_start && nipa_end >= mapping->nested.last) {
-> -			interval_tree_remove(&mapping->nested, &mmu->guest_s2_mappings);
-> +		map_size = mapping->nested.last - nested_start + 1;
-> +		if ((nipa <= nested_start && nipa_end >= mapping->nested.last) ||
-> +		    guest_s2_mapping_unmapped(mmu, nested_start, map_size)) {
-> +			interval_tree_remove(&mapping->nested,
-> +					     &mmu->guest_s2_mappings);
->  			interval_tree_remove(&mapping->canonical,
->  					     &kvm->arch.mmu.guest_s2_mappings);
->  			kfree(mapping);
-> 
-> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
-> -- 
-> 2.56.1.809.ga0b61035b5-goog
-> 
+> Yours,
+> Linus Walleij
