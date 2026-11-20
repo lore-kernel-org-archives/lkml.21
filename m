@@ -1,52 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=64.106.246.77
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162129;
-	b=hijqwKNdCRSo8qqBBIShLntOMhj+s2lcSexxawoCki9BWftB+95uwXSPbH3NnIP2uFc5
-	 jIacjCX2ufNsnBo8P/1pkeoCbquu33M7vVb2+Yh0U37d6bCNoOie/SvIxUuZ36vJHc7tz
-	 ctUIiUoQxcYRUt3aTR+VgbEj9CpCl+7xCp6YK+sQgDCtcTe1MFY0Bpt58x6ZJdd+65NUG
-	 SRYIOgc2nDvQRsCiSSFmuS97lczHfUDp+H4jXBrHpRhAOQzkoLbYw6ApSLo6zpg1SQmgp
-	 VZEJngOaVvQZ3jShwhM64VU+IO2PgA+qyFIXSAvqXNzK2pl74uUpoxdgj+mR6z3b5Xw==
+	t=1795162127;
+	b=cRRasoQTObwdC/WtvTrU3Fd8kuQaVwJV18tht7O7FGKDpbK7L9Z1u2vcDLmrbP6L0ICG
+	 pS8J/zfTkBKcWL/slWeK0tS+fa41sQhuVQyNB+iSHt0lpO5iBAvUQiS3SXrgU3YtrvVN6
+	 +HAeNuKPIbKOgzmy/fc+Wnv/wmZVTxzH7FVfSoxLRi6nld/VhRAvekc6s++ubRGQTxHF4
+	 d2LrjGRxhWdvE+PMajx2foPZjezTiC6kMNnVAFNRPFrTZZ9ICc1JLxYe5AgWP9qSUF4D5
+	 nOgSP1ALSXP0NMsQeuy0VIyuCR7HFxWJpruEeGiMaJzOQc/rShKmeSOuRBFhw65DyzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162129;
-	h=DMARC-Filter:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-Originating-IP:X-ClientProxiedBy;
-	bh=cYchM3oZ++2Ujm+8cyxvkhBnotq5TY4DS45oyevJ/6I=;
-	b=MlzOjoTyELfuFocFgBDsrDDxoPw1rzDPIkJKaEmePqnLTIS4m5JYMVQmuWt/907ja3DE
-	 Iq6CRDG8l73F8hVXdsWyfHmQ69Csj8/IjZa8PKDKOMbwR1peAEHX6pJlWG9V1s75aZuhY
-	 yBcSvAJmVWrkkVoREOdQFyEf33jFlWgDk+OX7tkXGcJg+2XBHiu9BeFgC4SwDVMi0bsat
-	 I1z57ieUa0F+oYQFiqWg5nsoCHd9HUKdmyAz4d2+lRQbgEkUFz9QMH21nwy8vz1nTiix0
-	 AbPM/SM0BTVUCdnka0uvT8/oTawX7aFh6TSVWLWQEoIW4IS1l/4vvQsVQr3BSHsw0NA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162127;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=nhWTtz/XtWf+zHzkg8QT/u7XDoQ0xAQ0UFQlVcaEpd4=;
+	b=4USGx7nU205lARgP8/HDMojtNV3S9Dy3CAbuVMSlQgfXg8a19uE++7GCxTO+NrZXTFce
+	 Q8KX7f9QfjO5hWvd6kdgdDKiEr8yy9Gcl+vstmYOz1yJukXOXHfB5bIB7DRUDsCvja5Fm
+	 2ZqFU1eDKnbRxV8lX46t2HvYovtD+QyCkcCzGoKyjMzm6OCjHThz0mvWMz+etUjca4tej
+	 37f8cwYZRPIC3JiuTKVyuE6Yc7LRUt6R1UhG2/Rj5rJMivZ2ulbiixFm78lNdoazYaOui
+	 S1J8uBaPv5eaVcygetjd8CD/l0hzRwgxIC3LqaU6bFGB2DBWL/oxK4zixZBD3sYAXCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amlogic.com;
-	spf=pass smtp.mailfrom=amlogic.com;
-	arc=none smtp.remote-ip=64.106.246.77
-Received: from mailsc.amlogic.com (unknown [64.106.246.77])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oNThT0mS;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E55A606A334;
-	Fri, 20 Nov 2026 08:08:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E55A606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amlogic.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amlogic.com
-Received: from rd03-sz.software.amlogic (10.28.11.121) by mailsc.amlogic.com
- (10.8.11.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Fri, 20 Nov
- 2026 00:08:46 -0800
-From: zelong dong <zelong.dong@amlogic.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman
-	<khilman@baylibre.com>, Rob Herring <robh@kernel.org>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, Jerome Brunet <jbrunet@baylibre.com>,
-	Marc Kleine-Budde <mkl@pengutronix.de>, Vincent Mailhol <mailhol@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-can@vger.kernel.org>, Zelong Dong <zelong.dong@amlogic.com>
-Subject: [PATCH 3/3] arm64: dts: amlogic: a9: add CAN controller node
-Date: Fri, 20 Nov 2026 16:08:20 +0800
-Message-ID: <20261120080820.3340646-4-zelong.dong@amlogic.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20261120080820.3340646-1-zelong.dong@amlogic.com>
-References: <20261120080820.3340646-1-zelong.dong@amlogic.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F661606A331;
+	Fri, 20 Nov 2026 08:08:47 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=oNThT0mS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 042371F000CA;
+	Fri, 20 Nov 2026 08:08:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795162127;
+	bh=nhWTtz/XtWf+zHzkg8QT/u7XDoQ0xAQ0UFQlVcaEpd4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=oNThT0mSGG6kUZAwqZsOB53nYtEkre5+BXqj2CeCW2DezGxoseqckwyiR/VE/H5rV
+	 fasb29VNh/hB3PNLtjFkss79IjJ2QxSftm4LCX3QTWO6ojWb5uhH6sv3drEWCZAFZL
+	 WHSdRIgt+zBwwz1WhpggeQETXK/uvYvzW9vMcVhg=
+Date: Fri, 20 Nov 2026 09:08:23 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	linux-bluetooth@vger.kernel.org,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
+	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	MPT-FusionLinux.pdl@broadcom.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>, linux-usb@vger.kernel.org,
+	Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
+	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
+	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
+	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	intel-gfx@lists.freedesktop.org,
+	Matthew Brost <matthew.brost@intel.com>,
+	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
+	intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v2 08/12] docs: ioctl-number: update USB entries
+Message-ID: <2026112013-crave-ocean-6117@gregkh>
+References: <20261119053514.255348-1-rdunlap@infradead.org>
+ <20261119053514.255348-9-rdunlap@infradead.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,80 +111,19 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: mailsh.amlogic.com (10.18.11.5) To mailsc.amlogic.com
- (10.8.11.35)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119053514.255348-9-rdunlap@infradead.org>
 
-From: Zelong Dong <zelong.dong@amlogic.com>
+On Wed, Nov 18, 2026 at 09:35:09PM -0800, Randy Dunlap wrote:
+> Update the list of files where USB ioctls are defined.
+> 
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> ---
+> v2: no change
+> 
+> [Since having multiple maintainers trying to merge these would
+> cause some conflicts, it would be more manageable for Jon to
+> take all of these through the docs-next tree.]
 
-Add the CAN controller node and its pinmux states to the Amlogic A9
-SoC device tree. Enable the controller on the A311Y3 BY401 board.
-
-Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
----
- .../dts/amlogic/amlogic-a9-a311y3-by401.dts   |  7 ++++++
- arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi   | 25 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-index 503e38a29ce6..dffcdd4c35d0 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-@@ -136,3 +136,10 @@ &spisg_e {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&spisg_e_pins_z>;
- };
-+
-+&canbus {
-+	pinctrl-0 = <&can0_pins>;
-+	pinctrl-1 = <&can0_pins_sleep>;
-+	pinctrl-names = "default", "sleep";
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-index 509dd1c37a5d..7c3734c4d23f 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-@@ -605,6 +605,20 @@ spisg_e_pins_z: group-spisg-e-pins {
- 						drive-strength-microamp = <3000>;
- 					};
- 				};
-+
-+				func-can0 {
-+					can0_pins: group-can0-pins {
-+						pinmux = <AML_PINMUX(AMLOGIC_GPIO_A, 18, 3)>,
-+							 <AML_PINMUX(AMLOGIC_GPIO_A, 19, 3)>;
-+						bias-disable;
-+					};
-+
-+					can0_pins_sleep: group-can0-pins-sleep {
-+						pinmux = <AML_PINMUX(AMLOGIC_GPIO_A, 18, 0)>,
-+							 <AML_PINMUX(AMLOGIC_GPIO_A, 19, 0)>;
-+						input-enable;
-+					};
-+				};
- 			};
- 
- 			spisg_e: spi@50100 {
-@@ -677,6 +691,17 @@ i2c8: i2c@3a4800 {
- 				clocks = <&clkc_periphs CLKID_SYS_I2C_M_I>;
- 				status = "disabled";
- 			};
-+
-+			canbus: can@3a8000 {
-+				compatible = "amlogic,a9-can";
-+				reg = <0x0 0x3a8000 0x0 0x383c>;
-+				interrupts = <GIC_SPI 82 IRQ_TYPE_EDGE_RISING>;
-+				clocks = <&clkc_periphs CLKID_CAN0_PE>,
-+					 <&clkc_periphs CLKID_CAN0_FILTER>;
-+				clock-names = "can_pe", "can_filter";
-+				power-domains = <&pwrc PWRC_A9_CAN0_ID>;
-+				status = "disabled";
-+			};
- 		};
- 
- 		gic: interrupt-controller@ff800000 {
--- 
-2.47.1
-
+Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
