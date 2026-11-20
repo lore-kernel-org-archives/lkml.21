@@ -1,101 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181510;
-	b=v7vOAczIqCmZ31ptb4OWR/Jy0aswe8LPz761WClXfqRFzX2Rv3seSszJv5Uv/eQdQ/O1
-	 X+b/g3baLa8rTDXqKBc2adY8fkruDEojiOHFx/RKL6OHKkfCHLGl0jEjhuS8F2cQQVavm
-	 eA0M54kYmtJwNDVLND5c+D2SYaPa+6bKAS1f8KdGoiTm2IXyJTaEtg+8019ten8joc4vW
-	 O2G5FXpsE2zrWdldq367uYmjA0KIghqZKiV6jYqecJuwrpcLADvaFd94Mm0x3F2Dl97o+
-	 JDAilB4zaP3ZDN3mRQhndT7ahfNXTVknEhb9i6hg7+a79XRn+dBZHeig7osfb+l+ciA==
+	t=1795181545;
+	b=uimqDmBsAeGqWVcc3bGAkINh9oRUjJvDKARRpsxzuhle5Rvl/bYvZc1Dvh8HnbxzWWgv
+	 08GPkferT0SxLyZvibDLgy6A7gDVeEPSzOr1ZSd7jUvUPd9aoU1/h0c7a5nP66bL5vhkZ
+	 G++0a6ycY8KZL6dSvLp/E/jqe7kWDXvQn2QX8PhnXKl+Fwlk5hn6XEsxxH6jmGE9sRhWz
+	 98lWT6nlakdvLBqVciOgvbYH4UTjZxjdKBHUM3jnRvC2Pk5UKxYmDC1Xgnyz1rf61X1Xn
+	 PJ+NoOZqjyucJ/XVn2ttgFNSBBh8/TX/rHcLL9emgUVWxLboo9Q1n0zVVTP04enVDSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181510;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=xPq8vHZRjZ0W9FI56EPWdeooS/iHKvZIxdKn8ZO3tk8=;
-	b=M7wqOB4tKJTZ4uTiu6GpyhWBC+67vzVHS/KI3BXzNEovV95uNk7zlBpTE49MXtd6Z3jr
-	 j/y8+WJpcW1ERajOuJqcwkHK/H7f8Gfs4pTPRua1MRWX3WAs02kKkvl0FWn5Q8FfxiPRZ
-	 tPFcG/lH8soia0xcwZftJcAvSdxEP1uEkdRXZWlMForDAMKR7hrhDzehv52ZzG5KGpb5h
-	 tkt/5sYhs+iTDsMawv0w3YLWPNlobzM/s57PbqICeBbq0MdelhWgo9K9O++XbmFPBWNOM
-	 kx0NIyrkpdA9B8IIHLunhULPa1xf3JAdipRKbxJwzCuDLHjR7TVk9Xt+GKt/ma09MiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181545;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=LE456ZU1axtGZYkU/uYa7Nnfs5qDPWAEJupa4fLyr50=;
+	b=aQmSgr457T92PX3ZNycC4QpKssoZmyohcs4DAEnR0qX7yXXAWPR/Ryja71KJwG5Ri3Pe
+	 viynZHwAzDpID/IksPjuJhatTkF8GYUlfly0gJB6kjA60BclJZsYzbatOIc/e47hyxbOM
+	 5mjfUKyReS8ZwcyqvCRAKkfSoM3hqHlpMZZTL3H1FdgHuqGW1Dz12cShO8NBfJ8ST40Tu
+	 KniDRW83LgpZj7pwJVS5cFlDQnkVzQn76Lt5wkMpKlwtoW4dnIQMJnPSFYaQIa/xOct4Q
+	 7wGl/soTimO4+fh5FMCPVl+utZI/1hkltAGhL+qfxfEwV8o7LSNxvazaU+FAfLTMXaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hqGiFZnr;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OoxYfmkf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26343606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:31:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26343606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D2B2606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:32:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hqGiFZnr
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c4d28f75d62so161749366b.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:31:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795181508; x=1795786308; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xPq8vHZRjZ0W9FI56EPWdeooS/iHKvZIxdKn8ZO3tk8=;
-        b=hqGiFZnrjqYQFj881CYUJZtgImGi0ugXjpTVIWee9kUXRzlYa8/9BD81x/+zkFKwk8
-         Db6t14iFQ/UnZINNbCXUWvuiqadZPfWQImoJEZZ69c5+JJUJu8MdxYvqH/BEaoeEhnED
-         HTUthonTmsUiDPZ6zYrW/0oH5l3euOmv1Bk2XdsyNRXRXm7JwyjhNaXKy2h5vCBfKomd
-         iXuTNYGftedtWmWCHiCAjgbNLR1YjZhAIi+Vgttbwu9+ZcoW1QOqlRLJLmefquEahX6Z
-         kmJ9sS6uhjS9819doNiD8n7z6hBI0hE0SjgDO1S644sv/ie16h1NKkJz1l6+F8UHMae2
-         niuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795181508; x=1795786308;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xPq8vHZRjZ0W9FI56EPWdeooS/iHKvZIxdKn8ZO3tk8=;
-        b=PBjaugTguWbo2Q7vWdO1ce5rjHnsytDjTKxS4cBYC92+XtKKtHrXhJ5II1lSA13JwF
-         fAK9MSvRc95RxX6GVA2B6x+/4+26aeHs52DPygRoJQnpl2lHcWP4OeCJDVwKCxZMVI1u
-         sbY7HA92eZpwUJePQF5zfDdci6aJGnwpekQcQ1IQFLQ7+kQXTzpidh+ZXf6RARwAOiDe
-         ldXML6geL75BlDr3TIiTArjrW8m8zBQScmjqFo/MV59SUMwyN8WraUP0onfJQYqOZuef
-         XWnFwIaHAoCk9d19v/vAbbx8skgR5B4cfc4mKuFgyLGAluR2pc6fRsoQHDBqo7hKFPFv
-         VzAA==
-X-Forwarded-Encrypted: i=1; AL+hErH4STTv3s7V4zCdpmzwd1DIBXH0Dp3Q0jyySPH3hCSvhS+mLJ4+b9qwZycp6EX05cz8QwPz/8p4JCXWEyE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8zW67wJHDwT02LEpicskWnljAsDJB90Ndvw17bGeGldzELEByw
-	i08QXAWXvD5TW+OfuPctTcRsTpp5EwpU9CIbzlGYoNKSXn4wXv5Do22p
-X-Gm-Gg: AYBFou2S1vEAfHymDKM2cXlf2LnrMKrXakBa55iZG9fpEVb0zWAZ0wtAprbiiHenm40
-	1xeS5UePQ/8BeDgwgRyoCtXAPL8UfM/GvnKKcV0+RAits20GDJut1TOrpANFuPqyg3svnqIUc0Q
-	+Homu7aQQDVuKR5GFmzoVZtSiVMzk/Gz92OrJS1t9A81yf2i+2hcfWTUSEeeKWMJsrTl+y5UebD
-	CrKkmqY2V2HFb4EpvbySbXeB2Pg84y2CF2AK4KziMgVhPEmL8nrm1VWVEJH5lyKytVM3x+W1rnE
-	JHscwja3lROvz6g21rKtmPK3Mc/BZlwFHVe2GxtckTBAChSQ0kMpFTUPtwyw5DHADSfz++E/oW4
-	PJKxF/moh1yAgJhiVoeU4gyL2UqJJz0qFZHRFW8DxLgGMHT202YH7ShVDPH7UbmQYbGHZZeRHRI
-	zl6mtRrA3nCshHzL5yHUlT4Xi/H1wxNpnrGzUw40OXtUnzWM7WkOuElRrpkyux099WiIcyl6mFF
-	YJLxg1R2F7UiTYCJ7LaKjxNueZBOiFUS9DqSgcTejc7uBk6ae2uitnmEnJsMxsUHUi2B/sMRfL0
-	3jdHJESfFmPxYbL5cZqbPpv61Rsre1LCZGgpmJIOC/Rq26XTSu3mmip1B4oPclhcpe3dfJy5SwB
-	us6TTPWbZPtT7enF/SnX9f/MAKv5iPvxZWcwd8AJrQgfk8EuDibMlLLo4hM/dq7o3klvuAw95t/
-	4+f+EDc+8WjJb8bbKpqqXz5NbfScpq4DIXDhsFumPwvm4IPlyklUOtp5p84kEYWDei2e+HfTTE
-X-Received: by 2002:a17:906:6718:b0:c16:4e5:944a with SMTP id a640c23a62f3a-c513ab0845cmr226867666b.21.1795181508436;
-        Fri, 20 Nov 2026 05:31:48 -0800 (PST)
-Received: from Ubuntu.tail0f733b.ts.net (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b022e84sm94908766b.84.2026.11.20.05.31.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:31:48 -0800 (PST)
-From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
-To: syzbot+b0aebd03565f5774f7f8@syzkaller.appspotmail.com
-Cc: Krystian Kaniewski <krystianmkaniewski@gmail.com>,
-	hirofumi@mail.parknet.co.jp,
-	linkinjeon@kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sj1557.seo@samsung.com,
-	syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot] [exfat?] WARNING in vfat_update_dotdot_de
-Date: Fri, 20 Nov 2026 14:31:42 +0100
-Message-ID: <20261120130030.b0aebd03565f5774f7f8-fix-9f08@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <6aa82300.a211d2ce.1a5198.0295.GAE@google.com>
-References: <6aa82300.a211d2ce.1a5198.0295.GAE@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OoxYfmkf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 421A71F000D0
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:32:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795181544;
+	bh=LE456ZU1axtGZYkU/uYa7Nnfs5qDPWAEJupa4fLyr50=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OoxYfmkfQLLwrD8Q8dhDHRhNaFq9tgTPz8OtMOcd+Emtw6QG9+L0MfH2EvnXOfvIO
+	 psTTvSQo61HrR2W3QIicTP4U/gDlKawWDzmVpYMhbZv52QhfNmJ3wM3s2B9JXypsX7
+	 nXQrG3Qh19eHY91KOGAvPELYN2hpC9qwIAEWabd00GtUY9wikOojK+qDTuViPWXrbN
+	 xI6M17NI00y/wXNzQPCKfb/A3ZAhfvmJ+jgJd0O32jw1iFOovErMj/u5OqkIdzvRuz
+	 Vu34J8o9hH5/gjA6rMjBoeVLrRxNtm595AxLAv3wMlFGh6FHJUldK3g68nxUC1gw5e
+	 PGtxlY+uc3yeA==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3ae85add4ceso3641181fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:32:24 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHNcJmqowazMkQgatv8dUnKekUdeGHqiuzEDpg133J+H55fdee8g0JJuVo283k/PZw25+D7qgGUI30BpAE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++pwaz0wg5lQlD+dQZE/kF5XjBZh6amjGuXbCdD8pZ/jV68LoJ
+	LyyV9KkRlcSJsXCpCboQS6dhfJtHYhlOnk45SsBG2qrART7HYpjxyePFfXNmyGzR6gRgP4dxbwc
+	psyCXIbDDsxANPOR1V4W2PXPgPvEWS/g=
+X-Received: by 2002:a05:651c:a331:b0:3a6:95a:52a6 with SMTP id
+ 38308e7fff4ca-3ae7fa39ffdmr8603331fa.20.1795181542698; Fri, 20 Nov 2026
+ 05:32:22 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -105,17 +59,70 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20261114220739.10496-1-green.koala2979@fastmail.com>
+In-Reply-To: <20261114220739.10496-1-green.koala2979@fastmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 14:32:09 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0g_kj3bZgyXTn31QEn=4A4-jYxVJBjZj7upqam1+q+CAA@mail.gmail.com>
+X-Gm-Features: Aa3M54p2gaB5X80PpKXYVDQeQL7MXG3wW_NCF3glpvSYtW2mQj95cTRZ5YEDGQ4
+Message-ID: <CAJZ5v0g_kj3bZgyXTn31QEn=4A4-jYxVJBjZj7upqam1+q+CAA@mail.gmail.com>
+Subject: Re: [PATCH] ACPI: battery: Handle a negated 16-bit discharge rate
+To: Ana Veto <green.koala2979@fastmail.com>
+Cc: rafael@kernel.org, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I first asked syzbot to run the original reproducer against the unmodified
-v7.4-rc1 commit 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4. The request was
-not run because syzbot replied that #syz test is temporarily disabled.
+On Sat, Nov 14, 2026 at 11:08=E2=80=AFPM Ana Veto <green.koala2979@fastmail=
+.com> wrote:
+>
+> On the MSI Claw 8 EX AI+ (MS-1T91, BIOS E1T91IMS.10D), _BST reports the
+> discharge rate as 0xffff03a6 while 934 mA flow. The DSDT reads the EC's
+> signed 16-bit current (0xfc5a, -934 mA) zero-extended, negates it with
+> "~Local1 + 1" and does not mask the result to 16 bits. The magnitude is
+> left in the low 16 bits (0x03a6) and the upper bits are set, so the
+> int rate_now is negative (-64602).
+>
+> The existing quirk checks only the sign of the low 16 bits, which are
+> positive here, so the value passes through: current_now reads about
+> -64.6 A while discharging, battery overlays compute about 1055 W from
+> it, and upower shows no energy rate and no time to empty.
+>
+> Also take abs((s16)rate_now) when rate_now as a whole is negative.
+>
+> Tested on the device with a v7.3.3-based kernel: current_now reads
+> 624000 uA at 14668000 uV while discharging (9.2 W), and battery overlays
+> show a normal wattage.
+>
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5-5
+> Signed-off-by: Ana Veto <green.koala2979@fastmail.com>
+> ---
+>  drivers/acpi/battery.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/acpi/battery.c b/drivers/acpi/battery.c
+> index 43a7543..45a4db5 100644
+> --- a/drivers/acpi/battery.c
+> +++ b/drivers/acpi/battery.c
+> @@ -703,11 +703,13 @@ static int acpi_battery_get_state(struct acpi_batte=
+ry *battery)
+>
+>         /* For buggy DSDTs that report negative 16-bit values for either
+>          * charging or discharging current and/or report 0 as 65536
+> -        * due to bad math.
+> +        * due to bad math, or that negate the zero-extended 16-bit value
+> +        * (0xfc5a becomes 0xffff03a6), which leaves the magnitude in the
+> +        * low 16 bits and makes the rate negative.
+>          */
+>         if (battery->power_unit =3D=3D ACPI_BATTERY_POWER_UNIT_MA &&
+>                 battery->rate_now !=3D ACPI_BATTERY_VALUE_UNKNOWN &&
+> -               (s16)(battery->rate_now) < 0) {
+> +               ((s16)(battery->rate_now) < 0 || battery->rate_now < 0)) =
+{
+>                 battery->rate_now =3D abs((s16)battery->rate_now);
+>                 pr_warn_once(FW_BUG "(dis)charge rate invalid.\n");
+>         }
+> --
 
-Commit 9f08e58149dca8453bf99e0af35cbb227ded17b1 is included in v7.4-rc1.
-It addresses the reported !buffer_uptodate(bh) warning by leaving
-BH_Uptodate unchanged after failed write completion. Local testing of
-current mainline with the original reproducers did not reproduce the
-warning.
-
-#syz fix: buffer: stop touching BH_Uptodate on write completion
+Applied as 7.5 material, thanks!
