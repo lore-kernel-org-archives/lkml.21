@@ -1,78 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176233;
-	b=HoEWFmBGs0ILluFPsnVWE/kfo9F1DJTgSVTzFkXmAyQr/+cCcdm9ndwMlC5+jSHsRT8f
-	 gUwsJflD3tsH5wWgeK+6hMBzFPlhOX3YASDJyzR5quwaIqiVD1GzsQqDMfMX6VZrbIczk
-	 o8hgdRiK2npS51hQ9Wq2d2TqguT7kyh1VGMjeBlsaKsuRwZcQUbhI78d5B4d/inkB6twh
-	 scK9tGwxQo4Ck5CjRLGyVc0fk8sKUVQJafOpcfmCkUqKQP4BPXQlseTVyqy80oJpHeKBA
-	 9JGL6WXWsp/maWDIjYubUYJ2+x8+q+NFar5qe0/hAxtBlgyj8uB1FoGdbaYZeZMOq2A==
+	t=1795176262;
+	b=bgNHeBOe1KSXahm8Rv94k5E5Y89Lk2jyLb3nxxwiBfEkCKGzW8qnTp+mKS5zIY6frGdZ
+	 BipxKUcD7hFTUJJhqeZx83JWqLIERI6szl0YYFTX54A7DKovJz8LkopDEJPXUt87tGOfN
+	 tye7AzFu2nX4pV50AymGVjr/BOtbByzvSJVrHB6ILRdTXHdWCEqpHxkvWMgyCAAh8++rG
+	 RrYtFsPui2eaFW3E0PY/430cbzy3gCU678ILW20ZSbVaZa778H6AKnyhpD54UzVfYPn7u
+	 tmqFU6Wez1wF9CqYr5AzwbiwJX9ju+Nr6d1bXIcIV5rEadW1Nbjbo+vUOfo6pgbj0dQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176233;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=SqWIR9Se+KYSxOeedAPrX5X3Izc466RyyVllm8girYs=;
-	b=FjLuQFwW6wOurz7q8Vip/H9xEQEYccivx+scfQdsuvL9k7TDutHeGxcB/1f/Fmfq6J2O
-	 /UaU3lFuluXsUDcIHTXNj4a+S+ABy5E5E5SM8TB1NnR0ufD1VIsS1PbDA6N8jKPHKeVPe
-	 Ih6SIb4upbcJU4XAss7DMi/MpRSjXAkmpGN1hst0iBweyaLkKtEa0VieoTt6wYbmpAtKT
-	 sxz1eMwPoekyNuPZmPBnajTAKcFRPBDXLptzv06iEetQAP/qQANrB97yCzMVgMzMJddn5
-	 7x0U0O1kbcrFpQGn+MhEgzIeyolN4c7nLT/5zdCDb6cb4wCH6bJCwYKww4fNrbqLsqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176262;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
+	b=fXLsUdWUHF8YiWF0RpbMTHK2MF4xVoPqsSgpsHLUsaaj4Zug3iI4FDzbd03gVNjUJR+K
+	 anqMJoBZo57xCFUAeBy1GGtvuohkmb1mirLRg8CedIFxEf++D4q0LWhGxxqP/Fa7kcyaZ
+	 2fc5PREsjr2TUbq4Tj1/+SrMuoWqaG++4mZivNTLKD0NnoUcnIAbBrnB6kdqpelV6eCHq
+	 YBJQflt1JW1zduhqkXXSLEPqe8NKt3ud0JsXbrQhkkP3fxxY58qoT3MdqaNE9Rvk6xCKb
+	 gZf6pl4updyPb0Akg7XI1kGNOE5ycdnVgPBpJfrT7BIJ/+e4DTy4Lq0x6bkUgpPMeUQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eQC0Wr3l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JyqHZBSG;
+	arc=none smtp.remote-ip=209.85.218.41
+Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E118606A320;
-	Fri, 20 Nov 2026 12:03:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79ED0606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:04:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79ED0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eQC0Wr3l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9F91F000CA;
-	Fri, 20 Nov 2026 12:03:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795176232;
-	bh=SqWIR9Se+KYSxOeedAPrX5X3Izc466RyyVllm8girYs=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=eQC0Wr3lgUzzTkfZ+g++WQ6i9+JSsJkWmnj3lI8kE0w++Fj0Aif+hZDqhIL9sLyIx
-	 a8Di/kqKCukJGTJC1zXepv5Sdr2LCP9iPBbdWF+A8jhGBp1iOQaNYJN7adT34Y3W9S
-	 Pb+nv+aR2c9r1M0sYYw7/cHzuoRB8xHITNvgoDwEKeBy2Gh1Ujc9EBblYVSC3NiU26
-	 a4amGvRPy1ozUlU0xEE6aDwbhw359/SVKYSi0RWbGncSHF6ILeSO+SgPi2eCETCBk6
-	 z9bgDTJwIM9aRQu/yAj/ctpZU9mN6fxaqnl7WJSRpJYz286xTIXsEojssbBso6V1c4
-	 oiEmhIyhrZC5A==
-From: Andreas Hindborg <a.hindborg@kernel.org>
-To: Zi Yan <ziy@nvidia.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka
- <vbabka@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett"
- <liam@infradead.org>, Uladzislau Rezki <urezki@gmail.com>, David
- Hildenbrand <david@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, Brendan Jackman
- <brendan.jackman@linux.dev>, Johannes Weiner <hannes@cmpxchg.org>, Mike
- Rapoport <rppt@kernel.org>, Joshua Hahn <joshua.hahnjy@gmail.com>, Rakie
- Kim <rakie.kim@sk.com>, Gregory Price <gourry@gourry.net>, Ying Huang
- <ying.huang@linux.alibaba.com>, Matthew Wilcox <willy@infradead.org>,
- Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>, Boqun
- Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, =?utf-8?Q?Bj=C3=B6r?=
- =?utf-8?Q?n?= Roy Baron
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Alice Ryhl
- <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Daniel Almeida
- <daniel.almeida@collabora.com>, Tamir Duberstein <tamird@kernel.org>,
- Alexandre Courbot <acourbot@nvidia.com>, Onur =?utf-8?Q?=C3=96zkan?=
- <work@onurozkan.dev>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Arve =?utf-8?B?SGrDuG5u?=
- =?utf-8?B?ZXbDpWc=?=
- <arve@android.com>, Todd Kjos <tkjos@android.com>, Christian Brauner
- <brauner@kernel.org>, Carlos Llamas <cmllamas@google.com>, Igor B
- <igor.b@beldev.am>, Vitaly Wool <vitaly.wool@konsulko.se>,
- linux-mm@kvack.org, rust-for-linux@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v22 0/6] rust: page: add page kinds
-In-Reply-To: <3C3421E5-5B7D-42B8-ABD2-185375693D7A@nvidia.com>
-References: <20261118-page-ownable-v22-0-d63ff73f4075@kernel.org>
- <37B6D4A8-288E-40E8-9214-EDABBFE49C39@nvidia.com>
- <871p8iue5y.fsf@t14s.mail-host-address-is-not-set>
- <3C3421E5-5B7D-42B8-ABD2-185375693D7A@nvidia.com>
-Date: Fri, 20 Nov 2026 13:03:30 +0100
-Message-ID: <87se0vu2ul.fsf@t14s.mail-host-address-is-not-set>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JyqHZBSG
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c50933bdf4bso182194966b.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795176260; x=1795781060; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
+        b=JyqHZBSGCCRqDdOHH65ZZy9yArIzKay9iBcAGj+JCP39dQWxzibSCZRuFYM9l+iNqC
+         ces5ENxu9spsVKO9ohgXKIAXU1bbRyezWFmA+b2FHoyLzFoNlQI+7HD39OomPwhdb5DX
+         C4LoYW6oqQMITUwQXNsowUpr7Vlci2qUQv2DpGWLfrGxRO6BnoIrsxkL0GBIvYadfT4Q
+         7Qawy2XUZGLdTRJkQcNbgTZ4zUcZNXIWDvQ34wYzqefUxFGdaPu2dfabz9bFU/AaAXky
+         qev/w6ejUs8bYaYzBQ8LDYo/ZXAiO4WP4fpYsKNeY2J5+PXqcz3nCo7Vlz1NlsideXcE
+         OexA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795176260; x=1795781060;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=f5jFU1oClGpHi+sP+eLcjKraNLMQXWt1ophJUUm0GbE=;
+        b=kVXEzAjljt4OXYRLOtk8g8xn96CG2xb/o730pJ42dfdgbs9N5/pyAKyT/8R9p4r4xc
+         6R/7lvT1D+ITaS0MsJVZ2bGZJ8ONdnglFjQykjtZmTLaNaOmx1BByX2eemAsMs1Cz6+D
+         3wSCkDmKsYNjZHl5Qn0mw6LBkxSjjFR4sH+3Dgawspy4LzQprywBsiZzdAAsNBqMG64T
+         ml1bgHYvpT/rvrASIGBipzgrUnwmHb8A+2ZX92F3zSEI0UQMzAtVwDsVjaMpqcF4voFK
+         xW8r0NPtBiAk+99woZ7UD+UhctPTmeGuPbI82Ysanynk9MpE7w4flgHc+nhxqeB4D3oC
+         rO3w==
+X-Gm-Message-State: APuU4Z9zzEfGKo21ivWhZiUfhCC+7vyF43Wq6/AgPJ39oVY3QIdnVWTo
+	7hUffNBHA80+Z1yg9mJq/5NtpiZhbAWupEKDR2pQQcmM3JBo4htKiz6K1YQZjVNt
+X-Gm-Gg: AYBFou3FpnaUYBxNSGwQAN0hKEAN/bUcf9ggDX8V/TWZS149czJrOhJsiyogt8PcfJn
+	4XNr1dK3F/xw+P2y8W2Pa8Xegga4jJIX75od70v2T5xDbbFiA6pTLhjqwWhjRsFWI6CSJcxDe98
+	JeEfoVXff8Fq1mRyKHZUTSm/YKFvaYq5mee1pl5k20CQ21l7UpPGP/rsthTxn+EocPLbbWKJ8sd
+	igW+mC/l/mgpmqPRDs27KDhHgJ9Z51LFUJqo7D3JfQOK4XNty5tjiDG7X0OZ6ToPOHxN440TD4M
+	kkw9ngrLKJ+Mi9srXUZHpbzMSpVBr+k/7lXSzybQcA2VSQknBh+6lhz3b0Bl4EGrWUrOJICDbcY
+	y8o+HZUQQL4TsZDokozPnY5oFElkWeWbOnSZYarRjNPpCZRiT+0pOag1PDE4nauRJSy3eBfLHgL
+	Ozw4++58QPF1gxRxNilKF3af7sptL5J+9ytaQvAGNChhJhvfbhVzj9HC+4LWwV1azs9HDnbRl3/
+	tOVXvtkgWDJNTANVTj94BMOA+r7yG8ZV5HE/6N0Dkm8OBc2+2kceDp8bQxJDF80Clox6QF9B0dg
+	JGnD/CA+q0WZN/Iv/GXo7JQvq9k5yU2SiBpKXIIH0sfoW7FZMloJkdfIO8SLSrPuR5dE8vxAyK7
+	L+tt9Gua7LD25dF2gqT0Q2FnJFsweogINVkJ1Q9Nr4Q3RkPHJPvoJJVk1CCTbkpV0Igp32tGDzM
+	46jReIeZWpn4xKY1kVwT6Clr5sM9ourZTvOoGxpRj73dJyPGp5fakqQ0x/IGAlPQ0=
+X-Received: by 2002:a17:907:3dac:b0:c51:249f:7215 with SMTP id a640c23a62f3a-c51317e3341mr433349466b.7.1795176259541;
+        Fri, 20 Nov 2026 04:04:19 -0800 (PST)
+Received: from [192.168.100.100] (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afc5396sm88672866b.58.2026.11.20.04.04.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 04:04:19 -0800 (PST)
+Message-ID: <91d8a899-e768-4a4f-8f56-50a7b6f8a293@gmail.com>
+Date: Fri, 20 Nov 2026 13:04:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,170 +92,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5] fat: make rename recovery safe after metadata write
+ errors
+To: OGAWA Hirofumi <hirofumi@mail.parknet.co.jp>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ syzbot+b0aebd03565f5774f7f8@syzkaller.appspotmail.com
+References: <6aa82300.a211d2ce.1a5198.0295.GAE@google.com>
+ <20260929090029.742579-1-krystianmkaniewski@gmail.com>
+ <87ld8j4161.fsf@mail.parknet.co.jp>
+ <1f18819d20c92960b8b2d6ccc8bc4506d346150e.1790779353.git.krystianmkaniewski@gmail.com>
+ <87bj90m6dq.fsf@mail.parknet.co.jp>
+ <20261014082315.190262-1-krystianmkaniewski@gmail.com>
+ <87qzhqvloo.fsf@mail.parknet.co.jp>
+ <55a1f016-a7a2-469f-b481-37223d695f29@gmail.com>
+ <87cxt921rc.fsf@mail.parknet.co.jp>
+ <f9b27432-4104-4323-8cd7-e2cda73db2f9@gmail.com>
+ <875wz11xfg.fsf@mail.parknet.co.jp>
+ <c820357a-a7cf-4f4b-ab23-91530a12218b@gmail.com>
+ <878q3uhv4h.fsf@mail.parknet.co.jp>
+ <20261019145146.539233-1-krystianmkaniewski@gmail.com>
+ <87wlrdy8ch.fsf@mail.parknet.co.jp>
+ <2ba329a1-ad8c-4b6a-8dd6-1f93c85224c0@gmail.com>
+ <20261102143013.492650-1-krystianmkaniewski@gmail.com>
+ <87y0b3to5u.fsf@mail.parknet.co.jp>
+Content-Language: en-US
+From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+In-Reply-To: <87y0b3to5u.fsf@mail.parknet.co.jp>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Zi Yan <ziy@nvidia.com> writes:
-
-> On 18 Nov 2026, at 14:34, Andreas Hindborg wrote:
->
->> Zi Yan <ziy@nvidia.com> writes:
+On 11/8/26 15:04, OGAWA Hirofumi wrote:
 >>
->>> On 18 Nov 2026, at 11:18, Andreas Hindborg wrote:
->>>
->>>> Note: The page patches were part of the `Ownable` series [1] until v21.
->>>> This series continues the version numbering of that series, and it dep=
-ends
->>>> on v22 of that series for `Ownable`, `Owned` and the split of `RefCoun=
-ted`
->>>> and `AlwaysRefCounted`.
->>>>
->>>> Not all pages can be treated the same way. A page allocated with
->>>> `alloc_pages()` is managed by the page reference count, and kernel C c=
-ode
->>>> routinely takes its own references to such a page. A page owned by the
->>>> slab allocator must not have references taken to it, but it can still
->>>> show up in places such as a bio vector. A frozen page has a reference
->>>> count of zero and is exclusively owned by the party that allocated it.
->>>>
->>>> A single `Page` type cannot describe all of these. This series makes
->>>> `Page` generic over a sealed `PageKind` that describes what is known a=
-bout
->>>> the page:
->>>>
->>>>  - `Page<Base>` is the base kind. Nothing is known about the page
->>>>    beyond the validity of the `struct page`.
->>>>  - `Page<RefCounted>` is the default kind. The page is managed by the
->>>>    page reference count, and `Page<RefCounted>` implements
->>>>    `AlwaysRefCounted`.
->>>>  - `Page<Exclusive>` is a uniquely owned frozen page whose data area
->>>>    follows standard Rust aliasing rules, so the data is available as
->>>>    `&[u8]` and `&mut [u8]`. It is handled through
->>>>    `Owned<Page<Exclusive>>` and is the first in-tree user of `Owned`.
->>>>  - `Page<Frozen>` is a frozen page whose allocation is uniquely owned.
->>>>    Unlike for `Page<Exclusive>`, nothing is known about who accesses t=
-he
->>>>    data of the page, so the data is only available through the unsafe
->>>>    raw accessors.
->>>
->>> Why do we need to allocate Page<Frozen> when we can allocate Page<Exclu=
-sive>?
->>> To me, Page<Frozen> is an observed page state from a non-owner point
->>> of view.
+>>  fs/fat/namei_msdos.c | 18 ++++++++++++----
+>>  fs/fat/namei_vfat.c  | 50 +++++++++++++++++++++++++++++++-------------
+>>  2 files changed, 49 insertions(+), 19 deletions(-)
 >>
->> I'm not sure we need it, which is why I added this note:
->>
->>  This currently has no users, but I add it here for completeness. Let's
->>  discuss if we should keep it or not.
->>
->> The difference between the `Page<Frozen>` and `Page<Exclusive>` is that
->> `Page<Exclusive>` has stronger invariants. Namely that the (physical)
->> memory region of the page does not incur data races, and that the page
->> not in highmem. From a Rust point of view, this allows us to obtain a
->> reference to the page contents without jumping through any hoops.
->
-> But access to memory region of the page is associated with page table
-> mapping or IOMMU mapping (for device, and I assume devices are accessing
-> data via virtual addresses instead of physical addresses to avoid further
-> complication). It seems that you are trying to use page refcount =3D=3D 0
-> to infer that no page table mapping exists for the page. But how about
-> kernel direct map?
+>> diff --git a/fs/fat/namei_msdos.c b/fs/fat/namei_msdos.c
+>> index d46d1a3851f25f..51d49a3ca93c14 100644
+>> --- a/fs/fat/namei_msdos.c
+>> +++ b/fs/fat/namei_msdos.c
+>> @@ -562,14 +562,20 @@ static int do_msdos_rename(struct inode *old_dir, unsigned char *old_name,
+>>  	return err;
+>>  
+>>  error_dotdot:
+>> -	/* data cluster is shared, serious corruption */
+>> +	/*
+>> +	 * Complete the remaining rollback. Report corruption only if a
+>> +	 * recovery step cannot be completed.
+>> +	 */
+>>  	corrupt = 1;
+>>  
+>> -	if (update_dotdot) {
+>> +	/* A failed sync write clears BH_Uptodate, leave that buffer alone. */
+>> +	if (update_dotdot && buffer_uptodate(dotdot_bh)) {
+>>  		fat_set_start(dotdot_de, MSDOS_I(old_dir)->i_logstart);
+>>  		mmb_mark_buffer_dirty(dotdot_bh,
+>>  				      &MSDOS_I(old_inode)->i_metadata_bhs);
+>>  		corrupt |= sync_dirty_buffer(dotdot_bh);
+>> +	} else if (update_dotdot) {
+>> +		corrupt = err;
+>>  	}
+>>  error_inode:
+>>  	fat_detach(old_inode);
+>> @@ -577,11 +583,13 @@ static int do_msdos_rename(struct inode *old_dir, unsigned char *old_name,
+>>  	MSDOS_I(old_inode)->i_attrs = old_attrs;
+>>  	if (new_inode) {
+>>  		fat_attach(new_inode, new_i_pos);
+>> -		if (corrupt) {
+>> +		if (corrupt && buffer_uptodate(sinfo.bh)) {
+> 
+> This check is ok with sinfo.bh?
+> 
 
-`Page<Exclusive>` has the invariant that it must not be in highmem, and
-as such is always accessible in the kernel virtual address space. As far
-as I understand, this means we do not need `kmap_local` before accessing
-the contents.
+Yes. For an existing destination, msdos_lookup() reaches fat_scan()
+through msdos_find(), while do_msdos_rename() calls fat_scan() with
+the same normalized 8.3 name. Both identify the same directory entry,
+so sinfo.i_pos equals new_i_pos and sinfo.bh is the buffer containing
+that entry.
 
-> Anyone with struct page can use kmap_local*()
-> to get kernel direct map and access the page content. kmap_local*()
-> does not reject frozen pages.
+> 
+> I guess this check is needed for msdos too? If so, maybe we want the
+> helper function in fat module.
+> 
+> Thanks.
 
-`Page<Exclusive>` is a unique handle. Nobody can get a hold of the
-underlying `struct page` to perform mapping operations on the page.
+I agree that a common FAT helper would be the right shape if this check
+were still needed. I prepared that version, but before sending v6 I
+noticed that the buffer write-error contract changed in v7.4-rc1.
 
->
->>
->> I do not have a user for a frozen page without these invariants, but I
->> would assume there are use cases?
->
-> For the above reason, everything is Page<Frozen>?
+Commit 9f08e58149dc ("buffer: stop touching BH_Uptodate on write
+completion") no longer clears BH_Uptodate after a failed write. The
+failure is recorded in BH_Write_EIO instead. The same series changed
+fat_sync_bhs() in 8417ab622ffc ("fat: check for a metadata write error
+with buffer_write_io_error()"). The 9f08e58149dc commit message calls
+out the mark_buffer_dirty() warning from this report as the reason for
+the series.
 
-Pages that are part of user space process vmas are not frozen? We see
-these in system calls for IO.
+I reran the original C and syz reproducers and targeted metadata write
+faults on current mainline without a FAT patch. The writes still failed,
+but the !buffer_uptodate warning did not occur.
 
->
->>
->>> In core-mm, a page is frozen, when its refcount =3D=3D 0. The code look=
-ing
->>> at the page knows the page is exclusively owned by others. If the code
->>> allocates a frozen page, it will not check its refcount, because
->>> the code knows it has the exclusive ownership of the page. To reflect
->>> this, the code calling alloc_frozen_pages() should just get
->>> Page<Exclusive>
->>
->> Is it always the case that users of frozen pages will use them in such a
->> way that they can guarantee no races to the page contents (physical
->> memory)? They cannot be mapped for DMA access or anything like that -
->> that always requires a refcount?
->
-> See kmap_local*() case above.
+This also means that changing the v5 checks mechanically to
+buffer_write_io_error() would not be correct. The new buffer semantics
+deliberately preserve the in-memory data so that a failed write can be
+retried. In particular, suppressing the second dotdot rollback in
+vfat_rename_exchange() would now remove valid recovery.
 
-Right. Both `Page<Frozen>` and `Page<Exclusive>` are guaranteed to be
-the only reference the underlying `struct page`, and so nobody can do
-mapping operations from under us. The difference of the two is that
-`Page<Exclusive>` provides guarantees about placement out of highmem and
-no races on the page contents.
+My current conclusion is that I should not send a FAT v6 for mainline.
+Would you agree that 9f08e58149dc should be reported to syzbot as the
+fix and that this FAT series should be dropped?
 
->
->>
->>> and if the code encounters a Page<Base> and finds it has no refcount,
->>> it should convert it to Page<Frozen> or there should be a method
->>> that accepts PFN and return Page<Frozen> if the page of the PFN has no
->>> refcount, for PFN walkers.
->>
->> We can add conversion functions, that makes sense.
->>
->>>
->>> =E2=80=9Cthe data=E2=80=9D mentioned in Page<Exclusive> and Page<Frozen=
-> is struct page
->>> data or the data in the physical frame pointed by Page<...>? If it
->>> is the former, is it better to use metadata?
->>
->> I'm referring to the actual physical memory region that the struct page
->> describes.
->>
->>>
->>> I am new to Rust, so feel free to correct me. Thanks. :)
->>>
->>
->> I'm new to mm, I really appreciate your eyes on this.
->
-> Do you mind describing the high level workflow around Page in Rust?
-> From my point of view, exclusive page content access is more related
-> to page table (including IOMMU page table) than struct page itself.
-> struct page ownership is more about the metadata stored in struct
-> page for physical memory maintenance.
+Older kernels that do not contain these buffer changes may still hit
+the warning. Since the warning is now addressed in the buffer layer,
+backporting the relevant v7.4 buffer changes may be preferable to
+adding a separate FAT recovery change.
 
-Just as in C code, there are many workflows around `Page`. Three main
-ones I have seen in Rust code are:
-
-- Pages that are part of io buffers during a syscall. The pages are
-  mapped in at least one user space process and the kernel may want to
-  read or write from/to them. These would be `Page<RefCounted>`.
-
-- Pages that hit the block device driver API via the block layer. These
-  can be anything, so we model them as `Page<Base>`.
-
-- Pages used for backing storage like in the null block driver. These
-  are modeled as `Page<Exclusive>`.
-
-I think for the first one, binder is inserting and removing pages from
-vmas to do it's IPC thing.
-
-If someone were to write an allocator of some kind, they would probably
-reach for the `Page<Frozen>`, as they would like to have ownership of
-the metadata, but not the contents.
-
-Best regards,
-Andreas Hindborg
-
+Thanks,
+-- 
+Krystian Kaniewski
