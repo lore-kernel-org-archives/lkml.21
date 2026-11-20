@@ -1,99 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.147
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165609;
-	b=MTQ3cGP5pOzSItOJCXscJeWFvnAaNAIrGmQmlk5m2/LYyd5bbrZLtu7npPH5J9HkXhVs
-	 HItkt5egQ2ndz7evHJBjHbQuH1SvlhooZNWX82AAPOWGtpn94dcy4Ob077vBHBUOP84bu
-	 Spks4qLHlF1CRpGKwZcUIC8Tp1+xCkzJlE3WiSccg63oUi89BG5XYtYA5r2BNedSlQg3z
-	 /hVXRXPnNtXJa/YetnfTsJdms0aOpmGJ8vyNTxXkww105DWOqA5hL70L1Tr4/iyc5llRh
-	 cYNy0SXg7P0uYrg9LALW+3mJ/bjSX+9rhbcAMHHbtIOEkIrTR3gn6LwULwjHaA6N7FA==
+	t=1795165701;
+	b=5CiJqOAKx5WIKpbSXFF7ZcbNQQNvYrZTa2MlviLnAy6Q2u7wB82ukzRNC1B+7PbxE5XU
+	 QdKuzxzoyywdiqfv9+pYOa83tb7I7BHUimFNJwZFRRQdC4WN76EXZePdZJ8sZa4NCJafu
+	 zq2kO285WFdqBem9bgl6T50kwkZxCEwEH0A9vb8T3VUOIBQ1DW3NwoMEUFI6g4mZ9fr+C
+	 AaU3Yf1AGgvW5emF6UcFGO9UhW6YIR5G+3vZ6IPON69AwjqOF8gJsok4I80bwOwU5tsgB
+	 MflRUPGjaDYE15sLHoWODl1m4yw9Zyp9saO7Ja+//mSCzjMpFZAKzO7hwZ0mWM9AFNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165609;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=ozCjzkbSInbrmO6p83Z+XuWVCHjjnvkKYmiMfFEnSNw=;
-	b=IHRdhSTc6h/FrTpSpjRisLibmP7C2Kd/PI9Tq7cVC4dQVH6hk3xgvwwtewolBlNMz3Aq
-	 BwoYKjLstJmCh9+Z7uvbh1x46dSHKrDN8IMwk0txZgqUvy9M8OhCjwfixqQRoxW3iupU6
-	 kZwyW2viwWrDuOnY0XomKKrUNdQ+nm2XBopoespR6ks1qFBchbdD1DNYiJtSjsNRRJgKd
-	 xNhxlLi1yA8UTnOMKmpvSfgYTMt7qhxwtSfA77OJnzNoAMG36vVnI1etXpG5uEJY04+8x
-	 jpGJx+FZGGsqZ54QJOQh7cg9ovIbkSzRLEFHx0LKrjJ5xrzw+z1da/25fzD4GaabIyA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165701;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Eb8Btk76s77msHfVg+/TsIgZczD+oc/KLRtiVpgTo1M=;
+	b=wqt7zipan96NPBRNnw6Ic88UEn95qRZDOsJhC0yjbF7XZMS0qxbbFo5PS3qDtt2F8LIh
+	 6QYnxEWbOmMSZQpuvd0mjssQitZba/ek8L6q65EuNyAvZk24ODKAP2GwTGHP8JzparNPh
+	 /JD5WhcgmfRb1hkhVTTeJwUc/WgdUZr23c20pwk0iN5QW92b6AFvWD/I/ekz+iyBP2U7k
+	 XEyomU0YztdFNrbX6N+ZRvm3LVPhh9eIXdOggTFU3mjmiGeex6DWHOUcFo91q5mQIbVBm
+	 WXxTxQf+osrqOQ36nsT+7dUnfTMqeOF2sD3W6tYCiiJZMuq2tB8Leiemhpycm4VizTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GCD2hjdZ;
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=jschaer.ch;
+	spf=pass smtp.mailfrom=jschaer.ch;
+	dkim=pass header.d=jschaer.ch header.i=@jschaer.ch header.a=rsa-sha256 header.s=fm3 header.b=R7mugJqw;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aivISwZU;
+	arc=none smtp.remote-ip=202.12.124.147
+Received: from fout-b4-smtp.messagingengine.com (fout-b4-smtp.messagingengine.com [202.12.124.147])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D31B606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:06:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D31B606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3292B606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:08:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3292B606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=jschaer.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jschaer.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=GCD2hjdZ
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so1110650a91.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:06:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795165609; x=1795770409; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ozCjzkbSInbrmO6p83Z+XuWVCHjjnvkKYmiMfFEnSNw=;
-        b=GCD2hjdZOroT8tTzLKEL2/WPLyjNC0cJQArcXTpCrUikekFbskZpLeCMRmf6YqB7MV
-         3m4i/DNiYHu8d1NJI8xg8x+RRefWXwWSzsgMvpVxLeike1/LtLJsBQ/cbSQb79oNSOnL
-         s51d2U2BzIWROvxIYVQzReinWNfSTUl816fqetABWwpQc3kTLgiC6E92de0hQv7DrJy2
-         vOGcU5eEst6vSJHITExY9mXP7ADsKt27BRrsAWFyUel7BX2i4hQ3zWfY/9vR94W9jRCe
-         JOHwsePxxrY2wQIkEfkYHC3AxqZN0On8WrKUF9AD4jEDPUdoHvvPS6PFc2K/Ew3wK27T
-         o1uQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795165609; x=1795770409;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ozCjzkbSInbrmO6p83Z+XuWVCHjjnvkKYmiMfFEnSNw=;
-        b=sY1VROsPXONg7jWnIoTLIscDaeeqiUcwwQZtLndMHlOxLwy4HiLt+Vb2YEnJNKKfwS
-         iYkwGQvEdDzmxAPoB0NlgPGk/unlEmVNUHR4Y3jbvZL6eF6DnzQ+6ECY9TxsVeEdfZYw
-         Pzt0+28D0j4z1guhCv4aCuIKhj6+1UyzstHYijkcinkxcpo9sDJU8C6KRxli8Mqt5NQN
-         4OcKbDpxX6CAiYVLI014jpngUZKGntt0JBuotJAkUu303bu0isIqt1GRrQPq8ZpVHnMl
-         8m3PwwgLUM1HqFMEG1lOZUAbfXhs/YGQFjuqOaRIyD839PSBxi23hMyp9jec0IamRuzh
-         +rXA==
-X-Forwarded-Encrypted: i=1; AL+hErGoRkBEfq4EmSY8b68XtLQQaABnSzuD6EJ3z9ZS1FWjWe9y9Cw2gQ2T/ZSur9pTVuPL3US2t2RkTJcNT+Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+DKKf/dg/hlDDYaInTKM940mHQV1ppxq8Nj9z8K2qb1oApNWnF
-	ARLrQbY1C9p8ka7c8LC9zSYMDtqUAUyiAPPKbnPN/pDVMGKqyOeDdpu0X9ftKx+3qzRVk4czE4j
-	Y0OrZDCu9dkUFtMW1Wbu/YBtAG0+C7YM//YncCQ5+PtUbCdBOOXre
-X-Gm-Gg: AZFdTZciaHKK0LY2QjwgOpAJpp8eWjxyDF09TFq/n72vnhmqc/XMyIoRAX3haL2AaTZ
-	3RNBLRDKO6TgL5Ypcpfr705VqDN+Zq/DDlRFfw5z8SOL2sLo0t5QOyAQ/Rr3DmlWzT7Bazo5iBF
-	ADl2e3Unzb96qnIDHfUwsNcBcUlUK5OQuEXfmi1W/UxfCVKv6gkYbQdg4mQiINpDLg0RzXg1NzE
-	hNR+czr50y1C7TJ3MSP277LEzLHgYjB/jX89LLmRmazIg4yXd9dUAZ6O0IMlTmkxrXTkNxKS5u3
-	XjaGW5X3PeFR0YssTz10k5ftSfErPM9sSvGi0oC/XLCHZRNlDqmcI/X24kdf+yYU4031A5G1C9+
-	wxcZclNUWl/zlh3wEA9VfNq3av/U=
-X-Received: by 2002:a17:90b:2f8c:b0:3ac:9ed8:f301 with SMTP id 98e67ed59e1d1-3b41c93fac6mr1505800a91.30.1795165608742;
-        Fri, 20 Nov 2026 01:06:48 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d245549sm723189a91.2.2026.11.20.01.06.48
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 01:06:48 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Piyus Kedia <piyus@iiitd.ac.in>
-Cc: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Christian Hopps <chopps@chopps.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] xfrm: iptfs: bound the reassembly copy by the buffer it copies into
-Date: Fri, 20 Nov 2026 01:06:45 -0800
-Message-ID: <bee0a5cf-dada-479b-8417-dc3621109a15@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261119142308.3272570-1-piyus@iiitd.ac.in>
-References: <20261119142308.3272570-1-piyus@iiitd.ac.in>
+	dkim=pass (2048-bit key, unprotected) header.d=jschaer.ch header.i=@jschaer.ch header.a=rsa-sha256 header.s=fm3 header.b=R7mugJqw;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=aivISwZU
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfout.stl.internal (Postfix) with ESMTP id B39D11D0038D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:08:19 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Fri, 20 Nov 2026 04:08:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jschaer.ch; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1795165698; x=1795252098; bh=Eb
+	8Btk76s77msHfVg+/TsIgZczD+oc/KLRtiVpgTo1M=; b=R7mugJqwUYfPgsmGbc
+	SszqyzftyFV9n3wx7kM0YsvVz7T9k9/VqO460/q7F9yY6H2HIbHcgGx4RF0AWDFr
+	Z+JUVGPY2ApuVBEqocNWQxwqn74MRtt2zvzJhtSFK/uQo4doHYIIZR1TguupzC/h
+	4RC1fluJHyjGux0CLtZZrD3U7J4qyJY6B2oRZPy42vTykPYSNQQrnnxTXN+Eukmx
+	Ciw4nfFg2NmdL3t/nG29FyR/DZtzkSjMnMs4CS3uJ/PD+5t5J4/D3O9khu/oT+gz
+	nxqfspeYw4LtLFU2xibTRLxdiP6vxf1BxJzZ0YsX2xzqWnFlPZGe/nNvCVXvp4S/
+	jdgg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1795165698; x=1795252098; bh=Eb8Btk76s77msHfVg+/TsIgZczD+
+	oc/KLRtiVpgTo1M=; b=aivISwZUn2zhIH8UpkCWHs8XgMSuBSmznlNynCgur5pv
+	0UOgLS5NQ9Q2zPMZnOoMAaUyvU8kePoar/+cnOI22wZpwb6iiXCSGqn9UCbuuAl+
+	jyDf67QuaGUM3iu33dUOnOmOkOcUAWA3CLb3nSl8Y23mobfsXOaBlCeO+D/xbQcs
+	UZyye2wUcQPKL3fosgk6GJVFovJFTSrDDIjFvpgSSZeIDfhMa5GetuOUMEABbZAl
+	+Lu7X+7ySM4yHKtLAcDi+Nby6RW2WZJSUGfYvDxgRXASi3DG40wI0WjYH17LN40H
+	ZrbVC//ZnJGx2q6YkUCpBZSSnnH+60AFhdvo64AZlg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=jschaer.ch a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795165698; d=jschaer.ch;
+	mf=PGphbkBqc2NoYWVyLmNoPg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:Xbj/Mo+M2gZ/hMuT7JEkm/NVXIQiFAz3jkPBnCbD7gaHCTc
+	rupB1Gj0q/TE8Igjo6E/PCjq6BA6/C1baDye2nIHdIY6gcBduT57+xvCk41d4fjL
+	GYRlKyldR2NTBmCYdJgKrvRfwK77c5/uoydjYxcijKI7CiRf/rC52LYx64AXfytV
+	So1pPMS3V1P8V9Y1G2oCKL3Cx8kW1ZPgGvv6szRymPviqcs5Qz6aGpUPzT+87635
+	tXcNmnpxsfr2h/kDP+1VE08H7UXrgvcShzrxjflZyX5hqWVmoSaHnPe8bCbrHLby
+	kraaRBuEnYWC0HRxZW4fynP+YIwJEtoE0Oo1QHQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=10;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,message-id,mime-version,subject,to;
+Message-Instance: m=1; h=sha256:Dina7eqkP6ZONZ96ujKUKkvbXZTPeYWQAoG52r4zcww=:FR2VA/pOmFjNjYQfGp/Vu41XJ6bW+af+V+qlyrlnlKU=;
+X-ME-Sender: <xms:AQ4AawcOQEq8hAqLVsgyS7VWNn3BKC2j7qU-MJJqrE7PuvNmNdk81w>
+    <xme:AQ4Aa-wpIKKjDJOZywtIyWjFem4lBE5WDfydhZbMOx7kCz7s0eMefHex8Dch-86DO
+    GYySGDeJ3WQf2Y9pEQIVYA6x4syeljbtocwpaKcjCvOft-I3y_PWnm6>
+X-ME-Received: <xmr:AQ4Aa18akq4b1w6Tjm5A3iM2Jlbkmib7tGKbnMWOtd3spWcSf299fJh4ueEnJiz2MX4h9FVTsKG9zpkhF-5tXC9wYrV1DuAKyDdL>
+X-ME-Proxy-Cause: dmFkZTEXrV/HxlQ+uFM1Vvb9hd4Fep4Iz7Tfl+ZCU5TmlMm/EV93OgCR0ATk9L7A99QwOy
+    t0RPc+JM/E3+efD0A1zZzQDEgEVeRKlQV8JnS2tyog0XUVE0hlAgUZYJ0csH1Mp+7ZkW4K
+    YejMfg+em/LD9OHm2YlDpgGQMPeAxj6esbPowGt/wARofr9MAN6kX3ZdRdMdXA4OLgzo9S
+    gBxovOQaLhRYEXg9ALRDWtgNnJI4XWZsdxKa5K8QkafhqhaJa1NJnyQosnz1eMf0kpb+IP
+    rDxVGtdTSUAZc12x9SCfDx/PGeh+rJkaiD1O8kvgxPQZ/wPzP5VRHE6SA5U5SAdqePz1Fp
+    OHnEgevTHtK8SVk2DFGUxlX2347kVenhVkjgc4VOwR4AsC6mBWHhNjNdDolCdNyVBE1HQN
+    skPvz8997Ik8YwVeX7IZp6mUU+cf+vYXbhUJnBp846VeGOW6iMJgf0Rm/oulqnswzB3Han
+    tdX7KU10kLPMmvEC2g6f7d+cwNj27S89aunyRH+L+5hZ0xo1csJJGg2AGNEi/cPMe43rHL
+    PU98yQ/X+TX0czpFs5PLjr763GSDIkcqXaNDgwaXN4rjGivmiR7hyege0vsrb9uVtiO2Lz
+    3OD2yr9uNmI9muURCdWUup4wAK4R+OuIy1X29RbnEWjAjnY4srGWkwiimsUQ
+X-ME-Proxy: <xmx:AQ4Aa8yV73luS7OIuxK7I1OVLM_U15nGTYOXB9Fm81bPYVd6YS1Y9A>
+    <xmx:AQ4Aa9rnxYcTUUjvR7wmpBn3npwxhxNYt1TY4beFxI1ToHG6MzlqpQ>
+    <xmx:AQ4Aa1oLjD8C9dVGbPHoxPfnnnmfCeshThBevmg6TlbHMc087sOsNQ>
+    <xmx:AQ4Aa1AajPdgf05GcTe156-mf2zn_vIUzjQArfilllsIVXZhU2kHjQ>
+    <xmx:Ag4Aa5rn1blT7JH11eLChFUcT6tHWyqdf7QCcjbOJwk7jEm8cyegg0dO>
+Feedback-ID: ie67446dc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 20 Nov 2026 04:08:16 -0500 (EST)
+From: =?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Jan=20Sch=C3=A4r?= <jan@jschaer.ch>
+Subject: [PATCH] arm64: dts: rockchip: Enable HDMI RX for Orange Pi 5 Ultra
+Date: Fri, 20 Nov 2026 10:07:12 +0100
+Message-ID: <20261120090712.68178-1-jan@jschaer.ch>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -103,29 +128,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026 19:53:08 +0530, Piyus Kedia wrote:
-> Bound both copies by the tailroom actually available and abandon the
-> reassembly otherwise, which is how the function already handles a stream it
-> cannot complete.
+The Orange Pi 5 Ultra has an HDMI input, enable it. It was missing
+because the snps_hdmirx driver was introduced after the Orange Pi 5
+Ultra DTS.
 
-The inner packet that reaches this check can be valid: its first piece
-arrives in an outer packet whose data is shared as page frags, and a
-later piece in one that has to be copied. After skb_linearize() the
-tailroom is only the slack of that reallocation, so the check drops the
-packet whenever the piece is larger than the slack.
+The pin definitions here match the schematic and the DTS in the Orange
+Pi vendor kernel. In the schematic, the hot-plug detect pin is named
+HDMI_RX_DET_L.
 
-On ipsec master with this patch, a test that sends a 1200-byte inner
-packet that way, 450 bytes and then 750, and a 100-byte packet after
-it, shows no panic, but only the 100-byte packet is delivered. The
-other is counted in XfrmInBufferError.
+Signed-off-by: Jan Schär <jan@jschaer.ch>
+---
+ .../dts/rockchip/rk3588-orangepi-5-ultra.dts    | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-I had a fix for the same overrun and have posted it now, with
-Reported-by and Closes for your mail:
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
+index 2b693dfb434c..ddcb1d2f9b49 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
+@@ -48,6 +48,17 @@ &hdmi1_sound {
+ 	status = "okay";
+ };
+ 
++&hdmi_receiver_cma {
++	status = "okay";
++};
++
++&hdmi_receiver {
++	hpd-gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_LOW>;
++	pinctrl-0 = <&hdmim2_rx_cec &hdmim2_rx_hpdin &hdmim2_rx_scl &hdmim2_rx_sda &hdmirx_det>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
+ &hdptxphy1 {
+ 	status = "okay";
+ };
+@@ -71,6 +82,12 @@ hdmi1_tx_on_h: hdmi1-tx-on-h {
+ 		};
+ 	};
+ 
++	hdmirx {
++		hdmirx_det: hdmirx-det {
++			rockchip,pins = <3 RK_PD3 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
+ 	usb {
+ 		usb_otg_pwren: usb-otg-pwren {
+ 			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
 
-  https://lore.kernel.org/all/70d0cc8d-e2ff-4293-a416-eaf2705a0b9c@mid.andrii.net/
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.53.0
 
-It makes room with pskb_expand_head() before linearizing, for the frag
-data and for the rest of the inner packet, and abandons only when that
-allocation fails. The same test gets both packets.
