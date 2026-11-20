@@ -1,84 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133779;
-	b=4msxIttCMdxxhWKLNF/POZ+BQl9mycN4LKU562Cb+87DDqakoyGdPyMTgXrjJ92gaCT7
-	 0Yqz5ylSjO+I4CTULXoToFUAjrojt2cl6+dvOHE3DTy93jcBN3ZidLemt19gblArfNzVg
-	 sFg/IKIQwjJ6Ng1BsBxgtaVUjdkQgbh+Em2cPDnW7iI+gllfZ0b/qfJz1WZN89ZCngsfE
-	 dO5ebfN8dif3kcKXC02i/m4RMwFM0udDyNYiTIN2JaKrE0+CaIURk+zeuxBDmNDnO9fID
-	 n4MdNDObFvYpQ6YRMCsRlNzeRaPuDVed48wSVXWnPNhydE8CUjVFGHF/SACw2t51vRA==
+	t=1795133829;
+	b=acDedIxPY4JdV9XROmM4C+snkRpJRwCFAKdw397r5j0u6AsOoPYu301dMO120fJp0N8s
+	 q5EFKI2pDtSKibWN6OevbFrt7P3bWY5+vUEFm9CYnhCkDVh0HvzEGEL1pDbq/8+SmCsQZ
+	 0K7mWvYYT0mGsqEpocUCRW1f4Y2bXvdkbDTqUaPDYCInQX5H2BZVWjIMieso9FWYegWmx
+	 Xayp0LfOZh5sbMoET+/YPFCb5QYnLZC2qcE12mvdujgWMlTeyiDS4KokL92GRN0FLKJz1
+	 S2s9+qkktotSUL8Oqjgt3KQx5lcPyPm9NHR7AWbxTt2h+D//T81Qep+m32CELUHvZXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133779;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=hAC07b8lFLojHV0Uml6G9ei5fnLsVAdumfXqcmefGN4=;
-	b=VgPOHz1Q1TVcwbTkPiJW/310YrzLuUUAbt1NjeqgXpYlIKwJN5eluyxVKcPkKcxtYhsP
-	 rb8Y1Zvlt2iyXN4hlfqwtgPGsP4oabhdwAKwDHkGHOHyqITUU4E/5dVrBc42Q3OPjXrao
-	 wGJYWkynQMO4HvC4c5aB0/5kpiTBiya7B3rHlyp9Rad6n1guGur5ev2RccNbx8maGPTVt
-	 PzEPYjUBw2S4tPpsWndvFtEih4SJmjJT0ctjNqdjRSsaqmnjRUJAHSGde1y21bv6ijm3s
-	 +srf+6PYlkz/8lfj5j8bhrje4snnXYn2JkepJVvOqnnUxDWuIGZfRQR86JGjqV/fGnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133829;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=OLsKfGJGXGbCFEXjWw/sv6ne1Orj0T4H+oyWO2Za6zI=;
+	b=kh9H/qYkAyoF51IKk3uhcGcPesMRIkP3c4vbC+reNJnghSGE/4uvuo8mq5RPrDL26IZJ
+	 l7MgiwAnVNiMU0Tr51WG2Ea1gAABQZHI3pZssCLM+924U2L7CMCcolf2tmmE+m8iHPyll
+	 jQDiKH42/tEPny5XihqCiJAk0CO8zWPnnQTjl32eN/O5jWZU/ri1rlgPA9CJDFqJ2M0C3
+	 HXAGhUN5gsjItjoSPD2Eavwp5wWaNMjmoAmC8KdPOUb9+Mz+uz6MEH4A01RBWsWM+6DOY
+	 y1pHy53J9MkOKaahvqgFvd16atJGiKJ+c056WfiCx4sDLUL7QQy84xYiD6+uSZJkmjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YGxaXrD3;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV;
+	arc=none smtp.remote-ip=192.198.163.19
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E02D606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:16:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E02D606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 733E6606A325;
+	Fri, 20 Nov 2026 00:17:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 733E6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=YGxaXrD3
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2efdbab4e03so1114385ad.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:16:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795133779; x=1795738579; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=hAC07b8lFLojHV0Uml6G9ei5fnLsVAdumfXqcmefGN4=;
-        b=YGxaXrD3nt6EPnZPTmgF4t/3KSyiOMN1+lC4rUXlqKhSSkNgz7z3Tw9defhg0JcLNz
-         COBTxMkEo40/X8sRQdM7HVlPc4YBUI3BOWpsLwV/c+feWkZ+jerXEi5k9B1v4Aj35evN
-         34MBgyEFqjzAAK+aE+r1l25v875SuA/dwjm66qDtp7iDEdwiA0p+BZ+mvYZYV55F1oPc
-         ytJ6fNB2IkjgjHg7MtQPV87reMTxS9vehx9xnwzlWqfUjqDj2DcuXCbR7QemVG8EjrOl
-         ViWGN5eNUOfh7oLjeYPYCv+//QPNGWVPjeqJ8hnRLVjPVuR1qlAszE5eQcyfvgAzj7Jn
-         sP3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795133779; x=1795738579;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hAC07b8lFLojHV0Uml6G9ei5fnLsVAdumfXqcmefGN4=;
-        b=o4JbmoIf048fe6HZ7VOZvH40eNwTx5+1DYwAIgvmnc6Tmc90MpgPVmiEr+zY1btK8p
-         UpR6/i02CkkxnpIqZwBhPVKte81d42m3LK2UxHm08kBJttm3wB/O3sEneR9qmGkc/23B
-         FgIk2ueg8dsTxIfwINrT+qM7XBH3NLLln7c8L315+xxOJOnVmALLS9nYi6TxWMB2QsDt
-         n9cAFrCOBXleviT8QHUceWVmg5+lPnzbn/b4OdBMKnUJiX6Klzf7GkX493Td1kSrS5PG
-         lNgss1S1spAVyiJlawiRtl+d+lazI82GGHVsV5majVHu3mDY9AAQFnCZkTEIdK6t7z6W
-         9DQw==
-X-Forwarded-Encrypted: i=1; AL+hErHkOmOH6N6d4wRJwkIpPA3Ez+R+Xn0+n5EyTFzfeS65adUAtL0q0GJjitQx5gTYjHtWS6vxkhaj7iHcMu4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89591upf992LsaM9NDF8q5elcx/yXbz2YxnRFYrcoE91x/Q93d
-	tGgOy1DLGZGqzlR/q84OKpwMT6L6xINtk267OqWmiBsVwLuZVsrHyJLT0Qruuxr38A==
-X-Gm-Gg: AZFdTZcAuFkkuS0oQUoxKYqmX7sqAlyFvkfh0qn8WnTUTBCFbKJiFVfw9xrJxydmRb0
-	5X/QN1+x10SJJeLB6Uic/dADL4CwhmrzDinc7kobqDUoZuYnk+nhAwU1MLQLoMTxEbd6/5/FHet
-	WqX+3PvbbMrMNCVe8G6awCG6LBnhrDO46qBmEIM6Ro0lcIB67+ZJyjrI+Ax/uKcXD0rkxX4NKu0
-	ebx0eT7wGLzvKxnXzMZie9NPpFjwNE6azoyraKdZFYX4AUfJRCxMT63mKQr7Cy+oxVgBodK0a6O
-	AS7FcQUGz2h3XdzBoeeKY0JWz7xe3wnLEcbUXevAjrsxnEV8z5ST/LLXIdsBufV42fVc637RB61
-	szSk1J8CYU9aHnp7sVQehyIoLolqyHCA+Jiu3v9fpWzI+wWpJTMNM4upxiKcCnZ5kKl+rHn20r5
-	o02/kqHEAetgztmGNLVU4DgtQWwFNtjv5FV3fTR9+7Fdi8iwRwalVNQMkapjT+e8C/pUbobVBjI
-	TD2Ml9qy0YE93iLIbnxZaLU86oefjcy3eU+b7BPOQ0NWu+vSnxdlipPHoZ1bsKnDmNcjm3qd1gv
-	zHroqls9UqWWb3bzlPF6KbeHv9SEJ7Giz9RpNkdB/68Qv/vMwwfEP6thCCfBm/a0
-X-Received: by 2002:a17:903:2b0f:b0:2e2:dfb8:818a with SMTP id d9443c01a7336-2f03f20f8c5mr14954585ad.62.1795133778058;
-        Thu, 19 Nov 2026 16:16:18 -0800 (PST)
-Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c6e50sm6072095ad.13.2026.11.19.16.16.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Nov 2026 16:16:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795133829; x=1826669829;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=yEi5eshbfr2TQL5MUtp80HFRx4STfemmDqBrkrAfDFo=;
+  b=cTawwDfVty2TKcWPNW+YGMaMIWJCXpq3QL/aU2TJiy9fp2hZrSy8V2Op
+   WF1TaNuzfpe5SCPC4jkZRyW1+7T/c72xVQAE2zPnQWXUIFYOiV8nI6h+d
+   zeoRR3FIM4f/9weyISDdD+VBjZDlOFHeszhHO66pzfXCNL6gdDKu114Ug
+   K8eP2UfGrC6d/JLddGFEMyKXPNXVlRA/9UJ4zsjxX70uU+x9bDjJ88vme
+   arZpJYFuu6YF3DGHV6c2AqfCo1bM8P2iLkAp0bOt5OsaWm2gzDuJW9T89
+   1qI86XoQUErTOQN2u11tR4OejaavWDbASAWXxBr7dYYnIFV76TWP83C50
+   Q==;
+X-CSE-ConnectionGUID: Se7oxJ/KR6CGCLP4EqIYVA==
+X-CSE-MsgGUID: vObhtkkJQlucj/NwGKruyg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4105498"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="4105498"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:08 -0800
+X-CSE-ConnectionGUID: 6P4Ifn6RQLWDsYJYpnLxHg==
+X-CSE-MsgGUID: UY+0hjRkSj2bHDcTgn6ASw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="11129307"
+Received: from vcostago-desk.jf.intel.com (HELO vcostago-desk) ([10.241.240.61])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:07 -0800
+From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+To: Mohamed Dawod <mhm.dawod@gmail.com>, netdev@vger.kernel.org
+Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ ye.zh-yuan@socionext.com, linux-kernel@vger.kernel.org, Mohamed Dawod
+ <mhm.dawod@gmail.com>
+Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission
+ time estimate
+In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
+Date: Thu, 19 Nov 2026 16:17:06 -0800
+Message-ID: <871p8gtkzh.fsf@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,89 +80,55 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 19 Nov 2026 16:16:16 -0800
-Message-Id: <DMZLTC9U6DBX.3FR19X5M2IT3W@google.com>
-Cc: <kexec@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, <kvm@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-kselftest@vger.kernel.org>, <linux-pci@vger.kernel.org>,
- <ajayachandra@nvidia.com>, <alex@shazbot.org>, <amastro@fb.com>,
- <ankita@nvidia.com>, <apopple@nvidia.com>, <bhelgaas@google.com>,
- <chrisl@kernel.org>, <christian.koenig@amd.com>, <corbet@lwn.net>,
- <graf@amazon.com>, <jacob.pan@linux.microsoft.com>, <jgg@nvidia.com>,
- <jgg@ziepe.ca>, <jrhilke@google.com>, <julianr@linux.ibm.com>,
- <kees@kernel.org>, <kevin.tian@intel.com>, <leon@kernel.org>,
- <leonro@nvidia.com>, <lukas@wunner.de>, <mattev@meta.com>,
- <michal.winiarski@intel.com>, <parav@nvidia.com>,
- <pasha.tatashin@soleen.com>, <praan@google.com>, <pratyush@kernel.org>,
- <rananta@google.com>, <rdunlap@infradead.org>, <rientjes@google.com>,
- <rodrigo.vivi@intel.com>, <rppt@kernel.org>, <saeedm@nvidia.com>,
- <schnelle@linux.ibm.com>, <skhan@linuxfoundation.org>,
- <skhawaja@google.com>, <vivek.kasireddy@intel.com>, <witu@nvidia.com>,
- <yanjun.zhu@linux.dev>, <yi.l.liu@intel.com>
-Subject: Re: [PATCH v6 11/27] vfio/pci: Retrieve preserved device files
- after Live Update
-From: "David Matlack" <dmatlack@google.com>
-To: "Vipin Sharma" <vipinsh@google.com>, "David Matlack"
- <dmatlack@google.com>
-X-Mailer: aerc 0.21.0
-References: <20261102153656.1431701-1-vipinsh@google.com>
- <20261102153656.1431701-12-vipinsh@google.com>
- <DMOAT4VV939P.2DI8CEOMMSKMY@google.com>
- <20261118065653.GE2250529.vipinsh@google.com>
-In-Reply-To: <20261118065653.GE2250529.vipinsh@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain
 
-On Tue Nov 17, 2026 at 11:51 PM PST, Vipin Sharma wrote:
-> On Fri, Nov 06, 2026 at 05:19:28PM +0000, David Matlack wrote:
->> On Mon Nov 2, 2026 at 3:36 PM UTC, Vipin Sharma wrote:
->> >  * Open and return an anonymous VFIO cdev file via
->> >    vfio_device_liveupdate_cdev_open().
->>=20
->> Here's an idea for how the device file could be created on retrieve,
->> which I'd like to hear your thoughts on.
->>=20
->> The patches from Pasha at [1] lets userspace pass a
->> file-handler-specific argument to LIVEUPDATE_SESSION_RETRIEVE_FD. In the
->> next version of the tmpfs series, I'm planning to use that to have
->> userspace create the file and pass it in the argument, and the kernel
->> then restores the preserved file into it.
->>=20
->> I wonder if VFIO should work the same way, e.g.:
->>=20
->>   struct liveupdate_vfio_retrieve_arg {
->>           __u32 size;
->>           __s32 fd;
->>   };
->>=20
->> Userspace would open /dev/vfio/devices/noiommu-vfioX itself and pass
->> the fd. retrieve() would check that it's an unbound vfio-pci cdev file
->> for the preserved device (domain/BDF, noiommu, incoming, cfg_size),
->> attach the incoming state to that file, and LUO would track that file
->> as the retrieved file. VFIO_DEVICE_BIND_IOMMUFD would then take over the
->> device as it does now. Since VFIO preservation is new, the argument
->> could simply be required.
->>
->> What do you think?
->
-> Overall, I agree with the strategy. I think VFIO cdev retrieval should
-> happen as the flow you mentioned above. I want to hightlight two things:
->
-> 1. This will lead to lot of code changes happening in vfio core. This
->    means VFIO PCI live update code change will spill in vfio core.
->    Should I create a config VFIO_LIVEUPDATE for VFIO core code. It will
->    not be visible menuconfig option but selected when
->    VFIO_PCI_LIVEUPDATE is enabled.
-> 2. List of other inflight series that this series will depend on is
->    increasing. It will be 3 (reset function, pci saved state, and
->    restore into fd).
->
-> For '2', should I send v7 without changes you are recommending in this
-> patch and future version of this series can transition to the approach
-> you are suggesting after LUO changes are landed. VFIO liveupdate series
-> will go through more iterations, so we will have opportunity to make the
-> change. WDYT?
+Mohamed Dawod <mhm.dawod@gmail.com> writes:
 
-Sounds good. I am not 100% convinced yet we should switch to a
-retrieve-into approach. But let's keep discussing it VFIO and IOMMUFD.
+> cbs_dequeue_soft() estimates when the transmission of a packet completes:
+>
+> 	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
+>
+> len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
+> long is 32 bits wide, so the product is computed in 32 bits and wraps
+> before it is widened for div64_s64(). For a 1242 byte frame the product
+> is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
+> of about 60 ns at 100 Mbit/s instead of about 99 us.
+>
+> As a result q->last stays almost equal to now and the packet sending
+> time is ignored again, which is the problem 'commit 961d0e5b3294
+> ("net: cbs: Fix software cbs to consider packet sending time")'
+> set out to fix. The throughput becomes
+>
+> 	idleslope * port_rate / |sendslope|
+>
+> instead of idleslope.
+>
+> Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
+> duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
+> payload (1242 byte frames), sendslope = idleslope - 100000. The rate
+> was read from the qdisc byte counters:
+>
+> 	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
+> 	10000                11.1              10
+> 	20000                25.0              20
+> 	30000                42.9              30
+>
+> Cast len to s64 so the multiplication is done in 64 bits on all
+> architectures.
+>
+> Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
+> Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
+
+It seems that you had tool issues and the diff ended up being
+duplicated. With that mechanical/process issue fixed:
+
+Acked-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
+
+It seems that it would also save CPU time, less 'qdisc_watchdog' being
+scheduled without being able to make any progress.
+
+
+Cheers,
+-- 
+Vinicius
