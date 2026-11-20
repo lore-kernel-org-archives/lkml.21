@@ -1,58 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192541;
-	b=G+bSCoXsYy780RvslLGeC0qMskV/HeRMvrBGT6gHlq/O+58CQFK1+114AXZ101FnJKrR
-	 y1Fn9rILK2aSuryqsBQydtJwWqoATnj5XNa+6pezMUeXlIujsFZv0uLLOAz6LrHVRsk/z
-	 g6zX7RT4A61TQnfw+fj8LPl4RkfQWi6Hn1m5HUqgSBOdjVtj6DNNmUWN9LNxl7LJ2jJHk
-	 vCXrGKNzozPsvG8LuPkE8iBF55rm3H5VT7K8tW4h7iekulfg7vUmaJ+mWpMm1lAqA2Tn7
-	 NT5VG5CC4wUKvxgvYXPeo/fIs7fwFSVQ4OKBTIC//ryxdDvCpzOdtOHdc2G3xe/cwZw==
+	t=1795192565;
+	b=JMjvBFOXfCNGXkhBg+P5v+w0S21FXpSA7BWs45L6pixoY7LX6Ho9RnIxwqL3kVcFwnyT
+	 c00lixEf5Y4uUnpJrZrfY7RL8g4tDBG13oxGpD+pmb6j7IIM8cQKtLl2vt4NRb9c4WuWy
+	 HFZh3Up7mD4WfCITg+o/c0awGdJ6bQcWJ5bdq+kFeeDUy+mkDu0jrboGsfyD/hgmm41BY
+	 zwXoy8huNSVHe/xHBYCL/yPET9i0qM/vyofw95nUqqHFMmHm3DOgWcOvS97HgbpTUsVS0
+	 JUm27jx0iZ5LJdjOQAufXhPBG6qxi/ufDlKRpG2Ok+fD63oPa6tgafe4vPgRXWGEWjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192541;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=cqX+HBaiyRku0wym2/6h6j8L9vuI5c+H4DFEoHY9HEc=;
-	b=MC7wmqvOGo19Sz9PigS5bIVhK+e8Jx2KbFLbC3JfnUSoychzemaYKgBGrxE0wDh1aoAI
-	 /EN0vpUuIH1gZXWVqYdGwClQprkZmrO6BqDKZmLHvb58hdanK739tTvlFFUFvZ0yBy12G
-	 JWGm3tIYeHlwgQ21Stkm19T9YcMrDHa02SzmMmuo3v7UlGvs8t0Nnc5JLl58Xg98jMVn8
-	 sdCTaO76RGq0UDOn87nAB1G3PfQMABFV+J+qs1TBuJNHomL+t+/87And4Zt+T0Zl+JQlu
-	 hTCY8t9OGPjVbWV5QUq1jKcclhgrv+3Z4/1IBXcUfkoz4dGmhacMgSpca3DCk6tyKKA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192565;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=NROB+otJAPb3sKEG9kAf2FYeN/cSw15FXGSDwsRGGiA=;
+	b=o9VoegkD+9xZ4q73g08cKPg7+6VnS3JhgDCYfZFfwrzVfWyix/3/ahVFyt47snEs13OI
+	 F/TZDCJyfEW9ZTACZhLVs3WNGLhQAcGxYyzBr54LipkqcZ1sWAYRYT7Qs0qtAOdbKbdYo
+	 QhxNoZXGwPu+rm0kTYlrWN2/IPN25QA0ms/MRG5d8dqtDK9vphr/aoq+iMG+/+6mSxBjK
+	 LBHfcKb3d8VcKpVKa23JY3q/FbLtdgOzOWf4H9VWyVbBhBrfNOs4wqhdO3np94aOYjXtP
+	 NrYw8NeuqfG6KQPTabAXGO7sI9fGQS/2g2zn9Vz3/4KB2usnGGu5OMMDAA14lp6N10g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 1908D60A260B;
-	Fri, 20 Nov 2026 16:35:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1908D60A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:In-Reply-To:References:MIME-Version:
-	Content-Transfer-Encoding; bh=cqX+HBaiyRku0wym2/6h6j8L9vuI5c+H4D
-	FEoHY9HEc=; b=QTmW1NdFdwPLolUy4u6UXSkUcGAEgyd7JVxtg3Etp3Um0h/OcH
-	QyBk8Y+Gg+Clt3rgp9b6TdWiRoBwVtyWvaQRM7U9VkeihQtzXeWzt3u6jpyYWfvP
-	VBkeJ0BjRof61RMryOCl7pEX7edZ3IoLWyK5qsNtT3VU9txfO2MGIVGrU=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.41])
-	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkAmKv3NdgBrMA_0AQ--.38349S2;
-	Sat, 21 Nov 2026 00:35:26 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Lixu Zhang <lixu.zhang@intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: Re: [PATCH] usb: ljca: fix NULL pointer dereference on events for callback-less clients
-Date: Sat, 21 Nov 2026 00:35:24 +0800
-Message-Id: <20261120163524.2994-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <2026112045-napping-suitcase-26b0@gregkh>
-References: <2026112045-napping-suitcase-26b0@gregkh>
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Jvj697/T";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00590606A335
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:36:05 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Jvj697/T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5C671F000D3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:36:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795192564;
+	bh=NROB+otJAPb3sKEG9kAf2FYeN/cSw15FXGSDwsRGGiA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Jvj697/TG8z5Aw8X8V0KDy/+ofCZg9kXbJWveRZUTJsDr+yFJiZu4gKjZVpzSeo01
+	 6yRa30P6jiDowpL2aKsWhTEAEQUHpzNawYaiSysE/Jk+8icOH0/Hm1MYXb2TAL/6Cv
+	 JQ/6fwbfIcs+xNqPW9hdfBAGTZt2d3M5fJ3t/WVnGsrVK4+UjkU90hCaxXTfOPe8oB
+	 4Trnc13yYyparqlWH1e7++5qMLO0LDuP4rjTYhDboijr1/eJOvIXcQdIfRv7SoiGVs
+	 cBELFF2LI1Tvp3wFVDrDq0tgT6dtXOe8wU7x47dJzt1ApBmihEzQ20UKYFCQQet0CK
+	 nJ9StSGTTAPMQ==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c14a204305so764969e87.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:36:04 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFN1gkQtZ4WwPHtpGRSQs5KAYbzoQTieN/dKgxndJ7tpqbhsABUb8L7XX85iTVmD16ExVlJJEljdDdE7Nc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vRN79Fa8GgzP3E/UYNynRX+mngZnXdF72EHv+vCR2uZR2+8du
+	8bQiPfxKuhuFOvFvE6ZuXyRNIxGr7OPP8tqtQpF+2ozTI5Lr5u/W4mMsK0Iu03QzO5osesrifZL
+	mTdjW92NdBagtXMd5IFI9/MBnYez9y3Q=
+X-Received: by 2002:a05:6512:3da5:b0:5ba:3fbc:272d with SMTP id
+ 2adb3069b0e04-5c1bc7d651fmr1088634e87.33.1795192562967; Fri, 20 Nov 2026
+ 08:36:02 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,83 +59,235 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261109-dpti-custom-cpu-v1-0-ead8e2d2067e@linux.intel.com>
+In-Reply-To: <20261109-dpti-custom-cpu-v1-0-ead8e2d2067e@linux.intel.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 17:35:50 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jn0RBxEHF4GxtAZUF3SxA+bAxJqtHui=aqbN1Fdjoj0w@mail.gmail.com>
+X-Gm-Features: Aa3M54q3UnfQHJFVJ2OgisTESicOBjjN48VEnnoRLIfX6LwfqK5tB8SVptueTeM
+Message-ID: <CAJZ5v0jn0RBxEHF4GxtAZUF3SxA+bAxJqtHui=aqbN1Fdjoj0w@mail.gmail.com>
+Subject: Re: [PATCH 00/13] thermal: intel: dpti: Direct the package thermal
+ interrupt to a chosen CPU
+To: Ricardo Neri <ricardo.neri-calderon@linux.intel.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, linux-pm@vger.kernel.org, 
+	linux-api@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	ricardo.neri@intel.com
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CM-TRANSID:BbQMCkAmKv3NdgBrMA_0AQ--.38349S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Cr4kCF47Wry3JF15Wry8Krg_yoW8tF4kpF
-	W5KFyFk3Wkt3Z2v39Ivr4UtF1fAF4vq3y8Cr10g348Kan8GFyftFy3Kw1Ygay3Xws3Z3y2
-	ya1Yqry3C34qvaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWUJVW8JwA2z4x0Y4vEx4
-	A2jsIEc7CjxVAFwI0_Gr0_Gr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x2
-	0xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18Mc
-	Ij6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41l
-	c7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK67AK6r1l42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUkl4iDUUUU
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUDD2sAYlgUOwAAs2
 
-On Fri, Nov 20, 2026 at 05:06:20PM +0100, Greg Kroah-Hartman wrote:=0D
-> > A device that sends a message without LJCA_ACK_FLAG and with the type o=
-f=0D
-> > such a client therefore makes the driver call a NULL function pointer=0D
-> > from the URB completion handler:=0D
->=0D
-> What device does that?  How?=0D
-=0D
-The link carries one message per bulk-IN transfer, laid out as {type, cmd,=
-=0D
-flags, len, data}.  ljca_recv() decides whether a message is an=0D
-acknowledgement or an event from bit 0 of flags alone, and ljca_handle_even=
-t()=0D
-then dispatches events by type only.  The I2C (type 4) and SPI (type 5)=0D
-clients are created during enumeration and never call ljca_register_event_c=
-b(),=0D
-so their event_cb stays NULL for as long as the adapter is bound.=0D
-=0D
-A device answering an ordinary I2C command (cmd 3..6, START/STOP/READ/WRITE=
-)=0D
-answers with flags =3D LJCA_CMPL_FLAG | LJCA_ACK_FLAG =3D 0x05.  Clearing b=
-it 0 of=0D
-that byte, one bit, turns the very same reply into an event: {type =3D 0x04=
-,=0D
-cmd =3D 0x03, flags =3D 0x00, len =3D 0x03}.  That matches the report exact=
-ly: cmd=0D
-3/4/5/6, len 3 for the short replies and 3+N for READ.  So any device that=
-=0D
-emits such a message, be it buggy firmware or a device that does not implem=
-ent=0D
-the protocol exactly, oopses the kernel from the URB completion handler.=0D
-=0D
-> How was this tested, shouldn't the driver be fixed up not to do that=0D
-> instead of this workaround?=0D
-=0D
-The callback is optional by design: ljca_register_event_cb() is how a clien=
-t=0D
-opts in, and the comment in ljca_handle_event() notes that only GPIO regist=
-ers=0D
-one.  What is missing is that the dispatcher does not honour that contract,=
- it=0D
-matches on type alone and calls whatever is there.  The patch makes the=0D
-dispatch deliver events only to clients that registered for them, which is =
-the=0D
-driver being fixed up to do what its own API promises.=0D
-=0D
-The alternatives look worse: a no-op callback in the I2C and SPI clients (f=
-ake=0D
-handlers), keeping those clients out of the list (they are needed for=0D
-transfers), or validating event types in ljca_recv() (the type space belong=
-s to=0D
-the firmware, the driver has no table of valid event types).=0D
-=0D
-Testing: compiled with CONFIG_USB_LJCA=3Dy, CONFIG_GPIO_LJCA=3Dy and=0D
-CONFIG_I2C_LJCA=3Dy; the oops above is from 7.3.1 with a device sending tha=
-t=0D
-message.=0D
-=0D
-thanks,=0D
+On Tue, Nov 10, 2026 at 4:36=E2=80=AFAM Ricardo Neri
+<ricardo.neri-calderon@linux.intel.com> wrote:
+>
+> The directed package-level thermal interrupt (DPTI) lets a single CPU per
+> package receive the package thermal interrupt instead of broadcasting it =
+to
+> every CPU in the package. Today that CPU is chosen with no regard for the
+> user's intent: the first CPU of a package to come online claims the
+> interrupt, and on offline it is redirected to another CPU of the package.
+> As a result, the interrupt can land on a CPU the user would rather keep
+> undisturbed, such as a nohz_full CPU, whose tickless isolation it breaks.
+>
+> This series gives the user explicit control over the interrupt owner
+> through sysfs. It also updates automatic selection of the owner CPU to
+> avoid CPUs isolated at boot through the nohz_full and isolcpus=3Dnohz
+> command-line options.
+>
+> CPUs isolated through isolcpus=3Ddomain or a cpuset isolated partition ar=
+e
+> left for a follow-up series, if there is interest.
+>
+> The sysfs interface
+> -------------------
+>
+> On a system with DPTI, every online CPU gets a boolean attribute in its
+> existing thermal_throttle group:
+>
+>   /sys/devices/system/cpu/cpuX/thermal_throttle/package_interrupt_owner
+>
+> Reading it answers a question about cpuX alone: 1 if cpuX is the CPU
+> currently programmed to receive its package's thermal interrupt, 0
+> otherwise. The owner is a per-package property, so at most one CPU of a
+> package reads 1, and all of them read 0 while the interrupt is not direct=
+ed
+> to any CPU.
+>
+> Writing 1 migrates the interrupt to cpuX and pins it there, overriding
+> automatic selection. The request is honored even if cpuX is
+> nohz_full-isolated, in which case a warning is logged. The write fails if
+> the hardware does not acknowledge the new owner.
+>
+> Writing 0 releases a pin on cpuX and returns the package to automatic
+> selection. If cpuX is nohz_full-isolated, the interrupt moves to a CPU of
+> the package that is not, when one is online. Otherwise it stays on cpuX.
+> Writing 0 to a CPU that is not pinned has no effect.
+>
+>   # Direct this package's thermal interrupt to CPU 3 and keep it there
+>   echo 1 > \
+>       /sys/devices/system/cpu/cpu3/thermal_throttle/package_interrupt_own=
+er
+>
+>   # Let automatic selection govern that package again
+>   echo 0 > \
+>       /sys/devices/system/cpu/cpu3/thermal_throttle/package_interrupt_own=
+er
+>
+>   # List the CPUs that own their package's interrupt
+>   grep -l '^1$' \
+>       /sys/devices/system/cpu/cpu*/thermal_throttle/package_interrupt_own=
+er
+>
+> Known limitations
+> -----------------
+>
+> To keep the interface and the implementation simple, the interface accept=
+s
+> these limitations:
+>
+>  - The file reports owner state, not pin state. Writing 0 to a CPU that i=
+s
+>    not isolated unpins without migrating: cpuX keeps the interrupt and
+>    keeps reading 1 until the placement changes, for example when cpuX goe=
+s
+>    offline.
+>
+>  - There is no request to move the interrupt away from cpuX. Pin another
+>    CPU of the package instead.
+>
+>  - A write to one CPU changes what another CPU's file reads: pinning cpuY
+>    makes the previous owner, cpuX, read 0 without cpuX's file being
+>    written.
+>
+>  - Finding which CPU owns a given package's interrupt takes one read per
+>    CPU of the package instead of a single read.
+>
+>  - The pinned preference is not observable. While a pinned CPU is offline=
+,
+>    the remaining CPUs of the package report the automatically chosen
+>    fallback. The pin is silently restored when the pinned CPU comes back
+>    online.
+>
+>  - The same file appears under every CPU of a package, because per-packag=
+e
+>    state is exposed through the per-CPU device. This reuses the existing
+>    per-CPU device infrastructure and mirrors package_throttle_count, whic=
+h
+>    is also per-package state shown per-CPU.
+>
+> Organization
+> ------------
+>
+> The series is organized as follows:
+>
+>  * Fix (patch 1): an existing race between kernel_kexec() and CPU hotplug
+>    can program a new owner after the syscore shutdown has cleared the DPT=
+I
+>    in all packages and leave it enabled in the next kernel. Independent o=
+f
+>    the rest of the series.
+>
+>  * Preparation (patches 2-4): prefix the log messages of therm_throt.c
+>    with pr_fmt(), move the sysfs device helpers next to their callers, an=
+d
+>    give the DPTI code a consistent dpti_ naming scheme.
+>
+>  * Groundwork (patches 5-9): owner changes become more likely once the
+>    selection and sysfs patches land. Limit the full teardown to boot, so
+>    that a later failure affects only its package; group per-package state
+>    in struct dpti_pkg; and factor the programming sequence into helpers
+>    that run it on the target CPU, from any CPU and entry point.
+>
+>  * Rank-based owner selection (patch 10): instead of special-casing pinne=
+d
+>    and isolated CPUs, rank every CPU and move the interrupt only on a
+>    strict rank improvement.
+>
+>  * Serialization (patch 11): introduce dpti_mutex ahead of the sysfs
+>    writer, which runs concurrently with the CPU hotplug callbacks.
+>
+>  * Avoid nohz_full-isolated CPUs (patch 12): rank housekeeping CPUs above
+>    isolated ones, and migrate as soon as a housekeeping CPU comes online.
+>
+>  * The sysfs interface (patch 13): let the user pin the owner.
+>
+> Summary of testing
+> ------------------
+>
+> Tested on a 1-socket system with DPTI and on a 2-socket system without it=
+,
+> where test-only patches emulate DPTI.
+>
+> - CPU hotplug:
+>   - Sweeps that offline and then online each CPU in turn, checking the
+>     owner in MSR_IA32_THERM_INTERRUPT (and in sysfs from patch 13) after
+>     every step: about 750 transitions across the kernels of every patch o=
+n
+>     the 1-socket system, and about 950 on the 2-socket system, where
+>     package owners go offline and the interrupt migrates.
+>   - lockdep stress runs of up to 10,000 offline/online cycles against
+>     sysfs writes, with no deadlocks.
+>   - Injected handover failures always ended with either the old owner
+>     kept or the package broadcasting.
+> - Isolation (nohz_full):
+>   - The owner stayed on housekeeping CPUs and fell back to an isolated CP=
+U,
+>     with a warning, only when it had to. Ownership migrated back to a
+>     housekeeping CPU as soon as one came online.
+>   - 0 of 36 package interrupts reached an isolated CPU with DPTI, against
+>     26 of 26 without it.
+> - Hibernation (S4):
+>   - One cycle on every patch kernel, with the owner restored each time,
+>     and a pin restored where one was set.
+>   - All four combinations of image and boot kernel, with and without DPTI=
+,
+>     left no stale state.
+> - kexec:
+>   - The sysfs race went from 22 of 22 failing to 20 of 20 clean with the
+>     fix in patches 1 and 11. The CPU hotplug race went from 4 of 4 failin=
+g
+>     to 0 of 5 with patch 1.
+>   - A kexec into a kernel without DPTI always found the hardware clean.
+> - Configurations:
+>   - Every patch builds cleanly in an x86_64_defconfig-based configuration=
+,
+>     with each of NO_HZ_FULL, SYSFS, SMP, CPU_ISOLATION, PM_SLEEP, lockdep
+>     and X86_THERMAL_VECTOR turned off one at a time, and in a 32-bit
+>     build. On hardware, I ran the test systems' distribution configuratio=
+n
+>     with debug options, plus three variants: NO_HZ_FULL=3Dn, KASAN with
+>     kmemleak, and a no-debug performance build.
+>
+> Thanks and BR,
+> Ricardo
+>
+> Signed-off-by: Ricardo Neri <ricardo.neri-calderon@linux.intel.com>
+> ---
+> Ricardo Neri (13):
+>       thermal: intel: Keep directed package interrupts off after syscore =
+shutdown
+>       thermal: intel: Prefix log messages via pr_fmt()
+>       thermal: intel: Move the sysfs device helpers next to their callers
+>       thermal: intel: dpti: Adopt the dpti_ prefix and the owner terminol=
+ogy
+>       thermal: intel: dpti: Tear down DPTI only during boot
+>       thermal: intel: dpti: Introduce struct dpti_pkg for per-package sta=
+te
+>       thermal: intel: dpti: Configure the local CPU by value
+>       thermal: intel: dpti: Factor the programming sequence out into a he=
+lper
+>       thermal: intel: dpti: Program the directed interrupt on the target =
+CPU
+>       thermal: intel: dpti: Add rank-based owner selection
+>       thermal: intel: dpti: Serialize updates to the directed interrupt s=
+tate
+>       thermal: intel: dpti: Avoid nohz_full CPUs when possible
+>       thermal: intel: dpti: Add sysfs control of interrupt owner
+>
+>  Documentation/ABI/testing/sysfs-devices-system-cpu |  40 ++
+>  drivers/thermal/intel/therm_throt.c                | 739 +++++++++++++++=
++-----
+>  2 files changed, 606 insertions(+), 173 deletions(-)
+> ---
 
+Whole series applied as 7.5 material, thanks!
