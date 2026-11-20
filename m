@@ -1,88 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.37.83.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186092;
-	b=IF3Vei4zpn5+yqnKlX/3RwhhHoXNxyeoOfKuP6cW0ETb4fkEWwYfIFfo33WKBpx0bSn9
-	 /7fktpyIvXswkYIJvPhW3w6M86XS6gjdZBMr3fqdHUVvzptLRkfn9FqtoqIR/IbnhJW71
-	 iQ5EZY+T88GLYiD/QROihRLleimqKSFDWnsGcWX9CxIy2hdcPLAjNbDX3UFh545d/1+Zk
-	 eXrUOsF8kT8Ow7vvwRmvBd0QRuh4P3LlsnGKd8eO9WzPYHFrfRijEG1NWCRdZt50Ljk7J
-	 9imzGm4cnx1k6bAo6vFfpwEExzTZy7SkfyiL3USgYT2HwNg2Cx96W/h1SuHSTj0IDZw==
+	t=1795186133;
+	b=Wjorpx3hm31SLCW4hzm8F3LXB5ktsDmOkp6IhObURbRiNF00mfe9Yhp0Rg3zZpffoJ/N
+	 VseIG8u9A7ZVzALAOsiOQKT0FTf5IOkRUWrbHahsJPkxtQGDWkiUjoniwYv/gEQ/73zC9
+	 dC2sW/9DsFivcX6xeFm99JNA2UzFIJaepbFpyFnza870LyboqMuGP2GBrSJ9WahuOzNYj
+	 2sZC2UVrUKVk3bpNzZcYYRV07zpbRg9YyN91oJf7E7EN+NOcw254kppXqVbN+orjSG8Ln
+	 69MSsJiYt0TrdH0Sknbi8xT6IO5lDgRyHDfQVSaSShM1NBlKDORu+0hPAyKxyzjm+vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186092;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=23XPNfNm7eI9kWRtudFXNyVD6I24r4ai3A9NrPUHv/A=;
-	b=xv9VAMAwi2Drz3mGp45z24zKJ2G2NxC1hQiDdX3BhyfMlujmTsIQAbeiZohSwAwUMtPQ
-	 +z/X2J0DQdsIJLHfB//XyVxcpSVyHeFKJB+OvAvJzyPjBIu4n0c0WKyib7s4O8avCrIk+
-	 /GqNXXE5geusnnX0UCFjpSu+cR/aGF47dhGBu4rHF3dQArzQ+FoEpfgM7qoow+qyJnS7Z
-	 YopzIaPvfgkx/MpQEqLmRGiUrzoTsJLk04hvpbPGnKfEw1m30M+r5gb263OQ8nJkvXadw
-	 a6tuBA2PqM5y0btBksZ1T+baVIbG7EBm1NAzAEZkNl2nHpavZlsPdAS6fez+qi5AtSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186133;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=7D+iGOe/KpM/TS77r7xebwxtnpAOr+lYRPP6a0rvnqI=;
+	b=ztDXcEb/6n8UcR5OhaW0/O0jpTLyOn0FBZH2MYmZVCz6uwXC7tQ4eWDxY8bhGTKsR+Cg
+	 jlAiXsCSwrW9eSYsILqeyf6z99TPhECcDM3H1dr8xzykTCv1gfJU17oKHpY1NKaYh/2+U
+	 yWAlVD1F/4p9xD6au6woz8PHXeP0g/Nq6LziAoI1QLRnfaht63pGATYCwpsPHxknKW6pH
+	 JNmenCdW67E+JP3Jbr3pNPDSTRu/4tR2zY6s+M7VKu1Tsm6eLVh7Ngm9+R4L60tktnt9+
+	 FJqRCXnv5jiiEkr755aWCp/LUKEkggIS552+himhVF4y1vcRu+Yz43DiKnmEPP2ZFXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qr4ZWDnq;
-	arc=none smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=dfb.sh;
+	spf=pass smtp.mailfrom=dfb.sh;
+	dkim=pass header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b="VYV8+/wG";
+	arc=none smtp.remote-ip=54.37.83.207
+Received: from frkn.dfb.sh (frkn.dfb.sh [54.37.83.207])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF1F7606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:48:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF1F7606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62FC6606A325;
+	Fri, 20 Nov 2026 14:48:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 62FC6606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dfb.sh
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dfb.sh
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qr4ZWDnq
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a07078200fso593776b3a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:48:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795186091; x=1795790891; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=23XPNfNm7eI9kWRtudFXNyVD6I24r4ai3A9NrPUHv/A=;
-        b=Qr4ZWDnqVLM8ijeFTenHh+mRsOUlc0ge6ncVzdnjlTz9ERXksEiCpYeHGnt1gWNDo+
-         kq3Nq+L2657JCrPL9W50hgjKBXKrvmfAmZ9rZI450+JGETRpeLm5VZihUHlkUytl4i4z
-         urFeKBLx7KWwupSyY7Gj9iVgpOWq3NvMTbKiSV1Vccpq+F6LTX/Z9VEkEu1kDz50V/3L
-         SRciJLRWufcmmxfXrBJfIQo8r1jt5/psSamYfG68BKRDIKVdUplUD8Cc64EO5DcKVXSM
-         DgFqqNkqrMI68pVYFxEJYOjaI4e+gXaZwvgDl3CakN1pXel3Rjyx9n42mSmR96y/78W6
-         5R7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186091; x=1795790891;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=23XPNfNm7eI9kWRtudFXNyVD6I24r4ai3A9NrPUHv/A=;
-        b=T6TitMGXU7+K9eFEAR5fvwMpvJe0/EfnHnGNhWgGNqnE/2I7lGXAMh8xFDkhIrcjGV
-         HGlVCPEQmbb8VnKEg8S7xbJgdz78hIyFPx6kMiMhjrSdRZeIyHn+QSCgBo59a1MPWjiz
-         OgIu7BBkGcUi+M8RsnljWpW929CLux2doZNZD/kK6p81Qbke3Rbhlw6n96m/yo34j5DS
-         Z0svzbmJR78AiPRHEcwZ66eP46r7xsOZI/v+jccsvHqXrYf++W4LGcDVtHTvxUjxC5uj
-         kadmnc5a5gHDmI6ByRqB9k6Uc3z8+sV5bTYzi2q/iw/f3SiqFPOzLGtoGSCsG82FKMMO
-         O3jw==
-X-Forwarded-Encrypted: i=1; AL+hErFCoJH+JkQD0DKFD6FmOVzz0qwoecXATAfTKj2tbFY2ghfkBru0NvdqoJbxpGbM8+Agg5x/eUPA0zGXZqw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9L1J412weytw9KT1ccFm/Q8lDXRRGASriGO4YhR91mG6xVx8Dr
-	awwSEl8jE3YJI596FQ/xIK5jpccB5eaMbPOoDw4UGatH8YfnarJ1uFB4
-X-Gm-Gg: AZFdTZdA7hwAH9U/wqqwsZHb1V2/M12gRR2RG5y+PKt5IWumTNGb+PKcaG4Y/EQ2/2Q
-	EX+00rcQuqpqvrM1JP4n2d+yZbobFS2tBg89hEzoOgR8bHDR/4LAqzD+R1XK0h4BRVv5DbadzqD
-	BENjhtEhnbulEmlhZ9QpKrutMBHfifswekmI6Ujfhf0vfgc/v0wI14V9j4KHba+kuWCsHE+Oov3
-	XTaT7SY8JPhh1y2KYTYYDKueVAY2RDc0RV9Ls0gtQc7ufLpGLwoqKZWsTWZjfNKF3bfmBZDtH4Y
-	DjxRRNljmyme3jd/XIIVfKhotEet5H+iOwTP70psFxCBjmunpn+nu1pLMuucSZ2ApHdWm8IzZv1
-	SgQ5YJ5E3xxYmZ5xiyecT6YVDG5JZGIfAzzNiazqC/Quh8U6wbBgA9sSBNGomSuVpKR5EYWFWQK
-	2jhPTjC6bZvWGWRz0t4PbiMCvxhIXxfYBp9OrbANyRTGF27A0abePe1TFPKSryTnEZI074Qe771
-	zw5GJ6ZShG+hDCd0PeC9UL7o2EGdJH2efDbsDw0E9JXLL/jWunMCVozrSyn5mE5orADVmgb7Vm7
-	NlYZ1B4Mb3bE80cqF/MFSOo=
-X-Received: by 2002:a05:6a00:f07:b0:881:4b47:f31a with SMTP id d2e1a72fcca58-8c87baca5c4mr2876693b3a.11.1795186090967;
-        Fri, 20 Nov 2026 06:48:10 -0800 (PST)
-Received: from [0.0.0.0] ([20.89.137.63])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873b2434asm1571245b3a.45.2026.11.20.06.48.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Nov 2026 06:48:10 -0800 (PST)
-Message-ID: <8b31251f-cb67-4aef-bd93-d2bd43885be1@gmail.com>
-Date: Fri, 20 Nov 2026 22:48:06 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=VYV8+/wG
+DKIM-Signature: v=1; a=rsa-sha256; s=frkn; d=dfb.sh; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1795186110; bh=7D+iGOe/KpM/TS77r7xebwx
+	tnpAOr+lYRPP6a0rvnqI=; b=VYV8+/wGjSctNVH/vkN2cXA7AQygrOigiAPjV5J/GQ3KlVvWs6
+	nMVvjGl0ydQADFRpVKAMn01k46MvIA4Nf+VtAlB54l9T7Zku9tXHsjYdFwjyz4bCpXtMmSGtgev
+	u+trRgi3JO/eLiJw3Dg6k7Da/vGXbEeODORev+oY+gbir0nYNrkqUcscYooWFAmy20oe1k6ACn6
+	STzi8ID6vjoewR8a3Npw7h81VDoOpswakaH2HHzfPuiddbgVPxoXlDQBZ4WMR+F7I9Gz/HPndK0
+	VhvtKJ456Lb5u49Z3ILMr3Bo44SMJt47DzsSIPjTURnPevWMYO81P40uv3CrNUNbG/A==;
+From: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+To: stable@vger.kernel.org
+Cc: "Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Nikolai Kalinin <nikolai@kalinidze.me>,
+	netdev@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 6.6.y] virtio_net: check RX buffer length before DMA sync
+Date: Fri, 20 Nov 2026 15:48:28 +0100
+Message-ID: <20261120144828.1573321-1-vladimir@dfb.sh>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,441 +67,155 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] platform/x86: bitland-mifs-wmi: Support WUJIE15 PRO
- HPT
-To: Bozhen Peng <bozhenpeng93@gmail.com>, Hans de Goede <hansg@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: Armin Wolf <W_Armin@gmx.de>, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, platform-driver-x86@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <0da43a8c-1755-49fe-b8e2-403489297f06@gmail.com>
- <fb4e0678-3028-463e-8a8c-1b680e40c4ee@gmail.com>
-Content-Language: en-US
-From: Mingyou Chen <qby140326@gmail.com>
-In-Reply-To: <fb4e0678-3028-463e-8a8c-1b680e40c4ee@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 9/23/26 15:42, Bozhen Peng wrote:
-> I found that my WUJIE15 PRO with the HPT board uses three profiles:
-> performance (0), balanced (1), and quiet (2). The driver's default
-> mapping gets these wrong and exposes a fourth mode that the firmware
-> does not implement. My laptop only has USB-C power input, so the
-> circular-hole adapter requirement also rules out its supported external-
-> power configuration.
->
-> I added a check matching the vendor, product and board names to select
-> the correct profiles and power check. During testing, I saw
-> power_supply_is_system_supplied() return true even after I unplugged the
-> charger during sleep. I switched the check to the ACPI adapter's _PSR,
-> which reads the current power-present bit on this machine. I also made
-> resume select balanced if power was removed, rather than restore the
-> saved performance profile. If the power query fails, I return the error
-> instead of assuming the charger is connected.
->
-> I checked the firmware methods and found only two fan readings, in F2/F1
-> order, and no MIFS CPU temperature reading. Some unimplemented GET
-> commands return success with zero data, so I could not use a successful
-> query to establish sensor support. I register the two fans and leave out
-> the temperature input. I also hide the unsupported GPU, RGB mode and fan
-> boost controls. I rely on the shared WMI helper to check the remaining SET
-> commands. I left normal keyboard backlight control unchanged.
->
-> I found that the event GUID also matches redmi-wmi, so I made that
-> driver decline this machine and leave its notifications to bitland-mifs-
-> wmi. I kept the existing behavior for other machines and documented the
-> HPT differences.
->
-> Signed-off-by: Bozhen Peng <bozhenpeng93@gmail.com>
-> ---
-> Changes in v2:
-> - Fix the RST heading underline length, as Randy pointed out.
-> - Rebase onto current platform-driver-x86 for-next, retaining its shared
->    WMI return-code handling.
-> - Drop the unreachable redmi-wmi Cc address.
->
-> I tested this on my MECHREVO WUJIE15 PRO (WUJIE15 Series-HPT), comparing
-> the firmware methods and profile values with the Windows OEM controls.
->
-> I ran the hardware tests on Ubuntu 26.04.1, kernel 7.0.0-30-generic. I
-> used a small adaptation for that kernel's older WMI API in the test
-> modules. I have left that adaptation out of this patch.
->
-> I ran 22 automated profile, backlight, binding and sensor checks, all of
-> which passed, and tested the actual hotkeys. I recorded about 2280 and
-> 2850-2970 RPM from the two fans while running, and zero when stopped. I
-> did not independently calibrate the RPM readings.
->
-> For the final _PSR change, I ran two s2idle tests. With the charger
-> connected, the driver read supplied=1 and restored performance; it
-> stayed in performance afterwards. With the charger unplugged during
-> sleep, it read supplied=0 and restored balanced; it stayed balanced
-> afterwards. Requesting performance on battery then returned EOPNOTSUPP.
-> The logs include the resume decision and firmware readbacks.
->
-> I built a full x86_64 kernel and both modules against the for-next base
-> below. I used x86_64_defconfig with BITLAND_MIFS_WMI and REDMI_WMI as
-> modules, GCC 15.2.0 and W=1. The build passed without compiler warnings
-> from either changed driver.
->   Documentation/wmi/devices/bitland-mifs-wmi.rst |  31 +++++
->   drivers/platform/x86/bitland-mifs-wmi.c        | 157 ++++++++++++++++++++++++-
->   drivers/platform/x86/redmi-wmi.c               |   7 ++
->   3 files changed, 189 insertions(+), 6 deletions(-)
->
-> diff --git a/Documentation/wmi/devices/bitland-mifs-wmi.rst b/Documentation/wmi/devices/bitland-mifs-wmi.rst
-> index 27c3fd248..e73f9666f 100644
-> --- a/Documentation/wmi/devices/bitland-mifs-wmi.rst
-> +++ b/Documentation/wmi/devices/bitland-mifs-wmi.rst
-> @@ -7,6 +7,37 @@ Bitland MIFS driver (bitland-mifs-wmi)
->   Introduction
->   ============
->   
-> +MECHREVO WUJIE15 PRO (HPT) firmware variant
-> +-------------------------------------------
-> +
-> +The MECHREVO WUJIE15 PRO with board WUJIE15 Series-HPT uses a reduced
-> +interface. The driver selects this variant using exact system vendor,
-> +product name and board name matches.
-> +
-> +The supported platform profiles are low-power (raw value 2), balanced
-> +(1), and performance (0). There is no separate full-speed mode.
-> +USB-C is the only external power input on this model. Performance is
-> +available on external power, but not on battery. The driver queries the
-> +ACPI adapter's _PSR for current power presence because USB-C connector
-> +ONLINE state may still be stale during resume. A failed query is not
-> +treated as external power being present.
-> +On resume, a saved performance profile becomes balanced if external
-> +power was removed, matching the firmware's AC-loss transition.
-> +
-> +Command 0x0d returns two little-endian tachometers, EC Fan 2 followed by
-> +Fan 1. No third fan or CPU-temperature input is provided. GPU switching,
-> +RGB modes and fan boost are not exposed. Keyboard backlight brightness
-> +uses the normal 0 through 3 values.
-> +
-> +Unsupported GET commands can return success (0x8000) with an empty
-> +payload. Successful queries alone therefore do not establish the
-> +presence of a sensor or control; the driver uses the known capabilities.
-> +The shared WMI call helper checks firmware acknowledgments for supported
-> +profile and backlight SET calls.
-> +
-> +The event GUID is shared with redmi-wmi. On this exact DMI combination,
-> +redmi-wmi declines binding so bitland-mifs-wmi handles the notifications.
-> +
->   
->   EC WMI interface description
->   ============================
-> diff --git a/drivers/platform/x86/bitland-mifs-wmi.c b/drivers/platform/x86/bitland-mifs-wmi.c
-> index dd1648b7d..0d2b6c80c 100644
-> --- a/drivers/platform/x86/bitland-mifs-wmi.c
-> +++ b/drivers/platform/x86/bitland-mifs-wmi.c
-> @@ -14,6 +14,7 @@
->   #include <linux/dev_printk.h>
->   #include <linux/device.h>
->   #include <linux/device/devres.h>
-> +#include <linux/dmi.h>
->   #include <linux/err.h>
->   #include <linux/hwmon.h>
->   #include <linux/init.h>
-> @@ -161,6 +162,19 @@ struct bitland_mifs_wmi_data {
->   	struct device *hwmon_dev;
->   	struct device *pp_dev;
->   	enum platform_profile_option saved_profile;
-> +	bool is_wujie15_hpt;
-> +};
-> +
-> +/* Profile mapping and capabilities for the WUJIE15 PRO HPT board. */
-> +static const struct dmi_system_id bitland_wujie15_hpt[] = {
-> +	{
-> +		.matches = {
-> +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "MECHREVO"),
-> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "WUJIE15 PRO"),
-> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "WUJIE15 Series-HPT"),
-> +		},
-> +	},
-> +	{ }
->   };
->   
->   static int bitland_mifs_wmi_call(struct bitland_mifs_wmi_data *data,
-> @@ -195,6 +209,12 @@ static int bitland_mifs_wmi_call(struct bitland_mifs_wmi_data *data,
->   	if (output)
->   		memcpy(output, result, sizeof(*output));
->   
-> +	if (data->is_wujie15_hpt)
-> +		dev_dbg(&data->wdev->dev,
-> +			"HPT op=%#x fn=%#x arg=%u value=%u status=%#x\n",
-> +			input->operation, input->function, input->payload[0],
-> +			result->data[0], le16_to_cpu(result->return_code));
-> +
->   	return 0;
->   }
->   
-> @@ -213,6 +233,22 @@ static int laptop_profile_get(struct device *dev,
->   	if (ret)
->   		return ret;
->   
-> +	if (data->is_wujie15_hpt) {
-> +		switch (result.data[0]) {
-> +		case 0:
-> +			*profile = PLATFORM_PROFILE_PERFORMANCE;
-> +			return 0;
-> +		case 1:
-> +			*profile = PLATFORM_PROFILE_BALANCED;
-> +			return 0;
-> +		case 2:
-> +			*profile = PLATFORM_PROFILE_LOW_POWER;
-> +			return 0;
-> +		default:
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
->   	switch (result.data[0]) {
->   	case WMI_PP_BALANCED:
->   		*profile = PLATFORM_PROFILE_BALANCED;
-> @@ -232,6 +268,26 @@ static int laptop_profile_get(struct device *dev,
->   	return 0;
->   }
->   
-> +static int bitland_wujie15_is_supplied(void)
-> +{
-> +	struct acpi_device *adapter;
-> +	unsigned long long online;
-> +	acpi_status status;
-> +
-> +	/* USB-C ONLINE can still contain the pre-suspend connector state. */
-> +	adapter = acpi_dev_get_first_match_dev("ACPI0003", NULL, -1);
-> +	if (!adapter)
-> +		return -ENODEV;
-> +
-> +	/* This machine's adapter _PSR reads the current EC power-present bit. */
-> +	status = acpi_evaluate_integer(adapter->handle, "_PSR", NULL, &online);
-> +	acpi_dev_put(adapter);
-> +	if (ACPI_FAILURE(status) || online > 1)
-> +		return -EIO;
-> +
-> +	return online;
-> +}
-> +
->   static int bitland_check_performance_capability(struct bitland_mifs_wmi_data *data)
->   {
->   	struct bitland_mifs_input input = {
-> @@ -241,7 +297,15 @@ static int bitland_check_performance_capability(struct bitland_mifs_wmi_data *da
->   	struct bitland_mifs_output output;
->   	int ret;
->   
-> -	/* Full-speed/performance mode requires DC power (not USB-C) */
-> +	/* WUJIE15 PRO is powered through USB-C only. */
-> +	if (data->is_wujie15_hpt) {
-> +		ret = bitland_wujie15_is_supplied();
-> +		if (ret < 0)
-> +			return ret;
-> +		return ret ? 0 : -EOPNOTSUPP;
-> +	}
-> +
-> +	/* Other models require the firmware's circular-hole adapter type. */
->   	if (!power_supply_is_system_supplied())
->   		return -EOPNOTSUPP;
->   
-> @@ -270,6 +334,27 @@ static int laptop_profile_set(struct device *dev,
->   	int ret;
->   	u8 val;
->   
-> +	if (data->is_wujie15_hpt) {
-> +		switch (profile) {
-> +		case PLATFORM_PROFILE_LOW_POWER:
-> +			val = 2;
-> +			break;
-> +		case PLATFORM_PROFILE_BALANCED:
-> +			val = 1;
-> +			break;
-> +		case PLATFORM_PROFILE_PERFORMANCE:
-> +			ret = bitland_check_performance_capability(data);
-> +			if (ret)
-> +				return ret;
-> +			val = 0;
-> +			break;
-> +		default:
-> +			return -EOPNOTSUPP;
-> +		}
-> +		input.payload[0] = val;
-> +		return bitland_mifs_wmi_call(data, &input, NULL);
-> +	}
-> +
->   	switch (profile) {
->   	case PLATFORM_PROFILE_LOW_POWER:
->   		val = WMI_PP_QUIET;
-> @@ -300,9 +385,12 @@ static int laptop_profile_set(struct device *dev,
->   
->   static int platform_profile_probe(void *drvdata, unsigned long *choices)
->   {
-> +	struct bitland_mifs_wmi_data *data = drvdata;
-> +
->   	set_bit(PLATFORM_PROFILE_LOW_POWER, choices);
->   	set_bit(PLATFORM_PROFILE_BALANCED, choices);
-> -	set_bit(PLATFORM_PROFILE_BALANCED_PERFORMANCE, choices);
-> +	if (!data->is_wujie15_hpt)
-> +		set_bit(PLATFORM_PROFILE_BALANCED_PERFORMANCE, choices);
->   	set_bit(PLATFORM_PROFILE_PERFORMANCE, choices);
->   
->   	return 0;
-> @@ -328,13 +416,25 @@ static int bitland_mifs_wmi_suspend(struct device *dev)
->   static int bitland_mifs_wmi_resume(struct device *dev)
->   {
->   	struct bitland_mifs_wmi_data *data = dev_get_drvdata(dev);
-> +	enum platform_profile_option profile = data->saved_profile;
-> +	int supplied;
->   
->   	/* Skip event device */
->   	if (!data->pp_dev)
->   		return 0;
->   
-> -	dev_dbg(dev, "Resuming, restoring profile %d\n", data->saved_profile);
-> -	return laptop_profile_set(dev, data->saved_profile);
-> +	/* Match the firmware's performance-to-balanced transition on AC loss. */
-> +	if (data->is_wujie15_hpt &&
-> +	    profile == PLATFORM_PROFILE_PERFORMANCE) {
-> +		supplied = bitland_wujie15_is_supplied();
-> +		if (supplied < 0)
-> +			return supplied;
-> +		if (!supplied)
-> +			profile = PLATFORM_PROFILE_BALANCED;
-> +	}
-> +
-> +	dev_dbg(dev, "Resuming, restoring profile %d\n", profile);
-> +	return laptop_profile_set(dev, profile);
->   }
->   
->   static DEFINE_SIMPLE_DEV_PM_OPS(bitland_mifs_wmi_pm_ops,
-> @@ -398,7 +498,16 @@ static int laptop_hwmon_read_string(struct device *dev,
->   				    enum hwmon_sensor_types type, u32 attr,
->   				    int channel, const char **str)
->   {
-> +	struct bitland_mifs_wmi_data *data = dev_get_drvdata(dev);
-> +	static const char *const hpt_fan_labels[] = { "Fan 2", "Fan 1" };
-> +
->   	if (type == hwmon_fan && attr == hwmon_fan_label) {
-> +		if (data->is_wujie15_hpt) {
-> +			if (channel < 0 || channel >= ARRAY_SIZE(hpt_fan_labels))
-> +				return -EINVAL;
-> +			*str = hpt_fan_labels[channel];
-> +			return 0;
-> +		}
->   		if (channel >= 0 && channel < ARRAY_SIZE(fan_labels)) {
->   			*str = fan_labels[channel];
->   			return 0;
-> @@ -426,6 +535,18 @@ static const struct hwmon_chip_info laptop_chip_info = {
->   	.info = laptop_hwmon_info,
->   };
->   
-> +/* HPT fills only the F2/F1 tachometers; the temperature GET is a no-op. */
-> +static const struct hwmon_channel_info *hpt_hwmon_info[] = {
-> +	HWMON_CHANNEL_INFO(fan, HWMON_F_INPUT | HWMON_F_LABEL,
-> +			   HWMON_F_INPUT | HWMON_F_LABEL),
-> +	NULL
-> +};
-> +
-> +static const struct hwmon_chip_info hpt_chip_info = {
-> +	.ops = &laptop_hwmon_ops,
-> +	.info = hpt_hwmon_info,
-> +};
-> +
->   static int laptop_kbd_led_set(struct led_classdev *led_cdev,
->   			      enum led_brightness value)
->   {
-> @@ -604,7 +725,28 @@ static const struct attribute *const laptop_attrs[] = {
->   	&dev_attr_fan_boost.attr,
->   	NULL,
->   };
-> -ATTRIBUTE_GROUPS(laptop);
-> +
-> +static umode_t laptop_attr_is_visible(struct kobject *kobj,
-> +				      const struct attribute *attr, int index)
-> +{
-> +	struct bitland_mifs_wmi_data *data = dev_get_drvdata(kobj_to_dev(kobj));
-> +
-> +	/* All three custom attributes require methods absent on HPT. */
-> +	if (data && data->is_wujie15_hpt)
-> +		return 0;
-> +
-> +	return attr->mode;
-> +}
-> +
-> +static const struct attribute_group laptop_group = {
-> +	.attrs_const = laptop_attrs,
-> +	.is_visible_const = laptop_attr_is_visible,
-> +};
-> +
-> +static const struct attribute_group *laptop_groups[] = {
-> +	&laptop_group,
-> +	NULL
-> +};
->   
->   static const struct key_entry bitland_mifs_wmi_keymap[] = {
->   	{ KE_KEY, WMI_EVENT_OPEN_APP, { KEY_PROG1 } },
-> @@ -659,6 +801,7 @@ static int bitland_notifier_callback(struct notifier_block *nb,
->   static int bitland_mifs_wmi_probe(struct wmi_device *wdev, const void *context)
->   {
->   	struct bitland_mifs_wmi_data *drv_data;
-> +	const struct hwmon_chip_info *chip_info;
->   	enum bitland_wmi_device_type dev_type =
->   		(enum bitland_wmi_device_type)(unsigned long)context;
->   	struct led_init_data init_data = {
-> @@ -673,6 +816,7 @@ static int bitland_mifs_wmi_probe(struct wmi_device *wdev, const void *context)
->   		return -ENOMEM;
->   
->   	drv_data->wdev = wdev;
-> +	drv_data->is_wujie15_hpt = dmi_check_system(bitland_wujie15_hpt);
->   
->   	ret = devm_mutex_init(&wdev->dev, &drv_data->lock);
->   	if (ret)
-> @@ -706,10 +850,11 @@ static int bitland_mifs_wmi_probe(struct wmi_device *wdev, const void *context)
->   		return PTR_ERR(drv_data->pp_dev);
->   
->   	/* Register hwmon */
-> +	chip_info = drv_data->is_wujie15_hpt ? &hpt_chip_info : &laptop_chip_info;
->   	drv_data->hwmon_dev = devm_hwmon_device_register_with_info(&wdev->dev,
->   								   "bitland_mifs",
->   								   drv_data,
-> -								   &laptop_chip_info,
-> +								   chip_info,
->   								   NULL);
->   	if (IS_ERR(drv_data->hwmon_dev))
->   		return PTR_ERR(drv_data->hwmon_dev);
-> diff --git a/drivers/platform/x86/redmi-wmi.c b/drivers/platform/x86/redmi-wmi.c
-> index cc82ef502..de41642b7 100644
-> --- a/drivers/platform/x86/redmi-wmi.c
-> +++ b/drivers/platform/x86/redmi-wmi.c
-> @@ -4,6 +4,7 @@
->   #include <linux/acpi.h>
->   #include <linux/bits.h>
->   #include <linux/device.h>
-> +#include <linux/dmi.h>
->   #include <linux/input.h>
->   #include <linux/input/sparse-keymap.h>
->   #include <linux/module.h>
-> @@ -69,6 +70,12 @@ static int redmi_wmi_probe(struct wmi_device *wdev, const void *context)
->   	struct redmi_wmi *data;
->   	int err;
->   
-> +	/* This shared GUID belongs to bitland-mifs-wmi on the WUJIE15 PRO HPT. */
-> +	if (dmi_match(DMI_SYS_VENDOR, "MECHREVO") &&
-> +	    dmi_match(DMI_PRODUCT_NAME, "WUJIE15 PRO") &&
-> +	    dmi_match(DMI_BOARD_NAME, "WUJIE15 Series-HPT"))
-> +		return -ENODEV;
-> +
->   	/* Init dev */
->   	data = devm_kzalloc(&wdev->dev, sizeof(*data), GFP_KERNEL);
->   	if (!data)
->
-> base-commit: a3371fac5dd51518de4edcdcc3c7284a5c5a6607
+[ Upstream commit 29dfa436bc488056a84ee423ba82336db453e2a6 ]
 
-Hi, sorry for the very late reply.
+An RX queue that uses the DMA API (rq->use_page_pool_dma, for example
+with VIRTIO_F_ACCESS_PLATFORM) syncs each received buffer with
+page_pool_dma_sync_for_cpu() using the length the device wrote to the
+used ring, and checks that length against the posted buffer only after
+the sync.
 
-We have introduced the quirk table system in the recent commits (in the 
-pdx86/for-next branch).
+With SWIOTLB bouncing (swiotlb=force, or a confidential-computing
+guest), the sync copies from the shared bounce buffer into the guest's
+private page, so an oversized length also copies the bytes the device
+wrote past the posted buffer over the neighbouring page pool fragments.
+The later check drops the packet, but the copy has already happened. A
+malicious device, such as a host the confidential guest does not
+trust, can overwrite guest kernel memory next to an RX buffer with
+bytes it chooses, which is enough to take an unprivileged guest
+process to root.
 
-You could refine the patch within the quirks system by adding new quirk 
-items. We have no WUJIE 15 PRO HPT support yet.
+Check the length before the sync in the per-fragment loops.
+receive_buf() has to sync the header before the length check, because
+the mergeable error path reads num_buffers from it, so limit that sync
+to the posted length. A device that reports correct lengths sees no
+change.
+
+The driver has synced with the device's length since
+commit 295525e29a5b ("virtio_net: merge dma operations when filling
+mergeable buffers"), at first in virtnet_rq_unmap(). Commit 24fbd3967f3f
+("virtio_net: add page_pool support for buffer allocation") moved the
+sync to the page_pool call sites that this patch changes, so the patch
+applies to v7.1 and later. Older kernels need a separate backport that
+limits the sync in virtnet_rq_unmap().
+
+Found by an LLM code review agent auditing users of the DMA API; the
+fix and this changelog were also written with an LLM coding assistant
+and reviewed by us. Reproduced in QEMU with swiotlb=force and
+iommu_platform=on, a test-only device change that reports a used length
+64 bytes past the posted buffer and writes a marker there, and a guest
+kprobe module that reads the buffer after the sync: without this patch
+the marker reaches the guest page for small and mergeable buffers; with
+it the packets are dropped and counted in rx_length_errors. The
+virtio_net selftest basic_features.sh passes with and without mergeable
+buffers.
+
+Fixes: 295525e29a5b ("virtio_net: merge dma operations when filling mergeable buffers")
+Cc: stable@vger.kernel.org
+Co-developed-by: Nikolai Kalinin <nikolai@kalinidze.me>
+Signed-off-by: Nikolai Kalinin <nikolai@kalinidze.me>
+Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+Link: https://patch.msgid.link/20261110-b4-virtionet-rxlen-v2-1-6ec5aa0edf9f@dfb.sh
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+[ vladimir: 6.6.y has no page_pool RX buffers. A queue in premapped
+  mode (rq->do_dma) syncs small and mergeable RX buffers in
+  virtnet_rq_get_buf() with the length from the used ring, before any
+  length check. Limit that sync to the length of the posted buffer; the
+  existing checks then drop the packet. Tested with the reproducer
+  described above: without this patch the marker reaches the guest page
+  for small and mergeable buffers; with it the sync stops at the posted
+  length and the packets are counted in rx_length_errors. ]
+Signed-off-by: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+---
+ drivers/net/virtio_net.c | 51 +++++++++++++++++++++++++++++++---------
+ 1 file changed, 40 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
+index fe0e647808cd..d1e4052c6a25 100644
+--- a/drivers/net/virtio_net.c
++++ b/drivers/net/virtio_net.c
+@@ -488,19 +488,32 @@ static unsigned int mergeable_ctx_to_truesize(void *mrg_ctx)
+ 	return (unsigned long)mrg_ctx & ((1 << MRG_CTX_HEADER_SHIFT) - 1);
+ }
+ 
+-static int check_mergeable_len(struct net_device *dev, void *mrg_ctx,
+-			       unsigned int len)
++/* Length of the mergeable buffer that add_recvbuf_mergeable() posted. */
++static unsigned int mergeable_ctx_to_buflen(void *mrg_ctx)
+ {
+-	unsigned int headroom, tailroom, room, truesize;
++	unsigned int headroom, tailroom, room;
+ 
+-	truesize = mergeable_ctx_to_truesize(mrg_ctx);
+ 	headroom = mergeable_ctx_to_headroom(mrg_ctx);
+ 	tailroom = headroom ? sizeof(struct skb_shared_info) : 0;
+ 	room = SKB_DATA_ALIGN(headroom + tailroom);
+ 
+-	if (len > truesize - room) {
+-		pr_debug("%s: rx error: len %u exceeds truesize %lu\n",
+-			 dev->name, len, (unsigned long)(truesize - room));
++	return mergeable_ctx_to_truesize(mrg_ctx) - room;
++}
++
++/* Length of the small buffer that add_recvbuf_small() posts. */
++static unsigned int small_buflen(const struct virtnet_info *vi)
++{
++	return vi->hdr_len + GOOD_PACKET_LEN;
++}
++
++static int check_mergeable_len(struct net_device *dev, void *mrg_ctx,
++			       unsigned int len)
++{
++	unsigned int buflen = mergeable_ctx_to_buflen(mrg_ctx);
++
++	if (len > buflen) {
++		pr_debug("%s: rx error: len %u exceeds buffer length %u\n",
++			 dev->name, len, buflen);
+ 		DEV_STATS_INC(dev, rx_length_errors);
+ 		return -1;
+ 	}
+@@ -645,11 +658,27 @@ static void virtnet_rq_unmap(struct receive_queue *rq, void *buf, u32 len)
+ 
+ static void *virtnet_rq_get_buf(struct receive_queue *rq, u32 *len, void **ctx)
+ {
++	struct virtnet_info *vi = rq->vq->vdev->priv;
++	void *buf_ctx;
++	u32 buflen;
+ 	void *buf;
+ 
+-	buf = virtqueue_get_buf_ctx(rq->vq, len, ctx);
+-	if (buf && rq->do_dma)
+-		virtnet_rq_unmap(rq, buf, *len);
++	if (!rq->do_dma)
++		return virtqueue_get_buf_ctx(rq->vq, len, ctx);
++
++	buf = virtqueue_get_buf_ctx(rq->vq, len, &buf_ctx);
++	if (!buf)
++		return NULL;
++
++	/* The device chooses *len. Sync only the buffer that was posted, so
++	 * that a larger *len cannot copy over the buffers next to it.
++	 */
++	buflen = vi->mergeable_rx_bufs ? mergeable_ctx_to_buflen(buf_ctx) :
++					 small_buflen(vi);
++	virtnet_rq_unmap(rq, buf, min(*len, buflen));
++
++	if (ctx)
++		*ctx = buf_ctx;
+ 
+ 	return buf;
+ }
+@@ -1905,7 +1934,7 @@ static int add_recvbuf_small(struct virtnet_info *vi, struct receive_queue *rq,
+ 
+ 	buf += VIRTNET_RX_PAD + xdp_headroom;
+ 
+-	virtnet_rq_init_one_sg(rq, buf, vi->hdr_len + GOOD_PACKET_LEN);
++	virtnet_rq_init_one_sg(rq, buf, small_buflen(vi));
+ 
+ 	err = virtqueue_add_inbuf_ctx(rq->vq, rq->sg, 1, buf, ctx, gfp);
+ 	if (err < 0) {
+-- 
+2.54.0
 
