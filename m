@@ -1,72 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193250;
-	b=YhOW4+bTTMZwmmQOD0GhYqLYRdKJgzDqz2xDXYTCZUUIDoVblWKSEVj8GlEG+e2IEv6k
-	 93/wwY4Ok5j83CkTd19NXb87bILzH3Ky5sdgvlPQQ4VmtHyTQU9KpNO/b30xiUxl8pAmy
-	 9WhcqN/VqUya9c7KbwjhjKmzmZWrE89TgQyE3OXzv1a6eDq5t7XsdGSS0sg34xzBWpJDG
-	 Ir9+Sf3x/KC306sYrRZSWAAwqRd4uU/BsC0uccnV0ulxIAOjfb2DaLjoRe0JWA+n4VlHZ
-	 HlX3nCLpK+vUirljRJvmhVJNN2xS++xBii0TRnkY1yvpjO3AvLMT9Oe7P8VDc+/fVAw==
+	t=1795193322;
+	b=jHTBTCizL+TniA6pdiYAmGLVu1hbtD8lfy3Ws0sYB32UQKUOxQFj3Ys63PkWPLVLRTmc
+	 Ftr+i/Qe+hTcgkQZ/iC3MDE68cyN7w1qAfW7hJyf0j/N1G1GBseA1QmMAqdbGFMFMxzrZ
+	 R/MYTrDHh36Z3rGj5Vfc8T53bS+7BlIlWRx7YgHHo/jDYpM4bpZvJdQl0Pwt+VFSHFGHC
+	 Iyz2sBm/j+6KCmFSC6RXpGL0xbnHqNqABNKogVakNkFVt4HodhZDFuC/SCoMxoMQZtpbV
+	 AU5B112AM+ZkvAkfvJK0sFmKUxqKOXZrzJ4RhbYqd3UiPJ5AawR1Hlhr7wWPssf0OQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193250;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-SRS-Rewrite;
-	bh=aHGMMibfTK3B84l7c2TFfwJFc+Ej1l9rQZD53EE9TDc=;
-	b=uLe3s9WpMDNeOPa1MXcFs1LeJhzPTFExJ58ynecLEEGaa4IFifqTMk9QwzGFpnCkO3X9
-	 KE9c/jPdnaY9Ff+RhRwSTwb8yH7AYD3ULFM8Tt/svo9Ruf5FqgZY7/D/jphrIDdH1qIk5
-	 NXqOY2TU8ZPHEFhj5v5W/Tv2zplNjWR7p05VjGjNyaq9ZAPr8jinpeO2rfZSu1bzpnZs9
-	 ADOiJmCDIGXWl3Bp9xcJ/yKwEVdLGT758ub7LaLuE0yNlhj0r8ErQWF2yzPMVbL3E54YX
-	 XBLUVVWoDoQGj7SebVr7+KrTwctD1LzCWm6SE/8fCrdIZ/K/VorHIOY7Md0vMCoSRYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193322;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
+	b=ifwXMI81yX4tXaPzebYgCPhFcHC6m9XHtet/VB24Lq82YwqhCFAUvYW7GXXXrJP9oY/8
+	 l0Z5b/ocx8IG7pti3NXKa+v7CXckDOtyByySaMRmJwbPi9C1X8jVsPoFJHpMQ6veIK15p
+	 LGaQWmCS5gYF3d7EPjo90SoMWGcjxS9GWinGGRVwPWlKWFxFZR2n+OPyax6iPO4kSbdP+
+	 PKcB/BZ/JYyCQQZGtCjV/+vamDn0vCtkZ4+2wvqbjGVx92ZHOFRCrzpIZtBH2M94GSdnB
+	 2uXHEFXBgXFiGaopVdlA2QPX7IZlDgCeNY9NPkebrB0lmavBfwsbd1N2IO+y5ZFljZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rHXDFNV+;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RNAMJ6sM;
+	arc=none smtp.remote-ip=209.85.128.49
+Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17012606A325;
-	Fri, 20 Nov 2026 16:47:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17012606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7716960A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:48:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7716960A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=rHXDFNV+
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
-	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=aHGMMibfTK3B84l7c2TFfwJFc+Ej1l9rQZD53EE9TDc=; b=rHXDFNV+eK+JiP8QYJDc3TQZYU
-	jPLq+AlFkeEL4XXv1xtjfkB7sCeLCFD9e35oFzVxWKTIZHn/hWcp1M77tE0Jil9ufkzz7/eTKP6vL
-	afUamsFU7/ddP/NekWhhcg+y5dYEcAsnvGgZAr4r41lazc2yb2UyQXB5YXOWMDeSTQWisAb3b+BOX
-	5XkxNxtFp4hsunzPEvh8WPJk1dFCH3caxa3+JyFI1aP6RGG4I/hqPGGZS6GbhKRSQqzf7FPyhSZ/J
-	3uQa3kjsEUEjBHvSC3EwhW+GNuV0nZVMt2jbO1hMqW6w9DRsgWHulgTVGOaeETkXlv5RGsxYszx8B
-	QhtPZzyQ==;
-Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xURlg-0000000FaOf-1Kar;
-	Fri, 20 Nov 2026 16:47:22 +0000
-Date: Fri, 20 Nov 2026 08:47:20 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: NeilBrown <neil@brown.name>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Harkes <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu,
-	Jan Kara <jack@suse.cz>, Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Namjae Jeon <linkinjeon@kernel.org>,
-	Hyunchul Lee <hyc.lee@gmail.com>, Carlos Maiolino <cem@kernel.org>,
-	Jeff Layton <jlayton@kernel.org>,
-	Amir Goldstein <amir73il@gmail.com>, linux-kernel@vger.kernel.org,
-	codalist@coda.cs.cmu.edu, linux-fsdevel@vger.kernel.org,
-	linux-um@lists.infradead.org, ntfs@lists.linux.dev,
-	linux-xfs@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] VFS/xfs/ntfs: drop parent lock across
- d_alloc_parallel() in d_add_ci()
-Message-ID: <awB5mAWm9h1ksRFI@infradead.org>
-References: <20261117000115.1433875-1-neilb@ownmail.net>
- <20261117000115.1433875-2-neilb@ownmail.net>
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=RNAMJ6sM
+Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4ac95761c85so8808715e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:48:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795193320; x=1795798120; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
+        b=RNAMJ6sMUpkWN4HrB0XYJTVcOtjWWEYhH6d3S9pj85lhBPRg5KkeaWo1USMBh8nDxJ
+         w/2T2XYDMgVkyVrFeq/jl71c4n93hO/4Nc7iCIfX2OaYcsUU5pWUfNweZrU7lY4qEIxS
+         4eh9dpGdnLaPp6u/BJuIaSUEM9sKLBQrNTbenH1nsZTez+0/KglhUPE3Mx537/pB4xRP
+         8US4Tq4WX3HzsJOKtAtUGRlXjScW3SZXmw2uEC/7LSr2f9aIch+VfB/A7NqU30NL7hee
+         0gL2JYNXK9f/Y2bCnqnXnDCx6SIjdqdoRXZ4BKvTX66tKXa7T7/hV4E9yjYAFoJPIXic
+         WR7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795193320; x=1795798120;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bfyjauXkdda14TZQkJmia5dShZ8rR0trlEvtPbJzkjU=;
+        b=o7g5+Z3AWBDG+Mmng40n2sDsOEydiajkbR0Xwhg6nOVQgjEhBgO1BVFabADbCTtVVv
+         uHnI9q8GtBfBy9t/HIY3PYkb/zFKMPS63bj170cyCMBE2eOgvt9tWBNDgLNSlktj0v2U
+         KGHRUUdTAxe7NDLIgr4rzti8InvgQkH++b/qfyIi6T65znC7vyaymLnZCz1VPArekzIL
+         2rSShrdueDslZqhCmLlkqsGXUmMUe2rCCEtBs5wbAYE5TWgRAgPjhkOmE94OnTKA7TW+
+         U9nDFsmn26wgWXLjuSQgIKf9C7h9VZRnTthBSXQDB8UsEkdjjHld8/G58U//jh0A0v6n
+         aGfQ==
+X-Forwarded-Encrypted: i=1; AL+hErHOvkhexn4EnI0XpD04oB2j3WYWg2Cd91aOxAchvYO6oA+NS+T+E9MfpY297ZiQ3w1+h8SDABGrRfep2UY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xXc3zxa4+tLgH5n10HvUq2Ewqn3oHN+d3NmiJM3xv9HsOkoXb
+	DbTzwqoMhggd0re9zPXzYSjU1n/khKn0pcgmgpoczggKGxDeenqJMjCUoOt/hTtWG/I=
+X-Gm-Gg: AYBFou2gj9NI9ZfFjgRilJMJRtjiIaPDsEe9hi+tRzldQOUPghr38LqNZBX2Iod8Hbd
+	Ia+qNOgUIjmHYiQeQ6qcbjejdj7nC4NAxSURxKZ6axopeOv3f5FbcqlM9Dk/dG1BfqwL/dxP5TH
+	BkZKBOb0ZEbBdVNkMfnmaE1UILtnqwo06VI1aOmmU6hgPhdGjq+SfIZ17x/OYt4eLzEAt08RQjV
+	uFAbdTzFJsAhk+k049Kh6Jrz9ucCGQQfdamENar2t4+UUteq2cqLzMx6Gade8jqXeRY7YhqejM4
+	rLAmbpZegXNcp9H72nYGAO9+g6EDq+ERejYB2xvmyUUVI17onCzYSXNZProCquSrZW5CaBozZgd
+	FTnUCIE35eUqmKdVs+C62Fwy04+gfba/NraPaVr6oUfFdoWDDfIpLF9nY0n4heuO/GWbWCkcyXf
+	L2sGHMC+HRYId0TsMdavyq+rarzqGRzeC+ApLVvLy6y+Ke9Ila3hZf40D3bngtRlSd+eEKIlSUR
+	fpwVJUbHxMnhkWJyveUYi50gbPqYESbuDla4Bw5OqbcIHjFsfaM+NNRVND4Tt16iughH5zLOLIw
+	9NMBoH0Cy+uZBuy76joBv380V9GXxYDTUZ/mLwPcnmI2WRmi
+X-Received: by 2002:a05:600c:848d:b0:4bb:6b6b:fbaa with SMTP id 5b1f17b1804b1-4bb8880fd0amr81601005e9.16.1795193319985;
+        Fri, 20 Nov 2026 08:48:39 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm102415595e9.15.2026.11.20.08.48.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:48:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,17 +89,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117000115.1433875-2-neilb@ownmail.net>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v6 0/7] Clk improvements
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Daniel Almeida <daniel.almeida@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Viresh Kumar <viresh.kumar@linaro.org>, Danilo Krummrich <dakr@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Michal Wilczynski <m.wilczynski@samsung.com>, 
+ Drew Fustini <fustini@kernel.org>, Guo Ren <guoren@kernel.org>, 
+ Fu Wei <wefu@redhat.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Miguel Ojeda <ojeda@kernel.org>, 
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Trevor Gross <tmgross@umich.edu>, Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ linux-pm <linux-pm@vger.kernel.org>, 
+ linux-kernel <linux-kernel@vger.kernel.org>, 
+ dri-devel <dri-devel@lists.freedesktop.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ linux-pwm <linux-pwm@vger.kernel.org>, 
+ linux-clk <linux-clk@vger.kernel.org>, 
+ rust-for-linux <rust-for-linux@vger.kernel.org>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Maurice Hieronymus <mhi@mailbox.org>, Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com>
+References: <20261013-clk-type-state-v6-0-a5e9977b3509@collabora.com>
+ <1a1cb87df11.2c57f9fa237371.844135553238709982@collabora.com>
+Date: Fri, 20 Nov 2026 17:48:38 +0100
+Message-Id: <179519331840.3795820.8047048832159165355.b4-reply@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2089; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=4z3/sdMgR1NP7DfsDZx0tYiu2dW9UOhvaq59u1rg0JU=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNkMlc+2Ksh+kZXIPh/3rDDW4Kn27hqR6Y15t/Vndc9nY
+ JL6uuFhRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACYSOYfhf77/s+M/3jXtP6oy
+ 5+cRhk+hnv9r4q4aztv7e7Xt8cINxx8zMkx3PJygYGn8ecrZdJeblhwduyRv7OkO5akz19EKybu
+ wlhsA
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-On Tue, Nov 17, 2026 at 10:54:58AM +1100, NeilBrown wrote:
->  					  const struct dentry_operations *);
-> -extern struct dentry * d_add_ci(struct dentry *, struct inode *, struct qstr *);
-> +extern struct dentry * d_add_ci(struct dentry *, struct inode *, struct qstr *,
+On 2026-11-11 13:54:01-03:00, Daniel Almeida wrote:
+> Hi all,
+> 
+>  > This series contains a few improvements that simplify clock handling for
+>  > drivers.
+>  > 
+>  > Patch 1 converts clk.rs to the kernel-vertical style for imports.
+>  > 
+>  > Patch 2 replaces OptionalClk with Clk::get_optional(). There is no struct
+>  > optional_clk in C, and Clk already allows a NULL pointer.
+>  > 
+>  > Patch 3 implements the same typestate pattern that has been used
+>  > successfully for Regulators. This is needed because otherwise drivers
+>  > will be responsible for unpreparing and disabling clocks themselves and
+>  > ultimately handling the reference counts on their own. This is
+>  > undesirable. The patch automatically encodes this information using the
+>  > type system so that no misuse can occur.
+>  > 
+>  > Patch 4 adds guards that prepare and/or enable a clock for the lifetime
+>  > of the guard without consuming the Clk, so that a driver can keep a
+>  > long-lived Clk<Prepared> and enable it for scoped sections.
+>  > 
+>  > Patch 5 makes things more convenient by offering devres-managed APIs. This
+>  > lets drivers set clock parameters once and forget about lifetime
+>  > management.
+>  > 
+>  > Patch 6 adds ExclusiveClk<T>, which holds rate exclusivity over a Clk<T>
+>  > in any state until it is dropped.
+>  > 
+>  > Patch 7 uses it in pwm-th1520 to lock the clock rate for the lifetime of
+>  > the driver data.
 
-Please drop the extern and fix up the formatting if you touch the code.
-Bonus points for spelling out the arguments to actually make it
-readable.
+Hi there,
+
+I was wondering how the rust folks expect these changes to be handled since they
+touch the rust/ dir. Should the clock changes go through the clock tree or the
+rust one ? it is fine with me either way.
+
+I've added small comments on patch 3, with my understanding of what of what you
+are trying to do. Please take them with a grain of salt. While I'm eager to help
+rust grow in the kernel, I'm definetely very new to it. It is very likely I got
+things wrong.
+
+If there are pain points regarding clocks with Rust, please feel free to
+reach me or Brian. We are happy to help if we can.
+
+Cheers
+
+-- 
+Jerome
 
