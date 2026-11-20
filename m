@@ -1,71 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167652;
-	b=JZxxolDmtWL6oFKFNK8EFJo3/tt5VUwQ4oBJ8JlPAyX1+Juh2GlCngr5t3W0KgNSgbwO
-	 x/kqR5TuszROkfaquxlxrhcKN7s+b7JZhHxJhERp3gJBCjnrnFF4444WzgN/WSw/RAS7X
-	 b2lSmJ4tVcIj2kkv92ZirlJqNJa9yr2KbsH4+bl07QaCB6y1FphcmbXnLdPTxf07/i2//
-	 UTquOHbKLInFbGLZplVJx2f8da/WdWr3WN5msRtFjzaz2Bes77fqq6BADyVswPfllrPMm
-	 4tX0s82FLqt/pgtG6TS4TafXgk36mmX08aIelDzJYwXWY9CjhY0yXZd+NRhR5+DNjMA==
+	t=1795167696;
+	b=KZRwXp2Bv+u4kVvTa4sRb/XXnGiGmjzB0STK1opJE2MA4LWdOnXpCsTDqm7wqpPrApSC
+	 Q6Ib+skJmuB+miJwXHZSF3L+SxzDDE+9NKCPnwXmFc8htTEFKR2zyddeRQFr+JW0s8Pn1
+	 lUMUfuXIJtJeMuXGdkyX7h648CQ5tvWdRaXc/RNxIC7AJg3aImWPpThOv4lLnh3QVB8V7
+	 8WzQMDhe+JhpJgpe14LasoznpeKbey60LjOFgeYiEMhbTH2zSVXOyv8FqUJ3K0bn2FZem
+	 DDrnYmp4kfmxUcAfDD95tFhn0fBLtJqK4D2AUR73SETA32KotGmNaZpOYBNNOa4s/uQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167652;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=R8cEUfchtfL1CMYDQSUQAyd5j+dKyqqQvy8JCKkeHTQ=;
-	b=PKQzza0A9hq76LjcYK56846FmgSc7Q2qGCzhLsOQRke2C3vBK3pVHa0klgwB6IggPxCo
-	 g/ZbGabETEaWiaFDl3qaQP6i0K3nK1K7UI/u4hf6eHCs3hXNarVc1PpgtEiRfZrxkaczI
-	 DgZ2zsPNXQiOmuqoJrTTkaYbJbYQ8phcVqQVkqn4SgTnaSzm1yEj0PoxHn0FiUlfgoc/E
-	 bJgkconX2bw/Z2J1IE9kBYAEWWFE05wlyQHZsh6nlC+3sIufHFvXpg4LNpacVlIH4GCQ9
-	 /6fqP1DrbeKHbFx+AcL94pkkSLRFZsJc5Yxmcw/EZinR9gvo0IymNZSvnUx9g2o1uPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167696;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=yzbdGeu2fn9Y9C1c+3jErX28oGARGq2CQCtYtowsmfA=;
+	b=y+fBwPG6V0kon1y26kMJ8BlAaHVSLSf7wk6oNNWbv5DwaouwtGJyC6r4Xno22vVVQHXu
+	 b9/ZSnCzaShFXFiQE6UfYb2lOSXO8LlhtXRhbhQ4Q6JLeoc21NS3bUZOG0Tv1M8qaaIT7
+	 7C7b9oGH7a7yVv+Mo3bmBKIg1TVkc0IfZ+FjWwuQfN1jEfd0LXRl+JshkrAmwqQDXXB3D
+	 LY3pZTvBqIUknGjf47ZhehJU/zfZZA0IFaBl3V9fVwwSZhVwrlIduQKtjqcheMCRrEHRf
+	 HaGBGKUbSkvilwVMkbQtaijhDD3wsc38EXproI/RdkGHly5KRWgj/TKWeyKoiJ/o4eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJ+pA1vH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=u8UQV2QT;
+	arc=none smtp.remote-ip=113.46.200.218
+Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 682EE606A330;
-	Fri, 20 Nov 2026 09:40:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F72C606A320;
+	Fri, 20 Nov 2026 09:41:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F72C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iJ+pA1vH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4A51F000C4;
-	Fri, 20 Nov 2026 09:40:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795167652;
-	bh=R8cEUfchtfL1CMYDQSUQAyd5j+dKyqqQvy8JCKkeHTQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iJ+pA1vHpaNYllnqQbqUJ7mgvSduDG3aAkO2Mj7oUyPqQEon+BW+dm59hcqXed7VL
-	 2xtu6/DPBtppJc/p36pz4lTHf73j60dqs4Y2iJl2+JUNEVzrwf+FUUjlExFJBgEsM9
-	 ommrbKid81+gyu2CItU+cACBgqGl/bCcydWGsQIDBLEK3IOBb4Vzm8VbFOayIw+eeA
-	 Mn3q7Er6t/56wzjh/vyVRsbCdtdCx8dB8knuV7KCI8zp0v+RyrBWk7Pbc1vfCKG/3v
-	 SOZeEMbStmNbMGude3EWA+Nd70n/JdRSXZJ82oSZmKz8JurO6jnMHZwf8IJ9rdVHEB
-	 rSXwSijGS2C3A==
-Date: Fri, 20 Nov 2026 15:10:48 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>
-Cc: linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org, linux-spi@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Andy Shevchenko <andy@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>, Mark Brown <broonie@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>,
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Subject: Re: [PATCH v6 0/9] dmaengine: Support bus widths of 32 bytes and
- above
-Message-ID: <awAVoMe1VphXwQIw@parshuram>
-References: <20261014-dmaengine-support-wider-dma-masks-v6-0-5b3ffdef8191@analog.com>
- <auiDhzNcif3LhPlq@nsa>
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=u8UQV2QT
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yzbdGeu2fn9Y9C1c+3jErX28oGARGq2CQCtYtowsmfA=;
+	b=u8UQV2QTaZykzbQnjwd0wnW5WSx2hpJjxpRDfV56W/g4Lbc5kPhrrMfWdQnkl9QnpdKT1i1lS
+	2C39dUkWTA/76Q4eqIp0UHvtkafvwJITP/42FbHAZb3G/UeC6Lww4tB64npAja3ctVsuLcOpNyP
+	jdH9+vGji2P+0NsyN75IChU=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jW9LR4mkZzpSvM;
+	Fri, 20 Nov 2026 17:40:31 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2C01240561;
+	Fri, 20 Nov 2026 17:41:25 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 20 Nov 2026 17:41:24 +0800
+Message-ID: <371fe5a8-d831-4a86-897e-3bf9541b0c26@huawei.com>
+Date: Fri, 20 Nov 2026 17:41:23 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,86 +62,143 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/15] KVM: arm64: Add support for FEAT_HDBSS
+To: Leonardo Bras <leo.bras@arm.com>
+CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <corbet@lwn.net>, <pbonzini@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>,
+	<tangchengchang@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
+	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
+	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>, <fuad.tabba@linux.dev>, <mark.rutland@arm.com>,
+	<seanjc@google.com>, <rdunlap@infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <skhan@linuxfoundation.org>
+References: <20260929103655.85107-1-zhengtian10@huawei.com>
+ <20260929103655.85107-7-zhengtian10@huawei.com> <at-X_hFbsBU_Dsgr@LeoBrasDK>
+ <a301e884-f6d1-4082-8551-8d8a17276dc3@huawei.com>
+ <auSml6yTVYIQe7NZ@LeoBrasDK>
+ <ceb91298-3d05-486e-a900-1291963dde24@huawei.com>
+ <av8xblyy3GzgbNwf@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <av8xblyy3GzgbNwf@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <auiDhzNcif3LhPlq@nsa>
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 
-On 02-11-26, 12:36, Nuno Sá wrote:
-> On Wed, Oct 14, 2026 at 03:19:10PM +0100, Nuno Sá wrote:
-> > The DMA engine slave capabilities advertise the supported source and
-> > destination bus widths through src_addr_widths / dst_addr_widths. These
-> > are plain u32 bitmasks where a set bit's position equals the
-> > corresponding enum dma_slave_buswidth value, e.g.
-> > DMA_SLAVE_BUSWIDTH_4_BYTES sets bit 4.
-> > 
-> > The consequence is that widths of 32 bytes and above cannot be
-> > represented at all: DMA_SLAVE_BUSWIDTH_32/64/128_BYTES would need bits
-> > 32, 64 and 128, which do not fit in a u32. Hardware with wider data
-> > paths is becoming common, so add a representation that can express these
-> > widths while still using enum dma_slave_buswidth.
-> > 
-> > This series switches consumers and a small set of producers to the new
-> > bus width capabilities, represented by a dma_buswidth_mask_t modeled
-> > after dma_cap_mask_t. The legacy dma_device u32 fields are kept for now
-> > so the remaining DMA controller drivers can be converted incrementally:
-> > dma_async_device_register() folds a legacy-only producer's u32 into the
-> > mask, so consumers only ever have to look at the mask.
-> > 
-> > Once the remaining producers are converted, the legacy dma_device
-> > src/dst_addr_widths fields can be removed as a final cleanup.
-> > 
-> > This issue was discussed before here:
-> > 
-> > https://lore.kernel.org/dmaengine/abkoXXbaxaiqbBuX@vaman/
-> > 
-> > Changes in v6:
-> > - Patch 1:
-> >   - Prefix the bus width helpers with dmaengine_ (Frank).
-> >   - Drop the wrapper macros taking the address of their mask arguments.
-> >     The helpers are now static inline functions taking a
-> >     dma_buswidth_mask_t pointer (Frank).
-> >   - Drop a stray blank line in dma_get_slave_caps() (Frank).
-> > - Patch 2-8:
-> >   - Use the renamed helpers, passing the masks by pointer.
-> > - Link to v5: https://patch.msgid.link/20261009-dmaengine-support-wider-dma-masks-v5-0-4c4e63a7a1af@analog.com
-> > 
-> > ---
-> > Nuno Sá (9):
-> >       dmaengine: Support bus widths of 32 bytes and above
-> >       dmaengine: dma-axi-dmac: Use bus width capability helpers
-> >       dmaengine: dw-axi-dmac: Use bus width capability helpers
-> >       dmaengine: qcom: gpi: Use bus width capability helpers
-> >       dmaengine: stm32-dma3: Use bus width capability helpers
-> >       iio: buffer-dmaengine: Use dma_slave_caps bus width accessors
-> >       ALSA: pcm_dmaengine: Use dma_slave_caps bus width helpers
-> >       spi: dw: Use dma_slave_caps bus width helpers
-> >       dmaengine: Drop legacy bus width fields from dma_slave_caps
-> > 
-> >  drivers/dma/dma-axi-dmac.c                         |  13 +-
-> >  drivers/dma/dmaengine.c                            |  23 ++-
-> >  drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c     |  39 +++--
-> >  drivers/dma/qcom/gpi.c                             |  11 +-
-> >  drivers/dma/stm32/stm32-dma3.c                     |  37 ++--
-> >  drivers/iio/buffer/industrialio-buffer-dmaengine.c |  15 +-
-> >  drivers/spi/spi-dw-dma.c                           |   7 +-
-> >  drivers/spi/spi-dw.h                               |   3 +-
-> >  include/linux/dmaengine.h                          | 188 +++++++++++++++++++--
-> >  sound/core/pcm_dmaengine.c                         |  20 ++-
-> >  10 files changed, 289 insertions(+), 67 deletions(-)
-> > ---
-> > base-commit: 42c31fec1ca76b8b5f7759def122d418dff2cd4b
-> > change-id: 20260615-dmaengine-support-wider-dma-masks-5aac12497e27
-> > --
-> > 
-> > Thanks!
-> > - Nuno Sá
-> > 
+
+
+On 11/20/2026 1:27 AM, Leonardo Bras wrote:
+> On Thu, Nov 19, 2026 at 03:52:37PM +0800, Tian Zheng wrote:
+>>
+>>
+>> On 10/30/2026 10:15 PM, Leonardo Bras wrote:
+>>> On Fri, Oct 30, 2026 at 10:53:57AM +0800, Tian Zheng wrote:
+>>>>
+>>>>
+>>>> On 10/27/2026 2:12 AM, Leonardo Bras wrote:
+>>>>> On Tue, Sep 29, 2026 at 06:36:46PM +0800, Tian Zheng wrote:
+>>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>>>> index 32102c3912fa..12fa37328dd2 100644
+>>>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>>>> @@ -2158,6 +2158,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>>>>>     	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+>>>>>>     }
+>>>>>>
+>>>>>> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int scope)
+>>>>>> +{
+>>>>>> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, scope);
+>>>>>> +}
+>>>>>> +
+>>>>>
+>>>>
+>>>> Hi leo,
+>>>>
+>>>>> IIUC you run this on every cpu in the system, to make sure it's matching
+>>>>> the feature. Is there any chance the kernel is in EL2 only on some of the
+>>>>> cpus here?
+>>>>>
+>>>>
+>>>> It's impossible for the system to have only some CPUs in EL2 and others
+>>>>    not.
+>>>>
+>>>>> If not, maybe we can run it on system_supports_hdbss() instead, which would
+>>>>> be easier for the user to understand it only runs in EL2, on top of not
+>>>>> needing the above.
+>>>>>
+>>>>
+>>>> However, The question is whether a cap should mean "this system can use
+>>>> the feature" or "this hardware supports the feature". If the cap only
+>>>> tracks hardware support, users may be confused when the hardware
+>>>> supports HDBSS but the system runs in nVHE mode â€” they would mistakenly
+>>>> believe they can use the feature.
+>>>>
+>>>> So I think we should keep is_kernel_in_hyp_mode() in has_vhe_hdbss(),
+>>>> and add a comment in system_supports_hdbss() explaining this.
+>>>>
+>>>> Does that work for you? Looking forward to your reply.
+>>>
+>>> Well,
+>>> That's just my personal view of this:
+>>>
+>>> If we have a function called "has_hdbss" it should only report if the
+>>> system has the feature available.
+>>>
+>>> On the "system_supports_*" we have to figure out if the system itself
+>>> supports the feature, which checks the feature bits itself and could mean
+>>> checking for other features being there, such as hyp_mode.
+>>>
+>>> What do you think?
+>>>
+>>> Thx,
+>>> Leo
+>>
+>> Hi Leo,
 > 
-> Hi Vinod, pinging this one before resend. Already got the rb  tag from Frank on the
-> first patch. If anything left to do, let me know please.
+> Hi Tian,
+>   
+>> Sorry for the slow reply. I've been looking into how other cpufeatures
+>> are configured on arm64, on and off, and that's why it took a while.
+> 
+> I took some time to study it as well, and to be clear, my previous
+> understanding of this was incorrect, and it looks like the has_vhe_hdbss
+> (.matches callback) is only called once during boot, and once per hot-added
+> cpu.
+>   
+>> My reading is that detected: HDBSS should mean "this system can use
+>> HDBSS", not just "the silicon has it".
+>>
+>> Several caps already add conditions beyond the ID bits. CNP returns
+>> false for kdump and under ARM64_WORKAROUND_DISABLE_CNP, NV and pKVM
+>> match on kvm_get_mode(), and can_trap_icv_dir_el1() starts with
+>> is_hyp_mode_available(). So in practice a SYSTEM_FEATURE cap answers
+>> "can this kernel use it on this system".
+> 
+> Humm, or maybe "can this kernel, booted as it is, use it on this system"...
+>   
+>> HDBSS is EL2-only (HDBSSBR_EL2/HDBSSPROD_EL2, VTCR_EL2.HDBSS),
+>> implemented only under hyp/vhe, and used only by KVM, so "the hardware
+>> is there" is not the same as "this kernel can use it". That is why I'd
+>> keep the gate in has_vhe_hdbss() rather than moving it to the consumer.
+>>
+>> I'd be interested to hear how you see it.
+> 
+> I agree, that looks better this way.
+> 
+> I don't think I understand enough of what 'system' means in
+> system_supports_*(), but I think your version explains it enough based on
+> other similar functions.
+> 
+> Thanks!
+> Leo
 
-This fails to apply for me, can you rebase on next and send
+Hi leo,
 
--- 
-~Vinod
+Awesome, thanks for taking the time to study it.
+
+Thanks!
+Tian
