@@ -1,55 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795162685;
-	b=zaBrgPp7ZYTDxOhDTXjn0N25nK3CzbMWljkoDZF9HhpQA127eFQ/ji5OKU+F3PHRMJfK
-	 gAQz4g0ZeuepWv7LZni9HCB6Drmz5mAWhfBf98xrPcHWyLXZAkj6d93hgA/Xqcmc/nF/0
-	 ueauTf3s0GQeNJNNno/VdCmpZ3KnxFlhoCBv3jwQ2FADls8UbhPURMN99z1aOR3KV6WlG
-	 Zm56bvtR1+nFJ6z97pUGKpRANTMXWUGzApyeeWg0IOQ9TbGKfrnZZSyEKg7XV6neC9fZk
-	 PIHt/aftHEjYYaUNWw8y/z83BeccXnXOgyzlYSl/HG1yi15EFZsaCOh33JhlPGKB9xg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162685;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=9/frLhMQMe7GkO3PY028XU6pdcaZkpb++W3LM91GcfM=;
-	b=K6TF/XR8fjeSuFNOHz5sEZsXcXlqjkM9yrYqg3Eryg4x4dttcErLOCXvDyWrg1BqLs1N
-	 RuDg153Xduci/sd2BWUda4Fc5sbRFxXhUu24qLnva0zBCLrPBStXra4S4cBlaRZsieWtN
-	 FO+E2ykoc/cDdvA3sz+d3FVr9hRFe/JTz6dxVySXhkcUyu/21vKReSB4BoIemOZ/vGUvu
-	 icf+X0zxw2nwPT0HuiSwe3w666CtRQeEQ9iK3Wfq6GLWQhb9aqKUprTkhcR5GSLBAcMwb
-	 JI1h36JW6VDST3mq3JsauFyvcB94XakN/oR47HGXxoQIqM8jngWVAzekJ1XylEHVt5g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RgjCEuZo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.2
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795162691;
+	b=mbKSzdT9IKGJcHHiiTh47MDaD5qbUiWC9/o+IObsO0OuUco5NyZkA74n0+5xqArDHhzw
+	 1BKTDEyKOf/HGlP30IPVMZtX/ljzNkRY4hwT5DdJn+cZz+IKwiO6JrP7vsCYNKOUfCEtQ
+	 k8PnF78WDtnJjWjfF9hTptEqTk3wf4U+nkXI+uJRWBFvDD+DkT9ncZ1uZqADqcq5fFzP7
+	 +lt47Fg/G0TYnnCzgW5/fG/TcRKP1PKBaLPh3GKRk+xwHuH6vsE5WxgwgMzNkv0+2qDDR
+	 LqY94jy5YRaoqLsJyw0YGc3+4UUsw6UDZJLmKC+0ZDUUwrQueg8Tqh+9pT+Y2pX1ecA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162691;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=/E1YuOkzJw8KsnJcLuJFLnAZRdFZZWeU9Q0xjhw15RU=;
+	b=APTsA3mjKckNUHTNuj6/4lmzTj57u4hwk6rOPRZsuV+SaIsBWV9fexdYeL+qRUIcE/GI
+	 ZEJxpxVkTE16yAgH6d2ilAI9zinMA7tyUsVkYhZqhUbU9wvtR/OEPdd+GD+reoUcDhd8n
+	 FG76xjDSEFgF/wHfdvbyM2X496AaE0HRV3PcKzeHESJ3xzVijMtBTLiloA9Moa7P+DFAe
+	 AgaiBC7fZYZJZXrIWwLkWVsnw9C7s9iPSOuerALPq6xFl2gavWC08er2Cd4W4Ir6O7JZH
+	 eyKFP1SRp/LwXZHHvEXIZd9/vxWKrzbfe5adcCvhcI/5aWo4VRYqpaUpYi4pGTKpSLg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=pJyha6AE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.2
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012002.outbound.protection.outlook.com [52.101.53.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2A8AC606A338
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:18:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01832606A33D;
+	Fri, 20 Nov 2026 08:18:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01832606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RgjCEuZo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAC471F000D1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:18:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795162684;
-	bh=9/frLhMQMe7GkO3PY028XU6pdcaZkpb++W3LM91GcfM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RgjCEuZoxvN4bg6ixS49y3kC3BwhT5nknkuaE26WVpUs8l9+QznK1mk6dWOmcvJgW
-	 f9XH8jP2gyVzsCYdHrNgK5imAy0u1IbD4EJ16qFfz00V0AA+g/OuhoFsDsdz4GNdqD
-	 8LApH8/1vr+XZd24/QLxbv3cH5Dvh2qharDJ+1gsys7svchPQj7vPwjjAeds+6ugkf
-	 1QUDBl0A7UDQM+QBxQ399ZzSKHNzsdHyXoNfe/IXZOH5iFe75D91KMWBSzWuqrITIb
-	 xw6fogEy3gOH0jdFNJ4OlHQ+5Px+/+P1Rj/eMSY4tyH9dHSJItqjWAJTWyVsTOgV4j
-	 Dz+T4Hd81md2g==
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6ae305e3bd9so1116297a12.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:18:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHq7r3Vk8lwxaG/U8Jy5OXDAFhRNg5UP+Veooliv8s5SlpCsWvRF6tfrgeRPMgPboWNv7zjz/iLrniMeh8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Pa4i8WNLnuMdCnqLgO3sDw2T0JPSYnG3CdHvjdT81SGVQKzeC
-	Aj6BB2yukZxP0eSidlhecV3z7M0gqQOYjONEssp84WHlHDUrh5N6RHb6PhNGpLMe7yk8AtjnmAl
-	jemaKHn5xY+TjIm2epwP8xjFq1NqTgmw=
-X-Received: by 2002:a05:6402:3207:b0:6b5:8222:cd12 with SMTP id
- 4fb4d7f45d1cf-6ba37eb3c1dmr1543593a12.37.1795162682105; Fri, 20 Nov 2026
- 00:18:02 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=pJyha6AE
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gY0QkkuQcqfOic+Xfu6ljWKSC72oQJAqFTCQrdVui3AHT3um/R4Hq3+G8TjoTdYcSfgZFpqCX84r7xua6JdMeN5KauhGrv9Ox0zkaGDA9TKTBFCGjbwCqS1pJ2uUY6vQGzH+UBKjkvw0Ui/x/Nl8Yi/xHMQmaS1gy7C3p+fnL8RpM5GgYYKhrOnI4dYpinjzDDMHXNmX7a95YJa4wgBSJ7eHlw7k9NvW81T/AtPrZrNHw2RaX3qdw3FwKCPg3DpYVF3AEL/KTNoFcVoDMB3S/vuvwLglUDN8eKJQ+MVergMUi2f2kILh3c1iXKEokjw/jbNi4GwInTvpPUwqGxVY5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/E1YuOkzJw8KsnJcLuJFLnAZRdFZZWeU9Q0xjhw15RU=;
+ b=tPkTMSBzSaqDG7FIK4gOPBgNNpFkc/X5ar2RNGzG0nK6pSrykPOAgxOnPyihagWvxp0nwwYA2wUGpl3asqDpPDzJOljO2r0pUY/0LmZOXk0+rwh2pft3/lhqd+5jfmFz/qKIM0PxzLFiqyr5ktReRhlpW3kAMLH6o1ZOL+sN40I1UPIDbTNCVO/aB/Y1qPkfRo1P/VevB/BsY81tHCkj5FCkWKuF+Jgv+6pN9KlvbgPQKi7Q8qP7c+n0++eg515Cammrh07eODLZdTvq+XFZuyEA6VU060AyBBA63oNwR8L7ZZJn+MOJlI6/2cz9tBBjh0be49DCjGqVswWjm/V/tA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/E1YuOkzJw8KsnJcLuJFLnAZRdFZZWeU9Q0xjhw15RU=;
+ b=pJyha6AEl7616lmmq5vmcP5JXndiWZLJVsjNJsjEWNJYsexP7VxOMrsbAf7L29nPxoyEk1uWcZxexJYBjycTqXKZeJ2XbAgrkKr4UDMUaSHeO7IN0kYbAmjgBKGrdWHPvz3MjbTEbWgj/ylgP0Lp5GVlPdU1EXUF1RSQgGm0mwl3ith8zodPgFPN4vshqU8wXWwVszdp9QC/LPe461H8MRfH+MJFkdDClHUqW7bDt4hiN7yQO3IOxi6uMLHxjTY4wqiPEqlmnlKS/ybvc7JubUCXw2jNQzo7ajqfmc+AdK2hUEKS6LFKDizx/cB+B+wV8ehzM5330KDSDZkxWXlwtQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LY0PR12MB727857.namprd12.prod.outlook.com
+ (2603:10b6:408:3ba::5) by MN0PR12MB5836.namprd12.prod.outlook.com
+ (2603:10b6:208:37b::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Fri, 20 Nov
+ 2026 08:18:04 +0000
+Received: from LY0PR12MB727857.namprd12.prod.outlook.com
+ ([fe80::843e:82cd:41ca:f522]) by LY0PR12MB727857.namprd12.prod.outlook.com
+ ([fe80::843e:82cd:41ca:f522%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 08:18:04 +0000
+Message-ID: <b1153a9b-05c5-4f72-b91a-83e8cc6dd113@nvidia.com>
+Date: Fri, 20 Nov 2026 00:17:59 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v17 11/19] PCI/CXL: Cache endpoint HDM state during PCI
+ enumeration
+To: Alison Schofield <alison.schofield@intel.com>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, Dave Jiang <dave.jiang@intel.com>,
+ Davidlohr Bueso <dave@stgolabs.net>, Ira Weiny <iweiny@kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>, Vishal Verma
+ <vishal.l.verma@intel.com>, linux-cxl@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Li Ming <ming.li@zohomail.com>, Joshua Machauer <machaujo@amazon.de>,
+ Alex Williamson <alex.williamson@redhat.com>, vsethi@nvidia.com,
+ alwilliamson@nvidia.com,
+ Sai Yashwanth Reddy Kancherla <skancherla@nvidia.com>,
+ Vishal Aslot <vaslot@nvidia.com>, Manish Honap <mhonap@nvidia.com>,
+ Jiandi An <jan@nvidia.com>, Richard Cheng <icheng@nvidia.com>,
+ linux-tegra@vger.kernel.org
+References: <20261105185917.2667656-1-smadhavan@nvidia.com>
+ <20261105185917.2667656-12-smadhavan@nvidia.com>
+ <avyPB4YCEKUDtT19@aschofie-mobl2.lan>
+Content-Language: en-US
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+In-Reply-To: <avyPB4YCEKUDtT19@aschofie-mobl2.lan>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4P220CA0015.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:303:115::20) To LY0PR12MB727857.namprd12.prod.outlook.com
+ (2603:10b6:408:3ba::5)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,175 +110,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119123307.28574-1-yangtiezhu@loongson.cn>
-In-Reply-To: <20261119123307.28574-1-yangtiezhu@loongson.cn>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Fri, 20 Nov 2026 16:17:52 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H6mWx+keyL-p9tpH3Feyd9N2ypz-DwncG_t=wJ0BbyatA@mail.gmail.com>
-X-Gm-Features: AclHuK938omq3MLgH7c0mDyD4skIieIpBmCENxkKeJ91eNHkumIGDepo719KC4s
-Message-ID: <CAAhV-H6mWx+keyL-p9tpH3Feyd9N2ypz-DwncG_t=wJ0BbyatA@mail.gmail.com>
-Subject: Re: [PATCH v3] LoongArch: Fix preemptible warnings from smp_processor_id()
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: loongarch@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LY0PR12MB727857:EE_|MN0PR12MB5836:EE_
+X-MS-Office365-Filtering-Correlation-Id: ce238295-41a0-492b-7431-08df46decd0b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|22082099003|18002099003|261009223027099003|56012099006|4143699003|11063799006|10067099003|261026121527099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info:
+	iV0Y0l+lV7HKhYoi+UihdvvsZrwZ2m5JyTsy18Ct0KxFxorN7nSg68kOJOOi9xJuyrKwLfm7GHJPVOexJ22KuBnt/ag17Nfj/kf0vEql0SauvNPZX+3dG7Js6kyBf4uebsoYnl5Z5a2313OeXkkkl/F3VmDsddlrqzTzgky55VnNJmcVZ/OQoE4txSKqJ1Ifo4mUi+j0gwlU+jSOMljIYAysONx+REA/Bpmfc5EO1SA7MAEXyPDEc8Hgh87vkdIgRLgmWM6BZepVH9oxYD+kfoJdoLW7PEOkpO19wU8as+KFLfTWiQ19ais0vnndn4B+HNz1+vLVBaME2JFsZ74FX9No+RHmjaQpFnXLVilmsXkd2Dcm+0CdIFgUt3v7ybaXEyZjgh6wpOw9zYvxQ3B7Gq/AbAsyvNzrKzplvIen8BxaTEcSLUWlOnv5pckmkzlALbzkXxAiXpUR60H/Ek+ZyY/jPaHDt3LGoaetg6e2vq44sneu4zmlyCAx+XSaLiakfJ5PyGl392R6Sx3RgoGfGY1zim6x+c1WcI8XJfdMtSSBLJ6YOeNOnG3RCuHJ4mmpW3zguVZFPhjzX7NdcL+oztzKky0cQNS4RmVF4QT+HaDB8WbumWoS276HemwH7wO/bejgOiT1/P7MG6M4ZQ7441ieP0pvE6chhoWJQEehSgw=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LY0PR12MB727857.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(22082099003)(18002099003)(261009223027099003)(56012099006)(4143699003)(11063799006)(10067099003)(261026121527099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Ni9GYWszV0RDeHNHT0ExNTJtZE1xUmxDTm9JVTh5QWFpTUZSekltWURzdHZF?=
+ =?utf-8?B?N0dLdlpwTTJQK0Z4VHY4S2xUQm1Hb0pIWTE0eXJMREtiUzdnUjdxaFF4WUhE?=
+ =?utf-8?B?dXptcDVMQ2JEbXB2RnVxNVBPRTJDVEFFYStlSWRSZENpZGFzOG13MVdteXM0?=
+ =?utf-8?B?UmR0NkRYbkMrd0tRREpSdVZlckszcFlqajNvWXM4ZDFaUFgzY3J0STZ0YzN3?=
+ =?utf-8?B?VStQUmVCRWNaWTh1N084TCt5YWhrR2xmajJ4azZhZ0dPUWxxcS9JMGU3SXE4?=
+ =?utf-8?B?OFFNUHRQVXpiNlQvRnFUa1VSZDNHdzZQc3FYaFBRSzMxeEtaTmcvZGFzYm1N?=
+ =?utf-8?B?V0NJSFhtWHVwRVlFL0Y5T0xZRlYrOUpYd1pMVytteDVBM3ZIUFF6N2dTM21S?=
+ =?utf-8?B?VGZKT3ZjUzdEcjI3N0dpVlhBbk5BYk5iV1FOblZ5N3BTaXU4V215QUFrblQx?=
+ =?utf-8?B?SUFSbWdJWmU1VTZGOWI0TDdYUThQVXBmU0I4V3djRzAzZkN3Y0xSQWJGWkYr?=
+ =?utf-8?B?cFBhVWZOejBkS3Y4WTRQdm8vYlRnZHlRd1Y1S0pweS9xWVdKRHYydFRla2Q1?=
+ =?utf-8?B?dlJnVkJJNGdJSjJtbkxPSXd5UEEwNGVPcFJnbVdDaHltMnJ1OWpmaW83Smd0?=
+ =?utf-8?B?T1F0Tmp6N25jV0RObm5OWnRGWW5RRlZKWGpwWFQ4blBvWjV3RlFPS2c5QTJn?=
+ =?utf-8?B?b0NVQ1BYOVpKN0tWZUovcUxQN1Jwck1XRHBrU0pzdkNZQitFbVdpVzBZc3oz?=
+ =?utf-8?B?ZWlJOGV0ZmZkdkxYL05LY3RRelVwZ1A4dmhzM0V5K3Z0dDJzaWJHaURPT2tS?=
+ =?utf-8?B?Mlo1bzJWckdqaWM0TTBpb0N4OGlWSGIzZHkrZDMrL0FhaUhMSUpnUUN6OFV1?=
+ =?utf-8?B?ZGxOVmdmU25xYi93bThjRGtXK2g0YzVYRmcwMEQ1UzIyQmZDL0tpV3lFTlVK?=
+ =?utf-8?B?TDFkcWg5dGdvTXZUQmFLMGt0RFdVZy9pemE2RGJKL0dNeTV4eE0wQnpXbDJF?=
+ =?utf-8?B?cmVtbDJ4N0FyaEQrQXU5SHV0RGtvbU1WVDl0UWhZbzExdlU4M1k0dHlPWXVs?=
+ =?utf-8?B?Y2VJS0VQWjRvZmdUVFVrTHRBSTRzSkRFU3NWaXNGUEJtMTQvV3NDS0U5alJB?=
+ =?utf-8?B?TERoVS9EMW9VOWp6d25wSkNIU2hBNnRXUzNLY0pKcXlrUkdjZk5IeHoxTFli?=
+ =?utf-8?B?K0Vua3VWaWNuNnZPWVhzQVJkdkhvRXFIUngwT2dJVWNsaVh5dFJmdTVpU3Iw?=
+ =?utf-8?B?MzZVSXFpMkM1cityV2c3OWN2WjFoSDdwK1dSWGJ6aytMOWR4ZURMakZuNkdJ?=
+ =?utf-8?B?eTlpakl3RVBpTDhTMHBzS0E4dTVjQkRTS1hRUDBnSmR3YjR2OU1wUlI4VnhH?=
+ =?utf-8?B?aCt0b0drdW5mTEtVb3hWbUNlOXdML0hKQnpiaElTU2FESit2Tkp6RjltQlNr?=
+ =?utf-8?B?Uy8vZ3NoN3ZqS3I0NVpvbHFoblpMQUhLL0lKS3d0TllCekNkSTA3REwyU0VN?=
+ =?utf-8?B?R3RNVm5VblNCUytHdVJTT0VBQStKa3ZxUW5YSW14Ymk2VTJQanI1SG93dEhP?=
+ =?utf-8?B?T0dPbkhsSHdXNlZPQ0Y1QjVyK1dmd0o5Vm9DbXdXSnkvZGJYdTJVbm9kVlVE?=
+ =?utf-8?B?NTNsYnFFL2tWVTJXVVBsVmhxM3ZwakNHMkFHNHBFdlFycG4wbkxmdHlLekEz?=
+ =?utf-8?B?S0t4emZmK3QzRGwxSSt5S2dSM1JMZlBIdm9KazNoOUtwN2VrczllQmZ4d0pz?=
+ =?utf-8?B?WnJ1b1UvWTNleTRXRlQ0cWlnRlljKzZiRmhqVlg1TitHbml0c25YdXhCWjJ5?=
+ =?utf-8?B?WEw2MmNzUDViRGJWd1RqeVE3NDFvVFN4K1ArN3RwTWQ0bGJjR0pQY2pnOVFK?=
+ =?utf-8?B?VUJEQ2dGVStFMU1temJpbXphbjNNdWpISnBmK2tEQUdwd21mYWN3NmJzR1dr?=
+ =?utf-8?B?TldVbFdlYVlLSloyMVdLYjRHYkt3SHZXUlJnZnlqZjZ1VFRWVUU1b2hrMTV2?=
+ =?utf-8?B?QlB4UXBocUNUdURqbXBvODNLMmtTL1pFajlDT1NxbVN4Wk5VeStIWEVjWTBL?=
+ =?utf-8?B?cUZobFNia2hjbHJBbWVtLytLOEV1OEFGR1NHTkhkdU9KcjdDWTlvRmFmbWph?=
+ =?utf-8?B?UkQ5T2FXQmhGcU5RQm05b0Y1a0tkcTlsQUkxcjZxeG9EVG10RVg2djRnUXdZ?=
+ =?utf-8?B?T1czQmMwZlZVVzFpeGZCSDRBWFVWaFdOMitrTTdQdkR2Q290ODl4TEJuaTFK?=
+ =?utf-8?B?RllkZjg0bXJ3VU91SExneFh3K1FqNnpoWUVYOGJpVlM1WDNJeWZsWmhKSnBT?=
+ =?utf-8?B?N25TSUNLcXhTYUU2L2xPQjh4MzllZmhFN2xwT0w3bWczWDdDb2ZCQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce238295-41a0-492b-7431-08df46decd0b
+X-MS-Exchange-CrossTenant-AuthSource: LY0PR12MB727857.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:18:04.8378
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4tTpQJsj0158bqFLOSLn/4xAkuhB5veEufAxcgJlarYL9P0lr6DUVlNR5KR++ZXO7nz2oHXr8z8GqJP5uG3KVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5836
 
-Applied, thanks.
+On 11/17/26 9:29 AM, Alison Schofield wrote:
+>> Cache HDM state in pci_dev->hdm after BAR resource setup and before driver
+>> binding, so reset can restore it without a bound CXL driver.
+> Does having this cache make the device ready for reset before its CXL
+> endpoint and region discovery have run?
+> 
+> I understand why restoration needs to work without a bound CXL driver,
+> but what establishes that the cached state is sufficiently complete
+> for reset at this point? Some information, such as normalized
+> addressing in patch 13, is only recorded later during discovery.
+> 
+> -- Alison
 
-Huacai
+The cache only holds the HDM register state read at enumeration, so it
+doesn't make the device ready for reset on its own. I answered this in my
+reply to the cover letter: 
+https://lore.kernel.org/linux-cxl/20261105185917.2667656-1-smadhavan@nvidia.com/T/#m82b76ee0215d67d91f67ec6fa72036615f1adb4f
 
-On Thu, Nov 19, 2026 at 8:33=E2=80=AFPM Tiezhu Yang <yangtiezhu@loongson.cn=
-> wrote:
->
-> When CONFIG_DEBUG_PREEMPT is enabled on a Non-SMP kernel, calls to
-> smp_processor_id() (including via current_cpu_data) in preemptible
-> contexts trigger numerous "using smp_processor_id() in preemptible"
-> warnings during cacheinfo setup and local TLB flushes.
->
-> Furthermore, disabling preemption in local TLB flushes is strictly
-> required for safety even on preemptible UP kernels. On !CONFIG_SMP,
-> flush_tlb_{mm,range,page}() map directly to local_flush_tlb_*(),
-> bypassing the preemption protection in smp.c. Without preemption
-> disabled, a context switch after asid_valid() can trigger an ASID
-> generation rollover and corrupt the ASID state mid-operation.
->
-> Fix the callers properly:
-> - Use the passed-in 'cpu' parameter to index cpu_data[cpu] directly
->   in init_cache_level() and populate_cache_leaves().
-> - Use get_cpu() and put_cpu() in local_flush_tlb_{range, page}(),
->   and reuse cpu_data[cpu] in local_flush_tlb_range().
-> - Also convert local_flush_tlb_mm() to use get_cpu() and put_cpu()
->   for consistency.
->
-> This eliminates warnings on Non-SMP builds while ensuring strict
-> preemption safety in preemptible UP configurations.
->
-> Fixes: b61a40afca16 ("LoongArch: Refactor cache probe and flush methods")
-> Fixes: 09cfefb7fa70 ("LoongArch: Add memory management")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
-> ---
-> v3: Restore get_cpu()/put_cpu() in local TLB flush functions to prevent
->     ASID rollover races on preemptible UP kernels.
-> v2: Use raw_smp_processor_id() instead of get_cpu()/put_cpu() in local
->     TLB flush functions.
->
->  arch/loongarch/kernel/cacheinfo.c |  8 ++++----
->  arch/loongarch/mm/tlb.c           | 22 +++++++++++-----------
->  2 files changed, 15 insertions(+), 15 deletions(-)
->
-> diff --git a/arch/loongarch/kernel/cacheinfo.c b/arch/loongarch/kernel/ca=
-cheinfo.c
-> index 8e231b0d2cd6..334d116e4c29 100644
-> --- a/arch/loongarch/kernel/cacheinfo.c
-> +++ b/arch/loongarch/kernel/cacheinfo.c
-> @@ -11,11 +11,11 @@
->
->  int init_cache_level(unsigned int cpu)
->  {
-> -       int cache_present =3D current_cpu_data.cache_leaves_present;
-> +       int cache_present =3D cpu_data[cpu].cache_leaves_present;
->         struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
->
->         this_cpu_ci->num_levels =3D
-> -               current_cpu_data.cache_leaves[cache_present - 1].level;
-> +               cpu_data[cpu].cache_leaves[cache_present - 1].level;
->         this_cpu_ci->num_leaves =3D cache_present;
->
->         return 0;
-> @@ -67,10 +67,10 @@ static void cache_cpumap_setup(unsigned int cpu)
->
->  int populate_cache_leaves(unsigned int cpu)
->  {
-> -       int i, cache_present =3D current_cpu_data.cache_leaves_present;
-> +       int i, cache_present =3D cpu_data[cpu].cache_leaves_present;
->         struct cpu_cacheinfo *this_cpu_ci =3D get_cpu_cacheinfo(cpu);
->         struct cacheinfo *this_leaf =3D this_cpu_ci->info_list;
-> -       struct cache_desc *cd, *cdesc =3D current_cpu_data.cache_leaves;
-> +       struct cache_desc *cd, *cdesc =3D cpu_data[cpu].cache_leaves;
->
->         for (i =3D 0; i < cache_present; i++) {
->                 cd =3D cdesc + i;
-> diff --git a/arch/loongarch/mm/tlb.c b/arch/loongarch/mm/tlb.c
-> index aaf7d685cc2a..ea52a55ca85e 100644
-> --- a/arch/loongarch/mm/tlb.c
-> +++ b/arch/loongarch/mm/tlb.c
-> @@ -40,25 +40,21 @@ EXPORT_SYMBOL(local_flush_tlb_kernel);
->   */
->  void local_flush_tlb_mm(struct mm_struct *mm)
->  {
-> -       int cpu;
-> -
-> -       preempt_disable();
-> -
-> -       cpu =3D smp_processor_id();
-> +       int cpu =3D get_cpu();
->
->         if (asid_valid(mm, cpu))
->                 drop_mmu_context(mm, cpu);
->         else
->                 cpumask_clear_cpu(cpu, mm_cpumask(mm));
->
-> -       preempt_enable();
-> +       put_cpu();
->  }
->
->  void local_flush_tlb_range(struct vm_area_struct *vma, unsigned long sta=
-rt,
->         unsigned long end)
->  {
->         struct mm_struct *mm =3D vma->vm_mm;
-> -       int cpu =3D smp_processor_id();
-> +       int cpu =3D get_cpu();
->
->         if (asid_valid(mm, cpu)) {
->                 unsigned long size, flags;
-> @@ -67,9 +63,9 @@ void local_flush_tlb_range(struct vm_area_struct *vma, =
-unsigned long start,
->                 start =3D round_down(start, PAGE_SIZE << 1);
->                 end =3D round_up(end, PAGE_SIZE << 1);
->                 size =3D (end - start) >> (PAGE_SHIFT + 1);
-> -               if (size <=3D (current_cpu_data.tlbsizestlbsets ?
-> -                            current_cpu_data.tlbsize / 8 :
-> -                            current_cpu_data.tlbsize / 2)) {
-> +               if (size <=3D (cpu_data[cpu].tlbsizestlbsets ?
-> +                            cpu_data[cpu].tlbsize / 8 :
-> +                            cpu_data[cpu].tlbsize / 2)) {
->                         int asid =3D cpu_asid(cpu, mm);
->
->                         while (start < end) {
-> @@ -83,6 +79,8 @@ void local_flush_tlb_range(struct vm_area_struct *vma, =
-unsigned long start,
->         } else {
->                 cpumask_clear_cpu(cpu, mm_cpumask(mm));
->         }
-> +
-> +       put_cpu();
->  }
->
->  void local_flush_tlb_kernel_range(unsigned long start, unsigned long end=
-)
-> @@ -112,7 +110,7 @@ void local_flush_tlb_kernel_range(unsigned long start=
-, unsigned long end)
->
->  void local_flush_tlb_page(struct vm_area_struct *vma, unsigned long page=
-)
->  {
-> -       int cpu =3D smp_processor_id();
-> +       int cpu =3D get_cpu();
->
->         if (asid_valid(vma->vm_mm, cpu)) {
->                 int newpid;
-> @@ -123,6 +121,8 @@ void local_flush_tlb_page(struct vm_area_struct *vma,=
- unsigned long page)
->         } else {
->                 cpumask_clear_cpu(cpu, mm_cpumask(vma->vm_mm));
->         }
-> +
-> +       put_cpu();
->  }
->
->  /*
-> --
-> 2.42.0
->
+-- 
+Regards,
+Srirangan
