@@ -1,77 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194577;
-	b=Yy23QrCiCd48k8pjOcEUOnbQhY+4ggJr9P5QAU+RevrGX+q8gzz1SJH+JpZ8z0QQzwRr
-	 fxhaFJzFPwHBO/8TOaMc+l1lxkAUYPIl6lZWb3B6dwWgP+m0UV0GbGkXUZrHZbtJaCGW8
-	 XA37UfyhAYGyu0rHZfBN9k/OscXjjvUkr/xVQGOiJIOwDE6FV6F9Mtz/nioKlSIWgwfPO
-	 UhghESe5Mal5UHE8j0uZ63HSkXgZm2QeiAShOyhNArhMNVZoHmc31NemGG5FVmuQimC7x
-	 PyNs8+5xq/hC+E2Ga86ybKozawX8FoBh20J+jLmsY7I7rPnyw4tDrZZ84q/s1lKNyuA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194577;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=8utFTCAaOpnRDSdNopk/ScS1rYk40NreZ25aW+7v2O8=;
-	b=JISLbbHuH0WpygbUdFGBVu8TT7/vukOCGqKWeg+ap73eO3U65Z6SwpXTmfOWavDM4rTc
-	 VpbAVDr8kDL+EY+e4BTVFWE8HK2Kgab8SkTGR3KlCrXzC4vTXR8gYfS0iCmQtF8MtOYuN
-	 IBSFOUTrB9IBrX5fvkMFNcAVYPVtYUa+89Q6IdjEnpiWJ/yf9COQsyXbgyOwIEg3+8AS7
-	 8sgvCjNsfS5dtmVTYVqabq/Rimvgu0U7Nh0e2/AIQ4zeuzwATqBi1CWkZqNzIwdXpwBaI
-	 u+yHTMgGVaKzePkf4Rbp10vSFAo5p32wOMc2/dumes/Mzx5+/dY03zxB3zVSU7Ewf5w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=oCCPok7w;
-	arc=none smtp.remote-ip=212.227.15.4
-Received: from mout.web.de (mout.web.de [212.227.15.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.170
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795194601;
+	b=3rfp5/JQbwaYLCCr+5RbBd+LhGomiZkS+t45rMLzZL5iQTFM8IT2SMsgOVpxT2vlO7G5
+	 QGVMcSSudHv+FtYjf1hvEaxOxonKeMDP4XNgXmPXsDk9ht47bkRUAs4MgcKNmLeWHkvdb
+	 gDJy5bnBfwjSR1JbbUuVUHi/EJKJY4xpLW1+7GzKgqoEBsnfO3Lt1oV5PILcDYCUJiBj0
+	 RroeX1Lf/JTQGcUKyPiH740jkduor0U+a6Rw5yZizs/jnT+6Fp8rdRax6NfehH31WrbhG
+	 /RV6CJc46SAo8IdDyCd2rGJ3necQn/SwwAv73EICnuYjuubDiJmcTIqU638e6DoyHnw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194601;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
+	b=F9bAKOlL9M1YeKmR8QqebOnPDx0WKoRQJZHwixQQmfjJ7g7pTz9Vy6CDhinu9uKY8O1v
+	 HegciVQ5S3+8r73rljlvIvQmdf+hzFiBLZHQ5yH78aohTHGW99Ms2F4HczhDfuVO78Cvt
+	 oMilcVgo8JYki4I0K3EbDQjRdPHbVpteD2rKuIijaXKCY8Zj7XtlvpbZ61A3K/lFQDSGl
+	 qwJc1CWx0UWSwpRhVFOUFHRLwaIPlL91B27s6mJ+MQeIxAcj9LQil0ME8wp+lNWUuCFO5
+	 k9u8HYDsWn2oj7qPJAI69T09Z3yKpwEGezC5sw7IytD6vKbz8XPeI6OD9PlD79lHZfQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=amacapital.net;
+	spf=pass smtp.mailfrom=amacapital.net;
+	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KzuPKz9w;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.170
+Received: from mail-lj1-f170.google.com (mail-lj1-f170.google.com [209.85.208.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1622360A2617
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:09:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1622360A2617
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2023460A262D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:10:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2023460A262D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=oCCPok7w
-DKIM2-Signature:  i=1; m=1; t=1795194574;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:OF2u4iEJ24oPrmvlXt4UVuKV9/JV
-   8v4o9EAI3aUa6qFHu9W3WdWxqOCKKan84QOVdyTOMbGGtVEBLaLV3Nh/C4cc6LW12I8qicI6lh2
-   oov+k2t4piK22YTMIYoY9WqoqrkYYc4PTK6veTDwg5Y06Hb1sxK+4DMRPD5sqzL8u4ndqDsSWIG
-   GheP28LJ49LExoYNKt9GlTWifyv0+nA+FV9UbMKnrmQw/yos2FiNDVzODhemwxu1/QxpY82S88V
-   R99PcMdubU2Xt2AWsq0kY5pCw83y5GCV+5tvpC5GLhFxtiH6j+Xar66twm+GtV4uR7Q62DlAWB5
-   JOu9iME/cQrfUA==;
-Message-Instance:  m=1;
- h=sha256:
-   ITyGwfFXg3xQbIYvLGo6qsMX7twE/be3BW00g/6v6V4=:
-   8utFTCAaOpnRDSdNopk/ScS1rYk40NreZ25aW+7v2O8=,
-  sha512:
-   Plljspi92ODZgOzFVBClwQ4ZCpY7+HvEbpR5StWfEFMMtLQpLATgj5rOrC9X2VaNPD5wmOlc6PqAjS49pvSP1A==:
-   w8CEx7IGQ5/DXNP19z2nf6km3OwBmAOBHq+IgAZwXXGLNwSCj8koux3ldQfY4UPOg9Qfwr11Kl0Hd8WmX2zlwA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795194562; x=1795799362; i=markus.elfring@web.de;
-	bh=8utFTCAaOpnRDSdNopk/ScS1rYk40NreZ25aW+7v2O8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=oCCPok7w8ahlBRz/CxxLZvsK2tb6UUN8c4icPKkUgRNDT6jWL5C0z3IMKWI4l9y+
-	 IYDtKGQKcZfF1oY6uHW7KQ4Yu5/4nuNz3M/PPH1MRW7S9bCmRL5YKzCYYs3Y9cyYh
-	 W02w8HjLIwF5U1geSbVUeKuTC39H5lxWZnp+na9LxipcTBNlFUZiSbLvjnTZmpuBE
-	 9yQW2wRmCk8lHWxWo8TlcIzdroyHWlKZyzgpxFsVZA8oEkHGKTOXCqOfB//WBgCxo
-	 lPd57iiO0SFjZhrG+/l3DTATER4tfziL4Ao7S3gY0vedrEVHZbOFuO11QufYJ7ONY
-	 aK8aFnO4QrpBIwX85g==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MoeYH-1yJP0F0y3F-00qi1z; Fri, 20
- Nov 2026 18:09:22 +0100
-Message-ID: <11ff2f72-d720-4d41-b24a-cb7432cfb50e@web.de>
-Date: Fri, 20 Nov 2026 18:09:20 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=KzuPKz9w
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-3adef977ad9so9129171fa.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:10:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795194599; cv=none;
+        d=google.com; s=arc-20260327;
+        b=m105H2wZeSIUotkZWsIdHRcLwpvZIdoVOvPI0n2HNj8QZg6yc/XMQLFTYS+bFAw1xw
+         inTbCN9CBJzc2o9MzDFvcW24fVSbDZcjX1jEdWLc9+vzNCve0artxLUBCJPR8BXLGxn9
+         Fn8dRI3xIFdXt5OdGvVW+UA9E0ugzi44ywWfMRuY003d3Po3EAyylzk1AOin+XpH9AET
+         mnEZDzSKbVcMOKuB4PZACV59QPIMHoxjq2Af+T/AV+kgEhyT5ZmJFody1n900GkmdIcb
+         rDt+IW0907pANPpgyOhWHVTbTEengsRq5EYYaB+dZM7c/ueF5SnJNASr6ePKFiQMZnRf
+         tQNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
+        fh=EoqN+0gQM0WQDv0nMUODDUsLYKWUb3V+J+COv8bZEsw=;
+        b=jQHUe6NHEhl1A42/v8IqT/N47fh/6RHbaWoYRNcXMSipyPJEruK7i90TvtPjBq5VPW
+         +nWPz+vaCch6TDMwWk9bkd/KcXwGPpvCDUZJICpJ1WwFvRN9oJJqKnAWm7LulzZV28l9
+         kLI+UMztvsNgOk9RQc+RQRSspISLIMIzf4JVlcdxmloKb9KJJuJiLYbvcchENEfCv9n4
+         VWI7lpr57PsRDjwRoQ6ZxzawVdGLWKkS5CUMPCB8x3ybY1Va13FR6i4ugbF+bN7NPich
+         RhYZV8ZIWwp68JaJtimc8Jevjp5Kh0DvcjalDQNLv5fna4SCspzQbJ0GJsbqBJ8wAv22
+         LJoQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1795194599; x=1795799399; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
+        b=KzuPKz9wlUIhaJWdwueDeEluQfGhTtFH6fz8FAZF85dKlUnHi8FkaBQALudYSWmLoT
+         azKe3eFVYRDOFx+8IjhGNb9qwSrA+uMjFasO0Y78bF+3hajdbSeasLRKTqR9rrRw93Fs
+         mgsw5HsHH8a8RLldzj7UExTUzudAO7FPQcBGxVHr544OLOOoquGgLjJUclHerWxaJdLi
+         uxmk8NZd0Ky9WVaupdZUPVmFOhf9Zb4PrRXYdyH2vDYOnjm+WhZ7uYiyPgxh2C1qaltX
+         V7aCX88km55ADvHdXfnZgPboy0v8Geo0MFUxnSN4Wp1aITRMGG9KONQZYt3Rs95J370H
+         rqIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795194599; x=1795799399;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZjKXRhmMlyIf4k/Bgeh6+i9VHnnHMzl/5R3cKodeiFA=;
+        b=DJhz8mrl28G7qSZ5jmA6baABrPMOOV8Og6bzI/9HCQ/I+Am2l0+MwqqXNCkeiTkh3n
+         zaRQ0DY5phineZqStf0KqUNHgqFpLlgxcBYv5tln4aYj9JVCygb3j/jGh06UVSNNVeVJ
+         Opt0EZ20tc3/t7ug060dWYgVL/5mS+Jc46qcAMjyGgnyHwarULRVUAZ3pGvTpzApkuVi
+         I2PJN1G6NWp2CmANBdr52iY95f4uYOYAa2eQpL4kpOhpIT9i8AbbqmNRPnl2WX9ylpun
+         fEQ+9AR2SDK2yYRGDV+U75JaU0gn1WAOxyYRSEDZ0D+jKZaSKG4u6YpeM77Y+HZ7ypls
+         AlOg==
+X-Forwarded-Encrypted: i=1; AL+hErG2JvhyOq8Dz7F0bhPPvmXHzDufkfuvrmwEywSgI8zHozBrWNAOtk6TJCPTmjh2glmEhTLfoe/IkYNruf8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+XCJBcsd8k6NuA9HBO/qKd+FQjM/OhrqgfyiTrDOwkk0F2dq9v
+	LugiGnPELUw3r8k4+AdeVU76mKkGWEYSK/bA3x8BhRKFxdgPEyD+jp5VqQm4HfISuFeU3cvA5Qd
+	8Sp5+2UTLZ26BaIdKcOlYw+J1Qwcw0KNyhPk1VmIb
+X-Gm-Gg: AZFdTZdhQWsod9UpfJT3TivD1OTbjqu1/SxC8R9ZJormh+mOdKA+9K/Qe0pj8rVQJdp
+	TTEuZMbceuk21KdZ7xuxZ1XPhLGwGzxLgFx5C2Vpq7lCXFoL2mP+gurPfCOMBKloOk0KhpySHiJ
+	F65q11cAPTGA5zA/cakGlYRogFf7sstFEZ6V49YPEN1erbhZRx6IcM5au6q37nbk9hTLqbeZGAL
+	ng5TLpd9EW8TGnNjGb0duDhfZd16qVUgIhzwfSSC09qF1zMxsYp/0D6IoS422Vzr1sy9J5yJ6qK
+	vLnYUHaVJnTKp6jc6MJG9YBeAo3vz6zSeseIvgP++zsxygYKqgUAYpqVihdtCDDybbaaKcT9Etg
+	sholDxgyUvlnlGwIWldaWThse/iwhWj6qVg==
+X-Received: by 2002:a05:6512:1042:b0:5c1:4c4a:f026 with SMTP id
+ 2adb3069b0e04-5c1bc6f633dmr1312524e87.4.1795194599155; Fri, 20 Nov 2026
+ 09:09:59 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -81,142 +104,236 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2] dmaengine: dw: Use devm_clk_get_optional_enabled() in
- dw_probe()
-To: Frank Li <Frank.li@oss.nxp.com>, dmaengine@vger.kernel.org
-Cc: Frank Li <Frank.Li@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
- kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Serge Semin <fancer.lancer@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Viresh Kumar <vireshk@kernel.org>
-References: <4267a49d-89b0-4564-b22b-995de017f52b@web.de>
- <awB3YOGuJO6nZAGx@SMW015318>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <awB3YOGuJO6nZAGx@SMW015318>
-Content-Type: text/plain; charset=UTF-8
+References: <20261119104208.782900-1-halg@google.com> <20261119104208.782900-2-halg@google.com>
+ <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
+In-Reply-To: <CALCETrVqc+1bjH1bhqHee9bsUdk2B6314z7PMexbsnNpMhk14g@mail.gmail.com>
+From: Andy Lutomirski <luto@amacapital.net>
+Date: Fri, 20 Nov 2026 09:09:47 -0800
+X-Gm-Features: Aa3M54qqiWJmEKSjiAInchWSC43ADdXnD64UgkMS8cTjGJqVilvL89j5dcH7YsU
+Message-ID: <CALCETrV=zSxb6sgA08DLiK2bQovdMEj9ycG=Cc71mLn2C5Pgeg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] userns: introduce capability bounding set for user namespaces
+To: Andy Lutomirski <luto@kernel.org>
+Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, Christian Brauner <brauner@kernel.org>, 
+	Serge Hallyn <sergeh@kernel.org>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Kees Cook <kees@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	=?UTF-8?B?TWlja2HDq2wgU2FsYcO8bg==?= <mic@digikod.net>, 
+	Jonathan Calmels <jcalmels@3xx0.net>, Jann Horn <jannh@google.com>, 
+	=?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
+	Singh KP <kpsingh@kernel.org>, Casey Schaufler <casey@schaufler-ca.com>, 
+	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, 
+	linux-api@vger.kernel.org, containers@lists.linux.dev, 
+	keyrings@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:LCTP/a/EMUMn87OBzHBY+0sJJQ2ezI8DRnS9Z+eif3f02ry6iEc
- EouvWYnfEeL/5VvXcl+wxqFghBXJeV0C90w+VMINRQ1+kfqOKlQTELu3uwdUCSpF7NznKZT
- aPgeY3ldQSbBZvolftIP4qCt3K05O081T16OiY0lAEUUpVW/f/TOPTTotnayskv6WWMN6BU
- LNGyrvJRzQYMul6haF2Cw==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:8VWZnnnWGoc=;BbH1kYwhOdpr6Ln2bmpQ+psfDMZ
- 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
- g==
 
->> From: Markus Elfring <elfring@users.sourceforge.net>
->> Date: Fri, 20 Nov 2026 14:23:13 +0100
->=20
-> Any tools issue ? your patch look strange. Why this information at body
+> On Nov 19, 2026, at 2:52=E2=80=AFPM, Andy Lutomirski <luto@kernel.org> wr=
+ote:
+> =EF=BB=BFOn Thu, Nov 19, 2026 at 2:43=E2=80=AFAM Hallgrimur H. Gunnarsson
+> <halg@google.com> wrote:
+>>
+>> When a process creates a new user namespace, it receives a full set of
+>> capabilities (CAP_FULL_SET) scoped to that namespace. While namespaced
+>> in scope, several of these capabilities (such as CAP_NET_ADMIN and
+>> CAP_NET_RAW) expose broad kernel attack surface that many sandboxes and
+>> containers never need. However, there is currently no configurable way
+>> to withhold such capabilities from user namespaces while still granting
+>> them to workloads that require them.
+>
+>
+> One thought (from the rootns thread): the other decent sized attack
+> surface here is CAP_MOUNT_ADMIN.  Which doesn't exist as a capability
+> bit.
+>
+> A sort of horrible solution (but maybe not so awful) would be to
+> declare that the bits in cap_userns aren't actually capability bits,
+> and that you need the bit in cap_userns *and* the bit in cap_effective
+> to do sensitive things, and that mounting needs cap_userns to have
+> NSCAP_MOUNT_ADMIN *and* cap_effective to have CAP_SYS_ADMIN.
+>
+> I want to sleep on this.  It might actually solve several problems,
+> e.g. controlling creation of ipv4 and ipv6 loopback or tunnel devices
+> or whatever.
 
-I am trying to provide some author information.
+I slept on it. Here=E2=80=99s a counterproposal.  I=E2=80=99m not saying I =
+think this
+is better than this patch set, but I think it=E2=80=99s worth weighting the
+options.
 
-Regards,
-Markus
+Define a whole new set of privilege bits.  As a
+poorly-painted-bikeshed option, I=E2=80=99ll call them eprivs (for exposure
+privileges - it=E2=80=99s a crappy name but at least it=E2=80=99s pronounce=
+able).
+
+An epriv is not permission to do something *to* an object; it=E2=80=99s
+permission to do something that exposes a meaningful attack surface
+within the kernel. So there=E2=80=99s no ns_has_epriv because there is no
+object.  These are kind of the opposite of object capabilities.
+Additionally, an epriv never grants the ability to do something that
+one couldn=E2=80=99t do in an epriv-less world.
+
+For now, all tasks have all eprivs, even not-yet-defined ones, unless
+user code or config explicitly changes this.  (Maybe some day secure
+boot might remove certain eprivs.)
+
+There should never be a check like ns_capable || has_epriv. It=E2=80=99s al=
+so
+&&, or perhaps caps are not checked at all.
+
+Example eprivs include:
+
+EPRIV_FSOPEN_VIRT: may fsconfig, fsopen, etc a virtual fs like fuse or
+tmpfs or overlayfs.
+
+EPRIV_CLONE_TREE: may clone a mount tree
+
+EPRIV_MOVE_MOUNT: may move mounts around (but only if you also have
+CAP_SYS_ADMIN on the correct namespace, of course)
+
+EPRIV_FIREWALL_TC: may configure any firewalling configuration or tc
+configuration (this includes iptables, nftables, and ebtables)
+
+EPRIV_NET_RAW: may use raw/packet sockets (like CAP_NET_RAW)
+
+EPRIV_TUNTAP: may create and attach to tun/tap interfaces
+
+EPRIV_IP_LOOPBACK: may set up IPv4 and IPv6 loopback using whatever
+new facility we add
+
+EPRIV_NETLINK: may use netlink at all
+
+EPRIV_NET_ADMIN: may use traditional CAP_NET_ADMIN abilities (all
+CAP_NET_ADMIN checks will also check EPRIV_NET_ADMIN)
+
+EPRIV_OPEN_FILE_HANDLE: May use open_by_handle_at, etc.
+
+EPRIV_UNSHARE_USERNS: may unshare userns
+
+EPRIV_UNSHARE_NONUSERNS: may unshare any other namespace
+
+EPRIV_MOUNT_CGROUPv1, EPRIV_MOUNT_CGROUPv2: may create a new mount of
+these subsystems
+
+EPRIV_PTRACE: there are lots of different variations that might make sense.
+
+EPRIV_MOUNT_PROC_PIDONLY: may mount proc-pidonly
+
+EPRIV_MOUNT_PROC_NOTPIDONLY: may mount proc not-pidonly
+
+EPRIV_MOUNT_SYSFS: may mount sysfs
+
+Example eprivs that are questionable:
+
+EPRIV_DMESG: the kernel log is a specific object, and I think it's
+better to control access using something kernel-log-specific.
+
+
+
+There is no operation that increases eprivs -- even without
+no_new_privs set, a task will never gain an epriv, nor will a child
+ever have an epriv that its creator did not have at the time the child
+was created.
+
+The evolution rules could be as simple as, on fork/clone, the child
+inheriting exactly the parent's eprivs.
+
+Or we could bind eprivs to a userns instead of a task, but that could
+be more limiting and awkward than we want.
+
+
+What do you all think?
+
+
+FWIW, I had an LLM make an inventory (surely not exhaustive) of
+recent-ish CVEs and how they relate to this list.  (The below is the
+only part of this email that is LLM-generated, although I added
+EPRIV_SYSFS because I didn't realize that nonroot userns could mount
+it until I asked an LLM, sigh.)  To me, the list and its breakdown
+suggests that there is quite a lot of room for meaningful attack
+surface reductions while still leaving large parts of userns
+available, and that my epriv proposal captures much of this but the
+cap_userns proposal may be too coarse-grained.
+
+(I also asked about eBPF, and my LLM came up with a lot of CVEs, but
+there's an existing BPF token mechanism and I therefore did not
+propose EPRIV_LOAD_EBPF.)
+
+--- begin LLM output ---
+
+**EPRIV_FSOPEN_VIRT:** CVE-2022-0185*, CVE-2023-0386*, CVE-2023-2640*,
+CVE-2023-32629*, CVE-2025-38499*
+
+**EPRIV_CLONE_TREE:** CVE-2025-38499* (only if the check also covers
+the relevant internal mount-cloning path; explicit `open_tree()`
+restrictions alone are insufficient)
+
+**EPRIV_MOVE_MOUNT:** CVE-2025-37988
+
+**EPRIV_FIREWALL_TC:** CVE-2022-25636, CVE-2022-1015, CVE-2022-1016,
+CVE-2022-32250, CVE-2022-34918, CVE-2022-48911*, CVE-2022-2588,
+CVE-2023-32233, CVE-2023-35001, CVE-2023-4004, CVE-2023-4015,
+CVE-2023-4244, CVE-2023-5197, CVE-2023-6817, CVE-2023-3609,
+CVE-2023-4623, CVE-2023-4921, CVE-2024-1086, CVE-2024-0607,
+CVE-2024-27397, CVE-2024-26925, CVE-2025-38001, CVE-2026-23111
+
+**EPRIV_NET_RAW:** None identified.
+
+**EPRIV_TUNTAP:** None identified as requiring TUN/TAP. Some
+packet-triggered exploits may optionally use it, but that does not
+establish it as a necessary blocker.
+
+**EPRIV_IP_LOOPBACK:** None identified.
+
+**EPRIV_NETLINK:** Also those blocked by `EPRIV_FIREWALL_TC`, insofar
+as the documented attack paths use netlink. No additional CVEs
+identified.
+
+**EPRIV_NET_ADMIN:** Also those blocked by `EPRIV_FIREWALL_TC`,
+insofar as the vulnerable operations require `CAP_NET_ADMIN`. No
+additional CVEs identified.
+
+**EPRIV_OPEN_FILE_HANDLE:** CVE-2025-38306*
+
+**EPRIV_UNSHARE_USERNS:** Also those blocked by `EPRIV_FSOPEN_VIRT`,
+`EPRIV_MOVE_MOUNT`, `EPRIV_FIREWALL_TC`, `EPRIV_OPEN_FILE_HANDLE`,
+`EPRIV_MOUNT_CGROUPv1`, and `EPRIV_MOUNT_SYSFS`, plus CVE-2025-38058*.
+More generally, blocks the documented unprivileged user-namespace
+setup for the entire inventory when no usable user namespace already
+exists.
+
+**EPRIV_UNSHARE_NONUSERNS:** Also the namespace-dependent attack paths
+blocked by `EPRIV_FIREWALL_TC`, `EPRIV_MOVE_MOUNT`,
+`EPRIV_MOUNT_CGROUPv1`, `EPRIV_MOUNT_SYSFS`, and many of those blocked
+by `EPRIV_FSOPEN_VIRT`. Coverage depends on whether the necessary
+non-user namespaces already exist.
+
+**EPRIV_MOUNT_CGROUPv1:** CVE-2022-0492*
+
+**EPRIV_MOUNT_CGROUPv2:** None identified.
+
+**EPRIV_PTRACE:** None identified.
+
+**EPRIV_LOAD_EBPF:** None identified.
+
+**EPRIV_MOUNT_PROC_PIDONLY:** None identified.
+
+**EPRIV_MOUNT_PROC_NOTPIDONLY:** None identified.
+
+**EPRIV_MOUNT_SYSFS:** CVE-2025-22089*
+
+CVEs not cleanly blocked by an operation-specific bit
+Excluding the two EPRIV_UNSHARE_* gates:
+
+- CVE-2025-38058: No explicit unmount privilege. The vulnerable race
+involves umount(2) and path lookup.
+
+- CVE-2022-0492: The cgroup-v1 mount bit covers the documented
+new-mount attack path, but not necessarily configuration of
+release_agent on an existing writable hierarchy.
+
+- CVE-2025-38499: The correct gate depends on which filesystem-context
+or internal cloning operation reaches clone_private_mnt(). I would not
+count EPRIV_CLONE_TREE as a definitive blocker without checking the
+exact call paths.
