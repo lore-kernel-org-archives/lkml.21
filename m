@@ -1,78 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795146479;
-	b=QDxfDAQuAMUG4cCNzpSnYVD68w+yrsCg3GZHZfoqIziZ2clohynQkpyZQ8MsATYp0UJk
-	 KmOrhn689lK3DfvoIkfenLrmSDOmteiMRxs9lklctkAyCP7w3PDXRFgdScwpteyYHtdVV
-	 +m1JwiX+od4HRmV1VHk342PmXYHUMjspN8tN9T7pCg4QJN5cF/kQoJAzVCstlFMbnqGCt
-	 NgCpKNwKk8+7yPG4xaiomm4t/DrCuwr7mryUEey3JZWgXRN8P2YTEpIPyecmZChxjylSO
-	 KlUzPCxFKGCrOJhu4+hPW0wSYJR7Sc8x8awDcJ1YtQAhfJtGkEoUR9GRlqAuynON3vQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795146479;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=qdqEqHGVw1OWCXQxDxaongHTpRkboAUMShHg0oRNY2Y=;
-	b=5GNam48ivuiMB2AVlNqI/QkrgvQYYsksDldxnKji6zs4XYFQKd5ZRdNAyyLB3tqVljU6
-	 SQUlGmXqNBpiCN/paN2pLNyIXH+9iDpRlP6ekFHxpRTfGPGQGbOI2OfvuOwuGDiYrAaRn
-	 oHuVEf4DhnakWNqN8pDmkSbjw7BqehWFtcWIFiClDnFgToJPy+lDgkDrtjD1JMFdQMJXM
-	 fpiWZWpaENvW27B0dcNkrF6U9BSO7eOKhk09OMzlxrbkbalRPKuyUhyhLgSxzrwxQa82+
-	 HaI2wgTsEQ/b8soQDeWolrCDZ3ovghc++/1+uh7d150lpMCTNPU4FNqMRKbXGyZLMHA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VFnS7eiD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795146540;
+	b=3dm+zbkOa+/q3WdnQxvbfmWgOBthQOExKIwe2NQnSR8qsa6oywRTra7cn9Rlplxjz4Zm
+	 83xmg9YwIuhTsBSe0Gro2wILaNgciuMnWbLtcJN2/0i1o2G3MkAE+1Ha3hOQFb/KUBCzp
+	 ZPsMI/dlQSndiVFxMYD7EyK+OHNlHY8OHsR4B283F7N+Kc49koWfa0n9K1q0ELh2YXuNR
+	 BxvXBpG0095WusdlUiqXBF3J4wDjLLKqBPIf1m86duxphmfwZ6Y10sb6ZHAOVq8CjkIPB
+	 80ElhPZ0+7a2FxGSLYPD31CQOKfVKDse78xGQBpUPkLyhXs24oKBYtVbxaNJVeXBFqw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795146540;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=Zco+vsDiuTkuchE2V0It04Q7u5Lrw1KXwk/PEY7WmKY=;
+	b=TAlgG8jp8KbjlFNF4agzhhzDRU0uKGsA8ro4HaqfGmpC3g8ccQ1P0EQ0HpQQ7HdyqadS
+	 8sFxooqEmxsmTOECKunw05yYpjBozd271loMyq1+mvFPcfYRw6UCJMF6eGXWHNIQGi9U+
+	 /Gmqksq+xiiaTKDMpCj7a+jOC1NskmUePqMmPzChO3lvfhAzbL6fHZOWZRYVS/4Eor8ax
+	 KZYvhzkifzF+NI5UfAnnklM3siFU2LA7xS0kyBvnygeX+K5b2WFKfNQpvhy1SSzXLhRoe
+	 ndHbA1dJScF8IXgX8AJW0Ph0NerQ3pSb5CSCb5ZPOWOlPOmv2vPIpRZ9ti2TLTRUqnw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=w6rz.net;
+	spf=pass smtp.mailfrom=w6rz.net;
+	dkim=pass header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=y89H6vHF;
+	arc=none smtp.remote-ip=44.202.169.35
+Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38B48606A33F;
-	Fri, 20 Nov 2026 03:47:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 862BC60A2601
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:48:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 862BC60A2601
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=w6rz.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VFnS7eiD
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795146478;
-	b=xTw1Aq8nAMxlAntiEjq99J3tUz6QChOIvQAzUZnnkyoJNGsxtNionoTfWsNARuOor9uY
-	 qCh4rGpif+WSrBOfXux1UpsWRxc9s/R39O9GT5xzPbNR/grdBXkIbxyjR2sLzvT349OxH
-	 mbtngeDn141zbJEgPb1aXEdL4/RyZAY2y0KEp82LMIH0FW199QCibVLW5Ma6ITvUNMMay
-	 vqyX9ZN/1YRKN2k0Ow9AxCalZHyutPN2vrkb2RgcAHwSFKOpjMus0Yi6eTobPRyOdkJ0p
-	 czeiCfCRreH++qTVvD6YXiaEx0Zpe7DJTnmUPEM8/HloR3ucDQGniJHdHmVeoXSBHQA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795146478;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
-	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
-	 Content-Transfer-Encoding;
-	bh=qdqEqHGVw1OWCXQxDxaongHTpRkboAUMShHg0oRNY2Y=;
-	b=GRtez5BQC4d9BIK1pNzktRGEXzvLy4tRqtg5mh4VG72UPkq0ncdEnXNyFQD5hkvGuNog
-	 3iD1p/ZA8EL/tWx9p/7B1agYKmSJaSy855EN93ksF2KR0eiZJXOdZ7jwIlR995iz/14gr
-	 Ho8PM5USrRppOZIiagapyUOXA7cVZXo4AumwkRkqpSxeqQgUWDTWZZ6cWkcKkmoNg54AV
-	 dMVNWm4OfTnuT+9rzrBXeNbqIBDhM4c3KaiVWQk4pHLQi42NNJCEVhM6HdjVifMbAX9+Q
-	 TMtFFCHX9USp9BRzbGt0azOp+F8DOs86RxmRln8H8UKjbAIoAvU+QjPdL/BRm1IsSIg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1457B1F000CA;
-	Fri, 20 Nov 2026 03:47:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795146478;
-	bh=qdqEqHGVw1OWCXQxDxaongHTpRkboAUMShHg0oRNY2Y=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=VFnS7eiDFIvbwn2Z1Nsk1drf4qKmmn+9wdVyfi4tKPO0ardQxnZvFFmZNqMRqwIru
-	 r2cDhie7gcsBYa/rBsiWs1Sd4TSUZCm1lV+YwlFxxXqUr7oq1QLPLbkdOuHgNwuXhN
-	 gJRN56GZ+Zro54SZYZ34BZRQ0yjPjbhCVzSbwlO/cu3AsRsR1uzNg/UBjYlIbL+8UG
-	 jwTuCohlkxquVyFrHE8iN/85BY0ocUScVEqlT1KGFg4t7VR2h4QuhZO6wIRn8THOvo
-	 fdBdoVX1GPt2rJX4514r4kqQCbS5+16hHj4UDtmQ12MIrYpe2fqE6xNCF7fqKYqcJe
-	 QRPR+b9ATn7Xg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9DA7A49585;
-	Fri, 20 Nov 2026 03:47:57 +0000 (UTC)
-From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
-Date: Fri, 20 Nov 2026 05:47:56 +0200
-Subject: [PATCH] pwm: meson: Restore the registers after hibernation
+	dkim=pass (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=y89H6vHF
+Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
+	by cmsmtp with ESMTPS
+	id U7xjxfiD94vCDUFcPxnQUU; Fri, 20 Nov 2026 03:48:57 +0000
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTPS
+	id UFcPxaAslGh2BUFcPxKgeu; Fri, 20 Nov 2026 03:48:57 +0000
+X-Authority-Analysis: v=2.4 cv=Aszu3P9P c=1 sm=1 tr=0 ts=6affc329
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
+ a=HaFmDPmJAAAA:8 a=NwvxdXf9XnxnMUXhnXUA:9 a=QEXdDO2ut3YA:10
+ a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Zco+vsDiuTkuchE2V0It04Q7u5Lrw1KXwk/PEY7WmKY=; b=y89H6vHF0TVfVCSC15wAKsTxRR
+	2Rg9Ul1BM2HyE5MjlU+FsqZQwSFtulpTXykeUo+qktbNZPsLP1cbgBtH/pG3Gpxemz7wwAHJCuBB3
+	kD3ymuAmPv/cGa2C0tHTtn5lhxHLpqDnx8mcRXhyXLCKWGLI2E1PqsF/kA2Iu20x5nmQ9/ZTWdjpD
+	GwA9nY/n+oIrBYGldA0qMw8IqEXT87Zh1afiA8W9n0nXNnNDoQhLmNzVIdkQSGSwZ/gaNDaAxKle1
+	f2yR5wIwj8FvEZUD78fiyExOMYxQ6FUJWciyuZyDVmc672ZPN1uBYCtKRux6mj+xVBOsxuIzDfvaS
+	tqMZ9M6Q==;
+Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:52370 helo=[10.0.1.180])
+	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <re@w6rz.net>)
+	id 1xUFcO-00000001JNu-2GMl;
+	Thu, 19 Nov 2026 20:48:56 -0700
+Message-ID: <a05b808c-3046-4850-9f34-8c399b6c5c9c@w6rz.net>
+Date: Thu, 19 Nov 2026 19:48:54 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,133 +76,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-pwm-meson-hib-v1-1-606e947b2c1f@iav.lv>
-X-B4-Tracking: v=1; b=H4sIAOvC/2oC/x3MQQqAIBBA0avIrBvIgaK6SrTQnHIWmShUEN49a
- fkW/7+QOQlnmNQLiS/JcoYK3ShYvQk7o7hqoJZ6ranFeB94cD4DerFoBjey7cgxGahNTLzJ8//
- mpZQPMlWZmF8AAAA=
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Igor Velkov <iav@iav.lv>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3326; i=iav@iav.lv;
- h=from:subject:message-id;
- bh=JOoyPeCQ7AebKuZzzp2MRiGi9mXQP+9Qpistecz8jTo=;
- b=owGbwMvMwCVmNH1q96v4SmbG02pJDFn/D705s6n3fvJShpulGrb7l9lk+SrsyFnyslh6fd0x3
- S3p9xcVdpSyMIhxMciKKbJMOKRxK2PJ1b/+HuYPYOawMoEMYeDiFICJCK5g+MOztfBx1UmLo0c3
- FB03X9HL0K4VyWBrlj/BRqLp6EIjZSaG/zX6vZzxqnxf/czXTmNL/BTPxvbw/pq/M27LuSV3NGk
- 1MQAA
-X-Developer-Key: i=iav@iav.lv; a=openpgp;
- fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
-X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
-X-Original-From: Igor Velkov <iav@iav.lv>
-Reply-To: iav@iav.lv
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118150201.293410965@linuxfoundation.org>
+Content-Language: en-US
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.162.206.103
+X-Source-L: No
+X-Exim-ID: 1xUFcO-00000001JNu-2GMl
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:52370
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 97
+X-Org: HG=bhshared;ORG=bluehost;
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfJ0WsqekacSoEWizzIiMPzW0hwey58RBBNCHg0qx34rtnc2N3QlWAeyY36/ZZdhIIRW34qiShZh7eqm43ouCuBlHgfJzJ9vsjx08DOc7wyvcRBcof6eA
+ j2GGm8DXLtQoZor3kzKUyUx7W4C0cBzA+B9dwWOpwwK40s1F8Z7/5z/octJl+Vxz157nSKtneotN33OXaxCqoHUz3xXOkcJFJL0=
 
-From: Igor Velkov <iav@iav.lv>
+On 11/18/26 06:17, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.1.193 release.
+> There are 2857 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
 
-When a hibernation image is restored after the system was powered off,
-the PWM registers are reset. The channel clocks (mux, divider and gate)
-are fields of REG_MISC_AB, and the clock framework still counts the gate
-as enabled and the rate as set, so none of these fields is written
-again. pwm-fan reconfigures its channel on resume, but that rewrites
-only the counters and the enable bits, not the clock fields, and the
-PWM core skips an unchanged state altogether. On ODROID-HC4 the fan
-stays stopped after the restore.
+Built and booted successfully on RISC-V RV64 (HiFive Unmatched).
 
-Save REG_PWM_A, REG_PWM_B and REG_MISC_AB on suspend and write them back
-on resume. pwm_AO_cd, which drives the VDDCPU regulator on this board,
-is restored the same way.
-
-Tested on ODROID-HC4: after two restores following a power cut, the fan
-follows both manual pwm1 settings and the thermal control.
-
-Signed-off-by: Igor Velkov <iav@iav.lv>
----
-Tested on a v7.3.5 based kernel, before the waveform API conversion, which did not change the clock handling relevant here; build-tested on pwm/for-next.
----
- drivers/pwm/pwm-meson.c | 43 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
-
-diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-index 633b384358c0..c8fec42ae414 100644
---- a/drivers/pwm/pwm-meson.c
-+++ b/drivers/pwm/pwm-meson.c
-@@ -119,6 +119,8 @@ struct meson_pwm {
- 	 * that is shared between the two PWMs.
- 	 */
- 	spinlock_t lock;
-+	u32 saved_pwm[MESON_NUM_PWMS];
-+	u32 saved_misc;
- };
- 
- static inline struct meson_pwm *to_meson_pwm(struct pwm_chip *chip)
-@@ -732,13 +734,54 @@ static int meson_pwm_probe(struct platform_device *pdev)
- 		return dev_err_probe(&pdev->dev, err,
- 				     "failed to register PWM chip\n");
- 
-+	platform_set_drvdata(pdev, chip);
-+
-+	return 0;
-+}
-+
-+/*
-+ * After a power loss the registers are reset, but the PWM core and the clock
-+ * framework keep their state and skip unchanged writes.
-+ */
-+static int meson_pwm_suspend(struct device *dev)
-+{
-+	struct pwm_chip *chip = dev_get_drvdata(dev);
-+	struct meson_pwm *meson = to_meson_pwm(chip);
-+	unsigned int i;
-+
-+	for (i = 0; i < MESON_NUM_PWMS; i++)
-+		meson->saved_pwm[i] = readl(meson->base +
-+					    meson_pwm_per_channel_data[i].reg_offset);
-+	meson->saved_misc = readl(meson->base + REG_MISC_AB);
-+
- 	return 0;
- }
- 
-+static int meson_pwm_resume(struct device *dev)
-+{
-+	struct pwm_chip *chip = dev_get_drvdata(dev);
-+	struct meson_pwm *meson = to_meson_pwm(chip);
-+	unsigned long flags;
-+	unsigned int i;
-+
-+	spin_lock_irqsave(&meson->lock, flags);
-+	for (i = 0; i < MESON_NUM_PWMS; i++)
-+		writel(meson->saved_pwm[i], meson->base +
-+		       meson_pwm_per_channel_data[i].reg_offset);
-+	writel(meson->saved_misc, meson->base + REG_MISC_AB);
-+	spin_unlock_irqrestore(&meson->lock, flags);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(meson_pwm_pm_ops, meson_pwm_suspend,
-+				meson_pwm_resume);
-+
- static struct platform_driver meson_pwm_driver = {
- 	.driver = {
- 		.name = "meson-pwm",
- 		.of_match_table = meson_pwm_matches,
-+		.pm = pm_sleep_ptr(&meson_pwm_pm_ops),
- 	},
- 	.probe = meson_pwm_probe,
- };
-
----
-base-commit: 3f9bd3ccc80af2684cfc0901757f85a78358cbab
-change-id: 20261120-pwm-meson-hib-a8d9eb52de2a
-
-Best regards,
--- 
-Igor Velkov <iav@iav.lv>
-
+Tested-by: Ron Economos <re@w6rz.net>
 
