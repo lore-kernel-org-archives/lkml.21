@@ -1,65 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.210.214.84
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186391;
-	b=JW2qxcQoKB6XGus7UnUaAdkJat8FxN0wPx3Ptn0MBdgCIUf5mhGKp7JXeoej79FPVqLl
-	 9V/LNw02xYUuS/lQ3YntQG4EHKdn93+L7Xj/9OL5RiRAkGFJVNYKvtqUds2qO3r7GOyge
-	 QXbjSidvH9wqBbCv12ftzAXrTpbJWI7G0gIhDJT6xlwwigaUiSed3tEgzguEWEuECQISV
-	 ig1QJdqZpWGzI/s6ioxR1ULfGC4sQpod7QrwvSZSqi41Q+t79WohpM8jui45GRJM84uMl
-	 c8Xz6TnVCDI747TWnOL1v5sJemN4Hdogid0b78b6zRBly1TdkzY7XiVU1D7i9fenOjA==
+	t=1795186418;
+	b=QFw3x7b/3RwPV5r+FcpBK0+PUxNnfgJafNaZNLZyiX7SDka4WO6nYGGaA98l2eRY+hla
+	 lLDQp7xXFWxwcZTFfI5lrvVB5Jccg6jDQWQuLDz0Cw21/hQT3wIeV/9dnBkGYuh+fOMlf
+	 KyY9W7XwM9itaTstB9jaxrmtc4GJdAx8Lh6rrNjmA9LUBEkIdqhXW3C+oyDj0UdToCPW3
+	 bE3OGjR2QXX7z3K49iiiAimbd/c2gcK2ExlnItwhJ+oZ2CQmXIRZE/NbWdkHfQfbB2oGe
+	 HzSvbMGWWEo9e618Zj83nbU89SSkaCqkZdqOfk1EUBrx+8W75LhK670yuktHG0/c4mg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186391;
-	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc;
-	bh=94inkeJy4LjwOcfHpl+KRLrbPNahiIQcWA/vLQy/r54=;
-	b=mXrEziOXmZFSA4riOk4C/lDo9SLoblyXzMjA/Hjrl3HRlEuwVxDt25dEryNNBp/Tkkz2
-	 KxSuAX6Q4zULoZAkNk2gWOnjCCEqLmllEdWtPROHMw6/s7DoW+62dppDVuWmG/3ddeipD
-	 nogrJrcnbjUx+XjPqXnt6Q6fN6BB8LP/vEEhX06A0O0IIuA7cPlc19DIoT9rFlIpE7dsk
-	 wKvYowAaVYixDuqLznanLfVYAxaXTjk1ZTgFI+bSfDkYIzEPBir2YlTwr1qZom5E5bY8s
-	 N1WtXj971UrhRGpk0gCWOEVj1OvwDClsVrQAUPpShXz1WWYIrHczguZfe9uFf0e8yhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186418;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2seDiGmqUUFXsjKJX5Ql4DU55t72ojBgfyMZ3QXuugc=;
+	b=vXLJL/DWUDl4Au4Z229NbMFVGT0JVUW0039mV19TWXD18NhuCqB5k3yBL+RpirqXOMP6
+	 ECRmHV6eeTNZ+iRl4tn2bcx9lGPEC8rfVDlkbIO7rIG4TFpHYHb+M+i4iGKCuebNt6vdZ
+	 hN/oJk1wPkuvuDEsSeBZqdwV4zJV9gJ+gy+E6fp6N7JDV8KUfQEMfTeda1xopaXAjS5cI
+	 PL2Cl5yp0052IGhUXTd3Iu42q4HJIglOSmLOKVXZrlRb1/H6vvLSkXmpfmG8CLoYVnrB6
+	 U0wde5v7KppZ2w1M/NVsuMzPcRW/UQo+n49vWun8XWTrrbiUS4YKBi0dcXoZrI6eTWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=FZgWNMAf;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bBjihSmI;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dmarc=pass header.from=codewreck.org;
+	spf=pass smtp.mailfrom=codewreck.org;
+	dkim=pass header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=vBXv6ni3;
+	arc=none smtp.remote-ip=62.210.214.84
+Received: from submarine.notk.org (submarine.notk.org [62.210.214.84])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A62BE60A2607;
-	Fri, 20 Nov 2026 14:53:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A62BE60A2607
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77122606A333;
+	Fri, 20 Nov 2026 14:53:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77122606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codewreck.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codewreck.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=FZgWNMAf;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bBjihSmI
-From: Vasilij Strassheim <v.strassheim@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795186389;
+	dkim=pass (2048-bit key) header.d=codewreck.org header.i=@codewreck.org header.a=rsa-sha256 header.s=2 header.b=vBXv6ni3
+Received: from gaia.codewreck.org (localhost [127.0.0.1])
+	by submarine.notk.org (Postfix) with ESMTPS id C363D14C2D6;
+	Fri, 20 Nov 2026 15:53:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=codewreck.org;
+	s=2; t=1795186412;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=94inkeJy4LjwOcfHpl+KRLrbPNahiIQcWA/vLQy/r54=;
-	b=FZgWNMAfgWq3oMpmXEhLs4WDG+AyR3hm2+5rObOlHKsFU9YXmFHawa/ZieqpyU6WkFfWPO
-	c1dqxN/dJrU0LHKi5HJDxIs5zTQErepCEK8sYEgKAIdqZ47dVuX6gRwx0/NfC1rytBsSlj
-	RTjKmQ8WFaz2yYmCAj7Vw+cNvrvynnOZDskp+baOBky2XuVyGSzsFg499PQVBbWS6oDWZ5
-	e82zoiXl8Pfw99b0ExsEhJfPHB6vHKCs990i5xVpUvzU0OoFdD7/0JOT7dtAu1ekpYd1AK
-	ybCpRaPt6hfTgX85kxFmE0FO0ZAEYVqDzH+Aignaf6WiY1Nav1RTKO7Y1PA0qw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795186389;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=94inkeJy4LjwOcfHpl+KRLrbPNahiIQcWA/vLQy/r54=;
-	b=bBjihSmISCdyeDrGL2Q8OW4NUiNfBsuOGzgFR6tV1xvKxeJhT87Boer2BHQm9bt60NDJ4f
-	+txTFdpa1TVdVMBA==
-Date: Fri, 20 Nov 2026 15:52:20 +0100
-Subject: [PATCH net-next v5 3/9] dt-bindings: net: dsa: Add SoC-e SWIP
- switch function
+	bh=2seDiGmqUUFXsjKJX5Ql4DU55t72ojBgfyMZ3QXuugc=;
+	b=vBXv6ni3bs8s8Rm9YXxSmjGL8Is0pBZCqpLHTXKusNqmcECNa3Vy5KK+dzxfdgFAEX4UMQ
+	HijczZvO5kuveToDN2D9bYtvhdLtanGpYPk95osXmpfMNW5R1zA9H5+gQfWZVgP83gX/79
+	FgvS3rv/56VM5mRRpw8OKUALLw2t0YSwihsKe9c8rJKQxjzUs7twXKjFOgOgaKg9a9ou3n
+	ZMTNO5L7WIzeNYjsaIoNGiuz7AxLtyfzode66YaXTsCSptkkrAuSbN9tD2zgCQxxewxsxH
+	TqZFMf0G4IHK+NbwVWlHLsUfoMIMh+XCVTVp/lT9/VMyXoItl16H6FOl7JyTMg==
+Received: from localhost (gaia.codewreck.org [local])
+	by gaia.codewreck.org (OpenSMTPD) with ESMTPA id 91e97872;
+	Fri, 20 Nov 2026 14:53:25 +0000 (UTC)
+Date: Fri, 20 Nov 2026 23:53:10 +0900
+From: Dominique Martinet <asmadeus@codewreck.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 6.12 0000/1736] 6.12.119-rc2 review
+Message-ID: <awBe1p90ebot1Qh2@codewreck.org>
+References: <20261120054951.366579794@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,141 +73,31 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-devel-vstrassheim-soce-dsa-ml-v5-3-5de9225715e6@linutronix.de>
-References: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
-In-Reply-To: <20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- Heiner Kallweit <hkallweit1@gmail.com>, Eric Dumazet <edumazet@kernel.org>, 
- Lee Jones <lee@kernel.org>, Eric Dumazet <edumazet@kernel.org>
-Cc: Vasilij Strassheim <v.strassheim@linutronix.de>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- netdev@vger.kernel.org, mfd@lists.linux.dev, 
- Martin Kaistra <martin.kaistra@linutronix.de>, 
- Benedikt Spranger <b.spranger@linutronix.de>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120054951.366579794@linuxfoundation.org>
 
-Add a binding for the Ethernet switch function integrated into SoC-e
-SWIP cores as an addressed MFD child.
+Greg Kroah-Hartman wrote on Fri, Nov 20, 2026 at 06:57:42AM +0100:
+> This is the start of the stable review cycle for the 6.12.119 release.
+> There are 1736 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+> 
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+> 
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.12.119-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.12.y
+> and the diffstat can be found below.
 
-Signed-off-by: Vasilij Strassheim <v.strassheim@linutronix.de>
----
- .../bindings/net/dsa/soce,swip-switch.yaml         | 101 +++++++++++++++++++++
- 1 file changed, 101 insertions(+)
+Tested fd1d7c3cc36c ("Linux 6.12.119-rc2") on:
+- arm i.MX6ULL (Armadillo 640)
+- arm64 i.MX8MP (Armadillo G4)
+- arm64 i.MX8ULP (Armadillo IoT A9E)
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/soce,swip-switch.yaml b/Documentation/devicetree/bindings/net/dsa/soce,swip-switch.yaml
-new file mode 100644
-index 000000000000..55232c0f3675
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/dsa/soce,swip-switch.yaml
-@@ -0,0 +1,101 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/dsa/soce,swip-switch.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SoC-e SWIP FPGA Ethernet switch function
-+
-+maintainers:
-+  - Vasilij Strassheim <v.strassheim@linutronix.de>
-+
-+description:
-+  Ethernet switch function of the SoC-e Switch IP (SWIP) FPGA core. The port
-+  count and presence of VLAN and STP register blocks depend on the FPGA
-+  synthesis configuration.
-+
-+$ref: dsa.yaml#/$defs/ethernet-ports
-+
-+properties:
-+  compatible:
-+    const: soce,swip-switch-00-04-0c-10
-+    description:
-+      This compatible identifies the register layout; its suffix gives
-+      the offsets of the core version and feature identification
-+      registers (0x00, 0x04, 0x0c, and 0x10). Port counts and optional
-+      features depend on the FPGA synthesis configuration and are
-+      detected at runtime using this register layout.
-+
-+  reg:
-+    description:
-+      Register window of the IP core. Switch register blocks are located at
-+      offsets defined by the compatible. The MDIO controller and bus
-+      multiplexer occupy separate subregions described by sibling nodes.
-+    maxItems: 1
-+
-+  ethernet-ports:
-+    type: object
-+    patternProperties:
-+      '^ethernet-port@[0-9a-f]+$':
-+        type: object
-+
-+        properties:
-+          reg:
-+            maximum: 30
-+            description: Switch port index, from 0 through 30.
-+
-+          phy-mode:
-+            enum:
-+              - mii
-+              - gmii
-+              - rmii
-+              - rgmii
-+              - rgmii-id
-+              - rgmii-rxid
-+              - rgmii-txid
-+
-+        required:
-+          - reg
-+          - phy-mode
-+
-+required:
-+  - compatible
-+  - reg
-+  - ethernet-ports
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    ethernet-switch@0 {
-+        compatible = "soce,swip-switch-00-04-0c-10";
-+        reg = <0x0 0x10000>;
-+
-+        ethernet-ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            ethernet-port@0 {
-+                reg = <0>;
-+                phy-handle = <&switchphy0>;
-+                phy-mode = "rgmii-id";
-+            };
-+
-+            ethernet-port@1 {
-+                reg = <1>;
-+                phy-handle = <&switchphy1>;
-+                phy-mode = "rgmii-id";
-+            };
-+
-+            ethernet-port@2 {
-+                reg = <2>;
-+                ethernet = <&eth0>;
-+                phy-mode = "gmii";
-+
-+                fixed-link {
-+                    speed = <1000>;
-+                    full-duplex;
-+                };
-+            };
-+        };
-+    };
-
+No obvious regression in dmesg or basic tests:
+Tested-by: Dominique Martinet <dominique.martinet@atmark-techno.com>
 -- 
-2.39.5
-
+Dominique Martinet
