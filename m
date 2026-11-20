@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176984;
-	b=w8m7OCMkzctxHd7dZTwFGYDpTjxNplFoWsK9FgGOl7BWwySpTZe1+VxYjnrKqKiCIkji
-	 e40AMct+WJqnJKPtRGyD2kxAkQ0RwdHZeKdh1MB18g6MOBWuU5RXjdU9RQ+J2t2FzdPgy
-	 qA583KTtjU64gTmNMFeJL31K4lOi1U2ZHE7+OcwcJDJoA/B1mVQ1bvtjX/Uzvy8EX107a
-	 vqJ4EciZ6FdC3xvY7KB1LaI2cAX1uubr6o74UlKUeYzjM+mjxWfxl3V6wINlPszNERxeK
-	 bTDYISgsmdZNacrJNGbhEOTB4/F/BuvRNRLm66Ei5NUhWMo5/ivCnuy7/9cRodL6rcg==
+	t=1795176989;
+	b=4Np+SpquvOycF8ssPCqWZI6Nc4rDaaWPEQkSZdxoqdOtyhuE6i6qxRtpG7QGRB2CH6UG
+	 kmA1I6d1BaN0ErWrE8C9nvzonleN1jHimqbNkmh4nU5sPwCW+nmrDXLpA9SOeKXPZM5EZ
+	 BlDrnMUAAlMVKb6cyNmzSa86Y5FTMb9TatMNDk55yZEcY0I7I5STYKTZZFeqnYlJ2lEdL
+	 0SnTADDfNrUq4j+8AARP9EPJarxDQHIMDOoiMy0OUGQdNutuofiOfalFinMLFX0fNeOOw
+	 Yi/fTEfQnmBACpFJuuaiZIkMgYvFSyNDdX6bxZDLgwLKPw/rWTznLwrb7MlRfHdEhlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176984;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176989;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=IknLS1Izf6DM/sF56KVAF42vdnRgs47WGOTqobZZNJY=;
-	b=GHxgGni39cynkseR/rx5y/7sn5vl7VZ95H/Ymc6OdL+IWFghG2Gcm5aTPwEuQhzw93cX
-	 oFvyRit57SH9x6GxF74jMtJZeyFzq/f6Rndc/S4aWaSkYrT8QVD1PqvJAgB1fe3Y7PY/W
-	 Z1YJVKkp0nmXv6ZeXlv6VSk+zwjW8i7Gze6o0zODc6QgtRhXrFgZ5w570NEc1srPPmlD/
-	 tw0x3aHjHb6adAJFy9Pj8qr36kZ7WnSfetw1DysDFFkLFDcRWBCOuOvZGvJg0GKeqsjer
-	 l/fs46HorzAHsIOQM+Wvm2HBSLM+4BZ5O4Iie7V9WLQESwK2IPZioESOARNow8a54Hw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=mlU16s7/03iuntqpjZE6TiJEWGLy8t92iax2eFIVvl0=;
+	b=dlLWKgPM5oGVfdMEm/dn9mdEfFbEN/qCXKEWXzrktGsD5DxDISfjTA9pvU9PSW90A/w4
+	 NmnkImq8YkYM3F0TYQ0MbsOjxzex/N9s4TSTtz6J8PAlktALQ3JgKKSBWUAcZcOnnoHzc
+	 jlOmSSLs6nAxIIPpRqPDoXThHVA3cJYFI5V2hkGo4X8IE6CnattUl2wmcvhSRDQ4d98hc
+	 EDjE9ycaSN0oNWObmNDvoJ9WTaQDPwcGLEU6NQjxpd/S8iZ3fKwPIXbKHItYIW512OsVJ
+	 IiF7evPgjkqOAlceZ7ZbIH7yn65zZxFsqCbakeXXkr/o7nuWYySHRQKczb6nBiLNi0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cloudlinux.com;
 	spf=pass smtp.mailfrom=cloudlinux.com;
-	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=T9vD3ibR;
-	arc=none smtp.remote-ip=209.85.215.180
-Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=kfoOGbry;
+	arc=none smtp.remote-ip=209.85.216.54
+Received: from mail-pj1-f54.google.com (mail-pj1-f54.google.com [209.85.216.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EC20606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:16:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EC20606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DB7B606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:16:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DB7B606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=T9vD3ibR
-Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdb684859cbso493680a12.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:16:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=kfoOGbry
+Received: by mail-pj1-f54.google.com with SMTP id 98e67ed59e1d1-3b41e627cadso474935a91.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:16:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudlinux.com; s=google; t=1795176983; x=1795781783; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IknLS1Izf6DM/sF56KVAF42vdnRgs47WGOTqobZZNJY=;
-        b=T9vD3ibRQLSip0fqBDuE3ADF/LJTrbPD5BVSPj9KnfEC11F7KshDIe2v6WWHxEIafs
-         c6BIPIiVuyhtlZ9SW/y9+y27NLfofz0s+/JLD8SGcLCJKIJFz8/x4k1xqLA3QVRz8wWW
-         QV++PBYMLf3HMfcXxHyc3xbLVg8v2g74m503hHYLvolnX7Z7AJjlRP3XurEEN0D5UEjT
-         zRSLYxKBEUtNratmXQRf9290R88Br2oYWf5xLZn0WM/1EWIN6uDXr8tvrS0hFyy7nA88
-         L6iiqgAGgZzH7iqKkoJnAzG5MeNZx3+O1qUfxRtOW2vE5N3qBQB3zQ0tQ6TafLQ9sIKM
-         AMhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795176983; x=1795781783;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=cloudlinux.com; s=google; t=1795176988; x=1795781788; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IknLS1Izf6DM/sF56KVAF42vdnRgs47WGOTqobZZNJY=;
-        b=0IixFXJCS6boZ/9xd6nmkbkkjd2iyO+NdQCIQXzAL3HZbYWHeKPSR3pj7NMH4CHRH1
-         p2kwvzRnh9Bn0x7Jq+d0YATwyPAxWhupg8FUere1WYbJ2NfOBO6m6t+ZNf/q2jZbcMOn
-         rbYU91fOjj1JtXKZhRyC7aY5cw4qfOZdsuJvTIp3devYCGs6wuaIKdIeImNBt5lKTQNu
-         yEEL9U1NC18xjZDOwGUF0RdmQA5UQkS5n7PaQ6EiZn/aFwvcJyn2MAUyrOQDXXoGSyBA
-         AB/bu0YcUXcS/T+NrPX5lh2l1Q0/JmsD3DOPvJDh0sBeb0n8srcz2c+KRewJXauHRfMi
-         p2Kw==
-X-Forwarded-Encrypted: i=1; AL+hErHr3b5XtcSGvcaWInHR64S8xBZxjXIxfF5JcjjGtAKcfKqDUbKZCXfRca59RW1y4ROA4/fnE8spbfNgg1k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8mHt8Zp5p7Dv9UMqC1gG0blCl6gqXGIHrdpmh2Ui1WSJYOXXtC
-	QrqDmXwd2VipLnSRMVRhUohf1IR4wcKxjEkYKMWGKFAtyZ8nO1d4bG7iQgJ3703JqmU=
-X-Gm-Gg: AZFdTZdB7Z3EV2gbY3Vg/FJMsfhbJ09GA4+yah6/n4uysAtENoGHJFX+bA4ndOjiXKG
-	WuFtcQCfIwwoUNMNps4KM5ZABbdI7dwDIzTSoag3dfNx8arFiHT0XBSCbZmKu9ZpQckml99tJle
-	WsRrBST3K3hY2klRUN2/3HIIozozT0lEJ2N6/D12JLjHMC8rouzWh1cxGzMRVHEanSUpHcWLOez
-	XsQbkgPnBx1EU18H4aEhujRbDlNmJ7udrzG7XC+TNqQtEBNYSgVbMq99iv5pxgFNwoVtZGqIiPd
-	VEl6iKy1Uss8ys05PQAdgoQ7hjwwlpsJRzlBVli5aNbz9L28a9HRCXfB0g/TbKlY0DFOjuWsZ+n
-	KbHX/ZXEpujf0B+GE/sDcZNhYLUdGPzs5sLmL6lAhVT8oc9aZcNpGxjLV80pS0N7rNp55xDfV8o
-	6h6VlPZA63ZPJjTmaneLs1hSBAIgFDjsKkwOjC5a2fxCsl2vUqn0ewaQm9wFgkGUJBMNb2myQJd
-	BBhkSNAD3xU7NEcLYEvhEA7W4vTSJUcFZ3NKGbaTbMC1+cYCF7aQWO4RRfWMopJVgj8Hp0fIU8P
-	DM7KqcfHdltIYy2xc/OKsJF4jhuQ8sYAaOtN
-X-Received: by 2002:a17:90b:1f87:b0:3b3:ca9e:9e22 with SMTP id 98e67ed59e1d1-3b41c9b2667mr2658990a91.17.1795176982660;
-        Fri, 20 Nov 2026 04:16:22 -0800 (PST)
+        bh=mlU16s7/03iuntqpjZE6TiJEWGLy8t92iax2eFIVvl0=;
+        b=kfoOGbrycMj8gAlPRrvZhLEE5plzWJ0rrbPCTwN+YUDLqGJQdo1WQ17IOvMdC15jdU
+         mr3j4t5KGIf8SFTp5sO/TNcd6BSQn2Kkca/VHP0ApcOOmg7osWK3xsmQ23+jvFXFyngM
+         m8VrmCyduGhEwissLMQLwfiFq8D6qRz3k1yOB1bcw+Mn4AzKP9du+CTeAnUTkbqBAJIe
+         QgGQYfRfrlteoMTJIT+MmcwZMlPk42hxXkZCqc/u0dxfyHucGPLHuYo0weA6fcAYMQpy
+         qE+FLWfN+k/iHHxiBCN87IX85FN4shl0lDL44aU68093YWxA1DVYYXRNh52C3oXkBmW4
+         Or1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795176988; x=1795781788;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mlU16s7/03iuntqpjZE6TiJEWGLy8t92iax2eFIVvl0=;
+        b=yV6Ybv7zPElCww/eMSAhjjENMsHIvfZmWWl00qsX6TRKmQykOqu9AsyNtiWSC00MiL
+         SPN7W9G7I/UEzGGkXoSQa4NHIFucfhMYusl9LUiFwKnvfkmiPZuCsdrp1dA+efo8GVsF
+         qA1fwyjKRPclTFUbv0iEzfD48u147ht24yMmIPluKqTnUwGTPKkSvc/kuO/pv8tF9IjA
+         LZaADwaNU3MyPaVlGBPwRxN41VJXGoYT+7TJjP8dB1ZryxisOTqcpxsZscoc17QB0cpv
+         n0c0ylKZADiv9RxlFQ9jcw+8ixDJmvuuNaYrCwUx+PmlnvZAUGPBAS5l6ESKqcX2sw9X
+         RAnA==
+X-Forwarded-Encrypted: i=1; AL+hErH5fTH6fKnV/3IVywqiQcz3H0I7PMqx40zzjyyyEpuekjOqSCtzSRbYFtTL5r/Z+XEwsg0O70tnl4nQ/3g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NkgC9iUtgQBgmVWeWL1DBjnxLhh+N9ioxWVMwpSYQcucFYjrh
+	cSZFkIBYJI9PNFUq3E7hwddg1Z4A9nNqu4204BiCCw2kWYhsaTPVZ1W6KrgUJ1XYg3w=
+X-Gm-Gg: AZFdTZeKv1K88UvtuzCGuzuj3XkJXReyXh6OIeXnHcVanixPzkogZ1bjj31QmGQvHmY
+	BuwQc/690DlxPZbH4LriF8pygw9UbZzLX6Y4FrJm7nvDDOu9g1tzy1HlSGzGFX37QkWjBx4C/eS
+	kWezcPPY8PSvhn46/AmNcN+b/pvzHT4I14POj6QxKpLDxU7BEWcQ1AZHiQyjub2BEqCy1TYi0HR
+	HUNamth9ZlKYF7gpIl3GwLYdTakqW04Y8g40CV95OZqLb5VYeirZZXFcRuHfSgGT+mTYldFdoUV
+	66x9foug1c9sLa9lCqEb7QyJETtraIE2tqkOcnJQPpO4k27cC5KJJDbhICGBFHYTAUd8F/E9skA
+	jyZv84L8VDLUp3ZGvxI1wBzWf2CeCWb2Cl7lt8/T33uA+DyCbCR6IWTkDOuNv1PgpFI/qA7a/U6
+	88qBOlRD1ESNQtlLOJvKOh7Ay9njsX5u15NtdhpX4LhTAa7TM1whBh3GxC/UkU4ghP1ithrN88G
+	wwVVvK7ok+T0cYjhaLdr5EdwdTRLMa4Hkxhor9c0TwbsUIQbC/yDpEd8f7nPryM3MKg7zZTtm1p
+	NuX8ctwHXc2Uj+gYn9ldaHxlJo6F+eG+WtOE
+X-Received: by 2002:a17:90b:5289:b0:3a4:77b8:1770 with SMTP id 98e67ed59e1d1-3b41c8fe855mr3017017a91.15.1795176988548;
+        Fri, 20 Nov 2026 04:16:28 -0800 (PST)
 Received: from rmustafin-laptop ([27.79.41.63])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm4463146a91.1.2026.11.20.04.16.19
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm4463146a91.1.2026.11.20.04.16.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 04:16:22 -0800 (PST)
+        Fri, 20 Nov 2026 04:16:28 -0800 (PST)
 From: Rustam Mustafin <rmustafin@cloudlinux.com>
 To: Peter Huewe <peterhuewe@gmx.de>,
 	Jarkko Sakkinen <jarkko@kernel.org>
@@ -86,11 +87,14 @@ Cc: Jason Gunthorpe <jgg@ziepe.ca>,
 	linux-integrity@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Rustam Mustafin <rmustafin@cloudlinux.com>
-Subject: [PATCH v2 0/2] tpm: Track the response read position internally
-Date: Fri, 20 Nov 2026 19:16:12 +0700
-Message-ID: <20261120121614.978396-1-rmustafin@cloudlinux.com>
+	Rustam Mustafin <rmustafin@cloudlinux.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 1/2] tpm: Track the response read position internally
+Date: Fri, 20 Nov 2026 19:16:13 +0700
+Message-ID: <20261120121614.978396-2-rmustafin@cloudlinux.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20261120121614.978396-1-rmustafin@cloudlinux.com>
+References: <20261120121614.978396-1-rmustafin@cloudlinux.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,46 +106,103 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tpm_common_read() uses *off as an index into priv->data_buffer.
-nonseekable_open() makes pread() fail, but an IORING_OP_READ request
-still reaches tpm_common_read() through loop_rw_iter() with *off set
-to sqe->off, and a plain read() racing a write() reaches it with a
-stale f_pos. Both allow out-of-bounds reads and zeroing of kernel
-memory.
+tpm_common_read() indexes data_buffer with the caller supplied *off.
+A read issued through io_uring reaches the driver with that offset:
+loop_rw_iter() passes &ki_pos to ->read(). This allows out-of-bounds
+reads and zeroing of kernel memory:
 
-Patch 1 moves the read position into struct file_priv, under
-buffer_mutex, and ignores *off.
+  BUG: KASAN: slab-out-of-bounds in _copy_to_user+0x4b/0x70
+  Read of size 16 by task iou-wrk-148/149
+  Call Trace:
+   _copy_to_user+0x4b/0x70
+   tpm_common_read+0x16e/0x2c0
+   loop_rw_iter+0x235/0x5a0
+   __io_read+0xc6e/0x11a0
+   io_read+0x8a/0x180
 
-Patch 2 adds a kselftest: an io_uring read with sqe->off inside the
-response buffer must return the whole response from its start.
+A plain read() racing a write() reaches the same access: read()
+samples f_pos before taking buffer_mutex, so it can consume a new
+response from the offset left by the previous one:
 
-Blocking io_uring, suggested in the v1 review, is no longer needed for
-safety with patch 1; I discuss it in the v1 thread.
+  BUG: KASAN: slab-out-of-bounds in _copy_to_user+0x4b/0x70
+  Read of size 75 by task trigger/151
+  Call Trace:
+   _copy_to_user+0x4b/0x70
+   tpm_common_read+0x16e/0x2c0
+   vfs_read+0x189/0xc00
+   ksys_read+0xf9/0x1d0
 
-Tested in a QEMU guest with swtpm and KASAN: the tpm2 selftests pass
-with patch 1, and the new one fails without it.
-Claude Opus 5.5 was used in preparing this series.
+Replace *off with a read_pos member of struct file_priv. It is only
+accessed under buffer_mutex, so the offset passed by the caller no
+longer matters.
 
-Changes in v2:
-- commit message reworked per review, read()/write() race trace added
-- add a kselftest
+Fixes: 9488585b21be ("tpm: add support for partial reads")
+Cc: stable@vger.kernel.org
+Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+---
+ drivers/char/tpm/tpm-dev-common.c | 11 ++++++-----
+ drivers/char/tpm/tpm-dev.h        |  1 +
+ 2 files changed, 7 insertions(+), 5 deletions(-)
 
-v1: https://lore.kernel.org/all/20261117104838.2650999-1-rmustafin@cloudlinux.com/
-
-Rustam Mustafin (2):
-  tpm: Track the response read position internally
-  selftests: tpm2: test that io_uring reads ignore the file offset
-
- drivers/char/tpm/tpm-dev-common.c        |  11 +-
- drivers/char/tpm/tpm-dev.h               |   1 +
- tools/testing/selftests/tpm2/.gitignore  |   1 +
- tools/testing/selftests/tpm2/Makefile    |   4 +
- tools/testing/selftests/tpm2/tpm_uring.c | 131 +++++++++++++++++++++++
- 5 files changed, 143 insertions(+), 5 deletions(-)
- create mode 100644 tools/testing/selftests/tpm2/tpm_uring.c
-
-
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+diff --git a/drivers/char/tpm/tpm-dev-common.c b/drivers/char/tpm/tpm-dev-common.c
+index ee91f456f975..553fc6aca94d 100644
+--- a/drivers/char/tpm/tpm-dev-common.c
++++ b/drivers/char/tpm/tpm-dev-common.c
+@@ -107,6 +107,7 @@ static void tpm_timeout_work(struct work_struct *work)
+ 	mutex_lock(&priv->buffer_mutex);
+ 	priv->response_read = true;
+ 	priv->response_length = 0;
++	priv->read_pos = 0;
+ 	memset(priv->data_buffer, 0, sizeof(priv->data_buffer));
+ 	mutex_unlock(&priv->buffer_mutex);
+ 	wake_up_interruptible(&priv->async_wait);
+@@ -149,21 +150,21 @@ ssize_t tpm_common_read(struct file *file, char __user *buf,
+ 			goto out;
+ 		}
+ 
+-		rc = copy_to_user(buf, priv->data_buffer + *off, ret_size);
++		rc = copy_to_user(buf, priv->data_buffer + priv->read_pos, ret_size);
+ 		if (rc) {
+ 			memset(priv->data_buffer, 0, TPM_BUFSIZE);
+ 			priv->response_length = 0;
+ 			ret_size = -EFAULT;
+ 		} else {
+-			memset(priv->data_buffer + *off, 0, ret_size);
++			memset(priv->data_buffer + priv->read_pos, 0, ret_size);
+ 			priv->response_length -= ret_size;
+-			*off += ret_size;
++			priv->read_pos += ret_size;
+ 		}
+ 	}
+ 
+ out:
+ 	if (!priv->response_length) {
+-		*off = 0;
++		priv->read_pos = 0;
+ 		timer_delete_sync(&priv->user_read_timer);
+ 		flush = true;
+ 	}
+@@ -214,7 +215,7 @@ ssize_t tpm_common_write(struct file *file, const char __user *buf,
+ 
+ 	priv->response_length = 0;
+ 	priv->response_read = false;
+-	*off = 0;
++	priv->read_pos = 0;
+ 
+ 	/*
+ 	 * If in nonblocking mode schedule an async job to send
+diff --git a/drivers/char/tpm/tpm-dev.h b/drivers/char/tpm/tpm-dev.h
+index f3742bcc73e3..34efb1ffa491 100644
+--- a/drivers/char/tpm/tpm-dev.h
++++ b/drivers/char/tpm/tpm-dev.h
+@@ -15,6 +15,7 @@ struct file_priv {
+ 	struct work_struct async_work;
+ 	wait_queue_head_t async_wait;
+ 	ssize_t response_length;
++	size_t read_pos;
+ 	bool response_read;
+ 	bool command_enqueued;
+ 
 -- 
 2.52.0
 
