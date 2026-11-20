@@ -1,97 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.123
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795195227;
-	b=YM5b1e/Awq2W8Vkf/FFGjrV4FyHwT4C9+m7ZtrMjOUhai+/FCWBE/i6i0N4zOjViTCSY
-	 3HwiMnj3+p95tdWqXRZUSc1QBNY3t//KwKpFVb+VFu4vgNJ5Nb4MeJO1qtdBZ5S1JSDtx
-	 lxcfjf06skjwq7QFyi9ihuVlCjgIqNVhQKE/5R4/j1MM4N9YZxkX87AJPJnQ0KktCnTOf
-	 4dEcvbOHkdZD6BDofk3ZAD/Rl9GaRp4mwoq1HinmMVfqfioOalryoyCW6qHkN/42FrL7u
-	 08lYqfSOR9SydzrHjJu5tzn6SeaPn3av8emR/RDzfZl0mU0nL2CNCATwacUN6qrErFw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195227;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=mPHm1Dbd9ef/fbvart5AKZiVPKI84sppk7hd7DntVQc=;
-	b=1Ttd1RzLN9kIhQjAJDFeFamWACUSEEgiEsyXtUUaKLXy2of+CuObV/JXv3BlOrMZQHKZ
-	 ico6cdUISyKmTKGtf+Yp5vEhjS6XUpb405xln7krH/Pve37tYD0OoTDakBFbkzQAyj+c7
-	 zXLfBqAlH7+uXeAp+1hdzMD8Mu9uvQ0le1fYrvUV3GczBY6idCukynZOpBxNJO1MY3Q5z
-	 yTuJI4GeEmoViHCwO8SQmoA2ZoGwt3LD/klCjC5OlOltXcX2HEm5QJRRvilcTJ5IxD75I
-	 fluJYmn/cfV9PWuoSnvlExQ57EB6fqO8t+usjltAqWFRxjZRb0Bq4NotzK8BEM3sDTg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=valinux.co.jp;
-	spf=pass smtp.mailfrom=valinux.co.jp;
-	dkim=pass header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=fOnCI2NN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.74.123
-Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazon11021123.outbound.protection.outlook.com [40.107.74.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795195230;
+	b=4QvxsPcegsAJMrWBCbvlbclHxqjpHeORcSv2Q7w9XUl8kEmr1/2uDT2brPBQQ3p5Gq3Z
+	 0HgSIB7qwgFZtxG6v97bJHtir1DjaSR94I+5zq46mdnHJiiT39Esq359StwigLrB7F5N3
+	 3SFPATl7FfPU0EqNy5rMUCual8F2GmN41EpRr1XRkNbYwx3/zGcCJJRMdVZZmI8lJka0t
+	 73YUDyPMvraaN3/TEXoxisvOOupuaF1cBd+IjhcYJ4Q9xKD5lo4n3ETPrrjKKvNgYYq7G
+	 veEfxkpqkEuwHwhzxVoEyJ8sgFzwGnBpNtRyMT2mRyFq7LIeMv0Rs92QxHouCWoyeUg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195230;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7XX7Fuuc4rBjIs+yejWT+meYBShh7bzSoRAqDM+Q3fM=;
+	b=N2oJW3Iv0qI/lVY2X6wA+pTv8ihuTDYigWZmbPkARBe+t4K9B9BYZtxx6ICs5cDUSoC9
+	 wizi0sJlus3lXzuRM1izSUGaHztzGyKVMI8DGG0WHvGPE4ez6hPTGs8REAn5HMHUW1BUL
+	 wXTA0vB8zK4ecNtCjsp0Z21TuLQ7IXqaHmKfxB+mCWWEj/KrpQvcATMM8EsgylZ0lOX5T
+	 L8M43rujsvQfc2BRIljhvTHVjWQXy1P0rvGWJv4nIwhcJ5GgSwWs279oxNlI4pYu6EVTK
+	 M9n5aNfubjBU807F8Utdq1Jx6bBIoPFNmRhbWRdpoFajKrH24dGF1XyYIOZyf58qvxQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bxd7kd1P;
+	arc=none smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 848B260A260A;
-	Fri, 20 Nov 2026 17:20:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 848B260A260A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=valinux.co.jp
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=valinux.co.jp
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D7BD60A2616;
+	Fri, 20 Nov 2026 17:20:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D7BD60A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=valinux.co.jp header.i=@valinux.co.jp header.a=rsa-sha256 header.s=selector1 header.b=fOnCI2NN
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k11FAkGe4J/abbMxEM2CCyL3I7AJz8g/SYAIL/jabsH1DzppjANQcYR3uWvyu5ZPb6e7EFumCSBMAyaM/pLJAmpW5Clnb8xbaHW+YkQD5dWZA6N5yB2lMQTeRxqpfAoXeryUUiPQBTfrWEvHocRRFZbCBQgD372A0TU2yr25yCGekKJ5um4KG/euIMqc8EMJoYln3YRvbzZA6jGN8xRsO204CyX+IA8hbxdbf3qG6hTPsAw2B1/62nxg+17rKCDoIPFDo5NxqLr7U2b283nPlzJQwbHf6Ygex0l0OXubT0ecWOQhqe6DMa7aBRlyfFLV8FnDbwDfyUoZ36fq1WBlgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mPHm1Dbd9ef/fbvart5AKZiVPKI84sppk7hd7DntVQc=;
- b=Tcuzc9WcH4i9boXMZr2+wIMNyiicbuNxG7Pf3tSz/UydYWCo/65R7sAgZBSylCPpC0bJccDTTrNfv0T+nVujmvKE2YilB2JvySWo9d7pZomFBqoJk+Bh50Uw5/wWHJIEycdTF2O0zsHZK4hQN7D8uNnEGC8JbtZ+Ai12Hhz/8C21B8fiCy6YWRZwf32oiLpnMPT1aEAoko2sJybtTPs4ZDOsT+h3SyJolRWZqoJ0EgrxTmW7Sc+dRuRHP8r6EvPqJxA7B7YoVw+VEoOBesHugKzOKAQtpIoc147zZc0yiT0Twk1K7WjU70GOTempuRTSlZ7n8xUwIqta8EDDoWfUcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=valinux.co.jp; dmarc=pass action=none
- header.from=valinux.co.jp; dkim=pass header.d=valinux.co.jp; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=valinux.co.jp;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mPHm1Dbd9ef/fbvart5AKZiVPKI84sppk7hd7DntVQc=;
- b=fOnCI2NNUXhx+0LJ4zu8awljOcdBb2bzlp7ROHx8cB7FKxqJQ/UiyXrRl4lOzEIs+dcE4stogYntAwkDWslQjiwMNKgUwmX8WaeWrj3TIViW308ZpQ0RFJrxeA4kGuvqy9zqesq7zyhTgO4FTf1+dtyW63HmvXoGNiSivGwKwkg=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=valinux.co.jp;
-Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:325::11)
- by TY4P286MB7342.JPNP286.PROD.OUTLOOK.COM (2603:1096:405:358::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 17:20:19 +0000
-Received: from TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- ([fe80::cce5:2aa8:53f9:dba9]) by TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- ([fe80::cce5:2aa8:53f9:dba9%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 17:20:19 +0000
-Date: Sat, 21 Nov 2026 02:20:17 +0900
-From: Koichiro Den <den@valinux.co.jp>
-To: Andrew Jones <andrew.jones@linux.dev>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atish.patra@linux.dev>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Bingyu Xian <shanbeeyoo@gmail.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] RISC-V: KVM: Batch user accesses when updating steal
- time
-Message-ID: <awB6FpVOpZ9fhMt1@z790sl>
-References: <20261118062242.2914385-1-den@valinux.co.jp>
- <20261118062242.2914385-2-den@valinux.co.jp>
- <awB1hZGh3LYztjqL@orel>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awB1hZGh3LYztjqL@orel>
-X-ClientProxiedBy: TY4P301CA0014.JPNP301.PROD.OUTLOOK.COM
- (2603:1096:405:26f::18) To TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:405:325::11)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=bxd7kd1P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795195229; x=1826731229;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=8+j6oCIvnTKM4aA0EdYdluZEoioo4vXDmZR4/Nlk/1E=;
+  b=bxd7kd1P9wEPUVEHhYqa3Pm/J27LI77eGaybQqCCvJAYqwNnviZtuKpH
+   A91MIO1d8sNqfexJe9TwTElcmfvIh4ZlbLar9JPqaY6uqbeVpVYGjzP+t
+   0582FkajTyv1LLBb/DPAM9yZbaoQPOEyAddx3sSFZhhumiRfYOqCM1///
+   iH9l7xt7Yej3Zqg3gwiOUb4FPYCWEXIHCPPZLX0e/LF4xSUD2u2ZS8j55
+   S4Unr8m5LHXOoK6H6b3bl97lR+DNqCAcjzSOIWC/J1UtERWEQRrtuMH67
+   7qqmsUDkwimXvg3nbkVz/mRJh4TLi5n6lt7ZRt3ArkNud75xy9YLbvz1W
+   Q==;
+X-CSE-ConnectionGUID: Fdq2b12zQ8CX8Ekth6yeaA==
+X-CSE-MsgGUID: WJ1pm/30Qoe/Ls2pJqMtWg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157313"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4157313"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:29 -0800
+X-CSE-ConnectionGUID: wat9dpSDQ9yqs48+PTbfEQ==
+X-CSE-MsgGUID: iMXILK/SSRawgFeK3/oK9A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10867900"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:20:26 -0800
+From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Len Brown <lenb@kernel.org>
+Cc: ikaros <void0red@gmail.com>,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 07/42] ACPICA: Events: Clear GPE dispatch by owner during table unload
+Date: Fri, 20 Nov 2026 18:18:28 +0100
+Message-ID: <5f7f5a6372c547b5c24d7ca915efdac7151d97dd.1795194329.git.maciej.wieczor-retman@intel.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
+References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,210 +85,183 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY7P286MB6866:EE_|TY4P286MB7342:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f98ffa8-cb0e-42e6-f5c9-08df472a8d23
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|10070799003|4143699003|56012099006|261009223027099003|261021121427099003|261021123027099003|261102123227099003|261026121527099003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	yqFcBeDAvDhk/hQ3sec2VZNN5GCBAxKrJVKJvMD5MGYTSo7h3xjmwIXdH8Gp5M+besUe+gsTyj+d3CjosGVpYtGZotL2YGWUi3Od1CL8+zkGTkOarJxyBG2pTBD0UdqJAP/z8m5tEhc7cWjl+mjm3r9iBn7oKX0lEIwSoe1aEDNWShzUSIkVRK8FqJHkKQ0qByNlFUhBL8uUHEGltBm7OeDrAce/jP+rg/jnTMTXZ6WcaF0pxNLXv/fEuMM+lFsQNOJHIM34/H43JrKJqn7WtX7tS/MvaPFznIHge7arbrb3BW+bKCsjEn9IAuEkisnbVylma7BehvmwUPQ4Hv3DZ0Bv9wQ8v849mjhHbiml8H52DSdbW2JOVgHcJiBCuKhiFLm/QRVQfIgUJV9FxZTqxeLAjclZAlTHITE0mljbeSKs6lfZ/epCgTMWGVmNdDAL5yCeW+bAlSjs17jm3Ds9yOBLwJFHawk7UmHmaD7q6HYMwXyBG4EPIbiFvv4OQkzqGZWSKTjWSlZwrPUrILhnEXuRDisNliojRgaowgpXw5tiKRzlww5BCkX/wtmhQe7Af0NfYb4nroMvgLM0EbDJgbusahqr3lOTsCT94ZfV/0D7B0MXg3t/veSiwtT5wePqSjSRsWyQJ3AtJlseI534M2vQ1x+xm0URks/3ez9xiW4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(10070799003)(4143699003)(56012099006)(261009223027099003)(261021121427099003)(261021123027099003)(261102123227099003)(261026121527099003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?1ZwRn7eP+B9u2zYRFUdBMSgezCQlUpvbN3Wjscb1gDI1aaGpbWojA6F42D/6?=
- =?us-ascii?Q?IwpM2LmosNWIqrqGZ9al9hCws0QdUnlpPWyy/3ZjnCYp8tcSLzemPvgfG4cQ?=
- =?us-ascii?Q?mBY0sn2ZycAMrS8HvU8ZpIxhvDPBUTqJ2c5cf4dZOAM76+bzfYrVXp1oWNyX?=
- =?us-ascii?Q?YQi7cw1geYwZ13Vdvrm1cTjQEtOdgvUMQCszHJKyuCAtAjx5nwNWw6tCurci?=
- =?us-ascii?Q?9t2IkXug01oo3gwrvMqzEpalk9GxnKik+X1LJjcZVn2U2VAB8oNGcTpEMe2t?=
- =?us-ascii?Q?hbCG41L4aAsTzoF7lnrSR5sejHkvl537hZQJQN7jkBu1ViViQ/WWxSeGpcLI?=
- =?us-ascii?Q?WRvBEwJBAw4cLdfGZG+/abGamQZTwuYYQIdYRO5Ic4GMRueu4haspyj/Taq3?=
- =?us-ascii?Q?xjDNzVTKPZ0P9Yq+HmSEdk0aMVrNsqPKQOCfxanNDX/oI4C3nHpL8ugkUHKA?=
- =?us-ascii?Q?9sDx/zTdv8CfJFr3PRcXd7s5Vt12aBYi0TiOi/OjdQQJ+ns7ejy2LFzc0bnu?=
- =?us-ascii?Q?HbeOFvRJLcEzFeaOBAW0CBQTFDgl5zvH/FKUlM1OgixK9rsfSoM1OY/Kd4Hn?=
- =?us-ascii?Q?cal6rRKfbxOgFyVaIUVhLgX+2ozYzBDxpaN8cyN+f3/ECyW47IhB8yNJdnfk?=
- =?us-ascii?Q?fv7GKl+lVeDE4s+m0Cd8e1f455TDWPEBAr9l8N+1tzGLq94QPrpCULGs33cR?=
- =?us-ascii?Q?SrAgPLL5fPKqBk3kCciXhlFBzXwKgveaFbkE/w3CEzjH8hvPRDdxG4Ii5Itg?=
- =?us-ascii?Q?FBg+Hovu1CeoX7kA9P58Kmkzd3X596VGHu3N2EumiLGwYTa8Hj/HtN6ox3ta?=
- =?us-ascii?Q?l2o733xOoQkbjWPVHbweIMljA8nE8DBqXs7bjTPxiYuweWbcLUsWmdy2pA7/?=
- =?us-ascii?Q?vTbjr18xUArLh/VNBpCfTy9CYFzqDEslfofWXGWZj/4oJ5pcHFooQpGlp9OC?=
- =?us-ascii?Q?6dT/F0SBzGConpLVB5og/NxGfrnuPVMHkfqNSQ8NrdabiBsHwv+TA81va9jO?=
- =?us-ascii?Q?sXapj9NQoM85Xc7ndp+RnpHbKcVwaoHEN++96sBqbgf2znUggGIEhuxNT1C5?=
- =?us-ascii?Q?oRgnxlsjZuLYFNf1wPGq1JOdfPAR1rpHQJXv90jxJzAXHeD5oo3IoFzScvdt?=
- =?us-ascii?Q?mI9nKkBstOsehOptLe069nzFnni3tC05UwtW1R1CRuIlj+EgrVl46c01Zdmu?=
- =?us-ascii?Q?7G1GRCp0FklmDGeuEo9kb1MNxvnG7kz24CGiyt8Qe1tCR2bCZmAwkXPRDMeD?=
- =?us-ascii?Q?/KMTwoceSG1mnhG4H/x50XnXNrIF3PzFn0n6RYaqfitj+/8BWFgETudh8olz?=
- =?us-ascii?Q?SSgJA6KAHa19qpPI/iTPrJJHOQo6MpbYyvIR9zMd+ClGizC+U6WYH2KwrDI6?=
- =?us-ascii?Q?WGEz7ESEBzcHPBX5f4Zkvx3fZblwH0QH5PA7jwybY8fDIXCxyzd8mx4UluAu?=
- =?us-ascii?Q?Gme708uD9GSw04HZ5Y3GohAhcJbmvFpLZUiqnBjHVTqQCugDNa/hTl196oLw?=
- =?us-ascii?Q?uSmC6guHUmBw6LjxoDPeDmB8iiwv4012aVNAZgcS/eZ/L2Qd51cPcQcID70C?=
- =?us-ascii?Q?3FDNb1FUiW1mFvGu6/mChMjRMJKzc3nNJCdTzFQKC9WXB9sHI/Gb4gSU1TH/?=
- =?us-ascii?Q?PXYkW28mxd4WLF95lvqggLQG5wey4tR+Rh4IHtvFxwM4qLOTxF82hi/UAr3J?=
- =?us-ascii?Q?2anLtrfzwunmJJ0C73TClLfKBgBAWu+oDfYnMgVDuLQH5UazgkimBjAtIrco?=
- =?us-ascii?Q?XP7h9KTj5PAOOmwir4KRQYqv1AZZ8EiFiTdHBH8+sv+1NTnVxN7h?=
-X-OriginatorOrg: valinux.co.jp
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f98ffa8-cb0e-42e6-f5c9-08df472a8d23
-X-MS-Exchange-CrossTenant-AuthSource: TY7P286MB6866.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:20:19.3675
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 7a57bee8-f73d-4c5f-a4f7-d72c91c8c111
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /UA/hulfigJDvQM6FAsTbyZhoKSROs7nW/ryg6qLyViVOuXrOC8kIl+lW3LjLKCuCkmTvvvbvoxUMUEFVddyvA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4P286MB7342
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 05:40:29PM +0100, Andrew Jones wrote:
-> On Wed, Nov 18, 2026 at 03:22:41PM +0900, Koichiro Den wrote:
-> > Updating the SBI STA shared structure performs 2x get_user() + 3x
-> > put_user() calls, each of which toggles sstatus.SUM.
-> > 
-> > Keep SUM enabled across all five accesses to the shared structure.
-> > 
-> > Note that write barriers are added to order the odd sequence store
-> > before the steal-time update and the even sequence store after it.
+From: ikaros <void0red@gmail.com>
 
-Hi Andrew, thanks for the review.
+When a table is unloaded, its GPE method handlers must be cleared to
+prevent use-after-free. Add AcpiEvClearGpeDispatchByOwner() which walks
+all GPE blocks and clears dispatch info for methods owned by the
+unloading table. If a matching GPE is currently dispatching,
+AE_ABORT_METHOD is returned and the unload is aborted.
 
-> 
-> The barrier additions should probably be posted separately with a Fixes
-> tag.
+Also add a dispatch-type re-check in AcpiEvAsynchExecuteGpeMethod to
+handle the case where dispatch was cleared between scheduling and
+execution.
 
-That's exactly what I wasn't sure about when I read the ISA spec.
-It was unclear to me from the Zicsr ordering rules whether the SUM toggle in
-the old code's get_user() and put_user() calls also order the stores to 'sequence'
-and 'steal' as seen by another hart.
-(I don't think they do, but I'm not 100% sure. It feels a bit like trying to
-prove a negative, as I couldn't find a clear statement. I may have missed one
-though. OTOH, the new code surely needs the barrier, so I included them.)
+Link: https://github.com/acpica/acpica/commit/13dcd9b19a46
+Signed-off-by: ikaros <void0red@gmail.com>
+Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+---
+ drivers/acpi/acpica/acevents.h |  4 ++
+ drivers/acpi/acpica/evgpe.c    | 97 ++++++++++++++++++++++++++++++++++
+ drivers/acpi/acpica/tbdata.c   | 13 +++++
+ 3 files changed, 114 insertions(+)
 
-Do you read the spec as allowing another hart to observe those stores out of
-order in the old code? If so, I agree the barriers can go in a separate patch.
+diff --git a/drivers/acpi/acpica/acevents.h b/drivers/acpi/acpica/acevents.h
+index ccdc3725c773..4fe26c190c57 100644
+--- a/drivers/acpi/acpica/acevents.h
++++ b/drivers/acpi/acpica/acevents.h
+@@ -122,6 +122,10 @@ acpi_status acpi_ev_gpe_initialize(void);
+ ACPI_HW_DEPENDENT_RETURN_VOID(void
+ 			      acpi_ev_update_gpes(acpi_owner_id table_owner_id))
+ 
++ACPI_HW_DEPENDENT_RETURN_STATUS(acpi_status
++				acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id
++								    owner_id))
++
+ acpi_status
+ acpi_ev_match_gpe_method(acpi_handle obj_handle,
+ 			 u32 level, void *context, void **return_value);
+diff --git a/drivers/acpi/acpica/evgpe.c b/drivers/acpi/acpica/evgpe.c
+index 53b52efc7c2b..93e205c0709e 100644
+--- a/drivers/acpi/acpica/evgpe.c
++++ b/drivers/acpi/acpica/evgpe.c
+@@ -489,6 +489,18 @@ static void ACPI_SYSTEM_XFACE acpi_ev_asynch_execute_gpe_method(void *context)
+ 
+ 	case ACPI_GPE_DISPATCH_METHOD:
+ 
++		/*
++		 * Re-check dispatch type. The table may have been unloaded
++		 * and its GPE dispatch cleared while we were waiting.
++		 */
++		if (ACPI_GPE_DISPATCH_TYPE(gpe_event_info->flags) !=
++		    ACPI_GPE_DISPATCH_METHOD) {
++			ACPI_DEBUG_PRINT(
++				(ACPI_DB_EVENTS,
++				 "GPE method dispatch cleared during wait\n"));
++			goto error_exit;
++		}
++
+ 		/* Allocate the evaluation information block */
+ 
+ 		info = ACPI_ALLOCATE_ZEROED(sizeof(struct acpi_evaluate_info));
+@@ -535,6 +547,91 @@ static void ACPI_SYSTEM_XFACE acpi_ev_asynch_execute_gpe_method(void *context)
+ }
+ 
+ 
++/*******************************************************************************
++ *
++ * FUNCTION:    acpi_ev_clear_gpe_dispatch_by_owner
++ *
++ * PARAMETERS:  owner_id        - Table owner_id being unloaded
++ *
++ * RETURN:      Status
++ *
++ * DESCRIPTION: Clear GPE dispatch info for methods belonging to the table
++ *              being unloaded. If any matching GPE is currently dispatching,
++ *              it is not cleared and AE_ABORT_METHOD is returned.
++ *
++ ******************************************************************************/
++
++acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
++{
++	struct acpi_gpe_xrupt_info *gpe_xrupt_info;
++	struct acpi_gpe_block_info *gpe_block;
++	struct acpi_gpe_event_info *gpe_event_info;
++	u32 gpe_number;
++	acpi_cpu_flags flags;
++	acpi_status status = AE_OK;
++
++	ACPI_FUNCTION_TRACE_U32(ev_clear_gpe_dispatch_by_owner, owner_id);
++
++	if (owner_id == 0) {
++		return_ACPI_STATUS(AE_OK);
++	}
++
++	flags = acpi_os_acquire_lock(acpi_gbl_gpe_lock);
++
++	/* Walk all GPE interrupt blocks */
++
++	gpe_xrupt_info = acpi_gbl_gpe_xrupt_list_head;
++	while (gpe_xrupt_info) {
++		gpe_block = gpe_xrupt_info->gpe_block_list_head;
++		while (gpe_block) {
++			/* Walk all GPEs in this block */
++
++			for (gpe_number = 0; gpe_number < gpe_block->gpe_count;
++			     gpe_number++) {
++				gpe_event_info =
++					&gpe_block->event_info[gpe_number];
++
++				if ((ACPI_GPE_DISPATCH_TYPE(
++					     gpe_event_info->flags) ==
++				     ACPI_GPE_DISPATCH_METHOD) &&
++				    (gpe_event_info->dispatch.method_node) &&
++				    (gpe_event_info->dispatch.method_node
++					     ->owner_id == owner_id)) {
++					/* GPE method belongs to table being unloaded */
++
++					if (gpe_event_info
++						    ->disable_for_dispatch) {
++						/* Handler is executing, cannot clear */
++						status = AE_ABORT_METHOD;
++					} else {
++						/* Clear only the dispatch type, preserve other flags */
++						gpe_event_info->flags &=
++							~ACPI_GPE_DISPATCH_MASK;
++						gpe_event_info->dispatch
++							.method_node = NULL;
++
++						/*
++						 * Hardware-disable the GPE so a late interrupt
++						 * cannot fire and land in the "no handler" default
++						 * branch with disable_for_dispatch stuck at TRUE.
++						 */
++						(void)acpi_hw_low_set_gpe(
++							gpe_event_info,
++							ACPI_GPE_DISABLE);
++					}
++				}
++			}
++
++			gpe_block = gpe_block->next;
++		}
++
++		gpe_xrupt_info = gpe_xrupt_info->next;
++	}
++
++	acpi_os_release_lock(acpi_gbl_gpe_lock, flags);
++	return_ACPI_STATUS(status);
++}
++
+ /*******************************************************************************
+  *
+  * FUNCTION:    acpi_ev_asynch_enable_gpe
+diff --git a/drivers/acpi/acpica/tbdata.c b/drivers/acpi/acpica/tbdata.c
+index 07af035aa4de..144f15011eff 100644
+--- a/drivers/acpi/acpica/tbdata.c
++++ b/drivers/acpi/acpica/tbdata.c
+@@ -1059,6 +1059,19 @@ acpi_status acpi_tb_unload_table(u32 table_index)
+ 		acpi_tb_notify_table(ACPI_TABLE_EVENT_UNLOAD, table);
+ 	}
+ 
++#if (!ACPI_REDUCED_HARDWARE)
++	/*
++	 * Clear GPE dispatch for methods owned by the table being unloaded.
++	 * If any matching GPE is currently dispatching, AE_ABORT_METHOD is
++	 * returned and the unload cannot proceed.
++	 */
++	status = acpi_ev_clear_gpe_dispatch_by_owner(
++		acpi_gbl_root_table_list.tables[table_index].owner_id);
++	if (ACPI_FAILURE(status)) {
++		return_ACPI_STATUS(status);
++	}
++#endif /* !ACPI_REDUCED_HARDWARE */
++
+ 	/* Delete the portion of the namespace owned by this table */
+ 
+ 	status = acpi_tb_delete_namespace_by_owner(table_index);
+-- 
+2.56.0
 
-> 
-> > 
-> > Signed-off-by: Koichiro Den <den@valinux.co.jp>
-> > ---
-> > To reviewers: please let me know if you'd prefer
-> > scoped_user_rw_access() here.
-> > 
-> >  arch/riscv/kvm/vcpu_sbi_sta.c | 59 ++++++++++++++++++++---------------
-> >  1 file changed, 34 insertions(+), 25 deletions(-)
-> > 
-> > diff --git a/arch/riscv/kvm/vcpu_sbi_sta.c b/arch/riscv/kvm/vcpu_sbi_sta.c
-> > index 60e50296a008..cfc6f22c3e33 100644
-> > --- a/arch/riscv/kvm/vcpu_sbi_sta.c
-> > +++ b/arch/riscv/kvm/vcpu_sbi_sta.c
-> > @@ -8,13 +8,14 @@
-> >  #include <linux/kvm_host.h>
-> >  #include <linux/mm.h>
-> >  #include <linux/sizes.h>
-> > +#include <linux/uaccess.h>
-> >  
-> > +#include <asm/barrier.h>
-> >  #include <asm/bug.h>
-> >  #include <asm/current.h>
-> >  #include <asm/kvm_vcpu_sbi.h>
-> >  #include <asm/page.h>
-> >  #include <asm/sbi.h>
-> > -#include <asm/uaccess.h>
-> >  
-> >  static void kvm_riscv_vcpu_sbi_sta_reset(struct kvm_vcpu *vcpu)
-> >  {
-> > @@ -26,13 +27,13 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
-> >  {
-> >  	gpa_t shmem = vcpu->arch.sta.shmem;
-> >  	u64 last_steal = vcpu->arch.sta.last_steal;
-> > -	__le32 __user *sequence_ptr;
-> > -	__le64 __user *steal_ptr;
-> > +	struct sbi_sta_struct __user *st;
-> >  	__le32 sequence_le;
-> >  	__le64 steal_le;
-> >  	u32 sequence;
-> >  	u64 steal;
-> >  	unsigned long hva;
-> > +	bool dirty = false, success = false;
-> >  	gfn_t gfn;
-> >  
-> >  	if (shmem == INVALID_GPA)
-> > @@ -51,31 +52,39 @@ void kvm_riscv_vcpu_record_steal_time(struct kvm_vcpu *vcpu)
-> >  		return;
-> >  	}
-> >  
-> > -	sequence_ptr = (__le32 __user *)(hva + offset_in_page(shmem) +
-> > -			       offsetof(struct sbi_sta_struct, sequence));
-> > -	steal_ptr = (__le64 __user *)(hva + offset_in_page(shmem) +
-> > -			    offsetof(struct sbi_sta_struct, steal));
-> > -
-> > -	if (WARN_ON(get_user(sequence_le, sequence_ptr)))
-> > -		return;
-> > -
-> > -	sequence = le32_to_cpu(sequence_le);
-> > -	sequence += 1;
-> > -
-> > -	if (WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr)))
-> > +	st = (struct sbi_sta_struct __user *)(hva + offset_in_page(shmem));
-> > +	might_fault();
-> 
-> We're probably safe to drop this might_fault(). But either way it's fine.
-
-I kept it to preserve the check we get from get_user()/put_user().
-I don't think it's indispensable here either. I'll probably drop it in v2.
-
-Best regards,
-Koichiro Den
-
-> 
-> > +	if (WARN_ON(!user_access_begin(st, sizeof(*st))))
-> >  		return;
-> >  
-> > -	if (!WARN_ON(get_user(steal_le, steal_ptr))) {
-> > -		steal = le64_to_cpu(steal_le);
-> > -		vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
-> > -		steal += vcpu->arch.sta.last_steal - last_steal;
-> > -		WARN_ON(put_user(cpu_to_le64(steal), steal_ptr));
-> > -	}
-> > -
-> > +	unsafe_get_user(sequence_le, &st->sequence, fault);
-> > +	sequence = le32_to_cpu(sequence_le) + 1;
-> > +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
-> > +	dirty = true;
-> > +
-> > +	/* Publish the odd sequence before updating stolen time. */
-> > +	smp_wmb();
-> > +	unsafe_get_user(steal_le, &st->steal, update_sequence);
-> > +	steal = le64_to_cpu(steal_le);
-> > +	vcpu->arch.sta.last_steal = READ_ONCE(current->sched_info.run_delay);
-> > +	steal += vcpu->arch.sta.last_steal - last_steal;
-> > +	unsafe_put_user(cpu_to_le64(steal), &st->steal, update_sequence);
-> > +	success = true;
-> > +
-> > +update_sequence:
-> > +	/* Publish stolen time before completing the update. */
-> > +	smp_wmb();
-> >  	sequence += 1;
-> > -	WARN_ON(put_user(cpu_to_le32(sequence), sequence_ptr));
-> > -
-> > -	kvm_vcpu_mark_page_dirty(vcpu, gfn);
-> > +	unsafe_put_user(cpu_to_le32(sequence), &st->sequence, fault);
-> > +	goto out;
-> > +
-> > +fault:
-> > +	success = false;
-> > +out:
-> > +	user_access_end();
-> > +	WARN_ON(!success);
-> > +	if (dirty)
-> > +		kvm_vcpu_mark_page_dirty(vcpu, gfn);
-> >  }
-> >  
-> >  static int kvm_sbi_sta_steal_time_set_shmem(struct kvm_vcpu *vcpu)
-> > -- 
-> > 2.54.0
-> >
-> 
-> Otherwise,
-> 
-> Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
