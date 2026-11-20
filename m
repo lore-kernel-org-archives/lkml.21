@@ -1,45 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182424;
-	b=AP9d7ihEW2oEuzP97rAinDTkWaTKXpLPwClxSJYgytFMwNWdzcW9Qe+YUBPCBsT8s827
-	 jM3v8tFU2Nbn2ICQ0jpRKyCizUBqctrg9rMnEzlRevvEA0Fg0/vJiXFXROAYTtUNC03Vw
-	 VcPD1zMDZpjGWhmNA7PyuZWMEh2jqYZkCX3UOIQjnSBVwrTvASEiW420X7lam0v0w60V+
-	 nLFcgEZqgTgbVd2sL3CS214E0kH6BlRJPbGhHf9WEqJnDmlLwQufESbwR4oX2feXACBRv
-	 iUmJpAw7SCctX4oLUNH0838tVmNLBcQXUpbm9BF1aRnWZ73JONEjpUfdqJ5upkXbHrw==
+	t=1795182448;
+	b=vTnATIpp3RNWy3YLPLVQILeD3MxIPb/1Ri1/bb+irWbWiWFKgQK0lKKZ4vT17G2zcWw9
+	 N5e9+s2WqBPN6EHpRPYMv12azoYAlNCHolT0HDRD8hTcgCe3udlkgD1ASmnxQMz82rS8Z
+	 uiX5ViAeKMktad52FcXZ7yt7VFdTulbTrAgChy5IybgNnfSc+JlsyeqdJpy6uXBo9I7wh
+	 QLjPdNbXz1AQhB9x9c5oFAYaEeRvP2YJFwtS6uwmzv6E9CudYsgekahi29cJBmzkfKl1A
+	 MF8jlcIDkbnRJZgbqCa70ND5QykodySxrMvOVLn/9pWyF++4tlgT4vf3GbFpaoNz7TA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182424;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=e+NSYRuHag+IOWBgljqQOHteMpeLzW97XrKZ6OmQSCU=;
-	b=uoLg5ZzaKnZxlBegybxEoolhV0vsdpKDu2kOxIQVtKUy8qfEk3kb/LW7qSrV7CXym5aB
-	 niA/JFqt//GynJTmFH1nBXcAvQxQYj68CEteFzDD2w0Wd4o9BJbBgSxF2Kb58bJl5WD9v
-	 zK1yHT/8m27/Qo0ug/uGXG9/uvIuws7L6YW09FwTuQ64OSOD+0Zc7+ZMWHRxBnA9mf5tj
-	 Me96PG2kul9zLSWCwfQmTnawQoWdGwn2c+G60S0P/BKVu1z4JDsP2S9VLF0/u9iAErsoe
-	 dTtRx9EPWlMlaX2JKnG4nzZPORQnH5JxBv/vt2KXk8aDsbmpIzH0oXUqF8SqOJYK1nQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182448;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4LraybQfE1yQd3PjjmjSyb8YVEJVQeSQfcSql1slz1g=;
+	b=hMesNmV5QTojvVx+w9e72nla/x32d1762Vq9n8EnMZlQwBNxH+mdGWshZGRunIKvrQGG
+	 sYX/GbV2cISgc00IH4oW9zRT15d5DCOkFye3AGe2/fHJytX+Cj5nZ+RhxwSzNgwqsCki1
+	 FAQFd5vKlyFmTkP8/pIHiKDSERIEcGN18huOXDZvUA5aEIyVeuOfLhtapcbsOlQYtyF+2
+	 u3kJZWm2v04TZxVr5CDb79vLYyRiGyRzF6d+5KYaOnJrB/4Sm26bt4wI8KW4/OmqkcdZf
+	 emzI5eQKIXNVCqrsA2H2NB149P2up13cAvgGqMBCzVO9r/XQ9hjq/MaOaYeMpKU8KkQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxr2wflH;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ASBfDw7F;
+	arc=none smtp.remote-ip=198.175.65.16
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89371606A325;
-	Fri, 20 Nov 2026 13:47:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 727BB606A320;
+	Fri, 20 Nov 2026 13:47:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 727BB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zxr2wflH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F8361F000D1;
-	Fri, 20 Nov 2026 13:46:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795182423;
-	bh=e+NSYRuHag+IOWBgljqQOHteMpeLzW97XrKZ6OmQSCU=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=Zxr2wflHUvrA37wDMKM2Z7eQAa9nPwD0aQjkjMf18UCgxZQCnSf/8TMo6xEMoe0D1
-	 pzlxcb2qM5YZgoUKFJPiSxQj/aDvTYWoyTd0uyvQf55HOer3Q3wBDivB2SrMo21bMp
-	 LECbNp3ZYl9rDuC6CwbxVCyCqchT2veIG87r1wYZQNCPqIYdu7z5qQ9zXG87Vp0Sea
-	 QoBOQII6Y36aa4kndLSaXtUisSr1Q+S1Gfs6lyRd1/zEMnuvooyd4ysuiz/Mo5SNRl
-	 Wuf3vh3pdobC2fQuCCRCK00jIFjag4rrIKyDl9Pa/AMhU3U3IRFJI7hO9ln92GdOP3
-	 zedUqYQedYCbw==
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ASBfDw7F
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795182448; x=1826718448;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=rYY166ikYX6+XRvaX9MhZJI+peSm82FdQzq+DN6mF8Y=;
+  b=ASBfDw7FWTuwgweVf3bRFqR0EE/HyC/VtwBxO1y+DZVC7VUAD0fRJ1V5
+   Bb9goP5yl/ZEAqtXptUJrPeGLLE5OsgDEduHHort9JXg/fptaKXiM3ZZY
+   R1fIUSazZd9s0ifTNjoncpaIIPv5Av8frSuqY+v5hF2Ldk8TR7Gp4JHio
+   zm3SQKi9+Uy0KNmTtLZOr5LTCrrlu32GwFgCr/4Rge502V5va/QKn2N0k
+   FEm/st6dKscuMbZUcg+00KDhnt/KYwC9sVhUpnGdchOSzWoomFTju6hAc
+   nE2PWa5LJsgkBFb9E0JtZYtkqCaGPSSp7xManQIHH9sjiBUrQXFJQgfMd
+   Q==;
+X-CSE-ConnectionGUID: L/vdLpIIRB6Xt47QX3eGlg==
+X-CSE-MsgGUID: ITflNY6CT0KgOXIh8x0eYw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4052840"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4052840"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:47:27 -0800
+X-CSE-ConnectionGUID: y3rr/xtLTu2Nq0Eck1oEHg==
+X-CSE-MsgGUID: GtC9Ar0pRvqk1SBXaKm90g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11277346"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:47:23 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Subject: [PATCH v2 00/16] PCI: Serialize bridge window sizing and resource assignment
+Date: Fri, 20 Nov 2026 15:46:55 +0200
+Message-ID: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,77 +83,100 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH 0/6] memory: tegra114-emc: Fix bus width and pad
- auto-calibration
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Patrick Fischer <admin@tsv-stahl-riesa.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
- Thierry Reding <thierry.reding@kernel.org>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Svyatoslav Ryhel <clamor95@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- linux-tegra@vger.kernel.org, Thierry Reding <thierry.reding@gmail.com>, 
- devicetree@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
-References: <20261111-upstream-emc-t114-v1-0-54d9e1bceb6a@tsv-stahl-riesa.de>
-Date: Fri, 20 Nov 2026 14:46:44 +0100
-Message-Id: <179518240415.10624.13757193124982371025.b4-review@b4>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1942; i=krzk@kernel.org;
- h=from:subject:message-id; bh=5VF2fEwtX761ujH12rg2jXwnzx/wa39kyjerTpDQEf0=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBrAE9NFRwmfwslkPPpjWpqtFr8DEa0/hUZYGYTr
- 1IUbh6UZeyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCawBPTQAKCRDBN2bmhouD
- 170gD/0f1Cfr/qj/ksDRrjvlpfILxLqgKfLvokbGsEZ0nUGrlNUSy+1E3JoZX4nCk7brg1285vr
- qxiNARuAtmEp2m+vfkAnGs6XTTUAPee0whxjLcd4S2qSOoJfccQudIreB2P5NyzObZ9hAf+7v6l
- wiUiEsOqPfWEUbiVMyuiaruv29reWK4hbNfKTkbANsYoM4OFS80VNLugYJvhFiCAIs3TQ1Vyt34
- 5e5b8S9RkyHIG/E4wcKmSA4UGyBxzzbS2f7JIoLE+LYKZ1IPVAmWG9E1l0/lcc4ytUfeHMixZdC
- 1/yWhRG8h+Pn+PP0Tvr7ykukvTqPNPStF3kAvWvyMqYOuJIP7qxvNcQDtWhClBXQgauVgVQr0Ab
- k2VB69q2VC7jEkRirmiNXo4ALJvf/ti52RZXuWnI566hNqg5P6q+jfchAf5aDyj2dn/Mp07h9hL
- GZQLADOflkEMe4GS8RljtyyylCIgyc4k2Fx5S4ZNvQxqzK/LtfmW7Gp6EHAlaUS0O442fjkleGA
- UWVY2l1YeI9dIOfD4JgzTLbdBGkCkylR8rZ9+zuEMe9TX+2HBlmlsubzeOhvywYDThS9XWqWwyk
- vvNKI3q5BQagCcKpYMPUY7lLLS3YynNl1K8aGlkkVyXt+5ImPN39aSfOOP5f1H1ew7n/cPGRBjt
- JKbku/nZrr1T8Fw==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-> On a Tegra Note 7 (Tegra114, P1640) I had kernel panics, bit errors and
-> WLAN firmware hangs under load, and two kernel panics on EMC rate
-> changes from pll_p to 624 MHz on pll_c. Looking at the EMC I
-> found three problems in the Tegra114 EMC driver:
-> 
-> 1. EMC_AUTO_CAL_CONFIG is masked down to the self-clearing start bit
->    before it is written, which clears AUTO_CAL_ENABLE on the first rate
->    change. The bootloader leaves calibration enabled, with channel 0 as
->    master and channel 1 as slave. Patch 1 stops clearing the register.
->    Programming the table values needs the channel registers, which
->    patches 4 to 6 describe and use.
-> 2. emc_icc_set() assumes a 32-bit DRAM bus, but Tegra114 has two 32-bit
->    channels. Every interconnect request asks for twice the EMC rate, so
->    actmon at 312 MHz moves the EMC to 624 MHz (patch 2).
-> 3. Pad auto-calibration is disabled for every clock change, but the
->    interval is only restored if EMC_CTT_TERM_CTRL changes, so it stays
->    off after the first change (patch 3).
-> 
-> Patches 1 to 3 are small, do not depend on the device tree change and
-> are marked for stable. Patch 1 comes first on purpose: patch 2 and the
-> clk patch mentioned below make the EMC run at a real 624 MHz on pll_c
-> more often, and both panics I saw on a change to that rate were with
-> the calibration cleared. Patches 4 to 6 are not marked: they need the
-> binding and the device tree. Patches 1 to 5 are for the memory
-> controller tree, patch 6 for the Tegra tree. The driver has been there
-> since v7.2, but the first in-tree Tegra114 device tree with EMC timings
-> (TF701T) came with v7.4-rc1, so the stable tags matter for v7.4 and for
-> out-of-tree device trees.
+Hi all,
 
-A bit confusing. This clearly suggests dependency on DTS, thus ABI
-break, but code does not look like that.
+Bridge window sizing and resource assignment can be started from
+multiple entrypoints: rescan and hotplug under pci_rescan_remove_lock,
+and BAR resize from sysfs or driver probe under device_lock() only. As
+the entrypoints hold pci_bus_sem at most for read, nothing prevents two
+sizing and assignment passes from running concurrently on the same
+bridge windows and BARs.
 
-Best regards,
-Krzysztof
+Multiple issues due to these races could be reproduced some on a real
+host and more in QEMU with a synthetic PCI host bridge (not part of
+this series) by looping BAR resize against a rescan through sysfs. The
+failures include spurious BAR resize failures, a WARN in
+pci_dev_res_restore(), a NULL pointer dereference in
+__release_resource(), and a bridge window programmed over RAM. None of
+them occurred with this series applied.
 
+The series adds pci_bus_size_and_assign_resources() and
+pci_assign_unassigned_slot_resources() so that PCI core can hold the
+locks across both phases. It converts the callers (alpha nautilus
+retains an extra sizing call to avoid complex refactoring). The
+entrypoints are made to consistently hold pci_bus_sem for read and
+use guard(). pci_res_setup_lock is added to serialize the sizing and
+assignment passes. Last, the series converts the remaining
+pci_bus_assign_resources() users and removes it.
+
+Drivers that call pci_assign_resource() or pci_release_resource()
+directly are not covered by this series.
+
+I've another series coming up which will add struct pci_setup_data that
+is to be held across the entire sizing and assignment algorithm, which
+is another reason why those actions have to be kept together going
+forward. The goal of that upcoming series is to size also assigned
+bridge windows properly and we need a place to keep the alignment
+because STARTALIGN is lost when a resource gets assigned.
+
+
+v2:
+- Expand BAR Resize lock coverage to include the parent window acquire
+  (sashiko)
+- Add pci_assign_unassigned_slot_resources()
+- Refactor acpiphp, replaces sizing call in the loop with one
+  pci_assign_unassigned_slot_resources() after the loop to not hold
+  locks across scan
+- Keep pci_res_setup_lock local to setup-bus.c (drops setup-cardbus.c
+  assert that was of minor importance anyway)
+- Minor language tweaks to changelogs
+
+Ilpo Järvinen (16):
+  PCI: Add pci_bus_size_and_assign_resources()
+  alpha/PCI: Convert to pci_bus_size_and_assign_resources()
+  PCI: Use guard() for pci_bus_sem in
+    pci_do_resource_release_and_resize()
+  PCI: Add pci_assign_unassigned_slot_resources()
+  PCI: acpiphp: Use pci_assign_unassigned_slot_resources()
+  PCI: Hold pci_bus_sem across sizing and assignment entrypoints
+  PCI: Serialize bridge window sizing and resource assignment
+  PCI: Make internal sizing and assignment functions static
+  EDAC/i82875p: Convert to pci_assign_unassigned_bus_resources()
+  platform/x86: asus-wmi: Convert to
+    pci_assign_unassigned_bus_resources()
+  platform/x86: eeepc-laptop: Convert to
+    pci_assign_unassigned_bus_resources()
+  parisc/PCI: Convert to pci_assign_unassigned_bus_resources()
+  PCI: octep_hp: Convert to pci_assign_unassigned_bus_resources()
+  PCI: ftpci100: Convert to pci_assign_unassigned_bus_resources()
+  PCI: hv: Convert to pci_assign_unassigned_bus_resources()
+  PCI: Remove pci_bus_assign_resources()
+
+ arch/alpha/kernel/sys_nautilus.c      |   2 +-
+ arch/arm/kernel/bios32.c              |   5 +-
+ arch/m68k/coldfire/pci.c              |   3 +-
+ arch/mips/pci/pci-legacy.c            |   5 +-
+ arch/sh/drivers/pci/pci.c             |   3 +-
+ drivers/edac/i82875p_edac.c           |   2 +-
+ drivers/parisc/dino.c                 |   2 +-
+ drivers/parisc/lba_pci.c              |   7 +-
+ drivers/pci/controller/pci-ftpci100.c |   2 +-
+ drivers/pci/controller/pci-hyperv.c   |   2 +-
+ drivers/pci/hotplug/acpiphp_glue.c    |   8 +-
+ drivers/pci/hotplug/octep_hp.c        |   2 +-
+ drivers/pci/pci.h                     |   6 +-
+ drivers/pci/setup-bus.c               | 128 +++++++++++++++++++++-----
+ drivers/pcmcia/cardbus.c              |   3 +-
+ drivers/platform/x86/asus-wmi.c       |   2 +-
+ drivers/platform/x86/eeepc-laptop.c   |   2 +-
+ include/linux/pci.h                   |   2 +-
+ 18 files changed, 126 insertions(+), 60 deletions(-)
+
+
+base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
 -- 
-Krzysztof Kozlowski <krzk@kernel.org>
+2.47.3
+
