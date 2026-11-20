@@ -1,78 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795137042;
-	b=mv0OYt4k9axxUGVIFD34+WfnDN/FLgp3xk0RLD7gdGBnqQVRCLNirAzHZwRiNNNipFpC
-	 VDuwh5stCXswj9dcjKgj1MFvXk695sWVrA5LhQ5o/JoGgPUdapSotqcUKIo6ACWmnQA++
-	 33R3jdTPSDq1pGAbz6BkbalVE/YArMOyeV+mpoHi3SsnnM8YCLQLYKr4MUaFxNYa7lZPS
-	 o8jaQM6LiMABlzPm/RBowpT5xer8S0leHe3fzLUp2qhyC7i36oXS3nFu2sfZwvf21ahgm
-	 1BvKA+YNU9gh/VYLqqaRJu+4SK+7HEiLqZOboFaE0MLQcg6jxqz9nco3kUfsFXJzWyw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795137042;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7duCnWH8krM8z9+VrW7onyigZ+9oryd9rni6Jfwyl9w=;
-	b=Cm38NOJL8Qgl5xNU4tBQ4LfsLIigtwzQqQYuEUOdLGa1ETQF9Z9s+IA/jhjOrFr+EWIw
-	 SvZbox7ELbf5sdOf061Z1JRliH7OpdPoTgJhAB6LZd8WmeRuCaddQ4sKmxG8D95WphrRA
-	 FquGG/ihF3OCR9//U7DgZ0kgZWSIXRrUdHAUTe3hk9vKoSSR8qklkwfEbwwOHlo1awDnh
-	 IcbN/kFHnkITnqx2i+5+GRWoLLvZILmesslOjSNwVVAwkji5CEX6liw++tgwnvKTolZwX
-	 A9AAEsdkHE7F33j1UeeFIXmVdzNZ3svjNffVHuowqlKVG0wn5CP5AH2omrEb/rxA2Og==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SOs7uVy1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1719606A5C0;
-	Fri, 20 Nov 2026 01:10:41 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SOs7uVy1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795137041;
-	b=kLRAsry49vnT9xr2/QCCfZu/oUOuOkpUAyuD4s/HP8JVFMDfSLXdquGF2BO+hcId4diZ
-	 yxOlO21RIKAzY3ic3FlDmgmYbcgCeTQrCuULPe19KAY2lAfsyQjwVnl0Enud2qHBs4NBq
-	 9bgn68Byr+rb4ktox5yZaXTp6ENOeLnEMsXF2I6SWsKVK9blcnMQffgh7vI1x7uJ1om0z
-	 I9JV84sZ5ygCfJzoZ1IN0G74jnAwoweOx+P7fGhC+S3282bgFRH/Sqw5El8QxMx0gZ5VI
-	 b+wRONJXY+nGTlURPeR7BJl12QvcBy5oAuLJDVGo0P5iiDNTyAiSG+LV8BaJMcO1xRA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795137041;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=7duCnWH8krM8z9+VrW7onyigZ+9oryd9rni6Jfwyl9w=;
-	b=Tlo2Kxf5YNHjcD7kukl3amsRCVaB3ZOzC29zAVZxG80yQdUrbQyrDS/VYv8Gmkib6PtT
-	 LODaD1lyQkhFnWKHTED1rcEkxfOh/rmjMtYR/vfmLERecpyjJ8sqUECzxbvs2szqdjTsG
-	 /PGC7ssW7UCZ2ifXCBjzoyuaZkPzK/xZ2XGbfgFbxyXsIZvhJMtFzp/Er1aaP4scVfoYV
-	 f2fC5egVWqSfSwE397icpS5QvBPF28+gdDn6bHJtBvjM064wJSnKiJ8kCIerCAvS2xghR
-	 u7P7xO4ZyC0BE4amwT44P3M5lH1q54KtYV7+ebPJwbutJiQ8m5undrpH5XCmH9guqug==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.136
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795137112;
+	b=qsqPzVcfuNTpMQV3Qp6+sdtOXtobCz/zXcuwpH3PINLljLAkCEOQJdZvTW9K1ZVXGRCP
+	 F+cr9LjK8gHk7+9GJCAEtabuXQ0nkGsAKyPdMkbNaO0ZCd7vd4glaJ/qtL0wNlmtBAHz9
+	 4qzpP+BrstEdMbMJe/IvOdH16xvEHJXXl0p7v4ZvsHBhZWI14Ndb/YXIvaW4QjZDfZSMF
+	 +nCSE8NpS51YSemUdwR0J7qgJM2ySI2O7x4dPBoMFPeOnAnbkqF4gNuVMwtEWF5eDUuB2
+	 5J1Az+DyFxRKIH7d6m6GUZagy0E6J/nYV+vjuM0PWJ0mYNG5atP5nzo2iBgnSdnfiHg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795137112;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=+WauXmzgjTADvjBBTuDw9ddxWh3mS9R+yZFc6+jn+U4=;
+	b=gHvoCjZohTsGer9UI9ROkDODg1Cq33bdSkEf6Wmz2UvDKAn5WrebJ25XViVGPxFlHi5D
+	 phR++h//lfQeFhSkpXHM5loBPeUmwLBa1Q2Ffbme74TxhoLXj8/koG5WVcIamdZvlcrmH
+	 WfEpBLXcfe4Dt24QWvH714t3rm9Rt+9T533GFl7JlsWYv1+MRYRZf8C6kDI8chTYhnB+v
+	 ldgsE0rJYiFYFIzg7I0AYj7UhLSePfGxyAsHY+vykMEQnWoV7dtC73ifxekEB9UmUoSqa
+	 aMzwBkw9A2M0UhqANOcfJrYe1Ad7+etBoEYecOjUhpW2OvGFia5ujbZtdg17UUXA8rg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AsJxZNms;
+	arc=none smtp.remote-ip=74.125.227.136
+Received: from mail-pj2-f8.google.com (mail-pj2-f8.google.com [74.125.227.136])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 707111F000D0;
-	Fri, 20 Nov 2026 01:10:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795137041;
-	bh=7duCnWH8krM8z9+VrW7onyigZ+9oryd9rni6Jfwyl9w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=SOs7uVy1kyWSzfXRFke+sxBjFeI01b7JTq5+M9JKrH4clSEcLBrImX5rt2465xtep
-	 6oc/HZnNhHLZAyVsC0E4tgX+MZxaCWaNgA6xO1DAKKDEnR7T2vgNiIDnDac/loRkEG
-	 IL1+ZZGN309TU6wIwD0f8SAeyXhczoBz1yvkDjacBQGZGeuVn91yvaCQQEqc2ftEDe
-	 8TbMqydyBAo6GmfP/vXJRhbNC6CrzbGB8j7fOt7YR4nfriR9tgMvHruFLx9/fscgTf
-	 x+8hG4WKatasEHpvKvqqqm08L7QRzVruOCR7nLQ0+S42mQJfG1O3GcgJ1rEnq0Oj5C
-	 6FEYQ07JIMM2A==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F29D742607;
-	Fri, 20 Nov 2026 01:10:38 +0000 (UTC)
-From: Arun Iyengar via B4 Relay <devnull+aiyengar1990.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 01:10:40 +0000
-Subject: [PATCH 2/2] media: rkvdec: Decode monochrome H.264 to GREY
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70781606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:11:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70781606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AsJxZNms
+Received: by mail-pj2-f8.google.com with SMTP id 98e67ed59e1d1-3b40283c001so86561a91.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:11:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795137111; x=1795741911; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=+WauXmzgjTADvjBBTuDw9ddxWh3mS9R+yZFc6+jn+U4=;
+        b=AsJxZNmszeOmf1P6FoD0ZvPkULx6VuhNHhNoP35uartk7q3/nSMkJlYOf6yueuMrlI
+         5rUFjDiLJpw3jewnIekcwE8Fb/ABsrk3cWYcbWo/qMDSk/kCrTnzfmyJ4ZaeMr5v9fY8
+         zpt8AVlZVCuJhBXKzglnK6saQp3dvp9lXhoAoPmapLCth8xICO+5rUPc+BER5EqBJapn
+         CiHl7pFqBHYMnE7x+uDF+IOOddA3ragPxAk1EgAtVDKg6dpGW7BGex6yUqBFRRVVIXzE
+         oAfIhFc0kAsegIkD1PfBMLJa9+3/W4AoUIH4ChL5qWACy8FxfpS+Nf1Zk+RPTNgMnvQs
+         6vWw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795137111; x=1795741911;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+WauXmzgjTADvjBBTuDw9ddxWh3mS9R+yZFc6+jn+U4=;
+        b=aqNxXs3yEH9ygpIsptwK8gVxqynL8l/+vNB3rc2hGtY6yCs3NqJvXOfnI13aTZxrxC
+         J6of+D12iE7w5KOGPyHhG/drsy1WFciN2T/YhnZnaGtjaCThgyhdsYABEmbnyu8yMFak
+         EWMj+I4LxtU+CtG7FOxVdfljZyQEAT8zXrj2GvdEOMBG37lO9qEV3E9TwpGGI0Cl71wr
+         xxVQ7ox0LOZo5kKVja+OJZY+1AgRIbhL4DrCy0AH+ljLFAlg3mQOj5Zefb90y7rEd8c/
+         4fosL1w6MDka1M7Ue/X8Vg9/CQ9iMWupsQRTy0CyG1xVlAKQ4+FflcGvWjWfafbE2dFr
+         Bttg==
+X-Forwarded-Encrypted: i=1; AL+hErH1o/7wCQ2qI5vNQLXDC10AdNQfy7lKR3YX+f0fjDE3RS11K07qtIOkCPwE8bupVCp86Yxoh34jAyX/zfg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+53SP4PQv5PQQ9jE7geyTN/bCl0zUh3nyCX7T/xzni1lwK5R8V
+	7U5T0ACin8uFhYGlJyZjO86GcWkdWj5E2kTMLJtwhDg+W69tTkxMg6J9l8us6GoP
+X-Gm-Gg: AZFdTZeT0MJcDavpzZ7OaVoNBrLE8jmBjeId8gj6wt9at0klA9HntWbsi1tT+v8ANDG
+	yWxicDj9DONw3RrhViCB9Ll3qrGJm6w6G/B0xfC0SQWywOq6jvrkPBECQGegiLSaR0AOsbgayTT
+	1nS+KgXUz3Lh1y06Zr/BbEfftxKIdX5HJ0AnpSJR+c9TkZrGhnXbCNZqhd6Z0KAF5EgszXRE6it
+	J96j+Q9X8wfZGMCL7pzC/gYBfrgrPw6ELmzeGbDv1Vl7kue50S75+nZhhT5GU+j71qTVNj4wa1m
+	B6We55CsYJIk3yJ0cxbt9Y/+IMLdFdVB2fpzJ644ZT7MJ7RlnpBityN9uBXUr274TJeblEMvKKK
+	j0GYuoLB9uRaBTv4XvQXLrGnh2kdo/Jkgm8exS41jPOdip0PR1ZsUP2oQThPB/TNFb94EoIeSqu
+	uG57tSmeAtBSo13NAkBHh7ywpiLg4EIL12NBqNOZ7q5SmMCZM+OiFmQTeaWlAGSFNZty553q+Id
+	E6fmv1Yu+V4Iu5yKAXjd5Y43cYVqcg7gaWiCyiBSTncRmGMzX44NbY9ZfRrbVQadBy/yQRfAeSb
+	6kIMAAauhXY+6gQ+5qldD+YXx8cnMY04WZyDqtVSCiBBwMVkfnX0Iry3WfxygkpcLP5GQD+MHOf
+	wK6XparRxNY84
+X-Received: by 2002:a17:90b:2f8f:b0:3b3:b0f4:1bf7 with SMTP id 98e67ed59e1d1-3b41c8d460emr1098385a91.23.1795137110648;
+        Thu, 19 Nov 2026 17:11:50 -0800 (PST)
+Received: from localhost ([50.7.253.42])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm622215a91.3.2026.11.19.17.11.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 17:11:50 -0800 (PST)
+From: Aveline Noir <jm5905938@gmail.com>
+Subject: [PATCH RESEND v2 0/2] HID: picolcd: Fix output-request and
+ framebuffer locking
+Date: Fri, 20 Nov 2026 12:05:46 +1100
+Message-Id: <20261120-mail-picolcd-v2-resend-20261120-v2-0-d7531fa8061b@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,95 +94,73 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-b4-h264-monochrome-grey-v1-2-887102a688fd@gmail.com>
-References: <20261120-b4-h264-monochrome-grey-v1-0-887102a688fd@gmail.com>
-In-Reply-To: <20261120-b4-h264-monochrome-grey-v1-0-887102a688fd@gmail.com>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Hans Verkuil <hverkuil@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Arun Iyengar <aiyengar1990@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795137038; l=2530;
- i=aiyengar1990@gmail.com; s=20261110; h=from:subject:message-id;
- bh=PaUrtuP231glBes9RSGbgqUD4OET3z2k5Uwhdrm6JOc=;
- b=ziqFhy0u+TcXxphBaKndOpcw060D4mWES5y6K3+Q8++wHVqYdqkdxbv075+tUd/TcQEdUHgXW
- bAsn9WYaHQLC8/BMFlgDI6p46QTkdHZA8gcNCvItWxKy6W3ODncr0yu
-X-Developer-Key: i=aiyengar1990@gmail.com; a=ed25519;
- pk=zXpRgUTrhaFe6jLyPqbBy3ccfkj04w0g2690Wv3mg+0=
-X-Endpoint-Received: by B4 Relay for aiyengar1990@gmail.com/20261110 with
- auth_id=1480
-X-Original-From: Arun Iyengar <aiyengar1990@gmail.com>
-Reply-To: aiyengar1990@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2WNTQvCMBBE/0rZs4tJxCCe7dWDHsVDPla7UtOSa
+ BFK/7tJRS8eZ+Yxb4REkSnBthoh0sCJu5CDWlTgGhOuhOxzBiWUllIJvBtusWfXtc7joDBSouD
+ xtzvya7PReuWlgPzSR7rwazac4FAf6/0Ozp8+Pe2N3KPcF9KaRGijCa4pVREt/0Uz9bXBNL0Bd
+ +SW7MIAAAA=
+X-Change-ID: 20261120-mail-picolcd-v2-resend-20261120-ced5a8663d10
+To: Benjamin Tissoires <bentiss@kernel.org>, Jiri Kosina <jikos@kernel.org>
+Cc: linux-fbdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Mika Westerberg <mika.westerberg@linux.intel.com>, deller@gmx.de, 
+ Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+ =?utf-8?q?Bruno_Pr=C3=A9mont?= <bonbons@linux-vserver.org>, 
+ Clark Williams <clrkwllms@kernel.org>, bigeasy@linutronix.de, 
+ linux-input@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
+ Takashi Iwai <tiwai@suse.de>, 
+ syzbot+912222e4cb82423535fa@syzkaller.appspotmail.com, 
+ linux-rt-devel@lists.linux.dev, simona@ffwll.ch, 
+ Patrik Jakobsson <patrik.r.jakobsson@gmail.com>
+X-Mailer: b4 0.16.0
 
-From: Arun Iyengar <aiyengar1990@gmail.com>
+Hi Jiri,
 
-The decoder writes only the luma plane of a 4:0:0 H.264 picture, but
-the driver offers NV12, so userspace gets a chroma plane the decoder
-never wrote (green or stale pictures). JVT-FR-EXT HPCAMOLQ_BRCM_B and
-HPCVMOLQ_BRCM_B fail although their luma is bit-exact.
+Thanks for catching that. Both patch emails were line-wrapped in
+transit, so I'm resending the full v2 series. The commit messages and
+diffs are unchanged. I checked that a copy of patch 1/2 sent to myself
+applies cleanly with git am.
 
-Offer GREY for 8-bit 4:0:0 streams. There is no V4L2 format for the
-packed 10-bit luma that 10-bit 4:0:0 would need, so those keep NV15.
+This series fixes two PicoLCD locking problems. The first moves output
+requests into sleepable context and serializes LED state updates. The
+second breaks the last-close/deferred-worker lock dependency using a
+private framebuffer update mutex.
 
-Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
----
- drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c | 4 +++-
- drivers/media/platform/rockchip/rkvdec/rkvdec.c             | 4 ++++
- drivers/media/platform/rockchip/rkvdec/rkvdec.h             | 1 +
- 3 files changed, 8 insertions(+), 1 deletion(-)
+The first patch was tested separately with the original syzkaller C
+reproducer and bounded concurrent sysfs/UHID-destroy workloads on
+PREEMPT_RT. The complete series additionally passed repeated framebuffer
+open/write/close and persistent-open framebuffer tests. Pre-fix modules
+reproduced the respective failures. Physical hardware, prolonged stress
+and suspend/resume have not been tested.
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
-index 54639512e456..8ad41c4e56c8 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
-@@ -146,7 +146,9 @@ enum rkvdec_image_fmt rkvdec_h264_get_image_fmt(struct rkvdec_ctx *ctx,
- 		return RKVDEC_IMG_FMT_ANY;
- 
- 	if (sps->bit_depth_luma_minus8 == 0) {
--		if (sps->chroma_format_idc == 2)
-+		if (sps->chroma_format_idc == 0)
-+			return RKVDEC_IMG_FMT_400_8BIT;
-+		else if (sps->chroma_format_idc == 2)
- 			return RKVDEC_IMG_FMT_422_8BIT;
- 		else
- 			return RKVDEC_IMG_FMT_420_8BIT;
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index fbcd0f175ad3..548659d23bc2 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -414,6 +414,10 @@ static const struct rkvdec_decoded_fmt_desc rkvdec_h264_decoded_fmts[] = {
- 		.fourcc = V4L2_PIX_FMT_NV20,
- 		.image_fmt = RKVDEC_IMG_FMT_422_10BIT,
- 	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_GREY,
-+		.image_fmt = RKVDEC_IMG_FMT_400_8BIT,
-+	},
- };
- 
- static const struct rkvdec_ctrl_desc rkvdec_vp9_ctrl_descs[] = {
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-index a24be6638b6b..58c53a1f58b3 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-@@ -108,6 +108,7 @@ enum rkvdec_image_fmt {
- 	RKVDEC_IMG_FMT_420_10BIT,
- 	RKVDEC_IMG_FMT_422_8BIT,
- 	RKVDEC_IMG_FMT_422_10BIT,
-+	RKVDEC_IMG_FMT_400_8BIT,
- };
- 
- struct rkvdec_decoded_fmt_desc {
+Patch 2's Fixes tag identifies the fbdev change that began draining
+deferred work from fb_release() while holding info->lock. Patch 1's Fixes
+tag was checked against the upstream transport-conversion diff.
 
--- 
+Changes in v2:
+- Address Sebastian Andrzej Siewior's feedback: clarify that the issue
+  is not specific to PREEMPT_RT and identify picolcd_data::lock as a
+  spinlock_t in patch 1. The code changes are identical to v1.
+
+Helge acked patch 2/2 in the original thread.
+https://lore.kernel.org/linux-input/CANOyQmGfmBdTRaEamVdGuMBToVLeXGi6qLrnX=
+=3DxkA9acsL9TSQ@mail.gmail.com/
+
+Thanks,
+Aveline Noir
+
+Aveline Noir (2):
+  HID: picolcd: Move output requests out of spinlocked sections
+  HID: picolcd: Avoid framebuffer last-close deadlock
+
+ drivers/hid/hid-picolcd.h           |  4 +++
+ drivers/hid/hid-picolcd_backlight.c |  7 ++--
+ drivers/hid/hid-picolcd_core.c      | 46 +++++++++++++++---------
+ drivers/hid/hid-picolcd_fb.c        | 56 ++++++++++++++++++-----------
+ drivers/hid/hid-picolcd_lcd.c       |  7 ++--
+ drivers/hid/hid-picolcd_leds.c      | 31 +++++++++-------
+ 6 files changed, 93 insertions(+), 58 deletions(-)
+
+
+base-commit: 72d3fcf802c45d00b300f25b848a93c3a2bd7c7e
+--=20
 2.55.0
-
-
