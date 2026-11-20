@@ -1,70 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.104
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204631;
-	b=dC7AKSilkNyWzWPq93MjVorp69t8kK5cnRcSaFjcSELib0Ww2zQ5Cd8O5QRfLDbo+JuZ
-	 Agrl2xjWQIAYyqbQPBqplN8Bbf3lcOPQlHJvUs8a6bPwiFwXVYn46LSekqaaRvq0SDSVJ
-	 x41bKEBASY6JnaUQPWjgibKDiFlFcZxgsVYVf9nYITzVfM+S+1fR6A4mDuSLOZEHNsT8+
-	 leCeEIBNlED28jOusRUPUCmOz/0kofTNUe2Bno9CgNDGyFbeDoCgdzjLh8x6nAuV3Yh7x
-	 oclm1xa8joDpcg9PE7kuz3MJKgkXtfMqFQt9LErWwDXwwwI03llZpYKrbrI65NkZlDQ==
+	t=1795204640;
+	b=SvUyFj8+33qNUoctUxqNoEwmM0sjygBRSWnNCVniMUnhp6J7crhO61zoIhs5far7riWS
+	 I+TCwMMq9JgAQi3OD0T/r4Rx4/RRkW4BSeziFIqep8LJesTnUbcrcBmD5x5cSkSowMcBl
+	 rgQts3+x69FdOjdfWzw66h2mJsmtINU5WpDIntBhSZ/8PaH44h5beZu6UbJ7Xkj582CwQ
+	 GBlbZeg3cnfnh6+qv9tmhs+q7R7WW6vmRTYvyjzmfx6cqedcBOau7bemTWe9YQdeUMWKs
+	 UJ+OqtqdMsy3lEs3uWjmhYcHONuksGW7N4CEqWntLOya4fKKYdkfAsTCPca3nMLAx7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204631;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=kts9umuHZcQ0nV78PhfIV7Gm0gO8Avsdz1JCYlFElQc=;
-	b=UciwwlIdZ3owVNAHep9rnF8vZeuKmG48TWYevfYeCnuJqT3dHLmNhXyp3IYrjloN408H
-	 /hpx7w7ZpcA3Tl3OnwQbMonUGW748aOvfivEqO93TSddkWUwx+VzQ2afMaJtylWs79ffM
-	 VAaTdiUe2hXaaq28o9j/ius0c8DUAN7zbDchGxPnfsdZMgGnxRc2OhmOGHj6+pURSBIRJ
-	 wdCgS3PnITNNceKxPBRKtJrNEm65vkcE6l+7hqK5JJulVdVxS2JKJLek92+obGc7CjUuw
-	 Y+TxdbtqzAv/mAcQ/AywxuVxRdIq2dPAKl7ViIqZWbxzcIv3Qp+VOeeeoxzyISIu4Fg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204640;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Type:Date:Message-Id:Cc:Subject:From:To:X-Mailer:
+	 References:In-Reply-To;
+	bh=bepP2SIrLZrZLh3YoUhcI7r4qP8FXfE4vnBTwIQ4Skc=;
+	b=1jIB3xxHY4ZiKHavXS86d2Wfa41FqkDT9NwuHsouApOfTipoL7dNk9s+/r2PgH3143LB
+	 TJYVncHrcoKOe5s1ViugB2TKR0oMazuxKHrm5L6y5hLbzAa2LbxnTgPi9hFZrMEj1z5P4
+	 GIQdOr94tuTnIPrs0XXpxCCAYRxi4Ty7wNMSTHLRztCjFxSP4l/oFWts87bQQvSf21Sxv
+	 uNKDE/MPpxxGnAQeWkZsEh/A7t1TNkkaiZa+Nt0EoT85j2jJ3FvoV6N4i1jPKUeyQGXV0
+	 38jt0pQbyd3sYAUinWqsn92WOIERW+wkq/5M7Jtv52RY2y5Seu1ulhjT7ZUCRzajhtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=inria.fr;
-	spf=pass smtp.mailfrom=inria.fr;
-	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=FMA0IFMO;
-	arc=none smtp.remote-ip=192.134.164.104
-Received: from mail3-relais-sop.national.inria.fr (mail3-relais-sop.national.inria.fr [192.134.164.104])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YLaDCL7l;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1E3A606A6CB;
-	Fri, 20 Nov 2026 19:57:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1E3A606A6CB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F147606A6FD
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:57:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F147606A6FD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=FMA0IFMO
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YLaDCL7l
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so11682315e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:57:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=kts9umuHZcQ0nV78PhfIV7Gm0gO8Avsdz1JCYlFElQc=;
-  b=FMA0IFMOazt28GH5anBaOmqLd5qcwmjAXAgk/ZpebDMblOzLbwVh+36U
-   U+c1uRzx6TBxev85ZO5qjLi6aPBFch9qwWdOqR+638bsHX/d5yixPeick
-   ApZyUBwRAntOQQ4E29kAvyemFtmWRzELUEjDItNXErqrlQUR/y+rgXKHb
-   o=;
-X-CSE-ConnectionGUID: 1l0saygmS3S2onbeuMaNnQ==
-X-CSE-MsgGUID: lmGETQJgTsedddpLkUgNJA==
-Authentication-Results: mail3-relais-sop.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=zakaria.belkadi@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.27,223,1787004000"; 
-   d="scan'208";a="163459881"
-Received: from rezo-rennes-os2.pck.nerim.net (HELO localhost.localdomain) ([62.212.118.53])
-  by mail3-relais-sop.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 20:56:55 +0100
-From: Zakaria Belkadi <zakaria.belkadi@inria.fr>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: Christoph Hellwig <hch@infradead.org>,
-	Caleb Sander Mateos <csander@purestorage.com>,
-	Keith Busch <kbusch@kernel.org>,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Kanchan Joshi <joshi.k@samsung.com>,
-	Anuj Gupta <anuj20.g@samsung.com>,
-	florence.schadle@ssi.gouv.fr,
-	frederic.tronel@centralesupelec.fr,
-	louis.rilling@irisa.fr
-Subject: [PATCH v2] block: bounce user PI when writes may remap reference tags
-Date: Fri, 20 Nov 2026 20:56:44 +0100
-Message-Id: <20261120195644.19511-1-zakaria.belkadi@inria.fr>
-X-Mailer: git-send-email 2.39.5
+        d=gmail.com; s=20260707; t=1795204631; x=1795809431; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=bepP2SIrLZrZLh3YoUhcI7r4qP8FXfE4vnBTwIQ4Skc=;
+        b=YLaDCL7l+gBYhphKUE9IjZpDyAduT7RSvK84qheiU40y5Q/34BVNEL4rLRamvarM/C
+         mg3kd5tLIfPbaMdf3G9V6BovUh5VkWDYSKjV+RXqGZJx5qLgV/rtXLpHVkyc8mHbAmZO
+         VpYESRBLZlq9s9nUmVbzxATZGGbJTGkFIQ6+9yapG8xQO+m0AAuTnlXwpWSndiE2xj+C
+         O43okYYfhpEACmMpKGEsoHNbO9ZrnJ9DBqGUmtVs8KzhNnKimKDCOCBF7khsV/wfcH1h
+         ZYbExbg1oEs8CwbOGR32Tdjbv5k4phubo41fjM+2YGGD+wQwD9Z1lSShBIurs/95DC7W
+         L91g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795204631; x=1795809431;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bepP2SIrLZrZLh3YoUhcI7r4qP8FXfE4vnBTwIQ4Skc=;
+        b=Y7gPXaaudgaT7s+kllba0MA1FJureuaO1vogbmUrZ614FYvXPWhw1Q8Rwu5cBIkO2s
+         jqZaBQLL+8KoU4i83/Q+hnTl1ZFp4ilMRoTH/wHN3ThOCbF1aRLx1avSDXcCOry8NchI
+         +c0vHryRmkSjbRkFTL6NIbg0nCE3ecC2ULIrNYyuqsQ/tyub+480+lulKLNADbXMHu4V
+         cHq5lNzWvipWjt+F+rZI5yvqU+Ixo5qwn52CLbcuaESQtEH7efwtDYIlhceFsOvuCPo8
+         viLXY5lF+8CsSd/T3muw48IQitmL0ABxALYQ5vkDGwcT2zix/itRuYK//GVRr/PmA2RT
+         U1pg==
+X-Forwarded-Encrypted: i=1; AL+hErGPdjzSTykEVBYmSp9rXsoFA72nifP4Mv7nLrMmFkEFxa0E5e930xwb7or4p/94rtoC8mpeJoNjz5PQeBs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8sN2Ebq237GX6vtWqBkoIqnefJwmW46gaIfAylhJQn0AVbjvWI
+	HEdezoJhDvTGhccb/2soMxgQUik+vWrOyIj8PfVQQBBuhuwf/2PHtKu6
+X-Gm-Gg: AYBFou3Z7odWKs715YAFRaduDQV8ksNlL8BCPVKhpOnVFCfzmJucvtpexl7EGIcMbN9
+	2xKSWVKhx04dm1n9VLKpOJwPqYiNcGI96D56CFGij1NEda5aYnzMkfEnFDusyUX5eDeebE9LBrq
+	ZUxaD9sJQht0JHO1rALiFRrgH1Ybk7T2WPSSs/8Qt9mM/3uyQaZPGH0VnLywZLH+MhydGJEzls4
+	jST9mBivuZbLHFf4YK2Q5SqKDdQMENwmvzix5bDMGHhK6rgawEJDk8rfzR5cF5WWCubLEYMaBHU
+	/C6T0LrGescTQoe27JYGuvWDsLCnijfi/FJZ8Gshm7QbUmS6uCoo9w1/Nr49wpTEBIyItHnHf5q
+	LvllWGWxlnN0c6ssUs8g5b0lU2Q8tRaqMwO5x4DRj4IFkjAqO2yTu+jlSm8njeamjK1odTmTm+E
+	eREC/z8fsBblOV3uqrOnuC4fbOljJemHr0+rccGUXGpT+j1+rAYDsY7N/WnvHPE2rW/Qkj7jVmM
+	BpnCu88iOMYwwuwBf4RLPZhnQaXQfKXQFagtW51ZPUQpkmZRgc6uzVEdN07fWZQvvhTJUJXoAii
+	1qAqGe1dHBMVfGc9RMCYFfRjEQ==
+X-Received: by 2002:a05:600c:638e:b0:4bb:6c5e:b006 with SMTP id 5b1f17b1804b1-4bb887e265fmr93789305e9.3.1795204631450;
+        Fri, 20 Nov 2026 11:57:11 -0800 (PST)
+Received: from localhost ([2001:b07:5d26:7a6a:365a:60ff:fe0d:cfc6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8526cbd0sm177401215e9.0.2026.11.20.11.57.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 11:57:10 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,88 +86,99 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=0ce1f2737ac23ac54221dfe9ad89c8615ea720b53f7a9f6f6b271bd43f0e;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 20 Nov 2026 20:57:05 +0100
+Message-Id: <DN0AXFYCMGXO.1O5VDUA6GJCT4@gmail.com>
+Cc: "David Sterba" <dsterba@suse.com>, "Namjae Jeon"
+ <linkinjeon@kernel.org>, "Sungjong Seo" <sj1557.seo@samsung.com>,
+ "Alexander Viro" <viro@zeniv.linux.org.uk>, "Christian Brauner"
+ <brauner@kernel.org>, "Trond Myklebust" <trondmy@kernel.org>, "Anna
+ Schumaker" <anna@kernel.org>, "Chuck Lever" <cel@kernel.org>, "Jeff Layton"
+ <jlayton@kernel.org>, "Konstantin Komarov"
+ <almaz.alexandrovich@paragon-software.com>, "Paulo Alcantara"
+ <pc@manguebit.org>, "Chris Mason" <mason@kernel.org>, "Yuezhang Mo"
+ <yuezhang.mo@sony.com>, "Jan Kara" <jack@suse.cz>, "NeilBrown"
+ <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo"
+ <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>, "Ronnie Sahlberg"
+ <ronniesahlberg@gmail.com>, "Shyam Prasad N" <sprasad@microsoft.com>,
+ "Bharath SM" <bharathsm@microsoft.com>, "Sergey Senozhatsky"
+ <senozhatsky@chromium.org>, "ChenXiaoSong" <chenxiaosong@chenxiaosong.com>,
+ "Darrick J . Wong" <djwong@kernel.org>, "Sean Smith"
+ <defendthedisabled@gmail.com>, "Andrey Albershteyn" <aalbersh@kernel.org>,
+ "Pedro Falcato" <pfalcato@suse.de>, =?utf-8?q?Pali_Roh=C3=A1r?=
+ <pali@kernel.org>, <linux-btrfs@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <exfat@lists.linux.dev>, <ntfs3@lists.linux.dev>,
+ <linux-cifs@vger.kernel.org>, <linux-nfs@vger.kernel.org>,
+ <linux-api@vger.kernel.org>
+Subject: Re: [RFC PATCH v4 03/10] ntfs3: make crtime user-settable using
+ ptime
+From: "koraynilay" <koray.fra@gmail.com>
+To: "Amir Goldstein" <amir73il@gmail.com>, "koraynilay"
+ <koray.fra@gmail.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261115180343.576773-1-koray.fra@gmail.com>
+ <20261115180343.576773-4-koray.fra@gmail.com>
+ <CAOQ4uxjdEiuJMQxtSL8XrPYHSamtfMh+BM8kS1wj_PVME4JynQ@mail.gmail.com>
+In-Reply-To: <CAOQ4uxjdEiuJMQxtSL8XrPYHSamtfMh+BM8kS1wj_PVME4JynQ@mail.gmail.com>
 
-On an io_uring O_DIRECT write, bio_integrity_map_user() can attach the
-caller's protection information (PI) buffer directly to the bio. The
-block layer pins the pages for reading, but reference-tag remapping can
-write to those same pages.
+--0ce1f2737ac23ac54221dfe9ad89c8615ea720b53f7a9f6f6b271bd43f0e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-A caller with write access to a block device whose integrity profile
-enables reference-tag remapping can therefore modify a page it can
-only map for reading. In testing, remapping changed a tag in the page
-cache of a read-only file. With a PI buffer backed by the shared zero
-page, the kernel faulted during remapping.
+On Fri Nov 20, 2026 at 4:58 PM CET, Amir Goldstein wrote:
+> On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com> =
+wrote:
+>>
+>> Since NTFS supports user-settable file creation timestamps, map
+>> provenance time (ptime) to NTFS file creation time (crtime) by using the
+>> newly introduced ptime API (in commit "vfs: add provenance time
+>> (ptime)").
+>>
+>> To do this, update ntfs_fileattr_[gs]et(), ntfs_getattr() and make it
+>> persist to disk in ni_write_inode().
+>>
+>> The timestamp is now retrievable by using file_getattr() or statx(), and
+>> is settable by using file_setattr() with the FS_XFLAG_PTIME flag.
+>>
+>> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.4.7
+>> Signed-off-by: koraynilay <koray.fra@gmail.com>
+>> ---
+>>  fs/ntfs3/file.c    | 20 ++++++++++++++++++--
+>>  fs/ntfs3/frecord.c |  8 +++++++-
+>>  2 files changed, 25 insertions(+), 3 deletions(-)
+>
+> Please don't change the unmaintained ntfs3 driver.
+>
+> If you want to include an ntfs patch work on the new fs/ntfs driver.
 
-Use the existing bounce-buffer path for REQ_OP_WRITE when the queue's
-integrity profile has BLK_INTEGRITY_REF_TAG set. This copies the PI
-buffer into kernel memory before remapping, so the caller's buffer
-retains its original reference tags.
+Huh, I thought ntfs3 was the modern and latest one by Paragon.
+But apparently I missed some news[1][2] lol.
+I'll use fs/ntfs for the mutable btime patch then.
 
-I found this issue during a source review assisted by an LLM.
+Thanks,
+koraynilay
 
-Fixes: 3d8b5a22d404 ("block: add support to pass user meta buffer")
-Cc: stable@vger.kernel.org
-Suggested-by: Christoph Hellwig <hch@infradead.org>
-Signed-off-by: Zakaria Belkadi <zakaria.belkadi@inria.fr>
----
-v2:
-- Bounce the user PI buffer instead of pinning it for writing (Christoph).
-- Dropped Caleb's Reviewed-by, since the patch changed.
-- Corrected what the caller controls (Caleb): it chooses the address of
-  the PI buffer, the seed and the device offset, so both where the tag
-  is stored and its value.
+[1]: https://www.phoronix.com/news/New-NTFS-Driver-Submitted-Linux
+[2]: commit 1e9ea7e04472d4e5e12e58c881eaacfb3e49b669
 
-v1: https://lore.kernel.org/linux-block/20261118154053.13218-1-zakaria.belkadi@inria.fr/
+> Thanks,
+> Amir.
 
-Open question on stacked devices: the test uses the profile of the
-top-level queue. By my reading of the source, a device-mapper target
-with members of different profiles can get a top-level profile without
-BLK_INTEGRITY_REF_TAG while a member has it, because
-dm_set_device_limits() ignores a stacking mismatch. This condition
-would then not force a bounce. I have not tested whether such a
-configuration can accept user PI and reach reference-tag remapping on
-the underlying device.
 
-Would you prefer bouncing all user PI buffers on writes to cover this
-case?
 
-Tested on v7.4-rc3 in a QEMU guest, emulated NVMe namespace with
-T10-DIF type 1, as an unprivileged user who owns only the device node:
-- PI buffer = read-only mapping of a root-owned file: without the patch
-  the reference tag in the file changes; with it the write succeeds and
-  the file is unchanged.
-- PI buffer = shared zero page: without the patch the kernel oopses in
-  blk_integrity_remap(); with it the write succeeds with no fault.
-- Writable PI buffers still work, and the kernel no longer modifies
-  them.
-- Stored tags (as root): a write with a seed different from the block
-  number succeeds with reference-tag checking enabled. A subsequent
-  read using the block number as the seed returns the expected remapped
-  tags, with identical results before and after the patch.
+--0ce1f2737ac23ac54221dfe9ad89c8615ea720b53f7a9f6f6b271bd43f0e
+Content-Type: application/pgp-signature; name="signature.asc"
 
- block/bio-integrity.c | 5 +++++
- 1 file changed, 5 insertions(+)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/block/bio-integrity.c b/block/bio-integrity.c
-index d3df726e0..aaea5802e 100644
---- a/block/bio-integrity.c
-+++ b/block/bio-integrity.c
-@@ -394,6 +394,11 @@ int bio_integrity_map_user(struct bio *bio, struct iov_iter *iter)
- 	copy = iov_iter_alignment(iter) &
- 			blk_lim_dma_alignment_and_pad(&q->limits);
- 
-+	/* Reference-tag remapping must operate on a private copy of user PI. */
-+	if (bio_op(bio) == REQ_OP_WRITE &&
-+	    (q->limits.integrity.flags & BLK_INTEGRITY_REF_TAG))
-+		copy = true;
-+
- 	if (blk_queue_pci_p2pdma(q))
- 		extraction_flags |= ITER_ALLOW_P2PDMA;
- 
+iHUEABYKAB0WIQSgVimKafU5DQMcjcDmj22qf5IGXAUCawCmEQAKCRDmj22qf5IG
+XMFuAP4jbqqWLf0rzRDeTfZI93Ntri5exvb2a4tXBADewtwEHQD+MLXXfUDqNxpu
+FJSnl3dfZi2d0aWeniR+psgoM+VAKw0=
+=6Hcz
+-----END PGP SIGNATURE-----
 
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
--- 
-2.39.5
-
+--0ce1f2737ac23ac54221dfe9ad89c8615ea720b53f7a9f6f6b271bd43f0e--
