@@ -1,108 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.230.132
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194895;
-	b=fJUV/A1K1UN0GQUw4A4ueR4KWS/iSvl5fHohVnBRnp4bDCRAPXzyG7BpuBORvPvHIoBS
-	 cVGIazsnDYNPthg4DaD7B/xPqm4eofTNn9lL9p6d5PqHKoHVsLpY5TCK7DYF1q4oIfFmV
-	 ViRAndR67NStlLe3/2dFGYHHzmL5qwt22rAOQZIITjm7RpvooZehex0AY5ga47DDngZBU
-	 nDyItPrCYn1c+XKzQREPb7J9Hh6jkagDoyPjxV0UfAd01TJF6veGOnkcoBhtOUQi6E02u
-	 zGSIbfK67hpJx2+5EphWqlJG146hNS2Y8DjWlwZubHyF0N3aFKX77kq6P92zgVwvXoQ==
+	t=1795194899;
+	b=2mMFhPWfvEUXcfLKZY9h9kQJZDK9loDUpkVrRkIsdz6BK/EZqflO0E9YzJcpdQFna7N2
+	 avqgKu5iLGOGlhjP76RhRSeV8+1J8d6on3nngR8bgWafVPg3UKZV6yy5RdqBKX/vLdNNH
+	 68TZ6qeQ9W8alQQ+ISikQqlrERroqFjNWQaooqGmqyYmVRggxu7kaKDMiZWvGuw9nqDLi
+	 NFmGJzB97B1RxWL415gaQxuUxomI7oALRZeAKzygGOmImufFajiRVH2M90lbBRSrad4nW
+	 xoUWnTOB7x0lTijGpBhAOZBOk5RXw4ERynC5pbl3Ff0i5IDNMsNUTwJwjE/dmEVOwbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194895;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194899;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-	b=xyFjXZ+ELnW87nB9mypyYiIveTo5olslfZFPdCsBNEi1+pacW232dJ/1sVAx9fMJGkWU
-	 8Hec/mrksKhlM0k46hWZBGLtXU0AfVm7unvOyKQSnSlk4EAq2M6EXL1D78ibebCt521go
-	 l/8lYIjCe2uLrcuAb4IeF5vEfpGqTce0bo4lga6gCBhJRfpqDjCgvdDU0fMHIulolrbw3
-	 b5CrRAi+7DjYgbdUZI8fkR3+NuAQdfHu81xmuIIWyTKFZUbxAILFt2Ps+nZrY83Z1PgUw
-	 qTLD4JyAzzJKBE7TNbN7oErw5ROP+yw7APTzSFi6kZmuapgmdTHKEQ61WedrStkl6ww==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=uSFncaokGA+ftB76Em9/lA6Qac26fTHzjO+Cdt7Pka0=;
+	b=B4r18SvmIm7rjaNO5pyVSIOAcBxcKlF8rryAqu2PtpFvaXEoT1dfufiYZzuIKL2DUPe4
+	 mf/aRUT1OzB6KPLoh10uWDKxHy+ykvMVDUjd/XzxC8l2JqEoF6WYsqw9oTkPMNa62InFj
+	 10H+r4FivrHuD1VlD2UIULPNCeOr4mHXix1MBEHEilumNffmG9QVlcKfnjx3wNvIuNLgp
+	 shvSJLFRj6djokqXqxGdKYXTfrs+ElnPGa8ShUJWVFPzbYgA79JWachEg1/QPSgO+2byv
+	 vbM83tM1KGbo3jMWnJpMlFsDRZowF09RUnJjfg4ckUsPjXxeucUCKvOfaTwP0W9hQWQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h5JzbllR;
-	arc=none smtp.remote-ip=74.125.230.132
-Received: from mail-qv2-f4.google.com (mail-qv2-f4.google.com [74.125.230.132])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YpICBR9+;
+	arc=none smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EE1960A2612
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:14:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EE1960A2612
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8A44606A33B
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:14:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8A44606A33B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=h5JzbllR
-Received: by mail-qv2-f4.google.com with SMTP id 6a1803df08f44-9211c92e822so7599176d6.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:14:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YpICBR9+
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so656987b3a.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:14:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795194894; x=1795799694; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-        b=h5JzbllRY3FFd7SIlh0QHu3I3pNyf2yBnW2eYr8i9y2WY8PUKpO6C0LnWiy/0p0xH9
-         Efz3vuIykc6aRoNZE3Ar6sFTIWmBCvtC6CWCwJu2ipXHHsgbLsUhDIWVqKO5P/9SVZLK
-         IEZDUKZFV79jb8XUORh13uLelSXXNTemAw1RfDRIJh4C4RmqHr94Aw1JHoU4EtWxjeM3
-         RbZJp4jfvF55Q1A+Ix1ERuQ8Iyp8iv0qki41OhjQ3wNcd1Uk8XX50JJyTil6lCuvX94K
-         zasNhD4NETRKK/ruAOeeFZKNgz5N2pOn6TxPQDJWzHWaB+ZwXPwPfFXSnFrc9ccFzUoI
-         6DCQ==
+        d=gmail.com; s=20260707; t=1795194898; x=1795799698; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uSFncaokGA+ftB76Em9/lA6Qac26fTHzjO+Cdt7Pka0=;
+        b=YpICBR9+zI5srP1RRqUoioL9FL9gvT5zzQ5aQACKqfCv4O6iZUlGEOr1nSDtAf3aY6
+         g/clZMxNmMPyAqVEyi4vbyxH72c0j24U2r3ZQGd0guJCMAWbw7wuXZJYS5nrrLC4SKxy
+         caYboHGvEPQeXf0Kyw2LdrTEfeNt6/fEzayFhn0z8/unH7h/r8tUG1m00l9sb6lMlMC7
+         lsbLghi0ZqXOA25PNpgtBv8QlIidmzovt1PiE2vxDeueUsPYyDm/BEhDL3lryMZs3uth
+         5uYH9GW/AG7sNCPLzjCmXulneFV493Bz0nuLqisXyBtsJfZhaAb65ABQNBMdNbzQWVFF
+         LdYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795194894; x=1795799694;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=LkHPVV5puI4vDTHgviLsfMcYaMRsroW0UN+lwZ6xwNI=;
-        b=0ggg4CGDicDYNHffBx+4YtlO47DgR7ZaiVmxEe2WV01NbclRXimCLcorOkCneAJ+Oj
-         U2dt40M28a4kZkM7/bX8Hh4dhgvxe8a5wg2zw4wegVcWVaMzXU4MU8ffPVF48+iOK4SK
-         K5Nq1qSwZ+WNsL/y7mbrFuVu4idp1VK99mqJl3Vu+mPS4Uy6UNAagmW2LkO3LsU7VSAi
-         sl5/QoJ8vWFW2aAEQDNAQMrV9XICJRoQvTU+W1aDRX47lQ3owKWHNGH8MTuwqmX2HglM
-         DpWcUmpcXJJQ6N3t8FEyi/XWIOvzxv+hpsdSRP7b5IjTJs8kXIjo6KucTjzuGp6lnZZz
-         xb+Q==
-X-Forwarded-Encrypted: i=1; AL+hErG/cauTJJMDrOKG3mQOjrk/WxfjhU5ncAFshzNMtf3QAYBUMQb9HKQkz8/pGQlcIaomVQOlfx5NXtfKT08=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95YrPs1ounfODoCMEbg8lNftccOf/x8hEWZUoUSDOUxGYkuJOa
-	F9MI+EUKt3ro5ttdJv4GBiTTXGa0cG759uExjl1ZvtROkkc5YLsHt1Rm
-X-Gm-Gg: AYBFou0GlygHbRmgMZk6MUt5vyRdmYdJ5CikP+66eO1mwpeLlCoxMnOow5B/hxHUFM+
-	gvMLfVvZhm4HiBp6bI0VpKtBRtFuwTg7aR5463e34k7acBJxszmSlPA79nUMbAQ4xQN0raGdE1c
-	8HS56WLx2oMAnXG1PJkSapGAMAMi49omTwM/TF2eWeD8bJ/xRgSH8ntJTZ+cdwS8xJvLUIPop1U
-	AcdiFwhWICKpZcE+ngitawUxCeg6mJzGrZjOqQlq/InXb33T9uf6hjXAPUEw3a8kA2QrJO4ZTm3
-	iNCEB4fTtvnIRPDadvpW05i0bxhTvqrf5HhfACuAwsB9AzR9nrZtGby8jGHFILc7JKuHfVAiqny
-	99bWpF4BYnvg4HR2jDEdxgH07IleHMoRjOS0ARLGL/feD8zTzNP7/fswfSDafy3Miu95+QpRMvN
-	k2G0LpZXQIfiXmkj59sc1Yvcw+GqZGjloIOwMg3xqxonb/NZikY34NnxlM3MKXmxOcFO1DgpBsg
-	MCoYCbUSGjE2d3ntdFso16qSKk6TRSP4/AqnwNLNmliiFxECqvxo5hbwdxG/Nmd/wld+EhHr7YS
-	bdaARAO9sw9JrKDRvOsGnPQ=
-X-Received: by 2002:ac8:5f0b:0:b0:54b:5cc6:6036 with SMTP id d75a77b69052e-55d76afed61mr72126961cf.58.1795194893996;
-        Fri, 20 Nov 2026 09:14:53 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:68::])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788116c9sm27280191cf.4.2026.11.20.09.14.53
+        d=1e100.net; s=20260707; t=1795194898; x=1795799698;
+        h=mime-version:content-transfer-encoding:content-type:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uSFncaokGA+ftB76Em9/lA6Qac26fTHzjO+Cdt7Pka0=;
+        b=yHA1l9CYOnKzBr6bADEaDzKfx6/wL7VE4NpLGSosan/OAjkQDU6r2QgjZClIHr0xac
+         +5m+snHQF7kVE+gGpvy2NUn3PcCFm9jh94x7xWxqH1Ga5HoSQQxNQZ5t2Q74ze4oM8zo
+         IxQaeyFSz4wEF19gJCqzkD4NHJHh7ceaXHLVHrKelu74A2dKkQ1LDQ7rRx4fEIuFSg10
+         Sf0fQTBGJU24jNchMd952M+6NsR4iZ57NzInaDmJ7N8qmDl8X4heSEnUFoc82n9FB4Qn
+         80lRIigLVUzmHKDc7n6mcwLtZJV1+2A0DY8leDB0kY0qpKRNhiW9OQrPbglF9teiT2/t
+         vSQw==
+X-Forwarded-Encrypted: i=1; AL+hErEYdNVDEPaYZAuVX4BKo6p/7GLwygPtX3xk9ISJufh+mUKSm6YDJ06fr7dTLSfMzsIrXhFTaJ84U11+b70=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+yvvYfu+DoB9dUnS+2TjgPLet5EYq4wqBUf4oMv75yrCXKijBb
+	zDTOOo5lb63SUIDtItJYf0PCR/IrCp4AgHCjdqo5sYe94NFVFRIBwhR7
+X-Gm-Gg: AYBFou0PIy3UZDzqerQLKoBrHqG2RJpc2qyjbgsGP86+LgXCyHLOxyuyUNqsM+zDJC8
+	cRRbALXoiLoLV7We15igcHcALrJ1LLiPlY/unm+jzyfGC8a+0YEl0Hog5+Z0SQKcvPP+Qaf9wFs
+	o8WnVU/oDZLzR4KIRPH++iphEvvvJvKK4jD5BAa61YvADnajN4wLQ4KtlxR7OMDxeSuG+KxwuBG
+	tB/rLgI9ouKvgX/QJaCVK2/mHbIpMAPyGY8GPonaBp4fIARTHjys1VBTdr8FSOQsdqbPsFE1iNS
+	xvh33K22AZSyXbVjfaX1WKGuf9UjTifYQNQjWHYvzynM2YCDUcN4XvHvtFIbHDknDZqw363D9zx
+	ys0y2Hy9Xe0eKqDwSDtXHWdUY6MROG8JFHZd1xcljGlq2H+JRb02qLWxjM71AYnQNOY35zepkKq
+	JWg7KfitJdWEtWO4VIRpf4aKsdVw6cDVB9ibkX3QpZ18Ias03HhJMFnt/atq4PQxeDTc+1HwYe0
+	npPzOaCrqoRhBMqP+yAAZe6PKMewq10tWNgb9GjcvWcNY+h8ouE+HEOl0/xTbcj/Ct1JG1gzOTq
+	PpGOFYsT+ca/R8ykXbU4lipixygZ1zYKYYSLom0Xo6pY1GQgB9lm2g==
+X-Received: by 2002:a05:6a00:b48:b0:886:5f48:3fca with SMTP id d2e1a72fcca58-8c87cb4c02amr3644014b3a.37.1795194898216;
+        Fri, 20 Nov 2026 09:14:58 -0800 (PST)
+Received: from DESKTOP-UCPRL76.localdomain ([113.200.174.114])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e457d1sm1718377b3a.30.2026.11.20.09.14.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:14:53 -0800 (PST)
-Date: Fri, 20 Nov 2026 09:14:49 -0800
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: Dragos Tatulea <dtatulea@nvidia.com>
-Cc: Mina Almasry <almasrymina@google.com>, 
-	Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>, 
-	Bobby Eshleman <bobbyeshleman@meta.com>, Carolina Jubran <cjubran@nvidia.com>, 
-	Cosmin Ratiu <cratiu@nvidia.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	David Wei <dw@davidwei.uk>, Erfan Sharafzadeh <erfansh@meta.com>, 
-	Gal Pressman <gal@nvidia.com>, Jacob Keller <Jacob.e.keller@intel.com>, 
-	Kaifeng Wang <kaifengw@google.com>, Leon Romanovsky <leon@kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>, linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, 
-	Matt Fleming <mfleming@cloudflare.com>, Nikolay Aleksandrov <razor@blackwall.org>, 
-	Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, 
-	Stanislav Fomichev <sdf@fomichev.me>, William Tu <witu@nvidia.com>
-Subject: Re: [PATCH net-next V2 00/13] net/mlx5e: Add netdev support for data
- direct
-Message-ID: <awB_rJxrIDQ3u-73@devvm16445.scu0.facebook.com>
-References: <20261110183826.2927274-1-tariqt@nvidia.com>
- <b5305251-b758-45cf-a28d-406b04d8bccd@nvidia.com>
- <CAHS8izMhSVabXgMmNbHHLm8cYqW_EVQbpXME2z_tUEJuN2BTnA@mail.gmail.com>
- <0a1be802-1c53-46ff-a08c-614c3a2d6f41@nvidia.com>
+        Fri, 20 Nov 2026 09:14:57 -0800 (PST)
+From: Zheng Shuhao <viennaoffh@gmail.com>
+To: Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>
+Cc: Jiri Kosina <jikos@kernel.org>, Jonathan Cameron <jic23@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Lee Jones <lee@kernel.org>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Ayaan Mirza Baig <ayaanmirzabaig85@gmail.com>,
+ syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com,
+ Zhang Lixu <lixu.zhang@intel.com>
+Subject:
+ Re: [PATCH v2] HID: sensor-hub: Avoid holding spinlock across child iteration
+Date: Sat, 21 Nov 2026 01:05:54 +0800
+Message-ID: <179519435494.24396.10633733692339086433@viennaoffh.gmail.com>
+In-Reply-To: <0165ee623890e4d3778390e46ad955956c512812.camel@linux.intel.com>
+References: <1795161418.hid-sensor-hub@viennaoffh.gmail.com>
+ <20261120135005.566-1-viennaoffh@gmail.com>
+ <573f3eb75601c17d6e766fc47a7cce1bc2274998.camel@linux.intel.com>
+ <0165ee623890e4d3778390e46ad955956c512812.camel@linux.intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -112,97 +107,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <0a1be802-1c53-46ff-a08c-614c3a2d6f41@nvidia.com>
 
-On 11/20, Dragos Tatulea wrote:
-> On 20.11.26 17:38, Mina Almasry wrote:
-> > On Fri, Nov 20, 2026 at 6:39 AM Dragos Tatulea <dtatulea@nvidia.com> wrote:
-> >>
-> >> Hi all,
-> >>
-> >> On 10.11.26 19:38, Tariq Toukan wrote:
-> >> [...]
-> >>>
-> >>>  .../ethernet/mellanox/mlx5/core/data_direct.c |   9 +-
-> >>>  drivers/net/ethernet/mellanox/mlx5/core/en.h  |  14 +
-> >>>  .../ethernet/mellanox/mlx5/core/en/params.c   |  18 +-
-> >>>  .../ethernet/mellanox/mlx5/core/en/params.h   |   2 +
-> >>>  .../mellanox/mlx5/core/en/reporter_rx.c       |   1 +
-> >>>  .../mellanox/mlx5/core/en/reporter_tx.c       |   1 +
-> >>>  .../ethernet/mellanox/mlx5/core/en_common.c   |  38 ++-
-> >>>  .../ethernet/mellanox/mlx5/core/en_ethtool.c  |  67 +++++
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_main.c | 253 +++++++++++++++++-
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_rx.c   |  33 +--
-> >>>  .../net/ethernet/mellanox/mlx5/core/en_tx.c   |   4 +-
-> >>>  .../net/ethernet/mellanox/mlx5/core/main.c    |   1 +
-> >>>  include/linux/mlx5/driver.h                   |   1 +
-> >>>  include/net/netdev_queues.h                   |   1 +
-> >>>  include/net/netmem.h                          |  24 ++
-> >>>  net/core/devmem.c                             |  85 ++++++
-> >>>  net/core/devmem.h                             |   6 +
-> >>>  net/core/netdev_queues.c                      |  51 ++++
-> >> While working on V3 I realized that keeping the core part in
-> >> this series is not the best approach. Initially it made sense
-> >> because the change was small.
-> >>
-> >> I think I should re-spin it in a separate series with netdevsim
-> >> based selftests for the new APIs. I would base it on Mina's devmem
-> >> leased queues unregister [1].
-> >>
-> >> Any reason not to?
-> >>
-> > 
-> > I honestly wanted to comment that you should base it on the leased
-> > queues series from me but didn't want to be annoying, especially
-> > because I made you wait for the previous series.
-> >
-> I realized that quite a few changes were needed after your series
-> so I decided to base it on it.
-> 
-> > My series creates binding->bind_dev, and binding->map_dev, and core
-> > will (should) handle things correctly across both devices. This seems
-> > perfect for you, because you have a bind device and a separate map
-> > device and their lifetime is different.
-> > 
-> In my series I am actually skipping leased rx queues in
-> net_devmem_unbind_dma_dev() because we need some kind of notification
-> mechanism + netkit implementation. I think this should be added later
-> if there is a usecase. For now mlx5 simply doesn't support the combo.
-> 
-> One note on net_devmem_unbind_dmabuf(). Posting it here as I don't
-> find the right place to mention in your series:
-> 
-> @@ -234,8 +234,17 @@ void net_devmem_unbind_dmabuf(struct net_devmem_dmabuf_binding *binding)
->                                 busy = true;
->                 }
->  
-> -               if (binding->direction == DMA_FROM_DEVICE && !busy)
-> +               if (binding->direction == DMA_FROM_DEVICE && !busy) {
-> +                       struct net_device *map_dev = NULL;
-> +                       netdevice_tracker dev_tracker;
-> +
-> +                       /* Leased queue: attachment readers hold map_dev's lock. */
-> +                       if (READ_ONCE(binding->map_dev) != binding->bind_dev)
-> +                               map_dev = net_devmem_lock_dev(&binding->map_dev,
-> +                                                             &dev_tracker);
->                         net_devmem_dmabuf_binding_unmap(binding);
-> +                       net_devmem_unlock_dev(map_dev, &dev_tracker);
-> +               }
->                 WRITE_ONCE(binding->bind_dev, NULL);
->         }
-> 
-> map_dev devmem lock is taken to prevent use after free in
-> netdev_has_dmabuf_binding() when called in parallel with
-> net_devmem_unbind_dmabuf(). As this can happen in my series I added it
-> there.
-> 
-> Waiting for feedback from Stan/Jakub/Paolo for a few more hours and
-> will post the series tomorrow.
+ > In reality this can't happen as the hid_hw_close() and hid_hw_stop()
+> is called before, so there can't be any raw_event.
 
-More and more workloads are moving into ns/netkit setup on our side,
-so it would be nice to have netkit support as well. We can start with
-what you have so you're not blocked for too long, but we do want the
-netkit portion as well :-)
+It might not be reachable after hid_hw_stop(). I may have misunderstood the
+lockdep report and overstated this as a possible deadlock. Sorry.
+
+> How come this is possible? The HID sensor hub is only deleting its own
+> children. Can you give an example here?
+
+With CONFIG_HID_BATTERY_STRENGTH=y, this UHID device creates a Sensor Hub and
+a Joystick battery. The HID input layer registers the battery power supply as
+a child of the HID device, without platform_data.
+
+With the unpatched hid-sensor-hub module, UHID_DESTROY triggers a KASAN
+NULL-pointer dereference in sensor_hub_finalize_pending_fn():
+
+  KASAN: null-ptr-deref in range [0x0000000000000028-0x000000000000002f]
+  RIP: sensor_hub_finalize_pending_fn+0x44/0x65 [hid_sensor_hub]
+  Call trace: device_for_each_child -> sensor_hub_remove -> hid_device_remove
+              -> hid_destroy_device -> uhid_dev_destroy -> uhid_char_write
+
+The reproducer is below:
+
+#define _GNU_SOURCE
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <linux/input.h>
+#include <linux/uhid.h>
+#include <poll.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+
+static const unsigned char sensor_battery_rdesc[] = {
+	0x05, 0x20,       /* Usage Page (Sensors) */
+	0x09, 0x10,       /* Usage (Sensor Hub) */
+	0xa1, 0x01,       /* Collection (Application) */
+	0xc0,             /* End Collection */
+	0x05, 0x01,       /* Usage Page (Generic Desktop) */
+	0x09, 0x04,       /* Usage (Joystick) */
+	0xa1, 0x01,       /* Collection (Application) */
+	0x05, 0x06,       /* Usage Page (Generic Device Controls) */
+	0x09, 0x20,       /* Usage (Battery Strength) */
+	0x15, 0x00,       /* Logical Minimum (0) */
+	0x25, 0x64,       /* Logical Maximum (100) */
+	0x75, 0x08,       /* Report Size (8) */
+	0x95, 0x01,       /* Report Count (1) */
+	0x81, 0x02,       /* Input (Data, Variable, Absolute) */
+	0xc0,             /* End Collection */
+};
+
+static int send_event(int fd, struct uhid_event *event)
+{
+	ssize_t written = write(fd, event, sizeof(*event));
+
+	if (written == sizeof(*event))
+		return 0;
+	if (written < 0)
+		perror("write /dev/uhid");
+	else
+		fprintf(stderr, "short UHID write: %zd\n", written);
+	return -1;
+}
+
+static bool hid_battery_exists(void)
+{
+	static const char prefix[] = "hid-0003:1234:5678.";
+	DIR *dir = opendir("/sys/class/power_supply");
+	struct dirent *entry;
+	bool found = false;
+
+	if (!dir)
+		return false;
+	while ((entry = readdir(dir))) {
+		if (!strncmp(entry->d_name, prefix, sizeof(prefix) - 1)) {
+			found = true;
+			break;
+		}
+	}
+	closedir(dir);
+	return found;
+}
+
+int main(void)
+{
+	struct uhid_event event = { 0 };
+	struct pollfd pfd;
+	int fd, attempt;
+	bool started = false;
+	bool battery_found = false;
+
+	fd = open("/dev/uhid", O_RDWR | O_CLOEXEC);
+	if (fd < 0) {
+		perror("open /dev/uhid");
+		return 1;
+	}
+
+	event.type = UHID_CREATE2;
+	strcpy((char *)event.u.create2.name, "sensor-hub-battery-null-test");
+	strcpy((char *)event.u.create2.phys, "hid-null-test");
+	event.u.create2.rd_size = sizeof(sensor_battery_rdesc);
+	event.u.create2.bus = BUS_USB;
+	event.u.create2.vendor = 0x1234;
+	event.u.create2.product = 0x5678;
+	memcpy(event.u.create2.rd_data, sensor_battery_rdesc,
+	       sizeof(sensor_battery_rdesc));
+	if (send_event(fd, &event))
+		goto out_close;
+
+	pfd.fd = fd;
+	pfd.events = POLLIN;
+	if (poll(&pfd, 1, 5000) <= 0) {
+		fprintf(stderr, "timed out waiting for UHID_START\n");
+		goto out_destroy;
+	}
+	memset(&event, 0, sizeof(event));
+	if (read(fd, &event, sizeof(event)) != sizeof(event)) {
+		perror("read UHID event");
+		goto out_destroy;
+	}
+	started = event.type == UHID_START;
+	if (!started) {
+		fprintf(stderr, "unexpected UHID event: %u\n", event.type);
+		goto out_destroy;
+	}
+
+	for (attempt = 0; attempt < 50 && !hid_battery_exists(); attempt++)
+		usleep(100000);
+	if (!hid_battery_exists()) {
+		fprintf(stderr, "HID battery power-supply child was not created\n");
+		goto out_destroy;
+	}
+	battery_found = true;
+	puts("HID battery power-supply child created");
+
+out_destroy:
+	memset(&event, 0, sizeof(event));
+	event.type = UHID_DESTROY;
+	if (send_event(fd, &event))
+		goto out_close;
+	usleep(300000);
+	if (!started)
+		goto out_close;
+	puts("UHID device destroyed without userspace error");
+	close(fd);
+	return battery_found ? 0 : 1;
+
+out_close:
+	close(fd);
+	return 1;
+}
