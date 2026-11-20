@@ -1,55 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202669;
-	b=mYmI9+VlZUhDgkEvi2MGUr0fjyMOGPUGF+FTxGS3gHc58MTHgg+YfLA97dJ2ukW46YSs
-	 CLy7n83lJlZ/7/bFgNktwGsvFrIWkMv2i7GEKWhJ29gItvp+3bsuQr8U+Xo0n5WVuYtl+
-	 j77a83xbXHsDNhDWVmC4R+lyieh5WwrfugwoQ7PMoOpe8ZKMW50tjAE0SLDnMz5sqX1KM
-	 SvmhIgr50lWuZqos3yCKoj5FLfkMAoC3p0EJaE/SrxY71atyYQ4tJDTLP6eyUqFlYUEG5
-	 X7HW0W8eRNkQh/5WI/3WZ3wnzthcpQiykwuQun77kYAZt+EGyo8lFu6moMrrpyvDzWA==
+	t=1795202679;
+	b=EJziWZc74hqgmLSjnISfkiI0HYaDoSg1SQQedTsCh60bSfUxmUJCxkiEATseuuKH1KNX
+	 HpIKgv+hbwWknQVNUHs1pe5Z15LHuiknVf0SGmhOT9OY/sXrDYuTNhPlbLLr18tDScUdK
+	 Ka/LaT9j0K5DVbI4FuhaoQBn2bX//8xAnE/r8Rf7nwwL5T6+4VPPFOY9/w7xcc5nQWQGA
+	 FYwxYDLNcURqAQVMcbmHs1CC13BQWXjsICjniuDEm9GpRnowrenXNXuhE+U9bfU6u+jO9
+	 6oQ6939kqtFHwYsBWdfd6s/U6FbM4l89eeVmEfeRPT9Q/wpgP1ol5fcketgSpyuN7zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202669;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=gqjx8VuTlp9BpCZdD+GzvYoIV1KePYvGyOIPvNNne5c=;
-	b=Nc4PGoyX/+GRH8UiylBSCmb7T51focg2QwdSWqcWpjKT8P1GC/CzMFnzhxNEaTKKgKdZ
-	 GbxKMPCo73XB0GEHeOOrBLwU9mjnF1GyHItys+u91zK0arHMN6pci9ZL0ve+wpxwUH1f9
-	 +OU4JtSEl6gaUbQq26ctVLXE2n7NbCuxjJpjPLBrQ6siony+Oq1gbuyedC6mjD/l6pRgG
-	 QoVhFSbAEtLaFke+AN1P9vbpKMVAXoQcyjyAzui68OPmBCxotH3uc+QT6LSgViO1c2Tvp
-	 aRcYIo4Geh5g8X9Va4lyufpW28PWxOSobYmaTUw7BEpadBabRivnngDT6u3jDK3PTAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202679;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=3eCsb+viwl+9J6PmvDVW9XfbcZ8OzCUWLQRD34ONgF4=;
+	b=BNUpfIP4fZHdaOLPVIxeOE8Nv78A4I2kWnJ0YnUkJtjc3Fc7zihHDeaEnD5SNjp8R/P+
+	 j3WBmpXY18cR04/67s/IBHgrKViXuxlx2cNHiD2AUywMuF+2fbUQFmUTeXvcLn5GR+M4r
+	 Hy58kLn6mH7psP7fEiW3nlWQrX5Vj9UDtUdH4J9RLVuY9m9TOzPof631j79vfp23mt3k/
+	 Zs6g4cyf3Od+vo0ru7HT8+6BD+5yTWcHGUzzve61K+m1VsfP5spQvanl+6gGw7maWMTxo
+	 g7bE3+URVSI2m7wc7pN2LBBN8asWJ8dcWyL08oQOvB9s6OeFUt9YKcpMuo6uqleYzlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D07H/xX2";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--elkin.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j+TqSiKW;
+	arc=none smtp.remote-ip=74.125.82.70
+Received: from mail-dl1-f70.google.com (mail-dl1-f70.google.com [74.125.82.70])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 300A5606A6DD
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FDE7606A6CB
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FDE7606A6CB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--elkin.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D07H/xX2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A87FD1F000E0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:24:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795202668;
-	bh=gqjx8VuTlp9BpCZdD+GzvYoIV1KePYvGyOIPvNNne5c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D07H/xX2v8H9gCNfRdoSfz4y21pFbUlzcyGFDGo16blCP+4zhNJ4fiVy4U1xcM5xM
-	 ccLq7KBNRwk42uVXl/fbgaCazA0KXWrenRHL3IvR3QJv4qwFfEr+Fnq9XEh6zsjmCq
-	 l9o8reC17EZSvHRkOC1PbINoX0LkOe1xoGrevdiYLZK5v8KDgrOR+7uSfpWrjl6E/R
-	 DNarPe5AqeLyNBTP7HWJxKSj5EOkJ1sFWueh5AHW0EGlzGiW8ECWEJXNF1Jqb7H73p
-	 yDEFcxDKGP++rrVl/yOX6bhfv5gSHGwEehVHO0CK4voLgVtJtZNGPrPLdTKhnAN9aB
-	 6Hof9blTQU/Aw==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3ad5529ae64so9058111fa.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:24:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEIxLTtNbm/GXn/kE4tIFSph1rbwQniQmAf5WJPwlh+shjNu7NKH4UBR1OoWaTBHxHPkU1ZOd+NTjzmBNA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/hV3W1VmjTjScAmJa/aBuaB22/5BeI0sLmmmVrXiXjhPQxCc/g
-	OI2CXxLDdS0cXaGz6oO1w4jgN+jpqvyLLhflEOSSR2zZGm4EMep5mm1Z20vuoqnNPh3qZzFtNjr
-	W0LgkuVKNa8dViJiyCl6bsqjr15g5OKc=
-X-Received: by 2002:a2e:be8d:0:b0:3ac:d0dc:ac69 with SMTP id
- 38308e7fff4ca-3ae7fa6cfd4mr13923211fa.29.1795202667100; Fri, 20 Nov 2026
- 11:24:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j+TqSiKW
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-16bc6f3fdb1so856974c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:24:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795202673; x=1795807473; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3eCsb+viwl+9J6PmvDVW9XfbcZ8OzCUWLQRD34ONgF4=;
+        b=j+TqSiKWhOzhG43GW2W2hAAzDHKgR5YbpbWC6QCi+eniKPhE0DTI6QC7CqQHPF8+Tg
+         2rOsZA8vfI84KG6GAh3vvLi4AsueD3Yw3wmXbomJroulBfjcoNAh+eE+mIWiYUvAKVKT
+         UsGCxxL1gvlFgFX1MNFtxGoFEiUqKRfnVY2oSb7aNgukte0copL0Ii/hAbBjwlqriySP
+         7lR1FnUcVJLOT0PeJaAENvBdyEz+ARwdE5GYoCBeOu1vT7PijkkBNVVrvvImrJZ2ljns
+         wjJl7m4u37KekUSGjnhAmPM1yLuIjTXcF3LDlceHdrfwdX/wl1eGwihlffTvuW1vDCzq
+         D3eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795202673; x=1795807473;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3eCsb+viwl+9J6PmvDVW9XfbcZ8OzCUWLQRD34ONgF4=;
+        b=gaCYrr3BR9yxv5CCGOsmw3yEz5eoeLqCqenZhMrsFtgnvdy8frw6U6GoEveaFHyPFd
+         309IMyu99jqHC0ZTGARQPWzZyzZfKxOoFTAk5UfAeVR1d6Yj+WcnS6uHjLQ0cPyXZh5N
+         EA4siLh1sjVbTvRTzV/RWaucaz9alNgPsne1mjQUrAwqJgikeN2ZwbfazzYG2yq1844j
+         63aFN2PYhoYA/YxYxKVBpAfaGHSHkzOJ8TiM4OvnqkCGGmh4ifxzWKozUraZBm+cCFS5
+         7YlQhklXdmmWzKRGROzaZVbU8ql7NhaY+UUIMej2Ra8nCaf+dRr+tW0iTKXDhYz+o0tA
+         7jAw==
+X-Forwarded-Encrypted: i=1; AL+hErFfudUlzjgPvqc/1PqybT7dkEag8JJZe98sCcyqPXmoOE+FaHlsvZ6E8S3Od2ScCfFR2PJSMSMFrnpB2DM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8iaCj2kcE0rmgesuRidZ2aNWO9GvVuKoHPI0OEiXSD9aU90m/A
+	ZM3oBC+ekAX7enH4ugLxj2XgAT823YM0MJWLYpQwk41zq6VQ1dbXsRwJ2BM8Pj/PE3p7umeXFjJ
+	XPA==
+X-Received: from dlep16-n2.prod.google.com ([2002:a05:701b:4590:20b0:163:a42e:b837])
+ (user=elkin job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:7f0f:b0:1b5:1a7a:2ebc
+ with SMTP id a92af1059eb24-1b556880d97mr3649433c88.16.1795202672080; Fri, 20
+ Nov 2026 11:24:32 -0800 (PST)
+Date: Fri, 20 Nov 2026 19:24:08 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,95 +75,94 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261118155313.2067857-1-magnusleatti@kernelriot.com>
-In-Reply-To: <20261118155313.2067857-1-magnusleatti@kernelriot.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 20:24:14 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0gvw1jtU09CbHyzgi_BiS7YbCymZFWRvXb2atgAAoZUTA@mail.gmail.com>
-X-Gm-Features: Aa3M54oHOW03HAxfEM0USzYyd8xyFa3SW6C6ialjHy4tcBuOJbAilYEjNEboCxk
-Message-ID: <CAJZ5v0gvw1jtU09CbHyzgi_BiS7YbCymZFWRvXb2atgAAoZUTA@mail.gmail.com>
-Subject: Re: [PATCH] thermal: intel: intel_pch_thermal: Add 200 series PCH-H
- device ID
-To: Magnus Leatti <magnusleatti@kernelriot.com>
-Cc: rafael@kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, Kees Cook <kees+treewide@kernel.org>, 
-	Kaushlendra Kumar <kaushlendra.kumar@intel.com>, Jean Delvare <jdelvare@suse.de>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261120192408.2872793-1-elkin@google.com>
+Subject: [PATCH net] octeontx2-pf: handle cn20k_pfvf_mbox_alloc() failure in otx2_pfvf_mbox_init()
+From: Elkin Cruz <elkin@google.com>
+To: Sunil Goutham <sgoutham@marvell.com>, Geetha sowjanya <gakula@marvell.com>, 
+	Ratheesh Kannoth <rkannoth@marvell.com>, Subbaraya Sundeep <sbhatta@marvell.com>, 
+	Bharat Bhushan <bbhushan2@marvell.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	irogers@google.com, Elkin Cruz <elkin@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 4:53=E2=80=AFPM Magnus Leatti
-<magnusleatti@kernelriot.com> wrote:
->
-> The PCH thermal sensor on 200 series boards (Z270, Z370, X299, ...) is
-> 8086:a2b1 and it's not in the ID table, so these boards, including mine,
-> get no PCH temperature at all. The 100 series (Skylake) and 300 series
-> (Cannon Lake) are there, Kaby belongs perfectly in between, I see no
-> reason to not have it there.
->
-> It's the same sensor. Intel's own datasheet (335193, chapter 21.2) has
-> the register layout the driver already uses, so just add the ID and
-> point it at PCH_BOARD_SKL like a131.
->
-> Tested on an ASRock X299 Taichi, Kernel @ 7.4-rc3 with this patch. The
-> driver loads by itself and the BIOS already turns the sensor on, so it
-> just reads it. The zone shows 66=C2=B0C / 115=C2=B0C Crit, the readings l=
-ook
-> correct.
->
-> Adding the ID has one more effect. I am not going to call it a side
-> effect but more, an intended effect? AFAICS these boards were just
-> missing the s2idle cooling delay that the 100 and 300 series already
-> have, and now they get it. X299 usually runs above the 50 C threshold,
-> it would wait the full 60s. Meaning that the wait *WILL* be present.
->
-> The reason I am saying it *WILL* be present, is that I could not put
-> this specific box to suspend, due to the GPU not allowing it under Linux
-> and X299 not having onboard GPU on the CPU. But I manually followed the
-> path (intel_pch_thermal_suspend_noirq()) and it seems to be precisely
-> what will happen.
->
-> I am not the first to notice this. Henry Bent put a patch in bugzilla
-> back in 2024, and Jean Delvare asked about it on linux-pm last year.
->
-> Link: https://cdrdv2-public.intel.com/335193/200-series-chipset-pch-datas=
-heet-vol-2.pdf
-> Link: https://bugzilla.kernel.org/show_bug.cgi?id=3D219197
-> Link: https://lore.kernel.org/linux-pm/20251222154444.496284d9@endymion/
-> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
-> ---
->
-> Thanks,
-> Magnus
->
->  drivers/thermal/intel/intel_pch_thermal.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/thermal/intel/intel_pch_thermal.c b/drivers/thermal/=
-intel/intel_pch_thermal.c
-> index 074bc8ca5f0f..7d8803608486 100644
-> --- a/drivers/thermal/intel/intel_pch_thermal.c
-> +++ b/drivers/thermal/intel/intel_pch_thermal.c
-> @@ -24,6 +24,7 @@
->  #define PCH_THERMAL_DID_WPT    0x9CA4 /* Wildcat Point */
->  #define PCH_THERMAL_DID_SKL    0x9D31 /* Skylake PCH */
->  #define PCH_THERMAL_DID_SKL_H  0xA131 /* Skylake PCH 100 series */
-> +#define PCH_THERMAL_DID_KBL_H  0xA2B1 /* Kaby Lake PCH 200 series */
->  #define PCH_THERMAL_DID_CNL    0x9Df9 /* CNL PCH */
->  #define PCH_THERMAL_DID_CNL_H  0xA379 /* CNL-H PCH */
->  #define PCH_THERMAL_DID_CNL_LP 0x02F9 /* CNL-LP PCH */
-> @@ -372,6 +373,8 @@ static const struct pci_device_id intel_pch_thermal_i=
-d[] =3D {
->                 .driver_data =3D PCH_BOARD_SKL, },
->         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_SKL_H),
->                 .driver_data =3D PCH_BOARD_SKL, },
-> +       { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_KBL_H),
-> +               .driver_data =3D PCH_BOARD_SKL, },
->         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL),
->                 .driver_data =3D PCH_BOARD_CNL, },
->         { PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCH_THERMAL_DID_CNL_H),
->
+On CN20K, cn20k_pfvf_mbox_alloc() returns ERR_PTR(-ENOMEM) when
+qmem_alloc() fails, but otx2_pfvf_mbox_init() assigns hwbase without
+checking IS_ERR(hwbase). On allocation failure, the error pointer is
+passed directly into otx2_mbox_init(), which writes reset headers to
+hwbase + devid * MBOX_SIZE and crashes the kernel.
 
-Applied as 7.5 material, thanks!
+In addition, if otx2_mbox_init() fails on CN20K after
+cn20k_pfvf_mbox_alloc() succeeded, free_iomem: skips
+qmem_free(&pf->pdev->dev, pf->pfvf_mbox_addr), leaking the DMA mailbox
+allocation, and if the second otx2_mbox_init(&mbox->mbox_up, ...) call
+fails, &mbox->mbox is not destroyed.
+
+Check IS_ERR(hwbase) and update error unwind in otx2_pfvf_mbox_init()
+to properly clean up &mbox->mbox, free mailbox memory on CN20K, and
+clear pf->mbox_pfvf_wq.
+
+Fixes: 70f8986ecef1 ("octeontx2-pf: CN20K mbox implementation between PF-VF")
+Signed-off-by: Elkin Cruz <elkin@google.com>
+---
+I am trying out a new Clang static analysis linter for ERR_PTR/NULL
+handling, and it flagged this code as possibly buggy. The findings were triaged
+and fixed with an AI coding assistant, then checked against linux-next (not
+runtime-tested on hardware).
+
+Thanks,
+Elkin
+
+ .../net/ethernet/marvell/octeontx2/nic/otx2_pf.c  | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
+index cb602a4adcfb..e6722751de7b 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
+@@ -618,6 +618,10 @@ static int otx2_pfvf_mbox_init(struct otx2_nic *pf, int numvfs)
+ 	 */
+ 	if (is_cn20k(pf->pdev)) {
+ 		hwbase = (void __iomem *)cn20k_pfvf_mbox_alloc(pf, numvfs);
++		if (IS_ERR(hwbase)) {
++			err = PTR_ERR(hwbase);
++			goto free_wq;
++		}
+ 	} else {
+ 		/* On CN10K platform, PF <-> VF mailbox region follows after
+ 		 * PF <-> AF mailbox region.
+@@ -644,7 +648,7 @@ static int otx2_pfvf_mbox_init(struct otx2_nic *pf, int numvfs)
+ 	err = otx2_mbox_init(&mbox->mbox_up, hwbase, pf->pdev, pf->reg_base,
+ 			     MBOX_DIR_PFVF_UP, numvfs);
+ 	if (err)
+-		goto free_iomem;
++		goto destroy_mbox;
+ 
+ 	for (vf = 0; vf < numvfs; vf++) {
+ 		mbox->pfvf = pf;
+@@ -655,11 +659,18 @@ static int otx2_pfvf_mbox_init(struct otx2_nic *pf, int numvfs)
+ 
+ 	return 0;
+ 
++destroy_mbox:
++	otx2_mbox_destroy(&mbox->mbox);
+ free_iomem:
+-	if (hwbase && !(is_cn20k(pf->pdev)))
++	if (is_cn20k(pf->pdev)) {
++		qmem_free(&pf->pdev->dev, pf->pfvf_mbox_addr);
++		pf->pfvf_mbox_addr = NULL;
++	} else if (hwbase) {
+ 		iounmap(hwbase);
++	}
+ free_wq:
+ 	destroy_workqueue(pf->mbox_pfvf_wq);
++	pf->mbox_pfvf_wq = NULL;
+ 	return err;
+ }
+ 
+-- 
+2.56.1.750.gf70dc682cf-goog
+
