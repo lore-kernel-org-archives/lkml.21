@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169368;
-	b=RUHhtxg3AGZe/rPEnHGjFUJ2xNAqU3qoLZGbqCqV6gRcmsxgWy7QGXaclCKyveAnVZ2T
-	 Lvo7fKfkuqoR0SYRAhO9XkHhQUh55204s7uWolAs8jIGf806uSm9Y0f1+gruLcRsEx5H2
-	 qUqv1lq43KKsrMbZHIrcDVjrvk+sQOunzJnMoTaoPBEXlGpwdnPNYuRFcl0QBy/4jKx/4
-	 U8m4EVDP1E3NVWao0fxIafO4N3+ou91kznDmwK9fNzaozVw4VMGWRMTWBiwG0jn+bVJCX
-	 og36iAdWhvTtc2gEU/cbaMpe3tlGV8aorVuL6b6uXTh4Db/IaXeiix69ZqpUAd6Mmcw==
+	t=1795169376;
+	b=eTtI+wOFpDoPbwcG8xohLVASRb0b8HYTaLUNu7S3Xjzpkc1QB3lA5xDPQzm++cRw2+Y9
+	 Qrtaq6SkabmZ6wZ1kefYpa+mBaPE7qSheI1E8fFbadeKtxLu1CFxrMuroA8mfmOFkH/zi
+	 Za+bkBaRf3qXHe1+Ov1MFilr4yRLgz0l/gqP9IZq+P6EGBCrbFpP8audqTxLdAgxeQpsu
+	 +Z9CYfo5XliEQ5X9g2hMdXqT+UKxZJbP/kPQcF8zs/jBBXd+gMo91L4ZphpRvWOSffcDP
+	 IMhEWksMiW3UAbctRtYXJFXW7Lyhpm2qBJhXFzTRaXVMbJRbuJn3BTostY1+aqzE8NA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169368;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169376;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=oLGKyu23Muo1nOyFWHF0XtwpUfanp0noPFTk0HaDvb0=;
-	b=KxSO3OUKgQCbuYkMioFGDjnJd7fspd8SF35fT/QZ1yhg4Zqh487zqXQwe0BeU83BE/bO
-	 wUIq6Rp5uND3fw06shkGPYS4lgndwwtbd70dSLTDAG781q5K1zzVwzGqSxLn238QSyqbP
-	 RZTkjjj/FS+D27519U9bmgmh10NXCH6wOAUujGmFqDEScY3LNffnqbphPRzdm2CtvATDX
-	 tJHtQJt/R/eStn9BpE2+TJMGVg3IG5V+LzMdV0NTStdeB9DivK2gU89Llbgh+fTHGgKfZ
-	 XBgvqtqVLFJh/7ivqVErq6tknifGK4Bmhw0F/e2k0/6FIpCee6sqqNSWc63T7E5chIA==
+	bh=n0M97I6v0mM+QmRgb7kh7Im8w/4SIvsqvU/x63FN1U0=;
+	b=4yuBNoOXVIt8rACaMzPwJ439cTXhoEup3QKUVe/wwlBZ9Jj5J1tw+LQQiRlcZC+Z/+oA
+	 eWM+PXmxdng+8dEM3sm0vnJraHdleLnQgP8w03RrGXGEzDWFkGB4gLopiGSPXDIRDLOvA
+	 bkKLV0oH64VSGwjnF+rWV8tchYNEoXu8as+WFH9+fNjz+A3E2RQFnglaOiL05TMbdLdj3
+	 JEGN+3hEG/k46EZgEU76sXGxvFwnKawAD7sDuOtVaISanrwjsxg4fH9Pt8kHJXiOHa9HB
+	 JApibqlPB6El70RDRCyqntChEnF1ywDri93CM0EdIDq0Qm1ocMm+ikhaK42n7r7G1YQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bytedance.com;
 	spf=pass smtp.mailfrom=bytedance.com;
-	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=K0hYEMDz;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=gg4ky2Bw;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F17606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:09:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8F17606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B130360A2613
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:09:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B130360A2613
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=K0hYEMDz
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b41e5a1719so254147a91.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:09:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=google header.b=gg4ky2Bw
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b08a162d4bso468720a91.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:09:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1795169367; x=1795774167; darn=vger.kernel.org;
+        d=bytedance.com; s=google; t=1795169375; x=1795774175; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=oLGKyu23Muo1nOyFWHF0XtwpUfanp0noPFTk0HaDvb0=;
-        b=K0hYEMDz+uVpCAu1n6wlUODm5uVrujqgaqfrxxJG0HUlU9dyDSwN2HpM8x+R6chls0
-         SWN3Z13eaQjCkHawIVt3bMTNIw1tz08L0MYT3WwQtHalcybKiseOz5CN+hg7C6/43RtE
-         VTLB15gFiUbC5yDabt61gSEldBoWSJI+wirf3wlfjaQ6mjyNIJ/tJV+nvGa8hl7aTZQd
-         7rxz3CLuBGaCjZ0I/BUuJwOaIPDciY6yqfdkZ3KC3fJsPxQGQJhAdcXa/1TipkA+UsBW
-         UOICBCEuWHbPvkvHd4YA+39KVTAcpLl+B6K+hnaTDggAiYlsUeZC90INAMtBlCekNy+0
-         wDSQ==
+        bh=n0M97I6v0mM+QmRgb7kh7Im8w/4SIvsqvU/x63FN1U0=;
+        b=gg4ky2Bw+QDk4gqtBxwH3EDn+H9kD6xj/YjCAs8UR17omfS71Xm6hTLOwdDHgfJsRs
+         V46xeA6ZVvYp4x7Sho6/aRvHwyRcfXlIw8fkvzd7Qavyj46bLtgxdwtfrLoZuKfivjX5
+         cUslSICIojMr1iEPmXWTJd5VLgAqvCzu9Ti4C9DkWchY3477vqwet8H0o/Gb0Y7JIx8v
+         LivFi9RMVShGp+7oRWUg65OFPy8sBRrXbZa9ADTiYKsdNXTot52db4Opr3+p4WjjEQEh
+         nVMHM5UV7SRJGle7SVIn0xJ+PRANIHDYgG1bpZMCIKSWJOxMj1o9GIJNaF9vGm7S/5y8
+         kViQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169367; x=1795774167;
+        d=1e100.net; s=20260707; t=1795169375; x=1795774175;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oLGKyu23Muo1nOyFWHF0XtwpUfanp0noPFTk0HaDvb0=;
-        b=AIAGzb+lKQBrfx/GqLRg3dxO1F0p4rppbXHvFoaHpc9UMTNuneK4a6b8QfWBQQM0Sb
-         oe0aeGhoFg4KE/Hgoxea+9TLJyKDIJV8QOG7xEq/V04XPC3PEvFuzz2SGmAievgN6Tg2
-         QGT8GQH4WYzNk3TqClDlgXN3jlkhePUatO2fHjloCPqCNV6FvxpY2C8kVeXVbvLiIPOB
-         3kf52hBXjRVfajKB2YtyR74PA+vExhJFWexLtwPx8vRnMZxjSt/3fH7FFjYlv1DuwQcb
-         KAty16Yhp8+sLyyAP2iT++mkBPOI+RufLm1WesFv4GtjGpVdJtVWXNgrhj6/5fAQnRLG
-         rJRQ==
-X-Forwarded-Encrypted: i=1; AL+hErHk4UkviJi8UEGuyQS3xKprbKd4w9lG4MX7DpICBBFZyPJRBmDwIZc7zNrC0tEeY76kRfpMWemd2LxaROw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9PFObHm/NLR1ye5CLLHfr7sJPQtdZKxHy4Ql2t7QmXw8CplVAA
-	aUC/i1Cn97Wip11Q5un80cS/1YBz7xPE48KCe0QqZ2CvEfg5fndSXsyGY22UOkX5JC0=
-X-Gm-Gg: AZFdTZf2Mka42e36exGZM/BRH6D/eOcb1iS78U3EYQUkBl6W+DTSnfbWcDMRmcv4O6X
-	nZhBSe0J0LGy4nGWNzMTsHoTBqgTRBMM2UBAMpbiamSOidXXa1YZCluygBAmm2eBGIBwOmaOZGa
-	45eQuFnXgOSRvWr2+idD+fOT4msvgZDmndK3swjWpZZtQINbxgJq/eMjv0H50CZ8izx3VqKwWjX
-	AOiBONc/L6TsUZZbIDKzCgm9uy5LBGX0ONM7vzDsGzGn5oFC8bQLVwNJ2HgSfXcXlM3+/NtP40E
-	gECONQ9XSwM5HE55kZRU4V2lrzyQKJ1WYs6TjGxQmGPiR3B7BXyTlcKOaL+KMMRQxeQfTr+M2ke
-	NXuvRcgQxEavkSjMn05b8Z1J8c3vGJUc804eoFkTOHd2HzmnNkiDCHxNryLXTZSfP+RrAci1Oyn
-	LpP7yxW2CK7jO7BfVi+ANUIc/Ap+DxDeAWjVZ2qlApYvi5DbxiOW6KLc5z27UgrQqZBN+YIi/Gr
-	CW0mQO1uLSOjGJWpvgN4JGuKJULi+C2X5rR/kIzBtSMuEISYNVK85B6q09p/O2x+467wY0dN8P+
-	3XJlIGBxdqVHgjAdMohFaybZW/77mxkSsvUXXUGQSWvMk0ux+1JxZAzGoLa/8qh2JpMblvHPr4h
-	s6esTh6jUhk1SO2Q=
-X-Received: by 2002:a17:90b:2ecb:b0:3ac:8446:c1a5 with SMTP id 98e67ed59e1d1-3b41c988620mr2221952a91.48.1795169367038;
-        Fri, 20 Nov 2026 02:09:27 -0800 (PST)
+        bh=n0M97I6v0mM+QmRgb7kh7Im8w/4SIvsqvU/x63FN1U0=;
+        b=DZdWbpA55q6K+D7+97D6bQUbqC7+xE12D5JWTtA3h2q8G+rnEWyApy86brSiXQswEV
+         GZ/SkzTo/ZKZn0+KTXBuOvrZf3sa/XOIzRG1K0DYNBS95mWs47+8Wu4qHvSWipl37cW0
+         QfCXW0v+tfYi45JITEsRCV+crqks5+J0ojtwCVn9j9YzFwn2nqTnzN5OsWLLRisWD3no
+         nM6wpLsTdD2HUopUNOAsA8Ws0a9kul/Q9XeM20BvSpscgl1OgPL+y9lUS/vTrPMOihmf
+         FjbDSLcOWbaZqGV7TX0QBDScAC5cxBJLer6Kd1hAGqpSDCU9uWhuhMCWcdspYi02ju74
+         tbOA==
+X-Forwarded-Encrypted: i=1; AL+hErEnGa8qBAY60KwHW6rqTqNZ8l0BFnBEJSdoF9R0BkyKefkSnkpfqQoVh/wwYr2PDletoY8GNV3uQq1cmBU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9V/mL9LXieRo4eOmnXfvUTMYmvD0SJLpMhEKgAUnCJQN3iH7XP
+	ZZ/CSkzH4DSbr4pcLbm59xjAlr7L6vCksWjswZVgk2mgS7uKC4Ja2p67uf24gTQ+cQ0=
+X-Gm-Gg: AZFdTZcgQQcHa155KcZdS9X+PRQN45EFpc2l9iTB0uB/6lZZtztrXuMEX91rq3W/z+i
+	k1m3P/2y9BUbr/iXJbyqrrxBMfDayTmL0iodNXNU+mNY7J+FUE4nN5I79+M6IDMbbH3qX5dFVs+
+	ziN4E+/xS54TjnsSX9rgP8ypoTSys78swueOYdWDespjxfrvfH+efbJYuub7Wfq1SCmlapOtWu2
+	HKip5xSDPkOVEHBR2sPMCCT0RjMHKdE4e8QoZgAHEvWDswBsF+Gnrmhjb6c6q4A9qeLKzc5pcKn
+	3S3RBnP7Gm2O3yl8QbPobh6SLjgLGG1CCrEOvD8iXhIAc1xJS+YJSXfKAWGV/StUCHkmYOtlE1C
+	oz6gAhbUQJynEoyJw9GI7B5v/1Duh62MG8rQUpdFx1cQVr1vlCpGI2d+JGi/+u0iBk4SXBHYUn6
+	nwAf1WGTACK8lnjWU2o6wLJt127jC3pFE8bjjja3baEiFYz9eayLFlkIiKCYAWW7VsJ1juyVdtP
+	7WeX6dbtXsygaq/CCNlPaj+WWdEYUDBKAi/2LOdxb8T6HpRHKP/dT1WqSkw7eYNxNCga3PehDNC
+	2dSAewE3c9IvG936Pf5YAIUrOfoVS/iJ/FGaLVOPmRZgmYdojOohKVPmnfmfMyaUUkJsJQ==
+X-Received: by 2002:a17:90b:442c:b0:3b4:a90:7f30 with SMTP id 98e67ed59e1d1-3b41c9802e1mr2330494a91.55.1795169374795;
+        Fri, 20 Nov 2026 02:09:34 -0800 (PST)
 Received: from G6L4RL2QG9.bytedance.net ([203.208.167.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm3727321a91.17.2026.11.20.02.09.19
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm3727321a91.17.2026.11.20.02.09.27
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 20 Nov 2026 02:09:26 -0800 (PST)
+        Fri, 20 Nov 2026 02:09:34 -0800 (PST)
 From: Muchun Song <songmuchun@bytedance.com>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -99,9 +98,9 @@ Cc: "Liam R . Howlett" <liam@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Muchun Song <songmuchun@bytedance.com>
-Subject: [PATCH v3 02/11] mm/mm_init: factor out common struct page initialization
-Date: Fri, 20 Nov 2026 18:08:47 +0800
-Message-ID: <20261120100856.16929-3-songmuchun@bytedance.com>
+Subject: [PATCH v3 03/11] mm/mm_init: simplify zone device page initialization
+Date: Fri, 20 Nov 2026 18:08:48 +0800
+Message-ID: <20261120100856.16929-4-songmuchun@bytedance.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261120100856.16929-1-songmuchun@bytedance.com>
 References: <20261120100856.16929-1-songmuchun@bytedance.com>
@@ -116,171 +115,158 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Several struct page fields have the same initial values for every page in
-a zone. __init_single_page() initializes this state as part of its
-per-page setup, while the shared vmemmap tail path open-codes only a
-subset.
+memmap_init_zone_device() currently seeds its reusable head and tail
+templates by fully initializing the first real struct page and copying
+it back into a stack object. This keeps the first page outside the
+common loops and leaves __init_zone_device_page() only for template
+construction.
 
-Factor the PFN-independent state into memmap_init_page() and use it for
-both regular and shared tail struct pages. Keep section-, PFN- and
-instance-specific initialization in __init_single_page().
+Build both templates directly from the PFN-independent state. Add the
+head-specific pgmap and refcount state to the head template and the
+compound metadata to the tail template, then initialize every page
+through zone_device_page_init_from_template().
 
-This also initializes the last cpupid and KASAN tag for shared tail
-struct pages consistently with regular struct pages. Since
-memmap_init_page() marks ZONE_DEVICE pages reserved, remove the redundant
-update from the memory hotplug path.
+This removes the special handling for the first head and tail pages
+without changing their final state.
 
 Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 ---
 v3:
-- Rename memmap_init_page_common() to memmap_init_page() (suggested by
-  Mike Rapoport)
-- Remove redundant ZONE_DEVICE reserved-page initialization (suggested by
-  Mike Rapoport)
+- Rebase on zone_device_page_init_from_template() after integrating the
+  template helper series (suggested by Mike Rapoport)
 
 v2:
-- Remove __meminit from memmap_init_page_common() so HVO shared tail
-  pages can call it after init text is freed (reported by Sashiko).
+- Rebase on memmap_init_page_from_template().
 ---
- include/linux/mm.h  |  8 --------
- mm/mm_init.c        | 37 +++++++++++++++++++++----------------
- mm/mm_init.h        |  1 +
- mm/sparse-vmemmap.c |  7 +------
- 4 files changed, 23 insertions(+), 30 deletions(-)
+ mm/mm_init.c | 94 ++++++++--------------------------------------------
+ 1 file changed, 14 insertions(+), 80 deletions(-)
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 8883b780b76d..d8bafcd92791 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -3096,14 +3096,6 @@ static inline void set_page_node(struct page *page, unsigned long node)
- 	page->flags.f |= (node & NODES_MASK) << NODES_PGSHIFT;
- }
- 
--static inline void set_page_links(struct page *page, enum zone_type zone,
--	unsigned long node, unsigned long pfn)
--{
--	set_page_zone(page, zone);
--	set_page_node(page, node);
--	set_page_section_from_pfn(page, pfn);
--}
--
- /**
-  * folio_nr_pages - The number of pages in the folio.
-  * @folio: The folio.
 diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 0129152b74d8..08d6e47bde22 100644
+index 08d6e47bde22..75d8d17601ed 100644
 --- a/mm/mm_init.c
 +++ b/mm/mm_init.c
-@@ -602,15 +602,27 @@ static inline void vmemmap_optimization_verify_zone(struct page *page)
- 			page_zone_id(page));
+@@ -1036,48 +1036,6 @@ static void __init memmap_init(void)
  }
  
--void __meminit __init_single_page(struct page *page, unsigned long pfn,
--				unsigned long zone, int nid)
-+/* Initialize PFN-independent fields common to pages in the same zone. */
-+void memmap_init_page(struct page *page, enum zone_type zone, int nid)
+ #ifdef CONFIG_ZONE_DEVICE
+-static void __ref __init_zone_device_page(struct page *page, unsigned long pfn,
+-					  unsigned long zone_idx, int nid,
+-					  struct dev_pagemap *pgmap)
+-{
+-
+-	__init_single_page(page, pfn, zone_idx, nid);
+-
+-	/*
+-	 * Mark page reserved as it will need to wait for onlining
+-	 * phase for it to be fully associated with a zone.
+-	 *
+-	 * We can use the non-atomic __set_bit operation for setting
+-	 * the flag as we are still initializing the pages.
+-	 */
+-	__SetPageReserved(page);
+-
+-	/*
+-	 * ZONE_DEVICE pages union ->lru with a ->pgmap back pointer
+-	 * and zone_device_data.  It is a bug if a ZONE_DEVICE page is
+-	 * ever freed or placed on a driver-private list.
+-	 */
+-	page_folio(page)->pgmap = pgmap;
+-	page->zone_device_data = NULL;
+-
+-	/*
+-	 * MEMORY_DEVICE_GENERIC pages regain a refcount of 1 in the free
+-	 * path. The remaining ZONE_DEVICE types start from 0 here and raise
+-	 * the count again when the allocator or driver hands the page out.
+-	 */
+-	switch (pgmap->type) {
+-	case MEMORY_DEVICE_FS_DAX:
+-	case MEMORY_DEVICE_PRIVATE:
+-	case MEMORY_DEVICE_COHERENT:
+-	case MEMORY_DEVICE_PCI_P2PDMA:
+-		set_page_count(page, 0);
+-		break;
+-
+-	case MEMORY_DEVICE_GENERIC:
+-		break;
+-	}
+-}
+-
+ static void zone_device_page_init_from_template(struct page *page,
+ 		unsigned long pfn, struct page *template)
  {
- 	mm_zero_struct_page(page);
--	set_page_links(page, zone, nid, pfn);
--	init_page_count(page);
--	atomic_set(&page->_mapcount, -1);
-+	set_page_zone(page, zone);
-+	set_page_node(page, nid);
- 	page_cpupid_reset_last(page);
- 	page_kasan_tag_reset(page);
-+	atomic_set(&page->_mapcount, -1);
-+#ifdef CONFIG_ZONE_DEVICE
-+	if (zone == ZONE_DEVICE)
-+		__SetPageReserved(page);
-+#endif
-+}
-+
-+void __meminit __init_single_page(struct page *page, unsigned long pfn,
-+		unsigned long zone, int nid)
-+{
-+	memmap_init_page(page, zone, nid);
-+	set_page_section_from_pfn(page, pfn);
-+	init_page_count(page);
+@@ -1118,30 +1076,13 @@ static void __ref memmap_init_compound(struct page *head,
+ 	unsigned long pfn, end_pfn = head_pfn + nr_pages;
+ 	unsigned int order = pgmap->vmemmap_shift;
+ 	struct page template;
+-	struct page *page;
  
- 	INIT_LIST_HEAD(&page->lru);
- #ifdef WANT_PAGE_VIRTUAL
-@@ -891,11 +903,11 @@ void __meminit memmap_init_range(unsigned long size, int nid, unsigned long zone
- {
- 	unsigned long pfn, end_pfn = start_pfn + size;
- 	struct page *page;
-+	const struct zone *z = &NODE_DATA(nid)->node_zones[zone];
+-	/*
+-	 * We have to initialize the pages, including setting up page links.
+-	 * prep_compound_page() does not take care of that, so instead we
+-	 * open-code prep_compound_page() so we can take care of initializing
+-	 * the pages in the same go.
+-	 */
+-	__SetPageHead(head);
+-
+-	/*
+-	 * All tails of the same compound page share the state established by
+-	 * prep_compound_tail(). Reuse one tail template for the whole range and
+-	 * refresh only the PFN-dependent fields in that template before each copy.
+-	 */
+-	pfn = head_pfn + 1;
+-	page = pfn_to_page(pfn);
+-	__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
+-	prep_compound_tail(page, head, order);
+-	set_page_count(page, 0);
+-	memcpy(&template, page, sizeof(*page));
++	memmap_init_page(&template, zone_idx, nid);
++	prep_compound_tail(&template, head, order);
  
- 	if (highest_memmap_pfn < end_pfn - 1)
- 		highest_memmap_pfn = end_pfn - 1;
+-	/* Initialize the remaining tail pages from template. */
+-	for (pfn = head_pfn + 2; pfn < end_pfn; pfn++)
++	__SetPageHead(head);
++	/* Initialize the tail pages from template. */
++	for (pfn = head_pfn + 1; pfn < end_pfn; pfn++)
+ 		zone_device_page_init_from_template(pfn_to_page(pfn), pfn,
+ 						    &template);
+ 	prep_compound_head(head, order);
+@@ -1175,27 +1116,20 @@ void __ref memmap_init_zone_device(struct zone *zone,
+ 		nr_pages = end_pfn - start_pfn;
+ 	}
  
--#ifdef CONFIG_ZONE_DEVICE
+-	if (!nr_pages)
+-		return;
+-
+ 	VM_WARN_ON(!IS_ALIGNED(start_pfn | nr_pages, pfns_per_compound));
+ 
++	memmap_init_page(&template, zone_idx, nid);
++	page_folio(&template)->pgmap = pgmap;
  	/*
- 	 * Honor reservation requested by the driver for this ZONE_DEVICE
- 	 * memory. We limit the total number of pages to initialize to just
-@@ -903,7 +915,7 @@ void __meminit memmap_init_range(unsigned long size, int nid, unsigned long zone
- 	 * ZONE_DEVICE page initialization until after we have released
- 	 * the hotplug lock.
+-	 * Seed the reusable head-page template from the first real struct
+-	 * page. The normal page-init and refcount helpers must operate on
+-	 * a real memmap entry rather than a stack object.
++	 * MEMORY_DEVICE_GENERIC pages regain a refcount of one in the free
++	 * path. The remaining ZONE_DEVICE types start from zero here and raise
++	 * the count again when the allocator or driver hands the page out.
  	 */
--	if (zone == ZONE_DEVICE) {
-+	if (zone_is_zone_device(z)) {
- 		if (!altmap)
- 			return;
+-	pfn = start_pfn;
+-	page = pfn_to_page(pfn);
+-	__init_zone_device_page(page, pfn, zone_idx, nid, pgmap);
+-	memcpy(&template, page, sizeof(*page));
+-	if (pfns_per_compound != 1)
+-		memmap_init_compound(page, pfn, zone_idx, nid, pgmap,
+-				     compound_nr_pages(pfn, pgmap));
+-	pfn += pfns_per_compound;
++	if (pgmap->type == MEMORY_DEVICE_GENERIC)
++		atomic_set(&template._refcount, 1);
  
-@@ -911,7 +923,6 @@ void __meminit memmap_init_range(unsigned long size, int nid, unsigned long zone
- 			start_pfn += altmap->reserve;
- 		end_pfn = altmap->base_pfn + vmem_altmap_offset(altmap);
- 	}
--#endif
- 
- 	for (pfn = start_pfn; pfn < end_pfn; ) {
- 		const unsigned int order = pfn_to_section_compound_order(pfn);
-@@ -938,14 +949,8 @@ void __meminit memmap_init_range(unsigned long size, int nid, unsigned long zone
- 
+-	/* Initialize the remaining head pages from template. */
+-	for (; pfn < end_pfn; pfn += pfns_per_compound) {
++	/* Initialize the head pages from template. */
++	for (pfn = start_pfn; pfn < end_pfn; pfn += pfns_per_compound) {
  		page = pfn_to_page(pfn);
- 		__init_single_page(page, pfn, zone, nid);
--		if (context == MEMINIT_HOTPLUG) {
--#ifdef CONFIG_ZONE_DEVICE
--			if (zone == ZONE_DEVICE)
--				__SetPageReserved(page);
--			else
--#endif
--				__SetPageOffline(page);
--		}
-+		if (context == MEMINIT_HOTPLUG && !zone_is_zone_device(z))
-+			__SetPageOffline(page);
  
- 		if (pageblock_aligned(pfn))
- 			cond_resched();
-diff --git a/mm/mm_init.h b/mm/mm_init.h
-index 0034e37dbabd..dec22844f41e 100644
---- a/mm/mm_init.h
-+++ b/mm/mm_init.h
-@@ -109,6 +109,7 @@ extern bool mirrored_kernelcore;
- bool memblock_has_mirror(void);
- void memblock_free_all(void);
- 
-+void memmap_init_page(struct page *page, enum zone_type zone, int nid);
- void __meminit __init_single_page(struct page *page, unsigned long pfn,
- 				unsigned long zone, int nid);
- 
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index 9b80dd7326f7..51fa77982ca5 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -212,12 +212,7 @@ struct page __ref *vmemmap_shared_tail_page(unsigned int order, struct zone *zon
- 
- 	for (int i = 0; i < PAGE_SIZE / sizeof(struct page); i++) {
- 		page = (struct page *)addr + i;
--		mm_zero_struct_page(page);
--		atomic_set(&page->_mapcount, -1);
--		set_page_node(page, zone_to_nid(zone));
--		set_page_zone(page, zone_idx(zone));
--		if (zone_is_zone_device(zone))
--			__SetPageReserved(page);
-+		memmap_init_page(page, zone_idx(zone), zone_to_nid(zone));
- 		prep_compound_tail(page, NULL, order);
- 	}
- 
+ 		zone_device_page_init_from_template(page, pfn, &template);
 -- 
 2.54.0
 
