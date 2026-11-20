@@ -1,71 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.77
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177016;
-	b=j6toUamjNYgoCSQiyeZFARViC0PMnyIBv17J7+mxUCmmBDF9gHqCWd5Bkxj5cxg+pfSU
-	 8MfK9glMGvtS41Q3vUcL++mbnprd35q/tIglaPeXN1+H5paurc0TJueAQHsLUfd8c0mZt
-	 4lXMNKsESmJmFjzTJkBC8TbIRP+waFiatoRe+AsbG13Ybub9gv7MsvX76dQwt6igrIM72
-	 eaVN+y92RmSovB1HXndyKPpiFD8+L620JPFgmuLLneZ2Tb4xzMOTQWqREGbjNacSWviHP
-	 jRnZqXG/WIN6PDjLf4I+yckDMcLa4ubeiU3EYtZPr60qZEgd3Zu89oVw5NFZ0D1q31g==
+	t=1795177053;
+	b=ar4cPuDElgxlFj5/3j5jSDtSa5gZH74I1atZ/2MtrNQ2hYwCydcexj7Qu5/5MBsOBzJn
+	 nOU0BUmyHV6vulhaZJUuXkSqaG3w0DxSw1Vw1KSEaji2p+2pmn6Yyrku5pXcCvVKtcpTS
+	 nrhFdL7mxV7EOXio12q2TFhiLgelH4TfZQYu2VP69oD63EI/kiGXZ5mk6ZpzCKLFuH77J
+	 KNXm/vWx+zBobqLTo0eSY5pfWN1als9ghIi7iud6ILV5J6/k7I2+LXEm/byPJlsiy43yA
+	 wla4im2Y7N+JP8EBXo4Tswv4gyfbBmK7BUED/lRx+a8bkCwAJRvTCXZTXe5+R63pV9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177016;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=spoiYnWR0WKKRs7Mhq5Q09v/YFoqQN68ueFyWXGucg0=;
-	b=k80bCopZPmxKScm4TLD4ImSu12rK37NXqqFQLO8+2gpnyYAgdpnUlhfZg368IcfGsGtk
-	 YGB31BEq+mkAXubiv0iH/ozvMsHupyIT/XbD7wQWkbB0SByD7fVKWw7UuDWS6sBljDlgO
-	 5/xgErAdW9PZSU4EBI/j9q4hqaunoA/qjGH9owub5LUw67g8oUy010QRvzvWLNd5aM/wu
-	 gBfYVbaDxq30T7QWEbHLc/YN6QaLKVvgkRWSQCyh32291u2WuMk995I+2yDqsusVBlYdn
-	 aZshhxy/RYkvWdhg3FGAjlMUYPM/3/tg/Te+9x8t0hnHH28DVILcpMeQiggA5QK/1jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177053;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=AxXqgCeXal65+AfazlQec+YPsjLlcdM7scYBIZf41Bo=;
+	b=ngT3sFDHYLZoNS70ZSuOg3sVd6ZeI4M5xctmfUw9r4+lMQ5pzL6PHSpsV61DJwfL90gj
+	 rWBGDtBszMFy5jqCxl3W6bycUcQcV81OfPzJTjGETnSEKd1BDX6OGdgKFfKIzPd1tIpag
+	 9Jz0Z1VxuDEKP7A++31RfDUz5DV4UPo3Grc2h4X1gModwHjfWKSEm7j+oHym9Y/N522Mv
+	 NsYa+YyCBOtW090gJ2RZa3Rc8WyZqS0Ka1IUxhTgUXs46wT9CyVdwABhm/0+uHoju+k1z
+	 WltbXFJ5NFkLPwJ3e2afrmZOdg9pUVVx1tz2QRM59vZdAWsOWdoF7A6On+gMvT658yQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="BDi/9kXJ";
-	arc=none smtp.remote-ip=95.215.58.77
-Received: from mta1.migadu.com (out-77.mta1.migadu.com [95.215.58.77])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVBLMlN2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45120606A33A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:16:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45120606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 2A8C1606A320;
+	Fri, 20 Nov 2026 12:17:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=BDi/9kXJ
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Q/N+GDt8QiK0EADOOx91mUK2qbf8ppdyYXeJryKLBCU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795177014; v=1; x=1795781814;
- b=BDi/9kXJf4YgRBbAHxD3RyugCbjKW0PCal1+Gv5IYm/c2FgLLV7VbqY+f1zHlScILQiVZSw0
- +03BU6gv7xmavzbyWPCdEZAWETU5MqSdYzR9jIvXi+rqN4ZAYCafaPdGc7Qhrshm5ue6emni7g4
- DpdU8ocr/xq9tuP+clLQGljk=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 18135977f985d146;
-	Fri, 20 Nov 2026 12:16:54 +0000
-X-Mizu-Trace-ID: 18135977f985d146
-X-Migadu-Flow: FLOW_OUT
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Fuad Tabba <tabba@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 3/3] arm64: mm: Don't defer the barriers when installing a fixmap entry
-Date: Fri, 20 Nov 2026 12:16:38 +0000
-Message-ID: <20261120121638.194154-4-fuad.tabba@linux.dev>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120121638.194154-1-fuad.tabba@linux.dev>
-References: <20261120121638.194154-1-fuad.tabba@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XVBLMlN2
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 80AA01F000C0;
+	Fri, 20 Nov 2026 12:17:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795177052;
+	bh=AxXqgCeXal65+AfazlQec+YPsjLlcdM7scYBIZf41Bo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XVBLMlN2rDwXEqWI9EpkZOKZOMAka7OKzB/f815QnjXrzl2oTHsRFDq8fkiT6vLaA
+	 fgMuNuz3hFQ0LH9A756xzsAmUmCzfaC6trbvjTicc6iiK+AbU1sB8A4vW0utw19goY
+	 3nu5fgPlRnvS3N4T6C6Z5V00sbFuPGMME0232q5zxO7v92Ls42JwuDUBDD/lIeUcGe
+	 fe+q+Jq2/14m8j/+3b9hPxsuJo2hVxDi/TQ4X4iFbP6s35zFJ1Cv27MuYk8Lfmo8uk
+	 mUKM/Y+wEBsrNYcTGv6CXv7UtR4DDMph5LERxOcWkt+3chyvUUgO1lFgH4FHqsEYKT
+	 Iyxy4QJXZZfZg==
+Date: Fri, 20 Nov 2026 13:17:29 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: linux-kernel@vger.kernel.org, 
+	Andrew Bresticker <abrestic@chromium.org>, Binbin Zhou <zhoubinbin@loongson.cn>, 
+	David Lechner <dlechner@baylibre.com>, Drew Fustini <dfustini@baylibre.com>, 
+	Ezequiel Garcia <ezequiel.garcia@imgtec.com>, Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+	Grant Erickson <marathon96@gmail.com>, Huacai Chen <chenhuacai@kernel.org>, imx@lists.linux.dev, 
+	Joachim Eastwood <manabian@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Juxin Gao <gaojuxin@loongson.cn>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, Lokesh Vutla <lokeshvutla@ti.com>, 
+	Michael Hennerich <michael.hennerich@analog.com>, Mikko Perttunen <mperttunen@nvidia.com>, 
+	Naidu Tellapati <naidu.tellapati@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	NeilBrown <neil@brown.name>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, "Philip, Avinash" <avinashphilip@ti.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Sai Masarapu <Sai.Masarapu@imgtec.com>, 
+	Sandipan Patra <spatra@nvidia.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Sergiu Cuciurean <sergiu.cuciurean@analog.com>, Shawn Guo <shawn.guo@linaro.org>, 
+	Shenwei Wang <shenwei.wang@nxp.com>, Thierry Reding <thierry.reding@kernel.org>, 
+	Trevor Gamblin <tgamblin@baylibre.com>, Vaibhav Bedia <vaibhav.bedia@ti.com>, 
+	Vladimir Zapolskiy <vladimir_zapolskiy@mentor.com>, Xiubo Li <Li.Xiubo@freescale.com>
+Subject: Re: [PATCH 0/8] pwm: Fix various bugs reported by Sashiko
+Message-ID: <awA6F830Ve_-vXBg@monoceros>
+References: <20261105143847.2559586-1-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,42 +72,61 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ziscyeot6fs5noin"
+Content-Disposition: inline
+In-Reply-To: <20261105143847.2559586-1-lee@kernel.org>
 
-In lazy MMU mode, __set_pte(), which __set_fixmap() uses, only queues
-its DSB and ISB, but a caller can dereference the slot as soon as
-__set_fixmap() returns. On a CPU with BBML3, runtime changes to the
-linear map are made in lazy MMU mode. With 4K pages and 39-bit VAs, for
-example, such a change can update a top-level entry, which
-set_swapper_pgd() writes through FIX_PGD. That store can fault, and the
-kernel then warns about a spurious translation fault. When kgdb stops a
-CPU in lazy MMU mode, its breakpoint writes through FIX_TEXT_POKE0 can
-fault the same way, and fail.
 
-Emit the barriers directly in __set_fixmap().
+--ziscyeot6fs5noin
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 0/8] pwm: Fix various bugs reported by Sashiko
+MIME-Version: 1.0
 
-Fixes: 5fdd05efa1cd3 ("arm64/mm: Batch barriers when updating kernel mappings")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/mm/fixmap.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Hello Lee,
 
-diff --git a/arch/arm64/mm/fixmap.c b/arch/arm64/mm/fixmap.c
-index f66a0016dd02d..951004ad700c3 100644
---- a/arch/arm64/mm/fixmap.c
-+++ b/arch/arm64/mm/fixmap.c
-@@ -127,7 +127,9 @@ void __set_fixmap(enum fixed_addresses idx,
- 	ptep = fixmap_pte(addr);
- 
- 	if (pgprot_val(flags)) {
--		__set_pte(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
-+		/* The slot must be usable on return, even in lazy MMU mode. */
-+		__set_pte_nosync(ptep, pfn_pte(phys >> PAGE_SHIFT, flags));
-+		emit_pte_barriers();
- 	} else {
- 		__pte_clear(&init_mm, addr, ptep);
- 		flush_tlb_kernel_range(addr, addr+PAGE_SIZE);
--- 
-2.47.3
+On Thu, Nov 05, 2026 at 02:38:02PM +0000, Lee Jones wrote:
+> These issues were reported by Sashiko.
+>=20
+> Lee Jones (8):
+>   pwm: tegra: Prevent 32-bit period truncation and division by zero
+>   pwm: mxs: Return early when disabling and fix error-path clock leak
+>   pwm: loongson: Fix 32-bit control register truncation in
+>     pwm_loongson_set_polarity()
+>   pwm: axi-pwmgen: Enable clocks before accessing hardware registers in
+>     probe()
+>   pwm: fsl-ftm: Enable ipg_clk around regcache_sync() during resume
+>   pwm: omap-dmtimer: Handle negative error codes from get_pwm_status()
+>   pwm: tiehrpwm: Enable runtime PM before registering PWM chip
+>   pwm: img: Unregister PWM chip before disabling runtime PM and clocks
 
+I applied patches #3 and #4 to
+
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+
+, for the others there is feedback to address on your side.
+
+Thanks for your patches, very appreciated!
+
+Best regards
+Uwe
+
+--ziscyeot6fs5noin
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAOlcACgkQj4D7WH0S
+/k5nKQf7BqdPQSazSO1K+yijinQelR1WIDWTGkr07M3GrZ3fE2uXEcC13bL2YOiN
+7TqrdYEnutbLKMX623WYz1plfEsGkYbCTpey8GFx/i6mTwyzANsfRenSL5oOnQW6
+p7GYp7eeYpG4c3qZF4rfTVamKqYs0CVGBlhdot/pHEKmdez+Q8G3Rgd0Iax/z0fg
+PIi39hqy53xR/5ZrzTYWSIDPCLZLFk/HpkbjUjBHZfNsrLU/6xf0Drraf+BIYHx4
+7NNE6/x7z63mP9ZwwUxkj/Odw+Dm1v37p/Z+Sfs4lq1SWU+bVOsbr37tmNskHg41
+GUpO28qdynyg7dNXgTUHdCqNVivLNw==
+=w9m6
+-----END PGP SIGNATURE-----
+
+--ziscyeot6fs5noin--
