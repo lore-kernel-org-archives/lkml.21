@@ -1,47 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188514;
-	b=UErDTgiwxhCE4Cn1KqJ1Z/EFLSRGQa8TYzw59xEc+++wHsJLUCXUeWPG8MMEqe69lzj3
-	 DXt0AN97zwOB8iY2oxbu53oocs3+jL1ypahxTQrHJWAN7+5eILqdRWs0I2b1mM+BL6AL4
-	 Z/AS/gVif5yZ9i7ELOlch/sohMan3gKl+oL6x9JIPoziM8OVNPP2GsJ+PiLx14XasfOhi
-	 eN6U6yQQnNafyB9OVR6CkJG1eztB+RRaKoMOJYm/1FpNB8YFGZa/kPhQuvNc8fM/5Nq4W
-	 SJNtN/L62Sa7NdCSabyvlVec4XnxexrhkKZPOkPwXO5sZSHhGC5CHLhLtTpECHWZn1A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188514;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=zL2uwwgfk8i7RgCoE5FcFfUq5QLlEXIJG136T9/1M30=;
-	b=CLCQOw11B4h4zqmNB71mOjMvBpfigHvxpdwtYRXg82wut4yLiWrxOqbkQuHYhpkQUf+O
-	 EOV98tdwZZM5FqVGV/gEBYRWStt5aZeda+iQSFiYc1tKKtNa5F4gMqgkU1c0MD5TvZZUB
-	 3e9yvApoesd8d6zt1xTIK6KrZM89oNJd+rOFIk55RPq39D8avmxndnQ/QidwjrWMrdWeQ
-	 6zO+0bICdpBCMR7HzwrcjKreCpHcP0Bv4tK+KfLZClLvDnYpnx3oGbDdPCfTPOcGh7zhw
-	 0Og5rJHtGB8TjcgZhsSInBDma/IBPlGUJetcwZb8ZNlK0LudUBkoTusllshd6+l1RkA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i8UNnQWs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795188518;
+	b=Jl6lsA3XduvpClj5B6thpwFAuSriAf6ME5vgBH+nVk6280b9DASXdBAiJ+6p0fjpfAYq
+	 zwkXWPTmOuBts5AJBthkZoTARld3+9spJa670IohWeCO2/wM1R5zEvccYOge0AgpcNUwK
+	 peRleTrmox3ItLQPET2rQtAgfiQ5wTUwjN3AFu21b2e54cb8E9GGGe7dVNU+SsMjuEwRk
+	 aKtBwRQaI5SekqyI/KDhLOVBGT9HYm2rgzt6oWbf5yr02+5OoW1tvwX+ASKlYzyHcbZBF
+	 R7kdzXnblMEO2JzzPbZEpsx0AqARz82isyiyK1hMqcpv5HD/MOFcGxvv3wvtwfvIazw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188518;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:MIME-Version:In-Reply-To:References:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
+	b=nGI1rWWJB5RurZDAe+ebeqyVsV+tjQ51vRmo1pOJ/Vponn/bOWXN+LJlztIJUaLNCyyT
+	 7wDzA1A9IqGC+znyq3eEWL2d5ETRYex0BRLddXoa2NRzPthefyUlHhZYlGv89lF+1HiEE
+	 Og2Jj27kkz14sV3ICP8vhRf/k6mmJyFxwQ2Goqc5e9k+Vdyt0PGwfxvtF5XoyY0cn4REk
+	 HH6yGhx3wNghkhuIXLRvyzN9fsV5HL9cMxvpcOv/uB/Nmv9l9TvExn4y3U3EtiMluYsUR
+	 KLejb4sdxhq+p+MhlFt9seXzQdnlijjndf+xth9xz0esvHA/Y2jYw8hfSld0z2Q/9oA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dpCi6kq4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73DAC606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:28:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32B0F606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:28:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32B0F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i8UNnQWs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58C1B1F00A19;
-	Fri, 20 Nov 2026 15:28:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795188513;
-	bh=zL2uwwgfk8i7RgCoE5FcFfUq5QLlEXIJG136T9/1M30=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=i8UNnQWsrlA1p3mv4luD04DtjjOOxq2L1sxmYNsgKJDOZ8C0Ty4Gm2D0cSyw6Iueb
-	 559zgsEGLPuOcXyRIEePeZeXS/h5M6gujntZKtLX629fDohTWEKN67CSQB/9f3iVKD
-	 7iHTTfb+WEZyeea+V0NyLSDOgMugIablUc15iDoRvRsms4IBTK6ydxyQN7k7Db62LD
-	 AYSUAAN4flQW9l4gTmMMKFZa+glJdbfekaiu6r9MwFlDLcrA5h3xYEfnc3f8XlvPcC
-	 unTfz8NOCRYARdDOfbbYWXm+AtYoxLe5F3g+ohO9kA5S2E/UsZWTZRWu6LClULYAOT
-	 1XJnTj65d0fLQ==
-Message-ID: <59b8e9df-0f78-49eb-a23a-2b352a4a2333@kernel.org>
-Date: Fri, 20 Nov 2026 16:28:19 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dpCi6kq4
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3ae1b34e0d2so1306324a91.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:28:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795188517; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DLcMYZ5+x4MnIws27vD9rqM82Y4kaRYxwpztjQgpWFVkPYJOYFPlDRjGhyzLlfe8uD
+         Vpl/hn6Ja/NGgd9HDxAC0qU96+zuGym036xT+jn4+MSmoeIngZqAauxk4l9BxPcQ6gAY
+         bIpLZT5dIvJjlwLIaCOjnk5EUkRljubZr7yn3YJRc8d5aPhfuew/HkbPvhJokvREKOzl
+         HglHy/ZOKwWPCr3Sx0igFomhr1Q54epQ9HFw/jwhYwCYyd/hSFzlnrfdwPVBwDGyfNoh
+         /Gn8GawwMtgYd3pkQY8rHzelok57DkwNHrZO1EfY8vynm17x5thA2m2P9upANBhDovnC
+         kofQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:references:in-reply-to
+         :mime-version:dkim-signature;
+        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
+        fh=BdNrN34YgapQPoBfbh51EfdIEikwo+ftMnXZ7InTx4g=;
+        b=JP+rLviKcnTJvycnsmJc+A86hgHxhMaYMxQYmaHNjfYdwm+gXC7a8oW9i0trmQ9Nyx
+         7BuskxvkcaU+zyyKM+zFa4hFFkiVQqOZgOy+rgkUvZ58DAmhQZ4Dic1f6reH197vOuB8
+         LYmmOymFcFlPnLKgB8m4Xi2DSpvTIM6N9tWvdTBdo+gKkz6oUUymZ+wJPFj5lAQnadMk
+         Np9tRnCUgJhQYfcHU3v45PCyjjKMMXaPVYKMOfF/ClQzG7x227ROFrWiLaLFwlcp0UyJ
+         GFxwwPhdgn1OhpclHUCs1PSuaiD9uYunD5FkmO9JlluJe1BA4iyUOKM0zrIbhRoxo9O6
+         ns2g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1795188517; x=1795793317; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
+        b=dpCi6kq4CDyvW1thHF5TaHWlZS/A8ljmB+P9fRGWV9YNiFE2znpfEOiQUBp6s2tzK5
+         xJjAjM0Ly8IaXS3GAbQ9AIsDzXmUPUhQw5HNK8RQvfaAf7J6EGKIwQz21cNw41YgKm0g
+         NuW4+IXdYQ85MXbzQbV8ZkJtuVhZXXvHnGiio=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795188517; x=1795793317;
+        h=content-type:cc:to:subject:message-id:date:from:references
+         :in-reply-to:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=E/o/DO2Od/0aki1gWxDvnFBe5Khj9rSd55fktQ951+0=;
+        b=YWwy1VAA9+XDlDRV07xPABQfvPp+XmLXk3S4g9z3y0VvowICvZFO2prKVMbSHlaVrs
+         dez3sIxvqa5w/RR1sgS/75GNamqDqi9vprrkD3OAfBAmPOpGaHbZLHWY2jBOYwzFtoiN
+         ekE2jzLfD3WyeZCyRT35qnZG87cvfWquo2KUJK76ang9AvseCaB2rQNLbqPq1rfX2exk
+         OSKWFCH+czRNyS/44Q8JdjXOAlbWFt3rS+bb1ZO3JwBsK4ZW1lj1AhvivcMN2jJgc8V6
+         xfrvKScqxQpUyULjv+xA2SytmdzHMsy/vPw/bVohpMyhKTdNdFe8zckhKTb040F69Qk5
+         RmhQ==
+X-Forwarded-Encrypted: i=1; AL+hErEjfr14tXgNIOF46zeIw2WX9zMf2Jc/JqfUjQoodMQjTQdzY3Ii7xk0snWE1QpiAzmiSVe9dp5qwE3xE1E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8L8KA8X7yqM+wZbpw5DmjPq+ibOnAxtll4eYU4JDLGp3ZkSLZN
+	VdjXLfkc0PtADYYVpGhlxpizpcUzPrIu7w45iNQLX+L2oeTXFWnkkGwCbCNdlWOCLtVjnyCryeO
+	zTcno0qgSXTGGKXz01b8Bhk8lYRMH6MfscdErzVlZ
+X-Gm-Gg: AZFdTZdbyWJia2lj+8mGi8F0lF9JpcGnAMlpFJX71X1XNnvDmTxy+2DzcFT+a2rsxah
+	LV91KOi+pRwgKsc+rubmGBBQNkVAYOfnDjbnv1lF0XyOrqRwPK5v6Y+vdXBVXtRApzaJj3bRpM+
+	CaFd3k3PEFvGQ6dC9e8hEYFKD7iCZ1NQ6FtL1A3uaIxbbzaLKCT4mFFesf4UxkVc6SWtVXeET6i
+	IzKLkiHkPr2PL1EVQ6R51FML04EJE0eJdlhzrCz1gNY3wxkfl3ZtQ4q2kKLmR992W/SJVTfllO4
+	XE734Ax+FHCCQutc1E6T3bMxqU3kPvpEMuNWywsba6xgon3xdiU/nKbrP8LBSC+xLsJj3OrivAN
+	5yA77jQ6SOYzLZsX+yEbVDWe10E6VBiLImv35aCDZTgvkH6AuRjViXxYcwJDdCr8sd+mYuB0=
+X-Received: by 2002:a17:90b:1d02:b0:3b0:9f78:4c18 with SMTP id
+ 98e67ed59e1d1-3b40a613683mr3653287a91.41.1795188517468; Fri, 20 Nov 2026
+ 07:28:37 -0800 (PST)
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 20 Nov 2026 07:28:33 -0800
+Received: from 415065739583 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 20 Nov 2026 07:28:25 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,111 +104,105 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: configs: defconfig: Convert TISCI to modules
-To: Wadim Egorov <w.egorov@phytec.de>, Nishanth Menon <nm@ti.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Siddharth Vadapalli <s-vadapalli@ti.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bjorn Andersson <andersson@kernel.org>, alexander.sverdlin@siemens.com,
- jan.kiszka@siemens.com, ayush@beagleboard.org, robertcnelson@gmail.com,
- upstream@lists.phytec.de, francesco.dolcini@toradex.com,
- leonardo.costa@toradex.com, matthias.schiffer@ew.tq-group.com,
- stefano.r@variscite.com, eblanc@baylibre.com, msp@baylibre.com,
- thomas.richard@bootlin.com, miquel.raynal@bootlin.com, mwalle@kernel.org
-References: <20260910134409.1713610-1-nm@ti.com>
- <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <53d50a7c-4318-4705-ae21-780b04628742@phytec.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20261116205320.1621386-10-dianders@chromium.org>
+References: <20261116205320.1621386-1-dianders@chromium.org> <20261116205320.1621386-10-dianders@chromium.org>
+From: Simon Glass <sjg@chromium.org>
+Date: Fri, 20 Nov 2026 07:28:33 -0800
+X-Gm-Features: AclHuK-qPItHO7bqTa5oLj6xwjAWer8yBK3PhZJ5Dri-PQsIA-QqfOCBITlcfJM
+Message-ID: <CAFLszTiAJz=qpc0vLFaS_rNBy2QRx27fi1=fzH=vU040f0ctbQ@mail.gmail.com>
+Subject: Re: [PATCH v4 09/14] libfdt: overlay: Update base /__local_fixups__
+ on apply
+To: dianders@chromium.org
+Cc: Devicetree-compiler@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Devicetree@vger.kernel.org, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, 
+	Saravana Kannan <saravanak@kernel.org>, David Gibson <david@gibson.dropbear.id.au>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Simon Glass <sjg@chromium.org>, linux-kernel@vger.kernel.org, 
+	Brian Norris <briannorris@chromium.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Julius Werner <jwerner@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
 
-On 20/11/2026 15:42, Wadim Egorov wrote:
-> 
-> 
-> On 9/10/26 4:44 PM, Nishanth Menon wrote:
->> Now that all relevant drivers have are ready, convert the
->> TISCI drivers to modules. This impacts all K3 platforms for
->> boot, recommendation (based on empirical evidence) is to use
->> deferred_probe_timeout=60 in kernel command line to allow for driver
->> probes to complete successfully based on the initrd used.
->>
->> NET Savings: (Ubuntu Clang 23.0.0)
->> ./scripts/bloat-o-meter vmlinux_previous vmlinux
->> add/remove: 4/380 grow/shrink: 0/5 up/down: 32/-143248 (-143216)
->>
->> Signed-off-by: Nishanth Menon <nm@ti.com>
->> ---
->>
->> NOTE:
->> a) This patch is based off v7.3-rc1 and will create a merge conflict
->>   in linux-next (next-20260909), but the resolution is trivial (vs
->>   bd94bea7165be450903c6d64bbcb4862e36798f9).
->> b) Emperical experiments that Siddharth Vadapalli did,
->>   it seems like some driver probes might be taking much
->>   longer than the default deferred_probe_timeout of 10
->>   seconds that is used when CONFIG_MODULES=y. Testing log[1]
->>   a deferred_probe_timeout=60 seems to have worked fine.
->> c) Full bloatometer report is available in [1] as well.
->> d) related lore discussions[2]
->>
->> [1] https://gist.github.com/nmenon/5f1587b373e6ca27170593010188d968
->> [2] https://lore.kernel.org/all/20260429-defconfig-v2-5-e4ed4186028b@oss.qualcomm.com/
->>     See headsup I gave on #linux-ti irc channel https://libera.catirclogs.org/linux-ti/2026-05-20
->>     https://lore.kernel.org/linux-arm-kernel/20240821110054.35u5ubgaogzjv6c4@rover/
->>     (original thread that triggered various changes)
-> 
-> I can't boot our boards anymore using the default defconfig. Is this forcing us to switch to an initramfs?
+Hi Doug,
 
-arm64 targets long time ago were supposed to use initramfs. It's pretty
-easy to switch, honestly, yocto can give you a very small initramfs
-which will you can also extend to copy the modules to rootfs, if needed.
+On 2026-11-16T20:52:57, Douglas Anderson <dianders@chromium.org> wrote:
+> libfdt: overlay: Update base /__local_fixups__ on apply
+>
+> When a base device tree is compiled with `dtc -L` (`--local-fixups`), it
+> contains a root `/__local_fixups__` node recording the byte offsets of
+> all phandle references in its properties (for example, so an OS kernel
+> can identify phandle cells at runtime, so a composite `.dtb` built by
+> `fdtoverlay` such as Linux's `foo-dtbs := base.dtb bar.dtbo` retains
+> complete phandle metadata for tools like `fdtfactor`, or so a merged
+> tree matches what `dtc -L` produces).
+>
+> `fdt_overlay_apply()` updates the base tree's `/__symbols__` via
+> `overlay_symbol_update()`, but leaves the base tree's
+> `/__local_fixups__` untouched. As a result, applying an overlay to a
+> base tree with `/__local_fixups__` leaves `/__local_fixups__` missing
+> the phandle references introduced by the overlay (both from the
+> overlay's `/__local_fixups__` and from its resolved `/__fixups__`), and
+> leaves stale offsets if the overlay overwrites a base property that
+> previously had phandle references.
+>
+> Add `overlay_local_fixups_update()`, controlled by a 3-state
+> compile-time `FDT_OVERLAY_LOCAL_FIXUPS` setting in
+> `libfdt/libfdt_internal.h`:
+>
+> - `0` (`FDT_OVERLAY_LOCAL_FIXUPS_IGNORE`): Leave `/__local_fixups__`
+>   untouched. This is the `#ifndef` fallback in `libfdt_internal.h` so
+>   that size-sensitive embedded environments (such as U-Boot SPL) that
+>   vendor `libfdt` directly get zero code-size increase and no behavior
+>   change unless they opt in.
 
-Best regards,
-Krzysztof
+The test suite passes for me with -Doverlay-local-fixups set to 0, 1 and 2.
+
+One thing I'd like to check is the 'zero code-size increase' claim,
+which no longer holds now that fdt_add_subnode_namelen() is split (see
+below).
+
+> [...]
+>
+>  Makefile                 |   6 +-
+>  libfdt/fdt_overlay.c     | 525 ++++++++++++++++++++++++++++++++++++++++++++++-
+>  libfdt/fdt_rw.c          |  37 +++-
+>  libfdt/libfdt.h          |   7 +
+>  libfdt/libfdt_internal.h |  23 +++
+>  meson.build              |   5 +
+>  meson_options.txt        |   2 +
+>  tests/Makefile.tests     |   6 +-
+>  tests/meson.build        |   1 +
+>  tests/overlay.c          | 154 ++++++++++++++
+>  tests/run_tests.sh       |  32 +++
+>  11 files changed, 780 insertions(+), 18 deletions(-)
+
+> diff --git a/libfdt/fdt_rw.c b/libfdt/fdt_rw.c
+> @@ -405,9 +397,32 @@ int fdt_add_subnode_namelen(void *fdt, int parentoffset,
+> +int fdt_add_subnode_namelen(void *fdt, int parentoffset,
+> +			    const char *name, int namelen)
+> +{
+> +	char *namep;
+> +	int offset;
+> +
+> +	FDT_RW_PROBE(fdt);
+> +
+> +	offset = fdt_subnode_offset_namelen(fdt, parentoffset, name, namelen);
+> +	if (offset >= 0)
+> +		return -FDT_ERR_EXISTS;
+> +	else if (offset != -FDT_ERR_NOTFOUND)
+> +		return offset;
+> +
+> +	offset = fdt_add_empty_subnode_(fdt, parentoffset, namelen, &namep);
+
+Since fdt_add_empty_subnode_() is not static, every build pays for the
+split, including IGNORE ones. With gcc -Os on x86-64 the text size of
+fdt_rw.o goes from 4610 to 4743 bytes for me (I have not tried other
+compilers or architectures).
+
+Please can you either avoid the growth when FDT_OVERLAY_LOCAL_FIXUPS
+is not UPDATE, or update the commit message and the comment in
+libfdt_internal.h to give the real cost?
+
+Regards,
+Simon
