@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.81
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.10.94
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795205254;
-	b=LVZ+Jfc6+ZXtRuOSamA5+TdjTLfbrD6bbWn4DUkqKzlNBW6VBozXlAsLRFporHawzxnd
-	 nKCZwpBC2Q+K6ashwEYT21N1I98Bgk7HEffcoypHWhTdbjt1pv6YFG6/3nrs6ogXxDZCV
-	 e0kXdKbMmq4sH2wSNcxn9Cfr4xdALlcg9cKoLZgUeJDgK0IuuUfLPDZDVA6HA7TSa2p+k
-	 3l8BY4XXN4HOVb8tF4UKVM8AD8XyjW0nlFL0GDA2fAbFXQtUuuPjrKKoirtHfAFSMYyiA
-	 UvQWI7E8X5tQYlxyymTuFFxj1heZQE2QSwfx5q/0EoG5AE573+CPMvEYBYaw5ui23Gg==
+	t=1795205311;
+	b=esuzKKd3wUttE+ye4kt5VKr+KVv/GDbXDQSNow2q2LaGoZsyx7RdFQ8SSuxcD+LZDAny
+	 Sr6WNhWMjQCrYOUJQrSlLA21fgCk2JCEtHq+dcETpDy74/V2J9Gq2UmY4vdiMuMs/MHzP
+	 yuTOc5fjNnB8bj9f8dXPL/ph49gWmx4OEavdG34xZuj1Tkz9SfEuMl41hQy69+9c8Gf6l
+	 /M5fS19dzQeX9cbEndEJQihFZxvU64ZiU1wcaVlHAsJFjEWepY3Xs+QbYI4dfh3cqSoOQ
+	 OLvnnV1Kd77Mgk5q0TnhkUPhMMw4jb+LSxBrF37VfQ+Odoqw4D05ls+qL3TaDCyF6dw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205254;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205311;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
 	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
 	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
@@ -26,134 +26,126 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-id:
 	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=6I+ngaNXdJjUiX4Cfvi4lejVKhK9n9NoYEna6WDNw1Q=;
-	b=gjTBPgmi+jGO5AYVOtkBo1QOoDhxFfe/lDTj0wDiFvIG0TdfgAAeLOF7KPJ6InNNMmXp
-	 MLoKnTw5LWTmQ/nXuhU1pMnCW6oj0UGL3uXRUzHLN9wJf+GtuIfbe/RTvIRzVFCl+YqJC
-	 Zwy2SnqEvMsXREwtK7BFtSkPhyyPJWSqV6wLgG9RthU0vTi2TnSAAj+u7sibXSeD9M3yD
-	 3x9dOFp07Ze/sGNYJ8+TY+LbbwvCGBA/jt/q9SKWIdNbTJxBkCfwbVQPxOCVb/gBN4jkS
-	 K3VgIUyDJ2iZttTjnZt5hkOkvHNjT9CeWLNG2Moj4/jy8vciD2RbqOcMAg15TRjRhwg==
+	bh=c3L+Jv/9IG4SANB3cN+RAGebcUQA1e5kXkGdadSXBaM=;
+	b=LbuOScwO3zagXo0M81khLYNBGad2HAqprBa+tVTvdTU737i3LwIEKK0ma4Kf/VKo9I5d
+	 5CfkQhM1DhJFfNWXWezTsyjK0AD7eXKe5vl5Httr+rXvQ7b402wy9PsgfQBYmHIHSYVRx
+	 FtsmA62aAR+5Kedeh80aYKIIRxAVT99OTRZm7mlJucelEmdQL31trWzbdnF78lc40JIJt
+	 BYWzZ/mzSlx6MogXS8npI4psH8269ktBvurc7otpl6i/HJGNYHggEk1b1hnq3ztamvBW/
+	 JM3LqUKXYWq56QUmWuLc2hC66DIt1FGGhoEjKyEbf/vfGJireCHfxO8l+0A5maFzRWw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=outlook.com;
 	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=jLg5UwQ3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.20.81
-Received: from CH5PR02CU005.outbound.protection.outlook.com (mail-northcentralusazolkn19012081.outbound.protection.outlook.com [52.103.20.81])
+	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=uIprtqrd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.10.94
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azolkn19010094.outbound.protection.outlook.com [52.103.10.94])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 985D9606A6E8;
-	Fri, 20 Nov 2026 20:07:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 985D9606A6E8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 028B9606A6C4;
+	Fri, 20 Nov 2026 20:08:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 028B9606A6C4
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=jLg5UwQ3
+	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=uIprtqrd
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EQZ5q27SN66Rl4ye4efeDMmpTjEsChC2rQLaAJJ970994CbnBRsay1jLZMAfMz/RGrml6YCMwWRqMJDtW+x1T4ktlwuFQvM7bx0VEpY84ZSlBNmcBXLVZWPruMQvGiQg5gjw6rcjJ20H8JyM0dbvJyT7LZRGya7AvPbUfbpEbkFU5zcCHBLy/1qVwaqi2nmTP0zR9IFB8GU9sG7tQhSb4qIj+0KDgy5VUykmpKUjsX3bud7vjetj533Gx0FrKPY9a1BPWhUJ0/wL5sIE+8lJQsPonnwDNmBl/UOH0GB8d0gFsiW7A3lgtOatYtVdDn0Q+HLnV2H02jMVvhlse7au4Q==
+ b=w72UfFiCX5qSjaTvU5a1Sgbb5p1CSjDj7cmCg6dPSZtTO+FZcaQk4n2HP+dVXQtqig3hBfMrcxyAYY0RiNYeAR+4tU3VTpRxGN6ABrGxzp0hi7SwhKmV1AwEdpTVeAnfmysShedaj6qKPIKhxI2XkDNJU/wCRoYU3yunDiq48s+weW9LM1FVQgWlQXGTVifAXygB9E4xl7XgfW9sqNSdVucqRnLNKOZfXO1o12JHS5X2NtuEcrcne07R6xfXZVK3OD68BKf9TKMqRAM5B5jzyb2gC6sttKmzwgLWu4xMhwrnN/UaFw6Z9z6x9oIiX7WHzOcyORvaePOtQ0aqDctv1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6I+ngaNXdJjUiX4Cfvi4lejVKhK9n9NoYEna6WDNw1Q=;
- b=nGl2y8Pj+flixSF9rezZOFG3KcPTNEp0TD+9/2BW5YWrU8sdtxLnWjKp/7PQgcwwPRc15UDYam+4dGs0yDkDpQfmAGB4i/vjWvlJ6BqbEA09YRYdwxLIGN5wvjX9eQuRIxQNYv0qGywoRswUNlDyCSeV5+4bzOxnKiN2Wch6F1NhFSbiO9lFvTHbrPikhUTxmgt+ShJsWpxJKUFUVRJxPkFD6+oaAmo1YDfyb9kHekFxw1GqRQ9gKivnczZxvAEsCIEUpcl6Ib/FzYYkGs6V+jul8mJQ3MQu2pi9LiLAWlnKFCAzYxgCuklXQ6WsHl0oo6fUQhZ3LBQkm5KtmS1QeQ==
+ bh=c3L+Jv/9IG4SANB3cN+RAGebcUQA1e5kXkGdadSXBaM=;
+ b=MxuBE0QZke7mgiXrCu6d1xh/AHtvn7Y0k6MtZbb9C3FyHUfqq7BCnvSCLD7k/iaJIiGxOlrXLf/7X2q3snXZBCOD9A4aiVyzo1TzGYct/+JE3rk1D5cVX9HLKhhRlL1qW7w8Ehic4d2/Vw4I6UTPqa1wSQsLDYu0MB0YYkd05r72FGvSLWL3y/EV2E7nASoGTpcklUyRR9wPIBhvjbDQ3YZv+H02TuHP+gKBF3jVhs6kSlO4Dvs4wWYSMYz6CRZFLhUisJrC7gUuUZO1xwQzbwGt37m/618evqodj+qvE9Gs4hn4ENI9KnUY7A65SPssUErUvzCPbE7O8Xp+Ihv+UA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
  dkim=none; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6I+ngaNXdJjUiX4Cfvi4lejVKhK9n9NoYEna6WDNw1Q=;
- b=jLg5UwQ3PH3mb7TJZUXuPy3Y6JC70LDpQYBu2GFTwbGI/6BzSjXJbRWVxBYeZmwXg3e3e5whaoeGT2BA39p+cH/YfcARqsRyFzeC403LcekMqTBL/hLW3c6A1G7iGfn7ek5m7/D6zAQjhhvoSa1G8GwiEPuE5SwToI07UMqY6N/BJY8bkuvoabtIrnKOacXbs2y9UGf4gbNYTXS8CYKu0FTIaAAqetWmqgS7vhuVwLjLko+1he3CiKGbkDkiv0pp9s9rgWqS4O6mWSappQOz+M0pLeVLLCiTLe+mBdSBQoSwpezrp/NN9L7cYV8s7aUWs0tVm2W9PvrkPPOxmnJ5Pg==
+ bh=c3L+Jv/9IG4SANB3cN+RAGebcUQA1e5kXkGdadSXBaM=;
+ b=uIprtqrd1rcnYujdX4unMi/kGBwx+CJokavIa/G2GxyGyqzbQUmDPkXL/Xa0Q7PyHjJazyjYev4ky92iOw+H3dJvsgzL3ZmmJvaNsgi2x943ExI8i/NYD2G9ACbP6ZDicYgqZF0K/i6hbrTqxyGKW44U+Fyr9PTI2knNG7OBe74qs+s2JT6+r3/EfDuMzX62tP7j6E4h38P8joblSy0woNB8Gnu1PQVasHVY8o3RidgJa3MVm9o6PsySf+l/MU5GWOXgACPi5nYKdF/9Ql5CxFEzRr4/i+GYMHu2oDH7pY44U8Q4ihNRBTNW+pUuEZNu+TidhUjdm0PIm0J5C6HO3A==
 Received: from MN2PR02MB6863.namprd02.prod.outlook.com (2603:10b6:208:1d7::20)
  by CO1PR02MB8635.namprd02.prod.outlook.com (2603:10b6:303:15e::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 20:07:28 +0000
+ 2026 20:08:29 +0000
 Received: from MN2PR02MB6863.namprd02.prod.outlook.com
  ([fe80::da67:fd0f:d96d:ac53]) by MN2PR02MB6863.namprd02.prod.outlook.com
  ([fe80::da67:fd0f:d96d:ac53%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 20:07:28 +0000
+ 20:08:29 +0000
 From: Michael Kelley <mhklinux@outlook.com>
 To: =?iso-8859-1?Q?Uwe_Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich
-	<dakr@kernel.org>, Johan Hovold <johan@kernel.org>
-CC: Jonathan Corbet <corbet@lwn.net>, "Rafael J. Wysocki" <rafael@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>, Bradley Morgan
-	<bradley.morgan@linux.dev>, Armin Wolf <W_Armin@gmx.de>, Masami Hiramatsu
-	<mhiramat@kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "driver-core@lists.linux.dev"
-	<driver-core@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-trace-kernel@vger.kernel.org"
-	<linux-trace-kernel@vger.kernel.org>
-Subject: RE: [PATCH v2 01/10] driver core: Disable driver overriding by
- default
-Thread-Topic: [PATCH v2 01/10] driver core: Disable driver overriding by
- default
-Thread-Index: AQMfJRX+ztp9Zvox4aPtllK0egdUugGtXib4tKZ5d2A=
-Date: Fri, 20 Nov 2026 20:07:28 +0000
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Haiyang Zhang
+	<haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui
+	<decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
+Subject: RE: [PATCH v2 05/10] uio: Allow untainted use of driver_override
+Thread-Topic: [PATCH v2 05/10] uio: Allow untainted use of driver_override
+Thread-Index: AQMfJRX+ztp9Zvox4aPtllK0egdUugIWEi9PtKM2iFA=
+Date: Fri, 20 Nov 2026 20:08:28 +0000
 Message-ID:
- <MN2PR02MB6863ECE0C9CC59979692D2ECD4782@MN2PR02MB6863.namprd02.prod.outlook.com>
+ <MN2PR02MB6863416350047853E8C13756D4782@MN2PR02MB6863.namprd02.prod.outlook.com>
 References: <cover.1795171088.git.u.kleine-koenig@baylibre.com>
- <f7b5c6319203d288a166e6f811c6ea07e12d5f4f.1795171088.git.u.kleine-koenig@baylibre.com>
+ <190f97fdc22c161c4721283a2beb20bb477f9e56.1795171088.git.u.kleine-koenig@baylibre.com>
 In-Reply-To:
- <f7b5c6319203d288a166e6f811c6ea07e12d5f4f.1795171088.git.u.kleine-koenig@baylibre.com>
+ <190f97fdc22c161c4721283a2beb20bb477f9e56.1795171088.git.u.kleine-koenig@baylibre.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach:
 X-MS-TNEF-Correlator:
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: MN2PR02MB6863:EE_|CO1PR02MB8635:EE_
-x-ms-office365-filtering-correlation-id: 951f42da-bc45-498d-8380-08df4741e723
+x-ms-office365-filtering-correlation-id: d5796a99-1f8c-4823-4ec9-08df47420b2b
 x-ms-exchange-slblob-mailprops:
- WaIXnCbdHrO+2YmbT5jW+WUSUt4IT5vRLLrm+SOU1D8ozK8ImpPIf/tC5qsQIIvfBMhrC7o5xoCJhX7kvEnzxuG9G0c9vkpCePwCJN6/725GD7bZPXb+qnbsMpUwZnh8mdje1FgU1f93IcSAIhpq4Rdb3bj0DiSUKk/9iQx+4VxC7kV5xt+sg6DC1g3Gm+0406Izcg0bHwmi94JgVRVjxwk7va4VE3UY+949EyrYJ3vwmbKePxKR2VDY/oTeokNNcE6/29kW3KYwzrtjk1Qom1ZHGBVb4v34MJ0YNJgYGEY9+cnr4Mx3YoRrHS4XoI7RpQfUlWzWgrr/popZrRmRHeM4GRFzLAX/vnuxN0RT80zq8pf1TsRc1O33hDphkGVK+tRNa0lR04bqcBnAcd0KjL33+2X1OMz2oK29vjRv34E1iqY70S/xVK5zEOYGy84Gqz+MURhKmOitaXVNcOZZhtzg/6bbMY/8hAx/d9yN1RUSzjtX5UCYy+ZMcfyDRceiclePd0mSNq0Q5uoiJ9NBTRShz7l4rqFQ+RJlCxIZKm7wR21VWp5TsHuRyf7RN4xPwZjbb+QSbiKD5N3Rw9LRi3U2yNcx+Qn4Sms54T3tAAbCakf6FiMl0CYvF8qAvILY+wudzdZTzXg8F2RfJJ7RZd2jnh4/0rcJpKNno7ak55V7LmxGE2NThEzJaqL/C6BU4EslPNFVWOx9aPiJ/ibnUlz3WqTToKsINX35tSev72sdnqB3tSEoTW9Kt21Y+TgCA4w6XcrDQFc=
+ 02NmSoc12Dcj/mAxI/NGvzdUkjNASRo/jjyMcAHWl72QJU+4aM73nXBhiRKihK/yFBUsB4HUkEf8LXUkf9ZkFAUvK82MnoTDTQH4GDAciYAifFaygP+1dS8Omr8GkLf8q5T5CkoklX1PxE7JEc9abcIuEsqrhgqLTgEY8W3bXqFGuSerTDY5ZTkf/svwkL9R8k5nkvtU4uIiWLEejTxppV/J/PmcJtiPE0reAu4buhlhTcXQ0WJTpdUp36guNwuBFLZvRCMDOxeotmCWctC8/pJZXeJypOkfWgNu0VoNdvkK+bl9jhiQ+bvoJYkYW/vcIJM2150+BHbRCmEIy2zLS2A7pEK3Y+mpwOtX//XItjhwWLSIoljoC5K472nNlPKGXP6S71TxKa3I135AAj+8oQTqNmfOIyX5VHFBKUvIOBRDi3GlnxjG/a4M3Z9RVONhGWX0ox7dQu+8KiNQ96eB4WhdFTdQ6N+HxaAFVkkVlk7YcomvLWu8AyNY3wFTrCk93WKFYlvhbCIKC+eWC5FLKKtV85/KSYp7mFetvvoOU8CmG7bfpxE6zHa5XWNarB8i6SjVKqoa7grsTgLRMg4K5hnmpyLTP2y1vHCeK4wtKV7QaekpsWaSBwWAXT6qUAv1hcRUphx4gkYd76rZAUDFLD1Vo64LM+ewRNkcEVwdAy5nTYyfeKCOi9tD4EdRrGyQRLQdWC7sqHmWjZLaD9rR95vZ/7orce3jE6MnOT7Q4LFspJ6VjyBt3IcZVAhnCN9n
 x-microsoft-antispam:
- BCL:0;ARA:14566002|55001999006|19110799012|8060799015|8062599012|24021099003|12121999013|25010399006|17081999003|51005399006|13091999003|41001999006|10092599007|31061999003|15080799012|37011999003|40105399003|102099032|3412199025|440099028;
+ BCL:0;ARA:14566002|55001999006|19110799012|8060799015|8062599012|24021099003|25010399006|51005399006|13091999003|31061999003|15080799012|37011999003|40105399003|102099032|3412199025|440099028;
 x-microsoft-antispam-message-info:
- =?iso-8859-1?Q?i8wlu4/mMCfJ3kMc7uxA8OxCiXxpWk4lCX+8uSXsZrm0zPsNnr70gnQQhf?=
- =?iso-8859-1?Q?yqHurWuCJvdsnEobxpLdT9hlLeyNbRy6oKO5o0ebPEFW5rgkbdu3A0MQ0Q?=
- =?iso-8859-1?Q?lVAWYS3rvlawJ0iBD87FEqkcFZmievf8s/owyP+ggBWFKon571++Noi7g7?=
- =?iso-8859-1?Q?DGfzQJvaLPgO6ThaxbxMEZawqtwELgp7cpOHcSzeLv8fGejB/yGfH8RfUf?=
- =?iso-8859-1?Q?xR1w69fNW0Ay6RSPz7ayXcV3YMJlSlCR0JxAKvb55vzpcDUzqaFkMTL6Tg?=
- =?iso-8859-1?Q?0ca5PuyySTa/PHuvxv8mlTm7ldDf1aAcNKhuVO+eI+Zn5VstnmecccmMHo?=
- =?iso-8859-1?Q?NJtIGT8orkq1ywfg2L2Sa15XbcucstQxFPBqF0xGvbMACA+rVWt1GpgkX/?=
- =?iso-8859-1?Q?AZ3dUXg1bLc/vdT2VsMYlnjk1lN14CwW64RLsiTC0lvmUC33H4FQ27A1XR?=
- =?iso-8859-1?Q?lCExFwojzoRA22cIxQScE4srB3DSyfEJfYKQhtWX+nnlg23EAHIPmb1sgM?=
- =?iso-8859-1?Q?Bb8XeUMx43bf1An3I0a9ex5C0jEHNCsjb8WUNdXrpBhqnA+Xj/BZyhf8Vd?=
- =?iso-8859-1?Q?D4c3AxocNTm5hpjCVBs63GziHVvbbIkrd9S9kjCoA4dYud5QJlFIHzzIGK?=
- =?iso-8859-1?Q?yoUmgSysiG1IFwAaRc8Al8wL35iLclDSksJIc04F3uuPMx2cLMQlpJa5N8?=
- =?iso-8859-1?Q?V1eHrMHo8wZ31ASj0Kr3F03a1D+vF+q6rXVbAyiBSSRoJmR7G7qYOefPIX?=
- =?iso-8859-1?Q?6LUghMe0Stjy4GgWUhZkfs7RYseR2jWJHdQbtYQSQbpFT9AzRLq3mNWt/M?=
- =?iso-8859-1?Q?a1VihY+PPCWEiecTcngv09EWrzEsfTYnyuorniLV1vddChFphb6LC6MvTZ?=
- =?iso-8859-1?Q?ydP26lrqVn4tbYWdUgrNQgJeKpM0CsdJcrYOeSpbFjo4prbx26lEohvAvz?=
- =?iso-8859-1?Q?DZPk653wVdKZRNztD4nIxGNwJO5v3OQ/S7tJFFRpEgy5OsPPApSyuJc6wx?=
- =?iso-8859-1?Q?kWtZFAPEqqSlx08EcVRzfOZi1KAF0VT6o94uvck1iw4UlOfHxKI2+thvMq?=
- =?iso-8859-1?Q?8rH1VcqyI0jv4yp38X34V+oTUiZASYWR89K6ZZpF+oVtAyOG9qT2DEHkk2?=
- =?iso-8859-1?Q?1nqtyLrz+jP3YF08YGNbBSsdn4b2pLfQdNzBPYZJtgmylGL/o8jAgCCgn4?=
- =?iso-8859-1?Q?zd0S7LYdNUEuixZjtQtR9+5L/MEu4YAn3R4=3D?=
+ =?iso-8859-1?Q?t0bRVgAfE2upcEbQVL/ceJKnhyZXV6RFP+vozWwQkS344LosQxpYX+fh6g?=
+ =?iso-8859-1?Q?irIcVSV0gumOFnrFLFksA1cRTxU9jK5eAkP7dfhGp1Z3RLb2KYxAjTO/B6?=
+ =?iso-8859-1?Q?9ValOvQci2sKE7XHaa4dGBzVuvUW80ybM83FhhJP224HeuR8ajWbUcd/bh?=
+ =?iso-8859-1?Q?gpCB1cRwhI4h0EdA8aOtgfl63YQfBKLtFnWVCIR6CiUbDLB1KsSYZe9J3i?=
+ =?iso-8859-1?Q?rM6IzQK7ZrCjlZcLwrtcFdVEI10gzS1ggnFfO69rtxGH6JGLCFoMJ1Ya4d?=
+ =?iso-8859-1?Q?Wgt4ar3oOpEClA9HeOCsMus4A0pnAXbpXXdOTiOYQb4rw3PtbYrk4GHd53?=
+ =?iso-8859-1?Q?EWBfpajEVpDEsZKUcjOhT4EUyEHByxmaAydMNyTl6RSLixJTt4/NxgkbqU?=
+ =?iso-8859-1?Q?0yaDzk9D+pz/yU+2W2boe6g1r36yh/zBkSqXbjSoT15xHUf0xbjWjW3gP0?=
+ =?iso-8859-1?Q?CX49A/Vh2cU7yHzkcDD27qFjCvRcRAylg7np9hE9dCfCwyTrFmJvUFFlgf?=
+ =?iso-8859-1?Q?Yxr5mBowXoMI91BBdbFLRSL0dc/a0muP+HGqAbRA330ODhWr8cHeql8kGs?=
+ =?iso-8859-1?Q?LVrWUOYEDWAkGyFpJR5EqdF3z2x8CIZKdO47fUyT+UsxlOmMkn8IT4oVAb?=
+ =?iso-8859-1?Q?RScbB7E/WghZ64AApgFT8x51pX/IgDI7I49z9cOImXkt00pDnQH4rb3RWP?=
+ =?iso-8859-1?Q?j4jaVZjmTpWgVZTvqFFCnE08/v7sF3ALeMTNjPf6r5hgIvfkJs088GEb8r?=
+ =?iso-8859-1?Q?Kk7KAi5XRc8XDo4nTpecyopXlhys7bkPlsVULOtojHZnZCEIhvdE2hV7x/?=
+ =?iso-8859-1?Q?VEIkSPMohJOsQPgDiK1GXNnPoOJ9OXqUyTgHkhbEwry4CF+DnNL2Csxfi4?=
+ =?iso-8859-1?Q?9qrkolHooVRci0y5T5+DQPWXDbMs8ch5m+Xx24DOPUg446YRwAmZ12Qgn1?=
+ =?iso-8859-1?Q?ZHeLsj0mzs8NKGExajzrTWmadldYuriAJVhkFQRn83nUnCBDX4+GI3Rjb3?=
+ =?iso-8859-1?Q?JxqCeFiBUEajmq9XLE5r6L8YVVilSZ2y2DBEIMD5vP7J0t1tjyHr8DPe2/?=
+ =?iso-8859-1?Q?7WmBL9SNWQhxIjdlXlj9NWc=3D?=
 x-ms-exchange-antispam-messagedata-chunkcount: 1
 x-ms-exchange-antispam-messagedata-0:
- =?iso-8859-1?Q?YugpQLLN4r8BCjcgGavYHk3uO4+qS2zHnR3sQzBQBV608RCGPSl+1ICs0u?=
- =?iso-8859-1?Q?z3ZsVGQWgstFcZvrxa81poFiI48WZNWHzf41dUSqAD6t5DlGGaaNgeAIU3?=
- =?iso-8859-1?Q?OUcWYqlZzUlb497rKsu3GDBEQUb2CrhtGMohWX6u5+duqIwnYrh6+i74ir?=
- =?iso-8859-1?Q?n97Helxtjzlt8YhkyBc4gCOUQDfKt9nwJZUsU4RrqE/HFfhP6kA/CE6saM?=
- =?iso-8859-1?Q?x/aQjzpDkjfWPzXQBUZduEY1tiOReYoX3oe4jL57mVwwc94254G6Xw4R4F?=
- =?iso-8859-1?Q?IJBz7WtJxnW2AK5h6y2Jf06U9/PdmX0NqiWnSngH1F+SpIeRsM7OGy/iYc?=
- =?iso-8859-1?Q?dFO+9LPOHv37Kmv3xPv4mPACX1V3znz1jEwnmPsQptE7mbm+ot+fGODMG1?=
- =?iso-8859-1?Q?w4lg/U+ls+zYuPGcLbsb4LlGJe7ABuXNCP38Ow4aPGQ5MDX1H4zVbl3a9f?=
- =?iso-8859-1?Q?REXtUjItgUy8jvLtGUcCr5xJYR+bE6Nir4y5sjQKFanyHA0hmnU9IP5VBv?=
- =?iso-8859-1?Q?ub1XVOD59DaY+SAlc8eOe2KfPJqFkPAdvWb0dssW+qRtyKQLC9QkqlSPOu?=
- =?iso-8859-1?Q?G1VuRDVw7h3vHumapep2iFPP2BwhEiGIbG/ll2TUcTwXLz+V7PrwNAkbjD?=
- =?iso-8859-1?Q?0nJxrrmCMjtQHsOZidnm1bpuea7h9Emx1CPiPfC9qZOVgpPLU+UJJLQEVb?=
- =?iso-8859-1?Q?1fCxyKjGoTPhLML+jfRl9hymF5EeA4YDlcXSDThgsOYQpKbcwYss7ISpp2?=
- =?iso-8859-1?Q?6vg66XMtsxILtMY657yqG35CYcPJ2bnHd/M8oVF2ISTL83MH/Ar4mR3oKI?=
- =?iso-8859-1?Q?V7jH2SIZc3OiLIQLk1e5h1Tc9Mp0jg83d03m0xTfwZ8kKLBYsu1mitPYNc?=
- =?iso-8859-1?Q?nxwMBRrlUs1d6hrp+iRwQTEFYbZYMP+cFRQATeWGCxiA+D+2CpIHiPq7FY?=
- =?iso-8859-1?Q?9ynzZFe/9JcLHBFv2/7IlQ/L2Ox6nFi7CU7JKFeQHSd+fPpgPJypGui47R?=
- =?iso-8859-1?Q?YR42qIiKVGlRi/H7SZXN6vIbwFtyEC+3civ7JqaAYaQbvJ1graAEMzd5fG?=
- =?iso-8859-1?Q?r8faz0g3kRB2aUBnV3hxDa7ujmaRSXuJtR8AKvQLX5Vw9MXgV0iQHPoRKB?=
- =?iso-8859-1?Q?67Un6P9+SYDB3dzyhZEtRdsDTALXlYja3SRiXTt8TZjblXI9Zxlh8tP9PD?=
- =?iso-8859-1?Q?ar1COPb8WdsPopiGc3rwy9iLIWI1Iq5hyxZsgaaOTYN6MI367/NpzcC1WA?=
- =?iso-8859-1?Q?t349o9jdBiqX0Y0K02ElTti10dyUMkxh8E7KkXNwj0OTO4UTc0HTl5jDp1?=
- =?iso-8859-1?Q?vU8LDG8bX9SUWn1ThEjbBjUSrojfQrL0Aj24EGQESX+ZjasISFpZfzw66U?=
- =?iso-8859-1?Q?t3Ir5jh8ns6IIFj+P2DhVFWlpV0YS/52lAqRJFKvCKeTkNDVWm2+M=3D?=
+ =?iso-8859-1?Q?5UqVlBsFVrYBQmx96iCDSc0QWIm03z6/J/TwRuSDZUecuuVTchc0D/oeIg?=
+ =?iso-8859-1?Q?vzUz9JO3WkojwPIbPk4V26tIogiDZfGYabPzs8dEK1VNZfauF/9eNCS1Jm?=
+ =?iso-8859-1?Q?9Hd3+Fzwvaw4dJz2piW7dzg5RbBIgRpO/gMl7tyMHSFZydyWYNZm7uF2lW?=
+ =?iso-8859-1?Q?woLdiOd9HxCkTcO7s6tjMOwSh1u2GwBvxFUhnzvKu/8vQLl0txrm50fZVR?=
+ =?iso-8859-1?Q?FRh8SWWpAIwpt7B6n3iG5gNtLZEpkCGRHjyIVoRgrroXpjc/8LNVTOCXKY?=
+ =?iso-8859-1?Q?IwEK1pBKBsbkd1m2AC9kloIkItUrDJJ7tCXypVFqFB301PjWjvqDcqzsfs?=
+ =?iso-8859-1?Q?MdNowKu29pEV/90+Vd8EWRQ8NXV/SmHmKFtfm25J+TEAGtFFtAPvJ7/fk7?=
+ =?iso-8859-1?Q?4eEXPXSZnwq+0H45Q+bIGQGQNsSv5S62Gl1vJOLCeXvZrAEmCmHoAHvNNI?=
+ =?iso-8859-1?Q?MDWVJSInGD9lspGxxAwg1c5R0A0h1LUfCyiyrKXuPsViOk8jsACjzi7jfF?=
+ =?iso-8859-1?Q?3/vrG0B5dz93iA6zgP55eqvjHXZWAO51UmVVDxFaCVIV9QVT/gJ1LtvYPF?=
+ =?iso-8859-1?Q?throbVcBl749ON+9pHP/1xBwtRtYc+qPznh53BspWCrbnQAH4moLwm7D60?=
+ =?iso-8859-1?Q?xT5jFzYn0w0PiEZtxVpydierqDkLYuOIiQs+yAPUdgoLZSqgIBXnGPo9WJ?=
+ =?iso-8859-1?Q?QLsbEKWwTv7E+C71eMILGeGTBfyWER9LHR0PV5ISO5ZmS2MECMC0J2sczt?=
+ =?iso-8859-1?Q?C4NF/x6ND6lQddFy8lcs6+sLtLo50QRQ/7r7GIm15P9No9A7KUuhCqyzVl?=
+ =?iso-8859-1?Q?2be88EfyarUNKvQjKb469nKIynShoCtG+ZUh3kWH34nFBGoQSk2N7Ddon6?=
+ =?iso-8859-1?Q?2TZwRY8P+XDpTiuSc2z5Uljo7tVwGTBJJkroF8dZbaJ47Ey3F+5VGvUPo8?=
+ =?iso-8859-1?Q?RdFXUVc3D+zzl/KCfLoLvYrSTQKmay+qf7KhCrbWvDSM5HM1hTMRoyzNaR?=
+ =?iso-8859-1?Q?TAeTUA0QjYTGusv926tfbivIEksbYlOVfKAJrYGDFWifEaKZLbpU2ZWmmW?=
+ =?iso-8859-1?Q?XJCag5TONHIuoXeyIg7OKDX1pCnS5W0b4b16UFLijxXQalNZ5t36DGfVZR?=
+ =?iso-8859-1?Q?Nqp2qAc13etvBEKgY3nASy8K6K+wHMptOM2+LELdKqsTxbNuLVP1mztLBj?=
+ =?iso-8859-1?Q?13RNVMMu1RLOkW50yX4TMZSg2zYmmnICDFU1/0IpbcadhqcnqkSTtlmy4K?=
+ =?iso-8859-1?Q?qen6ox3k94BGqp/S4pE8YKq8iQ0ZTwV3ld2eVMJkHDt1L5fvzRwSVb4Mrt?=
+ =?iso-8859-1?Q?ZGLgsrjgOr8a2/lXBIIL7LZzsuNcK5mIKjrHyzO1ladmKbhPxOvo67w7sL?=
+ =?iso-8859-1?Q?TQASuyOt7s+reVKJ33Iv8wWUnBT8d6cqp6RxKMJXSbhYbjzBWFhHg=3D?=
 Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
@@ -169,8 +161,8 @@ X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: MN2PR02MB6863.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 951f42da-bc45-498d-8380-08df4741e723
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 20:07:28.6143
+X-MS-Exchange-CrossTenant-Network-Message-Id: d5796a99-1f8c-4823-4ec9-08df47420b2b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 20:08:29.0102
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
@@ -180,355 +172,74 @@ X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR02MB8635
 From: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com> Sent: Friday, Novem=
 ber 20, 2026 3:11 AM
 >=20
-> Driver overriding is useful only in a very limited set of situations
-> and then only with very few drivers that are designed to support that.
+> uio drivers support being matched to devices using the driver_override
+> mechanism. Add .support_driver_override =3D true to continue having
+> this mechanism work for them without tainting the kernel.
 >=20
-> Disallow matching via driver_override unless the driver explicitly
-> allows it or the safe guard is disabled using the
-> "allow_driver_override=3D1" kernel parameter.
-
-The "=3D1" syntax is no longer accurate.
-
->=20
-> There are many drivers that don't expect to be force-bound and often
-> doing it anyhow results in a NULL pointer exception. To make debugging
-> such cases easier, add a new taint if such a forced match happens.
->=20
-> Implementation detail: device_match_driver_override() isn't a static
-> inline any more. It grew a certain complexity (e.g. a pr_info()) and so
-> was made a regular exported function.
->=20
-> Reviewed-by: Bradley Morgan <bradley.morgan@linux.dev>
-> Reviewed-by: Armin Wolf <W_Armin@gmx.de>
 > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
 
-Modulo the nit in the commit message,
-
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-Tested-by: Michael Kelley <mhklinux@outlook.com>
+Tested-by: Michael Kelley <mhklinux@outlook.com>   # uio_hv_generic.c chang=
+e only
 
 > ---
->  .../admin-guide/kernel-parameters.txt         |  6 +++
->  Documentation/admin-guide/tainted-kernels.rst | 54 ++++++++++---------
->  drivers/base/bus.c                            | 51 ++++++++++++++++++
->  include/linux/device.h                        | 19 +------
->  include/linux/device/driver.h                 |  2 +
->  include/linux/panic.h                         |  3 +-
->  include/trace/events/module.h                 |  3 +-
->  kernel/panic.c                                |  3 +-
->  tools/debugging/kernel-chktaint               |  9 ++++
->  9 files changed, 105 insertions(+), 45 deletions(-)
+>  drivers/uio/uio_dmem_genirq.c | 1 +
+>  drivers/uio/uio_hv_generic.c  | 1 +
+>  drivers/uio/uio_pci_generic.c | 1 +
+>  drivers/uio/uio_pdrv_genirq.c | 1 +
+>  4 files changed, 4 insertions(+)
 >=20
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt
-> b/Documentation/admin-guide/kernel-parameters.txt
-> index 8228c9acc530..ed505e362b1d 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -424,6 +424,12 @@ Kernel parameters
->  			do not want to use tracing_snapshot_alloc() as it needs
->  			to be done where GFP_KERNEL allocations are allowed.
->=20
-> +	allow_driver_override
-> +			Allow matching drivers without
-> +			.support_driver_override =3D true to devices using
-> +			driver_override. This is a dangerous operation in
-> +			general allowing root to oops the kernel.
-> +
->  	allow_mismatched_32bit_el0 [ARM64,EARLY]
->  			Allow execve() of 32-bit applications and setting of the
->  			PER_LINUX32 personality on systems where only a strict
-> diff --git a/Documentation/admin-guide/tainted-kernels.rst b/Documentatio=
-n/admin-guide/tainted-kernels.rst
-> index fcb8b9734548..f4ddb63dc704 100644
-> --- a/Documentation/admin-guide/tainted-kernels.rst
-> +++ b/Documentation/admin-guide/tainted-kernels.rst
-> @@ -74,35 +74,36 @@ a particular type of taint. It's best to leave that t=
-o the aforementioned
->  script, but if you need something quick you can use this shell command t=
-o check
->  which bits are set::
->=20
-> -	$ for i in $(seq 0 19); do echo $i $(($(cat /proc/sys/kernel/tainted)>>=
-$i&1));done
-> +	$ for i in $(seq 0 20); do echo $i $(($(cat /proc/sys/kernel/tainted)>>=
-$i&1));done
->=20
->  Table for decoding tainted state
->  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->=20
-> -=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> -Bit  Log  Number  Reason that got the kernel tainted
-> -=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> -  0  G/P       1  proprietary module was loaded
-> -  1  _/F       2  module was force loaded
-> -  2  _/S       4  kernel running on an out of specification system
-> -  3  _/R       8  module was force unloaded
-> -  4  _/M      16  processor reported a Machine Check Exception (MCE)
-> -  5  _/B      32  bad page referenced or some unexpected page flags
-> -  6  _/U      64  taint requested by userspace application
-> -  7  _/D     128  kernel died recently, i.e. there was an OOPS or BUG
-> -  8  _/A     256  ACPI table overridden by user
-> -  9  _/W     512  kernel issued warning
-> - 10  _/C    1024  staging driver was loaded
-> - 11  _/I    2048  workaround for bug in platform firmware applied
-> - 12  _/O    4096  externally-built ("out-of-tree") module was loaded
-> - 13  _/E    8192  unsigned module was loaded
-> - 14  _/L   16384  soft lockup occurred
-> - 15  _/K   32768  kernel has been live patched
-> - 16  _/X   65536  auxiliary taint, defined for and used by distros
-> - 17  _/T  131072  kernel was built with the struct randomization plugin
-> - 18  _/N  262144  an in-kernel test has been run
-> - 19  _/J  524288  userspace used a mutating debug operation in fwctl
-> -=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +Bit  Log   Number  Reason that got the kernel tainted
-> +=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> +  0  G/P        1  proprietary module was loaded
-> +  1  _/F        2  module was force loaded
-> +  2  _/S        4  kernel running on an out of specification system
-> +  3  _/R        8  module was force unloaded
-> +  4  _/M       16  processor reported a Machine Check Exception (MCE)
-> +  5  _/B       32  bad page referenced or some unexpected page flags
-> +  6  _/U       64  taint requested by userspace application
-> +  7  _/D      128  kernel died recently, i.e. there was an OOPS or BUG
-> +  8  _/A      256  ACPI table overridden by user
-> +  9  _/W      512  kernel issued warning
-> + 10  _/C     1024  staging driver was loaded
-> + 11  _/I     2048  workaround for bug in platform firmware applied
-> + 12  _/O     4096  externally-built ("out-of-tree") module was loaded
-> + 13  _/E     8192  unsigned module was loaded
-> + 14  _/L    16384  soft lockup occurred
-> + 15  _/K    32768  kernel has been live patched
-> + 16  _/X    65536  auxiliary taint, defined for and used by distros
-> + 17  _/T   131072  kernel was built with the struct randomization plugin
-> + 18  _/N   262144  an in-kernel test has been run
-> + 19  _/J   524288  userspace used a mutating debug operation in fwctl
-> + 20  _/Z  1048576  A device was matched using driver_override to a drive=
-r not supporting that
-> +=3D=3D=3D  =3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->=20
->  Note: The character ``_`` is representing a blank in this table to make =
-reading
->  easier.
-> @@ -189,3 +190,6 @@ More detailed explanation for tainting
->   19) ``J`` if userspace opened /dev/fwctl/* and performed a FWTCL_RPC_DE=
-BUG_WRITE
->       to use the devices debugging features. Device debugging features co=
-uld
->       cause the device to malfunction in undefined ways.
-> +
-> + 20) ``Z`` if a device was matched using the `driver_override` sysfs pro=
-perty
-> +     to a driver that didn't explicitly allow that.
-> diff --git a/drivers/base/bus.c b/drivers/base/bus.c
-> index 396097fdb316..1b4dd98a1286 100644
-> --- a/drivers/base/bus.c
-> +++ b/drivers/base/bus.c
-> @@ -603,6 +603,57 @@ int bus_add_device(struct device *dev)
->  	return error;
->  }
->=20
-> +static bool __read_mostly allow_driver_override;
-> +
-> +static int __init allow_driver_override_setup(char *str)
-> +{
-> +	if (!str || *str !=3D '\0')
-> +		return 0;
-> +
-> +	allow_driver_override =3D true;
-> +	return 1;
-> +}
-> +__setup("allow_driver_override", allow_driver_override_setup);
-> +
-> +/**
-> + * device_match_driver_override() - Match a driver against the device's =
-driver_override.
-> + * @dev: device to check
-> + * @drv: driver to match against
-> + *
-> + * Returns > 0 if a driver override is set and matches the given driver,=
- 0 if a
-> + * driver override is set but does not match or is ignored, or < 0 if a =
-driver
-> + * override is not set at all.
-> + */
-> +int device_match_driver_override(struct device *dev,
-> +				 const struct device_driver *drv)
-> +{
-> +	guard(spinlock)(&dev->driver_override.lock);
-> +	if (dev->driver_override.name) {
-> +		int ret =3D !strcmp(dev->driver_override.name, drv->name);
-> +
-> +		if (ret && !drv->support_driver_override) {
-> +			if (allow_driver_override) {
-> +				add_taint_module(drv->owner,
-> +						 TAINT_DRIVER_OVERRIDE, LOCKDEP_STILL_OK);
-> +			} else {
-> +				/*
-> +				 * If you hit this warning and you need to
-> +				 * quickly workaround this check, boot with
-> +				 * allow_driver_override=3D1 on the kernel
-> +				 * commandline. The right fix is to set the
-> +				 * driver's .support_driver_override property.
-> +				 */
-> +				dev_warn(dev, "Denied matching to %s via driver override.\n", drv->n=
-ame);
-> +				return 0;
-> +			}
-> +		}
-> +
-> +		return ret;
-> +	}
-> +	return -1;
-> +}
-> +EXPORT_SYMBOL_GPL(device_match_driver_override);
-> +
->  static void __bus_probe_device(struct device *dev)
->  {
->  	struct subsys_private *sp =3D bus_to_subsys(dev->bus);
-> diff --git a/include/linux/device.h b/include/linux/device.h
-> index 6b082c638d45..05413c1a9454 100644
-> --- a/include/linux/device.h
-> +++ b/include/linux/device.h
-> @@ -907,23 +907,8 @@ static inline bool device_has_driver_override(struct=
- device *dev)
->  	return !!dev->driver_override.name;
->  }
->=20
-> -/**
-> - * device_match_driver_override() - Match a driver against the device's =
-driver_override.
-> - * @dev: device to check
-> - * @drv: driver to match against
-> - *
-> - * Returns > 0 if a driver override is set and matches the given driver,=
- 0 if a
-> - * driver override is set but does not match, or < 0 if a driver overrid=
-e is not
-> - * set at all.
-> - */
-> -static inline int device_match_driver_override(struct device *dev,
-> -					       const struct device_driver *drv)
-> -{
-> -	guard(spinlock)(&dev->driver_override.lock);
-> -	if (dev->driver_override.name)
-> -		return !strcmp(dev->driver_override.name, drv->name);
-> -	return -1;
-> -}
-> +int device_match_driver_override(struct device *dev,
-> +				 const struct device_driver *drv);
->=20
->  /**
->   * device_iommu_mapped - Returns true when the device DMA is translated
-> diff --git a/include/linux/device/driver.h b/include/linux/device/driver.=
-h
-> index 29fbc01ef06f..0153cfcbe1b9 100644
-> --- a/include/linux/device/driver.h
-> +++ b/include/linux/device/driver.h
-> @@ -56,6 +56,7 @@ enum probe_type {
->   * @bus:	The bus which the device of this driver belongs to.
->   * @owner:	The module owner.
->   * @mod_name:	Used for built-in modules.
-> + * @support_driver_override: driver_override only works if this is true.
->   * @suppress_bind_attrs: Disables bind/unbind via sysfs.
->   * @probe_type:	Type of the probe (synchronous or asynchronous) to use.
->   * @of_match_table: The open firmware table.
-> @@ -104,6 +105,7 @@ struct device_driver {
->  	struct module		*owner;
->  	const char		*mod_name;	/* used for built-in modules */
->=20
-> +	bool support_driver_override;
->  	bool suppress_bind_attrs;	/* disables bind/unbind via sysfs */
->  	enum probe_type probe_type;
->=20
-> diff --git a/include/linux/panic.h b/include/linux/panic.h
-> index 17e61b61c45f..009232511cc7 100644
-> --- a/include/linux/panic.h
-> +++ b/include/linux/panic.h
-> @@ -89,7 +89,8 @@ static inline void set_arch_panic_timeout(int timeout, =
-int
-> arch_default_timeout)
->  #define TAINT_RANDSTRUCT		17
->  #define TAINT_TEST			18
->  #define TAINT_FWCTL			19
-> -#define TAINT_FLAGS_COUNT		20
-> +#define TAINT_DRIVER_OVERRIDE		20
-> +#define TAINT_FLAGS_COUNT		21
->  #define TAINT_FLAGS_MAX			((1UL << TAINT_FLAGS_COUNT) - 1)
->=20
->  struct taint_flag {
-> diff --git a/include/trace/events/module.h b/include/trace/events/module.=
-h
-> index e5a006be9dc6..d54ce3c7572b 100644
-> --- a/include/trace/events/module.h
-> +++ b/include/trace/events/module.h
-> @@ -26,7 +26,8 @@ struct module;
->  	{ (1UL << TAINT_OOT_MODULE),		"O" },		\
->  	{ (1UL << TAINT_FORCED_MODULE),		"F" },		\
->  	{ (1UL << TAINT_CRAP),			"C" },		\
-> -	{ (1UL << TAINT_UNSIGNED_MODULE),	"E" })
-> +	{ (1UL << TAINT_UNSIGNED_MODULE),	"E" },		\
-> +	{ (1UL << TAINT_DRIVER_OVERRIDE),	"Z" })
->=20
->  TRACE_EVENT(module_load,
->=20
-> diff --git a/kernel/panic.c b/kernel/panic.c
-> index 91e48d33b7db..81ea9ef9afb0 100644
-> --- a/kernel/panic.c
-> +++ b/kernel/panic.c
-> @@ -825,6 +825,7 @@ const struct taint_flag taint_flags[TAINT_FLAGS_COUNT=
-] =3D {
->  	TAINT_FLAG(RANDSTRUCT,			'T', ' '),
->  	TAINT_FLAG(TEST,			'N', ' '),
->  	TAINT_FLAG(FWCTL,			'J', ' '),
-> +	TAINT_FLAG(DRIVER_OVERRIDE,		'Z', ' '),
+> diff --git a/drivers/uio/uio_dmem_genirq.c b/drivers/uio/uio_dmem_genirq.=
+c
+> index 263c1ebc2d57..71992431770e 100644
+> --- a/drivers/uio/uio_dmem_genirq.c
+> +++ b/drivers/uio/uio_dmem_genirq.c
+> @@ -309,6 +309,7 @@ static struct platform_driver uio_dmem_genirq =3D {
+>  	.driver =3D {
+>  		.name =3D DRIVER_NAME,
+>  		.of_match_table =3D of_match_ptr(uio_of_genirq_match),
+> +		.support_driver_override =3D true,
+>  	},
 >  };
 >=20
->  #undef TAINT_FLAG
-> @@ -861,7 +862,7 @@ static void print_tainted_seq(struct seq_buf *s, bool=
- verbose)
->   * exact size is allocated dynamically; the initial buffer remains
->   * as a fallback if allocation fails.
->   *
-> - * The verbose taint string currently requires up to 327 characters.
-> + * The verbose taint string currently requires up to 348 characters.
->   */
->  #define INIT_TAINT_BUF_MAX 350
+> diff --git a/drivers/uio/uio_hv_generic.c b/drivers/uio/uio_hv_generic.c
+> index dff92dcbb10d..255c2b5730f6 100644
+> --- a/drivers/uio/uio_hv_generic.c
+> +++ b/drivers/uio/uio_hv_generic.c
+> @@ -407,6 +407,7 @@ static struct hv_driver hv_uio_drv =3D {
+>  	.id_table =3D hv_uio_id_table,
+>  	.probe =3D hv_uio_probe,
+>  	.remove =3D hv_uio_remove,
+> +	.driver.support_driver_override =3D true,
+>  };
 >=20
-> diff --git a/tools/debugging/kernel-chktaint b/tools/debugging/kernel-chk=
-taint
-> index e1571c04afb5..56215e0f5112 100755
-> --- a/tools/debugging/kernel-chktaint
-> +++ b/tools/debugging/kernel-chktaint
-> @@ -211,6 +211,15 @@ else
->  	addout "J"
->  	echo " * fwctl's mutating debug interface was used (#19)"
->  fi
-> +
-> +T=3D`expr $T / 2`
-> +if [ `expr $T % 2` -eq 0 ]; then
-> +	addout " "
-> +else
-> +	addout "Z"
-> +	echo " * A device was matched using driver_override to a driver not sup=
-porting that (#20)"
-> +fi
-> +
->  echo "Raw taint value as int/string: $taint/'$out'"
+>  static int __init
+> diff --git a/drivers/uio/uio_pci_generic.c b/drivers/uio/uio_pci_generic.=
+c
+> index c0cab3adb7b0..9785df9fc5de 100644
+> --- a/drivers/uio/uio_pci_generic.c
+> +++ b/drivers/uio/uio_pci_generic.c
+> @@ -140,6 +140,7 @@ static struct pci_driver uio_pci_driver =3D {
+>  	.name =3D "uio_pci_generic",
+>  	.id_table =3D NULL, /* only dynamic id's */
+>  	.probe =3D probe,
+> +	.driver.support_driver_override =3D true,
+>  };
 >=20
->  # report on any tainted loadable modules
+>  module_pci_driver(uio_pci_driver);
+> diff --git a/drivers/uio/uio_pdrv_genirq.c b/drivers/uio/uio_pdrv_genirq.=
+c
+> index 87e43821ab0c..022178248962 100644
+> --- a/drivers/uio/uio_pdrv_genirq.c
+> +++ b/drivers/uio/uio_pdrv_genirq.c
+> @@ -261,6 +261,7 @@ static struct platform_driver uio_pdrv_genirq =3D {
+>  	.driver =3D {
+>  		.name =3D DRIVER_NAME,
+>  		.of_match_table =3D of_match_ptr(uio_of_genirq_match),
+> +		.support_driver_override =3D true,
+>  	},
+>  };
+>=20
 > --
 > 2.56.0.rc1
 >=20
