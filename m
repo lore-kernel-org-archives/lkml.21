@@ -1,81 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795203473;
-	b=WJ/aLq6qsJ9X9hagKYASDb1+WIqWgHXRsAbZqJl3VDXxCiDsnHy1Zo9jQGR9jSOPEOYW
-	 75GDmhArkjUFMU1WJeyMxtQcogkO9pR2bW3OeD18FgkYpIlKQIDXAOVLWt2aCEm4KOeVM
-	 v9Jaw/I2PgtIQSLU4r5A8YuY4wRVqLPT5QQgKUmbntij7eEAbm+PcWZVRSN7UQxvhJ5LH
-	 uOUBZ1r+oVJ+AucnilNNsssf7tvvxI56+ParfSiHnNK0HjaTpaF2FjFhPGSkAP5egyXA3
-	 Lo4gypKBCuVOXJ0O+PTsn+sgxiQbcXuhZ4TnFRJkisvePOWzoT7KgSCuf2vKPrk7wig==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203473;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=PpkBWg73siaVtPLgU+wteCjzVixsxQxZ7WbWHzddazg=;
-	b=nzx9UdtrrEDii8/nZBZhhzm0XaJ7ytwxxCNF4Ep2X+XbuFMHQIML5Z7MQtSAfS3AtjtJ
-	 nnTAMLgPbVgWKs7ed58Q02ntp2/sjrRUUNQs2ctpqFnNDdWQ9Iizp0XGeEyHc5TNVrJSF
-	 Vk4vagyuQ2K3QbgB6hC1+3iKMQqnZ5a3/LaZDiaLhfctjMty8xMYvmMa0IOCvT/PiK3sq
-	 Q/teoul+0Kqm45rT/Iq45V6rnn4sQn4fjPCH0AbI3+oGXuYJXNu6NDl5Yn4bOqhfVBZ3A
-	 FkFbv6H2og9C1AXnttqbIHhayBoJUiwfXRltzX89suiwPvySFuZELNe4N4TBYucGoKA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="BY+NeHy/";
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795203479;
+	b=SfU0zt+qAead2OmgxRzahXMQq69gXuguCNbuDwfBxvGALPW99SHU8heWLYbDt+QFg8nv
+	 DxpObCqUknPxa7kFmj1pycXrvWgn6MYQTA0qcewQGttnRw7VYLgF/qrthJem425UDwn+V
+	 /NXIXps/flmFSInjWNiTTQs/g4bJPMaTSLVeZB4EvTmdQ0clsqH0BvmGf7/405g3pM3Ju
+	 +LXbZQWigkNHtky7/1IAX1BCBbPAJWpakqV5Rbqouj5tI4cUduoknURxqKeWm7ThI6VJE
+	 RbRP+ACZpSNy6RLObxbYuSltYEbwPS5mxFvgQgbw/VB+Mjo+dCF8XMaj0h7AehOjb1g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203479;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
+	b=1oCbxkLaKZnMN7HjrwQ8Sl30gp9xUOLsrAInx2mrN9ipFPaL9JywAH8zvb4IRyYSXOLn
+	 /qTvwdAnfZXns+SEkG4mQRpK2fGsAthwqKKL/mudAMajmyPElEq+HAtWddi3ZijT4ZZJk
+	 LusYX9qWVfHJ81CUKBxeHrpt6cTt3wC0bNZgqVj7HQkR6WIuU/heOT2ijvy7klut07AZL
+	 mgftQQeJjhHPvptj2ogBGuq+M6FhJRnMv/FeMXK/eY8hklbJhBdCS7VDhl/mj3gYDTSlL
+	 KqwW4wj+el1Db7MEZPl4zz/FKu+nSxx1EHZuIYCtVR/Ie8RyRt4Zfb19xSTdr+YoY6Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NaS5t03Y;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27FA6606A6DD
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:37:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27FA6606A6DD
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D96F606A6E2;
+	Fri, 20 Nov 2026 19:37:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=BY+NeHy/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795203463; x=1826739463;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=zy9gc1RP4EMMMJftR1/jeBO+YhbU4lMj5Uf4m6zIKlg=;
-  b=BY+NeHy/fX3l3vKDxrJBYP0Um1yjGLgBD2g1dVnCkEdU6zY7bA+D2BSF
-   HchptwtFwY2QYMNC9YEqFMhFnQqMv30C+n02Z34s35XSP6VArZzZznp8d
-   r7OQmOYpRb6yrVgHXCO0+2qmJTxSccjnU1MyH01qCA+ylxoCcd+iub0Ez
-   qH45fQj5m1hvzUt4UKt3jmV3cshJZNpge+6cH6IDx32d34YzPeZ1pjkk+
-   b85qyu6bBzuk8mc6ua3IPdPNIs6Is7VDDl4eYb941kS9iJJXoSvXZ68vn
-   Dni4VrsEpUpxzpP/DNck2C5bVKHD+JQOLcDqb8t5zwKVI1CKHlh3Hguy3
-   w==;
-X-CSE-ConnectionGUID: fiNK4LVjR8aMopWF6Ig+7w==
-X-CSE-MsgGUID: bO9wd8iQSSeofLUk5UyVkw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3972980"
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3972980"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:37:42 -0800
-X-CSE-ConnectionGUID: 3+MGPmkjSyKMx9wxD7raNg==
-X-CSE-MsgGUID: RqQFEMgcSya7V0AHYMCpDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10845732"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 20 Nov 2026 11:37:40 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xUUQT-00000001IOl-1qNv;
-	Fri, 20 Nov 2026 19:37:37 +0000
-Date: Sat, 21 Nov 2026 03:37:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Hannes Reinecke <hare@kernel.org>, Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>,
-	Chaitanya Kulkarni <kch@nvidia.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-nvme@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/9] nvme-auth: switch to use 'struct key'
-Message-ID: <202611210315.8aA2D5rd-lkp@intel.com>
-References: <20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NaS5t03Y
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795203478;
+	b=AlE4N5zUNzJr3575OCjKDNENBnF4eKcjVF9tp3XfM75sH+M/5f2M4ZfDHSo0Bk1nN1bl
+	 7a3ZMMb4LECLZ6tSOZo42ok/6RbHauzlwUR97o8n7x59K1bjep4RG87Pheo7Sszc6XR9q
+	 jBxODysOMBRVwp3Y5SzjJNG4xZA0gVxr9fLSYtetywu4qqbTMKe7RbcU8eSiKSlCNl2yw
+	 C5z0sOZErMLFKntKD8hdEiugBkZH5QsrP345FcuQNa/UVHERWb6rQqATjRYZMWRKHCwx2
+	 C2BIBrmloNrc/jLVGlTJRG9vk5H3eT0IOpdbMTJwr00Nu7O3/KKsAeQdW/O7SdjQvnA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795203478;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
+	b=wpLCs+5f3jA7ATZ7MoVQ4WidA/aeCkEjkyn3wdqFZVOT65nwGyIDBvbg3S0VVdS95vZ0
+	 4k+yvbcB82IHoHYMvGSQPid35y6+Xi3S1JCa+QY6OtalLh4AZNTXeKVgP2jxSKTUHNoS8
+	 FX14yGYQ528KBT7CnPUl7VyRPQNdRmnGcGROv1dr96/k/GJpUuKpKTIrBN3UIlthOjui9
+	 6tpjppvZ8fsY5mR6s8QAasita6ife7aSbefhcOy/S66/ZHFJ123iyEE3oyyc0DuqkZv0q
+	 dUHQzqawNS4SMOs9QhmUhKrs6UAglOcWUkIHlh/kW+h7dYn4lHHoFUYY3R15TfVlrwg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 357BF1F000C0;
+	Fri, 20 Nov 2026 19:37:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795203478;
+	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=NaS5t03Y1cvYGBSY02fXmQOxtjwF8bmYvkuJhEbxMj0027XKxr1kKFTBAz8OzGHsh
+	 K8RSX7le4m9xZJK4gEEv722Z4MJNAQQEw4P8bWiadAjfyBZbdUeIAuigUJaVI0OgoE
+	 qe9vpcLz1OOJsz7hd7HkkqWd/ux4NdjDav7xblWUty18DijGbu0Yrgs15DTUzJhJzn
+	 A+8nuWdFZZJkA7n5XPo9t2x/DP1+wM4S+eX7RFZ5MWjoWjXFEiYPAmQ3ONCCqv9kZC
+	 Tjs+S1FdO30xQb3OJZEBqPg4YjP5C9+r4MTCsGKdX0ry0ixaR7uJujVrN2gkqkvffG
+	 eCINg+Ue/CnaA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id AA19A4B9BA;
+	Fri, 20 Nov 2026 19:37:52 +0000 (UTC)
+From: Gleb Pesin via B4 Relay <devnull+dormancygrace.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 19:37:18 +0000
+Subject: [PATCH] crypto: eip93 - return request validation errors
+ synchronously
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,34 +83,93 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-eip93-sync-errors-v1-1-1a83ae607181@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ6CQAxA4auQrmkyHYP8XIW40KFIWQykBaOZc
+ HcHXX6L9xIYq7BBVyRQfonJEjOoLCBM9/hklCEbvPNXIu+QZW0vaJ8YkFUXNRyH2rnQtDVVBLl
+ blUd5/5797W/bHzOH7RzBcXwBVOfKRXUAAAA=
+X-Change-ID: 20261120-eip93-sync-errors-fd700c897151
+To: Christian Marangi <ansuelsmth@gmail.com>, 
+ Antoine Tenart <atenart@kernel.org>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795203472; l=2301;
+ i=dormancygrace@gmail.com; s=eip93-20261120; h=from:subject:message-id;
+ bh=+TERzP8CffsbpcQ4hBerOf52PVosyn07V8S4OEMiU+s=;
+ b=PZQlB1FHao03xhRgyUZoCNx9qVq7bZcoCSRfK8UXjiMndmeNRgXSkKxLZPA4fO2R5XtMKl+Oi
+ Pej7t3wOQrnB1J95q7sjZIt+4R0fumYtk6gHihhEiNW83n+1qkOiHRU
+X-Developer-Key: i=dormancygrace@gmail.com; a=ed25519;
+ pk=XHpoYk1e6byKypiKa/3bDHJ2i4leWLeZDDjx4gJVsmc=
+X-Endpoint-Received: by B4 Relay for dormancygrace@gmail.com/eip93-20261120
+ with auth_id=1587
+X-Original-From: Gleb Pesin <dormancygrace@gmail.com>
+Reply-To: dormancygrace@gmail.com
+Content-Transfer-Encoding: 7bit
 
-Hi Hannes,
+From: Gleb Pesin <dormancygrace@gmail.com>
 
-kernel test robot noticed the following build warnings:
+The skcipher and AEAD paths validate requests before submitting them
+to the hardware. On validation failure they invoke the completion
+callback and return the same error. Callers handle that return value
+as a synchronous failure and can complete the request a second time.
 
-[auto build test WARNING on 68099cf27253a8c89d703a282d3d811446d9453b]
+Return the validation error directly in both paths. Keep completion
+callbacks in the hardware result handlers.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Hannes-Reinecke/nvme-auth-modify-nvme_auth_transform_key-to-return-status/20261120-121400
-base:   68099cf27253a8c89d703a282d3d811446d9453b
-patch link:    https://lore.kernel.org/r/20261120-dhchap-keyring-v4-v4-3-5f8c7d9926ee%40kernel.org
-patch subject: [PATCH v4 3/9] nvme-auth: switch to use 'struct key'
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20261121/202611210315.8aA2D5rd-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261121/202611210315.8aA2D5rd-lkp@intel.com/reproduce)
+Codex (gpt-6.2-sol) assisted with comparing the two paths, preparing the
+change and writing the changelog. The corresponding OpenWrt 6.18.64
+driver object was cross-compiled on MIPS.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611210315.8aA2D5rd-lkp@intel.com/
+Fixes: 9739f5f93b78 ("crypto: eip93 - Add Inside Secure SafeXcel EIP-93 crypto engine support")
+Reported-by: Herbert Xu <herbert@gondor.apana.org.au>
+Closes: https://lore.kernel.org/linux-crypto/aXxmIuU9PKJiDs7n@gondor.apana.org.au/
+Signed-off-by: Gleb Pesin <dormancygrace@gmail.com>
+---
+ drivers/crypto/inside-secure/eip93/eip93-aead.c   | 4 +---
+ drivers/crypto/inside-secure/eip93/eip93-cipher.c | 4 +---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
 
-All warnings (new ones prefixed by >>):
+diff --git a/drivers/crypto/inside-secure/eip93/eip93-aead.c b/drivers/crypto/inside-secure/eip93/eip93-aead.c
+index 0b7a899b1..12134b6aa 100644
+--- a/drivers/crypto/inside-secure/eip93/eip93-aead.c
++++ b/drivers/crypto/inside-secure/eip93/eip93-aead.c
+@@ -47,10 +47,8 @@ static int eip93_aead_send_req(struct crypto_async_request *async)
+ 	int err;
+ 
+ 	err = check_valid_request(rctx);
+-	if (err) {
+-		aead_request_complete(req, err);
++	if (err)
+ 		return err;
+-	}
+ 
+ 	return eip93_send_req(async, req->iv, rctx);
+ }
+diff --git a/drivers/crypto/inside-secure/eip93/eip93-cipher.c b/drivers/crypto/inside-secure/eip93/eip93-cipher.c
+index 4dd7ab750..7b6d510f4 100644
+--- a/drivers/crypto/inside-secure/eip93/eip93-cipher.c
++++ b/drivers/crypto/inside-secure/eip93/eip93-cipher.c
+@@ -38,10 +38,8 @@ static int eip93_skcipher_send_req(struct crypto_async_request *async)
+ 
+ 	err = check_valid_request(rctx);
+ 
+-	if (err) {
+-		skcipher_request_complete(req, err);
++	if (err)
+ 		return err;
+-	}
+ 
+ 	return eip93_send_req(async, req->iv, rctx);
+ }
 
->> Warning: drivers/nvme/common/auth.c:154 function parameter 'keyring' not described in 'nvme_auth_extract_key'
->> Warning: drivers/nvme/common/auth.c:154 function parameter 'keyring' not described in 'nvme_auth_extract_key'
+---
+base-commit: 26ca5f34841f0a86d0883664a1c13be89a01d351
+change-id: 20261120-eip93-sync-errors-fd700c897151
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+--  
+Gleb Pesin <dormancygrace@gmail.com>
+
+
