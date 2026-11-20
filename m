@@ -1,72 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.35
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795146540;
-	b=3dm+zbkOa+/q3WdnQxvbfmWgOBthQOExKIwe2NQnSR8qsa6oywRTra7cn9Rlplxjz4Zm
-	 83xmg9YwIuhTsBSe0Gro2wILaNgciuMnWbLtcJN2/0i1o2G3MkAE+1Ha3hOQFb/KUBCzp
-	 ZPsMI/dlQSndiVFxMYD7EyK+OHNlHY8OHsR4B283F7N+Kc49koWfa0n9K1q0ELh2YXuNR
-	 BxvXBpG0095WusdlUiqXBF3J4wDjLLKqBPIf1m86duxphmfwZ6Y10sb6ZHAOVq8CjkIPB
-	 80ElhPZ0+7a2FxGSLYPD31CQOKfVKDse78xGQBpUPkLyhXs24oKBYtVbxaNJVeXBFqw==
+	t=1795146717;
+	b=XjuzghIyeMz9tcIRkQfWZApwjjv783/VQtQD9d2WeYyAgCVIPbs3yevAuASLOLZ3ejEC
+	 n1htuUrdSSwN5PxMVwvxh8s/7apQiSquwG8Erik333IeLMmpMlgbwN7jDUu3kYf+h3smy
+	 tay9nt7K3Fh/v3K7YKV0w7gRiy/3DyWK08MFUxIYv8pdxpibUe26JF2FVj6zz0S5SF4YC
+	 qcLVSyx+srHN2qJcVkPGVIE7GQ4TaVDWmulxxuqVvyHMuJWEa87rXX+rjXzQ4eTeck6sP
+	 KWBc5l4884fQedgrZSZeQH5EQKRta8xV9mjWjyO2sEi3YOWEtNZbSXxPGK1ulDETmJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795146540;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=Zco+vsDiuTkuchE2V0It04Q7u5Lrw1KXwk/PEY7WmKY=;
-	b=TAlgG8jp8KbjlFNF4agzhhzDRU0uKGsA8ro4HaqfGmpC3g8ccQ1P0EQ0HpQQ7HdyqadS
-	 8sFxooqEmxsmTOECKunw05yYpjBozd271loMyq1+mvFPcfYRw6UCJMF6eGXWHNIQGi9U+
-	 /Gmqksq+xiiaTKDMpCj7a+jOC1NskmUePqMmPzChO3lvfhAzbL6fHZOWZRYVS/4Eor8ax
-	 KZYvhzkifzF+NI5UfAnnklM3siFU2LA7xS0kyBvnygeX+K5b2WFKfNQpvhy1SSzXLhRoe
-	 ndHbA1dJScF8IXgX8AJW0Ph0NerQ3pSb5CSCb5ZPOWOlPOmv2vPIpRZ9ti2TLTRUqnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795146717;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=0ijvBy4ouVUsUQ5IZ7FDovA+rd5a1vR7YYBZwOw//FY=;
+	b=f2FMvBtLVcPs2dxu1bVYDxLFPXBDM2NbrrPOkaxIcWxRBmZio3on5V4dgwEAgv/RTmu+
+	 a0Nzu4VvOIa+xX33kfPuUMcfGm11xSH1w+A2foI2R74e0lRWXkDE9U1brh1U8H3938ZCo
+	 Y5VcMStyR0mtd/iGDIky/VF3sKuK6eAv7eiyTjecCaSeHr+fLexfNvIfN/WSvJuXm4wiz
+	 CjcNw6RpKF1qB/XPC5L5tBl64a9m5R8sHa/Y8jd8OAeCEJgYIa9vZsCVoKfndUCcEkgiU
+	 Iqwgz3+Cazy/9e9PqnoUTw7gBTICwR5U298Wds0lQP0FSjji3EFcMWZR2LBEJOANxLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=w6rz.net;
-	spf=pass smtp.mailfrom=w6rz.net;
-	dkim=pass header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=y89H6vHF;
-	arc=none smtp.remote-ip=44.202.169.35
-Received: from omta036.useast.a.cloudfilter.net (omta036.useast.a.cloudfilter.net [44.202.169.35])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oqwhbhLr;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 862BC60A2601
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:48:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 862BC60A2601
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=w6rz.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C48E9606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:51:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C48E9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=y89H6vHF
-Received: from eig-obgw-6003b.ext.cloudfilter.net ([10.0.30.175])
-	by cmsmtp with ESMTPS
-	id U7xjxfiD94vCDUFcPxnQUU; Fri, 20 Nov 2026 03:48:57 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id UFcPxaAslGh2BUFcPxKgeu; Fri, 20 Nov 2026 03:48:57 +0000
-X-Authority-Analysis: v=2.4 cv=Aszu3P9P c=1 sm=1 tr=0 ts=6affc329
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
- a=HaFmDPmJAAAA:8 a=NwvxdXf9XnxnMUXhnXUA:9 a=QEXdDO2ut3YA:10
- a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Zco+vsDiuTkuchE2V0It04Q7u5Lrw1KXwk/PEY7WmKY=; b=y89H6vHF0TVfVCSC15wAKsTxRR
-	2Rg9Ul1BM2HyE5MjlU+FsqZQwSFtulpTXykeUo+qktbNZPsLP1cbgBtH/pG3Gpxemz7wwAHJCuBB3
-	kD3ymuAmPv/cGa2C0tHTtn5lhxHLpqDnx8mcRXhyXLCKWGLI2E1PqsF/kA2Iu20x5nmQ9/ZTWdjpD
-	GwA9nY/n+oIrBYGldA0qMw8IqEXT87Zh1afiA8W9n0nXNnNDoQhLmNzVIdkQSGSwZ/gaNDaAxKle1
-	f2yR5wIwj8FvEZUD78fiyExOMYxQ6FUJWciyuZyDVmc672ZPN1uBYCtKRux6mj+xVBOsxuIzDfvaS
-	tqMZ9M6Q==;
-Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:52370 helo=[10.0.1.180])
-	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100.1)
-	(envelope-from <re@w6rz.net>)
-	id 1xUFcO-00000001JNu-2GMl;
-	Thu, 19 Nov 2026 20:48:56 -0700
-Message-ID: <a05b808c-3046-4850-9f34-8c399b6c5c9c@w6rz.net>
-Date: Thu, 19 Nov 2026 19:48:54 -0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oqwhbhLr
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so318576a91.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:51:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795146716; x=1795751516; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0ijvBy4ouVUsUQ5IZ7FDovA+rd5a1vR7YYBZwOw//FY=;
+        b=oqwhbhLrke7wU3DhtxDtOl/nykjJS3bA4ZIbNYIXKgTaOVaisx7KuhslYsv2tWIOJZ
+         AciepnPCV8zIU/GjpOY+AtgDTsqgocWlalI57xhxY9Jbx82VkrSEZO1csuxDdRiMv50i
+         IPwCKdRELs54af3bTeIXADnubtxSBYqPKeFVLAj7KYhg0Zip9AtXkFuPSMq0HUtQ2Oud
+         fn7x2U8ri37dOQNZU9CttSiuyeJfv2dGSMjoltWMhBdSWiIx5yUXkyJ7aOcykiW8OPoc
+         d+sABrGXOa0K3Rg6H6ddzKZSbPKQDBEfoJBjFF77Tvq1SMTrdNEn+JpgKGcUE/+YlidV
+         eH3g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795146716; x=1795751516;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0ijvBy4ouVUsUQ5IZ7FDovA+rd5a1vR7YYBZwOw//FY=;
+        b=gDpC9+dk4z10tUJhejkzXoz5ud9QgwO9mbcggxqEfzNy/DVNtnpulylQFd19dIczCQ
+         q3Qd/noAn4tcKE/ckJiM2ER+mu9OBsto82CbhlYII+CCLtxuf4ucfoM4E2aTl0GnDN6P
+         bBQM9/5IgTSVBO3VE8mA5CLuuH+HWhtBHOciPoCTvzNEVeglwGlRz0GpnlITwiMUMKy2
+         Qv9hJf0IaBZl4qDI6pvaPwAf0dUiY7Ol43lhAh0oCEF/QT48QI2x4OISFyGLnOMiwRdV
+         lKd3xlImntiCYa4HQRQ4hA0e1soAZ9kggfXoaTyNsBPPTco7sHkD9S5/LmRKx1ZkJLu4
+         fogQ==
+X-Forwarded-Encrypted: i=1; AL+hErFYJdd9P9qzmP0QoSVJGBIt0cps/ZCF0Mn2od+kEmPJp8PczPBXz1h/jDuaOYA7u6MBtJ6hIbOJy3hlRnk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+3wt3N8G8MmtQdYibIcR59w+ECktn1a1XjYTMHFwFX50SVq5NQ
+	p7T6HBvIjfTN96KZZZAw6hAKxkmEkMb+2+6SfRf0pgLzZ17MCwwFQaewwHlWVSPC
+X-Gm-Gg: AZFdTZfTtXQUuDwofbFS+up6RPqRix3aE4spunkq548u+hlGsfAAxiowfISS8bpwzav
+	MQubhM8UHV3FVOozJcUAcLQc2rYsEMbY+ThZX/EKefZ1rpQ/hNGxF2zBHzIkhK4Sr0GiFjvvETP
+	gp0p17BWJFpoW8ncwIRvGxj2IQkBGCPyFyBB3uQNfrJlQTCLlRdr1nZy0XECax6RUig4gErGh7H
+	RIPQwEV7h0S4CarHpabc3gIijiGrNjLiqcBSwRdfduW7QHKV3b1cmYrHpI/fsJTSttlPp2UqYrJ
+	gYvbtHpJHNiIlQF7AVpEqtcgJYQ5130zugQ6HTIuq0C8H1YHVCJMW/+s5gVAmIuC762LMK/pm0a
+	rGh9WfU6jMR2T5uUCcMKmHfSQ29lGaH+tiAU4C4bOP7dIakJG3zD3jJxaehJ8Wk+8TFI/3QZTDv
+	ME45ssqahN0PJndbx2ATkirbJ0SX4A8GhhWs6vle8u8It4dLHsvMwFZB8IUSWGaUEx7ThKUt5kG
+	IbuV6yOjqPFTlNX47zJ7ZK2u1BoaRSXPjOkBQls2ZUvMTlOStkr2BfuBIZ76vRWIS8ZEr98NlVA
+	D3XNQ9Fsx4BNdn9jBqnFby/iQi0//C0MIhUGABNIUUq/S1g0w/kI
+X-Received: by 2002:a17:90b:3c11:b0:3b4:1336:4f6b with SMTP id 98e67ed59e1d1-3b41c905a49mr1415853a91.33.1795146716074;
+        Thu, 19 Nov 2026 19:51:56 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm4638218a91.11.2026.11.19.19.51.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 19:51:55 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
+To: robh@kernel.org,
+	kuba@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	davem@davemloft.net,
+	devicetree@vger.kernel.org,
+	edumazet@kernel.org,
+	hkallweit1@gmail.com,
+	krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	p.zabel@pengutronix.de,
+	pabeni@redhat.com,
+	shaojijie@huawei.com,
+	shenjian15@huawei.com,
+	David Yang <mmyangfl@gmail.com>
+Subject: Re: [PATCH] net: hisilicon: Remove orphan femac driver
+Date: Fri, 20 Nov 2026 11:51:27 +0800
+Message-ID: <20261120035127.1383109-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261104145038.946918-1-robh@kernel.org>
+References: <20261104145038.946918-1-robh@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,63 +111,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.1 0000/2857] 6.1.193-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150201.293410965@linuxfoundation.org>
-Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <20261118150201.293410965@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.206.103
-X-Source-L: No
-X-Exim-ID: 1xUFcO-00000001JNu-2GMl
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:52370
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 97
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfJ0WsqekacSoEWizzIiMPzW0hwey58RBBNCHg0qx34rtnc2N3QlWAeyY36/ZZdhIIRW34qiShZh7eqm43ouCuBlHgfJzJ9vsjx08DOc7wyvcRBcof6eA
- j2GGm8DXLtQoZor3kzKUyUx7W4C0cBzA+B9dwWOpwwK40s1F8Z7/5z/octJl+Vxz157nSKtneotN33OXaxCqoHUz3xXOkcJFJL0=
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 06:17, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.1.193 release.
-> There are 2857 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Fri, 20 Nov 2026 14:55:40 +0000.
-> Anything received after that time might be too late.
->
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.1.193-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.1.y
-> and the diffstat can be found below.
->
-> thanks,
->
-> greg k-h
+Hi,
 
-Built and booted successfully on RISC-V RV64 (HiFive Unmatched).
+Sorry to see this, but please reconsider removing this driver. It is in
+active use here and is about to get its first upstream SoC users.
 
-Tested-by: Ron Economos <re@w6rz.net>
+Two HiSTB SoC families that we are bringing up on mainline use this
+MAC as their Ethernet interface: Hi3798MV100 and Hi3798MV200H. Two fixes
+from us, both found and verified on this hardware, were merged into the
+net tree in the weeks just before this removal, so this is not dead code
+on our side:
 
+  444889dfa27b net: hisilicon: hisi_femac: Move setting of netops to
+               fix crash
+  d54b21d82430 net: hisilicon: hisi_femac: Stop the receiver before
+               releasing the RX ring
+
+Beyond femac, the HiSTB platform push is active on our side: a dmaengine
+series for the Hi3798MV100 PL080 variant is under review (v2 [1]), and
+more HiSTB platform work is in the pipeline.
+
+We are also willing to maintain this driver going forward. If you would
+rather not undo the removal, tell us the shape you prefer and we will do
+that instead.
+
+Thanks
+
+[1] https://lore.kernel.org/r/20261106072602.77560-1-mmyangfl@gmail.com/
