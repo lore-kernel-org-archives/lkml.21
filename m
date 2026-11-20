@@ -1,66 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199990;
-	b=YYqFOFU5bIA2r52gUhr3eLh0nTY+8HFVdTUnUkfuMtcyZCWeDHkAJCPWRSba2aZ2/Asy
-	 JV4Pburb1OhwGqpLUaX9tmxwj0gi36ZGAGSC552JgYGc+HoH2LoW8gLWv6FBIhhFOxqyC
-	 cupl1E9L5vYjZnid13nraA+N/FoUQt1rELLOVfG0whVxQeKEDSzXbxhlUQzTSY2x/oZJn
-	 6Ci9KAvTWbSXhMoDMjXpmRioCWW05sgKmNP8gkjUAy4HKHaUnONM2KaIeaKdGaOTAjkkP
-	 4BjQ6yDpxr5vd5Xc9YBKhUDS+u3fDOVI2QcuNS3e0Fa/OreJVZq91imRd7KFhcAfGoQ==
+	t=1795199988;
+	b=Wk8HxmC3AZtMd0ObfBMAVTeqqmGcWgLFUzj9vg7zjubcgbhAmJySjkWFe46BmovxfAMw
+	 xfHFKDrBV9wwpdW8Qw/h2BD04L2/W/5VQorCnIY1sp7+GkpdHuzaP8OPsHit/cS6ptgqU
+	 iccHu0IKMYkCffRXgoGiaAGXFAnBPWAlEvzBjvoATYKAg9Rn3cTEsxvtEF6TnN2ZJIHGk
+	 yksZUZC+lHLpxT4b1wCI+8cMUYu25DBMltOB+h7R/TKx33q61/TVSHfScaRPBe/N8bWno
+	 C0MaPDVI1MXHdbdKM5FV6UR7dHaWhD5moQCxbwoTW2glvUhmWKb+ApuFxKROUNLhyLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199990;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199988;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=lux1QnDe26RBrxt6XHdu4/sdgdMUB8ZuvQNESEmL/9E=;
-	b=ye97RocK5DNVVbuqSzMNpf4hsVWi1k3OX45qmLi3Q1H26GsBE2nQmadipxu1vlyhGFzQ
-	 8ykWtGOteTu15sFVXoBLD9s8hmOj7jTvQrvmj9zCdJ6mpNcIjYN8wRrowG6tHccMwHouk
-	 qg7l7DFT5gsS0jJg7OW66SQ0X7PSE8mZzMW22zQQ1a72tCL8sy/EZvULr1Wka4TUCMCl2
-	 QaJj0/aGsdFkpiP9puTQ52pv+0o4DTl9f7wyRJCjdQMbNHyNWa6/wQcRVhoy8wwtkMwfK
-	 a1AAA2wdlFjQeKOybGXU7Ow0AZjDE4omsCC5zTag5ZEpptlEgu4u3icPxf/Crh/1/Lw==
+	bh=vS3paOgEZLv1A1g8OmyxuKuZIhXIN3I0FA00VP71j9E=;
+	b=oy77OB62w22TKmOB3VhEBqTtKvKgqYH+GKseR0XDIC1tPWbPaFXpFBNaezWvWjlzSngE
+	 4W/Kv00wXIivJRbbwuAdW3NdvPBA/ddNV2v2zRc03UHecYH3z/TzUpuWhRHS5vyMOhiBq
+	 prn29uvrHEizZnU2UkHGe8olHYqSnq947ILMs4WHhmBS6bi/nzRXTAstvv4c+mQUOBwQJ
+	 lk34Sw/KIMv97HkF2WFc+VZ1A7q0sOJ8MfELts9ELx3JTWjdO7+Qj62e1tKfcS7k9elEq
+	 r1Fe2hZbGvU2Xj42Qok1vGKzwjIhzOtUtIeqziwzSUEn2vL8w2e68JiZhclS/VZg58w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L0xUFEZD;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CmbpBmzq;
 	arc=none smtp.remote-ip=198.175.65.9
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A854C60A2617
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2AF760A2622
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:39:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A854C60A2617
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2AF760A2622
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=L0xUFEZD
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CmbpBmzq
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795199982; x=1826735982;
+  t=1795199983; x=1826735983;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=gxx6eNi8ibUkgPJe3lE7LZkGi1dnXyn6J8jv49fC89M=;
-  b=L0xUFEZDEeYVKvgvHc8OL+dEQ1/NP2rg0seoMI9HmJGBRbtLUqvHaIB8
-   yuDYIDT8DFamRg+vKbV33tjjciKxovWpDJtsVcJaatShiTbq+CI+p0LeH
-   WNI6xhXOCV7bUGNjMAHhrX1d5G3/AdKxo7nux3IIhzcnQ20CS6wTPvrY0
-   FQZrm5ydTGZl8epIkkSwGBDBUDh4Zsur3IUt2Nw+YweBQ0Mgtf3ag1Bd8
-   WE4J7BnPBC22s/k+jTCYLG/c6BtLTOqHc77d5BCHx6Yt2hElWezk7X8Ml
-   /A3/mbd8KA7a1myRrCmDEkByeI+n896+7z6M//joD+W1fjGzXg0XdDDyW
-   A==;
-X-CSE-ConnectionGUID: Q8yLRudMR7emstf6H5STsg==
-X-CSE-MsgGUID: 3FEzxwPoQo2DRdUXb151ZQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3931848"
+  bh=artrgIEQtld+2V6JfYqBRD0b9Ldu3nOeD2Sv3wtSRlc=;
+  b=CmbpBmzqIeLQlaEEoBsgVh8pWVXR4g9s4iCwyFbQIPOUlv1h76Klx/Jj
+   kryh4mudo+xXrpFuw0aSCyKQU+8yiqRA0ysQhWrpldm7GTD7sX9B6dMOw
+   S74ziEfG+NGWSYM0zElrtHyg34b0sqVRVRyPNmO31NmiMeGb54ELUjZPe
+   DgmphCo9ymANc3ASQX9Og+CejDotUaIvQQX8jx3NYwHJG+l4gQ7RTDC0R
+   tjBu3O1zL2lCPoIcZqIDUM996UlVDCteFXIgW20i+zMsHQB26qRnMqM/+
+   8ieTs1ftfFCGMq0m3a4Cd112aUYHvpJjSz1wCpLVsKYZxSxzwXfCnRAC/
+   w==;
+X-CSE-ConnectionGUID: TeXBoyacRGePRRcH6tDmbA==
+X-CSE-MsgGUID: xhPbtazsR+uYEqKq3ZNAFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3931864"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="3931848"
+   d="scan'208";a="3931864"
 Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:39:40 -0800
-X-CSE-ConnectionGUID: PXy/A7cZQa2ZgNBSIucFlQ==
-X-CSE-MsgGUID: RujFk1/vTdWmbdc2AQZ3tg==
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:39:41 -0800
+X-CSE-ConnectionGUID: 1AYaa7RqTi6A0NpsPcW6MA==
+X-CSE-MsgGUID: vgafOxPTSLq/IEr0tRm6dA==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="12590719"
+   d="scan'208";a="12590722"
 Received: from rchatre-desk1.jf.intel.com ([10.165.154.99])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:39:40 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:39:41 -0800
 From: Reinette Chatre <reinette.chatre@intel.com>
 To: kees@kernel.org,
 	mingo@redhat.com,
@@ -98,9 +98,9 @@ Cc: fenghuay@nvidia.com,
 	linux-kernel@vger.kernel.org,
 	patches@lists.linux.dev,
 	reinette.chatre@intel.com
-Subject: [RFC PATCH 2/3] arm,x86/resctrl: Assert tasklist_lock is held when setting CLOSID and RMID
-Date: Fri, 20 Nov 2026 10:39:31 -0800
-Message-ID: <164d1c3a9f8b281cd038f2e80badb1d94ba3d3c8.1795197419.git.reinette.chatre@intel.com>
+Subject: [RFC PATCH 3/3] NOT_FOR_INCLUSION: selftests/resctrl: Tasks keep using removed RMID after fork() reproducer
+Date: Fri, 20 Nov 2026 10:39:32 -0800
+Message-ID: <2f95c069a2646af7d5745b14d2c53d0d9d450bc7.1795197419.git.reinette.chatre@intel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795197419.git.reinette.chatre@intel.com>
 References: <cover.1795197419.git.reinette.chatre@intel.com>
@@ -115,58 +115,167 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-resctrl_arch_set_closid_rmid() assigns a task's CLOSID and RMID. All of
-its callers hold tasklist_lock for read, which is what lets
-resctrl_copy_process() read both values as intended.
+From: Jedrzej Wasiukiewicz <jedrzej.wasiukiewicz@intel.com>
 
-Each architecture declares resctrl_arch_set_closid_rmid() itself, so
-there is no shared declaration in which to record that requirement.
-Record it in the implementations instead.
+Introduce stray_tasks_repro.sh that demonstrates how a task forked while
+its monitor group is being removed may continue to use the removed RMID.
 
+What this script does:
+  1. Starts 8 processes inside a new monitor group "m" that fork sleeping
+     children as fast as they can.
+  2. Removes "m" while they are forking.
+  3. Creates new monitor groups until no RMID is free, so the RMID freed in
+     step 2 gets a new owner. Nothing is ever moved into these groups.
+  4. Reports every task found in them. Each one carries the removed group's
+     RMID and is a stray. The expected result is none.
+
+To avoid the freed RMID landing in limbo, the script requires that LLC
+occupancy monitoring is disabled (on x86, boot with "rdt=!cmt").
+
+Example of issue encountered:
+
+  monitor groups created: 566, stopped on: No space left on device
+  tasks in new monitor groups (expect none): 1
+  /sys/fs/resctrl/c/mon_groups/n565/tasks
+  RESULT: 1 stray task(s) kept the removed group's RMID
+
+See script header for more detail.
+
+Signed-off-by: Jedrzej Wasiukiewicz <jedrzej.wasiukiewicz@intel.com>
 Signed-off-by: Reinette Chatre <reinette.chatre@intel.com>
 ---
- arch/x86/include/asm/resctrl.h | 4 ++++
- drivers/resctrl/mpam_resctrl.c | 2 ++
- 2 files changed, 6 insertions(+)
+ .../selftests/resctrl/stray_tasks_repro.sh    | 122 ++++++++++++++++++
+ 1 file changed, 122 insertions(+)
+ create mode 100755 tools/testing/selftests/resctrl/stray_tasks_repro.sh
 
-diff --git a/arch/x86/include/asm/resctrl.h b/arch/x86/include/asm/resctrl.h
-index 199ca9af0089..48bf22fb6b47 100644
---- a/arch/x86/include/asm/resctrl.h
-+++ b/arch/x86/include/asm/resctrl.h
-@@ -5,9 +5,11 @@
- #ifdef CONFIG_X86_CPU_RESCTRL
- 
- #include <linux/jump_label.h>
-+#include <linux/lockdep.h>
- #include <linux/percpu.h>
- #include <linux/resctrl_types.h>
- #include <linux/sched.h>
-+#include <linux/sched/task.h>
- 
- #include <asm/msr.h>
- 
-@@ -149,6 +151,8 @@ static inline void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid,
- static inline void resctrl_arch_set_closid_rmid(struct task_struct *tsk,
- 						u32 closid, u32 rmid)
- {
-+	lockdep_assert_held(&tasklist_lock);
+diff --git a/tools/testing/selftests/resctrl/stray_tasks_repro.sh b/tools/testing/selftests/resctrl/stray_tasks_repro.sh
+new file mode 100755
+index 000000000000..42f65d7d7bb4
+--- /dev/null
++++ b/tools/testing/selftests/resctrl/stray_tasks_repro.sh
+@@ -0,0 +1,122 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# resctrl: a task forked while its monitor group is being removed keeps the
++# removed group's RMID.
++#
++# rdt_move_group_tasks() moves a removed group's tasks to the parent group
++# under read_lock(&tasklist_lock). That lock only delays a new child from
++# joining the task list. The child copies its parent's closid/rmid earlier,
++# in dup_task_struct(), without the lock. A child whose fork() is in flight
++# when the walk starts therefore joins the list afterwards with the removed
++# group's RMID, and is never moved.
++#
++# What this script does:
++#   1. Starts 8 processes inside a new monitor group "m" that fork sleeping
++#      children as fast as they can.
++#   2. Removes "m" while they are forking.
++#   3. Creates new monitor groups until no RMID is free, so the RMID freed in
++#      step 2 gets a new owner. Nothing is ever moved into these groups.
++#   4. Reports every task found in them. Each one carries the removed group's
++#      RMID and is a stray. The expected result is none.
++#
++# Requirements: bash, root, resctrl mounted with monitoring, and the L3
++# occupancy event (llc_occupancy) off. Memory bandwidth events (mbm_*) are
++# enough.
++#   mount -t resctrl resctrl /sys/fs/resctrl
++# With llc_occupancy a freed RMID waits in "limbo" until the cache lines tagged
++# with it are gone, so it may not be reused and the race cannot be seen. Without
++# that event a freed RMID is reusable at once. To turn the event off, boot with
++# the kernel parameter rdt=!cmt. The script refuses to run when llc_occupancy is
++# listed in info/L3_MON/mon_features.
++#
++# Output (example of a hit):
++#   monitor groups created: 566, stopped on: No space left on device
++#   tasks in new monitor groups (expect none): 1
++#   /sys/fs/resctrl/c/mon_groups/n565/tasks
++#   RESULT: 1 stray task(s) kept the removed group's RMID
++#
++# The race is probabilistic: run it several times. "no stray this run" is not
++# a pass. If the run stops on anything but "No space left on device", the
++# freed RMID was never reused, so strays cannot be seen. The script then
++# reports RESULT: INCONCLUSIVE and the run counts as no data.
++#
++# Side effects: creates and removes the control group "c" and its monitor
++# groups (it refuses to run if "c" exists) and starts thousands of short-lived
++# sleeping processes. Other resctrl groups are not touched, but while the RMID
++# pool is full anyone else creating a monitor group gets ENOSPC.
 +
- 	WRITE_ONCE(tsk->closid, closid);
- 	WRITE_ONCE(tsk->rmid, rmid);
- }
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 7aea58fca85b..4e6ffe273863 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -332,6 +332,8 @@ void resctrl_arch_sync_cpu_closid_rmid(void *info)
- 
- void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
- {
-+	lockdep_assert_held(&tasklist_lock);
++R=/sys/fs/resctrl
++C=$R/c                      # control group used for the test
++M=$C/mon_groups/m           # monitor group that gets removed
++MF=$R/info/L3_MON/mon_features
 +
- 	WARN_ON_ONCE(closid > U16_MAX);
- 	WARN_ON_ONCE(rmid > U8_MAX);
- 
++[ "$(id -u)" = 0 ] || { echo "run as root"; exit 1; }
++[ -f $MF ] || { echo "resctrl with monitoring is not mounted at $R"; exit 1; }
++if grep -q llc_occupancy $MF; then
++	echo "llc_occupancy is enabled: freed RMIDs can sit in limbo."
++	echo "Boot with the kernel parameter rdt=!cmt."
++	exit 1
++fi
++[ ! -e $C ] || { echo "$C already exists, remove it first"; exit 1; }
++
++FORKERS=()                  # PIDs of the forker processes
++KIDS=""                     # PIDs of their children
++
++# Runs on every exit, including Ctrl-C: stop all test processes and remove the
++# test groups.
++cleanup() {
++	trap - EXIT INT TERM
++	[ -n "$KIDS" ] || [ ${#FORKERS[@]} -eq 0 ] ||
++		KIDS=$(pgrep -P "$(IFS=,; echo "${FORKERS[*]}")")
++	[ ${#FORKERS[@]} -eq 0 ] || kill "${FORKERS[@]}" 2>/dev/null
++	[ -z "$KIDS" ] || kill $KIDS 2>/dev/null
++	sleep 1
++	rmdir $C/mon_groups/* 2>/dev/null
++	rmdir $C 2>/dev/null
++}
++trap cleanup EXIT
++trap 'exit 130' INT TERM
++
++mkdir $C $M || { echo "cannot create $C and $M"; exit 1; }
++
++# 8 forkers. Each joins c, then m, and then forks in a loop: a sleeping child
++# that lives 20 s, plus a very short one that keeps the fork rate high.
++for i in 1 2 3 4 5 6 7 8; do
++	( echo $BASHPID > $C/tasks; echo $BASHPID > $M/tasks
++	  while :; do sleep 20 & sleep 0.0003; done ) &
++	FORKERS+=($!)
++done
++sleep 0.3                   # let them start forking
++
++# The race window is while this walks the task list.
++rmdir $M
++
++# Remember the children for cleanup, then stop the forkers. The children stay.
++KIDS=$(pgrep -P "$(IFS=,; echo "${FORKERS[*]}")")
++kill "${FORKERS[@]}" 2>/dev/null
++sleep 2                     # let forks that are still in flight finish
++
++# Take every free RMID. Stop on the first error, normally ENOSPC (pool full).
++n=0
++while err=$(mkdir $C/mon_groups/n$n 2>&1); do n=$((n+1)); done
++echo "monitor groups created: $n, stopped on: ${err##*: }"
++
++# Nothing was ever put into n*, so any task listed here is a stray.
++strays=$(cat $C/mon_groups/n*/tasks 2>/dev/null | wc -l)
++echo "tasks in new monitor groups (expect none): $strays"
++if [ "$strays" -gt 0 ]; then
++	grep -l . $C/mon_groups/n*/tasks        # which group holds them
++	echo "RESULT: $strays stray task(s) kept the removed group's RMID"
++	exit 0
++fi
++
++case $err in
++*"No space left"*)
++	echo "RESULT: no stray this run, run again"
++	exit 0 ;;
++esac
++
++# Not ENOSPC: the pool was never full, so the freed RMID was not reused and a
++# stray cannot be seen in this run.
++echo "RESULT: INCONCLUSIVE, the freed RMID was never reused (${err##*: })"
 -- 
 2.56.0
 
