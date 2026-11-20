@@ -1,97 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.230
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160660;
-	b=oWCyDXP6iT/5Rf6SDIiRo21+FlBEesQRlUw0w27T6AcuL80bzRauyc/g/r31KwtAHEDd
-	 bHHQaWuBi1lcLfbn368Bg708+2zqJBwzC74w6AUn+LXz34sFW8Dz8XluiujT2tsXkVMhq
-	 SjPEkHXAVqKjbJwxaZuJqHDC93VyqcgLcxjz54mm/YdEO0HNUcwT+yOTiNDPsjJjAYRgh
-	 tnBGFb89PmOIXyWY4xFnKHebEMuBGHh0n8Mgs7BRiACh96rwaRvPP80nZZdqtXa2HJsZ/
-	 jsmLAasElDdKCz0e4Q9csrxLFQyYDm+HlETM4b+PhpB48vW946Cx8GYrb3XNKVFMCrA==
+	t=1795160698;
+	b=QXw+ym3OxbjXmjECy2u2fdUfO+utAU8VGyimS7bMGSKZK63+C+WFodBjzKxTeSpCaqwA
+	 kLvSlMUQl8C3ekhcT+zCQwKbDW3vOMBNYhxbLNWJr3YB67KgHpxFdpKyFzPw42yw3KFGR
+	 0kMJtnCWDWaYZ8iXZidt62wrpP0xiW8yJHMvCICnHETsi890JLhchIZSaWHd8i9goq/Tq
+	 2x7MdBQMYA7px+d19cuLUvDZAzbVKUWSMeF3pl8m8cY7SmvMTdSD4U2PnhUPMGLdavma4
+	 UOifz6qceKMGw5xNFKN2F1z05GgaM8b0EyJ9Z0Vjx5rwas5m5FcAoX8XZCQcvzhngGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160660;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
-	b=KlVphce/v4Lt7bDLULQdnkZYS9VOyb7UAre0N8AVbAug0bh3ozPqcHxQWMWlE0Ge8RgC
-	 cy0+TPym6VjOd6oHzTEr54R+jGe0GjIq9B5XoEBfpbAYvjjYgMT/lc6JjrLBPOuF1OCwz
-	 pxo8sZKSjX0q4aeliEquZAkbulZh0VA383ebV2v8AkFx513njpRnPrpq1hlOLWvAvWMYU
-	 Uu6CGLIh/h5Dtoj78u3oG1HiHPRVUqc/4bKglbI/iw+zMNAHchzG2Hf/JmScDrOPN0FVI
-	 0lDmPgpJizuVSz4kvpySjOp35SCP8KAU49dAvAgAY8blpk4BCSUtvEintzTC605/xqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160698;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Lxi6unjVQ4QMAgeTvpwgXSWHJFUdnkiAu2/vuTAVwOc=;
+	b=3mXOmYXonRkefQEvEu6cdeK1f2HoaeXzrOTRD9JYW5MJoABfXv4ntKtNYeGmrXVXJLVH
+	 rfIdOIpYpoSukiga3tipz57k24Q09XVxHsvWNOzXV+iQXf+y/R36TuAAdeqRIss+DRlBz
+	 Zf4xg+UIF+ZkTygnqtw6x/I4YiGsp1ZR3va3MRFiYpg16L/qvCnC/9AJghkP34z6j1Rs6
+	 zLyEMYINFsnxnfHOMJJf7qK/B9l+VNI27/b0b8QwdLpAH/fFVW/rH7c7mHPe6pCNrMdZv
+	 F+ZvDNEWb+hkm4f3EQcfQsnQbmQwHYYx6etMKqrjXbFkBWtgxuNQitiFg3Wyqjp5Ulw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MVdH0dbZ;
-	arc=none smtp.remote-ip=74.125.82.54
-Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rIr1t80t;
+	arc=none smtp.remote-ip=91.218.175.230
+Received: from mta0.migadu.com (out-230.mta0.migadu.com [91.218.175.230])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B337B606A337
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:44:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B337B606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AAF27606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:44:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AAF27606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MVdH0dbZ
-Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1a3c08d6928so876769c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:44:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795160659; x=1795765459; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
-        b=MVdH0dbZECMyRVts4clMgTTtsiSNkQYMFVjvvp2uQ0gO+y1c1szeDBPX/F8uygQrj2
-         SbfdAavURbpFr4fbi+sgpKV6Tddic53/AVIVaKgT8cps3fcivdrokWALa1iMft0nh9GS
-         zybLQByYLe3b/CeAFZsS3ekpM+tsWIDsSuXTz0AcHjctFr1lue+uApIkOIU/GqeNqyXg
-         cfYoslTPciTg5C51zrlXYz+BpV2r9fJPjsQOQ0Av/l6rCUmF1q0SqtRXDkV4d16oFXof
-         WGYfZ2nyv126pilNMGwRY66ySZPAo6Dfw/gMG2s5Jfdgiwkeo+j3ZGp70xpYpx4KNoK5
-         sP4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795160659; x=1795765459;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YhIr5RkufI76Hp177M5SL/nPXC4WeO/bah0MoOu9yac=;
-        b=qI8jqVn5FTmUaOMMJmwrmq/61DPMwnSglZlqT3qQ1kygkAANPpEuobt/7NZ7gWkawR
-         YAEG4bQa0sBT1zx7DoC7xidHyY8B5HZ1wPqKKrMhq6hLGLwOoZ10hrfQLf/mcGU3EaIq
-         9bYaTakT76xTLqqCoQxOYLkoWEVL+dtmkXzjKmB1kDmeq7Hw83fE0E3KKP6r3ZjG9oA1
-         nBARyTeguNW3CgNb7ZQdL6vl8ugenTEv2VF9LJUI7jQlutWrBDRM9wv8Oc+UZp1C6tDN
-         dV4ll14rh24ar8hCGNBU6ARTB3SLhpB123L89HQnTGiKXuP862G+YLG1x3SCCgenZUCF
-         zh2A==
-X-Forwarded-Encrypted: i=1; AL+hErG40uO6CiS8gH5mD7ydSq57A63/dCHO71/bmDguWEfZ8Uk1Et8raFr96RYllreaQw0G/u/xxIgC1kL6dEA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8mK7qDPPjXXpJVVILmQwg69PX76aBXvwnyHiYGXJ+mTPJm+rpn
-	NO6YpPl0sZmk3K3wvb+XOZCAAKlCHfgpqQa9us7fPGC6laCbFQ4hBpDttjOONKKQkyw=
-X-Gm-Gg: AYBFou0QOwoOGgbz62uTpAA7JaPvJJ+KId1Zk5YmrriF3XuA3J1iWYTxUOqoTHZRiYm
-	3a59HimiGLufNmJ+8XvFxYgF8x+TdH2BnKe2gniq/N7Ar0MWaWDorOvl4OAqv6mEQxBcWR7hQtp
-	gLzJzlzdKShpAAxbXWyHmEtu8KPuBza6dDhF/JcxzTwLI75bFtQ91yt+CAfqfZhdb5+ns8wmlZB
-	cMqJKt7ZuPsCjsjwOl0EwSZRg30CLXqP3jqoIszmdFhnoUJ2ecSSJiVXv31XcmYJ8z7nrbC6HMa
-	1/4lSRcr1y+rX6CDaDvnR3kKzTopq5j+bB5W+p01Zc0HuEW5xDNX/6XEcxIo/XjUeDzHiC3wMaB
-	psnsOH51z0TaSbu5T1T/ejNZg8PXWGKALq+FhUnluDCw5zWbaQqIEv8JPOUWXfp9v5W98SqlC5T
-	5QumWyKMezWE/68vEjcckLCB9ndOjj8I5KdcQOUrXlludSBi0VNWv211DHA1DP7dYm1CSxM82RS
-	KXieXV/8peMo3doqabK0DuRMLXEjFBJDe7eRXJpWOpmP0Ri4aGSUmj3H57LNooiH9IsuA/cJLUD
-	yb8eDX2T7hMcoOSIsQRH+xcO6xQmMQ==
-X-Received: by 2002:a05:7022:f50f:b0:1ac:1022:b60c with SMTP id a92af1059eb24-1b5567b2091mr1764911c88.1.1795160658571;
-        Thu, 19 Nov 2026 23:44:18 -0800 (PST)
-Received: from localhost ([122.172.83.36])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556831d45sm6769427c88.11.2026.11.19.23.44.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 23:44:17 -0800 (PST)
-Date: Fri, 20 Nov 2026 13:14:15 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Sumit Gupta <sumitg@nvidia.com>
-Cc: rafael@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	zhongqiu.han@oss.qualcomm.com, conor+dt@kernel.org,
-	treding@nvidia.com, jonathanh@nvidia.com, linux-pm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, bbasu@nvidia.com
-Subject: Re: [PATCH v3 0/9] cpufreq: tegra194: add Tegra264 support
-Message-ID: <av_6T3bqEygaKK3q@vireshk-B250M-D3H>
-References: <20261119111217.902071-1-sumitg@nvidia.com>
- <av_R-8aMX7lL83ln@vireshk-B250M-D3H>
- <61d207b2-3155-4613-bc9e-588c68f276fd@nvidia.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rIr1t80t
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=lB7kRH1Y6c45DRzOiYxWXvEym+deCOdTIknp2BnEVAM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795160696; v=1; x=1795765496;
+ b=rIr1t80tmltB+JcBtrDnIX+74N1Ia1PLfMhBevXJagxvm6AAdWGnvC0fBlJ9srxtn9Zdm4w7
+ efcOzUMBCDEYHpPmrzEUJd7yDaoDu32JPJ8rsL3Ks9Vl1oGeW5oJV+M+d5a1USVsjt1Fmaw1o7s
+ zGYYPvD9GCuMdLtbNAUgdkCo=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 9b268e6d28a98aa1;
+	Fri, 20 Nov 2026 07:44:55 +0000
+X-Mizu-Trace-ID: 9b268e6d28a98aa1
+X-Migadu-Flow: FLOW_OUT
+From: "Xu Xin (vivo)" <xu.xin@linux.dev>
+To: xu.xin@linux.dev
+Cc: akpm@linux-foundation.org,
+	chengming.zhou@linux.dev,
+	david@kernel.org,
+	donettom@linux.ibm.com,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2 2/3] selftests/mm: fix false-positive KSM fork test by dropping init_global_file_handles()
+Date: Fri, 20 Nov 2026 15:44:45 +0800
+Message-Id: <20261120074445.41446-1-xu.xin@linux.dev>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261120074230.40269-1-xu.xin@linux.dev>
+References: <20261120074230.40269-1-xu.xin@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,21 +71,36 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <61d207b2-3155-4613-bc9e-588c68f276fd@nvidia.com>
+Content-Transfer-Encoding: 8bit
 
-On 20-11-26, 13:06, Sumit Gupta wrote:
-> v3 was on linux-next, which has commit 4dd10fbbeb9c ("treewide: Convert
-> devm_kmalloc() family to the devm_kmalloc_obj() family") from v7.4-rc2.
-> 
-> Your branch seems to be on v7.4-rc1, so v4 on it would conflict with
-> that commit in mainline. Should I send v4 on your branch, or would you
-> prefer to move it to v7.4-rc2 or later first?
+In test_fork_ksm_merging_page_count(), the child process currently calls
+init_global_file_handles() before reading ksm_get_self_merging_pages().
+However, init_global_file_handles() calls ksm_stop(), which writes 2
+(KSM_RUN_UNMERGE) to /sys/kernel/mm/ksm/run, unmerging all KSM pages
+across the system and resetting the counters to 0. As a result, the test
+always passes regardless of whether fork() properly resets the counter.
 
-I moved to rc2.
+Remove the redundant init_global_file_handles().
 
-Applied. Thanks.
+Fixes: 08ff89b5659d ("selftests/mm: add fork inheritance test for ksm_merging_pages counter")
+Cc: stable@vger.kernel.org
+Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
+---
+ tools/testing/selftests/mm/ksm_functional_tests.c | 1 -
+ 1 file changed, 1 deletion(-)
 
+diff --git a/tools/testing/selftests/mm/ksm_functional_tests.c b/tools/testing/selftests/mm/ksm_functional_tests.c
+index 135191f99962..c20982b0aff0 100644
+--- a/tools/testing/selftests/mm/ksm_functional_tests.c
++++ b/tools/testing/selftests/mm/ksm_functional_tests.c
+@@ -670,7 +670,6 @@ static void test_fork_ksm_merging_page_count(void)
+ 
+ 	child_pid = fork();
+ 	if (!child_pid) {
+-		init_global_file_handles();
+ 		exit(ksm_get_self_merging_pages());
+ 	} else if (child_pid < 0) {
+ 		ksft_test_result_fail("fork() failed\n");
 -- 
-viresh
+2.34.1
+
