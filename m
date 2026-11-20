@@ -1,60 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179398;
-	b=qx4MFkaQIu9c5s8beuJBZaaAneDpWQ7LeFUV+cKYsT7LI2ZNKOrmxD7GhXSf2XcJe96y
-	 4c5HNW9P262ws+/XpzXjePnBMq5vSikRusHmBwCvZckA8uTKT+cOzI5utcd1SYn0wru9Z
-	 0FgA1nAo+VvOIz5EmjU2k7HLIJUGuh85+hxJ3cbpF9iOzfeWZqxeyLfR86mnW1hsafhWK
-	 hMsJFrYIL7OQl740TfLPk1T1XHrzyYdqZFiVA6xmt40hfFVateQ7Y2mxB7VOVR+8yrDKI
-	 eO8E4/Fl51pqCVHsTkFLFIMJR2F1jiLk+t9/jSlnWNnNSLXlVqjHIal9wE54UAoVXBw==
+	t=1795179395;
+	b=3/GiB7b/zt+gDru1PJJE9XFQ6RuWyRb7uiSqH4lxaFQuNXg3JBEjDne12+Jh1Fj9k6ed
+	 MrI4iGyrv6u4ZEWJ5vHlNj82m4L4ud6u8Q+fT5t2iehgdD3lAEET8l8TYUBX6CFjBFfH0
+	 7aSKy7zRjEq1ZZOJsJslj6krIL3ArnutQSGs9Dv4wVIDurIFPuB2ECYPkAhF8MpOxqGW+
+	 H3+tSYEGNpXBYs9cNe8xMQeBO4SoqPDxLbDXKtkPJEh7q+ZAM0XXxFKsWMmcjqTgyq93g
+	 VbNsERJt+6CVVYQAGJxyOSihQYkWyDu5Nf07JVGTeOZs7R0h0Gav6HE/JFGtcPSZkbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179398;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=UGgNyp7svh7X4XAI34FVv4NHd5d512BAdv477CcIj7Y=;
-	b=lOdj08y38fxiuM617NTvtWApRDS4Pgirq5IxZrDrNXLSBlNsXz7qSIzn5K65VpsW7pVf
-	 tNsLWwCZcatK47FJ8M/OMpcLOSIN1I0kZYBsO0HSvujWFGOU0geU5EZ4G5HH3SaVfRHT3
-	 18ZyskcwIXmjY56NlYWG3OUw08XqApjj2aud4TTV2KRUPNchArn3Je6iRVRPKnWYiG36s
-	 7we8iXeQ9+r1Y9Rn24E+oh060G/2x8y57CuliQJ43ormG6kfawgy+mrAOo7QIwF/3ecn3
-	 zhOwviwreQwCNKgZcLHStlPIuhZEkctRklVH1G2LIb5adubFlagp9X9cemB/S36YVPQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179395;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=UlL1tL46u8oIf3zcC95kZ+8Bi5pqj5m8JhhkqNcg/Ls=;
+	b=VspzkIX5SU7ZZKxJpV0LsRGhURtGHh84Vf8wFbPCqYh8IbH8UsF+OZkzH7ZgN8Z5o6am
+	 0qMBYOTXwY+Yqnk+Lr7NJ2NNAfk2oqWGdf0rulScA6FlB+mdKXPkC5kh4FFDTW7zqB0hp
+	 S+7taPMY7RH7N3uEhxP8ZByXYkdNSJEiSG7eljZLL1gxjzBmZmY39KrFsSGYghNz0ED5S
+	 rD2MDfFzPq95epH7DUbLiKqh2zshsMAGeQcKXyGMnEX/tVE+ykm5OEqZdKbMpI1fBe1m6
+	 5xp2T2xP7heMZbH+GFWcIYfQKoDMZLdfbQjYKTuia9wBWy9fAqiuspuu51C6h3B2RFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BWjzVm+c;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SuxpyM+M;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F141606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:56:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F141606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 854AC606A33C;
+	Fri, 20 Nov 2026 12:56:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 854AC606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BWjzVm+c
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D9D191A174A;
-	Fri, 20 Nov 2026 12:56:35 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A28FE601B9;
-	Fri, 20 Nov 2026 12:56:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E8B4A11BC017C;
-	Fri, 20 Nov 2026 13:56:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795179392; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=UGgNyp7svh7X4XAI34FVv4NHd5d512BAdv477CcIj7Y=;
-	b=BWjzVm+cZUWQ9mNygpkvKADtuX7/Q6GCq/hzSWSf16hs5Up55nfy2SN3mGGyMGFbdCXibk
-	FJ6IQn9FSOVZTZBUlhLJCaXNBPz2HVM122BwVevchi4wv6hIlSRc1B7qJwIdxFSUYtIE+A
-	JigaCIKCVHPaIqzxmVO4ILhrSab5zCNsDxumKTHAiw/G6qU+mHycuZ6SqzyomQsU6kFZcD
-	9VEZu+1mBlkDQOLl7dyh0iIc7afYrop0kj9EgGJppKK34iOqWRNUxIsislEqu7RU0A4E09
-	08Ebtw/6S0SlorSDGvuAppgyaFksHvtGN5gFessULZa0d1/1ygGrObgUUXCPAA==
-From: Benjamin Robin <benjamin.robin@bootlin.com>
-Date: Fri, 20 Nov 2026 13:55:51 +0100
-Subject: [PATCH 3/4] dt-bindings: phy: cadence-torrent: add phy-mode
- constants
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=SuxpyM+M
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795179396; x=1826715396;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YOybFKQDeGQyV1Ly7G0MdURg3SPpaurHT+tJSAtgZFY=;
+  b=SuxpyM+MKzvPidC+jdWb6fapFWV3eyuyF5EZECy4qbvhOY5NU91zNVAg
+   NpAKggc3GqoTo4V47a9AwF7RuDrWXHIGhGAQaHEZ0NqkmYJ1XBwB5MllH
+   AJSyaCPrWqJF3q3HIp74aAvjK3rvOtHhO0arCsczXq7FKolvhy4ST34y0
+   7Cui8lk2BgUkscObZKu3e6KLbor63b5xeQQI+tDK1u/+ynbCFrbgFeEbY
+   vjKmDB+RHYiO5+69Nl9ZdofTiE1aAQpvObeAxT31Mh1wUxyEzDRNNidat
+   1VXOuBPTt921wyrAnbf0dUGhnE00O2x9ViuDcFbGo+v6fD+mUsnlg2c4V
+   w==;
+X-CSE-ConnectionGUID: y2Va7BbtSk20mQeRVjEbWw==
+X-CSE-MsgGUID: AE28/QjgQyCISbS7BhySfw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4059634"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4059634"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:56:36 -0800
+X-CSE-ConnectionGUID: Mi5qI2h2Sue/PH+7gUYN4w==
+X-CSE-MsgGUID: Fea3zjOXQl2P9uA8XPRqqQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10582776"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by orviesa004.jf.intel.com with ESMTP; 20 Nov 2026 04:56:33 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id ED21499; Fri, 20 Nov 2026 13:56:31 +0100 (CET)
+Date: Fri, 20 Nov 2026 13:56:31 +0100
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: Atif Ashhar <atifashhar@google.com>, Andi Shyti <andi.shyti@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	Luis Oliveira <Luis.Oliveira@synopsys.com>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] i2c: designware: Release slave SCL hold in
+ __i2c_dw_disable()
+Message-ID: <20261120125631.GJ229695@black.igk.intel.com>
+References: <20261104133745.1432212-1-atifashhar@google.com>
+ <20261112145238.3736264-1-atifashhar@google.com>
+ <awBCclrtdWSNHl67@black.igk.intel.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,94 +88,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-phy-cadence-torrent-ng-v1-3-da2db7125cd7@bootlin.com>
-References: <20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com>
-In-Reply-To: <20261120-phy-cadence-torrent-ng-v1-0-da2db7125cd7@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yuti Amonkar <yamonkar@cadence.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Andrew Davis <afd@ti.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Chintan Vankar <c-vankar@ti.com>, 
- Abhash Kumar Jha <a-kumar2@ti.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Thomas Richard <thomas.richard@bootlin.com>, 
- Swapnil Jakhade <sjakhade@cadence.com>, 
- Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
- Benjamin Robin <benjamin.robin@bootlin.com>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <awBCclrtdWSNHl67@black.igk.intel.com>
 
-Add the `CDNS_TORRENT_MODE_*` constants to
-include/dt-bindings/phy/phy-cadence.h such as SATA-LP and 2500BASE-X.
+On Fri, Nov 20, 2026 at 01:52:02PM +0100, Heikki Krogerus wrote:
+> On Thu, Nov 12, 2026 at 02:52:38PM +0000, Atif Ashhar wrote:
+> > When an external I2C master initiates a read to the Synopsys DW_apb_i2c
+> > adapter in slave mode during kexec teardown, runtime suspend, or driver
+> > unbind, the slave hardware stretches SCL low (0V) waiting for TX data,
+> > setting DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY.
+> > 
+> > In master mode, __i2c_dw_disable() issues DW_IC_ENABLE_ABORT to release
+> > the bus. However, according to the Synopsys DW_apb_i2c Databook, the
+> > ABORT bit applies only to master transfers and has no effect in slave
+> > mode. Because the slave cannot disable while stretching SCL,
+> > __i2c_dw_disable() times out, leaving DW_IC_ENABLE_STATUS[0] = 1 across
+> > kexec or rebind. Subsequent writes to DW_IC_SAR are write-protected and
+> > silently dropped by hardware, wedging the slave and blocking any other
+> > devices sharing the physical bus.
+> > 
+> > Fix this by:
+> > 
+> > 1. In __i2c_dw_disable(), if DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY is
+> >    set while disabling, temporarily re-enable the controller so the APB
+> >    interface accepts data commands without racing with the slave ISR,
+> >    clear pending RD_REQ/TX_ABRT interrupts, write a dummy 0xff byte to
+> >    DW_IC_DATA_CMD to release the SCL stretch, and immediately request
+> >    disable via __i2c_dw_disable_nowait(). Also drain the RX FIFO if RFNE
+> >    is set during SLAVE_ACTIVITY.
+> > 
+> > 2. In i2c_dw_reg_slave(), replace __i2c_dw_disable_nowait() with
+> >    __i2c_dw_disable() to ensure the controller is fully disabled before
+> >    calling i2c_dw_set_mode(), which programs DW_IC_SAR and DW_IC_CON.
+> > 
+> > Fixes: 9f3e065c54b0 ("i2c: designware: add SLAVE mode functions")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Atif Ashhar <atifashhar@google.com>
+> 
+> I don't have time to test this unfortunately :( But it LGTM. FWIW, if
+> it's okay by Mika:
+> 
+> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-These constants are used by the new Cadence Torrent PHY driver and
-are referenced by the `cdns,phy-mode` property of the Cadence Torrent
-PHY binding to select the PHY mode.
+Yes it's okay, thanks Heikki!
 
-Signed-off-by: Benjamin Robin <benjamin.robin@bootlin.com>
----
- Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml | 9 +++++++++
- include/dt-bindings/phy/phy-cadence.h                          | 8 ++++++++
- 2 files changed, 17 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-index 8e845e2373ac..17a8343ac899 100644
---- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-@@ -101,6 +101,15 @@ patternProperties:
-         $ref: /schemas/types.yaml#/definitions/uint32
-         enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
- 
-+      cdns,phy-mode:
-+        description:
-+          Specifies an optional mode of PHY for which the group of PHY lanes is used.
-+          Refer include/dt-bindings/phy/phy-cadence.h for the constants to be used.
-+        $ref: /schemas/types.yaml#/definitions/uint32
-+        minimum: 0
-+        maximum: 63
-+        default: 0
-+
-       cdns,num-lanes:
-         description:
-           Number of lanes.
-diff --git a/include/dt-bindings/phy/phy-cadence.h b/include/dt-bindings/phy/phy-cadence.h
-index 0671991208fc..94945b843288 100644
---- a/include/dt-bindings/phy/phy-cadence.h
-+++ b/include/dt-bindings/phy/phy-cadence.h
-@@ -15,6 +15,14 @@
- #define CDNS_TORRENT_DERIVED_REFCLK	1
- #define CDNS_TORRENT_RECEIVED_REFCLK	2
- 
-+#define CDNS_TORRENT_MODE_NONE		0x00
-+#define CDNS_TORRENT_MODE_USB_G1	0x01
-+#define CDNS_TORRENT_MODE_USB_IO_11V	0x02
-+#define CDNS_TORRENT_MODE_XAUI_LP	0x04
-+#define CDNS_TORRENT_MODE_SATA_LP	0x08
-+#define CDNS_TORRENT_MODE_2500_BASEX	0x10
-+#define CDNS_TORRENT_MODE_QSGMII	0x20
-+
- /* Sierra */
- #define CDNS_SIERRA_PLL_CMNLC		0
- #define CDNS_SIERRA_PLL_CMNLC1		1
-
--- 
-2.56.1
-
+Acked-by: Mika Westerberg <mika.westerberg@linux.intel.com>
