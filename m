@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179758;
-	b=zdsG9IjEhhyRo3QPbxvuyV68Va07NOCROvmkXjs7LZjQVWWPAInpk3XltiIQKQcK80QR
-	 LgxoIgPtfFNzSLRcXnh3gMK9fyfwY42ymyj/yeqXPW092R+cuKzlvmEZZUmkJdoD6/Qu9
-	 BO5a+UAvMtXmwz3ZPjn+hi5Gd9BZad9jyLOs3WdDxIOwqre6RmiMSJMWyFjsXLXYKuPUl
-	 IAGjkYLIDmHKCBLoeLiJAeLtcKf3iesOZQQpcgCwH8zTYjiyzDjBqBBTiWcc1AJ0abnGM
-	 ScnCusq+oYXkYnD2VLgrV+sNpMcluyFn7MtJWPDNnYZjq2aohErMkLMVGxV8u7cORkw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179758;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ti2OfGe5Wfev+BqPk8o1gBH+6PVamFDYmWAVzNs5Bz0=;
-	b=RAjGnY3aH0ciYeOGbZQTogmPjqz42+vQO7EIKTcsT5by2KSmdVNkbYXsEj4YzhB79lrU
-	 u8u9qdqIeauDr9/sCSGqjURdcHT+KPQi5QiOi4LhA0YY2ppZJA8ld/+rDnCqoLiGwLiaz
-	 UUNTEdRNLIx6I5nqb5GWhYpkb1P2KhYHyyHq+kvCtpJ8vFMLhIP7Pq5JQp0CNAG2el31y
-	 FjwkUxmlySaRPVz9AWgIR4mCR/fJcWkuQ8CFOFB05K2isJdqM+pFqyPlaL6yBrCbkeBYM
-	 baYRjv9Qt9aNbKHHKh/ikGa2HqunRz33m1Jd/c/B5Qc5puqhtWUXzJNHR1e0v1umLNA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBuRIPlU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795179822;
+	b=hSkqsD5JwUYJ2TQyrqyMyeq7gfou+NtbX1cDRQdOTxZFjv6GWLdPWpMCXgl3PMI+0B5R
+	 SgkaKTTcew5Uk9AQZHfYPqii22EfMRXk0nl5yrXTJYdfRYyFr7p6y8EEFN7pP0x6tAbPp
+	 ti4BlPBRZueO7ojfg7ls5k94AMSd99KADgo8N2dUZvcjb2Ai5JH415tQl2z/HXp2hrv4C
+	 iQwrh6W4i7ZesBOcjkoUZ1WrQk/CKw/wTY16qa36RJ/yMfbwS9cH+MIScYuK6hCxusk0S
+	 0yRXEotaEqc+mWpqawXXMt4B2VJD7gYza/TQppCt4NlrYYgYxMKrUSqrK4UlcnaI/Dw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179822;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
+	b=0Hzse8yJQsDOEvNPRg+9MEzRhOZIwEinosY0Rme95+kO5uBEpptpu5KJvyXAxbJncht4
+	 oI5plfgJ26SQwfQrEfJz9v2yGkOh3vHprIxcpW7Q1CrtLIQ4XnbpROnbR/zpUuKdqYAxI
+	 428cCeCOjONo0B6AyCqf2JiVV7gDZ1NTjScA4iY/dkOQpSIk32a9PxuMuAvjDhwz7go2P
+	 r+WRVgok/5++okrTS5+foNpFHCHRowhAgf56gtJdx5vgPi6ZGwYufxx1ObRsP1bKR3/+l
+	 Wx+dOXQXL5CB11a+ZUigzYSuR2+Ltz8mnmwFNWP2Ckjb0O8mua3rJKeadzsCqw9BI5Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PsPpXf3A;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.44
+Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2FEE606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:02:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B5ED606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:03:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B5ED606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBuRIPlU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75E7C1F0093E
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:02:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795179758;
-	bh=ti2OfGe5Wfev+BqPk8o1gBH+6PVamFDYmWAVzNs5Bz0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=GBuRIPlUB69i04M3zW1/qGIupTmRXixeyNgIa1mpqnHSXEZJ/AX32mABtd89++leZ
-	 hSFmwMUvi2boAQlaA6NfFpNPs87Q4Ae2wTo8ek5qdM/FFJiIYE17LIfaIqunoklXLO
-	 lEVY2oKsbSA8h7EJf6WVcKf5yNEJzHDSTfTVnwMDjYnPc54IxkOs9dRBqqLWEHl2Fy
-	 kUKoEZN3tHfeJhkxPLHUrveQiLqx52GP/FZzKLoGAm6hPKdcAFC5EhuzPkXxvbU8TN
-	 /mQA+ETScvx6hJMhWCYN7h9ER2ovJleLP7VE6qW7tw69l+rwFQ/NWpKfjeezlkaLHE
-	 mGLmu2MwpZT9g==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3adfed9a887so7028011fa.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:02:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFlcG1DLRZChO0d7Wft9Fzc7NqekzYE9j6NZbx9X+EUCON0Ku2t8kkxq2DPcnYNnQee1ACM0LjDA2+qR0U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Bjs5rdN+gutyyZoVElmhDBYwYpJFoKlTlr4WHfjGyOWsBlYcI
-	9ul9ZvUCCi63SluhU0LLF6EfsZl/J+XUEcFPJarP20ajciV3WzRotZvRW9jqktlZFfT0HYcxC70
-	aPm11phTt0KbuQfd4w2VM37MhaONMcAw=
-X-Received: by 2002:a05:6512:3a89:b0:5c1:5975:66da with SMTP id
- 2adb3069b0e04-5c1bc686852mr883165e87.2.1795179756815; Fri, 20 Nov 2026
- 05:02:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PsPpXf3A
+Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso421284f8f.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:03:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795179820; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bA2eWbpNzd5sKusocFdqFGI9F1cGMyiAOMMG9bkQ+rBjsQl2uqUfgaEljNaVTKvibG
+         zNakyqwNv9lIKCmsFxwZ+tCAzgsLJz7qcbtM3pbSmPysSGir4IbT4PRCK8aDcRk348Jf
+         zdBJQ4vxnd/s4mWa346f8S92zutd1W7QddbNJfoJVVSdQA3UE8RLsh0c0p28IFkZ1msu
+         WETiH1XckNY9HHCTt9Gh2/xaOrQmBxINOwk38aqlN1wtIE87dASVP8pyYnEDjBCtsL2Y
+         wkii6oHB0Vg0WEfLc1EvO1Z32qOKOZYyL/8JG41ZZ1HvPv+WUX6UrmJ0PFrGmFvQ9nQh
+         QkIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
+        fh=kkD5+LteImBC1ZBdAZ5ftQjVc8YolxrIVbiQEIYYbFg=;
+        b=LNeUWQOR/yRMiRcIkh8obC94EEtpuiKOncepkcocxQdL76K5FW9zkD3PeAuz6a+IVd
+         hgUNZ9DPRB0vn7D1/WMGG6qIycZ3v5cere8j3lt4qjNiJsc4sARkXOeHckMLF0G1Ol3o
+         x4C/IIl4DlxlYQn844SEsN+KFyN6KKHlEDnQZFH3vzxjz3wCP5hrFMn4WiacrfuUHbzz
+         IakN4YGPYCLqfcJJdbs/RpcWQp7Ep2roz0/037TbFLcXonsdanfrxjhamrKwN9K+HZ9o
+         EQ47ksXhrR9xqMPkBUjwNGSLy0h8OFSRd8J0ISUajKykdDvgI7YOUhETU2M3wJFPGM/L
+         c0hQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795179820; x=1795784620; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
+        b=PsPpXf3AAmIVKkD46P0LhsoUBI3Fj75//V1R2+K2pEnYXK81nji4S0oE4cJ1Zyciti
+         FpYJLB6Zmlt0vKPXnAra6ZArejGnwMukT1iVidcPas/tGmfPcaN89Xe+WR5ksyf6BVoB
+         AzAp6oAzoJhdOylbf0EuSNr+lRUEoehvUX5KqwoJFhPj3qdgc4qdddiCOyxrPDtLDgDZ
+         MJ/7t3i+jJ1nUEi0Ok+TFMs81Fjzui6ubGrSQiLwaX+CX0TrN3ekFEKP/Iuui4JWpiDT
+         ckcquOTNzmvVJ1tSjvdTxhJ5LjQ/nl2E+jsICVyW/Cw/ybdRq1uhpcCqGWBGftQ9KT2E
+         vlqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795179820; x=1795784620;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=n0ISsvavZIs94+cwCUE6Hl8OOGqoCs4DO2ZqytVibgo=;
+        b=Z0jxUJhIHKVBdAP/jcZsjbcNLu7CetZl0c/N/uhTxdvguUzWYaEFK+pYay4E1rcZTe
+         uV1PxTkX+p4I0I1UQvygAhS94KJm64q6OhnUwx+HGYrgdJJdq7iwVpLsMeVoPcsqKl3I
+         xCAB8SgzK1komwScu/AGJCeINc/jUFBnkFPyA1Jds5zkksPQbnzuc6ScjxnPtGBbFUTb
+         Er3aFkvRDPQ+51zBTD90y/55bp2A1lqC3w+FLDUGWDfKAmSbmup4dTBYIfbYvfoDj85Q
+         sU9rN9+tQTuVSpJvCVeqluzTFesO+q4DNxvcar26iZLpkJrirwLiHWUNVivPzTVWGATw
+         dcyw==
+X-Forwarded-Encrypted: i=1; AL+hErEJolmeyDez/jGkwwuawv80gvFgBQOH+NqMt7XffLGVX9GWGLtHIU+aBBN+ZGDxzZmYAEni243Dh9QSDfE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YYzClCge0k6l351b9WhPoj03JrOlDc0BRSXMejUYKZ3aUdBag
+	IhZfo4knGKlK0LmmkYvwW5czx1QpPILHK68mYLEdQHqR6ocObwzxI3UQp+ANzraAK+uY9kmFs4e
+	gutvKSTnHl4qQ9hnuCzsdJZxvC+XHXdQ=
+X-Gm-Gg: AZFdTZfnlaiQ6LnQgxZnUJaAxkazVVDkaAvuVRsKGw8foM/lxAVCiRYW6ig3V8fNlpN
+	C7T7DGAdjOIRkXhtckRfbfbLWG1VqY+MHbXwfqEB9JJXIDNUJZg7V6/XtEgKrCh5AA/gII4Esq0
+	M1cCKYlytZFsSGcXEWESgS0IjfceTpAVpPyWsJoNSvmHSuFf+gHf/vR++FAmQtzaKT7bSrFx7c3
+	trEipFaumrSqg+5VJMTlIvSObgSmXHf1MN9h+XyVkHv8D7rcFjNQKw0NpD9HfWCUWScfnQpfczI
+	gSIQSbR/OPeoVHZcXK8kXZklGG+dlLx5lSkmpaatIonuwJ0ix5yLEZVinxoTwlqSo0evzEfLHw1
+	4rw1qZ7/5Ljopj+v2uvl4v/IEPskUl5dUASeNfcoAJCQ+4c94p/GDGo+pWAD3eSBc+wBwuPW1tw
+	xu3J22X6XPA2IpuxMzILvD8H3YdNrlempeekpd2jiawc9wVDmtNWhiH1NqQSw=
+X-Received: by 2002:a5d:5f93:0:b0:4a5:33ad:871a with SMTP id
+ ffacd0b85a97d-4aba56f470cmr6596088f8f.0.1795179819733; Fri, 20 Nov 2026
+ 05:03:39 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,124 +102,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113230248.3569097-1-jamien@nvidia.com>
-In-Reply-To: <20261113230248.3569097-1-jamien@nvidia.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 14:02:23 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0inbe=mHQvmtNpn-omjms9JEm0ROOoQOgrpW3nC_UqMLQ@mail.gmail.com>
-X-Gm-Features: Aa3M54rs68VqpX-4uuwOAViNiwDZ6Hd9Cv6V3uWOm11hpkzlNBKGoAaX3wTUSko
-Message-ID: <CAJZ5v0inbe=mHQvmtNpn-omjms9JEm0ROOoQOgrpW3nC_UqMLQ@mail.gmail.com>
-Subject: Re: [PATCH] ACPI: sysfs: Serialize access to the table attribute list
-To: Jamie Nguyen <jamien@nvidia.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 20 Nov 2026 13:03:13 +0000
+X-Gm-Features: Aa3M54r7eri6nG80Ox8qtxZ_YF9Vy7EOukLgs2cDYx6GnB44mJ7ZTcxn3ACOd0U
+Message-ID: <CA+V-a8tunjWx9j47pZybGjBwiHzQzsxXWzrc0+3E4h+APGFk8w@mail.gmail.com>
+Subject: Re: [PATCH] sched/fair: Avoid transient double accounting for delayed tasks
+To: kprateek.nayak@amd.com
+Cc: bsegall@google.com, dietmar.eggemann@arm.com, juri.lelli@redhat.com, 
+	LKML <linux-kernel@vger.kernel.org>, mgorman <mgorman@suse.de>, 
+	Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, rostedt@goodmis.org, 
+	vincent.guittot@linaro.org, vschneid@redhat.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Sat, Nov 14, 2026 at 12:03=E2=80=AFAM Jamie Nguyen <jamien@nvidia.com> w=
-rote:
->
-> acpi_table_attr_init() walks acpi_table_attr_list to pick the instance
-> number for a table's sysfs file, and its callers then add the new entry
-> to the list, but nothing serializes this. ACPICA drops its table lock
-> before calling the table install handler, so tables installed at the
-> same time can pick the same instance number:
->
->   sysfs: cannot create duplicate filename '/firmware/acpi/tables/dynamic/=
-SSDT1'
->
-> When this happens, the table is installed, but has no file under
-> dynamic/. Concurrent list_add_tail() calls can also corrupt the list.
->
-> Add a mutex around the instance lookup, the file creation and the list
-> addition, and move the list addition into acpi_table_attr_init() so it
-> is done under the mutex.
->
-> Fixes: 7a37052adb5e ("ACPICA: Tables: Fix hidden logic related to acpi_tb=
-_install_standard_table()")
-> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
-> ---
-> Sashiko flagged this, as a pre-existing issue, in its review of my
-> previous patch:
-> https://sashiko.dev/#/patchset/20261110225452.2349540-1-jamien%40nvidia.c=
-om
->
-> Tested on an arm64 server (288 CPUs) and in QEMU (x86_64, 8 CPUs) by
-> loading SSDTs through ACPI configfs from 8 to 64 processes at once:
-> - Without this patch, 3 to 7 tables per run got a duplicate file name
->   and had no file under dynamic/.
-> - With it, every table got its own file, with no lockdep or list
->   debugging warnings.
-> - The boot table files are unchanged.
->
->  drivers/acpi/sysfs.c | 14 +++++++++++---
->  1 file changed, 11 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/acpi/sysfs.c b/drivers/acpi/sysfs.c
-> index d1b57d1246aafb1..47b816c588feedd 100644
-> --- a/drivers/acpi/sysfs.c
-> +++ b/drivers/acpi/sysfs.c
-> @@ -11,6 +11,7 @@
->  #include <linux/kernel.h>
->  #include <linux/kstrtox.h>
->  #include <linux/moduleparam.h>
-> +#include <linux/mutex.h>
->  #include <linux/string.h>
->
->  #include "internal.h"
-> @@ -298,6 +299,7 @@ module_param_call(acpica_version, NULL, param_get_acp=
-ica_version, NULL, 0444);
->   */
->
->  static LIST_HEAD(acpi_table_attr_list);
-> +static DEFINE_MUTEX(acpi_table_attr_lock);
->  static struct kobject *tables_kobj;
->  static struct kobject *tables_data_kobj;
->  static struct kobject *dynamic_tables_kobj;
-> @@ -348,6 +350,9 @@ static int acpi_table_attr_init(struct kobject *table=
-s_obj,
->         struct acpi_table_header *header =3D NULL;
->         struct acpi_table_attr *attr =3D NULL;
->         char instance_str[ACPI_INST_SIZE];
-> +       int ret;
-> +
-> +       guard(mutex)(&acpi_table_attr_lock);
->
->         sysfs_attr_init(&table_attr->attr.attr);
->         ACPI_COPY_NAMESEG(table_attr->name, table_header->signature);
-> @@ -379,7 +384,12 @@ static int acpi_table_attr_init(struct kobject *tabl=
-es_obj,
->         table_attr->attr.attr.name =3D table_attr->filename;
->         table_attr->attr.attr.mode =3D 0400;
->
-> -       return sysfs_create_bin_file(tables_obj, &table_attr->attr);
-> +       ret =3D sysfs_create_bin_file(tables_obj, &table_attr->attr);
-> +       if (ret)
-> +               return ret;
-> +
-> +       list_add_tail(&table_attr->node, &acpi_table_attr_list);
-> +       return 0;
->  }
->
->  acpi_status acpi_sysfs_table_handler(u32 event, void *table, void *conte=
-xt)
-> @@ -397,7 +407,6 @@ acpi_status acpi_sysfs_table_handler(u32 event, void =
-*table, void *context)
->                         kfree(table_attr);
->                         return AE_ERROR;
->                 }
-> -               list_add_tail(&table_attr->node, &acpi_table_attr_list);
->                 break;
->         case ACPI_TABLE_EVENT_LOAD:
->         case ACPI_TABLE_EVENT_UNLOAD:
-> @@ -604,7 +613,6 @@ static int acpi_tables_sysfs_init(void)
->                         acpi_put_table(table_header);
->                         break;
->                 }
-> -               list_add_tail(&table_attr->node, &acpi_table_attr_list);
->                 acpi_table_data_init(table_header, table_attr);
->                 acpi_put_table(table_header);
->         }
->
+Hi all,
 
-Applied as 7.5 material, thanks!
+Sorry for top posting.
+
+The original commit [0] in dequeue_hierarchy() set `h_nr_runnable =
+1;` where as this seems to be missed in the merge [1] which is now
+commit 486c3d06b90240860e99686d29ed9f15637dc314 in next. Due to this,
+I'm seeing performance drops while running tests on Renesas SoCs.
+
+[0] https://lore.kernel.org/all/20261112083447.25603-1-kprateek.nayak@amd.com/
+[1] https://lore.kernel.org/all/179500916013.3191731.3149125419718630663.tip-bot2@tip-bot2/
+
+diff from original commit:
+---------------------------------
+@@ -8317,16 +8307,15 @@ enqueue_task_fair(struct rq *rq, struct
+task_struct *p, int flags)
+ static void dequeue_hierarchy(struct task_struct *p, int flags)
+ {
+  struct sched_entity *se = &p->se;
+- bool task_sleep = flags & DEQUEUE_SLEEP;
+- bool task_delayed = flags & DEQUEUE_DELAYED;
+  bool task_throttled = flags & DEQUEUE_THROTTLE;
+  int h_nr_idle = task_has_idle_policy(p);
+- int h_nr_runnable = 0;
++ int h_nr_runnable = 1;
+  struct cfs_rq *cfs_rq;
+  bool dequeue = true;
+
+Cheers,
+Prabhakar
