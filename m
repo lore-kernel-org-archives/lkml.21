@@ -1,71 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177602;
-	b=velYH0SIshU9iiCMQepO/1WVmukI3vOodfY96CJyIRa+bKnJ1x57F3ZY2m4lg0T3p6Nz
-	 QUXV6OsTRpTcVuEFAo3qoy5tH+gT+RQZASm6UQBSq04fyK+28G6eDJc/FxUC6eFGy5yuZ
-	 rHNcsZZLpcLhWY41F/SXDN3BkzbONQ4bWj4F1MuhCWdFaaruEs7WQ6LYhjAY4uGFB8SfS
-	 CDjZyw9cZfd2WDLF5KeL9YVRlf4SMj31SwTC/TEFGoiCaWH82M6QfyRd6cmK8PYTMMvys
-	 3qbktg7swjD4voZR1BXnjoqhVvJGXQ3UWq23QyT4aXzlDVfyLU3UL+NVQDkIuJxxoMw==
+	t=1795177634;
+	b=an5dzxc0NsghC0QR3vgmjSYRbo+xKsfs1chNkWvNCnMnoPRf1P1u11VWt+Cl4pGAWPQd
+	 V4EGrhAYGth9cnl845+nPkCYfQKF0iKPNdenKURzyQsLJMZUJr/9b7yH12JCCM/C3/DyT
+	 k7IpSU5K8RAlKiwwpGwJwhFT3biYUJdEN8TjGGvnmfe16IhBqYL1FI8RGXI+bNfPQ1DzR
+	 HyIwYyBeShlUhVC/+nCySbzIgNEj59g3zbLADQkfrRjYopyXpqXxcvQdOVa0+eNfMYa4N
+	 0NMxH8leGmhUNKY2O4xqXs098szj78PQl8bhDUsfuCrk3X8S/TjqDfrAwgwx9a5c9vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177602;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=i+Y/07rXkLFQwfl0rlArIush0x5kOH+nsMNA0F/hQv0=;
-	b=zR0Ae8T6DKDVc4XdhzP1fwoiwLSduQoFLPxdqR7A6I0Pf138g7Y4Bt26F9SyM6Il8BAz
-	 qdhSn6izLfBKbH/dJLeQhBPDDEl1T4jyh4ZgES5GiNpYTEU4937khV1HixsX+8X0t2cEJ
-	 Ipz9cb+Z4piODS2zqztyaHQeFjv5v2ZczyorA1kCr2jftCMn+egmjW+Pj1D9D69N5njqE
-	 f/Lyumgx5b8OPE+z/QMFB5HErKonprk8ernctBVGuq5vpqFheVyX4A6ayyrubPnksltZf
-	 gLFFTWbkQCJ5mjl+sktRpP9fo5FwqW0puTe5N/rRjYD0MKbS/k0adk7Cg/a+kolsIYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177634;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=PgbpVfC2b4m1zF42iM6pw9d004VHioJhfQHO1IRaDGk=;
+	b=b7qBWb0jky4NNLF1eFbsw2RNnBY9ez4W0xPZCKvWbcS0PSh7DttZ5hA4ccftC+ccDmWO
+	 ke19r/LeXq/BCvUO9jnIvzW2ZkHZYeV0zHHziMksckOSOCUuQTIW7fM7k7IWasKp3f4r4
+	 g8cS3Q0L7qBRAhoeIz91W0fIQts+X4rY6eb9k7bziSZ8tDnXpmv8QXYjAz8QNx8K0eD5J
+	 b1wKz4uTvVZZNhrtJigmsRTGAMiChyFZ5kEhWtl6/jly6h/q80JI1JR0VGnA0Ha7kDW60
+	 jur6q+PD7BVh/LWM8zQOZpp5mK+Y/BcFL7SFBe+YE2j+tE+o6ojyVlO2yKm1vZj8CsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=UwO07ypm;
-	arc=none smtp.remote-ip=90.155.92.199
-Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=B4BgmABc;
+	arc=none smtp.remote-ip=91.218.175.10
+Received: from mta0.migadu.com (out-10.mta0.migadu.com [91.218.175.10])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57719606A320;
-	Fri, 20 Nov 2026 12:26:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57719606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3406F606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:27:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3406F606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=UwO07ypm
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=i+Y/07rXkLFQwfl0rlArIush0x5kOH+nsMNA0F/hQv0=; b=UwO07ypmY2M/3gR5i8DPHfPKi3
-	PekY4u6TyZqu+Ark4E7GE0yFHzhQBRAdLaqvveOPmXt4nGraLYdPQkkxf3ykv6UIyvIAKyW1HbvMn
-	GHuYVRfRfZk+hwfdgiXvac45C/uKYPiZM2KujkYetUl33a2lVG2uwhAjbIrKXaEO4fQYBnm3GXLl9
-	JN0aEYrWw8TAQwuvp7cCfT/BYJaMt6HLYKgRtNCzGg+zM42REBgQmF/SRej2LDxcQniPx5BpnoPPn
-	PX+9kLNybr+OT94kYOGGG1yvoFSNA1UBVuFVOkG9uVhEhPnyPHtDpdlNsjd4q4+9ECT0SbRRLyUAE
-	c1OFTLfQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUNhN-00000000kfY-1NPt;
-	Fri, 20 Nov 2026 12:26:37 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 53E993008D6; Fri, 20 Nov 2026 13:26:35 +0100 (CET)
-Date: Fri, 20 Nov 2026 13:26:35 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Usama Arif <usama.arif@linux.dev>
-Cc: tglx@kernel.org, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, kees@kernel.org,
-	hpa@zytor.com, gustavoars@kernel.org, ardb@kernel.org,
-	hca@linux.ibm.com, nathan@kernel.org, ndesaulniers@google.com,
-	morbo@google.com, justinstitt@google.com,
-	linux-hardening@vger.kernel.org, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, riel@surriel.com,
-	shakeel.butt@linux.dev, kernel-team@meta.com, rkeilty@meta.com,
-	atish.patra@linux.dev, dgreid@meta.com
-Subject: Re: [PATCH 2/2] x86/kstack_erase: Use REP STOSQ for large stack fills
-Message-ID: <20261120122635.GJ2669272@noisy.programming.kicks-ass.net>
-References: <20261119213147.1094488-1-usama.arif@linux.dev>
- <20261119213147.1094488-3-usama.arif@linux.dev>
- <20261120104534.GO2668564@noisy.programming.kicks-ass.net>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=B4BgmABc
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=aN66IFFhjAtU9epXvHNsFOX6+rV4ZuUO+flQxejx8x8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795177631; v=1; x=1795782431;
+ b=B4BgmABcVMNxEOvQjig7d2ZjG+ggBoo3OAQdFkgFW2lV1GxejeZNHepI/NNjEm69NgoM0hFF
+ VuiFw/9cF5Hp8p/P93fKXF2z5JdgWC4pHY0hBW/RrbdMw3bnHTslCPZIK+ouWc7MVAsgY9f3Gzs
+ eBzrXNrNyJ9HnrgGdDAgrOw8=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 7e2be00868a1975e;
+	Fri, 20 Nov 2026 12:27:10 +0000
+X-Mizu-Trace-ID: 7e2be00868a1975e
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 20 Nov 2026 14:27:02 +0200
+From: Matti Vaittinen <matti.vaittinen@linux.dev>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Matti Vaittinen <matti.vaittinen@linux.dev>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Marcelo Schmitt <marcelo.schmitt@analog.com>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	Radu Sabau <radu.sabau@analog.com>,
+	Janani Sunil <janani.sunil@analog.com>,
+	Salih Erim <salih.erim@amd.com>,
+	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/3] dt-bindings: iio: Support ROHM BD79111
+Message-ID: <578cd514c24a47ffd5cb3e02b78aeaf2fd3838bc.1795176984.git.mazziesaccount@gmail.com>
+Reply-To: Matti Vaittinen <mazziesaccount@gmail.com>
+References: <cover.1795176984.git.mazziesaccount@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,89 +82,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0nDIJTg58eDe1L2J"
+Content-Disposition: inline
+In-Reply-To: <cover.1795176984.git.mazziesaccount@gmail.com>
+
+--0nDIJTg58eDe1L2J
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120104534.GO2668564@noisy.programming.kicks-ass.net>
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 11:45:34AM +0100, Peter Zijlstra wrote:
-> On Thu, Nov 19, 2026 at 01:31:08PM -0800, Usama Arif wrote:
-> > +#ifdef CONFIG_X86_64
-> > +#define __stackleak_poison __stackleak_poison
-> > +static __always_inline void __stackleak_poison(unsigned long erase_low,
-> > +					       unsigned long erase_high,
-> > +					       unsigned long poison)
-> > +{
-> > +	unsigned long count;
-> > +
-> > +	/* Short spans do not amortize the startup cost of REP STOSQ. */
-> > +	if (erase_high <= erase_low + 512) {
-> > +		while (erase_low < erase_high) {
-> > +			*(unsigned long *)erase_low = poison;
-> > +			erase_low += sizeof(unsigned long);
-> > +		}
-> > +		return;
-> > +	}
-> > +
-> > +	count = (erase_high - erase_low) / sizeof(unsigned long);
-> > +	asm volatile("rep stosq"
-> > +		     : "+D" (erase_low), "+c" (count)
-> > +		     : "a" (poison)
-> > +		     : "memory");
-> > +}
-> > +#endif
-> 
-> Gemini seems to suggest 16-32 words would be sufficient to amortize the
-> REP STOS setup. It was also adamant I try and unroll that earlier loop.
-> 
-> How about something like so, does that make sense? Also, I suppose we
-> should make memset64() __always_inline if we use it here. I'm not at all
-> sold on the unroll here, the asm is pretty horrid for what it does.
+=46rom: Matti Vaittinen <mazziesaccount@gmail.com>
 
-This one is much improved:
+ROHM BD79111 is very similar to the BD79112. Both are ADC/GPIO devices,
+where pins can be configured to be either used as GPIO or ADC inputs.
+ADCs are 12-bit SAR ADCs and GPIOs support input/output but not being IRQ
+sources.
 
---- a/arch/x86/include/asm/processor.h
-+++ b/arch/x86/include/asm/processor.h
-@@ -28,6 +28,7 @@ struct vm86;
- #include <asm/vmxfeatures.h>
- #include <asm/vdso/processor.h>
- #include <asm/shstk.h>
-+#include <asm/string.h>
- 
- #include <linux/personality.h>
- #include <linux/cache.h>
-@@ -580,6 +581,35 @@ static __always_inline bool on_thread_st
- 			       current_stack_pointer) < THREAD_SIZE;
- }
- 
-+#ifdef CONFIG_X86_64
-+#define __stackleak_poison __stackleak_poison
-+static __always_inline void __stackleak_poison(unsigned long erase_low,
-+					       unsigned long erase_high,
-+					       unsigned long poison)
-+{
-+	unsigned long count = (erase_high - erase_low) / sizeof(unsigned long);
+The main difference is amount of channels/GPIOs. The BD79112 has 32 pins
+for this use, the BD79111 has 16. Furthermore, the BD79111 data-sheet
+promises 0.5 MSPS sample rate with maximum of 10 MHz SPI clock,  whereas
+the BD79112 data-sheet mentioned 1MSPS rate with maximum of 20 MHz SPI
+clock.
+
+Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+
+---
+Revision history:
+v1 =3D> v2:
+Disallow additional properties again
+---
+ .../bindings/iio/adc/rohm,bd79112.yaml        | 29 +++++++++++++++----
+ 1 file changed, 24 insertions(+), 5 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml b/=
+Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
+index aa8b07c3fac1..a0fd87716611 100644
+--- a/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
++++ b/Documentation/devicetree/bindings/iio/adc/rohm,bd79112.yaml
+@@ -4,18 +4,21 @@
+ $id: http://devicetree.org/schemas/iio/adc/rohm,bd79112.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+=20
+-title: ROHM BD79112 ADC/GPO
++title: ROHM BD79111 and BD79112 ADC/GPIO
+=20
+ maintainers:
+   - Matti Vaittinen <mazziesaccount@gmail.com>
+=20
+ description: |
+-  The ROHM BD79112 is a 12-bit, 32-channel, SAR ADC. ADC input pins can be
+-  also configured as general purpose inputs/outputs. SPI should use MODE 3.
++  The ROHM BD79112 is a 12-bit, 32-channel, SAR ADC. The ROHM BD79111 is
++  a 12-bit, 16-channel, SAR ADC. ADC input pins can be also configured as
++  general purpose inputs/outputs. SPI should use MODE 3.
+=20
+ properties:
+   compatible:
+-    const: rohm,bd79112
++    enum:
++      - rohm,bd79111
++      - rohm,bd79112
+=20
+   reg:
+     maxItems: 1
+@@ -45,7 +48,9 @@ patternProperties:
+=20
+     properties:
+       reg:
+-        description: AIN pin number
++        description:
++          AIN pin number. The BD79111 has pins 0 - 15, the BD79112 has pins
++          0 - 31.
+         minimum: 0
+         maximum: 31
+=20
+@@ -64,6 +69,20 @@ required:
+=20
+ additionalProperties: false
+=20
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rohm,bd79111
++    then:
++      patternProperties:
++        "^channel@([0-9]|1[0-5])$":
++          properties:
++            reg:
++              maximum: 15
++        "^channel@(1[6-9]|2[0-9]|3[01])$": false
 +
-+	/* Amortize the startup cost of REP STOSQ. */
-+	if (count < 32) {
-+		unsigned long *ptr = (unsigned long *)erase_low;
-+
-+		while (count) {
-+			unsigned long mod = (count-1) % 4;
-+			count -= mod+1;
-+			switch (mod) {
-+			case 3: ptr[count+3] = poison; fallthrough;
-+			case 2: ptr[count+2] = poison; fallthrough;
-+			case 1: ptr[count+1] = poison; fallthrough;
-+			case 0: ptr[count+0] = poison; break;
-+			}
-+		}
-+		return;
-+	}
-+
-+	memset64((void *)erase_low, poison, count);
-+}
-+#endif
-+
- #ifdef CONFIG_PARAVIRT_XXL
- #include <asm/paravirt.h>
- #else
+ examples:
+   - |
+     spi {
+--=20
+2.56.1
+
+
+--0nDIJTg58eDe1L2J
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmsAPJYACgkQeFA3/03a
+ocUvJQgAufl9aYi0aafoLf5CsiJnobYLdS/usKFwnZpgG+z7/sjekm9pBds4m9F5
+7JRZqOiNFafJk+ZcpCpfpUOf8LT8G2TvgL3qjbfDKWOubBZ16gdCdMxWEAZHNeK5
+4Ltv3ruuwonK113TKJc8NHgnW7j1kqjTJb4v938z6PK53CO5Vl/pOIxwtFVE82Z8
+wa+Cq2+X6WhznqxlwhlDGiiYutzd4lWRjiLsC16GiZv8OTC/PsRmAXA4+o9/dd7q
+Mhu8PaBT6Gtp/kYcVfy8Gu22702XwVOQi/0kUIX1Msh38ZX7+50hqxqmjB7WFe19
+d778okV8brvnKGwD7AFGzZVswCjFjA==
+=mUQA
+-----END PGP SIGNATURE-----
+
+--0nDIJTg58eDe1L2J--
