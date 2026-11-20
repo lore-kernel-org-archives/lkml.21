@@ -1,70 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163214;
-	b=OIpHxA5LuZh2aUtaKCSpUMMs0i9Xev7TmH5cGTDPlKooCgC9EfNChDFa9rOPGBOF8X3v
-	 JZzpf/BIsC8Vk3IpHgMjt5Lhbnc3zimjfRBWi2vv/YUx6TosG8oI7bZPQ/Jh22QMLm1uZ
-	 3spW3wpAeo6amxGAWBmkXAKWmbfRCgE49fI6qgdkCeVGnCDI1N6SEBFH0fUmTgygp76FS
-	 UBSA6jew6dTHuBb/hcK87XCeooB867SZJZA9QnF+yGeidjy6LK7WSt3qwXVWEqTNt4KeQ
-	 vYSu8s1fxRjwEqWICC4NIZFeLdTzUeRWmIEdgRgDm1haT2tTpvMzYIvxmH2WUoG4PrQ==
+	t=1795163220;
+	b=Cf3j6ZK8DYVT6m5HdnZfU8W6qax55GYPwSedBCEba58SxQFSMJSvHsxpCp5N6iFSh/OO
+	 izE9jlfSLXjmiWULpYas/EzMllOLlWTmKJsmzluwXUYDlIXCJC5Qzn+4Xwgcjz/7jmg9r
+	 hlOepHd0gT1MFmNlO0fR4TflC3byw5VqGIeMZDxPYQZ/VrxwT7C8p5NWkaH5xZjWqXKXU
+	 I2AOhwPotzooRmRJqzzWIrN+P1V78eIMDKqUy9W2WovvRZO98NbFazd72AfMNv/tQYBzp
+	 6rg8JBQ88lCl/gxLRH+N0zHNCenJEBlorAtTOPPRKC77NGGRc/KT6nrSS7nW2QJST4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163214;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=3RdsJmKkC6IgpIevNBF79SFGapdKJgsNYchPj2f52JM=;
-	b=Tz7CUB4R+kTmzVAIkUKvvngNemAxZdUDyZKOJ/Ag+1cSbV+ZH1DTrmb3rumGKwD12jqK
-	 ejIvzJUbcYnjVHFDxD5LrAuZ9+ROXAiTS7p9SHwRqNq+bL/w9i/dln9eKnhD5MbTRetrM
-	 HmTFSo1+/rr+sZ+A8KPYYN7LI7K8qTwxZbNU9/FnJoIDxEzveyvZtai6UGOEIE7+UHrjW
-	 hLK4iGxNs77lpOtzLNmZsgKSzE4pFHw55vfutOIBPbw1NmbU9ovJCI/6X61HnV5/H1brl
-	 iAfAO0OywkKSFowPVdLjKqIGagtG66+8ODCg0Lb2YalPloE1tjCA3ERb63HQP9jpePA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163220;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=OOnGsAGVoEs5x1m+oAWfOlWtzdwCIzVoBKrtW1ml1LQ=;
+	b=VYATK0B0F9t3Dv2bIKUt8CqFUoqp8ZxapUFGkxyQIIAMmHE270OqORIpZEkmZ5RBNxms
+	 pL+4Y0OAJgssevzaUnhQV/rrgMO0TifMHqD5IW6vkE0z1adqObufkmDysrMyKc3WfdUUO
+	 /O9Z3khYcjdMuYen/RurDgJlCvzRhALUFl4W4pvAciwD7bklCXZ/Ueolc161ddBXrTqoE
+	 8ZuhCSYOp4KGCY+d24Mp2LTkzLmxP7VhcL9pgi0XSwIM9ZNiLPUepXBrf3v//1D7sxCuv
+	 SZQh9qZdEuHmBq3uY4M1witfXtu1q05lOUCO2vu0jrrDiF1zeFZav+8xbeH5wLFTiDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=s9mz6AjH;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.217.45
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52801606A33C;
-	Fri, 20 Nov 2026 08:26:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52801606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=s9mz6AjH
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AK8Qg6H23249580, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1795163202; bh=3RdsJmKkC6IgpIevNBF79SFGapdKJgsNYchPj2f52JM=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	b=s9mz6AjHjMg2GVbf60zWBpeKWKf+25had9ZnSil7WCPhd80itF0OElPBqAtLaDOCX
-	 kGf9aPjEY5DdZ9IeNDOi8F0smgoYwtDnmg/iJ7ltkSpZzcfv3YvowvO7tlKEdgAEX2
-	 H/HPSRNf/eI9QcACPfVDRKGZJTuLyxWdINz9VxGWwO11xAhh2jNVrpgL3EpQ4IXIf8
-	 57RvZ2bKP4zJKSKFjAS8y982r20rYjiqeocIcANYvvYh8ee4vXmB3AlbLNJC+RBfo4
-	 ItmduWJJhzVtsOG1BpZlD7R+/6iQHJcaUp9qszcU8wOI6yhCnlFuk8LGt+MFAiTQEb
-	 sNTy+y1J5K8LQ==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AK8Qg6H23249580
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 20 Nov 2026 16:26:42 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 16:26:36 +0800
-Received: from localhost.localhost (172.24.54.48) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 16:26:36 +0800
-From: Hilda Wu <hildawu@realtek.com>
-To: <marcel@holtmann.org>
-CC: <luiz.dentz@gmail.com>, <linux-bluetooth@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <alex_lu@realsil.com.cn>,
-	<jason_mao@realsil.com.cn>, <zoey_zhou@realsil.com.cn>,
-	<max.chou@realtek.com>, <kidman@realtek.com>, <arunr@valvesoftware.com>
-Subject: [PATCH v10 0/2] Bluetooth: btrtl: Add firmware format v3 support and RTL8922D
-Date: Fri, 20 Nov 2026 16:26:34 +0800
-Message-ID: <20261120082636.3834168-1-hildawu@realtek.com>
-X-Mailer: git-send-email 2.34.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01C84606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:26:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01C84606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-7cc013095d4so197706137.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:26:59 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795163219; x=1795768019;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=OOnGsAGVoEs5x1m+oAWfOlWtzdwCIzVoBKrtW1ml1LQ=;
+        b=AjZtb+LFteKkcJupprjOnN4wzHcIKuwGresLWw7/8rux33hj3Qud1f2JyetiI3HeP/
+         0EcqtOh/KIctoVDDYuAP1s0HbMEHGAVU3FH+d4WyZT5uYAy4fNVNaq/FhCE3eWqK7wDc
+         MrYJXAIkNeYzeE8UHBzidv77ALhXt5PJJkYZrv63gcvaOnHScweCIbLaGlVa70rSRpgt
+         bBpe10rkjBBm4MGig/k+mtt73BhpOpb/k4UeokRWagjYGv5QKAmXmMY+o7J+A3DFa1Yw
+         JLGshktt5fVGkvkpXlAebhoKdTXDLRA8ExuONcx4g7uq3fSPvpnEBuMBBCdFh0j7aR9w
+         okpQ==
+X-Forwarded-Encrypted: i=1; AL+hErEW14/KDahNQZHF1xQgWMLZhye47n6qMxd+9Pqxi8aSfpfeRHhXsl0JlBt9ZSfp6+W0kHn6pJkCasWKqps=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/Kg5pM2hNB/5k1/euZ4G3WzxHR+Tfss1EFYPa+UczouSQg+wh
+	gb4/CUGBrdKv4aAgfnErO6afm3yI7/2BotwhmJcEaE6BAiW4TkM6X1ps/gvX/w8r
+X-Gm-Gg: AZFdTZfy8oIV4zIzZrKfnFhztNLbajDFTvU+btifI+/MxHQcCERkVtbCofE31vggWVd
+	ZSr0PTzpuNuIBR8OfHoR0i3sIlVCYSz92dGLjxY2s42dZxOVUnEinZx8f1yv39X/4IfNn/rWclf
+	827hE598V+9ZkGOAA5Yyl9I0APiIqLskwT/sjK0aUWSuJyhRJfjZ3hOhH71RC+vCm0QyuKZnqbS
+	jE+TlGwjuK1hhrEJI/kQ0wg4F66tAmMpCEmaIW6cGVMlUL/T8tvatI514B+8l3c7b5n0xhaL5aT
+	XE+sy/ZJm5PS8tInNHX2bGeVu+lHnhw+U4vr8sdn1rthQAeAideADW3ZZeOrPK2OmdudJafaiiG
+	HjRzE5gV2tjRx13OKEhCfRB+eEFQsJNMrr8NKqCIShgbRRH4Uhj4YBDkzCwb2GuaLc1WWo4Izb4
+	6+Lsg0VPaFBleMEtwC1l9DAoraxgTaW142A/8TEN26qTg52qReN/jMaUfGMCBoygmLyVcNJJMFR
+	JxFeq74qGnudDLlFUbDJry8EmCmEcIjaFJ67SQepbDxhVZnf3X46vHJEz7ZKdi/bsqozHp2CCU7
+	1/K9kgs4XN8UUs0CUTAcTy7TyMnW0koY9zIctqQI8FGJxrVyvNvBrbKLXkUa72jBnRWzPPR7JNA
+	nHZHFdmIxiIpF
+X-Received: by 2002:a05:6102:6f06:b0:7d2:8e49:f90e with SMTP id ada2fe7eead31-7d7395fe209mr558310137.27.1795163218885;
+        Fri, 20 Nov 2026 00:26:58 -0800 (PST)
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-7d6e80cb440sm2276920137.7.2026.11.20.00.26.58
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 00:26:58 -0800 (PST)
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-99e0d9b3438so175530241.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:26:58 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGmsAk6ZRwUk+AUOCafI8cKZf8lpOQbbtGxjV0mN9RbEdonUz7He2HqmSee1UEeZoPpGPIB7f9JapjKMrM=@vger.kernel.org
+X-Received: by 2002:a67:e706:0:b0:7d2:7c63:5a08 with SMTP id
+ ada2fe7eead31-7d739630203mr799846137.32.1795163218370; Fri, 20 Nov 2026
+ 00:26:58 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,49 +81,79 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn>
+In-Reply-To: <20261107-arm-scmi-arch-dep-v1-1-514872e8ede4@iscas.ac.cn>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 20 Nov 2026 09:26:47 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
+X-Gm-Features: Aa3M54qI8mmq8jn4s299XQgo_FeZArEGNoWUlwaxQmcii1kzPDH4mMAcGfofjbE
+Message-ID: <CAMuHMdUov1u3kXzBX3ZM8rRkBdLq_M8LwQ2VtxSEOH9w68Rr2g@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Drop the ARM architecture dependency
+To: gaohan@iscas.ac.cn
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Michal Simek <michal.simek@amd.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Han Gao <rabenda.cn@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
 
-This series adds support for the new Realtek firmware format v3 and for
-the first controller that uses it, the RTL8922D.
+Hi Han,
 
-Format v3 replaces the flat epatch container with a section/subsection
-layout that can carry several independently configurable images, selected
-by key id and IC cut, each with its own register fixups and optional
-per-image config file.  Patch 1 adds the parser and the downloader.  The
-new code lives in btrtl_enh.c, which is linked into the same module as
-btrtl.c, so the lifetime of the parsed image list follows the existing
-btrtl_device_info and no extra module or symbol_get() dependency is
-introduced.  Support for the existing v1 and v2 firmware is unchanged.
+On Fri, 6 Nov 2026 at 20:40, Han Gao via B4 Relay
+<devnull+gaohan.iscas.ac.cn@kernel.org> wrote:
+> From: Han Gao <gaohan@iscas.ac.cn>
+>
+> The SCMI core and the mailbox and shared memory transports only use
+> generic kernel interfaces. Transports that need architecture support,
+> such as SMC, already carry their own dependencies.
+>
+> Drop the ARM and ARM64 dependency so that other architectures can use
+> SCMI. Depend on HAS_IOMEM instead, for devm_ioremap().
+>
+> Suggested-by: Michal Simek <michal.simek@amd.com>
+> Signed-off-by: Han Gao <gaohan@iscas.ac.cn>
 
-Patch 2 adds the RTL8922D id table entry, the matching quirks and the
-MODULE_FIRMWARE() entries.  The firmware binary will be submitted to the
-linux-firmware project separately.
+Thanks for your patch, which is now commit fe87ede443a15969 ("firmware:
+arm: scmi: Drop the ARM architecture dependency") in scmi/for-linux-next.
 
-Both patches are needed for a working RTL8922D.  Patch 2 depends only on
-patch 1 and the series should be applied as a whole.
+> ---
+> This was patch 1 of the Zhihe A210 SoC series [1]. As Michal asked, it
+> now goes on its own through the SCMI tree.
+>
+> Since [1], it depends on HAS_IOMEM: Sashiko found that UML, which has
+> no HAS_IOMEM, failed to link devm_ioremap().
+>
+> Build tested on x86_64 without OF, i386, loongarch64, ppc64le, riscv64
+> and arm64. On UML, SCMI can no longer be selected.
+>
+> [1] https://patch.msgid.link/20261103-a210-scmi-v3-0-ee6b31580808@iscas.ac.cn
 
-Note that building btrtl.c and btrtl_enh.c as one composite object
-renames the module from btrtl.ko to btrtl_core.ko.  The CONFIG_BT_RTL
-option and the exported symbols are unchanged.
+> --- a/drivers/firmware/arm_scmi/Kconfig
+> +++ b/drivers/firmware/arm_scmi/Kconfig
+> @@ -3,7 +3,7 @@ menu "ARM System Control and Management Interface Protocol"
+>
+>  config ARM_SCMI_PROTOCOL
+>         tristate "ARM System Control and Management Interface (SCMI) Message Protocol"
+> -       depends on ARM || ARM64 || COMPILE_TEST
+> +       depends on HAS_IOMEM || COMPILE_TEST
 
-Testing was done on RTL8922D over USB (0bda:a82d, chip id 55) with
-rtl8922du_fw.bin; the boot log is included in patch 1.
+Please extend the dependencies to RISCV (from the link above, I assume
+you are targeting riscv?) instead.  There is no point in showing this
+option on architectures that have no users of SCMI; one already has
+too many relevant symbols to configure.
+People who want to build test on x86_64 without OF, i386, loongarch64,
+ppc64le, ... can just enable COMPILE_TEST.
 
-Alex Lu (1):
-  Bluetooth: btrtl: Add firmware format v3 support
+>         help
+>           ARM System Control and Management Interface (SCMI) protocol is a
+>           set of operating system-independent software interfaces that are
 
-Hilda Wu (1):
-  Bluetooth: btrtl: Add the support for RTL8922D
+Gr{oetje,eeting}s,
 
- drivers/bluetooth/Makefile     |   4 +-
- drivers/bluetooth/btrtl.c      | 226 +++++++---
- drivers/bluetooth/btrtl.h      |  87 +++-
- drivers/bluetooth/btrtl_enh.c  | 795 +++++++++++++++++++++++++++++++++
- drivers/bluetooth/btusb_main.c |  25 +-
- 5 files changed, 1056 insertions(+), 81 deletions(-)
- create mode 100644 drivers/bluetooth/btrtl_enh.c
+                        Geert
 
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
