@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.87
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.69.121
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795139501;
-	b=oHFtnB3CbP667n6i3BBXE9llJ/p9ZJtQyW8sN6q0GlVegK+GLnKnxWYklpMiN+ybHiiJ
-	 3TzsLicW8kQQ1960lPmZ2VnGfh+/r9lgwuWXbfsCSiQk42tHyoweK/gAtBuoUbLCYdiRW
-	 xqak7/v/2/JnUbRes6d7cNU53LzB8wz1YUL1SjXXd/lxYQ+RQWhlRzjjvun29hDPU/xyl
-	 FzJiuptCCeOeyqiIxRct+N7t5E8HAF8y6OYdL2Whz/b/RApqZ0tbhwdJz5TxYXikQHujk
-	 NDD7DI743yc170EIqt7yt6i7R/o7TcQxIKsmIS1HJTLOJd4dXklgCz3gKvYrch4McXg==
+	t=1795139702;
+	b=Fmf05dJTVwsC2Tjt9Qq9ULA2IO7MTlqvZ9AlLOSvxYzQzNmNdxzJ0KXConnKOOzO3jDS
+	 qAZCJGRdak9a37CcUlfYj1RPgHDTp+O12aVLojOXZwNAUFYGVAEdJyT2GfTF1g0g62fxs
+	 G8C69aRUYakGrujAzlJqfgb6iREFZywEgrvGDUXgpQqo8YRLw2TKXQRHt+jDtANpdUbkl
+	 7u4OPPtws8SSbJoQpCZGoK9Tw+PASWFM7fSXrRjjYHaZIcOPNycUtbUcnmjg9qxBEv7fX
+	 DWEW9pxbmsGfi+BM3FjTJnBzZNsGcHzl+ikavdAKd+fwNNiZnvHgnFVQNcTckKbBsZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795139501;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FvDJE+n71HTRKM6iNl5KrntFvqecHZirfobt7pnykMc=;
-	b=HbQRA8087HyZt+/HuQuNK6hSAN0JpL+I2dJW/DHPrmmLpQ2jiIo3xGGy132+YTbRVIDQ
-	 jWX6clW762lszVjeAVAjKEsKkmm5lf9R9sAFJMUdEKXCgtMUxQneZ73TtfjNPEvajauPa
-	 NzkL1vTf8RenUYcnn9X8ulWlQ9drBOoKMeBG0WH2WMuemdwm+JpcqPrf6G4mlr23CeV7/
-	 XQhr33XZGMg22evWauNQ81U0RC3W/BZIlakZ/5HX6kmk7KR0/nb0L1pdS6IXu9b2pglTO
-	 aztA3rLWc1e44bULDF1PLTgqKSP58ETeI4vey1Pd60BylVlo/C9qaOnKvKc0MttS+bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795139702;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:From:Subject:To:Cc:References:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Authority-Info-Out:X-JNJ;
+	bh=3nJFyXbIWx/MRH904ZczxefA6Hie3BnVb96ab2XxJ0g=;
+	b=pXZaA9WMaJdEICQqSCN842C+NNWx68q7co20JdXKnyrH6JL4LJgZ98mx5wDXpbh1pS6z
+	 eqfR5NXVXRWfqWvHgySzPW41t2b/+AtB0WibaXk1CXtKOyuSNECBmAlVViY4uB55qtcbi
+	 Qf4UcdAkcPy7UssYNem39+jUPM+BHzMfOEdL0ZAwoLR7HJgS9K/ZKcd0doR9OJTPz9KOr
+	 Rf2GFpFZPJwr6jVy+AZUMNQFG7K73DzV5n74se5mXNtJGDP8BUQ3qUBSZwTzpEdjFJlEV
+	 U8BpL71L//QS+9amL4hfLJEdXeIAAnnPyDzKUk0RYxzK6ZlFbccd0JjbNnSbPqfO9ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=u0hpijTE;
-	arc=none smtp.remote-ip=95.215.58.87
-Received: from mta1.migadu.com (out-87.mta1.migadu.com [95.215.58.87])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=shuye.dev;
+	spf=pass smtp.mailfrom=shuye.dev;
+	arc=none smtp.remote-ip=57.103.69.121
+Received: from outbound.mr.icloud.com (mr-2003b-snip4-8.eps.apple.com [57.103.69.121])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD6C9606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:51:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CD6C9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=u0hpijTE
-X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ZiKMS/ZZpKwJvVwWzvJOPwyAyMNHTF5jfpzUaA7eYRc=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795139498; v=1; x=1795744298;
- b=u0hpijTEDQlTgnbcP/Q/LlluerTaXPISQOZlBVWPMIWl+45Lk/a7+chw33Gf0ncbLzb6ftSc
- UztD0el79pJZA2iP6asJ3vMDUzN190uL/O/xJJ+1KTP2f0H6YvUKBAowwQljIYlqjcfzV/Q2Ani
- Id/Uj0wPJ8kNAg382bthOTRg=
-X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7edf8534af9eb4d5;
-	Fri, 20 Nov 2026 01:51:38 +0000
-X-Mizu-Trace-ID: 7edf8534af9eb4d5
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: Li kunyu <likunyu@open-hieco.net>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	Ingo Molnar <mingo@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Valentin Schneider <vschneid@redhat.com>,
-	K Prateek Nayak <kprateek.nayak@amd.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] sched: Tell rq_online() and rq_offline() whether the CPU changes state
-Date: Thu, 19 Nov 2026 20:51:30 -0500
-Message-ID: <20261120015130.41615-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6fd92ba8-2249-b5e1-772d-cc598c91bad5@open-hieco.net>
-References: <20261118-bug-sched-fair-offline-active-v2-0-b6ede596c6a6@linux.dev> <20261118-bug-sched-fair-offline-active-v2-1-b6ede596c6a6@linux.dev> <6fd92ba8-2249-b5e1-772d-cc598c91bad5@open-hieco.net>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06333606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:54:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06333606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=shuye.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=shuye.dev
+Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPS id 1989F1800244;
+	Fri, 20 Nov 2026 01:54:52 +0000 (UTC)
+X-ICL-RepId: 01a1f6a9-e9dd-7848-8fac-c9304d982ede
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shuye.dev; s=sig1; t=1795139696; x=1826675696; bh=3nJFyXbIWx/MRH904ZczxefA6Hie3BnVb96ab2XxJ0g=; h=Message-ID:Date:MIME-Version:From:Subject:To:Content-Type:x-icloud-hme; b=iHc7JFDz5oLF2OsthbKzZft7BLNi+KCZqswCIDF7IHYllDLb0LXqAa75Ew09mfLoV0Z/nkKN+KYwtRniu1qHRfU8oyvQ3Zi02HJ2uY76W/KLDuNhbBR+sYij7aenT/tdNPWvO9EBEw25ZwI+XwklfKTpf1h/F0pNUQNfLzimUQLohqQUwKUHHzpebm4yEgs+ZdV4PpR0a4YmgVL7K8OMjfVb5K8mfRYm11kie8Tqtk5INX+JjvNoQQ84ZuW4FWjR9EUXrqdYiH7Jb5Urkgz740ZTw+W7UgsvsKqPegGWguIzIC3QWCJML+JFIAvaWOv8pNMz4t6guZvdcI/a/cPGaA==
+mail-alias-created-date: 1658105457252
+Received: from [192.168.1.237] (unknown [17.156.200.36])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-2 (Postfix) with ESMTPSA id F09611801FA4;
+	Fri, 20 Nov 2026 01:54:51 +0000 (UTC)
+Message-ID: <c4801ff7-7ff6-457e-b0a5-c2e633d35c59@shuye.dev>
+Date: Thu, 19 Nov 2026 17:54:50 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,57 +53,127 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Ye Shu <hello@shuye.dev>
+Subject: Re: [PATCH] e1000e: add Dell Pro 5 Micro P5M1260 to disable K1 list
+To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Dima Ruinskiy <dima.ruinskiy@intel.com>,
+ Vitaly Lifshits <vitaly.lifshits@intel.com>,
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261119001818.513503-1-acelan.kao@canonical.com>
+Content-Language: en-US
+In-Reply-To: <20261119001818.513503-1-acelan.kao@canonical.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: jbCAZH3vfCWXGgbCSZPZ2sPzq8vDHWeS
+X-Proofpoint-ORIG-GUID: jbCAZH3vfCWXGgbCSZPZ2sPzq8vDHWeS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAwNyBTYWx0ZWRfX4XfM9aHe0pPZ
+ Bp5wfaJ/TPln9eAHtewduefqFrReBXw8om4+5+IfeKFMEZBnQSxwHm/3Pz7ljLfxg3qSYnJIZiK
+ 8jD9rqScaSN1yDl04O274rCnNv80HMb+qfyuZx9lvrhcSg0BOiGtL3iVlFRKjC4U+Sc5BG6QQb0
+ a8egKeL4Lk+n/FXjcwK0+5YvjTIq99m04MlnPYxuVFnJuUbRaasvvwpKc3tZLxYMPFrSTwLZ9xm
+ K4bbHg9p8jSM6ZelRf6/Nj908FR0DsyOFVHJM+P38cuYbjyfBSHcwSFs5jVl2qDszjBLQxE+MFU
+ qpTxvnRvEbPp34/kKTM2J8kMQXz8WEE7TCwwI+yjyN2lxkkVtRBO3T6bGNTapE=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAwNyBTYWx0ZWRfXy2+SmrgO6jwn
+ Y3ZkLdZrT6+OPAoApIy+SzoRt28ayc9l6FglV42FmTM9dN6rHnjixwZUvlobuTLvEYvjne+qzNi
+ HP6qb53xfgnGCwPrUd9HpuBPcz/+PmQ=
+X-Authority-Info-Out: v=2.4 cv=fISsTpae c=1 sm=1 tr=0 ts=6affa86e
+ cx=c_apl:c_pps:t_out a=9mRn2PO/+PIrVdEbaIuMPg==:117
+ a=9mRn2PO/+PIrVdEbaIuMPg==:17 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=AZoGnDOZhPiq548KR6q9:22 a=6pjilUagrR-x8BKHJBT4:22
+ a=_HOHq80dBbJJRk_yJP8A:9 a=QEXdDO2ut3YA:10
+X-JNJ: AAAAAAABpKVf7VYpJFRYNM4Inx1hXJ26BM7s7NjMFejxFGsnpGru/1oChIUijPP5g/Kcz8
+ FRIb6pMnYREpzQujFLkSqZ45NESBRr8SEjWH5wOTiVBuTHRgQQ5Li/sywoOZOvQRfU34uB
+ QusfTqcmY4JNQ13ckq3zVGvxBPimYgmp1BylzA27fgeFw0g2rIR1hFMm7G9SUX6Er6hn5t
+ /wcjReEY0uKff+pwEEMlhfghyHlpDUgqNmURtFxCeg3LKXfpW5Z4hxs3OmVDiEEW/XSmrI
+ +lyyQWFwhDFW36KF3IICeyjoR+RGK9mVc9wRZh48vvlCEuhYdn4mT/lCCDJ65w2sevSylG
+ cZT3tR1XzB/ItiJheMV4wE01YAi/ihR92wqvu2bbG7ZYQXYmqfqVQgpvqS+sfdl1MJ6KpE
+ UD/u8wiotqqcxlSgI99da79WBIV1ndQmxMylbXSsQQCuZLp/Jrh87WJzOb1ewrkQgZF88V
+ 0pyY+B4zdooBUO/PwLfKxC6ZTikhyjiA7RNoi11nniVtY1yWMsuZ2/MvMPX9k+t6s4gthj
+ B9K7ujTzU4wDulxPiZH0o7cy4VKkKvsir6NQAaupqd/BeB+lYu+YLpLiARiJiuzhjf/Lo/
+ bgvCNkQCyznkUnp7MyvPgHhR51TuybztP0rKdW0HygtpwG0QRaHb2pVE8r8vD+D0QKvxbo
+ 7G3N1DhhkjQpr4zCSYeRHDVeC3h+MpThkjr4l8fK02p/wvMsNY6bdvwNoU9l6gaZwk0kMp
+ 8UB9/hS9KRT7JB1Q6tPKQuWpv6J9g9RmnAIhnK6sfNZzr+m/BIZaLpVNDikETMxHsAYhyV
+ C6Beyn/oYH38Zmrxzh80NDslLJzX652lKK40CPyEON77rSEugLmxYEs+ZxAXhxE2t04dgT
+ ITEEiSftpufMcV1tTyrzfg36LiAJW1i0UdHG4TSGW1KNsEBcXpYIhttuBRLt5RO0nvTQPZ
+ kgbiaK0IrKUApMqmNrhjEpJqZj+O23X07XY9flYhi0EfAHcmxXbBPX+6wGiUTV8gw5vpdD
+ nn+Pqdpm9KuYmqH/P9yPxS5zM+kc/nfZOTZrzE34Avh+ye7qqf0no/8j0G/d79SnGM1QkZ
+ FoedGGatTP6TUdj7sYMo8wxdwv7WiD2Kzk89TSyJi1c8YJ3KoSuoo14DYijHjugu+znY8k
+ qS7szBDeY9s/tYN2RM9MhhJwjKAOgS+cDRnmETCOtYRxXUay25L6qFVPXBVC7oUYb5Y2yV
+ snR83+cLc5O6Zrko0tKvcRPFznFIdNkF61Fiyg38XnfZMAW2xvHr2gOv8kYyZbJfb0g7JE
+ C3scbTAo6G3kHrjBr6Wrk9pApWDxbx8Uz7a6NZ2RKlE02wsbIK8M95sDZCsZeB2WGGC/4P
+ FHFaG9QHjEOMjjn5s9GERniAV/YLRYMRe5KPftTkSFjIuzEdZQ==
 
-On Thu, Nov 19, 2026 at 04:29:27PM +0800, Li kunyu wrote:
-> Is this parameter currently unused, or is it being introduced at the callback
-> layer in advance for future use cases?
+Hi Chia-Lin and others,
 
-Only the fair class uses it, later in this series:
+On 11/18/26 4:18 PM, Chia-Lin Kao (AceLan) wrote:
+> K1 was re-enabled on MTL and later platforms by
+> commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
+> Since then, the Dell Pro 5 Micro P5M1260 (Panther Lake, I219
+> [8086:57b3]) no longer enters S0ix during s2idle. 
 
-  callback                         uses hotplug
-  rq_offline_fair()                yes, patch 2 returns early when !hotplug
-  rq_online_fair()                 yes, patch 3 calls update_runtime_enabled()
-                                   only when hotplug is true
-  rq_online_rt(), rq_offline_rt()  no
-  rq_online_dl(), rq_offline_dl()  no
+I have independently reproduced a similar S0ix issue on a different
+machine, an HP ZBook 8 G2i 14 (also Panther Lake, with Intel I219 NIC
+[8086:57b3] using the e1000e driver).
 
-The rt and dl callbacks take it only because they share the
-sched_class callback type, and they have no use for it, whatever
-tasks run on the CPU. They move state that lives in the root domain,
-so they have to do the same work on hotplug and on a root domain
-change:
+Machine tested:
+- Model: HP ZBook 8 G2i 14
+- DMI system vendor: HP
+- DMI product name: HP ZBook 8 G2i 14 inch Mobile Workstation PC
+- DMI base board product name: 8ED9
+- NIC: Intel I219-LM [8086:57b3], subsystem Hewlett-Packard Company
+  Device [103c:8ed9], driver e1000e
+- Distribution: Fedora 45
+- Kernel: 7.3.4-300.fc45.x86_64
+- BIOS: Y70 Ver. 01.01.07
 
-  callback          work                       why also on !hotplug
-  rq_offline_rt()   rt_clear_overload(),       rto_mask and cpupri live in
-                    __disable_runtime(),       rq->rd, so leave the old root
-                    cpupri -> CPUPRI_INVALID   domain; reclaim RT runtime
-                                               lent within it
-  rq_online_rt()    rt_set_overload(),         register the overload state
-                    __enable_runtime(),        and the highest RT priority in
-                    cpupri_set()               the new root domain for push/pull
-  rq_offline_dl()   dl_clear_overload(),       dlo_mask and cpudl live in
-                    cpudl_clear()              rq->rd, so leave the old root
-                                               domain
-  rq_online_dl()    dl_set_overload(),         register the earliest deadline
-                    cpudl_set()/cpudl_clear()  in the new root domain for
-                                               push/pull
+With K1 enabled by default (disable-k1: off), S0ix entry is
+intermittent. Some suspend go into S0ix while others do not, even with
+CPU reaching Package C10.
 
-The fair callbacks handle task group state (throttling and the
-bandwidth switch), which doesn't depend on the root domain, so they
-can skip it when the CPU stays active.
+> Every suspend ends with:
+> 
+>    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
 
-Passing a bool follows Peter's suggestion on v1 [1]. Prateek proposed
-instead to give root domain changes their own callbacks, implemented
-by rt and dl only, which leaves rq_online() and rq_offline() to CPU
-hotplug and needs no parameter [2].
+Failed suspend produces the same message:
+   intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!!
 
-As only the fair class needs the distinction, I'll rework the series
-along Prateek's lines in v3, so that rt and dl don't carry a
-parameter they never use.
+> The PMC low power mode status dump shows the GbE IP is never power
+> gated (GBE_PGD0_PG_STS, GBE_D3_STS and GBE_VNN_REQ_STS all 0), while
+> the CPU itself reaches C10.
 
-[1] https://lore.kernel.org/r/20261112125947.GZ1813469@noisy.programming.kicks-ass.net
-[2] https://lore.kernel.org/r/e1a63a3c-3975-4b05-8ab4-518c37d867d6@amd.com
+The PMC dump shows the following:
+   CPU_C10_REQ_STS     1
+   GBE_PGD0_PG_STS     0
+   GBE_D3_STS          1
+   GBE_VNN_REQ_STS     0
 
-Thanks,
-Qiliang
+> Disabling K1 at runtime restores S0ix on the same unit, kernel and
+> BIOS:
+> 
+>    # ethtool --set-priv-flags enp0s31f6 disable-k1 on
+
+Disabling K1 using the same command appears to resolve the problem. I
+performed the following A/B/A test within a single boot, using 120
+second rtcwake -m mem cycles and measuring slp_s0_residency_usec before
+and after each cycle:
+
+disable-k1 on:   6/6 successful (~116-119 s in S0ix)
+disable-k1 off:  1/4 successful (118, 0, 0, 0 s in S0ix)
+disable-k1 on:   4/4 successful (~115-119 s in S0ix)
+
+Since this issue also reproduces on a different machine with the same
+PCI device ID for NIC, would you prefer adding another HP-specific DMI
+entry to disable_k1_list, or do you think that disabling K1 for all NICs
+with PCI ID [8086:57b3] would be more appropriate?
+
+I'm happy to submit a separate disable_k1_list patch or test any
+proposed changes.
+
+Thank you!
+Ye
