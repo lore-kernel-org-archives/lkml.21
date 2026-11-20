@@ -1,105 +1,137 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163839;
-	b=ue8DNX4vwHIpBv/YRBmkM2DL11YJHeQAHAwaaCWv0hDzUH6dUwXHowiAzCZburHiY+n4
-	 QSYwN9JlI6E/kPu8IOA0/1c/T/yC7UUr0hFwMcujem7HQWLvsIzl/2/abEhCg40dDfav4
-	 EdVlv824m9iLI32EsvhRzcRJmW2bsYOrh3dQw600vZrR1X4ivWz7DIjaunj2IhMvge5zJ
-	 hcBu0iE3UutPUASKwK3q/+JgVOlfcb+/+CWEmcBVANgRyazRVIX0BwGOVCQ5rercd6tgS
-	 H/RAm4fqlLI/vwE4cA9KnCdXM5pJl2yl22nLGkRmdBJWOzahHIRA39ocaJWR8TQ1qnw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163839;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=g/fHu7Nley/JjRttReoBdOyGfNrnA+dp2NZ1oWj3jhM=;
-	b=un1CWeg+t88BDcWwAS2P5eNym78o5OKif2OFC0o1Oxgw3SSdHYqEtbF+8op95rCcyVNb
-	 XyIua8KylkYIvyphWLhQfal8qUUPXK21WlaxyohmXjoSFd59xBsQfL7K7znpLlyXQlN2r
-	 nKxozzK552PVpH1PpRbOIolP6Rn5wHcuzqbNZfWes5xC8K902AqBkCxbml8NsIMMUTkB3
-	 NuxeRro/hMHCeGEIOB1HpnftBuBooDgjz8f4W6sL2ZuTaS0/uwD+EXWa8ldJHKJxmaWdX
-	 9ITyThkQAqwtDKfhC/jKyv/HuVbkySov+qjv//GlXLPb+P7IFBAYhecKiUbackxeDJA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MMBzzU1p;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795163885;
+	b=0UzlOGP4jYf/F857Ple5TLgarOAp/D+Oatqq2t2AgOAybU4hP2IssPAY2VgVVYMrFkMU
+	 3Y8MK3K0vuhxDjKblsVnR9F6zNY9kAOkvDVMRo8ZsUHtKZVjMGYAXNDuHw0IgYMNzS1Ml
+	 6sXMjdMriWlDrW0+ByP9gR3uXf5UV3vOfaeEz7EXpGF6f7vgd/eqRIJSnq0dv37bdWA1j
+	 5GaT8rbmewEZVKN8jeql+VV4IhxYoOl8Uvtfbj6s4b/UbfrR/xfBQaWa6pbUioG9gK9WI
+	 iQLV4klexBvW9EWgy7gFOEYiYaNJOiIVDyLt2EmjZSX6a0xVL/oxAongIWZ/+tuf2hw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163885;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=AfFD+NtWvZBmcI0U6MXeLnORyprKkTtHlLBQuO6FVpY=;
+	b=Q9VGW0RuXjrgrfjStJEMU8IfeRs7GYj3cIZUQ5Xu0Z3zUpp2wuNYr9gUXj3QqxKPdXhM
+	 W3L1ujpVOZpuiVWi0oHZLEec0h2mh1SE3AV7AmjcoRkdwiPrGaOYo7zuNcOcRmN+VHzxS
+	 6vyl/J8cRbYxbsGeMX48tLLRdgxu3PyoVIikbXunXXDkZh5LUjjkMa5Vc3/CUMmb4qV17
+	 cIQ/2mSOLblY+AfR4AZQh7q61m1CPkNaxBg0b2DghpqjzHtuMJHVYCNYtH+3ddL9u0Csv
+	 Ar9AEKwAtch0otz3tDXNzOZlECnPQa4tfhYVJcmk2RsJJZnARN1Pu/AH75nbVfJmGKA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CjXlusRQ;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b="E1KWq/aT";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.11
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.11])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61EC5606A333
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:37:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61EC5606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA572606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:38:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA572606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MMBzzU1p
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f01f296937so5131545ad.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:37:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795163838; x=1795768638; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g/fHu7Nley/JjRttReoBdOyGfNrnA+dp2NZ1oWj3jhM=;
-        b=MMBzzU1ptyoyq6zsyOP6nVX94qw1w/E3iaH/MXmFwXbKgU4DESzfqOE33mcwIozVCP
-         NRnyKlCO9LcGbZgX7stkIeWUYqon8Dau79yCnyAP/48sRENzWzOPKr9wCyPeuGKQfhi9
-         1DADM+f4IucDs2bcWE9Jmjk6h63zVQhhie1xKUOl2UNoy66ePEtmnxr0nSQqqg6rRo10
-         tTTW7QLefJHfjAkfjNRM2yS1jgMZa7x58lOBWfvOSzQI5mOYV/szpqw1GC2jMgfYOi5V
-         89Qq9Ml97mudCkqmuTNgo0KJ1a6NyIQbQyQJxUB6HvKUfXVu1VVlJzG31zsPpDOUxuHx
-         PynQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795163838; x=1795768638;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g/fHu7Nley/JjRttReoBdOyGfNrnA+dp2NZ1oWj3jhM=;
-        b=oKLXvrLRYvWz38fwAilTMe4I/dLMdF4P6wfvDabEX7LSJnqQV1TM3ypHdu4OgCnrcX
-         xJ0s+jZpcPLkapYt/yhny4JGKrKcknVaVMhugoAjSZj+BkwhepiNEtyLvTquu7O7WbQ5
-         W9qZC9b0pHtkdZ3UKMWfPoZJMvXviOppEIf1m0qmvh5D18TDG+8QconPlx1U01IiM27/
-         4k2jPKdIWCF61Tjt308yFjSPxkmIBoELRFerl+CgAQiapXElsfJyvB/60QDk7BYZuwkc
-         GGLMiTtduD/WrnkH+LC8CZE7nyWqBOqUlOM1vmm7LtBaJrYlYyJ6ixwo7w25mTJ2+A/u
-         /PhQ==
-X-Forwarded-Encrypted: i=1; AL+hErEuBJIS3IRESAj+KtTWMsXYW/JPx3wvGuIy74xKjxhxvDkQktJ1a/eGqCKLQ763F6eecLwK+k7efllD/xI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99DwG81o/mgLyCuHfy1ZbSB+yjggEvr+WAHER3u5nfp7VfVPyn
-	Lfl6ABnzuf9q6Gqv2LN8IHalVlLNDjz6AFk11cCc51TUSOLqpVHH48dl
-X-Gm-Gg: AZFdTZf4qU/YS6l5VWOGLksZxGrn+F0Jf/lOhvgh6LvKuzH4m/8xwgbSOpHGYtmKGru
-	AEgH0J1E5JzE4RDS9ILxVz+cKdKM3w9/mjhys3VO3jKzoeOmijpDRklOqhMsjg5QztV78FL+feC
-	Qn5rEQho/RTbbBRjYymiF7r1t2dBcfyT0C69/Ll5iY107qlG6XcS77l1w4xTjmaF1iQ93l1YmUy
-	4hRHzyi/WEP2rszyTJcz+Jv2RnuA+gsPn4OxDVxNRy8dxUpa2Y6v1E7A11fFwf3l4xwUW5jRbs6
-	42EXReD9bjqGWVpDkkWCsK+vr4M+df3LZygEg3tXBP1Jx85BB0iTfp80+b2PfPiPrZXMcK2tuQy
-	RQq6ScXYS+u0uoMbZAuLfR6E143kCQuEHDHaD/9NFHm0C5hJLjnHK+FJ1lgRW4HlEtXeKOK/V18
-	/izbNVZkNx1y2WQ3cnuYWRCSQgnYj37x7VKuxAyyKHzJFGUXNEJvdi4nA3HudF727MkHi3LqQJs
-	f2cwyZNzIF0NSHR3Fbd4+Y6cMsmXCj1rrBTOGbmX2jz8DYTZoLr/TWz96DXs5PgB2WYwgAoCBT4
-	vaRjNhfBFBQXFIfBBOC1E/odWfatALzFlq+VBSv3a2+2qA==
-X-Received: by 2002:a17:90b:3891:b0:3b4:127a:2bc2 with SMTP id 98e67ed59e1d1-3b41c8d9bfamr2140676a91.14.1795163838461;
-        Fri, 20 Nov 2026 00:37:18 -0800 (PST)
-Received: from osman.mioffice.cn ([43.224.245.178])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0b52dsm3590057a91.5.2026.11.20.00.37.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:37:18 -0800 (PST)
-From: Zhan Xusheng <zhanxusheng1024@gmail.com>
-To: vbabka@kernel.org,
-	harry@kernel.org
-Cc: urezki@gmail.com,
-	paulmck@kernel.org,
-	qiang.zhang@linux.dev,
-	akpm@linux-foundation.org,
-	hao.li@linux.dev,
-	cl@gentwo.org,
-	rientjes@google.com,
-	roman.gushchin@linux.dev,
-	linux-mm@kvack.org,
-	rcu@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	zhanxusheng@xiaomi.com,
-	stable@vger.kernel.org
-Subject: [PATCH v2 2/2] mm/slab: don't queue the page cache work under krcp->lock
-Date: Fri, 20 Nov 2026 16:37:07 +0800
-Message-ID: <20261120083707.296481-2-zhanxusheng1024@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261120083707.296481-1-zhanxusheng1024@gmail.com>
-References: <20261120083707.296481-1-zhanxusheng1024@gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=CjXlusRQ;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=E1KWq/aT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795163884; x=1826699884;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=DDIxbN3urVDDTaq1ucJLCJEK5Ho/ZlpzRLFlYTEk9i4=;
+  b=CjXlusRQnkYI2ab1GPYwnfOZlXqslLVuf8GkcJ8IKDK90Sg9ULG/tAZV
+   5B2lwUHZaaHkCWKaVJJ5qhW4JPZV8hKuqILk8pOqDuvjIwMJEYPU41VyE
+   A2zplaMAtofObm1qIN7kK2a8SGLW1ew0AtlaZInT4suxXC2ega00sjEn6
+   lFSDTRtFAhPQKBGdXbs+xk8AY8eftEorYINFFvJ2k9QJ/m+cS3sR/SO1M
+   216v2BkOEp7+PIQZqKPaMARiE0czk2hR5S1FUg69astYoox8GNoXAmOC7
+   VlFtZGbUHCT9wFKBdCukMdtu5cgsjMGe+yI9ejjmuSGuBXtoBd52CioyB
+   Q==;
+X-CSE-ConnectionGUID: gGDdGcH2QNW4d5bM6sQIKg==
+X-CSE-MsgGUID: 0Kbj9rf2SDKkV5U7YGy8/w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3935397"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="3935397"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:37:41 -0800
+X-CSE-ConnectionGUID: O4ke4aAWQRO+i+9ZZX3ZYQ==
+X-CSE-MsgGUID: My88zc0tTT21dVA/uuvq+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10983375"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:37:40 -0800
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 00:37:39 -0800
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 00:37:39 -0800
+Received: from CY3PR05CU001.outbound.protection.outlook.com (40.93.201.36) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 00:37:39 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Jm1SS8buY6Bmh63dxUpNzVjKFUr9Vdh3hBMd1O61ThhRzm2v0rJc3LFD3AH5ct542LC7m/mbiGXZBKFDmVHGyEBQIKk22bWaM7YHvEkHqrkecmHKL5hyEfnQXC4VFazLuc+QjhCO1gVJCKMPInFAGB4f7rplVGh4MKaiFdjS3tnzdD/qyxqbYwttRJ0GaBdcKOweTAUXghL56Ojdm30nPx712waQvqiG94MaNaLB11FKSlcYgVxF4axo4xGL1zCWxEizL/FGVkszPGfZfK7Pv+q+WTq7Xf+4oxjOfDoMVqDrxPHzuwEQ/FWjNFEeDV+18oAKy+RcQSrfq0p7+CQkzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AfFD+NtWvZBmcI0U6MXeLnORyprKkTtHlLBQuO6FVpY=;
+ b=Qp5qNTVsKKP21jo3N1qMIUC1+oQZH18K3aGEf8jpBovJsWE1s+69ZI02rE/FvZZ3bLpCv6ZD1NdCoNWPm03mX53CofYGrF0GohaOQTAqXryt8oRTNxpt9ca8n0BzuxIVmz8wg+5Hrkt6T/rPJkE74maz7DorNz7C5u6yNjb5vvfqii1jnSu5D1zBPMj5I9yQ5dLnVWbYMSkAW8rwbbpMuH0PF7Ge+lnA/HijDhd7Z57LzanCHsgejYpOKeGFXRKtdX4v6zuM+sw0ZBnlOIXTisyNIkyco0KQ1MPDk0h0elVFEU0RDr5ebforOHXYJu4l//NDog2l9g9t24WQNusGWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AfFD+NtWvZBmcI0U6MXeLnORyprKkTtHlLBQuO6FVpY=;
+ b=E1KWq/aT7rK6HKMpUswyjOEqrJzE3auecJBgnJNvssdB7r24cJjmm9nKlIqdhzgsxL6VtqehTfwsjy+orgsJmrna8FO37mpFzO0rrY1UXQ4+ZfSejsRAz0OcJ2V/mVd+tPdfOPzqQPfF4ahB8BMPEDBsMAnhszxocG0yKErOaw4=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA0PR11MB8380.namprd11.prod.outlook.com (2603:10b6:208:485::21)
+ by DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 08:37:35 +0000
+Received: from IA0PR11MB8380.namprd11.prod.outlook.com
+ ([fe80::ea8e:eec4:f8d3:f95d]) by IA0PR11MB8380.namprd11.prod.outlook.com
+ ([fe80::ea8e:eec4:f8d3:f95d%5]) with mapi id 15.21.0615.009; Fri, 20 Nov 2026
+ 08:37:34 +0000
+Date: Fri, 20 Nov 2026 16:37:24 +0800
+From: Chao Gao <chao.gao@intel.com>
+To: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
+CC: Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Peter Zijlstra (Intel)"
+	<peterz@infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] x86/apic: Use the physical address for the local APIC
+ resource
+Message-ID: <awAGxH0bwT1xLNLy@intel.com>
+References: <20261107-x86-apic-lapic-resource-v1-1-28de4cb3fb1e@ahmedabdelfattah.dev>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261107-x86-apic-lapic-resource-v1-1-28de4cb3fb1e@ahmedabdelfattah.dev>
+X-ClientProxiedBy: SI1PR02CA0056.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::7) To IA0PR11MB8380.namprd11.prod.outlook.com
+ (2603:10b6:208:485::21)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,94 +141,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR11MB8380:EE_|DS0PR11MB8665:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0ff077f-eaa4-46ef-255e-08df46e1865f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|5023799004|11063799006|261021123027099003|10067099003|261021121427099003|261102123227099003|261022105027099003|56012099006|261028144727099003|261026140227099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Yx9ABTaXx90wjXYFNG1IyQoaLR3ReJBfCf2ExOLgHOSxUQSpDru4UaNSPNx0m9BmcNmwSodzFtG/n/A2kEpSw953kKmBPqYc7qQauibZ4H/H/L3w6dMWmH88h+GjSani7fNFjuSbUaUBkqb46NrlPndJqQVanNPEeLcOyYWFW8+P2rpGGfvravejQcmeUTavwHnKlJ8lzgXdFmHD5yXhuxjmWUJ23BFZV2Hk4CtcsVfAYKr5hXH+daSTiYIWarv//xSRyNJZ1iCgL9Z1zyQrwGgasdjVG98WhhVZP014tXRIQXGIpTRmXmdl62IQ/P3pZPO9+dzxuCwedGctp1YkzZgm9NBMzG6CmxeQlSpGfyqCQzwOQXIExcwfNzn3ws4y3f7UExbfx+rLXBaiQw1RtrYgBCS2FIBclW8c3zn6wqkzEFXXwRR7QLwEltTVZVfHi2tGHmRaYvSDyOX0U2+/O9XWRnQRHTEFG3pOkk0TUOfigbnfeHRn5U3fJjqJSJHVF/DYgI0fcba7Oo2Ebj+j1Y9hUXcWStZS9Al2NbHZTI6HxcL4TQy1C7T1FVIXByrE5A9eiImn3cqsts7rrQlQkf99LVB1xu0fcWEL+M2FXJ3e0dviZt22/ITpqMf6QkC3umvZTJX+yXOooLVhRc5UE5Ea+V8G11NRIdi+zW0O8+U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR11MB8380.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(5023799004)(11063799006)(261021123027099003)(10067099003)(261021121427099003)(261102123227099003)(261022105027099003)(56012099006)(261028144727099003)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MO7nlgxUg+ghwmPo9SqJ/gQdo7rXfUhXPH2FcRn+prLelwvB8b6MTTT6e2I4?=
+ =?us-ascii?Q?tL2UwRvm+sOGUtqOGw23qvYBSj45qN6eme1Fx9ssSgx8vbaVCDxciNnCnyVX?=
+ =?us-ascii?Q?23ArNufEgbG3NQruaRlQquKnBmyav/y3qOo6niXzgz1c60W4GMLNjcEC0Wn8?=
+ =?us-ascii?Q?UGVvO1BBxC88JHLif9dTEsdsm5TSpbNwJHeXqjnFAvRsONxQ/ORvG4qjzSbV?=
+ =?us-ascii?Q?8pOd8vpUXlypR4GiM1dyeund4Lh2/tfTc+D6IcFvqUaEV255HOaNfIfU66ZV?=
+ =?us-ascii?Q?SposcuVG+Sz0xcT8rfK16oSQjb2Av5hwQ/VMjQLHd4riSgIl9HnF3tDft31r?=
+ =?us-ascii?Q?ePcRMmNvst7YkOnftQARl+NEwALfFT56pEsJ2GazhRMw3wnxNNHbqr/+A+WG?=
+ =?us-ascii?Q?S9lKD9XgWXB+ncUOgXA92ZlUip+tgbSezEBO95mPqzZQPDPhAYdO99Dz6t0y?=
+ =?us-ascii?Q?KlAIMNnEnJmOzZ18o48jvers9T3kD5ympU5bTQtmpuMf/S35RU/+yp58Pu3Z?=
+ =?us-ascii?Q?foDJnLz4JRPsYG4vn5KBR4C9195xofUVcBhuBBsc9Fec8V/ttK5ynGV1OtNa?=
+ =?us-ascii?Q?hJLtg1n8ThNy9TdmJBsSEmkHGjKbr3/FnCrL43iljZbeIhE23OFAa5lP2DxJ?=
+ =?us-ascii?Q?cq+GhRhv3plnPGddwBnl2f44TWtBc1fua9raxW36wO4oJgf7Uj3w/8LmwHcA?=
+ =?us-ascii?Q?kdOXe7cFNBCPsS86b5ondTDXcTzBCH7jG3GOucoxUQOw1j83YZQb7pPH/BkL?=
+ =?us-ascii?Q?D4qZW6QAZQ6QqMn7mRIFDvzp/IJC6zbvfz5V93XdUa2r72hKAaagKyyvwlR3?=
+ =?us-ascii?Q?YvijCf7pUf99OT8ItOm1jgkomRGdyaj6UlM2axz2sGWGEfhbfxnB6quZj64A?=
+ =?us-ascii?Q?qVanG0GUKQjI2ovwrp/UvTVY2G/10gdw6/zJxa8npVqPqvLZVojqSExd7bBQ?=
+ =?us-ascii?Q?ez2L2lwRZV184QMRpkS5COfkTm7rmBVlQ2BWZrE7kTmAYc/w+aPRuA9xcIns?=
+ =?us-ascii?Q?bq07ZwqpOLrqY40X9KGaYYuxx++3vkNia7ZXnOStBBoDWPFMrJ1c08LyPLLt?=
+ =?us-ascii?Q?vzeAAt2lGvzeUzh4XLvIW/Y7hQnJ0Fz/VtG3sLNc2oR2M445gymo60zk/TN7?=
+ =?us-ascii?Q?6pd5uk++Lxz/O+mtOocOWMHoiIQIzXCDqdFk4xhJXvRhNUwDbNrnAX6jQeIu?=
+ =?us-ascii?Q?ETASxzmlWVABHTj3WbTkcX6qUEzHIwtdU7v34d11mTovtJTQ6TTEvOvjyvK5?=
+ =?us-ascii?Q?F3PuQVw6yC0zjz44WCPzEY4dmdfkZOch+sWEQOtXAU7x8Zk8pYPpmpYbxjXr?=
+ =?us-ascii?Q?HQ24uOUkRdb1yATJxSVtt8thCa5LnUxhsAFgsmOWvx0GtiNHY+rxez9ja/TE?=
+ =?us-ascii?Q?Hiw/FHhmBLdN1OaXpH7ySoxKdhUQli5HsscWytrMs/Wlkh6RCCoQDC1bfW1g?=
+ =?us-ascii?Q?XYmJcqPerL5lJ3CAlWs6QdbAqiUTuLUu8ofgHTVaO/HsUWqhhTIAQr1KHodq?=
+ =?us-ascii?Q?RDR1zT3zuapzUx+gFTEbkdw0+MmSBJXiJBH108XjcrbmSTVwu4+WVJeLfJWi?=
+ =?us-ascii?Q?7OhBNM1N+PpifX/qJs3WwxcmvWWtKy7g1llBeRjnAXtEVMqSo45r3DIgEWDg?=
+ =?us-ascii?Q?DpK6pKTLJ3mbNgQD7J+Oyc6oItuPz5VKHyDaZpXeMel1goozMZsT1nex0+qV?=
+ =?us-ascii?Q?z9WtIrR84XWdpIm6nViA9/OY24zUGpBLQJYnHQ+quaRb6VCW6fxntRU/+sfo?=
+ =?us-ascii?Q?U8d8XQgXKQ=3D=3D?=
+X-Exchange-RoutingPolicyChecked: Q2O22JqRCTUZhLa0QNJvWcacJMckkYEBDDk+0bNS0Den35mg1NLy+/Lo2PW/2Vp7e4KG0una8YLSLjS4z3c+iVhoEnHkYgGkpnYqE/Vxdl7tgavuYuN1P4LW1ZSXK2goykPgXLyl1JQpTg6I+C5pz/zYeksJoMfRvYt/yrqjf/QNfueMK/twpgIB+VLPMVZEqSEx/UPrl0hGswguEy6Hcn6yuQRnWMe4wed83GGnKPCsG0iuTyKfDMz5/U6O8R3oByAgTWD8hNxVGWU0ctp/thTFhNQbrBLL7AuJoUZrh/Wo1T2wZPpw+vi5tBdvolj1m7mdDf74Z1SG3fEgR11vSQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0ff077f-eaa4-46ef-255e-08df46e1865f
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR11MB8380.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:37:34.8415
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4dxN7QOIyuFyCVBDKVVH1hSPJnzyGDKIlVrcZs8t9b8F8bVYQ8qtey6CvoaqLE8N0ucMijkP5UgUNpHByYs2dw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB8665
+X-OriginatorOrg: intel.com
 
-From: Zhan Xusheng <zhanxusheng@xiaomi.com>
+On Sat, Nov 07, 2026 at 12:08:07AM +0200, Ahmed Abdelfattah wrote:
+>Since v6.6 the "Local APIC" entry is missing from /proc/iomem whenever
+>the kernel maps the xAPIC itself.
 
-Commit 56292e8609e3 ("rcu/tree: Defer kvfree_rcu() allocation to a
-clean context") deferred page allocations to a workqueue. To avoid
-deadlocks with the scheduler, it used hrtimer to queue the work instead
-of queueing it directly.
+What is the impact on end users if this isn't fixed? Please make it clear
+in the changelog, even if it is minor.
 
-Commit d0bfa8b3c411 ("kvfree_rcu: Release a page cache under memory
-pressure") later added a backoff mechanism under memory pressure, but
-did not consider that queue_delayed_work() with delay = 0 immediately
-queues the work and introduced the deadlock commit 56292e8609e3 tried to
-avoid.
+No one else has noticed this since v6.6, so it looks to me that nothing
+depends on this "Local APIC" entry.
 
-run_page_cache_worker() runs under krcp->lock, from kvfree_call_rcu()
-callers that may hold more, such as set_cpus_allowed_force() under
-pi_lock, so it kicks the refill work from an hrtimer. Under memory
-pressure it instead queues the work with a delay of
-rcutree.rcu_delay_page_cache_fill_msec, which may be 0, and a zero delay
-queues it at once, taking pool->lock under krcp->lock.
+>
+>lapic_insert_resource() used to take the address from apic_phys. When
+>apic_phys went away it was switched to apic_mmio_base, but that holds
+>the fixmap virtual address, not the physical one:
+>
+>  APIC: Mapped APIC to ffffffffff5fc000 (        fee00000)
+>
+>insert_resource() rejects that range because it lies outside
+>iomem_resource, and as the return value is not checked, the failure
+>goes unnoticed.
+>
+>Use mp_lapic_addr, which is the address apic_set_fixmap() maps. Keep
+>the apic_mmio_base check, so the resource is still only added when the
+>APIC was actually mapped.
+>
+>Fixes: 78c32000848c ("x86/apic: Get rid of apic_phys")
+>Signed-off-by: Ahmed Abdelfattah <me@ahmedabdelfattah.dev>
 
-With the delay set to 0, calling kvfree_rcu() on vmalloc memory under
-pi_lock after a drop_caches makes lockdep report:
-
-  Chain exists of:
-    &pool->lock --> &p->pi_lock --> krc.lock
-
-A zero delay also defeats the backoff, which is there to defer the
-refill under memory pressure.  Clamp the delay to [1:100000] ms, so that
-queue_delayed_work() always arms a timer, and update the documented
-range.
-
-Fixes: d0bfa8b3c411 ("kvfree_rcu: Release a page cache under memory pressure")
-Cc: stable@vger.kernel.org
-Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
----
-v2: clamp the delay to [1:100000] ms instead of using the hrtimer for a
-zero delay (Uladzislau).  The changelog is Harry's version from
-slab/for-next-fixes, with the last paragraph rewritten.  The
-Reviewed-by tags of Vlastimil and Hao on v1 are not carried over, as
-the code changed.
-
-Tested in a VM on v7.4-rc1 with lockdep: with
-rcutree.rcu_delay_page_cache_fill_msec=0, patch 1 alone reports the
-circular dependency above; with this patch the boot log says "Adjusting
-rcutree.rcu_delay_page_cache_fill_msec to 1 ms." and lockdep stays
-quiet.
-
-v1: https://lore.kernel.org/all/20261028134647.3176080-1-zhanxusheng1024@gmail.com/
-
- Documentation/admin-guide/kernel-parameters.txt | 2 +-
- mm/slab_common.c                                | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 0b3c140babd9..0d1d76a6af70 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -5763,7 +5763,7 @@ Kernel parameters
- 	rcutree.rcu_delay_page_cache_fill_msec= [KNL]
- 			Set the page-cache refill delay (in milliseconds)
- 			in response to low-memory conditions.  The range
--			of permitted values is in the range 0:100000.
-+			of permitted values is in the range 1:100000.
- 
- 	rcutree.rcu_divisor= [KNL]
- 			Set the shift-right count to use to compute
-diff --git a/mm/slab_common.c b/mm/slab_common.c
-index 41dea01a8c1f..6fb453118641 100644
---- a/mm/slab_common.c
-+++ b/mm/slab_common.c
-@@ -2262,12 +2262,12 @@ void __init kvfree_rcu_init(void)
- 			WQ_UNBOUND | WQ_MEM_RECLAIM, 0);
- 	WARN_ON(!rcu_reclaim_wq);
- 
--	/* Clamp it to [0:100] seconds interval. */
--	if (rcu_delay_page_cache_fill_msec < 0 ||
-+	/* Clamp it to [1:100000] milliseconds interval. */
-+	if (rcu_delay_page_cache_fill_msec < 1 ||
- 		rcu_delay_page_cache_fill_msec > 100 * MSEC_PER_SEC) {
- 
- 		rcu_delay_page_cache_fill_msec =
--			clamp(rcu_delay_page_cache_fill_msec, 0,
-+			clamp(rcu_delay_page_cache_fill_msec, 1,
- 				(int) (100 * MSEC_PER_SEC));
- 
- 		pr_info("Adjusting rcutree.rcu_delay_page_cache_fill_msec to %d ms.\n",
--- 
-2.43.0
-
+Using the virtual address is clearly a mistake, so this fix looks good to
+me. But the Fixes tag is wrong, as "apic_phys" already held the same
+virtual address before that commit.
