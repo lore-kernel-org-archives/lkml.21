@@ -1,81 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.121.94.183
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173287;
-	b=ZiXCTT3286SX175xhq29gPno0Yy5WdMV0YlFmQgNx5MnPbjjHpIurXsPt6WncNYCDnJI
-	 IQQPSjDbkCjEr0wDLUOU1+9RzY6B1pw5OOWcnd8gXgsX44ccI+xZe4gy/QfjH5Mm5f50d
-	 WSuzezEf9dQhXwwpa1exkrcJJ02j/dcMY31eqS+fpcyxxlvU2szxYnlK2PcoY1OfFtxMY
-	 zUNqycw44eAhvZOx7fL3noTfTJjAwpSfTBbFLZjUldcmny/NRdvkSBuMKzV4FNN583ulG
-	 OtXtZEfBFUODLWyn3yMFpJ/K+LMsU0K11Q+3bOSl9snp7lT1n4Ipy+E6+nfCBrHuJ6g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173287;
-	h=DMARC-Filter:X-KPN-MessageId:Received:Received:DKIM-Signature:
-	 X-KPN-MID:X-CMASSUN:X-KPN-VerifiedSender:Received:Date:From:To:Cc:
-	 Message-ID:In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Priority:Importance:X-Originating-IP;
-	bh=PjzVgZGUm3JAnCCIs5JaL2TnGj38tBHNtriCyFT2Wzg=;
-	b=MTkexGU+CopTg5REYYFxKLULcSZCFIya8mBhd0NpS/eg8+UTRnNb0XXiVKEcWZY0n8Wp
-	 AxWVVTNo3Xq2VkjwJjWcBtuj2+IqOgaAHv8OZsRswkCXOMqODz+IuZppXRteavekZNJhp
-	 9htpq4EHmah63hIZser2O1rcmsEtjDMcSerSLL4Nss7/nPcQ92NsGP3E09MsK+fKuIEUh
-	 hSQerAm3pYHIspC4MXU7fkRS6HMLc7yEWtB682DmkFVqEk/FhZXJnTlm66YQtb7DALeg5
-	 h60a6rOjb+GGWdmxMsCOP88EvSGCJ5PcTBsN4j44LGogeH+KNSimyzQWw3DniYkQNRw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=xs4all.nl;
-	spf=pass smtp.mailfrom=xs4all.nl;
-	dkim=pass header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=ucC4Rj6u;
-	arc=none smtp.remote-ip=195.121.94.183
-Received: from ewsoutbound.kpnmail.nl (unknown [195.121.94.183])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795173328;
+	b=rVWOaWqYgS2I+1O0+TMU3jr/ZIxMqW3ZnpHYBDKW9h5lDb3YSJUtTBfhqBJxneQFxv78
+	 NswwL4LK7tFQpeNy2xdaUKuoTgdznfDBJlo3AgInZV8dUHVvyfxH6OdicKMHPILToVeR6
+	 p1cBGWh17s0Aihta00t/BJ7mc51FfKI1kXPa1p0mL/H/6evctJ7/fgxbr6PozGA5K2I0v
+	 AZNPecudFBhlJ5PWnCmyYY/C2bWh7cwsvocYFAvoEaT1BQtHkgAo+b8AJrWxdAjKeaAO1
+	 4GeEWX0Cyi+9/g15LhDv0cxYd3qjpl6DWQ7P91nNy0Ndf/aOvPQ0Vte1aUxFp/hAgJg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173328;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=sPLFwhIcT/MvzLNNSK/4rlL74eBqG/2kXsTllYHm22A=;
+	b=P9Fi+Q4ZnyatnO4KojEVrH+GEbtJpDU/IN3mJGDX93nkEQqW0SNFk7zENGeHyuFlTwzN
+	 K5+WOMjdqrs+q7X+dM3827aly9RhRXzmY3EOyRsCNdwo6WJ2zBT7E3JCc+SN1qJS6vA8A
+	 V+mEmcouqNLxGzhWyg3jXkvZvsCgp/W+81t/VAM+xeIrbcjiKWrbmA/ntNnDxNjYAYI4b
+	 S19qIp1Zrk9fbqJ7tGDWF7p7+8KsViPLZi8wxSMJuxy0cFytUihF1SfiBZOcNE9wUcHpN
+	 JH58Xsa2rsXRCWjvumaY1i6Ur41UphVx8fiktq9PI85gdja7xL46QeDCHdZ2h5kNoyQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amarulasolutions.com;
+	spf=pass smtp.mailfrom=amarulasolutions.com;
+	dkim=pass header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=JY3ZWdh9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.174
+Received: from mail-yw1-f174.google.com (mail-yw1-f174.google.com [209.85.128.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 090D260A263A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:14:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 090D260A263A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=xs4all.nl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xs4all.nl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE7BF606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:15:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE7BF606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=amarulasolutions.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amarulasolutions.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=xs4all.nl header.i=@xs4all.nl header.a=rsa-sha256 header.s=xs4all01 header.b=ucC4Rj6u
-X-KPN-MessageId: 9224ddf7-e4d3-11f1-8e5d-005056992ed3
-Received: from mta.kpnmail.nl (unknown [10.31.161.188])
-	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
-	id 9224ddf7-e4d3-11f1-8e5d-005056992ed3;
-	Fri, 20 Nov 2026 12:14:36 +0100 (CET)
-Received: from mtaoutbound.kpnmail.nl (unknown [10.128.135.189])
-	by mta.kpnmail.nl (Halon) with ESMTP
-	id 92236a2f-e4d3-11f1-be6a-00505699693e;
-	Fri, 20 Nov 2026 12:14:36 +0100 (CET)
+	dkim=pass (1024-bit key) header.d=amarulasolutions.com header.i=@amarulasolutions.com header.a=rsa-sha256 header.s=google header.b=JY3ZWdh9
+Received: by mail-yw1-f174.google.com with SMTP id 00721157ae682-8b0ca1ebc8bso6593807b3.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:15:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795173327; cv=none;
+        d=google.com; s=arc-20260327;
+        b=P94A3e486aP+zRklxlIxO2n/660mMgjeZyZH2FII/SWu+8Ur3ZTU8dW5m/jUg9J4Xo
+         CNhDw3Aegg7zCv9uSjyZZ8X6bI1FzaUWAPjtOKBtuTBV9lu8VcN/zID3rHDXhzkVsEsY
+         x59RC7nmxc+1gh6VRHs7xObfz+0bYScz79Mo1T16NTxdUxCOcDm1vyatGlqks5oIoKGB
+         5eoVKxHOlw7dTX5j6nFLtMIMEPgGPI0DAOvGsDAcbtgxFnnJsC3TSqgwu7NJkjyrxQw5
+         PwgE3vsZZn4mrCuDDi9kzWtpm9kw8iKuhKE53VQgrSbQ0UHKke36sBYqsLcNKthKK/Wu
+         Ykiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=sPLFwhIcT/MvzLNNSK/4rlL74eBqG/2kXsTllYHm22A=;
+        fh=45HUKINtXT5l1eWp+7eyUyt5ipp2YKra/67qW2zF1cY=;
+        b=GpfnsiVIaSGQZwwhf/Gc6z3b8rIDApb6ORIf/1ke2uQpjJbwfaFnIpDygnVexqM1lP
+         fJEg8jJaCef+DmjHWcZaq11yNCxuuWdTPuyVDuTmtI/ayJl2kRglB6ggTpEE78V0txoW
+         04fiknQN3UxlKo36DYZihTROD+oFFM0pANrzdaX3VmuLI9oqHM2dRemlLpTzuI1USEkX
+         o/YJe1S820QeKTVlFeIPZQPr+eFRW4duxm5KXhgJ8w7coK2bOqI6pUvHD+0Xn7apl/lh
+         c3A2L4v+nUE2VSS/GCKnh8kjDg1MpLbfCr2krwM7qFHsS+rflb59PA4GmzA0W5yKQC9X
+         cRyw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xs4all.nl; s=xs4all01;
-	h=content-type:mime-version:subject:message-id:to:from:date;
-	bh=PjzVgZGUm3JAnCCIs5JaL2TnGj38tBHNtriCyFT2Wzg=;
-	b=ucC4Rj6uJwQLNweeTQfqi5QvjUTh2ZSjBprNMF8X2P5vdvD8C5d2O37pu3+MhBZQxo71p6UH341lH
-	 FC8qqlAutWOXQ6+Y+rb5d/oRVfj9l1Dxeqo7ZyWg0LmYnZARgytUII542884wDvHjXS/JttQQEs9DQ
-	 bqMVWWHsqJfkuvsPAFknqPjqBKq/uV960BenVIVLFw/0f9337/gPhQ8dAg2ygbeooRtFYl2J8977Th
-	 by/FWb6njbth6QBAIVNmLWzVNCyd44uFunmmZAWkIKoLfdFOheCBpe8nVxqu3l2p2c7PXlMetc2oJt
-	 VmwaKdVp3/7C5mr39owUglyijb6JNOA==
-X-KPN-MID: 33|/sTml7rAee1FVNVLGx5DdW+WHq1K70NfYXOiC57mU469Im1tEq7liCcW2gzjud3
- sG1/yTtbugNy6EpjhTCu4zsvvOuiNdY7N0W34d3Rb7Lk=
-X-CMASSUN: 33|NEkO+ZW4M3w9vISEGjQ3s8RjcZG5Ozjt2vMCDXfi8OkgQAwe7HT/MzSsbv+ZWt7
- MR+7TrAKikaX+MKs2lcin9Q==
-X-KPN-VerifiedSender: Yes
-Received: from cpxoxapps-mh07 (cpxoxapps-mh07.personalcloud.so.kpn.org [10.128.135.213])
-	by mtaoutbound.kpnmail.nl (Halon) with ESMTPSA
-	id 92199ae0-e4d3-11f1-acfd-00505699eff2;
-	Fri, 20 Nov 2026 12:14:36 +0100 (CET)
-Date: Fri, 20 Nov 2026 12:14:36 +0100 (CET)
-From: Jori Koolstra <jkoolstra@xs4all.nl>
-To: Shuah Khan <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	=?UTF-8?Q?Ricardo_B=2E_Marli=C3=A8re?= <ricardo@marliere.net>
-Cc: linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-ID: <1254980601.2097872.1795173276553@kpc.webmail.kpnmail.nl>
-In-Reply-To: <8a436334-d306-4a34-bb7b-efc713aed0f8@linuxfoundation.org>
-References: <20261118-kselftest-run-timer-v1-0-53a838b2d62b@xs4all.nl>
- <20261118-kselftest-run-timer-v1-1-53a838b2d62b@xs4all.nl>
- <8a436334-d306-4a34-bb7b-efc713aed0f8@linuxfoundation.org>
-Subject: Re: [PATCH 1/3] selftests: use local variables consistently in
- runner.sh
+        d=amarulasolutions.com; s=google; t=1795173327; x=1795778127; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sPLFwhIcT/MvzLNNSK/4rlL74eBqG/2kXsTllYHm22A=;
+        b=JY3ZWdh951njZ9iamsk8qCyeR4LJpvY4QzOsQU0Z1/9fsl8gjOhf+NjPzsKLsTtzKS
+         S28y/JBu3gbrX0c1S6FU/D/V2tczzIHs5cx9Ryad5CDgvGc8AWJD6vEfGpMSGqMVpEaN
+         aUCQs/Bk6FB9oYc8RDwH1UprPksFb/pW4GoTI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795173327; x=1795778127;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sPLFwhIcT/MvzLNNSK/4rlL74eBqG/2kXsTllYHm22A=;
+        b=CrmyUjOSWwg4HXO93M8zDJNLDHoWNryYFafg3GJN+N2dG4pL8xZLztT7pXIVgUswSQ
+         F4etgmwq3ymuaQi9N+c7HnKv0CoiCCZL7RZ8QDOsxTkGc+waPSbVIi9WQ2+8orVCUWSp
+         q7sa9GgL0duijlGEg6pGsfONeb+N32X+6DjvajeSPMhCsXrLJh6HhEmazNzZ42ZoMAHC
+         u31Teky6jisydfADlKucDV28JevwUsDgf1Z7eJFmjKFTtehzL478m3eUolChM8LwFi8j
+         g0eE1Lqg2nqMQOXzR6g9N60K0O/LYJiQ12cyfwoZo19pkOm8cik8G7UaTUclr51Jdbqf
+         18gg==
+X-Forwarded-Encrypted: i=1; AL+hErGeVfQfdEFFmwotFoLfy+1YmECKQzPBMObhD88CbrkXO89s0eVvaDBQB13G63snEmeQQ7LQtVP+vBN1P7k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ty1fquaKsng2qb4sI9yD61EP+xhJFCtn5rEHT4W0BbgooReP6
+	eB+KxHvVudMXjnOK1Terz2Mk6AhyamiKm0oTmN7jYpyx5lfGM1uzr7sqBJA5f9oqZ2AFRV6m2d6
+	6Kb/V3bJyzBnds7v7vL1uhz3nJZXEfU40rT8ripO8HQ==
+X-Gm-Gg: AZFdTZdBq2aQn34qpbrbWYkWVLe7Wa/Qbg5af+84lM04vB+SPm71/HH4DLmSCgajSOr
+	jaYydpNJPgZBWiUFwaclGaWZhZ+lWk4cOtQ7zGBRdNgoVjD4Q2+gHFTC6BWapugVNwY7hc6Jp/9
+	7fi9s+tNvnXvLHxM4sWgdX3ejIWLI3k3hQJd/48H49ZitjNOIN6EG+jABmGQA+ZNocTZBFgOEn6
+	KcilqAQtD0k7Y/zhVPnYU7oN4lKDEaQa43WKENr9JrOHIY5K3WSn9f0kVjAuWuWHSPM2W84w85M
+	QzTjM91PpUpYzFAW1pHZ3slnOjVc18YYKr2nshlf9FcB9W3/JxMa0UM22DCltAZfDazvL/tKq05
+	wEs74W4AExwM9R2BEELKoOEGXanXbL/JG4YckkcZW688TELF3/h5D9jNyGN2vOrEIy6E=
+X-Received: by 2002:a05:690c:f0a:b0:8b0:a8c1:b203 with SMTP id
+ 00721157ae682-8b5204a4d62mr11865107b3.29.1795173326740; Fri, 20 Nov 2026
+ 03:15:26 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -85,147 +101,94 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Priority: 3
-Importance: Normal
+References: <20261028105807.2567225-1-dario.binacchi@amarulasolutions.com>
+In-Reply-To: <20261028105807.2567225-1-dario.binacchi@amarulasolutions.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Fri, 20 Nov 2026 12:15:16 +0100
+X-Gm-Features: AclHuK_lul2WkB_GKijVQqX2Biher4WJINl3HIKsyICsb3rvDVwYFNAUZr7v3UE
+Message-ID: <CABGWkvq_iUWQCVphJa1yuCJpekseUEHwme-Uj2Wpq7z8A2TKag@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: st: add firmware reserved memory to Engicam MicroGEA-STM32MP257
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-amarula@amarulasolutions.com, michael@amarulasolutions.com, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Alexandre,
+
+Gentle ping on this patch. Could it be queued as a fix for v7.4?
+The SoM support went into v7.4-rc1.
+
+Thanks and regards,
+Dario
+
+On Wed, Oct 28, 2026 at 11:58=E2=80=AFAM Dario Binacchi
+<dario.binacchi@amarulasolutions.com> wrote:
+>
+> The first 64 MiB of the DDR are used by the secure firmware (TF-M,
+> Cortex-M33 firmware, BL31 and OP-TEE) and are protected by the RISAF
+> firewall. Without a reserved-memory node Linux allocates pages there,
+> and the first access triggers an IAC exception and an OP-TEE panic:
+>
+>   E/TC:0   stm32_iac_itr:197 IAC exception ID: 137
+>   Faulty address (IADDR0): 0x80000060
+>   E/TC:0   Panic at core/drivers/firewall/stm32_iac.c:212 <stm32_iac_itr>
+>
+> Reserve the region, as done for the stm32mp257f-ev1 board.
+>
+> Fixes: c5ce8d7bcc78 ("arm64: dts: st: support Engicam MicroGEA-STM32MP257=
+ SoM")
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+>
+> ---
+>
+>  .../boot/dts/st/stm32mp257-engicam-microgea.dtsi     | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi b/ar=
+ch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> index 5b4287e86def..6cd64587ecdc 100644
+> --- a/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> +++ b/arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+> @@ -19,6 +19,18 @@ memory@80000000 {
+>                 device_type =3D "memory";
+>                 reg =3D <0x0 0x80000000 0x0 0x80000000>;
+>         };
+> +
+> +       reserved-memory {
+> +               #address-cells =3D <2>;
+> +               #size-cells =3D <2>;
+> +               ranges;
+> +
+> +               fw@80000000 {
+> +                       compatible =3D "shared-dma-pool";
+> +                       reg =3D <0x0 0x80000000 0x0 0x4000000>;
+> +                       no-map;
+> +               };
+> +       };
+>  };
+>
+>  &scmi_regu {
+> ---
+> base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+> branch: stm32mp257-engicam-microgea-fw-reserved-memory
+>
+> --
+> 2.43.0
+>
 
 
-> Op 18-11-2026 11:13 EST schreef Shuah Khan <skhan@linuxfoundation.org>:
-> 
->  
-> On 11/18/26 06:40, Jori Koolstra (CIQ) wrote:
-> > run_one() and run_many() assign their working variables without
-> > declaring them local, so they leak into the global namespace of
-> > whichever shell sources runner.sh, i.e. run_kselftest.sh or the
-> > RUN_TESTS recipe in lib.mk.
-> > 
-> 
-> Hmm. so if a timeout value of say 60 seconds comes from a test
-> settings file, does it persist? Can you see that if you run a
-> few tests using TARGETS variable?
-> 
-
-No, because it is doing
-
-	export kselftest_timeout="$kselftest_default_timeout"
-
-at the start of run_once(). I was just trying to get it to be a bit more
-consistent and less bug-prone. We could also add readonly, which is in
-POSIX. But that seemed too much.
-
-> > Declare these variables local so that local is used consistently
-> > throughout the file and the sourcing shell's namespace is not polluted.
-> > This does not add a new requirement on the shell: local is already used
-> > in run_many(), in_netns() and run_in_netns().
-> 
-> Makes sense.
-> 
-> > 
-> > Also, obey the convention to use upper case names for variables that are
-> > constant once assigned.
-> 
-> Can you elaborate on this convention?
-> 
-
-It seems to be what was used for runner.sh, local variables set once are in
-uppercase.
-
-> I don't want to see these changes combined. We don't combine
-> cleanup and convention changes with real changes.
-> 
-
-I'll separate it out.
-
-> > 
-> > Signed-off-by: Jori Koolstra (CIQ) <jkoolstra@xs4all.nl>
-> > ---
-> >   tools/testing/selftests/kselftest/runner.sh | 29 ++++++++++++++++++-----------
-> >   1 file changed, 18 insertions(+), 11 deletions(-)
-> > 
-> > diff --git a/tools/testing/selftests/kselftest/runner.sh b/tools/testing/selftests/kselftest/runner.sh
-> > index 45fb8ec38493..9b1dad5441ea 100644
-> > --- a/tools/testing/selftests/kselftest/runner.sh
-> > +++ b/tools/testing/selftests/kselftest/runner.sh
-> > @@ -58,13 +58,18 @@ tap_timeout()
-> >   
-> >   run_one()
-> >   {
-> > +	local DIR TEST BASENAME_TEST BASENAME_SANITIZED SETTINGS TEST_HDR_MSG
-> > +	local line field value interpreter stdbuf cmd rc
-> > +
-> >   	DIR="$1"
-> >   	TEST="$2"
-> >   
-> >   	BASENAME_TEST=$(basename $TEST)
-> >   
-> >   	# Reset any "settings"-file variables.
-> > -	export kselftest_timeout="$kselftest_default_timeout"
-> > +	local kselftest_timeout="$kselftest_default_timeout"
-> > +	# Make kselftest_timeout variables available to tests
-> > +	export kselftest_timeout
-> >   
-> >   	# Safe default if tr not available
-> >   	kselftest_cmd_args_ref="KSELFTEST_ARGS"
-> > @@ -91,8 +96,8 @@ run_one()
-> >   	fi
-> >   
-> >   	# Load per-test-directory kselftest "settings" file.
-> > -	settings="$BASE_DIR/$DIR/settings"
-> > -	if [ -r "$settings" ] ; then
-> > +	SETTINGS="$BASE_DIR/$DIR/settings"
-> > +	if [ -r "$SETTINGS" ] ; then
-> >   		while read line ; do
-> >   			# Skip comments.
-> >   			if echo "$line" | grep -q '^#'; then
-> > @@ -100,8 +105,8 @@ run_one()
-> >   			fi
-> >   			field=$(echo "$line" | cut -d= -f1)
-> >   			value=$(echo "$line" | cut -d= -f2-)
-> > -			eval "kselftest_$field"="$value"
-> > -		done < "$settings"
-> > +			eval "local kselftest_$field"="$value"
-> > +		done < "$SETTINGS"
-> >   	fi
-> >   
-> >   	# Command line timeout overrides the settings file
-> > @@ -164,8 +169,8 @@ run_one()
-> >   
-> >   in_netns()
-> >   {
-> > -	local name=$1
-> > -	ip netns exec $name bash <<-EOF
-> > +	local NAME=$1
-> > +	ip netns exec $NAME bash <<-EOF
-> >   		BASE_DIR=$BASE_DIR
-> >   		source $BASE_DIR/kselftest/runner.sh
-> >   		logfile=$logfile
-> > @@ -175,9 +180,9 @@ in_netns()
-> >   
-> >   run_in_netns()
-> >   {
-> > -	local tmplog="/tmp/$(mktemp -u ${BASENAME_TEST}-XXXXXX)"
-> > -	local netns=$(mktemp -u ${BASENAME_TEST}-XXXXXX)
-> > -	local rc
-> > +	local tmplog netns rc
-> > +	tmplog="/tmp/$(mktemp -u ${BASENAME_TEST}-XXXXXX)"
-> > +	netns=$(mktemp -u ${BASENAME_TEST}-XXXXXX)
-> >   
-> >   	ip netns add $netns
-> >   	if [ $? -ne 0 ]; then
-> > @@ -198,8 +203,10 @@ run_in_netns()
-> >   
-> >   run_many()
-> >   {
-> > +	local DIR TEST BASENAME_TEST
-> > +	local pids pid rc
-> > +
-> >   	DIR="${PWD#${BASE_DIR}/}"
-> > -	local rc
-> >   	pids=
-> >   
-> >   	for TEST in "$@"; do
-> > 
-> 
-> thanks,
-> -- Shuah
+--=20
+Dario Binacchi
+Senior Embedded Software Engineer
+M. +39 328 0625246
+dario.binacchi@amarulasolutions.com
+=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=
+=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95=E2=80=95
+Amarula Solutions SRL
+ Via Felice Cavallotti 25D, 41012 Carpi, MO, IT
+info@amarulasolutions.com
+www.amarulasolutions.com
