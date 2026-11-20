@@ -1,53 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.117.254.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167149;
-	b=R0lXyabnKr9riqdmxenzXhiIql13tATcStt2sGVq8UWoD5hRpOOzFo+1G4PuE+GipQer
-	 dZAhFiHYdMHNvbKazip34QWnO+yBJRA/+5AxlW1ejQQ3qkQ932Q+OZa1SR/ILdOdH6GlE
-	 4DcxvbbxbVpGY9RsANjheBmLTdladSPnsd/o678yAfX4ZQNu0I00xPz37F9lmpQNNgRSp
-	 x1j6jbVTMwnAWiSGpkQeIEW5dIgGREuAwinq3dSwcfUf+HYSZbmJ52rItyIO18EVY8anp
-	 xXWdl3W4c/P2a3GJGIiO4YxBKBx2EKxHiGoJ4SNzGaar9GdC2LwdFN3d+VyEsQNtAKQ==
+	t=1795167151;
+	b=XCH/eUEdlBDSBnn8EG3ouwETotxKqpEJRog5JPuEHEiuq3wKzh0RhxCb3b9YXdMeqD4f
+	 LKoerG3V+Bq7jHlICh1qbIGjkG/tMAxiCWqFKkYDl+PkEXf7zz6I4lj4bWJag0boUcDpJ
+	 3OUuZxgaDAP8D9xZ5mr6sSZUR6U4VMFVKBJRCFJemwM/b8uRiX60Djtt6OGJwlIrXiM6v
+	 D/QvE+uMNEfkTZ1z/NA3SCs2OFtw8vypT53yw8YYSWKRC2cA96Ghsja/yuZxg57rmz8Nr
+	 kUm7M2Yp12rNAmYetIj3KezYk0lD0UAwUMFmHV/QAlC937LeV36tY2hcoFci/kGIq4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167149;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=N2TX84muOckIlzBgwTaSk5sr6HXNB/fegPx1qDVmWWg=;
-	b=K6IKVrsWYh3FYxIGzMT9b6Ydp802VBKWUuwfUkEV5Rwg1gUhHeUIzEzSrZGV8Do2FkxP
-	 vP0IdGPGzD+tHw2ndSyVq8wZTRYZ8KFv485bu0W42kOBfWRBoWUKFLb6ArWmAU9rdA91n
-	 R2LMFRKa4KwwhCTOjW9mPQV7pCcP+0PGz9ykr8+yacJqIfbEa29RgZWdWD3ADHnjn7QmG
-	 x2ZQ+ka2uDTL6MLOSsSoQL/ZfF7PIJi6peW8CE6WvtbQJ1r/elzsrWpG7t7NvBlefFrh8
-	 Z/oaGv78slB5qRZ0XBY7MRXrPJulpmTT9tG7DWxdDPqyeYslANUHzi4luTbf9Y2rLCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167151;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:X-UD-Smtp-Session:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=Wl+1Y8SscpZu5c/+A8SGiP7r5RTTmIzRVOYemhTE16s=;
+	b=pF/44eQbEcXWMeaVfDFFNO0jvM81QebansfgKRKetPxz+r/FVdMrG7l+4IsJRowjw41N
+	 6u/d6jBbsXQokdFzzHA0VM9a2J7JgyRrRMHaqc+aWHGCM+X+xMaItrfewrmzJ100V2nEv
+	 wgVqUh+SFL9oQMxL30HdbhzioS1wcSj9tKeKaIJVKwzzGwPRie4Az65XwHUT1lAO7QmyI
+	 09v8c3ioWdSdWPKy7A/SkQhNxoP+jvqNQN/xJp/t0w005HFSQs4WROYS2tP0VidrqMEh6
+	 CD0i8+WaHz2Ia+QoGlqqGsTRDrW1d+yVsNwb34ReatwAQ2bHXcdeNxf0GhBLQl3iPQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="b+aayWs/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=sang-engineering.com;
+	spf=pass smtp.mailfrom=sang-engineering.com;
+	dkim=pass header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=kPZ0LKFM;
+	arc=none smtp.remote-ip=194.117.254.33
+Received: from mail.zeus03.de (zeus03.de [194.117.254.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF012606A320;
-	Fri, 20 Nov 2026 09:32:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FE30606A33A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:32:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FE30606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=sang-engineering.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=sang-engineering.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b+aayWs/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 081771F000C6;
-	Fri, 20 Nov 2026 09:32:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795167148;
-	bh=N2TX84muOckIlzBgwTaSk5sr6HXNB/fegPx1qDVmWWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=b+aayWs/8zNGLRP2GlXUtmz8xp5X+5vLouh0IlkRXw7wkKAbJfTUheIfkHnKomjRy
-	 TXx4/fabragKwGwqDmaGDetXZvXckvRdRTJnmUCDnHn2htfw8xXWbYJbLb/BfzOTkD
-	 yWd89VPKBAtk23Yl6XNHeq/H3mbJfxwAWLiDyNRkBIAqKuxv5mOiT3/JbbuA6rqHUc
-	 FbMLwvet808w+6qZINkn2COvA9CiH4Ggd56c7kmeBn7fA2WIHtQ5lVgedUE5X75phA
-	 tgn1tcExMLn9b/9ULyDBBcf19MFieDjpWD58uQ0Zs3UDeWoEev6d9M7J4XOXtIpV7k
-	 QdhBZFUdSsucw==
-Date: Fri, 20 Nov 2026 15:02:25 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Rui Wang <wr574332525@163.com>
-Cc: Eugeniy.Paltsev@synopsys.com, Frank.Li@kernel.org,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6] dmaengine: dw-axi-dmac: report paused state and
- residue in tx_status
-Message-ID: <awATqdO3Ltn5JiLg@parshuram>
-References: <20260928035133.2046-1-wr574332525@163.com>
+	dkim=pass (2048-bit key, unprotected) header.d=sang-engineering.com header.i=@sang-engineering.com header.a=rsa-sha256 header.s=k1 header.b=kPZ0LKFM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=Wl+1
+	Y8SscpZu5c/+A8SGiP7r5RTTmIzRVOYemhTE16s=; b=kPZ0LKFMaWfHPifU/dVu
+	TJNP7mHIWypkmCCedPnNOz/ifdUipTy/3tXcXyLNlNmgqUBIpk2CGdos2ejOlBOM
+	f6GNsB9tggi6IfuaMWWrTuQpakEuiZxTK+3wnAss35LtptnBPq9+k6IUmYnRSkTG
+	grnoZZle0gvFHBIs/szATkBReI+ypE+6F5NB8ktO4V13txFmkrQ0SwOdtTuOx8Jh
+	CPKnAc51CMRLpwQHa2eAvOD9k3/5AfFixDpAQCnF89I60vL84/ouxK95+iZBDpBS
+	diUZScPReLqoC3+aknLHMej6XZWnWKz8jTDavjV+xUxOoxZiFrRo5yC9cdL62FIp
+	+g==
+Received: (qmail 1417033 invoked from network); 20 Nov 2026 10:32:27 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 20 Nov 2026 10:32:27 +0100
+X-UD-Smtp-Session: l3s3148p1@YeMm7LFgsrcujnuU
+Date: Fri, 20 Nov 2026 10:32:25 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: khendry@reliablecontrols.com
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 3/6] ARM: dts: renesas: r9a06g032: Add #reset-cells to
+ system controller node
+Message-ID: <awATqUeXeKfiTEr7@shikoro>
+References: <20261119-rzn1-miic-resets-v1-0-feee2bb28bb4@reliablecontrols.com>
+ <20261119-rzn1-miic-resets-v1-3-feee2bb28bb4@reliablecontrols.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,39 +85,47 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tO7PsHmg5vUk1tXy"
+Content-Disposition: inline
+In-Reply-To: <20261119-rzn1-miic-resets-v1-3-feee2bb28bb4@reliablecontrols.com>
+
+--tO7PsHmg5vUk1tXy
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260928035133.2046-1-wr574332525@163.com>
+Content-Transfer-Encoding: quoted-printable
 
-On 28-09-26, 11:51, Rui Wang wrote:
-> The driver implements device_pause/device_resume, but device_tx_status
-> keeps reporting DMA_IN_PROGRESS for a paused channel, so clients cannot
-> tell a paused channel apart from a running one. Report DMA_PAUSED when
-> the channel is paused and the cookie is still in flight, including for
-> callers that pass a NULL dma_tx_state, and clear the stale is_paused
-> flag in dma_chan_terminate_all(), which disables the channel and thus
-> implicitly cancels the paused state.
-> 
-> Also, the residue of an in-flight transfer is currently derived from
-> the number of completed LLI blocks, so it only advances in block-size
-> steps and stays stale for the duration of a large block. Read the
-> current hardware pointer (CH_SAR for MEM_TO_DEV and MEM_TO_MEM, CH_DAR
-> for DEV_TO_MEM) and walk the descriptor's LLIs to compute how many
-> bytes have actually been transferred. The 64-bit pointer is sampled
-> with a tearing-safe double read, as the transfer may be running
-> concurrently. The pointer is only consulted for the descriptor most
-> recently programmed into the hardware, tracked in the previously
-> unused chan->desc field; any other descriptor has not been started yet
-> and keeps reporting its full length. When the transfer has just
-> completed but the descriptor has not been reaped yet, the pointer sits
-> at the end of the last block and the residue naturally reads as 0. The
-> pointer registers are pre-loaded with the first block's addresses when
-> the channel is programmed, so a stale pointer left by a previous
-> transfer (e.g. when its buffer is reused) can never be observed before
-> the first LLI fetch completes. Cyclic descriptors keep the
-> block-granular accounting.
+On Thu, Nov 19, 2026 at 09:57:45AM -0800, Kyle Hendry via B4 Relay wrote:
+> From: Kyle Hendry <khendry@reliablecontrols.com>
+>=20
+> Update the rzn1 system controller node with cells for the reset controller
+>=20
+> Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
 
-This fails on dmaengine/next. Can you please rebase
+I'll leave the final decision for Geert, but I think this can be merged
+with patch 6. But in general:
 
--- 
-~Vinod
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+
+
+--tO7PsHmg5vUk1tXy
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmsAE6kACgkQFA3kzBSg
+KbYHmQ//Y9yJPTxYFP3eZThxeShEaRY1gN9JF9+fsHlS4f68NrnD+ZoqB+MSggDt
+WmHizS0YVZ6+5OcWSPmVWn4aNnXbrXFeCDSNQgIFmjQBwcvA+1uaI8rc7Ul4kAhH
+VS2Z0tdur0JMIGv5C5r20jw/4AwfDLMOrui++tjwvf9yXH7kwIRlFKzQuEz+bM8D
+b4yuwxMNe4gClr/ava4ydeaunSjwP16Y6BAQUVv9sUuwp6jto+6NOKCe+a40n5Mq
+XoaCKUcHmwkic9+GeX69q3Hn/eBR0+Pe3ESiLvnm+pElticVOd4oUVJbNMthWeqa
+fIdIpUDZN5V0AoJ6Sr0HTGoKzAPRtFo0QuWrarhUJ7HZIqx4eqEnmkUAFiwx6wjj
+GIO89J+jfg5CghQ1vfIbvODH2+XwoPbHKbgCX21tf0xTVp+GA7Zf6DdOHlhz3oPR
+VMcpZi+y7mkxNv104VmDyVmqunHr7ZU+UgIBsfvakdjsFRdqoK69se9o88wRHQH3
+DNNmqKjydp/Rru6DsoXZ9kWlpYyl5lKPvn8qBGuyQ84PSKmEeNDGflfqv3mGKW34
+PryStiAR9UV8IO+MJXH+U0qWQVYKyXGFXFWI7qcx3YhaG9gyiTLig3/fzFKmyNFY
+j7PF+L1bbq7gHKaN5CG0N6zk3uAFgzKBzfHNhydRzY+0r+Vj5dA=
+=nOOC
+-----END PGP SIGNATURE-----
+
+--tO7PsHmg5vUk1tXy--
