@@ -1,59 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.167.242.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210313;
-	b=4ARf4BxCa6RJU0bGNrCkuezpW9lXZZJblIuDZy8Bm3ZQDfIXw/pFRlM4+3RSmBh9lDcx
-	 RAYym5fnrJb/eoFqYAK0ZLqq5wprdXsl47KMRdpq6Pdp+bVIojXogzN00ePFort4RcpXJ
-	 qSQyhAn+OlxQUjBeT5+vUhVHq7lgh8Llf/r/vbivbXp3S17DxQ6aqCa9hFaHwoa9I1CrW
-	 skY4Y0HJJQopuKDiOrryRCvf/JbaCLkzyOVTwn+yzVoRnj8EFf3U4pRR3obkoxFoFmVoy
-	 4jn0CcYvrPuS1Duzc2gzXHoqk4iiSuUW7NEn3U+ybvt9cStr7DMsSip28CKytrKrcqA==
+	t=1795210366;
+	b=vHqT3Tf4QWsYcs3XhAhQctswK76QYAqxYiSHy+ihsZlOTAHsWowDqGP/lSPMooaL8Wf8
+	 OpqNAKaozMOfc2Vrj4Bnqh/eih9sI7Z+9xoFktJfZ9hJxoLzfZZqAAeXif+IoXDLOLXl0
+	 nuwq5WzIKG7j+/VDwA/GVhHgqBjJe7EpO6EUAnMf9O/bdWvEy6cPY5hrgmhWXcDENrc4q
+	 GcsYLDhbaD3miJGzn4hzham0ZPQa9xhXdJnIlRUX9SHw6jddmZv5zel2SmXHpHrajVsIV
+	 2B36XGDNV/SkhJn1mgIi9K4Ji2zpHE+zQMfzTX3/OPPuCpttySIIMixY87QyiJZjWkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210313;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=f6Uv9MJ4vpovhqINHEuPUPqtVo+UnXFbVPdaYJZYw1U=;
-	b=KC57W0iXpKnsnmNxg3JxdRRrkCyfy+5FlKQUbHSTAvUGqTW1X3gOcXKPM6jrT3myfsk9
-	 PR0n39J/DH2cZzj21w/CvglThx35TEoi4UKgWx3I/F5F0x9GLV/6OlEw9fKd6xZwIiv12
-	 NvrrS2bKR7q2ogDgjO+mI+7Z1LlghNbJpP9Fk6LM5AB7M2sXZ5jvdxgQdCLIyr1jezY7m
-	 Ie/DZwtDlfKh5gI8Zn+t9aD5n+qr5oHoqoW1uUkOFpGi+Ri4lVsgAP4PMiCCDh7Gano46
-	 iJrwAqv6q9FZApujF+DEt83Lez5c3K36b98qcRAj5z939zSI/XazhTowX51FbXRsp1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210366;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+	b=X+MFoGwFD6baVTWhJQ44wI8hiwpbWIGlXIW6HkOTKNuHxOk+7/xmmE8d9x58SJwm38HQ
+	 RZeeQOcDz16z5kV3aOQ4vrH+/z6uvxI91AmSxcKWgtAuCOs1Hum7k7AtHm6sapLCdAwEn
+	 MEYiPzWo4mXLYdIxS+7FTE9dbIiM0Blwe4hGdJ/c6oV4xHPT/LFfSweLr4dXvbOqxB4h7
+	 j+15CO2KHXQ2ArGWWu89udoIHuHHMDXt5m4aUA1SbsXh8X1skMRY9hCp5gIF0vZuqyiTG
+	 KAlEtRnicnw/mo2bemuNvzVxBoLlkPYDmwNRrIHuWefj+s/KHyGmPH7n0QI+ktE/MJQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ideasonboard.com;
-	spf=pass smtp.mailfrom=ideasonboard.com;
-	dkim=pass header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=iYvfWxJN;
-	arc=none smtp.remote-ip=213.167.242.64
-Received: from perceval.ideasonboard.com (perceval.ideasonboard.com [213.167.242.64])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sEkFnFKr;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E64606A680;
-	Fri, 20 Nov 2026 21:31:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77E64606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ideasonboard.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ideasonboard.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35184606A6A6
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:32:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35184606A6A6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ideasonboard.com header.i=@ideasonboard.com header.a=rsa-sha256 header.s=mail header.b=iYvfWxJN
-Received: from killaraus.ideasonboard.com (2001-14ba-7086-3000--a06.rev.dnainternet.fi [IPv6:2001:14ba:7086:3000::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 090794E6;
-	Fri, 20 Nov 2026 22:29:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1795210159;
-	bh=HSzhy66PiWvOlLRkHf2I9CCsNl+3COEm1jiGZVw6MaE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iYvfWxJNUjUistDmt8x/KLvOdXWH56uTon8uwgZ4Jqbnu0XRNWyeel4e6rDzWmJXT
-	 kB8BI6h/skQ+fxABkZE57zGBuseArNtUVuuQItBBOK0HZo1u2+VIqDRcyxpeFuJown
-	 1uepMe5cpqss5+AF/IinjfCg/+YIp58bbaOsjWwE=
-Date: Fri, 20 Nov 2026 23:31:47 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Svyatoslav Ryhel <clamor95@gmail.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/1] media: i2c: mt9m114: Add get_fwnode_pad operation
- for IFP
-Message-ID: <20261120213147.GA2510168@killaraus.ideasonboard.com>
-References: <20261006153619.304520-1-clamor95@gmail.com>
- <20261006153619.304520-2-clamor95@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sEkFnFKr
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4a68f888a41so962115e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:32:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795210364; x=1795815164; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+        b=sEkFnFKrbLKiLRg/2IWy9pVLL+6oFVl8o8YQE273/dZ+0JwnhrNtj1iaGush0cEzK0
+         INnm+iA6hWaWQX/Fnfv71VP2979ZVUDrHM4EdGUuxr82PKwuFX7vfPUQWnWiVTzpZM6R
+         UoayqILUGs/vBMSUfIOnU54pl2JyQ7/LYc+xKEl2eMfFN2Q7IuhnxYL7/x0/GtGb35O/
+         LBBIa7W9YuuFOM7IrJaPIWbyqWuhtyXndezJbYptud+1B5quwJoXE2NW5vIvelihvln7
+         PA2XZRtm/zIBLKFUCMlT5QBGuGxDVnnQLe44BKMSLuG0Cp+q3i6VCY34uvXl9FhXFYVS
+         J79Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795210364; x=1795815164;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4p2T2Zg2uEfX0S3UgngIvYy2v+9xvr8BhJ1ygzeVIy8=;
+        b=NEOpyC89Fo3mlZ/g1vaNb/U5H7mDco0LuXWnEen7iAlQeAaVlEYWmVoc8UYHocQgvc
+         LXd3onWAkFI+PIYuAZLa9ArWkzgLNPxFE5uKKmFDsGfPlUa2uJCR9aiDJ0dIz+9dtl4M
+         ArdU7E230nCxUdi9UY9gBZeE71yEssKNtcJZaXwxx9wC7WCoCwpNfFKxvnSFYdoYe+sV
+         UR3Sr0kblyE/SLS7oscKasc4upHpaAurbX9X67v/ci2GCIALJSEuzTs7hIbvsHc3loq/
+         9LTnmG1pppA5qny0GKuTBXqFt4ip5Ljd1UdsutNTbDLChTQ3n9qWSxuLI0bWjAxuGq30
+         NFHA==
+X-Forwarded-Encrypted: i=1; AL+hErHKnGLsfoRUVw/uPDKbCjkCt0ppkCWZ+dSoyKa8s9m8XA027u+Z3IMlY6c/ox+FwNtWIZVaCbIBzhI2U2g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/u5+UKYs9nNxvdbhsYR2Q0Bq8t4HGiXxj5PG5M04iZFV3C4w7J
+	j2w8wgO7PobJ/DTKdH89pbSoV7iXeMW0gLp0nnHitkviA6W57lAnLFp9
+X-Gm-Gg: AYBFou1EZNNlO0qQlw0hbP2SEVgga/f6RFfE/oQ7XVlCcFarML+AON7YEUV4+l35uNm
+	LrCepa9rF9zaruJYwiLfICBBXNxUA5MPvtqTqXMnuPsh7mNjKBTcIQTsSa3vKADCtQIfcRbhVtn
+	pbgGOS92AXyn6HwT2arZrATYIJTYb35gNxmq6XKHzG/aDdQOGrg+FQtqFqkauGChMo48k6PXcGW
+	RkHD14q4jM5w7TUAucyEbj6MfmtwunZiIpzBh/4gZ8ZKrc+yrNcMS2wpscqdDcdqRmEmvJPYEZr
+	mkwsCwNshwo6AxSUwfOhT9QWLDm2ha3rzqFyvkAATLkjV5+qMEjejuhRy9T3d78sUfv9qKOfBLe
+	wMWjJ5WCa+hE7LV1DA8TMNDrWgkwKpA8iR2n8uFo/5JHXRtsavhbV2H7Yhm7kgTa2uNe3S70pFG
+	ZOcCVRFj32v6A0LkDZ71yGAEOVHJpTo9BF3Ac2lhvyPi1uiZIEJONzR+ndF/4UCUNbo/ghSLDAb
+	c/efp32tOdFHtbmfeabcd3jfMGMAEiTN9nhKAXB0p1Kck6YIQhDbcKJUTV1ypXDbdKf8yM9/jg+
+	EIXl9gBQgrYMrxLVzAoM8e8jMepaldSUCVeWkQskBEkOYpo2Lp71vrA4mNvABdprxMGKKVQ1SmH
+	2hDlun84j5zJNSs5LgX/qMJ61bohExI6iTk3/SYhtpT3WIuFkHYl430FVwEWHe15mEnnPYK82RG
+	2CSHzcalrN4BjSP3nUMicPOIZdmFkCMyAuUe82oP5Uns15yNE=
+X-Received: by 2002:a05:600c:217:b0:4bb:6a02:d42e with SMTP id 5b1f17b1804b1-4bb887f3fb8mr69797915e9.1.1795210364452;
+        Fri, 20 Nov 2026 13:32:44 -0800 (PST)
+Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895f7bc1sm37514135e9.3.2026.11.20.13.32.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 13:32:43 -0800 (PST)
+Message-ID: <caa0bad2-0c73-4cc4-b0ca-360a568a1947@gmail.com>
+Date: Fri, 20 Nov 2026 22:32:42 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,125 +94,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261006153619.304520-2-clamor95@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 3/4] net: hsr: segment GSO before per-frame
+ forwarding
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
+ qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
+ bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
+ liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
+ lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-4-xiexinet@gmail.com>
+ <179514132368.3136.11119943958824488606@kernel.org>
+Content-Language: en-GB
+From: Xin Xie <xiexinet@gmail.com>
+Autocrypt: addr=xiexinet@gmail.com; keydata=
+ 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
+ sNySbH3veZ/55EtlXA==
+In-Reply-To: <179514132368.3136.11119943958824488606@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Oct 06, 2026 at 06:36:19PM +0300, Svyatoslav Ryhel wrote:
-> Currently, the driver's binding exposes only one endpoint, which maps to
-> the IFP subdevice's SOURCE pad. This configuration causes failures for
-> many devices using this camera because both the DT binding and the
-> one-to-one pad mapping logic map the endpoint to the wrong pad. Fix this
-> by implementing the get_fwnode_pad operation for the IFP, which correctly
-> matches the endpoint to the corresponding IFP pad.
+On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
+> That covers only the gate drops, not the segment drops counted in
+> hsr_forward_skb().
 
-The discussion in the review of v1 died out after my last reply. Let's
-continue it there.
-
-https://lore.kernel.org/linux-media/20260721103845.GJ50424@killaraus.ideasonboard.com/
-
-> Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
-> ---
->  drivers/media/i2c/mt9m114.c | 39 +++++++++++++++++++++++++++----------
->  1 file changed, 29 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/media/i2c/mt9m114.c b/drivers/media/i2c/mt9m114.c
-> index c6c950d5c8f3d..583cf47aa652e 100644
-> --- a/drivers/media/i2c/mt9m114.c
-> +++ b/drivers/media/i2c/mt9m114.c
-> @@ -9,6 +9,7 @@
->   * itself based on work from Andrew Chew <achew@nvidia.com>.
->   */
->  
-> +#include <linux/cleanup.h>
->  #include <linux/clk.h>
->  #include <linux/delay.h>
->  #include <linux/errno.h>
-> @@ -1019,14 +1020,6 @@ static int mt9m114_stop_streaming(struct mt9m114 *sensor)
->  	return ret;
->  }
->  
-> -/* -----------------------------------------------------------------------------
-> - * Common Subdev Operations
-> - */
-> -
-> -static const struct media_entity_operations mt9m114_entity_ops = {
-> -	.link_validate = v4l2_subdev_link_validate,
-> -};
-> -
->  /* -----------------------------------------------------------------------------
->   * Pixel Array Control Operations
->   */
-> @@ -1383,6 +1376,10 @@ static const struct v4l2_subdev_internal_ops mt9m114_pa_internal_ops = {
->  	.init_state = mt9m114_pa_init_state,
->  };
->  
-> +static const struct media_entity_operations mt9m114_pa_entity_ops = {
-> +	.link_validate = v4l2_subdev_link_validate,
-> +};
-> +
->  static int mt9m114_pa_init(struct mt9m114 *sensor)
->  {
->  	struct v4l2_ctrl_handler *hdl = &sensor->pa.hdl;
-> @@ -1405,7 +1402,7 @@ static int mt9m114_pa_init(struct mt9m114 *sensor)
->  
->  	/* Initialize the media entity. */
->  	sd->entity.function = MEDIA_ENT_F_CAM_SENSOR;
-> -	sd->entity.ops = &mt9m114_entity_ops;
-> +	sd->entity.ops = &mt9m114_pa_entity_ops;
->  	pads[0].flags = MEDIA_PAD_FL_SOURCE;
->  	ret = media_entity_pads_init(&sd->entity, 1, pads);
->  	if (ret < 0)
-> @@ -2097,6 +2094,23 @@ static int mt9m114_ifp_registered(struct v4l2_subdev *sd)
->  	return 0;
->  }
->  
-> +/*
-> + * The IFP has only one fwnode endpoint, which corresponds to the pad
-> + * linked to the PA (PA SINK), while it should be the SOURCE for the
-> + * next media device in the pipe.
-> + */
-> +static int mt9m114_ifp_get_fwnode_pad(struct media_entity *entity,
-> +				      struct fwnode_endpoint *endpoint)
-> +{
-> +	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
-> +	struct mt9m114 *sensor = ifp_to_mt9m114(sd);
-> +	struct fwnode_handle *fwnode = dev_fwnode(&sensor->client->dev);
-> +	struct fwnode_handle *ifp_ep __free(fwnode_handle) =
-> +		fwnode_graph_get_next_endpoint(fwnode, NULL);
-> +
-> +	return endpoint->local_fwnode == ifp_ep ? 1 : -ENXIO;
-> +}
-> +
->  static const struct v4l2_subdev_video_ops mt9m114_ifp_video_ops = {
->  	.s_stream = mt9m114_ifp_s_stream,
->  };
-> @@ -2124,6 +2138,11 @@ static const struct v4l2_subdev_internal_ops mt9m114_ifp_internal_ops = {
->  	.unregistered = mt9m114_ifp_unregistered,
->  };
->  
-> +static const struct media_entity_operations mt9m114_ifp_entity_ops = {
-> +	.link_validate = v4l2_subdev_link_validate,
-> +	.get_fwnode_pad = mt9m114_ifp_get_fwnode_pad,
-> +};
-> +
->  static int mt9m114_ifp_init(struct mt9m114 *sensor)
->  {
->  	struct v4l2_subdev *sd = &sensor->ifp.sd;
-> @@ -2141,7 +2160,7 @@ static int mt9m114_ifp_init(struct mt9m114 *sensor)
->  
->  	/* Initialize the media entity. */
->  	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_ISP;
-> -	sd->entity.ops = &mt9m114_entity_ops;
-> +	sd->entity.ops = &mt9m114_ifp_entity_ops;
->  	pads[0].flags = MEDIA_PAD_FL_SINK;
->  	pads[1].flags = MEDIA_PAD_FL_SOURCE;
->  	ret = media_entity_pads_init(&sd->entity, 2, pads);
-> -- 
-> 2.53.0
-> 
+Yes, the sentence is about the aggregates that hsr_forward_input()
+drops as a whole. A frame or segment that fill_frame_info() rejects
+later takes the existing tx_dropped path in hsr_forward_skb(), which
+the patch does not change.
 
 -- 
-Regards,
-
-Laurent Pinchart
+Xin
