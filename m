@@ -1,83 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795134604;
-	b=v2DS0cLQPKbrBG3it/V5Znm508kM1c8ySQDLi/Gcioa4ogvt1ae8bG0AToI7+7Tm4Gbb
-	 F2kv8uWd9g6g4i5p0axAOYuA/0CdtX5eu6NAIORIFxNxSZhS+QAeOwbtciHTOGd6aCo9d
-	 Y6P2RU20g5eRejaEkkwMykgEm61oYloGANt82xMXPcG0Z3kvlHrW+HiafK/ysHT3foMWh
-	 6Xja8OkgBQDetxDR7OXeVpxUSfQK7g+oUP8szzHQtNB6uWYH0ldfCnziRiqzNI2wkKNFL
-	 Yta9RZcXfuL7HpyDczCknsmJqb6W2/mhazlTMiNgvFYzJ4iQjBpG8aDxVB3bw3XI4+w==
+	t=1795134607;
+	b=SGY0FPKQYfW4yemJ5DOPZkrg0M2mQNdPOyLJfgNoglZuP9xYvX4N+xnxF4d2r7iSO+2w
+	 r7OpnUgY/D2Pq3cqzxhWIpH5MVoK4rAcmNDSrQ/zlFkwOF4avXLfhLDty7kNuBluy5rlz
+	 ONuqgv4FGvoKKDIjdqTqcQfuluzVSIjbTZlUYd9/i1aROm0YWuIBPXVkwNzNoV/Z/+lJS
+	 po8MJCheAd8m/srsuPa1d81AOOJcZ7YQM785oYetigpHe9xtUqVvVH7S+siKfxtRNOKiO
+	 87xFAwQ9WEtYaFEB3vRrumPE0sWu4v2Q+r4APBK9hAxkF7NmeMSXkzXO/pl6ZSaGFQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795134604;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=spQYeU6542V64iaRZJYUdLSnSLYK38L77Q167Rmh7/I=;
-	b=rcgMF+fWo+FthC311pDMxnrwEmP2elyyF7rX7G6mRNLBfUL0XlAmsGBXqHa+V4cA98+W
-	 5JdWdZsUVEOXMib6FFO85yxxkZjdLsYnLPfgQ61bFUr7W7D+b+gS2p/n/lM9w+Wu1o+of
-	 Iv26zy6J+6+BfGxaE5wamS/wHt7gCAJLCUlv/nRTjD5dbxHxmInGzGMve7V1jUvX8Bo8i
-	 9w0qHw0s0crltE/e993draFBLFCA0tEd2MI7TGaYCasOsSJybhYUnxqS/VUtBLg5peCcf
-	 FxYWBCFMHTslffPRgrrBfiwEKxgqclOKljajDpJ+GPOsvsXDktxnlqhZq1LO3mR/7Jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795134607;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=cYyIRdBVlZQr5tj0epQbe9SU5tKCNbopKrqEqRM0nHw=;
+	b=oWwImeL4zX1/03F0WlxIHmAZeZJPxtD1b5sms95CJXXHWmv/YGe0l/7o+PeGE1s5duno
+	 IXQHRl8StMUGN28K+zf6D1XCgolFDM6WPg3Zmko2E5SlGCz68+2pV67ulkGv57/JGbCIW
+	 q292CLXFxfFZ+31nJ+oyhu2u+JfKOnRC2vN1V6qhsBY/zEzkUBSRlFQFqMayCg35gWFgz
+	 cmYYwNu/O0DJoq0MMjmTZURY9jaxS/9fxCdAL1xXoy94SX/xKft3bvDX8jRhJrD1T30PL
+	 MmcCPpT1PXtnzzPBjrIOgvRiG0W8SgZc1swboxl7B4Va+GazqSq1uvUDoDO9Fmf1/Zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bLm/MCFL";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PgFqyq9T;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 977E4606A32C;
-	Fri, 20 Nov 2026 00:30:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A010606A33F;
+	Fri, 20 Nov 2026 00:30:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bLm/MCFL
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B12AB1F000C4;
-	Fri, 20 Nov 2026 00:30:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PgFqyq9T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43B241F000CF;
+	Fri, 20 Nov 2026 00:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795134604;
-	bh=spQYeU6542V64iaRZJYUdLSnSLYK38L77Q167Rmh7/I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bLm/MCFLyl61eg8R9ubKDw53/mPhRc0aUoTOqic5Ongt+RE2EGkPf24KJsGYOBP38
-	 8fKO2+FVv+Y9WbQS/IHYuuf2O7byIf8qrDc4ogud9nb5R5r7gSFXs8gLHNIdP/Uv7Q
-	 zB7escgWn70lmZTG/sxWh9/4MzhZP4fY1JFYJx8KFhqCBsX0xBUjzL9arZSEi31W0D
-	 +zhIOA6R7T+L/5Mrr+9kB74pBA8OOreoKPr3Q3x2IutxfG34ysfsklPrPTbTKs+3/O
-	 k+GX0xOVAf8ANgJd6NnJte7esVlut+jBwVA2PxQPC/KW0rbqASgCYnr5pVSKv+/nvK
-	 u3YLIOiieiHHw==
-Date: Thu, 19 Nov 2026 16:30:02 -0800
-From: Drew Fustini <fustini@kernel.org>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Adrien Ricciardi <aricciardi@baylibre.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atish.patra@linux.dev>,
-	Babu Moger <babu.moger@amd.com>, Ben Horgan <ben.horgan@arm.com>,
-	Borislav Petkov <bp@alien8.de>, Chen Pei <cp0613@linux.alibaba.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Dave Martin <Dave.Martin@arm.com>, Fenghua Yu <fenghuay@nvidia.com>,
-	Gong Shuai <gong.shuai@sanechips.com.cn>,
-	Gong Shuai <gsh517@gmail.com>, guo.wenjia23@zte.com.cn,
-	James Morse <james.morse@arm.com>,
-	Kornel =?utf-8?Q?Dul=C4=99ba?= <mindal@semihalf.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, liu.qingtao2@zte.com.cn,
-	Liu Zhiwei <zhiwei_liu@linux.alibaba.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>,
-	Peter Newman <peternewman@google.com>,
-	Radim =?utf-8?B?S3LEjW3DocWZ?= <radim.krcmar@oss.qualcomm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Sunil V L <sunilvl@oss.qualcomm.com>,
-	Tony Luck <tony.luck@intel.com>, Weiwei Li <liwei1518@gmail.com>,
-	yunhui cui <cuiyunhui@bytedance.com>,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
-	Zeng Heng <zengheng@picoheart.com>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, x86@kernel.org,
-	devicetree@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v12 5/5] riscv_cbqri: Add CBQRI capacity allocation
- platform driver
-Message-ID: <av-Uip0Yp4NGYGEM@thelio>
-References: <20261114-dfustini-atl-sc-cbqri-dt-v12-0-6ef1f627072d@kernel.org>
- <20261114-dfustini-atl-sc-cbqri-dt-v12-5-6ef1f627072d@kernel.org>
- <20261119000000.1b43ba35@jic23-hlaptop>
+	s=k20260515; t=1795134606;
+	bh=cYyIRdBVlZQr5tj0epQbe9SU5tKCNbopKrqEqRM0nHw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=PgFqyq9TfsH1wcveHGKVzWO7ng50Nc+XOVgRr+y9/QUeAGqNllvc9wHZAIDrbprXW
+	 NlmsBy3Hx+ILNs0y8Voq6GFOEdIK8LegW/FIiCssbhEboXUcb5BDXjlcSu5ARyRVnn
+	 ClFfIsy815KNBNhdrd6XcDjTyGd9qRY/87TItnNGDr/0NRcp1V6xcjaxmjP3IlHqQv
+	 Et3aWJbkN/jghSjuCBHaa+hGP8PLWNU8gSyLx7KtEmuMFUD/jAoyOzf+emWAACIK+D
+	 TDgq0fUn0Msfo9Cgt/uRee4jwb5Had9Rp6K/SHK3eFUPiTctnvr6LV3NjS038SbCXQ
+	 Z6vPknDC6N4hA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3643808209;
+	Fri, 20 Nov 2026 00:30:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,113 +53,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119000000.1b43ba35@jic23-hlaptop>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] cxgb4: allocate the full ethtool filter location
+ array
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179513460503.3945374.720008246616028374.git-patchwork-notify@kernel.org>
+Date: Fri, 20 Nov 2026 00:30:05 +0000
+References: <20261117090608.33178-1-ralerrdirsardx@gmail.com>
+In-Reply-To: <20261117090608.33178-1-ralerrdirsardx@gmail.com>
+To: Artemii Mashanov <ralerrdirsardx@gmail.com>
+Cc: netdev@vger.kernel.org, bharat@chelsio.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
 
-On Thu, Nov 19, 2026 at 12:00:00AM +0000, Jonathan Cameron wrote:
-> On Sat, 14 Nov 2026 14:06:25 -0800
-> Drew Fustini <fustini@kernel.org> wrote:
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Tue, 17 Nov 2026 12:06:08 +0300 you wrote:
+> The ethtool filter location array stores nentries u32 values, but
+> cxgb4_init_ethtool_filters() passes nentries to kvzalloc() as a byte
+> count. The insertion and lookup paths allow indices below nentries,
+> which can address memory beyond the requested allocation.
 > 
-> > Add a platform driver for CBQRI capacity controllers described in
-> > device tree with the riscv,cbqri-capacity-controller compatible.
-> > 
-> > The controller node points at the cache it governs with a
-> > riscv,cbqri-cache phandle. The driver maps the register block, looks
-> > that cache up in cacheinfo and uses its cache id as the resctrl domain
-> > id, so the binding does not need to carry a CPU mask. The controller is
-> > then handed to the CBQRI core, which probes its capabilities and decides
-> > whether to expose it through resctrl. Only an L2 or L3 cache is
-> > accepted, since those are the cache levels resctrl has resources for.
-> > 
-> > Nothing is vendor-specific and reg is the CBQRI register block itself,
-> > so any SoC that describes a CBQRI capacity controller in device tree can
-> > use the driver unchanged.
-> > 
-> > Tested-by: Chen Pei <cp0613@linux.alibaba.com>
-> > Tested-by: Zeng Heng <zengheng@picoheart.com>
-> > Reviewed-by: Zeng Heng <zengheng@picoheart.com>
-> > Signed-off-by: Drew Fustini <fustini@kernel.org>
+> Allocate nentries elements with kvcalloc() and the element size.
+> The array remains compatible with the existing kvfree() calls.
 > 
-> Sorry, late to the game and pretty much a drive by review.
-> 
-> Still a few things below that will leave you with more readable
-> and probably less fragile code.
-> 
-> Jonathan
+> [...]
 
-Thanks!
+Here is the summary with links:
+  - [net] cxgb4: allocate the full ethtool filter location array
+    https://git.kernel.org/netdev/net/c/ad2c7240a398
 
-> 
-> > diff --git a/drivers/resctrl/cbqri_capacity.c b/drivers/resctrl/cbqri_capacity.c
-> > new file mode 100644
-> > index 000000000000..6f3d06c4f74b
-> > --- /dev/null
-> > +++ b/drivers/resctrl/cbqri_capacity.c
-> 
-> > +static int cbqri_capacity_probe(struct platform_device *pdev)
-> > +{
-> 
-> Noted in the ACPI patch that you can save some effort there
-> by a few tweaks that probably make sense here anyway.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Yeah, I'll make the changes in this patch so there is less churn in the
-RQSC series.
 
-> > +	struct device *dev = &pdev->dev;
-> > +	struct cbqri_controller_info info = {};
-> > +	struct device_node *cache_np;
-> > +	struct resource *res;
-> > +	void __iomem *base;
-> > +	u32 rcid_count, cache_level, cache_id;
-> > +	bool found = false;
-> > +	int cpu, ret;
-> > +
-> > +	base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-> > +	if (IS_ERR(base))
-> > +		return PTR_ERR(base);
-> > +
-> > +	ret = of_property_read_u32(dev->of_node, "riscv,cbqri-rcid", &rcid_count);
-> > +	if (ret) {
-> > +		dev_err(dev, "missing riscv,cbqri-rcid\n");
-> It's a probe, use
-> 		return dev_err_probe(dev, ret, "missing riscv,cbqri-rcid\n);
-> same for all these paths.  Sure we won't defer but it does nice formatting
-> and tends to save a couple of lines every time!
-> 
-> With the __free() magic, you can do this for all the returns in this
-> function.
-
-Sure, will do.
-
-> > +	cache_np = of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
-> Follow on from glancing at the acpi and then finding this elsewhere in my
-> inbox.
-> 	struct device_node *cache_np __free(device_node) =
-> 		of_parse_phandle(dev->of_node, "riscv,cbqri-cache", 0);
-> and drop all the goto iritiations.
-
-Will do.
-
-> > +	info.type = CBQRI_CONTROLLER_TYPE_CAPACITY;
-> > +	info.base = base;
-> > +	info.addr = res->start;
-> > +	info.size = resource_size(res);
-> > +	info.rcid_count = rcid_count;
-> > +	info.cache_id = cache_id;
-> > +	info.cache_level = cache_level;
-> 	info = (struct cbqri_controller_info) {
-> 		.type = CBQRI_CONTROLLER_TYPE_CAPACITY,
-> 		.base = base,
-> 		.addr = res->start,
-> 		.size = resource_size,
-> 	...
-> 
-> Might as well as you nicely set everything here.
-> It's more readable and also makes it clear anything not set
-> is zeroed without anyone having to go check the = { }; above.
-
-Good idea, will do.
-
-Thanks,
-Drew
