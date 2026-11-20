@@ -1,56 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196144;
-	b=GJPEZqaCI/zyVcCnkzzLUqQ3LM4+TvlXStKa23RojWZjqAtyvvnRd/tQbJb3YBFJLEmY
-	 jLP7aGIIa2C1OfbBpSxo1vWkSvJftxYqLSptWlxDJcUjPMm9FYk4a0xh/jFZog1Zm+RDW
-	 CXlASvBfPkjdbnu/OjLhc5UsLenkPOx3VYBQ/Jg8bNaAEV3mY83hAnGcJ6ai6Ttgoe+fz
-	 hWw82advrtswadUcDaI8phjoZbSNW6oT1w1VbA9fCWOC8zrvi3K5UFGIKBYJdz7LaLnnw
-	 3z97I9fDFD+ZB5vSyiqqDYBY62IaKJYi7rKe8JDUrpK4wQGwiyRfzpdGuao4LmWEZVw==
+	t=1795196194;
+	b=hh4pUvbLxIBibZqmpiGq5DMlmcmPnvtzaMYTmOESoKFqkZcg44BPRsrsRXAcnzJ2ZeyF
+	 1QRbnvqn7EsKmkeoISwgRWeDOjb6CneiG3o5qlazuX7sIHxGc5kCaO8YSbGxl5zygV995
+	 R58OiCqWDOvVnvMAlgEJWIVKLBkiP9i8c/hJrN4qNkh+n0huGpWEmNnmJkjon3gFojAb6
+	 74gjf/7pdKIstgEuYgexbBj3D6Gd0U1h1HV5mtCj/VNPQV25km4+tWWqXAZKihFdXRgZA
+	 k9fznj1UpO58AK2rmsJE6N5nmMIlTPq2ySimHd6BEua9ql0Z+azXVMeNxAn6DUfWxNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196144;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
-	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=KFuB17UBx3dmAUo4Do73D0BjXXKCh6ehL5UyXgHwGCE=;
-	b=bZF+PvWFibGmbh28HgnvTeri5QK7Wr47RflnGrX+LuHex55VdG4xKmrAUjnQlDfOMODO
-	 SLqYlJu0U/CYu+6RRM4QF5OoQZ2jwg0i4pa63bEpJMO+QBoHYyKJEwuHasNLV53H5ft7O
-	 JCDl8az4MTJ47e7yulJy5xPjHB7Fuz/FL97cVA5I3UHTWY+5T6bTMzyFIwdXcZCd8wFT0
-	 z9FLIGC52GSYOUA4fRz8WUNNc0kHt7FYZiPFhY5AJkS0AuHsg0qECnwSOhhx3PKk3Icvp
-	 IlS9ZOD3ykj5fSqTGNug/nCtE+ma9G2aOeZ1SsftbAG5QOFPaV9oiGJyfH88c+Y13wQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196194;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=MBIG+cH50SC/XI9GRr24wIYTEsvXHcPRF7vwZX+zhRc=;
+	b=vtbpXjGLcf8P9S6C748+hqvhQWClemt1YHstIs4+CHblmUvpAINY6nlicZMMKZKybbqb
+	 d9LWWDFFZ5Su6E5Nms+RAQbf6pmNJM1kl2rfuaMShNXWCaVEebak45eOfKDjs49vb4cuP
+	 C+UeC4NZsEJLY3ZUtDHFrOV2PgR9C947XW5Backc/gVCrrEYkoao/GAXQwQ/m4m20zFfc
+	 8sfIidaxSmrlnuhg4u5IoVs9TbMHG/J4ugK70HM/oQqmLO806tDNPoqdWYHoqhvs5O1vi
+	 j832/GtLA8l3Ibe7+6Ms0fFqyCT+NmL8TX+zgZY1I0xFKjKvDxRX+TO7wET8pTdU2uQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=U0h+PKV0;
-	arc=none smtp.remote-ip=45.254.49.197
-Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=TfMruWe8;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0242D60A2627;
-	Fri, 20 Nov 2026 17:35:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0242D60A2627
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E93F606A33D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:36:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E93F606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=U0h+PKV0
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5573c0ac1;
-	Sat, 21 Nov 2026 01:35:34 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Amit Kucheria <amitk@kernel.org>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH] thermal: qcom: tsens: Fix potential repeated removal of shared debugfs root
-Date: Sat, 21 Nov 2026 01:35:32 +0800
-Message-ID: <20261120173533.3924126-1-liguangshuo@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=TfMruWe8
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKEuTFR1754959;
+	Fri, 20 Nov 2026 17:35:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=MBIG+c
+	H50SC/XI9GRr24wIYTEsvXHcPRF7vwZX+zhRc=; b=TfMruWe83lvAhJS6sUxaFa
+	cRMdDHsPLkbMv7+cArmwdAZ+ib02A6v69FUcvGaVlJpHIqloGaVnzbYD++cxBWiq
+	E7Wt1ANaudixtN0Vvu4yh44GHb+ADigL1hT7+Ys7lsYsfIs/aUQUaO7m010nHdyJ
+	KZi6X26c+NZb5JQPIx0+7KrYBhjEEWkhmBvThkMrPC1x1a/TSBifT9HJl9DJ9Wk7
+	tV0ezkDzilNPwUPsmjW2O8UE7WZIVvxmq7hwADuHiDoIr1K28Gy93GopIyqi41vy
+	47Aavb2tWdmqX49FjgUie32MnkuViI5GlqUnaP/7x1eyQIvKBA3ptMvtUs2KBYGw
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105s22by-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 17:35:51 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKEo0Mq1313896;
+	Fri, 20 Nov 2026 17:35:51 GMT
+Received: from smtprelay03.dal12v.mail.ibm.com ([172.16.1.5])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j2q5nh4tn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 20 Nov 2026 17:35:51 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay03.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKHZo1L3080706
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 20 Nov 2026 17:35:50 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B09DB58055;
+	Fri, 20 Nov 2026 17:35:50 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 64A3E58043;
+	Fri, 20 Nov 2026 17:35:48 +0000 (GMT)
+Received: from [9.61.150.232] (unknown [9.61.150.232])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 20 Nov 2026 17:35:48 +0000 (GMT)
+Message-ID: <70f1a219-05cd-44c5-9d34-b30b00539a93@linux.ibm.com>
+Date: Fri, 20 Nov 2026 23:05:46 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,98 +85,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1fa0723e303a1kunm13f08662238bb4
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaHU5KVhgaSEIaTUsZHkkfSFYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=U0h+PKV089Y9v2y82Tb/jss73lpZ1diiYfFdkaY9D+Zh6xJIVe9fTd7yF1HoBsOMp0kxonrelzb/FIfy8GJfYRm4kXyqYQXKZzgpO6x7y0uuzBbXVTjLrvjFSYjZY7FeJx0kLWV5M0JhsOTvvtoXhK17tL8KVAEevTRh4T3i+Rw=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=KFuB17UBx3dmAUo4Do73D0BjXXKCh6ehL5UyXgHwGCE=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/3] nvme-multipath: keep a large delayed_removal_secs
+ from wrapping around
+To: Qiliang Yuan <qiliang.yuan@linux.dev>, Keith Busch <kbusch@kernel.org>,
+        Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+        Sagi Grimberg <sagi@grimberg.me>, Hannes Reinecke <hare@suse.de>
+Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20261119-bug-nvme-mpath-set-live-srcu-v6-0-da85b18b274b@linux.dev>
+ <20261119-bug-nvme-mpath-set-live-srcu-v6-1-da85b18b274b@linux.dev>
+Content-Language: en-US
+From: Nilay Shroff <nilay@linux.ibm.com>
+In-Reply-To: <20261119-bug-nvme-mpath-set-live-srcu-v6-1-da85b18b274b@linux.dev>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 1SmBlhJnzNhH5fF6zGWveu-GdHaFFe5u
+X-Authority-Analysis: v=2.4 cv=e8uT2qp/ c=1 sm=1 tr=0 ts=6b0084f7 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=46_-i4G4P8Mb9RBiHV4A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA2OSBTYWx0ZWRfX991gpPG0Dr0Q
+ KqJPg7Udlv38obae9oHV72bDr3j6JFV2MTOlfWw7f8iOEZTOrMqMOELg0EXe0AsGNkoixpOGPEW
+ R0eplEOR4KAhBMy0JNA9X3bKzzdzLiM=
+X-Proofpoint-ORIG-GUID: 1SmBlhJnzNhH5fF6zGWveu-GdHaFFe5u
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA2OSBTYWx0ZWRfXzv7QLDSYE3JC
+ O7DL/wclV4Rh7RoenEo8jITWcOify9Oi+BHUVNO19MqM6PkpxCieiGvq1CO6iEi2u2nLWBI1HSv
+ drI5RL/JxzUlarWMDX6j91uGLmdMzBCpb7pwLvz+j9wU2gLezVBTekEGiehMsAh+mlKRk6J12bS
+ bir2nLNzwAz4SICsexrH2c0/Sx6m5bXH+2XYVWY4TJ8xM7a8Y/ODF5CU0M3aLyHLmKpDpRkgbrk
+ LHumQucsJj2i9EpTE0ONncZHWC+jyBwiEE3pBni34K4rLA2Xud69QsX7MNwtog+G8i7jCaitNLz
+ AJ1fDNSR0C3LnkB00e3N7lG0nSthpLpmonHCqkA+6VOQUlRVU6KV1oSIhuCP4aVseS8qGk5a/Ik
+ 7pPW5KEXyq+UzXDkFlfQXFmC1KN3Fe8uLEyhm9J34EIUVZ93l0nzZn0PYLBR2bvWuDRrk2JMzug
+ ypBUCI24qYLnDqhGhpQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 malwarescore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200069
 
-Each TSENS instance stores the same debugfs root and removes it during
-teardown. Removing one instance therefore removes the files of its
-peers, and subsequent removal operates on the same root again.
+On 11/20/26 6:55 AM, Qiliang Yuan wrote:
+> nvme_mpath_remove_disk() delays the removal of a namespace head that
+> lost its last path by delayed_removal_secs, which it converts to
+> jiffies as delayed_removal_secs * HZ.
+> 
+> delayed_removal_secs is an unsigned int, so the product is computed in
+> 32 bits and wraps around for values above UINT_MAX / HZ. With HZ=1000,
+> 4294968 seconds turns into a delay of 704 jiffies, and the head goes
+> away in under a second instead of after about 50 days.
+> 
+> Compute the delay in 64 bits and cap it at MAX_JIFFY_OFFSET.
+> 
+> With delayed_removal_secs set to 4294968 at HZ=1000, removing the last
+> path deletes the head after (mean of two runs, min-max in parentheses;
+> "> 10000" means it was still there 10 s later):
+> 
+>    before (ms)     after (ms)
+>    858 (856-860)   > 10000
+> 
+> Fixes: 62188639ec160 ("nvme-multipath: introduce delayed removal of the multipath head node")
+> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 
-Own the root at driver initialization and exit. Each instance only
-removes its own directory, leaving the shared root to the driver.
+Looks good to me:
 
-This issue was found by our static analysis tool under development.
-
-Fixes: 7c938f4837ab ("drivers: thermal: tsens: Add debugfs support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/thermal/qcom/tsens.c | 31 ++++++++++++++++++++++++-------
- 1 file changed, 24 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/thermal/qcom/tsens.c b/drivers/thermal/qcom/tsens.c
-index 4d7013fc79d6..e0fdeafdca30 100644
---- a/drivers/thermal/qcom/tsens.c
-+++ b/drivers/thermal/qcom/tsens.c
-@@ -22,6 +22,8 @@
- #include "../thermal_hwmon.h"
- #include "tsens.h"
- 
-+static struct dentry *tsens_debugfs_root;
-+
- /**
-  * struct tsens_irq_data - IRQ status and temperature violations
-  * @up_viol:        upper threshold violated
-@@ -902,12 +904,8 @@ static void tsens_debug_init(struct platform_device *pdev)
- {
- 	struct tsens_priv *priv = platform_get_drvdata(pdev);
- 
--	priv->debug_root = debugfs_lookup("tsens", NULL);
--	if (!priv->debug_root)
--		priv->debug_root = debugfs_create_dir("tsens", NULL);
--
- 	/* A directory for each instance of the TSENS IP */
--	priv->debug = debugfs_create_dir(dev_name(&pdev->dev), priv->debug_root);
-+	priv->debug = debugfs_create_dir(dev_name(&pdev->dev), tsens_debugfs_root);
- 	debugfs_create_file("version", 0444, priv->debug, pdev, &dbg_version_fops);
- 	debugfs_create_file("sensors", 0444, priv->debug, pdev, &dbg_sensors_fops);
- }
-@@ -1459,7 +1457,7 @@ static void tsens_remove(struct platform_device *pdev)
- {
- 	struct tsens_priv *priv = platform_get_drvdata(pdev);
- 
--	debugfs_remove_recursive(priv->debug_root);
-+	debugfs_remove_recursive(priv->debug);
- 	tsens_disable_irq(priv);
- 	if (priv->ops->disable)
- 		priv->ops->disable(priv);
-@@ -1474,7 +1472,26 @@ static struct platform_driver tsens_driver = {
- 		.of_match_table = tsens_table,
- 	},
- };
--module_platform_driver(tsens_driver);
-+
-+static int __init tsens_init(void)
-+{
-+	int ret;
-+
-+	tsens_debugfs_root = debugfs_create_dir("tsens", NULL);
-+	ret = platform_driver_register(&tsens_driver);
-+	if (ret)
-+		debugfs_remove_recursive(tsens_debugfs_root);
-+
-+	return ret;
-+}
-+module_init(tsens_init);
-+
-+static void __exit tsens_exit(void)
-+{
-+	platform_driver_unregister(&tsens_driver);
-+	debugfs_remove_recursive(tsens_debugfs_root);
-+}
-+module_exit(tsens_exit);
- 
- MODULE_LICENSE("GPL v2");
- MODULE_DESCRIPTION("QCOM Temperature Sensor driver");
-
-base-commit: 6628e7d4c6b25c8d18f1345e3a20d21829aae7e4
+Reviewed-by: Nilay Shroff <nilay@linux.ibm.com>
