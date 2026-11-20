@@ -1,47 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795208484;
-	b=c6Rovpk+LSKC5J0QctEp0/FdIKcUHR4f7CASl/Pscl0+W8uvLICE8G5QzQSPPRdjoXRQ
-	 9EPenCyDgxtbZrw4DRxGZTh++7884fa3E6pQyjagPKaGg26XPn/X/m1coXE0O9qoAQWnI
-	 SLRgEjT8EOP3MKh5gtXKuMj9kLf8bFfH4VlWNss/RQxqSBLcXn/wfIwDMlN9bRrTckRW5
-	 MGPhrC6oczVEdEqp9AeFTQeNjmptNoq0u1AbZI5QE1VcmJgz88Qa3RemEM9KBWe6yc6BP
-	 tcjtijq4nsNLyH31DDc/FKJQetOUay6TzbdAVcvLAJdBkYOXAwmzkSu8o0JiMHyKHwg==
+	t=1795208499;
+	b=rAy9tWkPFEchaGPxlDwF35PBT0N0pnvymK2WF2m8AS+1KRoOqP2cHXiC96kFZ4ZMGWkM
+	 h9Ag6w30+uVIiHAhfrM/TJ1CMT5fj+OGI5Clex2UPrZ2tJGhMBpvtzNqakhIx8GHvncXZ
+	 zhEtGx5lGfGxoES9VC8qsleSKrMu5PoB7JG8CExmVwh7scSfQ4Fy335do3zVKSuWGIhHY
+	 sE+rEza91kS6Jl/W4teUiudgAKr1UlnLnub4HArCwa8BvnhdOy1+6hkLuXTaE5QtU3vUy
+	 NrprhAqfZqxZqqmdvuMnuBNplfzKiNgMqsRxpTOrlJmS8j6q11/WDuAbJ7OPg3rKelg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795208484;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=W5goPGg+WDIckAjo0y+m2U6zzWKb+HVqL7jjH8fkywk=;
-	b=IEefMduVBO+8bsc517JdjEEGYnVCHpWaNAhOEiNONjVJocKE5z2s8wpNqzH8RL6Ym9ML
-	 xC6xz9ijGY2lnywUGXGBo8uTOQ1AbLV2y3mbRjhSok+YutHDdCfWSP6xbazAqE7AhqR6G
-	 qyad+ZqJdQ4terRl88NxaSG4Pk6CVnCKxuh8AlT1tUGCUeYR7MaKf7PI8pb0PhwXH6GhI
-	 0Um9FCf19lxNoeDv202jNYh4BGR6zewbEFcdzp4LR2nrZZmKQUAAydzoQN9CzgTybeN6u
-	 7vP225lyjw8g8C9S2NO+4ubLrJKbhWFnouee1AoRqDQrNNRt2XZoXW4exXv/FSIxn0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795208499;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=EBnO+H7xZqK0qeWWVKiHIXvTaFdbiFOH4V29QtEeAlw=;
+	b=W5pa09YxloEU2BBShogumy5rONiHYTZ3ipaqHmP0DKfcpI4TO8xOEgGZRg9pgvqRThhH
+	 OSc1adXQjTj6cw8ytKyJp0a1iuMNXAy1DIjwnbtcsHgucQpGUlikf2smgSs0ACO+ll2Wv
+	 ONzxjLDnj8CRoguoHBfO2qPGvF6dVA2uKtiViNjET9sZzr3JpiaeabshqgtWsLleAG7hD
+	 vUZ5+9sbw9erzUtE2Qkqswb1IZyunywWZDtPYT5KDprUUMlU5gy79wBUp3c+4OLBI+8eY
+	 7mDkGlYNqhNJFjlGazUcnnRrb65W87gGPc4A0GOgjKQ2kY2hRdKIoOdCXaFYg1Tdc3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOgX0mLj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=W2aFG3Ou;
+	arc=none smtp.remote-ip=198.175.65.12
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF460606A690;
-	Fri, 20 Nov 2026 21:01:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC1E6606A6B5;
+	Fri, 20 Nov 2026 21:01:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC1E6606A6B5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GOgX0mLj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42101F000C4;
-	Fri, 20 Nov 2026 21:01:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795208484;
-	bh=W5goPGg+WDIckAjo0y+m2U6zzWKb+HVqL7jjH8fkywk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GOgX0mLj54E9H90rvK6W0y+jRPmLdcrlX+0ZhEVqNgkd0nRgvqmtDHCmboKD9fpFK
-	 s/iscvIH6Y58jhFrxmY/jxNyrvzylLSOCb8YrN2E/IsOq5SkSZ2WWaUgIY0FQ1O4RB
-	 ls9tXQFhzJs1R1eZNmyqBPw3M34GcVN4XX/rZxy6vvMnCsuvrj8o7/4fyDV5iINLQi
-	 iwQ4yjGIVGez1zjcalCy1kFe2KbPnmLfg+4Um8V6CB60etK5YIobQFugfSxU8P3nui
-	 /q2Cxa/FzkK2EvXwkwjlSfQiME1H6qFbv4rEHsuQ7u36qeMwrU1xdfvhJ0owXLMSGq
-	 RfDPieHKs6zxw==
-Message-ID: <cd61f39f-db93-4f37-9836-7a81f7a82f9c@kernel.org>
-Date: Fri, 20 Nov 2026 22:01:15 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=W2aFG3Ou
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795208495; x=1826744495;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=fGpmQ5d2dc6tiMz8KyrMGQZrtNUylTF5HqxkZYhPbUs=;
+  b=W2aFG3OuX0Bstm+PN2du4c+42oWyiTpEWXPRftW6adrxF2/OUulH2CnG
+   8bwr1/SbcHluLrGG8yRyJ7xmEg6MD8gOvu8qqP7PzbShpnzpCADhq+QAf
+   ZYYiwz7xl0/U6UBZfLy/If0c5l/OY2z1PdCon7jvclhmGhwv2BEu5EGDw
+   IkE/BgT+/k8q4M9nZGRjYd1wJ4c1GAlR5dc1sEL/ftqCv+WI+KFniihMy
+   d05EHlVF0h+z43S3Bm98ec6iBWCdLBrrxthbtnRE3mlzADr4DrZtbUZjU
+   VaNmqfXF3/i4xBRGCU6V5eCbRuNjc9ASwLaDokUpWLCFgipaLd4wkb/zU
+   A==;
+X-CSE-ConnectionGUID: csbXL3HrQoiQ4NI8L0LWig==
+X-CSE-MsgGUID: ZcLSoAv6R0q50BrjHJp08w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3979960"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3979960"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:01:32 -0800
+X-CSE-ConnectionGUID: yKlolyxGQOaRp0t7l3ysyA==
+X-CSE-MsgGUID: 3kP5zmj6TqajGGx24HQM9Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="10862622"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 13:01:28 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 20 Nov 2026 23:01:25 +0200 (EET)
+To: Ondrej Zary <linux@zary.sk>
+cc: Hans de Goede <hansg@kernel.org>, platform-driver-x86@vger.kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] Introduce Synology NAS x86 platform driver
+In-Reply-To: <20261120201139.4148644-1-linux@zary.sk>
+Message-ID: <bec26cfe-c01e-9050-14da-69287d584fef@linux.intel.com>
+References: <20261120201139.4148644-1-linux@zary.sk>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -51,183 +78,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/4] net: skbuff: limit folio refcount when copying
- skb frag references
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>,
- Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Rik van Riel <riel@surriel.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Pedro Falcato <pfalcato@suse.de>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, stable@vger.kernel.org
-References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
- <20261118-skb_refcount_overflow-v1-1-5551b4954c3f@kernel.org>
- <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <awBy7PoxdEMEGWyW@devvm16445.scu0.facebook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
 
-On 11/20/26 17:21, Stanislav Fomichev wrote:
-> On 11/18, David Hildenbrand (Arm) wrote:
->> Various networking features copy frag references of an skb, for example
->> when unsharing a cloned skb (AF_PACKET trimming a clone), when copying an
->> skb (nft dup) or when building NFQUEUE messages. This is an effective
->> way for multiplying folio references held by an skb, allowing for
->> exceeding folio refcount limits.
->>
->> This is not specific to large pagecache folios, but with them it is a
->> lot easier to reach the refcount limit, as page table mappings can cheaply
->> create many references.
->>
->> Let's introduce skb_frag_try_ref() and skb_frags_try_ref(), which use
->> try_get_page(), and use them in pskb_expand_head(), __pskb_copy_fclone(),
->> skb_zerocopy() and pskb_carve_inside_*(). All of these can already fail,
->> and their callers handle that.
->>
->> Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
->> Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
->> Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
->> Cc: stable@vger.kernel.org
->> Acked-by: Pedro Falcato <pfalcato@suse.de>
->> Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
->> ---
->>  include/linux/skbuff_ref.h | 53 ++++++++++++++++++++++++++++++++++++++++++++++
->>  net/core/skbuff.c          | 35 +++++++++++++++++++-----------
->>  2 files changed, 76 insertions(+), 12 deletions(-)
->>
->> diff --git a/include/linux/skbuff_ref.h b/include/linux/skbuff_ref.h
->> index b6f6da556ee90..560ddc863bbec 100644
->> --- a/include/linux/skbuff_ref.h
->> +++ b/include/linux/skbuff_ref.h
->> @@ -44,6 +44,33 @@ static __always_inline void skb_frag_ref(struct sk_buff *skb, int f)
->>  		       skb->pp_recycle);
->>  }
->>  
->> +/**
->> + * skb_frag_try_ref - try to acquire a reference on a paged fragment of an skb
->> + * @skb: the buffer
->> + * @f: the fragment offset
->> + *
->> + * Like skb_frag_ref(), but acquires non-page_pool page references using
->> + * try_get_page(), refusing additional references to a page whose refcount is
->> + * at its limit.
->> + *
->> + * Return: True if a reference was acquired, otherwise false.
->> + */
->> +static __always_inline __must_check bool skb_frag_try_ref(struct sk_buff *skb,
->> +							  int f)
->> +{
->> +	netmem_ref netmem = skb_frag_netmem(&skb_shinfo(skb)->frags[f]);
->> +
->> +#ifdef CONFIG_PAGE_POOL
->> +	if (skb->pp_recycle && napi_pp_get_page(netmem))
->> +		return true;
->> +#endif
->> +	if (netmem_is_net_iov(netmem)) {
->> +		net_iov_inc_ref(netmem_to_net_iov(netmem));
->> +		return true;
->> +	}
->> +	return try_get_page(netmem_to_page(netmem));
->> +}
+On Fri, 20 Nov 2026, Ondrej Zary wrote:
+
+> Add platform driver for Synology x86-based NAS devices to support HDD LEDs
+> controller by ICH9 GPIO pins.
 > 
-
-Hi,
-
-thanks for taking a look!
-
-> I don't see you removing original skb_frag_ref implementations after
-> the conversion, any specific reason? 
-
-As explained in the cover letter, I want to get these fixes here upstream asap,
-to backport them alongside the core fixes that already landed.
-
-The focus is on the skb users that allow for multiplying folio references easily.
-
-> Do we still have any skb_frag_ref
-> callers left? 
-
-Yes, after this series there are still some left. Primarily ones that are not
-considered harmful for overflowing the refcount. And some of these require a bit
-more work to convert, like skb_split().
-
-> Maybe at least you can make skb_frag_ref do 'return
-> (void)skb_frag_try_ref' to avoid duplicate code?
-
-That would be bad: calling code would assume that it obtained a reference but it
-actually didn't.
-
-There is some headroom above the folio refcount limit to allow for such harmless
-users that are not converted yet. The immediate problems are the users that
-allow for unbounded folio references.
-
+> Only DS411+II is supported for now (DS411+ should be the same except CPU).
 > 
-> (optional) Also, an easier way to migrate might be to make the existing
-> skb_frag_ref return bool, convert everything, and then add __must_check.
+> Buttons and other LEDs are not supported by this driver because they're
+> controlled by a PIC MCU (connected through serial port).
+> 
+> Signed-off-by: Ondrej Zary <linux@zary.sk>
+> ---
+>  drivers/platform/x86/Kconfig        |  14 ++++
+>  drivers/platform/x86/Makefile       |   3 +
+>  drivers/platform/x86/synology-x86.c | 126 ++++++++++++++++++++++++++++
+>  3 files changed, 143 insertions(+)
+>  create mode 100644 drivers/platform/x86/synology-x86.c
+> 
+> diff --git a/drivers/platform/x86/Kconfig b/drivers/platform/x86/Kconfig
+> index 9ce384e0475e..04f6452b5a32 100644
+> --- a/drivers/platform/x86/Kconfig
+> +++ b/drivers/platform/x86/Kconfig
+> @@ -1059,6 +1059,20 @@ config OXP_EC
+>  
+>  source "drivers/platform/x86/tuxedo/Kconfig"
+>  
+> +config SYNOLOGY_X86
+> +	tristate "Synology x86 NAS Platform Driver"
+> +	depends on GPIOLIB
+> +	depends on LPC_ICH
+> +	depends on GPIO_ICH
+> +	depends on LEDS_CLASS
+> +	select LEDS_GPIO
+> +	help
+> +	  This driver provides support for the HDD LEDs on Synology x86 NAS
+> +	  devices.
+> +
+> +	  To compile this driver as a module, choose M here: the module
+> +	  will be called synology-x86.
+> +
+>  endif # X86_PLATFORM_DEVICES
+>  
+>  config P2SB
+> diff --git a/drivers/platform/x86/Makefile b/drivers/platform/x86/Makefile
+> index 229057234d00..a1806eb0efc9 100644
+> --- a/drivers/platform/x86/Makefile
+> +++ b/drivers/platform/x86/Makefile
+> @@ -166,3 +166,6 @@ obj-$(CONFIG_SEL3350_PLATFORM)		+= sel3350-platform.o
+>  
+>  # OneXPlayer
+>  obj-$(CONFIG_OXP_EC)			+= oxpec.o
+> +
+> +# Synology
+> +obj-$(CONFIG_SYNOLOGY_X86)		+= synology-x86.o
+> diff --git a/drivers/platform/x86/synology-x86.c b/drivers/platform/x86/synology-x86.c
+> new file mode 100644
+> index 000000000000..2fcf735ba3be
+> --- /dev/null
+> +++ b/drivers/platform/x86/synology-x86.c
+> @@ -0,0 +1,126 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +
 
-That would require teaching all callers about handling errors in one go, because
-callers would otherwise silently ignore failures. That's nothing we can
-backport, really.
+Extra empty line.
 
-I agree that as a follow-up, all code should be converted to use a single
-function that can fail.
+> +/*
+> + * Synology x86 NAS platform driver
+> + *
+> + * Inspired by platform/x86/meraki-mx100.c
+> + *
+> + * Copyright (C) 2026 Ondrej Zary <linux@zary.sk>
+> + */
+> +
+> +#include <linux/dmi.h>
+> +#include <linux/pci.h>
 
-But that's nothing for this series that focuses on fixing folio refcounts in a
-way that can be backported.
+Please order alphabetically.
 
-Thanks!
+> +#include <linux/err.h>
+> +#include <linux/gpio/machine.h>
+> +#include <linux/kernel.h>
+
+What for is this?
+
+> +#include <linux/leds.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +
+> +static const struct gpio_led synology_leds[] = {
+> +	{ .name = "synology:green:hdd1"	},
+> +	{ .name = "synology:amber:hdd1" },
+> +	{ .name = "synology:green:hdd2" },
+> +	{ .name = "synology:amber:hdd2"	},
+> +	{ .name = "synology:green:hdd3" },
+> +	{ .name = "synology:amber:hdd3"	},
+> +	{ .name = "synology:green:hdd4" },
+> +	{ .name = "synology:amber:hdd4" },
+> +};
+> +
+> +static const struct gpio_led_platform_data synology_leds_pdata = {
+> +	.num_leds	= ARRAY_SIZE(synology_leds),
+
+Add include.
+
+> +	.leds		= synology_leds,
+> +};
+> +
+> +#define GPIO_ICH_DRIVER_NAME "gpio_ich"
+> +
+> +static struct gpiod_lookup_table synology_leds_table = {
+> +	.dev_id = "leds-gpio",
+> +	.table = {
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 16, NULL, 0, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 18, NULL, 1, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 20, NULL, 2, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 32, NULL, 3, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 33, NULL, 4, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 34, NULL, 5, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 49, NULL, 6, GPIO_ACTIVE_HIGH),
+> +		GPIO_LOOKUP_IDX(GPIO_ICH_DRIVER_NAME, 55, NULL, 7, GPIO_ACTIVE_HIGH),
+> +		{}
+> +	}
+> +};
+> +
+> +static const struct dmi_system_id synology_systems[] __initconst = {
+> +	{
+> +		.ident = "DS411+",	/* DS411+II is the same with faster CPU */
+> +		.matches = {
+> +			/* Synology did not put anything in DMI strings */
+> +			DMI_EXACT_MATCH(DMI_SYS_VENDOR, "To Be Filled By O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "To Be Filled By O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_BOARD_NAME, "To be filled by O.E.M."),
+> +			DMI_EXACT_MATCH(DMI_BIOS_DATE, "05/21/2012"),
+> +		},
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(dmi, synology_systems);
+> +
+> +static struct platform_device *synology_leds_pdev;
+> +
+> +static int __init synology_init(void)
+> +{
+> +	int ret;
+> +
+> +	static const struct pci_device_id pci_sii3531[] = {
+> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_CMD, 0x3531, PCI_VENDOR_ID_CMD, 0x3531) },
+
+Some include is surely missing.
+
+> +		{ }
+> +	};
+> +
+> +	static const struct pci_device_id pci_i82574l[] = {
+> +		{ PCI_DEVICE_SUB(PCI_VENDOR_ID_INTEL, 0x10d3, PCI_VENDOR_ID_INTEL, 0x0000) },
+> +		{ }
+> +	};
+> +
+> +	const struct dmi_system_id *dmi = dmi_first_match(synology_systems);
+
+Are you missing DMI dep from Kconfig?
+
+> +
+> +	if (!dmi)
+> +		return -ENODEV;
+> +
+> +	/* DS411+ DMI match is too generic, confirm by onboard PCI devices */
+> +	if (!strcmp(dmi->ident, "DS411+")) {
+
+Include.
+
+> +		if (!pci_dev_present(pci_sii3531)
+> +		 || !pci_dev_present(pci_i82574l))
+
+|| should be on the previous line.
+
+Should this depend on PCI too?
+
+Details missing from the changelog.
+
+> +			return -ENODEV;
+> +	}
+> +
+> +	pr_info("Detected Synology NAS %s\n", dmi->ident);
+
+Missing include.
+
+> +
+> +	gpiod_add_lookup_table(&synology_leds_table);
+> +
+> +	synology_leds_pdev = platform_device_register_data(NULL,
+> +		"leds-gpio", PLATFORM_DEVID_NONE, &synology_leds_pdata,
+> +		sizeof(synology_leds_pdata));
+> +	if (IS_ERR(synology_leds_pdev)) {
+> +		pr_err("error registering platform device: %ld\n", PTR_ERR(synology_leds_pdev));
+
+Use %pe
+
+> +		ret = PTR_ERR(synology_leds_pdev);
+> +		goto err;
+> +	}
+> +
+> +	return 0;
+> +
+> +err:
+> +	gpiod_remove_lookup_table(&synology_leds_table);
+> +	return ret;
+> +}
+> +module_init(synology_init);
+> +
+> +static void __exit synology_exit(void)
+> +{
+> +	platform_device_unregister(synology_leds_pdev);
+> +	gpiod_remove_lookup_table(&synology_leds_table);
+> +}
+> +module_exit(synology_exit);
+> +
+> +MODULE_AUTHOR("Ondrej Zary <linux@zary.sk>");
+> +MODULE_DESCRIPTION("Synology x86 NAS Platform Driver");
+> +MODULE_LICENSE("GPL");
+> 
 
 -- 
-Cheers,
+ i.
 
-David
