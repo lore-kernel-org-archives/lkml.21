@@ -1,82 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795159209;
-	b=1Hwx4For4e1hdwK/V7UkzwkMczxNriVV2tMdPaiIBCWavAoN5jYdzkJJH63df8ZhMrlh
-	 G7Ti4shvTjxnPM1D/o6ViAIY7AF5btc79YA8IkwFsFM3SSfnOJxfotkEVfbPslw34Kz65
-	 z6BxK13umVzVw9axcJ10JL7SaqlqcrLvJzGCerLQuAeG3+RyQY3drBslDyMnLB54GoYzo
-	 JA88FW9S5wxl+j6+F9NSBzuO4HpHp22bEhlIMzIvU7dMo4yMAnvyOVpxNGm2RHZz09vDg
-	 bH+VLkaiXW0NI1iXQi4Tpqr2SOo2iMeapbYpNwQ2AHSPUptE8UhkadBN140BGS6uAmg==
+	t=1795159225;
+	b=cnxW2Reg17luJbnx8fgIXrrFU3kS1+Kwkr5km3dlLkD1gJqYN3SJFlzZfhPyNZmifBuT
+	 /U9nMUDJiT2MRc9wRvuPlTKmlYa497l6k0W0NmPnOHxFE3Ux63d6qThMNHVhP7Cm1FaXq
+	 79LxoOxtE0tNJtDIHoe6pw+0OmR/5tUMBTr5aSPH3LpTHv421bvPfS40S6NWB0S+jhFeV
+	 HPvtbQz0FnT5kDQTGDzR8Pp61E8M5g/sCFLTH5liF1u6290jppR8MAq5kfxSW4OaZ8YCR
+	 MzhGTopI7OlbJ25dC4UaXqC+LgHK3CskSRzfHwTqu2hRYKVEHxIpPNDxx0VRyMRiRYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795159209;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795159225;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
 	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=1vKQPpdu/ypRpROkCywYng/vV1+x0TjDmBtFpI4IKrM=;
-	b=GoG/3f3vZutzGc8KNvDyuPcxchPt2hRv2+7e8oIGeiAMFoEckpAnBPknt8MPegla/D9B
-	 KynxuJivzjPZKpWET58qYSrumh4bbaiY6L/o4iQVMSY5dN435Q9ebuxapmf1yywKXbpxj
-	 3JfNK9fA1FQoMCHiuzEOIUQ/4CRXhR7v4d3ko+wA6fDxuFd+nJo3D4KzktepeLgpdqF+h
-	 ktfB7MA776Otpk+K4nzALffda2CuT9jPa54+GNf/TjwhcNs85iAqxMpoAhpNYMfObo1zV
-	 bu8NWJZIAFJMV2kgJa0f6azJCmPkh5J0gLwMclRaSZ4E1AhhNhM/30zP6snSzfDBJWw==
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=8CLy3Zsp7wD04/Ji6ChEx8JN/FkWzL+uH5yDsc1Zk6E=;
+	b=5QKxTFigQ+bq8Zk4cWJAs8vaRFD3oPTQxFDTCudYi1CXm9NZwPsAHsUTSB5cq3xsi0Jm
+	 P/RBtEBFoVo3t+yOZhu1Q+rIiNZRe4BheuoCPgse4QCjZpVbrYzz2jcnV8JXuU3ReVKDX
+	 Z5LrpmznlnPD4MrxqyW+pOLvqEwmIFj7C3JKDrZof4jSRKJ0Qk8ycuR74vqfgmLuWbyPm
+	 LIBgIKGR8byoDlpe3rMuXWsPIio44i7QxtXIGRs/8h4quZuWHjhcR8fIi8GRlJVFe++et
+	 ezz786SpXDuR1wvEsBYL2VI06dq23aGCiWHXwZ0auZHe2HEC61BlQHxjszYxsJb7BgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jfZeollE;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UNvd0IsP;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CCF7606A32A;
-	Fri, 20 Nov 2026 07:20:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CCF7606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3407D606A320;
+	Fri, 20 Nov 2026 07:20:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3407D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=jfZeollE
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3uNia1981948;
-	Fri, 20 Nov 2026 07:19:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=1vKQPp
-	du/ypRpROkCywYng/vV1+x0TjDmBtFpI4IKrM=; b=jfZeollE1IbBJTKB6xGgts
-	DErkLPKKgfaMeNVUO70LyV3OQ8NiNDTpm9BFvu/p6ogGcr9su5l/I3w0BUzdd7Tn
-	bB7fcAbkvyEqy+z96Q92Kg4ccFHhCbPLUpjcofq8Rwl1GdU3rfzAXD6MBrfYQIau
-	39oN7dn9J4RjI7oxv1Zz9M+aXMjELZghBxxvPZtiqqApDwWDmiBmNyWzbILLUWCa
-	d71OtO03IKHtVSKsRsvHnMj4sISC/7UsQHAwfzwKcmuP1oB/c0lVxkqmYmkYhJr1
-	6jMG4ruxtjRoa7uiTZbcSdXJg+95O0J7Ui6cnAdNO/gNGH7IeTlQzP/Z4zRy0f5Q
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tevmn-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:19:39 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK782eS3627471;
-	Fri, 20 Nov 2026 07:19:38 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xep9g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:19:38 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7JXCD43057554
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 07:19:33 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 59D052004B;
-	Fri, 20 Nov 2026 07:19:33 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E441320043;
-	Fri, 20 Nov 2026 07:19:29 +0000 (GMT)
-Received: from [9.124.218.70] (unknown [9.124.218.70])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 07:19:29 +0000 (GMT)
-Message-ID: <a149f6b8-2aba-4e99-a64a-ef9ec7f0d449@linux.ibm.com>
-Date: Fri, 20 Nov 2026 12:49:28 +0530
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=UNvd0IsP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=8CLy3Zsp7wD04/Ji6ChEx8JN/FkWzL+uH5yDsc1Zk6E=;
+	b=UNvd0IsP5giFc8sN5LWCEhAQI2Su5Jk7eAK2yfZiZmLHpKvUO/UaCEEj0d/Sok
+	97nMKFCLvabDR2gaEeLDcgaTS/VCo4+oHZAsmE6Q7ds5wgmXbbzeUhHic32VO2+R
+	E9YY7zWkEW5XAyBxU7agguFwViImpe4qVjzb6nHymmqYE=
+Received: from [IPV6:2409:8900:1e87:c681:e0d9:72d0:20c3:a0ec] (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgDnz7Sb9P9qFXMUHA--.3669S2;
+	Fri, 20 Nov 2026 15:19:57 +0800 (CST)
+Message-ID: <cd7bbf5c-e88d-4beb-9cdb-bb9bc8e3fd62@163.com>
+Date: Fri, 20 Nov 2026 15:19:55 +0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,432 +55,378 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] powerpc/pseries/eeh: Add RTAS error injection
- helpers
-To: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
- <20261023073642.59657-3-nnmlinux@linux.ibm.com>
- <864398a6-8a74-43df-9594-452a9edd99e9@linux.ibm.com>
+Subject: Re: [PATCH v8] ntfs: trim the sizes after a short write
+To: Zhan Xusheng <zhanxusheng1024@gmail.com>, linkinjeon@kernel.org,
+ hyc.lee@gmail.com
+Cc: ntfs@lists.linux.dev, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, zhanxusheng@xiaomi.com
+References: <20261120023504.4134966-1-zhanxusheng1024@gmail.com>
 Content-Language: en-US
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-In-Reply-To: <864398a6-8a74-43df-9594-452a9edd99e9@linux.ibm.com>
+From: liubaolin <liubaolin12138@163.com>
+In-Reply-To: <20261120023504.4134966-1-zhanxusheng1024@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6afff48b cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=QyXUC8HyAAAA:8 a=VnNF1IyMAAAA:8 a=ixBu7NUsdrZfyz3qS-wA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: eeMZ-iM_2ZyyVSI9tGB8Wh31tcUIcEjA
-X-Proofpoint-GUID: wdZVyLO5ALUo9HSDPak7na1Q-GCYRdz2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfX+lJsDuIxBMvU
- 3NIIeedaAemZy+On3mhg6y+IXpS0Dev3hmNFqBEEa/xhvXtNO37cdyGHJdmD0u3YfdrF4mM7eZe
- fudYx0TYhqAV1u1bQid93+Bgpc+3vRbMvUP8+OOLspE0bu7jXldK6Vsg0b0uB7Q083eOWTlxX57
- yjm/FjFh/tVC5zavGj/XXJ9MnI3BOdam0gpLaUOfrsbH41pSg2GcRX+fXonB26fY6qdxjmpHaPK
- Dhp9uxJyu5Pdes+ro/1S6lkJHvg2pJgcKSZGce2gOgwDIMszb2wwiG44UZDps9YbvVv/437Gd/8
- LwxoDVLmqeo8z9zuriz/6+aZ/hp18vZSpOyyrTdFJzZHWK3+6mklLB9yqlgYTj9raSyjE6zZDgo
- AFbZkqMDJI+rsR9c4zFqFXAd+ZbBTTqMoeOIOvBSUIRXj8LHxbiCVHMk9T11yx6ddau5qi+hg5M
- h063OrMT229yyRPAEBQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNyBTYWx0ZWRfX3c53QemF85v8
- y+gn/1nybU7TMtyL9GllozKKScNWNoWqunTcShgIPzHOk0pKwmJXtj7YXXzxLIMn4+94IOLB+Fk
- 15WFbfrYr8sDiOXfPSNP48AmxVIjp40=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200027
+X-CM-TRANSID:QCgvCgDnz7Sb9P9qFXMUHA--.3669S2
+X-Coremail-Antispam: 1Uf129KBjvAXoWfGF48ur48trWDtF47tw4kXrb_yoW8GFy7Wo
+	WrAayYvw1F934Yyr4jvw4DJr97X39YgrWUJFZxXr47AFs09r4jk3y3Jw1rG3ySk3WFkF4D
+	W34xta4rCFWjqF95n29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUeUUUDUUUU
+X-CM-SenderInfo: xolxutxrol0iasrtmqqrwthudrp/xtbC6R-+yWr-9J+x4AAA3u
 
-Hi Sourabh,
 
-On 18/11/26 10:13 PM, Sourabh Jain wrote:
-> Hello Narayana,
+
+在 2026/11/20 10:35, Zhan Xusheng 写道:
+> From: Zhan Xusheng <zhanxusheng@xiaomi.com>
 > 
-> The commit message contains several implementation details that make it 
-> difficult to
-> understand the actual purpose of this patch. Could you simplify and 
-> restructure it to
-> focus on the functionality being introduced and why it is needed?
+> ntfs_file_write_iter() moves the data size and, for a non-resident
+> uncompressed file, the initialized size to pos + count before the copy.
+> __ntfs_extend_initialized_size() only zeroes [old initialized size, pos),
+> so the range [pos, pos + count) is initialized only by the copy itself.
+> When iomap_file_buffered_write() copies less than count, it returns a
+> positive short count and the error rollback at out: does not run.  The
+> file keeps the size pos + count, and [pos + ret, pos + count) reads back
+> whatever the freed clusters held before, also after a remount.  A local
+> user can read the old contents of freed clusters this way.
 > 
-Sure. I'll merge this patch with 3/5 and rework the commit message.
-This will also address the unused static functions reported by Sashiko.
-> On 23/10/26 13:06, Narayana Murty N wrote:
->> Prepare the pSeries EEH backend for RTAS error injection by adding
->> helpers that:
->>
->>    * map generic EEH error types to RTAS/PAPR error types;
->>    * validate IOA addresses against the target PE.
->>
->> Define pr_fmt unconditionally at the top of eeh_pseries.c so all
->> pr_*() calls carry the "EEH: " prefix.
+> Run the existing rollback for a short write as well, and roll the data
+> size back to the end of what was written, keeping the clusters that were
+> allocated on disk before the write, such as space reserved with
+> FALLOC_FL_KEEP_SIZE.  Keep the initialized size, as a page fault through
+> a shared mapping may rely on it while the write is stalled on its
+> source, and zero what the write did not reach, up to the end of the
+> block holding pos + count.  Only if that fails, take the initialized
+> size back to where the zeroing started, if it is above that.
 > 
-> I don't think there's a need to mention pr_fmt here, as it's not a key
-> objective of the patch. This could simply be a note at the end.
+> Fixes: b041ca562526 ("ntfs: update iomap and address space operations")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Zhan Xusheng <zhanxusheng@xiaomi.com>
+> ---
+> v8: when taking the data size back without truncating, mark the file
+> name dirty as ntfs_non_resident_attr_shrink() does.  If the inode was
+> written while the write waited on its source, the size in the directory
+> index otherwise stays at the extended value (Baolin).
+> v7: when taking the data size back, keep the clusters allocated on disk
+> before the write instead of truncating, which freed space reserved
+> with FALLOC_FL_KEEP_SIZE; a failed write already did so before this
+> patch (Hyunchul).  Holes and delayed allocations past the data size,
+> such as the preallocation of an earlier extending write, are freed as
+> before.  Baolin's Reviewed-by on v6 is not carried over, as this
+> changes the data size rollback he reviewed.
+> v6: cap that fallback at the current initialized size, which a failed
+> extension before the write can leave below pos (Baolin).
+> v5 (Baolin):
+> - start the zeroing at pos, not at the old initialized size, which
+>    overwrote data stored through a shared mapping below pos
+> - do the same for a direct write, instead of truncating the page cache
+>    and taking the initialized size back
+> - if the zeroing fails, take the initialized size back to where it
+>    started, instead of skipping both rollbacks
+> v4: for a buffered write, zero the unwritten range instead of
+> truncating the page cache and taking the initialized size back, which
+> dropped data stored through a shared mapping during the copy (Baolin).
+> v3: clear the cache up to EOF, not up to the extended initialized
+> size, which left the rest of the block holding pos + count (Baolin).
+> v2: also clear the cached tail of the last block, which v1 left in
+> place when the write stayed inside the old data size (Baolin).
 > 
-Agreed. I'll drop this from the commit message.
->> Define RTAS firmware error-type encodings as file-local constants.
->> Only the two IOA bus-error types are supported; other PAPR encodings
->> are not reachable through the generic EEH_ERR_TYPE_* UAPI:
->>
->>    RTAS_ERR_TYPE_IOA_BUS_ERROR     0x07
->>    RTAS_ERR_TYPE_IOA_BUS_ERROR_64  0x0f
->>
->> Add RTAS_ERRINJCT_BUF_SIZE for the ibm,errinjct work buffer size.
+> v7: https://lore.kernel.org/all/20261119022715.3636699-1-zhanxusheng1024@gmail.com/
+> v6: https://lore.kernel.org/all/20261117082021.2947603-1-zhanxusheng1024@gmail.com/
+> v5: https://lore.kernel.org/all/20261116091121.2547497-1-zhanxusheng1024@gmail.com/
+> v4: https://lore.kernel.org/all/20261113050148.1466682-1-zhanxusheng1024@gmail.com/
+> v3: https://lore.kernel.org/all/20261112093233.1118469-1-zhanxusheng1024@gmail.com/
+> v2: https://lore.kernel.org/all/20261112030815.982026-1-zhanxusheng1024@gmail.com/
+> v1: https://lore.kernel.org/all/20261111093459.660484-1-zhanxusheng1024@gmail.com/
 > 
-> I'm not sure RTAS_ERRINJCT_BUF_SIZE needs to be included in this patch,
-> as it seems unrelated and isn't used by any of the APIs introduced here.
-> Would it make more sense to move this to the patch where it is actually 
-> used?
+> Tested in a VM on ntfs-next 4862a81576e3, with all free space filled
+> with a known pattern first.  Short buffered writes of 4M, old data
+> readable after drop_caches and after remount, 3 runs each:
 > 
-Yes, this will be addressed by merging the two patches.
->> Add pseries_eeh_type_to_rtas() to translate the two generic EEH error
->> types (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64) into the corresponding RTAS
->> ibm,errinjct encodings.
->>
->> Add validate_addr_mask_in_pe() to verify that a caller-provided address
->> falls within a BAR of some device in the PE.  RTAS IOA bus-error
->> injection requires a PCI/IOA bus address; validate_addr_mask_in_pe()
->> accepts only PCI bus addresses.  VFIO userspace resource addresses are
->> normalized to PCI bus addresses in vfio_iommu_spapr_tce.c before
->> reaching this backend; no resource-address fallback is added here.
->>
->> Use pcibios_resource_to_bus() to convert each BAR resource to PCI bus
->> address space before validating the address.  Only standard BARs
->> (BAR0..BAR5) are searched; ROM and bridge resources are not IOA
->> bus-error targets.  Hold pci_rescan_remove_lock while traversing PE
->> devices and their BAR resources so PCI device removal cannot race the
->> address validation.
->>
->> Skip unassigned or disabled BARs explicitly: on pseries,
->> pcibios_fixup_resources() zero-bases unassigned BARs (start=0,
->> end=size-1) and sets IORESOURCE_UNSET, so resource_size() is non-zero
->> for them and pcibios_resource_to_bus() treats them as bus address zero.
->> Use pci_resource_len() (which returns 0 when end==0) instead of
->> resource_size(), and reject BARs with IORESOURCE_UNSET or
->> IORESOURCE_DISABLED set.
->>
->> Returns -EINVAL (Linux errno) rather than a raw RTAS status.
+>                                      unfixed    v8
+>    fallocated, ends block-aligned    3137536    0
+>    fallocated, ends inside a block   3141332    0
+>    fallocated, unaligned start       3137536    0
+>    same, pos + count in that page    -          0
+>    append                            3137536    0
 > 
-> This is another example where I'm having difficulty understanding
-> how the above statement relates to the new APIs introduced by this patch.
->
-Agreed. This detail is unnecessary here. >> validate_errinjct_args() and 
-prepare_errinjct_buffer() are introduced
->> in the next patch alongside their callers so each intermediate commit
->> builds cleanly with CONFIG_WERROR.
->>
->> pseries_eeh_err_inject() retains the existing MMIO injection body
->> unchanged in this patch.
+> Marker stored through a shared mapping at 64K while pwritev() is
+> stalled on a userfaultfd source page, state after remount, with and
+> without fallocate():
 > 
+>                                            unfixed  v8
+>    buffered 4K at 128K, EFAULT             lost     kept
+>    O_DIRECT 12K at 0, EFAULT               lost     kept
+>    buffered 12K at 0, short 8192           kept     kept
 > 
-> Okay, but could you clarify how these are related to the APIs introduced 
-> in this patch?
+> 1M reserved with FALLOC_FL_KEEP_SIZE, then a 12K write at 0, 512-byte
+> blocks after remount:
 > 
->> It is replaced by the full RTAS session
->> implementation in the next patch.  This keeps the patch bisectable:
->> each commit builds and functions correctly independently.
+>                                            unfixed  v8
+>    short, 8192 written                     2048     2048
+>    failed, EFAULT                          0        2048
 > 
-> Could you help me understand the need to mention git bisect-ability here?
+> A short write past 8K reserved this way frees what it allocated beyond
+> the 8K and keeps the 8K.  A store into [pos + ret, pos + count) itself
+> during the write is zeroed, as that range belongs to the write.  With
+> iomap_zero_range() failing (injected -ENOMEM), a 32K write to a 16K
+> file that returns 12288 leaves the size at 28K with no old data, also
+> after remount.
 > 
-> I'm also not sure why the above two paragraphs are needed. Why do we need
-> to document the nuances of other APIs in this patch when they are introduce
-> or modified in subsequent patches?
+> In the 8192 case above, with syncfs() while the write waits on its
+> source, the data size in the directory index after remount is 12288
+> with v7 and 8192 with v8.
 > 
-The intention was to introduce the helpers without breaking
-intermediate builds. However, the current split still leaves unused
-static functions. I'll merge the patches and drop these explanations.
->>
->> Reported-by: kernel test robot <lkp@intel.com>
->> Closes: https://lore.kernel.org/oe-kbuild-all/202512101130.EYUo0oZx- 
->> lkp@intel.com/
+> fsx (buffered, no-mmap, O_DIRECT and mixed), compressed files,
+> fallocate, insert/collapse range and punch hole give the same results
+> with v8 as with v7.
+> ---
+>   fs/ntfs/attrib.c |  37 +++++++++++++++
+>   fs/ntfs/attrib.h |   1 +
+>   fs/ntfs/file.c   | 121 +++++++++++++++++++++++++++++++++++++++++++----
+>   3 files changed, 151 insertions(+), 8 deletions(-)
 > 
+> diff --git a/fs/ntfs/attrib.c b/fs/ntfs/attrib.c
+> index 29eae1eb3d02..ccaeb484aaa0 100644
+> --- a/fs/ntfs/attrib.c
+> +++ b/fs/ntfs/attrib.c
+> @@ -2456,6 +2456,43 @@ int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size)
+>   	return err;
+>   }
+>   
+> +/*
+> + * ntfs_attr_set_data_size - set the data size of a non-resident attribute
+> + * without changing its allocation
+> + *
+> + * The caller holds mrec_lock.  @new_size must not be below the initialized
+> + * size or above the allocated size.
+> + */
+> +int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size)
+> +{
+> +	struct ntfs_attr_search_ctx *ctx;
+> +	struct ntfs_inode *base_ni = ntfs_base_inode(ni);
+> +	int err = 0;
+> +
+> +	if (!NInoNonResident(ni) || new_size < ni->initialized_size ||
+> +	    new_size > ni->allocated_size)
+> +		return -EINVAL;
+> +
+> +	ctx = ntfs_attr_get_search_ctx(base_ni, NULL);
+> +	if (!ctx)
+> +		return -ENOMEM;
+> +
+> +	err = ntfs_attr_lookup(ni->type, ni->name, ni->name_len,
+> +			       CASE_SENSITIVE, 0, NULL, 0, ctx);
+> +	if (err)
+> +		goto out_ctx;
+> +
+> +	ctx->attr->data.non_resident.data_size = cpu_to_le64(new_size);
+> +	ni->data_size = new_size;
+> +	/* Update data size in the index. */
+> +	if (ni->type == AT_DATA && ni->name == AT_UNNAMED)
+> +		NInoSetFileNameDirty(ni);
+> +	mark_mft_record_dirty(ctx->ntfs_ino);
+> +out_ctx:
+> +	ntfs_attr_put_search_ctx(ctx);
+> +	return err;
+> +}
+> +
+>   /*
+>    * ntfs_make_room_for_attr - make room for an attribute inside an mft record
+>    * @m:		mft record
+> diff --git a/fs/ntfs/attrib.h b/fs/ntfs/attrib.h
+> index bee91c9f6f81..edb62826a6ab 100644
+> --- a/fs/ntfs/attrib.h
+> +++ b/fs/ntfs/attrib.h
+> @@ -102,6 +102,7 @@ int ntfs_attr_make_non_resident(struct ntfs_inode *ni, const u32 data_size);
+>   int ntfs_attr_set(struct ntfs_inode *ni, const s64 ofs, const s64 cnt,
+>   		const u8 val);
+>   int ntfs_attr_set_initialized_size(struct ntfs_inode *ni, loff_t new_size);
+> +int ntfs_attr_set_data_size(struct ntfs_inode *ni, loff_t new_size);
+>   int ntfs_attr_open(struct ntfs_inode *ni, const __le32 type,
+>   		__le16 *name, u32 name_len);
+>   void ntfs_attr_close(struct ntfs_inode *n);
+> diff --git a/fs/ntfs/file.c b/fs/ntfs/file.c
+> index a52483d16c6e..25034735d249 100644
+> --- a/fs/ntfs/file.c
+> +++ b/fs/ntfs/file.c
+> @@ -843,6 +843,34 @@ static int ntfs_expand_for_write(struct ntfs_inode *ni, loff_t end)
+>   	return err;
+>   }
+>   
+> +/*
+> + * End of the last run of clusters allocated on disk.  Holes and delayed
+> + * allocations past it, such as the preallocation of an extending write,
+> + * do not count.  Falls back to the allocated size if the runlist is not
+> + * fully mapped.
+> + */
+> +static loff_t ntfs_allocated_end_on_disk(struct ntfs_inode *ni)
+> +{
+> +	loff_t end = ni->allocated_size;
+> +	ssize_t i;
+> +
+> +	down_read(&ni->runlist.lock);
+> +	if (NInoFullyMapped(ni) && ni->runlist.rl) {
+> +		end = 0;
+> +		for (i = ni->runlist.count - 1; i >= 0; i--) {
+> +			struct runlist_element *rl = &ni->runlist.rl[i];
+> +
+> +			if (rl->length && rl->lcn >= 0) {
+> +				end = ntfs_cluster_to_bytes(ni->vol,
+> +						rl->vcn + rl->length);
+> +				break;
+> +			}
+> +		}
+> +	}
+> +	up_read(&ni->runlist.lock);
+> +	return end;
+> +}
+> +
+>   ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   {
+>   	struct file *file = iocb->ki_filp;
+> @@ -853,7 +881,7 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   	ssize_t count;
+>   	loff_t pos, end;
+>   	int err;
+> -	loff_t old_data_size, old_init_size;
+> +	loff_t old_data_size, old_init_size, old_alloc_size;
+>   
+>   	if (NVolShutdown(vol))
+>   		return -EIO;
+> @@ -901,6 +929,10 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   
+>   	old_data_size = ni->data_size;
+>   	old_init_size = ni->initialized_size;
+> +	old_alloc_size = ni->allocated_size;
+> +	if (NInoNonResident(ni) && !NInoCompressed(ni) &&
+> +	    old_alloc_size > round_up(old_data_size, vol->cluster_size))
+> +		old_alloc_size = ntfs_allocated_end_on_disk(ni);
+>   
+>   	if (end > old_data_size) {
+>   		ret = ntfs_expand_for_write(ni, end);
+> @@ -928,10 +960,21 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		ret = iomap_file_buffered_write(iocb, from, ntfs_write_iomap_next,
+>   				&ntfs_iomap_folio_ops, NULL);
+>   out:
+> -	if (ret < 0 && ret != -EIOCBQUEUED) {
+> +	/*
+> +	 * Both sizes were moved to end before the copy, so a short write,
+> +	 * like a failed one, must take back what it did not write.
+> +	 */
+> +	if (ret < count && ret != -EIOCBQUEUED) {
+> +		loff_t new_init_size = old_init_size;
+> +		loff_t new_data_size = old_data_size;
+>   		int init_err = 0;
+>   		int data_err = 0;
+>   
+> +		if (ret > 0) {
+> +			new_init_size = max(old_init_size, pos + ret);
+> +			new_data_size = max(old_data_size, pos + ret);
+> +		}
+> +
+>   		/*
+>   		 * Like ntfs_setattr_size(): __ntfs_attr_truncate_vfs()
+>   		 * expects the invalidate lock held across the size
+> @@ -939,14 +982,59 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		 */
+>   		filemap_invalidate_lock(vi->i_mapping);
+>   
+> +		/*
+> +		 * A page fault through a shared mapping may have used the
+> +		 * extended initialized size while the write was stalled on
+> +		 * its source, so keep that size and zero what the write did
+> +		 * not reach instead.  [old_init_size, pos) was zeroed before
+> +		 * the write.  Past end, zero the rest of the block that a
+> +		 * buffered copy may have read from disk, unless such a fault
+> +		 * already moved the initialized size past end and zeroed it.
+> +		 */
+> +		if (NInoNonResident(ni) && !NInoCompressed(ni) &&
+> +		    ni->initialized_size > new_init_size) {
+> +			loff_t zstart = max(pos, new_init_size);
+> +			loff_t zend = ni->initialized_size > end ? end :
+> +				      round_up(end, i_blocksize(vi));
+> +			int err = 0;
+> +
+> +			zend = min(zend, new_data_size);
+> +			if (zend > zstart) {
+> +				err = iomap_zero_range(vi, zstart,
+> +						zend - zstart, NULL,
+> +						ntfs_seek_iomap_next,
+> +						&ntfs_iomap_folio_ops, NULL);
+> +				/* A direct read must not see the old blocks. */
+> +				if (!err && iocb->ki_flags & IOCB_DIRECT)
+> +					err = filemap_write_and_wait_range(
+> +						vi->i_mapping, zstart, zend - 1);
+> +			}
+> +			if (!err)
+> +				new_init_size = min(ni->initialized_size,
+> +						    new_data_size);
+> +			else
+> +				new_init_size = min3(ni->initialized_size,
+> +						     zstart, new_data_size);
+> +		}
+> +
+>   		/* ntfs_attr_set_initialized_size() rejects a resident one. */
+> -		if (ni->initialized_size != old_init_size &&
+> +		if (ni->initialized_size != new_init_size &&
+>   		    NInoNonResident(ni)) {
+>   			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+>   
+> +			/*
+> +			 * Only reached when the zeroing above failed or did
+> +			 * not apply.  Drop what was cached past the new
+> +			 * initialized size, as __ntfs_extend_initialized_size()
+> +			 * does.
+> +			 */
+> +			if (ni->initialized_size > new_init_size)
+> +				truncate_pagecache_range(vi, new_init_size,
+> +						max_t(loff_t, i_size_read(vi),
+> +						      ni->initialized_size) - 1);
+>   			mutex_lock(&mrec_ni->mrec_lock);
+>   			init_err = ntfs_attr_set_initialized_size(ni,
+> -					old_init_size);
+> +					new_init_size);
+>   			mutex_unlock(&mrec_ni->mrec_lock);
+>   		}
+>   		/*
+> @@ -955,13 +1043,30 @@ ssize_t ntfs_file_write_iter(struct kiocb *iocb, struct iov_iter *from)
+>   		 * the uninitialized tail, so skip it unless the rollback
+>   		 * above restored that size.
+>   		 */
+> -		if (ni->data_size != old_data_size && !init_err) {
+> +		if (ni->data_size != new_data_size && !init_err) {
+>   			struct ntfs_inode *mrec_ni = ntfs_base_inode(ni);
+>   
+> -			truncate_setsize(vi, old_data_size);
+> +			truncate_setsize(vi, new_data_size);
+>   			mutex_lock(&mrec_ni->mrec_lock);
+> -			data_err = __ntfs_attr_truncate_vfs(ni, old_data_size,
+> -					old_data_size);
+> +			if (NInoNonResident(ni) && !NInoCompressed(ni)) {
+> +				/*
+> +				 * Only free what the write allocated, not
+> +				 * clusters that were there before, such as
+> +				 * space reserved with FALLOC_FL_KEEP_SIZE.
+> +				 */
+> +				loff_t keep = max(new_data_size,
+> +						  old_alloc_size);
+> +
+> +				if (ni->allocated_size > keep)
+> +					data_err = __ntfs_attr_truncate_vfs(ni,
+> +							keep, keep);
+> +				if (!data_err && ni->data_size != new_data_size)
+> +					data_err = ntfs_attr_set_data_size(ni,
+> +							new_data_size);
+> +			} else {
+> +				data_err = __ntfs_attr_truncate_vfs(ni,
+> +						new_data_size, new_data_size);
+> +			}
+>   			mutex_unlock(&mrec_ni->mrec_lock);
+>   			/* Like ntfs_setattr_size(): stay on the durable size. */
+>   			if (data_err)
 > 
-> Aren't these tags intended for cases where the issue is fixed in a 
-> separate patch/commit,
-> rather than in a revised version of the same patch? Do we really these 
-> tags?
-> 
-Agreed. I'll drop these tags and retain the details in the changelog.
-> 
->> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
->> ---
->>   arch/powerpc/platforms/pseries/eeh_pseries.c | 134 +++++++++++++++++++
->>   1 file changed, 134 insertions(+)
->>
->> diff --git a/arch/powerpc/platforms/pseries/eeh_pseries.c b/arch/ 
->> powerpc/platforms/pseries/eeh_pseries.c
->> index b12ef382fec7..28b1fd19e8bc 100644
->> --- a/arch/powerpc/platforms/pseries/eeh_pseries.c
->> +++ b/arch/powerpc/platforms/pseries/eeh_pseries.c
->> @@ -12,6 +12,8 @@
->>    * Copyright Linas Vepstas 2005, 2006
->>    */
->> +#define pr_fmt(fmt) "EEH: " fmt
->> +
->>   #include <linux/atomic.h>
->>   #include <linux/delay.h>
->>   #include <linux/export.h>
->> @@ -23,6 +25,7 @@
->>   #include <linux/rbtree.h>
->>   #include <linux/sched.h>
->>   #include <linux/seq_file.h>
->> +#include <linux/sizes.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/crash_dump.h>
->> @@ -786,6 +789,137 @@ static int pseries_notify_resume(struct eeh_dev 
->> *edev)
->>   }
->>   #endif
->> +/*
->> + * RTAS firmware error-type encodings (PAPR).  These are pseries- 
->> private;
->> + * user-space sees only the generic EEH_ERR_TYPE_* values from eeh.h.
->> + * Only IOA bus-error types are supported; other PAPR encodings are not
->> + * reachable through the generic EEH_ERR_TYPE_* UAPI.
->> + */
->> +#define RTAS_ERR_TYPE_IOA_BUS_ERROR        0x07
->> +#define RTAS_ERR_TYPE_IOA_BUS_ERROR_64        0x0f
->> +
->> +/* Size of the ibm,errinjct work buffer as defined by PAPR */
->> +#define RTAS_ERRINJCT_BUF_SIZE            SZ_1K
-> 
-> Wouldn't it be better to move this to the first patch where it is used?
-> 
-Yes. Addressed by merging 2/5 and 3/5.
->> +
->> +/**
->> + * pseries_eeh_type_to_rtas - Map generic EEH error type to RTAS 
->> encoding
->> + * @type: generic EEH error type (EEH_ERR_TYPE_32, EEH_ERR_TYPE_64)
->> + *
->> + * Translates the generic VFIO/EEH error type passed from userspace into
->> + * the RTAS-specific ibm,errinjct error type encoding defined by PAPR.
->> + *
->> + * Return: RTAS error type on success, -EINVAL for unknown types.
->> + */
->> +static int pseries_eeh_type_to_rtas(int type)
->> +{
->> +    switch (type) {
->> +    case EEH_ERR_TYPE_32:
->> +        return RTAS_ERR_TYPE_IOA_BUS_ERROR;
->> +    case EEH_ERR_TYPE_64:
->> +        return RTAS_ERR_TYPE_IOA_BUS_ERROR_64;
->> +    default:
->> +        return -EINVAL;
->> +    }
->> +}
->> +
->> +/**
->> + * validate_addr_mask_in_pe - Validate addr against PCI bus BAR 
->> addresses in PE
->> + * @pe:   EEH PE containing one or more PCI devices
->> + * @addr: PCI bus address to validate
->> + * @mask: address mask (passed to firmware unchanged)
-> 
-> Is the mask really necessary?
-> 
-No. It is only used to identify the no-address injection case
-where both addr and mask are zero. I'll move that check to
-the caller and remove the mask argument from this helper.
-> 
->> + *
->> + * RTAS IOA bus-error injection uses PCI bus addresses.  Linux PCI 
->> resources
->> + * are CPU/resource addresses and may differ on pseries due to PHB 
->> window
->> + * translation.  Convert each BAR resource to PCI bus address space 
->> before
->> + * validating @addr.
-> 
-> The same comment is also present inside the function. Could we drop one to
-> avoid duplication? I think keeping it inside the function would be better.
-> 
-> 
-Sure.
->> + *
->> + * Zero addr and mask are accepted without BAR lookup (no-address 
->> injection).
->> + *
->> + * Return: 0 if valid, -EINVAL on invalid input.
-> 
-> I think, -EINVAL otherwise. would be more accurate.
-> 
-Agreed.
->> + */
->> +static int validate_addr_mask_in_pe(struct eeh_pe *pe, unsigned long 
->> addr,
->> +                    unsigned long mask)
->> +{
->> +    struct pci_bus_region region;
->> +    struct eeh_dev *edev, *tmp;
->> +    struct pci_dev *pdev;
->> +    struct resource *res;
->> +    resource_size_t bus_start;
->> +    resource_size_t bus_len;
->> +    bool found = false;
->> +    int bar;
->> +
->> +    if (!addr && !mask)
->> +        return 0;
->> +
->> +    if (!pe)
->> +        return -EINVAL;
->> +
->> +    /*
->> +     * RTAS IOA bus-error injection uses PCI bus addresses. Linux PCI
->> +     * resources are CPU/resource addresses and may differ on pseries 
->> due
->> +     * to PHB window translation. Convert each BAR resource to PCI bus
->> +     * address space before validating @addr.
->> +     *
->> +     * Hold pci_rescan_remove_lock across the traversal to protect pdev
->> +     * lifetime: pci_stop_and_remove_bus_device() requires this lock.
-> 
-> Wouldn't it be more meaningful to explain why this lock is needed here
-> rather than listing other APIs that use it?
-> 
-Agreed. The lock is intended to protect the traversal against
-concurrent PCI device removal. I'll simplify the comment.
->> +     */
->> +    pci_lock_rescan_remove();
->> +    eeh_pe_for_each_dev(pe, edev, tmp) {
->> +        pdev = eeh_dev_to_pci_dev(edev);
->> +        if (!pdev)
->> +            continue;
->> +
->> +        /*
->> +         * Validate against standard BARs (BAR0..BAR5) only.
->> +         * ROM and bridge resources are not IOA bus-error targets.
->> +         */
->> +        for (bar = 0; bar < PCI_STD_NUM_BARS; bar++) {
->> +            res = &pdev->resource[bar];
->> +
->> +            /*
->> +             * Skip unassigned or disabled BARs.  On pseries,
->> +             * pcibios_fixup_resources() zero-bases unassigned BARs
->> +             * (start=0, end=size-1) and sets IORESOURCE_UNSET.
->> +             * resource_size() is non-zero for such BARs, and
->> +             * pcibios_resource_to_bus() treats them as bus address
->> +             * zero, so they must be excluded explicitly.
->> +             * Use pci_resource_len() which returns 0 when end==0.
->> +             */
->> +            if (!pci_resource_len(pdev, bar))
->> +                continue;
->> +
->> +            if (!(res->flags & (IORESOURCE_MEM | IORESOURCE_IO)))
->> +                continue;
->> +
->> +            if (res->flags & (IORESOURCE_UNSET | IORESOURCE_DISABLED))
->> +                continue;
-> 
-> Nit: Would it be better to check the above conditions before calling 
-> pci_resource_len()?
-> 
-Sure. I'll check the resource flags first.
->> +
->> +            pcibios_resource_to_bus(pdev->bus, &region, res);
->> +
->> +            bus_start = region.start;
->> +            bus_len = pci_resource_len(pdev, bar);
-> 
-> How the bus_len returned by pci_resource_len(...) is different from?
-> bus_len = region.end - region.start + 1;
-> 
-There is no difference for a valid BAR, as the translation
-preserves the resource size. I'll avoid the redundant calculation.
->> +
->> +            if ((resource_size_t)addr >= bus_start &&
->> +                ((resource_size_t)addr - bus_start) < bus_len) {
->> +                pr_debug("addr=0x%lx mask=0x%lx validated in PCI bus 
->> BAR[%d] of %s: bus range 0x%llx-0x%llx\n",
->> +                     addr, mask, bar, pci_name(pdev),
->> +                     (unsigned long long)region.start,
->> +                     (unsigned long long)region.end);
->> +                found = true;
->> +                goto done;
->> +            }
->> +        }
->> +    }
->> +done:
->> +    pci_unlock_rescan_remove();
->> +
->> +    if (!found)
->> +        pr_err("addr=0x%lx mask=0x%lx not within any PCI bus BAR of 
->> any device in PE\n",
->> +               addr, mask);
->> +    return found ? 0 : -EINVAL;
-> 
-> This check is repeated twice here. I think we can improve this. How about
-> restructuring the function as follows:
-> 
-> 
-> static bool addr_in_pdev_bars(pdev, addr)
-> {
->      for (bar = 0; bar < 6; bar++) {
->          len = pci_resource_len(pdev, bar);
->          if (!len || !is_mem_or_io(res) || is_unset_or_disabled(res))
->              continue;
-> 
->          pcibios_resource_to_bus(pdev->bus, &region, res);
->          if (addr >= region.start && addr - region.start < len)
->              return true;
->      }
->      return false;
-> }
-> 
-> static int validate_addr_mask_in_pe(pe, addr, mask)
-> {
->      if (!addr && !mask)
->          return 0;
->      if (!pe)
->          return -EINVAL;
-> 
->      pci_lock_rescan_remove();
->      for_each_dev(pe, pdev) {
->          if (pdev && addr_in_pdev_bars(pdev, addr)) {
->              pci_unlock_rescan_remove();
->              return 0;
->          }
->      }
->      pci_unlock_rescan_remove();
-> 
->      pr_err("addr not in any BAR of PE\n");
->      return -EINVAL;
-> }
-> 
-> 
-> Splitting out the BAR check gets rid of the goto and the found flag.
-> The lock and unlock now sit around one simple loop.
-> 
-Agreed. I'll split the per-device BAR lookup from the PE
-traversal as suggested, with the no-address check moved to
-the caller.
-> - Sourabh Jain
-> 
->> +}
->> +
->>   /**
->>    * pseries_eeh_err_inject - Inject specified error to the indicated PE
->>    * @pe: the indicated PE
-Thnks,
-Narayana Murty.
-> 
+> base-commit: 4862a81576e3b20ba40cb94a38c5df0450047ffe
+
+Looks good to me.
+
+Reviewed-by: Baolin Liu <liubaolin@kylinos.cn>
 
