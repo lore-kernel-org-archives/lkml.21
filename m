@@ -1,77 +1,81 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195317;
-	b=1UL6zIcZiHxeNq1Eke5AwPOG4Fv7eTOlcFmg+GxZJrpcGskZpH8jK3YxZNv+qi+v7ARF
-	 P8OnvW0lku7aYgdwkInEXKteT8EOR2WWaRk2TLJRFCGgwJlUEmlv9cqvUOKXPl6uBsalP
-	 XHvs5LeMf/IhhElIfZBxQklmyAFFi2q7/z4rFKJEoCjghb+f3HTZGR98oWhTTabFFlKnS
-	 yjBJnVwPZ7GWXKyYfUTfniRjch+666rmyb/6AYACD6xzB1LkztFGe+3v/XZGlbvqyewqc
-	 udTCmoMZlK4GWzv4IiZOweiEi6TNBouiPjk4Nh/PQOOtmb3c3fswGeEKZ2/1/JKAvlw==
+	t=1795195323;
+	b=tHF8O51nscjf/rhwGKXeJoY/fUOaS0MBVEeTcj2kNCCSWsjHSXsmChBoDDnTrXZEovvf
+	 Uae+9X1hT0ryScTzdGrgomnLL98Qpa5RNi6VJ0Mx5hkPXRqNKOxwVqwl0uXE4T4DV6sy0
+	 4KBUqLI8ww6fXrOL/mogBSbcoKdUD1wP9mMVE4a6Hag6e0TnXY4zcY23GVOIfGQeKXBM3
+	 FVJxBds5rHUTro1ZSOGEir1w6hJTL1N58Np2Y2p+7CC9pSImG3mqZI6ZZbvmWFa1uRkre
+	 U6/SuRqBE6JBWLWj9g3HQgr6ATm75n2NjpeCuceJ9xt0FzobfXmhMCcrzmiNI6R4A4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195317;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195323;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=eNJi32jsOUeI0a+mS+BuIXo9uhP1MNfPB9zj3Flf6JI=;
-	b=n+9sQVR6hNYz3bG2dzM2KM68a091ofe1NqHlUs6j3EyNxGHTdWooNAz8zcw3JyN/dL35
-	 g2ltxW7W0Yp33L9optlUS34x7GEDzH/k4HrA3HV8PtWTDF+eoUen26haHZOUSqclk0xOc
-	 Zbwx7JvMbAMj5XLyNN9OGYejv7Oz766a5g/tj385HnDQfLfEIiGleY0ez4UsT8o3jApD3
-	 JNeFpvuK2gAwJOnyvpduxCFmxc3wq1e44vSeJ4Vd3zcbk64RyBlbcRhPCd/wEWRoRCDW9
-	 wwCNGDXJHCXguSfINwvuIEPsVxLShSBAha+R2/NsrgZfHp5rx+At+kg6oukLtgZD3Tw==
+	bh=0LKEXFrrcZbW1+QLpKx26etI8mlbufN440M5sguwo+w=;
+	b=0U3l1V1qDIHfnC6A+sNjakZcHA4nq6ro7dkJLQ3pFLr8ZaF0E0EDGPF5q6Lo9yemL6ly
+	 j9ko7D15Z/adzNL42Aj6CXAP+1OYWBbZHrU1TwCXPGKEl3V6xx8tHW9T5/Yszuzlu39Kj
+	 5FaM5jyq8XsXehKmzpoMBxCddoYIidCRkzI1KRF8NML/+Iuf7fVpHd6NSLwRPAWJs4g2F
+	 ZRPKhQfxBF6kSs+n1j6PxiCOs/Nsh/TXHv1i4iFc+ZKqud6Fo7IX4DX8NEBBZqKbeYjPm
+	 36qjuQ+4Oorugz6x67m/2tniwfslk8IRcwq9BGISwb8xC9AFRfrODNxKGK3xmkpRl5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZAY+a6Wc;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jemN50dd;
 	arc=none smtp.remote-ip=198.175.65.21
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EF8760A3830;
-	Fri, 20 Nov 2026 17:21:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EF8760A3830
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0F9C606A74D;
+	Fri, 20 Nov 2026 17:22:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0F9C606A74D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ZAY+a6Wc
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jemN50dd
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795195316; x=1826731316;
+  t=1795195322; x=1826731322;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=OtgaCOIPcBtG72QPC3w1ZxGpufev+KmP9NUxb6QjjiM=;
-  b=ZAY+a6WcZrIHikHK95kBA0AGMIaHwPNPvX1lEd5CcPzuMABsuB92n0Kj
-   joSAS1zUsabVB4RIwLWxlj+ffMdc5BHoa4n5VqKpjC0ZNrLj3dDAXtKAV
-   BbWjCIOlrZNhk6+z2INzDN3FSY3V3TbqgrKwBrGIVx8PUk5ETdMmLS+qk
-   VJ8CjahPsAP4+LpdVjkMfJuA5fqItrPWKT1BUm3f8Ht4T65ulk4GFQHOF
-   q2+UsTLu3yafs3Kh6u+xadLU7nshSbd8HOUdHPIP8+f/unsKSaeWwPIKJ
-   jY8lVz/cM8mxqSM8QJtopddrcEI9MFp3Dm2Z0VKYMsZ2dUGwuTzquxKEN
-   A==;
-X-CSE-ConnectionGUID: z0abGijuTPKPIUngfxKFdw==
-X-CSE-MsgGUID: Wppbu06eTYemfYVnb4gzfQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157564"
+  bh=1+dMsLN5Kt4kDicrj1HTOeOb8hIYjWrACVK+Yeit25w=;
+  b=jemN50ddr4lLOw85mxqkML3FlO85ct37nfyabNTnLx9J8VJfbAxOTr3K
+   V5ZTdkuKHGO2nhmeGxplBetukgTCipUQ/Hkgyd+BKlfAQB61TwvrDFuNj
+   5oaTu/vyg+fUP0TeXpXqB3k6Eh3pbxRod9KOoXcC2MAkewvNRcV8Ilu7B
+   NB+MHFTcrQzHZ8mHsaB0NGDxHUGWx55jLSz3/GTEXXyl/kgoufevW2e5K
+   gMZtoPOLuc9cypgnZsYsp4y4yAFuP0AqRnku24qkkmH5JMdc6RjB9DGdV
+   UDjUAtTCnIyl4/YGk95BgiTZotsG6jcgZCVkNTCquT3nU3koaQHn5yXTB
+   g==;
+X-CSE-ConnectionGUID: HHqHv1JkSaKtqwJAueCXGA==
+X-CSE-MsgGUID: Ta/AiJ5yRXqlsufwz/zSVg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157595"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4157564"
+   d="scan'208";a="4157595"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:50 -0800
-X-CSE-ConnectionGUID: kKaMaBx4TPKiSmeb9Y6+XQ==
-X-CSE-MsgGUID: jW6musAvSKWh2Sd6ej5LzA==
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:22:02 -0800
+X-CSE-ConnectionGUID: uSpSYkXmTLuuLmbG3SA/hA==
+X-CSE-MsgGUID: X3+1Fwh5TXON5OvU+ODs/Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10868244"
+   d="scan'208";a="10868289"
 Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:47 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:59 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
 	Pawel Chmielewski <pawel.chmielewski@intel.com>,
-	Len Brown <lenb@kernel.org>
-Cc: linux-acpi@vger.kernel.org,
+	Len Brown <lenb@kernel.org>,
+	Kyle Pelton <kyle.d.pelton@intel.com>,
+	Bob Moore <robert.moore@intel.com>,
+	Erik Kaneda <erik.kaneda@intel.com>
+Cc: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 35/42] ACPICA: events: Handle GPEs' Notify dispatch type
-Date: Fri, 20 Nov 2026 18:18:56 +0100
-Message-ID: <89657fbf116a900dccae0594c675fb0259032d8f.1795194329.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH v2 39/42] ACPICA: dispatcher: Fix zero size non-NULL PCC buffer pointer
+Date: Fri, 20 Nov 2026 18:19:00 +0100
+Message-ID: <2747c1067c076700bb55a4e9f76a30905ce400ed.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
@@ -86,233 +90,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The NotifyList is a list of devices that are tied to a single GPE. All
-devices on the list shall be notified if the GPE fires. Devices can have
-different parent tables - for example a DSDT can own some devices while
-a separate SSDT can own a couple of different ones.
+Zero sized PCC buffers still get allocated, so they pass the null checks
+and can cause writes to unallocated memory.
 
-GPE dispatch can be of the Notify type. When it is, the cleanup consists
-of removing devices from the GPE's device NotifyList - but only the ones
-that match the ID of the table that is getting unloaded. One also has to
-check the option of the NotifyList being stored away in the handler
-MethodNode pointer, similar to how the Method type is treated.
+Skip the allocation if the region length is zero or the
+AOPOBJ_DATA_VALID flag is not set as otherwise the disassembler will
+emit warnings on every PCC Field().
 
-Freeing the GPE notify info entries tied to device nodes taken off the
-NotifyList should happen after the spinlock is released as some
-platforms can't handle freeing/allocating when holding spinlocks.
-
-Link: https://github.com/acpica/acpica/commit/c0a1faa4e478
+Link: https://github.com/acpica/acpica/commit/0f58983617c2
+Fixes: aa6ec56b574d ("ACPICA: ACPI 6.3: add PCC operation region support for AML interpreter")
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- drivers/acpi/acpica/evgpe.c | 146 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 146 insertions(+)
+ drivers/acpi/acpica/dsfield.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/acpi/acpica/evgpe.c b/drivers/acpi/acpica/evgpe.c
-index 5c283a2faaf0..be48b8d1837f 100644
---- a/drivers/acpi/acpica/evgpe.c
-+++ b/drivers/acpi/acpica/evgpe.c
-@@ -535,6 +535,96 @@ static void ACPI_SYSTEM_XFACE acpi_ev_asynch_execute_gpe_method(void *context)
- }
- 
- 
-+/*******************************************************************************
-+ *
-+ * FUNCTION:    acpi_ev_notify_list_has_owner
-+ *
-+ * PARAMETERS:  notify          - List of notify dispatch events
-+ *              owner_id        - Table owner_id being unloaded that should match
-+ *                                one of the notify device nodes on the list
-+ *
-+ * RETURN:      Return TRUE if at least one of the device nodes matches the
-+ *              passed owner_id. Return FALSE if all notify list objects don't
-+ *              match the passed owner_id.
-+ *
-+ * DESCRIPTION: Check whether at least on object on the notify list matches its
-+ *              owner_id to the one passed as a function parameter. That means
-+ *              that at least one device has ownership over an object on this
-+ *              notify list.
-+ *
-+ ******************************************************************************/
-+static u8 acpi_ev_notify_list_has_owner(struct acpi_gpe_notify_info *notify,
-+					acpi_owner_id owner_id)
-+{
-+	while (notify) {
-+		if (notify->device_node->owner_id == owner_id) {
-+			return (TRUE);
+diff --git a/drivers/acpi/acpica/dsfield.c b/drivers/acpi/acpica/dsfield.c
+index 5d0dfe4ff8e8..d091453eea93 100644
+--- a/drivers/acpi/acpica/dsfield.c
++++ b/drivers/acpi/acpica/dsfield.c
+@@ -530,6 +530,18 @@ acpi_ds_create_field(union acpi_parse_object *op,
+ 	if (info.region_node->object->region.space_id ==
+ 	    ACPI_ADR_SPACE_PLATFORM_COMM &&
+ 	    !region_node->object->field.internal_pcc_buffer) {
++		/*
++	   * If AOPOBJ_DATA_VALID flag is not set the region operands is not
++	   * evaluated (e.g. disassembler), nothing to allocate.
++	   * Also avoid a zero-size allocation which may yield a non-NULL pointer
++	   */
++
++		if (!(info.region_node->object->common.flags &
++		      AOPOBJ_DATA_VALID) ||
++		    (!info.region_node->object->region.length)) {
++			return_ACPI_STATUS(AE_OK);
 +		}
-+		notify = notify->next;
-+	}
-+	return (FALSE);
-+}
 +
-+/*******************************************************************************
-+ *
-+ * FUNCTION:    acpi_ev_unlink_notify_list_dev_id
-+ *
-+ * PARAMETERS:  owner_id        - Table owner_id being unloaded that should match
-+ *                                the devices on the notify_list.
-+ *              notify_list     - Address of the notify_list from the GPE
-+ *              to_free_list    - Address of a struct acpi_gpe_notify_info pointer that
-+ *                                will later be used to free the device objects
-+ *                                from the list that match the owner_id
-+ *
-+ * RETURN:      Return TRUE if the original notify_list was emptied after the
-+ *              unlinking is done. Return FALSE otherwise.
-+ *
-+ * DESCRIPTION: Helper in processing the notify_list during table unloading.
-+ *              notify_list can contain devices from other tables. Only devices
-+ *              from the table currently getting unloaded should be cleared from
-+ *              this list. This helper parses the list and moves nodes that
-+ *              match the unloaded table's ID to a separate single linked list.
-+ *              That list shall be later freed node by node. It shouldn't be
-+ *              freed immediately as freeing/allocating should be avoided on
-+ *              some system when the global spinlock is held.
-+ *
-+ ******************************************************************************/
-+static u8
-+acpi_ev_unlink_notify_list_dev_id(acpi_owner_id owner_id,
-+				  struct acpi_gpe_notify_info **notify_list,
-+				  struct acpi_gpe_notify_info **to_free_list)
-+{
-+	/* Cursor pointer that will move through all notify_list nodes addresses */
-+	struct acpi_gpe_notify_info **notify_pointer = notify_list;
-+	/* Currently looked at structure in the loop iteration */
-+	struct acpi_gpe_notify_info *node = *notify_pointer;
-+
-+	/*
-+	 * Go through all Notify structures to find devices matching the owner_id
-+	 * that is getting unloaded
-+	 */
-+	while (node) {
-+		if (node->device_node->owner_id == owner_id) {
-+			/* Modify original list by unlinking Node */
-+			*notify_pointer = node->next;
-+			/* Link the unlinked node to the to-be-freed list */
-+			node->next = *to_free_list;
-+			*to_free_list = node;
-+		} else {
-+			/* Move the cursor one node further */
-+			notify_pointer = &node->next;
-+		}
-+		/* Grab the next node or NULL if there is no more */
-+		node = *notify_pointer;
-+	}
-+
-+	/*
-+	 * If the original list was emptied return TRUE so that the caller knows to
-+	 * move the dispatch type from Notify to None
-+	 */
-+	return (*notify_list == NULL);
-+}
-+
- /*******************************************************************************
-  *
-  * FUNCTION:    acpi_ev_dispatch_type_hidden_handler
-@@ -560,6 +650,7 @@ acpi_ev_dispatch_type_hidden_handler(struct acpi_gpe_event_info *gpe_event_info,
- {
- 	u8 gpe_dispatch_type = ACPI_GPE_DISPATCH_TYPE(gpe_event_info->flags);
- 	struct acpi_gpe_handler_info *handler;
-+	struct acpi_gpe_notify_info *notify;
- 
- 	switch (gpe_dispatch_type) {
- 	case ACPI_GPE_DISPATCH_METHOD:
-@@ -570,6 +661,13 @@ acpi_ev_dispatch_type_hidden_handler(struct acpi_gpe_event_info *gpe_event_info,
- 		}
- 		break;
- 
-+	case ACPI_GPE_DISPATCH_NOTIFY:
-+		notify = gpe_event_info->dispatch.notify_list;
-+		if (!acpi_ev_notify_list_has_owner(notify, owner_id)) {
-+			return 0;
-+		}
-+		break;
-+
- 	/* Method or Notify can be saved if the handler is present */
- 	case ACPI_GPE_DISPATCH_HANDLER:
- 	case ACPI_GPE_DISPATCH_RAW_HANDLER:
-@@ -584,6 +682,14 @@ acpi_ev_dispatch_type_hidden_handler(struct acpi_gpe_event_info *gpe_event_info,
- 				return 0;
- 			}
- 			break;
-+		case ACPI_GPE_DISPATCH_NOTIFY:
-+			if (!acpi_ev_notify_list_has_owner(
-+				    ACPI_CAST_PTR(struct acpi_gpe_notify_info,
-+						  handler->method_node),
-+				    owner_id)) {
-+				return 0;
-+			}
-+			break;
- 		default:
- 			return 0;
- 		}
-@@ -620,6 +726,8 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
- 	acpi_status status = AE_OK;
- 	u32 gpe_dispatch_type;
- 	struct acpi_gpe_handler_info *handler;
-+	struct acpi_gpe_notify_info *list;
-+	struct acpi_gpe_notify_info *free_list = NULL;
- 
- 	ACPI_FUNCTION_TRACE_U32(ev_clear_gpe_dispatch_by_owner, owner_id);
- 
-@@ -708,6 +816,20 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
- 							ACPI_GPE_DISABLE);
- 					break;
- 
-+				case ACPI_GPE_DISPATCH_NOTIFY:
-+					if (acpi_ev_unlink_notify_list_dev_id(
-+						    owner_id,
-+						    &gpe_event_info->dispatch
-+							     .notify_list,
-+						    &free_list)) {
-+						gpe_event_info->flags &=
-+							~ACPI_GPE_DISPATCH_MASK;
-+						(void)acpi_hw_low_set_gpe(
-+							gpe_event_info,
-+							ACPI_GPE_DISABLE);
-+					}
-+					break;
-+
- 				case ACPI_GPE_DISPATCH_HANDLER:
- 				case ACPI_GPE_DISPATCH_RAW_HANDLER:
- 
-@@ -725,6 +847,22 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
- 							~ACPI_GPE_DISPATCH_MASK; /* -> NONE */
- 						handler->originally_enabled =
- 							FALSE;
-+					} else if (gpe_dispatch_type ==
-+						   ACPI_GPE_DISPATCH_NOTIFY) {
-+						list = ACPI_CAST_PTR(
-+							struct acpi_gpe_notify_info,
-+							handler->method_node);
-+						if (acpi_ev_unlink_notify_list_dev_id(
-+							    owner_id, &list,
-+							    &free_list)) {
-+							handler->original_flags &=
-+								~ACPI_GPE_DISPATCH_MASK;
-+							handler->originally_enabled =
-+								FALSE;
-+						}
-+						handler->method_node = ACPI_CAST_PTR(
-+							struct acpi_namespace_node,
-+							list);
- 					}
- 					break;
- 
-@@ -740,6 +878,14 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
- 	}
- 
- 	acpi_os_release_lock(acpi_gbl_gpe_lock, flags);
-+
-+	/* Free the free_list elements from the Notify path */
-+	while (free_list) {
-+		list = free_list->next;
-+		ACPI_FREE(free_list);
-+		free_list = list;
-+	}
-+
- 	(void)acpi_ut_release_mutex(ACPI_MTX_EVENTS);
- 	return_ACPI_STATUS(status);
- }
+ 		region_node->object->field.internal_pcc_buffer =
+ 		    ACPI_ALLOCATE_ZEROED(info.region_node->object->region.
+ 					 length);
 -- 
 2.56.0
 
