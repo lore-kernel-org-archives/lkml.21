@@ -1,71 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187689;
-	b=i8Ko2YhJBRv2Khli4BqfM9rytPvYjhWdey1dUN96vLUOYZlG3ZQ3TXPJKm5e0X6RofH0
-	 aP2lSYbuFqVPxZOYITtY/bHeTHZiLeA6GIZzevi2gbY4VAvoMAfGdvIg1BYSSWFAlhPNR
-	 GqathTZ7fni7tslexGan+6M90XNOEeCUDdZ1Yi3Yfvsfk1AkNnTwUUxbmYgF0GcdTQMfp
-	 SVI7S9dfhO5PCEyGdZkqcVZmpnKYJbroX4soIPWWaoCLKbSN6/ItOiBft8nrgZKKNYyC0
-	 WTuyhtdEQXp8rNA/zqPuFyQC5L8RQbzWOVOjogWH4b0zgGtItKz8fLFb4toAguf90rg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187689;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Subject:From:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:
-	 X-Last-TLS-Session-Version;
-	bh=c4Z9yGuax/8NR1BznxmdHxIivPIjV06ghC9n97sXVMc=;
-	b=KyyDYQsH07GrgOTSGdXnwJ6vDWUE8u/OH+5/y+9t9SroTV7lzC7ZvkJ5ybqeHudKmapf
-	 2dzHYVTHltkvmuFpcWLmXtcZfD9BAhnzRKV5ENIMzJoO45UPmwdb8uQJhBDkAl1AcDDM2
-	 /ygkokcPsNYQDZrWyM6YYrmFND9kS+E8/MsnuyNO+tZvcDQCshhDWOGgVMeYN/zla6jaI
-	 gFjLqKEUR4Jq20STGzpTLeOytaPnzdJwArF8BawwXIJdacOA5E3lMTyDswRO61taE6C1f
-	 Er4iMKvkPGR6v4MfERyRlesLm4AOXIH/23YV47UVidt3tMj84Atw2fWLQXXrnHPpiWw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qP3K5iFW;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795187718;
+	b=yCpXKb2+WAdGB5sh2lxHSwerwRORj0wf79swvh0HN4lIWccfAGLGTzi3mV1icZbS3oVn
+	 7hfV/uSRPsmWe+T0jsrj/fvZRmjElkBRvMX+acPj5MHK5ppuePD3ij/2od3MWxL6ioUZ7
+	 8nT1vlYlN9mo+k6DHL6e7/DOF3qTmRc9yZ9BzbCGl1D8b9TkUV+U4M4O1ryp4UmHhT5Or
+	 VQOrVTDqXe2zB5bgWzTWPNHHgajtj1AM3sIXpOpalCKL/Ec/xpOUwpHaIeG7Y0ls2H54X
+	 OnsUmDi+4hgt1B/mS2ZxGQJlBxCayNuLjnbrWXWUeyU0i8xhSel4h+dbXlcCx4owTYg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187718;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+PMgx4pqXLlAAf284WBbeP+ZtkTL8k9uBtgLQ7cbjKo=;
+	b=GPd84I6yvbBF5zXs79ErD2k7xRRl+VdpJzdaEm5PmBc2q+oJ9cwqidDHCGd/tHCO3WN/
+	 MO8c8ZrCj5SttV1j7aeDwpzFzF9jjO90T8lIMVFhhdJbbeO90blu7UoPIjGjKybbQFw12
+	 ppnIWwmAYLWK99zYBppGD1X8tlNi88QKz4RtKaMDDA5Ihlw4XyxSdnJo6ceO+F8mbQeP2
+	 WTVpQRjnUfOYmynj/sPGi8+PJ0Oih69mFH+U8uAQPJGOvEnc4tykfqc+L+MWzwIVokB9w
+	 Npq69wfE0hli7ykhYQtSYB7Hhsgb3AFsH7ehD9FUUCu+Rqqq4Eg6OFUKDU/hBCFzwgw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WB6veaaT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3981D606A32A;
-	Fri, 20 Nov 2026 15:14:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3981D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3907606A338
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:15:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3907606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=qP3K5iFW
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 95F0E1A1739;
-	Fri, 20 Nov 2026 15:14:47 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 64637601B9;
-	Fri, 20 Nov 2026 15:14:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7CCA511BC0335;
-	Fri, 20 Nov 2026 16:14:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795187682; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=c4Z9yGuax/8NR1BznxmdHxIivPIjV06ghC9n97sXVMc=;
-	b=qP3K5iFWwUKZwIQKOP9+wMMMEfmEjshq5oP054+bmu2JyLKtD0QR5NC9lf76y0NiPFLWU0
-	TsiGBvknc+ag9cbrXCdGHc8nz8bJR05lx2uwRZ/kO9z2xqN0bm6a1QmYB4NlMr4mYD/uSW
-	KNDEUD8rdlrSbKndfYWTzHmqqyVAMAVHwHqGe9gphJOclw39r9N0owsORjQIlNZ1f5oVei
-	Y3LsPlEHRvrsdUvcoBnzzQI/RhNLKqfSGdt0Ps4UTbBfjSb1+XB3QsP+MklkVt9oBH5cuA
-	NaKMNA0k7flFUWpx3vKHLltVcYo4Xqr94UFfw0L94GMe6MRtZ+YjmnytNfBlrQ==
-Message-ID: <fa5f43740321588aad8a5125eafd947c27a2f613.camel@bootlin.com>
-Subject: Re: [PATCH v4 0/2] ACPI: platform: ACPI 6.5 fixed clock support
-From: Paul Cercueil <paul.cercueil@bootlin.com>
-To: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Cc: Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thomas Petazzoni
-	 <thomas.petazzoni@bootlin.com>
-Date: Fri, 20 Nov 2026 16:14:37 +0100
-In-Reply-To: <CAJZ5v0i4ybwsOKfj_LS_m7EL-AYAhPQJmLNWBm8gdZ5uvfcJug@mail.gmail.com>
-References: <20261120125722.209609-1-paul.cercueil@bootlin.com>
-	 <CAJZ5v0i4ybwsOKfj_LS_m7EL-AYAhPQJmLNWBm8gdZ5uvfcJug@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WB6veaaT
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6b894d9a075so1149998a12.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:15:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795187716; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lAou72WBCLHJ3RjunHvGyOI1qjRtchwA37pniAR2BdKBb4A4+8dW7Am/xsIKCfr/v4
+         lnymG3abCnSbB2pExtrEgaI1FYCxN9Zzn9nHatO6q6Dn/mt1xW83b3peyGl+9792Jx17
+         Pmtosc+9H7sOLiICvf0ZHBorE+tIBIrx+LLA2jTOEG5+euHyXrvHEUjInfUrkVpS2Zt7
+         H99lBur+ScAmNnzJcfHQdZLfXbVVhJYlDd1RF15XJ/H6eK67Mi2J9CqI1uMwpvA28F41
+         aBqaa+PFfNl/UxpfXM80se3F04dVXQ56RUPYtKqJEZhyX7OaeaSMDLhYA1RTj5oCQmUK
+         0kYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+PMgx4pqXLlAAf284WBbeP+ZtkTL8k9uBtgLQ7cbjKo=;
+        fh=ImnIK8QyN+Pd6STqJtOe55x53fgvr52mSvsiIxn87zQ=;
+        b=hOSXLFDNvCaaO2GBG7L3lu0J2yuAdVOvB+iCkqenO0ccIOcBFajMVRga+szsJFjvwH
+         twEet6W8rdMV7UHAywtGPIBhNpICpaGzc4qJ2llrOVJXY+5uH8mplFm+4hutn8gBzyJS
+         A+MFnXdxCTIppN2TKu+UUXHSa65W9S5IKjpKNJhI9/24WlBUzFn7HRk6rp7MJKMGGU0C
+         K+8+UN8ith9KWxek/7jbwkFcPG/u/RLDOQzJEkC/yoH4hMN2NhqV1IjHjQtfb6jvDXEu
+         M/ulJ1LKNg+oXQ50BbEiaWClhB28RATGu8KZDz8r7HRdDDKCmyJrR2ci5Q7j6ntTj6m7
+         eVVA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795187716; x=1795792516; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+PMgx4pqXLlAAf284WBbeP+ZtkTL8k9uBtgLQ7cbjKo=;
+        b=WB6veaaT7RD6KXcb4FqtmeXHtv5W/X9xGJYDEGOMSVxam1yIpCuTjCg5pRiQbqFjMZ
+         3bhdNk5JPtVQQmso9lVZDuxFUviFSzN10ptFZrUkaOA+9sAqTwPVQ6qaePSivqT+NfcG
+         p8fjKrnua2EQdl/GVeB+e94SAgIoKUy3qBJPd/c7SnOwTY/nNRsUX0/bmzwkWkI0VJPB
+         dnX/nSPgBoj5BRjUmSR0ANL2F1BhoLtEswxF8nyzPqYmpNUoYn4CRGquYinQtxscBMHH
+         w7QqMpYAheZcTRm328UP0sj8yOIpaLIXBgFVj99wv1h+CB3Sp0ppP0+wjqraXewczOLe
+         7liQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795187716; x=1795792516;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+PMgx4pqXLlAAf284WBbeP+ZtkTL8k9uBtgLQ7cbjKo=;
+        b=YVyTaS8GkX1KzdCtz5rfqW2N/L3dvZp0U8u6kMOTAdZJYXkpikzYFmex1sDqf3Sdd9
+         aQPArosixB8Z5eh5QmX4RVjK09AtgHt8+e45dGUP4fict1nTQ//PHR5Ol7+ib0RkhPJU
+         YjwqVUWwp0HDryTsPD0bCvKPwcKzqGjFL0YjXvx5GW1oBc4wABUa260nhXj5FddIhehQ
+         CYUuIy3xLYFW296UiPd6/yoTAboBRXLOUDcmPbBGN692+8QzJ3aD1CMChW0kIq1c+c5u
+         NT7CjolhrZlAmPV+A1FlYwuTvYUCogUQ+4xRz9Dq6p8SWHRExjCF2lSnNWWITXBMlZFm
+         G3yw==
+X-Forwarded-Encrypted: i=1; AL+hErFA2Yz+zOCALSd6b4QfGocqg5d1WTZAgio7NDKMB2L0X/uokPNJqlahiDejK/RBmNP0Woy6uZesancVZs8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xgGBcTSY6NNUhUbJ9Vh8Yxukz9rezepnevCmEVQk58/USeuLF
+	ThuLfKQ/K2D9lnVX6qmnUZkBcZfd6rpbomnBi7NvtbjelUZc2dZrVUbuXs6fbByNBSAjAlz13j1
+	ChHedbNAwBBE2l5J9yCw0v2xNbBrKBi+rq3NrpSQ=
+X-Gm-Gg: AZFdTZfiAcP4PgaqaNkR8+W2YzGiVFq2vHLbqJyyVdJwc4H3CyJc0etFzWQET8o3Kpn
+	uJWaMb+gxjSqwWLGj6GSIjuYr+oqSPfqdCnefWQkh4CGNr/gswTCfbPJHVGoaCeqss78ocfMoZ5
+	yVkhs1AUfZCq7UIK3QmoseTA8FMiCZP3ePSEu2dcQ2j5/jKUQnk//GeGStDB7+BSb/XUTltc/1V
+	IvmTEwrsdtlUTvz07S8OrMoFYdmgxokNF7C9g/zCAs0dR2Af9YGTeT5uV3bdHYxReb6lsHRCPNx
+	2su5I1zC+wn7x7H+AHnKWq9AXDqbEyQE8SdbYiXmEBGEhpdaws+bMAH++Acyzs3P1tppbdsv7ow
+	x9juFOKZFgQf3jlW6R2P8NNU46QFFsrQDMelGV98=
+X-Received: by 2002:a05:6402:5516:b0:6b6:ef7f:600d with SMTP id
+ 4fb4d7f45d1cf-6ba37e74244mr2491665a12.21.1795187715950; Fri, 20 Nov 2026
+ 07:15:15 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -75,69 +103,49 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Last-TLS-Session-Version: TLSv1.3
+References: <CAFnufp1LcTCLtCrd=iLxD7DPaOouov=BW=Scj_yXJ+Pn96RKLQ@mail.gmail.com>
+ <20261120051457.47753-1-dingf3ng@gmail.com>
+In-Reply-To: <20261120051457.47753-1-dingf3ng@gmail.com>
+From: Matteo Croce <technoboy85@gmail.com>
+Date: Fri, 20 Nov 2026 16:14:39 +0100
+X-Gm-Features: Aa3M54pn-HG5H7a41MND4h2x3VzprW_q2-HWoQeLPusNnhR_Ijaw1bfAmJZdQ8s
+Message-ID: <CAFnufp2Tp8x-wddZBpvzFP7brKWU_b9A2kFN=84x0Qy8K9uA6A@mail.gmail.com>
+Subject: Re: [PATCH] fs: fix overflow check in rw_verify_area()
+To: Ding Feng <dingf3ng@gmail.com>
+Cc: Christian Brauner <brauner@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Rafael,
+Il giorno ven 20 nov 2026 alle ore 06:15 Ding Feng
+<dingf3ng@gmail.com> ha scritto:
+>
+> Hi Matteo,
+>
+> On Wed, 24 Dec 2025 at 00:28, Matteo Croce wrote:
+> > Following a discussion on the coreutils mailing list[1] I think that
+> > this should be fixed differently.
+> > I'll be back with a v2.
+>
+> This is still present in v7.4-rc3 (65e4fd942). On a 100-byte tmpfs
+> file, a read that starts below LLONG_MAX but would end past it fails
+> instead of returning 0 at end of file:
+>
+>   preadv2(fd, 200 bytes, pos = LLONG_MAX - 50) = -1 EINVAL
+>   preadv2(fd,  50 bytes, pos = LLONG_MAX - 50) = 0
+>
+> sendfile() with *offset near LLONG_MAX fails the same way.
+>
+> Are you still planning a v2?
+>
 
-Le vendredi 20 novembre 2026 =C3=A0 15:31 +0100, Rafael J. Wysocki (Intel) =
-a =C3=A9crit=C2=A0:
-> On Fri, Nov 20, 2026 at 1:57=E2=80=AFPM Paul Cercueil <paul.cercueil@boot=
-lin.com>
-> wrote:
-> >=20
-> > Hi Rafael, Russell,
-> >=20
-> > Here's the v4 of my patchset that adds partial support for ACPI 6.5
-> > clock resources.
-> >=20
-> > Sashiko complained about the clock names being too long still, as
-> > ACPI device names can be up to 17 characters and the limit of clock
-> > names is 16 characters; so I now name them "acpi-clkX".
-> >=20
-> > Note that I expect warnings from Sashiko that I got on my v3 and didn't
-> > correct, because they are bogus.
-> >=20
-> > On the clkdev patch:
-> > "When clk_find(dev_id, NULL) is called, does incrementing match here
-> > give a (dev_id, con_id) entry a higher score than an exact
-> > (dev_id, NULL) entry?"
-> >=20
-> > My answer is that you call clk_find(dev_id, NULL) when you know you onl=
-y
-> > have one clock provided, so you don't need to care about matching
-> > priorities.
->=20
-> Sashiko has a new comment on the first patch though:
->=20
-> https://sashiko.dev/#/patchset/20261120125722.209609-1-paul.cercueil%40bo=
-otlin.com
+Hi Ding,
 
-Yes, Sashiko came back to the charge with better arguments this time.
+I think that the only solution is to create an helper
+(rw_clamp_count?) which clamps the value and use it with
+iov_iter_truncate().
 
-Sadly it seems to be correct, if I change the behaviour of clk_get(NULL) I =
-will
-break some drivers that rely on it not finding named clocks.
+I'll prepare a v2 soon.
 
-I can pass NULL as the con_id to clk_hw_register_clkdev() and then I can dr=
-op
-the first patch. Then, I guess register any other clock for the same device=
- with
-the "acpi-clkX" con_id.
-
-> > On the ACPI patch:
-> > "Should the con_id argument to devm_clk_hw_register_clkdev() be NULL
-> > instead of name? [...] Setting con_id to "<dev_name>-<idx>" instead of
-> > NULL prevents wildcard connection matching in clk_find(), so any
-> > consumer driver calling clk_get(dev, con_id) with a non-NULL con_id
-> > fails with -ENOENT."
->=20
-> This time Sashiko complains about something else in this patch AFAICS
-> (link above).
-
-It looks like I need identifying names for devm_clk_hw_register_fixed_rate(=
-),
-and those don't need to be 16-chars long (that's only for clkdev) - so I'll
-restore my "<ACPI_ID>-clkX" naming scheme there.
-
-Cheers,
--Paul
+Regards,
+-- 
+per aspera ad upstream
