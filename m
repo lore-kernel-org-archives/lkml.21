@@ -1,108 +1,44 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180046;
-	b=T98fDWGem1y/JBBIJqm4TRPTddMDoV8uX3BwxgS6oTjqODoH9O9JFnGVUtXFnE4dvDQ5
-	 EX3VUPgiHsBmwxnMTwYYcnAGxxtyspXChLm6tbiIIHGkY5TDAT0t/6tJBusdBK0T+yML/
-	 jUpf2354yG//Qo8sRGpdf6foBIxmCaoVS8qCbDlgfc25sjqerT6zQRG4JFWTS1W3s1Fum
-	 h+VMTd2imZAgZdglkHFrortc9/xzNFxkOTxpMGSA49KaP7nCRGPuYcE2uSMA3AHv82riZ
-	 d9ojmhT7CqLSmvyjHiyNOYV2Bgfn+8FYic7WsGs1swSIm3CG3sjKyOKYoHIrHoGHV1g==
+	t=1795180089;
+	b=mPnSJE/d/NfeXv1Ztm5lK5YBlZwdlok5IO6L9JbzRNXKfIpv/X7U7TEyvVb5P+cWt31+
+	 XNeUhEppvA+rwFtXhrZbJc3FcsQlsUOXlFk1HhiDHkm/YABsX2+VoDxWPtloSKBozQswt
+	 mfVAwcSMOMqz9ydaAEbMX7ofKWBnPFTHDRfznVHIh16AUJhpJg0f3y4JJyPbanVBCnaqj
+	 AnpD2yKPkW5OR69EmTpZr2X89NuTP7qY2itlkDKmP1yICPUG+GRYky8hnx6oy3VtIvmCz
+	 XbonsMWWhE0W22NfgIwhKmbBPQtpA9E2Levk6odfp/BKC4DbeuEuBcmR8bg505HxPJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180046;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=w2gYpdKwXWil9aD9NeOOchzZTzt6b+o0HGb2JlcVPVM=;
-	b=g4aJC0MsygDVd2PE3E6J4pL63pTdnsQj4HhcRHGMO9mw43N7K2W9HFOY7MgUwVS9aw2n
-	 c5APLPvB7mETD7DCOWPQVKfJ9Kii346GFupt/F0qJ/a4HkJWDcsO+1/01tOjRqBaqfC4p
-	 ODIh8aeQ8n52gQj3mQOkn7eCTcZ0pT/4BrLEHt7itB+lfU9ssxFDvaky++Z2SXe/kM5Dx
-	 HzmIrkL7U+cgYZEMUX10I+0+lxOLIbfKQ5v0gPQwf7J0OCDq3wEJ1BBz89NaXl4tSq4Xy
-	 +MQd2ciGfQksWHpns/9x5RbjNoJ06p979yBIFi+Qgg7CKD9RBmddJGs/Kb43ZW4kbhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180089;
+	h=Received:DKIM-Signature:Mime-Version:Content-Type:Date:Message-Id:
+	 From:To:Subject:Cc:X-Mailer:References:In-Reply-To;
+	bh=bp1gpixkccc6LO466CpvyGIblODxrqd8Ot9b3hg+I+E=;
+	b=E6nrtoCA4zqtQx6TgfQoQ4gQnUylE2zyIY3awzzutYvFQR27AxtnpgTkAp6j5tzb/Pu1
+	 icOOFcXPLauZD04/U3JRIDsAK9cPvriXjrnGcFCTJgE5fFlXcp/pcAPuRIRkNRj6wMzbU
+	 RikRfmvkuLPyHOh6UeM6/5xSfQXRThY/OC7wcHKjqVTCIanQgrwown4iWHq6VaqAE1dV9
+	 ZiTOAPMymTRqN6zt7f8Crk71qDaMEkhZ/03mKmeoYeOWsyXGVBlVby8M9c4t7ZOShREDy
+	 X4lwNkuJ+x9y3M8LvlM+2x9UrOkFBQHGfIIM3w7jBaoNhqMDgi9ZuD/7VmzyWTe70Xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="NfCGkZ/x";
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ovw4dRCx;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b="NfCGkZ/x";
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ovw4dRCx;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZlwrzCG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6B50606A325;
-	Fri, 20 Nov 2026 13:07:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6B50606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id B5D99606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:08:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NfCGkZ/x;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ovw4dRCx;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NfCGkZ/x;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=ovw4dRCx
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 6EE60225DB;
-	Fri, 20 Nov 2026 13:07:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795180043; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w2gYpdKwXWil9aD9NeOOchzZTzt6b+o0HGb2JlcVPVM=;
-	b=NfCGkZ/xd+22J7Bq4dvbNs0RDpEjA69jFLPH6cL50sHdqUNN22M8aD0O5PL/yY35gJMMbb
-	xQFlMQyFEnp/m8danx8dvGN522+a+yUNWPNiPHjQsZlYhKfjuUSaOxXgGgJ3lXDl4oEIzV
-	E4m/mjQBQNNtpA4eywEK+aIvdGWf/1Q=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795180043;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w2gYpdKwXWil9aD9NeOOchzZTzt6b+o0HGb2JlcVPVM=;
-	b=ovw4dRCxoVEpLJ9tbb1eR/Da8/6oAUMT2DYDDmuBpk6uZVBl8YolC5xB8NmSSjbV74322y
-	d1PahcFB0ZuX0NDg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="NfCGkZ/x";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=ovw4dRCx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795180043; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w2gYpdKwXWil9aD9NeOOchzZTzt6b+o0HGb2JlcVPVM=;
-	b=NfCGkZ/xd+22J7Bq4dvbNs0RDpEjA69jFLPH6cL50sHdqUNN22M8aD0O5PL/yY35gJMMbb
-	xQFlMQyFEnp/m8danx8dvGN522+a+yUNWPNiPHjQsZlYhKfjuUSaOxXgGgJ3lXDl4oEIzV
-	E4m/mjQBQNNtpA4eywEK+aIvdGWf/1Q=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795180043;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=w2gYpdKwXWil9aD9NeOOchzZTzt6b+o0HGb2JlcVPVM=;
-	b=ovw4dRCxoVEpLJ9tbb1eR/Da8/6oAUMT2DYDDmuBpk6uZVBl8YolC5xB8NmSSjbV74322y
-	d1PahcFB0ZuX0NDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 44CEF1342D;
-	Fri, 20 Nov 2026 13:07:23 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id y1QaCAtGAGt1WAAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 13:07:23 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id C3D7525F65; Fri, 20 Nov 2026 14:07:18 +0100 (CET)
-Date: Fri, 20 Nov 2026 14:07:18 +0100
-From: Jan Kara <jack@suse.cz>
-To: syzbot <syzbot+1d23ad199a3bfd6f9149@syzkaller.appspotmail.com>
-Cc: jack@suse.cz, linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	sandeen@redhat.com, syzkaller-bugs@googlegroups.com
-Subject: Re: [syzbot] [ext4?] BUG: unable to handle kernel NULL pointer
- dereference in strrchr
-Message-ID: <zl5zw6dozpvswogdaj6vmlc5qnk4hn6ekz3gysijmidihdw66s@sfsqyiwf7hv2>
-References: <6b0041e7.9fc8cf76.202198.0005.GAE@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mZlwrzCG
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 06F311F000C4;
+	Fri, 20 Nov 2026 13:08:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795180089;
+	bh=bp1gpixkccc6LO466CpvyGIblODxrqd8Ot9b3hg+I+E=;
+	h=Date:From:To:Subject:Cc:References:In-Reply-To;
+	b=mZlwrzCGvf31KzfYa5T3DOIKSP3YJywSc1QEISzBmNDGt/ublb4ZU2/ottafIC0/1
+	 5uh1GXbnD/ibf/Tzl7mAt3C3kcc9hZZcSX6q41BR89qOUqdBvaU7s+eBYG/BKO6nkd
+	 32w+j8lSKt2FVDsozWoYD0IMlyLnPR9+vEydAltTxuAmND1RSZ+/WLW5rYhWkftAVy
+	 Eshr4U6/eUGpEfxVH9YIKek8S0WyazvQRuvPuzRaiw19W4g7YAGscoCE4dXZY9Ia8K
+	 38tIIB1S9iQ9u43QsiSAtUKpHAZdFzSC4pv11ZmpWxYMqrFdNC80c824fZAQQ74Tw/
+	 nsSm1TwzWtxtg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,139 +47,385 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="rizs2fl6skraupwk"
-Content-Disposition: inline
-In-Reply-To: <6b0041e7.9fc8cf76.202198.0005.GAE@google.com>
-X-Rspamd-Queue-Id: 6EE60225DB
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-10.51 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	URI_HIDDEN_PATH(1.00)[https://syzkaller.appspot.com/x/.config?x=3299dd89908ef903];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[multipart/mixed,text/plain,text/x-patch];
-	MX_GOOD(-0.01)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	RCVD_TLS_LAST(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+,1:+,2:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	ARC_NA(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[appspotmail.com:email,googlesource.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,syzkaller.appspot.com:url,suse.com:email];
-	HAS_ATTACHMENT(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_FIVE(0.00)[6];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[1d23ad199a3bfd6f9149];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	MISSING_XM_UA(0.00)[];
-	SUBJECT_HAS_QUESTION(0.00)[]
-X-Spam-Score: -10.51
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Fri, 20 Nov 2026 14:08:05 +0100
+Message-Id: <DN028AALEL5P.BR73QEJF46H1@kernel.org>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Weimin Wu" <wuweimin@huaqin.corp-partner.google.com>
+Subject: Re: [PATCH] [v5] mtd: spi-nor: gigadevice: Add support for
+ GD25LQ255E & GD25LQ256H
+Cc: <linux-kernel@vger.kernel.org>, <linux-mtd@lists.infradead.org>,
+ <pratyush@kernel.org>, <takahiro.kuwano@infineon.com>,
+ <tudor.ambarus@linaro.org>
+X-Mailer: aerc 0.20.0
+References: <20260527032823.771616-1-wuweimin@huaqin.corp-partner.google.com> <20260728064954.3474270-1-wuweimin@huaqin.corp-partner.google.com>
+In-Reply-To: <20260728064954.3474270-1-wuweimin@huaqin.corp-partner.google.com>
 
+--72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
---rizs2fl6skraupwk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Hi,
 
-On Fri 20-11-26 04:49:43, syzbot wrote:
-> Hello,
-> 
-> syzbot found the following issue on:
-> 
-> HEAD commit:    65e4fd942f72 Merge tag 'selinux-pr-20261119' of git://git...
-> git tree:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux
-> console output: https://syzkaller.appspot.com/x/log.txt?x=1102b185580000
-> kernel config:  https://syzkaller.appspot.com/x/.config?x=3299dd89908ef903
-> dashboard link: https://syzkaller.appspot.com/bug?extid=1d23ad199a3bfd6f9149
-> compiler:       arm-linux-gnueabi-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
-> userspace arch: arm
-> C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=165e3abd580000
-> 
-> The issue was bisected by AI to:
-> 
-> commit 98f18c76c2c3089183c35d2c33e468ad6c03d86b
-> Author: Eric Sandeen <sandeen@redhat.com>
-> Date:   Sun Feb 23 19:57:41 2025 +0000
-> 
->     ext2: create ext2_msg_fc for use during parsing
-> 
-> AI reasoning:   https://syzkaller.appspot.com/ai_job?id=f0a661eb-7c3b-44be-becd-54ce0bd776b2
-> 
-> AI-generated root cause summary:
-> In fs/ext2/super.c, ext2_msg_fc() formats log messages for filesystem context
-> operations. When fc->purpose != FS_CONTEXT_FOR_RECONFIGURE, it unconditionally
-> executes strrchr(fc->source, '/') without verifying that fc->source is non-NULL.
-> During filesystem configuration via the new mount API (e.g., fsopen() followed
-> by fsconfig()), fc->source starts as NULL and options can be parsed in any
-> order. Specifying an option that triggers ext2_msg_fc() (such as "dax", "nobh",
-> or "reservation") prior to supplying the "source" parameter passes a NULL
-> pointer to strrchr(), causing a kernel NULL pointer dereference.
+I'm going through the backlog of patches, excuse my very late reply.
 
-Yeah, correct. I'm putting attached patch to my tree.
+On Tue Jul 28, 2026 at 8:49 AM CEST, Weimin Wu wrote:
+> Add support for the GD25LQ255E & GD25LQ256H (JEDEC ID c8 60 19),
+> a 256Mbit (32MB) SPI NOR flash chip which supports SFDP.
+>
+> GD25LQ256H shares the same JEDEC ID (c8 60 19) with GD25LQ255E.
+> Since GD25LQ256H supports DTR (Double Transfer Rate) mode while
+> GD25LQ255E does not, use the post_bfpt hook to detect this capability
+> via SFDP and dynamically redirect the info pointer. This allows both
+> chips to be supported correctly without breaking write protection on
+> GD25LQ255E.
+>
+> Without this patch, The WP status cannot be obtained using flashrom:
+> device:/ # flashrom --wp-status
+> ...
+> linux_mtd_wp_read_cfg:
+> ioctl: Operation not supported on transport endpoint
+> Failed to get WP status: failed to read the current WP configuration
+>
+> and with this patch:
+> device:/ # flashrom --wp-status
+> ...
+> Protection range: start=3D0x00000000 length=3D0x00000000 (none)
+> Protection mode: disabled
+> SUCCESS
+>
+> Link: https://download.gigadevice.com/Datasheet/DS-00562-GD25LQ255E-Rev1.=
+2.pdf
+> Link: https://download.gigadevice.com/Datasheet/DS-01085-GD25LQ256H-Rev1.=
+3.pdf
+>
+> Signed-off-by: Weimin Wu <wuweimin@huaqin.corp-partner.google.com>
+>
+> ---
+> Changes in v5:
+> - Add a feature to distinguish between GD25LQ256H and GD25LQ255E by detec=
+ting whether DTR is supported.
+> - Link to v4: https://patchwork.ozlabs.org/project/linux-mtd/patch/202605=
+27032823.771616-1-wuweimin@huaqin.corp-partner.google.com/
+> - Link to v3: https://patchwork.ozlabs.org/project/linux-mtd/patch/202604=
+18084253.792395-1-wuweimin@huaqin.corp-partner.google.com/
+> - Link to v2: https://patchwork.ozlabs.org/project/linux-mtd/patch/202603=
+13133806.2390946-1-wuweimin@huaqin.corp-partner.google.com/
+> - Link to v1: https://patchwork.ozlabs.org/project/linux-mtd/patch/202602=
+13144133.1778932-1-wuweimin@huaqin.corp-partner.google.com/
+>
+> Refer to the following documents:
+> https://docs.kernel.org/driver-api/mtd/spi-nor.html#minimum-testing-requi=
+rements
+>
+> For GD25LQ256H
+> 1. Specify the controller that you used to test the flash and specify the=
+ frequency at which the flash was operated:
+>
+> This flash memory has been successfully tested at 100Mhz frequency on a C=
+hromebook device running the Intel Patherlake platform, which is currently =
+under development.
+>
+> 2. Dump the sysfs entries and print the md5/sha1/sha256 SFDP checksum:
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/partname
+> gd25lq256h
+>
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
+> c86019
+>
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
+> gigadevice
+>
+> root:/ # xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+> 53464450070102ff00070114300000ffc8000103900000ff84010102c000
+> 00ffffffffffffffffffffffffffffffffffe520fbffffffff0f44eb086b
+> 083b80bbfeffffffffff00ffffff42eb0c200f5210d800ffd4299dfe84d2
+> 14c7ec6316337a757a7507b3d55c190614ff885018010000000000008800
+> 00000000f6f5ffffffffffffffffffffffffffffffffffff002050169ff9
+> 7764fc8bffffffffffffffffffffffffffffffffffffffffffffffffffff
+> ffffffffffffffffffffffffff8e00fe215cdcff
+>
+> root:/ # sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+> 09f61fe623df200d86b4ab47c48e3a13718fadbb450fcd430b3cdc49a902b1f6  /sys/bu=
+s/spi/devices/spi0.0/spi-nor/sfdp
+>
+> 3. Dump debugfs data:
+> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
+> Supported read modes by the flash
+>  1S-1S-1S
+>   opcode	0x13
+>   mode cycles	0
+>   dummy cycles	0
+>  1S-1S-1S (fast read)
+>   opcode	0x0c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-1S-2S
+>   opcode	0x3c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-2S-2S
+>   opcode	0xbc
+>   mode cycles	4
+>   dummy cycles	0
+>  1S-1S-4S
+>   opcode	0x6c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-4S-4S
+>   opcode	0xec
+>   mode cycles	2
+>   dummy cycles	4
+>  4S-4S-4S
+>   opcode	0xec
+>   mode cycles	2
+>   dummy cycles	2
+>
+> Supported page program modes by the flash
+>  1S-1S-1S
+>   opcode	0x12
+>  1S-1S-4S
+>   opcode	0x34
+>
+> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/params
+> name		(null)
+> id		c8 60 19 c8 60 19
+> size		32.0 MiB
+> write size	1
+> page size	256
+> address nbytes	4
+> flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_16BIT_SR | NO_=
+READ_CR | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET
+>
+> opcodes
+>  read		0x0c
+>   dummy cycles	8
+>  erase		0xdc
+>  program	0x12
+>  8D extension	repeat
+>
+> protocols
+>  read		1S-1S-1S
+>  write		1S-1S-1S
+>  register	1S-1S-1S
+>
+> erase commands
+>  21 (4.00 KiB) [1]
+>  5c (32.0 KiB) [2]
+>  dc (64.0 KiB) [3]
+>  c7 (32.0 MiB)
+>
+> sector map
+>  region (in hex)   | erase mask | overlaid
+>  ------------------+------------+----------
+>  00000000-01ffffff |     [   3] | no
+>
+> 4. Use mtd-utils and verify that erase, read and page program operations =
+work fine:
+> Because Chromebooks lack the necessary mtd-utils directives, the correspo=
+nding data cannot be provided.
+>
+> For GD25LQ255E
+> 1. Specify the controller that you used to test the flash and specify the=
+ frequency at which the flash was operated:
+>
+> This flash memory has been successfully tested at 100Mhz frequency on a C=
+hromebook device running the Intel Patherlake platform, which is currently =
+under development.
+>
+> 2. Dump the sysfs entries and print the md5/sha1/sha256 SFDP checksum:
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/partname
+> gd25lq255e
+>
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
+> c86019
+>
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
+> gigadevice
+>
+> root:/ # xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+> 53464450070102ff00070114300000ffc8000103900000ff84010102c000
+> 00ffffffffffffffffffffffffffffffffffe520fbffffffff0f44eb086b
+> 083b80bbfeffffffffff00ffffff42eb0c200f5210d800ffd4299dfe84d2
+> 14c7ec6316337a757a7507b3d55c190614ff885018010000000000008800
+> 00000000f6f5ffffffffffffffffffffffffffffffffffff002050169ff9
+> 7764fc8bffffffffffffffffffffffffffffffffffffffffffffffffffff
+> ffffffffffffffffffffffffff8e00fe215cdcff
+>
+> root:/ # sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
+> 09f61fe623df200d86b4ab47c48e3a13718fadbb450fcd430b3cdc49a902b1f6  /sys/bu=
+s/spi/devices/spi0.0/spi-nor/sfdp
+>
+> 3. Dump debugfs data:
+> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
+> Supported read modes by the flash
+>  1S-1S-1S
+>   opcode	0x13
+>   mode cycles	0
+>   dummy cycles	0
+>  1S-1S-1S (fast read)
+>   opcode	0x0c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-1S-2S
+>   opcode	0x3c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-2S-2S
+>   opcode	0xbc
+>   mode cycles	4
+>   dummy cycles	0
+>  1S-1S-4S
+>   opcode	0x6c
+>   mode cycles	0
+>   dummy cycles	8
+>  1S-4S-4S
+>   opcode	0xec
+>   mode cycles	2
+>   dummy cycles	4
+>  4S-4S-4S
+>   opcode	0xec
+>   mode cycles	2
+>   dummy cycles	2
+>
+> Supported page program modes by the flash
+>  1S-1S-1S
+>   opcode	0x12
+>  1S-1S-4S
+>   opcode	0x34
+>
+> root:/ # cat /sys/kernel/debug/spi-nor/spi0.0/params
+> name		(null)
+> id		c8 60 19 c8 60 19
+> size		32.0 MiB
+> write size	1
+> page size	256
+> address nbytes	4
+> flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_16BIT_SR | NO_=
+READ_CR | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET
+>
+> opcodes
+>  read		0x0c
+>   dummy cycles	8
+>  erase		0xdc
+>  program	0x12
+>  8D extension	repeat
+>
+> protocols
+>  read		1S-1S-1S
+>  write		1S-1S-1S
+>  register	1S-1S-1S
+>
+> erase commands
+>  21 (4.00 KiB) [1]
+>  5c (32.0 KiB) [2]
+>  dc (64.0 KiB) [3]
+>  c7 (32.0 MiB)
+>
+> sector map
+>  region (in hex)   | erase mask | overlaid
+>  ------------------+------------+----------
+>  00000000-01ffffff |     [   3] | no
+> root:/ # cat /sys/bus/spi/devices/spi0.0/
+> driver/                          mtd/                             statist=
+ics/                      uevent
+> driver_override                  power/                           subsyst=
+em/
+> modalias                         spi-nor/                         supplie=
+r:regulator:regulator.0/
+> root:/ # cat /sys/bus/spi/devices/spi0.0/s
+> spi-nor/                         statistics/                      subsyst=
+em/                       supplier:regulator:regulator.0/
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/
+> jedec_id      manufacturer  sfdp
+> root:/ # cat /sys/bus/spi/devices/spi0.0/spi-nor/
+>
+> 4. Use mtd-utils and verify that erase, read and page program operations =
+work fine:
+> Because Chromebooks lack the necessary mtd-utils directives, the correspo=
+nding data cannot be provided.
+> ---
+> ---
+> ---
+>  drivers/mtd/spi-nor/gigadevice.c | 33 ++++++++++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+>
+> diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigad=
+evice.c
+> index ef1edd0add70..9fc97feb2849 100644
+> --- a/drivers/mtd/spi-nor/gigadevice.c
+> +++ b/drivers/mtd/spi-nor/gigadevice.c
+> @@ -33,6 +33,34 @@ static const struct spi_nor_fixups gd25q256_fixups =3D=
+ {
+>  	.post_bfpt =3D gd25q256_post_bfpt,
+>  };
+> =20
+> +static const struct flash_info gd25lq256h_info =3D {
+> +	.name =3D "gd25lq256h",
+> +	.id =3D SNOR_ID(0xc8, 0x60, 0x19),
+> +	.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_4BIT_BP | SPI_NOR_HAS_TB | SPI_NO=
+R_TB_SR_BIT6,
+> +};
+> +
+> +static int
+> +gd25lq255e_post_bfpt(struct spi_nor *nor,
+> +		     const struct sfdp_parameter_header *bfpt_header,
+> +		     const struct sfdp_bfpt *bfpt)
+> +{
+> +	/*
+> +	 * GD25LQ255E and GD25LQ256H share the same JEDEC ID (c8 60 19).
+> +	 * We can differentiate them by checking if the chip supports DTR
+> +	 * (Double Transfer Rate) mode, which is only supported by GD25LQ256H.
+> +	 *
+> +	 * SFDP parsing sets the DTR hwcaps if supported.
+> +	 */
+> +	if (bfpt->dwords[SFDP_DWORD(1)] & BFPT_DWORD1_DTR)
+> +		nor->info =3D &gd25lq256h_info;
 
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+We got a new .match which should help you here. You can add both
+entries and add a .match. windbond.c should have enough examples you
+can look at.
 
---rizs2fl6skraupwk
-Content-Type: text/x-patch; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0001-ext2-Fix-NULL-ptr-dereference-in-ext2_msg_fc.patch"
+-michael
 
-From bd31e164b532d064560868011167baa218fcb2f3 Mon Sep 17 00:00:00 2001
-From: Jan Kara <jack@suse.cz>
-Date: Fri, 20 Nov 2026 14:03:58 +0100
-Subject: [PATCH] ext2: Fix NULL ptr dereference in ext2_msg_fc()
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct spi_nor_fixups gd25lq255e_fixups =3D {
+> +	.post_bfpt =3D gd25lq255e_post_bfpt,
+> +};
+> +
+>  static const struct flash_info gigadevice_nor_parts[] =3D {
+>  	{
+>  		.id =3D SNOR_ID(0xc8, 0x40, 0x15),
+> @@ -82,6 +110,11 @@ static const struct flash_info gigadevice_nor_parts[]=
+ =3D {
+>  		.size =3D SZ_16M,
+>  		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
+>  		.no_sfdp_flags =3D SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
+> +	}, {
+> +		.id =3D SNOR_ID(0xc8, 0x60, 0x19),
+> +		.name =3D "gd25lq255e",
+> +		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
+> +		.fixups =3D &gd25lq255e_fixups,
+>  	},
+>  };
+> =20
 
-When mount parameters emitting messages are configured before
-fc->source, we crash in ext2_msg_fc() when trying to create a fs
-identifier for the filesystem from fc->source. Just use unknown in that
-case.
+--72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Fixes: 98f18c76c2c3 ("ext2: create ext2_msg_fc for use during parsing")
-Reported-by: syzbot+1d23ad199a3bfd6f9149@syzkaller.appspotmail.com
-Signed-off-by: Jan Kara <jack@suse.cz>
----
- fs/ext2/super.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+-----BEGIN PGP SIGNATURE-----
 
-diff --git a/fs/ext2/super.c b/fs/ext2/super.c
-index 54a6c26d0388..63a3a212a0ec 100644
---- a/fs/ext2/super.c
-+++ b/fs/ext2/super.c
-@@ -89,13 +89,15 @@ static void ext2_msg_fc(struct fs_context *fc, const char *prefix,
- 
- 	if (fc->purpose == FS_CONTEXT_FOR_RECONFIGURE) {
- 		s_id = fc->root->d_sb->s_id;
--	} else {
-+	} else if (fc->source) {
- 		/* get last path component of source */
- 		s_id = strrchr(fc->source, '/');
- 		if (s_id)
- 			s_id++;
- 		else
- 			s_id = fc->source;
-+	} else {
-+		s_id = "unknown";
- 	}
- 	va_start(args, fmt);
- 
--- 
-2.53.0
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCawBGNRIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/gRDgF/fJCUEJYxwNTbxPHtVJZ1JjljPnC3BV2q
+6SfUvh2OjGdz/5D7MfoVaiC/hbBSuljNAYDbaFnQ21h9QcZtGCaju75x0Ts2YY6q
+vQADc2E4phYwD8og2BdaKgfKJFA+eyJmgN0=
+=WQXo
+-----END PGP SIGNATURE-----
 
-
---rizs2fl6skraupwk--
+--72822c0bb88c2aa1c209a46d8e2a1d87de798bc419193b8023d847dac2de--
