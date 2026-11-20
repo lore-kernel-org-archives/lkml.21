@@ -1,75 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212975;
-	b=t1Y8qW1oOihTt8RJFs6F1Ly8TfMRTvpNbaRqDbBMtFxXHcT3sZ3cQznqHkstmcx2KyP5
-	 F3/KRR5thuZVUlaCfAAtFMnQHZ3axWbF3ovNw61WQiOZHU1FHngniK6zEEn8ZowHxPf+E
-	 N6eIPG2lZcOYlXP6mDgDCDQPmlW5cYD6z3nKpIFLsTuMcYWr7cE4a2HQex4+V+6xWYcEK
-	 fxivSejfkVIhvd2h34721UocL68hMDmk/gPi/Nv+0Mn0oZiTD4ItDDux81uktMEi21qWh
-	 WtH/pX/9xMdl8QwltixBwAadHpjY3Y9pyyVF9NeJhLLfdvXqbrASquLMt9y8hmJBXig==
+	t=1795212987;
+	b=TLYxBrZoI31g4xv35U5F/34GCBmxE1OyS2KkF9XuOwSTYbBH2/8iYV7vJ4QSomX4PvEW
+	 YBZGKu54hQQ/KW9wl5e+7n9NK6761bW0gN6cTn5p8HPHwGvSAoVdM6s7Okwav3rFtwHP3
+	 8LVrGDUfXP/DYi2mhMFNsbUammuzRjaZVumArMJjIBv4KvBYVPscCq3ETSH8Qgqp5n4aT
+	 FzFoDlunklepvIgltS3whkkzw+9nXH44JnR+I3N3O7x5NtJNT97ZJGqn0YaZzFiV5zx02
+	 0Ghxqr38JROWnKdMRPZTcSQ4SrWMs1tHGi/bbsLo5IkRj6/JdEnKiC+gX6/7St+v3WA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212975;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795212987;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=oHsRoybgY+Gjh4tRFzKxL6MY+fBFhB444U/1ojQ4iqU=;
-	b=2iFiXoOQkJaY09HMhT33cRs3HIuMdH9ZWxdYMKkBgCgBHGNQi9nnx2zBfWdH9ztNSNqY
-	 cg2ImoMqQ1FTvWVuhWPUGvPvJNDAwnzVdBjee3sM1YqewjfuGmeSSRhG0YVXjC3b9OgLr
-	 N2GAqHtdRS7OSPdFINyVVWyHYJJJj/CYpdhvfZg2ibz1Wn4IC7tvnYm4x+uVQX3M37PSe
-	 fRI0MXl/OH/d7y5huwIrQ0W4HReX+Ep+cLs0KZodgFwH2Q9C95xoqzNfXyMsUqlUPNeB6
-	 KpcZ6xW4bBWB2mNC7dRt7SJpRvoyX3FxBySkr/XvjEwuLWpy0U55qq7GICFhXtby7Xw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=OmmQLb1KRWWR3nD/qKb9WgJQmetkxtKbiRKOhfslFTI=;
+	b=Bw0ao+rhkKx+KwvOoMU2/Ky/sqLMM0NwdYG7qXibuVIuFtGEJLnW/df0WxrmX/Mw7z/F
+	 jgsPY6NOdOiek5/naYlvgB9KjEQDYk16UazRNYXtPZbdjAhVNBQksGxgmwq15kbR8l+nJ
+	 IM9REgQGbVNN4oG/DMhh7rwasrSZO7O1cQXYal/L5O/OL4c2cedYkkraFROpT5ha1CAuI
+	 iHJkzMEpx2gguGTkd4V+Cc7YDGPxn3HwoUglJApwI8Z4RI7TexMJDSemM+FNDZuToIk/z
+	 saXfhvpGD9lTejMcX9dMpNidJet6fNdZd+Ev/6EZEdI1jxpX+5FW8ccAyo3NhW0WuQQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZMX5UBTX;
-	arc=none smtp.remote-ip=74.125.82.72
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CwbWXu4G;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB50C60A2620
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:16:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB50C60A2620
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E327E606A6BA
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:16:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E327E606A6BA
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZMX5UBTX
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1383723dfddso1465346c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:16:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CwbWXu4G
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-380b40312e2so2074040eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:16:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212972; x=1795817772; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oHsRoybgY+Gjh4tRFzKxL6MY+fBFhB444U/1ojQ4iqU=;
-        b=ZMX5UBTXxuSn9MZdULk5Boi+06w35jYg5kNVDlf23q8wAcj1XW8lydHenKwr/mg9EU
-         NQ6luQhkTaxLIG/kqPGe3x8fNf6am5dZ+s5vAKx212qW3jrLhp0L4ccBgoETGCCIZIMa
-         i3CKILUwdPcMs7U4fQJODz4cXtonAXqX0q2VYBNB/TklxG75M2vy411JHsOBO8Crs894
-         Ps7UqnvEdzzCLDIo0dQRCH/7fRQXO6KAcF0p7++G9qqMZZqsA4QMknOxVJ+ACfNLCONq
-         AKZHmOHCiXn5dOQp82dIsBjWgw9w5DF91GcIjsvoOZAcOJ6Iy/u57eDtE9c3SbIYuhFi
-         pGpg==
+        d=gmail.com; s=20260707; t=1795212985; x=1795817785; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OmmQLb1KRWWR3nD/qKb9WgJQmetkxtKbiRKOhfslFTI=;
+        b=CwbWXu4Gf67XgRQAKW83cKuO1Tx7sE4RkWJwMBpwgx1bN94kAgrbAq0z24RU/nxf+N
+         r89b9CwxyQrRXre5mk27unPLZEFEmxfR4d25UpRNK4VbTjRzGlRlul0SLmH2eeXBh0IM
+         R52jhZbmX9rsTNqqfWeXVsv74sC9jDPseXP9nMaUeUlUPWn6A+EroFQP4MoGbl+iiQv3
+         73AdQQtnBebyldtmb0kpmdwnzrWwrKaTzHqWziOcMtbnKpwsVwq4QS/62g1LhHqAzfi2
+         E548CbBRuAMcp7BrPq3IUIu29xFjFcxgNgh2krPHLKpkJaEbMYDFJoEUcktbYO/59PQp
+         3fBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212972; x=1795817772;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oHsRoybgY+Gjh4tRFzKxL6MY+fBFhB444U/1ojQ4iqU=;
-        b=LHW6imYqfFBzA/QkXT5sqYrdDlTgI9RUgKHWE7UJPIzz5VKh710qhgvnMpkjQQ1GsR
-         YACxVSsgHqv8wryR15WVjLDd9+O8lrV8eWRYD4uwlY72Da3sGKr8taS1JGxwfs2UmMrh
-         De6vZCFf8xlnAnlbmHqvQQLxmwWlc1d2M5Un9cVkw0uAIEfWm9WiPu0lBuEZfxJd+5y2
-         UMA7LA780dDjIC/67D7C/fmDZy9JFb8kIb5nmhKFZYbAjKKqveRBL31sND26ptUE13Mk
-         ikZoMExxDJaD5rls047MibG5eJTp/HZTLnQpVOQY0/fZYqvg/N2CCQIVRBoXb7dqqVDn
-         PpHw==
-X-Forwarded-Encrypted: i=1; AL+hErGVW4fY22HNERDr1bsqezBLf3JjSHlWNfntx1IwrpMlLmpDp/QwEOAsTkcPF/T2YXFduwm92E3IJsnbCUM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ImrgGQEjhQMkKd92ZeglLZp87lZkC9wd4esA43y5omK8rEIgY
-	cWzqhXJx+3lGQYsMXt/7fPybm1z9JcEUXRlrlasAoy4siv9yUFQev0FCYizfjh+UZcfqRF6u1aE
-	mps9Rbytztw==
-X-Received: from dlbrx25.prod.google.com ([2002:a05:7022:1719:b0:15f:5ef4:b896])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3a0b:b0:1a2:fa1d:1de5
- with SMTP id a92af1059eb24-1b5568d861cmr4068875c88.20.1795212971463; Fri, 20
- Nov 2026 14:16:11 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:31 -0800
-In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
+        d=1e100.net; s=20260707; t=1795212985; x=1795817785;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OmmQLb1KRWWR3nD/qKb9WgJQmetkxtKbiRKOhfslFTI=;
+        b=rk/EFcCm7Exi/nKFCQkvpMejuduIJXy/Om9Bnno7kKshCvcfzpIb9raVQGFiAHhdYA
+         LQt19FZzVQRBtayDbRBObVrArPf0bUODC5RChlizZcUoB1uZ477KuN9NDlZNug9ixCBz
+         Xm72MsY8cZwTksFjZeEojrc4hM+E0il/UecC4GbkzXy57cPwLozVabp9WREZdxdFUewY
+         7ywmknAwdmudhHPDMc6t0zWX8HcDcQDn0eO/CQ8Xu6X+qeeYb2cUdGtgXFPklLq19pKT
+         jHiB3v0s+agpaAfOY7cT1iuc6XK5gVsq0d/FrJT0N/TBDOUQ2gBPH6IQ7TlRKtsXZKBg
+         1zGA==
+X-Forwarded-Encrypted: i=1; AL+hErFi35ngTNC+xaBQi/JcsV0sS1Rxsc3eaEm8FZ0qqXpOkX6pl4q416U9IT3862Jl9+clgg+JGK61H8md3Lc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jlzQ9ZJ+S+CXz8Tjy8uAILP2xRjaUzMXWbTAvp9UmKYVGW7O5
+	URPicwACVgWRr+OwojWli0guUXd9eN9wC36ZICRFxFO5KOQjgk/2WbQbOTbHNQ==
+X-Gm-Gg: AZFdTZeE41XHP0pa5tZ/gxtDO5yor9fjWlC+NVkqyxEA9d+HueminZ3tkuDxuYMtl6l
+	Ip6Q9ed1o/c3DPeiLc8B4j0q0BZ2Y4ypviEYS7Kq/W3BaX9MqA739JMLZv9xVabtD7t2ODNEBUi
+	6P9ehK6hUEN8xrU9JuMIGjjUVQr1Rmz4bruWhRF2eL1pb0qlTpExRQ0dVnIOe8GumadVGUY+ziv
+	xJR7SUf4NmSSMoeV+/JyRnm12bTzgU9SplGiEyMLuIkoeRKAxGzW3rs7oIaJWCIWB434ZKK/sbM
+	bRJ9WlAcxiObfSD7IM3fOltlLQWxhKcNA6rkSexhZCY0OdtVpGKWth61F5xb683luPlWYLbMF35
+	EZ80B8XKQzInBtDih7QcLI8YUOFpfl0XxQTtsj9rt0KHQFgtbh1VXQG/4wvR3yglpF4Q4BMMmUd
+	f4zGqcohH9ROhovvZWFn7165Fa1iDwYcT51h+zAK79Euw7VzZQb1P/H5q4xvnJsBp4xCZq3PtEY
+	WRmgd/fdE7z7ry0vcEhmWS1/ezcZvDqPHSOIW/Tf7irHhOW9KLjIqjh6hapATTeub/V/vrYSWbZ
+	HlfxH9+Afk9mCiVX6f4bt8raXoa3UlGMJMK7mjOhhtOG5IgllZ8pMxIC+1/LJqmLCIw2NuU=
+X-Received: by 2002:a05:7300:f483:b0:384:e31e:3c58 with SMTP id 5a478bee46e88-385714160f6mr4024577eec.33.1795212984850;
+        Fri, 20 Nov 2026 14:16:24 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm10787009eec.23.2026.11.20.14.16.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 14:16:24 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:16:21 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Jiri Kosina <jikos@kernel.org>
+Cc: Benjamin Tissoires <bentiss@kernel.org>, 
+	Gideon Heinz <gideonheinz02@gmail.com>, Filipe =?utf-8?B?TGHDrW5z?= <lains@riseup.net>, 
+	Bastien Nocera <hadess@hadess.net>, Hans de Goede <hansg@kernel.org>, 
+	Edwin Velds <e.velds@gmail.com>, Stuart Hayhurst <stuart.a.hayhurst@gmail.com>, 
+	Andrey Smirnov <andrew.smirnov@gmail.com>, linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3 04/14] HID: logitech-hidpp: disable works before
+ stopping transport
+Message-ID: <awDGXhaRpNcNirgq@google.com>
+References: <20261120-hid-logitech-hidpp-v3-0-cfe2caa1d0eb@gmail.com>
+ <20261120-hid-logitech-hidpp-v3-4-cfe2caa1d0eb@gmail.com>
+ <r078ror3-9q6q-s581-35r4-63pnp1p93s85@xreary.bet>
+ <awCMOvYf64DZfuWF@google.com>
+ <73r1s387-pn80-s74n-o50s-056r1pn8512n@xreary.bet>
+ <2F4EEC0F-5662-4FE4-B9A3-9FCB83B587B1@gmail.com>
+ <op182q3s-q21q-2r18-9p5n-60p7003o64o1@xreary.bet>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -78,190 +106,31 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120221332.2245191-1-irogers@google.com>
-X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-31-irogers@google.com>
-Subject: [PATCH v3 30/30] perf test: Add stat record metrics test
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <op182q3s-q21q-2r18-9p5n-60p7003o64o1@xreary.bet>
 
-Test that metrics measured by perf stat record are displayed by perf
-stat report and perf script, and that events recorded with -e only
-display matching JSON metrics in perf stat report and perf script when
---all-metrics, stat.all-metrics=true, or -M is used.
+On Fri, Nov 20, 2026 at 10:45:21PM +0100, Jiri Kosina wrote:
+> On Fri, 20 Nov 2026, Dmitry Torokhov wrote:
+> 
+> > >> Ah, yes, I un-exported it in my hidraw cleanup patch series that you
+> > >> just applied.
+> > >
+> > >Hmm, but that cleanup is sitting in hid.git#for-7.5/hidraw, while this 
+> > >build breakage occured in for-7.4/upstream-fixes, which is based on Linus' 
+> > >tree and doesn't include that hidraw cleanup ...
+> > 
+> > Doesn't next mix it all together? 
+> 
+> Right, the build fails on for-next, which is a super-merge of all the 
+> topic branches. Sorry for the noise,
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/tests/shell/stat.sh | 133 +++++++++++++++++++++++++++++++++
- 1 file changed, 133 insertions(+)
+So how do you want to handle this? Keep this series as is, and apply,
+and drop either entire hidraw rework or just the offending patch and I
+will resubmit it once Logitech rework settles in?
 
-diff --git a/tools/perf/tests/shell/stat.sh b/tools/perf/tests/shell/stat.sh
-index ac9e031831da..2e1d5978d55a 100755
---- a/tools/perf/tests/shell/stat.sh
-+++ b/tools/perf/tests/shell/stat.sh
-@@ -6,9 +6,25 @@ set -e
- 
- err=0
- stat_output=$(mktemp /tmp/perf-stat-test-output.XXXXX)
-+stat_data=""
-+stat_config=""
-+
-+stat_record_metrics_cleanup() {
-+  if [ -n "${stat_data}" ]
-+  then
-+    rm -f "${stat_data}" "${stat_data}.old"
-+    stat_data=""
-+  fi
-+  if [ -n "${stat_config}" ]
-+  then
-+    rm -f "${stat_config}"
-+    stat_config=""
-+  fi
-+}
- 
- cleanup() {
-   rm -f "${stat_output}"
-+  stat_record_metrics_cleanup
-   trap - EXIT TERM INT
- }
- 
-@@ -92,6 +108,122 @@ test_stat_record_script() {
-   echo "stat record and script test [Success]"
- }
- 
-+test_stat_record_metrics() {
-+  echo "stat record metrics test"
-+  if ! perf stat -M insn_per_cycle true 2>&1 | grep -E -q "[0-9]+.*[[:space:]]+insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Skipped insn_per_cycle metric unsupported]"
-+    return
-+  fi
-+  stat_data=$(mktemp /tmp/perf-stat-test-data.XXXXX)
-+  if ! perf stat record -o "${stat_data}" -M insn_per_cycle true > /dev/null 2>&1
-+  then
-+    echo "stat record metrics test [Failed record]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf stat report -i "${stat_data}" 2>&1 | grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing metric in perf stat report]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf script -i "${stat_data}" 2>&1 | grep -E -q "metric:.*insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing metric in perf script]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf stat record -o "${stat_data}" -e instructions,cycles true > /dev/null 2>&1
-+  then
-+    echo "stat record metrics test [Failed record with events]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if perf stat report -i "${stat_data}" 2>&1 | grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed unexpected metric in perf stat report]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf stat report --all-metrics -i "${stat_data}" 2>&1 | grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing metric in perf stat report --all-metrics]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if perf script -i "${stat_data}" 2>&1 | grep -E -q "metric:.*insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed unexpected metric in perf script]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf script --all-metrics -i "${stat_data}" 2>&1 | grep -E -q "metric:.*insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing metric in perf script --all-metrics]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  stat_config=$(mktemp /tmp/perf-stat-test-config.XXXXX)
-+  printf "[stat]\nall-metrics = true\n" > "${stat_config}"
-+  if ! PERF_CONFIG="${stat_config}" perf stat report -i "${stat_data}" 2>&1 | \
-+    grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed stat report stat.all-metrics=true]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! PERF_CONFIG="${stat_config}" perf script -i "${stat_data}" 2>&1 | \
-+    grep -E -q "metric:.*insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed perf script stat.all-metrics=true]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  rm -f "${stat_config}"
-+  stat_config=""
-+  if ! perf stat report -M insn_per_cycle -i "${stat_data}" 2>&1 | grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing metric in perf stat report -M insn_per_cycle]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf stat record -o "${stat_data}" true > /dev/null 2>&1
-+  then
-+    echo "stat record metrics test [Failed default record]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf stat report -i "${stat_data}" 2>&1 | grep -q "insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing default metric in perf stat report]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  if ! perf script -i "${stat_data}" 2>&1 | grep -E -q "metric:.*insn_per_cycle"
-+  then
-+    echo "stat record metrics test [Failed missing default metric in perf script]"
-+    stat_record_metrics_cleanup
-+    err=1
-+    return
-+  fi
-+  stat_record_metrics_cleanup
-+  echo "stat record metrics test [Success]"
-+}
-+
- test_stat_repeat_weak_groups() {
-   echo "stat repeat weak groups test"
-   if ! perf stat -e '{cycles,cycles,cycles,cycles,cycles,cycles,cycles,cycles,cycles,cycles}' \
-@@ -601,6 +733,7 @@ test_null_stat
- test_offline_cpu_stat
- test_stat_record_report
- test_stat_record_script
-+test_stat_record_metrics
- test_stat_repeat_weak_groups
- test_topdown_groups
- test_topdown_weak_groups
+Thanks.
+
 -- 
-2.56.1.750.gf70dc682cf-goog
-
+Dmitry
