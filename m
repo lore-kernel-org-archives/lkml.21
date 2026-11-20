@@ -1,54 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.37.83.207
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180833;
-	b=UgDK3SiNtPLY5z5Fuh8VSZhjax2LQweYIU8sg5dUWgi2wMaKdIfBBw/vKA5uaEC5SLDT
-	 u6/P0ualBAkkY/LXgZ6iQIGd5mFO4Vp2jQJcH/NrHVWG7w6FWuNcfwjiYex12qbslSnIo
-	 JuJIXryvZOwSnezL+QXkmKC0WLrK7LE+kTqAvFlhBbZiaL6BtxOqT3IFvBDruJJJONeIx
-	 t2VEiMHKhG7Lhh80ckVsJe3D/sZflKxvj3Ht57l8ZW2NfZZualIiWoFJ76kdwlBDSPG6x
-	 72BoEA1Uf4jccC6OHJyqhU2rSDt3JoPNoy3sSU1+uA8Lm4g82n5hjcIBBM3q/dTGYeQ==
+	t=1795180845;
+	b=CEUcQS+IgzSjOl2LI8+bgdK9pjniT6BsJgfbmcGtzscrq29NhRWnGl3HLdmUWtl2Ho9a
+	 VPceo/tpdBoBdOdPfBMcYxJszWIWLUCFWbB5OhIw+ZlbJMYsdP0wjd5A7DGCEk0jqVN5j
+	 WebMYxiIDrkemWIUuVLrP/85M7NwAe0OGk+2mwmAV1EzkbkAo+DHJvUiQTptv5gfTPJQJ
+	 sfDTl9dAyEM+A0QelxxKYUEd5d3/wkNW/j6z1qml6Wu4zk/MFXa+WfB25Qz+aw3usSz6E
+	 qESdjrtVNUkqDo/86ExAQZYn5thdOoFjp5R1hy1dQwnKiYQ+3HEeQDIO8oCQciVp2VQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180833;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=PoxpARakQzjd3CkiIIVbn4A3bEcoclbH5nuuP3ZPgJU=;
-	b=pR9ixxI+vuplcAe3fvf9sl/wuG5eR8vrjitdNeXK3wVarIXLjH2bXR0gYeEtIWYNQoy7
-	 i/58UdOjLhjQzOGvbawF87587lvnHWSCpBNYGu26Nt3L7LlUojXmuomnMyqxcrgSoYGbK
-	 pgA1911u5ZTkO0a8lb9k+aIUjUgogDgUSIXCoOJe9GCQ9GH3i04V6hecW3AAXd7eDcDrS
-	 7xXgVSfdTN301zkKy3Gi2+WYBpBGPVvorqgf1EaD+BtypdTzrpE7Zf8HRjXCG28POhCpv
-	 1ph8TUK04TmrT+J1x1M9TXJB1GetZVv0IjY2PU50Wh3/JU3Q0css7jrW9W4bB/gKqZg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180845;
+	h=DMARC-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Gkaq7y0t6W9u9ga0uuU7sK+gI9R+BYJHhIlyp2e/T7E=;
+	b=ocYHlcY2uO20ivEGkjctkRkc/rf3hMvCQ9MPnswOiAg1hCFTQxrNwzuDAeF11nGYA7uk
+	 53zNKNFuHPMq76YgbgWjjJchzSohlTKTbR1VwxjFrrKG0PF7OZc7/pb5pa9VhbB3lu5Wp
+	 SN6n6M2QVRqm02FMa3r4KNPthmvSN7xqchMV7R0A17LLtG8fnn34YKpbpZLpZAq+IwyEg
+	 dmQT05AhZwwsVnu4iluHrT5uzUJcgx5PD14Ty0qsT7gbNpGp0gntcBsmPzqLsvqMtggTj
+	 gYo8SnQPRazgI6lDDFxo1IoJJ/2Fn6o5izN+gUmm70hKfSv+OMN0BuxczhZoW87CAfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nZ3M1YD8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=dfb.sh;
+	spf=pass smtp.mailfrom=dfb.sh;
+	dkim=pass header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=B+dnc40H;
+	arc=none smtp.remote-ip=54.37.83.207
+Received: from frkn.dfb.sh (frkn.dfb.sh [54.37.83.207])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C6A5606A320;
-	Fri, 20 Nov 2026 13:20:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85DC1606A320;
+	Fri, 20 Nov 2026 13:20:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85DC1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dfb.sh
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dfb.sh
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nZ3M1YD8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E266C1F000C4;
-	Fri, 20 Nov 2026 13:20:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795180833;
-	bh=PoxpARakQzjd3CkiIIVbn4A3bEcoclbH5nuuP3ZPgJU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nZ3M1YD8gM9EX0qPeBP7bBwWsM0Shryp/ttkqR9Y5dCbkwnL6fUNdI+s6OwbtUoE/
-	 mrtHWnuxYZjptXdCaSavkL4vBlNQORpby4k+LINr2mtpGkZ5tLZdZcRZ8YRAkjbnZ6
-	 14OEa0DOyuaFvwdzqqSSsQwzlV8hImVv597+XnJGE0pOcJHhQZlXKNBn4GY2cY/LvG
-	 IWaiaUKw0MtTNO/mMoE3hHe2XgGSqrdGwFEktOIMNdjvWrqZP/m8TJZoQ4TfKU48yh
-	 qyeSiLWP7YTb7RXBbwcPxFkX4oTO+9TxpOzgJXGAIVI6/nNhyoSXqzn9pCCeH1Z8Eu
-	 ogkrZYFkekhVA==
-Date: Fri, 20 Nov 2026 14:20:29 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Guikun Yang <yangguikun19@qq.com>
-Cc: linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] fs/qnx6: validate di_filelevels against the pointer
- width
-Message-ID: <20261120-bonzen-absaugen-geknackt-c24bd03af152@brauner>
-References: <c4-qnx6-filelevels-ubsan-20261031@qq.com>
- <20261117-anheben-kauen-botschaft-efbcb6e18d72@brauner>
- <tencent_8D37DE888453A72965D4A60F43144E2AE206@qq.com>
+	dkim=pass (2048-bit key, unprotected) header.d=dfb.sh header.i=@dfb.sh header.a=rsa-sha256 header.s=frkn header.b=B+dnc40H
+DKIM-Signature: v=1; a=rsa-sha256; s=frkn; d=dfb.sh; c=relaxed/relaxed; r=y;
+	h=Message-ID:Date:Subject:To:From; t=1795180837; bh=Gkaq7y0t6W9u9ga0uuU7sK+
+	gI9R+BYJHhIlyp2e/T7E=; b=B+dnc40HTqT0Asf/fygoTtwvxSKN81ITvZTE+gl2xUSDC7Ha4Z
+	TfagQ3bq2yD7fILjtHAW55d3JOX3GT8jzmFtqmBr5MIp3I970aobEKP6BP3/I9dPMXnCDcIYvpC
+	xFBATnKzBNZJL3GYk5yMviN4GQSypYgC56e2u10zNa6x/xQMbbwP8o3wYMrg1IsaszlMeX586A7
+	kni0jAb9OHEpqlxL2Q6PbPcjS3nzSoZvj4BARldMoSYxb98pRqd8KMjC7V00JSu6SUVGzbykNb0
+	uzTn7FXKRzVXKX3P+ZXcGhoKMNKINgbNwowYPnfkH1pqaLnIilISPlBBEzW8KbOl2uw==;
+From: Vladimir Petrzhikovskii <vladimir@dfb.sh>
+To: dtatulea@nvidia.com
+Cc: mst@redhat.com,
+	jasowangio@gmail.com,
+	eperezma@redhat.com,
+	xuanzhuo@linux.alibaba.com,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	nikolai@kalinidze.me
+Subject: Re: [PATCH] vdpa/mlx5: Bound the KLM count of the user MR
+Date: Fri, 20 Nov 2026 14:20:34 +0100
+Message-ID: <20261120132034.1337770-1-vladimir@dfb.sh>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <d4f67696-5095-4948-9029-f657058431b0@nvidia.com>
+References: <20261109-b4-mlx5-klm-v1-1-787b45145719@dfb.sh> <20261119101523-mutt-send-email-mst@kernel.org> <d4f67696-5095-4948-9029-f657058431b0@nvidia.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -58,17 +65,42 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <tencent_8D37DE888453A72965D4A60F43144E2AE206@qq.com>
+Content-Transfer-Encoding: 8bit
 
-And the mail still doesn't work as a patch. Your note to me sits above
-the first "---" so git am takes it as the commit message, and the actual
-commit message is between the two "---" lines where it gets dropped.
+Thank you for the comments!
 
-There's also no Signed-off-by: and no Fixes: although the changelog
-says there is.
+On 19.11.26 19:12, Dragos Tatulea wrote:
+> Please make this paragraph more human friendly. Enough to say that
+> the type doesn't fit the value or something like that.
 
-It's also broken.
+> No need to say what the code does. Focus on the why.
 
-Stop this, please.
+Shortened both in v2.
+
+> Yes The limit is right.
+
+Thanks.
+
+> Comment not needed.
+
+Dropped.
+
+> Unrelated change for fix. Drop please.
+
+Dropped. The command then keeps today's limit: kzalloc() caps it at
+KMALLOC_MAX_SIZE, 4 MiB with 4K pages, which holds fewer than 2^18
+KLMs. On a device with log_max_klm_list_size above 18, a guest map
+that needs more KLMs than that fails with -ENOMEM and a one-time
+warning from the page allocator. Do devices report more than 18? If
+so, I will send kvzalloc() as a separate patch.
+
+> Why not DIV_ROUND_UP_POW2(map->start - pe, MAX_KLM_SIZE)?
+
+I missed that it exists. v2 uses it.
+
+> Use mlx5_vdpa_warn(). Rate limiting here won't help: the other prints
+> will trigger.
+
+Done.
+
+Vladimir
