@@ -1,124 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.149
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176303;
-	b=n1lGKYfW6/Du0SOwRVHpb7jEyYs1U244egPYNNA5uvutB9iEdCMkajio+5ubNOFvE6FR
-	 90Tcnf3a72xFaND8ngHo4emDvK3wtWpQU9UttG+WAloR2w1XW9EHiWIe4JHIO9x9tc7/I
-	 zeurIXp4gc513nAuu2abK/l5uSF3IqENTr0Ij4uK+z1tRNnfv2KsHQeTsY3y8ABsJSQVF
-	 qgBJZfRQzobWDrtnee87H7MmKY1wvikQeSpGVCJZia2q0hYl7fHZtNZgmEi0BD07Fxjjw
-	 rDFcFYIxqNoB+kkzEnsVPpn3NmX1O7OiQs9QHFiK/MnJZetcoCWbTYzLjxRVMoDLdEA==
+	t=1795176372;
+	b=DXsWkXTD9sl0eDIOnlal4EB32jcmetwyCWAyIZWWTi8tS8HaDZFnzTS8YWRfvAjhnqvO
+	 KxnVv3Coj+78RvXQP532uHllhzQtggZvewUhiUBjuElbhMUQ2jQhToGaInuEKKGkeUaMx
+	 V1odNWUWgDPuz6O/IyVLWZA2O5uswzAdb938zKCI2QbY8EvaOj30blZiO/UCPj2oJ3J3I
+	 9VmCYA5iBZC1qlIFbAGoqrFgaz8hzYRNXhdxhNFDxAHMucIOsFvqRF2MTaQU3LH4QPMei
+	 44N3I0SMzkSQs/KfyevMAdL8+mYOJqEXzjduR2V/fnS7cSWb/Pq44wA+H8jc1oDYwHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176303;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=IvY1hLP95EjHzOsLzZ2ajvBN+SXpiOPy5hS27NuyjPc=;
-	b=GEBiv1x7k8MXsCxFlo+gH5RqaxRWuYH5QXOuB6C3isuJVJ9oO85h3f3CvSzATYRlJr4f
-	 MkiwJyq4Qp2VvV+SSvTHlfjcuUynKoZ/5uk5zlPLFqI57bkROPdOsfPISRzer2wIPhnxd
-	 18W5JcwBlBfNRE3lzfosYT831zUc5RDulNbLI7F12Ak0UNcKHpHaiwKTw1V83cDas+Ej3
-	 y5WKN31r2sisB6ldCupePNJziOCmYygVg04EaNuC9b+2ux+o2h7vqoB6IthpQH2K1rt+l
-	 o3FuJI56uWt5eC+Vkj+agnY1pQoozi0tnVGY+Br7xDtUQxGGRQcTP6V+y5UCVIgZu0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176372;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=VZcbeVDdlNi18JiKSg+eWjVY4TeiiYK+J+UD2JmK1rw=;
+	b=YP0YvU+fvSVRIgd3Kng0Jb2/o6YAQhMBg2cTRaZNv8xxXFfD4SZXMH/s+EnhIfWhZyeg
+	 YlFScnO82s4ZGLU38//rUeyY+Up3XYGHrznfczCsM1uWKggyeVLafD+SsdJqcW07F4QSs
+	 B8/dayfiOr+ZUqYpBkEji0SsdWvCUJtN8NGV+EQdwzSwbbZDEMhjRE9NCXf7cLXm4tlgF
+	 IWQCzuQhFwPp3CHwwFmmY833rV2OVGJShrbbCB9cEVell7Mq0clb/HbL/6dpQnoRqm1Lf
+	 WMQtTuuOlQgAlW7cIZUdqhLTXJ5cUJ5e8MRMNTg0403/lrQhTyGWLBqEnVc1vj0AHXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kode54.net;
-	spf=pass smtp.mailfrom=kode54.net;
-	dkim=pass header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=NvZOfVbS;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=c9MNC4r4;
-	arc=none smtp.remote-ip=103.168.172.149
-Received: from fout-a6-smtp.messagingengine.com (fout-a6-smtp.messagingengine.com [103.168.172.149])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dj1I9gbO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97F1F60A2603
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:05:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97F1F60A2603
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kode54.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kode54.net
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id A840A606A320;
+	Fri, 20 Nov 2026 12:06:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kode54.net header.i=@kode54.net header.a=rsa-sha256 header.s=fm3 header.b=NvZOfVbS;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=c9MNC4r4
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailfout.phl.internal (Postfix) with ESMTP id C0DD4EC09CC
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:05:01 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Fri, 20 Nov 2026 07:05:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kode54.net; h=cc
-	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1795176301; x=
-	1795262701; bh=IvY1hLP95EjHzOsLzZ2ajvBN+SXpiOPy5hS27NuyjPc=; b=N
-	vZOfVbSrbf4OP2EtYLlm/YfPiKJse5r0K+gf8jxM90q7VR2PpJYB9SSf0CmY3gNB
-	/HHqZXIVRjbz956Oed9/G99KtAiLA7/cQEnTsMfjKJepLnOmwwFHcE3UKRbBkr/A
-	K/jJnYx3uMEalFrHQMruljnOVDZrDhZobkXNO0G4xoeBdxq16TpwcN7IWJ8OnN87
-	WwxjfXH+QrlfXcrFajOOeYGeDDobM/QZQLfGT/5cuyMP6uuYxNy8h00EfOYsQr4C
-	14pmsF5Kzqm4VtDK0DhZMGqvhKFCcyndXvD0NjTdJ5AEv/hWUC6UyGW64CcCNyne
-	vMhNgVQz38/AIn2E5melQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1795176301; x=1795262701; bh=I
-	vY1hLP95EjHzOsLzZ2ajvBN+SXpiOPy5hS27NuyjPc=; b=c9MNC4r4Xi7aRoPXl
-	DlZ6Ftj00jdSDVvLbGyaXQ5AaLUiEODBoPAB8eoPa2TdXBfVL8yyUdE7pkLpNMUw
-	4wjvdZw02+qjQGH9YR2mXRob1YBOidB3OIuwbvR5ljuqDUGNQmfJHG5qp6KeM02g
-	XEtFzj91OVmoHUJ8zjK7yLF3hMhpSjjn42dpaIJYw1qfGzk2JuH3N3vrcHhbPjjg
-	jor68u7MdN9XeyoDhQDc8qo6z5DaBqLb0eeDkfO1UBm6v6SXbYevkFGks+rNNLvU
-	Cj1va75tvpWrGmOH0Yo81EEJeO2rjDl+AKhKoWKKAjClZIvKa4evqvPSDJ2/eO7j
-	mQ6mA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=kode54.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795176301; d=kode54.net;
-	mf=PGNocmlzQGtvZGU1NC5uZXQ+;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:tryCuV9B8/N/rB3ebPTyBnMHWJyrDlIFdvWfc94FM1Mm29S
-	JhRegthyDBmiz/nNoIGHjeC7LwjK+CneWgzIk8kFvdin0pQ1fPAUbHNsdHYFjqKH
-	RNxhzMmP81feQgIcsuyw/feOoRqymjPw5T2yUY+EctN63xfWi517EYU1Yj/Fgm0E
-	Yx6zFICVkJDe0MwLU4zvZm2Shy95ZIQnN3bT6Bl4P27eAa8mntD2t0gMaI//xgSf
-	k/V5x0YOMAM6Lo9ny7sv1yg3U/U9yUc778rSKDbm9xsTxKkiswwGXZoSvd2rV//B
-	OvUyIwBPlTkVQlJF10E5l1o8IcRReHLRSDEgF7w==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=11;
-	hn=cc,content-transfer-encoding,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:tnget8bzA1wtbVudXG1sql83rQz4jvJy7h0+myWs4FI=:+UI3E3y/ALpPdOkM4mM2wvpUwmFS/shOCxCrDavlc0Q=;
-X-ME-Sender: <xms:bTcAa73ahJFH9Wof3bb9LS_6vHMoSHpL7hlD3qzQAh0r2ixDpO8OtQ>
-    <xme:bTcAazZgQMKihjHCxy4-GO7cN2mo8yn77qDEsZ-mPbPuwCY3AztzxAqw4khuS_-4Z
-    XO0df2LZn31xtS3NUQQ5opxD1QwjhvJwpGkXTECzJqv2uhEesQdekg>
-X-ME-Received: <xmr:bTcAazJKF3jmtovHLbOqGPsJiLCwEZ2aEgq4vep2BOoQnSKb4mxDHF-DPNU>
-X-ME-Proxy-Cause: dmFkZTGYM6HqjTLSSesIS30/EoDENuBYYO94YU4vXAMBXU83exFX1gz7E4KOORT44T2x8T
-    lMM4puhUWOMnOhFxfFwHVhBjNCBYCeIH5aLtzqLtDlJL9bQxBsP/m4UrUczPMNcdtuAcux
-    xyL6WwQIeVuw5h9C0hYlBCvSdJCuv9v3DUS0ffwZLpWe+XfcrgK05gTjD7A/A5LmFDH8My
-    gxKVtGmTSAaQLMuhAqTsUOKlBF4NebuvGzbnLyOxLFdBtL2aXj4DhqOgwG1xtdIMF5aNzH
-    0qRFi+/bizwoqmXsCj9l28+OpAT1rB360V323CuUrlSxVYoc1LkzqDsmiHTD6kMXHJyyG7
-    Av24QedGck2Mf+8fy9Ixlexhgb2Gmh0d0V6X9RoAcsyWA3VgtRiZWpa7G5x+XAgWL4wMB6
-    UqlrfH4Kh3BP9QBmG4KhE0kKtqsCr50+okzDLCQelzRJJWIW7PCuQ0dnRZ9bESm0sb04XE
-    NZ/CUQdAdr1UvKe7qC8n/eMOfuStXjfJfd1iIJMPIjCf12jSUWrGuj889zITaT2mRsHn+k
-    4y8MV9F55BV6msGEOfMlhD69sud/5+C0ByyeWtEWI25comi43LYOYBpCKgXcnq3Ewu8NED
-    62qxK5YsjUjiwM5h2RcWwwiWIqGVk16kgOK2J8J3clNPPxWERoVQ1ickDgoA
-X-ME-Proxy: <xmx:bTcAayGi21_7aePJesG2LRhw1K9Aes23vlKLw__3xHfSwUz5rTpZbA>
-    <xmx:bTcAa6skokbOq5u3MbmXbJrPnZg9GoIEEblbDOEKQU4BGlCSkT9rVA>
-    <xmx:bTcAaxtDbdZQh2yt03VVAWVWGFe68VQZ17f97fOYo3pQ_nH3L9Xexg>
-    <xmx:bTcAa4Cw96grql7lLXQ6LJEVCbMoOthAXuoiwOcocpkrBZzHOkQkJQ>
-    <xmx:bTcAa0uc-ZSME4wwpV2PXAAXzG8NK5SyccTECphseX_Df28VyYP1LLk3>
-Feedback-ID: i9ec6488d:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Nov 2026 07:05:00 -0500 (EST)
-From: chris@kode54.net
-To: Takashi Iwai <tiwai@suse.com>,
-	Jaroslav Kysela <perex@perex.cz>
-Cc: Christopher Snowhill <chris@kode54.net>,
-	Rong Zhang <i@rong.moe>,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] ALSA: usb-audio: Add quirk flags for Logitech PRO X 2 LIGHTSPEED
-Date: Fri, 20 Nov 2026 04:03:48 -0800
-Message-ID: <20261120120356.10909-3-chris@kode54.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261120120356.10909-1-chris@kode54.net>
-References: <20261120120356.10909-1-chris@kode54.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dj1I9gbO
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id DCD781F000CF;
+	Fri, 20 Nov 2026 12:06:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795176372;
+	bh=VZcbeVDdlNi18JiKSg+eWjVY4TeiiYK+J+UD2JmK1rw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Dj1I9gbOcUktcP3XTHqIIzS3XhiqpnOQzQ99On8eXfO29UtqD1/i6OhMpILa4lUsz
+	 MocLAdjEfLu3Z1wkHpw7TUSss/tbSfsQ0guF0N5eleAmotZ0sjsqkrVmb/bHq7ypVX
+	 TJXr4AfoYpcPARr9+/8FiwQ34N09IiHj21frDV45NTD5w/ML30+FoOMqdUtY6sCk3j
+	 QWtQKuKeMdQz8BteW0utOV1XjtvKOmti2nr42G+H6EdA1OKQJDCDBFmUxWz5vhEIAa
+	 86bSXqGdAdp6jpamqwSvUO/eN7g/wUvfSK+2ha51T4AUur42lLDQNxz0GLsmNOL5YR
+	 ndKZNASxyDy0Q==
+Date: Fri, 20 Nov 2026 13:06:10 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Lee Jones <lee@kernel.org>
+Cc: "Philip, Avinash" <avinashphilip@ti.com>, 
+	Vaibhav Bedia <vaibhav.bedia@ti.com>, Thierry Reding <thierry.reding@avionic-design.de>, 
+	linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 7/8] pwm: tiehrpwm: Enable runtime PM before registering
+ PWM chip
+Message-ID: <awA3Cfrm8lHE2uLH@monoceros>
+References: <20261105143847.2559586-1-lee@kernel.org>
+ <20261105143847.2559586-8-lee@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -128,49 +59,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="52p67fuekkm3a7ph"
+Content-Disposition: inline
+In-Reply-To: <20261105143847.2559586-8-lee@kernel.org>
 
-The receiver of the Logitech PRO X 2 LIGHTSPEED headset (046d:0af7)
-resets itself on ordinary requests such as SET_INTERFACE when it has
-been hotplugged and not yet gone through a reset of its own. When the
-probe-time interface setup runs shortly after configuration, the
-receiver can instead stop answering control requests altogether until
-its watchdog resets it about 77 seconds later, and the headset may not
-pair afterwards.
 
-Skip the probe-time interface setup, so that the first alt setting
-change happens at stream open. The receiver still resets once there,
-but re-enumerates within half a second and then works normally. Also
-set IFACE_DELAY: the delay after SET_INTERFACE lets the receiver drop
-off before the sample rate request is sent; otherwise that request is
-in flight when the device disappears and the disconnect waits for the
-control message timeout, delaying recovery by five seconds.
+--52p67fuekkm3a7ph
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 7/8] pwm: tiehrpwm: Enable runtime PM before registering
+ PWM chip
+MIME-Version: 1.0
 
-Keep CTL_MSG_DELAY_1M from the Logitech vendor entry, which a device
-entry replaces.
+Hello,
 
-A receiver that is present at boot is not affected.
+On Thu, Nov 05, 2026 at 02:38:09PM +0000, Lee Jones wrote:
+> ehrpwm_pwm_probe() calls pwmchip_add() before setting driver data and
+> enabling runtime PM.  Because pwmchip_add() immediately exposes the PWM
+> channels to consumers, a consumer can invoke ehrpwm_pwm_apply() before
+> pm_runtime_enable() runs, causing registers to be accessed while the
+> device remains runtime-suspended.
 
-Assisted-by: AI
-Signed-off-by: Christopher Snowhill <chris@kode54.net>
----
- sound/usb/quirks.c | 3 +++
- 1 file changed, 3 insertions(+)
+Is this correct? Until pm_runtime_enable() is called the device doesn't
+go into suspend, does it?
 
-diff --git a/sound/usb/quirks.c b/sound/usb/quirks.c
-index cff10fac496f..29523d2a99bd 100644
---- a/sound/usb/quirks.c
-+++ b/sound/usb/quirks.c
-@@ -2284,6 +2284,9 @@ static const struct usb_audio_quirk_flags_table quirk_flags_table[] = {
- 	DEVICE_FLG(0x046d, 0x0aba, /* Logitech PRO X Wireless */
- 		   QUIRK_FLAG_MIXER_GET_CUR_OK |
- 		   QUIRK_FLAG_MIXER_PLAYBACK_MIN_MUTE),
-+	DEVICE_FLG(0x046d, 0x0af7, /* Logitech PRO X 2 LIGHTSPEED */
-+		   QUIRK_FLAG_CTL_MSG_DELAY_1M | QUIRK_FLAG_SKIP_IFACE_SETUP |
-+		   QUIRK_FLAG_IFACE_DELAY),
- 	DEVICE_FLG(0x0499, 0x1506, /* Yamaha THR5 */
- 		   QUIRK_FLAG_GENERIC_IMPLICIT_FB),
- 	DEVICE_FLG(0x0499, 0x1509, /* Steinberg UR22 */
--- 
-2.56.0
+> Set driver data and enable runtime PM before calling pwmchip_add(), and
+> disable runtime PM on the error path.
+>=20
+> Fixes: 19891b20e7c2 ("pwm: pwm-tiehrpwm: PWM driver support for EHRPWM")
+> Closes: https://sashiko.dev/#/bug/linux-28b36a80-e4a9-4bb6-97bc-7ca028955=
+70a
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lee Jones <lee@kernel.org>
+> ---
+>  drivers/pwm/pwm-tiehrpwm.c | 15 ++++++++-------
+>  1 file changed, 8 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-tiehrpwm.c b/drivers/pwm/pwm-tiehrpwm.c
+> index e3407d0a1f7f..f9dd3b91c73a 100644
+> --- a/drivers/pwm/pwm-tiehrpwm.c
+> +++ b/drivers/pwm/pwm-tiehrpwm.c
+> @@ -461,18 +461,19 @@ static int ehrpwm_pwm_probe(struct platform_device =
+*pdev)
+>  		return ret;
+>  	}
+> =20
+> -	ret =3D pwmchip_add(chip);
+> -	if (ret < 0) {
+> -		dev_err(&pdev->dev, "pwmchip_add() failed: %d\n", ret);
+> -		goto err_clk_unprepare;
+> -	}
+> -
+>  	platform_set_drvdata(pdev, chip);
+>  	pm_runtime_enable(&pdev->dev);
+> =20
+> +	ret =3D pwmchip_add(chip);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev, "pwmchip_add() failed: %d\n", ret);
+> +		goto err_pm_disable;
+> +	}
+> +
 
+If you switch the order here, it would be awesome to also switch in the
+=2Eremove() callback to have the order match.
+
+>  	return 0;
+> =20
+> -err_clk_unprepare:
+> +err_pm_disable:
+> +	pm_runtime_disable(&pdev->dev);
+>  	clk_unprepare(pc->tbclk);
+> =20
+>  	return ret;
+> Cc: "Philip, Avinash" <avinashphilip@ti.com>
+> --=20
+> 2.56.0.398.g882cbad275-goog
+>=20
+
+--52p67fuekkm3a7ph
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsAN7AACgkQj4D7WH0S
+/k6ZMAf/Sfja5kwJbbnFMEzKlPXRu5nvLwz6Cl5huAWiTMh8OUPEmcGsJjd88Ul5
+0uJQwE4mFuzjJFtKScfdJWc+gwYlzZwhN4vel1E5Vu4FbjaFSrHqrhAEhvsfzJSj
+upQzhfNcNa4u9Uz1Y+6p1QfHYHog533WUK/DCGypFDQ93LqHGu+hheXPJKmSQClf
+0AuWmEUZuAG2pxaeaCw7a2JsTbuJ2gDcosrezGQjMWFNMLJuCNNOWtumR9EGXLHR
+NDqbnhSZ/4X4z6MN0Yrr1XGkTNGRdkbQ4nry2ILMDRi6gFMgVyTcYtAzC3Jwh6w9
+nhUwFMtmTLCvBWbD6kGiqLwj3swg8g==
+=U410
+-----END PGP SIGNATURE-----
+
+--52p67fuekkm3a7ph--
