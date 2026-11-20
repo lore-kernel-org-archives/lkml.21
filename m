@@ -1,58 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.251.229.89
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173753;
-	b=GiUJwRskFdjBBgw6UPQiQVhloc4HJNjOP+sQQ28yJq61rMSc1nq29G0ZPvXm4+cO7eXp
-	 jmlBccLdGGj6xjcFqDkHwvuZxBfXVGeqzi25EvqQt2kPfTIjXYiUkAHTUIo8xyX6Z36yU
-	 hpIZfPkf8d4gSznsQVZdBDoa0GQlGww1sugT6T0wwlEoqpkYJKRI7UZUlW8Z48X4tGj8w
-	 YIXjSQccagg3gX64SAcZyMXMhDPpAnqLbh8LtX7aHjSbpe9EH/aysOR/r0iaghPvzhoXd
-	 K4I15f6DnzLxFs9MqN9JkkBtvEPei1kc6bQ2GEQ8W4eDxZD3MJg6c/kBFiuN4VhX8Cw==
+	t=1795173760;
+	b=0UIYW827Pm8cK7NchnzkOmi2OKCO2A1EYpMNE5cUim7RS1mqy/5L/02cjBhMHxUj9/zm
+	 QyQBvojLkldz0bzsHJmFVUD5BW2tCrZ/kAPkWUHyOIrvKZj0B34OZ0HgQF/IqpUl5Rauw
+	 RUZrzj8+UVYJ88jUwhfePnfeg0TK9u7S+qDsNtvNKXGwyOy27+kq2k/ye5j+ePIWuVm58
+	 lUguKwAQ59K8WQlNrdUSbcMQCUjL611/FBuRlZ0CKElsRRi0N8LkXI0NOa6TjOf72qmTG
+	 5rJ4Oo4PdgVnaMBVnbJNSW/xiAAQQFR7zbkYJFsn8E6Sc8wqbKlO6UsJ2q4I5ner8QA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173753;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=q3He2vJPveDeIxMp17n6X/8o/A2BXGmt1vzCaWLZczM=;
-	b=3XTdY//vhJhsnSyU0FWGd2IQtE9ZScUd5PW5A0I1DbkBcn8R6GchOZgQjVPVH3QgyW7i
-	 p1TpTooQtSm6hn1TzYISjeEFY2eNgfq+pC3W9Dbf0gpxyerg0tqnLvymOPkuLv0yexHtU
-	 IkP5A/YBybY1D010NpOc5IAbLMXKV56aqy8W6AgCgdj0fpf5C/t87z1VyP+P+7HQvfrrV
-	 hfzuhgsCtEalCIhEe2YQY+oPR+PqdIqU3faa9nVV/nWjv69qXGPXyFaojnwM9KnOihdjG
-	 vPS6MO8n2UKLuPobM24S6yRx7GJQc7qaVMuIAqcXYbWI7HSlOZZ4QPN/PGbftfwB52g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173760;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Last-TLS-Session-Version;
+	bh=K0f4GyuWmwiU3xAt1qgEIuTwy9fTV0XTeNNsXZl+3Ts=;
+	b=WvQH8Qwt+mDrM36s9CDvj91jAG/9u2xUK5dvrA7nt2Ulcu2kYO5pLYwJOY02fNcVYgCz
+	 6Q65eZFTm78rJITXA23HAHjwYHVFmeImNMt5/GSWZGA+EHESR3OF09riz2+H4zKX4DhE6
+	 VZn/4HL4Ny6viUYV1Lcsy6S4PB1C76rW7aIVy7ntBXngmU4Wm6Rn+L1bXKPmKlW2W9wx0
+	 Ge7LEWUhJBpCTk9F9+JJgcpTwX9vWcJ/HNkruOh7kS56tzlatpmzGeK7hPA7aNEgssm02
+	 K4t4OPG5YyPYDCRH4CCurA2T6xwYnEjF8A6LumES5xxEMLUogXWNCtPEmq3UV1CcivA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YP1y+zVC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=nabladev.com;
+	spf=pass smtp.mailfrom=nabladev.com;
+	dkim=pass header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=M2s+JNcb;
+	arc=none smtp.remote-ip=178.251.229.89
+Received: from mx.nabladev.com (mx.nabladev.com [178.251.229.89])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADEB2606A320;
-	Fri, 20 Nov 2026 11:22:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1267C606A320;
+	Fri, 20 Nov 2026 11:22:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1267C606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nabladev.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nabladev.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YP1y+zVC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A9CE1F000C0;
-	Fri, 20 Nov 2026 11:22:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173753;
-	bh=q3He2vJPveDeIxMp17n6X/8o/A2BXGmt1vzCaWLZczM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YP1y+zVCAzVoGVCMznmfOqd/xKvtb51Tc6mlSl9SbryXJsZwvM4GnPUGjqCDxTOVh
-	 Fqi5LVT13SOipxbLixrvmKkoKO8tvSr7JLPUC/0J61vDdslnn3z+KHtFAlVCFo2ZMG
-	 /E9bkMWhC0KFz580jx6hUtW8M5eqQJHx+KqyXuVYAa4oNTX/Mepd+D+0MJm+CFQpLa
-	 ekOCky9PjXiCmaHm+N7LOv6XIhFqbRXLcsghgga1lej1D64/JWA14TBzq6K30zDSAu
-	 OKy0ZODEyg5eArw7cfibkWRwkPyHn2goSF9ODonI24xXFdps7C5tgZpN7v3y8KkOpe
-	 VW5IasdamyRSg==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xUMhK-00000005g9J-3otq;
-	Fri, 20 Nov 2026 12:22:30 +0100
-Date: Fri, 20 Nov 2026 12:22:30 +0100
-From: Johan Hovold <johan@kernel.org>
-To: "William A. Kennington III" <william@wkennington.com>
-Cc: Oliver Neukum <oneukum@suse.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Havard Skinnemoen <hskinnemoen@google.com>,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] USB: cdc-acm: refuse writes after disconnect
-Message-ID: <awAtdlEpSLc1ges1@hovoldconsulting.com>
-References: <20261118145636.3534234-1-william@wkennington.com>
+	dkim=pass (2048-bit key) header.d=nabladev.com header.i=@nabladev.com header.a=rsa-sha256 header.s=dkim header.b=M2s+JNcb
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2C56510D007;
+	Fri, 20 Nov 2026 12:22:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1795173754;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=K0f4GyuWmwiU3xAt1qgEIuTwy9fTV0XTeNNsXZl+3Ts=;
+	b=M2s+JNcbD+sxtiCWVM8jz5IfbpTIjcqntXGnoM3iPEe1IcaWNzrBJUUGwCoisCCTik9Iqc
+	c9F7AlvufbZuQDisdhd6IA9gq57eBsU5TNsUUUTJk39QjmhFTtn9IpmhqMxKnVjgzPcELN
+	jdzSzUqWPoN7FjOdguSZPNICfM3kDQO3dL2UZqF70eLicuvG81knn9Npgkdlhlz/c9kdXa
+	Xvyn+Wz97+uxDW2AHDE42zPkWT4aSRyRmsdA6+tzzdDQXB1xdY6UPvqCLu50vSCWvyApF0
+	zzwPHb4t4rv88JCOQ08T6j5rc+EzX48o46y/vXE9Wqy2+L4hBjb1lk49kBBEuw==
+Date: Fri, 20 Nov 2026 12:22:31 +0100
+From: Pavel Machek <pavel@nabladev.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org,
+	pavel@nabladev.com, jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, rwarsow@gmx.de, conor@kernel.org,
+	hargar@microsoft.com, broonie@kernel.org, achill@achill.org,
+	sr@sladewatkins.com
+Subject: Re: [PATCH 7.3 0000/2642] 7.3.6-rc2 review
+Message-ID: <awAtd3NV3kVYbQ3b@duo.ucw.cz>
+References: <20261120055248.913352689@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,43 +67,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="leAxbMl8bKwyHXMe"
+Content-Disposition: inline
+In-Reply-To: <20261120055248.913352689@linuxfoundation.org>
+X-Last-TLS-Session-Version: TLSv1.3
+
+
+--leAxbMl8bKwyHXMe
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118145636.3534234-1-william@wkennington.com>
 
-On Wed, Nov 18, 2026 at 02:56:36PM +0000, William A. Kennington III wrote:
-> Commit 7fb57a019f94 ("USB: cdc-acm: Fix potential deadlock (lockdep
-> warning)") stopped clearing acm->dev in acm_disconnect() and replaced
-> ACM_READY() with acm->disconnected, but left the write path checking
-> !acm->dev and dropped the disconnect check from acm_tty_write_room().
-> Because acm_disconnect() frees the write buffers with
-> usb_free_coherent() and acm_probe() only pins acm->control, a late
-> acm_tty_write() call dereferences freed memory.
-> 
-> This can happen when a CDC-ACM device disconnects while a file
-> descriptor remains open with a line discipline such as mctp-serial
-> attached. Hangup closes the line discipline, but a subsequent reopen of
-> the hung-up TTY calls tty_reopen() -> tty_ldisc_reinit() from the saved
-> c_line before acm_tty_open() fails with -ENODEV. Because the original
-> descriptor keeps tty->count non-zero, the reinitialized mctp-serial
-> instance stays attached and faults in memcpy() inside acm_tty_write() on
-> the freed wb->buf when transmitting.
+Hi!
 
-Thanks for reporting this. I assume this is not something you actually
-hit yourself but rather something flagged by an LLM?
+> This is the start of the stable review cycle for the 7.3.6 release.
+> There are 2642 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
 
-> Pin acm->data alongside acm->control until acm_port_destruct() so the
-> unlocked dev_vdbg() in acm_tty_write() stays valid across disconnect,
-> check acm->disconnected at the start of the write_lock critical section,
-> report zero room in acm_tty_write_room() once disconnected, and set
-> acm->disconnected under write_lock in acm_disconnect() so any concurrent
-> writer finishes before the URBs are poisoned and the buffers are freed.
+CIP testing did not find any problems here:
 
-This isn't the right fix though as the line disciplines should not be
-calling back into the driver after a hangup (and this isn't cdc-acm
-specific).
+https://gitlab.com/cip-project/cip-testing/linux-stable-rc-ci/-/tree/linux-7.3.y
 
-I've prepared a fix that restores the ldisc to N_TTY when a tty is
-reopened after a hangup instead.
+Tested-by: Pavel Machek (CIP) <pavel@nabladev.com>
 
-Johan
+Best regards,
+                                                                Pavel
+
+--leAxbMl8bKwyHXMe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCawAtdwAKCRAw5/Bqldv6
+8vTrAJwKW+dVO5Vz6iY4GwbYdYt9o+joiQCfcVnPyj04FdfVx78cvby6ZUnw/XU=
+=XOCX
+-----END PGP SIGNATURE-----
+
+--leAxbMl8bKwyHXMe--
