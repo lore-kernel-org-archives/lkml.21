@@ -1,102 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198703;
-	b=O6Fi0L1ds039GuETGGAQrtW6wRRBtzOKqL8zs6xQ8xMOAg0HoFx+r1VTTfzkna/emYHP
-	 2IC7+edwGi8TKMT+lp8BVEYH+B/uhfzBC121alrOo4K6SpWSOiPWKrdf2P8ody11YCLq6
-	 aaQjca6ok46/AuEGjFYlR98zyPM5pKqUMvW7c1AA76E3A2t30TYdYMBtyw6rfsUPVgw0N
-	 c4yZybc+yguLxulPjkd3/GHvLcKYE/Iyt4jMkgsh5s/p/hQri/QFPjqIeHMl9YxszcdgL
-	 e2gESq0PqDhhgJYNj3j3dng1GYBw2EG7OQmlao6RrnMjmFlVRhPzjRa+UNKDzKMOxYQ==
+	t=1795198711;
+	b=XTp2MbAl+uDF1hYneuaZZFPXgmOhQ+mQwx9S/esOiTaCy/s4NmIIORbsyW6yCxa072WE
+	 jEJMb/296Vrb+V2W9dBwnW05zrN9aFNi+oRArR2Pj1Pq6AKttYXYQfkjS7eEhLcMiK0uj
+	 U2Nuv1bTf2uetzn4J4amZ2oKVM3+hK3XQnAJe5kvrx68I8I6vU2XuMagNWQV2Am+20/zO
+	 ySBGRwU9X0VG+hUBMpajGFh7dq6h6uNwsTNO72FiOyY2xr4moeNMS8yVENh+18WSWr9pp
+	 KBMpuTzLgMGnA7Ig+FNxH17owRN8BslhqgS6cNz5uPoDhEgMQo4QXPwFBw3VZ/4L1Pw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198703;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=F+kfwwjCYMQqRtD6fmxwn5boEWQH1gRaWvH/BgGTxxw=;
-	b=S8ttlxNos3e962QgvgC5Dg5OA6IyTK8BmIdlMjZc+aOdl1h91eASbL7KdxZw8UQqh1Aa
-	 4m+YryXNoFLCmpPuiIIe3Lh5Kdr/zEKDwDwxYeUMDEFLCECKnw7FhYvFYxytNNrQD/Uew
-	 UhsaSL2FC6jogjj9ZTL9qNoZlXiYv3sV4Z8Iw1KZHzvO8aIsI7C1IYzQnsQZJe7TBRYAd
-	 q6M6LS0kBkD3piuQFiCZJQmUDuEQIcqHUWyy+yC1aKwMt0ortMxQF8zRqW5epdVPi+8sk
-	 RkHF1CXzK2/8cPRESk0U1qR1Yd+sh+dN2eM7UsJPLdIM4p2oVvA+NUKYK0VmALmscMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198711;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=jj+be5aqhSTcU8zL0FKiTltNkxQe/jmWn4PrkeOOYo4=;
+	b=VSJXhzoSPVxSR2ybpiI5lT4X2FK9+6xcMCx+MTDDPfn/PCA/deGxye/WPh2xuS01KmUm
+	 KJb8GIpDygdl98r45hDrqnksdwKNY1y+gAnx1OHnvdl+s3qF55vLLO8dsudPt4Fk/Kw8I
+	 peZ/6BFyA3Rg/xUErW6XkZEc8egB6AUwlcU5PfLmVkwqZHaXZ8j885VE1VshPljQ0VC2G
+	 8iqrRJHBVOm90SCPAd6dgUayLzxnzTGVMoidVcYZMIjbx8FfoHVbbjLLOnEkOPSOoiUc7
+	 9a6vHsRPZFBe+bqtBQ+fbYczTUCyPlwAqcelRkZtrtnF3SYiW0o3IRP+b/EmYR2u6Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TzBVnh3R;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=D2c7TCeb;
+	arc=none smtp.remote-ip=209.85.216.99
+Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF29606B9B1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:18:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF29606B9B1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D693606B9A9
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:18:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D693606B9A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TzBVnh3R
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb6886d30aso11486525e9.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:18:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795198702; x=1795803502; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F+kfwwjCYMQqRtD6fmxwn5boEWQH1gRaWvH/BgGTxxw=;
-        b=TzBVnh3RUQiRQGeTLDd1hc3xkppDZkzBbJhETCF3BYEaYC0G/JIcXXJwcg7ZQ6u3pN
-         DhJJQmpNMcKGnxR1efw40notwL390xuwa3hYe2qdJIcys9LvNr8bQBTBr5EtiRZPSKrY
-         NyYl3hESJYGbRHi9BNwV5vDLBRscNEhhIacIH8n9KcP5hOxCH3qCwWo37jWw3zvse+43
-         yoYlBSfLI0LyVFZGRKnt+UZMXbBbL755VX0xhSVmR4AxfzR3WFy4BZ/RLg8QhGBnZb22
-         m9IQ8L7t8wtpFNyBm0VD+r2pe3QVHCHzA0Fvcu/mTgmoO+9UOzEjsEuSk1jasqLZ1+vJ
-         qRtw==
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=D2c7TCeb
+Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b413997581so1171901a91.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:18:30 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795198702; x=1795803502;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F+kfwwjCYMQqRtD6fmxwn5boEWQH1gRaWvH/BgGTxxw=;
-        b=emNrtAO92AcqRY8wtMTP/YnoCvwDQxh0cjg5mvAvZYbfrmCIWM9BNltEbhSudV4dQW
-         kRwcQDEEO6VysboSRZdu/utCLcV6Zpvwx5GiNIAS/60la97r9R31eJf88ifM2pjm1wsh
-         MLitRDHIBLAFgqyLUFem1TiRxCHDDaY1zWFge/BYWvh890WM1ARRloPYRR3i16PaPrTb
-         4IuwJlP3RbNsWrmQeSIbGIi7bQAYzs+9BKFT5+9b6kiv8IwcIa4p1Rf4yL0Zd978MW8K
-         n5MuqN/k/KYLoRs4yI94rtRGgxB+wdYCT3bBhpLUrBnLafY3qJj8dQgunyAExPNgCLof
-         56mg==
-X-Forwarded-Encrypted: i=1; AL+hErECgjpXQ8txmTeu4P0TeCZ9OA1JrAIxHfKy5Ba4G5yVrliXn+WJY6xQdiAqdWadTyOwP+xAp3m66FFTKZo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9zy2BewElqoxCqUjjwKy6/y6oiALjaT1p3/AbDP+1VGMddXdWo
-	PIM95W2vU42uGt90MJvzv+qYmcvLIc8s29Tr9VSWCfdnO+fWsdqPC2mF
-X-Gm-Gg: AYBFou2nQ6bn5hsXim8z5FjHUgV0bZiibzVTS3IKvwWzTs8diE2LLPTx6KLLRbL8hQz
-	dLqizbmVH4D5CX6jJ7TSozaDLUKZW2uC2fVHf3kjRPfpdvryIg77jd15YLh7G89arAXvoq5Pmta
-	4Igq7rPJInvMQVFaxeg2az0ee/hnZUai4D56o2c1NtDP41rhRcOzU6Z844y/ctiAtah4T+V1rB0
-	bRQjANB5tsuJ+FiwzWJszGFaFzG/CQQh2LuMo7gNSSgBZxF48QA0M9PtWhU8cg3PkzXK1XLYyTt
-	IlHE4Kr3dtzdixNO8dBpbaF41Jz9UVElD6BRTX5xhgQXtnTu8yAvZED7DJukP1O1aWYc4Qq9w+O
-	s4ZPYS9JzE7c3RWifQp6nZ0Wf7cOtn4sDAWnrzFQXDR0fOskTvHJUOkE/LGW9GIlnGXUSZ1CMnx
-	ljryeCZ1Z5x93tZGM9gK0Q8VuHFVVWDkocWo6WHw8S+g16bk3CyJ4/o55oOGGdxBiqMOSs9bv6Z
-	DlRrpfSPBvAKCGF+egblJZeMH7F8niHr7CByBF5eGNim+e2yfjQIICJTHqe9vKomcubC3WmheHu
-	C6AQf7VPcKsVqgU/Bd7bHlDyJ9AlbU85dk4lE3YouO8EY2k/m47ZdkvEJIdTRLnoBQJOgbIJ3Qp
-	svO8VxcVkYWOUYbS7r+5fsJDbQOi0Dhsn1pcaTCHkirKfoyw8WvxJpb5ROIZl6UruG0d9
-X-Received: by 2002:a05:600c:1548:b0:4a1:e00b:a10b with SMTP id 5b1f17b1804b1-4bb88800020mr98021205e9.7.1795198701398;
-        Fri, 20 Nov 2026 10:18:21 -0800 (PST)
-Received: from GLaDOS.station ([193.207.36.37])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb895eec06sm34756025e9.2.2026.11.20.10.18.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 10:18:20 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v4 1/1] arm64: dts: imx8mm-var: Add Cortex-M4 support
-Date: Fri, 20 Nov 2026 19:18:16 +0100
-Message-ID: <20261120181816.33455-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+        d=1e100.net; s=20260707; t=1795198710; x=1795803510;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=jj+be5aqhSTcU8zL0FKiTltNkxQe/jmWn4PrkeOOYo4=;
+        b=Di1bNewDMRoAR9PQlmVjTTpdAMQ6oTdGOlxDGtkn0e+X/XEVo9IxPL+WopmsQADAGZ
+         eKckzP8RkaGyvdBP7Z+UqwHX2vWdd+lsGy7rG/HAA1rY/J1NQh1YKPfzYmsAIKTz/HPd
+         N23H5UXm2fGaQ7s6OnGTWo1QuZpT+VcVhdl7Hd1t+YC0Y2LDyvM9kVl1n4h/qHPbBpTx
+         VWjTjR3lJEMkiM0+RIY7MxG+SRURsOVmpnt/GllT4ihV+PIeEpyu6TtyvmUzvYtdrcdX
+         S6XBkgBOHL7Fqz37bX6YcUp+1pAp9CKlEUDVlnuOEpe/s4yVyGzkaqtY7KwG8ON1GebM
+         jECQ==
+X-Forwarded-Encrypted: i=1; AL+hErG9oewLpEB1V2E06OI900/Pu+n2gL/QIiDkuS5uwu9VfYm+EjxOQffRLKrERE8PgtMDu7jY6AAOM4FK53I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/O+fX20wF+7+Ryls+VMY2sIrKzTe6pxXC3WlY9xSBVyByF+PQU
+	PkzuKHF5HybyIdBgVU0jAOAz2i5hbefiehMzYukyqOG2LDYbHa/Knh6IqgUCFWRFTwzpnlt2nBX
+	pQTHc1rY5XO4hC3cBFHPp2XWa3qAWOb9R+82f3XtHd1MBYY0UrLgsipkx2F4MmLkd3SDj1Kpbvx
+	G+vPPC1QH2jwrpDp5Ck6+LZql9W9f/YlIujoYzaqXdi0eOXA+ZQwlKSYXrTCpzCsI6lxg4F6eRC
+	STh0WksyoZeOsOKOoILE1ir
+X-Gm-Gg: AZFdTZdWas8OQTnES+U09cqv9w/2D0K7k8LEF5DFtJgXR6Z773VZR45qopfvTcYD6WR
+	xROfSt4GBUEbo1Zw82m4eIQf/oEtBM6kIuIy+aL0Yq06lwgIfOdtJ+pIZ88FzBm0ew+4sQOLnV4
+	ijl6pjdkX/TEABLvAWK4WDyx2JTloTPwkNJkFRTMxJdBhaGlyN9wvUBUCIwgOmUYXYUWppCer9/
+	F3iPRasYGzqIjPfkYYncmbiQYw+C7knDxyGJXNL3Ab135bua7DrsCxRFnegj3mJbildPsrQddxA
+	c8XFbR/plceZ6pADnvuRSWRyI6TyyEULujaMcgczmUKz7rR41u0+TZQWF1YfJ5cQME4WqOYWrJ+
+	9CkRb185dxMkIXVK7GdK4dnb4w71d+3hwmEFccIKD1jzlS0rifjFqAZ2yJe458BIvlxJL60n5uv
+	zhh+E5uz2T5aYLFrTyAG5D0pYcOjkHNNUID1iUFhDv
+X-Received: by 2002:a17:90b:2701:b0:3b4:184c:c20e with SMTP id 98e67ed59e1d1-3b41c7b6809mr3407165a91.4.1795198710444;
+        Fri, 20 Nov 2026 10:18:30 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d245549sm1189568a91.2.2026.11.20.10.18.29
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Nov 2026 10:18:30 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cc1cdfb337eso827803a12.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:18:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795198708; x=1795803508; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jj+be5aqhSTcU8zL0FKiTltNkxQe/jmWn4PrkeOOYo4=;
+        b=D2c7TCebYxrPNS2zQM64/b6vL3IEnfzGuvAMefq3V74uV6/OR2sdqj9IoviGeP6YMr
+         NjqdfbLzEJMJgIz55qyAXCq0TBUphZ7rAcNMaxOE2NXlCNj5tBjaCk5utYRX0MEQ/jIh
+         Yu4e+YmxA9FYx9+BdLnM0tSzDE6Chm8oNm2Wg=
+X-Forwarded-Encrypted: i=1; AL+hErF3Ah5vzw1hRtOCv633f/Q7KaP0UWVHRPwRogCHDUWjvb0BO7R1jJNJiZHv2aK+V6Swb7yhl9yFFEwIb2Q=@vger.kernel.org
+X-Received: by 2002:a17:90b:528c:b0:3b3:b71e:b2ee with SMTP id 98e67ed59e1d1-3b41c93f8bbmr3512851a91.35.1795198708482;
+        Fri, 20 Nov 2026 10:18:28 -0800 (PST)
+X-Received: by 2002:a17:90b:528c:b0:3b3:b71e:b2ee with SMTP id 98e67ed59e1d1-3b41c93f8bbmr3512833a91.35.1795198708060;
+        Fri, 20 Nov 2026 10:18:28 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b7a8c64sm108261a91.3.2026.11.20.10.18.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 10:18:27 -0800 (PST)
+Message-ID: <0139ac37-fbe7-49fc-ba25-7b32df081920@broadcom.com>
+Date: Fri, 20 Nov 2026 10:18:26 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,231 +106,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: bgmac: fix RX frame length check
+To: Rosen Penev <rosenp@gmail.com>, netdev@vger.kernel.org
+Cc: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@openwrt.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20261029173122.29636-1-rosenp@gmail.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20261029173122.29636-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On 10/29/26 10:31, Rosen Penev wrote:
+> While reviewing commit 77dac783f113
+> ("net: bgmac: rate limit RX error messages"), Florian spotted that the RX
+> length sanity check compares the length reported in the RX header against
+> BGMAC_RX_ALLOC_SIZE. That is the size of the whole fragment, including the
+> space reserved for struct skb_shared_info. The data area handed to the
+> hardware is only BGMAC_RX_BUF_SIZE bytes, and the frame starts
+> BGMAC_RX_FRAME_OFFSET bytes into it, so at most BGMAC_RX_MAX_FRAME_SIZE
+> bytes of a frame fit in one RX buffer.
+> 
+> A corrupted length between those two limits passes the check, and the
+> following skb_put() runs past the skb tailroom and calls
+> skb_over_panic() instead of dropping the frame.
+> 
+> The check has no lower bound either. A length below ETH_FCS_LEN wraps
+> when the FCS is subtracted, so skb_put() asks for almost 64 KiB and hits
+> the same skb_over_panic(). A length that leaves less than an Ethernet
+> header makes eth_type_trans() parse bytes the hardware never wrote.
+> 
+> Reject lengths below ETH_HLEN + ETH_FCS_LEN or above
+> BGMAC_RX_MAX_FRAME_SIZE, and print the bad length.
+> 
+> Only compile tested. Not tested on hardware.
+> 
+> Fixes: 6a6c708469c9 ("bgmac: add check for oversized packets")
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-Add Cortex-M4 configurations for DART-MX8M-MINI on Sonata and
-VAR-SOM-MX8M-MINI on Symphony.
+Rosen, can you address Sashiko's feedback and resubmit? This patch 
+conflicts with one I have in my tree to support flow accelerator and I 
+would prefer to get yours in because it's a tad more complete than mine, 
+and yours has precedence.
 
-Share the reserved memory and remoteproc configuration through a common
-include, and add overlays and combined -m4 DTBs for remoteproc and RPMsg
-support.
-
-Reserve ECSPI1, I2C4, PWM3 and UART3 for the Cortex-M4 firmware. On Sonata,
-also disable the buttons and PCIe, which depend on GPIO expanders on
-I2C4.
-
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
-v3->v4:
- - Use common node names for memory regions
-
-v2->v3:
- - Change disabled status for peripherals reserved to m4
-
-This patch depends on commit ebb21cc5d1c0
-("dt-bindings: remoteproc: imx_rproc: Document memory-region-names to avoid implicit ABI")
-for validation of the new memory-region-names property:
-https://lore.kernel.org/r/20261023-memory-region-name-v9-1-ad597887dfe9@nxp.com
-
-v1->v2:
- - Add memory-region-names as requested by Frank Li.
- - Convert the Sonata M4 configuration to an overlay, so both boards use
-   the same approach and the overlays can be reused across board variants.
-
- arch/arm64/boot/dts/freescale/Makefile        |  9 +++
- .../dts/freescale/imx8mm-var-common-m4.dtsi   | 62 +++++++++++++++++++
- .../freescale/imx8mm-var-dart-sonata-m4.dtso  | 49 +++++++++++++++
- .../freescale/imx8mm-var-som-symphony-m4.dtso | 31 ++++++++++
- 4 files changed, 151 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-common-m4.dtsi
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata-m4.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony-m4.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index cfd548284358..c542613ed3ea 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -245,9 +245,18 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-prt8mm.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-tqma8mqml-mba8mx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-iv-306-d.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-mini-111.dtb
-+
-+imx8mm-var-dart-sonata-m4-dtbs := imx8mm-var-dart-sonata.dtb imx8mm-var-dart-sonata-m4.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-dart-sonata.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-dart-sonata-m4.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-dart-sonata-m4.dtbo
-+
-+imx8mm-var-som-symphony-m4-dtbs := imx8mm-var-som-symphony.dtb imx8mm-var-som-symphony-m4.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-som-symphony-legacy.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-som-symphony-m4.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-var-som-symphony-m4.dtbo
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw71xx-0x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw72xx-0x.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mm-venice-gw73xx-0x.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-common-m4.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-common-m4.dtsi
-new file mode 100644
-index 000000000000..e2f369e2ef26
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-common-m4.dtsi
-@@ -0,0 +1,62 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Common Cortex-M4 configuration for Variscite i.MX8M Mini modules
-+ *
-+ * Link: https://www.variscite.com/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+#include <dt-bindings/clock/imx8mm-clock.h>
-+
-+&{/} {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		vdev0vring0: memory@40000000 {
-+			reg = <0 0x40000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: memory@40008000 {
-+			reg = <0 0x40008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table: memory@400ff000 {
-+			reg = <0 0x400ff000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: memory@40400000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x40400000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		m4_reserved: memory@7e000000 {
-+			reg = <0 0x7e000000 0 0x1000000>;
-+			no-map;
-+		};
-+	};
-+
-+	imx8mm-cm4 {
-+		compatible = "fsl,imx8mm-cm4";
-+		clocks = <&clk IMX8MM_CLK_M4_CORE>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		mboxes = <&mu 0 1
-+			  &mu 1 1
-+			  &mu 3 1>;
-+		memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>,
-+				<&m4_reserved>, <&rsc_table>;
-+		memory-region-names = "vdev0buffer", "vdev0vring0", "vdev0vring1",
-+				      "m4-reserved-ddr", "rsc-table";
-+		syscon = <&src>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata-m4.dtso b/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata-m4.dtso
-new file mode 100644
-index 000000000000..2f290c3ae467
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-dart-sonata-m4.dtso
-@@ -0,0 +1,49 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M4 support for Variscite DART-MX8M-MINI on Sonata-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/sonata-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mm-var-common-m4.dtsi"
-+
-+/* The buttons use a GPIO expander on I2C4. */
-+&{/gpio-keys} {
-+	status = "disabled";
-+};
-+
-+/* Reserve the peripherals used by the Cortex-M4 firmware. */
-+&ecspi1 {
-+	status = "reserved";
-+};
-+
-+/*
-+ * Keep the touchscreen enabled without its optional reset GPIO, since the
-+ * GPIO expander on I2C4 is unavailable to Linux.
-+ */
-+&ft5x06_ts {
-+	reset-gpios = <0>;
-+};
-+
-+&i2c4 {
-+	status = "reserved";
-+};
-+
-+/* The PCIe reset uses a GPIO expander on I2C4. */
-+&pcie0 {
-+	status = "disabled";
-+};
-+
-+&pwm3 {
-+	status = "reserved";
-+};
-+
-+&uart3 {
-+	status = "reserved";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony-m4.dtso b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony-m4.dtso
-new file mode 100644
-index 000000000000..ff5675cfc191
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony-m4.dtso
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Cortex-M4 support for Variscite VAR-SOM-MX8M-MINI on Symphony-Board
-+ *
-+ * Link: https://variscite.com/carrier-boards/symphony-board/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include "imx8mm-var-common-m4.dtsi"
-+
-+/* Reserve the peripherals used by the Cortex-M4 firmware. */
-+&ecspi1 {
-+	status = "reserved";
-+};
-+
-+&i2c4 {
-+	status = "reserved";
-+};
-+
-+&pwm3 {
-+	status = "reserved";
-+};
-+
-+&uart3 {
-+	status = "reserved";
-+};
+Thanks!
 -- 
-2.47.3
-
+Florian
