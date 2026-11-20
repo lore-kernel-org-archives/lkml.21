@@ -1,88 +1,121 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.26.1.71
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172325;
-	b=mn/OFk9Lg4Hp2zvtnvSIH/zvkD7W4iVm1oxEM1sVIB7RGdS+kZnpIvYc1QhgPS9xqzj2
-	 u5IJpgRy6+PffswOvbB9gsvxeJlZpjCU+Jq+1PHSh+wd0IIvLIkndfby1dCYkXgeo7uhH
-	 VCIbl4b3kiC8v/AKDm0Ep2hzeDR1GbeR9SUHh+3qhLgWXs60LKQ3SS+khs0UvD51kxE+T
-	 yTAQt4SpMWNoqyGtqydK/y4WXHA1YGGG1immMrq3+lTRdNOnoNSNMNX+zzr6Wo9q9cIbC
-	 zzmUdcr7x2iCy0je1k9Bwayhx86IjBfhu7KFnWC+VePWdfqFRXdJU9x52+qkPkvzJ/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172325;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:Received:Received:X-Farcaster-Flow-ID:Received:Received:
-	 From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=/GdB+hPmJdVyly3Aq4N8nB9EkYS610bbhVNQbIYf4jg=;
-	b=MM2K/KDzKGTwg36bfXfLU/iCQNJ5ZDuqaus/yMTTGJa4rIV5JtgGam1Ejgyb+f1YM8/k
-	 cOzyRNQSj550gQV64gDzp505a8y2F4+KAkrrTpBuglXUDpCATzjVt+C2AMwQKuLnOOUdU
-	 pZMv8zmz7tnrcg1Ex0iW9oNGRBDpRabMpn+mnSXY54wjtNZ/iotkZip6/qnLRtxEMsQ1h
-	 R3mxl7wiXwlgEGk6o6j+LrSV4akYp/pijT2GJNHSNXfyDZr7pIdDl/Z1l374LWhZv4iIY
-	 5vhrPaOhGGHgol5Jn7UBcplED+GiX4idQuZmS0NZP6AY5D64BGS+ONfzdPFkHqAOP8g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amazon.de;
-	spf=pass smtp.mailfrom=amazon.de;
-	dkim=pass header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=G4IeKBQG;
-	arc=none smtp.remote-ip=52.26.1.71
-Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com (pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com [52.26.1.71])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795172332;
+	b=yg+hq+IlvOf6u8/wjweAjNY/EUwZL8iwEqT5Z340SiyIN+hDfgEbjOam34pfN5ggrQva
+	 RakjPmWkou4aeacYRrlmgo9Oo+cCOQzMOWpPzAyfr+bl7/gJ4lIS4I+kkLtacLOhS3ieg
+	 42YWCkAjuofFvdd6S5ANsWvzvGSXGIaaaNI8ca4keJl8w3pTkwqpB/ayVov4QfSnvb5Fu
+	 OVhWKkMwkMuOUM7MfzhG6f/LF+4FEJxVyYAC54DsZRfQGa3UYP2EReEwHPylkD6KOV7M0
+	 nzqsA+FXK+fiDTAvXI2CJcPJXVt0yz0ekTeJL6tQ2mvwvH16hS6MV9zqDAXfmz2Oq/Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172332;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zPMRJyajft4jjbY41Nxe/rP6bNlBhq8ckrsRNJI0j7w=;
+	b=emlSlVeMIyoaviy6KdXCn4VtHDIyPMpe8DJeSb8D7NcRaO1vk9RQWcfRxi93C/BZOlWB
+	 kHA7Gkj/Quw9SGjv7QK4D8NW5Uop4Ql+hQz0JH+1aaMAPEqqrcWZTjJsL3o3+ZqMsvXlX
+	 Luv+rgXkuw+sXGJULP/ev+eagAoN7Si/AqN85aqWqpRnNnZktsm8ENXNAoGNVyuRQWqfB
+	 /d7LazvtwylHBSnFgdW4cuJyUqCSb0hoR4zVizLWWx2AGd0yIOBaZQjSud339mOcZgVgk
+	 C7hbWJ+BP4TKS9GMnMN3N2wYcjU96Adn8IgNnR3Mrfi0HNfpPhn91mAZTOZwMU8ukgg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=AAg1mDpJ;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RTBv29yv;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 712AE606A325;
-	Fri, 20 Nov 2026 10:58:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 712AE606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D86AD606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:58:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D86AD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.de header.i=@amazon.de header.a=rsa-sha256 header.s=amazoncorp2 header.b=G4IeKBQG
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=AAg1mDpJ;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=RTBv29yv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795172330;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zPMRJyajft4jjbY41Nxe/rP6bNlBhq8ckrsRNJI0j7w=;
+	b=AAg1mDpJF1HSbdrY8dthtTiaIyiTCfnX3mUGZmCCItx5w9bk2FwRPrcAb3Alyn6kA8fxQ4
+	g61gGAzILx6jhLjYC4bdBPRSczdfuWR8W0mhEo+n8fkTzPPaEGTjwbLcg/F2tPUExq3pWn
+	N/iUkJhxJB65AzOqKEJFt16hqpgLcoc=
+Received: from mail-yx1-f72.google.com (mail-yx1-f72.google.com
+ [74.125.224.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-168-tbe5i-yGPiqdAK-1jQjBhg-1; Fri, 20 Nov 2026 10:58:48 +0000
+X-MC-Unique: tbe5i-yGPiqdAK-1jQjBhg-1
+X-Mimecast-MFC-AGG-ID: tbe5i-yGPiqdAK-1jQjBhg_1795172328
+Received: by mail-yx1-f72.google.com with SMTP id 956f58d0204a3-67994567a44so1372396d50.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:58:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795172327; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Vy+reoNKqYxmWg7hDfijNg/d4m+iIB0Z3+NXSQR84a2b5FCOBxA4+uQ6KqPqzG+AV7
+         t/Hpu1fOHhTxXQ6DCnP9x73JHbyEGvVCnJ7n+kWSnM75Rbu/mGySQrf3Yv1Y4Xd8KqsU
+         L533b+sZuL0TyGh8wKUZ9GboJReQtf7ASmrZCSuLeTUU4g8J1D+hfmUufMOgcyng8AYt
+         TmEEF+sCEjPbjqFdL4NGjsXKMq+QEA6TT6973kv6b/8kxgdIezQ4t3SqGYgjnszk5hV2
+         8YlWdJs9nDs7j317OWN6sfVi3jbugV63NWj2g3WcV8fqhy2H4isL9sBd3G8jA4POrqtR
+         uhTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=zPMRJyajft4jjbY41Nxe/rP6bNlBhq8ckrsRNJI0j7w=;
+        fh=PhOFAMgKdseSdIaVwPobXPXT7ak260c4z3Qt8ozBKUA=;
+        b=d79DvV5OfJDVxybkm+qtPW0AHtT4RT9DMTyxAzsXnK0QLvOYl5zV48SaTu7nZ2PfT0
+         61b1dAmCVlGk+oKLO418bAPI96ZfF6PwPFbQQb4qqSTHuiFuG2gq3JkXYa7DWOr40jzI
+         DqgMYJxC8/R0g+OFw21gibBCF6UWAP7S6ZR17PNo9IkC/chJlg4jd9Ka8RMCfM6bPpWp
+         YuPV/e7tK5Ppv/GuYqppcsG1DbgO3kToHc2Xgh9eOmUiGH0m6aniRPxsIwJ7N/AWcli4
+         8Yj1gBPLTKVwz0ttnMTVdJgDbIkbMSz2w3QNsIBwt7EdBXUwXMT0/VRAp0HN0DRfppLG
+         GcTg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1795172324; x=1826708324;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=/GdB+hPmJdVyly3Aq4N8nB9EkYS610bbhVNQbIYf4jg=;
-  b=G4IeKBQGyf7U/t1fu1RX7ZrSLrjSMOr69Guk+RWa35HVHj6Hm/BLMWUQ
-   WZ21A3PYcUBq+zhuE1/M+wDUmzimQcp9znpIMNBwIad4lnBbc1UKvVWSO
-   JSTfbSfakyXHNfgwrRoplGHCiaU8OwcHLnPxfRM4JCWBuGxS20os9vRqX
-   d0mXsoCpY+9Vo+ygMks4VTLu1DN5akQqY4CPR58PFcc9frcu+CNthcef4
-   OMJsxuUKlkHWgjPNCEC8kej5EZxmwXBexw3KYnR+oWACDE+Tz3tmqMTiM
-   Ttfal32PcxPHz/TniFQRb2KiBQBV5dFatLpkT5uyFoUfcVV652692zSdM
-   A==;
-X-CSE-ConnectionGUID: M3Uavg61TBKHp4RZ8Iv35g==
-X-CSE-MsgGUID: GQSHGAqSSlqQ7LUpuYMscw==
-X-IronPort-AV: E=Sophos;i="6.27,222,1787011200"; 
-   d="scan'208";a="34737134"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 10:58:40 +0000
-Received: from EX19MTAUWC001.ant.amazon.com [205.251.233.53:6368]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.58.48:2525] with esmtp (Farcaster)
- id b15f11a9-390e-422f-babc-b6712df9e1b8; Fri, 20 Nov 2026 10:58:40 +0000 (UTC)
-X-Farcaster-Flow-ID: b15f11a9-390e-422f-babc-b6712df9e1b8
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Fri, 20 Nov 2026 10:58:39 +0000
-Received: from dev-dsk-lshahed-1a-d9c3b839.eu-west-1.amazon.com
- (172.19.123.145) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.57; Fri, 20 Nov 2026
- 10:58:37 +0000
-From: Ibrahim Elshahed <lshahed@amazon.de>
-To: Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot
-	<vincent.guittot@linaro.org>
-CC: Dietmar Eggemann <dietmar.eggemann@arm.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Ben Segall <bsegall@google.com>, Mel Gorman
-	<mgorman@suse.de>, Valentin Schneider <vschneid@redhat.com>, K Prateek Nayak
-	<kprateek.nayak@amd.com>, Josh Don <joshdon@google.com>, Shuah Khan
-	<shuah@kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <nh-open-source@amazon.com>, Fernand Sieber
-	<sieberf@amazon.com>, Roman Kagan <rkagan@amazon.de>
-Subject: [PATCH v2 3/3] selftests/sched: Add a test for stuck forced idle under core scheduling
-Date: Fri, 20 Nov 2026 10:58:22 +0000
-Message-ID: <20261120105822.7770-4-lshahed@amazon.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120105822.7770-1-lshahed@amazon.de>
-References: <20261120105822.7770-1-lshahed@amazon.de>
+        d=redhat.com; s=google; t=1795172327; x=1795777127; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zPMRJyajft4jjbY41Nxe/rP6bNlBhq8ckrsRNJI0j7w=;
+        b=RTBv29yvXgYqQyXyRthhTD2paCsr4Yy38VjmNhjmYTqFwZ90b/5Nm4EISBeO9r+6Kc
+         hHa/9dabdw7EPSeZesreaZFRXrj8NOegH67za13q8X//dxaAhPjWBwoi+pGQpGQY+w1r
+         u2lTxaI5jyzwAEL0jfqMqE5sbRgd7TLRAWVj6O3OXMYBpXr8FXitQmue0G9mLdTF1OWO
+         dA8WeiShXf70QIxgHNvWDDBVHn1HTJLlPfsdl/ZSYe51MXKF8es6aIOUM8OI2FgG974t
+         6r2ixymubMjuUPNZuIF89wXQfSu5DEc666VXIvGvagJswuoZihVIzh5xE4HtfDiOOhH1
+         wxXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795172327; x=1795777127;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zPMRJyajft4jjbY41Nxe/rP6bNlBhq8ckrsRNJI0j7w=;
+        b=vhggQYqqIp+HOrZWw9+YcQoW7wJJFL65lfoNCvDvYBzeRxPMyNpLYrA/rPMAydp8sj
+         +jwpc4ngZ3XfAfeAXiqi0llE+CbMOvILqB8pY7ZbSm6rL6UJVjn+cSedZUo8yhNPDPxo
+         uGUDWXWFTkkIW2mSLTDKpvoaOpOciR/twtXgetirfrsotmt0M5aQxAeE4nK2nlFtCsK0
+         DgiAIA6rDAGrwHxe4lGevQveJgYp5V7bHtM8wzlql5kjiG0NwOJg3kPyK2Hqft8LgMwJ
+         arEsFlNiqaP+Q8r75ns0qyu+tkFYu+o6jgPTUH94Snnn/KFB1DJ1ca/EZQ9iAIH/Llpw
+         f5mA==
+X-Forwarded-Encrypted: i=1; AL+hErHI3e3OLeE91Fr1fH8qDsnPxqFwqyfOQfJObf42DQKcK1yF+UD3y3pXiQWBoDUfw6Jnz7LkmhucutElsug=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8rJSjfgmXzlI1PryBpGMsERCKtDslC2Rv65rjTwI7p0l0xRI95
+	al/dX/Ca3X5+RqvawU97eeDbxN+dK8EH5bd/7YiElrwgz555FFmJfxGn/FjopZPkZObOMCLolUY
+	bopy9kvSvvWa58vChIm/VHGflblJTgMm1k9ulY2y0aQldY1SommJvcLZNjK5FoO75iMdt1abq57
+	/aS48gSg/Lp7rkUN2M/QsLgACJAFDOEdm8hMcLUHUx
+X-Gm-Gg: AZFdTZcHqwRiBTP7dDvp3DjDHTl23HT0v0WTcZc9YygtL/65og7VPtCM5j1CXSrjHrh
+	6nX78hWyzvowTJ2qD5R68o7wq1ZGre/9ZwPR+W0qZizxaBPrM0hqTFBfl6FhKPU74GxTvrJPrOs
+	e1zrdM9DwzGBohn7vnM12ch4HO1fbtdSuN80eaJ/+xXIYo9Bf5WL7XbJr+eGzr8fCjtKkeXf105
+	ZtZd+4nBws51j2pUtaUi6pSZKp7g0eV0DYDm93IjpruymeI25guxJu/P7g=
+X-Received: by 2002:a05:690e:169e:b0:676:eb57:bba6 with SMTP id 956f58d0204a3-67df4413e34mr1509282d50.58.1795172327492;
+        Fri, 20 Nov 2026 02:58:47 -0800 (PST)
+X-Received: by 2002:a05:690e:169e:b0:676:eb57:bba6 with SMTP id
+ 956f58d0204a3-67df4413e34mr1509268d50.58.1795172327021; Fri, 20 Nov 2026
+ 02:58:47 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,550 +125,290 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: EX19D031UWA002.ant.amazon.com (10.13.139.96) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+References: <20251022073231-mutt-send-email-mst@kernel.org>
+ <CAJaqyWeDcyKKOvVdqUkpTuH3d-Tb9rBHG3ym+LC0fcmhrN_FJA@mail.gmail.com>
+ <20251028100923-mutt-send-email-mst@kernel.org> <CAJaqyWePMtM8vtgm8UnGAv+_XNTnVNFSNuoqzt_Cn-CpZg46mA@mail.gmail.com>
+ <20251028104154-mutt-send-email-mst@kernel.org> <CAJaqyWc=Fhp2+m8P6cctkqG+oeXUgiGhKAsR5Ns20JMun=wvbQ@mail.gmail.com>
+ <CAJaqyWf1Sn7CE+VOptZprDgniRNo=8-ZzmcS5YMOeW=tP4nfBQ@mail.gmail.com>
+ <20251109164528-mutt-send-email-mst@kernel.org> <CAJaqyWdwF5UM+rS7EB9gG5VJMPW0MvwtkNWXdDAkdurFO3zHRg@mail.gmail.com>
+ <CAJaqyWcCF0bzwMhQk6L=LPvc=S7yHoWB7xZ+MmPWwhi4kqGEfA@mail.gmail.com>
+ <20260313080611-mutt-send-email-mst@kernel.org> <CAJaqyWdaMb0EABOL4WB8+PVKPeU4vzD3V22z63N10jzNESO1sQ@mail.gmail.com>
+In-Reply-To: <CAJaqyWdaMb0EABOL4WB8+PVKPeU4vzD3V22z63N10jzNESO1sQ@mail.gmail.com>
+From: Eugenio Perez Martin <eperezma@redhat.com>
+Date: Fri, 20 Nov 2026 11:58:08 +0100
+X-Gm-Features: AclHuK-NDIHtS9B0yASNCqkQIbmx2erYDBBaY0IjV6H0kij0EOQA_NnpGaS3fg4
+Message-ID: <CAJaqyWe=ye4mytvkxqA1CSA_M9qKJv1Cy14aBoZTm27Dq1KRUA@mail.gmail.com>
+Subject: Re: [RFC 1/2] virtio_net: timeout control virtqueue commands
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Maxime Coquelin <mcoqueli@redhat.com>, Yongji Xie <xieyongji@bytedance.com>, 
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Dragos Tatulea DE <dtatulea@nvidia.com>, 
+	Jason Wang <jasowangio@gmail.com>, netdev <netdev@vger.kernel.org>, sdf.kernel@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add cs_forceidle_test, which checks that a core does not stay forced
-idle after the task that a core-wide selection picked for an idle SMT
-sibling is migrated away before the sibling schedules, and that the
-pick left behind is not used once that task is freed.
+On Mon, Mar 16, 2026 at 10:26=E2=80=AFAM Eugenio Perez Martin
+<eperezma@redhat.com> wrote:
+>
+> On Fri, Mar 13, 2026 at 1:06=E2=80=AFPM Michael S. Tsirkin <mst@redhat.co=
+m> wrote:
+> >
+> > On Fri, Mar 13, 2026 at 12:32:18PM +0100, Eugenio Perez Martin wrote:
+> > > On Fri, Mar 13, 2026 at 12:31=E2=80=AFPM Eugenio Perez Martin
+> > > <eperezma@redhat.com> wrote:
+> > > >
+> > > > On Sun, Nov 9, 2025 at 10:47=E2=80=AFPM Michael S. Tsirkin <mst@red=
+hat.com> wrote:
+> > > > >
+> > > > > On Wed, Nov 05, 2025 at 10:02:48AM +0100, Eugenio Perez Martin wr=
+ote:
+> > > > > > On Tue, Oct 28, 2025 at 3:57=E2=80=AFPM Eugenio Perez Martin
+> > > > > > <eperezma@redhat.com> wrote:
+> > > > > > >
+> > > > > > > On Tue, Oct 28, 2025 at 3:42=E2=80=AFPM Michael S. Tsirkin <m=
+st@redhat.com> wrote:
+> > > > > > > >
+> > > > > > > > On Tue, Oct 28, 2025 at 03:37:09PM +0100, Eugenio Perez Mar=
+tin wrote:
+> > > > > > > > > On Tue, Oct 28, 2025 at 3:10=E2=80=AFPM Michael S. Tsirki=
+n <mst@redhat.com> wrote:
+> > > > > > > > > >
+> > > > > > > > > > On Wed, Oct 22, 2025 at 02:55:18PM +0200, Eugenio Perez=
+ Martin wrote:
+> > > > > > > > > > > On Wed, Oct 22, 2025 at 1:43=E2=80=AFPM Michael S. Ts=
+irkin <mst@redhat.com> wrote:
+> > > > > > > > > > > >
+> > > > > > > > > > > > On Wed, Oct 22, 2025 at 12:50:53PM +0200, Eugenio P=
+erez Martin wrote:
+> > > > > > > > > > > > > Let me switch to MQ as I think it illustrates the=
+ point better.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > IIUC the workflow:
+> > > > > > > > > > > > > a) virtio-net sends MQ_VQ_PAIRS_SET 2 to the devi=
+ce
+> > > > > > > > > > > > > b) VDUSE CVQ sends ok to the virtio-net driver
+> > > > > > > > > > > > > c) VDUSE CVQ sends the command to the VDUSE devic=
+e
+> > > > > > > > > > > > > d) Now the virtio-net driver sends virtio-net sen=
+ds MQ_VQ_PAIRS_SET 1
+> > > > > > > > > > > > > e) VDUSE CVQ sends ok to the virtio-net driver
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > The device didn't process the MQ_VQ_PAIRS_SET 1 c=
+ommand at this point,
+> > > > > > > > > > > > > so it potentially uses the second rx queue. But, =
+by the standard:
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > The device MUST NOT queue packets on receive queu=
+es greater than
+> > > > > > > > > > > > > virtqueue_pairs once it has placed the VIRTIO_NET=
+_CTRL_MQ_VQ_PAIRS_SET
+> > > > > > > > > > > > > command in a used buffer.
+> > > > > > > > > > > > >
+> > > > > > > > > > > > > So the driver does not expect rx buffers on that =
+queue at all. From
+> > > > > > > > > > > > > the driver's POV, the device is invalid, and it c=
+ould mark it as
+> > > > > > > > > > > > > broken.
+> > > > > > > > > > > >
+> > > > > > > > > > > > ok intresting. Note that if userspace processes vqs=
+ it should process
+> > > > > > > > > > > > cvq too. I don't know what to do in this case yet, =
+I'm going on
+> > > > > > > > > > > > vacation, let me ponder this a bit.
+> > > > > > > > > > > >
+> > > > > > > > > > >
+> > > > > > > > > > > Sure.
+> > > > > > > > > >
+> > > > > > > > > > So let me ask you this, how are you going to handle dev=
+ice reset?
+> > > > > > > > > > Same issue, it seems to me.
+> > > > > > > > > >
+> > > > > > > > >
+> > > > > > > > > Well my proposal is to mark it as broken so it needs to b=
+e reset
+> > > > > > > > > manually.
+> > > > > > > >
+> > > > > > > >
+> > > > > > > > Heh but guest assumes after reset device does not poke at g=
+uest
+> > > > > > > > memory, and will free up and reuse that memory.
+> > > > > > > > If userspace still pokes at it -> plus plus ungood.
+> > > > > > > >
+> > > > > > >
+> > > > > > > I don't get this part. Once the device is reset, the device s=
+hould not
+> > > > > > > poke at guest memory (unless it is malicious or similar). Why=
+ would it
+> > > > > > > do it?
+> > > > > >
+> > > > > > Friendly ping.
+> > > > >
+> > > > >
+> > > > >
+> > > > > OK I thought about it a bunch. A lot of net drivers actually
+> > > > > just queue ethtool commands and finish them asynchronously.
+> > > > > Thinkably virtio could expose an API on whether it is safe to
+> > > > > wait for buffers to be used. virtio-net would then either
+> > > > > send commands directly or do the asynchronous thing.
+> > > > > Hmm?
+> > > > >
+> > > >
+> > > > I think it's the best solution too, yes. The series [1] implements =
+for
+> > > > set_rx_mode. We can do it for all the CVQ commands and then whiteli=
+st
+> > > > them in VDUSE code. Am I missing something? Does anyone foresee any
+> > > > command that will not be possible to convert?
+> > > >
+> > >
+> > > Adding the [1] link...
+> > >
+> > > [1] https://lore.kernel.org/netdev/20260112181626.20117-1-viswanathiy=
+yappan@gmail.com/
+> >
+> > what's the status of that one?
+> >
+>
+> Still under review.
+>
+> Aleksandr Loktionov <aleksandr.loktionov@intel.com> added the
+> Reviewed-by tag to most of patches but he spotted a sync issue in the
+> realtek 8139cp driver.
+>
+> https://lore.kernel.org/lkml/IA3PR11MB8986856F0C1BC5A02F29B32EE540A@IA3PR=
+11MB8986.namprd11.prod.outlook.com/
 
-On one SMT core, a task with its own cookie yields in a loop on one
-sibling. Each attempt wakes a SCHED_FIFO task with another cookie on
-the other sibling, so the core-wide selection picks it there and forces
-the first sibling idle, and migrates it to a CPU of another core 0-50 us
-later. The yielding task must make progress again within 20 ms; an
-attempt where it does not counts as a stall, and the first test fails if
-there is any.
+Ok,  that one is merged now but it still does not solve the rtnl issue
+:(. It just moves the driver call to set rx mode to a place where it
+can sleep while holding the rtnl.
 
-The woken task also runs in its own cgroup. After a stall the test kills
-it, removes its cgroup, waits 100 ms for RCU to free both, and runs a
-short-lived task on the sibling. A kernel that kept the freed task in
-the sibling's rq->core_pick then charges forced idle time to it and its
-cgroup, and crashes in __cgroup_account_cputime_field() or reports a
-use-after-free with KASAN. Forced idle time is only accounted with
-schedstats, so the test turns them on for its duration if they are off.
-This second test is on by default and is skipped with -n, without cgroup
-v2, or without schedstats.
+In the case of the mac address change it actually takes the lock way
+earlier, as soon as rtnl_newlink. I'm trying to remove the rtnl when
+the CVQ command is issued, but that complicates the scenario quickly.
+The plan is to get the callers of
+net/core/dev.c:netif_set_mac_address() not have the rtnl taken, only
+the device one. And then some polished version of this:
 
-The test runs for 30 s by default, -t sets the duration. It is skipped
-when not run as root, without an SMT core and two other online CPUs, or
-when core scheduling is unavailable. Also list CONFIG_SCHED_CORE in the
-config fragment, which cs_prctl_test needs as well.
+@@ -10223,16 +10223,21 @@ int netif_set_mac_address(struct net_device
+*dev, struct sockaddr_storage *ss,
+                return -EINVAL;
+        if (!netif_device_present(dev))
+                return -ENODEV;
++       rtnl_lock();
+        err =3D netif_pre_changeaddr_notify(dev, ss->__data, extack);
+        if (err)
+                return err;
+        if (memcmp(dev->dev_addr, ss->__data, dev->addr_len)) {
++               rtnl_unlock();
+                err =3D ops->ndo_set_mac_address(dev, ss);
+                if (err)
+                        return err;
++               rtnl_lock();
+        }
+        dev->addr_assign_type =3D NET_ADDR_SET;
+        call_netdevice_notifiers(NETDEV_CHANGEADDR, dev);
++       rtnl_unlock();
+        add_device_randomness(dev->dev_addr, dev->addr_len);
+        return 0;
+ }
 
-Signed-off-by: Ibrahim Elshahed <lshahed@amazon.de>
----
- tools/testing/selftests/sched/.gitignore      |   1 +
- tools/testing/selftests/sched/Makefile        |   1 +
- tools/testing/selftests/sched/config          |   2 +-
- .../selftests/sched/cs_forceidle_test.c       | 471 ++++++++++++++++++
- 4 files changed, 474 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/sched/cs_forceidle_test.c
+However syncrhronizing the NETDEV_PRE_CHANGEADDR notifications to the
+actual CVQ command seems hard, as new notifiers can be added in the
+middle. It checks if any listener objects to the MAC address change.
+As far as I can see, only Nvidia's spectrum driver can deny that MAC
+address change if there are too many MAC addresses, so maybe we can
+just adapt it, but I might be missing something [1].
 
-diff --git a/tools/testing/selftests/sched/.gitignore b/tools/testing/selftests/sched/.gitignore
-index 6996d4654d92..8a698db51719 100644
---- a/tools/testing/selftests/sched/.gitignore
-+++ b/tools/testing/selftests/sched/.gitignore
-@@ -1 +1,2 @@
- cs_prctl_test
-+cs_forceidle_test
-diff --git a/tools/testing/selftests/sched/Makefile b/tools/testing/selftests/sched/Makefile
-index 099ee9213557..43e999fa1778 100644
---- a/tools/testing/selftests/sched/Makefile
-+++ b/tools/testing/selftests/sched/Makefile
-@@ -10,5 +10,6 @@ LDLIBS += -lpthread
- 
- TEST_GEN_FILES := cs_prctl_test
- TEST_PROGS := cs_prctl_test
-+TEST_GEN_PROGS := cs_forceidle_test
- 
- include ../lib.mk
-diff --git a/tools/testing/selftests/sched/config b/tools/testing/selftests/sched/config
-index 1bb8bf6d7fd4..cc3f25e8f01b 100644
---- a/tools/testing/selftests/sched/config
-+++ b/tools/testing/selftests/sched/config
-@@ -1 +1 @@
--# empty
-+CONFIG_SCHED_CORE=y
-diff --git a/tools/testing/selftests/sched/cs_forceidle_test.c b/tools/testing/selftests/sched/cs_forceidle_test.c
-new file mode 100644
-index 000000000000..ca89a4633a13
---- /dev/null
-+++ b/tools/testing/selftests/sched/cs_forceidle_test.c
-@@ -0,0 +1,471 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Check that core scheduling does not leave a core forced idle after the
-+ * task a core-wide selection picked for an idle SMT sibling is migrated
-+ * away before the sibling schedules, and that the pick it leaves behind is
-+ * not used once that task is freed.
-+ *
-+ * On one SMT core with siblings A and B, a task U with its own cookie
-+ * yields in a loop on A. Each attempt wakes a SCHED_FIFO task V with
-+ * another cookie on B, so that the core-wide selection picks V for B and
-+ * forces A idle, then migrates V to a CPU of another core 0-50 us later.
-+ * U must make progress again within STALL_MS; an attempt where it does not
-+ * is a stall.
-+ *
-+ * Unless -n is given, each V also runs in its own cgroup. After a stall,
-+ * V is killed and its cgroup removed, and once RCU had time to free both,
-+ * a short-lived task is run on B. A kernel that kept the migrated V in
-+ * B's rq->core_pick then charges forced idle time to the freed task and
-+ * cgroup, which crashes it in __cgroup_account_cputime_field() or makes
-+ * KASAN report a use-after-free. Forced idle time is only accounted with
-+ * schedstats, so the test turns them on for its duration if they are off.
-+ * This part is skipped when cgroup v2 is not mounted or schedstats are
-+ * unavailable.
-+ */
-+#define _GNU_SOURCE
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <getopt.h>
-+#include <limits.h>
-+#include <sched.h>
-+#include <signal.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/mman.h>
-+#include <sys/prctl.h>
-+#include <sys/stat.h>
-+#include <sys/wait.h>
-+#include <time.h>
-+#include <unistd.h>
-+
-+#include "../kselftest.h"
-+
-+#ifndef PR_SCHED_CORE
-+#define PR_SCHED_CORE			62
-+#endif
-+#ifndef PR_SCHED_CORE_CREATE
-+#define PR_SCHED_CORE_CREATE		1
-+#endif
-+#define PIDTYPE_PID			0
-+
-+#define STALL_MS			20
-+#define FREE_WAIT_MS			100
-+#define DEFAULT_SECS			30
-+#define SCHEDSTATS			"/proc/sys/kernel/sched_schedstats"
-+#define CG_PATH_MAX			(2 * PATH_MAX + 64)
-+
-+static uint64_t *progress;
-+
-+/* cgroup part: parent cgroup of the per-attempt cgroups, if in use */
-+static char cg_parent[CG_PATH_MAX];
-+static int cg_active;
-+static int schedstats_restore = -1;
-+
-+static uint64_t now_ns(void)
-+{
-+	struct timespec ts;
-+
-+	clock_gettime(CLOCK_MONOTONIC, &ts);
-+	return ts.tv_sec * 1000000000ULL + ts.tv_nsec;
-+}
-+
-+static int pin(pid_t pid, int cpu)
-+{
-+	cpu_set_t set;
-+
-+	CPU_ZERO(&set);
-+	CPU_SET(cpu, &set);
-+	return sched_setaffinity(pid, sizeof(set), &set);
-+}
-+
-+static int create_cookie(void)
-+{
-+	return prctl(PR_SCHED_CORE, PR_SCHED_CORE_CREATE, 0, PIDTYPE_PID, 0);
-+}
-+
-+static int write_str(const char *path, const char *val)
-+{
-+	ssize_t len = strlen(val);
-+	int fd, ret;
-+
-+	fd = open(path, O_WRONLY);
-+	if (fd < 0)
-+		return -1;
-+	ret = write(fd, val, len) == len ? 0 : -1;
-+	close(fd);
-+	return ret;
-+}
-+
-+/* Find an SMT core with two online siblings and two CPUs outside it. */
-+static int find_cpus(int *a, int *b, int *helper, int *ctl)
-+{
-+	long ncpus = sysconf(_SC_NPROCESSORS_ONLN);
-+	char path[128];
-+	int cpu, s0, s1;
-+	FILE *f;
-+
-+	*a = *b = *helper = *ctl = -1;
-+	for (cpu = 0; cpu < ncpus && *a < 0; cpu++) {
-+		snprintf(path, sizeof(path),
-+			 "/sys/devices/system/cpu/cpu%d/topology/thread_siblings_list",
-+			 cpu);
-+		f = fopen(path, "r");
-+		if (!f)
-+			continue;
-+		if (fscanf(f, "%d%*[,-]%d", &s0, &s1) == 2 && s0 != s1) {
-+			*a = s0;
-+			*b = s1;
-+		}
-+		fclose(f);
-+	}
-+	if (*a < 0)
-+		return -1;
-+
-+	for (cpu = 0; cpu < ncpus; cpu++) {
-+		if (cpu == *a || cpu == *b)
-+			continue;
-+		if (*helper < 0)
-+			*helper = cpu;
-+		else if (*ctl < 0)
-+			*ctl = cpu;
-+	}
-+	return *ctl < 0 ? -1 : 0;
-+}
-+
-+/* Probe in a child so this process keeps no cookie. */
-+static int core_sched_available(void)
-+{
-+	int status;
-+	pid_t pid;
-+
-+	pid = fork();
-+	if (pid < 0)
-+		return 0;
-+	if (!pid)
-+		_exit(create_cookie() ? 1 : 0);
-+	if (waitpid(pid, &status, 0) != pid)
-+		return 0;
-+	return WIFEXITED(status) && !WEXITSTATUS(status);
-+}
-+
-+static void cg_cleanup(void)
-+{
-+	if (cg_active)
-+		rmdir(cg_parent);
-+	if (schedstats_restore >= 0)
-+		write_str(SCHEDSTATS, schedstats_restore ? "1" : "0");
-+}
-+
-+/*
-+ * Set up the cgroup part: find the cgroup v2 mount and this process's
-+ * cgroup in it, create a parent for the per-attempt cgroups below it, and
-+ * turn on schedstats. Returns NULL on success or why it is unavailable.
-+ */
-+static const char *cg_setup(void)
-+{
-+	char line[PATH_MAX], mnt[PATH_MAX] = "", own[PATH_MAX] = "";
-+	char *sep;
-+	FILE *f;
-+	int val;
-+
-+	f = fopen("/proc/self/mountinfo", "r");
-+	if (!f)
-+		return "cannot read /proc/self/mountinfo";
-+	while (fgets(line, sizeof(line), f)) {
-+		sep = strstr(line, " - ");
-+		if (sep && !strncmp(sep + 3, "cgroup2 ", 8) &&
-+		    sscanf(line, "%*s %*s %*s %*s %s", mnt) == 1)
-+			break;
-+		mnt[0] = '\0';
-+	}
-+	fclose(f);
-+	if (!mnt[0])
-+		return "cgroup v2 not mounted";
-+
-+	f = fopen("/proc/self/cgroup", "r");
-+	if (!f)
-+		return "cannot read /proc/self/cgroup";
-+	while (fgets(line, sizeof(line), f)) {
-+		if (!strncmp(line, "0::", 3)) {
-+			line[strcspn(line, "\n")] = '\0';
-+			snprintf(own, sizeof(own), "%s", line + 3);
-+			break;
-+		}
-+	}
-+	fclose(f);
-+	if (!own[0])
-+		return "not in a cgroup v2 cgroup";
-+
-+	f = fopen(SCHEDSTATS, "r");
-+	if (!f)
-+		return "schedstats unavailable (CONFIG_SCHEDSTATS=n)";
-+	if (fscanf(f, "%d", &val) != 1)
-+		val = -1;
-+	fclose(f);
-+	if (val < 0)
-+		return "cannot read " SCHEDSTATS;
-+
-+	snprintf(cg_parent, sizeof(cg_parent), "%s%s/cs_forceidle_test.%d",
-+		 mnt, strcmp(own, "/") ? own : "", getpid());
-+	if (mkdir(cg_parent, 0755))
-+		return "cannot create a cgroup";
-+	cg_active = 1;
-+	atexit(cg_cleanup);
-+
-+	if (!val) {
-+		if (write_str(SCHEDSTATS, "1")) {
-+			rmdir(cg_parent);
-+			cg_active = 0;
-+			return "schedstats off and cannot be turned on";
-+		}
-+		schedstats_restore = 0;
-+	}
-+	return NULL;
-+}
-+
-+static void run_u(int cpu)
-+{
-+	if (pin(0, cpu) || create_cookie())
-+		_exit(1);
-+	for (;;) {
-+		sched_yield();
-+		__atomic_fetch_add(progress, 1, __ATOMIC_RELAXED);
-+	}
-+}
-+
-+static void run_v(int cpu, int ready, int go)
-+{
-+	struct sched_param sp = { .sched_priority = 50 };
-+	uint64_t t0;
-+	char c;
-+
-+	if (create_cookie() || sched_setscheduler(0, SCHED_FIFO, &sp) ||
-+	    pin(0, cpu))
-+		_exit(1);
-+	if (write(ready, "r", 1) != 1 || read(go, &c, 1) != 1)
-+		_exit(1);
-+	/*
-+	 * Run briefly so the migration can catch V runnable, then block: a
-+	 * spinning FIFO task would force idle the CPUs it shares a core with.
-+	 */
-+	t0 = now_ns();
-+	while (now_ns() - t0 < 200000)
-+		;
-+	for (;;)
-+		pause();
-+}
-+
-+/* Run a task on @cpu that exits right away, so that @cpu schedules. */
-+static void poke(int cpu)
-+{
-+	pid_t pid;
-+
-+	pid = fork();
-+	if (!pid)
-+		_exit(pin(0, cpu) ? 1 : 0);
-+	if (pid > 0)
-+		waitpid(pid, NULL, 0);
-+}
-+
-+static void cg_remove(const char *cg)
-+{
-+	int i;
-+
-+	/* The cgroup can stay busy until the killed task is fully released. */
-+	for (i = 0; i < 1000 && rmdir(cg) && errno == EBUSY; i++)
-+		usleep(1000);
-+}
-+
-+/*
-+ * One attempt; returns 1 on a stall, 0 if U made progress, -1 on error.
-+ * Increments @freed when it frees a stalled V and its cgroup.
-+ */
-+static int attempt(int b, int helper, unsigned int *seed, unsigned long *freed)
-+{
-+	static unsigned long nr;
-+	int ready[2], go[2], stall = 1;
-+	uint64_t t0, spin, start;
-+	char cg[CG_PATH_MAX + 32], path[CG_PATH_MAX + 64];
-+	char pid[16];
-+	pid_t v;
-+	char c;
-+
-+	if (pipe(ready))
-+		return -1;
-+	if (pipe(go)) {
-+		close(ready[0]);
-+		close(ready[1]);
-+		return -1;
-+	}
-+	if (cg_active) {
-+		snprintf(cg, sizeof(cg), "%s/v%lu", cg_parent, nr++);
-+		if (mkdir(cg, 0755)) {
-+			close(ready[0]);
-+			close(ready[1]);
-+			close(go[0]);
-+			close(go[1]);
-+			return -1;
-+		}
-+	}
-+
-+	v = fork();
-+	if (v < 0) {
-+		stall = -1;
-+		goto out_pipes;
-+	}
-+	if (!v) {
-+		close(ready[0]);
-+		close(go[1]);
-+		run_v(b, ready[1], go[0]);
-+	}
-+	close(ready[1]);
-+	close(go[0]);
-+
-+	if (cg_active) {
-+		snprintf(path, sizeof(path), "%s/cgroup.procs", cg);
-+		snprintf(pid, sizeof(pid), "%d", v);
-+		if (write_str(path, pid)) {
-+			stall = -1;
-+			goto out;
-+		}
-+	}
-+
-+	if (read(ready[0], &c, 1) != 1) {
-+		stall = -1;
-+		goto out;
-+	}
-+	usleep(1000);			/* let V block on the pipe */
-+
-+	spin = (rand_r(seed) % 51) * 1000ULL;
-+	if (write(go[1], "w", 1) != 1) {
-+		stall = -1;
-+		goto out;
-+	}
-+	t0 = now_ns();
-+	while (now_ns() - t0 < spin)
-+		;
-+	pin(v, helper);
-+
-+	start = __atomic_load_n(progress, __ATOMIC_RELAXED);
-+	t0 = now_ns();
-+	while (now_ns() - t0 < STALL_MS * 1000000ULL) {
-+		if (__atomic_load_n(progress, __ATOMIC_RELAXED) != start) {
-+			stall = 0;
-+			break;
-+		}
-+	}
-+out:
-+	kill(v, SIGKILL);
-+	waitpid(v, NULL, 0);
-+	close(ready[0]);
-+	close(go[1]);
-+	if (cg_active)
-+		cg_remove(cg);
-+	if (cg_active && stall == 1) {
-+		/* Let RCU free V and its cgroup, then make B schedule. */
-+		usleep(FREE_WAIT_MS * 1000);
-+		poke(b);
-+		(*freed)++;
-+	}
-+	return stall;
-+
-+out_pipes:
-+	close(ready[0]);
-+	close(ready[1]);
-+	close(go[0]);
-+	close(go[1]);
-+	if (cg_active)
-+		cg_remove(cg);
-+	return stall;
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	unsigned long attempts = 0, stalls = 0, freed = 0;
-+	int a, b, helper, ctl, opt, ret = 0;
-+	const char *cg_skip = NULL;
-+	int secs = DEFAULT_SECS;
-+	unsigned int seed;
-+	uint64_t end;
-+	pid_t u;
-+
-+	while ((opt = getopt(argc, argv, "nt:")) != -1) {
-+		switch (opt) {
-+		case 'n':
-+			cg_skip = "disabled with -n";
-+			break;
-+		case 't':
-+			secs = atoi(optarg);
-+			break;
-+		default:
-+			fprintf(stderr, "usage: %s [-n] [-t seconds]\n",
-+				argv[0]);
-+			return KSFT_FAIL;
-+		}
-+	}
-+
-+	ksft_print_header();
-+	ksft_set_plan(2);
-+
-+	if (geteuid())
-+		ksft_exit_skip("must be run as root\n");
-+	if (find_cpus(&a, &b, &helper, &ctl))
-+		ksft_exit_skip("needs an SMT core and two other online CPUs\n");
-+	if (!core_sched_available())
-+		ksft_exit_skip("core scheduling unavailable\n");
-+
-+	progress = mmap(NULL, sizeof(*progress), PROT_READ | PROT_WRITE,
-+			MAP_SHARED | MAP_ANONYMOUS, -1, 0);
-+	if (progress == MAP_FAILED)
-+		ksft_exit_fail_msg("mmap: %s\n", strerror(errno));
-+
-+	if (!cg_skip)
-+		cg_skip = cg_setup();
-+	if (cg_skip)
-+		ksft_print_msg("freeing stalled tasks with their cgroups skipped: %s\n",
-+			       cg_skip);
-+
-+	if (pin(0, ctl))
-+		ksft_exit_fail_msg("sched_setaffinity: %s\n", strerror(errno));
-+
-+	u = fork();
-+	if (u < 0)
-+		ksft_exit_fail_msg("fork: %s\n", strerror(errno));
-+	if (!u)
-+		run_u(a);
-+	usleep(100000);
-+
-+	ksft_print_msg("core %d,%d, migrate to %d, %d s%s\n", a, b, helper,
-+		       secs, cg_active ? ", one cgroup per woken task" : "");
-+	seed = getpid();
-+	end = now_ns() + (uint64_t)secs * 1000000000ULL;
-+	while (now_ns() < end) {
-+		ret = attempt(b, helper, &seed, &freed);
-+		if (ret < 0)
-+			break;
-+		attempts++;
-+		stalls += ret;
-+	}
-+
-+	kill(u, SIGKILL);
-+	waitpid(u, NULL, 0);
-+
-+	ksft_print_msg("attempts=%lu stalls=%lu (no progress for %d ms)\n",
-+		       attempts, stalls, STALL_MS);
-+	if (ret < 0)
-+		ksft_test_result_fail("attempt failed: %s\n", strerror(errno));
-+	else
-+		ksft_test_result(!stalls, "no stuck forced idle\n");
-+
-+	if (cg_skip)
-+		ksft_test_result_skip("free a stalled task and its cgroup: %s\n",
-+				      cg_skip);
-+	else if (ret < 0)
-+		ksft_test_result_fail("free a stalled task and its cgroup: attempt failed\n");
-+	else
-+		ksft_test_result_pass("free a stalled task and its cgroup (%lu freed)\n",
-+				      freed);
-+	ksft_finished();
-+}
--- 
-2.47.3
+If my guess is right, setting the MAc address out of rtnl and run the
+PRE_CHANGEADDR notifiers again with rtnl taken could be a step
+forward. If the notifiers fail (the Nvidia device denies the address
+change), we can trigger a rollback of the MAC address outside the
+rtnl.
+
+Ccing netdev and Stanislav who added the set_rx_mode_async to check if
+this is the right direction or if there are efforts / attempt to make
+this happen.
+
+Rx mode, the number of enabled virtqueues, etc., have similar
+problems, but maybe we can start with the MAC address.
+
+[1]
+$ git grep -n  'NETDEV_PRE_CHANGEADDR'
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9921:
+case NETDEV_PRE_CHANGEADDR:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9949:
+case NETDEV_PRE_CHANGEADDR:
+drivers/net/ipvlan/ipvlan_main.c:867:        case NETDEV_PRE_CHANGEADDR:
+include/linux/netdevice.h:3255:        NETDEV_PRE_CHANGEADDR,
+/* notify before the address change */
+net/bridge/br.c:76:         case NETDEV_PRE_CHANGEADDR:
+net/core/dev.c:10192: * netif_pre_changeaddr_notify() - Call
+NETDEV_PRE_CHANGEADDR.
+net/core/dev.c:10209:        rc =3D
+call_netdevice_notifiers_info(NETDEV_PRE_CHANGEADDR, &info.info);
+net/core/lock_debug.c:35:         case NETDEV_PRE_CHANGEADDR:
+
+$ git grep -n -A9 'case NETDEV_PRE_CHANGEADDR' net/bridge/br.c
+net/bridge/br.c:76:         case NETDEV_PRE_CHANGEADDR:
+net/bridge/br.c:77:                 if (br->dev->addr_assign_type =3D=3D
+NET_ADDR_SET)
+net/bridge/br.c:78:                         break;
+net/bridge/br.c:79:                 prechaddr_info =3D ptr;
+net/bridge/br.c:80:                 err =3D netif_pre_changeaddr_notify(br-=
+>dev,
+net/bridge/br.c:81:
+prechaddr_info->dev_addr,
+net/bridge/br.c:82:                                                   extac=
+k);
+net/bridge/br.c:83:                 if (err)
+net/bridge/br.c:84:                         return notifier_from_errno(err)=
+;
+net/bridge/br.c:85:                 break;
+
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9736:static int
+mlxsw_sp_router_port_pre_changeaddr_event(struct mlxsw_sp_rif *rif,
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9737:
+                struct netdev_notifier_pre_changeaddr_info *info)
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9738:{
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9739:
+struct mlxsw_sp *mlxsw_sp =3D rif->mlxsw_sp;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9740:
+struct mlxsw_sp_rif_mac_profile *profile;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9741:
+struct netlink_ext_ack *extack;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9742:        u8
+max_rif_mac_profiles;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9743:        u64 occ;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9744:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9745:
+extack =3D netdev_notifier_info_to_extack(&info->info);
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9746:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9747:
+profile =3D mlxsw_sp_rif_mac_profile_find(mlxsw_sp, info->dev_addr);
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9748:        if (prof=
+ile)
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9749:
+    return 0;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9750:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9751:
+max_rif_mac_profiles =3D mlxsw_sp->router->max_rif_mac_profile;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9752:        occ
+=3D mlxsw_sp_rif_mac_profiles_occ_get(mlxsw_sp);
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9753:        if
+(occ < max_rif_mac_profiles)
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9754:
+    return 0;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9755:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9756:        if
+(!mlxsw_sp_rif_mac_profile_is_shared(rif))
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9757:
+    return 0;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9758:
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9759:
+NL_SET_ERR_MSG_MOD(extack, "Exceeded number of supported router
+interface MA
+C profiles");
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9760:
+return -ENOBUFS;
+drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:9761:}
 
