@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197873;
-	b=YFSJUikHW9POuxGcDyRP+A2lknTdKY9oJ7cPYIgXMA5YsGIbh6u1INiwM8tyDnt6kZLY
-	 sqfOyejrC5Qo6bk2tQCgnLwjVwdnz5IR2kdXq4Ycph1TmqJkHtTi1fArMq6dbebshzqLJ
-	 Mvo4EcwBxGq6OLNMUykRF1xmeZMuPTsjKQ5b8a1C871uv52HGu5v1GtefjnlKj8xleHLX
-	 kAScibdtwqQ7sbQy52g60z5ok6j7k+x/LYWnn+tYSKPEezVMpdIryJmzQ2e/tVVSiEH5X
-	 Q05X/ZQUUyFdoMHf7mbFACekBQuXkSqNHaq8+qc4we/d4Phy0azrRrHq3aJVG0Yg1TA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197873;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=NS3cLlAdqPNMuJ+QKGV0OCOJEdwO55+ni17yKX+sznU=;
-	b=hhk2WhpUGxyqm4EpbgPNV0Bz2SOsYG/GKflR/mTRnvgkVMpZrk3a7e0uk3Y+ziuKi+Qj
-	 IAs0BdanZ9MYa97d9nZmpMrwOku3Ym1LMH+hYoQNJqP8q5DJU9k8PTvHCMncPmHOWU+i1
-	 7vH5V+q6R/lSmckyjq485T0P0D6iB4f9G0Q5KMzX1vTThXlsaplApZ0dlikklJJ9PYTW4
-	 uEM9XJC4FTn6E2oYMnGEdF/buNtA/RODNhvTB4sRrFfTCVQufxbN5FY07+cTfQ0ROmStp
-	 fl6NAHyLZ/tFvGD/cMUjujyvtAonRw8mYjdNRYDz6SP0M5KGhUxS9RIWAEspojRhH7w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=sN+nNroC;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795197869;
+	b=CKoRjxH9j3nSS8uhJN07854NrKr8FmHIcuDgepUAzsDBapNWVs5O/92ZqvgyCSw3sRNu
+	 g3hxGSSZQpzQR3Psom1mfzc3FIU0r1au1RCzH2PSpcsoQ5Dv58mwqKBerX6oI2aLgCBtb
+	 h4gun7zNNDrFsGFkjvpMyI/Zh/w/OYPR2qFv4mJhfJ12nxFXf1nge2YcIeqTnaLz6GvD+
+	 Y/4tusuT/SZg9zlhiOzj417oFJ6ZXJeSysu3+T3S0kAW0o1bbeNr9dWLE9YnUELj8prlL
+	 U9y0Z2qYxRsWG9PgDkn00ZP3YwuXXWLJjydYE277QYVlFcjkAT3g2kyKUgJ5ahObFdQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197869;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=yu7IcAG+qkPh3uAZMFKK3f994LqB74ud6ysEzDLj270=;
+	b=dW9J35mlBbnZJEc9OoURfgceIV/ef3BQpQOeCr097kF7fSLDgT7gr0pPy0gSKzEbjBL+
+	 aRzR21q2A/beE+yULAQDCsfO6PQKwqmoa2ltDLBE4IU8WjO2xS+QAEvCU+4HsF2M18MLy
+	 OucRk2Gk2gQ02iNjmb238OvdPNsXNL3sXe2jyGkecrmjlromcYO18Yb2Bp3Y3s3SgPCwS
+	 iJbZfWV8AQuTG6hZne/bniBlwcfA5isrAEl8p8VE6YSr18A/IcTRlJrJPw5Ix5L8/2UrI
+	 9jTq04MztKfc633qsQAbJcwbOAfYD6RrR9t9/LPMTvASXOs5YFC/GWTg1et4gNg5TcQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DDETCOWx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A711260A5BD2;
+	Fri, 20 Nov 2026 18:04:29 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DDETCOWx
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795197869;
+	b=jIUrj8G4BvNPb3OmTc4RgfMNIXEJUwzQLckfgFuLtpNPzFxPPMrp6/zkIvCzVWEkdfxG
+	 DWunRc68KEPoU+cbX2zFTyTRn/ycRQswPgxjG6N7If+KKdS9mAZL1kR2f4PbPdBAV9fZa
+	 KvKvVBM84LLpqpXwxJotOSCqlw0dmbICB+MWWfHZkvQd/P9/hgHUqP27flk/CvWypcJa8
+	 d6hzpE0Zs7pl+cumVlObLO6Z9IdOvDocG/HP6+EkifkJEnC49bNrVTyIS/I2aZWcHhYJN
+	 9NJqnUFn652eOa93Ho85CzGtMikx87yGDWx4SH7ErIv/3pnb06+v7o1e3kr0Dk5qSXw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795197869;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=yu7IcAG+qkPh3uAZMFKK3f994LqB74ud6ysEzDLj270=;
+	b=jp8G396UbHreHUzNZZWX1GtGddEbmEDtHY/+cE+UQt7MANntBW9AVAeUPXxRWded1SkF
+	 sAbQdPi7AXu190n0JNvBI+g0WazYmY7SXMIg2XMjI5OjNwtHI3Sz77UcK2YkVoOetgrDZ
+	 ZCFoArdwFyXwXb/topYF2IpqEexEpLO720DsOzRLDVUePoTbMombfF6Uek8GtJR2hQWop
+	 NwnGZE7rAmMkylZUM1EzA05etJU19aL4W4ptnLQ+XsVjSW7uMDJHkOG1w+JQtI663FmiO
+	 qyZ4/KBgqwUWIXC3p1Np8WXftMDPePsBb+g6er9HDDqMIyjQaUNdv47sEnPefvQehGg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0B6460A5BDE
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:04:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D0B6460A5BDE
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=sN+nNroC
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 878731A1755;
-	Fri, 20 Nov 2026 18:04:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5B3CA601B9;
-	Fri, 20 Nov 2026 18:04:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D9A8611BC08D7;
-	Fri, 20 Nov 2026 19:04:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795197866; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=NS3cLlAdqPNMuJ+QKGV0OCOJEdwO55+ni17yKX+sznU=;
-	b=sN+nNroCx3hOQl3nBvB0VFQvtdEmFRbARnZGZ6FCHrTuxMf0CFPfs3Sf9CD0f7tSmoxHgG
-	FJl4NvUnqGeRb/blKM00DgNB0KjgSUuxLD3GRbDYhhwthzMtOGmqAGGJ45yqwoHCN4Uia/
-	+8mepXG4ylvmsX0wh0o7sSLERvOLOgKiuv7LRuEZRSxa4gefLjTMLpmpC/KdR35ehcfAn1
-	A1Rq27b106cpInyGEDv8tCgi0UG0kG1XyLfX8Rib6cYH/Gl2WBG9b71MLRO+HBaIXoiMtB
-	KKBrKbPauM+xrslTRItR+Wu3VqkbcK1Xc89kuWPTDK4XjaiusYiYhRp91brGAg==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Fri, 20 Nov 2026 18:59:02 +0100
-Subject: [PATCH v6 20/43] drm/vkms: Introduce config for plane rotation
+	by smtp.kernel.org (Postfix) with ESMTPS id E47261F00A36;
+	Fri, 20 Nov 2026 18:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795197869;
+	bh=yu7IcAG+qkPh3uAZMFKK3f994LqB74ud6ysEzDLj270=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=DDETCOWxMkWMTnRStfODQtuPHDxGMycGyBcrRYe+8wK/g1qDh03AIX0466RDhKU7F
+	 wt0SMt0w50kWveDz5M6UM7eFdq/athwp5c0WHsSJimB/BESe+U4TnCRfiTkzczMyZC
+	 z7n6Iay/M4KuU4KIgQ1T/lZMhSlVyWa9f9b8b0ThZFBa7BR9JErS3WG5/gcDkf09vy
+	 4paxZQkfBgHZtzDqv8GKNILhEkodIPxPiCvJeX6LzCC8L5jsjsUfC9Du/aGxotJlq9
+	 OPW9WTjsxJK7fFLRBOdJp8/QY6+YgWa8Zb0ZyV3LKeTE0ZSOZA9iNHR/mk5NMTEK+0
+	 HCgUaFLLIZlgw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 650234B8A8;
+	Fri, 20 Nov 2026 18:04:18 +0000 (UTC)
+From: Armandas Kvietkus via B4 Relay <devnull+armandas.kvietkus.proton.me@kernel.org>
+Subject: [PATCH v6 0/2] media: i2c: Samsung S5K3T2 image sensor
+Date: Fri, 20 Nov 2026 19:04:17 +0100
+Message-Id: <20261120-upstream-s5k3t2-v6-0-dd345fa4201c@proton.me>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,336 +85,154 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-vkms-all-config-v6-20-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
- llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11621;
- i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=Cz/6uXZX6vsgiFxFAxRKl2O8qO3zG0XE85J8WyN5IPw=;
- b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIsAu+T40ZqBiiH6yjyqcFlv7JfT2mdNdgJIp
- ph2fNkboIqJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCLABsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOLp5w/6AkXhuZsxaW9BxuUzOjys80B5MVkcvi4
- JmamV2xtz3KBNLA3Tk5XieUMqbbmaYsahQ5KT7T0n9DdaKgp3+kAOE670QizkTiZEIfgkujyZu0
- Q4YcvRxNKnNnHLFuW68JRv78n7xxDgqEy1/lBag95KQgKJRigCeKf4y0d/P/9dPmKqu4ZEc3MiD
- jm9PVUPGLqH04RDWABa/qJU2nw5F4WRDLi6t0esp6VDSlC1o/2k65gReA6OY/4eIJZYGsmKDvwL
- 9dhuMNP7r8nDqfFeY4ove9lKbO3Lwr9IZAFtafjcKzjUvqXyKb4V7uuMYfWiy8Hf3QxnVcO3oDY
- X+0ELgkNo5OBEWmaJNpA2+/aKkkyAqbX8eQPM0Pw6AvpJ1tRBZXVy2ooW0khFU6/kt7uvSZ+3H/
- 2a1VjirLyR8zh04oxwlaY0HErCksXwCVnaJ1Yl6Mr18fSIkv0u9FN0doK+d+vm2gpe+5KzZgLNJ
- uZdTFTOLSS0ePvKfNNbFeWQORdy0gDrp6r4pIYLx9hGoKfX0yI8awPPopRdmfuHF1nT6W2M2+bb
- JByKbnMcwKy3UlRL1f1SvBgbMZtXTYsNF/7F/UCHFpESK1IdDEqZhwWrbGMZUv6V6VDH+PMN/4B
- OJ4s/8eKLi2H6KGAUu34/J/4r6ZoQtPyGuaBB99vJpXx7yoguci0=
-X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
- fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOQU7DMBAF0KtUXmPkmbET0hX3QCwce0wNahLZb
+ gSqcnecIkHUiOWX/vszV5E5Rc7ieLiKxHPMcRxqaB4Owp3s8MYy+poFKmxUh0peplwS27PM5oM
+ KSqSeyNteERhR1ZQ4xM/b4svrT86X/p1dWWfWxinmMqav28kZ1t7/6zNIJX2jVatV0AroeUpjG
+ YfHM4t1fcatp73H6pUOwVsioxzce9p6vfdUvTXOPPng2GF37/WvBwWw93r9n6gHDD1hs/vf/Hm
+ Adu9N9RDaYILnjtFu/bIs33g+sivAAQAA
+X-Change-ID: 20260920-upstream-s5k3t2-23b33dab0315
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Elgin Perumbilly <elgin.perumbilly@siliconsignals.io>, 
+ phone-devel@vger.kernel.org, 
+ Armandas Kvietkus <armandas.kvietkus@proton.me>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795197857; l=5640;
+ i=armandas.kvietkus@proton.me; h=from:subject:message-id;
+ bh=mbLrU2TtWG//UqAkd1hg4LGPAE7nIw6zMUc/JOxOByc=;
+ b=FhbRJ9ZHCsSkpvTN+YhvnSGI/4gtmlLpvjsKUkKR0TyqJv2ZWGDqPGMTTGgWCoZsYUXRdRhSJ
+ AT2FdZNt6c+CxfcvU87q/awxt2W1SqNKqG8/Xs83SjR43Xm64iggwmq
+X-Developer-Key: i=armandas.kvietkus@proton.me; a=ed25519;
+ pk=wuqmImJ9sKlDVcwALOvfGhjj7G8EBjjM4TpCdmlrAf8=
+X-Endpoint-Received: by B4 Relay for armandas.kvietkus@proton.me/default
+ with auth_id=974
+X-Original-From: Armandas Kvietkus <armandas.kvietkus@proton.me>
+Reply-To: armandas.kvietkus@proton.me
 
-VKMS driver supports all the rotation on planes, but for testing it can be
-useful to only advertise few of them. This new configuration interface
-will allow configuring the rotation per planes.
+This series adds a binding and a driver for the Samsung S5K3T2, a
+20 Mpixel CMOS image sensor with four MIPI D-PHY lanes.
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+The sensor is the front camera of the Xiaomi POCO F3. That phone has no
+device tree in mainline, so this series adds no user for the binding.
+The driver was written and tested on the phone with the Qualcomm CAMSS
+driver.
+
+The driver supports three modes. All of them are RAW10 on four D-PHY
+lanes.
+
+  5184x3880 at 15 fps, link frequency 448 MHz
+  2592x1940 at 60 fps, link frequency 448 MHz
+  1280x720 at 120 fps, link frequency 300 MHz
+
+The link frequency control selects which modes are available. The pixel
+clock does not change between modes, so the pixel rate is constant.
+
+The controls are exposure, analogue gain, horizontal blanking, vertical
+blanking, horizontal flip, vertical flip and test pattern. Rotation and
+orientation come from the device tree. Power is handled by runtime PM
+with autosuspend.
+
+The register tables come from the vendor camera firmware.
+
+Tested:
+
+  v4l2-compliance on the sensor sub-device, 46 tests, 46 passed
+  capture in all three modes, twelve runs, no kernel error
+  the sensor returns to runtime suspend after every run
+  exposure and gain sweeps checked on the captured frames
+  Bayer order checked for both flips
+  link frequency switching, and the control is busy while streaming
+
+Signed-off-by: Armandas Kvietkus <armandas.kvietkus@proton.me>
 ---
- drivers/gpu/drm/vkms/tests/vkms_config_test.c | 53 ++++++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_config.c            | 46 +++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_config.h            | 59 +++++++++++++++++++++++++++
- drivers/gpu/drm/vkms/vkms_plane.c             |  5 ++-
- 4 files changed, 161 insertions(+), 2 deletions(-)
+Changes in v6:
+- The link frequency control is writable now and selects which modes
+  are available. When it changes, the format moves to the nearest mode
+  at the new frequency.
+- Moved the mode list and the other details from the driver commit
+  message to the cover letter.
+- Dropped the Reviewed-by from Elgin because of the link frequency
+  change.
+- Added phone-devel to Cc.
+- Link to v5: https://patch.msgid.link/20261117-upstream-s5k3t2-v5-0-1f7f5fde9e2a@proton.me
 
-diff --git a/drivers/gpu/drm/vkms/tests/vkms_config_test.c b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-index 1e4ea1863420..dcb29ed8ac4a 100644
---- a/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-+++ b/drivers/gpu/drm/vkms/tests/vkms_config_test.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0+
- 
-+#include <drm/drm_mode.h>
- #include <kunit/test.h>
- 
- #include "../vkms_config.h"
-@@ -185,6 +186,12 @@ static void vkms_config_test_default_config(struct kunit *test)
- 			n_possible_crtcs++;
- 		}
- 		KUNIT_EXPECT_EQ(test, n_possible_crtcs, 1);
-+		KUNIT_EXPECT_EQ(test,
-+				vkms_config_plane_get_supported_rotations(plane_cfg),
-+				DRM_MODE_ROTATE_MASK | DRM_MODE_REFLECT_MASK);
-+		KUNIT_EXPECT_EQ(test,
-+				vkms_config_plane_get_default_rotation(plane_cfg),
-+				DRM_MODE_ROTATE_0);
- 	}
- 
- 	/* Encoders */
-@@ -481,6 +488,51 @@ static void vkms_config_test_valid_plane_type(struct kunit *test)
- 	vkms_config_destroy(config);
- }
- 
-+static void vkms_config_test_valid_plane_rotations(struct kunit *test)
-+{
-+	struct vkms_config *config;
-+	struct vkms_config_plane *plane_cfg;
-+
-+	config = vkms_config_default_create(false, false, false, false);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, config);
-+
-+	plane_cfg = get_first_plane(config);
-+
-+	/* Valid, no rotation, no reflection */
-+	vkms_config_plane_set_supported_rotations(plane_cfg, DRM_MODE_ROTATE_0);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_ROTATE_0);
-+	KUNIT_EXPECT_TRUE(test, vkms_config_valid_plane_rotation(config, plane_cfg));
-+	KUNIT_EXPECT_TRUE(test, vkms_config_is_valid(config));
-+
-+	/* Invalid, default rotation is not supported */
-+	vkms_config_plane_set_supported_rotations(plane_cfg, DRM_MODE_ROTATE_0);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_ROTATE_90);
-+	KUNIT_EXPECT_FALSE(test, vkms_config_valid_plane_rotation(config, plane_cfg));
-+	KUNIT_EXPECT_FALSE(test, vkms_config_is_valid(config));
-+
-+	/* Invalid, supported rotations must contain at least one base rotation angle */
-+	vkms_config_plane_set_supported_rotations(plane_cfg, DRM_MODE_REFLECT_MASK);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_REFLECT_X | DRM_MODE_ROTATE_0);
-+	KUNIT_EXPECT_FALSE(test, vkms_config_valid_plane_rotation(config, plane_cfg));
-+	KUNIT_EXPECT_FALSE(test, vkms_config_is_valid(config));
-+
-+	/* Invalid, default rotation must contain exactly one base rotation angle */
-+	vkms_config_plane_set_supported_rotations(plane_cfg,
-+						  DRM_MODE_REFLECT_MASK | DRM_MODE_ROTATE_0);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_REFLECT_X);
-+	KUNIT_EXPECT_FALSE(test, vkms_config_valid_plane_rotation(config, plane_cfg));
-+	KUNIT_EXPECT_FALSE(test, vkms_config_is_valid(config));
-+
-+	/* Invalid, multiple rotation bits in default_rotation */
-+	vkms_config_plane_set_supported_rotations(plane_cfg,
-+						  DRM_MODE_REFLECT_MASK | DRM_MODE_ROTATE_MASK);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_ROTATE_0 | DRM_MODE_ROTATE_90);
-+	KUNIT_EXPECT_FALSE(test, vkms_config_valid_plane_rotation(config, plane_cfg));
-+	KUNIT_EXPECT_FALSE(test, vkms_config_is_valid(config));
-+
-+	vkms_config_destroy(config);
-+}
-+
- static void vkms_config_test_valid_plane_possible_crtcs(struct kunit *test)
- {
- 	struct vkms_config *config;
-@@ -1003,6 +1055,7 @@ static struct kunit_case vkms_config_test_cases[] = {
- 	KUNIT_CASE(vkms_config_test_get_connectors),
- 	KUNIT_CASE(vkms_config_test_invalid_plane_number),
- 	KUNIT_CASE(vkms_config_test_valid_plane_type),
-+	KUNIT_CASE(vkms_config_test_valid_plane_rotations),
- 	KUNIT_CASE(vkms_config_test_valid_plane_possible_crtcs),
- 	KUNIT_CASE(vkms_config_test_invalid_crtc_number),
- 	KUNIT_CASE(vkms_config_test_invalid_encoder_number),
-diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-index fe82fb9e344a..82e8ada05b26 100644
---- a/drivers/gpu/drm/vkms/vkms_config.c
-+++ b/drivers/gpu/drm/vkms/vkms_config.c
-@@ -2,8 +2,11 @@
- 
- #include <linux/slab.h>
- #include <linux/string_choices.h>
-+#include <linux/log2.h>
- 
-+#include <drm/drm_blend.h>
- #include <drm/drm_connector.h>
-+#include <drm/drm_mode.h>
- #include <drm/drm_print.h>
- #include <drm/drm_debugfs.h>
- #include <kunit/visibility.h>
-@@ -180,6 +183,35 @@ static bool valid_plane_number(const struct vkms_config *config)
- 	return true;
- }
- 
-+VISIBLE_IF_KUNIT
-+bool vkms_config_valid_plane_rotation(const struct vkms_config *config,
-+				      const struct vkms_config_plane *plane_cfg)
-+{
-+	struct drm_device *dev = config->dev ? &config->dev->drm : NULL;
-+
-+	if ((vkms_config_plane_get_supported_rotations(plane_cfg) &
-+	     DRM_MODE_ROTATE_MASK) == 0) {
-+		drm_info(dev, "Configured supported rotations must contain at least one base rotation angle\n");
-+		return false;
-+	}
-+
-+	if (!is_power_of_2(vkms_config_plane_get_default_rotation(plane_cfg) &
-+			   DRM_MODE_ROTATE_MASK)) {
-+		drm_info(dev, "Configured default rotation must contain exactly one base rotation angle\n");
-+		return false;
-+	}
-+
-+	if ((vkms_config_plane_get_default_rotation(plane_cfg) &
-+	     vkms_config_plane_get_supported_rotations(plane_cfg)) !=
-+	    vkms_config_plane_get_default_rotation(plane_cfg)) {
-+		drm_info(dev, "Configured default rotation is not supported by the plane\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(vkms_config_valid_plane_rotation);
-+
- static bool valid_planes_for_crtc(const struct vkms_config *config,
- 				  struct vkms_config_crtc *crtc_cfg)
- {
-@@ -337,6 +369,12 @@ static bool valid_connector_possible_encoders(const struct vkms_config *config)
- bool vkms_config_is_valid(const struct vkms_config *config)
- {
- 	struct vkms_config_crtc *crtc_cfg;
-+	struct vkms_config_plane *plane_cfg;
-+
-+	vkms_config_for_each_plane(config, plane_cfg) {
-+		if (!vkms_config_valid_plane_rotation(config, plane_cfg))
-+			return false;
-+	}
- 
- 	if (!valid_plane_number(config))
- 		return false;
-@@ -397,6 +435,10 @@ static int vkms_config_show(struct seq_file *m, void *data)
- 		seq_printf(m, "\tname=%s\n",
- 			   vkms_config_plane_get_name(plane_cfg) ?
- 			   vkms_config_plane_get_name(plane_cfg) : "(null)");
-+		seq_printf(m, "\tsupported rotations=" DRM_ROTATION_FMT "\n",
-+			   DRM_ROTATION_FMT_ARGS(vkms_config_plane_get_supported_rotations(plane_cfg)));
-+		seq_printf(m, "\tdefault rotation=" DRM_ROTATION_FMT "\n",
-+			   DRM_ROTATION_FMT_ARGS(vkms_config_plane_get_default_rotation(plane_cfg)));
- 	}
- 
- 	vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
-@@ -447,6 +489,10 @@ struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_conf
- 	if (ret)
- 		goto cleanup_plane_cfg;
- 
-+	vkms_config_plane_set_supported_rotations(plane_cfg,
-+						  DRM_MODE_ROTATE_MASK | DRM_MODE_REFLECT_MASK);
-+	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_ROTATE_0);
-+
- 	xa_init_flags(&plane_cfg->possible_crtcs, XA_FLAGS_ALLOC);
- 
- 	list_add_tail(&plane_cfg->link, &config->planes);
-diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-index 8704b6f71000..b0a5a1ae6537 100644
---- a/drivers/gpu/drm/vkms/vkms_config.h
-+++ b/drivers/gpu/drm/vkms/vkms_config.h
-@@ -48,6 +48,8 @@ struct vkms_config {
-  * @type: Type of the plane. The creator of configuration needs to ensures that
-  *        at least one primary plane is present.
-  * @possible_crtcs: Array of CRTCs that can be used with this plane
-+ * @default_rotation: Default rotation that should be used by this plane
-+ * @supported_rotation: Rotation that this plane will support
-  * @plane: Internal usage. This pointer should never be considered as valid.
-  *         It can be used to store a temporary reference to a VKMS plane during
-  *         device creation. This pointer is not managed by the configuration and
-@@ -59,6 +61,8 @@ struct vkms_config_plane {
- 
- 	const char *name;
- 	enum drm_plane_type type;
-+	unsigned int default_rotation;
-+	unsigned int supported_rotations;
- 	struct xarray possible_crtcs;
- 	bool default_pipeline;
- 
-@@ -344,6 +348,61 @@ vkms_config_plane_set_default_pipeline(struct vkms_config_plane *plane_cfg,
- 	plane_cfg->default_pipeline = default_pipeline;
- }
- 
-+/**
-+ * vkms_config_plane_get_default_rotation() - Get the default rotation for a plane
-+ * @plane_cfg: Plane to get the default rotation from
-+ *
-+ * Returns:
-+ * The default rotation for the plane.
-+ */
-+static inline unsigned int
-+vkms_config_plane_get_default_rotation(const struct vkms_config_plane *plane_cfg)
-+{
-+	return plane_cfg->default_rotation;
-+}
-+
-+/**
-+ * vkms_config_plane_set_default_rotation() - Set the default rotation for a plane
-+ * @plane_cfg: Plane to set the default rotation to
-+ * @default_rotation: New default rotation for the plane
-+ */
-+static inline void
-+vkms_config_plane_set_default_rotation(struct vkms_config_plane *plane_cfg,
-+				       unsigned int default_rotation)
-+{
-+	plane_cfg->default_rotation = default_rotation;
-+}
-+
-+/**
-+ * vkms_config_plane_get_supported_rotations() - Get the supported rotations for a plane
-+ * @plane_cfg: Plane to get the supported rotations from
-+ *
-+ * Returns:
-+ * The supported rotations for the plane.
-+ */
-+static inline unsigned int
-+vkms_config_plane_get_supported_rotations(const struct vkms_config_plane *plane_cfg)
-+{
-+	return plane_cfg->supported_rotations;
-+}
-+
-+/**
-+ * vkms_config_plane_set_supported_rotations() - Set the supported rotations for a plane
-+ * @plane_cfg: Plane to set the supported rotations to
-+ * @supported_rotations: New supported rotations for the plane
-+ */
-+static inline void
-+vkms_config_plane_set_supported_rotations(struct vkms_config_plane *plane_cfg,
-+					  unsigned int supported_rotations)
-+{
-+	plane_cfg->supported_rotations = supported_rotations;
-+}
-+
-+#if IS_ENABLED(CONFIG_KUNIT)
-+bool vkms_config_valid_plane_rotation(const struct vkms_config *config,
-+				      const struct vkms_config_plane *plane_cfg);
-+#endif
-+
- /**
-  * vkms_config_plane_set_name() - Set the plane name
-  * @plane_cfg: Plane to set the name to
-diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
-index 8ea05c1d98e4..91c51a8d908b 100644
---- a/drivers/gpu/drm/vkms/vkms_plane.c
-+++ b/drivers/gpu/drm/vkms/vkms_plane.c
-@@ -272,8 +272,9 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
- 
- 	drm_plane_helper_add(&plane->base, &vkms_plane_helper_funcs);
- 
--	drm_plane_create_rotation_property(&plane->base, DRM_MODE_ROTATE_0,
--					   DRM_MODE_ROTATE_MASK | DRM_MODE_REFLECT_MASK);
-+	drm_plane_create_rotation_property(&plane->base,
-+					   vkms_config_plane_get_default_rotation(plane_cfg),
-+					   vkms_config_plane_get_supported_rotations(plane_cfg));
- 
- 	drm_plane_create_color_properties(&plane->base,
- 					  BIT(DRM_COLOR_YCBCR_BT601) |
+Changes in v5:
+- Dropped four page select writes (0x6028) from the register tables.
+  Each one selected the page that was already selected. They came from
+  the vendor sequence.
+- Collected the Reviewed-by from Elgin.
+- The link frequency still follows the mode. The question about it on
+  v3 is still open.
+- Link to v4: https://patch.msgid.link/20261011-upstream-s5k3t2-v4-0-d33b12fb3263@proton.me
 
--- 
-2.56.0
+Changes in v4:
+- Use ARRAY_SIZE() instead of the S5K3T2_NUM_SUPPLIES macro.
+- The link frequency and pixel rate controls have no ops now, the
+  driver never writes them.
+- HBLANK and VBLANK are written from s_ctrl. The line length and frame
+  length registers are gone from the mode lists. HBLANK is not read only
+  anymore, but its range is still one value per mode.
+- The flips are written from s_ctrl and are clustered.
+- 0x0100 and 0x0101 are written as 8-bit registers.
+- The mode is not kept outside the subdev state anymore. The crop
+  rectangle is kept in the state too.
+- Every control call in set_fmt has its return value checked.
+- The fwnode properties are parsed before the control handler is set
+  up, and the control flags are set after the error check.
+- Dropped the link_validate op, the redundant fwnode and endpoint
+  checks, and the gotos in power_on and set_fmt.
+- The error labels in probe start with err_, and remove calls
+  pm_runtime_dont_use_autosuspend().
+- Small cleanups: container_of_const(), local variable order,
+  s5k3t2_format_from_mode(), and init_state returns the set_fmt result.
+- The link frequency still follows the mode. The question about it on
+  v3 is still open.
+- Dropped the line about hidden modes from the commit message.
+- Link to v3: https://patch.msgid.link/20260924-upstream-s5k3t2-v3-0-a5c58dfcec29@proton.me
+
+Changes in v3:
+- The check on pm_runtime_get_if_active() is back to the form used by
+  every other sensor driver. The v2 form skipped the register write when
+  the helper returned an error, so a kernel built without CONFIG_PM never
+  applied exposure, gain, blanking or the test pattern.
+- The binding now requires clocks and the three supplies. The driver does
+  not probe without the clock, and the sensor needs all three rails.
+- Link to v2: https://patch.msgid.link/20260923-upstream-s5k3t2-v2-0-04ffda3350c1@proton.me
+
+Changes in v2:
+- set_pad_format() now stores the new mode before it updates the
+  controls. The VBLANK handler reads the mode, so it used to program the
+  frame length from the mode that was active before the call.
+- A negative return from pm_runtime_get_if_active() is no longer read as
+  active. Runtime PM can be disabled for the device, and in that case the
+  usage count is not taken, so the old code could drop a count it never
+  took.
+- The PM ops use RUNTIME_PM_OPS() with pm_ptr(), so the ops and the power
+  callbacks are dropped when CONFIG_PM is not set.
+- Link to v1: https://patch.msgid.link/20260920-upstream-s5k3t2-v1-0-d640740f4013@proton.me
+
+---
+Armandas Kvietkus (2):
+      dt-bindings: media: i2c: Add Samsung S5K3T2 image sensor
+      media: i2c: Add Samsung S5K3T2 image sensor driver
+
+ .../bindings/media/i2c/samsung,s5k3t2.yaml         |  105 ++
+ MAINTAINERS                                        |    8 +
+ drivers/media/i2c/Kconfig                          |   10 +
+ drivers/media/i2c/Makefile                         |    1 +
+ drivers/media/i2c/s5k3t2.c                         | 1365 ++++++++++++++++++++
+ 5 files changed, 1489 insertions(+)
+---
+base-commit: 518e5b794c06c0f0eb40df3e202274a66202c137
+change-id: 20260920-upstream-s5k3t2-23b33dab0315
+
+Best regards,
+--  
+Armandas Kvietkus <armandas.kvietkus@proton.me>
+
 
