@@ -1,136 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209373;
-	b=WDVb6LyVUQX981yvHQ3uRumHPf2jOSjCTXa1uSCmNMeEsgsFkAs6CKd+fwL+aak/1T/V
-	 RfF90kDwmaw+6to4klVfDZLa//69ucsrjk+Zo+dMVGhgSre19vB06RuOCWBVQvlMz+3Wn
-	 GPx9wl6iO1vylPLsNOPlDo9Ch1IB3abw7ngUihgZKPBLqp6Yx3HyDSixXFxEnKYBOyXbA
-	 ve/4B0gLdSRq9xKK2WtuD2coK/EdC8/nGlfXkIVsX9uEDh36CJtvUgSi0kMErjUbQ39Ir
-	 u1D5gYEECbHX/aIA+X9mrx5r7CQDcz7YdbSBnz8SAEErkVd0buHh1S/eOQ+2kgmTV7Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209373;
-	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Autocrypt:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=+Q3LbnqrHy2JjrTQx5XbBm02H8XBd9CBXOTuLMnubbQ=;
-	b=wLtBvAzCpqvsn500HBU/p419KS2upzHIhWzUxTnKRPbm7f5xahK4GGBzFieHnPItNn61
-	 F6IMyVSavervz7Mj0K63K17zNA/RdQxA0Ur4HGTQUyexE/h97Zo5Ow74X0GYAuJp3+XDd
-	 XOY+qABLK7wyzLxQSe3EHQBEeP31qGnv6EnXEUkWBnG/TKnzSCeYc1LW1KmJG+31Sl8P7
-	 +sesTMHfS/lY+hQDVxz80AxjINv8U8pg+PXmF1Cz6MVgPGQquisMjr5lRjJPdWK4J1WM4
-	 FJkgXmsIQVttUKrmxWBI7DoDogz6gDWR6KI5MOeE2dNucML5DQGoRAKri7+ELFhVBzQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Itjtc399;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795209387;
+	b=ya5mIEb/O/n945zpNkEqJ3pRNoo7V3fLtj7AIwe/lP6xOMy+c+Fn3RYdtu4u20rGQ1/e
+	 4FOwumdglq8CNt65j5kKFQwjt6LM3NrzGS6tqLL7D1sgcJ4UUe1a/LCLf3KgjmdkTlAAT
+	 X2HLtoLF5vLtrW2uJGGTvOWXwhwS0O0ZBxlr/44YGHOSpaZWxBZKVycV/QokclxXEUx0K
+	 PRnQQhMl2bGKSC2NZUxyxGuNzCjHq9Hm2WLYiUdgFW93dlZOBxDbjmQtj78HEJ3G9Ng0x
+	 kuSYuByYQ/DX5IOzPpjqeOCyx/Lsa4AnkPOLsz4UL+IA8SbhhDXQaE80BsxRUPFn9KA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209387;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
+	b=zS6/OnhvcHagO+Y/oOHHF4Jwj8sYYCgc6UkAsDbpS7QJxSlL4REUKmnvutFZUyXYdqkX
+	 K4MN1i6mpa2PBVIhjSQW2+etTT4QEUfZmByWAvj3t7nsSdkOL1CzBdrIpPC4HrL3wz9kv
+	 gYGcKRQswD9tooy5O7/d982CKZwQUThAy+285Q3SCTbOnLRFuFA3U6FFFtC9tGfqxBv5D
+	 8saMdAeixMXlwMJeJnipgiY6Spp2hFMwacduTNOMhFZbiYblXD9RPMlvDqsC0fcrLrrgL
+	 UnhP7wC+QZpwvBhrN9CRGlmimlbtO98aLXhhHKR68Bzd7AFPh0UGBSXe2jlqID4HV3w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q0ezxby9;
+	arc=fail smtp.remote-ip=209.85.208.169
+Received: from mail-lj1-f169.google.com (mail-lj1-f169.google.com [209.85.208.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C0BD606A696;
-	Fri, 20 Nov 2026 21:16:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95E72606A33E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:16:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95E72606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Itjtc399
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C7E51F000CA;
-	Fri, 20 Nov 2026 21:16:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795209372;
-	bh=+Q3LbnqrHy2JjrTQx5XbBm02H8XBd9CBXOTuLMnubbQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Itjtc399nXLSzeNR98cgl76575NeeifQ8XcQ5SkouGaNf95KxB40Cva2yZEVr8FB5
-	 7GhO7mOs0aBIOk/CKU86ZahfomJ3csB41Mjh4l+EImTG0VArcCRsyT1oXcgOr8t5b0
-	 j4WNg3OOZXMIE+mqzKCWwsAFnckh1H2AFHw9HT1K0jKOLmiyZXDJpiWKVa0pBCkFcI
-	 whhD9HFqyuzp3pRxMJetRNo8M+8Yu4EYiS7y9gaiflf3ufj+1Bmm/L28j+LwcGpmp7
-	 6G4MrBtVeVZTzuXnKOLzaPHMM1P3ccqSFf5Ug4BssuIo/3HDOm/a/b0EfeCmB2v7Kc
-	 oxxKYbvX7SU/w==
-Message-ID: <03349d0b6b8b3cd2069f216871046093d75b17be.camel@kernel.org>
-Subject: Re: [PATCH] NFSD: Reject a COPY whose source and destination are
- the same file
-From: Jeff Layton <jlayton@kernel.org>
-To: =?ISO-8859-1?Q?Aur=E9lien?= Couderc <aurelien.couderc2002@gmail.com>, 
-	nfsv4@ietf.org
-Cc: Chuck Lever <cel@kernel.org>, NeilBrown <neil@brown.name>, Olga
- Kornievskaia <okorniev@redhat.com>, Dai Ngo <Dai.Ngo@oracle.com>, Tom
- Talpey <tom@talpey.com>, Anna Schumaker	 <Anna.Schumaker@netapp.com>,
- linux-nfs@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 13:16:11 -0800
-In-Reply-To: <CA+1jF5rurDObkiP0pg3Kp1vgB+sdxU6FYBaUUPWLJoHsoJ_6oQ@mail.gmail.com>
-References: <20261119-nfsd-copy-same-file-v1-1-ef18e53a00d0@kernel.org>
-	 <CA+1jF5rurDObkiP0pg3Kp1vgB+sdxU6FYBaUUPWLJoHsoJ_6oQ@mail.gmail.com>
-Autocrypt: addr=jlayton@kernel.org; prefer-encrypt=mutual;
- keydata=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
- QZIQXVeAA+smfTT0tDrisj1U5x6ZB9b3nBg65kc=
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q0ezxby9
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3acd239776cso11200601fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:16:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795209384; cv=none;
+        d=google.com; s=arc-20260327;
+        b=kS171bOl5Lcvy89WKhX+Ld9WHRHUZT3f8xn3LmsTfWFbv0GVcwDjGyO+mlvVTHlFda
+         vr22deQhZCmthNUe4BXKCE6I7dJ3MggDyw6XbbuF0qGm0t4SDASHFGWhGgS0F3sJ/oI/
+         kaoUQBaRijAhEAVsnYi8yXQoFazOSEkdYevbS+iFbNV1GWoTP5iTZITApw620ZHJHjwf
+         wHOXxyRUh2CjVIOgdfZ2V70wgVDZdJ5YeQmNY858k3UcTFUTqK6fKVrOym3iL13HNuKD
+         EvJ4rBfacN5iNi1mUpqwklyYHmw8kVUhvYZFLHspL92A/l8lXco7WSuKaLL1cFAmTkiK
+         s7gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
+        fh=SRD1Z9Hhnr//yG5bSgbwtiV5xwDZNABo18x6l6gHxiA=;
+        b=qa/KCFi6Ady3ZbkeNMG3MMmDOmaDzhEYeA8AIFeiGN7RIJdl/albxzIAIuDkyKMm6w
+         YoofF28xkulY8c/2ckAI4A0a/OCmXVPVtRLaE53ZCC7qqtd1zANdz3yrRZbVTEp1us15
+         ND0d/VbqkZNgJ5oqG/E7xAiTqZgCUG7jIH7solHs95HcE0t9J8oosrFmmqVtDlFYzxfl
+         Tg1CRUbyASQRnuvmOwkiMA6gFw3EiJSxy5Zvu6M/BEkPRRqPMX8tLm0FdEh/muXzv25b
+         YNSZzI9s8n9oehla9fethKNnhG5KLE+OVRcIOyvigWdTwe8M/SObmTg8HUTdUeum86lN
+         0STg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795209384; x=1795814184; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
+        b=q0ezxby914XfUpGLrhzfA6E1/m4QOv5ChuIclloI+bpZwI7pSVyRELveWg3VGGlf8x
+         0ah6sTes6aaFJBTBqrSDmqmK8zeRZLPStCECxFt4dPRObKQN4NTxhbUgf3PGooeUOUoB
+         V5av6Vxqu1RodwnduQCs/LIC06FqUqHLGVoQtRi+YpYNQcegi2LayeGPBGDYKO6k1HUs
+         6RZ1441EVAo+jHUIpmaivLDV9OyMZm0rjt2rU/q4wkvtqqvqzDkPC3MwrwPjX0KgP+16
+         rLdHJKs5CsP5+/40QnppnK2xzVaxqA9fxCMguzrsuioWYq+InT3/FAxG9QpEr4OyP9Bo
+         bKkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795209384; x=1795814184;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=d7+mHRTo6mgB6YljCC8xTp3hfMCWQo1jCyRlofOJKI4=;
+        b=E2meoeRuYzgz4oafH4e1bzU1xLW+1p0OG1gXkNl4idM+UR6B1M0Dwched8H6aOLf/R
+         uQRPbCQzey2MoOx4dujNuzEgZ37RQnNqcobXqL6dL1F+eBLuafQsvw2tyGPFygQUQXF3
+         VphSoekTJGJVOFuoYFuHe+13A9GClXraA7e0LKF/Jpv+vkLyV3cONhxrHQghwdh2Qt5L
+         1Gwx038otq0h6WSYAVhpxFGf4RhD2xAtanTXonvuWyR6jwfKnwMrJ36qcBxXsGVZ2SPl
+         G7HOS96UlZrK3vacdsk6G2f1zBAchFOBMO21ot6LRvix8bhB/GLwfCEAtZObRJTa+Pe3
+         1Wfg==
+X-Forwarded-Encrypted: i=1; AL+hErEilvk2iHZ4SDvb+F4B0W9XkKpo3FhgY4za948Z4ooQnZiiYHGuuJuYm7lb7xvIw+q+ujpO0MZwkcclnqw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+95lwF/RaHXCILMu50LeiKewk3bgmt5NYRyZQwaMmMy2jviQV1
+	YR9eXvL5CaWCyFl0TJCWtq09rp8iN9Bp2MdlQFHJRaK5vIpBJR0ZGlzdnRZjhytRXJFejiNDh+X
+	VA1so1p26z1jiS6T3bgmHWn+0V1Til6g=
+X-Gm-Gg: AZFdTZcxmBFOWCWYAUkB9VGv5Oa7CsV6QqZY1UsVjIIzGlY/e6gfyLvLOPmgM1aTz5S
+	RUBLwkkySINAEK4Ndgm2xhJQ4AWmb6RxcO5Z0loduBPcZLdgcaGfqM4K7pIDpOycCexm35wKN02
+	MN0x6PzHcQj8Ojnyj4q9Pi2EPxPt15Db70ObPQrC6OEwDklnb41y4l7yj8zIiX+UpZamRTMSL0A
+	FQun62MFsRFeF+ybadPLr1TxFPxv6We5/gQJ6wMg/92hwwXQ5uDXyKzkz/uIZ+l6HoZOEWoASxb
+	cBIwXBksqWdIPdcRrXNbB9BAO1GIetD+TF+aw18eH1k6YcYQG0D3lLn5GRT1zF38+cJ4XNCWFnd
+	BQL7oG2er1YM2GTILE9tMIayq9umfmA7X2clgC2GOAZ3JSYhx2ssD9TyN5NTBFDEgUTZR/tq3NQ
+	yjFQywCQlhnakGt7ICA3kMpIlJ
+X-Received: by 2002:a05:651c:1595:b0:3ad:f0bb:344c with SMTP id
+ 38308e7fff4ca-3ae7f9def47mr12754941fa.10.1795209383639; Fri, 20 Nov 2026
+ 13:16:23 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -140,36 +105,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261004121931.6746-1-festevam@gmail.com> <20261004121931.6746-2-festevam@gmail.com>
+In-Reply-To: <20261004121931.6746-2-festevam@gmail.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Fri, 20 Nov 2026 18:16:12 -0300
+X-Gm-Features: Aa3M54oHDOEQ22OODjmPc2GutyOvkFljPYhxfBAHn2qECiQinM-o8DAEKa4qfsg
+Message-ID: <CAOMZO5DFgk66C=+eNepzWwrNHa-t8KQ47wstPZRGW+tf548rOQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] media: rc: Add keymap for Ruwido Z3 RC-34 remote
+To: sean@mess.org
+Cc: mchehab@kernel.org, linux-media@vger.kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Fabio Estevam <festevam@nabladev.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, 2026-11-20 at 08:55 +0100, Aur=C3=A9lien Couderc wrote:
-> On Thu, Nov 19, 2026 at 6:44=E2=80=AFPM Jeff Layton <jlayton@kernel.org> =
-wrote:
-> >=20
-> > RFC 7862 Section 15.2.3 says that COPY MUST fail with NFS4ERR_INVAL
-> > when SAVED_FH and CURRENT_FH refer to the same file, whatever the
-> > ranges. NFSD never checks for this. A same-file COPY with
-> > non-overlapping ranges succeeds, and one with overlapping ranges fails
-> > only because the VFS rejects it.
-> >=20
-> > The overlap-only rule applies to CLONE (Section 15.13.3), so leave
-> > nfsd4_verify_copy() alone. Instead, check in nfsd4_setup_intra_ssc(),
-> > after both stateids are verified. For an inter-server copy, SAVED_FH
-> > names a file on another server, so that path is not affected.
-> >=20
-> > The Linux client never sends a same-file COPY, so this does not change
-> > its behaviour. Found by pynfs COPY11.
->=20
-> Why should COPY within the same file be blocked?
+Hi Sean,
+
+On Sun, Oct 4, 2026 at 9:19=E2=80=AFAM Fabio Estevam <festevam@gmail.com> w=
+rote:
 >
-> For example: Windows FSCTL_OFFLOAD_READ+FSCTL_OFFLOAD_WRITE is used
-> exactly like that by databases like Oracle. Even advertised as a
-> "database accelerator" feature...
->=20
-> Better tix the NFSv4.2 COPY spec at RFC level then...
->=20
+> From: Fabio Estevam <festevam@nabladev.com>
+>
+> Add keymap for the Ruwido Z3 RC-34 remote control.
+>
+> Signed-off-by: Fabio Estevam <festevam@nabladev.com>
+> ---
+> Changes since v2:
+> - None.
 
-It does seem a bit restrictive, but that's way the RFC is written
-today. If you want to lead an effort to update the RFC, then be my
-guest!
---=20
-Jeff Layton <jlayton@kernel.org>
+A gentle ping.
+
+>
+> Changes since v1:
+> - Use RC_PROTO_NECX. (Sean)
+> - Use media prefix in the Subject.
+>
+>  drivers/media/rc/keymaps/Makefile             |  1 +
+>  .../media/rc/keymaps/rc-nec-ruwido-z3-rc34.c  | 80 +++++++++++++++++++
+>  include/media/rc-map.h                        |  1 +
+>  3 files changed, 82 insertions(+)
+>  create mode 100644 drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
+>
+> diff --git a/drivers/media/rc/keymaps/Makefile b/drivers/media/rc/keymaps=
+/Makefile
+> index 38b84e34b225..525d203c0a94 100644
+> --- a/drivers/media/rc/keymaps/Makefile
+> +++ b/drivers/media/rc/keymaps/Makefile
+> @@ -86,6 +86,7 @@ obj-$(CONFIG_RC_MAP) +=3D \
+>                         rc-msi-tvanywhere-plus.o \
+>                         rc-mygica-utv3.o \
+>                         rc-nebula.o \
+> +                       rc-nec-ruwido-z3-rc34.o \
+>                         rc-nec-terratec-cinergy-xs.o \
+>                         rc-norwood.o \
+>                         rc-npgtech.o \
+> diff --git a/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c b/drivers/m=
+edia/rc/keymaps/rc-nec-ruwido-z3-rc34.c
+> new file mode 100644
+> index 000000000000..8a090772446d
+> --- /dev/null
+> +++ b/drivers/media/rc/keymaps/rc-nec-ruwido-z3-rc34.c
+> @@ -0,0 +1,80 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +//
+> +// Keytable for the Ruwido Z3 RC-34 remote
+> +
+> +#include <media/rc-map.h>
+> +#include <linux/module.h>
+> +
+> +static struct rc_map_table nec_ruwido_z3_rc34[] =3D {
+> +       /* Ruwido Z3 RC-34, NECX address 0xe310 */
+> +       { 0xe3100f, KEY_POWER },
+> +       { 0xe31016, KEY_MENU },
+> +       { 0xe3100a, KEY_UP },
+> +       { 0xe3100b, KEY_DOWN },
+> +       { 0xe3100d, KEY_LEFT },
+> +       { 0xe3100c, KEY_RIGHT },
+> +       { 0xe31019, KEY_OK },
+> +       { 0xe3106a, KEY_BACK },
+> +       { 0xe31033, KEY_INFO },
+> +       { 0xe31066, KEY_DISPLAYTOGGLE },
+> +       { 0xe3101a, KEY_VOLUMEUP },
+> +       { 0xe31010, KEY_VOLUMEDOWN },
+> +       { 0xe31013, KEY_MUTE },
+> +       { 0xe31032, KEY_CHANNELUP },
+> +       { 0xe31031, KEY_CHANNELDOWN },
+> +       { 0xe31069, KEY_HP },
+> +       { 0xe31000, KEY_NUMERIC_1 },
+> +       { 0xe31001, KEY_NUMERIC_2 },
+> +       { 0xe31002, KEY_NUMERIC_3 },
+> +       { 0xe31003, KEY_NUMERIC_4 },
+> +       { 0xe31004, KEY_NUMERIC_5 },
+> +       { 0xe31005, KEY_NUMERIC_6 },
+> +       { 0xe31006, KEY_NUMERIC_7 },
+> +       { 0xe31007, KEY_NUMERIC_8 },
+> +       { 0xe31008, KEY_NUMERIC_9 },
+> +       { 0xe31030, KEY_NUMERIC_0 },
+> +       { 0xe31065, KEY_RED },
+> +       { 0xe31063, KEY_GREEN },
+> +       { 0xe31064, KEY_YELLOW },
+> +       { 0xe3106b, KEY_OPTION },
+> +       { 0xe31050, KEY_PLAY },
+> +       { 0xe31057, KEY_REWIND },
+> +       { 0xe31058, KEY_FASTFORWARD },
+> +       { 0xe31060, KEY_PROG1 },
+> +       { 0xe31061, KEY_PROG2 },
+> +       { 0xe31062, KEY_PROG3 },
+> +
+> +       /* RC-34 remote volume keys */
+> +       { 0x3506, KEY_VOLUMEUP },
+> +       { 0x3507, KEY_VOLUMEDOWN },
+> +
+> +       /* McIntosh HR070 remote volume keys */
+> +       { 0xca5542, KEY_VOLUMEUP },
+> +       { 0xca5543, KEY_VOLUMEDOWN },
+> +};
+> +
+> +static struct rc_map_list nec_ruwido_z3_rc34_map =3D {
+> +       .map =3D {
+> +               .scan     =3D nec_ruwido_z3_rc34,
+> +               .size     =3D ARRAY_SIZE(nec_ruwido_z3_rc34),
+> +               .rc_proto =3D RC_PROTO_NECX,
+> +               .name     =3D RC_MAP_NEC_RUWIDO_Z3_RC34,
+> +       }
+> +};
+> +
+> +static int __init init_rc_map_nec_ruwido_z3_rc34(void)
+> +{
+> +       return rc_map_register(&nec_ruwido_z3_rc34_map);
+> +}
+> +
+> +static void __exit exit_rc_map_nec_ruwido_z3_rc34(void)
+> +{
+> +       rc_map_unregister(&nec_ruwido_z3_rc34_map);
+> +}
+> +
+> +module_init(init_rc_map_nec_ruwido_z3_rc34)
+> +module_exit(exit_rc_map_nec_ruwido_z3_rc34)
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("Fabio Estevam <festevam@gmail.com>");
+> +MODULE_DESCRIPTION("Ruwido Z3 RC-34 remote keytable");
+> diff --git a/include/media/rc-map.h b/include/media/rc-map.h
+> index f167c37179c8..290919a7247e 100644
+> --- a/include/media/rc-map.h
+> +++ b/include/media/rc-map.h
+> @@ -289,6 +289,7 @@ struct rc_map *rc_map_get(const char *name);
+>  #define RC_MAP_MSI_TVANYWHERE_PLUS       "rc-msi-tvanywhere-plus"
+>  #define RC_MAP_MYGICA_UTV3               "rc-mygica-utv3"
+>  #define RC_MAP_NEBULA                    "rc-nebula"
+> +#define RC_MAP_NEC_RUWIDO_Z3_RC34        "rc-nec-ruwido-z3-rc34"
+>  #define RC_MAP_NEC_TERRATEC_CINERGY_XS   "rc-nec-terratec-cinergy-xs"
+>  #define RC_MAP_NORWOOD                   "rc-norwood"
+>  #define RC_MAP_NPGTECH                   "rc-npgtech"
+> --
+> 2.43.0
+>
