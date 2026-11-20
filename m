@@ -1,48 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186715;
-	b=yacDpztUTdOlGu9HzLdpoNfi8N7G8U8Lf6laBiuTRBaZ1ZPO4gG7AjU5rEmEGy3rQmRR
-	 Cq/pmFMinHBsVKcOI01+nqEyJbIM7LhOlNlbCRB83hJsYC/v2ROJoggWH5U0AD12oKGm5
-	 HHI+LmmLeSNDJXz6eWYMNNXbEO1IxeCJxBX+2/5R4mrFMqdxZSO1H8UgjEF9IrxHjrzNc
-	 OOHU4A4Z9ClecEQZOtyDuO3a0Fi3nURYD+cSx2RN8vuAUu/IhuZtKrqFxKy++2C8jLALK
-	 RQylCT2YsqCwAMW2l/bxp8GQrZvttjbL5hZ96v3Sn/Xg0hxNmRfOCEv7Pq0XVNCdztw==
+	t=1795186716;
+	b=wQkKX3a3SWB402cihpD3N8ORVnltKoin0sKBDOM89jXpXK5dTVHBHY62RJi86/RlDZQ7
+	 YHZV+yrq/WmBAnxEP4nMucX8zfWiYOymCz+0htEptFpyqWAcqdmejbhYYUHJ1cM4Kgslu
+	 FKoObNc3hqD6NzHnpQ7XYv5i1J0EHZo/F39RYsiQzKBgflEZfnbfnYulGGJQTK1zTgRTh
+	 lNPdImW7P2rbAWKzgMq49Wj3TJRoOUb3l7ZN473E2bvN+ITSxGM3+IZBc0iaw/wRdNKOP
+	 MJz9HZLrRvYao0Hp4BX81JbuvsO/3MM4Dl96gEkVGQbVVkSziLHKzNGN8VBTEbAKTdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186715;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer;
-	bh=rCN0jgUEMa9AdeZMqtrg4yHBJ6LWJjidugOmWuQI37I=;
-	b=DULtBBZfpqehiGKLjM1IwWm4DzWEOeqlmrc7wfVgn9h2NvOz0OghWs//sMgA9/FjQ4AC
-	 efgnPRYIBV5dio7M0oSWaA72FayQFU/FchXXNOOjMirdnWfty7RkcQFzd12zFcXWXQB3I
-	 +KDxWTVJDVY5EBwpxRJmKnUAJeun2cYG3pvtM66+75hNNVf1lKavmIzSqSAeF0bwiSIE8
-	 1ow1Jh7DlbGOYPq7qJRmvLCskLPgLzPWXhFuva/2d/KnSJFQt4rJL4Gy95Azquo9UShcS
-	 VrkNCD3sRBJKcpYeTfYeEMcY7pUXcyzGKUWjjPYVJjruagiF+M7dyjwUsE6NEVF8A4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186716;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=E6G3BuQHqwFY5tfzNRea1k3DGO2evCkbLdAqXG28pQs=;
+	b=JbqGc6wDMeuvJPCL1latJwwIaCNZc+pJ1CvLG7toEnp9CzOle6oAHdt6BEvqG8khrdo0
+	 vnp/Pyqskto68hZ0ta+NBaUaQPUCB90NnDBuR/YFKNwueTyyxrpr66UyDfLiBhea7PO+g
+	 Qk5rtg+Yq1wgxiANjN4tOTLGE6m0t9pqf+gCD2p0SI5svrLvsqKp2395pHMHOlw2Og7fX
+	 eAJjANiV4Gi1LczPbpSnNKHMK4s7t3r673NOqxX7cg1wAGBPs40x9Z5zwITKfL8Oa6gJQ
+	 3Ibhb+1MfNqYU4qj7FLGwPgyCGotGOzgq2/9GLkFvikVL0sbZtfWQmFI/taI6awak4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZDLROQVs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=d09wDq7X;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC08B60A260A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3090660A2611
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3090660A2611
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZDLROQVs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A7E21F000C6;
-	Fri, 20 Nov 2026 14:58:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186715;
-	bh=rCN0jgUEMa9AdeZMqtrg4yHBJ6LWJjidugOmWuQI37I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ZDLROQVsOzM3wA+4VAGUylO2UQZLRim1RblFmArusWdu3FnwFjcwm8PmVjeWFFJJ6
-	 RQKSrcsk/XXm3EYQD6P6IyC+R+q//zdZAD2JEZirzeCJexJt/14bRLKoheokEM9lbt
-	 TrJZjyBmv/hS+kS7+totQzgXmAro+nbopHYX91OuW0/UzcIHMNsFTvPbeh2iehALj7
-	 OHL4Eu4JnbUoIs9YbPR6M/qVK0MuDDp+7kEmsPl4gc3vFzTiF4+gB/ESSwVnrdJ7Jh
-	 F+4wmyB7xsjZ/HonGCT8UBi0y1n3hUkd1W9v5dN91BP+wWYJcxc9hAqQYlHf8KLCGm
-	 aDTXJhRuzLXug==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Fri, 20 Nov 2026 08:57:39 -0600
-Subject: [PATCH v5 15/19] accel: ethosu: Validate resize operations
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=d09wDq7X
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f041f88577so5799285ad.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:58:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186715; x=1795791515; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=E6G3BuQHqwFY5tfzNRea1k3DGO2evCkbLdAqXG28pQs=;
+        b=d09wDq7Xtf/yPNUSUJC1xtX71TCCcLQmg9nOZHtNRXySR/cTI9/Kjr1fu/DTA3OEo8
+         7rFZYbsu/Ym/Ilmxw4l/Alq27fsy2InpNapNukXUJnHw0WRneub2rkK/wqWocYt6i2l8
+         dFGn05K1Qh6MMOaor543IAdOKMwtiny4PzbkKeF1wRTJ+k5/tVZDrHzHvatlcO6sQswa
+         4LaTt1OK8lbY5nofBw2A7hzMG0ubuqKS0rgOOxNa/3P8SoqfvarR18gdmqGp4cJesL/q
+         IONyjPStAgcVuCgPfr3djILCQxsKUlr3wcih3buL4AjfDDmkixXm4TTW+mE1nhk9bXq5
+         GEUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795186715; x=1795791515;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=E6G3BuQHqwFY5tfzNRea1k3DGO2evCkbLdAqXG28pQs=;
+        b=t7eZAnnF6fnWawP1YOo7I3ABz1oAc41kQDN4yRppCHiv1AZtD36ZiE1iaaNweDsn4s
+         SNk4X/ZMuOAVchOm7aoPhbiR2q6x2+Z2yQ75i/TEdZuADjVZPninXZoLvKLmFIhNA7ib
+         yicoFiBaPzv/MDBUCeQa9wkIKp2sQeIa0wwUW09Tt5MVFKfTNXSxTA+nHyV3z8jmjFql
+         Dl4tBTIgT2O44SiV9Fo6yix6AUdjM2Ypk7MpWbaDTaOYZGJhlVn+t93psRqhT10R3l5H
+         HhoKWXEtjXIrS81HOLclJD5c9xpXM+2a5FQ2f2u2jMprIVCT1Ta9l3TrLp23QWZQQocQ
+         +7Lw==
+X-Forwarded-Encrypted: i=1; AL+hErFCIqu3yojL12XZlAooWbi71L9HbkpNjP+QrMH8vxo2hXzwe7gKe9vssmL225LnEzBU7K5JMxsc743kjnM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+n+IXq+DT4g0e0/JDhgUMnB8ZLk1MxMihl8ovB+WgC8pOUXBDL
+	ybzP16UaxGkGjz2IsRUpSruLavOCDHHyuKHG3UfBKixymW3PfkZrfbw/wRlqgKuXyDo=
+X-Gm-Gg: AZFdTZfsmebeOIcVDnRgI9x62ZW5kDCYU+SwCQv1tav57zkw7nfUXnnAMw3mf+jPGcJ
+	J5/Ty2IfHA8mpncNRkJAdL8NopGd/SIxhXUOlLrmM8JatferqGhEn2RWpX15nUmckfBmAMlFxM8
+	BZei2jyWVufgvZtPlhwCs4teyaCmmh3E2I33kyAyuwjBEHFbtQ2iXxYeImzFKeqgpGNOruLr1s+
+	kt3LD+ceHuUWeGdeOExWAFB6xXGJdHAgjvoKmg2rtmRwLBJ8NUIo0mSSCVpXlr8KLKAJQmqZdpR
+	fOUqfOrRYl4/9VcYoK8GcVVb17GGAIMEl1JH21nuCllS8id7P/BJNtSMhB/Q5/NZNZPMSAH3H3w
+	NBjMX/162FXjBrkYn+N1tD+hkONHoRSvj+7w0+PBvp4CPTZqynLy1XFvs+rK6BJqOaqsGvgWOjJ
+	Ka1KPG0F4NW06aIhbFOPljJFurjTSTAX+tsD+dRIbSG6+b1ofzMqK3Q2bi/DodIN1pa8VJf28Hb
+	owEaKk7/7f2g6LaoDvW9MK+mz4JpfUDp5LTNF7rbsPURoeNuvfFfxUorH+tty/XzsErxbJzyjFa
+	gau7QMZ4faRf+asagqbv0LouyI1ZgZeRCX2oi4PLZUotByHjo6UcZRHoasOfyz/feQ60Kfxb9tJ
+	XfzRN5cjgIxciJhyAAohp+WJRz3FdXBtGB+aBMaYq3DTuM8CxpEUFhpPO3A==
+X-Received: by 2002:a17:902:f551:b0:2f0:2ba0:3b9a with SMTP id d9443c01a7336-2f03f1bfc54mr34636435ad.38.1795186715512;
+        Fri, 20 Nov 2026 06:58:35 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f10c9casm15616035ad.52.2026.11.20.06.58.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:58:35 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: martin.petersen@oracle.com
+Cc: michael.christie@oracle.com,
+	himanshu.madhani@oracle.com,
+	ddiss@suse.de,
+	linux-scsi@vger.kernel.org,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] scsi: target: Fix NULL se_tpg dereference in target_complete()
+Date: Fri, 20 Nov 2026 23:58:29 +0900
+Message-ID: <20261120145829.3127721-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260725084939.694403-1-yhlee@isslab.korea.ac.kr>
+References: <20260725084939.694403-1-yhlee@isslab.korea.ac.kr>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,299 +103,18 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-ethosu-fixes-v5-15-52d459acdb84@kernel.org>
-References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
-In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
-To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16-dev
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Resize input coordinates are controlled by the scale, offset, and step
-registers. Require those values to be explicitly programmed and validate
-their scale and step relationships before calculating feature-map bounds.
+On Sat, Jul 25, 2026 at 05:49:39PM +0900, Yehyeong Lee wrote:
+> Commit a47fa41381a0 ("scsi: target: Fix NULL dereference on XCOPY
+> completion") guarded target_complete() against a NULL se_tpg_wwn, which the
+> EXTENDED COPY worker hits because its global xcopy_pt_tpg carries no
+> se_tpg_wwn.  target_complete() dereferences
+> cmd->se_sess->se_tpg->se_tpg_wwn; that fix handled the innermost pointer.
 
-KERNEL_WIDTH_M1 and KERNEL_HEIGHT_M1 specify the input dimensions for
-resize, not a convolution footprint to add to each sampling coordinate.
-Compute the final sampling position using the signed resize offset,
-check it against the input dimensions, and include the upper sample
-only for interpolation modes that use it.
+This is superseded by v2:
+  https://lore.kernel.org/all/20260725165818.769963-1-yhlee@isslab.korea.ac.kr/
 
-Pass zero-based maximum coordinates to feature-map validation, as for
-other operations. Keep the block-step relationship based on the stored
-M1 block dimensions, as required by the hardware.
-
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-v5:
- - Use signed resize offsets and the programmed input dimensions.
- - Account for interpolation mode when including an upper sample.
- - Avoid adding input dimensions to the sampling footprint or converting
-   the maximum coordinate to an element count.
- - Do not validate an accumulator input for resize as the accumulator is
-   never used for resize.
-
-v3:
- - Fix width and height calculations to account for kernel size reported
-   by sashiko
-
-v2:
- - new patch
----
- drivers/accel/ethosu/ethosu_device.h |   8 ++
- drivers/accel/ethosu/ethosu_gem.c    | 161 ++++++++++++++++++++++++++++++++++-
- 2 files changed, 168 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/accel/ethosu/ethosu_device.h b/drivers/accel/ethosu/ethosu_device.h
-index 368daac25acc..6aa7f035f32c 100644
---- a/drivers/accel/ethosu/ethosu_device.h
-+++ b/drivers/accel/ethosu/ethosu_device.h
-@@ -117,6 +117,8 @@ enum ethosu_cmds {
- 	NPU_SET_OFM_HEIGHT_M1 = 0x112,
- 	NPU_SET_OFM_DEPTH_M1 = 0x113,
- 	NPU_SET_OFM_PRECISION = 0x114,
-+	NPU_SET_OFM_BLK_WIDTH_M1 = 0x115,
-+	NPU_SET_OFM_BLK_HEIGHT_M1 = 0x116,
- 	NPU_SET_OFM_WIDTH0_M1 = 0x11a,
- 	NPU_SET_OFM_HEIGHT0_M1 = 0x11b,
- 	NPU_SET_OFM_HEIGHT1_M1 = 0x11c,
-@@ -127,6 +129,10 @@ enum ethosu_cmds {
- 	NPU_SET_ACC_FORMAT = 0x124,
- 	NPU_SET_WEIGHT_REGION = 0x128,
- 	NPU_SET_SCALE_REGION = 0x129,
-+	NPU_SET_RESIZE_X_SCALE_N_M1 = 0x12a,
-+	NPU_SET_RESIZE_Y_SCALE_N_M1 = 0x12b,
-+	NPU_SET_RESIZE_X_OFFSET = 0x12c,
-+	NPU_SET_RESIZE_Y_OFFSET = 0x12d,
- 	NPU_SET_DMA0_SRC_REGION = 0x130,
- 	NPU_SET_DMA0_DST_REGION = 0x131,
- 	NPU_SET_DMA0_SIZE0 = 0x132,
-@@ -177,6 +183,8 @@ enum ethosu_cmds {
- 	NPU_SET_WEIGHT2_LENGTH = 0x4093,
- 	NPU_SET_WEIGHT3_BASE = 0x4094,
- 	NPU_SET_WEIGHT3_LENGTH = 0x4095,
-+	NPU_SET_RESIZE_X = 0x4096,
-+	NPU_SET_RESIZE_Y = 0x4097,
- };
- 
- #define NPU_ACC_FORMAT_INPUT_MASK	GENMASK(5, 4)
-diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/ethosu_gem.c
-index b8f840ab1cee..ff89cfdb4772 100644
---- a/drivers/accel/ethosu/ethosu_gem.c
-+++ b/drivers/accel/ethosu/ethosu_gem.c
-@@ -149,6 +149,15 @@ struct feat_matrix {
- 	u8 pad_right;
- };
- 
-+struct resize_axis {
-+	u16 scale_n;
-+	s16 offset;
-+	u16 one_step_int;
-+	u16 one_step_mod;
-+	u16 blk_step_int;
-+	u16 blk_step_mod;
-+};
-+
- #define NPU_CMD0_REGS	0x200
- #define NPU_CMD1_REGS	0x100
- 
-@@ -162,6 +171,9 @@ struct cmd_state {
- 	struct feat_matrix ofm;
- 	struct feat_matrix ifm;
- 	struct feat_matrix ifm2;
-+	u16 ofm_blk_width;
-+	u16 ofm_blk_height;
-+	struct resize_axis resize[2];
- };
- 
- static void cmd_state_init(struct cmd_state *st)
-@@ -681,6 +693,98 @@ calc_acc_input_size(struct drm_device *ddev,
- 	return ret;
- }
- 
-+static int resize_axis_size(struct cmd_state *st, int axis, u16 ofm_size,
-+			    u16 ofm_blk_size, u16 ifm_size, u16 mode, u32 *size)
-+{
-+	struct resize_axis *resize = &st->resize[axis];
-+	u64 one_step, blk_step, coord;
-+	s64 position;
-+	u32 remainder;
-+
-+	if (resize->offset < -(s16)resize->scale_n ||
-+	    resize->offset >= resize->scale_n ||
-+	    resize->one_step_mod >= resize->scale_n ||
-+	    resize->blk_step_mod >= resize->scale_n)
-+		return -EINVAL;
-+
-+	one_step = resize->one_step_int * resize->scale_n +
-+		resize->one_step_mod;
-+	blk_step = resize->blk_step_int * resize->scale_n +
-+		resize->blk_step_mod;
-+	if (check_mul_overflow((u64)ofm_blk_size, one_step, &coord) ||
-+	    blk_step != coord)
-+		return -EINVAL;
-+
-+	if (check_mul_overflow((s64)ofm_size, (s64)one_step, &position) ||
-+	    check_add_overflow(position, (s64)resize->offset, &position))
-+		return -EINVAL;
-+
-+	/* Sampling positions are clamped to the programmed IFM dimensions. */
-+	coord = div_u64_rem(max_t(s64, position, 0), resize->scale_n,
-+			    &remainder);
-+	if (coord > ifm_size)
-+		return -EINVAL;
-+
-+	if ((mode == 0 && position >= 0) ||
-+	    (mode == 2 && 2 * remainder >= resize->scale_n))
-+		coord = min_t(u64, coord + 1, ifm_size);
-+
-+	*size = coord;
-+	return 0;
-+}
-+
-+
-+static int calc_sizes_resize(struct drm_device *ddev,
-+			     struct ethosu_validated_cmdstream_info *info,
-+			     struct cmd_state *st, u16 mode)
-+{
-+	struct ethosu_device *edev = to_ethosu_device(ddev);
-+	u32 ifm_width, ifm_height;
-+	u64 len;
-+	int ret;
-+
-+	if (!cmd_state_reg_is_set(st, NPU_SET_KERNEL_WIDTH_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_KERNEL_HEIGHT_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_OFM_BLK_WIDTH_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_OFM_BLK_HEIGHT_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_X_SCALE_N_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_Y_SCALE_N_M1) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_X_OFFSET) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_Y_OFFSET) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_X) ||
-+	    !cmd_state_reg_is_set(st, NPU_SET_RESIZE_Y))
-+		return -EINVAL;
-+
-+	ret = resize_axis_size(st, 0, st->ofm.width, st->ofm_blk_width,
-+			       st->ifm.width, mode, &ifm_width);
-+	if (ret)
-+		return ret;
-+	ret = resize_axis_size(st, 1, st->ofm.height[2], st->ofm_blk_height,
-+			       st->ifm.height[2], mode, &ifm_height);
-+	if (ret)
-+		return ret;
-+
-+	ret = feat_matrix_size(edev, info, st, &st->ifm, FEAT_MATRIX_IFM,
-+			       ifm_width, ifm_height, st->ifm.depth, false, &len);
-+	dev_dbg(ddev->dev, "op %d: IFM:%d:0x%llx-0x%llx\n", NPU_OP_RESIZE,
-+		st->ifm.region, st->ifm.base[0], len);
-+	if (ret)
-+		return ret;
-+
-+	ret = feat_matrix_size(edev, info, st, &st->ofm, FEAT_MATRIX_OFM,
-+			       st->ofm.width, st->ofm.height[2], st->ofm.depth,
-+			       true, &len);
-+	dev_dbg(ddev->dev, "op %d: OFM:%d:0x%llx-0x%llx\n", NPU_OP_RESIZE,
-+		st->ofm.region, st->ofm.base[0], len);
-+	if (ret)
-+		return ret;
-+
-+	if (!feat_matrix_chained(edev, &st->ofm))
-+		info->output_region[st->ofm.region] = true;
-+
-+	return 0;
-+}
-+
- static int buffer_size(struct ethosu_validated_cmdstream_info *info,
- 		       struct cmd_state *st, struct buffer *buf, s8 region,
- 		       u16 region_cmd, u16 base_cmd, u16 length_cmd, bool optional)
-@@ -999,7 +1103,12 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 				return ret;
- 			break;
- 		case NPU_OP_RESIZE: // U85 only
--			return -EINVAL;
-+			if (ethosu_is_u65(edev) || param > 2)
-+				return -EINVAL;
-+			ret = calc_sizes_resize(ddev, info, &st, param);
-+			if (ret)
-+				return ret;
-+			break;
- 		case NPU_SET_KERNEL_WIDTH_M1:
- 			st.ifm.width = param;
- 			break;
-@@ -1098,6 +1207,12 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 			}
- 			st.ofm.precision = param;
- 			break;
-+		case NPU_SET_OFM_BLK_WIDTH_M1:
-+			st.ofm_blk_width = param & 0x7f;
-+			break;
-+		case NPU_SET_OFM_BLK_HEIGHT_M1:
-+			st.ofm_blk_height = param & 0x7f;
-+			break;
- 		case NPU_SET_OFM_REGION:
- 			st.ofm.region = param & 0x7;
- 			break;
-@@ -1168,6 +1283,34 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 		case NPU_SET_SCALE_REGION:
- 			st.scale[0].region = param & 0x7;
- 			break;
-+		case NPU_SET_RESIZE_X_SCALE_N_M1:
-+			if (ethosu_is_u65(edev))
-+				break;
-+			if (param & GENMASK(15, 11))
-+				return -EINVAL;
-+			st.resize[0].scale_n = param + 1;
-+			break;
-+		case NPU_SET_RESIZE_Y_SCALE_N_M1:
-+			if (ethosu_is_u65(edev))
-+				break;
-+			if (param & GENMASK(15, 11))
-+				return -EINVAL;
-+			st.resize[1].scale_n = param + 1;
-+			break;
-+		case NPU_SET_RESIZE_X_OFFSET:
-+			if (ethosu_is_u65(edev))
-+				break;
-+			if (param & GENMASK(15, 12))
-+				return -EINVAL;
-+			st.resize[0].offset = sign_extend32(param, 11);
-+			break;
-+		case NPU_SET_RESIZE_Y_OFFSET:
-+			if (ethosu_is_u65(edev))
-+				break;
-+			if (param & GENMASK(15, 12))
-+				return -EINVAL;
-+			st.resize[1].offset = sign_extend32(param, 11);
-+			break;
- 		case NPU_SET_WEIGHT_BASE:
- 			st.weight[0].base = addr;
- 			break;
-@@ -1204,6 +1347,22 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
- 		case NPU_SET_WEIGHT3_LENGTH:
- 			st.weight[3].length = cmds[1];
- 			break;
-+		case NPU_SET_RESIZE_X:
-+		case NPU_SET_RESIZE_Y:
-+			if (ethosu_is_u65(edev))
-+				break;
-+			if ((cmds[0] & BIT(31)) ||
-+			    (cmds[1] & (GENMASK(31, 27) | GENMASK(15, 11))))
-+				return -EINVAL;
-+			st.resize[cmd - NPU_SET_RESIZE_X].one_step_int =
-+				FIELD_GET(GENMASK(19, 16), cmds[0]);
-+			st.resize[cmd - NPU_SET_RESIZE_X].blk_step_int =
-+				FIELD_GET(GENMASK(30, 20), cmds[0]);
-+			st.resize[cmd - NPU_SET_RESIZE_X].one_step_mod =
-+				FIELD_GET(GENMASK(10, 0), cmds[1]);
-+			st.resize[cmd - NPU_SET_RESIZE_X].blk_step_mod =
-+				FIELD_GET(GENMASK(26, 16), cmds[1]);
-+			break;
- 
- 		case NPU_SET_DMA0_SRC_REGION:
- 			if (param & NPU_DMA_REGION_INDEX_MODE)
-
--- 
-2.53.0
-
+Best regards,
+Yehyeong Lee
