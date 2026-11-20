@@ -1,82 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207251;
-	b=1ic1Gemlth++apLRPj7p+REIEfraxe89FZRpkFSKpHE1cQhpDnaLp8hfSXPllBZHwrOS
-	 ty48ODLzUaKniDbS7d+y1283jRhKcJXYxZy/Yxo10yy7RtqNpzwUUY4iu1Qab38oEHjwg
-	 uPf9bZSoMPQp7vHsTD5brWKoKb+XpI9zqUznaHjbzWeby+mj2y9R6+ed/JiSHP0I8nZnc
-	 sebgIz8sc5qJT8IpfAHC8DahRqXQ6503mzNJ6L/lNRJE4qK7dpQt9Z10mM7JOG7z3VR94
-	 7qRPdEQTis/qWOb5RNhqF/tOGmfYvY+m8KYFGpSqqpNXFUx7l+TfhgdfjbYiOyrkwDg==
+	t=1795207322;
+	b=IX7ZPq0g0wkPz4uoHKbkZujdv/cNoF2bPVPu9b1YkN/7RUIUU2BdNVHi+EjBSNrfhgXz
+	 NV9+LJiGpBnATMtis1pIAj8hwyJqcP1eID9LA/YThsqn0cS4xe7sVbxyajICrNtYAsUqB
+	 MU8GxzaNnppncSfDaA2Cq+qoqhfNBnuKr4rnv69vydTRhSX9JxMd3+kretOyZi1x5gR0X
+	 ctL3C6cCp5zhrjdo7olZSpfJhVo/vL0gEkFmuk2FCiYR1oACvUn6x0UbGGoNADb5vwSMM
+	 SW/9vwMkspwI8Z6LcLHwxDj83wUehVaHPjcRYwKDxqA/1ceq8ljuBl5TpX6Fje+XCig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207251;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=wBEpo5cCtyGvI1uSjV2ZXJiyglZ+oxrIOzyU+FRlVZ0=;
-	b=KXf2otHlNUGZl2Lern1F+ufBUe2YGLyGo0kXxUzu8tqvgUYZzCrNRlG1NBOa2nIdSnIs
-	 35UaQNpwVrHR8e2J7n7HdP0rxCjJBQXHWrJMl6ta/oHKJolhczz2NydyInmTr6h3K7pbf
-	 qD0HbiHjiazS2NXDCyxfbFTksQQEy9WqQY0Vg6gNFd5aiMXP5Judu/QayVuCfX4YVKIz8
-	 UQWj6BZc/PODW6SGno/kaDhxQDUPYEIDaKej7ICDOyrA+j2n1eVem/3JgUf4ykhGJzeHL
-	 Ol/RuJmhzCF1h8R8wmn6IiAuzKAD9qMuzfYqCFGsmcIsfw+3P2+IBbP7aYj9pyvT9bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207322;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=5QxBvONaph7bgEQd2yve9sMSGV8Ex3XSmsjoj7Q3FaE=;
+	b=DGcQRS75xHspZzOe5f4d97cPvRUCbxZoVsVT/mjqCv/veN0Z8zU0Gn3iuTW//gzyAeaY
+	 KhwWug413IVVdmIOkVo8A1V/EfiYncFVyMgDYniFNnoFH0lQjIEiuQKew2ZSHNZQOCM2m
+	 8zAekR00GcxtEvrufzdcFbfn0Gg5X22BdXtV1zIoR5UQstgM+YF6TWVKvSPW3q3qJ/2H1
+	 BwjLpPaTIZDpwU1bRBMtGGxZxI3vjNTk3fblImfe/Qkpclby6FguQIrjgEpX/T8glouB5
+	 yBzGFuHzcDW8QMmg9txl24FY7FOayI62fcf0kei60nF8cvTk5FdvgNoHS2U37jsSrMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=O0RSiD9r;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linuxfoundation.org;
+	spf=pass smtp.mailfrom=linuxfoundation.org;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Vl1HSM5D;
+	arc=none smtp.remote-ip=209.85.210.43
+Received: from mail-ot1-f43.google.com (mail-ot1-f43.google.com [209.85.210.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5282F606A6D8;
-	Fri, 20 Nov 2026 20:40:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5282F606A6D8
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED9E7606A6E8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:41:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED9E7606A6E8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=linuxfoundation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=O0RSiD9r
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKEuBGB3369721;
-	Fri, 20 Nov 2026 20:40:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=wBEpo5
-	cCtyGvI1uSjV2ZXJiyglZ+oxrIOzyU+FRlVZ0=; b=O0RSiD9ri5GKEGjYxwNX95
-	7Crr4ymHuxtwAP9a+m/FL55aYdjNv9Dr3vvEd6BKd0CJgP1TYB9AvzwfU5NoW17n
-	xDKPPmnYW+6JkysxzA4L5BFoJaioAaJ4FHC53pfnvSKnLey/N/CKCoUzPPFxnjEV
-	fpMPR8w+tCD9hdS+l8lvulT+fZFkKlYAarrbt3Jjdo0QcDcc7FfDYq0yeOOz6HZl
-	D1UXcXKVOpvuOvCazfjOM1BEWDz0MrvyXjGa0nsits70BIkPl7yXY2TELIxqtrsM
-	DsEp/UkJCFceMwYYC1EDYvVFSX0hzFCAfLcK1o2LJFvKcH+/V69jMn9YXvK0z+fQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105xanja-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 20:40:23 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AKHvRtu2445446;
-	Fri, 20 Nov 2026 20:40:23 GMT
-Received: from smtprelay03.wdc07v.mail.ibm.com ([172.16.1.70])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j1m3j4cun-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 20:40:23 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
-	by smtprelay03.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKKdUIF8913494
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 20:39:31 GMT
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 91A1158055;
-	Fri, 20 Nov 2026 20:40:21 +0000 (GMT)
-Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A0F7058043;
-	Fri, 20 Nov 2026 20:40:20 +0000 (GMT)
-Received: from [9.67.108.139] (unknown [9.67.108.139])
-	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 20:40:20 +0000 (GMT)
-Message-ID: <8facf804-6207-44be-829e-db79d271d005@linux.ibm.com>
-Date: Fri, 20 Nov 2026 14:40:20 -0600
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=google header.b=Vl1HSM5D
+Received: by mail-ot1-f43.google.com with SMTP id 46e09a7af769-862b3938d98so676284a34.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:41:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1795207317; x=1795812117; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5QxBvONaph7bgEQd2yve9sMSGV8Ex3XSmsjoj7Q3FaE=;
+        b=Vl1HSM5Dg4a6MsPM4I93FkkgPRtjc3rWi3iATtBxbHp8Z4tHYt5JXwo9uspigYOcxu
+         z/MeFF8aE4OfqsXT/npJlnN1NlT52TAgI0le4F3aEw6KDXZ1Wf7QWnqYPD47wOt75BZA
+         MfAU2R20N+oMrvmqb8HYRH9jqlkY17mZzgQJs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795207317; x=1795812117;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5QxBvONaph7bgEQd2yve9sMSGV8Ex3XSmsjoj7Q3FaE=;
+        b=GM/PLYKyerGHxhmS1o5hmIAAcC3crc4pHXxXNsFd4sXyzAjtR4RqKxRJOghNwD0kvb
+         oxM7RR45J7NgDQ2rCeYAxop+awSW4iYV8ezLYkKfqrvFZHkdDLluUojS/rsdnSu41Tqt
+         ofjIq1nCuTUUuf/m6+DPyQhT9CrYj7hG7uNtoeF8rlgb312xOC6bYXEC5HqxAmdwqSrM
+         TrqpB2O1qXJ29P+FY0yHlu1LvYk41HL4jSCfsHSzc0b1HomI9l/6VGK33ee4amXmKT7V
+         zDdrqFYcOKSHPjAXSLLcyf/iqOGYw3dYtx6D6pqD26yT576WIkU3LHmkWDg2XEIODELv
+         ANqw==
+X-Forwarded-Encrypted: i=1; AL+hErEoJHObqCWazfH5rKQHVC4hw8dZV6C4h0R8dXTbwx5qYOJTi1waDENrhXVoZfJNozVLkl5J0/jZQeKoSLI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+A84iHTB7WbuFekVdXUasF3wFLzuqqI5ARaPGVNHkflBT5gG0A
+	y4CUBAFJjzQiYd92By4kI8xIT84dPj4I4BVdtXu45tK/KgR3nWBczKfvSiiVt6aem+I=
+X-Gm-Gg: AYBFou0StQbvu23u7afpIiAyeDlUScKJYOzYfSmTsXlxMAidqxaJPfeo5XCG0Q+3UO7
+	byQlph0AlTaqYv0zxv7JnrcOvBkLp9Qbf7eF757hLK6SAaccUYcxajXBSRE5DgoKmr+4AOhT10V
+	6NvtvL1tGUWNAOO+Tzht480Wmn6+5gpLPJkTzcEtlH0Gj4Dt8ycLdndtuCntTXaSMZ4QbUCsPO6
+	mH9kOoXDRHm12njO4dwuUq/I59t2DWNJyqSZkf3m4sGue7KUO7Pd+/G9OxmbXw/9j4Jzu2mR48P
+	xdXLGqsVYc8Lu+m2x/4iZxPDksqrAEQTtv1D/oZjxmkv/EFC2NebPcIrgXbmndDsSHi8VKeXvUK
+	wL6lBlplMUrGPChLLst3//ZPwSsTBxEZ540vyUY0xBm2VRbBCNXUsW/vBJlFNKRwuvH17/oChMB
+	sTG5Wh0Yly5xQexsLTGQz8OWkEgB281JCKIa5sffYD/qH5Gm60ShsmBQ1ISF6eQAXaJcFlW3Lt1
+	0I7vEqg1vguyyV2IuvKkrkQLG0DPKiqH5mQywpBT1Gq9/OB/Sx3gbUgZLHHVvda+W4fzgeDaLfC
+	EtP903Q81JSvCVyh16G7soP81i+yeIJGEWOzsW0=
+X-Received: by 2002:a05:6820:55da:20b0:71a:f228:3222 with SMTP id 006d021491bc7-71b3957e687mr3021698eaf.77.1795207316762;
+        Fri, 20 Nov 2026 12:41:56 -0800 (PST)
+Received: from [192.168.1.128] ([38.15.57.99])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dd6e7sm3198832a34.12.2026.11.20.12.41.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 12:41:55 -0800 (PST)
+Message-ID: <69cde473-bd68-4bf5-be03-c68f411ec116@linuxfoundation.org>
+Date: Fri, 20 Nov 2026 13:41:52 -0700
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,88 +90,117 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] crypto: powerpc/p10-aes-gcm - Fix IPsec stall on bond
- failover
-To: Breno Leitao <leitao@debian.org>
-Cc: linux-crypto@vger.kernel.org, stable@vger.kernel.org,
-        herbert@gondor.apana.org.au, nayna@linux.ibm.com, appro@cryptogams.org,
-        linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        mpe@ellerman.id.au, ltcgcw@linux.vnet.ibm.com, dtsen@us.ibm.com
-References: <20261120181657.6396-1-dtsen@linux.ibm.com>
- <awCpkj5wsxEPt-Vd@gmail.com>
+Subject: Re: [PATCH v3] cpupower: fix use-after-free and stale limits in
+ frequency-set
+To: Lukas Beckmann <lbckmnn@mailbox.org>, Thomas Renninger <trenn@suse.com>,
+ Shuah Khan <shuah@kernel.org>, "John B. Wyatt IV" <jwyatt@redhat.com>,
+ John Kacur <jkacur@redhat.com>,
+ Dominik Brodowski <linux@dominikbrodowski.net>
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, Shuah Khan <skhan@linuxfoundation.org>
+References: <20261118-cpupower-freq-set-use-after-free-v3-1-3e021315b579@mailbox.org>
 Content-Language: en-US
-From: Danny Tsen <dtsen@linux.ibm.com>
-In-Reply-To: <awCpkj5wsxEPt-Vd@gmail.com>
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20261118-cpupower-freq-set-use-after-free-v3-1-3e021315b579@mailbox.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: lpRUkSlYIZpBGCY0_WBq0CQMZJMLVdaG
-X-Proofpoint-GUID: lpRUkSlYIZpBGCY0_WBq0CQMZJMLVdaG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA4MSBTYWx0ZWRfX2EL5erKl5YeE
- jktCH4p4WuI3NJSseojFO0gDON2qH7ubk+Xw6XWTy3B9zAMzr6qndv2YIIiX/1mqvjMXx1uo427
- F+J7tTo88SFfK+020lkukg0RDSlS/N0g/Bc+VL6NEBM85S78nNHdQXyEPLutaUIPo2F4QtTPJiL
- iQRuI23Kvj6fqyQhMMYJcCn42gm0JFO9asOyW8qlBqEywykvUGhaxa0SHsfzY6niXzEHwdP3iAX
- a3oxZYlMdF4cxf7/ergLOSi1pXDqfzrZNRHFhJ3TnBkfKAnjC0E6+ZxVXD/ZdGUpdr0cCaWEe+L
- xGbrLszEmupGlLGYUQSiiYjfW3mch/Q6jJ7M8mEzyFHE5t6h5FW/px4VD9nFKXK0wxd66UZrzqR
- 6w7ouRDY3XOVyuZ8SHpLzuOZ95ttekIRa2h05c6XMH+gkHi+JurojmATlNQCZb1rqw3KJSTg0oV
- RXSP2w1VbpVR8mK8qkA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA4MSBTYWx0ZWRfX2jors8qI2ou1
- W6TzHdGjG2Y0UGV8p7M7pRonMhfp0lW+h2mU+P7vYxqcYiohx2ZjdTc1TryIV+rylZonn+icffm
- IEh9tUFXDlCTVk7hmmb3UdljlrTNSBw=
-X-Authority-Analysis: v=2.4 cv=K+m3jCWI c=1 sm=1 tr=0 ts=6b00b037 cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=xNf9USuDAAAA:8 a=UG7Ak6WqafkiEiLPWlwA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_05,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 clxscore=1015 adultscore=0 spamscore=0
- priorityscore=1501 impostorscore=0 phishscore=0 lowpriorityscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200081
 
+On 11/18/26 13:06, Lukas Beckmann wrote:
+> do_new_policy() directly fills the unset fields of new_pol from the
+> current CPU's policy. This is problematic because do_new_policy() is
+> called with the same new_pol for multiple CPUs by do_one_cpu() in the
+> slow path. This results in stale values in new_pol being applied
+> (starting from the second CPU that should be changed), and even a
+> use-after-free (for the governor string).
+> 
+> Fix this by building the target policy from new_pol and the current
+> policy in do_new_policy() instead of filling the missing values into
+> new_pol.
+> 
+> Fixes: 7fe2f6399a84 ("cpupowerutils - cpufrequtils extended with quite some features")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Lukas Beckmann <lbckmnn@mailbox.org>
+> ---
+> Testing and minimal reproducer:
+> 
+> Running the command
+> 
+>      ./cpupower frequency-set --max 2500MHz --min 2500MHz
+> 
+> with ASAN reports the use-after-free before, but not after the patch.
+> 
+> Run the following commands:
+> 
+>      # set CPU 0 to a different maximum than CPU 1
+>      echo 2000000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+>      echo 3000000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+> 
+>      # Change min and governor (but not max) of CPU 0 and 1
+>      ./cpupower -c 0,1 frequency-set --min 1GHz -g performance
+> 
+>      # See if max got changed
+>      cat /sys/devices/system/cpu/cpu[0,1]/cpufreq/scaling_max_freq
+> 
+> This shows that the stale maximum of CPU0 is used for CPU1 before the
+> patch, but not after the patch.
+> ---
+> Changes in v3:
+> - Keep the original if conditions (no functional change)
+> - Link to v2: https://patch.msgid.link/20261115-cpupower-freq-set-use-after-free-v2-1-6b91f1630165@mailbox.org
+> 
+> Changes in v2:
+> - use a shorter changelog and testing section
+> - build temp_pol from new_pol and cur_pol instead of copying new_pol
+> - Link to v1: https://patch.msgid.link/20261112-cpupower-freq-set-use-after-free-v1-1-4e0034927b3f@mailbox.org
+> ---
+>   tools/power/cpupower/utils/cpufreq-set.c | 17 ++++++++++++-----
+>   1 file changed, 12 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/power/cpupower/utils/cpufreq-set.c b/tools/power/cpupower/utils/cpufreq-set.c
+> index 06cd4b280132..0bbf303d3317 100644
+> --- a/tools/power/cpupower/utils/cpufreq-set.c
+> +++ b/tools/power/cpupower/utils/cpufreq-set.c
+> @@ -141,9 +141,10 @@ static unsigned long string_to_frequency(const char *str)
+>   	}
+>   }
+>   
+> -static int do_new_policy(unsigned int cpu, struct cpufreq_policy *new_pol)
+> +static int do_new_policy(unsigned int cpu, const struct cpufreq_policy *new_pol)
 
-On 11/20/26 2:14 PM, Breno Leitao wrote:
-> On Fri, Nov 20, 2026 at 01:16:57PM -0500, Danny Tsen wrote:
->> The Power10 AES-GCM driver registers its gcm(aes) and
->> rfc4106(gcm(aes)) algorithms through the crypto SIMD helper. When
->> crypto_simd_usable() is false, for example in softirq context, the
->> helper defers requests to cryptd and completes them asynchronously
->> with -EINPROGRESS.
->>
->> This breaks IPsec traffic during a bond failover. With the crypto
->> offload device active, traffic is switched to a passive device that
->> has only software encryption, and the ESP requests then go through
->> aes_gcm_p10_crypto. Under heavy load, some or all of the TCP streams
->> drop to zero throughput and do not recover. The stack is seen to drop
->> the ACKs as invalid, which points to the cryptd queueing delaying or
->> reordering the packets.
->>
->> Fix this by registering the algorithms directly as aead_alg with
->> CRYPTO_ALG_NEED_FALLBACK, and allocating a "gcm(aes)" or
->> "rfc4106(gcm(aes))" fallback tfm in ->init(). When VSX cannot be used
->> (!crypto_simd_usable()), the key was not set up for SIMD, or
->> cryptlen < 64, the request is handed to the fallback and completed
->> synchronously in the caller's context. The driver no longer defers
->> work to cryptd.
->>
->> Remove Kconfig option CRYPTO_SIMD and add CRYPTO_AES and CRYPTO_GCM.
->>
->> Fixes: c954b252dee9 ("crypto: powerpc/p10-aes-gcm - Register modules as SIMD")
->>
->> Signed-off-by: Danny Tsen <dtsen@linux.ibm.com>
-> Reviewed-by: Breno Leitao <leitao@debian.org>
->
->> - * Copyright 2022- IBM Inc. All rights reserved
->> + * Copyright IBM Corp. 2022, 2023, 2024, 2025, 2026
-> Do we really want to change this in this "fix" commit?
+Why do you need the above change?
 
-This is following IBM's copyright style.
-
-Thanks.
-
--Danny
-
+>   {
+>   	struct cpufreq_policy *cur_pol = cpufreq_get_policy(cpu);
+> +	struct cpufreq_policy temp_pol;
+>   	int ret;
+>   
+>   	if (!cur_pol) {
+> @@ -152,15 +153,21 @@ static int do_new_policy(unsigned int cpu, struct cpufreq_policy *new_pol)
+>   	}
+>   
+>   	if (!new_pol->min)
+> -		new_pol->min = cur_pol->min;
+> +		temp_pol.min = cur_pol->min;
+> +	else
+> +		temp_pol.min = new_pol->min;
+>   
+>   	if (!new_pol->max)
+> -		new_pol->max = cur_pol->max;
+> +		temp_pol.max = cur_pol->max;
+> +	else
+> +		temp_pol.max = new_pol->max;
+>   
+>   	if (!new_pol->governor)
+> -		new_pol->governor = cur_pol->governor;
+> +		temp_pol.governor = cur_pol->governor;
+> +	else
+> +		temp_pol.governor = new_pol->governor;
+>   
+> -	ret = cpufreq_set_policy(cpu, new_pol);
+> +	ret = cpufreq_set_policy(cpu, &temp_pol);
+>   
+>   	cpufreq_put_policy(cur_pol);
+>   
+> 
+thanks,
+-- Shuah
