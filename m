@@ -1,78 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.209
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=159.226.251.81
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795177091;
-	b=ook8TpG0L2WK/gvXmc9F5Kt/ZTrjQur4VZepQj6PKxHiOQRtyL/4NEewdVVEYsBaaZY0
-	 g37ec6U0l0vAogDl2oRWT6t95a1X6sgwLujZ5Ic1Xa+Jx6SQXr3Pqg1SBFJGwOfQ3CaBP
-	 NwMYI0JawgJ4mFKbSxFEuZ5f5MAXgL+khusmlgYmQIZDnhp2mcHQ5YZ4PY3flqOb0cw36
-	 bBgKTe0PqTNbb4ou0s+jpbN/9ps0ZYWk2dxq/hwgmYmtHwDab06bYgPGq9MI/0OBN0yvn
-	 Bt9gaOopmV8RgwRjere491e75WX8gXMBK3nFFb6npCJ5vo1Rr/E/RPXCM4A1g4buqcA==
+	t=1795177102;
+	b=BPur5m90YHHYWJBoIYbdPqM4Hr6r/j/ZBlOAj9dD3ULlgVUHVlzIFiauE7ZhpjjzCJv5
+	 HqJRyRTAc0Q5ZQphGl305CbgQGvXYxbkYTghGltbAVIWFrZl+TuPdA7b6IOOBbgEG2vDI
+	 WwZaFQVV7TaVKnURTTF4k4j+wabu7N8wzL5ejri8SJFA+utgby3jLNWZr6JJtOIrHut9+
+	 oVBA7HUSANDi5ZlhExBKE97+K8s5vVNu8vNmVgwG4lxCoebU/fi5ddr74NOmWGhKMHyUo
+	 EvQXBBBYNDROXdI+z7wSvtV3Rj4IVrdPqy1hejvs1g8r258ZTF3v1MAAzyhFGSpniig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795177091;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version;
-	bh=bMm8H+yvAuVuYABF/zltzdQZ92nZTYXGeyLMpgEqP9U=;
-	b=XMOdaASS2qTFjTDkQ/pPlISYCLLRsGwIU0PHn3+VGLV585nJ+qkj70K062NiNe1pSZqH
-	 zHyC4TkizjS3b27yOKT30Rt3b0aiC6XhWw2QdXmCIqFS+PlMim0Jp7v5IyabIRdMbu6Hy
-	 JuuHdxdZaDtkR9AzfQJvGw0Ruz3TidtN373RTfr4UNfhs1pW267M2ncqgcI91NLuPCT3r
-	 SL76lp58T4E6K0p8VrgtgfP41NqIijWrK1S6cENW57vFSzcS4cBtyATVT5gz95oYOP7t1
-	 oN7nTnIsfrdGeznVFt7FjyaFi4uOWpu6kjBwKsX0tnJ47xlPFvta8qKMzOcoPoa4BwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795177102;
+	h=DMARC-Filter:Received:Message-ID:Subject:From:To:Cc:Date:In-Reply-To:
+	 References:Content-Type:Content-Transfer-Encoding:User-Agent:
+	 MIME-Version:X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:
+	 X-CM-SenderInfo;
+	bh=Z75RYZONkcZeyfvtK6QLJXDtrY0Y7CwxRrFJFnCrVqE=;
+	b=aOOpaQyEWGIpAXL6q0tPz0zbkLgX6Dg40KJx1S+RIQ4f8enTUe09o7QYNpcZNTTb80Dy
+	 9bk2Od353XHgIByf3gwg3ITSIKzd/4+r+3ZEnhcYpW4cS2CHyOCrGy6HnQKYmP1R8Pb5T
+	 fdwD7+VmEmJBoXwLf/Bla+CyQMw1Sox+jqsQwhXt9wBuv0fnf2Wpdgwa5NecA/6rt7R6k
+	 M3jRvKv5FcdhWt9pwNFPVfcmnfDBb6N0e4zWMamig5vZnV/VOEXOz+BphzZszW+Xiewi3
+	 emVWrZNZLw5Qewl6MfuZPLbTTXVvEmUqUqNlcRjJTnsCx2uluFKCStjZ3cauG22slBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="IoQlr+/t";
-	arc=none smtp.remote-ip=203.205.221.209
-Received: from out203-205-221-209.mail.qq.com (out203-205-221-209.mail.qq.com [203.205.221.209])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=iscas.ac.cn;
+	spf=pass smtp.mailfrom=iscas.ac.cn;
+	arc=none smtp.remote-ip=159.226.251.81
+Received: from cstnet.cn (smtp81.cstnet.cn [159.226.251.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 846CB606A320;
-	Fri, 20 Nov 2026 12:18:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 846CB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=IoQlr+/t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795177081; bh=bMm8H+yvAuVuYABF/zltzdQZ92nZTYXGeyLMpgEqP9U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IoQlr+/tU+IsIFdlXvM3yq8cxvYY0tpwZPbsNEaHerUHDkUdK6K6sagyb9g/v0nMb
-	 IP262ZyD0zVnPw0fSokbQPlFU/8bJ24/GzGa911tt7aVVoYaRY3q6nt6xyFvANNR2t
-	 Q/0d1+crRDcCXRZ1nFUcM7+5H9dYXhDG372uCnus=
-Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:65c9:1ea4:b234:d5d4])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id 47914255; Fri, 20 Nov 2026 20:17:57 +0800
-X-QQ-mid: xmsmtpt1795177077t38y1pdw9
-Message-ID: <tencent_F83D2E71F8533412D7D7477A7ED9F6459B06@qq.com>
-X-QQ-XMAILINFO: M1rD3f8svNznHmnIW8AmHMMUTl1dcnq/33/oxmXjr/dj6SajJEFYV2PaN9bftC
-	 L969/tGIebhk3akw3EZFbp4AlCrn1JN/S8sSnm4O9UrKnx8jkyRwbWsNFbcOrOJXiZcgexHrTMxk
-	 z6wjfOitR4QCkiXB+UNAyeeG5hHi9xUd7ipcAib3eOulEt+TxdYJKEOpnqtw8vvUm57i0jKzL/97
-	 V6QmsxSPtq27uWkPtO3FFxe7D4SiyRe8LDaFxpPOHm+1/yPS4YVUbnkubMHXV5a+MxA1NRI4n9HV
-	 IK2XQ5DcDhSTp0pEMA66m+M5nJD/nX/2ZQOO9guFXHFAhzc7K9Rb7ZaqLjQz/n+XeDii/JW9z8b3
-	 9f2xfiqhywuom6qqTfVUcLNQQ0SN8y9Phf3m8xVbX/3fDKTswj9BjI5DYOoCbWjQOvJl+FPseVHw
-	 BJzTwMRdBsaxiHhc/Zgcr9evBetOhr8KPuLDDOz2i4mNIuUinwEpNkRivzk5ozu32msL3Ees4xsY
-	 ENWHI8NfBCZzgbZhffNwLOjjDv1bdQ788mnHL1xCrmxOQd1MNkuXLZQ5vd5Wclk/rl2TwPFfDvYu
-	 EArgY5Z7tGeisegTLzTBBtr7ghW0dSIiWc4XmYexY39xZldvdCVSvzZJuyQZ90TV7zYNlkSfI6pM
-	 SkPHjRqpBwz4RETbsxRHjlU99bXV/rBsjijrwiyy0suTWFwmRKZOPl7feid+npqC0OJSL1C8Dtex
-	 CbkMjhWQ6D3BisGc078QqaL1DkQzkeMGsNavpQdTg58XVtMoAbLnKIsqdA/xOA/ft5Pp/GhleMKw
-	 3gTRKPSKLMjn71fXpHVH/Z/wLzbQtR4cT0+gsZ9Ba+U2+8tIoRakkVMIgpDCoeq9EsqD3oSG5tc3
-	 CO2iAU8reX3pjCEENanUiswSfDrmTAiVJoVlyDwNb36+xG+bxqK2vIqidy+NqclLO/vV7ocupUby
-	 VdfAN1vW5yw1da1RyHzQL2I90vCSzNyVc2LRzLXBzD/mkA9JqjPkTv5tpP7Cbc7I37zrNRfiddmQ
-	 HbDQxwnalETgj3DxfQDQpIdY34A/Vu6pNbMVYovitRpPXJ3QrAvmNdRinMg4C2mq2qw05Fgg==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Hang Nan <2122295973@qq.com>
-To: matttbe@kernel.org
-Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, martineau@kernel.org,
- geliang@kernel.org, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, kuniyu@google.com, willemb@google.com,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 2122295973@qq.com
-Subject: Re: [PATCH net v5 0/3] mptcp token hash ordering and token 0 lookups
-Date: Fri, 20 Nov 2026 20:17:56 +0800
-X-OQ-MSGID: <179517707644.56974.16674613746518125542@qq.com>
-In-Reply-To: <20261116145829.96849-1-2122295973@qq.com>
-References: <20261116145829.96849-1-2122295973@qq.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A99E606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:18:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A99E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iscas.ac.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iscas.ac.cn
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.23])
+	by APP-03 (Coremail) with SMTP id rQCowABHGZp8OgBrHF5qAQ--.41030S2;
+	Fri, 20 Nov 2026 20:18:05 +0800 (CST)
+Message-ID: <88a4b9c5cb7cdf1fc06e8acfd3f1482445933357.camel@iscas.ac.cn>
+Subject: Re: reply: [PATCH v1] drm/verisilicon: add StarFive PCIe-attached
+ DC8000 driver
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Shanlong Li <shanlong.li@starfivetech.com>, Maarten Lankhorst
+	 <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
+	 <dri-devel@lists.freedesktop.org>
+Date: Fri, 20 Nov 2026 20:18:04 +0800
+In-Reply-To: <BJSPR01MB06755A6C332FF5A258C6BC4E92782@BJSPR01MB0675.CHNPR01.prod.partner.outlook.cn>
+References: <20261030061521.4117-1-shanlong.li@starfivetech.com>
+		 <2e87dbc38ef1486ad301e2e6acb07f57dcf8dd30.camel@iscas.ac.cn>
+		 <BJSPR01MB067525562C88433473E9A2EB92722@BJSPR01MB0675.CHNPR01.prod.partner.outlook.cn>
+	 <b6c373ecdf61b0f4465faf492542b446723d74c6.camel@iscas.ac.cn>
+	 <BJSPR01MB06755A6C332FF5A258C6BC4E92782@BJSPR01MB0675.CHNPR01.prod.partner.outlook.cn>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,50 +64,315 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-CM-TRANSID:rQCowABHGZp8OgBrHF5qAQ--.41030S2
+X-Coremail-Antispam: 1UD129KBjvJXoW3Kw1fArWfKFy5AFWfGF1DGFg_yoWkXry5pF
+	W8KFWUtrWkJr4IqrW2qF1jyFyYk3Z7Jw43Wr47Jr1293sFvrn8XryUXrWF9asrXr4xWr12
+	vrZY9rW7uF1jyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkYb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4
+	A2jsIEc7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IE
+	w4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMc
+	vjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCY1x0262kKe7AKxVWUAVWUtwCF04k2
+	0xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI
+	8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41l
+	IxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIx
+	AIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2
+	jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU5k9NDUUUUU==
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 
-Hi Matt,
+=E5=9C=A8 2026-11-20=E4=BA=94=E7=9A=84 10:51 +0000=EF=BC=8CShanlong Li=E5=
+=86=99=E9=81=93=EF=BC=9A
+>=20
+> > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2026=E5=B9=B411=E6=9C=8810=E6=97=
+=A5 18:26
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: Shanlong Li <shanlong.li@starfivetech.com>=
+; Maarten Lankhorst
+> > <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>=
+;
+> > Thomas Zimmermann <tzimmermann@suse.de>
+> > =E6=8A=84=E9=80=81: David Airlie <airlied@gmail.com>; Simona Vetter <si=
+mona@ffwll.ch>;
+> > linux-kernel@vger.kernel.org
+> > =E4=B8=BB=E9=A2=98: Re: =E5=9B=9E=E5=A4=8D: [PATCH v1] drm/verisilicon:=
+ add StarFive PCIe-attached DC8000
+> > driver
+> >=20
+> > =E5=9C=A8 2026-11-10=E4=BA=8C=E7=9A=84 10:04 +0000=EF=BC=8CShanlong Li=
+=E5=86=99=E9=81=93=EF=BC=9A
+> > >=20
+> > >=20
+> > > > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > > > =E5=8F=91=E4=BB=B6=E4=BA=BA: Icenowy Zheng <zhengxingda@iscas.ac.cn=
+>
+> > > > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2026=E5=B9=B410=E6=9C=8830=E6=
+=97=A5 15:11
+> > > > =E6=94=B6=E4=BB=B6=E4=BA=BA: Shanlong Li <shanlong.li@starfivetech.=
+com>; Maarten Lankhorst
+> > > > <maarten.lankhorst@linux.intel.com>; Maxime Ripard
+> > > > <mripard@kernel.org>; Thomas Zimmermann <tzimmermann@suse.de>
+> > > > =E6=8A=84=E9=80=81: David Airlie <airlied@gmail.com>; Simona Vetter
+> > > > <simona@ffwll.ch>; linux-kernel@vger.kernel.org; Mason Huo
+> > > > <mason.huo@starfivetech.com>; Changhuang Liang
+> > > > <changhuang.liang@starfivetech.com>
+> > > > =E4=B8=BB=E9=A2=98: Re: [PATCH v1] drm/verisilicon: add StarFive PC=
+Ie-attached
+> > > > DC8000 driver
+> > > >=20
+> > > > =E5=9C=A8 2026-10-30=E4=BA=94=E7=9A=84 14:15 +0800=EF=BC=8Cshanlong=
+.li=E5=86=99=E9=81=93=EF=BC=9A
+> > > > > From: Shanlong Li <shanlong.li@starfivetech.com>
+> > > > >=20
+> > > > > StarFive BMC SoCs contain a Verisilicon DC8000 display controller
+> > > >=20
+> > > > So you really downgraded from DC8200 to DC8000 in a new SoC?
+> > > Yes. This is a BMC SoC it only needs one output for the host console =
+/
+> > > remote KVM and a single-pipeline DC8000 was chosen instead of the
+> > > DC8200.
+> > > >=20
+> > > > BTW DC8000 support is being done by Joey Lu, in the form of MA35D1
+> > > > DCUltraLite support (it has the same register layout and basic
+> > > > functionality as the DC8000 controller I seen on Eswin EIC7700).
+> > > Thanks for the pointer, I was not aware of that series. So I need
+> > > rebase on top of it instead of carrying my own DC8000 register code?
+> > > If that's the case, where can I view his current submission? I will
+> > > adapt my DC driver based on his modifications.
+> > > BTW i need to wait until his upstream work is completed before I can
+> > > submit my next version?
+> > > >=20
+> > > > > which
+> > > > > is exposed to the host over PCIe, much like the VGA of ASPEED
+> > > > > BMCs.
+> > > > > The
+> > > > > host owns the display pipeline (primary, overlay and cursor
+> > > > > planes, CRTC, gamma), scans out of the PCIe memory BAR of the
+> > > > > device and relays EDID, hotplug, mode and pixel clock requests to
+> > > > > the BMC firmware through a mailbox located in the CSR BAR.
+> > > > >=20
+> > > > > The DC8000 and the two-pipeline DC8200 served by the existing
+> > > > > verisilicon-dc platform driver share a common register layout, bu=
+t
+> > > > > the PCIe variant needs a different GEM backend (VRAM/TTM instead
+> > > > > of GEM
+> > > >=20
+> > > > Adding a PCIe glue for dedicated IP cores is always a challenge in
+> > > > drivers/gpu/drm.
+> > > >=20
+> > > > It might be interesting to thinking of different practices, althoug=
+h
+> > > > creating yet another DRM driver with another GEM backend seems to b=
+e
+> > > > a choice.
+> > > >=20
+> > > > > DMA), a BMC-backed virtual connector instead of OF graph bridges
+> > > > > and
+> > > >=20
+> > > > I wonder whether DRM bridge facility could be used inside a PCI
+> > > > device
+> > > > -- one of the DRM drivers with me as a reviewer (drm/loongson)
+> > > > suffers from a similar (but more severe) problem. On that device,
+> > > > the DRM driver should enumerate external I2C-controller bridges via
+> > > > its DDC bus from the information of their proprietary VBIOS.
+> > > >=20
+> > > Yes, I think it fits, the OF graph is only how vs_bridge.c discovers
+> > > its next bridge.
+> > > On the PCI device the topology is fixed, so the PCI front end can han=
+d
+> > > vs_bridge_init() the downstream bridge directly.
+> > > Our case is simpler than the drm/loongson one you describe: there is
+> > > no external I2C transmitter to discover, the firmware behind the
+> > > mailbox is the only "bridge", so no VBIOS or I2C enumeration is
+> > > needed.
+> >=20
+> > BTW I wonder how the "virtual connector" thing coexist with a real disp=
+lay
+> > connector.
+> >=20
+> They do not coexist, the "virtual" connector is a proxy for the real one.=
+=20
+> The DC8000 output goes to dp/vga on the BMC side, and the BMC firmware=
+=20
+> owns that transmitter and its DDC bus. The host only sees the result thro=
+ugh
+> the mailbox: sink present/absent, the EDID the firmware read, and a hotpl=
+ug
+> interrupt. The host never programs the transmitter itself.
+>=20
+> > What output interface is configured by this driver? DPI/DP (DP is a bus=
+ type
+> > called by Verisilicon, not related to DisplayPort) or a writeback to me=
+mory?
+> >=20
+> It's dp, dc support writeback but we didn't use it
+>=20
+> > The VCE thing looks quite confusing, it seems to be only sending the ma=
+in plane
+> > instead of fully composited display content (with multiple planes)? Hav=
+e you
+> > checked that hardware overlay / cursor is working with it?
+> >=20
+> You read is correctly. our vce support capture mode and fetch mode=EF=BC=
+=8Ccapture mode
+> support the fully composited display content, not include cursor, but fet=
+ch mode only
+> support the primary plane frame buffer, this is a limitation of our vce.
+> The cursor info will be send by ethernet to host client,this is vce func
 
-thanks, all points taken.  v6 is prepared but not sent: I will wait for
-Netdev Sashiko to finish, as you asked.
+How about overlay planes? Although the mainline drm/verisilicon currently
+doesn't support overlay planes, I think this needs to be considered and at
+least leave a note to prevent registering overlay planes when they're
+added.
 
-- Threading: I see the same thing you do on lore.  The patches are sent
-  with git send-email, which sets In-Reply-To to the Message-ID it assigned
-  to the cover letter, but our relay rewrites Message-ID on the way out
-  (the tencent_*... IDs on lore are not the ones the client wrote), so the
-  children end up pointing at an ID that never existed publicly.  I have
-  not found a way to make that relay preserve the header; if you have a
-  suggestion that works with such a relay I would take it, otherwise I will
-  send the next version in a way that does not depend on the rewritten ID.
+In addition, I didn't see any code sending the cursor information via VCE,
+only the address of the primary plane.
 
-- Prefix: switched to "mptcp: " in v6.
+P.S. I cannot understand how the fully composited display content WITHOUT
+the cursor is acquired either.
 
-- KUnit test: dropped.  Beyond your point that a !token guard is not worth
-  50 lines, it also caused the build failure the test robot reported - the
-  case used mptcp_token_exists(), which is not exported, so
-  mptcp_token_test.ko failed at modpost when the test is built as a module.
-  The pre-existing token tests pass with the series: pass:4 fail:0.
+>=20
+> > In addition, I wonder whether the connector should be advertised as a
+> > DisplayPort one instead of a Virtual one. On my PC with AST2500, the di=
+splay
+> > connector is advertised as a VGA one (even when I didn't plug in any VG=
+A cable
+> > because I added an extra graphics card for desktop usage).
+> >=20
+> Agreed. We can advertised it as a DisplayPort. But we have vga and dp
+> So I used to think that virtual was more appropriate choice.
 
-- For backports I kept the code changes as three separate commits (ordering,
-  hash-membership check, token 0), so none of them carries test code.
+Is there any call that could decide which physical encoder is enabled? If
+there's one, exposing the real connector type could be better.
 
-- token 0: v6 says explicitly that no connection gets token 0 from this
-  implementation, and that the RFC 8684 token field does allow zero, so the
-  rejection is a Linux-side property, not a protocol one.
+> > >=20
+> > > > However, even in a worst situation, it would be just a new
+> > > > vs_bridge.c variant combining the output programming logic of the D=
+C
+> > > > and on-chip display bridges into one source file.
+> > > >=20
+> > > > > a
+> > > > > different plane set with scaling, blending, gamma and de-gamma.
+> > > > > Keep
+> > > > > the two front ends separate: the SoC platform driver stays where
+> > > > > it is and the PCIe driver goes into a new pci sub-directory. Each
+> > > > > is selectable through its own Kconfig symbol, so a kernel can be
+> > > > > built for either or both platforms, and the two drivers do not
+> > > > > share any global symbol so they can also both be built in.
+> > > > >=20
+> > > > > Signed-off-by: Shanlong Li <shanlong.li@starfivetech.com>
+> > > > > ---
+> > > > > =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ |=C2=A0=C2=A0=C2=A0 7 +
+> > > > > =C2=A0drivers/gpu/drm/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 2 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/Makefile=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 2 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/Kconfig=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 30 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/Makefile=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0=C2=A0=C2=A0 6 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_crtc.c=C2=A0=C2=A0=C2=A0=
+ |=C2=A0 393 +++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_crtc.h=C2=A0=C2=A0=C2=A0=
+ |=C2=A0=C2=A0 65 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_dc.c=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0 895 +++++++++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_dc.h=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0 138 ++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_dc_hw.c=C2=A0=C2=A0 | 15=
+02
+> > > > > ++++++++++++++++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_dc_hw.h=C2=A0=C2=A0 |=C2=
+=A0 426 +++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_drv.c=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 264 +++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_drv.h=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0=C2=A0 79 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_plane.c=C2=A0=C2=A0 |=C2=
+=A0 379 +++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_plane.h=C2=A0=C2=A0 |=C2=
+=A0=C2=A0 62 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_type.h=C2=A0=C2=A0=C2=A0=
+ |=C2=A0=C2=A0 70 +
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_virtual.c |=C2=A0 531 ++=
++++++
+> > > > > =C2=A0drivers/gpu/drm/verisilicon/pci/vs_virtual.h |=C2=A0=C2=A0 =
+47 +
+> > > > > =C2=A019 files changed, 4899 insertions(+)
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/Kconfig
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/Makefile
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_crtc.=
+c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_crtc.=
+h
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_dc.c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_dc.h
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_dc_hw=
+.c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_dc_hw=
+.h
+> > > >=20
+> > > > Anyway, it looks that you're just adding a dedicated driver without
+> > > > reusing the current code, and your driver even contains the badly
+> > > > written, magic number flooded code from Verisilicon.
+> > > Yes, it derived from the vendor code, May I ask which specific "magic
+> > > number" are, Is it something like the " horKernel[]" ?
+> >=20
+> > Nearly every register field isn't documented in the vendor code. Things=
+ like
+> > horKernel isn't so bad, but the register fields are bad.
+> >=20
+> > And even if this copy of code is properly written, it's still code dupl=
+ication
+> > unwanted by the mainline Linux.
+> >=20
+> Understood. So now, should I make the modifications based on the current =
+version I have submitted,=20
+> or should I modify it based on the dc8000 driver version provided by Joey=
+ Lu?
 
-Two things I folded in from the Sashiko review of the same series, which
-you may want to look at when you do the full review:
+Based on the Joey Lu patchset; although it might need some rebase.
 
-- [High] The acquire ordering does not cover the passive-open path, where
-  sk_clone() publishes the refcount before mptcp_sk_clone_init() sets the
-  token.  v6 adds a separate patch that drops a socket which is no longer
-  on the chain after the increment, the way __inet_lookup_established()
-  does.
+Thanks,
+Icenowy
 
-- [Low] The stable tag now names the dependency:
-  "Cc: stable@vger.kernel.org" plus a sentence pointing at
-  7f8ceea0c580 ("refcount: provide ops for cases when object's memory can
-  be reused") in the body.
-
-Cheers,
-Hang
+>=20
+> > Thanks,
+> > Icenowy
+> >=20
+> > > I will make adjustments based on joye hu's revisions.=C2=A0 Maybe Try=
+ to
+> > > provide an explanation, Or drop it
+> > > >=20
+> > > > Don't forget that your former workmate, Keith Zhao, worked for
+> > > > months on this bad driver and still failed to get it upstreamed.
+> > > >=20
+> > > > NAK on this.
+> > > >=20
+> > > > Thanks,
+> > > > Icenowy
+> > > >=20
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_drv.c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_drv.h
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_plane=
+.c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_plane=
+.h
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_type.=
+h
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_virtu=
+al.c
+> > > > > =C2=A0create mode 100644 drivers/gpu/drm/verisilicon/pci/vs_virtu=
+al.h
+> > >=20
+> > > Thanks,
+> > > Shanlong.li
 
