@@ -1,58 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197889;
-	b=yomLq5zmu9cIcEX751ZyJTu1NdxZPmD4qGmBPwoGa9nOTTMFT1MQl+3h1526egSUt7hU
-	 0/vsOF2CwCguHfYDxKWvVEqDf5tgLiNij4gRcB+0eZ+RweOcnOwjmS+mP+JzPEA3c9I52
-	 Sdglzv9Y2aJxQm1cL8av6wPyMrVgoDMWGi1+8w4O1344Undy+oluxNeOwVbmBhl55pHc7
-	 k02g5f99OgqvQMxIjm5nFltFTIbxVGYiGv2SXced3gfV0RHxfjmlUS0yBUxzkz3d/gXUI
-	 msOosl5k7j88Me7x7xLxtT7kipfq04JqDPy/DNhJid2CwL6Ig62wntIjucFf6zAE3CQ==
+	t=1795197909;
+	b=TUvqJs6wZCGLpqkAz3UT+jQe21wZOiXPHp91M1mbk1cEZMSFWXmIPPe+AltBWFu6AeHv
+	 6Nx7HQepjFklqIDLoTb7yzBAqcVOe3s+8y43NJ5TKmUPR9bSbgzVSD0KR/Uif4BSI4K/K
+	 e0GD94qI12/LLAajC37wnsNNDaU5jd5KB4l1Su93dhOMdYB7S4Tf56fqPm9bknj2IvM5I
+	 9AdPEATTmaDU+jSMMuu1T5uw43F3Xne2FhsUpd30Tu0rtlwYDyS95xE5+CkyrAOG/hVqA
+	 o6AD9rsG1yc/rIN9fBNKYWJI9SuEwFVxAq9oWKHxeP+SurWrxw97jZDoLapivuhvUVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197889;
-	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=DygjEKi38o3GasFml85WxiMAFWjjX0WD7EifQHPGL/A=;
-	b=zhJR2TqByh5C75eedsfzcPVhyTVQ5BecZ/9usSmxB6lDN2LzeCjxpjoID34YQqMwzA3R
-	 XrQoF+0D+tKvUbj2NSCvoh7VEgDgnB38AmDtfkO++NQc7kBjf000tlbw3XOq1QOhDxbpW
-	 QSoYSJr4rGy2h6tRC0qgsjFXYXiFJb8yQLQAM7+PHP1mBO+QEJiywh2UVVvLjG9u7MsSe
-	 VbW7YaoUNhieH/wbKATIAiPMddw01++gJzHX4Lof2qE5FtjHrPJ9L445GwKT/yRMaTSEu
-	 BFlhsNiIUa4+xxP5Jp8LTZKusk/llPUIwOpSxP/f+n3isKBIRGBO4qNCYbIw19IgWCA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197909;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=hx0DuM8OzUdLqU/ahGBkmzFisoaTWK5v39m0MWVXalw=;
+	b=4k7vg0HtinPMW/JDq9tw/NLfOMOadcCh4zzDC+LhbtL+P1qZZHpAHUVQpyfjzXnP73fx
+	 dzjnKUFmdKd4xHqzJgKXFh6DqLRgIZ9rpzf3Gmzbxnf7BWUvRUC0XEc300ZRYGYxXAAOA
+	 aBhMIJwCEZkOK/NF5cRrdWgLXYi1hXcr/p6n7ACJBHTyxwbsdiqVCayzpdLEkggqWfK9Z
+	 JlkW5E04qL/Tqeq2/PpZL8sPb9PErO1r0OswSZ3tHcMYVdFZRurMayX/xox/2GnUeIfo7
+	 GUrpjRq4l9YXx7Dsdc+xxiYANKjRivNeLmtEUeAGDU/azERW4A99q3PT5M7wtKx+KZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c1QJwoP9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=v9y27KY+;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D365B606A895;
-	Fri, 20 Nov 2026 18:04:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E3C860A380C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:05:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E3C860A380C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c1QJwoP9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C1D1F000D4;
-	Fri, 20 Nov 2026 18:04:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795197889;
-	bh=DygjEKi38o3GasFml85WxiMAFWjjX0WD7EifQHPGL/A=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c1QJwoP9Js9ylOiblL15IpwU7TGs+iGcXN00rM4AAIZ7SJFgu/4iMiI7as4QmmsOf
-	 K6yCYGonCPBX0mcJqnsX4xgl4mmoXhSa0AjCgpxb3CF+M4rPGQIFDYhZunhXfikw7K
-	 dfA/WXhd2eOQ15vH0MOKh0NVYMftV4hUW5G6ExgeTVCJk6U/adQYIp9rHi50/6Raxe
-	 C7uZaASE1cNrPGYAbD/+sWREQOB0RgMqywL1e4HqZ6C7imfg7V6Z6W10sa4XCewWOF
-	 Wq8DhN4vKsJK32JG1Mjk8vnJXvkyGD1x01OP9zBTgONtkOclCcVaZc8q5uqPoMOJ5z
-	 QqrPpmm66yISg==
-Message-ID: <c9d7a4bf79247d7cfcd23460d351412c343d546c.camel@kernel.org>
-Subject: Re: [PATCH RFC] NFS: don't wait for writeback on close() with a
- write delegation
-From: Trond Myklebust <trondmy@kernel.org>
-To: Jeff Layton <jlayton@kernel.org>, Anna Schumaker <anna@kernel.org>
-Cc: Chuck Lever <cel@kernel.org>, linux-nfs@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 10:04:48 -0800
-In-Reply-To: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
-References: <20261116-nfs-space-limit-v1-1-fcc1335169a7@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.62.1 (3.62.1-1.fc45) 
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=v9y27KY+
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8A3B1C62223;
+	Fri, 20 Nov 2026 18:05:08 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BEE22601B9;
+	Fri, 20 Nov 2026 18:05:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3403111BC0627;
+	Fri, 20 Nov 2026 19:04:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795197900; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=hx0DuM8OzUdLqU/ahGBkmzFisoaTWK5v39m0MWVXalw=;
+	b=v9y27KY+JjyrqMct3vknfwuq6WjpZeCQzAcO+t9K1xMgHUP7LpVAWhX1zPSSGxW7vDX1lK
+	isXFcXCaszQp1FFOdMSJb9uRK/+Y5rFmaDkyziEQhmAVE55SZvh1nV8Fbm4RKpypJTEidZ
+	+t5ciSVucWn16/d6S5ETbyuvCnlGVFLllzmHFxHxFZHqfFYi63Otuz+NkkfIJVgIdN3tQK
+	fX6Ybe6ELPJUx9pObcZAFwJu2lYIdoHUivQpV9980DBjAFaqYNx4pUTjNHKCK6iXOU2vPw
+	s1WwY9SvjG8WAQp6PLGTbeqO1EEbCt8YTvVLd2yWg83uxEBhWdVHzzy/uOEeIQ==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Fri, 20 Nov 2026 18:59:10 +0100
+Subject: [PATCH v6 28/43] drm/vkms: Properly render plane using their zpos
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,148 +63,131 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-vkms-all-config-v6-28-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
+ llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2841;
+ i=louis.chauvet@bootlin.com; h=from:subject:message-id;
+ bh=ihtRy27F7YtJoaXolpAkwqcRhG7V5U2QjwBxEjJLYFA=;
+ b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIsBTTjLVfb6OxzT4Hfk9dy+1qdJOMihte5/C
+ 3KajyzhEbWJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCLARsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOL49w//UeJb8TugHHdEMJ43xwBnV3YKH0ENcir
+ J4KCbH40FLz2ziCIE0DdyZvgn38LPxDU7Wjr7mrTa6jmuijLk5nChpDoKr1ufxpZxsnIdEJ8gJR
+ c8zBZaXwo8wXM744ypi/xKlf7jTgK1tVji3P89BdQOZeRj6S/JnGY/ciPPl43mfhto50s9IHESQ
+ emLZdufcKzJae3wiepE9ujJZa/1X+0LmRGS/yY//rJyC3+lh5ByaVcNP/EW2gGI4OxPE4lkM2G1
+ o6JhkXAHvIzTowKFEhN6Oz8GOhV+2vBMOROo6rJtBO870uutdRDsEdw7Ij4q6L4f+FLU/yutQE4
+ J0wuyPsrgCGdcdAfxL2chx0JCJyM4Qj6DsZKBgLuzIxlMEmFZGXDpPlLmnl63k+eI2skLfcN3XH
+ O2FIHxEgzO2QHGqwsnNI74JliqB9k9xCEfwf7A7PpuRORykKNYECFzhYuw/zLDD/w+kRQe9Mq1e
+ b7ayFYgK0MrC2ViDltLYMUGO6XmJfZELmRqDHQWQzvYbueSx3BJg+4zTdPwa+XLMBpJJB+CHdUU
+ vOzGHDD3a34bmNWxNbUhGnWxdmcdhMZY2rX91H8th6MesRdmjKFjmZdzfyWTAFWBybft9IH+z/Y
+ Xr8QrhHnfBBPcJXouLYYDgsoj1/coRxVapm+4ndB1saiU8fT2PkM=
+X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
+ fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Mon, 2026-11-16 at 15:55 -0500, Jeff Layton wrote:
-> Commit 5445b1fbd123 ("NFSv4: Respect the server imposed limit on how
-> many changes we may cache") made close() write back, COMMIT and wait
-> whenever outstanding requests exceed the write delegation's
-> space_limit. Servers that send a limit of 0, knfsd included,
-> therefore
-> get no close() benefit from write delegations, which knfsd now grants
-> even on write-only opens.
->=20
-> That flush buys nothing:
->=20
-> - CTO: no other client can open the file until the delegation is
-> =C2=A0 recalled, and the recall writes back our dirty data first.
-> - Error reporting is all that's left, and it's pointless. close() is
-> =C2=A0 not required to flush, and most filesystems don't, so checking for
-> =C2=A0 writeback errors there is unreliable at best: the failing writebac=
-k
-> =C2=A0 may not have happened yet. Applications that care must fsync(),
-> =C2=A0 which this doesn't change; errors are still recorded in the mappin=
-g
-> =C2=A0 and reported there.
-> - RFC 8881 says only that the client "should" abide by space_limit;
-> =C2=A0 exceeding it leaves the server's behavior undefined, and knfsd jus=
-t
-> =C2=A0 returns NFS4ERR_NOSPC/NFS4ERR_DQUOT on WRITE or COMMIT.
->=20
-> Go back to just starting writeback on close() whenever we hold a
-> write
-> delegation. In testing against a knfsd patched to send a nonzero
-> space_limit, single-threaded create/write/close went from ~92 to
-> ~1,500 files/s.
->=20
-> User-visible change: ENOSPC/EDQUOT for data written just before
-> close()
-> now shows up only via fsync(), not close().
->=20
-> For now, the pagemod_limit is still decoded but unused.
->=20
-> Signed-off-by: Jeff Layton <jlayton@kernel.org>
-> ---
-> I started looking at wiring up space_limit for nfsd's write
-> delegations,
-> but afrer looking at how the client uses it, I think we're best off
-> just
-> not bothering to respect it at all. Thoughts?
-> ---
-> =C2=A0fs/nfs/delegation.c | 25 -------------------------
-> =C2=A0fs/nfs/delegation.h |=C2=A0 1 -
-> =C2=A0fs/nfs/nfs4file.c=C2=A0=C2=A0 |=C2=A0 7 ++++---
-> =C2=A03 files changed, 4 insertions(+), 29 deletions(-)
->=20
-> diff --git a/fs/nfs/delegation.c b/fs/nfs/delegation.c
-> index ad774316f716..3a141d5ee0bd 100644
-> --- a/fs/nfs/delegation.c
-> +++ b/fs/nfs/delegation.c
-> @@ -1587,31 +1587,6 @@ bool nfs4_copy_delegation_stateid(struct inode
-> *inode, fmode_t flags,
-> =C2=A0=09return ret;
-> =C2=A0}
-> =C2=A0
-> -/**
-> - * nfs4_delegation_flush_on_close - Check if we must flush file on
-> close
-> - * @inode: inode to check
-> - *
-> - * This function checks the number of outstanding writes to the file
-> - * against the delegation 'space_limit' field to see if
-> - * the spec requires us to flush the file on close.
-> - */
-> -bool nfs4_delegation_flush_on_close(const struct inode *inode)
-> -{
-> -=09struct nfs_inode *nfsi =3D NFS_I(inode);
-> -=09struct nfs_delegation *delegation;
-> -=09bool ret =3D true;
-> -
-> -=09rcu_read_lock();
-> -=09delegation =3D rcu_dereference(nfsi->delegation);
-> -=09if (delegation =3D=3D NULL || !(delegation->type & FMODE_WRITE))
-> -=09=09goto out;
-> -=09if (atomic_long_read(&nfsi->nrequests) < delegation-
-> >pagemod_limit)
-> -=09=09ret =3D false;
-> -out:
-> -=09rcu_read_unlock();
-> -=09return ret;
-> -}
-> -
-> =C2=A0int nfs4_delegation_hash_alloc(struct nfs_server *server)
-> =C2=A0{
-> =C2=A0=09int delegation_buckets, i;
-> diff --git a/fs/nfs/delegation.h b/fs/nfs/delegation.h
-> index fba4699952b8..75f0edde65ea 100644
-> --- a/fs/nfs/delegation.h
-> +++ b/fs/nfs/delegation.h
-> @@ -83,7 +83,6 @@ void nfs_put_delegation(struct nfs_delegation
-> *delegation);
-> =C2=A0void nfs_mark_delegation_referenced(struct nfs_delegation
-> *delegation);
-> =C2=A0int nfs4_have_delegation(struct inode *inode, fmode_t type, int
-> flags);
-> =C2=A0int nfs4_check_delegation(struct inode *inode, fmode_t type);
-> -bool nfs4_delegation_flush_on_close(const struct inode *inode);
-> =C2=A0void nfs_inode_find_delegation_state_and_recover(struct inode
-> *inode,
-> =C2=A0=09=09const nfs4_stateid *stateid);
-> =C2=A0void nfs4_inode_make_writeable(struct inode *inode);
-> diff --git a/fs/nfs/nfs4file.c b/fs/nfs/nfs4file.c
-> index 9a434f5dda8d..04f4d8967e5b 100644
-> --- a/fs/nfs/nfs4file.c
-> +++ b/fs/nfs/nfs4file.c
-> @@ -122,10 +122,11 @@ nfs4_file_flush(struct file *file, fl_owner_t
-> id)
-> =C2=A0=09=09return 0;
-> =C2=A0
-> =C2=A0=09/*
-> -=09 * If we're holding a write delegation, then check if we're
-> required
-> -=09 * to flush the i/o on close. If not, then just start the
-> i/o now.
-> +=09 * A write delegation already provides close-to-open
-> consistency:
-> +=09 * no other client can open the file until it is recalled,
-> and the
-> +=09 * recall writes back our dirty data. Just start the i/o.
-> =C2=A0=09 */
-> -=09if (!nfs4_delegation_flush_on_close(inode))
-> +=09if (nfs_have_write_delegation(inode))
-> =C2=A0=09=09return filemap_fdatawrite(file->f_mapping);
-> =C2=A0
-> =C2=A0=09/* Flush writes to the server and return any errors */
->=20
-> ---
-> base-commit: 9d66f26fefacebfeed15de31c1123451a17ff119
-> change-id: 20261113-nfs-space-limit-025199334e52
->=20
-> Best regards,
+Currently planes are rendered in creation order. This is not an issue, but
+with the introduction of new zpos configuration, it is required to
+properly render planes.
 
-Maybe we can call filemap_flush() in order to kick off non-blocking
-writes in this situation?
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
+---
+ drivers/gpu/drm/vkms/vkms_composer.c |  3 ++-
+ drivers/gpu/drm/vkms/vkms_crtc.c     | 16 ++++++++--------
+ drivers/gpu/drm/vkms/vkms_drv.c      |  2 ++
+ 3 files changed, 12 insertions(+), 9 deletions(-)
 
---=20
-Trond Myklebust
-Linux NFS client maintainer, Hammerspace
-trondmy@kernel.org, trond.myklebust@hammerspace.com
+diff --git a/drivers/gpu/drm/vkms/vkms_composer.c b/drivers/gpu/drm/vkms/vkms_composer.c
+index 0fc915a954ba..6259017c5d69 100644
+--- a/drivers/gpu/drm/vkms/vkms_composer.c
++++ b/drivers/gpu/drm/vkms/vkms_composer.c
+@@ -505,7 +505,8 @@ static void blend(struct vkms_writeback_job *wb,
+ 
+ 		/* The active planes are composed associatively in z-order. */
+ 		for (size_t i = 0; i < n_active_planes; i++) {
+-			blend_line(plane[i], y, crtc_x_limit, stage_buffer, output_buffer);
++			if (plane[i])
++				blend_line(plane[i], y, crtc_x_limit, stage_buffer, output_buffer);
+ 		}
+ 
+ 		apply_lut(crtc_state, output_buffer);
+diff --git a/drivers/gpu/drm/vkms/vkms_crtc.c b/drivers/gpu/drm/vkms/vkms_crtc.c
+index fe17f49305a9..ffd1eb5f1976 100644
+--- a/drivers/gpu/drm/vkms/vkms_crtc.c
++++ b/drivers/gpu/drm/vkms/vkms_crtc.c
+@@ -133,9 +133,6 @@ static int vkms_crtc_atomic_check(struct drm_crtc *crtc,
+ 		plane_state = drm_atomic_get_new_plane_state(crtc_state->state, plane);
+ 		WARN_ON(!plane_state);
+ 
+-		if (!plane_state->visible)
+-			continue;
+-
+ 		i++;
+ 	}
+ 
+@@ -144,15 +141,18 @@ static int vkms_crtc_atomic_check(struct drm_crtc *crtc,
+ 		return -ENOMEM;
+ 	vkms_state->num_active_planes = i;
+ 
+-	i = 0;
+ 	drm_for_each_plane_mask(plane, crtc->dev, crtc_state->plane_mask) {
+ 		plane_state = drm_atomic_get_new_plane_state(crtc_state->state, plane);
+ 
++		/*
++		 * normalized_zpos is computed by the DRM core and is unique
++		 * in the range 0..n_planes-1: use it to index the array.
++		 */
+ 		if (!plane_state->visible)
+-			continue;
+-
+-		vkms_state->active_planes[i++] =
+-			to_vkms_plane_state(plane_state);
++			vkms_state->active_planes[plane_state->normalized_zpos] = NULL;
++		else
++			vkms_state->active_planes[plane_state->normalized_zpos] =
++				to_vkms_plane_state(plane_state);
+ 	}
+ 
+ 	return 0;
+diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
+index a4bc3d02a6cd..a60aa6bf6913 100644
+--- a/drivers/gpu/drm/vkms/vkms_drv.c
++++ b/drivers/gpu/drm/vkms/vkms_drv.c
+@@ -155,6 +155,8 @@ static int vkms_modeset_init(struct vkms_device *vkmsdev)
+ 	dev->mode_config.preferred_depth = 0;
+ 	dev->mode_config.helper_private = &vkms_mode_config_helpers;
+ 
++	dev->mode_config.normalize_zpos = true;
++
+ 	return vkms_output_init(vkmsdev);
+ }
+ 
+
+-- 
+2.56.0
+
