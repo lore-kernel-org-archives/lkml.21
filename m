@@ -1,65 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.34.166.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202401;
-	b=mBq6WTjMgtu6AjnrXLHQV9DPLNhD4ko/i/65hie/4oo5fvsf+jWDDz7cJc5gX9e5iaqU
-	 RPNR/AQ2c5+JjcKgrWnUgjJW+d2bOH6Irn8c1vXZ0pMDh2ftFtZMafjJ1ob6QekUTpZy7
-	 0Q83bqcqw/sZpR6SXz+KOiwEcjFQ686X5tY6Ik03Tug2ynVfYO1o2Vad3b1maM/YnPQqG
-	 rbgVBdP1IWQi7cx9lqshpg1mmgGWXZzdatWY2x5Syd6132jekq7HID+SFIdcddt/dk/1S
-	 oQcOG3FRoMpqi0cm6bTuZzputxqe5ORyIIWut4dJLPVGzVmn6eGr3rmlrinaz2sfibQ==
+	t=1795202431;
+	b=ACqCh0NfojH/ld+I7IvekhcT4bZbv6WUaTGDVa5PEOOogQbudW4kb/jIX13Hwv5zDBaK
+	 2InOse2OhxvHlzlzVsvxMHumYqvhVcYOZ55vOkOvPpV9jZZXp9GtUhWU2REh9cmVa2h/E
+	 koP9zSrIwT/YtfgfmFTpa8BsRIk14oOGxSUww4cYUdqSkQxhe4ojBZocuHfpDJhTN9TVm
+	 WyrA6trmwkZuf8hcHtEhMSUAVIwWF42NjF+jCjTpT0Oh955JIh+VBtM31Hnzr2eEYij4K
+	 FBfzGOEv5KsEQAS4nBLE0BxsJ8//RdQTEtzWaHO0bCVRa+8i2YqZtxRybHraAlzJhaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202401;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=YCSPQg38JCvTFBhOaouQF8A4H/BO7cYu0Ed6hFheRRk=;
-	b=pBG4JHg6kF2Mbupt8udX04UH/dCgGU9sO1E/NsvGRja54iuLlPpJiAuKa3Qo7BDuolgd
-	 vPwmRdBM4C7AiYCIP6zacOOYiUVpHfDdq5n57ajuObKeU1jNHJPjgTUqwihx84+QhQAX9
-	 cPPXQce1xmzleRX0OEm6XlFDx5gexsqpsBd1zxLr4WofJngHAxJ3ZvsV2yzHJtypdV1b1
-	 0NkDVzoCQt40ZJA08/+U7J8oz9agvF9pHUu9cMp5FSlH2Vp110FZzund0AYRSdrg7CfkC
-	 4mejB32oxp/35Vtd/tSeRkdnuObsz+sI88PPylMLmZW8/00h9o7tNVbtZoHiQkQJSCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202431;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=CGt74ZOOnFG2eCZ0lYW7ExbTFT5kX6Yx4uY/hjMbYAk=;
+	b=Uxc2GAUAcGL2H39T3wh6f8Bo945zVbZJ+hclVzd1t5Ylo9tUJCph1w1Fk6oUoLaq/jId
+	 +SaiHihH6NymBRpaJLJkcdyHoMEibYVgTgV30Yl3f8+iiP926Oxi3vSyAVAWGR8NIZOnv
+	 apRYdNwvdthdOzPX7lEbLB0jRU6DR4GOUdlPGHqZIJq4jIp7OPQS5E3HD2bwQzCFXFHBw
+	 gMujUD38gtc3zfREYwJCJSOanM+oiZ+urKNwNIekaQfhakBIrT64gXoWujpYCQQe82iah
+	 4QdqQ8FVtdHsZmbciP3YBzp6OspLdERBpR1CsA9/kqkYHcrXuRY3am7a0YgMgObrO/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tukaani.org;
-	spf=pass smtp.mailfrom=tukaani.org;
-	dkim=pass header.d=tukaani.org header.i=@tukaani.org header.a=rsa-sha256 header.s=x header.b=OH+bECqH;
-	arc=none smtp.remote-ip=84.34.166.10
-Received: from mailscanner01.zoner.fi (mailscanner01.zoner.fi [84.34.166.10])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kam4PZb2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3053B606A6CB
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:19:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3053B606A6CB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=tukaani.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tukaani.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42B1A606A6FA
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:20:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=tukaani.org header.i=@tukaani.org header.a=rsa-sha256 header.s=x header.b=OH+bECqH
-Received: from www25.zoner.fi (www25.zoner.fi [84.34.147.45])
-	by mailscanner01.zoner.fi (Postfix) with ESMTPS id BC24644EA4;
-	Fri, 20 Nov 2026 21:19:41 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=tukaani.org
-	; s=x; h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:
-	In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description; bh=YCSPQg38JCvTFBhOaouQF8A4H/BO7cYu0Ed6hFheRRk=; b=OH+bE
-	CqHWieFSxKm5UOF4rg+CCdi7M35T6aA5gLfY19KyPlANkXcRs2bumDtjIkexnnFjlGtyo2eeTMk5a
-	TiTaQ3HFZvTBY1AnSAt7YtwEKBncaXoqy79W/DzGgi3YZp+0IXIp39aLxqB3Cqh/yDw3nDo8WBamp
-	5E8ZK0CMr4WtGF7CIgKyy5gxa4+C3VLkEIIfkdgbcyCjZqc2OGD7H/Fzc9aJYSUspyjtnZ7itRm5A
-	+oJOONklApQ0nfMYAwY3Y6PK1gSjSfZdJYfNPx0FWCZJ+Mj5oxuknBhBvBGI2tOPpcXMH9Nn21U10
-	0+yaD/f6VnevBB95uujuUV+6rl4Sg==;
-Received: from mail.zoner.fi ([84.34.147.244])
-	by www25.zoner.fi with esmtp (Exim 4.100.1)
-	(envelope-from <lasse.collin@tukaani.org>)
-	id 1xUU94-00000007R16-0TP6;
-	Fri, 20 Nov 2026 21:19:41 +0200
-Date: Fri, 20 Nov 2026 21:19:41 +0200
-From: Lasse Collin <lasse.collin@tukaani.org>
-To: Paul Menzel <pmenzel@molgen.mpg.de>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] lib/xz: Decode LZMA with local range decoder and
- dictionary state
-Message-ID: <20261120211941.05b6995e.lasse.collin@tukaani.org>
-In-Reply-To: <20261113115937.188894-1-pmenzel@molgen.mpg.de>
-References: <20261113115937.188894-1-pmenzel@molgen.mpg.de>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kam4PZb2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D821F000D1
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:20:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795202430;
+	bh=CGt74ZOOnFG2eCZ0lYW7ExbTFT5kX6Yx4uY/hjMbYAk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Kam4PZb2H/zjoJMM1oX7yBXjvhxEvkMlrlKPrJcTq1wCLIDmVPKKnUD0TSmD0a3Rz
+	 EBzTo4X161eXach7E6kAFRhihoFrWab+P5NrspVJAO+kz5HrgqH56SDIpZoEJaov3Z
+	 zg1SD4hyYmLB6OgfVdLyoG+Qb2BRiwvSz8PFFAMws/xuykrIKQByGMQ/cUpFpZGBwO
+	 9bxPvwaAxvzm5kK2X4IHTaHcjs/qkPcznbTN93/5+/PQa78NiGweukIfD9F83PT48U
+	 BjcaRG88j52Vhr8mCzX7EhQfUfHCgiEOofzcXj7eDmcYG1WlZbDdMhJ5jXoovL9GdX
+	 ccEtcOIOjLcFA==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c15956ce07so2207574e87.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:20:30 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErF9EeKUE45sw+kMxjEXi9Wj0Gucp9gLwPA89gheAGxo9XVzebel5Sq3309TCcn9PxGbuxHFm+QdJ+o6daQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+ZmO/octDBYvN29LpD3M9T5c/AX1MFpIke3bJkVU6Xz1EG/mxI
+	wQve3p4GHxVuwagMj8SVZPJaoNUpbbvRkAYr5+Ag/NG3XV2NaG/qF3QZiaD7fC4U/+uUjaEXXu+
+	m2dqyb2dWs16KSSu7kXV+28gXLf8OzBU=
+X-Received: by 2002:a05:6512:a85:b0:5bf:d9c1:58d9 with SMTP id
+ 2adb3069b0e04-5c1bc8ceb91mr948243e87.23.1795202428902; Fri, 20 Nov 2026
+ 11:20:28 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,80 +59,54 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20261118160938.3057738-1-daniel.lezcano@oss.qualcomm.com>
+In-Reply-To: <20261118160938.3057738-1-daniel.lezcano@oss.qualcomm.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 20:20:16 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jTE3wkhhzq+jaB6hf_mccJs-gnzh_ybHnEG+w9fE3y4Q@mail.gmail.com>
+X-Gm-Features: Aa3M54psGHgM91W_CIYt0O2I7mf9MBA_w1sGTV9SUtWNtSiP3ex4DGUgxa42wro
+Message-ID: <CAJZ5v0jTE3wkhhzq+jaB6hf_mccJs-gnzh_ybHnEG+w9fE3y4Q@mail.gmail.com>
+Subject: Re: [PATCH RESEND] platform profile: Restrict the core prompt to COMPILE_TEST
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: rafael@kernel.org, linux-pm@vger.kernel.org, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Mario Limonciello <superm1@kernel.org>, 
+	Mark Pearson <mpearson-lenovo@squebb.ca>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On 2026-11-13 Paul Menzel wrote:
-> lzma_main() and the functions it calls access the range decoder and
-> the dictionary through s->rc and s->dict. Every decoded bit stores to
-> a uint16_t probability, and every decoded byte stores to dict.buf, and
-> the kernel builds with -fno-strict-aliasing. So the compiler has to
-> assume that these stores modify *s, and reloads and stores rc.range,
-> rc.code, rc.in_pos, dict.pos, dict.full, =E2=80=A6 around each of them.
+On Wed, Nov 18, 2026 at 5:10=E2=80=AFPM Daniel Lezcano
+<daniel.lezcano@oss.qualcomm.com> wrote:
 >
-> Copy both structures to local variables at the start of lzma_main()
-> and write them back at the end, and force inlining of the helpers that
-> take their address, so that the compiler can keep them in registers.
+> All platform profile providers select PLATFORM_PROFILE, so users do not
+> need to enable the core explicitly.
+>
+> Only show its prompt when COMPILE_TEST is enabled. This avoids exposing
+> the option in normal configurations while allowing the architecture-indep=
+endent
+> core to be build-tested without a provider.
+>
+> Suggested-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Signed-off-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+> Reviewed-by: Mario Limonciello (AMD) <superm1@kernel.org>
+> Reviewed-by: Mark Pearson <mpearson-lenovo@squebb.ca>
+> ---
+>  drivers/platform/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/platform/Kconfig b/drivers/platform/Kconfig
+> index 7270f24a3b6e..1cf87904afc3 100644
+> --- a/drivers/platform/Kconfig
+> +++ b/drivers/platform/Kconfig
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+>  config PLATFORM_PROFILE
+> -       tristate "Platform profile support"
+> +       tristate "Platform profile support" if COMPILE_TEST
+>         help
+>           Provide a common sysfs interface for selecting platform power,
+>           performance and cooling profiles. Platform-specific provider dr=
+ivers
+> --
 
-Something like this seems to be a good idea.
-
-While -fno-strict-aliasing hurts speed a little, it's a minor thing.
-Even with strict aliasing, writes to dict->buf[...] are a problem
-because uint8_t usually is unsigned char which can alias anything.
-Simply adding "restrict" to the pointer arguments of dict_repeat() and
-dict_put() reduces decompression time by several percent on some
-machines.
-
-I separated the changes into multiple commits so that the effect of
-local rc, local dict (or *restrict dict), and various __always_inline
-additions are easier to test. I created three temporary branches in the
-upstream repository[1]:
-
-    optim_paul  Your version
-    optim1      Local rc and "restrict" for dict
-    optim2      Local rc and local dict (no "restrict")
-
-optim2 is similar to your version. optim1 and optim2 contain a few
-other changes too, the first one being "Split state updates".
-
-The results vary between systems:
-
-  - On Ryzen 7 9700X with GCC 16.2, the the local rc clearly helps, but
-    the dict changes don't make much difference in speed.
-
-  - On ARM64, the dict changes in both optim1 and optim2 are significant
-    improvements (tested on NVIDIA GB10 Spark on cfarm.net).
-
-  - On x86-64 and Clang 23 with -O2, the rc and dict changes make little
-    difference.
-
-Could you test and compare optim1/2? I mean primarily the commits
-before "Split state updates", but thoughts about the later commits are
-welcome too, of course.
-
-I suggest creating a test file with xz --threads=3D1 --check=3Dnone so that
-one is measuring only the decompression speed without CRC32. The CRC32
-implementation in XZ Embedded is slow.
-
-There is a benchmark program in the repo:
-
-    cd userspace
-    make CFLAGS=3D'-O2 -fno-strict-aliasing'  # Or use kernel's flags.
-    ./bench /path/to/testfile.xz m 10  # Multi-call mode (XZ_DYNALLOC)
-    ./bench /path/to/testfile.xz s 10  # Single-call mode (XZ_SINGLE)
-
-The source files aren't completely identical to the versions in the
-kernel. If you want to test optim1/optim2 in kernel context, copy
-xz_private.h, xz_lzma2.h, and xz_dec_lzma2.c to the kernel tree and
-remove XZ_EXTERN:
-
-    sed -i 's/XZ_EXTERN //' xz_private.h xz_dec_lzma2.c
-
-It might take several days for me to reply, so please be patient.
-
-Thanks!
-
-[1] https://github.com/tukaani-project/xz-embedded
-
---=20
-Lasse Collin
+Applied, thanks!
