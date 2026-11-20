@@ -1,142 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795182618;
-	b=zBNgjjk+4ewUqN3oBZv4sCyFFpgNgU+fynE8ZQjGyzbv28U1iy+RwwfCrgkToD6+kO0Q
-	 mbjNanA4zJtxfJJ+kFIQApmOjW4w0f+JjF8JGHGeoW+9XE4oS6/rsqIS19ONlLP9AGo9R
-	 gYfYotRhzTNJj3EcsaKqoST9L0gArYt3+ZO9ADEDyOw4AUwoZzYbGx/vH2tvXXp+6wHXB
-	 1T95fXoEwHa/D3EF21wM3PKlx+xYXs4OZeCw5PTYv7zMkhNqj/q8EdM9UYLW3hcvReKun
-	 0PXSH0Cs30hapZVVSpxGVLIeVLZYj3KN5reio2xlvdLwFmvdTSEmiAA38SuvgbigOrQ==
+	t=1795182617;
+	b=ca3MAAfNx2cu4R8c9sfEpkYIjHRqgizDZnwlvTN1+MR4GjrbtBSjPA+qgOjidqDnePsX
+	 SVVGebGsgfAs0qR+bdd83wfVYTxnkGiBZTAzg8Tr/WBolI+I1gOIVWyUyjeO0eeXQOVj5
+	 erdq/okHkPKuSCvY1U2DpiSa0mkK7orq0CwBsxRYGcOWf8ngh9XpEMHHFFQrVFqeSPEVz
+	 MDQnB7xBDGooztBXi/oBskIBw4j2E2sYPkEoILx1vu2GVY78ngHfr3q4UczwXpSyRWBwu
+	 jKWyGj+xCpFD7zi5CixDc4wDnIvzEKb1/X+StgLK0JroncwNpt3J8kuEv65E8OPWbiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795182618;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795182617;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=uU+g78pFe3woDmujMNPfhZ/0Qi8mHsxDvK4Ws3nTpkw=;
-	b=aJAg6PKYRjHuxxzTh4YctA/+phGjZU3RKjiZqF8mkT5aDWPRU0IZAlvpVZsU6mWkDAg3
-	 EupMhAoL+3PnFoWLosPDeTjYDdZ7STPj84dIPOGvZUNmYkw6CPn+6vY0s6TfQAW5M5Kda
-	 7hPluk8/1wFJS9T073wkpgvXZspQJeM9LVykFEqBIRh33HtUN1d4ycEpGksWoJ63RjllP
-	 8CWzIgLjbByILLHQcKSG7wnsE/aUQjl+SfjKdE9QmSy1DyofNCrGARpa1t7SUH2PAA3yT
-	 niCPX3zozndhoOm921+gBprod49ieED9Hv5rh/iaGTWvW4cq4JNeJW+bUu9B6YjCHPw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ztkmG2EzFlJYzHneyZc8vQ6gywFDzTMFIn6AR2HWO8o=;
+	b=FISA58jKwbEMsKmg0KWQWFOQGXh7Dgxga3Ig1b4q2PrWztEBlOtedzS/uCz39nkB2pO6
+	 4z42/dhHsE5Lh5MnQr87dOfTNLRO6q7saCn3QtXIhdhh1QLVTZV6S6GwywVj+1eE8VvsW
+	 vh3LuxA3p2b11o9WFqG37T1pAhLnUtw+Dti1vcBl3ecX/WUMKnQUlHOSe+u3nRoeuALWR
+	 1vFMFFMBIXZ7O5IoHKsdwIMshVw5IOwwHXbmcJYemdKcUK1o4QUVuzMrU0KYoRXveATnK
+	 sFxM51gIbOZ00a0Ct08uSLQADN10IiHy8UT6jgX0dUQdSR3x5J9M4hCzNV8ucsWoKJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=ehz6mMEB;
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oux43k8P;
+	arc=none smtp.remote-ip=209.85.210.173
+Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8BBFA606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:50:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8BBFA606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05FDB606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:50:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05FDB606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=ehz6mMEB
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-949680e6d82so131312185a.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:50:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oux43k8P
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8b3577deeb0so419856b3a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:50:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795182616; x=1795787416; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uU+g78pFe3woDmujMNPfhZ/0Qi8mHsxDvK4Ws3nTpkw=;
-        b=ehz6mMEBp7FU9O4IkG6ucYOPrN/2FptPlSVzAMegQhkSAM21Hz39XQX76haUWfk977
-         A2S7LqWAyzQ/MMpQcJ9hlw5/i8t5QmFoKEbwfS2++6OthszxDFhEwhu48SFckK+V0pvW
-         ZrB7pLti4QW/zlyDdG0NHqvUQqc55WcUlTDasvdx4/7cbllh7O44dOopIvf3GjZWbJGD
-         Hp2pPFYqt09CILTVYoO85olovSxlw20uhMs3fEFAaJjWsbuz4Ruyjz74FAK8xTbPsjJm
-         YNZjjLR6Muw2SduJu6y83jD/L3yp3ZXbUhG9xHOIQjqowZufFq2KjlStO23Q1v2+do05
-         Ehqg==
+        d=gmail.com; s=20260707; t=1795182616; x=1795787416; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ztkmG2EzFlJYzHneyZc8vQ6gywFDzTMFIn6AR2HWO8o=;
+        b=Oux43k8PXmTenM/jfST0wFJSahrgdwOk/+WkiFOrtOq+E0jwgkafDtlFhLUkRT9OjS
+         ro5B6Fgcmno392b+U27ndrq78LaKuD+eq/yYNOlVFylKoZ6GOxh2tS0gaQtS0dLBoiSe
+         1MJBeyJ6mlbuWmrzzVMfv3INJ1srXHrYJ4D+YopErn7w+IObxGOdlCRAPYriiPgwOyMJ
+         clprnLU+4VlFfytVSN4jscO6gXXiqW11r9RXOlli+3c8jitaLwY5SqIzcGVJ0ORy+ZzT
+         u2M/dmh1rUuOnmOsaZDX04mMh1KZXgJrZBTrnaLVAgBE9gUwG9lEnLlvraHKvZD/6dOt
+         Phww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795182616; x=1795787416;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uU+g78pFe3woDmujMNPfhZ/0Qi8mHsxDvK4Ws3nTpkw=;
-        b=DTrQAkqtNHvYMM3OnkVHYpml1dTULfqgo4qGmolopNCTruD8xT8OcnPC9WVChiTCxn
-         vDYCqPU7bapEq4ghgvCM00fuJqyyjq9W30P0dSmGbHpz7Ti0OMMNqSs93hn4Cx23lBom
-         ouHPNpsAgX6sUDSZ0CJBYQi1ygrHkeT1+Y0cTzk8qmU93hKAifC1TKwabMUlpdwGcuOO
-         fMTs9v6u8tkG8gzJxtRbZBhRbzvi8QfPIfW+3QzJSq9qWmvE7JJp/85xC6g+fgl0WDzb
-         GbrXGk4Tyf6kMq/+S+VMEricyPxtsoJcYjPH0xwl4CMmCY8W0lJbgj6KO/0rxbqv4Myo
-         Ghaw==
-X-Forwarded-Encrypted: i=1; AL+hErE1mdmMJbhpzkY+eHVlQP+y2L8KUgU8F3REAiA+3CJOLVK9ToR5yx6VnfdZuTh9pEyVcSb3jkw0Ufet4KU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/P0VPcNKI7FBrFzyWljmlvJJobKLyff9v1u/jxbEVlgsD74EvD
-	GJGyECqZIz+Bfh2yZvCvcDwPi3b5ktDDYGC7d4qZ9FSPzsUAbO5fVgsDwV1gosf72f8=
-X-Gm-Gg: AYBFou0Sn7TnQHPmD9PAgpvKDEsJV9NtVq3Gzs/VTpYs0LqxulypYN8XLIz3CfedlNQ
-	36Ka/zolKE/Zs1oJx5+xjZF2GeEfuuNLP8f3jJh7XYHvR9mFg6JjKk2++dITl2ln7gnLRb9qhb3
-	SFOtiXsUGyTEPUBisqj6y1JiaK26CIcIKkE71Lc0qbfxMY6rlNEfc+d7TKYBreZFkZbpN56SIVO
-	5uolmhsdpuGre95GJJ3OXRO0pWHisYIJolliAxHxds56GlSiUG8HOL3r61wRp/lbMvQ/4hKsTh8
-	6Z30lyGwOGFpg0ZoprRw1By6sNPT572wlXQryan2EgZlcSBgc587LspEvkIY22tu6m3laXAUQX6
-	lSCJnatFdxy895y6A0u9yafarUvoOPfZ4ryVrfYV7hrCnDHUgfIeah2jdgHE1on1BIc9PusJy2N
-	1KA8VI3jgriPyNaxeZJtZFFcDfATThL9nOzEycqBmpS4MZrPg3DrSZyd4FMabUb1S8nTo1aL81H
-	BK5Y3QkbZRNXCiG0PDyreNJVO5OCI/ze8VSD2xDEspO2NPwQnlorOgLfQa3z5lqfos35gBsvrNS
-	Ow9pkw==
-X-Received: by 2002:a05:620a:4111:b0:939:5cd5:e243 with SMTP id af79cd13be357-949ba80f8acmr491343985a.6.1795182615989;
-        Fri, 20 Nov 2026 05:50:15 -0800 (PST)
-Received: from ziepe.ca ([142.166.156.71])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f7cf3sm190597085a.31.2026.11.20.05.50.14
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ztkmG2EzFlJYzHneyZc8vQ6gywFDzTMFIn6AR2HWO8o=;
+        b=NW2jvnrXSiUCDj0lvjqknDy8fy5NA0X0sR2Thld5AxqS41iB1Y/iREIhAUtjm5zYtJ
+         eCJNhgrbFRM9Gl/RZfl3GNG6I18miIlgXaQ5XClUswewnvZGe79HFiiKxWQlliTG+8LJ
+         RyLpaHplYbM22OB6eC2ZnYPiiD8WW+jgRwaxpnPsufN8P4RusLnwK6XsYbo2IFebFU5s
+         Y/Nb2Cgzj8ict3oQAoPKvirfOIZvp9VMRS0mWiBF5OvTk5v/nVcJfZLbQV8iardNjYxe
+         qh99RvYS5NyoVY+2/U/KiHdo3JxstlGKIhPSS6Am0oyln54rTNTh7AETelSTKUQ1Mi4O
+         +mPw==
+X-Forwarded-Encrypted: i=1; AL+hErHFbzu2T/dbeqenrV6sGSRvqYwx/9oQd1JHuDceLjS+U9BvzbbTwo//rJYhpcnLsNT2kepnvI7/IaFMKbU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/p85UjyAXb9iYAzNvwowrsjF/39BQtMunNl9qXjv0MuQYq6uWY
+	Q7tscTA/mFHAKgg8tVufKiRDzlRB7pmGSvtFduIiusBlHS/AY0z/IdG6/EtJe48f
+X-Gm-Gg: AZFdTZedAs52xlbWfv3tMra1pvYA60tMEN2Rz7xNTGsDNAY9vMcMWpvWo43JnYN8c7n
+	MhwRvtiq4oHmNmYYx6K3URcApokQky/CfQj96gtRiDWYXCiHYGHrVtXHq4+KTZFJ8g3VcCPhlYS
+	I3N5CqBsIABsZQkQY5YlsvNwrIfQ4qeYVhWqjKp+jCE2Z1B9wuJXmU1LHH4Ev0HdDwegl1vpRtG
+	Cdywdpe83MtMm1HCJ91SJYy5D/lOG4EQghfL6cf66U1zvTk/LWm/ntkK3U/hgKv0XG33mY/ftKb
+	mAhfInnqVtDbDRE2Y7gmHpynLYTVpOwi0bHMtxchbhNt9j25B9UnmZX42vhgwWe7Y7dAaA9xis9
+	TNhtdTSsQe5TRQ9+F3Qakk0HG5GUIUc+u2o3gdQlWYRj9hhEYkYOgv1FZoPbt+swP4sh+XKBkTQ
+	a2Bi3PuQe5oYW2AGOYlDMVdSMX5OzwKuQoPfAmLFpOb212M5zgharIQjhhpy5RCWvzJhXhVV2Tz
+	gIyGG0PiI1CDMScIK6Q5J1Yp/PATpctCD1RJPc06bAtuKpO3/1mUCRZrOpNVMAOvKZ3UD3POBji
+	eiMgVqc9yqOwtEUEhp6IglkSuv3TBT83Ve1FRuTZWBe05M45jC9vjg==
+X-Received: by 2002:a05:6a00:2290:b0:874:705d:f63e with SMTP id d2e1a72fcca58-8c87c38b850mr2646210b3a.32.1795182616265;
+        Fri, 20 Nov 2026 05:50:16 -0800 (PST)
+Received: from DESKTOP-UCPRL76.localdomain ([113.200.174.114])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285c15asm1525086b3a.20.2026.11.20.05.50.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Fri, 20 Nov 2026 05:50:15 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xUP0H-00000003hHG-3ovL;
-	Fri, 20 Nov 2026 09:50:13 -0400
-Date: Fri, 20 Nov 2026 09:50:13 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Luigi Rizzo <lrizzo@google.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Luigi Rizzo <rizzo.unipi@gmail.com>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>,
-	David Rientjes <rientjes@google.com>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Hao Li <hao.li@linux.dev>, Matthew Wilcox <willy@infradead.org>,
-	Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, Simon Horman <horms@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Joshua Washington <joshwash@google.com>,
-	Harshitha Ramamurthy <hramamurthy@google.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Dragos Tatulea <dtatulea@nvidia.com>,
-	Naman Gulati <namangulati@google.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org,
-	iommu@lists.linux.dev, netdev@vger.kernel.org,
-	linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org,
-	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-api@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
- for DMA and CoCo
-Message-ID: <20261120135013.GO3115493@ziepe.ca>
-References: <20261109182533.3594984-1-lrizzo@google.com>
- <20261120010655.467825-1-lrizzo@google.com>
+From: Zheng Shuhao <viennaoffh@gmail.com>
+To: linux-input@vger.kernel.org
+Cc: jikos@kernel.org,
+	jic23@kernel.org,
+	srinivas.pandruvada@linux.intel.com,
+	bentiss@kernel.org,
+	heiko@sntech.de,
+	lee@kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	ayaanmirzabaig85@gmail.com,
+	syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Subject: [PATCH v2] HID: sensor-hub: Avoid holding spinlock across child iteration
+Date: Fri, 20 Nov 2026 21:50:05 +0800
+Message-ID: <20261120135005.566-1-viennaoffh@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <1795161418.hid-sensor-hub@viennaoffh.gmail.com>
+References: <1795161418.hid-sensor-hub@viennaoffh.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -146,29 +105,84 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120010655.467825-1-lrizzo@google.com>
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
-> This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PISA
-> ("Pre-mapped IOVA Superpage Allocator"). The text below follows
-> Documentation/core-api/pisa.rst (patch 25/25), which has the details.
+sensor_hub_remove() holds sensor_data->lock while walking the HID device's
+children with device_for_each_child(). The child iteration takes the device
+core's klist lock, while sensor_hub_raw_event() takes
+sensor_data->lock with interrupts disabled. This creates a lock-order
+inversion.
 
-I thought the conclusion was to just do this stuff in netdev pagepool,
-now you come with an enormous AI series spread across the entire
-kernel?
+Pass sensor_data to the callback and take the lock only while examining
+pending.status and completing pending.ready.
 
-> - Needs bounce buffers: in Confidential Computing VMs, PISA allocators
->   pre-decrypt 2MB pages in place, avoiding swiotlb bounce-buffer copies.
+The callback also visits non-Sensor Hub children. When HID battery strength
+support is enabled, the HID input layer may register a power-supply child
+without platform_data. Skip children without Sensor Hub data before
+dereferencing it.
 
-It seems this was ignored too. We want the bounce buffers in CC. They
-serve a security purpose. You cannot loose control of the shared
-memory buffers have have them leak into SKBs, user mappings and so
-on. It is not secure.
+Testing:
+- With CONFIG_HID_BATTERY_STRENGTH=y, ran a UHID Sensor Hub/Joystick device
+  exposing Battery Strength through 15 create/destroy cycles across three
+  QEMU boots. The power-supply child was found each time; no Oops, BUG, or
+  KASAN report occurred.
+- In the same configuration, hid_bpf passed 45 tests with 1 skip, hidraw
+  passed 27 tests, and hid-core, hid-apple, hid-gamepad, hid-ite,
+  hid-keyboard, and hid-mouse passed.
+- The full HID suite was not completed; it stopped during hid-multitouch.
+- The #syz test request was rejected because syzbot's automated patch
+  testing is temporarily unavailable.
 
-I don't see how any of this is valuable or necessary for CC,
-especially when we really don't even expect to have an vIOMMU for CC
-very often..
+Fixes: 8a5b38c3fd70 ("HID: hid-sensor-hub: don't use stale platform-data on remove")
+Reported-by: syzbot+fb951970a334aaff00ba@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=fb951970a334aaff00ba
+Signed-off-by: Zheng Shuhao <viennaoffh@gmail.com>
+---
+Changes in v2:
+- Pass sensor_data to the callback instead of NULL.
+- Skip children without Sensor Hub platform_data; add a battery-child test.
+- Add Fixes and correct the syzbot address; remove the self-added Tested-by.
 
-Jason
+ drivers/hid/hid-sensor-hub.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/hid/hid-sensor-hub.c b/drivers/hid/hid-sensor-hub.c
+index 6470a290ebfc5..4c447f62480b5 100644
+--- a/drivers/hid/hid-sensor-hub.c
++++ b/drivers/hid/hid-sensor-hub.c
+@@ -804,9 +804,16 @@ static int sensor_hub_probe(struct hid_device *hdev,
+ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
+ {
+ 	struct hid_sensor_hub_device *hsdev = dev->platform_data;
++	struct sensor_hub_data *sensor_data = data;
++	unsigned long flags;
++
++	if (!hsdev)
++		return 0;
+ 
++	spin_lock_irqsave(&sensor_data->lock, flags);
+ 	if (hsdev->pending.status)
+ 		complete(&hsdev->pending.ready);
++	spin_unlock_irqrestore(&sensor_data->lock, flags);
+ 
+ 	return 0;
+ }
+@@ -814,16 +821,13 @@ static int sensor_hub_finalize_pending_fn(struct device *dev, void *data)
+ static void sensor_hub_remove(struct hid_device *hdev)
+ {
+ 	struct sensor_hub_data *data = hid_get_drvdata(hdev);
+-	unsigned long flags;
+ 
+ 	hid_dbg(hdev, " hardware removed\n");
+ 	hid_hw_close(hdev);
+ 	hid_hw_stop(hdev);
+ 
+-	spin_lock_irqsave(&data->lock, flags);
+-	device_for_each_child(&hdev->dev, NULL,
++	device_for_each_child(&hdev->dev, data,
+ 			      sensor_hub_finalize_pending_fn);
+-	spin_unlock_irqrestore(&data->lock, flags);
+ 
+ 	mfd_remove_devices(&hdev->dev);
+ 	mutex_destroy(&data->mutex);
+-- 
