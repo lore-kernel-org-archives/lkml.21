@@ -1,61 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.25.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187750;
-	b=zsrtNNB/7BGLdsV8ucCPTJgWd87jfqYDAWc5xyLGxMciE1yEXC3KXnTI4EFkdsZFRVxu
-	 wbdCdsLXkWnfCYMYcdxuas147WvIQqd1fxC1HnQMZUuLg6gdtFchPQtbfbdrfDk0DLyNB
-	 axpD+rjxujwQ+PIy+aEcxpSOhXxrsUi3AHOlTuDX7DNWhA470JqfndPUHcGQhsn9TrT/Z
-	 NuMJXDw1EH1sT1Wi8gdfIO6vuEkSVhkY85A3lGOWHSsKve0ccdCjE9zeaX5EmAzUSG16U
-	 Iwu+u26ymWDiNUTYEkBdr9Yxrt45yRYkT2Uk9PXMIWlVpZW1/XwmILLTAHAjo9bxSlw==
+	t=1795187776;
+	b=koyaqkqoxSnp/Inq8zdP70+ja2z9heI3jLUr67MRpnIiykvHUxcWr19N1739HugQWJ4T
+	 EKkytRNj0axiEm79vUSNHWS8S+2j6xRR7ytDDt90FWgdLuP4Zuu3Kp+U4vWT+nm09Wq8p
+	 bh1M7nWA3qRoSY/AL0NVQHqgbJQMx7qzn8JNbxLoWm1PDtOK9Pv0SKnzhsfuuWfjVmnr2
+	 zkX2gOuWK3p9aPAj2F2RHuekGNb5g5c4ZveYN7G1Q2gxrEjG1/ZkYFx12c9njmIx10ftS
+	 AAwvpT5cZVrio4P+S5dL85AX5vfRxXfVulzhsXYALr00rG/gpiz4IdluI5/0U/ezTcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187750;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=ihZfSgxIvjEMkXvmyda1NP7Q3LgCpF1cCr/6VrpGnao=;
-	b=l5T9g6sNJg7B+4hxBe4LWnMHSq9itIhSboPTRHahvS51OPiW+NOyAeiUP7AQlspDer8Y
-	 5UdFHI89m8XotebISQ/GMlYAPGd6+Q9igviBspsWGfYvpyzVQMuNF39Du+hLcHMP/g4BS
-	 21RmlikRQmMymmLugdMaoL1dlCFU2VsEgpxlvr/t00W+Al33RArgENEZ/jK6+rv5aHqWs
-	 FYf8mTC6aM42/vLnEj9NJzkcPM2zRBia/rt5zEsIHISCqwukPVBOT5d4TTw3ObBaIJ1Q0
-	 tsymS3rMaT35VHmtAtVJM5zjM2QMBt6EmUmC/tOMhtbkxiJJAC2BMFAkNmVn6hyOo7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187776;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Infomaniak-Routing;
+	bh=VJY0pMaR2Hgf9iovNumsqArKUrBvWohEWSq9se+XYTE=;
+	b=qb2ncxqz5ZP8KwoqIZopOamtcLqkIABZBd2e3S8Fwhvp7TKJgftifPH1wVgkRWivbBBW
+	 hPh6UnvuGDu4jUOX1bF+6Rx+3sjJMXBHEiEUFmPgPkBYtrf5LmquB877+T5IqcPGsfBa+
+	 G7F1uYkNA1CHSk/bdBvmqlt7XIEZCSyhaDOvDxDTcQBMbCo7tJufAqM6KXI1kpntfL34T
+	 cNzQkarMgJiKxX4Q0qmgmeuHfSN1In+zP9n3TFFTBoujQxeka3rWW9X98rRod5k2pnaUL
+	 PF/Y2+oWzUWzpwJ2Y1W1+B7xOTUeo2gpLaZJCbZ+Iu4VKIzSovKhJdBGpGisFTK/VRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2SdLCLl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=digikod.net;
+	spf=pass smtp.mailfrom=digikod.net;
+	dkim=pass header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=DMxXhlY7;
+	arc=none smtp.remote-ip=185.125.25.10
+Received: from smtp-190a.mail.infomaniak.ch (smtp-190a.mail.infomaniak.ch [185.125.25.10])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE791606A33B;
-	Fri, 20 Nov 2026 15:15:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FA55606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:16:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FA55606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=digikod.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=digikod.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V2SdLCLl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61B771F000CA;
-	Fri, 20 Nov 2026 15:15:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795187750;
-	bh=ihZfSgxIvjEMkXvmyda1NP7Q3LgCpF1cCr/6VrpGnao=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=V2SdLCLl+PH46TsluxaAncAdCSR9/8rtkneR5aa2+XVpBg2n7i5eN61n5cLrPCib7
-	 Y1zs7LkeLUtQHrxcc20V7hPvUP9By06ovOk3iQTAmN7J3oH6MYzGl0HY05tTzkI+B9
-	 u/9dKgxi4O6o0Yh380pbhyF1vPo1Zrf5PGADjiauViB+YF/jzuMERHVtnTX/bql5Gi
-	 +1nUjCdWbZN56Z9I6mR55wZQkOhJnTdRQAJiICTpxYaLwdTX7LO1u+nmJjGRI2+jMd
-	 Ze3CRwcUqYqb0MS134tJx0N4UrdoQh6Eya2Ye/HI88d1y8sofiW9rEoG95Q2alL72z
-	 BzPxn460AJnUw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Myeonghun Pak <mhun512@gmail.com>
-Cc: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Ijae Kim <ae878000@gmail.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
- Darren Ye <darren.ye@mediatek.com>, Jiaxin Yu <jiaxin.yu@mediatek.com>, 
- Trevor Wu <trevor.wu@mediatek.com>
-In-Reply-To: <20261112011708-afe-v2-0-mhun512@gmail.com>
-References: <20261112011708-afe-v2-0-mhun512@gmail.com>
-Subject: Re: [PATCH v2 0/5] ASoC: mediatek: fix AFE IRQ registration and
- removal ordering
-Message-Id: <179517904754.6016.16269615530838300307.b4-ty@b4>
-Date: Fri, 20 Nov 2026 12:50:47 +0000
+	dkim=pass (1024-bit key) header.d=digikod.net header.i=@digikod.net header.a=rsa-sha256 header.s=20191114 header.b=DMxXhlY7
+Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jWJnf6BH9zL2l;
+	Fri, 20 Nov 2026 16:16:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=digikod.net;
+	s=20191114; t=1795187766;
+	bh=VJY0pMaR2Hgf9iovNumsqArKUrBvWohEWSq9se+XYTE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DMxXhlY7b8WQ7iO3RoUeGpysJ7YKzXsiMxhIZJUnFatuUWXdqZGlfWb50jMlw+SP5
+	 67adzrIb89Xrn+9QHD1uwQGdS++lQyx2F8vp4kUlVPlMSFCGE7q50yBMORlGiwcMxa
+	 H9SMbddNEeE7KbmvXBq/eRrZedld4qfVmnF5O148=
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jWJnZ5vbGz5M6;
+	Fri, 20 Nov 2026 16:16:02 +0100 (CET)
+From: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>
+To: Christian Brauner <brauner@kernel.org>,
+	=?UTF-8?q?G=C3=BCnther=20Noack?= <gnoack@google.com>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Tejun Heo <tj@kernel.org>
+Cc: =?UTF-8?q?Micka=C3=ABl=20Sala=C3=BCn?= <mic@digikod.net>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Cen Zhang <blbllhy@gmail.com>,
+	James Morris <jmorris@namei.org>,
+	Lee Seong Hyeon <ihopenre@gmail.com>,
+	Marco Elver <elver@google.com>,
+	NeilBrown <neil@brown.name>,
+	Nickolai Zeldovich <nickolai@csail.mit.edu>,
+	Paul Moore <paul@paul-moore.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	"Serge E . Hallyn" <serge@hallyn.com>,
+	Yihan Ding <dingyihan@uniontech.com>,
+	linux-kernel@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] landlock: Do not hold exec_update_lock across the TSYNC wait
+Date: Fri, 20 Nov 2026 16:15:52 +0100
+Message-ID: <20261120151554.2651743-1-mic@digikod.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,63 +77,267 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2005; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dSDkHmfmCeNxORnUsZPpEUBtYzLsL2QTxwlCUj1j5No=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZUhRfLDdqKWWb3LEh1FVrp2l39H3BnQd6bWoPShsfn
- Lls+9Z1HaUsDGJcDLJiiixxWdwv60ter+E7uLANZg4rE8gQBi5OAZhIsScjwx+bYs4LHKEzxes+
- S92Pay44tVhO67TrulBDmRstCW8VnjL8r+p8UPu9RtY4RXbrMr6NlamTQhtecNl6Z6y6wp0qGfa
- HAQA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Infomaniak-Routing: alpha
 
-On Thu, 12 Nov 2026 01:17:44 -0500, Myeonghun Pak wrote:
-> ASoC: mediatek: fix AFE IRQ registration and removal ordering
-> 
-> This series fixes IRQ lifetime ordering in the MT8186, MT8188, MT8189,
-> MT8195 and MT8196 AFE drivers.
-> 
-> Request each IRQ after regmap initialization so it is freed before
-> the regmap. Where remove() shuts down the AFE, free the IRQ first.
-> Also balance MT8186's IRQ wake setting.
-> 
-> [...]
+landlock_restrict_sibling_threads() write-locks
+current->signal->exec_update_lock to serialize TSYNC callers, and holds
+it until every sibling thread has run its task_work.  This wait is
+unbounded: TWA_SIGNAL does not wake a TASK_KILLABLE sleeper, so a
+sibling blocked as a vfork() parent runs it only once its child execs or
+exits.
 
-Applied to
+Meanwhile, readers of this lock block, mostly in D state:
+/proc/<pid>/stat, mm_access(), pidfd_getfd(), kcmp(), perf_event_open(),
+etc.  An unprivileged process can thus stall tools run by other users,
+including root, such as ps and top.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+Only a per-process "TSYNC in progress" marker is needed.  Use an unused
+signal_struct.flags bit, protected by sighand->siglock, which is held
+only to set or clear the marker.  A second caller still restarts the
+syscall, and a cleanup class releases the marker on every return.
 
-Thanks!
+Like de_thread(), treat a group exit or an ongoing exec as a held
+marker: a group exit may overwrite the flags, and both kill the other
+threads, which the restart lets the caller handle.
 
-[1/5] ASoC: mediatek: mt8186: Keep the AFE IRQ within its resource lifetime
-      https://git.kernel.org/broonie/sound/c/420be55fe0e2
-[2/5] ASoC: mediatek: mt8189: Keep the AFE IRQ within its resource lifetime
-      https://git.kernel.org/broonie/sound/c/4f4067c2d110
-[3/5] ASoC: mediatek: mt8196: Keep the AFE IRQ within its resource lifetime
-      https://git.kernel.org/broonie/sound/c/eb9a5be4c2c1
-[4/5] ASoC: mediatek: mt8195: Keep the AFE IRQ within its resource lifetime
-      https://git.kernel.org/broonie/sound/c/eac2ac34a18d
-[5/5] ASoC: mediatek: mt8188: Keep the AFE IRQ within its resource lifetime
-      https://git.kernel.org/broonie/sound/c/94d0e251e7d7
+Add KUnit tests for taking a free marker and for rejecting a held one.
+A concurrent TSYNC caller cannot be started deterministically from user
+space, but a KUnit thread has no sibling and can hold the marker itself.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Cc: Christian Brauner <brauner@kernel.org>
+Cc: Günther Noack <gnoack@google.com>
+Cc: Nickolai Zeldovich <nickolai@csail.mit.edu>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Tejun Heo <tj@kernel.org>
+Cc: Yihan Ding <dingyihan@uniontech.com>
+Cc: stable@vger.kernel.org
+Reported-by: Lee Seong Hyeon <ihopenre@gmail.com>
+Suggested-by: Lee Seong Hyeon <ihopenre@gmail.com>
+Fixes: ff88df67dbf7 ("landlock: Serialize TSYNC thread restriction")
+Signed-off-by: Mickaël Salaün <mic@digikod.net>
+---
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Changes since the initial report from Lee Seong Hyeon:
+- Rewrite the fix, storing the marker in an unused signal_struct.flags
+  bit protected by sighand->siglock instead of adding a signal_struct
+  field.
+- Treat group exit and ongoing exec as a held marker, because group exit
+  may overwrite the flags.
+- Release the marker with a cleanup class.
+- Clarify that not all readers wait in D state: perf_event_open() waits
+  interruptibly.
+- Add KUnit tests.
+- Credit Lee Seong Hyeon with Reported-by and Suggested-by instead of
+  authorship, because the implementation was rewritten.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Christian, Oleg, and Tejun, this patch reserves a signal_struct.flags
+bit for Landlock and relies on group-exit paths overwriting these flags
+under siglock.  Please check that this use of signal-core state is
+acceptable.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Lee, this rewrites the patch you sent with your report, so it credits
+you with Reported-by and Suggested-by.  Please tell me if you prefer a
+different credit.
+---
+ include/linux/sched/signal.h |   1 +
+ security/landlock/tsync.c    | 134 +++++++++++++++++++++++++++++++----
+ 2 files changed, 122 insertions(+), 13 deletions(-)
 
-Thanks,
-Mark
+diff --git a/include/linux/sched/signal.h b/include/linux/sched/signal.h
+index 0adb51ab1542..f68bbaa3527a 100644
+--- a/include/linux/sched/signal.h
++++ b/include/linux/sched/signal.h
+@@ -262,6 +262,7 @@ struct signal_struct {
+ #define SIGNAL_STOP_STOPPED	0x00000001 /* job control stop in effect */
+ #define SIGNAL_STOP_CONTINUED	0x00000002 /* SIGCONT since WCONTINUED reap */
+ #define SIGNAL_GROUP_EXIT	0x00000004 /* group exit in progress */
++#define SIGNAL_LANDLOCK_TSYNC	0x00000008 /* Landlock TSYNC in progress */
+ /*
+  * Pending notifications to parent.
+  */
+diff --git a/security/landlock/tsync.c b/security/landlock/tsync.c
+index cfa73a2a67ca..a6fa9ce0ac78 100644
+--- a/security/landlock/tsync.c
++++ b/security/landlock/tsync.c
+@@ -5,6 +5,7 @@
+  * Copyright © 2025 Google LLC
+  */
+ 
++#include <kunit/test.h>
+ #include <linux/atomic.h>
+ #include <linux/cleanup.h>
+ #include <linux/completion.h>
+@@ -479,6 +480,46 @@ static void cancel_tsync_works(const struct tsync_works *works,
+ 	}
+ }
+ 
++/*
++ * try_set_current_tsync_marker - mark the current thread group as under TSYNC
++ *
++ * Returns false if another TSYNC operation, group exit, or exec is in progress.
++ */
++static bool try_set_current_tsync_marker(void)
++{
++	struct signal_struct *const signal = current->signal;
++
++	guard(spinlock_irq)(&current->sighand->siglock);
++
++	/*
++	 * Group-exit paths may replace all signal flags, including an active
++	 * marker.  Treat SIGNAL_GROUP_EXIT as a held marker to prevent another
++	 * TSYNC operation from starting during group teardown.
++	 *
++	 * Like de_thread(), also treat an ongoing exec as a group action in
++	 * progress.  de_thread() sets group_exec_task in the same siglock
++	 * critical section that sends SIGKILL to all other threads, including
++	 * current.  Instead of queuing task_work for exiting threads,
++	 * restart_syscall() lets current handle its pending SIGKILL.
++	 */
++	if ((signal->flags & (SIGNAL_GROUP_EXIT | SIGNAL_LANDLOCK_TSYNC)) ||
++	    signal->group_exec_task)
++		return false;
++
++	signal->flags |= SIGNAL_LANDLOCK_TSYNC;
++	return true;
++}
++
++static void clear_current_tsync_marker(void)
++{
++	guard(spinlock_irq)(&current->sighand->siglock);
++
++	current->signal->flags &= ~SIGNAL_LANDLOCK_TSYNC;
++}
++
++DEFINE_CLASS(current_tsync_marker, bool, if (_T) clear_current_tsync_marker(),
++	     try_set_current_tsync_marker(), void)
++
+ /*
+  * restrict_sibling_threads - enables a Landlock policy for all sibling threads
+  */
+@@ -492,6 +533,19 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+ 	size_t newly_discovered_threads;
+ 	bool found_more_threads;
+ 
++	/*
++	 * Serialize concurrent TSYNC operations to prevent deadlocks when
++	 * multiple threads call landlock_restrict_self() simultaneously.  If
++	 * another operation got there first, gracefully yield by restarting the
++	 * syscall.  This allows the current thread to process pending
++	 * task_works before retrying.
++	 *
++	 * sighand->siglock protects only the marker, not the wait below.
++	 */
++	CLASS(current_tsync_marker, marker)();
++	if (!marker)
++		return restart_syscall();
++
+ 	atomic_set(&shared_ctx.preparation_error, 0);
+ 	init_completion(&shared_ctx.all_prepared);
+ 	init_completion(&shared_ctx.ready_to_commit);
+@@ -503,16 +557,6 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+ 		(restrict_flags & LANDLOCK_RESTRICT_SELF_NO_NEW_PRIVS) ||
+ 		task_no_new_privs(current);
+ 
+-	/*
+-	 * Serialize concurrent TSYNC operations to prevent deadlocks when
+-	 * multiple threads call landlock_restrict_self() simultaneously.
+-	 * If the lock is already held, we gracefully yield by restarting the
+-	 * syscall. This allows the current thread to process pending
+-	 * task_works before retrying.
+-	 */
+-	if (!down_write_trylock(&current->signal->exec_update_lock))
+-		return restart_syscall();
+-
+ 	/*
+ 	 * We schedule a pseudo-signal task_work for each of the calling task's
+ 	 * sibling threads.  In the task work, each thread:
+@@ -536,8 +580,9 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+ 	 * 5) signals that it's done altogether (barrier synchronization
+ 	 *    "all_finished")
+ 	 *
+-	 * Unlike seccomp, which modifies sibling tasks directly, we do not
+-	 * need to acquire the cred_guard_mutex and sighand->siglock:
++	 * Unlike seccomp, which modifies sibling tasks directly, we do not need
++	 * to hold the cred_guard_mutex or sighand->siglock around the thread
++	 * walk:
+ 	 *
+ 	 * - As in our case, all threads are themselves exchanging their own
+ 	 *   struct cred through the credentials API, no locks are needed for
+@@ -634,6 +679,69 @@ int landlock_restrict_sibling_threads(const struct cred *old_cred,
+ 		wait_for_completion(&shared_ctx.all_finished);
+ 
+ 	tsync_works_release(&works);
+-	up_write(&current->signal->exec_update_lock);
+ 	return atomic_read(&shared_ctx.preparation_error);
+ }
++
++#ifdef CONFIG_SECURITY_LANDLOCK_KUNIT_TEST
++
++static bool is_current_tsync_marker_set(void)
++{
++	return current->signal->flags & SIGNAL_LANDLOCK_TSYNC;
++}
++
++static void test_tsync_marker_free(struct kunit *const test)
++{
++	const struct cred *const cred = current_cred();
++
++	KUNIT_ASSERT_TRUE(test, thread_group_empty(current));
++	KUNIT_ASSERT_FALSE(test, is_current_tsync_marker_set());
++
++	KUNIT_EXPECT_TRUE(test, try_set_current_tsync_marker());
++	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
++	clear_current_tsync_marker();
++	KUNIT_EXPECT_FALSE(test, is_current_tsync_marker_set());
++
++	/* Takes and releases the marker. */
++	KUNIT_EXPECT_EQ(test, 0,
++			landlock_restrict_sibling_threads(cred, cred, 0));
++	KUNIT_EXPECT_FALSE(test, is_current_tsync_marker_set());
++}
++
++static void test_tsync_marker_held(struct kunit *const test)
++{
++	const struct cred *const cred = current_cred();
++
++	KUNIT_ASSERT_TRUE(test, thread_group_empty(current));
++	KUNIT_ASSERT_TRUE(test, try_set_current_tsync_marker());
++
++	KUNIT_EXPECT_FALSE(test, try_set_current_tsync_marker());
++	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
++
++	/* Restarts without releasing the marker held by another caller. */
++	KUNIT_EXPECT_EQ(test, -ERESTARTNOINTR,
++			landlock_restrict_sibling_threads(cred, cred, 0));
++	KUNIT_EXPECT_TRUE(test, is_current_tsync_marker_set());
++
++	/* Clears TIF_SIGPENDING set by restart_syscall(). */
++	scoped_guard(spinlock_irq, &current->sighand->siglock)
++		recalc_sigpending();
++
++	clear_current_tsync_marker();
++}
++
++static struct kunit_case test_cases[] = {
++	/* clang-format off */
++	KUNIT_CASE(test_tsync_marker_free),
++	KUNIT_CASE(test_tsync_marker_held),
++	{}
++	/* clang-format on */
++};
++
++static struct kunit_suite test_suite = {
++	.name = "landlock_tsync",
++	.test_cases = test_cases,
++};
++
++kunit_test_suite(test_suite);
++
++#endif /* CONFIG_SECURITY_LANDLOCK_KUNIT_TEST */
+
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
+-- 
+2.56.0
 
