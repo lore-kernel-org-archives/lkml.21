@@ -1,76 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169530;
-	b=UDoXgrErcTgL0F1t6psTWjC7UefpB98MnmjMBin0/vvLnxMpayLFE14+8Q3bjZNcF/nu
-	 vurSqqyVh+mijpsmVa6UK8RkHQApswgVjD5VHjEEYzrXcxsnouvFk6jY8tFz6Ux9ReDak
-	 fKZbwIZZFHOOq9AgGDX0e/S85ejznT1PL+91JALd54Jb2FK86yZhXBh9gT3WZM9lvT5xV
-	 7k2Ria39eJzO+pAU/ZtYDkGujNW51hNr2kzQAsJMsmbPvOigbSarGiyqV/f9iWWHoVQU3
-	 mcjuM9DyOVU3ibi7aC0olI0Y5gne+S+e2qNp4etjrRrO55S0WXZq4MAyWe/aMEAgMqA==
+	t=1795169570;
+	b=svT50FuvSx68mWZxugXITr/S88TzUzIg7i1cgoTVAeGdDgrcL1BHBPzc/CWwoYq3WYK1
+	 42CQJG3VbXAgF7Bga+VhRz3UTOx6Xxo8ZIHRgKVgp/DthTNixNDxQxb8F3VGN5LTsRlcg
+	 1J6Mx9+OOw+9P2xv/1Cm1aJsugBPYH4cCVyv+K7RtpSd1S2Yh3iNZwvsDMTunEAJd5k16
+	 VI2wETvUibkh1XF/AE16ZMaUxerTNffqqRfhmpsBD3EKE0Gb6gQYCZZvRYURFpaXEJYvU
+	 iE+yDrj0I2vbsuAjF08MjdD4Q7JUfsV3PmBwu8l1oMrfAzhoyjjydzjiupOxeQRF3Qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169530;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
-	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
-	bh=H3MuRZzFr5ou/OalDJ9VEoSCw1Kf/TF2fcG92pANMt0=;
-	b=dvNy3nmr2/WwlX67Ae2F30YQRzWPTgf6FSng5x598/hE9MHu/hW9AN+NYPmHKXu26t2F
-	 gpUWBgCn7NyH93bwh+E/hfbz+0GPurQOCU422m69O9IxvYr4FBBMc/rvuqCTTxJ2brGXy
-	 OIEYV7NgClF04Fbwc1Bl7ibb+Mzn25l6/FZYQsNGtUNxtfTq7/p5ShtyLAgRxzmCJ5Zyy
-	 rWYPYT+Sgu8LvTsMKZ90lKLuXuw2E7KqKDJaoZqQK9mqm2KU90BPjEpxbST7SbKc+4D/2
-	 /yzCoDFGLKGcZlYG29xqFGvoB/zBvKztP90x6Og+9088IIL22LGa0uGeBePTx1D4NNQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169570;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=BYSlGEtU75YElxD5lJINvAQFMqsMXtuHFnBFwhEDs8U=;
+	b=ufhsDCcjI8cGwrhlevcaYZF40pFD3ToiPF+XDjzsF529NOEl2dBxTZpbj2gD+eOL6XCM
+	 jwgFPOdGIxbSuwLsdv9P6QEyP/bkvGXrkzEJYik1O8+A51KSQOB/tlPqHtZPJdJaTVisP
+	 Xj1RajPFHpCpEXZw8vTroFXwA6nZj0MyNuGU1mC9KXAICKar6XynsdYlX2XSMmc6zLGzg
+	 fzjqy7zDhVBMJnjPWrzOqtm84aQRU7oggTGvhR8P645fMVzl/i9mwpR+T07TTOHO99ktm
+	 Ggm1V5U9J4RusmlGxTytf+gmQk5dBhz03MvpDBudF7w+q/Nm+PMgedRK767WUVecYwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FCPQiAkk;
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OuzWMIja;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=d99DNyi9;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8858606A325;
-	Fri, 20 Nov 2026 10:12:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8858606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB131606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:12:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB131606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FCPQiAkk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795169530; x=1826705530;
-  h=from:date:to:cc:subject:in-reply-to:message-id:
-   references:mime-version;
-  bh=z3a2wY9Cv9mFoR0oX0nPw+Bkp4VC7ZFQZ008/e0tRnY=;
-  b=FCPQiAkkdltsw6ns6Es3ufTNRSM0hORXsL/AUAgK0DYdqRSTRkDsx5/f
-   1dVBKcoAs+sWD/46nOBSjJ7W+NhPyN/myipVgoIHCDH1iCCbPSVi2cQtX
-   iobh0H1B6JqqGE4qFdzdhczKb1iu1rc+sDqbHVTfDVzVIPQ5SK+0keBst
-   SGMnhzOdrIPvMHF0RApMaEriZDbZeX753tZ5b+S9uzLIl+EBuXcbRTgRJ
-   8bWm2PBAsNxnohhaAAh+ofT8UfmAJ5bIPFkp1JX2ySz0BzToRIbgrswK2
-   bIrxdE8WF67S/74BMMajDhKTdsrXXu/bVWwRp4OTAJB45ZtH0uFAPMYux
-   A==;
-X-CSE-ConnectionGUID: YhEay1mSR5+h2FsTLg6MJA==
-X-CSE-MsgGUID: A8xoSgqqS9mqDFWcjku02w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3957860"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="3957860"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 02:12:09 -0800
-X-CSE-ConnectionGUID: rAiprtyYTd2jVN8dTK7Tzg==
-X-CSE-MsgGUID: zfeIKBhoQWqlbZniEsTqXw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="11006928"
-Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 02:12:06 -0800
-From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Date: Fri, 20 Nov 2026 12:12:03 +0200 (EET)
-To: Mario Limonciello <superm1@kernel.org>
-cc: Mario Limonciello <mario.limonciello@amd.com>, 
-    Hans de Goede <hansg@kernel.org>, Ma Jun <Jun.Ma2@amd.com>, 
-    Evan Quan <quanliangl@hotmail.com>, platform-driver-x86@vger.kernel.org, 
-    LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] platform/x86/amd: send WBRF DSM payload as buffer
-In-Reply-To: <20261102-superm1-wbrf-v2-1-28b02bb4ce61@kernel.org>
-Message-ID: <65fb4293-0c29-266b-28bb-7f7540735a70@linux.intel.com>
-References: <20261102-superm1-wbrf-v2-1-28b02bb4ce61@kernel.org>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OuzWMIja;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=d99DNyi9
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7ewNv605904
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:12:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=BYSlGEtU75YElxD5lJINvAQF
+	MqsMXtuHFnBFwhEDs8U=; b=OuzWMIjaj2D4CNLoBSuJtqqSam1WrBXTZkGhhaqd
+	j8bdTYi3KvcZP9jenjLlPtdVrWuM7MsE6Rc/We6Q4kAbUfEcIF/fmMdTEy5b/L1x
+	iodrUkmSUCxsNf5RJBw8YQ9MXCQOJFJA9IUSMJ7dMk3foO4Ows8JSLcq0bRFkSmG
+	j6e/MUHhYiGqPoYVYzIfHZaE+VodUJz75OY/eVakvEBUWBh67ZuDX7kRdm5PhxF5
+	8JiHgRjxrCrBrWNmPLhlBs2p13Nl8OwFgAMSGY2L8wfFOx9K/VjBHal+PAAphZD3
+	iWRe1gbS2rcC5MHV6Z+IPa3Kn6NHihnqGHFqQitOpMlhDQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2ggqs13s-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:12:48 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93cb7f9bb86so161611485a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:12:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795169568; x=1795774368; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=BYSlGEtU75YElxD5lJINvAQFMqsMXtuHFnBFwhEDs8U=;
+        b=d99DNyi9Or35O3bPY1BXPVgy/15/SwziMuu3cJIFzkrlShwlxk2M8Eq5WLNz/zkm/I
+         Lc8vB3OA1eC4upVrXOLkl/rdbGWW/CzpirDtXgaB2Hrt9v3CrcFPbqdCXNejjl6ng7Z5
+         Bc4bpPVR9nVs6HWOCjopP7Gu5oQGuIeHpKPRmAOUAoMQWAr44AWUGlzEUCkiU4ZHl2kn
+         Bv45CI0dJV1IEs3kglFGseqo6WX5oZYju3YZOqCSwFBSmFxM0SJuf6/uKfzzFkQRbYb+
+         6EMHxHYHMBCeTcZNZRM4aoP6ynGF32xgUUsGACv02dtqZ4OpYZMqXggYOCXwV5SOCvmi
+         46dA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795169568; x=1795774368;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BYSlGEtU75YElxD5lJINvAQFMqsMXtuHFnBFwhEDs8U=;
+        b=R1xHK1YWvMnQbisjRr+IbjAlsXRUwepNcmnH5D8X0XLnFEZ4hcB605UPO6TviLJnyk
+         DydEC2Ua38NyynltQ6k7PL1BZZLvqiRI2q5xTaNmvgkRq1CwmlzXW0rs8VYahTRQcVpb
+         lVP7xd/cejZIaiWoHk0IqoSfyAUnDmf3uT/IJQY7pBq+5O7xV8hfsaVatBClkUIBU/Qf
+         YxJCHCUtz9hL1DMFX8udRjBQRn+qxMmpgtz6E0NZWJR04xHMRkDCXrqA/za6LFAIKbg0
+         2KZ5k6tzvek6y2QJML8VLE0fHqZe2DxB0RfBukR48xKmZj4sWGGNl9Aqs7R+zM8EVRvl
+         2eLQ==
+X-Forwarded-Encrypted: i=1; AL+hErEKRf9JNdJpdzRAhDL0y8VMYipakdw3p8qWXEHsPx/dhZXZqUhL6mJFsDsz2lM6SXKEY5EhPzTWZqSWtaI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+CU4V9s36fZhPyz3TcczX3PQwZcXRSeO+jKyp4yIwkEuf2pLVh
+	rxXXofOprkqzXnuAeFleQLFviv+fDjmFplpz7nHd/bGdGB5lEuQN3fBdCcbAB+f5bAT565bh6L6
+	tduRymEDHxXDcC4IAAIBmKTQtYzneQ3Do5B/Pj9m5w2G+LdQqqwr08OG5nlnEXpjufOI=
+X-Gm-Gg: AYBFou0FO5kXzCMqBU11XJ7+KxIyHY/ttA8kHuEkzrcnAvpTAubRaNixVD7fJgYAFbR
+	Fl8h3lhOC/Vrg4BwzGTdXcugw2OinrlOK1mf0UTPylFQwoDk8r5jdE5DHFuvKW04GmXQyTFeWN4
+	Ebx+vr1djRa5orzyvGxrOXAz9W7VAbCMRBznFu5eDTuiuFIJCyUu7xqoZEkptNet70aCRzXJasx
+	uA0tKCbbU3xHOfmZKlEy6toLwXGdjHN66QyM8iecQ62nPw2TdqVMAZu+4z4eAgqLI6h7uRuJXr/
+	WRlE7/FaNhXb2JUOSK4iP+VITp3yiZGrxdfiBVUtm9V6+l7xQVgPyErrEQtMoQsCJeMyJsL7M8u
+	IGiTAROoAkvbC02pY/vvMCKuz1p+aMfDFPlDV/OhZ69gfwmBlU76hJEh6vwF8NRMV
+X-Received: by 2002:a05:620a:4612:b0:949:7fc8:c71a with SMTP id af79cd13be357-949ba80f896mr464639285a.3.1795169567699;
+        Fri, 20 Nov 2026 02:12:47 -0800 (PST)
+X-Received: by 2002:a05:620a:4612:b0:949:7fc8:c71a with SMTP id af79cd13be357-949ba80f896mr464635785a.3.1795169567099;
+        Fri, 20 Nov 2026 02:12:47 -0800 (PST)
+Received: from oss.qualcomm.com ([188.27.161.77])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884ab091sm104468205e9.11.2026.11.20.02.12.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 02:12:46 -0800 (PST)
+Date: Fri, 20 Nov 2026 12:12:44 +0200
+From: Abel Vesa <abel.vesa@oss.qualcomm.com>
+To: Stanislav Aleksandrov <lightofmysoul@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Taniya Das <taniya.das@oss.qualcomm.com>,
+        Qiang Yu <qiang.yu@oss.qualcomm.com>,
+        Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
+        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 5/5] clk: qcom: Add support for Global clock
+ controller on Halliday
+Message-ID: <llizdibjhqld7dbkdwt3vz2oyeiqsqb4rduunjlnthmhy3r3c3@vct73wnh6kpb>
+References: <20261116-halliday-clk-v2-0-28208928da36@gmail.com>
+ <20261116-halliday-clk-v2-5-28208928da36@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,188 +129,48 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-halliday-clk-v2-5-28208928da36@gmail.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX50B/zUq2RIrV
+ yxhL769QkYhaTraeSJIodgL6vA67XsEOtW5AkNWMZg3wduR0M/Cac4CgM0aIuZ2z8swxLsW8SgU
+ FOnG5DnEEJNQB0FBKUjdNK6KjdlmwZfdCv37vtzTpYzlcVyEYXuw0b7xjXoAwwZbiQbVwSccywZ
+ mYX7aBwoIOiyGQoDJFfngymJ+hpRGZAJhkH0C4FLlzvXXnSd7MYUfZaDxe8i214Yfgv9ZBoevvx
+ Ll7qs5aENbKmfEPcZPcHfXwRUmor2Rmw03d1kT/d5QHVb1Rny/CSwLQkmyOpWm6vJFIlDQViP2y
+ 82pM1WKoVK9RS+trzqzOzHC9KrhnSYwV9EbcA7RrZXqwZMX8Pzl5NsflP8Pz8r8YEbRBxp9NURK
+ jI7sg/6yDLtfSGlUbKh1G3TEPJioJ+kt16brdRQIJwyuUIM66z0d392jv60vTD/2+XmQABdPPff
+ tQFgQdvjbBYLcm/osuA==
+X-Proofpoint-GUID: mRQhX8dCAGI3dViTX_4oie1BNvnEb6Wp
+X-Proofpoint-ORIG-GUID: mRQhX8dCAGI3dViTX_4oie1BNvnEb6Wp
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MCBTYWx0ZWRfX519+VefEWFXy
+ XTY0P/yQuj413TbYWcCgbnEHbeF/PZVxcta/I191In3Ei6ciIvnOnDPdDHA0c9PSdi4GGFW4lCV
+ 63+ge83ZX/A7dk/CPhjqEqXjaszMHKs=
+X-Authority-Analysis: v=2.4 cv=CNy/zhrD c=1 sm=1 tr=0 ts=6b001d21 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=asF+/XNaGoxFafzDDLC1GQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8 a=QvFfK8P1GQIJS_-KitYA:9 a=CjuIK1q_8ugA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
+ bulkscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611200040
 
-On Mon, 2 Nov 2026, Mario Limonciello wrote:
-
-> Spec defines the WBRF record _DSM argument as a single buffer that packs
-> the header and frequency ranges. The driver instead built a package of
-> integers, so firmware on some systems abort \WBRF with AE_AML_OPERAND_TYPE
-> when dereferencing Arg2[0].
+On 26-11-16 21:24:23, Stanislav Aleksandrov wrote:
+> Add the driver for the Global Clock Controller on the Qualcomm Halliday
+> SoC. The clock tables are based on Qualcomm's downstream gcc-anorak
+> driver, without its hardware-control and HLOS vote clocks.
 > 
-> Encode the payload into a little-endian buffer and hand it as the lone
-> package element.
+> The eight clkref_en clocks are clk_ref clocks that vote for the QREF
+> supplies.
 > 
-> Fixes: 58e82a62669d ("platform/x86/amd: Add support for AMD ACPI based Wifi band RFI mitigation feature")
-> Signed-off-by: Mario Limonciello <superm1@kernel.org>
-> ---
-> Changes in v2:
-> - Declare payload with __free(kfree) at the kzalloc() site, after input
->   validation, instead of initializing it to NULL at the top of
->   wbrf_record() (Sashiko)
-> - Compute payload length with struct_size_t() so it no longer depends on
->   payload being declared earlier (Sashiko)
-> - Link to v1: https://patch.msgid.link/20261102-superm1-wbrf-v1-1-b58d8d85277c@kernel.org
-> ---
->  drivers/platform/x86/amd/wbrf.c | 75 +++++++++++++++++++++++------------------
->  1 file changed, 43 insertions(+), 32 deletions(-)
-> 
-> diff --git a/drivers/platform/x86/amd/wbrf.c b/drivers/platform/x86/amd/wbrf.c
-> index 3281357185d1f..2afb574e4327d 100644
-> --- a/drivers/platform/x86/amd/wbrf.c
-> +++ b/drivers/platform/x86/amd/wbrf.c
-> @@ -6,6 +6,8 @@
->  
->  #include <linux/acpi.h>
->  #include <linux/acpi_amd_wbrf.h>
-> +#include <asm/byteorder.h>
-> +#include <linux/slab.h>
+> Signed-off-by: Stanislav Aleksandrov <lightofmysoul@gmail.com>
 
-Please put asm one into own group.
+LGTM, so:
 
->  
->  /*
->   * Functions bit vector for WBRF method
-> @@ -29,6 +31,17 @@ struct amd_wbrf_ranges_out {
->  	struct freq_band_range	band_list[MAX_NUM_OF_WBRF_RANGES];
->  } __packed;
->  
-> +struct wbrf_record_entry {
-> +	__le64		start;
-> +	__le64		end;
-
-Include
-
-> +} __packed;
-
-Include
-
-> +
-> +struct wbrf_record_payload {
-> +	__le32			num_of_ranges;
-> +	__le32			action;
-> +	struct wbrf_record_entry	ranges[];
-> +} __packed;
-> +
->  static const guid_t wifi_acpi_dsm_guid =
->  	GUID_INIT(0x7b7656cf, 0xdc3d, 0x4c1c,
->  		  0x83, 0xe9, 0x66, 0xe7, 0x21, 0xde, 0x30, 0x70);
-> @@ -42,8 +55,9 @@ static BLOCKING_NOTIFIER_HEAD(wbrf_chain_head);
->  static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ranges_in_out *in)
->  {
->  	union acpi_object argv4;
-> +	union acpi_object args[1];
->  	u32 num_of_ranges = 0;
-> -	u32 num_of_elements;
-> +	size_t payload_len;
->  	u32 arg_idx = 0;
->  	int ret;
->  	u32 i;
-> @@ -64,45 +78,39 @@ static int wbrf_record(struct acpi_device *adev, uint8_t action, struct wbrf_ran
->  	if (num_of_ranges != in->num_of_ranges)
->  		return -EINVAL;
->  
-> -	/*
-> -	 * Every input frequency band comes with two end points(start/end)
-> -	 * and each is accounted as an element. Meanwhile the range count
-> -	 * and action type are accounted as an element each.
-> -	 * So, the total element count = 2 * num_of_ranges + 1 + 1.
-> -	 */
-> -	num_of_elements = 2 * num_of_ranges + 2;
-> -
-> -	union acpi_object *tmp __free(kfree) = kzalloc_objs(*tmp,
-> -							    num_of_elements);
-> -	if (!tmp)
-> +	payload_len = struct_size_t(struct wbrf_record_payload, ranges, num_of_ranges);
-
-Include.
-
-> +	struct wbrf_record_payload *payload __free(kfree) =
-
-Include for __free()
-
-> +		kzalloc(payload_len, GFP_KERNEL);
-> +	if (!payload)
->  		return -ENOMEM;
->  
-> -	argv4.package.type = ACPI_TYPE_PACKAGE;
-> -	argv4.package.count = num_of_elements;
-> -	argv4.package.elements = tmp;
-> -
-> -	/* save the number of ranges*/
-> -	tmp[0].integer.type = ACPI_TYPE_INTEGER;
-> -	tmp[0].integer.value = num_of_ranges;
-> -
-> -	/* save the action(WBRF_RECORD_ADD/REMOVE/RETRIEVE) */
-> -	tmp[1].integer.type = ACPI_TYPE_INTEGER;
-> -	tmp[1].integer.value = action;
-> +	payload->num_of_ranges = cpu_to_le32(num_of_ranges);
-> +	payload->action = cpu_to_le32(action);
-
-Include
-
-> -	arg_idx = 2;
-> +	arg_idx = 0;
->  	for (i = 0; i < ARRAY_SIZE(in->band_list); i++) {
->  		if (!in->band_list[i].start || !in->band_list[i].end)
->  			continue;
->  
-> -		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
-> -		tmp[arg_idx++].integer.value = in->band_list[i].start;
-> -		tmp[arg_idx].integer.type = ACPI_TYPE_INTEGER;
-> -		tmp[arg_idx++].integer.value = in->band_list[i].end;
-> +		payload->ranges[arg_idx].start = cpu_to_le64(in->band_list[i].start);
-> +		payload->ranges[arg_idx].end = cpu_to_le64(in->band_list[i].end);
-> +		arg_idx++;
->  	}
->  
-> +	argv4.package.type = ACPI_TYPE_PACKAGE;
-> +	argv4.package.count = ARRAY_SIZE(args);
-
-Include.
-
-You're missing lots of headers, admittedly, many are pre-existing 
-problems.
-
-> +	argv4.package.elements = args;
-> +
-> +	args[0].type = ACPI_TYPE_BUFFER;
-> +	args[0].buffer.length = payload_len;
-> +	args[0].buffer.pointer = (u8 *)payload;
-> +
-
-
-
->  	union acpi_object *obj __free(kfree) =
-> -		acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
-> -				  WBRF_REVISION, WBRF_RECORD, &argv4);
-> +		acpi_evaluate_dsm(adev->handle,
-> +				  &wifi_acpi_dsm_guid,
-> +				  WBRF_REVISION,
-> +				  WBRF_RECORD,
-> +				  &argv4);
->  
->  	if (!obj)
->  		return -EINVAL;
-> @@ -236,8 +244,11 @@ int amd_wbrf_retrieve_freq_band(struct device *dev, struct wbrf_ranges_in_out *o
->  	param.string.length = 0;
->  	param.string.pointer = NULL;
->  
-> -	obj = acpi_evaluate_dsm(adev->handle, &wifi_acpi_dsm_guid,
-> -							WBRF_REVISION, WBRF_RETRIEVE, &param);
-> +	obj = acpi_evaluate_dsm(adev->handle,
-> +				&wifi_acpi_dsm_guid,
-> +				WBRF_REVISION,
-> +				WBRF_RETRIEVE,
-> +				&param);
->  	if (!obj)
->  		return -EINVAL;
-
-Two unrelated space only changes.
-
-I don't think the n line version is even an improvement in the former 
-case.
-
--- 
- i.
-
+Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
