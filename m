@@ -1,94 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795195013;
-	b=1lcBJP6m5fII4qAVEC3Cu3ETza/P4sEtITRlyTPIb8U9aDjrJb7r5SEYx+3CYRsGW8OG
-	 aqAKGpvsNvrogpi0aCGMk1QTPQ3UGrfhdtj3j+cowgQEtc5BXUV6NsGP4uhywby5cHXKu
-	 4fwce/e6MBdLCWf6uqA5Z0lGG2qcf6uFNajdyeqXG6N9QOcpNrKw6CCySSSxxGHUFKuXL
-	 vtDMbHm49TqEl/ZBGOGtgGmJM4kbGlOE46IT4M11nDPbt2E+vFed5YazisqkI5pxQJVtD
-	 RujMrVtcoz71o19U6d8ZwuRukF1JdNEOVxzxglPQScIQTAOgpNqc0W7a/9sz7XFOpJw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195013;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=HlRImIbPug9yEXe7C7o2UGRwu8RUuuv0c4xjU/Ep/CI=;
-	b=eIqrYUUXg47vzDIuNKsmEoHqTdY/yEFqBm4HYq0bZqLlAOdRiMbIhQ04SciIvqYgrLVq
-	 ADmo3NPskHs/vPkRi0kgg+HhHanwO8KPsR9y21uafFjPQ5GhL1G5bskwDk+fbVO+kLQbJ
-	 NvJMQwgca0Za9eNZQfozhllPVDXRVdN16GSi+uyEtaTiXfrrs6grf4LIXh8d1aieTQwF3
-	 NKI4PC3kwmdn2uE/V+qChYaeKbDuy8iEWV3ze5xNDrIbZq5vRhRku1sCaQ9dquk28dSOp
-	 WocFvCA7Z6/94uLi3LCHMitKxLRaoE7qIVRXyXALp3hFJ1nYWQLoIQ9QOnI6qyhgh9Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.nxp.com;
-	spf=pass smtp.mailfrom=oss.nxp.com;
-	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=L2F0HVww;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.54
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013054.outbound.protection.outlook.com [40.107.162.54])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795195023;
+	b=Mz9WQjc5E2bOErXk+eZPmAW0/RXyXk0vNFpdNtAT9rVl0Yb2fkzsqNNGnsUYVkuq98I6
+	 8zLR/RUTw5GV2Pf1a3JjyGyCZZXc5oDqm6yTBr2ZAYKH2UyzvZauz8t+4St1W3RC3xBnQ
+	 86eoubZ5bzGSK90wKQ/qmQrwEB7ku1OxO/Oy0bORq7BkLRIcXuGK01haLmGvoSU4YIwnN
+	 liR5SzO5ZRHVKkJ5vH5SxaJOtrh15TgrEoLSGFK3iLXuSQqI6/QPB27mFp8MPoEkQl9yn
+	 jCDZLvbkf0Ue19pNwEbGdLXd3k6f/tt3cpTILpwis/xlKB60Yd+v2PL6YF/0JCIYavw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195023;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding;
+	bh=34T1vbwhbUf0eaDSpKy55OnBQe5NZsgJkt02ffrjIwo=;
+	b=xB7Ls2f9hsuv9Mj2r0zvydOOkVO9w5dZcf2q91OQjRoxmmh4UYGflJ13Blg0PQm9R8dl
+	 zhuxrpxO1TUDTgnd8yMFJbKiVs6lFFEy2I0+epqTgSJi0JqMlYWhxZEOH/YfqXZ0bOVFo
+	 ft+CGmMZ+qdIC89x+T+BuNezFcEgRXt30leV5J/xOtxzZmsFvFvz3yUwGTUtPHnOIOvbs
+	 ycwPo9OvgSDlJRHapI7/Gj358XqMhgekMPb9ZIs6XnLkbaA/T6190Z4s92xydQDGFn8v1
+	 gnp0CQXzqD1MnQO6LEmZF6IgBXAQT8/5d3b4HG2iiZuP2YMJ4LiNbIfAYee1CVFfS7w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=su67vz9N;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ej8INKVK;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25ABD606A336;
-	Fri, 20 Nov 2026 17:16:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25ABD606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC765606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:17:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC765606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=L2F0HVww
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=s1vZE2CsgWLwA5j3c/qP2aUGaELM+VOgs92BPbUgfntfgNefLG4LnCodOnytposijAnQGpzSaNSo4pgWBWnWHSnK3oGcBk/3S0iRP+8FLIXLr3OU/y/IuzsEn0R+px/UjzJai2GDg6lcjlvNBAvMMudPcyiN9p8Q/7fKT6T+wQ0xPUXyO4w+TC78FREINKIP/YYNzmT6TaTFSYwGFTa7Kg8KlYnzAGRWI+BTttD8KhTJ8WCQ20qAYXE5opJBL22UVh3XmqTJBPHbusMn/NQkTXn7kb4OvgvLRIphYjV8qjJ8oO9GVJoGboRiYd48WbnMwb6TuwOS48yId0JWvxXaMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HlRImIbPug9yEXe7C7o2UGRwu8RUuuv0c4xjU/Ep/CI=;
- b=iGnCs7xeKuri1i8LMfZtVIscFQs3dqJJH85aHSM9KaJDZU8SVkIyAydjRhrz8fIXZKURz6Qw0XZryPEh+dqIS00uQZZHrvTm3Q6698wwA5PhB/+6hnvuf53YXYqA0xTtClpCcP5TZeKR+zXpoXm9vthbUU7jkqCGDZL9x+1JiMEzYeHpksi7sWvMW9m340uuh3ZpGFQXs65d1/qHfDSIVGR/ZBi4TCySaydSbPuKEJiDDTc3GC0tUhzU97uK3C2McL3qccPBkIMzlJl86/JOhYwA+dnnKVGq95EkmlUGHuolYj98QiRH+NmTCMQWJ41RgjTGRC2NjHcPUuim3whIPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HlRImIbPug9yEXe7C7o2UGRwu8RUuuv0c4xjU/Ep/CI=;
- b=L2F0HVwwzkgZ5JRJ01Px+bZDi7FRADX6iVd8c0fVxVfOLEDt6il0wCwATxl5/bzNdeRlky/LwPnVsRhgCEVzHqT2jmvNvNSg0viB9Y2ROZxw4c8vFhWF2xG58Q5tiNkwhlYvhv+k+KRyZSI0Ox0RBZOJAraKQwBvVRkaAsRVF9wOc72APkjZR3IIbuceEd+EZRsM19wFHNyXB5xdkivFWjL6gtiEFMfaUVOL1ojd+L78H8J06Kcwp9HjpmF7SdjH9dmkKSFr+97tya5BAQCHn3Ynv0ib4pj7m+9O2h4B0STNj2EfD90U2Y5ab8lzo7tBSv2zQ4x4V8UEZQuMJ9HIcw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
- by VI0PR04MB10565.eurprd04.prod.outlook.com (2603:10a6:800:25b::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
- 2026 17:16:46 +0000
-Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
- ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
- 17:16:46 +0000
-Date: Fri, 20 Nov 2026 11:16:37 -0600
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Hungyu Lin <dennylin0707@gmail.com>
-Cc: okaya@kernel.org, vkoul@kernel.org, Frank.Li@kernel.org,
-	andy.shevchenko@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2] dmaengine: qcom: hidma: avoid world-writable channel
- sysfs files
-Message-ID: <awCAdT4JNICK5zsC@SMW015318>
-References: <20261120103753.56194-1-dennylin0707@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120103753.56194-1-dennylin0707@gmail.com>
-X-ClientProxiedBy: PH7P223CA0011.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:338::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
- (2603:10a6:290:76::14)
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=su67vz9N;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ej8INKVK
+Date: Fri, 20 Nov 2026 18:16:58 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795195020;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=34T1vbwhbUf0eaDSpKy55OnBQe5NZsgJkt02ffrjIwo=;
+	b=su67vz9Nm+kGUb+Q9AE0bA2kP6KIjsu8ubVELyyx0cv5SSZZ2u4FtQyTFTuwqUl/aMuO7l
+	1vuFsYHVWDD6t3so3JcZpriQWmG5WylGNZVkPKE28/5e7b7LHX1NEx241J6d/0MTJiQ1HL
+	OcLEL8AwVSDhiutqoMvyn2JvdWPqNwTsm4bEeun514gTngPkug2wovElpJ2Y3fuTMH8vaC
+	zRpzIaa73oj1BkH+hS6ljOkYP7l5xuLYCTlyGijxpCp7Wv2rSzZbadirnyVdU72SZaQAhA
+	fogicyaXOrkaTB5wDj1ezsOpv1/T+nfjwHooVpGjPenvWnbnl6yum2x1m3nigQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795195020;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=34T1vbwhbUf0eaDSpKy55OnBQe5NZsgJkt02ffrjIwo=;
+	b=ej8INKVKARRAHdx+R85i+DR0v+2E1HQuWjzxJnFsg6Vs9J+A09ZKg3fkih7A0qclJBrxaI
+	zhdcj4/GggaIbDAw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-kernel@vger.kernel.org
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	syzbot <syzbot+6835d5c11145e4f77057@syzkaller.appspotmail.com>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Ingo Molnar <mingo@redhat.com>, Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	K Prateek Nayak <kprateek.nayak@amd.com>
+Subject: [PATCH v3] sched: Reset cpumask if __migrate_task() failed for
+ migration_cpu_stop()
+Message-ID: <20261120171658.Cf9qIU-Y@linutronix.de>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,110 +79,98 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|VI0PR04MB10565:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3578631a-dd7b-4abf-c85a-08df472a0e2d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|19092799006|23010399003|1800799024|366016|376014|261028144727099003|261026121527099003|261026135527099003|261026140227099003|261102123227099003|261021123027099003|11063799006|261022105027099003|261021121427099003|56012099006|10067099003|22082099003|261009223027099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	2txR3NBuwFV2+h9AIePJErcxqAjKOhNYdx73bU2ab3Yz2CZC1GwakdnCh1Z21t4kTSOjjexAurqF3zozxegPJes0SF9QUOg9iyO9E4LT7W6jGDNbWidPWypzKkim5YqK9XEFEpcWXscqj6WoGGzOSXOx1XooP/Hte0QAjWpbB0BSdC5C+7bhoGzSShPRGDpPKG1qZZm1gJqbUyO2oH63L6vn4yhB9cbipB1hqDiMPecoBUBo3aNQiIfkIHMAQBW8KUt7SZa0F2aDi6bv7NPvaPFj2NzO03pAS+pbW4DaEL9P6nwfEIorG5p/shsEMQVpvVe52E8I39TUS1M/McExkzmGkP1qi1RmVZigoe0o/uIYeYyIlLtiK372GXHeQxboJ7p160PXE8j7ZfJZjWAp7PJAXQg/KAJkDQjYue71CB6kYDZgpuFJEBkFtg16nvyuC8v9wGJvRh6cBU62GYYthnQofOmKpeP1IApaE+mke78o11h6XB/nfLSuLWZJTr5LN15EJ7wiVJnGCsN8HEYqZkzTlMy8lEEicOueHqXtn6AdQVwN+poAHjPsBorEUHpk/j4A9ko8aodCIxefK/EXkXqJmsc35OSDXzo8fKaOFcsX8khpUlkOlM+uk6lWv6Ix
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(366016)(376014)(261028144727099003)(261026121527099003)(261026135527099003)(261026140227099003)(261102123227099003)(261021123027099003)(11063799006)(261022105027099003)(261021121427099003)(56012099006)(10067099003)(22082099003)(261009223027099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?aEvoXvZBt4l8e+saRBz0Z5uML2e6QwraSMWYWTfslh/q4mHYDwPdvkuhpBni?=
- =?us-ascii?Q?UzOl89fS/v6dFMxF5X/Js9gat/Y2Ub+boGxGMF+/0/gRLZQLynxF1GAzooNR?=
- =?us-ascii?Q?hCLAR+v+ZJElABiM+NWLN4Npbp+aMLMeFi2EBlWTp17SJkor110ooe5DNkuf?=
- =?us-ascii?Q?JrVdiukPmano+3dOt9CSvLCQiFuuQ+9wt091VOyMA2tD5Uemv6GAyetmzVn0?=
- =?us-ascii?Q?tiqUCEdXRnyZp1s+7HhoKdCX9nVXPJWbSfLuigvjj9h3HWzc0kZFVfXhOfaS?=
- =?us-ascii?Q?yM4LlkZ2lQUedIqkOAOyhlmhRjzgNQAMYrZ/SwVO/DyXSEKJXuKgiILuuiV0?=
- =?us-ascii?Q?6sw82v+r14fp7+Qe1jhrzAWOB8yzUoi46edwGdDM0iH9DjenkhA7G4fWMqVR?=
- =?us-ascii?Q?+V4943KoS6l8r1s3SlxjA6zgIkpHlfxEa6K0AOwW3qPPIZtejnQxNAL9LuEU?=
- =?us-ascii?Q?Y7JSt493qvcHJ3aDYQQQWzF2dnjKjP4YidAYtQfeaoOxqgsFJBOjfKxUVnlZ?=
- =?us-ascii?Q?8Or/JGTYfYHq2pGkU/XHJCneDf9tJUNvYpAeIVqpraV2I6rXTwGWEayjydev?=
- =?us-ascii?Q?yqLBREVMJULtZsE6tyGEuA0xHHrkmvcRIENjNOWp/sgDBfgeal2JR0KdHnUy?=
- =?us-ascii?Q?D8k6dZ1WPrV1IsfpQeFdbKYN/ZQJDOzUOkifo0CEIXTBPe8HrlvPWMNvkzo6?=
- =?us-ascii?Q?/cYDHKGgv8hbiN6w5RRnN56JHCV/RImWa4oQGXtCezNypi6j+p40uw0rQo7G?=
- =?us-ascii?Q?IK/Wuxa7Xj5Z+iojXSiYNGD0wmJzEEi94H690P8qe5tN9GvciDiwH7UYS5Iv?=
- =?us-ascii?Q?rDQBAxFZ24IyEOgO8ElQcY0qy6RIGgcc5TobU7DR4pibS3JNHuoO5S6lXN+/?=
- =?us-ascii?Q?a4+ef1O8qs34MzhmHljDSCQeEOi/kquc756rM/MgkrDjz86d1buTxxsrFtd3?=
- =?us-ascii?Q?/I93sf6IWiddMO6q2izqf+qqhtMBYNHh0e2jJ0o91GmgGYXg2GF5cmI2DKWc?=
- =?us-ascii?Q?6mF7tGPaU4B5gqeyaOQYrjUUldWyk601C/wZlUtMnapa/USnzdIR1fGw4SW/?=
- =?us-ascii?Q?9YSiTWncs8opsDxI/mDqaGHny/TcmOIpDR7gVAWM7UhJy8+4iKCfQ5CcAk8g?=
- =?us-ascii?Q?qYi902p7SkjNJTnWP62SmKwXDoIduMoNtZagbXpY97qHLhAZG3h/0obb39V8?=
- =?us-ascii?Q?m5PlhdjWeJ8QBJO8wW4+Ba8YzUc8qxprk+epb/1RXQyEmuouoVEwgj33eQnm?=
- =?us-ascii?Q?Ibus+5AizdQvd76LUdUxPO8Jo53uyUwmlnXoJYMxoUU3WN7nioRv11+EVTBP?=
- =?us-ascii?Q?Ph/KPzb/H8qdSC3AqObOGEGV6Ldr5Lhn/ViK9POEakQlU2n4/ru7KsjqEfY+?=
- =?us-ascii?Q?riv/TKK0trIfwAu3a4eWGz3HcwhQOCfDqMSf/SPFQnJcX3Dh0aMnCWAQq9g0?=
- =?us-ascii?Q?V1SUUAXA/bHDs8mG96zr5DeHnP/lJWTO35XDxUev0jmWCWHXeN3KbwEmMr8H?=
- =?us-ascii?Q?AlCZYNz9X4Kg8RS8seXfUEVp3CXJ+MdmSqy+lCxC+IKD/ESx4mL5N0JdgPl0?=
- =?us-ascii?Q?P772Ltl/hhIRZywT1pKjMAuaOUoTb22ajDfN61c4uMLvheTaPGvfFAVOhTBG?=
- =?us-ascii?Q?cjoXHK7dmR8d8sg9t+DCfXNwbBOmBa/wNAcO/ysoaqt/zwd248hlxRcZWv92?=
- =?us-ascii?Q?dTq3UN4QiJll+7pj6XbpIeJP6hmOEsFRBWRWfbHjtKG+D2RKF0NKLnl1Eb0J?=
- =?us-ascii?Q?5JeB1O9swO4Z6TXcs+5k3P/QnLHEbLJjS3tsiEvcuenJLcRtzJRn?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3578631a-dd7b-4abf-c85a-08df472a0e2d
-X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 17:16:46.4130
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ZGupYgE4NgYPvlmBo5DKQ50N9/lK0OXedQv0AycHN3y2DcQfhZTPSbpFriRJmSvID2wsUieGbAAP6jHHDI8TUgc3lR/nUfPnW9mk4ychzL3loHYURmxQePGK/hDzb2IF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10565
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 20, 2026 at 10:37:53AM +0000, Hungyu Lin wrote:
-> hidma_mgmt_init_sys() creates the per-channel priority and weight
-> attributes with S_IRUGO | S_IWUGO, so any local user can write them.
-> A write stores the new value and calls hidma_mgmt_setup(), which
-> programs it into the channel's QoS register.
->
-> Attributes declared with __ATTR() are checked at build time by
-> VERIFY_OCTAL_PERMISSIONS(), which rejects world-writable modes. These
-> two are created at runtime with a mode passed to
-> create_sysfs_entry_channel(), so the check does not reach them.
->
-> Make them writable by the owner only, the 0644 that __ATTR_RW() uses.
->
-> Fixes: 7f8f209fd6e0 ("dmaengine: add Qualcomm Technologies HIDMA management driver")
-> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Cc: stable@vger.kernel.org
-> ---
-> v2: Collect Reviewed-by tag; no code change.
+syzbot reported a race of assigning a CPU affinity during CPU hotplug
+operation.
+After the affinity of an IRQ has been changed, the IRQ-core sets
+IRQTF_AFFINITY and wakes the relevant interrupt threads which need to
+adjust their affinity mask. The thread will then invoke
+set_cpus_allowed_ptr() to update the mask. Based on the new mask a CPU
+is chosen on which the thread should run.
 
-If only collect tags, needn't repost new version. B4 can auto do that when
-apply patch. And repost it will cause I have to mark patchwork status twice.
+It is verified that this CPU is online however there is no guarantee
+that this CPU remains online while affine_move_task() is moving _this_
+task. Since the current task requests the migration the stopper/
+migration_cpu_stop() is involved at which point the task pauses for a
+while. If the CPU goes offline (or is no longer cpu_online_mask) then
+__migrate_task() (due to is_cpu_allowed() reject) will return the rq of
+the CPU on which the task is currently running (which does not match
+it's task_struct::cpus_mask).
 
-Frank
+The aftermath:
+The IRQ-thread's CPU and task's cpus_mask do not match. A
+migrate_disable()-> schedule() will change task_struct::cpus_ptr
+ensuring that the following migrate_enable() will update the task to the
+requested affinity mask. At this point, affine_move_task() expects
+task_struct::migration_pending set but it is NULL because noone
+requested an affinity change while the task was in migrate-disable
+section.
 
-> v1: https://lore.kernel.org/all/20261107221500.96825-1-dennylin0707@gmail.com/
->
->  drivers/dma/qcom/hidma_mgmt_sys.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/qcom/hidma_mgmt_sys.c b/drivers/dma/qcom/hidma_mgmt_sys.c
-> index 9672ef9ee8fc..53b991752e80 100644
-> --- a/drivers/dma/qcom/hidma_mgmt_sys.c
-> +++ b/drivers/dma/qcom/hidma_mgmt_sys.c
-> @@ -265,13 +265,13 @@ int hidma_mgmt_init_sys(struct hidma_mgmt_dev *mdev)
->  	/* populate parameters that are per channel */
->  	for (i = 0; i < mdev->dma_channels; i++) {
->  		rc = create_sysfs_entry_channel(mdev, "priority",
-> -						(S_IRUGO | S_IWUGO), i,
-> +						0644, i,
->  						mdev->chroots[i]);
->  		if (rc)
->  			return rc;
->
->  		rc = create_sysfs_entry_channel(mdev, "weight",
-> -						(S_IRUGO | S_IWUGO), i,
-> +						0644, i,
->  						mdev->chroots[i]);
->  		if (rc)
->  			return rc;
-> --
-> 2.43.0
+There are a few spots where set_cpus_allowed_ptr() does not use
+cpus_read_lock(). In the IRQ thread case, there will be an update
+following if the CPU goes offline so it is not really needed to block
+CPU hotplug during the update.
+
+If __migrate_task() fails, set the CPU mask of the task to runqueue it
+is currently on. Use do_set_cpus_allowed() for this so it also invokes
+class' set_cpus_allowed callback.
+Remove the comment about __migrate_task() failing.
+
+Reported-by: syzbot+6835d5c11145e4f77057@syzkaller.appspotmail.com
+Closes: https://lore.kernel.org/all/6a9919ac.94649fcc.25487e.0005.GAE@googl=
+e.com/
+Fixes: af449901b84c9 ("sched: Add migrate_disable()")
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+
+This survives my testcase without any warnings.
+
+v2=E2=80=A6v3: https://lore.kernel.org/all/20261012103946.aOSAmrRe@linutron=
+ix.de/
+  - Drop RFC and with it the irq_thread_check_affinity() since the
+    problem is not limited to it.
+  - Instead of manually setting the CPU mask bit, use
+    do_set_cpus_allowed() which should handle the DL bits correctly.
+
+v1=E2=80=A6v2: https://lore.kernel.org/all/20260907085825.f-CZ1Q5y@linutron=
+ix.de/
+  - Repost with collected notes.
+
+ kernel/sched/core.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+
+diff --git a/kernel/sched/core.c b/kernel/sched/core.c
+index 5ed660f099a55..c95d16ba9fe36 100644
+--- a/kernel/sched/core.c
++++ b/kernel/sched/core.c
+@@ -2710,17 +2710,16 @@ static int migration_cpu_stop(void *data)
+ 		if (task_on_rq_queued(p)) {
+ 			update_rq_clock(rq);
+ 			rq =3D __migrate_task(rq, &rf, p, arg->dest_cpu);
++			if (rq !=3D cpu_rq(arg->dest_cpu)) {
++				struct affinity_context ac =3D {
++					.new_mask  =3D cpumask_of(rq->cpu),
++				};
++
++				do_set_cpus_allowed(p, &ac);
++			}
+ 		} else {
+ 			p->wake_cpu =3D arg->dest_cpu;
+ 		}
+-
+-		/*
+-		 * XXX __migrate_task() can fail, at which point we might end
+-		 * up running on a dodgy CPU, AFAICT this can only happen
+-		 * during CPU hotplug, at which point we'll get pushed out
+-		 * anyway, so it's probably not a big deal.
+-		 */
+-
+ 	} else if (pending) {
+ 		/*
+ 		 * This happens when we get migrated between migrate_enable()'s
+--=20
+2.55.0
+
