@@ -1,91 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207371;
-	b=pnefzb7RVz6ZXs1XJ/nXoRveOS6VW+yfsFht3yL0S3fqLZt3cUs6nSywQnbuHtVS6yo8
-	 hzPKrT/xgaM0RSjEmWhV8g6xHTw8Dr6t2VonRxuOtp77souihIIhooAZyTFSMdBv5PwK7
-	 DG05nixQWOnqMng6FMXYIfjyT5jifzJeZTEsPQmbGfk1v3+oW8acFn/drc5RLQTtDYWXn
-	 P/uOFV6Cj0/DZGkU/UKz5Vayv/6eNuPlOxV8v6VYglg2pXKT6gtTi1sIzgHrNgQf+bV1A
-	 RHczaGjv4p5/5SNXqfupuQ22xkM0eCB7RwXFbhMAYMq5nHvt6yFw3x6nxDsnbcJHFTw==
+	t=1795207372;
+	b=M0NHewkamIKUEXNH3LZtI1wGV0H/GavD+8EtOIJbo8uWukyUJoOA9Hkbirb7A6SmeGyn
+	 3uxiBDJJ08p7vSzaU155o6Gm03lTxN1XayZ6yUi1BPwDICuMVg/I3mAFaT+MUFLUJe/nR
+	 MndLsaWZ30+huFYatZXRFZDPZ0Ms4KKhuOuwbj4te+hPUeW4zYZNIpCfBQaAS3+0o40qM
+	 gyV2nR0uTukP1BVqDJbwKgDO3TCL5ziuiqMlXcw0kMWfOYUZoUEzFKHJvLl6gl28r53Iu
+	 yu7t4ilsP89VhVj1hOlH1YRxAI1Uf/ntrzl4L4EH5ojS+uXgj3I5Cyau3qvrlciazWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207371;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207372;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:MIME-Version:In-Reply-To:References:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=pkKHclEHtzFwZ98wGICdNU2wyxUYuejc/zF8bayUEtY=;
-	b=uFdVZtcptHhKfXha7tfTqow7hYC6OoRKiPhwuStgzU7ehJsXxMXKfsKS+kUsrJonbBsb
-	 d74iG3P0sLbyLyLeChDJmVIhaQQfFFUtJNT2JoNxP+le/INzakcZtPSWad5cjlsv29IW2
-	 ZaOXeXyAktTd525wjk/RYChI1rDDiuGgKmHuosHsLuzaJHZYwwcLBptTUbiacz68m2Fke
-	 zm+xPgO/TUw4VI/1NLR14hnITb2Ro71uAxCbKEO8DOqFy9U7VLIub8J5n8FiPKUIwR34h
-	 aki6Yu6xHntyoUoRVDnF3rxAsETSFgTzlczU5ahnGNo3ElDLdx2+rw2fe5kcdxvuBKg==
+	bh=5Vy+uDDmlpqXaPhIJuzEyGUW5XXKRnuQUYCNM07djE4=;
+	b=3+ok7S0mmjCzHQ/N4c5/gpCNowxgPY6guQQKdPuSqN36qRULsRcX5ay+iuwYwMHwVlLq
+	 UAbZzyDPmd5hPhMFbytoTWxU2nKKFZ8vTUHGC/F7zoSb59/NMDnCBMWqlCicxRKbtj1J1
+	 jET4pVIjvrle6ydhe/EcsPAnzM5p8/E4mKnmhlIvOEfUQXJ4+WNf+k3AnxK6OWHd8eYDk
+	 q4sfZBSm9opNc2v9bmzHNGCpoMdZDWJeKvwkaGN7t0FSfmg7TznsTYYhjLlrgP2w1PN6r
+	 /UTdysu0TCWKfsbJqj7qpIYlaGRXO5kzkBsWHSMaEJn3MOMYueetq/cyVkJlK+u5ibA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=E6KaSjla;
-	arc=none smtp.remote-ip=158.69.130.18
-Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=kernel.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.160.171
+Received: from mail-qt1-f171.google.com (mail-qt1-f171.google.com [209.85.160.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7106A60A6F5A;
-	Fri, 20 Nov 2026 20:42:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7106A60A6F5A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=E6KaSjla
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=smtpout1; t=1795207356;
-	bh=pkKHclEHtzFwZ98wGICdNU2wyxUYuejc/zF8bayUEtY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E6KaSjla0UJfUBcnef5KIK3v1qMtQBNkNxU160Z2hafbYKMyzs91kLaoDYc5GZacj
-	 M1kR8l5h+9hKiOSr33FiTjfDWwsTIDWwzulmTvAUr1FaZPCCeVxXD1a1m1jj56563m
-	 No9OGQlFqeKALKooEU0SnLKcb1WyaEqP28c/bSuElstIZph6hd1ue1hicrMZCFhHyv
-	 BkGinXqy5ykudj4VRF43/aeosCgYY+dAWLSdeADTT6A4Xfznnl/Hcu/AAAx1/W8xzo
-	 sDkVfWXUn2rPu+aOl8BR2I9u23B4Q7U6znNK3YwvHs9v2kGqSJl3Bpt8+dfCd3F5xE
-	 YDU0aaOCpkV2g==
-Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2N66nLzTqd;
-	Fri, 20 Nov 2026 15:42:36 -0500 (EST)
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-To: juri.lelli@redhat.com,
-	peterz@infradead.org,
-	mingo@redhat.com,
-	vincent.guittot@linaro.org
-Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	tglx@kernel.org,
-	will@kernel.org,
-	boqun@kernel.org,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	luca.abeni@santannapisa.it,
-	mathieu.poirier@linaro.org,
-	longman@redhat.com,
-	ridong.chen@linux.dev,
-	tj@kernel.org,
-	hannes@cmpxchg.org,
-	mkoutny@suse.com,
-	shuah@kernel.org,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	parri.andrea@gmail.com,
-	m.szyprowski@samsung.com,
-	kayracizmeci@gmail.com,
-	weihengqiuu@gmail.com,
-	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH v10 27/40] sched/deadline: Count the bandwidth a boosted task is given
-Date: Fri, 20 Nov 2026 15:42:04 -0500
-Message-Id: <fd06ed50ac0072fcbf30f5b5c44f2ef0c0a991a9.1795207232.git.mathieu.desnoyers@efficios.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E035606C0D1
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:42:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E035606C0D1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=quarantine dis=none) header.from=kernel.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-qt1-f171.google.com with SMTP id d75a77b69052e-5365f9a04c5so8344491cf.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:42:49 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795207369; x=1795812169;
+        h=content-transfer-encoding:content-type:references:in-reply-to
+         :mime-version:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5Vy+uDDmlpqXaPhIJuzEyGUW5XXKRnuQUYCNM07djE4=;
+        b=NJviWcFqcZgrJ76z9xXbaqgjgTNN9vMjjMa9uxjxOlnN6eM+MHo2ZrjUV1yC4KwVM+
+         lsySWBNw2P6Z3o4uZq8hNnHM878pNKFWm5jor1ocmXtp/hDmpvgqn0tiDw4IP9GXKOJ/
+         b+AK5hoe07VylfMvDfVNUh9nsiRx15ej/ZbEaGqNEJ3TT9MPp9CrILrs1rDCwWBYxFvz
+         5Ff+Jbi9H6kvmMRaJbZ1Xvi+5IAEMRIv7w4Yc1Ey9xWTLKTaK9IRvijAUELyb/tqKmVU
+         cVJqnBPKsIN1UtIlzJkt65ZEHK9g+CYz3JAENI9XcblQPwcP7BF/Dfx4Bc5QCbjXhSc/
+         4OSA==
+X-Forwarded-Encrypted: i=1; AL+hErEIO4e/aWhy8alY2bovf701z1lbavaDFn025tEulSDMmjPfHCF1iWeWk5TtCnDCXenZBxBxRli7wrexIb0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EXrnTM5GffifgnBro63NbiW01ZEByV8qQnajkgj9T8aP7QwAp
+	N4DlqnjfUNMuIxTGH66W+rAQZXNTGTcWUjEof5a7Mu5gTUHp6kVLfP/u
+X-Gm-Gg: AYBFou3ztQESJvyBD7+NHlafc0/6oOqcrtszAvohV1VixyxrWoPCy2wmbAI73bGmQ7q
+	/Bx1OmaSN4EX6+dq9iSGYg9ThAykRtzXBskIgnZgegirUIH/6sQvz77uWsISbaPzwg0d4XUrcVN
+	NK7UrTA7+lMPkwaxAFpf48ulmXcRqfo6V+6MaEWDse6nxt6sdeMXtPN1NbyEfMrZXzvUI68ZvyW
+	7mLnyhs7ESEDpJW7hnP4ilkHgFKInZf18Ge5GOvxusv7aguF0yHzN+akU/1rDdcYBKK+udR7PeS
+	TGRVRhhvoJxXaKNEBexMZSddLkYKrqFRt66mEO13fakhcc/FI3J3M56Gc0tsEqehs8mTLUJ1YIz
+	fD+X3dmTc+HuGXEttbFXKoKk/oetTfRQnAN8yGjIoOR/1q7Y02hrtL71mNwrK1oI0jC5qI363qT
+	jIykqRghwPPTdD2w8cpRTbl7E78yWyDEgvAEt/i+lzB+uJzOsa/UXasIQb1FH4ChB7flusfyn0I
+	1Q5zDfbIe6Rq0X3hO/ar2U2RLEFBY7yUE2SUGI6GF4or+QNG7XHIKHfuihkDBF3SRboxvkXf2Nb
+	75IeD435Odr5ZOAy1MGBvFo/DybMCVBFS3jsE2BjJ8PDzRt+gdmMBL+Bk9hv2c48EtAWuypmf+r
+	/YXH4sODFIu8luMUTPv+HpRYdsMePQkUPSatKZRuuQ2st4kcPRRWv
+X-Received: by 2002:a05:622a:647:b0:535:92a6:22db with SMTP id d75a77b69052e-55d76932dc3mr81030961cf.1.1795207369141;
+        Fri, 20 Nov 2026 12:42:49 -0800 (PST)
+Received: from localhost ([199.170.132.196])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134bfe82dsm34020236d6.0.2026.11.20.12.42.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 12:42:48 -0800 (PST)
+From: Tamir Duberstein <tamird@kernel.org>
+To: Eduard Zingerman <eddyz87@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, Andrea Righi <arighi@nvidia.com>,
+ Xu Kuohai <xukuohai@huawei.com>, Andrea Righi <andrea.righi@canonical.com>,
+ Bing-Jhong Billy Jheng <billy@starlabs.sg>, David Vernet <void@manifault.com>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, Andrew Werner <awerner32@gmail.com>,
+ Zvi Effron <zeffron@riotgames.com>, Andrii Nakryiko <andriin@fb.com>,
+ Emil Tsalapatis <emil@etsalapatis.com>
+Subject: Re: [PATCH bpf v2 1/8] libbpf: ringbuf: Honor zero consume bounds
+Date: Fri, 20 Nov 2026 17:51:54 -0000
+Message-ID: <179519711452.18576.3585895078868133287@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,150 +91,12 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <9323b0acc22de75ead4732db464672443eb141ff.camel@gmail.com>
+References: <20260618-bpf-ringbuf-fixes-v2-0-33fde039ddf3@kernel.org> <20260618-bpf-ringbuf-fixes-v2-1-33fde039ddf3@kernel.org> <9323b0acc22de75ead4732db464672443eb141ff.camel@gmail.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-sched_setattr(SCHED_DEADLINE) on a sleeping task that priority
-inheritance boosted into the class leaves the new bandwidth out of
-this_bw. switched_to_dl() does not run, since the task is in the class
-already. sched_dl_overflow() changes this_bw only for a task of the
-deadline policy. When the task wakes up, __add_running_bw() warns:
+> Could you please pack the tests as a separate commit (or commits)
+> at the end of the series?
 
-	WARN_ON_ONCE(dl_rq->running_bw > dl_rq->this_bw);
-
-When the task leaves the runqueue, this_bw would stay short by that
-bandwidth, and skew GRUB reclaiming on that CPU.
-
-Fix this by changing this_bw in __setparam_dl(), which every task that
-gains deadline parameters goes through. If no runqueue counts the
-bandwidth of the task, dl_change_utilization() now adds the new one. It
-now also runs when the bandwidth does not change. It then returns early,
-so that a sleeping task keeps its running_bw and its inactive timer.
-
-A sugov kthread given a reservation of its own now has its bandwidth
-counted in this_bw. It reaches dl_change_utilization(), so this patch
-removes the WARN_ON_ONCE() for SCHED_FLAG_SUGOV there.
-sched_dl_overflow() returned early for an unchanged bandwidth, even if
-no root domain counts it. That is the case for such a kthread, and for a
-task that a rebuild left out. sched_dl_overflow() now admits such a
-bandwidth as new. Without room, that fails with EBUSY. The Sashiko AI
-review of this series found this early return.
-
-A reproducer shows the warning, and this_bw unchanged by the change.
-With this patch, this_bw takes the new bandwidth, and nothing warns.
-
-Fixes: 8fd27231c330 ("sched/deadline: Track the "total rq utilization" too")
-Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
-Cc: stable@vger.kernel.org
----
- kernel/sched/deadline.c | 54 ++++++++++++++++++++++++++++++++---------
- 1 file changed, 43 insertions(+), 11 deletions(-)
-
-diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-index 9a4639ae676a..aa12908aeaea 100644
---- a/kernel/sched/deadline.c
-+++ b/kernel/sched/deadline.c
-@@ -633,22 +633,37 @@ void cancel_inactive_timer(struct sched_dl_entity *dl_se)
- 	cancel_dl_timer(dl_se, &dl_se->inactive_timer);
- }
- 
-+/*
-+ * Make the runqueue of a sleeping task count @new_bw as the bandwidth of
-+ * the task. Do nothing for a queued task. The dequeue and the enqueue
-+ * around the change of its parameters update this_bw.
-+ */
- static void dl_change_utilization(struct task_struct *p, u64 new_bw)
- {
--	WARN_ON_ONCE(p->dl.flags & SCHED_FLAG_SUGOV);
-+	struct sched_dl_entity *dl_se = &p->dl;
-+	struct rq *rq = task_rq(p);
- 
- 	if (task_on_rq_queued(p))
- 		return;
- 
- 	/*
--	 * The task is waking up on another CPU, and no runqueue counts its
--	 * bandwidth. The enqueue adds it, with the new parameters that
--	 * __setparam_dl() sets right after this.
-+	 * No runqueue counts the bandwidth of the task. Add the new one to
-+	 * this runqueue, so that add_rq_bw() adds nothing later. This holds
-+	 * for a task that enters the class asleep, for a special entity given
-+	 * a reservation of its own, and for a task waking up on another CPU:
-+	 * task_cpu() already points at the CPU it wakes on.
- 	 */
--	if (!p->dl.dl_bw_oncpu)
-+	if (!dl_se->dl_bw_oncpu) {
-+		__add_rq_bw(new_bw, &rq->dl);
-+		dl_se->dl_bw_oncpu = 1;
-+		return;
-+	}
-+
-+	/* Same bandwidth: leave running_bw and the inactive timer alone. */
-+	if (new_bw == dl_se->dl_bw)
- 		return;
- 
--	dl_rq_change_utilization(task_rq(p), &p->dl, new_bw);
-+	dl_rq_change_utilization(rq, dl_se, new_bw);
- }
- 
- static void __dl_clear_params(struct sched_dl_entity *dl_se);
-@@ -4919,10 +4934,6 @@ int sched_dl_overflow(struct task_struct *p, int policy,
- 	if (attr->sched_flags & SCHED_FLAG_SUGOV)
- 		return 0;
- 
--	/* !deadline task may carry old deadline bandwidth */
--	if (new_bw == p->dl.dl_bw && task_has_dl_policy(p))
--		return 0;
--
- 	/*
- 	 * Change the bandwidth of a deadline task where it is counted: in
- 	 * the root domain of the CPU recorded with it. A task moved asleep
-@@ -4937,6 +4948,16 @@ int sched_dl_overflow(struct task_struct *p, int policy,
- 	 */
- 	counted = task_has_dl_policy(p) && p->dl.dl_bw_cpu >= 0 &&
- 		  p->dl.dl_bw_gen == dl_bw_gen;
-+
-+	/*
-+	 * !deadline task may carry old deadline bandwidth. The same
-+	 * bandwidth needs no admission if it is counted. If it is not, admit
-+	 * it as new below. A special entity given a reservation of its own
-+	 * has no bandwidth counted, nor has a task that a rebuild left out.
-+	 */
-+	if (new_bw == p->dl.dl_bw && counted)
-+		return 0;
-+
- 	cpu = dl_task_admit_cpu(p);
- 	dl_b = dl_bw_of(cpu);
- 
-@@ -4966,7 +4987,6 @@ int sched_dl_overflow(struct task_struct *p, int policy,
- 		if (counted)
- 			__dl_sub(dl_b, p->dl.dl_bw, cpus);
- 		__dl_add(dl_b, new_bw, cpus);
--		dl_change_utilization(p, new_bw);
- 		err = 0;
- 	} else if (!dl_policy(policy) && task_has_dl_policy(p)) {
- 		/*
-@@ -5016,8 +5036,20 @@ int sched_dl_overflow(struct task_struct *p, int policy,
- void __setparam_dl(struct task_struct *p, const struct sched_attr *attr)
- {
- 	struct sched_dl_entity *dl_se = &p->dl;
-+	u64 period = attr->sched_period ?: attr->sched_deadline;
- 	bool held;
- 
-+	/*
-+	 * Change the bandwidth that the runqueue counts here, with the
-+	 * parameters. A task that priority inheritance boosted into the
-+	 * class is in it already, so switched_to_dl() does not run for it.
-+	 *
-+	 * A special entity has no bandwidth on a runqueue. Test the flags
-+	 * of the request, since those of the entity are still the old ones.
-+	 */
-+	if (!(attr->sched_flags & SCHED_FLAG_SUGOV))
-+		dl_change_utilization(p, to_ratio(period, attr->sched_runtime));
-+
- 	held = dl_se_holds_bw(dl_se);
- 	dl_se->dl_runtime = attr->sched_runtime;
- 	dl_se->dl_deadline = attr->sched_deadline;
--- 
-2.47.3
-
+Done in v3.
