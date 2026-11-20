@@ -1,79 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.21
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195298;
-	b=c1O+82eCVYUgl2ynScf2Cb9INkaXEEccbcTCs+h2NLmPqkutAsYhlyfAFzUd1IiQrgI3
-	 v0/dtDAsLxtJRzKB4jj1SSWCmfQh3uPtwS17cYEfcv/mhI7aZ/Goi7mysVMI2906aEgc0
-	 KM9VjbcIsIsYudOZhWt5nQL7+lsP/6x1jS6E8j7J3gZbymmogrfLkQOZ61zeIvW4cJrz5
-	 eITc9fNl1O77pfdsrhubPTWSdLg2GS1OvXoVYCdYwSQ9T6jRevzUYhFB4r4NNWa7WO1cb
-	 QH9ncCq35RXPs3R+qptIam3q2ZWPNlrNRU1W7xBLvdCZaoHSZYhWWPWlMnz7+XReQsA==
+	t=1795195315;
+	b=uwtROgZ4t62spdAhRxEBRBQeyyS8gOsSIVEaz+S+k/XVVYCe3gHZxPQQzsRXm/gDKazp
+	 YC8pCX8Td03KQP8HjrJYwp6aFo9eGUnqGsn4PWenF2d94wOivDNDLs7i2nA/FbzN1gEir
+	 FsOXxdgW5ZUsZXumWHtIY8h1DOEIEuiT4ymCdhpNAbZWqVOBzqB/JJDfaayDDS2Xf7Vab
+	 VR7aCJtyZDkZyi3CsHtzMzyyFa3OZ0uWk2GFWGyBgYL3RZwQOj7XyoPe0Vng6L+Xac9Eg
+	 4Tp6DHOGuq+64lrVr45UXEN2GMeHUe0EdQUM+bTWLeV3xVSaXiFHGRcC8o79KOAjYOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195298;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195315;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=iihNXup8IlPIB4V5SFfb9U6MkhRvvtBpoc7hIxTxyLs=;
-	b=rRDAdgU4dJjPp1aZnnXVoHwLLfvX+ilqApLITZW1fjN5FuxuRw7UDIeFRJGoGEu6npPu
-	 BhsTmDajMUApoO0pK2JqO2N8g17gTpd+OXZ94ZAmWEkWGcXzycVVQqaXZVwR4I1XEy1s0
-	 zv8KXMnXe7xU2McYYGwbsiAYfaqsNWdijuZPwBlDpR6rZDc2zz/l/3yo/g0LOzaCAkxaA
-	 zTY1AbYadDeGfkoIbj8tBGPdg/G6LyU1A8ZltEFs5IVXRCXECzd6oywNEEs0Pb6CecfWC
-	 g38DmR4Lbk6rbsCtON1jdJXaIaEcapGIvvSB8Td8EGGxCeDJxWJ6rvcId6MlJI9AU+A==
+	bh=e45Lmst2zVLRRgQuRR+OUKKJ4pLT6Oi0ahkMpBTiPW8=;
+	b=QUWCpdZgN9L7ySSuvnH29zqrWCuUFMJXMIAvE5Mk/X8jKeo52p2Vi/gS+2EnNKMqfrfT
+	 LkYiL9WRBKrsBwbuVk50ncHt/4irr2cHOpEQad4LaV9VWy4oUUJKc7X3JSAOknkONrtGF
+	 qZfy6R9H7eiQbswQsiYX/WCd4Fj9syb6ogCizhS+Rtis54F5ttrHhRnylxoX7x9CcgcwB
+	 Y9makNKJXsHEyWdQLIbkYIa8eN4sudrIV9v/17dCAIDlbaBoh/Ka7cPG8bZT/KaNKnlrl
+	 9qkmta1+VfE3w8ZZCNGWeNFNELI/hwb9TlGHvOWnLKUWpo6dsmY/giyqQxQGip9QuTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cWUcQvHU;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OhIZKADn;
 	arc=none smtp.remote-ip=198.175.65.21
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20D4460A5BFE;
-	Fri, 20 Nov 2026 17:21:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20D4460A5BFE
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 265D0606A742;
+	Fri, 20 Nov 2026 17:21:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 265D0606A742
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cWUcQvHU
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=OhIZKADn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795195297; x=1826731297;
+  t=1795195315; x=1826731315;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=zRKsj9qjLQE1R16y6fa6gI1uCzjr7ltYpbyr03ClsUY=;
-  b=cWUcQvHUMxFvD2DfgmvFneYyBldcsobA67Ci4PTgd8phRGO5rQN28ZtD
-   5rGUHVt2ctIw+HQRZv3uquNkcoS86KosSDb/kqdxKHuj0X+ZTEKY/QJNf
-   7tWfOECC/DamNHyC7Pv6sXVSkv43u2xINhe2swlfqi/ZxFODKAmq8hAB8
-   1J03ZzlxVZTDmeyKcVLEEWoHTwR/t3fyqyw2r5JTmqhD7PlFXs01lkulo
-   lAmrGopYUvWM8t4d3AWyUYVdhDxt+0iA6kRJRlpeDrrfpbBuXsVt6tuBM
-   IdJtUcIHD1zihpgi9408CZmyK3QqRMMJYljf7yNhGAcL4mcKyvj68XWfo
-   Q==;
-X-CSE-ConnectionGUID: Iwxi/sZOQjCtqJf7PwwaPQ==
-X-CSE-MsgGUID: yfM23YJZT+unYKqS6UhJpQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157516"
+  bh=Pts6JG9+FGLpbzP21b9GAVZnO6zHcnXOWhbooQaGodI=;
+  b=OhIZKADnXj2jQ0ak3Ym0twCEyMvs+gr3NDNW7XIf87JtWZRIjyzeu/AB
+   ICX7hU32uQxM0ARic+S0PQrrvEJQazAqM5VgG2oD5wqO8p/nTvlOUmpue
+   8N9LyZIgIv7jHkCgOuiB9QlpV9zOOWuKfpB/RDQjWJbDe21x+0XjF/jJY
+   aI4q7uULxiNNFJxzoIvHEiaUxAZ5F8i0raKhvis6NIes8jyg1wFQtA2hD
+   1fzgkDWwyQW9htNJ8fnBvgLnYhMvg9uVMf+k5yZu4V7QR7OHF49eMDpEd
+   Cb0Iv5f/nTpL7chljVD52UQODH4L8PHZKPiCKsI/iLgyXL51HEXBVP3V8
+   A==;
+X-CSE-ConnectionGUID: CsNm1EBwT9epWnxw2x5SUg==
+X-CSE-MsgGUID: +3DMPENzQcSkeVT2f5UNtQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4157554"
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="4157516"
+   d="scan'208";a="4157554"
 Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:36 -0800
-X-CSE-ConnectionGUID: tLuHG5lLRdScAtdMcOwQ2Q==
-X-CSE-MsgGUID: po9uJFSJSWqHhkM6vMnKoQ==
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:44 -0800
+X-CSE-ConnectionGUID: OpGJwTTjTY6WT+59rdMD2Q==
+X-CSE-MsgGUID: m+dFjAx6QEGe1KqDqWXNuQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
-   d="scan'208";a="10868196"
+   d="scan'208";a="10868222"
 Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:33 -0800
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:21:42 -0800
 From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
 	Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>,
-	Pawel Chmielewski <pawel.chmielewski@intel.com>
-Cc: Vidya Sagar <vidyas@nvidia.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-acpi@vger.kernel.org,
+	Pawel Chmielewski <pawel.chmielewski@intel.com>,
+	Len Brown <lenb@kernel.org>
+Cc: linux-acpi@vger.kernel.org,
 	acpica-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 30/42] ACPICA: IORT: Add Root Complex PASID Flags field
-Date: Fri, 20 Nov 2026 18:18:51 +0100
-Message-ID: <ec91a97b1bcb1fc57c379943ab87a45d6666a8fc.1795194329.git.maciej.wieczor-retman@intel.com>
+Subject: [PATCH v2 33/42] ACPICA: events: Fix AcpiEvClearGpeDispatchByOwner handler type processing
+Date: Fri, 20 Nov 2026 18:18:54 +0100
+Message-ID: <36e3df265cf6a5e85d108268c28eb4d7c4e7ab38.1795194329.git.maciej.wieczor-retman@intel.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
 References: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
@@ -88,64 +86,154 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Vidya Sagar <vidyas@nvidia.com>
+GPEs can have different callbacks tied to them - methods, notifies and
+handlers. Handlers, usually being functions called from C drivers,
+override methods, but they save the pointer to them and restore them
+later when handlers are unloaded.
 
-The IORT spec, Issue E.c (ARM DEN 0049E.c, January 2022), bumps the
-Root Complex Node to revision 4 and adds two PASID descriptors:
+Check and clear the methods hidden under the handler.
 
-  - PASID Capabilities at byte offset 33 (2 bytes), bits[4:0] of which
-    report the Max PASID Width supported by the Root Complex.
-  - Flags at byte offset 36 (4 bytes), bit 0 of which reports whether
-    the Root Complex itself supports PASID. This is distinct from the
-    existing ATS Attribute bit 2 (at offset 24) that only reports
-    whether the RC forwards PASID information on translated
-    transactions.
-
-ACPI_IORT_ROOT_COMPLEX in source/include/actbl2.h was updated for the
-E.c PASID Capabilities descriptor (offset 33) but stops short with a
-trailing 'UINT8 Reserved[]' flexible array, so the new Flags field at
-offset 36 is unreachable and the existing ACPI_IORT_PASID_*
-definitions have no consumer.
-
-Replace the trailing flexible array with a fixed 'UINT8 Reserved[1]'
-followed by 'UINT32 Flags' so the struct fully covers RC node
-revision 4, and add the ACPI_IORT_RC_PASID_SUPPORTED mask for bit 0
-of the new field. With #pragma pack(1) in effect for actbl2.h, this
-lands the new field at the spec-mandated absolute offset 36.
-
-Link: https://github.com/acpica/acpica/commit/21e638b5d118
-Signed-off-by: Vidya Sagar <vidyas@nvidia.com>
-Link: https://github.com/open-acpica/acpica/pull/1246
-Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Link: https://github.com/acpica/acpica/commit/578d52b5d1f4
 Signed-off-by: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
 ---
- include/acpi/actbl2.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/acpi/acpica/evgpe.c | 103 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 96 insertions(+), 7 deletions(-)
 
-diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
-index 8e0d5156e6d6..1dafb2a71368 100644
---- a/include/acpi/actbl2.h
-+++ b/include/acpi/actbl2.h
-@@ -750,7 +750,8 @@ struct acpi_iort_root_complex {
- 	u32 pci_segment_number;
- 	u8 memory_address_limit;	/* Memory address size limit */
- 	u16 pasid_capabilities;	/* PASID Capabilities */
--	u8 reserved[];		/* Reserved, must be zero */
-+	u8 reserved[1]; /* Reserved, must be zero */
-+	u32 flags; /* Flags (IORT E.c, RC node revision >= 4) */
- };
+diff --git a/drivers/acpi/acpica/evgpe.c b/drivers/acpi/acpica/evgpe.c
+index 578651cde6f3..d45926ad3261 100644
+--- a/drivers/acpi/acpica/evgpe.c
++++ b/drivers/acpi/acpica/evgpe.c
+@@ -535,6 +535,67 @@ static void ACPI_SYSTEM_XFACE acpi_ev_asynch_execute_gpe_method(void *context)
+ }
  
- /* Masks for ats_attribute field above */
-@@ -762,6 +763,9 @@ struct acpi_iort_root_complex {
- /* Masks for pasid_capabilities field above */
- #define ACPI_IORT_PASID_MAX_WIDTH       (0x1F)	/* Bits 0-4 */
  
-+/* Masks for Flags field above */
-+#define ACPI_IORT_RC_PASID_SUPPORTED (1) /* The root complex PASID support */
++/*******************************************************************************
++ *
++ * FUNCTION:    acpi_ev_dispatch_type_hidden_handler
++ *
++ * PARAMETERS:  gpe_event_info  - Struct where GPE dispatch type is stored
++ *              owner_id        - Table owner_id being unloaded that should match
++ *                                the gpe_event_info
++ *
++ * RETURN:      Return the dispatch type if it is either explicitly present or
++ *              hidden behind the handler saved method_node. The GPE has to also
++ *              match the table ID passed through owner_id to this function.
++ *              Return 0 if the above criteria aren't matched.
++ *
++ * DESCRIPTION: Check whether a passed GPE event info is of either DISPATCH,
++ *              NOTIFY or HANDLER type. Then verify it belongs to the table
++ *              ID passed as an argument and that it has a Method Node. Helper
++ *              is used for example with cleaning up after table unloading.
++ *
++ ******************************************************************************/
++static u8
++acpi_ev_dispatch_type_hidden_handler(struct acpi_gpe_event_info *gpe_event_info,
++				     acpi_owner_id owner_id)
++{
++	u8 gpe_dispatch_type = ACPI_GPE_DISPATCH_TYPE(gpe_event_info->flags);
++	struct acpi_gpe_handler_info *handler;
 +
- struct acpi_iort_smmu {
- 	u64 base_address;	/* SMMU base address */
- 	u64 span;		/* Length of memory range */
++	switch (gpe_dispatch_type) {
++	case ACPI_GPE_DISPATCH_METHOD:
++		if (!(gpe_event_info->dispatch.method_node) ||
++		    (gpe_event_info->dispatch.method_node->owner_id !=
++		     owner_id)) {
++			return 0;
++		}
++		break;
++
++	/* Method or Notify can be saved if the handler is present */
++	case ACPI_GPE_DISPATCH_HANDLER:
++	case ACPI_GPE_DISPATCH_RAW_HANDLER:
++		handler = gpe_event_info->dispatch.handler;
++		if (!(handler->method_node)) {
++			return 0;
++		}
++
++		switch (ACPI_GPE_DISPATCH_TYPE(handler->original_flags)) {
++		case ACPI_GPE_DISPATCH_METHOD:
++			if (handler->method_node->owner_id != owner_id) {
++				return 0;
++			}
++			break;
++		default:
++			return 0;
++		}
++
++		break;
++
++	default:
++		return 0;
++	}
++	return gpe_dispatch_type;
++}
++
+ /*******************************************************************************
+  *
+  * FUNCTION:    acpi_ev_clear_gpe_dispatch_by_owner
+@@ -557,6 +618,8 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
+ 	u32 gpe_number;
+ 	acpi_cpu_flags flags;
+ 	acpi_status status = AE_OK;
++	u32 gpe_dispatch_type;
++	struct acpi_gpe_handler_info *handler;
+ 
+ 	ACPI_FUNCTION_TRACE_U32(ev_clear_gpe_dispatch_by_owner, owner_id);
+ 
+@@ -584,13 +647,15 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
+ 				gpe_event_info =
+ 					&gpe_block->event_info[gpe_number];
+ 
+-				if ((ACPI_GPE_DISPATCH_TYPE(
+-					     gpe_event_info->flags) ==
+-				     ACPI_GPE_DISPATCH_METHOD) &&
+-				    (gpe_event_info->dispatch.method_node) &&
+-				    (gpe_event_info->dispatch.method_node
+-					     ->owner_id == owner_id)) {
+-					/* GPE method belongs to table being unloaded */
++				gpe_dispatch_type =
++					acpi_ev_dispatch_type_hidden_handler(
++						gpe_event_info, owner_id);
++				switch (gpe_dispatch_type) {
++				case ACPI_GPE_DISPATCH_METHOD:
++					/*
++					 * GPE method belongs to table being unloaded. Clear
++					 * only the dispatch type, preserve other flags.
++					 */
+ 
+ 					if (gpe_event_info
+ 						    ->disable_for_dispatch) {
+@@ -612,6 +677,30 @@ acpi_status acpi_ev_clear_gpe_dispatch_by_owner(acpi_owner_id owner_id)
+ 							gpe_event_info,
+ 							ACPI_GPE_DISABLE);
+ 					}
++					break;
++
++				case ACPI_GPE_DISPATCH_HANDLER:
++				case ACPI_GPE_DISPATCH_RAW_HANDLER:
++
++					handler =
++						gpe_event_info->dispatch.handler;
++					gpe_dispatch_type =
++						ACPI_GPE_DISPATCH_TYPE(
++							handler->original_flags);
++
++					/* Forget the hidden method so handler removal can't restore it */
++					if (gpe_dispatch_type ==
++					    ACPI_GPE_DISPATCH_METHOD) {
++						handler->method_node = NULL;
++						handler->original_flags &=
++							~ACPI_GPE_DISPATCH_MASK; /* -> NONE */
++						handler->originally_enabled =
++							FALSE;
++					}
++					break;
++
++				default:
++					break;
+ 				}
+ 			}
+ 
 -- 
 2.56.0
 
