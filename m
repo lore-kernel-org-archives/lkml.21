@@ -1,47 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164905;
-	b=Y3CSmRHWo+v2jkDFV26EtMv+qegkI1hBSdHSvjXlcev9xOSZ8n/SheUF0LiaInz7Q2LR
-	 WNC6Q9NeqWszm+VKVaDKIlYtQkMFnQk6QqzTftHQSh3RgcffzVc05mTyIPJ1NTR2rVx+n
-	 F81nxe61MedR3KtTrnih4cjbZnBFvXGatBHPUY/wES460rRXmaW5LsXEXk2dMai3Mm3c6
-	 PkNACHTwgWvcMFxV79+XOZXTkAJUQh22OVhqJHHX5BwzIBhHsdyE3dI/KTyWVDE7LcXW/
-	 LtpCQbirP6hAJVYkpIyNd0o18L/QG7/Np9hio/7MAlWjpUeX0h2mUAmPYaDrrleUkJw==
+	t=1795164917;
+	b=NvvhdyxBRLr/Wolp7fxRyAnUoFVIjJoF2aTjx0ZAI3p9tDG/irOGuVcEp+zjsoig6psS
+	 A72aR/jCrwLEeoGzTLLzAWe9omMuZZOxx+0BHZAN3+XaamRSu3MRE9sV0wBPnOiU7+s8a
+	 4HsTMIirqSb0LjxEno9f9OxLNEH6aapTiyOnIz9DpsV+kK7HwxzSa1NZTrO3n/jiz8Ix/
+	 oFLo/bixzFsnQYcu4e7XUd+gVANfoZvtf0pSYauchXZ4PWufFCEzfTNu2569+nBk/xj7F
+	 nmynZ9aC08NvRWWwpf9rGvsEZTQmWoX8Er+pe0BFnAqeeogdtFyqYypFKIvgcnZNQGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164905;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=U8QU7D7lH0dsXop+2OtcELI16mRcSojShF4LVc/fwRo=;
-	b=RSb+pxyVnn5ir3w75VDXE4Fi/KPW8EYa/U5hQ1EsGuM+snKDWPIdgTAaJgVMqxIoGskR
-	 55fPYxearfQptNE+QQOBQNmKoE56woRmYs1FjaZeCo2t6RSE96LlGLRH37HAcEO7Sdy0b
-	 fEXvzkzCfQDFnXoGeDK8qQsTH+SEWjZOP5Np1rTPaDmWIkkm5gnuwvMxq5TyLdfhJiw8N
-	 jFBVZGTjTCYLi7R+/liPl07BsbNybS3Q/0j2L0sw2blrf4a8BlNN0WQygEynJk2/k3W7o
-	 K+i+25GfLYpa3UjagBhb8PNOeqbASERHY3WCVfLDWiHv7YY06NJsCp61K8jkROV12NQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164917;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=zuSAV0ASIkI+OH27bfS7LAMz0ZPMgX2c/e9d/b6BkGI=;
+	b=BIG7FfOMeJwYRP8YAfZLGadfnI6EyVFNVLJDS6TlyBXLfkFNz0tYjCiYHMy1lRGGYwnM
+	 OHnIINJCaG8N1v62GTTt4kDxuDs//aQluFYvg1DsAfF1k0zgZfThOePyx9l/xJAFRFKNH
+	 Gb/tCz5//EazruZjqM/qBHOuLZnW5XfZqRpWbe6uHW0fBDUhKXP2pbBjBbdspWrpEyGFA
+	 Wy568SjHitIacDW5gQSiq7ghYdM+2tIsHK38WgbY9jvr7SZETSDQA7VlDN+tYs19ZuB15
+	 bp9JvtL5tZC2ceKO5QEf3l6YSUp/Tkd79sUznKYG8K0DtW+rggJsSMR8RcKj2EQapLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R4wnAftC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aMCcsE8t;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PCtMtR3V;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2569606A32C;
-	Fri, 20 Nov 2026 08:55:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CE27606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:55:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CE27606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=R4wnAftC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F7D1F000C4;
-	Fri, 20 Nov 2026 08:55:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795164905;
-	bh=U8QU7D7lH0dsXop+2OtcELI16mRcSojShF4LVc/fwRo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=R4wnAftCC0fom7S86yQdMLAztpTkJyR+SbOiuZ2Ozzu+sMzSKTikRS4dXiGGcGn9M
-	 97yNLrYYZrAXeKUbGLEJR9L3HgIFm7yioS0mdVLWgBYNBLP8AfetQfEOM0fBd0H5b/
-	 iB7Oc9q2z/xqDblsboGFRJk3rVqMfc0OHAF+2mh6FYzxDASYeZ9htKMDlTWWFbw/Rb
-	 J58CcUgsQcyLs5vPPz6A0TTQMztnjKsHI3uFsSicrPfyUiTXMy0NPBscUhQ4x2HXUq
-	 JSbnlY0aXD0LV2uP0Umk63cQVz8de5ciy8NObFo6PTzApXUFpo9vjCfcv21SjUsq4j
-	 hFdVFFXN0F7NQ==
-Message-ID: <8a43c25e-0828-492b-90cf-beeb72ecdbb3@kernel.org>
-Date: Fri, 20 Nov 2026 09:55:00 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=aMCcsE8t;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PCtMtR3V
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f0sx1742016
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:55:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zuSAV0ASIkI+OH27bfS7LAMz0ZPMgX2c/e9d/b6BkGI=; b=aMCcsE8tdnNgQ7jJ
+	oz6XOXh9ftErExtdKSrIyufISfvsF726z5JjuYh6aajkVn33WsfJw013/4rciw6m
+	Fr8Uby2k9cLG1dLfTLJlZdjNMy4ylwz/AGtrdiEaq0QM4oOtjvV8LMCA80ZJU63/
+	uJxkss2qsMyohpReEef8S6V5SSyyg5PjKZMB8FpV2u8ZD2/OsqoC30NO/pKgrc96
+	vy1bq6Bwz4GQUnG2dm2BTD/QamFf8iiZi2pKIHlUmNJN3fPoUivV27q8zI9to74g
+	6MlsgZuoYWJ0nDhDwhgz1rsey+SKy1v+hIASqiUp+o6XGEKmKfsRgsmIf33MUejj
+	B39t8g==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4yh146-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:55:16 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9495c71055bso158454585a.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:55:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795164915; x=1795769715; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zuSAV0ASIkI+OH27bfS7LAMz0ZPMgX2c/e9d/b6BkGI=;
+        b=PCtMtR3VUBA4z+xpMIsk+73el3FArdPnz+MuIOIMMCjEMQOSgA/VK2sJw/YQITE61i
+         90U8IHam/0F++PQSyajlyGSs+/m7XQigzI+38EOWvUuAry1oaIP7jENduEhn4ck+Ey7Q
+         cdmBmXFiSwgaSXrQxXjt1k0wbEGoMto96dL8X+Aj9H7GSIv2a9cm+SLZSOFP6bthCfL/
+         /UbwFVuMAuQa4YKgWeKWYFiJpXbU83TjlCh7K6SHOfkPsS37DWbcoV5k8uOWoduIQ2y+
+         BFqt/8Uwb2+4mAWqK2o1hxwIgB6+++vrb2TffA6Lt6yjBiaATc742jOYl2NCERmxrjHs
+         dLqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795164915; x=1795769715;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zuSAV0ASIkI+OH27bfS7LAMz0ZPMgX2c/e9d/b6BkGI=;
+        b=1/YRp3xhOtoO/gPfNrZsZlxdEvmpCX1rrl2ZxLT5ws2cSJNTNPV6YzGn39RG1WD/d3
+         cfeJEhX1jIUAC/e0Ahn9LbW+mKfSwIVwXM832mBgNk+t4fLvGPMZaNGcfEBc3mar3yM7
+         gbfdyrXa/sF4SMtQ5IVZx+JmcImAmG6s6Gkd6W3TyhtDMPk9dDCAItyYADUwUJyfMJ8t
+         83CLuOoy1/SjqgzwZ2XkTMUxTvpTDCag0nkkSUNv5NGkQBahytQRHR9KTvi232TYPbC5
+         c1zdLWplxwmmBk4eTKo3TBkKZzr1jBLD2y7pk1X3sukXDAZX5T0HU3c7q/2c9KlaGGOf
+         hnSg==
+X-Forwarded-Encrypted: i=1; AL+hErF0he1rmxs3QS1qVKt6xHZsJDpIRMF22L7dyP+RiYff4B5LPc/A6ZPAhUsqioTwZBMK79W0NfObi10tzFk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94dlerK8/D/tw0UvrrltO746kxMLWALPH8nkGPMWCDMpi3x5d2
+	P1dSYrmaP5svLX3VAzLmgQMCK9lgKAus1gjeQCuDafC4B4TSDvNhNVAQM77KTRtUMIg4S3yyM0t
+	XxkFvRmm6u3XtGuQmzw7ECAcEJWeNKVW26TAA2o9CeheOoR9msF9uFjQ1FVJjKITgsrA=
+X-Gm-Gg: AYBFou1Mqhay+zAQV4qpIEAoM1QGDNK8cNoomxhwOeV/DcKx9xaF1UWbIX8CnfFSq+E
+	N69uwI4fpgQ+F8ekyP9teLmOVBvUH/hdnLPshJJYfqxOedOGsGnglMjBXOquVsh3mmXWFvKLN6M
+	17x0BUzGwD8nshu1fDNKJaXvA/2FbvI1QCPHqK+0H8iGac+k7fPwX0/K0Y+tatbyrs9dpCzB4cu
+	vIpq0r+pT6bzROky6G+AP253X5KIGAVDydiLTjyO87cPAjcu8KxxRerG9CrzohMk/p0WADuRVCy
+	PkOp9V3cl3plwn4odIZ1P7un89drsOVAYXVyh1NbiugpTHdAkflQ35ZlNeLTNgUdSqJrC107J01
+	QbtbdKYH2HBo3BnBwJCTdyMo49OnUW0tSjkagjqRO6q3FT35PttWu3D3+tkUnlBVY3eVm1xfROh
+	I=
+X-Received: by 2002:a05:620a:c51:b0:949:7641:3872 with SMTP id af79cd13be357-949ba9b8b16mr388721585a.14.1795164915506;
+        Fri, 20 Nov 2026 00:55:15 -0800 (PST)
+X-Received: by 2002:a05:620a:c51:b0:949:7641:3872 with SMTP id af79cd13be357-949ba9b8b16mr388719085a.14.1795164915073;
+        Fri, 20 Nov 2026 00:55:15 -0800 (PST)
+Received: from [172.20.97.102] ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm4620628f8f.59.2026.11.20.00.55.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 00:55:14 -0800 (PST)
+Message-ID: <b5138676-fbd0-4922-9200-2ae600613c0b@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 09:55:12 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,159 +115,81 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: hugetlb: allocate larger early CMA pages first
-To: Qi Zheng <qi.zheng@linux.dev>, muchun.song@linux.dev, osalvador@suse.de,
- akpm@linux-foundation.org, fvdl@google.com
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Qi Zheng <zhengqi.arch@bytedance.com>, stable@vger.kernel.org
-References: <20261120074701.48298-1-qi.zheng@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH] arm64: dts: st: stm32mp2xxx: Remove undocumented,
+ unapproved eeprom0wl alias
+To: Marek Vasut <marex@nabladev.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+        devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, kernel@dh-electronics.com,
+        linux-kernel@vger.kernel.org
+References: <20261117133747.244933-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <ac1a1214-98dd-48da-b8e1-bc8ef9f09316@nabladev.com>
+ <93acb3fb-98ae-4dba-a3de-fcf1772239eb@oss.qualcomm.com>
+ <e9bfca58-666c-45d8-bd5d-9405b068bd08@nabladev.com>
+ <8d0810f5-e90e-4a70-be9d-89215d02b74c@oss.qualcomm.com>
+ <77bbefd5-3e05-45e4-9e0a-02063ebf3e06@nabladev.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261120074701.48298-1-qi.zheng@linux.dev>
+In-Reply-To: <77bbefd5-3e05-45e4-9e0a-02063ebf3e06@nabladev.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6b000af4 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=bQMwIwtNPVeBncCEftwA:9 a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfX1iH4UACBI+vC
+ oQwhJHmCPE+hzua9RZIqY8H1nwAqjo8rjnrKOa0OaWkhH4CE0A7lhlTZCfvpUbCGwXIkBIg9aDZ
+ TalfPrS4c9Wri6f1XLn2yEAq+WmYnrkAN4dyzeW2tgLL4VH6ScLaTvy2BKkpVBvp6IKURxEUGKd
+ lYEELDzpVFfqLkFSvLZvZPU+0y0bDds9RBmfEV+EwKvCi6dyID6J1lxe6HJn/ldE4eswtcOHHwG
+ quBwPo2KgyNrozeNPuf2FQxPe8F5zpqen/HS6Enj/fMJ/TiQk2/Zj6YgGlLtCo8vB0Uq/Ub1dkH
+ 7EDXfDEwa1HQMbSj8vdk+yGP/JHkHt8mRFUzU0jZ41wxz1MDLQ6XRa3zaASyM42PRkvzQizK2Zc
+ tWmsLVYXOCslQwSq2sBd8TVRGtvEbcSgTDE+TznqQDBZRqq+/mBBjuCNj7jdefQfGkZgV7X5Qg9
+ o27WtKWIF5IYbZQf5uA==
+X-Proofpoint-GUID: 2b7BJB1P0ohtAs6yX9r2QqJZWsUX0wI0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfX0tinaBde8PzM
+ 3u5yiHAI8Ngbtb/notnvKymUBlnqJsUOqyX/1bIYd0bjuo5sESwN6l0fodQoHwsNGeX9NNNEpXM
+ aKGCUhyRQfrLeyax1n4qHZTqjNNTO84=
+X-Proofpoint-ORIG-GUID: 2b7BJB1P0ohtAs6yX9r2QqJZWsUX0wI0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 adultscore=0 clxscore=1015 priorityscore=1501
+ impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200035
 
-On 11/20/26 08:47, Qi Zheng wrote:
-> From: Qi Zheng <zhengqi.arch@bytedance.com>
-> 
-> With hugetlb_cma_only=1, early HugeTLB CMA allocations follow hstate
-> registration order, which can depend on the order of hugepagesz= and
-> default_hugepagesz= parameters. cma_reserve_early() advances early_pfn by
-> the requested size without aligning the start of each allocation.
-> 
-> On arm64 with 4 KiB base pages, 32 MiB and 1 GiB pages share a CMA pool
-> aligned to 1 GiB. In a 2 GiB CMA range starting at 4 GiB, allocating a
-> 32 MiB page followed by a 1 GiB page places the latter at 4 GiB + 32 MiB,
-> violating its required 1 GiB physical alignment.
-> 
-> Simply rounding early_pfn up before the 1 GiB allocation would leave a
-> 992 MiB gap and advance the cursor to 6 GiB. cma_activate_area() marks the
-> entire prefix below early_pfn as allocated and only frees pageblocks after
-> it. The gap would remain reserved with its bitmap bits set, and releasing
-> the two HugeTLB folios would not reclaim it, permanently losing 992 MiB
-> of usable CMA capacity. An alignment-only fix would therefore also need
-> to track and reclaim such gaps.
-> 
-> The same alignment issue can affect non-LPAR PowerPC64 hash MMU systems
-> supporting 16 MiB and 16 GiB pages, with 64 KiB base pages and
-> CONFIG_ARCH_FORCE_MAX_ORDER=7. The 16 MiB size then has order 8 and is
-> also gigantic, sharing the 16 GiB-aligned CMA pool.
-> 
-> Allocate early CMA hstates in descending order. Each range starts aligned
-> to the largest supported size, so this preserves alignment for subsequent
-> smaller allocations without creating gaps.
-> 
-> Fixes: d2d786714080 ("mm/hugetlb: enable bootmem allocation from CMA areas")
-> Cc: stable@vger.kernel.org
-> Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
-> Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
-> ---
->  mm/hugetlb.c | 28 +++++++++++++++++++++++++++-
->  1 file changed, 27 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index 4a448c5909d36..d69a9532ad5ef 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -4600,6 +4600,22 @@ void __init hugetlb_bootmem_set_nodes(void)
->  		node_set(nid, hugetlb_bootmem_nodes);
->  }
->  
-> +/* Return the largest early-CMA hstate below the given order. */
-> +static struct hstate *__init hugetlb_next_early_cma_hstate(unsigned int order)
-> +{
-> +	struct hstate *h, *next = NULL;
-> +
-> +	for_each_hstate(h) {
-> +		if (!hugetlb_early_cma(h) || huge_page_order(h) >= order)
-> +			continue;
-> +
-> +		if (!next || huge_page_order(h) > huge_page_order(next))
-> +			next = h;
-> +	}
-> +
-> +	return next;
-> +}
-> +
->  void __init hugetlb_bootmem_alloc(void)
->  {
->  	struct hstate *h;
-> @@ -4615,9 +4631,19 @@ void __init hugetlb_bootmem_alloc(void)
->  	for_each_hstate(h) {
->  		h->next_nid_to_alloc = first_online_node;
->  
-> -		if (hstate_is_gigantic(h))
-> +		if (hstate_is_gigantic(h) && !hugetlb_early_cma(h))
->  			hugetlb_hstate_alloc_pages(h);
->  	}
-> +
-> +	/*
-> +	 * CMA ranges are aligned to the largest supported size. Allocate larger
-> +	 * sizes first to keep the early reservation cursor aligned without gaps.
-> +	 */
-> +	h = hugetlb_next_early_cma_hstate(MAX_FOLIO_ORDER + 1);
-> +	while (h) {
-> +		hugetlb_hstate_alloc_pages(h);
-> +		h = hugetlb_next_early_cma_hstate(huge_page_order(h));
+On 20/11/2026 08:41, Marek Vasut wrote:
+>>>> As explained, U-Boot CANNOT depend on undocumented ABI. U-Boot is not a
+>>>> user as understood in Linux kernel policy "we do not break users".
+>>>> Especially that U-Boot does not even consume that DTS! We do not break
+>>>> U-Boot as long as it is about documented ABI.
+>>>>
+>>>> Here U-Boot won't be really affected, because updating DTB in the
+>>>> kernel, does not update the one in bootloader. It does not go that way.
+>>>> It could go opposite, so from bootloader -> kernel, but not the other
+>>>> way around.
+>>> U-Boot does consume Linux DTs via its CONFIG_OF_UPSTREAM .
+>>
+>> Cannot, otherwise it would have document that ABI. That is the
+>> requirement of using OF_UPSTREAM - you also use upstream ABI. You cannot
+>> use upstream DTS with downstream ABI.
+> What option do I have here that does not break existing use case ? (I 
+> can patch the U-Boot board code which depends on this, that is a non-issue)
 
-Was thinking that this could be written in a neater way, but it really can't.
-Best we could do is issue a single hugetlb_next_early_cma_hstate().
+Yes, please fix U-Boot.
 
-order = MAX_ORDER - 1;
-while (h = hugetlb_next_early_cma_hstate(order)) {
-	hugetlb_hstate_alloc_pages(h);
-	order = huge_page_order(h);
-}
+> 
+> Is there a schema which lists approved aliases now ?
 
-Thanks!
+Every device schema which requires custom aliases lists them. Another
+point is that custom aliases are not allowed.
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
-
--- 
-Cheers,
-
-David
+Best regards,
+Krzysztof
