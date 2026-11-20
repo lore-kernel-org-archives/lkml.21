@@ -1,80 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133393;
-	b=RxLqa88WkWJzUFgJ9Z+Lh1IrHVhPRggRGrj+Hwyu+4pw0QEdhvr39KRB2bFMMN1aFccK
-	 OGuzeft/c2HLORmL/Di1uD+ZNXe16BDWg4V5QR+kpsJhaNExjA0v4HpwE/CmWpaYUSAvb
-	 iusmh2qH7JbnTPNXyq5D1tyrTiaxg/iJR1UA3rLY9lOAyVkfA6Q9RyPnZEBTY9Ke4SYbw
-	 kH22rfNz6/n0VBRnpoiKqLq8ZX9bE/k0/Z37bSl/TTWU+XLtULG8u0AcJlzQVlUueqTc8
-	 OyK7heBX19UpeBPs8GBhQ33D77B0UTWZkq7MwusmCKYXy9BiUxRgZcjcn9nfJ/jFrpA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133393;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer;
-	bh=zFsE2OBRDF5jIRbcmqp1WRJG/783QQpzfaQ8RI3g+mw=;
-	b=e7UTrCGcqmd70cTSW1HxH2LiacmimOQhgLSAMTPD3YUAcZ/ReyU35PeL551oEG2Ra4Xn
-	 0LTfRT/zaxd0BrWfBhJVa82Y9pOy5u1nFLfKSH7QiLWqUkyEWzo0HjOHGfXNil/yLOVLi
-	 hPpuKdo0rx5GVnno5Tajx79fKYvBbLLcR8A1x7XT6H9ndbKg93x+hhzET+pAJrUKVJ4JI
-	 xcezoJUC+hLzS4TF8GsQH9b0i8oBg7QKjPXGXW8g6r3W1Ph35lKmKNBzWlJz6M4Nzrmcw
-	 xUxs0kbuoIyfBsC2lg0jt86r1CaMz3LvO40aNc44Y+YFviHU+t6Vc74nG2O0jVyxIPA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=awuEPJur;
-	arc=none smtp.remote-ip=66.163.184.44
-Received: from sonic317-33.consmr.mail.ne1.yahoo.com (sonic317-33.consmr.mail.ne1.yahoo.com [66.163.184.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.22
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795133447;
+	b=mwvm9z6cnDkLyV/qPKaBCbLQpNQcCjFomWPv9apa0zyK9LQ6WoXtaWx3mb3sJBAtJyCT
+	 TCWoEk4nFz7Pp11kaqQRJ/urIUGRJWXlt7YEm9gudKrhpcoR3F+43uLsS8FVAaebfHn7o
+	 lE1qkwv4LnVxaRZu2JmxPbAuCELBc2E1b8fn3t9JFWtQUFskQmgkeJXhhbs5vHKLweggb
+	 zklnFupdTo/S693C1A19YhIOQje9vakH+TJbKdhXEUwiPNnOg+H1/jppBpjcAPuR/nsK9
+	 Oz0Tg+u12qWWXoQtg6vlVjWoq+zhoVya9+jPcq6jrGpsczXuRpE/JSzul/++1sUxVRQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133447;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=jaKcoVOIlrU450/oZNaFSQVblgQGB2IoQu9v8QphIiw=;
+	b=4GdXKZwHyfcJnFSJgJm/syAM7xq7vnqTgLnSXexl/Rr8Il8HdEYxmonINIDj3rT+NfWF
+	 1ty9STMyX1mnC/qBOYcIDuSk3aBo7f4Uu+ORQtCZSrP0ZXKrejlgqsP55U9hXNwV4hm52
+	 oWtf7fadSGSKuBO20w3WWQjp7ny6drp0pCRRkzttKZdqtlxLZkzhnfiEY8+eBp+6d/LNW
+	 N+It/ngze9cyWXJCL8RRnGZp0+wTIS8W5WNuZWklm1Iiv2SiFg1ryin6SwA273Za1Jg0T
+	 FDwJ5klJFmR1OS5ek/0UjOFCzlumz1zmOlLkKfsi5JYZ0i6A74y8Z3p7LlLipGQBOcQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cmpEWRFh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.22
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010022.outbound.protection.outlook.com [40.93.198.22])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B463606A33F
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:09:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B463606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F43F60A260E;
+	Fri, 20 Nov 2026 00:10:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F43F60A260E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=awuEPJur
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133385; bh=zFsE2OBRDF5jIRbcmqp1WRJG/783QQpzfaQ8RI3g+mw=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=awuEPJurjLgAjNnZu178Lio1rNzpgqa5CrWmBvkjXUSPM/U3p+QfJFlxes9vm7Fg3aHwjjrfseRrAUsiqSwdr29ibVRcXA/E60LECAigl6ZCWNwAaUZMeC0W53cxIY3EyMzS1ebmEaNt3qVLXYT7Zl1wtPN433iFdsF0FJIAn7GJMqtBzDC6yHoa/APtFQ0Dix2W6itNJrwuCwRtoPbAKaLkRz2iYmUNBKfgvYVbHCho6l30Jegfy3G+eh5XochfDEpZyK3mdMyuyyeCmjCVL5HZJMI3+OVs4I5SpPetHSb0J2Je6lIuMph6tdy8qnusETbCxzX1oyG3rcJPaJYnoQ==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795133385; bh=xPZEfhPGtSPakXkaoG4c1vehkvRNb8q4Y7CTpMtlSvp=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=c+B0A9Lfk0nW92iimTQTuOQkWo8VW2rCvc8X2xLtJBRIBxl7ufBwqNYKW+oE+tyNjbMb44A1ymAK/TuUXJfnUDffYHjnauyK51M8HbalyL4uAxGbN2IrQNoDSCGetywdC3rBTDSUUt4gWQU4+UhKWJe8Hwz07cUVbv5mbv38EWjk7IssIJAyWC8j6C8esJj9k/xzKM73RtfVlnbOrKxvc4eBmi2DmSfBuwvn3Hnluiwslp95g+tawIYHixW5V8JcyYPQOmem6XzTZkcb7Dxd1rZlRSVHwZZtMRumVT15GWk+OYo9fI7NcL3CV0kPw1dfO9ul173huWhCvHHzgXKyZw==
-X-YMail-OSG: Q1do08kVM1k3tN2543KBi3ZdL8py2xKRiHnjCchWlud.X.rbB2eb0YwH4mV877u
- T_SRybJ5ewhmw0ln34Hh9D.ADykocUH_LQndB7WMtYIMp.N9ZfnD0uhLimyaowUqSBCmv_y0FMhn
- Pv1265KbkblWrYNRm34HT1Vl2dME32pyUB5wxyDuH6dBhNfLs73rc2VuzTfxHZ8xTUEk6FDVT7Xm
- pJ6WlEHYXglTXdb6WPXUMlZQQZP5vJn8nak897GKpo6HvtSjtWIJQ4Wzk_SilnsSCv71GyP3f6WH
- _FZbIMxaR0HFZV_W0M8KVCXgEUz5vzPq25bStmVueUjrti1tmj88_BvjEP8tz8EuzaaiIbwunsyb
- 82VySudBNXyyBWJrM3pze3SkYPYBMTGtUgmATo8IydiqlsTa3SdqjAn6WyxtWM4AX_YIQbxcv9Ls
- CIUG9kArzYJ8rk2.KdIZz5R4qBAIfsCP9DvtJvOhezuePnoYFnafq97bIIf9l1kU_onzUkxufFva
- MdgG4hPkgvHZnIGPjfljBTFLC_PVVYtBsLttN7D6g4Mv3oiTbTPZvOC71BhNwxqqsXjcO615pl5t
- yASFQNyo6uubFmsQUM6kpAJVKi7kd3VtqJSAQPC3CbE7Z9w.W4YUnsd2kPnhDHDPsC8X0nqiIjMR
- T823XC5OBv9XG8sW_YYWMcUB1bGP1jikOoO0XlJw1Y23juY6_u_dPBbcG2owqss_ooNcMGMtIbg2
- EH9KjfMgZQWkeuYJnnmo15DBBe5Hc8zCUav7WKrha2c1jlxppYVJT_j6K7Y3Ec_0Y0k.1AFVO0My
- dEHiRrhIGMFUiyyvBjpISm.UFda4.w7TOsdSim3b_OgarfPTKdWh5s6VBQxNy0BtnRTgjERjZ26m
- RmRmrSFrc2yEA8CTDDcPrbXlhyr9SSPuC4PAPeP6eyEsNyqzAyzwgo9KxLEfsiogBnZUcMU5EzUw
- z3gV2D9AZGxkKBhrjOTP2.kyHfxch.JlnT.P0QPH7alTb4OZCkv.mR6u9E85Bl19OsurkuzOgDb5
- UBMg41CJrCkDpy4ekFwhWicuoCxPe1b73dwWbqBwtH_rLx9DkIygNydfXIJqMXo2aYDaNMwX0AMD
- 0jGfIJzfmaCxdqbUZUNGYYfGMxpk4tawuf9PfLVNYuA2UV4Ghqj2E53ws5129LTV8y1Ach4ChPTb
- bttoIzqk8D00VfOiFutm5178CLRcvnwUVo6nXa13UnpFC2OtT1psRstNjXlJaY37fPgApJqKqEFi
- BPrP32giHXwbWzT0UOOwcsVJlc8gDxrXLu1gJr8DNnroifIuuPlsuoV0jxNd98omxhKhROluf4sM
- 4EYa4I1CVYez1UqVWFduqeGU3YM2LwBJ_q2BRqcJdCu15DTvvOWwrNLY3hj4uga1XdZfI4iIKKOh
- _UmHmTWap1OdZzbdCT32ais.UfIIrhI06NluBjQrkIFJM2RTQOigKtTnVelynevlDKVa0sKct.o2
- X4S0rw6MXCiiamElcm9G91HncCRkX9TxdvoI8jbc8T36hwkQ2bpfHPNmczUTuZQrp9vqPWykp2CI
- e_731x2.d0Y8_eYiL5ppWUn0Pi2hfS4S4WQBjG6QuOlgi6HGYjRT1Fn1Lpi7jOhvFybuEBx6T3Su
- vjeQ6bn83Ooa3NvIy35sxfVSVp0XQWaafHXsOEtmxeyUiMxtGhUgw8X60GYrEPimt9GHaDga2AJz
- FXVOGF1pRzWI4SaweXDqyB2Yv0f_hciUVmOHCyu9NBr0wp90iVI2sx_jHHoRQml2YOjXfp.byHYM
- _EbXfabrXu0H2CEUY4XN0e4qw9xN1.v5OE.KSLus.bbe93mpHr4ZjgwW9l8dqXJmdf826I4k6ZxY
- OhAxhds6TP5RU9av1hnxcA_8d7O_yPbwfH6NUsRra_tUZfQiC40iD2FPUDqLHnA0M2qn7hD9kCXs
- wBXvqGSX17UmT3VPNBvn_dIKnUen1MmEPW1ptByNgIKUcmVWdjd9Mfe.MwqWfvvUCsR77gyg69pq
- zRJRlCe2kWPC4LsSzNV1Kc6LX6Qwlte0Wui5vy_KJ.DQl67GnAa0jIJK1NvDUBy8gFCK6GYdeQ6F
- X81N7feMdPmYVsZnjTtzk9nOKpM74AgjCX3Q1EwoBsfDvHF_qwEleUuDnhqcWYDhU5IPGEz8bj6L
- 4ZO60iVofZ_qcgJhd7QV7jkgggSJJDbE82CCCTDfUieMOxxk81xRZxdT3ZBbiULZbeYq8a0f_mdV
- 4aZuEFmN1iqpZOF6tn.U0GHH2rCdCjm6XmeWgAXcTtR8kLLyHIXhg8_jup1bSkFepbqQyOqGyF4D
- 2gi8DP6gEK5W0rrlSde2j0.rnAq9CnIFODlrGecAhDjmXI2nQDFbO
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 2949d025-65bc-4da1-af09-66d802d6495b
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic317.consmr.mail.ne1.yahoo.com with HTTP; Fri, 20 Nov 2026 00:09:45 +0000
-Received: by hermes--production-ir2-7c4859dc89-lmzdv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 99fbd7daef1faee536e088399b678797;
-          Fri, 20 Nov 2026 00:09:40 +0000 (UTC)
-Message-ID: <729eeb67-d812-4f1d-81e2-4f4437181744@yahoo.com>
-Date: Fri, 20 Nov 2026 01:09:37 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=cmpEWRFh
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jDgc82BdHoCaOrXE+83aYaIv7kiSeIRlaTHbvkrLyk/JCx0w8KogZ4qlY2ekyjWN/9RCddm9zTUsDAb/s8wmzPMVvDDlcHq5wjSIekvCgjGX/4+M75tTvvOHsC0q8hYJkOiximQ/sYa6MQ6k4iPppaQTWbbGcBFdtiAet/Itw5B4Q3M/8E5usEjw6rm9Z5SQXHF8zCKKQDFSNx6XVKQY46SVTVB1Gncscq+wkWfdacRdpxnPmb94gSUA+uB68G5Zq2aqwukP3dW+4ECT7dlN/0JmG9s93QyHY8EtwM6+mxkA4tkHCynBJ26D42TFL1uA2FfNEMR6HMxFMoBFnR7Pbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jaKcoVOIlrU450/oZNaFSQVblgQGB2IoQu9v8QphIiw=;
+ b=kV48Of1V12h0pDLlrQh829Jyq9sKzJGE3iMRN+fEjOEhiAGoKdiCJEtdqAMWP1l6QnqDoLSdb/aEteHO7jDUKpls7fcisB/ZRNSTGcNr/13Zg1O5FtiUJW/bSNP058qFTjVDARpFYwcmSOl1rd/xou3kxCMozkF6ijUE/hRSBg5ys1songorIrR2wfMSf50M3ZwpAFnVsLv28gV6cMrrum+4Mb8fno6X/a7dn2hd9tgyWgX40OkOQ9mxrl7RhYQvoNubueyiWdIsjt55NrLcuVc1SZg999WlJvqKMkQ84kVtB8lfPGsplPP4TkqCigLzhz+cSxat2dx0AHe978fVkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jaKcoVOIlrU450/oZNaFSQVblgQGB2IoQu9v8QphIiw=;
+ b=cmpEWRFh769DAxR3HF/1vqkJNThaNuo9fw6xatvqnGjg41kR69WN0Qg3cnxxAh6Oj9pBIDk/mfgYCxyq/WV/KIAgNb7wFUxSJFZchU3uBl17qmPVnXBh7O+B+I0QLOas+vOs/78hEkRL213pXsMb3RpxpcDUT1j0jFQej2K96vRPjHATZQAEMQKH1gCYv2jEC8TmGFRSq9esmPsE9FKhipMhwhT1qddGuXi+lZ/4FTCvIE5MesbTr/fjNSDLwJ9KyXebtjvjOxXTSWr8A9Q7IcN8b3LSmlN76ucA4GybEhxFII3Xb2p9lx7D70cdiYsAFa63JrPh+EotyjiqfHJP7A==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV3PR12MB9411.namprd12.prod.outlook.com (2603:10b6:408:215::20)
+ by BY5PR12MB4097.namprd12.prod.outlook.com (2603:10b6:a03:213::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
+ 2026 00:10:43 +0000
+Received: from LV3PR12MB9411.namprd12.prod.outlook.com
+ ([fe80::98b7:86de:b69:2a15]) by LV3PR12MB9411.namprd12.prod.outlook.com
+ ([fe80::98b7:86de:b69:2a15%5]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 00:10:43 +0000
+Date: Thu, 19 Nov 2026 16:10:34 -0800
+From: Alex Williamson <alex.williamson@nvidia.com>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-pci@vger.kernel.org, Adithya Jayachandran <ajayachandra@nvidia.com>,
+ Alexander Graf <graf@amazon.com>, Alex Williamson
+ <alex.williamson@nvidia.com>, Bjorn Helgaas <bhelgaas@google.com>, Chris
+ Down <chris@chrisdown.name>, Chris Li <chrisl@kernel.org>, David Rientjes
+ <rientjes@google.com>, Jacob Pan <jacob.pan@linux.microsoft.com>, Jason
+ Gunthorpe <jgg@nvidia.com>, Jonathan Corbet <corbet@lwn.net>, Josh Hilke
+ <jrhilke@google.com>, Leon Romanovsky <leonro@nvidia.com>, Lukas Wunner
+ <lukas@wunner.de>, Mike Rapoport <rppt@kernel.org>, Parav Pandit
+ <parav@nvidia.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, Pranjal
+ Shrivastava <praan@google.com>, Pratyush Yadav <pratyush@kernel.org>, Randy
+ Dunlap <rdunlap@infradead.org>, Saeed Mahameed <saeedm@nvidia.com>,
+ Samiullah Khawaja <skhawaja@google.com>, Shuah Khan
+ <skhan@linuxfoundation.org>, Vipin Sharma <vipinsh@google.com>, William Tu
+ <witu@nvidia.com>, Yi Liu <yi.l.liu@intel.com>
+Subject: Re: [PATCH v11 09/13] PCI: liveupdate: Adopt ACS controls in
+ incoming preserved devices
+Message-ID: <20261119161034.4e23c1c6@nvidia.com>
+In-Reply-To: <20261118223704.3286085-10-dmatlack@google.com>
+References: <20261118223704.3286085-1-dmatlack@google.com>
+	<20261118223704.3286085-10-dmatlack@google.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR05CA0106.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::21) To LV3PR12MB9411.namprd12.prod.outlook.com
+ (2603:10b6:408:215::20)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,191 +111,280 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v12 13/13] net: dsa: realtek: rtl8365mb: add support
- for RTL8367S-VB
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-References: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Language: pl
-In-Reply-To: <bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce@yahoo.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27079 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR12MB9411:EE_|BY5PR12MB4097:EE_
+X-MS-Office365-Filtering-Correlation-Id: 22eb5e39-0abe-47f8-d9e0-08df469ab767
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|7416014|6133799003|22082099003|18002099003|261009220027099003|261009223327099003|261009221227099003|261009223027099003|3023799007|261009221727099003|56012099006|4143699003|11063799006|261022075727099003|261021121427099003|261102123227099003|10067099003|261022105027099003|261026121527099003|261021135927099003|261026140227099003|261102130727099003|261028144727099003|261021123027099003;
+X-Microsoft-Antispam-Message-Info:
+	dfAfAbgPKSMOzBmqhhqeVEUKjG0m3mtfmwYun5Qm+gIT3tKti7e6W8eyknpn4cJEKyWDiXdDYDkMtGhw+LRLSHbWQBAAwogKL5NWWK7AyqD9aYqSMWi1Sx0vrFCzTiJiQ73rWcxVTRhljxZmRcbERXu8jN91/ewZcc5rnN2lbHyQqjSLAFP42AsJPxbyib0Gr7Sbdnr4gFFw3xVFV7gNjnzPtZ/cCc1Jm4l9yz1JjruonFx5zQ47qz0bFR6vG7FUE33+v3q8zN5yZ9Po+GzmQMmBxdQGe6isem4RNrKxGPRgIIrFuUTgwY6k6Lt6Pz87OZHKZxnhBLfoJPwiJYFhTqjlkxcBpzOSL/YXlmMGalqYMk/msuo/aXlm90yDs/PdE16WjWDC+asAcUQOsWgMcVGGwN6KjqBX0YiDVkokIwv49RjEqDOtFX5oWFYF9xuZEMhNev+XjuLewGBESqKIGbtABNCLAlSjdJ9N6TU3IfayTFSgcoqOnoGbbF+v/+H8QJ1SjyCZZ7ERJ+8uQf3qa0UnsEDqAeEwxbY0XoDnqRYnUbieK9CBqQbn0Ww0ZgosUyG2TMqQEhi5JfE55RrXXUkzOjDISkU2Sq4xVb+TimRMIPWjMzv7tNAdWe7xtnBM1dtPnaJ78O6cIx8rVgyvweRRM/geeILldUYBIr0euyk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR12MB9411.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(7416014)(6133799003)(22082099003)(18002099003)(261009220027099003)(261009223327099003)(261009221227099003)(261009223027099003)(3023799007)(261009221727099003)(56012099006)(4143699003)(11063799006)(261022075727099003)(261021121427099003)(261102123227099003)(10067099003)(261022105027099003)(261026121527099003)(261021135927099003)(261026140227099003)(261102130727099003)(261028144727099003)(261021123027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?HiyI/1GS2brxWcarnd4vYhMC5QOBBlS1BmTqugNfkfD6b4FouFWZ6pSKiSZZ?=
+ =?us-ascii?Q?kz57MlfIkbcWVuQtwcP/gbZMEDbJJbeP+3AbN21WgUEYwelukXEghWU7nPq4?=
+ =?us-ascii?Q?F4eegeQt9owcF8I3j0gI65ZTchURstodcTX145nN1Jt0eVrXo4XQK3R5aDmL?=
+ =?us-ascii?Q?Klpi9jhkrBvXKLjYbcAGV32h3o21qyPURziHbcvK2SnfsigyiHl5oV0hbIbd?=
+ =?us-ascii?Q?u7d7rRX23RrXjAi2tFWlj1PA1mS+R5iO9h6DgGrkDAnpiQa4mkHXOxZoRHPo?=
+ =?us-ascii?Q?EFEQyuTr+WRW2wj9ponchkTEzFFjZ0+Fg456d6/LKvSg+FUyYkMhuQI0U5PC?=
+ =?us-ascii?Q?6umCvz/1NIqwVrVqiq47C/nmtYKXklKVtjIWRR5+Mx9SxqM1R9R85El0K6le?=
+ =?us-ascii?Q?VNjwfmMX7kZ1kNfmwl7y2Jxbr3G14dxRJRXyddMvIyQjO6zQ9VXTVptlB4kg?=
+ =?us-ascii?Q?uiDN62EXoexYzx6tytYWo/5dtmEn2wdQ9xKq4ZHu69RVDnUpK3CsALgQGmfP?=
+ =?us-ascii?Q?JRpeqsq5wmwhTHCb5ozIDK1JENgexm/Oft0HdczFep0kZ078tk5nI+VLjkcf?=
+ =?us-ascii?Q?ABqZQuwcQFf0hBbMGjfcO6KkTJpLGTOzA60gjdPS5ANWdTDsyW7R6NGHTAUf?=
+ =?us-ascii?Q?BLn8n7pVKIt8INKSlh+M/WdRPBIzv4k1dsCjbYpWgoGWswpB3x9fyHdPLNuS?=
+ =?us-ascii?Q?FvEr2A3jNtvu5DnOCKSRRddI8Q3Be3EN/LHesUrfijB6iR/JQkWyCX5bE+U9?=
+ =?us-ascii?Q?KrY5gJAabMmwXtYzZqeUL8iJDGMuCC4Md9g/eskBSDpFq0qZ/KF31omuzTL8?=
+ =?us-ascii?Q?SPzhImNd8WXWql+5EIoVPDfK0hRO6LT/k60qgJvrfWk+y+tTxWMsttvRDbLy?=
+ =?us-ascii?Q?LRFP2xynZprf4mQv4f7+wcuqENjqHP7md2tZBmPCBk8RIDDmYhHCO4H7gpjg?=
+ =?us-ascii?Q?GRJ6nYzGQOWjhFnTQ2XHxP3TBTwvzv9WejJ2j8a0CNIoSNO45/Bh7q5NNBM9?=
+ =?us-ascii?Q?Q72Yfo1ZZs1oNTMa9QBjFAY6NoTmxiuZ6xwepfpJkKW3RUyfEIr4KjGldsll?=
+ =?us-ascii?Q?TeOZJ4i1QGk56R3FEAo8ksQxuBSJNlugTj7jlbuOFl+PKUVKKs/E7oh7hKBo?=
+ =?us-ascii?Q?K79klgMOWGQiAi6/SWLIpxd04bkEnhRephpyuvDXlgY9gUU/aPwUMVtetGpE?=
+ =?us-ascii?Q?vPXWh9jDOX/VoMRxeG3rCJdsnGPzEMnBTKHpT8dNs63t+HNnoQqWt91eJUs1?=
+ =?us-ascii?Q?y1anELvcyvArYZnKW/6Hq6yo1ZgrIL0YLBxe0MshHz2FIBpGGwglIj6x+dFw?=
+ =?us-ascii?Q?w3zt8HQfstYzamPyGBArC6001PTn0o1Zw58RU+8jKep4YMdBPeF3lXqZJF9o?=
+ =?us-ascii?Q?aYOS6WJ6gNhE2T4A6ZyTgORjaJO2JNdrkD/xNht2hZWHWPkZx14adklWKTPg?=
+ =?us-ascii?Q?P/DaJh6ZILEfrgiXU6VQeFGX4HDh7VjFaHDmxvoq6FojvRm9GCaCCxeLLC1l?=
+ =?us-ascii?Q?s5mhZmTnRm4MUVnAiAXjNYXn/7iTvcRG2Ms1BhRMGXLd83U2wj6pSXxRTLoS?=
+ =?us-ascii?Q?QI9I2JEKZmmMO2TX627FuC67+VctOLOj0Dl/ZKBlYw1+y8B4LnspXgMvwE5Y?=
+ =?us-ascii?Q?1iqijsGZoNSLNxRr0qkmByvPk1WS5fZO7b1un9Yx/jrjTw85YsQwkoCx00vp?=
+ =?us-ascii?Q?GpGL9DPVcZOrYX5kOZdwDIWdP2Mwv+BuDzAO10w72GuAWEIB+AtRQ/Ma1svi?=
+ =?us-ascii?Q?4swGlA5bsQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 22eb5e39-0abe-47f8-d9e0-08df469ab767
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR12MB9411.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 00:10:42.9487
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GQkmudEqfYdc7zqdXXdsMUSGjzp2bQVVXgnpjb7z+esnm1LH+TvxoqMx+rmP2sg5yK9Yg+7A6CkNe0Kg1nIyWg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4097
 
-Add the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the chip table.
-It is the first chip of family D, whose handling was added in the
-preceding patches, so this is the patch that makes it reachable.
+On Wed, 18 Nov 2026 22:37:00 +0000
+David Matlack <dmatlack@google.com> wrote:
 
-The SGMII/HSGMII SerDes of this chip sits on port 6 and the
-MII/TMII/RMII/RGMII interface on port 7, as on family C, but the external
-interface indices are one lower (EXT0 and EXT1 instead of EXT1 and EXT2).
-The chip reuses the existing initialization jam table, taken as is from
-the RTL8367C code; it has not been compared with the vendor RTL8367D
-initialization. It was used on the tested hardware (see below).
+> Adopt Access Control Services (ACS) controls on all incoming preserved
+> devices (endpoints and upstream bridges) during a Live Update.
+> 
+> Adopting ACS controls avoids changing routing rules while memory
+> transactions are in flight from preserved devices. It also keeps IOMMU
+> groups from changing during or after Live Update.
+> 
+> The adopted controls are recorded by the pci_save_state() call in
+> pci_bus_add_device(), which runs before drivers bind, so they are
+> reapplied by pci_restore_state() if the device is reset. Allocate the
+> ACS save buffer for incoming preserved devices even if they match a
+> device-specific ACS quirk, since their adopted controls live in the ACS
+> capability, and panic if it could not be allocated.
+> 
+> To simplify ACS adoption, reject preserving any devices that require
+> quirks to enable ACS as those quirks would also have to take Live Update
+> into account. If such a quirk matches an incoming preserved device
+> anyway, e.g. because it was added in the new kernel, log a warning and
+> adopt the device's ACS controls regardless, rather than reprogram a
+> device in the path of a preserved device's memory transactions.
+> 
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> ---
+>  drivers/pci/liveupdate.c | 75 ++++++++++++++++++++++++++++++++++++++++
+>  drivers/pci/liveupdate.h | 16 +++++++++
+>  drivers/pci/pci.c        | 13 +++++--
+>  3 files changed, 102 insertions(+), 2 deletions(-)
 
-The chip has 8 ports (0-4, 6 and 7), which is described by port_mask in
-its chip info, as for the other chips. rtl8365mb_family_d selects the
-family D implementations added in the preceding patches: the force-mode
-configuration, the VLAN 4k accessors, the PVID handling and the L2 entry
-(de)serializers.
+Reviewed-by: Alex Williamson <alex.williamson@nvidia.com>
 
-The L2 learning limit is the same as on family C (2112 entries), as
-given by the Realtek rtl8367 common API (rtl8367_common V1.4.2), so
-RTL8365MB_LEARN_LIMIT_MAX needs no per-family handling; only its
-comment is updated.
-
-Tested on a TP-Link Archer AX55 v1 (RTL8367S-VB, CPU port over HSGMII
-(2500base-x) to an IPQ5018) with bridge VLAN filtering and per-port
-PVIDs, and on a TP-Link EX511 v2 (RTL8367S-VB, CPU port over 1G SGMII
-to an IPQ5018). RGMII mode has not been tested. See the cover letter for
-details.
-
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
-Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
----
- drivers/net/dsa/realtek/Kconfig          |  3 +-
- drivers/net/dsa/realtek/rtl8365mb.h      |  4 --
- drivers/net/dsa/realtek/rtl8365mb_main.c | 55 +++++++++++++++++++++---
- 3 files changed, 51 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/net/dsa/realtek/Kconfig b/drivers/net/dsa/realtek/Kconfig
-index f1530ba..e366632 100644
---- a/drivers/net/dsa/realtek/Kconfig
-+++ b/drivers/net/dsa/realtek/Kconfig
-@@ -35,7 +35,8 @@ config NET_DSA_REALTEK_RTL8365MB
- 	depends on NET_DSA_REALTEK_SMI || NET_DSA_REALTEK_MDIO
- 	select NET_DSA_TAG_RTL8_4
- 	help
--	  Select to enable support for Realtek RTL8365MB-VC and RTL8367S.
-+	  Select to enable support for Realtek RTL8365MB-VC, RTL8367S and
-+	  RTL8367S-VB.
- 
- config NET_DSA_REALTEK_RTL8366RB
- 	tristate "Realtek RTL8366RB switch driver"
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index 9a69e85..c280e62 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -43,10 +43,6 @@ struct rtl8365mb_family_info {
- const struct rtl8365mb_family_info *
- rtl8365mb_get_family_info(struct realtek_priv *priv);
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause);
--
- static inline bool rtl8365mb_is_d(struct realtek_priv *priv)
- {
- 	return rtl8365mb_get_family_info(priv)->family == RTL8365MB_FAMILY_D;
-diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index dc436ee..1386e1f 100644
---- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-+++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -89,6 +89,14 @@
-  * things will work out-of-the-box for other chips, and a careful review of the
-  * vendor driver may be needed to expand support. The RTL8365MB-VC seems to be
-  * one of the simpler chips.
-+ *
-+ * The RTL8367S-VB (chip ID 0x6642) is not part of the family listed above. It
-+ * belongs to a newer generation, which this driver calls family D. Its
-+ * registers differ in the VLAN table, the external interface speed and RGMII
-+ * configuration, the SerDes, the L2 lookup table (FDB/MDB entry layout, no
-+ * EFID, LUT configuration registers) and the table access control register,
-+ * so the code paths specific to it are selected with rtl8365mb_is_d() or
-+ * through struct rtl8365mb_family_info.
-  */
- 
- #include <linux/bitfield.h>
-@@ -119,9 +127,9 @@
- #define RTL8365MB_NUM_PHYREGS		32
- #define RTL8365MB_PHYREGMAX		(RTL8365MB_NUM_PHYREGS - 1)
- #define RTL8365MB_MAX_NUM_PORTS		11
--/* Valid for the whole family except RTL8370B, which has 4160 entries.
-- * RTL8370B is mentioned in vendor code but it might not even belong
-- * to the same RTL8367C family.
-+/* Valid for the whole RTL8367C family (and for family D, RTL8367S-VB)
-+ * except RTL8370B, which has 4160 entries. RTL8370B is mentioned in
-+ * vendor code but it might not even belong to the same RTL8367C family.
-  */
- #define RTL8365MB_LEARN_LIMIT_MAX	2112
- #define RTL8365MB_MAX_NUM_EXTINTS	3
-@@ -799,6 +807,10 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 					    bool link, int speed, int duplex,
- 					    bool tx_pause, bool rx_pause);
- 
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause);
-+
- static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.family = RTL8365MB_FAMILY_C,
- 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-@@ -817,6 +829,24 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
- };
- 
-+static const struct rtl8365mb_family_info rtl8365mb_family_d = {
-+	.family = RTL8365MB_FAMILY_D,
-+	.jam_table = rtl8365mb_init_jam_8365mb_vc,
-+	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
-+	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
-+	.vlan_port_get_pvid = rtl8365mb_d_vlan_port_get_pvid,
-+	.vlan_port_reset_pvid = rtl8365mb_d_vlan_port_reset_pvid,
-+	.vlan_pvid_port_set = rtl8365mb_d_vlan_pvid_port_set,
-+	.vlan_pvid_port_clear = rtl8365mb_d_vlan_pvid_port_clear,
-+	.l2_entry_size = RTL8365MB_D_L2_ENTRY_SIZE,
-+	.l2_data_to_uc = rtl8365mb_d_l2_data_to_uc,
-+	.l2_uc_to_data = rtl8365mb_d_l2_uc_to_data,
-+	.l2_data_to_mc = rtl8365mb_d_l2_data_to_mc,
-+	.l2_mc_to_data = rtl8365mb_d_l2_mc_to_data,
-+};
-+
- /**
-  * struct rtl8365mb_chip_info - static chip-specific info
-  * @name: human-readable chip name
-@@ -907,6 +937,19 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
- 		},
- 		.num_tx_queues = 8,
- 	},
-+	{
-+		.name = "RTL8367S-VB",
-+		.chip_id = 0x6642,
-+		.chip_ver = 0x0010,
-+		.family_info = &rtl8365mb_family_d,
-+		.port_mask = PORT_MASK(GENMASK(4, 0) | BIT(6) | BIT(7)),
-+		.extints = {
-+			{ 6, 0, PHY_INTF(SGMII) | PHY_INTF(HSGMII) },
-+			{ 7, 1, PHY_INTF(MII) | PHY_INTF(TMII) |
-+				PHY_INTF(RMII) | PHY_INTF(RGMII) },
-+		},
-+		.num_tx_queues = 8,
-+	},
- };
- 
- enum rtl8365mb_stp_state {
-@@ -1959,9 +2002,9 @@ static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
- 	return 0;
- }
- 
--int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
--				     bool link, int speed, int duplex,
--				     bool tx_pause, bool rx_pause)
-+static int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
-+					    bool link, int speed, int duplex,
-+					    bool tx_pause, bool rx_pause)
- {
- 	const struct rtl8365mb_extint *extint =
- 		rtl8365mb_get_port_extint(priv, port);
--- 
-2.53.0
+> 
+> diff --git a/drivers/pci/liveupdate.c b/drivers/pci/liveupdate.c
+> index 00d6fa5236e9..b99a88c2c199 100644
+> --- a/drivers/pci/liveupdate.c
+> +++ b/drivers/pci/liveupdate.c
+> @@ -123,6 +123,9 @@
+>   *
+>   *  * The device cannot be a Virtual Function (VF).
+>   *
+> + *  * The device cannot require device-specific quirks to enable Access
+> + *    Control Services (ACS).
+> + *
+>   * Driver Binding
+>   * ==============
+>   *
+> @@ -174,6 +177,17 @@
+>   * bus, since the bus numbers of the failed bridge can no longer be read from
+>   * hardware and handing them to another bridge would let an unrelated device
+>   * inherit the BDF of a preserved device.
+> + *
+> + * Handling Preserved Devices
+> + * ==========================
+> + *
+> + * The PCI core handles preserved devices differently in the following ways:
+> + *
+> + *  * The PCI core adopts all ACS controls enabled on incoming preserved devices
+> + *    rather than assigning new ones, so TLP routing and IOMMU groups stay the
+> + *    same after Live Update. Note that a device will use its adopted ACS
+> + *    controls for the lifetime of its struct pci_dev (i.e. even after
+> + *    pci_liveupdate_finish()).
+>   */
+>  
+>  #define pr_fmt(fmt) "PCI: liveupdate: " fmt
+> @@ -189,6 +203,7 @@
+>  #include <linux/slab.h>
+>  
+>  #include "liveupdate.h"
+> +#include "pci.h"
+>  
+>  /**
+>   * struct pci_liveupdate_global - Global state for PCI Live Update support
+> @@ -540,6 +555,15 @@ static int pci_liveupdate_preserve_device(struct pci_flb_outgoing *outgoing,
+>  		return -EINVAL;
+>  	}
+>  
+> +	/*
+> +	 * Do not preserve devices that rely on device-specific ACS equivalents
+> +	 * since that would complicate keeping ACS constant across Live Update.
+> +	 */
+> +	if (pci_need_dev_specific_enable_acs(dev)) {
+> +		pci_warn(dev, "Refusing to preserve device that relies on ACS quirks\n");
+> +		return -EINVAL;
+> +	}
+> +
+>  	if (dev_ser) {
+>  		/*
+>  		 * Endpoint devices can only be preserved once. Bridges are
+> @@ -816,6 +840,57 @@ void pci_liveupdate_finish(struct pci_dev *dev)
+>  }
+>  EXPORT_SYMBOL_GPL(pci_liveupdate_finish);
+>  
+> +/**
+> + * pci_liveupdate_adopt_acs() - Adopt ACS controls
+> + * @dev: The PCI device to adopt ACS controls for
+> + *
+> + * For devices preserved across a Live Update, leave the ACS controls
+> + * established by the previous kernel alone instead of programming new ones.
+> + * The adopted controls are recorded by the pci_save_state() call in
+> + * pci_bus_add_device(), so they are reapplied by pci_restore_state() if the
+> + * device is subsequently reset.
+> + *
+> + * Panics if the device has an ACS capability but no ACS save buffer, since the
+> + * adopted controls would be lost on the first reset.
+> + *
+> + * Return: 0 if the ACS controls were adopted, or -EINVAL if the device was not
+> + * preserved.
+> + */
+> +int pci_liveupdate_adopt_acs(struct pci_dev *dev)
+> +{
+> +	/*
+> +	 * Check if the device was preserved over a previous Live Update (even
+> +	 * if it has already gone through pci_liveupdate_finish()). This ensures
+> +	 * that the device continues to use the ACS controls established by the
+> +	 * previous kernel.
+> +	 */
+> +	if (!dev->liveupdate.was_incoming)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * The previous kernel does not preserve devices that require
+> +	 * device-specific quirks to enable ACS, so the controls being adopted
+> +	 * live entirely in the ACS capability. If such a quirk matches anyway
+> +	 * (e.g. it was added in the current kernel), ignore it rather than
+> +	 * reprogram a device in the path of a preserved device's memory
+> +	 * transactions.
+> +	 */
+> +	if (pci_need_dev_specific_enable_acs(dev))
+> +		pci_warn(dev, "Ignoring device-specific ACS quirk, adopting ACS controls from previous kernel\n");
+> +
+> +	/*
+> +	 * The adopted controls must be captured in the ACS save buffer so that
+> +	 * they are reapplied if the device is later reset. Without it, e.g.
+> +	 * because it could not be allocated, the first reset would silently
+> +	 * drop them.
+> +	 */
+> +	if (dev->acs_cap && !pci_find_saved_ext_cap(dev, PCI_EXT_CAP_ID_ACS))
+> +		panic("%s: No ACS save buffer for preserved device\n",
+> +		      pci_name(dev));
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * pci_liveupdate_is_incoming() - Check if a device is incoming-preserved
+>   * @dev: The PCI device to check
+> diff --git a/drivers/pci/liveupdate.h b/drivers/pci/liveupdate.h
+> index e5d2a19d2ca2..c643f2664296 100644
+> --- a/drivers/pci/liveupdate.h
+> +++ b/drivers/pci/liveupdate.h
+> @@ -15,6 +15,12 @@ void pci_liveupdate_setup_device(struct pci_dev *dev);
+>  void pci_liveupdate_cleanup_device(struct pci_dev *dev);
+>  bool pci_liveupdate_preserve_bus_numbers(void);
+>  bool pci_liveupdate_refuse_bus_numbers(struct pci_bus *bus, struct pci_dev *dev);
+> +int pci_liveupdate_adopt_acs(struct pci_dev *dev);
+> +
+> +static inline bool pci_liveupdate_was_incoming(struct pci_dev *dev)
+> +{
+> +	return dev->liveupdate.was_incoming;
+> +}
+>  #else
+>  static inline void pci_liveupdate_setup_device(struct pci_dev *dev)
+>  {
+> @@ -34,6 +40,16 @@ static inline bool pci_liveupdate_refuse_bus_numbers(struct pci_bus *bus,
+>  {
+>  	return false;
+>  }
+> +
+> +static inline int pci_liveupdate_adopt_acs(struct pci_dev *dev)
+> +{
+> +	return -EINVAL;
+> +}
+> +
+> +static inline bool pci_liveupdate_was_incoming(struct pci_dev *dev)
+> +{
+> +	return false;
+> +}
+>  #endif
+>  
+>  #endif /* DRIVERS_PCI_LIVEUPDATE_H */
+> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> index fc4307a2327d..ebc565b4780a 100644
+> --- a/drivers/pci/pci.c
+> +++ b/drivers/pci/pci.c
+> @@ -35,6 +35,8 @@
+>  #include <linux/aer.h>
+>  #include <linux/bitfield.h>
+>  #include <linux/suspend.h>
+> +
+> +#include "liveupdate.h"
+>  #include "pci.h"
+>  
+>  DEFINE_MUTEX(pci_slot_mutex);
+> @@ -1071,9 +1073,13 @@ static void pci_allocate_acs_save_buffer(struct pci_dev *dev)
+>  	/*
+>  	 * Devices that rely on device-specific quirks to enable an ACS
+>  	 * equivalent keep that configuration outside of the ACS Control
+> -	 * register, so they are configured from scratch on restore.
+> +	 * register, so they are configured from scratch on restore. The
+> +	 * exception is devices preserved across a Live Update, which always
+> +	 * adopt the ACS controls established by the previous kernel and need
+> +	 * the buffer to keep them across resets.
+>  	 */
+> -	if (pci_need_dev_specific_enable_acs(dev))
+> +	if (pci_need_dev_specific_enable_acs(dev) &&
+> +	    !pci_liveupdate_was_incoming(dev))
+>  		return;
+>  
+>  	/* dev->acs_cap is not set yet, pci_acs_init() runs later */
+> @@ -1170,6 +1176,9 @@ void pci_enable_acs(struct pci_dev *dev)
+>  	bool enable_acs = false;
+>  	int pos;
+>  
+> +	if (!pci_liveupdate_adopt_acs(dev))
+> +		return;
+> +
+>  	/* If an iommu is present we start with kernel default caps */
+>  	if (pci_acs_enable) {
+>  		if (pci_dev_specific_enable_acs(dev))
 
