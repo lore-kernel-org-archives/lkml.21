@@ -1,95 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.122
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795178272;
-	b=f+z84YFQxqHJOafYoQxh6kLxfD9cUE+Pj9OnkTRgnaz1pgjb74JWlSYubiu1qPbSfVo5
-	 0Qk1WXKU9BKLoiI4yxTzNjowrwGnQSgz2pjqcPe4Z8IrTYclR49VBzL4lsI/o8aI4rNiZ
-	 tZk5PtWgya+jxzEVxRSSB8nvOSASUKhayx5Tks1WHCtL42pk+8GGO5A/DnRUO7LOZD7rH
-	 CdLQkC0waEgIS/rFVXyP8Qdh67jM9J5TGR8pY8m0gLfyzNDVrLhBUB2A9DseHieGJhu8h
-	 c+qemzehERc3jZutcgWGPqtnYrp8zg8u1AhuZqXH6wcGk/QNy90mc+HE4JT6q4ApZpw==
+	t=1795178279;
+	b=P58yHiRvwEyH7XG/gFbINHVR0JVXDpfHsnxX/4jWR3LCTQj7/zXdEhUGLtXh8E8Q6QPe
+	 JjJehZLZhjf7Pig6bPJxsrLNuJFdyuab6nPG3F0el5VUEYQhd2ydFRI6R2cvq5YXfpuFM
+	 QSoH/03bL0VYpNgYwTAJkbM3iunuUgo2TfSpvoTV6jX6r2pScGMGShbJ+11+NDZgqFwGq
+	 UtxhYPeQ+VBjxxCNQmrq3ITIEhENyoCCFM1itfuTCMeD1yXJ10/6qQEVFSCjUWNk33uqj
+	 kJ3Yba+SWnLYnDATmR2IdDwrqNJZkyEwec7joNGm8xOREeiga8E4I+qPYTz1wOmb46A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795178272;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795178279;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:
 	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=i9H1Qf5VeBDEAJ+KENGPjuJrwt4TmksckkFthv/+CKg=;
-	b=mso46U5MGQu2x+PFfGIDE79k4PaVca8pILk54CLvW8ircmhuy7SI8azJC48+SgNF3ZgZ
-	 FtIP17lZV9w+CNSWs5bDdGQZC9l089kF4ygihGkAp1Gnxj72+HIvNU+5JupT2zyBhHdPY
-	 9ImEpi6QZAVqBDEGFQWzxP6vlZ8Iyzs718DBIQs8yFJUQel+2eiRiUUMbhtOoS7xXmfP4
-	 lkNi+myHMsa0WTAnP/b3QZhc26VcwQHfl2x//0dtVMXcgWsKNImZh/+wte8KcnT/jnyoZ
-	 fffEroZBNOyYnoD7LKF6cmLvasuazEETILftdEiTQAS5ZckyC+VSxz7w5OcqvnP4wAg==
+	bh=Fhr3As4VDuF+za7Nw40042ACUHN/DK7L8Y1q7N0VcrM=;
+	b=kJPjCC1oe5+yVZ5fc/n/5w1nmVQcPgAa8KLJWl5Nf4WI1xg3u+6Qzm8UD/VAgK992Tz1
+	 ND+nNn4RydqfqQ25ZP7iq7zRd8jbPFVevjf4N4Vd31RKjcj7fsrDGARJZDsoe2jDxuaRA
+	 l6GTLYnnhrbUR+maR4zqCoGGlvcIMdKwlU+5iRLhOJtGQcrJR2C9JgR+AzoAkpZ/CJuYG
+	 DEyEtM4MJQ4P1QRIA/jSg/Tg+0uGd401VB2M31wZrgvylKd++k1eP0U79HxIfjMbESXEY
+	 bsYIuZKbMuQ2DtbeAhWxJpsrthMh/YOomm0CsXmYAYJtjloBilgPmW0HsbDoIB+08XQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=canonical.com;
 	spf=pass smtp.mailfrom=canonical.com;
-	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b="mz/XdwZ1";
-	arc=none smtp.remote-ip=185.125.188.122
-Received: from smtp-relay-internal-0.canonical.com (smtp-relay-internal-0.canonical.com [185.125.188.122])
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=iYSW9avt;
+	arc=none smtp.remote-ip=185.125.188.123
+Received: from smtp-relay-internal-1.canonical.com (smtp-relay-internal-1.canonical.com [185.125.188.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95B62606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:37:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95B62606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59266606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:37:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59266606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=mz/XdwZ1
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=iYSW9avt
 Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 47D8F3FE2D
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:37:50 +0000 (UTC)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 137F53F998
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20251003; t=1795178270;
-	bh=i9H1Qf5VeBDEAJ+KENGPjuJrwt4TmksckkFthv/+CKg=;
+	s=20251003; t=1795178277;
+	bh=Fhr3As4VDuF+za7Nw40042ACUHN/DK7L8Y1q7N0VcrM=;
 	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version;
-	b=mz/XdwZ1rC7uARepzQ2g+LPWLKZStFbDS4ZueAhwH1ZXAZbhU24T/56g6k5Zz2g1/
-	 JBy54xpce1M40Abt4Oh5i2zs7IwI0QJRPCbab92Zeehi456uPbhhhlhUVXpNtXUReU
-	 BZJA7FNAP4nJR57ZdrtE4eJpQ2/oxYZ3pZVuyRD5MA9LjKZnHCvF1BRzw8FcV55hlu
-	 0OnNvbL6925W90t9EUXg27vdoEABG3ntRa4y+pzEBxKJX9JTtiTOYS+0YLGErJHXMq
-	 DxHJledVg1LTFvqB+I54RajtKFZdhKbL76gn0F9L/OJwDorw2KriDysYMHqPhwJahk
-	 WiKvUIKONSrA3jX4CoplPGRFPql3joL/g3JRk/BmKsHk7UvPrziWwgjUvxtoVIpAmS
-	 DjYeyXEHQGr0hY8+UE/1D1sS3PDcNNcnBf97JE7A2fbKsgPjxaDWOFnF8DocrUUbxV
-	 Hco+696pp4KIeXxaT31RUvuaGPIMkQGkenHrL4gahzCJG/smtYkma7AmbJqmij77JR
-	 wFoe6/GPp/XzMkVmP90RLWlsFhw+YjohVCFJYFQ5gkqrDESNZ/mGjgaWTZp9O9cTsy
-	 hk2iAvkHyyuB4/E5ReRBsl4dDv8Cepn0N8UbHmbqc4/HUEGm7Bs+KiYhr3CvoVDoJA
-	 1kwLu3hlOWDyD3QYS0bOGuqg=
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30bcb065bfdso896172eec.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:50 -0800 (PST)
+	b=iYSW9avtFOhADhju1S6zC65lie2k1gvllCWAo3piKPE9dHEtT4hJgglSn6eWZjg9A
+	 +8JoGg9r+jjKvcSSNpphcxVRkePn34VzCBKRnPYM5q55OWutltEadUZ8Y3NxQhaNB+
+	 BZjM8Sqg8GkMyEtgWzi9rjXKBYMQEp7su8TO5Y0iZ5b0RilKhMuHmyPgk2VAP7yQ5Y
+	 FzVKP7DiluKugn1eHVZW17ZOtN+Wdwszg/ClguhNDN53ATyxfNiVuhTSyODeZGZf1U
+	 U+8MZB/nPB7LIGBgmm862LKNK4C7n3H7ZuSgoa5UeqVKBH555fn3da4JtFPwL7d2CI
+	 bw4rG7G3zS/Qa0n4BiK8KAXTI2VrepUPhP7qXCf45m1goimbCnmVJKdyDqeQT5+rcY
+	 ukfgODujQpMXbA+IMeJ9DX8OsJgcurgI5YBhlrgTwdyAO8ILDOnob8oppGWD/TCUtA
+	 XasUJga00lzJL5bagbwl6W9Q+T8XzVs6jyvHc3BUHruoo1GiJkCMvwzt2cX2esRWal
+	 ZbLOGk9tcna+Wi1dVvIkp+kC3mhV/XbyveGENBecikyOnq36JeJpZkiQwCAnIQ+fr5
+	 BtW7xzRuQwCXC0v+B1JGBykUNFdQw4+NgSMpFBnIXperh+DAyQQpk6r+WvU8Ecf80h
+	 VQiOc8QGsr5bGweDv66l10zs=
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-370230d93efso2681613eec.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:37:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795178269; x=1795783069;
+        d=1e100.net; s=20260707; t=1795178275; x=1795783075;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=i9H1Qf5VeBDEAJ+KENGPjuJrwt4TmksckkFthv/+CKg=;
-        b=XnKAOcyM+yypb1z78VOD7stEeVJ0AKnCk+GyeBJWVdm+OblRb840YQpgtbb0eAvA5X
-         9ZOEq3WZG+GAQzNchhxxhr0+cNdJ7EvqSyzh3rCNekSDf8PnquJIx1w52ffAlcrAVkV4
-         QAuwNRqUNS6NN+jHpFhz5ailZDtShDXC5S+4zClXAC+ofO8BJbbJB6xwfsYLKy91N63o
-         lJHZnDCOAg0f0ApLW6OmQ6c2nfVFnpj6aIkTDEZdJ+ifCr3oxgGI7pDOs7TCYgJFev3F
-         qPs82LJljJ1l7VUlHPz8t6W5ROnBFrBDC74IWt5ESKtAyp9F2q3qK5Xt0jBkWaJZfKgN
-         f2Ig==
-X-Forwarded-Encrypted: i=1; AL+hErETwk2YJ+GJ8LG4pWlB7RLsCHo7eE0Jkshuq1zTBe5puBX4vPqpID7xQEWRasSrWwsQCpb4PY9Ti7D+nh0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MgHNHfv2hMGD1ddureFbbDsrzQdnMh7aMDN8eGuICnhX50CZG
-	aV84kjEicAilfpLlqy78fV2P3/1GEAkBKZ4AatwBckBr6ISxD0yy/VdywkMQWlzOp2rkcqVnyBz
-	uFqvAD2tb9d5heRRPYYPXQlwBfIHs7px4uNZO8vZGmIxdPV/BFdcn/lWjPbLFEQ5kxKEjFhtUZg
-	OyfoUegA==
-X-Gm-Gg: AZFdTZe1tG22/5tSQhVDbBqB4QGgH91H9tU/3fW5JeWAa4Tbghooy07jTnI/vC/vcsB
-	mV+U8noWof+KaHJNELSTt2LO1J7E4HoMQ3bfrZEc/uqW4sL40EcbWxe03l9K6kdzi6v4ddZkQ9P
-	yG6eSImJln81FGNxb1JMxA8VUXod0KaaFeGJQK2APmmMjLAPvWJPZ8kCwBBipIJeJeiIQ3WshXQ
-	0juTW1zn/XNTbuGzDKmX0v0bkTX7/wkFtds9ALojcw1BWDwTQ+CIQtyGwI6yTYuAV30w1oPCkQb
-	ZVjDcJ5JoG24LH3txlLYUZq1a7+f71cmYQqseSEkyK9hj/jLv94iCtEKW6uNCYXuWPi2KV1wFZc
-	uUYZWAu8pOVkjqxXSQ/pfXfnzYFdtD8dFuBN9GuMWGIHN3pzcbG4G5PeEzdQ=
-X-Received: by 2002:a05:7301:6183:20b0:384:b2cb:5f76 with SMTP id 5a478bee46e88-3856fe5ebddmr2577979eec.23.1795178268522;
-        Fri, 20 Nov 2026 04:37:48 -0800 (PST)
-X-Received: by 2002:a05:7301:6183:20b0:384:b2cb:5f76 with SMTP id 5a478bee46e88-3856fe5ebddmr2577952eec.23.1795178268073;
-        Fri, 20 Nov 2026 04:37:48 -0800 (PST)
+        bh=Fhr3As4VDuF+za7Nw40042ACUHN/DK7L8Y1q7N0VcrM=;
+        b=jHo9EGGE43ccz6FQCy55s4cNjM6EKsQ273YxKsgmTmcevCqX1AoujuDtBNN9O9p0jw
+         BmX0bQ4WSj9OR85Z9tt8YBSZFcUFUjw5ueTFWJMQFxAqsYEL6nSoLOareCIWUbc0Dehz
+         CbCAAd4WxChZo5XHcMwJ/SKovxKyMBuzDSvrBHOtne+lHf+cdu4Gf4WuPbPYyGxODJXs
+         s/UoMeENcXd0hFwH7IIZyjoD848BewmI9XiWaoN+/2yMuYLExnnlqB7M3Z8AEyPRVTzc
+         T4zLbdDZb+yHDlN/MknV2u/C1W2A/ei6I5VNO4GTI1+AtEv1v0/aL9mrdFhtOj16XUNV
+         QpTQ==
+X-Forwarded-Encrypted: i=1; AL+hErFg2y/xXqUs4puncc9h5utOdPLgGGIZxmBEXKL2nZbKEKvpP6mrf1crDCnF7i2q5fyDn2KLMiwcEkl/3AA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+AkHq4VSGWNllgtlerw6C2irt63nEmOcPv0Pih055nlOfRiHaw
+	/Swg6TfPFVjBBHZBZg87VQEWneIDrcwrlEnIaWSBwXITGd6r0toR3wDnbI6d1Xphj/A/2a7dfwc
+	KxoP1Fc7hc3eb5WqHVkiXoZ/4LyHyRrqSNavzHvhWytF9Mw4xHd8/z8yu7/3uLfMLgQe0V9dMEg
+	MnSSfIWg==
+X-Gm-Gg: AZFdTZf9Gubr3OnhemhRRCGB8M45/AEw8pY3g5nUtpynZaqN8AyrLNyCiF9oIcRj0C1
+	Cg8THUgx97C2mKDgTHBq/8CZ7+yG8FzKh3eotVr6Wa7ca8ePGdXYpcbr6jnlI+BEhNPwqCYrrHT
+	Gu5c2yQABiME9GMLKYRF91lFWhR3tnAbnrLzGuK7FdWP/zNbCMnfL9GZEC/qWPcc+IAOuhCQdTJ
+	QccpdK55iEiBUcPWN1Xwz39EZe8NjYeVX7eAbMzGSUQouf/QAq1qvxNWRvS02CsaRDYfkh93yw1
+	ZIfBN3zupGnklr5NFyRQxJcKiFZGyRR9fBjtx0se7y91rZgB/39hFJBRHmABmAbcn/o1tfEfL4z
+	tExIBKLTQ6ynoz1BqoMQlx3bxPjgZl8K5w1vYwzhtZGPUqUa+a7QnbbiuPRY=
+X-Received: by 2002:a05:7301:c016:b0:386:5adb:ac01 with SMTP id 5a478bee46e88-3865adbb1aemr772488eec.24.1795178275189;
+        Fri, 20 Nov 2026 04:37:55 -0800 (PST)
+X-Received: by 2002:a05:7301:c016:b0:386:5adb:ac01 with SMTP id 5a478bee46e88-3865adbb1aemr772458eec.24.1795178274691;
+        Fri, 20 Nov 2026 04:37:54 -0800 (PST)
 Received: from ZBook.gateway ([123.208.39.53])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm7994093eec.23.2026.11.20.04.37.42
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm7994093eec.23.2026.11.20.04.37.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 04:37:47 -0800 (PST)
+        Fri, 20 Nov 2026 04:37:54 -0800 (PST)
 From: Changwei Zou <changwei.zou@canonical.com>
 To: herbert@gondor.apana.org.au,
 	sahil.malhotra@nxp.com
@@ -105,10 +105,11 @@ Cc: davem@davemloft.net,
 	sahil.malhotra@oss.nxp.com,
 	changwei.zou@canonical.com,
 	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 1/2] crypto: caam - Fix wrong unmap operations
-Date: Fri, 20 Nov 2026 23:37:31 +1100
-Message-ID: <20261120123732.1200685-2-changwei.zou@canonical.com>
+	linux-kernel@vger.kernel.org,
+	Martin Kepplinger-Novakovic <Martin.Kepplinger-Novakovic@ginzinger.com>
+Subject: [PATCH v8 2/2] crypto: caam - Use bounce buffer for unaligned RSA destination buffers
+Date: Fri, 20 Nov 2026 23:37:32 +1100
+Message-ID: <20261120123732.1200685-3-changwei.zou@canonical.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261120123732.1200685-1-changwei.zou@canonical.com>
 References: <20261120123732.1200685-1-changwei.zou@canonical.com>
@@ -123,147 +124,379 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Since priv_form only takes values FORM1/FORM2/FORM3 with no distinct
-public key enumerator, rsa_pub_unmap() was not called correctly in
-akcipher_do_one_req() and akcipher_enqueue_req().
+The rsa-caam driver directly DMA-maps the destination buffer supplied by
+the caller via req->dst without checking whether it meets the cacheline
+alignment requirements of DMA-incoherent hardware such as i.MX8.
 
-Use the completion callback (rsa_pub_done vs rsa_priv_f_done) to
-distinguish public from private key operations, then dispatch to the
-correct unmap function based on key->priv_form. Factor the priv_form
-switch into rsa_priv_unmap() and the public/private dispatch into
-rsa_pdb_unmap(), so rsa_priv_f_done() and both error paths share one
-implementation.
+On CPUs with non-coherent DMA caches, if the destination buffer shares a
+cacheline with other data (i.e. it is not cacheline-aligned), cache
+writeback/invalidation during DMA can corrupt adjacent memory or cause
+stale data to be read back. This manifests as intermittent -EKEYREJECTED
+errors when loading signed kernel modules.
 
-caam_rsa_set_priv_key_form() implicitly relies on zero-initialization
-for priv_form. Set priv_form = FORM1 explicitly at the head of the function
-for clarity and robustness.
+Such a destination is produced in the module-signature verification path
+by rsassa_pkcs1_verify() (and crypto_akcipher_sync_prep()), which place
+the I/O buffer right after the request context in a single kmalloc()
+allocation; the buffer therefore starts at an offset into a larger
+allocation and shares a cacheline with that context. The DMA API does not
+cover this: on CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC systems
+dma_kmalloc_needs_bounce() only considers the buffer size, not its offset,
+so a buffer that is size-wise DMA-safe but starts at a non-cacheline-
+aligned offset is not bounced. The driver must detect and bounce it.
 
-Fixes: bf53795025a2 ("crypto: caam - add crypto_engine support for RSA algorithms")
+When any segment of req->dst is not cacheline-aligned in either its start
+offset or length, allocate a single contiguous aligned bounce buffer
+(dst_len rounded up to a cacheline multiple) and run the operation on it
+via req_ctx->fixup_dst, leaving the caller's req->dst untouched. The RSA
+output (key->n_sz bytes) is copied back to req->dst once the hardware has
+completed successfully.
+
+Introduce a helper sg_is_dma_aligned() that checks both sg->offset and
+sg->length for cacheline alignment. Checking sg->offset suffices for
+the start address since physical pages are always page-aligned and
+PAGE_SIZE is a multiple of dma_get_cache_alignment(). sg->length is
+also checked to ensure the buffer end does not share a cacheline with
+adjacent memory.
+
+The bounce scatterlist is described with the aligned allocation size, not
+the possibly-unaligned dst_len, so that dma_map_sg() does not re-bounce or
+reject it on CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC systems.
+
+The intermittent error 'Key was rejected by service' on i.MX8 with CAAM
+can be triggered when loading signed kernel modules:
+
+    for i in $(seq 1 100); do
+        sudo modprobe xfs 2>&1 && echo "SUCCESS on attempt $i" \
+        && sudo rmmod xfs || echo "FAILED on attempt $i"
+    done
+
+Fixes: 8c419778ab57 ("crypto: caam - add support for RSA algorithm")
+Reported-by: Martin Kepplinger-Novakovic <Martin.Kepplinger-Novakovic@ginzinger.com>
+Closes: https://lore.kernel.org/r/6029acc0f0ddfe25e2537c2866d54fd7f54bc182.camel@ginzinger.com
 Signed-off-by: Changwei Zou <changwei.zou@canonical.com>
+Tested-by: Martin Kepplinger-Novakovic <martin.kepplinger-novakovic@ginzinger.com>
+Tested-by: Stephane Debusne <stephane.debusne@cynove.com>
 Reviewed-by: Sahil Malhotra <sahil.malhotra@nxp.com>
 ---
- drivers/crypto/caam/caampkc.c | 66 +++++++++++++++++++++--------------
- 1 file changed, 39 insertions(+), 27 deletions(-)
+ drivers/crypto/caam/caampkc.c | 111 +++++++++++++++++++++++++++++-----
+ drivers/crypto/caam/caampkc.h |   7 +++
+ 2 files changed, 103 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/crypto/caam/caampkc.c b/drivers/crypto/caam/caampkc.c
-index 2082adaae585..4b5397f2ca64 100644
+index 4b5397f2ca64..4f381b5010ab 100644
 --- a/drivers/crypto/caam/caampkc.c
 +++ b/drivers/crypto/caam/caampkc.c
-@@ -119,6 +119,23 @@ static void rsa_priv_f3_unmap(struct device *dev, struct rsa_edesc *edesc,
- 	dma_unmap_single(dev, pdb->tmp2_dma, q_sz, DMA_BIDIRECTIONAL);
+@@ -51,7 +51,7 @@ static void rsa_io_unmap(struct device *dev, struct rsa_edesc *edesc,
+ {
+ 	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+ 
+-	dma_unmap_sg(dev, req->dst, edesc->dst_nents, DMA_FROM_DEVICE);
++	dma_unmap_sg(dev, req_ctx->fixup_dst, edesc->dst_nents, DMA_FROM_DEVICE);
+ 	dma_unmap_sg(dev, req_ctx->fixup_src, edesc->src_nents, DMA_TO_DEVICE);
+ 
+ 	if (edesc->sec4_sg_bytes)
+@@ -59,6 +59,49 @@ static void rsa_io_unmap(struct device *dev, struct rsa_edesc *edesc,
+ 				 DMA_TO_DEVICE);
  }
  
-+static inline void rsa_priv_unmap(struct device *dev, struct rsa_edesc *edesc,
-+				  struct akcipher_request *req,
-+				  struct caam_rsa_key *key)
++static int do_rsa_bounce_buf(struct akcipher_request *req,
++			     struct caam_rsa_req_ctx *req_ctx, int req_err)
 +{
-+	switch (key->priv_form) {
-+	case FORM1:
-+		rsa_priv_f1_unmap(dev, edesc, req);
-+		break;
-+	case FORM2:
-+		rsa_priv_f2_unmap(dev, edesc, req);
-+		break;
-+	case FORM3:
-+		rsa_priv_f3_unmap(dev, edesc, req);
-+		break;
++	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
++	struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
++	struct caam_rsa_key *key = &ctx->key;
++	int nents, err = 0;
++
++	/*
++	 * Only copy back to the destination on success, and only the actual
++	 * RSA output (key->n_sz bytes) rather than the full dst_len, so the
++	 * trailing capacity of the caller's buffer is left untouched.
++	 */
++	if (!req_err) {
++		nents = sg_nents_for_len(req->dst, key->n_sz);
++		if (nents < 0)
++			err = nents;
++		else if (sg_copy_from_buffer(req->dst, nents,
++					     req_ctx->bounce_buf,
++					     key->n_sz) != key->n_sz)
++			err = -EFAULT;
 +	}
++
++	kfree(req_ctx->bounce_buf);
++	req_ctx->bounce_buf = NULL;
++
++	return err;
 +}
 +
- /* RSA Job Completion handler */
- static void rsa_pub_done(struct device *dev, u32 *desc, u32 err, void *context)
++static inline void rsa_bounce_buf_done(struct akcipher_request *req, int *err)
++{
++	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
++	int cperr;
++
++	if (!req_ctx->bounce_buf)
++		return;
++
++	cperr = do_rsa_bounce_buf(req, req_ctx, *err);
++
++	if (!*err)
++		*err = cperr;
++}
++
+ static void rsa_pub_unmap(struct device *dev, struct rsa_edesc *edesc,
+ 			  struct akcipher_request *req)
  {
-@@ -168,16 +185,7 @@ static void rsa_priv_f_done(struct device *dev, u32 *desc, u32 err,
- 	edesc = req_ctx->edesc;
- 	has_bklog = edesc->bklog;
+@@ -155,6 +198,7 @@ static void rsa_pub_done(struct device *dev, u32 *desc, u32 err, void *context)
+ 	rsa_pub_unmap(dev, edesc, req);
+ 	rsa_io_unmap(dev, edesc, req);
+ 	kfree(edesc);
++	rsa_bounce_buf_done(req, &ecode);
  
--	switch (key->priv_form) {
--	case FORM1:
--		rsa_priv_f1_unmap(dev, edesc, req);
--		break;
--	case FORM2:
--		rsa_priv_f2_unmap(dev, edesc, req);
--		break;
--	case FORM3:
--		rsa_priv_f3_unmap(dev, edesc, req);
--	}
-+	rsa_priv_unmap(dev, edesc, req, key);
+ 	/*
+ 	 * If no backlog flag, the completion of the request is done
+@@ -189,6 +233,7 @@ static void rsa_priv_f_done(struct device *dev, u32 *desc, u32 err,
  
  	rsa_io_unmap(dev, edesc, req);
  	kfree(edesc);
-@@ -192,6 +200,22 @@ static void rsa_priv_f_done(struct device *dev, u32 *desc, u32 err,
- 		crypto_finalize_akcipher_request(jrp->engine, req, ecode);
++	rsa_bounce_buf_done(req, &ecode);
+ 
+ 	/*
+ 	 * If no backlog flag, the completion of the request is done
+@@ -270,6 +315,12 @@ static int caam_rsa_count_leading_zeros(struct scatterlist *sgl,
+ 	return tbytes - nbytes;
  }
  
-+static void rsa_pdb_unmap(struct device *jrdev, struct rsa_edesc *edesc,
-+			  struct akcipher_request *req,
-+			  void (*cbk)(struct device *jrdev, u32 *desc,
-+				      u32 err, void *context))
++static inline bool sg_is_dma_aligned(struct scatterlist *sg)
 +{
-+	if (cbk == rsa_pub_done) {
-+		rsa_pub_unmap(jrdev, edesc, req);
-+	} else {
-+		struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
-+		struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
-+		struct caam_rsa_key *key = &ctx->key;
-+
-+		rsa_priv_unmap(jrdev, edesc, req, key);
-+	}
++	return IS_ALIGNED(sg->offset, dma_get_cache_alignment()) &&
++	       IS_ALIGNED(sg->length, dma_get_cache_alignment());
 +}
 +
- /**
-  * caam_rsa_count_leading_zeros - Count leading zeros, need it to strip,
-  *                                from a given scatterlist
-@@ -391,7 +415,8 @@ static int akcipher_do_one_req(struct crypto_engine *engine, void *areq)
- 		return ret;
+ static struct rsa_edesc *rsa_edesc_alloc(struct akcipher_request *req,
+ 					 size_t desclen)
+ {
+@@ -315,13 +366,37 @@ static struct rsa_edesc *rsa_edesc_alloc(struct akcipher_request *req,
+ 				     req_ctx->fixup_src_len);
+ 	dst_nents = sg_nents_for_len(req->dst, req->dst_len);
  
- 	if (ret != -EINPROGRESS) {
--		rsa_pub_unmap(jrdev, req_ctx->edesc, req);
-+		rsa_pdb_unmap(jrdev, req_ctx->edesc, req,
-+			      req_ctx->akcipher_op_done);
++	req_ctx->bounce_buf = NULL;
++	req_ctx->fixup_dst = req->dst;
++	if (req->dst_len > 0) {
++		struct scatterlist *sg;
++		int i;
++
++		for_each_sg(req->dst, sg, dst_nents, i) {
++			if (!sg_is_dma_aligned(sg)) {
++				unsigned int bounce_len =
++					ALIGN(req->dst_len,
++					      dma_get_cache_alignment());
++
++				req_ctx->bounce_buf = kzalloc(bounce_len, flags);
++				if (!req_ctx->bounce_buf)
++					return ERR_PTR(-ENOMEM);
++				sg_init_one(&req_ctx->dst, req_ctx->bounce_buf,
++					    bounce_len);
++				req_ctx->fixup_dst = &req_ctx->dst;
++				dst_nents = 1;
++				break;
++			}
++		}
++	}
++
+ 	mapped_src_nents = dma_map_sg(dev, req_ctx->fixup_src, src_nents,
+ 				      DMA_TO_DEVICE);
+ 	if (unlikely(!mapped_src_nents)) {
+ 		dev_err(dev, "unable to map source\n");
+-		return ERR_PTR(-ENOMEM);
++		goto bounce_fail;
+ 	}
+-	mapped_dst_nents = dma_map_sg(dev, req->dst, dst_nents,
++	mapped_dst_nents = dma_map_sg(dev, req_ctx->fixup_dst, dst_nents,
+ 				      DMA_FROM_DEVICE);
+ 	if (unlikely(!mapped_dst_nents)) {
+ 		dev_err(dev, "unable to map destination\n");
+@@ -356,7 +431,7 @@ static struct rsa_edesc *rsa_edesc_alloc(struct akcipher_request *req,
+ 				   edesc->sec4_sg + !!diff_size, 0);
+ 
+ 	if (mapped_dst_nents > 1)
+-		sg_to_sec4_sg_last(req->dst, req->dst_len,
++		sg_to_sec4_sg_last(req_ctx->fixup_dst, req->dst_len,
+ 				   edesc->sec4_sg + sec4_sg_index, 0);
+ 
+ 	/* Save nents for later use in Job Descriptor */
+@@ -389,9 +464,12 @@ static struct rsa_edesc *rsa_edesc_alloc(struct akcipher_request *req,
+ sec4_sg_fail:
+ 	kfree(edesc);
+ dst_fail:
+-	dma_unmap_sg(dev, req->dst, dst_nents, DMA_FROM_DEVICE);
++	dma_unmap_sg(dev, req_ctx->fixup_dst, dst_nents, DMA_FROM_DEVICE);
+ src_fail:
+ 	dma_unmap_sg(dev, req_ctx->fixup_src, src_nents, DMA_TO_DEVICE);
++bounce_fail:
++	kfree(req_ctx->bounce_buf);
++	req_ctx->bounce_buf = NULL;
+ 	return ERR_PTR(-ENOMEM);
+ }
+ 
+@@ -419,6 +497,7 @@ static int akcipher_do_one_req(struct crypto_engine *engine, void *areq)
+ 			      req_ctx->akcipher_op_done);
  		rsa_io_unmap(jrdev, req_ctx->edesc, req);
  		kfree(req_ctx->edesc);
++		rsa_bounce_buf_done(req, &ret);
  	} else {
-@@ -670,9 +695,6 @@ static int akcipher_enqueue_req(struct device *jrdev,
- 				struct akcipher_request *req)
- {
- 	struct caam_drv_private_jr *jrpriv = dev_get_drvdata(jrdev);
--	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
--	struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
--	struct caam_rsa_key *key = &ctx->key;
- 	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
- 	struct rsa_edesc *edesc = req_ctx->edesc;
- 	u32 *desc = edesc->hw_desc;
-@@ -691,19 +713,7 @@ static int akcipher_enqueue_req(struct device *jrdev,
- 		ret = caam_jr_enqueue(jrdev, desc, cbk, req);
+ 		ret = 0;
+ 	}
+@@ -463,7 +542,7 @@ static int set_rsa_pub_pdb(struct akcipher_request *req,
+ 		pdb->g_dma = edesc->sec4_sg_dma +
+ 			     sec4_sg_index * sizeof(struct sec4_sg_entry);
+ 	} else {
+-		pdb->g_dma = sg_dma_address(req->dst);
++		pdb->g_dma = sg_dma_address(req_ctx->fixup_dst);
+ 	}
  
- 	if ((ret != -EINPROGRESS) && (ret != -EBUSY)) {
--		switch (key->priv_form) {
--		case FORM1:
--			rsa_priv_f1_unmap(jrdev, edesc, req);
--			break;
--		case FORM2:
--			rsa_priv_f2_unmap(jrdev, edesc, req);
--			break;
--		case FORM3:
--			rsa_priv_f3_unmap(jrdev, edesc, req);
--			break;
--		default:
--			rsa_pub_unmap(jrdev, edesc, req);
--		}
-+		rsa_pdb_unmap(jrdev, edesc, req, cbk);
+ 	pdb->sgf |= (key->e_sz << RSA_PDB_E_SHIFT) | key->n_sz;
+@@ -476,6 +555,7 @@ static int set_rsa_priv_f1_pdb(struct akcipher_request *req,
+ 			       struct rsa_edesc *edesc)
+ {
+ 	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
++	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+ 	struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
+ 	struct caam_rsa_key *key = &ctx->key;
+ 	struct device *dev = ctx->dev;
+@@ -501,8 +581,6 @@ static int set_rsa_priv_f1_pdb(struct akcipher_request *req,
+ 		sec4_sg_index += edesc->mapped_src_nents;
+ 
+ 	} else {
+-		struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+-
+ 		pdb->g_dma = sg_dma_address(req_ctx->fixup_src);
+ 	}
+ 
+@@ -511,7 +589,7 @@ static int set_rsa_priv_f1_pdb(struct akcipher_request *req,
+ 		pdb->f_dma = edesc->sec4_sg_dma +
+ 			     sec4_sg_index * sizeof(struct sec4_sg_entry);
+ 	} else {
+-		pdb->f_dma = sg_dma_address(req->dst);
++		pdb->f_dma = sg_dma_address(req_ctx->fixup_dst);
+ 	}
+ 
+ 	pdb->sgf |= (key->d_sz << RSA_PDB_D_SHIFT) | key->n_sz;
+@@ -523,6 +601,7 @@ static int set_rsa_priv_f2_pdb(struct akcipher_request *req,
+ 			       struct rsa_edesc *edesc)
+ {
+ 	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
++	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+ 	struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
+ 	struct caam_rsa_key *key = &ctx->key;
+ 	struct device *dev = ctx->dev;
+@@ -566,8 +645,6 @@ static int set_rsa_priv_f2_pdb(struct akcipher_request *req,
+ 		pdb->g_dma = edesc->sec4_sg_dma;
+ 		sec4_sg_index += edesc->mapped_src_nents;
+ 	} else {
+-		struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+-
+ 		pdb->g_dma = sg_dma_address(req_ctx->fixup_src);
+ 	}
+ 
+@@ -576,7 +653,7 @@ static int set_rsa_priv_f2_pdb(struct akcipher_request *req,
+ 		pdb->f_dma = edesc->sec4_sg_dma +
+ 			     sec4_sg_index * sizeof(struct sec4_sg_entry);
+ 	} else {
+-		pdb->f_dma = sg_dma_address(req->dst);
++		pdb->f_dma = sg_dma_address(req_ctx->fixup_dst);
+ 	}
+ 
+ 	pdb->sgf |= (key->d_sz << RSA_PDB_D_SHIFT) | key->n_sz;
+@@ -600,6 +677,7 @@ static int set_rsa_priv_f3_pdb(struct akcipher_request *req,
+ 			       struct rsa_edesc *edesc)
+ {
+ 	struct crypto_akcipher *tfm = crypto_akcipher_reqtfm(req);
++	struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+ 	struct caam_rsa_ctx *ctx = akcipher_tfm_ctx_dma(tfm);
+ 	struct caam_rsa_key *key = &ctx->key;
+ 	struct device *dev = ctx->dev;
+@@ -655,8 +733,6 @@ static int set_rsa_priv_f3_pdb(struct akcipher_request *req,
+ 		pdb->g_dma = edesc->sec4_sg_dma;
+ 		sec4_sg_index += edesc->mapped_src_nents;
+ 	} else {
+-		struct caam_rsa_req_ctx *req_ctx = akcipher_request_ctx(req);
+-
+ 		pdb->g_dma = sg_dma_address(req_ctx->fixup_src);
+ 	}
+ 
+@@ -665,7 +741,7 @@ static int set_rsa_priv_f3_pdb(struct akcipher_request *req,
+ 		pdb->f_dma = edesc->sec4_sg_dma +
+ 			     sec4_sg_index * sizeof(struct sec4_sg_entry);
+ 	} else {
+-		pdb->f_dma = sg_dma_address(req->dst);
++		pdb->f_dma = sg_dma_address(req_ctx->fixup_dst);
+ 	}
+ 
+ 	pdb->sgf |= key->n_sz;
+@@ -716,6 +792,7 @@ static int akcipher_enqueue_req(struct device *jrdev,
+ 		rsa_pdb_unmap(jrdev, edesc, req, cbk);
  		rsa_io_unmap(jrdev, edesc, req);
  		kfree(edesc);
++		rsa_bounce_buf_done(req, &ret);
  	}
-@@ -993,6 +1003,8 @@ static int caam_rsa_set_priv_key_form(struct caam_rsa_ctx *ctx,
- 	unsigned aligned_size;
- 	int ret;
  
-+	rsa_key->priv_form = FORM1;
-+
- 	rsa_key->p = caam_read_raw_data(raw_key->p, &p_sz);
- 	if (!rsa_key->p)
- 		return -ENOMEM;
+ 	return ret;
+@@ -757,6 +834,7 @@ static int caam_rsa_enc(struct akcipher_request *req)
+ init_fail:
+ 	rsa_io_unmap(jrdev, edesc, req);
+ 	kfree(edesc);
++	rsa_bounce_buf_done(req, &ret);
+ 	return ret;
+ }
+ 
+@@ -786,6 +864,7 @@ static int caam_rsa_dec_priv_f1(struct akcipher_request *req)
+ init_fail:
+ 	rsa_io_unmap(jrdev, edesc, req);
+ 	kfree(edesc);
++	rsa_bounce_buf_done(req, &ret);
+ 	return ret;
+ }
+ 
+@@ -815,6 +894,7 @@ static int caam_rsa_dec_priv_f2(struct akcipher_request *req)
+ init_fail:
+ 	rsa_io_unmap(jrdev, edesc, req);
+ 	kfree(edesc);
++	rsa_bounce_buf_done(req, &ret);
+ 	return ret;
+ }
+ 
+@@ -844,6 +924,7 @@ static int caam_rsa_dec_priv_f3(struct akcipher_request *req)
+ init_fail:
+ 	rsa_io_unmap(jrdev, edesc, req);
+ 	kfree(edesc);
++	rsa_bounce_buf_done(req, &ret);
+ 	return ret;
+ }
+ 
+diff --git a/drivers/crypto/caam/caampkc.h b/drivers/crypto/caam/caampkc.h
+index 96d03704c9be..8810bcc435cc 100644
+--- a/drivers/crypto/caam/caampkc.h
++++ b/drivers/crypto/caam/caampkc.h
+@@ -103,6 +103,10 @@ struct caam_rsa_ctx {
+  * @src           : input scatterlist (stripped of leading zeros)
+  * @fixup_src     : input scatterlist (that might be stripped of leading zeros)
+  * @fixup_src_len : length of the fixup_src input scatterlist
++ * @dst           : bounce destination scatterlist (used when bouncing)
++ * @bounce_buf    : DMA-aligned bounce buffer for destination (or NULL)
++ * @fixup_dst     : destination scatterlist used for the hw operation
++ *                  (req->dst, or @dst when a bounce buffer is used)
+  * @edesc         : s/w-extended rsa descriptor
+  * @akcipher_op_done : callback used when operation is done
+  */
+@@ -110,6 +114,9 @@ struct caam_rsa_req_ctx {
+ 	struct scatterlist src[2];
+ 	struct scatterlist *fixup_src;
+ 	unsigned int fixup_src_len;
++	struct scatterlist dst;
++	u8 *bounce_buf;
++	struct scatterlist *fixup_dst;
+ 	struct rsa_edesc *edesc;
+ 	void (*akcipher_op_done)(struct device *jrdev, u32 *desc, u32 err,
+ 				 void *context);
 -- 
 2.43.0
 
