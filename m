@@ -1,45 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194143;
-	b=jcxvM9/DAQunmfY6yfFdC2psuysBBfsFSjVxsDkoXca8fEnmKuh+5T4UmDCw+se4ddhr
-	 khjGKSJWB4JPOrpf0pXtLPeCDvvmiK8m3LlyAD+MiW2xpi0q8yFhT70vfKrdpVuuHPZH5
-	 cWaduLFKS++bqhipxMce+8fq5YtJOeQn12BPswJQsOKTpGEP/Wbj+PfjEhN+w7Cz/HRgZ
-	 saU0isYCx6LDFoKCr/T2yRf/Km02PHim1uEqE/YGJ5QCqYv8+tzgElFIpW1qdnqE3naPx
-	 PgXpiSaf9UuBXoGMXU8IahbOT5BUBnF3wTNyZkUhZQ9cNUJSu6xqWRq1P+6XldttIkQ==
+	t=1795194151;
+	b=ssWeW/DC4dvAH0yOm3ssK0QHD70SxHS9BLjnr+6wOTEievq5UdoXV7XsRVWTmhJlmNwD
+	 EkfvesBj3Pr8oQlnYEgDqTp/g5ha1isgYYKDursOYIST+OeTEz1LDcYNwfqNfOSxl34ML
+	 JO9Vmg6oBqwEsc+0JtI8q6pWGJOoy2wqUkKzGTJSPqiai/y/ZmGbc9KF7aak0ZH2H13OC
+	 iNpulMlJ4tUjN1Ee5pIBImozKb6mmEeTmLNr9A8NKv4wdQMdIQWCpnTtaJRM1ASx7I8rF
+	 Hh+h0DWc2N2UYDlaZ4hdqLZ847xbfIicHPydXlweofI6FDHVw1Q+vaK++we2y/VradA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194143;
-	h=Received:DKIM-Signature:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Subject:From:To:Cc:In-Reply-To:References:
-	 Date:Message-Id:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=MKX+MV7ZS3pgsFPhLXCL1R4hUb3A9oRc7oNvqOxwIyA=;
-	b=MbzucjecD5AftRPIaJObEwB+X8ghFlKm2BxeRw3jX5N64rx2zuX05BhNXnKmMhy03Y5U
-	 PVsunpAJI/OI+UHUVsnmrV5tG9f6mcwqZJangNn9l/mpFRh+7WOhPoJDCKJJW7PRUGmFC
-	 C4eSUKmBDvx9/eZhwGAHbJo46wPjkrVPj9jPnoc15KwYH1L3t6B0YRwnjL429mS1dqHLI
-	 Y8Osof3LL1zB5+FsB6Xi1l6sZSAkjcW/dMJ3FYaB+9M7JnPJF9POLvNwt80dmkVlTZ5se
-	 3uq/UEAUihhVVemGhWieHzMrErOU08U2EJeLUxfKaGyPRb7FekoC3qkC2E8D1BcLguQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194151;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=FwHWB7P/0a48tdW8YS81QQbTMddEmiTEmcYnkEG+2ME=;
+	b=1DWhVbctOJGyDBIWXOSF13qG+WXZUxeRCSA05pBXH0TxXJTh8caYIsH0rW2f00PjU0ox
+	 BP8BF7liCkP8UvncemeH/uOicaIR8XbmlanjLMdd00ewBdTwmx6RhAUc1koQ8+3ZlFnym
+	 vEt6WkLOFuyi196BDg0M19/tgrYJ318uAoBBb0Pd+Xub2lCKQsZ5UFWY5jf9GS8BE3Pm3
+	 Uuzz9kWmU9lK+Q5qrtK9CN5O9F6f35ZBpNgLjqgwBaEgGy3u+G3w+4jFpOtiQd2j5IANR
+	 AScByibIgeJTySpeftexNri6LoFZP9Rti5hlw5vVTiADcDs5Yo/+Uy/SA4haiuBZQYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HRvOCKze;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IfRrAI1A;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 723AD60A2601;
-	Fri, 20 Nov 2026 17:02:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEAB060A2614
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:02:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEAB060A2614
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HRvOCKze
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922DD1F000C4;
-	Fri, 20 Nov 2026 17:02:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795194143;
-	bh=MKX+MV7ZS3pgsFPhLXCL1R4hUb3A9oRc7oNvqOxwIyA=;
-	h=Subject:From:To:Cc:In-Reply-To:References:Date;
-	b=HRvOCKzeP+lAiBOiaMhi1HWvedsQWFTwQ7q7Kukfy3BIpdZ9kJkLPJDb1mtzRaYjy
-	 95PCzDa8kyqtrEUvAA9nmLyBUpENicbsGOJvELn52JnVjHugaOIwGXwFJLQB0+eGS4
-	 8k+qwiE5hWKlYncPzrTpOu2dDyJL8ahj8k/yJE66hrh1IKkMxx0hfsJoy4I4DjBStt
-	 xUMxH4+jnRdHg+8nkzWWXrANx/g2SZTy9HnFGsIDqjkIX1CzJTluGUlsAdSVfYDPIq
-	 ciVe5EsgbK12h+HmVIONxU+plLHmEQVr/KrzhQFLcueGtcTznqcPboDfn1EsaLkfML
-	 I4SMFT8gxKWAQ==
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IfRrAI1A
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso8472695e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:02:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795194149; x=1795798949; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FwHWB7P/0a48tdW8YS81QQbTMddEmiTEmcYnkEG+2ME=;
+        b=IfRrAI1AQYFkLLWMV8ai/rArqH7I/ixvzrZzMvEwCpURX6/6N1D3pn6GtG2Btg6EMk
+         7Pw2bz8YwAPrJEIrBXf7hM/A2TedeSTD3A9TWu3AVUl/ggHgFCnqXsxA1kB8O9pxOTNw
+         TF0Kt0jVQ1e6mdFPUctZwyGljc2G4pDgzVOTIo7wwjkNCVEOY6EB6rFpp0J7a9UvSuF7
+         vb6v49NTEplRccRjGRjWFlyXyhWsOS4TQPwLS/NecXGcviIyzkfREtR8EyW4Uw+n11sH
+         YXQp1cHtFFYtXQzhbqR+COBJ3B+ojfvSokQivu+WWgxEwmbjW/ARhgdETe0slgvzPIiF
+         tgZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795194149; x=1795798949;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=FwHWB7P/0a48tdW8YS81QQbTMddEmiTEmcYnkEG+2ME=;
+        b=O+HXeX6kO/zGdEIyCdwxJfqdkJzJeidtySy+O8Z5/cgYgqdBDkxo+ct/aizCpSPNp6
+         LHGi5JFpUUlijogvTocu7enijxMb4XxdxNur0fViuPa59g/kmRBsQstKoDqyfvRBtJO2
+         7nnVl9eg6NinelaB/08yd3V3qEEnx0uBuDd8cYu/fjSGuVi9Pa72xwXFuNJSSH1sSF+k
+         P6DKFGr0LfPW4pijZXBWKRpzJUY9BAh1PJ5dXeVbDtLlpZ08ix8g/bDKgcUt/z2DgSsz
+         K5YHfT8hwHM+BNB9zHludaSqIGvPeEcGa3SOj1EFWZO2FmzpeqAGM3oms/gWD9f0/a2H
+         rAdw==
+X-Forwarded-Encrypted: i=1; AL+hErE8f5AMRnlWqCuZ6ojGdevOd/laDm7WGY+aoaX+5iaY9hI6uLIjKIoXZT+7ORyMw3EGcKH+FHG8J3PNqXg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9H83n9ULS7CQtcwUQ09AJTSXq1bg6t7dQJ6CYSBA8pHXxdu+sd
+	pYygD6E1KH4/zS6tRBK2FVCxQKX5X1G+TtLRu/qa0n2Af/Fmi5nvNFAK
+X-Gm-Gg: AYBFou3pPsiaF4j21yfLLIt0mcFdAMf5ygQ21uLfz7nukD0S52prlF3kydkk/SaZjnn
+	T4CJ2spH4eRI+/hpirVnXf2IiwIyUyYJv9nSstEuZeiitV0pAFHxhKDy1apVs2rBngdpOLiWEVK
+	ixSwc0eaSS85LZeH5wA0IOE1MHL6/kfh5A0W4oRfqrOtnV0HYTktNxQivgz2tFJgSc9BSZGRvWM
+	nymBnj6dYZb6A57H46BAJbJrhbTYDDEATQNKo5E8jD22b+j+1OiSf9zRnnY2gM7RkZKLAIjaYxs
+	WoI4fMjioxoLMnAtdm398vqlbruGboqBMdhn7+/G5w7C+hKM8yTvfFTR7ooV8A1b9yBeHId63VX
+	f3YKyygbh6J7fCAmt0O6NQ6Zn8NCXzTFT3f/b8HvRJmQDMzHJOMzwmtcbLxtfvqXbhDYn7BWuYa
+	+3baJ/u5aF7Crq2t76xJp5BOXDF9+e8X1TCDwfpy3d83P62ZqyLjsDGjVcAUNRL7T3iWMdZaAtV
+	cjwrU0K8xf4DqFK+k0EEvPca/vrtJP/I/CfwEe23v7AAvJ9grpeLdsUsklhU6ET+wEcLtC5ckDK
+	+Z+MQpxEAzsSdrBKd7jbN+hDiACjsjb2G6I=
+X-Received: by 2002:a05:600c:c84:b0:4a8:9a2f:d27 with SMTP id 5b1f17b1804b1-4bb8881f47emr87073955e9.25.1795194149145;
+        Fri, 20 Nov 2026 09:02:29 -0800 (PST)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b2050f1sm6345804f8f.38.2026.11.20.09.02.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 09:02:28 -0800 (PST)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Luka Gejak <luka.gejak@linux.dev>,
+	Zong-Zhe Yang <kevin_yang@realtek.com>
+Cc: Ping-Ke Shih <pkshih@realtek.com>,
+	Tzu-En Huang <tehuang@realtek.com>,
+	Yan-Hsuan Chuang <yhchuang@realtek.com>,
+	Kalle Valo <kvalo@kernel.org>,
+	Stanislaw Gruszka <sgruszka@redhat.com>,
+	Brian Norris <briannorris@chromium.org>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mehmet.fide@screeningeagle.com
+Subject: Re: [PATCH rtw-next v3 2/5] wifi: rtw88: report the frames purged from the TX report queue
+Date: Fri, 20 Nov 2026 18:02:27 +0100
+Message-ID: <20261120170227.374774-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261120131000.33858-2-luka.gejak@linux.dev>
+References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,55 +105,17 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] media: iris: Fix encoder reference buffer size
- calculation
-From: bod@kernel.org
-To: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
-Cc: Vikash Garodia <vikash.garodia@oss.qualcomm.com>, 
- Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>, 
- Abhinav Kumar <abhinav.kumar@linux.dev>, Bryan O'Donoghue <bod@kernel.org>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>, linux-media@vger.kernel.org, 
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20261031-fix_enc_ref_buf_calc-v1-1-54dcba5977a8@oss.qualcomm.com>
-References: <20261031-fix_enc_ref_buf_calc-v1-1-54dcba5977a8@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 17:02:17 +0000
-Message-Id: <179519413781.2846709.5558343764676918132.b4-reply@b4>
-X-Mailer: b4 0.17-dev-e3fc9
-X-Developer-Signature: v=1; a=openpgp-sha256; l=726; i=bod@kernel.org;
- h=from:subject:message-id; bh=jwR2z26GK5TFE9poCpSnbg53tGuW0J+hD48Ood694PY=;
- b=owEBbQKS/ZANAwAKASJxO7Ohjcg6AcsmYgBrAH0alj1JIvwF+dHPKnP5zx+N99Gw68XngabRc
- S/AXlnUr8WJAjMEAAEKAB0WIQTmk/sqq6Nt4Rerb7QicTuzoY3IOgUCawB9GgAKCRAicTuzoY3I
- OtH/D/9DFJsagmGGdmiADwwnP7QnD4QQtgO5iEJgdme/c/Ycu55viyF+SJM/oZA16hu+iAbO+vx
- 7aeQdypHK8nRy8YyEAS1iEHT9B/l25xU7VXMdPcdRltoEYpenzh2syZ9+r8lhYfymXqKZHmLp4z
- 2CdRr8505zxn9B7lPA4xKdw4R0Q2J1e8WWi969jwBWFL0zh3uWj5Svx81W7Jo+skU1T6JlQD3pW
- /3FbU701I2EozZyHvF2Hx876dIsi+g4jT/ECcvyWc/9GRRX9WtcTl2O8jG9RavjHVqhEg7QefTr
- xDrCyV4nYQVHEr4h4jt9WAml4ZMZQoArQliajpNmlL5cZfc2Gm+w2uTzggNkmyftILjrdchPzaL
- J6JDTBzcm09Xrud2IHWO5nnG9P7Jup5Ysqu2B6SUwDaxlSJvRczsMV36boQt8p4kfpxUWFiwtba
- Mb0MaBLQxbIRHuP9DR2CimR0Qi5tCPdGLWZeCILcZjKU//duA52Q/u3Al+J+gGfDpU+fF/DSlp6
- TlIj0kxFp197nt8o7BEJBXbUviBKBogLU4Juc4+Mlx5zlY/FJU0O8lmn1Y7aedbrFJikPFu6kNi
- F8Rkqr1rm2w9vpYT2cshFXOPMiap5WgTEmOQD6p7h7lr6HDJ8K5Lz5Mg1csKDrRB6I36pJyXSB1
- eR5izCX1SOYIibA==
-X-Developer-Key: i=bod@kernel.org; a=openpgp;
- fpr=E693FB2AABA36DE117AB6FB422713BB3A18DC83A
+Content-Transfer-Encoding: 8bit
 
-On 2026-10-31 01:43 +0530, Vishnu Reddy wrote:
-> For frame widths that are not multiples of 128, such as 864, the
-> encoder reference buffer size is underestimated. As a result, the
-> firmware reports a session error when starting the encode session.
-> 
-> The encoder requires the reference buffer width to be aligned to 128,
-> but the current calculation aligns it to only 32. Align the width to
-> 128 when calculating the reference buffer size.
-> 
-> Fixes: 61528e86687e ("media: iris: Allocate and queue internal buffers for encoder video device")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Vishnu Reddy <busanna.reddy@oss.qualcomm.com>
+Hi Luka,
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
-bod
+> Could we clear the TX status in rtw_tx_report_enqueue() before saving
+> the sequence number?
 
+Yes. With a test build that drops the firmware reports, a purged QoS
+null frame reached mac80211 with status.flags 0xff and link ID 15 on
+arm64, and userspace got a probe client event without ACK. v4 clears
+the status there. Since the patch changes, I will drop your
+Reviewed-by from it.
+
+Mehmet
