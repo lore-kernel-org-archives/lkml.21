@@ -1,56 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174762;
-	b=VKzZAMB6sosaZx5xrnTf+dOsRhX41GJQ0RM6ia0QHXHED9QlmYo54qZPYy3W3+8UBMIN
-	 z8onXySZ3YN7FlZr5qSZoRxPwFRgmVcCvzC9Uamf3RV56/u/jN6oPyUgS/F58EumLiuF+
-	 mG22eZgWAqbNRd7uoTSDtWz9cb7cyG76/bP0PQ04I1QGmiIxc7EGK1c8DZT6n7yRkriTj
-	 6SQKN5TsIgCMsPQpUhHXKJmEbmu4aewcJ5Cv6LZIPPLmDbboN7YW2cxHVuxPut5Cecivc
-	 e11cOUROc57oFDBnWRE0chr26FfOgW7QNZ+7akgXtj5RUCRxUxf2yej5VNdrMY4yBoQ==
+	t=1795174804;
+	b=2kDniQdl/0xTt0/imsoNTbY/PmS5z4u4rxhggptwIZmIcAiDRNvpP3byd11KWDjS/CAe
+	 527wHqZqQOzmDaWsTkcBV53CDif4WSoP5g3sysjmOCKk4+uuBOusn7aV9cXcKtpkL4U1J
+	 CuejmK/FKs9fTv294027RcXsm4rfL0craKNOoqN2jOqNAWsXfaW8NiOy+z7oVX9XaCPRA
+	 OmuOUX8+pVIN4MtGZikBgUVs1zv5WtdolVyAjbZndAIc6XcEH3fhKLhKosI+FjuPBt3J6
+	 IuFpbV/NI43hZvWBOLHT4kiFsTFmeiQeA3DMA0wSUIb94GAVf2vzAKUkV1DTTeOUCyA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174762;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=OtQivQqnmSInxEcGZbExtZbogiR/PjcJgBziw5rS62g=;
-	b=abxHETfuxxPE1helm5SJCh9+9sQt0lU4ICEfZOVGUqAmau1/q1Ev8beTKya4K66wwMn4
-	 Vo5TgEdII6fw8MQf0V1hlYz7KdvxssoQLngzKk+1HryoCoaI3LnCADG0wyiTkhp0s0Bc6
-	 siVfopKXrzKMWHg1/QdzOSsCffK8h5jU4L0dpDYAn+OzF+DlgZqTqeaNtdnCFPuQr7RSB
-	 QJkSe4yTeBe4Ne3xHtzJv6fa/RS0x8b+zESDXOr2Us5kWEMXTiZ0e3Pot74Nf1w5/B+iI
-	 Ub4URvpBoiUV64l0qsbfioff4zDM1f1PkpcMr0Itl36r8USicBoX2WJp54BCZWHNm5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174804;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
+	b=p5Mcxq4rN77TLoy2TI9wlewHuEYG8HvlcT2QdlbjQhrXXSeRZfTiENGVZ7PMCLESTgkZ
+	 IaH4PUVqy6hhUF1Yl/3a9fwyko9cXbaJiHMB7dkqkXlYeMw9mYiOCZXFWhd0rhq41I+Pt
+	 71xYJwUe7iVmA3opGrAPUuwN91piSxDT8VjlE5o8EU5KQdRDiybayCD+8Z9yHYzWc7Q9U
+	 MiWicKI2OVwky+ngadlIt9XtB8fZ1eqb4WnlH9A1RQ9f+gL4+ndnktVzGRV4MyC9rBsVW
+	 OFLpq2oFuxkhMaHld/Eef22w06yJNtTR6ybgHg9zTK7oJ7gcKSy2+tfMdFyw53spZjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kVHsc0o/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=isslab.korea.ac.kr;
+	spf=none smtp.mailfrom=isslab.korea.ac.kr;
+	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lUlAVEGt;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DF85606A325;
-	Fri, 20 Nov 2026 11:39:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A081C606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:40:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A081C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kVHsc0o/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 142521F000D1;
-	Fri, 20 Nov 2026 11:39:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795174761;
-	bh=OtQivQqnmSInxEcGZbExtZbogiR/PjcJgBziw5rS62g=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=kVHsc0o/8MU4cGPxr7LNnTCfEesIpG9/YERDDuEpcXd8PTdQ5xOM+7jbog5YLIlB7
-	 IMWw9S9W918COPICSAefbqr96bId/h+Rvze5udwO2n+vQDmBMWfpDPTO3CopoeCVUY
-	 vJ8b7q4mrzW13oU0jfCMM3Kx4+R41SMZ8T1MomhnIF/U6lIELqCaNTGZpB4cBO+d4p
-	 JpoqpJLFG/V1MaP3smkSKcvV7XLtkVt33O84QiS/QHfUXxITtXg+qaKWd5T5Fz9HYI
-	 YMScuR2VdqgJZtU2oZ/PKqudxhdQTtdKsBscz1nEtH/CwW2HRhObkm4GBLIH3Z6Dxr
-	 7ORZAiuIAr2mw==
-From: Mark Brown <broonie@kernel.org>
-To: Zhu Jun <zhujun2@cmss.chinamobile.com>
-Cc: lgirdwood@gmail.com, david.rhodes@cirrus.com, rf@opensource.cirrus.com, 
- patches@opensource.cirrus.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20261119075733.50138-1-zhujun2@cmss.chinamobile.com>
-References: <20261119075733.50138-1-zhujun2@cmss.chinamobile.com>
-Subject: Re: [PATCH] ASoC: cs48l32: Release the runtime PM reference on IRQ
- read errors
-Message-Id: <179510449468.116416.15496390683158627317.b4-ty@b4>
-Date: Thu, 19 Nov 2026 16:08:14 +0000
+	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=lUlAVEGt
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b10ca4e3f9so463596a91.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:40:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795174803; x=1795779603; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
+        b=lUlAVEGtCzgQoqRaac1b9s6fKHZs3qxeQ9EPPmSA8N9uuHg0iwfUQsKNtKz1c1OLE5
+         whOj1BCqqbGngi+8dwLzQ/0+MDnBzsiDBsSn6tQHvk46/J95vSB8A3m5Ylsr31WFry4u
+         PKkRVhGqemZNfNRHKuZFQMve81yAhNW6lzGCYIPRjobnJ55776QfXwTAf8L+dj4ryOIT
+         mT4oBNfqrbYORbQ6I9SLlP6lzmcIXSrvyiMAhixboxEuviYVNvp3hhnhpx/v0iswyj6Y
+         2nFXe+Bf4t0T72YtcRygi23Lbnqx1bY1beSmZUOoE6Ikf2v0e4MNoZjEpEBhataizVsk
+         zxlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795174803; x=1795779603;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cw32rxb0JMiO3biaJ21jKGN1UmuLPVsWaNPJJq3nW20=;
+        b=nKO474tACYYrZP5xq1o9/zFzQvb6+fy7bsAuU9dfvJuLK4ZUsjOcIqzWLldTKjmbJz
+         Q52MCAT81gG17SPS088zpgmaKY6hsHMKX2HTngYG/tqKCb3qTFp/ARjME9HC/MAF9C9e
+         Hn1JPBzxw40hAmjDjRmRPm4VPJQg1JZ6KJraBk0mGCMwMKaOSPOyaaEWGsKYxf/2ynxN
+         QH8wu1BWtW7juI4F5vLLcwYseFJqah0RMKZnwn4greQpdSHnx3D+rI7IoAaEUzbTvigW
+         3vRwRaFEdiGbKs66JW55e/agLgJUYE138QBQb9QcNjtI/1QQ+USA61RYmj1vPkv9hoxG
+         ONWA==
+X-Forwarded-Encrypted: i=1; AL+hErHrxNgxki25GduTx5u69KpUUPo0P9GhFzW/UgXdIlfajbKHEWVCTmsoQLTnKe23EgO9JyUAwXpducjV3hI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+DjpFgP6N8XT3eT3eaqD8YO7cGaysDg82sSOqrwHml2Ep1pl5E
+	bNpxZPq2BvyznCo+EMHkLuxZOlrfkpxePAKoOvGtroMqLB5kMkz9hDvi0sR+NCQKIiw=
+X-Gm-Gg: AZFdTZdKZVRs1Y5MrV8Ge3AMF/oXKTx+bTq6/6k3/mo7RS2JZNfyEYb03heGH3z5Yuu
+	InEuiW0kcTZxabrv+ysNgFQsEDsWSvqjbNnaTct5AADv3UvCauUyR012Fn23kxBj2U8GL+HdBTc
+	W7AeFuzfO3lBqGOZt++kpGNhvcbAfnG5iImiyyBITA0iu0ZhbG94z9OTRTXf/g7dkDW+Sz2yEUN
+	Gml3jrQCJgGQMGuglP5KpnGI+4gU7KFTVm3wSZY0G2Du/hjdG78rDYhdNV6sR6PbTH6GIqT67zD
+	vnLYCtrMJYw+GL0TLqKB8lQX/FRjb7VgddM197G/Vr0lzGgsSaO9hxjluBEX7BqsoD5+E5w+6yj
+	WeSAs2I4tftndtkoUJ24bORG+n0yFDT9uEYl9dMDAWgFAMppzVxhP2j1PnemMxZCHMrdFuTydSA
+	UZ+iXVFeg+cyU2DhHakEHUMvGJc/zLp/X/6gQLxl52IOQawniaTFsGzHBJ1rkoxbKA+B3QegQbT
+	EGcEtNawqF5ubUTY9U3tLN5EW9CRfdHQpuVqkVUpGQGa42NYNMthwW28zBnMNkz0RL2mTaLxtTT
+	1lPI0MuNoc/+HcLrKYtum+VSmJjDL6KtuhwLuhNe4rMhpgwXrRjnNNJeKOnkTh7U3McKVSVWPfM
+	X4WS56nFVIzPC9eqxNCCO5kPlSV9snUShkylc
+X-Received: by 2002:a17:90b:3fc7:b0:3ac:7874:639e with SMTP id 98e67ed59e1d1-3b41caf5efamr2323448a91.46.1795174802943;
+        Fri, 20 Nov 2026 03:40:02 -0800 (PST)
+Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cea748csm1173293a12.4.2026.11.20.03.39.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 03:40:02 -0800 (PST)
+From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+To: gregkh@linuxfoundation.org,
+	nkapron@google.com,
+	linux-usb@vger.kernel.org
+Cc: Thinh.Nguyen@synopsys.com,
+	bigeasy@linutronix.de,
+	target-devel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	lgs201920130244@gmail.com
+Subject: [PATCH] usb: gadget: f_tcm: do not dequeue UAS stream requests in BOT mode
+Date: Fri, 20 Nov 2026 20:39:56 +0900
+Message-ID: <20261120113956.3071640-1-yhlee@isslab.korea.ac.kr>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,46 +100,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1145; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ZpDnaUnyAxxrM5tThINjs1DjzxQ5EJLUjkdmVCZEaRA=;
- b=owGbwMvMwCWm/754w+YLFp2Mp9WSGLIZDNOqeuN7HyR4PZvAt01uwaL9qV4Gi3ZM8RGMrubn6
- AjjEnndUcrCIMbFICumyBKXxf2yvuT1Gr6DC9tg5rAygQxh4OIUgIl8jWNk2JKy4uP33V6+qXMT
- OffX//BfO+dMs7s1g/rDoFVHvq5wWMrIMF/Aunrr/s4gl3tfVFmPMqxnF3hWWDWXXzp1VlCvwrT
- 5nAA=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 
-On Thu, 19 Nov 2026 15:57:33 +0800, Zhu Jun wrote:
-> ASoC: cs48l32: Release the runtime PM reference on IRQ read errors
+usbg_aborted_task() starts by reading stream->req_out->status.  The
+stream requests are allocated by uasp_alloc_stream_res() for the UAS
+alternate setting only, so in BOT mode they are NULL.
 
-Applied to
+The target core calls .aborted_task() from target_handle_abort() for an
+aborted command whose CMD_T_TAS is clear.  A BOT command gets there when
+a LUN RESET arrives on another fabric that exports the same backstore
+and the backstore has emulate_tas set to 0: core_tmr_drain_state_list()
+aborts every command on the device, no TASK ABORTED status is owed, and
+the core calls .aborted_task(), where the read faults.  With the default
+emulate_tas of 1 the core sends TASK ABORTED status instead.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.5
+Return early unless the function is in UAS mode.  A BOT transfer uses
+fu->bot_req_in and fu->bot_req_out, not the stream requests.
 
-Thanks!
+Reproduced on dummy_hcd in BOT mode with a fileio backstore that is also
+exported through tcm_loop and has emulate_tas set to 0: a WRITE(10) has
+its data stage held while SG_SCSI_RESET_DEVICE on the loopback disk
+issues the LUN RESET.  Without this patch 3 of 3 boots oops as below;
+with it none do, and the write does not reach the backing store.
 
-[1/1] ASoC: cs48l32: Release the runtime PM reference on IRQ read errors
-      https://git.kernel.org/broonie/sound/c/afd48791d4f1
+  BUG: kernel NULL pointer dereference, address: 000000000000005c
+  #PF: supervisor read access in kernel mode
+  #PF: error_code(0x0000) - not-present page
+  PGD 0 P4D 0
+  Oops: Oops: 0000 [#1] SMP NOPTI
+  CPU: 1 UID: 0 PID: 30 Comm: kworker/1:1 Not tainted 7.4.0-rc3-FT9NNM-00395-g8dac6df92a2e #1 PREEMPT(lazy)
+  Hardware name: QEMU Ubuntu 24.04 PC v2 (i440FX + PIIX, arch_caps fix, 1996), BIOS 1.16.3-debian-1.16.3-2 04/01/2014
+  Workqueue: target_completion target_abort_work
+  RIP: 0010:usbg_aborted_task+0x2d/0xc0
+  Code: fa 55 53 48 8b 87 e0 01 00 00 48 89 fb 48 8b 50 38 48 8b 52 30 48 8b 2a 8b 57 24 48 8d 14 d2 48 8d 14 d0 48 8b b2 58 03 00 00 <83> 7e 5c 8d 74 2b 48 8b b2 50 03 00 00 83 7e 5c 8d 74 58 48 8b b2
+  RSP: 0018:ffffc90000107e40 EFLAGS: 00010246
+  RAX: ffff88800540d000 RBX: ffff888006c6c870 RCX: 0000000000000001
+  RDX: ffff88800540d6c0 RSI: 0000000000000000 RDI: ffff888006c6c870
+  RBP: ffff8880053febc8 R08: 8080808080808080 R09: ffff88800491c218
+  R10: ffff888005031cc0 R11: fefefefefefefeff R12: ffff88807db295c0
+  R13: ffff888006c6c9a8 R14: ffff888005031805 R15: 0000000000000000
+  FS:  0000000000000000(0000) GS:ffff8880f9e92000(0000) knlGS:0000000000000000
+  CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+  CR2: 000000000000005c CR3: 0000000003030002 CR4: 0000000000770ef0
+  PKRU: 55555554
+  Call Trace:
+   <TASK>
+   target_handle_abort+0x6b/0x130
+   process_one_work+0x19e/0x3f0
+   worker_thread+0x180/0x2f0
+   ? __pfx_worker_thread+0x10/0x10
+   kthread+0xee/0x120
+   ? __pfx_kthread+0x10/0x10
+   ret_from_fork+0x186/0x230
+   ? __pfx_kthread+0x10/0x10
+   ret_from_fork_asm+0x1a/0x30
+   </TASK>
+  Modules linked in:
+  CR2: 000000000000005c
+  ---[ end trace 0000000000000000 ]---
+  note: kworker/1:1[30] exited with irqs disabled
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Fixes: 76003eb6d09278 ("usb: gadget: f_tcm: Handle abort command")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
+---
+ drivers/usb/gadget/function/f_tcm.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+diff --git a/drivers/usb/gadget/function/f_tcm.c b/drivers/usb/gadget/function/f_tcm.c
+index 9e6d4f39900a27..57e2ec81f29a8a 100644
+--- a/drivers/usb/gadget/function/f_tcm.c
++++ b/drivers/usb/gadget/function/f_tcm.c
+@@ -1614,6 +1614,10 @@ static void usbg_aborted_task(struct se_cmd *se_cmd)
+ 	struct uas_stream *stream = &fu->stream[se_cmd->map_tag];
+ 	int ret = 0;
+ 
++	/* the stream requests exist only in UAS mode */
++	if (!(fu->flags & USBG_IS_UAS))
++		return;
++
+ 	if (stream->req_out->status == -EINPROGRESS)
+ 		ret = usb_ep_dequeue(fu->ep_out, stream->req_out);
+ 	else if (stream->req_in->status == -EINPROGRESS)
+-- 
+2.43.0
 
