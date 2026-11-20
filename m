@@ -1,49 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795135211;
-	b=njSJ0YzMxl+skyHqX6SihXUtfXIxNCFmCpkvIN0LJiRRcsMjEkiwMMhv0Wc6KGqXLXZ0
-	 43uioB9UU1AnXkXjIUCpQPwjbdUwxV4sU6+Dig7zI0ye0ZUuOp9H9DbCUVrjcgCrHb14z
-	 jOy4BVhdCefbAoMmgyNg18zaLSNCewCpp4581KbnohQ1kofkFA0yTfH28ODw6Z/LQ/FIc
-	 8Odvv7ereHaPKq1uLSuumFubC6h5ykQ1G40WNsNX3a8ayJgAjgkMbT6Jmp0n1gzye8ERy
-	 8n5qqsUvtaalRv9PMYyzDdsTj/NVqaW3T5fAmZmdOaZwZOBVrANyLB+sWo3o9KTHlIA==
+	t=1795135270;
+	b=Ive4LDefZ+C+Y6/QN8WKoy4CsGLM6a4kEofSww3+/VyClpmJW7FmSNPKghsB+BWg6MNJ
+	 3YEy0Bl8L0BvTH0EgXpC3h8sR2qn/3ecHu5tpOVWSKuGUKT3DyVHMi6DEvcI9fVgtqX48
+	 Ub64C37XynkXKlUdDIzaA5eRMVLcNEesid+KPqem1MT0vEsQy9oksKEEmXX85LL7Vrn8A
+	 5wD1P0oAKD4Z7V9fPkLJWNBLTdW5uh62MDJXoeMKOgv1o0GCRJWTzFXBK5zIRbG+B3rLw
+	 DtZRvwU80pQYfDEsc874LsPEsogwZA0CPWYVffsFsQ2AlUBwjGQBwtB3LbQNuPTc50w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795135211;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=fuYqGKz8tF4JVrpW4P/SNbiXiq0ATgFGBBkKRffwfsU=;
-	b=yLbyjTjcP929ft1uc7D8ly4zWmYVYWQKfFVlsXZTD0i/Ll6cFm43bTgwNxpsnEcErfGl
-	 QGVM9xcHvXiqV9AXgRzT78/CrfAixg+w1R53MZnIZBj7AY+7Qv6I6IT+zWWx9MBtwjyhi
-	 a9SjwO7YU83nONUDr+xaBxozAtw4ttZl+is9nz+hsrW/zHiyx94Y+kdhnbg58iApa05N7
-	 dI8vKtrRYJvgqFQOuKZQGXqKhjGnTfInc5OC777sKSx/nf1nbKvDJ5Ev2+EtUqOcaxxJC
-	 KK8mO4c0W4quH+AvK/8sEfc2VgBK8mNxxT80RBzPvSEDO8JmQDo1rJrcq34AaBw8gbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795135270;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:References:From:Content-Language:
+	 Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=RemctTAsKfFE5hgGbUMHNWElV4P9jPp7WqrpoBRZIbI=;
+	b=UzHSMWQd0HDTknEjcy2Z9OKaZ9GPL31ACPYmkMl6tucug3ssHz3RWVKArKXRrxYEbNKB
+	 0WFkrePPBhHXNT+HU0TX6rVHblSSrkR3ZeM3khHLDAarX2WG+ZjndrOjtw1sIkOUKJj4y
+	 LZX0XdB/D+Yh8y/2aTYMH+pDGlRgag05JifW01S4QM8dZofOD8iAwFrDoyRwTCZYUn60P
+	 /dKKy1IM+miG43VUlrumWyX7qQvghSt7Dtyek4Nk11Qo+Usb0TXdTy0D33o+CDVgQwrUh
+	 Ii+17et2AptHG2q2zS/UFunqL4yjb2H0ko09c30XAA9UjrmVD4B0faYHL1BX29XX2LA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P38cuAm1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hhSvY8Io;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C705606A325;
-	Fri, 20 Nov 2026 00:40:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FBA2606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:41:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FBA2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P38cuAm1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDED41F000CA;
-	Fri, 20 Nov 2026 00:40:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795135210;
-	bh=fuYqGKz8tF4JVrpW4P/SNbiXiq0ATgFGBBkKRffwfsU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=P38cuAm1/jpCPpAmQZGHjFmU/VWaKCTzHLPwz1seUQkeISuENbSe6IDHejHP7bfCC
-	 H94Oi/lI/dJJIeW+ADTqDWSLz8UxwXCmPOG1BHMt9CyLQTiL1Vv4GY9ZVvlQ5+E7Lw
-	 xrZoF96hpw0e4qDEbqyd5j5515wcsyIpSZuC7/tT2p2KeGQWPDzNGh/+iWrlxsH1qw
-	 uSFnHwf1bYj2jn3ZLWcxEuBpgbVszqIMmpnOfMBMS3WaUUQ9rfUPjbYk52Zd0JKJjc
-	 uAB3nECbYD4UFmu67/kuYvRFhQnOdR1YCQrdpK6bB+mFn6J9uZly8EBp4BXCKUV1/C
-	 0fmaJIsQs15uA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45673808209;
-	Fri, 20 Nov 2026 00:40:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hhSvY8Io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795135269; x=1826671269;
+  h=message-id:date:mime-version:subject:to:references:from:
+   in-reply-to:content-transfer-encoding;
+  bh=RemctTAsKfFE5hgGbUMHNWElV4P9jPp7WqrpoBRZIbI=;
+  b=hhSvY8IoxlykfvzzcySnSNPa5CWBXNZURdvKpfGQ97S6/GvUC31ByeOm
+   bVt2wWOtRpgZTae8jtAHURdyLps0lABUVcFYOXRAQNGa8MSKpfmbNSEjn
+   T4meepbnpg24xa1MdZ68Zp4b+4/MP1j1oL6mluW+wJmIOnETOJRI9cedZ
+   8jlOFfyAmYw0fLgU6ttd5JFv0gBohiN71IvAAjcZFpnhOi3KDV/PWrppf
+   ak2CZ5VVb1sy4lN7iPMMZ4PiDKYh3p4tYlE8wlVZJp2JsS/uCQCelFTnn
+   ylOu+AZBpix3suqioEp5X0wO6hADJ5QQH1oc96AnWMsD20wZHpgmE7sPI
+   Q==;
+X-CSE-ConnectionGUID: RYxA8LZ8QhCP9lCcvH4rgA==
+X-CSE-MsgGUID: pF6LmSzvQdSdU5XJhc+QcA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3894956"
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="3894956"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:41:09 -0800
+X-CSE-ConnectionGUID: 8Hd2+tbwTWCmkxJZARcP/A==
+X-CSE-MsgGUID: hfEWvVniRESXU2jlqr3q4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
+   d="scan'208";a="10986652"
+Received: from aduenasd-mobl5.amr.corp.intel.com (HELO [10.125.109.68]) ([10.125.109.68])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:41:08 -0800
+Message-ID: <b136b9da-7089-4232-ad96-6174a48844d9@intel.com>
+Date: Thu, 19 Nov 2026 16:41:04 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -53,67 +72,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next V2 00/10] net/mlx5: LAG,
- preparations for LAG over VFs/SFs
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179513520953.3950719.4715041705999451652.git-patchwork-notify@kernel.org>
-Date: Fri, 20 Nov 2026 00:40:09 +0000
-References: <20261116103010.1129666-1-tariqt@nvidia.com>
-In-Reply-To: <20261116103010.1129666-1-tariqt@nvidia.com>
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- cjubran@nvidia.com, cratiu@nvidia.com, gal@nvidia.com, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
- shayd@nvidia.com, udar@nvidia.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] x86/kprobes: Fix boundary check in insn_jump_into_range()
+To: linux-kernel@vger.kernel.org, tglx@kernel.org, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ nik.borisov@suse.com, rppt@kernel.org, peterz@infradead.org,
+ mhiramat@redhat.com
+References: <20261120003621.GA13347@didi-ThinkCentre-M920t-N000>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <20261120003621.GA13347@didi-ThinkCentre-M920t-N000>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On 11/19/26 16:36, Jinke Han wrote:
+> Since there is no reported failure, I'm fine with dropping the Fixes:
+> tag if you'd prefer to treat this as a cleanup. I can also post a
+> separate change that makes the check use the actual optimized length
+> instead of the open-coded DISP32_SIZE, if you think that's the better
+> direction, and add a regression case under
+> tools/testing/selftests/kprobes.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The Fixes: is fine, but it would be nice to have a better changelog
+about what's going on.
 
-On Mon, 16 Nov 2026 12:30:00 +0200 you wrote:
-> Hi,
-> 
-> This series by Shay is the first part of enabling a LAG over functions
-> that do not represent a physical port - a "virtual LAG" (virt LAG) of
-> VFs or SFs acting as nested e-switch managers. New FW lets a VF/SF front
-> the physical uplinks through a multi-uplink e-switch; such a function
-> reports num_lag_ports < 2 and drives port selection via the e-switch
-> (port_select_eswitch) rather than the HW port-selection flow table. A
-> virt LAG is therefore a software-managed, shared-FDB MPESW LAG: the
-> driver builds the LAG demux and vport-LAG in software.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net-next,V2,01/10] net/mlx5: Distinguish VFs/SFs in the SW system image GUID for LAG grouping
-    https://git.kernel.org/netdev/net-next/c/c25049685e16
-  - [net-next,V2,02/10] net/mlx5: LAG, select the MPESW master from the live member snapshot
-    https://git.kernel.org/netdev/net-next/c/2bfcb28b10e8
-  - [net-next,V2,03/10] net/mlx5: LAG, skip phys LAG prerequisites for a virt LAG
-    https://git.kernel.org/netdev/net-next/c/a2d029ad50e2
-  - [net-next,V2,04/10] net/mlx5: LAG, treat virt LAG as a software managed LAG
-    https://git.kernel.org/netdev/net-next/c/b03cb2fdbbdb
-  - [net-next,V2,05/10] net/mlx5: LAG, decouple iteration end-of-walk from MLX5_MAX_PORTS
-    https://git.kernel.org/netdev/net-next/c/4eef67c32a7b
-  - [net-next,V2,06/10] net/mlx5: LAG, rename PF naming to fn
-    https://git.kernel.org/netdev/net-next/c/1e6086bcd491
-  - [net-next,V2,07/10] net/mlx5: LAG, resolve affinity indices only in queue-affinity mode
-    https://git.kernel.org/netdev/net-next/c/26da1e56cef9
-  - [net-next,V2,08/10] net/mlx5: LAG: replace fixed MLX5_MAX_PORTS arrays with dynamic allocation
-    https://git.kernel.org/netdev/net-next/c/b7826ed4d0b5
-  - [net-next,V2,09/10] net/mlx5: LAG, drop MLX5_MAX_PORTS scratch array from device rescan
-    https://git.kernel.org/netdev/net-next/c/0da8bb5da54f
-  - [net-next,V2,10/10] net/mlx5: LAG, do not add a device to an already-active virt LAG
-    https://git.kernel.org/netdev/net-next/c/5830905813d0
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Not voluminous, just better, please.
