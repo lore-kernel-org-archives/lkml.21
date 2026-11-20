@@ -1,54 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179469;
-	b=PeGEX9j+HIqkCLF10IzfuyvjKHt8NR6b1gH/GU/Rh/NFNqp8U1adEVtW045R/Y3cXXeP
-	 XskScZWP+AfH2Vgtwm5yPFEo0XbPdlCjSh9iZVFnHP545tsKhxasH6GFMCOdnpfjt7bVb
-	 5XS5xg/TJI/kEkYa07ibZMHl84QGo46TrL9jvfuQ7O7MU1wspAIwOT7DUzR9oNJP9UsLs
-	 BmgKN4nniYv5ot0ELKyTYiUDLxkySDQPD4a++8pssq+pWZuXyPRCPHZbaLaFSmaa5F33t
-	 A5UGccJuTs7NwuleVsoSsHeBuOPg0eN1K1TQeKvZydMYhqLa6ICql+XndUYycVVcJMA==
+	t=1795179471;
+	b=rzWOtZk3E2tag9OYCnhdAFtdmj7Z3Cmn7OFBL4GrYjA7xHwjoQan/wDQQbXvnm0hI+lc
+	 hkAd0OsGYBspC4pzAPyHSl3dgbCAmC3T/ON9W3Oz2mym/o+lKscvKgkYefgpNbEqj6ZAM
+	 JV/tkTRXlVM7xR/xwAOhAMYPv0k73ClNbf5Ku4u165EkxXPRwsoOWatZp0pdCzRSumZsn
+	 Hxyhhoeevaxr6To8B47oy/QAfdUto4yprUKsS+LVADpm82BKZYwSOz5MfxExKmaJxC+5x
+	 ydDPqWn4Q51G8tK8sXoAm3UNsjw1ac5HfVFrN47L0v3fJSw9m1SW3Q7+yupzCEAaMZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179469;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179471;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=8YuqZ8GuOBbpaf2Sgoc++9V1NZuSh8t13c1nFKdqRWA=;
-	b=f1yvJPw4MX/9eMoM0nOilXVPLesZChmOEbjlwEns4HpXZO83yhl2bf/sZTIM2owRH8Um
-	 vXR7aftxYOpDDKSTJMF4HwJgtBUHfE0+Yqq6te03XFdiL4Tskva8I+QCmlJ28qrEhLZ+L
-	 9Bw/hKn7lNZSxh+Zj+pE3yLg7ABQWjiZ63FP6PW/zuxpZ7J+9vE/UBHXdNOrL66ox2M8K
-	 BND1hh47pMgHvy3qSgs2Vr236tvT2o2GtUi4PC9VcS+9arp/c9b4IGADOOcXBDJY6NfVw
-	 cnD7OH2P8FVet4YT0ElhMHU9EmJVB/3UIQwAKmp4OmKtDVLK0E8Kn2teXxLuYvgUjBQ==
+	bh=gU+N4i8XXaaCHLQytPV366YHYYBxjCiyyNiSynfO6vU=;
+	b=kEmY7/D0rBFSQtgLILjDYDW3eTZMGEUV3dDXx7kQkLbnCeP7meq9fcH8EgW7w3Fn0xGH
+	 Vqcke4vTTrBfbY7nzh8DQRdwBLYpUnVgteDy72N8ptIv8p8VUMqQUuHTxVKnVkUFE1ZNH
+	 ksYhN4jLvyBMTIQ9lounRGvNhtqAAfam/d0mtedt3iYHRLmf0rIfVs24wisgsyMBu2ann
+	 v6aPceCP3Z18BRXTWN8Zmwa8pnyytMPxlPWkN0m09eUB3xuVJrrZOvdoMezLYByOnApy8
+	 QiZWMOV1IVXkoT6amoVmfb5qzux+pA1Jg8ObXZqyY/wHdSjil1mwtkbgwa++QTk09rQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=z4PgQUru;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=K8TjtE2k;
 	arc=none smtp.remote-ip=185.246.85.4
 Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5E69606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:57:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5E69606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 373B1606A33F
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:57:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 373B1606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=z4PgQUru
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=K8TjtE2k
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 410134E41638;
-	Fri, 20 Nov 2026 12:57:47 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id EE7554E41687;
+	Fri, 20 Nov 2026 12:57:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 151D9601B9;
-	Fri, 20 Nov 2026 12:57:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C2BE11BC015E;
-	Fri, 20 Nov 2026 13:57:40 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id BBC2C601B9;
+	Fri, 20 Nov 2026 12:57:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DC5FB11BC00D4;
+	Fri, 20 Nov 2026 13:57:46 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795179462; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=8YuqZ8GuOBbpaf2Sgoc++9V1NZuSh8t13c1nFKdqRWA=;
-	b=z4PgQUruRl3diP1nWHVI9Lr5iUhZI/TxDwzvxPQ9fUqVE4C1zGYJS7BJ6Pr5kymiy4yzWh
-	iPMYuRtmSYzIC2fareRhD0doytvLHtCQ22N0Xj2qulK6g5Tb+gBThvB48P9A9fRFVx0KPP
-	CBwb/Hetjge0fRHlNAfp5dTusNoF+bKBTw6F7YEVwZSlkQV69n400bqBpEwPv5rqfI4H8z
-	NYZu/om3WESiQk+8paIRxncDwSob6S+HpgDo4z5T/6MG8Pu9EQKgE/6gHGfBHTPWFTYx13
-	wpPoBo8Q93PhTudE9NwXlrvzznid504yyeUB46hWyeb0k6laBq5XF4CwXukD/w==
+	t=1795179468; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=gU+N4i8XXaaCHLQytPV366YHYYBxjCiyyNiSynfO6vU=;
+	b=K8TjtE2k7nphcv59TzpTsej47eYhvzxLt4JBJkmH56cJ5plr/uYnvKLLKO1G2T2wxlS7fw
+	P/vaPItZXqHYzReUHDkHiJj5H+AjCNcoxEFAQJyw08NIf0byLcGL2tKCNuIxlQWpRlRALQ
+	5MWvPxFEYTyPA+xdTX+0LvmglEZw246V4C8dQWumHZIabIevjjWPkExYRXhbCtId2nmF9A
+	Dj0+Dqu/m2ALl5K2FEsBDzw4ROhTOACi4AJmMx4tVipg87CsZZ+Ll9nF+xxbRM6rzjpvGz
+	v8ZVOCpdyFk3iP4MM+6xLEaJfS3iWipYBUBgq/6VPJU1irpj+QmwBYhU46s4Iw==
 From: Paul Cercueil <paul.cercueil@bootlin.com>
 To: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Len Brown <lenb@kernel.org>,
@@ -58,10 +59,12 @@ Cc: linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Paul Cercueil <paul.cercueil@bootlin.com>
-Subject: [PATCH v4 0/2] ACPI: platform: ACPI 6.5 fixed clock support
-Date: Fri, 20 Nov 2026 13:57:20 +0100
-Message-ID: <20261120125722.209609-1-paul.cercueil@bootlin.com>
+Subject: [PATCH v4 1/2] clkdev: Improve clock discovery with clk_find()
+Date: Fri, 20 Nov 2026 13:57:21 +0100
+Message-ID: <20261120125722.209609-2-paul.cercueil@bootlin.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261120125722.209609-1-paul.cercueil@bootlin.com>
+References: <20261120125722.209609-1-paul.cercueil@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,56 +77,49 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Rafael, Russell,
+With a setup where a clock provider registers a clock with a device name
+"mydev" and a clock name "myclk", calling clk_find("mydev", NULL) would
+not actually return any match.
 
-Here's the v4 of my patchset that adds partial support for ACPI 6.5
-clock resources.
+Update the code so that we can support this while maintaining the
+existing behaviour:
 
-Sashiko complained about the clock names being too long still, as
-ACPI device names can be up to 17 characters and the limit of clock
-names is 16 characters; so I now name them "acpi-clkX".
+- clk_find("dev", "con") matches in order of priority ("dev", "con"),
+  ("dev", *) and (*, "con");
+- clk_find(NULL, "con") matches (*, "con");
+- clk_find("dev", NULL) matches the first case of ("dev", *).
+  Note that in that case we don't handle wildcards for the device name
+  or it would end up matching everything.
 
-Note that I expect warnings from Sashiko that I got on my v3 and didn't
-correct, because they are bogus.
+Signed-off-by: Paul Cercueil <paul.cercueil@bootlin.com>
+---
 
-On the clkdev patch:
-"When clk_find(dev_id, NULL) is called, does incrementing match here
-give a (dev_id, con_id) entry a higher score than an exact
-(dev_id, NULL) entry?"
+v4: No change
 
-My answer is that you call clk_find(dev_id, NULL) when you know you only
-have one clock provided, so you don't need to care about matching
-priorities.
+v3: New patch. Imported from
+    https://lore.kernel.org/linux-arm-kernel/20261103084915.8405-1-paul.cercueil@bootlin.com/T/
 
-On the ACPI patch:
-"Should the con_id argument to devm_clk_hw_register_clkdev() be NULL
-instead of name? [...] Setting con_id to "<dev_name>-<idx>" instead of
-NULL prevents wildcard connection matching in clk_find(), so any
-consumer driver calling clk_get(dev, con_id) with a non-NULL con_id
-fails with -ENOENT."
+    Originally sent separately to go through different trees, but the
+    context was lost which didn't help reviewing.
+---
+ drivers/clk/clkdev.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-That's completely ignoring the first patch, which addresses this issue.
-
-So I consider that those two issues can be ignored.
-
-Changelog since v3:
-
-- [2/2]:
-  - Change clock names to "acpi-clkX", because ACPI devices names can be
-    up to 17 characters long, and our clock name must be 16 characters
-    max.
-
-Cheers,
--Paul
-
-Paul Cercueil (2):
-  clkdev: Improve clock discovery with clk_find()
-  ACPI: platform: Add basic support for ACPI 6.5 fixed clock resources
-
- drivers/acpi/acpi_platform.c | 64 ++++++++++++++++++++++++++++++++++++
- drivers/clk/clkdev.c         |  4 ++-
- 2 files changed, 67 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/clk/clkdev.c b/drivers/clk/clkdev.c
+index 919fc680ae4d..ee6c0afd6ec0 100644
+--- a/drivers/clk/clkdev.c
++++ b/drivers/clk/clkdev.c
+@@ -53,7 +53,9 @@ static struct clk_lookup *clk_find(const char *dev_id, const char *con_id)
+ 			match += 2;
+ 		}
+ 		if (p->con_id) {
+-			if (!con_id || strcmp(p->con_id, con_id))
++			if (!con_id && !p->dev_id)
++				continue;
++			if (con_id && strcmp(p->con_id, con_id))
+ 				continue;
+ 			match += 1;
+ 		}
 -- 
 2.47.3
 
