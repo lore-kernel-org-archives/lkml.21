@@ -1,78 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795202770;
-	b=hJazD+++yAjfzbHyANJPTcn3FrjJU3wTasDiP6rGkyIBkgVIBH6mAns1XmZnEXXQdTri
-	 JGfal01Jb3XSEkSMKeyQ8mfODM6vDbPxt2GYXSjJN9dcRZtGCWIWN39dCy/d73ZO070Mh
-	 WMlzps/+qP8uF08obfVbS0sSpDMrEf39s3gysNjZ8/ubZ+6Ix5mK4h57WudZTtXQafsb7
-	 7wldvLi0tXXmqv1k+ewL1tdiiWRxYMJdLG57OpeWIFFoMRfPGpOLJP2SF9LbPBUB6+wmE
-	 W/BOp++Kl9LBVvCCrHLONbVwLzZzFyw5fxAVEBFHLpKi4mL5sXqxEepZI+0CQ9L6/SQ==
+	t=1795202884;
+	b=UE+9crGKb/7TXrVsnS1/kTPuaQQu7zx/re9S5DX8xKGAGUot+IiG4PPeCIy3QLAJ1REy
+	 oiSm0jVnUuRWbMwNB0MPSh/UgAhwWLX+4MoxkWC4+jAUyECRTGTnbzqawbvzYbzpb2Wyu
+	 ewcvZR50OkxLdZSSODqQ4hTNnUFek+PeJP4HhZaK4V9qGrHREeoVh4YVdynqj7JwZuqjG
+	 e/1bSFQaI7Zbn8Sci19QcCzNdJmY7CI9xJOu4k8x58wyjZry6zy37WlGFFwHA36z5P16D
+	 SLuvwNSk0tX2PhoDT26VYpdKXVeWXShF8iC8BP7A2I3/udN8ocG3oUkbvnYha4PQwgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795202770;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795202884;
 	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
 	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:X-Source:
-	 X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=tiJscClyvBCvVMuU6LO39KI1GZ1MeRbP07Q45lvU8jk=;
-	b=ixQr0t7KW4jtJMaupGRugbDTwHhCUrQQuNmNrYgPZLNGv8V15D6b3WbYZ9JsPYdzOJhN
-	 8AgLpnQYuHkIFcLP6MA424ABkb/UBh7nlHopyI0U/H4v/4xblEe+Rvr8ynjWhS978yMeC
-	 x9UGcy8reIXbra/MUvH4iPmo/1gr6lAHkA/sw+uFFA8OXw5Li1kZ0fEMAflJvUM+/V33p
-	 CuCqbH9zv6fVP823hSxdYXYVfJCQf3yhAHXPCY2c9c4B7lkUmyJ+f4y4iLhxcbpGb04J8
-	 QZ/x74HXEQuOVB6COEVav1pOLl2TunLKTPMfxA9gswnzizXjEkfLd52RmRf4lqK0k6w==
+	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
+	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
+	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
+	 X-Local-Domain:X-CMAE-Envelope;
+	bh=gnYPuq+nfUoCLw60qwnW2GrHs/UIDVhrl71N5w+lQr0=;
+	b=33zWfYy49c3HRY3uFQCoaw+aqlL+OPDZI5ZAQboQUnyN4u03K4CLvecocaxjlKgbG4nZ
+	 MHUiOXWGy7OM0VgJ8curB3xJEyhO8lejFvYSMqD6qPzbSbAgo+QnKhEnM1JfK7o3LYICV
+	 bHNDMB4FhB5SErcvb7ZEfVqUQb9U5TXe+5QzLcUYisaN+RvmQCEvuEAhmyQHXHZId0tEh
+	 Iqe541kSwdxMOuRPjVFHCCWLCd+5pa7qyRG7gYI9kqmGJbnMl7P/QU5s9dHWDr6n9oXZ3
+	 SwHLI+pske2wFva8cOvV98KkpFEav9XFavxe3tzoamUb3jnAZK2dJSJPqtURPqfQn4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=roeck-us.net;
 	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=3XOXyy62;
-	arc=none smtp.remote-ip=44.202.169.39
-Received: from omta040.useast.a.cloudfilter.net (omta040.useast.a.cloudfilter.net [44.202.169.39])
+	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=kmWO5kJV;
+	arc=none smtp.remote-ip=35.89.44.39
+Received: from omta40.uswest2.a.cloudfilter.net (omta40.uswest2.a.cloudfilter.net [35.89.44.39])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23005606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:26:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23005606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15492606A6E8
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:28:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15492606A6E8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=3XOXyy62
-Received: from eig-obgw-6004b.ext.cloudfilter.net ([10.0.30.210])
+	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=kmWO5kJV
+Received: from eig-obgw-6005b.ext.cloudfilter.net ([10.0.30.162])
 	by cmsmtp with ESMTPS
-	id USu4x7P7VOOJnUUFGxoBxU; Fri, 20 Nov 2026 19:26:02 +0000
+	id UTtvx9iNHyb4YUUHDxZJKx; Fri, 20 Nov 2026 19:28:03 +0000
 Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
 	by cmsmtp with ESMTPS
-	id UUFFxq57YlaNKUUFFxiFhE; Fri, 20 Nov 2026 19:26:01 +0000
-X-Authority-Analysis: v=2.4 cv=UbpRSLSN c=1 sm=1 tr=0 ts=6b009eca
+	id UUHDxuIyq0288UUHDxSpBd; Fri, 20 Nov 2026 19:28:03 +0000
+X-Authority-Analysis: v=2.4 cv=a5Iw9VSF c=1 sm=1 tr=0 ts=6b009f43
  a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=pGLkceISAAAA:8
- a=U8fI0MGuNzyFiabFk2gA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=KPbNTLLc3YvdawN95zVk:22
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=1XWaLZrsAAAA:8
+ a=vSM2nOtyJHX8j6J2hBEA:9 a=CjuIK1q_8ugA:10 a=KPbNTLLc3YvdawN95zVk:22
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:
-	List-Archive; bh=tiJscClyvBCvVMuU6LO39KI1GZ1MeRbP07Q45lvU8jk=; b=3XOXyy62BO35
-	kx5b8aLzzvYFbvuUv4thIZaCMEQGMu47SNNFzrQGREKEF2UiYFa5FKybVflvVEtL0fHKv/xFAC9de
-	InuY6q0NYWaWzbK4IxyAdgqL6+XuysZkNvMYq4I4SuAqXQdU9/7PwSr+edcJXUqIFpS+cgSiTja4v
-	giu5UBAmxHD/Q6qq0/J5q/QblE3eLIgPCC0/8SFj0MB59JEcxuccKlXuP73Ev/1Vc+WjzT4G9mkJE
-	Ebj6MJ/3fokUcg5jtlezUq+PklHIDaNIlCcDe6HxPoiiGDNve8MU9x2hYWkMqd3rVBO9uUxEebrcR
-	ZF6FUq1+GCRRsHgYyD9GyQ==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:33204 helo=server.roeck-us.net)
+	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
+	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gnYPuq+nfUoCLw60qwnW2GrHs/UIDVhrl71N5w+lQr0=; b=kmWO5kJVAcjqKl8c4sqHRSB3aW
+	eX7gLI+TFyv61YeB5R9WH8mvIEXvxEDXPieAr2nmCEvZ+wtC/IDrNzScsbI9Oyb46P3SmQwl2bAvI
+	2JYLRn4P1BbDJXtK0EXq8G8efnl4BuAUxUj7+xt0cAtXpxe3uExTNSedl05E3k2R3NF5rRtuCm5lf
+	sL1oGD++vKSLFh8Gsym3iQSmIxzGjNdwZr3GcY1E41kRn87yH+c+EZ3ohMuNc3K0Yb+hS3q9hnuKz
+	vzciIAEAFCvxywq8DYS4glphIVpGHxZxp7Y70K2F8q0ykUysLhDKAHplTwyxLao2IbD4dxFO/w+K7
+	MzqLDcOA==;
+Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:45684 helo=server.roeck-us.net)
 	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.100.1)
 	(envelope-from <linux@roeck-us.net>)
-	id 1xUUFF-00000001WZb-0fkj;
-	Sat, 21 Nov 2026 00:56:01 +0530
-Date: Fri, 20 Nov 2026 11:26:00 -0800
+	id 1xUUHC-00000001XQr-3D0J;
+	Sat, 21 Nov 2026 00:58:02 +0530
+Date: Fri, 20 Nov 2026 11:28:02 -0800
 From: Guenter Roeck <linux@roeck-us.net>
-To: Asaf Nuri =?utf-8?Q?Bertizlio=C4=9Flu?= <asafbertizlioglu@gmail.com>
+To: Arthur Korn <akorn@google.com>
 Cc: linux-hwmon@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] hwmon: (coretemp) Remove unused for_each_sibling() and
- name_attr
-Message-ID: <cbb8f3b5-e2f5-4bc0-97f1-c77f897fb698@roeck-us.net>
-References: <20261120165926.579575-1-asafbertizlioglu@gmail.com>
+Subject: Re: [PATCH v3 1/2] hwmon: (pmbus/max16601) Support byte data writes
+ on VSA rail
+Message-ID: <86af448b-50da-406a-8ed3-7796dc9b7252@roeck-us.net>
+References: <20261120024416.338876-1-akorn@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,10 +81,9 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261120165926.579575-1-asafbertizlioglu@gmail.com>
+In-Reply-To: <20261120024416.338876-1-akorn@google.com>
 X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
 X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
 X-AntiAbuse: Original Domain - vger.kernel.org
@@ -94,39 +92,41 @@ X-AntiAbuse: Sender Address Domain - roeck-us.net
 X-BWhitelist: no
 X-Source-IP: 108.223.40.66
 X-Source-L: No
-X-Exim-ID: 1xUUFF-00000001WZb-0fkj
+X-Exim-ID: 1xUUHC-00000001XQr-3D0J
 X-Source: 
 X-Source-Args: 
 X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:33204
+X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:45684
 X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 8
+X-Email-Count: 15
 X-Org: HG=direseller_whb_net_legacy;ORG=directi;
 X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
 X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfGmr/bk+UPwgNdhUkL9K/oA3KS9BbzZidqQDJh9veBps09aDp7BQMB4m7nY/Wh95dqmr1UlrKz5EDmIu8Is0rSzWCfBGE9ATRW/EjjiVGDRGJcwmR6ZB
- ItnIAgXhQ911fTKMYAJwvuVcpVP7d48aQfb0JE6gKXkwIsHAaiml5b5gL8IP6O7jEUq1MxsVxKtRb1gyYFsEnN/OWSVwkPBkEhMWbqMloTuiZrk1Sa1adShW
+X-CMAE-Envelope: MS4xfFjO968ce0pf9cqv2yxkl/CD/oDcEKh3MZ90DlDdbZ3sUZtU1QrzyvthrZ+mBaGeiy4YD74ZkBBBdNVHhg6AuD6j3p4QWsVteeZbGC+eweEAJCO1zFOz
+ upKau92tDp+cHz14f8hYsP9opUGHBG4sfEEiy0QDNAfssRW8h/mbCa7KGMAJ/jEoNCBo10VwSnWf7HjqwPGOpO6Bc84hmD3GIlZRVWMgrARVqs3UQSwdv+w7
 
-On Fri, Nov 20, 2026 at 07:59:26PM +0300, Asaf Nuri Bertizlioğlu wrote:
-> The for_each_sibling() macro lost its only user in commit
-> e1b370b64031 ("hwmon: (coretemp) Simplify sibling management").
+On Fri, Nov 20, 2026 at 02:44:15AM +0000, Arthur Korn wrote:
+> MAX16601 exposes the secondary VSA rail on virtual PMBus page 2 backed
+> by a separate I2C client (data->vsa), while page 1 is a read-only
+> virtual page for VCORE input current and power telemetry. Although the
+> driver routes byte reads on page 2 to data->vsa via max16601_read_byte()
+> and PMBUS_CLEAR_FAULTS byte writes via max16601_write_byte(), it does
+> not implement write_byte_data(), and max16601_write_byte() falls through
+> to -ENODATA on virtual page 1.
 > 
-> The name_attr member of struct platform_data has been unused since
-> commit d72d19c26c41 ("hwmon: (coretemp) Convert to use
-> devm_hwmon_device_register_with_groups"), which left the "name"
-> attribute to the hwmon core.
+> As a result, PMBus 1.2+ byte-data status writes from pmbus_core (such as
+> clearing individual status bits in pmbus_get_boolean() or clearing
+> STATUS_CML faults during probe) on page 2 are sent to the primary VCORE
+> client instead of data->vsa, and byte writes on virtual page 1 fall
+> through to page 0.
 > 
-> Remove both. No functional change.
+> Implement max16601_write_byte_data() mirroring max16601_read_byte() to
+> forward page 2 byte-data writes to data->vsa and reject virtual page 1
+> with -EOPNOTSUPP, and reject virtual page 1 in max16601_write_byte() as
+> well.
 > 
-> Built with CONFIG_SMP=y and CONFIG_SMP=n at W=1 with no new
-> warnings. Apart from the struct platform_data allocation size,
-> which shrinks from 88 to 56 bytes, the generated code is unchanged.
-> 
-> The unused definitions were found with an LLM-based coding assistant,
-> which also drafted this changelog. Both findings were confirmed with
-> gcc -Wunused-macros, git grep and the git history.
-> 
-> Signed-off-by: Asaf Nuri Bertizlioğlu <asafbertizlioglu@gmail.com>
+> Fixes: 2138f8853a00 ("hwmon: (pmbus) Driver for Maxim MAX16601")
+> Signed-off-by: Arthur Korn <akorn@google.com>
 
 Applied.
 
