@@ -1,55 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795178679;
-	b=ZA9LoiETb9mFUXNZbbVDOcmFrKtifDkFVO4vuDyWqy39YiSaF+peW3KiDmWTGzRLSPZE
-	 l2MARIPcWk2DWDmboE6mFFT0TuBYSwKUFa2MkXJ+tsvxHTehCTN3FGju7Sc2IF8a5yZ7H
-	 OwU0KRoOrUsRT0TgdlrNQSYyRTVAqf46xZ0gPrkw0Utvqd9FMZ5GpxsE7blOqGED61lxQ
-	 2V17YAd1ROSBrLya7jWIGzq5DwqPHEG57pNsHOt3N7FZFkz0lvaVbOycrRLBBfBkKaeIE
-	 f6ziUYlQv8Iy2u5iPEbnLf0jojpAN7Fj9mdez8GUDhRReeaO7v1J15CRkU92xJOSquQ==
+	t=1795178806;
+	b=Ap9SGP7DqPC4fGnMHU6/iVdrarFnP4CDzDHWbZvRtn8hYRmWEB+eMcjQIl9y8oRJRGKy
+	 frhUpmNsr1dLkhlaOr/A81Tm4UZsflUDCfto+xYc6KYTzFbH54Tbh67VjvBynoM8PFJf3
+	 khm3br+2o4fje9k5NGlOH/tRQWcbIfflqWcHh4Kh6x5l16fi8Fw4sB5JkaeTy4MWz0UCI
+	 YSNONsnZsYKn1+zVb+zxfpfDt88XSfvwKHRgueOi4mk3cYQVBjQIPGBZ9ovSAFi2mFj+f
+	 6n7Dz0v5Wal7tBRFvemslFUtFGwmEthZpEoCjoPMq2H1gsxBv5sWJDA0ysEysIwp+0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795178679;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lKxPVxJVXhL/lYpTx5d+L4gCfK2VqMevUG3BAil73d8=;
-	b=mcKfIxmV3gLwKuC6bmH+CW1WVSv0s2BZhkG4C9aZqNuBXBOmeDx/3dp+CN9Xpxwe3RVc
-	 eFuKtRMWjvhcXblZCEnU9RF5AbjSW4PUQqHcKfLJo2rF2sqNrvR12d+SEZChZ+AUI0c8H
-	 9ElOyA5KAKhNfN6XMVJ7IOvzPt4K0IY5xY6kztFsLD7014+zl5gt6zaSxzQGVjBj3w9hA
-	 qUeVCR9+xUKAjk6ZHmfmhWiKe3ZfMagti8z7u11snOIPxADY9MuW0luIEbsMygJOA6V7A
-	 awAZeDFY+15VPOR75gelgnHKHkFSvCOrrf+9TTsiWLlShNJpQXY+qmyiu9xFQqBmNGQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795178806;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=cGH1JnI2N42c7qdI44e/87ummMnaVGLzf/yoQwalmeE=;
+	b=bx8Q0qkv5PSUYruJjNiMFkYk8c54pS9ZmkRpBuB0r8GT63hHfCu7o5OdUrK3Lp8z4e/U
+	 GB+FhJAaDQqlv7Xfv7bUUFBix/C8MNRp109mFES4+6W+mn5u/T/ka+VsZjACPYjzGFzoj
+	 PhPrY89kcZyBx0xjmhkTQgIAE1IhjVYACIDoJd/TQfQa0PFsuMBh+CVJQk+UWvEzqFBah
+	 HEPQXCJr3fYJRhCiHgxAeop4lVvjTxm7XO/bZT6lBb23qWhABRT4p5yhrKg0v/FQDmk7q
+	 QgiIFlfdPTf7cXU7IpEeixJ2CaTSf5MfqaiD361srFXO+eN5WeAjlsnKrhQ0A8KtWnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Noi4HUTu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oCgZpz5R;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4527B606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:44:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A626606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:46:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A626606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Noi4HUTu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8DF71F000ED
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:44:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795178678;
-	bh=lKxPVxJVXhL/lYpTx5d+L4gCfK2VqMevUG3BAil73d8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Noi4HUTuGceZrJTXd9KA5l0ldJL1p13IKEWC6B5JYNRABMnCpPV2QH9loKxyPIXYX
-	 7PdY9dVg4Hox9CGVFg0UtMPEcd773s+x9IY4YRPJLVgCpwGj7F/Olift8UfzDDBw+V
-	 EBGODhj7fLvH3HFcqRlmnzdxQdf5ptjngGbRhEfb4Cpl1TTObF9KiIxHlqxipE3QZp
-	 A2x1m0p4bPlagvG/h68wezIj6ajYJ0XEU8mXSuUV6z6SoESeGKdjwNMqHmYrTxYm+U
-	 yCaX55Nvg4NCMuha1HzEETPBPXHm4T/uss+cqbDoH+rhdcX5jc5+TGxh3TilfPt1w4
-	 1dhcC4SfwtvnA==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-3ae85add4dcso3491331fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:44:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHg3kzmdFVmQezmlCl81aBSSTG+PqUGFtvIPouvskh0xrG/PdEuane3GEphxsJNOsUYqX8fi8LYSy1rX4o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HabV4QZkFk4cjf1k71V+HZsonmRTv41xY61uFtGDv/65BSfyG
-	uwSDlagjOZcnem9ps+PGgfsJBpzHJqz8C9f8b538+1VbjQa9VkHZPt0Fb8rSWTuN4IYKC5m6ztm
-	Dl/DXmoBUrTQZ7EBbciHxREXxgSskIuA=
-X-Received: by 2002:a05:6512:4016:b0:5bf:b74b:3fb8 with SMTP id
- 2adb3069b0e04-5c1bc7cef09mr948426e87.22.1795178677102; Fri, 20 Nov 2026
- 04:44:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oCgZpz5R
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-38564b4b017so847548eec.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:46:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795178805; x=1795783605; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cGH1JnI2N42c7qdI44e/87ummMnaVGLzf/yoQwalmeE=;
+        b=oCgZpz5R907eoM2HIsbQigiZeLGuNbt6gkNA+BEZ7g32B9Bt5tsdftKlf1fvB2QRaI
+         AXyDaTJhXGV/+pW3oJLlhnC3BTKNZ5tez3R8jSib73+TZpT4GLIKibCGNpq1TJunIWEN
+         0R579MvQBjeq6cksncn1k8wcf7svlPNPv21ANfBsfmTmKEE3B21j9N6k0P7myHsWceeL
+         GVmIqprjo/6P8/78ddd59vzw8VCvLGJAMzpajAPz+nvcTZC5iaZbQU5YjsSepdcvi+Jg
+         Js5Ao8DoYPzeBxQ9STn33728oaO30uhfcdRhEbC4m9JNCd6IOhpPBI0eJvGiZ53ufqP/
+         PRbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795178805; x=1795783605;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cGH1JnI2N42c7qdI44e/87ummMnaVGLzf/yoQwalmeE=;
+        b=WOylnx8G2uYDMZeWz9UFV08gmxSIgH5pPpd3N6tjslpC8mD2CWRmAzp0cNCVxJOo+u
+         AOpGISOop3SOv3d1mKEhcWBcay6LEqzQ/vZLN1yNj5VL0nQ4mnpatzi7dt2sevUCQQcx
+         sp8r3UPrjRXOJkcJdghnTXpEZmK15vLoVrItWVleMoswPA4DRKQLk9qJIlfBppKeU5iY
+         3WmE6TzsabYCGfw/oS88MuJXhKgCVCISeUs+QvjV9Vgru4repZG6tMXyAiBag4edFPZn
+         oGhLY4g2AfLNwKVXDh12DN9K6GXHJFgMxwibUUakyi6SXH1koitLNS/593gA88oT4AjS
+         1nsg==
+X-Gm-Message-State: APuU4Z84EjfwkQ06oa3VwmBqcNARYw5t5+Tc5VOuF6Wnej3ycpbjoTVB
+	Wjhms+4rG8qbW/uN1MXZWWdUHPliX+zMYkt56nraBs+acf/lt3ay6/ygfVEa3QDe
+X-Gm-Gg: AZFdTZdQ3PLCXDW4qnFOnVC913s9ZAkda/sM4bf8amYYjeKkA1CwrMFcUcRUvT5O0O1
+	ssjQklRgjz9Vr9oIRpzQiuOIB07kmnm925aGeY9mwf+AXBWhKd6vj8Ch9qK8ENVJSD07hCogO8C
+	Xd4XIs7uDOf2ZmkWCIAAlNGn2igwOklY3AjwKZqSsxSGdmoEC5j47HhjV2Z/xnJOeIz/07ct721
+	zm99twuxr7Q6bkLHjTLDpY6Aw6b2RjgMFjp6V3fDrG1F9l8vBmvnbdqbnuVFuEzHUbYwzat56Kx
+	iR/EzkE9i6cUvLGRSOxhSjRlxiHbIwFzCqrSD9CS0+EeGsJYOAgK5X8eyzURkHip4rLRlFCGrLh
+	8ozgigrSs/gsWZNTzOjMnLrlEyDECnQxjhlRsJptqpzO7EO6BxZmYfeCjP55VC35WMci+U9QeMh
+	/t4ruFX/OIKIjTA5SB4QdOaGNoovLadRnxSZe3Cm6fOHPvctqFR3Zz6em+OAaYaOu81bqpAxrqZ
+	npnpWXkfj9fRIR13LEwF2foCb26UCU1Zr7DsAflhDabJ9E1mKW53Wa8KNXPPzkaVkk34vMu2Q+L
+	pMUz0eEw9BBCUYVhRcnpxMmkkWSRlhOYF8iW8geCctV9Gt7WBgM=
+X-Received: by 2002:a05:7301:182e:b0:386:1901:d994 with SMTP id 5a478bee46e88-3861901db11mr1238177eec.5.1795178805435;
+        Fri, 20 Nov 2026 04:46:45 -0800 (PST)
+Received: from localhost.localdomain ([103.179.231.88])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm10150364eec.11.2026.11.20.04.46.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 04:46:45 -0800 (PST)
+From: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+To: perex@perex.cz,
+	tiwai@suse.de
+Cc: linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: [PATCH] ALSA: pcm: Avoid reading beyond ELD monitor name
+Date: Fri, 20 Nov 2026 12:46:07 +0000
+Message-ID: <20261120124607.2799-1-sreekuttan2156239@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,96 +94,40 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-swnode-kobject-parent-ref-v2-1-7ff8bd54e526@oss.qualcomm.com>
-In-Reply-To: <20261119-swnode-kobject-parent-ref-v2-1-7ff8bd54e526@oss.qualcomm.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 13:44:24 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0iiOPT58GM=UDV=MdpPuoqFHCyrbWnw0yqejCrLjv+O9w@mail.gmail.com>
-X-Gm-Features: Aa3M54o_QhL8zO_eForf2dkAOpDrGma4Hrml5U9FdJ-znDiMb679XmnSf-mNb7M
-Message-ID: <CAJZ5v0iiOPT58GM=UDV=MdpPuoqFHCyrbWnw0yqejCrLjv+O9w@mail.gmail.com>
-Subject: Re: [PATCH v2] software node: make swnodes hold their own references
- on parents
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, Linus Walleij <linusw@kernel.org>, 
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 11:57=E2=80=AFAM Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
->
-> In swnode_register(), swnode->parent is assigned before calling
-> kobject_init_and_add(), which normally acquires a reference on
-> parent->kobj via kobject_add_internal() that is held until after
-> software_node_release() completes. However, if kobject_init_and_add()
-> fails before acquiring the parent reference or drops it on error in
-> kobject_add_internal(), swnode->kobj holds no reference on parent->kobj
-> while swnode->parent remains set.
->
-> With CONFIG_DEBUG_KOBJECT_RELEASE enabled, the random delay in
-> kobject_delayed_cleanup() may create a situation where - when
-> unregistering the child node and then the parent - the parent object
-> gets released before the child who's left with a dangling pointer.
->
-> Acquire a refernce to the parent swnode when registering the child and
-> drop it on child's release.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 59abd83672f7 ("drivers: base: Introducing software nodes to the fi=
-rmware node framework")
-> Closes: https://sashiko.dev/#/bug/linux-82933c14-d212-49f1-bd2f-d4ab1e16f=
-ed7
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+snd_parse_eld() checks that mnl bytes are available in the ELD
+buffer, but passes mnl + 1 as the source size to strscpy().
 
-Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+When the monitor name is not NUL-terminated and the buffer ends
+immediately after the mnl bytes, strscpy() may read beyond the
+provided buffer.
 
-> ---
-> Changes in v2:
-> - Simplify the code by folding the swnode_put() call into the existing
->   conditional branch
-> - Link to v1: https://patch.msgid.link/20261106-swnode-kobject-parent-ref=
--v1-1-77dbd7213dd0@oss.qualcomm.com
-> ---
->  drivers/base/swnode.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/base/swnode.c b/drivers/base/swnode.c
-> index 65e9388af8651f9d9602ff82e1761e5870284f26..f7b53e966b183cec1bfba6535=
-ccdba308b0be68e 100644
-> --- a/drivers/base/swnode.c
-> +++ b/drivers/base/swnode.c
-> @@ -850,6 +850,7 @@ static void software_node_release(struct kobject *kob=
-j)
->         if (swnode->parent) {
->                 ida_free(&swnode->parent->child_ids, swnode->id);
->                 list_del(&swnode->entry);
-> +               swnode_put(swnode->parent);
->         } else {
->                 ida_free(&swnode_root_ids, swnode->id);
->         }
-> @@ -886,7 +887,7 @@ swnode_register(const struct software_node *node, str=
-uct swnode *parent,
->
->         swnode->id =3D ret;
->         swnode->node =3D node;
-> -       swnode->parent =3D parent;
-> +       swnode->parent =3D parent ? swnode_get(parent) : NULL;
->         swnode->kobj.kset =3D swnode_kset;
->         fwnode_init(&swnode->fwnode, &software_node_ops);
->
->
-> ---
-> base-commit: e8017d29067fd1310a65c3494ce1a1b492adbac6
-> change-id: 20261106-swnode-kobject-parent-ref-3bd9b9b75aeb
->
-> Best regards,
-> --
-> Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->
->
+Copy exactly mnl bytes and explicitly terminate the destination
+to avoid accessing a byte beyond the validated input length.
+
+Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+---
+ sound/core/pcm_drm_eld.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/sound/core/pcm_drm_eld.c b/sound/core/pcm_drm_eld.c
+index 1941ee520063..556e5a43710d 100644
+--- a/sound/core/pcm_drm_eld.c
++++ b/sound/core/pcm_drm_eld.c
+@@ -362,8 +362,10 @@ int snd_parse_eld(struct device *dev, struct snd_parsed_hdmi_eld *e,
+ 	} else if (ELD_FIXED_BYTES + mnl > size) {
+ 		dev_info(dev, "HDMI: out of range MNL %d\n", mnl);
+ 		goto out_fail;
+-	} else
+-		strscpy(e->monitor_name, buf + ELD_FIXED_BYTES, mnl + 1);
++	} else {
++		memcpy(e->monitor_name, buf + ELD_FIXED_BYTES, mnl);
++		e->monitor_name[mnl] = '\0';
++	}
+ 
+ 	for (i = 0; i < e->sad_count; i++) {
+ 		if (ELD_FIXED_BYTES + mnl + 3 * (i + 1) > size) {
+-- 
+2.55.0
+
