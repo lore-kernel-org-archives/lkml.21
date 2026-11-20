@@ -1,78 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795195119;
-	b=A3A7MHBLpQ4aPALySdELeveSQ2pCK+piew/BpWtmtRPuBkbZAAqQdsX/zdejRU6O1XjY
-	 o31apYcX1opOj1J9/i8Q+DV96jO+QYBBLkuNYwHJaQbO6wBxbx45lALhp4Y9gSUsmBpjM
-	 nUcS0zDct91H+iGmfvLy98CUuYyk1A52lcYybC+c4LwRczLapVPzKalW/L814cHquT/Ti
-	 Ano7f0azVnl7qsW4wRkwoeaLPujfhhynBg5aYKg7WDU8oAx44hFEg64YvpDJ9WkUpLdkH
-	 4Go7EWakWAVKS9kRQej8f9kgkOHJGrN/4v6u06jzEg18plR59gYb6z3IPBDxhbpQfwA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195119;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=a1X8OcArTajS0cG5wRxnBcw8qQzAyLSvarhTdGhtG7Y=;
-	b=aDV1Ik8WL+bD4qlPoTd5FTt6v0ZO49AhXuDEzxwLQPjh3atxO44c1JzVsa4ITBu+OyFG
-	 tTHmknbbDnZZjkGKvobOUrykoUeJno5mi4Ro8ysrLaxICNTNhUpTfpzG3ExBwtOrEWVSq
-	 +qqii2C0Yf4/okG6/DHDuq15Ke9YPcigkSgpZTCSz4t0s+uwInLUNo6xspns3MGQBKu+X
-	 9qPvxAHiUeBTHs/b9NDVjMrra884PrOALtGssK0g5u4tVfay+bL528lF/HueLCZUghRD+
-	 BmVwp7svXU0BUtJJxZiuUaU7tFaDen7MoehOudcjmia5kSSrAshbwZUbfnHB6iSrzuQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LaDVRy0r;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.15
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795195136;
+	b=eRIPVTfdHgebN3eOiQvdLQobqbCIniQuBVoyg42mle6sqvd63+uEMu5UjdOYX8zQ67Qz
+	 M4X2LJOWa9L/ouYBcTuwLawDp61Y0C9bd4BEUgLkC/mC+csbhmlIzlJTPO/y4SxtqTe2x
+	 y0/c8bGToQob7JL0en++fC9rAlHiB/2ZimP0IWbEdR2HOGA0ETR3unxybxU1nMJwaiXe2
+	 hH6ThWFPGAceNEgbvoIIa4Dm9T+e0jOCnmoIVvWFVqunkFl0a8IN2sF3Pqv6crF8ppi25
+	 NauNBEEPhCMLWn1WaoVJlAXFChDxeDHge33x5up1O3qKsDmLA2pdxEuhuPEzKMRSEfA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195136;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=QIQEjm3d2yUWI7XJ5oSFB+PNWsrkD9quGMx3NyrE8X0=;
+	b=hePHtb2c27fXD3Ay5ACu+dQNqWglkkscQ4D0NxzI/hUa650n52luU1GramVLWdep7RxF
+	 BIiTX6kLzESt16Wq/cBs01EhkRBKfsph6O8Wml5PnvHNOBg42PEwAL6iRlINvn7AGojYk
+	 7qyQLxrdFEqguTUtzoUMD1M21u0YdsBduPSvM4Y1IjNcXZhOJfcthCQ0SUPrInvSDANyA
+	 /2ec+oDy/jShrFUyVefuCvmdavdRqgASp4VipMBrxjfAU5NnmbFabgaljg7fwphH1uyFT
+	 i3vhUh5zkXMb5mT6DDpHiaYwgLlS1DnPmNrmx3X9mbtR6uHajl3KQQ5h2zexVRvQ2Ew==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqgJxxyi;
+	arc=none smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E57D60A2600;
-	Fri, 20 Nov 2026 17:18:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C739260A2606;
+	Fri, 20 Nov 2026 17:18:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C739260A2606
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LaDVRy0r
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795195119;
-	b=IdNnpW8R2xmxtn0qLk5/b/CH7QCe3FssFAIXaelAz8HG/yunMTnzujjsiJK5hxgiHze9
-	 kVbgcXImmG3HhrMjF3jnmb8W/bxqm62j+hq/1UJ2LMB21rswiuseZrLKDvbxTQ2jU5OLM
-	 u2QJDeK6ZZMQXVxE7GesCAVcWx6LZwj6pfP8TYG1KU50tty2rjVX7l6U5J+NxZ2+AriQa
-	 i8tsPNx7qTGZi/roo6aniNVaYGOBu0rFlvJv0B1Zk3Tc7e1hvMNdyBgDzC5YrBSfCLdb+
-	 9AGusRWl4PuI0B52igDzH2EflkAzM1+GgV+C/bVkBJIlLuxiZ4AgPivx9/C7mfsBwpw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795195119;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=a1X8OcArTajS0cG5wRxnBcw8qQzAyLSvarhTdGhtG7Y=;
-	b=a1MU19Ob8uVDEemjrjyOCRZAW+cWiekYeMnmJqVSOResJySDAGMcfv6ofmFeCVlQISyy
-	 344s8SeV2+Lwp6N6qyOJZ6TxfY8FQsg5ScJlQZcm+t0TFDx9iC8+ZJIctX95gw4+AQD2o
-	 kjfGJMmbn7SqKekG2QgrWEnXb1cxIkVOwvODrZ4A4FcUpuTZsO5wOn6sPbhzfXFH9rHJg
-	 qtYJz6GB6ClncnCw9Jg6V7ZsMtjs2t1G5EdAnPRAxo5PVTcKlqtlfKIrHLRwSO12iYF50
-	 alm99fMIuj5yg/Tj//lmG+OvFlECVGmpIId4ABtQ0xCvCTPuf2pEHrT0+QJmLBk16dw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4571B1F000C4;
-	Fri, 20 Nov 2026 17:18:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795195119;
-	bh=a1X8OcArTajS0cG5wRxnBcw8qQzAyLSvarhTdGhtG7Y=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=LaDVRy0r8JQyALWEpEzTDGhqF9B0H6b7dtKqfCnVXICM5EH8OhAPqxnWHUjBMg2qC
-	 fejjT1m3rbbB5V6tyRWQILY8s10RXu0y8U8jWVP5JlPNmvoLSQWBXbNelPmRktTdgr
-	 cij+PdaGQ9HHezZbxbVNN90hYNegAy/BcagU4BgYFQR6EyFINKypOy4JJq+0wZvt5J
-	 Cf1B45BJToGrCloc6b9lIflpFfKP9wM7/Rcbq/pZonTziVyD6rQVwVwd5S64N+bkDU
-	 0X/MXf4NGdLCfhQxHh49pmcnNyShjTT4NF3sDnwQZtVrLwrDbbRdLcNY8FZSxNiG+c
-	 zlkODzihFGQlw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id C9F764B871;
-	Fri, 20 Nov 2026 17:18:32 +0000 (UTC)
-From: Peder Bergan via B4 Relay <devnull+peder.bergan.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 18:18:30 +0100
-Subject: [PATCH v2] rust: put C helper exports in a dedicated namespace
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=YqgJxxyi
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795195136; x=1826731136;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=/1HtlNbVvYtajBQoreiIL3kcVHwbMdxKszmOsBzjyRE=;
+  b=YqgJxxyiF1DKWBJtN96WEQXM1JfB6zK1nb5/NdbN1o42o5kG5NqAc3ik
+   e5/3zbIyjb1vl0mqyCW45hrULWGK4jNalyvkP5BRHL0d+fEQUPy3GHLIX
+   ZZSyNFTu8YU8v9iPWbhKKUe8iOy1jq/R9c2Swlx8QzfVPyaBVs3DpWCBQ
+   F2hN7jGOdjUUQHHjuXjaoEd0Ow94ys8pgWU0jN0yknvuBHM4oUkKbaMc3
+   avpqRiziy6JFDwEgOCQ4zhF9I1gAuFyphBDq/tVOIcbwT+6TvveyqvCc5
+   xpTnH2Uefh9Ib9bWOrOoja+bJ7+OsFpNhf9gFt+xOJ/k5Xfg1g5CbKuWO
+   Q==;
+X-CSE-ConnectionGUID: sfLUKNGPQRS3ebbLp1FIlA==
+X-CSE-MsgGUID: 1h9svnKCQ6m4korz1+y1pw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4083507"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4083507"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:18:55 -0800
+X-CSE-ConnectionGUID: XjeTSy/9S3a+dpzJiY3r5w==
+X-CSE-MsgGUID: CovpluibRWqPAawUn0BefQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11092229"
+Received: from hrotuna-mobl2.ger.corp.intel.com (HELO wieczorr-mobl1.intel.com) ([10.245.245.215])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 09:18:49 -0800
+From: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+To: catalin.marinas@arm.com,
+	pawel.chmielewski@intel.com,
+	kyle.d.pelton@intel.com,
+	lenb@kernel.org,
+	guohanjun@huawei.com,
+	maobibo@loongson.cn,
+	lpieralisi@kernel.org,
+	will@kernel.org,
+	sudeep.holla@kernel.org,
+	erik.kaneda@intel.com,
+	rafael@kernel.org,
+	robert.moore@intel.com,
+	void0red@gmail.com,
+	maciej.wieczor-retman@intel.com,
+	superm1@kernel.org,
+	chenhuacai@kernel.org
+Cc: acpica-devel@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: [PATCH v2 00/42] ACPICA: ACPICA 20260930 with follow-up fixes
+Date: Fri, 20 Nov 2026 18:17:24 +0100
+Message-ID: <cover.1795194329.git.maciej.wieczor-retman@intel.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,163 +95,216 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-rust-helper-namespace-v2-1-14315658f59e@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAOWAAGsC/4WOQQ6DIBREr2JYl1YwaNtV79G4APwITUXCR2Njv
- HvFHqDLN5l5mZUgRAdI7sVKIswO3eh34KeCaCt9D9R1OxNe8poxXtI4YaIW3gEi9XIADFIDFQ1
- cddUANJ0h+zZEMG45vM/2xzipF+iUZbmhJAJVUXptczQFTBHkcDn8HpaUS9ZhGuPneDezLPt3Z
- GaU0UrdZCmEqIypH/0g3fusx4G027Z9ATJI7VTxAAAA
-X-Change-ID: 20261120-rust-helper-namespace-57e8c37ee7df
-To: Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
- Miguel Ojeda <ojeda@kernel.org>
-Cc: Alexander Potapenko <glider@google.com>, 
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Andrew Morton <akpm@linux-foundation.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
- Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
- Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
- Aaron Tomlin <atomlin@atomlin.com>, kasan-dev@googlegroups.com, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
- rust-for-linux@vger.kernel.org, linux-modules@vger.kernel.org, 
- Wedson Almeida Filho <wedsonaf@gmail.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795195112; l=4679;
- i=peder.bergan@gmail.com; s=kernel-contributions;
- h=from:subject:message-id;
- bh=nX0YbO/vtt47+6y4IylipSM71r9O+9xEUx60Z3g64FY=;
- b=qTCg26Oq8Pjxp/oLQvY8MWSA8T9mQh94rZWp9HfgwSRh9oxjB4DdefYwAxmyYbkzevUK6a5Yn
- ivpi0EOBirtC6JIIrzz2MXAZX8yIJdIqYu1XBXqFFK89EROXaU6uqD3
-X-Developer-Key: i=peder.bergan@gmail.com; a=ed25519;
- pk=39790pn1YZCulHBoUG1uiQI1Hm01EvhBEa2zVrS/yN0=
-X-Endpoint-Received: by B4 Relay for
- peder.bergan@gmail.com/kernel-contributions with auth_id=1395
-X-Original-From: Peder Bergan <peder.bergan@gmail.com>
-Reply-To: peder.bergan@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Peder Bergan <peder.bergan@gmail.com>
+The following patches are ported from upstream ACPICA and contain the 20260930
+release and some follow up fixes (so generally everything after the 20260408
+release). Only source files relevant to the Linux kernel are being ported.
 
-The rust_helper_ prefix marks these C wrappers as Rust implementation
-details. Their exports use the default namespace, so GPL-compatible
-modules can link against them without an explicit import.
+Changes since v1:
+v1 [1] contained only commits between the 20260408 and 20260930 releases.
+However sashiko.dev [2] raised some issues that needed to be either applied or
+rejected. Most issues were valid and were resolved in patches that follow the
+20260930 release. Things that were rejected were the whole patch [3] due to not
+being a full solution to a very unlikely, debug only problem. Also the sashiko
+comment related to ACPI_GPE_AUTO_ENABLED in patch [4] wasn't applied due to
+not being realistically possible to happen and consequences were only an odd
+looking log entry.
 
-Export the wrappers in RUST_HELPERS so modpost can detect accidental
-dependencies at build time by flagging a missing namespace import.
-Have module! supply the import when the helpers are exported, since
-inlining and generic instantiation can introduce calls through ordinary
-Rust abstractions.
+There are non-ACPICA changes related to constants/variable name changes
+in these patches:
+- ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
+- ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
 
-The KASAN test links its Rust object into a module whose C object
-supplies the metadata. Import the namespace in that C file when
-building the test as a module with out-of-line Rust helpers. External
-modules that call these helpers without module! also need an explicit
-import.
+The base for this patches is upstream kernel v7.4-rc3 and it consists of
+the following material:
 
-Suggested-by: Wedson Almeida Filho <wedsonaf@gmail.com>
-Link: https://github.com/Rust-for-Linux/linux/issues/216
-Signed-off-by: Peder Bergan <peder.bergan@gmail.com>
----
-The modular x86-64 KASAN build failed at modpost on v1 and now passes
-with strict namespace checks. With CONFIG_MODVERSIONS enabled, the
-test module and kernel export record the same checksum for the helper.
+Andre Przywara (1):
+      ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
 
-OpenAI Codex assisted with coding and testing.
----
-Changes in v2:
-- Import RUST_HELPERS in the C metadata for the modular KASAN test
-  when using out-of-line Rust helpers.
-  https://lore.kernel.org/linux-modules/sashiko-outbox-225583@kernel.org/
-- Link to v1: https://patch.msgid.link/20261120-rust-helper-namespace-v1-1-3b9a05553ff6@gmail.com
----
- mm/kasan/kasan_test_c.c | 3 +++
- rust/Makefile           | 4 +++-
- rust/exports.c          | 2 ++
- rust/macros/module.rs   | 5 +++++
- 4 files changed, 13 insertions(+), 1 deletion(-)
+Colin Ian King (2):
+      ACPICA: components: Fix typo "Supress" -> "Suppress"
+      ACPICA: components: Fix typo: "numer" -> "number"
 
-diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-index b9e167ed5be32..f8e96c1194e02 100644
---- a/mm/kasan/kasan_test_c.c
-+++ b/mm/kasan/kasan_test_c.c
-@@ -34,6 +34,9 @@
- #define OOB_TAG_OFF (IS_ENABLED(CONFIG_KASAN_GENERIC) ? 0 : KASAN_GRANULE_SIZE)
- 
- MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
-+#if defined(MODULE) && defined(CONFIG_RUST) && !defined(CONFIG_RUST_INLINE_HELPERS)
-+MODULE_IMPORT_NS("RUST_HELPERS");
-+#endif
- 
- static bool multishot;
- 
-diff --git a/rust/Makefile b/rust/Makefile
-index 0165626decbe7..17c559052e936 100644
---- a/rust/Makefile
-+++ b/rust/Makefile
-@@ -569,9 +569,10 @@ $(obj)/helpers/helpers.bc $(obj)/helpers/helpers_module.bc: $(src)/helpers/helpe
- 
- rust_exports = $(NM) -p --defined-only $(1) | awk '$$2~/(T|R|D|B)/ && $$3!~/__(pfx|cfi|odr_asan)/ { printf $(2),$$3 }'
- 
-+rust_export_macro = EXPORT_SYMBOL_RUST_GPL
- quiet_cmd_exports = EXPORTS $@
-       cmd_exports = \
--	$(call rust_exports,$<,"EXPORT_SYMBOL_RUST_GPL(%s);\n") > $@
-+	$(call rust_exports,$<,"$(rust_export_macro)(%s);\n") > $@
- 
- $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
- 	$(call if_changed,exports)
-@@ -585,6 +586,7 @@ $(obj)/exports_core_generated.h: $(obj)/core.o FORCE
- # function either. Therefore, we export all symbols from helpers and bindings.
- # In the future, this may be revisited to reduce the number of exports after
- # the compiler is informed about the places codegen is required.
-+$(obj)/exports_helpers_generated.h: private rust_export_macro = EXPORT_SYMBOL_RUST_HELPER_GPL
- $(obj)/exports_helpers_generated.h: $(obj)/helpers/helpers.o FORCE
- 	$(call if_changed,exports)
- 
-diff --git a/rust/exports.c b/rust/exports.c
-index 1b52460b0f4ee..fde2a52d2a1ae 100644
---- a/rust/exports.c
-+++ b/rust/exports.c
-@@ -14,6 +14,8 @@
- #include <linux/export.h>
- 
- #define EXPORT_SYMBOL_RUST_GPL(sym) extern int sym; EXPORT_SYMBOL_GPL(sym)
-+#define EXPORT_SYMBOL_RUST_HELPER_GPL(sym) \
-+	extern int sym; EXPORT_SYMBOL_NS_GPL(sym, "RUST_HELPERS")
- 
- #include "exports_core_generated.h"
- #include "exports_bindings_generated.h"
-diff --git a/rust/macros/module.rs b/rust/macros/module.rs
-index 0a7b9e24c9600..ac3376fa8fb85 100644
---- a/rust/macros/module.rs
-+++ b/rust/macros/module.rs
-@@ -467,6 +467,11 @@ pub(crate) fn module(info: ModuleInfo) -> Result<TokenStream> {
-         }
-     }
- 
-+    // Inlined kernel code can introduce calls to C helpers in any Rust module.
-+    if !cfg!(CONFIG_RUST_INLINE_HELPERS) {
-+        modinfo.emit_only_loadable("import_ns", "RUST_HELPERS", false);
-+    }
-+
-     // Built-in modules also export the `file` modinfo string.
-     let file =
-         std::env::var("RUST_MODFILE").expect("Unable to fetch RUST_MODFILE environmental variable");
+Dave Jiang (2):
+      ACPICA: CEDT: RDPAS: Add missing reserved field in RDPAS structure
+      ACPICA: CEDT: RDPAS: Fix incorrect field positions for RDPAS
 
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261120-rust-helper-namespace-57e8c37ee7df
+Hanjun Guo (1):
+      ACPICA: add UBRT (UnifiedBus Root Table) definitions
 
-Best regards,
---  
-Peder Bergan <peder.bergan@gmail.com>
+Himanshu Chauhan (1):
+      ACPICA: Introduce a new HEST notification type for RISC-V SSE events
 
+Iurii Trukhin (1):
+      ACPICA: parser: Fix parse tree memory leak on AML execution error unwind
+
+Leonard Lausen (1):
+      ACPICA: Executer: Resolve package index references used as integer operands
+
+Maciej Strozek (1):
+      ACPICA: Utilities: Fix for AcpiUtVerifyChecksum warning display
+
+Maciej Wieczor-Retman (17):
+      ACPICA: executer: Fix NULL pointer dereference in AcpiExStoreObjectToIndex()
+      ACPICA: compiler: Add _Ixx GPE object
+      ACPICA: namespace: Fix possible underflow and NULL pointer dereference
+      ACPICA: iASL: Fix the truncated count of external control methods
+      ACPICA: release: Update version to 20260930
+      ACPICA: events: Add missing event mutex to AcpiEvClearGpeDispatchByOwner()
+      ACPICA: events: Remove redundant code
+      ACPICA: events: Fix AcpiEvClearGpeDispatchByOwner handler type processing
+      ACPICA: events: Fix GPE cleanup return after changing program state
+      ACPICA: events: Handle GPEs' Notify dispatch type
+      ACPICA: tables: Fix wrong table unload and notify call order
+      ACPICA: tables: Fix global table read missing mutex
+      ACPICA: executer: Fix copying PCC source buffer data
+      ACPICA: dispatcher: Fix zero size non-NULL PCC buffer pointer
+      ACPICA: utilities: Clear NextObject so the outer loop doesn't read it
+      ACPICA: namespace: Fix memory leak around compiler alias flag
+      ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
+
+Mario Limonciello (AMD) (1):
+      ACPICA: Add ACPI_MSG_DEBUG to set KERN_DEBUG for debug output
+
+Pawel Chmielewski (3):
+      ACPICA: ACPI 6.5 Add support for the MISC table
+      ACPICA: iASL: Complete KEYP support
+      ACPICA: tables: Fix table buffer leak when Load fails verification
+
+Rong Zhang (1):
+      ACPICA: parser: Set AML length for bytelist
+
+Vidya Sagar (1):
+      ACPICA: IORT: Add Root Complex PASID Flags field
+
+ikaros (8):
+      ACPICA: Events: Clear GPE dispatch by owner during table unload
+      ACPICA: executer: Add bounds checking for PCC field read access
+      ACPICA: Validate 4-char field names before namespace lookup
+      ACPICA: Improve error handling in table loading process
+      ACPICA: executer: Add bounds checking for PCC field write access
+      ACPICA: tables: Fix heap-buffer-overflow in AcpiTbFindTable
+      ACPICA: Fix object reference update to skip non-local notify types
+      ACPICA: namespace: Recognize alias node types in detach
+
+purofle (1):
+      ACPICA: fix: build error with gcc 16: unused-but-set-variable
+
+[1] https://lore.kernel.org/all/20261020141051.2194123-1-pawel.chmielewski@intel.com/
+[2] https://sashiko.dev/#/patchset/20261020141051.2194123-1-pawel.chmielewski%40intel.com
+[3] https://sashiko.dev/#/message/20261020141051.2194123-9-pawel.chmielewski%40intel.com
+[4] https://sashiko.dev/#/patchset/20261020141051.2194123-1-pawel.chmielewski%40intel.com?part=7
+
+Andre Przywara (1):
+  ACPICA: actbl2: MPAM: adapt to MPAM ACPI spec v3.1
+
+Colin Ian King (2):
+  ACPICA: components: Fix typo "Supress" -> "Suppress"
+  ACPICA: components: Fix typo: "numer" -> "number"
+
+Dave Jiang (2):
+  ACPICA: CEDT: RDPAS: Add missing reserved field in RDPAS structure
+  ACPICA: CEDT: RDPAS: Fix incorrect field positions for RDPAS
+
+Hanjun Guo (1):
+  ACPICA: add UBRT (UnifiedBus Root Table) definitions
+
+Himanshu Chauhan (1):
+  ACPICA: Introduce a new HEST notification type for RISC-V SSE events
+
+Iurii Trukhin (1):
+  ACPICA: parser: Fix parse tree memory leak on AML execution error
+    unwind
+
+Leonard Lausen (1):
+  ACPICA: Executer: Resolve package index references used as integer
+    operands
+
+Maciej Strozek (1):
+  ACPICA: Utilities: Fix for AcpiUtVerifyChecksum warning display
+
+Maciej Wieczor-Retman (17):
+  ACPICA: executer: Fix NULL pointer dereference in
+    AcpiExStoreObjectToIndex()
+  ACPICA: compiler: Add _Ixx GPE object
+  ACPICA: namespace: Fix possible underflow and NULL pointer dereference
+  ACPICA: iASL: Fix the truncated count of external control methods
+  ACPICA: release: Update version to 20260930
+  ACPICA: events: Add missing event mutex to
+    AcpiEvClearGpeDispatchByOwner()
+  ACPICA: events: Remove redundant code
+  ACPICA: events: Fix AcpiEvClearGpeDispatchByOwner handler type
+    processing
+  ACPICA: events: Fix GPE cleanup return after changing program state
+  ACPICA: events: Handle GPEs' Notify dispatch type
+  ACPICA: tables: Fix wrong table unload and notify call order
+  ACPICA: tables: Fix global table read missing mutex
+  ACPICA: executer: Fix copying PCC source buffer data
+  ACPICA: dispatcher: Fix zero size non-NULL PCC buffer pointer
+  ACPICA: utilities: Clear NextObject so the outer loop doesn't read it
+  ACPICA: namespace: Fix memory leak around compiler alias flag
+  ACPICA: acpica: Fix typo in the IOVT_IOMMU table definitions
+
+Mario Limonciello (AMD) (1):
+  ACPICA: Add ACPI_MSG_DEBUG to set KERN_DEBUG for debug output
+
+Pawel Chmielewski (3):
+  ACPICA: ACPI 6.5 Add support for the MISC table
+  ACPICA: iASL: Complete KEYP support
+  ACPICA: tables: Fix table buffer leak when Load fails verification
+
+Rong Zhang (1):
+  ACPICA: parser: Set AML length for bytelist
+
+Vidya Sagar (1):
+  ACPICA: IORT: Add Root Complex PASID Flags field
+
+ikaros (8):
+  ACPICA: Events: Clear GPE dispatch by owner during table unload
+  ACPICA: executer: Add bounds checking for PCC field read access
+  ACPICA: Validate 4-char field names before namespace lookup
+  ACPICA: Improve error handling in table loading process
+  ACPICA: executer: Add bounds checking for PCC field write access
+  ACPICA: tables: Fix heap-buffer-overflow in AcpiTbFindTable
+  ACPICA: Fix object reference update to skip non-local notify types
+  ACPICA: namespace: Recognize alias node types in detach
+
+purofle (1):
+  ACPICA: fix: build error with gcc 16: unused-but-set-variable
+
+ drivers/acpi/acpica/acevents.h  |   4 +
+ drivers/acpi/acpica/acglobal.h  |   2 +-
+ drivers/acpi/acpica/acpredef.h  |   1 +
+ drivers/acpi/acpica/acutils.h   |   3 +
+ drivers/acpi/acpica/dsfield.c   |  24 +++
+ drivers/acpi/acpica/evgpe.c     | 355 ++++++++++++++++++++++++++++++++
+ drivers/acpi/acpica/exconfig.c  |   3 +-
+ drivers/acpi/acpica/exconvrt.c  |   4 +-
+ drivers/acpi/acpica/exfield.c   | 105 +++++++---
+ drivers/acpi/acpica/exresop.c   |  26 +++
+ drivers/acpi/acpica/exstore.c   |  20 +-
+ drivers/acpi/acpica/extrace.c   |   2 +-
+ drivers/acpi/acpica/nsaccess.c  |   2 +-
+ drivers/acpi/acpica/nsobject.c  |   7 +-
+ drivers/acpi/acpica/nsxfname.c  |   8 +
+ drivers/acpi/acpica/psargs.c    |   8 +-
+ drivers/acpi/acpica/psloop.c    |   5 +-
+ drivers/acpi/acpica/psobject.c  |   1 -
+ drivers/acpi/acpica/psparse.c   |  16 +-
+ drivers/acpi/acpica/tbdata.c    |  32 ++-
+ drivers/acpi/acpica/tbfind.c    |  16 +-
+ drivers/acpi/acpica/utcksum.c   |   3 +-
+ drivers/acpi/acpica/utdebug.c   |   9 +-
+ drivers/acpi/acpica/utdelete.c  |   5 +
+ drivers/acpi/arm64/mpam.c       |   6 +-
+ drivers/acpi/loongarch/iovt.c   |   6 +-
+ include/acpi/acpixf.h           |   2 +-
+ include/acpi/actbl1.h           |   6 +-
+ include/acpi/actbl2.h           | 200 +++++++++++++++++-
+ include/acpi/platform/aclinux.h |   1 +
+ 30 files changed, 811 insertions(+), 71 deletions(-)
+
+-- 
+2.56.0
 
