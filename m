@@ -1,61 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795166093;
-	b=4ktl6vXp/Dx1OMyqAACJZh46ZfwoDrcsTuy5T/IPPfjF6Q0jn94rW3hIuULoxw0h6XFk
-	 dxmG8z3v3nSQsBQNiWu4DpOlKgdMBuAKyRPWUMPXiy8rugGh43IgJT/1zi2Ffd9uxzzvd
-	 RwI6xRvD+368gedjw9Dr5UPvB6lGxAcWX5WrRWKfd70yLjgrYmVT5+CDWOVo+hf0DlEOy
-	 hwWza3g0WuFSFm0rzLczgDvqxDbFXKQZs/NYd2Qtx6k1kQ8yn9Ma0NVkzh+PMaHy15Wvz
-	 kUfxLs2M/nDmSMEP22GhU+xWeuMn6a3i4e8ZxmX6rD4H8XfX+5trXc2zC6AbuVFrE0w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795166093;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=nlOZ4k4jiEeYMcrixrMUvGbyScUaQsUnjCuRsm6rEbU=;
-	b=5AIvE8XiW3aM57rGCX6zaTzjTzx8/y15F5z0AHKxyiMfZmc/0cCRbCE9X5ja7sb2/L0J
-	 LlO9JR98JU5uZ1RfmFlvOYGvJbEgV1EE1C67UwH2D6HdVio1yFwrxoBGmIaFP84WQ3AMd
-	 CCvn6tmiQB+nDIr2NnMlOQfEy+IYrrAiXeDsHJla60JrXd6diwaEfbPTMY3i9zBKVNIvS
-	 k0ixubGIPq1ch4EscXlp9bthbL6L9N/Lt3v1vxNzF3jSe2HilZBdWwuuatPg2t+Bjpce+
-	 z7Yo5wqCZ0AbTqA4lb/dWP1iqFkwyEGJx1HzyR/NV5UbC443p38nrFb6S2ZaryQIG5w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gondor.apana.org.au;
-	spf=pass smtp.mailfrom=gondor.apana.org.au;
-	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=ABG0hpLd;
-	arc=none smtp.remote-ip=180.181.231.80
-Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.2
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795166161;
+	b=h1AdA0TO/t1NaE8JetU2i4wqE4F0+/fNGZOPHpYW5o/aHXlsS52yQwLPv7Zf69NiMtNF
+	 dgltuJQE4voyjoviqXQlAAN3CIsPyBPbFF2QTqDYuvg6lsbh8cymbE2TEN/E353xhe+gZ
+	 VugvPRg6pK7yivrp51hFGPOke7KEA2XswBt6I0ctEQ03/KodJYDrMCEf9UoO8sz6+4vwO
+	 a4MEh+xgalmInDDLR1+JkBj0lsXN1h/Gc8ilkaFIutOQlEgnK7phbgZXhjhbWun2qybCA
+	 4MyzhuWPaWIkC3i787AN1dG58hngxFANe//JAIYUXw1OFpJlK9Ao9uKBEvLz54dGsHw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795166161;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5jgvV4gcibRf40b1fBeZeYXU7rHwCs5h2w50tFNfQ9Q=;
+	b=OYMg/y9T2Ohy6kx9uvxo+KuXG0HfCfb8VpHjd88P5fN1XvYxkYDyIE7g2cq3pTTQ/XsO
+	 4peVlBFVCvy6WySpt99kEhFUot575YY8pawydeyfZN6WsKPqF1ULtNot2S8ve684ngHYt
+	 CKRdWCvV7LwVhOhNJ8w/M/1wrjYxjATaGkOIhoitzdmVp8/vgPH4uHVSRoGKGrvCyzwip
+	 m5I3l6feSHDVrVlDRhBmspxNpEi4VVlPYGnZbfIHTY8rofvnWOHgdUELjVExKT4mRCKRR
+	 tPLcLdmCpTVK9ajc6rw+jI25PetLvrUr3UuELV6hA/rDZ7WCwv8DV68FkM2mDYXy2bg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=OIHtzld7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.2
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010002.outbound.protection.outlook.com [52.101.56.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9906606A320;
-	Fri, 20 Nov 2026 09:14:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9906606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45A55606A320;
+	Fri, 20 Nov 2026 09:16:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 45A55606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=ABG0hpLd
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=nlOZ4k4jiEeYMcrixrMUvGbyScUaQsUnjCuRsm6rEbU=; 
-	b=ABG0hpLd7nzq/bFlWOiIfZqPjpaaWWiXOTa/R2vAco9LWCUdjSCeA3Q07cLJs2FqPvDqnylwXm3
-	DoLYQ5qiur52x0OvZLTsZ+aD3nv0EWhSvberQkEZ5BPhWXcuHkhjqwCc0neyhqMcYlLGONAQis3mi
-	CY1T0lLYAsxzFtE8goDWlXnFojZCf7CZqAd/pmyh9T+HlN+ywH7nSWDrw8YnxjgF4eurkGFe9Nb5c
-	PhktsApS+dLCIYcOvT7ulp9UQHLivU36bY807Oifkdkm3RaeHQ4ufPmukusJJixPFWmwuRagzTuP1
-	UsFWsPBuSdHg4/2wjwb/4NjIiPDNAEaaIeDQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xUKhb-0000000HXnf-1emh;
-	Fri, 20 Nov 2026 17:14:40 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:14:39 +0800
-Date: Fri, 20 Nov 2026 17:14:39 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: efecanicoz@gmail.com
-Cc: lukas@wunner.de, ignat@linux.win, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Efe Can Icoz <efe.canicoz@atlascopco.com>
-Subject: Re: [PATCH] crypto: rsassa-pkcs1 - Allocate the RSA buffer separately
-Message-ID: <awAPfzBPyJ-gdVSw@gondor.apana.org.au>
-References: <20261111113022.2033191-1-efecanicoz@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=OIHtzld7
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fHT0qL0lNtxJG8a5Upn0+tP3FJLUzODwbWrKh2pUK+k/hbLfC0HP1tJ448DvTzHDn/b0bvYXOdAIr8/1DpkXgNaonJps4AaX5sMgOTWFN9CNeFXwMroHFVBGhOQGXfigXLM1qvsz2owmBLbedAWpnSdBLNV7Xmhp8sztQkbwvBYa97qXSftZzvbTF15rcixCva43n0bnK647ygevW1b+Z9PXK8lhmnMH+v5+dUtPVaFnE/pGy08jlxaKLoiecDHqf/xkxPV+2XbAlBenXP8D/HHyPcI6QczyVqpjcIQOk1f8jpY//Ky6LvrOElJgya/3r+MWgc9GyrfHnsXAGtc6dw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5jgvV4gcibRf40b1fBeZeYXU7rHwCs5h2w50tFNfQ9Q=;
+ b=JIdULeLyTLID1nZj7ADq+F0lCQZiOSwCxW+LTj4jFduoZ/j5DOSLGMQpGdjFoGO4rzpGVfrCU7L3Oio+xdYzuKe7lWQoSOfCxgu1tdbAvTTH0dXWaRpnsdpyMnLwkgK7gVS5NfR2Iv2OT3+5l6xDDBJzehXv9mnFQGHwzKqMXiXeCsqlDVVTDLQHkMqwwRKCP+6iMcZZbT2cCHh8c4XIttdO83wh/olQkzSI6LifjmppBP8ein3nz6bOEe+MU08j9RdrfnJlSiLXksxWgpM8pnNymDGiJZoTx+hcVaYd2zB2kJvdYctZ2U4NYB7pVlm/FiN0fdNtqWfuSQcFo6rQyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5jgvV4gcibRf40b1fBeZeYXU7rHwCs5h2w50tFNfQ9Q=;
+ b=OIHtzld7lT7bWc2Ml1EejBmg2IvcB82BxRNp2KefVuW63awkwhC1c7MTpbTV8mAj8n14ftjJ9VS+020WVUkQ9WTZ1tb32YJF//T8C1a8rfJFu+fSt7L8hYJMMwoEiZ4/WF6OBBAB4DsmiIaFRG9PsEaGaPxGoIG61NUwhu9zThc=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by CH8PR12MB999206.namprd12.prod.outlook.com (2603:10b6:610:35a::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 09:15:58 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 09:15:58 +0000
+Message-ID: <c18fc55a-717f-42a0-b37f-4ed81efd29d1@amd.com>
+Date: Fri, 20 Nov 2026 10:15:47 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] rust: DamFence: Remove warning about unsignaled drop
+To: Danilo Krummrich <dakr@kernel.org>
+Cc: phasta@kernel.org, Sumit Semwal <sumit.semwal@linaro.org>,
+ Alice Ryhl <aliceryhl@google.com>, Miguel Ojeda <ojeda@kernel.org>,
+ Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Tamir Duberstein <tamird@kernel.org>, Alexandre Courbot
+ <acourbot@nvidia.com>, =?UTF-8?Q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261112101015.528127-2-phasta@kernel.org>
+ <5d466f7c-2e70-4011-be04-9ffdf877b915@amd.com>
+ <49298d3a328c1695ea27993f714c20b8a1c05f32.camel@mailbox.org>
+ <e2ec8a39-56c3-4274-91ce-60c273904877@amd.com>
+ <ab99758408df682c68a3792cc3014b77d6e1c8ab.camel@mailbox.org>
+ <c2dd46ea-94d8-4720-af37-897c91809338@amd.com>
+ <DMXJ8TBSZJJ4.3HG0OJDI9URTT@kernel.org>
+ <8da4a8c0-1740-450c-9cf1-1a7b21d12997@amd.com>
+ <DMXMSIQONGUW.1RRNS7I6LACD6@kernel.org>
+ <a7f9e0f3-b299-4d40-9230-106003725dc2@amd.com>
+ <202dd0c3d515ddfa77a8ec8751badadd31b8a7b0.camel@mailbox.org>
+ <141892f8-180c-4157-8c59-6e69057334f2@amd.com>
+ <DMZAQ0G6LTTB.1CRPNXSYB4QHG@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <DMZAQ0G6LTTB.1CRPNXSYB4QHG@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0087.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cd::11) To SJ0PR12MB5673.namprd12.prod.outlook.com
+ (2603:10b6:a03:42b::13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,69 +117,104 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261111113022.2033191-1-efecanicoz@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|CH8PR12MB999206:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8d6fef5-1f2a-493c-113b-08df46e6e2ea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|261022105027099003|10067099003|261022075727099003|4143699003|11063799006|56012099006|261009223027099003|261102123227099003|261021121427099003|261028144727099003|261026140227099003|261026121527099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	RmUkEsmqdkFsYYgrfEiq1dSUPUtw6gG1RagZ73SRrE1knVh/+zoddnW9H16fDnNbQLztQFCXZkw5beZ7sxJOrmkvYmSZS4mL3torHSWp/VE2S2SZ5Z+YNfQhnJ9F9Z0d1pf2x42AE9HPXSGboe1I/NUoUo6vG3jSkrGLeZlruZ1l1WfUAl5l9fsjLXzrVjK9v58hde7PXhW4H8LZnG9PDjQeqGCnpSyCeDZ8Z5VFQ3Uqwb+1nmkuuooXRNWM0/isI/zjH8NM9wGHPvcUg84vv7wb/JL5ynGkLVqWEzbJanjDalGYof/VDEqvnKSQ5PkqlPKhzoln1XZRpSgX3DsYZbXW3SOc+sldbN7w58rW518u12/ly55dQWOmeDeHXZxeSGZh4DfQCP7UfGL//Wuf0So2cL9YUs0f+2Fx4o4P4XrzJdVFm+5DB3BfYpjeUv5m3So/Y5MG22Me2t8MXP77PznVv7RYkQ2Gvv47UkpQpahjoWAvRaSfxaC3BcV8ZQmK+5D9yz+poGXSpYeJPcxDhTQWCw06oxldLJTlhjCuHErRH5UK4/E8XpGEfJM7R3S4q5TEIBoBUoFEwFEJFKcbTRpAnlCo2TJvE41/wCnW3fhQ4abNIU5q0VzgzusDYx6p
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(261022105027099003)(10067099003)(261022075727099003)(4143699003)(11063799006)(56012099006)(261009223027099003)(261102123227099003)(261021121427099003)(261028144727099003)(261026140227099003)(261026121527099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?c3RucEVWbVlHbE4wUCtZQ2pOM3BLcmljaUFpdmNTRFlWZlIya21BbFFFUlVu?=
+ =?utf-8?B?MVdWaDI5TmZja1NGSStiejAweXJ2bHRkSFhvdjNnMlJ0UG9nL0l6RW9La3JY?=
+ =?utf-8?B?TVRZRmoyODFPT1puVmpVeXhNY0ZDZnFPQVNXemF1WDJ4L29FRGhLV0dqS0s1?=
+ =?utf-8?B?M3plaUJVOVZRL3F0Sk1tWi82VjNBQ0NMVWZsYXo2cUJ0WXNtZi9GS1lITS9Z?=
+ =?utf-8?B?YytnYkNxR3JWdk1sWDBlSHBkdGxJRHNnMnk3d3ZzZFAzQVlXYllWZHVubjR0?=
+ =?utf-8?B?WHFpbnlJQk1CaXZrYWliOTZGVVhmZXZVSGhkT2lnL1ZjaFU5UHI0aFhOeDNG?=
+ =?utf-8?B?SlZjYUx3S1RtTUsvOU5MdXBTQTR2QmRNQmg1Rm9VTUt4cnNudFp0MXBDcFNT?=
+ =?utf-8?B?WE9xKzE0REEyUWhqSDRhc3dycDlab0JmVm8zdVBSWTZhd1VXcDlrTmVmM1E1?=
+ =?utf-8?B?LzNESGtZZ1prakoySzhadmhDdllHQUxXbWM0ZWx5Q205T1BvRmYrcUk2WHI1?=
+ =?utf-8?B?cUd6cGh1am1iM1pmY1ZzUEdzeHE3MXQzM25GLy9teUVUeFRXbGlQSWJsNkpF?=
+ =?utf-8?B?NWhhOC9EQ3Z2WnVtZmR5VEJYWE1YcGxuT3Y1aHlVejhqa1VScUpnVmFiMnNm?=
+ =?utf-8?B?UmxsVVZwdUVqcWNVcC9HRko0dEQrV3l2aU1UN0lBL01zMXZ0Q3RYV1hkR09s?=
+ =?utf-8?B?WEtBZDJlYUZvWEhyYzJKTm1ubHZHSjhlaGI3S1FUM0dUdHc4OElTVkl1ZmJB?=
+ =?utf-8?B?UlVuTTI4T1gvdHVUdmdQNG9FaVU2aGg2QTFzakNwYVgxcnM1TWY2aUlTWkVQ?=
+ =?utf-8?B?NmZrV2VVNURTZVdlQStYbUZPSjZBNlArcElqNHg5NUp1RFBycDdpeTBFbjZS?=
+ =?utf-8?B?K01pMmNMRW4vd0ZhMkk1TGNmcmdpcVFkOStBVDRxY0dPUkxZbEwySGh4VU5i?=
+ =?utf-8?B?eG52QmVURHZQTGVFa3J3VFVJd3RITlNKZzZoN0dUNFIzZStlMGlwbUd5QVRj?=
+ =?utf-8?B?K2QySzNxcTlZcTF3aWEwT3QxenNPWWxsOTlrdHVOMUluSlN4OGppbUR3Z2lY?=
+ =?utf-8?B?RGtocUUwd0lFWGtVRERiQk5hZHRheWFQNzZ1SWxmc1lXTEVZbi82SjBZTVBJ?=
+ =?utf-8?B?SkFXNThwWVRUY1FNRHBMcmJMMndSL2pnbkVJRTVsUG4rVThhelpEbTNobGhO?=
+ =?utf-8?B?aHM3RXNjalR4NFZCd3VPaXl3bW9KYmhvdDBIcjNPZklyY2hlV3JPNkF3TXVL?=
+ =?utf-8?B?M2NsWURkQkNQTDVMUWFhTWl5VnlZMzl4aWg5SnRKcjQ0YmJWc2s2WnltK0h6?=
+ =?utf-8?B?WkVPRUJldnQxb1orMHNndkFlREI5bWtaNjZyM1VPVC94bU9PUVArUGozUURU?=
+ =?utf-8?B?UHJmaGdqZlo0OGl4S3JjcXdSS3BUejB1SmE5L05jdFZ1eklsb0NjL3BGcVJG?=
+ =?utf-8?B?aWo1VUNWOGN0cUlTeWJqd2FNbWlKQWt5aFEyMzlqSkpvL3FIUXQzVHNBakZ5?=
+ =?utf-8?B?STI0cnQ3blpxRmlqYW4zK2t5aDBkN2xGZDZDRzhhUC81cFRaTUpncHVyK1I1?=
+ =?utf-8?B?SUU2ZHN1TkR0clhDTGV0a0c5dXl5b0g2U214d09oNVN0aHBCcSt2NTNVZTlK?=
+ =?utf-8?B?QjdIZU1ZWFJmY1BacFdtTkM5cGtMYnQ2Nk5lREtXNEZwQXFIeW9EY2NQSDIy?=
+ =?utf-8?B?RFVGTXNUQ0todEdBQVE3TWxMMzc0UEFScVJMaG9GTFQ1S1JiWWNxVXNTd043?=
+ =?utf-8?B?QlR1LzdSV1RnRlFOZDk4ZU5TWW81YlhCLzRpUHYxbzZDR3RtbkRCU0RDZTRN?=
+ =?utf-8?B?R3M0b3pJSnBGM3duTlBadVphMHBvWE9ySTZEbUtaaUVJT3FGTzlWc1JFSkZ3?=
+ =?utf-8?B?MGJhM0hMQ0VJM0FNdmJIQkY4bG1DNzRwdVRLMGdoUjlSVXgyQXJacUJMSllP?=
+ =?utf-8?B?UzVTb1BKbkUyUFNaVHNoNm9IZjZDdG5tTWR4cXFpVndNQ2IwelBQcTloVkE5?=
+ =?utf-8?B?NXc2YUZUbjNiOHhic3czMGZaaHovQWZVNll3SkJlNGZOaEs2MzdqWlBYSTJ1?=
+ =?utf-8?B?TVplaTF6aTRkY1VQcmphRGFYUXVCaUdobk9FUW9KNjNNR1p5TlUrQWw1c0Ew?=
+ =?utf-8?B?NlRLSW1rZy9ld2JiQjJnVGowOGRvYWlOcUc3WDBJeDlZMFA2ZmM3WEJPZnhE?=
+ =?utf-8?B?ellCbGx3dTZ4dnlJKzZXV1NIQ1RVNnZDdldPSmI3aXBrYWFEbEF1SEQvTTV6?=
+ =?utf-8?B?c1J4VnBWdXV4UzZTWkZOTXlpNHRjdjN5b0g3Q3hkRWR3QlFrbW9IUnFoU2Fh?=
+ =?utf-8?Q?KEbkIXVHcWj4Xn9VII?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8d6fef5-1f2a-493c-113b-08df46e6e2ea
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5673.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 09:15:57.9750
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +yJ9FA4+GnkjMS7t755KqLI4q+S/5dyJRFTkU/t1eYS+bymJ/h/U5KEnCDlj5cUs
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB999206
 
-On Wed, Nov 11, 2026 at 12:30:22PM +0100, efecanicoz@gmail.com wrote:
-> From: Efe Can Icoz <efe.canicoz@atlascopco.com>
+On 11/19/26 16:34, Danilo Krummrich wrote:
+> On Thu Nov 19, 2026 at 11:47 AM CET, Christian König wrote:
+>> A dma_fence should *NEVER* signal because you waited for something. Instead
+>> the dma_fence is what is waited on.
 > 
-> rsassa_pkcs1_verify() allocates the akcipher request, its private
-> context, and the RSA input/output buffer in a single allocation.
-> The buffer starts immediately after the request context, whose size
-> is not necessarily a multiple of ARCH_DMA_MINALIGN.
+> In the end, despite doing it on behalf of the hardware, the driver is the
+> producer of the fence. And there are cases where it can't wait on its own fence,
+> because no one is going to signal it other than the driver itself.
 > 
-> Although kmalloc() aligns the allocation itself, this does not
-> guarantee suitable alignment of the interior buffer. On systems with
-> non-coherent DMA, the buffer can therefore share cache lines with
-> CPU-accessed request state. Updates to that state after DMA mapping
-> can interfere with the device-written result during cache maintenance.
+> Assume you have an execution context that is torn down, and also assume the
+> hardware supports preemption. Then some of the jobs in the queue might still
+> signal, but some jobs are not processed anymore and hence are not signaled.
 > 
-> This is reproducible on i.MX7D with rsa-caam, whose request context is
-> 48 bytes while the kernel DMA alignment is 64 bytes. CAAM reports
-> successful completion, but the recovered output retains the original
-> signature prefix and PKCS#1 verification fails. This prevents the
-> shipped X.509 certificates and regulatory database signature from
-> being verified.
-> 
-> Allocate the RSA buffer separately with kmemdup() so that it benefits
-> from kmalloc's DMA alignment guarantees and does not share cache lines
-> with the request context. Keep a separate pointer to the allocation
-> base for sensitive cleanup, since verification may advance out_buf
-> past the leading zero byte.
-> 
-> Fixes: 1e562deacecc ("crypto: rsassa-pkcs1 - Migrate to sig_alg backend")
-> Signed-off-by: Efe Can Icoz <efe.canicoz@atlascopco.com>
-> ---
-> Tested on a custom board with i.MX7D and i.MX8QXP, running Linux
-> 6.18.37 with:
-> 
->      CONFIG_CRYPTO_DEV_FSL_CAAM_PKC_API=y
->      CONFIG_CFG80211_REQUIRE_SIGNED_REGDB=y
->      CONFIG_CFG80211_USE_KERNEL_REGDB_KEYS=y
-> 
-> During diagnosis, the selected signature driver was
-> pkcs1(rsa-caam,sha256), with a 256-byte RSA buffer and a 48-byte
-> child request context.
-> 
-> Before the change, hardware completion returned success, but
-> verification rejected the recovered output because it lacked the
-> expected leading zero byte. Its prefix matched the input signature.
-> 
-> After the change, the sforshee and wens certificates load successfully
-> and regulatory database signature verification succeeds.
-> 
-> The cache-line interference described above is supported by the
-> allocation layout and the runtime comparison; the exact corruption
-> sequence has not been directly traced.
-> 
->  crypto/rsassa-pkcs1.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
+> For those jobs that did not execute anymore, the fence still has to be signaled.
+> So the driver has to signal them after it waited on the preemption and execution
+> context teardown is complete and no more operations are in flight.
 
-This issue is being addressed with patches to caam.
+Oh well that comment made me smile because it confirmed what I wrote :)
 
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+How do you wait for the "preemption and execution context teardown is complete and no more operations are in flight" ?
+
+That waiting for DMA context teardown must be done through a dma-fence. That is the whole concept of dma-fences in the first place.
+
+I wish I could enforce that in C somehow but we missed that opportunity when we originally designed the dma-fence and now it is to late because of the fallout and complexity required for such a change.
+
+See the discussion here as well https://lists.freedesktop.org/archives/dri-devel/2025-August/520640.html
+
+I think we are at the point where I need to make clear that practices like signaling fences from a destructor or other IOCTL initiated teardown is a NAK from my side as DMA-buf maintainer.
+
+When you want to push forward with this anyway I think we need to raise this with Dave/Linus to get an answer if such an approach is ok or not.
+
+Cheers,
+Christian.
+
+> The same is true for job fences that are in a software queue and never hit the
+> queue of the hardware execution context.
+
