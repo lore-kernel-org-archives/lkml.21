@@ -1,84 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.61.82.184
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795156773;
-	b=XRCF8zdPg2a0vAbEt0vb1F7Xanh8wTJ5G+4vE/w36h1JMGKt0XIzIAabORpY0uK7uDl8
-	 t2ISF7SGg8sjujCY4/9nws8keCHrinGwXFr34cVCLzx0sQQRt0pZS+k/HpD4Pyg+nJHdb
-	 KeyweJt4/JxLmfVl8cZS0E/lj1yC5ID+RuPqchLY1gBmsIbrw7DoUYRXjSAevxlqV0SAR
-	 NVfCeeVpYEyKZKpZErJEiVUTxB8osJ1+lQImxk3x/zoGC9LxVjN+ENCvORW4JpTgwciCH
-	 5lDDIXt44VLJcmleh1YpqkJkne49RnxdXpZsfMgEj1dN44feD3Zy3Hj9neBJIh1voxA==
+	t=1795156910;
+	b=IAVIZ7Z8aO64V5FI4nehMWdEdd0pVAPJl65GyWAvl68YLJQru47cSbk5/p6e99e0Vi6w
+	 i2+kZxy0wGqbzEI58IK1g97YscXgyENZyaPu9hSv4Q6C2wKkrs2BCA+ebo/9ySJ0BPGD3
+	 Qxoo0U1y6M60oEZkcapxzTxu1WsQbWbqVwMV+ck06ahd3lEqf92UYPyZCkyi4qqLlGTM/
+	 1GHldukwKP7HcilTE0QZ8/HJ+t+8pXdaOSMNYMKKSKmdDA3EEIKRjGEbYtNSfesKRbbAB
+	 1EVF3m2uEO6rw86jQMDv8onfA1DJ3HUZPtKGiWf8cYfIKW3+XMpB1SK+FGc5uDxp1iQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156773;
-	h=DMARC-Filter:X-UUID:DKIM-Signature:X-CID-P-RULE:X-CID-O-INFO:
-	 X-CID-META:X-CID-BVR:X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:Received:
-	 Received:Received:Date:From:To:CC:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-MTK;
-	bh=bM/x8mW1K8KY6JBLdtbGHOmsga/Cv/oa26lN+auSggw=;
-	b=qp+MvhfchrGyZn4x2IADxX7LHoQ5+Hda3zYtw6eiMXrt5SY6NmDRCt3Pp2eApZ3Rl7ek
-	 +dmjKCFugM4e0PQAaWzOA7p3x1WiyjhojwHhlVa7J9llnYdy+Lck0NmkZ/V2i4fW8v9rT
-	 hCrPzTGdweBALpkJJYpO1yvCT9Ipn/97mpRIrCVQe0tlsNE+IAMaPihCObhSPB3zlij4q
-	 Wg/VdVY2LXhz3cJTckK9JVSkGGUlX3KDPMRBZUQOzUdftyUDwTnfzL2b4VhSCwUmdsYel
-	 gySSTxStMbKCtt9jMA4KuipxekPUF9zFm7r8l6Q6GV9tbX0OYZG0QoVytCdAWbuJe2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156910;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=IRZ/wGMOyJ5LcJ+jaX3m0mIFpWsy18PNSRPcCe3MKuE=;
+	b=D4hkqXRm6PI4wOT22Y34iMRlBnRC2W2KoItIXoNT+ro//Gmx69NwqPXDUbPW1ij7/Rva
+	 Yl0IMAnlUgyIT+l/j2fVDaU7OPILpP+d5gydLId/NMmmLGIS6H6GgrbTNJBqY2OlkuUSa
+	 dVW5rn3wh3gU8tFq8BadKIxD+AWo8ABYr5FZ7ze9OgSqfgWTUS84GzqsolQ+fdd7GqmXe
+	 7odA2XOIQspBUyQa+NVBUZRAGc2UBzvCxRihoITdQ8fmynQK4pKRn+wtmjDhxxtgYkDJ4
+	 a+3m0fJZxvC21hXiaSv/UXF6HWoyUOyq+y+shXlpV/4liU58fmq38Z4VuzZ+VJXysCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=airoha.com;
-	spf=pass smtp.mailfrom=airoha.com;
-	dkim=pass header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=HZ1IwjqT;
-	arc=none smtp.remote-ip=210.61.82.184
-Received: from mailgw02.mediatek.com (unknown [210.61.82.184])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fn4gF4jR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEBFB606A320;
-	Fri, 20 Nov 2026 06:39:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEBFB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=airoha.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=airoha.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1A6A606A338;
+	Fri, 20 Nov 2026 06:41:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mediatek.com header.i=@mediatek.com header.a=rsa-sha256 header.s=dk header.b=HZ1IwjqT
-X-UUID: 20cf9b1ce4ad11f18dc8c9802ae25ab1-20261120
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=In-Reply-To:Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:Subject:CC:To:From:Date; bh=bM/x8mW1K8KY6JBLdtbGHOmsga/Cv/oa26lN+auSggw=;
-	b=HZ1IwjqTTxYGMWsFFoLVY5ZWcxJeweUisOaNwGATZgm+J5dn13ifLMOJ0XS2Spv8Lt/DXvenDvrk7d97MZTH9lptGKTx9odBGWCgVe1+I2U8VVcCxzWIJa6SxjqnXimAj1/+v8PqfkydnbrD6Lf6wcbLEeeYejfQvLKQmZBfDrM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.21,REQID:3567d6ca-f02b-41f0-88be-6baf12db3c52,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:b0318ac,CLOUDID:88da8d66-4b51-4c95-bb1b-80ac6aad9c96,B
-	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|836|865|888|898,TC:-5,Content:
-	0|15|50|99,EDM:-3,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,CO
-	L:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 20cf9b1ce4ad11f18dc8c9802ae25ab1-20261120
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <zhengping.zhang@airoha.com>)
-	(Generic MTA with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1910565177; Fri, 20 Nov 2026 14:39:25 +0800
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Fri, 20 Nov 2026 14:39:24 +0800
-Received: from mediatek.com (172.18.153.129) by mtkmbs11n1.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
- Transport; Fri, 20 Nov 2026 14:39:24 +0800
-Date: Fri, 20 Nov 2026 14:39:24 +0800
-From: Zhengping Zhang <zhengping.zhang@airoha.com>
-To: Linus Walleij <linusw@kernel.org>, Mikhail Kshevetskiy
-	<mikhail.kshevetskiy@iopsys.eu>
-CC: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>, <lorenzo@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<brgl@kernel.org>, <naseefkm@gmail.com>, <benjamin.larsson@genexis.eu>,
-	<linux-gpio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<lei.dong@airoha.com>, <ansuelsmth@gmail.com>
-Subject: Re: [PATCH 00/12] pinctrl: airoha: configure GPIO muxes explicitly
- and fix pad mappings
-Message-ID: <av_rHJ5W-mq3UAZ3@mediatek.com>
-References: <20261110094339.749110-1-zhengping.zhang@airoha.com>
- <695991a0-ae67-4ce0-9b92-f191ae97a468@iopsys.eu>
- <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fn4gF4jR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 605AB1F000C4;
+	Fri, 20 Nov 2026 06:41:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795156910;
+	bh=IRZ/wGMOyJ5LcJ+jaX3m0mIFpWsy18PNSRPcCe3MKuE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=fn4gF4jRKevviH9eBsmOfW6t6x8UvK2FDmhQAFtog2tZ2O62cXmjn1mdxP9ulVhlB
+	 VY34HBtiYo6Y8w9khXRUryF+xU3i08z3RIpfRJKc5jQVUNacxwQ5AoBzRdH/K8mBiN
+	 EbrlwteoEs0YZDGh9/F2wWzeN633n5rRY7BLMCx23Tpu+JSZ5YVFmbfqF1cao4/w4i
+	 kWyrFlqzeLOnqf+SejstU9dMhC7Qc76IDjVGy0YNSPsS13EX2kmEV4oO8YQG8HCg/m
+	 rXmDyE0BiGKjYnGCVpenCl5EY06kF26kxbS/5hyKkY1RbQuxWH10gm7waot9XiMZmg
+	 sCrjO13r2764g==
+Subject: Re: [PATCH net v5 05/14] net: pse-pd: do not reach a freed PHY from
+ the notification worker
+From: netdev-bot+sashiko@kernel.org
+To: github@szelinsky.de
+Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, broonie@kernel.org, lgirdwood@gmail.com,
+ maxime.chevallier@bootlin.com, kyle.swenson@est.tech, ross@r-sc.ca,
+ netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 06:41:48 +0000
+Message-ID: <179515690895.3136.4077280921885475671@kernel.org>
+In-Reply-To: <20261118183957.2031311-6-github@szelinsky.de>
+References: <20261118183957.2031311-6-github@szelinsky.de>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,79 +66,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD++jL=_q3SWsh6AW6PLOC=h-z-h-N8AcC8SRCPVKsbzEPktfg@mail.gmail.com>
-X-MTK: N
 
-Hi Mikhail and Linux,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Thanks for the feedback. I investigated the formatting issues on my
-side, but have not yet been able to reproduce the problem.
+Low priority / nit picks for your consideration:
 
-I sent this series using git-send-email 2.43.0, without manually
-copying or pasting the patches into an email editor.
+- [Low] The new kernel-doc implies that a NULL attached_phydev is
+  temporary, but the code makes it permanent.
 
-I also retrieved the series from lore using:
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  pse_send_ntf_worker() can still use a freed net_device.
 
-  b4 shazam 20261110094339.749110-1-zhengping.zhang@airoha.com
+--
 
-All 12 patches applied successfully on top of my local pinctrl/for-next
-at bc843179e208a. I also checked the archived patch messages and found
-no apparent encoding issues. I understand that these checks do not
-rule out formatting problems in the copies you received.
+net: pse-pd: do not reach a freed PHY from the notification worker
 
-Comparing the archived messages, I found that, for example, tabs are
-preserved in the original patch 05/12 and in the quoted code in
-Sashiko's reply:
+The notification worker used to keep a reference on the pse_control and
+then dereference psec->attached_phydev, which could already be freed. With
+this patch the worker looks up the pse_control and reads attached_phydev
+under pse_list_mutex, nested inside rtnl. When a second PHY takes a shared
+PI, pse_control_get_internal() now clears attached_phydev and warns.
 
-Original:
-https://lore.kernel.org/all/20261110094339.749110-6-zhengping.zhang@airoha.com/
+> diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+> index 0894613515e0d..b8cba6f86a7fd 100644
+> --- a/drivers/net/pse-pd/pse_core.c
+> +++ b/drivers/net/pse-pd/pse_core.c
+> @@ -31,7 +31,9 @@ static DEFINE_MUTEX(pse_pw_d_mutex);
+>   * @list: list entry for the pcdev's PSE controller list
+>   * @id: ID of the PSE line in the PSE controller device
+>   * @refcnt: Number of gets of this pse_control
+> - * @attached_phydev: PHY device pointer attached by the PSE control
+> + * @attached_phydev: PHY device pointer attached by the PSE control, or NULL
+> + *                   when several PHYs share the PI. Read it only under
+> + *                   pse_list_mutex.
 
-Sashiko's reply:
-https://lore.kernel.org/all/sashiko-outbox-206823@kernel.org/
+[Severity: Low]
+This isn't a bug, but "NULL when several PHYs share the PI" reads as if
+the field is only NULL while the PI is shared. Is that what is intended?
 
-However, the corresponding quoted code in Mikhail's reply has tabs
-expanded to spaces:
-https://lore.kernel.org/all/80e72b60-3128-4594-a4bf-bb184ffc754b@iopsys.eu/
+The only writes to attached_phydev are the assignment when the pse_control
+is created and the new clear in pse_control_get_internal(). Neither
+pse_control_put() nor __pse_control_put_internal() sets it back.
 
-I noticed that tabs are preserved in Mikhail's reply to Miquel's SPI
-patch, so this does not appear to happen with every reply:
-https://lore.kernel.org/all/37fc133b-a5f3-4b4d-ba2a-002239bbcebc@iopsys.eu/
+So if PHY A and PHY B share a PI and B is removed, only A holds the
+pse_control, but attached_phydev stays NULL. The commit message describes
+this:
 
-Could you please share one affected incoming patch as a raw .eml
-attachment, if possible? It would also help to know how you retrieved
-or saved the patches, and wheter the formatting problems are visible
-in the original message source. This would let me narrow down where
-it changed.
+  Events for that PI are then no longer reported, even after one PHY goes
+  away.
 
-Thanks for the suggestion to use b4. I will use it to manage subsequent
-revisions, and will address the code review comments separately.
+The new pse_control_get_netdev() kernel-doc has the same problem:
 
-Thanks for your help tracking this down.
+  Return: netdev pointer, or NULL if no single PHY is attached
 
-Best Regards,
-Zhengping
+It also leaves out the NULL return when the single PHY has no
+attached_dev.
 
-On Wed, Nov 18, 2026 at 10:15:15PM +0100, Linus Walleij wrote:
-> On Sun, Nov 15, 2026 at 3:10 PM Mikhail Kshevetskiy
-> <mikhail.kshevetskiy@iopsys.eu> wrote:
-> 
-> > Hello Zhengping Zhang,
-> >
-> > Please fix your patches. Looks like you insert patches to the e-mail body,
-> > thus your patches were converted to "mail encoding"
-> > * tabs was replaced by spaces
-> > * unchanged empty lines "<space>\n" were converted to just "\n"
-> > * long lines were split with "=\n"
-> > * "=" were replaced with "=3D"
-> >
-> > and so on. So please use "git send-email" for patch sending.
-> 
-> I agree, I can't work with this, maybe review a little.
-> 
-> If possible use the b4 tool to manage your patch set(s).
-> 
-> Yours,
-> Linus Walleij
+Would wording like "NULL once the PI has been shared by several PHYs"
+match the code better?
+
+[ ... ]
+
+> @@ -1014,13 +1017,18 @@ static void pse_send_ntf_worker(struct work_struct *work)
+>  		struct net_device *netdev;
+>  		struct pse_control *psec;
+>  
+> -		psec = pse_control_find_by_id(pcdev, ntf.id);
+> +		/* pse_control_put() frees the pse_control under
+> +		 * pse_list_mutex before its PHY is freed, so the mutex
+> +		 * keeps attached_phydev valid.
+> +		 */
+>  		rtnl_lock();
+> +		mutex_lock(&pse_list_mutex);
+> +		psec = pse_control_find_by_id(pcdev, ntf.id);
+>  		netdev = pse_control_get_netdev(psec);
+>  		if (netdev)
+>  			ethnl_pse_send_ntf(netdev, ntf.notifs);
+
+[Severity: High]
+This is a pre-existing issue, not one introduced by this patch, but can
+the worker still use a freed net_device here?
+
+pse_control_get_netdev() returns psec->attached_phydev->attached_dev
+without taking a netdev reference. ethnl_pse_send_ntf() then dereferences
+it in ethnl_fill_reply_header() and ethnl_multicast().
+
+Neither rtnl nor pse_list_mutex excludes the paths that clear attached_dev
+or free the netdev. phy_detach_internal() clears it without needing rtnl:
+
+drivers/net/phy/phy_device.c:phy_detach_internal() {
+    ...
+    phydev->attached_dev->phydev = NULL;
+    phydev->attached_dev = NULL;
+    ...
+}
+
+Its own comment says "Drivers may detach without RTNL while dev is
+unregistered". free_netdev() on a NETREG_UNREGISTERED device does not need
+rtnl either.
+
+usbnet_disconnect() is one example of a remove path that does all of this
+outside rtnl:
+
+CPU0 (usbnet_disconnect)            CPU1 (pse_send_ntf_worker)
+unregister_netdev(net);
+                                    rtnl_lock();
+                                    mutex_lock(&pse_list_mutex);
+                                    netdev = pse_control_get_netdev(psec);
+                                      /* attached_dev still set */
+->unbind()
+  smsc95xx_unbind()
+    phy_disconnect()
+free_netdev(net);
+                                    ethnl_pse_send_ntf(netdev, ...);
+
+The PHY stays on the MDIO bus in this sequence, so psec and attached_phydev
+remain valid, and the new pse_list_mutex scheme does not cover the netdev.
+
+Does the worker also need a lifetime guarantee for the netdev? For
+example, a netdev reference taken when the PHY is attached, or a reg_state
+check together with serialisation against phy_detach.
+
+> +		mutex_unlock(&pse_list_mutex);
+>  		rtnl_unlock();
+> -		pse_control_put(psec);
+>  	}
+>  }
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118183957.2031311-1-github%40szelinsky.de
