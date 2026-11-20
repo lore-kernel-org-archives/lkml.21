@@ -1,107 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.42
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795204284;
-	b=o2I+KiQkbXvL3ieXCBVR/JCJsI4KtkHPho4lVADZbBP30zvg2FsgeFow9S5qDSdEwCP0
-	 XKv+/shG1S13pgWws7mcCwDusJo9QiD1Snz0Owtf09r9uCpd3Yd8Lw9dBR1h+XYCsIETN
-	 qN2lhTEaXtIDy6iOOWjkYtWFvJibwv428i80GIxX6hUaqmif7PmotZHxQdllemiUevE8+
-	 raz86jknZco5njpYD/Amm7GGU+/B+mymn+h2CQa6xl/d/vcxh+66PsTbMK42ob2Flgk+6
-	 QsFQrzJTbfBFb847uvBK8qPEXvkhZROqJ4LiO+TEtwukpY6NhIT+JQvUdMCNM6RAU1g==
+	t=1795204425;
+	b=tUlwJzrxiPGzMzD5dnnKMiD1diD7RkyroKsKBE2bVqdKmiyT2NpsNzrBBRpritoopcWL
+	 QI3cmd2c+H1nVpPun6BHD37DHzjGzbjsjj3OTHlpNw3KG5ovyD1K5IlGxOC+UoJFOYweQ
+	 RS7D7hsk8ukefIkFSLeiclpOA57YFFXEOLYrSFCyTmhQfsYK0SzXPmn6tMZ0R2y/jIi4F
+	 x9H3s9Mwr1wmv6KUgc0wEJowL1hITyb/ABE+C4Bf80p4Ra8+qFCSuzRpiX4kWze0VWUdF
+	 8XpwmnOWrU+GwZCmYHhfgVtbUrarveCY2JimQ+qZNn6w1EPjkgB+0PfHmo01+VnSLNQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204284;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=UE/flMYo83UrBj6n1lGeWe1JDSc6BsbIRxv927V6xys=;
-	b=A1m6GCA4uAvFhfsc/bh2tJHRFaKv9MHZg8+HZsiIN5txBkS1pzssetBDdslBfXCWsHSf
-	 6LZhU/Cj8mxLqlM32TMBgR4msjSO+R44xke1x2OKrw6CSdnNF0ypxVHLrj+YM0sQrwZHH
-	 +zs5sQF/YPdSemZme54sBK/BMhaIC1m/vHUVIhgNTW/7spMwDGnhdyragUdNFHkWngqL2
-	 K+qSO/n+ginISjm4vA+QnFNcVLI5yUTJb3wazcn6lnqgFKt+GpZ5kNYg/fYmZz3wNJ7ef
-	 sygix6DH61/5ed1XfhIOh9zeSHrYHbpiWsYoLMlxRBNgjQR41ggFAz2RRl2eJNBpD7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204425;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Y76CwwbIFFZSLzT6VqrJeNVAmGacmUJL5O9mQNR1EcY=;
+	b=nFAVxbKrTZYkDDLW3ziL7EWsE/8E01TD+O6k78zi+HlRauPNtNPcoXWZB3NE/18t1lXT
+	 p/Qs6J3rn/qXGwMoeIRkBDCLrxwe+btKy1eOokxZF8U5gSIP+MhP1adAx3HecCiKk5+cv
+	 gzN65m8VwXvonUsdjp6+5So2JcJjvwwPns5oEciW2N46bHeOBL9NOLd+eI884a9NWbvfF
+	 S5lUniAejSqImeO/0u3we9u0iYvKfEMfkB1IPO1ehAWe+zsNwxY2OZ9KhH1tam3oC9ThV
+	 psU0I9D3ghTlZT7faV2iNIpWJ22Evc4qC7N/p92XXhkMPTTIoUAzbMowOUnmbZaTHoQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CtUG8fTQ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.46
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010046.outbound.protection.outlook.com [52.101.61.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=amacapital.net;
+	spf=pass smtp.mailfrom=amacapital.net;
+	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=OIzOhE5i;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.42
+Received: from mail-lf1-f42.google.com (mail-lf1-f42.google.com [209.85.167.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06FFB606A6F9;
-	Fri, 20 Nov 2026 19:51:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06FFB606A6F9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9468606A6D2
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:53:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9468606A6D2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CtUG8fTQ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dSnWRwWZ3VHx5GisEUjN1Pos2apR3mT0vEjcgsC/8XbuftkUNGOXN59gBuaAl2/hRuSRNWc5vFA6IY1SgPimpeYCuB/WfJ7ELTrXG1CvqbKbcsLR+zz0wxL34a7scbtbnAw4owht3WHH4NOUXMtYV8/s8UJXLc7EAinLxdk93HaEQ8FSpqlZThQ85BMKc5WvEVhYS05RyOtOg+CBHGwF3FNj7WKMdyNMLbPMyPNR9FKOQlnl6nQG1274NDRfI43LxHtFdqcYRkwGTNtD04ShL1jjE75iogL+dfm6dt1/UNxAi0SJWFzfKTawORmf/iUjb3O7YYZoVsakfwj4k2h5YQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UE/flMYo83UrBj6n1lGeWe1JDSc6BsbIRxv927V6xys=;
- b=uWD99ukjbllFX17vimITqiOWdrs+DFWSvDodxtOkZOWAW6tD9oT+r1v/ZuTqI2Uy7yvT2OdKG+mWU9H4YsrPYYTWXcxCsM2kWXZxPaxFNyFvXURpG/wvxuN53i6BQ8nfKTe3h74/S8/EbZWBSiWDlg+8kXWTL3CSiy1WG49IZHxof9VGTk8PMS02vP5dv0MPppdXYikknMPUAlRYIg1Xi5aOf/rJYGgO/3WXrRrEngrgU/2ytM2lXJJPZOr2OUXeCvfd9+ON7RkuUBZlc3cq8JaooVforx/jdZcCRytbq6oRl86bmZA7NgT4BDevYtwyABaF4qtcuQ0nlG7M55i+AQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UE/flMYo83UrBj6n1lGeWe1JDSc6BsbIRxv927V6xys=;
- b=CtUG8fTQUfCmmn1M08xknNrdF/MBVucb931Zn+cop2ZbkROhOuLtviLAQZzoI9P9GSsa5qrcXhDb4busvpz2tixi52KK/+UrlstczOT2oVEbzAr8h9KDOSnDnR+DpPKww375C/86jZbR1mb+WCMxiuNkKFw91YM62i0HBA9p4yFqGH8V3wbuT+GaJfU/3o1trbN7xyD3d0a5kNwSwu97sNx7XeS+Oe8NhcrxlSOLg3CjTAnSTwtgdqcr9hSOsrgsyfx8bGFWOkfY6K8S1tzyyqQp2L95Fb8hdAxlSUqqcTKAA61zjizebmWPrNZa5W2oJxluQae5ndRBPB8mD3vUKQ==
-Received: from MW4PR03CA0281.namprd03.prod.outlook.com (2603:10b6:303:b5::16)
- by IA0PPF95ABFC125.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bdb) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.8; Fri, 20 Nov
- 2026 19:50:44 +0000
-Received: from SJ1PEPF000037AA.namprd03.prod.outlook.com
- (2603:10b6:303:b5:cafe::90) by MW4PR03CA0281.outlook.office365.com
- (2603:10b6:303:b5::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 19:50:44 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF000037AA.mail.protection.outlook.com (10.167.244.184) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 19:50:44 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 11:50:23 -0800
-Received: from vdi.nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Fri, 20 Nov
- 2026 11:50:22 -0800
-From: Chris Babroski <cbabroski@nvidia.com>
-To: <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <kblaiech@nvidia.com>, <asmaa@nvidia.com>, <andi.shyti@kernel.org>,
-	<cbabroski@nvidia.com>, <davthompson@nvidia.com>
-Subject: [PATCH RESEND v1 1/3] i2c: mlxbf: Fix master GW corruption from unmasked SMBus flags
-Date: Fri, 20 Nov 2026 14:50:06 -0500
-Message-ID: <326154d0c86433d5eef5aa2c4b937dbf2af1d8a6.1795203929.git.cbabroski@nvidia.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1795203929.git.cbabroski@nvidia.com>
-References: <cover.1795203929.git.cbabroski@nvidia.com>
+	dkim=pass (2048-bit key) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=OIzOhE5i
+Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5c15ccd7fb5so744137e87.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:53:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795204423; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CW2+8x1o07SqboyioIzsM64isE+y40xh5aLJvQ0OjElGlrhvjbygVC6RDGi3+mEZuC
+         L2mMnIG6zCBc9xub0pTO/+VaAphQUgW8iwrncbhOEcGOWkM0Z3HA3JMgwVFx4fVa97vV
+         NVsxeQFum2VX6v76dCYERd1KE5Ispzp++w5bTsQIif6I4apNGWV1oEBTYqn1M5nH/Mcj
+         T8fneQdIMQZkZOT8IRyR1STY+ALqpyPLn3XFLawkv+jOn2WIYCazxAd+9MEGBfgBQZyK
+         HfEl0SI0j3EAdHKCL1zyTQ+lwW8QkpQa4rRmrJ5Yo5VOEo/Axr6LyW8d+G+opBNyBBe6
+         5P9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Y76CwwbIFFZSLzT6VqrJeNVAmGacmUJL5O9mQNR1EcY=;
+        fh=FrC1qLVAXn003y99SJJL0dpMjQPNcpnkto/QEA9VmuY=;
+        b=cwr8pi1SLJ4xdQZYWVWEJnRk+ZQqFBSi+bAiiXiHyWwpDiZW6DSVEmNbmUmC3dIiST
+         1mPFp5MZ2bpG2yXZUMBvhdUeAr3FeKuqLxEhNa1OeOxA18T7NnPY4+VONHwf9rYvjEvq
+         LKuVgQHKC1RrNu8vMfSLsF6mzs3z1bUG4jh4vgn4uFc2AGVFDN0K9oxVKKtuKIENo+k9
+         9fsgdWKRm3KsrYLyhkvwZ6haRgMf2ZQsDZOBiMVg1AlzAK+ERcZCvPJvQo3NNzM3873g
+         bEE+TdvjvykR3fRKegt7/eXYjnAZNfFcUlRtixuFOvxyI5MMER6dFbtZNZoZU6Ma2HYC
+         mZIA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1795204423; x=1795809223; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Y76CwwbIFFZSLzT6VqrJeNVAmGacmUJL5O9mQNR1EcY=;
+        b=OIzOhE5iObSc8vEouH0agFHpvADyEkxMoLtQygTw3RAog7Wv+L7LAKHBfx6tywTWla
+         XUmS9LeJ7PnxVQ8l/3h5q4xOUl+0sR1Yhl89cyUVCQFQ6WCNIJ01mU32NChKR7y23gEJ
+         n6jCSfPaTpMmvNA7KdBLfnQPGXRT46ttzJgAvgufnJa4wXOuJ17zrS9bXry+tvzH4oPw
+         y8KH2mJUm+Io56eSd80lF5wNq2JRo3v7s3MN3hIShmIFHlUZKroZclqXKbLIjGE9o4oI
+         gDJi5i5Hy/If+d9CSXWm+OtWA52rz2oh8TdXKQlysnEYYdN/92oAHLZ0UJRgGJo4WwVZ
+         xk2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795204423; x=1795809223;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Y76CwwbIFFZSLzT6VqrJeNVAmGacmUJL5O9mQNR1EcY=;
+        b=TWatci4kqqD7anXh9MIqa/OBZuf1xxyqEkA6wSPqwVnCAtd22De4lBfvqpv9iluu18
+         sx57Rxsq5SbMUyYAf79uhp6pBMBFW3RYF68IXsJSbiR44xuwFkFshHjXkf76esdXBpan
+         tysq9fnpoV9RGBt2WxseFS0CJiZurx7ZDSYB4qcKXZJ1nsjJ11kjx3TFgNP1YlzeNHxr
+         HeLmujmtwEocKtUkyN5u5xCxaU+m753oqh9Q/usqv70wJiI9Z/o/Pnmx46Wn5ILONphx
+         sve7MOwgdBkaYxKX5LYoEv2suRsJdE0vHL94FAjgwjy3E9I2nYwT5OJkEKmu+L7pnjDL
+         1ptQ==
+X-Forwarded-Encrypted: i=1; AL+hErHu3B7PkVU6DCtmQWLf+L82PZwG8xgwp/9aKIuADWtJZ3CQTwHsC4HWPioXMwTqT1aGhSQYabnCfyTdy78=@vger.kernel.org
+X-Gm-Message-State: APuU4Z86ajddtS+S9WAcVEbFVu7QLhrH7PooT0b2b+dVdNPeA9pM0ZzC
+	sineEipTrTyXovpIr3/kD1n8zZJ0TIQ5Cc8qPnkTq4AhDZ2kZU70RpE7vnGQmWyhMySiGyJ/i6/
+	WThADOaFt9m47OQtxLYePMDpo1HGmramfbX02DD8m
+X-Gm-Gg: AZFdTZdeFll3rOrUoReLuqjv6vqtyKJO0j/3AgAqvJNIuA8q34dMO62ArGDxvoUyluE
+	mW7eFxblQZt93nWUoaJG+VwAw82IDD8/5jrwAVeGOCPdvQCjAVURbaml0Ud07MCTu7kVRY6U54V
+	Hbs+RMpDI2E42CAFxX64zCaTNfNt01VoWQj6vAT7r66eVG7VG4Pq+EAAEkqha4lF1QdSOc76/UK
+	chldkRcjBx0gTwOLpkmiJ/H/LS6O7LiaU6Q3rjlKV/lrLbCO/klG+jvQfwRiiAAzTtvNRiL14GG
+	ZFih00R8xAt7+GdKWpzaAnUoDseFr1yz/fxWqTHNlFbykUJ+VymwLJ9T3pMjQmiTFlUxxcAuqwq
+	JqwXzvYMp1nLdL+fVqContxvcmPfeoCpBLQ==
+X-Received: by 2002:a05:6512:1046:b0:5c1:acec:260e with SMTP id
+ 2adb3069b0e04-5c1bc8432bamr1303866e87.55.1795204422738; Fri, 20 Nov 2026
+ 11:53:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -111,66 +104,122 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000037AA:EE_|IA0PPF95ABFC125:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4333683-31da-4521-ae93-08df473f9068
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|18002099003|22082099003|261009223027099003|261021121427099003|11063799006|10067099003|261021123027099003|261102123227099003|56012099006;
-X-Microsoft-Antispam-Message-Info:
-	BtEMidisOKvN3mGzz2IYPnLbQzDS9EnwQA2Sd8TcDi96an22OafPlnzKbLk6V1EZKpURYEdijiJIRU8Z1y4ybhWTtNwcz7a9010IbnsolGHmD77/lQ2e/Z+S8fo5TarQ9gUR1yFk677IOW7ZzImbPdtKYrUnxURYq/NeCVFCbb5/HzEk4VQOYvwP1xFx5wRgS0qcToI3tYSe5kHu+TinwM7rnxddX6Wjf93/8dkN6njkz1tYoNYRg5+13yTMNt0b0Y6RA8ZQUod0idPmtYQCPjWR5M60Jji6F1gHk+JGo+EiQP54b2eN15kUbK4tQ6BaEQXgnlRStAA30Pi45wwUj17S9rvEU3eFdlp7KTdmf15ZtZW9eXD9vW0gn7BJ3eeNaF4IXm5tBaYBLOkPZrFa9Bes2uisiwuX+iyKee+qPeu+G0ytQVE6jgzOIbM5Jxco+Vh4Lpy8AFvyS2HgAhfGFtHKd6vYimHcPPD9nrfMr+TCurHg1hTW3dF7ahuwNy0XIGzYkeKRkGqxfxsceQYOLamulp00A7fm4k/NY9GoVG/FCy2Tg1vpElYZfD4Vr9f6pIcGRMuEzpWMkdKw0EJEKTaSY/pej25K6PWhHn5+38C4Qeck3mMJe6vTq7GjrQTmMCMoxkR+argAiCf6+KjRY1syjYEcmDkNR1VVq2VkoiWZWUlsSQ59BuEPp2DdIVjHIbl2Y4Otjlh+uU2rQDjFCQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(11063799006)(10067099003)(261021123027099003)(261102123227099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	JW68jgpLpvSWYsDGJ5lgPPkaeoFz2rfpvQWCYx4VPz84FLCGmcOFM+xdmZExk36U+ScxMTwO/gifIpgsuQBMyNwBur/yvpCajgW7s7/3/vGW/zrvn8MWlriTgZz2QZQrOPA5qNJ1Z7Cy+zxs+p9NJzJzLt88f2hrsmA+1GV2GiHdDoxjMXFTsn0Uw35sxsI1TnJF3LKoJh3KfrUjhQfc1N5EO4rQHMlJMpUlLDDqbIppToxSyEdPxm472723keNxQVxJP+Y2mHI0f7kTF3CRNqOgur/d8L3w4wMozgPtT1Qw8GZmYDqvbYuVeATKz88hkjm8BgxpSkhHtUEyvvYXnu/hCicCbmvgcjDA0BQJlZP14nNDMAhf5DD0K3xsdVu8qig+wgZZTpQKF3QpWQTHH8kChsNZ+CL4tU2nfrX7gCTQ9pVrAAZwQcaj+LuX+tFK
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:50:44.0587
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4333683-31da-4521-ae93-08df473f9068
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF000037AA.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF95ABFC125
+References: <av3bkDnwmjunTleX@kernel.org> <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
+ <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com> <CALCETrXt-Do28BHDpbrA98kEy-tQuorxD8c2XsW24Tt8Vspdtg@mail.gmail.com>
+ <CALCETrUbe8rBoxrC+Q66AMsrJ8Fow7xt5KJKRAmobtXBvHWdqg@mail.gmail.com>
+ <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
+ <awBHZO2VwWyJzvBN@kernel.org> <1f12636403bb7af3759cd933b2612d8a5d7317a2.camel@amutable.com>
+ <awBRyKgOQlaEqpWX@kernel.org> <awCg5VYXKJvex9vy@kernel.org> <awCkANwNDox_99SR@kernel.org>
+In-Reply-To: <awCkANwNDox_99SR@kernel.org>
+From: Andy Lutomirski <luto@amacapital.net>
+Date: Fri, 20 Nov 2026 11:53:30 -0800
+X-Gm-Features: Aa3M54pKxDm6eU_2Sjm44hIEowicdxL9W6xw2PHKnbweFLV6y91fuj5aPjITmFQ
+Message-ID: <CALCETrUnQjrWmSzL-FOqFF+_enxVsEM0On7orydXLCO-L2f23w@mail.gmail.com>
+Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
+To: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Alexander Mikhalitsyn <alex@amutable.com>, Josef Bacik <josef@toxicpanda.com>, 
+	Christian Brauner <brauner@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>, Serge Hallyn <sergeh@kernel.org>, 
+	Kees Cook <kees@kernel.org>, Paul Moore <paul@paul-moore.com>, linux-fsdevel@vger.kernel.org, 
+	linux-api@vger.kernel.org, linux-security-module@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-When the MLXBF_I2C_F_SMBUS_BLOCK and/or MLXBF_I2C_F_SMBUS_PEC flags are
-set, the flag bitmask values are shifted and written to the master
-gateway control register instead of the single-bit flag values. Shifting
-and writing the bitmasks can corrupt adjacent bits in the master gateway
-control register like the slave address used in read phases.
+On Fri, Nov 20, 2026 at 11:48=E2=80=AFAM Jarkko Sakkinen <jarkko@kernel.org=
+> wrote:
+>
+> On Fri, Nov 20, 2026 at 09:35:06PM +0200, Jarkko Sakkinen wrote:
+> > On Fri, Nov 20, 2026 at 03:57:32PM +0200, Jarkko Sakkinen wrote:
+> > > On Fri, Nov 20, 2026 at 02:24:57PM +0100, Alexander Mikhalitsyn wrote=
+:
+> > > > Yeah, detached mounts API solves a security issue here, but it does=
+ not
+> > > > fully enable the use-case Andy describes (if I understood it
+> > > > correctly). My interpretation here is that to fully cover it we nee=
+d
+> > > > some well-isolated communication channel between container and
+> > > > container manager (vsock for containers? :-D). And some well-define=
+d
+> > > > agreement of how PID 1 inside the container can get an information
+> > > > about a hotplugg-ed stuff. [ But it could be that I completely
+> > > > misunderstood and Andy meant something much more simple here. ]
+> >
+> > The sequence for hotplug (Andy's use case) breaks down like this and is
+> > doable:
+> >
+> > 1. Host creates rootns(ROOTNS_SEAL_MNTNS).
+> > 2. Host sets uid/gid maps with NS_USERNS_SET_IDMAP.
+> > 3. Host populates "/" with MOVE_MOUNT_T_MNTNS, optionally combined with
+> >    MOVE_MOUNT_CLONE for bind mounts.
+> > 4. Host spawns PID 1 with clone3(CLONE_INTO_ROOTNS) (optionally passing
+> >    an AF_UNIX socketpair fd for communication).
+> > 5. PID 1 watches /proc/self/ns/mnt via fanotify(FAN_REPORT_MNT |
+> >    FAN_MARK_MNTNS, FAN_MNT_ATTACH) or polls /proc/self/mountinfo.
+> > 6. On hotplug, host mounts the filesystem via fsopen()/fsmount() (plus
+> >    optional MOUNT_ATTR_IDMAP).
+> > 7. Host creates the mountpoint with openat2(RESOLVE_IN_ROOT) + mkdirat(=
+)
+> >    and attaches the mount with MOVE_MOUNT_T_MNTNS.
+> > 8. PID 1 receives FAN_MNT_ATTACH and queries the new mount via
+> >    statmount().
+> >
+> > ROOTNS_SEAL_MNTS, NS_USERNS_SET_IDMAP and MOVE_MOUNT_CLONE new features
+> > that are yet to be submitted but they were not tedious to ramp up.
+> >
+> > I'll include them to v5 of the patch set. Thanks for underlining this
+> > part because that led to having those.
+> >
+> > Architecture scales to this even if my choices to address these details
+> > would need some adjustment.
+> >
+> > The clear two-phase (build/live) progress with rootns sort of just give=
+s
+> > room to address stuff like this, and I have hard time to believe that i=
+t
+> > would get much better than this.
+>
+> A completely new feature is NS_USERNS_SET_IDMAP:
+>
+>     nsfs: Support NS_USERNS_SET_IDMAP ioctl
+>
+>     Configuring UID, GID, and project ID mappings or disabling setgroups(=
+2)
+>     for a user namespace currently requires writing to /proc/<pid>/uid_ma=
+p,
+>     gid_map, projid_map, and setgroups, forcing container managers to spa=
+wn a
+>     live process before populating a filesystem owned by that user namesp=
+ace.
+>
+>     Add the extensible NS_USERNS_SET_IDMAP ioctl on CLONE_NEWUSER nsfs fi=
+le
+>     descriptors to atomically configure setgroups policy and UID, GID, an=
+d
+>     project ID mappings before any process enters the namespace. Enforce =
+the
+>     same single-write and capability invariants against both current_cred=
+()
+>     and filp->f_cred under userns_state_mutex.
+>
+>     Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
+>
 
-Convert the SMBus flags to boolean values before setting the master
-gateway control register.
+I'm highly in favor of this.  But maybe not as an ioctl.
 
-Signed-off-by: Chris Babroski <cbabroski@nvidia.com>
----
- drivers/i2c/busses/i2c-mlxbf.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+If you have an nsfd for a userns and that nsfd is the "control" fd
+(however anyone decides this is formulated), why does f_cred matter?
+It should be possible to create a userns without privilege and
+SCM_RIGHTS the fd to a privileged uidmapd.  (I fixed the rather
+screwed up workflow for this in newuidmap/newgidmap a few weeks ago --
+this is remarkably easy to screw up.  It'll make it to a distro near
+you some day.  It's supposed to *work* even without CAP_SYS_ADMIN in
+the picture, and it did not.)
 
-diff --git a/drivers/i2c/busses/i2c-mlxbf.c b/drivers/i2c/busses/i2c-mlxbf.c
-index 432d9588f32d..375cbbce0fad 100644
---- a/drivers/i2c/busses/i2c-mlxbf.c
-+++ b/drivers/i2c/busses/i2c-mlxbf.c
-@@ -740,8 +740,8 @@ mlxbf_i2c_smbus_start_transaction(struct mlxbf_i2c_priv *priv,
- 		 * submitted by the first operation only.
- 		 */
- 		if (op_idx == 0 && flags & MLXBF_I2C_F_SMBUS_OPERATION) {
--			block_en = flags & MLXBF_I2C_F_SMBUS_BLOCK;
--			pec_en = flags & MLXBF_I2C_F_SMBUS_PEC;
-+			block_en = !!(flags & MLXBF_I2C_F_SMBUS_BLOCK);
-+			pec_en = !!(flags & MLXBF_I2C_F_SMBUS_PEC);
- 		}
- 
- 		if (flags & MLXBF_I2C_F_WRITE) {
--- 
-2.34.1
+--Andy
 
+
+
+--=20
+Andy Lutomirski
+AMA Capital Management, LLC
