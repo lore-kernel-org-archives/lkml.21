@@ -1,53 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214596;
-	b=Ht707fTd0roY98eU5O5Po5TjWqCoH+q6yVi8WOLQThEPXVuP7NK2nwDCRLuppuPja16S
-	 UfEcM23XHzuKDvQtJnfuStDGhrLl7XPejmwQp/08QvpZ6iw8bx1kkiasL1FHSt9wtq3Jy
-	 J9Rxgf4fUBhopT2Vm+BYS+uC7dB4XhkjUmom4GfQlOhrL1yXygSAlufKn+NH3EeFLTYl/
-	 bVNqUmSfvyCAshy6FnuBwgz3zA4j5cDjE/Y3+ElnPkAZ2l+Nh0T4HusjRzM1OiS6Acg5L
-	 XfYD7UoK8fIqa8opu0eqMZkj1IUG0pYEELIDJd0/Og4YEYSy7CKhWvDXcG+XJsXAZAw==
+	t=1795214670;
+	b=kHhMjDpdR+pPMGGIrOvY5JXquhGCUwXAieeGXBxInGv2vBQTyDmsdXZ2A+2tl2ogldKh
+	 oJcl0Esvv6Qh5/Ok8zLF1UD3PDtG+vv/YItzqlKEKDW248G8JBJu5IwhtT3q0zj1uX+N2
+	 BT+sJdMCP71gcauiel9LUvcVAtQvBbqffV5Z5VaSculLrPWYbIj34JzrUOQvEUzfhclBb
+	 Ax5Z/uf71LUWMytzx7O0YlRKNtfxZ3mDn6N/c2fwzuxqaQw3hMX0zZdUF42ZZbUzzPAr1
+	 Ze6PWc7qs1mjkni2wBA8Iu8a6Tfcno7I3jIWuIWBuvje3Uz5X1fsPFFMQ2yzjaP/h1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214596;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=Y6B1qlUZWjZO+GSdjVFEgrQK8iWfGeM64GnIiZ+w6F4=;
-	b=hlp4FHn+lXJ5HdrfZ4QVk/5DCQi0qKkgaV4tcs2katkafmD560ihcKpINmYZZrMReQbw
-	 nxyIRCmV95MXOOQkxdO5jjJ2DMEwT2qYnymTC+2TyPZK95mIrle5Y6VkvzyvvusaqMtT0
-	 OeHAzpEQenh5pTd7BgRpn8gaDXJvuiO3Qb9Yj3fb/ueriRBCkysVMlya/veV/+A1KdJYM
-	 eOb02P0z1BOnZndQFKPH9ZY5uIrTkgKlb1eOBUkvKUqMFAZwf0UKFHGmNpgyFN9G92RJY
-	 zWl0HyfZ9z2Sh4kfCNSUV6SQSX5SPD5l007u19ioqklC2EHcTL/RlXnKKcC7T5uY6ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214670;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
+	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=;
+	b=ta/aKaRwnpIc/we1SObKk9ZISLSsIt/70FsNI10dZ1fw60s/IlBY1PyqNjBPN9yVUbYs
+	 WVb6bVKu2mfxmrQXbTlQnP2UYQks21w23nthJ/X4q4mB6s30oI+Wzf5VDy8nXH9Bp/H6W
+	 /hlvUUgnjqwp/Z7JWrgBp3GGGXTtuw4aLH/lQZqDUEjtbEG5LqvKyzPGU2io7SUkOKGDH
+	 hNiw29UuQThpTHU9/6QV2HPDC0sQqOsXyWXw4B9H28v+nbIPJ9g0k3RrGtnmNgi8Q+lU8
+	 UScQcTJPErTAZfGLiTdk8GJVcCdyacPG3WNsScobOUOJLXtI+FbFWV+g3TCcC1WQwxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=UyNVNUuV;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6AA5606A68A;
-	Fri, 20 Nov 2026 22:43:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6AA5606A68A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4288F606A68C;
+	Fri, 20 Nov 2026 22:44:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4288F606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=UyNVNUuV
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57E41A4C4E;
-	Fri, 20 Nov 2026 23:43:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795214591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Y6B1qlUZWjZO+GSdjVFEgrQK8iWfGeM64GnIiZ+w6F4=;
-	b=UyNVNUuVleHIObwHZ462iMXCiQKfjXOhooFMHMPwnT+xEYWjjxIZfktq2CwoBdh2zesYvo
-	owB/db4c4ZOWr3j3kanqJEJGbm6oKyqr9FIYCbVkGhqQsWzE2x7IwmAea+URHNQkpoElRD
-	kHxc+GAy23cOkkxQ2i7h1qevuTX3K9C353/lcUIjTSNVHMbCFV3fMtrQdFzlmiKFZFUWLC
-	JKoGZ7Kj0rr+m9P3ZNb6o7DbR0Od0IAgTJslVadeMjqKzhs4xXJmb8UbufpQjmBtxUQ8vm
-	oxoxZWtRDDtVEaeEx59jhI4xErFOL9jIwSQzQtFmiwUqoo9C85pABGI4o00/Bw==
-From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Fri, 20 Nov 2026 23:42:38 +0100
-Subject: [PATCH net v2 4/5] net: systemport: restart DIM from the default
- profile on start
+	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description;
+	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=; b=mKKTQTOlQCONVf+xcZiJA/5+v6
+	/gWpjMTXY81UM5uPzbRoFjZGlsCYwXmoX0EbgwFeHcRdVdFZ9KwDBiia/uiXqqBjVTa1T+LBRJbZa
+	CY/4VcwtveScTi+pSLsJOQNG+FnfMXvcaUvhG7zPSYxXAAmliF/wke86YJQcNBz8VN+lm62EJXFSU
+	3Dyh3bDojacuQ/89s26+9uoCJTNbkp2q5nlMPOX9vDqs9tqCmlcTpvBDgTt3mNYCy6NPBkoxoVJAa
+	YkXqGBDCBtwPLISZH5YKsV1/kvYCAgl9ekaaTbHYINa5RIhKqLgJ8nWxLBkFgh2b8R8lXQvaEIrPb
+	CdkLOk8Q==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
+	(Exim 4.96)
+	(envelope-from <bage@debian.org>)
+	id 1xUXL7-003CmQ-2h;
+	Fri, 20 Nov 2026 22:44:18 +0000
+Message-ID: <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
+Date: Fri, 20 Nov 2026 23:44:16 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,83 +60,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-nb-genet-dim-stats-net-v2-4-1a7cece7dd1a@tipi-net.de>
-References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
-In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
-To: Doug Berger <opendmb@gmail.com>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Justin Chen <justin.chen@broadcom.com>, 
- Petri Gynther <pgynther@google.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nicolai Buchwitz <nb@tipi-net.de>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
+ MDIO devices
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Vladimir Oltean <olteanv@gmail.com>
+References: <20261119231319.1256419-1-bage@debian.org>
+ <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
+ <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
+ <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
+Content-Language: en-US
+From: Bastian Germann <bage@debian.org>
+In-Reply-To: <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Debian-User: bage
 
-A close or suspend can cancel the pending profile work and leave DIM in
-DIM_APPLY_NEW_PROFILE, where net_dim() does nothing. Adaptive coalescing
-then stays stuck after the next open or resume. The poll also calls
-net_dim() after napi_complete_done(), so it can queue new work after
-napi_disable() has returned.
+On 11/20/26 23:07, Andrew Lunn wrote:
+> On Fri, Nov 20, 2026 at 10:40:55PM +0100, Bastian Germann wrote:
+>> On 11/20/26 01:33, Andrew Lunn wrote:
+>>> On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
+>>>> The "broken-turn-around" property is documented in mdio.yaml for any
+>>>> MDIO device, but the MDIO core currently parses it only for PHY devices
+>>>> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+>>>> switches, are registered through of_mdiobus_register_device(), where the
+>>>> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+>>>> still treat the turn-around/read failure as an error.
+>>>>
+>>>> Parse the property when registering a non-PHY MDIO device and set the
+>>>> corresponding bit in phy_ignore_ta_mask before registering the device.
+>>> What switch is causing you problems?
+>> It is with mv88e6085.
+>>
+>> I have just found that Nathan Rossi sent basically the same patch as
+>> <20210217044443.1246392-1-nathan@nathanrossi.com>.
+> [Goes and find the thread]
+>
+> Are you bit banging as well? Or do you have another MDIO bus
+> controller?
+>
+> The point about the mv88e6085 using multiple addresses is valid. How
+> do you have the mv88e6085 configured?
 
-Run net_dim() before completing NAPI. Reset the DIM state on start and
-begin from the default profile, which is what
-bcm_sysport_init_rx_coalesce() programs.
+It is with the TI CPSW3G MDIO controller (ti,davinci_mdio, ti,cpsw-mdio).
+As this is on a AM64x, errata i2329 applies and davinci_mdio runs with 
+bitbanging.
 
-Fixes: b6e0e875421e ("net: systemport: Implement adaptive interrupt coalescing")
-Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
----
- drivers/net/ethernet/broadcom/bcmsysport.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
-index bc88a27da16b..29e608e7daaf 100644
---- a/drivers/net/ethernet/broadcom/bcmsysport.c
-+++ b/drivers/net/ethernet/broadcom/bcmsysport.c
-@@ -1012,18 +1012,19 @@ static int bcm_sysport_poll(struct napi_struct *napi, int budget)
- 	else
- 		rdma_writel(priv, priv->rx_c_index << 16, RDMA_CONS_INDEX);
- 
--	if (work_done < budget) {
--		napi_complete_done(napi, work_done);
--		/* re-enable RX interrupts */
--		intrl2_0_mask_clear(priv, INTRL2_0_RDMA_MBDONE);
--	}
--
-+	/* net_dim() can queue work, so run it while NAPI is still owned */
- 	if (priv->dim.use_dim) {
- 		dim_update_sample(priv->dim.event_ctr, priv->dim.packets,
- 				  priv->dim.bytes, &dim_sample);
- 		net_dim(&priv->dim.dim, &dim_sample);
- 	}
- 
-+	if (work_done < budget) {
-+		napi_complete_done(napi, work_done);
-+		/* re-enable RX interrupts */
-+		intrl2_0_mask_clear(priv, INTRL2_0_RDMA_MBDONE);
-+	}
-+
- 	return work_done;
- }
- 
-@@ -1452,8 +1453,11 @@ static void bcm_sysport_init_dim(struct bcm_sysport_priv *priv,
- {
- 	struct bcm_sysport_net_dim *dim = &priv->dim;
- 
-+	memset(&dim->dim, 0, sizeof(dim->dim));
- 	INIT_WORK(&dim->dim.work, cb);
- 	dim->dim.mode = DIM_CQ_PERIOD_MODE_START_FROM_EQE;
-+	/* Match the profile bcm_sysport_init_rx_coalesce() programs */
-+	dim->dim.profile_ix = NET_DIM_DEF_PROFILE_EQE;
- 	dim->event_ctr = 0;
- 	dim->packets = 0;
- 	dim->bytes = 0;
-
--- 
-2.53.0
+The mv88e6085 (88E6341) is configured in multi-chip/indirect mode at 
+  reg = <1>.
+It does not use multiple addresses.
 
