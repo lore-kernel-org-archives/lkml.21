@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147457;
-	b=im/cfsZSV84hh9rwa0ZY8G15V6zOZYG70hkj2jx42It60C2OrhXux/TZBu+1Ka2sAW6U
-	 AuUL839UHx4SCLSo1wNPoDRFkeGSyeFwrFmMhLhoT+G1yP7yBanTI5The2rRxBP5NT2Fa
-	 g441Z/gYB9hmNW9HZz7NDVCGUr2kjp39Tqs85zhIFaisdAPEga85ERdq0Ke5LBrLGrpMS
-	 YSh3B+gj40uyvN8+f8anLlV25ggAH33vYVVxJaNOrcp3WPI3BbVuohJGDMVrUkIAzZw6V
-	 RAOLHF0CrwcfiB9iOUADWjfFBd/bdXzK5Zq/sXwfLTwuk6DTc73J/5N82UaND2arqeA==
+	t=1795147461;
+	b=1wtqgcLtbOnJeVvA7Y3Ul6I5rBoPTh71ntlJC79YrVRrAya1FFjKFsByjiXFZhcvly6g
+	 BKsSrpzy8x2TrBoSegPn1T6OTADUOQOOCu2GTjGEW+jBnl6LHuHe3VN9ToX7gXrCT/DKU
+	 NjBqF6jDwqp7glXXGZFJH+453Z+G9QlcuKypZnVRZIWuiAWvUw2pCJBhcTUIkuvoFY5lb
+	 IuZXuQjB1lrtrh2qQYEzrowG87XtK/tstrrI4ES1fkICBq6gINtlzFU/0+EPnfXmiSal1
+	 wpAx+j0kqfret1jiLQjl4sS4FyMsrnQFJT0Vd0EfcIeT1dJ+Zzpo86Qouh0SpvAn41A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147457;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147461;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=io+CTWk+B5zCdv2jhfadGeS4AMrXIMCEILzj93M705I=;
-	b=qXtVVw2zzEbkUeE534tBRNzrPTkkPhjEiCyoGR4r38qz4cUIZjRPpborNG5v2cYUs1Mf
-	 XTvefNgYXV4wpwwBvIQSLoBg3CdIZlVHdF/bdjgpM+dHS/CewJGtiWOW04xMl4VniyQ09
-	 6huilfLfAsTIKfbjqm47Foud6Bfd3R+6pYHzPhHf0avLQImGKCPNbLzJ9OJRxcbc00XqF
-	 kftth/dDuZiqq3spHrQNVnSbf/1pij6djPlyCzT9npL/k7ygNUlmDpAxAhdDrVABNUqO9
-	 4nFoQAOnSSM8LylX8CaY6maXRk/obANp668U7ZaUH5vM86OsyPjFOKE9Hd2LPghXJww==
+	bh=gNfLUpbUrpvHXxk7v5s6Ji6TChmuV33nC5/6JAhIS7E=;
+	b=EvunOjpOgRmsJDZLh8f8+gtxocET4ZytV6NClx9H6dy91Q1LQCp2KxEF2O1N4XvkI/uo
+	 3wqa3CVtivsMH71aoN/PxqSE+OvgN4YM8LAqczmgfN2S4CHImyja8A4Pe3Ay+xfiCD4ZX
+	 RKx8L73IX7ylBQUU28jWzgYRI8qCBjIf6WOQkaBrl9PRu2T2rSuXluAusb9WwJexJr9yX
+	 iBrL/jmSNrBIrLZRnbWKFMJAhsBxUdeORIf2Qx9qUo7pdRoSfMApfZypFAwG+UYFu4/c+
+	 tOxYu9F0nvCeX7qpH5xXiSY+EdR2hSoMGsWVfunm57OnEN/E8jBCyWyl36BZlFRUsnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qo3HRQFj;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vNqWMyXI;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A7A5606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A7A5606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C26E7606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:04:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C26E7606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Qo3HRQFj
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a2761c69fbso1040504c88.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vNqWMyXI
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-382f4710a17so725843eec.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 20:04:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147455; x=1795752255; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795147460; x=1795752260; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=io+CTWk+B5zCdv2jhfadGeS4AMrXIMCEILzj93M705I=;
-        b=Qo3HRQFjx3O8jMNXAKgg1oKb9MUd1NSuen3N+3oGKYxENP6OmzhPdg3ZQ/yZPRLEE0
-         FcoIAtJVmPn2DAWpEuwtF0hpG9aN1A/6GpuIx5iONvMLLzGGFDZi77wALzRn6FfXgrt2
-         v71IxdgiqA1/FUEssCkRvVeyuLYV3nja3ktA+PQXh4K+x58NtZtVli+wx5/Rou/Gx9tn
-         J4eyi9KCGTF6H2NPrZ3qn/z3l9qXvgOa0bj+Y97/Dp9dC7mCarjm26Ex89DCIjaSi7eY
-         bQtHLGlzCsF91p1Ooeq6VXxVWQhhQLdMrvBfpiOQchdxssXuXT0N6alRUq6Mj8Deyaoj
-         HNmw==
+        bh=gNfLUpbUrpvHXxk7v5s6Ji6TChmuV33nC5/6JAhIS7E=;
+        b=vNqWMyXInDBkKCwdCzC2jW/veKs8B4U98GsINQKv3/SrPdyWDvSdrKoFkm/d2pkqkr
+         wP8tKKGFx2VicMMCYK+iONpKR8ToC4gyIRB60pMRIsOMhA/QYXZA2oDc4BlpAQKO9nMh
+         ZoFW712/u0LtrtiectKTMUoh8hvwj+XLQe30lullfSEQcD2j2K8V0MRHP15Jtr6vQ/do
+         FzhzQG8iSko20hAbR7pElNHfJPJL+UQThE1evGa+suZ5yEno6c3hNbh8F7WwozJn5lZb
+         aJ98vQK0OWgs15seFiJFBRO6gw5smyzRDXywtqn0dlrqRqgvOQbjdClrLNsaZsLBpxtM
+         DzoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147455; x=1795752255;
+        d=1e100.net; s=20260707; t=1795147460; x=1795752260;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=io+CTWk+B5zCdv2jhfadGeS4AMrXIMCEILzj93M705I=;
-        b=QOfB8ufXTqQ5l5l12yeLKXUfx2lpfe5L6K9IvYCt4Mnfo09FFFkA5UeDayubnZRoGg
-         5LjWPjsE+XH05K7RyYdYBK6TFfMPjjWne64A5UCA89Fp8Xp3xbO+Xp5J5boxrbNhs7V2
-         xjumsCdRf6m5WMxmT8WQRGjHAxlAI0bMVKwRkWYcfaccpu90h6sylArkeSnbcbB/Ulb0
-         /Y7gwmYZPi1qMbbwE4VZoyFCrVUZ1OwhBCBEHHdoe7vsaAZ226SonUUHlDYMwS9QAzws
-         b2kyD8Z8EnIADz2L/ARdjR/vhATJjSCmlLR/5DFD0bho0qglfyAQHAY97M8vGKcn0Pml
-         bZHA==
-X-Forwarded-Encrypted: i=1; AL+hErFhRTn13T1rsFPFOpilK7iKZy3NFUStqFYmW36/J0wwq7je3aqBCoMNu7BFUljaXzjFBX4EfXav+UknD1U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+N+SLnOUPmvVNkOEFrVbd6d68tBfA78iofkfjNhCUZdXyTRPEs
-	lsZRwngJQaOG357dguXMRC5AX3NtPVs0cilTcGGJbcwjX53C/p92I+uz
-X-Gm-Gg: AZFdTZdURuwfB+pIDNwXTQhGBbTm3hAlYiqk3FR5kku+4Z9IYanefocPR2KihHHbySm
-	JRmQ2qpPQzy6PWfIYxvIPed6HJByrLlO3jGz/URqyuZYfPxICdvKn6ZBlLzWpa4gF3HiK9hx3em
-	YpVBZD8Gl8bQRohs+CXeSkjoIQpkENuw9q4xs8gckjKDkgzavul738Hd9FRajH0lj0Zcbe3Gje5
-	/QBmPwfmMz0GOlFlpVQaYVjSmdXSLbWJhFNqN78W2gkh++hZiVaJBgsjk/hGdocC8X9Rl0k2xCX
-	dcJxUnsntWEVW85+TOmRSfwXdGVdjAXKQUBPBnrmGIXYveh6ZJWaeS2ij6o+8NE+H7/g7H/v/45
-	EvOQry13GGtkOSfaHkb+mmfTb+vijdIm1w39CXg/l7LX9lUO8iPzaddsJYn9U+BY+HpYscgY72r
-	rPLS5giI75GloWZpv3E+e4S1qpAx+ryTIO59pg3x2SdRK5xLcMTK6SAUpWIVzX1o45OHV8+BxfC
-	K84cSwvPChjdq/6DMYWJOneG08bJrkt3Qr8BhDa6vXl/GZvdIeVfXQ+QqE09yUrmvaNtDCJmiWu
-	afKgATrcWCNnnCHdXlGBU8vKQD/lw6HGivn3LwgpBXfxHW9qPcY6M1k=
-X-Received: by 2002:a05:7301:4718:b0:380:9c6f:ad0a with SMTP id 5a478bee46e88-3856e63b224mr1331961eec.10.1795147455454;
-        Thu, 19 Nov 2026 20:04:15 -0800 (PST)
+        bh=gNfLUpbUrpvHXxk7v5s6Ji6TChmuV33nC5/6JAhIS7E=;
+        b=qpATKKi9eism3PjT7TWueazfppm7ioBBKFTXBpISOugnf/AcLDGsTc8W8uaoW+pDbL
+         D4GSoInu1CF+O3n/fzLF5GzVRKKEK3/PQj/qcLd9gcxp3yAeQUqqD0pXdpDpCGFDLU7W
+         fwHs3Cxdg+pmGX9Gh8tO5A+raALM2+k5rSEzgco/AL4N3spYgoEKloZo0L2jjwqWshbu
+         aW3JkqPP6JcdW+dY6c33K1RZDp+94NSFg/IkQ2nJb05zADTuF0braU0s0PsZSHuiGfc1
+         56UicW8QKKIBadsSRzZLb3J8cce02HE3oSIZNyf5h51Hv6WolVQP70ZV9l1VTsfpWyPz
+         UZgw==
+X-Forwarded-Encrypted: i=1; AL+hErFfsBtTnpR4B1fBSeXLC92TAyWcgTVtia8PbhS9wrGqgutkoOajjFhzvx2CckSBEA36Dz25MIlKBFlG8PU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/A6s233mRZUQoCMoUvTFHUNuqBRaxnI5RgXR8NcRZxW8Xg8BIE
+	dslQZGzdI0+yiLiOxmCWUGZ+b6NTyOBqgTuNmIuUOPOUBIEtGvovQDAb
+X-Gm-Gg: AYBFou3gxSRqfLppN7hZu59EkdOHIw75G29wP3p1IJD7mR5mfYZE2cG93fAAa3NlEnm
+	ZyNW2Y5lpxQGnOt+16HlF76E76MThXX3b0BFVGp3PeXS5MGnXIpXTqD8FaddbAZCT9PIySqwUka
+	zGM7TomyG8T9nl+PFju/w82Qp3h/EJrC8iaTVCbn+fE0doOxl78BYpLgvza+fqOyHdRlOuBYA01
+	UH3lum3tiajIX99BbVUKU8IRLf5T61EpT8izcsKcldF3eBdOaS/2MA6UC8d2oYLTYxpthqRfcE7
+	wPchqb1hxMvu9ghNHzlcQGOjQwPYJpzuqkk06IhKy1a4aNvKBqV4NsdO3LAaKm7HA7re7N2h7uG
+	XQwUhO6Rv4DatN8QyWh+yCyrbjrxSPvWiQuBt3e09vFr1RAWYOoUjoJ4qKBxE6Cr3E3ZVBuHwwX
+	bfKcnnVSVPMFskscQ3rQJca5gHSoWS5rasQdYyLYuIPxdv9a+RwxpXzhV88kmOuC1T//+q47iZt
+	UDlm0HsEslUvvUL8/8LbBHkTAGBWdNU460L6mOxaIjgRi+Lmtgt5X46o0Y4m8Dw60O8bBJuzP5e
+	3pa3ysZwlRZHU2NX0Cgksi/JHbN2EmxMkTdo7EsGdKlnB+AH7gTmPJY=
+X-Received: by 2002:a05:7301:152f:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3856c6b35b5mr1616327eec.2.1795147459846;
+        Thu, 19 Nov 2026 20:04:19 -0800 (PST)
 Received: from pve-server.rlab ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.04.11
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm3246104eec.6.2026.11.19.20.04.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 20:04:14 -0800 (PST)
+        Thu, 19 Nov 2026 20:04:18 -0800 (PST)
 From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
 To: linuxppc-dev@lists.ozlabs.org
 Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
@@ -88,9 +88,9 @@ Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Nicholas Piggin <npiggin@gmail.com>,
 	Shrikanth Hegde <sshegde@linux.ibm.com>,
 	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Subject: [PATCHv3 11/19] powerpc/pseries: Add context annotations for the DTL worker lock
-Date: Fri, 20 Nov 2026 09:33:10 +0530
-Message-Id: <b358842b6682ac165275a75541123df3d6567bf9.1795147055.git.ritesh.list@gmail.com>
+Subject: [PATCHv3 12/19] powerpc/pseries: Annotate the VPD sequence lock context
+Date: Fri, 20 Nov 2026 09:33:11 +0530
+Message-Id: <13d51cfa826c7c9ab2ce4955a6c6bd18580efe78.1795147055.git.ritesh.list@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795147055.git.ritesh.list@gmail.com>
 References: <cover.1795147055.git.ritesh.list@gmail.com>
@@ -105,51 +105,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-dtl_worker_{enable,disable}() needs annotations since they acquire and
-release locks. So this adds conditional annotation based on return value.
+Clang's context analysis reports:
+  papr-vpd.c:151:1: error: mutex 'rtas_ibm_get_vpd_lock' is still held at the end of function [-Werror,-Wthread-safety-analysis]
+  papr-vpd.c:165:2: error: releasing mutex 'rtas_ibm_get_vpd_lock' that was not held [-Werror,-Wthread-safety-analysis]
 
-Let's also disable context analysis for vcpudispatch_stats_write(),
-since based on received input, it can leave the lock held until a later
-write of 0 unlocks it. So we need to mark it with __context_unsafe().
-
-Otherwise we get following error on enabling CONTEXT_ANALYSIS on this
-file:
-  lpar.c:490:9: error: rw_semaphore 'dtl_access_lock' is not held on every path through here [-Werror,-Wthread-safety-analysis]
-  lpar.c:498:2: error: releasing rw_semaphore 'dtl_access_lock' that was not held [-Werror,-Wthread-safety-analysis]
+Add the necessary annotations to in vpd_sequence_{begin|end}(),
+to fix these errors for enabling Clang context analysis.
 
 Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/platforms/pseries/lpar.c | 3 +++
+ arch/powerpc/platforms/pseries/papr-vpd.c | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/powerpc/platforms/pseries/lpar.c b/arch/powerpc/platforms/pseries/lpar.c
-index 5dbf447d3a83..9965ead1e93c 100644
---- a/arch/powerpc/platforms/pseries/lpar.c
-+++ b/arch/powerpc/platforms/pseries/lpar.c
-@@ -461,6 +461,7 @@ static void reset_global_dtl_mask(void)
- }
- 
- static int dtl_worker_enable(unsigned long *time_limit)
-+		__cond_acquires(0, &dtl_access_lock)
+diff --git a/arch/powerpc/platforms/pseries/papr-vpd.c b/arch/powerpc/platforms/pseries/papr-vpd.c
+index f38c188fc4a1..8d210454cff1 100644
+--- a/arch/powerpc/platforms/pseries/papr-vpd.c
++++ b/arch/powerpc/platforms/pseries/papr-vpd.c
+@@ -123,8 +123,10 @@ static int rtas_ibm_get_vpd(struct rtas_ibm_get_vpd_params *params)
+  * @seq: vpd call parameters from sequence struct
+  *
+  * Context: May sleep.
++ * Returns with rtas_ibm_get_vpd_lock held. vpd_sequence_end() releases it.
+  */
+ static void vpd_sequence_begin(struct papr_rtas_sequence *seq)
++		__acquires(&rtas_ibm_get_vpd_lock)
  {
- 	int rc = 0, state;
- 
-@@ -491,6 +492,7 @@ static int dtl_worker_enable(unsigned long *time_limit)
- }
- 
- static void dtl_worker_disable(unsigned long *time_limit)
-+		__releases(&dtl_access_lock)
+ 	struct rtas_ibm_get_vpd_params *vpd_params;
+ 	/*
+@@ -157,6 +159,7 @@ static void vpd_sequence_begin(struct papr_rtas_sequence *seq)
+  * Releases resources obtained by vpd_sequence_begin().
+  */
+ static void vpd_sequence_end(struct papr_rtas_sequence *seq)
++		__releases(&rtas_ibm_get_vpd_lock)
  {
- 	cpuhp_remove_state(dtl_worker_state);
- 	free_dtl_buffers(time_limit);
-@@ -500,6 +502,7 @@ static void dtl_worker_disable(unsigned long *time_limit)
+ 	struct rtas_ibm_get_vpd_params *vpd_params;
  
- static ssize_t vcpudispatch_stats_write(struct file *file, const char __user *p,
- 		size_t count, loff_t *ppos)
-+		__context_unsafe(/* dtl_access_lock is held from enable write until disable write */)
- {
- 	unsigned long time_limit = jiffies + HZ;
- 	struct vcpu_dispatch_data *disp;
 -- 
 2.39.5
 
