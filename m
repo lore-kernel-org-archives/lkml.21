@@ -1,52 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176657;
-	b=uSFOAjudmtbifuI/B3DGBDOLHu05tHhSMSFU9sC5/beQg+x6iqbgRy+8hJuubt4sQRMO
-	 /WY6mUanvianoDG9t8KEYwbrE2etdxAS1jemgXSBqrNPoKwPiBI91KbOmXV7e3hRWUUbA
-	 4lT+d3Kvzra87icSHrI+8g1NCgUZdTSRx6qPYviWq9vU2L9TBDALO53T9hHDb13RrnMy4
-	 JXq9wOrRcMWxsDK0QL8x7L514WnnuRVW4CRm0hQaZsBHIxHIDuOG4PtFNUNW/3Ba6DZu4
-	 muuO3dsl/s8VcTzSDt6UMkYewmzzwDw0d69IA3PiofyD7zbOkVAo+gjJYWozhoSLo4w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176657;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=yEn6hZoR27mO6l9Fwd74ebjt2Qc9Bj6f7MuKEtEDDIA=;
-	b=NG81TL4MLbnZfooTMxpsQhcOj/SScyflofKhxLKWtoy80n71uJjhEsZIiq6e6SZEO9zh
-	 8ub/cmiF/7y2dGV/QfFWPzBGHSdKq1S93YHvTMtG66nC0aOyT80beS/UhGs3KJ8uzzxf/
-	 gl8eng27I4UNnmEKl7FefrDYAn7+RqFW2K1kP9+1fkuLYP19Lo5B0i1NMOPochYu1Rk+M
-	 AqrfSUg4wX97J7c0rmSGGtWk+GiTi4Lxmm07H3iv5EW1oNuAUHKIC+dIVDTVdV2E0kPZO
-	 KgK1CnFmaOXw1HUAqDF0WHnlGcP1bxliuQHsmUOr2T0e/AtbU6MDftWjZd0gv0+IvpA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b="W4KSeOo/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795176761;
+	b=mHmA5hX++KXtcrUddn3iNfhv4SxkdBxcMPwNPecb8ORMbwGkvOChCoSt2uz/9Sg69oQg
+	 Au3VVg4NO/cjjz36XFqPXmi0Hl9xoWSteUBtI0jc1P+sec3ul52Y7NUEYMKldPiZpZld5
+	 g6tXeErcFqF9pDdhNxMRFTbUcFOLS2RtJIOrJZVBe6ZsP5KChAPxOMbKNxi7cwkmZnMsP
+	 ZrHv8yRAnjm5QN8jbxYKRdgzXr7FrCWwIg5jqAEuq453VITk4TQXFb5w3FgH4iQ4yqTxV
+	 t9PJ2k9dS92WbjQ6KOaVPP9RNDlXzja3Mcb23mlFNXTxExVsoVglq+wq+8F1gdTLI6Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176761;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=TBZRq+d7f6hRILWCpDvPDs5MTocCPdzTtlmsRMkpBHI=;
+	b=O+6iWJV5/SicvImu6WswGl8dgOm4bc5EYwwPjRnOJVgofhdfT+oJXA27O8DLGTKHhNRZ
+	 VHpoOtCk9i8qbAOEEnFK3BDIEFdRP/G+N4u2fTp+AtzO98V9J1zeD77mBMfJnKJ7QikWF
+	 APSbaaOY7mTrxAFqJG9SGfEXworMHTbO+MVD0z+t97+cNG0wzZwJTdv5zlC+04oflTNlb
+	 oe7Y0LBtrywWwMMUePcCeUK556GFysqGwjkcNmo/k9kJxGtwX0tFyU6D1tmvuJgmR3S9V
+	 gZlMP6OVeUuUY1YUEo8IT8vbdUnvRvMz1Hbu85DScV2If24nYHSFDGiLKfFIDgk/qdg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ueUjWWh6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.21
+Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11010021.outbound.protection.outlook.com [52.101.61.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 582F5606A325;
-	Fri, 20 Nov 2026 12:10:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28879606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:12:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28879606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=W4KSeOo/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6912A1F000C4;
-	Fri, 20 Nov 2026 12:10:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795176657;
-	bh=yEn6hZoR27mO6l9Fwd74ebjt2Qc9Bj6f7MuKEtEDDIA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=W4KSeOo/uGIm9oUK3TLcmpQgx47fddndPesoC0nJtyrER5Y7EfSo/sibJ1pTUrwfM
-	 PFpxyRnzP1ea15lHlIEtoGuRbR1PmEweRFaur4hrrPZAszBXbB69WsOITok2AXD49W
-	 hMHx4pubni6hzv1HWJxABR+SK0HDOKhOn2IzcLE4=
-Date: Fri, 20 Nov 2026 13:10:54 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Cc: Neill Kapron <nkapron@google.com>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] usb: gadget: fsl_udc: Fix potential use-after-free
- during removal
-Message-ID: <2026112015-lumber-flyer-d8f6@gregkh>
-References: <20261118-324f82bd41-usb-gadget-0@mail.sdu.edu.cn>
- <20261118-324f82bd41-usb-gadget-1@mail.sdu.edu.cn>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=ueUjWWh6
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g/6JlIJU6PqaDPrum+CCX7+bPV090154Htd9um8gUM6zve1p6t/ACr+bG8TkW/GZQEUJ5UaGQxou1iwMIek1NBY55fBGrr3PRl+xjlLgiixr8rQdsYS+S05x9zR9FaXazjA5wHhHMU+vV9C7pwe0PHZ/22wP1U00ClKAmXUE0p4JHExX4JjR7QxD+nZGC/k3wWjC8WHLHZ0neCj1enJZVRVpgaRlbeqAH1aMY0GQRAN+y/4wre+11OxjLyUd97iftOswCm2FsVJEjDy9B1NSrOQIe5JybHMCFpRjbm/GjO5NfY4tbr2Li7iayvk13E+VS0DCf/GtiKIYNPs0aWWi2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TBZRq+d7f6hRILWCpDvPDs5MTocCPdzTtlmsRMkpBHI=;
+ b=Ol4/ezGQmjgMBHRdsoCNxSBt/RpiqNXTruw4TDQ8WFsqQ+rC7IIlfBeAvvojKoyLr1VupP3PYASwqDtTpBbSpixgM+Qxdd6J+iSB81t9cyiHp3EhlvXnJHiM7MrRUXc5hbyzKkL+cdvzW1eXdjAcLJhxa/XCQYpIIo3FwGerTlGs3KouXmz53m0pohMiUPeX5da1QU4wgHR3XvW7urnrFqxCt/R6Co/7lellzT09KnbQcuirMDrTop3VkGYUtVxZicmPDcEwuzPUHTUTxXeEmyX3Oo9kSaZagU+UQrhOmPs6qXn1nUDTc8jevDsvwXOL/Hjh8efCUHRl4bW/H2lYHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TBZRq+d7f6hRILWCpDvPDs5MTocCPdzTtlmsRMkpBHI=;
+ b=ueUjWWh6rXmIs8CprXrFItDhMVUittnzG1EC/KOH5BypSobO+/G+T2ZePMnrgFrvPWAmZ8A1+cUd1uCnk6OZUokn6g+CdNg1Bho6ziSuVvn4+TkG6yOy74opzSGL2bLy4eXO+GcbafX7J+yCpFZcXhRM5u9phkMStV+3PwPy7Us=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by DM6PR12MB4139.namprd12.prod.outlook.com (2603:10b6:5:214::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Fri, 20 Nov
+ 2026 12:12:03 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 12:12:02 +0000
+Message-ID: <dc491d12-68f0-4297-acda-f122fec00288@amd.com>
+Date: Fri, 20 Nov 2026 13:11:54 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] drm/amdgpu: initialize r in amdgpu_ttm_clear_buffer()
+To: Ian Rogers <irogers@google.com>, Alex Deucher
+ <alexander.deucher@amd.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>
+Cc: amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ Elkin Cruz <elkin@google.com>
+References: <cover.1795106955.git.irogers@google.com>
+ <6fcb1e5c7545f8bcfee9ac9a3abd296c475aa1b7.1795106955.git.irogers@google.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <6fcb1e5c7545f8bcfee9ac9a3abd296c475aa1b7.1795106955.git.irogers@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR3P281CA0070.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:4b::22) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,39 +100,109 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118-324f82bd41-usb-gadget-1@mail.sdu.edu.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|DM6PR12MB4139:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3212435-c334-420d-bbdc-08df46ff7bf6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|376014|1800799024|261021121427099003|261021123027099003|10067099003|4143699003|5023799004|56012099006|11063799006|261022105027099003|261028144727099003|261026140227099003|261102123227099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	7ZJtQJA2fr1b5jjNrv62mlz1NLhYWqNABuOCj80Th5HGhCzHCCc3BxomCjgocwi2cLFTg2lvOMP7XiljSqI3kVD3ResCK0b15hDj8PilYnHO5mhix6aQv8Wloe0y/cBw1CcpZJDkXuUh81AzZWyiHJRvX9b5nEn+O/eD+Y0rMI9KXRDh2uhSwrsADnpdaUjXeB5+St1OC1RojyYIlPJ4zKOepCDEWnuR7EI1uMmIKMsmpP9Lsw9yYEdK4mGTgS+VjVrGDLzPh30pLZaakt0VrW9JQZ3kpJqSya+DxWXjkbGRPgUx0X/IR1yDHTxCSvpqfZROxC13xDinf+2pFGaAKTU3f+Gxh+SimDzu8cah02QQkbYaeaq3mdGrSk66R2SBsUk6gFtBrG5/gOgvF4agOTabYL+Q/iuPleSJm1CE2oEerb8LAFI4YrLpEtlO6dYeuDtexGC13DmbLfVGIYM+/18wiqSNeaZDCRnV6IO3qR7awHLPsI8umiwkyJYFvFelL1umGn3vG6zBLvuvULFBxW7EWNUFqH/4a6M5cquJqbM8yXL5QmE7FQZXqH1Iv2DhXbQ8oIgUle14theQPES+xeTXK9UO6pHcDk1JT0Ysm0GUO0z5lyzswgAJKnt4VTxzUDAWqRtF7x5ZcQDy5b8aslqyYNLAN6pvmNoD53XTWtY=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(1800799024)(261021121427099003)(261021123027099003)(10067099003)(4143699003)(5023799004)(56012099006)(11063799006)(261022105027099003)(261028144727099003)(261026140227099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?am5oZld0KzRoRjNFQ3M4WDBucVFTMXU1VmZFUHVtTHpLcktwc1ljV1ZmLzg2?=
+ =?utf-8?B?cWtsM3RXc2ZKRmNldmxTUDJNQS84ekd5cWtsOGlMOEZycWgzeUQ1S2x2VWZ6?=
+ =?utf-8?B?VUZCbFBodG5vMSt6bkpoOVVqN2RSWVdnQk9ZWDFMU2pkck1IaDl0OUhnV2VM?=
+ =?utf-8?B?a0pKQ2pPSVBnVWxxNGZnMFlrS3ZlSGErRG1ORHJERVhibkRJVDRMbGxyQURK?=
+ =?utf-8?B?WnVzT3NTOTNkZWV0VUM0VFgyVlFkRmRESFdQYkduRkdTb1N5WFdOWDZScE5V?=
+ =?utf-8?B?WlpPcUJrdGtZMm5VRVNxTnFHQ1FzY1F2Z3llQ1hPTGhHMVJrd096amwzQ0tN?=
+ =?utf-8?B?NXBtZFhGL21iMVN4aTV4UHdsNkkwaFdjUlR2MnhhaTVYVmFmK2krZlhvMjBC?=
+ =?utf-8?B?dkZjVlJLZ3pBSmZGb1J1QXRrL2pzYytCMGplSW14REYrbnUxK0NnaW4wWVlV?=
+ =?utf-8?B?cTNiaXdqWmh1bXhvYW9hMnVOWGk4Z2hGRzh3Z3EvMThOWWMvS29vZGx5enVM?=
+ =?utf-8?B?ZFdaMVN0WktkNDVTMGV4ZnZyNUowRlNCMVk4b1hCSzNiV2NvK3dNeXBmNEU4?=
+ =?utf-8?B?ZndXdVJ4Z0hRVHJkZzZlVE85QWk3dkUwTTFxSjhjMUo2bTA5S1Zqd2pTYlgz?=
+ =?utf-8?B?SzBwNVlUSEdGZkJHSUY3TCtCanhQU3ZxMWJzNTMrZWViMFJsZ21jUXFHZ3Vr?=
+ =?utf-8?B?QW5zZXFqbXd2RHBBUDZiYVQyMzZzMmc0QlpDS1MxMlBmNEhYeFJvdk5ZMWRZ?=
+ =?utf-8?B?enc4MnIzZFpXdWExTTBhT3BPdVNpb0l0dDUwN0N2WncvcnRMT09JNXNRS2hJ?=
+ =?utf-8?B?ckNYamMwVTRCTTYyc1dvNHU1bU5ObFhqMVZnRVdCRGNoNkI5VXhZTjNybGJ2?=
+ =?utf-8?B?UkNVaVAvc0FURmk5Tk00ckxON1ZXVXB1djRBdFJsazl4ME5hM3I0NW5BZklu?=
+ =?utf-8?B?aUtzQUNPTHhqNyt6dmwvdTd5eTZuYW5IVFdQaHVLTHp2U0Q0SGtHQ1BrV0lK?=
+ =?utf-8?B?UlEyYTZOajAwQjRMTXZ3RHFwSW1OOUVPN1p5VDM2MWp0d2g5a0xNNmZNN0p2?=
+ =?utf-8?B?eFhDVlVGcTQ2TEZxSmorNUNST2pMS2lOVjhnMHpwT01SODZUR2dCcGRyZklK?=
+ =?utf-8?B?TFl1cGduc0F4V285SFFsQU1oUnk0VFFMYnZKUEl1czMzNERUQmVmZytGTWtk?=
+ =?utf-8?B?L2UyQ05mT0l6b0wvdzZGbzhPS1huMW43UCtZbzRwR3JaUDV3aTBWSUo1ZlI0?=
+ =?utf-8?B?dStaQ3dEamFZZllPRmV3WDhTbUVxaHozdFV4MTQva0hFRnpUSnVVRDZVNzRU?=
+ =?utf-8?B?YmpNaVBTU3h4bVIxZFk1by8rL2xpdGliOEpJOVZ4QkpxWUx5NFJoRnZWN3J4?=
+ =?utf-8?B?RVp1SloxbklaRWpUMHVBOHgrd2s2T3BNc3R4bGlpb3NHT3BMeG1vb01zM2t4?=
+ =?utf-8?B?M0U0eWJPR1pGV0RrTlg5UWE4am5GMUVpMi9weVk3bkN4QW10ZGRhb2hHYVhi?=
+ =?utf-8?B?RCt3QnFKcUhqcGQ0OG1yL0IxUWs0dkVRZk41SVQxMXBrNVNjNUR3c0FUNU1E?=
+ =?utf-8?B?Qy81WFdySWNpK09TS1VHa3VSQmJtdTZqMmRxZ2d3NTdEdkE2aEdoNWljQXF2?=
+ =?utf-8?B?L1dTRWRJbnVmdjJSczJaUmdxZEpLVitmL2Q0cFNyV0xBVTUreklmT2tsT1Zp?=
+ =?utf-8?B?ZEs5ZHJKbElnV0NKSDdEci9SUTl5ZHpvUnNma2JoNXgrYVFwOUdXVEJVZjFY?=
+ =?utf-8?B?c3l3TisrZnRLZEtxekZXTWdIZ3U2UU1SdkVnMVFsTTA0VXdySjBySmlvbmY5?=
+ =?utf-8?B?QThRRHNUczVEb1lja2dqTGhtcjM4WTQzK1hZMVJOd3d3bUQ2Q1lUYWtuVXpU?=
+ =?utf-8?B?TC9xb0FDbUdhdDlFUExHVUF3cEl3cmNnLy9ya21uYXlLRjJHZVRobkg2VDhp?=
+ =?utf-8?B?OUdoeVhtbzEzOWhwckIwWTN2Y0JCTFB3OUMxS0RJOXY5dlFxUkM2TXZRYnRI?=
+ =?utf-8?B?SFY3WGRIV21oaGVBNmtiU21QT0I0M2pWbEgvQmRKc3ZiWkVVeDludmVScEU3?=
+ =?utf-8?B?WEMzNTFZaHRYTFNjQjhyaDFyTkYvbkFrWFBsN2NmazFFZ1dVZnh1QzNuUzZS?=
+ =?utf-8?B?RnduODFxWWxWMHJVd0s1UjhiSzlnditKY0kwN2ZEV05mcFdKdzB5ZWZBVEQv?=
+ =?utf-8?B?VGVOZ2owYlc0aXdWK3V6SmZwYlJrVXVnVGUxNkRuOFRWZFBUc1Z1S2RJY1JW?=
+ =?utf-8?B?NDNWT1dRd3JrNzg0My8wdTFhQWNaNE5pTm50WXJOOXo1bFlFTTROM1BTNkQ3?=
+ =?utf-8?Q?Sas0oj+b72U0FluB7x?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3212435-c334-420d-bbdc-08df46ff7bf6
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 12:12:02.7112
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1Ei6/KgjPCUeFWjsja+w2WEyxOubUKV7BMFf+/4rQqkpf9Kuuuwern4cBpSkYCQV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4139
 
-On Wed, Nov 18, 2026 at 10:10:53PM +0800, Guangshuo Li wrote:
-> usb_del_gadget_udc() can drop the last gadget device reference and call
-> fsl_udc_release(), which frees udc_controller. The remaining remove path
-> then dereferences it to release its requests, endpoints and DMA pool.
+
+
+On 11/19/26 18:07, Ian Rogers wrote:
+> In amdgpu_ttm_clear_buffer(), 'r' is declared uninitialized. When
+> consider_clear_status is true (such as AMDGPU_GEM_CREATE_VRAM_CLEARED
+> allocations) and all backing buddy blocks already have DRM_BUDDY_CLEARED
+> set, every iteration of the cursor loop hits 'continue' without assigning
+> 'r', returning uninitialized stack memory to amdgpu_bo_create().
 > 
-> Hold a gadget device reference until this cleanup has finished.
+> Initialize 'r' to 0.
 > 
-> This issue was found by our static analysis tool under development.
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
+> -Wconditional-uninitialized; not runtime-tested on AMD GPU hardware.
 > 
-> Fixes: eab35c4e6d95 ("usb: gadget: fsl_udc_core: let udc-core manage gadget->dev")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> Fixes: 23bd7e67961e ("drm/amdgpu: get rid of amdgpu_ttm_clear_buffer")
+> Signed-off-by: Ian Rogers <irogers@google.com>
 > ---
->  drivers/usb/gadget/udc/fsl_udc_core.c | 2 ++
->  1 file changed, 2 insertions(+)
+>  drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> diff --git a/drivers/usb/gadget/udc/fsl_udc_core.c b/drivers/usb/gadget/udc/fsl_udc_core.c
-> index 878d70b55530..9d9d2164c5bf 100644
-> --- a/drivers/usb/gadget/udc/fsl_udc_core.c
-> +++ b/drivers/usb/gadget/udc/fsl_udc_core.c
-> @@ -2537,6 +2537,7 @@ static void fsl_udc_remove(struct platform_device *pdev)
->  	DECLARE_COMPLETION_ONSTACK(done);
+> diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
+> index 0f86777250fc..280fcdfb9cca 100644
+> --- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
+> +++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.c
+> @@ -2675,7 +2675,7 @@ int amdgpu_ttm_clear_buffer(struct amdgpu_ttm_buffer_entity *entity,
+>  	struct dma_fence *fence = NULL;
+>  	struct amdgpu_res_cursor dst;
+>  	bool vm_needs_flush = false;
+> -	int r;
+> +	int r = 0;
+
+Please initialize r directly before the error label, apart from that looks good to me.
+
+Regards,
+Christian.
+
 >  
->  	udc_controller->done = &done;
-> +	get_device(&udc_controller->gadget.dev);
+>  	if (!entity)
+>  		return -EINVAL;
 
-This feels wrong, why are you needing a fake reference here?
-
->  	usb_del_gadget_udc(&udc_controller->gadget);
-
-This is where it should all go away.  If not, then reorder the code
-properly.
