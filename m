@@ -1,88 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.160
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205121;
-	b=CTNyNcF5rBLeTrhuTq/mIIJXgkqdOPIX182D19UEVzwLTCR1glLxlvZeq45K3N4ymyMG
-	 Zrx6obPVrxlSQ7Q+51qHA7KP40MtVTdtuZGF5MSk1Y9Ae/eLhkXB7IzjbcJK4Tf7ANM1x
-	 PpTUIYfvdRTL383W/BDvfURJ2SkE2tGtAbudmOoC5CJ4BCfV6D2k9ys2zdkFWH3e76qHM
-	 6U3Bmm72EXwkbt27ZZYn9zum5WO97gk+K5ZIxCYFMlT3nVjeOzlIGv2jV07cCAadOR8kE
-	 jMDTjRUIbdsGfEH+zCt5aep2XIo02aU7HIiiAq4vVQr4PK8fQH3QzoCOHd58lFAv8AQ==
+	t=1795205122;
+	b=ccdXSg0leIS26luDFW/0SoMgQwTFrcCwOqNEFJdjhZhLt74b41gE5JEp9B391jIYLZbD
+	 u4+NitEKIyqrJFT3uscjnUVLZPtxzQLQa+wFOfcspmrhd0gcl8OvaXhlABIqnw63JFyjO
+	 9I0EyZxI/b2h7S/siwbGQ2dE2TAq1SVqDPmpp/HGvbmiYWXSqgb//dzJz2rg/dMpfk9MU
+	 UqSE52VUSCgaXVNASwPJwBmhOXCNRg0sX1vCwK6EtGVEUGK727rALVAVsAAiKO4lkO4ej
+	 9LQUCM0ZQL7vT7ts1ciTMNJccUoAbfx+tpW6A0POj2Ip0raOxlAWivQ1eQKn8GAP+ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205121;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=T9Xx4usP8rm74KCRP+cc35Zk5oNMrUUP5XG8xRlvNZA=;
-	b=NZChDrujgHIh0ssTQVLnkQbHDGgLMhW2PeKmIP0IxJKqVwVQDIAixed06E6iPfaV2OsD
-	 5+pNbkAcV8PGADi8wbaKynbEvcHvc6M0H7eCQiI5uWCjTlEJW68muy94i+gUEcw9jPlH7
-	 hcgqxJYjD6W6ym/uty5dWqAzkfUMb363Bxf3sgbf98KktWVWJkE103lbiUmPVrJeUN8SG
-	 tpTPZRClebqOh5zOTZLWsRINnxg/OEvSac+l9iBatg7e6OiMndaAXFfeW8tH6jSrNoqIi
-	 kKg+OhAeIKpicVGkMTV5//D+z89QW+/qdHGBWZVIR3MZevksDIv/qU8mECXnQFyWRiQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205122;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Lp04bo2sgP06USHAChXdOuNrd2K1DM1CxyrrPNLoIDc=;
+	b=3qDv8itAOx3N9ZMzonFlOWk4HzmjoJNshdQYXzvtO8JDZ1fqwDInX4HR+VujYFWmvBfh
+	 lmBRvUiGGFhM/CPbiA8zg+5BaG//MQXZ5TrH2MaiPgT8Ty7+6YYDWZZPC5/blMNB9dKAb
+	 WQVhmwEP+uZsr+xjvfofEb3DxMc8oNNbhGyFXRDfbtJBsgFa3026kqWkQguz04asoBCCy
+	 iDcK+dKDpuwnUmBVSSZRVVLT0/c7t5zXAiE6ne3R41TsSw6xWdmBNv8pL+afd1H2p6RRn
+	 BSM9gb0bpQJJ942m/CYbu8DQuuZQ/sYoqzG8SNZdcCEW3ueLCgKxHlVupPgk/jlwkrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rslWGKtk;
-	arc=none smtp.remote-ip=209.85.160.45
-Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="p/71m9Bl";
+	arc=none smtp.remote-ip=95.215.58.160
+Received: from mta1.migadu.com (out-160.mta1.migadu.com [95.215.58.160])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A20EA606A6D1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:05:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A20EA606A6D1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E418606A6EB
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:05:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E418606A6EB
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rslWGKtk
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-4932b13c4ccso801657fac.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:05:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795205118; x=1795809918; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=T9Xx4usP8rm74KCRP+cc35Zk5oNMrUUP5XG8xRlvNZA=;
-        b=rslWGKtktcjkas19+WmQFN+Nxf27A+CM0X1E42/0e9mi53VpeMyZWqBkfGvQMqzywC
-         /lzzqDMqlIO91W1lB1YYak4ZeFjJuPUJ1CVtS2qW1Gz1c5puScAiULhmuwN2iQQG0aJw
-         p06qrQXNcIHc06i347bQFoPNYXVykSl8f4iT5Zl1XvvLVQaNv1AZWiF2Iph3vEjqglda
-         lctWTTYKN/TT8OljOaLL7k+9hNRMmYW8b99GQoke9gOXmqr6FiWVYCDA3Uuf4VixwAGz
-         2TQ50r5dugIyBxo4blpS6ots7kLN1bUMoaF8GvmcYJ+fYai5u8vkXwDFkUI1QNZQzJ+7
-         rEYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205118; x=1795809918;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=T9Xx4usP8rm74KCRP+cc35Zk5oNMrUUP5XG8xRlvNZA=;
-        b=SvGPVQBkQeCsboF5i35Q5HL+MA9YqFjKsM0ozs8ABDRPdCd2Cjc+jdR/3+gzgDwpgW
-         iYUr8iSt7sz+nP4Yi1pZAUAsuL5ayJ837BvnrctgYGgIyBH47K7cOFxHqMQ2eFEmz3aW
-         XgoSB/jVZY8o0KtxgWP7eFPYhFTuhbTpmGbnoGLs+1PtNFIc/5rh8wtE4uSs2rhdLS2p
-         rBb/rZdK7G9jyxrxUj+sAho5BCCQa6+U3apNDkDA1rL06S2oDtRrAdj62v+T5wMngZZS
-         2UmAOh2OjaYbH3FboiSp2pG+RCxG06VVso00qiO0n1re9KRhFkdz4Fm7zHGLCVdEZmlJ
-         Ds9A==
-X-Forwarded-Encrypted: i=1; AL+hErHEj+WBKSySyML2lt7egtBTyqxkF+j+8IMBKFrm8Cxdr2DXJ1AWqrfImmddq4xAjWeJ1bkYPkmXJTn5LSE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9mraxcG+2aejXfwv0kWfNtRXeHGrGuZRVvdakep8yUuyh+t1wP
-	6K0nT5uPp6XcZ5UrwVecAUpY+xwUffCxHQAZUp/qO5IgtPnpwV3mFyfx
-X-Gm-Gg: AZFdTZf/3NF7sYznE8BvonZ9byXU13sMe8JlCmD6SxBLU77zk8PIuBRH2s6B89Z9dKC
-	hxbOrkYse5t2UOBmyXn2JZFC/WioLuWwl9it1KqDICwucdKjjuutGlaQleVxDXVG4cc9sq4w6FS
-	wo8zY6EZa8IQO/T2unMgKAsoasukdFqSzLBigNksrtKUeX9eX2yab9Few1IZS23AFm7bhrj+Yxn
-	/0H/qswXRCljEatzDm1kZskBmRoG3Tc654w8rJhrBrGelpuJMsoM40DwDLPKmj2UmZzA8X6Ic8r
-	CTrV5vZz/yIYnpmO6EoaLUX+tRVP89x3uYH5B0LVdzi4i9DgZtz3vD3fnMWX+mblbhgat+zZpJl
-	yB0VTfNPrcEXwRmRr4ruwog1RfE3VIGXQxq2xwm00Lgg2cJ/aBtlzHj2Q61U8RA7HdeM4XrtZUo
-	L22bp5XqbUvip4u99EZ0OHQC7BvR1ofZxUGF4S7mesVcJeVfY233Q1pIryMduID/67IQejhsL8y
-	Af8GgE978fdLiNbcdUE/70jvyekfi3D2TMhaimSeoFL1ChmJOdKRGEaM4G/Me0Lnm80BOfi+xZh
-	my4hvsU4sO9Iv4676C+BBu29SbJCWzxYlK8zJr2vsQ6HKgK/s7vrKf6kv3aIAaKdDr0B8fLzDGO
-	9FJiresGLOQdh0KIbgZw=
-X-Received: by 2002:a05:6870:4db:b0:4ad:8d9f:98a3 with SMTP id 586e51a60fabf-4bc87de13e3mr3153094fac.35.1795205118467;
-        Fri, 20 Nov 2026 12:05:18 -0800 (PST)
-Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5edc52aasm4122200fac.4.2026.11.20.12.05.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:05:17 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Fri, 20 Nov 2026 14:05:16 -0600
-Subject: [PATCH] drm/mediatek: ovl: Report coverage blending on older SoCs
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=p/71m9Bl
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=6iXX93MlfIOuC/eK1roCbWuvGCrP8yxENT5m24PLFpg=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795205118; v=1; x=1795809918;
+ b=p/71m9BlbwFJb0TdRnG4u3KnNBiLxaf0sq42iV6OQu6Z9SYyEPr3dD9dQR00EYbiBBwgM1zr
+ rTHfO/Z5O+ESBgZ8OIdrYGOa6vLxfQSYW6pp/Ww+9tbKEfsJVpmsion1KPjrHlSOlpoXrCHMsVh
+ wbpVt5WtceZQd1fsViRm65TQ=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 4ca826ec631b7483;
+	Fri, 20 Nov 2026 20:05:17 +0000
+X-Mizu-Trace-ID: 4ca826ec631b7483
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <7f9c12cf-b2a6-4238-b768-17d66b84b2a9@linux.dev>
+Date: Fri, 20 Nov 2026 20:05:12 +0000
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,130 +58,230 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] perf/core: Don't zero perf_sample_data in
+ do_perf_sw_event()
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+ mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, rkeilty@meta.com, atish.patra@linux.dev,
+ dgreid@meta.com, riel@surriel.com, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20261119211235.99805-1-usama.arif@linux.dev>
+ <20261119211235.99805-4-usama.arif@linux.dev>
+ <20261120091150.GN2668564@noisy.programming.kicks-ass.net>
+ <20261120091258.GH2669272@noisy.programming.kicks-ass.net>
+Content-Language: en-US
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20261120091258.GH2669272@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-rbrue-suez-mtk-ovl-coverage-v1-1-35040085fc37@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/x3MUQrCMAwG4KuEPC9ghkjtVcSHtv7OoK6SuiKO3
- V3wO8C3coMbGkda2dGtWZ05kg7E5ZbmCWIXjsTjbjyoahDPvkDagq8833ep/SGldniaIHoMRTW
- nkHXPA/HLcbXPfz+dt+0HCGu2Qm0AAAA=
-X-Change-ID: 20261118-rbrue-suez-mtk-ovl-coverage-198c11ba8b14
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795205116; l=4367;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=h4Tvd2gLk6BmOFdUxw3JC3W2Yz6nDyqzW/jYqV5h1bo=;
- b=jygRYnIZ6A4BG1IGZuzzTo8JDeciKHrqpHygmrw7zjCsTulx4jjcQ4bzto4hZFbM6Q7yhLwFt
- 4qkyVhGaLPOCo2whLDjeAKzLnJWJLoLWJ/JFUVijZG41BSFtOvQ8ye8
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
 
-Since commit 860e748bddcc ("drm: ensure blend mode supported if pixel
-format with alpha exposed"), every OVL plane on MT2701, MT8167, MT8173
-and MT8183 warns at boot:
 
-  [drm] [PLANE:37:plane-0] pixel format with alpha exposed but blend
-  mode not setup. Please fix.
 
-These OVLs expose ARGB formats but don't have blend_modes in their driver
-data, so no "pixel blend mode" property is created. They can't blend
-premultiplied pixels: mtk_ovl_fmt_convert() always selects the
-non-premultiplied color formats for them, which is the DRM "Coverage"
-equation. Since commit 9813e158d13d ("drm/drm_blend: allow blend mode
-property without PREMULTI") a coverage-only property is allowed, so
-advertise it and drop the comment saying it couldn't be created.
+On 20/11/2026 01:12, Peter Zijlstra wrote:
+> On Fri, Nov 20, 2026 at 10:11:51AM +0100, Peter Zijlstra wrote:
+>> On Thu, Nov 19, 2026 at 01:10:46PM -0800, Usama Arif wrote:
+>>
+>>>  kernel/events/core.c | 2 +-
+>>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>>
+>>> diff --git a/kernel/events/core.c b/kernel/events/core.c
+>>> index 57ea7e3c01a025..fa10ad7cfd99af 100644
+>>> --- a/kernel/events/core.c
+>>> +++ b/kernel/events/core.c
+>>> @@ -11212,7 +11212,7 @@ static void do_perf_sw_event(enum perf_type_id type, u32 event_id,
+>>>  				    u64 nr, struct pt_regs *regs, u64 addr)
+>>>  {
+>>>  	struct swevent_htable *swhash = this_cpu_ptr(&swevent_htable);
+>>> -	struct perf_sample_data data;
+>>> +	struct perf_sample_data data __uninitialized;
+>>>  	struct perf_event *event;
+>>>  	struct hlist_head *head;
+>>>  
+>>
+>> I like this one, didn't know about the __uninitialized thing. But I
+>> think we wants to be more consistent with this.
+>>
+>> A little git-grep seems to suggest we ought to do the same elsewhere.
+>> Shall I fold the little something below in this patch?
+>>
+> 
+> And this should be a separate patch again I think.
 
-The plane state now defaults to Coverage instead of Pre-multiplied. Both
-are non-zero, so mtk_ovl_layer_config() programs the same registers as
-before.
+Agreed, but IBS is not safe yet. For PERF_SAMPLE_WEIGHT_STRUCT,
+perf_ibs_parse_ld_st_data() writes only var1_dw and var2_w but sets
+PERF_SAMPLE_WEIGHT_TYPE, so perf_output_sample() copies var3_w from
+whatever is on the stack. INIT_STACK_ALL_ZERO hides that today, and
+INIT_STACK_NONE kernels have leaked those 2 bytes since 6b2ae4952ef8.
+With __uninitialized in perf_ibs_handle_irq() every kernel would.
 
-Tested on MT8173 (Amazon Fire HD 10 2017). The warning is gone, every
-plane reports a "pixel blend mode" of Coverage, and the OVL0 layer
-registers are unchanged.
+We need the below:
 
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
-Since 7.3, MT8173 and the other OVLs without premultiplied alpha log
-"pixel format with alpha exposed but blend mode not setup" for every
-plane at boot. They blend in coverage mode, and the blend mode helper
-now accepts a coverage-only property, so this patch advertises that.
-No register changes; tested on MT8173 (Amazon Fire HD 10 2017).
+commit e662f8539ca00096db3ee4d570efe97767427fbe
+Author: Usama Arif <usama.arif@linux.dev>
+Date:   Fri Nov 20 09:04:13 2026 -0800
 
-This patch was developed with the help of an LLM.
----
- drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+    perf/x86/amd/ibs: Don't leak stack contents through PERF_SAMPLE_WEIGHT_STRUCT
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-index 5445870716f9..81a4143f294d 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
-@@ -412,12 +412,8 @@ static unsigned int mtk_ovl_fmt_convert(struct mtk_disp_ovl *ovl,
- 	 * and supports premultiplied color formats, such as OVL_CON_CLRFMT_PARGB8888.
- 	 *
- 	 * Check blend_modes in the driver data to see if premultiplied mode is supported.
--	 * If not, use coverage mode instead to set it to the supported color formats.
--	 *
--	 * Current DRM assumption is that alpha is default premultiplied, so the bitmask of
--	 * blend_modes must include BIT(DRM_MODE_BLEND_PREMULTI). Otherwise, mtk_plane_init()
--	 * will get an error return from drm_plane_create_blend_mode_property() and
--	 * state->base.pixel_blend_mode should not be used.
-+	 * If not, the hardware only blends in coverage mode, which is the only mode
-+	 * those platforms advertise.
- 	 */
- 	if (ovl->data->blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
- 		blend_mode = state->base.pixel_blend_mode;
-@@ -667,6 +663,7 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
- 	.gmc_bits = 8,
- 	.layer_nr = 4,
- 	.fmt_rgb565_is_0 = false,
-+	.blend_modes = BIT(DRM_MODE_BLEND_COVERAGE),
- 	.formats = mt8173_formats,
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
-@@ -677,6 +674,7 @@ static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
- 	.layer_nr = 4,
- 	.fmt_rgb565_is_0 = true,
- 	.smi_id_en = true,
-+	.blend_modes = BIT(DRM_MODE_BLEND_COVERAGE),
- 	.formats = mt8173_formats,
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
-@@ -686,6 +684,7 @@ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
- 	.gmc_bits = 8,
- 	.layer_nr = 4,
- 	.fmt_rgb565_is_0 = true,
-+	.blend_modes = BIT(DRM_MODE_BLEND_COVERAGE),
- 	.formats = mt8173_formats,
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
-@@ -695,6 +694,7 @@ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
- 	.gmc_bits = 10,
- 	.layer_nr = 4,
- 	.fmt_rgb565_is_0 = true,
-+	.blend_modes = BIT(DRM_MODE_BLEND_COVERAGE),
- 	.formats = mt8173_formats,
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
-@@ -704,6 +704,7 @@ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
- 	.gmc_bits = 10,
- 	.layer_nr = 2,
- 	.fmt_rgb565_is_0 = true,
-+	.blend_modes = BIT(DRM_MODE_BLEND_COVERAGE),
- 	.formats = mt8173_formats,
- 	.num_formats = ARRAY_SIZE(mt8173_formats),
- };
+    For a load that missed the data cache, perf_ibs_parse_ld_st_data()
+    reports the miss latency as the sample weight and marks
+    PERF_SAMPLE_WEIGHT_TYPE as done, so perf_prepare_sample() leaves the
+    field alone. With PERF_SAMPLE_WEIGHT_STRUCT it writes only var1_dw and
+    var2_w, but perf_output_sample() copies all 8 bytes of the union into
+    the ring buffer. var3_w therefore carries whatever was left in the
+    on-stack struct perf_sample_data in perf_ibs_handle_irq().
 
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261118-rbrue-suez-mtk-ovl-coverage-198c11ba8b14
+    CONFIG_INIT_STACK_ALL_ZERO hides this by clearing the struct on entry.
+    Without it, every such sample hands 2 bytes of kernel stack to user
+    space. "perf mem record" asks for PERF_SAMPLE_WEIGHT_STRUCT on x86, and
+    since v6.14 swfilt lets an unprivileged user sample their own tasks with
+    IBS.
 
-Best regards,
--- 
-Ryan Brue <ryanbrue.dev@gmail.com>
+    Write var3_w as well.
+
+    Fixes: 6b2ae4952ef8 ("perf/x86/amd: Support PERF_SAMPLE_{WEIGHT|WEIGHT_STRUCT}")
+    Cc: stable@vger.kernel.org
+    Signed-off-by: Usama Arif <usama.arif@linux.dev>
+
+diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
+index 66e67e27224f18..9aa47751b37f6c 100644
+--- a/arch/x86/events/amd/ibs.c
++++ b/arch/x86/events/amd/ibs.c
+@@ -1376,6 +1376,7 @@ static void perf_ibs_parse_ld_st_data(__u64 sample_type,
+                if (sample_type & PERF_SAMPLE_WEIGHT_STRUCT) {
+                        data->weight.var1_dw = op_data3.dc_miss_lat;
+                        data->weight.var2_w = op_data.tag_to_ret_ctr;
++                       data->weight.var3_w = 0;
+                } else if (sample_type & PERF_SAMPLE_WEIGHT) {
+                        data->weight.full = op_data3.dc_miss_lat;
+                }
+
+
+The other sites look fine to me, including arch-PEBS: the drain skips
+records whose first fragment has no basic group, so var3_w is always
+written there.
+
+
+
+> 
+> ---
+> diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
+> index 49b6b8fce566..db6c87552594 100644
+> --- a/arch/x86/events/amd/core.c
+> +++ b/arch/x86/events/amd/core.c
+> @@ -958,7 +958,7 @@ static int amd_pmu_v2_handle_irq(struct pt_regs *regs)
+>  	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+>  	static atomic64_t status_warned = ATOMIC64_INIT(0);
+>  	u64 reserved, status, mask, new_bits, prev_bits;
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct hw_perf_event *hwc;
+>  	struct perf_event *event;
+>  	int handled = 0, idx;
+> diff --git a/arch/x86/events/amd/ibs.c b/arch/x86/events/amd/ibs.c
+> index 96c96369480a..cf0eafd67430 100644
+> --- a/arch/x86/events/amd/ibs.c
+> +++ b/arch/x86/events/amd/ibs.c
+> @@ -1483,7 +1483,7 @@ static int perf_ibs_handle_irq(struct perf_ibs *perf_ibs, struct pt_regs *iregs)
+>  	struct cpu_perf_ibs *pcpu = this_cpu_ptr(perf_ibs->pcpu);
+>  	struct perf_event *event = pcpu->event;
+>  	struct hw_perf_event *hwc;
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct perf_raw_record raw;
+>  	struct pt_regs regs;
+>  	struct perf_ibs_data ibs_data;
+> diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
+> index 4e344fb1ae3e..5f8bfc65b256 100644
+> --- a/arch/x86/events/core.c
+> +++ b/arch/x86/events/core.c
+> @@ -2157,7 +2157,7 @@ void x86_pmu_update_perf_regs(struct perf_event *event,
+>  
+>  int x86_pmu_handle_irq(struct pt_regs *regs)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct cpu_hw_events *cpuc;
+>  	struct perf_event *event;
+>  	int idx, handled = 0;
+> diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
+> index 0a34d674df59..5d84c18096a9 100644
+> --- a/arch/x86/events/intel/core.c
+> +++ b/arch/x86/events/intel/core.c
+> @@ -3819,7 +3819,7 @@ static int x86_pmu_handle_guest_pebs(struct pt_regs *regs,
+>  
+>  static int handle_pmi_common(struct pt_regs *regs, u64 status)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+>  	int bit;
+>  	int handled = 0;
+> diff --git a/arch/x86/events/intel/ds.c b/arch/x86/events/intel/ds.c
+> index 8444670cee4a..73f6fd66856f 100644
+> --- a/arch/x86/events/intel/ds.c
+> +++ b/arch/x86/events/intel/ds.c
+> @@ -1184,7 +1184,7 @@ int intel_pmu_drain_bts_buffer(void)
+>  	struct bts_record *at, *base, *top;
+>  	struct perf_output_handle handle;
+>  	struct perf_event_header header;
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	unsigned long skip = 0;
+>  	struct pt_regs regs;
+>  
+> @@ -1265,7 +1265,7 @@ int intel_pmu_drain_bts_buffer(void)
+>  void intel_pmu_drain_pebs_buffer(void)
+>  {
+>  	struct cpu_hw_events *cpuc = this_cpu_ptr(&cpu_hw_events);
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  
+>  	WARN_ON_ONCE(cpuc->enabled);
+>  
+> diff --git a/arch/x86/events/intel/knc.c b/arch/x86/events/intel/knc.c
+> index e887adc108ac..aa38b0ac3c7b 100644
+> --- a/arch/x86/events/intel/knc.c
+> +++ b/arch/x86/events/intel/knc.c
+> @@ -213,7 +213,7 @@ static inline void knc_pmu_ack_status(u64 ack)
+>  
+>  static int knc_pmu_handle_irq(struct pt_regs *regs)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct cpu_hw_events *cpuc;
+>  	int handled = 0;
+>  	int bit, loops;
+> diff --git a/arch/x86/events/intel/p4.c b/arch/x86/events/intel/p4.c
+> index 5368dc31787c..4ac429e55935 100644
+> --- a/arch/x86/events/intel/p4.c
+> +++ b/arch/x86/events/intel/p4.c
+> @@ -1033,7 +1033,7 @@ static int p4_pmu_set_period(struct perf_event *event)
+>  
+>  static int p4_pmu_handle_irq(struct pt_regs *regs)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct cpu_hw_events *cpuc;
+>  	struct perf_event *event;
+>  	struct hw_perf_event *hwc;
+> diff --git a/arch/x86/events/zhaoxin/core.c b/arch/x86/events/zhaoxin/core.c
+> index e506f677db57..fc98a7fdd3bc 100644
+> --- a/arch/x86/events/zhaoxin/core.c
+> +++ b/arch/x86/events/zhaoxin/core.c
+> @@ -355,7 +355,7 @@ static void zhaoxin_pmu_enable_event(struct perf_event *event)
+>   */
+>  static int zhaoxin_pmu_handle_irq(struct pt_regs *regs)
+>  {
+> -	struct perf_sample_data data;
+> +	struct perf_sample_data data __uninitialized;
+>  	struct cpu_hw_events *cpuc;
+>  	int handled = 0;
+>  	u64 status;
+> diff --git a/arch/x86/include/asm/stop_machine.h b/arch/x86/include/asm/stop_machine.h
+> deleted file mode 100644
+> index e69de29bb2d1..000000000000
 
