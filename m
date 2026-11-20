@@ -1,112 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165191;
-	b=jYQGxaGXOQ5lB7vwoul0cPCNFwEjixgV4RXQ6+dqC8tHuq29u+jqenE4wU2nUjj/Rwbt
-	 1KuA3LyINp6D48+gzIfB/I+Oz3PvbE6ccE//7ByHJGfjrCVhmlgbHl2T6WvtGfHN4dzSg
-	 awpu02rRQ3/+oUmq9jm88eaccQ103dYbEI3c6MNU+FBIE0Zrtz3MUeKiGfTi4f00VsDZA
-	 l9h6qqgzDMWwOMs5gzZfIkGV7m7AfnCqqi+AVjPCTopPdQNirJkX3PT9CH8/Dqjfc79fW
-	 CeyyfSEJ41JRDm1qrWyem7gX096hdN7+8rC43itx3h9/cCIXHLY+Q4kySbWyoiuuq8A==
+	t=1795165182;
+	b=zgEvuhr2U8jTM9NUlRZSLFLqPyZqZBdeSj89Er8GVbkVHEbJAdAw6xqDpzwz/SR4l8dM
+	 Q/yi4OyU0ebDFmyoGeirJHxRfzXrhhLU4LGqXiYPR7vVTGujq4ZmsYe77UNKCt2OZnU2b
+	 p4b2mLKI9iCZYx/I7dEN+2iTGbdKHvrhTYhtWDMhB5XsKC86491jE94WGe7SS6YK0qpQS
+	 0POkjylhXa2xziN+HLeewBsIbjVx8sZlWBoPGRewEZM9VKlZ1fQT2VwR1yh1+8iiJkdgk
+	 AtRKfM56kWKkHbqb8LOHajcILZrI0L20odSzfCyRXwxbeFdTPGvSdxXVk+RVEVSmHeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165191;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
-	 Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
-	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=+D3f9bi61lg53c1fUjRW0l7irQxN1pm6/gdiqoSesLw=;
-	b=YTYvOE+MirvxgMYCEMX7gnh0tZb6FOPtPfVnHESL45gwBpo2Kw+B60rEntoYOR5PaMLf
-	 F6l46cSrgBLtai4zGYZg2Wx5wTHtxYLI3e/0k6ixuyEiQNmf/wagpCCw0gvy4TDw44bze
-	 9HEdoeNs4Bw0FChNx2niYOmeQmIaZfGXkbx+gxb1ZJ+i2OXckCdqIbvueRUYRNA8fy86l
-	 JgNoWZRWAgwUaPY2cMzb/aQ92Xd10EjSd09MRu4R+dE46gn3BkqbFeFxDl300XjxpunlH
-	 LuAWe3nhtWNlHtwoJ12UaaaNuHLtUzkEZMyQgWVFNwksi6KRqQ5yuIyrw8Idp8BS8aA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165182;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2ccnweT/dXUZnBEt2kANRtABkZdQMfgjKD0LcKfebxQ=;
+	b=4fWlA8koM/8zLtIlSznmkU+U7uZ8XyQSj+akdU16s2AMrii8YBJ6EatZSWy33TuvHPim
+	 KKngYww2i7AcsjnSCf8qN62WIIoKUMDwGIudmQQ0AOOT0VaDaOI3UF0BRBWgVGkrVX27n
+	 Ziua+wmQ+MHToT9AU2cHbpaFb7dAdqoZ4/h4E7RdLhDMmYfNEQPMoE+pBsfNplmTzmA0h
+	 de59jgcm4pviviziByo/FAiwC8EPQ3CJwR5Wxt3rMxaS6pmj+YjJO8Wpxw1V6mO/dQAq/
+	 qBCnG1e4foCUppJVXVWmBXLLfqCH3vslFTWSaTZOh39qdEC4umlx4/vC3aDwRgnuXGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VUxJKpkm;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hOXDcmoq;
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTgP8oc7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C65E960A381F
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C65E960A381F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1705606A33C;
+	Fri, 20 Nov 2026 08:59:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=VUxJKpkm;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hOXDcmoq
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK8PclT748055
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=+D3f9bi61lg53c1fUjRW0l
-	7irQxN1pm6/gdiqoSesLw=; b=VUxJKpkmxdZ2GhcmqLeTLul9MOK/fZnYnTMBNV
-	V8pU3CCKb2V7Z+M1iR6rOBfy/KbuFsY6+zJFAXKhYyIYJ8yRpy3/x2WEp/oqRyrT
-	h+Xjnlwt9RDT60GPJFj1Ec3t9JYScers+sYC+14fVG6Yh6Y3PtdRF89xmPOg0AUv
-	ChXTSCiHcOZ8G67Y4s5j1JvHg0MfJ0N/g/RApn3v5hHJIaulOwXWb6ZrkmQ0lRRt
-	YzPEn3DBIz0bBIMR/MRAebEzURH46XDfou4X3WbzH0xYxISy2j7rIyqCF8ejzYpb
-	zU33wq3lkEZaY8/SvvAXQx5LPDdYOcsLxfb2RDQdpzULsMvg==
-Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j27fyjt6p-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:28 +0000 (GMT)
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-1383723dfddso788304c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:59:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795165166; x=1795769966; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+D3f9bi61lg53c1fUjRW0l7irQxN1pm6/gdiqoSesLw=;
-        b=hOXDcmoqspPjnJ2xEBKTLKGwIHlLSnVRzh3Iw4S4Ar5CHu8Q9QbLF6piT7MCb4LfZI
-         cyNyYHH+RYvKO+T8WivCLHZ5PDJEKs+CWzH7uakn5UobqvaFfQaIFK+rHjgmh3S/4A9r
-         57yPzKewlWlBUvFa7WXGczEiGe1bez4155QuZ65g36yfTqRsCdBRFfe31pg3pADqrFPa
-         oiGcFMW1AL2StQv2kwjiw9XBjSDcvms9a0usrNkqMmnbrBXh9NrvbMh2HnmsworFZXOy
-         txTvGd5jgH+rFCl11wDMGWc32mb3t47DFo6NzXwN0mo2AKIHpmYhn1uIetzeTt/DWNY/
-         /vNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795165166; x=1795769966;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+D3f9bi61lg53c1fUjRW0l7irQxN1pm6/gdiqoSesLw=;
-        b=ZqJ0kg8fP6ICxGGOTAv6jtdS+7HpNcRqFmPNCk3g7LIb78wqwWjhAzVzqIsRSS2C5C
-         /hvQVwY4lt5udFPbUXY/jkAz1oioBziT1vE8fSjJF4nyulpI87G/iJOmbCe6q/EycYGZ
-         GNiNv4IX2wSWgwyPuuJCDdNNPephkFepyzfPeC2gV5S0MvoI8ou1UwFppu6TGteOWtYZ
-         7+qxWEE0gvWl9F0SFlv7iE3jjUa/W2dVF9Cxt7jC3DR5sWSbEt0ZYHNkyC9c4NVd6KQ/
-         kZafe1KR6W4T3ObwfhiISqEyn/W5vmOXWBnrZF12jM6TYKRvH+rVrdnqcXmbq/dyDMPA
-         eaBQ==
-X-Forwarded-Encrypted: i=1; AL+hErG96fPUnIXCjAjHsRAcCHvgOfAX8yCLcCWMeS8FQRQTUCUiA024sx2dh2SRk91oF7O3PYob7NhUMUvb/D0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1HHYH3QpYNi1GF34y8+ZulQm7SB6lHyN8S6uKscd8QAgyip42
-	UDoL/ixGfj34CqOXoOtPywXoO/ehc+htVQ9XMtZPxA2JtjBKt7Isuu7QZ17PGAWCIMEM5pZyO/K
-	LyAJAXKo09cUYkmJ+5jEx49rjSo8EPBChaxiYnhluDRL6DDBgZdDad/RiRIe9nM3k+i8=
-X-Gm-Gg: AYBFou0WPOddGJ6XZ+bVqhCZv8EorWnlgp2jfljs06VOydA37VOR/y3q1/zIQnjdpMa
-	oy0ooTFjlgLyUrp3Dj93jSWQANGOcQXsKGCEpJ/yxQyL4isZpPlt6UdFDihB9U1v7TCVuTfc5oj
-	4Jb8ZtfU8uQ6IQ7EdVk+jyZE/iPyWhXQUpsrScc/X7EmDhu0XKjgpEJxTrn7AeRen3G7gk4PQsc
-	W/qzHMGBOXn7q9R2z/yfHLk+ujb6F6szwaZL+dM2rZTSswi8qunPlJypFGs04THkYyDRZLZvxuc
-	mWmwIoPtLXgJrcGe8u2+hSgmF9PD8bvJSXsE/TR5KIDI2N96f3lwBLb3OT/sTpTYpdsp/vq/Lzr
-	jP0PDISFabW/Oa7UL5kPAlzDkF7NRecaB6X4bsQ7wUwQvkpeiV0gNT9ZHV0th2ZEfXVh89+a5Yr
-	3uvkRPveP/7JOAhE/P3o2FN9LxCKQ8ZTS2xMAc2vRCdnd0KEzni9ut+ZxDWlJdg0eLGgqHp7y8D
-	8wuVcbY0k4=
-X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr2368687c88.10.1795165166051;
-        Fri, 20 Nov 2026 00:59:26 -0800 (PST)
-X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr2368661c88.10.1795165165529;
-        Fri, 20 Nov 2026 00:59:25 -0800 (PST)
-Received: from hu-kathirav-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm9490658c88.9.2026.11.20.00.59.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:59:25 -0800 (PST)
-From: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-Subject: [PATCH 0/4] arm64: dts: qcom: ipq9650: add and enable various
- devices
-Date: Fri, 20 Nov 2026 14:29:05 +0530
-Message-Id: <20261120-ipq9650_various_devices-v1-0-14f53b84c42c@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTgP8oc7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B329E1F000CA;
+	Fri, 20 Nov 2026 08:59:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795165182;
+	bh=2ccnweT/dXUZnBEt2kANRtABkZdQMfgjKD0LcKfebxQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bTgP8oc7MznmCSpH1M6XjrNMtHy+szYjRB2CiT5DyR/c6I9yFd/hDffzc87GAtzLE
+	 5OdLrwugRdy2r4poGAJ1MQ132kIFAw1dcXyICT9v9c1FjDK5RaOoiy45s3E04TyEQU
+	 REBtzS9O77iD6CsDYzgBXUP8oUlFwFMHUZDyR4KavOvEu+KSBR+OyEe5Ku6WwrLcYX
+	 AcidueS6sDErdg4gxx1d/YirwPbZBAL4/kN6fLQRTKRtQ6nkWNMhezu31LJ9lvE/sI
+	 i/uz4elWGPio01/QaWDUwHRp3OHDcUZZEgd7rzFD1pNXTIUhxbb2EFtX2ri3jI1pKZ
+	 ywx9JxWUQw0aA==
+Date: Fri, 20 Nov 2026 09:59:37 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Shakeel Butt <shakeel.butt@linux.dev>
+Cc: Jori Koolstra <jkoolstra@xs4all.nl>, viro@zeniv.linux.org.uk, 
+	jack@suse.cz, neil@brown.name, cyphar@cyphar.com, jlayton@kernel.org, 
+	amir73il@gmail.com, gregkh@linuxfoundation.org, tj@kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 00/12] vfs: add O_CREAT|O_DIRECTORY to open*(2)
+Message-ID: <20261120-archaisch-angleichen-wucht-037d8888abf0@brauner>
+References: <20261024213539.1307600-1-jkoolstra@xs4all.nl>
+ <20261118-moment-gehhilfe-gefangen-ce4618af6b54@brauner>
+ <av3U2jLO8Q01swyg@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -116,84 +60,44 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANsLAGsC/0WN7QqDIBiFb0X8PcGPdM1bGRGmb5tjrVKLQXTv0
- zXYr8MD5zlnwxGCh4g12nCA1Uc/vjKwE8L2bl43IN5lxpxyxSjjxE/zRUnarib4cYmty5KFSHr
- rGAhZl8DZngL0/v1dvjYHx6V7gE1l7tcIMC/5Mh21/6NG5Y/WnBKbwpMoyiQwSUXHK73yYncmA
- rHjMPikkXHWuHNfgRICN/v+AboiZznXAAAA
-X-Change-ID: 20261012-ipq9650_various_devices-fcd1e358cd1e
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        stable@vger.kernel.org,
-        Varadarajan Narayanan <varadarajan.narayanan@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfXwaJGd7a+5qVg
- kn6KoYjjL56YxoA95Tl4FIBw80BsTRoIa0gh8NkoDrEMJ5rzwsw5hdDa9Rs/4bYLFm3TlLcTeXj
- Kc8XS6cQIpIvWKdNepOiqCkRjVpee8E=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfX3eYzLEQDX70O
- OGeheUyqt9IYxPYsa5iMLdNXDBqWYTimCf+ETjMIgdqqzQEcWig05oTDt99USU2r2aR4ZcSUtwm
- M7m2jXYUsSGzpqaMuNn1Yi9Eu2lbOWjz0dNaMPYdXWfTt2gbPUr8wevuui8zoR8SXRquv9IdvAI
- 2wYz05/DPq/NVurwEG1+hw/Rzc8n4I/aEd30uvYviJiLaMhzifd634IpIPpD00VOLYTiFOXPD/t
- h4exZ5BChsu5CFX8nky6qrM21cLM35ut7rQe4f596eFBLikgUmw3g4/y2r5rQj5RzzkdeY5+Q+o
- O3yCqg0+dox6vYtEfaA279kABROPQwxUd7HTozpyE1DhI6qAmzO1yYWbzcBYlRrfmPP9whMtFIP
- lfFAcAf/nchQmNgYFsbUx9sVXBmWHWtu1ZkFi08r37HwueUjbba5W5km6QCA+Mi36achGosXehe
- gVggRh6/IsdrHeFRZpg==
-X-Authority-Analysis: v=2.4 cv=GZKCDgXL c=1 sm=1 tr=0 ts=6b000bf0 cx=c_pps
- a=bS7HVuBVfinNPG3f6cIo3Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=AkfpK71W5FzRhKASgtsA:9 a=QEXdDO2ut3YA:10
- a=vBUdepa8ALXHeOFLBtFW:22
-X-Proofpoint-ORIG-GUID: BGGKZ4su79J2WMfJXkFT6FrBkMYCZP1m
-X-Proofpoint-GUID: BGGKZ4su79J2WMfJXkFT6FrBkMYCZP1m
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 lowpriorityscore=0 priorityscore=1501
- suspectscore=0 impostorscore=0 bulkscore=0 adultscore=0 spamscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200035
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <av3U2jLO8Q01swyg@linux.dev>
 
-This series adds device tree support for various IPQ9650 peripherals
-and extends the RDP488 board support.
+On Wed, Nov 18, 2026 at 08:42:47AM -0800, Shakeel Butt wrote:
+> On Wed, Nov 18, 2026 at 05:30:20PM +0100, Christian Brauner wrote:
+> > On Sat, Oct 24, 2026 at 11:35:27PM +0200, Jori Koolstra wrote:
+> > > This series implements new semantics for the O_CREAT|O_DIRECTORY flag
+> > > combination for open*(2): perform a mkdir and open the resulting
+> > > directory; return a pinning fd (which mkdir does not).
+> > 
+> > I've applied this to vfs-7.5.directory and folded a bunch of fixes into
+> > it. Each fixup is attached as a git note to the commit I folded it into
+> > so you can see what I massaged:
+> > 
+> > git fetch https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git \
+> >     +vfs-7.5.directory:refs/remotes/vfs/vfs-7.5.directory \
+> >     +refs/notes/vfs-7.5.directory:refs/notes/vfs-7.5.directory
+> > git log --notes=vfs-7.5.directory v7.4-rc1..vfs/vfs-7.5.directory
+> > 
+> > The biggest change is kernfs. kernfs_iop_mkdir() now just looks up the
+> > new node by name so the kernfs_syscall_ops change is gone and cgroup and
+> > resctrl aren't touched at all anymore.
+> > 
+> > The kernfs patches are in vfs-7.5.kernfs as "kernfs: instantiate the
+> > dentry in kernfs_iop_mkdir()". I'll sent that out soon.
+> > 
+> > I split out of 09/12, your kernfs_iattr_rwsem fix and the kernfs part of
+> > 11/12. vfs-7.5.directory is based on the first one.
+> > 
+> > I dropped "vfs: move ->create check in lookup_open() to before
+> > try_break_deleg()". vfs_create_no_perm() does that check itself now.
+> > 
+> > Let me know if I messed something up.
+> 
+> Just a heads up from my side. I will be sending couple of kernfs series over the
+> next couple of weeks. First one will be removing kernfs_iattr_rwsem from
+> mkdir/rmdir paths and later ones will be trying to make open, lookup, stat and
+> readdir operations lockless for kernfs.
 
-It adds QUPv3, download mode, QSPI NAND, BAM, CPU idle states, USB,
-DSU PMU, LLCC, SMMU, and eMMC ICE support. It also introduces a common
-RDP488 DT file shared by the eMMC and NAND variants and adds the RDP488
-NAND variant.
-
-Additionally, fix the incorrect TCSR mutex address range.
-
-Signed-off-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
----
-Kathiravan Thirumoorthy (4):
-      arm64: dts: qcom: ipq9650: fix the TCSR mutex address range
-      arm64: dts: qcom: ipq9650: add RDP488 common DT file
-      arm64: dts: qcom: ipq9650: add and enable various device nodes
-      arm64: dts: qcom: ipq9650: Add RDP488 NAND variant
-
- arch/arm64/boot/dts/qcom/Makefile                  |   2 +-
- .../arm64/boot/dts/qcom/ipq9650-rdp488-common.dtsi | 376 +++++++++++++++++++
- arch/arm64/boot/dts/qcom/ipq9650-rdp488-nand.dts   |  17 +
- arch/arm64/boot/dts/qcom/ipq9650-rdp488.dts        | 183 +--------
- arch/arm64/boot/dts/qcom/ipq9650.dtsi              | 411 ++++++++++++++++++++-
- 5 files changed, 806 insertions(+), 183 deletions(-)
----
-base-commit: adcad7f4e6332cff3d6d7165f41584899f598534
-change-id: 20261012-ipq9650_various_devices-fcd1e358cd1e
-prerequisite-change-id: 20260820-ctrl-6015e1503b24:v2
-prerequisite-patch-id: 648145477ef49e49ea4eac0423acb592882281ce
-
-Best regards,
---  
-Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-
+Sounds good!
