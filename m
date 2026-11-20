@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795153069;
-	b=ZE2h7oPsnBzjKd1A/ny44S02qarTPtyn2fFAD1Oz6gOUf74ybZIdixqWsvOjKQEcmT78
-	 HtKsjpyvqmD9VUj3GA+Fgq/MWg63Q2T4G+rwnNRGCPO9QuEaAX6u/fN9IjAhIJpsPYtrZ
-	 f1wapygTI6/Rd0XDUksR52Q1RRBtllBdTyV/27clV8Vhc2TGSF5riIO3fzkQLd+JItZmH
-	 RKu9KDgTUFMliI8p5TI0GJ6cwEHLToTRWUM58y0uTT3ymxkMbIlpdPOearQlMHk2DAekR
-	 0itO/NINQUteKNZ7u/CR5g8+oeaa5pVZ/JgEaLtacZSuFfLQDlKJpCBMYr9yN3PawEw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795153069;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=t/++9kq+HgKKBvu8dsfTWVjPVohzWSlwX7QOayHmTpk=;
-	b=282NafvG9S6jotW+tMzJ1btbzfdschmrs8AiPzjc/FyG6NZGPrtc9NXXscufQlrtbKj6
-	 /4xflWe6I0Pty0Y7RufVhubdKNH6O6ZI/EzeN4/5cDoy4Sk2ewMN1jBP1HO69LM5BsOP/
-	 hr9uOPXPDY1+zSontpeKxLdYLV6HKKVMFsaDJk5+saJhmBpZR2h6zRFBXdN/c5ms9bz+H
-	 Ifxw8j1nPFkdQ2/TcHvx3UKVaB62/+xRjgjzKcbGlTxyW1m+g6m/Rws/NoZyh2/P+4Q4C
-	 P724eMw0YtgKSmFQp+VXjpzv89/xXeQPHguzHkjf/C0u7v9sYpsfOicIMva1RvTCg0w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=1wt.eu;
-	spf=pass smtp.mailfrom=1wt.eu;
-	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=dEdbW+lO;
-	arc=none smtp.remote-ip=51.159.59.229
-Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795153087;
+	b=v2ndyUh3eZiF0UxAPM4qt9M8dJ/0sOLRqGkGo1JD30OQU6TdpqDAAAFVRjp7RJNNobgQ
+	 uvKFL/F+EE8Oz2iWyImGfsEsMslBodoED8UxMQ7NU2mwcAhBmtsqYIRQNA7yfV8N2ycvw
+	 mDZ3taCB+25iryKBfU4bxSOLD6RBRrQsgWVzw6MlvcW1bh8qWlcPYAEIivIUB0xJ7SmXb
+	 zbrdUeC4UrIx36JClxiTqqh7FOM5LvTZPKH2dTXMnUHDhA5sz0pzS8R4uYbams5rZEv1X
+	 MIXpUOsWgqIxxcHhX46BJqdRuRv5UM9IM/HmfYuYxRyenznOEhwNy0wpcmhuHst4M8g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795153087;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=jDpsk1/lI6+XVtf9gZGOXGxryMz7hNIRZGd1jFeHMOY=;
+	b=dP3p2F3Jd/bBDLv03kKVXYTvVF2Xw1K9msjt4Pa3H3FQztw5Sl1eThP8J85XIBT47eDG
+	 g1GuzC49ufARLHbouypCr2anPN9Kf0KPDxDWi46UaImpsKo1jIQaE4m6sEXqP+SKGidUV
+	 G8azOh/P0TDAyeb0U/brIHAphYK2fAK4dQlWqlKlQpnUAvEs0JincsAaXu5jUGMCEVUTG
+	 7JlvS/lFGZfCvyPa5qmLwTAhMLXw7qz/3Ufu7e1xB8WFDWKgYkf88JRFWmVvZzgxed9fP
+	 oqBOdR1cj923XW3W0yG/s9oBo0jDf2MMKXfHwVO/XHxo1KePjWRKRMw33lp7CPRmZdw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFlAPdGh;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9233606A320;
+	Fri, 20 Nov 2026 05:38:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFlAPdGh
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795153087;
+	b=wpghpT3fc4kyPl4LSwEMpUtGWvaq0pLLUvodDrqlZhkAmDLs1KM91xwUHo/Jw+S6S5RB
+	 brOcCWJAjMaWwb5rS9KXQSe0v4iZ0Q7vvBk7gngKH//O9qrmza/enw3QJmcYD4a4hj/Et
+	 5GFulbIIBhxqd4NYxJeYELnDucqeP0QeFg/swr6v8tWWMTNsSmuYw9zkEjFJ0UDk6pnzk
+	 XwS0+yM0VxHcurlWDkMtTdrj9vpkSjyEaSu7XXzv79ULY/xvc5GKELEdEU+kd7tZtVRUk
+	 rHu90/Zi6oVoslf1Cc1imgH1flQ839c5Wgk2Qib9M17CN9dFvyHQEJfH75EgjQu8AvQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795153087;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=jDpsk1/lI6+XVtf9gZGOXGxryMz7hNIRZGd1jFeHMOY=;
+	b=QpOjJDiZ4kduWAF8tGSgDrnZ3aNvmaC9cWVt9+G3QfLI1P+CDcJCKyucVKn825+AhdIv
+	 DrSyFl22R4Vj3PGy9pk2qJlOxTm5QGsQfjwIRJRPrqwlVxi2+hTRrIdVaLn8gjUo4M3S1
+	 vlFimI3BkszF2gV7RzSDcVOZaqy2QVuG1gTN0BI688vXRK/uwloB5k3Ks6fLYflbSGgz6
+	 Ds4NBdkTHTGGcNCsI/DEs7kyhKEkHV5V375sJ/+ji2QNr7/gFxYou5DIAZSCuj5hkkWG2
+	 TDTJPl0C01FHf0h7zTDId8gHJXPM9IaO2WDcvbuxV0qOCY4GOtAtb9i24ttDRMBQimw==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB81D606A320;
-	Fri, 20 Nov 2026 05:37:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB81D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=dEdbW+lO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1795153065; bh=t/++9kq+HgKKBvu8dsfTWVjPVohzWSlwX7QOayHmTpk=;
-	h=From:Message-ID:From;
-	b=dEdbW+lO204v036Omb+vvUs1YY+BCTxSxm9WkJq5baDnIsL7G/zo3ItFguZxUQwO4
-	 1W9BbdpK1iEZSJNMJX+TQwjWWbfhXZSKIc0eLTKG9WwvS6Icb/TmWZg9aRGiQpCveP
-	 MXMwCGKVB8LevxzTTvt4gy3rDiELZD03gfKAn4W0=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 19893C094A;
-	Fri, 20 Nov 2026 06:37:45 +0100 (CET)
-Date: Fri, 20 Nov 2026 06:37:44 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: n3rd <18670333770@163.com>
-Cc: "netfilter-devel@vger.kernel.org" <netfilter-devel@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        Pablo Neira Ayuso <pablo@netfilter.org>,
-        Florian Westphal <fw@strlen.de>,
-        "security@kernel.org" <security@kernel.org>
-Subject: Re: [SECURITY] netfilter: ipset: double free in hash resize vs
- inline gc
-Message-ID: <av_cqPmvrh5iT8Tw@1wt.eu>
-References: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 10E701F000C6;
+	Fri, 20 Nov 2026 05:38:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795153087;
+	bh=jDpsk1/lI6+XVtf9gZGOXGxryMz7hNIRZGd1jFeHMOY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=FFlAPdGhM74nZPhIOt/7CbvInyJpS3WQDwkUCiSPVfteu6TuZ29pbn8qKVhAjW0wf
+	 M7tm2j+3KnI3f4E1o6TX3tSfBe0ORZprAS+/APD3LtFZaL2gQa/4VE0IP4W5HazPn/
+	 Udi2Koafyc+OVGpzSVenbZZO7rxtJuSVKSt+9pIv9gb1uRwrIXnW99jtO00LAYPN6c
+	 aOtuXyFrbpoArUp1++y/cVwTxo52HJvd9UowtKy7Ybw6ZEyu5XKdDHK1mOFVpJG2eq
+	 tHpJWxsmu2i+CNFh+nKGXtEKMXBAc12SIKR8VvEusBtQ17tZ5UWvjZglcwaaDUDSF+
+	 rvqlcVzslOqJw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 8EEEA496DE;
+	Fri, 20 Nov 2026 05:38:06 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Fri, 20 Nov 2026 05:38:05 +0000
+Subject: [PATCH 1/2] ALSA: firewire-lib: Rearm the FCP transaction after a
+ bus reset
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,126 +83,76 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <3a7a0984.dc22e.1a1f6bb0630.Coremail.18670333770@163.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-firewire-busreset-v1-1-8bb9079a2984@gmail.com>
+References: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
+In-Reply-To: <20261120-firewire-busreset-v1-0-8bb9079a2984@gmail.com>
+To: clemens@ladisch.de, o-takashi@sakamocchi.jp, tiwai@suse.com
+Cc: stefanr@s5r6.in-berlin.de, linux-sound@vger.kernel.org, perex@perex.cz, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795153085; l=1810;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=EE0vJ5UFqV3N6FNYlkeZNWSM/T/1oLRQlOmSvnwwh9g=;
+ b=s2EAJox6FjbrpFgp6SBB/2R+YVmgxiG6MCYUTB3nsjnSxeNnaRiDs0ZY7Mr46dbd67uhBexKL
+ K5eKsEuRjngCMFmpPJObtvnSx28t/G0b5okxp6rBwJPJV4iEXd1Ls76
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-Hello,
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-On Fri, Nov 20, 2026 at 10:13:34AM +0800, n3rd wrote:
->=20
->=20
-> Hello,
->=20
->=20
-> I am reporting a security bug in the Linux kernel.
->=20
->=20
-> 1. Affected kernel versions
-> Linux v7.3-rc7 (mainline, tested as 7.3.0-rc7) is affected and was reprod=
-uced twice on fresh QEMU guests. The same unguarded call site is present un=
-changed in v7.2.9 (stable) and in the v7.3-rc series; those were checked at=
- source level only and were not re-run dynamically. No bisection was perfor=
-med, so the affected range is stated from the source of the call site rathe=
-r than from a tested lower bound.
->=20
->=20
-> 2. Problem description
-> ipset hash sets are generated from one template, net/netfilter/ipset/ip_s=
-et_hash_gen.h. mtype_gc_do() has two callers. The workqueue caller mtype_gc=
-() takes gc.lock and checks t->resizing before the sweep. The second caller=
- is at the top of mtype_add(), which is the insertion routine shared by the=
- control plane (hash_ip4_uadt) and the packet path (xt_set SET target, then=
- hash_ip4_kadt), and it neither takes gc.lock nor reads t->resizing. On the=
- other side, mtype_resize() copies every element of the old table into a ne=
-w doubled table while holding only rcu_read_lock_bh(); it never takes t->hr=
-egion[r].lock, which is the one lock the inline sweep takes. The copy is a =
-memcpy of the element extension area, and the comment extension in that are=
-a is only an 8-byte pointer to a separately allocated struct ip_set_comment=
-_rcu that has no reference count. So when an element X expires while the co=
-py loop is still running, the packet path can sweep X as expired, free X's =
-comment on the old table via ip_set_comment_free() and clear the pointer th=
-ere, while the new table already holds the same pointer. When the set is de=
-stroyed later, the new table walks the same element and frees that comment =
-a second time. Observed on a KASAN kernel: BUG: KASAN: double-free in rcu_f=
-ree_sheaf, Free of addr ffff8881069f1900 by task ips03v2, and the Allocated=
--by stack is the kasan kmalloc helper, then ip_set_init_comment, hash_ip4_a=
-dd, hash_ip4_uadt, call_ad, ip_set_ad, ip_set_uadd, nfnetlink_rcv_msg. The =
-object is in cache kmalloc-32. The same object is also read after it was fr=
-eed: BUG: KASAN: slab-use-after-free in strlen, Read of size 1, with strlen=
-, ip_set_comment_free, hash_ip4_ext_cleanup, hash_ip4_ahash_destroy, hash_i=
-p4_destroy, ip_set_destroy_set_work. Two fresh runs produced 16 plus 14 and=
- 30 plus 14 of those reports; a control run with the packet path disabled p=
-roduced zero reports while performing exactly the same 15 resizes.
->=20
->=20
-> 3. Reproducer
-> A static x86-64 trigger program speaks the ipset nfnetlink protocol direc=
-tly. It creates a hash:ip set with the timeout and comment extensions, inst=
-alls an iptables OUTPUT rule with the SET target and --add-set, sends UDP p=
-ackets to 127.0.0.1 from a bound source address so that the packet path ent=
-ers mtype_add on every packet, and arranges the timeouts of 1500 filler ele=
-ments so that their deadlines fall inside a table resize. The complete repr=
-oducer, the guest initramfs scripts and the full console logs are available=
- on request; I did not post them publicly.
->=20
->=20
-> 4. Conditions
-> Local attacker with CAP_NET_ADMIN inside a user namespace. No init-namesp=
-ace capability, no CAP_NET_RAW (the packets are UDP to 127.0.0.1) and no sp=
-ecial filesystem are needed. The kernel must have CONFIG_IP_SET, CONFIG_IP_=
-SET_HASH_IP and CONFIG_NETFILTER_XT_SET, and the set must use the timeout a=
-nd comment extensions. This is a race, so the trigger runs several attempts=
- per boot; on TCG it hit within the first one to three of five attempts. KA=
-SAN with kasan_multi_shot is required to see it, because stock KASAN stops =
-reporting after the first finding.
->=20
->=20
-> 5. Suspected location
-> net/netfilter/ipset/ip_set_hash_gen.h: the inline mtype_gc_do() call at t=
-he top of mtype_add(), versus the guarded call inside mtype_gc(). Also mtyp=
-e_resize() and the memcpy of the element extension area that carries the co=
-mment pointer. net/netfilter/ipset/ip_set_core.c: ip_set_comment_free() and=
- ip_set_init_comment().
->=20
->=20
-> 6. Suggested fix
-> Give the inline sweep the same exclusion the workqueue sweep already has:=
- take h->gc.lock and skip the sweep when t->resizing is set. A more complet=
-e variant is to take t->hregion[r].lock around the per-region copy in mtype=
-_resize(), so both sweep entry points are serialized with the resize. For c=
-ontext, cffcf57bf03c only fixed the workqueue caller, and f30415929be8 and =
-a442c8a89fb9 fixed other sites.
->=20
->=20
-> 7. Mitigation
-> Do not create ipset sets that use the comment extension on affected kerne=
-ls, or leave CONFIG_NETFILTER_XT_SET off so the packet path cannot enter mt=
-ype_add. Restricting unprivileged user namespaces removes the unprivileged =
-reachability but does not fix the bug.
->=20
->=20
-> 8. Disclosure
-> Public. This report is being sent to the public netfilter list; no embarg=
-o is requested. The reproducer is not posted publicly; it is available on r=
-equest.
->=20
->=20
-> 9. AI-assistance note
-> This report was prepared with an AI coding assistant. Per the kernel secu=
-rity process I treat the issue as public and am not posting the reproducer =
-publicly.
+When a bus reset happens while fcp_avc_transaction() waits for a
+response, fcp_bus_reset() moves the transaction to STATE_BUS_RESET and
+wakes the waiter, which sleeps and then sends the command again.
+Nothing sets the state back to STATE_PENDING, though:
 
-If you used AI assistance, your LLM ought to have told you that our doc
-requests that:
-  - a tested fix is always provided, and in a format that can be applied
-  - the security list isn't CCed when the message is posted to public lists
+	wait_event_timeout(t.wait, t.state != STATE_PENDING, ...);
+	...
+	} else if (t.state == STATE_BUS_RESET) {
+		msleep(ERROR_DELAY_MS);
+	}
 
-Can you please propose patches for your different reports ? This is general=
-ly
-trivial to do for LLMs after they find a bug because they have a complete
-view of the problem.
+fcp_response() only accepts a response for a transaction in
+STATE_PENDING, so the response to the resent command is ignored, and
+wait_event_timeout() returns at once because the state is still
+STATE_BUS_RESET. The loop then resends the command every
+ERROR_DELAY_MS without counting tries, and the caller never returns
+unless sending the command itself fails.
 
-Thanks,
-Willy
+Set the state back to STATE_PENDING before resending, as the
+STATE_DEFERRED branch already does.
+
+Found with a static analysis tool and checked by hand.
+
+Fixes: 31ef9134eb52 ("ALSA: add LaCie FireWire Speakers/Griffin FireWave Surround driver")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
+---
+ sound/firewire/fcp.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/sound/firewire/fcp.c b/sound/firewire/fcp.c
+index e60bfd0ee4ac..d733f6123baa 100644
+--- a/sound/firewire/fcp.c
++++ b/sound/firewire/fcp.c
+@@ -273,6 +273,8 @@ int fcp_avc_transaction(struct fw_unit *unit,
+ 			break;
+ 		} else if (t.state == STATE_BUS_RESET) {
+ 			msleep(ERROR_DELAY_MS);
++			/* resend the command and wait for its response again */
++			t.state = STATE_PENDING;
+ 		} else if (++tries >= ERROR_RETRIES) {
+ 			dev_err(&t.unit->device, "FCP command timed out\n");
+ 			ret = -EIO;
+
+-- 
+2.34.1
+
+
