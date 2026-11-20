@@ -1,181 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795157087;
-	b=n66nUqsTO0euOa20oMVb3MHA0e5+xNb5PCS6aKcIqEf2fkDbOnZ0bFC5Tb6ujNyLFLY4
-	 QawapTC5IdR3HU8DlTpxo+tWxCfxKjHDjfikke/3Tlpse0jstS2HdabvqAa9Ylfx5kxdO
-	 NkUrrnz4XWGjYW6+htZyPdRa04aKGtvm6BODkt8sOL9rqmyYxxRzQtgamKBfVSC3Bh32K
-	 f4O4bmReiWK0suM6CzUY3IoMiyKD4tktH+Fqx7D0b/hs5ypZsbMqcwprrjMO3Msj8N1yt
-	 jEdMGcl035WWb57HaofMnVih1lQFQCxCBYbd6Aiw6z5/Pt9yFPAi6u1qPdC1HeCCcCg==
+	t=1795157158;
+	b=xn/qyyFl/hkPdM1w6GSvSiHs7zY951BiK4C5FmJ4W7Fi/mvrG8VwRG0sKD3FlPOGynhi
+	 UEcuQb8ByoJDJyb9u4GuXwJx9vKh9+RwjCbqfOsvr0ARrVtNoaQ2w/pzGChsXNWNMgwG8
+	 Y7iehYOtMU8xjd3hPiJs+JfQV0dp8LB88gustFQxZSv5vmxDIRXBBKQYaB5Z9Ok1I4Xte
+	 5ZvG+YhRiRPSKntODMxSI1+4U9EphkgBx2qgjkth16bIujpkswcNZqHsYc2/QmzEYsMFf
+	 hyHDZUE8kmKJnhunfZzLRnZlFxuaU0pnVPXyT3seRUHpLRp5Z7I/QyYsKfSbXQ1sV5Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157087;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:DKIM-Signature:
-	 Received:Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:
-	 Message-ID:References:In-Reply-To:Accept-Language:Content-Language:
-	 X-MS-Has-Attach:X-MS-TNEF-Correlator:x-ms-publictraffictype:
-	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
-	 x-ld-processed:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:Content-ID:
-	 Content-Transfer-Encoding:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=0IzH8u7xZiG+5lki1/VjWbgx/dZQIYBA5rj9yNyAjEA=;
-	b=QCOPW0/a84sg/jNo98kNmTsPqcfRykksbDdbFGqLpqAHi69YWiRUsbAzMegDGkk3E4s7
-	 u0VNUaTND4XX+4HPHmB7v5WMvPCtQi2UzVxhTh9yVVohPSd1cWPKY+E7b9KBQF0gJuWDU
-	 xCQJxFI2SmF8HEV2RRclke9VQUBj3wsuhRn3uPAkbvDPhwjphZ5G6Ls1EesIo2LYE0tGH
-	 W0MP1LDOl0WSzLlJZsN/pjqxDQt2khXFi8lrQhhemfg7XR5h7CBsAwrr7uUHe4Q4V9x/M
-	 XREvWTvnIZExLZRM+boMdW2BJBddvNS5WDCaCgf2xTE7S8XdmbKp0GgtTp+dB2S35Ww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157158;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=PhesRb2fJL2sv3VQKNbTEK9VdI6Zm/OpjPUoDzeKyOI=;
+	b=btQjDhYPt5iRkANumy83MxY1hyNihIsLLaAJ7mpZOxBeViebawcZnkYhahvDEt9TnYGQ
+	 AInJC5U0LeSKWt8vxvnhoHqTY/Pmzvvl7gaMLkNccgtkXn4LnijvQRTZhSAwJkkXNpa5y
+	 uJ32HJRl5Dn9JgC/fnPg/C5oumw9GX2b8sZ+fTzGIdLK0OQpbcRy9nUyN+WDEV/xbpiME
+	 aiNyAAls7GNtoklopdCEE38DxGaIR94rSlOlquYu1EXZkxXZWHUgYwsW4KfGifkAE7j3t
+	 OU/B3bvOEtPE4AhpQaApaZjuCdRXIUsrz17oNqi18m63cYQCcd4lVJQZZnntkSMKRvQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ti.com;
-	spf=pass smtp.mailfrom=ti.com;
-	dkim=pass header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=TrRIABQu;
-	dkim=pass header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=TwkZ3TrN;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=148.163.154.28
-Received: from mx0b-0002e601.pphosted.com (mx0b-0002e601.pphosted.com [148.163.154.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QnXYqMQr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6813E606A331;
-	Fri, 20 Nov 2026 06:44:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6813E606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ti.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ti.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7291606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:45:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7291606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ti.com header.i=@ti.com header.a=rsa-sha256 header.s=proofpoint-05-2026 header.b=TrRIABQu;
-	dkim=pass (1024-bit key, unprotected) header.d=ticloud.onmicrosoft.com header.i=@ticloud.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-ticloud-onmicrosoft-com header.b=TwkZ3TrN
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3ULAe3414297;
-	Fri, 20 Nov 2026 00:44:38 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-id:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=0IzH8u7xZiG+5lki1/VjWbgx/dZQIYBA5rj9yNyAj
-	EA=; b=TrRIABQue9DNjHreFKuOz4yeGFG9u46zr5j74chjPC6fHG/UUXGLc86rF
-	zJgBTdhU2cjly3tVKdF6zL9QNrJwaWCZbHrYbEo5S6LZZJQHp3yOo2khlRxyHOAH
-	dQIoGtbj1nSi/Q9lro12Sv6POokAxSKWAoIoNJMPi6KHf22sWoqvMX8Y70dWU4na
-	Qqm6M6hmzvyUgnpX2MbmGh+rBcKkTo1Uq44rqEhbLsOSMFY4vKWIgUh7sIUfBjV7
-	YAfsx6ZkA5m8U2fn5GhqdM+2iWXOGbm//heOzRR5qwRzjKzZE6ZKfxHicgtR2x53
-	fC3fwpGVId8+NjE68ltTj1euaPQFA==
-Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012035.outbound.protection.outlook.com [40.93.195.35])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4j2d6m147c-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 00:44:37 -0600 (CST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yAq9WICH4ujKJsDr6HTkuJ8o2NlSTQdUyx0S+RVzlRDvED4OuwBWse5PnO6ZpLQIzpVlgDVJ+0MfyuQkiTZY50N8O9O6Q+iCHFJdmAPRNuIlRTpEsnEh1Mvnm6tyI7bByuk5uFRXoDRpC9bbRYtFnw0j9EFMJYPM09k6+Y5hcDPX9nKWwzdnz/gQ5U1kjz3XlsBR/v2T9MbxJJrKqFx+bLLx+FBFg+AJzOsgyyDsXlFWTl47aRxMNzsANo/pW/p5AdLe7I80Ys7pB5NikadZW1tIO89xcTVZbVR0OqHVDv0VLxEDaNyVZ6QwbQmYQfs/A//Y1YVMvj0tec7Bjza04Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0IzH8u7xZiG+5lki1/VjWbgx/dZQIYBA5rj9yNyAjEA=;
- b=QKo/nSdYB1fV9wOaTQtof/CBRzzUSWu8hLNdjDeH8Rwp0XzPXsOBVUOKUT7rPvz6L2nuwgStVxg7ez4HlezKaAIJmaLJna/AQFTf3a1Gedd2D16wcHbfO7AJXZMWMUZ6ImEnSAJVxXos9SFGPlhS4PJ1jgzcUAL8IzSPngaHiVR+mkbhWwW9nqJjGhE8XuTwvRhGWmhDQ6uGpESfuqfoM8jV8gAKsFyLCAE3j2F+DA/Mm6bx+ftDFKYEeeZLYg0OHV1R1BEvlzS5Agdvbcs4vJP1lowNRRMmTrPO5NWSqFpzoj/JT5lLo/Lsxtg6WplxcrNvgVAYMmYR0CuF+nXXxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=ti.com; dmarc=pass action=none header.from=ti.com; dkim=pass
- header.d=ti.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QnXYqMQr
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so720584a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:45:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795157155; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Romn9jMaubBoinSPYTT9DA5kY1Gqt1gZuI/LIALQ0vbRAjVpSykf2dXoIwU/fpruu2
+         ENa5MWZqvOjcDw06rf2kEVB6uA4swAoqlIpGQpcbZNXk1wcAj7t/30d1DNHwtnrQBL6Z
+         WRRvHirs32D5RWk8vILp50QB9He9tpVR56JLXKblPmoNUHEVMyrAYriL06r+kGF/9ZA4
+         gHDRTCKFg0b4bFBvcizPz5XloyUpow3HbmpAhy0JZqJoqgQNf680NM74lkuxtyOAGoiZ
+         c7awKnKHfZe50wjBk0mXMI4vj747DWkExMYdO1x7XGzaBZ+CYTtPYt0C89R94tyBfRmx
+         CGsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PhesRb2fJL2sv3VQKNbTEK9VdI6Zm/OpjPUoDzeKyOI=;
+        fh=cNVaR9nbXnDCyy21+kvgjHLhucmXtSoFlNQ+0nm2/Bk=;
+        b=NaytwBcU6X2gbk5YXduIea1RE9QSqdWLnExV9gYsTzXF6cM4XwEH6IGnzg3OoXfECn
+         S5/2lD831GUllfXpfEvcGtDTGfRiyqiR6MJUwdBsT3lau55K+OdSoa62aNvF2gqnleoA
+         D8U1hFxZhTAxejDGS1Q3pgwXsH//04/vw1Uc5eL5TyYE2+/6jkDvJYILmgY9PL1/brhO
+         QCMsBx9D2VpYZdqvMtRglqqSulNoRyttlML0mB58hab7DHHFIY2qm23p24aq1Af9hSUn
+         1w0O3I4h1tZ2KXl5ycOnt8gA08/Ch9wG4E3TdZwKsJS3LKKMBwS3h83eZ1j+iDbtgmSb
+         aVxQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ticloud.onmicrosoft.com; s=selector1-ticloud-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0IzH8u7xZiG+5lki1/VjWbgx/dZQIYBA5rj9yNyAjEA=;
- b=TwkZ3TrNMT8c75s3M5q9hwOjak/EZ0pwRE0mIjIsBWN5z0ACjBAcL85Wvd1FZIGhSxJKG2aUAixM56n3wsoRt1xEsqtXZNk2tCz5YihkHlwBpWH+AorI4yE2/h8rrKM1kAy6VeJqEw7ir39dM2IHQZlc3W7SFFvwvf1c6DTDmfY=
-Received: from BN8PR10MB3652.namprd10.prod.outlook.com (2603:10b6:408:ba::10)
- by CH2PR10MB4230.namprd10.prod.outlook.com (2603:10b6:610:a5::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
- 2026 06:44:35 +0000
-Received: from BN8PR10MB3652.namprd10.prod.outlook.com
- ([fe80::86d1:377b:3bec:884a]) by BN8PR10MB3652.namprd10.prod.outlook.com
- ([fe80::86d1:377b:3bec:884a%7]) with mapi id 15.21.0615.015; Fri, 20 Nov 2026
- 06:44:34 +0000
-From: "Thakkar, Devarsh" <devarsht@ti.com>
-To: "Brnich, Brandon" <b-brnich@ti.com>,
-        "mchehab@kernel.org"
-	<mchehab@kernel.org>,
-        "hverkuil@kernel.org" <hverkuil@kernel.org>,
-        "benjamin.gaignard@collabora.com" <benjamin.gaignard@collabora.com>,
-        "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>
-CC: "Willis, Kendall" <k-willis@ti.com>,
-        "jai.luthra@ideasonboard.com"
-	<jai.luthra@ideasonboard.com>
-Subject: Re: [PATCH v9 0/4] E5010 Probe Cleanup and Adding autosuspend
-Thread-Topic: [PATCH v9 0/4] E5010 Probe Cleanup and Adding autosuspend
-Thread-Index: AQHdcf7uNQhzlLs7uk2lNQnQZdm/1Lc2kTQA
-Date: Fri, 20 Nov 2026 06:44:34 +0000
-Message-ID: <b7db145d-5236-47f1-91e4-af6106ecb145@ti.com>
-References: <20261111170530.809226-1-b-brnich@ti.com>
-In-Reply-To: <20261111170530.809226-1-b-brnich@ti.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=ti.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN8PR10MB3652:EE_|CH2PR10MB4230:EE_
-x-ms-office365-filtering-correlation-id: 1d422fc9-e92c-4587-2400-08df46d1bd57
-x-ld-processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|261026121527099003|18002099003|22082099003|261022105027099003|56012099006|261028144727099003|261022115727099003|10067099003|261021135927099003|38070700021|261026140227099003;
-x-microsoft-antispam-message-info:
- a9W04K5e2SHVXQVwdN5T4KZEe3trOhv6a2LHDHnmT/C716aUxGS2DEUraCU2Qmd5bx0i85ceQJSGXhf6IS0tVyRBGL3gpBbPjLzJ/bYJJlOLWB0hIV72x3oEGBZ7JoYTo6wk8y2CEyQvbmrfJceIfUbeCc+sc5TV/zvDNR/aLS+pRoJRHMkRQi3ySDUdlhldZ7SaGo4i3plKJAPxNHo1l7o2CsVcEcbzY5I4mo2CXRW3UZks/aTRr9uRDII/2f8Ya9kxDg5Cj20AV7U1t2mD89bZLb2yt835j9S+Bt91LKjNI6y+aAH7CkSZDHEugUw2dhh97Cf4ipXUSWNt0NbN7H/T33/FLUqiVDyZPpY0zfm5S4/VznpX/ck6Sbzt0NXlT6cSIghc43/KApV/62kQQCkS0cf4VkruH3nq5mbtPA11QjN513OBquODKUkGsrC3C/QGO+8a1d4bwUm4dO9WH43b6HY9AGD6gbKlcVrbULJv2YqYKHRd+MMkw4FPihAnLAPBQk06t97wpWxjDlkQB2eJ7o9Irv591tWTcFY/6Nh0O+zwuxaQCwPodlqtsysPvIvnZQjQRW/iR/LZmsq0MjJRWS4/6qg6tBcsLHqHzIeIS5CKLzUIgLlXY7DpiG/SvAl3AIzpXAzTLxPsqDgM5C48A1zFSypgriCzTIx3bmNC9u+vyAivYcb7JQINVeb5/7+afkYjRUZatgMx7q0Asg7+Tg/Mw1GmWMXZ2qLOl0g=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN8PR10MB3652.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(261026121527099003)(18002099003)(22082099003)(261022105027099003)(56012099006)(261028144727099003)(261022115727099003)(10067099003)(261021135927099003)(38070700021)(261026140227099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?TndVcWUzS0dzV1VaZGJIdk1CQ2s5WU9sUGJ3ci8vcG9ycm1QUzR6YXF0Y3NV?=
- =?utf-8?B?SEwrQXhGcEI1QnN3S3R3MWVmU3FMS2JHRnVSVk1vczZyQ0VmQk9JKzYvMTZk?=
- =?utf-8?B?RmgrWTVnVVZVZFZrb1lsYkdzOGI3VW9aWU5SOVUzTHZsenEzWEV4YXhmWUN2?=
- =?utf-8?B?ZE1HN3orRnpSTmRlZG1ZU1QvNnFxc2szalllYVpYM21oWDhsZDZVRnRZVm42?=
- =?utf-8?B?NG1mbzUvei9wQ096b0tPV3FPZ1JqMk5jVFhicjhRYW03TmdjS202SGlmcVlS?=
- =?utf-8?B?Q3hzZzQ2elZQTi8rL0tyT1BHZDQ4ZTc4aUw4Nm9CV2FsRENjRHh1cGxzaitx?=
- =?utf-8?B?K3loVzFpUDVvUVd0Y1dZMkRVcFN3bG1nOHk1WWFLTGZPUG5uSFJoZnk2MmEz?=
- =?utf-8?B?dEZPeWhpbklQWVUzc1ZWZis2NXNtYXUzNmdMaWcxV1RTanVMSUtMdTgyL2Zw?=
- =?utf-8?B?S2VqU1hPWlUxeVNXeUlxZzNyK3M5WjhnU2xIR2RpTVVXVU1RamR6dVY5SXgw?=
- =?utf-8?B?amhxaTJRVmpFK2FvMGl4ek5iYnIrYUo2NzJ3OWtKcFlSS1VrQ1hCeUo3VVZF?=
- =?utf-8?B?SWdKQUFkK0NvVVF3emJFeWtCVWJUVTRsSHhwYmFHQ1lpQURNU0I1ckd3c1g1?=
- =?utf-8?B?bEVtK20wOElBOTdWWTNuZmJzcDZoeUxLblBUWUQrcTh5UzFEYzNLMUEyWkxD?=
- =?utf-8?B?eWpOeFlyRkd0QlRGbFN4MFhRb25aK3NOdmxrWFZxb3RDMDJaVjkxU1B1OCtP?=
- =?utf-8?B?cU9hNEF2ZXpHK2l5djlobkhFNXVLQTF2a0FDNEFOY2hqVEJBdW9VZlZRZktn?=
- =?utf-8?B?TktuL1hjbUpXN2dtaFlMcGtpcWVzaUsyR2tiMTMvQjJTdFNZaGZ5bzJsZ3c2?=
- =?utf-8?B?NEgzUjZqRjh6Y2Jsd0YvRXowTTRkQnd1MVRWMGpueTM4TmNZUlpDdmRpcEVm?=
- =?utf-8?B?QWVYeXBhZURxM0NlM1d4amdSRGoxeVIyMTNicXBwNU5aVmxEcWpsSHJwakdm?=
- =?utf-8?B?T0ZkbTcwTlZWdlRiZG44NXRTTlB5YzVRR0xlTU9WY0lMUGtHZXg2cVBMR2kx?=
- =?utf-8?B?T0Q5MmIxTm9IYlRhL25CdVFydk1JY1QycGZTM0t5MWZJektlYXRlSUVKeW9T?=
- =?utf-8?B?Z2twWGxhSld6NHhEelpYYjZOVmhZcDQvSEpxZmVSbUNacGFIcCtlcUo0YVNW?=
- =?utf-8?B?dkI0SHMzb2JmRERFZWFkYjJQQmRpQXVTMytCL0Rrb01UUk9qYkM0Zy8vY0xm?=
- =?utf-8?B?T2NnL0liR3FyMGVHYjVIWTFCaFFOQmRWSUx1VzJIU3RFazdzeExnRnM0L2ZD?=
- =?utf-8?B?TDc3STJsR3RVSXZ5OWExZXF1emg0WEN2UzdwaUhELzZ5RS9tL1ZDZlBrTDBY?=
- =?utf-8?B?d0NoYWtrRjlIWksvc2lOSndyc1RpaWV5MnR4ZUJLR3Q5TWZrLzk1bUxMem9r?=
- =?utf-8?B?cEkwVkNvMUVGaUg2WTJMWVQrdC9KeVNJSkNZNHVjaXNkbStNUHc3V1UxVEVa?=
- =?utf-8?B?OHArcEV2QlZDdXVOVWkySnpOUHIvd0YwaWxrRE8rd1h3TnQ4c1VUWVh5YkFr?=
- =?utf-8?B?UW9DM0N3RnliekI2UitPaUc2UFhUWHVHUUlQQXdXU0U0WHY4d1VhMUkweDVT?=
- =?utf-8?B?cGp4RjYvSUpreDhnME9EWkNmd1gwWllNdTIrUEh1bm5xTlBFa2EyVWtjeWlV?=
- =?utf-8?B?V29CVXhMOENIUU9OYlVLOEZjaHlzWXc0OVQ4aTR2T0dXMHhYMjhiNXpYSGNk?=
- =?utf-8?B?a2tya0NudEdySGxOeGdxcnZRTVJvWUg1OFhZc2VKOFE1c1Azajd5VnAyemo0?=
- =?utf-8?B?eHREcmdCaUo0Wm8vYmZtTmZQUDZaT21VeHo5bzE3M0ErcVpuQ3pVb2JpMHg2?=
- =?utf-8?B?amllOEFUaHAwUzA3MnBsWFlCNUZPWlpqdlZZQ0UzR3JlV1F5b25qUDJqTDV2?=
- =?utf-8?B?cUcvajlXSDZKL0ttc3FqbFl6TXFRNEQzNnBMNmgzcGdsK3djbDBXNU1QeUt3?=
- =?utf-8?B?ZUFzeXUreEIyVjNXOXYra0Qyam5qZlBYcGUrQUJsNVFIVEhDTlVBemM2L0hu?=
- =?utf-8?B?RTNFdHVIUGZQNHUxbVNteUFIcnpuRk1HclpsTjNLZ2lFb1RBR3dTSHg1OGF1?=
- =?utf-8?B?UFlpQnhoTGozcHhLMEl4dFdhZ2hvY1ZtR0xSbmE0UFVhVjF2eVduemRMNmcv?=
- =?utf-8?B?c2pXbHVKWGlJWmJ1ZWZSR21Ic3ZFUFVZazNJNjZTWjlzYWsvZUFJdmZHOUZU?=
- =?utf-8?B?aUJQajVBQWZMMVNjRjRNVUN4eUcxMmUxVGJrYzhMYkFjWi85c1htNE5vRHFi?=
- =?utf-8?Q?YlB6GevjI6PbNPgTbo?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <6D3A8BF24AEE724B9146E3DEF99FB4C1@namprd10.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=gmail.com; s=20260707; t=1795157155; x=1795761955; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PhesRb2fJL2sv3VQKNbTEK9VdI6Zm/OpjPUoDzeKyOI=;
+        b=QnXYqMQr5z0NMr6hBuiBJQpdXHRabmycCVdbr+hnA8j8kwrJNNnGAKynnSO7Gvqhdg
+         SwN+TixLmyMkD2wVDOCWnA8nu71rr8HfNDI/8h1i0q3ZT3nHsiux1iOQIvRU3UqAvxe7
+         0MdSAviV1wPO0L/ENM1FwkfPoM3/P0JztGsiSczg4oihtTmhpVJGQfM5KbiZen3X7PMR
+         yDaLS+S4QeMiQcP7CYLX/0Kpv96D6vKQ9XcRDplT0I6yi1wMdl6hYQxAIJKH44RRlD9j
+         MIp6JtUsObTVf/yv4MhCOYPaS8/PEu+bzH2udGN6HONxsB9gjHCHNbYy/iW0vTdeUfzD
+         3DBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795157155; x=1795761955;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PhesRb2fJL2sv3VQKNbTEK9VdI6Zm/OpjPUoDzeKyOI=;
+        b=muBYQIzJvO2dHI2GVC3uYvYIHbQ/GmmCBGFodCNE2SCRLsQMbGpdo160Okq5kF5v3n
+         +0rDGNXC7W+1UqFwInRMmsPwx10HYoyG0wOhDtlD0sAPI+EQSvu9UbsA7ll2Hu1pjnnK
+         WQoG+IR+c0u7TowYg63XkcQFCKGlV23cBNlo0BFVvzhX583HPHjNM5wpFwsZeP6cXtTY
+         6tfTXB6cKmEOQpN8sB/y4wpHiFAKDgu+D7cXbNAO6vqIChKLQzgrR5NjCauHj2P9OBci
+         pXpQ1frpdXNFhJtHIbhawHuRBFaoxcTbZxPe3HwaNtLm817azUm6Q63o6wOCw3u++f9s
+         Gw8A==
+X-Forwarded-Encrypted: i=1; AL+hErE62r7TkVTFJRJU5Ar8Lqp5h9O7X5sxkWSJxQ6hesjrdP+fh89YsKentFkJHRzea0c1NcBXAxFbHM4CWoQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9EKMiD/yDNKmXZ5EqKAutPhQLew0928y1pWgnANRCYB11wwcsw
+	8vVKtHtRScTfpyHhKBp7fZ7v7LgjVPvQo/+wNnF8HcVBOT+4lvQSDqsakJtHsioWWdnojJ95+nm
+	94FJGO2oypSeFKFpA0foAoPhX5dQoKd4=
+X-Gm-Gg: AZFdTZcpuEEpdN6HdfWxCe9kU2jZ9/4THfAv3r9OYPxBve+KRW/tQ87RuFgdXyek/hi
+	DO0Oooo0W9IQVJmam6/yKmeBomzUq7ldsleT1HhsW0F3bjwO0y2xL405QROW67ivZiZDVunzU+a
+	KNHITc4T8nRVlZ58XIgCpxNtNT0s0Y6nL4aRYmoI324P83mtffgNg0EPGF+JDu0wwl1NqLb3zUW
+	+NFrgbykq+w4FzXDTwmg6ZnPjAiYc035IeFse+iG26VGCAG+ukzCzOV+x8U9k7d3P8aghwelagM
+	pFghbEfgqTpHOjpTXf1+LLeGRwJgWyghE77NRjl2M7C2dLzeaLmoNFe2w19eSE5r7ca+bisU02k
+	B42kTUMv2NwYFY3onpZH2W+nwfMEu7P2TWawPf6cMrgFRjj5xExrkwt769wbmUplE2XWlTg==
+X-Received: by 2002:a05:6402:a592:10b0:6b8:8706:8e91 with SMTP id
+ 4fb4d7f45d1cf-6ba37d6526dmr960183a12.12.1795157154882; Thu, 19 Nov 2026
+ 22:45:54 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -185,60 +104,354 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked:
-	xD7HFqW8NkFqbghrlECi4nR8deXjJCY4nBonlUUoH62SVkG5K1X02/b25J4JamahaytULXsk3HI0nJIfMUSPW7L/T/3tNiCHhYaCN6Q2A3+3Wy5KnXu17a/Gbkk72kExYYHQtqFAHx3B8YYYRGCE0mDrb14wVnCCcIi+FpDeNO1u0d+RwJkT4gBbL5WnY0J2YXxRtCDF00Toj27lP3WXELoI0zETWCPh3iZ9JnKH6B8GkMqTa7ROD3HGzaSFy83isTve/tRzbjV3oRATbNsN1DE7/E3cWetP2DVZati21eisiXq37ykA8sAhbYtT0rVFWa1suy7z7xyZHpP4hhU9kA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN8PR10MB3652.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d422fc9-e92c-4587-2400-08df46d1bd57
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Nov 2026 06:44:34.8153
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: S8Jxlod55osmYyyC5GyQlh2kqJpLmruxUIE6d9Zp+p6iRCKOoNxlRpkop7tkboYC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR10MB4230
-X-Proofpoint-GUID: hHAu0NQJgJaTAGFiEdso8baGSB-u4mN2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfXxXlcGNQGo20Z
- vAEHwjEIGvCgzSYeD9jQRBERN+9IfQYsyW2j4NHiI4Kq1IaKhjGjKbM5i/afXdRO7M1UMOb9cmF
- ctsIT5SzlAIA/jjiGeF+qxscTKjtLSiUNeDAZgM7kp+qUd5elvsKK225BhRF5bvVUNx0EiwQ00K
- zWbfxWxCnGfwSOSxF2yGwu0aKnGaiW9kMfJB0WIfhXS1I4PRSqjRZfiAMcGoLXkQYCs4qTSKZiR
- TZWK6dK75/02ea9p82pXZaccdC7VT/HU7gyZMHe+rfYVFAClLs4Mq1iN5edIX8s/xoW8NNaAkvm
- reGm858Qcr1/27xwcHMxY5bcl2ajJn+OEsDJLZpKZOYZKPAesgPFvmIl7x/swkEKu5NZ9n35lp4
- 9h98y9tq6ayZSXh4C0ZnQHAKBVAoYvNo5BKuFwFf2viE5z10ntEq3cM8ByJXwIQ39C+/SpBOZg5
- tX5a7lr98+eLLwaWN8w==
-X-Proofpoint-ORIG-GUID: hHAu0NQJgJaTAGFiEdso8baGSB-u4mN2
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfX/wGC37uXYrG3
- hzH5yzdPI3agmh404bkNAuWDuOWUv3buWxrqZeKISZ9iCl8ghAIa/nRAQg8MGUNFHYtKns+mRFZ
- cIMYdtBIPKXauR3I7ABgZJGIqqIDp8w=
-X-Authority-Analysis: v=2.4 cv=c6U+0h9l c=1 sm=1 tr=0 ts=6affec55 cx=c_pps
- a=SAua1AGvvEPKktuR1BOyGQ==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=AlMIdn_sM9wA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=ALY_fhqUV_XLF7AeeNsA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 priorityscore=1501 bulkscore=0
- impostorscore=0 phishscore=0 suspectscore=0 spamscore=0 clxscore=1015
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200026
+References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-9-koray.fra@gmail.com>
+ <CAOQ4uxgoNsOH82FyrCxc+qSoid_CFmbmpL0qgWFw-e8E689fFA@mail.gmail.com> <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com>
+In-Reply-To: <DMZJ4PL1JVA4.2YEB7EPYJR5Q7@gmail.com>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 20 Nov 2026 07:45:43 +0100
+X-Gm-Features: AclHuK_wtO-xn2FdXS4_uzyRTAs2S8_YFxhSnFKIVmGgyyWPtzVK3ZO9hbfvgbU
+Message-ID: <CAOQ4uxi6h9BBP7pf4sR+gc2+4XtkEgbxXZha45iZzdB_wGFVgQ@mail.gmail.com>
+Subject: Re: [RFC PATCH v4 08/10] nfs: add provenance time (ptime) via FATTR4_TIME_CREATE
+To: koraynilay <koray.fra@gmail.com>
+Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>, 
+	Sungjong Seo <sj1557.seo@samsung.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Trond Myklebust <trondmy@kernel.org>, 
+	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
+	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
+	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
+	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
+	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
+	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
+	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
+	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
+	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
+	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
+	linux-api@vger.kernel.org, Theodore Tso <tytso@mit.edu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-SGkgTmljb2xhcywNCg0KT24gMTEvMTEvMjAyNiAxMDozNSBQTSwgQnJuaWNoLCBCcmFuZG9uIHdy
-b3RlOg0KPiBIZWxsbyBhbGwsDQo+IA0KDQpbLi4uXQ0KDQo+IA0KPiBCcmFuZG9uIEJybmljaCAo
-Myk6DQo+ICAgbWVkaWE6IGltYWdpbmF0aW9uOiBlNTAxMDogRml4IGNsayBuZXZlciBlbmFibGVk
-IHdpdGhvdXQgQ09ORklHX1BNDQo+ICAgbWVkaWE6IGltYWdpbmF0aW9uOiBlNTAxMDogVXBkYXRl
-IGU1MDEwX2luaXRfZGV2aWNlIENhbGwgU2l0ZXMgdG8NCj4gICAgIEVuc3VyZSBQcm9wZXIgRGV2
-aWNlIFN0YXRlDQo+ICAgbWVkaWE6IGltYWdpbmF0aW9uOiBlNTAxMDogRW5hYmxlIGF1dG9zdXNw
-ZW5kIGZvciBydW50aW1lIFBNDQo+IA0KPiBNeWVvbmdodW4gUGFrICgxKToNCj4gICBtZWRpYTog
-aW1hZ2luYXRpb246IGU1MDEwOiByZWxlYXNlIG0ybSBkZXZpY2Ugb24gcHJvYmUgZmFpbHVyZQ0K
-PiANCg0KSSd2ZSByZXZpZXdlZCB0aGlzIHNlcmllcyBpbiBkZXRhaWwsIGFuZCBpdCBsb29rcyBn
-b29kIHRvIG1lIGFzIHRoZQ0KZHJpdmVyIG1haW50YWluZXIuIEFsbCBmb3VyIHBhdGNoZXMgY2Fy
-cnkgbXkgUmV2aWV3ZWQtYnkuDQoNCldoZW4geW91IGhhdmUgYSBjaGFuY2UsIHdvdWxkIHlvdSBi
-ZSBhYmxlIHRvIHBpY2sgdXAgdGhpcyBzZXJpZXMgPw0KUGF0Y2hlcyAxLTMgYXJlIGZpeGVzIHRh
-Z2dlZCBmb3Igc3RhYmxlLCBhbmQgcGF0Y2ggNCBhZGRzIGF1dG9zdXNwZW5kDQpzdXBwb3J0Lg0K
-DQpQbGVhc2UgbGV0IG1lIGtub3cgaWYgYW55dGhpbmcgaXMgbmVlZGVkIGZyb20gbXkgc2lkZS4N
-Cg0KUmVnYXJkcw0KRGV2YXJzaA0K
+On Thu, Nov 19, 2026 at 11:10=E2=80=AFPM koraynilay <koray.fra@gmail.com> w=
+rote:
+>
+> On Thu Nov 19, 2026 at 7:06 PM CET, Amir Goldstein wrote:
+> > On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com=
+> wrote:
+> >>
+> >> Implement provenance time (ptime) in the NFS client, as introduced in =
+a
+> >> previous commit ("vfs: add provenance time (ptime)").
+> >>
+> >> Support reading ptime via statx(2) and file_getattr(), returning the
+> >> cached creation time when the server advertises NFS_ATTR_FATTR_BTIME.
+> >>
+> >> Implement sending FATTR4_TIME_CREATE, asking the server to persist the
+> >> file creation time using ptime on the underlying filesystem.
+> >>
+> >> Also add .fileattr_set to struct nfs_rpc_ops and set it to
+> >> nfs4_fileattr_set() in nfs_v4_clientops. Provide a generic
+> >> nfs_fileattr_set() dispatcher so even symlinks can update ptime under
+> >> NFSv4 while cleanly returning -EOPNOTSUPP on NFSv2/v3.
+> >>
+> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
+> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
+> >> ---
+> >>  fs/nfs/inode.c          | 27 ++++++++++++++++----
+> >>  fs/nfs/internal.h       |  2 ++
+> >>  fs/nfs/nfs4proc.c       | 56 ++++++++++++++++++++++++++++++++++++++--=
+-
+> >>  fs/nfs/nfs4xdr.c        | 19 +++++++++-----
+> >>  fs/nfs/symlink.c        |  1 +
+> >>  include/linux/nfs_xdr.h |  3 +++
+> >>  6 files changed, 93 insertions(+), 15 deletions(-)
+> >>
+> >> diff --git a/fs/nfs/inode.c b/fs/nfs/inode.c
+> >> index e0a2e92952af..2ddcfd872616 100644
+> >> --- a/fs/nfs/inode.c
+> >> +++ b/fs/nfs/inode.c
+> >> @@ -955,7 +955,7 @@ static u32 nfs_get_valid_attrmask(struct inode *in=
+ode)
+> >>                 reply_mask |=3D STATX_BLOCKS;
+> >>         if (!(cache_validity & NFS_INO_INVALID_BTIME) &&
+> >>             (fattr_valid & NFS_ATTR_FATTR_BTIME))
+> >> -               reply_mask |=3D STATX_BTIME;
+> >> +               reply_mask |=3D STATX_BTIME | STATX_PTIME;
+> >>         if (!(cache_validity & NFS_INO_INVALID_CHANGE))
+> >>                 reply_mask |=3D STATX_CHANGE_COOKIE;
+> >>         return reply_mask;
+> >> @@ -978,10 +978,10 @@ int nfs_getattr(const struct mnt_idmap *idmap, c=
+onst struct path *path,
+> >>         request_mask &=3D STATX_TYPE | STATX_MODE | STATX_NLINK | STAT=
+X_UID |
+> >>                         STATX_GID | STATX_ATIME | STATX_MTIME | STATX_=
+CTIME |
+> >>                         STATX_INO | STATX_SIZE | STATX_BLOCKS | STATX_=
+BTIME |
+> >> -                       STATX_CHANGE_COOKIE;
+> >> +                       STATX_PTIME | STATX_CHANGE_COOKIE;
+> >>
+> >>         if (!(fattr_valid & NFS_ATTR_FATTR_BTIME))
+> >> -               request_mask &=3D ~STATX_BTIME;
+> >> +               request_mask &=3D ~(STATX_BTIME | STATX_PTIME);
+> >>
+> >>         if ((query_flags & AT_STATX_DONT_SYNC) && !force_sync) {
+> >>                 if (readdirplus_enabled)
+> >> @@ -1015,7 +1015,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, c=
+onst struct path *path,
+> >>         if (!(request_mask & (STATX_MODE|STATX_NLINK|STATX_ATIME|STATX=
+_CTIME|
+> >>                                         STATX_MTIME|STATX_UID|STATX_GI=
+D|
+> >>                                         STATX_SIZE|STATX_BLOCKS|STATX_=
+BTIME|
+> >> -                                       STATX_CHANGE_COOKIE)))
+> >> +                                       STATX_PTIME|STATX_CHANGE_COOKI=
+E)))
+> >>                 goto out_no_revalidate;
+> >>
+> >>         /* Check whether the cached attributes are stale */
+> >> @@ -1038,7 +1038,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, c=
+onst struct path *path,
+> >>                 do_update |=3D cache_validity & NFS_INO_INVALID_OTHER;
+> >>         if (request_mask & STATX_BLOCKS)
+> >>                 do_update |=3D cache_validity & NFS_INO_INVALID_BLOCKS=
+;
+> >> -       if (request_mask & STATX_BTIME)
+> >> +       if (request_mask & (STATX_BTIME | STATX_PTIME))
+> >>                 do_update |=3D cache_validity & NFS_INO_INVALID_BTIME;
+> >>
+> >>         if (do_update) {
+> >> @@ -1061,6 +1061,7 @@ int nfs_getattr(const struct mnt_idmap *idmap, c=
+onst struct path *path,
+> >>         if (S_ISDIR(inode->i_mode))
+> >>                 stat->blksize =3D NFS_SERVER(inode)->dtsize;
+> >>         stat->btime =3D NFS_I(inode)->btime;
+> >> +       stat->ptime =3D NFS_I(inode)->btime;
+> >>
+> >
+> > As an example of what would be needed per the mutable btime proposal,
+> > adding stat->ptime and STATX_PTIME will not be needed...
+> >
+> >>         /* Special handling for STATX_DIOALIGN and STATX_DIO_READ_ALIG=
+N
+> >>          * - NFS doesn't have DIO alignment constraints, avoid getting
+> >> @@ -1092,10 +1093,26 @@ int nfs_fileattr_get(struct dentry *dentry, st=
+ruct file_kattr *fa)
+> >>         }
+> >>         if (nfs_server_capable(inode, NFS_CAP_CASE_NONPRESERVING))
+> >>                 fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+> >
+> > This would need:
+> >                   fa->fsx_xflags |=3D FS_XFLAG_CASEFOLD;
+> > +                fa->fsx_xflags_mask |=3D FS_XFLAG_CASEFOLD;
+> > +                fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASEFOLD;
+> > +                /* unlink other fs FS_CASEFOLD_FL is read-only */
+> (oh, s/unlink/unlike/?)
+
+Yeh :)
+It's a comment for you not for the code
+
+>
+> >                   fa->flags |=3D FS_CASEFOLD_FL;
+> With the new API and vfs helpers, this would need to get removed, as vfs
+> would already handle this for legacy ioctls, correct?
+>
+> >         }
+> >                    fa->fsx_xflags |=3D FS_XFLAG_CASENONPRESERVING;
+> > +                 fa->fsx_xflags_mask |=3D FS_XFLAG_CASENONPRESERVING;
+> > +                 fa->fsx_xflags_ro_mask |=3D FS_XFLAG_CASENONPRESERVIN=
+G;
+> Uhm, why both in _mask and _ro_mask? If it's a RDONLY flag shouldn't
+> it *only* be in _ro_mask? (same for CASEFOLD)
+>
+
+Good question. Maybe
+I guess if you want to follow some percent
+FS_FL_USER_MODIFIABLE is a subset of FS_FL_USER_VISIBLE
+but I think that exporting ro_mask and _mask is going to be easier and
+cleaner than rw_mask but not sure.
+
+> >
+> >> +       if (NFS_SERVER(inode)->fattr_valid & NFS_ATTR_FATTR_BTIME) {
+> >> +               fa->fsx_xflags |=3D FS_XFLAG_PTIME;
+> >> +               fa->fsx_xflags_mask |=3D FS_XFLAG_PTIME;
+> >> +               fa->fsx_ptime =3D NFS_I(inode)->btime;
+> >> +       }
+> >
+> > +               fa->fsx_xflags |=3D FS_XFLAG_BTIME;
+> > +               fa->fsx_xflags_mask |=3D FS_XFLAG_BTIME;
+> > +               fa->fsx_btime =3D NFS_I(inode)->btime;
+> >
+> > Fs with immutable btime could either not advertise the BTIME flag
+> > in xflags/xflags_mask or advertise the flag also in xflags_ro_mask.
+>
+> That makes sense.
+>
+> >>         return 0;
+> >>  }
+> >>  EXPORT_SYMBOL_GPL(nfs_fileattr_get);
+> >>
+> >> +int nfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *de=
+ntry,
+> >> +                    struct file_kattr *fa)
+> >> +{
+> >> +       const struct nfs_rpc_ops *ops =3D NFS_PROTO(d_inode(dentry));
+> >> +
+> >> +       if (ops->fileattr_set)
+> >> +               return ops->fileattr_set(idmap, dentry, fa);
+> >> +       return -EOPNOTSUPP;
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(nfs_fileattr_set);
+> >> +
+> >>  static void nfs_init_lock_context(struct nfs_lock_context *l_ctx)
+> >>  {
+> >>         refcount_set(&l_ctx->count, 1);
+> >> diff --git a/fs/nfs/internal.h b/fs/nfs/internal.h
+> >> index 5af6a032f145..0e47fad944de 100644
+> >> --- a/fs/nfs/internal.h
+> >> +++ b/fs/nfs/internal.h
+> >> @@ -458,6 +458,8 @@ extern int nfs_wait_bit_killable(struct wait_bit_k=
+ey *key, int mode);
+> >>
+> >>  struct file_kattr;
+> >>  int nfs_fileattr_get(struct dentry *dentry, struct file_kattr *fa);
+> >> +int nfs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *de=
+ntry,
+> >> +                    struct file_kattr *fa);
+> >>
+> >>  #if IS_ENABLED(CONFIG_NFS_LOCALIO)
+> >>  /* localio.c */
+> >> diff --git a/fs/nfs/nfs4proc.c b/fs/nfs/nfs4proc.c
+> >> index e1018b03c1cb..31d58ceb4dc0 100644
+> >> --- a/fs/nfs/nfs4proc.c
+> >> +++ b/fs/nfs/nfs4proc.c
+> >> @@ -55,6 +55,7 @@
+> >>  #include <linux/utsname.h>
+> >>  #include <linux/freezer.h>
+> >>  #include <linux/iversion.h>
+> >> +#include <linux/fileattr.h>
+> >>
+> >>  #include "nfs4_fs.h"
+> >>  #include "delegation.h"
+> >> @@ -98,7 +99,8 @@ static int _nfs4_proc_getattr(struct nfs_server *ser=
+ver, struct nfs_fh *fhandle,
+> >>                               struct nfs_fattr *fattr, struct inode *i=
+node);
+> >>  static int nfs4_do_setattr(struct inode *inode, const struct cred *cr=
+ed,
+> >>                             struct nfs_fattr *fattr, struct iattr *sat=
+tr,
+> >> -                           struct nfs_open_context *ctx, struct nfs4_=
+label *ilabel);
+> >> +                           struct nfs_open_context *ctx, struct nfs4_=
+label *ilabel,
+> >> +                           const struct timespec64 *time_create);
+> >>  static struct rpc_task *_nfs41_proc_sequence(struct nfs_client *clp,
+> >>                 const struct cred *cred,
+> >>                 struct nfs4_slot *slot,
+> >> @@ -3216,7 +3218,7 @@ static int _nfs4_do_open(struct inode *dir,
+> >>                         nfs_fattr_init(opendata->o_res.f_attr);
+> >>                         status =3D nfs4_do_setattr(state->inode, cred,
+> >>                                         opendata->o_res.f_attr, sattr,
+> >> -                                       ctx, label);
+> >> +                                       ctx, label, NULL);
+> >>                         if (status =3D=3D 0) {
+> >>                                 nfs_setattr_update_inode(state->inode,=
+ sattr,
+> >>                                                 opendata->o_res.f_attr=
+);
+> >> @@ -3380,7 +3382,8 @@ static int _nfs4_do_setattr(struct inode *inode,
+> >>
+> >>  static int nfs4_do_setattr(struct inode *inode, const struct cred *cr=
+ed,
+> >>                            struct nfs_fattr *fattr, struct iattr *satt=
+r,
+> >> -                          struct nfs_open_context *ctx, struct nfs4_l=
+abel *ilabel)
+> >> +                          struct nfs_open_context *ctx, struct nfs4_l=
+abel *ilabel,
+> >> +                          const struct timespec64 *time_create)
+> >>  {
+> >>         struct nfs_server *server =3D NFS_SERVER(inode);
+> >>         __u32 bitmask[NFS4_BITMASK_SZ];
+> >> @@ -3391,6 +3394,7 @@ static int nfs4_do_setattr(struct inode *inode, =
+const struct cred *cred,
+> >>                 .server         =3D server,
+> >>                 .bitmask =3D bitmask,
+> >>                 .label          =3D ilabel,
+> >> +               .time_create    =3D time_create,
+> >>         };
+> >>         struct nfs_setattrres  res =3D {
+> >>                 .fattr          =3D fattr,
+> >> @@ -3414,6 +3418,9 @@ static int nfs4_do_setattr(struct inode *inode, =
+const struct cred *cred,
+> >>         if (sattr->ia_valid & ATTR_MTIME)
+> >>                 adjust_flags |=3D NFS_INO_INVALID_MTIME;
+> >>
+> >> +       if (time_create)
+> >> +               adjust_flags |=3D NFS_INO_INVALID_BTIME;
+> >> +
+> >>         do {
+> >>                 nfs4_bitmap_copy_adjust(bitmask, nfs4_bitmask(server, =
+fattr->label),
+> >>                                         inode, adjust_flags);
+> >> @@ -4587,7 +4594,7 @@ nfs4_proc_setattr(struct dentry *dentry, struct =
+nfs_fattr *fattr,
+> >>         if ((sattr->ia_valid & (ATTR_MODE|ATTR_UID|ATTR_GID)) !=3D 0)
+> >>                 nfs4_inode_make_writeable(inode);
+> >>
+> >> -       status =3D nfs4_do_setattr(inode, cred, fattr, sattr, ctx, NUL=
+L);
+> >> +       status =3D nfs4_do_setattr(inode, cred, fattr, sattr, ctx, NUL=
+L, NULL);
+> >>         if (status =3D=3D 0) {
+> >>                 nfs_setattr_update_inode(inode, sattr, fattr);
+> >>                 nfs_setsecurity(inode, fattr);
+> >> @@ -10845,6 +10852,44 @@ static void nfs4_disable_swap(struct inode *i=
+node)
+> >>         wake_up_var(&clp->cl_state);
+> >>  }
+> >>
+> >> +#define NFS4_SUPPORTED_XFLAGS  (FS_XFLAG_PTIME)
+> >> +static int nfs4_fileattr_set(const struct mnt_idmap *idmap, struct de=
+ntry *dentry,
+> >> +                            struct file_kattr *fa)
+> >> +{
+> >> +       struct inode *inode =3D d_inode(dentry);
+> >> +       struct nfs_server *server =3D NFS_SERVER(inode);
+> >> +       struct nfs_fattr *fattr;
+> >> +       struct iattr sattr =3D { .ia_valid =3D 0 };
+> >> +       const struct timespec64 *time_create =3D NULL;
+> >> +       int error;
+> >> +
+> >> +       if (!(server->fattr_valid & NFS_ATTR_FATTR_BTIME))
+> >> +               return -EOPNOTSUPP;
+> >> +
+> >> +       if (fa->flags_valid)
+> >> +               return -EOPNOTSUPP;
+> >> +
+> >> +       if (fileattr_has_fsx_mask(fa, NFS4_SUPPORTED_XFLAGS))
+> >> +               return -EOPNOTSUPP;
+> >> +
+> >> +       if (fa->fsx_xflags_mask & ~NFS4_SUPPORTED_XFLAGS)
+> >> +               return -EOPNOTSUPP;
+> >> +
+> >
+> > These two checks look semantically identical.
+> > I am not sure yet what you intention was with the
+> > fileattr_has_fsx_mask() helper - I know you had reservations about it
+> > but at least in this code, it doesn't look like it is needed at all.
+>
+> Eh, the name is not the best, but they aren't, _mask & check the _mask
+> field, has_fsx_mask checks the xflags field (which is why I added the
+> question of keeping its name as it is or changing it to
+> "fileattr_has_unsupported_fsx").
+> But I'm not even sure we still need this helper, so I may just drop it.
+>
+
+I don't care either way as long as the code reads fine.
+
+Thanks,
+Amir.
