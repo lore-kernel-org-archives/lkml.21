@@ -1,90 +1,90 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795205324;
-	b=ykAsOgPP6RpFkKReE6bgd1SSxVeRYzNV28TtDrfV/4g1CQgLNww+EqpzFSliPiFNrbnV
-	 xyJdLbdpp7YYkhiqlhJJW04saSGoJgCVuMhKjD1jQE6VqLZqtn9oU7gKb9uzDs/gq+Qrf
-	 ALvAyX6J8/WePlv/S3kbXN3EzKVdC7w0q0XYkqmlzE+mgb425xYNWCO/DQosCRbUxBCk1
-	 +7PD9bXUW6cPXaDy+k8k7VJokli79BCSJk+9KCbt0hebETxhPkS1ihPfkEt+YB2O+2FcV
-	 aNbGoKE32xdUG4X+DMAqRumniiyxdvCltd8Gmj8AZ9ZvgtWKGs7BF/pogoS2dVQmS7g==
+	t=1795205336;
+	b=oIJ6rHXBbNqQEPVc6rHYHDlgnUtK/HOS6qhK69xaAQ/41IWSntOOSRhD52Pv1nYR4owm
+	 8QtsCs9RcpmpjqG6hTIy5Srw1pxNSuzmEcUxFl3RvuD8LPJPc78ot4cuFWtGfcpFlA7IT
+	 fhEUY2aCq5g5DUc/JglTop7UhLzgh1S/ccqKiVVK1fPd6y11ZY7OC1bHmmay1lmQnfJKV
+	 24zqpSP623GFUDLduOzU+tmMcTCxB/zek5CHgk1IdsLAO7Dzvb/Ljrno4g8BggXi3Tkjf
+	 RT/YSqE5kMxi3w1tkEnDqL1DkxuJg4JOaHHAKKsWwmbY3Mzaz4HnowX26m7cz4zqU7A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795205324;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795205336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
-	b=wmdc1hKeKu/9a8x6o8qPSCPXgs/JYnbu7W0n1laOHtWSw7EfrtXHN9I+M7fJ2QHSt2a7
-	 S3T+G2yhWrQVh8R4f9/33GunIxvpJC9nuJlUTNIWhMUDWP+CLSTWMUOEjXdIP4R3XCi3w
-	 V5hbkHNpMqBcHJ1R5/2a0Xiewf6sfaZrwTufarngs3/ZF3CHCAxBpGptPH9I4O3EMwQ5P
-	 w+T4b3Q1iPYim4xygydTFd/nLv0d6HlZ1MNGr0jXr6kGdcQzKgL4xvr7XZEvxAnCVs/Ly
-	 DoZnAR3vNRzM2sVdxIfID/B55dboO2M0C7aCjAG1NWLA6KXV8bS7st6MDRWm/5HqzBw==
+	bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+	b=VBy7tyTqU077x9YGKK3lcD1uhZvfFXEm9KyibXmN4YnUUWmwiBpusfa0HxWdiDgeg3e1
+	 w/A0G9+NAhoeLyj6f0vW4p/cyMHNtbGiJ+D73+ackIu7M7WXJXoA5X/vnWSBl+UoQs/4I
+	 9rOAPiqQJ7+PuC9JEaceRE/fZfqOKupc1WI0YsdhIoWkurRMtN7UDZjy3aa/23qWKm55q
+	 sPzghacKf4dLddtceZbtUwo0mecoX/y9f83nx1ZGoo0eeGDoMN7NQNFxcUlBtAU2+gMAW
+	 W85LfcYS4lCXfaxx5wzkJSI6oYUR8ZcJ0bTDixtCTYNDOKR5Cyxz4tS8hzDOLJ/qHbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8LBIvfb;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eOqcAQVu;
 	arc=none smtp.remote-ip=209.85.210.50
 Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com [209.85.210.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C3B606A6F5
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:08:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C3B606A6F5
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E2D460A2614
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:08:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E2D460A2614
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D8LBIvfb
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-862b090e41eso756647a34.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:08:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eOqcAQVu
+Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-833e671ee9fso1268837a34.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:08:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795205321; x=1795810121; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795205323; x=1795810123; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
-        b=D8LBIvfb006ggpC1T5ciNRMhgTWR07Vt92zKkdxoByVOzBvHlLsjG5ktXKKSVykZnI
-         3CO+z0P+A4kGN7B/edJzp2pFuuaibTqccAHvBoZOIwCwgppI9mWGjJGwgl/BEYXekFWk
-         +SpynToJvv4zALSeF91/CrPseDAImGniBvQelIPSi0ysieOvw8AOjiKGQuw598hb4P7s
-         zEQclNsCHYrE1E+5RIMY8eA4YT5tPkx7OjAdUs+RVTC+JycxQCfOZk560dtywqM1FeKl
-         RD8GtRSRMj2Gao/lz5ShORX/03l4gQN8F74KuMUnx9XqWqn/KCw/kRKb3WfAKY58tF5w
-         U6Yg==
+        bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+        b=eOqcAQVulJsZQBLNGxXwXn28YL1T9oOgaGJO4jhUzKQ3C/f9Wsqcf+ujewTRf5fGrT
+         4A+2QUaRhSsKvDCt95obnK3HW+aYV9SRvB1Kn7asD+mcblyOTPEaF0aAaJsHq14bvtbi
+         A/CuyGsr4IStLb9wscMcIlOywnJQXi+xdoUNeBgVfo6qmeG2XRFRWXQsQAaB5LMnA86q
+         cflp2GXSKVErMck7QZz5LItw1xC6kRo6y+O0112DigHDbmNHQufA6b53eJRJnAiJRtwV
+         GSzywFhKXxfD1z9ms2+8h0czYJcx9ZCK/5qGHyCy+hpUZOOS1XHZkIuCr+T/DrF4j0Yr
+         y77g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795205321; x=1795810121;
+        d=1e100.net; s=20260707; t=1795205323; x=1795810123;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Yo3W1XWEBrk0wDzNKNxvV9i2I/SXNLi7Zr3ZH7KKHzg=;
-        b=BuQ3SGzOx5oJaDIRBCbBM733kM8W71OfB53VRA92rKCd9OsU0UYt4JqAYdJqVYvqeV
-         euDV8VXBubdeGu9UQvO8wNPk4aYUGdIxhYbYjlYjVgxi1eHUrSIJ4Ythpb1iuZIuLkG9
-         f3JpO4laLcFelGfV7j+1NwSSzBHV1poFcNQGnTnWB8ryaaHBkzC4qyAMfOytbQosCaMg
-         33AtqLf2wgO4xcwmaTzXZyO3wjty1UmVEaDp/FyWDfh21PDR1WTOTqbZOsjXq9ukhdIi
-         B6pJms61XgrAajTO+QDszPIMNacRdQEVBX9vA0LY/6hzFecILBJHqaXI8c86RipLoAr1
-         +xpw==
-X-Forwarded-Encrypted: i=1; AL+hErG/AaLvK7uR8Ww9p9iwjsX7Ey0qjmXcuetSDKzySv5wUIGiLm0o6y54y8nGA63h4e+XvztcqZ08aF7eMAE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+hdVjCzv/LsAmTHWMr308FaVSIrVZM6VaZEGVvWBwe7qnZ9liL
-	OJx94JHNTF/GaPR5gn2je5ZImiNpaD3a2pc9LqcKSu+kR7b/veKZGpNX
-X-Gm-Gg: AYBFou3A7jZMdZ+htc6KWoW47vdt8dACvhF6iZT30dLR1TDFvoiyLfhHt/p98arK9Nj
-	0fyss+trVDz5fqbem4iKujlJMD1P3VZuLMQ9jXMtBcbV5SPwfp0uKggpyQdJRjzHDDZf/hMnSyg
-	gGDUmCcaMfdAE99VJmLogoz/vo/ZM9D12OAWPQO/KXfnjaSEX2xbo6XTPG5hF/Zj1DbQi1s3axz
-	CAXwafgEV1dL8sWlUrQF0yHst2LV6dmaMC0stxQn4DFqk5iv5KdQ9fg9DNInDs0YahkMcWonZV7
-	ryChWXlcDL2dHDHvr+XIX/2VdfjCykzMs1bZIyJNduk5s124it2fT540JHPWByctCnMNtgPZVch
-	CMwOS5HlxdWY7l+i8LMAE5l7NpPwlHzonMYci1pjpHDfsbmVXG7OoCkniwD4ZyGqjG3U4CPB+F1
-	RQV7TGRlJFGQXIEwK4SYkJYj93mfs344k+mabkGt7NegPJGozszSlit9iSfKIQHoFCX7w+AF5LD
-	W8nPxFRfwjvP7bVVapn0vqxHO5QdaA2PkIng2bon7fEIDO41Jj4VS6w+M4PIa7517fxxJ9XEo7y
-	HDjOMqLdhP3lsLEPQT7j695NQGdwzBJgsEuTuct0qbLWerctfenlbgcKl7oQOKgnRdJ97iuxP/1
-	yi41tUDJxnWrKmHbuwx3kNMxk37FuREvH4s3MEPK+mmIFeHaXlmZ3Allon/bRCCQFOLG4UOP8ry
-	FcdvMYhFXq5p8rviFaLF2V6NxdPxxOYa9o15+2AJN1ts83lTMFnGf1
-X-Received: by 2002:a05:6830:4487:b0:82a:bf47:a080 with SMTP id 46e09a7af769-86315a869dbmr5519853a34.27.1795205320625;
-        Fri, 20 Nov 2026 12:08:40 -0800 (PST)
+        bh=Hzv13UFV3Pl9XMFamXY9cAE0rjp5+8r0g5vJP65x6c8=;
+        b=P+poMtjwjjQvgoo4SRCxiiCCEZOVTzH7t2dOPpMyKjLbicTgF4Q8o3uZDl9knnKhoS
+         7SkaKQH+ZwOiWd0Sy3cDHGHfS0xpJkxaDILEpBqAOecrxtdNLwGHGi/TkDVkIvi31cfG
+         A2n+k2PD6yQiglvTIgcXrtsghHmR8KSqENl+TrMqZ+4znvOXGPpLx3TsBX0OQz2l1FuQ
+         V37zuXsE5iWNVMTStklgT/YhTxEYIiDVDCjpJhgAdI4a8j2VgR7cSEUjBz7vYwGM9lG2
+         bfSq4Lv6hWis56dGA+X7XZ5cK4po+DhT9YqyjnHF7GESh6u8XSG6D0slwWsRfe9hAkGr
+         dLuw==
+X-Forwarded-Encrypted: i=1; AL+hErFuRhu8Uz+aH71Es4w5ZtxqcQweffoYKoSBaTNhzzXZzVL5BQSef87CIw+VwFBuewiFhgs11lIjzw5/aBo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+mL0YGxYBoxbgurI6Cev8/E7qhMBeVqf+jJFW9LN8fCNmoOnIx
+	QuHa7W0jJHEeaL2Up/KDxy2O/xbHJXJg1AKCqiZzM9r8mpbLgVu9K4CA
+X-Gm-Gg: AYBFou3SFzxCjkvPkn4P3jedihiKOCm/vjdU7ABvdBSMVX+Rpmexi27VyAnPDNm4r1G
+	jiUGLToTio/WskDEbyH9+zQorqxUUZc7ygYJTFg7uAO+BBHDWhFiT0sQE1qrZ98+NXhsVh+NtKv
+	ATu+bd0U7Cfr/TDW5K1yq2ZiqZmZdIDRxo66QH+yHX0k4bvGXekbQDTHtPEUeNZuUzB2vRmfng+
+	PqWqDng9HdvYSgV/28XlieNaZqKPQzdisN6uPWe3447XCkOsuH+Dr81ZCME8F6WkchNIL8PMZPt
+	bF1QMNykbaCvT8Ojs63iY7Kp6nMjIrZerbGr7bm5d3chI7W5rxp9cSbR6yBHFg0DGAjHLWZu/6t
+	e7odOIVW0G9E86Xi0PEQVP9lEcLQGcqNvHv41loaZm12iGjIYAjWtO98m7ZPylMG6MENBbAS1v6
+	tWZkt8521wFANDuPnng/XZ425U119XVGFoTQq36/rmW8cbF0TkSvzZJQOlj+oDtk4wegIrt8fJZ
+	nk17KUhGp+JSfrLzV/wt/YygVceE5/mwOkstzH/5oC6/mbr0Nj+csBiPvTp+hwgrFjWKPWXn+KV
+	RqjNFCSs7vuTze4Od+7k+9CU3gEbo/A4la2ichDbJ4Wm1CkTDGujOvmyrStJIDgHSBXsuyNcBFP
+	gXU0wH9RMllLnQt3vgrJkqDdORYcQOKj7g566poqZKyTSW6EyZB2qddhS5pwU7egZpZIjayXcld
+	r+BqKuLZtUOOU+VYU6fSkTG02fXSnwGBMs/HPGnLbEAOjJDITvHhVouw==
+X-Received: by 2002:a05:6830:2e11:b0:862:a0ce:f557 with SMTP id 46e09a7af769-863152f9025mr4641936a34.4.1795205323499;
+        Fri, 20 Nov 2026 12:08:43 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-86316822ad4sm2746249a34.3.2026.11.20.12.08.39
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-86316822ad4sm2746249a34.3.2026.11.20.12.08.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:08:39 -0800 (PST)
+        Fri, 20 Nov 2026 12:08:43 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 20 Nov 2026 13:08:33 -0700
-Subject: [PATCH v3 03/11] nvmem: exclude disconnected providers from
- callback admission
+Date: Fri, 20 Nov 2026 13:08:36 -0700
+Subject: [PATCH v3 06/11] nvmem: manage cell attributes independently of
+ device resources
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-submit-nvmem-provider-lifetime-v1-v3-3-523610652402@gmail.com>
+Message-Id: <20261120-submit-nvmem-provider-lifetime-v1-v3-6-523610652402@gmail.com>
 References: <20261120-submit-nvmem-provider-lifetime-v1-v3-0-523610652402@gmail.com>
 In-Reply-To: <20261120-submit-nvmem-provider-lifetime-v1-v3-0-523610652402@gmail.com>
 To: Srinivas Kandagatla <srini@kernel.org>, 
@@ -112,279 +112,237 @@ Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
  linux-mtd@lists.infradead.org, James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-A provider remains visible until device_unregister(), after its operations
-have been disconnected. Device matching can still call into it during
-that interval, and consumer acquisition can use its module pointer after
-unregister has returned. Cell registration and DT fixups also lack a
-callback drain.
+Cell attributes are populated once and remain until device deletion. A
+layout bound after provider registration therefore cannot publish its
+cells through an existing group, and the group cannot be refreshed when
+cells are removed.
 
-Cover matching, cell addition, DT fixups and layout population with the
-provider SRCU domain. Serialize acquiring the module reference and
-publishing new cells with disconnection under nvmem_mutex. Check sysfs
-permissions under SRCU as well.
+Keep the group in the NVMEM device and explicitly allocate and release
+its attributes. Each attribute holds a cell reference until sysfs has
+drained its readers. Rebuild the group from the current cell list, and
+unwind partial allocations if population fails.
 
-Cell addition notifies listeners while it is still covered by the
-provider drain. A listener such as cp500 can register a different NVMEM
-device or unwind its registration. Use a separate SRCU notifier chain so
-nested notifications do not block on a waiting notifier writer. Notify
-listeners of removal only after admitted cell additions have finished.
+Serialize group replacement separately from cell-list updates so removal
+can wait for sysfs readers without holding nvmem_mutex. Remove the group
+before device deletion on both unregister and registration failure.
 
-Fixes: 6a7b4134fb7a ("nvmem: protect nvmem_device::ops with SRCU")
-Link: https://lore.kernel.org/r/sashiko-outbox-219563@kernel.org/
+Fixes: 0331c611949f ("nvmem: core: Expose cells through sysfs")
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/nvmem/core.c | 112 +++++++++++++++++++++++++++++++++++++--------------
- 1 file changed, 81 insertions(+), 31 deletions(-)
+ drivers/nvmem/core.c      | 131 +++++++++++++++++++++++++++++++---------------
+ drivers/nvmem/internals.h |   3 ++
+ 2 files changed, 92 insertions(+), 42 deletions(-)
 
 diff --git a/drivers/nvmem/core.c b/drivers/nvmem/core.c
-index 32d36ca904cd..7d75076cda49 100644
+index d9f1bb64a4a5..c74e3f4e1de6 100644
 --- a/drivers/nvmem/core.c
 +++ b/drivers/nvmem/core.c
-@@ -52,7 +52,7 @@ static DEFINE_IDA(nvmem_ida);
- static DEFINE_MUTEX(nvmem_lookup_mutex);
- static LIST_HEAD(nvmem_lookup_list);
+@@ -13,6 +13,7 @@
+ #include <linux/idr.h>
+ #include <linux/init.h>
+ #include <linux/kref.h>
++#include <linux/lockdep.h>
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/nvmem-consumer.h>
+@@ -476,59 +477,98 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
+ 		device_remove_bin_file(nvmem->base_dev, &nvmem->eeprom);
+ }
  
--static BLOCKING_NOTIFIER_HEAD(nvmem_notifier);
-+SRCU_NOTIFIER_HEAD_STATIC(nvmem_notifier);
- 
- static int nvmem_access_chunk(struct nvmem_device *nvmem,
- 			      const struct nvmem_operations *ops,
-@@ -287,10 +287,14 @@ static ssize_t bin_attr_nvmem_write(struct file *filp, struct kobject *kobj,
- 
- static umode_t nvmem_bin_attr_get_umode(struct nvmem_device *nvmem)
+-static int nvmem_populate_sysfs_cells(struct nvmem_device *nvmem)
++static void nvmem_sysfs_free_cell_attrs(const struct bin_attribute * const *attrs)
  {
--	struct nvmem_operations *ops = rcu_dereference_raw(nvmem->ops);
--
-+	struct nvmem_operations *ops;
- 	umode_t mode = 0400;
+-	struct attribute_group group = {
+-		.name	= "cells",
+-	};
+-	struct nvmem_cell_entry *entry;
+-	const struct bin_attribute **pattrs;
+-	struct bin_attribute *attrs;
+-	unsigned int ncells = 0, i = 0;
+-	int ret;
++	if (!attrs)
++		return;
  
-+	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
-+		return 0;
-+
- 	if (!nvmem->root_only)
- 		mode |= 0044;
- 
-@@ -331,7 +335,12 @@ static umode_t nvmem_attr_is_visible(struct kobject *kobj,
- {
- 	struct device *dev = kobj_to_dev(kobj);
- 	struct nvmem_device *nvmem = to_nvmem_device(dev);
--	struct nvmem_operations *ops = rcu_dereference_raw(nvmem->ops);
-+	struct nvmem_operations *ops;
-+
-+	guard(srcu)(&nvmem->srcu);
-+	ops = srcu_dereference(nvmem->ops, &nvmem->srcu);
-+	if (!ops)
-+		return 0;
- 
- 	/*
- 	 * If the device has no .reg_write operation, do not allow
-@@ -535,7 +544,7 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
- 
- static void nvmem_cell_entry_drop(struct nvmem_cell_entry *cell)
- {
--	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
-+	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_REMOVE, cell);
- 	scoped_guard(mutex, &nvmem_mutex)
- 		list_del(&cell->node);
- 	of_node_put(cell->np);
-@@ -571,11 +580,15 @@ static const struct bus_type nvmem_bus_type = {
- 	.name		= "nvmem",
- };
- 
--static void nvmem_cell_entry_add(struct nvmem_cell_entry *cell)
-+static int nvmem_cell_entry_add(struct nvmem_cell_entry *cell)
- {
--	scoped_guard(mutex, &nvmem_mutex)
-+	scoped_guard(mutex, &nvmem_mutex) {
-+		if (!rcu_access_pointer(cell->nvmem->ops))
-+			return -ENODEV;
- 		list_add_tail(&cell->node, &cell->nvmem->cells);
--	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_ADD, cell);
+-	guard(mutex)(&nvmem_mutex);
++	for (int i = 0; attrs[i]; i++) {
++		nvmem_cell_entry_put(attrs[i]->private);
++		kfree(attrs[i]->attr.name);
++		kfree(attrs[i]);
 +	}
-+	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_CELL_ADD, cell);
-+	return 0;
- }
++	kfree(attrs);
++}
  
- static int nvmem_cell_info_to_nvmem_cell_entry_nodup(struct nvmem_device *nvmem,
-@@ -653,6 +666,10 @@ int nvmem_add_one_cell(struct nvmem_device *nvmem,
- 	struct nvmem_cell_entry *cell;
- 	int rval;
- 
-+	guard(srcu)(&nvmem->srcu);
-+	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-+		return -ENODEV;
-+
- 	cell = kzalloc_obj(*cell);
- 	if (!cell)
- 		return -ENOMEM;
-@@ -663,9 +680,12 @@ int nvmem_add_one_cell(struct nvmem_device *nvmem,
- 		return rval;
- 	}
- 
--	nvmem_cell_entry_add(cell);
--
--	return 0;
-+	rval = nvmem_cell_entry_add(cell);
-+	if (rval) {
-+		kfree_const(cell->name);
-+		kfree(cell);
-+	}
-+	return rval;
- }
- EXPORT_SYMBOL_GPL(nvmem_add_one_cell);
- 
-@@ -698,11 +718,14 @@ static int nvmem_add_cells(struct nvmem_device *nvmem,
-  *
-  * @nb: notifier block to be called on nvmem events.
-  *
-+ * A cell-add notification runs as part of the operation that unregister
-+ * drains. Do not synchronously unregister that provider from its callback.
-+ *
-  * Return: 0 on success, negative error number on failure.
-  */
- int nvmem_register_notifier(struct notifier_block *nb)
- {
--	return blocking_notifier_chain_register(&nvmem_notifier, nb);
-+	return srcu_notifier_chain_register(&nvmem_notifier, nb);
- }
- EXPORT_SYMBOL_GPL(nvmem_register_notifier);
- 
-@@ -715,7 +738,7 @@ EXPORT_SYMBOL_GPL(nvmem_register_notifier);
-  */
- int nvmem_unregister_notifier(struct notifier_block *nb)
- {
--	return blocking_notifier_chain_unregister(&nvmem_notifier, nb);
-+	return srcu_notifier_chain_unregister(&nvmem_notifier, nb);
- }
- EXPORT_SYMBOL_GPL(nvmem_unregister_notifier);
- 
-@@ -795,6 +818,10 @@ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np)
- 	const __be32 *addr;
- 	int len, ret;
- 
-+	guard(srcu)(&nvmem->srcu);
-+	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-+		return -ENODEV;
-+
- 	for_each_child_of_node_scoped(np, child) {
- 		struct nvmem_cell_info info = {0};
- 
-@@ -851,8 +878,11 @@ int nvmem_layout_register(struct nvmem_layout *layout)
- 	if (!layout->add_cells)
- 		return -EINVAL;
- 
--	/* Populate the cells */
--	ret = layout->add_cells(layout);
-+	scoped_guard(srcu, &layout->nvmem->srcu) {
-+		if (!srcu_dereference(layout->nvmem->ops, &layout->nvmem->srcu))
-+			return -ENODEV;
-+		ret = layout->add_cells(layout);
-+	}
- 	if (ret)
- 		return ret;
- 
-@@ -874,6 +904,17 @@ void nvmem_layout_unregister(struct nvmem_layout *layout)
- }
- EXPORT_SYMBOL_GPL(nvmem_layout_unregister);
- 
-+static void nvmem_disconnect(struct nvmem_device *nvmem)
+-	if (list_empty(&nvmem->cells) || nvmem->sysfs_cells_populated)
+-		return 0;
++static void __nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
 +{
-+	struct nvmem_operations *ops;
++	lockdep_assert_held(&nvmem->sysfs_mutex);
+ 
+-	/* Allocate an array of attributes with a sentinel */
+-	ncells = list_count_nodes(&nvmem->cells);
+-	pattrs = devm_kcalloc(&nvmem->dev, ncells + 1,
+-			      sizeof(*pattrs), GFP_KERNEL);
+-	if (!pattrs)
+-		return -ENOMEM;
++	if (!nvmem->sysfs_cells_populated)
++		return;
+ 
+-	attrs = devm_kcalloc(&nvmem->dev, ncells, sizeof(struct bin_attribute), GFP_KERNEL);
+-	if (!attrs)
+-		return -ENOMEM;
++	device_remove_group(&nvmem->dev, &nvmem->cells_group);
++	nvmem_sysfs_free_cell_attrs(nvmem->cells_group.bin_attrs);
++	nvmem->cells_group.bin_attrs = NULL;
++	nvmem->sysfs_cells_populated = false;
++}
+ 
+-	/* Initialize each attribute to take the name and size of the cell */
+-	list_for_each_entry(entry, &nvmem->cells, node) {
+-		sysfs_bin_attr_init(&attrs[i]);
+-		attrs[i].attr.name = devm_kasprintf(&nvmem->dev, GFP_KERNEL,
+-						    "%s@%x,%x", entry->name,
+-						    entry->offset,
+-						    entry->bit_offset);
+-		attrs[i].attr.mode = 0444 & nvmem_bin_attr_get_umode(nvmem);
+-		attrs[i].size = entry->bytes;
+-		attrs[i].read = &nvmem_cell_attr_read;
+-		attrs[i].private = entry;
+-		if (!attrs[i].attr.name)
+-			return -ENOMEM;
++static void nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
++{
++	guard(mutex)(&nvmem->sysfs_mutex);
++	__nvmem_sysfs_remove_cells(nvmem);
++}
+ 
+-		pattrs[i] = &attrs[i];
+-		i++;
+-	}
++static int nvmem_populate_sysfs_cells(struct nvmem_device *nvmem)
++{
++	struct nvmem_cell_entry *entry;
++	const struct bin_attribute **attrs = NULL;
++	unsigned int i = 0;
++	int ret = 0;
+ 
+-	group.bin_attrs = pattrs;
++	guard(mutex)(&nvmem->sysfs_mutex);
+ 
+-	ret = device_add_group(&nvmem->dev, &group);
+-	if (ret)
+-		return ret;
++	__nvmem_sysfs_remove_cells(nvmem);
 +
-+	scoped_guard(mutex, &nvmem_mutex)
-+		ops = rcu_replace_pointer(nvmem->ops, NULL,
-+					 lockdep_is_held(&nvmem_mutex));
-+	synchronize_srcu(&nvmem->srcu);
-+	kfree(ops);
++	scoped_guard(mutex, &nvmem_mutex) {
++		if (!rcu_access_pointer(nvmem->ops))
++			return -ENODEV;
++		if (list_empty(&nvmem->cells))
++			return 0;
+ 
+-	nvmem->sysfs_cells_populated = true;
++		attrs = kcalloc(list_count_nodes(&nvmem->cells) + 1,
++				sizeof(*attrs), GFP_KERNEL);
++		if (!attrs)
++			return -ENOMEM;
+ 
++		list_for_each_entry(entry, &nvmem->cells, node) {
++			struct bin_attribute *attr;
++
++			attr = kzalloc_obj(*attr);
++			if (!attr) {
++				ret = -ENOMEM;
++				break;
++			}
++			sysfs_bin_attr_init(attr);
++			attr->attr.name = kasprintf(GFP_KERNEL, "%s@%x,%x",
++						   entry->name, entry->offset,
++						   entry->bit_offset);
++			if (!attr->attr.name) {
++				kfree(attr);
++				ret = -ENOMEM;
++				break;
++			}
++			attr->attr.mode = 0444 & nvmem_bin_attr_get_umode(nvmem);
++			attr->size = entry->bytes;
++			attr->read = nvmem_cell_attr_read;
++			attr->private = entry;
++			kref_get(&entry->refcnt);
++			attrs[i++] = attr;
++		}
++	}
++	if (!ret) {
++		nvmem->cells_group.name = "cells";
++		nvmem->cells_group.bin_attrs = attrs;
++
++		ret = device_add_group(&nvmem->dev, &nvmem->cells_group);
++		if (!ret) {
++			nvmem->sysfs_cells_populated = true;
++			return 0;
++		}
++		nvmem->cells_group.bin_attrs = NULL;
++	}
++
++	nvmem_sysfs_free_cell_attrs(attrs);
+ 	return ret;
+ }
+ 
+@@ -543,6 +583,10 @@ static void nvmem_sysfs_remove_compat(struct nvmem_device *nvmem)
+ {
+ }
+ 
++static void nvmem_sysfs_remove_cells(struct nvmem_device *nvmem)
++{
 +}
 +
- /**
-  * nvmem_register() - Register a nvmem device for given nvmem_config.
-  * Also creates a binary entry in /sys/bus/nvmem/devices/dev-name/nvmem
-@@ -1034,7 +1075,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
- 		goto err_destroy_layout;
+ #endif /* CONFIG_NVMEM_SYSFS */
+ 
+ static void nvmem_cell_entry_release(struct kref *ref)
+@@ -990,6 +1034,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	rcu_assign_pointer(nvmem->ops, ops);
+ 
+ 	device_initialize(&nvmem->dev);
++	mutex_init(&nvmem->sysfs_mutex);
+ 
+ 	if (!config->ignore_wp)
+ 		nvmem->wp_gpio = gpiod_get_optional(config->dev, "wp",
+@@ -1098,6 +1143,7 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ 	nvmem_destroy_layout(nvmem);
  #endif
- 
--	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
-+	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
- 
- 	return nvmem;
- 
-@@ -1047,10 +1088,8 @@ struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+ err_remove_dev:
++	nvmem_sysfs_remove_cells(nvmem);
+ 	device_del(&nvmem->dev);
  err_remove_compat:
  	nvmem_sysfs_remove_compat(nvmem);
- err_put_device:
--	ops = rcu_replace_pointer(nvmem->ops, NULL, true);
--	synchronize_srcu(&nvmem->srcu);
-+	nvmem_disconnect(nvmem);
- 	put_device(&nvmem->dev);
--	kfree(ops);
- 
- 	return ERR_PTR(rval);
- }
-@@ -1063,19 +1102,14 @@ EXPORT_SYMBOL_GPL(nvmem_register);
-  */
- void nvmem_unregister(struct nvmem_device *nvmem)
- {
--	struct nvmem_operations *ops;
--
- 	if (!nvmem)
- 		return;
- 
--	blocking_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
--
--	ops = rcu_replace_pointer(nvmem->ops, NULL, true);
--	synchronize_srcu(&nvmem->srcu);
-+	nvmem_disconnect(nvmem);
-+	srcu_notifier_call_chain(&nvmem_notifier, NVMEM_REMOVE, nvmem);
- 
+@@ -1125,6 +1171,7 @@ void nvmem_unregister(struct nvmem_device *nvmem)
  	nvmem_sysfs_remove_compat(nvmem);
  	nvmem_destroy_layout(nvmem);
--	kfree(ops);
  
++	nvmem_sysfs_remove_cells(nvmem);
  	device_unregister(&nvmem->dev);
  }
-@@ -1115,17 +1149,33 @@ struct nvmem_device *devm_nvmem_register(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_nvmem_register);
+ EXPORT_SYMBOL_GPL(nvmem_unregister);
+diff --git a/drivers/nvmem/internals.h b/drivers/nvmem/internals.h
+index bc7a99f5aefb..79ea56822ebe 100644
+--- a/drivers/nvmem/internals.h
++++ b/drivers/nvmem/internals.h
+@@ -4,6 +4,7 @@
+ #define _LINUX_NVMEM_INTERNALS_H
  
-+struct nvmem_match_data {
-+	void *data;
-+	int (*match)(struct device *dev, const void *data);
-+};
-+
-+static int nvmem_match_device(struct device *dev, const void *data)
-+{
-+	const struct nvmem_match_data *match = data;
-+	struct nvmem_device *nvmem = to_nvmem_device(dev);
-+
-+	guard(srcu)(&nvmem->srcu);
-+	if (!srcu_dereference(nvmem->ops, &nvmem->srcu))
-+		return 0;
-+	return match->match(dev, match->data);
-+}
-+
- static struct nvmem_device *nvmem_device_match(void *data,
- 			int (*match)(struct device *dev, const void *data))
- {
-+	struct nvmem_match_data match_data = { .data = data, .match = match };
- 	struct nvmem_device *nvmem = NULL;
- 	struct device *dev;
+ #include <linux/device.h>
++#include <linux/mutex.h>
+ #include <linux/nvmem-consumer.h>
+ #include <linux/nvmem-provider.h>
+ #include <linux/srcu.h>
+@@ -37,7 +38,9 @@ struct nvmem_device {
+ 	struct nvmem_layout	*layout;
+ 	struct nvmem_operations __rcu *ops;
+ 	void *priv;
++	struct mutex		sysfs_mutex;
+ 	bool			sysfs_cells_populated;
++	struct attribute_group cells_group;
+ };
  
--	scoped_guard(mutex, &nvmem_mutex) {
--		dev = bus_find_device(&nvmem_bus_type, NULL, data, match);
--		if (dev)
--			nvmem = to_nvmem_device(dev);
--	}
-+	guard(mutex)(&nvmem_mutex);
-+	dev = bus_find_device(&nvmem_bus_type, NULL, &match_data, nvmem_match_device);
-+	if (dev)
-+		nvmem = to_nvmem_device(dev);
- 	if (!nvmem)
- 		return ERR_PTR(-EPROBE_DEFER);
- 
+ int nvmem_add_cells_from_dt(struct nvmem_device *nvmem, struct device_node *np);
 
 -- 
 2.53.0
