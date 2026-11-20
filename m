@@ -1,51 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.43.8.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795200494;
-	b=p+6ZScrASdJhchv7sSwvx6SxgwrX65YtPbL4+dUPCnjXGooYhmrrLK6REX58CmDptRWH
-	 k4ea0npHAYpHCibw2IgTJ/SPV+MZrJPRDDQEcHxQQV4mUfUiMgE8K5yOz5A3ciJNUEj/m
-	 hnOUfxz4UKX8vfEINOc+CzdacbQt7Zmom4Iwq9Xdvi1ZgKnhp2opLeERLzVv2CjzZP2NO
-	 YzjgoygSZQruAaE4IPj0Ok4NBvCKighQi14m0ZX9PdDC/nukYveWrz7s+GdChWstXjU7S
-	 bgFsB53evzRN339x41HHTiEVmGucqqg6Mev7TsCsHHjhXcBJiIdDFHfvWEUJa6vkpcw==
+	t=1795200506;
+	b=odT4PYUGQRdkvkVxhSEQC1IE3qJUCECfHTOd4hX7kU0wGhHAF6ysezHZiLv4dbNwtW9Z
+	 BiGWNUzAaDvgInZ3+J+dVQjzg+yHNLnYcIPSUoolTOYytg6YqCF5242z7SL723Mhh18Dd
+	 8C2RezjnAf/UKD0+MkI4wr3oXtD7+MHgskGEV/+Ncmkrz52UuPBiw+M7JxGnYNUYFEN6c
+	 hVkYOzfcNChSvWnuOAr+/vFCH/q94D/PpeKqaUBjBlJfr2sORkdQfSNEe7KZ0H68K4Fdx
+	 dy0KqRc20xZanr56urBia/moDt+otLvoY0+FUj3qfBdoF+4g/WAVw+lWEnjnczlzcIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795200494;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=O3u/kRJBi53QixU6FfvIqm48/9jegF4Ymd95gaTPJXM=;
-	b=2VEH9HsykjqbdxD83EnTFOiZF5uYSbHJ6bB+QuT8zCQfOW4cyZbkeXwh5foec01qJmBv
-	 lZbmn5uydgyjMvvIpybpmQSUQUSy3UylkdqY20Tl9v+U1tmNC8Ypkw3FKXKaDT+C0JnHL
-	 tVySK3FKu/3WYdFD1NV6Orys7Nvggl5T9/4HpOUbH8ofKET9DB489Af6wTw8T7/uJqlMV
-	 5NAh7DqyJJBROFFufcmOUDVAsD78V/Lgdv2fuM3rRuTu31R6G/8D2gt8vYVIBuJp4RLGb
-	 pirhmRQPIECoW39vT9c+QC0T6Jc34YuDZyxXngt/X3GCQDlO0CtwRZWDcPXZU3Y0tKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795200506;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Debian-User;
+	bh=rXBlCLAIPxZIrnxc5TaUZs68Bkw6of2txEBVWp826uY=;
+	b=bE4WhJkAHpS3QnSv05iR0sXuzub0b5IGpRoY1vd7dK+BdOOiYRvARpQfKDgvVw0hlLVc
+	 N8+Zbve2wSSafa4pjeulkcC+ElWKFfvwgXRMv61F9FR1k1sGhHCWx/QctO5WRt3jHKwdY
+	 YdI2gGQH1LF16bpgxf+jBoQL4pIFGBPw1HcNpxsEt9KXa0zd9qn6s46xls/eJj+IhVQCt
+	 J/QB/O5pRry5BkUmaDzajUl39IGa4wOsJHwmLXn+xd+HkpLpxlpP21Kb5duBM+svzLeZQ
+	 cX/i/r800HfbitmnChhlBbgMx4TgkXKGP6OlmhHnkRygCckp+OHm5mUrESaRfwSyCOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=altlinux.org;
-	spf=pass smtp.mailfrom=altlinux.org;
-	arc=none smtp.remote-ip=193.43.8.18
-Received: from air.basealt.ru (air.basealt.ru [193.43.8.18])
+	dmarc=pass header.from=debian.org;
+	spf=pass smtp.mailfrom=debian.org;
+	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=qi5royQj;
+	arc=none smtp.remote-ip=82.195.75.108
+Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9DCE606A330;
-	Fri, 20 Nov 2026 18:48:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9DCE606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=altlinux.org
-Received: from altlinux.ipa.basealt.ru (unknown [193.43.11.2])
-	(Authenticated sender: kovalevvv)
-	by air.basealt.ru (Postfix) with ESMTPSA id A22EB2337B;
-	Fri, 20 Nov 2026 21:48:01 +0300 (MSK)
-From: Vasiliy Kovalev <kovalev@altlinux.org>
-To: Song Liu <song@kernel.org>,
-	Yu Kuai <yukuai@fygo.io>,
-	Li Nan <magiclinan@didiglobal.com>,
-	Xiao Ni <xiao@kernel.org>,
-	linux-raid@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	kovalev@altlinux.org
-Subject: [PATCH] md/raid5: reject an invalid chunk size when continuing a reshape
-Date: Fri, 20 Nov 2026 21:48:01 +0300
-Message-ID: <20261120184801.614123-1-kovalev@altlinux.org>
-X-Mailer: git-send-email 2.50.1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D24D960A260D;
+	Fri, 20 Nov 2026 18:48:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D24D960A260D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=qi5royQj
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=rXBlCLAIPxZIrnxc5TaUZs68Bkw6of2txEBVWp826uY=; b=qi5royQj/MxjP2EhLMDrPzFRUV
+	QRQtkFov2KwEqvFQVTOm9DxW4/AUZmmIDMDYnSZEOQBypgTf42igwM3yWgxWGuBKCT9mujN2EOfsH
+	yLEFvhU0RkbaBglJCpKuJDCJiqzWxFqYB2XosUDmaVOJRK81TXWR1SjyZ8gxCYL3Z4ZbFP5qMv/I5
+	p8SstMBI4S+nFMDf3R/KCTEUZ6FL0cjNJU8uANYvOGX8MkZQsm5K4JJXnQKnJBz4pJqYayspbIho8
+	frFzMs4cLZpWE9l13n56CM15dG/+dHaVRbqVuml+pxnflRylzPlPmVdZb3e02jT10AF9xwhjyUbNv
+	glh3sPhQ==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1xUTei-0034dY-2b;
+	Fri, 20 Nov 2026 18:48:17 +0000
+Date: Fri, 20 Nov 2026 10:48:12 -0800
+From: Breno Leitao <leitao@debian.org>
+To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Christian Brauner <brauner@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] bootconfig: Exclude alignment padding from
+ bootconfig max size
+Message-ID: <awCV4GdVIRNJN6ty@gmail.com>
+References: <179495924003.237695.10973676765152260584.stgit@devnote2>
+ <179495925054.237695.2777053796977822521.stgit@devnote2>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,82 +71,41 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179495925054.237695.2777053796977822521.stgit@devnote2>
+X-Debian-User: leitao
 
-raid5_run() handles an array that claims an in-progress reshape
-(reshape_position != MaxSector) before any later chunk-size validation.
-It computes
+On Wed, Nov 18, 2026 at 08:47:30AM +0900, Masami Hiramatsu (Google) wrote:
+> From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+> 
+> When attaching a bootconfig to an initrd image, apply_xbc() appends 0-3
+> null padding bytes to align the total image size to 4 bytes and includes
+> those padding bytes in the footer size field. As documented in
+> Documentation/admin-guide/bootconfig.rst, the maximum bootconfig size
+> (XBC_DATA_MAX, 32767 bytes including the terminal null) is not supposed
+> to include these padding null characters.
+> 
+> However, both load_xbc_from_initrd() in tools/bootconfig and
+> get_boot_config_from_initrd() / xbc_init() in the kernel check the raw
+> footer size directly against XBC_DATA_MAX. As a result, a valid
+> 32766-byte config (size = 32767 with the terminal null) gets a footer
+> size of 32768..32770 when alignment padding is added, and is rejected
+> with "bootconfig size is too big" depending on the initrd size.
+> 
+> Define XBC_DATA_MAX_PADDED (XBC_DATA_MAX + BOOTCONFIG_ALIGN - 1) for the
+> raw trailer size check, and add xbc_exclude_padding() to strip up to
+> BOOTCONFIG_ALIGN - 1 trailing null padding bytes (keeping the terminal
+> null byte) before checking the unpadded bootconfig size against
+> XBC_DATA_MAX and passing it to xbc_init(). Keep using the raw footer
+> size when truncating or trimming the initrd so that both the bootconfig
+> and its alignment padding are removed.
+> 
+> Also expand test-bootconfig.sh to verify applying, reading back, and
+> deleting a maximum-size bootconfig across all 4 alignment paddings.
+> 
+> Fixes: e1cef2d4c379 ("tools/bootconfig: Align the bootconfig applied initrd image size to 4")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-	chunk_sectors = max(mddev->chunk_sectors, mddev->new_chunk_sectors);
-	new_data_disks = mddev->raid_disks - max_degraded;
-	if (sector_div(here_new, chunk_sectors * new_data_disks)) {
-	...
-	sector_div(here_old, chunk_sectors * (old_disks-max_degraded));
-
-The disk counts are checked earlier in this block, but chunk_sectors is
-not: the md/chunk_size sysfs attribute and a v1.x superblock can set it
-to any int value. The divisor is then zero for a zero chunk size, and
-for any product that is a multiple of 2^32, since sector_div()
-truncates the divisor to 32 bits, e.g. 2^30 sectors with four data
-disks:
-
-md/raid:md0: not clean -- starting background reconstruction
-Oops: divide error: 0000 [#1] SMP KASAN NOPTI
-CPU: 3 UID: 0 PID: 1414 Comm: syz.1.18 Not tainted 7.4.0-rc1-next-20261104-alt-syz-box-drivers_md_bcache #1 PREEMPT(lazy)
-RIP: 0010:raid5_run+0x5a8/0x27b0 drivers/md/raid5.c:8116
-Call Trace:
- <TASK>
- md_run+0xea5/0x2a00 drivers/md/md.c:6808
- do_md_run+0x32/0x660 drivers/md/md.c:6909
- md_ioctl+0x2ab2/0x4040 drivers/md/md.c:8541
- blkdev_ioctl+0x5a9/0x6e0 block/ioctl.c:798
- vfs_ioctl fs/ioctl.c:51 [inline]
- __do_sys_ioctl fs/ioctl.c:597 [inline]
- __se_sys_ioctl fs/ioctl.c:583 [inline]
- __x64_sys_ioctl+0x18a/0x210 fs/ioctl.c:583
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x112/0x630 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x00007f562441a40b
- </TASK>
-
-Writing 8 (bytes) to md/chunk_size, a non-MaxSector reshape_position and
-then RUN_ARRAY on a raid5 array is enough to trigger it.
-
-check_reshape() and raid5_start_reshape() already reject a zero chunk
-size, but an interrupted reshape is resumed by raid5_run() itself and
-goes through neither of them.
-
-Reject a chunk size that is not positive or makes either product
-overflow int.
-
-Found by Linux Verification Center (linuxtesting.org) with Syzkaller.
-
-Fixes: f67055780caa ("[PATCH] md: Checkpoint and allow restart of raid5 reshape")
-Cc: stable@vger.kernel.org
-Signed-off-by: Vasiliy Kovalev <kovalev@altlinux.org>
----
- drivers/md/raid5.c | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/drivers/md/raid5.c b/drivers/md/raid5.c
-index d52adf81065a..e31ae5d6eece 100644
---- a/drivers/md/raid5.c
-+++ b/drivers/md/raid5.c
-@@ -8113,6 +8113,13 @@ static int raid5_run(struct mddev *mddev)
- 		here_new = mddev->reshape_position;
- 		chunk_sectors = max(mddev->chunk_sectors, mddev->new_chunk_sectors);
- 		new_data_disks = mddev->raid_disks - max_degraded;
-+		if (chunk_sectors <= 0 ||
-+		    (u64)chunk_sectors * new_data_disks > INT_MAX ||
-+		    (u64)chunk_sectors * (old_disks - max_degraded) > INT_MAX) {
-+			pr_warn("md/raid:%s: invalid chunk size for reshape - aborting.\n",
-+				mdname(mddev));
-+			return -EINVAL;
-+		}
- 		if (sector_div(here_new, chunk_sectors * new_data_disks)) {
- 			pr_warn("md/raid:%s: reshape_position not on a stripe boundary\n",
- 				mdname(mddev));
--- 
-2.50.1
-
+Reviewed-by: Breno Leitao <leitao@debian.org>
