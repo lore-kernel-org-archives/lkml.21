@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795163599;
-	b=Lnq/NGI0VNKle+maX+7IJcbAsNePiHPE2plNQYgkSaCcYJpNKcISHIZV0G4m/KPRGrRt
-	 gn4j0i++vVYD0xl9BkCV2ssYga04vRy6nml6eu5h9YP2TMQRxRFU3najWswUeiBY8/fDm
-	 1W9iPV56FSdHU1suIoYMsyUsPc9RT3p4BjOopl/VjIfXXZET8rFiU8UHEd5egSptdisWb
-	 EA/EcPl1QkpDwstdWOO4hJumoiDqXqJG3rZNKCEyzWgaAGBEDt4kfKd0J10TvfWUE4la8
-	 Y6+sTeEdwXteKZr5AC7RROoXI6mx0CuyEbkeALYl8fjazC7ol5b4DjjkS0XhNx5mWig==
+	t=1795163600;
+	b=4ekJjAEhBxarw2bgAadgoyVX8voc/2x71s48afXuqWP86oSo3k8e+Thg69E4jWc4nSdK
+	 8Ifjd+amPePwhL0vDuzT3m49xidsZAunHXQZceXrcu5hdP8lvscR4qKH2hCroDQo73nYX
+	 iIkhCLj9/PVM05FPU8kICbICM0+mwKZWLMt+pCQo7KF1klOEGK14c35/Vm2VqPWsw7nb2
+	 UsBtnAOFFbICVMHc/XHedesTpE5gePImFTndzUDBuJgHUl/LzYbIlpowLMqFIjY79RAUp
+	 TbOAwHyDyh6dWb9HTkWg0I691/2PfLcH+MwVYSDq5THVFoB9rEDxpd7Y2kxXrm7GYaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795163599;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795163600;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=I8TUQ2Otgnw4tRG5pW2zl7IqR5SFMPLHs4wIlFBnDWg=;
-	b=cz4BP2f00dC3kQZKaQNLjs+PKE3ohWhI8N92hdstNCX4mNuaZQVYUQ3gxsaWUpoJBFUg
-	 I9nvRzM8tVu6uDOt9sS1eHNtaPUk7WRjyadEFuL8X1KFQ36LgJ2XepzHGHgzEBu7PoDYF
-	 r7fEuBdV3WfB/A5eDSrrMHJxmDsZXClUlN4a5jfgBEBdRAAnl9ib7Uo3iAJLfYM38/wqs
-	 elADqq7+/NPzOL/Q8XfxV2WLNIUq33e+6Jy1gcYpfmqBwfkhu7vF6PftWVItlKsGRhcLg
-	 mwqsD4Ed1HmsOilAqmq9Q43SiZlb3+8jVyk+w7qK+p9OWrg6ZLSUOtqvrDeVbTw8kAQ==
+	bh=SFy38Ff+fwopy+XTQXnFEvx5fWF+AgpWGQVRDcX7MMY=;
+	b=USfz/k2prQlp7Gwk8lsX8sayt1TDPHtRIDyTSvkfrT94nAv4Ovij38u/zI5TwlhAiTCR
+	 yhXYgRwXg99R+sXIdTf6jptym63RvrBsOTBiuJDc64Fu3ve94HXpPX1o9HF6Vyt7tHNfm
+	 QpvICTEvdJhxTc1wVGW5QqwaIVhGappH3ZAdjCqvmPwAh5nBjBTKOo4cms3Tk5GSo5iR/
+	 iU/opk++ejSkwPqKSOly+QOoJW4pFFEP7YuVGgCxDaeswegCciwNVpSSfh5U+qyXQHjSV
+	 aaeziNiRPdX9mUPCPW/sz/68tc5YaglgiKt9UIKxthRgku3zBG73C984di59n2104Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Qs887Ed9;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=OwdBDEOt;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 499A6606A333;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E22E2606A33D;
 	Fri, 20 Nov 2026 08:33:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 499A6606A333
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E22E2606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Qs887Ed9
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=OwdBDEOt
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id E1F25E833C1;
-	Fri, 20 Nov 2026 09:33:11 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id 74B48E838E4;
+	Fri, 20 Nov 2026 09:33:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795163591;
+	s=mail; t=1795163598;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=I8TUQ2Otgnw4tRG5pW2zl7IqR5SFMPLHs4wIlFBnDWg=;
-	b=Qs887Ed9Md+Eq3NCAn42k17TmcVocxFAQ3OAbWlIF13QgAtIWDbirI7fT4G1xcQlMbPfWL
-	ASNvc0PdwQ22X6bxDtQOehOxv5M1x52SqyRJOZugyInh2d3jsNff25w5MxDF89G/adlps9
-	/GqNJtJOjykfsChI8Zed7wwx7Ka4Eh1gugKL28M9+slxfDiyZ/mDYh5yTcTt4yTfbHfl2F
-	yQd/p+2CTTDko0cN8iDEc5MI6tAAKJhOw1yYRivpUFu1X1+KKAxa3Xp7NHIHpIHhp1naCO
-	ohUxpMcU9a3+inonzhrHwR5dXWb2yww1Neqxjarg6Hv/7DDLzOcd04fO6WqM9w==
+	bh=SFy38Ff+fwopy+XTQXnFEvx5fWF+AgpWGQVRDcX7MMY=;
+	b=OwdBDEOtzHhtFdO1nxnXdpVCuc0Uazna935DXLfK4i6F4Angi4sxBVjOR+YJp3ayASDRko
+	sS3i01u4iXjJhyee8mdtvDps8hmJwlPzXlBRTFiGq5ch6zy28FukHqyySqs//4s5RgEnMB
+	YiYwRSKrQLoVqGbQVq1/CMPoYfvnq8P9RT9mPPG3STxwXnxexjqUBEerHHtZmKaqOrXIWj
+	90iUUVqDUkcXHoSDBQTLO4e0uVZUve00lEgtw9KWolxkeXybifX4TWDW0tsgCKH4a68fai
+	pZx2vqaMwBzBLKJJseWSs6FNUsvBw4GIvCC1m3VvM2nxqCzGqivX0rdRfKLmjQ==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id qjp0XZ7a-GVv; Fri, 20 Nov 2026 09:33:11 +0100 (CET)
+ id c_rhmSYciU5L; Fri, 20 Nov 2026 09:33:18 +0100 (CET)
 Received: from p14sgen5.. (86-103-67-101.ip.tng.de [86.103.67.101])
 	by szelinsky.de (Postfix) with ESMTPSA;
-	Fri, 20 Nov 2026 09:33:11 +0100 (CET)
+	Fri, 20 Nov 2026 09:33:17 +0100 (CET)
 From: Carlo Szelinsky <github@szelinsky.de>
 To: netdev-bot+sashiko@kernel.org
 Cc: Kory Maincent <kory.maincent@bootlin.com>,
@@ -72,12 +72,12 @@ Cc: Kory Maincent <kory.maincent@bootlin.com>,
 	Ross Cawston <ross@r-sc.ca>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v5 05/14] net: pse-pd: do not reach a freed PHY from the notification worker
-Date: Fri, 20 Nov 2026 09:33:08 +0100
-Message-ID: <20261120083308.2324502-1-github@szelinsky.de>
+Subject: Re: [PATCH net v5 08/14] net: pse-pd: stop async event sources before freeing PI data in unregister
+Date: Fri, 20 Nov 2026 09:33:16 +0100
+Message-ID: <20261120083316.2324608-1-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179515690895.3136.4077280921885475671@kernel.org>
-References: <179515690895.3136.4077280921885475671@kernel.org>
+In-Reply-To: <179515691327.3136.4761180533573430766@kernel.org>
+References: <179515691327.3136.4761180533573430766@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,17 +89,14 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Fri, 20 Nov 2026 06:41:48 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Would wording like "NULL once the PI has been shared by several PHYs"
-> match the code better?
+On Fri, 20 Nov 2026 06:41:53 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Could the flag be cleared in pse_controller_register()? Or could the
+> kernel-doc say that the core expects a zeroed pcdev for each
+> registration?
 
-Yes, that is better. The Return: line also misses the case where the
-PHY has no net_device. I will fix both texts in a follow-up.
+All in-tree drivers get a new, zeroed pcdev for each bind, and other
+fields are not reset either. So I leave it as it is.
 
-> This is a pre-existing issue, not one introduced by this patch, but can
-> the worker still use a freed net_device here?
-
-Yes, but this is older than the patch, as on v3. The cover letter
-lists it.
+The other two points are fixed later in this series.
 
 Carlo
