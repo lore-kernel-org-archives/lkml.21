@@ -1,78 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795158680;
-	b=a6jvTnV6DmVFz26CAKeDOk7JB4MRSphFWsxq9THhjGJLDCr1S5C103wmL+mTK3ytLueR
-	 NV5fx9xsab6Vj3KKTPMDVxxeKlQL4VI5vIV7lYjPi0GdrQRGcZkcF+pfqr3jrZAYr0bUi
-	 WswFkLYPTacH68Lz+p+EnA+cNNHG+ydK76guJpxOh/O27w5nx73O6ECAa2tjAcEoTnsfa
-	 +9MV7Q8U5KaohYqqXUtco4rgrCorF9F3OHPab5ulFWCtoi4jmVvbKQJvP9bNdRl7LiF+w
-	 navGIKS8SOL0zbLBl0y5KkSNsBHjIvWaLyl4vWdon7lmoBsmQyP7wgku8CU0dBwimdw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158680;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
-	b=jte2gqrZ4bQd5zHzNkahxSc+/0GMbEDw1R8nqQXriTs7ldAHpDuaAv4vKpQsRDQW4I4K
-	 IWcgD7qn+zTEtl+FiDhnb3IgeEF2ZAio2SqrNsH5D+MZq+NOGBNrL81jlF3Mh/+0guHQg
-	 RW0qtk6bYicmIDkQWjtgST5IvN0PzHSd4BzOwdc6/MX4jedbKqiT4/nF3flp4yTDY9UL1
-	 ZJ3lGZTB2B6fE8gkrDxWvsmjWe1l1n3BA44fcJIsHJatruAkvYcrzQpFDwH8BjPGv17MA
-	 RHU79RRO62Fly45XYZFJ6G12o0+l++iePUKDnhHPOAx3pNmw/bJ78RYqtcK3QlGwx2g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FnRoM3bg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DD4960A261A;
-	Fri, 20 Nov 2026 07:11:20 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FnRoM3bg
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795158680;
-	b=ZlxSTe89faj2JeqaThGGUAoVezy6SuMd7c/P49zM/QeuXVtSeBjeHkkB1xcIdBfPVMti
-	 ok/H88OqhQrpNFLEg5MfYZYGzPUmwzCA45HwnfWAR+NotPsCb2xZQrEjHucufENf/taoG
-	 wZU6ezkyZzYGyDc+lB37btYcIWdWx4YAs5UQ0C8kEc3SSKwYGaMtA5F2+ous4UnZuyRbr
-	 CJ9cdAoYvVf9Tc+ybVQ/MPMDxV1C10AGEM7q42xCai2BhTCo7BOtwFULuv+7ZWv/5T4Vz
-	 exXZJgJXj928SOPx8UH4VXycnqf0UYJRBtbUPznhcPGXu58z9VczzzZxa4/yXCtqxWA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795158680;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
-	b=X0ybuxl3aHiYEZGCEIZi2ApG9so6AjqOl/qTB8Insn/4i8b9EMiAGUrnt/vAlbFk1b30
-	 h7Tb78dKq7mfwQN3Bjkld0gL5JpawAHBotyLoQjuj7Zn9gV6//d2RGBZjMe2ohcG79DxM
-	 mIyfsGcGGCJRIHkqOkRqdrpOAbJ4PvPhbjpF2ZH1l4O2d/tmnridsENL9aOSTatAIeVMs
-	 nSEWHI6AmY7P6Vhe9K+O6DTUHk3Za4UWf2vEgoc4+25O9pccOFVwSwAOJhCyJdI2KwcIB
-	 tdzdst3wOQ+xh1cDOVNJG5Yr5trHiBRPlYwlzy8NwXeKQy/H3Rp5NrHzNICk6zvk1uA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795158681;
+	b=sRxrvZqi4ceA7w1sqNmR0lRzVV0HTIi+fzFEE2JGhtwe77Kx9wR2CHXTfVac5x0DM2EY
+	 kFh7Dofd8sIgwY6SMTLKRUb2x7nIR9jUpzrzMLoOdYaP9Q4bl+nR33I6eImxLpT7sfQS9
+	 u223goV4NtXQ9+VeVkztgaZ+8qbGtYOswu6Olf+fYVnUIJUESiXECLtblFRdL9ZwfVRyA
+	 fm61KYS9pntWGmdyOaoE7Ovk+XMwGDfKhL7mF2TxQ+sZRDvxlmlUZuQB3J3e2PlDSivqb
+	 P+91Bws8XXsHmElGGEeEfpSEp4FqJq4656UzlBiZH3m7AU+7Sg9pUGwfRIFrLW3ifUQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158681;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
+	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=0XhKNi7q9TqgECVTc7DgpZoiDl+GIaqHjXrFw+UrhyA=;
+	b=MfqA+YYNlQNmbNIGzHeNpQZp3T7HV+GWX5DrhxMN8jCr7P4Wq61GbwkYDuY2VrTGw4Kz
+	 DQK+wnmSkupeQsLV60tkNL1xtz4QjENGwrG428eEWN+QgkpxSnIuuQZfW4jHm/k4SKwRA
+	 HjW2bIFbWzDNGEA8tcmZSDP7/8hPRv8llXLz/FDUApiTB1ZHlsYB5eD0MazcdnUIPhgFT
+	 jjCbCw9P6lWtDHKHmIVxdoRpozzBmOFhf3M/FKrW03NX+b/upshj8zWCLTR2GI4DQB4gk
+	 cdHquP9iTCJoZgcexMqHlO9UsNZ80UYUcTZSbWFQ2oDlkAOg3ox03PGUl6RfAaMyiMw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nKMxmGmK;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=esfPP46X;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2137C1F000E0;
-	Fri, 20 Nov 2026 07:11:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795158680;
-	bh=utCwhodg5xFMHYKAzMuBmbGu+jVq2YBIw6k6+4dlJHU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=FnRoM3bg2MLSBk1SN1qTAgE5OVsZV//8sdy4gSPNc4af73vskWCztWcPuRNjj5jjX
-	 4bSyCmNQAfxuYlHFtxGppmgFcpWD181U7JEO1Y4CclVKjjF9p06h164wKs4VjCkbMK
-	 PbIyCcEL0cgm4U2jN5tmCbcBQ0wu6EZo4wqV16Q/+XvxVH61FvrJJC4q/nwV7bi4i7
-	 3KqFqA2N15dFNOfiAcZVvEGKk33wJHMaKM/9VCofkf2TwsCNhMjNHYRyspWDtBEi9u
-	 RT/1Dmfe3io03vBoabX1wF9hG0tOml5JlsiCkqsuWuDYKG7EDkgui17ypUgYraP3gl
-	 e3Hjgx5UXP4Pw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9DF904974F;
-	Fri, 20 Nov 2026 07:11:17 +0000 (UTC)
-From: Xiubo Li via B4 Relay <devnull+xiubo.li.clyso.com@kernel.org>
-Date: Fri, 20 Nov 2026 09:11:12 +0200
-Subject: [PATCH v7 4/5] ceph: move mdsc->mutex into __do_request()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AB0D60A263E
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:11:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AB0D60A263E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nKMxmGmK;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=esfPP46X
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK4NhYY1304398
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:11:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=0XhKNi7q9TqgECVTc7DgpZoiDl+GIaqHjXr
+	Fw+UrhyA=; b=nKMxmGmK2Br0gLbiWoTnwA71LBdVZH+/Ohi8Ckc/jaHrdqjFFrI
+	tbgeTkdd5vra4OoWDVemvjjMImfRDHAhAIREsNDC/jYTkIKkOeT59VYfwT1pLG+d
+	/P4ryAl2a3EyHvzOSugMj3VPtqeHhxOHDuQxFs3GqeefEk4CZz5CCkxz6Cw0ezNH
+	mJeOnjIzG8A7jepXpaSEoVPcWJF0ttSOiOcY+0UesRBthr+B+BB+cQiB1q3dAW8c
+	No5Mq7FcHTGeR3GlSUJf+sMLuKrwwkNX+qcri7wN8HxuJfUHE2DctSx3+7ip3zQJ
+	Z1ygAxkuDbEHuYuVn3aeOh7GYtFMC0T3O6g==
+Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2f4ygkrq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:11:19 +0000 (GMT)
+Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-86313f7f4faso758605a34.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:11:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1795158679; x=1795763479; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0XhKNi7q9TqgECVTc7DgpZoiDl+GIaqHjXrFw+UrhyA=;
+        b=esfPP46Xa7A4swF5faQXaluzc/IsWjLVZuty/W8re7nJn90ni5u+vWxwtfflxyTpHc
+         +sPFd3jseeLOvIR/D2YLAZSFKZWJzF3/Eeefdd6eE1zXQnLQxhHRtmE18X8TilAFQzJR
+         UgXIlnhIxoO4y/P5WKua+55vZuw++XTO/Un7KZfLb16QAtuGVojbYgOPofO1DRJuFuHJ
+         EWFgP6GGvRtOfVQkRMuPdowwvG0x15pvnRXvnapGWuyZ9y0JjnHe7yOeBeuWRztiRMfd
+         Gp8ZqprOln6eR26adPEiwcve833Rn2uSb4hVpFX3+nfYe8sbuDX6F82rAsLoLa1VDtaH
+         84Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795158679; x=1795763479;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0XhKNi7q9TqgECVTc7DgpZoiDl+GIaqHjXrFw+UrhyA=;
+        b=EWfxh/dZ6xN6KnAxU/aSRSUR8ZBXNse2VI7xK5mwVbN2H6I5RtiXxIreuEYk6T8aRa
+         ep34ZnJPQOTAMPCU2m8nr2Ep5vTtBcHxjFVzPa+sTWAAoL8IwNxpIdIFWacIXhIdYFV/
+         QD/zMR4/ubhQtL7zVUtLUnOjYdwnGqVHkjk6ZXwHfl1oBxaDCml3zFfnqF8SdcleABJc
+         wjotSzsWY17rAxoe02y7wLxEZOh3aKoe0NH8goL3b71Gulolyo9H5YX0ySna3Tnn58Xc
+         4M1Y8pO2/1elPj8tKXPOqkDoOe4kMpZpbaXxMBSejbFquTuTTpPd6oQpD6V0L3KyAI8W
+         1zCQ==
+X-Forwarded-Encrypted: i=1; AL+hErHR3x80LBIsfqcsDR7Kif4y/3/GyO0w0ijhIIa3sI/uY7OBGO/1lK+iRtpO9TtDlcLtatvZzfpEr3XpuQg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8hNZmi9w0yNJIz0HjfVXAQ5dyz4tOrWEDUHdhgW1VPaCD0nlZk
+	CeuQsBD10hDP/fdS4i0bxXBN7sxa1Cn6Xw4dPbeotEvB3jdpM2eF+kKdQ5UKQ8+oRa/Md+NAvGB
+	6sXFXhotDEalmgkshRo7Xjccn6PpYKofBdE455XFA7NEG37HkEwcw49i8cONyIMojBBY=
+X-Gm-Gg: AYBFou1HoOXTEbo0ks8IsBlhI9mxzjIH4VCSb7gsL17BoY083aoRmyNyGVNGrg9WXT5
+	yxT/hmPSCvGodMFnfuitKacM/UcSvRv5sc+rUg+zfqr/kmTxU5k0FPDinwzeJQqbmj1GbKTJFcX
+	ZID9nvKOK+G3Eru1agLgeys8EMF1kbg97MfOIRDc4bBjC1uGNbXx4uA/ESGWBet+IR+mg7/xTx4
+	LbGtDF4zGEM6+Ur/vjvgdL8iLiEyGJ+kLWkfuB3bR3VTjWwbNrFFBraz2sLDF5f5gqL35suyIMl
+	+5N6UhHLBNg2KI3LZD2VSc6v5KbK4Vle+qgldr1Ik8FZhsc5Sudmywais3amLvZ5BiduUXJ9Al/
+	MMTa+Xl+hBUNBU9KmKmsZtQtY3TyrPCWu/nq6S032MOSZaGx4aNnfm8PUV65cyI6RmdYvqnz0ms
+	MyJ3aM442HqLPaJhKOw285ACsq8sOOOw==
+X-Received: by 2002:a05:6830:6816:b0:862:a0ce:f558 with SMTP id 46e09a7af769-86315a00e5amr3166302a34.22.1795158679111;
+        Thu, 19 Nov 2026 23:11:19 -0800 (PST)
+X-Received: by 2002:a05:6830:6816:b0:862:a0ce:f558 with SMTP id 46e09a7af769-86315a00e5amr3166289a34.22.1795158678637;
+        Thu, 19 Nov 2026 23:11:18 -0800 (PST)
+Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631681f30asm1491320a34.1.2026.11.19.23.11.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 23:11:18 -0800 (PST)
+From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Jeff Johnson <jeff.johnson@oss.qualcomm.com>, linux-kernel@vger.kernel.org
+Subject: [PATCH] mailmap: add entry for Yuanfang Zhang
+Date: Thu, 19 Nov 2026 23:09:41 -0800
+Message-Id: <20261120070941.2814556-1-yuanfang.zhang@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,437 +116,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-ceph-mdsc-mutex-optimization-v7-4-a4eee70e0038@clyso.com>
-References: <20261120-ceph-mdsc-mutex-optimization-v7-0-a4eee70e0038@clyso.com>
-In-Reply-To: <20261120-ceph-mdsc-mutex-optimization-v7-0-a4eee70e0038@clyso.com>
-To: Ilya Dryomov <idryomov@gmail.com>, Alex Markuze <amarkuze@redhat.com>, 
- Viacheslav Dubeyko <slava@dubeyko.com>
-Cc: ceph-devel@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Xiubo Li <xiubo.li@clyso.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795158674; l=14370;
- i=xiubo.li@clyso.com; s=20260625; h=from:subject:message-id;
- bh=jOiiqm1GWSWzeMvLC9FlXH0n3DdiaHPP+E/KEWtGE28=;
- b=pUEK/WIqdHBYsBGI0xege/vAkwd5llns1hoQsSB7T7ihQ+KG6KD5Hhd7XbsrxlQ9MdpFQxu08
- TEEXX1tuPpfDWzsTtnpUQI4hvN/eFlspEIC90C7rlwjfNlku1e5zv+I
-X-Developer-Key: i=xiubo.li@clyso.com; a=ed25519;
- pk=V3NGr0AgAopiUhaLY51ipBkLN5LlcLhjOEfLEq1RoZ8=
-X-Endpoint-Received: by B4 Relay for xiubo.li@clyso.com/20260625 with
- auth_id=840
-X-Original-From: Xiubo Li <xiubo.li@clyso.com>
-Reply-To: xiubo.li@clyso.com
 Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=Zs54uN7G c=1 sm=1 tr=0 ts=6afff297 cx=c_pps
+ a=+3WqYijBVYhDct2f5Fivkw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
+ a=VwQbUJbxAAAA:8 a=7mOBRU54AAAA:8 a=BY5PBP3jAAAA:8 a=1XWaLZrsAAAA:8
+ a=COk6AnOGAAAA:8 a=n9Sqmae0AAAA:8 a=pGLkceISAAAA:8 a=yC-0_ovQAAAA:8
+ a=Q-fNiiVtAAAA:8 a=eh1Yez-EAAAA:8 a=UC-uwn1rUJi2p_lg49oA:9
+ a=eYe2g0i6gJ5uXG_o6N4q:22 a=wa9RWnbW_A1YIeRBVszw:22 a=gQW0MTutLl7eKD3OLfcZ:22
+ a=TjNXssC_j7lpFel5tvFf:22 a=UmAUUZEt6-oIqEbegvw9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOCBTYWx0ZWRfXyFceA+0YHg9y
+ u82gdCCa7kWe08k82SN0JaaR/2wU5rM7GR3MTuzfx65NnuqQtqnk4QPsguz7BNsNfdqy7cNtXBQ
+ gja6wt2NQ7gD8jVREO4nFpugqtdUSZOAAcNxFaRK7csc6hqjUT6yENQNZEyQouxD+MLtnyhbPQY
+ whkVE0hP9QAnubpRxly7kxq5plqStTTYOJ/AfDPPdrfYpBO8n90yCsRXDeWoas4ZL3uB1cc7/72
+ /0h+EwC82M3o5ePW3n408cWz4niFnuYnQIr974boWJHf6/7orw7pC/TstbTcAm/AHMdU2agu33J
+ iW/83aKVv9GEqRvUN6mJNURASbTp/kjc1VKSBX368kE02oy699TjPdZyQTk3yrKB1qVhPJLFLCE
+ 0GG3YiS3uwLNt6X6O4Fuv6QMgdIzJUyF7hp/ujsRwUEi6h2pOHP2zR6dIvY5qC3Kb0QQv0uxhw1
+ I9XWSbXjfQ+MH3txgVA==
+X-Proofpoint-GUID: 31JIlZWPzLfaK5m8c2o2zQhVWySHeyqH
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOCBTYWx0ZWRfXwGsxuttVnZQL
+ Tmwwyt7ymltNghSqpd8+S/0CUnuu5hn9lUb6nghz2nJGtBoBzm916JtxojsNSExwmObaVe1Gnvy
+ PjZhYdQdAAqquG8EpoLhhKuWjd91dtA=
+X-Proofpoint-ORIG-GUID: 31JIlZWPzLfaK5m8c2o2zQhVWySHeyqH
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 adultscore=0 clxscore=1011 priorityscore=1501
+ impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200028
 
-From: Xiubo Li <xiubo.li@clyso.com>
+Map past iterations of my e-mail addresses to the current one.
 
-Currently every caller must hold mdsc->mutex when invoking the
-request-send machinery.  Move the mutex acquisition inside
-__do_request() so that callers can fire off a request without
-first serializing on the global lock.  The mutex is released
-before the network send phase and re-acquired only for cleanup,
-so dentry traversal and message construction run concurrently
-across CPUs.
-
-This is the primary source of the observed 2x stat throughput
-improvement: the per-request send path shrinks from hundreds of
-microseconds to tens of microseconds once it no longer waits on
-the mutex.  Wait-list draining, session-state wake-ups, and
-request kicking are reworked to either use the new wait-list
-spinlock or collect candidates under the mutex and process them
-outside it.
-
-Signed-off-by: Xiubo Li <xiubo.li@clyso.com>
+Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
- fs/ceph/mds_client.c | 121 +++++++++++++++++++++++++++++++++++----------------
- fs/ceph/mds_client.h |   1 +
- 2 files changed, 85 insertions(+), 37 deletions(-)
+ .mailmap | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/fs/ceph/mds_client.c b/fs/ceph/mds_client.c
-index 5983ae6e3085..6d4182cfa70a 100644
---- a/fs/ceph/mds_client.c
-+++ b/fs/ceph/mds_client.c
-@@ -2813,6 +2813,7 @@ ceph_mdsc_create_request(struct ceph_mds_client *mdsc, int op, int mode)
- 	init_completion(&req->r_completion);
- 	init_completion(&req->r_safe_completion);
- 	INIT_LIST_HEAD(&req->r_unsafe_item);
-+	INIT_LIST_HEAD(&req->r_aux_item);
- 
- 	ktime_get_coarse_real_ts64(&req->r_stamp);
- 
-@@ -3532,20 +3533,23 @@ static int __prepare_send_request(struct ceph_mds_session *session,
- 	 * Avoid infinite retrying after overflow. The client will
- 	 * increase the retry count and if the MDS is old version,
- 	 * so we limit to retry at most 256 times.
-+	 *
-+	 * r_attempts was already incremented under mdsc->mutex by the
-+	 * caller (__do_request or replay_unsafe_requests), so the
-+	 * actual retry count is r_attempts - 1 and we skip the check
-+	 * on the first dispatch (r_attempts == 1).
- 	 */
--	if (req->r_attempts) {
--	       old_max_retry = sizeof_field(struct ceph_mds_request_head,
--					    num_retry);
--	       old_max_retry = 1 << (old_max_retry * BITS_PER_BYTE);
--	       if ((old_version && req->r_attempts >= old_max_retry) ||
--		   ((uint32_t)req->r_attempts >= U32_MAX)) {
-+	if (req->r_attempts > 1) {
-+		old_max_retry = sizeof_field(struct ceph_mds_request_head,
-+					     num_retry);
-+		old_max_retry = 1 << (old_max_retry * BITS_PER_BYTE);
-+		if ((old_version && (req->r_attempts - 1) >= old_max_retry) ||
-+		    ((uint32_t)(req->r_attempts - 1) >= U32_MAX)) {
- 			pr_warn_ratelimited_client(cl, "request tid %llu seq overflow\n",
- 						   req->r_tid);
- 			return -EMULTIHOP;
--	       }
-+		}
- 	}
--
--	req->r_attempts++;
- 	if (req->r_inode) {
- 		struct ceph_cap *cap =
- 			ceph_get_cap_for_mds(ceph_inode(req->r_inode), mds);
-@@ -3657,9 +3661,36 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 	int err = 0;
- 	bool random;
- 
-+	mutex_lock(&mdsc->mutex);
-+
-+	/*
-+	 * r_attempts is bumped under mdsc->mutex just before the mutex
-+	 * is dropped to send the request, and it is only ever written
-+	 * back to 0 by the forward handler or cleanup_session_requests()
-+	 * (both under the mutex) before re-dispatching through a new
-+	 * __do_request() call.  Consequently, r_attempts > 0 at this
-+	 * point always means another __do_request() instance has already
-+	 * passed the point of no return for this request, i.e. a racing
-+	 * kick_requests() or __wake_requests() picked up the same
-+	 * request from the xarray or a wait list and is about to send
-+	 * it.  Bail out to prevent a double dispatch.
-+	 *
-+	 * Note: kick_requests() also filters on r_attempts > 0 during
-+	 * its collection pass, but that is a one-time snapshot taken
-+	 * under the mutex.  Between that snapshot and the actual
-+	 * __do_request() call the mutex is dropped and re-acquired, so
-+	 * the protection is not atomic — this per-request gate closes
-+	 * the remaining window.
-+	 */
-+	if (req->r_attempts > 0) {
-+		mutex_unlock(&mdsc->mutex);
-+		return;
-+	}
-+
- 	if (req->r_err || test_bit(CEPH_MDS_R_GOT_RESULT, &req->r_req_flags)) {
- 		if (test_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags))
- 			__unregister_request(mdsc, req);
-+		mutex_unlock(&mdsc->mutex);
- 		return;
- 	}
- 
-@@ -3692,6 +3723,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 			spin_lock(&mdsc->wait_list_lock);
- 			list_add(&req->r_wait, &mdsc->waiting_for_map);
- 			spin_unlock(&mdsc->wait_list_lock);
-+			mutex_unlock(&mdsc->mutex);
- 			return;
- 		}
- 		if (!(mdsc->fsc->mount_options->flags &
-@@ -3717,6 +3749,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 		spin_lock(&mdsc->wait_list_lock);
- 		list_add(&req->r_wait, &mdsc->waiting_for_map);
- 		spin_unlock(&mdsc->wait_list_lock);
-+		mutex_unlock(&mdsc->mutex);
- 		return;
- 	}
- 
-@@ -3790,6 +3823,9 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 		goto out_session;
- 	}
- 
-+	req->r_attempts++;
-+	mutex_unlock(&mdsc->mutex);
-+
- 	/* send request */
- 	req->r_resend_mds = -1;   /* forget any previous mds hint */
- 
-@@ -3820,6 +3856,7 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 			err = wait_on_bit(&di->flags, CEPH_DENTRY_ASYNC_CREATE_BIT,
- 					  TASK_KILLABLE);
- 			if (err) {
-+				mutex_lock(&mdsc->mutex);
- 				mutex_lock(&req->r_fill_mutex);
- 				set_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags);
- 				mutex_unlock(&req->r_fill_mutex);
-@@ -3857,6 +3894,8 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 
- 	err = __send_request(session, req, false);
- 
-+	mutex_lock(&mdsc->mutex);
-+
- out_session:
- 	ceph_put_mds_session(session);
- finish:
-@@ -3866,12 +3905,10 @@ static void __do_request(struct ceph_mds_client *mdsc,
- 		complete_request(mdsc, req);
- 		__unregister_request(mdsc, req);
- 	}
-+	mutex_unlock(&mdsc->mutex);
- 	return;
- }
- 
--/*
-- * called under mdsc->mutex
-- */
- static void __wake_requests(struct ceph_mds_client *mdsc,
- 			    struct list_head *head)
- {
-@@ -3901,10 +3938,14 @@ static void __wake_requests(struct ceph_mds_client *mdsc,
- static void kick_requests(struct ceph_mds_client *mdsc, int mds)
- {
- 	struct ceph_client *cl = mdsc->fsc->client;
--	struct ceph_mds_request *req;
-+	struct ceph_mds_request *req, *nreq;
- 	unsigned long idx;
-+	LIST_HEAD(kick_list);
- 
- 	doutc(cl, "kick_requests mds%d\n", mds);
-+
-+	/* collect matching requests under the mutex */
-+	mutex_lock(&mdsc->mutex);
- 	idx = 0;
- 	xa_for_each(&mdsc->request_tree, idx, req) {
- 		if (test_bit(CEPH_MDS_R_GOT_UNSAFE, &req->r_req_flags))
-@@ -3913,14 +3954,23 @@ static void kick_requests(struct ceph_mds_client *mdsc, int mds)
- 			continue; /* only new requests */
- 		if (req->r_session &&
- 		    req->r_session->s_mds == mds) {
--			doutc(cl, " kicking tid %llu\n", req->r_tid);
-+			ceph_mdsc_get_request(req);
- 			spin_lock(&mdsc->wait_list_lock);
- 			list_del_init(&req->r_wait);
- 			spin_unlock(&mdsc->wait_list_lock);
--			trace_ceph_mdsc_resume_request(mdsc, req);
--			__do_request(mdsc, req);
-+			list_add_tail(&req->r_aux_item, &kick_list);
- 		}
- 	}
-+	mutex_unlock(&mdsc->mutex);
-+
-+	/* replay without the mutex */
-+	list_for_each_entry_safe(req, nreq, &kick_list, r_aux_item) {
-+		doutc(cl, " kicking tid %llu\n", req->r_tid);
-+		trace_ceph_mdsc_resume_request(mdsc, req);
-+		list_del_init(&req->r_aux_item);
-+		__do_request(mdsc, req);
-+		ceph_mdsc_put_request(req);
-+	}
- }
- 
- int ceph_mdsc_submit_request(struct ceph_mds_client *mdsc, struct inode *dir,
-@@ -3980,10 +4030,11 @@ int ceph_mdsc_submit_request(struct ceph_mds_client *mdsc, struct inode *dir,
- 	doutc(cl, "submit_request on %p for inode %p\n", req, dir);
- 	mutex_lock(&mdsc->mutex);
- 	__register_request(mdsc, req, dir);
-+	mutex_unlock(&mdsc->mutex);
-+
- 	trace_ceph_mdsc_submit_request(mdsc, req);
- 	__do_request(mdsc, req);
- 	err = req->r_err;
--	mutex_unlock(&mdsc->mutex);
- 	return err;
- }
- 
-@@ -4372,13 +4423,14 @@ static void handle_forward(struct ceph_mds_client *mdsc,
- 		req->r_num_fwd = fwd_seq;
- 		req->r_resend_mds = next_mds;
- 		put_request_session(req);
--		__do_request(mdsc, req);
- 	}
- 	mutex_unlock(&mdsc->mutex);
- 
- 	/* kick calling process */
- 	if (aborted)
- 		complete_request(mdsc, req);
-+	else if (!test_bit(CEPH_MDS_R_ABORTED, &req->r_req_flags))
-+		__do_request(mdsc, req);
- 	ceph_mdsc_put_request(req);
- 	return;
- 
-@@ -4706,11 +4758,9 @@ static void handle_session(struct ceph_mds_session *session,
- 
- 	mutex_unlock(&session->s_mutex);
- 	if (wake) {
--		mutex_lock(&mdsc->mutex);
- 		__wake_requests(mdsc, &session->s_waiting);
- 		if (wake == 2)
- 			kick_requests(mdsc, mds);
--		mutex_unlock(&mdsc->mutex);
- 	}
- 	if (op == CEPH_SESSION_CLOSE)
- 		ceph_put_mds_session(session);
-@@ -4766,8 +4816,10 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
- 	doutc(mdsc->fsc->client, "mds%d\n", session->s_mds);
- 
- 	mutex_lock(&mdsc->mutex);
--	list_for_each_entry_safe(req, nreq, &session->s_unsafe, r_unsafe_item)
-+	list_for_each_entry_safe(req, nreq, &session->s_unsafe, r_unsafe_item) {
-+		req->r_attempts++;
- 		__send_request(session, req, true);
-+	}
- 
- 	/*
- 	 * also re-send old requests when MDS enters reconnect stage. So that MDS
-@@ -4786,6 +4838,7 @@ static void replay_unsafe_requests(struct ceph_mds_client *mdsc,
- 
- 		ceph_mdsc_release_dir_caps_async(req);
- 
-+		req->r_attempts++;
- 		__send_request(session, req, true);
- 	}
- 	mutex_unlock(&mdsc->mutex);
-@@ -5346,9 +5399,7 @@ static int send_mds_reconnect(struct ceph_mds_client *mdsc,
- 
- 	mutex_unlock(&session->s_mutex);
- 
--	mutex_lock(&mdsc->mutex);
- 	__wake_requests(mdsc, &session->s_waiting);
--	mutex_unlock(&mdsc->mutex);
- 
- 	up_read(&mdsc->snap_rwsem);
- 	ceph_pagelist_release(recon_state.pagelist);
-@@ -5773,8 +5824,8 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
- 		}
- 		sessions[i]->s_state = CEPH_MDS_SESSION_CLOSED;
- 		__unregister_session(mdsc, sessions[i]);
--		__wake_requests(mdsc, &sessions[i]->s_waiting);
- 		mutex_unlock(&mdsc->mutex);
-+		__wake_requests(mdsc, &sessions[i]->s_waiting);
- 
- 		mutex_lock(&sessions[i]->s_mutex);
- 		cleanup_session_requests(mdsc, sessions[i]);
-@@ -5785,9 +5836,7 @@ static void ceph_mdsc_reset_workfn(struct work_struct *work)
- 
- 		ceph_put_mds_session(sessions[i]);
- 
--		mutex_lock(&mdsc->mutex);
- 		kick_requests(mdsc, mds);
--		mutex_unlock(&mdsc->mutex);
- 
- 		torn_down++;
- 		pr_info_client(cl, "mds%d session reset complete\n", mds);
-@@ -5903,8 +5952,8 @@ static void check_new_map(struct ceph_mds_client *mdsc,
- 			/* force close session for stopped mds */
- 			ceph_get_mds_session(s);
- 			__unregister_session(mdsc, s);
--			__wake_requests(mdsc, &s->s_waiting);
- 			mutex_unlock(&mdsc->mutex);
-+			__wake_requests(mdsc, &s->s_waiting);
- 
- 			mutex_lock(&s->s_mutex);
- 			cleanup_session_requests(mdsc, s);
-@@ -5913,8 +5962,8 @@ static void check_new_map(struct ceph_mds_client *mdsc,
- 
- 			ceph_put_mds_session(s);
- 
--			mutex_lock(&mdsc->mutex);
- 			kick_requests(mdsc, i);
-+			mutex_lock(&mdsc->mutex);
- 			continue;
- 		}
- 
-@@ -5962,9 +6011,9 @@ static void check_new_map(struct ceph_mds_client *mdsc,
- 			    oldstate != CEPH_MDS_STATE_STARTING)
- 				pr_info_client(cl, "mds%d recovery completed\n",
- 					       s->s_mds);
--			kick_requests(mdsc, i);
- 			ceph_get_mds_session(s);
- 			mutex_unlock(&mdsc->mutex);
-+			kick_requests(mdsc, i);
- 			mutex_lock(&s->s_mutex);
- 			mutex_lock(&mdsc->mutex);
- 			ceph_put_mds_session(s);
-@@ -6877,8 +6926,8 @@ void ceph_mdsc_force_umount(struct ceph_mds_client *mdsc)
- 
- 		if (session->s_state == CEPH_MDS_SESSION_REJECTED)
- 			__unregister_session(mdsc, session);
--		__wake_requests(mdsc, &session->s_waiting);
- 		mutex_unlock(&mdsc->mutex);
-+		__wake_requests(mdsc, &session->s_waiting);
- 
- 		mutex_lock(&session->s_mutex);
- 		__close_session(mdsc, session);
-@@ -6889,11 +6938,11 @@ void ceph_mdsc_force_umount(struct ceph_mds_client *mdsc)
- 		mutex_unlock(&session->s_mutex);
- 		ceph_put_mds_session(session);
- 
--		mutex_lock(&mdsc->mutex);
- 		kick_requests(mdsc, mds);
-+		mutex_lock(&mdsc->mutex);
- 	}
--	__wake_requests(mdsc, &mdsc->waiting_for_map);
- 	mutex_unlock(&mdsc->mutex);
-+	__wake_requests(mdsc, &mdsc->waiting_for_map);
- }
- 
- static void ceph_mdsc_stop(struct ceph_mds_client *mdsc)
-@@ -7035,8 +7084,8 @@ void ceph_mdsc_handle_fsmap(struct ceph_mds_client *mdsc, struct ceph_msg *msg)
- err_out:
- 	mutex_lock(&mdsc->mutex);
- 	mdsc->mdsmap_err = err;
--	__wake_requests(mdsc, &mdsc->waiting_for_map);
- 	mutex_unlock(&mdsc->mutex);
-+	__wake_requests(mdsc, &mdsc->waiting_for_map);
- }
- 
- /*
-@@ -7087,11 +7136,11 @@ void ceph_mdsc_handle_mdsmap(struct ceph_mds_client *mdsc, struct ceph_msg *msg)
- 	mdsc->fsc->max_file_size = min((loff_t)mdsc->mdsmap->m_max_file_size,
- 					MAX_LFS_FILESIZE);
- 
-+	mutex_unlock(&mdsc->mutex);
- 	__wake_requests(mdsc, &mdsc->waiting_for_map);
- 	ceph_monc_got_map(&mdsc->fsc->client->monc, CEPH_SUB_MDSMAP,
- 			  mdsc->mdsmap->m_epoch);
- 
--	mutex_unlock(&mdsc->mutex);
- 	schedule_delayed(mdsc, 0);
- 	return;
- 
-@@ -7189,8 +7238,8 @@ static void mds_peer_reset(struct ceph_connection *con)
- 		ceph_get_mds_session(s);
- 		s->s_state = CEPH_MDS_SESSION_CLOSED;
- 		__unregister_session(mdsc, s);
--		__wake_requests(mdsc, &s->s_waiting);
- 		mutex_unlock(&mdsc->mutex);
-+		__wake_requests(mdsc, &s->s_waiting);
- 
- 		mutex_lock(&s->s_mutex);
- 		cleanup_session_requests(mdsc, s);
-@@ -7199,9 +7248,7 @@ static void mds_peer_reset(struct ceph_connection *con)
- 
- 		wake_up_all(&mdsc->session_close_wq);
- 
--		mutex_lock(&mdsc->mutex);
- 		kick_requests(mdsc, s->s_mds);
--		mutex_unlock(&mdsc->mutex);
- 
- 		ceph_put_mds_session(s);
- 		break;
-diff --git a/fs/ceph/mds_client.h b/fs/ceph/mds_client.h
-index 0ea144ba4c7d..11059678284d 100644
---- a/fs/ceph/mds_client.h
-+++ b/fs/ceph/mds_client.h
-@@ -428,6 +428,7 @@ struct ceph_mds_request {
- 	struct completion r_safe_completion;
- 	ceph_mds_request_callback_t r_callback;
- 	struct list_head  r_unsafe_item;  /* per-session unsafe list item */
-+	struct list_head  r_aux_item;     /* auxiliary local list item */
- 
- 	long long	  r_dir_release_cnt;
- 	long long	  r_dir_ordered_cnt;
-
+diff --git a/.mailmap b/.mailmap
+index 6803f3bd2865..8e0f1397ba23 100644
+--- a/.mailmap
++++ b/.mailmap
+@@ -980,6 +980,7 @@ Yixun Lan <dlan@kernel.org> <dlan@gentoo.org>
+ Yixun Lan <dlan@kernel.org> <yixun.lan@amlogic.com>
+ Yosry Ahmed <yosry@kernel.org> <yosryahmed@google.com>
+ Yosry Ahmed <yosry@kernel.org> <yosry.ahmed@linux.dev>
++Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com> <quic_yuanfang@quicinc.com>
+ Yu-Chun Lin <eleanor.lin@realtek.com> <eleanor15x@gmail.com>
+ Yusuke Goda <goda.yusuke@renesas.com>
+ Zack Rusin <zack.rusin@broadcom.com> <zackr@vmware.com>
 -- 
-2.53.0
-
+2.34.1
 
