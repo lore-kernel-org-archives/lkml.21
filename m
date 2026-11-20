@@ -1,53 +1,69 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170168;
-	b=gfGtgPZspNfligWmqSFBc8t7LZyqppCfy0iTGtZgJUd6DJkiFW0hBcL/+bC2lL86v1qf
-	 3YP+t2gQNO15ZO68wZQ0CBG0m3kD9d4RQ/avwYGKNpyX3Z+EBOSSmD0mJ8guu0QkDLES9
-	 Dn0TrN0ea+a+GcW0ueVgkEG+XhJWoG+wPjvDUAzhuDB4GPWuCst4SusTbDiltURlhRQqt
-	 rTIzWI0q4Q1P4I4XUoBMkX/KqyUG4gHb+KxgRPz668KeQ6D8djrZap3aJt0VcKpmp2dg6
-	 o1CW5R+9gZFv0yrDvW2qcmO4YKcr9UBAEaZAw/6Slptl+pdkYhsNTaYS68F39TfutqA==
+	t=1795170180;
+	b=5kaeaSS62aAoLGXma+D5CuebLCn5aigEGiQ3pcZel+6WFzFc+r4MEV5rz1wzE8e2E0Rp
+	 OoWil3n/es3/ljJ0c4FDXC22YSwlJb9Tzl65xqhDVi7eLSHxTMnlXLe6AaZzYqWHTUH77
+	 G8/lSkVJ2EKI5Y/3qfjVelNPSe/flXpxx0LWL+TU/2q8Rr87MXuAt5HnLzA3HYDfz/HTW
+	 wjMzRHU9JVjBt1FS1mvVkMC/5UdZ2Fvc8802UD5BmokkJ0sYf0hwLwb05cN6V4UCUnqOa
+	 FvZ+xkrrMdxKSZ0tWWogIQfxoAKv5d2g4YL1evE52hgR6sRBtW6xaPy8TuIPYz0nYTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170168;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170180;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VajH4hmmm3l/s5njp3ywy3EhTP1RvSBqpJgoUnAALQc=;
-	b=nfNNHfnBwYIJwnAdNN4x+RjiWUlEHrgaYV9kJ6Vwh4WeBjrJ2kmj1YQVPRT04AcfSc5h
-	 Yatmq/X2yUxdFA7QnbGqu6bsnRgT7FtkeXfd8KlxV6pVLTR2UUgTB17imCBi5Z/JFU11W
-	 4k+qqAf9rzPyNhzgAQoZGkYp5fM/NcHy16GtJWCtL/opR57zoSz3hHun5K8ZUv+nWlRKs
-	 +cCX3c4u+UDT1V/MPhBP33DT+D+DW/z8mDzXdoM6EBZoouOR/822j6tHhwQP2zhLBp2E0
-	 9NoAYmF+htZGIJ8fQp3ZIYFeTr7+T/JVL2javXus1I9yCSGre1NdFhrrxlsRolbHVYg==
+	bh=AfJVh7uFWkG93CcIU6uXtcUN7858JzhFpn/OacUyBUs=;
+	b=JCiApX7FRv5JfJEuCNfPGzgvvNaSLaaGkQzB8YIsHzCKguPOJPyMkpRPRRhth2+S/rAb
+	 yFRKIBo0zHzUPeYlDgV6HT2swDdI4+SAoY5Kf6+56uYgGtzRI96eEKDXkXFEdi73FmSxs
+	 PdAO5yn9JBtmGW7AHc7Tpgs1YeOn3Q+tpd7vCvILJiGBoW/r5AoEOeVVr43hw2DlRYbHu
+	 45H+mNimCOS86ydT0HzJUWb709Fx13n5SB+CnHNXeTx34LtcgSg86QIv83Goj5XgDqleA
+	 eFPYlguXSuf1x8vKohHQt7Mb5lfxiI+c/uS1q85Op/LXEgwlE2b0yqD4+b4rtW1GvLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=EYjTJVzC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TOdGOWDO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 103AB606A326;
-	Fri, 20 Nov 2026 10:22:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7206D606A320;
+	Fri, 20 Nov 2026 10:23:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=EYjTJVzC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16AE31F000C0;
-	Fri, 20 Nov 2026 10:22:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795170167;
-	bh=VajH4hmmm3l/s5njp3ywy3EhTP1RvSBqpJgoUnAALQc=;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TOdGOWDO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88A491F000D2;
+	Fri, 20 Nov 2026 10:22:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795170180;
+	bh=AfJVh7uFWkG93CcIU6uXtcUN7858JzhFpn/OacUyBUs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=EYjTJVzCHrpKNkeOYU6m51VaY+lGSn6aQnTIiC5KjghAJAxLAoO1LK/0zHAww7Frw
-	 6hRYv0RH7Fb9Mhsc+rgo3csGgPitjVw80R0dNY55Wpsz2xbL6hOzKkO6/zemGXL0Ch
-	 hN9ZMEffhKYRi08FRdl6vy50q4anK6osBtth0viI=
-Date: Fri, 20 Nov 2026 11:22:45 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Victor-Marian Albu <albu.victor.m@gmail.com>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, christian.gromm@microchip.com,
-	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev,
-	parthiban.veerasooran@microchip.com
-Subject: Re: [PATCH v2] staging: most: dim2: add missing Return: documentation
-Message-ID: <2026112035-persuader-jackknife-1586@gregkh>
-References: <20261104205108.1041666-1-albu.victor.m@gmail.com>
- <20261105202110.1081296-1-albu.victor.m@gmail.com>
- <2026112048-dimmer-ravine-ae33@gregkh>
- <CAE5KA-NS5-yJXAHUofgmyCmWyjbjPSNdoQZi5+iPwZKabVbbyQ@mail.gmail.com>
+	b=TOdGOWDOE4Q92JqZpqx1GjG7P/VGi6q7lu5iUCneklDKerF+BvgSp3V+hvXV3N6os
+	 H+cURRSLyDj5yTNEiU6aO3tuCgW6cnnCwDxCAcIXfGW2ZxAH0Op0RJ7HclI/Vgd7Np
+	 HSJMJ00npcxaTVlSmNHRpl+6DpyMMc3vK/ovrqQaf1tivc6QU0h4Gtkhke5r1nCwif
+	 jRaHkRM5T13INlz24gEfe9okl2spy+DYQ1SedfUt/ySHtyRXfGSYLd59aF93aRz1uu
+	 D2s+3h+1mi0C0WqpCIFezw0V3ZCEXg/SUOhophL3cuCueGd9MXFceCgFJnzYBFVTTI
+	 +v575icriio8Q==
+Date: Fri, 20 Nov 2026 11:22:49 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Samuel Wu <wusamuel@google.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>, 
+	Daniel Gomez <da.gomez@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Aaron Tomlin <atomlin@atomlin.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	Petr Mladek <pmladek@suse.com>, David Laight <david.laight.linux@gmail.com>, 
+	kernel-team@android.com, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-modules@vger.kernel.org, bpf@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH bpf-next v3 1/9] Documentation: ioctl-number: Add
+ PROCFS_IOCTL_MAGIC range 0x10-0x11
+Message-ID: <20261120-antitoxisch-flott-sense-8c2a09fc9679@brauner>
+References: <20261113221248.3535369-11-wusamuel@google.com>
+ <20261113221248.3535369-12-wusamuel@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,14 +73,14 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAE5KA-NS5-yJXAHUofgmyCmWyjbjPSNdoQZi5+iPwZKabVbbyQ@mail.gmail.com>
+In-Reply-To: <20261113221248.3535369-12-wusamuel@google.com>
 
-On Fri, Nov 20, 2026 at 12:18:09PM +0200, Victor-Marian Albu wrote:
-> A few had no Return: at all so I added one, the others already had the
-> sentence and I moved it into a Return: section, because kernel-doc
-> -Wall only looks for that. Nothing needs this, drop it if it's not
-> useful.
+On Fri, Nov 13, 2026 at 02:12:46PM -0800, Samuel Wu wrote:
+> +'f'   10-11  linux/fs.h                                                conflict! procfs ioctls (PROCFS_IOCTL_MAGIC)
 
-I have no context here at all, sorry.
+Those are PAGEMAP_SCAN (16) and PROCMAP_QUERY (17) which are already
+in the tree. The two ioctls this series adds are 48 and 49, i.e.,
+'f' 30-31, and they aren't registered here at all. Please add them as
+well.
