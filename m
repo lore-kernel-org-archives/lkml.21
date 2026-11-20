@@ -1,67 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.6
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795160716;
-	b=dhNg89edY7yfVxRjIeLp14MQB/+jb8oO0ngkI83ffsLGeuwEWKideDVVCVNWIvzpVGCx
-	 lHVBnBUwFtD5FB+tpjAS9nEq/gAaDsWKK4xwf6HYdqqP2L/JtXUwl6PIXfjx0vcXTYd2+
-	 61HRNKcBxxBkfzoVe+V5MbTWwiKaZ+3AX2spE4WstxDHGtqsO7Bqgu7KNRE1sIYYqoekA
-	 4+62g4pQKO733PSY4gLlFgwaAGoOWYeQskWeIRQJ0zoRLRBjOTvXI3aF1WQCt8bYWKr+I
-	 VgV7qEaPGJnsA+K+TiC+/bLWpU3l3EGMrNXarwPIXRcn7KUGvtBfypmzhUuZg2kChkA==
+	t=1795160866;
+	b=ttsQjksW4mF4GKgM6sTGo462Y4YC8ZcdsVAU8o4IlEsevJ7hSmqTmlBTaYjs7Le8LvUm
+	 Ug4YURUVLHcg41Sn90kcL0YJTHq1T2P5STOII8mAv7xbAs5pCi8Hfke02V0IVjuDb2bh2
+	 nA0Tc4fGWmWzTHUvySOZ/k1rRmMH43zhEePrB0AfKmEwdddKOl0z1leuKx//TkofGYzwd
+	 LDvd8PUBO2o2U6vzoNx9xWgLRcY/+nrHprRCQYoYUGNKHFO+0XwdexEc58reY0S/j53t8
+	 RmDP+q+7Ljj/4Ni5xN8nN9pT5qT6QX1Ncp63yZqSPEq9KqqKFX+XX57YnKAo2xPlqug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795160716;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160866;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ep0ATggb/Y672w60Sb1w5LxlTuBduvlPJl1IN+HAHFs=;
-	b=MyHJLWkvH71tLOJZcDOMAUuuG3cRMPSesM2R6yDHiNdhGVwq6p7tDsmAIXS5M1Z5667Z
-	 ImrXwn+4H2J9M8d3ZYcGCTyqWlJNg1dc58HOiYP8LpZi79IevxF/vKr590IrbW6FpZ4LN
-	 LcEpcqpJvVhSeRIzVUc5lmqb99mVOnt4eEC821Q55wUpU6X5ljDgqfB/8+0yQ3fZbYlca
-	 jubj1NlZ54D6mJ9qGBCopRGxunEspo225+i/j6kq/ruBNC+gzyGH5nIlKwuc3TmgO9SJT
-	 bpkwdK/tFZc1B7N8CNT6XyexPox+a4vIEDPMkdEChCKYpmfsLzvGxt40gWzjGCVk5ZA==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=/y1qXQ06BKv4Qawqii9E8uutLP6R4HWSV0iDf6FGFuI=;
+	b=i1lwA8xP1K73gmcOozqM/f71PbSafySGAxrGYnSuEZLdcVSV6AYcmHv5ssYZmYMu6s5m
+	 un4L7AwugknqWZQx3XkxvBSCFSGTxJNunuCQp0R9n5uslhnecwnWhzVEfLsN63tzdkPIO
+	 fpFZTsNxtJu0Oim6Om8yBWWWmr/x69uGUjE/vFI0tOtmgewrNe4Hf4URk03wNsELckW/Z
+	 RgteXTOjQ7u/WDj5oP0wGuAZKSSlNjrH/WOtwePffW+0dCceVz6P2gPfS+PzKbyja8Avp
+	 GepqbplgHIDtHQwie37IFgXtH63R27BT9d9Zk2SVmtqt+i3wmKhQrrVlR+bLIdcJSVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FbR+xUWp;
-	arc=none smtp.remote-ip=95.215.58.217
-Received: from mta1.migadu.com (out-217.mta1.migadu.com [95.215.58.217])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ek4Q8C0V;
+	arc=none smtp.remote-ip=91.218.175.6
+Received: from mta0.migadu.com (out-6.mta0.migadu.com [91.218.175.6])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5820F606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:45:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5820F606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB7EA606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:47:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB7EA606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=FbR+xUWp
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ek4Q8C0V
 X-Envelope-To: linux-kernel@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=JHnjnpTpVniuo9xfwgm87vmWr52+uUxiRXAA2RmX6ds=;
+DKIM-Signature: a=rsa-sha256; bh=6vVXslyHXg7KTNISx0U4V6507R5r4hQfQTf1zEh+K4c=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795160713; v=1; x=1795765513;
- b=FbR+xUWpleG4L8SrinPmARyiWjNxfbRyL8Z0xOHi4DBGipC6EW1iXFawve4t3L83p2jHbMsz
- eZC/RwIZeyMpT26SU7r2wv/NQIveguxV29rPmxBgdsCi1TJN4V2CN1c13hGLt6u8DUh+KfGR9Fj
- cwOoBiVEN1hVuw3SdvwhtFME=
+ t=1795160864; v=1; x=1795765664;
+ b=Ek4Q8C0VwK7Wzmjg8QZgr4LA67nhKYQi0tIMWKDSuozuQ2nhjWYld1275sfpe203q6gf0rM7
+ vgnM+kTkFU/tIvY4epWnL3OfSmmi9hgjeNYlKtTV9nPCbIrQNRRQhS1iULFRqI99IP6DcO83V5w
+ XajCBgblgpEY96r8/LVX1mcs=
 X-Envelope-To: linux-kernel@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 158cbfe756fc8433;
-	Fri, 20 Nov 2026 07:45:12 +0000
-X-Mizu-Trace-ID: 158cbfe756fc8433
+Received: by smtp.migadu.com with ESMTPS id 1cb2d6027f8dda27;
+	Fri, 20 Nov 2026 07:47:43 +0000
+X-Mizu-Trace-ID: 1cb2d6027f8dda27
 X-Migadu-Flow: FLOW_OUT
-From: "Xu Xin (vivo)" <xu.xin@linux.dev>
-To: xu.xin@linux.dev
-Cc: akpm@linux-foundation.org,
-	chengming.zhou@linux.dev,
+From: Qi Zheng <qi.zheng@linux.dev>
+To: muchun.song@linux.dev,
+	osalvador@suse.de,
 	david@kernel.org,
-	donettom@linux.ibm.com,
+	akpm@linux-foundation.org,
+	fvdl@google.com
+Cc: linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
 	stable@vger.kernel.org
-Subject: [PATCH v2 3/3] selftests/mm: verify ksm_zero_pages is not inherited on fork
-Date: Fri, 20 Nov 2026 15:44:59 +0800
-Message-Id: <20261120074459.41517-1-xu.xin@linux.dev>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261120074230.40269-1-xu.xin@linux.dev>
-References: <20261120074230.40269-1-xu.xin@linux.dev>
+Subject: [PATCH] mm: hugetlb: allocate larger early CMA pages first
+Date: Fri, 20 Nov 2026 15:47:01 +0800
+Message-ID: <20261120074701.48298-1-qi.zheng@linux.dev>
+X-Mailer: git-send-email 2.48.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -73,93 +71,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Extend test_fork_ksm_merging_page_count() to enable use_zero_pages and
-merge zero pages alongside non-zero pages before fork(), verifying that
-neither ksm_merging_pages nor ksm_zero_pages is inherited by the child.
+From: Qi Zheng <zhengqi.arch@bytedance.com>
 
-Signed-off-by: Xu Xin (vivo) <xu.xin@linux.dev>
+With hugetlb_cma_only=1, early HugeTLB CMA allocations follow hstate
+registration order, which can depend on the order of hugepagesz= and
+default_hugepagesz= parameters. cma_reserve_early() advances early_pfn by
+the requested size without aligning the start of each allocation.
+
+On arm64 with 4 KiB base pages, 32 MiB and 1 GiB pages share a CMA pool
+aligned to 1 GiB. In a 2 GiB CMA range starting at 4 GiB, allocating a
+32 MiB page followed by a 1 GiB page places the latter at 4 GiB + 32 MiB,
+violating its required 1 GiB physical alignment.
+
+Simply rounding early_pfn up before the 1 GiB allocation would leave a
+992 MiB gap and advance the cursor to 6 GiB. cma_activate_area() marks the
+entire prefix below early_pfn as allocated and only frees pageblocks after
+it. The gap would remain reserved with its bitmap bits set, and releasing
+the two HugeTLB folios would not reclaim it, permanently losing 992 MiB
+of usable CMA capacity. An alignment-only fix would therefore also need
+to track and reclaim such gaps.
+
+The same alignment issue can affect non-LPAR PowerPC64 hash MMU systems
+supporting 16 MiB and 16 GiB pages, with 64 KiB base pages and
+CONFIG_ARCH_FORCE_MAX_ORDER=7. The 16 MiB size then has order 8 and is
+also gigantic, sharing the 16 GiB-aligned CMA pool.
+
+Allocate early CMA hstates in descending order. Each range starts aligned
+to the largest supported size, so this preserves alignment for subsequent
+smaller allocations without creating gaps.
+
+Fixes: d2d786714080 ("mm/hugetlb: enable bootmem allocation from CMA areas")
+Cc: stable@vger.kernel.org
+Suggested-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
 ---
- .../selftests/mm/ksm_functional_tests.c       | 33 ++++++++++++++-----
- 1 file changed, 25 insertions(+), 8 deletions(-)
+ mm/hugetlb.c | 28 +++++++++++++++++++++++++++-
+ 1 file changed, 27 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/mm/ksm_functional_tests.c b/tools/testing/selftests/mm/ksm_functional_tests.c
-index c20982b0aff0..321f8abc85f9 100644
---- a/tools/testing/selftests/mm/ksm_functional_tests.c
-+++ b/tools/testing/selftests/mm/ksm_functional_tests.c
-@@ -655,40 +655,57 @@ static void test_prot_none(void)
- 	munmap(map, size);
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index 4a448c5909d36..d69a9532ad5ef 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -4600,6 +4600,22 @@ void __init hugetlb_bootmem_set_nodes(void)
+ 		node_set(nid, hugetlb_bootmem_nodes);
  }
  
--static void test_fork_ksm_merging_page_count(void)
-+static void test_fork_ksm_statistic_count(void)
++/* Return the largest early-CMA hstate below the given order. */
++static struct hstate *__init hugetlb_next_early_cma_hstate(unsigned int order)
++{
++	struct hstate *h, *next = NULL;
++
++	for_each_hstate(h) {
++		if (!hugetlb_early_cma(h) || huge_page_order(h) >= order)
++			continue;
++
++		if (!next || huge_page_order(h) > huge_page_order(next))
++			next = h;
++	}
++
++	return next;
++}
++
+ void __init hugetlb_bootmem_alloc(void)
  {
- 	const unsigned int size = 2 * MiB;
- 	char *map;
-+	char *zero_map;
- 	pid_t child_pid;
- 	int status;
+ 	struct hstate *h;
+@@ -4615,9 +4631,19 @@ void __init hugetlb_bootmem_alloc(void)
+ 	for_each_hstate(h) {
+ 		h->next_nid_to_alloc = first_online_node;
  
- 	ksft_print_msg("[RUN] %s\n", __func__);
- 
-+	if (ksm_use_zero_pages() < 0) {
-+		ksft_test_result_skip("write \"/sys/kernel/mm/ksm/use_zero_pages\" failed\n");
-+		return;
+-		if (hstate_is_gigantic(h))
++		if (hstate_is_gigantic(h) && !hugetlb_early_cma(h))
+ 			hugetlb_hstate_alloc_pages(h);
+ 	}
++
++	/*
++	 * CMA ranges are aligned to the largest supported size. Allocate larger
++	 * sizes first to keep the early reservation cursor aligned without gaps.
++	 */
++	h = hugetlb_next_early_cma_hstate(MAX_FOLIO_ORDER + 1);
++	while (h) {
++		hugetlb_hstate_alloc_pages(h);
++		h = hugetlb_next_early_cma_hstate(huge_page_order(h));
 +	}
-+
- 	map = mmap_and_merge_range(0xcf, size, PROT_READ | PROT_WRITE, KSM_MERGE_MADVISE);
- 	if (map == MAP_FAILED)
- 		return;
+ }
  
-+	zero_map = mmap_and_merge_range(0x00, size, PROT_READ | PROT_WRITE, KSM_MERGE_MADVISE);
-+	if (zero_map == MAP_FAILED)
-+		goto unmap;
-+
-+	if (!ksm_get_self_merging_pages() || !ksm_get_self_zero_pages()) {
-+		ksft_test_result_fail("KSM failed to merge pages before fork\n");
-+		goto unmap_zero;
-+	}
-+
- 	child_pid = fork();
- 	if (!child_pid) {
--		exit(ksm_get_self_merging_pages());
-+		exit(!!(ksm_get_self_merging_pages() + ksm_get_self_zero_pages()));
- 	} else if (child_pid < 0) {
- 		ksft_test_result_fail("fork() failed\n");
--		goto unmap;
-+		goto unmap_zero;
- 	}
- 
- 	if (waitpid(child_pid, &status, 0) < 0) {
- 		ksft_test_result_fail("waitpid() failed\n");
--		goto unmap;
-+		goto unmap_zero;
- 	}
- 
- 	status = WEXITSTATUS(status);
- 	if (status) {
--		ksft_test_result_fail("ksm_merging_page in child: %d\n", status);
--		goto unmap;
-+		ksft_test_result_fail("ksm_merging_pages or ksm_zero_pages is non-zero in child\n");
-+		goto unmap_zero;
- 	}
- 
--	ksft_test_result_pass("ksm_merging_pages is not inherited after fork\n");
-+	ksft_test_result_pass("ksm_merging_pages and ksm_zero_pages are reset after fork\n");
- 
-+unmap_zero:
-+	munmap(zero_map, size);
- unmap:
- 	ksm_stop();
- 	munmap(map, size);
-@@ -837,7 +854,7 @@ int main(int argc, char **argv)
- 	test_prctl_fork();
- 	test_prctl_fork_exec();
- 	test_prctl_unmerge();
--	test_fork_ksm_merging_page_count();
-+	test_fork_ksm_statistic_count();
- 	test_merge_aged_pairs();
- 
- 	err = ksft_get_fail_cnt();
+ /*
 -- 
-2.34.1
+2.54.0
 
