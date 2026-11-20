@@ -1,67 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795216190;
-	b=oa/F3b9pUEJcU3EhgzVE+0dPKwQBrs02BaUFXhp047Z/oK6XL7Bdak+pCC0A35RfzBsw
-	 xx9FNEe1AwFWjstmd7FHPSDZXwTRtQeYQeOYRBjLibkdR8ye2Lvfd/xintUTugzyvmDn8
-	 vRyo8hC0EQasTLdT5bOXj6/TZmOFfJWxYFD9fatl2wNONfzVke0u7+GldJmfTp7itN/oH
-	 zukV6FCz+LWxWfLhT4CmlUD1kbrvh6r6jUAFlMy1WGh1sNpdKVI/EzwLUwHhlf5hU6CN5
-	 TC6hSW4Mw2ebcRmw8oGaX0aVMH87W4t6dXLNhVZeC7AmqtknNIVGGuILj9nU8+/mlVQ==
+	t=1795216220;
+	b=o8v4b2+99prfoQXXOoePKr87j7/xZdpnD1QYwXhfqMHpeDmHktOG/j+lx0X9AMiBU6jN
+	 yJtfkYCVhoEgrTVuvl13sa70OdzDOSKpp56pgrGnvGs9KQmAI07PiJYEzanPUTnAPm0Cq
+	 BvAomNGYTFo7Qv++vq9LzWu/ICVIqBmLLAO03eFrLz56ZH9ikpH0GkY7LpmA+k3i/W3So
+	 TGJJ8a4/1BOcauuSVrvx7kG4BokfvVHrutEgggkKKoaDp11l3fwybgu9Nr7mIYlMj2MvJ
+	 WGw5c59j07+gEYnP86KcVqnb5yV1sIsX3rpBOqZyU+aKj/v4RfuVXxWELlleXcATWzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795216190;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=OOa4MkrKn92gWVHykXzYb5CjJjtJtag6Vo9U5D+8IkA=;
-	b=er06/Kt1wrKy5W3ZI9wKbemgaP/dLgIizoklUiRGVLLCxkUAwdrNjrVbfj6V9yY1TKHM
-	 bj5sB2DOb5zmWoHx6N5rrKSGtnoIEIcsi5l+2TBepwNsZf64GZEbXPw1ptK4QUatUZ5qV
-	 wkHrnU005GSOL/yGcIpWcrQYpzqZ3VG7dKLkzf/ALlno8/awotkAuTOksq9sfLwH5yqbJ
-	 XSgglE+XuLcDIsiOUpX3vfK3YKyxHXSfW/BbJby0nHndqdlEc1z7vlqXNLZA9RMp3K1EW
-	 qAbvSfug1kIpxbGPDBI0deEoOKOri2VRCtE46ClOzbNwhJgLAxuU+U8QpnyPo5/pa/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795216220;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=tjkEaKVx0EkLFfCfrBHhfTQA5sv8oXwqq+8kKvrMx3s=;
+	b=VSLiUl6ww86eIBAVBIC+rjo9Rv1rOIFfEf7XcaS1mVlxdwVzZDRENS0MytBRdSqXcxFt
+	 nL1GkhMV4QJl7GMJ0ECPGzqMgZqVPq6vIb8qQE0ZWdXKTCWiVn5c4Resrw7M96yP1YiRf
+	 94vEp3mPnNfx2Mslpt3TUEVGXyDi5sHZFcUyQqIqSMU84wF2nUuMpsKJcQGamI+EAr/CI
+	 poV7Qp+e5NKY8F+riOGS+u6P/Ul3Y1Y+1NSf8qhRpqtYADel/OfnGwE+KqiECSeEsrJ2A
+	 B8Sz8qKr8qcu/bXy7mRRENSvnTLDmEeLUgJHJSI1QBNiwkIhNRTb2ImUpIzssBBFn7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=KfgkeEgB;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="Bp/9LYFx";
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D636C606A6B2;
-	Fri, 20 Nov 2026 23:09:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D636C606A6B2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B7D8606A68D
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 23:10:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4B7D8606A68D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--coltonlewis.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=KfgkeEgB
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=OOa4MkrKn92gWVHykXzYb5CjJjtJtag6Vo9U5D+8IkA=; b=Kf
-	gkeEgBBHORRcMYIxDWNNwkPVNW8EV+dkyZMOEGfzg2DEphlNOLWs/eIlXjv2lFDGOsOycVsyPDfg5
-	GhnyCvK1+AOxXA5Tg0YUEAE1GVMhQ4jwAPA7aGbgaQhcw7SDMmu17PmfNbss1zdacceA1ZsvV/R8n
-	kQ9qCjZzAePr5jA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xUXjY-000O5B-KF; Sat, 21 Nov 2026 00:09:32 +0100
-Date: Sat, 21 Nov 2026 00:09:32 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Bastian Germann <bage@debian.org>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <140da060-0de5-4f2a-8809-b05f2015c2b4@lunn.ch>
-References: <20261119231319.1256419-1-bage@debian.org>
- <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
- <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
- <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
- <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Bp/9LYFx
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-5727b04b81eso1026848b6e.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:10:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795216219; x=1795821019; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tjkEaKVx0EkLFfCfrBHhfTQA5sv8oXwqq+8kKvrMx3s=;
+        b=Bp/9LYFxubqSP0Gp8Dk84oww02AASl92qNHXUfJUMo7/hPlFlCY5sAZl6srnSni6GT
+         JMlmfcyt7+KhwaJhKlIhKbmzbvlGnox3E+IIm4DGeT74t1mCv8dB+C3kLjRj3xN5zkhv
+         x/SdMQ0VEhcONwfzNfGtHv0wJzLAUHNcQI6OkByKiJ07A1I9tRNdtkJtlQvtnq1MQbz2
+         bReZsGqILP9sUT6JvGuxWUb7IrP0QgjERNfHCNY6kBaepr87doIHt7rKzuuBJbFEHxgf
+         qOmoHLff223wkPWrgx43M0aY/imLUqoa23/7UGSO8ZWKTOjvX6pCCL4DzYpCUpSD31U3
+         yP3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795216219; x=1795821019;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tjkEaKVx0EkLFfCfrBHhfTQA5sv8oXwqq+8kKvrMx3s=;
+        b=TyirL4bdxulTXBFptSyfxQBpyGNrjJOPBd75ss51z2u5VkFIPCclsuytmJem+9Gxdl
+         b5wcD0ZfXyXsXjsNux9yt+ww0MRvkvtSlpx+G0bsq37noH/Jo0mHuinjwJbgDZy6YDtu
+         ilV6qzA9q33C4HQWrVpbatbrP7/FLT1g/71R4eWpIyNRPAY7bbrW8Op3/gYD8tFcGVn1
+         l5zLy6S7d7MHosW6CgZTLwCYyuknLeEDUu9q+hXrnO/2GM3l5Us6BfVRQn8vO5M2BA8v
+         HdoFTz6x1qwrtbjglokBiIKwlXDZYG0GbDEo8Cj2p2UKHhIl61Myy242/BCL9eFmEkzc
+         QaLA==
+X-Forwarded-Encrypted: i=1; AL+hErH9KXR3BNxAHKRX6GGUcFeW50/lGMhVmjp3FyszqJd1QFGpmcwARQtAiJs+PpUUvsXiXZh0pf5GqfOqEIM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z85KBvkJ146XkOLW0U2UQrVsoOfjiVu4N4gtxGlAZ8Tk2ITdwZ8
+	/ljqJyOTGdTb2KNbfuwqutgV1ms3nQzirGm3ELWBTbJlbANCUSo0ZYyu0FMIQnkOYLweZuqLMU8
+	Xol5zGlXtEngHG8uwaGr1WUayuw==
+X-Received: from iobcd11.prod.google.com ([2002:a05:6602:428b:b0:9c0:11e6:874e])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:6615:b0:4cb:b6dd:2fe2 with SMTP id 5614622812f47-57a06a10f8amr5107904b6e.4.1795216218901;
+ Fri, 20 Nov 2026 15:10:18 -0800 (PST)
+Date: Fri, 20 Nov 2026 23:10:18 +0000
+In-Reply-To: <87cxrz92nu.wl-maz@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -70,24 +78,25 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
+Mime-Version: 1.0
+References: <20261119185105.626343-1-coltonlewis@google.com> <87cxrz92nu.wl-maz@kernel.org>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261120231018.1148621-1-coltonlewis@google.com>
+Subject: Re: [PATCH] KVM: arm64: nv: Fix guest stage-2 mapping leak on
+ sub-block unmap
+From: Colton Lewis <coltonlewis@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, Wei-Lin Chang <weilin.chang@arm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Steffen Eiden <seiden@linux.ibm.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-> It is with the TI CPSW3G MDIO controller (ti,davinci_mdio, ti,cpsw-mdio).
-> As this is on a AM64x, errata i2329 applies and davinci_mdio runs with
-> bitbanging.
-> 
-> The mv88e6085 (88E6341) is configured in multi-chip/indirect mode at  reg =
-> <1>.
-> It does not use multiple addresses.
+On Fri, 20 Nov 2026 11:13:09 +0000, Marc Zyngier <maz@kernel.org> wrote:
+> I stopped reading here. Please come back with an actual description of
+> the problem that you will have produced yourself, or provide the
+> original LLM report (it cannot be much worse than the above).
 
-O.K, that is good.
-
-So the concept is sounds, it is just a question of if the parsing of
-the property should be done once at a higher level, since it is
-supposed to be a common property.
-
-   Andrew
+Sorry about that. I will clean up the slop.
