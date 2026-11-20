@@ -1,60 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196953;
-	b=qFgexsmYpLESc6qv5jiNLxQBC4sbypdoGyPhlu0cZXtJVY8zDqS5a0KKyoVfXFPUEFQ1
-	 dg9wYzBqRcWm+JtkfzB1nXbUTITUiAfvnSy7ytRQtCsxnas6LkuYBcysggImytmuYmYCw
-	 gulHiq/1dqxiflcyAF4glADTPOJHU1Gl8+GxvBV4RkmwVpmVZIz/QOU0leRwZGBQ4i6C/
-	 SoiQZmvxwJ3BPjZaR6BULV9v628cdf4oQAVop1CTL0P3UBSf64c6XlOgKCsFMSBpVdoun
-	 jAfXMuarJOzr/onpRdG3AWCMnHbYB77STo4A8ek2OPmFJZ5D5NgCGQ8L1KWwd4UwjyA==
+	t=1795196959;
+	b=Q9AgkKI/TB/tnBXcqX9cCAOtSLIB/xWHDB42A+eM2iPGPojKy4GHPY7szK2v2jyPotsx
+	 XthUZ3hyDOqd/4z6JMvPUUN88yNwxbvax8fn+N/UrywhE32G/OV3JP7TpYOGQb/p15n6K
+	 3QjZQlcg3Orvhdd8CoWr2Eb89vp/dX15x9UEXHNFBGvMIwn0sJxg72UMLg7sw0ZIVstlU
+	 fjK0UTF7Ps/k8gZSOhJH90uzQodRfA/HwKHcwMgqsFsbBvq9jGxwR5PndXXgtC7wUUDBk
+	 RNC5ppXE2q68Tc9jmfUk32UbUqOQSwjJiiRD/PUq3rjzZoDkgvKISEqh1tYZyDoDqzw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196953;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 Mail-Followup-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=+zYovALtkcHPl59gCzX5V7GWLuEm62g0nvKcmVyct1s=;
-	b=E0lj/LWzjXR+63wwxmdiJV1aJu4e5nm9WqCpyXo5Gn5+IHGTFjQANndpP8DyB4Ks7O91
-	 2x/D5MoJz+ZraeRTL3bWUkjiImRD6AdkBmeqWshLpPa3BGZQ+0NBcQVW8QR3X5uY0CsyF
-	 0rBikyTHauNO+VGVESA6eFqKPlXEqIOR+PCVWpbPGl4x6qCSaa0Sa9ez3Hk0EoRBtEXrP
-	 33yKVEoxeO5iCex0/qdbvBTDeINVsAk0MXZJEJi9iIcOmgQUu724unhn9uOqbrXFeUtK6
-	 9fyftrnjSK3s0SL+B/0iM0hRmbIJOtvxrK1e4xCdkKkGfeMUU5FoWH3P9iQACDc+fsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196959;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
+	bh=nypqymsfvQMv9gnOSD48NpKI4T5P6z+DuadvXpmmCmo=;
+	b=KalKdfHRMhD4lpAQIXg3KauGVWcRvvexg2/Dxc5SMcOc0/l6CxgLNHixa3cO9GJRS5w9
+	 Yb9s7JDvCi8QZ8p8bKDnEHHyLO4WTcQqnicpjsV98/AN70I0ARSKbKmSvIVOwKmIf0gcQ
+	 tDKnytLeY/6yKMSKwu4NOuU4WcPxJIDhtn010J0SKYTrgS69g8JoPdazdU7zIwHHkEySQ
+	 Hxp0eKF4snU8UZodOGscU9Vw3aWbyoMScdScsmR8s0eNnz+TCvKogsWm9eVUrMt2gI9Pl
+	 rkSzO1U06+7Kf0MvF1K1p96qI/q/YtrPIfLt7e+iipAoCRSL3MRIhJpE9OqAQ1TMgUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=csiMIdOD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=lst.de;
+	spf=pass smtp.mailfrom=lst.de;
+	arc=none smtp.remote-ip=213.95.11.211
+Received: from verein.lst.de (verein.lst.de [213.95.11.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F9E606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:49:13 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=csiMIdOD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6BCD1F000D1;
-	Fri, 20 Nov 2026 17:49:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795196952;
-	bh=+zYovALtkcHPl59gCzX5V7GWLuEm62g0nvKcmVyct1s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=csiMIdODBm2pIDuSwd75co35GN0fA1GSj/myokYyx8Yn/BCJOJdAw8SM674xNgffp
-	 2aXr/FJHVTANstwKgZZ5V/uzpjO/TkEJKLx4dYYui43b3KJkaF911PA+ju+/thhlyu
-	 F6LAh7WBrY5lDnBjsHT59LrBetngPqexvqJ3BzigCP7vhEWAovhMuaAnC2j6XO3oAN
-	 y/X5uwxOaWSahlA1HMwVj6I+1UWURHr+9aPmtZjbXRRepcDq4XM7toUXIcAOjHd3rM
-	 bEndgoIOMO0xylKyVyM8QT13G7Lill/LE/Tz3xKZZKJ73HXis+SNHz/+EzrEb0w9yP
-	 6Fj1FkH6QS5OQ==
-Date: Fri, 20 Nov 2026 18:49:06 +0100
-From: Gao Xiang <xiang@kernel.org>
-To: Friendy Su <friendy.su@sony.com>
-Cc: xiang@kernel.org, chao@kernel.org, jack@suse.cz, amir73il@gmail.com,
-	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Yuezhang Mo <Yuezhang.Mo@sony.com>,
-	Daniel Palmer <daniel.palmer@sony.com>
-Subject: Re: [PATCH v3] erofs: set SB_I_ALLOW_HSM for bdev-based mounts
-Message-ID: <awCIEqmgv8Z6xw_0@MacBookPro.fritz.box>
-Mail-Followup-To: Friendy Su <friendy.su@sony.com>, xiang@kernel.org,
-	chao@kernel.org, jack@suse.cz, amir73il@gmail.com,
-	linux-erofs@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Yuezhang Mo <Yuezhang.Mo@sony.com>,
-	Daniel Palmer <daniel.palmer@sony.com>
-References: <20261120031909.1757230-1-friendy.su@sony.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F22E606A334;
+	Fri, 20 Nov 2026 17:49:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F22E606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 2E7A36732A; Fri, 20 Nov 2026 18:49:15 +0100 (CET)
+Date: Fri, 20 Nov 2026 18:49:14 +0100
+From: Christoph Hellwig <hch@lst.de>
+To: shao.mingyin@zte.com.cn
+Cc: kbusch@kernel.org, axboe@kernel.dk, sagi@grimberg.me,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/5] nvme: zns: reject an out-of-range zone append size
+ limit
+Message-ID: <20261120174914.GA1484@lst.de>
+References: <202611150127512368BGQ07ZNIRAIwClkam-8u@zte.com.cn> <20261115012752774qFGtgUXwZKwN-2LDj0D80@zte.com.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,35 +49,32 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261120031909.1757230-1-friendy.su@sony.com>
+In-Reply-To: <20261115012752774qFGtgUXwZKwN-2LDj0D80@zte.com.cn>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 
-On Fri, Nov 20, 2026 at 11:19:09AM +0800, Friendy Su wrote:
-> Set SB_I_ALLOW_HSM to enable fanotify FAN_PRE_ACCESS events for
-> bdev-backed mounts. File-backed mounts are not supported.
+On Sun, Nov 15, 2026 at 01:27:52AM +0800, shao.mingyin@zte.com.cn wrote:
 > 
-> This allows EROFS to handle cases where file data is not available
-> locally at mount time and needs to be fetched on demand by a
-> FAN_PRE_ACCESS event handler.
-> 
-> For example, an EROFS image can use blob mode with metadata stored
-> on /dev/pmem0 and file data on /dev/pmem1, where the latter initially
-> contains dummy data.
-> 
-> The filesystem can be mounted with:
-> 
->     mount -o dax,device=/dev/pmem1 /dev/pmem0 /mnt/erofs
-> 
-> On receiving a FAN_PRE_ACCESS event, the handler fetches the actual
-> file data from a remote source and fills the corresponding blocks
-> on /dev/pmem1 before access proceeds.
-> 
-> Signed-off-by: Friendy Su <friendy.su@sony.com>
-> Reviewed-by: Yuezhang Mo <Yuezhang.Mo@sony.com>
-> Reviewed-by: Daniel Palmer <daniel.palmer@sony.com>
+> diff --git a/drivers/nvme/host/zns.c b/drivers/nvme/host/zns.c
+> index e31ec6f4f94f..c34015e68f81 100644
+> --- a/drivers/nvme/host/zns.c
+> +++ b/drivers/nvme/host/zns.c
+> @@ -27,10 +27,15 @@ static int nvme_set_max_append(struct nvme_ctrl *ctrl)
+>  		return status;
+>  	}
+>  
+> -	if (id->zasl)
+> -		ctrl->max_zone_append = 1 << (id->zasl + 3);
+> -	else
+> +	if (id->zasl && id->zasl + 3 < 32) {
+> +		ctrl->max_zone_append = 1U << (id->zasl + 3);
+> +	} else {
+> +		if (id->zasl)
+> +			dev_warn(ctrl->device,
+> +				 "invalid zone append size limit %u\n",
+> +				 id->zasl);
 
-Reviewed-by: Gao Xiang <xiang@kernel.org>
+This warning triggers for perfectly valid values that we just can't
+express.  I think we can just drop it.
 
-Thanks,
-Gao Xiang
