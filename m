@@ -1,64 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.238.236.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168627;
-	b=AJ7iHIOyqxoN1mYHiBWsY1ZukRUHnxQjJMnZvZ9nib0Ete3TdNA2cRMjjBbKIMCWUHCx
-	 TKRQY31sCww/o8B8seJA0CM2Gb+gZ8ZmtlRZYb400VNfPuU0izeHJIirCe9pol99shjUO
-	 O1BLx6KdGkFjig0KJeijid+f2DAueugvB3QbekpW9yYdVoYoJmJoYG6n3IpTQf6u3C6IZ
-	 vyINx5ALr3p4RIftsWFkSJIOzzWuncvAqLZ3FsBRrL4NL/jeHqwqt7ehXG3TidA96Z6uw
-	 SjCFtXnajRJGVDcr64CmwtYmljXwdBhFXAXHfbvL2C+5V8XSj55iEqP4KRdSp46r9fA==
+	t=1795168664;
+	b=0Vdds9NeMG1gx1/vW1GZaRVBTEeKxC4+0jkhorgKe8Kcddq+nxW89zFXkjmf7yr/xrGr
+	 7Ffxnc/WcZRKvmalplBOMeq+Y1El29gWtw169ZSXnbW7ewVMpwnhILPiOc1CRqKXVsPBl
+	 Twk9ODg7nYOCnbj4IQp4fLnHAfdASoZsVIomaBwLRA9baYjatffPsZ+9IZeCc3i87iOcV
+	 mLdAcZmalPDuaIZVjd/8zr2hjiiLQ4lVacdJCJUKByxPx271UfcDA/MBtNFHIrA5RiTqA
+	 6g1GMg4HL+Zk3bO5XhQf3A5oraKxFuV6uHuu48jAPdu54x6ttvGFHfinrbfCbcZPcqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168627;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=RiLXCT33fn3sTnxmiWGsufjs6YJRxioeNCivACLz64o=;
-	b=5YuNBCE5txcX+22S/htzyseM4hLOTykzy296MfDX5Xqf4V2qnMqYmU3gUi6TRzpcA3zh
-	 EEIbiwV3GFgKVgL7nid+oEL8vqJqlgo5uLWswcYkEJdTBHrinB+WVqiRtwwLIy+usnCMT
-	 /NnH0GCLFFcKFAo5jjrwOExeyQeCDPTb3YHa6BCYRgaVXMLETsMDO1/mPevXQXyazm9fg
-	 l34wsubcKNbWJ2zoFtaLDaCI3ASxuNlGi6Q2mKGYqja6mU0qeXDOjN2FUO/rRX5Moc28M
-	 kTO9UR+WHUE9s+X2vTxnKQ7t3FgIZqrnmuB479OFHYxLhQDxxKphrEKuMrocQcIhFBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168664;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
+	b=syCAF3tW8nzoTMkCX1mEpvxu/mYw2eKVGWK+3uRG0fR6mfOVifxED4RriuzmoAkgNtGn
+	 PfHu07i5VDzg6bNM4KQ7hJhBsYwByvispzTkSdcrr7KDPbEkRCInY1NgeV7IlAYgKD1MX
+	 dU4+ozpt6tnhVlND8zedHIefUW2q7C9Ago6e8kjCmY9WAqmv1lOLqwsFfW7e7Y2KS3Fe9
+	 wkLwyGvavIWjz9fXOPxR539YM0YVfBSRmYZftwbOwoGuwagWFGj+vOyZdLwo2w0IinMUH
+	 SNigyXdls7AqWSl4oWH1qV0FjX+dVxx127BaDPoeIRCq8pdkn0OPlTHEgmHg8Ne6d2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kemnade.info;
-	spf=pass smtp.mailfrom=kemnade.info;
-	dkim=pass header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=CD6s3ucC;
-	arc=none smtp.remote-ip=178.238.236.174
-Received: from mail.andi.de1.cc (mail.andi.de1.cc [178.238.236.174])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83CAC606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:57:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83CAC606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kemnade.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kemnade.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3389E606A320;
+	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kemnade.info header.i=@kemnade.info header.a=rsa-sha256 header.s=20220719 header.b=CD6s3ucC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=RiLXCT33fn3sTnxmiWGsufjs6YJRxioeNCivACLz64o=; t=1795168626; x=1796378226; 
-	b=CD6s3ucC7cPE4aMIgaA8UqJ9PryLrdlyjeU0o3rg8nk2Pj0EhiPghGf41iF0ibrTGO2GdHZg0Vj
-	3XYEcXRIzS+WNRI7Cmdfe1+tQCK0qhPi6jPqKWDIH05fnzZEnFGqsP6HfAEgTfnHfsWFLnooKXO1Z
-	1cpcJPDCcwu0DsG86vecb1DMmjzrGixi5CZ33PkCZZSda6pdV0dB4XnqxXuYqJgwAqnoAxM7ATZRV
-	RTBeG1yWhYfFouIMQ6ajX+KFuJx8awpIjEmSbXzdUoL92qB5izsv6EZUZdlZK6I3RSTYCPzzVQ/8X
-	2pxTG91tO74j92iHL4WNsL8qHLA4peNpDc3g==;
-Date: Fri, 20 Nov 2026 10:56:59 +0100
-From: Andreas Kemnade <andreas@kemnade.info>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Nick Terrell <terrelln@fb.com>,
- David Sterba <dsterba@suse.com>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling
- <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- j.neuschaefer@gmx.net, f.fainelli@gmail.com, Tony Lindgren
- <tony@atomide.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] ARM ZSTD boot compression
-Message-ID: <20261120105659.16f48da2@kemnade.info>
-In-Reply-To: <CAD++jLmdX=p7Th3omP8dMQuUPyTziMDwMeGPyT9PEGw-wnT5DA@mail.gmail.com>
-References: <20260828-zstd2-v2-0-4d9ce7150877@kemnade.info>
-	<20260912123827.3aa54e58@kemnade.info>
-	<CAD++jLmdX=p7Th3omP8dMQuUPyTziMDwMeGPyT9PEGw-wnT5DA@mail.gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=clpYv4nf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28B161F000CA;
+	Fri, 20 Nov 2026 09:57:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795168663;
+	bh=US+BwjsBu2YGs4iPWGc7Xdq/wpYAMCQoXR2jUtQoE6E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=clpYv4nf7GoRQgSzznc2rvcK1WJk2g6BZeRgeLlN/EqEoj9aMQbtcGbmNUqwvfUhx
+	 LbSiYfDczBc6J7XGGTObjzBJPhpvPyEBAOHv69laqE0zi/4u0JV6nWPkrLvrvd6hHP
+	 Y6QpmtSIUtqA1EZqlbzlnbzSqZe2iDSZeVpYLcqMpUmOwaEfGmTcYFbokGkmQWi2Lx
+	 z/XGdDS16hb36EF9zk6iyRcO15vU+yfqJ1T9rOi4oIqzWRRDucyWDWwYy/rZMPjRVT
+	 PD4bkkJMDbjWQrBQVQX0G2rfXYBh2HBPDrM2Zm0IEdAPlzQ2rDOKA/ybnsSefWLOkt
+	 0fZOFFPowLENg==
+Subject:
+ Re: [PATCH net] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, weiwan@google.com, soheil@google.com,
+ shakeel.butt@linux.dev, linux-kernel@vger.kernel.org
+Date: Fri, 20 Nov 2026 09:57:42 +0000
+Message-ID: <179516866272.3136.232647069823092530@kernel.org>
+In-Reply-To: <20261119090828.343748-1-jiayuan.chen@linux.dev>
+References: <20261119090828.343748-1-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -68,40 +64,119 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
 
-On Sun, 13 Sep 2026 20:17:53 +0200
-Linus Walleij <linusw@kernel.org> wrote:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-> Hi Andreas,
->=20
-> On Sat, Sep 12, 2026 at 12:38=E2=80=AFPM Andreas Kemnade <andreas@kemnade=
-.info> wrote:
-> > On Fri, 28 Aug 2026 22:32:18 +0200 =20
->=20
-> > Andreas Kemnade <andreas@kemnade.info> wrote:
-> > =20
-> > > Add ZSTD compression to still have a quite high compression but with
-> > > not too much boot delay penality.
-> > >
-> > > Signed-off-by: Andreas Kemnade <andreas@kemnade.info> =20
-> >
-> > Anything left for me to do here? =20
->=20
-> I think the patches look good.
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
->=20
-> Please put them into Russell's patch tracker:
-> https://www.arm.linux.org.uk/developer/patches/
->=20
-I have put them there.
-I constantly get this from emails:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
- linux@armlinux.org.uk
-    retry timeout exceeded
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-So how to proceed here. Am I just feeding some kind of black hole here?
+- [Medium] The new sk_forced_mem_schedule(sk, 0) only runs on the success
+  path of skb_zerocopy_iter_stream().
+- [Low] In tcp_sendmsg_locked() (net/ipv4/tcp.c), the MSG_ZEROCOPY branch
+  only pre-schedules memory when the skb is not pure: `if…
 
-Regards,
-Andreas
+--
+
+tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
+
+The MSG_ZEROCOPY path in tcp_sendmsg_locked() can append to a skb that
+already holds copied data. In that case only the user length is
+scheduled, but the pinned pages are charged by truesize. This commit adds
+sk_forced_mem_schedule(sk, 0) after a successful skb_zerocopy_iter_stream()
+so that sk_forward_alloc does not go negative.
+
+> diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+> index 832b25ddd3c2e..9f8c0954001bb 100644
+> --- a/net/ipv4/tcp.c
+> +++ b/net/ipv4/tcp.c
+> @@ -1359,6 +1359,8 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+>  			if (err < 0)
+>  				goto do_error;
+>  			copy = err;
+> +			/* Pages were charged by truesize, not by copy. */
+> +			sk_forced_mem_schedule(sk, 0);
+
+[Severity: Medium]
+Can sk_forward_alloc still go negative on the error path? The new call
+only runs when skb_zerocopy_iter_stream() succeeds, because the
+"if (err < 0) goto do_error" check comes first.
+
+In skb_zerocopy_iter_stream(), the truesize charge made by
+__zerocopy_sg_from_iter() is undone on -EFAULT only if ___pskb_trim()
+succeeds:
+
+net/core/skbuff.c:skb_zerocopy_iter_stream() {
+    ...
+	if (err == -EFAULT || (err == -EMSGSIZE && skb->len == orig_len)) {
+		...
+		if (!___pskb_trim(skb, orig_len)) {
+			skb->truesize -= delta_truesize;
+			sk_wmem_queued_add(sk, -delta_truesize);
+			if (!skb_zcopy_pure(skb))
+				sk_mem_uncharge(sk, delta_truesize);
+		}
+		skb->sk = save_sk;
+		return err;
+	}
+    ...
+}
+
+___pskb_trim() fails when the skb is cloned and
+pskb_expand_head(skb, 0, 0, GFP_ATOMIC) fails.
+
+Suppose the write queue tail skb is not pure, so only copy was scheduled,
+and it is cloned. If the user iovec faults after some pages are pinned and
+the atomic allocation fails, those pages stay charged by truesize. The
+caller then jumps to do_error without running the fix-up.
+
+A later non-zerocopy sendmsg() under tcp_mem pressure would then get a
+negative copy back from tcp_wmem_schedule(). That is the same case the
+commit message describes.
+
+Would it work to call sk_forced_mem_schedule(sk, 0) right after
+skb_zerocopy_iter_stream() returns, before the error checks? On the paths
+that do undo the charge, the call would do nothing.
+
+[Severity: Low]
+This isn't a bug, but does the new comment hold for pure zerocopy skbs?
+Earlier in this branch, the pre-schedule is guarded:
+
+	if (!skb_zcopy_pure(skb)) {
+		copy = tcp_wmem_schedule(sk, copy);
+		if (!copy)
+			goto wait_for_space;
+	}
+
+__zerocopy_sg_from_iter() also skips the charge for pure skbs:
+
+net/core/datagram.c:__zerocopy_sg_from_iter() {
+    ...
+		sk_wmem_queued_add(sk, truesize);
+		if (!skb_zcopy_pure(skb))
+			sk_mem_charge(sk, truesize);
+    ...
+}
+
+So when SKBFL_PURE_ZEROCOPY is set, no pages were charged to
+sk_forward_alloc. sk_forced_mem_schedule(sk, 0) is still called anyway.
+
+In that case it does nothing, unless sk_forward_alloc is already negative
+for some unrelated reason. Then it would force-charge without any warning
+and hide that imbalance.
+
+Could the call use the same !skb_zcopy_pure(skb) check as the
+pre-schedule? Alternatively, the comment could say it covers the non-pure
+case.
+
+>  		} else if (zc == MSG_SPLICE_PAGES) {
+>  			/* Splice in data if we can; copy if we can't. */
+>  			if (tcp_downgrade_zcopy_pure(sk, skb))
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119090828.343748-1-jiayuan.chen%40linux.dev
