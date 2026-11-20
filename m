@@ -1,106 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795196768;
-	b=ysXwhInRLhHmlrsrjUrcGKKUqaVzOJu0TtCQNtXr+hsYlIDxUIcK98zy+IjfOnrVIdLY
-	 QcxvCWrv+6DSL+bdXrD15aRJIfNUwp5PQYaiig4pbnKo2CyifMVXXba9gILmzVXE5BJEK
-	 Bt7QHt3ins1BOgrZWtCS7GN/hF4R5iudkXQq5b6fHj2bzlnJxJl4ZMj1OO7p0COVhmAfn
-	 rGB5hauciF2Z/+W06kkLNkEP5HH1tC9oBhhfFe2mWpLvvzyBys/86Fo8X3/Vtk77fg8Ow
-	 M/9qEUHAANbRB/SM4RPiitklNfqIq9Zz0AdwXKlJVM2xZvLB9qOCPwxh2/vQWLDYmjA==
+	t=1795196775;
+	b=3U7WfZbAaU1HrmBFix8ae3RU8gJ0++fkyQFUHuDIi7DyF1X4GDihoW2Jf+TNbTdAdHst
+	 vhGcQ3y3Llmmbo9IS6FXpkGwkrYo/olc5NifCLl5QvfwQFTOdSmunlBj4VJwuuF7LI/ak
+	 gIGmznZogSgG+k/ia6R6HMk7F9t7rtXHiIObHRM8SHs16sy3RYtcCtOIDNf+IFclBsoCA
+	 HE891mtSgtWgH7lQmCJxTQCapJsG7S0LNh2QYJY5/GL2lAmGGdOynr7TOc/73QeUSsYcH
+	 I4TW1/61lDlm5Xj4r6XKUXtF18RH1A5Z044ZGqXIX0fFxUx/ylec7TwNoK6ap1+ZOaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196768;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ZSYfrYFiyiWUa6vglkKUJH8L/QpY4IKzTr3jG0NxsxI=;
-	b=AwWDO6Xg54APr1rBelZ8JwCOOHqkju37WqFfsusOODsUw5WpwY06syVWCn6jewoz7rZJ
-	 G1Uho42oJ1ddR35qu0KbEDqdUTtyFuOm48NsjKWXaySKUXB8VD6XglvPUIz3ZPH8sZMEa
-	 HLzRN3RCxJksF38as1z4iSgq3OxFz2yhfBHUPexVkk3iP3AOEznJ0zNZqHil6VdC4SlwV
-	 4nC2B2EJzE+D2najPD1PBeTTA3qrlB2fN5kWny2VybcNSMo3qHSGt9Ic49OcUR7UsgXJp
-	 gpnH8ZFnK9Y4tN1YSuT2WcVKdliFws08REaAzbExZ9EZsZptVBKIBfqqd6EsaZKOd4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196775;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=sVY7MWQIvz+sf0B1y0osvF1uH0bUv57RDrGklku2fyM=;
+	b=MWWk8Xe0mGymUSSaw2wPW9NWBvN2meGmTkqeHsemBT+ScwyzAMsJnI9Rdinnwba+5Z5O
+	 7C8cu/bvCInpLzqqNberK7o9ezkyHUqQ/z9jT676YvthVuuGIPaqSQhpoSSfbluuaZyTR
+	 RKgpG+B/OeedirH9I6gsM/HOF7ENLH6ZrWLEwt8UVFg8lcw4VYEVwx1m4dfEslMwO72o7
+	 lWSyPiWHk5WeotfjHzo+1eR+lqE5wR78K9w4YY/fc8p18kvBC2kvvujsGsDAAxOdMYxWW
+	 sKOGI1iNWpSREtqN5kz+af3qCkOA7ORTslUBqx8rCw0aph6loJgnYI5C8H91jEdKEJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=byUXVs2t;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=eFaiL06i;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E2F660A2621
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:46:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E2F660A2621
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C8A606A330;
+	Fri, 20 Nov 2026 17:46:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5C8A606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=byUXVs2t
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdb15cd8558so576200a12.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:46:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795196765; x=1795801565; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZSYfrYFiyiWUa6vglkKUJH8L/QpY4IKzTr3jG0NxsxI=;
-        b=byUXVs2t1c8P9oTR8+3GOSkGC1vUkjvJbGsl6gqfTr0MOxPtl/UJnUjQhUKuNFoQy9
-         tkiEt9YpywyDCMJoO635uxGLsF+l0Yw8Qh9HaS0CSy1MFlBJaes24pYqIUV9L6ztZdN6
-         gTMPwnW3UWx/iwJh1KJEXXdI9ikwCcphYjq1u6Kkm+P4k3QWcSSCacw3fBEmD4iIsw+K
-         LhdaAFjI4Kvx/h5fgn9CXpFAbOhU4+7LCxgdHI80KaDXGdoZA+x3ldB5PQ1OrZ4ghw+v
-         4qm3pto+rSb2zMn2vgj43UkEDPMaJQCQBNmJ+IGraVZ97bbFb/11Y76DFhS0ja050wbI
-         psDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196765; x=1795801565;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZSYfrYFiyiWUa6vglkKUJH8L/QpY4IKzTr3jG0NxsxI=;
-        b=jdRS+Uao+6BLSvsf0XLsdxPp/xe4wE6nvFcM3G+GZkvNcuBPpEiNRPWAeK03s+knK3
-         BEnrL4XfTboz11wzGC/Kg9pWSDythXL75d07VHyU32V2PmBE48oI8EOqWXFX1BpXUJ+E
-         e97kKLBXcmJcvCiTsDsxFFGnsgoTXMNkLdrn2QrnZMxO7TLgyxgP6PYoSXxveqa+1Go5
-         TPhVkMnKfBUWGCptsRmWs1VYp6pt/5nQJ9rBB83+HA37U/IYSwozY/+OPlaQIFTFDtCd
-         1logXdpmN0AgutJMEOm7jayOm+ubupi9O20YWfBwdukR6MBdbPOaKNHZzAMROdgb2VvR
-         V/pA==
-X-Forwarded-Encrypted: i=1; AL+hErHU9cgS74V+DiyavgN2eGQV3YgNGHntETDrxVznqZfc0WTMd1x6ZaBJbiYeOLj9ely8A4Re1c9V1SnH4t0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9y8UEwpHPxqqWfzI2iKQSNCA6x8UgLRGUdKJRQJyiSNDToHCh4
-	aFgpn/VqgTEcCm/7Y00ka5M6wlrb38vZRu/4wHjrK7hqRei8nbhEiSx7
-X-Gm-Gg: AZFdTZcGrEz/PxMe/E7AhASuDHy8C6EjeV6XYsO0JPdcz2CZVdlABSuB6S44OdY11PZ
-	HH6oK4x2oyr3F8h/VDXEHK314yT8tiRjnXcSm7TCcfGlqXb7hMezXVHO8ss+prIm0rYdljpQ6Yu
-	llPw+bGQIMds/ggdpw7uOBnnORm/UhyRJm5QB8m/5poJ0CjR27n/C10mbYe2Zh0uhaI6kTZx5Eh
-	U0dRvCx2vKmZQ6DWeBv3h4UpFR2048L2H6BM3yyPAvU3tEvj704oZBbpgUajov/AbXGBnMbn/kz
-	dh40Ca4ZWICrN4AcZ5IjVken42RYsBpvvCykAcFhfvdI7OCMtwGYU9hJIgDKKVyUsXwvSe4sEW5
-	5Cr49a29GA+7uGQAc6U9oYX1PcZ3eWq3Vgh2YKxVGtCmGQELIRohpzv5ycM4g9Ba68w9C8pM8F4
-	2C7RKL8IgWNc5lty6qnGGeDVtXcEID5CMb8POj7LhoXcUwLVP6i9Zow6+jwN71Q0t/PMMJiLXmP
-	wUyXGmZ7xc+3FZt7VqkbFTQTNk1WZijFQsFSvwWvYGL6mAmoZ1y/CDTOqLcvI9muLCFcvHrEYlt
-	201sxPFcMAd/NuSmRXyqANgYwNOHVF29avIrJopeto15rw==
-X-Received: by 2002:a17:90b:3810:b0:3b4:ac3:8af2 with SMTP id 98e67ed59e1d1-3b41c9cf6famr3366186a91.27.1795196765314;
-        Fri, 20 Nov 2026 09:46:05 -0800 (PST)
-Received: from debian.prasanth ([103.177.82.216])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b703530sm58052a91.1.2026.11.20.09.45.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:46:04 -0800 (PST)
-From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-To: srini@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	ryan_chen@aspeedtech.com,
-	billy_tsai@aspeedtech.com,
-	neal_liu@aspeedtech.com,
-	tan.siewert@9elements.com,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Subject: [PATCH v2 2/2] nvmem: aspeed: Add read-only AST2600 OTP support
-Date: Fri, 20 Nov 2026 23:14:40 +0530
-Message-ID: <20261120174440.123487-3-prasanth.padarthi10@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261120174440.123487-1-prasanth.padarthi10@gmail.com>
-References: <20261113034213.158390-1-prasanth.padarthi10@gmail.com>
- <20261120174440.123487-1-prasanth.padarthi10@gmail.com>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=eFaiL06i
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=sVY7MWQIvz+sf0B1y0osvF1uH0bUv57RDrGklku2fyM=; b=eFaiL06iZu7gluWZisskCzVADd
+	83j/QHhO/xXvvoZ0wus7BAhk/nR8us/PjPCkq+BJPU3MvRBidwbOvDkMHh015NZgpr7pEz7H4LF/K
+	zkpcww5q4F4BcOI7iHem+y0C+VeScFQSrAC/4ueblmwcOB3rYsmJl4ZxgtXEdJHBISfBzlHUm797h
+	QXCLzsuHBsM7xIIf0uWW4ArrFtzcSnowSUCenKqnc/QZ5XsW/7Tgw4jSJG49eHE9xK/jAXA9XX0po
+	jDo1qeb5SYQLkBj8UzzG7MAF2aehK05eisS5jwMNZcXwPNFS1leJqf2Cp0D+scYixltDINCojw2UU
+	+/io72PQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUSgZ-000000011e2-3rXn;
+	Fri, 20 Nov 2026 17:46:07 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 756753008D6; Fri, 20 Nov 2026 18:46:06 +0100 (CET)
+Date: Fri, 20 Nov 2026 18:46:06 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] perf/core: Disable context fast-swap for sigtrap
+ events
+Message-ID: <20261120174606.GM2669272@noisy.programming.kicks-ass.net>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <55b1a2845b0ad34a874a7653644e34af9eb068d3.1795053619.git.wutengda@huaweicloud.com>
+ <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -110,388 +77,102 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120173706.GC2668564@noisy.programming.kicks-ass.net>
 
-Provide root-only NVMEM access for userspace diagnostics comparing OTP
-ranges with vendor-derived reference data during BMC bring-up. The
-consumer uses raw offsets rather than named cells or a private ioctl.
+On Fri, Nov 20, 2026 at 06:37:06PM +0100, Peter Zijlstra wrote:
+> On Thu, Nov 19, 2026 at 09:51:01AM +0000, Tengda Wu wrote:
+> > perf_sigtrap() contains:
+> > 
+> > 	WARN_ON_ONCE(event->ctx->task != current)
+> > 
+> > The warning assumes that an event's ctx->task always matches the task
+> > that ends up running the pending task_work. That assumption can be
+> > broken by the context fast-swap path.
+> > 
+> > The failure sequence is:
+> > 
+> >   1. A -> B switch, perf_event_context_sched_out() takes the fast path
+> >      and does WRITE_ONCE(ctx->task, next) / WRITE_ONCE(next_ctx->task, task).
+> >      An NMI then hits while the context is swapped, and
+> >      __perf_event_overflow() queues pending task_work on the *current*
+> >      task (A), even though the event now belongs to B's swapped-in
+> >      context view.
+> > 
+> >   2. B -> A switch. Because A now has pending task_work,
+> >      nr_no_switch_fast is non-zero, so the slow path is taken and
+> >      ctx->task is *not* swapped back.
+> > 
+> >   3. A returns to user mode, task_work runs perf_pending_task() ->
+> >      perf_sigtrap(), and event->ctx->task no longer equals current,
+> >      tripping the WARN_ON_ONCE().
+> > 
+> > The context fast-swap path was already excluded for events that need
+> > stable task association (inherit + sample read). sigtrap events have
+> > the same requirement: the SIGTRAP is targeted at ctx->task and must not
+> > be delivered after ctx->task has been swapped to another task.
+> 
+> Oh gawd, let me guess, another one of those tracepoint events, right?
+> 
+> Must be someone that doesn't respect perf_ctx_disable(). Fixing that
+> will close this hole.
 
-Initialize read mode once at probe and mask the fixed secure prefix using
-an NVMEM keepout. Recheck SEC54 on each controller read and reject requests
-into an extended protected prefix. Programming protection does not block
-reads. Serialize transactions and stop issuing commands after a timeout.
-Use a 1-us initial polling delay and a generous 100-ms timeout.
+Here, does this work?
 
-Adapt the read sequence from ASPEED's downstream driver, preserving its
-attribution, and add the driver to the ASPEED MAINTAINERS entry.
+The clue is right in perf_event_context_sched_out():
 
-Tested on ASRock Rack B650D4U (AST2600 A3) with Linux 7.4-rc1 and
-OpenBMC Linux 6.18.24. Repeated reads, cross-pair reads and four concurrent
-readers (40 reads) passed. The selected 12-byte range matched a saved
-ASPEED-derived reference. The 7.4-rc1 run used a RAM-booted kernel with
-the working OpenBMC board DTB and initramfs; its final-pair check also
-passed.
+                          perf_ctx_disable(ctx, 0);
 
-Link: https://github.com/AspeedTech-BMC/linux/blob/769f62b7baa84d6998723b0ea60280e380183553/drivers/soc/aspeed/ast2600-otp.c
-Link: https://lore.kernel.org/linux-aspeed/KL1PR0601MB3986A356BD06F98D0FF9AD5E80792@KL1PR0601MB3986.apcprd06.prod.outlook.com/
-Co-developed-by: Neal Liu <neal_liu@aspeedtech.com>
-Signed-off-by: Neal Liu <neal_liu@aspeedtech.com>
-Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+                          /* PMIs are disabled; ctx->nr_no_switch_fast is stable. */
+                          if (local_read(&ctx->nr_no_switch_fast) ||
+                              local_read(&next_ctx->nr_no_switch_fast)) {
 
----
- MAINTAINERS                      |    1 
- drivers/nvmem/Kconfig            |   13 ++
- drivers/nvmem/Makefile           |    1 
- drivers/nvmem/nvmem-aspeed-otp.c |  297 ++++++++++++++++++++++++++++++++++++++
- 4 files changed, 312 insertions(+)
+There must be no overflow after perf_ctx_disable().
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 93abbb315..5415e2be4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2813,6 +2813,7 @@ F:	Documentation/devicetree/bindings/arm/aspeed/
- F:	arch/arm/boot/dts/aspeed/
- F:	arch/arm/mach-aspeed/
- F:	arch/arm64/boot/dts/aspeed/
-+F:	drivers/nvmem/nvmem-aspeed-otp.c
- N:	aspeed
+
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1236,6 +1236,7 @@ extern const struct perf_event_attr *per
+ extern void perf_event_print_debug(void);
+ extern void perf_pmu_disable(struct pmu *pmu);
+ extern void perf_pmu_enable(struct pmu *pmu);
++extern bool perf_pmu_enabled(struct pmu *pmu);
+ extern void perf_sched_cb_dec(struct pmu *pmu);
+ extern void perf_sched_cb_inc(struct pmu *pmu);
+ extern int perf_event_task_disable(void);
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -1366,6 +1366,12 @@ void perf_pmu_enable(struct pmu *pmu)
+ 		pmu->pmu_enable(pmu);
+ }
  
- ARM/AXIADO ARCHITECTURE
-diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
-index d2f5bb236..e6445262b 100644
---- a/drivers/nvmem/Kconfig
-+++ b/drivers/nvmem/Kconfig
-@@ -164,6 +164,19 @@ config NVMEM_APPLE_SPMI
- 	  This driver can also be built as a module. If so, the module
- 	  will be called apple-nvmem-spmi.
- 
-+config NVMEM_ASPEED_AST2600_OTP
-+	tristate "ASPEED AST2600 OTP support"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	help
-+	  Say Y here to enable read-only access to the OTP data region
-+	  on ASPEED AST2600 BMCs through the NVMEM interface.
-+
-+	  This driver can also be built as a module. If so, the module
-+	  will be called nvmem-aspeed-otp.
-+
-+	  If unsure, say N.
-+
- config NVMEM_BCM_OCOTP
- 	tristate "Broadcom On-Chip OTP Controller support"
- 	depends on ARCH_BCM_IPROC || COMPILE_TEST
-diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
-index 5e70bad9f..f09b7a8a5 100644
---- a/drivers/nvmem/Makefile
-+++ b/drivers/nvmem/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_NVMEM_APPLE_EFUSES)	+= nvmem-apple-efuses.o
- nvmem-apple-efuses-y 			:= apple-efuses.o
- obj-$(CONFIG_NVMEM_APPLE_SPMI)		+= apple_nvmem_spmi.o
- apple_nvmem_spmi-y			:= apple-spmi-nvmem.o
-+obj-$(CONFIG_NVMEM_ASPEED_AST2600_OTP)	+= nvmem-aspeed-otp.o
- obj-$(CONFIG_NVMEM_BCM_OCOTP)		+= nvmem-bcm-ocotp.o
- nvmem-bcm-ocotp-y			:= bcm-ocotp.o
- obj-$(CONFIG_NVMEM_BRCM_NVRAM)		+= nvmem_brcm_nvram.o
-diff --git a/drivers/nvmem/nvmem-aspeed-otp.c b/drivers/nvmem/nvmem-aspeed-otp.c
-new file mode 100644
---- /dev/null
-+++ b/drivers/nvmem/nvmem-aspeed-otp.c
-@@ -0,0 +1,297 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) ASPEED Technology Inc.
-+ *
-+ * ASPEED AST2600 OTP Controller driver
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/cleanup.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/mod_devicetable.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/nvmem-provider.h>
-+#include <linux/platform_device.h>
-+#include <linux/unaligned.h>
-+
-+#define AST2600_OTP_PROTECT_KEY		0x00
-+#define AST2600_OTP_CMD			0x04
-+#define AST2600_OTP_ADDR		0x10
-+#define AST2600_OTP_STATUS		0x14
-+#define AST2600_OTP_COMPARE_1		0x20
-+#define AST2600_OTP_COMPARE_2		0x24
-+#define AST2600_OTP_EXTRA_READ_PROTECT	0x54
-+#define AST2600_OTP_EXTRA_READ_RANGE	GENMASK(5, 0)
-+
-+#define AST2600_OTP_CMD_READ		0x23b1e361
-+#define AST2600_OTP_CMD_WRITE_MODE	0x23b1e362
-+#define AST2600_OTP_UNLOCK_KEY		0x349fe38a
-+#define AST2600_OTP_STATUS_DONE		GENMASK(2, 1)
-+/* Normal reads take less than 1 us; allow a generous bounded wait. */
-+#define AST2600_OTP_TIMEOUT_US		100000
-+
-+#define AST2600_OTP_DATA_WORDS		0x800
-+#define AST2600_OTP_SIZE			(AST2600_OTP_DATA_WORDS * sizeof(u32))
-+#define AST2600_OTP_CONF0_ADDR		0x800
-+#define AST2600_OTP_CONF0_SEC_SIZE		GENMASK(21, 16)
-+#define AST2600_OTP_SEC_SIZE_UNIT		(32 * sizeof(u32))
-+
-+struct ast2600_otp {
-+	struct device *dev;
-+	void __iomem *base;
-+	/* Serialize the complete unlock, read and relock sequence. */
-+	struct mutex lock;
-+	struct nvmem_keepout secure_keepout;
-+	bool failed;
-+};
-+
-+static int ast2600_otp_wait_complete(struct ast2600_otp *priv)
++bool perf_pmu_enabled(struct pmu *pmu)
 +{
-+	u32 status;
-+	int ret;
-+
-+	/* Wait at least 1 us before the first sample of both idle flags. */
-+	ret = read_poll_timeout(readl, status,
-+				(status & AST2600_OTP_STATUS_DONE) ==
-+				AST2600_OTP_STATUS_DONE,
-+				1, AST2600_OTP_TIMEOUT_US, true,
-+				priv->base + AST2600_OTP_STATUS);
-+	if (ret) {
-+		/* Relocking SEC00 does not abort an outstanding command. */
-+		priv->failed = true;
-+		dev_err(priv->dev,
-+			"OTP completion timed out (status=%#x); further reads blocked\n",
-+			status);
-+	}
-+
-+	return ret;
++	int *count = &this_cpc(pmu)->pmu_disable_count;
++	return *count == 0;
 +}
 +
-+static int ast2600_otp_init_read_mode(struct ast2600_otp *priv)
-+{
-+	static const u32 mode_addresses[] = { 0x3000, 0x5000, 0x1000 };
-+	int i, ret;
-+
-+	ret = ast2600_otp_wait_complete(priv);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Restore read mode once at probe; this driver never programs fuses.
-+	 * These writes target volatile mode registers, not OTP fuse cells.
-+	 * No fuse programming command or programming timing is used.
-+	 */
-+	for (i = 0; i < ARRAY_SIZE(mode_addresses); i++) {
-+		writel(mode_addresses[i], priv->base + AST2600_OTP_ADDR);
-+		writel(0, priv->base + AST2600_OTP_COMPARE_1);
-+		writel(AST2600_OTP_CMD_WRITE_MODE, priv->base + AST2600_OTP_CMD);
-+		ret = ast2600_otp_wait_complete(priv);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static int ast2600_otp_read_pair(struct ast2600_otp *priv,
-+				 unsigned int aligned_word,
-+				 u32 *word0, u32 *word1)
-+{
-+	int ret;
-+
-+	/* The hardware reads two words starting at an even word index. */
-+	writel(aligned_word, priv->base + AST2600_OTP_ADDR);
-+
-+	writel(AST2600_OTP_CMD_READ,
-+	       priv->base + AST2600_OTP_CMD);
-+
-+	ret = ast2600_otp_wait_complete(priv);
-+	if (ret)
-+		return ret;
-+
-+	*word0 = readl(priv->base + AST2600_OTP_COMPARE_1);
-+	*word1 = readl(priv->base + AST2600_OTP_COMPARE_2);
-+
-+	return 0;
-+}
-+
-+static int ast2600_otp_init_keepout(struct ast2600_otp *priv)
-+{
-+	u32 conf0, unused;
-+	int ret;
-+
-+	guard(mutex)(&priv->lock);
-+
-+	writel(AST2600_OTP_UNLOCK_KEY, priv->base + AST2600_OTP_PROTECT_KEY);
-+	if (readl(priv->base + AST2600_OTP_PROTECT_KEY) != 1) {
-+		ret = -EACCES;
-+		goto out_lock;
-+	}
-+
-+	ret = ast2600_otp_init_read_mode(priv);
-+	if (ret)
-+		goto out_lock;
-+
-+	ret = ast2600_otp_read_pair(priv, AST2600_OTP_CONF0_ADDR,
-+				    &conf0, &unused);
-+	if (ret)
-+		goto out_lock;
-+
-+	priv->secure_keepout.start = 0;
-+	priv->secure_keepout.end =
-+		FIELD_GET(AST2600_OTP_CONF0_SEC_SIZE, conf0) *
-+		AST2600_OTP_SEC_SIZE_UNIT;
-+	priv->secure_keepout.value = 0;
-+
-+out_lock:
-+	writel(0, priv->base + AST2600_OTP_PROTECT_KEY);
-+	/* Complete the lock write before returning and releasing the mutex. */
-+	readl(priv->base + AST2600_OTP_PROTECT_KEY);
-+	return ret;
-+}
-+
-+static int ast2600_otp_read(void *context, unsigned int offset,
-+			    void *val, size_t bytes)
-+{
-+	struct ast2600_otp *priv = context;
-+	u8 *buf = val;
-+	unsigned int word_index;
-+	unsigned int aligned_word;
-+	unsigned int secure_size;
-+	u32 extra_read;
-+	u32 word0, word1;
-+	int ret;
-+
-+	if (!bytes)
+ static void perf_assert_pmu_disabled(struct pmu *pmu)
+ {
+ 	int *count = &this_cpc(pmu)->pmu_disable_count;
+@@ -11151,6 +11157,9 @@ static int perf_swevent_match(struct per
+ 				struct perf_sample_data *data,
+ 				struct pt_regs *regs)
+ {
++	if (!perf_pmu_enabled(event->pmu))
 +		return 0;
 +
-+	if (offset % sizeof(u32) || bytes % sizeof(u32))
-+		return -EINVAL;
+ 	if (event->attr.type != type)
+ 		return 0;
+ 
+@@ -11531,6 +11540,9 @@ static int perf_tp_event_match(struct pe
+ 				struct perf_raw_record *raw,
+ 				struct pt_regs *regs)
+ {
++	if (!perf_pmu_enabled(event->pmu))
++		return 0;
 +
-+	if (offset >= AST2600_OTP_SIZE ||
-+	    bytes > AST2600_OTP_SIZE - offset)
-+		return -EINVAL;
-+
-+	guard(mutex)(&priv->lock);
-+
-+	if (priv->failed)
-+		return -EIO;
-+
-+	/* SEC54 can grow after probe; keep the registered keepout immutable. */
-+	extra_read = readl(priv->base + AST2600_OTP_EXTRA_READ_PROTECT);
-+	secure_size = FIELD_GET(AST2600_OTP_EXTRA_READ_RANGE, extra_read) *
-+		      AST2600_OTP_SEC_SIZE_UNIT;
-+	secure_size = max(priv->secure_keepout.end, secure_size);
-+	if (offset < secure_size)
-+		return -EACCES;
-+
-+	writel(AST2600_OTP_UNLOCK_KEY, priv->base + AST2600_OTP_PROTECT_KEY);
-+	if (readl(priv->base + AST2600_OTP_PROTECT_KEY) != 1) {
-+		ret = -EACCES;
-+		goto out_lock;
-+	}
-+
-+	ret = ast2600_otp_wait_complete(priv);
-+	if (ret)
-+		goto out_lock;
-+
-+	word_index = offset / sizeof(u32);
-+	while (bytes) {
-+		aligned_word = word_index & ~1U;
-+
-+		ret = ast2600_otp_read_pair(priv, aligned_word,
-+					    &word0, &word1);
-+		if (ret)
-+			goto out_lock;
-+
-+		if (!(word_index & 1)) {
-+			put_unaligned_le32(word0, buf);
-+			buf += sizeof(u32);
-+			bytes -= sizeof(u32);
-+			word_index++;
-+		}
-+		if (bytes) {
-+			put_unaligned_le32(word1, buf);
-+			buf += sizeof(u32);
-+			bytes -= sizeof(u32);
-+			word_index++;
-+		}
-+	}
-+
-+	ret = 0;
-+
-+out_lock:
-+	writel(0, priv->base + AST2600_OTP_PROTECT_KEY);
-+	/* Complete the lock write before returning and releasing the mutex. */
-+	readl(priv->base + AST2600_OTP_PROTECT_KEY);
-+	return ret;
-+}
-+
-+static int ast2600_otp_probe(struct platform_device *pdev)
-+{
-+	struct nvmem_config config = {
-+		.name = "ast2600-otp",
-+		.id = NVMEM_DEVID_AUTO,
-+		.owner = THIS_MODULE,
-+		.type = NVMEM_TYPE_OTP,
-+		.read_only = true,
-+		.root_only = true,
-+		.word_size = sizeof(u32),
-+		.stride = sizeof(u32),
-+		.size = AST2600_OTP_SIZE,
-+		.reg_read = ast2600_otp_read,
-+	};
-+	struct nvmem_device *nvmem;
-+	struct ast2600_otp *priv;
-+	struct device *dev = &pdev->dev;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->dev = dev;
-+	priv->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->base))
-+		return PTR_ERR(priv->base);
-+
-+	ret = devm_mutex_init(dev, &priv->lock);
-+	if (ret)
-+		return ret;
-+
-+	ret = ast2600_otp_init_keepout(priv);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to initialize OTP read mode and secure prefix\n");
-+
-+	config.dev = dev;
-+	config.priv = priv;
-+	if (priv->secure_keepout.end) {
-+		config.keepout = &priv->secure_keepout;
-+		config.nkeepout = 1;
-+	}
-+	nvmem = devm_nvmem_register(dev, &config);
-+	return PTR_ERR_OR_ZERO(nvmem);
-+}
-+
-+static const struct of_device_id ast2600_otp_of_match[] = {
-+	{ .compatible = "aspeed,ast2600-sbc" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, ast2600_otp_of_match);
-+
-+static struct platform_driver ast2600_otp_driver = {
-+	.probe = ast2600_otp_probe,
-+	.driver = {
-+		.name = "ast2600-otp",
-+		.of_match_table = ast2600_otp_of_match,
-+	},
-+};
-+module_platform_driver(ast2600_otp_driver);
-+
-+MODULE_AUTHOR("Neal Liu <neal_liu@aspeedtech.com>");
-+MODULE_AUTHOR("Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>");
-+MODULE_DESCRIPTION("ASPEED AST2600 read-only OTP NVMEM driver");
-+MODULE_LICENSE("GPL");
+ 	if (event->hw.state & PERF_HES_STOPPED)
+ 		return 0;
+ 	/*
