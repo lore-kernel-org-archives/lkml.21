@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795164251;
-	b=lkCODVGHozISfcabtsUD1714UMsayklQn2c+nrSS3BWb0LeVVnLcvqGJIH+4W3dqJyzm
-	 rw37MhGEObmf0g6m2Tx99DxopmkXb5ZV5w1uILRpgAzv3HolloTBOzJK5dn22jZOTtEGa
-	 nWsU6ivTo7bgUMR8xrSJnOgJMRokhYGuLm2vO23RDFavSK+M9yLh26YmiiWBnSKKY0wW3
-	 euk3jYOhexKzKq74sAciyF7Du05Gi+P7FL/NaJXrlQE5J1d3c3GatNbvcWtQ/ZdfLD51T
-	 nkZialXDT6jvInZGaOvRKORWffD1cklYTFU+5aPEAmLhG6P1KzxIGr6y5HgUTNRgL3A==
+	t=1795164257;
+	b=l78Hs2+Ika4i9S1ysjtznmtDiYe73TTYc0+2sbH0sbqYGibU6hDQF4OB3Q7U4Vc+IqJT
+	 grVclAYUvpEIIb6VKhYBYw0fxgWpSNHtNIUmnJ7m0bl8MrznkcKQMVYBZTgfxcXKhu7tB
+	 8CmpBtXybcRZBjC33isi78WoQRd1Cg3J7ho2oj1iVYOu8XKN0Wps4qmr5TxD0GZ7qa5aB
+	 YPvSB6+CnZxRUaZV0atfGWWqlYf0MVbpXFEJbpWT0G6aSHLMF8Iig+SxcruBaGJiz4zgb
+	 kOK9RqRHhIRCmFldtTROIemHN5PDTAcURlCq6lQNnmKGcMNpWT+eFU1pqIzvmJczpUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795164251;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795164257;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
-	b=tIxb56xQfqK/b+BdbHGFN3idstNSDuBxD3hN0Zbbm1UYVvbqiBewMf/BtWo67KUXytVp
-	 Y2orURI+qXc29Fre4+5ZseRq51NWJTKyAFedxocvGqgGl8GWvXb/QyUJ/06PdjsO6t5cF
-	 /F6UhdYmDnb3YAKIc95IOHHyiRqpaPHSbqTVGBJGVJrKyrHXiExWF92KMefzL/OBVO9Vz
-	 jwtfhrTEGbDm7p7HVl4B4d+rHY2DNS18fUmnv59C56O3BBxW4j+bBjVN3VoXwmBMqFJkE
-	 YUkpYDuxIwJynFrPYkvhuaWRv/riTedsEkwOHMApFpnvarPQ2RzrWoC0UaXFTC2ljzQ==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=0+XcfF4HcuspwkT4FGSSTKd+71NymXVS88FmdIjuRJ8=;
+	b=0Um9fYWn1IKwxm1Be8WjjDoqm/Iq/AmkAqazdFUvjP8n7elaO5vS1DzZwumt5L3PN7Hg
+	 RsGaGQtV9xNskGFCjCa59v1clX0EhkI4bUCfVGAIrWt3Cw3AxyemaKpjhi5EGg6cwm0rk
+	 1Ye/gWK0bfHSwN5vrAF9NBBwm/skUUooIansqtBVAxxwUVPcD806a+9kDYNjacFhOgUWo
+	 RWrdfdw0sKO32XTt73Z3Jk/pDRFYy8VQWtV6UP0wo0lON1GMKos/mpW8IBIJKhaNQ9KR7
+	 vij8sXOasyUu7BflvTUXp/22Ajh1EuddX8a8jfqyHWSq0XbKqTGNrkCZEpZGcBqq7fA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YwWKhL+G;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IcU7oKJg;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2A25606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2A25606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47AD760A2616
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:44:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47AD760A2616
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YwWKhL+G
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-15ea896ddc8so1139172c88.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IcU7oKJg
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1a2af4c8d00so1284925c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:44:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795164250; x=1795769050; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
-        b=YwWKhL+GHrChb5ufz1RyC8GdU7EtVlqown2RYTC6d90gbFuotV5O3fQYGl1Zz/qv5b
-         puZ0iEwWjQLq/U4FwXn+Nnu+GzOPLy/DZ+Q6IFxSfFQnEyDYkzsdcdnAzMDqDBXDQ1a1
-         G+nytKnNV6H8lYb3oy9Jjc5JpvQLsOt3wPMDZTrNQDMevotrYCWMLE/g7Dnjg8y66zg5
-         F/JsugisGZbwIdSQeMFQX1pXy3GrZk4YUN/ZoyY41V+C2XCbR9Det+KYxaVPwL+tQJdy
-         wwDNj0EtSSoJNCq7HPEp60MXawu9WJ8c5tUlfyg2g5hyNt0tXHgPNUKS7ulDxPzKqk9i
-         wMBw==
+        d=gmail.com; s=20260707; t=1795164256; x=1795769056; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0+XcfF4HcuspwkT4FGSSTKd+71NymXVS88FmdIjuRJ8=;
+        b=IcU7oKJgQh8NAq/zv9qw2E4HZ5xdDFKxlYZCH6o/718j8Xv5nJLvBcuZgrNTxMne6q
+         7oA0XeLbn/v+Hm7wdFHLwi9pt2UTxNLkW9mnR1r4RIsnOC4O2gR/nMktvk+nr+O53vPk
+         pcrfko++HfwdGGorlhxvL9e5cbp4sI7g+DhcbVpyfsOn9MKXpZya5eShsvt08eOavNSx
+         3svLTpiKwy1ojq/zdyeLSJwd+5bxmQQLdk+uhw6B2iFahhnwDdLYnlB5Gmi/aKx2C6JC
+         lP8mbmUAUmmz3k1U4RcrBR3zHcfe+zGeOb77b0J2nEWvyIV96zoGsiOkN+mtOon6WbG8
+         bmCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795164250; x=1795769050;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=FZ4gSALVJZEpS42+e2FU1wHNldZm7CixO/Ili3jjYjQ=;
-        b=IRm2Sjv0IrP8N9hYd7R/iiynCWw+Y0w+Hy2htbB4/l/pgruMD1ZA6yxOLYG2xl86OW
-         Z7q+y+bKW4JHpc1tjahjMfqmOykSZuWGtMVS21xfUX4/THhrj5HxnNUW5A19yPTa9rxJ
-         f5jeD2ZoF7YLQz0pJEpoZf2mQ6rrcIHaL1PebgSm/adY3FvkQcWRRV6+hyeEygaoolqs
-         N6GBvdLPxWeMvxuezNmtXG3Jld1mLOrpmWVrwSSWCITJxzplojL/ZKVZxI2rFPigeHeW
-         cCdorjviNDjxsP+9DvpsI3gV2althePVVwcx2sTKiqX0nmix6S1ftC/8sPLsn3OevuOX
-         cnLg==
-X-Forwarded-Encrypted: i=1; AL+hErE2kXN+zutvtF1oP8UqQVnzN/tsfYiTOHw44f+Xun7+5tVxdJUie8YVzOgAXFSc9kxPmYUK8Jnqly9B1As=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+G4SvbGzbV04HXnpITXvvQn6X60XaNJtPt5Bxsef4stXSutXTZ
-	C0reQLdAGLRuIzikM0/L9AHTtSVq9aQ/ClsFmPp+6r+peNIBDqkEBfjg
-X-Gm-Gg: AYBFou1RgE0igLFopcfQYyx+ajMoeIL6EhX+KCQS4gAIlytitkop11KuHLRkjCtZ5XP
-	+iPXj+r/Cckt9zwpZNEbVdAxYcrk+styOzMifaPTjaV7m4Sfz9Ni8uN74tyyx6KBJzHcFxXNTJD
-	T04XWNq42nG9eLdMjeNCI6oBbLvD6pgz5Xx/rceUTuQetpyx/6qRGmm+32w5IL0bNOZpjeRDqCk
-	1eHco7cngUwaJlYJ3s/8zmp6YYKn4rLw5dHB+pHA+1Q9JKplJqZ8XIGhucaW1Ohluu6FZbVf018
-	hFckA3NXgTKITUWoSIzm188WifUeQ8GKWDMb3qtQi6A7oLVxo8LzyXuw2TZgZ2fHE5ihJKgP9ZQ
-	kuGoSWUAgrza04ib94ba5AyC2T+YycOYTM+5PeMjobXmpaQf5xCqnXoPaC5W59+6kuk6xGrdc5N
-	SWsIaXJ4GqKB9gInp0jlx6L6uGjwp4dJ9L6LbogjTNWhn0WfyW1KZHzajQmj5SSjspjpjTOoRB0
-	yGAZwphoV2IcQFEogLeX5fKcZ2YOnlfCH/sRfxix8p6zLlamWkq//I68Kmq8cvkyjgrSKxUa9L3
-	n4dj+OYjYtCQB4KvuFkKGLwRhNKE3tYH9gNf/EbmFiiGiFfl59kU7G7e5is+QIgbvAlHL+KuG+u
-	XTn4amDThM00HrYTkvjQT6lGDYttJQ5W6TrXKATw=
-X-Received: by 2002:a05:7022:7f03:b0:1b3:a881:4d9f with SMTP id a92af1059eb24-1b5568a69abmr2133740c88.20.1795164249965;
-        Fri, 20 Nov 2026 00:44:09 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795164256; x=1795769056;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0+XcfF4HcuspwkT4FGSSTKd+71NymXVS88FmdIjuRJ8=;
+        b=aYLoG6FZ/U8Hqy4/YRXIrpvMJ69kHCcSDgAWcMsttEvmo7KK3emaVuwzRJ8ohLa5es
+         gAIn4AtoL5LlC8F576zzzlBX3OwcvqNPt6JxInaJ9kHjMJfVMZiwfjBx3a/F0BzRai9r
+         HvFlH8BPxylatZpJKf2e969gJ7q/4lkuDPBAEkmmPhXgDXxIGVUFYE2KIigOBu3kLTbq
+         jU6TNHaS1VoS2ekzSxaMuNFcFRFHY82XygmywIW+nlaCclgkFLKBgVk2sOxjYEG0MaC/
+         mIfuuvZOD9QvVNuIVAcf2kLfm1cycHsxlbWqKowt2oKp1V8WPGWVVbtfL/ijMYAf/avv
+         j4nw==
+X-Forwarded-Encrypted: i=1; AL+hErEf/mL8WGv2C5IqNhdnj6i7I3uqx227uLE4SoMpkApItVkvO9pGPvdIWdPBnhJ1hdVbWV5YvzttsjN3bQY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95OW1OqYgt3WNZL/czxfwc+VBKnF/4vBPyta+zzaKbpiuhcXs7
+	yNDlcXNWY2az6RcXV8NoonlZdVACYp3BSVLtcK4wd/0TEafyC3h+X7C8zIQNhw==
+X-Gm-Gg: AYBFou0PbDbFyZZc6Pd9nzhPBlH1d4WKEgDZmCSURlQ97BlTD4k2AZlzXrrUrHqV/vG
+	PrTW6hN7vROnOqPhRv9Kg5YXwEARgwN7klOJaW9mTEB21fSPsZ0XVNt98P6LhRRTpXG5jegujfI
+	19IUGLQwV2d+NZR0xY8/Zk8n0qbPjffaxeTOJcL5Yfftfmifek8WwADtf8Mx+KwSusojnUC3oLH
+	+FulpSOxJvGojKeOD40UHxJxej6ufobRPR+BzRJVNxHijj07mBnkJl0hfqc8Dcl+NHwZieeA6k+
+	i6d51kDW8N0HOgwlYEqqhm/bnTXomk/nX22Go6Kmx/kk4Vg1ZXCvcdHVLSIh1mG+VaUrdjgdKjn
+	5J+Vhdt+29dNvzR4d0e5JdAgAApkBSzOjXvRqyXURJgLuligNkCTNqW1ZeYil3VJQzEZAkGjn20
+	9UeS/A1ALVQlv+wEqnW7EYVYzusSMVMqiYHtwm+e44SSfxSBy2GpeRIOlJ9RAnpz8WM1pCUI+3O
+	/P/+01aKCQYNZHdH35Q5e+msUgoKyPARK0KTUwZm7nNbct2aNvk/2H5n/QWXnGIDDJY3fLp2+DJ
+	F90XsBs+/C8gQEcbGFMvyLCL+UUtsThgHppTs84j6NQzuq36vSntyvbVWiHOj2FmBx7hH5AEzKk
+	WqesPUKxBS7tNvfPktg==
+X-Received: by 2002:a05:7023:a41:b0:1b2:649d:dc23 with SMTP id a92af1059eb24-1b556901b95mr2226549c88.35.1795164256261;
+        Fri, 20 Nov 2026 00:44:16 -0800 (PST)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:ea97:e47d:2ebc:210c])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.08
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5569bffd2sm4808244c88.0.2026.11.20.00.44.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:44:09 -0800 (PST)
+        Fri, 20 Nov 2026 00:44:15 -0800 (PST)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Subject: [PATCH v3 00/18] HID: logitech-hidpp: G920 force-feedback rework
- and driver cleanups
-Date: Fri, 20 Nov 2026 00:43:51 -0800
-Message-Id: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+Date: Fri, 20 Nov 2026 00:43:55 -0800
+Subject: [PATCH v3 04/18] HID: logitech-hidpp: rework G920 force-feedback
+ initialization
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,13 +95,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEgIAGsC/22Qy26DMBBFfwV5XSM/wA9W+Y+qCz8GcBswNQQli
- vj3GhJVWWQz0pXunDmaO5ohBZhRU9xRgjXMIY458I8Cud6MHeDgc0aMMEEp1bgPHp9jFxZw/R6
- mCY9wXbDxzte8MtYZhfL2lKAN14P8+fXI88V+g1t23LOR4PeSTy6PGrJmBuziMISlKVRmWV3Xl
- hJaV1IaQ6nRAljLjaNWc2WlbKvj2L9qUzxFyTtRoVRlWysMr1SzcrR79WFeYrodD1jpofFAEE3
- 2yUumlBRcYIp9Fku3MvfjTx/XUzeYcC6z8EFa2cv2e4GVYYI5kRUHTb3i9hWxbdsfhnvgg48BA
- AA=
-X-Change-ID: 20261119-hid-logitech-hidpp-next-adcd534abca8
+Message-Id: <20261120-hid-logitech-hidpp-next-v3-4-ba39242d4336@gmail.com>
+References: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
+In-Reply-To: <20261120-hid-logitech-hidpp-next-v3-0-ba39242d4336@gmail.com>
 To: Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, 
  Gideon Heinz <gideonheinz02@gmail.com>
 Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>, 
@@ -112,105 +108,454 @@ Cc: =?utf-8?q?Filipe_La=C3=ADns?= <lains@riseup.net>,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.17-dev-6b8b8
 
-Per Jiri Kosina's request, this 18-patch series for v7.5 is split out
-from v2 and applies on top of:
-[PATCH v3 00/14] HID: logitech-hidpp: G920 force-feedback and battery fixes
+Querying G920 force-feedback capabilities inside .input_configured()
+requires toggling device I/O mid-registration and conflates device
+configuration with input setup. At the same time, the single allocated
+state structure mixes per-device wheel settings with the lifetime of the
+input force-feedback queue, complicating error handling and cleanup.
 
-Note that v2 patch 22/33 ("HID: logitech-hidpp: shut down G920 force
-feedback on input unregister") has been dropped in favor of "Input:
-destroy force-feedback device on input unregistration" in input core.
+Exclude generic USB PID force feedback for validated HID++ devices and
+query the G920 force-feedback configuration during probe while device
+I/O is already active. Keep both probe query failures and force-feedback
+initialization errors non-fatal so basic wheel and pedal inputs remain
+usable without force feedback, while ensuring failed initialization
+leaves input capabilities clean.
 
-The first group of patches improves transport handling and error
-propagation: keeping connect work disabled during probe until
-hid_connect() completes, preserving transport error codes in
-__hidpp_send_report(), and translating HID++ protocol errors into
-standard negative Linux error codes in hidpp_send_message_sync().
+Split the overloaded force-feedback state by lifetime so device-level
+G920 wheel settings are devm-managed for the bound device lifetime,
+while the input force-feedback queue and slot tracking are allocated
+with a flexible array and owned strictly by the force-feedback device.
 
-The G920 force-feedback rework moves capability discovery back into
-hidpp_probe() while device I/O is active (excluding generic USB PID
-force feedback for validated HID++ devices), separates device-level
-wheel settings from the input FF queue lifetime, moves the G920 range
-sysfs attribute to driver dev_groups using sysfs_emit(), executes range
-stores, effect uploads, and effect erases synchronously, indexes FF
-slot arrays directly by effect ID, and cleans up FF helpers.
-
-The final patches modernize the driver by switching multi-byte protocol
-fields to unaligned accessors, storing device serials as byte arrays,
-using guard(mutex), __free(kfree), alloc_ordered_workqueue(),
-devm_mutex_init(), and devm_device_add_group(), and removing unused
-kfifo and wtp_data fields and redundant helpers.
-
-Thanks.
-
+Tested-by: Gideon Heinz <gideonheinz02@gmail.com>
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
-Changes in v3:
-- Split out from v2 as a separate 18-patch series for v7.5 per Jiri
-  Kosina, applying on top of the v7.4 fixes series.
-- Dropped "HID: logitech-hidpp: shut down G920 force feedback on input
-  unregister" (v2 patch 22/33) in favor of "Input: destroy
-  force-feedback device on input unregistration" in input core.
-- Collected Tested-by tags from Gideon Heinz across all patches in this
-  series.
-- Link to v2: https://patch.msgid.link/20261110-hid-logitech-hidpp-v2-0-30743e91d83b@gmail.com
+ drivers/hid/hid-logitech-hidpp.c | 210 +++++++++++++++++++--------------------
+ 1 file changed, 101 insertions(+), 109 deletions(-)
 
-Changes in v2:
-- Rebased the series on top of linux-next.
-- Kept connect work disabled during probe until hid_connect() succeeds.
-- Switched hidpp_send_message_sync() to translate RAP and FAP protocol
-  error codes into negative Linux error codes (-EBUSY, -EIO, -EPROTO)
-  instead of returning positive protocol values, and preserved transport
-  error codes in __hidpp_send_report().
-- Converted G920 range store, effect upload, and effect erase to
-  synchronous execution with slot indexing by effect ID.
-- Added G920 force-feedback helper cleanups, removed unused kfifo and
-  struct wtp_data fields, and cleaned up minor helpers.
-- Link to v1: https://patch.msgid.link/20261109061103.2887636-1-dmitry.torokhov@gmail.com
-
----
-Dmitry Torokhov (18):
-      HID: logitech-hidpp: keep connect work disabled until hid_connect() completes
-      HID: logitech-hidpp: preserve transport error codes in __hidpp_send_report()
-      HID: logitech-hidpp: return negative error codes from hidpp_send_message_sync()
-      HID: logitech-hidpp: rework G920 force-feedback initialization
-      HID: logitech-hidpp: use sysfs_emit() in hidpp_ff_range_show()
-      HID: logitech-hidpp: manage G920 range sysfs attribute via dev_groups
-      HID: logitech-hidpp: execute G920 range sysfs store synchronously
-      HID: logitech-hidpp: index G920 force-feedback slots by effect ID
-      HID: logitech-hidpp: execute G920 effect upload and erase synchronously
-      HID: logitech-hidpp: clean up G920 force-feedback helpers
-      HID: logitech-hidpp: use unaligned accessors for multi-byte values
-      HID: logitech-hidpp: store device serial as a byte array
-      HID: logitech-hidpp: use guard() for send_mutex
-      HID: logitech-hidpp: use __free(kfree) for temporary allocations
-      HID: logitech-hidpp: use alloc_ordered_workqueue() for FF queue
-      HID: logitech-hidpp: manage send_mutex with devm_mutex_init()
-      HID: logitech-hidpp: manage ps_attribute_group with devm_device_add_group()
-      HID: logitech-hidpp: remove unused kfifo and clean up minor helpers
-
- drivers/hid/hid-logitech-hidpp.c | 798 ++++++++++++++++-----------------------
- 1 file changed, 323 insertions(+), 475 deletions(-)
----
-base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
-change-id: 20261119-hid-logitech-hidpp-next-adcd534abca8
-prerequisite-change-id: 20261110-hid-logitech-hidpp-6884bfb6a348:v3
-prerequisite-patch-id: e1416a97b0f876b3ad2c58d961bc858fc894d90d
-prerequisite-patch-id: a7c7a0921c6903c5cb52598f422b76593030eefc
-prerequisite-patch-id: e250d48e371cf39225c26a2830059e1ef0f84100
-prerequisite-patch-id: 19ed5cf936a31bcfb2e6743c64bdbfaf4cd4c497
-prerequisite-patch-id: 7d9f088caf73b37fffaa521ab2fa01154bc725d5
-prerequisite-patch-id: fd2e52e0c7fb38fbb457f1a133b21cc2e82bad7d
-prerequisite-patch-id: 26d251375b09680f430f05d1cfe6f1a7049d7699
-prerequisite-patch-id: 452b96def4814eb20770c50cda5ba2cdf934e1e6
-prerequisite-patch-id: 99be7ec097ed9b8c9fcae3a1e769c65bd40d0e5e
-prerequisite-patch-id: f42ce025d79d5bce980e061ee7bfd79fac6db59f
-prerequisite-patch-id: 1f1d98c497c6f72f2468a7b136b38d3b1673a843
-prerequisite-patch-id: 1ae006ac01f09e4fab516f0925b69f6683011ca4
-prerequisite-patch-id: 1d063d2ee308c2ac3a57dfa9029b2d826b7f2a42
-prerequisite-patch-id: 417cd6cae264a8b5dd5714ddeef4e75bbd959b17
-
-Thanks.
+diff --git a/drivers/hid/hid-logitech-hidpp.c b/drivers/hid/hid-logitech-hidpp.c
+index 44a7b4dfc9d9..19adf5796807 100644
+--- a/drivers/hid/hid-logitech-hidpp.c
++++ b/drivers/hid/hid-logitech-hidpp.c
+@@ -2346,15 +2346,19 @@ static void hidpp_touchpad_raw_xy_event(struct hidpp_device *hidpp_dev,
+ 
+ struct hidpp_ff_private_data {
+ 	struct hidpp_device *hidpp;
++	struct workqueue_struct *wq;
++	atomic_t workqueue_size;
++	u8 num_effects;
++	int effect_ids[] __counted_by(num_effects);
++};
++
++struct g920_data {
++	struct hidpp_ff_private_data *ff;
+ 	u8 feature_index;
+-	u8 version;
+-	u16 gain;
+-	s16 range;
+ 	u8 slot_autocenter;
+ 	u8 num_effects;
+-	int *effect_ids;
+-	struct workqueue_struct *wq;
+-	atomic_t workqueue_size;
++	u16 gain;
++	u16 range;
+ };
+ 
+ struct hidpp_ff_work_data {
+@@ -2418,6 +2422,7 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ {
+ 	struct hidpp_ff_work_data *wd = container_of(w, struct hidpp_ff_work_data, work);
+ 	struct hidpp_ff_private_data *data = wd->data;
++	struct g920_data *g920 = data->hidpp->private_data;
+ 	struct hidpp_report response;
+ 	u8 slot;
+ 	int ret;
+@@ -2425,7 +2430,7 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ 	/* add slot number if needed */
+ 	switch (wd->effect_id) {
+ 	case HIDPP_FF_EFFECTID_AUTOCENTER:
+-		wd->params[0] = data->slot_autocenter;
++		wd->params[0] = g920->slot_autocenter;
+ 		break;
+ 	case HIDPP_FF_EFFECTID_NONE:
+ 		/* leave slot as zero */
+@@ -2437,8 +2442,9 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ 	}
+ 
+ 	/* send command and wait for reply */
+-	ret = hidpp_send_fap_command_sync(data->hidpp, data->feature_index,
+-		wd->command, wd->params, wd->size, &response);
++	ret = hidpp_send_fap_command_sync(data->hidpp, g920->feature_index,
++					  wd->command, wd->params, wd->size,
++					  &response);
+ 
+ 	if (ret) {
+ 		hid_err(data->hidpp->hid_dev, "Failed to send command to device!\n");
+@@ -2455,7 +2461,7 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ 				data->effect_ids[slot-1] = wd->effect_id;
+ 			else if (wd->effect_id >= HIDPP_FF_EFFECTID_AUTOCENTER)
+ 				/* autocenter spring uploaded */
+-				data->slot_autocenter = slot;
++				g920->slot_autocenter = slot;
+ 		}
+ 		break;
+ 	case HIDPP_FF_DESTROY_EFFECT:
+@@ -2466,14 +2472,14 @@ static void hidpp_ff_work_handler(struct work_struct *w)
+ 				data->effect_ids[slot-1] = -1;
+ 			else if (wd->effect_id >= HIDPP_FF_EFFECTID_AUTOCENTER)
+ 				/* autocenter spring destroyed */
+-				data->slot_autocenter = 0;
++				g920->slot_autocenter = 0;
+ 		}
+ 		break;
+ 	case HIDPP_FF_SET_GLOBAL_GAINS:
+-		data->gain = (wd->params[0] << 8) + wd->params[1];
++		g920->gain = (wd->params[0] << 8) + wd->params[1];
+ 		break;
+ 	case HIDPP_FF_SET_APERTURE:
+-		data->range = (wd->params[0] << 8) + wd->params[1];
++		g920->range = (wd->params[0] << 8) + wd->params[1];
+ 		break;
+ 	default:
+ 		/* no action needed */
+@@ -2720,19 +2726,17 @@ static void hidpp_ff_set_gain(struct input_dev *dev, u16 gain)
+ static ssize_t hidpp_ff_range_show(struct device *dev, struct device_attribute *attr, char *buf)
+ {
+ 	struct hid_device *hid = to_hid_device(dev);
+-	struct hid_input *hidinput = list_entry(hid->inputs.next, struct hid_input, list);
+-	struct input_dev *idev = hidinput->input;
+-	struct hidpp_ff_private_data *data = idev->ff->private;
++	struct hidpp_device *hidpp = hid_get_drvdata(hid);
++	struct g920_data *g920 = hidpp->private_data;
+ 
+-	return scnprintf(buf, PAGE_SIZE, "%u\n", data->range);
++	return scnprintf(buf, PAGE_SIZE, "%u\n", g920->range);
+ }
+ 
+ static ssize_t hidpp_ff_range_store(struct device *dev, struct device_attribute *attr, const char *buf, size_t count)
+ {
+ 	struct hid_device *hid = to_hid_device(dev);
+-	struct hid_input *hidinput = list_entry(hid->inputs.next, struct hid_input, list);
+-	struct input_dev *idev = hidinput->input;
+-	struct hidpp_ff_private_data *data = idev->ff->private;
++	struct hidpp_device *hidpp = hid_get_drvdata(hid);
++	struct g920_data *g920 = hidpp->private_data;
+ 	u8 params[2];
+ 	int range = simple_strtoul(buf, NULL, 10);
+ 
+@@ -2741,7 +2745,7 @@ static ssize_t hidpp_ff_range_store(struct device *dev, struct device_attribute
+ 	params[0] = range >> 8;
+ 	params[1] = range & 0x00FF;
+ 
+-	hidpp_ff_queue_work(data, -1, HIDPP_FF_SET_APERTURE, params, ARRAY_SIZE(params));
++	hidpp_ff_queue_work(g920->ff, -1, HIDPP_FF_SET_APERTURE, params, ARRAY_SIZE(params));
+ 
+ 	return count;
+ }
+@@ -2751,13 +2755,15 @@ static DEVICE_ATTR(range, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH, hidpp
+ static void hidpp_ff_destroy(struct ff_device *ff)
+ {
+ 	struct hidpp_ff_private_data *data = ff->private;
+-	struct hid_device *hid = data->hidpp->hid_dev;
++	struct hidpp_device *hidpp = data->hidpp;
++	struct hid_device *hid = hidpp->hid_dev;
++	struct g920_data *g920 = hidpp->private_data;
+ 
+ 	hid_info(hid, "Unloading HID++ force feedback.\n");
+ 
+ 	device_remove_file(&hid->dev, &dev_attr_range);
+ 	destroy_workqueue(data->wq);
+-	kfree(data->effect_ids);
++	g920->ff = NULL;
+ }
+ 
+ static int g920_input_open(struct input_dev *dev)
+@@ -2776,16 +2782,14 @@ static void g920_input_close(struct input_dev *dev)
+ 	hid_hw_close(hid);
+ }
+ 
+-static int hidpp_ff_init(struct hidpp_device *hidpp,
+-			 struct hidpp_ff_private_data *data)
++static int hidpp_ff_init(struct hidpp_device *hidpp, struct input_dev *dev)
+ {
+ 	struct hid_device *hid = hidpp->hid_dev;
+-	struct hid_input *hidinput;
+-	struct input_dev *dev;
++	struct g920_data *g920 = hidpp->private_data;
+ 	struct usb_device_descriptor *udesc;
+ 	u16 bcdDevice;
+ 	struct ff_device *ff;
+-	int error, j, num_slots = data->num_effects;
++	int error, j, num_slots = g920->num_effects;
+ 	u8 version;
+ 
+ 	if (!hid_is_usb(hid)) {
+@@ -2793,17 +2797,22 @@ static int hidpp_ff_init(struct hidpp_device *hidpp,
+ 		return -ENODEV;
+ 	}
+ 
+-	if (list_empty(&hid->inputs)) {
+-		hid_err(hid, "no inputs found\n");
+-		return -ENODEV;
+-	}
+-	hidinput = list_entry(hid->inputs.next, struct hid_input, list);
+-	dev = hidinput->input;
++	struct hidpp_ff_private_data *data __free(kfree) =
++		kzalloc_flex(*data, effect_ids, num_slots);
++	if (!data)
++		return -ENOMEM;
+ 
+-	if (!dev) {
+-		hid_err(hid, "Struct input_dev not set!\n");
+-		return -EINVAL;
+-	}
++	data->hidpp = hidpp;
++	data->num_effects = num_slots;
++	for (j = 0; j < num_slots; j++)
++		data->effect_ids[j] = -1;
++
++	/* init the hardware command queue */
++	atomic_set(&data->workqueue_size, 0);
++
++	data->wq = create_singlethread_workqueue("hidpp-ff-sendqueue");
++	if (!data->wq)
++		return -ENOMEM;
+ 
+ 	/* Get firmware release */
+ 	udesc = &(hid_to_usb_dev(hid)->descriptor);
+@@ -2818,38 +2827,16 @@ static int hidpp_ff_init(struct hidpp_device *hidpp,
+ 			set_bit(hidpp_ff_effects_v2[j], dev->ffbit);
+ 
+ 	error = input_ff_create(dev, num_slots - HIDPP_FF_RESERVED_SLOTS);
+-
+ 	if (error) {
+-		hid_err(dev, "Failed to create FF device!\n");
++		hid_err(hid, "Failed to create FF device!\n");
++		bitmap_zero(dev->ffbit, FF_CNT);
++		destroy_workqueue(data->wq);
+ 		return error;
+ 	}
+-	/*
+-	 * Create a copy of passed data, so we can transfer memory
+-	 * ownership to FF core
+-	 */
+-	data = kmemdup(data, sizeof(*data), GFP_KERNEL);
+-	if (!data) {
+-		error = -ENOMEM;
+-		goto err_destroy_ff;
+-	}
+-	data->effect_ids = kzalloc_objs(int, num_slots);
+-	if (!data->effect_ids) {
+-		error = -ENOMEM;
+-		goto err_free_data;
+-	}
+-	data->wq = create_singlethread_workqueue("hidpp-ff-sendqueue");
+-	if (!data->wq) {
+-		error = -ENOMEM;
+-		goto err_free_effect_ids;
+-	}
+-
+-	data->hidpp = hidpp;
+-	data->version = version;
+-	for (j = 0; j < num_slots; j++)
+-		data->effect_ids[j] = -1;
+ 
+ 	ff = dev->ff;
+-	ff->private = data;
++	g920->ff = data;
++	ff->private = no_free_ptr(data);
+ 
+ 	ff->upload = hidpp_ff_upload_effect;
+ 	ff->erase = hidpp_ff_erase_effect;
+@@ -2866,21 +2853,10 @@ static int hidpp_ff_init(struct hidpp_device *hidpp,
+ 	if (error)
+ 		hid_warn(hidpp->hid_dev, "Unable to create sysfs interface for \"range\", errno %d!\n", error);
+ 
+-	/* init the hardware command queue */
+-	atomic_set(&data->workqueue_size, 0);
+-
+ 	hid_info(hid, "Force feedback support loaded (firmware release %d).\n",
+ 		 version);
+ 
+ 	return 0;
+-
+-err_free_effect_ids:
+-	kfree(data->effect_ids);
+-err_free_data:
+-	kfree(data);
+-err_destroy_ff:
+-	input_ff_destroy(dev);
+-	return error;
+ }
+ 
+ /* ************************************************************************** */
+@@ -3381,7 +3357,7 @@ static int k400_connect(struct hid_device *hdev)
+ #define HIDPP_PAGE_G920_FORCE_FEEDBACK			0x8123
+ 
+ static int g920_ff_set_autocenter(struct hidpp_device *hidpp,
+-				  struct hidpp_ff_private_data *data)
++				  struct g920_data *data)
+ {
+ 	struct hidpp_report response;
+ 	u8 params[HIDPP_AUTOCENTER_PARAMS_LENGTH] = {
+@@ -3396,71 +3372,83 @@ static int g920_ff_set_autocenter(struct hidpp_device *hidpp,
+ 					  HIDPP_FF_DOWNLOAD_EFFECT,
+ 					  params, ARRAY_SIZE(params),
+ 					  &response);
+-	if (ret)
++	if (ret) {
+ 		hid_warn(hidpp->hid_dev, "Failed to autocenter device!\n");
+-	else
+-		data->slot_autocenter = response.fap.params[0];
++		return ret;
++	}
+ 
+-	return ret;
++	data->slot_autocenter = response.fap.params[0];
++	return 0;
+ }
+ 
+-static int g920_get_config(struct hidpp_device *hidpp,
+-			   struct hidpp_ff_private_data *data)
++static int g920_get_config(struct hidpp_device *hidpp)
+ {
++	struct g920_data data = {};
+ 	struct hidpp_report response;
+ 	int ret;
+ 
+-	memset(data, 0, sizeof(*data));
+-
+ 	/* Find feature and store for later use */
+ 	ret = hidpp_root_get_feature(hidpp, HIDPP_PAGE_G920_FORCE_FEEDBACK,
+-				     &data->feature_index);
++				     &data.feature_index);
+ 	if (ret)
+ 		return ret;
+ 
+ 	/* Read number of slots available in device */
+-	ret = hidpp_send_fap_command_sync(hidpp, data->feature_index,
++	ret = hidpp_send_fap_command_sync(hidpp, data.feature_index,
+ 					  HIDPP_FF_GET_INFO,
+ 					  NULL, 0,
+ 					  &response);
+ 	if (ret)
+ 		return ret;
+ 
+-	data->num_effects = response.fap.params[0];
++	if (response.fap.params[0] <= HIDPP_FF_RESERVED_SLOTS ||
++	    response.fap.params[0] > FF_MAX_EFFECTS + HIDPP_FF_RESERVED_SLOTS) {
++		hid_err(hidpp->hid_dev,
++			"Invalid force feedback slot count %u\n",
++			response.fap.params[0]);
++		return -EINVAL;
++	}
++
++	data.num_effects = response.fap.params[0];
+ 
+ 	/* reset all forces */
+-	ret = hidpp_send_fap_command_sync(hidpp, data->feature_index,
++	ret = hidpp_send_fap_command_sync(hidpp, data.feature_index,
+ 					  HIDPP_FF_RESET_ALL,
+ 					  NULL, 0,
+ 					  &response);
+ 	if (ret)
+ 		hid_warn(hidpp->hid_dev, "Failed to reset all forces!\n");
+ 
+-	ret = hidpp_send_fap_command_sync(hidpp, data->feature_index,
++	ret = hidpp_send_fap_command_sync(hidpp, data.feature_index,
+ 					  HIDPP_FF_GET_APERTURE,
+ 					  NULL, 0,
+ 					  &response);
+-	if (ret) {
++	if (ret)
+ 		hid_warn(hidpp->hid_dev,
+ 			 "Failed to read range from device!\n");
+-	}
+-	data->range = ret ?
++	data.range = ret ?
+ 		900 : get_unaligned_be16(&response.fap.params[0]);
+ 
+ 	/* Read the current gain values */
+-	ret = hidpp_send_fap_command_sync(hidpp, data->feature_index,
++	ret = hidpp_send_fap_command_sync(hidpp, data.feature_index,
+ 					  HIDPP_FF_GET_GLOBAL_GAINS,
+ 					  NULL, 0,
+ 					  &response);
+ 	if (ret)
+ 		hid_warn(hidpp->hid_dev,
+ 			 "Failed to read gain values from device!\n");
+-	data->gain = ret ?
++	data.gain = ret ?
+ 		0xffff : get_unaligned_be16(&response.fap.params[0]);
+ 
+ 	/* ignore boost value at response.fap.params[2] */
+ 
+-	return g920_ff_set_autocenter(hidpp, data);
++	ret = g920_ff_set_autocenter(hidpp, &data);
++	if (ret)
++		return ret;
++
++	hidpp->private_data = devm_kmemdup(&hidpp->hid_dev->dev, &data,
++					   sizeof(data), GFP_KERNEL);
++	return hidpp->private_data ? 0 : -ENOMEM;
+ }
+ 
+ /* -------------------------------------------------------------------------- */
+@@ -4045,21 +4033,15 @@ static int hidpp_input_configured(struct hid_device *hdev, struct hid_input *hid
+ 		return 0;
+ 
+ 	if (hidpp->quirks & HIDPP_QUIRK_CLASS_G920) {
+-		struct hidpp_ff_private_data data;
+-
+ 		if (!list_is_first(&hidinput->list, &hdev->inputs))
+ 			return 0;
+ 
+-		hid_device_io_start(hdev);
+-		ret = g920_get_config(hidpp, &data);
+-		hid_device_io_stop(hdev);
+-		if (!ret)
+-			ret = hidpp_ff_init(hidpp, &data);
+-
+-		if (ret) {
+-			hid_warn(hidpp->hid_dev,
+-				 "Unable to initialize force feedback support, errno %d\n",
+-				 ret);
++		if (hidpp->private_data) {
++			ret = hidpp_ff_init(hidpp, input);
++			if (ret)
++				hid_warn(hdev,
++					 "Unable to initialize force feedback support, errno %d\n",
++					 ret);
+ 		}
+ 	}
+ 
+@@ -4639,7 +4621,7 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ {
+ 	struct hidpp_device *hidpp;
+ 	int ret;
+-	unsigned int connect_mask = HID_CONNECT_DEFAULT;
++	unsigned int connect_mask;
+ 
+ 	/* report_fixup needs drvdata to be set before we call hid_parse */
+ 	hidpp = devm_kzalloc_obj(&hdev->dev, *hidpp);
+@@ -4729,6 +4711,16 @@ static int hidpp_probe(struct hid_device *hdev, const struct hid_device_id *id)
+ 	else
+ 		hidpp_non_unifying_init(hidpp);
+ 
++	if ((hidpp->quirks & HIDPP_QUIRK_CLASS_G920) && hid_is_usb(hdev)) {
++		ret = g920_get_config(hidpp);
++		if (ret)
++			hid_warn(hdev,
++				 "Unable to query force feedback config, errno %d\n",
++				 ret);
++	}
++
++	/* None of the HID++ devices use generic USB PID force-feedback. */
++	connect_mask = HID_CONNECT_DEFAULT & ~HID_CONNECT_FF;
+ 	if (hidpp->quirks & HIDPP_QUIRK_DELAYED_INIT)
+ 		connect_mask &= ~HID_CONNECT_HIDINPUT;
+ 
 
 -- 
-Dmitry
+2.56.1.750.gf70dc682cf-goog
 
