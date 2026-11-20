@@ -1,85 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.97.179.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192025;
-	b=v49YZD17qCG+S04s2DZmUbPHc12+CcbBmZ5bPqow5O07DHTEHyoIz7BnRbOS2e/6kSFZ
-	 DtWlTC+6AxAoyCdiC8rrI4fbMsgpHliOtLjWE6VbC4QyJU4Aavx7WXdW4NG25bkDUtvkK
-	 ism+MtYNE79u+4HlqLlIgcFEnjEu7RHPKc4h1ofDp+P2HW8ogDZfOAsuDUpb5KGe4MGZ3
-	 8xAmscIEVMIHNbtsf4YEnCJ2Ykm/mq3ooXn/KxAb1ZnT596b02BRsYtqDsEf+p+DyR+6j
-	 60MkRHGyimMwOTn+BJhzq0+g7brrcLX1LzZMZuYMO25XonhJ7OG3SS6Tv61MKBJiCUA==
+	t=1795192174;
+	b=AyJE4N/aOnqGwMgasIYhJZy9Gh0I/Q4iaMjKwiIGZ4HZ7ZTun3JSyX3QEVngajRuDMX3
+	 2ya+Qh36rpXfuAzYUf+k6EgbICSf/nPhF0PhqkiZBOUvgCzAtAf4AzVJEZ34sTdab90YA
+	 0Yn8Jih7HuGu1BJ4/4jIfALnC3AOloqEEclLQrX1W8rzATbU3Use1yje65wB3fZBGywMp
+	 c/qW+WGA0oxYlbbZoqyhUXSY3RgLArzw1ZVrFV0KkfjjEnoyCwcP6j5fHWx7Sg3VFfkMb
+	 LD4VUsOx5rSXX3rIOSBGy3lInMKgsUEgeYmlKLqMv//hkVANGhHRMKKEtrGM7gdkYiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192025;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer;
-	bh=wfxDs9gzdmZ4E8B3qKbvflj7O0o4ha7gvjg3+e0Jgx4=;
-	b=zEno2rwNRooUGR0xNyVHAmUbSye6Zrf1GmHs83Y1/Wt8kALNUtKA3iK1qHmH6Y8AXy7p
-	 y4YhCDmDtwhxfmcyc9+jVyjvwgGuBZPxTODcDUGZJqXdFaY+Pqe8kOyhXY0vzLXxTWXV4
-	 T2+N+rL6haLJCkTOGDfEi6LWZOrBMuKR4jf0CwQW1EsPKDyJKoydsrQuUqOq3aS0w4IXf
-	 Hb5B/XCXF8bMTODhH3kdBD7JPn+E1ZyiMdiXunkkyDHLteQlrJ1CCiHcZ0KX/LqQeGoYk
-	 7JcrFWcBhQHa67ag342drS+xi5ZBK6zuDZiGRzdF7ZkQIKc1dxPWSZm4/ntNcPqaN5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192174;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=BCi/61TdV/C0WfAh32EroT79N1Rf48PkOWrUh+PSmpg=;
+	b=4HPtf8DdCA7g+ZCNP+rv/71ZMgmZVhn7EMUO5NjzOqp+++lt3HRG4EZIiUprO2uYpdGY
+	 dIL5an7bgsnJ/gu0vRdJZIWzUtgoFL+yR+dpCwL0G4/UzHndYPr8Dgbv8S9RCAHydXikr
+	 Mj8Z2Xf8Us9iJ75qKQp85zyLaDHiBsnvxiRfi6ey831ZpIuLo+4TNa8QJ836VmS5+RXAO
+	 drLnR7kmpTCjwq78KHvgrCDCFgdXA85SwLWkMPUL+naHcjDnkCQejNA1DRz63U6i981qn
+	 cQctgVQSpx2Nbv1bbkkVp140HO51o+uNd66lOkzCpKgkp5pzW1PvdLc1q1TK+uWhZvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=gourry.net;
-	spf=pass smtp.mailfrom=gourry.net;
-	dkim=pass header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=Ar7DY1RX;
-	arc=none smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=igalia.com;
+	spf=pass smtp.mailfrom=igalia.com;
+	dkim=pass header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=pnucRIuP;
+	arc=none smtp.remote-ip=213.97.179.56
+Received: from fanzine2.igalia.com (fanzine2.igalia.com [213.97.179.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F115606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:27:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2F115606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=gourry.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gourry.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DC8B606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:29:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DC8B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=igalia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=igalia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gourry.net header.i=@gourry.net header.a=rsa-sha256 header.s=google header.b=Ar7DY1RX
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-55ade1de0b4so12688441cf.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:27:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gourry.net; s=google; t=1795192024; x=1795796824; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=wfxDs9gzdmZ4E8B3qKbvflj7O0o4ha7gvjg3+e0Jgx4=;
-        b=Ar7DY1RXmHH/1xgEoRnjAOcg6rtc7lRoktMUD1dbkESfdfJaehBMOmQTRUE4rQn1+C
-         KLFG26UYHdOdSK8N4kTJPRRUo/tQ1yrV1f83PJ6WPlr7Cg3LI9n4aT7nqHt0lIL/e9ol
-         x2+iL5HvQKewSRLWUf15iO9WQ8jJ+uTG8GqXECG6LM0v/hoM6EERE9TesPyoDIgGhw9c
-         v9YPCZJizqwL3bB0eb+jULQk/zJYN1G3jvBJG9F9dOzgPak8/t2bjTyEcG/76pqDgcOK
-         0+fH8nKF/ldrhcox2ZQnEcY7K1HMQRXXdAxi5yP1ckHX4iB+x6/EFH7Q72ajEq13ehPc
-         SZDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795192024; x=1795796824;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wfxDs9gzdmZ4E8B3qKbvflj7O0o4ha7gvjg3+e0Jgx4=;
-        b=KGwvc6e8dyJOGYMbXB7cP3Y28EUHgNgbVtxNV5BJWNctd0HGrOv4/fd4ZN8/M3ffI8
-         jC5M6SwK7aIrIpx8QrTpP2Fq5vyyoH/TGPOcdiV5yWdu1Mqt2R3yEO3OEytMa8SAo3Wr
-         WCaM2LtjLlMriN+UVVwFuRRITG6uCTwq5tQUOdU9lATOX+qVtfemZYI+/QiWBlkUutTx
-         bf0yRlFYJsCoKQcnmcuuIqg6PQqGHqqIjvKnr8w88sdtV9kn5O2tAkrawMSpYOahMvQ9
-         6yjvyLymzuB/uTzLxWTIR5T25WHj0MEkjUF7zmKUdh+HW27IjZJTfQe4O8yuKfG3TfLD
-         DrNw==
-X-Forwarded-Encrypted: i=1; AL+hErHabiPpnBLyq/bIjj6TmYTZOsZIXnpU9WtqZt4NOGCcEU82/bhh3cFJSrVywJUeN1c2N7LcGdzImMRijYg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/PZ6MtKBIRNkFZ3zYr58EV3VSXseL5G9UH9gg4B4GVDgPKT+JI
-	s0ZB0GUbn9yxnrfJdr0ZkGr3J4vFsQw4flMwJeO4I3Zu0DyX/p8j/3nkLRuiwr3tLLg=
-X-Gm-Gg: AZFdTZe2tyXopkAaEb7ZfgoShuQp+iCgGOVcXhkyHJBg6ZLULjU/TC9b0Bb1T3krCYR
-	4b8lH1Rcy8Sokn++YwfVpKRdpM8Mf5Jx5fMeCvbsydjrBPoL2ei8m0nT1y0ZoKV4iEhgmQR/R4B
-	kAAE3iNJs8ifoKHc4mHiTxK5Dzo03C3hQnLK/A9UJqaNQnGTa1AMsV+4d7FJH/uEzpeF1tjhCgp
-	sBbBz4KoortXqS3AHO5tPtrGGFYSZR00Mu0p01fkkEWesWkBNoxDpljT/pRQtOuQdv3RwKGMQDQ
-	3XJ1XaIgxqOZo9N8lZh1+E4w8jFSW7ZGjrC/u9WVoTyB4hdl0Dw0tC2SbtjgFklZjBJ1+cN6ysB
-	jFR2WdGApbh69niEtzUO9fnLFcHXgN0HHTcNvSkSovsLEzVklwgk5zRnwb0zA0xma3MeI3Y9+IT
-	vMR4kMafzCSNwcDMmQdArxTts/ruysjqDgTcHU2yfOd5XFtodze7RWU34cxfYzqKuWIfUj8Fyue
-	0+VpdOsELKE6KHL1op+fvX5AETBW2HJTKVD9K3JitW0zerauSYoqEoVVRS8k3p7JVEB9ZMwWRXO
-	YzgmpwYqSH57e//vyTwyk09fKlDo9yd2Anu4iAbBeR2oxZvnxcZ8KdkNePX8u1angPaYniqt1PR
-	kC1DhD5A=
-X-Received: by 2002:ac8:59cb:0:b0:537:59b4:3338 with SMTP id d75a77b69052e-55d76a6e956mr66914661cf.25.1795192023791;
-        Fri, 20 Nov 2026 08:27:03 -0800 (PST)
-Received: from [192.168.50.231] (pool-71-191-145-202.washdc.fios.verizon.net. [71.191.145.202])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d788ae02fsm25370021cf.29.2026.11.20.08.27.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:27:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=igalia.com header.i=@igalia.com header.a=rsa-sha256 header.s=20170329 header.b=pnucRIuP
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=BCi/61TdV/C0WfAh32EroT79N1Rf48PkOWrUh+PSmpg=; t=1795192172; x=2110552172; 
+	b=pnucRIuP4xd2puefLRtD9EQ2BqOY4Cdi/Q7K+0QmvKVr2w51sRsbwvCLHvb518azg6Vk9Js6J6n
+	PayZGyOK6FunNAsmqLzbNt4Q3AT6GqQJdVjE4lnR+jLksGaqB4FCe4mq33qls1jRc6hqVW6KLlVTU
+	9CYgOBZ5lKEOHsjV7anP1XmSjq3xOUhR10T8ROhZ4EFyEqP3g9O3sp4bxWf1MKT72PfV3G48FkdQv
+	dcD4oGMV9LNV84zYfh9LhDXCMpQghVkoN1eH4h1r/xlGVTz2CopgxsSWJ3nJ/2ntzTbC6tM2LS8U4
+	TjK4+Pp/gGcQPreQVyTBns2fFNQyIftbvZLw==;
+Received: from [179.105.94.163] (helo=[192.168.0.4])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1xURUP-00000001wZO-3GlA;
+	Fri, 20 Nov 2026 17:29:29 +0100
+Message-ID: <f3997d67-8d39-4892-b144-d3ee25050d86@igalia.com>
+Date: Fri, 20 Nov 2026 13:29:27 -0300
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,38 +58,154 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2] mm/slub: Respect MPOL_BIND when taking remote
- partial slabs
-From: "Gregory Price (Meta)" <gourry@gourry.net>
-To: Andrea Righi <arighi@nvidia.com>
-Cc: Vlastimil Babka <vbabka@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Harry Yoo <harry@kernel.org>, 
- Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
- David Rientjes <rientjes@google.com>, 
- Roman Gushchin <roman.gushchin@linux.dev>, 
- David Hildenbrand <david@kernel.org>, Gregory Price <gourry@gourry.net>, 
- Zi Yan <ziy@nvidia.com>, Joshua Hahn <joshua.hahnjy@gmail.com>, 
- Rakie Kim <rakie.kim@sk.com>, Ying Huang <ying.huang@linux.alibaba.com>, 
- Jan Kara <jack@suse.cz>, Quan Liu <qualiu@nvidia.com>, 
- Lee Trager <ltrager@nvidia.com>, Seth Forshee <sforshee@nvidia.com>, 
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20261119160430.1113397-1-arighi@nvidia.com>
-References: <20261119160430.1113397-1-arighi@nvidia.com>
-Date: Fri, 20 Nov 2026 11:27:01 -0500
-Message-Id: <179519202192.412063.10960263756664574511.b4-reply@b4>
-X-Mailer: b4 0.17-dev
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] drm/v3d: Fix double free of the sg_table when a PRIME
+ import fails
+To: Aleksei Riapolov <tsbol@icloud.com>, mwen@igalia.com
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+References: <20261119144339.43896-1-tsbol@icloud.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20261119144339.43896-1-tsbol@icloud.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-19 17:04 +0100, Andrea Righi wrote:
-> +		nodemask = mempolicy_slab_nodemask(gfp | s->allocflags);
-> +		/* new slabs for the refill are allocated on the local node */
+Hi Aleksei,
 
-hm, is this true?  I think it prefers the local node, but with a null
-nodemask it would still fallback if memory is short.
+On 19/11/26 11:43, Aleksei Riapolov wrote:
 
-Is that ok?
+[...]
 
--- 
-~Gregory
+> 
+> The error path frees the object with drm_gem_shmem_free(), as
+> v3d_bo_create() does, and not with drm_gem_object_put():
+> v3d_free_object() expects a BO that v3d_bo_create_finish() completed.
+> For one whose node was never inserted it would clear page table entries
+> starting at page 0, decrement bo_stats and call drm_mm_remove_node() on
+> a node that is not allocated. With drm_gem_object_put() there, the
+> failing import oopses in drm_mm_remove_node(), called from
+> v3d_free_object().
+
+You don't need to explain what you didn't do, only what you did.
+
+Also, the following paragraphs can be deleted. They are not clarifying
+at all.
+
+> 
+> v3d_bo_create_finish() now runs after obj->resv has been pointed at the
+> reservation object of the dma-buf, so drm_gem_shmem_get_pages_sgt()
+> takes that lock instead of the private lock of a new object, and an
+> import can return -EINTR if a signal arrives while it waits for it.
+>
+> With this change, on the same board and kernel:
+> 
+>   - the failing import returns -ENOSPC in each of three consecutive
+>     fills, and after 50 such failures debugfs dma_buf/bufinfo lists no
+>     dma-buf;
+>   - a v3d BO imported back into v3d through a second file is the same
+>     BO at the same offset over 1000 iterations, with bo_stats back at
+>     its starting value;
+>   - a vc4 dumb buffer imported into v3d can be mapped, written, read
+>     and closed;
+>   - under labwc, glmark2-es2-wayland runs, and mpv playing 4K HEVC from
+>     the hardware decoder imports the decoder's dma-heap buffers into
+>     v3d about 2500 times, none of which is left attached afterwards;
+>     the time an import takes and the number of dropped frames are the
+>     same as with the unpatched module, with and without slub_debug.
+> 
+> The kernel log stays clean throughout. Other V3D generations were not
+> tested.
+> 
+> A reproducer is available on request.
+
+As a general note, please make this commit message more readable for
+humans, not LLMs.
+
+> 
+> Fixes: 40609d4820b2 ("drm/v3d: Use the new shmem helpers to reduce driver boilerplate.")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Maíra Canal <mcanal@igalia.com>
+> Signed-off-by: Aleksei Riapolov <tsbol@icloud.com>
+> ---
+> v2: Allocate the GPU address after the import has completed, in a
+>      .gem_prime_import wrapper, instead of clearing shmem->sgt on the
+>      error path of the callback (Maíra).
+> v1: https://lore.kernel.org/all/20261114164451.9222-1-tsbol@icloud.com/
+> 
+> For stable: drm_gem_is_imported() was added in v6.15, so earlier trees
+> need obj->import_attach in the wrapper.
+> 
+>   drivers/gpu/drm/v3d/v3d_bo.c  | 17 +++++++++++++----
+>   drivers/gpu/drm/v3d/v3d_drv.c |  3 ++-
+>   drivers/gpu/drm/v3d/v3d_drv.h |  5 ++---
+>   3 files changed, 17 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/v3d/v3d_bo.c b/drivers/gpu/drm/v3d/v3d_bo.c
+> index db95a2f..34aca97 100644
+> --- a/drivers/gpu/drm/v3d/v3d_bo.c
+> +++ b/drivers/gpu/drm/v3d/v3d_bo.c
+> @@ -172,17 +172,26 @@ free_obj:
+>   }
+>   
+>   struct drm_gem_object *
+> -v3d_prime_import_sg_table(struct drm_device *dev,
+> -			  struct dma_buf_attachment *attach,
+> -			  struct sg_table *sgt)
+> +v3d_prime_import(struct drm_device *dev, struct dma_buf *dma_buf)
+>   {
+>   	struct drm_gem_object *obj;
+>   	int ret;
+>   
+> -	obj = drm_gem_shmem_prime_import_sg_table(dev, attach, sgt);
+> +	obj = drm_gem_prime_import(dev, dma_buf);
+>   	if (IS_ERR(obj))
+>   		return obj;
+>   
+> +	/* A dma-buf exported by this device comes back as the BO it was
+> +	 * exported from, which already has its GPU address.
+> +	 */
+
+How about "/* Self-import returns the native BO, already mapped. */"?
+
+> +	if (!drm_gem_is_imported(obj))
+> +		return obj;
+> +
+> +	/* The GPU address is allocated only now that the core has set
+> +	 * obj->import_attach, so that a failure here is torn down as an
+> +	 * import: the sg_table is unmapped once and the attachment is
+> +	 * detached.
+> +	 */
+
+This comment is superfluous. Please, delete it.
+
+Apart from this issues, it looks good to me. I believe we will be able
+to merge it in v3.
+
+Best regards,
+- Maíra
+
 
