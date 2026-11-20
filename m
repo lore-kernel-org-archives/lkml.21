@@ -1,135 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.15
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.56
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795162486;
-	b=5N5rTdITKtMKIl2VBL++AKgTRDg6ZWY8OHspTcDQ0Uf3RfiaMZxDiYB+nl29NoOu9Kfa
-	 FzYu7fnC1pTGrZbPNRZB5ixie8rMzb7zHKeP8rkWPW3AGe+YZgoe+BDNLVCxlEHys+m/Y
-	 F8VXk6fkUaRezDL9S58vBB+umnpgftCqQPXm2++KKMehLNCQA8T71OHynDAKOWMftGRmT
-	 QDbE8lwvUPhNaj2rL+lCFOpCfd4EXnckYRPzUqezRQR7GQkTLr6l+MKUrQ9R0cJpWdxyM
-	 f1bceeH0CAMdE21rZKvynIz8tJv9G9bWK7n91b3m46a+bMwKKrCYRSiYWgvkd1doexQ==
+	t=1795162484;
+	b=V0X3QHGu6LFwGr+L3q+xJoRxfedhyTZWP/lVBKRqu1REoYEEtbcVXPVw2iNffZwZ6FY2
+	 ffRcBO9s7X1iB8tBUQG2UyspR7HZdJ9VnBnzWDbkNhQyNCeggIJlEmJ6wxm2oT/gcODrX
+	 Z2BcGw6jXVLBGdJkrmUxE5tE/uCPhIDTr6+5UNNN30ZsBAhNtAjVCxw8MKlpANx+nA90a
+	 yEBZudwVJi5m/T75aXZLFgJHS0XONO4QHkNajJ/waSEuV+FQYiQRPNfN7UPm+IaGueS0F
+	 m/fJtMCEC6VbczKbme+SEqXecPaf/9yMRvPPbvHkgmuZxmWDE83IQMvducwSCMLmkkg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795162486;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795162484;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=gwhGX+6jLaXjV9nmDW2waxnGL9eq75CFSeHQUvx3oRY=;
-	b=cvPwnaic9p+ePDl0D2Snz7R2bgi59CvbAHI84KNGYFkc3dhSEhWA/fqq3i2Mi6u7uvaN
-	 0964Zo4FKEjKagAQ2densEftIz11YBD/NzHFYR4pfP3Jq1JfHQ8hXuXcVGy+cK9mgsXYX
-	 XHHVWJYMPuUKj+FaoYGpJAyGjD9I47089U1RgUlGAJstoBdpu+/nclqmh07ruteiPKrc2
-	 ywJ2QO/TpOMQcyc+5GZeIkJbDlBjWU0GFXPPhZvteOiQltMok7pUWZHdlLZ6Vni+RG0my
-	 Uwn+o0raZ++jEZt45L3QdBBzDD1JeFTBTXthzJ9n1Eomd1VAYWClAreilHP/c858LOw==
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=MyY1RvRUH0KOHufwyVBVhZ+KbK0XyYyMDH6JYhTmiKo=;
+	b=Ii8mF/4QTHetpLsP3RAjCd705vgB/axkMHk49BdAxRmEaaQ5BYcp7cnjwKDKlpHinB/c
+	 QGDhiKtQFIYiW9NDQ63jvGc+eYl7dbwv1mZIsq9cCaZxC7amkUHialxVTvl8CsK9HNPmW
+	 1hU9vnJA00dvbPkypKem+Rmb+/i8sOdJvkffW/1fRTSDLGG/aPMpH6U9FuSvirPYVhPO/
+	 LdWpTCj7vhYuLHTHBkyyvADuCY+p9lXuC8RpB18hnqGdFiBvo8ruwf3aq01jBHT/DjBN9
+	 Ybe1BUdkahydXd0+WQSVnSUzfTGq+lWsk8whrjA1tSge0vRySakveATw7MoptpibXuQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VuVIX1nM;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=gfkmQSXn;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.15
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="MgDM0c/p";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.56
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011056.outbound.protection.outlook.com [52.101.52.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CA0460A260B;
-	Fri, 20 Nov 2026 08:14:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CA0460A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE5C60A2603;
+	Fri, 20 Nov 2026 08:14:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EE5C60A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VuVIX1nM;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=gfkmQSXn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795162486; x=1826698486;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=k87G6kdFn9doEJFrqLvfj9ZMBDOw1e3N5cfxQyFUGMM=;
-  b=VuVIX1nMYU72klD2KtHM71UnA3T1Avg/r7Q/Km9tE7yJXlbaUife6h70
-   HDRKL0yY4+ip5DSCRHxOXYwroB8LcC2nzfAUd7zyZ4K5vA5YFr/msxA9a
-   k5bRF3yisqvv9iN0kQFu1NO3xN7tZWJRek+2gkrLrVFHTadaPR/wK3ctJ
-   RBGjzLqHCrSz2JDuBWKm3TckKni7thsA2VDYKEjHXfbS39tNSVdu6kJ5O
-   XmJEMThJMOAlqOYq88SxutfxcPEe+qmCrrUdXJh580isHVfU28tK8P4JF
-   LgwkGRRQf1tLGtvmEqHFsiohMVrj7XJKyzsq7nFdzNOYe3HS3UF+KqE0H
-   A==;
-X-CSE-ConnectionGUID: yahRqzQESqKTLheGzZ1rQA==
-X-CSE-MsgGUID: cBL+ydXrQ4ORNs3+r4e/9g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4034646"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4034646"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:14:45 -0800
-X-CSE-ConnectionGUID: WCHRfQvMTRucNKpUOU4Q3A==
-X-CSE-MsgGUID: 3L+hj4gBS/iwfdJdciRYKg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10724215"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:14:45 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 00:14:44 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 00:14:44 -0800
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.51) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Fri, 20 Nov 2026 00:14:44 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=MgDM0c/p
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cVEOIvXo6X/sBXszojhGUpmrTWTuD3v0xdPZngAtLbuHZW06aZDD+nv+zRqC9mWD8J8CNPpfJlbnS4Wu+lS8hv+KnXrodfwNb9kIXjBqGFF1/HSEhDjUPD5p2om/g8sAaDzHXNA4+s+ByvAoSsmIl04Q62tUqFHw/4F8XeIeOhQtB93Jcsuydme4mJU/c2+uoeRf3as1F/HZG2mMKPKb/ToL11sO4jCQekyIVkyNIqo5FLy5776AM7LCqKm2X7+slauXgPre6c0ksJqoTeyVZ7hH1lM1Gy1LFEufylcJqi4TboI6J0Zj9sStfGa+awHxhltDhyUWpQ3yqeanC64BJQ==
+ b=tyipAwqKrzjT8l0td6/Yq4gQoZHKnDC56c4VQmdvWbY5IexIZMssIDhoS6vxIjZ3xkLLkcc/Nyw6kXUex2xv56CchWGsxKs7hkW+l04HqM5CWMEvYrIq8vy9Nmh2z29m6XNnIULWs3pqvWiSIsCB6uvojpsX+Cz7QLihkmkgBwStHA6sYh3TLsz820zMHrCivg0WlWip11IWrZQRciMAWgdZ0HdPNZddck4SlZaEipeIPq4WVYNWmPsQeRIlm8737Yk3TIVBeHtiVqa9961NFvFyjdgtmcpvdho4SE5hKxZhRigksK2gyBb+ruYTND4Vcfdt07IDJ1H43Hn99Nb/Eg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gwhGX+6jLaXjV9nmDW2waxnGL9eq75CFSeHQUvx3oRY=;
- b=wd//Ue0hIKCOP0pGVBpQAvqbEfeV2TYtwHZrUhg+xXCq74VHMJzm2ipff5/cCgB0YhDbJACRhpN6ivtzVqyD7xKnXfJXUdcj1uRdd7Ecjc32uAFBzdOGn+qys4qYYHLbal7WYehwngbRBbV3DAHZAfGiGBQd01Daa6qH61GbxHKKsZctwtCEry1oHN53gwG10qw2koLfdZscDu7qIya9yOg8LvybiZ9tguZc610rm3YDK3jGvcN459kI7fyS8ZqQXXl6wbtJZaaIwVHxAc4Lv06YrZK7HsHwm3rIbR0MA+DZZLxLAUAmGtBUF50SvW2Nc/wpPr/656dNuCdHQY0JWg==
+ bh=MyY1RvRUH0KOHufwyVBVhZ+KbK0XyYyMDH6JYhTmiKo=;
+ b=hIRV0MtITVi5XRARbH7106G4S5LlprgEye5O9tfTImKBZo87UBF8KLtPFdtJDR5et+4h4keNKq6cCESemsFtZjS1j4WhD4TZskgVb803nK6cmyXWpgqLCU0J4YNX0OkPPAIxAlQuHFrZ8zSpWszJVoei8v+9o4PUx5N7H8d1EqEJQJeIz+lpsQnQbmxla9UI/DmJni0xqzGcHmrOHw48efgCY8I8W9yQZHvQRnJCAXSCHPVobtXfC2ayPzZ8C4KUzD6bfkOpS84v1MHH1bvK79Ao3dueMBgc/3pSKvaPs86kY9jIGDHwuBc+SkF67Usk4nkIpIdMKHPL9v740L0BvQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gwhGX+6jLaXjV9nmDW2waxnGL9eq75CFSeHQUvx3oRY=;
- b=gfkmQSXn6wBsa2MZuYOlzEMwAUu0JblJBKVA5ZcfbfplABHlG3v0SqpqoU/fsTVJ8ayzxklXklUtUlKbixAS67A9ZGHF4kjIr1hrgDVfwIRAdVVMIip3B/3Esi6TxuvhROZXLFtRWFYcYSoYlg0Cq700eWVPPRLC9/wMXpsaxyE=
+ bh=MyY1RvRUH0KOHufwyVBVhZ+KbK0XyYyMDH6JYhTmiKo=;
+ b=MgDM0c/pGjUaJUHk3B3mIBa7qxjYOIACV62nvK96hMgPcBU8FHJv4ImPnJ+UCwpjYWEyFORAGwSPNyEiAlGaAmJuBq2gIhA/dn3uzw/gzzhebbVmU09Tc0HGSiMPenBpHklU0NidLS8ZkU70nO7wwaQe6PEztxGHMejnjynIJa4N8zMS9lSfAEE9Hv9mnXEmdTRwqUnuDRr8U6H5A8WyPzYI4Mm4sbcxaoUx84Y+jmvpGCo+ZQF5sEtXwuUBQyIPAyvoa6ntkJRIaMEwy6OMQjk7ODCm/0XG/lt29vbKwBmnxG8kExZB9+Luz2KNjk5+zGqD/yw7W7RFdWfb5WgGEw==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA0PR11MB8380.namprd11.prod.outlook.com (2603:10b6:208:485::21)
- by DM4PR11MB6432.namprd11.prod.outlook.com (2603:10b6:8:ba::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.12; Fri, 20 Nov 2026 08:14:42 +0000
-Received: from IA0PR11MB8380.namprd11.prod.outlook.com
- ([fe80::ea8e:eec4:f8d3:f95d]) by IA0PR11MB8380.namprd11.prod.outlook.com
- ([fe80::ea8e:eec4:f8d3:f95d%5]) with mapi id 15.21.0615.009; Fri, 20 Nov 2026
- 08:14:42 +0000
-Date: Fri, 20 Nov 2026 16:14:31 +0800
-From: Chao Gao <chao.gao@intel.com>
-To: Dongli Zhang <dongli.zhang@oracle.com>
-CC: <x86@kernel.org>, <kvm@vger.kernel.org>, <tglx@kernel.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<hpa@zytor.com>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH RFC v2 1/1] x86/irq/i8259: Ack PIC vectors in the LAPIC
- ISR
-Message-ID: <awABZ_BucR628XHj@intel.com>
-References: <20261112170604.1971438-1-dongli.zhang@oracle.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112170604.1971438-1-dongli.zhang@oracle.com>
-X-ClientProxiedBy: SI3PR02CA0002.apcprd02.prod.outlook.com
- (2603:1096:4:295::12) To IA0PR11MB8380.namprd11.prod.outlook.com
- (2603:10b6:208:485::21)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
+ by PH7PR12MB7818.namprd12.prod.outlook.com (2603:10b6:510:269::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 08:14:36 +0000
+Received: from PH7PR12MB5974.namprd12.prod.outlook.com
+ ([fe80::f5a5:bbc3:e9da:f8a0]) by PH7PR12MB5974.namprd12.prod.outlook.com
+ ([fe80::f5a5:bbc3:e9da:f8a0%3]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 08:14:36 +0000
+From: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Kent Gibson <warthog618@gmail.com>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Jia Jia <physicalmtea@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH v7 8/8] gpiolib: remove the shared GPIO proxies before freeing the remaining IRQs
+Date: Fri, 20 Nov 2026 10:14:00 +0200
+Message-ID: <20261120-gpiolib-chip-removal-v7-8-aambrozewicz@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120-gpiolib-chip-removal-v7-0-aambrozewicz@nvidia.com>
+References: <20261120-gpiolib-chip-removal-v7-0-aambrozewicz@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: TL2P290CA0017.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:3::7)
+ To PH7PR12MB5974.namprd12.prod.outlook.com (2603:10b6:510:1d9::19)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -140,105 +105,108 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR11MB8380:EE_|DM4PR11MB6432:EE_
-X-MS-Office365-Filtering-Correlation-Id: 070a941c-0207-4837-3131-08df46de53b7
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5974:EE_|PH7PR12MB7818:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12abba11-0bf3-4309-b7bb-08df46de50ec
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|10067099003|11063799006|56012099006|261021135927099003|261021123027099003|261021121427099003|261102123227099003|261022105027099003|261022075727099003|261026140227099003|261026121527099003|261028144727099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: ujxkiGF8ZO2i+T728m9dOOWMcO+jTe+1w6FRxcrzbPDA0vzmPLNOr0o8FQvWj3sTAK5EBWRvtT3pPLRwPEWeRM2U/CMUOVwA7uSoWsv3uwbXluVFo/8suWNluz7M7C4mv/nBozd72h6xEJAh7g8j7UfAgFUgD9hbGNOUrSs6qLkALVkqqhUauTYXWtqFg/ZCIYyIMbADgI4HWofwo2yZ2jjjdfYbex7mPI4ZdWr1kzp5ml6RFPGiN5mhvwEm3ojp96MQP9PrFftHQxGn/quf7JBHmV0bxvg9FLrv7c/lbRmuGCfHo8gh/e8SMMwjHUHZkGSpJPTY/43KR/5gd7HHakgK+0xhdYTvW2i8XoKLVmVA22M7wfqjwaof05bH3UWwYIYWpmG/Jhd6HWguaQ6yTXiBLxvranbytgzd0iKo5nOVCyPaQR1CRw4q4/QGwXcB5D2RCJnWoohWkYBYXjxB77NNm8/pXKh2rmB26+xL5jLV4S7DCoutv8epKw8JfuiLp6R/lCu9CwthiufN4fR43qdHKm5s444tlgPKO3xRJFTnwj+34FFPd5woxaPAFGX/mSK7E5Ju2Fn+7MUDL2WFHGW8KgBdokKzr00LRMkahKvs80V5BO7Clg9Zi18EeTjbq2/53MwXIBa0ZQOoHHinTiSN5/TcRMIEIOkg9x5kOds=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR11MB8380.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(10067099003)(11063799006)(56012099006)(261021135927099003)(261021123027099003)(261021121427099003)(261102123227099003)(261022105027099003)(261022075727099003)(261026140227099003)(261026121527099003)(261028144727099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|261022075727099003|11063799006|261026140227099003|261021123027099003|261009223027099003|261021121427099003|261102123227099003|10067099003|261026121527099003|261022105027099003|56012099006|261028144727099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	qt56HKh+peFitVUmYalLPzxSmo771ih6rteQ7rX/I6ba27gmq0UTXicHDHQEPpQ4brqMmAAC75xXxcY5mjRi3VzYMp5lbqOc/9IiQh4x9YyQ78CvQc9jGsiP7BoBX8wc5Dl1zvwoK2KKuZiZfD/J43xj/vE/Gydtke3F3NXsBowbzI+WsDHoJOtktlhkQHgwBQ69Queu0a0gSb3PVwGEM3A185H9qKoBQ6sTcqlT+CIFSrkDvNjVMH7TC+zX6sFoJJtgxReE3LWoUouOrMan+f1FvGDhQxjBLs5CSlOzoKsO7lmuCVJchs5IDs5u6fbux25ByX1WnNLYhMZNrzN63QVwT7HZNEJbvfAc+8bxUYUvOCMB5oxsbUn+zi7nIiGOaREF3KWz3ooPe4Jk67btzlTsHfSvsKo+YnPpklDbLIYhjve0OroUwFZEBaW9tDAW03Yse4KcqFrT5NhTaaa6O6usS2bI+6fXmtjIfdmnc7XQSgD4iqVGSCDog1lVXQ2p7gYKs2/+VQAJrAqfiaFHtgJKSDywKYO36WFQapY0r4bqeCHdWkNOXBFfiRi6IKU77ENo8zrYlwZo8n7ayKCkAQCFo8Etfh8xzDDCJ1GltFWRzOt4i8sxGusBDCvDtY8I2si5jESz7pA6pMcC4GdrhDYzfSe4ee6Ae1ML/ZdUwi8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5974.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(261022075727099003)(11063799006)(261026140227099003)(261021123027099003)(261009223027099003)(261021121427099003)(261102123227099003)(10067099003)(261026121527099003)(261022105027099003)(56012099006)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?C9I4Dqsx+W5kmf/XAwbSM4HIAWuBPrrVN3tAr03K6oKfqRw1ACEBJFPxRTrV?=
- =?us-ascii?Q?NKUB5xhQsLvyKNnAHopezwANYf25CfGAa0w3h2k5TV3yBhoApOFtx6akxH/M?=
- =?us-ascii?Q?vwU0YIXAhI6tXOq/8Rj1JLwe/RPyEesu8p6jt5NObPLAbhR9qalwPeREiDa/?=
- =?us-ascii?Q?o2w4/med2ILFPz3XE2nhOMv9l+9GwDTxlMNBV7K0oYz1S/M2RSRkJTeu9+pH?=
- =?us-ascii?Q?QSPy5EqJKmESgm5E3shQBoLNPbesA6bMTSyPq+x2tVt+omo05hdr9slYc1zE?=
- =?us-ascii?Q?TX7yK4CsJW7SaS0jVDuhVGYb0ugYtV9nXLlNVuYgsQyCZkGMIWUoX4nb5GhV?=
- =?us-ascii?Q?iYIVIpMr2K1e8Q74k4z8hdLFfFqbSXg/iodegrN2EzHhAN3I5F3jytnjDiNM?=
- =?us-ascii?Q?XMdl4nQ8lN74QoxhYqZiz1pX5G8L6L8bXaB43tppgJKBK29OUzWL1UqV7k1S?=
- =?us-ascii?Q?VLIueYL+XBOqCVSYq+t02zf/IUWkIIywWiB8qIjE+444W8oFzf/FKcSqkPF7?=
- =?us-ascii?Q?RKNOcwM4JvBdOoNxPSjBX/jeE52IndeJ4JNaWAxVwO/cEvtU8jvz7dI3NUHw?=
- =?us-ascii?Q?FJ8kX1cDwiaQdrmEF2KD/mI0SP8upSvNuUsSSosCo2bLhn0HOt5OJ5NSxw+f?=
- =?us-ascii?Q?M8vTGJN9cT4FwKSMj8RwMKqgzSVzdxsq4XaFNAEAUNGunFfD5N52iAcYmyqB?=
- =?us-ascii?Q?RmnmIdWYgYBXm0WGJd81/FUOhmPX53F9WlFLNr1rsbXP4pUpvrMADCjlrbnX?=
- =?us-ascii?Q?3ITq33zVlaRWzaNqO6xuCHYQF+gym5a0k3I/CYnNd6Bi/2Rh2+BvrWdSzZKx?=
- =?us-ascii?Q?w9Vk4r+/n1VTBnKqFaajRcD6CI6R9ANFl7yH6U2ixT0hliuadkvH/fT/ox9s?=
- =?us-ascii?Q?5n0eL+OsCb/NpUX+fweFyttvg2FOYnEYgxboL0MNC9vmBALy2f0rQf5jYAbK?=
- =?us-ascii?Q?f+wwpew4UALqu3fIOUZlQlcF3MEPReB0IFNeucH8KrT+EFfwFfgQhHG7Fad6?=
- =?us-ascii?Q?htIFOGNGV1KzMynOjFZZOXQ2Bwe/y2QZ2ctVA15Gs4jJ1Sn/DjEgW0JZ6YoH?=
- =?us-ascii?Q?HT46d/rEelaP2SjdKmcIOM4GFqdhn+tIThOdmPjIzzdN8zyhBknFr3QXcaji?=
- =?us-ascii?Q?Vv/4DRHtA13dfP/XJyiScDk0tn9ic5Ck2E1QM9a5LB8WO1uZV+7bU7buEB04?=
- =?us-ascii?Q?uOC42Re2Ki+Y5co/JIy8VRn84ZMDofo3ZSv19gtbMNsrdqgF1HV6VLD6suTR?=
- =?us-ascii?Q?8ZQp3odpnxoP2Jgv4Z7yb1FhE3Kj2xbXC3YfDJO1fMPOxC1GyZSEIUHCN4lm?=
- =?us-ascii?Q?9tU5S9Ph4YWYdq1rslabPa9lHxh5ZS8pb88XmimFI2AlqGlcRzxDGejdbWXM?=
- =?us-ascii?Q?ZAr1tREuY4PAOcT3RjI9++dwt3GN6YhOedDbbTfgh/sELtdvfS5JPqqtbdN3?=
- =?us-ascii?Q?IAM5b9lWFfmS+P/RRk35GM0dSk11quYLbJysOZR3NVLNvZWRYC1l6Zi9Ebbi?=
- =?us-ascii?Q?exDnuP7eK2N675uk2TwjUXrlit5FhRRyoagAwuVKm114d1XU92nK2GF/lkA0?=
- =?us-ascii?Q?2ykNmdbKaw8dC+2ah/L9YHksqD/hk8qLoHlpdzg1oxR2rSBKANRdNCE7cZj/?=
- =?us-ascii?Q?CVrtQPLtpW0kJCwCzx5E6lqO4WCuJDFXbTDJlj8jGrLtZOS0Zzj+PM8500MB?=
- =?us-ascii?Q?tU/EDixa+Xb9OuhWUNtNpAGFFtaLEpQ4PRThJ0+dLs7z9eO/nXsnMM2Izjo7?=
- =?us-ascii?Q?Xjb5Ehu74Q=3D=3D?=
-X-Exchange-RoutingPolicyChecked: OX7e+WMlw3TxVEN1bHQtgNUm9BQesTrzleKyrJ/KghP2r6q6QWjF/32ETW2NUbw57/SCJG6T1C75X/drxmf5W5f+a+R2/bVdr3kRLMYQUpOuUB+e4qqUBVF+dAvn+/RJjN0ABQ8hFMIVrAbUhvl2a+73DrhrG2KOjK5SNSmq3t07UezKbSbUD/sMhyzibdaxMP56bBcCF/hkPAclTk7PvFY1d97becgavMBiMii6LI26lPk3OcV37Oj2jCxnW06XzDkilDGlndf3JTCzASixC36sdthH3b25Xs6s4SevknKuu99xrWIaKr2xP1l+0eC7Qyys6NedT3TwobJqFdK1kA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 070a941c-0207-4837-3131-08df46de53b7
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR11MB8380.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?WVkYgQ42jtjz/Wk4yH/pP37DZCWB9Z6+Da+Z8XPSHWFoUsS317EVxPKaQQ8Y?=
+ =?us-ascii?Q?KnksgqR24qM5HJ8dUK8y41z423MSe0gWmW448ip7hfPQJFYjolxP8lK2fRRq?=
+ =?us-ascii?Q?zYnkiJdhmD65H9lj+Qybup7L+vvhdUIVfuimJ8RrLgLlhvz4BBJy7yI3byxw?=
+ =?us-ascii?Q?PMPzjE0kG0lhLzIqJBz91G1vUYZTxNqGnvUUd6RnS/LuEr3ZS7ubixdwbyMq?=
+ =?us-ascii?Q?ga998MYepiK1UPuv2dfZ+tIp38SQE/duYCwdBPgMD2iaQmhYWUl4/1iNN3gY?=
+ =?us-ascii?Q?uxH2WclMFZQMUnUI6VyhVzPywy7nP4iCe9cZi6pvhMikmQ96auCPj4e9zf18?=
+ =?us-ascii?Q?eFltouvA6Zsrf+5iPlUoLfuCWzletCYuUNS1jVA6ezzdGSiJdF8z48w7pj9v?=
+ =?us-ascii?Q?wKvQzqvZUZ7q3j0GfHrbrT3OSiLyMOTHsQ8G1TfLussDRiL8KeA5UXScPS8W?=
+ =?us-ascii?Q?aen5zlFNV1OBKRd7bRNTc9sI3Wn0A0oNnXrv22+AdKUzqlOAoGIb6TKBxtwB?=
+ =?us-ascii?Q?oi9J9afEsbFDX53L2s245+rc+gkF9Gg6szkS1reaXhkpB1eo771+Hdof98Um?=
+ =?us-ascii?Q?oaQ3rylm7yPbH69RH4B9FG2vvwnXec4q0aPj1MIujkaZrUK8GSbvWjK06sLg?=
+ =?us-ascii?Q?uwTSZBvlEehyk9DQt4Pn5gVeHEZsLt+qMyeJDCUBzdFPMkkx+me7i6GxKZeE?=
+ =?us-ascii?Q?4nT/Jjw4O0JB+dQ6l0t/J4B4K0P/qe0UVcqDrLdoxVALmM0zBTjuxYN72OiF?=
+ =?us-ascii?Q?/PBgMlb43gdZTAlxomFuTZimHB3YOpJjQ388p7MVVSTHs45YKiVMNb0pf2aF?=
+ =?us-ascii?Q?63rhNhb4gdTslubGMyJNro75e3YVOE0PlVulOPir1T0Z/tJvL+N8IXLGpTXC?=
+ =?us-ascii?Q?qhu+DHSyKflr4R9MY3HKK2Elpq5Sauv+MlSuQCV2HqYndeIs0SkBD9oLA+0j?=
+ =?us-ascii?Q?l7B1rjSbU0EtMyj61w9QPNkXNe9B4Wh1MtgjJM5ihtRQmgcoSx3f2c5fk7TD?=
+ =?us-ascii?Q?NXSDfd5gdA/Ia0eGe8yHurOvxDbhmibKMXcbjPMmY2N19/ozPzL8dKHj5+nl?=
+ =?us-ascii?Q?ZPF+4IW8r+IYns4tXTY/6rOuzQaQe3VM28ZW1pNCMNUwlP6+U9mWYanEektW?=
+ =?us-ascii?Q?pBNQcSz7mZ1fWlOwGTZX+KFmYFysk9HcG0rLgCABA1I/UapuIrREDNmv7XMs?=
+ =?us-ascii?Q?GZIXxeWNuiMbx754gyIFkfU8CtEg6/YekFoa/eTpyCjBufVJ1OjhMBLus0w4?=
+ =?us-ascii?Q?zhZk5WRol+12QKJ4cFp3Yo+u8zhOQ1HhTRmJEUwte093gdsgZwvRIxfmxgbD?=
+ =?us-ascii?Q?eP7IxIuUAt27FfpBD+fP136Q315aw0znYfSKqPfqtYprmsHhZmR8nge5Hcip?=
+ =?us-ascii?Q?zQdRetmR2VnmDTNvFeLvZVto2tQq7pDkVLFZx9lfUl3/tXs/SDU+yKOhLChZ?=
+ =?us-ascii?Q?J54XMhzYoMMM2xDz8FQSU3TEj1ob0lSl9C63DOWrR9vS9VpmyBfeHZfmntGt?=
+ =?us-ascii?Q?NVoUxmbFJ/xr5jOdkrp/y9iFFLmOTMIXjTmNfsYgSIhvbE1z59cbdwxdUMHj?=
+ =?us-ascii?Q?/8QB7LQ6shtSv9vy2cfwntiyuFUTE4RN/PdH8gQVwa/K0vwF1gSLmzkfu7Jt?=
+ =?us-ascii?Q?gJ+rseSNlaz51xnxO9vLnyOW7IiF3aO+bZwbpdI6fTHliJgRqP/Wv8jnv8AP?=
+ =?us-ascii?Q?Ptf4AxIxiijiwxICgon7jKXeTET3suiz8XGP5KF53K/XqV6ponAIlIjG75Jd?=
+ =?us-ascii?Q?tqzGV9U9Xw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12abba11-0bf3-4309-b7bb-08df46de50ec
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5974.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:14:41.8058
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 08:14:36.6621
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: shgnqerwWRHn9tjk6wjQM03w72M3joqvxei0+HrwJiitEJhnHuFFhTYaQ/DuDI80OEudO3OcM4uc449HmtxJFQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB6432
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: po1Dv3s9Og5Pr79MynYbQeYuNHmsERlGx+WSAqmO/nn8JbQUDhV6Y0fv7fIZfBVawkQqal4x1ZCYib/MPoMfog==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7818
 
-On Thu, Nov 12, 2026 at 05:06:04PM +0000, Dongli Zhang wrote:
->This is to fix a LAPIC ISR stall that can happen in a kdump kernel, but can
->also happen in other scenarios.
->
->The issue can be intermittently reproduced in a QEMU/KVM guest when there
->are large number of VMs on the same host.
+gpio_shared_proxy_to_irq() returns the parent chip's IRQ, so an edge
+request on a proxy line holds an IRQ of the parent.
 
-Does your production kernel include commit 1b558e14f3c1 ("x86/apic: Make the
-ISR clearing sane")? If so, can you reproduce this issue with it
-reverted? It looks to me that the one-pass ISR clearing doesn't clear all
-stale ISR/IRR bits.
+When the parent is removed, gpiochip_remove() frees the IRQs still
+requested on its lines before it removes the proxies in
+gpio_device_teardown_shared(). The release of a proxy line request is
+serialized only with the proxy's own removal notifier, so if
+gpiod_free_irqs() frees the IRQ between the release's irq_has_action()
+check and its free_irq(), free_irq() warns:
 
-The changelog of that commit says
+  Trying to free already-free IRQ 22
 
-  2) If interrupts are enabled, then the APIC propagates the IRR bit to the
-     ISR and raises the interrupt in the CPU, which means that code _cannot_
-     observe the ISR bit for any of those IRR bits.
+Remove the proxies first, so the character device on each proxy frees
+its IRQs before the rest are forcibly freed.
 
-Your analysis shows a case where this doesn't hold, since the 8259A
-handler doesn't EOI the local APIC and the ISR bit stays set.
+Reproduced on arm64 QEMU with a shared gpio-sim line and a test delay
+before the release's free_irq(): 3 of 3 runs warned; with this change,
+none.
 
-You can certainly still reproduce it by injecting an interrupt manually
-after the ISR clearing. But I think the multi-pass scan may be enough for
-any practical case.
+Fixes: 1e4f6db614a3 ("gpiolib: support shared GPIOs in core subsystem code")
+Cc: stable@vger.kernel.org
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20261103-gpiolib-chip-removal-v5-0-aambrozewicz@nvidia.com?part=7
+Signed-off-by: Adrian Ambrozewicz <aambrozewicz@nvidia.com>
+---
+ drivers/gpio/gpiolib.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
->
->Device interrupts can use the PIC, IOAPIC, or MSI-X. Nowadays, most x86
->device interrupts use MSI-X or the IOAPIC. However, the PIC handler does
->not send a LAPIC EOI, even when the interrupt it handles has set a bit in
->the LAPIC ISR.
->
->For example, suppose there is a QEMU/KVM guest using virtio-net.
->
->1. virtio-net is about to deliver vector 52 to CPU 2 (APIC ID 2), but the
->guest suddenly panics on that CPU.
->
->2. The kdump kernel boots on APIC ID 2, which becomes CPU 0 in the new
->kernel.
->
->3. Suppose delivery of the interrupt is delayed, so vector 52 has not
->reached the CPU yet.
->
->4. On the new CPU 0, init_ISA_irqs() initially sets up the legacy IRQs to
->use the PIC. Vector 52 maps to IRQ4, which is normally used by the serial
->console.
->
->5. Before these legacy IRQs are handed over to the IOAPIC, suppose the
->delayed vector 52 arrives through the LAPIC and sets its ISR bit.
->
->6. The new kernel handles it as PIC IRQ4. Since mask_and_ack_8259A()
->does not send a LAPIC EOI, the ISR bit for vector 52 remains set.
+diff --git a/drivers/gpio/gpiolib.c b/drivers/gpio/gpiolib.c
+index e0ba17a73c4b..57024a1b042b 100644
+--- a/drivers/gpio/gpiolib.c
++++ b/drivers/gpio/gpiolib.c
+@@ -1461,12 +1461,12 @@ void gpiochip_remove(struct gpio_chip *gc)
+ 
+ 	/*
+ 	 * No new interrupts can be requested through the character device now.
+-	 * Have it free the ones it holds before forcibly freeing the rest, and
+-	 * both before the irqchip and its mappings go away.
++	 * Have it free the ones it holds, also on the shared proxies, before
++	 * forcibly freeing the rest and removing the irqchip.
+ 	 */
+ 	blocking_notifier_call_chain(&gdev->device_notifier, 0, NULL);
+-	gpiochip_free_remaining_irqs(gc);
+ 	gpio_device_teardown_shared(gdev);
++	gpiochip_free_remaining_irqs(gc);
+ 	gpiochip_irqchip_remove(gc);
+ 	acpi_gpiochip_remove(gc);
+ 	of_gpiochip_remove(gc);
+-- 
+2.43.0
+
