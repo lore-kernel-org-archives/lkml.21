@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168673;
-	b=E1KNi/A248jUfiOYWabNhXesD8K4ZiyiINJgb0cqf62PFoblmXo+7F9IjnRrh+87I54j
-	 o0n43Herca6oM05PAGgy1efri+8naARiToQ6KqjDTvXJ1vFzFdvuodStdJtFPbMKuS/Vv
-	 aJ+uO5xTmcJlN+roGHgC7KntrriPjgzYBwfk3anNDR/itrBER6WAp81HLZFsus/Cm+E8M
-	 1aoHSvYc305QkINN6sF2F/YY93JXqTWhmIkSitLBR+RH5KYnH2RZoZnWBhxhMRzLSW+eH
-	 AeHQcQ8iMjILrkocVdLRhOjW/urIF4wsumIDvXwxs3NNo09cnRiE1EC8f0UeDI4EYUQ==
+	t=1795168682;
+	b=ud3kqsmmP/bPlz2IJXFc7mwDIbTmQbcuIOzatjBmV1U4MPjrSR+z19DmNjGgSSx1Xmlm
+	 VD1rdPzNbYo1Z/664xfen0coN5rOIQigpMJQoClVMP+iF3lJkm1OyGhNN1aMGciRrPNZx
+	 2TAAHth28TeZjy+HCmL9UC7caikQgDPBNK1ipiq+ZPtdWJjfUpJ2ME1vtVLL+QnMDr/B0
+	 njISgHCpZbUfGBRhqDINnaODztvZzWcYB593jXQ6F/+2WyUk3QrmiQFjPHbc4fD4gK8HK
+	 BE/NmXSZQFAeoWPYO5INUy3xF2b3Ux0VuBVh6oOk9LINaELjdq4lBNuV3cJP92r0R4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168673;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=0CJqhfaRwIf9n/RB1oADTEsSvNdb2w12OyIuhDSocvo=;
-	b=ZzhsF3YEJian89kiRpNtOXFEdmmxLlcwhw6/bfMYstCMbNEED92rnsW9MM27MdBkZMLB
-	 dWdGeszICTzpCIT8UhAAEDfLZDzjO2I+Wj+7WX8Tle8cVVUPX9jAjzUTNmPxsNbTxGpWB
-	 jlCHsGM+5f1MKztQoDSfO0dO97e8P16yAHL77qjxPwSrBuORPd0FGc6FMKP3sDxNwLP5h
-	 LqTNrR7VBSQ/F44O+az72jx/U2wwUttgVqEuOQWSO5xeeEwhjKhWgR/yotYxdHfuRQId0
-	 u9hZgOR6+aohIdaphtTEH6iQYibVqKvUr0/WrF8uFQe9s7e+OnwxdjY13W9HErGkt1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168682;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=18K2QVX9wsuXcDjVy4klLRXHgcGtXDEcAsxGkgJfiz8=;
+	b=gbpr9DMwUVSveZwtBoFazfF7pHD6veyB5fTaHG9pQajBIjMKdLyDWi1IkdEMKuOStx5q
+	 urzIwC9xoh6ZRzOnHuLfPlGt5cjBb+pEAkh0SIkExx/NAp5h28Dh2WB1O0tAzNflhpqVs
+	 VGyhmjDafsHvvztxOGopCWz6Gsy1HDk1hs/19sMw/mD1cqsPtjSD2hmk1PYiXIVF0GXk/
+	 I7Jhs4lKEHOeqLHSpdOIzAJom0/S7HbzZWflhJnGVfGmUQbBAyv6F/oQdP6yfDc4v93p2
+	 cQ78PRixLiQGYsgyJMn1oAaxH8t7/ltuOprZOIVjPrrlWPfUGkYzGY/pIneikp1pqwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmD2x3x6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vIJ0WrAH;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id C7900606A320;
-	Fri, 20 Nov 2026 09:57:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ED0F606A320;
+	Fri, 20 Nov 2026 09:58:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ED0F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmD2x3x6
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BEED51F000C6;
-	Fri, 20 Nov 2026 09:57:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795168673;
-	bh=0CJqhfaRwIf9n/RB1oADTEsSvNdb2w12OyIuhDSocvo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gmD2x3x6PsfNrEh+DSm+x40DYGTO+CoCR5AoiTvgLBZX9ziMreBXgWmWD8WD8lqfh
-	 piJw8nIoJxjKiWwlsNZsDiF6WQn2PI2+eTmX7OvdB8+sdOF+v7rDl8QjsobA/88k0V
-	 RZrhk3QPPKS7H95/ewdgJ4vM+5RS7twMry/5HvZ2chPMjWQWNENvgUB54LjYrre25e
-	 heeayolfYmqvt0kl/3xkCTtw6zWwkBFo9tQCGYfRL6qz6vBFUF+kxrovJFgoAS5zeZ
-	 I4vd4ZujYmfJNyjMRAcnokjEbKBpLFPgQJopjLDlgTCMCPJcRYpmS2tLA5Ex2LUC/p
-	 jT34Sn5zC0NEw==
-Date: Fri, 20 Nov 2026 10:57:46 +0100
-From: Bartosz Golaszewski <brgl@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
-	Russell King <linux@armlinux.org.uk>, Eric Biggers <ebiggers@kernel.org>, 
-	Demi Marie Obenour <demiobenour@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Pankaj Patil <pankaj.patil@oss.qualcomm.com>, Birk Skyum <birk.skyum@pm.me>, linux-crypto@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: Re: [PATCH v12 0/2] crypto - qce: make algos optional and remove the
- BROKEN label
-Message-ID: <2bmlzgxt3xtjbrtt6gypvfkji3tvxclnwld2wjjmzef3cdpgfw@cgohz3kfd2wp>
-References: <20261112-qce-fixes-broken-label-v12-0-7b5b9c7083ed@oss.qualcomm.com>
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vIJ0WrAH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795168682; x=1826704682;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3pe3cqwMoeM9BUmbzWe8+5h4ErVAO7PLZ1zk5jx0Ijg=;
+  b=vIJ0WrAH0cOABYwTU71zkROyPfAav6Dqd3oGbfYt3qqrmOJwgcYe5T0Y
+   buVOz2HJvYgn1h/nlbaxLRYHswvqEUboXMT9mN6tg+UvOCFxvnrID61X0
+   NqysiA4gk6iSj41QUD0JKSHemtq4wqbFkPl8TaIMgvnPxNtb9Vz3AOL6C
+   e3X8mluLbkJ0Kj3hYz3EMJwoGkPRC2c7RzwFjJFRMWlr0s+83lrsXK40i
+   XoEAKnzIjIXdsV7fpU7lH0AsHJIVRwb5dBEymfsdgktB4JJIhGnQW1Wx0
+   JcfhQ9mOWY9Nr6iUBXN7YW1gN8QPey/3gB8/fEMrSpPZ75x/1FAxJ3YoX
+   A==;
+X-CSE-ConnectionGUID: JnaHMu3yQ7S4W16Kr4Rk/g==
+X-CSE-MsgGUID: P4BY+QXbReyZQZX4cfRE2Q==
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="77585934"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 20 Nov 2026 02:57:55 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Fri, 20 Nov 2026 02:57:54 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 20 Nov 2026 02:57:51 -0700
+Date: Fri, 20 Nov 2026 10:57:50 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Ian Rogers <irogers@google.com>
+CC: Horatiu Vultur <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<llvm@lists.linux.dev>, Elkin Cruz <elkin@google.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+Message-ID: <20261120095750.njqvupqpfuh443rh@DEN-DL-M70577.microsemi.net>
+References: <20261119170729.1524516-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,21 +83,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20261112-qce-fixes-broken-label-v12-0-7b5b9c7083ed@oss.qualcomm.com>
+In-Reply-To: <20261119170729.1524516-1-irogers@google.com>
 
-On Thu, Nov 12, 2026 at 02:20:07PM +0100, Bartosz Golaszewski wrote:
-> This is the follow-up to the three smaller series fixing crypto
-> self-tests in the QCE driver. It makes the crypto algorithms opt-in via
-> a module parameter and removes the BROKEN label so that the driver is
-> built by default.
+> When all LAN966X_MAX_PTP_ID timestamp slots are in flight,
+> lan966x_ptp_txtstamp_request() returns -EBUSY without queuing or freeing
+> skb, and lan966x_port_xmit() returns that negative errno directly from
+> .ndo_start_xmit. Because dev_xmit_complete() treats negative return codes
+> (< NET_XMIT_MASK) as packets already consumed by the driver, skb is never
+> freed or requeued, permanently leaking the sk_buff and its socket
+> sk_wmem_alloc accounting.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Free skb with dev_kfree_skb_any(), increment tx_dropped, and return
+> NETDEV_TX_OK when lan966x_ptp_txtstamp_request() fails.
+> 
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wimplicit-int-enum-cast enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested under LLVM=1 W=1 (-Werror) and
+> -Wimplicit-int-enum-cast; not tested on Microchip LAN966x hardware.
+> 
+> Fixes: 77eecf25bd9d ("net: lan966x: Update extraction/injection for timestamping")
+> Signed-off-by: Ian Rogers <irogers@google.com>
 > ---
+>  .../net/ethernet/microchip/lan966x/lan966x_main.c  | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> index b8696fc7e9b9..9c722d23e0bb 100644
+> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_main.c
+> @@ -392,6 +392,7 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  	struct lan966x_port *port = netdev_priv(dev);
+>  	struct lan966x *lan966x = port->lan966x;
+>  	__be32 ifh[IFH_LEN];
+> +	netdev_tx_t ret;
+>  	int err;
+>  
+>  	memset(ifh, 0x0, sizeof(__be32) * IFH_LEN);
+> @@ -404,8 +405,11 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  
+>  	if (port->lan966x->ptp && skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP) {
+>  		err = lan966x_ptp_txtstamp_request(port, skb);
+> -		if (err)
+> -			return err;
+> +		if (err) {
+> +			dev_kfree_skb_any(skb);
+> +			dev->stats.tx_dropped++;
+> +			return NETDEV_TX_OK;
+> +		}
+>  
+>  		lan966x_ifh_set_rew_op(ifh, LAN966X_SKB_CB(skb)->rew_op);
+>  		lan966x_ifh_set_oam_type(ifh, LAN966X_SKB_CB(skb)->pdu_type);
+> @@ -414,12 +418,12 @@ static netdev_tx_t lan966x_port_xmit(struct sk_buff *skb,
+>  
+>  	spin_lock(&lan966x->tx_lock);
+>  	if (port->lan966x->fdma)
+> -		err = lan966x->ops->fdma_xmit(skb, ifh, dev);
+> +		ret = lan966x->ops->fdma_xmit(skb, ifh, dev);
+>  	else
+> -		err = lan966x_port_ifh_xmit(skb, ifh, dev);
+> +		ret = lan966x_port_ifh_xmit(skb, ifh, dev);
+>  	spin_unlock(&lan966x->tx_lock);
+>  
+> -	return err;
+> +	return ret;
+>  }
+>  
+>  static int lan966x_port_change_mtu(struct net_device *dev, int new_mtu)
+> -- 
+> 2.56.1.708.g77570a6a1d-goog
+>
 
-Hi Herbert! There are no more sashiko comments on this. Could you please
-take it for v7.4?
+Hi Ian,
 
-Thanks,
-Bartosz
+Thanks for the fix. The issue is real, and also on my backlog of work to
+upstream.
+
+Just a heads up, I expect the AI review to flag issues in this area. The lan966x
+PTP TX path has a number of known problems that I am are going to address in a
+PTP series soon. I'll go through the findings once the review is in and follow
+up on this one.
+
+/Daniel
