@@ -1,63 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=180.181.231.80
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168262;
-	b=RnfLNhaPBM7AkTJGyOMfxiFPdLYv5JeggZOxO+SaQbbBG8OQ8YF6PoRYBM7I3jiScPpA
-	 v62MSdEJSemPcXBWB7b8FaCXdFFNZVWm3FRbz2kcozHPTRrRp5X0eYEcVpc/ZlZ5gMBmB
-	 z+wp9pUavx5lMmVXEKdEpKYhHaF7A/9oSjI9RNMgASsyhjgH18NG8Jvm8OPK2FW8O6Ssa
-	 ULhKdLE6kKmR+a/RevEhnNXbU93jzBI9bRwqvK0D0LZAotA1f00u3u1KG9ruo3hMCioHV
-	 Tfk5To/kbVLYHIUzXPfoG19Q2wzw2G114eOiDfGB1fUJsOwUukCucVTXjjnbUEQ2UrQ==
+	t=1795168265;
+	b=ikXb5jeXXfbm2LrhAOdWQzHTnlBqw41OwRaYhjbwU9knFZKZrMFFjp5AZqE/P1XlFkYF
+	 VBXdKbm1kttAtC+Z2FNQ9s+TaeTGbdEaMWOD7QrPkt/Sl4/pB1pNgdM8CibrKY+OtDajf
+	 nJB8H6UspUA+dmzS3/FON9TMnFp65DgGSNJUvMMCbNZjTxH1zJo168AdbAMnKgTlqwHLd
+	 SPu8OxqXsREdHQ2AH1ZxadRwfOM1EIO/pyUPLBghzUtDLLGGfkwI6MvYG4vGrq0ZsHUR1
+	 b7n8kN3iNdgGXuCmCS6jcNbcES2Yl8XSpoaA/3Hal9k2hVywBioiPd3YbcLsN/dB/iQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168262;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=kw4MOGGN2fTnqLv0+xMKyAPUpCIl+a10zWs3ZqFeU9w=;
-	b=iuzUlMC+nb1V8SGDTOg4k3Z1BwAlLOFr1LMhUy7F6acpTGk64+FJTuhJDf4gaJ33eaq/
-	 5/bn5qYXUXXbA0EVFjBFnz4sGg6RYHuxtcbnsiRx0bMrKpSI3qEKp96nCjX2R4iHOUGRt
-	 iDsexrEEXlobBaI05RxZalqGZvn4+Hy9Uto8uXETXgDiqhtjOI+6kHqIJmhSwrdRQhCio
-	 aqgcF+N8/D/nXXJx2oMFveveWIG67zxE5/JGwiBfz7vQKu7ciEZ/+jGibkreAHAvDviJl
-	 4YVvh5IbP7AIaCJxFQPvS0x6Y4iDpQiDxoUXsXwaumVYZOFQv5K7qYWaDZ9neqoLb1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168265;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:X-Spam-Score;
+	bh=fYwTF2rRWsG/kCUZOB3IPJ2TixsQvxHszIn4p4RAlug=;
+	b=Y/QYaYcSp0qcACD/1snZPI2fElc8crELnlXJXmnD5kMLXwRSRH/hTFejSrUHaACvKP0i
+	 LzuzLE3NOxwU+FSRp6zhduJ5/iBmoa0KIGW3fjgNyfK1I4WUbMJHnqospZD6b+nDwELA5
+	 //NPHCZFHdcr9Ugu/7+875ItWP8RZU9NZAkrIGYQH/HhCQfUbqrY6AU6usPKibBwwHhQu
+	 y6085AkVMwTxmmOF7kkwmFhBGYcnoSzVLomVve/dkdYCe/uA2OJu9KIREcI0zNV+44qu9
+	 rco4j+Cn4Fclahrr6buSt5MJwcE1Hv/MTr7vJL1fcTFGJ/00or0f5fohuZfb+DyGdYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gondor.apana.org.au;
-	spf=pass smtp.mailfrom=gondor.apana.org.au;
-	dkim=pass header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=FfA1GaUs;
-	arc=none smtp.remote-ip=180.181.231.80
-Received: from abb.hmeau.com (abb.hmeau.com [180.181.231.80])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=iXTTyXbc;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=CBVSGfBK;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=iXTTyXbc;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=CBVSGfBK;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D18BB606A320;
-	Fri, 20 Nov 2026 09:51:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D18BB606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gondor.apana.org.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gondor.apana.org.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F154D606A33F;
+	Fri, 20 Nov 2026 09:51:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F154D606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gondor.apana.org.au header.i=@gondor.apana.org.au header.a=rsa-sha256 header.s=h01 header.b=FfA1GaUs
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
-	from:content-type:reply-to; bh=kw4MOGGN2fTnqLv0+xMKyAPUpCIl+a10zWs3ZqFeU9w=; 
-	b=FfA1GaUsfGWKYGO3uW7mRiS9xgjl1K3n5FPRfkyLRG5O/JEsUopAEyMK9dMfC4wP9ldXOs3wpId
-	d3b0Pi7ozbsiftZK08R2AEpLBcAI4ntDGTLkmSfM9EIZxalLGh7wJ7u15HeH861qmOVBtbaXR/23V
-	++2r0ULUMlg8s2EE11BfIPu4utI89cKa5IfINYeHKP1GPbCw3y1dhVyTwj4QYlyMaToF96S4+kPdT
-	gdwQYCbrjK2b4ZLa5Qu9IbJbnn0XWdZy7xjLsV4Ld4V7f6s/Oj5Do8e7q4EaVJ3miNOr5C7lglXAF
-	3HkXQLkljdcMtQjKhgfdtJSxzxe91VerhnPA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
-	id 1xULGj-0000000HYZu-3UHb;
-	Fri, 20 Nov 2026 17:50:58 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 20 Nov 2026 17:50:57 +0800
-Date: Fri, 20 Nov 2026 17:50:57 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Gu Bin <gubin@cmss.chinamobile.com>
-Cc: andrew@codeconstruct.com.au, avifishman70@gmail.com,
-	tmaimon77@gmail.com, tali.perry1@gmail.com, venture@google.com,
-	yuenn@google.com, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] hwrng: npcm - use pm_runtime_resume_and_get() in
- npcm_rng_read()
-Message-ID: <awAYAa1OY4_kk_Bg@gondor.apana.org.au>
-References: <20261111073309.1659-1-gubin@cmss.chinamobile.com>
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=iXTTyXbc;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=CBVSGfBK;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=iXTTyXbc;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=CBVSGfBK
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 2343B225F9;
+	Fri, 20 Nov 2026 09:51:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795168263; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fYwTF2rRWsG/kCUZOB3IPJ2TixsQvxHszIn4p4RAlug=;
+	b=iXTTyXbc96LPrn3J4jUN8cZX+Vuwl/fYH87FEhK5cT7U/g7lv+4WKg+gpSGBcbUtYk3NDo
+	p1ZkkcFjsZvn5Ky3p3Gg1IJT7CmpeoMG+Bk1eGKB1THNuFE3Bq5tzx3q4/wbQeYKVDpj6I
+	8MvHmFz40JimZcrsdUWy6hS5ROJ2KFA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795168263;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fYwTF2rRWsG/kCUZOB3IPJ2TixsQvxHszIn4p4RAlug=;
+	b=CBVSGfBKopZoUS0SN3knt+mhCq1clPQJZm+RKBrWBiBhNCntHZyqaBG10iMiRHDX3Zhwkt
+	lq9jo6d9rjGQGxDA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795168263; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fYwTF2rRWsG/kCUZOB3IPJ2TixsQvxHszIn4p4RAlug=;
+	b=iXTTyXbc96LPrn3J4jUN8cZX+Vuwl/fYH87FEhK5cT7U/g7lv+4WKg+gpSGBcbUtYk3NDo
+	p1ZkkcFjsZvn5Ky3p3Gg1IJT7CmpeoMG+Bk1eGKB1THNuFE3Bq5tzx3q4/wbQeYKVDpj6I
+	8MvHmFz40JimZcrsdUWy6hS5ROJ2KFA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795168263;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fYwTF2rRWsG/kCUZOB3IPJ2TixsQvxHszIn4p4RAlug=;
+	b=CBVSGfBKopZoUS0SN3knt+mhCq1clPQJZm+RKBrWBiBhNCntHZyqaBG10iMiRHDX3Zhwkt
+	lq9jo6d9rjGQGxDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id F22D51348F;
+	Fri, 20 Nov 2026 09:51:02 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id C2EZMwYYAGtXDwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 09:51:02 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id 784DA25EEF; Fri, 20 Nov 2026 10:50:47 +0100 (CET)
+Date: Fri, 20 Nov 2026 10:50:47 +0100
+From: Jan Kara <jack@suse.cz>
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Amir Goldstein <amir73il@gmail.com>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
+	Jake Edge <jake@lwn.net>
+Subject: Re: [PATCH v5 1/5] VFS: don't count references through ->d_parent
+Message-ID: <fdopv5hxtrrkfzrrlgzqvagb5bcub5vonftyqiyksfmngkmg6d@7jqatphhjr22>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+ <20261119025942.2848130-2-neilb@ownmail.net>
+ <cnud5otrkcthvaysgzyp3eokgqiax7dgn4hjrlayriwfie5iyh@73pmlo3vtifo>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -69,34 +115,95 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261111073309.1659-1-gubin@cmss.chinamobile.com>
+In-Reply-To: <cnud5otrkcthvaysgzyp3eokgqiax7dgn4hjrlayriwfie5iyh@73pmlo3vtifo>
+X-Spam-Flag: NO
+X-Spam-Level: 
+X-Spamd-Result: default: False [-16.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	REPLY(-4.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_COUNT_THREE(0.00)[3];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FREEMAIL_CC(0.00)[zeniv.linux.org.uk,kernel.org,suse.cz,gmail.com,vger.kernel.org,themaw.net,lwn.net];
+	MISSING_XM_UA(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[9];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,imap1.dmz-prg2.suse.org:helo,brown.name:email]
+X-Spam-Score: -16.80
 
-On Wed, Nov 11, 2026 at 03:33:08PM +0800, Gu Bin wrote:
-> npcm_rng_read() calls pm_runtime_get_sync() without checking the return
-> value and then polls and reads the RNG registers: when resuming the
-> device fails (negative return), the loop reads a device that never
-> resumed and the failure is lost - the function returns the (zero) byte
-> count instead of an error.
+On Fri 20-11-26 10:29:12, Jan Kara wrote:
+> On Thu 19-11-26 13:57:01, NeilBrown wrote:
+> > From: NeilBrown <neil@brown.name>
+> > 
+> > The number of negative child dentries that a given dentry can have is
+> > effectively unbounded, so counting the references through ->d_parent can
+> > overflow ->d_lockref.count.
+> > 
+> > We only use this count so that we can know when there are no remaining
+> > references including from children.  However most children appear on the
+> > ->d_children list and the few remaining children (inactive
+> > DCACHE_DENTRY_CURSORs) only exist in a context were a separate reference
+> > is held on the parent.
+> > 
+> > So if we count whether d_children is nonempty (i.e.  dget() when it
+> > becomes non-empty, dput() when it comes empty) and require children not
+> > on ->d_children to have a reference on the parent some other way (which
+> > they already do), then ->d_lockref.count will not overflow and we can
+> > still know exactly when all references, including through ->d_parent,
+> > are gone.
+> > 
+> > __d_move() allows that dentries might not be on any d_children list as
+> > is the case for IS_ROOT() dentries.  Rather than track when this is the
+> > case we dget() either parent if they have an empty d_children before
+> > children are moved around, then dput() if they turn out to be empty
+> > afterwards.  This will increment dentry if it IS_ROOT(), and then
+> > decrement it afterwards, and will decrement the refcount on old_parent
+> > if its ->d_children becomes empty.
+> > 
+> > To help with this, dput_dlock() is added which warns rather than
+> > decrementing to zero (which should never happen).
+> > 
+> > When a DCACHE_CURSOR dentry is added to d_children, it is only ever
+> > added "before" or "behind" an existing child, so it will never be the
+> > first child added, and so never needs to adjust the refcount on the
+> > parent.  If it remains on the list until dput() it could be the last
+> > child to be removed, in which case normal handling applies in
+> > dentry_unlist() (where it has been moved from dentry_kill().  When a
+> > cursor is deliberately removed from the d_children list the refcount
+> > must be decremented if that leaves the list empty.
+> > 
+> > hlist_move_behind() and hlist_move_before() are added to simplify moving
+> > a cursor within the d_children list.  This results in some duplicate code
+> > as they share a common prefix with d_detach_cursor() (hlist_del)
+> > which is currently factored out.  We can expect the compiler to optimise
+> > this away and don't need to clutter the C code with it.
+> > 
+> > autofs compares d_count() with the number of known children of a dentry
+> > to detect if there are any concurrent references to a dentry.  These
+> > comparisons must be changed to reflect that we now only count "one" for
+> > any children rather than "one" for each child.
+> > 
+> > Signed-off-by: NeilBrown <neil@brown.name>
 > 
-> Use pm_runtime_resume_and_get() instead and bail out on the error: the
-> helper reports the resume failure and drops the usage counter reference
-> it took, which a failed pm_runtime_get_sync() leaves behind (the usage
-> counter is incremented before the resume attempt, so returning
-> directly after a failed get_sync() would leak the reference and the
-> device could never autosuspend again). The tail
-> pm_runtime_put_sync_autosuspend() must not be used for this bailout:
-> the device never resumed, so balancing the counter is all that is
-> needed. On success the helper returns 0, which is exactly what the
-> read counter expects at that point.
-> 
-> Fixes: c98429297d8b ("hwrng: npcm - add NPCM RNG driver")
-> Signed-off-by: Gu Bin <gubin@cmss.chinamobile.com>
-> ---
->  drivers/char/hw_random/npcm-rng.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+> Besides the objection about ino->count starting at 1 (which seems correct
+> AFAICS in autofs_new_ino()) this looks good to me.
 
-Patch applied.  Thanks.
+Oh, and Sashiko found a conversion of d_duplicate() to the new world order
+was forgotten.
+
+								Honza
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
