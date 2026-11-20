@@ -1,100 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.131
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795191722;
-	b=Mojzw5BgyWMTR1fqOJr3BoeWjpoAbioh1Qhj4fv/a6WOy/4DyP29yJQJTEc8e8clbbf6
-	 l9MFvVzGXgYTuKFvfbhOXNHRGGgUUBk55Gk3oaQpWXfhhi7kgvC/1nr5DWRMmqx+e6dF2
-	 u11rK7c1sAo1xz5GkmiLiXo5IXUPuP1B4+FXt5hIe/OvoLxArPDUbguScx0D4/4HYeHIh
-	 mihULjknQRCPP5twX/RvOdI4X7kp12zSzstMnuRm1wKLyGC5qQ2PNnvA9EbIzW9TNAVWq
-	 curlGIe50+yAnfQs6vM6ROYaiMMeIVL30c6X6xWJReEPKc2nYPCO7YTx5+BGTRnMmqQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795191722;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795191723;
+	b=Je4pM4aOJFGJKXnf5kR4GOvW76bHftQMwmG4U4bi/KZkcmLUbDpghlp++BmBccSJ6PD8
+	 23SiW6Ln3mHcV3bXCLy0Wg14qPeBGx/oNxey5HOHIcmt/pH2M/8PBvSSWIMt6GIU6tH7O
+	 CWiYEucs5ox8265K8sN/lkepcS6Bgjs2s66BWWyrO6z8qy96HLQ41uaQWITPd66t7fAvA
+	 prFW/art2uNj3JqPdRcSBtWLukVgfQ1FbrbZm5wVj9o11KvVOP9zp1J0it2FiuZXEVBmS
+	 SViqziQxujTebnGTqGQ0GEToIIbK++/m+tJo2mWXda2Xl+81FrlZWmWr2qxn/1A+qIw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795191723;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=YtzrsiYRAYlK8UNdUBau7Z8+kGG0uMSS1m3uavQxSD0=;
-	b=I6eXCCB3BCqLSFE+Rhd2FFQb/cEkX/wM3Xm87NBdT4ab1svUIAnbg/trf1/r37gtmaMP
-	 McwbxJHddxypZUdkRMaoSvZ6mhHqmbBQITP0X6F57K170YVRlffHPsexkzV0Jz0cVZWLV
-	 /viF8uYPjKsiVzV8oNZL6jGEdcBslRvDd0e0lQiikm7QT1QCJ9LcLU9U4OfAcgLdvAHkQ
-	 GaV0nZ40hUmCdvhdFd4i2BUfPVCyRolvIJTllqKtA6Sn9c6/V9nMmpzZRHJpIo7N7fqwv
-	 ACGtZdmnPnT5RDkvp+Q6EquFbgZgygxO1EgycLCHHBo+7TPr/h2lNqGoxR2B1ew38qg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aex6oEvR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.131
-Received: from mail-oo2-f3.google.com (mail-oo2-f3.google.com [74.125.231.131])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
+	b=dhWnFTEGiehfttw/T8X9MhXd4kBzBv5hZWl5IXfoGPWmuKPA9Fhfc4gL+95fZOWIWb//
+	 8arxI5AHH6xd+fk5WYtAu1ksVP43TnL7evq7nAiHt36CSLNWsz+VWoaex/wESZYcT1AxT
+	 GASAVCUGKtX8nNTVXEjK5xjd5zx38+usYsvA8rwkAxrewERNEkCph9WWGQwYibohWK7wU
+	 Xiht6xUdse37ngxYMksgUxsbG1j8vp+Z73D+5rFXZkwna13alzYdvBE2cmS3brFnRid4C
+	 jIZ94roDSpTFyV829l98WTRsoD+1/nx+fRTVpvI6ctwua9mZFrRWemJ9DWAwNX9PJmQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GSMVwhZH;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCB2A606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:22:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CCB2A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABCCF606A32C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:22:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABCCF606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aex6oEvR
-Received: by mail-oo2-f3.google.com with SMTP id 46e09a7af769-8459f7bc7c0so452106a34.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:22:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795191721; cv=none;
-        d=google.com; s=arc-20260327;
-        b=sKhKH3ndFeZuzw2/75wmisBpOyVExXNELOg1a2DK83hGhpY+e+bbWSlKy8ONV7nkbU
-         wnPLeBaXpr/cH8tXZnu8ucLDSB1a4eA4wx+XbLA0l50KCCWJhIqWplOeP1yLtR85cm5m
-         qIJpfpRW2tCfsZeekOlNzNxTaSew4H9SbIPyHL96CcrO9LzlqqxGTCQX1VU+gzjEqAOu
-         dm0PbsqMNKnkXuDCLTG3FglQn/ayl7dC/kgqQgX0vLPdRuHnKW2SrPxYUIM+5evgjpfK
-         ELhqQXifp7pJiBq4oHHalT22w09eYrXMtxYTPigbeM+pht4BLZLuxzoEMS3cuZNpc6Hb
-         ZeTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=YtzrsiYRAYlK8UNdUBau7Z8+kGG0uMSS1m3uavQxSD0=;
-        fh=I3TB3V1/dNeJMRgd0ro0+wvFFfAidBb613gEQ/o9zO4=;
-        b=L0YHHJvC6pN3L1krH1DXUYUGEmNW6ue9Awzxd3fLN2vYL+mo+1i8PJV7eL5ZoZR81k
-         5HodZX+pCnLlNlZRUdEYBbgXkRqWZ3nufQk2Dq0yRIavAX3nw4IAD/G5SlQyE0Rt+GEm
-         ob4EVVM12ANnInscHnt+Wn0f6/TxhfXHWrXYFe5dxCGGU9ELgtGgL2fmcWzb6uHsUuKz
-         CBvTSJRcU9IkW3IJv5U2Hftaq/3Dpn+JeOPeEw3tMXAr/aswsueNKVKdGMI3yEvsvYtv
-         SMMgTC2cSZyf0I9r5Xe1HjqaL3TeSpexEu7/Fl7DKfjP3TTBc9iaG7zgMOC5SU/qPEvh
-         cg0Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=GSMVwhZH
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so665375f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:22:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795191721; x=1795796521; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YtzrsiYRAYlK8UNdUBau7Z8+kGG0uMSS1m3uavQxSD0=;
-        b=aex6oEvRzAxw4HzRaklw73dDMOY06aOg+9SBepRSyzMcrrmgGcXFavi/R2j0S+xSdb
-         VaOrkNXcZ1rldGWC6MzAr/a3PfZtW2JHeT5/HlQvY0pATCCUAgDgHBBowjmaBM6eO7qb
-         g4nnq/gFLl3J+TPtqakBH4d+QDQgPaK1wmlhZe75bkCZTIvmCSUwgrLkyCgZEmYb0b5G
-         NRuoELiZDNAOwq3YeZbgS8uD5Ns4Cg5b9QqBRD2wggzjUTiwQXBICcUgG6WbpF6BE5sZ
-         WljjTpnyaNX55o1TPDx4z8xuJnXRWDtfZnhwIgeKpeIib81zuGRGd5mre5TfUqZob4cG
-         I1tA==
+        d=baylibre.com; s=google; t=1795191721; x=1795796521; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
+        b=GSMVwhZH/ueBlJaQiJ5tBFKzOag7BCR5BhXV1vjJ6yXySEI0mT2VMeFtR8YLI3QObp
+         l+9xoHrKeIBmt2kbouQcLmWeYtsw1SAQsvk19IVm1GoRn/dd5U/zC3gpB7SsC82DLkMC
+         1PxNoFLz19cCa9xeO6jQ1x7QwuiDjsSlO2ve/tZs/untp7QF97TlsVV0fEDCtGEfppcN
+         kyTRRyJYJMxJzqyhtxryQTDEnVcltPPWcx/qW5dbw8GLPGUI+zwUL6SyrZNl/H/CXbIh
+         DN4P0fC06cQ3rv1oqcphHJY9Or07QdoJ0BJ3bnq6/b+HufHJMelC+YFHl3KH9tbwoTMF
+         pdTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795191721; x=1795796521;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=YtzrsiYRAYlK8UNdUBau7Z8+kGG0uMSS1m3uavQxSD0=;
-        b=t4/sppCfEuJt9VOJyuiF0596GgCOTXZOS2mUj7pw6EjIoGXQSEHKaUWd6eEyxQlJDI
-         rbgNPxYrPGsqrF0akGRVg/aHc8lP3RVdQcWwcbRFmH1yBEXayHeEDogQWyFohzi/14Rd
-         qngdtWjZ8TTPYRXSpj5Dmgehx7FP9YxVthTZcTTRNZWFj8SSqRt/2EcEF7jeHgw1YleQ
-         LIhea26+w9171CWztR2hoQp3lVgdTodoZR7OzQDr0Yv9UUk7m30QxgvwlDwW32FnBsHL
-         BeyA+4uKZAD3duH5R4xk7+1/SEUgHl5Vln+i6wyqGfsLJIYzQkp9pvDqO4/nj/a+1wmW
-         F1PA==
-X-Forwarded-Encrypted: i=1; AL+hErFDDidmH2K8Kc1feUlHy3wLGiFHO02o1DDnIvFY3mtbVFP0Wgh9fuLeOUOQbwa9xqIhWWla4TtoU0dIXWI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/VsKWZZZMi154rsdJwIFx2CTkJs9nBs8orpFjstDn5R40P3GPX
-	xwa9Jhm+obg7Astfb4suMN/mHtuuODWXS0dtYS8UL7Imot0cyjaWf+mFCyhRozScO52r0ZU1TW4
-	D7+sbqZs01PWFivBrSQB1TrJ6JCYkkB8=
-X-Gm-Gg: AYBFou3A8VrIZLFZa4zY2jq9bwFF5fwmHK8RivpAr6gBmRh7APTjoscsl/hPKYrJB7R
-	OBoPZ3YDsuh7UA8+cLoUmiy7FMTvXe2LzMvx6IbOCk11vhUXOesSKFieXIv/5m7ClSDirQC8F4o
-	LyFkCu+7x/ji6r63A5ZzjULexVgTrnYXC2263hgbrfdTGY2UHJYJ6/D99qLERM/nl/yzVxlR0R5
-	HXrTBQL3xFfpl9DCNL/aobTAP5kZv5dleQyfgANWJ+z5wILM6nbjnAKljSh/fIdm6pDkuSUEDul
-	9+OvxDE41k66kRYSp/FoJsy7s3gOP/gUXkatbQnlUI1QZmOhuPbMJ7o8jh3PNYo+C9YxZ3ETL6i
-	SaGpfOAJTmNA3o9jzYnLI8qlCKV2MZKZV87a4M/DDeDIqXxYWxOpV5ehCko7VWCh+CtBfekaYMC
-	t4/KDiWtjvQ30FmhjvyqINtph2enpVIfWh3WJlz5wXBxnbm7E2nHPh
-X-Received: by 2002:a05:6808:13d3:b0:531:7f68:842e with SMTP id
- 5614622812f47-57a06d1a865mr4088651b6e.8.1795191720553; Fri, 20 Nov 2026
- 08:22:00 -0800 (PST)
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=McN17chfwr/LQozF6dFVi78SiwnCLQfwPyBkDcQsbSc=;
+        b=uHjgw/syVxmfCtu/a9CdoFnM3UyWn+q5b881bhqCtENTQjZlINM2Zg1MyrcGlMAbRE
+         Iz97mhhbc0721LamBIHep/k/VQJVLpQ0NE+ZUMGQbtE87HrOyvo2218luxn1Nz8dJLQB
+         +kwqP3pEEpXPnCpoBjgp6G2XruUzUx+4yeyyXr4JarKVyBfQBccZnPo5iGyKpRfJST8Z
+         k4UyfZPC4rX8Wd8ZxNFsyDDrb0na8gNMQCQzzIM2wWSVfFrSt9r+bV3JITFvrKMYdjm9
+         9TdNhlpGJrpRDlcPyWg8j+qk2MCj022b9lrh/vGOyab4i3U0LdGKAfaJmdbf/5TO3rkF
+         31gg==
+X-Forwarded-Encrypted: i=1; AL+hErERgfZYn3L1Jj54NLMAzy3aFmGLmqv7Cy/2yxa+6b/ZmA6e/7zpvLj02TIjSQ79pluBOW2RAMRr9kteyJM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9l1F9H0KZqr1739EJc0ArC4nYFVrIEFXJHtKtNnEpk0VjdlKV+
+	txlgcuqNwfdH+x5dFBO1p+lH63jrvGSnX5XoXDHINx8nw2SPBoyKV/KwWc+OB8N6RaA=
+X-Gm-Gg: AYBFou0RnC88PVGw/ba+0kaT2oTDUgem9+4scjnu9kD9p0LRp8feYS5fb+CB86mEtln
+	mWVj9NoCt7q/Iji/GpXum3UBGE7MRsM3yk4Bjw5RX5kR7YZZeozIF72Byq9kj4vt3bjs1zAnDFE
+	HngS1CoXyJ78VZFjdeSYN5FoLXD0dfiPAAkrO/lT2/ggzIOETnvfa2kfNh+Y0FLNG4v5nvKBJgy
+	Fl+W1CjGtnFkZQ2nbAho4di7lTK5fLHmogxi+zqS4FvwvbzitFQ5roAXHgNc3zCJ7FVz7LotPz2
+	B2UfkWbsHcvv+D/MJaAZOA2ekYk7uqJOOd9ZlPwz0hL8s0c/LjgGUKbcfp/tbI/OH0KwJmGp5q7
+	IqBsMWlZ7l8xDoa+dN8E9mzhyH7OwJZgDTfv1syAFIuY+GZxlyKFPEbbdWxQzMnayrsFSMqn0eM
+	IDjAUfebY4LCrnB+lTk4o8m0g6YAVAIjl8O50fjcX8/IaVWb4pLC91nesqPIQPNxvzwmzW8LhPK
+	DlkcIc17KnGQP/NDk/wMXaAysrINFGpKa26OfaoOg4vSVPlKOw5VPcPlI5KCbsgqv0J0gU1PCNI
+	tz2hfypflEckwDIuorwuZNDQ6y2hwitXSGXnJJ0Aw69CVSMF
+X-Received: by 2002:a05:600c:3e1a:b0:4bb:6814:7391 with SMTP id 5b1f17b1804b1-4bb8881921cmr77585875e9.25.1795191721065;
+        Fri, 20 Nov 2026 08:22:01 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853ca452sm129338075e9.15.2026.11.20.08.22.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 08:22:00 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,21 +89,75 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112135839.6451-1-dennylin0707@gmail.com>
-In-Reply-To: <20261112135839.6451-1-dennylin0707@gmail.com>
-From: Hungyu Lin <dennylin0707@gmail.com>
-Date: Fri, 20 Nov 2026 08:21:49 -0800
-X-Gm-Features: Aa3M54rLCY5Ln1-BqmNVhIEKYaX4QPZ4mKm2voTzZa-x93WPoRkSXTUCtcqgWss
-Message-ID: <CAGEkeHcvJnuSFhsUkKMFMQNsA=Q4-Zq3G6XmDwtca0VcK7zi0Q@mail.gmail.com>
-Subject: Re: [PATCH v2] ubifs: account for short copies in ubifs_write_end
-To: richard@nod.at
-Cc: chengzhihao1@huawei.com, lin.nan@h3c.com, linux-mtd@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v12 00/10] clk: nuvoton: ma35d1: Fix mux parenting and
+ peripheral clock rates
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Richard Cochran <richardcochran@gmail.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Steam Lin <STLin2@winbond.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, stable@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <20261118-perso-ma35d1-upstream-clk-v12-0-bee2c8dad4e1@bootlin.com>
+References: <20261118-perso-ma35d1-upstream-clk-v12-0-bee2c8dad4e1@bootlin.com>
+Date: Fri, 20 Nov 2026 17:21:57 +0100
+Message-Id: <179519171774.3795820.6006858658982158181.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1505; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=da1CAgmUNSJ5Vw/XW6Lz4OSgqJ+yn+Z+QoMk5bui0gM=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDNkMxctdWw95f775+kf6Kd3uhXaOSe5//1wwaWVeY9QYX
+ yM9mbu/o5SFQYyLQVZMkaWGu1r8naTWl1nTdW7DzGFlAhnCwMUpABOxMGf4nyRy6+VEnRlFq7fI
+ GagKJv1//7Hkw7/YmsPPe/Y99eOVz2NkuJ8445EhV1vDy2cFLl7ntuvVZT55xxi3U6SLM/uNTEA
+ fBwA=
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-Hi Richard,
+> I am in possession of an MA35D1 NuMaker board. The SPI controller has
+> been contributed, but at this stage it does not work with the current
+> clock driver.
+> 
+> The clock controller registers its muxes with .fw_name parent data,
+> which requires every internal clock name to be declared in the DT. As
+> the DT does not declare them, all parent lookups fail: muxes end up
+> registered as root clocks and most peripherals read a zero rate.
+> 
+> This conversion exposed a first issue with the WDT/WWDT parents which
+> were actually missing in the clock driver. I am not using these clocks
+> myself but it is worth fixing.
+> 
+> The second round of reviews raised another problem with the
+> crystals. HXT and LXT are external crystal oscillators wired on the
+> board, while HIRC and LIRC are on-chip RC oscillators. HXT was described
+> whereas LXT was not. The series now also takes the two crystal inputs
+> from the DT: they get documented in the bindings, described in the
+> boards and looked up by the driver (with a fallback for backward
+> compatibility).
+> 
+> Finally, I was still unsatisfied by the clock tree because there were
+> too many root clocks. Many "gates" were wrongly set aside from the
+> downstream clocks they would gate, and SYSPLL was simply not parented at
+> all (?).
+> 
+> The clock tree now looks much more accurate.
+> 
+> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-Just following up on this patch.
+Looks good overall. just 2 tiny nitpick and we are good.
 
-Thanks,
-Hungyu
+-- 
+Jerome
+
