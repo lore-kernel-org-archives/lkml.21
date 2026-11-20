@@ -1,104 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795188856;
-	b=QurT1bb9oxGgu7pUavAzJ3Xvc9D11L/jqVFR3vyg9UE3ReC+hx8yDFvIHN0tHfn3k0uS
-	 5+bBgD6oXUULe62iEqp4yczoY3AgLpJQ+00ow9zZs8A6/4yVSgQNrMmWboUIyai36zHex
-	 rDKyR4/yywPxL1JktOq10EFB+oR6DNti8GbvIpY4gPaKtahs27MqPG25pICxadW1M0vsN
-	 2dy2RqgAhmTKENsBXU05OMDMspDwocwbwahYuXVmHrq7hAuAwNI2lzbI5BPbL5hU4N4Tu
-	 9HwRRw4jMCkpm2aYDtQi254tvFxvhyM+a5L4VnSaTmWT9TN32olJYfrIyt4/AkjqlTA==
+	t=1795188904;
+	b=WyBeqvH/sdqXnIFm8Ise8+zUoT4eu+wFXNQ+VToSC0BpDicbQmDpzfGT5z7J2tteYJcX
+	 7nYRxIBVWN/mvm4PsWgUeRPKpgfOfWcMSvb/dwGTZQzjLYlmP91ExC1m0/kMg50OBvaKS
+	 QNOd2qULeq+U7IYeVtBhrah+zRjjslWelEHT7S2GaVUUGbqruld++IzwmjUbAkuKZrZL5
+	 cW2SSu9uY90HnK/IrTbJ/zrSCQJXQykM/GPZ/qwRsyYyWlnYiKdjrYQpK5EpjlPgSgHSv
+	 Lq0g/upbHavUO+A/a+8eKoJ0786MPD/So/64qwtqeFymxpygNMsakT+h9ssezKWKS8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795188856;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Rspamd-Queue-Id:
-	 X-Spam-Level:X-Rspamd-Server:X-Rspamd-Action:X-Spam-Flag:
-	 X-Spamd-Result:X-Spam-Score;
-	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
-	b=f47BsCcN7QcvmIm9I2J0E/87N/h8EFMF08VN28CTJtxmoilQqH2reZskU47aqatWdvP/
-	 0Pnz/NicPS1eaE5mvEj9SGm0xr9Z46tXYeEMuBTbmXW+TN4HOSaqxV0FyJFGhZDr48XGU
-	 rmTsDd8qybz+Iw8VjX373yCp+1xO/+On8WmpCQY11jZAzL8sMdd3URNk2QfzK/sO0IjxY
-	 P+joGBvmnyZ/jzBOTj2SOtdTbCdJrY2I+HfFwNUj3YTKogTMDlGxsRY4TeCAc9YDzrg3u
-	 DBFk30VcGfrY68GG3NSbVO/tgCkRum4zlFDg2cHwK1PzLEhx2ncz7g5exHcR+YvB42g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795188904;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=JSOR2zLnD451En4fHV4lWcfu2c4ywdgSX1FC2ITuFNY=;
+	b=Tcw4y5K2Yghz8eNQee5ukfPlzWFvLGw6FvmUIQrwZkYsHT7dUkOcc5KSPQ/OOrfXV/3O
+	 c/wjvxB6nQu2qy2c7PvVsqooBjxBBn8Jg1ySVT5y72mAifyrFPKYNlsQ0ZfL/fYzsFM1+
+	 mss6tF9O+xqJS1zRtMS8maQjXqEf78rR0FD46kQ08gYGt97cDeYE0d2/aBg+2nFuWfn2R
+	 uM2UDoZFmlHl60i7nl2A2h01mucvbm+XTBROWxn00kPSy74OdbYkEQfsCFN/b/Prg4q7E
+	 +HK3AoKTT3y8UwUXazSmf7nWgUBBWEhGFQaOykuljw+fX6h3E4uQ6fzUUXtMQ6w5OMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.de;
-	spf=pass smtp.mailfrom=suse.de;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LSgGPf0o;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A565606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:34:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A565606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E4A1606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:35:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
-	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL;
-	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=cTZzMcRF;
-	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=PLcYMHfL
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 4EA162242E;
-	Fri, 20 Nov 2026 15:34:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795188853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
-	b=cTZzMcRF3HVSh8PsR4SB+nBNdE/2C8ati1TTGhtnO4IGcXxmv8lHHqpwtSa1D+YMLIaknj
-	Ew3guMf5N0s1IrAZJ2jZIb4rwxzy/w4rVbzfFjEqB3IEg5we9+ekkGuKKwFB5BTVHyY4jJ
-	HbUQYYDwpPrpi5MnC3n07uFkaZ0QgDY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795188853;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
-	b=PLcYMHfLZ2XeiqdVYa3RGPW/8lAfPcjKCenqfQOity0rP+CDWMh1nNXpzKFBw1LL57qpto
-	tdQLiOT0vrSdeGBg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=cTZzMcRF;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=PLcYMHfL
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1795188853; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
-	b=cTZzMcRF3HVSh8PsR4SB+nBNdE/2C8ati1TTGhtnO4IGcXxmv8lHHqpwtSa1D+YMLIaknj
-	Ew3guMf5N0s1IrAZJ2jZIb4rwxzy/w4rVbzfFjEqB3IEg5we9+ekkGuKKwFB5BTVHyY4jJ
-	HbUQYYDwpPrpi5MnC3n07uFkaZ0QgDY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1795188853;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=z3K5ryV7ikhNBVmvjW84RMP6hfG7ArI+KX4vGUM0+tw=;
-	b=PLcYMHfLZ2XeiqdVYa3RGPW/8lAfPcjKCenqfQOity0rP+CDWMh1nNXpzKFBw1LL57qpto
-	tdQLiOT0vrSdeGBg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E264E1348F;
-	Fri, 20 Nov 2026 15:34:12 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id sOZyJHRoAGvdbwAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Fri, 20 Nov 2026 15:34:12 +0000
-Message-ID: <c93a89cd-2af3-485f-9549-c288fe327c42@suse.de>
-Date: Fri, 20 Nov 2026 16:34:12 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LSgGPf0o
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88D0C1F000D1;
+	Fri, 20 Nov 2026 15:35:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795188903;
+	bh=JSOR2zLnD451En4fHV4lWcfu2c4ywdgSX1FC2ITuFNY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LSgGPf0oTWQ3yv9VLQ7g2jN3JT+q2sdZtsvBnJLmRxUh241Xp9mrIjyvuzOMaZdDD
+	 OM+PWA6RoqjwUMtwqGcXnh8Hf9rVmwx3dxJlV8k3aTLAFc0cNDj/lBXBYAhF8NQd/g
+	 dvOP7DcyoMKoCwYN5JoLPR2OD5POi7eCEVtH38ypYNpxFgo4zt57yZ54P5Ig8H+fu+
+	 RAw7hL9YjZM3rKgJSLX4GokUtphYJG8AocHGVRd/S9Fc+6P/7424YuaExsXQpJ2N7S
+	 IZ8ZWKRCiLP8XgDzw6hrJruNlM6UW6RSzjkNjlDqCp+FwNrl8W8MZmM3MMtodwO0UK
+	 FPXuLeYSwZv7g==
+Date: Fri, 20 Nov 2026 15:34:58 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Wandun Chen <chenwandun1@gmail.com>
+Cc: david@kernel.org, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
+	surenb@google.com, mhocko@suse.com, ziy@nvidia.com, matthew.brost@intel.com, 
+	joshua.hahnjy@gmail.com, byungchul@sk.com, gourry@gourry.net, 
+	ying.huang@linux.alibaba.com, apopple@nvidia.com
+Subject: Re: [PATCH 1/3] mm: factor out common softleaf offset PTE batch
+ scanning
+Message-ID: <awBnU0jVXCS2hj1S@gremlin>
+References: <20261120032949.2036731-1-chenwandun1@gmail.com>
+ <20261120032949.2036731-2-chenwandun1@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,170 +61,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/ast: Get VRAM size from PCI BAR0
-To: Jammy Huang <jammy_huang@aspeedtech.com>, Dave Airlie
- <airlied@redhat.com>, Jocelyn Falempe <jfalempe@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-References: <20261111-ast-vram-size-from-bar0-v1-1-dff97e2f8ccd@aspeedtech.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20261111-ast-vram-size-from-bar0-v1-1-dff97e2f8ccd@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4EA162242E
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.50 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	XM_UA_NO_VERSION(0.01)[];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[aspeedtech.com,redhat.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch];
-	MIME_TRACE(0.00)[0:+];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_TRACE(0.00)[suse.de:+];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim,suse.de:email]
-X-Spam-Score: -13.50
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120032949.2036731-2-chenwandun1@gmail.com>
 
-
-
-Am 11.11.26 um 07:16 schrieb Jammy Huang:
-> ast_get_vram_size() decodes the VRAM size from VGACRAA[1:0]. The size
-> of PCI BAR0, the framebuffer aperture, already reflects the VGA memory
-> size configured in hardware, so the separate register lookup is
-> redundant. Using the BAR size also guarantees that the VRAM mapping
-> never extends beyond the aperture that the device decodes.
+On Fri, Nov 20, 2026 at 11:29:47AM +0800, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
 >
-> Take the VRAM size from BAR0 and keep subtracting the reserved region
-> given by VGACR99[1:0].
+> Extract the consecutive-offset scan from swap_pte_batch() into
+> __softleaf_pte_batch() to prepare for migration PTE batching in a
+> subsequent patch.
 >
-> Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
-
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-
+> No functional change.
+>
+> Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 > ---
-> The ast driver currently determines the VRAM size by decoding
-> VGACRAA[1:0]. Since the size of PCI BAR0 already reflects the VGA
-> memory size configured in hardware, use it directly and drop the
-> register lookup. The reserved region reported in VGACR99[1:0] is still
-> subtracted from the result.
-> ---
->   drivers/gpu/drm/ast/ast_mm.c | 27 +++++----------------------
->   1 file changed, 5 insertions(+), 22 deletions(-)
+>  mm/internal.h | 22 ++++++++++++++--------
+>  1 file changed, 14 insertions(+), 8 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/ast/ast_mm.c b/drivers/gpu/drm/ast/ast_mm.c
-> index 0bc14031946..6ef686cca5b 100644
-> --- a/drivers/gpu/drm/ast/ast_mm.c
-> +++ b/drivers/gpu/drm/ast/ast_mm.c
-> @@ -33,26 +33,10 @@
->   
->   #include "ast_drv.h"
->   
-> -static u32 ast_get_vram_size(struct ast_device *ast)
-> +static resource_size_t ast_get_vram_size(struct ast_device *ast, resource_size_t bar_size)
->   {
-> -	u32 vram_size;
-> -	u8 vgacr99, vgacraa;
+> diff --git a/mm/internal.h b/mm/internal.h
+> index 3a1643afedc0..9f78c12882cb 100644
+> --- a/mm/internal.h
+> +++ b/mm/internal.h
+> @@ -512,29 +512,26 @@ static inline pte_t pte_next_swp_offset(pte_t pte)
+>  }
+>
+>  /**
+> - * swap_pte_batch - detect a PTE batch for a set of contiguous swap entries
+> + * __softleaf_pte_batch - detect a PTE batch for contiguous softleaf entries
+>   * @start_ptep: Page table pointer for the first entry.
+>   * @max_nr: The maximum number of table entries to consider.
+>   * @pte: Page table entry for the first entry.
+>   *
+> - * Detect a batch of contiguous swap entries: consecutive (non-present) PTEs
+> - * containing swap entries all with consecutive offsets and targeting the same
+> - * swap type, all with matching swp pte bits.
+> + * Detect a batch of contiguous swap or migration entries: consecutive
+
+You mean softleaf entries?
+
+> + * (non-present) PTEs with consecutive offsets/PFNs and the same entry type,
+> + * all with matching swp pte bits.
+
+Maybe 'softleaf bits'? Ah I wish I finished the softleaf conversion properly :P
+
+>   *
+>   * max_nr must be at least one and must be limited by the caller so scanning
+>   * cannot exceed a single page table.
+>   *
+>   * Return: the number of table entries in the batch.
+>   */
+> -static inline int swap_pte_batch(pte_t *start_ptep, int max_nr, pte_t pte)
+> +static inline int __softleaf_pte_batch(pte_t *start_ptep, int max_nr, pte_t pte)
+>  {
+>  	pte_t expected_pte = pte_next_swp_offset(pte);
+>  	const pte_t *end_ptep = start_ptep + max_nr;
+>  	pte_t *ptep = start_ptep + 1;
+>
+> -	VM_WARN_ON(max_nr < 1);
+> -	VM_WARN_ON(!softleaf_is_swap(softleaf_from_pte(pte)));
 > -
-> -	vgacraa = ast_get_index_reg(ast, AST_IO_VGACRI, 0xaa);
-> -	switch (vgacraa & AST_IO_VGACRAA_VGAMEM_SIZE_MASK) {
-> -	case 0:
-> -		vram_size = SZ_8M;
-> -		break;
-> -	case 1:
-> -		vram_size = SZ_16M;
-> -		break;
-> -	case 2:
-> -		vram_size = SZ_32M;
-> -		break;
-> -	case 3:
-> -		vram_size = SZ_64M;
-> -		break;
-> -	}
-> +	resource_size_t vram_size = bar_size;
-> +	u8 vgacr99;
->   
->   	vgacr99 = ast_get_index_reg(ast, AST_IO_VGACRI, 0x99);
->   	switch (vgacr99 & AST_IO_VGACR99_VGAMEM_RSRV_MASK) {
-> @@ -74,8 +58,7 @@ int ast_mm_init(struct ast_device *ast)
->   {
->   	struct drm_device *dev = &ast->base;
->   	struct pci_dev *pdev = to_pci_dev(dev->dev);
-> -	resource_size_t base, size;
-> -	u32 vram_size;
-> +	resource_size_t base, size, vram_size;
->   
->   	base = pci_resource_start(pdev, 0);
->   	size = pci_resource_len(pdev, 0);
-> @@ -84,7 +67,7 @@ int ast_mm_init(struct ast_device *ast)
->   	devm_arch_io_reserve_memtype_wc(dev->dev, base, size);
->   	devm_arch_phys_wc_add(dev->dev, base, size);
->   
-> -	vram_size = ast_get_vram_size(ast);
-> +	vram_size = ast_get_vram_size(ast, size);
->   
->   	ast->vram = devm_ioremap_wc(dev->dev, base, vram_size);
->   	if (!ast->vram)
+>  	while (ptep < end_ptep) {
+>  		pte = ptep_get(ptep);
 >
-> ---
-> base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-> change-id: 20261111-ast-vram-size-from-bar0-13819df1df24
+> @@ -546,6 +543,15 @@ static inline int swap_pte_batch(pte_t *start_ptep, int max_nr, pte_t pte)
 >
-> Best regards,
+>  	return ptep - start_ptep;
+>  }
+> +
+> +static inline int swap_pte_batch(pte_t *start_ptep, int max_nr, pte_t pte)
+> +{
+> +	VM_WARN_ON(max_nr < 1);
 
--- 
+I wonder if max_nr should be nr. Or is it a maximum range to examine I guess?
+
+> +	VM_WARN_ON(!softleaf_is_swap(softleaf_from_pte(pte)));
+
+Since you're getting a softleaf_t here...
+
+> +
+> +	return __softleaf_pte_batch(start_ptep, max_nr, pte);
+
+...Does the batching need the full PTE or can you just pass the entry?
+
+> +}
+> +
+>  #endif /* CONFIG_MMU */
+>
+>  void __acct_reclaim_writeback(pg_data_t *pgdat, struct folio *folio,
+> --
+> 2.43.0
+>
+
 --
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Stefan Gaiser, Jochen Jaser, Abhinav Puri, (HRB 36809, AG Nürnberg)
-
-
+Cheers, Lorenzo
