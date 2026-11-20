@@ -1,68 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795176178;
-	b=HIl8fYKmduArC7mqSo8K9R18jZVThaYZ+ILVV9uM5FWJNQCLdnp1w70Lte3HGtGDh0Kk
-	 tB4lzIiOEr2wZfUd8q4kY7Z/WO/G2Z+JIscyeEPnI3b8pCQpv51Q+B0rGSxaW8NKKo5WK
-	 xUhEucn6bYy3Z+hPbwwTY6/vGEppplqcHfG43YUcUfI8qFQ0DHY+pDMPeUoQEIiH1mxh2
-	 k1AFo1Eo0ZHR3iD09g9HGzOg4JBQJBvIt9uwNoyu5Kbh60Gn+GFOzP06LWN0H0b9pVO+c
-	 /t/iQBdXYRsnE6valA4NH9gKB/Pko4ute4JD/01caVoB5IjiqePd/XWeEER/yKRKiBg==
+	t=1795176197;
+	b=HxC+UqBwMJKTaRxMtuZlyGKP3OJCId02lcktpykH44GRG+hlxYS3lqCD3Y3dP48qpjwD
+	 yVxIEtRdH+vswt1vuznhrBoUR8ZvzQJf1uN5yUC8nRpzkLtlHL+WUQZ6YypiBcYPSqEKv
+	 dgDgwU7MPsFtWm3SxGX7dluoG5oIWAe1d2rFVtoyf+WVbj0PPTU5TnMhcmwU0zW1nnlHb
+	 wSBDPa+NWutyk5rz9SBqQffeCPmwXIWa++3+QQwdFCbKAiFgCWM6ODC8z61yJ+cJ0spNS
+	 uuNzUk9YMxwPWbl5Z8Sg8gMBRzg5C6C9Bwz5gBj+ET6RYqdfM31R2bBFfowbY247Xng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795176178;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
-	bh=a5J72X3HPA+7mSwk7L/JqiNlhfSlr+OpvNLs81RwtBM=;
-	b=Chj4l2DHKlrYkzRKQOBK7yvpYFph8s2upm7q4YNIcy2FvhRgBopHW/Vhw2Jqc/Qbdy2D
-	 WtvtuS+yKtzXSMGE24bzYTBpjnqax3PmqdDhWiafHs/LlvXlVmF/yv5J6vNrugqIpZtdL
-	 Y4YpbF6EhTfwADY9XqNXhXFPFw3A1okhlUNu+IN93sce7Zlxg8LvYFSXPA5DOB4kKgstV
-	 anWrsUpciMIP8weVftJeddYAs+rYk9Gw2C0qXCT8vBFHjPM07PyB6OyX89xYrIY1rAUct
-	 kxhfy/OlJd5QUrWjBc3xG7II9FRj5d+mzuiFZ+TjjRJv7o9LKoLJFOPaQRqSxPomWTg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795176197;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:
+	 Organization:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=NdHy/rwYUEq++mkyLWvRUCOO+WKgIjcITiwS2xyhgio=;
+	b=fOrMxForojenDdlwlHnyqeY5ac+dn5CkuT9ROS3ke3XEsLLj6LtMgQ4La7aNm2p7tLSO
+	 sxikeEOkz+iK9U3uRuiNflkSWrwPrkkbkOuX9UiZQJZ7RnOdX8kURfTIR4djAut9eqU+Y
+	 oSACo8Bv0FUgfaDxVlq78dkogYfW2tYjXYx39DKmi361Bb5ApImxzS4auzzpoXDrCtshp
+	 Djk8KfvClSdp8R5tYH6rVr6SIjb/xXc1g+l4PONd8ASEBiKaGStGWtuVPtNh0FvP+wxfe
+	 Oiso3Dkp+3bRzSjR/5JkJbsJYktGd2JWmEgnhYApEkY5ss3di7rofZHwRXCn6w1qpNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mWKv2sBp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MzC0waTw;
+	arc=none smtp.remote-ip=192.198.163.13
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C109606A325;
-	Fri, 20 Nov 2026 12:02:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE9F9606A320;
+	Fri, 20 Nov 2026 12:03:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE9F9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mWKv2sBp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16EEF1F000C0;
-	Fri, 20 Nov 2026 12:02:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795176177;
-	bh=a5J72X3HPA+7mSwk7L/JqiNlhfSlr+OpvNLs81RwtBM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=mWKv2sBppmiUSdyRqTHoLy0JiF4sgo0VjISutNKO+L9E1A83mmNl7o4OwDh61EuPA
-	 pkCfeqgSsgrgpvW/wxbM5oLmX/qWpfSJ7NynQQUHRGPa3Q9jhYW57wuSAfo34EBEMH
-	 BFj7Y0k92tluEyBqvMQkOh67LrqF5B1Nf3Enowz7pr9aLKaU8TYe76sGIE0FQUN+YA
-	 qlAUT2yUVqmA2bJkml2+T686GxMFtvjN1hiizEyW3szH9eADb4nM1pUvd3H2vK1uNf
-	 xb5gzP2YsZBAP82sRRbl9wKGk0mrFqfR1C5SzEUC0tu7o6LCIY3d7PNaa30kWXRK5n
-	 Yd1rQsvYo08eQ==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: David Matlack <dmatlack@google.com>
-Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
-  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
- <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
-  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
- <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
- <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
- Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
- <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
- Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
-  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
- <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
-  Vlastimil Babka <vbabka@kernel.org>
-Subject: Re: [PATCH v4 10/19] mm/shmem_luo: Don't make early retrieve
- failures permanent
-In-Reply-To: <20261111002358.1842967-11-dmatlack@google.com> (David Matlack's
-	message of "Wed, 11 Nov 2026 00:23:48 +0000")
-References: <20261111002358.1842967-1-dmatlack@google.com>
-	<20261111002358.1842967-11-dmatlack@google.com>
-Date: Fri, 20 Nov 2026 12:02:51 +0000
-Message-ID: <2vxzy0an1zis.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=MzC0waTw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795176198; x=1826712198;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pRHMxUiP6iGLsO/OyWGbqEeX2MfXfIYhkJEzMCE5raI=;
+  b=MzC0waTwIRF4HKlj2bIhlklUJwZrWjo3ztSjoCN4A4uD0avpYLsYLgD9
+   c1Dg6OKidI+kPEqR68KIbG2YOiIUQjhFmsPWOHJwvi3A5lpcXTA4lM8Bt
+   pkixl9vWA/FxhqOBWgN2k+dfy6WojcuTavzyPLnbTey+AWvrOV8oN6OWv
+   UTHBE3fdiVYxVZmsLz/XB7ugpG+H6uOfKi89OTHHySZpk8a2RdL1V8gKq
+   I1gkewLWFqAbuZUe+LIWlSETy4LF/TT5O26naIgXRs/HovhciYBhN9snd
+   jIkbARnePZfXybPSstxlJGic33JYwvJtU+p5KVfp/F9CML0Yz27r0ds6D
+   A==;
+X-CSE-ConnectionGUID: mPKgkLaDQ3G+GYBqcgH15w==
+X-CSE-MsgGUID: mAL2u3EaQNilCao1V0VHFA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4040592"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4040592"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:02:16 -0800
+X-CSE-ConnectionGUID: 5CswuKtJT8aM+cIuX6Rg/w==
+X-CSE-MsgGUID: yVe4Xg9MSIyt73Afpgu5aA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="11024252"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.253])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:02:07 -0800
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 4D05C121B79;
+	Fri, 20 Nov 2026 14:02:06 +0200 (EET)
+Date: Fri, 20 Nov 2026 14:02:06 +0200
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+Cc: Israel Cepeda <israel.a.cepeda.lopez@intel.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: Re: [PATCH] i2c: usbio: check the return value of usbio_acquire()
+Message-ID: <awA2vjN8yD19R3Oj@kekkonen.localdomain>
+References: <20261116020850.10526-1-25031212351@stu.xidian.edu.cn>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,30 +88,82 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116020850.10526-1-25031212351@stu.xidian.edu.cn>
 
-On Wed, Nov 11 2026, David Matlack wrote:
+Hi YuanZhe,
 
-> Mark failures in shmem_luo_retrieve() before it starts restoring the
-> folios as retryable. If no retrieve succeeds, finish() frees the
-> preserved state, like it does for a file that was never retrieved.
->
-> Until the folios are restored, nothing has consumed the preserved state.
-> Leave it for another retrieve, which may succeed, e.g. if
-> memfd_alloc_file() failed with -ENOMEM.
->
-> The exception is a preserved file that this kernel can't restore, e.g.
-> because it has seals that this kernel doesn't support. Retrying can't
-> help, so keep that failure permanent, so that every later retrieve
-> returns the same error.
->
-> Signed-off-by: David Matlack <dmatlack@google.com>
-> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+On Mon, Nov 16, 2026 at 10:08:50AM +0800, YuanZhe Liu wrote:
+> usbio_i2c_xfer() ignores the return value of usbio_acquire() and always
+> calls usbio_release() on the way out.
+> 
+> usbio_acquire() returns -ENODEV once the USBIO bridge has been
+> disconnected: usbio_disconnect() sets client->bridge to NULL, and
+> usbio_acquire() then only drops client->mutex and returns without
+> taking usbio->bulk_mutex or the runtime PM reference of the USB device.
+> The transfer is nevertheless issued.  usbio_bulk_msg() dereferences the
+> NULL client->bridge in its packet size check and the kernel faults on
+> usbio->txbuf_len.  The matching usbio_release() then drops a runtime PM
+> reference that was never taken, which is reported as "Runtime PM usage
+> count underflow!", and unlocks a mutex that nobody holds.
 
-Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
+The patch seems fine but I think the commit message could be improved. The
+code is simply missing a check for errors, after all. The above paragraph
+could be just dropped.
 
-[...]
+> 
+> Propagate the error instead, so that a transfer racing with the
+> disconnect returns -ENODEV without touching the bridge.
+> 
+> A NULL pointer dereference in usbio_bulk_msg() was observed when the
+> bridge was unplugged while i2c-dev was reading from the adapter:
+> 
+>   usbio-bridge 1-1:1.0: Bulk out failed: -19
+>   usbio-bridge 1-1:1.0: Runtime PM usage count underflow!
+>   usb 1-1: USB disconnect, device number 3
+>   general protection fault, probably for non-canonical address
+>   KASAN: null-ptr-deref in range [0x0000000000000060-0x0000000000000067]
+>   RIP: 0010:usbio_bulk_msg+0xce/0x9f0
+>   Call Trace:
+>    usbio_i2c_init
+>    usbio_i2c_xfer
+>    __i2c_transfer
+>    i2cdev_read
+>    vfs_read
+
+While this may well be true, the bug being fixed is rather simple so I'd
+drop this as well.
+
+> 
+> Fixes: daf161343a39 ("i2c: Add Intel USBIO I2C driver")
+> Cc: stable@vger.kernel.org
+> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+> Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+> Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+> Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+> ---
+>  drivers/i2c/busses/i2c-usbio.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/i2c/busses/i2c-usbio.c b/drivers/i2c/busses/i2c-usbio.c
+> index 259754e5fd05..232397efe8a4 100644
+> --- a/drivers/i2c/busses/i2c-usbio.c
+> +++ b/drivers/i2c/busses/i2c-usbio.c
+> @@ -178,7 +178,9 @@ static int usbio_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int nu
+>  	struct usbio_i2c *i2c = i2c_get_adapdata(adap);
+>  	int ret;
+>  
+> -	usbio_acquire(i2c->adev);
+> +	ret = usbio_acquire(i2c->adev);
+> +	if (ret)
+> +		return ret;
+>  
+>  	ret = usbio_i2c_init(adap, msgs);
+>  	if (ret)
 
 -- 
 Regards,
-Pratyush Yadav
+
+Sakari Ailus
