@@ -1,76 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795208730;
-	b=ZC+/51V5EbXfCGjVSQOFOiPDMmCstPPOVS23Sl1A2ARn2e64xu4Ue1ZVdM6IyrVkFsIr
-	 DOe/aOU7UyXWiBnTDnHspu33ZOKXF4qerJfTmmJE8fpo29/KCCfCmSDct2Ye85LBYBh7p
-	 2IqOo58b3kQRaabyO8BPdyYC/4lCo+Qpg0CgHAP2Pn8QME7ha2CV8y4sAsiuJBkTGFm7W
-	 iYbm+jsdLZvdcmnpVfklaACRT5pd60kW8ENOZnW20JvWyL4M/qG28QiK3zIPXJJ0yr4p9
-	 8FouOepoNCs91pydkznzdeohjJy8YWgM2PRdddX1VNkQ9HbRpOP9ih3BcgLUuxpePwg==
+	t=1795208755;
+	b=DU6zfTY02UbcGxM1VZwYcQ6iA2ArIMjTk+CixM58Vb10IUV2/xbd9OwPo88GDgwYl4cu
+	 qYeHF4KotVsYbtiAusyCEce7YB/ajdKW8S1DPfVZHcxgFuhKasmV4bBK/w4J4cF8oiseU
+	 /BWGnBzbBMB02SBj9dY8o+AYPR9UWDcZSuvhIRbhzpAEqBjKaFwWkwcV9WCI5wAzab3Co
+	 /t9qdk8wcdJmSvPqsrYFDE+URM6KeerWWKkHxanPb2hur4psSrDGXKgkVu6mJzzjBQR88
+	 l8sa6yQtEV1Y7MWBdt+me36rlag7gURFSjuwTVYbXMdGREcd7hS9YH5o5tmCaXYy2xw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795208730;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=Px6BMWcRK1Clgltu4ZRseAf7V7rdDjsA6IY7TVrirZM=;
-	b=gHd44eE4lf0BJ+gUWa/FUE3PdnEXcfBohm8LkWH4aKZLzzxMQF3jGHG8Cxkub+W3Hk6P
-	 ysgrm8bj2cj/UrZFBu7mpo8jVpyeIwCSTK83c6d2zYszsUGkMYxSePzv4w/HmQ6/v4UPY
-	 DuYPlncXRHFLFycY6wmrmkmJyYPI5G0E49gqEMtpl2vFD/WCG0Wlop+/FsopZW4HfBLO3
-	 2mJlvNOX22MfHaabUiyAQ39eApaIS2J4HH6Go2SqJkTOBpuxHf+Vob5+kUKFi+2mToB6p
-	 nF/UufXPtI+f16jlyivdeKQXKtJBBQTZdS6Oxd6/wGAtl7mvE8thIYcaukQfnCjSvlw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795208755;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Content-Type:Content-Transfer-Encoding:MIME-Version:From:To:
+	 Cc:Subject:In-reply-to:References:Date:Message-id:Reply-To;
+	bh=+AeyA3GsW+h7Ndjan9SGTE5mSdI5m/ehyckQjoYmd3s=;
+	b=bcCO3CIbhizQ9RKuA5inc3W+eDI89CUqOACqEvjCHKKCUR1rgnZWSshCVJyCs2M6/hEU
+	 uF7siE+cNnn94w8ngryyLOW3YL9uPHnhuYGF1Qtz6R+b+ei/msXiiJnrilTZe309wcVgn
+	 uqOaE2uM4SUB972aLeqr7XpeNZevlOEe/kjoY5p1nhF602EpfH/aJg7/DywozlTmaYDII
+	 PduIjyknxTQ/EBC0xijDwO0j6M6OiwrML4qodRcKHk7nl55VNsOhOvS8hGxV3lPNjzDvN
+	 u8uIaf1mhz1TeMwTUHKqD1/+Kn3SqytLlsb1AgoDqII2hvoe89XwmXKqF8vUIsckbag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=hwdPoHp3;
-	arc=none smtp.remote-ip=35.89.44.37
-Received: from omta38.uswest2.a.cloudfilter.net (omta38.uswest2.a.cloudfilter.net [35.89.44.37])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=ownmail.net;
+	spf=pass smtp.mailfrom=ownmail.net;
+	dkim=pass header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ItU3HCd3;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1N5h+fge;
+	arc=none smtp.remote-ip=202.12.124.155
+Received: from fhigh-b4-smtp.messagingengine.com (fhigh-b4-smtp.messagingengine.com [202.12.124.155])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40389606A694
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:05:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40389606A694
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47DA7606A6AC
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:05:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47DA7606A6AC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ownmail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ownmail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=hwdPoHp3
-Received: from eig-obgw-5003b.ext.cloudfilter.net ([10.0.29.155])
-	by cmsmtp with ESMTPS
-	id UUmCxnwa0VK9UUVnUxg3JA; Fri, 20 Nov 2026 21:05:28 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UVnUxO2NcSgq1UVnUxTNVp; Fri, 20 Nov 2026 21:05:28 +0000
-X-Authority-Analysis: v=2.4 cv=c8KrQQ9l c=1 sm=1 tr=0 ts=6b00b618
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=VwQbUJbxAAAA:8 a=_vYEYYEux4mHT_UWPW4A:9
- a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Px6BMWcRK1Clgltu4ZRseAf7V7rdDjsA6IY7TVrirZM=; b=hwdPoHp3icxZgn0okO+irZZR+C
-	tQv2JZ6XS8BtJL4DyS+bW/wmZZRvFkdlMg9zwR9Xgs+q/g8PqbR695s51hPXghneIWwnR2bXe/FEi
-	Jh5MT5bbFnNf0GbzvMsenGd3i950Q4mvy9Iz7fzku2IXFcUbuwE0feWYUsrTzJobXOU9bB0Q7bpHe
-	g2agX9Ms98q4N+8Xh42E3L8xxvOHGdSr4GR/LgnqeFPk/vPQHS4Am3SUUy1teYK4+hsjfztbT7Lxk
-	DFhFO/9/0orizsD86RgIVNL0C5xEwLC0WmecYTeRClvqhAeMWfcUZN3om4W0ZpquOhsGAbNVCum8j
-	PAULsSKw==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:39720 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUVnT-00000002BVV-3XUy;
-	Sat, 21 Nov 2026 02:35:27 +0530
-From: Guenter Roeck <linux@roeck-us.net>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] watchdog fixes for v7.4-rc4
-Date: Fri, 20 Nov 2026 13:05:27 -0800
-Message-ID: <20261120210527.799889-1-linux@roeck-us.net>
-X-Mailer: git-send-email 2.45.2
+	dkim=pass (2048-bit key, unprotected) header.d=ownmail.net header.i=@ownmail.net header.a=rsa-sha256 header.s=fm3 header.b=ItU3HCd3;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=1N5h+fge
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 6FDF87A03F7
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:05:52 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-07.internal (MEProxy); Fri, 20 Nov 2026 16:05:52 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ownmail.net; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to; s=fm3; t=
+	1795208752; x=1795295152; bh=+AeyA3GsW+h7Ndjan9SGTE5mSdI5m/ehyck
+	QjoYmd3s=; b=ItU3HCd3GW2o8ciOpMXoc4zKZASr9g7ZnRqmcMpl1O3zobbyBxo
+	LO5KPM82AyonygTEpzn9DUPRXvklVpNQ26qwoy3ysQhnS60IbD7zHzteu3v0JVBl
+	L6QNg2wvX7kKWe1KMsnrBciBgWqMpx6mRlmz31urANIKyXT//LPy2wOesOut+QC7
+	hgXVFayFTioAlTTZ/7GvLMlSwqsy/FJQ4YazZo8iSnLdK6qYMy5DeBUVv0XGVnIX
+	dHZvhMDRSdjM/t9zM5x9ZqLG5qeWFYG8EOTCPGclIUooaVEHeiA1/VyMPAglEssd
+	ZqRa+rfQf5Ue0/easMUM0hNfPCW7CATwCUg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795208752; x=
+	1795295152; bh=+AeyA3GsW+h7Ndjan9SGTE5mSdI5m/ehyckQjoYmd3s=; b=1
+	N5h+fge8FbCLFr9EPwVHCV5XB05oV6yjQWaCcNDT696j2QnPcYhIeGvwxlnQ+K7y
+	zGxrOdc0RbBsUjDao7wXnsNQCy1W5pTDm6vkdj2TQa5N6wYez/KZpu/FyppGbbKn
+	a55PBHGAwQSb5CfUM5cEKeqZ4VH/iYu0t2vEgbw9EaKuRg46YMTgZb40BQtvlt8P
+	cDyIGaoYi9PRcyHOYxEoqqsXA7/XFlfCHzenHtu8OKl2YjphQGOusDviADNjMBvo
+	gNeuqGTladn61+KdGw6w9MsgBaGaIEVBQD6ozmRM0YVMeijtaLR7v0SUjZYG7pRG
+	XZDxb4vrcsctiO7CzvD2A==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=ownmail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795208752; d=ownmail.net;
+	mf=PG5laWxiQG93bm1haWwubmV0Pg==;
+	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:g0zp4AjRmM6aM9bUkSTYqktfklFGHLLL3ZVvsM0PkG3dxBk
+	aKkqnDH9d8FMpusBAcWBn5BN/6W5NrecZMPfjmcfIGUnnCgimn/v02h/INbO2lsp
+	STS1TyTHmFiWrOQgbRGPZ5f5s9zqAekPWprNDRhc+GBeFKX4/F68iZLIlh7ytnqI
+	W1CDVbvnBDCpr9LHejQwiC/ZFdxK6IfRVKrzMdZxK4xsmOsXL6t2iInVswfzV8be
+	cwN7tin5A5AGcnYcGsgfyAICYqInqNaS5uXXFNOG2FTkUOcjXMd86sPC3LF0mQnc
+	x43zHxWxQKocsC3m7LZhYePUP53WLZCb7VwRsbw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,reply-to,
+	subject,to;
+Message-Instance: m=1; h=sha256:kc+ZdO9xCqYVSELUX3OV+rxBr0WYZA9j8TNHyqicCHg=:lldsrvYHoAC4YRaV/tLPHosiYY8w3+V0trFYkvPhglI=;
+X-ME-Sender: <xms:L7YAa0bY9X1yeHA3vgXNPETUmu7WJt7DF8xMzI4IjPX37irHQl40Lg>
+    <xme:L7YAax_aN8mIJbKKoO7Xpmms97qn4Wn8o3xe9vDnZsFsNztfuagJJzJSB884PN1JY
+    qQ7u41GEd_O19ZZRHCLwaHp5nrCJ45I3srW94pvuKPIKTUqrRU>
+X-ME-Received: <xmr:L7YAaymOcVjBYXAsJdyr2W1XUhTrMyrLMqGdqOH7BHQL_KqnmeZc55g5XyvaBs76claPyYBsPE4GkLsGdDWvqEGv1HUmzEY>
+X-ME-Proxy-Cause: dmFkZTEb0dTkWXMqRbTXjMevlFhv0AxcVkQYTz2cYB8+Tzj+wlcOd4JFvhCwzdO+SAWZb+
+    YDW9CA7sDVc6HJ2QvDI12PxTeIssMiQZkuYBzGK+F1ZO7QpsEisp8P060TPsNYWxds+SN8
+    QttxlBHoYGLsrXqS2guJCfiSsvj0lIUXQVozPNkte8bYdRpEmIrdnGqDFHHxDk14RTgr7/
+    MlEKIVpYDEsCrfrOpxrCoHZnvGe2RQfGuRG8U4+YtYJYiVq3hUCZHepuwvCAxD7z1qe2qO
+    gYcx5YRfKav5biDoQYNPvLjvf0djL1gae914XD78DUvGXdx/mINLBUJ29xL3Un1w/KwjPQ
+    Ih3D8dARiLPluHIX8nR3/ZpN5sbaqS7CWds+xVX+/nZE2H/bddk8QhjRU7NaJNNuIGppkG
+    Vuc6EaMiWFECYX0ESl+IPN4hxzO7ZwiulJiEP4G/IrCzOEvuIjoypyNazMvR3vWVLwjpAw
+    o8pTT21SzSM6kLHyZRgeY3lh7c+wTjNSEgUWFjYNKM0Oy4Kg3RU0JifjuGd+lLLuZtbVKW
+    10Os7wfnH7JFB/zCv0kedQxIhWDogbtU44Rss2Sx9f0Ye0QLFtfiS9qF6H6CzK1FgPMrTO
+    yTm5T7pXHWLBoXIpkuvr1QMk8rfE3WDEt4cPMZg+vdDoURup0xbWS7CzYiJQ
+X-ME-Proxy: <xmx:L7YAa-wSa1fV45N3-iDtj4gcl-hRx5xSrY5ua4ge91ufY-EWwDsbMQ>
+    <xmx:L7YAa05GpwYyudD6P-IObG6PbgX16Q1CUh71JPUBD5alQ4gMitt4lA>
+    <xmx:L7YAa2W57KPdFze_WkJF06SbeciWNtoCaE7ociNOVB2sj5I_JjWYWQ>
+    <xmx:L7YAa0KqfsLb_IMIbTLWuoG3a7QaVU5ipJkZ3eH7dSNwhktWtfK1gA>
+    <xmx:MLYAazpucyEn037sLrolaqLLpvpjsk7O_ydD8W2Fy4WRf_8J1gy1Onaa>
+Feedback-ID: i9d664b8f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 20 Nov 2026 16:05:48 -0500 (EST)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,96 +118,182 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUVnT-00000002BVV-3XUy
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:39720
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 1
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfOudEE2QqF9hA8GVJBYOYDb4dze3V9r4lAAxT4c4uXE93bShcl2CLb3YTdmFe+F7Rc5f3uQsZMAyC/o4unvquUlMzacbJv5wE7m4IkxXd3bzPxXZwnyf
- jOOPY9GDjLQICukGObwSUcXa2gbJnqXCLp0pCeelS5i/XagATI53hWFUn4RHP2YxEEgb0l7lFW5oyIr3p3+6HGw+Fl5nY8Xl1r39Vkd3E5o70DHaKAQcm7OF
+From: NeilBrown <neilb@ownmail.net>
+To: "Amir Goldstein" <amir73il@gmail.com>
+Cc: "Alexander Viro" <viro@zeniv.linux.org.uk>,
+ "Christian Brauner" <brauner@kernel.org>, "Jan Kara" <jack@suse.cz>,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ "Ian Kent" <raven@themaw.net>, "Jake Edge" <jake@lwn.net>
+Subject: Re: [PATCH v5 1/5] VFS: don't count references through ->d_parent
+In-reply-to:
+ <CAOQ4uxgK7FL9WSEF4U3Ba=-tVyEBfe+2EFprSywS6W=guBSqsg@mail.gmail.com>
+References: <20261119025942.2848130-1-neilb@ownmail.net>
+  <20261119025942.2848130-2-neilb@ownmail.net>
+  <CAOQ4uxgK7FL9WSEF4U3Ba=-tVyEBfe+2EFprSywS6W=guBSqsg@mail.gmail.com>
+Date: Sat, 21 Nov 2026 08:05:45 +1100
+Message-id: <179520874523.1728055.4306587281979546862@noble.neil.brown.name>
+Reply-To: NeilBrown <neil@brown.name>
 
-Hi Linus,
+On Fri, 20 Nov 2026, Amir Goldstein wrote:
+> On Thu, Nov 19, 2026 at 4:00=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote:
+> >
+> > From: NeilBrown <neil@brown.name>
+> >
+> > The number of negative child dentries that a given dentry can have is
+> > effectively unbounded, so counting the references through ->d_parent can
+> > overflow ->d_lockref.count.
+> >
+> > We only use this count so that we can know when there are no remaining
+> > references including from children.  However most children appear on the
+> > ->d_children list and the few remaining children (inactive
+> > DCACHE_DENTRY_CURSORs) only exist in a context were a separate reference
+> > is held on the parent.
+> >
+> > So if we count whether d_children is nonempty (i.e.  dget() when it
+> > becomes non-empty, dput() when it comes empty) and require children not
+> > on ->d_children to have a reference on the parent some other way (which
+> > they already do), then ->d_lockref.count will not overflow and we can
+> > still know exactly when all references, including through ->d_parent,
+> > are gone.
+> >
+> > __d_move() allows that dentries might not be on any d_children list as
+> > is the case for IS_ROOT() dentries.  Rather than track when this is the
+> > case we dget() either parent if they have an empty d_children before
+> > children are moved around, then dput() if they turn out to be empty
+> > afterwards.  This will increment dentry if it IS_ROOT(), and then
+> > decrement it afterwards, and will decrement the refcount on old_parent
+> > if its ->d_children becomes empty.
+> >
+> > To help with this, dput_dlock() is added which warns rather than
+> > decrementing to zero (which should never happen).
+> >
+> > When a DCACHE_CURSOR dentry is added to d_children, it is only ever
+> > added "before" or "behind" an existing child, so it will never be the
+> > first child added, and so never needs to adjust the refcount on the
+> > parent.  If it remains on the list until dput() it could be the last
+> > child to be removed, in which case normal handling applies in
+> > dentry_unlist() (where it has been moved from dentry_kill().  When a
+> > cursor is deliberately removed from the d_children list the refcount
+> > must be decremented if that leaves the list empty.
+> >
+> > hlist_move_behind() and hlist_move_before() are added to simplify moving
+> > a cursor within the d_children list.  This results in some duplicate code
+> > as they share a common prefix with d_detach_cursor() (hlist_del)
+> > which is currently factored out.  We can expect the compiler to optimise
+> > this away and don't need to clutter the C code with it.
+> >
+> > autofs compares d_count() with the number of known children of a dentry
+> > to detect if there are any concurrent references to a dentry.  These
+> > comparisons must be changed to reflect that we now only count "one" for
+> > any children rather than "one" for each child.
+> >
+> > Signed-off-by: NeilBrown <neil@brown.name>
+> > ---
+> >  fs/autofs/expire.c     | 25 ++++++++++++++++---------
+> >  fs/dcache.c            | 40 +++++++++++++++++++++++++++++++++-------
+> >  fs/internal.h          | 10 ++++++++++
+> >  fs/libfs.c             | 14 +++++++-------
+> >  include/linux/dcache.h | 17 ++++++++++++++++-
+> >  include/linux/list.h   | 30 ++++++++++++++++++++++++++++++
+> >  6 files changed, 112 insertions(+), 24 deletions(-)
+> >
+> > diff --git a/fs/autofs/expire.c b/fs/autofs/expire.c
+> > index 5c2d459e1e48..cd276bce28c9 100644
+> > --- a/fs/autofs/expire.c
+> > +++ b/fs/autofs/expire.c
+> > @@ -208,15 +208,18 @@ static int autofs_tree_busy(struct vfsmount *mnt,
+> >                         }
+> >                 } else {
+> >                         struct autofs_info *ino =3D autofs_dentry_ino(p);
+> > -                       unsigned int ino_count =3D READ_ONCE(ino->count);
+> > +                       unsigned int use_count;
+> > +
+> > +                       /* allow for 1 if there are any children */
+> > +                       use_count =3D READ_ONCE(ino->count) > 0;
+> >
+> >                         /* allow for dget above and top is already dgot */
+> >                         if (p =3D=3D top)
+> > -                               ino_count +=3D 2;
+> > +                               use_count +=3D 2;
+> >                         else
+> > -                               ino_count++;
+> > +                               use_count++;
+> >
+> > -                       if (d_count(p) > ino_count) {
+> > +                       if (d_count(p) > use_count) {
+> >                                 top_ino->last_used =3D jiffies;
+> >                                 dput(p);
+> >                                 return 1;
+> > @@ -321,7 +324,7 @@ static struct dentry *should_expire(struct dentry *de=
+ntry,
+> >                                     unsigned int how)
+> >  {
+> >         struct autofs_info *ino =3D autofs_dentry_ino(dentry);
+> > -       unsigned int ino_count;
+> > +       unsigned int use_count;
+> >
+> >         /* No point expiring a pending mount */
+> >         if (ino->flags & AUTOFS_INF_PENDING)
+> > @@ -375,9 +378,11 @@ static struct dentry *should_expire(struct dentry *d=
+entry,
+> >         if (!(how & AUTOFS_EXP_LEAVES)) {
+> >                 /* Not a forced expire? */
+> >                 if (!(how & AUTOFS_EXP_FORCED)) {
+> > +                       /* dentry has any children? */
+> > +                       use_count =3D READ_ONCE(ino->count) > 0;
+> >                         /* ref-walk currently on this dentry? */
+> > -                       ino_count =3D READ_ONCE(ino->count) + 1;
+> > -                       if (d_count(dentry) > ino_count)
+> > +                       use_count +=3D 1;
+> > +                       if (d_count(dentry) > use_count)
+> >                                 return NULL;
+> >                 }
+> >
+> > @@ -392,9 +397,11 @@ static struct dentry *should_expire(struct dentry *d=
+entry,
+> >
+> >                 /* Not a forced expire? */
+> >                 if (!(how & AUTOFS_EXP_FORCED)) {
+> > +                       /* dentry has any children? */
+> > +                       use_count =3D READ_ONCE(ino->count) > 0;
+> >                         /* ref-walk currently on this dentry? */
+> > -                       ino_count =3D READ_ONCE(ino->count) + 1;
+> > -                       if (d_count(dentry) > ino_count)
+> > +                       use_count +=3D 1;
+> > +                       if (d_count(dentry) > use_count)
+> >                                 return NULL;
+> >                 }
+> >
+>=20
+> AI review claims that ino->count starts at 1 and (ino->count > 0) is
+> always true,
+> so use_count should be:
+>=20
+>                        use_count =3D READ_ONCE(ino->count) > 1;
 
-Please pull watchdog fixes for Linux v7.4-rc4 from signed tag:
+Yes, ino->count does start at 1.  So it is the number of children plus
+1.
+autofs_empty() is true when "->count < 2" which confirms that.
+So I would need
+               use_count =3D (READ_ONCE(ino->count) > 1) + 1;
+to match how ino->count was being used before.
+Or maybe
+               use_count =3D !autofs_empty(ino) + 1;
+??
 
-    git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git watchdog-for-v7.4-rc4
+I guess the "+1" could be seen as the reference added by
+d_make_persistent().
+Then we need to account for various dget()s, hence the +1 or +2 etc.
 
-Thanks,
-Guenter
-------
+I'll fix that up - thanks.
 
-The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
+NeilBrown
 
-  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
-are available in the Git repository at:
+>=20
+> It sounds right, but I did not look closely.
+>=20
+> Thanks,
+> Amir.
+>=20
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git tags/watchdog-for-v7.4-rc4
-
-for you to fetch changes up to d8cda274400b52c5bb542158ae9f220f72f059f0:
-
-  watchdog: core: Update last_keepalive in watchdog_start() (2026-11-16 13:26:12 -0800)
-
-----------------------------------------------------------------
-watchdog fixes for v7.4-rc4
-
-* Core registration and reference counting: clear dangling wd_data
-  pointers and stop timers/workers on registration failure, release
-  unclaimed running-watchdog references, avoid unbalanced module_put()
-  in watchdog_open(), and restore WDOG_HW_RUNNING if stop() fails.
-
-* Core locking and keepalive state: add missing wd_data and old_wd_data
-  locking in open, unregister, and last_hw_keepalive paths, and update
-  WDOG_ACTIVE and last_keepalive before pinging a running watchdog in
-  watchdog_start().
-
-* Core suspend/resume: prevent in-flight ping work from re-arming the
-  keepalive timer and stop the software pretimeout hrtimer while
-  suspended to avoid spurious pretimeout events.
-
-* stm32_iwdg: set drvdata before requesting the pretimeout IRQ to avoid
-  a NULL dereference, serialize EWCR register updates with a spinlock,
-  and use devm_pm_set_wake_irq() to fix wake_irq leaks.
-
-* npcm: keep the clock prepared from probe so the atomic restart
-  handler only calls clk_enable() instead of sleeping during reboot.
-
-----------------------------------------------------------------
-Antonio Borneo (3):
-      watchdog: stm32_iwdg: set driver data before requesting interrupt
-      watchdog: stm32_iwdg: serialize accesses to EWCR register
-      watchdog: stm32_iwdg: use managed variant of dev_pm_set_wake_irq()
-
-Guenter Roeck (8):
-      watchdog: core: Clear wd_data pointer on errors
-      watchdog: core: Add missing locks
-      watchdog: core: Prevent ping worker from re-arming timer on suspend
-      watchdog: core: Stop pretimeout hrtimer on suspend
-      watchdog: core: Restore WDOG_HW_RUNNING if stopping watchdog fails
-      watchdog: core: Cancel timer if cdev_device_add() fails
-      watchdog: core: Fix unbalanced module_put() in watchdog_open()
-      watchdog: core: Update last_keepalive in watchdog_start()
-
-Zhao Feng (1):
-      watchdog: npcm: fix sleeping clock call in restart handler
-
- drivers/watchdog/npcm_wdt.c                    |  19 ++-
- drivers/watchdog/stm32_iwdg.c                  |  31 +++--
- drivers/watchdog/watchdog_core.h               |   1 +
- drivers/watchdog/watchdog_dev.c                | 154 ++++++++++++++++++-------
- drivers/watchdog/watchdog_hrtimer_pretimeout.c |   3 +-
- 5 files changed, 152 insertions(+), 56 deletions(-)
