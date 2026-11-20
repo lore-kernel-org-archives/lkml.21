@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795173258;
-	b=TInFiaRrK8QTnHuD1tT4p7v90ox8dSVZ0GgsLkZTD6W1cfeSvZvR6ch4tCHcvpDb9BNg
-	 ZNOsgG/LYxi3CUbtZUJglCyNLWCaDG8A4iXbeKo8QUCIDAFjE6brV9m09icZJc0CjFcwx
-	 wBGTwuM/Jo87uDCKdJ8QnSVzTSEzIT68D7Qte2ufXIMqYPu8IHXNKE3e2HMHaxk9bA2vc
-	 FetiuM637ZUD3aA9kmh+yltWcQf+H0aHkzXjgOaHyFJ9CqwuGZcfXbW2lfEeLkTTzU2A/
-	 madxdb+fKPMxBGWSc6imaM4JajwCIsuxhC1SO/h/UWLk8H0ZPCo4n9WAdTCyZC+6xzA==
+	t=1795173260;
+	b=oDe+M1tAnL54z5Gkql1UREh3nQ1zuEqbpqRvs+4hsSRIOojZ7jXv4KVqSUJ/0xs16DUS
+	 dKP5dMYVV57wQ5j3NJbR0MuZW9IfzVexMtimP2270u7rRWSdGp4irEOn7a9qN7TNlyUmu
+	 cHzN4F3Wl/8SWAMJBY/JWu6BKM02sKdlkbFT5TFG5krip4E2otc3DTZc6MevV8WW68MOG
+	 WRKibhO8g1wyk+MuGuaFNsZsKUY2Ogvj4Wrol77u58PvHjkNGMUZZW9Igi1LaL5Wykjh2
+	 RwETftCociijNsFv4VmYGAIT5TdHy4fytqXpZq5FSZdUlH/PjekqKXTofIo5s1Ej1Xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795173258;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=TvxyiNCGdB3dVoMPcMs9gnDui3F/bIpkJgmIVmY1Oow=;
-	b=TUB66fvqxPFph1WWqIVp2c4V97Aie5t9KGtTojMwP/gihv4hZ8NTiZw9t8mcKm50CJ85
-	 sXi15erVcKM9HNs5oSTyaY4yEkdMf8IcQP6muFiCr7KHYG7epizy2bVqyk8JuSNJqSa7k
-	 y0haBtsxXSU801KwzCL2CVrsfNd8CRrHWi5Q+JtdM247AFCzHIy+d3i0fuj9aQwOQH6zn
-	 rGwnftvWUPaq97/1CthFxjeOEWQ1PxUco8HTUdWAapqdkiJ+7PtQEhYMdMkrT6W876kky
-	 0hRrfxQuS//OR47Ywb32hWSPRLgI6lXCYRhAE1BCA/ZfVbiEnwUhkLmbyad9gxBX3tw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795173260;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=GhGUyNCnT27QB1cTnuMiPXK8MmUoZKyIlI7YjU6RmpU=;
+	b=Aw+D1m/jf12E80fzT7+8z6ZXRWPhaPTludxxGiVpK0suteF0AOgFkuntbNWxcFe1oAzC
+	 7mbsvlc2QmTb51JX1WqInoP+VtXBDe5Jw42SsNS5N1+vhbO1ov/sKiuhUiBuCeiG8SSfm
+	 orXCxZmdx6Ihtf8TkLBsGYAh71OGdomwzrSE33x29SEKV8sdj+6NZbyveqtzKcTL0/BU1
+	 IxbQ2GCOvujhDvL6EG1ggeMvoc6HLi7ZEsvMBnaLfO3F+Tz22JYq6f/eD9Smk+h2H7Hpu
+	 oYdvAZtfeekif3CtzUFffM6z8fjpor6mFDBIDvET1B0PNIWauaU5qJ4VGUHlbdHZGnA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=exk20NVe;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I2VgRLPe;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A04B606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:14:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7FC0606A332
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:14:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=exk20NVe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2FBE1F000CA;
-	Fri, 20 Nov 2026 11:14:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I2VgRLPe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E7DA1F000C4;
+	Fri, 20 Nov 2026 11:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795173257;
-	bh=TvxyiNCGdB3dVoMPcMs9gnDui3F/bIpkJgmIVmY1Oow=;
-	h=From:Subject:Date:To:Cc;
-	b=exk20NVeXLvRvazj99ZD3gNOV8A4lKFAVjr16sLBJtaJWZIncyBlhdTIpoQvbJaS9
-	 kY6Bka8in1DYWhyAzS4eGa/fCHsLt5JX+mu2P1ZCMu1wY7H9TCV6u/82cmUWXfFUa7
-	 Sv1DaapVW0CL4EaMXSbOTuEhMfjLEHRRSKph3nlBWwpR10vCbRLeZe8S7rcOVeTm4J
-	 LrxMHV5lRZIQnYRkpRG/5gGsgulz8Wq25xgESd1kN7hfGFLm9vokkZaAdQRTxjaoCs
-	 ZMq3D8eymcRi5GoJjMiljimScfVBWt59XUhxDERE1FXKQM+QYw+UMCt8Jspqa4nTnl
-	 fcz5AuQasfzSg==
+	s=k20260515; t=1795173260;
+	bh=GhGUyNCnT27QB1cTnuMiPXK8MmUoZKyIlI7YjU6RmpU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=I2VgRLPe1KhwXar0r6svDCnB9Wq/Eh9rbOloaL6CZReEoq68qvS5jCy9uP3eCqhqW
+	 vcgyEpknvZFv+aXCh3YlBm5hCEZNfUgZa458war24AWhorBvyPvfiUcOK7YVsxgB/8
+	 HrAS1dx8NJTDaWalebUTjAShulF+5WrfM4gQ8nxiE0OgxXxqPDTpgzBuW+oVgpaMyA
+	 tQObhagC9So2h3FmR4tdvQbqWfqkGMgmvPCD3hLGCSC0RPwg27eDfLLkwLy4IzYv3L
+	 UFB8zI+K1H0SfEttrIQAE/rSQaN36FnTFVZzEBTtQC9cEAxZB8ECiK8p6qVjC1ekk/
+	 9b1QNsv3DT6hg==
 From: Hannes Reinecke <hare@kernel.org>
-Subject: [PATCH v4 0/9] nvme-auth: switch to use the kernel keyring
-Date: Fri, 20 Nov 2026 12:13:59 +0100
-Message-Id: <20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org>
+Date: Fri, 20 Nov 2026 12:14:00 +0100
+Subject: [PATCH v4 1/9] nvme-auth: modify nvme_auth_transform_key() to
+ return status
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,101 +55,285 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHgrAGsC/x2MQQqAIBAAvyJ7bkHFovpKdDDdaglMFKKQ/p50n
- IGZApkSU4ZRFEh0ceYzVDCNALfbsBGyrwxa6k4pLdHv1Uc86EkcNrwMymGVi3XK966F2sVEK9/
- /c5rf9wPsil5MYwAAAA==
-X-Change-ID: 20261120-dhchap-keyring-v4-09f0bac1d8c5
+Message-Id: <20261120-dhchap-keyring-v4-v4-1-5f8c7d9926ee@kernel.org>
+References: <20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org>
+In-Reply-To: <20261120-dhchap-keyring-v4-v4-0-5f8c7d9926ee@kernel.org>
 To: Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
  Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
  Hannes Reinecke <hare@suse.de>, Chaitanya Kulkarni <kch@nvidia.com>
 Cc: linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Hannes Reinecke <hare@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795173255; l=3227;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795173255; l=9478;
  i=hare@kernel.org; s=20260619; h=from:subject:message-id;
- bh=JMQrTDzvVUh645kB4vsxAScpfmUl0DvgGW9gAwgUvWg=;
- b=rzzq6JnUGWOWwrcssrS7Qu8spR/KSjEnKkTYYw+Nc45H7nAbjUHJBeViPtSo+K/HwUoD0uhW4
- 8xRIuZElh3+DGvNQkcO1Fg/RWcPi6GG1vsOGO1MKc1Xyfb35J1rapM8
+ bh=5GVef17c1VkDRDhGjYvycFRLhTVIfTsgTpjXzNlYdng=;
+ b=Vg2FWpVELBCoU/VY5un/KwfELvPOIG6i94G2iWpxsSJ6VW69XfmB7hJEmB25NIE5vOVDzs6mp
+ 0KArj1XE2mzDbd87hwOLZWWnzKNgBSx4RBI+bcyKfp2Q5iHes/liVIS
 X-Developer-Key: i=hare@kernel.org; a=ed25519;
  pk=iekPF4ZZFva3sutm7d1ryPNR1G/WFfUgHaDB423JXho=
 
-Hey all,
-
-the current NVMe authentication code is using a hand-crafted key
-structure; idea was to have the initial implementation with a minimal
-set of dependencies.
-(And me not having a good grasp on how to use the kernel keyring :-)
-That had the drawback that keys always had to be specified on the
-nvme-cli commandline, which is far from ideal from a security standpoint.
-
-So this patchset switches the authentication code over to use the
-kernel keyring. User-facing interface (namely argument to 'nvme
-connect') remain the same, but the key data is converted into keys
-which are stored as a new key type 'dhchap' with a random UUID as
-description in the kernel keyring.
-
-With this I have updated the dhchap arguments to 'nvme connect' and
-the configfs interface to either be the keydata (ie the original
-interface) _or_ a key description referring to a pre-populated dhchap
-key in the kernel keyring. This allows for easier provisioning of keys
-and avoids the security risk from having to specify the key data on
-the kernel commandline.
-
-The entire patchset can be found at
-git://git.kernel.org/pub/scm/linux/kernel/git/hare/nvme.git
-branch dhchap-keyring.v4
-
-As usual, comments and reviews are welcome.
-
-Changes to v3:
-- Update to 7.4
-- Add patch to set keyring for nvmet
-
-Changes to v2:
-- Update to v7.1
-- Include reviews fromn Sagi
-- Clarify decoded PSK length
-- Add more function descriptions
-
-Changes to the original submission:
-- Dropped patches merged with upstream
-- Modified the interface to refer to keys via the description
-  and not the serial number
+In preparation for converting the DH-HMAC-CHAP code to use the
+kernel keyring modify nvme_auth_transform_key() to return a status
+and provide the transformed data as argument on the command line as
+raw data.
 
 Signed-off-by: Hannes Reinecke <hare@kernel.org>
 ---
-Hannes Reinecke (9):
-      nvme-auth: modify nvme_auth_transform_key() to return status
-      nvme-keyring: add 'dhchap' key type
-      nvme-auth: switch to use 'struct key'
-      nvme: parse dhchap keys during option parsing
-      nvmet-auth: parse dhchap key from configfs attribute
-      nvme: allow to pass in key description as dhchap secret
-      nvme-auth: wait for authentication to finish when changing keys
-      nvme-fabrics: allow to pass in keyring by name
-      nvmet: add configfs attribute 'dhchap_keyring'
+ drivers/nvme/common/auth.c | 38 +++++++++++++++++++-------------------
+ drivers/nvme/host/auth.c   | 44 +++++++++++++++++++++++---------------------
+ drivers/nvme/target/auth.c | 37 +++++++++++++++++++++----------------
+ include/linux/nvme-auth.h  |  4 ++--
+ 4 files changed, 65 insertions(+), 58 deletions(-)
 
- drivers/nvme/common/Kconfig    |   1 +
- drivers/nvme/common/auth.c     | 213 ++++++++++++----------------
- drivers/nvme/common/keyring.c  | 314 +++++++++++++++++++++++++++++++++++++++++
- drivers/nvme/host/Kconfig      |   1 -
- drivers/nvme/host/auth.c       | 171 +++++++++++++++-------
- drivers/nvme/host/fabrics.c    | 121 +++++++++++-----
- drivers/nvme/host/fabrics.h    |  12 +-
- drivers/nvme/host/nvme.h       |   6 +-
- drivers/nvme/host/sysfs.c      | 212 +++++++++++++++++++++-------
- drivers/nvme/target/Kconfig    |   1 -
- drivers/nvme/target/auth.c     | 229 +++++++++++++++++++-----------
- drivers/nvme/target/configfs.c | 144 ++++++++++++++++---
- drivers/nvme/target/nvmet.h    |  16 +--
- include/linux/nvme-auth.h      |  11 +-
- include/linux/nvme-keyring.h   |  26 +++-
- 15 files changed, 1092 insertions(+), 386 deletions(-)
----
-base-commit: 68099cf27253a8c89d703a282d3d811446d9453b
-change-id: 20261120-dhchap-keyring-v4-09f0bac1d8c5
+diff --git a/drivers/nvme/common/auth.c b/drivers/nvme/common/auth.c
+index 1fdc4e4ed0b94d8a36aade033f19e17463f15632..569f21ad4fc7ed3e85083727ad25078420410f07 100644
+--- a/drivers/nvme/common/auth.c
++++ b/drivers/nvme/common/auth.c
+@@ -317,37 +317,37 @@ static int nvme_auth_hash(u8 hmac_id, const u8 *data, size_t data_len, u8 *out)
+ 	return -EINVAL;
+ }
+ 
+-struct nvme_dhchap_key *nvme_auth_transform_key(
+-		const struct nvme_dhchap_key *key, const char *nqn)
++int nvme_auth_transform_key(const struct nvme_dhchap_key *key, const char *nqn,
++			    u8 **transformed_secret)
+ {
+ 	struct nvme_auth_hmac_ctx hmac;
+-	struct nvme_dhchap_key *transformed_key;
+-	int ret, key_len;
++	u8 *transformed_data;
++	u8 *key_data;
++	size_t transformed_len;
++	int ret;
+ 
+ 	if (!key) {
+ 		pr_warn("No key specified\n");
+-		return ERR_PTR(-ENOKEY);
++		return -ENOKEY;
+ 	}
+ 	if (key->hash == 0) {
+-		key_len = nvme_auth_key_struct_size(key->len);
+-		transformed_key = kmemdup(key, key_len, GFP_KERNEL);
+-		if (!transformed_key)
+-			return ERR_PTR(-ENOMEM);
+-		return transformed_key;
++		key_data = kzalloc(key->len, GFP_KERNEL);
++		memcpy(key_data, key->key, key->len);
++		*transformed_secret = key_data;
++		return key->len;
+ 	}
+ 	ret = nvme_auth_hmac_init(&hmac, key->hash, key->key, key->len);
+ 	if (ret)
+-		return ERR_PTR(ret);
+-	key_len = nvme_auth_hmac_hash_len(key->hash);
+-	transformed_key = nvme_auth_alloc_key(key_len, key->hash);
+-	if (!transformed_key) {
+-		memzero_explicit(&hmac, sizeof(hmac));
+-		return ERR_PTR(-ENOMEM);
+-	}
++		return ret;
++	transformed_len = nvme_auth_hmac_hash_len(key->hash);
++	key_data = kzalloc(transformed_len, GFP_KERNEL);
++	if (!key_data)
++		return -ENOMEM;
+ 	nvme_auth_hmac_update(&hmac, nqn, strlen(nqn));
+ 	nvme_auth_hmac_update(&hmac, "NVMe-over-Fabrics", 17);
+-	nvme_auth_hmac_final(&hmac, transformed_key->key);
+-	return transformed_key;
++	nvme_auth_hmac_final(&hmac, key_data);
++	*transformed_secret = key_data;
++	return transformed_len;
+ }
+ EXPORT_SYMBOL_GPL(nvme_auth_transform_key);
+ 
+diff --git a/drivers/nvme/host/auth.c b/drivers/nvme/host/auth.c
+index 9a3da74dec5aa818538dfbc36fd27f7f756cc059..295e0a9533c8995c32781324650d73b6bfedbf13 100644
+--- a/drivers/nvme/host/auth.c
++++ b/drivers/nvme/host/auth.c
+@@ -22,7 +22,8 @@ struct nvme_dhchap_queue_context {
+ 	struct work_struct auth_work;
+ 	struct nvme_ctrl *ctrl;
+ 	struct crypto_kpp *dh_tfm;
+-	struct nvme_dhchap_key *transformed_key;
++	u8 *transformed_secret;
++	size_t transformed_len;
+ 	void *buf;
+ 	int qid;
+ 	int error;
+@@ -436,22 +437,21 @@ static int nvme_auth_dhchap_setup_host_response(struct nvme_ctrl *ctrl,
+ 	dev_dbg(ctrl->device, "%s: qid %d host response seq %u transaction %d\n",
+ 		__func__, chap->qid, chap->s1, chap->transaction);
+ 
+-	if (!chap->transformed_key) {
+-		chap->transformed_key = nvme_auth_transform_key(ctrl->host_key,
+-						ctrl->opts->host->nqn);
+-		if (IS_ERR(chap->transformed_key)) {
+-			ret = PTR_ERR(chap->transformed_key);
+-			chap->transformed_key = NULL;
++	if (!chap->transformed_secret) {
++		ret = nvme_auth_transform_key(ctrl->host_key,
++					      ctrl->opts->host->nqn,
++					      &chap->transformed_secret);
++		if (ret < 0)
+ 			return ret;
+-		}
++		chap->transformed_len = ret;
+ 	} else {
+ 		dev_dbg(ctrl->device, "%s: qid %d re-using host response\n",
+ 			__func__, chap->qid);
+ 	}
+ 
+ 	ret = nvme_auth_hmac_init(&hmac, chap->hash_id,
+-				  chap->transformed_key->key,
+-				  chap->transformed_key->len);
++				  chap->transformed_secret,
++				  chap->transformed_len);
+ 	if (ret)
+ 		goto out;
+ 
+@@ -500,19 +500,20 @@ static int nvme_auth_dhchap_setup_ctrl_response(struct nvme_ctrl *ctrl,
+ 		struct nvme_dhchap_queue_context *chap)
+ {
+ 	struct nvme_auth_hmac_ctx hmac;
+-	struct nvme_dhchap_key *transformed_key;
++	u8 *transformed_secret;
++	size_t transformed_len;
+ 	u8 buf[4], *challenge = chap->c2;
+ 	int ret;
+ 
+-	transformed_key = nvme_auth_transform_key(ctrl->ctrl_key,
+-				ctrl->opts->subsysnqn);
+-	if (IS_ERR(transformed_key)) {
+-		ret = PTR_ERR(transformed_key);
++	ret = nvme_auth_transform_key(ctrl->ctrl_key,
++				      ctrl->opts->subsysnqn,
++				      &transformed_secret);
++	if (ret < 0)
+ 		return ret;
+-	}
++	transformed_len = ret;
+ 
+-	ret = nvme_auth_hmac_init(&hmac, chap->hash_id, transformed_key->key,
+-				  transformed_key->len);
++	ret = nvme_auth_hmac_init(&hmac, chap->hash_id, transformed_secret,
++				  transformed_len);
+ 	if (ret) {
+ 		dev_warn(ctrl->device, "qid %d: failed to init hmac, error %d\n",
+ 			 chap->qid, ret);
+@@ -565,7 +566,7 @@ static int nvme_auth_dhchap_setup_ctrl_response(struct nvme_ctrl *ctrl,
+ 	if (challenge != chap->c2)
+ 		kfree(challenge);
+ 	memzero_explicit(&hmac, sizeof(hmac));
+-	nvme_auth_free_key(transformed_key);
++	kfree_sensitive(transformed_secret);
+ 	return ret;
+ }
+ 
+@@ -628,8 +629,9 @@ static int nvme_auth_dhchap_exponential(struct nvme_ctrl *ctrl,
+ 
+ static void nvme_auth_reset_dhchap(struct nvme_dhchap_queue_context *chap)
+ {
+-	nvme_auth_free_key(chap->transformed_key);
+-	chap->transformed_key = NULL;
++	kfree_sensitive(chap->transformed_secret);
++	chap->transformed_secret = NULL;
++	chap->transformed_len = 0;
+ 	kfree_sensitive(chap->host_key);
+ 	chap->host_key = NULL;
+ 	chap->host_key_len = 0;
+diff --git a/drivers/nvme/target/auth.c b/drivers/nvme/target/auth.c
+index a4a2a5cfd823f921a9e9503f41de51b846c43296..150818d7009d8c2fca96e12fd54fdc1cb6b68882 100644
+--- a/drivers/nvme/target/auth.c
++++ b/drivers/nvme/target/auth.c
+@@ -295,17 +295,19 @@ int nvmet_auth_host_hash(struct nvmet_req *req, u8 *response,
+ 	struct nvme_auth_hmac_ctx hmac;
+ 	struct nvmet_ctrl *ctrl = req->sq->ctrl;
+ 	u8 *challenge = req->sq->dhchap_c1;
+-	struct nvme_dhchap_key *transformed_key;
++	u8 *transformed_secret;
++	size_t transformed_len;
+ 	u8 buf[4];
+ 	int ret;
+ 
+-	transformed_key = nvme_auth_transform_key(ctrl->host_key,
+-						  ctrl->hostnqn);
+-	if (IS_ERR(transformed_key))
+-		return PTR_ERR(transformed_key);
++	ret = nvme_auth_transform_key(ctrl->host_key, ctrl->hostnqn,
++				      &transformed_secret);
++	if (ret < 0)
++		return ret;
++	transformed_len = ret;
+ 
+-	ret = nvme_auth_hmac_init(&hmac, ctrl->shash_id, transformed_key->key,
+-				  transformed_key->len);
++	ret = nvme_auth_hmac_init(&hmac, ctrl->shash_id, transformed_secret,
++				  transformed_len);
+ 	if (ret)
+ 		goto out_free_response;
+ 
+@@ -357,7 +359,7 @@ int nvmet_auth_host_hash(struct nvmet_req *req, u8 *response,
+ 		kfree(challenge);
+ out_free_response:
+ 	memzero_explicit(&hmac, sizeof(hmac));
+-	nvme_auth_free_key(transformed_key);
++	kfree_sensitive(transformed_secret);
+ 	return ret;
+ }
+ 
+@@ -367,17 +369,20 @@ int nvmet_auth_ctrl_hash(struct nvmet_req *req, u8 *response,
+ 	struct nvme_auth_hmac_ctx hmac;
+ 	struct nvmet_ctrl *ctrl = req->sq->ctrl;
+ 	u8 *challenge = req->sq->dhchap_c2;
+-	struct nvme_dhchap_key *transformed_key;
++	u8 *transformed_secret;
++	size_t transformed_len;
+ 	u8 buf[4];
+ 	int ret;
+ 
+-	transformed_key = nvme_auth_transform_key(ctrl->ctrl_key,
+-						ctrl->subsys->subsysnqn);
+-	if (IS_ERR(transformed_key))
+-		return PTR_ERR(transformed_key);
++	ret = nvme_auth_transform_key(ctrl->ctrl_key,
++				      ctrl->subsys->subsysnqn,
++				      &transformed_secret);
++	if (ret < 0)
++		return ret;
++	transformed_len = ret;
+ 
+-	ret = nvme_auth_hmac_init(&hmac, ctrl->shash_id, transformed_key->key,
+-				  transformed_key->len);
++	ret = nvme_auth_hmac_init(&hmac, ctrl->shash_id, transformed_secret,
++				  transformed_len);
+ 	if (ret)
+ 		goto out_free_response;
+ 
+@@ -426,7 +431,7 @@ int nvmet_auth_ctrl_hash(struct nvmet_req *req, u8 *response,
+ 		kfree(challenge);
+ out_free_response:
+ 	memzero_explicit(&hmac, sizeof(hmac));
+-	nvme_auth_free_key(transformed_key);
++	kfree_sensitive(transformed_secret);
+ 	return ret;
+ }
+ 
+diff --git a/include/linux/nvme-auth.h b/include/linux/nvme-auth.h
+index d674d8ab26e6b3b4b297ebaefa3f33b8ec97bc0a..1c5ce635b169dd0747c1344e9adcc14839776cd1 100644
+--- a/include/linux/nvme-auth.h
++++ b/include/linux/nvme-auth.h
+@@ -41,8 +41,8 @@ u32 nvme_auth_key_struct_size(u32 key_len);
+ struct nvme_dhchap_key *nvme_auth_extract_key(const char *secret, u8 key_hash);
+ void nvme_auth_free_key(struct nvme_dhchap_key *key);
+ struct nvme_dhchap_key *nvme_auth_alloc_key(u32 len, u8 hash);
+-struct nvme_dhchap_key *nvme_auth_transform_key(
+-		const struct nvme_dhchap_key *key, const char *nqn);
++int nvme_auth_transform_key(const struct nvme_dhchap_key *key,
++			    const char *nqn, u8 **transformed_secret);
+ int nvme_auth_parse_key(const char *secret, struct nvme_dhchap_key **ret_key);
+ int nvme_auth_augmented_challenge(u8 hmac_id, const u8 *skey, size_t skey_len,
+ 				  const u8 *challenge, u8 *aug, size_t hlen);
 
-Best regards,
 -- 
-Hannes Reinecke <hare@kernel.org>
+2.51.0
 
