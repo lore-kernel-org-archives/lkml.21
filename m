@@ -1,82 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.15
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185378;
-	b=4rsm1foqnkpu+T54GblDZWTH64ZsrcvUp+CzjnhT85jZVkSUX3w8uZrU1cv4NonVLLWz
-	 xAjZ3b+KMOLRa9As7hWYgrkzwJWCbB7M1ejM0uMpBwuRjL0Crr6O6498CG1HW7hq3Hd9x
-	 YpQ1Sp//bdqpRH7uSK63qsRZIya68IbZUiY4ZmqIu1+xCZPtzrxQn+FNZkdDWrARGNZOl
-	 FoiAUSS7g332dcXjghKXNwD9lHjNXbp49wIqhOFf+iDeXYzquF8C7UHZiCooTnIbRXcUP
-	 0vSqWs6GHbYch4sB8KSc+STuL3Qobx8vfKzZpTbv2kE139CfL4+20glcVgRkyJrMxkA==
+	t=1795185407;
+	b=BY3Fl/1qxRTCviRZxJwM7WffV7+Ff4cJF6bRz7jD/yzSoyWSfTb/ym/d3CYMtB2XQLbD
+	 99Fj41FLnpa0YM81RGgTnt9k09rCCEVN6ODWNv/t0jE4VlT2zoUvjUvpWcHyqxUUB+hxF
+	 fPiqZZo0dClWe90ktgTs/jsfRabrdk5Otv213qI9XeN+nVvHU9DlwyK/r6OilEQtH9Mms
+	 KCh+u+RV8I1daDGfjKa0igkxHrgCJPoQ0WbI41Wu60jc/QKOXcumIDLGDRXhFcztmGAWL
+	 oiwlP5cpyIgEcK7N2hRToy6llrK+etYILII2s7EAsSJVl3f2WMQq3hiThcV2ph9CTiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185378;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
-	b=SXbV2UmOan9DT0ZkCT6fAX+8M0In42eG3MPoqKJ+Ti/EbDZ0BdKuqYlaRxcHqj3qFZIE
-	 WV6Ps4CHTkT3rTdg3CHME/D6b+qbbdfTqC4qpAnK/+lfUWG4ufGlI2edMJRqFguDfYVPb
-	 2gB/hB7w/rjY/2kNKnldwKkgdfdXUjbbHXWDIVkHVDGMM+Y5a4x8SnjFWrxvZ9BBqIDLl
-	 0sOq4mXgnAy9zqBpdagCR/hBZkiEJ/3oCH+fvFwBq8wd6MGKjERet6tWJAsr/QlTE+4Vj
-	 gemtetjuOGn4Q2VMRTuL3ViAlXNlsDQ2aZR7hnKcsJ0o5x4VeyGi1qKekJG7bimU8Yg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185407;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:Organization;
+	bh=0MCAlK1vSDEUpH6KYq3lQT9MH1vaHUdj1vOQ6+cLaJ8=;
+	b=QmpXJawOKP1yXtDUanOf6kdskDQTNpvS3M/XX3k4PJen42xleYCKBK+pLxh36aFNMXBm
+	 5iFAwkQAXRteaxJVjIzLeJEpuAW1xt6OjMQOROcz9QkHG6F2LiWtk7cGAYNn9ycOaFKBh
+	 vVIL2AD2bTEvE3cVLJDZSXFPdfR90S42MkwnwXQhpdF6KkBTRMSvyfhtvXVwk/ToSLXAu
+	 oAIojcNuRCR3keg8JmI2htpngQu364+w1FBKcFSP3ZqQH4CqyDCkFPO2HS1p+7U7EUKG1
+	 Y/3pcgQtdVBn+5QG0z8+hSxQy8Qidgs6cVCBMP5R+ejUSqGH9kylgOxhYuMnFZoO2WQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="RF/8DK12";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="ap/iHjEJ";
+	arc=none smtp.remote-ip=192.198.163.15
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9BA5606A320;
-	Fri, 20 Nov 2026 14:36:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6969D606A320;
+	Fri, 20 Nov 2026 14:36:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6969D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RF/8DK12
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 634851F000CA;
-	Fri, 20 Nov 2026 14:36:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795185377;
-	bh=aMOyn5lZK8F+FC2nwU9eJQ2Ic0u6hcRi/jhTZjj9Mvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RF/8DK121mnm1zavjVGPB5fyWIqpsPt3RkMcjQSO7nVuLPyzhULSY7VJ8tgWd92Wp
-	 m5/EkyNoU7Wy4FnigM6acB0fR/zU0d3cp8AC20ZBhGM89M7sbu+VtMLyw7smiDGJ7o
-	 qmEKeFVaAhuRrAiQ+TtwLA1QhlytBk+Rsa/JEFprCx9SYgRIT8gVSpAjDxclmIO0rp
-	 GLaWW4nrUAxaPB1Jp2uViccsPQI9r+3tNEFsHjAkkI8hAsb+Y/lNbK9SIufkMhzsWe
-	 1kZV6p0c5oYrljsBgA65aUmPYzUz4Xzgg/0LNXnoqGa/PAie0cI8Ui6afRuhiln2Dv
-	 Hox4znu0xNXxQ==
-Date: Fri, 20 Nov 2026 14:36:06 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Luigi Rizzo <lrizzo@google.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, 
-	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Jens Axboe <axboe@kernel.dk>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Luigi Rizzo <rizzo.unipi@gmail.com>, 
-	"Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, Harry Yoo <harry@kernel.org>, 
-	Christoph Lameter <cl@gentwo.org>, David Rientjes <rientjes@google.com>, 
-	Roman Gushchin <roman.gushchin@linux.dev>, Hao Li <hao.li@linux.dev>, Matthew Wilcox <willy@infradead.org>, 
-	Jan Kara <jack@suse.cz>, Jann Horn <jannh@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Simon Horman <horms@kernel.org>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>, 
-	Willem de Bruijn <willemb@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
-	Alexander Lobakin <aleksander.lobakin@intel.com>, Christoph Hellwig <hch@lst.de>, 
-	Dragos Tatulea <dtatulea@nvidia.com>, Naman Gulati <namangulati@google.com>, 
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	Randy Dunlap <rdunlap@infradead.org>, linux-mm@kvack.org, iommu@lists.linux.dev, 
-	netdev@vger.kernel.org, linux-block@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-api@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v3 00/25] PISA: Pre-mapped IOVA Superpage Allocator
- for DMA and CoCo
-Message-ID: <awBaxljohIuCg-UY@gremlin>
-References: <20261109182533.3594984-1-lrizzo@google.com>
- <20261120010655.467825-1-lrizzo@google.com>
- <20261120135013.GO3115493@ziepe.ca>
- <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ap/iHjEJ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795185408; x=1826721408;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Cig8N2Zz9xbZB/SGA4aQF6o/ROAYS8EbqASX3ugaRTY=;
+  b=ap/iHjEJ1Zo2NolmaYj2jifTxcx+3t5vA5tbt6WCOmUffhBUkbUEcEsk
+   NKCI9A4/CK7UwQVtxgeuBTXqmURZGIa/5kdfwzgFLxV/gXSLT2qoLRFPx
+   RMt/D1YqIV2l+oS7kOTVCa8O2IyAtLNGDbgei1Ak9QpJ/ufCv1r3JLI8O
+   wmHjGTLK6vig8LqOnr+zFDlH8AMNWAX+Qy7orEh35orF2fH2c5YyoBzNK
+   /FR1uvpVtiHnFmMznC0D5dF/4Cq87PsjiyeQk6bUUfeDxaiEKkZJ+RJ3F
+   JJHa8c9lFVCeDWyb/lHdz/cd4tLpNko+4CZN+RgdF8ZyWcn8igeCI2Dlh
+   g==;
+X-CSE-ConnectionGUID: oVZ+ndlbTfeq7g/DniPfKg==
+X-CSE-MsgGUID: pS1kG+wLReart25JAlWcLA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4061436"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4061436"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:36:47 -0800
+X-CSE-ConnectionGUID: kpvhJ1msQ5mhPKhZEX2IZQ==
+X-CSE-MsgGUID: aFpybgINTWKITI6agTdBtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11046527"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:36:42 -0800
+Date: Fri, 20 Nov 2026 16:36:40 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Matti Vaittinen <matti.vaittinen@linux.dev>,
+	Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marcelo Schmitt <marcelo.schmitt@analog.com>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	Radu Sabau <radu.sabau@analog.com>,
+	Janani Sunil <janani.sunil@analog.com>,
+	Salih Erim <salih.erim@amd.com>,
+	Jishnu Prakash <jishnu.prakash@oss.qualcomm.com>,
+	Antoniu Miclaus <antoniu.miclaus@analog.com>,
+	Jakub Szczudlo <jakubszczudlo40@gmail.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] iio: adc: rohm-bd79112: Add chip info structure
+Message-ID: <awBa-BjgoJ5aSKI-@ashevche-desk.local>
+References: <cover.1795176984.git.mazziesaccount@gmail.com>
+ <42cb719e8da3b07e3c5b9bc6347e95ea7a30511f.1795176984.git.mazziesaccount@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,54 +95,35 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMOZA0LmZ9PFzxLcc1SuS8piFyZu6P=vX_qR2jy-3QRUoNCUKA@mail.gmail.com>
+In-Reply-To: <42cb719e8da3b07e3c5b9bc6347e95ea7a30511f.1795176984.git.mazziesaccount@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-On Fri, Nov 20, 2026 at 03:19:34PM +0100, Luigi Rizzo wrote:
-> On Fri, Nov 20, 2026 at 2:50 PM Jason Gunthorpe <jgg@ziepe.ca> wrote:
-> >
-> > On Fri, Nov 20, 2026 at 01:06:30AM +0000, Luigi Rizzo wrote:
-> > > This is v3 of the RFC previously posted as DMA_PMD [0], now renamed PISA
-> > > ("Pre-mapped IOVA Superpage Allocator"). The text below follows
-> > > Documentation/core-api/pisa.rst (patch 25/25), which has the details.
-> >
-> > I thought the conclusion was to just do this stuff in netdev pagepool,
-> > now you come with an enormous AI series spread across the entire
-> > kernel?
->
-> There were surely comments claiming nothing outside net/ cares or needs this.
->
-> I respectfully disagree, witness is the fact that e.g. there was already an
-> io_uring proposal which is smaller, but does not address applications
-> that want to use the standard disk I/O paths (libaio, buffer cache etc)
->
-> Nothing has changed from the initial series in terms of size, use cases or
-> subsystems involved. Large files are placed where they should,
-> the series covers the same three use cases (disk, network, CoCo), and
-> touches three parts which it has to touch: mm (most of it; it is a
-> memory allocator
-> extension after all), dma (it hooks into map and unmap, not a large change)
-> and net (the pagepool change is a couple of lines; the tx path needs to
-> touch more places because the current stack assumes all paths have
-> the same I/O requirements).
->
-> For CoCo, there are very fine grained controls so the bounce buffers
-> can be enabled only when they don't pose a risk, which in turn
-> depends on the threat model.
->
-> Specifically, for network tx buffers or disk writes, the user-to-kernel copy
-> is basically a bounce buffer provided it is used correctly and not leaked
-> elsewhere (which is the design; of course the implementation
-> needs to be verified and possibly fixed so that it matches the design).
->
-> cheers
-> luigi
+On Fri, Nov 20, 2026 at 02:28:00PM +0200, Matti Vaittinen wrote:
+> 
+> A new ADC variant, ROHM BD79111 is going to be supported by this same
+> driver. As a preparatory step, introduce chip-specific data and pick it
+> at probe time based on the spi-match data. This allows describing the
+> necessary hardware differencies in data structures, which tends to
+> result cleaner solution than some CHIP_ID specific switch-case blocks.
 
-NAK.
+...
 
-Cheers, Lorenzo
+> +	data->cd = spi_get_device_match_data(spi);
+> +	if (!data->cd)
+> +		return -ENODEV;
 
---
-Cheers, Lorenzo
+ENODATA
+
+...
+
+Otherwise LGTM,
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
