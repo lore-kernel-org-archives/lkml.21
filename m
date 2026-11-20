@@ -1,96 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194227;
-	b=j0ThmdgrSQajOlWi6wLOY35kdE1ybRuDiZ25oFyH/p9uDYxFA2XdgIrM0nIBAxrui97J
-	 38do90n3kDFayzjkSS0+XLqwUHjx6c+nowjP2ov+eo6WlgMK/puWX8exwwW1Iq01Ub43y
-	 xjgWoibkibjNG0lMibt55OiLIp4Mo0xtE99fYPHj2wPDuLvMqQld42lVRk23FiqRNq4hP
-	 qZKs+cdFp8J/PlSHAX7AJNMkkkmVmcvJCJzw2sPALpiitABH2bigan8cEUxhMt8PXRWEf
-	 bQXjWhnw6EqJJwBwMoSItaw1B2s/WDAVsDVdRrZ2UvpA20PrfvYymLDNQDu770ZhuCw==
+	t=1795194257;
+	b=V7E+ySofhBMKhaWwJUr1GhVW/NVchmPcu7x1kjor6tJSHEaW+JxsRNDxOTZ39RU5nLoz
+	 mWNHpFTq5Bs+90IUqHtqiISTQAJu8Eba0LOhD1Flaiacfvm2gLBJo8y3/+tW0R9RBGNZO
+	 bHBpo/vNHtYRKKy/xKRGbYKUkN3GMf69SdHijzfONi7qFHijUS6K1I0rbWhvb/Og/qgek
+	 iaZG9Li0Q5JMjtjcQ/8HhmVoN62OpHqrvtho5w7/iMZNOGG+av9HuCffVz21D61F+pWQV
+	 1WXEtvdLW5OOdcPg1hiJcEKpDv0267Wy1VVEVlX49m9XlkCLmdJVR1uZCxG6iMy3Eng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194227;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=JTH1xnpcvnrctSSv/KSrYetey6/zuHKQ0nr2UJcfCNM=;
-	b=kqIKKa9sEe2jiiPFcaRlC0OVvOC0RejVgKJp8BVUhuGah46BFpJHlqtx3TSwDKU6K3Vd
-	 J/dPSyu3JmasLiTn6XzKeCS6A9d/FREpsKXkUZAi61qn4WqiCP/DvSZGeAYzPMyreLB7R
-	 OeTjoXbJ7Pct6+A0qeA/8HalgdLQTIDZ1ZanLY4O+QlAcyYFUHXxWh26jhu7zjkXOvErJ
-	 DBuKLVJeVO3iYvcG/F1wTq0XLnPu43OOnLIVIytF1BEvhJ3s6AFJfxt+S4GA2cbL2ilhM
-	 x44BXX2Lrpixcn9mraRfauYECMIThyrKgkfmmXwMcPYGF2GsiUeNbNLvFMqOwh4XxwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194257;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:User-Agent:MIME-Version:Content-Type:
+	 X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
+	bh=CmpWKJbfubzGGzDkzlinMkViU1fXFJNyi9QfcSY/CvY=;
+	b=lWZJmQQQ6NBcSL7Lh2MvuURIwh338lwYfTJ8jLrib14YtpS5lGBRO9d8BhFGx80T++E6
+	 lJqBA3yPDtgoHEZOx3O7GQWWyA3uTVBd4RI2MkFpqGw2L4rzKsIsNi6raXAzns4UWqoTc
+	 Jko19Pkv7Nki/iOfxx3YOXyetaeVjkGSB3U7REiTjbrJR2X/mj6TCbc8Yzn5zbIks4TSu
+	 m1+qxCurGHiCm74JNNlsMFe92dM2HcvJgVmYfpFcVDgNWjCPWNA/QfS+fCLQBvPLahXC9
+	 jx1dcvLflrlMHJHRz9FFxaF4DxefCwrWPDs4x7FRsgfDA5lLVxPT9iGWWtM/S6pZ2Dg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEoHfiAe;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=suse.de;
+	spf=pass smtp.mailfrom=suse.de;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=xV59xmCD;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="3Mf+nx/h";
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=xV59xmCD;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b="3Mf+nx/h";
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 252A1606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:03:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 252A1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B53AB606A32C;
+	Fri, 20 Nov 2026 17:04:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B53AB606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FEoHfiAe
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4aa5833c263so1016328f8f.2
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:03:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795194225; x=1795799025; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JTH1xnpcvnrctSSv/KSrYetey6/zuHKQ0nr2UJcfCNM=;
-        b=FEoHfiAeXbTKoKcTTWjrudkgxZzqoFkjZFkDIve6OKHhNkR8t40F0+k7OmcIhmDvBB
-         0LsZw9KCH8472aTWAt1Ca31aHng6zbhHJW80OH38qQkR8IX0gOY6J00MtxCZ3hTo7R6/
-         SkON/RnTrD6W2StjPTcHVS8puS7NiW/uiYWuSlK5+CSYoqmhDLBIcGULW0SOcyzRRQVm
-         fvnBCaGDpZzqwN6pU4tCU4TpbW/FN+Hku6/x0SSQTwl8ZMXF4W9VqsSH6h7PgGlJEr1t
-         +tYTTPHWpKKXL8hdH+0wpWVIqGqR4JGAWVLG6uvgukfFeOUi4rN90EkVHAl9B1xugkia
-         Mb3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795194225; x=1795799025;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JTH1xnpcvnrctSSv/KSrYetey6/zuHKQ0nr2UJcfCNM=;
-        b=0QGi1vnOpSG2CpqrCKihftuRSCIYfWYqlMoADg5PrvWhGa6wJ6tBk730etiX4o1pE0
-         l1I5fJKPlHigSrdmg+cPY6Cq5TOlY6lIYT2IDE0z0cndcobRlf3Ut1NeppkTF1EpH6I3
-         i7jEGfB4cr+SYQxIo0BtewLGvlVbB0GJT0LZXBS3iLUY50oT/gzJELJYy5r+jeD2uXRj
-         RIRjbuQj56y2lTtKQNXU8ZPWqgQ6f6scpoo7vVDpVJMlSiDC/WgfYEBCnhnTzwigO1YR
-         KQHMP2nKXVNs+2o/rMU5VaJaFPgaxox5u40EUKGcEx00F1T1GfgoHCjonOr0LwH1xu7r
-         nwcA==
-X-Forwarded-Encrypted: i=1; AL+hErFEPaTVDeH56jIHn/2kmum50/uOzKcroS51Js6R+WFvZsb2e3ALGxnXxAVbJ08ANi1QNowXmaF1qTbRCBo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ccPXV7v9YHgiE47n5BP4LEJIOnD/hUn8hc7s+peTQ4KWC07j5
-	WQHcaFFNGPAI3/zi10INwKAY+Q/4m1fR0htJWFjsDwLMOBqIlxfqoMt5
-X-Gm-Gg: AYBFou02wHxX7nh5lNABL2uVjiFUKIQ4t+noF7sm1w3GOG9IPURpYCg9rfhcYuqJOg9
-	Pt/Jj3jgXEP6K8rN1WRPTZHj/rN+1+HffvGsdo6GDPUZIOAHaj8Cn5FgXmJmoExyZC+AE0BdsRz
-	GLM8dFmeYWs0wcUBuQBF7El31tRhxvo3d9vhyyOTwlNFxZvcb55oWmwKPllzIIWgoFjz1PmOmto
-	3pa14iO0Iims+tvf0QwrayJ/oLj0Jp8P6gwvWSlc3c3jsIvZh6ArWiODMF61Psh7M7xFzNO3Xz7
-	rBoJEA0MH5drnBBxy5UyHI0SfjSgx8sA7EL99SLQP/zfxy1Te1AhcJZgcImZG2HBn4aORFO826i
-	aLgjdSbkRXuF6z/kXurltpa7t9Nvjb0b4RSOWwg/7cTP2oMwgo3m0LMvo9XJjI9Bj0Vs0UfJgdc
-	d7lXCFXhilnPqnl4Roz8kFko4N97fLxnbmXFN/diD6HIuy7NNLFU78hrZPGc0R9aIRwIoPLbzno
-	8DUj/bGpyqdSQPaGRVtaun3JROvfwVn+hoWFqQXqLhsbDgUgZ645zvFGpK76wxW4Lqo0EaTuxtW
-	OO9+OAkJpkD/BcMx6FDNZhNnt8kN+Hvf1b0=
-X-Received: by 2002:a05:600c:a09:b0:4a2:1a:a129 with SMTP id 5b1f17b1804b1-4bb88829115mr82707195e9.35.1795194225495;
-        Fri, 20 Nov 2026 09:03:45 -0800 (PST)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88402ce9sm79704635e9.0.2026.11.20.09.03.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:03:45 -0800 (PST)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Luka Gejak <luka.gejak@linux.dev>,
-	Ping-Ke Shih <pkshih@realtek.com>
-Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
-	linux-wireless@vger.kernel.org,
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=xV59xmCD;
+	dkim=pass header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3Mf+nx/h;
+	dkim=pass (1024-bit key) header.d=suse.de header.i=@suse.de header.a=rsa-sha256 header.s=susede2_rsa header.b=xV59xmCD;
+	dkim=neutral header.d=suse.de header.i=@suse.de header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=3Mf+nx/h
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DB97A2207F;
+	Fri, 20 Nov 2026 17:04:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795194254; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CmpWKJbfubzGGzDkzlinMkViU1fXFJNyi9QfcSY/CvY=;
+	b=xV59xmCD5qCJbKsO1mTSnJWlnnXltuR5FySDa1DCTjYP0AyVOsCYcvGmOXYNBcR24czRE+
+	OYygriTnGUVY+vZTOX9ThU7aQxN1VEynn1US8Ah+hq7Sy37dbic7zy/j5dUUA/k61/Fum2
+	jx6KCxSTHzn/g/24yR1aFKN8trEKkuY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795194254;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CmpWKJbfubzGGzDkzlinMkViU1fXFJNyi9QfcSY/CvY=;
+	b=3Mf+nx/hy3OQPbKYCpu5B/qYyew6Lxt3vMF5qjlAF9bk13s/yjcS+j91Xi/QtkZ0JDT+mn
+	/0Ul8QUDIaWl3JDg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1795194254; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CmpWKJbfubzGGzDkzlinMkViU1fXFJNyi9QfcSY/CvY=;
+	b=xV59xmCD5qCJbKsO1mTSnJWlnnXltuR5FySDa1DCTjYP0AyVOsCYcvGmOXYNBcR24czRE+
+	OYygriTnGUVY+vZTOX9ThU7aQxN1VEynn1US8Ah+hq7Sy37dbic7zy/j5dUUA/k61/Fum2
+	jx6KCxSTHzn/g/24yR1aFKN8trEKkuY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1795194254;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CmpWKJbfubzGGzDkzlinMkViU1fXFJNyi9QfcSY/CvY=;
+	b=3Mf+nx/hy3OQPbKYCpu5B/qYyew6Lxt3vMF5qjlAF9bk13s/yjcS+j91Xi/QtkZ0JDT+mn
+	/0Ul8QUDIaWl3JDg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 968361342D;
+	Fri, 20 Nov 2026 17:04:14 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id h5icG459AGt5SwAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Fri, 20 Nov 2026 17:04:14 +0000
+Date: Fri, 20 Nov 2026 18:04:13 +0100
+Message-ID: <87a4n3wi2a.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Cc: perex@perex.cz,
+	tiwai@suse.de,
 	linux-kernel@vger.kernel.org,
-	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v13 3/3] wifi: rtw88: time the countdown downloads from the TBTT
-Date: Fri, 20 Nov 2026 18:03:44 +0100
-Message-ID: <20261120170344.375569-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261120141554.68116-2-luka.gejak@linux.dev>
-References: 
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH] ALSA: pcm: Fix incorrect numerator selection in snd_interval_ratden()
+In-Reply-To: <20261120113632.2761-1-sreekuttan2156239@gmail.com>
+References: <20261120113632.2761-1-sreekuttan2156239@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.2 Mule/6.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,16 +110,50 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Spamd-Result: default: False [-12.30 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[5];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	RCVD_TLS_ALL(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -12.30
+X-Spam-Level: 
+X-Spam-Flag: NO
 
-Hi Luka,
+On Fri, 20 Nov 2026 12:36:32 +0100,
+Sreeraj S Kurup wrote:
+> 
+> When the calculated numerator is smaller than num_min, the
+> function incorrectly sets it to num_max instead of num_min.
+> 
+> This can produce an invalid interval by making the calculated
+> minimum numerator larger than the maximum numerator, even when
+> a valid range exists.
+> 
+> Set the numerator to num_min when it falls below the minimum
+> allowed value. This allows the function to calculate the correct
+> lower bound and prevents valid intervals from being rejected.
+> 
+> Signed-off-by: Sreeraj S Kurup <sreekuttan2156239@gmail.com>
 
-> Does the short interval case need a smaller margin here as well?
+Applied to for-next branch.  Thanks.
 
-Yes. With a beacon interval of 19 TU and a count of 10, counts went out
-two to four times each in all three runs. At 100 TU each count went out
-once. v14 will size the margin to the beacon interval in the queue and
-hold paths, and I will repeat the 19 TU test with it.
 
-Mehmet
+Takashi
