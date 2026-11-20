@@ -1,57 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184807;
-	b=2k1r+QTHgVZTLwC4LUTf3B+lnXXopL37MUMHbEgQRCaODPABRRv1BxIeMsaD3EL8u1cX
-	 sPtgY4KJGbbjThD1wzqXH89s+ddxEo7Yfs6AHfTkjXaeM0YfozstsakprLWFGEMBEw5GO
-	 tzI/FvAS3DOOdmH7xwCbnHM0DFVRdRNQg9JItBup+FwvbcgKufzEHSKA287bZG3QqOYjs
-	 wGYWZfVMbY3yXCVBf5+U7uQ8vjMGQcilhPN0HxxgNmVmuEc/QwhX/Boyphs3mFaym4hyz
-	 IpiqC26HrgSjOMq34MeUcObRPYjfgDCm/csAugH3GolZ35fPINfC4PScl/ITNfc38HQ==
+	t=1795184864;
+	b=0I0NYvp6U3ZTDp+cQKhMVI6riaADFKPaF8C5orgUDNQ5ifqs6/fr5j3aDe5LUA2F3q+R
+	 oJy5cOL0JS7bT+acGlLBAde7OjENj79ujRX7R8TzfpVKvyDs9AcL8NJViCKAjNPNYAyxZ
+	 R0FU4dt/xYMQSKEL61Vyn6qFMJMQ32rDNQx3uRes1k6L3kTuG/QKFtOSaM3nuTZdW9sqt
+	 UWpbAwAkWdp3p82T5kOKd/0OH2gDsN+4ocR5551mLs4V6CiUDHueImear7h06wh/E2zuT
+	 8C3g0cc/IePrhc2OB7Ilfn9oIORKgL3SPfTdrruRGTlz2dqVi8E16iW9jVgEyn13vdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184807;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=o8CqTgpj9o9s3c/cKwJbW2YWJcNUBL3TSARpKe1Chpw=;
-	b=vtdXOpC9DZKpyB606Jwn82PMgB54KYmX40RICvFuY2cik1u0ZoPZ8LCFu10iLpQRLl9x
-	 EpbuEYkEdeqwS8rVZpTnOKp0mnwCUHJi5C36j+DjzEfU2OPWFknnDYJ/A7nIpavTvLHyg
-	 8WEiwnDnRYk6Zpw86PuYOTya7YvUsXGwNrWCTlkmd8fLmjf6b8GTYa6AEgtG86mxnTm0/
-	 sS3HOi/QJwWtkLe+8N8pAZWidWhOmZxjXn1iXGDSw7gGFH0r3YJFJBKJYx066siu3RTdN
-	 cgHKkL0DG9Pjkg9TJl9Z3RF+xeusHwAZPPZJzl/jKqbEyjoQYZz7qzvhoIMuxaOhi/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184864;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=BRvskfouByE/116ZZn9IhBSCnzOLg4F0zmCYcQjh7wQ=;
+	b=uKLr6E+5ZRltcqAMnIHU3QQTRZ575AW/93gM1cUbda/V9P5w0FICGskFs8+m9sAQJ6km
+	 RB3TnJeCdb8GL9GsMyPXN59zxOJMUZ/Yq18ArVwFy/C4cWGTGaRzZoQ/4XshxILsu+z6N
+	 3gUXkSPDbWVcBrOy2THOz9d6BRml6RNM1RlFdmSUTWeb8r0lTEyJzGkJc4eb/g4pX50vm
+	 WlYOlZf+Jirhdfj2H78RtHAhTL68s7UEsfuKxJVpccGM/AdzDCUdyJ7PiB2Is47BfLeQc
+	 VaikAq3gkCOvOhEd6RElQKj8FgkIql92SBMA5k0cN5kTIKhUbZxf7t3RbESVfRJNm+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="b47T/9yh";
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1X7pxuxz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BEC7606A320;
-	Fri, 20 Nov 2026 14:26:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD57606A320;
+	Fri, 20 Nov 2026 14:27:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b47T/9yh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 726021F000CA;
-	Fri, 20 Nov 2026 14:26:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795184806;
-	bh=o8CqTgpj9o9s3c/cKwJbW2YWJcNUBL3TSARpKe1Chpw=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=b47T/9yhSiUSmpHCDDHeR3yylQtwckSAnevdqECo5CNn7VAQHrGAT2ras1G3IautA
-	 iYbX3HnLigD+3WbKaMlFieYcySe2//snCjyC2R8YGtFan3S5JzwojUYnPr6YBqwjAM
-	 BRtO49Y6O46ifRiAdogpj4CJg1523DvmyxDIhxfi6xjdjsWvZSIRkdPcsCD1MglQ9K
-	 PzSgdr0NozphsryDmltLqhLr16zyhkyj7Ua0L4coA8cZPq4ZbNyy1vZQwOXJ1Bvvkg
-	 3PT/GAGW+SizexevyzqjqS3wWwgh+V6NyrG8WZu36bGC0v9G0ueOrDmiUBkbFgSJ06
-	 dz7bGGs6yslrQ==
-Message-ID: <sashiko-outbox-225360@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v9 28/33] selftests/sched: Test deadline boosts in
- deadline_bw_test
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <3c1582ebc8887e6cb2183b47ee746c93878ce8cc.1795181240.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
- <3c1582ebc8887e6cb2183b47ee746c93878ce8cc.1795181240.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 14:26:46 +0000
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=1X7pxuxz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E14C1F000CA;
+	Fri, 20 Nov 2026 14:27:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795184863;
+	bh=BRvskfouByE/116ZZn9IhBSCnzOLg4F0zmCYcQjh7wQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=1X7pxuxzKy8kxhxbRj3phvLgUKbOIMyU7jwcbEgaLSLdZnsEegdNUqC3OyzUB9+mV
+	 cf98+3yJUFha9nN+UZnMix9vmTLlZUPQlkv7GUmsRPFIqtzC2VYFbaN474HfIoAPDH
+	 SfnLSHd5awnLBbbFfg2qDB4S7+NJ6Uc3VKIBthnU=
+Date: Fri, 20 Nov 2026 15:27:40 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Yu Zhang <yuz08559@gmail.com>
+Cc: Neill Kapron <nkapron@google.com>, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] usb: gadget: f_ecm: serialize notification state with a
+ spinlock
+Message-ID: <2026112031-shy-ethics-8879@gregkh>
+References: <20261026060031.60582-1-yuz08559@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,76 +53,59 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261026060031.60582-1-yuz08559@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue to consider:
-- [Low] selftests/sched: asleep_donor() 1s period in
-  deboost_out_asleep_after_refill() outlasts 300ms probe wait
---
-
-commit d2e9c0f7968d87de2ffed7f0becb6e1c373c9c07
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-
-selftests/sched: Test deadline boosts in deadline_bw_test
-
-This commit adds eight test cases to deadline_bw_test covering SCHED_DEADLI=
-NE
-priority inheritance boost and deboost scenarios, runtime refills from a
-donor, and waiter ordering on PI locks.
-
-> diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/=
-tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> index 25fbbc3e88d00..5ea9bfe0aee2c 100644
-> --- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-> +++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-
-[ ... ]
-
-> @@ -1938,6 +2065,326 @@ static int deboost_keeps_own_runtime(void)
->  	return ret;
->  }
-> =20
-> +/* Run refill_case() with an owner that is refilled from its donor. */
-
-[ ... ]
-
-> +static void *asleep_donor(void *arg)
-> +{
-> +	struct timespec ts;
-> +	int err;
+On Mon, Oct 26, 2026 at 04:00:31PM +1000, Yu Zhang wrote:
+> ecm_do_notify() guards re-entry only with an atomic_read() of
+> notify_count, then fills ecm->notify_req, does atomic_inc() and
+> usb_ep_queue().  This check-fill-inc-queue sequence is not atomic and
+> runs from three contexts that share no lock: ecm_notify_complete(),
+> ecm_open()/ecm_close() (netdev up/down via u_ether) and ecm_set_alt().
+> 
+> When the completion handler decrements notify_count to 0 and re-enters
+> ecm_do_notify(), a concurrent ecm_close()/ecm_set_alt() can observe
+> notify_count == 0 in the window between the atomic_dec() and the next
+> atomic_inc(), and queue the same ecm->notify_req a second time.  The
+> request is then added to the endpoint queue twice (list_add corruption),
+> and notify_state is updated concurrently.
+> 
+> struct f_ecm has carried a FIXME about this missing locking.  The sibling
+> f_ncm already serializes the identical state machine with a per-instance
+> spinlock.  Do the same in f_ecm: take ecm->lock across the is_open update
+> and ecm_notify() in open/close/set_alt and across the state update in
+> ecm_notify_complete(), dropping it only around usb_ep_queue().
+> 
+> Signed-off-by: Yu Zhang <yuz08559@gmail.com>
+> ---
+>  drivers/usb/gadget/function/f_ecm.c | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/gadget/function/f_ecm.c b/drivers/usb/gadget/function/f_ecm.c
+> index e495bac..d699832 100644
+> --- a/drivers/usb/gadget/function/f_ecm.c
+> +++ b/drivers/usb/gadget/function/f_ecm.c
+> @@ -59,9 +59,8 @@ struct f_ecm {
+>  	atomic_t			notify_count;
+>  	bool				is_open;
+>  
+> -	/* FIXME is_open needs some irq-ish locking
+> -	 * ... possibly the same as port.ioport
+> -	 */
+> +	/* protects the notification state machine */
+> +	spinlock_t			lock;
+>  };
+>  
+>  static inline struct f_ecm *func_to_ecm(struct usb_function *f)
+> @@ -414,7 +413,11 @@ static void ecm_do_notify(struct f_ecm *ecm)
+>  	event->wIndex = cpu_to_le16(ecm->ctrl_id);
+>  
+>  	atomic_inc(&ecm->notify_count);
 > +
-> +	aslp_donor_tid =3D gettid_();
-> +	err =3D set_deadline(0, NSEC_PER_MSEC, NSEC_PER_SEC);
-> +	sem_post(&aslp_donor_ready);
-> +	if (err) {
-> +		ksft_print_msg("the donor refused as a deadline task: %s\n", strerror(=
--err));
-> +		return (void *)1;
-> +	}
-> +	if (sem_wait_for(&aslp_owner_locked, 5000)) {
-> +		ksft_print_msg("the owner did not take the lock\n");
-> +		return (void *)1;
-> +	}
-> +	clock_gettime(CLOCK_REALTIME, &ts);
-> +	ts.tv_nsec +=3D 200 * 1000000L;
-> +	ts.tv_sec +=3D ts.tv_nsec / 1000000000L;
-> +	ts.tv_nsec %=3D 1000000000L;
-> +	aslp_donor_locking =3D 1;
-> +	err =3D pthread_mutex_timedlock(&pi_lock, &ts);
-> +	aslp_total_bw =3D total_bw_of(top_cpu(1));
+> +	/* usb_ep_queue() can complete the request re-entrantly */
+> +	spin_unlock(&ecm->lock);
 
-[Severity: Low]
-Can asleep_donor()'s 1s period outlast the 300ms wait in measured(), causing
-probe() to fail with a false bandwidth leak?
+Please use a guard()
 
-asleep_donor() runs with a 1ms runtime and 1s period (a 1000:1 ratio).
-Its initial 0-lag time passes during the 200ms timedlock sleep, so waking
-on timeout replenishes a new 1s period.  It then calls total_bw_of(), which
-reads /sys/kernel/debug/sched/debug while still in SCHED_DEADLINE.  Each
-microsecond of CPU time spent there pushes its 0-lag time forward by 999us,
-so spending more than ~300us leaves its bandwidth active past the 3 * PERIOD
-(300ms) sleep in measured(), and probe(cg_p) admits 8 tasks instead of 9.
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795181240.gi=
-t.mathieu.desnoyers@efficios.com?part=3D28
