@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214601;
-	b=fbDQf5Rx/wjUhmQsQIqz6JJQ2euvSokWflsLPlfuIGyoIJC8rLWmKp5X/LC60CpVvoBZ
-	 HByqtgsQ0SqjOYiPPsTYPPehhNxMdbW2KrVujl0JUvWTAsKWEt5cATSv7DzFF9ulYKmNA
-	 XJfk1ECiIdLWgkZi+pLIa6O+Tc43BWC4l8B8wvMOvUlb0YFTRfelOlv8eNngzxjepJE8B
-	 4oXSP3AvlfNHkAqlUy43l38BRd/P/1F/4uHss+fO7igm1YYaOQd/bsDO4llW0u8lxQL4R
-	 SY/VV+kxH+qEWfubGK7O91ZNotR4yT6V/kprkzWhgPTAd+KoW3CdMQZOT6aAZSohCcg==
+	t=1795214596;
+	b=Ht707fTd0roY98eU5O5Po5TjWqCoH+q6yVi8WOLQThEPXVuP7NK2nwDCRLuppuPja16S
+	 UfEcM23XHzuKDvQtJnfuStDGhrLl7XPejmwQp/08QvpZ6iw8bx1kkiasL1FHSt9wtq3Jy
+	 J9Rxgf4fUBhopT2Vm+BYS+uC7dB4XhkjUmom4GfQlOhrL1yXygSAlufKn+NH3EeFLTYl/
+	 bVNqUmSfvyCAshy6FnuBwgz3zA4j5cDjE/Y3+ElnPkAZ2l+Nh0T4HusjRzM1OiS6Acg5L
+	 XfYD7UoK8fIqa8opu0eqMZkj1IUG0pYEELIDJd0/Og4YEYSy7CKhWvDXcG+XJsXAZAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214601;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=3DG5zJYI4bk0cn71OCAq0KXTmjsN6G/9bGdpWXwzxBE=;
-	b=5WI9AKmye50Dc0iHGqJs1we1QDvMxK5+xT614Li2BmEpHUYOlW9Coh3ckN3ZIB5ri5nl
-	 ZPoDp46dVEBoktdEEXkBjeOHKk9w+aUfCmuxWSNBc8GNo6gx01Ow1vbL3WACqqgvpPEEc
-	 17GIpXbXW4D7lbGSrhJud1T+/qG3MagxDLPVh6/+gY+n5iE9ABSxorQ28f/IOCzXQvMWf
-	 UudMwFDlJ19Iuzwx7irog51cqusLHRuOS3SIy3jOLg5Ui2uSSoPpsNs8dat0JU4sOGv3/
-	 fboNkCNhuLljnWt48yjZ17f77DGeq5h4We8BpqyFRuXdFKUgtyUjId91u2K9WZ1UWGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214596;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=Y6B1qlUZWjZO+GSdjVFEgrQK8iWfGeM64GnIiZ+w6F4=;
+	b=hlp4FHn+lXJ5HdrfZ4QVk/5DCQi0qKkgaV4tcs2katkafmD560ihcKpINmYZZrMReQbw
+	 nxyIRCmV95MXOOQkxdO5jjJ2DMEwT2qYnymTC+2TyPZK95mIrle5Y6VkvzyvvusaqMtT0
+	 OeHAzpEQenh5pTd7BgRpn8gaDXJvuiO3Qb9Yj3fb/ueriRBCkysVMlya/veV/+A1KdJYM
+	 eOb02P0z1BOnZndQFKPH9ZY5uIrTkgKlb1eOBUkvKUqMFAZwf0UKFHGmNpgyFN9G92RJY
+	 zWl0HyfZ9z2Sh4kfCNSUV6SQSX5SPD5l007u19ioqklC2EHcTL/RlXnKKcC7T5uY6ng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ozgXlMcE;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=UyNVNUuV;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B60A6606A6A4;
-	Fri, 20 Nov 2026 22:43:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B60A6606A6A4
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6AA5606A68A;
+	Fri, 20 Nov 2026 22:43:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6AA5606A68A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ozgXlMcE
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8A3D4A023C;
-	Fri, 20 Nov 2026 23:43:02 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=UyNVNUuV
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57E41A4C4E;
+	Fri, 20 Nov 2026 23:43:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795214587; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=3DG5zJYI4bk0cn71OCAq0KXTmjsN6G/9bGdpWXwzxBE=;
-	b=ozgXlMcE5PA6NUhIGtKRpQpp9Q0feeiCsP0ZDA6McYR+yYg5Mf0FUhDgDT/wmaMj/VKM6N
-	GK04FNp/Kqls0IxudVx6Sx3lVkIMxp/leRF7ZADHYaYD163Up0+rlW/vwlXHuYRKPBcHXf
-	ypz1EC55x2u6vEKg8hktxVOKuNs2P43K6+rKuagmRHsiIdVELixv1S2Wi2f3edoIiXoOdk
-	pfSfU3tdN8PJ6CAhjpnTKDQbauK9d3i0Sq1uQ0msO7bv/8bwk46dw7SRiKLBucePWMrzzP
-	kD7l6YRaiGXXWC0sfzwBkAhPxuqBVN8inoXmL7TqjcumKbYHbuFFADd2XQOZkQ==
+	t=1795214591; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Y6B1qlUZWjZO+GSdjVFEgrQK8iWfGeM64GnIiZ+w6F4=;
+	b=UyNVNUuVleHIObwHZ462iMXCiQKfjXOhooFMHMPwnT+xEYWjjxIZfktq2CwoBdh2zesYvo
+	owB/db4c4ZOWr3j3kanqJEJGbm6oKyqr9FIYCbVkGhqQsWzE2x7IwmAea+URHNQkpoElRD
+	kHxc+GAy23cOkkxQ2i7h1qevuTX3K9C353/lcUIjTSNVHMbCFV3fMtrQdFzlmiKFZFUWLC
+	JKoGZ7Kj0rr+m9P3ZNb6o7DbR0Od0IAgTJslVadeMjqKzhs4xXJmb8UbufpQjmBtxUQ8vm
+	oxoxZWtRDDtVEaeEx59jhI4xErFOL9jIwSQzQtFmiwUqoo9C85pABGI4o00/Bw==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Subject: [PATCH net v2 0/5] net: bcmgenet, systemport: DIM and Rx discard
- fixes
-Date: Fri, 20 Nov 2026 23:42:34 +0100
-Message-Id: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+Date: Fri, 20 Nov 2026 23:42:38 +0100
+Subject: [PATCH net v2 4/5] net: systemport: restart DIM from the default
+ profile on start
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,11 +59,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQ6CMBBFr0Jm7Zi2RKyuvIdhQekUxsRC2ko0h
- Lvb4gFcvpn3/18hUmCKcK1WCLRw5MlnUIcK+rHzAyHbzKCEaqSUGr3BgTwltPzEmLoUsZBpTON
- sLeqLdpDDcyDH7734DlmA9neML/OgPpXKoo0c0xQ++/wid/nf0iJRoKyNOp+cJKH1LfHM5XW0B
- O22bV/7orGV1QAAAA==
-X-Change-ID: 20261118-nb-genet-dim-stats-net-b6b6fd30398f
+Message-Id: <20261120-nb-genet-dim-stats-net-v2-4-1a7cece7dd1a@tipi-net.de>
+References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
 To: Doug Berger <opendmb@gmail.com>, 
  Florian Fainelli <florian.fainelli@broadcom.com>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -77,47 +75,65 @@ Cc: Justin Chen <justin.chen@broadcom.com>,
 X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
-Sashiko has flagged a few genet bugs over time. I'll work through them
-as time permits, fixing the ones that seem worth it.
+A close or suspend can cancel the pending profile work and leave DIM in
+DIM_APPLY_NEW_PROFILE, where net_dim() does nothing. Adaptive coalescing
+then stays stuck after the next open or resume. The poll also calls
+net_dim() after napi_complete_done(), so it can queue new work after
+napi_disable() has returned.
 
-DIM on genet and systemport wants running totals but gets per-poll
-counts, so it picks bogus profiles from the wrong numbers.
+Run net_dim() before completing NAPI. Reset the DIM state on start and
+begin from the default profile, which is what
+bcm_sysport_init_rx_coalesce() programs.
 
-The series also fixes DIM getting stuck after a down/up or suspend and
-resets the Rx discard count with the ring.
-
-Patches 1-3 have been tested on a Raspberry Pi CM4. I don't have any
-systemport hardware, but the bugs there are the same.
-
+Fixes: b6e0e875421e ("net: systemport: Implement adaptive interrupt coalescing")
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
-Changes in v2:
-- genet: flush the DIM work instead of cancelling it, which also covers
-  WoL suspend (Sashiko)
-- genet: reset DIM before switching to running totals, so a stale sample
-  can't wrap after a reopen (Sashiko)
-- genet, systemport: run net_dim() before napi_complete_done(), so no
-  DIM work can be queued after napi_disable()
-- systemport: add the same DIM reset (Sashiko)
-- systemport: the set_coalesce vs DIM work race is pre-existing and left
-  for a separate patch
-- Link to v1: https://patch.msgid.link/20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de
+ drivers/net/ethernet/broadcom/bcmsysport.c | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
 
----
-Nicolai Buchwitz (5):
-      net: bcmgenet: keep DIM from getting stuck after close or suspend
-      net: bcmgenet: accumulate the DIM packet and byte counters
-      net: bcmgenet: reset the Rx discard count with the ring
-      net: systemport: restart DIM from the default profile on start
-      net: systemport: accumulate the DIM packet and byte counters
+diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
+index bc88a27da16b..29e608e7daaf 100644
+--- a/drivers/net/ethernet/broadcom/bcmsysport.c
++++ b/drivers/net/ethernet/broadcom/bcmsysport.c
+@@ -1012,18 +1012,19 @@ static int bcm_sysport_poll(struct napi_struct *napi, int budget)
+ 	else
+ 		rdma_writel(priv, priv->rx_c_index << 16, RDMA_CONS_INDEX);
+ 
+-	if (work_done < budget) {
+-		napi_complete_done(napi, work_done);
+-		/* re-enable RX interrupts */
+-		intrl2_0_mask_clear(priv, INTRL2_0_RDMA_MBDONE);
+-	}
+-
++	/* net_dim() can queue work, so run it while NAPI is still owned */
+ 	if (priv->dim.use_dim) {
+ 		dim_update_sample(priv->dim.event_ctr, priv->dim.packets,
+ 				  priv->dim.bytes, &dim_sample);
+ 		net_dim(&priv->dim.dim, &dim_sample);
+ 	}
+ 
++	if (work_done < budget) {
++		napi_complete_done(napi, work_done);
++		/* re-enable RX interrupts */
++		intrl2_0_mask_clear(priv, INTRL2_0_RDMA_MBDONE);
++	}
++
+ 	return work_done;
+ }
+ 
+@@ -1452,8 +1453,11 @@ static void bcm_sysport_init_dim(struct bcm_sysport_priv *priv,
+ {
+ 	struct bcm_sysport_net_dim *dim = &priv->dim;
+ 
++	memset(&dim->dim, 0, sizeof(dim->dim));
+ 	INIT_WORK(&dim->dim.work, cb);
+ 	dim->dim.mode = DIM_CQ_PERIOD_MODE_START_FROM_EQE;
++	/* Match the profile bcm_sysport_init_rx_coalesce() programs */
++	dim->dim.profile_ix = NET_DIM_DEF_PROFILE_EQE;
+ 	dim->event_ctr = 0;
+ 	dim->packets = 0;
+ 	dim->bytes = 0;
 
- drivers/net/ethernet/broadcom/bcmsysport.c     | 20 ++++++++++++--------
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 19 +++++++++++++------
- 2 files changed, 25 insertions(+), 14 deletions(-)
----
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
-change-id: 20261118-nb-genet-dim-stats-net-b6b6fd30398f
-
-Best regards,
---  
-Nicolai Buchwitz <nb@tipi-net.de>
+-- 
+2.53.0
 
