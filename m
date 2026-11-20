@@ -1,102 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186874;
-	b=3D9NIKur+fLycXLd98Z0gCbB2CkN66kHZt+mBjKba1Xcq/vviUJ9f4xK5/IvHc2re2cc
-	 p9gEtbGv6a3vwyv5JAoIRYrkM2CAXto9HEgOSxbBjXGocQ2jMi45HICqEbGp6TEz8c8PO
-	 5QL2sNq0+JZFp+9Ok2y3fp8kdjJ2MvhNsYVzXv8Ujd+bLYFH1bprywAca32DiccmeEfH5
-	 97Oen1hgLa3HNTiLdclj9vlKQybVRzHufrCB6S4vFk5Hvcdwa12ZhfoDnWyIcXqx9Vj4p
-	 +9e4aH3dJ8s0I4g8/4sbJd8e4bomYwQGduvB8xJwGRjBz3VnbyKCf8uveH8w9yxOxHQ==
+	t=1795186880;
+	b=cFK9fVjUOnJLJ5jPgYKn5MECgv0FyFQ/GEbk5GJpY6/fQvdAai1E+xTrNpUZQaNtaP/Z
+	 j82+PCMUOv/rYB0rjuPzKVO0uejhB4HzM8XlIjmYLY0aSZWMr3AVcLgQwEwO+3GLWVpx8
+	 Qd6vC/msXb5XEU9VIkKK3GG0Ygiwae2NSMqLIYegXzJhl3bKCgKmC1xu982Ai3uCUf75n
+	 JBIuJqFkqtOBEnKhquJMFaNgfFvz2zCru6ekRDHkeh3Dma8sir7g4iC5Zia/km19KNurH
+	 2DA5gOSy/V8MDnU1ICRDK4VPbeUiyrXJbwEmtESK9uLritmBB42yK1Qu+0CvoONesSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186874;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=bUXTcWB2gCAchh7a7jLoo9myOcXMnzJqVzVHJAOHy7Y=;
-	b=RNBTj+kmbL1N6NiOcRd+ePgOBMJYWx6zPgfvIMXi3TFC0JrhRZ05wjAckQD+ATIVgBqe
-	 k+qis1OMsJ0SDjsKBCPWe6/gDXhAiTCwIbJCSerovB3J2ohH3JSsj8uz2i+jiob5g3aTX
-	 OjZXLO9QW3iYaB3/sAfh936b4KsvlXJGxuMFXqCqaSsODs4n3L/QENicKCI+V7WQSU1x7
-	 U/N09kRCadL9YICkpjkY//yDWS9Cpmdz1iIhNtNJDJVdkqvmjg16a4I7WbXDgaUozbWBE
-	 U8ScUUK5oprCv1c2CpVOCoCGSQeYXGrw5he2l4hGqdhziYfcrcOGEBi5ERqfzES6hJQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186880;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=O/61q62gvasmCL59xNnECoaUy283F9i0rFiASLGXdtg=;
+	b=3n9r/hEXgHB0cZsIXDalil69wSQ2gPTvz7cn0ipaWBh1VtQHKvZNbL/DXZ7mlXAF6bdH
+	 fKIaNk/WbzrVg42a5wRaSv7o48AklElzReni8yLHYmc/Wt58JYe2bYxNLy8FhKX9D4ywQ
+	 uN+2udXgr+kZMIF7xxxUErcvMBRzsX20hZp+m/ooWekduSm/WfiYSfH44mnBbldfOeFN2
+	 zyrHuI9ePfj3OVjOtb2Yx9hVu55TB1S969vpLDf0nWNs8//GmN6HdK5vNlNc6USthSprP
+	 /b+sQrr4GElNDCnTOR4wpdD8VS05IXmYnSneeMb3kpM0gJ4//ntm+8Jxr7dd54XN8fA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=isslab.korea.ac.kr;
-	spf=none smtp.mailfrom=isslab.korea.ac.kr;
-	dkim=pass header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="q/876PqC";
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgVUIfv+;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FB5E60A2619
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:01:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FB5E60A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=isslab.korea.ac.kr
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=isslab.korea.ac.kr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FE3460A383C;
+	Fri, 20 Nov 2026 15:01:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FE3460A383C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=isslab-korea-ac-kr.20260707.gappssmtp.com header.i=@isslab-korea-ac-kr.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=q/876PqC
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so604401a91.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:01:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=isslab-korea-ac-kr.20260707.gappssmtp.com; s=20260707; t=1795186874; x=1795791674; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bUXTcWB2gCAchh7a7jLoo9myOcXMnzJqVzVHJAOHy7Y=;
-        b=q/876PqCgLYg6tbOv1L4VfzQwB4XKk6YHc8mfdeFLsL9+h3VRZOktn7UEeU3ZaREoh
-         Hb3uJN1RoTBHw/D97uK55OMHsY/wL4bSOIqZ6aELTKUAyQ7oXjzgMDILpd64vNt6iAfF
-         CJNy6rNyIq1/00W1ExqDuhMNb9G0VYhEpT8S25B01H+c6csmZc5/Vt3Y+JgFGl6mP2Cu
-         JE9Fw6tqlyzuNcg7MnrqfSP3vAlE2NjuANuSVpg/cMYetY5RlHzhuZhg70Rygt8FXL7I
-         Hns05w27Jj8nTy7+6t2IBjjDTtmlIyixFwdjeswnu/0R5ccN5//dYv0qd9Occ673oOjZ
-         KiwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795186874; x=1795791674;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bUXTcWB2gCAchh7a7jLoo9myOcXMnzJqVzVHJAOHy7Y=;
-        b=is4qUpmasMurn23YkMsAHXxDxya7DFSagXrQhhwPD6lidlGKE3igTEm3BVbsC0wkBZ
-         s8wDdfrj0an96A3WOzuiIH5MhzxkYh3Rrb9bjdLOc2HqyyKY+3SE58lD2/hG7oY5KEXW
-         trlFiZ/U7yKJ79t89KDklv/a8ltSi+Yy8gwzxUd2P2NaRi8WF0rY+oOMc6HGV8SL8ADb
-         hKeEIaonOcF5gvfvjmetYdKHJJU+nCIIEEbcrCk1JYmHscby77WEK7yRgX55ywx2NoO5
-         NNoSWz9BpRbETc5sBl+3O7+zdWDRknSqGrJILwufyLKL8X+xmQYTn1JChPCxKSpaGRgk
-         A0tw==
-X-Forwarded-Encrypted: i=1; AL+hErGbhf0BE6J9HPBhjrc1aZG49NnzY0DSyRisB4L6lZGWq7uh8C97ZyG8Wn5lm8LWxNsIJkqNggaiK4F9Uwk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Dw27ZIslQuLsUycZwDSl3NUxdKsA89hwX5qCJ+XP34O5MuMm9
-	NsGWjn4xaNnN9AA5dV/SbAR+uebT7FM3m3N0MEaMjsXVJGFM8mfbcPTwp515Yh+fTg0=
-X-Gm-Gg: AZFdTZdNcJomKxJJkrKs0PySwfCjJZNJ1MZhCH/QAWAjhs/fTkPO/rupFTenM4QD7iM
-	6QBCSoNYxBIGtFoycMNts4gQ25sed1suEEhxNlCkPAbxzHg0ZZ9f8C9LOH56Vh0dibvPzs+Nq1J
-	7mGpG/OlQuFEUYykCWW622I9vGxsKMD+K/bfWC8rA2Y0ci+P78lbiY3za6WuGN1cqkXlXg7qhBQ
-	UcodOux71ByPV8RBULUtpO8XbuIJPxUe4n/cKbzr8350MvvA8y154YLtn9aBMRGs6vnPLb9CdaO
-	d/hh/bwPRqPpLsavP/g8oufQQabEjqD2HBzbWmuaZCzEu+LYYlusARzQk/RylBnz21DxwRHOpGP
-	nEhf87crCMazKwAVGUSkoQs4avfoOHEHxRLosnTe6djXkp4ww7U4r6axvZ66k5pImlMAIX/q5fC
-	HYYd4YTeo6T+R8oJ0R8M0V9FSwkqP4W5uX4XsHfARDNSKP1ucRdXy9CXOanSKomYLr5A3z3MhpZ
-	Ole+CHjO0hzRJLV3qnfmg79BWx5/yM02vwdm/VAuL9JKd/WF061Xj8ePowbtufA2f0RYGj2NgV9
-	rveOdF9UOtAM3spqGPfncA+b1eEaloG3Pfp/U7x74rAx1nB2MhS8vvKxuTq1uB9CPDR7kwxV/Zo
-	5Ps8ASsMFWqso3UqTgczbGRFlQTu74HNufnKGVUS8MXZN+UcGYFmPXwkVUg==
-X-Received: by 2002:a17:90b:1801:b0:3b3:ffa8:6bc5 with SMTP id 98e67ed59e1d1-3b41c9823cemr3026706a91.60.1795186873588;
-        Fri, 20 Nov 2026 07:01:13 -0800 (PST)
-Received: from yhlee-960QFG.Davolink ([2406:5900:1044:110c:8b25:951:ad8d:5cc1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40578d771sm7768016a91.1.2026.11.20.07.01.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 07:01:13 -0800 (PST)
-From: Yehyeong Lee <yhlee@isslab.korea.ac.kr>
-To: ram.vegesna@broadcom.com
-Cc: dwagner@suse.de,
-	mkp@kernel.org,
-	jsmart2021@gmail.com,
-	hare@suse.de,
-	michael.christie@oracle.com,
-	James.Bottomley@HansenPartnership.com,
-	linux-scsi@vger.kernel.org,
-	target-devel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] scsi: elx: efct: hold a node reference across asynchronous session setup
-Date: Sat, 21 Nov 2026 00:01:08 +0900
-Message-ID: <20261120150108.3128312-1-yhlee@isslab.korea.ac.kr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261021022209.2580332-1-yhlee@isslab.korea.ac.kr>
-References: <20261021022209.2580332-1-yhlee@isslab.korea.ac.kr>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgVUIfv+
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8B2C7C62220;
+	Fri, 20 Nov 2026 15:01:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C1A4E601B9;
+	Fri, 20 Nov 2026 15:01:11 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D034C11BC0284;
+	Fri, 20 Nov 2026 16:01:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795186867; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=O/61q62gvasmCL59xNnECoaUy283F9i0rFiASLGXdtg=;
+	b=cgVUIfv+N6JKf9LGvNH/jFTiL52g8RBI/iUIgBKnQOZgsYS93kGbCIwgi8UgyqeCjF/NmR
+	Gaw5UYojk7EeSbSqNXN6ZTeSkfkC5jLjPX9K0XxMQksyhXQOeCtzltP3hi6X7F6Z2VWMyl
+	Q48uhtr6f/ZFxWQmtMEHAvVQTzaWWwvdtwTY8TqtczB+p+DNC9lOxOISmmJrffh7/Q4rf0
+	H+MhRqyZrGL/lHboY+hsGIYVvdl4fRekAPx+4GhbJveFWxcjSQnFpen9ftgaBDx6uqXRbi
+	FnCf8mhnSBs+D+II5xXKq8iEyLNsxnOHaF+5pJbgNrVfJlQtObILSZw8DEruiA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
+ <vigneshr@ti.com>,  linux-mtd@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH] mtd: serialize dynamic partition registration with removal
+In-Reply-To: <20261108-submit-mtd-partition-publication-v1-v1-1-cbff20b1351e@gmail.com>
+	(James Hilliard's message of "Sun, 08 Nov 2026 14:13:59 -0700")
+References: <20261108-submit-mtd-partition-publication-v1-v1-1-cbff20b1351e@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Fri, 20 Nov 2026 16:01:05 +0100
+Message-ID: <87h5hba6oe.fsf@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -106,19 +72,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, Oct 21, 2026 at 11:22:09AM +0900, Yehyeong Lee wrote:
-> efct_scsi_new_initiator() hands a bare struct efc_node pointer to lio_wq
-> and returns EFC_SCSI_CALL_ASYNC, so the node state machine keeps running
-> while efct_lio_setup_session() is still queued. The work item then
-> dereferences that pointer on both sides of a sleeping call.
-> efct_get_vport_tpg() reads node->nport before target_setup_session(),
-> efct_session_cb() reads it from inside that call, and node->tgt_node is
+On 08/11/2026 at 14:13:59 -07, James Hilliard <james.hilliard1@gmail.com> w=
+rote:
 
-This is superseded by v3:
-  https://lore.kernel.org/all/20261021142818.2782104-1-yhlee@isslab.korea.ac.kr/
+> mtd_add_partition() drops partitions_lock after linking the new child
+> but before registering its MTD device and adding the partition sysfs
+> attributes. Concurrent removal can unlink that child before it has been
+> registered, or release it after registration but before the attributes
+> are added. It can also finish deleting partitions before a new child
+> is linked, leaving a partition published after master removal.
+>
+> Keep partitions_lock held across allocation, publication and attribute
+> creation. Record that master unregistration has started under the same
+> lock and reject new dynamic partitions from that point. Check before
+> allocation, which can scan the parent's bad-block markers, so it cannot
+> start hardware access after removal has passed this synchronization point.
+>
+> Initialize the state when registering the master, allowing drivers that
+> reuse their MTD object to register it again.
+>
+> Fixes: 5daa7b21496a ("mtd: prepare partition add and del functions for io=
+ctl requests")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
 
-Best regards,
-Yehyeong Lee
+...
+
+> --- a/drivers/mtd/mtdpart.c
+> +++ b/drivers/mtd/mtdpart.c
+> @@ -278,28 +278,34 @@ int mtd_add_partition(struct mtd_info *parent, cons=
+t char *name,
+>  	part.size =3D length;
+>  	part.offset =3D offset;
+
+Open question: would a guard(mutex) prevent most of the code churn
+here?
+
+Miqu=C3=A8l
