@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795136848;
-	b=v1PqWHlIBF+YhCpOxuvhUMuw7zCInR8XEhFd7yhX/yQwT0SQFg6V6neTgQaVh0baKRPr
-	 43V807z0xZX7p8E6zo+UTTtIBr24n51nUh4XasirqRAnlsm9jFE3pQdXnnNJq1t5YqIsx
-	 +PQVlliabxdWNU/98V0F5zpBMXM3KTpz1zSDNRIbF1m+HXs8ALlPXI0Zfzf/LJXqJYgNh
-	 uy+H1wPyKtAx5vBiwZrcYLuBFKbx1EUGWw5U3tObirIGw3lBTYM0bigLQxUAsq4B61VAZ
-	 ljcE+FnJBCJGg1kvZAUlu+l143QnntcYu7D1AwEZ1s8009O1EBbvGLFzzhGb1oqwZnA==
+	t=1795136843;
+	b=zRciPFObPzCQAfLIugQiRQlebXp229kUy7FWga6kPpY05M1BHLyYuuDfMGW3B67D7REp
+	 JUEjHnS0Rci1FMzzxtUmJEvDfi1okh18LFXJIW/tGfhc5IwhXWyvxH21gTHMS5YHiTVBV
+	 falX/dWnSofytJTMGMgZh9pYLL+g7wR8I7kC4JIOMzHzbkQcdhCfpTPMRXMbtzy4G0vbP
+	 AJ99aRxAd5vuuvD8uGb1asVaM7ghnhSZv/fd9xq8G4ebMpfIyndGZD7gAVq0Lh6zUSJNZ
+	 UtrSfDe2/Ix6uVQkSberCiDQx7GXU8NukkzrY+44bpfYJ6wVpEJA+jyCc1SiMwq6hww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795136848;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795136843;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=E07+bb3FRwBQVv7TP6tKUfjd8V3oXYxVPDexh6Cqmzk=;
-	b=zqTHw3JkHbrhbEpi7iG6AAebhRrzDDMf/F1qVSnIlGAG9feXRptpmY3AesNklk7JCBFv
-	 pCezqsnr+04WdW4pl99jmQjBp61hr/e0oW0TUJO/7vuuY/Pa9VCqZgpVkbQfxLbgU5xsN
-	 OjbBTA5xhX8nk8Y/xRKWvGaFreWsnfAo0VpUpeJR83batwrcpW9uJz/NRVQ8nahWViAD9
-	 SKcRYe6qtOm69HO5DsM9z2Q8u9aIdMroAvNjxvQYvHn7jLlK7U20GeIWCnRymIDb/BJWK
-	 F+qL8K4m9xB1FzFxzoFeA0nUWJcUNqAeoMZHrxpukWqe+hLUevQf42+lWsxYu1mCf9g==
+	bh=5SEs/blsCReRT4hCMThOeNKTJAt5emco8Ap+aYEQIPY=;
+	b=vFJi/HGZYapmZDz3ycz12UJylMTUzyXl/ssy9XZOtMoVWHQxzlIwaFaPOrzYFnU+/Hww
+	 CY4Hyg2v46d/YPNY+6UoTkcz3AGAgNwHhNR/BB/vYGTOZpFARl30J2zdagpRGV+NlGwev
+	 ZqoQ6US/Kt+ujK2/WQCaciHdhyQUgaXyCF7pHEIjuzsSUZjnUoD0hDhH4YjN8YQaQ1kVe
+	 livSRZWc1SNDD0y3VHNnp21duuJISS8SzD28Edx6xs/3C2eHDUe35hQCa+Xn3u204sh6c
+	 7N99fxdHJXh1GJY9xzjPFtsC+YRxLfe83m3cNskrqYvcy9Uczr7QQ+gr/vVfTfccKhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b93YVg4T;
-	arc=none smtp.remote-ip=209.85.208.70
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com [209.85.208.70])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UW7ic8qW;
+	arc=none smtp.remote-ip=209.85.208.71
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com [209.85.208.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61D646074AE1
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61D646074AE1
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 482DC6072286
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:07:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 482DC6072286
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--lrizzo.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=b93YVg4T
-Received: by mail-ed1-f70.google.com with SMTP id 4fb4d7f45d1cf-6b8af15db8fso237837a12.2
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=UW7ic8qW
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6b889512a64so364743a12.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 17:07:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795136847; x=1795741647; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795136841; x=1795741641; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=E07+bb3FRwBQVv7TP6tKUfjd8V3oXYxVPDexh6Cqmzk=;
-        b=b93YVg4Tm3NX/spWylixOIxUhvRdvQxIAED0+riXQRtSo83NRIpTge2rBzxcszzDOC
-         3rugR/9IJ5658Ud+fUJT4UcFrAj82J063h9Hfj/4dN+vMPLRUBX70qcyXWzD8yndZ4r3
-         gvEnn939L6CAKAX2sbq66H1utJI9EEojPBLD5FlZNUJogu/LFQjD9PlVTjODPVgf4HfN
-         Mmhes1u7rOGZpB3HfCkapqaCrgkDb1LIjXpz5iNJuBeXVa7tLbtBPXYS7tIwbEfohsZl
-         /Ng6c6woQyveInvcT6fUrZi9u0LAgbi7XVVgHZFHCL3auVJkwOpwQMgP5SZvJhDx/pXk
-         DgbA==
+        bh=5SEs/blsCReRT4hCMThOeNKTJAt5emco8Ap+aYEQIPY=;
+        b=UW7ic8qWp1qgrT+THHSWIhZ2r5WlYsCTixzD5A1rkCjugIkpGY4NcOcFJBVoSz0VHX
+         GSPbO7GoKay4jlKheFbKzaH8NDBxXjnoxjHMtMCHiAfUORVsmgOBKiEfy5Xqms513G4q
+         LbY1k4tyHZ3qDR1VRD1IsD3TZINYWnOCJPJ4QmtGKWriR8OI6cIbfUPdlcVxUS1n9r8J
+         5JHOSaL5T9LGQ/CoMtXI0SnLpR6qQ6OiBanW+/CXreajhXSXs3uCHlMA9vr1psDVQ6VR
+         h1f9kKDeeeeBSPfw1TrgJHqzVlQCOyTtAluBqslv7j8OzlupZnSXYt3k8liJCDCQkWBw
+         Qo+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795136847; x=1795741647;
+        d=1e100.net; s=20260707; t=1795136841; x=1795741641;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E07+bb3FRwBQVv7TP6tKUfjd8V3oXYxVPDexh6Cqmzk=;
-        b=cnIJ7rS3iVHoudlCkc84klrjmcIxD9hRx2as5eidjkrGBsSGA/I4tUGLaq7o8fAi/N
-         OlwDRjHG8vlyimB6XXWYy6NVEyCJmy/4ATmAtwFCvTDh0cctKZyzbEWH5CBK0tWmXTFz
-         cZjT3ChSPz0Pyl2zQXyLGpYQdDU6M/nQ2aIt0GlMwbvp3xbnETcoP7oMEhn+ldru+qr3
-         3nwWDCppizHiAdmIRG++V6X9J0y9nupPal8u840mWo/zTujA4aOqzToceK5EqbZe+mXc
-         +Evyappyc8+gmd5mKCadBMg9SDXvoahLWRWecrhyOfwssFqm/xb12kMB/+DQ3Sjfih6t
-         +Gfg==
-X-Forwarded-Encrypted: i=1; AL+hErHdVyeQTKSU2Fr9jIcSfV5aWojk3iweT6ZNS7IFGxrfofnQDAtEB7Jt39FZQPJfI2p0zW2dCtJf2H3d4iQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/kFwunUrZKNzr9FPm0a0BLv29rxkSs9/Hw/uTndp/eAehR+GSs
-	o0UJ/AMvGhnwTGecxXPqk61/IP2i7Yczshx9jMQQrbEz74HPmdHwAtQGOcCdiNyAl2DNGnIqtZU
-	qsI52yQ==
-X-Received: from edl2-n1.prod.google.com ([2002:a05:6402:4242:10b0:6b5:6602:7fc9])
- (user=lrizzo job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:1e94:b0:6b5:8247:7bc7
- with SMTP id 4fb4d7f45d1cf-6ba37ed4f03mr808156a12.44.1795136846496; Thu, 19
- Nov 2026 17:07:26 -0800 (PST)
-Date: Fri, 20 Nov 2026 01:06:53 +0000
+        bh=5SEs/blsCReRT4hCMThOeNKTJAt5emco8Ap+aYEQIPY=;
+        b=hpxHcq8FjPrQoEkMOXEpwo9ks5Sr4LDPe654vObgl3cCNAePL46aJY1UV1DeYBjJcO
+         Be7Y+Blgxhkzw4l0o21g+SPkn/Gik5o5DUL0S/7j9/rd7ikTWH8m+VkkGCEmPJfUuNaI
+         cgmw1pdfNxI3VYzWB/1HXz5MyyQAQDp515DL6ZAuYQ/TadLly4XqQO4sCC7tf6F2nuGY
+         c+YiuosDKUzB1gaH8QKAKt8NijddchFB58NuVScwmamgftqKsTPn8Ha6ifS6HJj747Ip
+         ssWRVC5vj4ugxFX+iDBHGL6aNrACBk3ynVYg4FhSHZZaCH/M2DrZCW670CRJFDyQ+AOo
+         Wwuw==
+X-Forwarded-Encrypted: i=1; AL+hErGf2l7Wu06ZpBvCJd0v6jERxeGQL/iXyx42P08iDdYDH4wcGrAY4aO2vOYLXY9JgFPnjpa7xMbQe697ymA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wvYJ1a8UiaKpxG96WSJTJLiR0Zt+Ji75daK0R1mTy+6Qp6tDr
+	CR+8W5DVtduyodYmavx/hyxxAAQvygXU/HZIjYWINvwNMH3l/PpHsjnWQZ+zSoNXAx2gq55tkbK
+	yNvGm+A==
+X-Received: from edcnu5-n1.prod.google.com ([2002:a05:6402:c505:10b0:6ba:2090:b8e7])
+ (user=lrizzo job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:a210:20b0:6b8:81fb:aebc
+ with SMTP id 4fb4d7f45d1cf-6ba37e7e94fmr649614a12.19.1795136840334; Thu, 19
+ Nov 2026 17:07:20 -0800 (PST)
+Date: Fri, 20 Nov 2026 01:06:48 +0000
 In-Reply-To: <20261120010655.467825-1-lrizzo@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +81,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261109182533.3594984-1-lrizzo@google.com> <20261120010655.467825-1-lrizzo@google.com>
 X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
-Message-ID: <20261120010655.467825-24-lrizzo@google.com>
-Subject: [RFC PATCH v3 23/25] net/gve: Use GFP_KERNEL when pre-filling RX rings
+Message-ID: <20261120010655.467825-19-lrizzo@google.com>
+Subject: [RFC PATCH v3 18/25] net: Migrate user pages into PISA for MSG_ZEROCOPY
 From: Luigi Rizzo <lrizzo@google.com>
 To: Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
 	Johannes Weiner <hannes@cmpxchg.org>, Vlastimil Babka <vbabka@kernel.org>, Joerg Roedel <joro@8bytes.org>, 
@@ -112,82 +112,388 @@ Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett" <liam@infradead.org>, M
 	Luigi Rizzo <lrizzo@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-When pre-filling DQO and GQI RX rings in process context before NAPI is
-enabled (e.g. gve_open), use GFP_KERNEL instead of GFP_ATOMIC so page
-allocation (and CoCo page decryption) can sleep instead of dipping into
-atomic reserves.
+Perform best-effort migration of user pages into PISA memory on
+MSG_ZEROCOPY sends in zerocopy_fill_skb_from_iter() when the egress
+device has the per-device attribute pisa_tx_zerocopy enabled. For TCP
+over a device that also has pisa_tx_bufs enabled, pages that cannot be
+migrated fall back to the regular copy path into PISA TX page_frags
+without reporting SO_EE_CODE_ZEROCOPY_COPIED.
 
 Signed-off-by: Luigi Rizzo <lrizzo@google.com>
 ---
- drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c |  8 +++++++-
- drivers/net/ethernet/google/gve/gve_rx.c              | 10 +++++-----
- 2 files changed, 12 insertions(+), 6 deletions(-)
+ include/linux/pisa.h |  3 ++
+ include/net/pisa.h   | 32 +++++++++++++--
+ mm/pisa-user.c       |  8 ++++
+ net/core/datagram.c  | 17 ++++++--
+ net/core/pisa-net.c  | 95 ++++++++++++++++++++++++++++++++++++++++++--
+ net/core/skbuff.c    |  3 +-
+ net/ipv4/tcp.c       | 12 +++++-
+ 7 files changed, 158 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c b/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
-index 6880d1531ba5e..a3fe684ca087a 100644
---- a/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
-+++ b/drivers/net/ethernet/google/gve/gve_buffer_mgmt_dqo.c
-@@ -223,13 +223,19 @@ void gve_free_to_page_pool(struct gve_rx_ring *rx,
- static int gve_alloc_from_page_pool(struct gve_rx_ring *rx,
- 				    struct gve_rx_buf_state_dqo *buf_state)
+diff --git a/include/linux/pisa.h b/include/linux/pisa.h
+index 84692852299f1..11e3ea9eb263d 100644
+--- a/include/linux/pisa.h
++++ b/include/linux/pisa.h
+@@ -95,6 +95,7 @@ bool __pisa_page_can_recycle(const struct page *page);
+ bool pisa_upgrade_user_pages(struct iov_iter *iter, struct page **pages,
+ 			     size_t size, size_t offset,
+ 			     enum dma_data_direction dir, bool pinned);
++bool pisa_page_tx_ok(const struct page *page);
+ 
+ static inline bool pisa_enabled(void)
  {
-+	/*
-+	 * Use GFP_KERNEL when pre-filling RX rings in process context (e.g.
-+	 * gve_open) so PISA metadata init and CoCo page decryption can sleep.
-+	 */
-+	gfp_t gfp = (gve_get_napi_enabled(rx->gve) || in_softirq()) ?
-+		    GFP_ATOMIC : GFP_KERNEL;
- 	netmem_ref netmem;
+@@ -264,6 +265,8 @@ static inline bool pisa_upgrade_user_pages(struct iov_iter *iter,
+ 	return false;
+ }
  
- 	buf_state->page_info.buf_size = rx->packet_buffer_truesize;
- 	netmem = page_pool_alloc_netmem(rx->dqo.page_pool,
- 					&buf_state->page_info.page_offset,
- 					&buf_state->page_info.buf_size,
--					GFP_ATOMIC);
-+					gfp);
++static inline bool pisa_page_tx_ok(const struct page *page) { return false; }
++
+ #endif /* CONFIG_PISA */
  
- 	if (!netmem)
- 		return -ENOMEM;
-diff --git a/drivers/net/ethernet/google/gve/gve_rx.c b/drivers/net/ethernet/google/gve/gve_rx.c
-index 81ea800e66e94..7c201fd513ee3 100644
---- a/drivers/net/ethernet/google/gve/gve_rx.c
-+++ b/drivers/net/ethernet/google/gve/gve_rx.c
-@@ -159,14 +159,13 @@ static void gve_setup_rx_buffer(struct gve_rx_ring *rx,
- static int gve_rx_alloc_buffer(struct gve_priv *priv, struct device *dev,
- 			       struct gve_rx_slot_page_info *page_info,
- 			       union gve_rx_data_slot *data_slot,
--			       struct gve_rx_ring *rx)
-+			       struct gve_rx_ring *rx, gfp_t gfp)
+ #if defined(CONFIG_PISA) && defined(CONFIG_IOMMU_DMA)
+diff --git a/include/net/pisa.h b/include/net/pisa.h
+index 7fe2e7d5aa97e..c95e4ab1f344f 100644
+--- a/include/net/pisa.h
++++ b/include/net/pisa.h
+@@ -13,9 +13,9 @@ struct sk_buff *__sock_alloc_send_pskb(struct sock *sk, unsigned long header_len
+ 				       gfp_t gfp);
+ 
+ /*
+- * struct net_device caches the PISA enable flags for tx_bufs and tx_heads used
+- * by the leaf device, refreshed every 256 jiffies. The helpers below decide
+- * whether to use PISA memory for a given dst, sk, skb.
++ * struct net_device caches the PISA enable flags for tx_bufs, tx_heads and
++ * tx_zerocopy used by the leaf device, refreshed every 256 jiffies. The helpers
++ * below decide whether to use PISA memory for a given dst, sk, skb.
+  */
+ #ifdef CONFIG_PISA
+ 
+@@ -23,6 +23,7 @@ enum pisa_tx_flags {
+ 	PISA_TX_FLAG_BUFS	= BIT(0),
+ 	PISA_TX_FLAG_HEADS	= BIT(1),
+ 	PISA_TX_XFRM_OK		= BIT(2),
++	PISA_TX_FLAG_ZC		= BIT(3),
+ 	PISA_TX_TSTAMP_MASK	= ~0xffU,
+ };
+ 
+@@ -36,6 +37,10 @@ DECLARE_STATIC_KEY_FALSE(net_pisa_tx_skb_heads_key);
+ 
+ u32 pisa_tx_flags_refresh(struct net_device *dev, u32 now);
+ void *__pisa_skb_head_alloc_node(gfp_t flags, int node);
++bool __pisa_zc_iter_stop(struct sk_buff *skb, struct iov_iter *from,
++			 size_t *length, const struct sock *sk,
++			 struct page **pages, int max_pages,
++			 unsigned int orig_len, size_t *start, ssize_t *copied);
+ 
+ /*
+  * May TX data routed through @dst use PISA pages? Those pages stay readable by
+@@ -144,6 +149,18 @@ static inline struct page_frag *sk_page_frag_dst(struct sock *sk,
+ 	       sk->sk_use_task_frag ? task_page_frag(dst) : sk_page_frag(sk);
+ }
+ 
++/* Hook for __zerocopy_fill_skb_from_iter() MSG_ZEROCOPY upgrade (@pisa_user_key). */
++static inline bool pisa_zc_iter_stop(struct sk_buff *skb, struct iov_iter *from,
++				     size_t *length, const struct sock *sk,
++				     struct page **pages, int max_pages,
++				     unsigned int orig_len, size_t *start,
++				     ssize_t *copied)
++{
++	return pisa_user_enabled() &&
++	       __pisa_zc_iter_stop(skb, from, length, sk, pages, max_pages,
++				   orig_len, start, copied);
++}
++
+ #else /* !CONFIG_PISA */
+ 
+ static inline void *pisa_skb_head_alloc_node(gfp_t flags, int node) { return NULL; }
+@@ -174,5 +191,14 @@ static inline struct page_frag *sk_page_frag_dst(struct sock *sk,
+ 	return sk_page_frag(sk);
+ }
+ 
++static inline bool pisa_zc_iter_stop(struct sk_buff *skb, struct iov_iter *from,
++				     size_t *length, const struct sock *sk,
++				     struct page **pages, int max_pages,
++				     unsigned int orig_len, size_t *start,
++				     ssize_t *copied)
++{
++	return false;
++}
++
+ #endif /* CONFIG_PISA */
+ #endif /* _NET_PISA_H */
+diff --git a/mm/pisa-user.c b/mm/pisa-user.c
+index 5fb1ec7c45204..e4a4e1a606b24 100644
+--- a/mm/pisa-user.c
++++ b/mm/pisa-user.c
+@@ -439,6 +439,14 @@ bool pisa_upgrade_user_pages(struct iov_iter *iter, struct page **pages,
+ 	return true;
+ }
+ 
++/* Is @page, referenced by the caller, PISA memory that devices can read (usable for TX)? */
++bool pisa_page_tx_ok(const struct page *page)
++{
++	unsigned long pfn = page_to_pfn(page);
++
++	return is_pisa_pfn(pfn) && (READ_ONCE(pisa_meta_of_pfn(pfn)->prot) & IOMMU_READ);
++}
++
+ /* Migrate the single-page segments already added to @bio; the caller then extracts them again. */
+ bool __pisa_bio_migrate_pages(struct bio *bio, struct iov_iter *iter,
+ 			      enum dma_data_direction dir)
+diff --git a/net/core/datagram.c b/net/core/datagram.c
+index ecc30a6f83023..c589a543c3166 100644
+--- a/net/core/datagram.c
++++ b/net/core/datagram.c
+@@ -62,6 +62,7 @@
+ #include <net/tcp_states.h>
+ #include <trace/events/skb.h>
+ #include <net/busy_poll.h>
++#include <net/pisa.h>
+ 
+ #include "devmem.h"
+ 
+@@ -632,10 +633,11 @@ int skb_copy_datagram_from_iter_full(struct sk_buff *skb, int offset,
+ }
+ EXPORT_SYMBOL(skb_copy_datagram_from_iter_full);
+ 
+-int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+-				struct iov_iter *from, size_t length)
++static int __zerocopy_fill_skb_from_iter(struct sk_buff *skb, struct iov_iter *from,
++					 size_t length, const struct sock *sk)
  {
- 	struct page *page;
- 	dma_addr_t dma;
- 	int err;
+ 	int frag = skb_shinfo(skb)->nr_frags;
++	unsigned int orig_len = skb->len;
  
--	err = gve_alloc_page(priv, dev, &page, &dma, DMA_FROM_DEVICE,
--			     GFP_ATOMIC);
-+	err = gve_alloc_page(priv, dev, &page, &dma, DMA_FROM_DEVICE, gfp);
- 	if (err) {
- 		u64_stats_update_begin(&rx->statss);
- 		rx->rx_buf_alloc_fail++;
-@@ -209,7 +208,7 @@ static int gve_rx_prefill_pages(struct gve_rx_ring *rx,
- 		}
- 		err = gve_rx_alloc_buffer(priv, &priv->pdev->dev,
- 					  &rx->data.page_info[i],
--					  &rx->data.data_ring[i], rx);
-+					  &rx->data.data_ring[i], rx, GFP_KERNEL);
- 		if (err)
- 			goto alloc_err_rda;
+ 	if (!skb_frags_readable(skb))
+ 		return -EFAULT;
+@@ -654,6 +656,9 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 					    MAX_SKB_FRAGS - frag, &start);
+ 		if (copied < 0)
+ 			return -EFAULT;
++		if (pisa_zc_iter_stop(skb, from, &length, sk, pages,
++				      MAX_SKB_FRAGS - frag, orig_len, &start, &copied))
++			return copied;
+ 
+ 		length -= copied;
+ 
+@@ -703,6 +708,12 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 	return 0;
+ }
+ 
++int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
++				struct iov_iter *from, size_t length)
++{
++	return __zerocopy_fill_skb_from_iter(skb, from, length, NULL);
++}
++
+ static int
+ zerocopy_fill_skb_from_devmem(struct sk_buff *skb, struct iov_iter *from,
+ 			      int length,
+@@ -760,7 +771,7 @@ int __zerocopy_sg_from_iter(struct msghdr *msg, struct sock *sk,
+ 	else if (binding)
+ 		ret = zerocopy_fill_skb_from_devmem(skb, from, length, binding);
+ 	else
+-		ret = zerocopy_fill_skb_from_iter(skb, from, length);
++		ret = __zerocopy_fill_skb_from_iter(skb, from, length, sk);
+ 
+ 	truesize = skb->truesize - orig_size;
+ 	if (sk && sk->sk_type == SOCK_STREAM) {
+diff --git a/net/core/pisa-net.c b/net/core/pisa-net.c
+index d0a2c94419187..6422c472029a1 100644
+--- a/net/core/pisa-net.c
++++ b/net/core/pisa-net.c
+@@ -12,6 +12,8 @@
+ #include <linux/pisa.h>
+ #include <linux/skbuff.h>
+ #include <linux/slab.h>
++#include <linux/mm.h>
++#include <linux/uio.h>
+ #include <net/hotdata.h>
+ #include <net/pisa.h>
+ 
+@@ -98,9 +100,10 @@ void *__pisa_skb_head_alloc_node(gfp_t flags, int node)
+ }
+ 
+ /*
+- * The sysfs attributes pisa_tx_bufs and pisa_tx_skb_heads live on the
+- * device that does DMA: the closest ancestor of a leaf net_device that has a
+- * dma_mask (dev->dev.parent, or further up behind bus glue such as virtio).
++ * The sysfs attributes pisa_tx_bufs, pisa_tx_skb_heads and pisa_tx_zerocopy
++ * live on the device that does DMA: the closest ancestor of a leaf net_device
++ * that has a dma_mask (dev->dev.parent, or further up behind bus glue such as
++ * virtio).
+  * A socket route (dst->dev) may instead point to an upper virtual net_device
+  * (bond, VLAN, ipvlan, etc.), whose leaves are its lower devices.
+  * Walking lower devices via netdev_walk_all_lower_dev_rcu() on every TX
+@@ -108,6 +111,7 @@ void *__pisa_skb_head_alloc_node(gfp_t flags, int node)
+  * result on the net_device and refreshes it at most once every 256 jiffies:
+  *   bit 0 (PISA_TX_FLAG_BUFS):       pisa_tx_bufs enabled on lower device(s)
+  *   bit 1 (PISA_TX_FLAG_HEADS):      pisa_tx_skb_heads enabled on lower device(s)
++ *   bit 3 (PISA_TX_FLAG_ZC):         pisa_tx_zerocopy enabled on lower device(s)
+  *   bits 31..8 (PISA_TX_TSTAMP_MASK):  upper 24 bits of (u32)jiffies
+  */
+ static u32 pisa_tx_flags(const struct net_device *dev)
+@@ -122,6 +126,8 @@ static u32 pisa_tx_flags(const struct net_device *dev)
+ 			flags |= PISA_TX_FLAG_BUFS;
+ 		if (READ_ONCE(parent->pisa_tx_skb_heads))
+ 			flags |= PISA_TX_FLAG_HEADS;
++		if (READ_ONCE(parent->pisa_tx_zerocopy))
++			flags |= PISA_TX_FLAG_ZC;
  	}
-@@ -986,7 +985,8 @@ static bool gve_rx_refill_buffers(struct gve_priv *priv, struct gve_rx_ring *rx)
- 				gve_rx_free_buffer(dev, page_info, data_slot);
- 				page_info->page = NULL;
- 				if (gve_rx_alloc_buffer(priv, dev, page_info,
--							data_slot, rx)) {
-+							data_slot, rx,
-+							GFP_ATOMIC)) {
- 					break;
- 				}
+ 	return flags;
+ }
+@@ -160,7 +166,8 @@ u32 pisa_tx_flags_refresh(struct net_device *dev, u32 now)
+ 		now |= pisa_tx_flags(dev);
+ 	} else {
+ 		struct netdev_nested_priv priv = {
+-			.data = (void *)(uintptr_t)(PISA_TX_FLAG_BUFS | PISA_TX_FLAG_HEADS),
++			.data = (void *)(uintptr_t)(PISA_TX_FLAG_BUFS | PISA_TX_FLAG_HEADS |
++						    PISA_TX_FLAG_ZC),
+ 		};
+ 
+ 		rcu_read_lock();
+@@ -173,3 +180,83 @@ u32 pisa_tx_flags_refresh(struct net_device *dev, u32 now)
+ 	return now;
+ }
+ EXPORT_SYMBOL(pisa_tx_flags_refresh);
++
++/*
++ * Upgrade user @pages to PISA memory and, for TCP over a pisa_tx_bufs device,
++ * trim non-PISA trailing pages from the batch.
++ *
++ * MSG_ZEROCOPY sends of @sk may migrate user pages into PISA memory when the
++ * egress device has pisa_tx_zerocopy set. *@tx_bufs tells whether it also has
++ * pisa_tx_bufs set, i.e. whether a copy would land in PISA memory.
++ */
++static bool pisa_zc_enabled(const struct sock *sk, bool *tx_bufs)
++{
++	const struct dst_entry *dst;
++
++	if (!sk || !sk->sk_use_task_frag)
++		return false;
++	guard(rcu)();
++	dst = rcu_dereference(sk->sk_dst_cache);
++	if (!__pisa_tx_gfp(dst, PISA_TX_FLAG_ZC))
++		return false;
++	*tx_bufs = use_pisa_tx_bufs(dst);
++	return true;
++}
++
++bool __pisa_zc_iter_stop(struct sk_buff *skb, struct iov_iter *from,
++			 size_t *length, const struct sock *sk,
++			 struct page **pages, int max_pages,
++			 unsigned int orig_len, size_t *start, ssize_t *copied)
++{
++	unsigned int i, nr;
++	bool tx_bufs;
++	ssize_t keep;
++
++	if (!user_backed_iter(from) || !pisa_zc_enabled(sk, &tx_bufs))
++		return false;
++
++	/* Move user pages into PISA memory, then look them up again. */
++	if (pisa_upgrade_user_pages(from, pages, *copied, *start,
++				    DMA_TO_DEVICE, false)) {
++		*copied = iov_iter_get_pages2(from, pages, *length, max_pages, start);
++		if (*copied <= 0) {
++			if (*copied < 0)
++				*copied = -EFAULT;
++			return true;
++		}
++	}
++
++	/*
++	 * Only TCP plain MSG_ZEROCOPY ubufs can fall back to copy, and the copy
++	 * only helps if it goes into PISA memory.
++	 */
++	if (!tx_bufs || skb->sk ||
++	    (skb_zcopy(skb) && skb_zcopy(skb)->ops != &msg_zerocopy_ubuf_ops))
++		return false;
++
++	/*
++	 * Trim @from to the leading pages that are in PISA memory devices can
++	 * read (an RX-only page would not be mapped for TX): drop the
++	 * references to the others, give their bytes back to @from, and cap
++	 * *@length so that the caller ends after attaching what is left.
++	 */
++	nr = DIV_ROUND_UP(*start + *copied, PAGE_SIZE);
++	for (i = 0; i < nr && pisa_page_tx_ok(pages[i]); i++)
++		;
++	if (i == nr)
++		return false;
++
++	keep = i ? i * PAGE_SIZE - *start : 0;
++	while (nr > i)
++		put_page(pages[--nr]);
++	iov_iter_revert(from, *copied - keep);
++	*length = keep;
++	if (keep) {
++		*copied = keep;
++		return false;
++	}
++
++	/* -EXDEV tells tcp_sendmsg_locked() to copy this chunk instead of zerocopy. */
++	*copied = (skb->len != orig_len) ? 0 : -EXDEV;
++	return true;
++}
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index 4f487e0450d4b..be6b6f42ee77e 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -1942,7 +1942,8 @@ int skb_zerocopy_iter_stream(struct sock *sk, struct sk_buff *skb,
+ 
+ 	err = __zerocopy_sg_from_iter(msg, sk, skb, &msg->msg_iter, len,
+ 				      binding);
+-	if (err == -EFAULT || (err == -EMSGSIZE && skb->len == orig_len)) {
++	if (err == -EFAULT ||
++	    ((err == -EMSGSIZE || err == -EXDEV) && skb->len == orig_len)) {
+ 		u32 delta_truesize = skb->truesize - orig_truesize;
+ 		struct sock *save_sk = skb->sk;
+ 
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index 83f8ed2aa9a7e..411714edb90bd 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -1132,6 +1132,7 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 	int process_backlog = 0;
+ 	int sockc_err = 0;
+ 	int zc = 0;
++	bool must_copy = false;	/* copy the next chunk of a MSG_ZEROCOPY send */
+ 	long timeo;
+ 
+ 	flags = msg->msg_flags;
+@@ -1293,7 +1294,7 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 		if (copy > msg_data_left(msg))
+ 			copy = msg_data_left(msg);
+ 
+-		if (zc == 0) {
++		if (zc == 0 || unlikely(must_copy)) {
+ 			bool merge = true;
+ 			int i = skb_shinfo(skb)->nr_frags;
+ 			struct page_frag *pfrag = sk_page_frag_dst(sk, __sk_dst_get(sk));
+@@ -1338,6 +1339,7 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 				page_ref_inc(pfrag->page);
  			}
+ 			pfrag->offset += copy;
++			must_copy = false;
+ 		} else if (zc == MSG_ZEROCOPY)  {
+ 			/* First append to a fragless skb builds initial
+ 			 * pure zerocopy skb
+@@ -1357,6 +1359,14 @@ int tcp_sendmsg_locked(struct sock *sk, struct msghdr *msg, size_t size)
+ 				tcp_mark_push(tp, skb);
+ 				goto new_segment;
+ 			}
++			/*
++			 * The next user page is not in PISA memory: copy this
++			 * chunk, without reporting SO_EE_CODE_ZEROCOPY_COPIED.
++			 */
++			if (unlikely(err == -EXDEV)) {
++				must_copy = true;
++				continue;
++			}
+ 			if (err < 0)
+ 				goto do_error;
+ 			copy = err;
 -- 
 2.56.1.809.ga0b61035b5-goog
 
