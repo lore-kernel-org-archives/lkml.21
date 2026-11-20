@@ -1,88 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169464;
-	b=0LaceLlQKdDAkz2PHwIr7nynnLr2+QMfvFP0SBDjPMPCu5LXRi+Ew/2OMX/C7J20/egb
-	 Er/tOJ3LuTrylnFiQeUwgPiQxVMswPm2j9hT/u+vzz1/VnXdv5qTqvkJw9JFYk4Vkf8te
-	 x2L7TXfwZL6PYpl7uZkHhrJrFG+y74WzR45gcFR34tWHQEuT0Nlz/JK1Sn/Yw1y9qrrqo
-	 uLtsvqrwgoIkLUVHZMwScSk0VAafPZGqAVrgjDCMoMHBDLuXwFg/5kubj1ftczZotjUCd
-	 x7RQOfWiHPV5eSw8sRKV+HnRSRLR+JM2sK0O2JSm5an1kdrgzxUh7GUt3Y2emTYgWKA==
+	t=1795169500;
+	b=eq4mRAJMqz/78q4DKoM4z2/4lyXkC+xn2IUv1C42NMsqEs8CbzPAltyqwQqyx3WmULZv
+	 xhZcilxkVNxrh/lodm4/DdTJ+ZUB4mH3T6jIrpcNQULGwcJLjE4umMdS/xVzIYqUz38gZ
+	 IukiWnINvjqQVd/HftpgN90DXXtrMbys9IwLC4N05T9TrT4mt6LxzoB7+TgXbdXqOSvJE
+	 EwxeSCbvDyQNVvFACtQNamh/yES2p7Yps1cXX861iC+5V3EZVJIJKckDngyI9VCLBGm5i
+	 sFcUN5cOQGFEYxBaVlbhGmhZgG6pyIdUj+4/G+5GMpvCzQWwKT5qjH9+YSRd0cKzw3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169464;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=FmERSsGdijHPEpg70TWraIUuJ8ka7iU2Z/SCqAmN7f4=;
-	b=2kNU+B8i8S/ZH5Km7FJINqp+wkP+YhHB67q8Sn/oMTJ+FlcCHcifa8Pl18T7NEMA98GW
-	 DI0I9Tb5r0Xk3TcENcZbEfr5FFdLNwJsEooXanxCYcZvkZ946oYdsjlMYNNovjNdtyPfY
-	 kzAHxoEIxgjDX8a677mrIpnbK5qmD5b2MP1pE0zooCqAWbwu3jyUp7TPyOeLv9ARsSCXx
-	 DdkYOThOj8jfUA6N/cYmPnwp+dr5bZdYYZneoDw3ULPx9xb/poUU30z2jKe7EqiFd/erO
-	 O7kraCUe/wpIzlRBzVZQcr32jxLa832nkE/ZArYyB1G/Tkzgh6Al3pi0mk+DOhjGe3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169500;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=dZiF4/CWqCQ7gcRMAMR0YOlOB4gblyvSfeSB/PEX/KA=;
+	b=h6SgTZjoTjHOv9rV8PkkW4LWiSC6YJDI2B5z5NLOhVIzedol0ybvnSRuaHoha7yhmnhT
+	 88/1uRukpZYYJca1UMBbMujbIEA/Fqd4j6w7xOpBYvk+M2/bJDi8K5KqsjhemaAwB6VrZ
+	 bdSDlm3XpfJNU7D3HNYmvAzChIraXZxsyy1qOKRPVgX/fLjlPA4m8y3HF5r7HJQGSgvZn
+	 0MLyi4R2fJVGTWhEnxpG+YQVjfOhaldA6thDM+9mayrb3WtFWBVG9aQDXZ6cphsbFTGrq
+	 YN6C7qpRl12jQNRaRNgG4oezWI2pAq5sTiLeoRyySsunyO44zyiMLWp5ZGMZ153SAoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MT4qzyq+;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bhEWf/3U";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49DEC60A260B
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:11:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49DEC60A260B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3955B606A326;
+	Fri, 20 Nov 2026 10:11:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=MT4qzyq+
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c50a4a2132cso109206466b.3
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:11:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795169463; x=1795774263; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FmERSsGdijHPEpg70TWraIUuJ8ka7iU2Z/SCqAmN7f4=;
-        b=MT4qzyq+rOl+HzFwCxY8b/rRr/wX8YGqDMPPdx0ArPgH9NoCfxfWUE+GtrTbHTKh9C
-         kmYfUjDMBVknI9fXJQLedyZUpfzRoDJHeop3+4KFwXqe9Usc5yxoC2g275p/9EuqPAhW
-         O+RtGxZtv5gmJtZmCI9jtvMqVqMziKGpAEO+VQbDw8qgBdNDZiduk7UFjd6TfMuus4Me
-         8Su48PCb3W+Q8TZxZHVfAiSYqUlFrz6uweN8wd7VMpjBzXiBXRLcSDXLUQOQyUZjcS+Y
-         3+P/QwEXdGuVwpxegJKdWF6POCaIPkB6rPrgT3Ebq3uqrztEoXRR1xhcnIQ5V65+/wFu
-         l2vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795169463; x=1795774263;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FmERSsGdijHPEpg70TWraIUuJ8ka7iU2Z/SCqAmN7f4=;
-        b=bOn/dmtuBsgf9xyYA/pOHij/521pYZxS9JOaCIU2qJHdfOXDJS//+uNeE4RGBem1qg
-         N2RxV34YZFtnMoJ2cRlh00OBvpGRKYWB/nHSIeheZfdFGLA3YWDWM+XBc5+l5MKL1JxL
-         I3FNqyB7aiH8xx5y8dnStnD5zgPlp9zkHM1uGV7Ib/gLOmG38MpKDi3k1AarxpMVtzbV
-         a4IX95/bpb/zUlKtm+Ap1qys/WWcP2V1VWPHj/MKFZUo6UYHiIaFBsJhnbdQtSpEt2Ih
-         ALEniPjWsQOZP8ngLvos/4y2ovsIqbvf/PA4GFbvJjZORe8PyJWqn1ZIsYiWcoAJRLvh
-         8oIQ==
-X-Forwarded-Encrypted: i=1; AL+hErGyuN/P3Edbm8ykqcivBDv3WQr8kXAg32kamHH2nUWqpQEfTWx/Ku7WC5Cy6UdotsakEektKbWPmkbz+xU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Paam8lhv6sjz5zgPfhYllGD5pfDdXcLLNENyYVZYiXSUD8QPi
-	ooWbQD0mJBeeb6+dA1Z5Q+DxD6k7W4+9eaIWs/kW8T73jV47reWb73GMFcQ7GTgdA/s=
-X-Gm-Gg: AYBFou0/GzWIVBJ8rg5tVaoRvkwjPCC83w7wbKkq55vUUtiYwdCfEpaH9JoX1zuRWro
-	65Sq336NrlT2Jwgob6tJTqexiQu4MqV64xGxMsUc0WRLX+qpgNYrdWpo1Qww3yvLgXDqlCAvBPE
-	n26EU2wSl4sTOQMAOK2nVFNMDtT4Q4EXVrrk7XKCUcx+8fZUKAlaY4E8d/L+gJFcpWOKJrVA5o3
-	H1sqYGNtjRTWoSNd0s9SVggRWpoyb/2yhi5sSsiBijg24hzMG544FrsgenWiFwp4DcRSw07BsqZ
-	HO6IBEYerTey/vTMHa5XAM9ypuT6KpCW78hGevK/aaN1utykPj3yQ8b2knQc9xmuSri/vPEMa/w
-	yhV+1j2N1xROgjT5OOiO8ryjJIzoZZpCO6vqCyIdww8f1JVjOSNVDNyHshvFKN9sky+Z5ZBdH0R
-	s4Z5UMk0BykjvjsjTSgCoRhLuUtVB3kUuVoPX0vwyvlOXY/x84d2Mnpqq90rp9z7PPjKlUK5Sra
-	7DGRRhiP7EjDhnoJBsvesAi/wzT5fTByKIoLk9QiR2LrNUN2DHCuMS88B/IYnWw+Y9j3CrSrVi5
-	Att/kWgkC6Qyc1qujMRz33YHgJyM0f2X9zqHyB4e/Q+Aa1Vy34A=
-X-Received: by 2002:a17:907:9903:b0:c49:cdc8:10cf with SMTP id a640c23a62f3a-c513ac754cbmr178323866b.40.1795169462412;
-        Fri, 20 Nov 2026 02:11:02 -0800 (PST)
-Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bc8ce06sm4674937f8f.47.2026.11.20.02.11.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 02:11:02 -0800 (PST)
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Date: Fri, 20 Nov 2026 11:10:59 +0100
-Subject: [PATCH 2/2] regulator: qcom_usb_vbus: add PM8550B support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bhEWf/3U
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 886951F000CA;
+	Fri, 20 Nov 2026 10:11:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795169500;
+	bh=dZiF4/CWqCQ7gcRMAMR0YOlOB4gblyvSfeSB/PEX/KA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=bhEWf/3UVSV5Oj/LaVfj5iyFojab9TYNDhaX1mHwwaJAwXpdymbQOnxSokoln8AMY
+	 mX9mf4v6rXtAee5qHVWTUcejqpeGe/FkoS9Zzds8aXx3HJn35atom00NnbYxDM3e4z
+	 W4lRRn7krZTg4Xx68Ti4Pn5x4zLUufyP2G3OeRRrOJPpnrkx2mDd/w6A+blHcAFoc+
+	 8jsVCtIM79JK8gWtPvQx3NJdPTVkpIv1SLIm6unPRy/rgIv1D6q1SOLBYgH59Hx6ve
+	 eumgNRPrSC1g3HeBPTkLeny1Ub6+j+i7sZRoyfjYVbGLx+ge1hPbdrcXBaCatzCdEp
+	 DTHGPS7zjwGbg==
+From: Christian Brauner <brauner@kernel.org>
+To: Serge Hallyn <serge@hallyn.com>, Paul Moore <paul@paul-moore.com>, 
+ Josef Bacik <josef@toxicpanda.com>
+Cc: James Morris <jmorris@namei.org>, David Howells <dhowells@redhat.com>, 
+ Jarkko Sakkinen <jarkko@kernel.org>, "Andrew G. Morgan" <morgan@kernel.org>, 
+ Serge Hallyn <sergeh@kernel.org>, linux-security-module@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, keyrings@vger.kernel.org, 
+ linux-fsdevel@vger.kernel.org, Shuah Khan <shuah@kernel.org>, 
+ linux-kselftest@vger.kernel.org, Bradley Morgan <brads@mainlining.org>
+In-Reply-To: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
+References: <20261117-b4-setfcap-userns-v11-0-2be11a2c32f4@toxicpanda.com>
+Subject: Re: [PATCH v11 0/3] capabilities: close the ways around the
+ CAP_SETFCAP rule for uid 0
+Message-Id: <20261120-zutun-ausgearbeitet-erregen-ebd3834404ea@brauner>
+Date: Fri, 20 Nov 2026 11:11:34 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,97 +66,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-topic-sm8x50-pm8550b-usb-vbus-v1-2-bbda7b708359@linaro.org>
-References: <20261120-topic-sm8x50-pm8550b-usb-vbus-v1-0-bbda7b708359@linaro.org>
-In-Reply-To: <20261120-topic-sm8x50-pm8550b-usb-vbus-v1-0-bbda7b708359@linaro.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2440;
- i=neil.armstrong@linaro.org; h=from:subject:message-id;
- bh=zBAUAtWRwgszoLaaEzP/mtjDOwBEAECtpNbyZWiYcu4=;
- b=owEBbQKS/ZANAwAKAXfc29rIyEnRAcsmYgBrAByz4/EXZYFt5/wDRUlOFYvBOPrPKz1sJ/flkYNc
- ZH1lUAeJAjMEAAEKAB0WIQQ9U8YmyFYF/h30LIt33NvayMhJ0QUCawAcswAKCRB33NvayMhJ0ZGYD/
- 90xSEruhI4srRsvEZUWLQk8ktU4PEZd22u/DG5EFs4eKpCtiKIi6TJ0MOjUd/kUJ9cRoHbFhJ6gqiC
- H40jTa4Mqm8yxPKyBPYA9n1MDmhvYFcU/PS0c2R2JkEOHy6015Lb1MttTJrJi1SNv7LvB+fjPc8gD2
- DtqRqKH7btttJWrMCCIoTC7t2VJZD+2GGZ8X/Sm8PREqIrDjsih8POxzPjCayF5t+F5Ch9NcXUMaPC
- yafKjCmWBtHT3UObSvDxEbYTcrCUS+75W6c9m9IxwahAy2j6iGyskvat0TGI6vWlZ4i4DUmpLuS2Jd
- t3/une/QQYI1tr/NYXoDHZkeJKqSHeh6vAro8320KduU3419wvY4umYWX4OuBBqPNyAHtbH/KISNV0
- SoEUi09upl2MvWOJf8QsQQFW8grvLWk+B1y13sjDh9oTx7BfB0orI8mWAPMgcIy9Vz59yNKYLLlzFP
- /qLfYxtRYGsXN79JKFxCGb7WXm48YDFSEkG/sAmA+LdwAMHGDNhsY71C92zrZ2Q7MWeSINeWOsyZj3
- flWlkWsgULdYGoG+1TdFfQwOrtYhXSZ0lNg6ljFINRrn+oyzWT0MF79f75rpjyCFPShaVEeU5KkScF
- I7paUjDmAmJXYqWRZMndreFQy6q83ZtQfmu/BCT9rEUGs3CbrgjKUQVxyMww==
-X-Developer-Key: i=neil.armstrong@linaro.org; a=openpgp;
- fpr=89EC3D058446217450F22848169AB7B1A4CFF8AE
+X-Mailer: b4 0.17-dev-04696
 
-Add support for the PM8550B OTG boost with a different register
-layout, supporting a current limit encoding from 1 A to 1.75 A
-in 250 mA steps, then 2 A to 10 3.5 A in 500 mA steps.
+On Tue, 17 Nov 2026 19:54:23 +0000, Josef Bacik wrote:
+> v1: https://lore.kernel.org/all/20261006-b4-setfcap-userns-v1-0-f47e7ed66072@toxicpanda.com/
+> v2: https://lore.kernel.org/all/20261014-b4-setfcap-userns-v2-0-fac4d19281d7@toxicpanda.com/
+> v3: https://lore.kernel.org/all/20261021-b4-setfcap-userns-v3-0-97c7ed4e43e1@toxicpanda.com/
+> v4: https://lore.kernel.org/all/20261022-b4-setfcap-userns-v4-0-88aa0ffaa08f@toxicpanda.com/
+> v5: https://lore.kernel.org/all/20261023-b4-setfcap-userns-v5-0-0620223be951@toxicpanda.com/
+> v6: https://lore.kernel.org/all/20261026-b4-setfcap-userns-v6-0-25f10b7ca497@toxicpanda.com/
+> v7: https://lore.kernel.org/all/20261026-b4-setfcap-userns-v7-0-bf8a576f7259@toxicpanda.com/
+> v8: https://lore.kernel.org/all/20261027-b4-setfcap-userns-v8-0-2674adc63f3c@toxicpanda.com/
+> v9: https://lore.kernel.org/all/20261109-b4-setfcap-userns-v9-0-0d3f00976ce2@toxicpanda.com/
+> v10: https://lore.kernel.org/all/20261112-b4-setfcap-userns-v10-0-84f6f7faa903@toxicpanda.com/
+> 
+> [...]
 
-Assisted-by: LLM
-Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
----
- drivers/regulator/qcom_usb_vbus-regulator.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Applied to the namespace-7.5.misc branch of the vfs/vfs.git tree.
+Patches in the namespace-7.5.misc branch should appear in linux-next soon.
 
-diff --git a/drivers/regulator/qcom_usb_vbus-regulator.c b/drivers/regulator/qcom_usb_vbus-regulator.c
-index d909a6f2b7f1..dd149d28f62b 100644
---- a/drivers/regulator/qcom_usb_vbus-regulator.c
-+++ b/drivers/regulator/qcom_usb_vbus-regulator.c
-@@ -20,6 +20,12 @@
- #define OTG_CFG				0x53
- #define OTG_EN_SRC_CFG			BIT(1)
- 
-+#define PM8550B_BST_EN			0x50
-+#define PM8550B_BST_ILIM_SEL		0x53
-+#define PM8550B_BST_IOUT_OCP_THD_MASK	GENMASK(2, 0)
-+#define PM8550B_BST_CFG			0x56
-+#define PM8550B_OTG_EN_SRC_CFG		BIT(0)
-+
- #define PM4125_VBOOST_EN		0x50
- #define PM4125_VBOOST_SEL		0x52
- #define PM4125_VBOOST_CFG_MASK		GENMASK(1, 0)
-@@ -45,6 +51,10 @@ static const unsigned int curr_table[] = {
- 	500000, 1000000, 1500000, 2000000, 2500000, 3000000,
- };
- 
-+static const unsigned int pm8550b_curr_table[] = {
-+	1000000, 1250000, 1500000, 1750000, 2000000, 2500000, 3000000, 3500000,
-+};
-+
- static const unsigned int pm4125_vboost_table[] = {
- 	4250000, 4500000, 4750000, 5000000,
- };
-@@ -68,6 +78,17 @@ static const struct qcom_usb_vbus_reg_data pm8150b_data = {
- 	.ops = &qcom_usb_vbus_reg_ops,
- };
- 
-+static const struct qcom_usb_vbus_reg_data pm8550b_data = {
-+	.cmd_otg = PM8550B_BST_EN,
-+	.otg_cfg = PM8550B_BST_CFG,
-+	.otg_en_src_cfg = PM8550B_OTG_EN_SRC_CFG,
-+	.csel_reg = PM8550B_BST_ILIM_SEL,
-+	.csel_mask = PM8550B_BST_IOUT_OCP_THD_MASK,
-+	.curr_table = pm8550b_curr_table,
-+	.n_current_limits = ARRAY_SIZE(pm8550b_curr_table),
-+	.ops = &qcom_usb_vbus_reg_ops,
-+};
-+
- static const struct regulator_ops qcom_usb_vbus_pm4125_reg_ops = {
- 	.enable = regulator_enable_regmap,
- 	.disable = regulator_disable_regmap,
-@@ -165,6 +186,7 @@ static int qcom_usb_vbus_regulator_probe(struct platform_device *pdev)
- 
- static const struct of_device_id qcom_usb_vbus_regulator_match[] = {
- 	{ .compatible = "qcom,pm8150b-vbus-reg", .data = &pm8150b_data },
-+	{ .compatible = "qcom,pm8550b-vbus-reg", .data = &pm8550b_data },
- 	{ .compatible = "qcom,pm4125-vbus-reg",  .data = &pm4125_data },
- 	{ }
- };
+Please report any outstanding bugs that were missed during review in a
+new review to the original patch series allowing us to drop it.
 
--- 
-2.34.1
+It's encouraged to provide Acked-bys and Reviewed-bys even though the
+patch has now been applied. If possible patch trailers will be updated.
+
+Note that commit hashes shown below are subject to change due to rebase,
+trailer updates or similar. If in doubt, please check the listed branch.
+
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/vfs/vfs.git
+branch: namespace-7.5.misc
+
+[1/3] userns: don't let setns() lend CAP_SETFCAP
+      https://git.kernel.org/vfs/vfs/c/711bc24f1d8f
+[2/3] capabilities: don't let ptrace borrow CAP_SETFCAP
+      https://git.kernel.org/vfs/vfs/c/c1e5f4d36d2a
+[3/3] selftests/namespaces: test the CAP_SETFCAP rule for user namespaces
+      https://git.kernel.org/vfs/vfs/c/cbe977960cb3
 
