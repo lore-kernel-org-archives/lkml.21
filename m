@@ -1,68 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194824;
-	b=N0YH0GmS6JBSl2OTkNgL8q5Izlopatiob9M3uSmkOakglYpqNfq8mpRcbOJWdxgdWWwO
-	 8ZWTJ6bHfrs4sZ6VTE5garUPhIenoi6+/7dGQ9EYU/tLMNc4nHEzAUlZ8QvcyRnihibpP
-	 6MZ2r1EGx/bHlOeT/H1/2+2ahcEuuENCkOWW7tBQ2gvriF1ZiAESAWkxD+4Uy3DeZjFWe
-	 K3ZI4qRcYnpPSYwLKglK2hxjVvPQHDAhvEenPb0xlcSIs2k6XZvsZlrzdvtPj0HrQsjPx
-	 enh6dpxBcA2KASJ5N1LNifQgIM+bMfysl3/t8jI2MoN8zcpNt9DeHhh2UFzWYt2m+ZA==
+	t=1795194880;
+	b=YTTkY75d+L1HnqpEnB/z3Ar5D8c80KSfhJKukjjlz9/F1llMdktKMJOpm22DbgpwpQJ4
+	 bujXsO438z/i3elQhkthAwP8eTqfYmerAEFVjg4x4VW0Nfku7+AVoPvZEldDC3oMbTrwu
+	 jeNNbCklwXWcysMDvI1LRmCAF5+x5Cv0Wk9Glqx8E0IqBM1JEOy1fzHnvSiKmJ2clHfr2
+	 xl01PwJSMYJ0TEOM//rCtqGcs9JzXWDZFLGdU1GTIOqUzi9QyATzlJJjBR7T3HAjQT7QT
+	 z5T8NvFFMLNHLdbOSsv/s63PGSf4lujcztTG7n6es4vXFmJBhxdoeSAYCCP8I7ELWvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194824;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-SRS-Rewrite;
-	bh=Y4FSJdFJ9FJTRu2HiS/qdhokJ359mTa41Gazn1t58H4=;
-	b=gFGlbxLEl/KGHRNK6N0jNMdGT4l654K5g492eoxCNNklhYaaIrGgn3Eq4lvkxBHe7Qy9
-	 s6L/5KBKOeQtJIGYe32PuEbcwsG70Wko2YUDBRlOIqs/867E3mYpu3uBIa50y2K2eMfcO
-	 RPUW+k7RWH3P6yiwJcc7vqb++FCdEExTLWLKnXkCbxpzt1jpVSk5VDM1KHJ/i5/kueMuU
-	 +wOhjhNcfeuRNbfbzh9ONzGE1wJLjJKOQxX2aoBtH5V6JXo63C1w4Ivyr6V29Dmxiuzb5
-	 xGB2rQgFj2V0K/xsCmbqwWo5PZ7eUdNwhCUQWVVc78aj6xLreaFlzncybBLBYIaNeSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194880;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=AfsaK7vstWBR+CIUmGq19kX6RuuD4U+3vDvduSS+ZUA=;
+	b=e99itI1edbhTOgT2XMFGImNyIpV83GZNgflnX/uSMgCxqiPmXwwgmwabUNWYNAg03VGN
+	 h69o5GliIMg+ONvFASbY7IElAQFePxIetscaC3+3MBSgoRjcPORm4iJr2DvSYWKG8btwR
+	 qxTeR+aIcSZ0nZII35SoJ13RP4Sk6u3guzz3pNOkSiAfxHrvTaoWW0RqFR7cBHEnSTXGG
+	 JRb8mjVddZoG1ZApxYH0gzyhemXxQVt4FRNIsxrkkT9J4etwa0HgeO+niRCfqOArq5HAU
+	 KFSxGAfLP7MNsbrucfToevQJhczPQahJ4uFnGIVJuvRrE1kltQ2JFnorcUnYoZTWbJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K1Lihill;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kaJNstor;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF2A606A32A;
-	Fri, 20 Nov 2026 17:13:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CF2A606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C82FE606A336;
+	Fri, 20 Nov 2026 17:14:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C82FE606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=K1Lihill
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
-	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Y4FSJdFJ9FJTRu2HiS/qdhokJ359mTa41Gazn1t58H4=; b=K1LihillO3xvKHypPocoMqMNhb
-	78cyBGR38TXdZp6RCL1a5hxOvNEhaSQxGJBfUQy3MyhPYoiw55mTtPrl3n6ahwi0Wnb3gP/oNWkZn
-	havHp+ZVTMg/zn1VtXZvO9L+yTEERkD4o6WPPDEAiyBNmSUe9FZz218nLDTWu/t5essUqXhw7bZvv
-	kMVXhAPEGuh6UBTXx5jEE+LPcwPSEsndZCExjHoa6jtHTCwPFQGaHCtbjVkQ+7PyIsNhD+GS0eUxV
-	MpgjHIdvnCcLcQhEAvYijMWgk0uC+SDqDZ2jbCkxlzkvJCmdroVBkwkEZ63R+5OH2eAzqb3khyFNQ
-	HJ5lZ1Gw==;
-Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xUSBB-0000000FdoL-0GwL;
-	Fri, 20 Nov 2026 17:13:41 +0000
-Date: Fri, 20 Nov 2026 09:13:41 -0800
-From: Christoph Hellwig <hch@infradead.org>
-To: Keith Busch <kbusch@kernel.org>
-Cc: Zakaria Belkadi <zakaria.belkadi@inria.fr>,
-	Christoph Hellwig <hch@infradead.org>,
-	Caleb Sander Mateos <csander@purestorage.com>,
-	Jens Axboe <axboe@kernel.dk>, linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Kanchan Joshi <joshi.k@samsung.com>,
-	Anuj Gupta <anuj20.g@samsung.com>, florence.schadle@ssi.gouv.fr,
-	frederic.tronel@centralesupelec.fr, louis.rilling@irisa.fr,
-	stable@vger.kernel.org, "Martin K. Petersen" <mkp@kernel.org>
-Subject: Re: [PATCH RESEND] block: pin user PI pages for writing when ref
- tags are remapped
-Message-ID: <awB_xd60To4UawrJ@infradead.org>
-References: <awBnB-55HQ54C1x6@infradead.org>
- <20261120162257.498238-1-zakaria.belkadi@inria.fr>
- <awB8OODx0fCFGc5G@kbusch-mbp>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kaJNstor
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 82532C6221F;
+	Fri, 20 Nov 2026 17:14:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9A0AC601B9;
+	Fri, 20 Nov 2026 17:14:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96ECC11BC0437;
+	Fri, 20 Nov 2026 18:14:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795194875; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=AfsaK7vstWBR+CIUmGq19kX6RuuD4U+3vDvduSS+ZUA=;
+	b=kaJNstorbnqrayLL/98d3HWZsLvpTIcVlH70NLij6H5sSMGM7AyL4RC8pjazgHLM/VMnqm
+	NbzayYO5o8bFk0bjYSiYKUwEzMf3z5KmnaNseSWjzzP7yhB/IHtA+VcheGH5+cbt658RC0
+	9IfENELf3ZryHLoxyerzSxWzMdmZp1llgPwJpLC2MQgA7L/L25hlWFEhJi8XYz2LLxbe7S
+	ifwHiL5WBCdYU1+CYlj0nSA13WHpEjY+rVFdB9Ax9r8d3hoO3HIXqvJTH3+kXmKEga4j2r
+	VU6ym60q+Qmq56G0olb5tuRdb5CN/zYhNF8beEZWZ9xE945Xbz40BFwxBH8k4A==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+Subject: [PATCH v4 00/11] mtd/spi-mem: Enable DQS control
+Date: Fri, 20 Nov 2026 18:14:26 +0100
+Message-Id: <20261120-winbond-nand-next-phy-tuning-v4-0-8c21e1f71f41@bootlin.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,29 +62,134 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awB8OODx0fCFGc5G@kbusch-mbp>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43QTWrDMBAF4KsYrTtGP5Zkm1Jyj9KFbI9j0VhKJ
+ cVNCLl7ZWfRli5SEII3i+/Bu5KIwWIkbXElARcbrXc5VE8F6Sfj9gh2yJlwyhXlVMKndZ13Azi
+ zfnhOcJwukE7Ouj0Y0+HYU1ZTwUkmjgFHe97417ecJxuTD5etbWHr9Z/wwoCCRD2IRquRjmzXe
+ Z8O1pW9n8lKL/ybq6l+wPHMaSEbiXUzKBR/OfGDY/QBJzJnGt0LoxgqLX9zt/sSAT9Oed90n4P
+ MGKPZ9m2L57WHMSrzqwUvOROVYAIYRHhXu2RX6GVdtDMRIYfZprZYdFlB6HmuuH0BNF7cmcoBA
+ AA=
+X-Change-ID: 20260205-winbond-nand-next-phy-tuning-aabefc018032
+To: Mark Brown <broonie@kernel.org>, Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Pratyush Yadav <pratyush@kernel.org>, 
+ Michael Walle <mwalle@kernel.org>, 
+ Takahiro Kuwano <takahiro.kuwano@infineon.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, praneeth@ti.com, 
+ u-kumar1@ti.com, p-mantena@ti.com, a-dutta@ti.com, s-k6@ti.com, 
+ linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+ Miquel Raynal <miquel.raynal@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Fri, Nov 20, 2026 at 09:58:32AM -0700, Keith Busch wrote:
-> > Agreed. I'll keep the PI iterator as ITER_SOURCE. In v2,
-> > bio_integrity_map_user() will bounce the user PI buffer for REQ_OP_WRITE
-> > when the integrity profile has BLK_INTEGRITY_REF_TAG. That way the
-> > block layer can remap the tags in its own copy.
-> 
-> Can avoid bouncing? I think the remapping flags can be tied to the
-> user's reftag check request.
-> 
-> If BIP_CHECK_REFTAG is set from the user setting IO_INTEGRITY_CHK_REFTAG
-> on a write, we can map the PI buffer for writing. The user explicitly
-> asked to have the ref tags checked by the device, and partitions require
-> remapping them, so they've told the kernel to write to their buffer.
+For his PHY tuning series on the Cadence QSPI controller embedded in TI
+SoCs, Santhosh initially needed to access the availability of the DQS
+(data strobe) signal. This is a chip dependent capability, which may
+sometimes be enabled.
 
-No, the user did not ask for violating the mapping direction.  The
-whole remapping thing very much is an internal implementation detail.
+The SPI memory flag already exist but is too vague for it. Let the SPI
+NAND core and SPI NOR core set this flag when relevant (per-chip for SPI
+NAND, always for SPI NOR until we can do better). SPI controllers now
+feature a DQS capability that they need to fill. Manufacturer drivers
+and SPI controllers can now query the usability of the feature to use
+it/enable it.
 
-We could fine tune based on if we need remapping due to partitions,
-if we limited remapping to partitions, but I think Martin last time
-voiced an opinion that remapping could also be used to pass in
-arbitrary tags (which always felt a bit odd to me).
+I contributed the spi-mem bit in the previous cycle but my changes were
+too simple, and a more complex approach was actually needed. For
+applying this series, I would expect all the spi-mem and spi bits to be
+taken by Mark, either based on an immutable branch (in which case the
+mtd bits can also get in during the same cycle) or directly through b4
+(and we will wait for the next cycle to merge the patches). There will
+be a temporary regression if we span those patches over two releases:
+the PHY tuning will not be optimal because it won't be using the DQS
+capability for a period of time. Hence, merging everything in a
+single release would be better, but not stricly needed either.
+
+This series applies on top of v7.4-rc2 and Santhosh's PHY tuning series.
+
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+---
+Changes in v4:
+- Added a spi-dqs-not-wired DT property to describe boards where the DQS
+  line is not routed.
+- Parsed the property in spi-mem.
+- Renamed several helpers to explain what they do more obviously.
+- Added a controller DQS capability;
+- Expose that DQS is usable only when the memory supports it, the line
+  is wired and the controller supports it as well.
+- Advertised the DQS capability in the Cadence QSPI driver.
+- Advertised the DQS capability before the SSDR/ODTR variants are
+  negotiated.
+- Only enabled the Winbond DQS output when spi_mem_dqs_is_usable() reports
+  it as usable, to avoid useless power consumption.
+- Enabled DQS in SPI NOR (always).
+- Dropped the already merged spi-mem capability patch from the series.
+- Rebased on v7.4-rc2.
+- Link to v3: https://lore.kernel.org/r/20260810-winbond-nand-next-phy-tuning-v3-0-a97c3a61e675@bootlin.com
+
+Changes in v3:
+- Rebased on top of linux-spi/for-7.3 and dopped all existing
+  dependencies on the MTD bits.
+- Link to v2: https://lore.kernel.org/r/20260807-winbond-nand-next-phy-tuning-v2-0-73595e89d6e3@bootlin.com
+
+Changes in v2:
+- Dropped the RFC prefix.
+- Rebased on top of v7.2-rc1.
+- Dropped the spi patch for now, just allowing to use DQS on a few
+  Winbond SPI NANDs (can be improved later).
+- Link to v1: https://lore.kernel.org/r/20260205-winbond-nand-next-phy-tuning-v1-0-5e7d3976f0f1@bootlin.com
+
+---
+Miquel Raynal (11):
+      spi: spi-mem: Rename the DQS setter and pin field
+      spi: spi-mem: Clarify the conditions upon which DQS is usable
+      dt-bindings: spi: Document the spi-dqs-not-wired property
+      spi: spi-mem: Take the DQS wiring into account
+      spi: spi-mem: Take the controller DQS support into account
+      spi: cadence-quadspi: Advertise DQS support
+      spi: cadence-quadspi: Decouple the read capture bypass from DQS
+      spi: cadence-quadspi: Check DQS usability before enabling DQS capture
+      mtd: spi-nor: Advertise DQS support for octal DTR flashes
+      mtd: spi-nand: Set the DQS spi-mem capability if available
+      mtd: spi-nand: winbond: Enable the DQS pin on W35N**JW series
+
+ .../bindings/spi/spi-peripheral-props.yaml         | 10 ++++++++
+ drivers/mtd/nand/spi/core.c                        |  3 +++
+ drivers/mtd/nand/spi/winbond.c                     | 10 +++++---
+ drivers/mtd/spi-nor/core.c                         |  7 ++++++
+ drivers/spi/spi-cadence-quadspi.c                  | 11 +++++---
+ drivers/spi/spi-mem.c                              | 29 ++++++++++++++--------
+ include/linux/mtd/spinand.h                        |  1 +
+ include/linux/spi/spi-mem.h                        | 12 ++++++---
+ 8 files changed, 61 insertions(+), 22 deletions(-)
+---
+base-commit: fd9230005e85472b81c1c7c16afe93dd878996b1
+change-id: 20260205-winbond-nand-next-phy-tuning-aabefc018032
+prerequisite-message-id: <20261105105832.2134313-1-s-k6@ti.com>
+prerequisite-patch-id: 7e80450b6b26ac3240d561a7f9f0e5fe177a89b7
+prerequisite-patch-id: 865537f117247ff4312d629514dd06f1f38f1d47
+prerequisite-patch-id: 5200192ca3b2cc4a2fdf8afff7ee5c757fdb66b5
+prerequisite-patch-id: f41f68176da636e14a8221fde30b3a32cd155bdd
+prerequisite-patch-id: d23997b62c52e24d7d92a3f795b2d64ad32a6dc7
+prerequisite-patch-id: 7d0c439461665f7c41639343042ddb96937d2838
+prerequisite-patch-id: d8770bcd1d4f60e882cdd4ad6f35409a08dc2402
+prerequisite-patch-id: 5b96154a5b95e52afc0e3f128212921984713615
+prerequisite-patch-id: 500bd167644ed25f95ee48bf7992d79d611b036a
+prerequisite-patch-id: 65a2ee2f666180289b3c38aef3e238803ba93f27
+prerequisite-patch-id: a58a38e05737feb5f097cafe49f814a4f4a1b252
+prerequisite-patch-id: d0717fa96dbc2f99111be023238973932a6c59b4
+prerequisite-patch-id: 817e0b94d11c4e7884c962781ff20131a9db1aa9
+prerequisite-patch-id: 16ba1c3be3824059d975c0e48a7056b061c2d652
+prerequisite-patch-id: f7d67c3465c65f61ec878b6d3f049addd44316af
+prerequisite-patch-id: d023f74d37fe6be398aa45a5de3cd70f775cb37a
+prerequisite-patch-id: c146c437ba46a28dc74dcebe4c66ff8107ce31a3
+prerequisite-patch-id: 14cf3f31d431b4622a4f225939b8d3d3eee21085
+prerequisite-patch-id: 95db84235391fa3a39c1947f19411634d762e1f9
+
+Best regards,
+-- 
+Miquel Raynal <miquel.raynal@bootlin.com>
+
