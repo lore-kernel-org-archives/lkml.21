@@ -1,57 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.16.66.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168948;
-	b=MS1ElWB0inzH5VAT2u8NSjJN5UkS/BFIAJWNfqqCiaQ+VfYGkvodFElu/HLaL/9Z3xxA
-	 xbyXr5g2IEyMGHYRh4YLrgyGutXf2ctbAwA0JUXK8tGm92giLuLW1aKpzGQWZCivI73W0
-	 qj57tNaJar6i6fQf08oRq2k3qh5QrWhdgMS5SOmRotFydEI1obZkWeiGuDGTcq7SQTOl6
-	 WoXgr+0vVITRUAJ26a8yKnhQ7MQyFp18KIHrGLICeqvu/BoeW1CQHefrGhO1ymft9Lmg1
-	 xYA5LjPhJIvdlTrEOZEkWhNzIgGsbCEOSoP3PQGvQvhg8yqNMl1mWf08ydCjznuZ10w==
+	t=1795168980;
+	b=zxw22LzxzToDLI5VgbUsy7P4uZy49qPA3gen6asvNwiHqTS9FFCqHoNHDSbLwIh2jBsO
+	 JwRwdf52YEAl28lXHRr7+sEqNFxtgKRA2oi/XSMeRtksYHnl7CvCb73RDkMhztEfj0y20
+	 WqKQJk82FWb72wwWgmSyTMGqOtSCg/EEGOZWXsp6wp3PffO9438zEDE62E2bKoednwryk
+	 Gii7Uv6/0M+xx2YNq/yQMR61BlP/4tHFe2dBE2hCAN9hvuQ5q2OUpDgl8WUeYC1hCK6NX
+	 sAMubvj3XM2TuOeqJGS9FLRHsyqeB1TmEaMaWaopENSMrVMrzVtPKuiBZqBuXXfTOQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168948;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Infomaniak-Routing;
-	bh=+/Nvrr/kmurSuoSNX/nrEDXJoBt1+szlAZyD/QS6ioM=;
-	b=vnsW8DWtjY5PcX3IQ9DoHUQPJBQuLuk/XcaCesnE3NTqH5arelqHHb304P1ScLBmbwKN
-	 ZNNVjIoaQVnIFCWsJa1SqzKL+9Oe7pqUIr5+7J1t8s1DwWTycyQd8igSQrgZHrZVp8Jrz
-	 KzuiyS6G6E7fNxxVpDhDD9UA9QyIzM1jVeWVpfETP9uIGLeB2nol0tEWb5AZKsJ9x6BkZ
-	 hvhmYhV4cm4x4z3gzV2mfU2rqgoU3EJ8M/2nunOswFSnFDC/223kzNoLYNlwGrgEBOR0w
-	 GDbyYAXV/idcKVu0jHGytSbO60K0UeHWasHVo/+7eebFfBGEiWvOq1s98OSHFJc6CTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168980;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2q3/QmVzfD4Z2ni+YyHWx7ZyhuowtZXCzNWmjrN2ByM=;
+	b=jG91b0dRpPbOrQ71qVHnppKiENmGPJHa/VOk1J0379o21kCXLjxoh/6xXLahLmfj2AKY
+	 fcQSxf5qaPNrwIoiJocI20O5iGHBAEsNpIUh4hDh9qGsz+OWP0xoajSHHH1og8exbzCZV
+	 T/MqwYauTC/Lmitc7HxlJ25afTcDidzuTzDnT/lcLN/kJ6d3jfTUBS9mSoPytY95jJ2qO
+	 5hF55+cN88jLG04N2a6zu/u1wnoD9wrBiT9HK9ubnYrqEqJEv8wVjJgTtpmQ5lAfxH1hw
+	 g/KkTVlVWJqJaMnk06ZiHuGznxzRObc/mUFgTJ3rJi3CB7dI4KWPKpfVqDtqnBFZsPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=0leil.net;
-	spf=pass smtp.mailfrom=0leil.net;
-	dkim=pass header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=KBXagnVY;
-	arc=none smtp.remote-ip=84.16.66.172
-Received: from smtp-42ac.mail.infomaniak.ch (smtp-42ac.mail.infomaniak.ch [84.16.66.172])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E89F1606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:02:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E89F1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=0leil.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0leil.net
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UQReXKOc;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EC34E606A320;
+	Fri, 20 Nov 2026 10:02:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC34E606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=KBXagnVY
-Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jW9qb00VCzmQt;
-	Fri, 20 Nov 2026 11:02:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
-	s=20231125; t=1795168938;
-	bh=+/Nvrr/kmurSuoSNX/nrEDXJoBt1+szlAZyD/QS6ioM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=KBXagnVYzai5Hyt8cvC07l1zCVwAJfI7bJuefebIm04Yswvtlg2Oy+r/VCdrllwGA
-	 a1mFXDsDmRBRIcSGtmPnmvsUmUL5RqBFMEVM+bsmpOW5vCdbhVgaYN5Fq5jYB7UQ/U
-	 nqer/b7iAiYvdgu1vvC9aj5LfKEqhka6bmue6CpmuzqR5KtRK/s7MxTMGYtNInhpau
-	 FH6UePtEPU6aiERO7EoYhz4GuXvzETXqXHp5pe9EH7brhHCi/NlYiHvr+mgzP8Fwrf
-	 yMx86+BQzZLZszUb5O7GWwqlzKF0vBzwCevjlSVV47BvPgCk0Ud84XEzaFwy09Xi70
-	 GJlLx7/ONkYlw==
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jW9qX6x17zX7X;
-	Fri, 20 Nov 2026 11:02:16 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 20 Nov 2026 11:02:03 +0100
-Subject: [PATCH v3] arm64: dts: rockchip: support camera module on Haikou
- Video Demo on RK3399 Puma
+	dkim=pass (1024-bit key, unprotected) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=UQReXKOc
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42E161477;
+	Fri, 20 Nov 2026 02:02:53 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72B303F673;
+	Fri, 20 Nov 2026 02:02:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795168976; bh=i5/VLaDm62sfWrEYNnw69oTmhljFVc4In1rpcL1/1zQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UQReXKOcPsmse556UMpJd1uddleMWU/Zf2t83nyz8DoSdIrMjlM4AP4PfmWgxsciw
+	 6Z7uDGEzqrx7PMqAm4DEMgNdFNwxS7F19NMhnWzwXvx7pZ0kFrLwnhCcS7srf0PwPZ
+	 dxj1b9IB8hXltqntg9UxXeoadaybCgJQyItFG43k=
+Date: Fri, 20 Nov 2026 10:02:52 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: Mitigate Spectre v1 in the BPF interpreter
+Message-ID: <awAay4FFj1_wQtaL@arm.com>
+References: <20261117172341.3152407-1-ryan.roberts@arm.com>
+ <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -61,157 +66,24 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-rk3399-puma-haikou-video-demo-cam-v3-1-5183b29527f4@cherry.de>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5WOQW7CMBBFr2LNmkEZGxImK+6BWDj2pHFRMLKJR
- RTl7lXohmW7/NLTe3+BLClIhlYtkKSEHOIdWmV2Ctxg71+CwUOrQFe6JqoMppsxzPiYRouDDbc
- 4YQleInoZIzo7oj/VndSGLZPATsEjSR9e78bl+rvz1H2Le27ijRhCfsY0v08U2rj/9AohIdsDe
- 25Ohrvj2Q2S0rz3Aluv6A8j/cmokVAasq43VdOz/jSu6/oDSEF/tTYBAAA=
-X-Change-ID: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.17-dev
-X-Infomaniak-Routing: alpha
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DMYSI3BOQWOC.2P2FZB0H872DR@gmail.com>
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Thu, Nov 19, 2026 at 01:18:03AM +0000, Alexei Starovoitov wrote:
+> On Tue, Nov 17, 2026 at 09:23 AM Ryan Roberts <ryan.roberts@arm.com> wrote:
+> > The arm64 JIT implements BPF_NOSPEC with a speculation barrier, but the
+> > interpreter calls barrier_nospec(), which falls back to a no-op on
+> > arm64. Programs executed by the interpreter therefore lack the
+> > Spectre-v1 barriers assumed by the verifier. Contrary to the code
+> > comment, kernel-wide SSBD does not provide this protection, since it
+> > mitigates Spectre v4 rather than Spectre v1.
+> 
+> Nack.
+> In bpf-next arm64 has no interpreter when the JIT is built.
 
-The Haikou Video Demo adapter has a proprietary connector for a camera
-module which has an OV5675 camera sensor and a companion DW9714 focus
-lens driver.
+And what about current mainline/stable or when one disables BPF_JIT
+explicitly? Should we force BPF_JIT=y as well when ALWAYS_ON=y?
 
-This adds support for the camera module on RK3399 Puma module fitted on
-a Haikou devkit with the Haikou Video Demo adapter.
-
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
-Camera only works once the ov5675 driver is adapted[1] to work with
-24MHz MCLK. With the similar work done for RK3588 Tiger[2], we now have
-all our modules supporting the same set of features when used in
-conjunction with Haikou Video Demo.
-
-Same request as made in [2], please only merge this once the OV5675
-series[1] is merged.
-
-[1] https://lore.kernel.org/linux-media/20261026101646.2450051-1-heiko@sntech.de/
-[2] https://lore.kernel.org/linux-rockchip/20261026102027.2451025-1-heiko@sntech.de/
----
-Changes in v3:
-- added missing #address-cells, #size-cells, reg properties to
-  &isp1/ports/port@0,
-- Link to v2: https://patch.msgid.link/20261113-rk3399-puma-haikou-video-demo-cam-v2-1-e71acf307f92@cherry.de
-
-Changes in v2:
-- added missing #address-cells and #size-cells to &isp1/ports,
-- Link to v1: https://patch.msgid.link/20261103-rk3399-puma-haikou-video-demo-cam-v1-1-9a49d97839b5@cherry.de
----
- .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 62 ++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-index 141a921a06e47..925b4bb88f1b6 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
-@@ -16,6 +16,7 @@
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/leds/common.h>
-+#include <dt-bindings/media/video-interface-devices.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- 
- &{/} {
-@@ -100,6 +101,12 @@ &i2c1 {
- 	/* OV5675, GT911, DW9714 are limited to 400KHz */
- 	clock-frequency = <400000>;
- 
-+	focus: focus@c {
-+		compatible = "dongwoon,dw9714";
-+		reg = <0xc>;
-+		vcc-supply = <&cam_afvdd_2v8>;
-+	};
-+
- 	touchscreen@14 {
- 		compatible = "goodix,gt911";
- 		reg = <0x14>;
-@@ -122,6 +129,57 @@ pca9670: gpio@27 {
- 		pinctrl-names = "default";
- 		reset-gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_LOW>;
- 	};
-+
-+	camera@36 {
-+		compatible = "ovti,ov5675";
-+		reg = <0x36>;
-+		assigned-clocks = <&cru SCLK_CIF_OUT>;
-+		assigned-clock-rates = <24000000>;
-+		clocks = <&cru SCLK_CIF_OUT>;
-+		avdd-supply = <&cam_avdd_2v8>;
-+		dvdd-supply = <&cam_dvdd_1v2>;
-+		dovdd-supply = <&cam_dovdd_1v8>;
-+		lens-focus = <&focus>;
-+		orientation = <MEDIA_ORIENTATION_FRONT>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&cif_clkouta>;
-+		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
-+		rotation = <180>;
-+
-+		port {
-+			cam_output: endpoint {
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <450000000>;
-+				remote-endpoint = <&mipi_in_cam>;
-+			};
-+		};
-+	};
-+};
-+
-+&isp1 {
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			mipi_in_cam: endpoint@0 {
-+				reg = <0>;
-+				data-lanes = <1 2>;
-+				link-frequencies = /bits/ 64 <450000000>;
-+				remote-endpoint = <&cam_output>;
-+			};
-+		};
-+	};
-+};
-+
-+&isp1_mmu {
-+	status = "okay";
- };
- 
- &mipi_dsi {
-@@ -145,6 +203,10 @@ mipi_in_panel: endpoint {
- 	};
- };
- 
-+&mipi_dsi1 {
-+	status = "okay";
-+};
-+
- &mipi_out {
- 	mipi_out_panel: endpoint {
- 		remote-endpoint = <&mipi_in_panel>;
-
----
-base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git master
-change-id: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
-
-Best regards,
---  
-Quentin Schulz <quentin.schulz@cherry.de>
-
+-- 
+Catalin
