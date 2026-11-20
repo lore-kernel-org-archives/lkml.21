@@ -1,45 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=99.33.87.210
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795198956;
-	b=epciReZdIBmwErBiq+DeybE3mtjEL2eNezR+/GZzmm0dMWFOCFmITS39Yax9jVggpidW
-	 KeChbgoEmzsx73PM7ttgVpxhY87cNq1BM2BKwtxJHgd9mR9L7bkXiNvu+/21xC1OgE0wG
-	 j7ZpP5SPD0+CHaWAEG4O35CsSSGL2tuMsH7a6Zi86xiAWFjNyquF/A+GQA3OysChLrDvJ
-	 lpnkfePTpSpKO6rgDflioNVmYrPWNeFuWfW4JtQrwcUuODmDQ6vBqntHiXnlVJehR2gTw
-	 Joj145AIJ0mmx0+CWnAeJcpdA2vPKoRMjgcU4njvM9YONoz9CCHseE1mJp+QvQ1RSEA==
+	t=1795198959;
+	b=q8VXFtiC8UFf8xCxJ9DAKJAjqJSnjDSKJuFowBS+pm8fE/4VlGVo6KRnmUmcoMKqXn3D
+	 WzreMcT4f0fFtD3TUzPDJRUnDlP5wRev1AmQGPJT6xMMuWkkDwVWqp4JE492qVoqD4tU4
+	 cgzMZ9VgaHxY4TnnpbY2IeNzAFabISiFAMCqJ1d3YU0IZOjokJ641VAS+0pVmQ+TL24C1
+	 1q99x5bG+LvyNjcbRnFEBJdTMkZkgl2I80SGwiyoHXkgBZf64P3cXoXw4uGnfpkgr6Wiw
+	 WhwJsgWBi7iHQfG2CGzQp2GJK7QC6w7eVQvs+jgG/cR0kZjI6HjIypMFerXPH1qXLvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795198956;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=sa+1/YmJNGnPG162mxzehne/t3dD6A6hEWjE6oBnRII=;
-	b=tU42wx98dvf3m84/ququ6N7uDPvml3VfSrJrRWLv49BsDa6YfUcqlLcoe6e5UYUJ70Ix
-	 lN1LBbhPQf6JVTSAzS5OOwpKJ/NqWXtD7zsEYM7EPe5oAK/kzuBTu6t1NO6Rd7HCBRLRe
-	 v2Uitq4eRSpWLehD4p/T7jzkqE/aXalbhd06epCdo1Zxv3SX1cEfn3s/FRBvmeqXEiNQA
-	 jzzKiVgB/ChKpyly6YTVfK28xCXg90niA3vnU4701oaUjtV4b7zPX3NGcxRKWkpydJv5B
-	 ++764oaercrZeM45CkgqKYwTWFCjjX2ud2LCCCnLrcF+3ZSNuHq5S8ygNWHfydZD+uA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795198959;
+	h=DMARC-Filter:Received:Date:From:X-X-Sender:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=2jkde0bQ5ks7RbXj+AFz+mtlYLhKUbqkJFme+5XX6Ug=;
+	b=ImxbuauoSUhsMBRywau7w0aIkwNfgWi61iSxe1wHpn0jzOG+0O641PIZixGd4qrzrP0Y
+	 iA/kyKTd8L+Oz5f8YbkuC1Q2IHzLCXIONjJhc78t7VcO5JwzXBso9rF8z7fF4WvC63rbd
+	 an5UuFjkxoIew6qdYRfOE0OA9s8pxQ4OhZ4DzDaYX3+Ri7ORTQAqOAzXYsAJl67Ps81eU
+	 50yj/6KXZEXWt9JjxKM7l4DO0VecfN7A2gFgUSo/c68XxZ+ROpsX9K0xviVKQjixH01FL
+	 iCFYhG13P9H9t3JQl4WWZmkjVvR6Gcmhs7g6XS3W1mxjUJ6GBsaJXCk3lRe8MtsxC+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=aaazen.com;
+	spf=pass smtp.mailfrom=aaazen.com;
+	arc=none smtp.remote-ip=99.33.87.210
+Received: from mail.aaazen.com (99-33-87-210.lightspeed.sntcca.sbcglobal.net [99.33.87.210])
+	(using TLSv1.3 with cipher TLS_CHACHA20_POLY1305_SHA256 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A277606A886;
-	Fri, 20 Nov 2026 18:22:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A277606A886
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 2A1F36732A; Fri, 20 Nov 2026 19:22:29 +0100 (CET)
-Date: Fri, 20 Nov 2026 19:22:28 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Viacheslav Dubeyko <slava@dubeyko.com>
-Cc: glaubitz@physik.fu-berlin.de, frank.li@vivo.com, hch@lst.de,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	vdubeyko@coreweave.com, brauner@kernel.org,
-	linux-xfs@vger.kernel.org, "Darrick J. Wong" <djwong@kernel.org>
-Subject: Re: [PATCH v5 2/5] hfsplus: move file related operations to file.c
-Message-ID: <20261120182228.GB2183@lst.de>
-References: <20261118004844.3849979-1-slava@dubeyko.com> <20261118004844.3849979-3-slava@dubeyko.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2381B606A881;
+	Fri, 20 Nov 2026 18:22:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2381B606A881
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=aaazen.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=aaazen.com
+Received: from localhost (localhost [127.0.0.1])
+	by thursday.test (OpenSMTPD) with ESMTP id c85c3c94;
+	Fri, 20 Nov 2026 10:22:29 -0800 (PST)
+Date: Fri, 20 Nov 2026 10:22:29 -0800 (PST)
+From: Richard Narron <richard@aaazen.com>
+X-X-Sender: richard@thursday.test
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+cc: stable@vger.kernel.org, patches@lists.linux.dev, 
+    linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
+    akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
+    patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@nabladev.com, 
+    jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
+    rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, broonie@kernel.org, 
+    achill@achill.org, sr@sladewatkins.com
+Subject: Re: [PATCH 5.15 0000/2178] 5.15.226-rc2 review
+In-Reply-To: <20261120055015.328810133@linuxfoundation.org>
+Message-ID: <278ed82d-ba22-1cfe-67fd-260158b5b63@aaazen.com>
+References: <20261120055015.328810133@linuxfoundation.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -49,16 +56,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118004844.3849979-3-slava@dubeyko.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Type: text/plain; charset=US-ASCII
 
-On Tue, Nov 17, 2026 at 04:48:41PM -0800, Viacheslav Dubeyko wrote:
-> --- /dev/null
-> +++ b/fs/hfsplus/file.c
-> @@ -0,0 +1,127 @@
-> +// SPDX-License-Identifier: GPL-2.0
+On Fri, 20 Nov 2026, Greg Kroah-Hartman wrote:
 
-This loses the copyright information from inode.c
+> This is the start of the stable review cycle for the 5.15.226 release.
+> There are 2178 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Sun, 22 Nov 2026 05:44:39 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v5.x/stable-review/patch-5.15.226-rc2.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-5.15.y
+> and the diffstat can be found below.
+>
+
+Tested on AMD    amd64 12-core and 4-core and x86 1-core systems
+and    on Intel x86-64  4-core            and x86 1-core systems
+
+Tested-by: Richard Narron <richard@aaazen.com>
 
