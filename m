@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795195704;
-	b=YckVS1JwKYGhVQXdJVFcvxY4RXK/C+KTfRt6dsm4xHqa67D11cm7pdi8kAZJYO2+uPVo
-	 ZIHEIEnfl3GhguZHaJq0KFUk5m/5KzznlD5fqIpHd8ixNLyR5rkly6RGP/elQXLh8ingv
-	 /QlIE6FT2IBugfy9x5HC5+G9VR80iViTrxd/zd9DKp7Zd7//msmF5Vcd9AXnkzWuguroT
-	 u1Jsfpo+r9z6E/m5c46zBcmOWg4XBnmrIMDPSEW4Da8Nb8aXz3md5LSIINCA+bLTDafE9
-	 NcsKHyQgxpk0Fo1Kt3oSgDn3SsPCvujCafZdVwJum3fQLmy/b/zJF0VTCIJHx0fe2OA==
+	t=1795195715;
+	b=pCMlDbuDZZCE0LZAkt9E0geRoW6VWWB5IOYWESryq322wORP0D1bb4HZ+ByOJw00kUyl
+	 nIpfKUSHq4RLkyU2rvTsgTctOaXXNbfVWcjwojO8QcOny0vKbNZ+WM+DmeHcNkhHMWACH
+	 7HlcUyOCZsrL0t4kXW3TWNvzQsovTsGI3AWY9qvg5s25hvkc0rKZ8vk30rHEmcamkTrQD
+	 M58zHp9giQG0wwUCX2BM0jPXeZJ16/z7M6nmf/bSZWm7NrLRgmLvn3ms/RNAWoudKUJai
+	 aNjHOaNl7oYkUGKLF8qgDxlNMosT4kxFyczeDOijDmLGlaDK1SC8g4M2Q4aM/y6rHPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795195704;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
-	b=Qz/BTizDSLlFGNjYtfMEMNQ6dSq4feOck41h33LK5iqQkXjOeEnUurid/jbwyWJrN6p+
-	 LHC6FifjxT20Q39PxmXACSho3ooUl5XwCV58V/V6tmtp/MI10IG639NZh2PCXINVUctLn
-	 dtvDyxcnbTJlVxamvrMMH7bOTHSFwO2L8/EsbP9fv08hxlUzp86f8BD8s/T80t1mQJs+w
-	 r+CIVTH6qBdhGDY9iBHzbN7K7aQzX9lQh7LOf3ssl0zJ8LHJLO4/4yod/oLb3oWKjR5qC
-	 Wih1eBgXr/uWRTzU5tifhtlChpJCd+PY9z0rtlR6k1H2EFuSQJVmj/+lJapsYQinuKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795195715;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=MT11De3eJ/mCifLtxaegXdMwhAaPiwFRNSfsdok0nww=;
+	b=eMzvYjw6sbVGgEQ9dopMSUf5HNGMnDnCmeR1WOa3c0+WY7FtuSEuCr1MYRylIuD5sPVN
+	 MpxQyk9BwRA7mA+AfkJgdPHS6ZrMeYs0JrlQe8IcIPI2oVv47yQht1+gRDKAUXr+booN3
+	 YkETvd0RmyXAgR5NV1SQeg5h9PaH09AVyRhj7sbuB6VumRITBxEP+d9MECtaIpw45VI6U
+	 Njw9qAYewCusIorOdbRvJMN6gVUmiiyREe8CPOdF/i8p3dF7FMI6K+WFkSbVNSSuUfBhu
+	 vMSDpFVJ7sw/ztTDO/oVw5nP2rxst/2v6b3mIe/D9RSd6TG4LFN0SN7XRDO1ig7TPFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVQm5TnP;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=eOo8Xv2U;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=czxZPmke;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E96A606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:28:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E96A606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC0A2606A320;
+	Fri, 20 Nov 2026 17:28:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC0A2606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LVQm5TnP
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a358881793so616050f8f.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:28:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795195703; x=1795800503; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
-        b=LVQm5TnPlU/crM9dwG0oHQaaaFDL3Hwe3WtHrCGasduNkPbLU2bx2rIPjQYUlDi4of
-         2biRPi2qIvMR7H8hZPfZW8q0ob16ejPFMqOiVAXiDOTYW+oXPghUkOODA1XVkeRqlk9U
-         4bynLJ+rZqcDrHtg6vg4jPBdn+GQzvzXCT/bf4gXsc/s2s4XuqiqvyEjkxv4ax7rzWmb
-         dFzPyfiqOdYWY2OC5PtlGtFrJrgM9FhbR5S1QUU8uSA87FHfCYZIs940dlIeDUJnJjDY
-         +ffIIM9EjDc/4EJ3NlujMWTzBvfIEDItpw4qChJFQrc0wNVvJtM0F6FgB/Uj7rIse+eA
-         4ytg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795195703; x=1795800503;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n/R0PertKBznoGfoHPlQU/APASNGYYBgx2rkjYJOkqQ=;
-        b=KYx3Ol1SuTvq7oOcB3nFI9R5/LKj4w6WaHWbMBJde1OuA/Gvx7D1nDAyHPjyUuhngn
-         Q7mNygkaT2vYE1GJki8G7VokmYBORXVtTuoiW1JIGfPfiJh6HCuJzA71Dj8JdPDf3aT4
-         awcq8UebhqoBfaocRqrZk4P+9gWb4ze6gXFDmLPzcFaCvvcRtxLqe/B2qlOCxePVbMEf
-         2xMdRrUSETi2tCO2jMPvofNW9e9u7tVT7ILN9PF/i2kqbfGRID5WOEbE8FZ4V+SFx6vO
-         RuWtzSKlOj9BDd4alJZq5wiUVfnvutUGg9MJeWB1PNBfh8Gskx8CqZIfcOjMKhD6fUPt
-         8Eeg==
-X-Forwarded-Encrypted: i=1; AL+hErFbsWemLnjco2alX5ovepqOSuMqHd1he1qVfLJOVQ9DKliy8vae9OVpCLr2G3rMLxv+irfeKNm4Ql+q2Rk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ySMOF11QAigomXFv9/1+3b4IXjkvPvqPXk7daJox9yE7vDYlf
-	Jgq7rDpW15HYdvtkDHY4shkcS7ayN4QippC9ec47KDy6HXMLJwB/kPlH
-X-Gm-Gg: AZFdTZcYGGBw9IhwlfJC6Wex8n8aSqC743bSGoAPnnl1g/nHujKWY7nZeE28akwwHa8
-	dVcbIs2ulHpukjxaq2uFu9TXW96Sk8UgtBo2xyIPyYsW9D/I9qCmOvX7Y5QIkLFgHw+tXKomqg2
-	rjr7+J2kalf9Ca10i5HC3UDOdJqJeFub7dH1z45NMhhdfPoUYiejWbzoHHpBktehly8aSrWw6Tt
-	aGE79wYl9W79CJgnGnqRMCIwG5NCqdJFkaAHhTtH1krOvpj8GpiKwg/iyjh9IIAGc0MjI3EAoUx
-	ZabaBWKrWRS860whr4eliN9APQO93ZXfto3nwNEiRFi+6RTExx//oTVOl5H/Fj0og3oDyqZ6LOY
-	Whe3Cl3xyOcdkq/ZfXOil0rBjgIH1ka0bJNopoP5pvwGJhW2b2pM8YXQQB6QSFYnCdeTZo7XgZw
-	H1GtGhyVYnjlDd4yKFTVu9G8Zwt9v04k4JRdqvqX8tyCLF25zEkFRJXZrNgjXTpAx9k+XuKAbDI
-	p75XHcmOfItCY2c95nIhqQuenelTHAuECFnjxu9AlJxrGcZX/y94RRHpTdjgNn+ghgen4hFoiDa
-	MtSrsJytKLFcpGR+9zrAwQhebrAHAp/f3BrFixjK13GpagRJ5YChj93Hcyp4AEHnzgbvmlNmGGG
-	LesajMBmN5XkBc+hhI7pbLvPxVZKIvhnmp4yHpT4X8djk930Xk15KqPtSRFmlaaSx
-X-Received: by 2002:a05:6000:1788:b0:4a9:1649:9eaf with SMTP id ffacd0b85a97d-4abb86e5099mr7984738f8f.57.1795195702683;
-        Fri, 20 Nov 2026 09:28:22 -0800 (PST)
-Received: from PC-Marco.lan ([151.59.51.41])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989eesm6670524f8f.50.2026.11.20.09.28.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:28:22 -0800 (PST)
-From: Marco Ziliani <rylos78@gmail.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: Daniel Scally <dan.scally@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org,
-	Chris Simpson <chris@nilk.net>,
-	Tony Garcia <tony@loafecho.com>,
-	Simon Kruse <simon0x+git@proton.me>,
-	"D . Manresa" <dmanresa@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] media: i2c: ov5693: Program the mode registers on stream start
-Date: Fri, 20 Nov 2026 18:28:19 +0100
-Message-ID: <20261120172819.257562-1-rylos78@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <awAUxukyHCqtABs_@kekkonen.localdomain>
-References: <awAUxukyHCqtABs_@kekkonen.localdomain>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=eOo8Xv2U;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=czxZPmke
+Date: Fri, 20 Nov 2026 18:28:31 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795195712;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MT11De3eJ/mCifLtxaegXdMwhAaPiwFRNSfsdok0nww=;
+	b=eOo8Xv2UtRkvpukG2J5wz1MT96Lx9bfPTc1rCMpIY1HO8tNJOdwi82lM1LwFgRuQBp9XEK
+	4bcUsokgQU8v5XnHx8gsjLjAEFihHkvLF6DEwVycRAl2eFzODS+VBjS+YrGwc9DMXuNPzj
+	k2EAoDsHVbKddYouSbmFfkmTZxsO96J4V+sVKJLKcMZw/VkoVTAFR8+63iBZ/KszVpsdqo
+	dH0qN112AMps+CTLruD4B1WywbHJoQzvYhmL9cwNJ1VeJcbj5vs48fr+Nrxq8GC4MFVuIc
+	RVwkWB/0zm1TeU9NgLH77qTQbHPlUiFLhV+CB1M7i+TYpY/+b68jyqnfV4jNlA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795195712;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MT11De3eJ/mCifLtxaegXdMwhAaPiwFRNSfsdok0nww=;
+	b=czxZPmkej65ICo1WwNY60LJTGFGGgli3HvJq4yigbfPE92FfJIzQN8HZ6kkzsrGeo6LYms
+	nrLRlAXAqgyK0oAA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Tengda Wu <wutengda@huaweicloud.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
+ enqueue
+Message-ID: <20261120172831.5XwELZY5@linutronix.de>
+References: <cover.1795053619.git.wutengda@huaweicloud.com>
+ <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
+ <20261120154457.GZ2668564@noisy.programming.kicks-ass.net>
+ <20261120154959.zw08JC0V@linutronix.de>
+ <20261120160140.GR2668804@noisy.programming.kicks-ass.net>
+ <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,35 +84,15 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261120162604.GL2669272@noisy.programming.kicks-ass.net>
 
-Hi Sakari,
+On 2026-11-20 17:26:04 [+0100], Peter Zijlstra wrote:
+> Also, sending signals on software events seems utterly insane. But I
+> don't support we can go limit that now :-(
 
-Thanks for the review.
+Tengda: Is this an actual valid use case that you have here or did an AI
+figured out that this broken?
 
-On Fri, Nov 20, 2026 at 11:37:10AM +0200, Sakari Ailus wrote:
-> This doesn't seem quite right. The static register list should be written
-> on power-on and the rest when they change. Also there shouldn't be overlap
-> between the register list and the registers programmatically determined by
-> the driver.
-
-There are three such overlaps in ov5693_global_regs today: 0x3820 and
-0x3821 (FORMAT1/FORMAT2, whose binning and flip bits the driver sets
-from the format and the flip controls) and 0x350b (the low byte of the
-analogue gain). They predate this series, but I'll fix them in v3 with
-a separate patch: drop 0x350b from the list, and let the driver program
-0x3820/0x3821 whole, including the bits it doesn't manage today.
-
-For the rest, I'd keep writing the mode registers on power-on as
-before, and also write them from set_fmt() and set_selection() on the
-active state when the sensor is powered, instead of on every stream
-start. That needs pm_runtime_get_if_active() rather than the
-pm_runtime_get_if_in_use() the controls use, so that a change made
-during the autosuspend delay is written too. It fixes the same bug:
-today a format change made while the sensor stays powered never reaches
-the hardware.
-
-Does that match what you had in mind?
-
-Thanks,
-Marco
+Sebastian
