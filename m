@@ -1,97 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795190755;
-	b=gdSuBXaBoc24H9Cbu3sSpByrjTsTxBuu6KR5HThDpz9THDxvC5vtPmEznpo/ultHRmH/
-	 PYYWpfYJ9c38QUt9dW1jyfI48roCr1gdSnKxRM1HGCCRs7cGrdZ0Gnqoxc4F685CK3V3K
-	 CWrVYXNvA1mApMwMYaf4l9fBxk+3sfUMdcACgBzpKZqMhgPCKAhwnOajPXjvf67fSSzq0
-	 1TZlIS96R+pQta5R1pcWji/nv6OhaAj3vZjNGeNjm67hB+7TskxJGTLYNcRVCpI9eJ1Op
-	 VERu5QLBj+1fs4LeuSQwtWdeOjamAwOebpah3/N87ADMATLOwe2JXwbfVmT9nBCto6Q==
+	t=1795190777;
+	b=XCAdGoCLZSi+o6tRQS/KFNiGgq8kCkDUBItq3MUPwbTZ0/voHMihLeVDmh6BQOcmt0ch
+	 Mft1pwWjdu/GX6vgeu44RUArtmMJxOC+Yk0BNUNygA1t5ULpoXt3ixFkDxrY+w75nq+8u
+	 twX3kR+ahlaHpZm0ieBESxpR9uqqtUMOEK9U4SI3uiqeqKIgcdMta1e/aeRzUP3BnJ0Ap
+	 YCwLmSp2lkFNfYZPy/TD8Wpod5MOQB8TE3GrQJl99h4d2uQxmsN1bM7iI88/T9j6szoWn
+	 1RkaUu4XgXXI6Ndgg5x0nJ/37f2m9YZZyU2X1mRvSjo3IRilNjipSppXKUF9neoC62Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795190755;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=meKJe7lCyNFEN93JPQ7h8ShHF7ParLcS2UQWTfa4VEo=;
-	b=vVqorJ2kYZ5r/lbXNY6AMv2TyJlDmEAKCN+qq1BAs3L8QcfbC3aiW9zI+mMt8tj0bB3b
-	 R2IuL3kcO29i46gr2p84JHJ7mn8Thw9I+ULshebT1crhNsNIJXALXSE3Niek+zkmFWy/5
-	 zPprcO6UT4V3oQNJ0salvY1lZu6TFwudGQiHzKqvlcKzKP1/6g9yzDfzNClB8VZYov7zB
-	 6764XVAVHY2efNxfWGZvxXI3PPSQj8nW+SCFyyEz8oi5CQOTbgSeZJtYQkapndOW/Oue4
-	 W/6rUww3iKKywT7JlrGdN6zXTkCYJ8XJr+ouseMkEbj9hQDn2Dz6VSZjQQQSzz/1XqA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795190777;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-SRS-Rewrite;
+	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=;
+	b=M933Fq3k4VXDvN49FVDh1BRXO6ye4rV6iF2ZUBKaKKrmuq+xVAqXX6pu2nPSG+Jz0nT0
+	 0+fm/uW+InwSaFCgatKb4oYRu9nkbUkSZpHWsFo1eUjXEZ2qh+DsBVyEXJEqP0ZRIFPuR
+	 nFcTyUXGunEQV2sFwElla4u9NkM04iQDwllUu0QszzFP4uXG+sxFk2D9CcilBcltWJrEy
+	 QXzlx+dOZB3z/hYpaE+ZfpxZPjy5wqsfswcCPWfdWEST1tBDjG3/lggaQvcNAbOCqoGrn
+	 CbAlTgmc6V0JgQVe0US81tMa2gcld74UGo+3BRpULcSJZtEukbR/pH+FIKVWmhv61EQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=duDAI5+l;
-	arc=none smtp.remote-ip=74.125.227.137
-Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=infradead.org;
+	spf=none smtp.mailfrom=bombadil.srs.infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b="ZB+h/5GB";
+	arc=none smtp.remote-ip=198.137.202.133
+Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 514DF606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:05:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 514DF606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABB03606A32A;
+	Fri, 20 Nov 2026 16:06:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABB03606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=bombadil.srs.infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=duDAI5+l
-Received: by mail-pj2-f9.google.com with SMTP id 98e67ed59e1d1-3b18c01238eso295055a91.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:05:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795190754; x=1795795554; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=meKJe7lCyNFEN93JPQ7h8ShHF7ParLcS2UQWTfa4VEo=;
-        b=duDAI5+lHr0kESpc32TTBAtUcQkoAp1Ii2Xb/p78BllX+AJzi1EGSsfFPwuI07MGLP
-         Og6aOHUMWkaDdBwneGOrDExZcDM4W0rGDo17gvEwqAfZnaVbnn5tgq8KrluNH1SDYmni
-         yoLXjJ/AO0rJOYDAzbw0FxJvTGqraqTNDyZOlRKxa2DDcUdCvYeDjKZBLAqAeJl044c5
-         T2+LXMeeDRI36KFaSWP8VL9jJmbJPAGp6RNb3+6LIAeI+pGFD0Gh2Xh38rnS4ALCWORX
-         6f783s8QOeXe913iJdqkCxyAQxPmXHibuijHnZE3qtYPfRYm/CBCxSU7bUbE3voLcL9/
-         Qr7Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795190754; x=1795795554;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=meKJe7lCyNFEN93JPQ7h8ShHF7ParLcS2UQWTfa4VEo=;
-        b=vev+XO32XGOgRBnpRViJfL34BFb3P53GvXqmmwTarSURfp8fbKRTbs1Xlb8cPLZ6Fm
-         fabvkR/GbFhP1+RQIX84Lr/+gIj/8dIumhWEukLgsPYVsTw6mOqhXRPLO/zab7ybHjFr
-         30gJO5LBye13O1DEipct41zNbL0pCGZc4sb3uxc9CJln1KhSFDxXXAM5JJOH5HHS7Bkk
-         8J5NvNUvIiUyOeBD58Ke5oCIB58M9ge0n1ojQE/8UQTROadvw9BovUrq7oO4n9FrOLV0
-         Ng8dlqWPL7SkIZlYFCqq4NlVEbOQ+FQ8JRfuhlDk5+vg51gSyLyaTMrCOpXlS5pl/M3L
-         pwmg==
-X-Forwarded-Encrypted: i=1; AL+hErFhV3+m36tUP/UOBv2lnfR9mjBPqZRvfUp+e9ZlkspARfwcFsj/E3gN0eQnbAf+vGRzp8N9lDgbRbWn4ok=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8K7x774imPHplIfQm5xL5MGtmFpYM62UF+8cCEdQQPM4NngQym
-	IjxmnWFCx3ajPMLjVlz+PF7KFhvZ5alJgkDw6NCxvrhWfkezy5jCkpf+
-X-Gm-Gg: AZFdTZdbz2k3ZqqBC8C3nY1mHz8UsXgGpwaZ7wqas4W9pOF2Ls7wsW7/6usrmghAYgp
-	UmVoYHuIV3yxurm3/MTPbfGTxS+IB9kA46siUkcJRTy7sJ1rIloA2qhgWPVDXR4fiDYsGKyykHI
-	W9aZNPKBuI797HSL2ApGNaGBAUvXUUQvRvWGDaoRQRri+6Y35MHEIxrNKkscHyLqmyUrOYf5ISG
-	dkvfYHtGDwVRHhUWrsQQx9lR3tpumGwnIPJbBybUOHOPTuz2SRivE6T+os9d3Y3tqZSWmXZkDLg
-	2bshUBTAEa4oteEYWXVQHBrnzXO/IfkbKDN86wgo3Cwn9vIZkRXn8XhQeBRDqYHRg8hafsPCQjZ
-	PJT2YgjGkjLslunNwFYc/IiGTeJwqKYEQARxcCNhf425ADL6bybkiY/yJIwQDvfxv1Gm9ir+qM1
-	g/Reib/GrU5Z8VRIJ2Vj5FRktcPuISmc7MR7wtN8S9cwomTqhpdZG+MY7VP7iiSOdiPhSDPjoBV
-	tw1i70MI6+cgkJzMNG51nbfGfinP/p5rAjmd43UIZXXzcRsPUklEpv6yyGsROyeQQ/2OUbk7L0U
-	twIDr9H8ZkWrgVuMxw8cVA==
-X-Received: by 2002:a17:90b:3f0e:b0:3b3:fc1f:a5c1 with SMTP id 98e67ed59e1d1-3b41c8fed40mr3199427a91.28.1795190753411;
-        Fri, 20 Nov 2026 08:05:53 -0800 (PST)
-Received: from nixos ([218.72.8.127])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe16sm4891544a91.17.2026.11.20.08.05.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 08:05:52 -0800 (PST)
-From: Zixin Wang <w1355457260@gmail.com>
-To: linux-doc@vger.kernel.org
-Cc: alexs@kernel.org,
-	si.yanteng@linux.dev,
-	dzm91@hust.edu.cn,
-	corbet@lwn.net,
-	chao.liu@processmission.com,
-	zenghui.yu@linux.dev,
-	linux-kernel@vger.kernel.org,
-	Zixin Wang <w1355457260@gmail.com>
-Subject: [PATCH v2] docs/zh_CN: Add core-api/irq managed_irq Chinese translation
-Date: Sat, 21 Nov 2026 00:05:36 +0800
-Message-ID: <20261120160539.103773-1-w1355457260@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=ZB+h/5GB
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=bombadil.20210309; h=In-Reply-To:Content-Type:MIME-Version
+	:References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/ihHdUU+jVviFggXvCzCtgwm16AszawpC1LIVwl/qQE=; b=ZB+h/5GBbqvAkJ54ekxLjvGA9O
+	D9LNJkH8aKH9mziEUcEVeeNVW2eYGGN+jTB+vaoKK2DQgefgBdVSUC0euwaul76MaXXzFGDda38w+
+	CV0HQYku2mlycBmx7xX50bcgh02e8WB6duHoVw6iN5E4vh+UiiLohZ0W4TpcgZ4sOV99I5tvJit2c
+	68reAYpL8/lyYbw3n35mPFLIMmbRicjxfdsTw5KiOvU8QL/I+AfqCK8T2Ep/sGYTxHxleNyUs6cJ9
+	Fyt0bfHGbyQV6TfKt92/kvpu1GtQWsEPV/dyOSyL9dPgWZDp2vTpqx/50Qk3hkzlOf+tFUU/u/Sb/
+	2OzNA4UA==;
+Received: from hch by bombadil.infradead.org with local (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xUR7u-0000000FVv0-3ZjW;
+	Fri, 20 Nov 2026 16:06:14 +0000
+Date: Fri, 20 Nov 2026 08:06:14 -0800
+From: Christoph Hellwig <hch@infradead.org>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Khan Zhao <zhaoguohan@kylinos.cn>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Jason Wang <jasowang@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	kvm@vger.kernel.org, virtualization@lists.linux.dev,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH RFC] vhost: set dirty log bits without pinning pages on
+ x86
+Message-ID: <awBv9nN-ZkyKi3vT@infradead.org>
+References: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -101,156 +70,43 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <af7f05bf637337d35fdd10f3e0dbb5e39d7780e7.1794480795.git.mst@redhat.com>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
 
-Translate Documentation/core-api/irq/managed_irq.rst into Chinese
-and add it to the zh_CN irq toctree.
+On Thu, Nov 12, 2026 at 05:53:47AM -0500, Michael S. Tsirkin wrote:
+> vhost had a TODO to replace page pinning with a version
+> of set_bit that works on userspace memory, since forever.
+> 
+> It is really best to avoid GUP on fast path entirely.
+> Implement set_user_bit and use it in vhost, to do just that.
+> 
+> Should not be too hard for non-x86 too.
+> 
+> Reported-by: Khan Zhao <zhaoguohan@kylinos.cn>
+> Link: https://lore.kernel.org/all/20261112085631.128819-1-zhaoguohan@kylinos.cn/
+> Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
+> ---
+> 
+> 
+> lightly tested. pls test and resubmit with your tool.
+> 
+>  arch/x86/include/asm/uaccess.h | 18 ++++++++++++++++++
+>  drivers/vhost/vhost.c          |  7 +++++++
+>  2 files changed, 25 insertions(+)
+> 
+> diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+> index 3a0dd3c2b233e..ba1e7c3f83c8e 100644
+> --- a/arch/x86/include/asm/uaccess.h
+> +++ b/arch/x86/include/asm/uaccess.h
+> @@ -594,6 +594,24 @@ _label:									\
+>  	__ret;								\
+>  							})
+>  
+> +/* set_bit() on a byte of user memory; returns -EFAULT on fault. */
+> +#define set_bit_user(nr, addr)					\
 
-Update the translation through commit bb6a85b4b652
-("Documentation: Add managed interrupts")
-
-Co-developed-by: Chao Liu <chao.liu@processmission.com>
-Signed-off-by: Chao Liu <chao.liu@processmission.com>
-Signed-off-by: Zixin Wang <w1355457260@gmail.com>
----
-Thanks Zenghui for the review.
-
-v1 -> v2:
-  - Use a Co-developed-by/Signed-off-by pair for Chao Liu and keep the
-    author's Signed-off-by last, as suggested by Zenghui Yu.
-  - Reflow the translation to use the available width more evenly.
-
-Testing:
-  make SPHINXDIRS="translations/zh_CN" htmldocs and checkpatch.pl pass.
-
- .../translations/zh_CN/core-api/irq/index.rst |   1 +
- .../zh_CN/core-api/irq/managed_irq.rst        | 107 ++++++++++++++++++
- 2 files changed, 108 insertions(+)
- create mode 100644 Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
-
-diff --git a/Documentation/translations/zh_CN/core-api/irq/index.rst b/Documentation/translations/zh_CN/core-api/irq/index.rst
-index ba6acc4..7951d69 100644
---- a/Documentation/translations/zh_CN/core-api/irq/index.rst
-+++ b/Documentation/translations/zh_CN/core-api/irq/index.rst
-@@ -20,3 +20,4 @@ IRQs
-    irq-affinity
-    irq-domain
-    irqflags-tracing
-+   managed_irq
-diff --git a/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
-new file mode 100644
-index 0000000..b1b7918
---- /dev/null
-+++ b/Documentation/translations/zh_CN/core-api/irq/managed_irq.rst
-@@ -0,0 +1,107 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. include:: ../../disclaimer-zh_CN.rst
-+
-+:Original: Documentation/core-api/irq/managed_irq.rst
-+
-+:翻译:
-+
-+ Zixin Wang <w1355457260@gmail.com>
-+
-+.. _cn_managed_irq.rst:
-+
-+=============================
-+亲和性托管中断（managed IRQ）
-+=============================
-+
-+IRQ core 支持按指定 CPU 亲和性管理中断。正常运行时，每个中断关联到
-+某个特定的 CPU。如果该 CPU 离线，中断会被迁移到另一个在线 CPU。
-+
-+中断向量很多时，设备可能给可用的向量空间带来压力。例如，一块带 128 个
-+I/O 队列的 NVMe 设备，在至少有 128 个 CPU 的系统中，通常每个队列请求
-+一个中断。两个这样的设备就会请求 256 个中断。在 x86 上，中断向量空间
-+出了名地少：每个 CPU 只有 256 个向量，内核还要保留其中一部分，从而进一步
-+减少可供设备中断使用的数量。实际使用中通常没有问题，因为中断分散在许多
-+CPU 上，每个 CPU 只分到少量向量。
-+
-+然而在系统挂起时，所有次级 CPU 都会离线，所有中断都被迁移到唯一保持在线
-+的那个 CPU 上。这可能会耗尽该 CPU 上可用的中断向量，从而导致挂起操作失败。
-+
-+亲和性托管（affinity-managed）中断应对了这一限制。每个中断都分配一个
-+CPU 亲和性掩码，指定该中断可以定向到的 CPU 集合。当掩码中的某个 CPU 离线
-+时，中断会移到掩码中的下一个 CPU。如果掩码中的最后一个 CPU 也离线，那么
-+该中断会被关闭。使用亲和性托管中断的驱动程序必须确保，在中断被禁用之前
-+关联的队列已处于静默（quiesced）状态，以免再产生新的中断。当亲和性掩码
-+中的某个 CPU 重新上线时，中断会被重新使能。
-+
-+实现
-+----
-+
-+设备必须提供按实例划分的中断，例如 NVMe 等存储设备的按 I/O 队列中断。
-+驱动程序使用 struct irq_affinity 按所需的亲和性设置分配中断向量。对于
-+MSI-X 设备，需要设置 PCI_IRQ_AFFINITY 标志并调用
-+pci_alloc_irq_vectors_affinity() 来完成。
-+
-+IRQ core 会根据提供的亲和性信息，尽量在整个系统上均匀分散中断。亲和性
-+掩码在这一分配阶段计算，但最终的 IRQ 分配是在调用 request_irq() 时完成的。
-+
-+隔离 CPU
-+--------
-+
-+托管中断的亲和性完全由内核处理，无法通过 /proc 接口从用户空间修改。
-+isolcpus 启动选项的 managed_irq 子参数可指定一个 CPU 掩码，托管中断会
-+尽量避开这些 CPU。这种隔离是尽力而为的：只有当自动分配的掩码中也包含
-+被避开掩码之外的在线 CPU 时才会生效。如果请求的掩码只包含隔离 CPU，
-+该设置就没有任何效果。
-+
-+被避开掩码中的 CPU 仍属于该中断的亲和性掩码。也就是说，如果所有非隔离
-+CPU 都离线、而隔离 CPU 仍在线，中断就会被分配到某个隔离 CPU 上。
-+
-+以下示例假设系统有 8 个 CPU。
-+
-+- 使用 "-device virtio-scsi-pci" 启动一个 QEMU 实例。该 MSI-X 设备会
-+  暴露 11 个中断：3 个“管理”中断和 8 个“队列”中断。驱动程序请求这 8 个
-+  队列中断，每个中断恰好亲和到一个 CPU。如果该 CPU 离线，该中断就会被
-+  关闭。
-+
-+  假设中断 48 是其中一个队列中断，那么会看到::
-+
-+    /proc/irq/48/effective_affinity_list:7
-+    /proc/irq/48/smp_affinity_list:7
-+
-+  这表明该中断只由 CPU7 服务。关闭 CPU7 并不会把中断迁移到其他 CPU::
-+
-+    /proc/irq/48/effective_affinity_list:0
-+    /proc/irq/48/smp_affinity_list:7
-+
-+  可以通过 debugfs 接口 (/sys/kernel/debug/irq/irqs/48) 验证这一点。
-+  dstate 字段会包含 IRQD_IRQ_DISABLED、IRQD_IRQ_MASKED 和
-+  IRQD_MANAGED_SHUTDOWN。
-+
-+- 使用以下参数启动 QEMU 实例：
-+  "-device virtio-scsi-pci,num_queues=2"
-+  并在内核命令行中加入：
-+  "irqaffinity=0,1 isolcpus=domain,2-7 isolcpus=managed_irq,1-3,5-7"。
-+  该 MSI-X 设备会暴露 5 个中断：3 个管理中断和 2 个队列中断。管理中断
-+  遵循 irqaffinity= 设置。队列中断分散到可用的 CPU 上::
-+
-+    /proc/irq/47/effective_affinity_list:0
-+    /proc/irq/47/smp_affinity_list:0-3
-+    /proc/irq/48/effective_affinity_list:4
-+    /proc/irq/48/smp_affinity_list:4-7
-+
-+  这两个队列中断被均匀分配。中断 48 落在 CPU4 上，因为 managed_irq
-+  掩码会尽可能避开 CPU 5-7。
-+
-+  将 managed_irq 参数换成
-+  "isolcpus=managed_irq,1-3,4-5,7" 后，结果是::
-+
-+    /proc/irq/48/effective_affinity_list:6
-+    /proc/irq/48/smp_affinity_list:4-7
-+
-+  此时中断 48 由 CPU6 服务，因为系统避开了 CPU 4、5 和 7。如果 CPU6
-+  离线，中断会迁移到某个“隔离”CPU::
-+
-+    /proc/irq/48/effective_affinity_list:7
-+    /proc/irq/48/smp_affinity_list:4-7
-+
-+  一旦其 smp_affinity 掩码中列出的所有 CPU 都离线，该中断就会被关闭。
--- 
-2.54.0
+Please make this an inline that actually has proper __user annotations
+for sparse type checking.
 
