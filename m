@@ -1,83 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=84.16.66.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795168869;
-	b=ZKOWJEC0zFKDPjPasDcaQiYFdIIijNKmCAgnujf6xt9q5M2JhOulzQeGEqHY7QMEznyh
-	 i041ev2FKDgm4HQlkQvB8F2OKc54B1nndplBjgZDY8k5FlDa7yRLKRPNSwDiG53K/7HqI
-	 0WQC1sppathVOvvgTJT9V5OnUqKP/6jpBjZiVHxxbujoBjYHEP/syfZyY+CDnv1jjL1XZ
-	 usBm9zqFJvJ+fm46654BzgmWqWPsxMgj4kCi8oUJOlth0u3ifme0oiCGu7qV3/YNr1lq2
-	 Vh/vsXotWB7FlBfDNvVkmyPYnxIS9TKrWaw9lnkHlAXZrNjQJB15py6vXBYVT3L2CIw==
+	t=1795168948;
+	b=MS1ElWB0inzH5VAT2u8NSjJN5UkS/BFIAJWNfqqCiaQ+VfYGkvodFElu/HLaL/9Z3xxA
+	 xbyXr5g2IEyMGHYRh4YLrgyGutXf2ctbAwA0JUXK8tGm92giLuLW1aKpzGQWZCivI73W0
+	 qj57tNaJar6i6fQf08oRq2k3qh5QrWhdgMS5SOmRotFydEI1obZkWeiGuDGTcq7SQTOl6
+	 WoXgr+0vVITRUAJ26a8yKnhQ7MQyFp18KIHrGLICeqvu/BoeW1CQHefrGhO1ymft9Lmg1
+	 xYA5LjPhJIvdlTrEOZEkWhNzIgGsbCEOSoP3PQGvQvhg8yqNMl1mWf08ydCjznuZ10w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795168869;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Subject:From:
-	 Reply-To:To:Cc:Date:In-Reply-To:References:Content-Type:
-	 Content-Transfer-Encoding:User-Agent:MIME-Version:X-MBO-RS-ID:
-	 X-MBO-RS-META;
-	bh=tuJA0XDaKwz11CrlbVlHVIWMZJx66TbVl81T/rjPki8=;
-	b=yThzLPwO66rP6VwR9olP3PnYqXizoN27bGEpP7/nQ+5VmcpUwJi9EWzor1+PviH5a6eh
-	 vIf9CpWRk3TS71D7MlbPqPRRa2QvO8tlO6VbcqjzIzURuVplD0l587otnmiuILNfb+ddo
-	 +GRbKlM8j2jN/fvcz796sOi9/QAV2j5TFRbWJ50IRLjw7I4/cXI4GiEEfWMhcMTaXjQ53
-	 fO4BVqQssIk5JZZIa4h2NMD5bgkR043CVH4K9BzU1sR9MAYyQt8hDv9NTeCPI4h9vv8r4
-	 bu6ABkjAjXt0746OZpOXP2/foLeUHWMAKq1AsgEdSzj2x+ciI37FsSsifNdi5zNyhRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795168948;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Infomaniak-Routing;
+	bh=+/Nvrr/kmurSuoSNX/nrEDXJoBt1+szlAZyD/QS6ioM=;
+	b=vnsW8DWtjY5PcX3IQ9DoHUQPJBQuLuk/XcaCesnE3NTqH5arelqHHb304P1ScLBmbwKN
+	 ZNNVjIoaQVnIFCWsJa1SqzKL+9Oe7pqUIr5+7J1t8s1DwWTycyQd8igSQrgZHrZVp8Jrz
+	 KzuiyS6G6E7fNxxVpDhDD9UA9QyIzM1jVeWVpfETP9uIGLeB2nol0tEWb5AZKsJ9x6BkZ
+	 hvhmYhV4cm4x4z3gzV2mfU2rqgoU3EJ8M/2nunOswFSnFDC/223kzNoLYNlwGrgEBOR0w
+	 GDbyYAXV/idcKVu0jHGytSbO60K0UeHWasHVo/+7eebFfBGEiWvOq1s98OSHFJc6CTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mailbox.org;
-	spf=pass smtp.mailfrom=mailbox.org;
-	dkim=pass header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b="Vz//ANnY";
-	arc=none smtp.remote-ip=80.241.56.172
-Received: from mout-p-202.mailbox.org (mout-p-202.mailbox.org [80.241.56.172])
+	dmarc=pass header.from=0leil.net;
+	spf=pass smtp.mailfrom=0leil.net;
+	dkim=pass header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=KBXagnVY;
+	arc=none smtp.remote-ip=84.16.66.172
+Received: from smtp-42ac.mail.infomaniak.ch (smtp-42ac.mail.infomaniak.ch [84.16.66.172])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B595F606A33B;
-	Fri, 20 Nov 2026 10:01:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B595F606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=mailbox.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mailbox.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E89F1606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:02:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E89F1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=0leil.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=0leil.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mailbox.org header.i=@mailbox.org header.a=rsa-sha256 header.s=mail20150812 header.b=Vz//ANnY
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4jW9p91Nv7zMlyX;
-	Fri, 20 Nov 2026 11:01:05 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1795168865; h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tuJA0XDaKwz11CrlbVlHVIWMZJx66TbVl81T/rjPki8=;
-	b=Vz//ANnYWzDPxmgoY0vJq5qnG3FZlDUzowfc2BZoBkQWOki4fnvqncbjlnjgzDsOfoHUus
-	BBb0rU/UEebNzxtacD9M34Uj8SwTCwLYQlv/mgXbdJebxmb/9KU7UhdxaBOENfIilzlYPk
-	hsmp2DWW9CiJyb8nxJHzVDvLJ9KJ2/N7JkZZJZPCq9hDegvPO8JRB32PgJpZZ9jBFHhq+v
-	+cH7IElqfhizxTP6m8ESYFe0iivegorXU/4KoBAkJmpAh3f8NjzgsMST+juIc+e+hya3hy
-	qzwtaiR6ygiHdX4MFJQA6ga60+vVyKl+aL/Ht9bjGu1OEfi7aqVHUs3X+k5jXw==
-Message-ID: <d53b0e41ca767a2acb1f6ee29344567f34385d8c.camel@mailbox.org>
-Subject: Re: [PATCH 2/3] dma-buf: dma-fence: Add
- dma_fence_overwrite_timestamp()
-From: Philipp Stanner <phasta@mailbox.org>
-Reply-To: phasta@kernel.org
-To: Christian =?ISO-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>, Philipp
- Stanner <phasta@kernel.org>, Sumit Semwal <sumit.semwal@linaro.org>, Simona
- Vetter	 <simona.vetter@ffwll.ch>, Chris Wilson <chris@chris-wilson.co.uk>,
- Danilo Krummrich <dakr@kernel.org>, Gary Guo <gary@garyguo.net>, Alice Ryhl
- <aliceryhl@google.com>, Daniel Almeida <daniel.almeida@collabora.com>,
- Tvrtko Ursulin <tvrtko.ursulin@igalia.com>, "Paul E . McKenney"
- <paulmck@kernel.org>, Yunxiang Li <Yunxiang.Li@amd.com>, Alex Deucher	
- <alexander.deucher@amd.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>
-Cc: linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Fri, 20 Nov 2026 11:01:01 +0100
-In-Reply-To: <a8fe714b-6d26-4777-8b9c-4299ecdc3f44@amd.com>
-References: <20261119131830.2535266-2-phasta@kernel.org>
-	 <20261119131830.2535266-4-phasta@kernel.org>
-	 <a8fe714b-6d26-4777-8b9c-4299ecdc3f44@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-3.fc44) 
+	dkim=pass (2048-bit key, unprotected) header.d=0leil.net header.i=@0leil.net header.a=rsa-sha256 header.s=20231125 header.b=KBXagnVY
+Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4jW9qb00VCzmQt;
+	Fri, 20 Nov 2026 11:02:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=0leil.net;
+	s=20231125; t=1795168938;
+	bh=+/Nvrr/kmurSuoSNX/nrEDXJoBt1+szlAZyD/QS6ioM=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KBXagnVYzai5Hyt8cvC07l1zCVwAJfI7bJuefebIm04Yswvtlg2Oy+r/VCdrllwGA
+	 a1mFXDsDmRBRIcSGtmPnmvsUmUL5RqBFMEVM+bsmpOW5vCdbhVgaYN5Fq5jYB7UQ/U
+	 nqer/b7iAiYvdgu1vvC9aj5LfKEqhka6bmue6CpmuzqR5KtRK/s7MxTMGYtNInhpau
+	 FH6UePtEPU6aiERO7EoYhz4GuXvzETXqXHp5pe9EH7brhHCi/NlYiHvr+mgzP8Fwrf
+	 yMx86+BQzZLZszUb5O7GWwqlzKF0vBzwCevjlSVV47BvPgCk0Ud84XEzaFwy09Xi70
+	 GJlLx7/ONkYlw==
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4jW9qX6x17zX7X;
+	Fri, 20 Nov 2026 11:02:16 +0100 (CET)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Date: Fri, 20 Nov 2026 11:02:03 +0100
+Subject: [PATCH v3] arm64: dts: rockchip: support camera module on Haikou
+ Video Demo on RK3399 Puma
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -87,48 +61,157 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MBO-RS-ID: fa50b291f261fae32f2
-X-MBO-RS-META: gjw3fjryizx7ih8jrimp6njyrwmw4ndz
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-rk3399-puma-haikou-video-demo-cam-v3-1-5183b29527f4@cherry.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/5WOQW7CMBBFr2LNmkEZGxImK+6BWDj2pHFRMLKJR
+ RTl7lXohmW7/NLTe3+BLClIhlYtkKSEHOIdWmV2Ctxg71+CwUOrQFe6JqoMppsxzPiYRouDDbc
+ 4YQleInoZIzo7oj/VndSGLZPATsEjSR9e78bl+rvz1H2Le27ijRhCfsY0v08U2rj/9AohIdsDe
+ 25Ohrvj2Q2S0rz3Aluv6A8j/cmokVAasq43VdOz/jSu6/oDSEF/tTYBAAA=
+X-Change-ID: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>
+X-Mailer: b4 0.17-dev
+X-Infomaniak-Routing: alpha
 
-On Fri, 2026-11-20 at 10:38 +0100, Christian K=C3=B6nig wrote:
-> On 11/19/26 14:18, Philipp Stanner wrote:
-> > A fence's timestamp is just an opportunistic data point for debugging
-> > information etc. drm_sched, for example, uses the timestamps for its
-> > scheduling algorithms.
-> >=20
-> > In rare situations it can make sense to allow users to overwrite a
-> > timestamp with a more accurate value. This is relatively harmless since
-> > the timestamp has no meaning for the implementation itself.
-> >=20
-> > Add dma_fence_overwrite_timestamp().
->=20
-> I think that this is a very bad idea since it gives the impression
-> that overwriting the timestamp on a fence is ok.
->=20
-> That was only done on the scheduled dma-fence because nobody cares
-> about that time in the uAPI. For all other cases that can blow up.
->=20
-> I would rather come up with a clean approach for the scheduler to
-> track the spend time per entity which would make that hack completely
-> superfluous.
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-Yes, I agree.
+The Haikou Video Demo adapter has a proprietary connector for a camera
+module which has an OV5675 camera sensor and a companion DW9714 focus
+lens driver.
 
-The *one* feature we would have needed in C is a public-private system.
-With structs in APIs it's often completely undefined what the user can
-and cannot touch.
+This adds support for the camera module on RK3399 Puma module fitted on
+a Haikou devkit with the Haikou Video Demo adapter.
 
-That led to API ossification. Just look at drm_sched, where we now
-cannot trivially change API internals anymore because external parties
-conveniently use this or that.
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+Camera only works once the ov5675 driver is adapted[1] to work with
+24MHz MCLK. With the similar work done for RK3588 Tiger[2], we now have
+all our modules supporting the same set of features when used in
+conjunction with Haikou Video Demo.
 
-> IIRC Tvrtko already created patches for that, I'm just not sure if
-> they were ever committed.
+Same request as made in [2], please only merge this once the OV5675
+series[1] is merged.
 
-I suppose it should be somewhat easy to track that data in
-drm_sched_fence.
+[1] https://lore.kernel.org/linux-media/20261026101646.2450051-1-heiko@sntech.de/
+[2] https://lore.kernel.org/linux-rockchip/20261026102027.2451025-1-heiko@sntech.de/
+---
+Changes in v3:
+- added missing #address-cells, #size-cells, reg properties to
+  &isp1/ports/port@0,
+- Link to v2: https://patch.msgid.link/20261113-rk3399-puma-haikou-video-demo-cam-v2-1-e71acf307f92@cherry.de
 
-Maybe Tvrtko can point me to his ideas so I can take a look.
+Changes in v2:
+- added missing #address-cells and #size-cells to &isp1/ports,
+- Link to v1: https://patch.msgid.link/20261103-rk3399-puma-haikou-video-demo-cam-v1-1-9a49d97839b5@cherry.de
+---
+ .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 62 ++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-Thx
-P.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+index 141a921a06e47..925b4bb88f1b6 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+@@ -16,6 +16,7 @@
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/leds/common.h>
++#include <dt-bindings/media/video-interface-devices.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ 
+ &{/} {
+@@ -100,6 +101,12 @@ &i2c1 {
+ 	/* OV5675, GT911, DW9714 are limited to 400KHz */
+ 	clock-frequency = <400000>;
+ 
++	focus: focus@c {
++		compatible = "dongwoon,dw9714";
++		reg = <0xc>;
++		vcc-supply = <&cam_afvdd_2v8>;
++	};
++
+ 	touchscreen@14 {
+ 		compatible = "goodix,gt911";
+ 		reg = <0x14>;
+@@ -122,6 +129,57 @@ pca9670: gpio@27 {
+ 		pinctrl-names = "default";
+ 		reset-gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_LOW>;
+ 	};
++
++	camera@36 {
++		compatible = "ovti,ov5675";
++		reg = <0x36>;
++		assigned-clocks = <&cru SCLK_CIF_OUT>;
++		assigned-clock-rates = <24000000>;
++		clocks = <&cru SCLK_CIF_OUT>;
++		avdd-supply = <&cam_avdd_2v8>;
++		dvdd-supply = <&cam_dvdd_1v2>;
++		dovdd-supply = <&cam_dovdd_1v8>;
++		lens-focus = <&focus>;
++		orientation = <MEDIA_ORIENTATION_FRONT>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&cif_clkouta>;
++		reset-gpios = <&pca9670 6 GPIO_ACTIVE_LOW>;
++		rotation = <180>;
++
++		port {
++			cam_output: endpoint {
++				data-lanes = <1 2>;
++				link-frequencies = /bits/ 64 <450000000>;
++				remote-endpoint = <&mipi_in_cam>;
++			};
++		};
++	};
++};
++
++&isp1 {
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			mipi_in_cam: endpoint@0 {
++				reg = <0>;
++				data-lanes = <1 2>;
++				link-frequencies = /bits/ 64 <450000000>;
++				remote-endpoint = <&cam_output>;
++			};
++		};
++	};
++};
++
++&isp1_mmu {
++	status = "okay";
+ };
+ 
+ &mipi_dsi {
+@@ -145,6 +203,10 @@ mipi_in_panel: endpoint {
+ 	};
+ };
+ 
++&mipi_dsi1 {
++	status = "okay";
++};
++
+ &mipi_out {
+ 	mipi_out_panel: endpoint {
+ 		remote-endpoint = <&mipi_in_panel>;
+
+---
+base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git master
+change-id: 20261103-rk3399-puma-haikou-video-demo-cam-d86be639a91e
+
+Best regards,
+--  
+Quentin Schulz <quentin.schulz@cherry.de>
+
