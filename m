@@ -1,55 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795192898;
-	b=hKt1BOUAn4EVRC/VmNgwgsALE/MmUarWnev87UvKJ4YsBSyJREbQR+ch0POS2MbO1s27
-	 q1hS/p+9DueoB1jouh1IYlbCClEtpV7Y6Lt2Lo0YATyvj8nelcQqvrab0ibJ64XaGt23b
-	 WL4KlnW3vVApHIm8AjkwCL2HWgcDIgGOoFaaVTluOqU2jciP4boEingCOS25r1kPjn+0w
-	 aKhMSwObRrn5eNkoeSPneuLtuPsTevftv2/d3gNNjgcd6xrmuElfbepRQiSfwqL6HwJ+9
-	 6kuF/3KKNn3FO8j96lsnZ8EL5csEdTctJqx6UJmKjgAYvMcqtqdWEFhUxFh9wWsr0YA==
+	t=1795192909;
+	b=mOKzXxao57sWctK+A9ao7nebPwIFTUyzZPzCYX+vD26NNoW3mMWKmE+0TD9FIQ6bsncC
+	 LBsdQ9fF2Dm/jVG7kKGzk/qL/44YSI1OKl3fuVTFajhMMqxdqnkFBxmbZf82zCpJQokGp
+	 8vQbxvYJEv5YE98/19vkcI76flwHugmOwRM54oMalWD3EIlIxlAITUhas8sxJLrXWk+Kv
+	 m7UDIsydjNXQnIsG0RGTDQ7ad4wtZVgQy55SFGn6EfQB0cioss9YaoJwnCm9OraH/60Jh
+	 PyiNLTTYA7W4Tn0VuhfJOo3mw8QR7HExbLS22lIqfp7kA0gdxNy0lutgfIHUUA7s8ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795192898;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BU1zg1ONXDx5a3mVAu66HlEYVOudpYSiqol3xpcTdZo=;
-	b=Jk5lcS9ZOHFHD3xSd0TkuCF9IHmIIbpXm3F44+sRs+fl9PrVAxTxQgOaudEwp9OP4/9l
-	 o34iH3llKG9gTprrv1zJXhzoYzK5oVBjZhC1xSidLAz6yuoa9bpaafe1JU4EPgiwqGbYP
-	 J3qWKRpZWwEqwxRBXnqA7Ybib81Paszs5LRcOmsNO8Jkb2xAgzrNU5OahBUhfgLkmsacb
-	 2GJqE/TT9MeYdIhwpyo2yflxKB+dkcQUKkdtXV0wKRQxS2etAWiQFoAwTPGQOFSjM+HlI
-	 b8JcX1Qzuyvpo+Vts1yNwKLmKnQlZqiI5t9sMK8iby/0jWPTu4Xg97L9Juhe9zH2D1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795192909;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 X-Patchwork-Hint:Organization;
+	bh=6wlmw4As4I8rmN0wK02hXCau5KdxeTaHKwKPRf8LsWg=;
+	b=CJcLcENQf0ajF5weH94v5WyKn/YcXSjqa4dvS+ldzfy3VPHg+PUfcIQ2VQfgyECnDCak
+	 MSZwJ+G/ktPX+hEnUfctQEi7Uw+GTo8xHArRUXB0rAAAZy0dh5HD5yFm7PD/8qsy8aVa+
+	 5K9kCl0fQd3jVC8AigZBOyt3hCExbX7C+agniUi6OL3T9HhN6vi7Wg+TcQciX3aju2DhG
+	 wZDGMCaBsQHeCXqtxtpMFlnhn6aBbGu3O0JudyzT+UjUufVR6tHCH8dMpFixSSXZQpK53
+	 i2fMliRkaegZCq+X754Dx5LouWDa7SBhLdw5fjUT9/NQTwRy6oGE1DxbkI4B5l8dCeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BP5Nsj5d;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a7If8nFR;
+	arc=none smtp.remote-ip=192.198.163.10
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A873606A613
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AA6E606A608
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AA6E606A608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BP5Nsj5d
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FFFE1F000D2
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:41:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795192897;
-	bh=BU1zg1ONXDx5a3mVAu66HlEYVOudpYSiqol3xpcTdZo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=BP5Nsj5dX3BqLnE4PU69kVoaY8OF68r7yYPApHgpijX/Qqp9Bgn/wIIgP7/LCFb21
-	 iUWj0dhcvTJovCDH5IliZFigZoH5KbbYClBtiuGBAD95qCxJ8cJeLuoFCfGW2ouiak
-	 biIKdiSXxRWo0kpXbJPaoZvtPGAuCPZAqf4igf7QPhoT98N1iqw0xVCtxZ1DFFNqDC
-	 ZtOJZN0b7WmjgOKn2HcRDxMN4gD9/1dqMk1t5agyEvScLfPRUpOPYTGFRdB5VrbFwh
-	 NSYXyznGPtxCTUZz/GYI5EVzKg4GJwNpi0X8h/ReOG1nfX9ZeicGc6sygXFW98gxNh
-	 JS4oK16Z2wYEw==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-3ae0a5c1715so21795841fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:41:37 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFduME37KsTFCdXRp35cQ7cFBXR5Mq99tKj9n52tDBsbDRaLWLazivTalF5zHnTgATcP0o1rGoxT+5638E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9td00ZlTkUvlm/KM90m4OyI/36tLLohuR6yoYrhb2SfC6qYf4w
-	L42O6tlF5SP421UX5YtmcDz03Rl2TbXbzrEgcZj6d+zgyk/m7eXLht8kWBFsA125/NaVUp01UVk
-	1Jo5VeV0mxmfTs1jB0MK+RC/h58S3NSY=
-X-Received: by 2002:a05:651c:19ab:b0:3a9:7c85:a16d with SMTP id
- 38308e7fff4ca-3ae7b7b78b3mr14455201fa.5.1795192895959; Fri, 20 Nov 2026
- 08:41:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=a7If8nFR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795192907; x=1826728907;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=Mt37fmIUELj0xI9G800lQNgzenR8tQzCZwNS3sQls6s=;
+  b=a7If8nFRSVt90Mg95CZR+MDVYgGKSOCDTEto/LvGWF2jJITtwHSnhN2u
+   2YHGkPk32uB3aZUkuErODjtwRmrduNXf+l+7K8OIZa34LDi10OkMle859
+   syIqJb5BuReBi7jxbDXE2r/M8uLcFVUIO6h9HqRsexSweliddvU6MA2Jt
+   qheU9eJv9v6pPJ9yyOVlHStZFgn+Bkz6SE+A/OgMLKejRWFbPS9zQV91J
+   MKR4Du0Tex26JHYz0Dvdf4WXtz0m43niI/HLqe7nGyRkCO4om7P7+5ghy
+   QsoTfAVljKWCLO20rtikk2bzkP8o9FXOeFy2XscoO45Dl4iYcnoknc/Go
+   w==;
+X-CSE-ConnectionGUID: 6cFO+1YHSWWMca7utkCgMg==
+X-CSE-MsgGUID: KDW2ifP2QJWDtCZFZzdm2A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3957328"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3957328"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 08:41:46 -0800
+X-CSE-ConnectionGUID: eqDDr+zvTM+bRtypcysw+w==
+X-CSE-MsgGUID: 01oe9egoQMy1BFDCeS6wYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11087115"
+Received: from klitkey1-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.66])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 08:41:41 -0800
+Date: Fri, 20 Nov 2026 18:41:37 +0200
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Mario Limonciello <mario.limonciello@amd.com>
+Cc: Maxime Ripard <mripard@kernel.org>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
+	Mario Limonciello <superm1@kernel.org>,
+	Xaver Hugl <xaver.hugl@gmail.com>, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, amd-gfx@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+	nouveau@lists.freedesktop.org
+Subject: Re: [PATCH v12 01/12] drm: add connector LUMINANCE property
+Message-ID: <awB4Qe83u0l0XPKA@intel.com>
+References: <20261119-superm1-backlight-property-v12-0-89d5217d3618@amd.com>
+ <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,71 +92,88 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <10852BF0B4974597+20261113010134.1408010-1-tuhaowen@uniontech.com>
-In-Reply-To: <10852BF0B4974597+20261113010134.1408010-1-tuhaowen@uniontech.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 17:41:24 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0j79Z35=G0j53UYxzY9T_vgpzhrMAWdejTfUZ=tYXLM8g@mail.gmail.com>
-X-Gm-Features: Aa3M54oMdW9NFAWI5Xwg3P8Dl0rSValX0ljF28RxR6wfeHuOJynyI1LyNJbsllY
-Message-ID: <CAJZ5v0j79Z35=G0j53UYxzY9T_vgpzhrMAWdejTfUZ=tYXLM8g@mail.gmail.com>
-Subject: Re: [PATCH] PM: hibernate: Restore PM notifiers on snapshot open failure
-To: tuhaowen <tuhaowen@uniontech.com>
-Cc: rafael@kernel.org, pavel@kernel.org, lenb@kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261119-superm1-backlight-property-v12-1-89d5217d3618@amd.com>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 
-On Fri, Nov 13, 2026 at 2:01=E2=80=AFAM tuhaowen <tuhaowen@uniontech.com> w=
-rote:
->
-> Opening /dev/snapshot for writing calls the PM_RESTORE_PREPARE
-> notifiers before allocating the basic memory bitmaps. If the allocation
-> fails, snapshot_open() returns an error without sending PM_POST_RESTORE.
-> The release callback is not called after a failed open, so it cannot undo
-> the preparation either.
->
-> In particular, the firmware loader enables firmware caching during
-> PM_RESTORE_PREPARE and relies on PM_POST_RESTORE to reset the cache state
-> and schedule the cached firmware for release. An allocation failure can
-> therefore leave firmware caching enabled after the restore attempt has
-> already failed.
->
-> The robust notifier call only rolls back failures within the notifier
-> chain. It does not cover a subsequent failure to allocate the bitmaps.
-> Send PM_POST_RESTORE for that failure, after a successful prepare call,
-> so that the notifiers can undo their preparation without being called
-> twice when the prepare notification itself fails.
->
-> Fixes: 70d932985757 ("notifier: Fix broken error handling pattern")
-> Signed-off-by: tuhaowen <tuhaowen@uniontech.com>
-
-Can you please put your full name into the From: header and the
-Signed-off-by: tag?
-
-Failing to do so causes Sashiko to complain unnecessarily:
-
-https://sashiko.dev/#/patchset/10852BF0B4974597%2B20261113010134.1408010-1-=
-tuhaowen%40uniontech.com
-
+On Thu, Nov 19, 2026 at 05:27:28PM -0600, Mario Limonciello wrote:
+> Panel brightness is a property of a display, and thus of a DRM
+> connector. Add an atomic per-connector LUMINANCE range property so
+> compositors can manage relative panel luminance together with the rest
+> of the display state.
+> 
+> Keep the core backend-agnostic. Drivers create the property with their
+> hardware range and implement connector helper callbacks to set luminance
+> or disable panel emission. The atomic helpers sequence those callbacks
+> around pipeline enable and disable, including luminance-only commits.
+> The panel is left lit when the pipeline enters self refresh, and the
+> luminance is only reprogrammed when it changes or a modeset enables the
+> pipeline.
+> 
+> The stored property value is independent of display power. A commit made
+> while the connector is inactive is retained and applied on the next
+> enable; disabling the pipeline does not overwrite it.
+> 
+> LUMINANCE values are relative, driver-defined levels rather than
+> absolute luminance in cd/m^2. The interface supports emissive panels as
+> well as panels with a separate backlight.
+> 
+> Keep the interface behind a default-off DRM_LUMINANCE option. Migrated
+> drivers retain their legacy backlight class ABI unless the new interface
+> is explicitly selected, allowing the DRM UAPI and legacy compatibility
+> policy to remain separate.
+> 
+> Acked-by: Javier Martinez Canillas <javierm@redhat.com>
+> Signed-off-by: Mario Limonciello <mario.limonciello@amd.com>
 > ---
->  kernel/power/user.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/kernel/power/user.c b/kernel/power/user.c
-> index 6e4f40e49319..e7e8016a4f1a 100644
-> --- a/kernel/power/user.c
-> +++ b/kernel/power/user.c
-> @@ -87,6 +87,8 @@ static int snapshot_open(struct inode *inode, struct fi=
-le *filp)
->                 error =3D pm_notifier_call_chain_robust(PM_RESTORE_PREPAR=
-E, PM_POST_RESTORE);
->                 if (!error) {
->                         error =3D create_basic_memory_bitmaps();
-> +                       if (error)
-> +                               pm_notifier_call_chain(PM_POST_RESTORE);
->                         data->free_bitmaps =3D !error;
->                 }
->         }
-> --
-> 2.50.1
->
+> v11:
+>  * Don't call .disable_luminance when the CRTC enters self refresh (Sashiko)
+>  * Only call .set_luminance when the luminance changes or on a modeset
+>    that isn't a self refresh exit (Leo Li, Sashiko)
+>  * Fix the .set_luminance self refresh documentation
+> v10:
+>  * Add tag
+> ---
+>  drivers/gpu/drm/Kconfig                    | 14 +++++
+>  drivers/gpu/drm/drm_atomic_helper.c        | 98 +++++++++++++++++++++++++++++-
+>  drivers/gpu/drm/drm_atomic_state_helper.c  |  7 +++
+>  drivers/gpu/drm/drm_atomic_uapi.c          |  5 ++
+>  drivers/gpu/drm/drm_connector.c            | 57 +++++++++++++++++
+>  drivers/gpu/drm/tests/drm_connector_test.c | 28 +++++++++
+>  include/drm/drm_atomic_helper.h            |  3 +
+>  include/drm/drm_connector.h                | 16 +++++
+>  include/drm/drm_modeset_helper_vtables.h   | 28 +++++++++
+>  9 files changed, 255 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
+> index 61111d50b1c65..1bbe2c2d7c76f 100644
+> --- a/drivers/gpu/drm/Kconfig
+> +++ b/drivers/gpu/drm/Kconfig
+> @@ -33,6 +33,20 @@ endmenu
+>  
+>  if DRM
+>  
+> +config DRM_LUMINANCE
+> +	bool "DRM connector luminance support"
+> +	help
+> +	  Expose relative luminance as an atomic DRM connector property. Values
+> +	  are driver-defined levels rather than absolute luminance in cd/m^2.
+> +	  Drivers provide connector helper callbacks to program their hardware;
+> +	  the DRM core does not depend on a particular backend.
+> +
+> +	  Drivers migrated to this interface will use it instead of registering
+> +	  a legacy backlight class device. Leave this disabled to preserve the
+> +	  de-facto userspace ABI in /sys/class/backlight.
+
+I don't think this will fly if it breaks the backlight class interface.
+No one can actually enable this outside of some niche embedded use
+cases where backwards compatibility is not an issue. I think what
+you need is a generic backlight class implementation on top of this.
+
+-- 
+Ville Syrjälä
+Intel
