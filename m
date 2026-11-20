@@ -1,74 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795212894;
-	b=ACVUhCsWSSehhe2MpHP/DwbhLckbi/USjr6CObboRoMEVb3Cpm5A2JzgXqdFqTX9AZvN
-	 6ZqCfvQBnaMy9TMM/q9I7dISazjJkDgdiW5cScmf85jpsCuBXvkD0XRaRZ9Y2Ae+s8uqf
-	 Idf1HXNt8KfEeO2L5I8BK5HsdaodatIwCOOrpDlBkB7ixoPCV7NWd6rMIEzBxQ0EiUmPm
-	 24J3/1GtxYBxpHtJin1gS3v+UE0MH0K9knB5KUFVPqhskN814VwJ9yt8OYt8rQegkl070
-	 puDNv2UBO/RU0e2Su6DpFO9ovjOgzNKI+7jvhhKj93aG33KTss8i12L0Cx7M2uv4tlQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795212894;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=6oqDW4vAUxH3I7e8ByJaKQ6OdqEOOK+wWOWaZxa4T08=;
-	b=0tbE+6RuzZJ9TA/AXxq4fUyBXlVvT9I+o6hxffiR4guTs1ltLnmsQlnuZzIL05eNzRY5
-	 T0VjW2h/MIpbGUIfi9o0zxPZwo9LhJyeKUoBL7doXAW/4XKuJUwBybsg1AYN+HniiwFGR
-	 87labN2bHt8Uo3yJnm9yBDHHv6zw31BWcGr8ECX1W69+EtLzFNnZUT4u+ckda9+ojKVdi
-	 LgenIhX50vgAbGIkB9c8IuZ7uYvd+eOPgPVp84/apFM7OdpQQxOQY4tx66B2RVvIOHGWT
-	 YlGUKp4XDq43VhJX5SORQEOpZ8M1DHSCDL0jAmrMsB4GYvP1OfoqVhoHUoADOcW8ndw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HnrCX2f7;
-	arc=none smtp.remote-ip=74.125.82.200
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+Received: from mail-dl1-f72.google.com (mail-dl1-f72.google.com [74.125.82.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E44C606A33A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:14:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E44C606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C78660A2605
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 22:15:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C78660A2605
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HnrCX2f7
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-3854627c1c8so2016915eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:14:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=B6Gh8MFl
+Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-154e9d2d94fso3150936c88.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:15:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795212892; x=1795817692; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795212899; x=1795817699; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6oqDW4vAUxH3I7e8ByJaKQ6OdqEOOK+wWOWaZxa4T08=;
-        b=HnrCX2f7Hkk8C5Z5JUfLlyzqFWh9Cb/zOoN6pnxrwHyWK+QsntDf3mVpKrBI0+Va6W
-         A31rSoARlEIaFu4FUoXZLNIDwd3mdSGjqnxSXN6SeFnreItqxDRjXP9rpOJXsQq9LL4O
-         mDgEJ4COWsXUYA/8iQj8/GXFcGYYRpr+97qN87hyPPWByMKRr+K0ZX8z4C3GEY1DEqVr
-         I4Icvg9HhDtqO3qWeAW6zpO09+PbQ87w4nd5u5DZlQ2S6xWggCCikUB9HuXjUdyPadnM
-         HD6LsTXOHJLgsqppLVnTudK/LYdFGEid1u9LxFlFFYXZQQWxJ4xBT9IbeRXvEfH5KwVX
-         v5tw==
+        bh=E8k+o+ctljOL+bzUAmsIZZdgRgScMxCPCtfkJ2IOmSg=;
+        b=B6Gh8MFloYS3OkJ9Xel03+2QP6ydBx6auuTANtYs7U9AL0Gqq0AYHy48Qpx0mJWS0h
+         wgrThcW0PC+KpqjcFGK8jU6oupk4wH+AuGMV3GPxSUs9aoQvZwwpkTdLpsfC94Hv5XHL
+         dHhCpYnWm6IPY/7/XpS0q7DSGxSGUlbJFbPWolzfEAheuFs037qmlL5eSb/IbvHJXaT+
+         be7JK2cvMkrUe+yQL19d7zUzZ3crDwSN+mVUksh/hQjcO/rqYrVY9alHY0NgBktwN4Av
+         LiQoYlSYFK1h7FwesvGCl9nHhyB/6OUHTVplIwqxLDCWp7QR2lQAMGPZBM1XdhqV4GcA
+         MF9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795212892; x=1795817692;
+        d=1e100.net; s=20260707; t=1795212899; x=1795817699;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6oqDW4vAUxH3I7e8ByJaKQ6OdqEOOK+wWOWaZxa4T08=;
-        b=gIQ1NhR//OVD8T2V85YwUYMwTiAjNYT3snQeHOVcLL4/0w9IRsTeU4I0xD6i7pMAnB
-         5M52MvK1SNYYd61GphiWch+n6TT78ChP835KNqThAL8bNu6IZhg5vVicocXpfztUGKV5
-         rtJfm+9MRnUNndyPsREWETH0yg7XG47vzN1vti9Vfn+ABZBntIML5VDcCpow3D8wVEWz
-         au+ugpQWsfDveC40UQwZFIwyIWg51OIB64m4UgJ5BQofsohPlo2TqPdk544PmA2jGz3J
-         fC7JU46YGVA2SdgosI8SpHFAXfWy+34822QpYoCt6+oAEm08ukWaokWju7Ri+g+PAmyO
-         UFkQ==
-X-Forwarded-Encrypted: i=1; AL+hErHia17Mx0eajyzihKncFySgHllkRk2R+Jxh4A3bMy1KErfFxLxlM/9sQvwI+jZfnM/uRVCFlT302SHfcXQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9xKHrat42H18SSGWlWtSyKMkYoPYS8/QQcRAQv2IuqoytT4hQn
-	7vXAO21AHN6lEP8fCmBE4ULuDtmQUOAsofUhYNj77KxZ6PUVm0f/LiqCDhnu4YZQSkqdv8VOPy0
-	q/oaGEJqr6Q==
-X-Received: from dycc17.prod.google.com ([2002:a05:693c:60d1:b0:385:1a45:47b5])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:d0a8:b0:386:9957:752f
- with SMTP id 5a478bee46e88-386995777f4mr756348eec.25.1795212891371; Fri, 20
- Nov 2026 14:14:51 -0800 (PST)
-Date: Fri, 20 Nov 2026 14:13:16 -0800
+        bh=E8k+o+ctljOL+bzUAmsIZZdgRgScMxCPCtfkJ2IOmSg=;
+        b=r9km+1NfJRIBKJLIdEXIwohlJT40xD9NpbfQyAWMDX/VNdviO/4dL+qJJs06j5bzwg
+         8YLctEAYGowFXnrrJuQOku3BUAa9JWyI7Up5tSdzAkGKjbl+D6TJerZR3lvzFiwz+7jc
+         fw3FEyoPJ7ZfkRsSkW5OQMpfA412itH6NZsseA6QRaah5WhNWA9WT2lPsgHa3JEs5lg9
+         ClL+scVTc8PWCBTL+c+hImbLot+OvgCAM6lA9jWKB5oElxQ9cSalyiwnXuV+dWuVK+jw
+         Y/zxdhpMgcb2kkwtiXoA1HPLPUfSBSzexjsV49M/vSctWeJU72cPBeFMNjYcpRB4hqjP
+         Uszg==
+X-Forwarded-Encrypted: i=1; AL+hErG/hWl0BR+uxaQVqO9mUzXP1wlVdFgNoy9Ivl6MjUATZjJRIZ3Q+1uJZbHPiAsQy/b5bbzrDqmAVyGbxKU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+lyrDrLNZ0yDP4Jcuf+YX2LDnbe/KQJIt7PCIr4pjMIdntON6X
+	p1aH7RGUrzcfjapGoOO9ARWGPyRO6EzZPRYJL2JQYZuSEMp3MsqqWCuCAAvOAygSKPaYO74CELM
+	blCaY3Z06Sw==
+X-Received: from dlam22-n1.prod.google.com ([2002:a05:701b:2096:10b0:1b5:345d:ed30])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:701b:4555:20b0:190:8f72:445e
+ with SMTP id a92af1059eb24-1b556877915mr4836441c88.11.1795212899053; Fri, 20
+ Nov 2026 14:14:59 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:13:18 -0800
 In-Reply-To: <20261120221332.2245191-1-irogers@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -81,8 +56,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261120221332.2245191-1-irogers@google.com>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
-Message-ID: <20261120221332.2245191-16-irogers@google.com>
-Subject: [PATCH v3 15/30] perf test: Make the CPUID matching test architecture independent
+Message-ID: <20261120221332.2245191-18-irogers@google.com>
+Subject: [PATCH v3 17/30] perf dwarf-regs: Add e_machine__same_arch()
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
@@ -91,138 +66,135 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-The arm64 CPUID matching test called strcmp_cpuid_str(), whose arm64
-MIDR comparison was only built for arm64. Now that strcmp_cpuid_str()
-is given the ELF machine of the CPUIDs and all of its comparisons are
-in util/header.c, the test can run on every architecture.
+The 32-bit and 64-bit variants of some architectures have different ELF
+machines, such as EM_386 and EM_X86_64, while others, such as RISC-V,
+MIPS and PA-RISC, use one ELF machine for both. Code wanting to know if
+two ELF machines are the same architecture either normalized the ELF
+machine itself, as in pmu_events_map__e_machine_matches(), or compared
+the strings from perf_env__arch(). perf_env__arch() maps EM_386 and
+EM_X86_64 to "x86", but distinguishes "riscv" and "riscv64", "mips" and
+"mips64", and "parisc" and "parisc64" by whether the kernel is 64-bit,
+and computing it requires string lookups.
 
-Move the test from arch/arm64/tests to tests, as a "CPUID matching"
-suite with an "arm64 MIDR" test case.
+Add e_machine__64bit(), giving the ELF machine of the 64-bit variant of
+an architecture, and e_machine__same_arch() next to EM_HOST. EM_ARM and
+EM_AARCH64 remain distinct architectures. Use them when matching
+pmu-events tables and in is_pmu_core_len(), which compares a perf_env's
+architecture with the host's.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/arm64/include/arch-tests.h      |  1 -
- tools/perf/arch/arm64/tests/Build               |  1 -
- tools/perf/arch/arm64/tests/arch-tests.c        |  4 ----
- tools/perf/tests/Build                          |  1 +
- tools/perf/tests/builtin-test.c                 |  1 +
- tools/perf/{arch/arm64 => }/tests/cpuid-match.c | 17 +++++++++++++----
- tools/perf/tests/tests.h                        |  1 +
- 7 files changed, 16 insertions(+), 10 deletions(-)
- rename tools/perf/{arch/arm64 => }/tests/cpuid-match.c (75%)
+ tools/perf/pmu-events/empty-pmu-events.c |  6 +---
+ tools/perf/pmu-events/jevents.py         |  6 +---
+ tools/perf/util/include/dwarf-regs.h     | 37 ++++++++++++++++++++++++
+ tools/perf/util/pmu.c                    |  5 +++-
+ 4 files changed, 43 insertions(+), 11 deletions(-)
 
-diff --git a/tools/perf/arch/arm64/include/arch-tests.h b/tools/perf/arch/arm64/include/arch-tests.h
-index 474d7cf5afbd..2b3834a5ddbb 100644
---- a/tools/perf/arch/arm64/include/arch-tests.h
-+++ b/tools/perf/arch/arm64/include/arch-tests.h
-@@ -4,7 +4,6 @@
- 
- struct test_suite;
- 
--int test__cpuid_match(struct test_suite *test, int subtest);
- extern struct test_suite *arch_tests[];
- 
- #endif
-diff --git a/tools/perf/arch/arm64/tests/Build b/tools/perf/arch/arm64/tests/Build
-index d44c9de92d42..bd15c6bbc1b2 100644
---- a/tools/perf/arch/arm64/tests/Build
-+++ b/tools/perf/arch/arm64/tests/Build
-@@ -2,4 +2,3 @@ perf-test-y += regs_load.o
- perf-test-$(CONFIG_DWARF_UNWIND) += dwarf-unwind.o
- 
- perf-test-y += arch-tests.o
--perf-test-y += cpuid-match.o
-diff --git a/tools/perf/arch/arm64/tests/arch-tests.c b/tools/perf/arch/arm64/tests/arch-tests.c
-index 74932e72c727..ad16b4f8f63e 100644
---- a/tools/perf/arch/arm64/tests/arch-tests.c
-+++ b/tools/perf/arch/arm64/tests/arch-tests.c
-@@ -3,13 +3,9 @@
- #include "tests/tests.h"
- #include "arch-tests.h"
- 
--
--DEFINE_SUITE("arm64 CPUID matching", cpuid_match);
--
- struct test_suite *arch_tests[] = {
- #ifdef HAVE_DWARF_UNWIND_SUPPORT
- 	&suite__dwarf_unwind,
- #endif
--	&suite__cpuid_match,
- 	NULL,
- };
-diff --git a/tools/perf/tests/Build b/tools/perf/tests/Build
-index 5eebb2ec5dde..404da9804f48 100644
---- a/tools/perf/tests/Build
-+++ b/tools/perf/tests/Build
-@@ -45,6 +45,7 @@ perf-test-y += stat.o
- perf-test-y += event_update.o
- perf-test-y += event-times.o
- perf-test-y += expr.o
-+perf-test-y += cpuid-match.o
- perf-test-y += backward-ring-buffer.o
- perf-test-y += sdt.o
- perf-test-y += is_printable_array.o
-diff --git a/tools/perf/tests/builtin-test.c b/tools/perf/tests/builtin-test.c
-index 01c78ef20b97..94b54a786992 100644
---- a/tools/perf/tests/builtin-test.c
-+++ b/tools/perf/tests/builtin-test.c
-@@ -192,6 +192,7 @@ static struct test_suite *generic_tests[] = {
- 	&suite__util,
- 	&suite__subcmd_help,
- 	&suite__kallsyms_split,
-+	&suite__cpuid_match,
- 	NULL,
- };
- 
-diff --git a/tools/perf/arch/arm64/tests/cpuid-match.c b/tools/perf/tests/cpuid-match.c
-similarity index 75%
-rename from tools/perf/arch/arm64/tests/cpuid-match.c
-rename to tools/perf/tests/cpuid-match.c
-index b073ac33ea9b..e3d4a349f393 100644
---- a/tools/perf/arch/arm64/tests/cpuid-match.c
-+++ b/tools/perf/tests/cpuid-match.c
-@@ -2,12 +2,11 @@
- #include <linux/compiler.h>
- #include <elf.h>
- 
--#include "arch-tests.h"
--#include "tests/tests.h"
-+#include "tests.h"
- #include "util/header.h"
- 
--int test__cpuid_match(struct test_suite *test __maybe_unused,
--			     int subtest __maybe_unused)
-+static int test__cpuid_match_arm64(struct test_suite *test __maybe_unused,
-+				   int subtest __maybe_unused)
+diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
+index 872c6ca6e817..3870356485ef 100644
+--- a/tools/perf/pmu-events/empty-pmu-events.c
++++ b/tools/perf/pmu-events/empty-pmu-events.c
+@@ -5783,11 +5783,7 @@ int pmu_metrics_table__find_metric(const struct pmu_metrics_table *table,
+ static bool pmu_events_map__e_machine_matches(const struct pmu_events_map *map,
+ 					      uint16_t e_machine)
  {
- 	/* midr with no leading zeros matches */
- 	if (strcmp_cpuid_str(EM_AARCH64, "0x410fd0c0", "0x00000000410fd0c0"))
-@@ -36,3 +35,13 @@ int test__cpuid_match(struct test_suite *test __maybe_unused,
- 
- 	return 0;
+-	if (e_machine == EM_386)
+-		e_machine = EM_X86_64;
+-	else if (e_machine == EM_PPC)
+-		e_machine = EM_PPC64;
+-	return map->e_machine == e_machine;
++	return e_machine__same_arch(map->e_machine, e_machine);
  }
-+
-+static struct test_case tests__cpuid_match[] = {
-+	TEST_CASE("arm64 MIDR", cpuid_match_arm64),
-+	{ .name = NULL, }
-+};
-+
-+struct test_suite suite__cpuid_match = {
-+	.desc = "CPUID matching",
-+	.test_cases = tests__cpuid_match,
-+};
-diff --git a/tools/perf/tests/tests.h b/tools/perf/tests/tests.h
-index af822885890d..2306ffb20b57 100644
---- a/tools/perf/tests/tests.h
-+++ b/tools/perf/tests/tests.h
-@@ -203,6 +203,7 @@ DECLARE_SUITE(util);
- DECLARE_SUITE(uncore_event_sorting);
- DECLARE_SUITE(subcmd_help);
- DECLARE_SUITE(kallsyms_split);
-+DECLARE_SUITE(cpuid_match);
  
- /*
-  * PowerPC and S390 do not support creation of instruction breakpoints using the
+ static const struct pmu_events_map *map_for_cpu(struct perf_cpu cpu)
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 802ae2ad4405..6adb385b38e5 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -1201,11 +1201,7 @@ int pmu_metrics_table__find_metric(const struct pmu_metrics_table *table,
+ static bool pmu_events_map__e_machine_matches(const struct pmu_events_map *map,
+ \t\t\t\t\t      uint16_t e_machine)
+ {
+-\tif (e_machine == EM_386)
+-\t\te_machine = EM_X86_64;
+-\telse if (e_machine == EM_PPC)
+-\t\te_machine = EM_PPC64;
+-\treturn map->e_machine == e_machine;
++\treturn e_machine__same_arch(map->e_machine, e_machine);
+ }
+ 
+ static const struct pmu_events_map *map_for_cpu(struct perf_cpu cpu)
+diff --git a/tools/perf/util/include/dwarf-regs.h b/tools/perf/util/include/dwarf-regs.h
+index 1da915c2683a..07f285a94e03 100644
+--- a/tools/perf/util/include/dwarf-regs.h
++++ b/tools/perf/util/include/dwarf-regs.h
+@@ -85,6 +85,43 @@
+   #define EF_HOST 0
+ #endif
+ 
++/**
++ * e_machine__64bit() - The ELF machine of the 64-bit variant of an architecture.
++ * @e_machine: An ELF machine, such as EM_386.
++ *
++ * The 32-bit and 64-bit variants of some architectures have different ELF
++ * machines, for example EM_386 and EM_X86_64, whereas others, like RISC-V,
++ * MIPS and PA-RISC, use the same ELF machine for both. EM_ARM and EM_AARCH64
++ * are considered distinct architectures.
++ *
++ * Return: The 64-bit ELF machine, or @e_machine if there isn't one.
++ */
++static inline uint16_t e_machine__64bit(uint16_t e_machine)
++{
++	switch (e_machine) {
++	case EM_386:
++		return EM_X86_64;
++	case EM_PPC:
++		return EM_PPC64;
++	case EM_SPARC:
++	case EM_SPARC32PLUS:
++		return EM_SPARCV9;
++	default:
++		return e_machine;
++	}
++}
++
++/**
++ * e_machine__same_arch() - Are two ELF machines the same architecture,
++ *                          ignoring differences in word size?
++ * @a: An ELF machine.
++ * @b: Another ELF machine.
++ */
++static inline bool e_machine__same_arch(uint16_t a, uint16_t b)
++{
++	return e_machine__64bit(a) == e_machine__64bit(b);
++}
++
+ #define DWARF_REG_PC  0xd3af9c /* random number */
+ #define DWARF_REG_FB  0xd3affb /* random number */
+ 
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index fc4fa34fcb0d..d319ef8ffbb8 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -34,6 +34,8 @@
+ #include "print-events.h"
+ #include "hashmap.h"
+ #include "header.h"
++#include "dwarf-regs.h"
++#include "env.h"
+ #include "string2.h"
+ #include "strbuf.h"
+ #include "fncache.h"
+@@ -2101,7 +2103,8 @@ bool is_pmu_core_len(struct perf_env *env, const char *name, size_t len)
+ 	 * isn't portable, for example, big.LITTLE ARM and Apple core PMUs are
+ 	 * named after their CPU rather than "cpu_core" and "cpu_atom".
+ 	 */
+-	if (env && strcmp(perf_env__arch(env), perf_env__arch(/*env=*/NULL))) {
++	if (env && !e_machine__same_arch(perf_env__e_machine(env, /*e_flags=*/NULL),
++					 perf_env__e_machine(host_env(), /*e_flags=*/NULL))) {
+ 		pr_debug("Can't identify core PMUs of a %s perf.data file recorded without hybrid topology\n",
+ 			 perf_env__arch(env));
+ 		return false;
 -- 
 2.56.1.750.gf70dc682cf-goog
 
