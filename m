@@ -1,50 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207365;
-	b=QiTOH79AnnmFNxsN3PEbK0WgnwwxgSAysSjB5vtxsh0XisyVDe8vQNETcIQ5cMGzOIAo
-	 GJp+FlIRHCbss7dyz/VHZUwyCaWH7dTeEDp6rvA9NO6Pq27H1JdqLfD4q2p4Q5SgYFWRI
-	 VZoeOrNc9IAYVFApCRd3BRzJWCByBAbMlMDyNt08vdokbyec4rOTulmavD8YvdOJ5ifpc
-	 2VfVqDBhLcVqtGi1QTR8XuyFtHXSsg/ckgdEASG0UGxgAcSN0QTlO+gN0hp9TLxQzak1z
-	 etCZtDVECL3gx+xrOnPDNPK2xIgFQq7WS2akBF1clGjLz8H2UN72xaJU5to+2sb7QGA==
+	t=1795207371;
+	b=pnefzb7RVz6ZXs1XJ/nXoRveOS6VW+yfsFht3yL0S3fqLZt3cUs6nSywQnbuHtVS6yo8
+	 hzPKrT/xgaM0RSjEmWhV8g6xHTw8Dr6t2VonRxuOtp77souihIIhooAZyTFSMdBv5PwK7
+	 DG05nixQWOnqMng6FMXYIfjyT5jifzJeZTEsPQmbGfk1v3+oW8acFn/drc5RLQTtDYWXn
+	 P/uOFV6Cj0/DZGkU/UKz5Vayv/6eNuPlOxV8v6VYglg2pXKT6gtTi1sIzgHrNgQf+bV1A
+	 RHczaGjv4p5/5SNXqfupuQ22xkM0eCB7RwXFbhMAYMq5nHvt6yFw3x6nxDsnbcJHFTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207365;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207371;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=be/zvu2Jpkofb1EBBug+Fq3WvypBvHbTHpFIaVfQ+f0=;
-	b=H021JRHC9RNgwkRSsMKXGeWgJiamtLyEffiyqn/kq+KXtM1gPCi/tS4DaeMKrBSTzCFb
-	 cm4apzMjdM+wE6ckCOleWhCbFiULhiwKYpxWr8svtXy0Bdi8nGs7dVI+rb8PTLQDCrrYG
-	 22iZQ2M3nOC3Bgrv1W9Scih3nBR4NHpi+uwYJokPqnaD7DAzVp+hp4lU3Pn+NrSXI8XtE
-	 LxY6yDvSC+hGrScV0GKb8ZlhB3zDoWAdP57h51F7L6FcVb8/YmPdobnX6nu4Ek6gObPpr
-	 RYK8hHRu7YAyy+bym67MdJ5uDowJQdwWHpzrCnsT33a0aQ5o20oA7wdz/PlgeYuflaQ==
+	bh=pkKHclEHtzFwZ98wGICdNU2wyxUYuejc/zF8bayUEtY=;
+	b=uFdVZtcptHhKfXha7tfTqow7hYC6OoRKiPhwuStgzU7ehJsXxMXKfsKS+kUsrJonbBsb
+	 d74iG3P0sLbyLyLeChDJmVIhaQQfFFUtJNT2JoNxP+le/INzakcZtPSWad5cjlsv29IW2
+	 ZaOXeXyAktTd525wjk/RYChI1rDDiuGgKmHuosHsLuzaJHZYwwcLBptTUbiacz68m2Fke
+	 zm+xPgO/TUw4VI/1NLR14hnITb2Ro71uAxCbKEO8DOqFy9U7VLIub8J5n8FiPKUIwR34h
+	 aki6Yu6xHntyoUoRVDnF3rxAsETSFgTzlczU5ahnGNo3ElDLdx2+rw2fe5kcdxvuBKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=efficios.com;
 	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=inxCLSUK;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=E6KaSjla;
 	arc=none smtp.remote-ip=158.69.130.18
 Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC18D60A3818;
-	Fri, 20 Nov 2026 20:42:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC18D60A3818
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7106A60A6F5A;
+	Fri, 20 Nov 2026 20:42:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7106A60A6F5A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=inxCLSUK
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=E6KaSjla
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
 	s=smtpout1; t=1795207356;
-	bh=be/zvu2Jpkofb1EBBug+Fq3WvypBvHbTHpFIaVfQ+f0=;
+	bh=pkKHclEHtzFwZ98wGICdNU2wyxUYuejc/zF8bayUEtY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=inxCLSUKYOyfYCivXGwfEv/KRDva1FufQsjS3ghM8aLHHEQFRdAgcHQiAZPzHSVWI
-	 bT2FXkD856QBCcVkcq4ay7aIcSCNNhbZqphIAlwJe50fE4CiSWnqtV7fjdJ2uIc7G1
-	 NIlvcGxAGOdFhU81TMdnT8Nn6FamCxjvdwd4xuTNBQtPR/rE+qPQlSnL855d34FEa2
-	 9O6G+DVuc544VGMN/sr97hsrNdBJhik+qMdJBTQuUQBzny85RYX5fPnP3Lr39SzSMg
-	 grzu1ts1iAMRz1KYLOPgF7TwtGk89RkGQN1myuw/jV/LI/ZKH9k5/tpSr+Wx41nWOj
-	 lsZ5nKvFJkmrw==
+	b=E6KaSjla0UJfUBcnef5KIK3v1qMtQBNkNxU160Z2hafbYKMyzs91kLaoDYc5GZacj
+	 M1kR8l5h+9hKiOSr33FiTjfDWwsTIDWwzulmTvAUr1FaZPCCeVxXD1a1m1jj56563m
+	 No9OGQlFqeKALKooEU0SnLKcb1WyaEqP28c/bSuElstIZph6hd1ue1hicrMZCFhHyv
+	 BkGinXqy5ykudj4VRF43/aeosCgYY+dAWLSdeADTT6A4Xfznnl/Hcu/AAAx1/W8xzo
+	 sDkVfWXUn2rPu+aOl8BR2I9u23B4Q7U6znNK3YwvHs9v2kGqSJl3Bpt8+dfCd3F5xE
+	 YDU0aaOCpkV2g==
 Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
-	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2N2GFjzSry;
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2N66nLzTqd;
 	Fri, 20 Nov 2026 15:42:36 -0500 (EST)
 From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
 To: juri.lelli@redhat.com,
@@ -78,10 +78,11 @@ Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
 	linux-kernel@vger.kernel.org,
 	cgroups@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [PATCH v10 24/40] selftests/sched: Test the rtmutex chain walk in deadline_bw_test
-Date: Fri, 20 Nov 2026 15:42:01 -0500
-Message-Id: <bd1d884143e64a1d5fc73e8af268af995627dc54.1795207232.git.mathieu.desnoyers@efficios.com>
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v10 27/40] sched/deadline: Count the bandwidth a boosted task is given
+Date: Fri, 20 Nov 2026 15:42:04 -0500
+Message-Id: <fd06ed50ac0072fcbf30f5b5c44f2ef0c0a991a9.1795207232.git.mathieu.desnoyers@efficios.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
 References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
@@ -96,339 +97,148 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add pi_chain_top_moves and pi_chain_top_moves_rt to deadline_bw_test.
-They test the two rtmutex fixes earlier in this series. In both, a
-chain walk changes the top waiter of an owner to a waiter of another
-lock it holds. The walk must go on to the next owner. That owner must
-then get the new donor, or the new priority. The first case uses
-deadline tasks, the second RT tasks. The comment above each
-case gives its scenario.
+sched_setattr(SCHED_DEADLINE) on a sleeping task that priority
+inheritance boosted into the class leaves the new bandwidth out of
+this_bw. switched_to_dl() does not run, since the task is in the class
+already. sched_dl_overflow() changes this_bw only for a task of the
+deadline policy. When the task wakes up, __add_running_bw() warns:
 
-On v7.4-rc2, in 8 VMs of 8 CPUs, pi_chain_top_moves_rt fails in every
-VM.
-pi_chain_top_moves passes there. It fails with the first series, until
-"rtmutex: Continue the chain walk when a waiter's deadline donor
-changes" and "rtmutex: Continue the walk when the owner's top waiter
-changes lock". It needs both.
+	WARN_ON_ONCE(dl_rq->running_bw > dl_rq->this_bw);
 
-With the fixes up to here, both cases pass wherever they run.
+When the task leaves the runqueue, this_bw would stay short by that
+bandwidth, and skew GRUB reclaiming on that CPU.
 
+Fix this by changing this_bw in __setparam_dl(), which every task that
+gains deadline parameters goes through. If no runqueue counts the
+bandwidth of the task, dl_change_utilization() now adds the new one. It
+now also runs when the bandwidth does not change. It then returns early,
+so that a sleeping task keeps its running_bw and its inactive timer.
+
+A sugov kthread given a reservation of its own now has its bandwidth
+counted in this_bw. It reaches dl_change_utilization(), so this patch
+removes the WARN_ON_ONCE() for SCHED_FLAG_SUGOV there.
+sched_dl_overflow() returned early for an unchanged bandwidth, even if
+no root domain counts it. That is the case for such a kthread, and for a
+task that a rebuild left out. sched_dl_overflow() now admits such a
+bandwidth as new. Without room, that fails with EBUSY. The Sashiko AI
+review of this series found this early return.
+
+A reproducer shows the warning, and this_bw unchanged by the change.
+With this patch, this_bw takes the new bandwidth, and nothing warns.
+
+Fixes: 8fd27231c330 ("sched/deadline: Track the "total rq utilization" too")
 Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Reviewed-by: Juri Lelli <juri.lelli@redhat.com>
+Cc: stable@vger.kernel.org
 ---
- .../sched/deadline/deadline_bw_test.c         | 293 ++++++++++++++++++
- 1 file changed, 293 insertions(+)
+ kernel/sched/deadline.c | 54 ++++++++++++++++++++++++++++++++---------
+ 1 file changed, 43 insertions(+), 11 deletions(-)
 
-diff --git a/tools/testing/selftests/sched/deadline/deadline_bw_test.c b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-index 7b0a3f2fb12b..cf3b49cf2be2 100644
---- a/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-+++ b/tools/testing/selftests/sched/deadline/deadline_bw_test.c
-@@ -2522,6 +2522,297 @@ static int pi_chain_donor_leaves(void)
- 	return ret;
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 9a4639ae676a..aa12908aeaea 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -633,22 +633,37 @@ void cancel_inactive_timer(struct sched_dl_entity *dl_se)
+ 	cancel_dl_timer(dl_se, &dl_se->inactive_timer);
  }
  
 +/*
-+ * The threads of top_moves(): O, M, W, Z and Y. top_tid[] holds their
-+ * tids. top_lock is L1'. top_y_ns is the CPU time Y gets in O's window,
-+ * or -1.
++ * Make the runqueue of a sleeping task count @new_bw as the bandwidth of
++ * the task. Do nothing for a queued task. The dequeue and the enqueue
++ * around the change of its parameters update this_bw.
 + */
-+enum { TM_O, TM_M, TM_W, TM_Z, TM_Y, TM_N };
-+static _Atomic pid_t top_tid[TM_N];
-+static pthread_mutex_t top_lock;
-+static atomic_int top_err, top_rt, top_m_locking, top_w_locking, top_y_stop;
-+static _Atomic long long top_y_ns;
-+static sem_t top_o_go, top_m_go;
-+
-+/* The priority /proc shows for a SCHED_FIFO task of priority @p. */
-+#define FIFO_TASK_PRIO(p)	(-1 - (p))
-+
-+/*
-+ * O: take pi_lock2 (L2), and sleep until top_o_go. With Y (@arg), spin
-+ * 200ms and measure the CPU time Y gets meanwhile. Then unlock L2.
-+ */
-+static void *top_o(void *arg)
-+{
-+	uint64_t t0, y0;
-+
-+	if (pthread_mutex_lock(&pi_lock2)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_O] = gettid_();	/* O holds L2 */
-+	sem_wait_sig(&top_o_go);
-+	if (arg) {
-+		y0 = cpu_time_of(*(pthread_t *)arg);
-+		t0 = now_ns();
-+		while (now_ns() - t0 < 2 * PERIOD)
-+			;
-+		top_y_ns = cpu_time_of(*(pthread_t *)arg) - y0;
-+	}
-+	pthread_mutex_unlock(&pi_lock2);
-+	return NULL;
-+}
-+
-+/*
-+ * M: take pi_lock (L1) and top_lock (L1'). At top_m_go, block on L2,
-+ * which O holds. Unlock L2, L1 and L1' once it gets L2.
-+ */
-+static void *top_m(void *arg)
-+{
-+	if (pthread_mutex_lock(&pi_lock)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	if (pthread_mutex_lock(&top_lock)) {
-+		pthread_mutex_unlock(&pi_lock);
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_M] = gettid_();	/* M holds L1 and L1' */
-+	sem_wait_sig(&top_m_go);
-+	top_m_locking = 1;
-+	if (pthread_mutex_lock(&pi_lock2))
-+		top_err = 1;
-+	else
-+		pthread_mutex_unlock(&pi_lock2);
-+	pthread_mutex_unlock(&pi_lock);
-+	pthread_mutex_unlock(&top_lock);
-+	return arg;
-+}
-+
-+/*
-+ * W and Z: W blocks on L1', Z on L1. @arg is 1 for W. With top_rt, W
-+ * becomes SCHED_FIFO 50 and Z SCHED_FIFO 20. Otherwise W becomes a
-+ * deadline task of 2ms every 80ms and Z one of 5ms every 200ms. The main
-+ * thread switches W to SCHED_OTHER while it waits.
-+ */
-+static void *top_waiter(void *arg)
-+{
-+	int w = (long)arg;
-+	struct sched_param sp = { .sched_priority = w ? 50 : 20 };
-+	uint64_t runtime = (w ? 2 : 5) * NSEC_PER_MSEC;
-+	pthread_mutex_t *l = w ? &top_lock : &pi_lock;
-+
-+	if (top_rt ? sched_setscheduler(0, SCHED_FIFO, &sp) :
-+		     set_deadline(0, runtime, 40 * runtime)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[w ? TM_W : TM_Z] = gettid_();
-+	if (w)
-+		top_w_locking = 1;
-+	if (pthread_mutex_lock(l))
-+		top_err = 1;
-+	else
-+		pthread_mutex_unlock(l);
-+	if (set_other(0))
-+		top_err = 1;
-+	return arg;
-+}
-+
-+/* Y: become a deadline task of 30ms every 100ms, and spin. */
-+static void *top_y(void *arg)
-+{
-+	if (set_deadline(0, 30 * NSEC_PER_MSEC, PERIOD)) {
-+		top_err = 1;
-+		return arg;
-+	}
-+	top_tid[TM_Y] = gettid_();
-+	while (!top_y_stop)
-+		;
-+	return arg;
-+}
-+
-+/*
-+ * A chain walk must go on past a task whose top waiter moves to another
-+ * lock. The priority of that task changes, and the next owner must
-+ * follow.
-+ *
-+ * L1 is pi_lock, L1' is top_lock and L2 is pi_lock2. All threads run on
-+ * the CPU of P. W and Z set their own policy when they start. With @rt,
-+ * W is SCHED_FIFO 50 and Z SCHED_FIFO 20. Without @rt, W is a deadline
-+ * task of 2ms every 80ms and Z one of 5ms every 200ms. W has the earlier
-+ * deadline. O and M are SCHED_OTHER. Without @rt, Y is a deadline task
-+ * of 30ms every 100ms. It spins all along.
-+ *
-+ * 1. O takes L2, and sleeps.
-+ * 2. M takes L1 and L1', and sleeps.
-+ * 3. W blocks on L1'. W boosts M.
-+ * 4. M blocks on L2. M passes W on to O.
-+ * 5. Z blocks on L1. W stays the top waiter of M.
-+ * 6. The main thread switches W to SCHED_OTHER. The chain walk requeues
-+ *    W on L1'. Z on L1 becomes the top waiter of M, and Z boosts M. The
-+ *    walk must go on to O. Z must boost O too.
-+ *
-+ * With @rt, the case reads O's priority. It must be the one of Z. With
-+ * the walk stopped at M, O keeps the priority of W.
-+ *
-+ * Without @rt, W sleeps and has run almost nothing. So its parameters
-+ * are cleared at once. 250ms later, the main thread wakes O up. O
-+ * measures the CPU time Y gets over the next 200ms, and unlocks L2.
-+ *
-+ * With Z as its donor, O gets 5ms every 200ms. Y runs at the start of
-+ * each of its periods, and gets its 60ms. With W as its donor, O runs on
-+ * cleared parameters. Each refill gives it no runtime and a deadline of
-+ * about now. O then runs before Y until Y's deadline is past. Y runs
-+ * only then, one period late, and gets about 30ms. The case fails if Y
-+ * gets less than 45ms.
-+ *
-+ * W does not exit before O unlocks L2. It waits for L1', which M
-+ * releases after it gets L2.
-+ */
-+static int top_moves(int rt)
-+{
-+	int ret = KSFT_FAIL, i, have[TM_N] = { 0 };
-+	int boost = rt ? FIFO_TASK_PRIO(50) : DL_TASK_PRIO;
-+	pthread_mutexattr_t a;
-+	pthread_t t[TM_N];
-+	long long y_ns;
-+	int err, o_prio = 0;
-+
-+	if (pi_init())
-+		return KSFT_SKIP;
-+	if (pi_init_lock2()) {
-+		pi_fini();
-+		return KSFT_SKIP;
-+	}
-+	err = pthread_mutexattr_init(&a);
-+	if (!err) {
-+		err = pthread_mutexattr_setprotocol(&a, PTHREAD_PRIO_INHERIT);
-+		if (!err)
-+			err = pthread_mutex_init(&top_lock, &a);
-+		pthread_mutexattr_destroy(&a);
-+	}
-+	if (err) {
-+		ksft_print_msg("no third priority inheritance mutex: %s\n",
-+			       strerror(err));
-+		ret = KSFT_SKIP;
-+		goto out_lock2;
-+	}
-+	if (sem_init(&top_o_go, 0, 0) || sem_init(&top_m_go, 0, 0)) {
-+		ksft_print_msg("sem_init: %s\n", strerror(errno));
-+		goto out_lock3;
-+	}
-+	for (i = 0; i < TM_N; i++)
-+		top_tid[i] = 0;
-+	top_err = 0;
-+	top_rt = rt;
-+	top_m_locking = 0;
-+	top_w_locking = 0;
-+	top_y_stop = 0;
-+	top_y_ns = -1;
-+	if (!rt) {
-+		have[TM_Y] = !pthread_create(&t[TM_Y], NULL, top_y, NULL);
-+		if (!have[TM_Y] || wait_for(1000, top_tid[TM_Y] || top_err)) {
-+			ksft_print_msg("Y never became a deadline task\n");
-+			goto out;
-+		}
-+	}
-+	have[TM_O] = !pthread_create(&t[TM_O], NULL, top_o,
-+				     rt ? NULL : &t[TM_Y]);
-+	if (!have[TM_O] || wait_for(1000, top_tid[TM_O] || top_err)) {
-+		ksft_print_msg("O never took L2\n");
-+		goto out;
-+	}
-+	have[TM_M] = !pthread_create(&t[TM_M], NULL, top_m, NULL);
-+	if (!have[TM_M] || wait_for(1000, top_tid[TM_M] || top_err)) {
-+		ksft_print_msg("M never took L1 and L1'\n");
-+		goto out;
-+	}
-+	have[TM_W] = !pthread_create(&t[TM_W], NULL, top_waiter, (void *)1L);
-+	if (!have[TM_W] ||
-+	    wait_for(1000, (top_w_locking &&
-+			    proc_state_of(top_tid[TM_W]) == 'S') || top_err)) {
-+		ksft_print_msg("W never blocked on L1'\n");
-+		goto out;
-+	}
-+	sem_post(&top_m_go);
-+	if (wait_for(1000, (top_m_locking && prio_of(top_tid[TM_O]) == boost) ||
-+			   top_err)) {
-+		ksft_print_msg("O was not boosted through M\n");
-+		goto out;
-+	}
-+	have[TM_Z] = !pthread_create(&t[TM_Z], NULL, top_waiter, (void *)0L);
-+	if (!have[TM_Z] ||
-+	    wait_for(1000, (top_tid[TM_Z] &&
-+			    proc_state_of(top_tid[TM_Z]) == 'S') || top_err)) {
-+		ksft_print_msg("Z never blocked on L1\n");
-+		goto out;
-+	}
-+	sleep_ns(10 * NSEC_PER_MSEC);	/* the chain walk of Z is done */
-+	err = top_err ? -EINVAL : set_other(top_tid[TM_W]);
-+	if (err) {
-+		ksft_print_msg("W cannot leave its class: %s\n",
-+			       strerror(-err));
-+		goto out;
-+	}
-+	if (rt) {
-+		sleep_ns(10 * NSEC_PER_MSEC);
-+		if (prio_of(top_tid[TM_M]) != FIFO_TASK_PRIO(20)) {
-+			ksft_print_msg("Z does not boost M\n");
-+			goto out;
-+		}
-+		o_prio = prio_of(top_tid[TM_O]);
-+	} else {
-+		sleep_ns(250 * NSEC_PER_MSEC);
-+	}
-+	ret = KSFT_PASS;
-+out:
-+	/* Let every thread end: O unlocks L2, then M unlocks L1 and L1'. */
-+	sem_post(&top_m_go);
-+	sem_post(&top_o_go);
-+	for (i = TM_O; i < TM_Y; i++)
-+		if (have[i])
-+			join(t[i]);
-+	top_y_stop = 1;
-+	if (have[TM_Y])
-+		join(t[TM_Y]);
-+	y_ns = top_y_ns;
-+	if (top_err) {
-+		ksft_print_msg("a thread of the chain failed\n");
-+		ret = KSFT_FAIL;
-+	} else if (ret == KSFT_PASS && rt && o_prio != FIFO_TASK_PRIO(20)) {
-+		ksft_print_msg("O runs at priority %d, not %d: W still boosts it\n",
-+			       o_prio, FIFO_TASK_PRIO(20));
-+		ret = KSFT_FAIL;
-+	} else if (ret == KSFT_PASS && !rt &&
-+		   y_ns < 45 * (long long)NSEC_PER_MSEC) {
-+		ksft_print_msg("Y ran %lld ms of 200: W is still the donor of O\n",
-+			       y_ns / (long long)NSEC_PER_MSEC);
-+		ret = KSFT_FAIL;
-+	}
-+	sem_destroy(&top_o_go);
-+	sem_destroy(&top_m_go);
-+out_lock3:
-+	pthread_mutex_destroy(&top_lock);
-+out_lock2:
-+	pthread_mutex_destroy(&pi_lock2);
-+	sem_destroy(&holder_go);
-+	pi_fini();
-+	return ret;
-+}
-+
-+/* W and Z are deadline tasks. */
-+static int pi_chain_top_moves(void)
-+{
-+	return top_moves(0);
-+}
-+
-+/* W and Z are SCHED_FIFO tasks. */
-+static int pi_chain_top_moves_rt(void)
-+{
-+	return top_moves(1);
-+}
-+
- /* cpuset moves, from the main process, outside P */
+ static void dl_change_utilization(struct task_struct *p, u64 new_bw)
+ {
+-	WARN_ON_ONCE(p->dl.flags & SCHED_FLAG_SUGOV);
++	struct sched_dl_entity *dl_se = &p->dl;
++	struct rq *rq = task_rq(p);
  
- /* Shared with the processes of a case: atomic in shared memory. */
-@@ -10218,6 +10509,8 @@ static const struct p_case {
- 	{ "return_asleep_new_params", return_asleep_new_params, MEASURED_IN_P },
- 	{ "deboost_blocked_keeps_order", deboost_blocked_keeps_order, MEASURED_IN_P },
- 	{ "pi_chain_donor_leaves", pi_chain_donor_leaves, MEASURED_IN_P },
-+	{ "pi_chain_top_moves", pi_chain_top_moves, MEASURED_IN_P },
-+	{ "pi_chain_top_moves_rt", pi_chain_top_moves_rt, MEASURED_IN_P },
- 	{ "move_asleep", move_asleep, FROM_OUTSIDE },
- 	{ "move_throttled", move_throttled, FROM_OUTSIDE },
- 	{ "move_non_contending", move_non_contending, FROM_OUTSIDE },
+ 	if (task_on_rq_queued(p))
+ 		return;
+ 
+ 	/*
+-	 * The task is waking up on another CPU, and no runqueue counts its
+-	 * bandwidth. The enqueue adds it, with the new parameters that
+-	 * __setparam_dl() sets right after this.
++	 * No runqueue counts the bandwidth of the task. Add the new one to
++	 * this runqueue, so that add_rq_bw() adds nothing later. This holds
++	 * for a task that enters the class asleep, for a special entity given
++	 * a reservation of its own, and for a task waking up on another CPU:
++	 * task_cpu() already points at the CPU it wakes on.
+ 	 */
+-	if (!p->dl.dl_bw_oncpu)
++	if (!dl_se->dl_bw_oncpu) {
++		__add_rq_bw(new_bw, &rq->dl);
++		dl_se->dl_bw_oncpu = 1;
++		return;
++	}
++
++	/* Same bandwidth: leave running_bw and the inactive timer alone. */
++	if (new_bw == dl_se->dl_bw)
+ 		return;
+ 
+-	dl_rq_change_utilization(task_rq(p), &p->dl, new_bw);
++	dl_rq_change_utilization(rq, dl_se, new_bw);
+ }
+ 
+ static void __dl_clear_params(struct sched_dl_entity *dl_se);
+@@ -4919,10 +4934,6 @@ int sched_dl_overflow(struct task_struct *p, int policy,
+ 	if (attr->sched_flags & SCHED_FLAG_SUGOV)
+ 		return 0;
+ 
+-	/* !deadline task may carry old deadline bandwidth */
+-	if (new_bw == p->dl.dl_bw && task_has_dl_policy(p))
+-		return 0;
+-
+ 	/*
+ 	 * Change the bandwidth of a deadline task where it is counted: in
+ 	 * the root domain of the CPU recorded with it. A task moved asleep
+@@ -4937,6 +4948,16 @@ int sched_dl_overflow(struct task_struct *p, int policy,
+ 	 */
+ 	counted = task_has_dl_policy(p) && p->dl.dl_bw_cpu >= 0 &&
+ 		  p->dl.dl_bw_gen == dl_bw_gen;
++
++	/*
++	 * !deadline task may carry old deadline bandwidth. The same
++	 * bandwidth needs no admission if it is counted. If it is not, admit
++	 * it as new below. A special entity given a reservation of its own
++	 * has no bandwidth counted, nor has a task that a rebuild left out.
++	 */
++	if (new_bw == p->dl.dl_bw && counted)
++		return 0;
++
+ 	cpu = dl_task_admit_cpu(p);
+ 	dl_b = dl_bw_of(cpu);
+ 
+@@ -4966,7 +4987,6 @@ int sched_dl_overflow(struct task_struct *p, int policy,
+ 		if (counted)
+ 			__dl_sub(dl_b, p->dl.dl_bw, cpus);
+ 		__dl_add(dl_b, new_bw, cpus);
+-		dl_change_utilization(p, new_bw);
+ 		err = 0;
+ 	} else if (!dl_policy(policy) && task_has_dl_policy(p)) {
+ 		/*
+@@ -5016,8 +5036,20 @@ int sched_dl_overflow(struct task_struct *p, int policy,
+ void __setparam_dl(struct task_struct *p, const struct sched_attr *attr)
+ {
+ 	struct sched_dl_entity *dl_se = &p->dl;
++	u64 period = attr->sched_period ?: attr->sched_deadline;
+ 	bool held;
+ 
++	/*
++	 * Change the bandwidth that the runqueue counts here, with the
++	 * parameters. A task that priority inheritance boosted into the
++	 * class is in it already, so switched_to_dl() does not run for it.
++	 *
++	 * A special entity has no bandwidth on a runqueue. Test the flags
++	 * of the request, since those of the entity are still the old ones.
++	 */
++	if (!(attr->sched_flags & SCHED_FLAG_SUGOV))
++		dl_change_utilization(p, to_ratio(period, attr->sched_runtime));
++
+ 	held = dl_se_holds_bw(dl_se);
+ 	dl_se->dl_runtime = attr->sched_runtime;
+ 	dl_se->dl_deadline = attr->sched_deadline;
 -- 
 2.47.3
 
