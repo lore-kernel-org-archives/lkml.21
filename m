@@ -1,77 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795133829;
-	b=acDedIxPY4JdV9XROmM4C+snkRpJRwCFAKdw397r5j0u6AsOoPYu301dMO120fJp0N8s
-	 q5EFKI2pDtSKibWN6OevbFrt7P3bWY5+vUEFm9CYnhCkDVh0HvzEGEL1pDbq/8+SmCsQZ
-	 0K7mWvYYT0mGsqEpocUCRW1f4Y2bXvdkbDTqUaPDYCInQX5H2BZVWjIMieso9FWYegWmx
-	 Xayp0LfOZh5sbMoET+/YPFCb5QYnLZC2qcE12mvdujgWMlTeyiDS4KokL92GRN0FLKJz1
-	 S2s9+qkktotSUL8Oqjgt3KQx5lcPyPm9NHR7AWbxTt2h+D//T81Qep+m32CELUHvZXA==
+	t=1795133978;
+	b=omnBE1wtX+JQH8TIDZkxkeuJr5A4gam+yn53jbVoTUQ++zaKEb407pIIsCYl1W1zS80c
+	 AUQLcOk1WVPHLZgMjsrV1rIhZW4ZiK78nyHnSc73z9ujGDNR8bUkrIQvyYtSy0fZAzUVJ
+	 27H83pKlxFeVOSco+nmDtY4Q6CMb+kUMFAF726LXV76LQHB/z8qQCDd85ko3HqJXzp/vn
+	 jcCWWrZIrmdWsJfctFt09wy7RFnFIdDLnMsAu6rPWovwpTNUUmSIEz80ZFb1RbWPFBe1c
+	 TpmN/BEZEDJTBuSyJ1MEdaDK4uVxjPdR9EYloaxBAlF8MUfYr9s/RYxVBrbfwMW0ZmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133829;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=OLsKfGJGXGbCFEXjWw/sv6ne1Orj0T4H+oyWO2Za6zI=;
-	b=kh9H/qYkAyoF51IKk3uhcGcPesMRIkP3c4vbC+reNJnghSGE/4uvuo8mq5RPrDL26IZJ
-	 l7MgiwAnVNiMU0Tr51WG2Ea1gAABQZHI3pZssCLM+924U2L7CMCcolf2tmmE+m8iHPyll
-	 jQDiKH42/tEPny5XihqCiJAk0CO8zWPnnQTjl32eN/O5jWZU/ri1rlgPA9CJDFqJ2M0C3
-	 HXAGhUN5gsjItjoSPD2Eavwp5wWaNMjmoAmC8KdPOUb9+Mz+uz6MEH4A01RBWsWM+6DOY
-	 y1pHy53J9MkOKaahvqgFvd16atJGiKJ+c056WfiCx4sDLUL7QQy84xYiD6+uSZJkmjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133978;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
+	b=cmVUeQroziIggMMzUS9G1hUdExZSmWkrauChOJZuF08IZB4VftFsZbFapxRr9Ij85FGJ
+	 7kxMaBg4ZdH8FtQe4UT5GdcUDD4F5aBJwM/Tuw4f36+jfMPJ4dXZazPS8nZeii3PU3ckN
+	 B2N7UaSVl/Bq+vQBx8TnzWoIANYNo2am97Ty0hS2fy06RzRxxSv/qh7XoQjILcSJRRFyB
+	 VgHqI0XSRYfpAZKYgcSJlzyP+n7lkLufwUqC3XkrEao0S63sE86vy1ds/GBbwVBOGvFVS
+	 8Pb2Qws9YK4dNlPPtSRCasR9gxYLNjr4ZRnDO6annEUPgyPu+K58p7CIBz7RwqD9JcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV;
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PdhTt60H;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 733E6606A325;
-	Fri, 20 Nov 2026 00:17:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 733E6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40FC9606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:19:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40FC9606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cTawwDfV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795133829; x=1826669829;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=yEi5eshbfr2TQL5MUtp80HFRx4STfemmDqBrkrAfDFo=;
-  b=cTawwDfVty2TKcWPNW+YGMaMIWJCXpq3QL/aU2TJiy9fp2hZrSy8V2Op
-   WF1TaNuzfpe5SCPC4jkZRyW1+7T/c72xVQAE2zPnQWXUIFYOiV8nI6h+d
-   zeoRR3FIM4f/9weyISDdD+VBjZDlOFHeszhHO66pzfXCNL6gdDKu114Ug
-   K8eP2UfGrC6d/JLddGFEMyKXPNXVlRA/9UJ4zsjxX70uU+x9bDjJ88vme
-   arZpJYFuu6YF3DGHV6c2AqfCo1bM8P2iLkAp0bOt5OsaWm2gzDuJW9T89
-   1qI86XoQUErTOQN2u11tR4OejaavWDbASAWXxBr7dYYnIFV76TWP83C50
-   Q==;
-X-CSE-ConnectionGUID: Se7oxJ/KR6CGCLP4EqIYVA==
-X-CSE-MsgGUID: vObhtkkJQlucj/NwGKruyg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4105498"
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="4105498"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:08 -0800
-X-CSE-ConnectionGUID: 6P4Ifn6RQLWDsYJYpnLxHg==
-X-CSE-MsgGUID: UY+0hjRkSj2bHDcTgn6ASw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,221,1787036400"; 
-   d="scan'208";a="11129307"
-Received: from vcostago-desk.jf.intel.com (HELO vcostago-desk) ([10.241.240.61])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 16:17:07 -0800
-From: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-To: Mohamed Dawod <mhm.dawod@gmail.com>, netdev@vger.kernel.org
-Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ye.zh-yuan@socionext.com, linux-kernel@vger.kernel.org, Mohamed Dawod
- <mhm.dawod@gmail.com>
-Subject: Re: [PATCH net] net/sched: cbs: fix 32-bit overflow in transmission
- time estimate
-In-Reply-To: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-References: <20261119053357.2033707-1-mhm.dawod@gmail.com>
-Date: Thu, 19 Nov 2026 16:17:06 -0800
-Message-ID: <871p8gtkzh.fsf@intel.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=PdhTt60H
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f041f88577so1991595ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 16:19:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795133977; x=1795738777; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
+        b=PdhTt60HfDdlbgtnPHfsSmeHBydQzoPU7kBA2tY0Ozd78IUkx0lFNNH2yQEnk+t921
+         4E9Tm4vx1WTnyn6wVtiNLws9au3Om8UjAH+aHWnF9UWUCSm6dRehNZtZrRMRyiJKAdfQ
+         YnTwSvF8Sds1TTxbi5V/mZOO0ENi8tkjlt9pqsZCHwuUE36BF1CfNzDd6CjA1gvbCV0K
+         t8tBNb4lXwSyQhCSx3AtuTpJROIDOnqKE7PXyQm+EW6Ikp8UHZwMZtLLhZ8OhuurDTSV
+         31cPFPu1KFP9meTVUMuhIsGXcN1R94M301aF17ZwKIG89GFOnVfy1AAlTXsPDOoCWZDL
+         cbJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795133977; x=1795738777;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=n7l+AyO/cRMVQJwJa64VigJKwgCGiEZe5FhWi4AHvFM=;
+        b=LI88QNT0BxtgEjvxjvpxmFLeBRqIp9i/ct59dNMpahFCG3Ug++6Gpp41s6niGrNU/s
+         7U0RS8EHvuMGNG6UaRhePnxpDNP4Rc+QmDiXlw891ggcTs1RiVrvyL7ViQH1oIRg6mKu
+         vLb9gcy52K2x4AD7CftwXgG9SVu2/hCfvgNhCHHBDlpsbQhw6tjXOMiPhZ4GR0/kXecV
+         /FdBibW/Nypl+B7VLiI7W+PzKgtg4OgbnLcW/nPvSpCWRAdVgsCPMUphN1swAEK3r0Wx
+         m3erfTYfL3ylri73x2yZB5CBy1pK318m0hvdsQYTfTSxJ4jHgdeiKV2WXMA8tEXh+DA2
+         YJwQ==
+X-Forwarded-Encrypted: i=1; AL+hErFqJgdCGKvtsYuIRWFkN+vbFuzA3GHDkDbwhsyeeVbHIUcGC96kMMDhDiLZqUDFEHh/l/6Gdq+vVdlnD5k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DgA1jOoBk+ZhaDrbf52EX49n2q9cTNfEorwNoN/qVHt/1Rj8a
+	/ZmErNWl/MF9T3FDi5zKYrfnk0uRQJ1/uMLve7K7vRaXTg2JjaaiOSghEJbWtj5ccw==
+X-Gm-Gg: AZFdTZc2mYRXJqZ8wLlqQtZ8PnH+oWGtgDBT2bRihTIWjhniZeSrPSEyyDSELyjNY9G
+	8u46sWcOIs38f3GuUqfar4RMgqu08gjfZI5Nq2VTPV8EUY+VNvE5mErFpPaemo06M5ByX746nLQ
+	nMwG6KVfbx/x3ycktGpXAdHG2x/lczEwTx79gv07S3P6YqxJTIIL8WsrH4qZ2tPlNh3Z4Iyv9FP
+	MIRvrj4WHVRCBn0sjHhQkZDvNZZaVeSiF42kMu4RdCe7/tTahSGg775WWJcml1X0sexIR1Gzw2p
+	gaQsPNWcmMNfyN62wbxndGJo0BlSVTapZZsn67STl2vC7sgqQ/4i4XyLPXqsGXeVQdll7UNDRHl
+	vQNwRSET/lFgI91YXQvRDOzUpL+Be3bFm570WBVSgnFLKFd8J0soiGDl56mLdQr/PQ6nctQuPn4
+	0cFFZZs3uyhITzbKuAs6K/ZdYOoTxWRcR5uJqoNvsu0ZJQVNOLZr6BD7VomvppVB24vDcQ0fsAO
+	+f9VbJNmbjhhSsBe//igVIvSyGAkkT38wFrMPrMimVmvm1MkmBRA9F+op4QKL0W8GLUetr4TfHl
+	E4TwSSG+p5SNYDF1sHiAV2vgLq/9to8XpT0/lT4IDWFux+MhuRvoZsQJAhMq3tpF
+X-Received: by 2002:a17:902:e542:b0:2e9:6b5b:3db6 with SMTP id d9443c01a7336-2f03f1a4967mr13941365ad.30.1795133975980;
+        Thu, 19 Nov 2026 16:19:35 -0800 (PST)
+Received: from localhost (33.79.127.34.bc.googleusercontent.com. [34.127.79.33])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0ddf40sm5969655ad.37.2026.11.19.16.19.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 16:19:35 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,55 +87,75 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 19 Nov 2026 16:19:34 -0800
+Message-Id: <DMZLVV5YW6GW.1HMW8L8NIQ1XR@google.com>
+Cc: <ajayachandra@nvidia.com>, <alex@shazbot.org>, <amastro@fb.com>,
+ <ankita@nvidia.com>, <apopple@nvidia.com>, <bhelgaas@google.com>,
+ <chrisl@kernel.org>, <christian.koenig@amd.com>, <corbet@lwn.net>,
+ <dmatlack@google.com>, <graf@amazon.com>, <jacob.pan@linux.microsoft.com>,
+ <jgg@nvidia.com>, <jgg@ziepe.ca>, <jrhilke@google.com>,
+ <julianr@linux.ibm.com>, <kees@kernel.org>, <kevin.tian@intel.com>,
+ <leon@kernel.org>, <leonro@nvidia.com>, <lukas@wunner.de>,
+ <mattev@meta.com>, <michal.winiarski@intel.com>, <parav@nvidia.com>,
+ <pasha.tatashin@soleen.com>, <praan@google.com>, <pratyush@kernel.org>,
+ <rananta@google.com>, <rdunlap@infradead.org>, <rientjes@google.com>,
+ <rodrigo.vivi@intel.com>, <rppt@kernel.org>, <saeedm@nvidia.com>,
+ <schnelle@linux.ibm.com>, <skhan@linuxfoundation.org>,
+ <skhawaja@google.com>, <vivek.kasireddy@intel.com>, <witu@nvidia.com>,
+ <yanjun.zhu@linux.dev>, <yi.l.liu@intel.com>
+Subject: Re: [PATCH v6 12/27] vfio: Enforce preserved devices are retrieved
+ via LIVEUPDATE_SESSION_RETRIEVE_FD
+From: "David Matlack" <dmatlack@google.com>
+To: "Vipin Sharma" <vipinsh@google.com>, <kexec@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+ <kvm@vger.kernel.org>, <linux-mm@kvack.org>,
+ <linux-kselftest@vger.kernel.org>, <linux-pci@vger.kernel.org>
+X-Mailer: aerc 0.21.0
+References: <20261102153656.1431701-1-vipinsh@google.com>
+ <20261102153656.1431701-13-vipinsh@google.com>
+In-Reply-To: <20261102153656.1431701-13-vipinsh@google.com>
 
-Mohamed Dawod <mhm.dawod@gmail.com> writes:
+On Mon Nov 2, 2026 at 7:36 AM PST, Vipin Sharma wrote:
+> diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
+> index 12557d45dfee..e6ca4c3fda06 100644
+> --- a/drivers/vfio/vfio.h
+> +++ b/drivers/vfio/vfio.h
+> @@ -11,6 +11,7 @@
+>  #include <linux/cdev.h>
+>  #include <linux/module.h>
+>  #include <linux/vfio.h>
+> +#include <linux/pci.h>
+> =20
+>  struct iommufd_ctx;
+>  struct iommu_group;
+> @@ -446,4 +447,21 @@ static inline void vfio_device_debugfs_init(struct v=
+fio_device *vdev) { }
+>  static inline void vfio_device_debugfs_exit(struct vfio_device *vdev) { =
+}
+>  #endif /* CONFIG_VFIO_DEBUGFS */
+> =20
+> +#ifdef CONFIG_VFIO_PCI_LIVEUPDATE
+> +static inline bool vfio_liveupdate_incoming_is_preserved(struct vfio_dev=
+ice *device)
+> +{
+> +	struct device *d =3D device->dev;
+> +
+> +	if (dev_is_pci(d))
+> +		return pci_liveupdate_is_incoming(to_pci_dev(d));
+> +
+> +	return false;
+> +}
+> +#else
+> +static inline bool vfio_liveupdate_incoming_is_preserved(struct vfio_dev=
+ice *device)
+> +{
+> +	return false;
+> +}
+> +#endif /* CONFIG_VFIO_PCI_LIVEUPDATE */
 
-> cbs_dequeue_soft() estimates when the transmission of a packet completes:
->
-> 	q->last = now + div64_s64(len * NSEC_PER_SEC, port_rate);
->
-> len is an int and NSEC_PER_SEC is 1000000000L. On 32-bit architectures
-> long is 32 bits wide, so the product is computed in 32 bits and wraps
-> before it is widened for div64_s64(). For a 1242 byte frame the product
-> is 1242000000000 mod 2^32 = 754451456, which gives a transmission time
-> of about 60 ns at 100 Mbit/s instead of about 99 us.
->
-> As a result q->last stays almost equal to now and the packet sending
-> time is ignored again, which is the problem 'commit 961d0e5b3294
-> ("net: cbs: Fix software cbs to consider packet sending time")'
-> set out to fix. The throughput becomes
->
-> 	idleslope * port_rate / |sendslope|
->
-> instead of idleslope.
->
-> Measured on a BeagleBone Black (32-bit ARM, CPSW, 100 Mbit/s full
-> duplex) with software CBS (offload 0), one UDP flow with a 1200 byte
-> payload (1242 byte frames), sendslope = idleslope - 100000. The rate
-> was read from the qdisc byte counters:
->
-> 	idleslope [kbit/s]   before [Mbit/s]   after [Mbit/s]
-> 	10000                11.1              10
-> 	20000                25.0              20
-> 	30000                42.9              30
->
-> Cast len to s64 so the multiplication is done in 64 bits on all
-> architectures.
->
-> Fixes: 961d0e5b3294 ("net: cbs: Fix software cbs to consider packet sending time")
-> Signed-off-by: Mohamed Dawod <mhm.dawod@gmail.com>
-
-It seems that you had tool issues and the diff ended up being
-duplicated. With that mechanical/process issue fixed:
-
-Acked-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-
-It seems that it would also save CPU time, less 'qdisc_watchdog' being
-scheduled without being able to make any progress.
-
-
-Cheers,
--- 
-Vinicius
+No need for the ifdef here and 2 definitions here. If
+CONFIG_PCI_LIVEUPDATE is not enabled then the compiler should be able to
+optimize vfio_liveupdate_incoming_is_preserved() to false.
