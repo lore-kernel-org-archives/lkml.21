@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795156501;
-	b=MOdpjiVLeQbR0SlVf3asf/udtx23Ro1JIQ2VZ1ixjCdFE8aWbeFt8bdnalJetj/2qKg0
-	 zLXraXQPDb3EmbjC0E0HcaDyRnnFFVYApkNPs4CrM1Xp0ZJyQ9NmFoRtDJ8Tv/9l1uHZs
-	 bsh0+VUfDbc8dwwFSf7mrOrT8j+icupGHaggMi4EFB4wMYtX2/SXdL0gmiHOp7wuP/RZW
-	 wZBez5jfoLdjjH2ESsJmOEXPipgkx8IN8f86eI2yf5UhzD5L6AryvtzKmFtInT+50oZeS
-	 h2OoVr+pdUs95i7z3AIK3DiOs8a21IcobZ8YrugHcBTjmK24RFdZ/LZUwrP0f0OgQxA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795156501;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
-	b=EdKrVRYtFaQ/0Cw0SQ/xlDh2RVA88mBuk++I+vLqFlz8tWW+oHudn6xgr0MRwJLQ5ZuY
-	 e5oManeAYr7rK/nFrnXptki/3eBx/Q2pPFOOj35rfqkUQQsoI0Eov57tddXUtokzkEVpi
-	 Jit6NJ7Fn8wgkighkbNOmlDhoNsKVudpMFvhfEb7287wmO18w98rWQvcSOR2JlfX6EeUb
-	 oSfQTjhatjfOfRIYbNnT+mYmJDvnoiVu4aBjVVvrb5CT9aupyQ61gsqWwnlmidjaMasVB
-	 YUu5vBn4A+ONzFH/mkJEighVnoc4pGYa21mleniSep40UqlRF6tUBjgojwy07q0ofPQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kHtdayeo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.53
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com [209.85.208.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65F05606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:35:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65F05606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795156530;
+	b=RNmPFo4aQNCxNSNHOkYIRvbZkO586YtK4WVEUFQwWIDLGaUD4j8NbO66TlgAQzZ63s9i
+	 YYHWeJJfZnu+tA43vTtqm3aHZNxBzYlnjCEFwkHjRPTxMUO+ioRRXIHIJSjc9HfMladbp
+	 zYk1WTHi6PFDOZRSVU6E53Fqkrvvb26TEFVRk+33E2aa2a3mxutmY2xQALrNe94tVA3WN
+	 4Okdl7q4eg5cfksetIJBhwt8bBJT+6Y7fpP+f9zXy1zfkpzqgEafLsi9jbDd0B4qc7MJg
+	 0pWPe5uYy1yzcdXu0BfTh0e/9CtEUtyC6UbHDl9Toiic3RPWjcNEwjCFjlycMw1K5+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795156530;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=G0zRAkGF+KSljQO9yS6uVarLN8Ga3GC3k9CquE6CytE=;
+	b=a8VYvW05iGf8JqjgPcl6SJmpbb1npM6GP23Ht6rYdQLLwqkYMCBsYkea7ILa5DeUuuqH
+	 E7u8nAYbsbenisZ5Y9gCzTJnH4jxwnfHI6pLgVOtWjCGqtVqoAtNjV3KZ0Lh3NdzJuVB5
+	 bdhFvG8Y1CZ6XvzSSA1x+yPwJ7e2VcqS+duV9cSc6FayhMWOHear4Qe6T1MAkJBQWMzeQ
+	 W737wdPHuOvmSouTUW/mhr8BKo4lhBA5AePhIloavfHnXRBcjfEbTDzxL2lcWtEaWsd43
+	 knzwCalOj9/mXkJZ80z0nLhESXSnXV3Di8mmr6PIi3gazio2dPj/zFZbtUn5MBsDw+g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Di93BNen;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 66254606A320;
+	Fri, 20 Nov 2026 06:35:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66254606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kHtdayeo
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-6b4bd3d98bfso644210a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:35:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795156500; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JoeBdLoj25XtdpdMIEpIpWcvL6PRIy+0W0XwfAU3RXdQZ1CCnJUL9Tt3n00CQnKWic
-         MdHIV8EZzToU6yCvoOhOEgQbuA44onxBQDzcZ881lz647QXJ1Ly/Y7Ie8KQymAfgzyrJ
-         zsMrtyF/uO6qIqvIM4Uih7YGBFoFEcPedwzUPo7gnj6BPvCpPQCWi/j+AYX38hUqwjov
-         1PHgKstEoH9zWlVNGZlLYgc0cZZRywkloRTpKoow25VgLCb5GG0f6H3yM8WsyNTLAGtb
-         voSLUv6Sjc0hfZ27KFhpazXiKL2DLgqHWESlGpiHmBnHhPN8QNQ3b4+3U9dN9La8vsy2
-         QdwA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
-        fh=A2KM/XfHSXkFLVzAnhtEYReeE9uN2TohsZAeU8qbqaA=;
-        b=D9f9RZI0tYV2UNSSlhQbpHmHh/e3hLI5eEscjznSt+z1WQ/ixcEh7W9JW3aOcgUiLC
-         NcP5rmazEjnGDY0ZaExwM6X4hqkJQgJp9WeklmJKsiO7wjBVxxQElH/Ttwv1gQObC8dm
-         3jn5ZiusD3G+qMqkSPRnaneHiuZEYz54WPVN0/iAXh0dezpN9xDBTQA/3FEgEyq+Lrcs
-         YQ9SoNu2VPQL3Xqc238ZOwA8uifIK85UplAxzl0gndB2f1VAdsOgsrQWZJG70wRuj+nI
-         8zwRILAwOejjx7fjWp869OKxUT00t16G4JJ53p7mKoR2dAI6UjPF1i3ntxWX2aMvpm+b
-         IjTA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795156500; x=1795761300; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
-        b=kHtdayeoZb3A+OaLbnmqCkK0p6jhbv47enjyrbzYNOD1BZ7n2KftkamwqB7+QPeamc
-         QCUcZq6rH2/Zmc2Cu0dV75FzWvOsA7kJk2Svb+lzzBDh4MvMLXHPJFzaONzKrlQip3qE
-         VoiDVuyg8E3e4+z0V4Si6oHrEBGQ2m2Gp72Lboryv7Hge5nrTsIZv28qnAN/5GQ46NC7
-         k9FfbcxZZWjtQH7vZm5457JuUnKr0o5ApojT4O48z2MTx2mWdc0wq2jQglp67Ix9rIaW
-         kWjlH62Q5X2wmrOKylIC3wHr+EF540hvntb7YjcCEhgfBcRxzlJz2GFk29G79zRoSASR
-         zYJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795156500; x=1795761300;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pfrMR7Rruo2Y1Ch+K4Gps8KgIwbSf58C0a+/ogZCwLA=;
-        b=iGUc2XJX00khTTGYO0XMxHHmEjFgchPsDU1QKEtNxmZ8eO9BSAGON9Ohru0E025d7Z
-         O6Abdq1GJjOI6r4NEvrQuXvg1hmKC+Ud0Eq6AVvBzJ78gX8DjAGBgUKKm21zC3Pcq5cJ
-         h6x8roN5gyLdJbC6tnsdlGd5n7h1vRltEgUZsY5EMwNR/ATfdc+wk86dOUMA6Cp5Q+Y8
-         e+or/gWGsMt1teCHUbaFTlEkv2+aUNU1/XUIHzKSxuS/sOR5kY66lq8OTmqjQM/dbVmZ
-         VIV9wW7f0VV/7Btv3QvXL5fSQzb2IJMG8eotXmxXb/0Qb7IKoSNFibO1NGx/YJdkiKie
-         wlIQ==
-X-Forwarded-Encrypted: i=1; AL+hErFG+v5d5KFb3ww1/US26sJPeW3elIKCAD51jriYWRAkvG1dboz5bfDGNK+YdQ+K3esTHzYgdcWOUuVqZlM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+fdSQoZFeJ7AQDcSIg6Rjnr629FVqf/MAc3kn3WFdxaQSz287A
-	FmfsGi46nXiE56gzl242PbT0IujyhD960Ig5xK9qv4/l5PeC/zrmIcnj2zqoQ1m+iz5q3qYGCi/
-	YTypxOG6AolAW5VrVDDKp4mH8qv+Fcs8=
-X-Gm-Gg: AZFdTZetEYckn2Pj2Fa/J6I3QTKTJomYpxnN//kAyy05d6U7u5VV9I9HjmA5jgYMgAS
-	vpepZ16zdi7Tis3gyA2VoEwUFXSa/o3O11z93UJGzUSXH2Bn96go2n5XtCQSc3sYAnE3NYM9Isd
-	6Y75tnopnIqcl0elh9KqswJTlvhO8uIwCeJNoA/ujFfb46pbLegZD6pEOXmQ8oT21iR++Ma7HmA
-	9cy9l/8n6LgRerKSBpVSm9tdb5IW0FczdEiL3bKGjnqfI20lVvkv6Hqr9y+Tc+v3aP1FFJqzyvR
-	4pqAzQJ19XVRspDiLpkQ8EmHFW5fKXbLGBPwQRMiT5BcT60liLtRHQ7ieDBh+4c2B508YJfv68g
-	Zm2Mzg7dqMOliS0UpQTO1mxTTnVp99dqu1yYy5JWPdjTkqrcaSihfsEIupjNO49k/7YlhfFQ=
-X-Received: by 2002:a05:6402:280e:b0:6b7:9290:dc59 with SMTP id
- 4fb4d7f45d1cf-6ba37ed95d3mr1090284a12.37.1795156499250; Thu, 19 Nov 2026
- 22:34:59 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Di93BNen
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CA231596;
+	Thu, 19 Nov 2026 22:35:24 -0800 (PST)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A5F23F673;
+	Thu, 19 Nov 2026 22:35:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795156527; bh=9NBvwpZWWadQFsksHSrJpVxb+kXxaiMwW0jNcvt09fU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Di93BNenvzv0wKdOUq8XuyZIWeSMqudpmup+ZeGHxESB3mFad4ROccBlHY+KY1RMq
+	 YmpSudlqMEGiUgBwc4t4ChCNRiUewCRr+yAnqnYnQ9lahA7yJhyNWy/UyUcdIbcCt2
+	 VKbK6kzV42daCTPUI60IKJmjJeTXTuFCc4qYwvKo=
+Date: Fri, 20 Nov 2026 06:35:12 +0000
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Colton Lewis <coltonlewis@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Steffen Eiden <seiden@linux.ibm.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: nv: Fix guest stage-2 mapping leak on
+ sub-block unmap
+Message-ID: <iyfa5sagkdapb4plle575uhbxbmjdcxvbe35nnlxkqzfqnztqd@mmweqvqmil6x>
+References: <20261119185105.626343-1-coltonlewis@google.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,327 +63,205 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115180343.576773-1-koray.fra@gmail.com> <20261115180343.576773-11-koray.fra@gmail.com>
- <CAOQ4uxg2gpC99ohuvKm-SgPzuffJy1fSvXorbuBnYZ=OFSxT3w@mail.gmail.com> <DMZIZ05H7MMB.1WYNR4X44BPGR@gmail.com>
-In-Reply-To: <DMZIZ05H7MMB.1WYNR4X44BPGR@gmail.com>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Fri, 20 Nov 2026 07:34:46 +0100
-X-Gm-Features: Aa3M54pFpwXClfOUj4X0Ca6dDK3QavsSpzMcSRLuAsiSgUTDoLGicUfCWGHnj0M
-Message-ID: <CAOQ4uxg8aVcWyNiFDk8djdn-M3xJcu_7-kRxVq9jjFsbcGp1ew@mail.gmail.com>
-Subject: Re: [RFC PATCH v4 10/10] cifs: add provenance time (ptime) and map it
- to SMB's CreationTime
-To: koraynilay <koray.fra@gmail.com>
-Cc: David Sterba <dsterba@suse.com>, Namjae Jeon <linkinjeon@kernel.org>, 
-	Sungjong Seo <sj1557.seo@samsung.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Trond Myklebust <trondmy@kernel.org>, 
-	Anna Schumaker <anna@kernel.org>, Chuck Lever <cel@kernel.org>, Jeff Layton <jlayton@kernel.org>, 
-	Konstantin Komarov <almaz.alexandrovich@paragon-software.com>, 
-	Paulo Alcantara <pc@manguebit.org>, Chris Mason <mason@kernel.org>, Yuezhang Mo <yuezhang.mo@sony.com>, 
-	Jan Kara <jack@suse.cz>, NeilBrown <neil@brown.name>, Olga Kornievskaia <okorniev@redhat.com>, 
-	Dai Ngo <Dai.Ngo@oracle.com>, Tom Talpey <tom@talpey.com>, 
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>, Shyam Prasad N <sprasad@microsoft.com>, 
-	Bharath SM <bharathsm@microsoft.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	ChenXiaoSong <chenxiaosong@chenxiaosong.com>, "Darrick J . Wong" <djwong@kernel.org>, 
-	Sean Smith <defendthedisabled@gmail.com>, Andrey Albershteyn <aalbersh@kernel.org>, 
-	Pedro Falcato <pfalcato@suse.de>, =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
-	linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, exfat@lists.linux.dev, ntfs3@lists.linux.dev, 
-	linux-cifs@vger.kernel.org, linux-nfs@vger.kernel.org, 
-	linux-api@vger.kernel.org, Miklos Szeredi <miklos@szeredi.hu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119185105.626343-1-coltonlewis@google.com>
 
-On Thu, Nov 19, 2026 at 11:02=E2=80=AFPM koraynilay <koray.fra@gmail.com> w=
-rote:
->
-> On Thu Nov 19, 2026 at 7:32 PM CET, Amir Goldstein wrote:
-> > On Sun, Nov 15, 2026 at 7:04=E2=80=AFPM koraynilay <koray.fra@gmail.com=
-> wrote:
-> >>
-> >> Implement provenance time (ptime) in cifs, as introduced in a
-> >> previous commit ("vfs: add provenance time (ptime)").
-> >>
-> >> Map it to SMB's CreationTime, making it settable from userspace and
-> >> propagating it to the SMB server via FILE_BASIC_INFO.
-> >>
-> >> Support reading ptime via statx(2) and fileattr_get() from the cached
-> >> CreationTime.
-> >>
-> >> Update cifs_fileattr_set() to check xflags instead of only legacy flag=
-s
-> >> and add the cifs_set_file_crtime() helper to wrap the RPC call to the
-> >> SMB server.
-> >>
-> >> Assisted-by: Gemini:3.8-flash-high antigravity-cli-1.5.7
-> >> Signed-off-by: koraynilay <koray.fra@gmail.com>
-> >> ---
-> >>  fs/smb/client/cifsfs.c |   8 +++
-> >>  fs/smb/client/inode.c  |   7 ++-
-> >>  fs/smb/client/ioctl.c  | 109 ++++++++++++++++++++++++++++++----------=
--
-> >>  3 files changed, 94 insertions(+), 30 deletions(-)
-> >>
-> >> diff --git a/fs/smb/client/cifsfs.c b/fs/smb/client/cifsfs.c
-> >> index 8cff7857b450..c2f557e406d3 100644
-> >> --- a/fs/smb/client/cifsfs.c
-> >> +++ b/fs/smb/client/cifsfs.c
-> >> @@ -1307,6 +1307,14 @@ int cifs_fileattr_get(struct dentry *dentry, st=
-ruct file_kattr *fa)
-> >>         if (READ_ONCE(CIFS_I(inode)->cifsAttrs) & ATTR_COMPRESSED)
-> >>                 fa->flags |=3D FS_COMPR_FL;
-> >>
-> >> +       /* Report provenance time (ptime) to userspace */
-> >> +       if (CIFS_I(inode)->createtime) {
-> >> +               fa->fsx_xflags |=3D FS_XFLAG_PTIME;
-> >> +               fa->fsx_xflags_mask |=3D FS_XFLAG_PTIME;
-> >> +               fa->fsx_ptime =3D
-> >> +                     cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
-atetime));
-> >> +       }
-> >> +
-> >>         /*
-> >>          * FS_CASEFOLD_FL is defined by UAPI as a folder attribute,
-> >>          * and userspace tools (e.g., lsattr) display it only on
-> >> diff --git a/fs/smb/client/inode.c b/fs/smb/client/inode.c
-> >> index 2647785ec1e4..f0b20a72b9c2 100644
-> >> --- a/fs/smb/client/inode.c
-> >> +++ b/fs/smb/client/inode.c
-> >> @@ -222,6 +222,7 @@ cifs_fattr_to_inode(struct inode *inode, struct ci=
-fs_fattr *fattr,
-> >>
-> >>         cifs_i->cifsAttrs =3D fattr->cf_cifsattrs;
-> >>         cifs_i->reparse_tag =3D fattr->cf_cifstag;
-> >> +       cifs_i->createtime =3D fattr->cf_createtime;
-> >>
-> >>         if (fattr->cf_flags & CIFS_FATTR_NEED_REVAL)
-> >>                 cifs_i->time =3D 0;
-> >> @@ -2958,7 +2959,8 @@ int cifs_getattr(const struct mnt_idmap *idmap, =
-const struct path *path,
-> >>          * We need to be sure that all dirty pages are written and the=
- server
-> >>          * has actual ctime, mtime and file length.
-> >>          */
-> >> -       if ((request_mask & (STATX_CTIME | STATX_MTIME | STATX_SIZE | =
-STATX_BLOCKS)) &&
-> >> +       if ((request_mask & (STATX_CTIME | STATX_MTIME | STATX_PTIME
-> >> +                            | STATX_SIZE | STATX_BLOCKS)) &&
-> >>             !CIFS_CACHE_READ(CIFS_I(inode)) &&
-> >>             inode->i_mapping && inode->i_mapping->nrpages !=3D 0) {
-> >>                 rc =3D filemap_fdatawait(inode->i_mapping);
-> >> @@ -2992,6 +2994,9 @@ int cifs_getattr(const struct mnt_idmap *idmap, =
-const struct path *path,
-> >>                 stat->result_mask |=3D STATX_BTIME;
-> >>                 stat->btime =3D
-> >>                       cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
-atetime));
-> >> +               stat->result_mask |=3D STATX_PTIME;
-> >> +               stat->ptime =3D
-> >> +                     cifs_NTtimeToUnix(cpu_to_le64(CIFS_I(inode)->cre=
-atetime));
-> >>         }
-> >>
-> >>         stat->attributes_mask |=3D (STATX_ATTR_COMPRESSED | STATX_ATTR=
-_ENCRYPTED);
-> >> diff --git a/fs/smb/client/ioctl.c b/fs/smb/client/ioctl.c
-> >> index bb8808289a46..19a9556d39b4 100644
-> >> --- a/fs/smb/client/ioctl.c
-> >> +++ b/fs/smb/client/ioctl.c
-> >> @@ -181,6 +181,41 @@ static int cifs_set_compression(unsigned int xid,=
- struct dentry *dentry,
-> >>                                             compression_state);
-> >>  }
-> >>
-> >> +static int cifs_set_file_crtime(unsigned int xid, struct dentry *dent=
-ry,
-> >> +                               struct cifs_tcon *tcon, u64 crtime)
-> >> +{
-> >> +       struct inode *inode =3D d_inode(dentry);
-> >> +       struct TCP_Server_Info *server =3D tcon->ses->server;
-> >> +       FILE_BASIC_INFO info_buf =3D {};
-> >> +       const char *full_path;
-> >> +       void *page;
-> >> +       int rc;
-> >> +
-> >> +       if (!server->ops->set_file_info)
-> >> +               return -EOPNOTSUPP;
-> >> +
-> >> +       info_buf.CreationTime =3D cpu_to_le64(crtime);
-> >> +
-> >> +       page =3D alloc_dentry_path();
-> >> +       full_path =3D build_path_from_dentry(dentry, page);
-> >> +       if (IS_ERR(full_path)) {
-> >> +               rc =3D PTR_ERR(full_path);
-> >> +               goto out;
-> >> +       }
-> >> +
-> >> +       rc =3D server->ops->set_file_info(inode, full_path, &info_buf,=
- xid);
-> >> +       if (rc =3D=3D 0) {
-> >> +               CIFS_I(inode)->createtime =3D crtime;
-> >> +               CIFS_I(inode)->time =3D 0;
-> >> +               inode_set_ctime_current(inode);
-> >> +       }
-> >> +
-> >> +out:
-> >> +       free_dentry_path(page);
-> >> +       return rc;
-> >> +}
-> >> +
-> >> +#define CIFS_SUPPORTED_XFLAGS (FS_XFLAG_PTIME)
-> >>  int cifs_fileattr_set(const struct mnt_idmap *idmap, struct dentry *d=
-entry,
-> >>                       struct file_kattr *fa)
-> >>  {
-> >> @@ -193,49 +228,65 @@ int cifs_fileattr_set(const struct mnt_idmap *id=
-map, struct dentry *dentry,
-> >>         bool enable_compression;
-> >>         struct cifs_tcon *tcon;
-> >>         unsigned int xid;
-> >> -       int rc;
-> >> +       int rc =3D 0;
-> >>
-> >> -       if (!fa->flags_valid)
-> >> +       if (fileattr_has_fsx_mask(fa, CIFS_SUPPORTED_XFLAGS))
-> >>                 return -EOPNOTSUPP;
-> >
-> > What is this supposed to check that is not already checked
-> > explicitly with fsx_xflags_mask below?
->
-> It should work for FS_IOC_FSSETXATTR, where mask is 0... but it's also
-> there because when I started writing the various filesystems code I
-> hadn't added _mask yet, so I'll need to take a little step back and
-> revisit.
->
+On Thu, Nov 19, 2026 at 06:51:05PM +0000, Colton Lewis wrote:
+> When a shadow stage-2 block mapping (for example, 2M at PMD level) is
+> partially invalidated by a smaller guest unmap such as a 4K TLBI
+> IPAS2E1IS, kvm_pgtable_stage2_unmap() shatters and clears the entire
 
-Yes, I see.
-I think the helper may still have value for fs that still parse the
-two types of flags.
+"shatters" sounds like it breaks the block into page mappings, so maybe
+just "clears the entire block.."?
 
-To reduce the scope of your patch set this may be better.
+> block descriptor in mmu->pgt. However, kvm_remove_guest_s2_mappings()
 
-> >>
-> >> -       /*
-> >> -        * chattr writes back all flags returned by fileattr_get(). Ac=
-cept
-> >> -        * FS_CASEFOLD_FL only when it reflects the share's casefold s=
-tate.
-> >> -        */
-> >> -       if (fa->flags & FS_CASEFOLD_FL) {
-> >> -               rc =3D cifs_fileattr_get(dentry, &current_fa);
-> >> -               if (rc)
-> >> -                       return rc;
-> >> -               if (current_fa.flags & FS_CASEFOLD_FL)
-> >> -                       allowed |=3D FS_CASEFOLD_FL;
-> >> -       }
-> >> -       if (fa->flags & ~allowed)
-> >> +       if (fa->fsx_xflags_mask & ~CIFS_SUPPORTED_XFLAGS)
-> >>                 return -EOPNOTSUPP;
-> >>
-> >> -       enable_compression =3D fa->flags & FS_COMPR_FL;
-> >> -       compression_state =3D enable_compression ? COMPRESSION_FORMAT_=
-DEFAULT :
-> >> -                                                COMPRESSION_FORMAT_NO=
-NE;
-> >> +       if (fa->flags_valid) {
-> >> +               /*
-> >> +                * chattr writes back all flags returned by fileattr_g=
-et(). Accept
-> >> +                * FS_CASEFOLD_FL only when it reflects the share's ca=
-sefold state.
-> >> +                */
-> >> +               if (fa->flags & FS_CASEFOLD_FL) {
-> >> +                       rc =3D cifs_fileattr_get(dentry, &current_fa);
-> >> +                       if (rc)
-> >> +                               return rc;
-> >> +                       if (current_fa.flags & FS_CASEFOLD_FL)
-> >> +                               allowed |=3D FS_CASEFOLD_FL;
-> >> +               }
-> >> +               if (fa->flags & ~allowed)
-> >> +                       return -EOPNOTSUPP;
-> >
-> > This whole mess could be sorted out by switching the cifs
-> > implementation to the new API
->
-> ("new API" you mean _mask right?)
->
+nit: I think "the shadow page table" is clearer than "mmu->pgt"
 
-Yes and ro_mask, but it probably also means converting all the
-read-only CASEFOLD fs to new api, so that FS_XFLAG_CASEFOLD
-could be taken out of FS_XFLAG_RDONLY_MASK
+> only removes a struct kvm_guest_s2_mapping node when its entire
+> [nested_start, nested.last] span lies within the unmap range. As a
+> result, every sub-block invalidation followed by a re-fault leaks a
 
-> > and implementing a generic vfs
-> > helper which does something like the above code to handle the
-> > old ioctls.
-> > FS_XFLAG_CASEFOLD would then be removed from
-> > FS_XFLAG_RDONLY_MASK and set explicitly in xflags_ro_mask
-> > by fs which don't allow to set if (e.g. nfs) and added to
-> > FS_COMMON_FL/FS_XFLAG_COMMON
-> >
-> > cifs would advertise FS_XFLAG_CASEFOLD in its ro_mask
-> > and then the generic helper would mask it and the new syscall
-> > will not allow it.
-> >
-> >> +       }
-> >> [...]
-> >> +               cifs_dbg(FYI, "set compress flag rc %d\n", rc);
-> >
-> > I think that the roadmap should be to slowly define all the old FS_*_FL
-> > flags as FS_XFLAGS_* and let the generic helpers deal with the conversi=
-on.
->
-> > But it is not so hard to convert one filesystem at a time in a way that
-> > fa->fsx_valid will have to be true, because, for example, here
-> > all the relevant flags would be supported by the new xflags API.
->
-> So, something like what fileattr_fill_{x,}flags() do now, but for
-> file_attr_to_fileattr()?
->
+Doesn't the block tracking node get leaked regardless of whether a
+re-fault happens?
 
-Yes, something like this (maybe)
+> stale block-sized tracking node in mmu->guest_s2_mappings and
+> kvm->arch.mmu.guest_s2_mappings until the shadow MMU is destroyed,
+> allowing an L1 guest to grow host kernel memory and degrade subsequent
+> TLBI IPAS2E1IS walks to O(N) under write_lock(&kvm->mmu_lock).
+> 
+> Conversely, unconditionally removing any overlapping tracking node on a
+> sub-block unmap would be unsafe when a shadow block mapping has been
+> split into a child table (such as on a page-granule fault under dirty
+> logging or a racing shared walk returning -EAGAIN), because sibling
+> sub-page PTEs outside the unmapped range remain live in mmu->pgt and
 
- void fileattr_fill_flags(struct file_kattr *fa, u32 flags)
- {
-        fa->flags_valid =3D true;
-+       fa->fsx_valid =3D !(flags & ~FS_COMMON_FL);
-+       fa->fsx_xflags_mask =3D FS_XFLAG_COMMON;
-        fa->flags =3D flags;
+What are sub-page PTEs? :P
 
-But in this model FS_XFLAG_COMMON are only the ones that
-are mutable from the old ioctl.
+> still rely on the block-sized tracking node for host MMU notifier
+> unmaps.
+> 
+> Since stage2_unmap_walker() unlinks empty child page tables in
+> KVM_PGTABLE_WALK_TABLE_POST as soon as their last valid entry is
+> cleared, check mmu->pgt via kvm_pgtable_get_leaf() on partial-overlap
+> candidates: when no valid entry or split sub-table remains at or below
+ 
+You use "or" here.                ^^
 
-We would need to define FS_READONLY_FL to deal with the
-group of read-only legacy flags, if some fs needs them and wants
-to use the new API.
+> the recorded mapping granule (!kvm_pte_valid(pte) &&
 
-> > No need to do that now, as part of this patch set which is complicated
-> > enough, just need to see the road ahead of us that we have a way
-> > forward out of this messy flags_valid/fsx_valid inside filesystem
-> > implementations.
->
-> I think it's probably better to clean up the API now, before introducing
-> new flags (like FS_XFLAG_BTIME/PTIME or the shared extent one in the
-> other thread) and as I'll say in that reply (I'll write it in a bit) I
-> think it's even better to first split the _mask changes into their own
-> RFC PATCH series, then have a separate one for ptime/btime.
->
+but this is an AND?                                 ^^
+so I don't quite understand.
 
-Agree.
+> kvm_granule_size(level) >= map_size), remove and free the tracking node;
+> otherwise retain it to cover surviving split sub-entries.
 
-It's even two different changes -
-The vfs internal _mask change and the UAPI _mask change.
-chattr -p implementation with new API would be the perfect
-champion to drive this UAPI change IMO.
+"sub-entries" doesn't really make sense to me..
+Maybe "... to cover other entries within the range"?
 
-> > My understanding is that Miklos introduced those hints to reduce the
-> > work needed per filesystem for the initial implementation of the
-> > vfs methods.
->
-> Ah yeah that would make sense.
->
+For this third paragraph can you improve it by stating how the problem
+is fixed upfront? The first two paragraphs describe the problem, then
+you started to talk about stage2_unmap_walker all of a sudden (which I'm
+not sure how much it helps), and the fix itself is not emphasised. The
+combination makes it pretty difficult to get what the patch is doing.
 
-BTW the trigger for the vfs interface was ovl_copy_fileattr()
-so this is a user of the new vfs _mask API that we need to
-pay attention to.
+> 
+> In addition, suppress exact-match duplicate insertions in
+> kvm_record_guest_s2_mapping() when concurrent faults or -EAGAIN retries
+> record an identical (nested, canonical) range on the same shadow MMU.
+
+I believe this is better split into its own patch, it's doing another
+thing.
+
+> 
+> Fixes: 5491980c1a41 ("KVM: arm64: nv: Track guest stage-2 mapping removal")
+> Fixes: c2778d14cd2f ("KVM: arm64: nv: Track guest stage-2 mapping creation")
+
+Since there isn't a real bug in the original implementation do we need
+these tags?
+
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm64/kvm/nested.c | 68 ++++++++++++++++++++++++++++++++++++-----
+>  1 file changed, 61 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 4d83281a7a28b..2b1c85de5b719 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -896,6 +896,30 @@ static unsigned long s2_mapping_to_nested_start(struct kvm_guest_s2_mapping *map
+>  	return mapping->nested.start & ~S2_MMU_IDX_MASK;
+>  }
+>  
+> +static bool guest_s2_mapping_exists(struct kvm_s2_mmu *mmu,
+> +				    struct kvm_guest_s2_mapping *mapping)
+> +{
+> +	struct interval_tree_node *node;
+> +
+> +	for (node = interval_tree_iter_first(&mmu->guest_s2_mappings,
+> +					     mapping->nested.start,
+> +					     mapping->nested.last);
+> +	     node;
+> +	     node = interval_tree_iter_next(node, mapping->nested.start,
+> +					    mapping->nested.last)) {
+> +		struct kvm_guest_s2_mapping *curr;
+> +
+> +		curr = container_of(node, struct kvm_guest_s2_mapping, nested);
+> +		if (curr->nested.start == mapping->nested.start &&
+> +		    curr->nested.last == mapping->nested.last &&
+> +		    curr->canonical.start == mapping->canonical.start &&
+> +		    curr->canonical.last == mapping->canonical.last)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
+>  				 gpa_t nested_ipa, size_t map_size,
+>  				 struct kvm_guest_s2_mapping *mapping)
+> @@ -915,9 +939,32 @@ void kvm_record_guest_s2_mapping(struct kvm_s2_mmu *mmu, gpa_t canonical_ipa,
+>  
+>  	tag_s2_mapping_mmu(mapping, mmu);
+>  
+> -	guard(spinlock)(&kvm->arch.guest_s2_tracking_lock);
+> -	interval_tree_insert(&mapping->nested, &mmu->guest_s2_mappings);
+> -	interval_tree_insert(&mapping->canonical, &kvm->arch.mmu.guest_s2_mappings);
+> +	scoped_guard(spinlock, &kvm->arch.guest_s2_tracking_lock) {
+> +		if (!guest_s2_mapping_exists(mmu, mapping)) {
+> +			interval_tree_insert(&mapping->nested,
+> +					     &mmu->guest_s2_mappings);
+> +			interval_tree_insert(&mapping->canonical,
+> +					     &kvm->arch.mmu.guest_s2_mappings);
+> +			mapping = NULL;
+> +		}
+> +	}
+> +
+> +	kfree(mapping);
+
+In my understanding kfree() can be called while holding locks, so we
+don't need the extra level of indentation.
+
+> +}
+> +
+> +static bool guest_s2_mapping_unmapped(struct kvm_s2_mmu *mmu,
+> +				      gpa_t nested_start, size_t map_size)
+> +{
+> +	kvm_pte_t pte;
+> +	s8 level;
+> +
+> +	if (!mmu->pgt)
+> +		return true;
+> +
+> +	if (kvm_pgtable_get_leaf(mmu->pgt, nested_start, &pte, &level, 0))
+> +		return false;
+> +
+> +	return !kvm_pte_valid(pte) && kvm_granule_size(level) >= map_size;
+>  }
+>  
+>  void kvm_remove_guest_s2_mappings(struct kvm_s2_mmu *mmu, gpa_t nipa,
+> @@ -937,17 +984,24 @@ void kvm_remove_guest_s2_mappings(struct kvm_s2_mmu *mmu, gpa_t nipa,
+>  	node = interval_tree_iter_first(&mmu->guest_s2_mappings, nipa, nipa_end);
+>  	while (node) {
+>  		unsigned long nested_start;
+> +		size_t map_size;
+>  
+>  		next = interval_tree_iter_next(node, nipa, nipa_end);
+>  		mapping = container_of(node, struct kvm_guest_s2_mapping,
+>  				       nested);
+>  		/*
+> -		 * Tracking must be conservative on removal, only remove
+> -		 * mappings that are within the unmap range.
+> +		 * A sub-block unmap tears down an unsplit shadow block entry
+> +		 * in mmu->pgt, whereas a split block may still have valid
+
+Does "split block" make sense? Either it is a block mapping or a page
+mapping.
+
+> +		 * sub-page entries outside [nipa, nipa_end]. Remove the
+
+Same "sub-page entries" wording issue here.
 
 Thanks,
-Amir.
+Wei-Lin Chang
+
+> +		 * tracking entry when it lies within the unmap range or no
+> +		 * mappings remain across its span in mmu->pgt.
+>  		 */
+>  		nested_start = s2_mapping_to_nested_start(mapping);
+> -		if (nipa <= nested_start && nipa_end >= mapping->nested.last) {
+> -			interval_tree_remove(&mapping->nested, &mmu->guest_s2_mappings);
+> +		map_size = mapping->nested.last - nested_start + 1;
+> +		if ((nipa <= nested_start && nipa_end >= mapping->nested.last) ||
+> +		    guest_s2_mapping_unmapped(mmu, nested_start, map_size)) {
+> +			interval_tree_remove(&mapping->nested,
+> +					     &mmu->guest_s2_mappings);
+>  			interval_tree_remove(&mapping->canonical,
+>  					     &kvm->arch.mmu.guest_s2_mappings);
+>  			kfree(mapping);
+> 
+> base-commit: 4405c18c95d2d0f99f6c581ef0ee8591a1aa6ccd
+> -- 
+> 2.56.1.809.ga0b61035b5-goog
+> 
