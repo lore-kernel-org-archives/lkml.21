@@ -1,84 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795179128;
-	b=5l3SBbQ2YXhynC3/8cCsis6sOBWBujqB6trXJnwS4bQsL67YLepdQBSFH8imCRS2rdQG
-	 9R6bnaHBFtexXPuHFuCf2S5JM/lxGE6/mDlzPcHGlv+5HcuSwsCzu6+udDU7T+0JA6OAC
-	 LOBqQD165+uv6nUtycZM94L0P2Xo+epCiCP1RNAkMTHBjaPKdhxiyOzPEMZr9ItF/Qrc5
-	 gsdWH8xFNi6Ej+/u0mM3o1Fl/+3oRmQOTcg0U3768NYgFBc64BF5ZaNE36uACwGinmz5T
-	 iDZg9P/7gS9LK7xnl3IDMXgMk2HtfB1idfE+nWqXRMzU4NwFTvgNUAIp4K+QZ6dcBFQ==
+	t=1795179154;
+	b=HcZtLUjIsaP0CnjqXXRj6guICAvwH7Z5lbQf8tzzJH5MJUeqxnmmH+hKEJqB4V2ZqdDI
+	 Mq1jtBYzr5nBB7wRDrRI44/0+0bLtlYSXN5wzvjLZ8MgE2SFb4AGCRdfyPwBVefvZZqO+
+	 4zRRP4XRQWhRZ2hbxYRPQKrStq4aLPGH9Cjq7ETc5j9S7EDPbG27Q2xeSXc2iDR580u6x
+	 imcxsbIXTFmTMQEU8Kx8OkdTqKty9siHnu9rih27D/J7z6UvXcp0oIDWfbQMEBMbLwstz
+	 /hmFUvRGeTUo7ylI2dP84g0ANAZEyf7qed/JCDTreMa9FaTLy2/CruBYY6mL2IaqAdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795179128;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=NleNAGBpwDLYHMnTJho5Ff1F01uR68kWg4mKc/YYzG4=;
-	b=hQT7+NPzC4vSfgAbaTorBPxI8jdj67a1toE+q90TJFEJiAZk7pzR99/nNpNDpDSao2HE
-	 WIrNG0M1tT7/d/RGAuN5CXDrRUIO+MTtsfT282fbS8PKQ5U0cwH/aM1+8Q7fkNNpohrH1
-	 nPKU5PXEiazwN68S5UEHwj3gYJU5az7ApPI0xKrKSPzJCHlFeGSUHQIceOKAYw6WCt5N3
-	 KnD76eKHnMKbKJPxShYm1s512FgwjiZiuvHgFryQZFexB34292YbeE+2dcw7YtOR37FAq
-	 xi488mdChRncSMwboUPrSk3F7tWsr1HsaU6KqFcQT94UWK2qiO3WOVSTv82L18wyfzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795179154;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
+	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type;
+	bh=9SjRna3ikFVF0kjvJgTvEWSAoXwpZaelLjTatjkSd8k=;
+	b=oYF3RGBc4d+qhlVXGoUl35CAB1lwq5P0h/VvxKl6Er8TMGoV0zD4016a3u0q5ATJ4/fm
+	 jg7zD1HMFwN3+rBdir6j6Z9YCYb/DXkl52JXUPPTZdqovLUAOhgmWXbK1Z8DbZVpFWWPB
+	 P1ZRMtZjt653gC/U2oStRMjgiygLZUiItzOUf7yzlI9ScyPXfZ4WBaICq32BUgPAok9d3
+	 yE+NYCjEKtXrQfbTzRR+g2z+QidP4M+GzLglaweJsGpd87nPI6dQSD1tYLvx16sdBTh7N
+	 EBIcX2fXzkbEOCeiHFJwjw2P5Q5ObkFUVY7qO7u5aLISt33vTqikilAfGfUQRgGbd6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="ShDh4F/t";
-	arc=none smtp.remote-ip=192.198.163.11
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=fail header.from=linux-m68k.org;
+	spf=pass smtp.mailfrom=gmail.com;
+	arc=none smtp.remote-ip=209.85.221.172
+Received: from mail-vk1-f172.google.com (mail-vk1-f172.google.com [209.85.221.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BFEF606A320;
-	Fri, 20 Nov 2026 12:52:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BFEF606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=ShDh4F/t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795179128; x=1826715128;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=oRsMfGOGJCDM2bFiwqpgxiyol8Y8Ruky6SMqqAiGSiE=;
-  b=ShDh4F/tqdx8VaoUV1LY7JRu9lr2TZTVGFiTDqKDbvpkcT7whCkuQOku
-   Llvc4idAyYf3dZ3W215yokVVr7Vw/qcPnizUw7+TJFS0W0nlUoq6GwiTp
-   QOGGSGCQt26klQG9satWuzc6sBtuCs4Ml/H6G8/CqhhJppxSnlos1SB1j
-   gyRqU1mjjo0Una1/ePGQP+o3ctBo/FU1G854vZsqoN2c0fiVTUg2vhIRp
-   gg0D6Ah1MAkHuPDzHaHcSqN7/eZ9OODbfHT71Z2J6ifsTxPg19FO1Iv3I
-   I8W01WTbJxRYbtnxTRDoEpzizaHorITCXcx8a2VHuGwcWfsTVW+cDgv1X
-   A==;
-X-CSE-ConnectionGUID: 6wx6yEkxScGLwZLrYXvW6Q==
-X-CSE-MsgGUID: h3veYJixR9C0sJOXcVzKgQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3972123"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="3972123"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 04:52:07 -0800
-X-CSE-ConnectionGUID: M9qPvv5KSxejhozI3CUVzw==
-X-CSE-MsgGUID: MITR5MhgSVCHrO/InrDD+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="11053530"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa007.fm.intel.com with ESMTP; 20 Nov 2026 04:52:04 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id EAD5F99; Fri, 20 Nov 2026 13:52:02 +0100 (CET)
-Date: Fri, 20 Nov 2026 13:52:02 +0100
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Atif Ashhar <atifashhar@google.com>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
-	Wolfram Sang <wsa@kernel.org>,
-	Luis Oliveira <Luis.Oliveira@synopsys.com>,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: designware: Release slave SCL hold in
- __i2c_dw_disable()
-Message-ID: <awBCclrtdWSNHl67@black.igk.intel.com>
-References: <20261104133745.1432212-1-atifashhar@google.com>
- <20261112145238.3736264-1-atifashhar@google.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 126EA606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:52:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 126EA606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5ee029fd76aso562254e0c.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:52:33 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795179153; x=1795783953;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9SjRna3ikFVF0kjvJgTvEWSAoXwpZaelLjTatjkSd8k=;
+        b=yBd138Vpvcch1cInNOUh/a0PL+1JbcF7BhqcuDDhesXXUHkU/Ui5KYZms3NECzkw04
+         ML6jSnSsySJGDl58f1TZYnl+ZxqHEeMyPcn3dXWyeZMliWAh4oE+bgwi75aslzNBrwri
+         au7vIWkHPAS8GjevAiJi5lv8NtzGG09VvbLo+hPG7/chHjDZCq0zyvdiXkKpkC/wn1jk
+         K16KxxctPPXGrnwcAeqtSA6VvHYVCtzT1SinqDQvbdzf1JhKDfhauOlvQHSYL7LB9giF
+         DsatwLaeAglfNWaSERoS1U+0p+GDw7oetDN/LoxrsdBg9QT9kR8oKEYlIyg7aKnO+I+r
+         oWbQ==
+X-Forwarded-Encrypted: i=1; AL+hErFmm7Adb7FvgQf1hxqrnAGCMcxO9oT5a9/+Gz58P21iVJxe25U4k/20t/x8yilAAn7mRrZNNgl19Mz5br4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/KWHXTn7Vm3oEskLqztVNX1TXIyePrsCxlxcan7nMvCB8C1a9Z
+	5BaMBy29qEDX67zp+SP06ejCLd/9dbotbYWzOeIfYq+tvciNov/anemSq4Ra6hQa
+X-Gm-Gg: AZFdTZdh0X6uk3m7HKbpixE9MV041KI/gLMa+co/3N4AxQkncGTBbbZH09UR/aN2Eaz
+	cDOQpYCXGuu+axu5sdPSF6DUbJSpUOndpHEZU6cd0XanETNwIWSNNaobhXBso0LnQZ+HBvzJXGA
+	hdqYDENlpPQYiVMqK+J+L/0Xcl4Aefz+Zolcxvc2knhlNitdlZZvzdX5/DRRgh6AuMP/qaasDqq
+	NQ2gRNhji1rpmI1gRzihgPzsli1nZz8AENJdcT8BRrI5AYf6gZElfu69Mxjx/C5gTsvMAJqpSj4
+	XMTildl7RrKN2PrhAUD8m9qSNfbCEEd0Bqd73YU7j7N5+Krc75QrNKlza6etHUoj43QVOSYzGzV
+	cTSfMlJ7HWrKI5/D6errEvQzeiwLMkhc9D6bGGMbauA7kYoPMcpwWIYncUD8FvDFkEw1jwwUCcy
+	CoCXrWaAKqlyAty81mcA2CT4kx4zxBNKZzjUI3C39FMjp2qLPG6Pyo1dqwTwa/2+MT3Frf8UAt8
+	wgz24dKTEYiE1D3K1pKSLIAyzq+SALK1QQJWjPmoJ/BJ6ZAW6FuE7MCgZmw9z87iN7jKYCTHCij
+	sSjoyZzSw/2sW0wuwyBRwqOfclZvQ9x7z5AdiMl6kLtK3JyImWfJ0W1rkHYRQdU5TUQ=
+X-Received: by 2002:a05:6122:8c8c:b0:5ec:e6b8:ebad with SMTP id 71dfb90a1353d-5ee8af4a759mr1500155e0c.10.1795179152975;
+        Fri, 20 Nov 2026 04:52:32 -0800 (PST)
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5ee8b555147sm2370640e0c.6.2026.11.20.04.52.32
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 04:52:32 -0800 (PST)
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-7d2da166818so523422137.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:52:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHCp1ytrQKdSV/NWNlodjQCO6W1JqgH1xFAt2WRgwJgN4JOrf/BxFeQJe1LdogxvvZbK4B4pR5UbxIp7ew=@vger.kernel.org
+X-Received: by 2002:a05:6102:3e8d:b0:7c3:fcb:180c with SMTP id
+ ada2fe7eead31-7d739572406mr1186700137.20.1795179152283; Fri, 20 Nov 2026
+ 04:52:32 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -88,153 +80,139 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261112145238.3736264-1-atifashhar@google.com>
+References: <20261112-sdhi_rzg3l-v1-0-ca30b209615d@bp.renesas.com> <20261112-sdhi_rzg3l-v1-1-ca30b209615d@bp.renesas.com>
+In-Reply-To: <20261112-sdhi_rzg3l-v1-1-ca30b209615d@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 20 Nov 2026 13:52:21 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWk_0VT_UgaYoCW8c9zac2g88bL6niZF6aDu+UbWroFjw@mail.gmail.com>
+X-Gm-Features: Aa3M54qyNQu_3mY0Gw0VIiuXO7cKeCCI_cdaF_qJo1F3yjQPV5KrJ3x92PPsDRE
+Message-ID: <CAMuHMdWk_0VT_UgaYoCW8c9zac2g88bL6niZF6aDu+UbWroFjw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] arm64: dts: renesas: r9a08g046: Add SDHI nodes for
+ RZ/G3L SoC and SDHI1 pincontrol on SMARC EVK
+To: Biju Das <biju.das.au@gmail.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 
-On Thu, Nov 12, 2026 at 02:52:38PM +0000, Atif Ashhar wrote:
-> When an external I2C master initiates a read to the Synopsys DW_apb_i2c
-> adapter in slave mode during kexec teardown, runtime suspend, or driver
-> unbind, the slave hardware stretches SCL low (0V) waiting for TX data,
-> setting DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY.
-> 
-> In master mode, __i2c_dw_disable() issues DW_IC_ENABLE_ABORT to release
-> the bus. However, according to the Synopsys DW_apb_i2c Databook, the
-> ABORT bit applies only to master transfers and has no effect in slave
-> mode. Because the slave cannot disable while stretching SCL,
-> __i2c_dw_disable() times out, leaving DW_IC_ENABLE_STATUS[0] = 1 across
-> kexec or rebind. Subsequent writes to DW_IC_SAR are write-protected and
-> silently dropped by hardware, wedging the slave and blocking any other
-> devices sharing the physical bus.
-> 
-> Fix this by:
-> 
-> 1. In __i2c_dw_disable(), if DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY is
->    set while disabling, temporarily re-enable the controller so the APB
->    interface accepts data commands without racing with the slave ISR,
->    clear pending RD_REQ/TX_ABRT interrupts, write a dummy 0xff byte to
->    DW_IC_DATA_CMD to release the SCL stretch, and immediately request
->    disable via __i2c_dw_disable_nowait(). Also drain the RX FIFO if RFNE
->    is set during SLAVE_ACTIVITY.
-> 
-> 2. In i2c_dw_reg_slave(), replace __i2c_dw_disable_nowait() with
->    __i2c_dw_disable() to ensure the controller is fully disabled before
->    calling i2c_dw_set_mode(), which programs DW_IC_SAR and DW_IC_CON.
-> 
-> Fixes: 9f3e065c54b0 ("i2c: designware: add SLAVE mode functions")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Atif Ashhar <atifashhar@google.com>
+Hi Biju,
 
-I don't have time to test this unfortunately :( But it LGTM. FWIW, if
-it's okay by Mika:
+On Thu, 12 Nov 2026 at 19:48, Biju Das <biju.das.au@gmail.com> wrote:
+> From: Biju Das <biju.das.jz@bp.renesas.com>
+>
+> Add device tree nodes for the three SDHI controllers (SDHI{0,1,2})
+> on the RZ/G3L SoC (r9a08g046) and enable SDHI1 on the RZ/G3L SMARC
+> EVK platform with pincontrol and GPIO-based voltage switching
+> regulator support.
+>
+> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Thanks for your patch!
 
-> ---
-> Changes since v1:
-> - Use lowercase 0xff instead of 0xFF in regmap_write(), comments, and commit
->   message (Mika Westerberg).
-> - Explained on the v1 thread why writing a dummy 0xff byte to DW_IC_DATA_CMD
->   does not generate unintended bus traffic when immediately followed by
->   __i2c_dw_disable_nowait().
-> 
-> Link: https://lore.kernel.org/linux-i2c/20261104133745.1432212-1-atifashhar@google.com/ [v1]
->  drivers/i2c/busses/i2c-designware-common.c | 46 ++++++++++++++++++++++
->  drivers/i2c/busses/i2c-designware-slave.c  |  2 +-
->  include/linux/designware_i2c.h             |  1 +
->  3 files changed, 48 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-designware-common.c b/drivers/i2c/busses/i2c-designware-common.c
-> index a1eca6cd4b75..46866baa9d9c 100644
-> --- a/drivers/i2c/busses/i2c-designware-common.c
-> +++ b/drivers/i2c/busses/i2c-designware-common.c
-> @@ -619,6 +619,50 @@ static int i2c_dw_set_sda_hold(struct dw_i2c_dev *dev)
->  	return ret;
->  }
->  
-> +/*
-> + * DW_IC_ENABLE_ABORT only aborts master transfers. If the adapter is acting
-> + * as a slave and holding SCL low waiting for TX data (SLAVE_HOLD_TX_FIFO_EMPTY),
-> + * hardware refuses to disable (IC_ENABLE_STATUS[0] stays 1) until a byte is
-> + * written to DW_IC_DATA_CMD.
-> + *
-> + * Mask interrupts and temporarily set DW_IC_ENABLE_ENABLE so the APB interface
-> + * accepts writes to the TX/RX FIFOs without racing with the slave ISR, clear
-> + * pending RD_REQ/TX_ABRT interrupts, feed a dummy 0xff byte to release SCL
-> + * (or drain any pending RX byte), and immediately request disable again via
-> + * __i2c_dw_disable_nowait() so the controller initiates disable upon
-> + * completing the current byte.
-> + */
-> +static void i2c_dw_release_slave_hold(struct dw_i2c_dev *dev)
-> +{
-> +	unsigned int status, dummy;
-> +	bool tx_hold, rx_pending;
+> --- a/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+> +++ b/arch/arm64/boot/dts/renesas/r9a08g046.dtsi
+> @@ -1062,9 +1062,80 @@ dmac: dma-controller@11820000 {
+>                         dma-channels = <16>;
+>                 };
+>
+> +               sdhi0: mmc@11c00000 {
+> +                       compatible = "renesas,sdhi-r9a08g046";
+> +                       reg = <0x0 0x11c00000 0 0x10000>;
+> +                       interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
+> +                                    <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&cpg CPG_MOD R9A08G046_SDHI0_IMCLK>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI0_CLK_HS>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI0_IMCLK2>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI0_IACLKM>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI0_IACLKS>;
+> +                       clock-names = "core", "clkh", "cd", "aclkm", "aclks";
+> +                       max-frequency = <150000000>;
+
+Given the bus clock can only run at 200, 100, 50, or 6.25 MHz,
+150 Mhz looks strange to me.
+
+> +                       resets = <&cpg R9A08G046_SDHI0_IXRST>,
+> +                                <&cpg R9A08G046_SDHI0_IXRSTAXIM>,
+> +                                <&cpg R9A08G046_SDHI0_IXRSTAXIS>;
+> +                       reset-names = "rst", "axim", "axis";
+> +                       power-domains = <&cpg>;
+> +                       status = "disabled";
+> +               };
 > +
-> +	if (!IS_ENABLED(CONFIG_I2C_DESIGNWARE_SLAVE) || dev->mode != DW_IC_SLAVE)
-> +		return;
+>                 sdhi1: mmc@11c10000 {
+> +                       compatible = "renesas,sdhi-r9a08g046";
+>                         reg = <0x0 0x11c10000 0 0x10000>;
+> -                       /* placeholder */
+> +                       interrupts = <GIC_SPI 132 IRQ_TYPE_LEVEL_HIGH>,
+> +                                    <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&cpg CPG_MOD R9A08G046_SDHI1_IMCLK>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI1_CLK_HS>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI1_IMCLK2>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI1_IACLKM>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI1_IACLKS>;
+> +                       clock-names = "core", "clkh", "cd", "aclkm", "aclks";
+> +                       max-frequency = <150000000>;
+
+Likewise. This instance does not support HS400, but HS200 and HS400
+use the same bus clock speed, right?
+
+> +                       resets = <&cpg R9A08G046_SDHI1_IXRST>,
+> +                                <&cpg R9A08G046_SDHI1_IXRSTAXIM>,
+> +                                <&cpg R9A08G046_SDHI1_IXRSTAXIS>;
+> +                       reset-names = "rst", "axim", "axis";
+> +                       power-domains = <&cpg>;
+> +                       status = "disabled";
 > +
-> +	regmap_read(dev->map, DW_IC_STATUS, &status);
+> +                       sdhi1_vqmmc: vqmmc-regulator {
+> +                               regulator-name = "SDHI1-VQMMC";
+> +                               regulator-min-microvolt = <1800000>;
+> +                               regulator-max-microvolt = <3300000>;
+> +                               regulator-ramp-delay = <1200>;
+> +                               status = "disabled";
+> +                       };
+> +               };
 > +
-> +	tx_hold = status & DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY;
-> +	rx_pending = (status & DW_IC_STATUS_SLAVE_ACTIVITY) &&
-> +		     (status & DW_IC_STATUS_RFNE);
+> +               sdhi2: mmc@11c20000 {
+> +                       compatible = "renesas,sdhi-r9a08g046";
+> +                       reg = <0x0 0x11c20000 0 0x10000>;
+> +                       interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,
+> +                                    <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>;
+> +                       clocks = <&cpg CPG_MOD R9A08G046_SDHI2_IMCLK>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI2_CLK_HS>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI2_IMCLK2>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI2_IACLKM>,
+> +                                <&cpg CPG_MOD R9A08G046_SDHI2_IACLKS>;
+> +                       clock-names = "core", "clkh", "cd", "aclkm", "aclks";
+> +                       max-frequency = <150000000>;
+
+This instance maxes out at SDR104, so max-frequency should be lower?
+
+> +                       resets = <&cpg R9A08G046_SDHI2_IXRST>,
+> +                                <&cpg R9A08G046_SDHI2_IXRSTAXIM>,
+> +                                <&cpg R9A08G046_SDHI2_IXRSTAXIS>;
+> +                       reset-names = "rst", "axim", "axis";
+> +                       power-domains = <&cpg>;
+> +                       status = "disabled";
 > +
-> +	if (!tx_hold && !rx_pending)
-> +		return;
-> +
-> +	regmap_write(dev->map, DW_IC_INTR_MASK, 0);
-> +	regmap_write(dev->map, DW_IC_ENABLE, DW_IC_ENABLE_ENABLE);
-> +
-> +	if (tx_hold) {
-> +		regmap_read(dev->map, DW_IC_CLR_RD_REQ, &dummy);
-> +		regmap_read(dev->map, DW_IC_CLR_TX_ABRT, &dummy);
-> +		regmap_write(dev->map, DW_IC_DATA_CMD, 0xff);
-> +	}
-> +	if (rx_pending)
-> +		regmap_read(dev->map, DW_IC_DATA_CMD, &dummy);
-> +
-> +	__i2c_dw_disable_nowait(dev);
-> +}
-> +
->  void __i2c_dw_disable(struct dw_i2c_dev *dev)
->  {
->  	struct i2c_timings *t = &dev->timings;
-> @@ -676,6 +720,8 @@ void __i2c_dw_disable(struct dw_i2c_dev *dev)
->  		if (!(status & 1))
->  			return;
->  
-> +		i2c_dw_release_slave_hold(dev);
-> +
->  		/*
->  		 * Wait 10 times the signaling period of the highest I2C
->  		 * transfer supported by the driver (for 400kHz this is
-> diff --git a/drivers/i2c/busses/i2c-designware-slave.c b/drivers/i2c/busses/i2c-designware-slave.c
-> index 0abcc7757b23..e51a6b60292a 100644
-> --- a/drivers/i2c/busses/i2c-designware-slave.c
-> +++ b/drivers/i2c/busses/i2c-designware-slave.c
-> @@ -40,7 +40,7 @@ int i2c_dw_reg_slave(struct i2c_client *slave)
->  		return ret;
->  
->  	pm_runtime_get_sync(dev->dev);
-> -	__i2c_dw_disable_nowait(dev);
-> +	__i2c_dw_disable(dev);
->  	dev->slave = slave;
->  	i2c_dw_set_mode(dev, DW_IC_SLAVE);
->  
-> diff --git a/include/linux/designware_i2c.h b/include/linux/designware_i2c.h
-> index 53f37f18a722..113a9d84e34d 100644
-> --- a/include/linux/designware_i2c.h
-> +++ b/include/linux/designware_i2c.h
-> @@ -100,6 +100,7 @@
->  #define DW_IC_STATUS_MASTER_ACTIVITY		BIT(5)
->  #define DW_IC_STATUS_SLAVE_ACTIVITY		BIT(6)
->  #define DW_IC_STATUS_MASTER_HOLD_TX_FIFO_EMPTY	BIT(7)
-> +#define DW_IC_STATUS_SLAVE_HOLD_TX_FIFO_EMPTY	BIT(9)
->  
->  /* DW_IC_SMBUS_INTR_* bits */
->  #define DW_IC_SMBUS_INTR_ALERT			BIT(10)
-> -- 
-> 2.56.0.567.gdb80ae8cd5-goog
+> +                       sdhi2_vqmmc: vqmmc-regulator {
+> +                               regulator-name = "SDHI2-VQMMC";
+> +                               regulator-min-microvolt = <1800000>;
+> +                               regulator-max-microvolt = <3300000>;
+> +                               regulator-ramp-delay = <1200>;
+> +                               status = "disabled";
+> +                       };
+>                 };
+
+The rest LGTM.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-heikki
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
