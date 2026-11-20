@@ -1,96 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.124
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795203791;
-	b=esy/X/DU7trFSH8tGkAvYjLd2WgVuF0Iklxcv/pT8W13eLphGlK4m8W8dmO6aNZr2k3T
-	 gX8q6Yft6RCfnOG1K/4EPbVrm442wGEbKD2hmfd83cKWSk5gC8VtFHLSNSGHO5PbS6SK3
-	 Mr89DDqWtCtk10g2OKyaihIUs89wb6IY5K3ROLg4qfD5ztYC4BQKHRjJDBK1JZc7V6Mhx
-	 CgOLL81qlEvdw0vKVTtEpI1nEbfQ8AEk5AbcxGomnJ1bbrshCmDEl2v9E+0d1Leq/rAX5
-	 EfrPWCheRynvvGWIozjm2XldNxLJncNtDVRrCp1fJXRWrXGjNCdk3o5CMt2jhQrMZKA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203791;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Da02+wIZY4QoQd9Ew6aQc/sSiyq+4ByQZJYhkDgqOGo=;
-	b=bQbJ65gD4BLJOW8FyD0i6D17vhLzUAzqBKCHkpLHh9FqJ2bhIH811ndo+/0Hch+BLnl1
-	 r/wl2igTS1N5naEdQT3tN6vyR1kxp8wILh8Q4AJmWnbLZSBTi+TG15ZYQl87k8+Hpnxq+
-	 uawQeRL/lbold33B9cP/QTp2HGuS3TcSYdtiaPSaQoarMEtvXlwqtWmLckBU3CD+QW9b2
-	 u7xiCUfodFgQb0h4bDL0J1yR3Zj++QYuV2quHDhtANlTUy0RqsoOQp1ICyVpxM714iRYq
-	 iyROzYs0XV5FoV9CNpD5Wr+ECGi/ByJktKKAIGyo4q3mqSN88dphrfCBLJHDA8FQWkg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=efficios.com;
-	spf=pass smtp.mailfrom=efficios.com;
-	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=blln8ek0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.124
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022124.outbound.protection.outlook.com [40.107.193.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.226
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795203818;
+	b=yBueY1IpKXPdDA62yGcLpsrNpmJTQaZAf/f5KVRbclXWsXuOQ9GpKJUSVZA3LH4bfJQX
+	 LjolZZJRTOZ1lLHBfCFsZoMNKKeewDfFyH/QiPWkAn5IUV4Jk0Fsj2tpAhTt5Dj1LAWHW
+	 HS6rGYsysCBcWhX1rg9uuIO4X2NUOwJF8Ay/JFp4c3GwAlfeVmTxxuUk7nasgHDl9BlZP
+	 p19vqwKJLVK3uBz5hojxR/E4G0lsnpRYz4F3HvdUkucvJVUAQ8C8/6UYFFOmnZoGx69ue
+	 iIfaZXdkvi88j5h7P1JNgacSPEnPsxYBEBAGHCOyDaaTp5XQmcIVjpcNryC8zYLFqqQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203818;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
+	b=CHr9YBLFEbJQRpXhGNQYJL7Pnp44znqgNNqw0lccqLkZ4suxlUTSJ5i5h/0sqGW6ehye
+	 WhJS8nKL+VmQJXxHToe9TF9j5kAdCFd9e/Ka3jEnOuJ9VlVajxQ1m2jxS/MnwnCCnYdhT
+	 Gg7O+e14ugBS5ZpwGnNnem3+N3Flyhmg4kQaso9LFgQ9nGuN+IbORmMxpHU2Omq7iHIlm
+	 OIrcGiYUqggT73OxVhPPd4lzDm0p2erzm0u5Z0pgpPV7PYGZWFrq8g/eMhRWkv4njOF27
+	 cLC6T8yL+sn2ed3qLoHqg/WCeqdKGzR0M3lwz8H7wgx6F0S+qoJYEy/RlT15cXuSoEg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=hiG4EAHO;
+	arc=none smtp.remote-ip=209.85.210.226
+Received: from mail-pf1-f226.google.com (mail-pf1-f226.google.com [209.85.210.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA841606A6C3
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:43:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA841606A6C3
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F32B606A330
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:43:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7F32B606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=blln8ek0
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Uab64picztlnmm74l9V/Mo7m6hrVBy9PCl66su8nI10e0zsYRM6rHXPNAMSJQUWpIW4U7qn1ppALC9DWRc1vahcVuZnYH9xotzMQWvSegZZ76SvrX+fshexJni7gDcIc08ZXdsF0onpcYvoGe424tT+Z26IIXBsOBcURvWmldWeHN1WQw00YGZlwKrbsNFZS0zhQQ5JFQH9JupPm+QoNrUB3cJ0+rZje8Y3l0RxshOv1zd5rwpaOp+lFod2vrrCXtFh92nDSMyK3A48o0xbFDGbuw8O/QU3lQLyqGcQ4HFJu96ifAcZdNiqDo7aMeAT12K4wdiLqS+UYrucWqoNrPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Da02+wIZY4QoQd9Ew6aQc/sSiyq+4ByQZJYhkDgqOGo=;
- b=bqN2+mogmgnHBzKaeWo4AJz+p3AywlKk2UPgXZYeQqk0tq/7myX2jFtHs4VPd/xZzJxEp/0eNHU3TlXtLUeNqIXi2l8NsSJB3+h7Bb3IuyYMefFh6zhKZO3vCYxYv2ZmC3tFzWJ+Jm8CRNC0/0TOPVZzggQ7kh4a5JEWvUbFzXsME+HVO20QNJOLQnvVS3clhLHmpqwK2c52TuuN7eGuUse6Y5psbXuB8J8udjwejOVCyyXhyCEFhti6hgfCH0eMhCoOF90mlABwj2NvY76mYspNBwpZeNVO11KjSrWeHAqjRCFl8Axu5ZpnyNfWn4LgAUPIWEgwTcxFfNvYUibVBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
- dkim=pass header.d=efficios.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Da02+wIZY4QoQd9Ew6aQc/sSiyq+4ByQZJYhkDgqOGo=;
- b=blln8ek05V4fnhWJOYjNHskNI4gYdo0DH78Kgs34vzXAaxypHo2azVMA5Gyu6xarfppRe7nGvujQzPSaIDzaYg2MbZflNkHpXwL9wrHVZGaagMVart9kTtnrMv9nxSAxzp3nhcwwPHwcTBaIx4JUOPfxjiMWlVhzQl87YB3scAgbQnQEniFWqWG5ft/LjBBkiirfVeHgt2RK/hqPqLepNNDx+qcD9/UFdBUdIJ5LMsXC2MA4nF/Jd5LrLyZvnWUEkMSonm76st3c7LvvtR1FfNyahHCJgS9gA5LJI7IXiYKvKAyf/ujfXE4jZQqFUTaxEfAM3emT3VKRufV7HPDmuA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=efficios.com;
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10) by YT2PR01MB6254.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:55::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 19:42:52 +0000
-Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
- 19:42:52 +0000
-Message-ID: <8c429a8d-b15c-495b-84df-bcecbd5386ae@efficios.com>
-Date: Fri, 20 Nov 2026 14:42:51 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 28/33] selftests/sched: Test deadline boosts in
- deadline_bw_test
-To: sashiko-reviews@lists.linux.dev
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
- mkoutny@suse.com, linux-kernel@vger.kernel.org
-References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
- <3c1582ebc8887e6cb2183b47ee746c93878ce8cc.1795181240.git.mathieu.desnoyers@efficios.com>
- <sashiko-outbox-225360@kernel.org>
-From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Content-Language: en-US
-In-Reply-To: <sashiko-outbox-225360@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: YQZPR01CA0040.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:c01:86::10) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:1d0::10)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=hiG4EAHO
+Received: by mail-pf1-f226.google.com with SMTP id d2e1a72fcca58-8a06cc097c7so1005305b3a.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:43:35 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795203815; x=1795808615;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
+        b=E8EETVIGa5gdxgckx2Hht0ruCVYhZihfba/2hsjshWBzVI1Yor23f3AmlqOQYQxIi3
+         cuYAPqdFH5nbx/gDl8GdJlwhjYcjeKfNyoHdAzTqyUlwhVhX5yeEaqow+8iqa1RO+85N
+         dQTKRQ4LsI4ADwC0YBnBei78FZ7r4WxS8LUy0vWyeEKWOHneQsjXt8jyfB+OwbbzI/kz
+         ii50YcjjJLmWQOFiEEJOssr+uTdJPZKvKdaOHbvbtYV/W1axsVtqw1DYOCfuPo6eG40N
+         W2n1MW7otSY0KrexGgB8Fv8C+AQ9OalXXQyHKKYjtrJuslqHdUho6Th+al4HjiZUaYf+
+         +43g==
+X-Forwarded-Encrypted: i=1; AL+hErFQcx32EcXcDifgCKkp+EmBfEP/ri9leJmPaFOO4hatGPlnYFKAjB1mXcUTlJEvbrsinXoJyYLptiDMkWk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YKxItOseN+4buoPEvlGcsEmf1qdpfd4P9s869f1CneU8lCTZ3
+	mhqfw/pRNE6fZlZ/yvI0iCVcXX82DfhQFSKN3s6apfOwaoS1H4IbqyumgrOwKnCB0uJ5T97XkjF
+	dzoqTwuvgQ3k3tprPcjcV+kLbDdl1YVd60UlGI+HcnWvwLtHPdTbQ9+wtLWxT5AcSdtO3stkhgs
+	dhuLT65q9KgJEtcvYiCLD1km90aVZUtMKZtLNWEThV8SmYlBgEiYz2YbEAGUITrCMDrqNk4CxOx
+	RFAUZRS1U356oTMd/uGcpZB
+X-Gm-Gg: AZFdTZeheUg4HpZvFFfNThEhW7t1Ag0I019iC4FBvcxOh0Qj2qmuqqHvOpiYk59SWt8
+	L86lbdYAE2scmxP4pcCkbaWUhLeX5MXamZhiAjxXN6KKm6F5bVPTFZXXoZc+Q+tppTDKykRZ3Ck
+	hhr2r56GnInVtQi03Hdi7WmfM1MrDX0HzqraZKju8yfmIX2crpEDbpLFA+oP6EvFy0Zv8Q69jPT
+	bMVvHY8BOAOP3AnxrF/FR85B6Bc3lcULaG3UoG0ctWA17cTzUZay8FPGrmh9cwSrpfWsNDBCEkY
+	dN6Fmmiej2A0irSpG6Tyht15ZlcGvRRk/cNOQFwMIXvn7AL50ultiEun+PDHpsWA7/HnQ1oq++T
+	yLxba/ifzIgGatxjRuAnxs63YLA87L2wUzr5fvvAmz8TsaCYcMJqpCVDE44k1MjRkWKt9Ccu3Xj
+	EYfhE8KicjVBfNfn2Pn1SLdPLWYqVkZ+8y5KQ2er5S1bY=
+X-Received: by 2002:a05:6a00:17aa:b0:8b7:aac6:d9b8 with SMTP id d2e1a72fcca58-8c87ca51d7cmr3951600b3a.46.1795203814803;
+        Fri, 20 Nov 2026 11:43:34 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id d2e1a72fcca58-8c872a59257sm28151b3a.10.2026.11.20.11.43.34
+        for <linux-kernel@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Nov 2026 11:43:34 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-92104826f9bso26300026d6.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:43:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795203813; x=1795808613; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tdQj4jlDcQV4Kx+PZkwi5r21miBHCD6VTb5zxRYuV7w=;
+        b=hiG4EAHO9WU1L4guBLhCOyi9rdq3TkzdEW3I1MPc0x+tmjZR/H4WauLDhcD9+xZ+H2
+         9xmEF2ekcavRbyc98dbuvxa+9bdYeVEf8Xxpp9ZEBmCQRbsTrv4zvwtvUiOP+3LGORow
+         cu31objLdzp98nCrzng/sjplvv7H6y6wo1hdI=
+X-Forwarded-Encrypted: i=1; AL+hErGXjjdkzAaAxoWcgF6fSDDTHiomOVm8XO0eL+76bRkxcXURrxSP3W2iNwfUhSNfe5vhphu3txdPwYeXCQw=@vger.kernel.org
+X-Received: by 2002:a05:6214:27e3:b0:91e:747c:f82b with SMTP id 6a1803df08f44-92134bac696mr64470246d6.52.1795203813337;
+        Fri, 20 Nov 2026 11:43:33 -0800 (PST)
+X-Received: by 2002:a05:6214:27e3:b0:91e:747c:f82b with SMTP id 6a1803df08f44-92134bac696mr64469936d6.52.1795203812928;
+        Fri, 20 Nov 2026 11:43:32 -0800 (PST)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0e35sm33847286d6.20.2026.11.20.11.43.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 11:43:32 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Carlos Soto <carlos.soto@broadcom.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Mlody12 mlody12 <kudzo51@gmail.com>
+Subject: [PATCH net-next v5 3/4] net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
+Date: Fri, 20 Nov 2026 11:43:17 -0800
+Message-Id: <20261120194318.3952487-4-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
+References: <20261120194318.3952487-1-florian.fainelli@broadcom.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -100,83 +124,86 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT2PR01MB6254:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0e2bd423-c986-4a7d-6a95-08df473e7713
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|10067099003|4143699003|56012099006|261022105027099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	KM5U1/9DsSdwOWZ3vBlYSqPJrkBFTC+KeE7c8S/xGezg60Iq5+R+rt8XAPY5OFSyK4TeZgt0OeQAQ+kTcmrzfV1aj2SWvB0yLer1QSa4mCAqNYAsy+QAXnoY7bmyUmH4ZI7uNjAfkgmSHjuCqlbmh3PdCSo1IobTI8/P5UY1DJ9y2DcH4kimc80CtavIYrybRkRnyfhIBWRsfqzru51nbS+kaIZHTUE0NYz3xdcTComwt0e27jgVnQW3/+pvjniAH4oEgnfxobsfrY1QKCHMauRzAyxNswL+GYwy1B5a6kUkG2L4OIFrdnS7oKLh0aVmiUdwE9ZZhokLv0ygGTo3YFIkBnyYaW3EjszCzAfQ+TggLIbiSg+7ZNScfZPrta6tFOZ2VDdQVi6PljssQWeobW9HMk8+zxA6YkHDeZBxzGkd33vh5mhEo1yktwZHPUZKGOI/cmVKtm5dMHcFN2Ytub94XtQLvQ2hF2zTctMf3ImNzZUhua/J+VkcoXY9dFKE9SeBHp/ktlWgy7SgM6y2LoX20KkPO228qV5C6fa6UvDRWADZ5zDCT4OdbFd1IDPF5RPpMtnACn/jfd8rLEG/tbi7wIauuuHC6bQWZM2N6vU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(10067099003)(4143699003)(56012099006)(261022105027099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Q0FTdG1QREhXTTc3MEFuN1VaOFZuZXJTYlRHR3FldUY0R0Y3T0NmUUt0WFor?=
- =?utf-8?B?K0VnbVN6TDU1bFNMcVZDcDFKSi85bFk0ck1aekJxd0xGdHZucXFSSm1EenFJ?=
- =?utf-8?B?YVNGcGNvNzF2b2duTGN4aUMrcVhpQ0pZQXFUQmFSS0UyMktxSFRzUkpUWk0r?=
- =?utf-8?B?RmZFdmJSbHJnaXhDVlNTOW04UDV2dkNuTGs4MllYZTYyZ1JJR3NOU1l1bmI0?=
- =?utf-8?B?M0Fmck8reFduQm5vZy8raFcyamUxQzc2UDhuS3l4cDAyYm92TGU1M3F0VTdE?=
- =?utf-8?B?STRiOHQvOVo0S3QzRkZoMERBQ1JQTHRuQ3ZzWWlBV0FpRGU5VnJBV0JYOFhY?=
- =?utf-8?B?YXBKNlNuYjBabXhRZFdQKzBmUUJSQ3gxKzZBc1dHeWgrcG44ZmlBMGtVUWNB?=
- =?utf-8?B?MytabVdhcE9OeE5HN1dXUXFuV3laOXFWMTY0WE0xN1Ard0xjeHpNQXo0MUVi?=
- =?utf-8?B?QkJQcDFOcFJ1MHR0RDZvektrbTVJSm9tZWtmV05WTGJ2SWdUODN6Vy9kcTRw?=
- =?utf-8?B?NWJicE8vcS9ERjZCcElrekJuMU04OHdrMGJzcXdYa0c1aWMzb3VIbDFRc1Uz?=
- =?utf-8?B?Y1Jnem9JZkdLdDB0WXlReTlrTlk3V2hkUXI4YVB0ckczWmVSblBTS1M2a2FZ?=
- =?utf-8?B?WU5vUTB2SFk0cHRNQSticGU5T3pDUVFGR3NBa1VxcVEvQ25qZi9DRXd6TEtq?=
- =?utf-8?B?MmhpOEgyMGZZcmhDU0N0cFlrWUtlbWlwdTJKTU9xM2YxM08zQmkzZUdSVWJi?=
- =?utf-8?B?cktScXc4d2s2Vk1vQzBGMCtTT1h0SktCV2dvMVFhYkp0SEJ4QTRya1FHaWRP?=
- =?utf-8?B?Nlk5RmhqdFRkcDNOMENVSEtTK3lPQ0oyV0o2Z3U0VGVzZ3FRZ0E5SHovbW9G?=
- =?utf-8?B?ZkpFQm56S2grNFN6Njl6RkNLSG5Ca0NNNW45Z1JMYnVMU2Y4TFRDWEVOU1R6?=
- =?utf-8?B?V0RmeDZnRUVjOGcyN0IxNXpvSURjV2wxTDVvc3JRNDZJNDJVNlN2dG1XMHk4?=
- =?utf-8?B?bDdFSVhVRHhHdk5aSDNuZlJBWDBEdjMwaTFkdGFuS0U2ZmRtK0F3VG05NUwz?=
- =?utf-8?B?ajVpSGtBbkpVS3diVVZwb2toUVVOaUViUERaS0VVcUpTQWJUdlo0WEhWcEx3?=
- =?utf-8?B?M3JnVkpZV2M1cDgwR1JNVzUyUVMzeGY5a1I0aVAyTDFJaFBFc1JJV0FSOVR0?=
- =?utf-8?B?UnMzWEtoa2lidDg1S2tPUC9VR1IraE5RbDJKTmIxUE83a1F5aDJOL250Y1Er?=
- =?utf-8?B?bEJTZWZHa3VJcWJHYnNXLzdKclhCMnByb3haV0xLRUhVWHJkOGpEUWE2VEtW?=
- =?utf-8?B?cWgvbUNPdWpXTGlXQ2szMXROd0ZCTjNpVlptY0o5ZHZVL3pwNm02Yk9ETmJX?=
- =?utf-8?B?K1BxWWRvUngwT2VWcmJYYnVKQ0x2MHBaM3Iza0VpdVQ1MDlDaExLRTdQcFdJ?=
- =?utf-8?B?b2VJUjk3aCt3OGk0a0dGSEtWVG5aV3MrVSswMTVodkNQb0NZcXVHODZxOHp2?=
- =?utf-8?B?U0dEYlh2clJTcy85ZjVZbnAyU3hoVU1VcStlU1J6WW90WEFpVnFVRStoK3Jv?=
- =?utf-8?B?d1JTTzZtTkJNa201RkY2WTdXZi91enFPSzE3Vjd6ZVB5WUJvK0NURG5NTE9X?=
- =?utf-8?B?STFmV2ZoamhYOU12N0lsK0lINEJZR0d3RnNxSGdZWk9zdVpmTlZJdDZic1NV?=
- =?utf-8?B?MjNpQzU4ZU45OEVtY0hYWTRHaENsOUNkczViejJNUE5GSGx1b2lremwybHVE?=
- =?utf-8?B?U3lkNHhaZkFHTnY4YXJod2VuT1VKQ3ExUzNBaEkwT3Izc2pnSUhNY1pYK0R5?=
- =?utf-8?B?Rm9IbTV1RlY1MkdXNlpyT1J2MzRwQUFBNU01RWdKOGlZdUQxR3JkL1cxOUFM?=
- =?utf-8?B?Vjd2YjJVdUVsNEdXOG42NTRleGhaMzBPRjhqMDFYWnRFVUNGYU91dDd4S1VX?=
- =?utf-8?B?R1NpTVRnWU15alBVaVp1SGg1bUJpTjUxdWw1bGxuLzFUSnZzQjRQWVV6bWkw?=
- =?utf-8?B?bTdQYkk1N2x2NlVLc3AwMGtYRVRYSnpDRmJsWG1TUjdrTmc5M1c1M2w1WU1o?=
- =?utf-8?B?QU5PZ2h4aGR2SHFNRlMrdDZsaWlpbE1ZN2RUTHlDZG9saUlEbHpad0JoSjdt?=
- =?utf-8?B?UW41VGZXZWtCWDJDOWM4dUpENkVxK3hyWit3VFZkYlB4NWRFMm1KK283azl4?=
- =?utf-8?B?aGFEUXUwT1dzRlVBSGNMZGx4Z0NEbGtwYkFaZXAxZzY1VUZoRE83V3ZXb09t?=
- =?utf-8?B?UXpVWmNOQWVyMC80QVE2ZGsxR085WkF6NW5MdW40bWw1SmQvZEo5Mitvb2dL?=
- =?utf-8?B?WjJHSnYwbDE0b1I0aVNOdENVdngwWXRtZjFQMDNBV2M0L3hLRHZoRWxVTGZw?=
- =?utf-8?Q?qvulavEMxDXojznZC+dk3AC1O9VFjW/BH8Pu0?=
-X-OriginatorOrg: efficios.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0e2bd423-c986-4a7d-6a95-08df473e7713
-X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:42:52.2390
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: B+kMC1zQdvFopm5rcWU8A0VLWpfWjKdGgB9PuLu1N3aGk6FtZFTuyOWvqE7T7nWWomHg7lWNzIi+KZVRNdwECfZXEYGXoG7P5td+RbMcMEw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT2PR01MB6254
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-> Can asleep_donor()'s 1s period outlast the 300ms wait in measured(), causing
-> probe() to fail with a false bandwidth leak?
+The current polling code unconditionally waits 30us, which was sized for
+a ~25us Clause 22 transaction, and then polls MDIO_CMD with a sleep of up
+to 2ms between samples.
 
-Yes, by reading. It did not fail in our runs, on up to 8 CPUs. The file
-grows with the number of CPUs. In v10, the main thread will read
-total_bw, not D.
+Adding Clause 45 support means that every access becomes two back to back
+transactions (an ADDR cycle followed by a READ/WRITE cycle), so a fixed
+delay sized for a single C22 transaction is no longer meaningful, and a
+sleep of up to 2ms between samples can add significant latency to each
+access when the transaction has not completed at the first sample.
 
-Thanks,
+Instead, poll the MDIO_START_BUSY bit every microsecond so that the
+completion is noticed as soon as it happens, regardless of the type of
+transaction. This turns the wait into a busy wait, which is bounded by a
+timeout reduced from 100ms to 1ms: a 64 bit MDIO frame takes about 33us at
+the lowest MDIO clock the driver can program from a 250MHz reference clock,
+so even a two frame C45 access completes well within that.
 
-Mathieu
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
+Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
+Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ drivers/net/mdio/mdio-bcm-unimac.c | 24 ++++++++++++++++--------
+ 1 file changed, 16 insertions(+), 8 deletions(-)
 
+diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
+index 5f79f31220f2..f8e5c1811d96 100644
+--- a/drivers/net/mdio/mdio-bcm-unimac.c
++++ b/drivers/net/mdio/mdio-bcm-unimac.c
+@@ -6,8 +6,8 @@
+  */
+ 
+ #include <linux/clk.h>
+-#include <linux/delay.h>
+ #include <linux/io.h>
++#include <linux/iopoll.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -36,6 +36,13 @@
+ #define  MDIO_CLK_DIV_MASK	0x3F
+ #define  MDIO_SUPP_PREAMBLE	(1 << 12)
+ 
++/* A 64 bit MDIO frame takes ~25us at 2.5MHz and ~33us at the lowest MDIO
++ * clock the driver can program from a 250MHz reference clock. The timeout
++ * applies to the wait for one frame, so a 1ms timeout leaves a wide margin.
++ */
++#define MDIO_POLL_DELAY_US	1
++#define MDIO_POLL_TIMEOUT_US	1000
++
+ struct unimac_mdio_priv {
+ 	struct mii_bus		*mii_bus;
+ 	void __iomem		*base;
+@@ -79,14 +86,15 @@ static int unimac_mdio_poll(void *wait_func_data)
+ 	struct unimac_mdio_priv *priv = wait_func_data;
+ 	u32 val;
+ 
+-	/*
+-	 * C22 transactions should take ~25 usec, will need to adjust
+-	 * if C45 support is added.
++	/* A frame should take ~25 usec. A C22 transaction is a single frame,
++	 * a C45 transaction is an address frame followed by a data frame and
++	 * each of them is waited for separately.
+ 	 */
+-	udelay(30);
+-
+-	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
+-				 2000, 100000, false, priv, MDIO_CMD);
++	return read_poll_timeout_atomic(unimac_mdio_readl, val,
++					!(val & MDIO_START_BUSY),
++					MDIO_POLL_DELAY_US,
++					MDIO_POLL_TIMEOUT_US, false, priv,
++					MDIO_CMD);
+ }
+ 
+ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
 -- 
-Mathieu Desnoyers
-EfficiOS Inc.
-https://www.efficios.com
+2.34.1
+
