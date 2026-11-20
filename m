@@ -1,52 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795158710;
-	b=Y6IBsm1tj4RC6x5bpprHoHDvBHk9OA0qJcKidA/TcMo7i1gEFnZA4Z6dQckCc8YyNTOm
-	 RXG40yNu85gMIhxCpzVC8KLy4mZMNPgeUH1loiVRI2fOPmcImVFOMkbUgSiqpPXpw2YNw
-	 Mm+jDwmQMWvtHr56T26XE0ycrpBTM1N38DYb41e+H8Kr05hjO/D6uGlxImeezsPdm/osM
-	 sB4mOE56oJjEdy12mFbBp6mv31aGSRZOpsHyzJGQHghudI2qKhdFw2YYuqpRy4krjLcXX
-	 GfUmL7OzUq6y+yS/xzaklumHVmZ7TSYJtEg0E0BF9/b3ws4NdhOTb5GWbSmLm0U/KLQ==
+	t=1795158719;
+	b=J11A/B/obWCtD58rW4ueV/xHK2tmXhNM743dbztHQpUmx9KFbsd3p8YG1WrNZc+omJ2k
+	 gzJJZ84yNgMivqhWBncsrEKsW0UmzYD0VA8v5FUwt6IuRThEiYvFU0ZHuKenkY0H1mWj0
+	 fP4CfCGxpPBQfIPTysrhwDE3MRoZyGo0qNw8AsXzqX4f7k0egbRKH1hveG1uPA43QZXQ8
+	 e3C2PNgwSdDXFAz27l9q5O9We6cElWdiVN+gqQUKWpNkxccOr9ElV1xBNqYpkYZvxB9b2
+	 8P9T94Qz9rgflHoD7Rem7izETiirxVfcOPpkBdTFnbJE0mScBWwe9OKw3XBQoP/cG0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795158710;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=3d6BYKx617y+5C/yVo6hbgQboIQwul5S916z2T5RP8Q=;
-	b=RO34DR4Iv+Y6u68KaGKoyR/N1XYL4pzbPNHJH0nj5Y2UAyu5xVEeGAnweawYsxoL8wJw
-	 k+U0og7CIBjhk1Bjj6VNYolL1xvQUIcnmxr/MwPomYfz1V8gRi4DkvtyqIBv7RtIJRl9r
-	 SVl6hnEe515i2gEL2SQ1UdDO1Tep5BRkmuiWavetZBdM9+5Q70dWe2OCtVT/XTMthPBFO
-	 xguO/e11czmdoF+G6/6rUes+pFy7VO5T7hT9EXmg8ivtPMOJ+ZBO1YRmkxs+AzBIj3SU4
-	 gEqmZMwZHaY79l397+hddMomX90uT52XD4mQPERRrvG9GzOf9M3BH97mq3UKQsassYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795158719;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=mx9jCoyCL35kZcFJj4eE8mVv6yBQ3TyEebvwewA9a4g=;
+	b=M26yAey1UZUe2IpAR4/XmXQ6d6zzF4rH9H7TUq+YJzL79YuRW3wIXC+RxF9L9jl8xudn
+	 qXsf6+I+HgSSLx6yN5VPmMsWfix3nA7BG93bOVR26r6tOdLlEoLF2kCPgNquyRDUN+l5R
+	 CuGS2UiveL7GJfrfEdVArMD3XViB/YSC4Kt2HE7gl2ZrfWneiY1ykOJllqaFJSQ8lkazF
+	 PivLuy8u0TplHw5LVhcmsTtE/4/nPXrjvOg41T4dOmzTZIAkqtwKsTKDiqRLFzruKFGyp
+	 ZrJ1Ho4kZ22m7HB0cnN2zYdi0CTsdJ++uibOMgiaMnb9ADCJUSzG32Jl63Dn7kgD9VA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fGnujN7N;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9U250e2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DBDD4606A320;
-	Fri, 20 Nov 2026 07:11:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07B6D606A320;
+	Fri, 20 Nov 2026 07:11:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fGnujN7N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA43C1F000C4;
-	Fri, 20 Nov 2026 07:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795158710;
-	bh=3d6BYKx617y+5C/yVo6hbgQboIQwul5S916z2T5RP8Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fGnujN7Nfb2qjPyKFY65gCBntef2fLHWpdgIoWoOlbdUT4quRBxbGL4Oa8hnBLSXc
-	 yIyhZTjrUmnfq3uYZMfSx5MIsQ8GM53dRGMrYLEMMpIzVRVDBiPFsFTUV7YiRoIwZZ
-	 gowc/VNKFUUSCrDAcJLY5h6ewxI+Lt9zTjFc/88U=
-Date: Fri, 20 Nov 2026 08:11:47 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Temitope obabi <obabitemitope765@gmail.com>
-Cc: sudipm.mukherjee@gmail.com, teddy.wang@siliconmotion.com,
-	linux-fbdev@vger.kernel.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org, outreachy@lists.linux.dev,
-	julia.lawall@inria.fr
-Subject: Re: [PATCH v2] staging: sm750fb: Remove redundant NULL and zero
- assignments in probe
-Message-ID: <2026112033-diagnoses-cartload-9d93@gregkh>
-References: <20261019202015.1724-1-obabitemitope765@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e9U250e2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC081F000D0;
+	Fri, 20 Nov 2026 07:11:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795158718;
+	bh=mx9jCoyCL35kZcFJj4eE8mVv6yBQ3TyEebvwewA9a4g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=e9U250e2Gzb07Ntri6FU1jyd1iOeaWowp9mJogUIquiqBmVzVbZWTHY2hyPWe2gd3
+	 nyai3xuBcqofgbzO/TpuSQ4cJ1S9qVY5RPYUucXTX3f9omHsgxg7z8epdEontApjuo
+	 h1y3niP9km8nnrGQbV8ziWpUeLaRLqmRHem7uE6OOAc+vakPoFbroCNBE6dfDrpE/U
+	 5RLYW743BIl6KNhDl2vreez9mItgH/CSGRZaguFN5Y2gun04lNjJQoBDdDf5I/fJ9G
+	 m81eyRxobsGLGxZ+G29pbFCIDt6A7cKCNo8RK3KfsR0J1zVq94tLqkd3SP/Vi18nE2
+	 E9NszsnlyEHCA==
+Date: Thu, 19 Nov 2026 21:11:52 -1000
+Message-ID: <e64643aed76382fd9adc3b616cb76948@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Shakeel Butt <shakeel.butt@linux.dev>
+Cc: Christian Brauner <brauner@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jori Koolstra <jkoolstra@xs4all.nl>, Meta kernel team <kernel-team@meta.com>, cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org, driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kernfs: allocate in open before taking the active reference
+In-Reply-To: <20261119191923.2223993-1-shakeel.butt@linux.dev>
+References: <20261119191923.2223993-1-shakeel.butt@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,31 +58,41 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261019202015.1724-1-obabitemitope765@gmail.com>
+Content-Transfer-Encoding: 7bit
 
-On Mon, Oct 19, 2026 at 11:20:15PM +0300, Temitope obabi wrote:
-> The sm750_dev structure is allocated with devm_kzalloc() just above,
-> so its memory is already zeroed. Remove the explicit NULL assignments
-> to fbinfo[0] and fbinfo[1] and the zero assignment to mtrr.vram, which
-> only set fields that are already zero.
-> 
-> Signed-off-by: Temitope obabi <obabitemitope765@gmail.com>
-> 
-> ---
-> Changes in v2:
-> - Remove an accidental duplicate of the note at the end of the patch.
->   No code changes.
-> 
-> Note: Greg replied to my earlier sm750fb patch that keeping the
-> explicit zero assignments is good because it is clear what is
-> happening. In that patch the allocation was in a different function.
-> Here the assignments are in lynxfb_pci_probe(), just after the
-> devm_kzalloc() call and its NULL check, so I think removing them may
-> still be useful.
+On Thu, Nov 19, 2026 at 11:19:22AM -0800, Shakeel Butt wrote:
+> kernfs_fop_open() allocates the open file, its seq_file and the open
+> node while holding the file's active reference.  The seq_file is
+> charged to the opener's memory cgroup, so in a cgroup at its limit the
+> allocation reclaims.  Removing the file waits for active references.
+> cgroup rmdir does that with cgroup_mutex held, so every cgroup
+> operation on the host waits for that reclaim.  Deleting a netdev waits
+> the same way with rtnl_lock held.
+>
+> Allocate them before taking the active reference.  kn->flags already
+> says whether the file has ->seq_show, which is all seq_open() needs.
+> If the file is removed in the meantime, open fails with -ENODEV as
+> before.  Only the prealloc buffer, whose size comes from the ops, and
+> ->open() still allocate under the active reference.
+>
+> In a VM, eight tasks in a 256 MB memory cgroup at its limit, with swap
+> writes taking 500 ms, open and read small files of a cgroup that
+> another task removes and recreates every 20 ms (60 s, worst of four
+> runs):
+>
+>                                            before    after
+>   reclaim with an active reference held     5.0 s        0
+>   rmdir waiting for it, cgroup_mutex held  377 ms   6.3 ms
+>   mkdir/rmdir of other cgroups             382 ms   125 ms
+>
+> The rest of the mkdir/rmdir time is waiting for kernfs_rwsem.  Opening
+> and closing cgroup files in a loop is as fast as before.
+>
+> Signed-off-by: Shakeel Butt <shakeel.butt@linux.dev>
 
-Let's leave them as-is, it's nice to be explicit at times.
+Acked-by: Tejun Heo <tj@kernel.org>
 
-thanks,
+Thanks.
 
-greg k-h
+--
+tejun
