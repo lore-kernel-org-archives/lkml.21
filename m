@@ -1,59 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795169442;
-	b=B+mmuL8kCpq3ukwa0KwwVvQFz9FJRDvQL6GklbWSlcO5PYv5C/wVEqlGaI0qWlSZKir0
-	 J+n1fYF/ogpGUYZUPL2A8oYYniCfFEqdxbGRifx++GW1C+Bno8fUItOXv2d4+/7eZRjiF
-	 HVnMhjUfjShQVhMtSK7I/33ajQSI7FZGj0UfQjtpui/bWpdRQTHqoA6Pd3CFjYo0XTHPb
-	 IRosbFGmx2mNdEm1OsEiCXTYSwpJXusCtf1qMCZSBjpEnbv+V6j3qEnzB1KQjiTDQOTa0
-	 Hy4glZQMsw88eUFZ92U2JHRi/Er3CEDivypTFWdLI4yN5y6PIwJuSLgMqxDEifpWcTg==
+	t=1795169448;
+	b=pdG+XpP68a5DAkgbvq3GMY5LhgPAWgO0GEcgTHByaPFBBFZQVNa4VEiIlYXV2GrRoi3o
+	 pTggopVzMUVZ90cy3Af8GtoqQVtvT8eE1fo5VbFZUD0zRmjdwqypGydx/PgrdUDSaSwpY
+	 Tx4FXahTYFMsxC+V8CG0KcTPiVacSwRIfWDhSfGBv0OFAFHiUtK0ljgDaXmDYTAYQMy/z
+	 TAPGjHmgQ60qEiLLlYg+5K43hrtM6Xt/wmKSKr/51gvGfF7qk/o30PjwCsDeMSn055O0z
+	 gsPyBcqvwm1CLlqu3UE3Nn010z1/L9E40DfVn47fECBTIto15UavDn9Ns98M9ML6MYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795169442;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=moeIZGzrOwAWpctlrhy8Kku2zj7eQbniFXXa4rVHPGU=;
-	b=LS8u1a4zbsrKm6TWMaKgce16NI+S7+yLTEqbK61mHdVaFcDFn3ibqqsQswT6iogPXt/8
-	 IY8xikfX0qacMKBaJRXYO2VDcx+gnNYSoMpl+9532II2BwKtabWH+0THZ3pEx6eTTW7TI
-	 2dOCIGO4MaymsKBvmqvRoWiwtJ0QsPbE+0uO6qIWe7XHC8Tq8ew3ewjU6hDY2e/LMMN4w
-	 4d7TWXOIjRcUs265eE5+JXjZml2SP7tTomh0kv9Xlao851+iIdYCMel14tdLPwpHGi8VW
-	 rcVFoA0ZNz8x7Z4J2NCfB4cD9ZcnwermigN7PYPNfVBsa7giTn/nQe5ouvxF9U83g8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795169448;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=1Kw4d8+8FfNGzuUvFVQgRzSXtdZBgru3fPHEEea4jN0=;
+	b=e3FFuWaL8B+VFfH2yazkIjxXwn2B2i3QoI7yIELvAw/6ylIg8HQSJbQuUjlgeYOczTuL
+	 zfrQXj86EAQnTFlH43LjgyiEBNjUKLkFfVpC5jaqJidf7GBMJ9nSpZRn43HJOHlE7IP8o
+	 tO3dYU+0po4meGJNl2m2G3xshI6d1NZBCO9i4tqxD3tnMP/Xr+qUS8vzW8eZADXRn7ioO
+	 Gr+ztxt5s5xebnRJMeEBk0I/fCATwFUU57x+Xm4/2OLGpJMfBXncsJpelNjHOrHD7YO57
+	 LS/OL2WEPalx6PIf8P4g+OFbjggcKLf7ZicB87d/hK/lcQofZT4FPYMu//cfIry2hcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OEKZIaRc;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLToh1Ti;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2338D606A32A;
-	Fri, 20 Nov 2026 10:10:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2338D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 326E9606A334;
+	Fri, 20 Nov 2026 10:10:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=OEKZIaRc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=mo
-	eIZGzrOwAWpctlrhy8Kku2zj7eQbniFXXa4rVHPGU=; b=OEKZIaRcMzhS/UB88w
-	1nltGWpoCq5P88E8qysR1PjqHgalag7Ir4HdA9VcXwqYBWZGNRZMyguXq8imHB9k
-	Dq+OKAUTQw5r3brWFfgew3jBX6UYCXi8B0JV2sWj9fG5UVV2VKjGSZ8kRq7MWgxa
-	gGovC1emMhwxl/Lhd6ckgd09s=
-Received: from LUOBO-DINQG8T.hobot.cc (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wD3PyKIHABrzZPDIw--.25910S2;
-	Fri, 20 Nov 2026 18:10:17 +0800 (CST)
-From: Rui Wang <wr574332525@163.com>
-To: vkoul@kernel.org,
-	Eugeniy.Paltsev@synopsys.com
-Cc: Frank.Li@kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Rui Wang <wr574332525@163.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v7] dmaengine: dw-axi-dmac: report paused state and residue in tx_status
-Date: Fri, 20 Nov 2026 18:10:12 +0800
-Message-ID: <20261120101012.1789-1-wr574332525@163.com>
-X-Mailer: git-send-email 2.53.0.windows.2
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VLToh1Ti
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 4C75D1F000C4;
+	Fri, 20 Nov 2026 10:10:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795169448;
+	bh=1Kw4d8+8FfNGzuUvFVQgRzSXtdZBgru3fPHEEea4jN0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VLToh1Tir6uts0SeGlRBl//X3cQJoCaOibbyKUftV/xZRya+3eHAXARr/zlGfQJG1
+	 96+YnolWtf79XnmuP/cEtT2oo4SB6P1X8t4EEPYW/euBeUEbDAFZcbJIh1TqNDq/E7
+	 XcD/RZlWcRQ+s8UD4RoJRfLJuNJ2LNXNXRKDUGekphW3p0+myAouyeQaDDnSaVACkf
+	 GG6y3TV9D/MpwaM84YeVA1DLAF6Epea0TMvALLytGBEWt86XWG9tzdo7walppFaVvg
+	 iKO0zvpb2DjakRigJ9ylC4EshMVPUB2SSGdHaXfJUVSXeS1Q2CADCy2eAy5FZVtLCk
+	 swVQMahF+CrKg==
+Date: Fri, 20 Nov 2026 12:10:44 +0200
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: linux-api@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-security-module@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>, Ben Segall <bsegall@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Casey Schaufler <casey@schaufler-ca.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Christian Brauner <brauner@kernel.org>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Chris Zankel <chris@zankel.net>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Hildenbrand <david@kernel.org>,
+	David Howells <dhowells@redhat.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	"Hallgrimur H. Gunnarsson" <halg@google.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Jan Kara <jack@suse.cz>,
+	John Johansen <john.johansen@canonical.com>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Juri Lelli <juri.lelli@redhat.com>, Kees Cook <kees@kernel.org>,
+	K Prateek Nayak <kprateek.nayak@amd.com>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Magnus Lindholm <linmag7@gmail.com>,
+	Manfred Spraul <manfred@colorfullife.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Mel Gorman <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Hocko <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Moore <paul@paul-moore.com>, Paul Walmsley <pjw@kernel.org>,
+	Pavel Tikhomirov <ptikhomirov@virtuozzo.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Richard Henderson <richard.henderson@linaro.org>,
+	Rich Felker <dalias@libc.org>,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Serge Hallyn <sergeh@kernel.org>,
+	Shrikanth Hegde <sshegde@linux.ibm.com>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Valentin Schneider <vschneid@redhat.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Vlastimil Babka <vbabka@kernel.org>, Will Deacon <will@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
+Subject: Re: [RFC PATCH v4 00/14] Namespace for namespace roots
+Message-ID: <awAcpPQtM4hYHP-D@kernel.org>
+References: <20261119224312.1037966-1-jarkko@kernel.org>
+ <av_hbgzwo-1FcAPZ@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,273 +130,52 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3PyKIHABrzZPDIw--.25910S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3ur43Kr45Wr1DAw47tw48Crg_yoWDCw1xpF
-	W5G3yrKrWqgFnY9F43Gw4UJr1UZF4fJFya9ryrJ343CF45Jr1S9rs3Ka4YqF1DCr92934j
-	vF4Yya4fCF4UArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_PETdUUUUU=
-X-CM-SenderInfo: lzuvlkittskjqv6rljoofrz/xtbC1AsEnGsAHIvwYAAA3r
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <av_hbgzwo-1FcAPZ@kernel.org>
 
-The driver implements device_pause/device_resume, but device_tx_status
-keeps reporting DMA_IN_PROGRESS for a paused channel, so clients cannot
-tell a paused channel apart from a running one. Report DMA_PAUSED when
-the channel is paused and the cookie is still in flight, including for
-callers that pass a NULL dma_tx_state, and clear the stale is_paused
-flag in dma_chan_terminate_all(), which disables the channel and thus
-implicitly cancels the paused state.
+On Fri, Nov 20, 2026 at 07:58:10AM +0200, Jarkko Sakkinen wrote:
+> I've now re-sliced these into a bit more sane pieces:
+> 
+> $ git log --oneline master..
+> d8e24a6bc14e (HEAD -> rootns, origin/rootns) MAINTAINERS: Add entry for ROOT NAMESPACE
+> f2569e56a267 selftests/rootns: Add root namespace test suite
+> bea05e758f8e docs: Document root namespace uAPI
+> dd05a49aff77 arch: Wire up rootns() system call
+> 2dee7a5fddec bpf: Register rootns LSM hooks
+> 73c51e02b830 security: Add rootns LSM hooks
+> 3cfd6576a037 mount: Support MOVE_MOUNT_T_MNTNS in move_mount()
+> 9ed7387038ea ipc/mqueue: Implement ->set_rootns() fs_context operation
+> 624f0ed9c1c7 proc: Implement ->set_rootns() fs_context operation
+> 1085e6ae2eb3 fs: Support FSCONFIG_SET_ROOTNS in fsconfig()
+> d2898dbdc39b fork: Support CLONE_INTO_ROOTNS in clone3()
+> 42dbccb5890e rootns: Add ROOTNS_KILL ioctl
+> 14cbda3e5bca rootns: Add ROOTNS_WAIT ioctl
+> b2cc82539b75 rootns: Add rootns() system call
+> d29215aa7f0f rootns: Track init lifecycle via copy_process() and pid_namespace
+> 0f9ce7febb49 rootns: Add core infrastructure for root namespaces
+> 7a0e8f969fc7 mount: Enforce mount_too_revealing() for foreign mntns
+> 8c61aee3afbf mount: Add mnt_ns_get_root()
+> 07d239d0287c userns: Factor out install_user_ns_cred()
+> bf74588e706d nsfs: Add nsproxy_open_namespace()
+> 645d31a1c516 nsproxy: Pass nsproxy to create_new_namespaces()
 
-Also, the residue of an in-flight transfer is currently derived from
-the number of completed LLI blocks, so it only advances in block-size
-steps and stays stale for the duration of a large block. Read the
-current hardware pointer (CH_SAR for MEM_TO_DEV and MEM_TO_MEM, CH_DAR
-for DEV_TO_MEM) and walk the descriptor's LLIs to compute how many
-bytes have actually been transferred. The 64-bit pointer is sampled
-with a tearing-safe double read, as the transfer may be running
-concurrently. The pointer is only consulted for the descriptor most
-recently programmed into the hardware, tracked in the previously
-unused chan->desc field; any other descriptor has not been started yet
-and keeps reporting its full length. When the transfer has just
-completed but the descriptor has not been reaped yet, the pointer sits
-at the end of the last block and the residue naturally reads as 0. The
-pointer registers are pre-loaded with the first block's addresses when
-the channel is programmed, so a stale pointer left by a previous
-transfer (e.g. when its buffer is reused) can never be observed before
-the first LLI fetch completes. Cyclic descriptors keep the
-block-granular accounting.
+A "small" fact correction: rootns itself is not actually a namespace. It
+was at some point during the course of doing something over alonger time
+span :-)
 
-Tested on an FPGA platform.
+I'll adjust the language and documentation.
 
-Signed-off-by: Rui Wang <wr574332525@163.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-Changes in v7:
-- Rebase onto dmaengine/next at 2e02fb103be0 ("Linux 7.4-rc1").
-- Link to v6: https://lore.kernel.org/dmaengine/20260928035133.2046-1-wr574332525@163.com/
+It's like SGX enclave i.e., an isolated and opaque object with *nothing*
+at Epoch. Similarly as enclaves there's a build phase for building the
+memory environment, and a live phase that follows.
 
-Changes in v6:
-- Pre-load CH_SAR/CH_DAR with the first block's addresses when
-  programming the channel, so a stale pointer from a previous transfer
-  can never be observed before the first LLI fetch, even if its buffer
-  is reused for the new one (discussed with Frank Li).
-- Link to v5: https://lore.kernel.org/dmaengine/20260924025739.844-1-wr574332525@163.com/
-Changes in v5 (thanks to Frank Li's review):
-- Rewrite the tearing-safe register read as a do/while loop.
-- Drop the "never report full completion while the channel is enabled"
-  clamp: chan->desc matching already keeps never-started descriptors
-  away from the stale pointer, and the residual stale-read window is
-  bounded by the first LLI fetch after channel enable.
-- Use min() instead of min_t().
-- Link to v4: https://lore.kernel.org/dmaengine/20260923060045.5571-1-wr574332525@163.com/
-Changes in v4:
-- Track which descriptor the hardware pointer registers belong to via
-  the (previously unused) chan->desc field instead of testing the head
-  of desc_issued: a queued-but-never-started descriptor must not be
-  matched against the stale pointer left by a previous transfer, which
-  could otherwise falsely report full completion when its buffer is
-  reused.
-- Clear chan->desc when its descriptor is reaped or the channel is
-  terminated.
-- Link to v3: https://lore.kernel.org/dmaengine/20260923044104.3234-1-wr574332525@163.com/
-Changes in v3:
-- Report DMA_PAUSED also to callers passing a NULL dma_tx_state.
-- Never report full completion while the channel enable bit is still
-  set, so a stale pointer (e.g. a new transfer reusing the buffer of a
-  just-finished one) is not mistaken for completion.
-- Link to v2: https://lore.kernel.org/dmaengine/20260923034653.1413-1-wr574332525@163.com/
-Changes in v2:
-- Sample the 64-bit SAR/DAR with a tearing-safe double read instead of
-  lo_hi_readq(), avoiding a torn pointer when the low half wraps.
-- Read the hardware pointer for the in-flight descriptor even after the
-  hardware has just completed it (channel enable self-cleared, IRQ not
-  yet handled), so the residue reads 0 instead of jumping back to the
-  full length.
-- Link to v1: https://lore.kernel.org/dmaengine/20260923030201.859-1-wr574332525@163.com/
----
- .../dma/dw-axi-dmac/dw-axi-dmac-platform.c    | 113 ++++++++++++++++--
- 1 file changed, 105 insertions(+), 8 deletions(-)
+Those are the glasses that I've looked at the topic all the time; not
+so much with namespace glasses, as it's not my main beef and actually
+doing this has very little to do with namespaces and so much more on how
+you manage and control the threads and memory.
 
-diff --git a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-index 7520c78f5..5e90d7d6c 100644
---- a/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-+++ b/drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c
-@@ -355,33 +355,110 @@ static void vchan_desc_put(struct virt_dma_desc *vdesc)
- 	axi_desc_put(vd_to_axi_desc(vdesc));
- }
- 
-+/*
-+ * Read a 64-bit channel address register while the transfer may be
-+ * running. The two 32-bit halves cannot be read atomically on all
-+ * platforms, so sample the high half before and after the low half
-+ * and retry if it moved (the low half wrapped in between).
-+ */
-+static u64 axi_chan_readq(struct axi_dma_chan *chan, u32 reg)
-+{
-+	u32 hi, lo, hi2;
-+
-+	do {
-+		hi = readl(chan->chan_regs + reg + 4);
-+		lo = readl(chan->chan_regs + reg);
-+		hi2 = readl(chan->chan_regs + reg + 4);
-+	} while (unlikely(hi != hi2));
-+
-+	return (u64)hi << 32 | lo;
-+}
-+
-+/*
-+ * Return the number of bytes already transferred by the descriptor
-+ * currently on the hardware (running, paused or just completed), based
-+ * on the current read or write position: CH_SAR for MEM_TO_DEV and
-+ * MEM_TO_MEM, CH_DAR for DEV_TO_MEM. Must be called with vc.lock held.
-+ */
-+static u32 axi_chan_get_xferred(struct axi_dma_chan *chan,
-+				struct axi_dma_desc *desc)
-+{
-+	struct axi_dma_hw_desc *hw_desc;
-+	bool dst = chan->direction == DMA_DEV_TO_MEM;
-+	u64 pos, start;
-+	u32 xferred = 0;
-+	int i;
-+
-+	pos = axi_chan_readq(chan, dst ? CH_DAR : CH_SAR);
-+
-+	for (i = 0; i < desc->nr_hw_descs; i++) {
-+		hw_desc = &desc->hw_desc[i];
-+		start = le64_to_cpu(dst ? hw_desc->lli->dar : hw_desc->lli->sar);
-+
-+		/* Current position is inside this block: partial progress */
-+		if (pos >= start && pos <= start + hw_desc->len)
-+			return xferred + (u32)(pos - start);
-+
-+		xferred += hw_desc->len;
-+	}
-+
-+	/* Position doesn't match any block, be conservative */
-+	return 0;
-+}
-+
- static enum dma_status
- dma_chan_tx_status(struct dma_chan *dchan, dma_cookie_t cookie,
- 		   struct dma_tx_state *txstate)
- {
- 	struct axi_dma_chan *chan = dchan_to_axi_dma_chan(dchan);
- 	struct virt_dma_desc *vdesc;
-+	struct axi_dma_desc *desc;
- 	enum dma_status status;
- 	u32 completed_length;
- 	unsigned long flags;
--	u32 completed_blocks;
- 	size_t bytes = 0;
- 	u32 length;
--	u32 len;
- 
- 	status = dma_cookie_status(dchan, cookie, txstate);
--	if (status == DMA_COMPLETE || !txstate)
-+	if (status == DMA_COMPLETE)
- 		return status;
- 
- 	spin_lock_irqsave(&chan->vc.lock, flags);
- 
-+	if (chan->is_paused && status == DMA_IN_PROGRESS)
-+		status = DMA_PAUSED;
-+
-+	if (!txstate) {
-+		spin_unlock_irqrestore(&chan->vc.lock, flags);
-+		return status;
-+	}
-+
- 	vdesc = vchan_find_desc(&chan->vc, cookie);
- 	if (vdesc) {
--		length = vd_to_axi_desc(vdesc)->length;
--		completed_blocks = vd_to_axi_desc(vdesc)->completed_blocks;
--		len = vd_to_axi_desc(vdesc)->hw_desc[0].len;
--		completed_length = completed_blocks * len;
--		bytes = length - completed_length;
-+		desc = vd_to_axi_desc(vdesc);
-+		length = desc->length;
-+
-+		if (chan->cyclic) {
-+			completed_length = desc->completed_blocks *
-+					   desc->hw_desc[0].len;
-+		} else if (desc == chan->desc) {
-+			/*
-+			 * chan->desc is the descriptor last programmed into
-+			 * the hardware, so the pointer registers belong to
-+			 * it; never match a queued-but-never-started
-+			 * descriptor against the stale pointer left by a
-+			 * previous transfer. If the transfer has just
-+			 * finished but the interrupt has not reaped the
-+			 * descriptor yet, the pointer sits at the end and
-+			 * the residue reads 0.
-+			 */
-+			completed_length = axi_chan_get_xferred(chan, desc);
-+		} else {
-+			/* Still queued, nothing transferred yet */
-+			completed_length = 0;
-+		}
-+
-+		bytes = length - min(completed_length, length);
- 	}
- 
- 	spin_unlock_irqrestore(&chan->vc.lock, flags);
-@@ -430,6 +507,7 @@ static void axi_chan_block_xfer_start(struct axi_dma_chan *chan,
- {
- 	u32 priority = chan->chip->dw->hdata->priority[chan->id];
- 	struct axi_dma_chan_config config = {};
-+	struct axi_dma_lli *lli = first->hw_desc[0].lli;
- 	u32 irq_mask;
- 	u8 lms = 0; /* Select AXI0 master for LLI fetching */
- 
-@@ -471,6 +549,19 @@ static void axi_chan_block_xfer_start(struct axi_dma_chan *chan,
- 	}
- 	axi_chan_config_write(chan, &config);
- 
-+	/*
-+	 * Pre-load the pointer registers with the first block's addresses.
-+	 * The hardware reloads them with the same values once it fetches
-+	 * the first LLI; in between, a reader observes the start of the
-+	 * first block instead of a stale pointer left by a previous
-+	 * transfer (which may alias the new one if the buffer is reused).
-+	 */
-+	axi_chan_iowrite64(chan, CH_SAR, le64_to_cpu(lli->sar));
-+	axi_chan_iowrite64(chan, CH_DAR, le64_to_cpu(lli->dar));
-+
-+	/* The hardware pointer registers now belong to this descriptor */
-+	chan->desc = first;
-+
- 	write_chan_llp(chan, first->hw_desc[0].llp | lms);
- 
- 	irq_mask = DWAXIDMAC_IRQ_DMA_TRF | DWAXIDMAC_IRQ_ALL_ERR;
-@@ -1076,6 +1167,8 @@ static noinline void axi_chan_handle_err(struct axi_dma_chan *chan, u32 status)
- 	}
- 	/* Remove the completed descriptor from issued list */
- 	list_del(&vd->node);
-+	if (chan->desc == vd_to_axi_desc(vd))
-+		chan->desc = NULL;
- 
- 	/* WARN about bad descriptor */
- 	dev_err(vchan_chan_dev(&chan->vc),
-@@ -1139,6 +1232,8 @@ static void axi_chan_block_xfer_complete(struct axi_dma_chan *chan)
- 	} else {
- 		/* Remove the completed descriptor from issued list before completing */
- 		list_del(&vd->node);
-+		if (chan->desc == vd_to_axi_desc(vd))
-+			chan->desc = NULL;
- 		vchan_cookie_complete(vd);
- 	}
- 
-@@ -1204,7 +1299,9 @@ static int dma_chan_terminate_all(struct dma_chan *dchan)
- 
- 	vchan_get_all_descriptors(&chan->vc, &head);
- 
-+	chan->desc = NULL;
- 	chan->cyclic = false;
-+	chan->is_paused = false;
- 	spin_unlock_irqrestore(&chan->vc.lock, flags);
- 
- 	vchan_dma_desc_free_list(&chan->vc, &head);
+This is more like cross-cutting feature with no obvious subsystem
+ownership more than anything else.
 
-base-commit: 2e02fb103be058cf8b2fb24112a74a2715e090f0
--- 
-2.43.0
-
+Br, Jarkko
