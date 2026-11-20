@@ -1,105 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.3
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795161587;
-	b=JezqtKABfUe9zwQ6feaxcoGpTt6DIfs2lfnaLHAMjbY7RrMtpbgSwNfQpB1s+JjKaAZV
-	 YnrOHpUy177zwCeSQNlSND8IT2zhyW1fNJulxMSYwbQWUmXu/OgolID5tvGBaeR3jzZnC
-	 bNVKGv4kREKvcJnTTpWWheqsJCe+dqpyEeKwJbyAtoa81CZPdU+Y9Pe2htsE3TbiE9CZo
-	 0p3svaPdF1scQwdlv5TUrW3JKhJVFkenM+JMYK960xjmideZ1i+Zul2Q+CD6e4Zj6dICN
-	 v6WpAuxDkk5ZbCfK0X/XWfFvDZlFo49WGEhpUNGI/snagb/9wXRSrqTnrJmAH4I2IPQ==
+	t=1795161584;
+	b=DqdPzxPFhsU6g2pNPCYEujyuIdv2dfT9GxmLElsC2mgGwxTQERpYRK1Y05X3wKgpOn/b
+	 95rLdA3qOUt5koRq7B/r8oGS9UN/gle7CDiyikF8+ibO/Gl2d+HdGlbQQp3uLy1L/gbS/
+	 zCNaCL2QP07Lbh1sUTUxqBbuF5BDNZyS7//khA55Z4+NxI9d9mqA+qCFzxZhdzYDl8qcw
+	 93vFcyoJlvdh+OpE8anABiZEpWZzna3//+e3iTrnGMhxeo5srfaFWPn+GECgVxkrpbm4V
+	 /cu1vHIWi71XoSFyKxJVBzMldthGH6tiD38uElMaFbRXGbgFtLIKkeI6z17p8JrKrRQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795161587;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-OriginalArrivalTime:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-SET-LOWER-SCL-SCANNER:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
-	b=CYUuy7PGHGhRqpNjVUyOQlsJm9Q1a4iBoGvU9VkFAwYcpI9LwXAteQdWiJ5NOx9QxJej
-	 MLHVy00/a5utnTj0HKOKvrdlfRKJTjz/Eo/0mF4EagsI69YYkMbwU4uQGPfbwF7HvmHrl
-	 LOLIsC1oLFPx7eI6Idxgc484P5BRHcqkzUM9sUzhs07RQYndKX8vqL/HT06dvq5t0aals
-	 yRqyRasg4mvRzh0sq4YXqWRGw86IRqBZ0S4PZdC/nXw8CkjEft7ZMcy7oZyAx6DkdBr3X
-	 40mCCTuWxd4PokOJTNLgpKdnM2uyU6E3RQaf12/hbOPjfn+dWp+eF14/jZf3pV4WXjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795161584;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=aA5k+rmEhdyHwcnWrQk+xAlhNO+jF98wTQXFKpkmDY4=;
+	b=jCX+NPPfZ+2ZO4iTdEhm38fezYejLqf3Tgtfi7Utwexl0utG9yqQUVPNZjLJpYqg/qhe
+	 Q9fU91HJ40oV97056xPtly/V1h5Rf0u7oZ48PqPnm5MKU/rwhrDW/Dug88RuQh0HMoqh+
+	 aWktF+t/n+2NxyKjDwSTsCDm4SYsAp8nNZENOEX2P5i0NcdyPa1EmmNKaugm0kChWgvF/
+	 o227ZVhI4JpeGB/O+NeEF1Eb44bZrbISPAyTjQouZd2tKBqIM0sQB6OIyLIHr8/UoETmw
+	 dTl71IbWXPcO3BvMuUmal89AEI8V0h1LgYefBclopj8foipIVfPxhF80a60ZKsk34aA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leica-geosystems.com;
-	spf=fail smtp.mailfrom=leica-geosystems.com;
-	dkim=pass header.d=leica-geosystems.com header.i=@leica-geosystems.com header.a=rsa-sha256 header.s=selector1 header.b="c/3qOvTj";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.3
-Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010003.outbound.protection.outlook.com [52.101.69.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e94eVXt0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.42
+Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8043606A325;
-	Fri, 20 Nov 2026 07:59:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8043606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=leica-geosystems.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=leica-geosystems.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41116606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:59:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41116606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=leica-geosystems.com header.i=@leica-geosystems.com header.a=rsa-sha256 header.s=selector1 header.b=c/3qOvTj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V4cAeeJKh41RZX6cHB19XVrCps5mjjgB83XPsHhDBFvIkxX92rQU7OujkxgliAVI7Sb4vxqA2nrS+cx41b0RidYgjeZNhPycJbRgBjrwO3OzVYbilyjReklgbojSp5/o5ZKBuYvN5GHuxvHCW6+pu/t1vd4R3e5Jkr8xp0VjYPqnbGAFhBJGx80d1foCbtxFbojDvK4NKnAkbiaHXzxU5G0FbGkABaSJqaUhDYtG/66SeL5vDdFNIunayJt8aYazwhtoxQlXZHtGkYef8vA0Mdl6AnLoz6k4MG6e2Cd4GCs34KKrBCuXm3UPMt9IEat3qDdEGHJp9EQH2BEBlX6ncA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
- b=nc/KH2o1u2/aH7/Uhduxw7yLrEjOEEgAhz9ZaWYgP9/FvS6CTuU9k9MWrn1NWFy7utIgw9Ip+qILpXifNBS1g1XSx42uxDhsbShkiHzf852trzsO5Mz5/A/CYWsqsRjjyngZg7Tca11UZAy4hrkF3FPwb1SgiPeb6jqCvB3mHS/R38ZgIPCpWkUT8nxsK3JjII60SZYWs1SMnUgclz98WCeSdlvAMJi4LNmon5QN1UEOAjqUI7GdSMkclGpq9WjDEqDpyiDeWQiyOMXoienxmcAcWvxJe4SHxFay5KSDkWiAWOxMPsJ64uHIZorRUJpsgvGj4w4Ul2yktRagqOeYhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 193.8.40.99) smtp.rcpttodomain=vger.kernel.org
- smtp.mailfrom=leica-geosystems.com; dmarc=pass (p=reject sp=reject pct=100)
- action=none header.from=leica-geosystems.com; dkim=none (message not signed);
- arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=leica-geosystems.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wfTwRgCI3ln1VubWkXY6DffclJa28UC+BzfAEXKcohQ=;
- b=c/3qOvTjCze0mxkCnDVkly7jYZHwpy0FA12d62aXa0d2eHmlxK7CHV8WiB3rNwPgXOe39r76fxOPuPpDO3UtoSFsKdlX+fCmwv89/yXzHyKvqJmSF6dM8N8p2xsBISonVpHExNp0crKSHZM4jiqW1Uc3uA/FXgqTgfW8u2ai7oA=
-Received: from AM9P193CA0029.EURP193.PROD.OUTLOOK.COM (2603:10a6:20b:21e::34)
- by AS8PR06MB7367.eurprd06.prod.outlook.com (2603:10a6:20b:31d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
- 2026 07:59:42 +0000
-Received: from ZR1PEPF0000E45D.eurprd04.prod.outlook.com
- (2603:10a6:20b:21e:cafe::2d) by AM9P193CA0029.outlook.office365.com
- (2603:10a6:20b:21e::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.12 via Frontend Transport; Fri,
- 20 Nov 2026 07:59:42 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 193.8.40.99) smtp.mailfrom=leica-geosystems.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none
- header.from=leica-geosystems.com;
-Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com
- designates 193.8.40.99 as permitted sender) receiver=protection.outlook.com;
- client-ip=193.8.40.99; helo=hexagon.com; pr=C
-Received: from hexagon.com (193.8.40.99) by
- ZR1PEPF0000E45D.mail.protection.outlook.com (10.167.241.53) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Fri, 20 Nov 2026 07:59:41 +0000
-Received: from aherlnxbspsrv01.lgs-net.com ([10.61.228.61]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
-	 Fri, 20 Nov 2026 08:59:41 +0100
-From: Jie Gu <jie.gu@leica-geosystems.com>
-To: Matthias Fend <matthias.fend@emfend.at>,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>
-Cc: linux-leds@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Jie Gu <jie.gu@leica-geosystems.com>
-Subject: [PATCH v2 0/2] leds: tps6131x: Fix torch-to-flash transitions
-Date: Fri, 20 Nov 2026 07:58:57 +0000
-Message-ID: <20261120075859.731257-1-jie.gu@leica-geosystems.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e94eVXt0
+Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b887ca9f5cso866536a12.0
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 23:59:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795161583; cv=none;
+        d=google.com; s=arc-20260327;
+        b=enODOLtyweYWmRBgaXk7BiFrBpy2IP10arStJNk/+E3bPKbljVD5NsUHZjQiQNWHqY
+         sZjgueNJqHKz50r12nNcI6iQXjsuz2FTFkYWzTJ/918JRmzcspSKqHLC0lHxW3WTE8TO
+         1rTyO3hV8BLQzOQ1YTrGU+nmmLvIcAt51HJrbCCXjvyzxxYFsjK+YarsgSkEcAcqS0dp
+         LTz/d8FHvWGo4de66Y9XN9S88JAnY0HAdmG1gdbSlDZoKUngF/MwZXHv2PbEMRUlIW0L
+         Txj1+wEm/016IWKZ2cn77TdeTrskJvdTisW+0m7VqdYEHLC+BbSTHLKgAVTW+X+KXEAs
+         baOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=aA5k+rmEhdyHwcnWrQk+xAlhNO+jF98wTQXFKpkmDY4=;
+        fh=vCrnMqwVa9/sd8XgckKmMtdd/22gujK9LJysShOb6xU=;
+        b=MZdHB7nDXSqFoYO6pC5wlibGV+4hcVM/wI1qwQGiC5n9O5BOOWqYDf9t6WHYpipf73
+         IBqw0sS3DL3mYsq8G96fccO9fcbrNhL5/ev51o5CHIxxF4jRydZDdGZEjf5MQDg0/o/i
+         YmxlctMdA24oveTBz0uC7MHQRYu9XbjJxy7meWpdJ0MNo9/aa/UmzSjcs+vR58Cnik0U
+         wobXkhhZKPuNPXkgo5k994hQi4WHmSl4aGKiwy2RTiq6hZWHJSckfnYuiy9wUt5JEmd9
+         897FOJQ7DeRa0NaJ+RiGEHq6uxwcDp473Y23TcWXxIKZrD8DlmxHRyA69SxLCypZQv8z
+         r/xg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795161583; x=1795766383; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aA5k+rmEhdyHwcnWrQk+xAlhNO+jF98wTQXFKpkmDY4=;
+        b=e94eVXt0AbzL5sLKMSsPql7RGfCEigY0b63RU9ZpRLW8/G1/JhhN2c9Ag8L7M3LV9+
+         xypY2KFpegk8RFUAV5khGlz6GdAN1hDTq7tdHUjk3qtUBW0nKJcLVw6keFB98c1n5UO/
+         Oo7XoKUMlOOXJNyZCBJ9NES1NAnkYuNgPbVIjwy5WpNLgiwMjjIJ9xmnL1FRHyNCQk2C
+         kAu6cL86j5Z2/toO5/ilgFbLwrfonjrR65SsVKK9UIsMJK9ePPCphYWJbQsdhjeWgHiW
+         UW+kACVgdvhFYnSwFnnwMKZ4w/y4nHTKHPEFIqKyab/qmf5j83J6iYX2MWdJGXIPpOoC
+         dxHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795161583; x=1795766383;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aA5k+rmEhdyHwcnWrQk+xAlhNO+jF98wTQXFKpkmDY4=;
+        b=L+bYrKob/26MrLbDz7mtm6F3WiplXOrpMu1MrkEEIKOT2RCD9kd4gClU4mPY1GG1xa
+         FJz0mul+w9wewBZ7bkBQfwTc+dYNnRQ9DOq1NB0t/f43ZRl5eu7q/4ydhbhGfpn9p5pw
+         udQblikxSvSvmVGIvFChBRwErajenyyaynQ6k8z6RKgM509RHfPponGkAlRquviZS3/r
+         J4rCArU2STiSGhXi5oOY9D/ZaNfssvsEAoHKUMC7k8qZyqFtHWlBTKY43D574awXpzI3
+         jISu4Ows6sV/BupxmOD6eb9pTn7g5aMAEs1mGhg3ul5bCsi+a3Vr4I6hgX4qu7zzRn16
+         rkbA==
+X-Forwarded-Encrypted: i=1; AL+hErESWB0mDXOR31ldARDepB0V/OYiIRKnGPCR2jdAaYXyS13F+PlIsq3jA1o7TlGo7CueizNu/CSh4et0MnU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9Z2xr2x2mV/ICN0K/WPRQtjxVwEAAb6iwFP+OJpmzjd+toUO1
+	dP8KxS45tsxR5s0vGv0zW9nutT+wHqf6l17o2jMYWWvYxk/RdBflxqydRVV3ipTXr0vG38XDDjT
+	luXJyCEfm5iOdnqw5S52c/hCdu30MkIw=
+X-Gm-Gg: AZFdTZfOePMe6p6+8LM8RhQJGYU0qfyQODnx8DsJW+wLPnHo5Fpavkk2CrA/ykcbp/7
+	EaJmbn0arMpqyDSxihR1Ai3xRsptDpIjXvobwf7O6kl1+7vbbuZSAoNSjEIjjG6sorgSSmX0LTk
+	VQpR/CaQ7Sb2iOXsWVhGvvaBVSdY8bRHYH4mEXufwWVjGWGszl2fhg3i10XTFajUdsxUnrNDq6k
+	6OtmIvniMhWyndrh2/Cd9M94M+ksuO8U76fp0OSr8Var5kPeVJpqPJ10hoBlLITedSXkyfwfZVJ
+	hDjDVrMmGYfrUIeMkobTcynSvXezi9S6j/HiGmn8S7N2vB+yvhT+B1qCBUNi++VfmwKuDAVVvIE
+	IpCPJi1OPwPFohms6xZkCV4sWEWnsNeIQT3PpjZPzXR+LS3i5yteh2OsoW2p61yGFptGLTw==
+X-Received: by 2002:a05:6402:2745:b0:6ba:1347:5cf with SMTP id
+ 4fb4d7f45d1cf-6ba37cc07e6mr1431968a12.2.1795161582368; Thu, 19 Nov 2026
+ 23:59:42 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -109,62 +104,159 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-OriginalArrivalTime: 20 Nov 2026 07:59:41.0515 (UTC) FILETIME=[190CE9B0:01DD78C5]
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: ZR1PEPF0000E45D:EE_|AS8PR06MB7367:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: f26f25af-dc28-420f-14ee-08df46dc3b9a
-X-SET-LOWER-SCL-SCANNER: YES
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|42112799006|82310400026|36860700016|376014|23010399003|61400799027|18002099003|16102099003|13003099007|11063799006|56012099006|261102123227099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261009223027099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	FyGyRAZBZj5hwLE4eOn2EE12VsyEtSd+KDC6rO42rY8+rYXBYM2egfTWfhFAmMCGLTxh3pVv7WKCcRWOhc+nAZl2ALak9YbFZ5j+BMcO2R8p0YJE1TztNOGNr+Z9kYOkzZOh5K0VSXZZNkeQa0Wl0HrpcGNNoU+hhFxZnmrkIGipPDRTqm1qdQcBh16j+aTw5DEXLsrl1G68ftSj5l6TPF0ZtF6/Je41kCo8MCjlK0Z6y8EQPqKgIwiWwGit0IUwqSK2P/sEX2eWyeHwI+GcNyyDtI0nIPiqNpF+sLmcvwAAHZczLS5aWTpuyR31HP0nGROict3cuy30xNWlOEgfta8ZZ8DohxYz4ajeQy52QNuol9dTtcci2ZGNtieuhWi0X+32HAYkdftC+yiH4JHtUhNPeYHT6HTQIeKhUwB8GE93W2defdLsTXjPV0VweRE6XjCXzvjMZw4Y1ShWDLgeGe/5qr33EGjnrBUMg8BwlYkAKbRqu07OtpiRKEkZZXa4pPRgWT1K23RbQ1uZTNheEH5AcITW6XTdiqS0VJJ07G6JaV2Sbvm6azvDWkPMSJsjJzACqDhkRaM+5nrT1+je/ET4IfctM8mqdlVu4fNPthuo8WhnR5nLaS1edAoQNO4VW3kPzJzR7NBNM1a9ov96/8XB+59TLS2G+cpCsqkaQss=
-X-Forefront-Antispam-Report:
-	CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(42112799006)(82310400026)(36860700016)(376014)(23010399003)(61400799027)(18002099003)(16102099003)(13003099007)(11063799006)(56012099006)(261102123227099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261009223027099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	+ZmzbNipRbasmZ/mlAvC4qmY5AVZd9bIawjghlbx4XXUq4mbYkQ2hx3cXTGtokBiPMs07iB40S2fC8wmqcNO9dvjnz9JP79Bj4wWV7M/5LTijBYEepO233J1JmLJTlOe8u4s4U52IeMbmw+JpT6gPLqGx15fTqXY2mS0nwoGCKDIG9WXMwIaz7pPStTJY7PrtwrSdB116iRtgHcO6/Uxm7YndL2cWzBEZiupsidTWGCwc9h/PLOylWBPRqUYPvUs97ynLnLlug5MQuVYwp0MZIhCoRvl0emniwbS8ODg1vU9U9gp/iO63/tf+MIS3qWs1bEXg4Alu370Biq/RDmsTrzpQDKyFHhU6Z9P51EsRbYhKoB+1zXsCDvoe5HqMymCDNnA/nVNjEaf5mnCVnRczj3cz1xbRAw/UG3veftuEzuEILhi8fYO2hS9ggX68B4q
-X-OriginatorOrg: leica-geosystems.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:59:41.6043
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f26f25af-dc28-420f-14ee-08df46dc3b9a
-X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.99];Helo=[hexagon.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	ZR1PEPF0000E45D.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR06MB7367
+References: <20261119025942.2848130-1-neilb@ownmail.net> <20261119025942.2848130-2-neilb@ownmail.net>
+In-Reply-To: <20261119025942.2848130-2-neilb@ownmail.net>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Fri, 20 Nov 2026 08:59:30 +0100
+X-Gm-Features: AclHuK8z9GrtZEu_wntP7i6NsuYSR0h-8HuMM7V7cKM0I-uLZ7WO8s4PozWdTVI
+Message-ID: <CAOQ4uxgK7FL9WSEF4U3Ba=-tVyEBfe+2EFprSywS6W=guBSqsg@mail.gmail.com>
+Subject: Re: [PATCH v5 1/5] VFS: don't count references through ->d_parent
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Ian Kent <raven@themaw.net>, Jake Edge <jake@lwn.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This series fixes torch-to-flash transitions in the TPS6131x driver
-by cancelling pending torch refresh work and clearing the cached
-torch brightness when flash control takes over.
+On Thu, Nov 19, 2026 at 4:00=E2=80=AFAM NeilBrown <neilb@ownmail.net> wrote=
+:
+>
+> From: NeilBrown <neil@brown.name>
+>
+> The number of negative child dentries that a given dentry can have is
+> effectively unbounded, so counting the references through ->d_parent can
+> overflow ->d_lockref.count.
+>
+> We only use this count so that we can know when there are no remaining
+> references including from children.  However most children appear on the
+> ->d_children list and the few remaining children (inactive
+> DCACHE_DENTRY_CURSORs) only exist in a context were a separate reference
+> is held on the parent.
+>
+> So if we count whether d_children is nonempty (i.e.  dget() when it
+> becomes non-empty, dput() when it comes empty) and require children not
+> on ->d_children to have a reference on the parent some other way (which
+> they already do), then ->d_lockref.count will not overflow and we can
+> still know exactly when all references, including through ->d_parent,
+> are gone.
+>
+> __d_move() allows that dentries might not be on any d_children list as
+> is the case for IS_ROOT() dentries.  Rather than track when this is the
+> case we dget() either parent if they have an empty d_children before
+> children are moved around, then dput() if they turn out to be empty
+> afterwards.  This will increment dentry if it IS_ROOT(), and then
+> decrement it afterwards, and will decrement the refcount on old_parent
+> if its ->d_children becomes empty.
+>
+> To help with this, dput_dlock() is added which warns rather than
+> decrementing to zero (which should never happen).
+>
+> When a DCACHE_CURSOR dentry is added to d_children, it is only ever
+> added "before" or "behind" an existing child, so it will never be the
+> first child added, and so never needs to adjust the refcount on the
+> parent.  If it remains on the list until dput() it could be the last
+> child to be removed, in which case normal handling applies in
+> dentry_unlist() (where it has been moved from dentry_kill().  When a
+> cursor is deliberately removed from the d_children list the refcount
+> must be decremented if that leaves the list empty.
+>
+> hlist_move_behind() and hlist_move_before() are added to simplify moving
+> a cursor within the d_children list.  This results in some duplicate code
+> as they share a common prefix with d_detach_cursor() (hlist_del)
+> which is currently factored out.  We can expect the compiler to optimise
+> this away and don't need to clutter the C code with it.
+>
+> autofs compares d_count() with the number of known children of a dentry
+> to detect if there are any concurrent references to a dentry.  These
+> comparisons must be changed to reflect that we now only count "one" for
+> any children rather than "one" for each child.
+>
+> Signed-off-by: NeilBrown <neil@brown.name>
+> ---
+>  fs/autofs/expire.c     | 25 ++++++++++++++++---------
+>  fs/dcache.c            | 40 +++++++++++++++++++++++++++++++++-------
+>  fs/internal.h          | 10 ++++++++++
+>  fs/libfs.c             | 14 +++++++-------
+>  include/linux/dcache.h | 17 ++++++++++++++++-
+>  include/linux/list.h   | 30 ++++++++++++++++++++++++++++++
+>  6 files changed, 112 insertions(+), 24 deletions(-)
+>
+> diff --git a/fs/autofs/expire.c b/fs/autofs/expire.c
+> index 5c2d459e1e48..cd276bce28c9 100644
+> --- a/fs/autofs/expire.c
+> +++ b/fs/autofs/expire.c
+> @@ -208,15 +208,18 @@ static int autofs_tree_busy(struct vfsmount *mnt,
+>                         }
+>                 } else {
+>                         struct autofs_info *ino =3D autofs_dentry_ino(p);
+> -                       unsigned int ino_count =3D READ_ONCE(ino->count);
+> +                       unsigned int use_count;
+> +
+> +                       /* allow for 1 if there are any children */
+> +                       use_count =3D READ_ONCE(ino->count) > 0;
+>
+>                         /* allow for dget above and top is already dgot *=
+/
+>                         if (p =3D=3D top)
+> -                               ino_count +=3D 2;
+> +                               use_count +=3D 2;
+>                         else
+> -                               ino_count++;
+> +                               use_count++;
+>
+> -                       if (d_count(p) > ino_count) {
+> +                       if (d_count(p) > use_count) {
+>                                 top_ino->last_used =3D jiffies;
+>                                 dput(p);
+>                                 return 1;
+> @@ -321,7 +324,7 @@ static struct dentry *should_expire(struct dentry *de=
+ntry,
+>                                     unsigned int how)
+>  {
+>         struct autofs_info *ino =3D autofs_dentry_ino(dentry);
+> -       unsigned int ino_count;
+> +       unsigned int use_count;
+>
+>         /* No point expiring a pending mount */
+>         if (ino->flags & AUTOFS_INF_PENDING)
+> @@ -375,9 +378,11 @@ static struct dentry *should_expire(struct dentry *d=
+entry,
+>         if (!(how & AUTOFS_EXP_LEAVES)) {
+>                 /* Not a forced expire? */
+>                 if (!(how & AUTOFS_EXP_FORCED)) {
+> +                       /* dentry has any children? */
+> +                       use_count =3D READ_ONCE(ino->count) > 0;
+>                         /* ref-walk currently on this dentry? */
+> -                       ino_count =3D READ_ONCE(ino->count) + 1;
+> -                       if (d_count(dentry) > ino_count)
+> +                       use_count +=3D 1;
+> +                       if (d_count(dentry) > use_count)
+>                                 return NULL;
+>                 }
+>
+> @@ -392,9 +397,11 @@ static struct dentry *should_expire(struct dentry *d=
+entry,
+>
+>                 /* Not a forced expire? */
+>                 if (!(how & AUTOFS_EXP_FORCED)) {
+> +                       /* dentry has any children? */
+> +                       use_count =3D READ_ONCE(ino->count) > 0;
+>                         /* ref-walk currently on this dentry? */
+> -                       ino_count =3D READ_ONCE(ino->count) + 1;
+> -                       if (d_count(dentry) > ino_count)
+> +                       use_count +=3D 1;
+> +                       if (d_count(dentry) > use_count)
+>                                 return NULL;
+>                 }
+>
 
-Matthias Fend reviewed and tested v1 on an i.MX8MP-EVK with a
-TPS61310EVM. Thanks to Matthias for reviewing and testing, and to Lee
-Jones for the review comments.
+AI review claims that ino->count starts at 1 and (ino->count > 0) is
+always true,
+so use_count should be:
 
-Changes in v2:
-- Use my full name in the author and Signed-off-by fields.
-- Capitalize the commit subjects after the driver prefix.
-- Update the cached torch brightness directly at the call sites
-  instead of using a helper.
-- Add Fixes tags.
-- Carry forward Matthias Fend's Reviewed-by and Tested-by tags.
- 
-v1: https://lore.kernel.org/linux-leds/20261117064328.4096518-1-jie.gu@leica-geosystems.com/T/
+                       use_count =3D READ_ONCE(ino->count) > 1;
 
-Jie Gu (2):
-  leds: tps6131x: Cancel torch refresh on flash mode switch
-  leds: tps6131x: Clear torch brightness cache on flash takeover
+It sounds right, but I did not look closely.
 
- drivers/leds/flash/leds-tps6131x.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
-
--- 
-2.43.0
-
+Thanks,
+Amir.
