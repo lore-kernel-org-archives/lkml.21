@@ -1,89 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207911;
-	b=eM6MghVm8O67Y2FEYU4LvcYCXTCFqnaSMkDfhelXoi1voSZO3Olvc3uhNVGUJkiBj/RK
-	 wtC3r3l3nXBHgn3VKzX6vV/DW8p1lW2gMFp+0frhFHQpnqbi6d6/19eHftWb6rMjRVLwl
-	 K8PZgjyxjTIoXAIiZGkkILN0t0NeGQXkapCscO836N5HPJGQvrB+ghCg5sDeRJ8uV2kpw
-	 6eM05tPBGqRp4wiD2Iq2UDE07qd7QwlVfTH2LvIyUkYLvQKe/s3UjKR9hSE6Zkz+GTgOB
-	 GKlz0tlnuQO1c9D01BlNcEftDeVYKc0urwEom+SZX7xK4Tuj5EGeR0pxUlzA3iJGejg==
+	t=1795207913;
+	b=b2g7PTOSjAgYWY6cXscUk4ZTa+xfR92kfFj9A3FfpqeVCN3Ol+5WI4gM5mbwtSN9IibM
+	 6mHwLdTIjLEF/rSHdwMfoSdiLHMfA1LQ9Tn1FWR3ZB8aoyCQ9CoJ76aQHYdUL5yb/CbeQ
+	 b5lOZxOmkhK8nOo5RVqYSXdLPQVCSPjppa0ryJkuypHN3Gkh9hnx2cfi/JkK4UniSD39r
+	 Q4ozpFLf08mtiKBy7Cigm7tDxFLhx7ctOT6OmO3GkUkKc/2he9mnakRiG4snjrxjv26OV
+	 6NnnRSyTOwMmdXzPU6o0jpXzyejwnSnCGwJB0GgHzC2KaG3E8WCzF8kjG701XE0XwTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207911;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207913;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key;
-	bh=xlD/TPZK3GVSb3pT9G1ZjoackSpe0ETwbU/adFdgNuE=;
-	b=ybPOwBgnGh5MbJ4lE2CS5ewHoNYtFIvsgLO/ibbArjJQg/8+nYOpymupIH4rRzrOOhA7
-	 ZvLCF8OeJYN/3o0hu8jSXpcKWTsG4XFSJcRuI+YL3sJs7Nz14Vfo0vT/UhbNpIMhEPJeu
-	 w3eQEyYpQf+gRL3A4WFwHMBWkWbja7XklysJffFqlLZRnXKt/LvFG94p3jRi+RthyJBm+
-	 5WDa8/IHkwnlJ5oz/34G4W+Sck1grgnPqO4LXWWkgm1iQyNDNu7dCOjt1t1g0wnvvGklc
-	 zhXYXrgGpxJ3Mp4nN45n0JpVxRPNnu7ZzMHIySSQawKRoS5uWbhFWpK66baQpusN8aQ==
+	bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
+	b=Z34b21MENvW/dGEHc7ZvgqmycDUJQMqhEwK3jLmiWboIMRm/jWHDu8Mt3n9NKVb+dhq+
+	 4kX1GCVx9rKDyg5Qb4aLGpqJCDrnmzVK/ixfWxP3DvRNCtO9CtKif4lG+Aolq+umh/X8u
+	 taM3slQexkTcwsCnKrRF+pKQWFGGOvNfxwkrBmR/WMm+8OJ180IV3v3Z7mtOrluXduSBu
+	 GxeI7cKUsRodv/cgWulEzvvwBXTdW1C5Dvi1oiLvCVdnjT4IJjIc/jRuUc1TI6P4Z8yTV
+	 YPl9uC1KFf94EBri+Lw1bjyJQDxlbV8Ipj3aUgC+WnyW2VmWlv3OFxGlJhX6Tt80QwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=toxicpanda.com;
 	spf=pass smtp.mailfrom=toxicpanda.com;
-	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=oGaVCIXd;
-	arc=none smtp.remote-ip=209.85.160.181
-Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
+	dkim=pass header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=POHpYIdc;
+	arc=none smtp.remote-ip=209.85.222.171
+Received: from mail-qk1-f171.google.com (mail-qk1-f171.google.com [209.85.222.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 102D7606A685
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:51:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 102D7606A685
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D74A606A689
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:51:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D74A606A689
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=toxicpanda.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=oGaVCIXd
-Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-5363c8de563so14444411cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:51:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=toxicpanda.com header.i=@toxicpanda.com header.a=rsa-sha256 header.s=google header.b=POHpYIdc
+Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-94961d90b79so164870585a.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 12:51:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=toxicpanda.com; s=google; t=1795207909; x=1795812709; darn=vger.kernel.org;
+        d=toxicpanda.com; s=google; t=1795207906; x=1795812706; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xlD/TPZK3GVSb3pT9G1ZjoackSpe0ETwbU/adFdgNuE=;
-        b=oGaVCIXd7mQGNeJVeFCayHxXgfIP4B+H2jxSlPD+n5wN9TF1OeX49fPSj8OiJp1FIq
-         jdvyM4gpExzny5CgmWNk4hLIQyaUNN3oxEas+/F3aU+F7OjSPOmey3IVVb62/1PighBP
-         iD2efI/Cfd0XII5SqfF30Xfnkm9v5E5kBNSCKXkwdYaB4IsaYUZLy1EdF9VZQcy59zKB
-         bs4tkuBbx/zGHFNdR4p6QAqgJF+alrNug2XSIrUDsvjmHIg5Bwp15Z+xxAKOJbXwC2Iq
-         gJVho6VZ/IRoQC0xhNCmGIfqMfBRxoOjJKuc8/q3oMtV7aMIGKREaoKoYalyr2+iQXNl
-         iJrQ==
+        bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
+        b=POHpYIdcSc9DudTRYsVphM9SmFJ2AhWB+OGRTCgbyZK3KOOAYRSoWV8Bre4w8j23J4
+         YNlRw/DY1CNbk7SYeQOXt/WH0sifG7W+nMVYiEmzOmxfY306OF2lX0qajVz5AmUDMEyI
+         BDtKCPMdzZ+QMalHwV248Wjs6LlZ6oi9i/Lvatw+hw27aCKlwMLR47aQIMR+Mrax0oUy
+         tNxbc+ldsG9zGAwxKGQeVEUfl30sawtpuFGMsVA6HqVWb3VSAtKxIDUowTW7n8d4epG1
+         Bg1KnuQWFqqAUXPLKEnDN22DRj3qvSQZfb9hFv9FUH+aJKIRDJOTpzyHUr4/+ak67n17
+         QmRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795207909; x=1795812709;
+        d=1e100.net; s=20260707; t=1795207906; x=1795812706;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=xlD/TPZK3GVSb3pT9G1ZjoackSpe0ETwbU/adFdgNuE=;
-        b=xW4PTBBg1nIxfRe0C7V6XQB0p2X7DXllFFdN5aD7J0kn3UPQKpIfjou8hXBDcyGXi7
-         TP6YM5nO3kSIl1BHpaB+smqWm7GA3S4NScYv4k51u7LPZgawDzqSLHRjLp5E7o5xtwhA
-         /Y2ye0bgSf6n5ZxGg+Wf10Nf84PHIy1qibELVR8i5bJNzIS6wUmEhtby0QJDAF7a/CKy
-         iV+wbDnf7JQWTRbWNqN5ASNaVu0LjbggHOtheZB+cVVVq4yiCO0lOU1kcijykKSLbHD7
-         DagMKhUGiMCGQDvDiPhtCqYRS6+HJrjQzSOLkLjNKVTh9pj/iEBk/b76c0H6NbjgTXSh
-         snbg==
-X-Forwarded-Encrypted: i=1; AL+hErGZeBfe4Ig/auk6EfCeBHKrSd2Zb5S1QU7s5B+zMjvMrg50Zf6cYnLNoDiBUyLE33tk3iKmDkbUbEjUHsc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/6O9vGQ8qALhtzg54w9vdrLhbc6Jt68ZLbKqbc7/yMR+fMsutH
-	Tl3d6qlFM2dqH+y4HITv1T8lC8kx+wkX0eVu5QUGasgoa6QhfVwsG8tOTdek2/1ahKY=
-X-Gm-Gg: AYBFou38tuYj0q3W1l5JRbKmxWQ66u+En56EIPyFjUsa+75OGpLwpNcZsFrXce25I4U
-	hCgohw5DvZGGbeR/hpqJ7XJkpQnRMuHIwPKrg7SBA7y6b1c0B0e51WA7+115h+8zem/H9DcT5j/
-	qJl9yzh28xR71SfgxIC7DCkcSX8PZdNfT9f71sD/ImPDVegV/Jl7hFpaGoahrohxsr8NqXO82OU
-	Dl3Gd5DyiSn7047NibTgipWDNn0/yobDVWOuAD7n+1jsYorJ2wYLKBr9uBkWNYv4vh5uuwOEXZf
-	qR1pbZFrvO1XzmK6zQ1SOfJN/kXunTbyoMBqjTtjyeVAxEbXNiTcFt7ViaCfydCmIz4ojAqKHAV
-	C9ljDrV/bfPxh0UCsOdX0YEHb51ZiYRIXgbM6HVBTVSmPwO49sY6tZ0ixFSkzoNWY2Wv9lPPPDN
-	dYPLaZQAlZZuZbCURz5uwP0GwVM/oXmkcngV6td+Ch9h7Xarqi2QiIQ+MMweqNroTkgE400pw0A
-	xJUyMTYpGpnmL35KPzMU7uGJygyGbj2yHuD2HgQIXuXm7KmRkyhDHia6TTm3eMaPU/yQ64mA8B0
-	CVWoEVCZ3gulk/w8jWBjfRdiosBqhFoTuzbxw7AYsgK4XQ==
-X-Received: by 2002:ac8:5707:0:b0:55d:2c25:9c79 with SMTP id d75a77b69052e-55d76a87794mr77691931cf.50.1795207908840;
-        Fri, 20 Nov 2026 12:51:48 -0800 (PST)
-Received: from toxicpanda.com ([153.61.196.242])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882e2c6sm33343821cf.12.2026.11.20.12.51.48
+        bh=bmDo8lYrQ46wjdEUEvmF2H1dGPZ2XCHvbWiiAWZjHPk=;
+        b=WlRhdN2mkvptneMnct4bseoiSJh1LcT5bfvhl6mVd5vMNA2W+68dkLAax2Ht/BJByB
+         sOGmpYlwgGYeyD0ZvzdZof8XZk7dssWGLWl8U3IlIzmGSRrvSxdeLDw8pCogr7RmRVhG
+         qPDZv6swBB7THEm1/FPhbf+cnpcbx8HXySYxOg0s9x2qKwA6XJQKoDaCy2cc5WjKmahV
+         R4Ru1TOLPAExuwSzRzjbEWyFuM4EMhETbTpBjvOsHyigk97+cIGAePKgqnOuKpVU/0LW
+         V03QOSiFikjIukKn80qZdLtj9Z9M95nns6h+UEQD7bEwBRdReJmcP/rPCJI/FdFRLU5a
+         +kgw==
+X-Forwarded-Encrypted: i=1; AL+hErFAFFJoS/LxnvyfE1WWCa7F0xXfIQ23nFleIE0HqBIVkjuUb+ECqc2Wg2x92f9zr8wH6/HURKof7xP4ezY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wpRo3TnD4liaq4q7f2ToB4qEIeKChZdkTD4dV0QARDvhyZSN3
+	+YynporBhWb703oqem9gW9opRMvn2M1t4WdwzT23TvqXbxkUib8k6T80outWyJokKUw=
+X-Gm-Gg: AYBFou28TOGWKoeJvxb3hTKjd3Gtyj4owAKxyCc9fz8JjS2qqpkemGFCmneVEKBQkMR
+	4UpxduXz1VCzZAk28qLm6QZQgLJaL515KBAQ8Pe39ESeTPZsS7dxvMkoBgREqXkwZAH5O5a9R1n
+	nJ5OxVH3wL+9FYbEbMY20VgEFl+x8IJSJ0/SRZV5o8KnxAEUsUKsdhqNl5Cwtriz5Q8WpCTdSvx
+	1aSR8gDvLIxPzuRl/GTGjxQDLJVvrNDZzyHqaPi5WIjR5P6Wi9NYvwJER6E/WKYzjKs4GGhoazt
+	3KDe8nShHCr13lrwFwWENt1sCIgopG9I3L6rvZKGCmC9v8F8h81ryc56S8qc1HEj9xnYWCaE3fs
+	+s6R144JjLzhzLOlxLsqxRPudKNEsQygmztNmCFyC7zPucT2hVvcRNpausUHmLUeCTq9ZjGWb18
+	BaqemRGlH9KiCAw21mKU9ancz8A5Z5QC/DwA3NCJkchi+xL83KaP1ir1cMThKbU0B6Jke+niXLD
+	fAhc4vAWGShfWsSbrzsW8TnmnFoNXF8Ruj86pt2F70Uq0PeOmZRayKfsotf8/cJRYS4G+iASXct
+	A1aFUZL4s66+yZjkec8X+nfhv8CJqcQQQOKvtkdpupYGCQ==
+X-Received: by 2002:a05:620a:130d:b0:939:4a44:5f99 with SMTP id af79cd13be357-949ba80f3f4mr678163285a.10.1795207906490;
+        Fri, 20 Nov 2026 12:51:46 -0800 (PST)
+Received: from toxicpanda.com ([153.61.196.250])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb41c105sm281433285a.39.2026.11.20.12.51.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 12:51:48 -0800 (PST)
+        Fri, 20 Nov 2026 12:51:46 -0800 (PST)
 From: Josef Bacik <josef@toxicpanda.com>
-Date: Fri, 20 Nov 2026 20:51:31 +0000
-Subject: [PATCH v3 3/6] btrfs: make fsync wait for all incomplete COW
- writes
+Date: Fri, 20 Nov 2026 20:51:29 +0000
+Subject: [PATCH v3 1/6] btrfs: don't drop the error of the last split bio
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -95,7 +94,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-b4-btrfs-data-integrity-v3-3-4de4b91b826e@toxicpanda.com>
+Message-Id: <20261120-b4-btrfs-data-integrity-v3-1-4de4b91b826e@toxicpanda.com>
 References: <20261120-b4-btrfs-data-integrity-v3-0-4de4b91b826e@toxicpanda.com>
 In-Reply-To: <20261120-b4-btrfs-data-integrity-v3-0-4de4b91b826e@toxicpanda.com>
 To: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>, 
@@ -103,220 +102,99 @@ To: David Sterba <dsterba@suse.com>, Chris Mason <mason@kernel.org>,
  Johannes Thumshirn <johannes.thumshirn@wdc.com>, Qu Wenruo <wqu@suse.com>, 
  Boris Burkov <boris@bur.io>, Filipe Manana <fdmanana@suse.com>
 Cc: linux-btrfs@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Josef Bacik <josef@toxicpanda.com>
+ stable@vger.kernel.org, Zygo Blaxell <ce3g8jdj@umail.furryterror.org>, 
+ Josef Bacik <josef@toxicpanda.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openssh-sha256; t=1795207902; l=9746;
+X-Developer-Signature: v=1; a=openssh-sha256; t=1795207902; l=3609;
  i=josef@toxicpanda.com; h=from:subject:message-id;
- bh=E6uisj6tO/3aggVe0W3bMwa2kxvzfjeO95jBnvVyGfs=;
+ bh=UJ6i1DiWG74DgAdXg0wQaXbop9J6hAkPy0yoRBeCcrQ=;
  b=U1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAgUBr36M/n0nWN0DNbnxwzIiCZez6MG
  JiruuNaSCI/zXsAAAAGcGF0YXR0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5AAAA
- QEil8l6R8SnBpF6DgcAAq1C9fjJGVz0ZRBrpijlxXghcSYS3OkcLu2A2VFJrFUezUm72jD2X5dR
- G/NgAAPDkkgE=
+ QDn6dlvcfHiixWoRDL7RXBvKllSexlsLosj7VMqSPTGTXsEJgmyqN/0/5/ok4dnXYCWgbBTckAo
+ ZnKNvyHgvQAE=
 X-Developer-Key: i=josef@toxicpanda.com; a=openssh;
  fpr=SHA256:C8kOX2QUJCMqnCX+KEeoqRAjLo9L+ELOSH2NSAJHqGA
 
-If a COW write fails, or its ordered extent is truncated, the extent
-maps of the part that was not written still point to the newly
-allocated extent until the ordered extent completes. If a fast fsync
-logs those extent maps first, replaying the log after a crash replaces
-the file's old data with an extent that was never written.
+When a btrfs_bio had to be split, btrfs_bio_end_io() saves the first error
+of any of its parts in the status field of the original btrfs_bio. The
+part that completes last is supposed to load it into bi_status of the
+original bio before calling the end_io handler, but that is only done if
+that last part was successful:
 
-BTRFS_INODE_COW_WRITE_ERROR is meant to make a fast fsync wait for the
-ordered extents to complete in that case, but only
-btrfs_finish_ordered_extent() sets it. A write that fails before a bio
-is submitted, in writepage_delalloc() or submit_write_sector(), finishes
-its ordered extent through btrfs_mark_ordered_io_finished(), which does
-not set the flag. And since commit 66ff4d366e7e ("btrfs: fix false IO
-failure after falling back to buffered write"), a direct IO write that
-stops short truncates the rest of its ordered extent and finishes it as
-uptodate, so the flag is not set either.
+	if (atomic_dec_and_test(&bbio->pending_ios)) {
+		/* Load split bio's error which might be set above. */
+		if (status == BLK_STS_OK)
+			bbio->bio.bi_status = READ_ONCE(bbio->status);
 
-Fix this by setting the flag, renamed to
-BTRFS_INODE_INCOMPLETE_COW_WRITE, in can_finish_ordered_extent() when a
-write fails, and in btrfs_mark_ordered_extent_truncated(). Convert the
-open-coded truncation in extent_writepage_io() to that helper, so that
-every truncation sets the flag. Both places hold the inode's
-ordered_tree_lock and run before BTRFS_ORDERED_IO_DONE is set.
+If the last part failed, the assumption is that bi_status was set at the
+top of the function. That is true if the last part is what is left of the
+original bio. If it is a split bio, the assignment was done to the split
+bio, which was freed right after. If the original bio has completed before
+without an error, its bi_status is BLK_STS_OK and stays like that:
 
-The flag stays set until a fast fsync clears it, and that fsync then
-waits for all ordered extents to complete, even if the failed or
-truncated one completed long before. A direct IO write that stops short
-because its buffer was not faulted in costs the next fast fsync one
-such wait.
+  original bio (tail)                 split bio (head)
 
-Fixes: f13e01b89daf ("btrfs: ensure fast fsync waits for ordered extents after a write failure")
-Fixes: 66ff4d366e7e ("btrfs: fix false IO failure after falling back to buffered write")
-CC: stable@vger.kernel.org # 6.10+
+  btrfs_bio_end_io(orig, OK)
+    orig->bio.bi_status = OK
+    pending_ios 2 -> 1
+                                      btrfs_bio_end_io(split, IOERR)
+                                        split->bio.bi_status = IOERR
+                                        bio_put(split)
+                                        cmpxchg(&orig->status, OK, IOERR)
+                                        pending_ios 1 -> 0
+                                        orig->end_io(), bi_status is OK
+
+The end_io handler covers the whole range, so for a buffered read all the
+folios are marked uptodate, including the ones that were never filled, and
+read(2) returns their content instead of -EIO. For a write the ordered
+extent is completed as if all the data had reached the device.
+
+This can be reproduced with raid0 data on two devices, one of them slower
+than the other and with a bad block, by reading a file whose last stripe
+is on the fast device.
+
+The saved status has the first error of all the parts, or BLK_STS_OK if
+there was none, so always use it, and drop the store into bi_status at
+the top of the function, which nothing reads anymore.
+
+Fixes: d48e1dea3931 ("btrfs: fix error propagation of split bios")
+CC: stable@vger.kernel.org # 6.6+
+Reviewed-by: Qu Wenruo <wqu@suse.com>
+Reviewed-by: Filipe Manana <fdmanana@suse.com>
+Tested-by: Zygo Blaxell <ce3g8jdj@umail.furryterror.org>
 Signed-off-by: Josef Bacik <josef@toxicpanda.com>
 ---
- fs/btrfs/btrfs_inode.h  | 24 ++++++++++++++++--------
- fs/btrfs/extent_io.c    |  7 ++-----
- fs/btrfs/file.c         | 17 ++++++++---------
- fs/btrfs/ordered-data.c | 46 ++++++++++++++--------------------------------
- 4 files changed, 40 insertions(+), 54 deletions(-)
+ fs/btrfs/bio.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/fs/btrfs/btrfs_inode.h b/fs/btrfs/btrfs_inode.h
-index fbcf8ca05fb7..cd75c1a17e45 100644
---- a/fs/btrfs/btrfs_inode.h
-+++ b/fs/btrfs/btrfs_inode.h
-@@ -90,15 +90,23 @@ enum {
- 	/* Set when there are no capabilities in XATTs for the inode. */
- 	BTRFS_INODE_NO_CAP_XATTR,
- 	/*
--	 * Set if an error happened when doing a COW write before submitting a
--	 * bio or during writeback. Used for both buffered writes and direct IO
--	 * writes. This is to signal a fast fsync that it has to wait for
--	 * ordered extents to complete and therefore not log extent maps that
--	 * point to unwritten extents (when an ordered extent completes and it
--	 * has the BTRFS_ORDERED_IOERR flag set, it drops extent maps in its
--	 * range).
-+	 * Set when a COW write failed, before submitting a bio or during
-+	 * writeback, or when a COW ordered extent was truncated. Used for both
-+	 * buffered writes and direct IO writes.
-+	 *
-+	 * The extent maps of what was not written point to blocks that won't be
-+	 * written until the ordered extent completes and
-+	 * btrfs_finish_one_ordered() drops them. Completion runs in a work
-+	 * queue, queued once the IO of the write is finished, and a fast fsync
-+	 * does not wait for it, to reduce latency. If a fast fsync logged
-+	 * those extent maps, replaying the log would put unwritten extents in
-+	 * place of the file's data, so this tells it to wait for the ordered
-+	 * extents to complete.
-+	 *
-+	 * It is set under the inode's ordered_tree_lock, before
-+	 * BTRFS_ORDERED_IO_DONE is set.
- 	 */
--	BTRFS_INODE_COW_WRITE_ERROR,
-+	BTRFS_INODE_INCOMPLETE_COW_WRITE,
- 	/*
- 	 * Set by reflink while it holds the source's VFS inode lock shared.
- 	 * Direct IO writes also take that lock shared; one that finds this bit
-diff --git a/fs/btrfs/extent_io.c b/fs/btrfs/extent_io.c
-index 036d8c0f04ae..58951a89bfc6 100644
---- a/fs/btrfs/extent_io.c
-+++ b/fs/btrfs/extent_io.c
-@@ -1963,11 +1963,8 @@ static noinline_for_stack int extent_writepage_io(struct btrfs_inode *inode,
- 			 * there must be an ordered extent.
- 			 */
- 			ASSERT(ordered != NULL);
--			spin_lock(&inode->ordered_tree_lock);
--			set_bit(BTRFS_ORDERED_TRUNCATED, &ordered->flags);
--			ordered->truncated_len = min(ordered->truncated_len,
--						     cur - ordered->file_offset);
--			spin_unlock(&inode->ordered_tree_lock);
-+			btrfs_mark_ordered_extent_truncated(ordered,
-+							    cur - ordered->file_offset);
- 			btrfs_put_ordered_extent(ordered);
+diff --git a/fs/btrfs/bio.c b/fs/btrfs/bio.c
+index 2e12a6d7e16f..b24cba595107 100644
+--- a/fs/btrfs/bio.c
++++ b/fs/btrfs/bio.c
+@@ -107,7 +107,6 @@ void btrfs_bio_end_io(struct btrfs_bio *bbio, blk_status_t status)
+ 	/* Make sure we're already in task context. */
+ 	ASSERT(in_task());
  
- 			btrfs_mark_ordered_io_finished(inode, cur, fs_info->sectorsize, true);
-diff --git a/fs/btrfs/file.c b/fs/btrfs/file.c
-index 6f525ce42a2d..4208587abff1 100644
---- a/fs/btrfs/file.c
-+++ b/fs/btrfs/file.c
-@@ -1638,7 +1638,7 @@ int btrfs_sync_file(struct file *file, loff_t start, loff_t end, int datasync)
- 	 */
- 	if (full_sync || btrfs_is_zoned(fs_info)) {
- 		ret = btrfs_wait_ordered_range(inode, start, len);
--		clear_bit(BTRFS_INODE_COW_WRITE_ERROR, &inode->runtime_flags);
-+		clear_bit(BTRFS_INODE_INCOMPLETE_COW_WRITE, &inode->runtime_flags);
- 	} else {
- 		/*
- 		 * Get our ordered extents as soon as possible to avoid doing
-@@ -1651,15 +1651,14 @@ int btrfs_sync_file(struct file *file, loff_t start, loff_t end, int datasync)
- 			goto out_release_extents;
+-	bbio->bio.bi_status = status;
+ 	if (bbio->bio.bi_pool == &btrfs_clone_bioset) {
+ 		struct btrfs_bio *orig_bbio = bbio->private;
  
- 		/*
--		 * Check and clear the BTRFS_INODE_COW_WRITE_ERROR now after
--		 * starting and waiting for writeback, because for buffered IO
--		 * it may have been set during the end IO callback
--		 * (end_bbio_data_write() -> btrfs_finish_ordered_extent()) in
--		 * case an error happened and we need to wait for ordered
--		 * extents to complete so that any extent maps that point to
--		 * unwritten locations are dropped and we don't log them.
-+		 * Check and clear BTRFS_INODE_INCOMPLETE_COW_WRITE now after
-+		 * starting and waiting for writeback, because it may have been
-+		 * set while we waited, and if a write failed or was truncated
-+		 * we need to wait for ordered extents to complete so that any
-+		 * extent maps that point to unwritten locations are dropped and
-+		 * we don't log them.
- 		 */
--		if (test_and_clear_bit(BTRFS_INODE_COW_WRITE_ERROR, &inode->runtime_flags))
-+		if (test_and_clear_bit(BTRFS_INODE_INCOMPLETE_COW_WRITE, &inode->runtime_flags))
- 			ret = btrfs_wait_ordered_range(inode, start, len);
- 	}
+@@ -127,9 +126,12 @@ void btrfs_bio_end_io(struct btrfs_bio *bbio, blk_status_t status)
+ 		cmpxchg(&bbio->status, BLK_STS_OK, status);
  
-diff --git a/fs/btrfs/ordered-data.c b/fs/btrfs/ordered-data.c
-index df74c75d6c29..1a4e3e34ec11 100644
---- a/fs/btrfs/ordered-data.c
-+++ b/fs/btrfs/ordered-data.c
-@@ -367,6 +367,9 @@ void btrfs_mark_ordered_extent_truncated(struct btrfs_ordered_extent *ordered,
- 	spin_lock(&inode->ordered_tree_lock);
- 	set_bit(BTRFS_ORDERED_TRUNCATED, &ordered->flags);
- 	ordered->truncated_len = min(ordered->truncated_len, truncate_len);
-+	/* As for a failed write, see can_finish_ordered_extent(). */
-+	if (!test_bit(BTRFS_ORDERED_NOCOW, &ordered->flags))
-+		set_bit(BTRFS_INODE_INCOMPLETE_COW_WRITE, &inode->runtime_flags);
- 	spin_unlock(&inode->ordered_tree_lock);
- }
- 
-@@ -398,8 +401,18 @@ static bool can_finish_ordered_extent(struct btrfs_ordered_extent *ordered,
- 		ordered->bytes_left -= len;
- 	}
- 
--	if (!uptodate)
-+	if (!uptodate) {
- 		btrfs_mark_ordered_extent_error(ordered);
+ 	if (atomic_dec_and_test(&bbio->pending_ios)) {
+-		/* Load split bio's error which might be set above. */
+-		if (status == BLK_STS_OK)
+-			bbio->bio.bi_status = READ_ONCE(bbio->status);
 +		/*
-+		 * The extent maps of a failed COW write point to blocks that
-+		 * won't be written until the ordered extent completes and
-+		 * drops them. Make a fast fsync wait for that, before
-+		 * BTRFS_ORDERED_IO_DONE is set.
++		 * Load the first error, if any. It may come from a split bio,
++		 * including the one we were called for, in which case nothing
++		 * stored it in the original bio yet.
 +		 */
-+		if (!test_bit(BTRFS_ORDERED_NOCOW, &ordered->flags))
-+			set_bit(BTRFS_INODE_INCOMPLETE_COW_WRITE,
-+				&inode->runtime_flags);
-+	}
++		bbio->bio.bi_status = READ_ONCE(bbio->status);
  
- 	if (ordered->bytes_left)
- 		return false;
-@@ -436,37 +449,6 @@ void btrfs_finish_ordered_extent(struct btrfs_ordered_extent *ordered,
- 					uptodate);
- 	spin_unlock(&inode->ordered_tree_lock);
- 
--	/*
--	 * If this is a COW write it means we created new extent maps for the
--	 * range and they point to unwritten locations if we got an error either
--	 * before submitting a bio or during IO.
--	 *
--	 * We have marked the ordered extent with BTRFS_ORDERED_IOERR, and we
--	 * are queuing its completion below. During completion, at
--	 * btrfs_finish_one_ordered(), we will drop the extent maps for the
--	 * unwritten extents.
--	 *
--	 * However because completion runs in a work queue we can end up having
--	 * a fast fsync running before that. In the case of direct IO, once we
--	 * unlock the inode the fsync might start, and we queue the completion
--	 * before unlocking the inode. In the case of buffered IO when writeback
--	 * finishes (end_bbio_data_write()) we queue the completion, so if the
--	 * writeback was triggered by a fast fsync, the fsync might start
--	 * logging before ordered extent completion runs in the work queue.
--	 *
--	 * The fast fsync will log file extent items based on the extent maps it
--	 * finds, so if by the time it collects extent maps the ordered extent
--	 * completion didn't happen yet, it will log file extent items that
--	 * point to unwritten extents, resulting in a corruption if a crash
--	 * happens and the log tree is replayed. Note that a fast fsync does not
--	 * wait for completion of ordered extents in order to reduce latency.
--	 *
--	 * Set a flag in the inode so that the next fast fsync will wait for
--	 * ordered extents to complete before starting to log.
--	 */
--	if (!uptodate && !test_bit(BTRFS_ORDERED_NOCOW, &ordered->flags))
--		set_bit(BTRFS_INODE_COW_WRITE_ERROR, &inode->runtime_flags);
--
- 	if (ret)
- 		btrfs_queue_ordered_fn(ordered);
- }
+ 		if (bbio_has_ordered_extent(bbio)) {
+ 			struct btrfs_ordered_extent *ordered = bbio->ordered;
 
 -- 
 2.55.0
