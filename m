@@ -1,113 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165180;
-	b=ySW14YmePqAN7T9LNGvM/NxxbaUnLUaZYVRGpT+6D14XAjFgxW3KOCOdGlBclVZGjti6
-	 h3KbC5rOw/PxTWjMOscVZzlf2BVDnuHRnG8yDEu/XuLK1F/kTTmFJ+wr2KdikChNfC7HI
-	 0Kr6lsQH3Yhvv6MP/clDR93t1WkFd4fhdrIsXLsxz0rDLo/UKCb1G5DzcEMJ+MyFbVoGD
-	 Hh5FS/wmxZ4JVfiSwAy9zc0gLXIE6LlCZ8U/rY7OHm/sB0I1Pf5dCPZbhn8z2TWVbkCPf
-	 zwRr1JCcGiHWM+pLqrFzKigNFHRPRvI1ZchuTJlqf2wWR8rl0q9XQf0CMQKIAQF+x4w==
+	t=1795165183;
+	b=ywJh2kOpTaIGK4anxxARKzRkpvt7PbHsa99EMAn2Ux1+CmMbH0W/KNZE7Rhs2rF5e+0v
+	 NtDbTe402sG4yAaJGCgTRTTu4XpTueuhhChxTH7OX/ml0R7PmgzQlmp7qFGVtMpmhBmY7
+	 j7ZPBSSuvsu1s4oBId1EL/rH1Pgo0q3jQdevN5AY/ww2Ql5aZuS7hrJGDQ2a7XHyY2hi8
+	 rvhn9SuRlFFgdAcOVsfSrj49UwHR/E5TxybH+WwhZyAck2NhoEs1W0oRu+jG1evEvbWoF
+	 SdijK9KnPJ64cvjN3ryQRJ7tySkoJ5WpXNU2jAoeC82LIUweVG+b36IDw36H0kypihg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165180;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=9yC3cw49LDStsX4tcMB+rfbv7t6LPElYR1xcbvBtwNs=;
-	b=ur/OO1i0esdoKkXZ6RpKrbuUM3gRVVVv/6TuGRY17ntKeAGDgX6xKnaaMfUnTklbse7n
-	 ZPMhltCJUoEFQAuLERrTwY6Tvori24zqHIgRF2+9BDUyn0VddFvZP4UsIsU7nBXSR/xc2
-	 YtJ2Ads1npRTRbfVW6c/n5fopJK3iAm0PW21BNd7oj0wI2IKnkXLRmOVwMkHFc9uGawWt
-	 gHj2hHwOKT0WL8GPr5fO6HOQMccDd869SVQXZFBSe8Dg1TRVSQCj0R/kPvkI6O3Tk4eh6
-	 ZRuOfCg9uAfLSGJQ5uk6TJzXF7We72neQix6mAXcGnREDvnJ+1+nzTaV4vKrQliFKcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165183;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To:
+	 Organization;
+	bh=VedXmvSI7G6Xtxoxd3IW0KA5vnVG/Qoj5iEhteVh2F4=;
+	b=M4oy1a4rXgYicMuekHjf3+rK8qdElr+BL7MwjYvHwyjot+o89dtWpG8sGG7iJ4FCNnPz
+	 1snpJT/gmxIDQYE6kMuv3C3ZOkrs7LYshhAwxk4ikspXXAt1XMAfmzXQIX3bzwwX3/iFt
+	 FsJsnNlpx9o2tHHSsvDo1M9Xd6WGgpD/L1xfQpKAvQ9c9BNIcmNz2Dd1MFG+u0+iYzOOz
+	 STNQurKJsRypHwSZvmoLOFHUp+XlMfLkzfL3S03Lct6irRzGJ25MeK39RPJWL3b8tscKg
+	 SEcnqVmutC/fwz8ygZlCIf+6OBQJoPdtgAY8NBXyCK1VWb5QnhlSYbCbQSJmYlrIuvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=BO0BDJHH;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ElOsWj5E;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GsWwQTjI;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53964606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53964606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C00606A32C;
+	Fri, 20 Nov 2026 08:59:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C00606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=BO0BDJHH;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ElOsWj5E
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7f2NM606057
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9yC3cw49LDStsX4tcMB+rfbv7t6LPElYR1xcbvBtwNs=; b=BO0BDJHHVP5a4Q88
-	f5AOBZso9jP0CqVvq/jzpZ4YXg1gZ80sQqxBQhuOxk38gzK23+d+6E/XnupWkV7S
-	kXEGgN11mu5Kbew6nqnca+/Fnwkkp6h3s41P/Zpr+Esp+GMvwHGkFjI3Y0i568Yx
-	Ds7MThrfrA7j0AsjNuATNThYtO7NRcZUKf8mDr1/2vHmZ+PvVnDLhyFRl/k2GELB
-	U3uZTgB05BxXE3nR0EN/CKRYQijwjhScCwVATg1VRG6NyJVEi8xavWBMFN4e0d8Q
-	mtYm8m/4Qe86Eyl6/H3ZM4SsdA8AdqLL6I/9bIE4kYo+1nnWOV/a8h/bwN8EcHBX
-	dtf7WQ==
-Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2ggqrq7h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:59:30 +0000 (GMT)
-Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3846d5f54c1so799395eec.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 00:59:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795165170; x=1795769970; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9yC3cw49LDStsX4tcMB+rfbv7t6LPElYR1xcbvBtwNs=;
-        b=ElOsWj5E9b0TS9gSBOn3D3+hcgB/GUZCjRBIuyrObE3uwE1pvQ9r1KDCi+Q1vQbBAv
-         cuw3VEF9lL5wDqgSCGijg3r31M7+gAx4YJUkPwR+mOdUMsDaWU9hFW0wLARBodkCG73j
-         ONRPpCL58WQBa45Y3w6Us5kpDvuRb+c1u86LoOybFddNRaQ/5ozY0ScrK1cQL4Kz0Lgc
-         orGheWUZgR/j5Ahv950l/BIREqdRFqYOn6V/DB48PzHGBgVjsOhA8IH7+DvagFFUTi/U
-         fhdB3aE2JEz/uUyoBvkgHACwhnhbua+vUb4cioh2gQqYjjENG+rFDLceFZMAivjlfOQT
-         jlZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795165170; x=1795769970;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9yC3cw49LDStsX4tcMB+rfbv7t6LPElYR1xcbvBtwNs=;
-        b=mTcL9bPf5PD91UuNHCI/kE+fKWYzyFpK4rKgA1pQlTHC7/MxkDCJlaeCMnY+HM3ZHz
-         kFTZAoV6JL9vNXDPi8jzRbm9ZSIOJbBApGfdZgm3LNI49XDku0qWIGnYj60b2HchHK/g
-         s39oxlou+T8lFv/2X1RrOcZwmmlYcLiIbj/0oLi4EcJ8uLJINqTE9R3FU09j7u3ok4+K
-         AOXWAw/AfnFnWRtUn9omVPunsW1NcjoTJRpTqDnyUA+Ed13nmDxRvMQMKwLLVzVd1SaK
-         Ld9E5DzGFijtqwnLjIkFj/qUWw3aT8xJhFzX1iT6xAZ7OXXEWOJUqeUSu0s4SDqOyDoF
-         fsRw==
-X-Forwarded-Encrypted: i=1; AL+hErExe0jGZMev9qX/10MgYfZ4JzhBvoaxD3B0Zac+puIWdmi4YO1qJx1gtoZ2QA+0rW1fh4FrobXWM/eLNQM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yAHAqCOLApW4fPQm28n9bmZ+QJwdHexmtCkR6sO7Llv9MtZUq
-	JH3XtUQt5AwgAivzHCu/tSzqLbQWQyJQWw/15iBJnDU2k6p4dHVdxPEpZC1ZzDLzGIQMI+pxSyj
-	d2+/rUEuFw1JprzxOqrxiDu1teouDhWtVZeOc7XahhloPikaYbANoxOBIxJghzMDLsew=
-X-Gm-Gg: AYBFou1vjzQyze2m/8AJ0HNKfNWqhI85qsXUsN6yKTlBcwZQwg3apn8/2Zzp6vMGeeg
-	/504iHS5FdsauMc4UfV5zl+vQm2uAvUdnk8F5PbH0CcdGcCbpFc+gqIpw/51hGDskXyl5Blj3LP
-	moX6UvQoTRg2zbGknQrfcauxUjpeyWteyGhubD5SE0/CwcldibziPcE4TSlgX9ckYPjTHbAz7+T
-	6CqFTfIKctfoJGSpt2IyVqPwAg7+Il8nJzJEwtkXDzHTi6E/zVjEaPavblwH4V7i/bmnQzjIwmd
-	4bJpMGylVnzrzRqpXrtH/gtbCbGN9tRYyxrziMX5wVU/b9nMyV+MBedVqNtk3GG4qOmn7IPFXCi
-	/6mMzvs0lJdjoL8/0wjMhLHunvZLDZZhvlNGO4xzA5cIX+p+hGocuOy02GO7zGS2m69FxM59TZr
-	H8ZUGgQmorUr6ruVKWQA+ByyrHRhLgGfsZtQpCwGGc9rMG4HWcxcuNHhWeBUJKFh+Not1fTI9D0
-	+aoE4WybiI=
-X-Received: by 2002:a05:7023:b12:b0:141:5281:8a41 with SMTP id a92af1059eb24-1b55687fbc9mr2380939c88.9.1795165170158;
-        Fri, 20 Nov 2026 00:59:30 -0800 (PST)
-X-Received: by 2002:a05:7023:b12:b0:141:5281:8a41 with SMTP id a92af1059eb24-1b55687fbc9mr2380910c88.9.1795165169700;
-        Fri, 20 Nov 2026 00:59:29 -0800 (PST)
-Received: from hu-kathirav-blr.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com. [103.229.18.19])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm9490658c88.9.2026.11.20.00.59.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 00:59:29 -0800 (PST)
-From: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-Date: Fri, 20 Nov 2026 14:29:06 +0530
-Subject: [PATCH 1/4] arm64: dts: qcom: ipq9650: fix the TCSR mutex address
- range
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=GsWwQTjI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795165184; x=1826701184;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=nk+t4fI7zmLmWT/kxiuqyqIDMYUCl9U7mqKAwRYAXEU=;
+  b=GsWwQTjINcWyOfGYRC/W778QqQYSKIPtAP7s64ZUXJGMAQPBwhJkLB/q
+   ltKvmDG4KDCbMVFp22SbdCqPI5YT+ktG7NlgMqsxIiDA099As1e2f4D+D
+   CJFioI1E0MmR4yHdiIkJlov7z3bn4L9aiopjOkQkN263M3ZLKSM1RsRdU
+   roLx0ZtlvTMuJv+4TZoSFNECvOtOMhQcE6tG2ZQ23p/NkExcD9Elyk9E9
+   pSzJm6EPPeBfiCpe5EAdc6a19xpTJxHjhsxiO3Ae50e0bcUED/nVsODQB
+   Y+Q1bgJIicOglhll5V5ZS9WTVDBBGW4sgynt+YCxDNloG3VthIK60OFaG
+   g==;
+X-CSE-ConnectionGUID: 3dlW4yPfRz+FVa2Ykd8g0Q==
+X-CSE-MsgGUID: hTpyKbj5RsalkxRQP5hSow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4081601"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4081601"
+Received: from fmviesa012.fm.intel.com ([10.60.135.152])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:59:43 -0800
+X-CSE-ConnectionGUID: 8YRu/vs0QIeBu8Whxdd/Iw==
+X-CSE-MsgGUID: eYIQxeXtQJuw0HqduVkqRA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="12363983"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.245.218])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 00:59:39 -0800
+Date: Fri, 20 Nov 2026 10:59:36 +0200
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: liuc63@xiaopeng.com, gregkh@linuxfoundation.org,
+	akpm@linux-foundation.org, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	khtsai@google.com, fangxy@xiaopeng.com, rdunlap@infradead.org,
+	dbrownell@users.sourceforge.net, linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] usb: gadget: u_ether: fix out-of-bounds read in
+ get_ether_addr
+Message-ID: <awAL-CjBSGfOfYUS@ashevche-desk.local>
+References: <20261117090110.3263592-3-liuc63@xiaopeng.com>
+ <179513296378.3136.18205287276015126683@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,74 +85,153 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-ipq9650_various_devices-v1-1-14f53b84c42c@oss.qualcomm.com>
-References: <20261120-ipq9650_various_devices-v1-0-14f53b84c42c@oss.qualcomm.com>
-In-Reply-To: <20261120-ipq9650_various_devices-v1-0-14f53b84c42c@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfXyR3SPRquhIHx
- fIoNKuaV/LptYolIkr1K5t8PSBtZKeuRn+0dmWf40vJj59p3fcw1uW6uyE5cPoAPJqKEK1LDgHb
- zGxLvZESSmFCBJwMOHub8NGu86D3jHLrGFbaCU40owNkigLXqotX84gr+lBxLTaCa/IJnIb9ztW
- fon+LWGfbGKkQfju0TmgT7Oxl7QP1jfbw2nwuvcKJA1b7VtXOuFLQ+UCIfN9aOcGu28y+IhCSvP
- L9Kj6QDhCSdfw4H9nf0GZGcl11cFQuDCSpBfIocnVXvYCpxMsJgk4ekzwPcSdU9D+TtVYvfiL00
- JYMnZ84NTPavKsuDl8heRAjr8YCy6ZV9VyBEYiJppj7co5Yh1YaW4UFXxInrbu0xqkgqO+DMw2B
- ogh6/nRSr904TavnNKFlAMS5forqc/9gsfZxfxfnO41yNvTkjgsleEhdRGAAH7tRkl30ZZN0Gx8
- hpAVJL/znH248UqQhQA==
-X-Proofpoint-GUID: TBXJoh1euUvxZd0nyW9vHNy08sLCF3Cb
-X-Proofpoint-ORIG-GUID: TBXJoh1euUvxZd0nyW9vHNy08sLCF3Cb
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAzNSBTYWx0ZWRfX0720Q749x/UJ
- lf1XwPZC0HIGut7S/mbb4qgOzooPpYnOdrC3iIwJNtpYCh7PH5FFAfqEkQhvlqmhnIPcio28wX9
- wf0h8+WM5e98gaIT+JUaAXu7IhHR3Vo=
-X-Authority-Analysis: v=2.4 cv=CNy/zhrD c=1 sm=1 tr=0 ts=6b000bf2 cx=c_pps
- a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=eUx0VPcQqj1qSSogbGIA:9 a=QEXdDO2ut3YA:10
- a=bBxd6f-gb0O0v-kibOvt:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 spamscore=0
- bulkscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200035
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179513296378.3136.18205287276015126683@kernel.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 
-TCSR mutex region is 0x20000 but it is mistakenly mentioned as 0x57000.
-Fix the same.
+On Fri, Nov 20, 2026 at 12:02:43AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The commit message is wrong about how the legacy module
+>   parameters report a rejected address.
+> - [Low] The ABI text this patch adds to configfs-usb-
+>   gadget-{ecm,eem,ncm,rndis,subset} says host_addr/dev_addr accept only…
+> 
+> --
+> 
+> usb: gadget: u_ether: fix out-of-bounds read in get_ether_addr
+> 
+> This replaces the open coded MAC address loop in get_ether_addr() with
+> parse_mac_pton() for the delimited notations and hex2bin() for the raw
+> twelve digit notation. This fixes an out-of-bounds read on short strings
+> and stops non-hex characters from being silently accepted. It also selects
+> GENERIC_NET_UTILS and documents the accepted formats in the configfs ABI
+> files for the ECM, EEM, NCM, RNDIS and subset functions.
+> 
+> Link: https://lore.kernel.org/all/20261106030605.576584-3-liuc63@xiaopeng.com/
+> 
+> > How a rejected address is reported depends on the caller.  The legacy
+> > module parameters go through gether_setup_name(), which keeps the random
+> > address that get_ether_addr() falls back to and only logs a warning.
+> 
+> [Severity: Medium]
+> Is this description of the legacy path accurate?
+> 
+> Nothing in the tree seems to call gether_setup_name(). Its only wrapper,
+> the inline gether_setup() in u_ether.h, has no callers either.
+> 
+> The legacy gadgets (legacy/ether.c, cdc2.c, ncm.c, multi.c and g_ffs.c)
+> pass the dev_addr= and host_addr= parameters through
+> gether_set_dev_addr() and gether_set_host_addr(). The KASAN trace earlier
+> in this commit message shows the same path
+> (eth_bind()->gether_set_dev_addr()->get_ether_addr()):
+> 
+> drivers/usb/gadget/legacy/ether.c:eth_bind() {
+>     ...
+> 	if (!gether_set_host_addr(net, host_addr))
+> 		pr_info("using host ethernet address: %s", host_addr);
+> 	if (!gether_set_dev_addr(net, dev_addr))
+> 		pr_info("using self ethernet address: %s", dev_addr);
+>     ...
+> }
+> 
+> gether_set_dev_addr() parses into a local new_addr[] and returns -EINVAL
+> when get_ether_addr() fails. The random fallback is thrown away:
+> 
+> drivers/usb/gadget/function/u_ether.c:gether_set_dev_addr() {
+>     ...
+> 	if (get_ether_addr(dev_addr, new_addr))
+> 		return -EINVAL;
+>     ...
+> }
+> 
+> The netdev then keeps the dev_mac/host_mac that
+> gether_setup_name_default() picked earlier with eth_random_addr(). Since
+> eth_bind() has no else branch, nothing is logged.
+> 
+> With this patch, "insmod g_ether.ko dev_addr=aabb.ccdd.eeff" no longer
+> gives a stable aa:bb:cc:dd:ee:ff. parse_mac_pton() fails the length check
+> and hex2bin() fails at the first '.'. Would such a user now get a
+> different random MAC on every load, with no message explaining why?
 
-Cc: stable@vger.kernel.org
-Fixes: 8cef25a0044d ("arm64: dts: qcom: add IPQ9650 SoC and rdp488 board support")
-Signed-off-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/ipq9650.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+It sounds like a good idea to add a warning on rejected addresses and say that
+random is in use.
 
-diff --git a/arch/arm64/boot/dts/qcom/ipq9650.dtsi b/arch/arm64/boot/dts/qcom/ipq9650.dtsi
-index 9ace638e43e2..94269c9c8d6f 100644
---- a/arch/arm64/boot/dts/qcom/ipq9650.dtsi
-+++ b/arch/arm64/boot/dts/qcom/ipq9650.dtsi
-@@ -385,7 +385,7 @@ gcc: clock-controller@1800000 {
- 
- 		tcsr_mutex: hwlock@1917000 {
- 			compatible = "qcom,tcsr-mutex";
--			reg = <0x0 0x01917000 0x0 0x57000>;
-+			reg = <0x0 0x01917000 0x0 0x20000>;
- 			#hwlock-cells = <1>;
- 		};
- 
+> Could the commit message be corrected to describe the
+> gether_set_dev_addr() path that the legacy parameters actually take?
+
+I think this needs to be followed and commit message needs a correction.
+
+...
+
+> > --- a/Documentation/ABI/testing/configfs-usb-gadget-ecm
+> > +++ b/Documentation/ABI/testing/configfs-usb-gadget-ecm
+> > @@ -17,4 +17,9 @@ Description:
+> >  			      - MAC address of device's end of this
+> >  				Ethernet over USB link
+> >  
+> > -
+> > +		host_addr and dev_addr accept a MAC address as six byte
+> > +		pairs separated by ':' or '.', in any mixture
+> > +		(aa:bb:cc:dd:ee:ff, aa.bb.cc.dd.ee.ff), or as twelve
+> > +		hexadecimal digits with no separator (aabbccddeeff).  Any
+> > +		other format is rejected: the write fails with EINVAL and
+> > +		the attribute keeps its previous value.
+> 
+> [Severity: Low]
+> Does this text match what the new get_ether_addr() accepts?
+> 
+> parse_mac_pton() only checks a minimum length and the first
+> MAC_ADDR_STR_LEN characters:
+> 
+> lib/net_utils.c:parse_mac_pton() {
+>     ...
+> 	if (strnlen(s, MAC_ADDR_STR_LEN) < MAC_ADDR_STR_LEN)
+> 		return false;
+>     ...
+> }
+> 
+> Its own kernel-doc says "anything after them is ignored". So writing
+> "aa:bb:cc:dd:ee:ff:00" or "aa:bb:cc:dd:ee:ffXYZ" to dev_addr succeeds and
+> sets aa:bb:cc:dd:ee:ff.
+
+Yeah, the text needs an amendment. Something like
+"...with no separator (aabbccddeeff) at the beginning of the input."
+(see the part "at the beginning of the input" that's added).
+
+> The hex2bin(dev_addr, str, ETH_ALEN) fallback reads exactly 12 characters
+> and never looks at str[12]. "aabbccddeeff.zz" and "aabbccddeeff0011" are
+> accepted as well.
+> 
+> The reverse case is also missing from the text. Both paths in
+> get_ether_addr() also require is_valid_ether_addr(). A correctly
+> formatted multicast or all-zero address such as 01:00:5e:00:00:01 or
+> 00:00:00:00:00:00 fails with EINVAL, and the new text doesn't mention
+> this.
+> 
+> Trailing characters do have to be tolerated, because a configfs write
+> from echo ends in a newline. Could the text say that anything after the
+> address is ignored, and that the address must be unicast and non-zero,
+> instead of saying that every other format is rejected?
+> 
+> The eem, ncm, rndis and subset ABI files get the same text.
+
+All of them need to follow the same pattern, yes.
 
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
