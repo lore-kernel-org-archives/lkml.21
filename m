@@ -1,111 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795168460;
-	b=PqylpGQtdIY2j3st4vYVT0YjR4SoEsbpA9rBbwCL/pL7WVTybxUUTFT3ic/e9k84Io+w
-	 2a0akPo4nYu4BeZE1uPuw5kk1zl8s0qNdLasVIUTOri5jSZsSXd/B9MFs1XFI+0NIW6Cn
-	 JLkvWnZKGSXkNI4nWhMf1AYJtac8BBbwTOyNHdhO1+p58zuT+miza3UK31a9EPT6FIgvG
-	 tpa8xjEW2O78O7/3EcU2yRmaOgo4LtM8JQ82Zb/AXI+t5gjlVH/3tGyWrkkM14AYLY36M
-	 stxCMQ0G0TV9mK/X+bnYwBlhC7ehmkfmDVIB8+1FHYGTXudVzNATr95NW/5p/hEII7A==
+	b=AIxD4pmv5YJO+QgvIrw3b8aNtElDPaE0kp+WOv/KiX49VmvCzOXxxk4bSLqjJ9K3sVpw
+	 yAQwuUlfqWJVuEg/AvANsUwrNdLny6p+8gPsH9J6H118bU0Avgpkr0ZHpiH/sNRmFTXCe
+	 i93nxxdqKci0qxZvcJovT0sdoXtgCCat/r43GP8evAQkn1o+oA2zW0bB8z0V2OBz8lkYQ
+	 6TW8T1TAQ/uckQ5Mwt6YqrA1wVlw5YuhOcsFZH2shlKpIeCU8LdnYx7k7lplfGRMP90xo
+	 XbD2fqUfo9//Y2rpRqf3x8KtUt7RJbgdqHYIPICjSv2CJbDzcTJKsiXACGgk3zd60Jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795168460;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Rspamd-Queue-Id:X-Spam-Level:X-Rspamd-Server:
-	 X-Rspamd-Action:X-Spam-Flag:X-Spamd-Result:X-Spam-Score;
-	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
-	b=hc57/UPqdlZIVLPGmp3riiJ7n7NGidPgzI/lvM7Ek5ZP0mOJuxiP+mwR8z6sPA1qRPEE
-	 41jtU54xH3bt29r0bvNpCjr9YYC7YdW44o4TwUni8oU8pJpcLNWwiQEMTjDVgjpfpgpYV
-	 Hz6uGGEEw3OVa+1dAJe8MBcQI90rvJQc57RsxDzGS1Wo4TxtWXY6a3LNvg408LSywOAL5
-	 S906e+N6kLB9vVocuvKNOjl91VdwoMk4LxbGf0oj08L5lYItwhwSXccfBfvuKqxd3co7v
-	 b/zxGXsoLC99PhjdLnMv0HM2rl1WpSpn04mKPr8iS+vFoKpCMFCiUtJlkem8kui+vWw==
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=toC7g/mQwam01PNWnVEE4EXGk05THrMqM14HugAXhgw=;
+	b=o865YzZaSoMq7YnACIH20rnPy8CZzymYxQCFgx/PsTc3wc3Aok12T6F7jLzabnYHHRtY
+	 oRITixRSYANDgJVOf1SE/nI4F2XTc7wQaJ6WSy4ouKS//7WXYPJea5OCeziKANuc/WQMN
+	 EtNgBohAhEYX4R2AKU6y/snInH50kDrbuz7YJIMqN/2F/rPs8PvOoD2a1p/Yb7gtLp68s
+	 8/ZQ98F/vh6v4iE9HaeV8FQV3TCBKlgHrUboIWM+OEKixrokpM0GjcLJ4krzSokYpOSiW
+	 bcRfr/2Mf8ucrBCVx7s2HVlst+oBUQW9QET5QmzuDApMzsvgeleI9aS32R3gWUOnbXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YDnOWLrE;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Hl8aSTTs;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NuOn9MTZ;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=O4Hv3Wo5;
-	arc=none smtp.remote-ip=195.135.223.131
-Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=d5uKR4ys;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D915B60A2615;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2160260A261C;
 	Fri, 20 Nov 2026 09:54:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D915B60A2615
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2160260A261C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=YDnOWLrE;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=Hl8aSTTs;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=NuOn9MTZ;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=O4Hv3Wo5
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BE2471FB70;
-	Fri, 20 Nov 2026 09:54:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795168458; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
-	b=YDnOWLrEQ1GyjOb7spHxMuLUiMbJWJ/9UZ7xRmZVW+ddDiPblnWf50j+sVNlQJl6iPwgC5
-	layiTbgtvaJOieRADqAv+td+fzBzTPRoV2v7DoxRZZ22lJwF/61mA9jXL7uEuaB1YNwURG
-	NHVYDupx3jjc32hzjNkDtxHYOX1Yn/A=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795168458;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
-	b=Hl8aSTTsH8bxVNYcmdcTxg0jaz6qeFkF/7uA6Qm6aGaAfaSay7EDzOZLVs1+YJACdTwAi4
-	6mdNl2GeliP6CXDg==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=NuOn9MTZ;
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=O4Hv3Wo5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795168456; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
-	b=NuOn9MTZ477iqxcuG3N9ne1uK4SAqYb2pvwxht77Qqlcesfwl9yk/j7ln/ypDyo5f+/iug
-	jLY/ZyAaTH7YM30yU6pa89esewECTcsjBult1FTIVxTYOF/NWRbFTak4NbKKFcfRtr4zlP
-	7Iwbiofe0Hsesgu3nFZN+pvzRaO6xi0=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795168456;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d3D04tBr+eCbfuUo2ou5/gCrrIth6zAmWBOJCJ9S6kY=;
-	b=O4Hv3Wo5VUUtcaMg+nxx17Em53mfEpXzARyPUEFitAll7Y5BJ2kkNcSMYiWaFSS+BEjv/L
-	45hj2bQVck0M06BA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 972CD1348F;
-	Fri, 20 Nov 2026 09:54:16 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id NuXKG8gYAGt/EgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Fri, 20 Nov 2026 09:54:16 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 2252025EF6; Fri, 20 Nov 2026 10:54:16 +0100 (CET)
-Date: Fri, 20 Nov 2026 10:54:16 +0100
-From: Jan Kara <jack@suse.cz>
-To: NeilBrown <neil@brown.name>
-Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, Amir Goldstein <amir73il@gmail.com>, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, Ian Kent <raven@themaw.net>, 
-	Jake Edge <jake@lwn.net>
-Subject: Re: [PATCH v5 3/5] fsnotify: don't hold i_lock while walking
- d_children in  fsnotify_set_children_dentry_flags()
-Message-ID: <ht3jmmlbvijg75kvpdv7rnjcytw2ndnlikg3n5qveekaqr55em@oivgxe27lhmu>
-References: <20261119025942.2848130-1-neilb@ownmail.net>
- <20261119025942.2848130-4-neilb@ownmail.net>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=d5uKR4ys
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795168461; x=1826704461;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=2IgmBcIuK8iKdSO/EWf2izgDQSehVeqYibGtFqL+DMg=;
+  b=d5uKR4ys9sPMhqillYSYfjaPgSl5pJy/++stb93cvLtIvyGlrPE+88DY
+   HYS1TbaBpocwC9XiGq5pUqHYmYmYIFIVrEb6EfX0YKSPp9u7OZRU6M8kA
+   sBJhdAfYmqE3oAHGtq1cx5N16H0vHQ3WSLhCwNw40npDPnCTPoMFt0sRr
+   Efj+bEJrWtDip8yLtbs+vkR7fpYJvy3stAHyWj63Ka8V1kIcpZlMD1pcw
+   qfblMvJnzl0qK4Jla5e7zRAXzIzIcM4hKeeeOmnrHYy9cd+4WboWW8TH2
+   ub43RI9IEL5yGeVK1iWVmEjyHt0H6+7oXGmpJhCGx4OTjQWuEnAbkDRrj
+   w==;
+X-CSE-ConnectionGUID: yCLG/wgkRg+/K+nGHp2xhg==
+X-CSE-MsgGUID: UXy5b2zrS1esK5GgqmNM9A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4085326"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="4085326"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:54:20 -0800
+X-CSE-ConnectionGUID: fZlQO3tfSKq+pWuRGHALcA==
+X-CSE-MsgGUID: yBxFOHSZQdaGaldQSiVmTw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10802136"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 20 Nov 2026 01:54:14 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xULJq-00000001HWp-2jPC;
+	Fri, 20 Nov 2026 09:54:10 +0000
+Date: Fri, 20 Nov 2026 17:53:25 +0800
+From: kernel test robot <lkp@intel.com>
+To: Tomohiro Misono <misono.tomohiro@fujitsu.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Kohei Enju <enju.kohei@fujitsu.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v3 4/5] irqchip/gicv3: Add workaround for FUJITSU-MONAKA
+ Erratum E#030003
+Message-ID: <202611201734.HqRvXW7Q-lkp@intel.com>
+References: <20261119-monaka-fix-for-upstream-v3-4-057df4d2ca3c@fujitsu.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -117,123 +100,41 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261119025942.2848130-4-neilb@ownmail.net>
-X-Rspamd-Queue-Id: BE2471FB70
-X-Spam-Level: 
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
-X-Spam-Flag: NO
-X-Spamd-Result: default: False [-13.01 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_COUNT_THREE(0.00)[3];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	FREEMAIL_CC(0.00)[zeniv.linux.org.uk,kernel.org,suse.cz,gmail.com,vger.kernel.org,themaw.net,lwn.net];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[9];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	MISSING_XM_UA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:email,brown.name:email,suse.cz:dkim,suse.cz:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
-X-Spam-Score: -13.01
+In-Reply-To: <20261119-monaka-fix-for-upstream-v3-4-057df4d2ca3c@fujitsu.com>
 
-On Thu 19-11-26 13:57:03, NeilBrown wrote:
-> From: NeilBrown <neil@brown.name>
-> 
-> Rather than hold i_lock across a d_children walk, dget() a reference to
-> the dentry and drop the i_lock before the walk.  This is easily done
-> with d_find_alias().
-> 
-> This requires that we dput() which can sleep.  Now that no locks are
-> held across calls to fsnotify_set_children_dentry_flags(), this is safe.
-> 
-> Signed-off-by: NeilBrown <neil@brown.name>
+Hi Tomohiro,
 
-Looks good. Feel free to add:
+kernel test robot noticed the following build warnings:
 
-Reviewed-by: Jan Kara <jack@suse.cz>
+[auto build test WARNING on aebb7274476403040d582c61478df8f4a7bf9cd3]
 
-								Honza
+url:    https://github.com/intel-lab-lkp/linux/commits/Tomohiro-Misono/arm64-cputype-Add-FUJITSU-MONAKA-definition/20261119-180433
+base:   aebb7274476403040d582c61478df8f4a7bf9cd3
+patch link:    https://lore.kernel.org/r/20261119-monaka-fix-for-upstream-v3-4-057df4d2ca3c%40fujitsu.com
+patch subject: [PATCH v3 4/5] irqchip/gicv3: Add workaround for FUJITSU-MONAKA Erratum E#030003
+config: arm-randconfig-1003-20261120 (https://download.01.org/0day-ci/archive/20261120/202611201734.HqRvXW7Q-lkp@intel.com/config)
+compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 3b14d7c370558b46e5f0c6494a05c492e59bf32c)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261120/202611201734.HqRvXW7Q-lkp@intel.com/reproduce)
 
-> ---
->  fs/notify/fsnotify.c | 40 ++++++++++++++++++++--------------------
->  1 file changed, 20 insertions(+), 20 deletions(-)
-> 
-> diff --git a/fs/notify/fsnotify.c b/fs/notify/fsnotify.c
-> index 8657bb94dfa8..58566e6b9679 100644
-> --- a/fs/notify/fsnotify.c
-> +++ b/fs/notify/fsnotify.c
-> @@ -71,32 +71,32 @@ void fsnotify_sb_free(struct super_block *sb)
->   */
->  void fsnotify_set_children_dentry_flags(struct inode *inode)
->  {
-> -	struct dentry *alias;
-> +	struct dentry *alias, *child;
->  
->  	if (!S_ISDIR(inode->i_mode))
->  		return;
->  
-> -	spin_lock(&inode->i_lock);
-> -	/* run all of the dentries associated with this inode.  Since this is a
-> -	 * directory, there damn well better only be one item on this list */
-> -	for_each_alias(alias, inode) {
-> -		struct dentry *child;
-> -
-> -		/* run all of the children of the original inode and fix their
-> -		 * d_flags to indicate parental interest (their parent is the
-> -		 * original inode) */
-> -		spin_lock(&alias->d_lock);
-> -		hlist_for_each_entry(child, &alias->d_children, d_sib) {
-> -			if (!child->d_inode)
-> -				continue;
-> +	/* Find the dentry for inode - there can only be one */
-> +	alias = d_find_alias(inode);
-> +	if (!alias)
-> +		return;
->  
-> -			spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
-> -			child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
-> -			spin_unlock(&child->d_lock);
-> -		}
-> -		spin_unlock(&alias->d_lock);
-> +	/*
-> +	 * run through all of the children of the original inode and fix
-> +	 * their d_flags to indicate parental interest (their parent is
-> +	 * the original inode)
-> +	 */
-> +	spin_lock(&alias->d_lock);
-> +	hlist_for_each_entry(child, &alias->d_children, d_sib) {
-> +		if (!child->d_inode)
-> +			continue;
-> +
-> +		spin_lock_nested(&child->d_lock, DENTRY_D_LOCK_NESTED);
-> +		child->d_flags |= DCACHE_FSNOTIFY_PARENT_WATCHED;
-> +		spin_unlock(&child->d_lock);
->  	}
-> -	spin_unlock(&inode->i_lock);
-> +	spin_unlock(&alias->d_lock);
-> +	dput(alias);
->  }
->  
->  /*
-> -- 
-> 2.50.0.107.gf914562f5916.dirty
-> 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611201734.HqRvXW7Q-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/irqchip/irq-gic-v3.c:83:32: warning: unused variable 'gic_fujitsu_030003_erratum' [-Wunused-variable]
+      83 | static DEFINE_STATIC_KEY_FALSE(gic_fujitsu_030003_erratum);
+         |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning generated.
+
+
+vim +/gic_fujitsu_030003_erratum +83 drivers/irqchip/irq-gic-v3.c
+
+    82	
+  > 83	static DEFINE_STATIC_KEY_FALSE(gic_fujitsu_030003_erratum);
+    84	
+
 -- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
