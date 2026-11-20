@@ -1,145 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=192.198.163.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795140875;
-	b=L8/uvIYeF2VQmD82TN4qqKViyAQop7UWlHYlLvB/dXnHG/+c7i6av1SdkOsT060O5Q/2
-	 LvWJijhV1SFeqhf0NisxgnBkK+9IN15NJojHTi5nsFWQYs2Pfa/OT9VPqbSuD3svS7rny
-	 qnnFAqfyDJdWpgFRml+lMhmf6APRab48fpCDQUp+NQUEG8o10H55ldhYz4M2Qmg+cx9iO
-	 qDyeoyVE/VmYYAJovnZ7DZIJsBgAKqf6EQgUJRwhsjBk+uLbgNwiSdp2cZHXfYMNb7LAp
-	 VBBeXPAjN8YqXnF+UUatmt75CYzujJ42h5KyQuvYSp43sUBnK6Z7oj/i2QUB0VLMe5w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795140875;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=CIORkDOWHFgSR34RRb9FgvKoJoqjqCGyblmk487N2Pw=;
-	b=JIEpcyAOJl6PrhLpweRrsFuj5vt3Vn5S1dYTiTIuyNpjVRyM/9xvQospfWLlgXfR9/od
-	 cyO2K2IqZp6fYqEzrzoyQqIPBX91bHad9rOpRZdE17t/gs89xW7zc4ecUXrCE0yuex/nj
-	 1/cNnFmJjdW6/9TMc9/sO2WJJ9ptSDyNIDqzmmHqJxGjejVd7tb3WI60VkP5pCQQZFB4y
-	 pLm19qqnMrDU0PbAQ7xBw1utn7HRPhyrDS37wdXLKY3hN5040S17RjIe7aUxa5hb347JM
-	 NKEoKwwmFCCTXuxnH2Nb7mO1oZSdp+4w5AS888WcO41q6OLnRi14x38BABp7Hfv/ANw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AKWWDnRZ;
-	dkim=fail reason="signature verification failed" header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VnnGAyoQ;
-	arc=fail smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795140963;
+	b=Ia0BHqMrc0IVkl4UczX0+y/xvz1IOImisXdhFj+winWxdHQ65Ki8XTZ8n3VT652w4twY
+	 xYyTMtaBmuJ00ilAGAXg0/gxRYGKF5Yi+iSLACKjj1JaRZ6N0jSU77rvl+c1GoPpvA/9G
+	 45xLCaOc+m6ePSvvL6V+RXhsiQORUjz9zdJ+w1Xodxz7AddfYzeMnlnItgmYpyV4Xt7TT
+	 9oD3wJK3LLgV6ADc/mfKLjUn0NPh5xk7p2oY6lK8MZlcDU7LHpjb1gh6lvoEboSuJeaiD
+	 dB1kq42cLuiCP4aRLr1Xp7ycnDoiuRkDO/gos8T9qjYKPgYSpNlWf0mheCuW0ajunlg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795140963;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+	b=UxiIyg5TYXS3DOJs4aylYroRoKwPfygrGdsoE6O3uS1fg82WerzPP3E5upLQkJCyyuux
+	 3ElUegZ//pTYyKeQXKwTWKhgpfmuVhkngpicc2nkxfpsjm2K6Y2Wo1Z5sA2ZPM++zpc5x
+	 WOnORK8aV2EVbf/3sL6IT0K24GE0GPe7NYGcYnv104MFEDaGlRX3ys9aazBWzOZ87zeeL
+	 Ai1bBTdAl/st55da41tPFV1KMI3pY6Te+QDQsQBlIG21b3XC8oJ5AIupBgJndNW7pyD9f
+	 FaRd8DYPndLr9o7kwFXzd2GAFtrXj73WgQQ6l6kDK5mV7HF+sey62jWdFgC07AnAHkg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Uuu1/tF0";
+	arc=none smtp.remote-ip=209.85.222.174
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com [209.85.222.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E414606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:14:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E414606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E966606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:16:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E966606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=AKWWDnRZ;
-	dkim=fail reason="signature verification failed" (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VnnGAyoQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795140874; x=1826676874;
-  h=date:from:to:cc:subject:message-id:references:
-   content-transfer-encoding:in-reply-to:mime-version;
-  bh=e1LTrTtLkgX+YAu2ZIcCn4IPEhIJYWdHZ2lb5HssVA4=;
-  b=AKWWDnRZbvwfnw9x4nJrf1Xbe+BAzCypzdcGGmR+x+P0wEalAO90MCc+
-   M9pQnl/Sq1/I82uo1iCpxMkWqCaLV6u5c9nBXk1mqqLrMtVEMu16OwdAX
-   Jlhmf6gwi7ooVBSenogenGjAm2XFvidEG4yrrBnUvXeq1KjATIDnYRVJs
-   /feU7iyFIRI87UUVUVB4rE5v4n3mdmqk/bCqcrr9M7NBrtjGvd5KoFId6
-   w5J9OSDds5bWD02ChWXxrLuktqk+Q26s3RDraTGBiTVD0TG9eZnkardmu
-   3S7uODPve73FuSnQ0VUmKKld/9ql/uIyyn8820Z+/1iy607ygzQIcE/AG
-   w==;
-X-CSE-ConnectionGUID: WH1yRluAROCXU5ygabPUyQ==
-X-CSE-MsgGUID: CYkhE90jT3aC1EIS26lL2A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4046526"
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="4046526"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:14:33 -0800
-X-CSE-ConnectionGUID: bCYxoTPZQ1W6x8uV0r5jXg==
-X-CSE-MsgGUID: cMqnMNLiQ9CTN8DoDXyX1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
-   d="scan'208";a="10670578"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Nov 2026 18:14:32 -0800
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 18:14:31 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Thu, 19 Nov 2026 18:14:31 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.11) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Thu, 19 Nov 2026 18:14:32 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lJz5Le2RecwoyL1xKuwPuScODiWiRrizl/5ol2g1joB4L+1hQ7bPKRHVJvDC/xtTXo+GzUIOZGTjoGYTq0kZtexW16KkpmOfjzfRl/jS5RGi7RWouY9b8uDDvkZzA3iq1BRcOhhvCeaT8LzU88vjhfbkbusv4bnlKV1Y7ZbG72ck9sqRUU1smXVPunUgF8KksFbjUYYtnq2LfKhqDEDkkpCdyTE3HVqCei4+1swSaQJgSJ+/U5NzZmAGpHs+jAtLSbOdCx8I173CLWEP/HkPzCKBnf2SNXr8Xd6ZqiQX1EgXdVx9kLLKt7T656Y+nS2w5But5IpNjwGIpJX9KOv2sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qCMTAZ2CCaI6/tBl5K5cBB9A9U+zFLEGqWWtCf5Ttgk=;
- b=mpKk5pIglVxehYxG2F1OKy1jYJTQ/kjIvLfWleKM5xx5SRTgi1b+uQybSyjc/SZhG936SrjPSntJ66cFIDCzHnXw/LAkDEg2x51eGc856gZvA3lLkQmIeBFw/R0ZZ5131O5pj+Cbzg0nsGl59h9AHRvnuYDZOh8MLPgzjwbDUhRd59kagRRCMeB0bc4NLfyIqM5DcKWmbM89/bsBraVuxlqlqMjOZZhtyDM8Gzbnukfk3sya/3M1iWUjHWqRd5dOwic2o87HFDlodO7yfb/vHbijfNlJG2tIIpnlSglv+mOqyCyFU2CsXm6crN66xsfvHN6D8ZA0f00PXImoTgip/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qCMTAZ2CCaI6/tBl5K5cBB9A9U+zFLEGqWWtCf5Ttgk=;
- b=VnnGAyoQrqQiQuUkB54iJmLhlzmyPzK7BPnSnHR+vZq7n4EWDPBAh7Jjuot9fNqgJ5Am47+mIEz0QLWwAyHLiQkB85d0rEZoJztEJ/ZPdbEGtGazr+idNmfPZ92beXKoSeJMnUbhzxsEOR6hzn/8qDYSuQlkSBdMJ6bA/qM5J6s=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com (2603:10b6:303:95::23)
- by CY8PR11MB7921.namprd11.prod.outlook.com (2603:10b6:930:7d::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Fri, 20 Nov
- 2026 02:14:26 +0000
-Received: from CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd]) by CO1PR11MB4787.namprd11.prod.outlook.com
- ([fe80::e7eb:a872:53d1:21fd%4]) with mapi id 15.21.0615.013; Fri, 20 Nov 2026
- 02:14:26 +0000
-Date: Thu, 19 Nov 2026 18:14:23 -0800
-From: Matthew Brost <matthew.brost@intel.com>
-To: Niranjana Vishwanathapura <niranjana.vishwanathapura@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	Carlos Santa <carlos.santa@intel.com>, Ryan Neph <ryanneph@google.com>,
-	Christian Koenig <christian.koenig@amd.com>, Huang Rui <ray.huang@amd.com>,
-	Matthew Auld <matthew.auld@intel.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <linux-kernel@vger.kernel.org>, Thomas
- =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>
-Subject: Re: [PATCH v3 08/33] drm/ttm: Bound page (re)allocation per
- defragmentation move
-Message-ID: <av+s/38v9gtCDhhr@gsse-cloud1.jf.intel.com>
-References: <20260711025619.2540575-1-matthew.brost@intel.com>
- <20260711025619.2540575-9-matthew.brost@intel.com>
- <avKE9ruZsQwbsQEa@nvishwa1-desk>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <avKE9ruZsQwbsQEa@nvishwa1-desk>
-X-ClientProxiedBy: MW3PR05CA0015.namprd05.prod.outlook.com
- (2603:10b6:303:2b::20) To CO1PR11MB4787.namprd11.prod.outlook.com
- (2603:10b6:303:95::23)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uuu1/tF0
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-94961bfe1a0so28756285a.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:16:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795140961; x=1795745761; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+        b=Uuu1/tF0lfIbNcFFA5RelpnOOFHlqPgFEyge8uGAAcpVNHYb7VRu86qDPllD877b9H
+         b9JCgahf7j9nr9Wk6YQR7CItht+a7kIhxujCe3BohcxwygPWFJZ2BLNQOlPk6Z9Sp6fG
+         2f69HceylDSJmVPnPVb3gKoEUOjeQR/gqbHI4crJrVMh4s0FET4VBwA2pkyZDP9aBRph
+         CKimzSVZH7kKCxujyQvrrNOBVYCipYLA3h4TrVcYRdX7pltjiL2jCFYhhSdyAqQlh5XK
+         JJ9ZfEOb2S+rumA8JkDSIAnQFPcEuCbZTJ4QgokWnZUfWzABlTrNAdzdGY1C6ZJ/6gyr
+         21nQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795140961; x=1795745761;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wNFHaznprkYFxrl6N69NiI4gThn5TQVVfoHkGgTnqYU=;
+        b=RFKuuURs6tEDsKwRMA8Pgr9yYbBL58gmjYd+5I/VwMnrWwYOx9rjuk8Y2Wyo/nTvVO
+         krrMSaxvePnYVZndXXirt+IUaKwvzbJ6QFViemHWJli7/En8n2cigl38hBH4CXtXqeWb
+         qSUYGE2AeoCtSz55ovqKcw273ikbfOyeX4AzRUYoDSKm0y8XghAlvik33CsBaUMB1chO
+         O5ydQuQsNkZpY3hjyBL/NYNBi0weEu3oLjg/SASIW2QATJRD26iVA/VpMNCuLlh7KbYq
+         oqxX8lhWI6RKEwNMlAuOFsALlLpW8cpmRn75JeU/N+MUgNSeKb2GtaPUf+Ek76k2mvuM
+         1AZQ==
+X-Forwarded-Encrypted: i=1; AL+hErFGxILT2Iqlaibw0e5jpzVYnIKGSqvqsMTSrAB5g9RqbnveixqLo06wJA3Fefd3NO1/oXH2B7lTzDCfcsY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8NAFwBVfZfC+kwe/CMN4AvT/LCkmiG1iSw8QASQmYSqR3UzDRw
+	60cH1fkqNM9L3/PGvaUrzNrTQWKPM/9GjU2ZeYR+O2SZvvmwS5mO6ixn
+X-Gm-Gg: AYBFou03PI2+vRbbsKSCE4U9o/q6JRD4uXJKQ3CDsJ3aoIX9wtTrMKVF3dlBk6sMGRF
+	p8BxV7ha+0EOuY3HvteGtmu2Xnkov9Hhc36H4OB5J0S5rqsVE4AorMQ7vBYZJtFatAB4VKYe1Fn
+	pr3BfstNEzhdZhtHWz7ZfSn+QW9qhwL2esH18YelO0tZ6rWHyiuMlNLxMT1tCMlA/utZeJyJdtB
+	ySAf15b3co7HaO/x9n2tmo8HliEEKsjeYEzefNkdLvUcxVKwQtu3+Ns/olEVNvdtHSICcyOOe9e
+	YiTPYzxbcv44LveEhRi031Txjov4RMSzqOrLBy0WfH7QevHoeYXibWKB484fwqShdWmoSmFk5NE
+	yG5o0HmwvSjHqI3k2o5pcdDyF7QoiqhKj6KLTUlaDWQv+9/wnUVULjO/PBrIxUcahpBV/y6OoeE
+	VYVNT0fiBLJTZJCp/sA4djQs49c5Y1mtiu7ErQOnwP35jfLSJR2PCgnmDQ+IcqaRTPG2aq+HoQN
+	wVplw+8PLdnp5IsCbckyLceuAk3JLwiBp+dhRpFILMRUqJXdlVY1Se1nppu4L0QgaijUEel36Jh
+	U67zxEEzKON8yZmAMsBXeWbtwmhJPCumVbRTe+FdeTWmkEJKUE5Ux8Ehg1NBvojpZRtOxEdWjk4
+	=
+X-Received: by 2002:a05:620a:2b9a:b0:93c:62c4:e2e2 with SMTP id af79cd13be357-949ba8246e2mr284773685a.12.1795140961426;
+        Thu, 19 Nov 2026 18:16:01 -0800 (PST)
+Received: from linux.. ([8.34.174.240])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3bec3dsm91755285a.23.2026.11.19.18.16.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 19 Nov 2026 18:16:00 -0800 (PST)
+From: Changyul Lee <lcy8047@gmail.com>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Gal Pressman <gal@nvidia.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Changyul Lee <lcy8047@gmail.com>
+Subject: [PATCH net v2] net/mlx5e: Skip hairpin entries not ready in debugfs dump
+Date: Thu, 19 Nov 2026 21:15:57 -0500
+Message-ID: <20261120021557.1630138-1-lcy8047@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -149,369 +106,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB4787:EE_|CY8PR11MB7921:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3fc7269d-f09b-4228-29ec-08df46abfff5
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|1800799024|376014|261026121527099003|18002099003|22082099003|261022105027099003|261021123027099003|261009220027099003|4143699003|11063799006|56012099006|261009221227099003|261028144727099003|261022113327099003|261102123227099003|261022075727099003|10067099003|261102130727099003|261021121427099003|261009223027099003|261009221727099003|261009223327099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info: WmpDBqejMZCUcqwaZkvQ1mM+n1gAMyLDjWkuGmSSn3jYcQ0UCx4dB7RZnzaMTODeHXX/Cu1UfncNqliCOqY9+zslwQUKNeBHrwl0zi7KkECn2r94NhCqXESvZSw0gbqD6PhajxTU8kMRVLzIeRKk3gqTbs8BsisX8hcWmmMjdDntYRZa9PE0V75BIdTI6gEqtCDqo8JaZUgM45qNBW0Dy1bVvo+mN18KD9RvlmYgk+Qz0oyjHIAFgx45TlI0nPyQRU7SDbmtsJmWjRoeAoMpU76Cu/yZ8pCrNwmumaleQFVUOKn+Y3XlA4P59gmo+5dtgYc8j43npuyXy+n7Yo5do7Wqzq9wFhy5wQyVW4E/Mg2lKZLagcd53or4ZYINfOdDj7aI2lrslIUPm7MSg7u01/+a0g6z6AEmO76Jya+1xAtroVBETFf0sN8a0izTC2ztlctHvLe4P/BUmvV18awAo/pcwk+n5v53lxwYjEpnVAPpsiugJkeAh+U6hfLJsvRMH53zdpuW0Gt69JUvcN5xzjUnxSxaHHtfIHouO71c8b5axLumnR+CJgz48EjtX6wlsKmBVFP6L9R04HSjwgPpgaCCD1MUpVkPq+ppvE3s0XapdRaRua4IsYHVeXs9NcCCqAt9eWt5IfY/5pW4ZMphl6raIKlA9Pb4rTu1aByBi+s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4787.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(1800799024)(376014)(261026121527099003)(18002099003)(22082099003)(261022105027099003)(261021123027099003)(261009220027099003)(4143699003)(11063799006)(56012099006)(261009221227099003)(261028144727099003)(261022113327099003)(261102123227099003)(261022075727099003)(10067099003)(261102130727099003)(261021121427099003)(261009223027099003)(261009221727099003)(261009223327099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?zRiriSUr355sP/5M/NRD9qxArrIzCKfwJpSj6TjBkrl5SPV+mV0XoG711e?=
- =?iso-8859-1?Q?YZTyjpbwLhxGAsc9pxYhvcN6qpSy526kK4Kiuc2e32QMeMvI6U+L0K6OML?=
- =?iso-8859-1?Q?KmiK/YyoAVXypA9eRQMLbMbokAxS6anuhvQqOnOI6oY1tOyfj15MKiCJM1?=
- =?iso-8859-1?Q?5lqn79kb/VyJDgkL5erHEkzkGVfTrk5xByxuq9tnDSIR7KFj+jWmSzbgm9?=
- =?iso-8859-1?Q?9BV9nJYNJgtpRDlMMCArMmPAjC0gNRNuTekTDM1wLkPz7Diavkmz6jTvxt?=
- =?iso-8859-1?Q?nUeqqNZF3faAjdfYTXG30pJ1yjtfEUV16X3v3FsSGOvbWt0aoCdfNW4baR?=
- =?iso-8859-1?Q?5huh0ILSOiWSNodJrRggouQQRVywav1u3DUJVHUqEIHI37Nvutl6jCHVZr?=
- =?iso-8859-1?Q?V9a7somOERBZDWtkX8z6/WLpsJXdisHGzvYB6jMQsJidU7PAVgleeQH/KD?=
- =?iso-8859-1?Q?/tQ0JSTGU7UgO1fLLtqZq4iXCG1kN61rzbdMh+wEVz9eSifAG/z0Ghtf+T?=
- =?iso-8859-1?Q?2JxjKsVtczcnpvsnckDv/6HSaXV/jls45EQnEv0gmaQTe8Tha3cjRxnM8Q?=
- =?iso-8859-1?Q?QDA9dMluHhU7uhcms49C0mh9RVbIqsx9k6erV1G+h6P65dWM+thPwlUyJf?=
- =?iso-8859-1?Q?Bv2CjkF9ofm3hTvrBpT2tDYkddYiDgx55Eya9A5l5D7Mkxgsa4FOrzGwjl?=
- =?iso-8859-1?Q?Q6fjSRvg3at5vGgkWXCbYJzfK16QlhCm57PwBJehqcyoIdhCaaKYXfEkUA?=
- =?iso-8859-1?Q?ao7WltlL9g76NEc/iPYp5FWMVd9H/YeL3XDw2x+i9GHqXh04wvP8Fbky92?=
- =?iso-8859-1?Q?Gq+I6K7baVWZPvs0gQCmqgPy5vmNjJquutqBt/sb/+V6bVnwiRmVZkG7Vc?=
- =?iso-8859-1?Q?6lmkaRBc0szPqfBaan5NVa3Uw6RXIdw9XLcLSzVE9SqgZ7C1A2s8zYAF/B?=
- =?iso-8859-1?Q?L346ggHr70E6lgTHIIa1K0/+dWXOpdl7cGxSzBTAkd6gtvSf9KIm10rxTo?=
- =?iso-8859-1?Q?IaDYOi+utgGxl2tjioWNdTUqBoEd+FmlqaTiwG6eOx+mBCiGZGD7laCoRH?=
- =?iso-8859-1?Q?RYn1nbS4suoLJYYZNKzsGvQWY9IB109PRQdXBB9EYwGAwtbnbVbGZxiyXv?=
- =?iso-8859-1?Q?DV31oQzjVnE0a1KT7k1oEZu33Zbz0UlCcFXXJF4OM1j6MsmGzD+1JkOYry?=
- =?iso-8859-1?Q?yPcc2//Xs7+QLseb6chFrbGaWcRxhXuLE1L0jFXi3swxFIRMF1YoRH3KKD?=
- =?iso-8859-1?Q?Sa2z7Tu6swyac9e4c8fnxqZVsLxAX1+k4rxh72jfHAQWFztSg76MQS4yhg?=
- =?iso-8859-1?Q?Tg5lB6gO1Hdw7ECAf55SPHavLi6xD2YUHZz3YhauZxoN6GcACcwzHXPcSF?=
- =?iso-8859-1?Q?MgHJE2a1H3LNQAUobEEEpmq0j0jWMFFnTwNBUfKre0oI2dNZJ/DmhCAHtp?=
- =?iso-8859-1?Q?v/zf+/IDDI5mvJRtlpZQRSgEU1YpZPvLEkeQhdLzstHks8CvH2Ipf2KoVx?=
- =?iso-8859-1?Q?10/ITjvRCR6yQRwHXw6PLDGrD20+jtuXoLsr9xuoFz0Iw1Tpae7DeV9rMV?=
- =?iso-8859-1?Q?aNjh8EYUwRR8laJmMnCpCHF4U2NBSS5529D3sgxg3/MnZiC1GrF17Dyo61?=
- =?iso-8859-1?Q?LfspDrbsTowFnL7OO9FKTUs25twGSCMwMWGjA2ZMo22YUkGleUydI1HfVG?=
- =?iso-8859-1?Q?rIiXlynwmi6UjMSrP5NMNXn7st7leN9r9d7mCs2qm71wO4gTEqYdG8u9MV?=
- =?iso-8859-1?Q?07SG+KsZeysCaLue0EdVfxEYGePRVIA212d5w5islo9s9FdFGszAeVM6AO?=
- =?iso-8859-1?Q?V2EFQlcswMaXdMEVtj5klF4LJDg4F0A=3D?=
-X-Exchange-RoutingPolicyChecked: Jmo6HJE7J7j14LbO9a64E8YODL8fDX2NiV0n3m6sJMff/60LIVELNq99aQpWbN3NA5nKrLxmuZpjsEfgbuNCrgI4rivbq7kuMlGkOJGRxgs4sZnQ2E1Jy8MgRQfF9bQaYR962Cw3Vb18THFlvoTOEF5/ksaz8/+xIjGUfM7syyPNbc8ZzsEhgfXoP9EN0bz19Z9iViW8zh82CeeybnOvqWRRw8vyUdlCNr+/0aLMeyqcegSjnh+hI7GWyD0an2QD2N5clE9aYwleafCpaZqDk/RS1zt5vTSeH0JcRk23+JK4BtSSXPUvCuL0KTc6GLaidEXqFnNwPD1QyRvuGFlOVA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3fc7269d-f09b-4228-29ec-08df46abfff5
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4787.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 02:14:25.9495
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7mvlt/AHdYsf3xT6w7qJ4azndh5ijcTVihYeCFE3L0e5H2DbPvJ3mIx4gqSUs9QbSf4vv4RUPLFCeyNtGVRoeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7921
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 09, 2026 at 06:44:06PM -0800, Niranjana Vishwanathapura wrote:
-> On Fri, Jul 10, 2026 at 07:55:54PM -0700, Matthew Brost wrote:
-> > A defragmentation move reallocates an object's backing at the device's
-> > beneficial order and harvests whatever the allocator cannot upgrade from
-> > the old tt. For a very large object this can reallocate (and have the
-> > driver re-copy) the entire backing in one move, which is expensive and
-> > can stall concurrent work for an unbounded stretch.
-> 
-> Assisted-by: LLM
-> 
-> NIT...So, a time budge would also be helpful here along with the size
-> budge?
+mlx5e_hairpin_flow_add() adds a new hairpin entry to hairpin_tbl and
+drops hairpin_tbl_lock before creating the hairpin, and sets hpe->hp
+only after mlx5e_hairpin_create() returns. Other users of the entry wait
+for res_ready, but debugfs_hairpin_table_dump_show() does not, so
+reading hairpin_table_dump in that window dereferences a NULL hpe->hp,
+or an ERR_PTR when the creation fails.
 
-That could be option but a size budget seems like reasonable place to start.
+Skip entries whose res_ready is not completed or whose hp is an error.
 
-> 
-> > 
-> > Add an optional per-move byte budget so a large object can be upgraded in
-> > slices across successive moves. Plumb a new
-> > ttm_operation_ctx::defrag_bytes_remaining through to the pool allocator:
-> > only pages actually (re)allocated at the beneficial order are charged
-> > against it; pages harvested (borrowed) from defrag_old_tt are free and do
-> > not count. Once the budget is exhausted the allocator stops upgrading and
-> > completes the new tt by harvesting the remainder of the old tt as-is,
-> > marking the tt sub-optimal (TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED) so the
-> > driver re-queues it and a later move resumes the upgrade. The slices
-> > already upgraded come back as free already-beneficial harvests on the
-> > next pass, so each move spends budget only on new forward progress.
-> > 
-> > The allocator decrements the budget as it allocates and writes the unused
-> > remainder back on success, letting the caller compute how many bytes were
-> > actually spent. A value of 0 means unlimited (upgrade the whole object in
-> > one move), preserving the previous behaviour. This is only consulted on a
-> > defragmentation move, i.e. when defrag_old_tt is set.
-> > 
-> > Cc: Carlos Santa <carlos.santa@intel.com>
-> > Cc: Ryan Neph <ryanneph@google.com>
-> > Cc: Christian Koenig <christian.koenig@amd.com>
-> > Cc: Huang Rui <ray.huang@amd.com>
-> > Cc: Matthew Auld <matthew.auld@intel.com>
-> > Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> > Cc: Maxime Ripard <mripard@kernel.org>
-> > Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> > Cc: David Airlie <airlied@gmail.com>
-> > Cc: Simona Vetter <simona@ffwll.ch>
-> > Cc: dri-devel@lists.freedesktop.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Cc: Thomas Hellström <thomas.hellstrom@linux.intel.com>
-> > Assisted-by: GitHub_Copilot:claude-opus-4.8
-> > Signed-off-by: Matthew Brost <matthew.brost@intel.com>
-> > ---
-> > drivers/gpu/drm/ttm/ttm_pool.c | 101 ++++++++++++++++++++++++++++++++-
-> > include/drm/ttm/ttm_bo.h       |  14 +++++
-> > 2 files changed, 112 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/gpu/drm/ttm/ttm_pool.c b/drivers/gpu/drm/ttm/ttm_pool.c
-> > index 52f5e64f05dd..1673e81b8df8 100644
-> > --- a/drivers/gpu/drm/ttm/ttm_pool.c
-> > +++ b/drivers/gpu/drm/ttm/ttm_pool.c
-> > @@ -77,6 +77,11 @@ struct ttm_pool_dma {
-> >  * @dma_addr: Pointer to the next tt dma_address entry to populate if any.
-> >  * @remaining_pages: Remaining pages to populate.
-> >  * @tt_caching: The requested cpu-caching for the pages allocated.
-> > + * @defrag_bytes_remaining: Byte budget for newly (re)allocated pages on a
-> > + * defragmentation move, seeded from ttm_operation_ctx::defrag_bytes_remaining.
-> > + * Pages harvested (borrowed) from the old tt are free and do not count; once
-> > + * this drops to zero the allocator stops upgrading and harvests the remainder.
-> > + * On completion it holds the unused budget. 0 means unlimited (no defrag cap).
-> >  */
-> > struct ttm_pool_alloc_state {
-> > 	struct page **pages;
-> > @@ -84,6 +89,7 @@ struct ttm_pool_alloc_state {
-> > 	dma_addr_t *dma_addr;
-> > 	pgoff_t remaining_pages;
-> > 	enum ttm_caching tt_caching;
-> > +	s64 defrag_bytes_remaining;
-> > };
-> > 
-> > /**
-> > @@ -780,6 +786,7 @@ static void ttm_pool_alloc_state_init(const struct ttm_tt *tt,
-> > 	alloc->dma_addr = tt->dma_address;
-> > 	alloc->remaining_pages = tt->num_pages;
-> > 	alloc->tt_caching = tt->caching;
-> > +	alloc->defrag_bytes_remaining = 0;
-> > }
-> > 
-> > /*
-> > @@ -885,8 +892,12 @@ static int ttm_pool_harvest_page(struct ttm_tt *old_tt, unsigned int order,
-> > 
-> > static int ttm_pool_harvest_remaining(struct ttm_pool *pool,
-> > 				      struct ttm_tt *old_tt, pgoff_t off,
-> > -				      struct ttm_pool_alloc_state *alloc)
-> > +				      struct ttm_pool_alloc_state *alloc,
-> > +				      bool *suboptimal)
-> > {
-> > +	unsigned int beneficial = ttm_pool_beneficial_order(pool);
-> > +	pgoff_t bnr = 1UL << beneficial;
-> > +
-> > 	/*
-> > 	 * @off is always an old-tt chunk head here, never a tail page, so
-> > 	 * reading the per-chunk order below is safe. This holds because:
-> > @@ -906,8 +917,23 @@ static int ttm_pool_harvest_remaining(struct ttm_pool *pool,
-> > 		struct page *p = old_tt->pages[off];
-> > 		unsigned int order = ttm_pool_page_order(pool, p);
-> > 		pgoff_t nr = 1UL << order;
-> > +		pgoff_t num_pages = off + alloc->remaining_pages;
-> 
-> num_pages seems loop invariant. May be move it out of the loop as total_pages
-> or something?
-> 
+Fixes: 8a0594c09610 ("net/mlx5e: Add more information to hairpin table dump")
+Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
+---
+Changes in v2:
+ - Point the Fixes: tag to 8a0594c09610, which added the hpe->hp
+   dereference to the dump (Tariq)
+ - Add Reviewed-by from Tariq
 
-No, both 'off' and 'alloc->remaining_pages' change each iteration of the loop.
+v1: https://lore.kernel.org/all/20261119012707.555494-1-lcy8047@gmail.com/
 
-> > 		int r;
-> > 
-> > +		/*
-> > +		 * Only report a sub-optimal backing when a chunk we cannot
-> > +		 * upgrade (out of budget/prealloc) sits in a beneficial-order
-> > +		 * aligned region that fully fits in the tt: that region could
-> > +		 * have been upgraded with more budget. A chunk below the
-> > +		 * beneficial order is expected for the unaligned tail (the last
-> > +		 * partial beneficial-order region) and for already beneficial-
-> > +		 * order harvests - neither leaves real defrag work, so they must
-> > +		 * not flag the tt for re-queue.
-> > +		 */
-> > +		if (beneficial && order < beneficial &&
-> > +		    round_down(off, bnr) + bnr <= num_pages)
-> > +			*suboptimal = true;
-> > +
-> > 		r = ttm_pool_harvest_page(old_tt, order, off, alloc);
-> > 		if (r)
-> > 			return r;
+Found with a static analysis tool we are developing.
 
-e.g., below here (unseen) 'off' is incremented by 'nr'.
+Compile-tested only, with x86_64_defconfig plus MLX5_CORE_EN,
+MLX5_ESWITCH, MLX5_CLS_ACT and W=1.
 
-> > @@ -951,6 +977,7 @@ struct ttm_pool_alloc_iter {
-> > 	struct ttm_tt *defrag_old_tt;
-> > 	unsigned int beneficial_order;
-> > 	gfp_t gfp_flags;
-> > +	bool defrag_capped;
-> > 
-> > 	/* Mutated as the loop walks the orders. */
-> > 	unsigned int order;
-> > @@ -962,6 +989,44 @@ struct ttm_pool_alloc_iter {
-> > 	struct page *p;
-> > };
-> > 
-> > +/*
-> > + * Defrag move budget exhausted: the upgrade can make no further progress this
-> > + * pass. Snapshot @defrag_capped is set only when a byte budget was in force at
-> > + * entry.
-> > + */
-> > +static bool ttm_pool_iter_defrag_exhausted(const struct ttm_pool_alloc_iter *it)
-> > +{
-> > +	if (!it->defrag_old_tt)
-> > +		return false;
-> > +
-> > +	return it->defrag_capped && it->alloc->defrag_bytes_remaining <= 0;
-> > +}
-> > +
-> > +/*
-> > + * Complete the new tt by harvesting the rest of the old tt as-is (borrowing its
-> > + * pages, including any still below beneficial order). Never fall back to in-lock
-> > + * reclaim for the shortfall - that would reintroduce the stall we preallocated
-> > + * to avoid. Only re-queue (flag) the tt when the harvested remainder is
-> > + * genuinely sub-optimal; if every remaining old chunk was already at beneficial
-> > + * order the move fully upgraded the object.
-> > + */
-> > +static int ttm_pool_iter_harvest_rest(struct ttm_pool_alloc_iter *it)
-> > +{
-> > +	pgoff_t off = it->tt->num_pages - it->alloc->remaining_pages;
-> > +	bool suboptimal = false;
-> > +	int r;
-> > +
-> > +	r = ttm_pool_harvest_remaining(it->pool, it->defrag_old_tt, off,
-> > +				       it->alloc, &suboptimal);
-> > +	if (r)
-> > +		return r;
-> > +
-> > +	if (suboptimal)
-> > +		it->tt->page_flags |= TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > /*
-> >  * Defrag move: reuse an already beneficial-order chunk from the old tt at this
-> >  * offset rather than reallocating it. Harvest whatever order the old chunk has
-> > @@ -1062,11 +1127,12 @@ static int ttm_pool_iter_lower_order(struct ttm_pool_alloc_iter *it)
-> > 		if (it->alloc_count && it->defrag_old_tt) {
-> > 			pgoff_t off = it->tt->num_pages -
-> > 				      it->alloc->remaining_pages;
-> > +			bool suboptimal = false;
-> > 			int r;
-> > 
-> > 			r = ttm_pool_harvest_remaining(it->pool,
-> > 						       it->defrag_old_tt, off,
-> > -						       it->alloc);
-> > +						       it->alloc, &suboptimal);
-> 
-> As suboptimal is not required here, probably send a NULL here and have
-> ttm_pool_harvest_remaining handle that NULL.
-> 
+ drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-That is better will change.
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index 1d35c97aea0b..c6623f13261b 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -1067,12 +1067,15 @@ static int debugfs_hairpin_table_dump_show(struct seq_file *file, void *priv)
+ 	u32 bkt;
+ 
+ 	mutex_lock(&tc->hairpin_tbl_lock);
+-	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist)
++	hash_for_each(tc->hairpin_tbl, bkt, hpe, hairpin_hlist) {
++		if (!completion_done(&hpe->res_ready) || IS_ERR(hpe->hp))
++			continue;
+ 		seq_printf(file,
+ 			   "Hairpin peer_vhca_id %u prio %u refcnt %u num_channels %u num_packets %lu\n",
+ 			   hpe->peer_vhca_id, hpe->prio,
+ 			   refcount_read(&hpe->refcnt), hpe->hp->num_channels,
+ 			   BIT(hpe->hp->log_num_packets));
++	}
+ 	mutex_unlock(&tc->hairpin_tbl_lock);
+ 
+ 	return 0;
 
-> > 			if (r)
-> > 				return r;
-> > 
-> > @@ -1121,10 +1187,23 @@ static int __ttm_pool_alloc(struct ttm_pool *pool, struct ttm_tt *tt,
-> > 		gfp_flags |= GFP_HIGHUSER;
-> > 
-> > 	it.gfp_flags = gfp_flags;
-> > +	it.defrag_capped = it.defrag_old_tt && alloc->defrag_bytes_remaining > 0;
-> > 
-> > 	for (it.order = ttm_pool_alloc_find_order(MAX_PAGE_ORDER, alloc);
-> > 	     alloc->remaining_pages;
-> > 	     it.order = ttm_pool_alloc_find_order(it.order, alloc)) {
-> > +		/*
-> > +		 * Out of defrag budget: harvest the rest of the old tt as-is and
-> > +		 * stop (the tt is re-queued if the remainder is still
-> > +		 * sub-optimal).
-> > +		 */
-> > +		if (ttm_pool_iter_defrag_exhausted(&it)) {
-> > +			r = ttm_pool_iter_harvest_rest(&it);
-> > +			if (r)
-> > +				goto error_free_all;
-> > +			break;
-> > +		}
-> > +
-> > 		/* Reuse an already beneficial-order chunk from the old tt. */
-> > 		r = ttm_pool_iter_reuse_old(&it);
-> > 		if (r < 0)
-> > @@ -1155,6 +1234,15 @@ static int __ttm_pool_alloc(struct ttm_pool *pool, struct ttm_tt *tt,
-> > 				goto error_free_all;
-> > 		}
-> > 
-> > +		/*
-> > +		 * Charge a newly (re)allocated chunk against the defrag move
-> > +		 * budget. Harvested chunks borrow the old tt's pages for free
-> > +		 * and never reach here.
-> > +		 */
-> > +		if (it.defrag_capped)
-> > +			alloc->defrag_bytes_remaining -=
-> > +				(s64)(1UL << it.order) << PAGE_SHIFT;
-> > +
-> > 		it.alloc_count++;
-> > 	}
-> > 
-> > @@ -1204,14 +1292,21 @@ int ttm_pool_alloc(struct ttm_pool *pool, struct ttm_tt *tt,
-> > 		   struct ttm_operation_ctx *ctx)
-> > {
-> > 	struct ttm_pool_alloc_state alloc;
-> > +	int ret;
-> > 
-> > 	if (WARN_ON(ttm_tt_is_backed_up(tt)))
-> > 		return -EINVAL;
-> > 
-> > 	tt->page_flags &= ~TTM_TT_FLAG_BENEFICIAL_ORDER_FAILED;
-> > 	ttm_pool_alloc_state_init(tt, &alloc);
-> > +	alloc.defrag_bytes_remaining = ctx->defrag_bytes_remaining;
-> > +
-> > +	ret = __ttm_pool_alloc(pool, tt, ctx, &alloc, NULL);
-> > +
-> > +	/* Report the unused defrag budget back to the caller. */
-> > +	ctx->defrag_bytes_remaining = alloc.defrag_bytes_remaining;
-> > 
-> > -	return __ttm_pool_alloc(pool, tt, ctx, &alloc, NULL);
-> > +	return ret;
-> > }
-> > EXPORT_SYMBOL(ttm_pool_alloc);
-> > 
-> > diff --git a/include/drm/ttm/ttm_bo.h b/include/drm/ttm/ttm_bo.h
-> > index fcaba5fb8bf7..6124d2627b47 100644
-> > --- a/include/drm/ttm/ttm_bo.h
-> > +++ b/include/drm/ttm/ttm_bo.h
-> > @@ -223,6 +223,20 @@ struct ttm_operation_ctx {
-> > 	 * NULL for non-defrag operations.
-> > 	 */
-> > 	struct ttm_tt *defrag_old_tt;
-> > +	/**
-> > +	 * @defrag_bytes_remaining: Byte budget for newly allocated pages during
-> > +	 * a defragmentation move. Only pages that are actually (re)allocated at
-> > +	 * the beneficial order count against it; pages harvested (borrowed) from
-> > +	 * @defrag_old_tt are free and do not. When the budget is exhausted the
-> > +	 * pool allocator stops upgrading and completes the new tt by harvesting
-> > +	 * the remainder of @defrag_old_tt, marking the tt sub-optimal so the
-> > +	 * driver can resume on a later pass. The allocator decrements this as it
-> > +	 * allocates, so on return it holds the unused budget (which the caller
-> > +	 * can use to compute how many bytes were spent). A value of 0 means
-> > +	 * unlimited (upgrade the whole object). Only consulted when
-> > +	 * @defrag_old_tt is set.
-> > +	 */
-> > +	s64 defrag_bytes_remaining;
-> 
-> If user specifies -ve value, currently it means unlimited. So, may be update the
-> documentation here to say "A value of <= 0 means unlimited"? Or, better only accept
-> > =0 value from the user ctx here.
+base-commit: 342e62fd34c2674e82bffc89cb5c7091924986d9
+-- 
+2.43.0
 
-How about I reject user input defrag_bytes_remaining < 0?
-
-Matt
-
-> 
-> Niranjana
-> 
-> > 	/**
-> > 	 * @resv: Reservation object to be used together with
-> > 	 * @allow_res_evict.
-> > -- 
-> > 2.34.1
-> > 
