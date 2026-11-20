@@ -1,57 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795210408;
-	b=NKfr8YvLsynJBRqVQGXDwLBFY5Uw1e8VrrIAa/VX1IiMrhyTljkxFRT8r+DuF0JCyyOT
-	 P3j8MedE2bEwTJYHoWfyKNibfz3qSkIC2sYQ4r1ZX+EZByeqpuyWs9ElzyPhBcGIenPJb
-	 7Pk3/P87YrQw94HNrsyP3W528rNIPmbB50lrkCYrOB89UWSXxh1rDzf6fBCJmG42w4gXS
-	 d03w9HwsBG7g4nxbEXViqAwMeS0TeLMK1dqNL/HZxK1OvXeRKtE8UlGjF7QUd6d4B2e0t
-	 AQ+2SVoMh4XRL5YwAg9SbsuXmZ/pthZrBLPDMeD0Gbm8OmAijKVu23yPr6LNR3YBpQw==
+	t=1795210439;
+	b=w9wN/B4fBUDyQR+5tqpTzgzPK2X8RByc/B59arlz6xCqfT+S6EErFXjcYDDwMjWnskRI
+	 VgfLZ30dvUQZ0YjcLUfF4t6/oaLmKLcrG7ig7dWkSePT8eKAhqis3UAR+rFCM+gG9GGc/
+	 O06ZOTE8cglW4Q7/GiFVuk2LkvnQmuljfIIfpbpVeWdlyNWMJ5+qOPiNc+SNlO3EKeEhH
+	 PVAUMGgfoGXKixTg9wvWb1cAHIkbXRlfPfuqDkiswJepSAD4DWvUF4av0XDkCVleJw7Bx
+	 8hVoYjyLMvCxCwrojG663JMIoSlYLQXeLPhI2RB14QIfNfgbPcYKp5m0zCXZRsU3Veg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795210408;
-	h=Received:DKIM-Signature:Message-ID:From:Subject:Reply-To:To:Cc:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:Date;
-	bh=yIELFXgaQqNz0yz+2Y2T0WdEqJZoQcYPn7sw/Ofvrd4=;
-	b=L96BvGHalA+xoePEBjkRBnmLI2itpqIEPSO0amSD5pCh/M2Q08Rzs+YxDYAqtdb+YHJH
-	 w5FwmHpezZSqdXB+CfjWzkn1gvX6LM4KUDtAHMF7h1Xeat6mEb9HNjo+8Hcs5eW/GL80c
-	 KJ4eZjKkX4bxLakcd9EW4VScoRguDTzRZBCTBOWVHkEU72K1YbppFiHQDHlCxowC0gqin
-	 U3jF+tXMulSiRDqNW0GPFRM8IGU3FoWZ5/g4/+JpLbc+swU0tU4+Fus9kKYSV8nvPUHoA
-	 4JnpveiegjddgUm0XsJw6FJ9e6Fxe+zbi5aSb1kX96VvoeumMHtUR0VUdjwauSypjsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795210439;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1djv/Cl6L7baYP2BjEGAGN5zEhkHq4i1i3oynSbuzoc=;
+	b=SVfuh7WUddvRGapv5ijD93rt/EapTe4ne43SM4RrVtBSlZ6J9AdRIjSB3cJx6UGDPJQY
+	 gJJzHNWhxUjYss3US4LU3bIhxYV6kz/uljYddgj116GNHQl14VHJ4iJfvGQqnL3RkLah9
+	 4h73M6lORq5c3hZJzopg8HQOsVwJEk9mBDuBdIlIXyCzTWX4I6WzqIXEZy+3G1j5gwUA0
+	 CQq2kYbhw8z7WhctCf6alckrQfz9slqtvQePfqF5tFAlQkhMvTdtsxCUmR0hA+fNcrloS
+	 yj6pZCJMMo34KvkoQR/D3FirOCi8D8+nhSiocZ6QI1Ha21J9vIPA5PDbqoXXqslKarA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNGGqG+C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gUB+PJgB;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D37606A6A8;
-	Fri, 20 Nov 2026 21:33:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A142E606A6A3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:33:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A142E606A6A3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jNGGqG+C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEC331F000C0;
-	Fri, 20 Nov 2026 21:33:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795210408;
-	bh=yIELFXgaQqNz0yz+2Y2T0WdEqJZoQcYPn7sw/Ofvrd4=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=jNGGqG+Czpa2Y3sUb3HpT1xYo/3vNbSwEpko7AOLbn4dAW8/3dEQpVC2puy1NZXz5
-	 RY2oxyKpR0ZLYmTfGmHvrW6H21hhizZ3I6QgeMK/Pgg8rH0ghGjImNiwa9UFUOn1wm
-	 RlzfXV8VFvNHoJuoSCaP+xeXUkf0MRnezEqBA65lpzMJEuFXyT0GFf8dta7fXLYj0Y
-	 Fc1DM4N2kfkyBK7H//7xt1wG53EuZiLvVpGKK4OUJ8KXRa38wdU5gE6cdSXUXsUouz
-	 HLFXhrjUu64FTfDeIcr8819jtx4mcuo+NVuICHp4yNh5ykG/MT35yZ44jtXuyDoClR
-	 NGL+3zdDj86Dw==
-Message-ID: <sashiko-outbox-226195@kernel.org>
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH v10 38/40] sched/deadline: Boost an owner that cannot
- run on its own reservation
-Reply-To: sashiko-reviews@lists.linux.dev
-To: "Mathieu Desnoyers" <mathieu.desnoyers@efficios.com>
-Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org, mkoutny@suse.com, linux-kernel@vger.kernel.org
-In-Reply-To: <297755d1d8dde37f65e12a4cd502c6332011f44c.1795207233.git.mathieu.desnoyers@efficios.com>
-References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
- <297755d1d8dde37f65e12a4cd502c6332011f44c.1795207233.git.mathieu.desnoyers@efficios.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 20 Nov 2026 21:33:27 +0000
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gUB+PJgB
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-49083b985d2so98840f8f.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:33:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795210437; x=1795815237; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1djv/Cl6L7baYP2BjEGAGN5zEhkHq4i1i3oynSbuzoc=;
+        b=gUB+PJgBk5EWk8aijV5j/yAhsI2yNEPiSKzIncNEtmM8AuULD6wSLdCxWTZluOzYFW
+         uMFO4LFK9m4DGsLfrlAV1N9MtucGgmQaD4xDooVpWWCh6GZyjLdspa9ffjXHaGRYRlCe
+         pyPzFeLQ28QT8ViL7ugWtlHkjrurLJTH4gZRCHMx1NUJfV+YjHkPgcn9wNVvD5sRJ2Hu
+         SPjIU1SJ8gT8z3ofkYvh7UNm+0ziT7trdpgkXfPVt3IVr2UTuLY/nrHEgvnyhRnN570w
+         GReUoSeziXHP+Q+MEcQjBCFdNhxryBtaUFnFs/V4G4besK5wwbPodpKZw5KrEyt7FJYP
+         7mGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795210437; x=1795815237;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1djv/Cl6L7baYP2BjEGAGN5zEhkHq4i1i3oynSbuzoc=;
+        b=FnLGsmYlPa5hvNo0j2IsCipQoU/Itsbbt+ACIrZbIiETl4MlexVXQq/9vslRWswn/x
+         dGfxadWxE+Id4ptNP48Hf09ULZW/Fw0+dPjw0R0+6CQIGZOcxgnz+pXbzGn6HOejQFuh
+         huDJB2opag5Qh66VB7RtqEaKubRc6590P5H+5L2aO5bldxa6gGBEPG9y2fdifd73Ff5H
+         d5ENAtTEFqPYUUbgcGqBAC8rYrzpBnuQc4e0r05KH0dFQbv62DMGhtZD948yaQ70q2qJ
+         cyWDv+9bq5xbgE8/btuBqFAlDcBli+uFAdXQoUJiR4A9lZ2hR1lGwUXz93z93fa6qlRu
+         tq1A==
+X-Forwarded-Encrypted: i=1; AL+hErEwvRlpsTfiy+lxr2seVwgFeHJSFhoShz1jgOLdkIl4QM1ZCB8O7ogNEgNk/hLkOePDIYhGxuOsXWo91KI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zbaEVUimDcOmI2PZGTZCAim1bZq7nyBOXeCp5oXA6E+tj3ArC
+	CiDkrUP1K/sVtMd6qxm/ShW9LMBawCEvVRk0kc0lYYvuJFz3ATGjiIiR
+X-Gm-Gg: AYBFou0WJ1EedLIkSJWqd+g56fxzin6diX/p19H0rwXD6I/mm3iDEVniTbYpScKmw2D
+	wn7lbhCMl9GrLPQGhTlGVJ8KIkvaitv4VlQzwQT+JDu7SKMWmfWFUOUmcqnYeZM+q4Y8oJ0dApm
+	w3ebwwYOc2EtQL9+FfbmLaYTYtORg53gBbDMMsG+p5lYOqXw7QxXDuQuiQBXRHRi33+aDomSRNC
+	0w3/zOQKqbd1zSPlFgGy1flE2PxkfX0D9fGzkm+zUr35d5mqNG1UUWZm29zBIN7B2BBeF/5jNNq
+	P/xW/EES6iu1qbjGv1GstA5OW62WVYuxVYZ3G+TFa5iqRziCFeV8DNFo5lxEogKTt2PL6s6UKFi
+	RkIm/bSkS2fkbLhK9RZKmc+hb2WrjqTZb8owykOXnOYg5TOhWVJdMGfi+pMNXYjKgRxMA0+2ZAZ
+	a9MpfgY6FTS6ypVY9LgrhpClky2wPmlvVi9ZOh65YQrMQe8ko/DuRs0w5GCM26QWau2ttm1xGX+
+	FcgTxlfKnGIZTHGI/j1fYMbBA//i0rrEuAnYHXHtNdrIOWgLFyWD3pHoesloDv6Lmsxs/0guUvb
+	7+LBQP87cEsdeafocmdQwbgxsWcQeOgEvG3UE+5E5ACxLlnMpVm/XqBj8OzD3PmUXe7NykuZibQ
+	944xKJ5Yti+H4jM79deaCnDx8fMbenVkfLCQ/+m2JUj3qKcZDqOwgIHdKVaNwN/hQrPCGKCYKe4
+	tE10re2AS+EmSezNb0R7YVPXi12y+FW4kqe+qprCx9dhY9ykE=
+X-Received: by 2002:a05:600c:8210:b0:4bb:7ad8:99f2 with SMTP id 5b1f17b1804b1-4bb88785da4mr97653945e9.0.1795210436926;
+        Fri, 20 Nov 2026 13:33:56 -0800 (PST)
+Received: from ?IPV6:2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d? (dynamic-2a02-3100-65ed-08fc-216e-bbeb-a7f9-ea1d.310.pool.telefonica.de. [2a02:3100:65ed:8fc:216e:bbeb:a7f9:ea1d])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm116032335e9.5.2026.11.20.13.33.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 20 Nov 2026 13:33:56 -0800 (PST)
+Message-ID: <b4307a19-acaf-4fb6-ba3f-91f029cb30f0@gmail.com>
+Date: Fri, 20 Nov 2026 22:33:55 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,293 +93,70 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v10 4/4] selftests: net: hsr: verify GRO policy and
+ ordered forwarding
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
+ shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
+ qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
+ bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
+ liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
+ lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
+References: <20261117141922.20-5-xiexinet@gmail.com>
+ <179514132547.3136.13495496804508264681@kernel.org>
+Content-Language: en-GB
+From: Xin Xie <xiexinet@gmail.com>
+Autocrypt: addr=xiexinet@gmail.com; keydata=
+ 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
+ sNySbH3veZ/55EtlXA==
+In-Reply-To: <179514132547.3136.13495496804508264681@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issues to consider:
-- [High] sched/deadline: missing throttle restoration in dl_deboost()
-- [High] sched/deadline: donor period added to own_deadline in
-  replenish_dl_entity()
-- [Medium] sched/deadline: missing dl_boost_held check in
-  switched_from_dl()
-- [Medium] sched/deadline: expired own_deadline restored in dl_deboost()
-- [Medium] sched/deadline: stale deadline on PI chain in
-  dl_boost_blocked()
-- [Medium] sched/deadline: missing refill on boosted wakeup in
-  enqueue_task_dl()
---
+On 20/11/2026 03:22, netdev-bot+sashiko@kernel.org wrote:
+> Can the single-producer ordered cases fail on a correct kernel because
+> this sender is not pinned to a CPU?
 
-commit 59eba5619dd87ca592a528ffc0286ed100abcecc
-Author: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+The single-producer cases send from the unpinned main thread, so with
+threaded backlogs a migration during the loop could deliver the frames
+that enter through veth out of order. That would be a spurious failure
+of the test on such a kernel; the forwarding code is not involved. No
+change to the series for this.
 
-sched/deadline: Boost an owner that cannot run on its own reservation
-
-This commit updates deadline priority inheritance so that a deadline
-waiter boosts a lock owner that is throttled or past its deadline, saving
-and restoring the owner's parameters across the boost when it could not
-run on its own reservation.
-
-> diff --git a/kernel/sched/core.c b/kernel/sched/core.c
-> index 0dce129b41468..cbe0dfe26de3d 100644
-> --- a/kernel/sched/core.c
-> +++ b/kernel/sched/core.c
-> @@ -7974,10 +7974,13 @@ void rt_mutex_setprio(struct task_struct *p, stru=
-ct task_struct *pi_task)
->  			if (!dl_prio(p->normal_prio) ||
->  			    (pi_task && dl_prio(pi_task->prio) &&
->  			     !(p->dl.dl_new_params && p->dl.pi_se !=3D &p->dl) &&
-> -			     dl_entity_preempt(&pi_task->dl, &p->dl))) {
-> +			     dl_waiter_boosts(p, pi_task))) {
->  				struct sched_dl_entity *old_donor =3D p->dl.pi_se;
-> =20
->  				dl_set_donor(&p->dl, pi_task);
-> +				if (dl_prio(p->normal_prio) && old_donor =3D=3D &p->dl &&
-> +				    p->dl.pi_se !=3D &p->dl)
-> +					dl_boost_start(&p->dl);
->  				scope->flags |=3D ENQUEUE_REPLENISH;
->  				if (!scope->queued && p->dl.pi_se !=3D old_donor)
->  					dl_boost_blocked(p);
-
-[Severity: Medium]
-When p is a deadline task blocked on another rt_mutex (!scope->queued),
-does dl_boost_blocked(p) leave p->dl.deadline stale for the rest of the PI
-chain walk?
-
-sched_change_end() skips enqueue_task_dl() when !scope->queued, and
-dl_boost_blocked() only replenishes tasks with !dl_se->dl_deadline &&
-!dl_se->dl_throttled:
-
-kernel/sched/deadline.c:dl_boost_blocked() {
-	struct sched_dl_entity *dl_se =3D &p->dl;
-
-	if (!dl_se->dl_deadline && !dl_se->dl_throttled &&
-	    dl_task_pi_blocked(p))
-		replenish_dl_new_period(dl_se, task_rq(p));
-}
-
-When p has its own deadline parameters or is throttled, p->dl.deadline is
-not updated to the donor's deadline before rt_mutex_adjust_prio_chain()
-calls waiter_update_prio() and dl_waiter_boosts() on the next lock in the
-chain, so the boost fails to propagate across nested rt_mutexes.
-
-> diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
-> index e9b3d3ec71d77..ff1c104f6afd8 100644
-> --- a/kernel/sched/deadline.c
-> +++ b/kernel/sched/deadline.c
-> @@ -161,21 +165,32 @@ static inline bool dl_task_pi_blocked(struct task_s=
-truct *p)
->  void dl_deboost(struct sched_dl_entity *dl_se)
->  {
->  	struct task_struct *p =3D dl_task_of(dl_se);
-> -
-> +	bool own =3D false;
-> +
-> +	/* Put back what dl_boost_start() saved. */
-> +	if (dl_se->dl_boost_held) {
-> +		dl_se->deadline =3D dl_se->own_deadline;
-> +		dl_se->runtime =3D dl_se->own_runtime;
-> +		dl_se->period_start =3D dl_se->own_period_start;
-> +		dl_se->dl_donor_refill =3D 0;
-> +		own =3D true;
-> +	}
-
-[Severity: High]
-When a task that was boosted while throttled (own_runtime <=3D 0) is
-deboosted before own_deadline, does restoring own_runtime without restoring
-dl_throttled leave the task runnable on dl_rq with exhausted runtime?
-
-When the boost started, enqueue_task_dl() canceled dl_timer and cleared
-dl_se->dl_throttled =3D 0.  If the boost ends before own_deadline,
-dl_deboost() restores own_deadline and own_runtime <=3D 0 with dl_throttled
-still 0, and enqueue_dl_entity() only checks dl_check_constrained_dl() for
-past deadlines before calling __enqueue_dl_entity(dl_se).  The exhausted
-owner is then enqueued as runnable with its earlier own_deadline,
-preventing the woken waiter from preempting it and running beyond its CBS
-budget until the next tick.  If dl_new_params was set during the boost,
-the subsequent dl_waiter_boosts() and dl_boost_start() check in
-rt_mutex_setprio() also sees dl_throttled =3D=3D 0 and misses that the owner
-cannot run on its own reservation.
-
-[Severity: Medium]
-Should switched_from_dl() also restore own_deadline, own_runtime and
-own_period_start when dl_boost_held is set?
-
-If a task boosted with dl_boost_held changes policy to a non-deadline
-class while boosted and leaves dl_sched_class at deboost,
-rt_mutex_setprio() runs switched_from_dl() and dl_drop_boost() instead of
-dl_deboost():
-
-kernel/sched/deadline.c:switched_from_dl() {
-	bool own_period =3D p->dl.dl_runtime && p->dl.dl_donor_refill;
-    ...
-	if (own_period)
-		dl_start_own_period(&p->dl);
-
-	if (task_on_rq_queued(p) && p->dl.dl_runtime)
-		task_non_contending(&p->dl, false);
-}
-
-Because dl_donor_refill was set when the boosted task replenished from its
-donor, switched_from_dl() calls dl_start_own_period() and resets runtime
-to full dl_runtime instead of restoring the exhausted own_* reservation.
-task_non_contending() then sees a 0-lag time of now and releases the
-task's root-domain bandwidth immediately instead of waiting until the true
-0-lag time of the saved period.
-
-[ ... ]
-
-> @@ -214,6 +229,62 @@ void dl_check_blocked_params(struct task_struct *p)
->  		update_dl_entity(dl_se);
->  	}
->  }
-> +
-> +/*
-> + * Return true if the deadline waiter @pi_task must boost the owner @p,
-> + * which has a deadline policy of its own. Compare @pi_task with the
-> + * deadline that @p would run on:
-> + * - @p is throttled, or past its deadline and before its next period:
-> + *   it cannot run on its own reservation. Boost it.
-> + * - @p was boosted for that reason: keep the boost until its own next
-> + *   period. After that period starts, compare with now + dl_deadline.
-> + * - @p is past its deadline otherwise: its next enqueue starts a new
-> + *   period. Compare with now + dl_deadline.
-> + * - Else, compare with the deadline of @p.
-> + * A special entity, such as a sugov kthread, always boosts @p.
-> + *
-> + * The caller holds the rq lock of @p and has updated the rq clock.
-> + */
-> +bool dl_waiter_boosts(struct task_struct *p, struct task_struct *pi_task)
-> +{
-> +	struct sched_dl_entity *dl_se =3D &p->dl;
-> +	u64 now =3D rq_clock(task_rq(p));
-> +
-> +	if (dl_entity_is_special(&pi_task->dl))
-> +		return true;
-> +	if (dl_se->dl_boost_held) {
-> +		if (dl_time_before(now, dl_se->own_period_start + dl_se->dl_period))
-> +			return true;
-> +		return dl_time_before(pi_task->dl.deadline, now + dl_se->dl_deadline);
-> +	}
-
-[Severity: Medium]
-Once now reaches own_period_start + dl_period, dl_waiter_boosts() compares
-pi_task against now + dl_se->dl_deadline, but if it returns false and
-triggers a deboost while p is pi-blocked on another rt_mutex, does
-dl_deboost() restore the expired own_deadline instead of starting a new
-period?
-
-In dl_deboost(), the dl_boost_held branch unconditionally restores
-dl_se->deadline =3D dl_se->own_deadline (which is now in the past) and
-clears dl_se->dl_donor_refill =3D 0 so dl_start_own_period() is skipped.
-When p is blocked on a second rt_mutex (!scope->queued), enqueue_task_dl()
-does not run in sched_change_end(), so rt_mutex_adjust_prio_chain() copies
-that expired past deadline into p's waiter node on the outer lock and
-orders p ahead of waiters with valid future deadlines.  The same expired
-own_deadline is also exposed on the outer lock if p is deboosted while
-still in the constrained gap and pi-blocked.
-
-> +	if (!is_dl_boosted(dl_se)) {
-> +		if (dl_se->dl_throttled || dl_in_constrained_gap(dl_se))
-> +			return true;
-> +		if (dl_time_before(dl_se->deadline, now))
-> +			return dl_time_before(pi_task->dl.deadline,
-> +					      now + dl_se->dl_deadline);
-> +	}
-> +	return dl_entity_preempt(&pi_task->dl, dl_se);
-> +}
-> +
-> +/*
-> + * Call this when @dl_se gets its first donor, after dl_set_donor()
-> + * installed it. If @dl_se cannot run on its own reservation, save its
-> + * deadline, runtime and period start in own_*. Then set dl_boost_held.
-> + * dl_deboost() puts them back. A task with no parameters of its own has
-> + * nothing to save. The caller holds the rq lock and has updated the rq
-> + * clock.
-> + */
-> +void dl_boost_start(struct sched_dl_entity *dl_se)
-> +{
-> +	if (!dl_se->dl_runtime ||
-> +	    (!dl_se->dl_throttled && !dl_in_constrained_gap(dl_se)))
-> +		return;
-> +	dl_se->own_deadline =3D dl_se->deadline;
-> +	dl_se->own_runtime =3D dl_se->runtime;
-> +	dl_se->own_period_start =3D dl_se->period_start;
-> +	dl_se->dl_boost_held =3D 1;
-> +}
-
-[Severity: Medium]
-If an owner is throttled while going to sleep, boosted while asleep, and
-then wakes up before own_deadline while still boosted, does
-enqueue_task_dl() fail to replenish it from the donor?
-
-When the boost happens while !scope->queued, ENQUEUE_REPLENISH is not
-consumed by sched_change_end().  On the subsequent wakeup,
-enqueue_task_dl(rq, p, ENQUEUE_WAKEUP) cancels dl_timer and clears
-dl_se->dl_throttled =3D 0 without setting ENQUEUE_REPLENISH, so
-enqueue_dl_entity() calls update_dl_entity(dl_se):
-
-kernel/sched/deadline.c:update_dl_entity() {
-    ...
-	if (dl_time_before(dl_se->deadline, rq_clock(rq)) ||
-	    dl_entity_overflow(dl_se, rq_clock(rq))) {
-    ...
-		replenish_dl_new_period(dl_se, rq);
-	}
-}
-
-Because rq_clock(rq) < own_deadline and dl_se->runtime <=3D 0 makes left <=
-=3D 0
-while right > 0 in dl_entity_overflow(), both checks are false and
-replenish_dl_new_period() is skipped, enqueuing the boosted owner with
-runtime <=3D 0 and its old own_deadline instead of the donor's parameters.
-
-[ ... ]
-
-> @@ -1443,7 +1514,13 @@ static void replenish_dl_entity(struct sched_dl_en=
-tity *dl_se)
->  	 * entity.
->  	 */
->  	if (dl_time_before(dl_se->deadline, rq_clock(rq))) {
-> -		printk_deferred_once("sched: DL replenish lagged too much\n");
-> +		/*
-> +		 * dl_waiter_boosts() boosts an owner past its deadline. Its
-> +		 * deadline is then expected to be in the past: do not warn.
-> +		 * The new period takes the donor's parameters.
-> +		 */
-> +		if (!is_dl_boosted(dl_se))
-> +			printk_deferred_once("sched: DL replenish lagged too much\n");
->  		replenish_dl_new_period(dl_se, rq);
->  	}
-
-[Severity: High]
-When a runnable throttled owner (runtime <=3D 0) is boosted, does the
-while (dl_se->runtime <=3D 0) loop right above this check advance
-dl_se->deadline from own_deadline by the donor's period instead of
-starting a donor period at rq_clock(rq)?
-
-kernel/sched/deadline.c:replenish_dl_entity() {
-    ...
-	while (dl_se->runtime <=3D 0) {
-		dl_se->deadline +=3D period;
-		dl_se->period_start +=3D period;
-		dl_se->runtime +=3D runtime;
-	}
-
-	if (dl_time_before(dl_se->deadline, rq_clock(rq))) {
-		if (!is_dl_boosted(dl_se))
-			printk_deferred_once("sched: DL replenish lagged too much\n");
-		replenish_dl_new_period(dl_se, rq);
-	}
-}
-
-For any throttled owner whose own_deadline has not passed yet (or is
-within one donor period of rq_clock(rq)), adding the donor's period to
-own_deadline keeps dl_se->deadline >=3D rq_clock(rq), so
-replenish_dl_new_period() is never reached.  The boosted owner runs with a
-deadline of own_deadline + pi_se->dl_period (later than its unboosted
-own_deadline) instead of rq_clock(rq) + pi_se->dl_deadline, and its own
-pre-boost overrun is deducted from the donor's runtime while also being
-restored from own_runtime at dl_deboost().
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/cover.1795207232.gi=
-t.mathieu.desnoyers@efficios.com?part=3D38
+-- 
+Xin
