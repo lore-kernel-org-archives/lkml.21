@@ -1,88 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=44.202.169.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.150
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795148980;
-	b=KAYQtPDn3yd2ea4O+3q48+h7fOnmTYF+mYaMSuhRKm1IUVh+yTt3Thb5KErHTOgjuy9/
-	 ipsNICgNg+B0wueixrsXkWrDtIEd55YcX12qrdydLQwjMsrBEswyXpgw9vTrzx6/4zJXp
-	 G8u51EonOXbxtBwyX8aGfjCZFjr2pdPkky3cADL/pNIWZOIcRxl4ggNkZtt7irv6C3mfk
-	 l68boEuna3BoZHAkLYjUdpf5X3lMYGgN4BtaFUnEeI0zc4iKCwmSIPK3Kt7Ytz0tUjawW
-	 XapDqdP7DICiUaQXTUy8l1W+LL0wgNVsrX6WRlo4opFH5+SHmIEOt97yZECGhxOUBKA==
+	t=1795149021;
+	b=ayIhae30Cw0P8+v74K66WFg04rZLwpBQ0A/xn0+PE9pvF3vbb2rwwjaWeJpjQrb98lSy
+	 NjS4GBs6b9xB4O5ghgsPbKTfFSdKRaW5Ki0THSY84Bt4MyD/qFRLt7RdUFeAwwDQSe5Cj
+	 V/yhdgZgdGkzoWqdeQ0FG/5pM0LSHbHstlrS2O301H94Uo9I7o1nMQ1p80ovKoT9fqO3P
+	 ZFIwnKnw+Z1ZWIgjQU4zsZE6UE8SWjwAAD/cAm8fZ74JDuQ9aS4curj1uTaFpWB1uCqqJ
+	 1OG0Ea6/uvFTDOC3FZxjzH+WyynjNERgyyo9Bi8nHNjp/p1ZYvirL+ac5WrHWtNmAVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795148980;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:
-	 X-Source-L:X-Exim-ID:X-Source:X-Source-Args:X-Source-Dir:
-	 X-Source-Sender:X-Source-Auth:X-Email-Count:X-Org:X-Source-Cap:
-	 X-Local-Domain:X-CMAE-Envelope;
-	bh=NwKyPi+EXp0S/WOyO+1mrzsEeZFSZSXM/L2QcxcxUKw=;
-	b=qXAY9HCpLJ2lH8Cc4ztnrmXohds/mrikc+MNF0D7SGUsR2i2bOLbHgApegWu4cmJhGW+
-	 IO55/O9zIcMqCsOxmzz0J/6gkw5SI+QqMvw4y7KAfp2E8kqY4u5kEDXLbn8FCXVbC5ka+
-	 nPKpixvcXQwWA9gIv1FKmDQAg3YAUCVDH9GncCvhtMKeZBbGaFq/hRn2e9a+SgDIazxPF
-	 w8aG3+ji5c/NRg+KRughaYpc7A6LA7Rve+Xmf0B5QYdjfIzwxt5SyyoofeJCEM+TGD9iA
-	 FsQ493Qv5mA1J+gPuSN8vN10VGblX31WFHpA+Dm4FJPExN7U3KUvNvc98eosZ/UkmgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795149021;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:MIME-Version:Date:Content-Type:
+	 Content-Transfer-Encoding:From:Message-ID:TLS-Required:Subject:To:Cc:
+	 In-Reply-To:References;
+	bh=roL0FQDRW/fqTvKyUOnLi52ZhKE+0i4/LlevVoVyflc=;
+	b=2QtEQudh6h2vVFuA1RgHyb4gmLD/IfIOGJWWckGGNqwD8sdbwaNDpLWStLj5fFz0DYf6
+	 76MV9EJ9Xd5swRxd6wtirMaedxnttndQAzr4nheJ8e3ruiEwIo0VLr2Gz6OgPxYvKl2Wn
+	 i7xxAKVp+ftucAyGOWPE8gYehNnDXeCVRY5WVuucZE9RZLlnLrMZQX14hup22ILxKUCqq
+	 dCaRCY/2EA+hRNyoLu7fO2kgmaq92ZCqV85ozh+brhdPC8sBD/TpuhxH2sscIaMzOkexu
+	 WJSHlZhbxoPVGqox3uXzP5sK6UwisTSSbBm5NKLojOmhBUTHVOzstHOsi4PcKSRQr2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=roeck-us.net;
-	spf=fail smtp.mailfrom=roeck-us.net;
-	dkim=pass header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=4XV7rKRI;
-	arc=none smtp.remote-ip=44.202.169.37
-Received: from omta038.useast.a.cloudfilter.net (omta038.useast.a.cloudfilter.net [44.202.169.37])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fCYWv8Zc;
+	arc=none smtp.remote-ip=91.218.175.150
+Received: from mta0.migadu.com (out-150.mta0.migadu.com [91.218.175.150])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE571606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:29:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE571606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=roeck-us.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=roeck-us.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9601606A32A
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 04:30:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9601606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=roeck-us.net header.i=@roeck-us.net header.a=rsa-sha256 header.s=default header.b=4XV7rKRI
-Received: from eig-obgw-5002b.ext.cloudfilter.net ([10.0.29.226])
-	by cmsmtp with ESMTPS
-	id U8KTxexwiV16IUGFnxSFxo; Fri, 20 Nov 2026 04:29:39 +0000
-Received: from 162-215-252-36.unifiedlayer.com ([208.91.199.152])
-	by cmsmtp with ESMTPS
-	id UGFmxnjT2b2qJUGFnxNItj; Fri, 20 Nov 2026 04:29:39 +0000
-X-Authority-Analysis: v=2.4 cv=A7tsP7WG c=1 sm=1 tr=0 ts=6affccb3
- a=QNED+QcLUkoL9qulTODnwA==:117 a=2cfIYNtKkjgZNaOwnGXpGw==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=M0FbrtG7MMAA:10 a=zpOVymEVAAAA:8
- a=sfOm8-O8AAAA:8 a=RSmfSHFI2LoBTrHSb6wA:9 a=CjuIK1q_8ugA:10
- a=LCD48ZUe64JR9pieE8wa:22 a=TvTJqdcANYtsRzA46cdi:22 a=KPbNTLLc3YvdawN95zVk:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=roeck-us.net; s=default; h=In-Reply-To:Content-Type:MIME-Version:References
-	:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding
-	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=NwKyPi+EXp0S/WOyO+1mrzsEeZFSZSXM/L2QcxcxUKw=; b=4XV7rKRIxdtmrGqva0T2IrI2fZ
-	RbG62Z+GkHytSWmn3OK7x5TcoHPqi2jjO++MwW+nrzqIj6wGDIXNuU3DKMGjBJ7A15TJXXJtGffXP
-	Wpx5BPtFNj4E/jP4wP3PWOv6ucUEyGYvFB3j5Jmm2PB3Jly+/q8dNtWn+qJqwr8pCj7/douzEkBD7
-	5KOjlIXhDObzVwKzdztx8aRyoW2m85f0vxQTvBWdGYvoMXD1URp5oj7zoPYC9wCLCKV5dVrnjkzNI
-	X69gtLKLCLQx8MKJtNFYTnUmZ7zGBeMi9OaZekp2SCQwaen3jA8+tkz9sGZFgE8JMMgxZx/+U4MUq
-	mes/Lmog==;
-Received: from 108-223-40-66.lightspeed.sntcca.sbcglobal.net ([108.223.40.66]:42072 helo=server.roeck-us.net)
-	by bh-25.webhostbox.net with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.100.1)
-	(envelope-from <linux@roeck-us.net>)
-	id 1xUGFl-00000003dbL-2YK5;
-	Fri, 20 Nov 2026 09:59:37 +0530
-Date: Thu, 19 Nov 2026 20:29:36 -0800
-From: Guenter Roeck <linux@roeck-us.net>
-To: Roman Vivchar <rva333@protonmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Ben Grisdale <bengris32@protonmail.ch>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/3] watchdog: mediatek: add mt6797 support
-Message-ID: <f0ea8f8d-eef7-4d13-8180-ea3e297c407c@roeck-us.net>
-References: <20261110-6797-wdt-v1-0-7f07755b6074@protonmail.com>
- <20261110-6797-wdt-v1-2-7f07755b6074@protonmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=fCYWv8Zc
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=YW3SrjZDBSs+f8ut+cA/sj4nFs4B9HPB8O+mdX/NYzA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795149017; v=1; x=1795753817;
+ b=fCYWv8Zc5HAcmbnJoo9+/FUO1cYouGdwqqa9D7Td6F4gQLCuDYssjXco7Tlh9YiFafKsZ3Wq
+ dQpSKrUwoPfJH4E5YM9TwBlwXIPy7Fzx1xGTeiyPQNRksKbkzUzLyiBiIcKcynK5Eo3u5NBaG7b
+ d20c2nMlylTyk1HQYtibuGE0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id def76d0e62afee0d;
+	Fri, 20 Nov 2026 04:30:17 +0000
+X-Mizu-Trace-ID: def76d0e62afee0d
+X-Migadu-Flow: FLOW_OUT
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -92,40 +56,213 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261110-6797-wdt-v1-2-7f07755b6074@protonmail.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - bh-25.webhostbox.net
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - roeck-us.net
-X-BWhitelist: no
-X-Source-IP: 108.223.40.66
-X-Source-L: No
-X-Exim-ID: 1xUGFl-00000003dbL-2YK5
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: 108-223-40-66.lightspeed.sntcca.sbcglobal.net (server.roeck-us.net) [108.223.40.66]:42072
-X-Source-Auth: guenter@roeck-us.net
-X-Email-Count: 18
-X-Org: HG=direseller_whb_net_legacy;ORG=directi;
-X-Source-Cap: cm9lY2s7YWN0aXZzdG07YmgtMjUud2ViaG9zdGJveC5uZXQ=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfMtUWbsQGrRjcsKta1lmd7uAqizcRjheahTdY/7arm2P+uiNff3cbuW746eZuyJt7R6+Kk0UHN191DEQtZRXnvpzkDBZZcnb3epf+hw7M8anS95VejhR
- I1oFFzqu4V56EMflEQEdZgf+SLQjF1A6iHqtRBlvYw8AGcvsCpzYPMRxmVm9Wc0EijK2XmpQMQyUrmAd1HLY8E1qZDLLoF4MA7KVdGgfCGsIdzb53B4TPnzZ
+Date: Fri, 20 Nov 2026 04:30:16 +0000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: "Kunwu Chan" <kunwu.chan@linux.dev>
+Message-ID: <f9cbc65ebeda9ebbc71c0488bb7df016f5c34961@linux.dev>
+TLS-Required: No
+Subject: Re: [RFC PATCH v4 06/18] mm/swap: serialize swap publication before
+ removing swapon mutex
+To: "Lian Wang" <lianux.mm@gmail.com>, linux-mm@kvack.org,
+ kunwu.chan@gmail.com
+Cc: linux-kernel@vger.kernel.org, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Chris Li" <chrisl@kernel.org>, "Nhat Pham"
+ <nphamcs@gmail.com>, "Baoquan He" <baoquan.he@linux.dev>, "Barry Song"
+ <baohua@kernel.org>, "Youngjun Park" <youngjun.park@lge.com>, "Kemeng
+ Shi" <shikemeng@huaweicloud.com>, "Kairui Song" <kasong@tencent.com>,
+ "Jihan LIN" <linjh22s@gmail.com>, "Kees Cook" <kees@kernel.org>, "Gustavo
+ A. R. Silva" <gustavoars@kernel.org>, "Thomas Gleixner"
+ <tglx@kernel.org>, linux-hardening@vger.kernel.org
+In-Reply-To: <ed10255256780c856689549e65654f8b01d40c2e.1794666741.git.lianux.mm@gmail.com>
+References: <cover.1794666741.git.lianux.mm@gmail.com>
+ <ed10255256780c856689549e65654f8b01d40c2e.1794666741.git.lianux.mm@gmail.com>
 
-On Tue, Nov 10, 2026 at 09:22:22PM +0200, Roman Vivchar wrote:
-> From: Roman Vivchar <rva333@protonmail.com>
-> 
-> Add support for mt6797 SoC watchdog, which provides 17 software resets.
-> The mapping table uses bits from the datasheet [1].
-> 
-> Link: https://www.96boards.org/documentation/consumer/mediatekx20/additional-docs/docs/MT6797_Register_Table_Part_1.pdf [1]
-> Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+>=20
+>=20From: Kairui Song <kasong@tencent.com>
+>=20
+>=20Move publication of swap_file, resurrection of the device reference a=
+nd
+> the writable transition into one swapon_rwsem writer section. Split out
+> a writer-held enable helper so initial publication can share this
+> section, while failed swapoff can use the locking wrapper.
+>=20
+>=20With file publication and teardown serialized by the writer, remove
+> swapon_mutex and use a topology reader across /proc/swaps iteration.
+> Keep the SWP_USED filter when advancing the swap_info array.
+>=20
+>=20The publication boundary excludes proc readers from partially publish=
+ed
+> state and gives the lockless live-reference users initialized device
+> metadata before the device becomes an allocation candidate.
+>=20
+>=20Signed-off-by: Kairui Song <kasong@tencent.com>
+> Co-developed-by: Lian Wang <lianux.mm@gmail.com>
+> Signed-off-by: Lian Wang <lianux.mm@gmail.com>
+> ---
+>  mm/swapfile.c | 39 +++++++++++++++++++--------------------
+>  1 file changed, 19 insertions(+), 20 deletions(-)
+>=20
+>=20diff --git a/mm/swapfile.c b/mm/swapfile.c
+> index ae8421e18448..277a5c749987 100644
+> --- a/mm/swapfile.c
+> +++ b/mm/swapfile.c
+> @@ -139,9 +139,6 @@ static inline struct swap_info_struct *__swap_iter(=
+int *i, unsigned long flag)
+>=20=20
+>=20 static struct kmem_cache *swap_table_cachep;
+>=20=20
+>=20-/* Protects si->swap_file for /proc/swaps usage */
+> -static DEFINE_MUTEX(swapon_mutex);
+> -
+>  static DECLARE_WAIT_QUEUE_HEAD(proc_poll_wait);
+>  /* Activity counter to indicate that a swapon or swapoff has occurred =
+*/
+>  static atomic_t proc_poll_event =3D ATOMIC_INIT(0);
+> @@ -3161,9 +3158,9 @@ static int setup_swap_extents(struct swap_info_st=
+ruct *sis,
+>  * Mark a fully initialized swap device writable and expose it to the
+>  * allocator. The caller must have resurrected its percpu ref first.
+>  */
+> -static void swap_device_enable(struct swap_info_struct *si)
+> +static void __swap_device_enable(struct swap_info_struct *si)
+>  {
+> - percpu_down_write(&swapon_rwsem);
+> + lockdep_assert_held_write(&swapon_rwsem);
+>  spin_lock(&si->lock);
+>  spin_lock(&swap_avail_lock);
+>  si->flags |=3D SWP_WRITEOK;
+> @@ -3173,11 +3170,16 @@ static void swap_device_enable(struct swap_info=
+_struct *si)
+>  atomic_long_add(si->pages, &nr_swap_pages);
+>  total_swap_pages +=3D si->pages;
+>  plist_add(&si->list, &swap_active_head);
+> - percpu_up_write(&swapon_rwsem);
+> -
+>  add_to_avail_list(si);
+>  }
+>=20=20
+>=20+static void swap_device_enable(struct swap_info_struct *si)
+> +{
+> + percpu_down_write(&swapon_rwsem);
+> + __swap_device_enable(si);
+> + percpu_up_write(&swapon_rwsem);
+> +}
+> +
+>  static int swap_device_disable(struct address_space *mapping,
+>  struct swap_info_struct **swap_info)
+>  {
+> @@ -3340,7 +3342,6 @@ SYSCALL_DEFINE1(swapoff, const char __user *, spe=
+cialfile)
+>  if (!(p->flags & SWP_SOLIDSTATE))
+>  atomic_dec(&nr_rotate_swap);
+>=20=20
+>=20- mutex_lock(&swapon_mutex);
+>  percpu_down_write(&swapon_rwsem);
+>  spin_lock(&p->lock);
+>  drain_mmlist();
+> @@ -3355,7 +3356,6 @@ SYSCALL_DEFINE1(swapoff, const char __user *, spe=
+cialfile)
+>  percpu_up_write(&swapon_rwsem);
+>  arch_swap_invalidate_area(p->type);
+>  zswap_swapoff(p->type);
+> - mutex_unlock(&swapon_mutex);
+>  kfree(p->global_cluster);
+>  p->global_cluster =3D NULL;
+>  free_swap_cluster_info(cluster_info, maxpages);
+> @@ -3401,20 +3401,18 @@ static __poll_t swaps_poll(struct file *file, p=
+oll_table *wait)
+>  return EPOLLIN | EPOLLRDNORM;
+>  }
+>=20=20
+>=20-/* iterator */
+>  static void *swap_start(struct seq_file *swap, loff_t *pos)
+>  {
+>  struct swap_info_struct *si;
+> - int type;
+>  loff_t l =3D *pos;
+>=20=20
+>=20- mutex_lock(&swapon_mutex);
+> + percpu_down_read(&swapon_rwsem);
+>=20=20
+>=20 if (!l)
+>  return SEQ_START_TOKEN;
+>=20=20
+>=20- for (type =3D 0; (si =3D swap_type_to_info(type)); type++) {
+> - if (!(si->swap_file))
+> + for_each_swap(si) {
+> + if (!si->swap_file)
+>  continue;
+>  if (!--l)
+>  return si;
+> @@ -3435,7 +3433,7 @@ static void *swap_next(struct seq_file *swap, voi=
+d *v, loff_t *pos)
+>=20=20
+>=20 ++(*pos);
+>  for (; (si =3D swap_type_to_info(type)); type++) {
+> - if (!(si->swap_file))
+> + if (!(si->flags & SWP_USED) || !(si->swap_file))
 
-Applied.
+
+
+Could we keep checking just si->swap_file here and in swap_start()?
+swapon() can set SWP_SOLIDSTATE before taking swapon_rwsem to
+publish the file.
 
 Thanks,
-Guenter
+Kunwu
+
+>  continue;
+>  return si;
+>  }
+> @@ -3445,7 +3443,7 @@ static void *swap_next(struct seq_file *swap, voi=
+d *v, loff_t *pos)
+>=20=20
+>=20 static void swap_stop(struct seq_file *swap, void *v)
+>  {
+> - mutex_unlock(&swapon_mutex);
+> + percpu_up_read(&swapon_rwsem);
+>  }
+>=20=20
+>=20 static int swap_show(struct seq_file *swap, void *v)
+> @@ -3958,7 +3956,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
+ialfile, int, swap_flags)
+>  goto free_swap_zswap;
+>  }
+>=20=20
+>=20- mutex_lock(&swapon_mutex);
+>  prio =3D DEF_SWAP_PRIO;
+>  if (swap_flags & SWAP_FLAG_PREFER)
+>  prio =3D swap_flags & SWAP_FLAG_PRIO_MASK;
+> @@ -3970,11 +3967,14 @@ SYSCALL_DEFINE2(swapon, const char __user *, sp=
+ecialfile, int, swap_flags)
+>  si->prio =3D prio;
+>  si->list.prio =3D -si->prio;
+>  si->avail_list.prio =3D -si->prio;
+> + /* Publish the file, live reference and writable state together. */
+> + percpu_down_write(&swapon_rwsem);
+>  si->swap_file =3D swap_file;
+>=20=20
+>=20- /* Sets SWP_WRITEOK, resurrect the percpu ref, expose the swap devi=
+ce */
+> + /* Make the reference live before exposing the writable device. */
+>  percpu_ref_resurrect(&si->users);
+> - swap_device_enable(si);
+> + __swap_device_enable(si);
+> + percpu_up_write(&swapon_rwsem);
+>=20=20
+>=20 pr_info("Adding %uk swap on %s. Priority:%d extents:%d across:%lluk =
+%s%s%s%s\n",
+>  K(si->pages), name->name, si->prio, nr_extents,
+> @@ -3984,7 +3984,6 @@ SYSCALL_DEFINE2(swapon, const char __user *, spec=
+ialfile, int, swap_flags)
+>  (si->flags & SWP_AREA_DISCARD) ? "s" : "",
+>  (si->flags & SWP_PAGE_DISCARD) ? "c" : "");
+>=20=20
+>=20- mutex_unlock(&swapon_mutex);
+>  atomic_inc(&proc_poll_event);
+>  wake_up_interruptible(&proc_poll_wait);
+>
+
+
+Using the same rwsem for publication and /proc/swaps looks good.
