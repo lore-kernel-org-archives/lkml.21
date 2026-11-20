@@ -1,58 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209464;
-	b=Uxrhyp0c+XqxmJnTelO6RYu6D7kSDHZcjnSCCHC7vYPA4DFKoqWBhjGnYLWRdjA2ZXO3
-	 NIVTXiZXbQDTZg7APWJQt1hV3TJTr6wbghBhZ+6NIK1ghfar+FNGteuJvjV9ZW5a7kcMx
-	 bQIjjHANF/dbRPSVxBMaCoktNuZNlx+LMpgOw2wMXOGveGc+IyquaPrgJhcXxIZAhKEH9
-	 giaR6qFo60mUTdMYF8YIkio0av1TV/ptsVFlV40sweOO3rmjRxzhew0URNktLRV05vsu1
-	 ZRzouvN5Gd4Dh/smTfzVFsqO/49FkysFKoNfSzkri6ZMwukM/cwei12dfq/rRnlmf2g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209464;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=aruSc4nOT7OxSafy72XKe9N+IixJMjlArgP/iv4iezA=;
-	b=WdCr5j238JbXttqD9MiuVw8Srn0In5X3UfJKkPeYkyJ1bbNC7NsTPikXN2Qy338fYGSu
-	 V2aXMDZ6QCSUitRKbplsjYGDt9BREHVZC+1DXTmKEo59JW+mcOEhaYVDMNnrsiTwQ7qN6
-	 wWlCVH3Quld5QiO8O9jFGyF8ebjyr2xpw4FowvUCPV4o6HxRtocvl/0Fi0mDkR6HJNlup
-	 2Kd5H9aR5f0w10WxveoZ86qC/3fvbxe5hpiDkfEnTltMUVTikMsp1Xmlxr+shG7oDn/JB
-	 dhMwGvAePIPafrEXO91goWSrPdB92WPRd/CTvo1NIwT26G36hGObmexYl2IfPijhgIg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4DPGTk;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795209466;
+	b=EviXNVc+h5HyMUYoTbYRJTLgW9GdqATzIa2LY8q7sZRTdQmhIeh1mWA2H7PfW6n6WqnB
+	 n6jaJzf6ZQFEkfrA8cEfaLB0R0Mztvyv6cNaUdhktWMMm9k0wtbYXRU9TbDtPpx5M2dcT
+	 mKFDQHUcyYZq1aFCpGW/U7IhNbeGjFf0gxlfB1E6YZ+BdSykqYVGYZchANaD5GmFganoq
+	 JKNY3W0rN3HS/9NeFh+vIQc+/DiMxJqsB3LAseT8Xsc+o1PrE75wTKkQnpbO6mNWoCwks
+	 /kCxndrrEfso52d/8QTWEurcRKj/ozR5eV8JIotxS6cOlN8wbaR3mIGLBVRQpHRo7oA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209466;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
+	b=MwumQUwwkk4q1Fb1MqwN9ui/qJnn2r/GOFGhz1f9xvBaWSV2JD6tgFBE9EmbffLuWoU+
+	 8tDbjRYIC5SCqWKWI2/BJAra0uDRbTrLFtByBTiLb4Eg/lZUabKpGYPt0BoeBL4225HMb
+	 ulZM4qwB1r4i44lGUOq6ZXN9SVY5RAIgZKzSdjRojzblVZI6U+/nNbjM1c58XMjfD/Dqb
+	 G5cOe87TwfmgWMIDejWl2tYyN+P1bW12rFEoEwJ8NE6rSIeYO5LwC+gTcR2Ah8cZDMS5U
+	 qv9O/5V8G4mfeD7S1PAcq74tkF6gnnjihpix/DDvnhnk4Ra4oqpbFUSW/N/zg66X4Zw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="S/uAl2vM";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37F7060A2601;
-	Fri, 20 Nov 2026 21:17:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08E9D60A2603;
+	Fri, 20 Nov 2026 21:17:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4DPGTk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E7911F00A36;
-	Fri, 20 Nov 2026 21:17:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S/uAl2vM
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795209465;
+	b=Pu7Bb3sgNo+lKVaIyT4YHpLLYKjtY2oyx0I2N+epy7cdicU5aOgel5JlVXKNJcisZhMI
+	 m7lUB/x9ZpIcGeTNDZ22R2W+qoLzEfEcX+lqOf+qIDeBiicc7brLo9VXpXhvlR6Qe3WMK
+	 7dEVtXUZzLLMaMUJb3RtOrIq1B7xoszFcF0IuVAt22eHjyCEXxvBLfwt3BVe+2BXzXbMd
+	 RFgMQoPPrkSiHMYcRYu0cN2/DiOLUhi/oFJMdVi0izCgJtJhuWn1trzY+E3zUWdLsAT9L
+	 cAup3a2jiGH4E7OLhmLy//X8TqA6zVmefGNEx2hPzrCmwV1NRnPiWjaCGE2RnOMs9OQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795209465;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
+	b=zOiFoOT9uo2tSIofbgEfDdXLhY4+PUOqWX5ObGPu78415vtx8OUPlC0ioRR4NYKGV5Vw
+	 56zCt+cuLo4gMfXS6UkO3/8USGwYtya4FD25hFm2NB4rdAJtBQ/HjSP87n/F69FCarS7M
+	 UG6hhnw2OHONOxpEuTslOY31cnGnHLOC9wl0yAxByQOoTylljmdmNL9YKeL+vqXo+zqU3
+	 qZSBdDCR74jgn6SwVspTcqUMNCFXR6i5sfIs6UjLXis+inZqFJcC/mgumV8myCTfWgx5S
+	 vroL/7zhD774VAhiQwC1MstdgmKF5UceV+0z0TWh6ow8t3KG+nHQdH5NKQj4vtafNwg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 9B8941F000D3;
+	Fri, 20 Nov 2026 21:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795209463;
-	bh=aruSc4nOT7OxSafy72XKe9N+IixJMjlArgP/iv4iezA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iH4DPGTk4uHDfZWYu5WCjHeuYKjyjkkSleD2C9+KXVyUlsT1Z53/FP+sq18hGXALG
-	 LnwloQrJvmDTixp2TbCdc+GOKnFKfzkLbXLbvx57hMcri+PX9EwB9E+ZXxAexi53Za
-	 O4muY+kzxbfYfQH3OgE1vXXvgdb2hduC1HpRJ6VRHTNHH9cvRNfKXLWeJd2vy8bpPF
-	 AQjTbwdSvBnIOx83lP9eGEKygx4GAIw4oZATp2NeXc7HsWUnXfZ5ZJqyjqvKjqZTD5
-	 HcZ0RvnGghClKy+Ia7lb1JPTWoPs3wGJdEXtS/ud6edMmgxWv8gooZ36AMFvvfci+s
-	 sYX3WfU7L2wXA==
-Subject: Re: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
-From: netdev-bot+sashiko@kernel.org
-To: github@bumblecito.com
-Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Fri, 20 Nov 2026 21:17:42 +0000
-Message-ID: <179520946280.3135.6308725941538199399@kernel.org>
-In-Reply-To: <20261118162323.436219-3-github@bumblecito.com>
-References: <20261118162323.436219-3-github@bumblecito.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795209465;
+	bh=xMT67eHD7TWDMeWgiNELwOV+EIpusY+P5TIZAyF8yAk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=S/uAl2vMBBg0ZON5fbMNPMGhtsyvL3eGfUBiVhvIDolNhJSPADkr305YJcQpZ9LbH
+	 2Cm1vpriN2v+dtmBORhDUe7ZZ/EkZZO3UPl8JGZfq8vYoqCr/8fJzVKRUNa09PEPuT
+	 d/tb60gpYq9+Qx23OUyTdEk6DTT0wBlJciFXu6Wf5TkhfzvHzaoLD7afwKf/WSnJhX
+	 mmPzi8M/l38XGhRIVFR5LiUKeynQRs01pIz6PDueL/FC0w94jjX3foTvkTMzwpH6wH
+	 yBet4+/+kmED3cgX0ntEaT7V0MuVrzUGLTR2NyCSi14DXOSG8MkdNCvPSXcweuOYY5
+	 NvBCMCAd6fT5g==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 29ED44BA38;
+	Fri, 20 Nov 2026 21:17:35 +0000 (UTC)
+From: Kyle Hendry via B4 Relay <devnull+khendry.reliablecontrols.com@kernel.org>
+Date: Fri, 20 Nov 2026 13:16:54 -0800
+Subject: [PATCH v2 3/3] ARM: dts: renesas: r9a06g032: Add #reset-cells to
+ system controller node
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,100 +83,59 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261120-rzn1-miic-resets-v2-3-f1cfa678615b@reliablecontrols.com>
+References: <20261120-rzn1-miic-resets-v2-0-f1cfa678615b@reliablecontrols.com>
+In-Reply-To: <20261120-rzn1-miic-resets-v2-0-f1cfa678615b@reliablecontrols.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+ Kyle Hendry <khendry@reliablecontrols.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795209454; l=804;
+ i=khendry@reliablecontrols.com; s=20260813; h=from:subject:message-id;
+ bh=WWyo4QGHfN4nIjzzAN5Okr3IhbwMhhhW3P0Osmvu8I4=;
+ b=tzuxOoZNp2cotuYleAplho6OWBk/ynCrDxEU3P2SEnDzRu24C/0ELbnJp8mw4szmETjJzwV9Y
+ 8gJlNd5N0JuCs9y/9Wdu0WgFF8YW3mDX3CZhEgvxF1RBTweGiJ6ICMo
+X-Developer-Key: i=khendry@reliablecontrols.com; a=ed25519;
+ pk=gbK6oghz3qBlBiaGCsEzALLOtj5VklmsuolHQNhDV5M=
+X-Endpoint-Received: by B4 Relay for khendry@reliablecontrols.com/20260813
+ with auth_id=946
+X-Original-From: Kyle Hendry <khendry@reliablecontrols.com>
+Reply-To: khendry@reliablecontrols.com
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+From: Kyle Hendry <khendry@reliablecontrols.com>
 
-Low priority / nit picks for your consideration:
+Update the rzn1 system controller node with cells for the reset controller
 
-- [Low] The commit message says the patch keeps the OEM entries "in the
-  vendor table's alphabetical order", but the resulting sfp_quirks[]…
-- [Low] After the reordering, the comment "// HORACO HC-10GE-113C uses
-  Rollball protocol to talk to the PHY." (sfp.c:620) heads a block with…
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
+---
+ arch/arm/boot/dts/renesas/r9a06g032.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
---
-
-net: sfp: sort OEM and Turris SFP quirks
-
-This commit reorders the sfp_quirks[] table in drivers/net/phy/sfp.c. It
-moves the UBNT, Walsun and YV entries to after the OEM block, and sorts
-the OEM and Turris entries by part number. No quirk matches or fixups are
-changed.
-
-> diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
-> index 960ac89cc2a0b..33349c3556b31 100644
-> --- a/drivers/net/phy/sfp.c
-> +++ b/drivers/net/phy/sfp.c
-> @@ -617,33 +617,24 @@ static const struct sfp_quirk sfp_quirks[] = {
->  	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
->  	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
->  
-> -	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
-> -
-> -	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
-> -	// Rollball protocol to talk to the PHY.
-> -	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
-> -	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
-> -
-> -	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
-> -
->  	// HORACO HC-10GE-113C uses Rollball protocol to talk to the PHY.
->  	SFP_QUIRK_F("OEM", "HC-10GE-113C", sfp_fixup_rollball),
-> +	SFP_QUIRK_F("OEM", "RTSFP-10", sfp_fixup_rollball_cc),
-> +	SFP_QUIRK_F("OEM", "RTSFP-10G", sfp_fixup_rollball_cc),
-
-[Severity: Low]
-Should there be a blank line after the HC-10GE-113C entry?
-
-In the rest of sfp_quirks[], a comment applies to every entry up to the
-next blank line. The Walsun, Fiberstore SFP-2.5G-T/SFP-10GM-T and Lantech
-comments each cover two entries this way.
-
-Because RTSFP-10 and RTSFP-10G now sit directly under it, the HORACO
-comment reads as if it also describes those modules. They are different
-modules, and they use sfp_fixup_rollball_cc, not sfp_fixup_rollball.
-
-Before this patch, the HORACO comment covered one entry and was followed
-by a blank line. The RTSFP entries were in the uncommented SFP-10G-T /
-SFP-2.5G-* block. Could a blank line or a separate comment be added for
-the RTSFP entries?
-
-[ ... ]
-
-> @@ -652,11 +643,20 @@ static const struct sfp_quirk sfp_quirks[] = {
->  	// match the part as a prefix.
->  	SFP_QUIRK_F_PREFIX("OEM", "XGSPONST2001", sfp_fixup_potron),
->  
-> +	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
-> +
-> +	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
-> +	// Rollball protocol to talk to the PHY.
-> +	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
-> +	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
-> +
-> +	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
-> +
->  	SFP_QUIRK_S("TP-LINK", "TL-SM410U", sfp_quirk_oem_2_5g),
-
-[Severity: Low]
-The commit message says:
-
-    Keep OEM entries together in the vendor table's alphabetical order
-
-Is the vendor order alphabetical after this move? The UBNT, Walsun and YV
-block now sits between OEM and TP-LINK, which gives this vendor order:
-
-    ODI, OEM, UBNT, Walsun, YV, TP-LINK, Turris, XikeStor, ZOERAX
-
-In alphabetical order it would be:
-
-    ODI, OEM, TP-LINK, Turris, UBNT, Walsun, XikeStor, YV, ZOERAX
-
-These are the only lines that this patch moves between vendors, and they
-are still out of order. Would it make sense to put UBNT and Walsun after
-Turris, and YV after XikeStor? Then a later patch would not need to move
-the same lines again.
+diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
+index 5455dccfbdd0..f2bf087f7ad2 100644
+--- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
++++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
+@@ -146,6 +146,7 @@ sysctrl: system-controller@4000c000 {
+ 			compatible = "renesas,r9a06g032-sysctrl";
+ 			reg = <0x4000c000 0x1000>;
+ 			#clock-cells = <1>;
++			#reset-cells = <1>;
+ 			#power-domain-cells = <0>;
+ 
+ 			clocks = <&ext_mclk>, <&ext_rtc_clk>,
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118162323.436219-1-github%40bumblecito.com
+2.53.0
+
+
