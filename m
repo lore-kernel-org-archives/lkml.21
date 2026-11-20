@@ -1,73 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181793;
-	b=1eP+PvW6Pzp4Yz8gHAacVh+EZEs18RlhfwUC68LNWDRdLGEJDQXfjOKUNdvJzHwpiqgt
-	 NeFSBc6DcOZLDMEmI2t3QJ04aPuUUIN3t/3F2UbM0+YXnEXcIJQ2sgZTRDoDkKBSteME7
-	 Pqs3F8aFc96NTOKdV+tMkrm101JgMBYy0sOICMtaYZcVlz2049sdfOnwQuyMb4LURIrFi
-	 dYaoV5MEl7Vh825EUpOfA5ZSPfrYuyA7rNKH1uYQ9gs3JmNnRW5bUX06+eMkyssMQwPrS
-	 JExNmsd4/nNpXI+mX/3+y6RrdxEPWFwpCufJcNHpHAmJLI9mZF50my95of+/4j1+BHQ==
+	t=1795181931;
+	b=geeOsXrOIGnV7BpdPVGy9Cai2ULTwQQxf79smLaQFMv9PfbQjPMID0PsHmHTKcqHGOyd
+	 XB/tAVqnGlol0UYOcxEgGFoHdwO/u7lcX+s5FO3e75rRLDvx7BwPiGB0/tDvKd3ERH5SE
+	 VSLjCn0iUPiCaDKhaPuDaQdsFg3Vh3+VKzwjEhSkUQUkfHJGmMYYmaHXB3WDZ6ZXvnEdQ
+	 7mpq/1rsgG1K1ZkdncV9Umuv2b249AAAUFIxw02ivRnepAnppseXy3QXRl4qPbN8SNOJm
+	 EAbiXTGCQOOFo3JjNjjktODrpGrdffBIFIY+Xmwf+qe1YuEn+gxBzaCVYofxMN1Mjjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181793;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=JB6yJU/tPLmNVtr5U4XzW0AQKtEoPkXmKtJ0W88w+8Q=;
-	b=Q4w/SLcu51AmpHxi2QOJDHLn6fmAZFProAF1GNi9tK2oI9LqIzNuL53TJXW69/f5JW1Q
-	 q5svkgnrhiRdbhancsDsx5H5Cc4KmClttxA05Gueto6ItBXAWnsQ2OtYZC60QbNK4yd3I
-	 r7LwHe9tEBeL8DtFePtE20qErAnpR+WZwrGvb4dRL1vnN/7i36/iYIq1VUO78hw1LuX2f
-	 V/PiF0Ma4o/fUIiPymsCrQa9dJTVpxChISFFkiqsVHKLOtk7yfrd9PRdUuuvE4UaSVfvR
-	 gm1OwEb4fhKC8UaGU4SH1oycxAXAK2tLZqrsBeVU09cEdJy33SvCFAxGT1BH6g9+YuA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181931;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qZNnoG+Fb9/W4ISE55dTt9q7EvNYjApPu7ZJ7FyZ+gg=;
+	b=pclD1DI3fRYP5h2blMsWKJUEpLQ9Ra3SGU60i2VwjeDU9Pr0XmMo8r4T7wnyk2ggqR4u
+	 eRvQb3SzY8EwY1M79LXQS3T14jTBuS5ZGykXoeb4q/P8P58tX35IWKJAPnvIHkKoHFP7I
+	 JG717ofENdLKQNLRp43wma/zhFGhXrO8Xtfuu6fpET6mKgXdtIPGPHXGpHR50PNh7YfhR
+	 y3amB+uN2DVPM9BH9+ZFVqSCaYFAhbaAC/yEkHYBx2OW0+zfEVaaUxuj1wEh63XxWFU3y
+	 2bwT3GD0MV2w1PIvT8vsGJefQbFL6O4K8UjDYYBa2vLR0BIg2iDEFmZZg0zVcjlPUSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CkwSGSpb;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ZVt/gpeT";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B09A9606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:36:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B09A9606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B957606A320;
+	Fri, 20 Nov 2026 13:38:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CkwSGSpb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795181791;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JB6yJU/tPLmNVtr5U4XzW0AQKtEoPkXmKtJ0W88w+8Q=;
-	b=CkwSGSpbJy/awq6y/xE9rh/y0fab5mZoF/k8VJV/2Jz1AbLSGnN1y2NnzIh9P1xcZRcQKJ
-	C3EyFMrm74cQNqRMxrudsqjcRwqOeB5uzkFYsW1jZW0qu8EW3+zEyEOsrbcPG+KCD4KgRM
-	QE8UFzzt754oSbgoaUkkAnrfJ/IVFic=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-629-lZQ7p09zOwyfL8gkZ1Sa6g-1; Fri,
- 20 Nov 2026 13:36:27 +0000
-X-MC-Unique: lZQ7p09zOwyfL8gkZ1Sa6g-1
-X-Mimecast-MFC-AGG-ID: lZQ7p09zOwyfL8gkZ1Sa6g_1795181786
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 66A3919560B4;
-	Fri, 20 Nov 2026 13:36:26 +0000 (UTC)
-Received: from pbonzini-thinkpadx1carbon6th.rmtit.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 85216195B3CD;
-	Fri, 20 Nov 2026 13:36:24 +0000 (UTC)
-From: Paolo Bonzini <pbonzini@redhat.com>
-To: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org
-Cc: seanjc@google.com,
-	npiggin@gmail.com,
-	maddy@linux.ibm.com,
-	linuxppc-dev@lists.ozlabs.org
-Subject: [PATCH] KVM: PPC: implement .flush_memslot for BookE and Book3S-PR
-Date: Fri, 20 Nov 2026 14:36:23 +0100
-Message-ID: <20261120133623.479601-1-pbonzini@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZVt/gpeT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5DE1F000CA;
+	Fri, 20 Nov 2026 13:38:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795181930;
+	bh=qZNnoG+Fb9/W4ISE55dTt9q7EvNYjApPu7ZJ7FyZ+gg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZVt/gpeT+QwOmnfJsc/3ftB9+K4CjZ3YSI88OOCcUEyqT8stAjszp+96a1oJ8+0Ns
+	 tJ28EUnrlrLw9TlUOid9CZzjfn9sO4YAFQTD69kTlmyLwU5FrG5okc44xqgyYHPO9k
+	 72COaeHn+Gxg6/5DfuobCFUQxlXa/5iZuMi/kBejSCtB4CLtllAXZ9ODJZwsH/NGBR
+	 me1qLoTncPhWjF3BwjgrOy0tCk4+03m+KRYy5i/BYG3pC+wuQs7E2NKAfbcsFxCgsT
+	 UgMCojc7Jqf5gf7TYm5o8CJidfwqwilfz1646EEe12O0PTjnF7rI/OQf91AzOYM3w9
+	 eAvB4es4XUd3A==
+Date: Fri, 20 Nov 2026 14:38:43 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: NeilBrown <neil@brown.name>
+Cc: Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Harkes <jaharkes@cs.cmu.edu>, coda@cs.cmu.edu, Jan Kara <jack@suse.cz>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Namjae Jeon <linkinjeon@kernel.org>, 
+	Hyunchul Lee <hyc.lee@gmail.com>, Carlos Maiolino <cem@kernel.org>, 
+	Jeff Layton <jlayton@kernel.org>, Amir Goldstein <amir73il@gmail.com>, 
+	linux-kernel@vger.kernel.org, codalist@coda.cs.cmu.edu, linux-fsdevel@vger.kernel.org, 
+	linux-um@lists.infradead.org, ntfs@lists.linux.dev, linux-xfs@vger.kernel.org
+Subject: Re: [PATCH v2 4/4] procfs: drop parent lock for d_alloc_parallel()
+ in iterate_shared()
+Message-ID: <20261120-visier-dortig-gutachten-7a478b74ea10@brauner>
+References: <20261117000115.1433875-1-neilb@ownmail.net>
+ <20261117000115.1433875-5-neilb@ownmail.net>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -77,64 +64,101 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261117000115.1433875-5-neilb@ownmail.net>
 
-kvm_arch_flush_shadow_memslot() is called when memslots are deleted and
-moved, with no MMU notifier invalidation.  This means that the shadow
-pages (HPTEs for PR, TLB entries for e500) retain mappings from host
-pfns to the old slot's gfns.
+On Tue, Nov 17, 2026 at 10:55:01AM +1100, NeilBrown wrote:
+> +	if (child == ERR_PTR(-EWOULDBLOCK)) {
+> +		/*
+> +		 * Need to drop directory lock, which isn't really
+> +		 * needed here anyway.  As rmdir never happens in procfs
+> +		 * we don't need to be concerned about S_DEAD being set
+> +		 * while unlocked.
+> +		 */
+> +		inode_unlock_shared(dir->d_inode);
+>  		child = d_alloc_parallel(dir, &qname);
+> [...]
+> +		inode_lock_shared(dir->d_inode);
+> +	}
 
-Implement the callback by unmapping the GFNs in the same way that Book3S-HV
-does it.  Note that kvmppc_core_flush_memslot_pr() does not need TLB
-invalidation, because kvmppc_mmu_pte_pflush() calls invalidate_pte()
-on the entries, and that in turn invalidates the entry through either
-the tlbie instruction or mmu_hash_ops.hpte_invalidate().
+I think this can deadlock.
+If we're colliding with the failed lookup because the fd was closed, the
+task exited or the sysctl unregistered then the  dentry is unhashed and
+d_alloc_parallel() hands us a new in-lookup dentry.
 
-Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
----
- arch/powerpc/kvm/book3s_pr.c | 8 +++++++-
- arch/powerpc/kvm/booke.c     | 8 ++++++++
- 2 files changed, 15 insertions(+), 1 deletion(-)
+We then retake the lock while still owning it. But the VFS waits for
+in-lookup dentries with the lock held, e.g., open() with O_CREAT:
 
-diff --git a/arch/powerpc/kvm/book3s_pr.c b/arch/powerpc/kvm/book3s_pr.c
-index 1894968f2c25..66a9e446ab64 100644
---- a/arch/powerpc/kvm/book3s_pr.c
-+++ b/arch/powerpc/kvm/book3s_pr.c
-@@ -1893,7 +1893,13 @@ static int kvm_vm_ioctl_get_dirty_log_pr(struct kvm *kvm,
- static void kvmppc_core_flush_memslot_pr(struct kvm *kvm,
- 					 struct kvm_memory_slot *memslot)
- {
--	return;
-+	struct kvm_gfn_range range = {
-+		.slot = memslot,
-+		.start = memslot->base_gfn,
-+		.end = memslot->base_gfn + memslot->npages,
-+	};
-+
-+	kvm_unmap_gfn_range_pr(kvm, &range);
+P1: getdents(/proc/$pid/fd)         P2: open("/proc/$pid/fd/5", O_CREAT)
+proc_fill_cache("5")
+-> d_alloc_trylock() == -EWOULDBLOCK
+-> inode_unlock_shared(dir)
+                                    lookup_open()
+                                    -> inode_lock(dir)
+                                    -> d_lookup("5") == NULL
+-> child = d_alloc_parallel("5")
+                                    -> d_alloc_parallel("5")
+                                       -> d_wait_lookup(child)
+-> inode_lock_shared(dir)
+
+Both sleep uninterruptibly.
+A shell redirect to /dev/fd/5 is enough for P2.
+
+I don't tink it even needs O_CREAT. Any queued writer like a mkdir in
+the directory or chmod on it plus a lookup_slow() of the same name that
+holds the lock shared and waits on the child has the asme issue.
+
+And under /proc/sys/net it doesn't need a failing lookup either.
+proc_sys_compare() matches any in-lookup dentry but after the wait
+sysctl_is_seen() rejects a dentry from another netns and we get our
+own.
+
+d_add_ci() in 1/4 gets this right and finishes all in-lookup dentries
+before relocking. So I think procfs needs to do the same, sm like
+(UNTESTED):
+
+diff --git a/fs/proc/base.c b/fs/proc/base.c
+index 5f9ec52..d30f877 100644
+--- a/fs/proc/base.c
++++ b/fs/proc/base.c
+@@ -2105,19 +2105,19 @@ bool proc_fill_cache(struct file *file, struct dir_context *ctx,
+ 	struct inode *inode;
+ 	unsigned type = DT_UNKNOWN;
+ 	ino_t ino = 1;
++	bool relock = false;
+ 
+ 	child = d_alloc_trylock(dir, &qname);
+-
+ 	if (child == ERR_PTR(-EWOULDBLOCK)) {
+ 		/*
+-		 * Need to drop directory lock, which isn't really
+-		 * needed here anyway.  As rmdir never happens in procfs
+-		 * we don't need to be concerned about S_DEAD being set
+-		 * while unlocked.
++		 * Wait for the other lookup without the directory lock and
++		 * don't take it back while @child is in-lookup: lookup_open()
++		 * waits for in-lookup dentries with the lock held exclusive.
++		 * procfs never sets S_DEAD.
+ 		 */
+ 		inode_unlock_shared(dir->d_inode);
++		relock = true;
+ 		child = d_alloc_parallel(dir, &qname);
+-		inode_lock_shared(dir->d_inode);
+ 	}
+ 	if (IS_ERR(child))
+ 		goto end_instantiate;
+@@ -2137,6 +2137,8 @@ bool proc_fill_cache(struct file *file, struct dir_context *ctx,
+ 	type = inode->i_mode >> 12;
+ 	dput(child);
+ end_instantiate:
++	if (relock)
++		inode_lock_shared(dir->d_inode);
+ 	return dir_emit(ctx, name, len, ino, type);
  }
  
- static int kvmppc_core_prepare_memory_region_pr(struct kvm *kvm,
-diff --git a/arch/powerpc/kvm/booke.c b/arch/powerpc/kvm/booke.c
-index ba762ac1fb56..fffb28fe9a0f 100644
---- a/arch/powerpc/kvm/booke.c
-+++ b/arch/powerpc/kvm/booke.c
-@@ -1844,6 +1844,14 @@ void kvmppc_core_commit_memory_region(struct kvm *kvm,
- 
- void kvmppc_core_flush_memslot(struct kvm *kvm, struct kvm_memory_slot *memslot)
- {
-+	struct kvm_gfn_range range = {
-+		.slot = memslot,
-+		.start = memslot->base_gfn,
-+		.end = memslot->base_gfn + memslot->npages,
-+	};
-+
-+	if (kvm_unmap_gfn_range(kvm, &range))
-+		kvm_flush_remote_tlbs(kvm);
- }
- 
- void kvmppc_set_epcr(struct kvm_vcpu *vcpu, u32 new_epcr)
--- 
-2.56.0
 
+The sysctl side needs the same.
+
+This also has the same lookup_one_qstr_excl() problem as the earlier
+patch.
