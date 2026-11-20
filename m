@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795197897;
-	b=jG+8RxaaXadC8V7MNUS2ddC3v8/tr6upbXrb3pz7l3InvA6cT1GoM0gF2IDixzXZlVYx
-	 CU9qcx7syHiPCn/P/bXmdH/pTxT83wuJZsVV/DFWVA4n0An522q8SNhWOCadYZG50JIEz
-	 pdc676IsSXH8H7BzFau1jtrTNd95BEK6tK7qttt/3Udt54NuJ6wZpykdnLCWnzhy1la2W
-	 VVAM8WE6L/2RGL7w5ytwOCb/5grMyWnUfmAa0jMgv8l8f63aEREZKo4f31ATevPfR/XuI
-	 vIRE2KOaaBwPsoC+Uq1VWEt5lMozMPRO84x8XgLKDASuEkqeSsYjDE0podQfzj0iHYg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197897;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oA8IFxqoM16WlCTCvitnmn2r9XF2DnZpllmpjVqezbQ=;
-	b=pJCR8XY9Ul2cL8jUiOpqv7zfuf2/i/ntPkfcbeVNwiIh34j+uKce0BI0hhkIcxRB9zlc
-	 539L/6BRVSiN7P5EjBITj4dw1Vl1h9/q3FCyeMb72vakm+83Cqz5r8T6QDK7BZFAKa9H/
-	 D+OHmznCRvyPVtjdZ3vnpYHa0OvUkAEohh/mat8MTbHj+A80uV+5w6GvJtq0huL9bJmH0
-	 DlObUmwtURq/AjdzVLDail7+C928jDs/g/sKzzwbcHYU+rCKOAC/Skd/8AVT2EmUGglQ0
-	 TOtGbsNSSje0IRFvjf3F5LMa2MQUXyTivmdX5OjCJDzid8utNUfoWxSFJqFZGH+PaIg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGd8nMr3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0588B60A263B;
-	Fri, 20 Nov 2026 18:04:56 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LGd8nMr3
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795197896;
-	b=qkZ7T9GRcQ/Hu0yoGte2GZzEg6y1VhxTNqtIOefMFlhz08O7KdL6M7d9NeCVj569onJm
-	 k7E/wAfB66sOrMwFHQrAd2HTZDCBQnsuePkj3B+WTCwZBkZbA2UQ/3TGlbkLcyR4Z2mc9
-	 wSSTOIqn3ZZdYcI7Zx2JithHuRZ4qun4pjJTO22c08+ekxuEBO7hNiJXl23+ggVX5PSY2
-	 /ColxRBZS7tUtIDn0j/x09I1sfpQHUjkG0pxIwTwBiA5vxMCj4vpBPq7e57SsRAAMvaMw
-	 NPKFhVBcs/wbNW9fC6+7NOaUQ17lKpDRhYxKrGDiJq+rqwHX4jow8RrSKjAJES5OaXw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795197896;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795197895;
+	b=PksSZ7s2GnSJ3psMts5Goulnh7yoVF/rFcesi/AjxA7vZxk67aALZd59oHtUIIeCLuZy
+	 WGHra7kK3uy0StVr3fOr3yQIv0bSldRIlAyJWYhKJ5aELpNXsDIU8+tLOGaLvNygW9gyN
+	 z2cEsSMx90C/sMee1IZlA0riCgFj+R5YwFRobZg+CaU7k6zZMzK6TUCUP02c/yZJVyzSE
+	 lD0UZKKLgXpUf/TVWrw9526iveeVHyvnyQCQumB2bAnAXqbyaM78kTWD/unEKDu55S0s4
+	 D6r+AtdUIh2CBp5JvN36Li+yL1M5tVItD8zdizCdRrri59cc2Z4H0hHXqkBKSTaFfNA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197895;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=oA8IFxqoM16WlCTCvitnmn2r9XF2DnZpllmpjVqezbQ=;
-	b=1CYxAnSR1Qa+hDmiMEijGlB7L7PajUDLgN6WZx9WR+L6neGmzuE0jpxS8nCi8SuJkjuD
-	 2+GwQRWwOHWroYTCFQjUMeu9T4H7o+LraQizc4pRNh8paqRbBHoz3kwxjJM2yv4ZNjpAS
-	 qJHDXeZZI1cB+rnNAOXqP5qTwu/0vLbxwlxSusiZFWPaLZL/hXlDCzNStjEIcShDQ7U3X
-	 EUN6kj2IXbUDvvIjc12OaGvispNKY60d+3G8rhxAVZeevQ7ld6H8Ka9YRjuV54cCT18U2
-	 J6HiMKcxVzXTcSILepBgDaswbC6KjBPO3diHiIJUfBkIsCjXPHFF7zck02ynjRhVLtA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=7Xif5sTlw5uZ32kkcJVZfCDv653KuOlybLMy01kUG3o=;
+	b=YlFjGCsCsrp2HJGVu2MkxV+GQuUF00pYXvdImIda8J3bvdcbFAweuOjhCze/K6M47fpl
+	 KIXTZugrdordFWD9jNhD/lI+tXxVbdN//eLRStm97mM56Lf7HuDKxUMZ6mnVXCw3JkxrP
+	 oVkfDF6ZEuMGfOdCcmsz9i4IPo6eGnMs1FEjoAZqzaJq1AyFfMfQCH2NKcU6H1UmXVUfs
+	 R6Ul3O+1Jt9JIDBROJgqdCd10917IK//Od5Cz9OGxTc5h5U1h9XqDsfA4W24X+ut6iYs3
+	 wROd1YvZUHBWI+qgTmB8YzIt4bFgbfZaFaYUPhs2ZiifQSqd3LcF5T24xrrmChlTTAA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=IQB9XVJz;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C6F961F000D0;
-	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795197896;
-	bh=oA8IFxqoM16WlCTCvitnmn2r9XF2DnZpllmpjVqezbQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=LGd8nMr3wnHxe2xFwr0u8ThEyvRAxsr5Sc6IdEZBMVN7Fj9/9Dn/A//cmPYebeWW7
-	 bQDITuu7yuO65hyIhDdT+zjjn2k176X8Cmaeh0FOuO3iA/UDD9kb/7xOsobm5WsUCq
-	 jDOmPAbmcSa3hJra1MJa4TWm7FdItl7LHRLgsD9H0kJQlFtFRc51mBt7dbF3RJD0ny
-	 /c4D0jwHyrLHPgI3Yj1nyw+E8MsHFqJ1GSS/41DHcRkHh4/35+KifEREQUR8TfXABw
-	 GBxGw470k9bHG4czpzoCUKjFp1M5VLnCsWU5l8qLkEOvRzi5wG7mLKiJ2/jNBFKWWk
-	 6XIAyXEGANMQQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 5D3454B8B5;
-	Fri, 20 Nov 2026 18:04:43 +0000 (UTC)
-From: Rodrigo Alencar via B4 Relay <devnull+rodrigo.alencar.analog.com@kernel.org>
-Date: Fri, 20 Nov 2026 18:03:58 +0000
-Subject: [PATCH RFC 2/5] iio: core: add struct iio_chan_attr and split
- attribute creation
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CA4B60A3808;
+	Fri, 20 Nov 2026 18:04:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CA4B60A3808
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=IQB9XVJz
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 670C34E41693;
+	Fri, 20 Nov 2026 18:04:53 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3BF7F601B9;
+	Fri, 20 Nov 2026 18:04:53 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7285D11BC0627;
+	Fri, 20 Nov 2026 19:04:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795197891; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7Xif5sTlw5uZ32kkcJVZfCDv653KuOlybLMy01kUG3o=;
+	b=IQB9XVJzM3KCBKLZJgKYdqHyf4Y772MXcRmnNFOhrIG80xWz5Hj3fNTtrq6aC5GEFyVZXL
+	Q/zEKjd6TP0G9TCiE5RY53tpdEO65cDP8KHew55Y+JApkpnLlYmOzyKhITYHpveSalijpv
+	aQoGTtIg/9W/S+zlekLLk0E9DzHjg0NBRsSLSTzTeKDxqItCNzrufNcRK06VPgoL/dHo/x
+	TogF5LsqktbM/tsyVPlbAU5xEYsMWlq/rVebrmIP3SqICfkv9Qo+loP+E2B1IyujoGM30w
+	MjdZMNFXoT+kfssum8XjMS1ZPpXDRD073h2HYKVcK4CcyqQxlR04kKaEt442Kw==
+From: Louis Chauvet <louis.chauvet@bootlin.com>
+Date: Fri, 20 Nov 2026 18:59:08 +0100
+Subject: [PATCH v6 26/43] drm/vkms: Introduce config for plane format
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,965 +64,397 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-iio-core-attr-review-v1-2-05b41f8133c2@analog.com>
-References: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-In-Reply-To: <20261120-iio-core-attr-review-v1-0-05b41f8133c2@analog.com>
-To: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, Andy Shevchenko <andy@kernel.org>, 
- Rodrigo Alencar <rodrigo.alencar@analog.com>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795197883; l=32633;
- i=rodrigo.alencar@analog.com; s=default; h=from:subject:message-id;
- bh=0j9q65GuscAcmV9gPpiBn4bJGptqlV9ZWhSshIFKJps=;
- b=p9Bo3OxXxXPyEFDQuziKimgoHrMyfPpo3cUaIL+/kNhwuY78+D4r4ByWKQ+tH3oODFZiz0VuB
- LtmNaIwcOCyCThinP9t2Qf5yK1SlZHgo9Y5xB+xcqYen8O42F0qz4LE
-X-Developer-Key: i=rodrigo.alencar@analog.com; a=ed25519;
- pk=ULeHbgU/OYh/PG/4anHDfLgldFItQHAhOktYRVLMFRo=
-X-Endpoint-Received: by B4 Relay for rodrigo.alencar@analog.com/default
- with auth_id=561
-X-Original-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
-Reply-To: rodrigo.alencar@analog.com
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-vkms-all-config-v6-26-78ace90f4fc1@bootlin.com>
+References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
+To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
+ Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
+ Harry Wentland <harry.wentland@amd.com>, 
+ Lucas De Marchi <demarchi@kernel.org>, 
+ =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Nick Desaulniers <ndesaulniers@google.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
+ victoria@system76.com, thomas.petazzoni@bootlin.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
+ llvm@lists.linux.dev
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11474;
+ i=louis.chauvet@bootlin.com; h=from:subject:message-id;
+ bh=QAPMqX4TXRRKvnnwYxRI3ilOmDbfTQV01bLv4Qd5JJs=;
+ b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIsAcYQ9ATGpKgsQLLAJeZbY296AxqR0AE/v/
+ KOHoow8tLGJAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCLABsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOKjtQ/+NelsUoGSXSijMlgz655hdEnvNHmb5Kp
+ tiPujlWJD5S9+/VWcTKQgngldltYPwHbY+0WVXVi8z9coOhc2JzlHM8Gqew/qgqwTfDXKqcn0dJ
+ +jzRMdKynyuu5r9AW2t7634BWv/yH7s+ym2zf55E01Tq4POtw+XG5Y35nQjOTM4pBr3od8Axxah
+ 9FMSWKAAaMRfYHxhf39Xq9PeI7t0W44XMyTzGlOw/XtGFjRN5kpx3cKjXu2BmZigCxayCoIVjXp
+ KTme6eLnw9bggnydDmlQL+OZAaD7O8vCHVxT23Tw1gaY2Ni1zfZuOoUMxcqpdKeMRO1cq4ealk8
+ LhEODLhb/02Wdcbi5QwX0ZQB9J2vkSIxE/y3E6TJ4FN+bporMfExcP+ajKWONcofzQKjnnzCaL+
+ 3PEqL6tCL/CJ0hTNMqOA72UgjgwJ/9uXNwOsa4jmusgUvbIWO2RNikbtSVFaB5Rs1O5D/hnME5n
+ 2OoeD0eCh+mnJ68QabdWtlhL7q+wUg7XHEHpx7anrteBDpcmM0BaO3ugSTh8h0RC28dnx20oiyr
+ z6dLGSzvl9D9tskZL8FlG9fZOf/WpYrVLRDwc9Bhw0KUfLm/yauZCXDLvxPneWpEmcOd99K90iz
+ uRA8hg2p1NRv9lL2nqOexCE01dH2D7wuY9rcvO2kyW+BALPigak0=
+X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
+ fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Rodrigo Alencar <rodrigo.alencar@analog.com>
+VKMS driver supports all the pixel formats for planes, but for testing it
+can be useful to only advertise few of them. This new configuration
+interface will allow configuring the pixel format per planes.
 
-Channel, event and buffer attributes are all created through
-__iio_add_chan_devattr(), which allocates a struct iio_dev_attr and its
-name, and only then walks the attribute list looking for a duplicate.
-For shared attributes (info_mask_shared_by_*, shared ext_info and shared
-event info) every channel after the first one allocates the attribute
-and its name just to find the duplicate and free both again. The
-function also takes a buffer pointer that only buffer attributes use.
-
-Introduce struct iio_chan_attr for the attributes created by the IIO
-core. It embeds struct iio_dev_attr and adds the channel spec and the
-list node, so that the core-only state no longer needs to live in the
-structure drivers use for their own attributes. Other attribute types
-can extend it further.
-
-Replace __iio_add_chan_devattr() with two steps:
-
- - iio_chan_attr_prepare() builds the full attribute name on the stack
-   and checks it against the attribute list.
- - iio_chan_attr_add() initializes an attribute allocated by the caller
-   and adds it to the list.
-
-The caller allocates its own attribute type in between, so the core
-needs no size or context pointer, and duplicates are detected before
-anything is allocated.
-
-Also add iio_attr_show_t and iio_attr_store_t, so the show and store
-callback prototypes are not spelled out in every helper.
-
-Event and buffer attributes are converted to struct iio_chan_attr, but
-otherwise keep their current behavior.
-
-Signed-off-by: Rodrigo Alencar <rodrigo.alencar@analog.com>
+Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
 ---
- drivers/iio/iio_core.h            |  58 ++++++--
- drivers/iio/industrialio-buffer.c |  95 +++++++------
- drivers/iio/industrialio-core.c   | 278 ++++++++++++++++++++------------------
- drivers/iio/industrialio-event.c  |  72 +++++++---
- 4 files changed, 290 insertions(+), 213 deletions(-)
+ drivers/gpu/drm/vkms/vkms_config.c | 140 +++++++++++++++++++++++++++++++++++++
+ drivers/gpu/drm/vkms/vkms_config.h |  51 ++++++++++++++
+ drivers/gpu/drm/vkms/vkms_plane.c  |  39 +----------
+ 3 files changed, 193 insertions(+), 37 deletions(-)
 
-diff --git a/drivers/iio/iio_core.h b/drivers/iio/iio_core.h
-index 59fa1bd9924b..6a391a604bf9 100644
---- a/drivers/iio/iio_core.h
-+++ b/drivers/iio/iio_core.h
-@@ -11,6 +11,9 @@
- #define _IIO_CORE_H_
- #include <linux/kernel.h>
- #include <linux/device.h>
-+#include <linux/limits.h>
-+#include <linux/list.h>
-+#include <linux/iio/sysfs.h>
+diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
+index b33760692ba9..5286363f80f7 100644
+--- a/drivers/gpu/drm/vkms/vkms_config.c
++++ b/drivers/gpu/drm/vkms/vkms_config.c
+@@ -15,6 +15,42 @@
  
- struct iio_buffer;
- struct iio_chan_spec;
-@@ -38,20 +41,47 @@ ssize_t do_iio_read_channel_label(struct iio_dev *indio_dev,
- 				  const struct iio_chan_spec *c,
- 				  char *buf);
+ static void vkms_config_connector_release(struct kref *ref);
  
--int __iio_add_chan_devattr(const char *postfix,
--			   struct iio_chan_spec const *chan,
--			   ssize_t (*func)(struct device *dev,
--					   struct device_attribute *attr,
--					   char *buf),
--			   ssize_t (*writefunc)(struct device *dev,
--						struct device_attribute *attr,
--						const char *buf,
--						size_t len),
--			   u64 mask,
--			   enum iio_shared_by shared_by,
--			   struct device *dev,
--			   struct iio_buffer *buffer,
--			   struct list_head *attr_list);
-+typedef typeof_member(struct device_attribute, show) iio_attr_show_t;
-+typedef typeof_member(struct device_attribute, store) iio_attr_store_t;
-+
-+/**
-+ * struct iio_chan_attr - IIO core managed channel attribute
-+ * @iio_attr:	underlying IIO device attribute
-+ * @c:		specification for the underlying channel (if any)
-+ * @l:		list head for maintaining list of dynamically created attrs
-+ *
-+ * Other IIO core attribute types extend this one and must embed it as their
-+ * first member, since attribute lists are freed through this type.
-+ */
-+struct iio_chan_attr {
-+	struct iio_dev_attr iio_attr;
-+	const struct iio_chan_spec *c;
-+	struct list_head l;
++static const u32 vkms_supported_plane_formats[] = {
++	DRM_FORMAT_ARGB8888,
++	DRM_FORMAT_ABGR8888,
++	DRM_FORMAT_BGRA8888,
++	DRM_FORMAT_RGBA8888,
++	DRM_FORMAT_XRGB8888,
++	DRM_FORMAT_XBGR8888,
++	DRM_FORMAT_RGB888,
++	DRM_FORMAT_BGR888,
++	DRM_FORMAT_XRGB16161616,
++	DRM_FORMAT_XBGR16161616,
++	DRM_FORMAT_ARGB16161616,
++	DRM_FORMAT_ABGR16161616,
++	DRM_FORMAT_RGB565,
++	DRM_FORMAT_BGR565,
++	DRM_FORMAT_NV12,
++	DRM_FORMAT_NV16,
++	DRM_FORMAT_NV24,
++	DRM_FORMAT_NV21,
++	DRM_FORMAT_NV61,
++	DRM_FORMAT_NV42,
++	DRM_FORMAT_YUV420,
++	DRM_FORMAT_YUV422,
++	DRM_FORMAT_YUV444,
++	DRM_FORMAT_YVU420,
++	DRM_FORMAT_YVU422,
++	DRM_FORMAT_YVU444,
++	DRM_FORMAT_P010,
++	DRM_FORMAT_P012,
++	DRM_FORMAT_P016,
++	DRM_FORMAT_R1,
++	DRM_FORMAT_R2,
++	DRM_FORMAT_R4,
++	DRM_FORMAT_R8,
 +};
 +
-+#define to_iio_chan_attr(_dev_attr)					\
-+	container_of(to_iio_dev_attr(_dev_attr), struct iio_chan_attr, iio_attr)
-+
-+/**
-+ * struct iio_chan_attr_ctx - context for creating an IIO channel attribute
-+ * @chan:	specification for the underlying channel
-+ * @attr_list:	list the attribute is added to
-+ * @name:	full attribute name
-+ */
-+struct iio_chan_attr_ctx {
-+	const struct iio_chan_spec *chan;
-+	struct list_head *attr_list;
-+	char name[NAME_MAX + 1];
-+};
-+
-+int iio_chan_attr_prepare(struct iio_chan_attr_ctx *ctx, struct device *dev,
-+			  const struct iio_chan_spec *chan,
-+			  enum iio_shared_by shared_by, const char *postfix,
-+			  struct list_head *attr_list);
-+int iio_chan_attr_add(const struct iio_chan_attr_ctx *ctx,
-+		      struct iio_chan_attr *attr,
-+		      iio_attr_show_t readfunc, iio_attr_store_t writefunc,
-+		      u64 mask);
- void iio_free_chan_devattr_list(struct list_head *attr_list);
- 
- int iio_device_register_sysfs_group(struct iio_dev *indio_dev,
-diff --git a/drivers/iio/industrialio-buffer.c b/drivers/iio/industrialio-buffer.c
-index 2d7759325eb3..48fdaed6d703 100644
---- a/drivers/iio/industrialio-buffer.c
-+++ b/drivers/iio/industrialio-buffer.c
-@@ -412,7 +412,7 @@ static ssize_t iio_show_scan_index(struct device *dev,
- 				   struct device_attribute *attr,
- 				   char *buf)
+ struct vkms_config *vkms_config_create(const char *dev_name)
  {
--	return sysfs_emit(buf, "%u\n", to_iio_dev_attr(attr)->c->scan_index);
-+	return sysfs_emit(buf, "%u\n", to_iio_chan_attr(attr)->c->scan_index);
- }
+ 	struct vkms_config *config;
+@@ -411,6 +447,17 @@ bool vkms_config_is_valid(const struct vkms_config *config)
+ 	struct vkms_config_plane *plane_cfg;
  
- static ssize_t iio_show_fixed_type(struct device *dev,
-@@ -420,7 +420,7 @@ static ssize_t iio_show_fixed_type(struct device *dev,
- 				   char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	const struct iio_scan_type *scan_type;
- 	u8 type;
- 
-@@ -651,56 +651,61 @@ static ssize_t iio_scan_el_ts_store(struct device *dev,
- 	return len;
- }
- 
-+static int iio_buffer_add_chan_devattr(struct iio_dev *indio_dev,
-+				       struct iio_buffer *buffer,
-+				       const char *postfix,
-+				       const struct iio_chan_spec *chan,
-+				       iio_attr_show_t readfunc,
-+				       iio_attr_store_t writefunc,
-+				       u64 mask)
-+{
-+	struct iio_chan_attr *buf_attr;
-+	struct iio_chan_attr_ctx ctx;
-+	int ret;
-+
-+	ret = iio_chan_attr_prepare(&ctx, &indio_dev->dev, chan, IIO_SEPARATE,
-+				    postfix, &buffer->buffer_attr_list);
-+	if (ret)
-+		return ret;
-+
-+	buf_attr = kzalloc_obj(*buf_attr);
-+	if (!buf_attr)
-+		return -ENOMEM;
-+
-+	buf_attr->iio_attr.buffer = buffer;
-+	ret = iio_chan_attr_add(&ctx, buf_attr, readfunc, writefunc, mask);
-+	if (ret)
-+		kfree(buf_attr);
-+
-+	return ret;
-+}
-+
- static int iio_buffer_add_channel_sysfs(struct iio_dev *indio_dev,
- 					struct iio_buffer *buffer,
- 					const struct iio_chan_spec *chan)
- {
- 	int ret, attrcount = 0;
- 
--	ret = __iio_add_chan_devattr("index",
--				     chan,
--				     &iio_show_scan_index,
--				     NULL,
--				     0,
--				     IIO_SEPARATE,
--				     &indio_dev->dev,
--				     buffer,
--				     &buffer->buffer_attr_list);
-+	ret = iio_buffer_add_chan_devattr(indio_dev, buffer, "index", chan,
-+					  &iio_show_scan_index, NULL, 0);
- 	if (ret)
- 		return ret;
- 	attrcount++;
--	ret = __iio_add_chan_devattr("type",
--				     chan,
--				     &iio_show_fixed_type,
--				     NULL,
--				     0,
--				     IIO_SEPARATE,
--				     &indio_dev->dev,
--				     buffer,
--				     &buffer->buffer_attr_list);
-+	ret = iio_buffer_add_chan_devattr(indio_dev, buffer, "type", chan,
-+					  &iio_show_fixed_type, NULL, 0);
- 	if (ret)
- 		return ret;
- 	attrcount++;
- 	if (chan->type != IIO_TIMESTAMP)
--		ret = __iio_add_chan_devattr("en",
--					     chan,
--					     &iio_scan_el_show,
--					     &iio_scan_el_store,
--					     chan->scan_index,
--					     IIO_SEPARATE,
--					     &indio_dev->dev,
--					     buffer,
--					     &buffer->buffer_attr_list);
-+		ret = iio_buffer_add_chan_devattr(indio_dev, buffer, "en", chan,
-+						  &iio_scan_el_show,
-+						  &iio_scan_el_store,
-+						  chan->scan_index);
- 	else
--		ret = __iio_add_chan_devattr("en",
--					     chan,
--					     &iio_scan_el_ts_show,
--					     &iio_scan_el_ts_store,
--					     chan->scan_index,
--					     IIO_SEPARATE,
--					     &indio_dev->dev,
--					     buffer,
--					     &buffer->buffer_attr_list);
-+		ret = iio_buffer_add_chan_devattr(indio_dev, buffer, "en", chan,
-+						  &iio_scan_el_ts_show,
-+						  &iio_scan_el_ts_store,
-+						  chan->scan_index);
- 	if (ret)
- 		return ret;
- 	attrcount++;
-@@ -1521,23 +1526,25 @@ static struct attribute *iio_buffer_wrap_attr(struct iio_buffer *buffer,
- 					      struct attribute *attr)
- {
- 	struct device_attribute *dattr = to_dev_attr(attr);
-+	struct iio_chan_attr *chan_attr;
- 	struct iio_dev_attr *iio_attr;
- 
--	iio_attr = kzalloc_obj(*iio_attr);
--	if (!iio_attr)
-+	chan_attr = kzalloc_obj(*chan_attr);
-+	if (!chan_attr)
- 		return NULL;
- 
-+	iio_attr = &chan_attr->iio_attr;
- 	iio_attr->buffer = buffer;
- 	memcpy(&iio_attr->dev_attr, dattr, sizeof(iio_attr->dev_attr));
- 	iio_attr->dev_attr.attr.name = kstrdup_const(attr->name, GFP_KERNEL);
- 	if (!iio_attr->dev_attr.attr.name) {
--		kfree(iio_attr);
-+		kfree(chan_attr);
- 		return NULL;
- 	}
- 
- 	sysfs_attr_init(&iio_attr->dev_attr.attr);
- 
--	list_add(&iio_attr->l, &buffer->buffer_attr_list);
-+	list_add(&chan_attr->l, &buffer->buffer_attr_list);
- 
- 	return &iio_attr->dev_attr.attr;
- }
-@@ -2151,7 +2158,7 @@ static int __iio_buffer_alloc_sysfs_and_mask(struct iio_buffer *buffer,
- {
- 	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	unsigned int masklength = iio_get_masklength(indio_dev);
--	struct iio_dev_attr *p;
-+	struct iio_chan_attr *p;
- 	const struct iio_dev_attr *id_attr;
- 	struct attribute **attr;
- 	int ret, i, attrn, scan_el_attrcount, buffer_attrcount;
-@@ -2258,7 +2265,7 @@ static int __iio_buffer_alloc_sysfs_and_mask(struct iio_buffer *buffer,
- 
- 	attrn = 0;
- 	list_for_each_entry(p, &buffer->buffer_attr_list, l)
--		attr[attrn++] = &p->dev_attr.attr;
-+		attr[attrn++] = &p->iio_attr.dev_attr.attr;
- 
- 	buffer->buffer_group.name = kasprintf(GFP_KERNEL, "buffer%d", index);
- 	if (!buffer->buffer_group.name) {
-diff --git a/drivers/iio/industrialio-core.c b/drivers/iio/industrialio-core.c
-index ed7aa7fd9391..d1f56e7f1666 100644
---- a/drivers/iio/industrialio-core.c
-+++ b/drivers/iio/industrialio-core.c
-@@ -581,10 +581,10 @@ static ssize_t iio_read_channel_ext_info(struct device *dev,
- 				     char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	const struct iio_chan_spec_ext_info *ext_info;
- 
--	ext_info = &this_attr->c->ext_info[this_attr->address];
-+	ext_info = &this_attr->c->ext_info[this_attr->iio_attr.address];
- 
- 	return ext_info->read(indio_dev, ext_info->private, this_attr->c, buf);
- }
-@@ -594,10 +594,10 @@ static ssize_t iio_write_channel_ext_info(struct device *dev,
- 				     const char *buf, size_t len)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	const struct iio_chan_spec_ext_info *ext_info;
- 
--	ext_info = &this_attr->c->ext_info[this_attr->address];
-+	ext_info = &this_attr->c->ext_info[this_attr->iio_attr.address];
- 
- 	return ext_info->write(indio_dev, ext_info->private,
- 			       this_attr->c, buf, len);
-@@ -876,14 +876,14 @@ static ssize_t iio_read_channel_label(struct device *dev,
- 				      char *buf)
- {
- 	return do_iio_read_channel_label(dev_to_iio_dev(dev),
--					 to_iio_dev_attr(attr)->c, buf);
-+					 to_iio_chan_attr(attr)->c, buf);
- }
- 
- static ssize_t iio_read_channel_parent(struct device *dev,
- 				       struct device_attribute *attr,
- 				       char *buf)
- {
--	const struct iio_chan_spec *chan = to_iio_dev_attr(attr)->c->parent;
-+	const struct iio_chan_spec *chan = to_iio_chan_attr(attr)->c->parent;
- 	ssize_t len;
- 
- 	len = __iio_chan_prefix_emit(dev, chan, IIO_SEPARATE, buf, PAGE_SIZE - 1);
-@@ -898,7 +898,7 @@ static ssize_t iio_read_channel_info(struct device *dev,
- 				     char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int vals[INDIO_MAX_RAW_ELEMENTS];
- 	int ret;
- 	int val_len = 2;
-@@ -907,10 +907,10 @@ static ssize_t iio_read_channel_info(struct device *dev,
- 		ret = indio_dev->info->read_raw_multi(indio_dev, this_attr->c,
- 							INDIO_MAX_RAW_ELEMENTS,
- 							vals, &val_len,
--							this_attr->address);
-+							this_attr->iio_attr.address);
- 	else if (indio_dev->info->read_raw)
- 		ret = indio_dev->info->read_raw(indio_dev, this_attr->c,
--				    &vals[0], &vals[1], this_attr->address);
-+				    &vals[0], &vals[1], this_attr->iio_attr.address);
- 	else
- 		return -EINVAL;
- 
-@@ -989,7 +989,7 @@ static ssize_t iio_read_channel_info_avail(struct device *dev,
- 					   char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	const int *vals;
- 	int ret;
- 	int length;
-@@ -1000,7 +1000,7 @@ static ssize_t iio_read_channel_info_avail(struct device *dev,
- 
- 	ret = indio_dev->info->read_avail(indio_dev, this_attr->c,
- 					  &vals, &type, &length,
--					  this_attr->address);
-+					  this_attr->iio_attr.address);
- 
- 	if (ret < 0)
- 		return ret;
-@@ -1109,7 +1109,7 @@ static ssize_t iio_write_channel_info(struct device *dev,
- 				      size_t len)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int ret, fract_mult = 100000;
- 	int type, dec_scale = 0;
- 	int integer, fract = 0;
-@@ -1125,7 +1125,7 @@ static ssize_t iio_write_channel_info(struct device *dev,
- 	if (indio_dev->info->write_raw_get_fmt) {
- 		type = indio_dev->info->write_raw_get_fmt(indio_dev,
- 							  this_attr->c,
--							  this_attr->address);
-+							  this_attr->iio_attr.address);
- 		switch (type) {
- 		case IIO_VAL_INT:
- 			fract_mult = 0;
-@@ -1183,43 +1183,100 @@ static ssize_t iio_write_channel_info(struct device *dev,
- 	}
- 
- 	ret = indio_dev->info->write_raw(indio_dev, this_attr->c,
--					 integer, fract, this_attr->address);
-+					 integer, fract, this_attr->iio_attr.address);
- 	if (ret)
- 		return ret;
- 
- 	return len;
- }
- 
--static
--int __iio_device_attr_init(struct device *dev,
--			   struct device_attribute *dev_attr,
--			   const char *postfix,
--			   struct iio_chan_spec const *chan,
--			   ssize_t (*readfunc)(struct device *dev,
--					       struct device_attribute *attr,
--					       char *buf),
--			   ssize_t (*writefunc)(struct device *dev,
--						struct device_attribute *attr,
--						const char *buf,
--						size_t len),
--			   enum iio_shared_by shared_by)
-+static ssize_t iio_chan_attr_name_emit(struct device *dev,
-+				       const struct iio_chan_spec *chan,
-+				       enum iio_shared_by shared_by,
-+				       const char *postfix,
-+				       char *buf, size_t len)
- {
--	char prefix[NAME_MAX + 1];
-+	struct seq_buf s;
- 	ssize_t ret;
- 
-+	ret = __iio_chan_prefix_emit(dev, chan, shared_by, buf, len);
-+	if (ret < 0)
-+		return ret;
-+
-+	seq_buf_init(&s, buf + ret, len - ret);
-+	seq_buf_printf(&s, ret ? "_%s" : "%s", postfix);
-+	if (seq_buf_has_overflowed(&s))
-+		return -EOVERFLOW;
-+
-+	return ret + s.len;
-+}
-+
-+/**
-+ * iio_chan_attr_prepare() - Prepare the creation of an IIO channel attribute
-+ * @ctx: Context to be filled in
-+ * @dev: Device used for error reporting
-+ * @chan: Specification for the underlying channel
-+ * @shared_by: Sharing scope of the attribute
-+ * @postfix: Attribute name postfix, appended to the channel prefix
-+ * @attr_list: List the attribute is going to be added to
-+ *
-+ * Builds the full attribute name and makes sure it is not on @attr_list yet,
-+ * so that the caller only allocates the attribute if it is going to be used.
-+ *
-+ * Returns: 0 on success, -EBUSY if the attribute already exists, or another
-+ * negative error code on failure.
-+ */
-+int iio_chan_attr_prepare(struct iio_chan_attr_ctx *ctx, struct device *dev,
-+			  const struct iio_chan_spec *chan,
-+			  enum iio_shared_by shared_by, const char *postfix,
-+			  struct list_head *attr_list)
-+{
-+	struct iio_chan_attr *t;
-+	ssize_t len;
-+
-+	len = iio_chan_attr_name_emit(dev, chan, shared_by, postfix,
-+				      ctx->name, sizeof(ctx->name));
-+	if (len < 0)
-+		return len;
-+
-+	list_for_each_entry(t, attr_list, l)
-+		if (strcmp(t->iio_attr.dev_attr.attr.name, ctx->name) == 0) {
-+			if (shared_by == IIO_SEPARATE)
-+				dev_err(dev, "tried to double register : %s\n",
-+					ctx->name);
-+			return -EBUSY;
+ 	vkms_config_for_each_plane(config, plane_cfg) {
++		if (vkms_config_plane_get_supported_formats_count(plane_cfg) == 0) {
++			drm_info(dev, "Plane must have at least one supported format.\n");
++			return false;
 +		}
 +
-+	ctx->chan = chan;
-+	ctx->attr_list = attr_list;
++		if (vkms_config_plane_get_supported_formats_count(plane_cfg) >
++		    ARRAY_SIZE(vkms_supported_plane_formats)) {
++			drm_info(dev, "Plane has too much formats.\n");
++			return false;
++		}
++
+ 		if (!vkms_config_valid_plane_rotation(config, plane_cfg))
+ 			return false;
+ 
+@@ -474,6 +521,15 @@ static __nocfi void show_bitfield(struct seq_file *m, uint32_t value, const char
+ 	}
+ }
+ 
++static void show_formats(struct seq_file *m, u32 *formats, size_t formats_count)
++{
++	for (int i = 0; i < formats_count; i++) {
++		seq_printf(m, "%p4cc", &formats[i]);
++		if (i != formats_count - 1)
++			seq_puts(m, ", ");
++	}
++}
++
+ static int vkms_config_show(struct seq_file *m, void *data)
+ {
+ 	struct drm_debugfs_entry *entry = m->private;
+@@ -519,6 +575,10 @@ static int vkms_config_show(struct seq_file *m, void *data)
+ 		seq_puts(m, "\n");
+ 		seq_printf(m, "\tdefault color range=%s\n",
+ 			   drm_get_color_range_name(vkms_config_plane_get_default_color_range(plane_cfg)));
++		seq_puts(m, "\tsupported formats=");
++		show_formats(m, vkms_config_plane_get_supported_formats(plane_cfg),
++			     vkms_config_plane_get_supported_formats_count(plane_cfg));
++		seq_puts(m, "\n");
+ 	}
+ 
+ 	vkms_config_for_each_crtc(vkmsdev->config, crtc_cfg) {
+@@ -569,6 +629,10 @@ struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_conf
+ 	if (ret)
+ 		goto cleanup_plane_cfg;
+ 
++	ret = vkms_config_plane_add_all_formats(plane_cfg);
++	if (ret)
++		goto cleanup_plane_cfg;
++
+ 	vkms_config_plane_set_supported_rotations(plane_cfg,
+ 						  DRM_MODE_ROTATE_MASK | DRM_MODE_REFLECT_MASK);
+ 	vkms_config_plane_set_default_rotation(plane_cfg, DRM_MODE_ROTATE_0);
+@@ -587,6 +651,7 @@ struct vkms_config_plane __must_check *vkms_config_create_plane(struct vkms_conf
+ 	return plane_cfg;
+ 
+ cleanup_plane_cfg:
++	kfree(plane_cfg->supported_formats);
+ 	kfree(plane_cfg);
+ fail:
+ 	return ERR_PTR(ret);
+@@ -596,6 +661,7 @@ EXPORT_SYMBOL_IF_KUNIT(vkms_config_create_plane);
+ void vkms_config_destroy_plane(struct vkms_config_plane *plane_cfg)
+ {
+ 	xa_destroy(&plane_cfg->possible_crtcs);
++	kfree(plane_cfg->supported_formats);
+ 	list_del(&plane_cfg->link);
+ 	kfree(plane_cfg->name);
+ 	kfree(plane_cfg);
+@@ -700,6 +766,80 @@ static struct vkms_config_plane *vkms_config_crtc_get_plane(const struct vkms_co
+ 	return NULL;
+ }
+ 
++int __must_check vkms_config_plane_add_all_formats(struct vkms_config_plane *plane_cfg)
++{
++	u32 *ret = krealloc_array(plane_cfg->supported_formats,
++				  ARRAY_SIZE(vkms_supported_plane_formats),
++				  sizeof(uint32_t), GFP_KERNEL);
++	if (!ret)
++		return -ENOMEM;
++	plane_cfg->supported_formats = ret;
++
++	memcpy(plane_cfg->supported_formats, vkms_supported_plane_formats,
++	       sizeof(vkms_supported_plane_formats));
++	plane_cfg->supported_formats_count = ARRAY_SIZE(vkms_supported_plane_formats);
++	return 0;
++}
++
++static bool is_supported_format(u32 drm_format)
++{
++	for (int i = 0; i < ARRAY_SIZE(vkms_supported_plane_formats); i++) {
++		if (vkms_supported_plane_formats[i] == drm_format)
++			return true;
++	}
++
++	return false;
++}
++
++static bool vkms_config_plane_has_format(struct vkms_config_plane *plane_cfg, u32 drm_format)
++{
++	for (unsigned int i = 0; i < plane_cfg->supported_formats_count; i++) {
++		if (plane_cfg->supported_formats[i] == drm_format)
++			return true;
++	}
++	return false;
++}
++
++int __must_check vkms_config_plane_add_format(struct vkms_config_plane *plane_cfg, u32 drm_format)
++{
++	if (!is_supported_format(drm_format))
++		return -EINVAL;
++
++	if (vkms_config_plane_has_format(plane_cfg, drm_format))
++		return 0;
++
++	u32 *new_ptr = krealloc_array(plane_cfg->supported_formats,
++				      plane_cfg->supported_formats_count + 1,
++				      sizeof(*plane_cfg->supported_formats), GFP_KERNEL);
++	if (!new_ptr)
++		return -ENOMEM;
++
++	plane_cfg->supported_formats = new_ptr;
++	plane_cfg->supported_formats[plane_cfg->supported_formats_count] = drm_format;
++	plane_cfg->supported_formats_count++;
 +
 +	return 0;
 +}
 +
-+/**
-+ * iio_chan_attr_add() - Initialize an IIO channel attribute and add it
-+ * @ctx: Context filled in by iio_chan_attr_prepare()
-+ * @attr: Zeroed attribute allocated by the caller
-+ * @readfunc: Show callback, if any
-+ * @writefunc: Store callback, if any
-+ * @mask: Value for the attribute address
-+ *
-+ * On success, the attribute is owned by the list it was added to and gets
-+ * freed by iio_free_chan_devattr_list(). On failure, the caller still owns it.
-+ *
-+ * Returns: 0 on success, negative error code on failure.
-+ */
-+int iio_chan_attr_add(const struct iio_chan_attr_ctx *ctx,
-+		      struct iio_chan_attr *attr,
-+		      iio_attr_show_t readfunc, iio_attr_store_t writefunc,
-+		      u64 mask)
++void vkms_config_plane_remove_all_formats(struct vkms_config_plane *plane_cfg)
 +{
-+	struct device_attribute *dev_attr = &attr->iio_attr.dev_attr;
-+
- 	sysfs_attr_init(&dev_attr->attr);
--
--	ret = __iio_chan_prefix_emit(dev, chan, shared_by, prefix, sizeof(prefix));
--	if (ret < 0)
--		return ret;
--
--	if (ret)
--		dev_attr->attr.name = kasprintf(GFP_KERNEL, "%s_%s", prefix, postfix);
--	else
--		dev_attr->attr.name = kstrdup(postfix, GFP_KERNEL);
-+	dev_attr->attr.name = kstrdup(ctx->name, GFP_KERNEL);
- 	if (!dev_attr->attr.name)
- 		return -ENOMEM;
--
- 	if (readfunc) {
- 		dev_attr->attr.mode |= 0444;
- 		dev_attr->show = readfunc;
-@@ -1230,81 +1287,53 @@ int __iio_device_attr_init(struct device *dev,
- 		dev_attr->store = writefunc;
- 	}
- 
-+	attr->c = ctx->chan;
-+	attr->iio_attr.address = mask;
-+	list_add(&attr->l, ctx->attr_list);
-+
- 	return 0;
- }
- 
--static void __iio_device_attr_deinit(struct device_attribute *dev_attr)
--{
--	kfree(dev_attr->attr.name);
--}
--
--int __iio_add_chan_devattr(const char *postfix,
--			   struct iio_chan_spec const *chan,
--			   ssize_t (*readfunc)(struct device *dev,
--					       struct device_attribute *attr,
--					       char *buf),
--			   ssize_t (*writefunc)(struct device *dev,
--						struct device_attribute *attr,
--						const char *buf,
--						size_t len),
--			   u64 mask,
--			   enum iio_shared_by shared_by,
--			   struct device *dev,
--			   struct iio_buffer *buffer,
--			   struct list_head *attr_list)
-+static int iio_device_add_chan_devattr(struct iio_dev *indio_dev,
-+				       const char *postfix,
-+				       struct iio_chan_spec const *chan,
-+				       iio_attr_show_t readfunc,
-+				       iio_attr_store_t writefunc,
-+				       u64 mask,
-+				       enum iio_shared_by shared_by)
- {
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+	struct iio_chan_attr *iio_attr;
-+	struct iio_chan_attr_ctx ctx;
- 	int ret;
--	struct iio_dev_attr *iio_attr, *t;
-+
-+	ret = iio_chan_attr_prepare(&ctx, &indio_dev->dev, chan, shared_by,
-+				    postfix, &iio_dev_opaque->channel_attr_list);
-+	if (ret)
-+		return ret;
- 
- 	iio_attr = kzalloc_obj(*iio_attr);
--	if (iio_attr == NULL)
-+	if (!iio_attr)
- 		return -ENOMEM;
--	ret = __iio_device_attr_init(dev, &iio_attr->dev_attr,
--				     postfix, chan,
--				     readfunc, writefunc, shared_by);
-+
-+	ret = iio_chan_attr_add(&ctx, iio_attr, readfunc, writefunc, mask);
- 	if (ret)
--		goto error_iio_dev_attr_free;
--	iio_attr->c = chan;
--	iio_attr->address = mask;
--	iio_attr->buffer = buffer;
--	list_for_each_entry(t, attr_list, l)
--		if (strcmp(t->dev_attr.attr.name,
--			   iio_attr->dev_attr.attr.name) == 0) {
--			if (shared_by == IIO_SEPARATE)
--				dev_err(dev, "tried to double register : %s\n",
--					t->dev_attr.attr.name);
--			ret = -EBUSY;
--			goto error_device_attr_deinit;
--		}
--	list_add(&iio_attr->l, attr_list);
-+		kfree(iio_attr);
- 
--	return 0;
--
--error_device_attr_deinit:
--	__iio_device_attr_deinit(&iio_attr->dev_attr);
--error_iio_dev_attr_free:
--	kfree(iio_attr);
- 	return ret;
- }
- 
- static int iio_device_add_channel_label(struct iio_dev *indio_dev,
- 					 struct iio_chan_spec const *chan)
- {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int ret;
- 
- 	if (!indio_dev->info->read_label && !chan->extend_name)
- 		return 0;
- 
--	ret = __iio_add_chan_devattr("label",
--				     chan,
--				     &iio_read_channel_label,
--				     NULL,
--				     0,
--				     IIO_SEPARATE,
--				     &indio_dev->dev,
--				     NULL,
--				     &iio_dev_opaque->channel_attr_list);
-+	ret = iio_device_add_chan_devattr(indio_dev, "label", chan,
-+					  &iio_read_channel_label, NULL,
-+					  0, IIO_SEPARATE);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -1314,16 +1343,14 @@ static int iio_device_add_channel_label(struct iio_dev *indio_dev,
- static int iio_device_add_channel_parent_attr(struct iio_dev *indio_dev,
- 					      struct iio_chan_spec const *chan)
- {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int ret;
- 
- 	if (!chan->parent)
- 		return 0;
- 
--	ret = __iio_add_chan_devattr("parent", chan,
--				     &iio_read_channel_parent, NULL,
--				     0, IIO_SEPARATE, &indio_dev->dev, NULL,
--				     &iio_dev_opaque->channel_attr_list);
-+	ret = iio_device_add_chan_devattr(indio_dev, "parent", chan,
-+					  &iio_read_channel_parent, NULL,
-+					  0, IIO_SEPARATE);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -1335,21 +1362,17 @@ static int iio_device_add_info_mask_type(struct iio_dev *indio_dev,
- 					 enum iio_shared_by shared_by,
- 					 const unsigned long *infomask)
- {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int i, ret, attrcount = 0;
- 
- 	for_each_set_bit(i, infomask, sizeof(*infomask)*8) {
- 		if (i >= ARRAY_SIZE(iio_chan_info_postfix))
- 			return -EINVAL;
--		ret = __iio_add_chan_devattr(iio_chan_info_postfix[i],
--					     chan,
--					     &iio_read_channel_info,
--					     &iio_write_channel_info,
--					     i,
--					     shared_by,
--					     &indio_dev->dev,
--					     NULL,
--					     &iio_dev_opaque->channel_attr_list);
-+		ret = iio_device_add_chan_devattr(indio_dev,
-+						  iio_chan_info_postfix[i],
-+						  chan,
-+						  &iio_read_channel_info,
-+						  &iio_write_channel_info,
-+						  i, shared_by);
- 		if ((ret == -EBUSY) && (shared_by != IIO_SEPARATE))
- 			continue;
- 		if (ret < 0)
-@@ -1365,7 +1388,6 @@ static int iio_device_add_info_mask_type_avail(struct iio_dev *indio_dev,
- 					       enum iio_shared_by shared_by,
- 					       const unsigned long *infomask)
- {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int i, ret, attrcount = 0;
- 	char *avail_postfix;
- 
-@@ -1378,15 +1400,10 @@ static int iio_device_add_info_mask_type_avail(struct iio_dev *indio_dev,
- 		if (!avail_postfix)
- 			return -ENOMEM;
- 
--		ret = __iio_add_chan_devattr(avail_postfix,
--					     chan,
--					     &iio_read_channel_info_avail,
--					     NULL,
--					     i,
--					     shared_by,
--					     &indio_dev->dev,
--					     NULL,
--					     &iio_dev_opaque->channel_attr_list);
-+		ret = iio_device_add_chan_devattr(indio_dev, avail_postfix,
-+						  chan,
-+						  &iio_read_channel_info_avail,
-+						  NULL, i, shared_by);
- 		kfree(avail_postfix);
- 		if ((ret == -EBUSY) && (shared_by != IIO_SEPARATE))
- 			continue;
-@@ -1401,7 +1418,6 @@ static int iio_device_add_info_mask_type_avail(struct iio_dev *indio_dev,
- static int iio_device_add_channel_sysfs(struct iio_dev *indio_dev,
- 					struct iio_chan_spec const *chan)
- {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int ret, attrcount = 0;
- 	const struct iio_chan_spec_ext_info *ext_info;
- 
-@@ -1477,17 +1493,13 @@ static int iio_device_add_channel_sysfs(struct iio_dev *indio_dev,
- 		unsigned int i = 0;
- 
- 		for (ext_info = chan->ext_info; ext_info->name; ext_info++) {
--			ret = __iio_add_chan_devattr(ext_info->name,
--					chan,
--					ext_info->read ?
--					    &iio_read_channel_ext_info : NULL,
--					ext_info->write ?
--					    &iio_write_channel_ext_info : NULL,
--					i,
--					ext_info->shared,
--					&indio_dev->dev,
--					NULL,
--					&iio_dev_opaque->channel_attr_list);
-+			ret = iio_device_add_chan_devattr(indio_dev,
-+							  ext_info->name, chan,
-+							  ext_info->read ?
-+							  &iio_read_channel_ext_info : NULL,
-+							  ext_info->write ?
-+							  &iio_write_channel_ext_info : NULL,
-+							  i, ext_info->shared);
- 			i++;
- 			if (ret == -EBUSY && ext_info->shared)
- 				continue;
-@@ -1511,10 +1523,10 @@ static int iio_device_add_channel_sysfs(struct iio_dev *indio_dev,
-  */
- void iio_free_chan_devattr_list(struct list_head *attr_list)
- {
--	struct iio_dev_attr *p, *n;
-+	struct iio_chan_attr *p, *n;
- 
- 	list_for_each_entry_safe(p, n, attr_list, l) {
--		kfree_const(p->dev_attr.attr.name);
-+		kfree_const(p->iio_attr.dev_attr.attr.name);
- 		list_del(&p->l);
- 		kfree(p);
- 	}
-@@ -1636,7 +1648,7 @@ static int iio_device_register_sysfs(struct iio_dev *indio_dev)
- {
- 	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	int i, ret = 0, attrcount, attrn, attrcount_orig = 0;
--	struct iio_dev_attr *p;
-+	struct iio_chan_attr *p;
- 	struct attribute **attr, *clk = NULL;
- 
- 	/* First count elements in any existing group */
-@@ -1695,7 +1707,7 @@ static int iio_device_register_sysfs(struct iio_dev *indio_dev)
- 	attrn = attrcount_orig;
- 	/* Add all elements from the list. */
- 	list_for_each_entry(p, &iio_dev_opaque->channel_attr_list, l)
--		iio_dev_opaque->chan_attr_group.attrs[attrn++] = &p->dev_attr.attr;
-+		iio_dev_opaque->chan_attr_group.attrs[attrn++] = &p->iio_attr.dev_attr.attr;
- 	if (indio_dev->name)
- 		iio_dev_opaque->chan_attr_group.attrs[attrn++] = &dev_attr_name.attr;
- 	if (indio_dev->label)
-diff --git a/drivers/iio/industrialio-event.c b/drivers/iio/industrialio-event.c
-index e6730f52262a..e72b665cc79b 100644
---- a/drivers/iio/industrialio-event.c
-+++ b/drivers/iio/industrialio-event.c
-@@ -258,19 +258,19 @@ static const char * const iio_ev_info_text[] = {
- 	[IIO_EV_INFO_SCALE] = "scale",
- };
- 
--static enum iio_event_direction iio_ev_attr_dir(struct iio_dev_attr *attr)
-+static enum iio_event_direction iio_ev_attr_dir(struct iio_chan_attr *attr)
- {
--	return attr->c->event_spec[attr->address & 0xffff].dir;
-+	return attr->c->event_spec[attr->iio_attr.address & 0xffff].dir;
- }
- 
--static enum iio_event_type iio_ev_attr_type(struct iio_dev_attr *attr)
-+static enum iio_event_type iio_ev_attr_type(struct iio_chan_attr *attr)
- {
--	return attr->c->event_spec[attr->address & 0xffff].type;
-+	return attr->c->event_spec[attr->iio_attr.address & 0xffff].type;
- }
- 
--static enum iio_event_info iio_ev_attr_info(struct iio_dev_attr *attr)
-+static enum iio_event_info iio_ev_attr_info(struct iio_chan_attr *attr)
- {
--	return (attr->address >> 16) & 0xffff;
-+	return (attr->iio_attr.address >> 16) & 0xffff;
- }
- 
- static ssize_t iio_ev_state_store(struct device *dev,
-@@ -279,7 +279,7 @@ static ssize_t iio_ev_state_store(struct device *dev,
- 				  size_t len)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int ret;
- 	bool val;
- 
-@@ -302,7 +302,7 @@ static ssize_t iio_ev_state_show(struct device *dev,
- 				 char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int val;
- 
- 	if (!indio_dev->info->read_event_config)
-@@ -322,7 +322,7 @@ static ssize_t iio_ev_value_show(struct device *dev,
- 				 char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int val, val2, val_arr[2];
- 	int ret;
- 
-@@ -346,7 +346,7 @@ static ssize_t iio_ev_value_store(struct device *dev,
- 				  size_t len)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 	int val, val2;
- 	int ret;
- 
-@@ -371,7 +371,7 @@ static ssize_t iio_ev_label_show(struct device *dev,
- 				 char *buf)
- {
- 	struct iio_dev *indio_dev = dev_to_iio_dev(dev);
--	struct iio_dev_attr *this_attr = to_iio_dev_attr(attr);
-+	struct iio_chan_attr *this_attr = to_iio_chan_attr(attr);
- 
- 	if (indio_dev->info->read_event_label)
- 		return indio_dev->info->read_event_label(indio_dev,
-@@ -381,12 +381,41 @@ static ssize_t iio_ev_label_show(struct device *dev,
- 	return -EINVAL;
- }
- 
-+static int iio_device_add_event_attr(struct iio_dev *indio_dev,
-+				     const char *postfix,
-+				     const struct iio_chan_spec *chan,
-+				     iio_attr_show_t show,
-+				     iio_attr_store_t store,
-+				     u64 mask,
-+				     enum iio_shared_by shared_by)
-+{
-+	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
-+	struct iio_chan_attr *ev_attr;
-+	struct iio_chan_attr_ctx ctx;
-+	int ret;
-+
-+	ret = iio_chan_attr_prepare(&ctx, &indio_dev->dev, chan, shared_by,
-+				    postfix,
-+				    &iio_dev_opaque->event_interface->dev_attr_list);
-+	if (ret)
-+		return ret;
-+
-+	ev_attr = kzalloc_obj(*ev_attr);
-+	if (!ev_attr)
-+		return -ENOMEM;
-+
-+	ret = iio_chan_attr_add(&ctx, ev_attr, show, store, mask);
-+	if (ret)
-+		kfree(ev_attr);
-+
-+	return ret;
++	plane_cfg->supported_formats_count = 0;
++	kfree(plane_cfg->supported_formats);
++	plane_cfg->supported_formats = NULL;
 +}
 +
- static int iio_device_add_event(struct iio_dev *indio_dev,
- 	const struct iio_chan_spec *chan, unsigned int spec_index,
- 	enum iio_event_type type, enum iio_event_direction dir,
- 	enum iio_shared_by shared_by, const unsigned long *mask)
++void vkms_config_plane_remove_format(struct vkms_config_plane *plane_cfg, u32 drm_format)
++{
++	for (unsigned int i = 0; i < plane_cfg->supported_formats_count; i++) {
++		if (plane_cfg->supported_formats[i] == drm_format) {
++			plane_cfg->supported_formats[i] =
++				plane_cfg->supported_formats[plane_cfg->supported_formats_count -
++					1];
++			plane_cfg->supported_formats_count--;
++		}
++	}
++}
++
+ struct vkms_config_plane *vkms_config_crtc_primary_plane(const struct vkms_config *config,
+ 							 struct vkms_config_crtc *crtc_cfg)
  {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	ssize_t (*show)(struct device *dev, struct device_attribute *attr,
- 		char *buf);
- 	ssize_t (*store)(struct device *dev, struct device_attribute *attr,
-@@ -419,10 +448,10 @@ static int iio_device_add_event(struct iio_dev *indio_dev,
- 			store = iio_ev_value_store;
- 		}
+diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
+index 827f1b3023aa..7488a17aee8d 100644
+--- a/drivers/gpu/drm/vkms/vkms_config.h
++++ b/drivers/gpu/drm/vkms/vkms_config.h
+@@ -58,6 +58,8 @@ struct vkms_config {
+  * @supported_color_encodings: Color encodings that this plane will support
+  * @default_color_range: Default color range that should be used by this plane
+  * @supported_color_ranges: Color ranges that this plane will support
++ * @supported_formats: List of supported formats
++ * @supported_formats_count: Length of @supported_formats
+  */
+ struct vkms_config_plane {
+ 	struct list_head link;
+@@ -71,6 +73,8 @@ struct vkms_config_plane {
+ 	unsigned int supported_color_encodings;
+ 	enum drm_color_range default_color_range;
+ 	unsigned int supported_color_ranges;
++	u32 *supported_formats;
++	unsigned int supported_formats_count;
+ 	struct xarray possible_crtcs;
+ 	bool default_pipeline;
  
--		ret = __iio_add_chan_devattr(postfix, chan, show, store,
--			 (i << 16) | spec_index, shared_by, &indio_dev->dev,
--			 NULL,
--			&iio_dev_opaque->event_interface->dev_attr_list);
-+		ret = iio_device_add_event_attr(indio_dev, postfix, chan,
-+						show, store,
-+						(i << 16) | spec_index,
-+						shared_by);
- 		kfree(postfix);
+@@ -502,6 +506,53 @@ bool vkms_config_valid_plane_color_range(const struct vkms_config *config,
+ 					 const struct vkms_config_plane *plane_cfg);
+ #endif
  
- 		if ((ret == -EBUSY) && (shared_by != IIO_SEPARATE))
-@@ -443,7 +472,6 @@ static int iio_device_add_event_label(struct iio_dev *indio_dev,
- 				      enum iio_event_type type,
- 				      enum iio_event_direction dir)
++static inline u32 *
++vkms_config_plane_get_supported_formats(const struct vkms_config_plane *plane_cfg)
++{
++	return plane_cfg->supported_formats;
++}
++
++static inline unsigned int
++vkms_config_plane_get_supported_formats_count(struct vkms_config_plane *plane_cfg)
++{
++	return plane_cfg->supported_formats_count;
++}
++
++/** vkms_config_plane_add_format - Add a format to the list of supported format of a plane
++ *
++ * The passed drm_format can already be present in the list. This may fail if the allocation of a
++ * bigger array fails.
++ *
++ * @plane_cfg: Plane to add the format to
++ * @drm_format: Format to add to this plane
++ *
++ * Returns: 0 on success, -ENOMEM if array allocation fails, -EINVAL if the format is not supported
++ * by VKMS
++ */
++int __must_check vkms_config_plane_add_format(struct vkms_config_plane *plane_cfg, u32 drm_format);
++
++/**
++ * vkms_config_plane_add_all_formats - Helper to quickly add all the supported formats
++ * @plane_cfg: Plane to add the formats to
++ *
++ * Returns: 0 on success, -ENOMEM if array allocation fails
++ * by VKMS
++ */
++int __must_check vkms_config_plane_add_all_formats(struct vkms_config_plane *plane_cfg);
++
++/**
++ * vkms_config_plane_remove_format - Remove a specific format from a plane
++ * @plane_cfg: Plane to remove the format from
++ * @drm_format: Format to remove
++ */
++void vkms_config_plane_remove_format(struct vkms_config_plane *plane_cfg, u32 drm_format);
++
++/**
++ * vkms_config_plane_remove_all_formats - Remove all formats from a plane
++ * @plane_cfg: Plane to remove the formats from
++ */
++void vkms_config_plane_remove_all_formats(struct vkms_config_plane *plane_cfg);
++
+ /**
+  * vkms_config_plane_set_name() - Set the plane name
+  * @plane_cfg: Plane to set the name to
+diff --git a/drivers/gpu/drm/vkms/vkms_plane.c b/drivers/gpu/drm/vkms/vkms_plane.c
+index d7bbcaea6351..e028c39b0c81 100644
+--- a/drivers/gpu/drm/vkms/vkms_plane.c
++++ b/drivers/gpu/drm/vkms/vkms_plane.c
+@@ -16,42 +16,6 @@
+ #include "vkms_drv.h"
+ #include "vkms_formats.h"
+ 
+-static const u32 vkms_formats[] = {
+-	DRM_FORMAT_ARGB8888,
+-	DRM_FORMAT_ABGR8888,
+-	DRM_FORMAT_BGRA8888,
+-	DRM_FORMAT_RGBA8888,
+-	DRM_FORMAT_XRGB8888,
+-	DRM_FORMAT_XBGR8888,
+-	DRM_FORMAT_RGB888,
+-	DRM_FORMAT_BGR888,
+-	DRM_FORMAT_XRGB16161616,
+-	DRM_FORMAT_XBGR16161616,
+-	DRM_FORMAT_ARGB16161616,
+-	DRM_FORMAT_ABGR16161616,
+-	DRM_FORMAT_RGB565,
+-	DRM_FORMAT_BGR565,
+-	DRM_FORMAT_NV12,
+-	DRM_FORMAT_NV16,
+-	DRM_FORMAT_NV24,
+-	DRM_FORMAT_NV21,
+-	DRM_FORMAT_NV61,
+-	DRM_FORMAT_NV42,
+-	DRM_FORMAT_YUV420,
+-	DRM_FORMAT_YUV422,
+-	DRM_FORMAT_YUV444,
+-	DRM_FORMAT_YVU420,
+-	DRM_FORMAT_YVU422,
+-	DRM_FORMAT_YVU444,
+-	DRM_FORMAT_P010,
+-	DRM_FORMAT_P012,
+-	DRM_FORMAT_P016,
+-	DRM_FORMAT_R1,
+-	DRM_FORMAT_R2,
+-	DRM_FORMAT_R4,
+-	DRM_FORMAT_R8,
+-};
+-
+ static struct drm_plane_state *
+ vkms_plane_duplicate_state(struct drm_plane *plane)
  {
--	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	char *postfix;
- 	int ret;
+@@ -264,7 +228,8 @@ struct vkms_plane *vkms_plane_init(struct vkms_device *vkmsdev,
  
-@@ -460,9 +488,9 @@ static int iio_device_add_event_label(struct iio_dev *indio_dev,
- 	if (postfix == NULL)
- 		return -ENOMEM;
- 
--	ret = __iio_add_chan_devattr(postfix, chan, &iio_ev_label_show, NULL,
--				spec_index, IIO_SEPARATE, &indio_dev->dev, NULL,
--				&iio_dev_opaque->event_interface->dev_attr_list);
-+	ret = iio_device_add_event_attr(indio_dev, postfix, chan,
-+					&iio_ev_label_show, NULL, spec_index,
-+					IIO_SEPARATE);
- 
- 	kfree(postfix);
- 
-@@ -575,7 +603,7 @@ int iio_device_register_eventset(struct iio_dev *indio_dev)
- {
- 	struct iio_dev_opaque *iio_dev_opaque = to_iio_dev_opaque(indio_dev);
- 	struct iio_event_interface *ev_int;
--	struct iio_dev_attr *p;
-+	struct iio_chan_attr *p;
- 	int ret = 0, attrcount_orig = 0, attrcount, attrn;
- 	struct attribute **attr;
- 
-@@ -619,7 +647,7 @@ int iio_device_register_eventset(struct iio_dev *indio_dev)
- 	attrn = attrcount_orig;
- 	/* Add all elements from the list. */
- 	list_for_each_entry(p, &ev_int->dev_attr_list, l)
--		ev_int->group.attrs[attrn++] = &p->dev_attr.attr;
-+		ev_int->group.attrs[attrn++] = &p->iio_attr.dev_attr.attr;
- 
- 	ret = iio_device_register_sysfs_group(indio_dev, &ev_int->group);
- 	if (ret)
+ 	plane = drmm_universal_plane_alloc(dev, struct vkms_plane, base, 0,
+ 					   &vkms_plane_funcs,
+-					   vkms_formats, ARRAY_SIZE(vkms_formats),
++					   vkms_config_plane_get_supported_formats(plane_cfg),
++					   vkms_config_plane_get_supported_formats_count(plane_cfg),
+ 					   NULL, vkms_config_plane_get_type(plane_cfg),
+ 					   "%s", vkms_config_plane_get_name(plane_cfg));
+ 	if (IS_ERR(plane))
 
 -- 
-2.43.0
-
+2.56.0
 
