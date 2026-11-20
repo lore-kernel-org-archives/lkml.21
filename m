@@ -1,63 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.241.56.161
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795181199;
-	b=MoCEKOThWPI/HWcXYJeZ02wnXg4lra2bkcP21SO9bk/7/r1fXXYYlucLUnmzWSqr7051
-	 JG5WOY//eOQELSOirs7JaY0ctwpcxUT3citZYLQZ/xecL7+slwl0k7ExUYeXjJoK3CBZW
-	 DG/HQ7KJSvF2PpbIfQLAro/Nhzc/poZm4GBoJ83BDvDfXfJSE7kgWEAPdIVPhOUdxc0C9
-	 WT+BAOkODk+KKVVVRNWFMld2Q17TqCTfTP5adgusvGDQm6vyLXMeknAcfDZK1LAkarpk6
-	 sgSxpA43k72q2TexJbT8njCHhsAza8mKKpdBnjUycaxZzQmn7uprlzIAzBA6NlczK+Q==
+	t=1795181258;
+	b=kfBYH7QvuNsVMToIcJqaEoHVDx51004u6prOn3C8K/m+CAHI90k9ZBWtCZbee7JQXdvq
+	 fA7A/4z/ha6+NzG80EJuv9LflqmMG5aqKpLDE6C2vkQ+rqh3d8mQ1E4TqiPOnnsCvRAuA
+	 q/bfyWF63035meF3VBIsxd4u8MaJcxMU30amBR+lea7L2EQ1ylH3drFb6ZM6xFwopgMmF
+	 ZNKiNLcNV1tMBNJXDSlmeFvJKyv6qsqEbF0d8+XMG2TctMnNbXDPQg8ljHFYyxIy4aMDo
+	 jVQkJgqmtH4ZF6o1xtdEIiEmiyWpUUBfZoRR6M698ykz6kR0noc9ex93C3HJJ4XsGAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795181199;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Rspamd-Queue-Id;
-	bh=LNJ1qBduQ/d0NOUor7o4YbQ6BHg/QWoTNauozxU709k=;
-	b=yMAxN4Vu50qrdLcX5RjL6A7vTQZYCC4LXI35EIMxaVgPOX2+J5iZ/MYFkmT7NRGZUD2l
-	 UjRv0FQqKbzSZtsmoi425ZHtCEoMBZXM+rWamsAFOGfcFmI3cE6M4usk0qkmT+meNRCrw
-	 WmfLtjwSOTAdQ6IwJzqwiAbnCZVFyDGXMYRL0A08O3nWL5bl15yGeyPkWoC+3fX3VkEYY
-	 ut3okjurtDjucd1ONTz1cLEv5LoYFNPIbS0KOBKJgpiiLkAvnzhNQH2M26KMAyo0RToMw
-	 pjywhpw3ijfG69YYL+QQRO9yODUyC/BOLqoop9I230DH6yuIv0RgqvYa0TxKDDo8nnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795181258;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Hc105Xifh5fHRxAJ8VF5XEpNBykHa30H+JiDrPl/g04=;
+	b=EQmAf1H4cktabGDCPp1cBRb7uKAz8efvtx6k7L7zPKz2avgTgXQ6VSe4otF/lIOvsqWy
+	 y5hdON2wXnZhxsFwouHyQahrByO59mdzMar5tDvatZOuu98/rqpLnXtY2qeG54nuUnV+3
+	 9fvVFjnR1BB67FeqLkedw3veBGeCEwcMsUIEpUwcvjEGcifwddwsx3L3iApszi0Gz+Iei
+	 ory4+NRbjDWA1PNUsCNCL/igMC/VwhcxrewOD3bLdw7tY0E+mnWsVysNFDifQXm6ZKacT
+	 /PP8scomrC3PcwRSZRqztDqGM37JS4eQUGaCFK4B9nl72h/m7EUbPZzymsif0T+hXmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amieiro.net;
-	spf=pass smtp.mailfrom=amieiro.net;
-	dkim=pass header.d=amieiro.net header.i=@amieiro.net header.a=rsa-sha256 header.s=MBO0001 header.b=AVCCmY8W;
-	arc=none smtp.remote-ip=80.241.56.161
-Received: from mout-p-103.mailbox.org (mout-p-103.mailbox.org [80.241.56.161])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpBnBMyf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 956F960A2602;
-	Fri, 20 Nov 2026 13:26:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 956F960A2602
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=amieiro.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amieiro.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA124606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:27:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amieiro.net header.i=@amieiro.net header.a=rsa-sha256 header.s=MBO0001 header.b=AVCCmY8W
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4jWGMH1jZTzKnQD;
-	Fri, 20 Nov 2026 14:26:35 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amieiro.net; s=MBO0001;
-	t=1795181195;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LNJ1qBduQ/d0NOUor7o4YbQ6BHg/QWoTNauozxU709k=;
-	b=AVCCmY8W5LR0iC/N5MKYXreqCLi8hyr5FxErV94oIH6xLHdY0sxh/l5F7Tx42/ceYRmAfs
-	VX0aNmnKNxn0LAg8V7cPVyFMlaWh63FFGUMlLlDotg9HZllaAJ6tspgnRNHSy1A+AoIkK5
-	Jd9JCn+bjgMAAmezp2aWqgvnzActBZg81U44kj8lBQXZuE/JlzXRlbQkHo/a/7k93yfR0z
-	2fCqiiT8mqRNZ98BChVggVb16iQMRjdEEik4MgEu8LpmajcyPkM4CMgISLQsKUTbhrUtTb
-	MF+yurA08AWY+jCDXqAOu8U05DMAAKJI2sBaHalgq5/XDqaIWtim076n1t5eHA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of flavio@amieiro.net designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=flavio@amieiro.net
-From: Flavio Amieiro <flavio@amieiro.net>
-Date: Fri, 20 Nov 2026 10:25:59 -0300
-Subject: [PATCH v6 2/2] leds: is31f132xx: Add support for is31fl3206
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VpBnBMyf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14DD31F000C4
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:27:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795181258;
+	bh=Hc105Xifh5fHRxAJ8VF5XEpNBykHa30H+JiDrPl/g04=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=VpBnBMyfHfKRbyF3Rsa+lAtgbMyp82V4e1bqVlg5BXhZsXOqKRRSG1+XHzNZDNgle
+	 f+qxPA7XsSNLcHycL1e3G6y1LRpvGhmZtynvyp3yuiUENpzPKXi03xbkdexNRmkLg0
+	 K5qfx6GO4GELYKxvCiQpUK7DjQ0eL7GpeSCBxcGjDfH2cfZMCHoAu/yUpKpOcxSDpv
+	 rpixGWgpc6P8wzLAPeDWyKGoGnF4DCPaYKSmXneFDQnzENTNY5K+yJ/9L7pyjRgto9
+	 vTNp+d6+qNYPCuV5z3oYvPJI3+6yVehpt0hLAmWBMpMBBQZRZ0nX+HVoroyTVDWDkX
+	 iHF9Y7Mk6mMaQ==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c14f3dab0cso585176e87.1
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:27:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEVvAIJ5SgxorYNfaIWrk80V9YJ4jcdFkRvB6Dhfi3cUJewO/sqCM3pMM258z3xIyEySEIlUvhRJGXLiYc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z91zK9aZs5WU/nGxF18TXOhwLN/rGuD1wV0oNpLp7/6piPD7kKp
+	x3XUEVfFY3s7vL4HR6k8jtEiDN8+W/YoTg2J4ibHgaGsRr8AwaM1VaLD97LLP0Y55Cclq2Y8qfh
+	XbJpmHPoAtIqgyD8MmePNDG6QAhcFUCg=
+X-Received: by 2002:a05:6512:3a86:b0:5bf:cfc4:19ea with SMTP id
+ 2adb3069b0e04-5c1bc89a85bmr1001039e87.41.1795181256500; Fri, 20 Nov 2026
+ 05:27:36 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -67,132 +59,186 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-add-is31fl3206-support-v6-2-0969fd6292ab@amieiro.net>
-References: <20261120-add-is31fl3206-support-v6-0-0969fd6292ab@amieiro.net>
-In-Reply-To: <20261120-add-is31fl3206-support-v6-0-0969fd6292ab@amieiro.net>
-To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
- Griffin Kroah-Hartman <griffin@kroah.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Flavio Amieiro <flavio@amieiro.net>, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4749; i=flavio@amieiro.net;
- h=from:subject:message-id; bh=dxvydJreWyHc6AzlyPodV5FMEIZPmf+lpwITMEFqrKE=;
- b=owGbwMvMwCX2bmrBFGnZ5lDG02pJDNkMXhnFH9c4pa5dmN4huv3jnT16kUl83HWNp41rsxa1Z
- nyt8DHuKGFhEONikBVTZGEpYynzbj/YvHvaakmYOaxMIEMYuDgFYCKHbzF8D/t1e2nHtFL/HWlL
- LQVb7QKVroeLn5h70mTblgM853zyGP7Hqp/dqXC1JkX3I5tI0pXeKz3352vfbPtsc9bocc2uBwI
- 8AA==
-X-Developer-Key: i=flavio@amieiro.net; a=openpgp;
- fpr=047604764B87C183BB96AB19EE9570941B1D8355
-X-Rspamd-Queue-Id: 4jWGMH1jZTzKnQD
+References: <20261114002612.219894-2-pmenzel@molgen.mpg.de>
+In-Reply-To: <20261114002612.219894-2-pmenzel@molgen.mpg.de>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 14:27:23 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hqQzn6qpqtKi5QmTGcsG5hk9Np9ih68_vDksYcHQv6+A@mail.gmail.com>
+X-Gm-Features: Aa3M54q2N71T0UGv3AEK-_9xZnoqZ-S4CdjQSFsNKpVqK6SjIlxN2LRyQPy1yjA
+Message-ID: <CAJZ5v0hqQzn6qpqtKi5QmTGcsG5hk9Np9ih68_vDksYcHQv6+A@mail.gmail.com>
+Subject: Re: [PATCH] ACPI: battery: Refresh the battery asynchronously after
+ system resume
+To: Paul Menzel <pmenzel@molgen.mpg.de>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This chip has a different layout for the LED Control Register when
-compared to the other variants. This register contains the enable bit
-(in the highest nibble) but also the current control (in the lowest
-nibble).
+On Sat, Nov 14, 2026 at 1:26=E2=80=AFAM Paul Menzel <pmenzel@molgen.mpg.de>=
+ wrote:
+>
+> The PM_POST_SUSPEND notifier evaluates _BIX, _BTP and _BST synchronously,
+> and the notifier chain is the last step of the system resume: the write t=
+o
+> /sys/power/state, and so systemd-sleep and everything waiting for it, onl=
+y
+> returns after it.
+>
+> On a Dell XPS 13 9310 nearly all of the PM_POST_SUSPEND notifier chain is
+> battery_notify() (143 ms with the function_graph tracer):
+>
+>     @ 143043.5 us |        } /* battery_notify [battery] */
+>     @ 143513.1 us |      } /* notifier_call_chain */
+>     @ 143536.0 us |  } /* pm_notifier_call_chain */
+>
+> Queue the refresh on system_freezable_wq instead.
+>
+> Time from "Restarting tasks: Done" (end of thaw_processes) to "PM: suspen=
+d
+> exit" for suspend-to-idle cycles of 8 s with sleepgraph, in ms, on Linux
+> 7.4-rc1 with other resume changes, which do not run in this phase:
+>
+>                   panel lit at suspend       panel off at suspend
+>     before        24.5  26.7  27.3  29.4     58.8  60.4  85.2
+>     after         10.7  10.8  15.9  17.7      5.7   8.3   9.3
+>     median        27.0 -> 13.4               60.4 -> 8.3
+>
+> After the change, pm_notifier_call_chain(PM_POST_SUSPEND) takes
+> 0.7-0.9 ms (function_graph, three cycles, hwrng_pm_notifier() being the
+> largest), so the rest of the phase is outside the notifier chain.  The
+> refresh still runs after each resume (kprobes, three cycles):
+> battery_notify() returns after 4-8 us, acpi_battery_pm_worker() starts
+> 0.02-0.2 ms later and takes 17.8-18.6 ms, and it ends after rtcwake has
+> already returned.
+>
+> Signed-off-by: Paul Menzel <pmenzel@molgen.mpg.de>
 
-According to the datasheet, a value of 010000 (0x10) in the register
-enables an LED with the output current set to maximum.
+Applied as 7.5 material, thanks!
 
-This commit adds support for this IC allowing the chipdef to define an
-offset for the enable bits inside the LED Control Register.
-
-The limitation that already existed for other variants is still in
-this one: all LEDs are enabled and set with maximum current, letting
-brightness be controlled by the PWM registers.
-
-Reviewed-by: Griffin Kroah-Hartman <griffin@kroah.com>
-Signed-off-by: Flavio Amieiro <flavio@amieiro.net>
----
- drivers/leds/leds-is31fl32xx.c | 32 ++++++++++++++++++++++++++++----
- 1 file changed, 28 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/leds/leds-is31fl32xx.c b/drivers/leds/leds-is31fl32xx.c
-index 581c05bab969..513ada8445b4 100644
---- a/drivers/leds/leds-is31fl32xx.c
-+++ b/drivers/leds/leds-is31fl32xx.c
-@@ -77,6 +77,7 @@ struct is31fl32xx_priv {
-  * @pwm_registers_reversed: : true if PWM registers count down instead of up
-  * @led_control_register_base : address of first LED control register (optional)
-  * @enable_bits_per_led_control_register: number of LEDs enable bits in each
-+ * @enable_bits_offset_in_led_control_reg: offset of the enable bits in the LED Control Register
-  * @brightness_steps    : number of brightness steps supported by the chip
-  * @reset_func          : pointer to reset function
-  * @sw_shutdown_func    : pointer to software shutdown function
-@@ -88,6 +89,12 @@ struct is31fl32xx_priv {
-  * necessary registers to a known initialization state. This is needed
-  * for chips that do not have a @reset_reg.
-  *
-+ * @enable_bits_offset_in_led_control_reg determines the offset of the
-+ * enable bits from the least significant bit of the LED control
-+ * register. This is needed for chips that have a LED Control Register
-+ * that controls more than simply the enable/disable state of the
-+ * channel such as the IS31FL3206.
-+ *
-  * @enable_bits_per_led_control_register must be >=1 if
-  * @led_control_register_base != %IS31FL32XX_REG_NONE.
-  */
-@@ -103,6 +110,7 @@ struct is31fl32xx_chipdef {
- 	bool	pwm_registers_reversed;
- 	u8	led_control_register_base;
- 	u8	enable_bits_per_led_control_register;
-+	u8	enable_bits_offset_in_led_control_reg;
- 	u16	brightness_steps;
- 	int (*reset_func)(struct is31fl32xx_priv *priv);
- 	int (*sw_shutdown_func)(struct is31fl32xx_priv *priv, bool enable);
-@@ -350,13 +358,13 @@ static int is31fl32xx_init_regs(struct is31fl32xx_priv *priv)
- 	 * We will control state with PWM registers alone.
- 	 */
- 	if (cdef->led_control_register_base != IS31FL32XX_REG_NONE) {
--		u8 value =
--		    GENMASK(cdef->enable_bits_per_led_control_register-1, 0);
-+		u8 value = GENMASK(cdef->enable_bits_per_led_control_register - 1, 0);
- 		u8 num_regs = cdef->channels /
- 				cdef->enable_bits_per_led_control_register;
--		int i;
- 
--		for (i = 0; i < num_regs; i++) {
-+		value <<= cdef->enable_bits_offset_in_led_control_reg;
-+
-+		for (int i = 0; i < num_regs; i++) {
- 			ret = is31fl32xx_write(priv,
- 					       cdef->led_control_register_base+i,
- 					       value);
-@@ -553,7 +561,22 @@ static const struct is31fl32xx_chipdef is31fl3293_cdef = {
- 	.sw_shutdown_func			= is31fl3293_software_shutdown,
- };
- 
-+static const struct is31fl32xx_chipdef is31fl3206_cdef = {
-+	.channels				= 12,
-+	.shutdown_reg				= 0x00,
-+	.pwm_update_reg			= 0x13,
-+	.global_control_reg			= 0x26,
-+	.reset_reg				= 0x2f,
-+	.output_frequency_setting_reg		= 0x27,
-+	.pwm_register_base			= 0x04,
-+	.led_control_register_base		= 0x17,
-+	.enable_bits_per_led_control_register	= 1,
-+	.enable_bits_offset_in_led_control_reg	= 4,
-+	.brightness_steps			= 256,
-+};
-+
- static const struct of_device_id of_is31fl32xx_match[] = {
-+	{ .compatible = "issi,is31fl3206",  .data = &is31fl3206_cdef, },
- 	{ .compatible = "issi,is31fl3293",  .data = &is31fl3293_cdef, },
- 	{ .compatible = "issi,is31fl3236",  .data = &is31fl3236_cdef, },
- 	{ .compatible = "issi,is31fl3236a", .data = &is31fl3236a_cdef, },
-@@ -613,6 +636,7 @@ static void is31fl32xx_remove(struct i2c_client *client)
- }
- 
- static const struct i2c_device_id is31fl32xx_id[] = {
-+	{ .name = "is31fl3206", .driver_data = (kernel_ulong_t)&is31fl3206_cdef },
- 	{ .name = "is31fl3293", .driver_data = (kernel_ulong_t)&is31fl3293_cdef },
- 	{ .name = "is31fl3236", .driver_data = (kernel_ulong_t)&is31fl3236_cdef },
- 	{ .name = "is31fl3236a", .driver_data = (kernel_ulong_t)&is31fl3236a_cdef },
-
--- 
-2.53.0
-
+> ---
+>
+> Notes:
+>     Assisted-by: claude-opus-5.5 (Claude Code), analysis and patch
+>     draft; I reviewed it.
+>
+>  drivers/acpi/battery.c | 63 +++++++++++++++++++++++++-----------------
+>  1 file changed, 37 insertions(+), 26 deletions(-)
+>
+> diff --git a/drivers/acpi/battery.c b/drivers/acpi/battery.c
+> index 6edea559a5bce..4e2a79d356ef9 100644
+> --- a/drivers/acpi/battery.c
+> +++ b/drivers/acpi/battery.c
+> @@ -105,6 +105,7 @@ struct acpi_battery {
+>         struct kfifo acpi_notif_fifo;
+>         struct delayed_work acpi_notif_dwork;
+>         struct notifier_block pm_nb;
+> +       struct work_struct pm_work;
+>         struct list_head list;
+>         unsigned long flags;
+>
+> @@ -1293,40 +1294,48 @@ static void acpi_battery_notify(acpi_handle handl=
+e, u32 event, void *data)
+>         pr_err_ratelimited("too many battery notifications within %dms\n"=
+, NOTIF_MERGING_MS);
+>  }
+>
+> -static int battery_notify(struct notifier_block *nb,
+> -                         unsigned long mode, void *_unused)
+> +static void acpi_battery_pm_worker(struct work_struct *work)
+>  {
+> -       struct acpi_battery *battery =3D container_of(nb, struct acpi_bat=
+tery,
+> -                                                   pm_nb);
+> -
+> -       if (mode =3D=3D PM_POST_SUSPEND || mode =3D=3D PM_POST_HIBERNATIO=
+N) {
+> -               guard(mutex)(&battery->update_lock);
+> -
+> -               if (!acpi_battery_present(battery))
+> -                       return 0;
+> -
+> -               if (battery->bat) {
+> -                       acpi_battery_refresh(battery);
+> -               } else {
+> -                       int result;
+> +       struct acpi_battery *battery =3D container_of(work, struct acpi_b=
+attery,
+> +                                                   pm_work);
+>
+> -                       scoped_guard(mutex, &battery->property_lock) {
+> -                               result =3D acpi_battery_get_info(battery)=
+;
+> -                               if (result)
+> -                                       return result;
+> -                       }
+> +       guard(mutex)(&battery->update_lock);
+>
+> -                       result =3D sysfs_add_battery(battery);
+> -                       if (result)
+> -                               return result;
+> -               }
+> +       if (!acpi_battery_present(battery))
+> +               return;
+>
+> +       if (battery->bat) {
+> +               acpi_battery_refresh(battery);
+> +       } else {
+>                 scoped_guard(mutex, &battery->property_lock) {
+> -                       acpi_battery_init_alarm(battery);
+> -                       acpi_battery_get_state(battery);
+> +                       if (acpi_battery_get_info(battery))
+> +                               return;
+>                 }
+> +
+> +               if (sysfs_add_battery(battery))
+> +                       return;
+>         }
+>
+> +       scoped_guard(mutex, &battery->property_lock) {
+> +               acpi_battery_init_alarm(battery);
+> +               acpi_battery_get_state(battery);
+> +       }
+> +}
+> +
+> +static int battery_notify(struct notifier_block *nb,
+> +                         unsigned long mode, void *_unused)
+> +{
+> +       struct acpi_battery *battery =3D container_of(nb, struct acpi_bat=
+tery,
+> +                                                   pm_nb);
+> +
+> +       /*
+> +        * Evaluating _BIX, _BTP and _BST takes tens of milliseconds on s=
+ome
+> +        * systems, and the PM notifier chain delays the end of the syste=
+m
+> +        * resume, so do it asynchronously.
+> +        */
+> +       if (mode =3D=3D PM_POST_SUSPEND || mode =3D=3D PM_POST_HIBERNATIO=
+N)
+> +               queue_work(system_freezable_wq, &battery->pm_work);
+> +
+>         return 0;
+>  }
+>
+> @@ -1516,6 +1525,7 @@ static int acpi_battery_probe(struct platform_devic=
+e *pdev)
+>         if (result)
+>                 return result;
+>
+> +       INIT_WORK(&battery->pm_work, acpi_battery_pm_worker);
+>         battery->pm_nb.notifier_call =3D battery_notify;
+>         return register_pm_notifier(&battery->pm_nb);
+>  }
+> @@ -1525,6 +1535,7 @@ static void acpi_battery_remove(struct platform_dev=
+ice *pdev)
+>         struct acpi_battery *battery =3D platform_get_drvdata(pdev);
+>
+>         unregister_pm_notifier(&battery->pm_nb);
+> +       cancel_work_sync(&battery->pm_work);
+>  }
+>
+>  /* this is needed to learn about changes made in suspended state */
+> --
+> 2.54.0
+>
