@@ -1,53 +1,130 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.11
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795203008;
-	b=FU2lS/PzEkMbAgI1EWHf8+vhx2xt1SiL9NjJlHJ+3vzDi/ud2bmXnBOjIOQ/3bz5XO8f
-	 D07MeogAZSNuEhnZF37tcPhX8xtdw8HtpvPcXH6OPtDfC6juV3S2QBU//uV4pZEpdScMF
-	 jlg7QC6coaNLFScCDmDO/dileAgudJpilrmijNKKHyoVU7hMR3H+5cprGEioQCb+15IYz
-	 bTaxtCGDNjEHXxQSQ3/EpuoAmU9Hz/uN/h7BjUuYnKy1sICsqkD6LeijQc+fbjonMDdp7
-	 FvwPSwPCowVyM1jYP/UDpWY6egkQ08k+Z8Cp1VsUrQGGmia6GUOGkgBpug4isWMnPrQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203008;
-	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
-	 X-Mailer:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Stat-Signature:X-Spam-Status:X-Rspamd-Server:X-Rspamd-Queue-Id:
-	 X-Session-Marker:X-Session-ID:DKIM-Signature:X-HE-Tag:X-HE-Meta;
-	bh=fsR2ckawZaVZ8b1NhX6hZBSLAfDYxLYGyswfVkMNPA8=;
-	b=1wbPfQm3AHpL70WHWHHi2vvEiO5NF7cEy2LuTLRx5QBCD5Y14vqevZ7hVHeV5tRv8c7K
-	 tHgh9FTks3YLydlfBCI8K3F+SMTWZ+oabKz9EXwS+nuigqjGkafpLyPsUrpaxVT19g/E0
-	 oOmbYlPGOcD5Rz5SgYQz2a0M7c0mI4o8Kx8XX7E19cMaPC83n1SlQWzWsr7hGxE8QpbT/
-	 +nPzS25d6t8yG6yHDV1CF/E/HiU/ERcvBxa9sbJ+4wYKS2m+gGTaw7jmC4xRv2s2fCFAV
-	 K1IaA2Uuk0vXn5ZfBjjjfYe6a00PUFFJjSl3bIAJZjHwskZGenoo5rFmX/MwE3ink2Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=goodmis.org;
-	spf=pass smtp.mailfrom=goodmis.org;
-	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=3lO3FZvB;
-	arc=none smtp.remote-ip=216.40.44.11
-Received: from relay.hostedemail.com (smtprelay0011.hostedemail.com [216.40.44.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795203028;
+	b=b/5k79+qrGS2dUr+TX7nl8yRiphCVC+GQCEO+GTst+twmhiXYSbNG4xAH1nPHGJaMo4N
+	 ezlPH6Mw0VpNNe/gvPe6s8SwVO5brkPOXRD3m4sRtegzUJitVkvpyGxR/6BSTGOf05zGR
+	 q0JnVO2QjaqXwVQTRERitDGgXBSI1P0NuXsyGVG1stvysTL9+7sIiXQ7J7FLR/GKThCGk
+	 brpvpGnHD9uijyAzYDGKmhb/Z3zVZiP5kM8XCCuyxOLDjGML4+N2cljhWry0GPsa7G4QE
+	 +ZcP0A0Dy1vePDRCpBioxdhGvyfha3QQlqlAkK4GxrerlCQVo32kxEX1da/u7esGIug==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203028;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:Content-Type:Content-Disposition:X-ClientProxiedBy:
+	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=88hVIojzLBMrrB+Zpic0Uowc95rIv7m7zexWiw+7JmM=;
+	b=exQ3pQP4x7a9F4fqwOBAdM7/EmM3KGUUjCw2w0twqKdLCX5Ey2ra4b4h4HL7zpSswONz
+	 nfFSgLe5TQjlVjhnenDz80PSjBtpz35uctAR8ApNI34hpEBruC/cfpxFGpDFgPiRIUkTh
+	 Wp6Yw9osZkzFZ1IuLwFyIXMAu0i0B7KiAu9wur6ynBjXCfw4mWcuhodL8omN2CmKbRwwU
+	 wRuyVcZ91S7LW3ljTMKOnhwBgDgKtox8xQFuXnwhKlXkNs/gAy4JYHQB/V1XAcR+swrVG
+	 D3OV6SQ52J/yA558RDgvu1BChuYHsnvmPG5JliVtbltrlMfegVc250YKo+538zG1vyQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jwnVNWZV;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=jkvuzt8d;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.15
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F7DF60A2639;
-	Fri, 20 Nov 2026 19:30:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F7DF60A2639
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D43A606A6D2
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:30:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D43A606A6D2
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=3lO3FZvB
-Received: from omf15.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay02.hostedemail.com (Postfix) with ESMTP id 9646312017F;
-	Fri, 20 Nov 2026 19:30:05 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf15.hostedemail.com (Postfix) with ESMTPA id 1B7E11A;
-	Fri, 20 Nov 2026 19:30:04 +0000 (UTC)
-Date: Fri, 20 Nov 2026 14:30:02 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: LKML <linux-kernel@vger.kernel.org>, Linux Trace Kernel
- <linux-trace-kernel@vger.kernel.org>
-Cc: Masami Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
- <mathieu.desnoyers@efficios.com>
-Subject: [PATCH v4] tracing/probes: Zero out faulted dereferenced fields
-Message-ID: <20261120143002.18b364b3@gandalf.local.home>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jwnVNWZV;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=jkvuzt8d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795203021; x=1826739021;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=oQ62vYZi3aKUDi9MfdC6/VyNRcjWi4MTxWdkULHQUYg=;
+  b=jwnVNWZVlftwegpiGb0zmdiMGO81yqS0yhy9O1TDkUlJJXBurLHH83JZ
+   YPe1+RsmGZ+/OBSvuDo9cN/cFVnQ9kzXEQZv32t94luQhDfyeqP4klZY5
+   T7zlLRaLxyNnetFlkNYATtYdpE5b5MNJWbtp374mRYfGD96Yh3u79vE59
+   Ep4ZmrChorTlM4ok0SlwhaCRfos6smOZBvg1AtHdfHdMYwxPBClY2lWSS
+   IBH18R6lR6+ZcBIEoZO1wL49RXKgW2vZIci8PtUzHx1WPz0LKYAwHli+9
+   iwTWkZJxHolSCtM2A2CkijFU+4F71KzNb3thrQbp1XbtI3Fw5cao5Rh+P
+   g==;
+X-CSE-ConnectionGUID: LuxKX/ItQFK3Rxvjl136Bw==
+X-CSE-MsgGUID: Lz2No05ZS+GAEkF95Ouhuw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="4094750"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4094750"
+Received: from fmviesa013.fm.intel.com ([10.60.135.153])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:30:20 -0800
+X-CSE-ConnectionGUID: VQmQhj4FQ5CbV9lZAdUTtQ==
+X-CSE-MsgGUID: jHxnfKh6RYS4VgEnvemY5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="12768984"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa013.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 11:30:20 -0800
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 11:30:19 -0800
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56 via Frontend Transport; Fri, 20 Nov 2026 11:30:19 -0800
+Received: from CO1PR03CU002.outbound.protection.outlook.com (52.101.46.46) by
+ edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Fri, 20 Nov 2026 11:30:19 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UutmVygNRSDq9RA8fP3bkKISkAIbVYnLOvk8Foc3b35N9pAKNJlHseWRy9lLdrqzv6ZnviVhPAl72wja2+4+aZDq/NoZq2FPTcv1v5zLfRM0Q+2rrmBZSCdDH2Vx0tQr4jKlFYO3O0noZHNJtV2qSJstb3ld9s7jFFjAIQPAMRpVxGp4bg9QIESKVvvJBxp2lE3SRKJ4rYjldr/ElIqxiOcBuKf5PssdwVGmjmDhEFG9ZDLqJkfSb1JqWbLWs3T4TG8tDe0AFDsvn108+koxeIPxia3HuQMsPqPlXTd/2VcT8pg6uNhmDCkNzmrlRQdRAOjbfVFEAjoJi+KbIzjE7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=88hVIojzLBMrrB+Zpic0Uowc95rIv7m7zexWiw+7JmM=;
+ b=wG2W0TUGhNMCbLyk1l5RKjwH3jKqfG6kbjnLq5h+Ukl2u7ff+7gzYu3KKtGw2W901ich2dzX9BAZ3xFrFMO3utcaTMfPWk6ENRr00Qz4nohPbk4O1zRG/uOwhNcBpgBDTAfHdeMHqFRXkLCLo59BEdhDW78D8tpZlvN8bF/3Jz7wYfKrt5GrSUiIWp/fJT6KWQ6jhQ4Pksr6HO1iPwtMBTKFcyKdzyfJUcbzFaIi0Vf46DWSJ6pztwYLt5QwRdKPEI+5+skNnsErdji78U9u9TSFFlVXKRnPOxeMBeCk4PYQC9wlD4L8tuVFLvZiejqNBJbTbpTkSUcMnB9cyhd5UA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=88hVIojzLBMrrB+Zpic0Uowc95rIv7m7zexWiw+7JmM=;
+ b=jkvuzt8dXC+tUziViftCj/I3AbI6EMtavi0GFDKBFPJANhqwonC2XuEkasMgM78Ky1a83al0O7X4W+TuOTGZrBTLOrddK8WfMaluMIoPxqLi+UkVF8DgDetLj8rLMfjm8vVQlS2HzK/DbHZ+WaAnYXqt0weL38K3dlKBLHXuL2E=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS4PPF0BAC23327.namprd11.prod.outlook.com (2603:10b6:f:fc02::9)
+ by SAWPR11MB9921.namprd11.prod.outlook.com (2603:10b6:806:54a::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 19:30:15 +0000
+Received: from DS4PPF0BAC23327.namprd11.prod.outlook.com
+ ([fe80::6fbf:c112:d0a8:f1a8]) by DS4PPF0BAC23327.namprd11.prod.outlook.com
+ ([fe80::6fbf:c112:d0a8:f1a8%5]) with mapi id 15.21.0615.013; Fri, 20 Nov 2026
+ 19:30:15 +0000
+Date: Fri, 20 Nov 2026 11:30:10 -0800
+From: Alison Schofield <alison.schofield@intel.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+CC: <dave.jiang@intel.com>, <linux-kernel@vger.kernel.org>,
+	<nvdimm@lists.linux.dev>, <vishal.l.verma@intel.com>
+Subject: [GIT PULL] NVDIMM Fixes for 7.4-rc4
+Message-ID: <awCfwssDI7SG4Bpc@aschofie-mobl2.lan>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-ClientProxiedBy: MW4PR03CA0109.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::24) To DS4PPF0BAC23327.namprd11.prod.outlook.com
+ (2603:10b6:f:fc02::9)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -57,240 +134,91 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Stat-Signature: a1rozdkt8mwikma77uocjc3dioh5py1y
-X-Rspamd-Server: rspamout04
-X-Rspamd-Queue-Id: 1B7E11A
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX1+I8eBn7jDDxOIK/S+O6crh/EdPev82jH0=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=fsR2ckawZaVZ8b1NhX6hZBSLAfDYxLYGyswfVkMNPA8=; b=3lO3FZvBiGxk0q7wAyk5ck/kyhXrY9Zs6Jkic3QKAJd7PlWDSA66znNTji/m6NIrsGhTq7/z7jTU8MHC2DqOYdGxr9rOoxKtKnzEZXGNpCXSD+LmyfF6l9MCzPF2CWNQyQ1cJto7P7XGQckeDHnMmpaFMPCFtXmG6LTCtNMOdAE=
-X-HE-Tag: 1795203004-537236
-X-HE-Meta: U2FsdGVkX1/zImiulvvCzfjq2t70Xz8BN7kzotVM47JEmA+Bc5sn+OcGNP3NX9acNTUV+aChHZEQWNp1b9jhdCQFZCON92bWTJRZgf+arhlXyV1hNrO6hDNJHy2UQU+XdmmM5NRqp33TR5iRXL07Zk3o4exkqC7WzIjfEd1jZ0gDTbBTHmRDgdBD4vxiSVEKWxObjLvEiPlohgwrtrVMOWwjWduPgyRpkgD1yH0SrNQ8gbyTzSYRYH/z2D4mvc8XmvUcO6hAhOA1lt2NgTyZxJYittR9ACXU5OJtbl4C5DXdj96vgseCVm9uX0CYOnHFjcOSbrVfdn9GNm9rC+ruTaXM+Qs21i9z220RLelkteWK7PBmJFwVvytCXbAaEHjn/tGCRW9ni41fo/efvlEq0euOigJ4Sj68GB4NJ5eVORphpLIdI8JXIN+joOcIcOpVZ1cBlnfg0s8DKnV1ejUXHfNzlkoqUOYmn6oEBQ2YvK0=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PPF0BAC23327:EE_|SAWPR11MB9921:EE_
+X-MS-Office365-Filtering-Correlation-Id: f44cf85c-56fd-404b-558b-08df473cb37d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|261009223027099003|261021121427099003|261021123027099003|261022105027099003|261026140227099003|261028144727099003|56012099006|10067099003|261102123227099003|11063799006;
+X-Microsoft-Antispam-Message-Info: OVKR6fVn1h0JRqBrETeZ/AQzaF651mZLLlKII/iqbMm6XgslpmoEqAG6JY3Wi5iAftCdjGOvet38T3SkM6p8vESmIIXQ2QLTD4GZneM4KIph+i0o8i/dFTB5KLfVaGuESl2w0X96Asxz6ZGoCc4Hr/wfNtkdo5mT7kDzbU3DAv+DC9Mly8uQCC+y0TKpm7QGoFR04ktYxzQrX7+8Z1354xsAX6J/qTtCKp24ZMAgX3NLQbreQZZU9afreHNcCIu93+cd0UbX58GfHlBLnJ80bVSJa6n+Q0OY5QyQBDqb82l7QL3w6cXbqzBiu3x8MuKUbSXB4USFQBsD63npi92gE7xtl3Oh84UrIM39nnDUS/qfNmm9UiekJFX2A5mWhm7Ll0wpiTRYo2teqKY0H2KNuCZW3254dI2zujVlhGByDeZJTYsJ82HQUX02witV6lMUxPw+jiu5VdNncNrgDvOK5g7mJ4IoANz+xhOgFif6JR/nHsKN6F9qFyQZEOIz2gmP+s4cfmKNETdo0eKPe4dsEXqYbqJ8zjxQrVDON1G2Od4fC0ehQXieeN9m0eYm8H7QVC0bhp/DXo3M+6MlQfai+RwUeif+X2o2IeZAtX6Af3D4Lcdq3eM9TcO1YcH/w3tqul1/+Xp4ibYkU6RdljFqDWJOxMs8F9oKL7U9P/gvoH4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PPF0BAC23327.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(261009223027099003)(261021121427099003)(261021123027099003)(261022105027099003)(261026140227099003)(261028144727099003)(56012099006)(10067099003)(261102123227099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zhl2Nut793oo7+8EvOvbEYikxIghHyTqreaqG2WqeCb4SwS2K+EeAYO+EK+c?=
+ =?us-ascii?Q?m/UfeU5MVTbjIqxS7cFtGVPtd+XyHH7vd0xHfxVWvUYa5zfR/HO4kgm5TSzc?=
+ =?us-ascii?Q?7/aq49B16CL6X1jTjA+Xg1iaLiIgp49TUd3XSwYm8mTR5UPwkCIEhXWDfCUE?=
+ =?us-ascii?Q?NEJWpcrokbHVmFicZ0WlayHbSLyUn3u0zt9+BCSkFo1HZNSZoONYfpeqgBb1?=
+ =?us-ascii?Q?AlFvqbGUee3slo7ogMnfgnHCcAuBUA1SaJDwbQDtJiMs1UcbLkseiKGvKPAM?=
+ =?us-ascii?Q?mOmMYTaDbRc/shNq/UwmYjgBLTnfKfcB2CZs+9yG+34hA6ZkZoHonTehUX8k?=
+ =?us-ascii?Q?E57/C/9UpZNtZGSl/P+ri1fKHMHvuXh3qzaEUZSsPlePydNQRKFOtz6gUB8r?=
+ =?us-ascii?Q?U14XjgO2v+pkVt/wSWfWZaoNDKwDiQIKEXTRH5/hjs9qEWdZ9MflxT/YWyOu?=
+ =?us-ascii?Q?6J6nnw7qHdDZoBkRj0yiwkBbpQv/6Dh4ncWS4fxeKiy4hV1xzdedrhJTFL6b?=
+ =?us-ascii?Q?C0AKVNE/tAih0K3IqbsGozTIbcQh59K/18WzACXzilzX7THbKShTew337aXn?=
+ =?us-ascii?Q?PyrlJmBfkKp1y9XTTcFuRJvaFXmuOzZgZJXH72QypC1h99y6hUBtgxn4BX9M?=
+ =?us-ascii?Q?BymeE5V7wom66Ksmu6UbB+MtSZST9D8DFwfXLOqWS3IjKuMQyom1+j+v9nN5?=
+ =?us-ascii?Q?z06Lx+jFpOoSxcCmjUWz3qbJ8eBCoeOnAX+6UEtbXNqRLgkC1hvMlIi4mA4r?=
+ =?us-ascii?Q?8smiQhgzzzEUouXYp/RjXUT+2+eBzoQ1T/5dNHHU0RlzwQiA8Go5tP/ojE1H?=
+ =?us-ascii?Q?3Khdv3I4W6YaJNgbSE9WaSiva6Qz/xuhIaBNvfOVmNpO3qdEF9g3RV8uTDeq?=
+ =?us-ascii?Q?eAtZ1F6O6NRlCjG8/PFoOANgs7XGqoz/khvnEQD71SbobWoK+VjEXv2VVRFU?=
+ =?us-ascii?Q?0516ApM4lAZMUJy/iI5X0nsIhN5u4MG1O/HkHBffDYVtV9Rq17dqChYoT1sx?=
+ =?us-ascii?Q?pjBJLh2vMBEVHl2dyoOC/c7G5wiHHs3EponO/KVph251DD/fdwDvEkBHv01D?=
+ =?us-ascii?Q?9uxKKt0D73uAzgfK1SthJf/TNcaApBm0mqsY3Di2Z5z4jZrLulf/HoBJk5lf?=
+ =?us-ascii?Q?ZoMY3m8isOhAlzlGTOsxqUthpUKcYMr58Wn2fMIVyoaZjGwZIfCrzlCqqs9K?=
+ =?us-ascii?Q?N2/XyooN95gL/gptNDv9OUSlXKL1eQf4sNeC42knYlcTU7JnOi6/d9p/YOIi?=
+ =?us-ascii?Q?5xNC7wkGrrIKm+gN66MWxDSxqgpgZxWexIkSFSNz1/PWEYfSUqaYvFzpHmFq?=
+ =?us-ascii?Q?5rD/s4AYR2moL1y6MOUTHc923DjLQJdtqSkrsqlNAMnLvaV/6QkWG/KPyhqu?=
+ =?us-ascii?Q?WkMMU9/DXXHeGjuYEz74f8jlQSX3w2Y9VVQtmhPOyttQODbE+F/cbbQVMxwJ?=
+ =?us-ascii?Q?Y8RNgAQ6OBSb0YuOewUUhZHxPixXVtlOXR3beYHoExmOGSFGN3F6laLEjped?=
+ =?us-ascii?Q?9Eyn4F0JtECI4spSEkpqbbxRnCflvZAMJpNxTn5cwTz5mHp0RRO6kOXMPLyb?=
+ =?us-ascii?Q?Nl+v5guv6a3rNzMRuhjL1Wtuw3a5TEDx1EBhaimpGTdVRchv4pIWk10FhLLH?=
+ =?us-ascii?Q?T1OEP4Dmcf+G/FOVsxxtfXo7oTrH6L/i4IsiAZu/G9wV/oqi89aOh/YRA42E?=
+ =?us-ascii?Q?FVuoX1wC0YD1E8DGag63hqvVdSU6yFwQyDte7xiUDbusdKvV87gaM3f0jAyP?=
+ =?us-ascii?Q?z1iOl1vqE3Y8l9Cv8/O6OqtdieW8FGc=3D?=
+X-Exchange-RoutingPolicyChecked: oZJrFBbK7CxeTkzwSOkwnArc931+fslOXdaGmHPZQsBXAY+OZ7tneSs+MC4BVMOcEhC2T9id8LoTxHKChctgaFEVVQWTX0LJJpBjdFOZYhf3lhz63iJ0pj9UkIMQDJMvAwOkoe2OsOLOCLEFl7sPb79pOBHIP7NAY0xaJb56VkLV+C6iptgrvPLj4eAUNmcYQc2JIw31xd2ZxkFHzKDIXiy0M+qahwMmcvmXdzHOh8Oanr8GXHqJmo+v5BvWW5WXvDJmOr7AhRqAWV6dA8QfyG2J9uUFDQPrC/GcEQY0N3oNvpDAN/NiLbEz5OKLAPhdCVzQFDslYiJET3WGGza18Q==
+X-MS-Exchange-CrossTenant-Network-Message-Id: f44cf85c-56fd-404b-558b-08df473cb37d
+X-MS-Exchange-CrossTenant-AuthSource: DS4PPF0BAC23327.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:30:15.3036
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WxBlR1ymomQWYfdJv3xHSgcDabgqcY5Kk4A+8wRqQscUCeMtjCmv822aOFRMo4P4pGMXSMZUQI9VTtSDeFJv9SoSOgvrjSpjr/oN1f/OjDw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR11MB9921
+X-OriginatorOrg: intel.com
 
-From: Steven Rostedt <rostedt@goodmis.org>
+Hi Linus,
 
-While looking at tasks global descriptor tables, I discovered the
-following anomaly:
+Please pull from:
 
-~# echo 't:sched sched_switch prev=prev mm=(task_struct)prev->mm ppgd=(task_struct)prev->mm->pgd' > /sys/kernel/tracing/dynamic_events
+git://git.kernel.org/pub/scm/linux/kernel/git/nvdimm/nvdimm.git tags/libnvdimm-fixes-7.4-rc4
 
-The above creates a tprobe on the sched_switch tracepoint and records the
-previous task_struct pointer, it's mm_struct and the pgd the mm_struct
-points to.
+...to receive a single nvdimm fix that has appeared in -next for 3 days.
 
-~# trace-cmd start -e tracepoints:sched
+Thank-you,
+Alison
 
-            bash-1050    [000] d..3.    90.829478: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d30b623600 mm=0xffff88d30108c600 ppgd=0xffff88d33352b000
-          <idle>-0       [002] d..3.    90.836024: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d301870000 mm=0x0 ppgd=0x0
-     rcu_preempt-15      [002] d..3.    90.836031: sched: (__probestub_sched_switch+0x0/0x10) prev=0xffff88d3013ad100 mm=0x0 ppgd=0xffff88d33352b000
-
-The first event has is a user task that has both a valid mm_struct and a pgd.
-The second event is a kernel task where the mm_struct is NULL and so is the
-dereferenced pgd pointer.
-
-The third event is where things looked strange. The mm_struct is NULL but
-the dereferenced pgd has a value! That is: NULL->pgd produced something
-other than zero.
-
-The reason for this is that the probe_mem_read() and probe_mem_read_user()
-do not write to the destination on failure. The process_fetch_insn_bottom()
-loop does not check the return value of the dereference (as it is the last
-one), and does not update the event. That leaves the value for that failed
-field to be whatever was in the ring buffer at that time.
-
-Have both probe_mem_read() and probe_mem_read_user() set the destination to
-zero on failure to read the address.
-
-Now all pgd are zero when mm is zero.
-
-Also update the stage 2 of process_fetch_insn_bottom() to not return on
-fault but to just set the value to zero and also do not even bother
-dereferencing the address if the value is already zero. This allows the
-code to continue and fill in the zero into the memory location on the
-ring buffer.
-
-Cc: stable@vger.kernel.org
-Fixes: 533059281ee59 ("tracing: probeevent: Introduce new argument fetching code")
-Signed-off-by: Steven Rostedt <rostedt@goodmis.org>
 ---
-Changes since v3: https://patch.msgid.link/20261119152922.5a66f10e@gandalf.local.home
 
-- Better handle offsets when val is a NULL pointer to always dereference
-  NULL. (Sashiko)
+The following changes since commit aebb7274476403040d582c61478df8f4a7bf9cd3:
 
-- Wrapped the probe_mem_read/_user() in a function to use that does the
-  memory clearing on failure so that other code (like trace_uprobe.c) that
-  defines probe_mem_read() can also work with it. (Sashiko)
+  Linux 7.4-rc3 (2026-11-15 14:30:11 -0800)
 
- kernel/trace/trace_probe_tmpl.h | 80 +++++++++++++++++++++++++--------
- 1 file changed, 61 insertions(+), 19 deletions(-)
+are available in the Git repository at:
 
-diff --git a/kernel/trace/trace_probe_tmpl.h b/kernel/trace/trace_probe_tmpl.h
-index 8acc0f0ebd7a..6e137772d2b6 100644
---- a/kernel/trace/trace_probe_tmpl.h
-+++ b/kernel/trace/trace_probe_tmpl.h
-@@ -133,13 +133,37 @@ process_common_fetch_insn(struct fetch_insn *code, unsigned long *val)
- 	return 0;
- }
- 
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read_user(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	ret = probe_mem_read_user(dest, src, size);
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
-+/* On failure, zero out the destination */
-+static nokprobe_inline int
-+do_probe_mem_read(void *dest, void *src, size_t size)
-+{
-+	int ret;
-+
-+	ret = probe_mem_read(dest, src, size);
-+	if (ret < 0)
-+		memset(dest, 0, size);
-+	return ret;
-+}
-+
- /* From the 2nd stage, routine is same */
- static nokprobe_inline int
- process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			   void *dest, void *base)
- {
- 	struct fetch_insn *s3 = NULL;
--	int total = 0, ret = 0, i = 0;
-+	int total = 0, ret = 0, i = 0, offset;
- 	u32 loc = 0;
- 	unsigned long lval, llval = val;
- 
-@@ -147,25 +171,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 	/* 2nd stage: dereference memory if needed */
- 	do {
- 		lval = val;
-+		/* Prevent dereferencing NULL val pointer */
-+		offset = val ? code->offset : 0;
- 		switch (code->op) {
- 		case FETCH_OP_DEREF:
--			ret = probe_mem_read(&val, (void *)val + code->offset,
--					     sizeof(val));
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				do_probe_mem_read(&val, (void *)val + offset,
-+						  sizeof(val));
- 			break;
- 		case FETCH_OP_UDEREF:
--			ret = probe_mem_read_user(&val,
--				 (void *)val + code->offset, sizeof(val));
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				do_probe_mem_read_user(&val, (void *)val + offset,
-+						       sizeof(val));
- 			break;
- 		case FETCH_OP_CPU_PTR:
--			val = (unsigned long)this_cpu_ptr((void __percpu *)val);
--			ret = 0;
-+			/* Do not dereference NULL pointers */
-+			if (val)
-+				val = (unsigned long)this_cpu_ptr((void __percpu *)val);
- 			break;
- 		default:
- 			lval = llval;
- 			goto out;
- 		}
--		if (ret)
--			return ret;
- 		llval = lval;
- 		code++;
- 	} while (1);
-@@ -173,19 +202,25 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 
- 	s3 = code;
- stage3:
-+	/*
-+	 * Once val is zero, it is pointing to NULL. Any new dereference is
-+	 * also treated as a NULL pointer.
-+	 */
-+	offset = val ? code->offset : 0;
-+
- 	/* 3rd stage: store value to buffer */
- 	if (unlikely(!dest)) {
- 		switch (code->op) {
- 		case FETCH_OP_ST_STRING:
--			ret = fetch_store_strlen(val + code->offset);
-+			ret = fetch_store_strlen(val + offset);
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_USTRING:
--			ret = fetch_store_strlen_user(val + code->offset);
-+			ret = fetch_store_strlen_user(val + offset);
- 			code++;
- 			goto array;
- 		case FETCH_OP_ST_SYMSTR:
--			ret = fetch_store_symstrlen(val + code->offset);
-+			ret = fetch_store_symstrlen(val + offset);
- 			code++;
- 			goto array;
- 		default:
-@@ -193,27 +228,30 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 		}
- 	}
- 
-+	/* When val is NULL, so should the val + offset */
-+	offset = val ? code->offset : 0;
-+
- 	switch (code->op) {
- 	case FETCH_OP_ST_RAW:
- 		fetch_store_raw(val, code, dest);
- 		break;
- 	case FETCH_OP_ST_MEM:
--		probe_mem_read(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_UMEM:
--		probe_mem_read_user(dest, (void *)val + code->offset, code->size);
-+		do_probe_mem_read_user(dest, (void *)val + offset, code->size);
- 		break;
- 	case FETCH_OP_ST_STRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string(val + code->offset, dest, base);
-+		ret = fetch_store_string(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_USTRING:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_string_user(val + code->offset, dest, base);
-+		ret = fetch_store_string_user(val + offset, dest, base);
- 		break;
- 	case FETCH_OP_ST_SYMSTR:
- 		loc = *(u32 *)dest;
--		ret = fetch_store_symstring(val + code->offset, dest, base);
-+		ret = fetch_store_symstring(val + offset, dest, base);
- 		break;
- 	default:
- 		return -EILSEQ;
-@@ -237,11 +275,15 @@ process_fetch_insn_bottom(struct fetch_insn *code, unsigned long val,
- 			if (s3->op != FETCH_OP_ST_STRING &&
- 			    s3->op != FETCH_OP_ST_USTRING) {
- 				dest += s3->size;
--				val += s3->size;
-+				/* Only update a non NULL val */
-+				if (val)
-+					val += s3->size;
- 				goto stage3;
- 			}
- 			code--;
--			val = lval + sizeof(char *);
-+			/* Only update a non NULL val */
-+			if (val)
-+				val = lval + sizeof(char *);
- 			if (dest) {
- 				dest += sizeof(u32);
- 				*(u32 *)dest = update_data_loc(loc, ret);
--- 
-2.53.0
+  git://git.kernel.org/pub/scm/linux/kernel/git/nvdimm/nvdimm.git tags/libnvdimm-fixes-7.4-rc4
 
+for you to fetch changes up to 5a277aa7eb4d4f1f05534d6c3dcb1a9fa4f6b8f2:
+
+  nvdimm/namespace: Nest mapping locks under the bus lock (2026-11-17 16:01:39 -0800)
+
+----------------------------------------------------------------
+libnvdimm fix for v7.4-rc4
+
+nvdimm/namespace: Nest mapping locks under the bus lock
+
+----------------------------------------------------------------
+Dave Jiang (1):
+      nvdimm/namespace: Nest mapping locks under the bus lock
+
+ drivers/nvdimm/namespace_devs.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
