@@ -1,100 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795157212;
-	b=DIBFFnhhPdyyLuFNyhJRSfKjK1PBe6Da0WboKJkPjVNXoiGa8FLumvkmk3SZSxw3RqdD
-	 rtRNORnwuAXiscoxTPp0B49EP2Wr98kQMFghsnmvhJPo51SvmXq7WwMUtI5KwybZgeO2J
-	 mMdMckOpkahHT7x3g6jhlB5IoEzCNeRLzpWJiwr4EHJmU8dz7HqTa+Psrf7i6xcR7zdS9
-	 Se0sVH2XfgrGTvoyy4mP0HB1CY0/x9KGZzRv95LadtYywwOFow9vCkcFUaQlUP9dtybTf
-	 xx1O4hFyOeV8k0AVXXkfFKuEOPC991gODaJ8/BP8uqdEei1kjY4DyITSuUtMb/OKBMg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795157212;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=yh5Pw6Ns7Cwi6C95SoPvU5P8PiEbr6Awtt6kTXpPyU8=;
-	b=Nc0CBkMYBR5Ygw58POFhqynHIsY9LLGc+VPEBIJoAlQC7vwodmoq9fozmu577kAWmv5C
-	 CpObjAMiQniKntgjCWDzRdOHnpkofVqg8kvwgHq6Be7WD73OKyBXv8HKfvpmA1WFvKuyP
-	 oy0e5Gw6blR/SJQUOQWvORXzBzQi8EFXNmhIVz+nZP7eNEcuH+3gtQdZJzhuYXK97x12G
-	 8ueN7cZf31+J8nH/prCQSTCxv/c+0tgNNY4hJvbxBv+PiGvEilNzqCNo7OwYg5a0VKJ/n
-	 p61FEGn0YiyT46SL2sv9TthmDIcarXMt09vEV5olbTS036982wQGIk7JlECEj/5Pp8A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zivbYnhf;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795157279;
+	b=tkHtHYtvSAelzh/7iLCnySqtW6JH4sg8Z7sHxkIzAZZjU/z1KmqxPb9dNeIeg+Rrv3OP
+	 Hix59/TaRaltXuE3kFxlK5Etzbrft+2pdXPOU+3mgmrSB9tdVjnEVkgIHlJRwVQVRkx+f
+	 FyZBUHX5ZJuOQWrtBB29EZymNRFtXXT0CzvwuNoGKMZ9nxumIo3A8ssjnYcJkBOojYolx
+	 IskvjjNQFlOCmih9P/47gIj9nuY0A5XstEy+Xn+BqVsw9usieQt26EoljyPdN0+DlLlLQ
+	 95r6NSHFlJ+BPIZzKHwNU1g354BQ5qWfq3vZnyz4s8NoNfePnn4u1BYtZhMRvM14H4g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795157279;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=y5IdSOiR1ak5akmhkE6pI8RojC6EEhOJLCG9nz5PurU=;
+	b=Uy/K52gviLJoaFvQxtSI8k5tl8CtR9z3i4UFhutN2TjGAh1NOXRtkmr5bdnfNm8uocH7
+	 I9uxTM1f5kTvYi0eIhj6xMyEfr4nHNgNgyKXYfoMYfaKyRqago0Mfa8VLeAiDOzpW4+hu
+	 0XDFu8myo+AG2oO260DhJzdPC+VrVSXVXPINWj2iJ/28XZpHcQ7xrmS9h5W5uMSPyj27M
+	 0bdX53U5DtXETMIwGyqt+TLdHHsNtAqR0nxiTjrS1dLGuREjo5NQTs+XaUfuc3AITaIZE
+	 0rv0HmnES91eNxSIjro3+FeiLpQu97C4qKzRCMBF7VRC7/aDmfmilJ8FYwcNBGw+azg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hkI4QR6u;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="UoL7P99/";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F12E1606A330
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:46:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F12E1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 586B4606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:47:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 586B4606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zivbYnhf
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso5581285e9.0
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:46:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795157210; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ChZfI6TGiG2bj/f5oWHw7Y+UtoAxwFIP54lfh9djrOL094aMLnFqVcLM9mArY7iqjD
-         YJ+MS5f6/E/kKEAh/awNe8IZE0j9hARwBcKQ4FBqZX/0L290y+3nyKyEN1ZplHGyXcRY
-         VZtYaF0E/kSIME1Bo9oxTj6ykeWL6hpqVC8bKFQXAvBtPzM2ly74mH+TMUhPyWuL8gR7
-         GWwiU7N9PVhApwLoY//63S5ehfqi/is/i+kVJ3XnJwrjHQ8xNTzRhq5SsstNL1b+Z9z7
-         3OkO6uATXf9Zf9scJqhH4opKvtzayOzzLJH6ov9tLFmRnyaph2ITaIjGj2MO0rYyPrHo
-         RnkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=yh5Pw6Ns7Cwi6C95SoPvU5P8PiEbr6Awtt6kTXpPyU8=;
-        fh=cAIpcHVLbgroCp+SmZwIWWdHknd0S4KWT3zL+3/vjxw=;
-        b=Y86cz8FPtPkD3Jb9KINVcpFHq12lhVMfr4kXonDGwIovaY5EJ0sXiFIPCJWgsh4jQu
-         vgSkAB23mx+WO73taSrMYW7a7vDF8wxSxe8EKtC7K3OtGGTPFLr/9fN9418iqKKWotR4
-         7tjwYux7Jt/quRBJ6bxZ7mUI2IJoMhuyFpzK7QdsQoByI6tXLiGWJ6b4l8Q4qngFLC6j
-         RMcBxsmAUuVDUFzDbuza0Bu3eMS9vVUiNZiVwooPQl2lv0MovxTFiDgGMyp9qRG8wM5u
-         vSq8rBAXasJTczuURfjy05q5qs+rgniy9Fp1fzSCfWnXc2Is8OqwCEEnkNVVZBlK2s0+
-         RRaQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=hkI4QR6u;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=UoL7P99/
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK6JHFe3393026
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:47:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	y5IdSOiR1ak5akmhkE6pI8RojC6EEhOJLCG9nz5PurU=; b=hkI4QR6ucta5eWG1
+	nyjdT1vUjsi3zvTTbwhohx6zH3N8uS7jrj1zPoY9ZP+PiTbUTqkHLSZ4KEMtSal/
+	R4fcnQ8nz4z3aaQirfBCv9WObKJw3847lOJVxS8bm5p6Bj5jrQluFvmyVDxNvahF
+	wRP3KVEhK6a9+xbLOdhyrXIXeJVhCd6fGhz75pkHLhwMiPtGxabtmCC3mACSej+n
+	EwtePSZAQXWkWTKCXRhdTvT2iNMnnA7EjaLdUn1hXqcsYmDj18kjvFAQnlV/nw+v
+	2Gfjcm1vvOX1uPdcpGe7Kwf1ILb3uM5eroHPBXjmtkFSJ63R8NFHJsrOH85dPJHT
+	RfBX7w==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j2gu803sp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:47:58 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ed05b3eaecso5637515ad.1
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 22:47:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795157210; x=1795762010; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=yh5Pw6Ns7Cwi6C95SoPvU5P8PiEbr6Awtt6kTXpPyU8=;
-        b=zivbYnhf7owyhLTE/5r/3aaw/bfE0rS6phVAheDTlD1J2Z6uqpq4g6KsP58ymMF2Zj
-         TIXryv4Hy4jvD3EM5bKVHmeE60oQ0ynXdNGs9wSf7TZz2xm/1scPEl2sByeUr1TASlkt
-         rhAD14HyjDHTkyeO5pjjVRBjaqf0aHqRUIXqoRdhsioFM8Emw6BpunKijQDt/PlCA8nM
-         22W6PdeMWclJF1fChbGE/+yGZMH/Tu/NB/Ivty4T020IcszE7Gp7BRCMbWGz4ra9kqdX
-         DK9xzcXlSv65x+g/bA97b7VzBTFz909LQr2+v/uTns0prBkmHAmY++7fqhmk0ihKVXWa
-         4l9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795157210; x=1795762010;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=oss.qualcomm.com; s=google; t=1795157278; x=1795762078; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=yh5Pw6Ns7Cwi6C95SoPvU5P8PiEbr6Awtt6kTXpPyU8=;
-        b=HS7C42bXfhMZ2pEpIj+Tncj5v8UXuNcFjo3xvd8ZE6pS8Hd2iMptKlntEKnGTuEr8I
-         6JSZByLp3d4drWz4CEQxOsLgyVOTKVjyoSyd4vs/j9OPv3CPIXJiIUXLKemZmLkkCBFI
-         IOl8gGeouQ6ELSwurmOEG2lkIbntWEbjoyp9E/dvY8JyNs32sP+rlXVqDixzHFIpwi07
-         h43NevtSYZR6s3sFIx8WzW2fjpCE6hOIhziwtPbpXW7y6PatSehajHZVPThE0ChdiH8/
-         C9SiGEAqRhwWjyPOhKEibmFcTDixaQgjdrkE/GepQqaml+DSUVVAPd+iCEhf1SypJpQ8
-         5KKA==
-X-Forwarded-Encrypted: i=1; AL+hErHMV3anKCey5wmlL0ZcMirwYklzPrtOYJ5Uwakb4kuR0ng55yW+hKE6J73IYNUhWwruGuMQXKxU9RRWQuc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CZYBW5NWTbHeP4U3kryxP3sTApaRIoCKk4nIJZ263vshpMgqD
-	h5+bYyZ3dm7N36377F2tULN2PmknUSLe4ulLXYPaRfYfTQjc6MuZxpYKYUMEfUcHxRIdDp0NXuP
-	N/AEunh9qO+EqssQmA58hhJlMmldwRqQ=
-X-Gm-Gg: AYBFou2BkWhKLTIlxEpc2J6sWgnEJsFMhIJ3Lm3r+xxy4Rbcjis7l/LYaGZ0e9PJHFl
-	glGKgSBcTaFLvnBj19/kFL/67MRn8y+P43PpeotHkdsDsHwyFJpVQmCgTMvIRfEbJdxd/ufsqV+
-	V6CTJu5RHz6fqNsYqT1w1r5fJ3toryOZF6jr/h5Za2iIy7MlsZbErseSDgLOR/d6GofCn2ssoIZ
-	7KqRzam3lCobcMUddXrsXqQBMGX84fyBT1PYwBb88e1iszYu6xy8OisI7HKsigTTk2tH1NMJafs
-	DLHvMXkORj/df+gnlEUQ8DehJkn7JVkwyIczwnglEuxSTPQe4tLh5XDhlbl9pAg7HsJEHspGCDE
-	4+sSVpFDwLwXPo9yvn3fuBNaCuF5PyXinLog26ASaPoqLKcJ3iBHEYJJqDIKsnfH/
-X-Received: by 2002:a05:600c:1c08:b0:4bb:7757:fe6d with SMTP id
- 5b1f17b1804b1-4bb88804c5fmr50882955e9.11.1795157209745; Thu, 19 Nov 2026
- 22:46:49 -0800 (PST)
+        bh=y5IdSOiR1ak5akmhkE6pI8RojC6EEhOJLCG9nz5PurU=;
+        b=UoL7P99/nP8ae97HuQdP+qRNbqfxhH+rHwpJxRIn07lLNpUim+kbrE9SCySebAuZue
+         7gWiDCCrvbIYpwITMTn3K0XPBkbcjrACh+9iJsQztZMK+sVE/hDiXJpkY5p3KDUqJXrD
+         eGLKjRkQbYa/ZWStHRYc6CW0mKgE/HuhXxLc7ZOLdgiHivc4RbiVlRjOKO3VyPzRp4gR
+         7tjtK0354Ek6QaDsVqhUKTxcwZsBKaOc21DLfn/KeqAQN+6Pws+bTI8sMbrIrQuldDEk
+         Y2KnmD2BgR9kUXemi5T7dHdHFxp/yRzdZ2Y39CDSVu020BWHFhYePzTLWX8IBhGxbfsh
+         Z0XA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795157278; x=1795762078;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=y5IdSOiR1ak5akmhkE6pI8RojC6EEhOJLCG9nz5PurU=;
+        b=VQ/Ett+d2LllYGVZzI+wT3745tfJHOP6XIhKN0iDhPjpo2M3W6QpLeFrnCxoivuHMB
+         r2Ba1BRJ+2tyKCv0GFp3fgukzMPG5P8CVpBtlqEYRIpfqLUgJr+sHNiTOkSCTNcY28q+
+         BMAe6Tjr03PVe1IGYUcoK8HHl5ALFjlZVba/vzbiO050uMfh5F20u1ab8izoi8zA/WN3
+         l6x0PTYtWZjWR0tFiZZ/V4oYu+zJVQWxEuV7G6/I8TMb4OjTOsltlmsojDWF2omKnZ/d
+         aygx4GHXrdmAWMTWxSPZl9AttZSjihhwUpyavctJU0O5R0Ubd3BIVUGMVxpx5hn55Vdo
+         6wOQ==
+X-Forwarded-Encrypted: i=1; AL+hErGilCGnFfaLiRYUWr/9oBeNgRLGD2PU16p8shVd8evMTQo0yCDxOEvCGRDDxVzXqfqrbJEasilaD4TifBs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+daBCUUqApftocArEgnGCAs+SMUnAYUGCmQEclsAatjjr44qIS
+	UDPK2LwQOu78fKGzkCN5UJJJmQO63tToFf1EdD/YPKCWD+uxjK0vZmtJo0o51itxOaC5xzVA+kz
+	ocRA8odgRTldy9IwVwCJtVsWlalEWJjHJfAlpkXiygXMjEdmr1qDlJSVSiStaocxKYv0=
+X-Gm-Gg: AZFdTZd0AmxlRwueWjKxscsEPH2hhHj8P3n1ieS7XvX4t1dNJVx9PYVNic0LZK0KTZm
+	AYBcobUZHGbKObPUns16hpxQojCmraYc6MtzMb4q+zlagFUYEdCwpL/+Y1BgOcb+sxHsShNxB20
+	YWtJGtGXh8dxA/Kin3Rhh0f9gwx2T32uClP3Z/vf3sei7ARu3QjPUuSU1Bwm1Clhg8+6Wx4sLm6
+	PJC2updM3ZeAK7jBG4DTGWNiWvyZTrmTQ/ja6auAb5k/eiUyR5T/RUp/iOjJNQDBNa+Ty+qD2GR
+	puDlvdiX6lbT6GIbdU97m/bJUTGn8R2MssVz2BPUVRYmhUHL15rgsRsbrKXdteZjTAB6goraweq
+	ticHB4P/03y89R3vA3YSHXYWttvKoQevSN1e3bXAuJq1wfKXU4nBJ6pKHVdOTlnTFixxNF68sEK
+	nWbgMT
+X-Received: by 2002:a17:902:fc4b:b0:2e9:4b65:369f with SMTP id d9443c01a7336-2f03f1ba464mr20069705ad.34.1795157277850;
+        Thu, 19 Nov 2026 22:47:57 -0800 (PST)
+X-Received: by 2002:a17:902:fc4b:b0:2e9:4b65:369f with SMTP id d9443c01a7336-2f03f1ba464mr20069505ad.34.1795157277401;
+        Thu, 19 Nov 2026 22:47:57 -0800 (PST)
+Received: from [10.217.199.117] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm9781855ad.57.2026.11.19.22.47.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 19 Nov 2026 22:47:57 -0800 (PST)
+Message-ID: <eb44a4e1-fa9e-466d-9e97-f87f365ce44f@oss.qualcomm.com>
+Date: Fri, 20 Nov 2026 12:17:49 +0530
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,115 +116,117 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119-mglru-fg-v5-1-9eee2fe97a2d@tencent.com>
-In-Reply-To: <20261119-mglru-fg-v5-1-9eee2fe97a2d@tencent.com>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Fri, 20 Nov 2026 14:46:37 +0800
-X-Gm-Features: Aa3M54q6diJBPt5X49YJ4xjQARO39_f1G-0YmFpyFCjvJebbL7DyzQ2TCjNUNR8
-Message-ID: <CAN_Opa9Gu56Tdx2WVrYZU95BrHdGg0+gf2mpv25gM7WCRULJ0g@mail.gmail.com>
-Subject: Re: [PATCH v5 01/17] mm/mglru: rename the generation offset in lru_gen_folio_seq()
-To: kasong@tencent.com
-Cc: linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Muchun Song <muchun.song@linux.dev>, 
-	Qi Zheng <qi.zheng@linux.dev>, Ying Huang <ying.huang@linux.alibaba.com>, 
-	Chris Li <chrisl@kernel.org>, Baoquan He <baoquan.he@linux.dev>, 
-	Nico Pache <nico.pache@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Michal Hocko <mhocko@kernel.org>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, Barry Song <baohua@kernel.org>, 
-	Axel Rasmussen <axelrasmussen@google.com>, Yuanchu Xie <yuanchu@google.com>, 
-	Wei Xu <weixugc@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Nhat Pham <nphamcs@gmail.com>, 
-	Youngjun Park <youngjun.park@lge.com>, Zi Yan <ziy@nvidia.com>, 
-	Gregory Price <gourry@gourry.net>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Dev Jain <dev.jain@arm.com>, Lance Yang <lance.yang@linux.dev>, Hugh Dickins <hughd@google.com>, 
-	SJ Park <sj@kernel.org>, David Rientjes <rientjes@google.com>, Yu Zhao <yuzhao@google.com>, 
-	Vernon Yang <vernon2gm@gmail.com>, Zicheng Wang <wangzicheng@honor.com>, 
-	Chen Ridong <chenridong@xiaomi.com>, Tal Zussman <tz2294@columbia.edu>, 
-	Kairui Song <ryncsn@gmail.com>, Xiang Liu <liuxiang.277@bytedance.com>, 
-	Ehab Ababneh <ehab.ababneh@intel.com>, Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>, 
-	Lian Wang <lianux.mm@gmail.com>, Joanne Koong <joannelkoong@gmail.com>, 
-	Hui Zhu <hui.zhu@linux.dev>, linux-kernel@vger.kernel.org, cgroups@vger.kernel.org, 
-	damon@lists.linux.dev, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/6] dt-bindings: thermal: thermal-zones: add
+ hardware-binning trip properties
+To: Rob Herring <robh@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Randy Dunlap
+ <rdunlap@infradead.org>,
+        Amit Kucheria <amitk@kernel.org>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Abel Vesa <abelvesa@kernel.org>, linux-pm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-doc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+References: <20261113-thermal_bin-v3-0-878df6eef8bc@oss.qualcomm.com>
+ <20261113-thermal_bin-v3-1-878df6eef8bc@oss.qualcomm.com>
+ <20261118205056.GA839455-robh@kernel.org>
+Content-Language: en-US
+From: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+In-Reply-To: <20261118205056.GA839455-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfX2t2JV+xXLVc3
+ EAlfXBNUCDO0vU18ahSEfhw0dxRoYxD3MV5QEA31vfUXCAX8IR40wO7iGMLPFtn24hSa1IkXd7r
+ PsUOXMvSS23yANpJGsYHjb2iboS5KwcoKIwTF6nhA0WkzBrPi7JrY+QtQbcILsrqb1RwAPt86Mt
+ uhAG8roTNo3BAaUt/lL4mbqP3j/edqD1ritpJZgc65A4DehLBTnIav/6e6U89irkqZ8puPgtULn
+ 6mfPOF98wMu0vGmvA9MEKM1i1ikhZGvmgZ2pqD0wdaxe3ScRTdXKIDx6wIrBFZXRoEJdJCK3uLK
+ peWDv+U54LGBIX3WRv0dcC9Z7dHQXL4Tn3X3jZciafHjF5cJMVZ5Cr9hTaaFDebrNX8uHj2GdUI
+ Nzou1F0RQF1VK9GVD/vsXeh2hUO5RGNnQXFrhJLEX3KQS7F6NvKsgydoqUx0t0v51Y7gXpVRdeO
+ 0mLQXsWk9XIb8AwiqCg==
+X-Authority-Analysis: v=2.4 cv=bLeDs/+Z c=1 sm=1 tr=0 ts=6affed1e cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=EUspDBNiAAAA:8 a=fXwKFA8GOUhRkyI-wlYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-ORIG-GUID: DK6oY8MrQt3btMTpHO3tq5e7OKKBqLHV
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyNiBTYWx0ZWRfX6rpx6zQZqTKZ
+ Q7eL+XKAp4Hfn5n6pTFpOV2yUdJVx/muCjVioxKP69uVTWS9qeBAm8FLJbUCHxaOPaPBHFx0ARY
+ 76sTOd3W5/AiO2cgaTLUyYBDC6CDbUA=
+X-Proofpoint-GUID: DK6oY8MrQt3btMTpHO3tq5e7OKKBqLHV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ malwarescore=0 adultscore=0 clxscore=1015 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200026
 
-Reviewed-by: Kunwu Chan <kunwu.chan@gmail.com>
 
-Thanks,
-Kunwu
 
-On Thu, Nov 19, 2026 at 5:03=E2=80=AFAM Kairui Song via B4 Relay
-<devnull+kasong.tencent.com@kernel.org> wrote:
->
-> From: Ridong Chen <chenridong@xiaomi.com>
->
-> lru_gen_folio_seq() computes how many generations below max_seq a folio
-> should be added to, but stores it in a variable named "gen". Elsewhere in
-> MGLRU "gen" means an index into lrugen->folios[], i.e. seq % MAX_NR_GENS,
-> so reusing the name for a relative offset is confusing.
->
-> Rename it to "age", which matches what the value means: the newest
-> generation is age 1, and a larger age is an older generation.
->
-> No functional change.
->
-> [kasong: dropped the comment table part, the series rewrites it]
-> Signed-off-by: Ridong Chen <chenridong@xiaomi.com>
-> Signed-off-by: Kairui Song <kasong@tencent.com>
-> ---
->  include/linux/mm_inline.h | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
->
-> diff --git a/include/linux/mm_inline.h b/include/linux/mm_inline.h
-> index f6f4bc9a704f..2395ca8ee305 100644
-> --- a/include/linux/mm_inline.h
-> +++ b/include/linux/mm_inline.h
-> @@ -302,7 +302,7 @@ static inline unsigned long lru_gen_folio_seq(const s=
-truct lruvec *lruvec,
->                                               const struct folio *folio,
->                                               bool reclaiming)
->  {
-> -       int gen;
-> +       int age;
->         int type =3D folio_is_file_lru(folio);
->         const struct lru_gen_folio *lrugen =3D &lruvec->lrugen;
->
-> @@ -319,17 +319,17 @@ static inline unsigned long lru_gen_folio_seq(const=
- struct lruvec *lruvec,
->          * |<---------------------------- MAX_NR_GENS -------------------=
---------->|
->          */
->         if (folio_test_active(folio))
-> -               gen =3D MIN_NR_GENS - folio_test_workingset(folio);
-> +               age =3D MIN_NR_GENS - folio_test_workingset(folio);
->         else if (reclaiming)
-> -               gen =3D MAX_NR_GENS;
-> +               age =3D MAX_NR_GENS;
->         else if ((!folio_is_file_lru(folio) && !folio_test_swapcache(foli=
-o)) ||
->                  (folio_test_reclaim(folio) &&
->                   (folio_test_dirty(folio) || folio_test_writeback(folio)=
-)))
-> -               gen =3D MIN_NR_GENS;
-> +               age =3D MIN_NR_GENS;
->         else
-> -               gen =3D MAX_NR_GENS - (folio_test_workingset(folio) || fo=
-lio_test_referenced(folio));
-> +               age =3D MAX_NR_GENS - (folio_test_workingset(folio) || fo=
-lio_test_referenced(folio));
->
-> -       return max(READ_ONCE(lrugen->max_seq) - gen + 1, READ_ONCE(lrugen=
-->min_seq[type]));
-> +       return max(READ_ONCE(lrugen->max_seq) - age + 1, READ_ONCE(lrugen=
-->min_seq[type]));
->  }
->
->  static inline bool __lru_gen_add_folio(struct lruvec *lruvec, struct fol=
-io *folio,
->
-> --
-> 2.56.1
->
->
+On 11/19/2026 2:20 AM, Rob Herring wrote:
+> On Fri, Nov 13, 2026 at 02:13:44PM +0530, Gaurav Kohli wrote:
+>> From: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+>>
+>> Differences in SoC packaging can be used to provide multiple SoC SKUs at
+>> different thermal and performance characteristics. The underlying SoC
+>> remains the same except for how much heat the packaging can dissipate,
+>> thereby influencing the critical trip point at which an SoC SKU needs to
+>> be throttled. This SKU-specific data is typically burned into fuses
+>> during manufacturing and can be read back at runtime.
+>>
+>> Add two optional trip-point properties to describe this:
+>>
+>>    - 'temperature-bin': an array of per-bin trip temperatures, used
+>>      instead of 'temperature' when the trip depends on the hardware
+>>      revision encoded in fuses.
+>>
+>>    - 'thermal-hw-bin': one or more bitmask groups describing the hardware
+>>      revisions for which a trip point is valid, modeled on the
+>>      'opp-supported-hw' property of the OPP framework.
+>>
+>> Signed-off-by: Amit Kucheria <amit.kucheria@oss.qualcomm.com>
+>> Signed-off-by: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+>> ---
+>>   .../devicetree/bindings/thermal/thermal-zones.yaml | 60 +++++++++++++++++++++-
+>>   1 file changed, 59 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/thermal/thermal-zones.yaml b/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+>> index 999ad40a20d5..cb9a8c96d053 100644
+>> --- a/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+>> +++ b/Documentation/devicetree/bindings/thermal/thermal-zones.yaml
+>> @@ -152,6 +152,58 @@ patternProperties:
+>>                   situation where the trip gets constantly triggered soon after
+>>                   cooling action is removed.
+>>   
+>> +            temperature-bin:
+> 
+> Use the standard unit suffix.
+
+Sorry, my previous reply was sent only to linux-arm-msm by mistake. 
+Resending to the full list.
+
+Thanks Rob for the review.
+
+Would temperature-bin-millicelsius work for the unit-suffixed name?
+I’ll also add minItems: 2 and maxItems: 32 in the next revision.
+
+> 
+>> +              $ref: /schemas/types.yaml#/definitions/int32-array
+>> +              items:
+>> +                minimum: -273000
+>> +                maximum: 200000
+> 
+> minItems: 2
+> maxItems: 32 ?
+
