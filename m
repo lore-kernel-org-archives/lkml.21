@@ -1,118 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.144
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795184456;
-	b=WycmSbDEqjr5B2fHBBL03FGckpJNVE1ANVuvH1/qq+ZjG6os8TM42o++dRc5BZ2ltEqG
-	 8T8xFXz1bnc7r54u63cv4uR4fPR85L/hjjY2zoyfWit9Zi8tN1vHj67CUy6ZR01TAeyLP
-	 IwmNY8FhhPwlj5l4y/LB346MeB2Nomuv5jKv4gt+r2R9XU91wqB/0IOiQE3KIMZ9Y9pth
-	 4Ipa30Px1tjULNS/739mezUBJu56YIRHk0jOReE1VUjiRcHwx3OcmxYn6MkqdjWZtwwgU
-	 NgPi/gjIdp4Fv6t+mhuHI16JkupEK+KoayZMLwKTuAYvZW0Uu38ReCasdEhy4lwIVgQ==
+	t=1795184493;
+	b=34VSfl4SxrU/hMSQNaBOw9Y2PMLUvL6g1vch/p/sppPQ+e+Jqt21RwcmRJGyl+DFM2mS
+	 cvsQpMMlELIH2oqDAYBp24efJud1PEU/hZqD9yUJF89v9gq1w0aGEqjlF/ivvHalNA59l
+	 5Vhx/X1E5ZudulskwDSDp2De6aAnAN89iH8iLPMnLvhkR2eqrHdYvGTjFeTTKdDbe2+d/
+	 wRLVwtRWxpo5BWz8N37dgq8IGLLHp4qsL7dnfcCjpmQdmGaP5yFjq6qgERv1s8fox+sjn
+	 rxixhf7F017nUijhVjYuwCxjJGfJETY14h+QdFTTMMlMUdwVPIZAdxLusguHTl+BCfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795184456;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=vTQ4E2JgOTpZe0dib1eo5BcGfkwG6YBsKTtMFnWJdVs=;
-	b=rDQ3nFaY8UQyF287WGhgmA3LdGt8KnPDfMeDv6zWxpQRs3wFm6+iBzKb5KKks5YRTGFR
-	 GNWT7h8TaVSnFuRFfwGlNw6+Uqn8gIZi8jJrVjRK4rYDmgL9cOdzl1vKvirMSdkwINPu5
-	 z6l8i3DhVvVtAvuSnyUh1RUAo6hDAgCDDY/U8WxA/ejUTcyIZIb5vlfa3uSvNo9m9B4G7
-	 UKJAHKXsUv/cpe6Jz2RZXHb3aCNd4YjnB1G//7pykl7Wzwv5BbKxMOSGNJWvBzMsRLtC0
-	 jFv/QE2KTsOg1SJY8yrIUYq+wmeiK6hgg8dHgWSiGw/cJ2ZcYWKUZoGI97QZ5CM0GnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795184493;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8kbIPnTNVoYxnzuCSc7WD/8P36oFIhxLoZp7Il+xHts=;
+	b=Tg2ZBFdz36X/7gzkyx8xGgM9uBzo2YkrDBbYAWK70xYURt8EbmeSL/5gYAh+kulz28Zf
+	 4U+Z5y/2vb3DdmppTo4j5PKd2+ncgee7ZmT9PjTlFoXVI5/9upM3BBkLDMJuKCdkRNGap
+	 KSNzQAUzZVsYO0jkDPOr69rNtTY8WDLfzb8yk1cAvSMm4wHrqoTydFawSMKMYX7hVA0XG
+	 rQKAk6c9K2kw4wy03MEmQ2F9ndCxowIxWgteyEArKFPtFlrSAZ1CXUoouvIfTQgNdF7AE
+	 SY5WEorw67Z916eqlpINCaZ07XOwK4BYRJaW9uaMix8Rply/8GMgCAJQ+FripM4J66g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kroah.com;
-	spf=pass smtp.mailfrom=kroah.com;
-	dkim=pass header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=nlVZAP5t;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=R3t6QVPq;
-	arc=none smtp.remote-ip=202.12.124.144
-Received: from fout-b1-smtp.messagingengine.com (fout-b1-smtp.messagingengine.com [202.12.124.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=YCXylLXu;
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A0A6606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:20:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A0A6606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=kroah.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kroah.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28C2B606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:21:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28C2B606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kroah.com header.i=@kroah.com header.a=rsa-sha256 header.s=fm3 header.b=nlVZAP5t;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=R3t6QVPq
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.stl.internal (Postfix) with ESMTP id 2224F1D00477
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:20:55 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Fri, 20 Nov 2026 09:20:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kroah.com; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm3; t=1795184454; x=1795270854; bh=vTQ4E2JgOT
-	pZe0dib1eo5BcGfkwG6YBsKTtMFnWJdVs=; b=nlVZAP5tC2kFKEt/YRH4MoOk1b
-	KOiMTw0RTs/hwUoIbhY8EdigVvr2y97QulUBE4DJTsNo1Nu8fNp9I8M/u1p3/95U
-	xnMDE9F+W91uX5zsltbQpqi5xutBp4Zj8o3B31wfwxhwpH8kus+vPevhHs1He3l9
-	eMhT5EYXTwdoOPwRGbnkl/mBpoRXJ64RhbbAf5lySUmZIU9Y9uuLCBKpB3f4C0G2
-	fgOpGRuONyx4X/6AhtKs4eDWn087LmHmMHDwC2C90ccmqRwvGW8W8ZmP15vFd7WL
-	WD0kLuM/q9TcAaGRfakU2nEfhDFrZ7Pt4tluBofntg4+aE44ePF6MxKwHpvw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795184454; x=1795270854; bh=vTQ4E2JgOTpZe0dib1eo5BcGfkwG6YBsKTt
-	MFnWJdVs=; b=R3t6QVPq+zXQ5xBKZfZOWk7bXp/6p3rcrVOAclCSWWBN6mknU5L
-	c3xgwB/PlzxUJv/Po75+qFHh5VUFMK9nWmp2RnJphdfsGZJlzUg9W25o5W4101hT
-	p7vMN5tgNBnpaxsNULvqAUtFfxNrKJB0RHFP6imObkfl4w4uVJn+A3dgAsqJsy/W
-	bZijFGubvb++oQFg88FL6FT5Moeql9DfAPWtj/M5XuG+8P+khuxr998/ubRVe7YI
-	0woLHYFVZJYMSfFqkQqeXDlg+To5blz0WZEbe7xIZr9hz8X7dZeyjY0wFYG4MxKf
-	aIW5QjPtS84R1N/dYkgySyDs1016eO32Pfg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=kroah.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795184454; d=kroah.com;
-	mf=PGdyZWdAa3JvYWguY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:erCAObISbsZ8FqGTxglqA2XCPsIkQdu+PIjie4/8xh0LfRf
-	lQgdgKqNjNekpC8fVzhNcLIo85kZrjlD0pntdFVfj/K1/t/dyO7VngQSOojcfGAn
-	SwTY/hfRZR0Np7bmj8xCOdMPg26UhdRdLSuAqUaMWxezPR/8e7xhbfVu5nCZrBaU
-	/Fu0jAqCjP0HuSXY2uuyGOJNbK5C2hj2xCNyJ7CsTAcVyhln+h/UvYPtYHfeZo9M
-	+FLFIrKOjGExQ/4ZagaVevv/0k6aVQfNrQTR4rDbzVcZaxt+LeCDpCoS8opsHRik
-	Qe+/cYBFYEdJZJ0lIHoExDnIxk/dtLsjW91/RVw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:10OOwfHanLGyvJXV4Bcjvvs+9je8p+0OqKqMSMUTDqU=:x+SezIyNLy9Fjjuka6QAhFaautpL2/BTBPmmGUxiupo=;
-X-ME-Sender: <xms:RVcAaxOH9DuvFYbVo85mOKvzp4zTdJ4mUe3ilRsQV78Zk1I1Zkpk4A>
-    <xme:RVcAawrhpkXmPx5-xKGmPjDM62OFz44Zes7zgpOgSOK4dUF8gSSeDK_1XRUyJr0yz
-    k3fK2s9L3R-WRThB4nLGrd7KVRpmxnQ5fcrrN8SbrbmbU787QU>
-X-ME-Received: <xmr:RVcAa0KwYjHpWWblM3u2lSi5y9g2_VSxHF8J0Kl_LE4xjmXOrONYMW2VsFhiHxauUpXchcAwDY6LnKKUimSrIRBvNqtA_8ZCAnzV8Vz2znI>
-X-ME-Proxy-Cause: dmFkZTFQvFPS8uzFw3fizoTJiHl4+yszpt9afFpYdF9q1dr+wRPIuZWxdM+KRSug6iCh6h
-    Hipe1vK+8TH7a4AaHTzHgl6l0Zp6xgMbAxQiZSCg6HfpX4Hj2FuHp69N5mKed4AHqMQJCV
-    PbJRvWr7lERxihA7Nyfdfmj5XHWlr8boIn0XHONiNPjbv4Ri0SZ7jC5bQIOwbRrR8PiLLK
-    Zt/cT5vRdvNxn4vdsafaURH4jANnOWsFTcZaNcpmlR9ecuqlAcIVVUw82F3/OJa76eilC5
-    m1uwAXxqeYSLGMG282U2B1/B1YUfxc9HuFxHJ5h3t4C3YRCgMmJBjpqaFmeSnj8MvQ+aD0
-    KNZyChj8qgVsLMKI1c1W7daIp8+SdYvMzrTSEVEb8y9lvbbzDS5qhIjjNkQ7CRH1abhEmA
-    S2OP7dyGKK/nL2y8Ti7F3L3kFapVDl9umpqmZr5zIdEgQB1NNHuWWtM8C5jIScPuD6LlsX
-    2XGldj+zFHZultdFEepjuX+ZIxiwl3Yj4Gahvn03cLilwPZwri1SVOo3fr7rcIN6b6/k79
-    19evwBYDHGrljw5SmlN6h99g3cLL/iAMFalw9/7ChWrCTMz4cXBdVl8MUx+kxcGF3aHi0q
-    PL9b+ka2d9e9z+0o9xURta4WA06Fg3lCLtp9WE1hmAKbf5SyD851RDFXFREQ
-X-ME-Proxy: <xmx:RVcAa31L_gcvns9YhPXMr1-fz0Y4P2VJpLBI5sqzjVKtFLtXqD2IWQ>
-    <xmx:RVcAa9W_y6PXEBvAA4hSLzRDrfBGLgwUB9VgZquBo8ps2fqV4Nel_w>
-    <xmx:RVcAayxT9ooD70_FRCdG62nIwEflWWVAEE2nIMBepYh_fcf6N2Dxsg>
-    <xmx:RVcAa8x5lW2qUTwA7kSxQ7pzLHVudlitobUTxpHy3ElEJt0nPWNn0g>
-    <xmx:RlcAa1-At5BlWKsuSCodmZlMU5Tyre2auX7bpi3MONwiF1OO8mwN8wG3>
-Feedback-ID: i787e41f1:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Nov 2026 09:20:53 -0500 (EST)
-Date: Fri, 20 Nov 2026 15:20:51 +0100
-From: Greg KH <greg@kroah.com>
-To: Ginger Li <ginger.jzllee@gmail.com>
-Cc: vz@mleia.com, piotr.wojtaszczyk@timesys.com, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: gadget: lpc32xx_udc: Fix a race in
- lpc32xx_get_frame()
-Message-ID: <2026112029-eloquent-slimy-c43f@gregkh>
-References: <20260922065357.18103-1-ginger.jzllee@gmail.com>
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=YCXylLXu
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f04bea9a93so4716295ad.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:21:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1795184491; x=1795789291; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8kbIPnTNVoYxnzuCSc7WD/8P36oFIhxLoZp7Il+xHts=;
+        b=YCXylLXuGacjr7o0Nj79F2yQRaIici/FHZRxISZWCv/UwhQz2VuGPEp1KArPhA1hzC
+         EtNjTpC9GEeLrjlReZnG+jF9Icg+UPOaqACbrkcaOZuXDGeCEhUWhKp1ohWL2ccBEHJ9
+         XmWkwouL02hOYTa3Nc3O+8e7FD1AW/JRqthUP+LSlUoDcsJJXio9MT7lg1FnQ9pCuKpx
+         dW57n7UoS7zUblmhogpl4Lb0FOOdUV9zfK4RbnsaxRiz53NlVsLaRyOyPymHNlHHWq0+
+         rPyCtQJG+9ZEXuKX0pOcrxHCs2XVKHzJBoEE42DWQlZctaIM/7Pt8uBGW+Spp/TTvK4e
+         +phg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795184491; x=1795789291;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8kbIPnTNVoYxnzuCSc7WD/8P36oFIhxLoZp7Il+xHts=;
+        b=NT1rrrzWjqBlOFwPNAPj+sPkMhe7Kr0FSCOFEaPxqQ0AXdL4SJjCqM4sucgoba2RWt
+         I/Bwnti/h9gSp6V3BGYm+q10v7uvqrQiXeNvvcvdc4C4zvx5xZmKcKqyK4JnKNcN4xz6
+         SDS/3G5DvtTumvnaKya8NP2Qnay1zghaaE0L8sZwMEV7d/Ek2X19Ne4f284xCtX7KoCr
+         G5YfOw3P/Rf65g7sVoTSuPMIVXQNED6oCO++ux+04G2wVqBKiCYO3L7J3jYw+Mk9Omv6
+         6QT9nOosfEPnyyH8O19GmHqBFnmbUz+zhml0Z/fGmQffqPRlzhcemSXHx9vxKwoAQeuw
+         43VA==
+X-Forwarded-Encrypted: i=1; AL+hErFU8FJ3vm6+TDV/iU5ZL4Kr0F0FsUgiK7OszndVC5XzfQjnHPwTUWNB8v94cayJ5C/V2eA9Vz7l6V03z9A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9hL2bLxrVCzXHdbSeOqBWAwsf4IwXDCnR+s3AY2MwZsmV1t/J2
+	JZ/iIGpex3EjTL+kHwtl/L0YzLtuiQhWw1UTyd/O1Puv4nKhqw8f47K70lq2H67fu9c=
+X-Gm-Gg: AZFdTZf1pThMnblFlNPgfDHAFjzaBjhSLprSx30WvTUIo4g/1SYIgOpvgEVSGwxbh7u
+	gK9xNgyW6XBlG466+fgoJUrWYm53EaechvtciQyt+hkQyCce3u3wN1Y0olShI0mabz4mg/aHdkg
+	mwn3AXyK2RbIk2jJhGMw96EuSzTRjWJ2PRJXTrsNbA87PekC90sQIeBb/xxtFTEMnKmZDnf9eWN
+	K0u7hjs5bMrS6LJHHXkMdrdWR4ZTVOeyoKdRcz6qFOvSHwfx+aQqUt0gSnwEl8zWoJ+Y1RYDwhB
+	6i/+IfCXl7U/eclrcBZaFOkiypEDlML/EudJnrmp65uJa2ZfZmm28vOdHYsEDC7A/Ogkz3xp4JF
+	HQ1opnB/S5Mp/5dzEF8Y+MXczpQ039p13pFRxDViimzMaFXv+YNSpl+Hl6IYSfQhc6vVQAJubld
+	Qs1vcWosjV3SnF9uBtq5pIoUPLn7gGsSa3fOoAWpNr531+fAhPsxLz4VlD/27c2CVh8iq5YFDsW
+	DVqoAQYP6ZaA9x8TWCRXcxyoc21djKtTPsRwNrz8SVuchQaXdBm1NyR8UkimUEmZ9pmeXHsygoP
+	8x+HDsLa5viJvhJoj7OZPboeCxhMiA2Dm6P6
+X-Received: by 2002:a17:90b:442c:b0:3ac:aa8d:19de with SMTP id 98e67ed59e1d1-3b41c7d17d9mr3258685a91.3.1795184491524;
+        Fri, 20 Nov 2026 06:21:31 -0800 (PST)
+Received: from rmustafin-laptop ([27.79.41.63])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm4622229a91.6.2026.11.20.06.21.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 06:21:31 -0800 (PST)
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
+To: Peter Huewe <peterhuewe@gmx.de>,
+	Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>,
+	Shuah Khan <shuah@kernel.org>,
+	Jaewon Yang <yong010301@gmail.com>,
+	linux-integrity@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Rustam Mustafin <rmustafin@cloudlinux.com>
+Subject: [RFC PATCH 0/1] tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
+Date: Fri, 20 Nov 2026 21:21:15 +0700
+Message-ID: <20261120142116.1630010-1-rmustafin@cloudlinux.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -122,39 +100,46 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922065357.18103-1-ginger.jzllee@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Sep 22, 2026 at 02:53:57PM +0800, Ginger Li wrote:
-> lpc32xx_get_frame() tests udc->clocked before it takes udc->lock, but
-> udc->clocked is cleared by udc_clk_set() with the lock held, for example from
-> lpc32xx_vbus_session() when the session is disconnected, which also gates the
-> UDC clock.
-> 
-> When the test passes on a stale value, udc_get_current_frame() then reads UDC
-> registers whose clock has already been turned off.  Check udc->clocked inside
-> the critical section so that the state can not change between the check and
-> the register access.
-> 
-> Fixes: 24a28e428351 ("USB: gadget driver for LPC32xx")
-> Signed-off-by: Ginger Li <ginger.jzllee@gmail.com>
-> ---
->  drivers/usb/gadget/udc/lpc32xx_udc.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
+Patch 1 blocks io_uring as suggested in the v1 review of the base
+series. AIO is rejected the same way, and readv() and writev() keep
+working.
 
-How was this found and tested?
+The simpler alternative, read_iter/write_iter callbacks that just
+return -EIO, would also break readv() and single-iovec writev(), which
+work today as well, e.g. a readv() of the 10-byte response header and
+the body into separate buffers.
 
-> 
-> diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
-> --- a/drivers/usb/gadget/udc/lpc32xx_udc.c
-> +++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
-> @@ -2403,10 +2403,12 @@ static int lpc32xx_get_frame(struct usb_gadget *gadget
->  	unsigned long flags;
->  	struct lpc32xx_udc *udc = to_udc(gadget);
->  
-> -	if (!udc->clocked)
-> -		return -EINVAL;
-> +	spin_lock_irqsave(&udc->lock, flags);
+This series requires "[PATCH v2 0/2] tpm: Track the response read
+position internally":
+https://lore.kernel.org/all/20261120121614.978396-1-rmustafin@cloudlinux.com/
 
-guard()?
+On its own, patch 1 closes only the io_uring trace of the base series;
+the read()/write() race trace stays. It also opens a new path: the new
+->read_iter() lets vfs_iter_read() callers such as Coda reach
+tpm_common_read() with their own offset. Today these calls fail,
+because the TPM files have no ->read_iter(); without the base series
+that offset would index data_buffer again.
+
+Tested in a QEMU guest with swtpm and KASAN: the tpm2 selftests pass
+with both series applied.
+Claude Opus 5.5 was used in preparing this series.
+
+Rustam Mustafin (1):
+  tpm: Do not allow io_uring for /dev/tpm0 and /dev/tpmrm0
+
+ drivers/char/tpm/tpm-dev-common.c        | 72 ++++++++++++++++++++++++
+ drivers/char/tpm/tpm-dev.c               |  4 ++
+ drivers/char/tpm/tpm-dev.h               |  4 ++
+ drivers/char/tpm/tpmrm-dev.c             |  4 ++
+ tools/testing/selftests/tpm2/tpm_uring.c | 14 ++---
+ 5 files changed, 91 insertions(+), 7 deletions(-)
+
+
+base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+prerequisite-patch-id: 929c8a56f28a166a5961816bde23cb25204ac74a
+prerequisite-patch-id: 624623d00390085ca69fae7309aee60aa27b163e
+-- 
+2.52.0
+
