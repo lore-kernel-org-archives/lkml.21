@@ -1,50 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.203.187.110
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795167898;
-	b=IClwkpxgiXz35ADscdZLH2VBFkBPeymCMKqev+iQvTCOr266n9dU1FCui+mwrUOnhvMU
-	 IglrKn1iMRmlF1PbWwrQZ+h1CoZvRTEw9Xu51RXmckUOXY/9mxJHr7yljfDYf6TIL5dQR
-	 v0YJ2A5MkCjwOP29U1mHFWI7rAsmJVTe4F46qkLRKk2mrg7c1IMV4h6jLjl6M30Obm61b
-	 p/guXEUgf/DhiVpwlAmrgsSOLZE1X6PzP2zIokCJYp89BEvXThjfKG1yecTXGJFfGZ3JC
-	 u5bIK5/4sObggo+f2tli9KzkZQjM7cUHvXIYq2zaNF8LvaKMz3zik0FbKKV6sQvdeCw==
+	t=1795167953;
+	b=MZFBQ/1Ibbxl05/jW5wfbsyLultyuMyayX3BxNkudDs2UX1rMJe4RxK49VTIZVamdKO/
+	 ozmVcIrXDEJkH29aB9gCngViaIOYnButjiMu2SBf94DJumKbCBlHbf7ZEDECsSgiToKbk
+	 kEXYAnIiOQer9sIqghUF9F62XgU23JFEB5rbK+G4rLdadDLEoVRBzcqB5kuhH8ZIvoIfh
+	 ss/KdhyS5VUHuWux3kZvbsPJNbPDJm+O4DJmEwmZNRIvk57QWvG2aUcJSmgmkRsai+fqX
+	 xaDjTDVanf2P0MMtH0OeHEL5CIBtT2SIDSC4SVbqO/bgKByrC5Z4mjMExmXsD/jGjpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795167898;
-	h=DMARC-Filter:DKIM-Signature:X-Auth-ID:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Classification-ID;
-	bh=F5FWboMaK88fuBWtNI7cbS6MCyqBOyEKQ0c6VV+JMgI=;
-	b=Xfsnw0D0FzXdamOekhhg8bO+r114rIBw245jwsIHmTVCwFdYFDcrQCknYef4Qras9Wkr
-	 piTxpMfroqxUXFsowp9cq4yzelA59VPpbpBWpWm4ezqX2DTUepule67KAd/IdORD8TP9h
-	 D5B5/d0p7/5mprJBWrrgRb6b1iot0TBYXpv46I74nIMs2kn2EhgUmyKZKkhBkfDuL/zT+
-	 LUoJhJgG195p5Z/KwHrYr3hAGYH8dyEa+x2aRMfORvlIVI+D8ON1T7vtmICaiZb/m9R/f
-	 zyZIn3wtFbNoWK5ssuXNeavN14ZwUr7JNGQWK3kgSLpudbJWal0mtP1N+j76w3U+tsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795167953;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:Date:To:cc:
+	 Subject:In-Reply-To:Message-ID:References:MIME-Version:Content-Type;
+	bh=JFHD9SkIi5VJCArvPWS4nRA3Es9mY7tuwEEoOHhS0oI=;
+	b=C2UQ2f8fMcrD2Iwe48mX4blREhROEzbq5akZA/1qdrAZ+WE8HwSCQXlq3VmXyNKKsFIs
+	 wxgqLRUIMt1gASq2LsZsGXiSG6m+fCsAsFFOQoWIrD53MIgrrOipZI6NcB5uJw/IfrRr9
+	 OzudnV5nCDTO2cE9JciFC9KJxvFYEl03GOOd9d2cQ3RkGag+4iZWDUX9oNSoHFSPrucCS
+	 OPwHZ+Ul4lmOXpqHMCCpjcXr/MWeNIWAIQnj1+2oDPU83syGpuaKD7TS6jdLCyWDr6Gge
+	 xKL8/dkBdvse6c/kzyhgcxKCxtPtCAD11lg1J1JVx8413WSzosUQi3BZEdu7SZDxSMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mev.co.uk;
-	spf=pass smtp.mailfrom=mev.co.uk;
-	dkim=pass header.d=mev.co.uk header.i=@mev.co.uk header.a=rsa-sha256 header.s=20221208-6x11dpa4 header.b="YnEtRFu/";
-	arc=none smtp.remote-ip=173.203.187.110
-Received: from smtp110.iad3a.emailsrvr.com (smtp110.iad3a.emailsrvr.com [173.203.187.110])
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TiU2rgDw;
+	arc=none smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57BD4606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:44:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57BD4606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mev.co.uk
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mev.co.uk
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2789606A320;
+	Fri, 20 Nov 2026 09:45:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2789606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=mev.co.uk header.i=@mev.co.uk header.a=rsa-sha256 header.s=20221208-6x11dpa4 header.b=YnEtRFu/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mev.co.uk;
-	s=20221208-6x11dpa4; t=1795167890;
-	bh=AqrD+cEbs/eounHrHar+b5y5mRim/WHl/zuRHiy41bo=;
-	h=Date:Subject:To:From:From;
-	b=YnEtRFu/h9IkLxzdtlW9vF0oObopKzaQblsUtXMlEnYBSF2wK2BJJeDdK8I1ms/Ro
-	 G5Wi/gFv3ePcUuGM/gh+8fthCXvcRcmJ6FRHwVfd2ZGEMJDJFQ8X7CUbteWRJgzJLf
-	 GB47flDbi4AkiblA6VG9hddvEDDBIkxjhSwR2k8o=
-X-Auth-ID: abbotti@mev.co.uk
-Received: by smtp6.relay.iad3a.emailsrvr.com (Authenticated sender: abbotti-AT-mev.co.uk) with ESMTPSA id 1B1825145;
-	Fri, 20 Nov 2026 04:44:50 -0500 (EST)
-Message-ID: <cd79cc38-c094-498b-b5d8-4cc2f01d1c0d@mev.co.uk>
-Date: Fri, 20 Nov 2026 09:44:49 +0000
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=TiU2rgDw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795167953; x=1826703953;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=OIrT2TMMhf91zdOdYOZljSEXIwMa0ETIGVelH2cE1GI=;
+  b=TiU2rgDwOiEcLB1H7PpzbGNmgmz6vnjtdXqv9cvy7K/Qo7zfaHQtwfQ7
+   L33zXGIKFyCB9wsKf/zyP2+hdd3FC5vT0oH4Ms2OrHoQ0VEupWdcPjJpE
+   ebSIJuEdFYSgfOoDCfTBNTg+Hb+xL0WjzrG3hjGxBRq2jrJ87HWVXmMi+
+   KVp0lWjTLoEd1QI1YNV9MlxSop3zuhEWBR2ow1IRS1MqJAZ5g4Y3wwYzL
+   6TU0pNN6K2BDPoffYtYC1J2WGEh/vtSyFwNDvIQ78fRc3P+9FOZszhoYr
+   o06PHUqNtQLIOD8AFQAmA4rPsfc+/JVWM/KWHksEquKELSdjpv8yx2qQR
+   g==;
+X-CSE-ConnectionGUID: YHMg46WDS5au2I1LAWu8JQ==
+X-CSE-MsgGUID: 6ylut2zRSwaYXNemavWZTg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="3929156"
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="3929156"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:45:52 -0800
+X-CSE-ConnectionGUID: 1DUkpQpXQbGOLY3N7Ta/jw==
+X-CSE-MsgGUID: HBxS0tTpTAaTDeCAo4yLSA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,222,1787036400"; 
+   d="scan'208";a="10953396"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.244.16])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 01:45:49 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Fri, 20 Nov 2026 11:45:46 +0200 (EET)
+To: Zhu Jun <zhujun2@cmss.chinamobile.com>
+cc: platform-driver-x86@vger.kernel.org, Hans de Goede <hansg@kernel.org>, 
+    Dell.Client.Kernel@dell.com, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] tools/wmi: Check the Dell SMBIOS buffer size read
+In-Reply-To: <20261120061927.98196-1-zhujun2@cmss.chinamobile.com>
+Message-ID: <3cbdaae9-d586-ceb3-e035-5f734080b0a9@linux.intel.com>
+References: <20261120061927.98196-1-zhujun2@cmss.chinamobile.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -54,76 +78,77 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] comedi: ni_routing: fix SyntaxWarning in
- convert_csv_to_c.py
-To: Ilyas N <desobei@outlook.com>,
- H Hartley Sweeten <hsweeten@visionengravers.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- linux-kernel@vger.kernel.org
-References: <PH7PR19MB66586FC98045CEA8D5067BDCAF792@PH7PR19MB6658.namprd19.prod.outlook.com>
-Content-Language: en-US
-From: Ian Abbott <abbotti@mev.co.uk>
-Organization: MEV Ltd.
-In-Reply-To: <PH7PR19MB66586FC98045CEA8D5067BDCAF792@PH7PR19MB6658.namprd19.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Classification-ID: 09266d8d-8371-4fa8-a17a-ace8220394d9-1-1
+Content-Type: text/plain; charset=US-ASCII
 
-On 2026-11-19 21:31, Ilyas N wrote:
-> convert_csv_to_c.py validates register values against the regex
-> '[VIU]\([^)]*\)', written as a plain string literal. "\(" and "\)" are
-> not valid Python escape sequences, so with Python 3.12 and later every
-> run of the script (e.g. "make c-files") prints:
+In Fri, 20 Nov 2026, Zhu Jun wrote:
+
+> query_buffer_size() ignores an incomplete read, and main() can use a
+> partial size or reach free() before buffer has been initialized.
+
+Huh?
+
+free() doesn't care whether buffer is initialized or not, as long as it's 
+allocated?!?
+
+> Require a complete size read and return failure before allocating or
+> freeing a buffer when the size is unavailable.
 > 
->    convert_csv_to_c.py:47: SyntaxWarning: "\(" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\("? A raw string is also an option.
-> 
-> Python currently keeps unrecognized escapes verbatim, so the regex still
-> works, but the script will stop compiling once this warning becomes an
-> error.
-> 
-> Use a raw string. The resulting string is identical, so there is no
-> functional change.
-> 
-> The problem was found by compiling all in-tree Python files with Python
-> 3.14 and SyntaxWarning promoted to an error. The search and this patch
-> were done with the help of an AI coding assistant (Claude Opus 5.5).
-> Tested by checking that the script now compiles cleanly with warnings
-> as errors, that its compiled bytecode, constants and names are
-> unchanged, and that the regex still accepts all 95 register values used
-> in the ni_route_values tables.
-> 
-> Signed-off-by: Ilyas N <desobei@outlook.com>
+> Fixes: 9d64fc08f6fe ("tools/wmi: add a sample for dell smbios communication over WMI")
+> Signed-off-by: Zhu Jun <zhujun2@cmss.chinamobile.com>
 > ---
-> v2: Use my real name in From: and Signed-off-by:, as Greg's patch bot
->      asked. No code changes.
+>  tools/wmi/dell-smbios-example.c | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
 > 
-> v1: https://lore.kernel.org/all/PH7PR19MB66587C2BE5E8E94F693B4F14AF7A2@PH7PR19MB6658.namprd19.prod.outlook.com/
-> 
->   drivers/comedi/drivers/ni_routing/tools/convert_csv_to_c.py | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/comedi/drivers/ni_routing/tools/convert_csv_to_c.py b/drivers/comedi/drivers/ni_routing/tools/convert_csv_to_c.py
-> index 90378fb50580..d19101fc2a94 100755
-> --- a/drivers/comedi/drivers/ni_routing/tools/convert_csv_to_c.py
-> +++ b/drivers/comedi/drivers/ni_routing/tools/convert_csv_to_c.py
-> @@ -44,7 +44,7 @@ def routedict_to_structinit_single(name, D, return_name=False):
->   
->       lines.append('\t\t[B({})] = {{'.format(D0_sig))
->       for D1_sig, value in D1:
-> -      if not re.match('[VIU]\([^)]*\)', value):
-> +      if not re.match(r'[VIU]\([^)]*\)', value):
->           sys.stderr.write('Invalid register format: {}\n'.format(repr(value)))
->           sys.stderr.write(
->             'Register values should be formatted with V(),I(),or U()\n')
+> diff --git a/tools/wmi/dell-smbios-example.c b/tools/wmi/dell-smbios-example.c
+> index 1f3e7ab14b68..a4c63a6a0ee3 100644
+> --- a/tools/wmi/dell-smbios-example.c
+> +++ b/tools/wmi/dell-smbios-example.c
+> @@ -143,13 +143,15 @@ static int activate_token(struct dell_wmi_smbios_buffer *buffer,
+>  static int query_buffer_size(__u64 *buffer_size)
+>  {
+>  	FILE *f;
+> +	int ret;
+>  
+>  	f = fopen(ioctl_devfs, "rb");
+>  	if (!f)
+> -		return -EINVAL;
+> -	fread(buffer_size, sizeof(__u64), 1, f);
+> +		return -errno;
 
-Thanks for the fix!
+Look unreleated change to me.
 
-Reviewed-by: Ian Abbott <abbotti@mev.co.uk>
+Please make a proper series, with minimal, logical change done in each 
+patch instead.
+
+> +	ret = fread(buffer_size, sizeof(*buffer_size), 1, f) == 1 ? 0 : -EIO;
+
+Could we like write this so it follows the normal style.
+
+>  	fclose(f);
+> -	return EXIT_SUCCESS;
+> +
+> +	return ret;
+>  }
+>  
+>  int main(void)
+> @@ -159,9 +161,9 @@ int main(void)
+>  	__u64 value = 0;
+>  
+>  	ret = query_buffer_size(&value);
+> -	if (ret == EXIT_FAILURE || !value) {
+> +	if (ret || !value) {
+>  		printf("Unable to read buffer size\n");
+> -		goto out;
+> +		return EXIT_FAILURE;
+
+So this longer frees the buffer?
+
+>  	}
+>  	printf("Detected required buffer size %lld\n", value);
+>  
+> 
+> 
 
 -- 
--=( Ian Abbott <abbotti@mev.co.uk> || MEV Ltd. is a company  )=-
--=( registered in England & Wales.  Regd. number: 02862268.  )=-
--=( Regd. addr.: S11 & 12 Building 67, Europa Business Park, )=-
--=( Bird Hall Lane, STOCKPORT, SK3 0XA, UK. || www.mev.co.uk )=-
+ i.
 
