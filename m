@@ -1,72 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795145002;
-	b=l2RDy0YygRFJZe2EGWfmzPJP7A6rxrQq0sOLfJ3x0TY6web2fI0R1t50GLw9XuM6AiLg
-	 Ol5OQQcKffNA/z8FTxZVjxaAvfspGTm4xLz8WnB++MXIubWf46KxHSPeOxRTOA+KVe2hk
-	 CVoEbx8u7sCvZWWDe7nq2/MDV8krvryUd3JlWdf6wKYd9GwcdO8Pwut7jSRIakbL76szN
-	 B4UC5xEZAC7JH6hxXZt14hh3E8AFboMDRSHwQ/kpwZkQchemio4cA48hc2C9nCKUOGkiF
-	 MLb6emedMk0iHwIrbYmpKmKwXksiNSrRk39EHPIQOQdd98f6xbqIQR2br9NNe57llTQ==
+	t=1795145027;
+	b=RYBg6QrWGGFqeF/Cvhu3AMeN8hsUxFcAv7OyrJL0J1NAYM/F5WP/CeTHe8Yqz/S4drtH
+	 OryRTapIh5NxXm2keVms3DfCVKvzRritQeUsXQz4uvNEBIx3nBpNgcaoMzhRdRq++v5k3
+	 Bl5TUzTbxs33IY9hcuG9hrP4l6F6NCXUnfm6dqmQyovpVJhG8X/lRAJGkIiTbvovtjHOo
+	 PtKLbIZmE0xE5Cg8i1RfEcnmK7gyYIVIJ6TpO4o1bdG2ttMCVosTzN5ZlH65O6PusPXlV
+	 ydcDBYLL+kSRkPIouLJ5tSS6I9FsyTK0zPkSQt2mnYFjAoZKb5OzLJcCPIy5ZnYm4Hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795145002;
-	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
-	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
-	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
-	bh=QwSbqqhIeCd3lwJK3H6J77KqNCgiR19fVC1pv4z8yCg=;
-	b=nQJl5im/+5PeaW41OVMRuy5V00FB9hCU3FyCGc7vMJa6VrJ7ja+dgcQREmc3+Zw4+PPO
-	 e62pWxW1cxSGzf3lMPXtFQHaITp9pcvY+SXX8QxM+FYqm8yMKnUz0I8HSMlXMi9KuZf0y
-	 QOeRNVb3D32Zo+zh7SZfKGwWMmCkmYpMmmIJC+iBMPNLHeOR7pthcWuafTqzeIQ9JdS6A
-	 yPy8IAtaiy6NK6va7Ry+jxtYlhaSfhikLEWK0CYjkV6egXc8vs6SF5dGs21NsSfqWGD3G
-	 s/c+2v8b6tkIh6kyV92pdVna7On+rKp46CjTl1bNAA9TtjaV8Xyn2HsQt2iRUuJUueQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145027;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7nYL4hSIO74kr4TiC7Rkam1cn1cFWaksrMGkbt493mw=;
+	b=aRqSvREW24DbxDvacLu2O+/xE4npCL0jU0jHA1jiru/EEXFjFCP4GZF/oU9/MAfl7lcn
+	 hHMrrYKehNwj0V5IssmgMewMrWSmakwqixM1g1IbPsW2OWYEoRU4Aj1COqmbzbxtYNJY6
+	 rIWZVdKLy5GX/sEbV0EiiCtKXd5GvLrs7vmBCFvHmeBL8LYBpA2Iz7x1sruUnSyAB5nC9
+	 pp+iSNHsrUYIADvbyto70MiUlsEihP18fLUKPORrEnJZtKvnr7bNEKcyaGVYCmMgWvQnw
+	 WBYIGwFN8Ju4vQaLNbJBv9y+CeniVx6rGcYGskE+rZfVXn3zao4bu3KPt9neVk/XohQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=w6rz.net;
-	spf=pass smtp.mailfrom=w6rz.net;
-	dkim=pass header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=smRbKp0k;
-	arc=none smtp.remote-ip=35.89.44.33
-Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3815D60A2600
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:23:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3815D60A2600
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=w6rz.net
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=HjZEkKyl;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3F0BF606A33E;
+	Fri, 20 Nov 2026 03:23:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F0BF606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=smRbKp0k
-Received: from eig-obgw-6002b.ext.cloudfilter.net ([10.0.30.203])
-	by cmsmtp with ESMTPS
-	id U97XxEtLQAR1iUFDWxB4lT; Fri, 20 Nov 2026 03:23:14 +0000
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTPS
-	id UFDWxENuK8cn4UFDWxSqqP; Fri, 20 Nov 2026 03:23:14 +0000
-X-Authority-Analysis: v=2.4 cv=Qrde3Uyd c=1 sm=1 tr=0 ts=6affbd22
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
- a=HaFmDPmJAAAA:8 a=j10-6H-SaoHoQRfmf2MA:9 a=QEXdDO2ut3YA:10
- a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=QwSbqqhIeCd3lwJK3H6J77KqNCgiR19fVC1pv4z8yCg=; b=smRbKp0keZVyrUIkaO8OdNHX1v
-	XgWJGX+DNL/p+oMeAx/RJTNgqTZxQFdjupg541c8Vmp+4rPu1Q3fpZ3vwDVq6RwfQk+fvNHxdgsp2
-	+T1Z2lTzVu6Vaem6BNWD+LYB6yEGg+QO6Bm3i5v40nKPvZ2uqCMKcBsnJjyIKBD3kcDzcrK8nM+bD
-	zfUpQpUHOvCWN6pkvzQkh8h/L2k7pSQNsqXImU9jQtGFTSWTHSNnFz8+PX2sHPFS0udl3BODyk/Uh
-	d/BQfHllzkr+IPVjbuhipJvsw0m5HXPWRO65sGZiQgN9xA9zMiPn0hjVoJFS/aSfjvQOc7RVeXIdC
-	+BC/qGKg==;
-Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:55626 helo=[10.0.1.180])
-	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
-	(Exim 4.100.1)
-	(envelope-from <re@w6rz.net>)
-	id 1xUFDV-0000000185z-2FvK;
-	Thu, 19 Nov 2026 20:23:13 -0700
-Message-ID: <508f60eb-3665-4aad-bb85-8180d4330898@w6rz.net>
-Date: Thu, 19 Nov 2026 19:23:11 -0800
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=HjZEkKyl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=HjZEkKylCWcx68Qdtre67jYjfWUPljANgz4ETSqsZhu6j2NPfwc+i/e7OJdexYS9iSwcFm3X+MZX3
+	 a2IyHw6Tiwq/HwM9h2d0DWmS8/JGMN9tsoR7lpmAzsy68hB9SMh/cYm/BDMs6poh1ElRQzrbMlLLGP
+	 1QNmL2WuWxcfeoaw=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app02-12002 (RichMail) with SMTP id 2ee26affbd3b3f1-5fa05;
+	Fri, 20 Nov 2026 11:23:43 +0800 (CST)
+X-RM-TRANSID:2ee26affbd3b3f1-5fa05
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.net (unknown[223.64.113.192])
+	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46affbd3dd45-13b11;
+	Fri, 20 Nov 2026 11:23:43 +0800 (CST)
+X-RM-TRANSID:2ee46affbd3dd45-13b11
+From: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+To: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.org>
+Cc: Simon Horman <horms@kernel.org>,
+	Hangbin Liu <hangbin.liu@linux.dev>,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sunwenbo@cmss.chinamobile.com,
+	1342116488@qq.com
+Subject: [PATCH net-next v4] ipv6: check mc_forwarding before calling ip6mr_get_route()
+Date: Fri, 20 Nov 2026 11:23:27 +0800
+Message-Id: <20261120032327.18375-1-sunwenbo@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.33.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -76,63 +77,97 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
-Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
- torvalds@linux-foundation.org, akpm@linux-foundation.org,
- linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
- lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
- f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
- conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
- achill@achill.org, sr@sladewatkins.com
-References: <20261118150121.603863898@linuxfoundation.org>
-Content-Language: en-US
-From: Ron Economos <re@w6rz.net>
-In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.206.103
-X-Source-L: No
-X-Exim-ID: 1xUFDV-0000000185z-2FvK
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:55626
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 37
-X-Org: HG=bhshared;ORG=bluehost;
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfGm9eHic2ao2rP6y2eIQ2eHMPyzj8EcNSfkkkahysMWfyCG7Poyo9qBArU2CYp4QSB2dLd56SghCeo8cPWsKWckIKOx3Un/5PfdbOqT7dmlLm0hOuShM
- lRRn5uKIOyiK7fQ6o8rz01D2tEvRdTgUd0UPbUxtwy1I4ZrQLUEsCplNK7m2yiTWfP1HaUnVOikaFp9FBQuAnhie7FhMdbWRY1Q=
+Content-Transfer-Encoding: 8bit
 
-On 11/18/26 06:28, Greg Kroah-Hartman wrote:
-> This is the start of the stable review cycle for the 6.18.65 release.
-> There are 2151 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Fri, 20 Nov 2026 14:55:45 +0000.
-> Anything received after that time might be too late.
->
-> The whole patch series can be found in one patch at:
-> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.65-rc1.gz
-> or in the git tree and branch at:
-> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
-> and the diffstat can be found below.
->
-> thanks,
->
-> greg k-h
+When CONFIG_IPV6_MROUTE is enabled, rt6_fill_node() currently calls
+ip6mr_get_route() whenever an input interface (RTA_IIF) is specified and
+the matched route prefix (rt6_dst->addr) is multicast.
 
-Built and booted successfully on RISC-V RV64 (HiFive Unmatched).
+However, ip6mr_get_route() should not be invoked in three cases where
+the kernel does not perform multicast forwarding lookup:
+1. Multicast forwarding is disabled in the network namespace
+   (mc_forwarding is 0);
+2. The queried destination address (dest) has interface-local
+   (IPV6_ADDR_LOOPBACK) or link-local (IPV6_ADDR_LINKLOCAL) scope, which
+   ip6_mc_input() never forwards;
+3. The query requests a raw FIB entry via RTM_F_FIB_MATCH (where
+   inet6_rtm_getroute() passes dest as NULL), for which IPv4 uses
+   fib_dump_info() rather than ipmr_get_route().
 
-Tested-by: Ron Economos <re@w6rz.net>
+In those cases, calling ip6mr_get_route() falls into the cache-miss path
+(where skb->dev is not set by inet6_rtm_getroute()) and fails, causing
+rt6_fill_node() to jump to nla_put_failure and return -EMSGSIZE instead
+of emitting RTA_IIF and the matched route attributes. Note that
+supporting MFC cache lookups when mc_forwarding is enabled for routable
+multicast groups would also require passing the queried (S,G) and input
+device into ip6mr_get_route(), which is left out of scope for this
+change.
+
+Align rt6_fill_node() with IPv4 rt_fill_info() and ip6_mc_input() by
+requiring that dest is non-NULL, the matched route prefix
+(rt6_dst->addr) is multicast, dest is neither interface-local nor
+link-local multicast, and mc_forwarding is enabled before calling
+ip6mr_get_route().
+
+This alignment was identified with the assistance of an LLM-based code
+review comparing IPv4 and IPv6 multicast route get handling, confirmed
+in a User-Mode Linux (UML) environment, and verified in UML that
+routable multicast queries with mc_forwarding disabled, link-local
+(ff02::1) and interface-local (ff01::1) queries with mc_forwarding
+enabled, RTM_F_FIB_MATCH queries, and queries matching a non-multicast
+route (::/0) all succeed and report RTA_IIF.
+
+Built with W=1 on UML, x86_64 allmodconfig, and x86_64 allyesconfig with
+zero new warnings or errors.
+
+Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+---
+Changes in v4:
+- Converge the series back into a focused single patch and drop patch
+  2/2 ("ipv6: preserve ip6mr_get_route() error in rt6_fill_node()") so
+  we do not alter the -EMSGSIZE errno to a misleading -ENODEV while
+  ip6mr_get_route() still lacks skb->dev and (S,G) parameters.
+- Check `dest != NULL` (so RTM_F_FIB_MATCH queries bypass
+  ip6mr_get_route() and return the matched FIB6 entry with RTA_IIF) and
+  keep `ipv6_addr_is_multicast(&rt6_dst->addr)` (avoiding regression on
+  non-multicast matched routes such as ::/0), while testing
+  `ipv6_addr_type(dest)` against `IPV6_ADDR_LOOPBACK |
+  IPV6_ADDR_LINKLOCAL`, per Sashiko review.
+- Add UML tests for RTM_F_FIB_MATCH and non-multicast matched routes
+  (::/0) with MRT6_INIT enabled.
+- Link to v3: https://lore.kernel.org/netdev/20261116014744.18223-1-sunwenbo@cmss.chinamobile.com/
+
+Changes in v3:
+- Also exclude interface-local (IPV6_ADDR_LOOPBACK) and link-local
+  (IPV6_ADDR_LINKLOCAL) multicast and drop Hangbin Liu's Reviewed-by tag
+  due to the code change.
+- Link to v2: https://lore.kernel.org/netdev/20261112094630.197244-1-sunwenbo@cmss.chinamobile.com/
+
+Changes in v2:
+- Reword commit message for clearer tone.
+- Link to v1: https://lore.kernel.org/netdev/20261111094528.425826-1-sunwenbo@cmss.chinamobile.com/
+
+ net/ipv6/route.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 1b2dcc066e19..419161269701 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -5868,7 +5868,10 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
+ #endif
+ 	if (iif) {
+ #ifdef CONFIG_IPV6_MROUTE
+-		if (ipv6_addr_is_multicast(&rt6_dst->addr)) {
++		if (dest && ipv6_addr_is_multicast(&rt6_dst->addr) &&
++		    !(ipv6_addr_type(dest) &
++		      (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
++		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
+ 			int err = ip6mr_get_route(net, skb, rtm, portid);
+ 
+ 			if (err == 0)
+-- 
+2.33.0
+
+
 
