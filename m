@@ -1,68 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204101;
-	b=cPbds3atDy36L0ihSk77TamNnAK7sZruUzMlvLyzjwQRTkvVsboF6h2Rxdiku6kwyURW
-	 u776zLkNhrMgU9yzaK5Aj+7FG98gohzWqOXvkLSmvXpNBxVvflvQfRUS1lBjblHE9w+vv
-	 yz02FEGwkaoUjiZGdtSU0QzWaBr3f3Ii6VQ4xFVMSQ0dO5tmzqgxpa0LFvosYGWxvA4ra
-	 BT13zEvLD1D280LKPSDYpJoQBNheWYL+1ApS3cUPj9kA9n1hmTZbH3s8UrJwLnbIduIpQ
-	 /AIhOXUfqt9fH985XN/kb9V7RDyQCbooU17iXSsPSBMqhDObWrOUnXtIVQYE3xXqTOQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204101;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=lTIRHGIsznY2qaLBTMza940DKwA5VFJTusfkUBot3QA=;
-	b=r+2asBSYjrXu9RkA9udh2Xr6+iwv6am49zfywpqTJpprVrbqiYSe29CQOhIxckXmu3fl
-	 jqKZ+Ax2M5DGSiX1Yd0UZGR9D6imQ7+zrcTejECyWhZtZsDPwyaMmNTHKN8yTSaso5q6o
-	 cadthGEqQ2lIIEDHvsIKR5bRtz+pLGcgEs9KMGPmBH/aaNVSYptIlJmkzyBAuzfoQZAEz
-	 rphgZurUuzwqxpcu4ugaxh3qRvg1ymCqnSGE6GPswe1jz4y3lM9JkFhCtywmnquqAVV4k
-	 z8Jxu/zC9xBCp9afT82nKjOGX62Ty1JD4W9yQB4yyRGSIgozd3d0CG+yhvvthsUE1Fw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUVKXjex;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.48
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795204107;
+	b=QfzJDRW5jmjmP3jVufSkVS0WW8GygDpxZE8FiIjztYz86G8VRQqNQDIRi60Rqq+FaV2y
+	 WH1dSeQzMf9V4jPPD538oMgvF86SLqf2tI/IwzBFMoPlYc80vs8EY18K+VnJPofayhQAC
+	 dCxBEgG8EhjWORuygiEpopWh36VCo7K69qH9K99guGClcMWRKhXDoa9CT7PGq+vEiag8a
+	 +G2FtOZUADb1S6JflFrkX04A95tcZKrEpe7gmDzCtj8TSHJ3Gbp6xeV+E/7wnKpDDxQdG
+	 mpIFuoLHq20z+H4hfs94Ep3v6SRUjZg77nC1cQ7ETye6B7vS9pMP97McgSisHef1//g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204107;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=c6blh5iqp+XqRldK0j1ZrE9jN0viJk8gU5S3HIwCjIM=;
+	b=1g8Phhl8h8EDtYq9AfPSb63WY6KPSpav0bIqGKc1CKOl42J/8FB/s2bBlk6EWsQsFslz
+	 MqTyz44toOuzgEK+hngTYg6tJicHKY2S9aoqV/iRmTlx6sXFDao9enJA+GGuJtNNoIuNa
+	 1gVJYd0KivBLLtoiZaGS/ZrLpxUNTZ4hBLC7PSOChXItO9HzOMUEw1j10D9GT96CUVGSc
+	 P3GTIgxahzfXV8naoZ65ekVOtK4KipTsf9ns126SoIXyvXAWcu81ohXTQHd2euAnoV6ag
+	 tLNSoa6RqsNlbpEUTpvxqNbNzm46TiVBoD+1sMY8G0fIvYsF1wRufLBkgURkHi4V4AA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VbuIdWAa;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.48
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011048.outbound.protection.outlook.com [40.93.194.48])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id F1726606A6C2;
-	Fri, 20 Nov 2026 19:48:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 886C0606A6D0
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:48:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 886C0606A6D0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUVKXjex
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id D4EDF1F000C0;
-	Fri, 20 Nov 2026 19:48:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795204100;
-	bh=lTIRHGIsznY2qaLBTMza940DKwA5VFJTusfkUBot3QA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fUVKXjexFonf9dU21Lpuqw4t1nv+4UCxPyhPh5yCUtIn94H3d9bY2PNxArC0Q4jkX
-	 nmtuQ94+Tn5/f2+lp1+YNnHB3Mfnn5FYUuqbGIhpy/i+/A24CETpvGWGd1XAYUpOYa
-	 HyiEy2RFLLB9Nhw9Wu07kuRioZSkqlVcKB/2eq33xfhAeWx5Xujw6DMrb72KNAC2VP
-	 Jn5ZnV1eqZk/yHDbS6RfCVRMwRKzmclAyZ8xBuXTLaqMRqsbUspOte45Oz0Xc2bdit
-	 DjXejcN+agdIszGp3Ap/a699y1M7wLzB1+t2PihFMm+OK0viDa1wCzAslzFLP6Tkdq
-	 hcVtD1jJychYw==
-Date: Fri, 20 Nov 2026 21:48:16 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Alexander Mikhalitsyn <alex@amutable.com>,
-	Andy Lutomirski <luto@amacapital.net>
-Cc: Josef Bacik <josef@toxicpanda.com>,
-	Christian Brauner <brauner@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	David Howells <dhowells@redhat.com>, Jan Kara <jack@suse.cz>,
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>,
-	Paul Moore <paul@paul-moore.com>, linux-fsdevel@vger.kernel.org,
-	linux-api@vger.kernel.org, linux-security-module@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v2 00/13] Namespace for namespace roots
-Message-ID: <awCkANwNDox_99SR@kernel.org>
-References: <av3bkDnwmjunTleX@kernel.org>
- <CALCETrXPLeUgxyhjP4XuWS46FKB0TUHF5PcMkdMf+qeEXbyXRA@mail.gmail.com>
- <9463a969d35a7d5ec5a56aeb67644b94.josef@toxicpanda.com>
- <CALCETrXt-Do28BHDpbrA98kEy-tQuorxD8c2XsW24Tt8Vspdtg@mail.gmail.com>
- <CALCETrUbe8rBoxrC+Q66AMsrJ8Fow7xt5KJKRAmobtXBvHWdqg@mail.gmail.com>
- <c301fff20a4920fcd3baa31dda2e31ad99c93436.camel@amutable.com>
- <awBHZO2VwWyJzvBN@kernel.org>
- <1f12636403bb7af3759cd933b2612d8a5d7317a2.camel@amutable.com>
- <awBRyKgOQlaEqpWX@kernel.org>
- <awCg5VYXKJvex9vy@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=VbuIdWAa
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ySMtC5k4Yjxz4XTFIEpmL4moJ39JnDmUiPSF0Gp1+709lmoom+UNH7P3LBZKUqzzlTxEfTJMQUAokfO4ZklWx5/FpBcKgSFTjSVmTAmLyxTn6bLuX6IydXum1PjzTjp/vcTio98BieZfEuAC0EzsXgJRTz/cSzuIb37fhu5Qktg0Z/sBqZWv1m7c7AzcmiT2+jlcPWA3oE7LVmNkOzAgZuQn/Ca4HojO5bNNsnzO/I+1PzLDf9svjqAaP01J3CBkLJAiO+KJ8LJK+HIgcHpTBLOQt8AGmuXMKiYp7mIThXFI5HXSOqXfY+NXfuPA2mZ2I8+qQkRSkDEnNhaRa9yLtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c6blh5iqp+XqRldK0j1ZrE9jN0viJk8gU5S3HIwCjIM=;
+ b=FlrsKV77VCDlctG8IrD4/bTWc7GGubkPXs31+LyWDP1HxWnUlTjAAYyCz2s1QQNE1OXZ2OhSiHwSicaFmngx2wF1Cpjwnl6R3Rn9XXWjJn93kRiP1jJTvWaVsGPQi4Ea1HsRQbgE7M/a/sI+yCA1T8ugeQWs570itmeeH0T2QbScHs9nJ/KSUhs00zOqYzWAKX+hpQqVj11y8SXwCMsCWWwxSALBptuLuFsIMd9LvJ+5M9Lyf5ocBE2ukvAAuwpNABV5seSaeAsjqFHZ0p4ETnTGqYDGQa/WJrc3VVsS8CS3UcrsZJQpyR5AbnmTJ4s6IP01hR/dHSeBoMITyXnnlQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c6blh5iqp+XqRldK0j1ZrE9jN0viJk8gU5S3HIwCjIM=;
+ b=VbuIdWAa4ubbSq5qfOJL9rvWOyL7uHdc1vpBwswqWvhL86IfcjjzDXivC3MlEnQkcTHozcWyqo46xOWWQ0dXyGzEC3pgIqV/f7O3maVewd4DT/5WaflXSda4lEzDZcl6ndNe6yGmYlJafIvVuJqFw1vpsY3rn+oT+T/AF4GFLgQM50N8dOT7qCQmte/t1Jr2r8ONlfi+LNwIkZ93AbU2eyHVw3Qx6OncEf5a2I7lg6pcS4ERy++dnCjiAmI1yGtEwdgljXhwtoAHzJXwqDzFCCU+3FAgU4pBvIVAJFveaPHAcF1sdrd9XvZsyP19IIUB5AGoLUCrucND/TQVDEU+rw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS4PR12MB033229.namprd12.prod.outlook.com (2603:10b6:8:50c::24)
+ by CY8PR12MB7435.namprd12.prod.outlook.com (2603:10b6:930:51::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 19:48:21 +0000
+Received: from DS4PR12MB033229.namprd12.prod.outlook.com
+ ([fe80::d666:2f16:7d21:b7f0]) by DS4PR12MB033229.namprd12.prod.outlook.com
+ ([fe80::d666:2f16:7d21:b7f0%4]) with mapi id 15.21.0639.010; Fri, 20 Nov 2026
+ 19:48:21 +0000
+Message-ID: <cd2b8441-e438-46e2-bc2b-9623d5d6abf2@nvidia.com>
+Date: Fri, 20 Nov 2026 11:48:19 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v3] arm,x86,fs/resctrl: Generic schema description Proof of
+ Concept
+To: Reinette Chatre <reinette.chatre@intel.com>,
+ Tony Luck <tony.luck@intel.com>, Ben Horgan <ben.horgan@arm.com>,
+ James Morse <james.morse@arm.com>, Dave Martin <Dave.Martin@arm.com>,
+ Babu Moger <babu.moger@amd.com>, Drew Fustini <fustini@kernel.org>,
+ Chen Yu <yu.c.chen@intel.com>, Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Borislav Petkov <bp@alien8.de>, Thomas Gleixner <tglx@linutronix.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Peter Newman <peternewman@google.com>, "x86@kernel.org" <x86@kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <b06e1fc2-87f1-4004-8102-c8cc8928345c@intel.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <b06e1fc2-87f1-4004-8102-c8cc8928345c@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BY1P220CA0048.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:a03:59e::6) To DS4PR12MB033229.namprd12.prod.outlook.com
+ (2603:10b6:8:50c::24)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -72,71 +104,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awCg5VYXKJvex9vy@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PR12MB033229:EE_|CY8PR12MB7435:EE_
+X-MS-Office365-Filtering-Correlation-Id: af411025-2190-4719-f954-08df473f3b3e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261021121427099003|261026121527099003|261022105027099003|261026140227099003|261028144727099003|261102123227099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	oqMzRGtcNrjEJaVDHHFNoVClbZ2HRm6bcW+Pfb/RlkSSIoV7fJh/uJ0Sk9+RanBQyIl5EBdMlJtm3EUQrNFwq1Wx7i6tioofPCFCnyR9UePMrPxgM9531ULTKU/Am2aUR1QPDSQ+Roy8gB8sTGF/qQLqRs1n1C+y/dDIlg9dZUeYdT6t4Dsi5bdtXOmE8nglLA3BCzv1BCV8hEz7Et0N/l0QG8HpFuzyILNVpuizndAEYtARVmGVWgLMvvr3aLxj7mB5iTo6Ux2G1tAG10OhmNBm+fa+qrA+PwKMYolyqCaq/4UU1OtiUcMeHlQHnnoA3iO1sXbEgMjONyZgw5kLVxbxTX5ntrun++4aKNKt28HQ16hZ0YmPGirs62c41Gv1yq6+qN3uzZbQeevAvzdfVAgfRs6gyog4PD+a7aHp/PLcVG/CUeBU+nT9JhAF2UQxZczq1u/EqMZl3fBa+bJLyyalqDyavir42evqmzwYp+b8GlgUsybPVZ1TP1sW/VymgMiLFBXH34yzPzBgIZVLnO7DAeFf2aixqfjNWcBNyQNmbhcOycsqjVsFdBrKMAcJZ+OWxPXlbPoxQ61F3uRBGchPFUPIdi+qntHfDIs0C8P4sEEFiA8xKlDp7huq5w/whXrleWcmFjVlfP8VDNuZ8AmyfsiQDURp76c+wLP/hbs=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB033229.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261021121427099003)(261026121527099003)(261022105027099003)(261026140227099003)(261028144727099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?TFByaU12VUQyc3l5ODdvdVg0Wk1CL2p6MmdwUkJybVJwS1hmSWszaUJqMVRG?=
+ =?utf-8?B?NHRRT1RrakxZdE1ySkRHMVk1RW1UTWlrTnJzODJub0VLS2gvOEFoelUySVNm?=
+ =?utf-8?B?QW9mWEk3T2dueFN2TmptUVVGdk9hT0lPOHRtdW1IeVZsWi83Mm0vWkl1eWdU?=
+ =?utf-8?B?VWM0YVZidWQxRVRMSWNFKzNFOGNmS3cwaDVqSzJhNFZqd205Q04yT3lZQVhW?=
+ =?utf-8?B?Y2xLMnBkSWdzaG5wMXNTM1NqT2tmMW9KVG1MWkQ0NDFNc09FQ0lwcW4wbmY3?=
+ =?utf-8?B?dC9jdHg2bml5ZHRVVldpdXpHbU5qZFVZcVJOWnlBL2orelhMZEtKaVNubmdC?=
+ =?utf-8?B?VFZnSTFsSEdyT1F2Mk43Ynp4a1JhalI1NWFsVnovdE5GKzQzNzB2c2hUVEMz?=
+ =?utf-8?B?MkhyWStHYnNrSXorNVBWUGlGUzUzeFpjeWY5YWhhRE15ckl1bXJkN1E4OHB5?=
+ =?utf-8?B?R1B2Rmo5bll0L1dLdlRjSkZ6SXJobFlEdEpZbnV6UGJNVzkwZ3Y4V2hKeDhI?=
+ =?utf-8?B?NnN1QmF5TGVVa0tGVVF0UDhLOER1QWxwS3c1UVFTT1Bnck1WeFl2NCtqQ0V1?=
+ =?utf-8?B?V2RhOXg2SjZOamNjK0gveVlFY0VvUkhNVUx4aVFaSng0YW91TWxVNG4wVkUw?=
+ =?utf-8?B?MkhvRVFkN09TdnlURFdFNUNldCtHVWtiYWw5V3FqQVlVSGVkSWNlelNhcnBn?=
+ =?utf-8?B?MW1wbFNVTTN4MUdvbmtKWnptb2o3SlhwbW8xUmdLVXZWY0tSdDIrRXdVUUJL?=
+ =?utf-8?B?T0lyZEQzMlBoNHcxMTg4aFhnSW5LSWlXRzlNMEVFSGpwN3laZHNYWHpjOEFQ?=
+ =?utf-8?B?SGh2WklYaUNDdDBUMlNoMUp0dmpGSjhwZzFaOFJVbEdSaHg5bEJlbDk5NTJC?=
+ =?utf-8?B?eXZSNHovUmZFdTYzaGNxU1cvNFVGcCtJcGVQUEdodHNtR1IyZmRNbHZPTkRI?=
+ =?utf-8?B?VEJTd1JPVWI2Nk0vbnRNaENINUovZzJLRXMvd1FLcTNSVmIwL05zeERmTWpU?=
+ =?utf-8?B?YXNpZGo0RE5Gd0ljVjlDUXEreXdNL2p5ZGhiUXNxaTV1aWJxZWJINnYrWkxv?=
+ =?utf-8?B?Qk1wWWVlZXBnSXpnY1hYOW9jNVdHZjhmOG1SaEczbk4zbmhXaHJNWm95dldD?=
+ =?utf-8?B?YnNYZDZvTGVwTFF5WisxVUpZOGIwMWswTHkrdUpZL3lxVkRoays2aGhJTGFo?=
+ =?utf-8?B?Z3E0bm56RWg2RTlwQkVVcFpFcmorSzB6SVdCR2YzcnhyblhuWFhLeVlMejhu?=
+ =?utf-8?B?NkprQUVWdzRnNWlGa3ZqMk9xREovZFAvei82bkJ3YnRDRTJ3L2JpTHpOV2JR?=
+ =?utf-8?B?dzBTM3NPUlJXNFM3VVRaL3pNalRHa0hNUUJwdFFTSGx5WkM1T2hJSVphMG9t?=
+ =?utf-8?B?RkkyYit2Zys4K2ZUdXBaUjhVUUZUUWJ1cHZmeWpvWkFFb04wczRXd0g0T2Nq?=
+ =?utf-8?B?TTY4MFZ4NmF6MHNkRWExeWw1SytPdlFYSE5abS80VDI1eHlJOUFyN1FvUkJw?=
+ =?utf-8?B?K0ZOeGVhRExZUVdLQ3JsQzhhV3V6dktORnYzUGgzNjNsR3VERm5iVmM0Wi9S?=
+ =?utf-8?B?SmN1d2xFNGJwZ2g2NURqMERqd1VuRjRKOWlOcGVNd1NKK0NqQ0dhMHJReHZT?=
+ =?utf-8?B?RXBYbU9jajJkb0pMMitYUTA3VVJkdzAxaGxmQ2plMWx3QVY3bURvQVRYaVBR?=
+ =?utf-8?B?TzFEZTdYRVJ4emV3VDArcVMxbFF0c3BiWG1KL2VCZjEzSkM2TnVNOUpuYUV0?=
+ =?utf-8?B?REtpMzFZSUk1SllZb0JYVHZ6c0JXVmh2S1dPbitESnZ0aGhMVnozQnNXQkFq?=
+ =?utf-8?B?cEtGOURKNEFCdUJTdmdNN3MwY3JWa2lKUlh6T2ZBb1NMa0hXRFdZdTlNOGd4?=
+ =?utf-8?B?Ynd5Skc0RWtZU0pBbExURHEvZ1NIRU5NdWNtbzR3cUdUTDg5aEg4ODZsL3kr?=
+ =?utf-8?B?emxvTFJxNzN3NWNiQ2ZZeTlTcW1OZE1OTno4bVFwN1JzdUV6YTNrdzM3VjB1?=
+ =?utf-8?B?aGgwNGZoRTdva1N2ckc1alJjMFA2dkJjWHpwNEdOdk1wRlZCVnA3YVp3M1Ry?=
+ =?utf-8?B?bHBTUSt2MzhXbG1rWXpWZWkrWjUyRXRmanYzVmNXSFp1NW5sVnUyUzUzWjQy?=
+ =?utf-8?B?QWV3VTJjbS9oRUFtVHVyZUd1UldnazI3UUM5NFovTjRRREVhbm1VRTh2SWF6?=
+ =?utf-8?B?RFZxYytXMG1XdHh0L3RISXJxMmxVRmdFMUN1REU3Z1JSTkR2OUF5K2t1K3lk?=
+ =?utf-8?B?MmpYWHJVOGFncmxYK05pSVFVSkxQUlpzY3R3L2xtNGRzRDJZaGlnWmZkTWE4?=
+ =?utf-8?B?Q2xyeU5ldnRNQ1VKejUzc2hFMUpDdVoxZ1h3OXYxS3dRQ1d5L29GQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: af411025-2190-4719-f954-08df473f3b3e
+X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB033229.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:48:21.3731
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tyqz2KKzsxohHMqL4DB9MGBAsGKPIyZwUL5RqRsEGRsxmKisPMpZooPkTB/N4M4Ia/u0oJ43+oZrqaaEdSrFmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7435
 
-On Fri, Nov 20, 2026 at 09:35:06PM +0200, Jarkko Sakkinen wrote:
-> On Fri, Nov 20, 2026 at 03:57:32PM +0200, Jarkko Sakkinen wrote:
-> > On Fri, Nov 20, 2026 at 02:24:57PM +0100, Alexander Mikhalitsyn wrote:
-> > > Yeah, detached mounts API solves a security issue here, but it does not
-> > > fully enable the use-case Andy describes (if I understood it
-> > > correctly). My interpretation here is that to fully cover it we need
-> > > some well-isolated communication channel between container and
-> > > container manager (vsock for containers? :-D). And some well-defined
-> > > agreement of how PID 1 inside the container can get an information
-> > > about a hotplugg-ed stuff. [ But it could be that I completely
-> > > misunderstood and Andy meant something much more simple here. ]
+
+
+On 11/19/26 21:04, Reinette Chatre wrote:
+> Hi Everybody,
 > 
-> The sequence for hotplug (Andy's use case) breaks down like this and is
-> doable:
+> I believe that discussions around resctrl's upcoming support for multiple
+> controls are starting to settle. This RFC aims to capture all the remaining
+> items in implementation as well as documentation. Please point out to me if
+> there is anything I missed.
 > 
-> 1. Host creates rootns(ROOTNS_SEAL_MNTNS).
-> 2. Host sets uid/gid maps with NS_USERNS_SET_IDMAP.
-> 3. Host populates "/" with MOVE_MOUNT_T_MNTNS, optionally combined with
->    MOVE_MOUNT_CLONE for bind mounts.
-> 4. Host spawns PID 1 with clone3(CLONE_INTO_ROOTNS) (optionally passing
->    an AF_UNIX socketpair fd for communication).
-> 5. PID 1 watches /proc/self/ns/mnt via fanotify(FAN_REPORT_MNT |
->    FAN_MARK_MNTNS, FAN_MNT_ATTACH) or polls /proc/self/mountinfo.
-> 6. On hotplug, host mounts the filesystem via fsopen()/fsmount() (plus
->    optional MOUNT_ATTR_IDMAP).
-> 7. Host creates the mountpoint with openat2(RESOLVE_IN_ROOT) + mkdirat()
->    and attaches the mount with MOVE_MOUNT_T_MNTNS.
-> 8. PID 1 receives FAN_MNT_ATTACH and queries the new mount via
->    statmount().
+> RFC v3 of this PoC can be found at:
+> git://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git branch resctrl/controls_rfc_v3
 > 
-> ROOTNS_SEAL_MNTS, NS_USERNS_SET_IDMAP and MOVE_MOUNT_CLONE new features
-> that are yet to be submitted but they were not tedious to ramp up.
+> Please refer to the documentation patch for an overview of the planned interface
+> changes as well as user space contracts/expectations:
 > 
-> I'll include them to v5 of the patch set. Thanks for underlining this
-> part because that led to having those.
+> https://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git/commit/?h=resctrl/controls_rfc_v3&id=95ff9ff7430095cb7264946c944c750315db73d9
 > 
-> Architecture scales to this even if my choices to address these details
-> would need some adjustment.
-> 
-> The clear two-phase (build/live) progress with rootns sort of just gives
-> room to address stuff like this, and I have hard time to believe that it
-> would get much better than this.
+> Remaining opens:
+> ---------------
+> - Ben: I do have a question about the formula used to determine the size of
+>    a scalar cache control. Please see patch changelog of:
+>    https://git.kernel.org/pub/scm/linux/kernel/git/reinette/linux.git/commit/?h=resctrl/controls_rfc_v3&id=8695aab0997d5aa60e104374fae9701f51156c18
+> - MPAM only compile tested.
 
-A completely new feature is NS_USERNS_SET_IDMAP:
+Basic MPAM tests work fine.
 
-    nsfs: Support NS_USERNS_SET_IDMAP ioctl
+Thanks.
 
-    Configuring UID, GID, and project ID mappings or disabling setgroups(2)
-    for a user namespace currently requires writing to /proc/<pid>/uid_map,
-    gid_map, projid_map, and setgroups, forcing container managers to spawn a
-    live process before populating a filesystem owned by that user namespace.
+-Fenghua
 
-    Add the extensible NS_USERNS_SET_IDMAP ioctl on CLONE_NEWUSER nsfs file
-    descriptors to atomically configure setgroups policy and UID, GID, and
-    project ID mappings before any process enters the namespace. Enforce the
-    same single-write and capability invariants against both current_cred()
-    and filp->f_cred under userns_state_mutex.
-
-    Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-
-This can be obviously used race-free, and this is thanks to two-phase
-initialization pattern I have in place.
-
-Br, Jarkko
+[SNIP]
