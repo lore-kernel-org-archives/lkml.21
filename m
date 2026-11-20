@@ -1,46 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.95.11.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.146
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795199031;
-	b=eyPVQllAXCErPCdrSrMeSyLLGVm7iOkd3PYvRn+FGZc9cD/LhWUTBOVjWPKIY/Bg+Jms
-	 beNG7M1BL3dFWVz69qiA3Wb/0CYxF7/73kdX13Y+NcrZCgvwObhSaU1t2nNUicteWqr3n
-	 j+Q0PJPLGph4yjkUM+yeTkhZxI2B9zbgowSYkfnkwg+ps4OEPNAeh/ptDswunDRxLJ2cK
-	 BrTewKKepKLY8WlEJIEIbGAusgJBCLqUz6NovJFUaPoTYl/Zt1LHh/857+K6B5H27LwtJ
-	 VreYC3qVbl8DJZRftzNBTaWFH0IJJtGfQOCXaPYnC4eVCOc7l1reEtM6r5SPK3SeREA==
+	t=1795199090;
+	b=iJCp13kYn26XnXdyckcc3dixgpVapvwGM7scfvZGutkOQH33aLa7WqVCN3jTwEixdnNn
+	 /UKRj6bPvn0nZt2MxlH6qlQVEmR2+g0msAqkqtNbtQV3vXjyynzfjQI6tH2FCAyXvc4z8
+	 xoT/fEnN8jIgZSZZSkPfhDcpV4dRhjsjMyR+SnwDVWlrkr6A26TCabvKxoUzhuEAab2MS
+	 VwaqCHE5DG1UQriT2wYLS+p09Pip0xqfIgs3jgyyYh6h4NYTHSHtUu99r/KZYLJN6OEtj
+	 z6sRBNJpqpzZjqjIk3jVfnlaKvhxGsibTQYLFn9fMSoEZo2OOzTFmc1DmG6xN8lSuQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795199031;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent;
-	bh=M7NmYC/Iylm9myghHwqILim55SAUt9QrM+UZYk0eJlw=;
-	b=BSgEiYozvlrweuLDCtv3KC06n9tjyfQLyMVDgOM/bqDaj3P24qiakfLoltXEfFb4Au6P
-	 tcPPhC2j6CED7FLzQkwvLA1jjeENJuzDrewM2V/W7ViZU0wgkPM/Yrjt1U4S3QtQ4UYok
-	 CW3wPOts5syb80x8VYXcgZdulLvToCn7uiuu5taPM6cy+q9DwnOztq3HiIhaOYNRuYAbR
-	 KOpKGsk5RWKVdqo+SsW1CJ+PTdUN9x/dTaPZVdJyT+CZIkDnr+XB+16x1BkfR1NzDzlCS
-	 ZAksh8nprnCopVjz2WlTEfG95yGDwn0GMqwuLBWvDRCuR29KwdiewIQ/1mTzwpkr+cA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795199090;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=PIIDtE4edU/OQY26iA1OPctXW6xqxybU2sM7rsLpJco=;
+	b=QC1BLeerZQAvAzbT5oOl8mmlBkd2lF9nRe26Y26XxV945nC8APW0lBDC5Yb/foQpHFak
+	 sU5RUxr+sSiu2t0UoEo4F8J31WqN5pU6zlE6O8ijMRpXdziDbz56MfMNOPrPn/zpJ+jo6
+	 KlsgA9Zyq6vuzoxtAcy5yvT6vOAots/ZCRqzf19ZtOzeuekmKILFJBd/08sgRwS4RZG+v
+	 wU1RRcB0xF5//aDF714HSKHCpip+qfFNkTf5UYfT4tTho5wBAZKsWLEVxWoD56Q/spn/j
+	 4mdWcYmE6zfvjj3pAyb1WFd0vY9F1pSrLaUCi8Vrda2oA3EMKNUojWjhS+cwAN4h4tw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lst.de;
-	spf=pass smtp.mailfrom=lst.de;
-	arc=none smtp.remote-ip=213.95.11.211
-Received: from verein.lst.de (verein.lst.de [213.95.11.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jVhRnT7c;
+	arc=none smtp.remote-ip=91.218.175.146
+Received: from mta0.migadu.com (out-146.mta0.migadu.com [91.218.175.146])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C77606A32C;
-	Fri, 20 Nov 2026 18:23:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C77606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lst.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lst.de
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id CF9D068AFE; Fri, 20 Nov 2026 19:23:47 +0100 (CET)
-Date: Fri, 20 Nov 2026 19:23:47 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Viacheslav Dubeyko <slava@dubeyko.com>
-Cc: glaubitz@physik.fu-berlin.de, frank.li@vivo.com,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	vdubeyko@coreweave.com, brauner@kernel.org,
-	linux-xfs@vger.kernel.org
-Subject: Re: [PATCH v5 4/5] hfsplus: return -EIO from hfsplus_map_extent()
- if no extent covers the block
-Message-ID: <20261120182347.GD2183@lst.de>
-References: <20261118004844.3849979-1-slava@dubeyko.com> <20261118004844.3849979-5-slava@dubeyko.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C257606A333
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:24:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C257606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=jVhRnT7c
+X-Envelope-To: linux-kernel@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=7bYe9wd7HhUkjg17+eOnOTO+gnBeFLd88cIA6k1y3Y8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795199087; v=1; x=1795803887;
+ b=jVhRnT7cn5OhVwxLTsixFhnmLnXX317bGlMjMb5w2CP9Z4KQQGtg4t3yGoSIYhvdbnvYuKpa
+ vlCi3X6tr4i0WPhuwegN/VAJ6Sf6ZPPuV+MjXOjay+BvNheV9AtAHDu9eGXCjYAUq30RRxz9znM
+ 8Cmr2t45Iblw6NEXSpVK0bq0=
+X-Envelope-To: linux-kernel@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 9d8f2b63d07da3cb;
+	Fri, 20 Nov 2026 18:24:47 +0000
+X-Mizu-Trace-ID: 9d8f2b63d07da3cb
+X-Migadu-Flow: FLOW_OUT
+Date: Fri, 20 Nov 2026 10:24:46 -0800
+From: Shakeel Butt <shakeel.butt@linux.dev>
+To: Tejun Heo <tj@kernel.org>
+Cc: Christian Brauner <brauner@kernel.org>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jori Koolstra <jkoolstra@xs4all.nl>, 
+	Meta kernel team <kernel-team@meta.com>, cgroups@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] cgroup: allocate the inode for cgroup_may_write() before
+ cgroup_mutex
+Message-ID: <awCLBDApSWwDsBB_@linux.dev>
+References: <20261118230346.3700213-1-shakeel.butt@linux.dev>
+ <b8b2c07c12f5a156e2d72ab4ee4444cc@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,10 +70,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118004844.3849979-5-slava@dubeyko.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+In-Reply-To: <b8b2c07c12f5a156e2d72ab4ee4444cc@kernel.org>
 
-Looks good:
+On Fri, Nov 20, 2026 at 01:24:18AM -1000, Tejun Heo wrote:
+> Hello, Shakeel.
+> 
+> On Wed, Nov 18, 2026 at 03:03:45PM -0800, Shakeel Butt wrote:
+> > +	dst_cgrp = cgroup_kn_break_active(of->kn);
+> >  	if (IS_ERR(dst_cgrp))
+> >  		return PTR_ERR(dst_cgrp);
+> > +	new = new_inode(of->file->f_path.dentry->d_sb);
+> > +	cgroup_lock();
+> 
+> I don't really like new_inode() being called on every write, and twice on
+> every clone3(CLONE_INTO_CGROUP). The inode is often not cached but not
+> mostly. It's not a lot of overhead, but doing it the right way isn't that
+> complicated either. How about peeking at the inode cache before taking the
+> locks, preallocating only when the peek misses, and then looking up again
+> under cgroup_mutex? If the peek turns out wrong, it can drop the locks,
+> allocate and retry, so that nothing is allocated under the lock.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+Thanks for taking a look and yes, this makes sense.
 
+> Can we
+> apply the same shape in other places too?
+
+Yes, I agree, though I will do that in followup patches. More specifically I
+think I can do the same approach in __kernfs_fh_to_dentry() and
+kernfs_get_parent_dentry() for inode. For kernfs_setattr(), I think I can use
+the same approach for iattrs. Also I am working on allocating css for new cgroup
+before cgroup_mutex in mkdir wich will use similar approach.
+
+> 
+> > 	scoped_with_creds(of->file->f_cred)
+> > -		ret = cgroup_attach_permissions(src_cgrp, dst_cgrp,
+> > -						of->file->f_path.dentry->d_sb,
+> > +		ret = cgroup_attach_permissions(src_cgrp, dst_cgrp, &new,
+> > 						threadgroup, ctx->ns);
+> 
+> AFAICS, this changes behavior under Smack. Smack labels a new inode from the
+> allocating task's creds, and the allocation used to be inside
+> scoped_with_creds(). Now the inode gets the writer's label and the
+> permission check runs with the opener's creds, which can fail when the two
+> differ. Maybe the allocation can use the opener's creds too?
+
+Thanks for catching this. I will make sure this remain the same in the v2.
