@@ -1,90 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795204567;
-	b=CF4+XG6e5L0WQi8Rz3GHJPbzDJ/cHaCIV/F9qdaEs1iBPLHR/adP2+SuAgnYAndATnl2
-	 saFm9mZ1Kxszp2KZQO3BB9kammhBbCHDt+qGTVgIcTviQOhfNqoaeXkNFQ99W/rTQ3F9c
-	 s3SV6GPVvneSwyv+z/Fj3flYz266j/CwwIwoTk6SFGLYm5PzowIENwJKnzFXpubDW77l0
-	 S8E/Fy4hZsItlYTlWPt14xlAuiB9apZyKKqCQsvNSKsDYGiQ67MBnnxc7bnEJl104dGSM
-	 K1k5up+3uYgcvG69DBLDF4Hzn4NnDDvkC5SWwighkzEEaVGXqw5nTiSeQCZ7JfNti1w==
+	t=1795204587;
+	b=y/cUXjBSelRxS//Kw8iH6qYxALSx8T43cvs74IBmIxQZKq1IZGnEVGRgXVAbykoNQdxd
+	 Q1hF9w2ygTWcB0cZHlDpaQOtH0aIeKl7z6PHwik/lHGzVcxHtT86pUJ+NxwApskhQIdTm
+	 aXb7Isks3DpbbY8zYzcpsKSAHQav1iT7bQBJzVUmKwAQmLqlvY//Z5MeodFLc5Pb8QWw9
+	 0swm4C3l2MAakWTO/R8N71ptguEKcso4ntreVFnpicjFopbTRV6Ft8ZpjYqGhvR/d7VgD
+	 yaCt2bGBn237gV04NOGbX8v+O71GiyK+EkKwuXwXF5BcRV3GZgdCtTYfcmZUeTdL8GQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795204567;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=T1YY2FHyplvq/pdZvQrVAOibFr5kT7poHAqRS/xwvsw=;
-	b=qHsRfqgziHa/KtGCbRsqOxdiI0NUjypXkRC5BPE5DCLbnSo83pBAjOiIRD67Pq914s2v
-	 t0QoPkOhzr4AEjdLd6fYzrD7JsPl/jpj0II+Y9F/wspAfUwGyVKZsuMAED47+J5Bhyas9
-	 /JBwHDfDE/oGMk+bxfqeJZn9ODtv6aw35eyMmvhhdpQ9qpWnFoN/R2i01s5nvg2gMi99A
-	 naTNWRZpa9vl/89dqRhBMe4qxeQezACrjOlLNybGbpDcUH9ktmDYgDTShlHuBTAMEl4MZ
-	 fgxbSBH52r+mrSHhxh4Mtfidhzwk4DYl+uRb0B5LcisXEnlwwMUtEA0qJTVFZmYIH3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795204587;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=jttWHcN3Lx/YqX8MrbxqckD48EazTafTDyqhRLhuIs0=;
+	b=2rngTLZpyiQT/KMFoWNsP2sz5Q0UeKdtLbtYk4u4aHiUI9o6L7hprfBZdVwZqoibi/Om
+	 JaMUhA0AlmKw79zD8ivcVW9MYXY2l6oCG/OV/7GXrnZZxpxSDCbdWFn8OEO/Q7Mc4Howd
+	 igPeWTVESKVc6BHJaXwcayZOa4/c6dITiVvgsh6rOzaWXMyJ+/jpHdjsp2N2H1/1BlEBw
+	 pIjY62V5tAK9feduibrZYMiyDyVGAhcY6n5xtqQyqBiEFeIvmFYDWGSWtRan9EpZWPC+c
+	 t4dG+/pwVwb9gFGgs5WBe3a54OnC4GFfimSORyjQc7y8Glz1JQeLCzeA0b0f2h2LXZg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzYP8RSr;
-	arc=none smtp.remote-ip=74.125.231.130
-Received: from mail-oo2-f2.google.com (mail-oo2-f2.google.com [74.125.231.130])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=56QyAMft;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5E2B606A6FA
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:55:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5E2B606A6FA
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E841606A6E8;
+	Fri, 20 Nov 2026 19:56:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E841606A6E8
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzYP8RSr
-Received: by mail-oo2-f2.google.com with SMTP id 46e09a7af769-862a50e0f92so116255a34.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:55:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795204555; x=1795809355; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=T1YY2FHyplvq/pdZvQrVAOibFr5kT7poHAqRS/xwvsw=;
-        b=JzYP8RSr0RUVPIvBwjnLkqXT9trk1vW54gJTZQq/ltQXnUz562+0tZ2TAk1ZnbZMMj
-         3UWLnWJtIco6+XBG8BR4Sf3WGHI4nsJfznMphFjkYnJE2ZCsOiMSByXhgS0rNwAoA8AL
-         6ZEyKaS5M3c3ruiTAaE7Q5MQ+nIkBqYort/eV4dSKJ+D/hFhdw0tRt4GE9iey0E2uU9k
-         +wrhSn8YPiHrt9JvnhlhKTctUlxYcVswQM4u6z52cx45Q4KyKkmgyDwDFRwzuoVjF7Hn
-         ZAzRtBOIxCGdGb9ThVqsTqKjsV5j0fC0qpEGCmMO6EH0coT3Ei5i3mHAtDFx9btwOohg
-         jLGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795204555; x=1795809355;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=T1YY2FHyplvq/pdZvQrVAOibFr5kT7poHAqRS/xwvsw=;
-        b=AbErp8TnlCKAdybHZHfoqS57idAjSgGNprcn2LYkmH12nkQzZIh35F4pU4nZS0Q43K
-         qtDjkVZUDen73jNFBBVZWvCloRMVVsGqtGyspOGqUNEOPH8Gb/9VnMqpRKaFvYyDqe0R
-         Fi1X4cMqMxWUGNXaUdvLyKMplxugke3DOX+ZHR0i4BWbmHJg8q6QzW6eTdUTucqwKvOu
-         5I5JF04+kk8Pn59N/8FZOIRglGWL3YxXz+jUTs+MiNVkbVMVMwP8agEh0VFvBzdNmI27
-         Ygt5gqzXgwcIdwHbZLYiCF5GZdUoR4fBZUM/DaEIuiyB+8WHRK0KiB8/lnXC9U1AOyxW
-         ylyQ==
-X-Forwarded-Encrypted: i=1; AL+hErHbUWHjr2TcRjlLoahctpPv8asws0cLjUE9OuELEn6nDAwzNolMnH5aInMN4Ip6+eL6tzsv23rBHuHEhHQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98zQFBa0XL50bD2sKgoR/Aq7CUJY9evNbuuslCdx71J5x70yl7
-	WdnsFeMyzaqUp+FtWg8grIKj0rIxrZ66stDs1S8/2F0A6k1HcM2o0YYs
-X-Gm-Gg: AYBFou2JL8zctdbxN5YjiVR94NoPpeCnra6PeIGRTy9AAp+H+8qSH/lRw3Sup6DSxWd
-	XQk/1XYwCDo2q1eIinktwWpc9qY2CwU1kzjHfFDjCkaNlFy4YIRI9oAAlktO6aYslb0gqft7/k+
-	P68DZn6XrabrfDiiFgEnfyCsMDtcD4h7gyjXvh2E27JD2j5sV0IzS/naEF2M8h/9XFqf1Ovm4cd
-	ZbVYGINDgRPxo6yNmPR5LDw6/9Wlq8IuYJsjw3nIFJBZV0Qg12z2e7VcYz3Vn9BvojnKDLhjqU0
-	gFMXbA/LvHbh/7MvR29SIl5oeBnKMt8FGkO/ICl5LxOuIhPzgX9mf11LQuDw2ZSrjpqZnHdNCtW
-	R2Arcx+bTb3SSM/MJh0UnXVX3wovt9dcSq55v8u4gv7mvI0zW4hMF9FkuTeuyrYd9r/8l3kNCHj
-	n79Zn6ZqX6ROymobJ1NqAsDQyLDaBVhaK90k1ecJP2Rs9dSsWN3cHNJWJCJp9aGqkl5cYTxnSrK
-	q5rPIhzn/abNawgnhyFHoVOPEvVEx58qJAv5gWXf98Tm8ryHgSkb/9zNpZFUDwfXSwLVHwEdIgp
-	IMiROk+tGqAsyKpQFMyOtvFcuWWt/YmWoFhO6rdD66XX0qSvXdJMSfYqSymjVqubB0c8mpppr1n
-	19qY3BcUmbFtZFo3cVzY=
-X-Received: by 2002:a05:6830:2705:b0:863:588:fd47 with SMTP id 46e09a7af769-8631565526cmr4713565a34.16.1795204554951;
-        Fri, 20 Nov 2026 11:55:54 -0800 (PST)
-Received: from [10.10.18.223] (wsip-64-207-253-118.tu.ok.cox.net. [64.207.253.118])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168dcf38sm2703953a34.9.2026.11.20.11.55.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 11:55:53 -0800 (PST)
-From: Ryan Brue <ryanbrue.dev@gmail.com>
-Date: Fri, 20 Nov 2026 13:55:42 -0600
-Subject: [PATCH 8/8] media: mediatek: vcodec: Refuse a format change once
- buffers are allocated
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=56QyAMft
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=jttWHcN3Lx/YqX8MrbxqckD48EazTafTDyqhRLhuIs0=; b=56QyAMfteX5gb32fdPnkmUy7fY
+	DMW8mpXWCenxb+reYE9o2DxAL4Fhmrwq82GeG3M8wCnKAiUcNDSyZgAycBlyNIX7lx63ydcyLMnsL
+	Htzvj0bKh+YG+4fMXw7FVaqJs+bQ5HoSMbtwYWgcW2JBatuVFihlxLpBIKU2c+21CsgI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xUUi5-000MvO-DG; Fri, 20 Nov 2026 20:55:49 +0100
+Date: Fri, 20 Nov 2026 20:55:49 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: David Heidelberg <david@ixit.cz>
+Cc: Karel Balej <balejk@matfyz.cz>, Brian Norris <briannorris@chromium.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Johannes Berg <johannes.berg@intel.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Duje =?utf-8?Q?Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
+	linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mmc@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
+	phone-devel@vger.kernel.org, Jeff Chen <jeff.chen_1@nxp.com>,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+Message-ID: <20374af8-2f50-4637-b92a-4fa5c5192c20@lunn.ch>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+ <afI8y70U7wFT_07h@google.com>
+ <DLQ9LXDE2P29.248MPYCJMT0DL@matfyz.cz>
+ <787950f1-ff2f-4b49-b164-61da3c9971c6@ixit.cz>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -94,81 +82,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v1-8-877dea14c3d0@gmail.com>
-References: <20261120-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v1-0-877dea14c3d0@gmail.com>
-In-Reply-To: <20261120-rbrue-suez-upstreaming-mtk-vcodec-mdp-fixes-v1-0-877dea14c3d0@gmail.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Yunfei Dong <yunfei.dong@mediatek.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Minghsiu Tsai <minghsiu.tsai@mediatek.com>, 
- Houlong Wei <houlong.wei@mediatek.com>, 
- Enric Balletbo i Serra <eballetbo@kernel.org>, 
- Eizan Miyamoto <eizan@chromium.org>, 
- Francois Buergisser <fbuergisser@chromium.org>
-Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Youngjoon Lee <getfeus@gmail.com>, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, 
- Ryan Brue <ryanbrue.dev@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795204536; l=1950;
- i=ryanbrue.dev@gmail.com; s=20260906; h=from:subject:message-id;
- bh=uxN8uWXPPsDNnitOTveJHbSyY9I0K+Jb1iUDHWdG5+A=;
- b=EgoxeLDbz0VfDWewlqSPzl6zYQWyndby+MOiqVsid5yzHe2cY8RvYuopyUvIg4MUWXFHgC1EY
- tUWmrjd4dQXCfC327gZfBpckWNpOajpETTR0BjM851h3zRyGb+5/mms
-X-Developer-Key: i=ryanbrue.dev@gmail.com; a=ed25519;
- pk=KsUvVaP//v/2q+ZBuacc7cLbsyEYn+AD71Sn28oZWKo=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <787950f1-ff2f-4b49-b164-61da3c9971c6@ixit.cz>
 
-VIDIOC_S_FMT on a queue whose buffers are allocated sets the result to
--EBUSY, then goes on to store the new format and returns 0, so the
-client is told the change worked, and buffers allocated for the old
-format are used with the new one.
+On Fri, Nov 20, 2026 at 03:47:48PM +0100, David Heidelberg wrote:
+> On 27/09/2026 19:12, Karel Balej wrote:
+> > Brian,
+> > 
+> > Brian Norris, 2026-04-29T10:15:55-07:00:
+> > > > Brian, what are the options here now? Would it be possible to make an
+> > > > exception and accept the patches without the firmware being in
+> > > > linux-firmware? This is an old device with no mainstream audience
 
-Return -EBUSY there, as the checks intended, and log it at debug level,
-since any client can trigger it. The CAPTURE check applies to the
-stateless decoders too, which now also refuse S_FMT on a busy CAPTURE
-queue, as vidioc-g-fmt.rst asks.
+Why even bother, if it has no users?
 
-Fixes: 590577a4e525 ("[media] vcodec: mediatek: Add Mediatek V4L2 Video Decoder Driver")
-Signed-off-by: Ryan Brue <ryanbrue.dev@gmail.com>
----
- drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+We have to look at it from the perspective of Maintenance. If it gets
+merged, you have to expect a hoard of LLM script kids descending on it
+and submitting patch after patch fixing theoretical problems. Is
+reviewing and merging such patches a good use of time for a driver
+with no mainstream users?
 
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-index 1223738ece4e..71db692ed848 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec.c
-@@ -493,8 +493,8 @@ static int vidioc_vdec_s_fmt(struct file *file, void *priv,
- 	if (!dec_pdata->uses_stateless_api &&
- 	    f->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE &&
- 	    vb2_is_busy(&ctx->m2m_ctx->out_q_ctx.q)) {
--		mtk_v4l2_vdec_err(ctx, "out_q_ctx buffers already requested");
--		ret = -EBUSY;
-+		mtk_v4l2_vdec_dbg(1, ctx, "out_q_ctx buffers already requested");
-+		return -EBUSY;
- 	}
- 
- 	/*
-@@ -503,8 +503,8 @@ static int vidioc_vdec_s_fmt(struct file *file, void *priv,
- 	 */
- 	if ((f->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) &&
- 	    vb2_is_busy(&ctx->m2m_ctx->cap_q_ctx.q)) {
--		mtk_v4l2_vdec_err(ctx, "cap_q_ctx buffers already requested");
--		ret = -EBUSY;
-+		mtk_v4l2_vdec_dbg(1, ctx, "cap_q_ctx buffers already requested");
-+		return -EBUSY;
- 	}
- 
- 	fmt = mtk_vdec_find_format(f, dec_pdata);
+Does openwrt support it? How do they solve the firmware problem?
 
--- 
-2.56.0
-
+     Andrew
