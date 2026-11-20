@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194377;
-	b=j+C+sIy/oMO6XVbpUGuJlbH/0e8sSIcd6UM8NcVRKWqS4VfGiaw4RTUkZxAGwcZZH9CO
-	 dyz9pgVtBJautNlkGu8mGsEJyWd1YpIL5q0x+bRSexv4jTiMzowXfebgMOnhwDLACSGDn
-	 Nh6UOuTpco9LWmp0aGB81LRYrlQEAAYxRitejEPdx9AFqN/hrSjFzurrpBncpmLe+E2Cj
-	 U9ADT4mVSXielFHfOfzMUQPDOQcFbWNpQVinS/9JH7p92JHJAdik0325XfjsRyLgKLWin
-	 fiZWQIrk0zBYPU/nv3SPmdGdG6HzpVquBDTaTAUb1Xwf2LomrOVv/UOiPnBUH2rYeKw==
+	t=1795194386;
+	b=ktCn+1qNuOliRSOV6ySQYBqYeWr8qF1cEkuT+3oyN+yKRhiAbYFAKs3ev8kOkR4+w92i
+	 C6LstJmnwEpeEEe9SNoRv/3Ft/NFb0lVXDayCNPT39xpeHVOdOxsSdSyI9D8uFivhJ5vN
+	 6OGEDDkFwoCpXWrAiHVI0a+iJGceVqexYNRP05aI8Vhy7U4sLxk2ySrYq5mtevovcOEWW
+	 c4HYfJUTp3kC8ThCfkLO9Pq6+l6cghn5XXUlEhTHehVoHaTBsvZK78ckzBePtTuxkwE63
+	 a9GIkh/a7ogFpIHwDF/SqnkcNOVA2pRFilvQk+6CC9LUWieFYXranUbKrMXhSGjXasg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194377;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194386;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=QJIuaIcUlFwgPAeIW7modytfqqgvYicvIdLEq0gxUOI=;
-	b=Q04ciX4s7KjRcxvN+UwriuApL9LB2CeZf2CHcZrkkvrjPBf1xs69RYcLAlQOljwFBJYf
-	 c8VTvl3Qmf2qCOzl00YLdZCGf6edUo3Ppd5nbrfDKCTRXE4fjzKNO0/PW/htUWmflOZa6
-	 x5G9BdTRTtj+o+7IrS30oBWSzEP9Nylr59ZCYBXpbKZbcRAGzqZyTUzl/mNW/pgwt+3pZ
-	 ykBriIrl9l4I7AX8o5VH1ZgmNSLOptj6ai1hVp3jGyciaQ0uk194466QmlatCVuLDDj9/
-	 d1fbF78G2rfvIXDY4gf7V5/1VeRn5ofgDM0aTU7mQEnV8hxZ14P+jBGoEvMq2UQD9IQ==
+	bh=wvJ5wx0ljZWn2Uan8bUWeEgSu9LOhTAyonr4w5yvZmI=;
+	b=Pw7c3zCxfWoGNF21lChiCp8UMqDydD4QtsBEbCgghqczrUljxkv2Hk4titsedC+tDTxL
+	 mDlp2YpPJWHLlXZ/WyeN91vTH19QNSjnlD4/iiJoeAIBae6PbfFFHpPMcdrQ1yPFutmbC
+	 fJ+kVzXRmr/EUWcO9u0rk1fsVRn+wNpfZvqDSH9mp38IFPXZdOof0vv63LhdqKjLEd3gJ
+	 0bgEd6a/iiIDn2tmUSW/tQmGdnamHbN3zVGtIg+v1ZKNfe0EnKSlySjhxe39lGI/63sRA
+	 JB1dYAFNLCEWLjMIh+LM/GxndVCxQEl72UUBYyHOuuCdETtOArz7LtfSanpG5sYWWEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gyPTsj4h;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="N19O9/Mg";
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 086B860A2607;
-	Fri, 20 Nov 2026 17:06:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 086B860A2607
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51AD560A260F;
+	Fri, 20 Nov 2026 17:06:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51AD560A260F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gyPTsj4h
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=N19O9/Mg
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 51BE0C62220;
-	Fri, 20 Nov 2026 17:06:19 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 1C7D11A16F7;
+	Fri, 20 Nov 2026 17:06:22 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8C2D7601B9;
-	Fri, 20 Nov 2026 17:06:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C9ED611BC0451;
-	Fri, 20 Nov 2026 18:06:06 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E00F0601B9;
+	Fri, 20 Nov 2026 17:06:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5C72A11BC04EB;
+	Fri, 20 Nov 2026 18:06:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795194368; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795194381; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=QJIuaIcUlFwgPAeIW7modytfqqgvYicvIdLEq0gxUOI=;
-	b=gyPTsj4hvzYCe2KqNMULXqvqRVSK7isQo3efJ4NOXx9BVA/+qWSjmwY/6ilw7N9ApcFh4X
-	s4iGFYPBO2CI9r5la42+PSIMHB06wUELNvFmqMXxTSWzG9oX/FuXFZUcjWBz+52LnBlO2Y
-	6rBPQv9WsonNpWyIvmw7xy5AEVBzVJvrdL1UCRkGJ7O+XqOwhAF4gK/Z/oypOlwlOkidYr
-	9cnAx9E91oLmYI/ZixFm7yO0MlmW0AV01/FLv0Uvp9C2OhiGCkPFEAN8K8/8F569IkmYcP
-	zw7Pmp0pwmAcOtMnr5RFFhzn8/LexNYZ4kM0DZxvGGmLVfgcu9WAz4KuOuDl0g==
+	bh=wvJ5wx0ljZWn2Uan8bUWeEgSu9LOhTAyonr4w5yvZmI=;
+	b=N19O9/Mg6eD7VkyHnxwn07P1vlENAshr6S9bm4pmHLYNa5ltIRyuvKsyU22/fyamkorv2s
+	f18OW9I0NSA+u1UZBeQu3ti350mWLybgsMzLgWy69vM4g8xmuVCUz89K6v6rHq5iZFLZMc
+	M/DZ/5AkuMekP0xbOsOJVY3/7qYzwfnp+NyYhgWYQE2HAGewiC6Zbx+GmrJXcI6cOXdEsz
+	ZljFXsvmvipB30A1UZoFNzEb0NjUQSd2Yx8i9k0NmL1Rf1KJOhSMqm321m6dQ1HR9+7y6x
+	oZGzgcQRVn4MCkJP8ArEp3GvrHHVRSDL7th7Y9Bw0Nnt7pOPhska/iHLsFPJbw==
 From: Paul Louvel <paul.louvel@bootlin.com>
-Date: Fri, 20 Nov 2026 18:05:40 +0100
-Subject: [PATCH net-next v3 1/4] net: phy: marvell: move mode configuration
- into standalone function
+Date: Fri, 20 Nov 2026 18:05:42 +0100
+Subject: [PATCH net-next v3 3/4] net: phy: marvell: factor out EEE errata
+ initialization
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -66,7 +66,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-marvell-phy-rgmii-v3-1-c11c99798931@bootlin.com>
+Message-Id: <20261120-marvell-phy-rgmii-v3-3-c11c99798931@bootlin.com>
 References: <20261120-marvell-phy-rgmii-v3-0-c11c99798931@bootlin.com>
 In-Reply-To: <20261120-marvell-phy-rgmii-v3-0-c11c99798931@bootlin.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -80,88 +80,100 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  Herve Codina <herve.codina@bootlin.com>, 
  "Paul Louvel (Schneider Electric)" <paul.louvel@bootlin.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795194355; l=2276;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795194355; l=2688;
  i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=S/EPP6sZZNaqrtpamex70kriwjBRU6Tl+kovNADKUlo=;
- b=IxCB5Lj2JF6cc7hFtFyzbZsFckVgZGpAvdT0snwVIL3z5XAGf/ecBckr6yA8x4c2wspvmRsFh
- /4h/eFrwrfbC79TPQRQrXA3ROaKVqB4SNseDbm5LyHlmFbLbhSfOyu5
+ bh=R4GzB53g3YjsQvLLpFPjr+Fj/lbjT3L1d9PSUc6EOjA=;
+ b=USKReQ4WSfHc6B4FLKJOge29iA+sD3KzX0tsZZzDIDhYYXQBd8XM6Ji9Q54QNYDqRZySG0hl6
+ r1aqxVmVEF8BwVLMfBX3LEYDhEjJAL0vrjBri/q+m7Ijh38N09d9+zR
 X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
  pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
 X-Last-TLS-Session-Version: TLSv1.3
 
-Move the configuration of the m88e151x out of the
-m88e1510_port_configure_serdes() function, so that other parts of the
-driver can use it.
+The 88E151x EEE errata sequence writes four register pairs on page 0xFF.
+Using phy_write() for each access takes and releases the MDIO bus lock
+every time, and returning early on error leaves the PHY on the errata
+page.
+
+Move the sequence into m88e1510_eee_errata() and use phy_select_page()
+and phy_restore_page().
+This reduces the number of bus lock/unlock cycles and restores the
+previous page if one of the errata writes fails.
 
 Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- drivers/net/phy/marvell.c | 38 ++++++++++++++++++++++----------------
- 1 file changed, 22 insertions(+), 16 deletions(-)
+ drivers/net/phy/marvell.c | 41 +++++++++++++++++++++++++----------------
+ 1 file changed, 25 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index 2c688d661297..aef5f8279133 100644
+index d2c5d3c5ce7d..a72d307eaf12 100644
 --- a/drivers/net/phy/marvell.c
 +++ b/drivers/net/phy/marvell.c
-@@ -1332,6 +1332,27 @@ static int m88e1318_config_init(struct phy_device *phydev)
- 	return marvell_config_init(phydev);
+@@ -1353,7 +1353,7 @@ static int m88e1510_config_mode(struct phy_device *phydev, u16 mode)
+ 	return phy_restore_page(phydev, oldpage, ret);
  }
  
-+static int m88e1510_config_mode(struct phy_device *phydev, u16 mode)
-+{
-+	int oldpage;
-+	int ret = 0;
-+
-+	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
-+	if (oldpage < 0)
-+		goto error;
-+
-+	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
-+			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK, mode);
-+	if (ret < 0)
-+		goto error;
-+
-+	ret = __phy_set_bits(phydev, MII_88E1510_GEN_CTRL_REG_1,
-+			     MII_88E1510_GEN_CTRL_REG_1_RESET);
-+
-+error:
-+	return phy_restore_page(phydev, oldpage, ret);
-+}
-+
- static int m88e1510_config_init(struct phy_device *phydev)
+-static int m88e1510_config_init(struct phy_device *phydev)
++static int m88e1510_eee_errata(struct phy_device *phydev)
  {
  	static const struct {
-@@ -3656,8 +3677,6 @@ static int m88e1510_port_configure_serdes(struct phy_port *port, bool enable,
- {
- 	struct phy_device *phydev = port_phydev(port);
- 	struct device *dev;
--	int oldpage;
--	int ret = 0;
- 	u16 mode;
+ 		u16 reg17, reg16;
+@@ -1363,31 +1363,40 @@ static int m88e1510_config_init(struct phy_device *phydev)
+ 		{ 0xb233, 0x214d },
+ 		{ 0xcc0c, 0x2159 },
+ 	};
+-	int err;
+-	int i;
++	int i, oldpage, ret = 0;
  
- 	dev = &phydev->mdio.dev;
-@@ -3685,20 +3704,7 @@ static int m88e1510_port_configure_serdes(struct phy_port *port, bool enable,
- 		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII;
+ 	/* As per Marvell Release Notes - Alaska 88E1510/88E1518/88E1512/
+ 	 * 88E1514 Rev A0, Errata Section 5.1:
+ 	 * If EEE is intended to be used, the following register writes
+ 	 * must be done once after every hardware reset.
+ 	 */
+-	err = marvell_set_page(phydev, 0x00FF);
+-	if (err < 0)
+-		return err;
++	oldpage = phy_select_page(phydev, 0x00FF);
++	if (oldpage < 0)
++		goto restore;
+ 
+ 	for (i = 0; i < ARRAY_SIZE(errata_vals); ++i) {
+-		err = phy_write(phydev, 17, errata_vals[i].reg17);
+-		if (err)
+-			return err;
+-		err = phy_write(phydev, 16, errata_vals[i].reg16);
+-		if (err)
+-			return err;
++		ret = __phy_write(phydev, 17, errata_vals[i].reg17);
++		if (ret)
++			goto restore;
++
++		ret = __phy_write(phydev, 16, errata_vals[i].reg16);
++		if (ret)
++			goto restore;
  	}
  
--	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
--	if (oldpage < 0)
--		goto error;
--
--	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK, mode);
--	if (ret < 0)
--		goto error;
--
--	ret = __phy_set_bits(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			     MII_88E1510_GEN_CTRL_REG_1_RESET);
--
--error:
--	return phy_restore_page(phydev, oldpage, ret);
-+	return m88e1510_config_mode(phydev, mode);
- }
- 
- static const struct phy_port_ops m88e1510_serdes_port_ops = {
+-	err = marvell_set_page(phydev, 0x00FB);
+-	if (err < 0)
+-		return err;
+-	err = phy_write(phydev, 07, 0xC00D);
++restore:
++	ret = phy_restore_page(phydev, oldpage, ret);
++	if (ret < 0)
++		return ret;
++
++	return phy_write_paged(phydev, 0x00FB, 07, 0xC00D);
++}
++
++static int m88e1510_config_init(struct phy_device *phydev)
++{
++	int err;
++
++	err = m88e1510_eee_errata(phydev);
+ 	if (err < 0)
+ 		return err;
+ 	err = marvell_set_page(phydev, MII_MARVELL_COPPER_PAGE);
 
 -- 
 2.56.1
