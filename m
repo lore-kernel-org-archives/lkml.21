@@ -1,70 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795189695;
-	b=GFGMPcPave63AgcVpht+H1vnnQtB6Nurv4Sa+J6OjeKZXJYeFLlnfS7cS8ZSP3MJ3FKS
-	 ULV3ZcZG/Vzy8KpkFVUXHhfGpf0MztNLllmS3m30UgWn5TJZpQ1DFTiqcVwPy+DG6ZjdG
-	 Pqc5pv3w4eNgVJlAC2oYqsvEMEdMabH7v50nrgfceBqeo9weKax4x5YVEOQZCO6LJ+bla
-	 nUky2itYSSgW/sbwApTSKtzTQki/1AIyCpw4XVLB4eGWWfOS1+lbiE60jK5By43nNW4n1
-	 /BVYSVNFYfuQh1VRNlouIlJNffSi3sGKVMx0MSqgDAHLmAjihOF5d7NKm3HCcE97KXQ==
+	t=1795189707;
+	b=Qrk0e9aP09wsja0NTS8BmtIoSqSejbjaDXWLmDyDgoWD5pNl36qfYXvVxdvMZLr0ORCI
+	 wNJCzAbJMI4BmWYaz0MKl+Yirhc5M7UDcgM1S1xOY6ywBqBYdQGeOwX2RQgaSzf8KQXn9
+	 ZouAkcXmI3VJS4RJ0rjrYnNqiKJ3EGW2Pn9GipNziRWZ/Wm744jVWEGU5ROICusWB8Wjj
+	 +dE8VanTSQzgZYb7pQTaKOXpjlhdavEI3GKGJUYKW219uXtaNGUE0RgmFJh1wi0CabDFc
+	 BDUdI+243RCCvnnbAI0jJ5oHfobYlJi7J8zkpskhxw3NPeyBMWtmWjvvnK2I8O2pNog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795189695;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
-	b=RDHE44dcOOBNJW/RPcddHrRssBOxlLhvPD6IjXx3WS1AGDvZPsWN9BIqqqTgkToB7jH2
-	 kGzK4bT6zUQw3+3blfXrNXDEXCsgPaWvA41OB9x6D7R33UYM/ZgDRBbbPb36bzOmOO4G0
-	 7JYZA3pIyrmABK7PJQPIU0vFY068Rddom9eCYzEIuqk68xhI2UPbyoFmgDpFWfcznNnEY
-	 9Q+SYdswc49hQJ2xH1q9EPs40cXmNIzCKse7cdQHKum1QX5RfN88yr5x5L01xIm270CO3
-	 p+hDNhS+4Cueok85IssFsELFCg/LnadeVuKAMekuhuWpvTvAG4Wgw2I9PRwjPC1KGdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795189707;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=uoCLXlIyzTuVjcKkec7UtFiflj2Avxbg288tSQZ5p04=;
+	b=bG2A5n2sr0OXDhaPM9jfXgw47Kyw7nY7KAbi4r+LvBRKzZNMTIob6UXVKAL+Pqfnj9s3
+	 HyWHy93b1EEmKhE2Mje5lJ9XLIt4jZfVWMBDLDzLsKO2iHNMLh6Ueq4sIjAoYTydNW8Ys
+	 aqF/1CShaldLnDcgBYoZX6KK/GGe82ZVhGbvuEMhOKuZoOxI8z1DwfWNKmZoTxGmb6Re+
+	 lIKIeqEl64jdf5hb63S59hRbVGC52k9BzU10bVBKPQ80iRPwHJH3Gy9BnzRsgfNwVNA+R
+	 mKPF5RHclPP9lLwY2qqq67Ln0IZZvUOF56+8D/BT2oljcow2NDYuLVZBw6jqcQwiMLQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="z/SryV8c";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=7UXjk8Pu;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nQh0VJwT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ECB4606A32A;
-	Fri, 20 Nov 2026 15:48:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0ECB4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C798C606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:48:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=z/SryV8c;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=7UXjk8Pu
-Date: Fri, 20 Nov 2026 16:48:11 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795189693;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
-	b=z/SryV8c0ojDqvAVOPkgni9WoJZSvqOMNaMkyN+XhTNEROXdR60sZAWQhhvjnT7ov+c44n
-	t/p0aO6SEFLfHIw4FTxRrHeaFCqM8rEj87IRfoducuPHzKG705awosG6JOJ5Cn5lF/STTa
-	Cg3UsbnE4wu0zpLtdEMa7q62LUhHz4br00IY9LkExD0JURm6gLGCbEAXwTL+veReQ/2IVD
-	Tbqnpbxqh+ro87nHLw1jfqIUlHMDq0cNjS2A/MHrQ6eVAPDiso83sofkjsL2S9bLpGs20E
-	TNDqK2S+G2MBcDAKTxLs2Wf5f/hEAespdI1tE0grn771Vx/iRgQ+2vP9lxZ1+g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795189693;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lK3E1fMHaOAZs00Ok2HQC2Ij476E0NIQR/deVYlEviE=;
-	b=7UXjk8Pur15tHS06uYGPYECUOx6EI0Y21J+lV/iKOuN8yUZyIs9bRhPzXgNk3DQaw2zowg
-	O7eCsfrVWZuDnSAg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Zixin Wang <w1355457260@gmail.com>
-Cc: linux-doc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
-	clrkwllms@kernel.org, rostedt@goodmis.org, corbet@lwn.net,
-	frederic@kernel.org, wagi@monom.org, atomlin@atomlin.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] Documentation: real-time: Add boot parameters and
- task isolation section
-Message-ID: <20261120154811.Svr3Wf_j@linutronix.de>
-References: <20261120152836.100638-1-w1355457260@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nQh0VJwT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE301F000E1
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:48:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795189707;
+	bh=uoCLXlIyzTuVjcKkec7UtFiflj2Avxbg288tSQZ5p04=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=nQh0VJwTgDgdrEhJmK1lo+HQXM7C78ahzsguFe+Ayghpa8C8GxU32GQIIq8lSPBr2
+	 tBRZEbSLo0q/x+kPfxKl6d/xHuBTZKbvUODjOpS1KQvWvDeUBmg1fyv+6vGiwcgSjZ
+	 0XYwchPNFp0yZSMwrckMI5nv/rLvUvhAKvBBOY8odnSvX+IZJZkdS98nAcaQk1/I2m
+	 VuCVJQ5ZidOry1A4ewKgBpbnqRr2KaWmOUoHBpXsLMnRH+mglNymSRw9SXuptPkywM
+	 ISAOoSPlvOSr1TsLcIlRO4KJoB9aA04LDI/ms2XPczGEcORqCwYe9kbdzvt93ue/s8
+	 /AI2GHYgWKeJQ==
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3ae1fd4252fso10180341fa.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:48:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFV+FqZXqsKN0ap7FKsN7elecoY4YZbNq1LzAwhtevo280ANjlF6CE+cU4gEQnvqKTPKo9b9CX+MeZsnBs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9+q8RZpobGcKBQYW7StztAlmJP3qIZic8STltNktQBGbF/4iAQ
+	DISTlS9U50OUc8lYiAtTGWBmtDaYjldVn3HVmzTmluZ2GAVNBzviVy61BBjtQ9f2oyEdM2uh7Nn
+	5VrpqT1AarFEwPNMVGq3g0T+cGJCR4mA=
+X-Received: by 2002:a2e:ac0c:0:b0:3a9:811d:3a58 with SMTP id
+ 38308e7fff4ca-3ae7f9da2admr11520241fa.14.1795189705315; Fri, 20 Nov 2026
+ 07:48:25 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -74,41 +59,206 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120152836.100638-1-w1355457260@gmail.com>
+References: <20261102-pm-clk-resume-report-errors-v1-1-ba6e1dddd522@oss.qualcomm.com>
+ <CAFEp6-3GKHmc4y_mTTVMO6iPdnpmxEmRokpki4uVGoBuXTj6Hg@mail.gmail.com>
+In-Reply-To: <CAFEp6-3GKHmc4y_mTTVMO6iPdnpmxEmRokpki4uVGoBuXTj6Hg@mail.gmail.com>
+From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
+Date: Fri, 20 Nov 2026 16:48:11 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hftga=t4QGoc8C3iY-zVYwewXi9BK3xnEdTm5KuOsNOQ@mail.gmail.com>
+X-Gm-Features: Aa3M54q_rzvZFVXpc28f17CurETrF5JEsNbmkva9b4j9EDron5Ym5vF04rjyMSA
+Message-ID: <CAJZ5v0hftga=t4QGoc8C3iY-zVYwewXi9BK3xnEdTm5KuOsNOQ@mail.gmail.com>
+Subject: Re: [PATCH] PM: clk: Report clock enable failures from pm_clk_resume()
+To: Loic Poulain <loic.poulain@oss.qualcomm.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>
+Cc: Pavel Machek <pavel@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Johan Hovold <johan@kernel.org>, linux-pm@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026-11-20 23:28:36 [+0800], Zixin Wang wrote:
-> One open question about the idle state limits section: I could not
-> exercise processor.max_cstate or intel_idle.max_cstate locally.  QEMU
-> exposes no ACPI _CST states, so the kernel registers no cpuidle states,
-> and intel_idle is not built for this AMD test host.  Should the section
-> stay as documentation-only guidance, or would you prefer that I drop or
-> rework it (for example, by pointing to
-> Documentation/admin-guide/pm/cpuidle.rst)?  I am happy to adjust it.
+On Mon, Nov 16, 2026 at 7:37=E2=80=AFPM Loic Poulain
+<loic.poulain@oss.qualcomm.com> wrote:
+>
+> On Mon, Nov 2, 2026 at 11:23=E2=80=AFAM Abel Vesa <abel.vesa@oss.qualcomm=
+.com> wrote:
+> >
+> > pm_clk_resume() logs a clock that fails to start but always returns
+> > success, so the runtime resume of a device using the PM clock helpers
+> > succeeds without its clocks, and its driver goes on and accesses the
+> > hardware.
+> >
+> > This happens to the devices in the Qualcomm LPASS, whose clocks are
+> > provided by the ADSP: after the ADSP is gone, like right after a
+> > hibernation image is restored, a sound card opened by user space
+> > resumes the LPASS LPI pin controller without clocks, and the access to
+> > its registers then brings the whole machine down:
+> >
+> >   qcom-prm gprsvc:service:2:2: CMD timeout for [100100f] opcode
+> >   qcom-sm8550-lpass-lpi-pinctrl 6e80000.pinctrl: __pm_clk_enable: faile=
+d to enable clk 00000000b90a5151, error -110
+> >
+> > Stop at the first clock that fails to start, stop the ones started
+> > before it, and return the error, so that the resume fails and the
+> > device stays suspended with its clocks off.
+> >
+> > The callers of pm_clk_resume() check what it returns, including genpd
+> > and pm_clk_runtime_resume(), except the MMP2 audio clock controller,
+> > which keeps ignoring it. A device with a clock that fails to start no
+> > longer resumes though, even if it used to work without that clock.
+> >
+> > Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+>
+> Reviewed-by: Loic Poulain <loic.poulain@oss.qualcomm.com>
 
-processor.max_cstate should work on AMD unless it does not expose
-certain things. But then it might be an embedded board, not having this?
-Does cpupower report anything?
-And I don't thing this is exposed on qemu since the guest goes only idle
-and the host decides what to do.
+Applied as 7.5 material, thanks!
 
-The CONFIG_CPU_IDLE section already mentions processor.max_cstate=1 and
-refers to cpupower among other points.
-
-I don't know how you want to structure this information but parts of it
-are already there. You could go on an add some settings for i915 for
-instance. But then it feels like it should be within the DRM section
-because it somehow belongs together.
-
-And there is a CONFIG_NO_HZ/ CONFIG_NO_HZ_FULL section for instance.
-It also says that the transition is a bit more expensive. This repeated
-again later on.
-
-Maybe it wouldn't be that bad if the config switches would have a
-suggestion for the comandline argument that might be helpful/
-considered. That way the information pieces stay together.
-
-What do you think?
-
-Sebastian
+> > ---
+> > pm_clk_resume() always returns success, even when a clock fails to
+> > start, so a device using the PM clock helpers resumes without its clock=
+s
+> > and its driver goes on accessing the hardware.
+> >
+> > I hit this on the Qualcomm Hamoa CRD while working on hibernation: the =
+LPASS
+> > devices get their clocks from the ADSP, and when the ADSP is gone, like
+> > right after a hibernation image is restored, a sound card opened by use=
+r
+> > space resumes the LPASS LPI pin controller without clocks and the whole
+> > machine resets on the first register access. With this patch, the
+> > resume fails, the open fails, and the machine stays up until the ADSP i=
+s
+> > restarted.
+> >
+> > The LPASS macro drivers already check what pm_clk_resume() returns, but
+> > never saw an error so far.
+> >
+> > Prepared with help from an LLM-based assistant.
+> > ---
+> >  drivers/base/power/clock_ops.c | 56 ++++++++++++++++++++++++++++++----=
+--------
+> >  1 file changed, 40 insertions(+), 16 deletions(-)
+> >
+> > diff --git a/drivers/base/power/clock_ops.c b/drivers/base/power/clock_=
+ops.c
+> > index 3b8ba27802a8..a978eb3d5479 100644
+> > --- a/drivers/base/power/clock_ops.c
+> > +++ b/drivers/base/power/clock_ops.c
+> > @@ -143,8 +143,10 @@ static void pm_clk_op_unlock(struct pm_subsys_data=
+ *psd, unsigned long *flags)
+> >   * __pm_clk_enable - Enable a clock, reporting any errors
+> >   * @dev: The device for the given clock
+> >   * @ce: PM clock entry corresponding to the clock.
+> > + *
+> > + * Return: 0 on success or the error from enabling the clock.
+> >   */
+> > -static inline void __pm_clk_enable(struct device *dev, struct pm_clock=
+_entry *ce)
+> > +static inline int __pm_clk_enable(struct device *dev, struct pm_clock_=
+entry *ce)
+> >  {
+> >         int ret;
+> >
+> > @@ -156,13 +158,29 @@ static inline void __pm_clk_enable(struct device =
+*dev, struct pm_clock_entry *ce
+> >                 ret =3D clk_enable(ce->clk);
+> >                 break;
+> >         default:
+> > -               return;
+> > +               return 0;
+> >         }
+> >         if (!ret)
+> >                 ce->status =3D PCE_STATUS_ENABLED;
+> >         else
+> >                 dev_err(dev, "%s: failed to enable clk %p, error %d\n",
+> >                         __func__, ce->clk, ret);
+> > +
+> > +       return ret;
+> > +}
+> > +
+> > +static inline void __pm_clk_disable(struct pm_clock_entry *ce)
+> > +{
+> > +       if (ce->status !=3D PCE_STATUS_ENABLED)
+> > +               return;
+> > +
+> > +       if (ce->enabled_when_prepared) {
+> > +               clk_disable_unprepare(ce->clk);
+> > +               ce->status =3D PCE_STATUS_ACQUIRED;
+> > +       } else {
+> > +               clk_disable(ce->clk);
+> > +               ce->status =3D PCE_STATUS_PREPARED;
+> > +       }
+> >  }
+> >
+> >  /**
+> > @@ -483,17 +501,8 @@ int pm_clk_suspend(struct device *dev)
+> >         if (ret)
+> >                 return ret;
+> >
+> > -       list_for_each_entry_reverse(ce, &psd->clock_list, node) {
+> > -               if (ce->status =3D=3D PCE_STATUS_ENABLED) {
+> > -                       if (ce->enabled_when_prepared) {
+> > -                               clk_disable_unprepare(ce->clk);
+> > -                               ce->status =3D PCE_STATUS_ACQUIRED;
+> > -                       } else {
+> > -                               clk_disable(ce->clk);
+> > -                               ce->status =3D PCE_STATUS_PREPARED;
+> > -                       }
+> > -               }
+> > -       }
+> > +       list_for_each_entry_reverse(ce, &psd->clock_list, node)
+> > +               __pm_clk_disable(ce);
+> >
+> >         pm_clk_op_unlock(psd, &flags);
+> >
+> > @@ -504,6 +513,9 @@ EXPORT_SYMBOL_GPL(pm_clk_suspend);
+> >  /**
+> >   * pm_clk_resume - Enable clocks in a device's PM clock list.
+> >   * @dev: Device to enable the clocks for.
+> > + *
+> > + * Return: 0 on success or a negative error code. If a clock fails to =
+start,
+> > + * the clocks started before it are stopped again.
+> >   */
+> >  int pm_clk_resume(struct device *dev)
+> >  {
+> > @@ -521,12 +533,24 @@ int pm_clk_resume(struct device *dev)
+> >         if (ret)
+> >                 return ret;
+> >
+> > -       list_for_each_entry(ce, &psd->clock_list, node)
+> > -               __pm_clk_enable(dev, ce);
+> > +       list_for_each_entry(ce, &psd->clock_list, node) {
+> > +               ret =3D __pm_clk_enable(dev, ce);
+> > +               if (ret)
+> > +                       break;
+> > +       }
+> > +
+> > +       /*
+> > +        * A device whose clocks are not running cannot be accessed. Do=
+ not
+> > +        * pretend it resumed, and leave its clocks off as it stays sus=
+pended.
+> > +        */
+> > +       if (ret) {
+> > +               list_for_each_entry_continue_reverse(ce, &psd->clock_li=
+st, node)
+> > +                       __pm_clk_disable(ce);
+> > +       }
+> >
+> >         pm_clk_op_unlock(psd, &flags);
+> >
+> > -       return 0;
+> > +       return ret;
+> >  }
+> >  EXPORT_SYMBOL_GPL(pm_clk_resume);
+> >
+> >
+> > ---
+> > base-commit: 7649ba73f9e7e1e04d0b46213e39c79ae09dd55c
+> > change-id: 20261029-pm-clk-resume-report-errors-b5d538eb27de
+> >
+> > Best regards,
+> > --
+> >
+> > Abel
+> >
+> >
