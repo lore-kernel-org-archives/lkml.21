@@ -1,115 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795193632;
-	b=sgJUn2UpBoNnmWkTyR1sEoML4OOhPGv4K6imG5EQ+d37I8ibTU3NuVdh4yDGOzuvXuQq
-	 Z8j7FjwrX0jEaSdRsspCv1JrHVpbTIUlw6uem1wWx3iRw/CougIkXuebJwgEBk1ZCDKId
-	 +R/y2BctSza4i7lbsnE9wjkp4y1Nje6XdA5U9aZeRU0YRNkp01zufLyyvZDPHbUImwRhW
-	 d87aI63rDcXkE02gEaXRmq61qFM/okSza8IZ9L8tkMQYJ6aFb0vuLcAnVfH1t78ItZKFm
-	 e7uXI7jAD611+NIy25ozSrzQgSavDTSN2ICFjbHX0fcHUzKxdQifvQKKJ7Xslv+EgCw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795193632;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/Wv3EVnU7tNAVy9hUDujn+fU/4sDmaxxFuxEJjdOv9o=;
-	b=pTkVtuLWCHH61nR7uhPOJdK0xQA+CPbkQztnQrGxo/gTheBZ9RLOS7ceFEM/NFMwB6Kl
-	 TUagS8awCgLXhx2y9aCpRYaM0183hj7+SSbtU36VEAhGDtqrqBAHfaO/hrT2nTPlvtd7P
-	 d845kCCd8pvipOFNx/34g9WgTHkKtj2nuD/8u89MNMkDq6RMqDizMjdxSMxsePc+uIUVS
-	 4FgXkrZPNUt3TrWzF3YW/2Q3GjJl02NjsWcy9RqgUeSmDAeLAvuK3I415+AdH3fZP/Vn5
-	 UdKuyM0a0nadstM31bP3Zz6X3lnt9Dr9Gi5BfxfZF9wSl08sNMa45fsBy3Zsx0jOoYw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bsbernd.com;
-	spf=pass smtp.mailfrom=bsbernd.com;
-	dkim=pass header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=jeV9DZsq;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=eK+T6ViO;
-	arc=none smtp.remote-ip=202.12.124.152
-Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.24
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795193720;
+	b=COlGSdsF1FjL7xwN5cz4DN1Cg+LBnhboA6Qgzfdc+0TXQ+tTt1QzVsZ3JEmfW15X93nh
+	 P8Nt0eP6Zgh2FQXqR7YcV/Xi2kaSXJCNRQWAJP9Jue6xoYJHtOjWsXOnvMjIUMbSawqoG
+	 +Y25WWXujhOC24JRcT16v7aJICXmgvEuvs7ZLNDIro4f/6gtXw4dfHMnmCP53XHUTEHpT
+	 KOmuLQux7I8wc4EoQiaLBGJkxw2jwMyZr9ojnIWTwrE8eCvNBjFwQPmbcz97bpbPOwnpp
+	 /Qc8Ou8w/me6KVhKChypZv/NzExE5v0xMQ5eWDeZqkZVcQWSRuxTszv74jT3QlBRWOQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795193720;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=WP66IhO3WJQyEdAIjaj836GdXtEfeoA/arhxSbe7L8k=;
+	b=H021wZhZD/gczKCrDxHuvDsLOScekxmzIXPLnH3sIBIMFlRKljp5THf4BXgqcDAwsnoU
+	 Amle+bMuWzYCLZ3XktwjFBf9eqK+4lNfTGHqgSvNVdk/c9rRyz/qv4MqO4DQiAO0LMefA
+	 D6d3cTGN0yhoUVOvqaSYR6VQR5ru701aDdLnYpDRrR4Y60G0Mkoqwes0wi4LVEyB0LPxq
+	 isj/Y8cdJNQoVyka/oC7z0kBAoFeBUZi8C1rJpYa7uv2tgVEw3g+bcTSEkZ5K/rn1c/Qn
+	 aa+zAAtOEOBphqlAS8Bx3Nt7ByU7ctjt/AjQYSfUwNXNc/y8CBfTOwGD4Q2ZPDQEf4g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b="Wzm/tw80";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.62.24
+Received: from DM5PR21CU001.outbound.protection.outlook.com (mail-centralusazon11011024.outbound.protection.outlook.com [52.101.62.24])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 763D3606A332
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 16:53:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 763D3606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bsbernd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bsbernd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86EC660A2612;
+	Fri, 20 Nov 2026 16:55:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86EC660A2612
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=bsbernd.com header.i=@bsbernd.com header.a=rsa-sha256 header.s=fm2 header.b=jeV9DZsq;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=eK+T6ViO
-Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id BF5DE7A04C6
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:53:50 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-07.internal (MEProxy); Fri, 20 Nov 2026 11:53:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsbernd.com; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795193630;
-	 x=1795280030; bh=/Wv3EVnU7tNAVy9hUDujn+fU/4sDmaxxFuxEJjdOv9o=; b=
-	jeV9DZsq2mgL6Ygl1QHlGZygdziwVIN4mVhcMrIunq7EXSoOZs7RZbsc72lSDDOQ
-	pEtRRx4zvXsazseD5/Ql5LT4tzykEmKj4yLZgYRRC2rtylWHFBmTwiGMgAL1akMc
-	ipkUeqSy5QBbRq2vhekMsGaBjeiYTdxa8zilNJNCUZIGfE+Ob2rlZgsMbvslNp+W
-	kLdG4qOVG49Y893PJ5JlxEFCAZZjPM6JlAPdrlADvVzNA1luKDIPFgAWCrIXFbRo
-	OpEkE8eRjO3+Yrz6eq73bgcbQT/UynApoaTcmv3RIGlibtgJT4+SxUbXCr1VRnCA
-	TqFnEdzWCn/EGG4qqPvJoA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795193630; x=
-	1795280030; bh=/Wv3EVnU7tNAVy9hUDujn+fU/4sDmaxxFuxEJjdOv9o=; b=e
-	K+T6ViOh7yY2cQ+x10SUAAm2nM79GZJkv+79Sc/90BHzSmnpPLn1DEK2mWMJ83xX
-	GUsTHmgMg/sLV5cTceCXKZatRehEO1Xjw7OzwFkMdIe8gWREq1o1cnB7D9qi3NjJ
-	uzGES09tgy6OfU4+ctJFJPmhSzBxuUGjxZn3GNUOb4atBC7xWhk+PGATtrHIRt4c
-	HZRaTLX1Jn1nR1ZHECCVZjX8B8cjazDF+zwOayVRz9R6NvVk3o9+lFTJU4+0bh6s
-	ca/kASGeMhAplWQSCXOiFQLsbwTT8vHMcvJ9ywGGBYkrTG+55m3/ZYFpLTv5H7Ok
-	2Mn7PoilNQCWaaUjhlJng==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=bsbernd.com a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795193630; d=bsbernd.com;
-	mf=PGJlcm5kQGJzYmVybmQuY29tPg==;
-	rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:akhbGAytRRGLo6vwbwsfYBs5OPldDYjoZCTOwxOGkGK3uyi
-	Mn9EnJmGPtuYqgiiwsNKFgQQcBiIApDdkjbwB2hbq1NY4oEXv2Sgl0LmdgyO6nFI
-	hjqQuZQv5m+EcVQR9D8qzzbwo0svj4gFlBb4rpmKRvqg+1PUdTtuSp0pqmfsu35N
-	lzH202B+hHMxBYtRh7W32eEkPnbCnxIgC63uqwRUBfCF38SIQ2xXeKo91Ya3So9L
-	YOUQQciQLxZ1iwoUWEVGETdl85dSdZkwm2ovouZP/f14H7Xuo5OqUjJxxzB/Ibj9
-	RlKt1BtldoZ5+MHw65WQsS2jfgHOpsrXzNIyfDA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=14;
-	hn=cc,content-language,content-transfer-encoding,content-type,
-	date,feedback-id,from,in-reply-to,message-id,mime-version,
-	references,subject,to,user-agent;
-Message-Instance: m=1; h=sha256:ITbusC0WvhFskdP8KchZhdHZQfPIjPZYbMqpI7xCWEI=:KZ2eJsV/85k/pvIN7eDKNSeCssjclebwmtrgVMnik7A=;
-X-ME-Sender: <xms:HnsAazsmP4BdHAPRlq8w-8fMMiVbbd8LyJdF1x3Zym6jCjmgSlvd9w>
-    <xme:HnsAa19zQUUtCRp0rCHzgjJFEKa6JXD23YlYrYrx-emHprieebTpuM3_-9d2KkEtX
-    tviTs_A3cE1l0rIBoY-OIPzpoNCuSowqWIGESMiySAaLwG7VnAOaw>
-X-ME-Received: <xmr:HnsAa202Lz3r9KZuAOYGY9toWJ3qrMWwwNYmthADJD2IP8T02dPStxpoeZDDS-7-8BHwMIn0SuT2CoNEtDam9h4aRvbjQOyLjpWm73bYVBQolRXVag>
-X-ME-Proxy-Cause: dmFkZTFlKBEsIxR7EUcWVh3ER113fSMNBs58AtPoMocYgXz5kHz3pqkol1Pj0aEiSab399
-    SQCyTDnXm/qVu7gg2Ou3nE7Kjhz3qOSEI9e4nx0iPEet4ulyF7HNtrFUp/tV+K2TAgFwbr
-    HnRVKQv2h5vOMUoAJjcw6wXcrYYKi6XXYwVp/7itT43ZxVhhNQbRAUPVZ6DIjyMelTOnnk
-    CSGtdI1EsyjQpRje15Udmsgq0qIFs4RRWZhiv+8Vzyg/BU9vUOBe6De5XNFkEHOxeVSGO7
-    eqgeuvMdW0fVjCn1QtloZNusujJ7giow/5Jumb5l3Eg285tB1OwHWbZqt41/7ZcXI4NlYr
-    OLCA1B9syh3jWOVayIALKCMAZjfbP0cwLY8HYN7WGina7B2HQgwKbn+GixbkaTHV6gjLuK
-    TO1Ko8YPrVZwDbsakj/ds4YEkFXMPkuuITI4iERiMGmc3s5qifdgiC9j+hOHorJHksWoKD
-    foc4VzK29Jib2i9GQL4n/2n26D9FsGqhp0GpCisYB2fG0vuooJILmBBiKSIr3fhx2FBJgj
-    SBKUSqDD1n9vwJgDWOT9WUgxxFYZptD2yZl8YwUcmdtkSwDcM4RdqPff1w7mVtwFGC9IcW
-    aCAAtoVJATtWMF3zT7tn5bmggwdUwrG+0U2gReL41PG0bNjeMIkV7gRkE2FA
-X-ME-Proxy: <xmx:HnsAayB0eC6Vj9OQm1jofz_up726g3rcmFdaSheh0ph-L0IhpdSpKQ>
-    <xmx:HnsAa6d5VyXQZvBMFzCcrfQEGlumEgy4REu61MW199Vc2IUMcwF3Eg>
-    <xmx:HnsAa34X8Gy82G4WyrwQQ9agNbusN3Bt_D8WA09BBRHZhaaeZnFvqA>
-    <xmx:HnsAa1WPQEyGxIQZk157w98h76mcs42mc4ymmsw_7XYaU9-b5zrAHQ>
-    <xmx:HnsAa5W6d2zd0ptFb_E-Gs2GFpmdalJ_fuToUlxQ7Ay4HWh0Eujo6KpM>
-Feedback-ID: i5c2e48a5:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 20 Nov 2026 11:53:49 -0500 (EST)
-Message-ID: <23404e53-49d6-4775-ae96-f8abaac7a145@bsbernd.com>
-Date: Fri, 20 Nov 2026 17:53:47 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=Wzm/tw80
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SE6KSY1fgh+K5ixaEbonW9t4JlQHcCXmbkt/bDNH3UodsXbt7PVvySfW1yBNZ3MDjl6ud64kaqQCTajJ/kOCwTt3CiK2gHcV0fxdtZHJhLIV62GhcbwqYt/LJOaEwTSm6BfD3COnszyTSg5dC2DBDxvOHhirig/IbCxOAi7QnPV7YBAeAezl346eMHLiyyyyGcu75G5UqlEsh04f37+EuDh6zrTXSKXU0w5ZkgaZhs19DQ5r3j8fo4ITLAn7TYE9jZ/M87mWE7ooRke6RJEdYhIhvjzvhwrVLLsh4nOPI1epiKQg3/sfOLkfh9SAqJXBEQgDGfSKChgu3T1MJFAnrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WP66IhO3WJQyEdAIjaj836GdXtEfeoA/arhxSbe7L8k=;
+ b=cxnrFS7WsqSN3+4ZS0WML1mwOp3fL7KWRmgtG18ykxJNM9IXDQNvUwG3x6xxKxX/3KZgOw+dhJ8FtatPEv9pR7GIi4LO45sCgJzwgZcyCMZnSswyJ1aeDSKQTFtypHnh356TV/OUVQYmOAV9RDaQsbc+eXat8r+vPdEJS88s0EtB7ZpbZhDETBKIAy+vm4R6hZWjJQkqHVlZbBoLjYpXOBd7tuEKYtvf7cNtbQe8uUAjOMEqOh3tjgsmyS61FaH+XQlnLpvSwY+1pkZvT9/VqrRSMGoKgTmeUW08/cxyw1dhJnMPKMSJO2s+3glyaS4dsatnxYgC1ggXo8+AMaaqaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WP66IhO3WJQyEdAIjaj836GdXtEfeoA/arhxSbe7L8k=;
+ b=Wzm/tw80NhAAa1GpJfsGEXQzd+oKrrnJKFbjEEcyqUEcKvGuiOPkGmaeDIDlBskoducL94IRudQK2AvYI4a+V16JH4KDO3cDrHNgywYoWE6bCfxbUlMg+uZ7E0tdNtZMe83PskzcZlzZUnOl+bIxs/wGAbE48W/f/0RC83bGW5M=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by DS6PR12MB324412.namprd12.prod.outlook.com (2603:10b6:8:498::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 16:55:02 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%4]) with mapi id 15.21.0615.013; Fri, 20 Nov 2026
+ 16:55:02 +0000
+Message-ID: <d1a6cf18-9061-4373-91c8-6c2b5241dda3@amd.com>
+Date: Fri, 20 Nov 2026 22:24:52 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/12] EDAC/versalnet: Make dwidth per-controller
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+ linux-edac@vger.kernel.org
+Cc: git@amd.com, shubhrajyoti.datta@gmail.com, michal.simek@amd.com,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ Tony Luck <tony.luck@intel.com>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20261118142213.100581-1-shubhrajyoti.datta@amd.com>
+ <20261118142213.100581-6-shubhrajyoti.datta@amd.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20261118142213.100581-6-shubhrajyoti.datta@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4PR01CA0089.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2ae::7) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -119,123 +103,173 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: forged reply bit triggers WARN_ON in fuse-over-io_uring
-To: n3rd <18670333770@163.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: Joanne Koong <joannelkoong@gmail.com>, Miklos Szeredi
- <miklos@szeredi.hu>, fuse-devel <fuse-devel@lists.linux.dev>
-References: <6b97fb98.dc1ff.1a1f6b99657.Coremail.18670333770@163.com>
-From: Bernd Schubert <bernd@bsbernd.com>
-Content-Language: fr, en-US, de-DE, ru-RU
-In-Reply-To: <6b97fb98.dc1ff.1a1f6b99657.Coremail.18670333770@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|DS6PR12MB324412:EE_
+X-MS-Office365-Filtering-Correlation-Id: d850736d-977c-4a78-7930-08df472704a0
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|18002099003|22082099003|4143699003|56012099006|11063799006|261022105027099003|261026140227099003|261028144727099003|261021121427099003|261102123227099003|261009223027099003|261021123027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	9XhOKjNzozAzrCEeJIE8QhCspYBwojAFVmV+Hv6DFCr623rZJVFJskRAKCwaki36cQ2Zsek22n8yUUIfGXSqaDjNc7qD6NUoFY68vM1GT3MlBrKGB6NhJ1a0b2rMhtS9pX4rNKa1RUTo6SKjj5wPFBNetudjqmEy4EyuMHgbr9KGqybkdrxOeNiXiEGkFSAwFjbDa5jX+QLB1/uxSekEz8kIh38rHwI4dW1x+j2CNDzRJlK07TquL0PccHEuzu+21oslg5AMj43pRpLj7Hen9bxfNhmzx9h+GLS49dVQk5opqsbIFUzAYEZ90FkE231l0X40UyK5/N7YScGsiBK1ESWRYmqgc0jDNoXe2gWiKH5xxafbczp17jqEtWIgipL9BzNeLPoZdLPNkZfcIVAjdXYA5ZRSpZBceL2b2STI5lEcwmWOmUdk4EhTI7sKS/f+XtDzfRoifTwz9pID9wURLgh6ZamFR/31zdCRIHbNGBPEIVj2IhVZB5vL6pG4hjIx2hQOQEyx9BZDy6eZSgtkKdmcVatpTir1niTI8ua6F7f8Y/HGfrqyD6Cd1wcjOsMB73AUxGgDDKWSBp72F+IzCU6I54T6BHBXyVIPlLEXcV0=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(261022105027099003)(261026140227099003)(261028144727099003)(261021121427099003)(261102123227099003)(261009223027099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?Nkxsa1RmMjZFQWhJVTA1bVdJMmhBY0VmdCtsck8yZHh2WnRUQlNjQ05SMXBY?=
+ =?utf-8?B?NS9hZS80dndqdGd2WStYUkRQREYxeThScFVRT0o2aHp4R2VGZy9HMFFXcjNl?=
+ =?utf-8?B?eHJveHFYSnh5QUs4ejVEdm95K2dFZEZPN3BjVVU3a2NCa05ITGpEd092RndD?=
+ =?utf-8?B?cXIxdXVsclVCMTROWTJhSXJRdUZ3NVpmRFFGSllpM1VreE11T0lVYldjR3VX?=
+ =?utf-8?B?OXl6czlGdmdmMkswYS8vcmd6MlJpUVlsK1JpVWlwUHEybnpZRHI2ZXhtSWF5?=
+ =?utf-8?B?WUJxeUJ2UjJ2Y3hwWnV4WFliejhJQXhYTGI3QnE0S2hSWk5lV1lDWEhuVTNQ?=
+ =?utf-8?B?TG05VEdscUJHdTNUczZaQjVjVDEzSWk2MTAyUTZKWkpVcFBBVlNTWG15dUJq?=
+ =?utf-8?B?VjVoeTZRaE0zVU9iUTRCRjRBd3hjcC9PNVB6TUtCQVdJd0lobEM4ZWxlRUk1?=
+ =?utf-8?B?ZlNsejhyL0NhQVJZRG56SVdqQzV5aGpvMnFmaTNlT3dTRkRiV2VHMXg0ZFZZ?=
+ =?utf-8?B?aHVZM3BkUFRIcHVpVDkycXczdmIvME1aQndOUWVKbGVrUlIyWUtkcUdHNlF2?=
+ =?utf-8?B?V3JTTE1XU0liazhWUDZDUk5PY0V3QmlvOStFKzRXK1VCUVNaMVIvaW1Ta2NV?=
+ =?utf-8?B?NFd1b05qckFGMXY4T1IrMW5TVGJudktjOHFFZHI2Ri9iQ2hFOFV6c3EzcDU3?=
+ =?utf-8?B?bjI2UWRkejl2ZXBNbnZ4Z25rcWlsQ3o5YWZ6eVJtcmliNkhZb285c0FMWEJH?=
+ =?utf-8?B?ZExDWm5pSzhQVHNxOWVZaTVsdE4yMnh2SVVHeE9ueEJjTVlmZkxwK0ZYZjl4?=
+ =?utf-8?B?VjdGUS9aUUhQRFM5TjJGamduSTdSQmNOMnZuNFlTbFRWd2RScnZaMTRNQTJJ?=
+ =?utf-8?B?UDk4OU1qcW9naFZmQzhEV1Nlb1FoZkFxSUJoZFFqNkdMUkFrN3dYZnNaUTJL?=
+ =?utf-8?B?TDMzcHhmZUprMVluNHM3ajE4M3JxS29uNnlrUFZ1ekhBcmZPNG5ETG5GZk1Y?=
+ =?utf-8?B?cFV2cWVYWWN5UngwcGVPL0EreEZwcHJMRkx4YU5wUGNiUitkWURhZ2NkTmZF?=
+ =?utf-8?B?UGlYYVR6bTM2eXR4aGFXYXVoSDVseE1xa3NDRjYrS1Yxc2NmUG04eGtLSlkr?=
+ =?utf-8?B?RWRkZ0FuOEVCL3J6a1JDMW54eWk4VjBKdHphYmdKZktDZ3NhaWxMQ1V3ZnVE?=
+ =?utf-8?B?S0p4RnRrTzFkYStHeXQ3Q0dBdC8wdDltdTJBYU1nK0hoTHRMMTdwb1BIUnU1?=
+ =?utf-8?B?NS8wMU1Dc05UOE5sM3Z3UFRuZEhCcUkyeVAzRDBBcCtTWXNPbXJCbXBZeWZ4?=
+ =?utf-8?B?eVdVOGRVZjRiWUtnWGVwa2ltbkd5M2NKZUlWMkk2Vlk3WUUvZkw3cWJTdFVt?=
+ =?utf-8?B?K0F6VWoxd3RneFMvQTgxYXkrTWlnR1JqcEpoYytlYUFCNjREWGZYQmNMR0hh?=
+ =?utf-8?B?SGZWZk1nRFkyZ25HamNneXB6S1o5ZktzZUhuckRsaVVzR1A4cWFGOFFyNmJW?=
+ =?utf-8?B?NDZoTmdHV0I0ZWtKVHBLSE5tYit2VnJabDh4VjF1cCtlOFZTUWxZV2dKZ1E2?=
+ =?utf-8?B?UlNxYmp1M3dpU3JBMEdsd1hta1RVRHJ1YXJjTnp1S3pCaysxNHZLQTRSaldB?=
+ =?utf-8?B?RHlKaWZiV1RyWmtaVW83Y3VOM3AyZm12SW9YTjRQZWhqRDEyNWVMbzk2VFl0?=
+ =?utf-8?B?SE13ZytLWDhsNjdCbzdOWHFWclV2bVRCTlBWSE4vMGNaRkRzSjE1ZmpBOHZ2?=
+ =?utf-8?B?OFU4SmJ2Qy9xS1dkcTRJRlJPM0dIamJ6bTRjYm5acWxyUzNHZFZ6Uk5KdUVK?=
+ =?utf-8?B?c0lxOGRCbVdpMWlSWWRKUUphWGV3VHR4aWswekZtRDJmYm1lYmRpSWpiWGFQ?=
+ =?utf-8?B?VTlWeTVVZkJGNDFlb0hOOFdoeXROY1lqK2RUQWdnZ3ZNR2I0OUg2THlWVTFa?=
+ =?utf-8?B?UnZacGJrUVpKVmYxNDdmSTVYUUloek5uVFlNalZKY2xWcWlJSGZVKzdYcjQ1?=
+ =?utf-8?B?SFlCaVJ2OC90eWRzUmJPWDNua09jeElaY0lkcWJKSHBHTHlEL05vMjdFdkJw?=
+ =?utf-8?B?TE1xVXRvY1JIc0lrUHhreFlkZFBSRTFwSVBpZzdvdUU2M2JpRUhjUG8rdWFC?=
+ =?utf-8?B?RSt2Z1FqOXRVQnJlaHF3ZWZOLzhpUUNBTERFVStMdjk5ZWdNUElmTzRiYVo5?=
+ =?utf-8?B?R0tGR0hoSVR0b014T0YrUXVRUUdsMTl1NS9VWm9ubHUwRFF0TDRlTnU4bk5D?=
+ =?utf-8?B?WnpQaFZLOUFIYWp6eVBiVmRXNWVHNzJJZXNCL0g0NDZHUFhPOFhpMXhwQzcr?=
+ =?utf-8?Q?QNRN5xOrrwC5IDp8gS?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d850736d-977c-4a78-7930-08df472704a0
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 16:55:01.9469
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FhxUD7PiHxAZGiIru6qEw7fKE3hgwtxWyIr0q45/BARtcrd8gt2/Ablc9R/7lhVY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR12MB324412
 
+On 11/18/2026 7:50 PM, Shubhrajyoti Datta wrote:
+> Currently dwidth is a single scalar in mc_priv, so each call to
+> init_one_mc() overwrites the previous controller's value.
 
-
-On 11/20/26 03:12, n3rd wrote:
-> 
-> Hello,
-> 
-> I am reporting a bug in the Linux kernel.
-> 
-> 1. Affected kernel versions
-> Linux v7.3-rc7 (mainline, tested as 7.3.0-rc7) is affected and was
-> reproduced here. The same code is present in mainline 65ba8f34ec88
-> (checked on 2026-10-28, fs/fuse/dev_uring.c unchanged in that area). The
-> v7.2.x and 6.x stable branches were not tested or bisected, so no claim
-> is made about them. The code has been there since the fuse-over-io_uring
-> channel was introduced.
-
-
-Feel free to send a patch that changes to pr_info_ratelimited().
-
-Thanks,
-Bernd
-
+Let's also explain side effect of it i.e convert_to_physical()
+indexes the address decode registers per controller but reads that
+shared value, so on a part whose controllers are not identically
+configured it computes the wrong physical address - and for an
+uncorrectable error that address is passed to memory_failure().
 
 > 
-> 2. Problem description
-> fuse-over-io_uring keeps the FUSE request and reply headers in daemon
-> memory. When a daemon commits a reply, fuse_uring_commit_fetch() uses
-> copy_header_from_ring() to copy the 128-byte in_out area of the ring
-> entry into a kernel buffer; the first 16 bytes are struct
-> fuse_out_header (len, error, unique), entirely supplied by the daemon.
-> fuse_uring_out_header_has_err() then validates that header: it only
-> rejects unique == 0, only checks the error range, and at the unique
-> comparison it uses (oh->unique & ~FUSE_INT_REQ_BIT) != req->in.h.unique,
-> which masks off exactly the bit the later WARN_ON_ONCE tests. Kernel-
-> generated unique values are always even (fuse_get_unique_locked() adds
-> FUSE_REQ_ID_STEP, defined as 1ULL << 1), so bit 0 is normally always
-> zero; a daemon that replies with unique = commit_id | 1 passes the mask
-> comparison and then necessarily hits WARN_ON_ONCE(oh->unique &
-> FUSE_INT_REQ_BIT) at fs/fuse/dev_uring.c:653. On a default kernel this
-> prints one WARNING per boot and the reply is still treated as a normal
-> success (err = 0), so there is no memory corruption, no out-of-bounds
-> access, no use-after-free and no privilege escalation. On a kernel built
-> or booted with panic_on_warn=1, which is common for Android, ChromeOS
-> and hardened/cloud kernels, the same single forged bit panics the whole
-> machine, and the user can do it again after every reboot. The legacy /
-> dev/fuse path (fs/fuse/dev.c, interrupt reply branch) handles the very
-> same input as an ordinary error branch and does not warn, which is why
-> this looks like a bug in the io_uring path rather than intended behaviour.
+> Fix this by converting dwidth to a per-controller array and passing
+> the device type directly to mc_init() from the detected dt.
+
+dt? rephrase the variable as dtype.
+
+> This also updates the DIMM device type reported in EDAC.
 > 
-> 3. Reproducer
-> A self-contained C program (about 450 lines, static, no libfuse) mounts
-> its own fuse filesystem, answers FUSE_INIT with FUSE_OVER_IO_URING,
-> registers ring entries with IORING_OP_URING_CMD through a raw SQE128
-> io_uring, then replies to the FUSE_LOOKUP generated by a child open()
-> with an out header whose unique is commit_id | FUSE_INT_REQ_BIT and
-> commits it. A negative control replies with unique = commit_id (bit 0
-> clear) through the same mount and the same path. The complete reproducer
-> and the serial logs are available on request; they are not posted here.
+> Fixes: d5fe2fec6c40 ("EDAC: Add a driver for the AMD Versal NET DDR controller")
+> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+> ---
 > 
-> 4. Conditions
-> Four conditions: (1) fuse.enable_uring=1. That is module_param(bool,
-> 0644), off by default and writable by root only; I found no distribution
-> that enables it by default, so an operator has to turn it on for
-> performance, usually via /etc/modprobe.d or the kernel command line. (2)
-> The attacker can open /dev/fuse, which udev's 50-udev-default.rules
-> makes mode 0666 on a normal distribution. (3) kernel.io_uring_disabled=0
-> and support for IORING_SETUP_SQE128 and IORING_OP_URING_CMD. (4) The
-> attacker's daemon completes FUSE_INIT and registers ring entries. The
-> attacker does not need root or CAP_SYS_ADMIN; with CONFIG_USER_NS the
-> whole sequence runs inside an unprivileged user namespace, which is what
-> was tested here (uid 1000, setuid then unshare(CLONE_NEWUSER|
-> CLONE_NEWNS); the kernel printed CPU: 0 UID: 1000 before panicking).
-> Triggering is deterministic and needs no race. Tested on x86_64, QEMU
-> 6.2 TCG, 2 vCPUs, 2048 MB, initramfs, 7.3.0-rc7, with KASAN enabled as a
-> control that stayed silent.
+> Changes in v2:
+> https://sashiko.dev/#/patchset/20260724171945.2812749-1-shubhrajyoti.datta%40amd.com
+> New patch to fix shashiko review comment "this is a pre-existing
+> issue, but is the per-controller width overwriting the shared
+> state for all controllers?".
 > 
-> 5. Suspected location
-> fs/fuse/dev_uring.c: fuse_uring_out_header_has_err() (v7.3-rc7 line 653,
-> the WARN_ON_ONCE), reached from fuse_uring_commit_fetch() and
-> copy_header_from_ring(); contrast fs/fuse/dev.c line 1947 (legacy
-> interrupt reply handling).
+>   drivers/edac/versalnet_edac.c | 16 ++++++++--------
+>   1 file changed, 8 insertions(+), 8 deletions(-)
 > 
-> 6. Suggested fix
-> Do not assert on a field the daemon controls. Handle it like the legacy
-> path: if (oh->unique & FUSE_INT_REQ_BIT) { pr_warn_ratelimited(...); err
-> = -ENOENT; goto err; }. A regression test that replies with unique =
-> commit_id | 1 and expects no WARN and an -ENOENT rejection would cover it.
-> 
-> 7. Mitigation
-> Keep fuse.enable_uring=0 (the default) and do not enable it for
-> performance; deployments that already enabled it should turn it off and
-> reload fuse. On hardened kernels, setting panic_on_warn=0 only
-> downgrades the panic to a WARNING and does not fix the bug.
-> 
-> 8. Disclosure
-> Public. Per the kernel security process this report is being sent to the
-> public mailing list and the fuse maintainers with the security team
-> copied; no embargo is requested and no CVE was assigned here. The
-> reproducer is not posted publicly; it is available on request.
-> 
-> 9. AI-assistance note
-> This report was prepared with an AI coding assistant, which was used for
-> source review, for building and driving the QEMU guest used to reproduce
-> the issue, and for drafting this text. Per the kernel security process I
-> am treating the issue as public and am not posting the reproducer.
-> 
+> diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
+> index 0364648d91a1..ea90d3ce3e70 100644
+> --- a/drivers/edac/versalnet_edac.c
+> +++ b/drivers/edac/versalnet_edac.c
+> @@ -140,7 +140,7 @@ struct ecc_status {
+>    * @stat:		ECC status information.
+>    * @error_id:		The error id.
+>    * @error_level:	The error level.
+> - * @dwidth:		Width of data bus excluding ECC bits.
+> + * @dwidth:		Per-controller width of data bus excluding ECC bits.
+
+Nit - data bus width
+
+>    * @part_len:		The support of the message received.
+>    * @regs:		The registers sent on the rpmsg.
+>    * @adec:		Address decode registers.
+> @@ -153,7 +153,7 @@ struct mc_priv {
+>   	struct ecc_status stat;
+>   	u32 error_id;
+>   	u32 error_level;
+> -	u32 dwidth;
+> +	enum dev_type dwidth[NUM_CONTROLLERS];
+>   	u32 part_len;
+>   	u32 regs[REG_MAX];
+>   	u32 adec[ADEC_MAX];
+> @@ -399,7 +399,7 @@ static unsigned long convert_to_physical(struct mc_priv *priv,
+>   	else
+>   		ilc_base_ctrl_add = ilcmem_base - low_mem_offset;
+>   
+> -	if (priv->dwidth == DEV_X16) {
+> +	if (priv->dwidth[controller] == DEV_X16) {
+>   		blk = err_addr / MC5_X16_SIZE;
+>   		rsh_req_addr = (blk << 8) + ilc_base_ctrl_add;
+>   		err_addr = rsh_req_addr * interleave * 2;
+> @@ -473,9 +473,9 @@ static void handle_error(struct mc_priv  *priv, struct ecc_status *stat,
+>   	}
+>   }
+>   
+> -static void mc_init(struct mem_ctl_info *mci, struct device *dev)
+> +static void mc_init(struct mem_ctl_info *mci, struct device *dev,
+> +		    enum dev_type dtype)
+>   {
+> -	struct mc_priv *priv = mci->pvt_info;
+>   	struct csrow_info *csi;
+>   	struct dimm_info *dimm;
+>   	u32 row;
+> @@ -501,7 +501,7 @@ static void mc_init(struct mem_ctl_info *mci, struct device *dev)
+>   			dimm->edac_mode = EDAC_SECDED;
+>   			dimm->mtype = MEM_DDR5;
+>   			dimm->grain = MC5_ERR_GRAIN;
+> -			dimm->dtype = priv->dwidth;
+> +			dimm->dtype = dtype;
+>   		}
+>   	}
+>   }
+> @@ -844,7 +844,7 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
+>   	}
+>   
+>   	mci->pdev = dev;
+> -	mc_init(mci, dev);
+> +	mc_init(mci, dev, dt);
+>   
+>   	rc = edac_mc_add_mc(mci);
+>   	if (rc) {
+> @@ -853,7 +853,7 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
+>   	}
+>   
+>   	priv->mci[i] = mci;
+> -	priv->dwidth = dt;
+> +	priv->dwidth[i] = dt;
+>   
+>   	platform_set_drvdata(pdev, priv);
+>   
 
