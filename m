@@ -1,61 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186716;
-	b=WfVSAR1Ko3bJ5r0jEs8cLI3FXGjJhvyWooO8yIHTT3Q5WvHjxGnSPeyYJslE7C+IBBvy
-	 oXPfZB4n5wijYDldoZDAmxdF35FptaQBPaCvfAGObdSihoeHeqpwu3ia0vWJ4DhWzw81T
-	 2VZxyghe/RlkuUuFb0uWcEpv2RaWTFPBJZ/sRxDaHA8canjDbRuf4h+TCb59YZkX1ynv1
-	 TuSEUn1KMCRorqWMkWGiuB1OT4+hH5nogty94EJqSEvfjLKCij4lcZ+9ZRftkeGvfwR7H
-	 9d/NaAKcBVGiNgPz+gLawkbMob2vpBClcI9CeB8+++8Y14MnXU2Sjya4qNjR9Y2Gv0Q==
+	t=1795186717;
+	b=DgnUjeh4ygDiGvzd0x3lrDyifBnzIGXVJke0qtuWVO+euL6mWUko3F4o7cwlpRwpOIMe
+	 1oJo1JlOTrZvJjRSjKQcFca7UEaFDkhDuoemLVdF1nKkJxuF+AZU1q5pgUc7d3EB1EQsC
+	 AYF083/F1gaT+4m2n1zt32HS67R0wjmzQanZVII0zXCW+vQul9ZToskZGhReG4QdLoJb/
+	 2Q+4ApWlYr+fpZSHSqqWfgBMz72D3jYjAxshWTKgTRHgHmf+IrmBOHfi653WBzTWirb7p
+	 oKA4oy4TVAcFlSS1Ro9cMhXI6UFMwAN8BtWgxhNrt+/Zu0W0lXa17HAVs/oG3LNxQhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186716;
-	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=QzeeoR9Ie9GHVw2EY/8WwRf8WnGF6DOzQqVwJKJWVJE=;
-	b=ib0yvGut4Tdrzb425Nc8uWx8aXdkG36Iyxb5eKbnprtd2/d1BdvjPzlu+Tt7NwHtMsNe
-	 j7+hHU6SlUdtsk8D1p+7GNwa0nq7k4lNpOoLkuIqo6rJhGqCI+NE3lxnU9xfc2DxVLtsw
-	 7YQpnkfNcGcmyo0/r+UG4WCx/OAFQTYrk3gauWddGGg2zB2Ap++vFmiZ4O3xiauWmt7pu
-	 HkarK9/TvnreG70z8WKNLtxMms13Az4B7bzW4/6LCiZgpFR9PEsAjcBQRx9Aeb5S+grGG
-	 Ck4fF1ESVvdu6gOyuVaH9H8lhljuEfMHQXtON4PSAO0a+y2Y9RLuDbVw5rM8xkiZ8hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186717;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=tm1WIg0O1FFv6Tly0Qt5Lzt9aOxoUsNmPJ767y2Zuf0=;
+	b=JM65JI6VqMs8P12TerIYRodg+rUJEmn90aukcSG3JTZWPvEwPb7EV0txAliqQIRDsDja
+	 Ejjcnh9hbMqrdf65O5LgvJtGjK4EgmVpYaqg5uNXf5r7aBWRLmCNlikStTXPKuO/GJopA
+	 5NEahvG01Hyg/Bc31eCEMjhx7FKPaNhkseIOL4WozayazPs0z9Vj1tlDtNedoMbK1NXsC
+	 mxRUSXmsZSOxvwLf2VH8VmpAHG/0Lw2SHrcoKJszpnFTTGJYVJZTw0R3M8ChMOUMM3oKg
+	 mvCVMV0tIocOb1WDTGvrWXWE+f+/feugTAqdQEZrnMgxWX2Qyt7N4Ncjy+rkDBeCaSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQAz14Wt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OKllHen3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 910A460A2621;
-	Fri, 20 Nov 2026 14:58:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2758160A2636
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:58:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hQAz14Wt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14FB01F000C6;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OKllHen3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD02A1F000C6;
 	Fri, 20 Nov 2026 14:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186716;
-	bh=QzeeoR9Ie9GHVw2EY/8WwRf8WnGF6DOzQqVwJKJWVJE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hQAz14WtsGwjjZKhKCVZW/TJWpbUMZw13sAlNa8p4mhABSgF5ROyXpvHQFg25vrmc
-	 939g4tDEofBoUSt99SDsu63OrgN6IYDmjK1+TRzqglEAQmwFgbzwuN+mmeAV8dTEo+
-	 kXxjJkPjN9nGx18VVJGal6jrMLUdQm45nxFmm7xY677Rwq6mxbRJL6sP+u3RcwH5Bm
-	 U4pdM5NjTid4+zjlt2nsJTnNIOSfKIOiIKXJEAS7DpKqeJXiSifzV/6MAtkKijAwoB
-	 PoRqm/Y/TE5DrEKPSdo1Jz4DnZ47mzdTHcv1yEZynv4ztHaldL2ij7MHdyO3c0LA8d
-	 bKSq06S2GUftg==
-Received: from johan by xi.lan with local (Exim 4.100.1)
-	(envelope-from <johan@kernel.org>)
-	id 1xUQ4P-0000000681u-2YXF;
-	Fri, 20 Nov 2026 15:58:33 +0100
-Date: Fri, 20 Nov 2026 15:58:33 +0100
-From: Johan Hovold <johan@kernel.org>
-To: Joshua Crofts <crofts@kernel.org>
-Cc: Bin Liu <b-liu@ti.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
-	Felipe Balbi <balbi@ti.com>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] usb: musb: fix use-after-free in musb_remove()
-Message-ID: <awBgGWd8Oh4j-9H5@hovoldconsulting.com>
-References: <20261120-usb-uaf-fix-v2-1-cc3cb2a38ad5@kernel.org>
- <awBebBuAg2w6ZitD@hovoldconsulting.com>
- <ab82b578-8630-4ee6-abc4-50c0c6aab7b0@kernel.org>
+	s=k20260515; t=1795186717;
+	bh=tm1WIg0O1FFv6Tly0Qt5Lzt9aOxoUsNmPJ767y2Zuf0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=OKllHen3/BRHO8tIIFT0wGvq/Upr6By1pPTklhPNrfJ12T2gemm8kkrymzNRt64H1
+	 hH32b775X3zTl3PwiHhrqzdo0Eg2RE6F800dAFIZF/WIfXJLi/HEBuJrd22JBGZE8H
+	 n9Ok7WEXdgH5xkv5q2dSJeHgah/7cdLNa5i6MRcLAt+XFxLtvPe8Ze20Kmgu+YgRTW
+	 Nro44ibddHnCLy7vj/Llb2rKKRUMLIbHhnmNi5oxwE6UenpCXR6Y6qiXOaNB2ad2fn
+	 OCpbwcW/zTSsAhaRykm7fq/X90z+LMLFIMYN83RGOo/QGHYvV/MDYljGx2SvxnzR0K
+	 JfVJ0gNbqXD1w==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Date: Fri, 20 Nov 2026 08:57:40 -0600
+Subject: [PATCH v5 16/19] accel: ethosu: Ensure cmd stream is multiple of 4
+ bytes
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -65,25 +53,68 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ab82b578-8630-4ee6-abc4-50c0c6aab7b0@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-ethosu-fixes-v5-16-52d459acdb84@kernel.org>
+References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16-dev
 
-On Fri, Nov 20, 2026 at 03:56:19PM +0100, Joshua Crofts wrote:
-> On 20-Nov-26 15:51, Johan Hovold wrote:
-> > On Fri, Nov 20, 2026 at 03:23:14PM +0100, Joshua Crofts wrote:
-> >> Currently in musb_remove(), musb_platform_exit() drops the PHY refcount
-> >> before usb_phy_shutdown() is called, causing a use-after-free bug.
-> > 
-> > This is too strongly worded. There is a potential for a use-after-free
-> > here but it's extremely unlikely to ever be an issue in practice as the
-> > phy driver would need to be unloaded by root while they are already
-> > unbinding the host controller.
-> > 
-> > Why would root want to do that to themselves?
+The command-stream validator consumes 32-bit words, so reject empty or
+unaligned streams at that boundary. This also prevents QSIZE from
+receiving an unvalidated trailing byte.
 
-> Okay, if I add the word potentially then it's not too strong.
+Check that the second word of a CMD1 command is within the declared
+stream before reading it from userspace. A word-aligned stream can still
+end with the first word of a two-word command. The old ordering read
+beyond the supplied size and could return -EFAULT instead of rejecting
+the truncated command with -EINVAL.
 
-It's a start, but you also should mention that this is not a real issue.
+Fixes: 5a5e9c0228e6 ("accel: Add Arm Ethos-U NPU driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v5:
+ - Also check length before get_user() access
 
-Johan
+v4:
+ - New patch
+---
+ drivers/accel/ethosu/ethosu_gem.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/ethosu_gem.c
+index ff89cfdb4772..fc31372a2c08 100644
+--- a/drivers/accel/ethosu/ethosu_gem.c
++++ b/drivers/accel/ethosu/ethosu_gem.c
+@@ -977,6 +977,8 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
+ 
+ 	if (!info)
+ 		return -ENOMEM;
++	if (!size || size & 3)
++		return -EINVAL;
+ 	info->cmd_size = size;
+ 
+ 	cmd_state_init(&st);
+@@ -997,12 +999,11 @@ static int ethosu_gem_cmdstream_copy_and_validate(struct drm_device *ddev,
+ 		param = cmds[0] >> 16;
+ 
+ 		if (cmd & NPU_CMD_CTRL_CMD1) {
++			if (++i >= size / 4)
++				return -EINVAL;
+ 			if (get_user(cmds[1], ucmds++))
+ 				return -EFAULT;
+ 
+-			i++;
+-			if (i >= size / 4)
+-				return -EINVAL;
+ 			bocmds[i] = cmds[1];
+ 			addr = cmd_to_addr(cmds);
+ 		}
+
+-- 
+2.53.0
+
