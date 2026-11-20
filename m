@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795147195;
-	b=RURS8RjqwO/zKiHDnUWNE2itnq4jMo1FjiQdB5S/EzpD2ltSpUeID9ODmzzI3qERMRaA
-	 rKQ3idQgCPlGylcJOHicDjrJpvhdJKiaKo35r1sHZPCx0CtRslBSERMutQg1UEyDtjbDJ
-	 QkzZeak8hkHVz+1GbCf2IvPEnsx3N5NzFg7n9at0GG7esSfHzEazJWY3FZLq4oCcBBhO1
-	 pyvxOmfMzfNyo6AFwc0UKTHBqyU3tgol3gnLIAdbW/ETW7BBt1EEVisztdhcdM0F2gadL
-	 DaOupU36fMhbpPiCvBByRkqgxqEQD9ZFyL1Ab6pdI8GmUIkVT3yrySGLITm6UraxF4w==
+	t=1795147201;
+	b=t2NIkk/FswmuhVXxtc5lJSgS10cAMcmea94Dmx7qAk3HnUlgQOdHTYg6DUMng9ktO7DE
+	 VUy6bad0GutgZLwGHR2avhB7UCrejp1tIXShyLGbil9O/DRiPzAXJPhHmP7y/6qyEgPtc
+	 cC4+/4URAZHZvAOXc0ZiZ/rtz2PE95OMQUKlIbN0Tt7P0vJxFI/p8pK/6NfOKMx1yqqAo
+	 8e7dxr5Mg3mUAFqnLMIzTA2/CusUgRhstkjEsMSp5UETSioB3IpTKwsZcHx6Ph2j6Pd34
+	 oHxUqGBpeS6ZV4jF7jKuGgMdVQZUbpRjB+ow7UePAhzCvz4FVZw2xowKwt5P952zhnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795147195;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795147201;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0m0WrqZYBcRighyEzQXIZqHlbBArN5NZqU2y6idkHc4=;
-	b=Sd9bFbzD2Xie2sSuNGKPcpbqzryP4/eqp0eBcWHoZZ7lwTszh2V1SiotV6YZWd5ptDLe
-	 cN83Alts4JQkPFb0DQsUt7dBPXWnFTBbLDBpcRdmsMwqm6dPkUGLTP1j/IE0XyZ/JzlSA
-	 ur5/HP2g0UI0THYZuRDbneQj4UWrTI7zgaUgD5Az6QtZXSSVlZ2I3zd6YUb+m1In+GThu
-	 dcxKSA/hTqWF34G1QgXjq+bbn/IJ8JffPnO29raUaL80lqxS6jJLj88UU8Wa55rbyJE2Y
-	 toT7kVihVp26Nu35BToCr1kXpiEhoEDqyX8IrKasSPaYrAqyk+0TBvLgzF+iK4Lp2Rg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
+	b=NvR/8G+WjMasenIfqm74Nf6xny8Cb23mWRiakTVa+xe4h1YCAMaSaHGJirFiVICDCLvS
+	 XqoOPfONrwdZkGxipJC85Kn+NZaGWBkZUGfL9oy7tkOF4xXxX18bLl4N/Ymh/OGZ9FHcM
+	 Me2C/Rm+YZYTQ6PG5IX8XWMCnbt6Rq/CYjzh7SE8nBFnbQYt1zU59uaOfeWnm/cDDPkjv
+	 tFka41qwb7uicrhaJzg63D4CYtL043v18n/KJCCmPJvOkNou/nz7tCDqC/TRcLl8nb9Rz
+	 1mJEck9stwo1q6zGL9qEh8pkEn3mTHmbHviFgiIk/ra1vIFQwD9DckSTGrXbFb5U1VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xBVnolz0;
-	arc=none smtp.remote-ip=209.85.214.170
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pv9tEZFT;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4D5A606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:59:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4D5A606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05EEA606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:59:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05EEA606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xBVnolz0
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2f01f296937so3491235ad.3
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:59:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Pv9tEZFT
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f045b921caso872835ad.3
+        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 19:59:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795147194; x=1795751994; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0m0WrqZYBcRighyEzQXIZqHlbBArN5NZqU2y6idkHc4=;
-        b=xBVnolz0bv5d4/cGi+uBX4eAA/DCXf0AhdVOAQFaKejy7TuVmtSsCA2qnKUsyt6GGc
-         zts501lTFAqMo5fZhIE+l8jEqqR3IarsNowOFwVzwUiddS2MIstUzED9v9iUUnoK7cDp
-         LFiksuFjw0O/ROLEa0M8bX+4dD5JyLnqNbkO5xe8hCtAD1hMj816+0cpik4n1vq1mT/O
-         j8Y+vZ+D3V1wM0AJviDBC/8a0LRpJH4E/82RNkz6Zoh1uradxrNsQp1/4P/6ArF72DH2
-         rEjnG7oC7H3pS1RsKilIGON9eKUDG1V6x7hnbSrjWugOP28uVPiGE5M4XYsQWdqE/5sj
-         +FTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795147194; x=1795751994;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795147199; x=1795751999; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=0m0WrqZYBcRighyEzQXIZqHlbBArN5NZqU2y6idkHc4=;
-        b=BAB1K26yGQ4OQG629/EGPmMQF0ZM0zHpcnH0C2lv5es1ZUlEQCkhsQMy+XEGCP+/jy
-         AnqFWGvXOHNOm0iAUIZX/DHxsq85gCRVY7cxbyrnXMygCJRZ5aM/se48l1Li3Lv1vw/s
-         hdqRyZOvhyUUgZBZe64Mg2OtjPzhf64VLC91ZnsFSI3O9bK2/BxyH99wnUu9UV/BP0pN
-         J0jF4/H26lwJ3mVFR8ZZ+A2lwmQZQIE1JNX5nNx4V3CI9WBONGaVLg0zgut2PSFarHxS
-         wyD6sM/HxeoRIlPwRqTA++nfVsAfR7OKhFzewTtqqgoh3T+OP8tPM4Lf9G+aGGOyBInc
-         +2aA==
-X-Forwarded-Encrypted: i=1; AL+hErE4zHk0kelTFt4c0oeHDbw5HT+iX7MWK4nJN0dGcgERk4IG7pEu/nGMUpV7XlmVUhz9MBHlLrNg0m9mA/c=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AWllSoHR+YOFJ0Msw7ZNE3ZEcuT9d0QYYM1m10Y0AzNjAjZ4s
-	ZihW9ELuE78AjAmbL4lnH6ZoLPQM/M2DafQyfI4GawGCYfdn2TAbb6W+
-X-Gm-Gg: AZFdTZcoLzWyX3uuDH98tlkdjaKMw3WNEv/rcKc0XnxICeM83x4yQz+ECLy5WPpTeqm
-	bbtAh+HIZBRgo2+QfoJ2IPaOvaDBkGfRJVXmF/yTp6lPG8Qs+GyYQyVCt4Tx25377a0kQT6vi1X
-	6zBlJcNS5LbS1wbvL26ZfG02MzRihnxhMzbOkLEgwkqxol+drXQ0E6DeOq5hqlix1HKBduddgTQ
-	7Cj7oWPA4Few9p6uu4xsXlFBOIl6caLMEY/oRD3OcmYgXQ7pL1/7YjOcrgxFDQ4ULdNEgnf6wro
-	i9B7zveNdKLeaRk/91TNq9Ok4nWAdlKje7GuR7id0pMJ3PS6e+pq30h0lRlGuW9Wk+u5I0O281z
-	EnXewcYGBy0hFSSwryY6Ohy7qNi3OSZ4jVwk0xbLJEapBYDQDgYbehrWtFP3aE0+JaPS/TuwL6Z
-	FQZ5WbKQCmjVTWBFSHHdSfLGqyLEGIuX3ewBas361pAvmK5jb6MNr94OkGqC9Nsau+QBL7m64Cu
-	SWqegE5EeJL2cEq4gbAnw8eiEGIMiEiNLqr7IHLTRWsNuwD/XnkgjnmaG/M+6B3QuNL94CPA2QT
-	cv/mOAd482Wiq6PhUaREqQsVoNHMVHEU1rXFldaCBhOV6BsEMfZN2eGHoou3QCIJpXya0bpbxXi
-	rLY74ga7jvc2A5LmQ8u6aDN8XeWdPJRhAfJL0/QMJGWZg
-X-Received: by 2002:a17:902:ecc2:b0:2ef:ee39:5dbb with SMTP id d9443c01a7336-2f03f2b52f4mr19751355ad.61.1795147193940;
-        Thu, 19 Nov 2026 19:59:53 -0800 (PST)
+        bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
+        b=Pv9tEZFTlOfAj6PbvGp6C32fm5LFFqJO/T6RHjukvgU86yMpRPRomGOyjxNHHEA/m3
+         4/5y2hMUew54Vvk+lyRATXii4GLdpAmhjIMt/pis0HHU7aMbGiaA4Bmxk3nHn8ro5cQb
+         D0Tff6ZDs0jG+RUwuXQOWChPlgNqEBSdWV70drN4a0KOgoejiwxwctXytEsLIa9Gzv6u
+         0tl2hd0A/wAku1xfmdsGRzoani1xTexThyDrCzmuLoCYM7YVFdXdeF1/hcLJnVFuE75W
+         EPKM2kQ6qyz7b6IxHJvyi2QpMmatMNcxt/9XeLfItTYrFxyA3ho+EQ50FuMGq9TRFhHv
+         1zGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795147199; x=1795751999;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CpA5O4wyUxbqGe+dCFjBVccndMPCv3b8o+hsoVqh4pM=;
+        b=Waka/WgBw0jDvb2NkF9oRLqMMGczsJV+Kd1cRHffKChPozrB6HlIiTNV+mz+TExf+5
+         /7Ww3F/UK0R5iENekoSXOX9sHhyO4fnJ3M/yC80wCV/oyXcyBRfNnt9gov4sfnqcSGpP
+         xn4opC0foo47wSZKDMG6UYwpZ/m0BsAFMelahlfLLSPGcVQCQD9U5BDRodSN89QYLsoJ
+         DGQAfu0tzmEzR7Q0WfO3bOT2XmCnyRr2i4FrUqIoOMAbsN3FxAMIaHcLexc9WT2WMoCa
+         mL1H+rGyvLwsGCjgY3vLOlpwNp0WPb9UYTQCAU+oQoccjz3D1eVaCY1GkkMa+i+AP2YS
+         CVNw==
+X-Forwarded-Encrypted: i=1; AL+hErF8HSYKHLghe/j+1nK4gWCXKdM3r3q1O+Y72SKFn1lUiTGb3nFDt3eh1ouzLfG1BHOxWx2heb3lhVLsSFY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8j1aow8teg252stuP/hyrsQLvHXLoVPhCHRKb3tX3IBqZFJHZP
+	fDeNYGtyhj5X1Lk3cz+lkx9qyni24pD8Pz6BlrktYE5C0i9o84QvBMi/
+X-Gm-Gg: AZFdTZeKwDw3fBvr+x9c30MfpYK3K41W3asT3wKueMHJi5oCIdXrHs6o2hxhCg2M00B
+	DjyzFj3/M1VFH/oiEDKs3stR/mZzHsCj6F1o1fUOc4/g1xkoIVqml29hnKdCX62eGCU+UL/nGQP
+	UsCfndMROduAazmJ4v6T48cv/Oars8nAyZjX2XHk6av8TTRRL2sEV8GE4mwsL7lIvnbL64StGfd
+	4aUfWsL7q+zaYn7xOKXGrrxY4P5V5ku9mgOOVscvuCQYaE+OXktWxwAiyHXl+F5BZdhT40rxVAr
+	FL6hAJjhSDNwtwTHhetaRaBuFUrIQfOlqbZwUmSWlWcrUjxtv/2a0debc3/cSW8jDFJv9yz5OB/
+	xR3S6pTv6q3dsJRcFZd3fU3ciBSgdTpYqjrRhFYfGFDdz0gQIsHBwoOVrDZ1+GRDAx087U3l2v4
+	jaTxhhJQ3vCmF8t93w0XwId6PodKUc00M9hy4L+dx5Hlm4PaLqr0sWgKJws5dfL28vfZk5+PfOR
+	HeiGCtcKgWVtZNzBgqo2s0dw4nIK1CcYkQHe+1d/5L/+ZfyZpe6yLrMEHCtbAFJa4SnQUFUj646
+	QgKcxEywD/41YAibN9tyqlrCooC3lzAZQ+Tplj7GTQdgFNQG1wWeVzvP4EYUwu5t/Lyo1zSjfvn
+	O/Gpr+8ZgUy13KJz1NLN6zCOtryrtfa2q4bPaNvVcy1MR
+X-Received: by 2002:a17:903:19cb:b0:2ed:2afa:9221 with SMTP id d9443c01a7336-2f03f1707f5mr19772845ad.27.1795147199236;
+        Thu, 19 Nov 2026 19:59:59 -0800 (PST)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm7801115ad.63.2026.11.19.19.59.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm7801115ad.63.2026.11.19.19.59.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 19:59:53 -0800 (PST)
+        Thu, 19 Nov 2026 19:59:58 -0800 (PST)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
@@ -91,10 +92,12 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [RFC PATCH 0/2] ASoC: atmel: mchp-spdifrx: Fix format handling and MR configuration
-Date: Fri, 20 Nov 2026 10:59:37 +0700
-Message-ID: <20261120035939.12774-1-phucduc.bui@gmail.com>
+Subject: [RFC PATCH 1/2] ASoC: atmel: mchp-spdifrx: Fix 16-bit big-endian format check
+Date: Fri, 20 Nov 2026 10:59:38 +0700
+Message-ID: <20261120035939.12774-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261120035939.12774-1-phucduc.bui@gmail.com>
+References: <20261120035939.12774-1-phucduc.bui@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -108,48 +111,41 @@ Content-Transfer-Encoding: 8bit
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-Hi all,
+MCHP_SPDIF_FORMATS advertises SNDRV_PCM_FMTBIT_U16_BE as a
+supported format, but mchp_spdifrx_hw_params() checks for
+SNDRV_PCM_FORMAT_S16_BE instead.
 
-This series addresses two issues in the mchp-spdifrx driver: inconsistent 
-handling of the 16-bit big-endian format and MR register updates 
-in hw_params().
+Replace SNDRV_PCM_FORMAT_S16_BE with SNDRV_PCM_FORMAT_U16_BE
+to make the format check consistent with the advertised
+supported formats.
 
-This series was developed on top of the previous series:
-https://lore.kernel.org/all/20261119103413.31729-1-phucduc.bui@gmail.com/
+Fixes: ef265c55c1ac ("ASoC: mchp-spdifrx: add driver for SPDIF RX")
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
 
-Since this is an RFC series, I have kept it separate rather than including 
-these changes in the previous series. The previous series should be 
-applied first to avoid conflicts when applying these patches.
+Note: 
+The SAMA7G5 datasheet does not explicitly document support for
+16-bit and 20-bit big-endian samples. This change only makes
+the format check consistent with MCHP_SPDIF_FORMATS.
+Hardware testing on SAMA7G5 is needed to confirm whether these
+formats are actually supported.
 
-The changes are not hardware-tested, and I would appreciate feedback from 
-someone with access to the hardware.
+ sound/soc/atmel/mchp-spdifrx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-In particular, the MR register change needs verification. If the current 
-code works as expected, the existing full-register write in hw_params() 
-may be intentional, and the actual issue could instead be the default 
-configuration in dai_probe().
-
-For the 16-bit big-endian format, the current format check is clearly 
-inconsistent with MCHP_SPDIF_FORMATS. However, it is also possible that 
-the advertised format should be corrected instead of changing the check 
-in hw_params(). Furthermore, I could not find datasheet documentation 
-confirming support for big-endian 16-bit and 20-bit formats.
-
-Therefore, hardware testing is needed to determine whether these changes 
-are correct.
-
-Compile-tested only.
-
-Best regards,
-Phuc
-
-bui duc phuc (2):
-  ASoC: atmel: mchp-spdifrx: Fix 16-bit big-endian format check
-  ASoC: atmel: mchp-spdifrx: Preserve MR defaults in hw_params
-
- sound/soc/atmel/mchp-spdifrx.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
+diff --git a/sound/soc/atmel/mchp-spdifrx.c b/sound/soc/atmel/mchp-spdifrx.c
+index 632da8d7bc81..06a2a5a90a63 100644
+--- a/sound/soc/atmel/mchp-spdifrx.c
++++ b/sound/soc/atmel/mchp-spdifrx.c
+@@ -455,7 +455,7 @@ static int mchp_spdifrx_hw_params(struct snd_pcm_substream *substream,
+ 	}
+ 
+ 	switch (params_format(params)) {
+-	case SNDRV_PCM_FORMAT_S16_BE:
++	case SNDRV_PCM_FORMAT_U16_BE:
+ 	case SNDRV_PCM_FORMAT_S20_3BE:
+ 	case SNDRV_PCM_FORMAT_S24_3BE:
+ 	case SNDRV_PCM_FORMAT_S24_BE:
 -- 
 2.43.0
 
