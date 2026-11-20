@@ -1,76 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=35.89.44.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795144989;
-	b=UfmUhMED5Y8VQ6GXUxNyMBhPbfrEH4j/4CZTxkex8LWEVSAqQuX35dK/wVWnqkjths/3
-	 ul869Q3wC6n0FngCX4zBUodrmkdZgIjZh7mKHw3pkVlps3ys2OtMYM8/3XgS+ttKQxJyn
-	 0US+gp+V2ckyL6+BI4ac80ang5mV5zUzhEqLBdvVN+IMHKo9+6mZNBp1dTJVgxHZGKE9W
-	 arvz19RQPRWpuHINW+fs0zz6Rb8yZ41qILjet9brYEQWkw3T4J3ntCE69aSkwl2Gtv2CY
-	 2gk81Dnbjdvdb6tjrJ74ssYrnvUY14dAwKcboArpn+cfnV426Gi8b4g8uPxVFXXGM0g==
+	t=1795145002;
+	b=l2RDy0YygRFJZe2EGWfmzPJP7A6rxrQq0sOLfJ3x0TY6web2fI0R1t50GLw9XuM6AiLg
+	 Ol5OQQcKffNA/z8FTxZVjxaAvfspGTm4xLz8WnB++MXIubWf46KxHSPeOxRTOA+KVe2hk
+	 CVoEbx8u7sCvZWWDe7nq2/MDV8krvryUd3JlWdf6wKYd9GwcdO8Pwut7jSRIakbL76szN
+	 B4UC5xEZAC7JH6hxXZt14hh3E8AFboMDRSHwQ/kpwZkQchemio4cA48hc2C9nCKUOGkiF
+	 MLb6emedMk0iHwIrbYmpKmKwXksiNSrRk39EHPIQOQdd98f6xbqIQR2br9NNe57llTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795144989;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=UVehckMmd+GLNmdbDTyKFoAw5Ssc+uHbNgaENSRTrCU=;
-	b=Q8c40AvDm/ul6JM+xcG3wzaMVFsyRe7dI1SQvXK0qvbY0h308OcQDvj6Cz9p7Eew7Hw4
-	 AzqvV8Ui7aFBCpJ7AS34XV7gIbmnxJdoxf4KF7kohChrV1iOQWFSfJ5p5d7owCo8tcQoR
-	 5S56re0BB9Sae1Gzco8gOYABNi1mqtcXHV/XEe6Pjeqo69SwuFnGHiqkQLxKzYjHRpThF
-	 60ME2W4r/uVvBJcHkf9WhjG4qDApq1g3z/7mmWIuU48Tv1HV7qk3q7qE/Uy59ZtHOYr6W
-	 SDEGP3h2NiBM2vla87ph8HgoVLpIhodUIk0u7wQ9vVJmmw5US8lMASi3QT6p0aO2H1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795145002;
+	h=DMARC-Filter:Received:Received:X-Authority-Analysis:DKIM-Signature:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-BWhitelist:X-Source-IP:X-Source-L:X-Exim-ID:
+	 X-Source:X-Source-Args:X-Source-Dir:X-Source-Sender:X-Source-Auth:
+	 X-Email-Count:X-Org:X-Source-Cap:X-Local-Domain:X-CMAE-Envelope;
+	bh=QwSbqqhIeCd3lwJK3H6J77KqNCgiR19fVC1pv4z8yCg=;
+	b=nQJl5im/+5PeaW41OVMRuy5V00FB9hCU3FyCGc7vMJa6VrJ7ja+dgcQREmc3+Zw4+PPO
+	 e62pWxW1cxSGzf3lMPXtFQHaITp9pcvY+SXX8QxM+FYqm8yMKnUz0I8HSMlXMi9KuZf0y
+	 QOeRNVb3D32Zo+zh7SZfKGwWMmCkmYpMmmIJC+iBMPNLHeOR7pthcWuafTqzeIQ9JdS6A
+	 yPy8IAtaiy6NK6va7Ry+jxtYlhaSfhikLEWK0CYjkV6egXc8vs6SF5dGs21NsSfqWGD3G
+	 s/c+2v8b6tkIh6kyV92pdVna7On+rKp46CjTl1bNAA9TtjaV8Xyn2HsQt2iRUuJUueQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=T8a78auw;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 19F33606A33F;
-	Fri, 20 Nov 2026 03:23:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19F33606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=none header.from=w6rz.net;
+	spf=pass smtp.mailfrom=w6rz.net;
+	dkim=pass header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=smRbKp0k;
+	arc=none smtp.remote-ip=35.89.44.33
+Received: from omta34.uswest2.a.cloudfilter.net (omta34.uswest2.a.cloudfilter.net [35.89.44.33])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3815D60A2600
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:23:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3815D60A2600
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=w6rz.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=w6rz.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=T8a78auw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=T8a78auwzDS1tHgN3CG0VrMj7JFeKBHVCi+o8cRgq7AgCHIXnzxfAAAfviyv1ZzvNNkBhbk0HHsqu
-	 SU8tQKtsJSOrt2fbK2eubzB095Kec552oYoSqBD82wBbzZWWfX7wgkYbFT2iinTvMULJNYKqBUMbVP
-	 2WXOZ7yPovVfSKzU=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66affbd1afd9-f02fa;
-	Fri, 20 Nov 2026 11:23:07 +0800 (CST)
-X-RM-TRANSID:2ee66affbd1afd9-f02fa
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from localhost.net (unknown[223.64.113.192])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76affbd1950b-1349f;
-	Fri, 20 Nov 2026 11:23:06 +0800 (CST)
-X-RM-TRANSID:2ee76affbd1950b-1349f
-From: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sunwenbo@cmss.chinamobile.com,
-	1342116488@qq.com
-Subject: Re: [PATCH net-next v3 2/2] ipv6: preserve ip6mr_get_route() error in rt6_fill_node()
-Date: Fri, 20 Nov 2026 11:22:42 +0800
-Message-Id: <20261120032242.18180-1-sunwenbo@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <179509619942.3136.14572519530709310239@kernel.org>
-References: <20261116014744.18223-1-sunwenbo@cmss.chinamobile.com> <20261116014744.18223-3-sunwenbo@cmss.chinamobile.com> <179509619942.3136.14572519530709310239@kernel.org>
+	dkim=pass (2048-bit key) header.d=w6rz.net header.i=@w6rz.net header.a=rsa-sha256 header.s=default header.b=smRbKp0k
+Received: from eig-obgw-6002b.ext.cloudfilter.net ([10.0.30.203])
+	by cmsmtp with ESMTPS
+	id U97XxEtLQAR1iUFDWxB4lT; Fri, 20 Nov 2026 03:23:14 +0000
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTPS
+	id UFDWxENuK8cn4UFDWxSqqP; Fri, 20 Nov 2026 03:23:14 +0000
+X-Authority-Analysis: v=2.4 cv=Qrde3Uyd c=1 sm=1 tr=0 ts=6affbd22
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=7vwVE5O1G3EA:10 a=VwQbUJbxAAAA:8
+ a=HaFmDPmJAAAA:8 a=j10-6H-SaoHoQRfmf2MA:9 a=QEXdDO2ut3YA:10
+ a=nmWuMzfKamIsx3l42hEX:22 a=L5EjiQpGQaFGZdqT14z7:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=QwSbqqhIeCd3lwJK3H6J77KqNCgiR19fVC1pv4z8yCg=; b=smRbKp0keZVyrUIkaO8OdNHX1v
+	XgWJGX+DNL/p+oMeAx/RJTNgqTZxQFdjupg541c8Vmp+4rPu1Q3fpZ3vwDVq6RwfQk+fvNHxdgsp2
+	+T1Z2lTzVu6Vaem6BNWD+LYB6yEGg+QO6Bm3i5v40nKPvZ2uqCMKcBsnJjyIKBD3kcDzcrK8nM+bD
+	zfUpQpUHOvCWN6pkvzQkh8h/L2k7pSQNsqXImU9jQtGFTSWTHSNnFz8+PX2sHPFS0udl3BODyk/Uh
+	d/BQfHllzkr+IPVjbuhipJvsw0m5HXPWRO65sGZiQgN9xA9zMiPn0hjVoJFS/aSfjvQOc7RVeXIdC
+	+BC/qGKg==;
+Received: from c-73-162-206-103.hsd1.ca.comcast.net ([73.162.206.103]:55626 helo=[10.0.1.180])
+	by box5620.bluehost.com with esmtpsa  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.100.1)
+	(envelope-from <re@w6rz.net>)
+	id 1xUFDV-0000000185z-2FvK;
+	Thu, 19 Nov 2026 20:23:13 -0700
+Message-ID: <508f60eb-3665-4aad-bb85-8180d4330898@w6rz.net>
+Date: Thu, 19 Nov 2026 19:23:11 -0800
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -80,52 +76,63 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6.18 0000/2151] 6.18.65-rc1 review
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, stable@vger.kernel.org
+Cc: patches@lists.linux.dev, linux-kernel@vger.kernel.org,
+ torvalds@linux-foundation.org, akpm@linux-foundation.org,
+ linux@roeck-us.net, shuah@kernel.org, patches@kernelci.org,
+ lkft-triage@lists.linaro.org, pavel@nabladev.com, jonathanh@nvidia.com,
+ f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, rwarsow@gmx.de,
+ conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+ achill@achill.org, sr@sladewatkins.com
+References: <20261118150121.603863898@linuxfoundation.org>
+Content-Language: en-US
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20261118150121.603863898@linuxfoundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.162.206.103
+X-Source-L: No
+X-Exim-ID: 1xUFDV-0000000185z-2FvK
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-162-206-103.hsd1.ca.comcast.net ([10.0.1.180]) [73.162.206.103]:55626
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 37
+X-Org: HG=bhshared;ORG=bluehost;
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
+X-CMAE-Envelope: MS4xfGm9eHic2ao2rP6y2eIQ2eHMPyzj8EcNSfkkkahysMWfyCG7Poyo9qBArU2CYp4QSB2dLd56SghCeo8cPWsKWckIKOx3Un/5PfdbOqT7dmlLm0hOuShM
+ lRRn5uKIOyiK7fQ6o8rz01D2tEvRdTgUd0UPbUxtwy1I4ZrQLUEsCplNK7m2yiTWfP1HaUnVOikaFp9FBQuAnhie7FhMdbWRY1Q=
 
-Thank you for the review on v3 2/2. We analyzed and reproduced each point in
-UML (`CONFIG_IP_MROUTE=y`, `CONFIG_IPV6_MROUTE=y`):
+On 11/18/26 06:28, Greg Kroah-Hartman wrote:
+> This is the start of the stable review cycle for the 6.18.65 release.
+> There are 2151 patches in this series, all will be posted as a response
+> to this one.  If anyone has any issues with these being applied, please
+> let me know.
+>
+> Responses should be made by Fri, 20 Nov 2026 14:55:45 +0000.
+> Anything received after that time might be too late.
+>
+> The whole patch series can be found in one patch at:
+> 	https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.18.65-rc1.gz
+> or in the git tree and branch at:
+> 	git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.18.y
+> and the diffstat can be found below.
+>
+> thanks,
+>
+> greg k-h
 
-1. [Medium] Unreachable -ENOMEM / -ENOBUFS examples and misleading -ENODEV:
+Built and booted successfully on RISC-V RV64 (HiFive Unmatched).
 
-   Agreed. Because `inet6_rtm_getroute()` allocates the reply skb without
-   assigning `skb->dev` and `ip6mr_get_route()` looks up `rt->rt6i_src/dst`
-   (`::, ff00::`) rather than the queried `(S,G)`, `ip6mr_get_route()` always
-   hits the `if (!dev || ...)` check and returns `-ENODEV` (or `-ENOENT` if no
-   mrt table exists) before ever reaching `alloc_skb()` (`-ENOMEM`) or
-   `ip6mr_cache_unresolved()` (`-ENOBUFS`).
-
-   We confirmed in UML that even after registering `d0` via `MRT6_ADD_MIF` and
-   installing `(S=2001:db8::3, G=ff0e::1)` via `MRT6_ADD_MFC`, running:
-     $ ip -6 route get ff0e::1 from 2001:db8::3 iif d0
-     RTNETLINK answers: No such device
-   still returns `-ENODEV`, which is indistinguishable from the `-ENODEV`
-   returned by `dev_get_by_index_rcu(net, iif)` in `inet6_rtm_getroute()` when
-   `RTA_IIF` refers to a nonexistent interface.
-
-2. [Low] IPv4 `rt_fill_info()` having the same `-EMSGSIZE` masking:
-
-   Confirmed in UML as well. When IPv4 multicast routing is enabled via
-   `setsockopt(fd4, IPPROTO_IP, MRT_INIT, &one, sizeof(one))` on an `AF_INET`
-   `SOCK_RAW` (`IPPROTO_IGMP`) socket and `d0` is not added as a VIF,
-   `ipmr_get_route()` returns `-ENODEV` and `rt_fill_info()` maps it to
-   `-EMSGSIZE` at `nla_put_failure`:
-     $ ip -4 route get 239.1.1.1 from 10.0.0.3 iif d0
-     RTNETLINK answers: Message too long
-
-3. [Low] Fixes tag / patch scope:
-
-   Given points 1 and 2 above, changing the error return in `rt6_fill_node()`
-   from `-EMSGSIZE` to `-ENODEV` before `ip6mr_get_route()` is taught to
-   receive `skb->dev` and the queried `(S,G)` would diverge from IPv4
-   `rt_fill_info()` and expose a misleading `-ENODEV` to userspace.
-
-   Therefore, we are dropping patch 2/2 in v4 and submitting v4 as a focused
-   single patch ("ipv6: check mc_forwarding before calling ip6mr_get_route()")
-   that fixes the `rt6_fill_node()` guard for `mc_forwarding == 0`,
-   interface-local/link-local multicast, `RTM_F_FIB_MATCH`, and non-multicast
-   matched routes.
-
-Thanks,
-Wenbo
-
+Tested-by: Ron Economos <re@w6rz.net>
 
