@@ -1,49 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186678;
-	b=Ma+tINlUZx4natOkkBcjJ6ktWJ3S4BeAwYXoHhI8d1tuaJhIACoHOrjXww8HVTIiWUkN
-	 YxJ60FCGcxO+IxJQl+h6XVwJ1Pd0dNxMWga2Jl0kmsl3bkNkXYufpkMfAVB+wewKNHofd
-	 HnG72Da5uWAYQaN6sPkqeEzRuLJ8Mxzj1cjFCb2UBMRuE2QkcymsKBWgYo4mKqRuEEkir
-	 T/irSWr3/efi76rC+77PwA5YT0jPAPzqcjC6NFpiLGZJHLE9bg1od58xocD2PCrIjvAcD
-	 60MSeQafgFMr8+tTG842sE7N4bT2LUAxBKzHQHYhEG36FJEylccipE+zr/z8LVnZSDg==
+	t=1795186679;
+	b=ittt9wQ+YjEEw3fgQYGdAhEoCCMHl1TQsOTl54U18H2ntIvf5jQlHN73IIXBm/vJfc2Y
+	 kBSGxa+gsFqwABUtRk96t9VYDzdmyF67OlXvmgdTO5LMVtPtPZzWyKp3jFxw2oCA26gA5
+	 EfcEr+gWtYJydSkc9PfoDHbnBMg6STEaB7SM2H+kSDCCwe6KM9+ucqmI6g4fyD7CvjW0b
+	 gwejfDoT8qmULoivptIii6oAPEby0cVXd3XzRXmEQ/8gKcwsf3H2ipVxBU6YX38CEi5Jv
+	 TXkl9Jv+AQ0lSjn62PCDN0cOdtil9JjURFHh8dgbag0nbYY0vT2pOwGdG9JLbF+OLEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186678;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer;
-	bh=x/WPSxVncz2SiXf+PVx07o/EAYAzdQ5jOOBz5XwDM1U=;
-	b=JWxsZX1e6K4btNE2LYkoq/X9e/o5aCHgl/r5N+cvEpX30zjpLE06v3Oo9vNps9Dpx4BE
-	 PsFhdif0goZ66rbUmpDIQY+Fbrfy1ztID3xqTdeXEU6hAOHktdhl7HwsMKIJs2l1XyoSa
-	 m9xuijyjDhVMXRD11CE2eqATBlKOOVJGwSfhPA4/J42AySQJMDJw9WlRQL6lCkA3dGDk8
-	 HlHXlqBMxD6oWYLa/2RTQQz5VFGOY++wH7ga2bUqGngxoHTqYGYFE1m3nU20a/I/7o8/g
-	 GGmy07QVdhuJmQb6mt76I8dIXqiGv2steNQNzRK5zfOrUlkfCybOYFq3Qmucp1F6aYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186679;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer;
+	bh=LpTMZrMpU8imGYlY/D1QR/ruFBFP2CHJh6aE+gMArbA=;
+	b=xE+9vjqPb9DX2DZ7YJoEhC4mCYmj+WJr1AVgbdVf3CeNylRMy4Mkf68/lnGTM4kZI+/S
+	 pwE41I4VvPVke1y91hhldWcLHzFlvn7yNp/cRWoYzgf7+QTznADIzkAlGMomMrW2A7llb
+	 iR4xwDzTT7J7SBs0rCcpAFRCnO4bZ+hIG+ot2nltiJKYpvr4RDijZGq1Xhk+66aQ5xGZK
+	 HaLaJVREHm7SsUGlbJbXI4o2ApHiyiXFY7ceGqkw2b00OsWNbZgTAwPkgkmbRtE81sJF+
+	 DmdWl5bF+kbfqIQ1keS8VME4qajnH77VHLF3Bg0V+5TGzgOY2xLB/kWiRbEwTkxAf7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1vgwAHu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE3HB3R3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24444606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:57:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 164F9606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:57:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i1vgwAHu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6DF01F000C0;
-	Fri, 20 Nov 2026 14:57:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cE3HB3R3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D9701F000D8;
+	Fri, 20 Nov 2026 14:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186677;
-	bh=x/WPSxVncz2SiXf+PVx07o/EAYAzdQ5jOOBz5XwDM1U=;
-	h=From:Subject:Date:To:Cc;
-	b=i1vgwAHu52eoSBZ5P5zCskXNTxUk3b6Gc42levAOVJb1XLutADEl9wwsX/tSesDK5
-	 Riqx+mT3yYw6wH7jKgAEWm9u2RaSf/sK/5uMmDy+f7C9An9c+Ek8SJb4FrLphcQfQt
-	 tjJATOw4q1xpnEuUDxMW5ZH0NToLJvhorcTy/U3ZaPAg6iyP1W7J8/+hbRBcn2rIlZ
-	 uIpfm2tOxC1bnV+xyiOoqEuzwewEJo2bjRo9DACdEBFURVYCpEiM0SW+q2GpRQSgTd
-	 Lkcf4e3rY+g80Go7ycXstAt/RzhgN2FFAX3MKhzAy9OHlD1N603jc7fY8GK11BBh8e
-	 lWG0UkqLUcx2A==
+	s=k20260515; t=1795186678;
+	bh=LpTMZrMpU8imGYlY/D1QR/ruFBFP2CHJh6aE+gMArbA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=cE3HB3R3DCveyZJNyMDyYD8XYfy+DG7v3NX1SpPRXEf88YkHxdU3usdaD8v4dlaBt
+	 VQRcUpZYHLxKfaksyfssuc6Vp9wgpvNdGCW1B0SNlCEdsA9392Om9bJGXCycPrCEBs
+	 0ZZeIDb7ocTVyU8P2V9XmsfitpHsd4Lt9xyXMO/RETxba6WwYR4PKisvCHrQ27yyLu
+	 MVBv4mEHhVYYjaMrhgb9gAPdyMX4tDdIW2q7LjKc/fEhlMsjE0ZrRhqTCKBAU0hsiZ
+	 So0hglc6BOTS3RJfVRue+OF+Z5QyTNF+ZI2kSN85AKhKhrfqnOCw2m/fxTvcjqcdnW
+	 9zdTAxKj55aBw==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Subject: [PATCH v5 00/19] accel: ethosu: Cmd stream validation fixes
-Date: Fri, 20 Nov 2026 08:57:24 -0600
-Message-Id: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+Date: Fri, 20 Nov 2026 08:57:25 -0600
+Subject: [PATCH v5 01/19] accel: ethosu: Prevent command stream export
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -55,104 +54,66 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNy27CMBAF0F9BXmM0Hr9Z9T8QCzdMiFuUVHYSg
- VD+vTaV+gjq8mruuXNnmVKkzPabO0s0xxyHvgS93bCmC/2ZeDyVzBDQgEPLaeyGPPE2XilzIu2
- kM+QBgBXykehxKOJw/Mp5en2jZqwbtdHFPA7p9vg3i9r7Z3oWHLhUpvUUnPWieXmn1NNlN6Qzq
- 9sz/mgPaqWxamuslc5qE9STlr+1W2lZtPLQEgqNzrRPWn1rAehXWlUdAmpC1NbRH70syyek2U7
- MdQEAAA==
-X-Change-ID: 20260827-ethosu-fixes-ee58386e9000
+Message-Id: <20261120-ethosu-fixes-v5-1-52d459acdb84@kernel.org>
+References: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
+In-Reply-To: <20261120-ethosu-fixes-v5-0-52d459acdb84@kernel.org>
 To: Tomeu Vizoso <tomeu@tomeuvizoso.net>, Oded Gabbay <ogabbay@kernel.org>, 
  Frank Li <Frank.Li@nxp.com>, Thomas Zimmermann <tzimmermann@suse.de>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- sashiko-bot@kernel.org
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.16-dev
 
-The series was getting a bit long, so I split out the cmd stream 
-validation fixes from the error path, close/unbind, lifetime, etc. 
-fixes. It's a mixture of AI reported issues, different solutions to 
-other posted issues and fixes[1] and my own fixes. It also adds U85 OFM 
-transpose, resize and IFM upscaling support.
+Command stream BOs are validated at creation time, but the generic PRIME
+export path can expose their backing memory to a DMA-BUF importer. The
+importer can then modify the command stream before the NPU executes it.
 
-The series adds rejecting OFM transpose in cmd stream, but then a later
-patch adds support for it. I did this so the rejection can be
-backported, but maybe supporting OFM transpose is small enough that it
-should just be backported too?
+Reject PRIME export for validated command stream BOs while retaining
+generic export for data BOs.
 
-Rob
-
-[1] https://lore.kernel.org/all/20260717061145.1478139-1-zhaoguohan@kylinos.cn
-
+Fixes: 5a5e9c0228e6 ("accel: Add Arm Ethos-U NPU driver")
+Cc: stable@vger.kernel.org
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in v5:
-- Drop all but cmd stream validation patches
-- IFM upscaling also supported on U65
-- Fix U85 shared DMA stride mode and mixed contiguous/strided U65 DMA.
-  Ignore stale bounds for inactive weight and scale streams.
-- Correct resize bounds for signed offsets and programmed input sizes.
-- New patch to reject U85 IFM broadcasting on U65
-- Fixes for handling multiple weight streams and U85 fast weights mode
-- Handle accumulator size mismatch with IFM2 size and ensure ACC_FORMAT 
-  is set.
-- Drop "accel: ethosu: Account for kernel dilation in IFM size" which 
-  wasn't correct.
-- Link to v4: https://patch.msgid.link/20261029-ethosu-fixes-v4-0-4aa25e22578e@kernel.org
+v5:
+ - No changes.
 
-Changes in v4:
-- More patches added for existing issues raised by Sashiko in v3 and
-  local runs
-- Combined the 2 patches for unknown cmds and unhandled parameters into
-  one patch
-- Link to v3: https://patch.msgid.link/20260908-ethosu-fixes-v3-0-490fe215286f@kernel.org
-
-Changes in v3:
-- Address Sashiko comments
-- Another runtime-PM fix for driver remove()
-- Add a fix for NHCWB16 bounds calculation
-- Link to v2: https://patch.msgid.link/20260904-ethosu-fixes-v2-0-3767738756a4@kernel.org
-
-Changes in v2:
-- Dropped first 5 patches which are already applied
-- Patches 11-17 and 19 are new patches with more cmd stream validation
-- Add fix to diable clocks on PM setup failure
-- Rework the runtime-PM to suspend after initialization and before
-  drm_dev_register(). This simplifies the error clean-up in probe.
-- Handle quiescing jobs before scheduler teardown
-- Rework the cmd stream register initialization tracking to use a bitmap
-  of registers instead of relying on initial state values.
-- Handle U85 DMA 2D/3D modes correctly
-- Link to v1: https://patch.msgid.link/20260827-ethosu-fixes-v1-0-346f9ea8791c@kernel.org
-
+v3:
+ - new patch
 ---
-Rob Herring (Arm) (19):
-      accel: ethosu: Prevent command stream export
-      accel: ethosu: Move DMA mode to src/dst struct
-      accel: ethosu: Track command stream register setup
-      accel: ethosu: Factor buffer bounds checks
-      accel: ethosu: Fix NHCWB16 bounds calculation
-      accel: ethosu: Validate secondary streams
-      accel: ethosu: Reject unsupported commands and params
-      accel: ethosu: Validate all feature map tiles
-      accel: ethosu: Account for feature map element size
-      accel: ethosu: Validate convolution parameter
-      accel: ethosu: Validate accumulator input
-      accel: ethosu: Restrict dynamic IFM2 weights
-      accel: ethosu: Split U65 and U85 DMA length validation
-      accel: ethosu: Validate OFM transpose
-      accel: ethosu: Validate resize operations
-      accel: ethosu: Ensure cmd stream is multiple of 4 bytes
-      accel: ethosu: Require active weight streams setup
-      accel: ethosu: Support IFM upscaling
-      accel: ethosu: Reject IFM broadcast on U65
+ drivers/accel/ethosu/ethosu_gem.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
- drivers/accel/ethosu/ethosu_device.h |   32 ++
- drivers/accel/ethosu/ethosu_gem.c    | 1009 +++++++++++++++++++++++++++++++---
- 2 files changed, 961 insertions(+), 80 deletions(-)
----
-base-commit: b4d01c788bfa50dc65ffb5fbc9db4135004c0e01
-change-id: 20260827-ethosu-fixes-ee58386e9000
+diff --git a/drivers/accel/ethosu/ethosu_gem.c b/drivers/accel/ethosu/ethosu_gem.c
+index 9afe2549ec84..c046aee42687 100644
+--- a/drivers/accel/ethosu/ethosu_gem.c
++++ b/drivers/accel/ethosu/ethosu_gem.c
+@@ -6,6 +6,7 @@
+ #include <linux/slab.h>
+ 
+ #include <drm/ethosu_accel.h>
++#include <drm/drm_prime.h>
+ 
+ #include "ethosu_device.h"
+ #include "ethosu_gem.h"
+@@ -30,9 +31,18 @@ static int ethosu_gem_mmap(struct drm_gem_object *obj, struct vm_area_struct *vm
+ 	return drm_gem_dma_object_mmap(obj, vma);
+ }
+ 
++static struct dma_buf *ethosu_gem_export(struct drm_gem_object *obj, int flags)
++{
++	if (to_ethosu_bo(obj)->info)
++		return ERR_PTR(-EPERM);
++
++	return drm_gem_prime_export(obj, flags);
++}
++
+ static const struct drm_gem_object_funcs ethosu_gem_funcs = {
+ 	.free = ethosu_gem_free_object,
+ 	.print_info = drm_gem_dma_object_print_info,
++	.export = ethosu_gem_export,
+ 	.get_sg_table = drm_gem_dma_object_get_sg_table,
+ 	.vmap = drm_gem_dma_object_vmap,
+ 	.mmap = ethosu_gem_mmap,
 
-Best regards,
---  
-Rob Herring (Arm) <robh@kernel.org>
+-- 
+2.53.0
 
