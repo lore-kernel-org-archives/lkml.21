@@ -1,52 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795183704;
-	b=kWpLCoJIifFOuCcRdH6CoRktAVJXyWu+Sk6ZLqR/GzIUTEKswfqi4LITNO8XNM3dshsM
-	 atZVtN+oBCo1cCkxi3rHu8SDXoSB14arfAiQUEjg8NCDilYt/JsEwnpvTMXn/4/1PjI4y
-	 nA3CY7ErQxvtICd4M/StsEjlK/QCXf+/Gc12j/XwuUX/VVvGkGt64YGQe5bFXvnZQFcs0
-	 o0+IymhZzeKVSxaYyplJf3vLa2MkK+4KFEnp+KAEC1VCflCk2XaKCxTXetivp0ZNOpPqF
-	 PZRMSJ3vSugzpL2b8WlXcuh6y6VsFZXgkxwV0qfYT1yKc8PGfpAqP9L9ETPOGJjVYew==
+	t=1795183710;
+	b=LbZ+h0B6NHflBgBbKVCzkiOUdHIFpb7U6kZ2kDxxTDHJxwkYoX5p+SkD2jjjYib+Mi4c
+	 KaJUq4rg49qFukqEMIlpRoqkR6vOnE6TGWQZMinR5HEPX8jLBH1+HL6x3n1zc1Pa/zcqh
+	 XObBuYyJTp63dP9Xr8YmNs0VvdT6RBDV3EKPB6k2gNwrRcV7FpCV6xgGA2H5MVB1F+r6d
+	 gSePzDGT5cK43PpB6HAuWfW25ZBbw2+C3AMvtgiQSsc/u5eF2dJM4RTSDgna3jfdKevdB
+	 yFoG+8TsznX50T5/cccCdl1VXikPpP/YkgP+4zGgz8QNpLfpn0kt0kX7BdtECCgpPsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795183704;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=udFez81mLzzfz96x1FuR88RJ2TvJhuSa2geiVMDZwOo=;
-	b=MzXdjDl3zqcdP6mhMBLlJKa8jvtGRKfbac34afCkCrHVfByzjOEYPMC3WjcfO6/qPCyY
-	 MeLleI0w+X9gx1gUoKDDMma02jTNGntQQMdxI9X1R6/qe2VCQ7PjWFqoPRxelNHh3Gf6d
-	 lkVcHDB7n0wxp0IkMuoah8pSsxvkRzbyVJOUw5nExOEDMNffouIsa5PVjPhLrToumwhzo
-	 6nJUyzr1oKrYSA7Q0FWRPvE1GZXk85zSipXWNZG5hLmqsJroK+NswsxxE449/3gWr5wu/
-	 btEB+woJQYfCSr11jv6LmkZDdBcLN2bvKu1p9m1HLmjQuF/JqeKcMQYr8+5L9BpNoMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795183710;
+	h=Received:DKIM-Signature:Date:From:To:cc:Subject:In-Reply-To:
+	 Message-ID:References:MIME-Version:Content-Type;
+	bh=g/Uw/zfUs+KgJU4czuGuYu2+3Kijzr9VBndrh5VygIk=;
+	b=Mh3eTAhSbpqMrFEam51MpB5SmwjTLrEUiMpLpAv6DDbGdXzx9Vq4qBSoBi8BffA+f3PM
+	 01pLVkDGxdGqh0vTHIfYTYSSkwzviqb4y8W3dWS714E1vhKA74SIMKhLBoDJBaNL/6QhP
+	 l3Dy0EBdBJhn1WX1++tleBxvzObcA1Jp3cqEEJI/ac4V3qm96gHUe/XClnsMucz55USQL
+	 B1D2JvrNC45k6Nr3QKI09RG959Vq7P0aSVdtI22OBfW7lve5JRzL90aS6iVc4laYKOhql
+	 MedmW0LJoQA4yfqbCDqu3ZQhrCk/v9npeThULbANiPbX0dXAlkfMF+XC9Wh0nE273ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=0mFjsRZx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXj94GPw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 835BB606A320;
-	Fri, 20 Nov 2026 14:08:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCEB9606A320;
+	Fri, 20 Nov 2026 14:08:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=0mFjsRZx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0C0F1F000C4;
-	Fri, 20 Nov 2026 14:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795183704;
-	bh=udFez81mLzzfz96x1FuR88RJ2TvJhuSa2geiVMDZwOo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=0mFjsRZxPozn3Rd/junBDqcAYRsZanvM9mDMRQlsOfvGRuSgJIhMVx6ccMu+xRLJz
-	 ZApxeQPXGCPBCe63CDHkBMw6CO1H07jm4P0PbNM8puMndMPcl0xu+BKRmiLmXlMurz
-	 fLjXvSSdARG09RtN3CAzJ6dPhsCYNZ0xDyerrbUg=
-Date: Fri, 20 Nov 2026 15:08:21 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Pengpeng Hou <hppiscas@163.com>
-Cc: b-liu@ti.com, linux-usb@vger.kernel.org, linux-omap@vger.kernel.org,
-	linux-kernel@vger.kernel.org, s.nawrocki@samsung.com,
-	kishon@kernel.org, balbi@ti.com, tony@atomide.com
-Subject: Re: [PATCH v2 3/3] usb: musb: omap2430: report system-resume PHY
- setup failures
-Message-ID: <2026112013-rubbing-busily-8bfc@gregkh>
-References: <20260922004414.4192-1-hppiscas@163.com>
- <20260922004414.4192-4-hppiscas@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXj94GPw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF3BE1F000D0;
+	Fri, 20 Nov 2026 14:08:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795183710;
+	bh=g/Uw/zfUs+KgJU4czuGuYu2+3Kijzr9VBndrh5VygIk=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References;
+	b=AXj94GPwXEdiuqLZYsWIzRGFSnyeuJ27XEo6VO+XZmMY2b4jxFsfab/lb6UgJsIvF
+	 DKcVaY34FIxDb4PsFvwigtBoYg27174TuJUqONvgnU/bTeVlnO/6VSEKuZQQa8I1+W
+	 +Ls6amdYeUBx5XAaDP7IpQcEwy0QeVMops3323mxL4ZmBkRDjWaJyMWVsKi5IGHXbz
+	 KEe+7PQQMPwviDyuKukbaX38xVZot7+cWjvwwh4gWgyuKcuOafkfwn9AYAoIBwQ6aX
+	 /R2muARrQWSXmVvzr2Bfo3kkJLeGEFGZ6C8OcV76TMLO9pDUD5Dv4RDjnFUvOu6jKv
+	 KY3I1hI2fbw2w==
+Date: Fri, 20 Nov 2026 15:08:27 +0100 (CET)
+From: Jiri Kosina <jikos@kernel.org>
+To: Sasha Levin <sashal@kernel.org>
+cc: Benjamin Tissoires <bentiss@kernel.org>, 
+    Srinivas Pandruvada <srinivas.pandruvada@linux.intel.com>, 
+    Jonathan Cameron <jic23@kernel.org>, linux-input@vger.kernel.org, 
+    linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] HID: sensor: custom: Fix the sensor state allocation
+In-Reply-To: <20261120132751.2909204-1-sashal@kernel.org>
+Message-ID: <so8sso3n-s31p-7102-08pn-oon59qo77r25@xreary.bet>
+References: <20261120132751.2909204-1-sashal@kernel.org>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -56,46 +59,27 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260922004414.4192-4-hppiscas@163.com>
+Content-Type: text/plain; charset=US-ASCII
 
-On Tue, Sep 22, 2026 at 08:44:14AM +0800, Pengpeng Hou wrote:
-> omap2430_resume() ignores PHY setup failures and always reports success.
-> 
-> Return the result of the ownership-aware PHY setup helper. End the
-> system-sleep deferral even on failure: leaving phy_suspended set would
-> make later runtime resumes skip the PHY permanently. The independent
-> reference flags still record which resources need cleanup or retry.
-> 
-> A later suspend or platform exit therefore releases only references
-> actually held, while a runtime resume can retry setup without adding a
-> second initialization reference left over from a failed cleanup.
-> 
-> The issue was found by our static-analysis tool.
-> 
-> Fixes: 68d9f95d6fd5 ("usb: musb: Fix suspend and resume issues for PHYs on I2C and SPI")
-> Assisted-by: gpt 5
-> Signed-off-by: Pengpeng Hou <hppiscas@163.com>
-> ---
->  drivers/usb/musb/omap2430.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/usb/musb/omap2430.c b/drivers/usb/musb/omap2430.c
-> index 382d6cd4a9e6..951e60906f2c 100644
-> --- a/drivers/usb/musb/omap2430.c
-> +++ b/drivers/usb/musb/omap2430.c
-> @@ -657,14 +657,16 @@ static int omap2430_resume(struct device *dev)
->  {
->  	struct omap2430_glue *glue = dev_get_drvdata(dev);
->  	struct musb *musb = glue_to_musb(glue);
-> +	int ret;
->  
->  	if (!musb)
->  		return 0;
->  
-> -	omap2430_phy_power_on(glue);
-> +	ret = omap2430_phy_power_on(glue);
-> +	/* End system-sleep deferral so a later runtime resume can retry. */
+On Fri, 20 Nov 2026, Sasha Levin wrote:
 
-Why is this comment needed?
+> Commit d8dcea5754a2 ("HID: sensor: custom: Fix state lifetime during
+> removal") was applied with kzalloc(&pdev->dev, sizeof(*sensor_inst),
+> GFP_KERNEL), which does not build:
+> 
+>   drivers/hid/hid-sensor-custom.c:1023:46: error: macro 'kzalloc' passed 3 arguments, but takes just 2
+> 
+> The posted patch has kzalloc_obj(*sensor_inst). Use that.
+> 
+> Fixes: d8dcea5754a2 ("HID: sensor: custom: Fix state lifetime during removal")
+> Signed-off-by: Sasha Levin <sashal@kernel.org>
+
+Thanks Sasha, I've just fixed this a couple minutes ago in hid.git 
+already, so the compile failure should be gone.
+
+This was me fat-fingering merge.
+
+-- 
+Jiri Kosina
+SUSE Labs
+
