@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795174866;
-	b=f7+kQsKoO3l5U1NdVvOleXF3tZU/4GXcAIAZII/ZhX80+jlUv3xx6dxjA5Ztb5LVz86p
-	 7nADtW8qeUv/HcYrJxMrCMGwLGdpd+VWEHpIsxFcEC0DllVjww/Ruc1U+dEMZ2O1Z3cIQ
-	 5zBYRBuTOW086NleI13kPQ8xuasx2qZv87KX2Zwarsig/tTdj/ANxrBbm5y0u9S94oIIX
-	 DxCHarDfmMwaNRzCsR53MtgnSbPYemKxV6lUHhsx7D2vAn2AbE+mPiuzZAHZYJZgf1ODu
-	 MPbQqyAxEbG9a5O43GAqc98b9/mS/EGCQp5DIvnO8nrB3MN+0Q+V92kiI95EOqN3wrw==
+	t=1795174869;
+	b=uEagA7deypGN5aUWzPl0wmjSU0RC1yBXiab8bviZ9Gl8ct0h8P+C6QEToFTQOx2zJtcl
+	 YbfTZ00ADEy+Ju/UAvxHJVdoKsXdf4W5C+oAoMpamttS7+f1fgty030OymPdTG/VyO3oD
+	 p4V5PHpT6eoo86Olv68ks5hpoxs8BPABCOXBSQltr1XmXt73UF9l9nglIRyvUf864YfQM
+	 +vmbnOn+A0fT3co6d78gvsq4j6VZMMUjg6/YkGFzPhJPI/0P3gX5sGUGAjHXlTfQaUpmv
+	 hrhDPjPjLWCQsnqlV4AV5gvVfXuw4uIc9Z6nO7gqdEsdQd0s8IgorgC0+UyC3xNivYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795174866;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795174869;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=D3sYdKhtwMz2Ymepp70k+wJP1lW04BDHKmEdKLXQ/0g=;
-	b=pefAd0mbjFoTZWoe5ITklJR60SnG1jCmb8KLj1zFNPEbcduI/1YYg0OcTcRY4MgOKPob
-	 HgEiBkzMqkbbG1aDEW+Ij/VZQlNOE8Jg7U+R9pm00RJkGRqfOhUNDShsGDIy3yqHBG/XM
-	 tm7PkoRofMhThriG/4E+/Z88OEuR3TLOgxUvLcx4E8FakJJBn8Lt47BayKI7Brh5P5DmX
-	 gcr4QLZkVgMxdjxOjgzPFiuR5secG5ur5KwIJOnFtXAFNY3TBnAS7wRSBFpbTxMDLt8WU
-	 Tg1GM0R+WU6hRsHJUhN7GQ1OAk5FlGSzLZyMacFnYlxFszcgPRygPKLZorIf5ndkXxg==
+	bh=N+qZJp3IOLR8W+jXWOKTm3fVJRlvPeQHbpUSJTeUQL8=;
+	b=dUwuaxxB8Jjm8+atSJf+5EVsPAA0jTbkTeG0Uyo3DQL47MAMYhuis+45rRndo+H/qHZF
+	 qzXVjTKjVvTIAgkFaukKKyur0N1IScC5Z/J5XtEU/V0fedwq3/FwxbyJZ4T5L3qQ/oItz
+	 Ndot4KiPiT9EDvmQRT62Y3H2es2aFva2nhC8IUx6cJE6BXVvykWyqSRYLYFC3M9wWQmTu
+	 PTaroFw4TdUVVq3h4ypSF5bEp4paUtqiXS+jUsCtG6y77rXTEYG9FfmyOzplwdLgav3WI
+	 oeMrkVVasc19xwL0eGejhZMej4MkL99txkQ1yJlm7RREu0OfAkahXh8QD5ESFuOGsPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwxCqj8X;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=isPgHmkH;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00947606A326
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:41:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00947606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42BDA606A337
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:41:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42BDA606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JwxCqj8X
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so8925425e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:41:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=isPgHmkH
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb6c7b6dbdso7956705e9.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 03:41:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795174864; x=1795779664; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795174866; x=1795779666; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=D3sYdKhtwMz2Ymepp70k+wJP1lW04BDHKmEdKLXQ/0g=;
-        b=JwxCqj8XfU2+uyArh4tcmWO78sFv//GqEEKKhzO9qtOqV0begI692f9O6HjkRUv1Pr
-         ++YhlN6hGEd5mN0uCb6XrUh7w/zsvvo4Ts8ohVlqy021lIu6Nlrlw47/j+TBfhs6afo/
-         DReqrDYS3SK/Gd03o0MrNrPczZggH8meSTE71V+SMBcEiM4oanTiF/tNQyBFx9volFm6
-         e2GMi1rzuBgUaYJbRDWkPxAG2UlSO/PEXnHpaZuA4JrM1RPrDbqZm+J3AiK8w0unh5HN
-         /u8FDg7eQ+ffKRXdhle5BBFv1eMbTO5x29pPribFZzqdkh+K7PrZyCP4H92mhSO9UcJr
-         lUAA==
+        bh=N+qZJp3IOLR8W+jXWOKTm3fVJRlvPeQHbpUSJTeUQL8=;
+        b=isPgHmkHV9iIYt+n7ShKmBawSwEeRIaHOEnivt4vsy8h1bDt1sj4FlWf3hTPlSsP05
+         vdaul1NIZAYpm1OXH1yBtHJx6n+2R5iNAa+VgFgqspJcCGIYeY9dNg78FCUBMUgen6xi
+         oAK5f0EnOVnuEZ08WHKLwBFf8X2+nry8/3Hg53LsjgKV8ZXoMidErWSS5AY9torwZdCF
+         DUkn4mTHKRKTBwpmAFqLusqW4m0GNIqft/7jzBdlYRln8O+d6ze/dqOcwpypU/O7oKBT
+         LZnBRAimH5ChiPKK7BLnIe0heEKK8Og0SoWRcKroAGjFYva1y7as1weBDcCfOBK0XBhi
+         6sbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795174864; x=1795779664;
+        d=1e100.net; s=20260707; t=1795174866; x=1795779666;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=D3sYdKhtwMz2Ymepp70k+wJP1lW04BDHKmEdKLXQ/0g=;
-        b=AMbeqG2b/9/b9K1L4YUP+pu5oAgyMjVCFN2tmDUGf81O8T7zuc3vptTT/t6yzGAYRc
-         ZNLPHIEkrXN2rP20QIusRGNCUEB4Lh9Wpofcx7NOovSUFjwmVYnj1XzbfMx0ou8y6riQ
-         n6krKsxoIG66NpDyJlUOw4/rLfN+lj9rx/pofOFyuBeSglUhEva22jS+ZtQVGuane6e9
-         WOTAn5AFC82HNaDsQv2nxHrYWGa+zd23NSaGudri6xfdc4oIL0pSMvAoC35LDDay/xL5
-         iQstDzz0EXr3eIqWFUQfblLaqh5ZDWF+ZyPukudr42tf32n8d3dSrB9rIPZEinHzqR5/
-         YWkA==
-X-Forwarded-Encrypted: i=1; AL+hErG4AJKWO4RvgXuptkvp2iAgkIAsNJRvX90GIZbtpgaPdfYqR6k2LZm2Q8E2qfAysOEMikL2MJ1k13nH6RM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8kUBiHXTvZiprp95HWxx3FHrENEFEOngz8AeQ4k6paxATBqIGd
-	gToeF/O9hTevK7QsathW7APY+JJz3MvBt0dtIiaFmt4O84b7WFViIWDN
-X-Gm-Gg: AYBFou1RhhyoC1Me/i+uDipZ1o0rQOerY+6UoY/Ibw9KMAfSifiwwXtG7uBA//dON2U
-	UjHxZt0rfY+yfNgDLTZaKqwMtfEVGJ1Mn8qW0HITlWzTY2aoT8wp1hZknNqnkGX1ca0oodxkTCU
-	RlaPrgdOmJgFdmGc3kitPn2ldISmY45fRhobwOxXjus9NMGDDtCek8sAz7rmL0NkqlCxoT9Wg1v
-	FwMtUlUBndrmGk74qJpgOKmO/Sm0H5JhwvoS9Ej7lB4f4eTALEq+bqJ/R3awk2g2pxmwYZeDtNE
-	zg9hrrANelcIUKpxhaACaWxTSDMXFCq5zo5KV4HuAenhJOQxdNi2q9lQnwVVsuYNPUDdH6bvxJI
-	LQkE7Asxza5QGCEm7eoDvMCASyBgjgoFVuRnVkzWpuNIcxwJwaFx4Sm3mo2rD4hdBnh812p4yuW
-	z7k7M7dCLL8Qg3XNogha1q7iLCxRRkfO1SoN9sNreCnKX/FFpGDb1PxKu6qya6zkrnQPyJ6mnBt
-	9SwTpjaaHQGIDZfScHyaHxynZcgTGRAKGkXvcYuTfxVGRZCycKFHhsuQ4zhtUYJliH/bFp1PdRl
-	ZNyswntT0fb5UXM2jDbcohbk6A==
-X-Received: by 2002:a05:600c:154c:b0:4bb:6a78:7c42 with SMTP id 5b1f17b1804b1-4bb887c3428mr62096785e9.1.1795174864114;
-        Fri, 20 Nov 2026 03:41:04 -0800 (PST)
+        bh=N+qZJp3IOLR8W+jXWOKTm3fVJRlvPeQHbpUSJTeUQL8=;
+        b=UuzPbqGgcQ9LfuXLuCuu2/j6XipA6xgraOis5CU+39bDYYghC/aVgTFLg3w2fwxMqP
+         cBaI/d3n5FzK8mbDKsQonWrom/BaixWqD4NRj7CDEolRJB2ln4YFxoIZOlPX+o0/0khy
+         +E/aONGEjxx7+9IJPXnmS/oMHkgF+hjFOWOh0/6brE2RuzT2LMVe33Rti9TmtoaUvWCV
+         S/bq+5QIPIzlDh3JZNH205YWeqSiyAiBZIvkbrM22wxR+PG5VzoNmD1hg7I7WIvVlzFE
+         rxwt7VDgXAy1+v6PIBdjmj74/xmjbZWmAKzAOUEGa5TAKYCcC51iofduMkq7thWYxipL
+         W5Kw==
+X-Forwarded-Encrypted: i=1; AL+hErGcyRkca7JBaZuwF399E7aJysn8gkyYRUY+Zw0GJWCuvOQTMRNDHIB9yAqLi323UIIGaDtR11MH/GQQtkU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8fLIoORXG6sUc7KPKFh2A74OklOWpCtxgrvKFlnS7U06+b3NQo
+	WJc53RkBF6+pLa5ym4I64LU0wxDa0a8U2XcOaS8DBMAoFXMqz1k0QQmH
+X-Gm-Gg: AYBFou0mrPfyJ+KMKsDafRIopB6adAj75fIrxJKTpgQIBFxS6YHZsYS8zE6rzFUyVk6
+	+BVMyJkac+xUJJMrDXRQ/hQ3SeaxeuA38ZoS2MXGhFJfFIS7Fwn1h5JdF2IcL1WQ24D7X3qJ81o
+	FOhbk79vNnOXeW1YiFZBolkJg//U2tDTsxlAqzhE5Wulf7VWDdU3d5jlaIMBKfwToRWycUg9UiQ
+	zYVu3+KGCQTZH1Z1Buso4sN2NGWz0+jA0MkRGhoUgELBWaUGrdMrPdOQk2CVuZVsSVa3H12yxGK
+	RnM/C/TLVV/Q/kyoIEH1dJHCafm+oM/P25F5BcskyvLvNsxe/KaY0SZji60fe9XStW2giMN07dZ
+	0QUzzT7xqf6F4dQ9nv0jAN4wAzW1bJFwD9hoBTIJxCk1Et7VqJPdLscBZEUTpyCmm8f3wXMK3GK
+	/jF/fr9w1+nkK5tDZL1iW2S/1VMEYOntETY+Y01eAbooQJe/7MD0y4Bj5INdtnD5eQXEct3/2nz
+	q7TDFJabD0TCRgzcnpwKtbHaOy2oPP9+WtqJa+7/h1oKTqws1uVyApaEKAF/6OLVY95e8ieFZU1
+	g35K+ZVrf461H7NeQIPQj+AemQ==
+X-Received: by 2002:a05:600c:848a:b0:4bb:6626:5a25 with SMTP id 5b1f17b1804b1-4bb88813462mr53820315e9.20.1795174866206;
+        Fri, 20 Nov 2026 03:41:06 -0800 (PST)
 Received: from dl360p ([130.61.107.245])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm27419345e9.4.2026.11.20.03.41.02
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8d4f9aa8sm27419345e9.4.2026.11.20.03.41.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 03:41:03 -0800 (PST)
+        Fri, 20 Nov 2026 03:41:05 -0800 (PST)
 From: =?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>
 To: neil.armstrong@linaro.org,
 	jesszhan0024@gmail.com,
@@ -96,12 +96,13 @@ Cc: maarten.lankhorst@linux.intel.com,
 	phone-devel@vger.kernel.org,
 	u.kleine-koenig@baylibre.com,
 	=?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>
-Subject: [PATCH v4 0/2] drm/panel: add Novatek NT36525 (Samsung Galaxy XCover5)
-Date: Fri, 20 Nov 2026 14:40:58 +0300
-Message-ID: <20261120114100.978148-1-tadilhusrev@gmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: display: panel: add Novatek NT36525
+Date: Fri, 20 Nov 2026 14:40:59 +0300
+Message-ID: <20261120114100.978148-2-tadilhusrev@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261116070212.314228-1-tadilhusrev@gmail.com>
+In-Reply-To: <20261120114100.978148-1-tadilhusrev@gmail.com>
 References: <20261116070212.314228-1-tadilhusrev@gmail.com>
+ <20261120114100.978148-1-tadilhusrev@gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -114,64 +115,130 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This series adds a DRM panel driver and its DT binding for MIPI-DSI
-video-mode panels based on the Novatek NT36525 controller, as fitted on
-the Samsung Galaxy XCover5 (SM-G525F, Exynos850). The panel is 720x1480,
-uses an active-low reset (RESX), and a DCS init sequence that mirrors
-the stock Samsung bring-up. Backlight goes through drm_panel_of_backlight().
+Add a DT binding for MIPI-DSI video-mode panels based on the Novatek
+NT36525 controller, as fitted on the Samsung Galaxy XCover5 (SM-G525F,
+Exynos850). The panel reset (RESX) is active-low, and the panel needs
+three separate supplies (vdd/vpos/vneg) plus an optional backlight.
 
-  Patch 1  dt-bindings (no change since v3)
-  Patch 2  the panel driver
+Signed-off-by: Adil Hüsrev Tepe <tadilhusrev@gmail.com>
+---
+v3 -> v4: no changes to this binding.
 
-v4 addresses Uwe Kleine-König's v3 review comment: drop the unneeded
-<linux/mod_devicetable.h> include (it is pulled in transitively; this
-driver's of_device_id/MODULE_DEVICE_TABLE(of, ...) still build clean
-without it).
+v2 -> v3: no content change. Resent as a fresh, standalone patch
+(previously v2 1/2 was a diff on top of v1's own patch instead of a
+complete patch against mainline, which Krzysztof Kozlowski correctly
+flagged as a git-management mistake on my part; see the cover letter).
 
-Adding phone-devel@vger.kernel.org to Cc per Ivon Argel's suggestion
-on the v3 thread, so the relevant ecosystem developers see it (not
-adding Ivon's own address; he asked not to be personally Cc'd).
-
-On Michael McAllister's offer to add Moto G10 (DJN NT36525B) support
-on top of this series: happy to see a follow-up patch once this base
-driver lands; I'll reply on-list separately rather than hold this
-series on it.
-
-Tested on a Samsung Galaxy XCover5 running 7.4-rc3 plus this series
-(re-confirmed 2026-11-20, kernel 7.4.0-rc3-00023-gdcb8b91fb779+ #32,
-after rebasing our local tree from 7.4.0-rc1 to the real 7.4-rc3 tag):
-the DSI panel connector probes and reports "connected", debugfs
-reports the reset gpio as ACTIVE LOW, and /sys/class/backlight/ is
-present and readable. checkpatch.pl and dt_binding_check are clean
-(bar the usual new-file MAINTAINERS note; the files are covered by
-the DRM PANEL DRIVERS wildcards).
-
-Based on v7.4-rc3.
-
-Tool usage
-----------
-This series was developed during XCover5 mainline bring-up with the help
-of an AI coding assistant (Claude Code, Anthropic). The assistant converted
-the vendor init stream to mipi_dsi_dcs_write_seq_multi(), drafted the driver
-skeleton and the DT binding, and drafted these changelogs. I reviewed every
-line, validated the binding (dt_binding_check, yamllint), tested the driver
-on hardware, and take full responsibility for the contribution.
-Prompt summary: "convert the XCover5 NT36525 vendor panel init into a
-mainline drm_panel driver plus DT binding; keep it checkpatch- and
-dt_binding_check-clean; test on the device." Review comments are welcome
-and I will answer them myself.
-
-Adil Hüsrev Tepe (2):
-  dt-bindings: display: panel: add Novatek NT36525
-  drm/panel: add Novatek NT36525 panel driver
-
- .../display/panel/novatek,nt36525.yaml        |  83 +++
- drivers/gpu/drm/panel/Kconfig                 |  13 +
- drivers/gpu/drm/panel/Makefile                |   1 +
- drivers/gpu/drm/panel/panel-novatek-nt36525.c | 490 ++++++++++++++++++
- 4 files changed, 587 insertions(+)
+v1 -> v2 (addressing Sashiko AI's review of v1,
+https://sashiko.dev/#/patchset/20261116070212.314228-1-tadilhusrev@gmail.com?part=1):
+- reset-gpios is the physical RESX pin, which is active-low (asserted
+  low, released high); describe it as such (GPIO_ACTIVE_LOW in the
+  example) instead of GPIO_ACTIVE_HIGH. The matching driver fix is in
+  "drm/panel: add Novatek NT36525 panel driver".
+- Add vpos-supply and vneg-supply: the driver requests three separate
+  regulators ("vdd", "vpos", "vneg"), but the binding only declared
+  "vdd-supply".
+- Add backlight: true so dtbs_check accepts the backlight property the
+  driver already parses via drm_panel_of_backlight(), instead of
+  switching additionalProperties to unevaluatedProperties (which would
+  also pull in every other panel-common.yaml property, not just this
+  one).
+- Fold the compatible string into a single, driver-matching value
+  (novatek,nt36525-xcover5) instead of samsung,xcover5-nt36525, which
+  never matched the driver's of_match_table at all.
+---
+ .../display/panel/novatek,nt36525.yaml        | 83 +++++++++++++++++++
+ 1 file changed, 83 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/display/panel/novatek,nt36525.yaml
- create mode 100644 drivers/gpu/drm/panel/panel-novatek-nt36525.c
 
+diff --git a/Documentation/devicetree/bindings/display/panel/novatek,nt36525.yaml b/Documentation/devicetree/bindings/display/panel/novatek,nt36525.yaml
+new file mode 100644
+index 000000000..9158125c9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/panel/novatek,nt36525.yaml
+@@ -0,0 +1,83 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/panel/novatek,nt36525.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Novatek NT36525 MIPI-DSI panel
++
++maintainers:
++  - Adil Hüsrev Tepe <tadilhusrev@gmail.com>
++
++description:
++  A MIPI-DSI video-mode panel driven by a Novatek NT36525 controller,
++  720x1480. The first compatible string names the specific panel as fitted
++  in a device; the second is the NT36525 controller it is based on. The
++  panel reset (RESX) is active low.
++
++allOf:
++  - $ref: panel-common.yaml#
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - novatek,nt36525-xcover5
++      - const: novatek,nt36525
++
++  reg:
++    maxItems: 1
++    description: DSI virtual channel
++
++  reset-gpios:
++    maxItems: 1
++
++  vdd-supply:
++    description: panel logic power supply (vdd_ldo28, 1.8V)
++
++  vpos-supply:
++    description: LCD positive bias supply
++
++  vneg-supply:
++    description: LCD negative bias supply
++
++  backlight: true
++
++  port: true
++
++required:
++  - compatible
++  - reg
++  - reset-gpios
++  - vdd-supply
++  - vpos-supply
++  - vneg-supply
++  - port
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++
++    dsi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        panel@0 {
++            compatible = "novatek,nt36525-xcover5", "novatek,nt36525";
++            reg = <0>;
++            reset-gpios = <&gpa0 0 GPIO_ACTIVE_LOW>;
++            vdd-supply = <&panel_vdd>;
++            vpos-supply = <&panel_vpos>;
++            vneg-supply = <&panel_vneg>;
++            backlight = <&panel_backlight>;
++
++            port {
++                panel_in: endpoint {
++                    remote-endpoint = <&dsi_out>;
++                };
++            };
++        };
++    };
++...
 --
 2.53.0
