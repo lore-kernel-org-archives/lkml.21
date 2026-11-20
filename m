@@ -1,147 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795180730;
-	b=CdltK7U0RKDa2qqgY23BsC7F774OxEmQ7KRAfvcT4IqFeineBWdbuADOGgu/X4HqjWx6
-	 X9xN3b9dqR/xcNfEzfBPdqiloUzL8gR2WboPuxiMcKNZE04BrGmB0aJzUEy9Ca2F3cqtm
-	 ZGaYTTfOdXQfsh0ODfSKBJn7fpR52gtDOBKrEnWlMPkuk1O5iU8aQoVyw+LMBjna+1yDH
-	 R/NQE2QcNzvlIees4YqpHkcfFTpGD+p4us/myuhTJe6G131Lq56I7sATPQZ89VgFOwXF+
-	 Hd+oGopdPhTWqNiuu3VVkkc6fmADuySRBjrQrNUyBp2sLfJgZcVzvhV6TB+MNwedglw==
+	t=1795180737;
+	b=lebNnziPAUtqONIrPTkRaZu3n8a3n9W0qgg7RK0cqiMM9sERokzn6s7vcA0lEa6f6hwg
+	 abOtCSz/3fHuYj725TYDdVciGYsI5O1Lm1FSQ6kC97BH7pOUyMqmTcpmhmBsBu1PN3J7m
+	 mkBjkJMcS29Z1gGQzVRmQpkTBD/vzgJ9cNdfN2fVjrqA9H9S+snjKH1t2bIHf2FkK9U+E
+	 70SaxDC2ZMWlhNGvc+6GDyLwt40Q1e8aBWZO1DydXagjf5F5Twjr+V4StPNH/LN/ZRYNa
+	 fbofmeRgtmwgnF8R1D93lHHJVYcqysVHGV0Z1VkjWJlbS3lZRpQfUT+1Cqxe0URvciw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795180730;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
-	b=EHK3BEMjPNUMO+M271Zsmz1i1qrKvfpNFPWwcB6wfS0zFP9YKEWBzx91k2iYp7/JJtIW
-	 TX5cyrrFGr6tCpmMCTRIcejrlYEXOOsahhE9T2L8Mgsqfp85ELVR6WPm2poYHEuaH05js
-	 NPAh25Gp2uq49lZoP9UV/Weu3gqz9a3go7b1wupK2MQRrk94kEOlKVl3450UvG51Msh3A
-	 SbKxiBPk+zk/q4Ca/4YKVdevHu/skGExBNysyFxgYqMB3fb+ukCC+2C0+fHA/COd1qcml
-	 hFb8j/PgDMuCqddKvrdM1pj7dkVR5zQfJ1t2Q3Jx1301WvrsShU5T42mUSY078wjkdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795180737;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=7vhtwzXgoC5BMw/zcM6/KX8DJnRqVymglyCO+JLqz0c=;
+	b=Uo4VsBcJuOFIvrr6I0cbh0CEF6vN3UEhuE11xLQkZ196MyQo5wP1efxYrJGnOkJDofly
+	 d6rXmcnt54alfqYPfe1eIuuoR/1x1q3EB01vE3UILyJDML75vfvfUqKbfqM69UmXChE8H
+	 keForHKh/puSnC3AwHMk996UMG5dmfEtOi9dPfvR9D9mJZJE2aoQEiaermUGjIb5WiZcQ
+	 5fyZDU7tsloL2B+c9S4I3wGSlPqQnHtfpQ7Jnm1vwFRAEacq2V+YfXvK8fNnLckyfyeb1
+	 FbDmW10DlDjMuBysgbuzYko4aZ3AIOIVI/bOOeZomQhWIR9T5EWn1YjxqW6M87eYqMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="UI/9rv+D";
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=m7mQfuiI;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2020D606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 13:18:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2020D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEC6A606A326;
+	Fri, 20 Nov 2026 13:18:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEC6A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UI/9rv+D
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c515319dd89so17830466b.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 05:18:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1795180728; x=1795785528; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
-        b=UI/9rv+DZdDezz6z4q5V4bbLRvq2PUwTXKvmGLgkStPFRG3MFzpLEzZUOMicEVzjqv
-         h9WskxL6pQRjVp6LW7wNLul6TdE5DMEMvMtKHVto1kDWUtXl4YZysNnP5izuUm6Wyf00
-         02kOc+/ogItTG9aLvdGftl8BuwMr3ddEGZP8CscGYWnM7MnxJ1gdPDJRCMKsqAHhAduA
-         5fYf+0m8yQ6qc78NG4siN795mYwXAc6BQzyhcrtUI3sLGXErAQdCZNzpNCRSgoDhZ53Q
-         BTlXcoGhXILqja8hQmBbLSiQNTaIckFhQCA59sphyqAh5AgpCytcMtf2fggUT1oBCS51
-         FT4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795180728; x=1795785528;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YAQTVNIYZ/0Tbx2obltQhn42YTPBHmmwY733kBIibzM=;
-        b=aMas/rRI6Qg+54VX2Wigd/vETgiexPqlkmtVqX4OoEkVfXDU+BLGAJK5/Got5OFioy
-         YXPP1cvK3Hiwy1hizxdQ0bdyMwY+GNTfLm6i0mBSrLGOcjlVINU2/YIbnTsLrmvHtFtB
-         0fwOR64sUSxnknmwrEh0QcbJ9lS962KFOP2nMqpy1Y+8yZhYjCC+56vt1RWj8U6V0vQo
-         Y8vu2T3+hdy8XK9oSYotThIlMKzR+N/ZBIJNHhmtxqvacQJu80ove2Dq+z1g2XAkG99C
-         iuqHgFi80KrhrDiJUMtUh+90DiZSqI5GHaQeb7J1yjtSa6cUVNkTxwpUXVySKMrm+Eyw
-         o4hw==
-X-Forwarded-Encrypted: i=1; AL+hErGjLsVXoOmitem5Ydrda+IPZRdAQwir+CdFqvJ5tcdeDoFIFhqy9pno0liSxsieNRvZn2JBPb1pgjhgnkM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+yRC35YRj6mc1sNiurTSAcJVz4RTwghV8LPRCszbiqOrg9WKS0
-	/yVwri0aSZ+vwOhsvj6o7gu8tV2M2YLrPv5XNl5timuU0N1bmpi8TtHHblg+7Hz4vQW4
-X-Gm-Gg: AYBFou04WxVQ4d/Ur+JxB7CNJJtKc1E+/Q8epKHuIQFMAWm7siSjXixLMyruxbhbfgk
-	fd2IS5lMkLQw1TU1PVgo7VCo+8gp32MjhBN5safXlUXtsvLG9F9meqJCNXFu7fls7CTTffFfAv8
-	c23G+isXG8tM/ZMmrWWo+iOo1xh8daMYg5ZOf02/yu3S5YoPacrvYQ30zuEduG22SoilB3vtqJN
-	PLxxt9tONAfZgQUH4hlM7CpWbJtCJVUUjBFn+Mp8vR7y7gVqfxnx2taMO4DgPm5cMs9N3LrWHC0
-	YzKOi0NAUhBm/F+9z2WmHX6+y/KNu2Z3XW0w4tAqT/WUgsG0Mndrn0SRFLenex2XbHIaOBTC5ha
-	IAC8JnfbwKscNLcGE6r6qIoICWbn2LN9AyGNN63z7h51qKnimUsI0GONqBMfnDdXmGjI2sbX5Q4
-	OLGC0yQziiPPknsoBuqQ5gX8mpwXYBTbKij8IP82bNvNLQLgU0bZzH1wrXGM6ZgZ3qwMYLcSD3v
-	2yWoVDaiCooKduAUEDdWmutIG1gIAJHy4mgy4aqEw9qt8hxHxU/yS5VM4J2fSGArkWizgE1O84o
-	j7IR4PXMxhpiCIhfWCwiddhvFrie7PfgotZ3XCgtM3xkJvpd7RSzqaxm1d0hqnJSJA==
-X-Received: by 2002:a17:907:a890:b0:c41:55b4:d88b with SMTP id a640c23a62f3a-c513ab14402mr338807466b.43.1795180728386;
-        Fri, 20 Nov 2026 05:18:48 -0800 (PST)
-Received: from [10.0.0.233] (tmo-084-188.customers.d1-online.com. [80.187.84.188])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe3b0sm93731066b.8.2026.11.20.05.18.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 05:18:47 -0800 (PST)
-Message-ID: <e376c8f0ec5c50b417375197a5589a210f151d9b.camel@amutable.com>
-Subject: Re: [RFC PATCH v4 03/14] rootns: Track init lifecycle via
- copy_process() and pid_namespace
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Jarkko Sakkinen <jarkko@kernel.org>, linux-fsdevel@vger.kernel.org
-Cc: linux-api@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org, 
-	linux-security-module@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexander Gordeev <agordeev@linux.ibm.com>, Alexander Viro
- <viro@zeniv.linux.org.uk>, Alexandre Ghiti <alex@ghiti.fr>,  Andreas
- Larsson <andreas@gaisler.com>, Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski	 <luto@amacapital.net>, Andy Lutomirski <luto@kernel.org>,
- Anna-Maria Behnsen	 <anna-maria@linutronix.de>, Arnd Bergmann
- <arnd@arndb.de>, Ben Segall	 <bsegall@google.com>, Borislav Petkov
- <bp@alien8.de>, Casey Schaufler	 <casey@schaufler-ca.com>, Catalin Marinas
- <catalin.marinas@arm.com>,  Christian Borntraeger
- <borntraeger@linux.ibm.com>, Christian Brauner <brauner@kernel.org>,
- "Christophe Leroy (CS GROUP)"	 <chleroy@kernel.org>, Chris Zankel
- <chris@zankel.net>, Dave Hansen	 <dave.hansen@linux.intel.com>, David
- Hildenbrand <david@kernel.org>, David Howells <dhowells@redhat.com>,
- Davidlohr Bueso <dave@stgolabs.net>, "David S. Miller"	
- <davem@davemloft.net>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Frederic Weisbecker <frederic@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, "Hallgrimur H. Gunnarsson"	 <halg@google.com>,
- Heiko Carstens <hca@linux.ibm.com>, Helge Deller	 <deller@gmx.de>, "H.
- Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,  "James E.J.
- Bottomley" <James.Bottomley@HansenPartnership.com>, Jan Kara
- <jack@suse.cz>, John Johansen	 <john.johansen@canonical.com>, John Paul
- Adrian Glaubitz	 <glaubitz@physik.fu-berlin.de>, Jonathan Corbet
- <corbet@lwn.net>, Josef Bacik	 <josef@toxicpanda.com>, Juri Lelli
- <juri.lelli@redhat.com>, Kees Cook	 <kees@kernel.org>, K Prateek Nayak
- <kprateek.nayak@amd.com>, "Liam R. Howlett"	 <liam@infradead.org>, Lorenzo
- Stoakes <ljs@kernel.org>, Madhavan Srinivasan	 <maddy@linux.ibm.com>,
- Magnus Lindholm <linmag7@gmail.com>, Manfred Spraul	
- <manfred@colorfullife.com>, Mark Rutland <mark.rutland@arm.com>, Matt
- Turner	 <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, Mel Gorman
-	 <mgorman@suse.de>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko	
- <mhocko@suse.com>, Michal Simek <monstr@monstr.eu>, Mike Rapoport	
- <rppt@kernel.org>, Neal Gompa <neal@gompa.dev>, Nicholas Piggin	
- <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Moore	
- <paul@paul-moore.com>, Paul Walmsley <pjw@kernel.org>, Pavel Tikhomirov	
- <ptikhomirov@virtuozzo.com>, Peter Zijlstra <peterz@infradead.org>, Randy
- Dunlap <rdunlap@infradead.org>, Richard Henderson
- <richard.henderson@linaro.org>, Rich Felker	 <dalias@libc.org>, "Ritesh
- Harjani (IBM)" <ritesh.list@gmail.com>, Russell King	
- <linux@armlinux.org.uk>, Serge Hallyn <sergeh@kernel.org>, Shrikanth Hegde	
- <sshegde@linux.ibm.com>, Shuah Khan <skhan@linuxfoundation.org>, Steven
- Rostedt	 <rostedt@goodmis.org>, Suren Baghdasaryan <surenb@google.com>,
- Sven Schnelle	 <svens@linux.ibm.com>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>,  Thomas Gleixner	 <tglx@kernel.org>, Valentin
- Schneider <vschneid@redhat.com>, Vasily Gorbik	 <gor@linux.ibm.com>,
- Vincent Guittot <vincent.guittot@linaro.org>, Vincenzo Frascino
- <vincenzo.frascino@arm.com>, Vlastimil Babka <vbabka@kernel.org>, Will
- Deacon	 <will@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- Zygmunt Krynicki <zygmunt.krynicki@canonical.com>
-Date: Fri, 20 Nov 2026 14:18:43 +0100
-In-Reply-To: <20261119224312.1037966-4-jarkko@kernel.org>
-References: <20261119224312.1037966-1-jarkko@kernel.org>
-	 <20261119224312.1037966-4-jarkko@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=m7mQfuiI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795180737; x=1826716737;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=JpSwqpRYyuHGJVKnLsoDIc7PuNkmDWVSooM6fHdPxqM=;
+  b=m7mQfuiI/1o0Swr4Zw7BOyhl8vg4inrSJfOVyGyUv+YfE6nLuTtv6yMT
+   FSELKURrUjrUBvvobE+kStH7U5Vj0yJtYeWhA8P1BCTby2bWvJsp6ghMs
+   aF1noCYGHlHQFDCna1KfAWFa2jE0acef3aAnhMZvhAVJOxOZg13OLLmz+
+   FQG4pR9NmEUCIh1EZABWya7B6nAAl0cHpJ6W+p7EwuRBnsUxja7Yw4ula
+   Vm6UR4ZtruyPvbkYxGA1q9QCbuOBR8t2yGmjNOrQcoeouF3T8wvqNLuZl
+   plRAYbuHAeLVF7DwsZny4SdRcoAYEW/Qbize13jvl51e14/ogXpDxZ4DB
+   Q==;
+X-CSE-ConnectionGUID: Y38fTb/4QaWpx1PwKdM1fg==
+X-CSE-MsgGUID: 4zjlGLpJSTCqHAluopv3vQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11971"; a="4101477"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="4101477"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:18:55 -0800
+X-CSE-ConnectionGUID: SUQtMr9QRZqKrvVtf+8XOA==
+X-CSE-MsgGUID: d1li8qXERXi9iAcLdgJ0Uw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11269474"
+Received: from emr-371.sh.intel.com ([10.112.106.129])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 05:18:53 -0800
+From: Baoli Zhang <baoli.zhang@linux.intel.com>
+To: jv@jvosburgh.net,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: jamie.iles@oss.qualcomm.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Baoli Zhang <baoli.zhang@linux.intel.com>
+Subject: [PATCH net] bonding: fix use-after-free in slave_kobj_release()
+Date: Fri, 20 Nov 2026 21:08:14 +0800
+Message-ID: <20261120130814.2131659-1-baoli.zhang@linux.intel.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -151,206 +84,57 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Fri, 2026-11-20 at 00:43 +0200, Jarkko Sakkinen wrote:
-> A root namespace needs to record its init thread group's PID when
-> bootstrapped and capture its exit status once all processes in the
-> root
-> namespace have terminated, without serializing normal fork() and
-> exit()
-> paths inside the container.
->=20
-> Commit the bootstrap child reaper, bind pid_ns->rootns, and wake
-> waiters
-> in copy_rootns() after attach_pid(PIDTYPE_PID), and invoke
-> exit_rootns()
-> from zap_pid_ns_processes() after the root namespace's PID namespace
-> has
-> killed and reaped all member tasks.
->=20
-> Co-developed-by: David Howells <dhowells@redhat.com>
-> Signed-off-by: David Howells <dhowells@redhat.com>
-> Signed-off-by: Jarkko Sakkinen <jarkko@kernel.org>
-> ---
-> =C2=A0include/linux/pid_namespace.h |=C2=A0 4 ++++
-> =C2=A0include/linux/rootns.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | =
-15 ++++++++++++++
-> =C2=A0kernel/fork.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +++
-> =C2=A0kernel/pid_namespace.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 2 ++
-> =C2=A0kernel/rootns.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 38
-> +++++++++++++++++++++++++++++++++++
-> =C2=A05 files changed, 62 insertions(+)
->=20
-> diff --git a/include/linux/pid_namespace.h
-> b/include/linux/pid_namespace.h
-> index b20baaa7e62b..6fd959f4d0d4 100644
-> --- a/include/linux/pid_namespace.h
-> +++ b/include/linux/pid_namespace.h
-> @@ -15,6 +15,7 @@
-> =C2=A0#define MAX_PID_NS_LEVEL 32
-> =C2=A0
-> =C2=A0struct fs_pin;
-> +struct rootns;
-> =C2=A0
-> =C2=A0#if defined(CONFIG_SYSCTL) && defined(CONFIG_MEMFD_CREATE)
-> =C2=A0/* modes for vm.memfd_noexec sysctl */
-> @@ -45,6 +46,9 @@ struct pid_namespace {
-> =C2=A0	struct user_namespace *user_ns;
-> =C2=A0	struct ucounts *ucounts;
-> =C2=A0	int reboot;	/* group exit code if this pidns was
-> rebooted */
-> +#ifdef CONFIG_ROOTNS
-> +	struct rootns *rootns;
-> +#endif
-> =C2=A0	struct ns_common ns;
-> =C2=A0	struct work_struct	work;
-> =C2=A0} __randomize_layout;
-> diff --git a/include/linux/rootns.h b/include/linux/rootns.h
-> index 3f59415efadb..0557ce75195d 100644
-> --- a/include/linux/rootns.h
-> +++ b/include/linux/rootns.h
-> @@ -13,6 +13,8 @@
-> =C2=A0struct file;
-> =C2=A0struct nsproxy;
-> =C2=A0struct pid;
-> +struct pid_namespace;
-> +struct task_struct;
-> =C2=A0struct user_namespace;
-> =C2=A0
-> =C2=A0enum rootns_state {
-> @@ -41,6 +43,9 @@ struct rootns {
-> =C2=A0struct rootns *get_rootns(struct rootns *c);
-> =C2=A0void put_rootns(struct rootns *c);
-> =C2=A0bool is_rootns_file(struct file *file);
-> +void copy_rootns(struct task_struct *tsk, struct pid *pid,
-> +		 struct rootns *rootns);
-> +void exit_rootns(struct pid_namespace *pid_ns, struct task_struct
-> *tsk);
-> =C2=A0#else
-> =C2=A0static inline struct rootns *get_rootns(struct rootns *c)
-> =C2=A0{
-> @@ -55,6 +60,16 @@ static inline bool is_rootns_file(struct file
-> *file)
-> =C2=A0{
-> =C2=A0	return false;
-> =C2=A0}
-> +
-> +static inline void copy_rootns(struct task_struct *tsk, struct pid
-> *pid,
-> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct rootns *rootns)
-> +{
-> +}
-> +
-> +static inline void exit_rootns(struct pid_namespace *pid_ns,
-> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct task_struct *tsk)
-> +{
-> +}
-> =C2=A0#endif /* CONFIG_ROOTNS */
-> =C2=A0
-> =C2=A0#endif /* _LINUX_ROOTNS_H */
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index 5efceb8d58a7..08fc28ad1eed 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -83,6 +83,7 @@
-> =C2=A0#include <linux/fs_struct.h>
-> =C2=A0#include <linux/magic.h>
-> =C2=A0#include <linux/perf_event.h>
-> +#include <linux/rootns.h>
-> =C2=A0#include <linux/posix-timers.h>
-> =C2=A0#include <linux/user-return-notifier.h>
-> =C2=A0#include <linux/oom.h>
-> @@ -2576,6 +2577,8 @@ __latent_entropy struct task_struct
-> *copy_process(
-> =C2=A0					=C2=A0 &p->signal->thread_head);
-> =C2=A0		}
-> =C2=A0		attach_pid(p, PIDTYPE_PID);
-> +		if (thread_group_leader(p))
-> +			copy_rootns(p, pid, NULL);
-> =C2=A0		nr_threads++;
-> =C2=A0	}
-> =C2=A0	total_forks++;
-> diff --git a/kernel/pid_namespace.c b/kernel/pid_namespace.c
-> index 127a5fd23e70..081c27aa85bd 100644
-> --- a/kernel/pid_namespace.c
-> +++ b/kernel/pid_namespace.c
-> @@ -24,6 +24,7 @@
-> =C2=A0#include <linux/sched/signal.h>
-> =C2=A0#include <linux/idr.h>
-> =C2=A0#include <linux/nstree.h>
-> +#include <linux/rootns.h>
-> =C2=A0#include <uapi/linux/wait.h>
-> =C2=A0#include "pid_sysctl.h"
-> =C2=A0
-> @@ -280,6 +281,7 @@ void zap_pid_ns_processes(struct pid_namespace
-> *pid_ns)
-> =C2=A0		current->signal->group_exit_code =3D pid_ns->reboot;
-> =C2=A0
+slave_kobj_release() dereferences slave->bond to check for 802.3ad mode
+before freeing ad_info. The slave kobject's parent is the slave device,
+not the bond, so the bond may already be gone when the release runs.
 
-Dear Jarkko,
+Normally the last reference is put while the bond is still alive, but
+with CONFIG_DEBUG_KOBJECT_RELEASE the release is deferred and the bond
+can be freed first:
 
-> =C2=A0	acct_exit_ns(pid_ns);
-> +	exit_rootns(pid_ns, me);
+  BUG: KASAN: slab-use-after-free in slave_kobj_release+0xe8/0x100 [bonding]
+  Read of size 4 at addr ffff888112c99118 by task kworker/9:1/60681
+  Workqueue: events kobject_delayed_cleanup
+  ...
+  Freed by task 60681:
+   kvfree+0x31/0x40
+   netdev_release+0x8b/0xc0
+   device_release+0xdf/0x2a0
+   kobject_delayed_cleanup+0x148/0x520
 
-We have a very similar mechanism around pidfd's to track exit
-information for a task. As far as I can see we already have (struct
-rootns *)->init_pid reference, so we can get exit information for free
-(look for PIDFD_INFO_EXIT).
+ad_info is only allocated in 802.3ad mode and is NULL otherwise, since
+the slave is allocated with kzalloc(), and the mode cannot be changed
+while the bond has slaves. Drop the mode check and free ad_info
+unconditionally.
 
-Kind regards,
-Alex
+Fixes: b9ad3e9f5a7a ("bonding: wait for sysfs kobject destruction before freeing struct slave")
+Signed-off-by: Baoli Zhang <baoli.zhang@linux.intel.com>
+---
+ drivers/net/bonding/bond_main.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-> =C2=A0	return;
-> =C2=A0}
-> =C2=A0
-> diff --git a/kernel/rootns.c b/kernel/rootns.c
-> index 3bbf7677080e..bde7cf4baebe 100644
-> --- a/kernel/rootns.c
-> +++ b/kernel/rootns.c
-> @@ -183,3 +183,41 @@ bool is_rootns_file(struct file *file)
-> =C2=A0{
-> =C2=A0	return file->f_op =3D=3D &rootns_fops;
-> =C2=A0}
-> +
-> +void copy_rootns(struct task_struct *tsk, struct pid *pid, struct
-> rootns *c)
-> +{
-> +	if (likely(!c || !is_child_reaper(pid)))
-> +		return;
-> +
-> +	scoped_guard(spinlock, &c->lock) {
-> +		if (c->state !=3D ROOTNS_FORKING)
-> +			return;
-> +		ns_of_pid(pid)->rootns =3D get_rootns(c);
-> +		WRITE_ONCE(c->init_pid, get_pid(pid));
-> +		WRITE_ONCE(c->state, ROOTNS_RUNNING);
-> +	}
-> +	wake_up_all(&c->waitq);
-> +}
-> +
-> +void exit_rootns(struct pid_namespace *pid_ns, struct task_struct
-> *tsk)
-> +{
-> +	struct rootns *c =3D pid_ns->rootns;
-> +	struct task_struct *leader;
-> +	int status;
-> +
-> +	if (!c)
-> +		return;
-> +
-> +	leader =3D tsk->group_leader;
-> +	status =3D (tsk->signal->flags & SIGNAL_GROUP_EXIT) ?
-> +		 tsk->signal->group_exit_code : leader->exit_code;
-> +
-> +	scoped_guard(spinlock, &c->lock) {
-> +		c->exit_code =3D status;
-> +		WRITE_ONCE(c->state, ROOTNS_DEAD);
-> +	}
-> +
-> +	pid_ns->rootns =3D NULL;
-> +	wake_up_poll(&c->waitq, EPOLLHUP);
-> +	put_rootns(c);
-> +}
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index a1c156c145b2d..0ec5bc838b86e 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -1732,11 +1732,10 @@ static void bond_upper_dev_unlink(struct bonding *bond, struct slave *slave)
+ static void slave_kobj_release(struct kobject *kobj)
+ {
+ 	struct slave *slave = to_slave(kobj);
+-	struct bonding *bond = bond_get_bond_by_slave(slave);
+ 
+ 	cancel_delayed_work_sync(&slave->notify_work);
+-	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+-		kfree(SLAVE_AD_INFO(slave));
++	/* ad_info is only allocated in 802.3ad mode, NULL otherwise */
++	kfree(SLAVE_AD_INFO(slave));
+ 
+ 	kfree(slave);
+ }
+
+base-commit: bc4c8c146447f71534e80db39c2d1149c6af5fd6
+-- 
+2.43.0
+
