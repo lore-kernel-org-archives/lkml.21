@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.21
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795209913;
-	b=AdGegF1eBjfo+OsNTdPqoHRiDlroFsmQra2FKhf/4WwAGMjANQ1eNY0GMMZ/HqueK4Kk
-	 Q/snUgRLfxPUAviNTHpn6UmflCnG70r450pMijD8qFkHJR9dsfQ5O4BZ7TW2rFZhSJEDl
-	 W5VwvHonnE6CyUkW6lPuLJjuHAQ1WIHBJcPfFkN/+dFneKjpLJAHn0aYRq1iWvMjXDzjO
-	 ly7OvE99qJPUpRikSmUbj1zvj2u1opzqk+LpTsyZZpqg614HxZQHRGUUDBt6Fc3Xmvth/
-	 u3UdkpFveOVyKXfNQ2t9mskbK8FxFNNrHzK+c8uvrJIm24JGcGQDc7UmH/EYdrgW8og==
+	t=1795209925;
+	b=0+e+n95ANM6ifKoFPWh2mLoyVc5jbZSz/SIecliMlHhgoi+HOnc1SvMyOkJuyBwAI0GL
+	 LY07/YxBNhZIqPyp3xGE4q4zcj3MZGpjGMzwI6KRR024I4XEzicW8ezKtu8NMmnUNz/Uw
+	 nX3sUhJS92M768zGxEiamS6gauyQnyxu8KouK1gJavjx/brHr36JvuiKXKILNuNFXYHng
+	 DXory4sFy0P+okdby6883XC2tmdSZZLWu1D9mQdXItVo7zJILvRnBw7nnWpRS//2rIvSE
+	 wMZZ5aiovRwvfLOAhXPPOhrwNcJDqw0wlUXIXOH/lP9ujRNMdeSvRh33yFZHqaPSKFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795209913;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795209925;
 	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
 	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=k1nBndbW22YMkJHHZm3xtGIO8r40wOlreGeONqq6zf0=;
-	b=ZEiB3TwwqSdOuNX4jbY/Xg03McrdyNbmTcOxYxvJpo9YljncEx8XzxwfEb4DYI2jATD/
-	 i9q6ceuRoYvXtOA7s391HJGlmQOO41CjmBCMpJcNKBcH9SejdtjORHiA/7bYmnMcU00+F
-	 bJm/Zh8e6OHtSgBp4cBNHn5qOFDy4QLD+KJcWvaSB4XsuIcIW5tMQUguTkYSJ+X6fg28U
-	 TsC6j5lf+wgxAQ2umnduoxvUA+ZIjUQcXjU0277yzpYNfpJC8PGrXuhw0JPpYE7cVo7tC
-	 PnKpXun9jkKCijo9me/F+dmppLR3YDH+fQt3pTSzH3pZHPA+XDH3ltg4sr1Tm36GTjA==
+	bh=h96/Am5WUJFQAQO/Li9zAJ5u2fQj6qfTyWfOh/1pkms=;
+	b=aQ27G4GCox4nI5Jbnki6EXEGB1jhSzKWbBpXe/u5D+j3TsypFE+lb2gYob/3l98LtF+1
+	 gkgP5ZUrDXmo7Zc1zFV6Bt7EkKTjCFlvDEvsylfBYSl+KMQ/d9tdxiPzrWITs8LX9qtwv
+	 53Ci2evZg++ooVeSlNuXm4mlUDmBF2RI102coQQcOYxaybNhqVLSTKBOyNmYrV8vY9bYN
+	 Qie7nFB1vwfinJwJwa/5sZYqa7aQDFQmKScTTfvROZ42aeYBPAm20ES1iiDeyJBX5Aqga
+	 63hhQxjQsroVpBwrptvK/Bs9pKYZ0RwiQnjXT5/kwgp4+ETt90r7jkIgodj6GgB9VsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmx.de;
 	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=Jsbvs94F;
-	arc=none smtp.remote-ip=212.227.17.21
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
+	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ngCQqhdj;
+	arc=none smtp.remote-ip=212.227.17.20
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0E44606A6B0
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:25:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0E44606A6B0
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABA63606A339
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 21:25:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ABA63606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=Jsbvs94F
-DKIM2-Signature:  i=1; m=1; t=1795209908;
+	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=ngCQqhdj
+DKIM2-Signature:  i=1; m=1; t=1795209915;
  mf=PFdfQXJtaW5AZ214LmRlPg==;
  rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
  d=gmx.de;
- s=s31663417:rsa-sha256:BEibH//77F2bx+9jOizZPXpwjP1K
-   WwxgeJUwK1EnvDFNfbIa+1HsY0bNSijHuIQMroD8YowUEu+IXK2w6yFuHwwilGCRVuNmMT0YRBE
-   8h5BsJ61HtBJsfD65w1elaGJ8YAa2S9eBcVN0XAMpM4g0n8qxJIZVOhAU/JXhWRnxuX/jt1yW2v
-   vJviwiNzRZqF6FsOmTWcKo0u4Zl0fCyl3ER3KPd5u6AAx/7e3McYMwc0Lyq8j+88jK7fo9qj5tP
-   hJ6345kMKbWxGc4HcW0wRb1FgqdGkuH6bcSWgcICnd+O06vgHaTQ696c1hp99SMjET2QXZT7cXU
-   gPiR4A7xIw+PwA==;
+ s=s31663417:rsa-sha256:ZnumyadbgiFLUn6ut4syBDK2Ccgf
+   8QdISfPnAYryuu7D8izZlDHFgfAWQI/lLGirJOGweI2uZpL8U7gWISxZOjBp8yinjuPE7e3rozN
+   yeuJx51o1Ht9zLWN1I+Pgq/tc/f1wpq36+BjVWEaVWwIfnqDYVijml2VIGXLLSu9hSumLNoW0ZK
+   e8zUtwNKwKbQSpIsj//GC87vgU2lEfLR3SX1pHg05qGeJOxppIBH5LNK+BSEH+MY3iupkLHrcVk
+   DxKl6kbHYmnImhJ5R8Zh9SIQ/QNbgWZSzo/Unkazip5Cxyfd19lJtJZbFpGkoOa6ELxO5oJwP3S
+   lPyMIxD2O4e3Yw==;
 Message-Instance:  m=1;
  h=sha256:
-   /XKK45WWHOOmAdiUqQgDuGnMhRXdEV/DDa+UG6ze2Sk=:
-   Px2KMsSlsWTZC/+TZKCuKADgqT++Mq1wOkGwN8yWYwg=,
+   Wjr2Cv8ioKldjJM/2BV+JR6r8qqT3U8ZOfvOmRJur1c=:
+   pIvk64Ha1Fbepj1z0Co5015PNmoK+39D1Mj47Jd2n1c=,
   sha512:
-   5vQL0SETAK2etSDWqRj2wKcN4IoswBTWUpt8e+xQcm4iv2ENfLldLSbrn5rNL3VqMyJCn7yO7FeiHeKj8y4kLg==:
-   U7KYTEzgSDS8VbegSYkXABcHIHxCX57cSWOZgIOz10GnkY0d7YCr/WzAUw0Ef/H4AokQtc8i4DbGOUPUEFOQVQ==;
+   rKc5aVSN1289pX85AGKijn8PsCRj4weeET2S01CLac6nu/azBUKBqlKT0q0BJIyhL+TvW2UUDb5+W4fdHLrHag==:
+   30DUflmo8gFt8XnXfDvpJA4/txxVoKdo6rQSqPCSb2FlcVdlVX43AFBKWZqNjaKZa0uh4n8TeQvVvyojUuqiVg==;
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795209880; x=1795814680; i=w_armin@gmx.de;
-	bh=k1nBndbW22YMkJHHZm3xtGIO8r40wOlreGeONqq6zf0=;
+	s=s31663417; t=1795209883; x=1795814683; i=w_armin@gmx.de;
+	bh=h96/Am5WUJFQAQO/Li9zAJ5u2fQj6qfTyWfOh/1pkms=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=Jsbvs94FiIfGusBHFhArx5fP9mq97CWyNY6M7DWNzlQwzDSE/Y6IaZof//yNwTkm
-	 A0mBcVKRbfpVVk9sY8sdiFy2JFlwlzhL7XLDj+7KG1OqB71cmWShkPDGoQb2i2Zkg
-	 Nw+S3eKcC0Di/Wi6j9vMM4dPnpMNvtI7id8Ass44TvtnZgZnWs43SrQIZNjcaLWOd
-	 Vqzyx91CcQq5OTrKbjD+LJSiy2o592FJ9DSOj0qyLzxVF6r/mWge9sriZd2q+V2xb
-	 EgTsEXPsIeRw11W4Ovi5+sxrXInv2rFddyv3yoZqEMBuLV1WECnWtpdll1G9efUHf
-	 jbWc/2GSC5rqboMYcw==
+	b=ngCQqhdjy3/W7KASx9YCX90pLpdTiAHIJV9QYDmjP2u/AYydKcVSCKKtQqOFNIul
+	 R0bjaMJ/RVUHB6jXGXLXV2aGw6QN52EnCe8uWi3w+QVfws++fSiQgmv39Rh8eGP+E
+	 6NBqICs13+QczWyFPR3RlVbImVTPwZyjiM1+58nFFTMGnlmkiSloaMepNF9Z+mAb9
+	 qktTBBDaiEvl42xeKsKCVKBuBasGM7zjxtLLAFyUiUh6vuf/GU2URNbU2zLUnGEA7
+	 ktefdmEV9vmeblZ+cooc5SdG13HbqKCfNwE7ClMncd7VyZxpPIyQsBlMkVZx4iAM8
+	 mmE0PFLuoBGd1sbNXA==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N1wpt-1yWTcs2Plp-00wWgM; Fri, 20
- Nov 2026 22:24:39 +0100
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mkpap-1yGSdo2JpP-00ko6B; Fri, 20
+ Nov 2026 22:24:43 +0100
 From: Armin Wolf <W_Armin@gmx.de>
 To: lee@kernel.org,
 	pavel@kernel.org
 Cc: linux-leds@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	i@rong.moe
-Subject: [PATCH v3 02/11] leds: multicolor: Constify sysfs attributes
-Date: Fri, 20 Nov 2026 22:22:19 +0100
-Message-ID: <20261120212431.152081-3-W_Armin@gmx.de>
+Subject: [PATCH v3 04/11] leds: class: Create "brightness_hw_changed" attribute atomically
+Date: Fri, 20 Nov 2026 22:22:21 +0100
+Message-ID: <20261120212431.152081-5-W_Armin@gmx.de>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261120212431.152081-1-W_Armin@gmx.de>
 References: <20261120212431.152081-1-W_Armin@gmx.de>
@@ -90,202 +90,227 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:cPzgk3x1UOP5Xqo8D5Xj+9qxq0p7d6a5aoJGp+Db3PMN4ZXkndb
- hnelIiXGJWxbNQ/rzhWbqovlZh+ijDPmkgbvqw2KhN3G5P8wdhaUIPLNhUVK8o0rYtSd929
- sCabLOH5jBqgxT5m1uvcAQQl17tTWCtkgt0c1C2CjgDKO16twAzJR/YI//5tbygIcB2xUoT
- 2tfdPmozy9gsV7qVNCRlw==
+X-Provags-ID: V03:K1:iiFmob/MUCbxHSI2HLXEz/87X43L1E4/pPX7Y1XLLEs/UqBKQq9
+ 0riWzgLTwLwAxEk5qri5gpRJqYxoSvQj0KE2Ir6vqxyyEoRaXHeACLPZG1DwFGZDB1hRYv8
+ pkegmJu3SPikHjE+2jjgiUNWdc/6QuMDFYEaoVy1qeY2MaMRzj084N/GhEY0qnW3TJSvlHL
+ tpwssfzWCjfzTh4mc0P3A==
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:VxhUrSQEjZw=;OzkQWBbUsKqcy/5b+/bGGD+v6jK
- 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
+UI-OutboundReport: notjunk:1;M01:P0:rvy59sj8hCY=;bndZbuEh1HYLbc7Lyu0p59b+F9g
+ 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
+ 44IhVW9Rw==
 
-Mark all sysfs attributes as const to ensure that they are placed
-in readonly memory to prevent accidental/malicious modification.
+Using device_create_file() might cause userspace applications
+listening for uevents to inspect a new LED device before the kernel
+has registered all sysfs attributes for it. This might cause those
+applications to incorrectly assume that the new LED device does not
+support the "brightness_hw_changed" attribute.
+
+Fix this by letting the device core create the sysfs attribute before
+the uevent is being send to userspace.
 
 Signed-off-by: Armin Wolf <W_Armin@gmx.de>
 =2D--
- drivers/leds/led-class-multicolor.c | 21 ++++++++++-----------
- 1 file changed, 10 insertions(+), 11 deletions(-)
+ drivers/leds/led-class.c | 58 ++++++++++++++++++++++++++--------------
+ 1 file changed, 38 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/leds/led-class-multicolor.c b/drivers/leds/led-class-=
-multicolor.c
-index 59d46f8a90d5..57df0b2e785b 100644
-=2D-- a/drivers/leds/led-class-multicolor.c
-+++ b/drivers/leds/led-class-multicolor.c
-@@ -10,6 +10,7 @@
- #include <linux/minmax.h>
- #include <linux/module.h>
+diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
+index 135905dba47e..00532437cc45 100644
+=2D-- a/drivers/leds/led-class.c
++++ b/drivers/leds/led-class.c
+@@ -17,6 +17,7 @@
+ #include <linux/property.h>
  #include <linux/slab.h>
+ #include <linux/spinlock.h>
 +#include <linux/sysfs.h>
- #include <linux/uaccess.h>
+ #include <linux/timer.h>
+ #include <uapi/linux/uleds.h>
+ #include <linux/of.h>
+@@ -101,14 +102,6 @@ static const struct attribute_group led_group =3D {
+ 	.attrs_const =3D led_class_attrs,
+ };
 =20
- static unsigned int led_mc_get_max_intensity(struct led_classdev_mc *mcle=
-d_cdev, size_t index)
-@@ -47,7 +48,7 @@ int led_mc_calc_color_components(struct led_classdev_mc =
-*mcled_cdev,
- EXPORT_SYMBOL_GPL(led_mc_calc_color_components);
+-static const struct attribute_group *const led_groups[] =3D {
+-	&led_group,
+-#ifdef CONFIG_LEDS_TRIGGERS
+-	&led_trigger_group,
+-#endif
+-	NULL,
+-};
+-
+ #ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
+ static ssize_t brightness_hw_changed_show(struct device *dev, const struc=
+t device_attribute *attr,
+ 					  char *buf)
+@@ -123,22 +116,48 @@ static ssize_t brightness_hw_changed_show(struct dev=
+ice *dev, const struct devic
 =20
- static ssize_t multi_max_intensity_show(struct device *dev,
--					struct device_attribute *intensity_attr, char *buf)
-+					const struct device_attribute *intensity_attr, char *buf)
+ static const DEVICE_ATTR_RO(brightness_hw_changed);
+=20
+-static int led_add_brightness_hw_changed(struct led_classdev *led_cdev)
++static const struct attribute *const led_brightness_hw_changed_attrs[] =
+=3D {
++	&dev_attr_brightness_hw_changed.attr,
++	NULL,
++};
++
++static umode_t led_brightness_hw_changed_is_visible(struct kobject *kobj,
++						    const struct attribute *attr, int n)
  {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
- 	struct led_classdev_mc *mcled_cdev =3D lcdev_to_mccdev(led_cdev);
-@@ -64,11 +65,11 @@ static ssize_t multi_max_intensity_show(struct device =
-*dev,
- 	buf[len++] =3D '\n';
- 	return len;
- }
--static DEVICE_ATTR_RO(multi_max_intensity);
-+static const DEVICE_ATTR_RO(multi_max_intensity);
+-	struct device *dev =3D led_cdev->dev;
+-	int ret;
++	struct device *dev =3D kobj_to_dev(kobj);
++	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
 =20
- static ssize_t multi_intensity_store(struct device *dev,
--				struct device_attribute *intensity_attr,
--				const char *buf, size_t size)
-+				     const struct device_attribute *intensity_attr, const char *buf,
-+				     size_t size)
+-	ret =3D device_create_file(dev, &dev_attr_brightness_hw_changed);
+-	if (ret) {
+-		dev_err(dev, "Error creating brightness_hw_changed\n");
+-		return ret;
+-	}
++	if (attr =3D=3D &dev_attr_brightness_hw_changed.attr &&
++	    led_cdev->flags & LED_BRIGHT_HW_CHANGED)
++		return attr->mode;
++
++	return 0;
++}
+=20
++static const struct attribute_group led_brightness_hw_changed_group =3D {
++	.is_visible_const =3D led_brightness_hw_changed_is_visible,
++	.attrs_const =3D led_brightness_hw_changed_attrs,
++};
++#endif	/* CONFIG_LEDS_BRIGHTNESS_HW_CHANGED */
++
++static const struct attribute_group *const led_groups[] =3D {
++	&led_group,
++#ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
++	&led_brightness_hw_changed_group,
++#endif
++#ifdef CONFIG_LEDS_TRIGGERS
++	&led_trigger_group,
++#endif
++	NULL,
++};
++
++#ifdef CONFIG_LEDS_BRIGHTNESS_HW_CHANGED
++static int led_add_brightness_hw_changed(struct led_classdev *led_cdev)
++{
+ 	led_cdev->brightness_hw_changed_kn =3D
+-		sysfs_get_dirent(dev->kobj.sd, "brightness_hw_changed");
++		sysfs_get_dirent(led_cdev->dev->kobj.sd, "brightness_hw_changed");
+ 	if (!led_cdev->brightness_hw_changed_kn) {
+-		dev_err(dev, "Error getting brightness_hw_changed kn\n");
+-		device_remove_file(dev, &dev_attr_brightness_hw_changed);
++		dev_err(led_cdev->dev, "Error getting brightness_hw_changed kn\n");
+ 		return -ENXIO;
+ 	}
+=20
+@@ -148,7 +167,6 @@ static int led_add_brightness_hw_changed(struct led_cl=
+assdev *led_cdev)
+ static void led_remove_brightness_hw_changed(struct led_classdev *led_cde=
+v)
  {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
- 	struct led_classdev_mc *mcled_cdev =3D lcdev_to_mccdev(led_cdev);
-@@ -110,8 +111,7 @@ static ssize_t multi_intensity_store(struct device *de=
-v,
+ 	sysfs_put(led_cdev->brightness_hw_changed_kn);
+-	device_remove_file(led_cdev->dev, &dev_attr_brightness_hw_changed);
  }
 =20
- static ssize_t multi_intensity_show(struct device *dev,
--			      struct device_attribute *intensity_attr,
--			      char *buf)
-+				    const struct device_attribute *intensity_attr, char *buf)
- {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
- 	struct led_classdev_mc *mcled_cdev =3D lcdev_to_mccdev(led_cdev);
-@@ -128,11 +128,10 @@ static ssize_t multi_intensity_show(struct device *d=
-ev,
- 	buf[len++] =3D '\n';
- 	return len;
- }
--static DEVICE_ATTR_RW(multi_intensity);
-+static const DEVICE_ATTR_RW(multi_intensity);
-=20
- static ssize_t multi_index_show(struct device *dev,
--			      struct device_attribute *multi_index_attr,
--			      char *buf)
-+				const struct device_attribute *multi_index_attr, char *buf)
- {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
- 	struct led_classdev_mc *mcled_cdev =3D lcdev_to_mccdev(led_cdev);
-@@ -150,9 +149,9 @@ static ssize_t multi_index_show(struct device *dev,
- 	buf[len++] =3D '\n';
- 	return len;
- }
--static DEVICE_ATTR_RO(multi_index);
-+static const DEVICE_ATTR_RO(multi_index);
-=20
--static struct attribute *led_multicolor_attrs[] =3D {
-+static const struct attribute *const led_multicolor_attrs[] =3D {
- 	&dev_attr_multi_max_intensity.attr,
- 	&dev_attr_multi_intensity.attr,
- 	&dev_attr_multi_index.attr,
+ void led_classdev_notify_brightness_hw_changed(struct led_classdev *led_c=
+dev, unsigned int brightness)
 =2D-=20
 2.56.1
 
