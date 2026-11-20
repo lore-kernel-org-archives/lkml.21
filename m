@@ -1,82 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795159997;
-	b=zuhKb13JLUuIhcUqwQhYnzuOtVZtTTloVsiDAsQo+jNNLdwhLRmmf85kz708y+dj/JsI
-	 wwoDxJSLCgGZpkxs+WqJMdWHhC2Ihu6J9GA0Dl5UI4+a2415IEqs7JU5R37rV1LjWFcO9
-	 BczXEtmh2MFr9tT87GLoeA1GWYzAXlm8McGc+FlgO7BbDEssSKjF1hjZx4S6V9aMVixsP
-	 SXtEMBX/xtVwuXSVklcDiFYcmIj/cwZeZuPDJafis2DpT60HrhldF451JP71qOTCGihnV
-	 6qRyzAJk2qmpT3Me3dr09HbLIGsC10gvfs5jXVjnarHTKM4VWazgzxx5qVjs1Eh9kEw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795159997;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=mN2KE2tS3vEVnu+nbzMDijiaMlZjTilrGn7PlXzVxpI=;
-	b=v/RnASCqPpq0qDhGeNBvrgqKRiU8hyMPFk5SX2aLHarAnY5sCpn2PFsyu0y1Lao36Kp5
-	 2POvgOtlsm74MkIO7lmUv7aPzbATGXq6THsz1XWiFieyXMvkY9cRr77hDkaW7/OpI1kpr
-	 Xq8jPV1sF9FlxRcsX89ccOpfp/YvcoMfQqibZgPON048QvpQVMQHxtHPpxJnynq7LODpd
-	 hW9uDZdb6fXNEXjFpznc/PMocBs2r/V4G/lr3bW1MrnJcu8mmfU/myoxEf2WOhnw+Kx46
-	 AbcTjH0IRJ5wVt13HqpP80LJf78biC6/O94BFTt4VF1PBvMRm0qYffjJ8FiacTNuXpQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CNJV33AV;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.108
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795160033;
+	b=2GLD1N7yhqjhqwQ1GwXYEhxTivAEMsgIAuNYxLeeDzoShqzH+ufSYPee/Mn+xkgm/647
+	 n/AVG3OVfdlcMCl6VY/N21HfkfEinTPuDja7TpjYtewAGpTUquqI7ZjQSURNuxWtBFG+V
+	 JGyeh4hcexGl0BtSVJevydTH2XUtAK8BAV1kBdpPOxVsolwajnQHUXKih1Bgx7TQq4uad
+	 LA8ml7lhHtMNs0L3mehcx7sHbd/1aAxxT+DbLFaUpzc/N+1Gqvp2gEwVyZw8+cTASOOGY
+	 LQ2erRWoK4Kf4lvBanCp0qQokCeGP7thRs6xAbXlL55xU6BLQh+kITUHT1fsk0i0FFg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795160033;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Date:Subject:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=+h6LugcntSdWBh8T8fRdTZlAgbGfKAnsR8OnrD3E/pc=;
+	b=3LzuQNo50E+9JiOQCLGrvoRpU+AqxWPZ9LXGQEVBJqrAFT8DwLjcvazrzrJ7HoUY7xpG
+	 FZOw8SgvreD7SwklYlp0gBGFjo6PNPaYfA80zeZhnPhfxpGI0QrCU/liw+MHiYvf+CmMn
+	 VnI81M1dAH8CtMOQcawnZrIpku9pm5pMzXgUSk3WYQkbHIAB+w+fLE2JB8j2sLa6GoML+
+	 ZUrQUMUYrQ7/M5OlbD4Ja5MZGb6b1MzkDoJgtIXA8Nb96nMgRdR5iuhuIoz7UrhWp2J5p
+	 70oOYGkEoY7ue22U6mvGm44tDSeoeScjmyo4DOoD2841p30OqTKjXQ3OqbLPaht925Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=vaisala.com;
+	spf=pass smtp.mailfrom=vaisala.com;
+	dkim=pass header.d=vaisala.com header.i=@vaisala.com header.a=rsa-sha256 header.s=selector1 header.b=xuTeFO62;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.83.108
+Received: from GVXPR05CU001.outbound.protection.outlook.com (mail-swedencentralazon11023108.outbound.protection.outlook.com [52.101.83.108])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4A38606A32A;
-	Fri, 20 Nov 2026 07:33:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4A38606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 270D6606A331;
+	Fri, 20 Nov 2026 07:33:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 270D6606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vaisala.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vaisala.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CNJV33AV
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK3uc2I2015615;
-	Fri, 20 Nov 2026 07:33:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=mN2KE2
-	tS3vEVnu+nbzMDijiaMlZjTilrGn7PlXzVxpI=; b=CNJV33AVxsrpHbV8tl8YaK
-	pVxLlOYzM53S4yybWedlowwRQCcHGHxfx99HtFx+VfLvtmJIEdnQG4MpPFenOjYG
-	53pmpAQDQGPalkEE1E8VjXln3EsSyFov8oHQwBC1f2NgNGHLqkxugzOb3R/IYppe
-	2tRe0zm8NhHg6CHZ0Ew4MsxdqD5GCi5dkG9Ll0FKMVy+IiWIV3zFRXPpl5wCQklp
-	mk0vbk5HeRUgja6bnmOhMmbzAfDNyCBPMjzcyPp90CXwB4jhqu1YdTcKCA7X4g6D
-	qghLyc6PGcTfDjIrHtAa17CSLYDXJulJhEbDNsdoa3497VVVriWbFPEhq2eWbmhw
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105vxktx-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:32:59 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7FQSb528800;
-	Fri, 20 Nov 2026 07:32:59 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j17c53hmm-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 07:32:59 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AK7WtRF41091380
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 07:32:55 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6E53820043;
-	Fri, 20 Nov 2026 07:32:55 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B97DE2004D;
-	Fri, 20 Nov 2026 07:32:51 +0000 (GMT)
-Received: from [9.124.218.70] (unknown [9.124.218.70])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 07:32:51 +0000 (GMT)
-Message-ID: <cc2e7244-e2d3-419e-a732-9440d6f89cc3@linux.ibm.com>
-Date: Fri, 20 Nov 2026 13:02:50 +0530
+	dkim=pass (2048-bit key, unprotected) header.d=vaisala.com header.i=@vaisala.com header.a=rsa-sha256 header.s=selector1 header.b=xuTeFO62
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cHRzDDWACw+Lbj7jhUXwv0c9cAOjjIGAbYZXIJYcFzR2vVjPyARER0cFCfJ5ft3ZReqd+vMZAIIpH77E/Jmb5aj7vox/VqinZHkYDFS9pu8Sa7BriokYCH/hE6chUkB9opoyfmkHuWrhO1dcGmZ2c8co6RakqE0u2l+RcXIau/FluY10b3YE8/+pt1Lp909KGGEqaq5hOF+FCpm69ZbZz6c2rVA34aUYB/yKaAZ+SI6nV0WqATc+bcZTAey0Ac5VfsALSKH/CUk6fwuXygfsmNYy0P5ChrSRjYgmMWpcHZBJKd/H1qny9VeNDyeyhByaRKyQJi2Wrsz6mtVlRjBdvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+h6LugcntSdWBh8T8fRdTZlAgbGfKAnsR8OnrD3E/pc=;
+ b=J1bMJaLgqt/KJKPoRX1jocN6EpF98AUyalezDjKi/VlcKE6b5yHKOlk9cFdcl3BBIsnvtBHDS0whALhQ09z7W7ogsoXhKX/fXdGo/6Aqia3/NynNL7+DVbWfkfmnFrc8WDbqoZnoCyrUB8GQtOWFsph6RXzi92VefIi0n6LEyp4JI/mC2WEWzDI5afahfV3D2a3Ja/6z459sZ5I9effUs3yV5NM/g8GmbwPkRHtkVteiKhTiCcmfrGXaVj8RQFku/7gqi7Rz5pk+7KPnif3GsH5UPBDm6UHx41JWxcPTBVbm3wy61nabr5rl7pfkCxF/wFm5K1vkm+e5wl/KfihAXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=vaisala.com; dmarc=pass action=none header.from=vaisala.com;
+ dkim=pass header.d=vaisala.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vaisala.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+h6LugcntSdWBh8T8fRdTZlAgbGfKAnsR8OnrD3E/pc=;
+ b=xuTeFO62ff8IeYFBX1DSr1fK+nZEVHJJZTFUoSjJttOnagO+gIc955LGNX3YmWPR+/P8YE3jsL3vI60b6vq/qeF/04lX5ZhrT2WHn6eOeoB62RGsrdJ/+3bWl3QUci5xmtl/hlnwaxyn/5gfbxQcKatEVGA4rUzLXS++W1vGQN1jsEL9hftvXfj134S6ZgFAsl92eFDl/oxFSRXr24ff/eleQpCK3VWYDMKwu2eWRITzWOGsAJBz7CD5kjOLdjwQ0nSCI3yuLLpUMm17LdBmdEygscI2mmyA+lwK7BNJrqnuX1a4sU0cCw9g3D8Oov/+CmMAnG2ltFmEVXhFw3Gq+Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=vaisala.com;
+Received: from PA2PR06MB9176.eurprd06.prod.outlook.com (2603:10a6:102:407::17)
+ by AS1PR06MB8539.eurprd06.prod.outlook.com (2603:10a6:20b:4dc::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Fri, 20 Nov
+ 2026 07:33:45 +0000
+Received: from PA2PR06MB9176.eurprd06.prod.outlook.com
+ ([fe80::b6d:8160:d324:3bfc]) by PA2PR06MB9176.eurprd06.prod.outlook.com
+ ([fe80::b6d:8160:d324:3bfc%7]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 07:33:40 +0000
+From: Tapio Reijonen <tapio.reijonen@vaisala.com>
+Date: Fri, 20 Nov 2026 07:33:30 +0000
+Subject: [PATCH 1/3] serial: max310x: fix use-after-free on remove
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261120-max310x-teardown-fixes-v1-1-eb52c8b612df@vaisala.com>
+References: <20261120-max310x-teardown-fixes-v1-0-eb52c8b612df@vaisala.com>
+In-Reply-To: <20261120-max310x-teardown-fixes-v1-0-eb52c8b612df@vaisala.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Alexander Shiyan <shc_work@mail.ru>, 
+ Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, stable@vger.kernel.org, 
+ Tapio Reijonen <tapio.reijonen@vaisala.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795160018; l=4930;
+ i=tapio.reijonen@vaisala.com; s=20250903; h=from:subject:message-id;
+ bh=m2Q4DsH2AG7s3QjV69s4MH0gQwY+juJ2GNylRAESzy0=;
+ b=7gpLTG6Hl8kxA68z3NyuIS3jX+8U1Z5XEVGeVXc/SfX8AsMxDaMIdCEChHbSWu4yhlviKI0kZ
+ EAYPRA+1iBoB6CFmxXFPP+8b1W3SF9DYmpjM9y3doRKqGg2jJP4ZpDs
+X-Developer-Key: i=tapio.reijonen@vaisala.com; a=ed25519;
+ pk=jWBz3VD84WbWgfEgIqB5iFFiyVIHZr52zVBPOm7qiGo=
+X-ClientProxiedBy: GV3P280CA0017.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:b::15) To PA2PR06MB9176.eurprd06.prod.outlook.com
+ (2603:10a6:102:407::17)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -86,548 +107,184 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 3/5] powerpc/pseries/eeh: Implement RTAS-based EEH
- error injection
-To: Sourabh Jain <sourabhjain@linux.ibm.com>,
-        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        "Oliver O'Halloran" <oohall@gmail.com>,
-        Timothy Pearson <tpearson@raptorengineering.com>,
-        Alex Williamson <alex@shazbot.org>
-Cc: Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        Christophe Leroy <chleroy@kernel.org>,
-        Ritesh Harjani <ritesh.list@gmail.com>,
-        Shrikanth Hegde <sshegde@linux.ibm.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, kvm@vger.kernel.org, sbhat@linux.ibm.com,
-        harshpb@linux.ibm.com
-References: <20261023073642.59657-1-nnmlinux@linux.ibm.com>
- <20261023073642.59657-4-nnmlinux@linux.ibm.com>
- <9b19c777-e48c-42b4-95da-bfc1a377b3da@linux.ibm.com>
-Content-Language: en-US
-From: Narayana Murty N <nnmlinux@linux.ibm.com>
-In-Reply-To: <9b19c777-e48c-42b4-95da-bfc1a377b3da@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: G8adjlTj9EiZAXWBoaqCQ4l1nKvpVz86
-X-Authority-Analysis: v=2.4 cv=HL9WhYtv c=1 sm=1 tr=0 ts=6afff7ac cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=QkT65XhYD60mJHlUIBAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: KpcL_oCtc00o-pDWzENo4d_CCZgirdpN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXz2A83EwehFKu
- fFmZPpD2ow2lXceNUlipy4c1PaL1K7xqzc5e/p7YL4nvtB2EGnqmhlQwbZhOixC7c1bhliaxPqa
- x1ik4SICMEknIoE6Zn9QKQ6wxJsyEl+njGxJrj4aInacMHGA1nOLwWelnKOmOSo8Fj95bIwRmDg
- EJ1BeuVv7J9Dd7Vn+Zi3k3pfiwHE+/5QzVOjGYPE3Rv8x5DnzgEp7klTExO2wdM1vcIOohpceyH
- xBHcPHV5I6+nvo7YTODyxDDIA4La8mQq1TZOk8GvcojXdS44J8rLZEKFfgiTG3eeobF7DJLLC32
- eC2HQa/6kPG9nW9zTogE5iGXIniGD1tcCxpAAAo/7+Y+aQ8ShPZcY+3GFbr7IsfEQ/CcX/tzJ31
- QGmVFBb4A61gKDuZFYF/2L/zU7pnS20bAchHRihF+ViZXckbm3t2cxYAjW5xCxmIYSGvWgxkUN4
- a0lFafqwCjv2XA9OdRQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDAyOSBTYWx0ZWRfXxlR6ZqW8LF7k
- dIx3dMiQ1MGFvwm7Ucl2Gu9nX2skKA4p8Murca/DJ920MK8wmo0Y+KO7WNcRKjoLoaG9hP5nOaq
- sAErw/iY0o9ahRsQAMyzGCOhHvju0Ts=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_02,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501 impostorscore=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611200029
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA2PR06MB9176:EE_|AS1PR06MB8539:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1bee9259-aa26-46a0-49ec-08df46d898e0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|52116014|376014|366016|1800799024|23010399003|10067099003|11063799006|5023799004|261009223027099003|261022105027099003|261022075727099003|261021123027099003|261021121427099003|261026140227099003|261102123227099003|261028144727099003|261026121527099003|56012099006|18002099003|22082099003|38350700014|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	iKYEfN3a5wJJ8wJhd9TgRVf9g/O/bRDaaYXLnuQY5o0QCPW4CQ+1Jl319ww3W+K8RISzOODqNADdOqHHVga6uZ9U+mcm+u8fO+QpJJv2BMq/apo8hF6OGCsGczxs1cJAGeNBGYlRotbDq3yyMCF5QQaagN3eK4FCANi3IjyW8fZo6M3BAoAZ5inVgzpf8Dxhl8gjUHBmBf8bmBF9vwKEivTPgs1cDr/zI88MPQypH4GKI6RsQNFlvBl9BeEZsycYYFuiiZwgw5B9fy2s6/RAwSh8WMKr598QF5ruQKDDqXorfYs8kjuEPPb5eMCq1WJq2nPdv6x9HmhL631d+XOw6z6KPQSV1K7QlOYG/niYw1LQLkVUJI3EJ8c0t5NviEBYFCiX0UAMIWUgkUZVPSmZYte2XFxqAnwaIwoNrxpKWU7JyfJFdO73qhp7vI8EsA1Kr881Sb496oUKoyPwwNrf6hztG4gp4HPI6ddXY5pxj5CRQK6EY9HfLCYEXYrqIqxr7lTvmwk7P7H9vmSLyqCqSfxUbkfEA7KKH6eJJks5xTBXjaxZiTkYlWGPnb/GZZTsGA601mtFr0QkSYcApZSL/rpC8vH8cdAR/9ZQg+7v7KEgmwNO13xpHDeZhy6jQbyJVSj6HKl15hsbQNmeHAvvs2zD2PiRw6aqztHkBiO6pA/14kEmQeLoxF2OSE3h7ThCby2nVQfQ4E8kQ32ShI7fwWXuEJnMynN3EGNM1+3EUTc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA2PR06MB9176.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(23010399003)(10067099003)(11063799006)(5023799004)(261009223027099003)(261022105027099003)(261022075727099003)(261021123027099003)(261021121427099003)(261026140227099003)(261102123227099003)(261028144727099003)(261026121527099003)(56012099006)(18002099003)(22082099003)(38350700014)(6133799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SUszbmFGSU9ZZVl5ZXc1eEpiaFY3K1BqZmVrclpUaTBDaS84Z2ViTDRoSkwz?=
+ =?utf-8?B?emhCb0ZhaTNLN2RTM0ZJQlJvclNKZDlkOEFPRjRUT1VYK05ycndWYitpeTNG?=
+ =?utf-8?B?Qi9kbFZhR0srbmd6dm1acnRHckRFQ3lMSUw4UEJSK1B6RC85eXdJU1FpNjJ4?=
+ =?utf-8?B?bXNLQVFTeC84d05FT0pqRmJ0L2FEcGpBUGZjYzMvRnRXZHhrSEdTVWk3b1po?=
+ =?utf-8?B?Y0t4Y2ZSZUlpaVhEQ293RGwvRzZzaHNyVnRHdVJ1NmlaODI3L3IvRE43Mnpr?=
+ =?utf-8?B?a2pEYkg2akQ0KzNLOVRwVUhNNGtqSUd4R20yMGEwQWVXellkYkVWcW1sTHlF?=
+ =?utf-8?B?OU4vMjlXMTBQU1QxWWVSemp5SVZZS1UvZFU3WW1Ldk5WRDJvbzNmWXlEM24x?=
+ =?utf-8?B?Q0dMaU9XdHNmamNzV3RlNXpHbWQ3WUhSZUpobjhLNEFhQVVLZTcvMDl1WEt1?=
+ =?utf-8?B?QzhSQ1hINm5CUGd4VHJydW1RT1M3REhvbldOT2pzR2xoSVRQYW5rTnZmbGlN?=
+ =?utf-8?B?b1UzUlMwQmVYY1VORlQ2TURCNllkM2tkQ2Q4ZVhvdlkzcG1TeUZqcmFVeW9p?=
+ =?utf-8?B?TVY4elB1TXNFOFRMQzZ3MGNQazU3SGlUNUhBREVZWkNLdjBDaTNQd1NBeC9T?=
+ =?utf-8?B?Q2dMMno3V3c5a21NTyswSndCRmdQb3dFWmFDUWFWUE5XMzNFOHJVYk1LblA5?=
+ =?utf-8?B?ZUpaZExHNVFIRm1wTjA0SzhQKzZsc2RPRVd2Q3duNEMxQVNKRXlWellwcjRq?=
+ =?utf-8?B?UkFwSUVPbDk3eUthZ2U5bWpxWDdtRzJwWDNmY3lQdHFBWVlPZDYzYSs2N2RW?=
+ =?utf-8?B?SjZWeXM5V2JMbDN5ekFKSEpvVUR1RjBNb2w0bWhWeE9kSi91d0FWbGVocVpp?=
+ =?utf-8?B?Q21WM05TZk04c0wrYW8zdmdEc1VIRGVnU3pTTmdIU0RwR2ZaZDRmQ3NzOXFq?=
+ =?utf-8?B?dGdlcVowS3lwaC9sS3hrRXcxUzhOMERtTktVeU5WYTRZdmlXL1ZPSWpVRlFG?=
+ =?utf-8?B?dVQyRlIwNUI1aUs1TmwwbG55ZmlBdm9LMzkydkFySkRLejhiNWlzVG1oUVJr?=
+ =?utf-8?B?TkdxbzdYeTNGWDcyZHdNQ2swaHl6b2xSTGllUSt0YkVYZUNTeURUK1k0Ukl0?=
+ =?utf-8?B?dXNqQUxWTFhaT3NZczZmektpUUFjUHo1MllpanJ4RWtaTlNESm1UeW1Qem5k?=
+ =?utf-8?B?ZGV5dUJoS2RaM1BVLzhwLzEySEk4NWxrQmtkdC9CY0gzcjZIM1J0Y2tYSm9a?=
+ =?utf-8?B?SmR0MzBoZWx6K2ZITWRsMGZxWjZHYUx5b1pub1JZQmxmaDNZTmQ1c1dlM1Bx?=
+ =?utf-8?B?cVB2dGZUQWNWZVNydUk5Y1FZdGw2YmlDTzVkT05LYWJCRnBGMFN5WGdSZzBl?=
+ =?utf-8?B?NTVwYmZLdU1JbjNUS0kvbGkwVSthNkx2dEc1NEdZSGZQNElZNGYyakltZTZB?=
+ =?utf-8?B?ZUJWQzlKZzRNUlBiWWxGR3VVWlJuV0pRQ1NJUTZKTU9Ga2MxTmhQT3lvS2Ny?=
+ =?utf-8?B?dFEvR01YWW5wcEhZT2hMaklVbngxTFdBR2VpbnY1RjI1TFhxL1dyM2JHU3Zk?=
+ =?utf-8?B?SGpjc0xQc0ZBbE9QNVgzL2RVMEJuSGFodkRqeVJydk51a3gxY1BhcjhIWS8v?=
+ =?utf-8?B?cEhvaGJnZWNvYlo0Qm0xVnBEMFhaK2x6a3VucTRZaFFqMVpadVFOVmJYRUZr?=
+ =?utf-8?B?NmhvNHFSTk4xaDJFSDlVNFAyWEJ5cWtpaVRGVVorRVV6VGpPaEwzVnU0N1Ri?=
+ =?utf-8?B?U3ZHS2xzK0s0RnVicjJwZXhOYVQvNnAvVTkyb00zT1JiWnd3SVdvSjBhdkVm?=
+ =?utf-8?B?UXZtNG5GektUYVZLZFVGUU8vblhSb2NLTE9udTZwNUo5Yy85U28zZzl4ZCtz?=
+ =?utf-8?B?Mjd4L3M4NUl1RUNQTXNsNTFzQkFKL0FoVFRkWGlTdG5rRjY5REtvMmVzeGtM?=
+ =?utf-8?B?SHB3d1FHZXlUU3BiYXhISEJkeC9IR3VIc3QzZWdIKzlpWFQyNFZsM1ZzS1lV?=
+ =?utf-8?B?UGNrc1E3YlpWRE05blFVcWNMN0NoZTZxSGFRMWZDQ1FUc1ZYY0IvdjQwbmJS?=
+ =?utf-8?B?NFVUYnRRVURkSzBkNU9pWXlvWGtkMGRoVVFGL0ltaExJN0YyRVFKSE13OHJZ?=
+ =?utf-8?B?aWw5eFA3a2JaS3lLUDVzWFZyWVgyck14bHcrd0tBa0lJMUhjbTUwbGdLZWdW?=
+ =?utf-8?B?MmU2S0R3emNGdlpGWVpCam5SSHJWQUdiWGs1WGNyWlo4Z2IrRGRSbFM1QUpI?=
+ =?utf-8?B?TW9IeGl2TmJsNTRJbUVsbVFkbWVWbHVNd1NQa0dxZjJQbHlXTzRNQmtXeisr?=
+ =?utf-8?B?RHMzbFFPRjNjTkpQMVQ0N01lVjZCME1EeGJPSlVBOHROSm1VT3dSVjk4VlFK?=
+ =?utf-8?Q?NA/IaHGcodeOaRr8=3D?=
+X-OriginatorOrg: vaisala.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1bee9259-aa26-46a0-49ec-08df46d898e0
+X-MS-Exchange-CrossTenant-AuthSource: PA2PR06MB9176.eurprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 07:33:40.2512
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 6d7393e0-41f5-4c2e-9b12-4c2be5da5c57
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XbvzFc4nmuOUu8G4rQw07qwba9qeY/EtmEE/9hcowaU8sIIhGjenHyaBrM/1e4++iB4G+w6MFsWUBDkE2uyynT4K9HLLjSan3FnJjfbI8VM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR06MB8539
 
-Hi Sourah,
+max310x_remove() cancels a port's timer and work items first and
+unregisters the port afterwards. Until uart_remove_one_port() has shut
+the port down, an open port keeps queuing its tx_work from the
+interrupt handler and from start_tx(), and the RS485 code re-arms the
+delay timer and rts_work from those, so a work item or the timer can
+still run after the cancels, on a port that is being torn down, and
+fire after the port memory has been freed.
 
-On 19/11/26 12:44 AM, Sourabh Jain wrote:
-> Similar to 2/5, I'm finding this commit message a bit difficult to follow.
-> Could you please rework it to make the changes and their purpose clearer?
-> 
-> 
-Agreed. I'll merge 2/5 and 3/5 and rework the commit message.
-> On 23/10/26 13:06, Narayana Murty N wrote:
->> Replace the legacy MMIO stub in pseries_eeh_err_inject() with a full
->> PAPR-compliant RTAS error injection path.
->>
->> Serialize each ibm,open-errinjct / ibm,errinjct / ibm,close-errinjct
->> session with errinjct_mutex because RTAS maintains state between these
->> calls.
-> I don't quite understand this point. What RTAS state are we referring to
-> here? Also, could you clarify how keeping all three calls under a lock 
-> helps
-> maintain the RTAS state mentioned above?
-> 
-I was referring to the error injection session established by
-ibm,open-errinjct and identified by the returned session token.
+The unregister itself queues work too: the hangup it triggers clears
+DTR and RTS through set_mctrl(), which schedules md_work, so a cancel
+done before uart_remove_one_port() cannot cover it. Tested with the
+port memory zeroed on free, md_work ran after the unbind on the freed
+port and oopsed in max310x_md_proc().
 
-The RTAS lock serializes individual RTAS calls, but not the complete
-open/inject/close sequence. The intention of errinjct_mutex is to
-prevent concurrent EEH injection requests from interleaving their
-sessions.
+The interrupt handler is a source of its own. The IRQ enable bits
+only gate the pin, the status bits stay latched regardless, so on the
+single-port parts, where the handler reads the port status on every
+event of the shared line, a status bit left behind by shutdown() can
+still queue tx_work after the cancels. With the IRQ managed by devres
+it was released only after remove() had returned.
 
-I'll recheck the PAPR session ownership requirements to determine
-whether this additional serialization is necessary.
->>
->> Once ibm,open-errinjct succeeds, ibm,close-errinjct is attempted
->> after parameter preparation or ibm,errinjct failures.  The RTAS work
->> area is allocated after a successful open to avoid holding it while
->> waiting for the mutex or if open fails.
-> RTAS work area is mentioned here, but the next paragraph discusses
-> something else. The details about the RTAS work area only appear in a
-> later paragraph. I think the flow could be improved by keeping related
-> information together.
-> 
-Agreed. I'll keep the work-area allocation and lifetime details
-together in the revised commit message.
-> 
->> VFIO EEH error injection exposes a generic userspace ABI.  pSeries maps
->> the generic EEH error types to RTAS ibm,errinjct encodings via
->> pseries_eeh_type_to_rtas().  EEH_ERR_TYPE_32 and EEH_ERR_TYPE_64 are
->> unchanged; their values are defined in arch/powerpc/include/uapi/asm/ 
->> eeh.h
->> and are not renumbered.
->>
->> The RTAS work-area allocator guarantees that returned memory is within
->> the range accessible by RTAS (below min(ppc64_rma_size,
->> RTAS_INSTANTIATE_MAX), which is at most RTAS_INSTANTIATE_MAX = 1 GiB),
->> so the physical address fits in the 32-bit RTAS argument without
->> truncation.
->>
->> Remove eeh_pe_inject_mmio_error() and its declaration; this patch
->> removes its only caller.  The only remaining caller of
->> eeh_break_device() is eeh_dev_break_write() inside CONFIG_DEBUG_FS,
->> so move eeh_break_device() back inside the CONFIG_DEBUG_FS block to
->> avoid an unused-function warning when CONFIG_DEBUG_FS=n.
->>
->> Also introduce validate_errinjct_args() and prepare_errinjct_buffer()
->> here alongside their callers, so each intermediate commit builds
->> cleanly with CONFIG_WERROR.
-> 
-> Could you clarify what this intermediate commit is for?
-> 
-The intention was to separate the helper infrastructure from the
-RTAS implementation. However, given the unused static helpers
-and the additional complexity introduced by the split, I'll merge
-the two patches.
-> 
->> The addr argument to ibm,errinjct is function-dependent.  Memory and IO
->> load/store functions (EEH_ERR_FUNC_LD/ST_MEM_* and EEH_ERR_FUNC_LD/ 
->> ST_IO_*)
->> target BAR-backed PCI bus addresses; these are validated against the PE
->> via validate_addr_mask_in_pe().  Config-space functions carry PCI config
->> register offsets and DMA functions carry IOVA/TCE addresses; addr for
->> these functions is passed directly to RTAS without BAR membership
->> validation.
->>
->> For the 32-bit RTAS encoding (RTAS_ERR_TYPE_IOA_BUS_ERROR), addr and
->> mask are checked to fit in 32 bits before buffer encoding.  This is an
->> RTAS format constraint independent of function type.
->>
->> Tested with corresponding QEMU patches:
->> https://lore.kernel.org/all/20251029150618.186803-1- 
->> nnmlinux@linux.ibm.com/
-> 
-> Wouldn't this be better suited for the cover letter?
-> 
-Agreed. I'll move the reference to the corresponding QEMU series
-to the cover letter.
-> 
->>
->> Signed-off-by: Narayana Murty N <nnmlinux@linux.ibm.com>
->> ---
->>   arch/powerpc/include/asm/eeh.h               |   2 -
->>   arch/powerpc/kernel/eeh.c                    |  10 +-
->>   arch/powerpc/platforms/pseries/eeh_pseries.c | 246 +++++++++++++++++--
->>   3 files changed, 228 insertions(+), 30 deletions(-)
->>
->> diff --git a/arch/powerpc/include/asm/eeh.h b/arch/powerpc/include/ 
->> asm/eeh.h
->> index b7ebb4ac2c71..083ac58e7eb7 100644
->> --- a/arch/powerpc/include/asm/eeh.h
->> +++ b/arch/powerpc/include/asm/eeh.h
->> @@ -310,8 +310,6 @@ int eeh_pe_reset(struct eeh_pe *pe, int option, 
->> bool include_passed);
->>   int eeh_pe_configure(struct eeh_pe *pe);
->>   int eeh_pe_inject_err(struct eeh_pe *pe, int type, int func,
->>                 unsigned long addr, unsigned long mask);
->> -int eeh_pe_inject_mmio_error(struct pci_dev *pdev);
->> -
->>   /**
->>    * EEH_POSSIBLE_ERROR() -- test for possible MMIO failure.
->>    *
->> diff --git a/arch/powerpc/kernel/eeh.c b/arch/powerpc/kernel/eeh.c
->> index bb836f02101c..bae7ca2bd399 100644
->> --- a/arch/powerpc/kernel/eeh.c
->> +++ b/arch/powerpc/kernel/eeh.c
-> [...]
->> @@ -1571,6 +1571,8 @@ static int proc_eeh_show(struct seq_file *m, 
->> void *v)
->>   }
->>   #endif /* CONFIG_PROC_FS */
->> +#ifdef CONFIG_DEBUG_FS
->> +
->>   static int eeh_break_device(struct pci_dev *pdev)
->>   {
->>       struct resource *bar = NULL;
->> @@ -1664,14 +1666,6 @@ static int eeh_break_device(struct pci_dev *pdev)
->>       return 0;
->>   }
->> -int eeh_pe_inject_mmio_error(struct pci_dev *pdev)
->> -{
->> -    return eeh_break_device(pdev);
->> -}
->> -
->> -#ifdef CONFIG_DEBUG_FS
->> -
->> -
->>   static struct pci_dev *eeh_debug_lookup_pdev(struct file *filp,
->>                            const char __user *user_buf,
->>                            size_t count, loff_t *ppos)
->> diff --git a/arch/powerpc/platforms/pseries/eeh_pseries.c b/arch/ 
->> powerpc/platforms/pseries/eeh_pseries.c
->> index 28b1fd19e8bc..2a2ec1a237e6 100644
->> --- a/arch/powerpc/platforms/pseries/eeh_pseries.c
->> +++ b/arch/powerpc/platforms/pseries/eeh_pseries.c
-> [...]
->> @@ -35,6 +35,7 @@
->>   #include <asm/machdep.h>
->>   #include <asm/ppc-pci.h>
->>   #include <asm/rtas.h>
->> +#include <asm/rtas-work-area.h>
->>   /* RTAS tokens */
->>   static int ibm_set_eeh_option;
->> @@ -915,48 +916,253 @@ static int validate_addr_mask_in_pe(struct 
->> eeh_pe *pe, unsigned long addr,
->>       pci_unlock_rescan_remove();
->>       if (!found)
->> -        pr_err("addr=0x%lx mask=0x%lx not within any PCI bus BAR of 
->> any device in PE\n",
->> -               addr, mask);
->> +        pr_debug("addr=0x%lx mask=0x%lx not within any PCI bus BAR of 
->> any device in PE\n",
->> +             addr, mask);
-> 
-> IIUC, the previous patch adds pr_err(), and this patch changes it to 
-> pr_debug().
-> Could we avoid this intermediate change?
-> 
-Yes. I'll introduce pr_debug() directly in the merged patch.
+Similar to commit 36672c8d7d14 ("serial: amba-pl011: cancel RS485
+hrtimers after freeing IRQ"), stop the sources before the cancels:
+unregister the ports, so that the shutdown() this triggers stops the
+TX path, then free the IRQ, then cancel the timers and work items. The
+IRQ goes second because the handler loops while a port has status or
+RX data pending and free_irq() waits for it: freed with the ports
+still open under traffic, the unbind blocked until the traffic paused.
+Keep the two per-port steps in helpers; the probe error path needs
+them too, with no IRQ handling since the request is probe's last step.
 
->>       return found ? 0 : -EINVAL;
->>   }
->>   /**
->> - * pseries_eeh_err_inject - Inject specified error to the indicated PE
->> - * @pe: the indicated PE
->> - * @type: error type
->> - * @func: specific error type
->> - * @addr: address
->> - * @mask: address mask
->> - * The routine is called to inject specified error, which is
->> - * determined by @type and @func, to the indicated PE
->> + * validate_errinjct_args - Top-level validation for RTAS error 
->> injection arguments
->> + * @pe:   EEH PE for the target device
->> + * @type: generic EEH error type
->> + * @func: error function selector
->> + * @addr: address argument (type-dependent, may be zero)
->> + * @mask: mask argument (type-dependent, may be zero)
-> Are addr and mask really needed as function arguments?
-> 
-No, they are not used by validate_errinjct_args().
-I'll simplify the validation and avoid the duplicate error-type
-mapping.
->> + *
->> + * Validates all parameters before opening an RTAS injection session.
->> + * Returns Linux errno values; does not return raw RTAS status codes.
-> 
-> Wouldn't it be better for the function comment to describe what the
-> function does, rather than how an RTAS injection session should be opened?
-> 
-Agreed. I will shorten the comment.
->> + *
->> + * Return: 0 if all parameters are valid, negative errno otherwise.
->>    */
->> -static int pseries_eeh_err_inject(struct eeh_pe *pe, int type, int func,
->> +static int validate_errinjct_args(struct eeh_pe *pe, int type, int func,
->>                     unsigned long addr, unsigned long mask)
->>   {
->> -    struct    eeh_dev    *pdev;
->> +    if (!pe || !pe->phb)
->> +        return -EINVAL;
->> +
->> +    if (pseries_eeh_type_to_rtas(type) < 0)
->> +        return -EINVAL;
->> -    /* Check on PCI error type */
->> -    if (type != EEH_ERR_TYPE_32 && type != EEH_ERR_TYPE_64)
->> +    if (func < EEH_ERR_FUNC_MIN || func > EEH_ERR_FUNC_MAX)
->>           return -EINVAL;
->> +    return 0;
->> +}
->> +
->> +/*
->> + * pseries_eeh_func_needs_bar_addr - return true for error functions 
->> whose
->> + * addr argument is a BAR-backed PCI MMIO or IO address.
->> + *
->> + * Memory and IO load/store functions target specific BAR addresses and
->> + * require PCI bus address validation against the PE.  Config-space
->> + * functions carry PCI config register offsets and DMA functions carry
->> + * IOVA/TCE addresses; neither is a BAR address.
-> 
-> This seems like useful information, but perhaps it belongs elsewhere.
-> The function itself looks fairly simple, and the comment conveys quite a
-> bit of information that I’m not sure how to relate to what the function 
-> actually does.
-> 
-Agreed. I'll keep the helper comment focused.
-> 
->> + */
->> +static bool pseries_eeh_func_needs_bar_addr(int func)
->> +{
->>       switch (func) {
->>       case EEH_ERR_FUNC_LD_MEM_ADDR:
->>       case EEH_ERR_FUNC_LD_MEM_DATA:
->> +    case EEH_ERR_FUNC_LD_IO_ADDR:
->> +    case EEH_ERR_FUNC_LD_IO_DATA:
->>       case EEH_ERR_FUNC_ST_MEM_ADDR:
->>       case EEH_ERR_FUNC_ST_MEM_DATA:
->> -        /* injects a MMIO error for all pdev's belonging to PE */
->> -        pci_lock_rescan_remove();
->> -        list_for_each_entry(pdev, &pe->edevs, entry)
->> -            eeh_pe_inject_mmio_error(pdev->pdev);
->> -        pci_unlock_rescan_remove();
->> +    case EEH_ERR_FUNC_ST_IO_ADDR:
->> +    case EEH_ERR_FUNC_ST_IO_DATA:
->> +        return true;
->> +    default:
->> +        return false;
->> +    }
->> +}
->> +
->> +/**
->> + * prepare_errinjct_buffer() - Build ibm,errinjct work buffer
->> + * @buf: RTAS error-injection work buffer
->> + * @pe: EEH PE associated with the injection target
->> + * @rtas_err_type: RTAS firmware error-injection type
->> + * @func: Error function selector
->> + * @addr: Address argument interpreted according to @func:
->> + *        MEM/IO functions: BAR-backed PCI bus address;
->> + *        CFG functions: PCI configuration-space offset;
->> + *        DMA functions: DMA/IOVA/TCE address.
->> + * @mask: Address mask passed to firmware
->> + *
->> + * Zeroes @buf and populates it according to the PAPR layout for the
->> + * selected IOA bus-error injection type.
->> + *
->> + * BAR membership validation is performed only for MEM/IO functions
->> + * whose @addr is a BAR-backed PCI bus address.  CFG and DMA function
->> + * addresses are encoded directly without BAR lookup.
->> + *
->> + * The caller provides an exclusive per-call RTAS work-area buffer.
->> + * Firmware session serialization is handled by 
->> pseries_eeh_err_inject().
-> Wouldn't this be better documented elsewhere? This function only populates
-> the given work area; it doesn't make the RTAS call.
-> 
-Agreed. I'll keep the comment focused on encoding the RTAS
-parameter buffer and move the session-related details to the caller.
->> + *
->> + * Return: 0 on success or a negative errno on invalid input.
->> + */
->> +static int prepare_errinjct_buffer(void *buf, struct eeh_pe *pe,
->> +                   int rtas_err_type, int func,
->> +                   unsigned long addr, unsigned long mask)
->> +{
->> +    __be64 *buf64 = (__be64 *)buf;
->> +    __be32 *buf32 = (__be32 *)buf;
->> +    int rc;
->> +
->> +    if (!buf || !pe || !pe->phb)
->> +        return -EINVAL;
->> +
->> +    memset(buf, 0, RTAS_ERRINJCT_BUF_SIZE);
->> +
->> +    switch (rtas_err_type) {
->> +    case RTAS_ERR_TYPE_IOA_BUS_ERROR:
->> +        /*
->> +         * 32-bit RTAS format: addr and mask must fit in 32 bits.
->> +         * This is an RTAS encoding constraint, not BAR validation.
->> +         */
->> +        if (upper_32_bits(addr) || upper_32_bits(mask))
->> +            return -EINVAL;
->> +
-> [...]
->> +        if (pseries_eeh_func_needs_bar_addr(func)) {
->> +            rc = validate_addr_mask_in_pe(pe, addr, mask);
->> +            if (rc)
->> +                return rc;
->> +        }
->> +
->> +        buf32[0] = cpu_to_be32((u32)addr);
->> +        buf32[1] = cpu_to_be32((u32)mask);
->> +        buf32[2] = cpu_to_be32(pe->addr);
->> +        buf32[3] = cpu_to_be32(BUID_HI(pe->phb->buid));
->> +        buf32[4] = cpu_to_be32(BUID_LO(pe->phb->buid));
->> +        buf32[5] = cpu_to_be32(func);
->> +        break;
->> +
->> +    case RTAS_ERR_TYPE_IOA_BUS_ERROR_64:
->> +        if (pseries_eeh_func_needs_bar_addr(func)) {
->> +            rc = validate_addr_mask_in_pe(pe, addr, mask);
->> +            if (rc)
->> +                return rc;
->> +        }
->> +
->> +        buf64[0] = cpu_to_be64(addr);
->> +        buf64[1] = cpu_to_be64(mask);
->> +        buf32[4] = cpu_to_be32(pe->addr);
->> +        buf32[5] = cpu_to_be32(BUID_HI(pe->phb->buid));
->> +        buf32[6] = cpu_to_be32(BUID_LO(pe->phb->buid));
->> +        buf32[7] = cpu_to_be32(func);
->>           break;
->> +
->>       default:
->> -        return -ERANGE;
->> +        pr_err("unsupported RTAS error injection type 0x%x\n", 
->> rtas_err_type);
->> +        return -EINVAL;
->>       }
-> [...]
->> +    pr_debug("errinjct buffer ready: rtas_err_type=0x%x func=%d 
->> addr=0x%lx mask=0x%lx\n",
->> +         rtas_err_type, func, addr, mask);
->>       return 0;
->>   }
->> +/* Serializes the open/inject/close RTAS error injection session */
->> +static DEFINE_MUTEX(errinjct_mutex);
->> +
->> +/**
->> + * pseries_eeh_err_inject - Inject specified error to the indicated PE
->> + * @pe: the indicated PE
->> + * @type: generic EEH error type (EEH_ERR_TYPE_32 or EEH_ERR_TYPE_64)
->> + * @func: specific error function
->> + * @addr: address argument (type-dependent, may be zero)
->> + * @mask: address mask (type-dependent, may be zero)
->> + *
->> + * Implements PAPR-compliant error injection using:
->> + *   ibm,open-errinjct -> ibm,errinjct -> ibm,close-errinjct
->> + *
->> + * errinjct_mutex serializes the open/inject/close session sequence
->> + * because RTAS maintains state between these calls.  A short-lived
->> + * RTAS work area is allocated after a successful open and freed before
->> + * close.
->> + *
->> + * Return: 0 on success, negative errno on failure.
->> + */
->> +static int pseries_eeh_err_inject(struct eeh_pe *pe, int type, int func,
->> +                  unsigned long addr, unsigned long mask)
->> +{
->> +    struct rtas_work_area *area;
->> +    phys_addr_t area_phys;
->> +    void *buf;
->> +    int open_token, errinjct_token, close_token;
->> +    int session_token;
->> +    int rtas_err_type;
-> 
-> The name rtas_err_type seems a bit confusing for the error injection class.
-> Would err_injct_class or errinjct_class be clearer?
-> 
-Agreed. I'll use errinjct_class.
->> +    int close_rc;
->> +    int rc;
->> +
->> +    rc = validate_errinjct_args(pe, type, func, addr, mask);
->> +    if (rc)
->> +        return rc;
->> +
->> +    rtas_err_type = pseries_eeh_type_to_rtas(type);
->> +    if (rtas_err_type < 0)
->> +        return -EINVAL;
->> +
->> +    open_token = rtas_function_token(RTAS_FN_IBM_OPEN_ERRINJCT);
->> +    errinjct_token = rtas_function_token(RTAS_FN_IBM_ERRINJCT);
->> +    close_token = rtas_function_token(RTAS_FN_IBM_CLOSE_ERRINJCT);
->> +
->> +    if (open_token == RTAS_UNKNOWN_SERVICE ||
->> +        errinjct_token == RTAS_UNKNOWN_SERVICE ||
->> +        close_token == RTAS_UNKNOWN_SERVICE)
->> +        return -ENODEV;
->> +
->> +    mutex_lock(&errinjct_mutex);
-> Is this lock really necessary?
-> 
-As mentioned above, the intention is to serialize complete error
-injection sessions initiated through the EEH backend rather than
-individual RTAS calls.
+Fixes: 10d8b34a4217 ("serial: max310x: Driver rework")
+Cc: stable@vger.kernel.org
+Signed-off-by: Tapio Reijonen <tapio.reijonen@vaisala.com>
+---
+ drivers/tty/serial/max310x.c | 47 +++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 36 insertions(+), 11 deletions(-)
 
-However, this mutex does not serialize direct userspace RTAS
-callers. I'll verify the firmware session ownership semantics
-before deciding whether to retain it.
+diff --git a/drivers/tty/serial/max310x.c b/drivers/tty/serial/max310x.c
+index a0ed70185555eed745d905b36c8b8f162468dd6f..f5b32303353208d9f85ae0b04d38a9abdd398d24 100644
+--- a/drivers/tty/serial/max310x.c
++++ b/drivers/tty/serial/max310x.c
+@@ -1856,6 +1856,28 @@ static const struct serial_rs485 max310x_rs485_supported = {
+ 	.delay_rts_after_send = 1,
+ };
+ 
++/*
++ * Unregister the port before cancelling its work: until the port is
++ * gone, an open port can queue the work and arm the timer again, and
++ * the hangup queues md_work itself. The caller frees the IRQ in
++ * between where there is one. A port that was never registered has
++ * nothing queued.
++ */
++static void max310x_port_unregister(struct max310x_one *one)
++{
++	if (test_and_clear_bit(one->port.line, max310x_lines))
++		uart_remove_one_port(&max310x_uart, &one->port);
++}
++
++static void max310x_port_cancel_work(struct max310x_one *one)
++{
++	hrtimer_cancel(&one->tx_delay_tmr);
++	cancel_work_sync(&one->rts_work);
++	cancel_work_sync(&one->tx_work);
++	cancel_work_sync(&one->md_work);
++	cancel_work_sync(&one->rs_work);
++}
++
+ static int max310x_probe(struct device *dev, const struct max310x_devtype *devtype,
+ 			 const struct max310x_if_cfg *if_cfg,
+ 			 struct regmap *regmaps[], int irq)
+@@ -2068,9 +2090,9 @@ static int max310x_probe(struct device *dev, const struct max310x_devtype *devty
+ 		max310x_power(&s->p[i].port, 0);
+ 	}
+ 
+-	/* Setup interrupt */
+-	ret = devm_request_threaded_irq(dev, irq, NULL, max310x_ist,
+-					IRQF_ONESHOT | IRQF_SHARED, dev_name(dev), s);
++	/* Setup interrupt, freed by max310x_remove() */
++	ret = request_threaded_irq(irq, NULL, max310x_ist,
++				   IRQF_ONESHOT | IRQF_SHARED, dev_name(dev), s);
+ 	if (!ret)
+ 		return 0;
+ 
+@@ -2093,16 +2115,19 @@ static void max310x_remove(struct device *dev)
+ 	struct max310x_port *s = dev_get_drvdata(dev);
+ 	int i;
+ 
+-	for (i = 0; i < s->devtype->nr; i++) {
+-		hrtimer_cancel(&s->p[i].tx_delay_tmr);
+-		cancel_work_sync(&s->p[i].rts_work);
+-		cancel_work_sync(&s->p[i].tx_work);
+-		cancel_work_sync(&s->p[i].md_work);
+-		cancel_work_sync(&s->p[i].rs_work);
++	/*
++	 * The handler loops while a port has status or RX data pending and
++	 * free_irq() waits for it: unregister first, so that the shutdown()
++	 * this triggers masks the interrupts and stops the transmitter.
++	 */
++	for (i = 0; i < s->devtype->nr; i++)
++		max310x_port_unregister(&s->p[i]);
+ 
+-		if (test_and_clear_bit(s->p[i].port.line, max310x_lines))
+-			uart_remove_one_port(&max310x_uart, &s->p[i].port);
++	/* The handler queues tx_work from latched status regardless of IRQEN */
++	free_irq(s->p[0].port.irq, s);
+ 
++	for (i = 0; i < s->devtype->nr; i++) {
++		max310x_port_cancel_work(&s->p[i]);
+ 		max310x_power(&s->p[i].port, 0);
+ 	}
+ 
 
-> - Sourabh Jain
-> 
->> +
->> +    do {
->> +        rc = rtas_call(open_token, 0, 2, &session_token);
->> +    } while (rtas_busy_delay(rc));
->> +
->> +    if (rc) {
->> +        pr_err("ibm,open-errinjct failed: status=%d\n", rc);
->> +        rc = rtas_error_rc(rc);
->> +        goto out_unlock;
->> +    }
->> +
->> +    area = rtas_work_area_alloc(RTAS_ERRINJCT_BUF_SIZE);
->> +    buf = rtas_work_area_raw_buf(area);
->> +    area_phys = rtas_work_area_phys(area);
->> +
->> +    rc = prepare_errinjct_buffer(buf, pe, rtas_err_type, func, addr, 
->> mask);
->> +    if (rc)
->> +        goto out_free_area;
->> +
->> +    /*
->> +     * RTAS work areas are allocated below RTAS_INSTANTIATE_MAX, so
->> +     * area_phys fits in the 32-bit RTAS argument.
->> +     */
->> +    do {
->> +        rc = rtas_call(errinjct_token, 3, 1, NULL,
->> +                   rtas_err_type, session_token,
->> +                   (u32)area_phys);
->> +    } while (rtas_busy_delay(rc));
->> +
->> +    if (rc) {
->> +        pr_err("ibm,errinjct failed: status=%d\n", rc);
->> +        rc = rtas_error_rc(rc);
->> +    }
->> +
->> +out_free_area:
->> +    rtas_work_area_free(area);
->> +
->> +    do {
->> +        close_rc = rtas_call(close_token, 1, 1, NULL, session_token);
->> +    } while (rtas_busy_delay(close_rc));
->> +
->> +    if (close_rc) {
->> +        pr_warn("ibm,close-errinjct failed: status=%d\n", close_rc);
->> +        if (!rc)
->> +            rc = rtas_error_rc(close_rc);
->> +    }
->> +
->> +out_unlock:
->> +    mutex_unlock(&errinjct_mutex);
->> +    return rc;
->> +}
->> +
->>   static struct eeh_ops pseries_eeh_ops = {
->>       .name            = "pseries",
->>       .probe            = pseries_eeh_probe,
-
-Thanks,
-Narayana Murty.
-
-> 
+-- 
+2.47.3
 
