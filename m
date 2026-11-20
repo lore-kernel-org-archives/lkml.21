@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795165054;
-	b=qEPEFxI7X4yqaM/ZlnOuPHiPOz8reb3PqOgCLdg6dz3rFppJ8Gx/a1DIw8GWRj2iDMrb
-	 Q8iwItWJqs0mOXm3OQKQM9UOHdo6edkkJBolQhK+V/PF5sYeXBuiHEYO68KYhJ1YkM5Au
-	 ts4USvHKlXro9NNRgnMnV6MdWDD5PFzW/dhANzjuWEsFuQJ452PdtxQlEX57CS9tSb8Q7
-	 owfHJi0jBn+GX/sONUXL32AXEpuEYzizxypfzKhS/svKpnCU94SmiRO+TncMwAc64kchB
-	 BJgjOKog9gyRDE399k7Iv6IoPLdGDY0n7AVZ6dsYXISZRtgMs0f9szGfZi/uZFDqLYA==
+	t=1795165067;
+	b=x47ePQagKADR5CjbhXdsnKH5h5ADifD+9Dv1xb3s9neGpPzJCZ5hWVQTqIbCS6q4P/p0
+	 dqr7EZtqdQPdkGreObgK7lQ+wpUbd2DT8C3jJDVoqDNM4kKWD7zC6tdsJKytHyhKpCCBc
+	 MSQLqnIynsYxhlka9/d+PHCq8fEwGo94k/cA2cdTIFARcKIT+rrIJxzQ7fey8z1QYQOeR
+	 Wuk0Lro5X+aWYHanZsReqcdDZeIUww/TH7gonkBUibHMdeVuNN5s+4yNSJCuKAY5+6shW
+	 xQQnrWmnagopEGCAfr2GBvXdKb/R+KGbd5p8/09dyvH9Ex6L1YcA45I92kTCjZ24gMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795165054;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795165067;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=xymtrGcTx2O+sumJ1mfHsHPYfbzzq3PCVcjjBtb8a1w=;
-	b=Xh8OOQgjsWejJ62rKGwrNCN8nGCgBX50WZc2ZLFj7xcepOrd3HR9Txxpoc2Dp53sUfND
-	 +0EfTPcvXpWnqs3ktLG7emz52/+NMXt9GSlLVrhn9bO+zkyTR9edxQCodkygwznGiJtqW
-	 wj1dS8qNlYSNAFy22AtFOXfTbzh5tPjqzqC1s1D1Odajvc0jW8cpzayDslizhUUF+bUQx
-	 cepTmygScx8r1zJWNsZpahx/pXQXCB3QU3s55SYpqLDCMAeDF0AsdZpdCvk855j2KAlVa
-	 YaVhlkO8GLaY//wz1DB1/5ZQypgKAB9gmNJiWdE08+GvuqBp+/vMP2ix9ZfdZeXXVrA==
+	bh=ROrkcw6iI7lN1BhbIvQj3p/zywAkYZt/3iMrqg1UUQ4=;
+	b=r7tqsvQh5HX4O14n1mLasWsSH90ULfsTLlnTaka1Xn92bIM+VkgzUHLlDW0aqffLH+yO
+	 oRw751i/aTrosrGiI8U/kqB3X+JEVbuv6E62ccoNnmR4Gpk91yUyIpbxoVsfoCoieVp0h
+	 QmF04XUH7DJP5/MUGP6OSRHmptYDZhPkWjvysXloWmGtYcPtA25Yva11rrlPdIZ0IlvYl
+	 4l4Ghwu4KIyn4GYWpjgb+3VYEsL+BmnltClIjI/9z2DlNdbw6Ij2WptFNnUt0SdaFda4S
+	 1+tMWZZLQgrY0gKvdckgPuKRqpP6n2EpMIJ+m4Gj+qk63NQ/ubRUxwbFxTkhvZ9HLdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AidKf5Oi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkJGcO1S;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9356A606A325
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 08:57:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23C4A606A320;
+	Fri, 20 Nov 2026 08:57:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AidKf5Oi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D311F000CA;
-	Fri, 20 Nov 2026 08:57:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkJGcO1S
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C23F1F000CA;
+	Fri, 20 Nov 2026 08:57:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795165054;
-	bh=xymtrGcTx2O+sumJ1mfHsHPYfbzzq3PCVcjjBtb8a1w=;
+	s=k20260515; t=1795165066;
+	bh=ROrkcw6iI7lN1BhbIvQj3p/zywAkYZt/3iMrqg1UUQ4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AidKf5Oio20NMvG5F0VbG/mFQgb29hTdOmocLK9PTyntDsWlNaCbyKTp604nL8oPS
-	 +f1BKqLFqQIzr+KlfkcJMH/UOA4nSZ1L5lVECQZ+meak99aYNSvtWrA0DwQVE6VNHz
-	 S2k7Ay6gLPTvL4hszopo728gUmtj8xIO+fZ0TlYPoDSDj1cslEPBo6cls+Q6f9oy61
-	 N993uEI6e0K1graLrmV3eTLH77dO59whIPGOglD51aqyzwc5n/eGnYdfm8Nvf+5Jv1
-	 rl8lb33mw4EOhYhO9U9UMTPZcglXOaeJBSaEkbnCnRTqHqObXvCr2uoS4cIS2iW3O6
-	 seZIStiqkY9bA==
-Message-ID: <4ed0eeda-22bd-4489-ad18-d522b36d22be@kernel.org>
-Date: Fri, 20 Nov 2026 09:57:28 +0100
+	b=LkJGcO1SS2GRABX/uMwEuScOjYQWaLW2LE4ozIGKw/cVD/AyLho95ori2YXN/zhwU
+	 swUw1DdCzLIxEVg6APSkqPuSlabb4NgTvYF6pNs/NByVXfoRfqyNE/gf/77O2zM1Fa
+	 uBSXwx/4k57FbkPxcxubAiumj1aV0trI5qEb6RIj9qmVW2gTfHm1tRLiwxIKo08Ze5
+	 EFbst+9laQOpXfReoo+GdPcggumUQOl690cOh39tcMHoEI7D14yRY652hMnGlJ08PA
+	 sJ0eV3nJ31gZf6szab9HDyekSzDgOfiKLk45GTkFPGFIBuY7AAwK3nOjMK6y9coRM6
+	 JSEIPl87hI8+g==
+Message-ID: <b4c4f8a4-99f2-42c1-b844-3fa7ae19e16b@kernel.org>
+Date: Fri, 20 Nov 2026 09:57:41 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -52,103 +52,85 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] mm: alloc__by: create a function for allocate pages in
- small microsseconds in boards no-MMU
-To: dev12124 <joaoanandalima@gmail.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-Cc: vbabka@suse.cz, hch@lst.de
-References: <1ee9b247-6758-c146-2d03-0acea98db33f@gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v14 1/2] dt-bindings: clock: qcom: Add LPASS VA CSR
+ HeartBeat pulse clock
+To: sarath.ganapathiraju@oss.qualcomm.com, andersson@kernel.org,
+ abelvesa@kernel.org, sboyd@kernel.org, bmasney+clk@redhat.com,
+ jbrunet+clk@baylibre.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, srinivas.kandagatla@oss.qualcomm.com
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ prasad.kumpatla@oss.qualcomm.com
+References: <20261120-master-v14-0-112cfd63438d@oss.qualcomm.com>
+ <20261120-master-v14-1-112cfd63438d@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <1ee9b247-6758-c146-2d03-0acea98db33f@gmail.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20261120-master-v14-1-112cfd63438d@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 11/20/26 07:08, dev12124 wrote:
+On 20/11/2026 09:36, Sarath Ganapathiraju via B4 Relay wrote:
+> From: Sarath Ganapathiraju <sarath.ganapathiraju@oss.qualcomm.com>
 > 
-> Hi memory subsystem,
+> Add a binding for the Qualcomm LPASS VA CSR rate generator node that
+> exposes the lpass_heartbeat_pulse clock on Hawi.
 > 
-> Actually, boards no-MMU do not have an integrated MMU to translate 
-> physical to virtual addresses or support hardware paging and; for this, a 
-> few points:
+> The HeartBeat Pulse, also known as RateGen Pulse, synchronizes the
+> start of DMAs and Codec Interfaces for the audio usecase and can serve
+> as a periodic wakeup source for the DSP.
 > 
-> I. Requirement for Contiguous Memory
-> Without an MMU, the kernel cannot combine scattered physical blocks to 
-> simulate a continuous space, making the search for and allocation of 
-> larger blocks very slow due to fragmentation.
+> Require the LPASS LPR and audio vote clocks to access VA CSR register
+> space safely.
 > 
-> II. Demand Paging
-> The system cannot defer physical allocation via page faults; instead, it 
-> must reserve entire blocks in advance.
-> 
-> III. Use of simplified allocators
-> such as SLUB_TINY or linear free-list scans (instead of the standard 
-> SLUB); it saves space by 
-> scanning simple lists of blocks, but it performs very slowly during 
-> allocation.
-> 
-> IV. Proposed approach
-> The function alloc_by(size, address_initial, flag) haves:
-> * pre-reserved pool per size order;
-> * cache fast-path no global lock;
-> * bitmap O(1) of free contiguous blocks.
-> This bitmap, more specifically the blocks, have the pre-reserved pool (per 
-> size order)and the pool have word 2:
-> * Word 1: The initial address (starts in cache fast-path)
-> * Word 2: The final address.
-> For example, a Program allocates 277 bytes, the alloc_by() enter and 
-> verify the bitmap -> viewing the request is 277 bytes, the aproximated 
-> size is 512 bytes and alloc_by alloc 512 bytes.
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>
+> Tested-by: Prasad Kumpatla <prasad.kumpatla@oss.qualcomm.com>
 
-Hi,
+Drop, did not happen. What is the problem in responding with testing to
+appropriate email, instead of to cover letter?
 
-I think we are much rather looking into removing NOMMU then optimizing it :)
-
--- 
-Cheers,
-
-David
+Best regards,
+Krzysztof
