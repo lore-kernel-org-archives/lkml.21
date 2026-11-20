@@ -1,114 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.54.127.76
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170819;
-	b=CbTjXvg0XGvh7BF77Eel+cDCoR5czyLIC0X8Q5cRwqwCfI0w44h8FasmZc53cQlzHa+G
-	 +ZOk4benmtM4uSdXWtSCLZbQaI4bBT5zL3WRs1XDpa/uGj2c9h3GA7K4+uhQUOvL/f3iY
-	 Et0ZIqr4rBHbvvp2/+VM32GylSBMVvUPsH3JPeRX3ovkFUHh8rjWeY8pu6aGwh+38J0ad
-	 KD+jVFNhGDVEDRK17Q9o3EaJJzwJ7QACDRNPdNRAPxmyXFO5mZCPQ2zrVBSK3cPz38Nf+
-	 Xt67whIe4lg+S3Ntj7NEeKXXgBAdl4tNbH3NejpNztWEX200SyzfoAsAO6yvMp6/8ow==
+	t=1795170863;
+	b=OBhFUOllF9nIqWMiZOaaRRCpoET76hA1fLYivnSq56oGLZIZZ81a38+CDlSA8TlaUXTe
+	 q4JQIMEocoB7JnybImXKNzUjuKLhhDsc8dQYl+uxyU7A0CORyTnn7REpyRvuG/IXb3IZ4
+	 AMREFhVsGLEYlflqW7r6//7MkAYhnzQaevRGcIVkltRUsmBrFT8B1SKr+TtxX3vDW1Ujn
+	 EOautMoaOuwAm93Z5Y/1acpO3UrSuWI9OU08OpY0QIOcvK61ZPQSNgREUbo9rKJ8J6lEK
+	 AImeoyQiED6TWOzR2KmpJqI08s6KpyOMg/rekoXPjIbe/mYj667yV7fdcrWUG4jmwgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170819;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Envelope-From;
-	bh=KCPw+q5p4Yyf7FYw3qSmU12ZFK/LfmJwMcs22RlGgSU=;
-	b=4XLcTGDDwzKHa4+h8GYiV5WNIGHHMyuhQ+4iINU+7ha7wWE2O5AmwxljJGYpis9GYfo3
-	 v1Do1tGYfZ+r4DRKm20lpLbFnH6fF7valEsgHoXtvyUYwsxZeJzavva1Hon+enjszmVcp
-	 YchDWxZwADLA5yCOrOLaeobP9Jridz/leMsKiL6flW2B1rxAcp7o7nIHKRzcYHnDoF4og
-	 Fg4gE82S1QnOIeYp6dn04F6RIw4zn89tUPH9ZPfm+eMsuURxl+baVtarnalK99qK2a90W
-	 m5nUuIhF+gKYLVTM9NwFrsIOeILBcB0PE6bpylSJODeZNXdEAJFL7EmzgA5QpqS954w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170863;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=S4WClgGTQce96cuQ8b2vdbaIwZ7thmN+5lziIGpcwlA=;
+	b=F3nKrEteC7i4c/9sH5PuAulQ+vk7pnVQGJu1B6cNrfayO9/6urqCDmk1owbOuTgznCjK
+	 qcZ1J2dvFfqYFFYz4NwXdPKuUHF1DhDQpLExcu4V42YgGi9eGtdHUqvYhNMl1irCka+vf
+	 jAnGksPJhS1zgCssVUFa5E3rgDdpnwz5Anfm0rgIzmlMNt+Xv/E9EzGZs4z5iXm2eOT1l
+	 I1Xr72kRGqQuCh74iK/9nIrd4UA14cau+A8H8Agv5DKFDibQpgrnWNkXv0P/4GJ1tbmTf
+	 Iw+IEWLajt2ZZrd+gscNOF/wMu/gexG/GM7d0aUDx52luZZnymWsXS2a9BZ71+TDP5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tychen.cc;
-	spf=pass smtp.mailfrom=tychen.cc;
-	dkim=pass header.d=tychen.cc header.i=@tychen.cc header.a=rsa-sha256 header.s=spacemail header.b=YFbaSadU;
-	arc=none smtp.remote-ip=198.54.127.76
-Received: from out-zbxj-a76.jellyfish.systems (out-zbxj-a76.jellyfish.systems [198.54.127.76])
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=GQgWd51A;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18FEE606A32A
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:33:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18FEE606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tychen.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tychen.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10E98606A320;
+	Fri, 20 Nov 2026 10:34:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tychen.cc header.i=@tychen.cc header.a=rsa-sha256 header.s=spacemail header.b=YFbaSadU
-Received: from fedora (unknown [151.145.76.168])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.spacemail.com (Postfix) with ESMTPSA id 4jWBVx0MHhz6tkK;
-	Fri, 20 Nov 2026 10:32:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tychen.cc;
-	s=spacemail; t=1795170791;
-	bh=KCPw+q5p4Yyf7FYw3qSmU12ZFK/LfmJwMcs22RlGgSU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YFbaSadUIfqinCT95kZ4vNNrDGlY8vKSJxbuwUfzAAoiputof8HA2RVaXoC24tEdu
-	 L6VK9zfchBxb9JVZCwD9ZjBuiQMO/6jcAeMMhB8eSCDsJp8PGQZJ664Ab9uctX62X0
-	 PerJeDVirnbZBZqeso2rTWsFBfn7KlHST3oqX5thjoS0ZHNW07mF830vgIEN/qnFBb
-	 yWj2Jv66UGZOpHZZgbKZ7KrdBX5Hs46yB3xrguNhRa37nP9hCOj8PyZoZZTCru8zhH
-	 zUO0wgqxBsGQZVmWwuhFp8NexiSObO2miUzVbBYkPDiUP8YacQfdfIo+WYQ8Fmkhtn
-	 rznaeIGJo1lSw==
-From: Tianyi Chen <hi@tychen.cc>
-To: Kairui Song <ryncsn@gmail.com>
-Cc: linux-mm@kvack.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Muchun Song <muchun.song@linux.dev>,
-	Qi Zheng <qi.zheng@linux.dev>,
-	Ying Huang <ying.huang@linux.alibaba.com>,
-	Chris Li <chrisl@kernel.org>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Nico Pache <nico.pache@linux.dev>,
-	Usama Arif <usama.arif@linux.dev>,
-	Michal Hocko <mhocko@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Barry Song <baohua@kernel.org>,
-	Axel Rasmussen <axelrasmussen@google.com>,
-	Yuanchu Xie <yuanchu@google.com>,
-	Wei Xu <weixugc@google.com>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Nhat Pham <nphamcs@gmail.com>,
-	Youngjun Park <youngjun.park@lge.com>,
-	Zi Yan <ziy@nvidia.com>,
-	Gregory Price <gourry@gourry.net>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lance Yang <lance.yang@linux.dev>,
-	Hugh Dickins <hughd@google.com>,
-	SJ Park <sj@kernel.org>,
-	David Rientjes <rientjes@google.com>,
-	Yu Zhao <yuzhao@google.com>,
-	Vernon Yang <vernon2gm@gmail.com>,
-	Zicheng Wang <wangzicheng@honor.com>,
-	Chen Ridong <chenridong@xiaomi.com>,
-	Tal Zussman <tz2294@columbia.edu>,
-	Xiang Liu <liuxiang.277@bytedance.com>,
-	Ehab Ababneh <ehab.ababneh@intel.com>,
-	Zhao Zhenzhuo <zhaozhengzhuo@uniontech.com>,
-	Lian Wang <lianux.mm@gmail.com>,
-	Joanne Koong <joannelkoong@gmail.com>,
-	Kunwu Chan <kunwu.chan@gmail.com>,
-	Hui Zhu <hui.zhu@linux.dev>,
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=GQgWd51A
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A571F000C6;
+	Fri, 20 Nov 2026 10:34:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795170862;
+	bh=S4WClgGTQce96cuQ8b2vdbaIwZ7thmN+5lziIGpcwlA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GQgWd51A3gk3Hm6voEPBQvWZfe6RhvJ42+lpKy9+C8Af0eu/i1/nQAqKjh2/oC8Yh
+	 3CPAHmTNcTRVMNuRcZ1ozR/MyYHIJ1szAzur7/PaZqYMoqFwRDY2pf9GXPW72P5bGC
+	 c7IG7oS7AW7/7Tu8AeXEJqav6U1Sf4TvQE8vhv2U=
+Date: Fri, 20 Nov 2026 11:34:19 +0100
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Deepanshu Kartikey <kartikey406@gmail.com>
+Cc: kees@kernel.org, pavel.hofman@ivitera.com, linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	cgroups@vger.kernel.org,
-	damon@lists.linux.dev,
-	linux-doc@vger.kernel.org,
-	Maxim Muzafarov <maxmuzaf@gmail.com>,
-	hi@tychen.cc
-Subject: Re: [PATCH v5 00/17] mm/mglru: frequency guided promotion (MGLRU-FG)
-Date: Fri, 20 Nov 2026 19:32:50 +0900
-Message-ID: <20261120103250.1241429-1-hi@tychen.cc>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <CAMgjq7Dnjsq4vid7H4usOB4f5AS8XzhG75mvf4-Y=an95gBERw@mail.gmail.com>
-References: <20261119-mglru-fg-v5-0-9eee2fe97a2d@tencent.com> <20261119112357.275352-1-hi@tychen.cc> <CAMgjq7Dnjsq4vid7H4usOB4f5AS8XzhG75mvf4-Y=an95gBERw@mail.gmail.com>
+	syzbot+e1d0e66badecc32d45eb@syzkaller.appspotmail.com
+Subject: Re: [PATCH] usb: gadget: u_audio: reject srate request for
+ unconfigured direction
+Message-ID: <2026112002-unshipped-refract-b827@gregkh>
+References: <20260821114854.12218-1-kartikey406@gmail.com>
+ <2026092925-licorice-strode-7905@gregkh>
+ <CADhLXY6t7UL9Ys65qDSBBAUzj+sQkS26xFZX3YjkFZ8ufS16wQ@mail.gmail.com>
+ <CADhLXY55XwzujRCg+xgm4v4UJmfdgUQ0oihS39f3iMwFDzXTRw@mail.gmail.com>
+ <2026101828-oxidation-squishy-51e3@gregkh>
+ <CADhLXY4N5ia9-J7ahmnOE2i6r5w-SMZC0KiezFu0P1n7=O_xrQ@mail.gmail.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -118,22 +61,71 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Envelope-From: hi@tychen.cc
+In-Reply-To: <CADhLXY4N5ia9-J7ahmnOE2i6r5w-SMZC0KiezFu0P1n7=O_xrQ@mail.gmail.com>
 
-On Fri, Nov 20, 2026 at 01:33:32AM +0800, Kairui Song wrote:
-> Thanks! That's good news.
-[...]
-> FG still doesn't track MADV_RANDOM accesses though, and still no
-> proactive workingset shift protection. Refault distance will cover the
-> rest including Maxim's case IIUC, as demonstrated before, it's better
-> to do that later as it fits much better with FG merged first.
+On Sun, Nov 15, 2026 at 07:16:56PM +0530, Deepanshu Kartikey wrote:
+> On Sun, Oct 18, 2026 at 5:24 PM Greg KH <gregkh@linuxfoundation.org> wrote:
+> >
+> > On Sun, Oct 18, 2026 at 04:28:49PM +0530, Deepanshu Kartikey wrote:
+> > > On Wed, Sep 30, 2026 at 1:48 PM Deepanshu Kartikey
+> > > <kartikey406@gmail.com> wrote:
+> > > >
+> > > > On Tue, Sep 29, 2026 at 6:53 PM Greg KH <gregkh@linuxfoundation.org> wrote:
+> > > > >
+> > > > > On Fri, Aug 21, 2026 at 05:18:54PM +0530, Deepanshu Kartikey wrote:
+> > > > > > u_audio_get_playback_srate() unconditionally locks and reads
+> > > > > > uac->p_prm.lock/srate, but g_audio_setup() only initializes
+> > > > > > p_prm.lock when p_chmask is set. On a UAC2 instance configured
+> > > > > > without a playback direction, this results in acquiring a
+> > > > > > never spin_lock_init()'d lock when a GET_CUR sample rate
+> > > > > > request targets playback, triggering a lockdep "trying to
+> > > > > > register non-static key" warning.
+> > > > > >
+> > > > > > Reject the request with -EOPNOTSUPP when p_chmask is not set,
+> > > > > > before touching prm->lock.
+> > > > > >
+> > > > > > Fixes: eb3a1ce6f5ed ("usb: gadget: u_audio: Add capture/playback srate getter")
+> > > > > > Reported-by: syzbot+e1d0e66badecc32d45eb@syzkaller.appspotmail.com
+> > > > > > Closes: http://syzkaller.appspot.com/bug?extid=e1d0e66badecc32d45eb
+> > > > > > Signed-off-by: Deepanshu Kartikey <kartikey406@gmail.com>
+> > > > > > ---
+> > > > >
+> > > > > How was this tested?
+> > > >
+> > > > I have not been able to test this since there is no
+> > > > repro present in syzbot.
+> > > >
+> > > > I verified the fix by static analysis of the call path in the report
+> > > > (afunc_setup -> in_rq_cur -> u_audio_get_playback_srate) and confirmed
+> > > > in g_audio_setup() that uac->p_prm.lock is only passed through
+> > > > spin_lock_init() inside the "if (p_chmask)" block, so it is left
+> > > > uninitialized whenever p_chmask is 0. Leading to lock splat issue.
+> > > >
+> > > > This patch is compile test only
+> > > >
+> > > > > Did you forget a Assisted-by: tag?
+> > > >
+> > > > Sure I will add assisted by tag
+> > > >
+> > > > thanks
+> > > >
+> > > > Deepanshu
+> > >
+> > > Hi Greg,
+> > >
+> > > Please let me know the status of this patch.
+> >
+> > Burried with 2000+ other pending USB patches, please be patient, there
+> > is no rush here as this is not affecting any real device you have,
+> > right?
+> >
+> > thanks,
+> >
+> > greg k-h
+> 
+> Gentle Reminder. Please let me know the status of this patch.
 
-Thanks. Feel free to add, for the whole series as tested above
-(the OpenSearch k-NN test, on 25fee5b1762b):
-
-Tested-by: Tianyi Chen <hi@tychen.cc>
-
-I'll rerun it on the refault distance series once it's posted.
-
-Tianyi
+You said you would add an assisted-by tag.
