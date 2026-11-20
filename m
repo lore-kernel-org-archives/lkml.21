@@ -1,98 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795168704;
-	b=n4s5aGkYnw1ew1wrK6+3mVMHe2n3bcBBsmS6JiK+PwlIZCF7VFO/QzhjPj80p4iP49mt
-	 mRR2jCH3GeIAvil9Sl8+PCg4X0z4CAyY7FkcfrHPBw2K6mkiYF79eZvNRcmhgpBTcGroB
-	 joAezJZ3sX9BJ++tllKZZSdFLPcfN5w19rjG0RCTFSaFXleFVOWxxyzDS6gRe8pWotPI8
-	 r2FauwFIQ30aNztfzQ7Roa58YR0z0YgCH+rzeb3eKTqZl6d6vtlETVtmxCPB4VFRcbiMK
-	 gKmJf0BeqGf9hvOuSk1kCfM4mnKl96NwlMAwR4iZfhcEoAxDVPo3pUzDvNY4T3+xtzw==
+	b=tiTSXzJjD9lUoHuumeXaoLKaOAHHKZDqed7sUXcCepB8lfZzUEfLgdtyKHa8m/h7gXMI
+	 ktgY8nc8dB8CJ1MPvusKsjP0e5U0c9rndJnPHfb6OFuqDVA6ZstKfnw92e+xL0qFKTce5
+	 qUSoJSayu50rLMs9m7Paqj5Q3oGuDjJ9n+Qk0T5qC7JRCn3vSlmHVpqDg32c+cD9t1Oxj
+	 W78ZlTqQduUSIOkGGhrT5ZU/Lzw7XhcZhq7dUDXHhKAB9LLH01Wb4Z6nJ200acnPiE1Dg
+	 PnsgFDLRG19uzLxQ0yNzGqu0mjqpX/+atIa/p4u7z3DY6gTy+6035HajOQXUocarugA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795168704;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zgnXQshQ0CpU+HjXdCJoDOKBcGPL5TKBdSPVf+HpHTI=;
-	b=K7UU7qjlG63u7UsWeQ+MPSZ6B4fgWOr2g5+etIWL8AubgoQs+OUG0dlsbJ9D74ybHbFm
-	 XzvRCYeG9elsgVfoumLNeazIxHKE9KCBcQdVahiW/iFFzdyGeZ3+wsRx73bQItHz9xT/2
-	 WJynAeb1Iyt3iV+2BzpoMQUdxYI1FZHZHUEv/f4W8giLEZvrHGj7CndybTSwJSFB7+RzJ
-	 npvUVE0ff4Wrb5amFCqhkEP65iYiazoJjSLfqckgLIN5xkCfUebBHGXuNfb1lEMt6PmuQ
-	 6yd/De8PfGb5oswOD3iKeHpQN4VNaX4zGmz5sMAYD6zcglcHxKxBfNA3LYMb17WaSXw==
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:User-Agent:MIME-Version:Content-Type;
+	bh=E6d7w+bAYSu5dtWtl5fUZsUOR40mrhZ84JxkLfa82GE=;
+	b=EdRwxqvxX2y+KKM9ViQFpDaJBdio6lQt6jh7W+BmNQ50NilfPd66B07CoGkd+R1d2xH6
+	 RwTr+Lao8zGQVjQwkIzDiukGYwspApmP6BS0130wKQsNnt6gCR8+9Uup0Q2XwLtdrhBwQ
+	 4NR+vg8NkkZT4xBXPvPJUsT6w9HM+ksB3cJH3MrU7AWXbF1UlU8IOF5uniBKfjZgxDh21
+	 dcWqgV5/FGlAh0q/f2w+2Li4ZoRY3Ep/NlyhU7BLLLV4uELjEmkk9DE8+cUm3qYzW+KOY
+	 49pVF+KNQ2a62h18/3wdWVCVOj9SKb2VlWWU3qe2xfBIdGRlb00yHDaaZOdTEpl1eNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linaro.org;
-	spf=pass smtp.mailfrom=linaro.org;
-	dkim=pass header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=IEwovvp4;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIWH6Hg6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CAD1606A320
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:58:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CAD1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linaro.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linaro.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D44DE606A325;
+	Fri, 20 Nov 2026 09:58:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=linaro.org header.i=@linaro.org header.a=rsa-sha256 header.s=google header.b=IEwovvp4
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so14362455e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 01:58:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1795168703; x=1795773503; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zgnXQshQ0CpU+HjXdCJoDOKBcGPL5TKBdSPVf+HpHTI=;
-        b=IEwovvp4xO3pjlemHunRSsGZBDW7Pj1I/FaDpkQR6fBv9EE/LjLegS3xIMiBwpGShB
-         ydCXZKbG7ScA/LAGyzcxXFM6XwuGYTyOo7wPtjcM1Qp/S6FsTA/cZTBD3JzTYi78EyXQ
-         D7G/0TRreae0cmrGgdhU7Pu1fUiz3VFVzmCOXY4iBR/7KAobz5aMA5xyjK1kZdcEDzG3
-         cFJpZHp1w9ykBe290T2YfSIcqd/prcVM92gn5JtazxZYfLEal+vFFMu6DPDHNLatNx6e
-         oVlAebF/t4QIDOLIu+ROBJB7hOxtvS7OyvqdIZ6Cl1AFL1KxYuDCA8TWm+pyYXxwNRk5
-         CqrA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795168703; x=1795773503;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zgnXQshQ0CpU+HjXdCJoDOKBcGPL5TKBdSPVf+HpHTI=;
-        b=brAw2Q80KxUI0rMv/iENy4YEbvhTjiPk6d1Yvb5vcLIDDHIFXosFko5qyJMoGgdj1D
-         7bDga8u+OJ1C6EVPYiYHkI3OVTehax8cXuLqK294v/nK8z2xJ5t1M1vFKRrjIm7roGqc
-         Tvj6XkCZa7VT6LjXipkGEHKPfnwPjjFWMmBK8/walm8IkV7TcWZnqJpVhkGEM+bVIKwM
-         XV5/7elY14xGvvM6Op3hCdJ0GcFTWpExdpwUrcDuISpPqGOBD0Kh1OyQs2WWE5J6cNlO
-         97jCFNm7nsmAMu/yRQ7Ob0qHUXVWhWgeCqqlJmzdFgpyXrSk853c0R1hBX5vKGrYFJE4
-         CLyA==
-X-Forwarded-Encrypted: i=1; AL+hErGakMHJw36GyjL9uizG+YXia6hNu+zjKi4D3vwBss0MYHi780g/LLH/sH57VobuG2t6+HN3SQyJsAyEA74=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LoQw+X7mH4B3MS6aRMhofWVxhRmMsBPpfLItTJkwc008DYt8z
-	Rwf/X5gqN1LzTS9HV3GJ2jey8mGSpLZpGgK5NdBV4q9WL/ZqyUfikP+tOVUoROvGuHg=
-X-Gm-Gg: AYBFou0LE5TDAQ6avas1fQ39xneZm/iUKQQJTNLXbQDwCcHZYNYnp/Whj1SkTVqPw/y
-	6z8aCNOO+luBGPZ/Yl7/0TZ/BNUxSNXK5pCZ4zaYpG/2DNrH9KNt3o7rlqBoLKQqfKhq7wwtV7y
-	msMyiNZ/FyTd+EAjpEsxWfcE0Yb55xk6ivL2Xp15cuzC83cezkFkMqz7sS/LMUw2G5uDABjU3/2
-	zJxwzPC44INSMnKXjzqK074mdOTExizEH7Yp/F5z9w8OQOlyQE7jSGCHZoS+U2eXMkGhQvLAEq+
-	Is8rHMJy3d9x5XmeEQLHYrEocv85wFcBIWJnljfkw5Z6vWVsoJlVnlWZ/Pm+lWEpm7vacFaqEkl
-	yC+2quesE/jy9svTmkg1Xj+xfSRmA180BH7V+QUsMJLKuHlPDAnSWnHmka1E7uDqbjxh7yU2gU5
-	/wudcEmB7N471F9K1Ctw2ADMQzgMwwOfoXapQqhhDY7Qh11T4fD5tJdt0iE6rRius4OFXr9C0GO
-	37MEJFBJx5geD2jlCGon/rtXtqr3lh1BCfggqQXnCY4g89SBmegnmVJYviQSpwVoP6cpYoshhqA
-	IPtxFq54a1xCKSgqfc5qMKq0gYu6zG6CvDcW56lXkju87A==
-X-Received: by 2002:a05:600c:4313:b0:4bb:643e:3b8a with SMTP id 5b1f17b1804b1-4bb86162fc5mr60842105e9.17.1795168702815;
-        Fri, 20 Nov 2026 01:58:22 -0800 (PST)
-Received: from vingu-cube.home ([2a01:e0a:11f4:3020:15f5:896a:6ea6:98e2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm4652733f8f.16.2026.11.20.01.58.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 01:58:22 -0800 (PST)
-From: Vincent Guittot <vincent.guittot@linaro.org>
-To: mingo@redhat.com,
-	peterz@infradead.org,
-	juri.lelli@redhat.com,
-	dietmar.eggemann@arm.com,
-	rostedt@goodmis.org,
-	bsegall@google.com,
-	mgorman@suse.de,
-	vschneid@redhat.com,
-	kprateek.nayak@amd.com,
-	linux-kernel@vger.kernel.org
-Cc: Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH] sched/fair: Always clear se->exec_start when migrated
-Date: Fri, 20 Nov 2026 10:58:19 +0100
-Message-ID: <20261120095819.1009260-1-vincent.guittot@linaro.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIWH6Hg6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CC3F1F000C4;
+	Fri, 20 Nov 2026 09:58:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795168704;
+	bh=E6d7w+bAYSu5dtWtl5fUZsUOR40mrhZ84JxkLfa82GE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=VIWH6Hg6ZngwRI0Sh8L6RPMEKJzqjKamjETcbLDxmQ9/OCIxXv4eFzXJ5hekmLDAI
+	 /Dj0EoHYcLqjlUjJ5/DYPr/SnUG01jX+yRhY4UkBBvYa0U25SDar06EnekwxgaadyZ
+	 DXfc5VfhhA/lGEvjZ2XGV4xYeB937AG2HyEqmZgvlQYHNYammlo9aT+xuBrwu4KAFn
+	 kOOFTbrmmS86ONpWUk4BoEIOEB2CMXrLzM1SaG0Rq3BzlvqsS9jYldZt07fV5x7yH0
+	 Lb25Xu/a+zFhm5K2N1kB9boAfhUAEpAicLLJZRNE10w4xM0RL2gsxThMLZ0/xW8HpF
+	 xCJFZBIft5zMQ==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: David Matlack <dmatlack@google.com>
+Cc: kexec@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  linux-kselftest@vger.kernel.org,
+  linux-mm@kvack.org,  Alexander Graf <graf@amazon.com>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Baolin Wang <baolin.wang@linux.alibaba.com>,
+  Christian Brauner <brauner@kernel.org>,  David Hildenbrand
+ <david@kernel.org>,  Hugh Dickins <hughd@google.com>,  Jonathan Corbet
+ <corbet@lwn.net>,  "Liam R. Howlett" <liam@infradead.org>,  Lorenzo
+ Stoakes <ljs@kernel.org>,  Michal Hocko <mhocko@suse.com>,  Mike Rapoport
+ <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,  Pratyush
+ Yadav <pratyush@kernel.org>,  Randy Dunlap <rdunlap@infradead.org>,
+  Samiullah Khawaja <skhawaja@google.com>,  Shuah Khan
+ <skhan@linuxfoundation.org>,  Suren Baghdasaryan <surenb@google.com>,
+  Vlastimil Babka <vbabka@kernel.org>
+Subject: Re: [PATCH v4 06/19] liveupdate: Don't WARN if tracking a retrieved
+ file fails
+In-Reply-To: <20261111002358.1842967-7-dmatlack@google.com> (David Matlack's
+	message of "Wed, 11 Nov 2026 00:23:44 +0000")
+References: <20261111002358.1842967-1-dmatlack@google.com>
+	<20261111002358.1842967-7-dmatlack@google.com>
+Date: Fri, 20 Nov 2026 09:58:18 +0000
+Message-ID: <2vxzik1r3jut.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -102,44 +72,34 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-Make sure that se->exec_start is always cleared when task migrates even
-when migrating on a throttled cfs.
+On Wed, Nov 11 2026, David Matlack wrote:
 
-And remove useless clear of group_entities which can't migrate
+> Handle a failure to add a retrieved file to luo_preserved_files instead
+> of triggering a WARN_ON(). Make the failure permanent, and keep the file
+> until the file set is finished, like any other retrieved file. Only warn
+> if the file is already tracked (-EBUSY), which would be a kernel bug,
+> since a retrieved file is always a new file.
+>
+> xa_insert() can fail with -ENOMEM, and userspace can trigger that with
+> LIVEUPDATE_SESSION_RETRIEVE_FD, so warning about it lets userspace crash
+> systems with panic_on_warn.
+>
+> The handler has already consumed the preserved state when this happens,
+> so the retrieve can't be retried. Keeping the file ensures that its
+> resources are not released before the file set is finished. Finishing
+> the file set then erases the file from luo_preserved_files, which does
+> nothing for a file that was never added.
+>
+> Fixes: 00d0b372374f ("liveupdate: prevent double management of files")
+> Signed-off-by: David Matlack <dmatlack@google.com>
+> Acked-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 
-Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
----
- kernel/sched/fair.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Reviewed-by: Pratyush Yadav (Google) <pratyush@kernel.org>
 
-diff --git a/kernel/sched/fair.c b/kernel/sched/fair.c
-index 942140247f76..4e2674bc5c32 100644
---- a/kernel/sched/fair.c
-+++ b/kernel/sched/fair.c
-@@ -6555,10 +6555,6 @@ enqueue_entity(struct cfs_rq *cfs_rq, struct sched_entity *se, int flags)
- 
- 	account_entity_enqueue(cfs_rq, se);
- 
--	/* Entity has migrated, no longer consider this task hot */
--	if (flags & ENQUEUE_MIGRATED)
--		se->exec_start = 0;
--
- 	check_schedstat_required();
- 	update_stats_enqueue_fair(cfs_rq, se, flags);
- 	se->on_rq = 1;
-@@ -8214,6 +8210,10 @@ enqueue_task_fair(struct rq *rq, struct task_struct *p, int flags)
- 	unsigned long weight;
- 	bool curr;
- 
-+	/* Always clear exec_start when task migrated even for throttled one */
-+	if (flags & ENQUEUE_MIGRATED)
-+		se->exec_start = 0;
-+
- 	if (task_is_throttled(p) && enqueue_throttled_task(p))
- 		return;
- 
+[...]
+
 -- 
-2.53.0
-
+Regards,
+Pratyush Yadav
