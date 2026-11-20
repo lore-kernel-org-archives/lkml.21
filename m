@@ -1,79 +1,78 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795133257;
-	b=yVvHfwcLQ/jcr/8xvmSHTop3YNxBtyINsJrVfufwHs5uvLlDEDABTHcpQcm3Q7KSDnN7
-	 h6QW1+F60i861DiBDJF/OvvUiCepzTFYePUI38EOnxitTrA7jwhiMfdbSbI1ZqZ9KzqgC
-	 K4SVhF2H0CAEr89d84XqJmJG1S/A6G5KhVQOctDp2/mMEqrMyILnq/teaYBBLYE6gIv09
-	 ve6GXAcXZfL1Ri3oj2JZjf7Vv7H5PQYO8NJDVjxzVgX9WlipNIDGj+Dia/E1fxh9RuSFO
-	 WKRCH/daYTFCoxNYLmHiuknqn0tdql2QQUUavnGu6sVZUIesXDohL5dpgN2doAOaKcQ==
+	t=1795133260;
+	b=db0EaA2eKvAZJL1y1rIe7ibj33v9jWyzXHnY4bDhG4p3DvQpS9BA995KF2D9bxVb0JG8
+	 gHUruOqg8NlM3zKCTKRmPGlS6U+XUgeb0JdgTLv+qSSXrhGSYn64Vr5pXdUQS12ChCqIl
+	 wV6xr8jFOWTUgB6GWr67KSADjOXy7FNCod5OaFaEbeR+jGzm1tbVcxYeGV2v3Ts0mN4fy
+	 NfwoXbDmCGXz7yZkb4+gLD9t8m7U8gB4gRkXvaQ52iu4+hKQDUwHq9ABmQAmgoTvKBz8b
+	 2DWjv8l+/eAvIdETJ+YYMFj0B+0bAbzLLiKOjDzTByGMJlAVpEtuR4f3pvhk5rB/M/g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795133257;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795133260;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mXx8vQW9eMcb5f5cjRDmYQfODXKXZlBnw1rzPhomIHA=;
-	b=FCTt6OPMT64iJx15CZtwv0tX+5zXnqPa4CD0qOKmnP8GBxEio+xG7LZJs+5t1AsWPGB+
-	 19b3lQHMuoxFWeSLB2IB2qIBMg3LH/ylO7C1vcHfIFssqgHSovt5kRY/6xU9TrfdBbDtM
-	 JpAU1UgWSzTm9srHyjLwBz/+kQVdVhg4ghSjLiOoUtnxTM8003ZDzUZwS1wUsqEFXaHHz
-	 kkw/NWFTvcYUpCe2udHQwsLjzVLG+zgPaFNtXTlS/I7lNxa7FMPEe8KZmmyOr8gjFjaqi
-	 WUR/lhGvaUbVIs6QGSlM7iXmGrM4z6GU48b7ePk0WVHMNXmwnn194Z1flXQ+9A1AkCQ==
+	bh=SMv2w/6ALE6g8GIs8d2UMmTdKlzqgxPibvO75uhkyzo=;
+	b=d8rd+ftaeN29KFGrEYpq0XNdRac8aGWSVQwVFEqQbaQj/uFjw3Gj+CAQbBnDAXPg0OWv
+	 YmWHtB2tgfrkng/J05/6b647/RMdv7IMhLMbvma4bcymx+ygk2XS1AWbzeFgO6QJ/vPdl
+	 NjY13sZATkXc/Kp5q/30roSjt2LzJFnM7fvrE10eN1Vw8+zVti+Ur3NetC9S5HzQUv8dq
+	 LxkAAbZJqSwmmgW+gcTyfixoB5qOtzz+DjtPyWcr2QrUqbsSUNeiV+gGZgz68/VSa5Vc3
+	 C8Di5ThxoRGQ+fon9IDGK9Od5zoFgoi8jxm9VlZ7Z6+cJKFBoPly+O+dy/A4ZYHgGcw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yb6l3y06;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJPgd6Jx;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D1E660A2631;
-	Fri, 20 Nov 2026 00:07:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5734660A5BC2;
+	Fri, 20 Nov 2026 00:07:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yb6l3y06
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJPgd6Jx
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795133257;
-	b=sX5Z1dEdhTJl6XEbqq/O8g/kDWJy7C+/5nsFms64KTEbSOD14ZsaZaJH374/io8SsohG
-	 E3XMO/o7n4OKgcA93HksdCIVZMZyj/GFHBu+wzs3vT5ZgMjb+VVDxd8Y8XwLJPU2F1LWW
-	 s0flCMAnD5JsVcrWTEJNlhifGNPaIyzbwFxa3aubiLXnQstb/9GLsU8ZSNLb8eQuQuMrm
-	 cOkcoZtjN75bbQrtay+aTRQ7whoinVPOmtpemnY+JQUZlFrmvME26BOHnnMFDa/1pCjRt
-	 vLhuHOBg3LM/GOKAXJEt2CIqIFrmPChwCfTFPLWCG43t+ud3uIEIPWPl9V6r7bV0O5Q==
+	t=1795133260;
+	b=eEIJ54fMQdUE1uT3LoGq3jfzuPvjdv53s9L7yTQSamf17LjQTMXKXORYOoTYwVS/VVSK
+	 +QpeTbxp5+b9bqYWx7X7fdyUEowK7WWUBfrrgrxWuKPhIYEAhwUl100Q8SNURWD0QHbr7
+	 e1faMWhxurEpwULDlQbpIygZqRySbqRgpDaA5RtUm4HtmhR6F9BGmrUq1ojSf8RA6dDQ9
+	 2LLwj9iV8ltygnhx2xvqQkdxxj4Kf1yEj7pzyl15vWWenIeQal8cVreNW7JwBIXazQmFL
+	 pK1RrXgmpp5PLP4Ool0tRoXpP5TIVdc92UeLw/it5KW68wakxvXsiSj5DkfhvHPjz3A==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795133257;
+	c=relaxed/relaxed; t=1795133260;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=mXx8vQW9eMcb5f5cjRDmYQfODXKXZlBnw1rzPhomIHA=;
-	b=WppFUPBN0aWwBf3HQ0kr5pTeDVIjOqvLdUPM8KjkMf9AGCth/puveDxi9D2Z4z9DNa1b
-	 a7ij/nywzz1Bx5i1cu0olu4l5OsyGBIBrQpByKjqwWTfoU+F6KfFlcdv17zhHQHn34A29
-	 t8hlFrwWu9RII1joiw0DA6lFpW85rL1kDymdr5j0TMT/iqbzQvn9kaGUVV4lOVY0FUjBE
-	 CMav5cIxyCC9fxQNPEz0GCJNyfEMs2UnqzeM0ZbQLISrcjCD4oTJ7FAV4+Omi9wWWIre4
-	 04DmP7DRZ+pamLTzKXb9mi/XDchDPsapon9TB+BhPDReIiKt8ODBeyq01V4ACDb8BSQ==
+	bh=SMv2w/6ALE6g8GIs8d2UMmTdKlzqgxPibvO75uhkyzo=;
+	b=rJFCeMetWrOGxBJX/IOzW3iGNPN69q3sFRiPo+sk5jzoEjUKzrqLOwADngl60yOWO+1A
+	 8k5gkBvt1hGtSommJRuQpg/GbybVOhRlx3GNdKPoIK0R874ffp1J0yZpkZI7MCQQv2LPW
+	 asqxrL/Hx0/jmT9qwTusFaxWAmb5RFvDhEaDcwBs2xCJjn5ReNSb5+MpHX3pxIvxockWz
+	 Ysp30nBDqwy7wPJIIkkPG7JbYZB10k0dg/nBgmsa6HclZlrf6OIQGbjmEChOadRPHLnjp
+	 kirzyP2cF1rPd6QORWPqKNUteR3vlFwzwiWbsnvM7hyhiiX6DfWbxBt16/Fdc2yRdPA==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 23B5D1F000CF;
-	Fri, 20 Nov 2026 00:07:36 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id A94351F000D8;
+	Fri, 20 Nov 2026 00:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795133257;
-	bh=mXx8vQW9eMcb5f5cjRDmYQfODXKXZlBnw1rzPhomIHA=;
+	s=k20260515; t=1795133260;
+	bh=SMv2w/6ALE6g8GIs8d2UMmTdKlzqgxPibvO75uhkyzo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Yb6l3y0608FJiJ0gkH5BKJvjcOSUeE2fvDntbVaqm1GiIRf91yELqU4MsjDCZsuGJ
-	 T1uYgInmb0vPpEZxf+e9YKU+j/42tvIGu1bYKCYWmU04rpGqCiG/iRJoR2prXBXY2K
-	 W241gnrcyVVoqUnvte+pGHxjCuooEJmLDTEIIvvS4ZB7Mfzo5TXsBWN+jq3tb7kwmA
-	 DbHtVeB27ceKnZrdkVxa/wIDuI5kU+wRaIAEH0YQgtSVTuoYQYjWC6xEzz77zyknlZ
-	 BDV26c5zIZ3a6hy0r7GHXZbcGU2gyV4GlVf/wnH6ySzvZrRc2j/pfev2XufgfOFteP
-	 QXJwHskQfNFgw==
+	b=IJPgd6Jx4Yq8uoYufbm3HTjP05KGvZ+itLgbObwXf4l4rQOq6QQiVCJ9Bi18SWrto
+	 kmj1QWr+Vm3ejxD/CuwlEs+abZuTnHFdq+eIN1lRYplcYz7Bkrhp86LDJ+6LpfLB4L
+	 Ke2u0AC6OBzWop5aRrb4020ShXL5tJRXnEFnCzcnpV3xz+HZ9jVg9owymLzdqll/B7
+	 fepmRUMn1Xaaeswc3zFVugRChffwD8GbtfY1n+pQxYAOggjZ9zwD345r9GOe1SLiJO
+	 4pLy7Gh4Ou4H7RwPVCprGevvwIzDN2dX8O3YHg7HK+XWzxkvAYIIcRbxss822nmKjV
+	 EY0dM16+npdSg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id A53C0424E3;
-	Fri, 20 Nov 2026 00:07:35 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 196CE424F8;
+	Fri, 20 Nov 2026 00:07:36 +0000 (UTC)
 From: Joseph Telaak via B4 Relay <devnull+joseph.telaak.dev@kernel.org>
-Date: Thu, 19 Nov 2026 19:07:25 -0500
-Subject: [PATCH v3 03/11] leds: rgb: ktd202x: Never program an on time of
- zero
+Date: Thu, 19 Nov 2026 19:07:29 -0500
+Subject: [PATCH v3 07/11] leds: rgb: ktd202x: Add Etek ET6326 support
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -84,7 +83,7 @@ List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261119-ktd202x-et6326-v3-3-98b836b1cddc@telaak.dev>
+Message-Id: <20261119-ktd202x-et6326-v3-7-98b836b1cddc@telaak.dev>
 References: <20261119-ktd202x-et6326-v3-0-98b836b1cddc@telaak.dev>
 In-Reply-To: <20261119-ktd202x-et6326-v3-0-98b836b1cddc@telaak.dev>
 To: Lee Jones <lee@kernel.org>, Pavel Machek <pavel@kernel.org>, 
@@ -99,61 +98,209 @@ Cc: linux-leds@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-hardening@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-doc@vger.kernel.org, Joseph Telaak <joseph@telaak.dev>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795133254; l=1697;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795133254; l=7634;
  i=joseph@telaak.dev; s=20261104; h=from:subject:message-id;
- bh=4vu/LXmMkaEvGJ1/hrmJ814QvOwrRsqKU2bt/1/nM64=;
- b=6XXZtFUmMORX+v7XpaozbDugG0dkUc11VCmPURnFabSl3dyQasQBE36R+Eaic86DScMnM+X9f
- YW/e8Z5FHLqClmRq4CrwRm5Pngvc27HLOavqmo5yR49ERqRX2jCfsz1
+ bh=jbVAMZVe19FgtjBG324BYjjGBxMPN7ke1/LtvoODrmk=;
+ b=v0E1FBmugi8P3uKolNYQPqBIv1HixQ2y7sxiG5+TleZ7EthwlBcQ9sFHtPMkcPj6jfFKmsU5P
+ A3lEQb0+CtLDM4wADRpPBdTm/s6GgcrrlAgfgzuN/ZFKhf1LYPhRZ70
 X-Developer-Key: i=joseph@telaak.dev; a=ed25519;
  pk=oQI+UfddlZ0wK2ac4WKOGNjUl1ZEN8j9ZVFSqEDoNP0=
 X-Endpoint-Received: by B4 Relay for joseph@telaak.dev/20261104 with
  auth_id=1404
 X-Original-From: Joseph Telaak <joseph@telaak.dev>
 Reply-To: joseph@telaak.dev
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
 From: Joseph Telaak <joseph@telaak.dev>
 
-blink_set() turns delay_on into a fraction of the period in 1/256 steps.
-When delay_on is less than 1/256 of the period, for example 1 ms on and
-1000 ms off, that fraction is 0: the LED stays dark, while the timer
-trigger reports that it is blinking with delay_on = 0.
+The Etek ET6326 is a KTD2026 with a different flash period encoding:
+a period setting of n selects (n + 1) * 128 ms, from 128 ms to 16.38 s,
+where the KTD202x selects 256 ms + n * 128 ms and uses its last setting
+for one shot mode.
 
-Use the shortest on time the hardware has, 1/256 of the period, and
-report it back.
+Move the number of LEDs and the flash period limits into per chip
+capabilities and add the ET6326, so the timer trigger gets the delays it
+asked for.
 
-Fixes: 0ebdb7210943 ("leds: Add ktd202x driver")
+Report the on time rounded to the nearest millisecond rather than down.
+The shortest ET6326 period is 128 ms, and 1/256 of it rounded down is
+0 ms, which the timer trigger passes back with the next delay_off
+write, where an on time of 0 turns the LED off. Rounded, the delays
+read back also give the same on time when they are written again.
+
+Link: https://www.etekmicro.com/wp-content/uploads/datasheets/ET6326_datasheet.pdf
 Signed-off-by: Joseph Telaak <joseph@telaak.dev>
 ---
- drivers/leds/rgb/leds-ktd202x.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/leds/rgb/Kconfig        |  3 +-
+ drivers/leds/rgb/leds-ktd202x.c | 67 ++++++++++++++++++++++++++++++++---------
+ 2 files changed, 55 insertions(+), 15 deletions(-)
 
+diff --git a/drivers/leds/rgb/Kconfig b/drivers/leds/rgb/Kconfig
+index 6e9ab5f60714..3a57e5819eeb 100644
+--- a/drivers/leds/rgb/Kconfig
++++ b/drivers/leds/rgb/Kconfig
+@@ -20,7 +20,8 @@ config LEDS_KTD202X
+ 	select REGMAP_I2C
+ 	help
+ 	  This option enables support for the Kinetic KTD2026/KTD2027
+-	  RGB/White LED driver found in different BQ mobile phones.
++	  RGB/White LED driver found in different BQ mobile phones, and
++	  for the compatible Etek ET6326.
+ 	  It is a 3 or 4 channel LED driver programmed via an I2C interface.
+ 
+ 	  To compile this driver as a module, choose M here: the module
 diff --git a/drivers/leds/rgb/leds-ktd202x.c b/drivers/leds/rgb/leds-ktd202x.c
-index e7e44d5612a7..362d231eddcc 100644
+index ac7ed7552fb2..614384bdc57f 100644
 --- a/drivers/leds/rgb/leds-ktd202x.c
 +++ b/drivers/leds/rgb/leds-ktd202x.c
-@@ -66,6 +66,7 @@
+@@ -68,6 +68,8 @@
  #define KTD202X_FLASH_PERIOD_MIN_MS 256
  #define KTD202X_FLASH_PERIOD_STEP_MS 128
  #define KTD202X_FLASH_PERIOD_MAX_STEPS 126
-+#define KTD202X_FLASH_ON_MIN 1
++#define ET6326_FLASH_PERIOD_MIN_MS 128
++#define ET6326_FLASH_PERIOD_MAX_STEPS 127
+ #define KTD202X_FLASH_ON_MIN 1
  #define KTD202X_FLASH_ON_MAX 256
  
- #define KTD202X_MAX_BRIGHTNESS 192
-@@ -304,8 +305,12 @@ static int ktd202x_blink_set(struct ktd202x_led *led, unsigned long *delay_on,
- 				  (delay_total_ms - KTD202X_FLASH_PERIOD_MIN_MS) /
+@@ -87,6 +89,30 @@ static const struct reg_default ktd202x_reg_defaults[] = {
+ 	{ KTD202X_REG_LED_IOUT(3), KTD202X_LED_CURRENT_10_mA },
+ };
+ 
++struct ktd202x_caps {
++	unsigned long num_leds;
++	unsigned int flash_period_min_ms;
++	unsigned int flash_period_max_steps;
++};
++
++static const struct ktd202x_caps ktd2026_caps = {
++	.num_leds = KTD2026_NUM_LEDS,
++	.flash_period_min_ms = KTD202X_FLASH_PERIOD_MIN_MS,
++	.flash_period_max_steps = KTD202X_FLASH_PERIOD_MAX_STEPS,
++};
++
++static const struct ktd202x_caps ktd2027_caps = {
++	.num_leds = KTD2027_NUM_LEDS,
++	.flash_period_min_ms = KTD202X_FLASH_PERIOD_MIN_MS,
++	.flash_period_max_steps = KTD202X_FLASH_PERIOD_MAX_STEPS,
++};
++
++static const struct ktd202x_caps et6326_caps = {
++	.num_leds = KTD2026_NUM_LEDS,
++	.flash_period_min_ms = ET6326_FLASH_PERIOD_MIN_MS,
++	.flash_period_max_steps = ET6326_FLASH_PERIOD_MAX_STEPS,
++};
++
+ struct ktd202x_led {
+ 	struct ktd202x *chip;
+ 	union {
+@@ -101,6 +127,7 @@ struct ktd202x {
+ 	struct regulator_bulk_data regulators[2];
+ 	struct device *dev;
+ 	struct regmap *regmap;
++	const struct ktd202x_caps *caps;
+ 	bool enabled;
+ 	unsigned long num_leds;
+ 	struct ktd202x_led leds[] __counted_by(num_leds);
+@@ -272,6 +299,7 @@ static int ktd202x_blink_set(struct ktd202x_led *led, unsigned long *delay_on,
+ 			     unsigned long *delay_off, struct mc_subled *subleds,
+ 			     unsigned int num_channels)
+ {
++	const struct ktd202x_caps *caps = led->chip->caps;
+ 	unsigned long delay_total_ms;
+ 	int ret, num_steps, on;
+ 	u8 ctrl_mask = 0;
+@@ -306,11 +334,11 @@ static int ktd202x_blink_set(struct ktd202x_led *led, unsigned long *delay_on,
+ 	/* Integer representation of time of flash period */
+ 	if (check_add_overflow(*delay_on, *delay_off, &delay_total_ms))
+ 		delay_total_ms = ULONG_MAX;
+-	if (delay_total_ms < KTD202X_FLASH_PERIOD_MIN_MS)
++	if (delay_total_ms < caps->flash_period_min_ms)
+ 		num_steps = 0;
+ 	else
+-		num_steps = min_t(unsigned long, KTD202X_FLASH_PERIOD_MAX_STEPS,
+-				  (delay_total_ms - KTD202X_FLASH_PERIOD_MIN_MS) /
++		num_steps = min_t(unsigned long, caps->flash_period_max_steps,
++				  (delay_total_ms - caps->flash_period_min_ms) /
  				  KTD202X_FLASH_PERIOD_STEP_MS);
  
--	/* Integer representation of percentage of LED ON time */
-+	/*
-+	 * Integer representation of percentage of LED ON time. A value of 0
-+	 * keeps the LED dark, so use the shortest on time instead.
-+	 */
- 	on = (*delay_on * KTD202X_FLASH_ON_MAX) / (*delay_on + *delay_off);
-+	on = max(on, KTD202X_FLASH_ON_MIN);
+ 	/*
+@@ -321,8 +349,14 @@ static int ktd202x_blink_set(struct ktd202x_led *led, unsigned long *delay_on,
+ 	on = clamp(on, KTD202X_FLASH_ON_MIN, KTD202X_FLASH_ON_MAX - 1);
  
  	/* Actually used delay_{on,off} values */
- 	delay_total_ms = num_steps * KTD202X_FLASH_PERIOD_STEP_MS + KTD202X_FLASH_PERIOD_MIN_MS;
+-	delay_total_ms = num_steps * KTD202X_FLASH_PERIOD_STEP_MS + KTD202X_FLASH_PERIOD_MIN_MS;
+-	*delay_on = (delay_total_ms * on) / KTD202X_FLASH_ON_MAX;
++	delay_total_ms = num_steps * KTD202X_FLASH_PERIOD_STEP_MS + caps->flash_period_min_ms;
++	/*
++	 * Rounded to the nearest ms, so that the delays give the same on time
++	 * when written back. Rounded down, 1/256 of the 128 ms ET6326 period
++	 * would be 0 ms, which means never on.
++	 */
++	*delay_on = clamp(DIV_ROUND_CLOSEST(delay_total_ms * on, KTD202X_FLASH_ON_MAX),
++			  1UL, delay_total_ms - 1);
+ 	*delay_off = delay_total_ms - *delay_on;
+ 
+ 	/* Set timings */
+@@ -550,8 +584,8 @@ static const struct regmap_config ktd202x_regmap_config = {
+ static int ktd202x_probe(struct i2c_client *client)
+ {
+ 	struct device *dev = &client->dev;
++	const struct ktd202x_caps *caps;
+ 	struct ktd202x *chip;
+-	unsigned long num_leds;
+ 	int count;
+ 	int ret;
+ 
+@@ -559,14 +593,17 @@ static int ktd202x_probe(struct i2c_client *client)
+ 	if (!count || count > KTD202X_MAX_LEDS)
+ 		return dev_err_probe(dev, -EINVAL, "Incorrect number of leds (%d)", count);
+ 
+-	num_leds = (unsigned long)i2c_get_match_data(client);
++	caps = i2c_get_match_data(client);
++	if (!caps)
++		return -ENODEV;
+ 
+ 	/* Loops over the LEDs go up to the number of channels, not of child nodes */
+-	chip = devm_kzalloc(dev, struct_size(chip, leds, num_leds), GFP_KERNEL);
++	chip = devm_kzalloc(dev, struct_size(chip, leds, caps->num_leds), GFP_KERNEL);
+ 	if (!chip)
+ 		return -ENOMEM;
+ 
+-	chip->num_leds = num_leds;
++	chip->caps = caps;
++	chip->num_leds = caps->num_leds;
+ 	chip->dev = dev;
+ 	i2c_set_clientdata(client, chip);
+ 
+@@ -626,15 +663,17 @@ static void ktd202x_shutdown(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id ktd202x_id[] = {
+-	{ .name = "ktd2026", .driver_data = KTD2026_NUM_LEDS },
+-	{ .name = "ktd2027", .driver_data = KTD2027_NUM_LEDS },
++	{ .name = "et6326", .driver_data = (kernel_ulong_t)&et6326_caps },
++	{ .name = "ktd2026", .driver_data = (kernel_ulong_t)&ktd2026_caps },
++	{ .name = "ktd2027", .driver_data = (kernel_ulong_t)&ktd2027_caps },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, ktd202x_id);
+ 
+ static const struct of_device_id ktd202x_match_table[] = {
+-	{ .compatible = "kinetic,ktd2026", .data = (void *)KTD2026_NUM_LEDS },
+-	{ .compatible = "kinetic,ktd2027", .data = (void *)KTD2027_NUM_LEDS },
++	{ .compatible = "etekmicro,et6326", .data = &et6326_caps },
++	{ .compatible = "kinetic,ktd2026", .data = &ktd2026_caps },
++	{ .compatible = "kinetic,ktd2027", .data = &ktd2027_caps },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(of, ktd202x_match_table);
+@@ -652,5 +691,5 @@ static struct i2c_driver ktd202x_driver = {
+ module_i2c_driver(ktd202x_driver);
+ 
+ MODULE_AUTHOR("André Apitzsch <git@apitzsch.eu>");
+-MODULE_DESCRIPTION("Kinetic KTD2026/7 LED driver");
++MODULE_DESCRIPTION("Kinetic KTD2026/7 and Etek ET6326 LED driver");
+ MODULE_LICENSE("GPL");
 
 -- 
 Git-155)
