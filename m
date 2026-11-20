@@ -1,100 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795194178;
-	b=HGGIP0ZIRYVB97TxHn8Dbi/UYxljKBAlAIGzoiM6b08tkylXWy5FgOJKdm9aobf/AV5o
-	 ZSJjVf9YophbvLe6ckNIeKQeAmc663XHrRV6oQj6jGhNn1jHtBTqVJBQYLFyLbNRZ5vXZ
-	 wRrZrELlmXY7Uy9P2Y14UpZgOg869YY/E00cl91lfATcvujS3wVAh3s7Mv6ANACYkeKz7
-	 z+BW5pgVZJluOb6nlK59/cBxLlhAaJIP+ZRTKo/m6RrS7P/Ngr02706dqlzE1ZHO+hHgJ
-	 EM14351d3T6D+adGeWhPgg2qjxhaWCZWUpIILmrB7CqTkflUC2gJRCAaFoFhgbjB67Q==
+	t=1795194206;
+	b=c83B8PUPUPsC/IZKHPfYAmOqVT8yUfqxGmdulFbGC5Fbd8Xlm6o1ukPp2FtvzUcuX9tN
+	 HYxyDhY1h9fMqWofPk4xhrT6PaDzHcf0PjD3sL2xQcipCgfiA2j/Ju2OZ1JtbWznbrfPO
+	 DOSiNCdafM+aIikEVl1dtXxXjsu2b6s0hrwZBJSWWqlYE8IFXHvEAzeEgd6Zg0YHKM5T3
+	 r4yHmnQqIEm7mrVzCP4NHTo+y8Y49lH9bXsZw7fPWk6/D0RRj9FMbhI6IW+DXzkLJ22F3
+	 tbDyk/HWkSEGw678WkHcV/L43CXmZrq41L4iufMZH4h68ZhrrJh+WQBQHjfyLc7+Bzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795194178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795194206;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=zaLrPQqGhCHyL4V5RInTE0OtNu8pSLaiGG5NjxeuMfQ=;
-	b=Oa2uIALFElQxUOtDV9mB/QkSlVYqJ3IF7ModO7dztQVkTTfFr6a/9BMGm7cOfOFfksCU
-	 PRrc7t5lgeRBWpEXDh43VDglhufGqS2Xx+fVRfdVgQDCQxrOK2LiNEPAxFCwSwfnXziTp
-	 oYqab3LfbkJZ9pBFrlH7Dz8MzQsk6zLvzZShtu+XxdxF5AYjgXknXyRLfHiOfPJ8f6xKl
-	 xPN0SLStRjBnl5W97eLDXSry2kbXtXLBJYBc30befVAPD4NzJITxqW1LGyrVxCT8nU8JL
-	 eO5eFwM7JOXe5yb/+AnlGR/P/zrDqJuFmYpnXlsJ1fBbl+/LcX4XpBsCepQfxyLWyWQ==
+	bh=r6uSRZqIL57UK72bcNqqu1ABAmOYAhrBf3M+ZeDZmZs=;
+	b=xxhoivCmHoCjPSFB5pOK8rBXmZMY1GMfWIdJi8glW5d8WuaT3hfGhgzNaDl35jeab2Km
+	 1IjUVmHBIC5POt9+FElvAw11A98uCmF7zA1POojiQyysRQJzXiVkG/Co/vpdjOe4YcuYt
+	 4H1Pf7Gr6oaw+GG5VxXh95WtBlvNCavUsfXT2wNphugvOn0xYZlpJQwh/PuXtd6gUhJ1X
+	 6OivHljOmcxsmqhhrW9PaG1SbaJ9+FlwQlLjfnuI4PoTJ/B86/K5TFs77c+R/Z9czVkEB
+	 FSxnV2H/SpnqDStwQ0MKNDxveoB0LTmsEGiiY68mHd8YvV3Y4cfXZEmI3UeUl3t2l7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="zPckSfc/";
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uswgotb1;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AA8C60A2603
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:02:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AA8C60A2603
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5854606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:03:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5854606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zPckSfc/
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso12580185e9.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:02:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Uswgotb1
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a3517554f7so11357865e9.2
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:03:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795194177; x=1795798977; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795194204; x=1795799004; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zaLrPQqGhCHyL4V5RInTE0OtNu8pSLaiGG5NjxeuMfQ=;
-        b=zPckSfc/Gukj3zaAaxTNGkiGJTsl2RxWYFYBEwLI0CKsbfgKHpZeZnO7CnIA/I2h7w
-         AnhCMO6W4drczR8jl4DTPL4Bn5Z3KbV+0tHMPYfEoOFnDBiL1fTn3Sdh/UNKakAqs5q5
-         tLLq4zyAouY+UGrnCUz5lOywELaO7jiIcOA3QyjXCPo88nF034rKT5ZeVp/Q3/dK11aR
-         MKMaCxt8U63VjywEQjugk0qOmn+/uxJqh/dksEChih2Mm4b6m3kSDACGAiOs7yxU0Y9y
-         Cp/nbP76+Ii+qyuTNjxN1OBc7qQO2ZVfWzZujnQLqHkQ4d/v2FUdA+IbUqLG5qSV6d35
-         V0hQ==
+        bh=r6uSRZqIL57UK72bcNqqu1ABAmOYAhrBf3M+ZeDZmZs=;
+        b=Uswgotb1vpMIIY+cv3aw1m5pohAcxOB/t0T/jSPgFt9SOkzYv7XaT7b7c56Jxu67+d
+         QK4XYLOi5jUf8ZFJFB/j/me30mONakYngZtQxD1PIdTtTPJkqvZH9RxSO8M7FJKr8035
+         Zd7fEuFJGedwBbH0U/3GJrWqpkYFfY+RmxZu8qhlkCjzIcTznZXIZg918gsrUcnvQQET
+         poQNwWSzqRZoJJ5sWFQmMCstvMr2ZmF6A5eZ0i6dDBlVCJPooBsAkt6q9k02K1lxnhv1
+         V7mb8Yic8MNjmBrswXhF3tHB4qsHU4M0RCLOuc5GOEWHhr1Jl3D7TXjKNqNYlVS05cEe
+         tCgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795194177; x=1795798977;
+        d=1e100.net; s=20260707; t=1795194204; x=1795799004;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zaLrPQqGhCHyL4V5RInTE0OtNu8pSLaiGG5NjxeuMfQ=;
-        b=DRhz97WbQkyS1kRAyqMEib3xT5hbgHdKDoxl96mrDJx/5cmxA8BMFHaevRLpdYxY9i
-         JIYuXCEDkAi+MlMlTZBb+pbRAs3NRY3LiGi6+bbOchuDJirChzbhPlBs43Znfvyjo0wa
-         DG5E4AbEQ9Omhr3H08tNuHdgeJlUqpROMDKSvYO/6KTw9AfMdyPljvDYWBDLXksO8ZSQ
-         VSG1A408YZ7whKEcQeL29uZjaMd/O1niaAnlEjSOLKBMDl+Vj5qHdSxZhvS7ynYW3G/X
-         PMdU9Q6m2YW1gmPCB2UCJm2qtalS+kj4cLhQaTY1RmVMRrxrLRGVyMUrHC2/Mj+NKUAf
-         aDsQ==
-X-Forwarded-Encrypted: i=1; AL+hErEUU2vm358q7FkgY0JPLnx51rlPwFFs0Sg2C0aiJ1lYfu/4K6u/p7joPhZPgIwPke/UDglCDMxFFgHAG7I=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8Vj38J12VeY3sZLCHLTcn/0y3HeZ0LZ26dPjowi5L91IlN3Bs
-	TNvxCcHW4fpmmqJGTa4WXGxnQm6S1RVTJs1KOEtUyQtjyOjeUBV2B6Be
-X-Gm-Gg: AYBFou1yaE8GCfsL2y0uON2LI2HOJP/kmjcTGVjn8lI8RAF+JCpXwQDz101mjVPC3Ds
-	3RXLa4SG2oEOeR3PLmJfHWkPun5dBsSAsI9YGtUusBmOestEkNyvYHLPRmbrKmmDAR5PMWnjCts
-	sfzMOvvHx0MG1lUBH2/Vy8PNnHzysHWdg99JJLQZoy79SpReaV/rFoNUEW4LeKNv1Em6JqGrwBS
-	aF6/tbovK/n0BNf/Q5HSrvRYu6ooMT/nzQGunbQio9oCLCH/KZFf1FRDnaSsqut87Flqf96k3V1
-	rQ0Q96CKJw6HT/eOJIHATT4yYSRHberyKxzDmY48DVKfM8j0aDGtA805ayFQlB0PC7zN5/QtzgO
-	3H5zCJK/fUqbjrJjWK1GQePb8JVhW+p0+8//j1FRuO1srMbM2OjnpelnjHUe351BSMZGedWTz17
-	45LtL1AXELmz3ZPLROdH4rUh7aFucynYy7OoIeQq/zQS48vh321pcPBVL/7D9mc7p0CVoezY5Wx
-	yxSOdz774WoaSShp7I1w2FyLTGJKZ4EQR9wCsBiSx/obfKxrDNqZmnmTUWSv20sob23UDWJV1oI
-	0uHwIyAXlgGRjV0dIaCSoRVgtpoG8NraW19ziWnm0xIVscgoS4U3WtWp
-X-Received: by 2002:a05:600c:37c9:b0:4a4:4d57:8487 with SMTP id 5b1f17b1804b1-4bb887fe7f7mr74757575e9.5.1795194176575;
-        Fri, 20 Nov 2026 09:02:56 -0800 (PST)
+        bh=r6uSRZqIL57UK72bcNqqu1ABAmOYAhrBf3M+ZeDZmZs=;
+        b=Uk33YNPpgLqiQz7xnqnAJcQNaiWfmb/z2gKNZ2uP5FqHvLuB/JkhHdYdd1a1AxTx62
+         iVXH2xl9LH9Eq0mArupBlDrBPCmTEi9nkSXpHOIN95kk6ClSMrn0nAKSp1RiIgno+Dx7
+         H+G1ejG/ZsL7BwhU7Ud5jx4wZzJ2N8myPi+f7hRihERossyrBDkOpcYobH1suzE2B1mm
+         rf2716HE+erIABlLdnBpk7Gnj2gNgeM0iP4d28GyetpfEcEeobtz9+ak0HxiM1XjsWt7
+         tKL2cKcAhZtXL5scio9BOjdHr6LvPis/9j9nJI2lFrvtOLfXv5qnTrmMG/8EBdyWq530
+         9WJQ==
+X-Forwarded-Encrypted: i=1; AL+hErHxgz/Jk0ncFEFKMkit6eKPKT7Le/ccsSg/+Gz275ZmzWlKf4JyDIfRk/gQkHAP1kO6c39kOwFMI4wj0tY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9C+TelIgSM35Odx7Vm9BSlpdvbwlkdNcORckkE2yeY4pEzPwO/
+	hBB5UELIYxWnyRdFN4cS9/EfEgkqNSxmyf7a0RDzDg4CbIyJ1QLjHrxT
+X-Gm-Gg: AYBFou2hGw11nQkbrNj82bJ+saIWh+pImFjVeASgcejoxCdC/c1QiDnqYm95X8Q0KwE
+	UlJpBkejXzyIxKXP/BOepB9c8cv35gOQZj9geP3/fG4UNy2cFcOUelH2b/5MFiunuC4+srhnrBj
+	1T7O5d8MsubQkWmySXKdnTT3+gP0l5DTdadSfhqwDAlp5ZL7BlArZ6kKPiDpF1yc4UGSS605X3I
+	123x21nLcJNNtACfG3Ds/sWh2ea/wt6lMmTKmhkTgbOHH1T6in4AF0TgXhBZtMcwBwS6tQ1r+Rq
+	2yT6SYDmsAYh7Lxv5ka3Imf9tqYmOkJbzMXwWIvGjL5rhmFeujAe1FyPfoaqyVtcvJWTIpZ5TfG
+	kjpXntXiPaqs2ADGvA0SK74o+UDSnrMVL9hl+h3Ug/KK9LcNKw3m9BslbiF2ij/BAOc7T67ZQLX
+	+LGpTZfO/+eVMWOVAnmWhHt+qmBXhmKqi28d5ThbLQ0cVw7ak5fz6XT8kSMfSAhK5G8MJS1GhnG
+	wMYI1sXoM9l8CLvMfw5PXARaGRKDxnEfC9t9Yotn+or/ofCzfT+T8AMHu6WUNqoAPbIdubzEDmK
+	GGWBqzd11sW+tC6fyHm4uXO44aoniIaT9Fk=
+X-Received: by 2002:a05:600c:a087:b0:4a2:5267:3cd4 with SMTP id 5b1f17b1804b1-4bb887c9fbamr86177205e9.3.1795194203876;
+        Fri, 20 Nov 2026 09:03:23 -0800 (PST)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884c3063sm103258085e9.15.2026.11.20.09.02.55
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm6239126f8f.26.2026.11.20.09.03.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Nov 2026 09:02:56 -0800 (PST)
+        Fri, 20 Nov 2026 09:03:23 -0800 (PST)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Luka Gejak <luka.gejak@linux.dev>,
-	Zong-Zhe Yang <kevin_yang@realtek.com>
-Cc: Ping-Ke Shih <pkshih@realtek.com>,
-	Tzu-En Huang <tehuang@realtek.com>,
-	Yan-Hsuan Chuang <yhchuang@realtek.com>,
-	Kalle Valo <kvalo@kernel.org>,
-	Stanislaw Gruszka <sgruszka@redhat.com>,
-	Brian Norris <briannorris@chromium.org>,
+	Ping-Ke Shih <pkshih@realtek.com>
+Cc: Bitterblue Smith <rtl8821cerfe2@gmail.com>,
 	linux-wireless@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	mehmet.fide@screeningeagle.com
-Subject: Re: [PATCH rtw-next v3 3/5] wifi: rtw88: do not drop stations when collecting them for an iteration
-Date: Fri, 20 Nov 2026 18:02:55 +0100
-Message-ID: <20261120170255.375054-1-mehmet.fide@gmail.com>
+Subject: Re: [PATCH rtw-next v13 2/3] wifi: rtw88: support channel switch in AP mode
+Date: Fri, 20 Nov 2026 18:03:22 +0100
+Message-ID: <20261120170322.375333-1-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261120131000.33858-3-luka.gejak@linux.dev>
+In-Reply-To: <20261120141554.68116-1-luka.gejak@linux.dev>
 References: 
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
@@ -109,21 +104,38 @@ Content-Transfer-Encoding: 8bit
 
 Hi Luka,
 
-> Does the driver mutex still pin a client that has already gone back
-> from ASSOC to AUTH?
+> I think this can finish before the last count gets a TBTT if the work
+> runs a full interval late.
 
-No. I reproduced it with a small netlink tool that clears ASSOCIATED,
-which hostapd never does: rtw_sta_remove() ran, the watchdog still
-collected the client, and deleting it while a test build held the
-collection freed it in mac80211 without a second rtw_sta_remove().
+Right, at this commit. With a test build that delays the step at count
+2 by 150 ms, count 1 never went on the air with 2/3 alone (0 of 5 runs)
+and always did with 3/3 applied (5 of 5). I kept the TBTT pacing in its
+own patch to keep 2/3 easier to review. If Ping-Ke prefers, v14 can
+carry it in 2/3.
 
-> Could we skip stations with no si->vif while collecting them? As far as
-> I can see, rtw_sta_remove() clears it under the same mutex.
+> What happens if the page can never fit? On RTL8821C the driver has
+> eight 128 byte pages.
 
-rtw_sta_remove() does not clear it today, si->vif is only set in
-rtw_sta_add(). The client above was collected with si->vif still set.
-v4 clears it in rtw_sta_remove() and skips such stations in
-rtw_collect_sta_iter(). That also stops a firmware recovery from
-calling rtw_sta_remove() a second time for such a client.
+The switch would stay pending, but hostapd refuses such a request
+first. On an RTL8821CU at 2.4 GHz a beacon still fit with 778 bytes of
+vendor elements, while hostapd could not build the channel switch
+request above 586 bytes ("nl80211: Could not build channel switch
+request"). That message carries the beacon and the probe response
+twice, before and after the switch, in the default 4 KB of
+nlmsg_alloc(). No chip has less than eight 128 byte pages, and an AP
+next to a station interface is only possible on the RTL8822C, which has
+16. So I would rather not add a reject path that cannot be reached.
+
+> Could we retry the first beacon download after the switch too?
+
+[ ... ]
+
+> Could we queue a retry for the station if this refresh fails?
+
+Neither download is retried, like every other beacon update in rtw88
+today. In about 2360 kernel logs from our test runs, a reserved page
+download failed only in unbind and firmware crash tests, and with one
+experimental change that is not in this series. I would keep both
+paths as they are.
 
 Mehmet
