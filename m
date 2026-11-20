@@ -1,79 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.133
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795203479;
-	b=SfU0zt+qAead2OmgxRzahXMQq69gXuguCNbuDwfBxvGALPW99SHU8heWLYbDt+QFg8nv
-	 DxpObCqUknPxa7kFmj1pycXrvWgn6MYQTA0qcewQGttnRw7VYLgF/qrthJem425UDwn+V
-	 /NXIXps/flmFSInjWNiTTQs/g4bJPMaTSLVeZB4EvTmdQ0clsqH0BvmGf7/405g3pM3Ju
-	 +LXbZQWigkNHtky7/1IAX1BCBbPAJWpakqV5Rbqouj5tI4cUduoknURxqKeWm7ThI6VJE
-	 RbRP+ACZpSNy6RLObxbYuSltYEbwPS5mxFvgQgbw/VB+Mjo+dCF8XMaj0h7AehOjb1g==
+	t=1795203514;
+	b=BQ2JmuLfgxsN8VXk4aeWJ0EJCs1BpV+DvlwBCoVh8ZhE7NydzQnTZJaJKOeI6mbpLKL+
+	 ZCxUF/90FThHwWOrBPy2dNo7RjuPLvP0IY8pwzf+uQZwio2bBGKF1sFJxjuT8/mHWW4Qm
+	 oClQ7bShIkpZsgI+aZWTDYqemdyYM9cL/oJEaAv8Czom86y0YAq+KSdLhOxaK/EH+Bct5
+	 mbh/nMFpHfdQvLhoFJ7E9tN152w6a1g1EFHjIA4OtviWIzbltCpQtD9sqFaEn9Y5nly4e
+	 njAfYoBBYc6oUktrzl1/QiMCANAgVIeId+l3hIDbtxvuM2nTfgRoZuVCXODo/zggecQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795203479;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
-	b=1oCbxkLaKZnMN7HjrwQ8Sl30gp9xUOLsrAInx2mrN9ipFPaL9JywAH8zvb4IRyYSXOLn
-	 /qTvwdAnfZXns+SEkG4mQRpK2fGsAthwqKKL/mudAMajmyPElEq+HAtWddi3ZijT4ZZJk
-	 LusYX9qWVfHJ81CUKBxeHrpt6cTt3wC0bNZgqVj7HQkR6WIuU/heOT2ijvy7klut07AZL
-	 mgftQQeJjhHPvptj2ogBGuq+M6FhJRnMv/FeMXK/eY8hklbJhBdCS7VDhl/mj3gYDTSlL
-	 KqwW4wj+el1Db7MEZPl4zz/FKu+nSxx1EHZuIYCtVR/Ie8RyRt4Zfb19xSTdr+YoY6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795203514;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=2EXT+lcbYFz0vO8aWChRr8Hv6SNnHJEV9BnKyHAVweE=;
+	b=2T6r8pTuBzSK8wbEcIrjDkDm3lC4gUvZWzLQodSZQAJF4YMx0DpdB2Hf44GMqstGittr
+	 IrPhiZ1rMuRSAO1T0vmVj4iDgY5H6ePE+QmUm0xjUhf5G8zK6cHqKOYnNx8p+e6D6TiLS
+	 YRxxtaosDR7nZ6cCThJEIgW1xwJk+nesE5CzHNRyrSi/URrLuyox5GZDSMdwwT8Nhd/iH
+	 MyRfH2Jv7AOBpIVQCl/39H9WIxP7K0/1PcjE3OTOl78seR+1q38ACXCKBmfcXREAwAGLE
+	 Q8lTc2GR4JjnEHV2fA2UCcWawy6tQe0eBxyHMmepELyjkHc8mFp+YJMhG8e1E431PFg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NaS5t03Y;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=JXjviK4W;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.191.133
+Received: from YQZPR01CU011.outbound.protection.outlook.com (mail-canadaeastazon11020133.outbound.protection.outlook.com [52.101.191.133])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D96F606A6E2;
-	Fri, 20 Nov 2026 19:37:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2A88606A6E3
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 19:38:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2A88606A6E3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NaS5t03Y
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795203478;
-	b=AlE4N5zUNzJr3575OCjKDNENBnF4eKcjVF9tp3XfM75sH+M/5f2M4ZfDHSo0Bk1nN1bl
-	 7a3ZMMb4LECLZ6tSOZo42ok/6RbHauzlwUR97o8n7x59K1bjep4RG87Pheo7Sszc6XR9q
-	 jBxODysOMBRVwp3Y5SzjJNG4xZA0gVxr9fLSYtetywu4qqbTMKe7RbcU8eSiKSlCNl2yw
-	 C5z0sOZErMLFKntKD8hdEiugBkZH5QsrP345FcuQNa/UVHERWb6rQqATjRYZMWRKHCwx2
-	 C2BIBrmloNrc/jLVGlTJRG9vk5H3eT0IOpdbMTJwr00Nu7O3/KKsAeQdW/O7SdjQvnA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795203478;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
-	b=wpLCs+5f3jA7ATZ7MoVQ4WidA/aeCkEjkyn3wdqFZVOT65nwGyIDBvbg3S0VVdS95vZ0
-	 4k+yvbcB82IHoHYMvGSQPid35y6+Xi3S1JCa+QY6OtalLh4AZNTXeKVgP2jxSKTUHNoS8
-	 FX14yGYQ528KBT7CnPUl7VyRPQNdRmnGcGROv1dr96/k/GJpUuKpKTIrBN3UIlthOjui9
-	 6tpjppvZ8fsY5mR6s8QAasita6ife7aSbefhcOy/S66/ZHFJ123iyEE3oyyc0DuqkZv0q
-	 dUHQzqawNS4SMOs9QhmUhKrs6UAglOcWUkIHlh/kW+h7dYn4lHHoFUYY3R15TfVlrwg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 357BF1F000C0;
-	Fri, 20 Nov 2026 19:37:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795203478;
-	bh=Em0edyn/UFSKerdnnGi3ZguO8FU2mf56wvYpLvq+YBQ=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=NaS5t03Y1cvYGBSY02fXmQOxtjwF8bmYvkuJhEbxMj0027XKxr1kKFTBAz8OzGHsh
-	 K8RSX7le4m9xZJK4gEEv722Z4MJNAQQEw4P8bWiadAjfyBZbdUeIAuigUJaVI0OgoE
-	 qe9vpcLz1OOJsz7hd7HkkqWd/ux4NdjDav7xblWUty18DijGbu0Yrgs15DTUzJhJzn
-	 A+8nuWdFZZJkA7n5XPo9t2x/DP1+wM4S+eX7RFZ5MWjoWjXFEiYPAmQ3ONCCqv9kZC
-	 Tjs+S1FdO30xQb3OJZEBqPg4YjP5C9+r4MTCsGKdX0ry0ixaR7uJujVrN2gkqkvffG
-	 eCINg+Ue/CnaA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AA19A4B9BA;
-	Fri, 20 Nov 2026 19:37:52 +0000 (UTC)
-From: Gleb Pesin via B4 Relay <devnull+dormancygrace.gmail.com@kernel.org>
-Date: Fri, 20 Nov 2026 19:37:18 +0000
-Subject: [PATCH] crypto: eip93 - return request validation errors
- synchronously
+	dkim=pass (2048-bit key, unprotected) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=selector1 header.b=JXjviK4W
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a65XAY8YURbAi0ewS5uM3pKjFFj8e5tA1zZHPkfFGPRf+lgVTW782GLyivxF+1qqezmmMHuiEIpPldDCoqmFiuh+dYUtFuOwG0tY/pZQd6FrzW4ZU8y6kci+WksbCf3c5FBd/10fkvDdzlujTvD8UvgPSUFcNjWo9HrGQOSENNuqf7yRh82BPJ+uH+ICMrk1oX3a7As6bG8mxE8g6CSHbawAjeMD8Or4dNuVJ55HeYGK7aElxcz/HMVqQ4+eCdzg6igkmTtWQfO7NUE9ez2epCdGk38Qc6hmkXrcKh3WLtJkkVBhw1BOj0kk5WVVYZIEvGBAYKGEWli9+gz2IlIrjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2EXT+lcbYFz0vO8aWChRr8Hv6SNnHJEV9BnKyHAVweE=;
+ b=SU5jB6X7cPdu6EHyQ+Jd3d5eUdIBCWd8ia+8zn6FZKxVutjtvl+qDSuP+mQhBRJAsdtdfJqC2gXzQGh0OlUW1aje2lirrADZ6ET+X9YH8iOeexRc1MciK7mFHUe4s9CqVthEvTGpDfIFGZt8tPffOntQRciBNX2UnQ/o2Ee0+WCg+zTBqirAwov9hXg9Glmcp2X1fDhbc1GvakrrphFY8KAFZNddMOrZ4H0qKw1yhBEfK+ZEOeM3M+7he+kt9ivhk+C7l6mJNSjc/+gGHVh1NcJHc9FEkLsBgnyCpuFXS6d7tmdKHLJ/PldO+28thKzB/uGJXoYZFWy2+znRO4UcDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=efficios.com; dmarc=pass action=none header.from=efficios.com;
+ dkim=pass header.d=efficios.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2EXT+lcbYFz0vO8aWChRr8Hv6SNnHJEV9BnKyHAVweE=;
+ b=JXjviK4WQvGKBBK2ISxdtlo39GRTWToapakIgBJL/maMZIsFttM24TPcPyj5B/sL+rHx0t0889Xn1FDzSbDc7g+bj1tr43S8e9ekXsyc/LkCPIw4a0k0TWdIAYzzvmiW9I66Sd/0YtKRVB1ovy15OO5AqDiwaDFvBQlFhmNxAiJWWdYN52HN6E6bNOq5N+0f7J/DuxxqEX2scflyaY4aTqOWa3clyyHwKBySUrZcza08M4hvWdDGT+4UEQ82DgYAfA4Xo+w0RCHJQcIKblcdnBnJWMycm49544S/pZ29PmyTSrgmgDoHDEF+zZbnCi71G83UlrNsPwceKx54DIeHjA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=efficios.com;
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10) by YT6PR01MB500710.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1ba::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Fri, 20 Nov
+ 2026 19:38:30 +0000
+Received: from YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc]) by YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ ([fe80::6b9e:a901:67c5:7ddc%6]) with mapi id 15.21.0639.011; Fri, 20 Nov 2026
+ 19:38:30 +0000
+Message-ID: <8487f631-9c32-4f80-b250-1c0256a7b570@efficios.com>
+Date: Fri, 20 Nov 2026 14:38:29 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 17/33] cgroup/cpuset: Refuse to take a deadline task
+ out of its root domain
+To: sashiko-reviews@lists.linux.dev
+Cc: linux-rt-devel@lists.linux.dev, tj@kernel.org, hannes@cmpxchg.org,
+ mkoutny@suse.com, linux-kernel@vger.kernel.org
+References: <cover.1795181240.git.mathieu.desnoyers@efficios.com>
+ <4baa44df95dd38644a85999954acce718b79661b.1795181240.git.mathieu.desnoyers@efficios.com>
+ <sashiko-outbox-225378@kernel.org>
+Content-Language: en-US
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+In-Reply-To: <sashiko-outbox-225378@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: YQBPR0101CA0110.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:5::13) To YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:1d0::10)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -83,93 +100,99 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261120-eip93-sync-errors-v1-1-1a83ae607181@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQ6CQAxA4auQrmkyHYP8XIW40KFIWQykBaOZc
- HcHXX6L9xIYq7BBVyRQfonJEjOoLCBM9/hklCEbvPNXIu+QZW0vaJ8YkFUXNRyH2rnQtDVVBLl
- blUd5/5797W/bHzOH7RzBcXwBVOfKRXUAAAA=
-X-Change-ID: 20261120-eip93-sync-errors-fd700c897151
-To: Christian Marangi <ansuelsmth@gmail.com>, 
- Antoine Tenart <atenart@kernel.org>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795203472; l=2301;
- i=dormancygrace@gmail.com; s=eip93-20261120; h=from:subject:message-id;
- bh=+TERzP8CffsbpcQ4hBerOf52PVosyn07V8S4OEMiU+s=;
- b=PZQlB1FHao03xhRgyUZoCNx9qVq7bZcoCSRfK8UXjiMndmeNRgXSkKxLZPA4fO2R5XtMKl+Oi
- Pej7t3wOQrnB1J95q7sjZIt+4R0fumYtk6gHihhEiNW83n+1qkOiHRU
-X-Developer-Key: i=dormancygrace@gmail.com; a=ed25519;
- pk=XHpoYk1e6byKypiKa/3bDHJ2i4leWLeZDDjx4gJVsmc=
-X-Endpoint-Received: by B4 Relay for dormancygrace@gmail.com/eip93-20261120
- with auth_id=1587
-X-Original-From: Gleb Pesin <dormancygrace@gmail.com>
-Reply-To: dormancygrace@gmail.com
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: YT6PR01MB491026:EE_|YT6PR01MB500710:EE_
+X-MS-Office365-Filtering-Correlation-Id: bebda842-b78d-4614-da53-08df473ddacb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|261026140227099003|261022105027099003|261026121527099003|261028144727099003|10067099003|4143699003|56012099006|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	Ln5TnGjOyWBimKMIR/b4WThdSfrrjxLHJwWQtwCeoc0lGmiYVSVrhfN0JbAsNntldp52jijfkvNY2PlLmvHkA/cLdMbadHq5y9HPmNSChd1q8M1ybeHlnjKafEUoS8DuzddI+N38cT51cwvoP/NJ9PC+PEapnPHrp01vT/Z52vqV5mSncJPJadotmQ58EohKJ0ajlVt0FP48MkBO5RnxAd5kPNXVL97SZyNlyV0Kzs+Pz3dYtqPfB3NvF/u2SF/o+nGLawmrBiPHyKh6pwDII4Rv/VSdYcVisP++/TcABjWSr1msB7CZue7Y2FryaJOMz7Vg8e/m/PfgQXRmPAfiMD2dFcZE9AcCy2+dz6gI33T44BL5aimmu5Ld8ggE0NOV7YvWiLEU9zlQ376EXH6ex7CJg2TXIiPCDq9S7nZJlY05jjxDbOuksN2+SUTQFsfltVNR8nOsLrs0Ni3PsCOSLYYSYk1PnYBjTvwsqj1baQjHk3Tf4VFiKOgwbDWtnnc6U1nD5uVlKl1WYGX3aRmODk8+3pOnklWIa3rPLzNXbQ1IMumVZR5FSb16m+ZiogCq7ex5t6WEgjVdQ5bHGTbieB+WHeXHFme+BxbzsOq/Xq4=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(261026140227099003)(261022105027099003)(261026121527099003)(261028144727099003)(10067099003)(4143699003)(56012099006)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?QzlOVlErOTIvZW4wOG5FTGE4WnFEbkdFSnE0YXN0TERKdDYvdklTSjNPMFJn?=
+ =?utf-8?B?ZU95blFrbDF6bzhrVGJpV3ZoR3Y4c2NqYWtBcHdCeHNoR09XSkVhY0FIMWMv?=
+ =?utf-8?B?ZFYrejdnSDA2Z0tuMEdwbVRTR1grVXVZb2QrUDVSTVc4THhwZWw4Nk9RMUNt?=
+ =?utf-8?B?Qk1rOS9DY3F0NWZ3Rys2RTVkOHJiVmxhZHBKU1U3WURhNFZIbHhiK3Z5T1NL?=
+ =?utf-8?B?UVZ1WktjTG5laU1DdS80ZVk2c2xnRmRkMzBwM1kwQ2NuUW5NMW1CRDBha3do?=
+ =?utf-8?B?L3ZwNXgrUHk0Z3F0a1dxRkhnODFBcy9PL3pnSDNWZEhhS3FaMlhQejB3ZDNV?=
+ =?utf-8?B?WCtsVGM4VTlsN3NuTElZb1ZuSC8va1M0OWxoNzJ2ajI5TGRabmNRS0xvMHN0?=
+ =?utf-8?B?V2hBTGhNNWErbDhZNWM0dEhUdW5WcjJPOS9RMFBsQWVLZFoxWW1Jd1RwYmRj?=
+ =?utf-8?B?UnhlZ0RTNFZxRWtPMXVoR3BKdlA4elE0KzZlVVJjOEcwRndtdUZwYnppSzBz?=
+ =?utf-8?B?bkQ3Q0VycjRCQWhYYmlHZm41OURlc05NSzlZMkZGb1M5eXhHRk9ORlUzMXZv?=
+ =?utf-8?B?RzlaQ1ZiZnd1VG1XQlJiRU4xUml5a1d4cUxnWTVSYXRFU3R1ZjJTRGY5TGJJ?=
+ =?utf-8?B?YkcxYmhWeEFKK1JCM1VCQXV2YmJpeUtnMTU4VXVjQjk5VzVYYlVnelJ3SG5j?=
+ =?utf-8?B?SXM5WjFGaFpOLzdtaUpPbDJmTGpyNENKV00rcUQzZmFJaG5ZZGZES3hTc213?=
+ =?utf-8?B?Zjk0bUFRUWoyWG5pRmtneWpRdDVlbHo3Nm05cEpNOHo3LzhrRG43M2xKSi8z?=
+ =?utf-8?B?bmtzeWM2NTFORzRjTXdQNjZUT1ZIcGp4RmdEWmRMcWhXZlVTS2JqcUpDWms5?=
+ =?utf-8?B?ZWlYdkVXcUdHWnpMamplL1R5SWNJcjBQN0pDMjVMS3ZZU1dCbUJIVDVTVDV3?=
+ =?utf-8?B?OEdjK0R2K2FWbjFGQ0RwS1RXWnVBd2E4elJYSHV1d2tkWG44K0o4RXZEbFdv?=
+ =?utf-8?B?eVZhVEx5RHMrTGc2dEx5eXNOQ1FKNUNoRTZ3TGZObkdENXRydXUrYXFSNmo4?=
+ =?utf-8?B?YjJ2S3VFbFlFZWpHUGpjZzJweUxwM3VqYlRiaFk2K3pWejl0Z1N4UnNRVi9o?=
+ =?utf-8?B?RG40SU10OHdtdTlZOWFFUzlQdUlDR3FER2VZalZOU3EzSy9JNHZhTWJwWGdI?=
+ =?utf-8?B?ak1pVEpGK1lDTjIwMTU3YytDMW52cWJ1SDhRODByYWZSekNlaUkrbUdvSzRi?=
+ =?utf-8?B?aE1WdVpTWnh3MjdlcTRJd3ZMKzlHbEhaTHFJU1c1clBJZWo4R0E3WlVNSkN4?=
+ =?utf-8?B?ZVp2RmVSYy9zSHpHb3l6L1J2cGNNbllVWWhQbUpSSzlJdEhOUjhpeWNaOXRF?=
+ =?utf-8?B?bjR2NDVzU3hSRWRJajVCWnFhVWhuUlgrUm43NXRRcmc0SGF1cnhoOWJITTRS?=
+ =?utf-8?B?SHV5WDA0U0lHd2tEM3BoOGsxaGlGSXlWcEk2UHRzUEM0WGppYjg0b1orOFhO?=
+ =?utf-8?B?OFpnL213ais2cWEyOTRFZ0JLOFJQaG5sbmpkVVdsVVl3a2VUTUlidDRkbkk5?=
+ =?utf-8?B?b3Bmcm9JajdXK3lkV2E2Ry9vMSt3eExWdVZVS3NEcnZBNE1xU2IrTkx1VGxT?=
+ =?utf-8?B?N3NwSDlmK0VKS0EyVUtQVUNCUWZyQUVsa1lvak9ZdEt2Z09YMEw5cm5sc2xr?=
+ =?utf-8?B?eW10T0FUdXdxdnRLZFM3dTVGcllXZHlxR1lkbk45YjZFWS81WUpsbGQvaGFl?=
+ =?utf-8?B?V1lBZHpzK3o3M2NkMXhkaUxZczdCQlR6eHJaU2VvRFk5VytqemRySFJPTjV5?=
+ =?utf-8?B?QVhZcWRsajBmcXc2ZjNibWRUeDJrZ1FmTGlsNVJ1T05pTHJwbXBOaWhoNWJm?=
+ =?utf-8?B?QnI3SmNkVjZKaStRUGJwZ1RrcSs4eWROMmV2S1VVcUdJNmFBeWFheFBtaW5R?=
+ =?utf-8?B?Zlhuejk2M3JCV1pWNlM2YWpCeFJGWjVBejR3eE5xN3VaOTAwMEtqaVVFREIw?=
+ =?utf-8?B?OEF3L2pvN0s5MUlwWWh3VU14eVp5MXY0bUFmWWVrT2RNSVZ6SGlzNFdMbk55?=
+ =?utf-8?B?YTRmZGwyNjg4amoxdjBBNmxjazFOSnhKdnp1M2M1dEk0NmxBRnRDbmprdlZF?=
+ =?utf-8?B?YSsvS3N2ZVNsZlc2MnlZWDZwSWtEKzg2M0V1YUxlMWFVTUo4eFNFMllZU1Jk?=
+ =?utf-8?B?eHd5Tkl5NGtXNkJXU1ZnQnBYakJQY0NaM1Fzc01pQ0l0L2NCMmY0QlhnOFNn?=
+ =?utf-8?B?SjlqamJmSm5TOVVoTW5yaFJzbEQ1SzEwL0hLd2ZEdThzZVJiT1ZGcERnMTRQ?=
+ =?utf-8?B?OWVnK2xqUjZ4THl4dSt4OXNnRjdqTzd0WmZmMFNQektxNUNDMlNBWStNQm1s?=
+ =?utf-8?Q?9XKV3Tn/6PZT62Q2IGwCH/1I/10nz6mug3BqW?=
+X-OriginatorOrg: efficios.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bebda842-b78d-4614-da53-08df473ddacb
+X-MS-Exchange-CrossTenant-AuthSource: YT6PR01MB491026.CANPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Nov 2026 19:38:30.0091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4f278736-4ab6-415c-957e-1f55336bd31e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hbI0QDYby+FIvkS5hxiAYxXyM9G+gf0CCa+6/gKel2vJOQuLOmVWPsgWCL3qzs1FaTDF/WHLhDXDIfjCH/tSfqB921Sc5R3lKFEKdcnrbZI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB500710
 
-From: Gleb Pesin <dormancygrace@gmail.com>
+> Can this dl_tasks_keep_without() check fail with PERR_DLTASK against a
+> stale root domain span before the sched domains are rebuilt?
 
-The skcipher and AEAD paths validate requests before submitting them
-to the hardware. On validation failure they invoke the completion
-callback and return the same error. Callers handle that return value
-as a synchronous failure and can complete the request a second time.
+Your first case: yes. It is the false refusal found on v8. v10 will
+fix it. For a "root" partition, the check will also accept the CPUs
+that the partition root has after the change. The rebuild gives them
+to its root domain. A new case, partition_grows_child_valid, will test
+your first case. Without the fix, the child stays invalid.
 
-Return the validation error directly in both paths. Keep completion
-callbacks in the hardware result handlers.
+In your second case, the partition staying invalid is intended. Its
+deadline task is counted in the root domain of the parent. If cpuset
+made the partition valid, the task would move to the root domain of the
+onlined CPU with no check for room. While the partition stays invalid,
+it runs on CPUs of the parent, and the root domain of the parent counts
+it.
 
-Codex (gpt-6.2-sol) assisted with comparing the two paths, preparing the
-change and writing the changelog. The corresponding OpenWrt 6.18.64
-driver object was cross-compiled on MIPS.
+> Should dl_task_keeps_root_domain() check &p->cpus_mask instead of
+> p->cpus_ptr, as dl_task_leaves_span() and dl_task_rebuild_cpu() do?
 
-Fixes: 9739f5f93b78 ("crypto: eip93 - Add Inside Secure SafeXcel EIP-93 crypto engine support")
-Reported-by: Herbert Xu <herbert@gondor.apana.org.au>
-Closes: https://lore.kernel.org/linux-crypto/aXxmIuU9PKJiDs7n@gondor.apana.org.au/
-Signed-off-by: Gleb Pesin <dormancygrace@gmail.com>
----
- drivers/crypto/inside-secure/eip93/eip93-aead.c   | 4 +---
- drivers/crypto/inside-secure/eip93/eip93-cipher.c | 4 +---
- 2 files changed, 2 insertions(+), 6 deletions(-)
+Yes, by reading. v10 will test cpus_mask, as dl_task_leaves_span()
+does. No case will test it. It needs a task preempted inside
+migrate_disable() at the time of the write.
 
-diff --git a/drivers/crypto/inside-secure/eip93/eip93-aead.c b/drivers/crypto/inside-secure/eip93/eip93-aead.c
-index 0b7a899b1..12134b6aa 100644
---- a/drivers/crypto/inside-secure/eip93/eip93-aead.c
-+++ b/drivers/crypto/inside-secure/eip93/eip93-aead.c
-@@ -47,10 +47,8 @@ static int eip93_aead_send_req(struct crypto_async_request *async)
- 	int err;
- 
- 	err = check_valid_request(rctx);
--	if (err) {
--		aead_request_complete(req, err);
-+	if (err)
- 		return err;
--	}
- 
- 	return eip93_send_req(async, req->iv, rctx);
- }
-diff --git a/drivers/crypto/inside-secure/eip93/eip93-cipher.c b/drivers/crypto/inside-secure/eip93/eip93-cipher.c
-index 4dd7ab750..7b6d510f4 100644
---- a/drivers/crypto/inside-secure/eip93/eip93-cipher.c
-+++ b/drivers/crypto/inside-secure/eip93/eip93-cipher.c
-@@ -38,10 +38,8 @@ static int eip93_skcipher_send_req(struct crypto_async_request *async)
- 
- 	err = check_valid_request(rctx);
- 
--	if (err) {
--		skcipher_request_complete(req, err);
-+	if (err)
- 		return err;
--	}
- 
- 	return eip93_send_req(async, req->iv, rctx);
- }
+Thanks,
 
----
-base-commit: 26ca5f34841f0a86d0883664a1c13be89a01d351
-change-id: 20261120-eip93-sync-errors-fd700c897151
+Mathieu
 
-Best regards,
---  
-Gleb Pesin <dormancygrace@gmail.com>
-
-
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+https://www.efficios.com
