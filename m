@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795197832;
-	b=yw0QlrOzG9FKzaHaFBWKEM8NLAUzO+R+Uwxi8pzkJdDYxX8TZMtctpqQbvlGxkXvsVkA
-	 wT8WviU/W4sKMUYUOEwnGTWrOzf0XaM1PrdvOaUmDOyBeRuQFC7TKeRNZQ/R6LGdNrJ0a
-	 xQCZxcH2P9TiuLbuVnMBHk7S5yschETt/KvnPJHrZ3uH2L1TfzD3sIYF4qZ6t2JkgKIKn
-	 Tz2t1F4No2gjR8j7+w12a6sZj2zLH4J0X+C3r00annQA21J4ZTC5TWNs6yb0cXv2SMhGy
-	 sHtLfdu1zSqrFkumBDY7Nt5WxMmlMRZECvo9MCeYN3/x/nrw3G7lis/fHblCVj3nBbQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795197832;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=DwiRSRh5gEtvlqW0dzzCs/Wk8GHTeI9BSIT2uTN6bJs=;
-	b=5a7Jxq5xLSYI2aLUUqdw3alEOQ4LtNeY3Nn0zsCKIR7A9rwxtCAD2Ge3RBTHGd9lCCkL
-	 /IVv2ZBC+GXgTvC9aoPQgY897cYP8L8J65TBP+HZPXcAJvMwIfgWS3+EEKqmmSKtCyDNO
-	 wTArT/XPSqHf3xgjaAiaujLya0PW+SebWcB2taYpb91ttetZ/WxJTrKbUBf7J1/kmFgRa
-	 RvwG3PTWHhFNrDW5wN86fDw2fAWOzgWunzCH4Hsgtn24a7sWSN/q/ud0VrAie+BYzQHMj
-	 OZ9XMRO+fYCR77U3BmvsdRcyfyeGvAuibBOAsWFcngoCPJyeQAJTBm4gbKLE1t9TywQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jT5uK86M;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795197838;
+	b=SQgqWXQKjghCLGerH6aW3cbst+hf2VB0WOW7IZtbu0IDHflzxsscmk6yukUfc/gxOSz3
+	 sas0YgyL/tKTzNTCkzGtEDOeKNVbiIK+uJmz0flsi7xOBwH6Azc3e2fEUkN91wWEnOue6
+	 jwrOovyGJktl8BLI/3XEHLOxwLXL+hL06V8EsTg0dYD38fMdbPCFxCLMkF7r5PNlXcRHy
+	 8coeieT/vQE5+0u8T2lLm0gyvt/Fkvd3WovY1hL2LGQxePWEE3MijmEqYN68fcF3VoFdb
+	 OLt46/28xGA1d4fO4zS3unhVPYSWuvkXWPfDsQrrlSmDAIsYDTp2yuc+iVMALyr/Xeg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795197838;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
+	b=ZTzU097nGvXrQMoufTl0Hcc4nLPAoosRiBvqCVnFvzmU7ntHHo64IFrRssG6g/l/I6Vy
+	 tkRjaa4h6AGNG1fZtXzX6odqDy6DjA/Qr9965ZI/NU39idKvuXqxL00ExMbNIZoFD+6sB
+	 7sV3VJe4Au/YXlKg3BvftYE13Xl+6d56CSbVFyB34P+2TLI0XVhz+9+tI+ZSoKB8q1Ocn
+	 NZt/IrHv8xbpGicokscSoBfirRNN9WoKYC7FACrCerD1O2AOA8IAyS/3yeFvcggbtgq1p
+	 RAz2zX4O2MsEqlyxH9xXDfa4WltxIVPNT+evncoy9k6U70UO83sh+9rQR7PKDbfEMYg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=purestorage.com;
+	spf=pass smtp.mailfrom=purestorage.com;
+	dkim=pass header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Qn9xrzae;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.49
+Received: from mail-oo1-f49.google.com (mail-oo1-f49.google.com [209.85.161.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EF3860A261D;
-	Fri, 20 Nov 2026 18:03:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EF3860A261D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F8EF606A33C
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 18:03:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F8EF606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=purestorage.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=jT5uK86M
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 435F5C62225;
-	Fri, 20 Nov 2026 18:03:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 75942601B9;
-	Fri, 20 Nov 2026 18:03:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 14C3F11BC08D7;
-	Fri, 20 Nov 2026 19:03:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795197821; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DwiRSRh5gEtvlqW0dzzCs/Wk8GHTeI9BSIT2uTN6bJs=;
-	b=jT5uK86Me8Ae4QyvVeZKWBG7N93n0ytgWC1TMrfvatyrtERW71aCOlLAfXBum6JMhitE9t
-	6fSDEqzTxDbd4VIOAl7oHGGY4RfJa031usTZKkLlLXIMpc/JscB8sjsDlxQTVDXOxIpyHj
-	8DkkPk+rvHflgr6euv19Ax1p/LVJLTcMWO4y65l+bYNMioGkAiZVoQ8gl8qAB4ghLpvpx9
-	BLRFAfIrY7XXXHjSTzk+RUy3cRgpwpHeE1hKyNsHisA6FxJ7DUfpjQ4K+nXwXj4M1dJS4O
-	mDkr01mNq6js5Gffg/c27bKBlbPkajDHRSbc4lv/K1fZwnd/scj2cpkLFxScIQ==
-From: Louis Chauvet <louis.chauvet@bootlin.com>
-Date: Fri, 20 Nov 2026 18:58:54 +0100
-Subject: [PATCH v6 12/43] drm/vkms: Reference-count vkms_config and
- vkms_config_connector
+	dkim=pass (2048-bit key) header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=Qn9xrzae
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-703e2625ce6so60137eaf.0
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:03:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795197823; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jg9DQlIe/m0Jy7RkeP+Pc6p3SRiHvMN+mMdbli2cI5BWI1M36I0U46hYPyeRP0CNzh
+         y4LhHnu7C4N4NVqzGPeQ1nw0eVfAODL+Prnf7qurvgmOJLx5GFGxjQMfP5VaiJkdAIc6
+         FV78ezAViZSzkIIx0+/2JwckD/3lpI0wJ2i4pU6L1On4gaRDs8cNwvtpK0E3GHmfFmd1
+         4i8I4jwloLIS1IDgvetVAsz3IdSRJV1wvUCzYxFCLdlgwfTLMpbgsUEBae4DAL++sWay
+         voV+zbQJtHP3i3MlAonM2CBMnIZ3DM6YM54CPqhWo05/K3RTWsYs6gZIUykYk016xsGu
+         1k1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
+        fh=D7XUQhP4ZcePf48R0av69wMET9pwSBJHyhh6N0qgl78=;
+        b=AVXudJ0E4UgENKesRu7KVhbVYAjooRwWyejCaUuZZv5/ornPcZZZ2aKppjKcoG5ICq
+         /CLFYufdZwhWBU6Fxk0Be1qDfhMKwCKTIUsaZqxT2aQJBp3HuqVnRDjCN7tU5HCUu3h3
+         YS+IgCwtF6oxyA0SOUS0dHMYkkJtk7PWQr4Ln+NV1yCV+p3MpEBdEHaUzYG1vxEKLmx0
+         2eUDT6lP0C9SpymJyKkwMAJTeOYI2afNeiJ+3p+fEbL7FT57B9QQZbaGJQF9Ozs0BSKw
+         ZginCnE/JtbyfIvdKEkTPIHVtUJWjWNp6e7KmFZG6pdr3gi3w7BvAaFIBIkdE0NDV/Dr
+         ciBQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=purestorage.com; s=google2022; t=1795197823; x=1795802623; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
+        b=Qn9xrzaeM6NC/lNCk5HvJjlS74/wdHgv02t9aWq6wVtdOIP2N4hJzHGr8euQzMOiRO
+         7DjB5MpA5ALDBuo1PTYyDk58lc88mdxJ/YHZSBj/8lauORp1/rVM69euVsu0nhkCPzYm
+         0TpqTqXhUmRJavCOrHaCCJp8KDISHRadqrkthIv9p+cTeJOAX5QBPK3OCW6V8C9s0+gw
+         s6fZf8r8Zf4j4/DoshqTXTkcgI1d2zrDBwDWJ4sSZbk2CW8CcaUzAPCqKP/BXm0Rj8rC
+         aHGAkEleTKW+y+YMHGjBMkm1fH46bIiwQLJRWzBMZ44tWlpht6WCm3mQIaXieelfoDV/
+         4dRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795197823; x=1795802623;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GnsEcx87GzzaejT9L6e8FDpU3hLwBs+MljkBJ8PhOT0=;
+        b=N5B1kaHt2d8LQW2zlJc3EJbyP+dSA12eMS2AaC5oSjEvvUeH9EGlcbl94rViYtv3cB
+         ViOxBO1VY+SsnHG+SyfStJyS2TkY5b7vu6C0xPzMdticQP5wDEdcf7m9tMls2OaFsPFb
+         B02g22pw5xo5yryyoaZBGvgdtyhPOgK8XJwlNUWKrN7qZHlreUM3LP8sCpmIdhxfKNLi
+         RWgcvu1DMFHoZqoRzyWg/zBDiNYSFKvhFKUJTLF76K7jJJNrrB7yXQCJ1GsvlRbfb6zb
+         25YGOXa72eyd2D/GYRNJkp+Rgthy24zhs5Y7xHI3ejq7qd/8Q9+wFtKIjoC3xMsLnrrW
+         /PfQ==
+X-Forwarded-Encrypted: i=1; AL+hErG+2cpMTpBrJFv9WoWFtyRejekPI3BmR49oIIAEQyagfa8zUjofq9ssnt2XjajoQ3y+piiQyGUfASh0QPk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/tUyPMTmeouvHF0B0FVuoRovOG+3h8uJqzu3PhJqfvqlrGOfAS
+	7/7x1d+xKzptxgST4jKskuDg3guXGqMQVoSesvJOMmZU2Nz4NqWZb745mR0+SGtynovdy66uSbW
+	rivLriW4w/AvjNYt4OKW7qSZ/+8lPDL6m50x4BWD7Iw==
+X-Gm-Gg: AYBFou3XivUd8S+68TcHykRbnmVYjP8I6HgWFFj7hiUwYhYor4oUm4FHkqg3exySKp8
+	AmkvySy8H3zS74Pg2TmbrfMdWSMob2norO2u+U2xV6DNaGEPea0GoSsaFMAeaY8GEFtIA66mSiU
+	9aXfpwuooGZF2PI3GPDUYnBvMjEWPcPeLKdTrMP8R2yCAcAar6JhA24jshYcTyfY6qxzdyed7im
+	sr2Dn26dlKqEzz2BE6CN5SbZkdXM4NeHUq61ApMZNPVo/5YVrCpLM5Ci2viIXyTeLmelJPe8c43
+	9kJpkYsSmF8sfmkWnXh5LvDQ7OUPk06UnZDH+6+iIBDKKr348iMVqzhCtKADyKygorDxboc0yTa
+	ZuzaBhjqRLKJYMaW9GYco63U8F1AcpLlQSyjCc7x30tJbsuhBuysU0DQgqQ==
+X-Received: by 2002:a05:6820:840d:b0:71a:ee8a:5d26 with SMTP id
+ 006d021491bc7-71b3903669fmr3370770eaf.0.1795197823321; Fri, 20 Nov 2026
+ 10:03:43 -0800 (PST)
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -64,333 +104,90 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261120-vkms-all-config-v6-12-78ace90f4fc1@bootlin.com>
-References: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-In-Reply-To: <20261120-vkms-all-config-v6-0-78ace90f4fc1@bootlin.com>
-To: Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Melissa Wen <melissa.srw@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, jose.exposito89@gmail.com, 
- Jonathan Corbet <corbet@lwn.net>, Oarora Etimis <oaroraetimis@gmail.com>, 
- Harry Wentland <harry.wentland@amd.com>, 
- Lucas De Marchi <demarchi@kernel.org>, 
- =?utf-8?q?Ville_Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Shuah Khan <skhan@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Kory Maincent <kory.maincent@bootlin.com>, sebastian.wick@redhat.com, 
- victoria@system76.com, thomas.petazzoni@bootlin.com, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, Simona Vetter <simona.vetter@ffwll.ch>, 
- llvm@lists.linux.dev
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10009;
- i=louis.chauvet@bootlin.com; h=from:subject:message-id;
- bh=fqjFoGMeqtYdyCoYfsEAUeEHOhGs+X+8/vNwSXbius0=;
- b=owEBiQJ2/ZANAwAIASCtLsZbECziAcsmYgBrAIr+DWgnEZc6vdDJcRWVIOGv/7aW9QOyxI2bm
- AAAiiEmPz6JAk8EAAEIADkWIQRPj7g/vng8MQxQWQQgrS7GWxAs4gUCawCK/hsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQIK0uxlsQLOLkFhAAgaALNjm0qBvo/M2LjwHbEjtzW1YNXZz
- GxJRa0WBjRXbSvH6TrpY7/7eOg/2xIszGkPwZt+livhMdWlqUlbxM0wxaYI0T7qU7EBDek9X+lb
- wDxmexToVuqMHunfAdDQV7NmsQ8Ztb5vbySxp0O77AVG3qBy/56RPS96NmTVY4xC+Tdum1Vigqx
- Dt/IXe6++jO1u8MFlc4X0Rf39wHS7Sf3oq8MIz7wHEMfsPfT3EZnJShw7+KLHaQ2v4BvI6isszt
- jv7EoZLisZ2pEcw5XLwyEpjScOoDtR5DN5ZbJZkCPALxbVHVr/MYMZQ1Q1xoVd2xLwLvQyKjXLn
- hQFNg6ncIIDGhwBHsXcAsNhqBwu+pHZ0xhqWsRz2hiHf3FCsXlCgfKWodpUb7jkPvoc0ZBxxmJN
- l7vfyFgJaRmko4VgIOJbBGbmgKdnv67LPooSd/ErVGGjhGdgibX1hiE7YAnSePNxvuyw3TgZZPt
- 6sQoRgfHTpfmu4HCsQGRskLxEsQOQUAd9Ij7MZ6HKLd7Sgx8AiOs/SYcVe/J6iHKd3Dypp1j4vg
- m1Q43/6KT9HayYfO15qf6kzk9jlwW5A+7jh6xfoutRx/vlw806sqH/O+zJB3tLRcsA/OEFmRjve
- TVbEFp/gSSzKx2pjOWNnZb4WXf3scYG9gQDKPetbgt2au+Ue7UTo=
-X-Developer-Key: i=louis.chauvet@bootlin.com; a=openpgp;
- fpr=8B7104AE9A272D6693F527F2EC1883F55E0B40A5
-X-Last-TLS-Session-Version: TLSv1.3
+References: <202611150127512368BGQ07ZNIRAIwClkam-8u@zte.com.cn> <20261115012754244CUh01sEOwZp4S8maAbDDM@zte.com.cn>
+In-Reply-To: <20261115012754244CUh01sEOwZp4S8maAbDDM@zte.com.cn>
+From: Caleb Sander Mateos <csander@purestorage.com>
+Date: Fri, 20 Nov 2026 10:03:32 -0800
+X-Gm-Features: Aa3M54pd1WfunxbMR_7rgO7xsdkMjIOdAlBuB31wGQur8IoVOOkbFLJHq_cPaug
+Message-ID: <CADUfDZppuZYzPyOeAc8GfW=KjpGQj5wK0T0D-UXBHokG67Zxbg@mail.gmail.com>
+Subject: Re: [PATCH 2/5] nvme: map passthrough data when the length is nonzero
+To: shao.mingyin@zte.com.cn
+Cc: kbusch@kernel.org, axboe@kernel.dk, hch@lst.de, sagi@grimberg.me, 
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The configuration objects are referenced from places with independent
-lifetimes: connectors keep a pointer to their vkms_config_connector, the
-DRM device outlives the configfs view, and userspace can delete a
-configfs directory while the device is still running. Freeing a
-configuration when its configfs representation disappears can therefore
-lead to use-after-free.
+On Sat, Nov 14, 2026 at 11:13=E2=80=AFAM <shao.mingyin@zte.com.cn> wrote:
+>
+> From: Shao Mingyin <shao.mingyin@zte.com.cn>
+>
+> nvme_submit_user_cmd() skips mapping when the user address is zero,
+> even if a nonzero data length was supplied.  Passthrough ioctls and
+> NVME_IOCTL_SUBMIT_IO can therefore submit a data-transfer command
+> without a mapped payload.  For example, the loop target returns a
+> Data SGL Length Invalid status instead of rejecting the user buffer.
+>
+> Map whenever a length is given and let the mapping helper validate the
+> address.  This also permits address zero if the process has valid
+> memory mapped there, matching the io_uring passthrough behavior from
+> commit 99fde895ff56 ("nvme: map uring_cmd data even if address is 0").
+>
+> Fixes: d29ec8241c10 ("nvme: submit internal commands through the block la=
+yer")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Shao Mingyin <shao.mingyin@zte.com.cn>
+> ---
+> Tested on 7.3.0-next-20261030 (QEMU/TCG guest) with the loop transport
+> and a file-backed namespace.
+>
+> NVME_IOCTL_IO_CMD with addr=3D0 and a nonzero data_len skips the mapping
+> on the unpatched kernel and submits the command with an empty data
+> pointer, so the target rejects it with "Data SGL Length Invalid" (status
+> 0x600f).  With the patch the mapping helper rejects the null user
+> address with -EFAULT before the command is submitted:
+>
+>   unpatched                            patched
+>   control read (valid addr) ret 0      control read (valid addr) ret 0
+>   read  addr=3D0 len=3D4096 ret 0x600f     read  addr=3D0 len=3D4096 -EFA=
+ULT
+>   write addr=3D0 len=3D4096 ret 0x600f     write addr=3D0 len=3D4096 -EFA=
+ULT
+>
+>  drivers/nvme/host/ioctl.c |    2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/nvme/host/ioctl.c b/drivers/nvme/host/ioctl.c
+> index a87c9ca9d06c..22efc5412416 100644
+> --- a/drivers/nvme/host/ioctl.c
+> +++ b/drivers/nvme/host/ioctl.c
+> @@ -207,7 +207,7 @@ static int nvme_submit_user_cmd(struct request_queue =
+*q,
+>                 return PTR_ERR(req);
+>
+>         req->timeout =3D timeout;
+> -       if (ubuffer && bufflen) {
+> +       if (bufflen) {
 
-Add explicit get/put references to vkms_config and vkms_config_connector:
-a configuration destroyed while still referenced is detached and kept
-alive until its last reference is dropped.
+This is a potential UAPI change if a userspace process was setting
+only the addr field 0 in struct nvme_user_io/nvme_passthru_cmd to opt
+out of data mapping. (This seems quite possible if a struct
+nvme_passthru_cmd is reused for multiple commands, one with data and
+one without. Or if userspace isn't bothering to initialize data_len
+when it sets addr =3D 0.) I agree I would have used this condition if I
+were designing this UAPI from scratch, but I'm concerned about
+breaking existing users. Are there real applications mapping data at
+virtual address 0? The change for nvme_uring_cmd was needed to work
+with kernel io_uring registered buffers, where addr =3D 0 represents
+"from the start of the registered buffer".
 
-Signed-off-by: Louis Chauvet <louis.chauvet@bootlin.com>
----
- drivers/gpu/drm/vkms/vkms_config.c | 88 +++++++++++++++++++++++++++++++++++---
- drivers/gpu/drm/vkms/vkms_config.h | 41 +++++++++++++++++-
- drivers/gpu/drm/vkms/vkms_drv.c    |  7 ++-
- 3 files changed, 128 insertions(+), 8 deletions(-)
+Best,
+Caleb
 
-diff --git a/drivers/gpu/drm/vkms/vkms_config.c b/drivers/gpu/drm/vkms/vkms_config.c
-index 71877651cb00..50cde689f482 100644
---- a/drivers/gpu/drm/vkms/vkms_config.c
-+++ b/drivers/gpu/drm/vkms/vkms_config.c
-@@ -9,6 +9,8 @@
- 
- #include "vkms_config.h"
- 
-+static void vkms_config_connector_release(struct kref *ref);
-+
- struct vkms_config *vkms_config_create(const char *dev_name)
- {
- 	struct vkms_config *config;
-@@ -27,6 +29,7 @@ struct vkms_config *vkms_config_create(const char *dev_name)
- 	INIT_LIST_HEAD(&config->crtcs);
- 	INIT_LIST_HEAD(&config->encoders);
- 	INIT_LIST_HEAD(&config->connectors);
-+	kref_init(&config->refcnt);
- 	mutex_init(&config->lock);
- 
- 	return config;
-@@ -112,8 +115,9 @@ struct vkms_config *vkms_config_default_create(bool enable_cursor,
- }
- EXPORT_SYMBOL_IF_KUNIT(vkms_config_default_create);
- 
--void vkms_config_destroy(struct vkms_config *config)
-+static void vkms_config_release(struct kref *ref)
- {
-+	struct vkms_config *config = container_of(ref, struct vkms_config, refcnt);
- 	struct vkms_config_plane *plane_cfg, *plane_tmp;
- 	struct vkms_config_crtc *crtc_cfg, *crtc_tmp;
- 	struct vkms_config_encoder *encoder_cfg, *encoder_tmp;
-@@ -128,13 +132,37 @@ void vkms_config_destroy(struct vkms_config *config)
- 	list_for_each_entry_safe(encoder_cfg, encoder_tmp, &config->encoders, link)
- 		vkms_config_destroy_encoder(config, encoder_cfg);
- 
--	list_for_each_entry_safe(connector_cfg, connector_tmp, &config->connectors, link)
--		vkms_config_destroy_connector(connector_cfg);
-+	list_for_each_entry_safe(connector_cfg, connector_tmp, &config->connectors, link) {
-+		/*
-+		 * The configuration is already being released and cannot be
-+		 * pinned anymore: drop the initial reference directly. The
-+		 * connector is still linked, so its release only unlinks it
-+		 * without touching the configuration.
-+		 */
-+		vkms_config_connector_put(connector_cfg);
-+	}
- 
- 	mutex_destroy(&config->lock);
- 	kfree_const(config->dev_name);
- 	kfree(config);
- }
-+
-+void vkms_config_get(struct vkms_config *config)
-+{
-+	kref_get(&config->refcnt);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(vkms_config_get);
-+
-+void vkms_config_put(struct vkms_config *config)
-+{
-+	kref_put(&config->refcnt, vkms_config_release);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(vkms_config_put);
-+
-+void vkms_config_destroy(struct vkms_config *config)
-+{
-+	vkms_config_put(config);
-+}
- EXPORT_SYMBOL_IF_KUNIT(vkms_config_destroy);
- 
- static bool valid_plane_number(const struct vkms_config *config)
-@@ -610,6 +638,7 @@ struct vkms_config_connector *vkms_config_create_connector(struct vkms_config *c
- 	connector_cfg->config = config;
- 	connector_cfg->status = connector_status_connected;
- 	xa_init_flags(&connector_cfg->possible_encoders, XA_FLAGS_ALLOC);
-+	kref_init(&connector_cfg->refcnt);
- 
- 	list_add_tail(&connector_cfg->link, &config->connectors);
- 
-@@ -617,12 +646,61 @@ struct vkms_config_connector *vkms_config_create_connector(struct vkms_config *c
- }
- EXPORT_SYMBOL_IF_KUNIT(vkms_config_create_connector);
- 
--void vkms_config_destroy_connector(struct vkms_config_connector *connector_cfg)
-+static void vkms_config_connector_release(struct kref *ref)
- {
-+	struct vkms_config_connector *connector_cfg =
-+		container_of(ref, struct vkms_config_connector, refcnt);
- 	xa_destroy(&connector_cfg->possible_encoders);
--	list_del(&connector_cfg->link);
-+	if (list_empty(&connector_cfg->link)) {
-+		/*
-+		 * The connector was detached from the configuration by
-+		 * vkms_config_destroy_connector() before its final put,
-+		 * and that call pinned the configuration to keep it alive
-+		 * while the connector still points to it; drop that
-+		 * reference now that the last connector reference is gone.
-+		 */
-+		vkms_config_put(connector_cfg->config);
-+	} else {
-+		/*
-+		 * The configuration is already being released and cannot be
-+		 * pinned anymore: unlink the connector without touching the
-+		 * configuration.
-+		 */
-+		list_del(&connector_cfg->link);
-+	}
- 	kfree(connector_cfg);
- }
-+
-+struct vkms_config_connector *vkms_config_connector_get(struct vkms_config_connector *connector_cfg)
-+{
-+	kref_get(&connector_cfg->refcnt);
-+	return connector_cfg;
-+}
-+EXPORT_SYMBOL_IF_KUNIT(vkms_config_connector_get);
-+
-+void vkms_config_connector_put(struct vkms_config_connector *connector_cfg)
-+{
-+	kref_put(&connector_cfg->refcnt, vkms_config_connector_release);
-+}
-+EXPORT_SYMBOL_IF_KUNIT(vkms_config_connector_put);
-+
-+void vkms_config_destroy_connector(struct vkms_config_connector *connector_cfg)
-+{
-+	/*
-+	 * Pin the configuration and detach the connector before dropping
-+	 * the initial reference: the release callback runs inside the put
-+	 * when it is the last one, and would otherwise mutate the
-+	 * configuration lists without holding config->lock, or free the
-+	 * configuration while this call and its configfs caller still use
-+	 * both. The pin is dropped again by the release when the connector
-+	 * dies here; if it survives, it keeps the configuration alive until
-+	 * the connector's final put.
-+	 */
-+	vkms_config_get(connector_cfg->config);
-+	list_del_init(&connector_cfg->link);
-+
-+	vkms_config_connector_put(connector_cfg);
-+}
- EXPORT_SYMBOL_IF_KUNIT(vkms_config_destroy_connector);
- 
- int __must_check vkms_config_connector_attach_encoder(struct vkms_config_connector *connector_cfg,
-diff --git a/drivers/gpu/drm/vkms/vkms_config.h b/drivers/gpu/drm/vkms/vkms_config.h
-index 10604f7f37e1..de6a89819daf 100644
---- a/drivers/gpu/drm/vkms/vkms_config.h
-+++ b/drivers/gpu/drm/vkms/vkms_config.h
-@@ -3,8 +3,12 @@
- #ifndef _VKMS_CONFIG_H_
- #define _VKMS_CONFIG_H_
- 
--#include <linux/list.h>
-+#include <linux/cleanup.h>
-+#include <linux/kref.h>
- #include <linux/mutex.h>
-+#include <linux/rcupdate.h>
-+#include <linux/string.h>
-+#include <linux/list.h>
- #include <linux/types.h>
- #include <linux/xarray.h>
- 
-@@ -32,6 +36,7 @@ struct vkms_config {
- 	struct list_head connectors;
- 	struct mutex lock;
- 	struct vkms_device *dev;
-+	struct kref refcnt;
- };
- 
- /**
-@@ -122,6 +127,8 @@ struct vkms_config_connector {
- 
- 	/* Internal usage */
- 	struct vkms_connector *connector;
-+
-+	struct kref refcnt;
- };
- 
- /**
-@@ -211,6 +218,23 @@ struct vkms_config *vkms_config_default_create(bool enable_cursor,
- 					       bool enable_overlay,
- 					       bool enable_plane_pipeline);
- 
-+/**
-+ * vkms_config_get() - Acquire a reference to a VKMS configuration
-+ * @config: vkms_config to acquire a reference to
-+ */
-+void vkms_config_get(struct vkms_config *config);
-+
-+/**
-+ * vkms_config_put() - Release a reference to a VKMS configuration
-+ * @config: vkms_config to release the reference from
-+ *
-+ * When the last reference is released, the configuration and all its
-+ * sub-components are freed.
-+ */
-+void vkms_config_put(struct vkms_config *config);
-+
-+DEFINE_FREE(vkms_config_put, struct vkms_config *, if (_T) vkms_config_put(_T));
-+
- /**
-  * vkms_config_destroy() - Free a VKMS configuration
-  * @config: vkms_config to free
-@@ -446,6 +470,21 @@ void vkms_config_encoder_detach_crtc(struct vkms_config_encoder *encoder_cfg,
-  */
- struct vkms_config_connector *vkms_config_create_connector(struct vkms_config *config);
- 
-+/**
-+ * vkms_config_connector_get() - Acquire a reference to a connector configuration
-+ * @connector_cfg: Connector configuration to acquire a reference to
-+ */
-+struct vkms_config_connector *
-+vkms_config_connector_get(struct vkms_config_connector *connector_cfg);
-+
-+/**
-+ * vkms_config_connector_put() - Release a reference to a connector configuration
-+ * @connector_cfg: Connector configuration to release the reference from
-+ *
-+ * When the last reference is released, the connector configuration is freed.
-+ */
-+void vkms_config_connector_put(struct vkms_config_connector *connector_cfg);
-+
- /**
-  * vkms_config_destroy_connector() - Remove and free a connector configuration
-  * @connector_cfg: Connector configuration to destroy
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-index 5a640b531d88..64c75b038869 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.c
-+++ b/drivers/gpu/drm/vkms/vkms_drv.c
-@@ -163,6 +163,9 @@ int vkms_create(struct vkms_config *config)
- 	struct faux_device *fdev;
- 	struct vkms_device *vkms_device;
- 	const char *dev_name;
-+	struct vkms_config *cfg __free(vkms_config_put) = config;
-+
-+	vkms_config_get(cfg);
- 
- 	dev_name = vkms_config_get_device_name(config);
- 	fdev = faux_device_create(dev_name, NULL, NULL);
-@@ -210,11 +213,11 @@ int vkms_create(struct vkms_config *config)
- 		goto out_devres;
- 
- 	drm_client_setup(&vkms_device->drm, NULL);
--
- 	return 0;
- 
- out_devres:
- 	devres_release_group(&fdev->dev, NULL);
-+	config->dev = NULL;
- out_unregister:
- 	faux_device_destroy(fdev);
- 	return ret;
-@@ -275,7 +278,7 @@ static void __exit vkms_exit(void)
- 		return;
- 
- 	vkms_destroy(default_config);
--	vkms_config_destroy(default_config);
-+	vkms_config_put(default_config);
- }
- 
- module_init(vkms_init);
-
--- 
-2.56.0
-
+>                 ret =3D nvme_map_user_request(req, ubuffer, bufflen, meta=
+_buffer,
+>                                 meta_len, NULL, flags);
+>                 if (ret)
+> --
+> 2.43.0
+>
