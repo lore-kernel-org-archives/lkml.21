@@ -1,56 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=82.195.75.108
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795214670;
-	b=kHhMjDpdR+pPMGGIrOvY5JXquhGCUwXAieeGXBxInGv2vBQTyDmsdXZ2A+2tl2ogldKh
-	 oJcl0Esvv6Qh5/Ok8zLF1UD3PDtG+vv/YItzqlKEKDW248G8JBJu5IwhtT3q0zj1uX+N2
-	 BT+sJdMCP71gcauiel9LUvcVAtQvBbqffV5Z5VaSculLrPWYbIj34JzrUOQvEUzfhclBb
-	 Ax5Z/uf71LUWMytzx7O0YlRKNtfxZ3mDn6N/c2fwzuxqaQw3hMX0zZdUF42ZZbUzzPAr1
-	 Ze6PWc7qs1mjkni2wBA8Iu8a6Tfcno7I3jIWuIWBuvje3Uz5X1fsPFFMQ2yzjaP/h1A==
+	t=1795214696;
+	b=tNTBkjqtM2ThZilWQBPjHqx3o2KXgxpKLDhpAE7eNLw18aJ2xKaQ/Uob8BqVk0B2Lzhc
+	 BWPH5MW+/jVHKuwBb+dW4hkvFF2lUvHmYbz9d/MoH1w2/KdGLiZIYT/z8p8S84QWzjiD5
+	 kICmXua4cRADN6Ow4TjzMt8GX+KF+6yB1n2COp7EiSmQf/zh/BbOjiuun6LiUkTrc7j9N
+	 unN4z/5jxMtEZdXCAu6XShCzN0GWxH95h1mshUazfFCQ6Ns4647CjhaTk+xf6Dzv8hqvx
+	 wi9NsQKpwL1cdJ3+Bj71stz8o/R57v2Yy45RBDF4TAiBc/C4WsZwj6STcIF7qLR937g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795214670;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Debian-User;
-	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=;
-	b=ta/aKaRwnpIc/we1SObKk9ZISLSsIt/70FsNI10dZ1fw60s/IlBY1PyqNjBPN9yVUbYs
-	 WVb6bVKu2mfxmrQXbTlQnP2UYQks21w23nthJ/X4q4mB6s30oI+Wzf5VDy8nXH9Bp/H6W
-	 /hlvUUgnjqwp/Z7JWrgBp3GGGXTtuw4aLH/lQZqDUEjtbEG5LqvKyzPGU2io7SUkOKGDH
-	 hNiw29UuQThpTHU9/6QV2HPDC0sQqOsXyWXw4B9H28v+nbIPJ9g0k3RrGtnmNgi8Q+lU8
-	 UScQcTJPErTAZfGLiTdk8GJVcCdyacPG3WNsScobOUOJLXtI+FbFWV+g3TCcC1WQwxQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795214696;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 Reply-To:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=pyi0fUWsXsExR7kVJ9xbEzLFJypDEKHMs/F9EhZvPRU=;
+	b=tVMk2u1jvcZx5tpYIouIK2+e7xWLr/neGnQY+FYMtvS/b/+XX2cW/0pI3ozcQWdRdLxo
+	 3y3T90fZaz1hJXgxSn9rR7T04pjAgvD3s9JvFdShUlwdgwCf9bJU0SrLL0JCNOk0svE36
+	 YhsjNtB0s5DKYTh8AmhfPIBxE1ywsJn2yEciOr2zvGKfimk5C0fbmoIMgmHleeKxNFvnL
+	 8j0QUT/1E3FrJ2RsZK+Pp4//Wd7oRxuDVJQvkWGf6cCaJVOnT/hvEFYE+MiXqTJJnXs2U
+	 R1ie1lwk5hEwLrpvKwzDfv1aTNFIRL3ggKG0KPk+cf+FNCGeWZINNrbDFeD7pwnBVVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=debian.org;
-	spf=pass smtp.mailfrom=debian.org;
-	dkim=pass header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl;
-	arc=none smtp.remote-ip=82.195.75.108
-Received: from stravinsky.debian.org (stravinsky.debian.org [82.195.75.108])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="PSQ//YSX";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4288F606A68C;
-	Fri, 20 Nov 2026 22:44:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4288F606A68C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=debian.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=debian.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C4D2606A683;
+	Fri, 20 Nov 2026 22:44:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=debian.org header.i=@debian.org header.a=rsa-sha256 header.s=smtpauto.stravinsky header.b=mKKTQTOl
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description;
-	bh=InAjMD74eqipW9lRsPsCI4Ai3lEa52iW7ZUScUMh4Xs=; b=mKKTQTOlQCONVf+xcZiJA/5+v6
-	/gWpjMTXY81UM5uPzbRoFjZGlsCYwXmoX0EbgwFeHcRdVdFZ9KwDBiia/uiXqqBjVTa1T+LBRJbZa
-	CY/4VcwtveScTi+pSLsJOQNG+FnfMXvcaUvhG7zPSYxXAAmliF/wke86YJQcNBz8VN+lm62EJXFSU
-	3Dyh3bDojacuQ/89s26+9uoCJTNbkp2q5nlMPOX9vDqs9tqCmlcTpvBDgTt3mNYCy6NPBkoxoVJAa
-	YkXqGBDCBtwPLISZH5YKsV1/kvYCAgl9ekaaTbHYINa5RIhKqLgJ8nWxLBkFgh2b8R8lXQvaEIrPb
-	CdkLOk8Q==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128)
-	(Exim 4.96)
-	(envelope-from <bage@debian.org>)
-	id 1xUXL7-003CmQ-2h;
-	Fri, 20 Nov 2026 22:44:18 +0000
-Message-ID: <b41df4eb-855a-44eb-94a0-663945c11ac8@debian.org>
-Date: Fri, 20 Nov 2026 23:44:16 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PSQ//YSX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A85CD1F000C4;
+	Fri, 20 Nov 2026 22:44:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795214695;
+	bh=pyi0fUWsXsExR7kVJ9xbEzLFJypDEKHMs/F9EhZvPRU=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=PSQ//YSXN5SgOK+hdSmN0kjsSmMtzOLwSXZ55kkGjCZUsUnZxOo4Ei4XAvmfTqpnX
+	 64niO8bgL/DDl72fDNeXyqlMKyXnrAT6k6vNayPooa3GkQNaGb+ljTHOFAaFPIP0Bs
+	 tdY7WuS3K5PxYVWiQRMC3LJYAYb9lZ+A9q4ElRG5SdztgKumr4qSgCkLWc20/Jjv5l
+	 oKHIX0yaI6Poy9tbNJ8oiyJzAYwaok54OaQCqXbDfixnDgAAgHFOTpb63PqHe/Vkk3
+	 OwHP1PRvLemVmxYpizaV0RRbCLSMQ1dNUu/JVwPj+ps9oPXhkEhCsg+zQcpcYVn/0N
+	 qhz6RY3tGP9sg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 6FA4BCE09D1; Fri, 20 Nov 2026 14:44:55 -0800 (PST)
+Date: Fri, 20 Nov 2026 14:44:55 -0800
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Joel Fernandes <jfern@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>, Boqun Feng <boqun.feng@gmail.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Linux Next Mailing List <linux-next@vger.kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Uladzislau Rezki <urezki@gmail.com>
+Subject: Re: linux-next: manual merge of the paulmck tree with the rcu tree
+Message-ID: <2813d085-c569-4558-bbe6-10769c2554e5@paulmck-laptop>
+Reply-To: paulmck@kernel.org
+References: <avzYzJYQGafi4gGL@sirena.org.uk>
+ <79d23a21-b91f-4709-b956-019288f62f10@paulmck-laptop>
+ <20261118154941.GB946893@joelbox>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -60,58 +66,89 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
- MDIO devices
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- Vladimir Oltean <olteanv@gmail.com>
-References: <20261119231319.1256419-1-bage@debian.org>
- <19d8bfb6-074e-4344-acf8-67872f7b3e48@lunn.ch>
- <3dae9a75-52cd-4999-9ed9-b51d87488511@debian.org>
- <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
-Content-Language: en-US
-From: Bastian Germann <bage@debian.org>
-In-Reply-To: <bb2edd63-c727-4b91-869a-2b26c0d7521f@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Debian-User: bage
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118154941.GB946893@joelbox>
 
-On 11/20/26 23:07, Andrew Lunn wrote:
-> On Fri, Nov 20, 2026 at 10:40:55PM +0100, Bastian Germann wrote:
->> On 11/20/26 01:33, Andrew Lunn wrote:
->>> On Fri, Nov 20, 2026 at 12:13:19AM +0100, Bastian Germann wrote:
->>>> The "broken-turn-around" property is documented in mdio.yaml for any
->>>> MDIO device, but the MDIO core currently parses it only for PHY devices
->>>> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
->>>> switches, are registered through of_mdiobus_register_device(), where the
->>>> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
->>>> still treat the turn-around/read failure as an error.
->>>>
->>>> Parse the property when registering a non-PHY MDIO device and set the
->>>> corresponding bit in phy_ignore_ta_mask before registering the device.
->>> What switch is causing you problems?
->> It is with mv88e6085.
->>
->> I have just found that Nathan Rossi sent basically the same patch as
->> <20210217044443.1246392-1-nathan@nathanrossi.com>.
-> [Goes and find the thread]
->
-> Are you bit banging as well? Or do you have another MDIO bus
-> controller?
->
-> The point about the mv88e6085 using multiple addresses is valid. How
-> do you have the mv88e6085 configured?
+On Wed, Nov 18, 2026 at 10:49:41AM -0500, Joel Fernandes wrote:
+> On 11/17, "Paul E. McKenney" <paulmck@kernel.org> wrote:
+> > On Tue, Nov 17, 2026 at 10:44:28PM +0000, Mark Brown wrote:
+> > > Hi all,
+> > > 
+> > > Today's linux-next merge of the paulmck tree got a conflict in:
+> > > 
+> > >   tools/testing/selftests/rcutorture/bin/torture.sh
+> > > 
+> > > between commit:
+> > > 
+> > >   7ada0a57267ab ("torture: Use ${:+} to save a few lines in torture.sh's torture_one()")
+> > > 
+> > > from the rcu tree and commit:
+> > > 
+> > >   436f3c6b27de8 ("torture.sh: Add hazptr torturing")
+> > > 
+> > > from the paulmck tree.  AFAICT the change in the hazptr commit is adding
+> > > quoting that is also covered by the other commit and should have been
+> > > redundant anyway but you really want to double check here.
+> > 
+> > I confess, I am confused.  If you said that the commit from the rcu
+> > tree was instead this one:
+> > 
+> > ccabfbe01ca5 ("torture: Avoid duplicate identify_qemu_vcpus calls in torture.sh")
+> > 
+> > I would be less confused.
+> 
+> Maybe both patches conflicted? The one Mark posted resolved as follows:
+> 
+> rcu/next tree:
+>   	"$@" ${torture_bootargs:+--bootargs "$torture_bootargs"} --datestamp "$ds/results-$curflavor" > $T/$curflavor.out 2>&1
+> 
+> Paul's tree:
+>     "$@" "${boottag}" "$cur_bootargs" --datestamp "$ds/results $curflavor" > $T/$curflavor.out 2>&1
+> 
+> Mark's resolution:
+> 	"$@" ${torture_bootargs:+--bootargs "$torture_bootargs"} --datestamp "$ds/results-$curflavor" > $T/$curflavor.out 2>&1
+> 
+> Both versions look to be doing the same thing, which is adding the boot
+> arguments if the `torture boot args` variable was defined. 
 
-It is with the TI CPSW3G MDIO controller (ti,davinci_mdio, ti,cpsw-mdio).
-As this is on a AM64x, errata i2329 applies and davinci_mdio runs with 
-bitbanging.
+What I have done is to pull the "torture.sh: Add hazptr torturing"
+commit out of -next, avoiding this conflict.
 
-The mv88e6085 (88E6341) is configured in multi-chip/indirect mode at 
-  reg = <1>.
-It does not use multiple addresses.
+I also rebased my stack on top of the rcu tree's "next" branch, which
+showed some skew on this commit:
 
+fd5121d99c86 ("rcu: Print CPU that preempted stalled reader wants to run on")
+
+Joel, could you please fold the patch shown below into this commit?
+
+							Thanx, Paul
+
+------------------------------------------------------------------------
+
+diff --git a/include/linux/sched.h b/include/linux/sched.h
+index 09e05e2b6c9aa..bd586ea18fdac 100644
+--- a/include/linux/sched.h
++++ b/include/linux/sched.h
+@@ -2528,6 +2528,8 @@ extern void migrate_enable(void);
+ 
+ DEFINE_LOCK_GUARD_0(migrate, migrate_disable(), migrate_enable())
+ 
++struct task_struct *cpu_curr_snapshot_rcu(int cpu);
++
+ #endif
+ 
+ struct task_struct *cpu_curr_snapshot_rcu(int cpu);
+diff --git a/kernel/rcu/tree_stall.h b/kernel/rcu/tree_stall.h
+index e0607f4235645..53564b780ec90 100644
+--- a/kernel/rcu/tree_stall.h
++++ b/kernel/rcu/tree_stall.h
+@@ -335,7 +335,7 @@ static int check_slow_task(struct task_struct *t, void *arg)
+ 	rscrp->rcu_rdr_cpu = cpu = task_cpu(t);
+ 	rscrp->rcu_rdr_cpu_offline = cpu_is_offline(cpu);
+ 	lockdep_assert_irqs_disabled();
+-	rscrp->rcu_rdr_cpu_task = th = cpu_curr_snapshot_rcu(cpu);
++	rscrp->rcu_rdr_cpu_task = cpu_curr_snapshot_rcu(cpu);
+ 	// There is no need for get_task_struct(t) because we are in
+ 	// an implicit RCU read-side critical section due to interrupts
+ 	// being disabled.
