@@ -1,55 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170999;
-	b=u/Rg6Gh4nzirK9KQ/pcG8PE0M1h0HaZ2uCNhZePL6QOjYexP3+p5d8QUr6EySuwz85FB
-	 GsdFnVpJILG6Q/0E1TadIwcWsbwWxbRcIa2s+B+v09GNowzhydLIgiqEX5h6+9fD832oF
-	 I2ihnqQ/SUb5Urr7bPyIcjQBv1f/1O0BfUAFngPh84HSEZiJWorfgnp7uN4Z/wNrFr38F
-	 JWHdSfkZZmQq2oYMQIabRj2sNRuk2B3oY/zVG4NBeP39lknZFdPdIjhMELUSI+DHXS6Bj
-	 ipeN0K+4enCuHSZKUWQfTR/+qtvgZL2EkyT5jwh5mCNTy7bv1X2ePbtorhy9AcG0mxw==
+	t=1795171076;
+	b=vkCO6XbFQkCPH+ll1eG64rNkzFMbXYVLc8SkVvKB4pLisjx+rVwbHbO5fDBX8AVzqEjM
+	 mGIaESoYxsNxPceA0X8UZMlxN8disnAX1SUVhTwBXubNjjQettnZFa8PX6M+pwiNmswFc
+	 sjYI6O+Scefkw4sNv1b8DYVdzKR4/jdz4Qz5hIVJkGR/l0d37ieMoSUZYVgBDZraHnFPZ
+	 RteKHcaXXr84ma9tSlN3AQ/COQS8y3v7RZQIVrvemzgoxgH/m46sYR2UEfRJn91LNT3UB
+	 4h9JCAwcG4tYBhR/dOsiJkFlt9i4xtG22raLygI1MyidLY9iIgM9JBvTZBsqt2AcDSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170999;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=OBbEyP/H6djxrJo03P55CCCJILRL7MXtwftvePmw9sQ=;
-	b=nv5RdHqdyuplb+cSZOjcKcS6yQd67hAliY11Cf0C8oIl8CgdCpiGlpIiWgNjiPt42kxY
-	 rHQauFHvWN5uugveXkJGTxx/nPRX4BLV7ygqGAA2G7OZBDnaFxY4zPZWdK6B4BJ4u1p8a
-	 QsiXd3SBC24bCw1S2Wcz9TtCn70WBOqYQR62ul/tNCPqr/t3p6HOFv2esRi3APJX/Nz62
-	 +3Ku8JwvgHgeVl2UIcNCjotSpoiVzem+t1lMXVodVVjE1KQkCkjV7OcYAjek9C0slYak8
-	 VpC/TYbROehUyoeuB575rUun7JdZp5WBuIyJDoYfqzRRve+ofMeWmNY+PSLB3OU2PSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795171076;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
+	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
+	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
+	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
+	b=dh2krrniwaqr6vg/kCqneEnc/fmWR/enScQE2uS+j0eoh9Vc7ViSdzEuOU8B7zdzOpJY
+	 4dsEkI5NvbXfY8NgkRfR1TEJCV8xSnszgQZ6/mBup7yQASjmif7Y36OMjnkdrE8Eam4n6
+	 l6oYScit6HDhLfdRxDQgqSCIGoATgh+sE+FvGrbU3PvP+/9nfpuZ7VfM3ozIR1hL/8zp4
+	 t48rXTtjNy7xgNJZQcFO6AbqEvE1qhqWqdsXtZyQC1LZI67n8XLnwTn+/Moo0YHJtN1s3
+	 eDdC8D1iRne3gXYGrZVGCqaNY/hCe+/GIIspNke35WxK7ou56y2AhwoLY6J3vc4/6OQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NqYTjW+h;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=kwiboo.se;
+	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
+	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=YXJoNf0+;
+	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=cmCbpp0G;
+	arc=none smtp.remote-ip=121.127.44.73
+Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EF25606A325;
-	Fri, 20 Nov 2026 10:36:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6037606A326
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 10:37:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6037606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NqYTjW+h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C85D1F000C6;
-	Fri, 20 Nov 2026 10:36:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795170998;
-	bh=OBbEyP/H6djxrJo03P55CCCJILRL7MXtwftvePmw9sQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NqYTjW+hRZedNoLan48YbMHilMOqdxA6SvuPNs27BdYAJtMieE3b+p88qlC0nltBB
-	 dKXeSnrN0Ai0EUxJOQPnJ08kxNl9XL5rXMHb6+ul/GWzw/SWMIHxWj2ENcIOAH+hw0
-	 VG0b6+k1zpQx25ACmN44hZt0lyQABY4JM+N+BzaVBEA3dfT6Lc9rBBGWjDO5J6ZMst
-	 hHsY6Be0hY2pKTeiR75KILAhbrgWhWpjDEnKrsUmyeq4DxKZQWegGyYXhtBJOLkwjQ
-	 vPrNR05u216qwRlxj5CK8Ti3YFnayv1KeFvoQxn0SgTKyPVu/3xmbO8jPRbaV1gML1
-	 lWT3/zctQXpVA==
-Date: Fri, 20 Nov 2026 10:36:35 +0000
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: shao.mingyin@zte.com.cn, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/balloon: fix NR_BALLOON_PAGES accounting on migration
- failure
-Message-ID: <awAijOul2KPFT1CQ@lucifer>
-References: <20261115004708909xx05JgB9nXnOCG0zL7h_K@zte.com.cn>
- <avia_XgVOuN_pZ72@gremlin>
- <96462da9-9437-4774-a5c7-f99858481ece@kernel.org>
+	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=YXJoNf0+;
+	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=cmCbpp0G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-e1b5cab7be;
+ t=1795171075; bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
+ b=YXJoNf0+gkkCAQG7BToaJ+S8Mqs3FXHFreAyHgNr4CiQngmytSia/6spVoRwP51NuIG4XuAT1
+ GMQizFXj4i9vRVUFcZj7y/TDBkwNDq71WfShUm5XErNGNmGYNz/yHJJXXZyU6ZZwEcABjfK76uH
+ NjEywXSVdc8tLFr2oLuCGq2cdXGvhHJejPykFcWKYgEpOecsTQ9kSwdxejQQua8IwrcEbMvnRI/
+ Gqm8g1sIgC4zBOuUj1w8rwlI4oVSnvd4KuruYp/I7AF3wbe/dbRqziIMtdgxPb+MHzQ7dCDOW50
+ Cjteu3+6XUOQoBh7DXQP98Rfxu+rw09OuH08v1KnaYsQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From:
+ Content-Language: References: Cc: To: Subject: MIME-Version: Date:
+ Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
+ t=1795171075; bh=Le0RPn46jHF9e4i2vrYXLIAxlLMBBuxuXIJhsmU5VKw=;
+ b=cmCbpp0G9LxpbPH7zNXp8bOvvWz7e3t4reT/mDqS8oZxgMswkuH2lNsSwjggxpMrecMUjKxlT
+ Qp1n31Wd/UxNHWqi+/qEE/Nqw5gvceIb7diefNptVc9RYW/sYKBAwIcmoWmDlWAlv+lcIR3SRAQ
+ HvI4yQ8fBLGguwwVev4LJKo=
+CFBL-Feedback-ID: 6b0022e231c8f29e7611d90e:8bdc011d3cb26b1315eaa2ace58e4003
+CFBL-Address: abuse@forwardemail.net; report=arf
+X-Forward-Email-ID: 6b0022e231c8f29e7611d90e
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.19.33
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <38fbfd13-526c-47cd-b723-2ac4e77682ae@kwiboo.se>
+Date: Fri, 20 Nov 2026 11:37:18 +0100
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,37 +77,137 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <96462da9-9437-4774-a5c7-f99858481ece@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: rockchip: Add RK3572 CRU
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Elaine Zhang <zhangqing@rock-chips.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-rockchip <linux-rockchip@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>, netdev
+ <netdev@vger.kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+References: <20261117-add-board-ok3572-c-clk-v6-0-cabad6610c5f@qq.com>
+ <20261117-add-board-ok3572-c-clk-v6-1-cabad6610c5f@qq.com>
+ <34dbd46a-29cc-4b86-b9cb-9477dc0a4da8@kwiboo.se>
+ <tencent_BB5901AB88D47E874D0E348B32A609A92308@qq.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <tencent_BB5901AB88D47E874D0E348B32A609A92308@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Fri, Nov 20, 2026 at 10:59:47AM +0100, David Hildenbrand (Arm) wrote:
-> On 11/14/26 18:31, Lorenzo Stoakes (ARM) wrote:
-> > NAK.
-> >
-> > this is generated by some AI slopper's script, spamming the kernel. The
-> > patches I looked at were wrong/broken, so no to anything from this person.
-> >
-> > They've sent 300 mails in under four weeks spanniing: ata, scsi, target,
-> > ufs, nvme/nvmet, ubifs, ublk, zloop, dm, md, mmc, virtio-blk, mfd, gpio,
-> > pwm, spi, PCI, ASoC, ACPI, net, vfs mount, block partitions, and now mm.
-> >
-> > and 17 series across 7 subsystems over the past 23 hours.
-> >
-> > We need a way to ban emails from people like this...
->
-> Yeah, that's absolutely annoying. In particular as we REQUIRE people to
-> understand the changes they submit, and own the code.
->
-> That clearly won't happen in this case.
->
-> There is a real (low prio) bug hiding in there, so something to be fixed. I'll
-> take care of it.
->
-> I'll take care of it.
+Hi Cunhao Lu,
 
-Ack, yeah, I think the best approach is to treat these as reports, and if
-there's anything valid pull that out for a member of the core team :)
+On 11/20/2026 10:40 AM, Cunhao Lu wrote:
+> Hi Jonas,
+> 
+> Thank you for your review.
+> 
+>> [...]
+>>> +#define PCLK_DDR_MON 527
+>>> +
+>>> +/* Secure clocks */
+>>> +#define ACLK_CCI 600
+>>> +#define SCLK_DDR 601
+>>> +#define CLK_STIMER0_ROOT 602
+>>> +#define PCLK_SECURE_S 603
+>>> +#define HCLK_SECURE_S 604
+>>> +#define ACLK_SECURE_S 605
+>>> +#define CLK_PKA_CRYPTO_S 606
+>>> +#define PCLK_KLAD 607
+>>> +#define HCLK_CRYPTO_S 608
+>>> +#define HCLK_KLAD 609
+>>> +#define ACLK_CRYPTO_S 610
+>>> +#define PCLK_OTPC_S 611
+>>> +#define CLK_OTPC_S 612
+>>> +#define PCLK_WDT_S 613
+>>> +#define TCLK_WDT_S 614
+>>> +#define HCLK_TRNG_S 615
+>>
+>> Are these secure clocks meant to be used as SCMI clock ids? Why a gap from
+>> 527 to 600? If I am not mistaken SCMI ids should similar to Linux clock ids
+>> start at 0 and be a consecutive series.
+> 
+> Yes, these are SCMI clock IDs. The CRU IDs end at 527, but the SCMI
+> IDs are a separate set. The vendor header [1] uses 600-615 for this
+> group, matching the IDs in the released RK3572 BL31 firmware.
+> 
+> I haven't found the RK3572 BL31 source on GitHub, so I can't rebuild
+> the firmware. That also means I can't change the clock IDs it exposes
+> via SCMI. If I numbered this group from zero in the binding, Linux
+> would request ID 1 for the DDR clock, but the firmware on existing
+> boards expects 601. With those IDs, I wouldn't be able to read the
+> correct clock data on my board.
+> 
+> I'll add the SCMI_ prefix in the next version and keep the firmware IDs
+> unchanged.
 
---
-Cheers, Lorenzo
+Great, I think the SCMI standard may dictate that IDs should start at 0,
+and I expect the vendor firmware possible would fail SCMI validation.
+
+Not sure there is any point to use different IDs for vendor and mainline
+firmware. Hopefully we can nudge Rockchip to closer follow specification
+in firmware for next SoC.
+
+> 
+>> [...]
+>>> +/* CRU-->SOFTRST_CON01 */
+>>> +#define SRST_ARESETN_TOP_BIU                     0
+>>> +#define SRST_PRESETN_TOP_BIU                     1
+>>> +#define SRST_ARESETN_TOP_MID_BIU                 2
+>>> +#define SRST_HRESETN_TOP_BIU                     3
+>>
+>> Please drop the unnecessary/redundant RESETN in all constants. The SRST
+>> prefix is already a short for Software Reset.
+> 
+> I'll fix the names in the next version.
+> 
+>> Please see [1] for the header I prepared for U-Boot mainline RK3572 support,
+>> it should have all these symbols cleaned up, to match naming patterns used
+>> for all currently supported Rockchip SoCs.
+>>
+>> [1] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/rk3562/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
+> 
+> Thanks, I'll follow the naming convention in your header in the next
+> revision. I did notice two possible issues with the reset IDs:
+> 
+> Your header skips 421 between SRST_LINKSYM_HDMITXPHY0 (420) and
+> SRST_P_PHPPHY_CRU (422). I've fixed this gap in the current patch.
+
+Looks like I just applied renaming and not re-numbering, so this gap
+originates from vendor source header. Good catch :-)
+
+> 
+> Your header also assigns ID 453 to both SRST_H_PMU1_BIU and
+> SRST_H_PMU1_FW, but the lookup table [2] maps them to bits 9 and 10
+> of PMU1 SOFTRST_CON03, respectively. Could you confirm whether these
+> two reset lines are meant to share an ID?
+
+This duplicate seem to originate from the reset header in vendor U-Boot
+v5 branch [3], that I used for my mainline U-Boot work on RK3572. That
+and the fact that I did not re-number the indices. So I am expecting the
+vendor Linux 6.12 version is more correct (does not contain the vendor
+U-Boot duplication of 453).
+
+[3] https://github.com/rockchip-linux/u-boot/blob/v5/dts/upstream/include/dt-bindings/reset/rockchip%2Crk3572-cru.h
+
+Regards,
+Jonas
+
+> 
+> [1] https://github.com/rockchip-linux/kernel/blob/470f9dccbdc42e7b8a824d0a5c5640a10e9457d2/include/dt-bindings/clock/rockchip,rk3572-cru.h#L542-L560
+> [2] https://git.u-boot-project.org/u-boot/contributors/kwiboo/u-boot/-/blob/85afc941266af08ab30a897dde794f952321025a/drivers/reset/rst-rk3572.c#L605-606
+> 
+> Best regards,
+> Cunhao Lu
+> 
+> pw-bot: cr
+
