@@ -1,100 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795196135;
-	b=ZcGleVyGdS8ErY9cqb75BifxE2809kc626obid/iH/7r2U27Jl1afcb3TPVL+WSyUPkN
-	 neGO6O5vijFBRnhQBnlaMoaF9ZxUAPsP5VedfROcAegA2RWaSt5H0ajDGN/MAhMMvwLOb
-	 CUKjJFX4qXNfprHbCSR9v70qtAvx3FzbZKdt8/bgaYL65W3ouo05GaI3hhdsvcUcX3r8G
-	 3rIPXoXYpOJtVVcPvcVFFlyN5yr1rjZpNC8mS1k5eGDeCj/wEBosRsrz0++KzUOuAqaXP
-	 TybZMaUWmJsZX/84XEdTxtgvN2KuCM54PvASJ4kjbKN1uDuwm+Mw9U7Bz26wuDBJ6kw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795196135;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795196137;
+	b=d3frfZwhkPX/I0C/Gxj3DocBk6Yblt8qddscYQboHJBdHyuH+iVYq7xiFBjJyXJUMXWy
+	 NZAcWLx+/zPGaxO6O7ObjjaRarXFqy3DUOG11FC7rtIi33hGHHOntvUxSIVTxf5vlmX25
+	 kqsYNwtovpJ2RkA34L3DNmKe7JNM4SDxZYXYOuXQVIBiprg44P6gMeJMqVH4VeJxthDDK
+	 MNtIdSLiV/JsUen4ainYMT8VZ+WhJNyqp3LL48t1njCeGqZ8HHuLNBnBuS9wWXziRSeSa
+	 +MP6zRCFhYUpYnjS9aSfoLaJ/1bSOm2oMpkh0UBK1MbPrTQmNes67+LJb9XrF/n7vCg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795196137;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
-	b=Co9VITJfp6fJ2NjSRVudi1vCubL5L5eVl6xoB20nEh6tBz5kSkpc+Zf8s6FqZj1NcNl6
-	 UbKeNRJ+1LPAYmgM3R5Wr0VDP3jbTzkx4Y7nHYdHk+VMvMd+IfR7PmbXHRkTHd/+UBg2f
-	 QPp9XbfhWIaZs6fDXqLWucpsQEMBk7cyQoeRkYylYarE1TyNd5vpr9TZ8NXgXnF4QGh53
-	 17cQr3Eb0IXO+gOtVsPtbHhkc+cXuxCKpvNyagJgqlUbzFVyv/iEzm9vAsb753+9KhPl8
-	 /q1dUg0ljKvYI9HjBklAJyJL1HBlVEHPOHg7605ziIT96HXQGHqnq7qARRMLhnvhPpA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pxvQW88O;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.177
-Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=GegFZN/i+0Qb2Bxilr1Km+wa96tgPPaqqRX1nymM8Ts=;
+	b=1kiyVfHdP172/VoFe/K2mPyfnjBjRwUhws4cZdDhddyJybd0KmSabmY1ei9XX9xmhL3O
+	 Ebv1tH2/VvpFRgI3duzCOriSakI68S3P8wuxunRyuVn2y7yUjp6pu+9Dl8Cs/7C/wN9E+
+	 CdLtYlOWKK7ifG1A1qm5zuBSfgwh/h//B35DKasg1PYZRJWeV1zjX8WmXFIiQnOfe4DaG
+	 dSYbrgCXGny6vghbnn65CeSgjIWB4dPww0sqOCUy9j3tpr4eO7rYtg1EtI4WJ0ZMngkeH
+	 LCwG8CU2NbWJQjPQNBno9uavd7hqPSsKbc4dU0daGrnsol/zeVuGgP5Xx4GHhwHi04w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DBNbd9vk;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EOwwV6yH;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 386B160A2606
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:35:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 386B160A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8674160A2620
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 17:35:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8674160A2620
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=pxvQW88O
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-533202fe429so374441cf.0
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:35:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795196134; cv=none;
-        d=google.com; s=arc-20260327;
-        b=YHGCbcQqIveRTvl1OWQdWFRPM9Rz25rf1N6TGNOII9f3g/hZGzs7ubJyQvsCahMk2b
-         N+7skHmyu+5AjRCmCS1GD9xd3254x+9IxgOtpBV4MfrwoXDqdgIqfJOvXkbcP+bVuCn+
-         nnMZNYyg1jUFgPhU2ChzqBkTAGPuXdbBhMCn6XkOT4psX0KyegIgNtCRB6j+xRq5ICA3
-         zkQP5TaGXVPgvdZeuH0dtITxH1TNIOGYUsiO1L3Ghf5wJyyb7d2auKkvdt1ICWduYYic
-         4+9lVPGnaWci+0gNRXB4EiYSeWQSfED9PQoDiAxrAYqRdfqBczZiKFSNimpdfjC1k3yX
-         8+hQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
-        fh=ot7MfhXwHd6wYWWXzYbsga58XdjJDFe35mHOESXLWGY=;
-        b=nHJ8JMURmB/I6gLNJJh9rKFuXZNW6/sQRT27K0TVYW2GGpwXZwK4E9G26t51uHV0x+
-         iN4AEkZPCg57B/YuNHF3nliMKqeulVZEpztj1d2mfVXNDts4DPjh0OPsnk+BQLvtSUC0
-         gEsVx4RioLFnJItQ15ZHUZ/qse/sDx3CAJy8W5BJwXaw4lBVDcsYoJwaDYrFK7192OQw
-         LsbnxQVa0WkQjZTZrNyIN1EMpwplezHGPyV9dZ81fD2NzZftytOH3gH7xj7i7m0IQeUx
-         eYSj9mPfGj/DJQmA0qtQTR+h/y0QB3LaM7uGiUYfjvNZMnl7k3qsJnyX2Cv0wLVCeA3f
-         Z++Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DBNbd9vk;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EOwwV6yH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795196135;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GegFZN/i+0Qb2Bxilr1Km+wa96tgPPaqqRX1nymM8Ts=;
+	b=DBNbd9vkNKfP5oVT2g3LUgP6Gd4cPvJHlB/xIiyT2QQ1sn/VlHZmuJ/vg4esRrqa1xygha
+	uS9ovo/5NcBIu11vGBigNR/rOMgJcoUSUoUit2wUvizN1sQTPhjfp1N3MfuLQVIZ4vEGS1
+	TNOoqMnOFu2YCYceZLh9GVgOS6sZmc4=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-681-TqBNwKz3P_SBFacO29ZuAA-1; Fri, 20 Nov 2026 17:35:33 +0000
+X-MC-Unique: TqBNwKz3P_SBFacO29ZuAA-1
+X-Mimecast-MFC-AGG-ID: TqBNwKz3P_SBFacO29ZuAA_1795196132
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4923b9fdd43so750063f8f.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 09:35:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795196134; x=1795800934; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=redhat.com; s=google; t=1795196132; x=1795800932; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
-        b=pxvQW88OzCK9s8pLfh+iC9tA0s6dsuBw0WM3uUGfzdpvTlbLRFSPFiHzRxYn2NCPx6
-         uKUHYFVwvBv4s0JsvhVgC80hCaeyiB3LRxtUOFaq5rzhFN8uWkWmdU2uO/tGW7kru5vT
-         ecJxZoH0lfu/NbzE/6qdwV1M5eELAzxWoEfBB/1dBmXYGAyqxIyp4Ga5Nzzgu9/wPDsO
-         3gv+n46jg5SQPseG8iOZmW3WvNh6lEHLqyb/8GmPx0TlvsynlWh3YDE85Cbq6rXM66xa
-         /cY6shZV6301KbSZ9YQxIAkpwJoXOiKk7klY2LMbRXrKlY+U/FWzVA+dPa4Ka2JtYUuw
-         9Haw==
+        bh=GegFZN/i+0Qb2Bxilr1Km+wa96tgPPaqqRX1nymM8Ts=;
+        b=EOwwV6yHOp3apsf9f902opTqO03jNgptct21fISKdBBMYsOB9iC9vHmapSQQ+a9FZy
+         X6x4k95HK5XM2UtpmKUEy9dtRhziogCA/BIMDRF6qcxPGcN48mQ0d2ud0qUeJDaR1rXq
+         C4aDchRQ1xVo7IpLHtC7HJNj/tvfylG5wOKaWWou3tsIdeYGyRsQrySBm9SxuEVUVywY
+         VT5RgKuKkGVlBiDL19m+W47kAyfU18xuyHMQZWIhhrhNNqPAodhQNgrdvrTLXBN88z0M
+         30ixgFFlb+gllt1W87j0GOChYsVaYXghY1t6prcqoFruaDvmpsk/MNWlEJlf1TnBajxr
+         NLhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795196134; x=1795800934;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795196132; x=1795800932;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Sg9wdreYArJWqO177axMWEVER4eAxW9Ay7LMmq1t6Eo=;
-        b=OGbPW6fBc1lUNbch10IP9ysiHHlx/Cz3koHBSFU5EehMRTXTqbLmJ9algFR1F32g22
-         FOeRPgoIRivbWgHgrb23qJdbH5FGmeSbU7XfgGCc818tXgYrInSoipbnHpu4UGT7p/nP
-         sxMQC+qkbr3Gf7u7oIyr4Fc18+7HSVwvGHX9vgDZJ0Hmb4+ufOouAkuQme04OXeJfxWo
-         DxsUuTlKsx5a6pNR+xoF4o2IPGSzu5UIgQypJFY09KzKpDJ8Y33FnbHd4yGjZdPepKhY
-         pQ5/+K+rFQiEk85afLxGoAS7yd6Lzka1d28A7qs5hMDTjiMb8s6xBJxPOWe/XGeoux7x
-         4nkg==
-X-Forwarded-Encrypted: i=1; AL+hErFWDDc7KQ8fZ/BS+U/EduYsd9/PgoM5EuDYaYQMomYsmezXQhrSOrdya/Gj0f91CWHppYAe26xN4J/IAPg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ToYNn0vcD/bWctu35BddNOap8l3KLyeI/WzlSdT6Kkbn3FF34
-	O/vP56lJB1dzZrx+EYsmrvvL0dRsjp6itHwjWkFkHwDJzAY6FNC/DeNVJsE84gi4jjxgsdNDm60
-	XvseGeFmqqFZX0U33Gz2xQpkeQRpF4zsRyrSjuWmb
-X-Gm-Gg: AZFdTZcC9Wjzc4uueV0xZfYwv/BCLPtxFN9eEgIC5Sv18lz86xXTDr7HsRiaZxMtYlS
-	1GG/DPUeuONW29o2X2eiTr/XufmozITcJxDE5ldBex+rgft7oRkm3QeEcP/sPwIJUIIVWLOhLHF
-	7vNPF1G7AEKzYQxwCkwyG7Xa2jjZXjURgv93A+b7cG5U/umF4ToQChDZFWCOTSQdJHSp4u3dhLC
-	xKmo+lNSJBNazk3XUNM0AdAxCnTC/zGE7UUgiAyX1SnNm0kh29fn6hT1mn/2CGl27E9XnTKzqoe
-	sIm6RMG3ZwdRBVp5QKwJKKhnQtcxiZpNCCebHx6q3JHV45txCtEptdSnwp5jcunNbiB2e6AKHqF
-	6mIjEDiNzPqdjcntDtZxYtFmXlByG+w+nljCp
-X-Received: by 2002:ac8:5c8b:0:b0:535:30a:76c7 with SMTP id
- d75a77b69052e-55d790b2edemr23784471cf.3.1795196133385; Fri, 20 Nov 2026
- 09:35:33 -0800 (PST)
+        bh=GegFZN/i+0Qb2Bxilr1Km+wa96tgPPaqqRX1nymM8Ts=;
+        b=Ka55/M66tn0wSUW3KBia+08YEfxvA+dVwj/0ehgOWrIfdp26WGtgacxvBRnSqupqcY
+         /kieCOKTKXEiYIaqX70sRt59KkfeNPpKDfT3bcAdKsrkfKHDhv5LIclL0qa5KJyCcpGy
+         Cgy2MGkLusQXw0Tc5lltsHZ9Xh/xNsHN397t05FgXtUD465riWIZZ/TDiCdvuQNdTluG
+         16PyFKW6rTI/ni8b4F/NB6FFkpMJWIAvkPccb+5cNRhczw1AI7ZHRGGw1tDljfdtRmCp
+         ncID5vNOUiBfEYL+fUHuBIBk6grXNXV9WRbqLiY5IfmNPc+g7CL08tKMuTe3G7xeRE52
+         Yc3g==
+X-Forwarded-Encrypted: i=1; AL+hErE8Kv88xhRBDlK3NHnceW4J5fN70EvwjEfsiNN1IzmBREVYWsLfVdG0QZXCzwSHklEUauvzxNNysFs8kak=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BsOrNZuHvcQPuy7BoV6XjcTmjCAz6bsvsE9EpFuIhZpBILHAG
+	mwEz4iYx5UmGjINtYn/SsoapINEWeLWHJMiuqWdpdFsyO8PZYCqZ0pJrCknuVCVAMHJfzmf1gTi
+	5ZqSKNzx+0gle44WDmKmiD3n64/ztFgii03PW/xAd+RveNaytvsLk4CMBRgtrAzBriw==
+X-Gm-Gg: AZFdTZdQp2YFdkAvEC5xwJfNPQYDh6rPGxByOtcBQiPq4U6GcZ9qoCuq2wM0dIHL39v
+	abfp15QWAq/1yUF4TNEEt2Q76tKp9t1PANcnkvHsB1aRq3w9Fm61549I1J4RNWd151nKX5246f6
+	IaCLxbVpdUByQaWpExoce4wEasgKf2wskbcuEwv/qhJDtXcW8kXqgwJGWl2XXHmhi9wU9NKjjTu
+	vJdMrjupChySmMD0foHot7ds7KGs1WJWFlLPUVq1cV+KMmUZMAIbW5KaozWeFfWgGX1JlJ//jzg
+	spzW6fEgSubsEwMKqYebVRILvRs3O4ZF0ryrjYsjbI516lajGy+9xWh1Dmz9Pr6l7qiC6MG088y
+	kELDrvKiQFjrC5FEML80WjBi/7K4Rl7FOzyVAFrbFpHh2
+X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr7875099f8f.43.1795196132096;
+        Fri, 20 Nov 2026 09:35:32 -0800 (PST)
+X-Received: by 2002:a5d:5f4f:0:b0:4a7:35af:c83c with SMTP id ffacd0b85a97d-4abb3e21218mr7875038f8f.43.1795196131642;
+        Fri, 20 Nov 2026 09:35:31 -0800 (PST)
+Received: from redhat.com ([2a06:c701:73c1:fd00:6c8e:5a61:f533:519d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm7150988f8f.31.2026.11.20.09.35.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 20 Nov 2026 09:35:30 -0800 (PST)
+Date: Fri, 20 Nov 2026 12:35:27 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Jonah Palmer <jonah.palmer@oracle.com>
+Cc: vlad.wing@gmail.com, brett.creeley@amd.com, eperezma@redhat.com,
+	jasowangio@gmail.com, jkkm@meta.com, kernel-team@meta.com,
+	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
+	xuanzhuo@linux.alibaba.com, joao.m.martins@oracle.com,
+	si-wei.liu@oracle.com
+Subject: Re: [PATCH] virtio_pci: limit Oracle DSC2-200 virtio-net to 48-bit
+ DMA
+Message-ID: <20261120123500-mutt-send-email-mst@kernel.org>
+References: <20261109184253.531677-1-vlad.wing@gmail.com>
+ <20261119200654.1048266-1-vlad.wing@gmail.com>
+ <20261119181557-mutt-send-email-mst@kernel.org>
+ <20261120171435.83458-1-jonah.palmer@oracle.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -104,141 +121,25 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261119171014.1534691-1-irogers@google.com> <f712f16f-dd35-4afc-81db-4e93232846aa@bootlin.com>
-In-Reply-To: <f712f16f-dd35-4afc-81db-4e93232846aa@bootlin.com>
-From: Ian Rogers <irogers@google.com>
-Date: Fri, 20 Nov 2026 09:35:20 -0800
-X-Gm-Features: Aa3M54rHxE2SNl4cgtQPI_-lngqTQPH9-vUoYkTGGDewMSKBXdmwHC7t9x76wtU
-Message-ID: <CAP-5=fUPWc5GH6BQsN-+Di=LVb=dYcUu5Mo04Rp2ugsMzjYFEg@mail.gmail.com>
-Subject: Re: [PATCH net] net: pse-pd: pd692x0: Return fw_upload_err codes from
- firmware upload ops
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	Elkin Cruz <elkin@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120171435.83458-1-jonah.palmer@oracle.com>
 
-On Thu, Nov 19, 2026 at 9:26=E2=80=AFAM Kory Maincent <kory.maincent@bootli=
-n.com> wrote:
->
->
->
-> On 11/19/26 18:10, Ian Rogers wrote:
-> > pd692x0_fw_reset() and pd692x0_fw_write() return negative errno values
-> > from i2c_master_send() directly as enum fw_upload_err instead of
-> > FW_UPLOAD_ERR_RW_ERROR, and pd692x0_fw_recv_resp() ignores negative
-> > errors from its trailing i2c_master_recv(). When a negative errno is
-> > propagated to the firmware upload core, fw_upload_error() rejects it
-> > as >=3D FW_UPLOAD_ERR_MAX, logs an invalid error code message, and
-> > reports "unknown-error" instead of "read-write-error" via sysfs.
-> >
-> > Return FW_UPLOAD_ERR_RW_ERROR on I2C transfer failures and use
-> > enum fw_upload_err consistently across the PD692x0 firmware upload
-> > helpers.
->
-> Please write a readable commit message with human hands.
->
-> > Found via Clang -Wimplicit-int-enum-cast on an x86_64 allyesconfig
-> > build. Verified by building drivers/net/pse-pd/pd692x0.o with LLVM=3D1
-> > W=3D1 (-Werror) and -Wimplicit-int-enum-cast, and with a standalone C
-> > reproducer; not runtime-tested on PD692x0 hardware.
-> >
-> > Fixes: 9a9938451890 ("net: pse-pd: Add PD692x0 PSE controller driver")
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >   drivers/net/pse-pd/pd692x0.c | 81 ++++++++++++++++++-----------------=
--
-> >   1 file changed, 40 insertions(+), 41 deletions(-)
-> >
-> > diff --git a/drivers/net/pse-pd/pd692x0.c b/drivers/net/pse-pd/pd692x0.=
-c
-> > index 7958f5741463..94a857eaa3de 100644
-> > --- a/drivers/net/pse-pd/pd692x0.c
-> > +++ b/drivers/net/pse-pd/pd692x0.c
-> > @@ -1455,6 +1455,8 @@ pd692x0_fw_recv_resp(const struct i2c_client *cli=
-ent, unsigned long ms_timeout,
-> >
-> >       /* Read remaining characters */
-> >       ret =3D i2c_master_recv(client, fw_msg_buf + 1, msg_size - 1);
-> > +     if (ret < 0)
-> > +             return FW_UPLOAD_ERR_RW_ERROR;
-> >       if (strncmp(fw_msg_buf, msg_ok, msg_size)) {
->
-> The error will be catch anyway by the string comparison. If you want to
-> add a check on ret then add another error message.
-> This is not a fix.
->
-> >               dev_err(&client->dev,
-> >                       "Wrong FW download process answer (%*pE)\n",
-> > @@ -1465,9 +1467,10 @@ pd692x0_fw_recv_resp(const struct i2c_client *cl=
-ient, unsigned long ms_timeout,
-> >       return FW_UPLOAD_ERR_NONE;
-> >   }
-> >
-> > -static int pd692x0_fw_write_line(const struct i2c_client *client,
-> > -                              const char line[PD692X0_FW_LINE_MAX_SZ],
-> > -                              const bool last_line)
-> > +static enum fw_upload_err
-> > +pd692x0_fw_write_line(const struct i2c_client *client,
-> > +                   const char line[PD692X0_FW_LINE_MAX_SZ],
-> > +                   const bool last_line)
-> >   {
-> >       int ret;
-> >
-> > @@ -1478,19 +1481,12 @@ static int pd692x0_fw_write_line(const struct i=
-2c_client *client,
-> >               line++;
-> >       }
-> >
-> > -     if (last_line) {
-> > -             ret =3D pd692x0_fw_recv_resp(client, 100, "TP\r\n",
-> > -                                        sizeof("TP\r\n") - 1);
-> > -             if (ret)
-> > -                     return ret;
-> > -     } else {
-> > -             ret =3D pd692x0_fw_recv_resp(client, 100, "T*\r\n",
-> > -                                        sizeof("T*\r\n") - 1);
-> > -             if (ret)
-> > -                     return ret;
-> > -     }
-> > +     if (last_line)
-> > +             return pd692x0_fw_recv_resp(client, 100, "TP\r\n",
-> > +                                         sizeof("TP\r\n") - 1);
-> >
-> > -     return FW_UPLOAD_ERR_NONE;
-> > +     return pd692x0_fw_recv_resp(client, 100, "T*\r\n",
-> > +                                 sizeof("T*\r\n") - 1);
->
-> This is not a fix, just moving code around.
->
-> For the rest, FW_UPLOAD_ERR_NONE is similar to ret =3D 0 so there is no
-> real issue, only some type mismatch and I am not sure these changes
-> should land as a fix.
+On Fri, Nov 20, 2026 at 12:14:35PM -0500, Jonah Palmer wrote:
+> On November 19, 2026 at 6:16 PM EST, Michael S. Tsirkin wrote:
+> > it's in my tree.
+> 
+> Hi Vlad, Michael.
+> 
+> I've been looking into this issue extensively. The proposed 48-bit limit
+> is a suitable conservative workaround. My virtio-net testing for this
+> issue shows that a 51-bit DMA mask also avoids the mentioned issue.
 
-Sorry for the noisy diff and dense commit message - you are right that
-pd692x0_fw_recv_resp() (where fw_msg_buf is zero-initialized) and
-pd692x0_fw_write_line() didn't need touching, and all that type churn
-buried the actual change.
+Do u want 51 bit then maybe? x8 memory with no BB?
 
-The only two lines that return a negative errno (-EIO) as an enum
-fw_upload_err instead of FW_UPLOAD_ERR_RW_ERROR are:
-  1. pd692x0_fw_reset(): 'return ret;' when sending "RST" fails
-  2. pd692x0_fw_write(): 'return ret;' when sending 'P' fails (whereas
-sending 'E' right above it already returns FW_UPLOAD_ERR_RW_ERROR)
+> Full 52-bit DMA mask support is planned. We will revisit the driver's
+> DMA mask once the firmware has been updated.
+> 
+> Thanks,
+> Jonah
 
-Would you welcome a minimal 2-line patch for net-next (without Fixes:)
-just changing those two returns to FW_UPLOAD_ERR_RW_ERROR, or would
-you prefer leaving it as-is?
-
-Thanks,
-Ian
-
-> Regards
-> --
-> K=C3=B6ry Maincent, Bootlin
-> Embedded Linux and kernel engineering
-> https://bootlin.com
->
