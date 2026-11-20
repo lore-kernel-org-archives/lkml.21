@@ -1,58 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795172787;
-	b=AXntPbJABkzvNGU+Tv7OA42QfnluQ4TIL58AS5xyRNCWPh2cUYhXUDUKXVG18/X0Qy/J
-	 P4sK52lJLZmsfLpMPDS5UD8sX0P/AusjqklOvcngl96yQPBNTcNQ4s1g7Wm+C2tc1rpGx
-	 O4y40YZKhRMQlebhe0OxS1a7n+nVNDNTdMtayJWN/jWPJvEqQLuV13dIZxLsDJNwtdFtz
-	 uwKIV0ZwSWITesrAnl2+m/hDFV5CON//pj1PpVMaHvv0EUZfbKyKijqtwA9t+Ra1n3Kfi
-	 tsa+FT0+yjpBYAGauvN8kM7gaRAOK2l5jOG1SGY6eNT8ER40hLsztmOyvGCweAoSEAA==
+	t=1795172811;
+	b=azy8Z7cOxSXjDcEZCqonPpr8mrwWPnj2kIy2X0899SF/ASpQVbBVxsWC2d852KDw5Ivc
+	 +Npy03FV2zYqFwZqwBKVYD6SOwS4//P2DJjzN3lLWYifh9sopdQ6mB/VKXIjDP6zsO98w
+	 OM2DPxaTarwX3YZJ7r0Bf/4n2ZeQ+KajP/TKJxPPTjafWbpR4y+5gRoIoOMEydeUysHoS
+	 DwfMXZPCvcg3bylOgEXk8fxkddNlpqk98QTmbjMd9iGtiaafiMf3wh6Ap01MaJDIwfkNO
+	 +o/FY9sjQizVeKFR/M37vAhNIlbrCJ2GldKqBoLtLc0KPC5eCuckoe1vPMYsDvcFT+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795172787;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=YYyqqP9Mt+ougXq/u35v5Dw9NG+MQo8EAqZGdlm0Rf8=;
-	b=gSr/bDQkg75m6TivUF9qvDfynuN1DxH+4X6wpjVJ4GVPc9dj7tw09nTZ7jyjYodyfKUP
-	 yKOZe3fuIDZILw3J7CZ7iuoe2jwS3VsxyoKOHb2HiQxaWvqyoeTitCXEdHMQQy555yVq0
-	 kDgCJSUpZcNHvh1y7eCWWeBUxOimyoqceo+PSvIP6kb20ndENc/DJJhqFAA80tN2cMTNM
-	 e4AzgaUQl0fQKy8I44nM0r0qykFvKQu9mOMvF1nk9dZ7z/TMJtj5dHpAJYxAH7Yr/xaoi
-	 VYpsB+hOGlIQF84FVDSOqLTNXnZXbd/4HCJ7lCeUx4R6s0/1qs6q1t0TwQe05IWSAGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795172811;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=TtFuIhwgLpPs0ea7HaHQTWE6q+4yCc9ueOWd48K9Uz4=;
+	b=4DJOr+Za3lBU2BNfi2BvPbU33KToz6oEIXajiXYS3Krh1qFeDFOiwQm+idCM/3gCU/0M
+	 q9lbZ4ghBo1fjgFMJ1LxnHubWCOv4ejOfw0KGNvKANlf9oOlFcBmcuOlK/PHPgs4LAthc
+	 1YnR2NkGl/NxrKmehwO06HurAx3OCBzh4a7zI568P3vFq7s/CiGWibYfJGt/DrREzNoEb
+	 aLPGDQ2nm/SCQeDBJUwA+eukSOLsxNM30DZn8ErBlGAnMZr35lFAuzsbfa5/Y7VnTkrVu
+	 2+kDLePLraz4IklV8qsgvW75+lP/YzB4mQnDFjZgJTf6zIjOo8ExsszV8Q8UlLzj+EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="JL/4KeD4";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pKp1mOHB;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64381606A326;
-	Fri, 20 Nov 2026 11:06:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7560606A320
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 11:06:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7560606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JL/4KeD4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D3501F000CA;
-	Fri, 20 Nov 2026 11:06:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795172786;
-	bh=YYyqqP9Mt+ougXq/u35v5Dw9NG+MQo8EAqZGdlm0Rf8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JL/4KeD4WWm/2Nsak1zGkpqHRgpRQbuvJik+YWthQfGT+QyyIEXm3iAtfJCELrlPD
-	 dOaRli640Dwi+kq89s7B710onJaS4CWrb+xOpbet4AsZtiak4jfIJCfhVsuZVORKg3
-	 lXo9B+mJcVGeHiCO8rbJwqUpavNTxN9nwEPKxBp1WTI50AKU03wmMyht7AxmkIogmJ
-	 l/pNRdMQi565+vFyTlJaT5Zp15JI90y3hb7T+m9iiG+Ks9Po4ya4KJPoFWSUjDXi/M
-	 WBlu4UwxX0nHN1u0pSiQ07+E6WHJ/ZZcgHuavnrCy/pQkHWb2ELa+DiqBZbsGrfp92
-	 gag/thiP2aSOA==
-Date: Fri, 20 Nov 2026 11:06:21 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: liguangshuo@mail.sdu.edu.cn, sgoutham@marvell.com, gakula@marvell.com,
-	rkannoth@marvell.com, sbhatta@marvell.com, bbhushan2@marvell.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
- representor teardown
-Message-ID: <20261120110621.GB860048@horms.kernel.org>
-References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
- <179501121429.3136.3547762606402557223@kernel.org>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=pKp1mOHB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Tt
+	FuIhwgLpPs0ea7HaHQTWE6q+4yCc9ueOWd48K9Uz4=; b=pKp1mOHBD9Pcw/cvWa
+	I+cUQs+xX07LPn1aI3fJG1xin8ZmjwGXQeQnyE3tV6RD+6eHEeKekKGjmHPi1k+v
+	CG2G5J7Mw9N5AIKvjqD90psoVafdcUlyr/28Wqdi0ReRDxMHQA553j3d6RQ7cC5X
+	hhiWg3aev0oahXkIosGxa4bf4=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-0 (Coremail) with SMTP id _____wD3z1yGKQBrer4iJg--.45709S2;
+	Fri, 20 Nov 2026 19:05:43 +0800 (CST)
+From: Xuewen Wang <wangxuewen_ky@163.com>
+To: akpm@linux-foundation.org,
+	david@fromorbit.com,
+	qi.zheng@linux.dev,
+	roman.gushchin@linux.dev,
+	muchun.song@linux.dev
+Cc: linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Xuewen Wang <wangxuewen@kylinos.cn>
+Subject: [PATCH] mm: shrinker: stop counting when the seq buffer overflows
+Date: Fri, 20 Nov 2026 19:05:38 +0800
+Message-Id: <20261120110538.3256962-1-wangxuewen_ky@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -62,111 +64,60 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179501121429.3136.3547762606402557223@kernel.org>
+X-CM-TRANSID:_____wD3z1yGKQBrer4iJg--.45709S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7CFWrCFWxZFyUKF48Cr1DAwb_yoW8ZFWUpF
+	s5K3yUta1DZw1xZrsaya18XFy3Aa4FyrW5WFnYqrW3Jr4rXr1Sq34rG3WYgF48C3s5G34j
+	qr1Y9FyUGF1kZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jJTmfUUUUU=
+X-CM-SenderInfo: pzdqw5pxhzv0xbn1qiywtou0bp/xtbC8AdGL2sAKYd0GwAA30
 
-On Wed, Nov 18, 2026 at 02:13:34PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 1 (1) · High: 0 (2) · Medium: 0 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Critical] The patch is titled "Fix potential use-after-free in
->   representor teardown", but rvu_rep_destroy() still frees rep_dev while…
-> 
-> Pre-existing issues:
-> - [Critical] This problem wasn't introduced by this patch, but
->   rvu_rep_setup_tc_cb() copies per-representor pointers into the long-…
-> - [High] This problem wasn't introduced by this patch, but the flow_cfg
->   setup used by representor TC offload has broken locking and error…
-> - [High] This problem wasn't introduced by this patch, but
->   rvu_rep_state_evt_handler() runs from the AF->PF up-mbox work on…
-> 
-> --
-> 
-> octeontx2-pf: Fix potential use-after-free in representor teardown
-> 
-> This patch reorders rvu_rep_destroy() so that rep->flow_cfg is freed
-> before free_netdev() releases the netdev allocation that holds the
-> representor private data.
-> 
-> > diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> > index 0f5d5642d3f7a..662da7fc39536 100644
-> > --- a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> > +++ b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> > @@ -638,8 +638,8 @@ void rvu_rep_destroy(struct otx2_nic *priv)
-> >  		rep = priv->reps[rep_id];
-> >  		unregister_netdev(rep->netdev);
-> >  		rvu_rep_devlink_port_unregister(rep);
-> > -		free_netdev(rep->netdev);
-> >  		kfree(rep->flow_cfg);
-> > +		free_netdev(rep->netdev);
-> 
-> [Severity: Critical]
-> Can rep->stats_wrk still be pending when free_netdev() releases the
-> rep_dev here?
-> 
-> The rep_dev lives in the netdev private area. Nothing in rep.c ever
-> cancels stats_wrk. rvu_rep_get_stats64() re-arms it on every stats read:
-> 
-> drivers/net/ethernet/marvell/octeontx2/nic/rep.c:rvu_rep_get_stats64() {
->     ...
-> 	schedule_delayed_work(&rep->stats_wrk, msecs_to_jiffies(100));
-> }
-> 
-> The unregister_netdev() call just above seems to arm it too:
-> 
-> unregister_netdev()
->   unregister_netdevice_many_notify()
->     rtmsg_ifinfo_build_skb(RTM_DELLINK, ...)
->       dev_get_stats()
->         rvu_rep_get_stats64()
->           schedule_delayed_work(&rep->stats_wrk, ...)
-> 
-> When the timer fires about 100ms later, rvu_rep_get_stats() would run on
-> the freed allocation:
-> 
-> 	rep = container_of(del_work, struct rep_dev, stats_wrk);
-> 	priv = rep->mdev;
-> 
-> 	mutex_lock(&priv->mbox.lock);
-> 	...
-> 	stats = &rep->stats;
-> 	stats->rx_bytes = rsp->rx.octs;
-> 
-> It reads rep->mdev from freed memory, takes a mutex through that pointer,
-> and writes into rep->stats. The timer embedded in the delayed_work also
-> stays linked in the timer wheel after the free.
-> 
-> This can happen on devlink eswitch mode set to legacy, PCI remove, or
-> module unload, for any representor that has RVU_REP_VF_INITIALIZED set.
-> After a module unload, the handler could also run after the module text
-> is gone.
-> 
-> The error unwind in rvu_rep_create() has the same pattern:
-> 
-> 	while (--rep_id >= 0) {
-> 		rep = priv->reps[rep_id];
-> 		unregister_netdev(rep->netdev);
-> 		rvu_rep_devlink_port_unregister(rep);
-> 		free_netdev(rep->netdev);
-> 	}
-> 
-> This patch targets a use-after-free of the rep private data in this loop.
-> Should it also add cancel_delayed_work_sync(&rep->stats_wrk) before
-> free_netdev() in both teardown paths?
+From: Xuewen Wang <wangxuewen@kylinos.cn>
 
-The above does seem to be a legitimate bug.
-However, I believe it is also pre-existing and can be handled
-separately to this patch.
+The shrinker debugfs count file uses single_open(), so all memcg rows
+belong to one seq_file record. When the buffer overflows, seq_file grows
+it and retries the entire record. Queries for subsequent memcgs in
+an overflowing pass cannot contribute to the final output.
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Stop the traversal once seq_has_overflowed() is true, using the existing
+mem_cgroup_iter_break() path to release the current memcg reference.
+Leave the overflow state intact and return zero so seq_file can retry.
+
+Signed-off-by: Xuewen Wang <wangxuewen@kylinos.cn>
+---
+In a single-node KVM guest with 1024 cgroups each caching 16 ordinary
+files on ext4, the 8865-byte output required three show attempts. Count
+callbacks fell from 3075 to 2472 (19.6%). With probes disabled, six fresh
+guests per variant each performed 101 full reads. The median of guest
+medians fell from 128.2 us to 112.2 us (12.4%, about 16 us per read).
+Small and sparse outputs had unchanged callback counts. Complete output,
+small reads and seek-to-zero rereads matched; concurrent memcg deletion
+and signal interruption checks also passed.
+
+The successful pass still traverses the full list. Early exit skips
+count queries for subsequent memcgs in overflowing passes.
+
+When overflow coincides with a pending signal, the original code can
+return -EINTR in the current pass. With early exit, seq_file attempts to
+grow the buffer first. The retry can return -EINTR, or buffer allocation
+can fail first with -ENOMEM.
+
+ mm/shrinker_debug.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mm/shrinker_debug.c b/mm/shrinker_debug.c
+index cafb566301326..3022d103b0b1e 100644
+--- a/mm/shrinker_debug.c
++++ b/mm/shrinker_debug.c
+@@ -74,7 +74,7 @@ static int shrinker_debugfs_count_show(struct seq_file *m, void *v)
+ 			seq_putc(m, '\n');
+ 		}
+ 
+-		if (!memcg_aware) {
++		if (!memcg_aware || seq_has_overflowed(m)) {
+ 			mem_cgroup_iter_break(NULL, memcg);
+ 			break;
+ 		}
+-- 
+2.53.0
 
