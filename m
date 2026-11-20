@@ -1,95 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795170633;
-	b=DItnBXaRzxhNKm8pjtaQbNWcHdeT83ZjeQOBQOZhMZaRJloDeiyWdM6khoq+Qib6I7Br
-	 caiF2zuge23EoyBJLqQQTV4l2yRhthas5usqUZfeKOx4qP1hJWWi1EZAy1kTibTTLgIHx
-	 OXwHezqn3uEvbFZgqEpFeKYZv+Xx+QOzDgGXhSf8ikLHQ6CLgHQXHJLvl8aiPOzEHtTIT
-	 dOqhzx3O+6vGdv3aRozlgMTCKKCyW0Z+8READhXbH7tFqfOsZ6pWlR4Ow5wkBaCtdzpAw
-	 doUBufBuF694AKxglFfUSo5YV5YWcKlWF1qm5j0amk/Xf43IEe85r8SirE7QJ73YghA==
+	t=1795170666;
+	b=0LzJqZz0VaS+agcwHwgJAJ0cf1fiUbeMBkRnuULLjWynPBaOhR+xr306JijU+MKTMGL4
+	 d3prqHouBYrxQZvubQubl2HFJYeaFm73AO0lTeddhaR+RHBEvx2NTG3ux75OzPpieqX7Y
+	 Gv42q+pSj5xPa/v+SUVkG+3eigUXK19ygnhk9n5hi6e+Rf25QrxMDId+Vlp/BV3cOKDi2
+	 oOSwshEWD4RdHu8bSyfz4+LqQdRUvLnvKGDJfQS2jmpSlRx7qBc5JiR5vtR5PM3Ue7uRV
+	 M5XbLr9kcAvFe8h27ucYvKKAxHxWQu7FH85sEnvqlSMHcV40WUeLSwfiVpBd898BrHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795170633;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-TM-AS-GCONF:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=hgal94A/jGJk/1J2gpAEmD8pKo91/DhLHIikk+sDg3Y=;
-	b=HfzxpcLmUfS1oclY4BrW/g9QQyocMQ7udLqvB/o/kF8+K17yjMCyLZ+bdkxzqm7B8m4R
-	 zXBAa5QziW68+FXCpraSng/JFoqqwjS3y9ewYOpvO9vqRXOUTyaptV6lNobfAffpLQshn
-	 UX3e0m49QcOJgYs1TkarH9SVRsg12kdeyfJKwQKE/V9ESnimHE0k7hsh/MspTbdouqckB
-	 lYuR+yJdxgK573Uh6criB9uxm7LFgNPgZtPFZgz57fThH1NecUe2m3grBQBvPwhP3E1SG
-	 NY+FCUzzGqPQks6Jvh+e5pP3eP1T9IpIbObmWNXp21IlMb2txRXXr++jWSW0nxl1XPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795170666;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=4NvHKXhj5jAm3S6feuHHzXaGQeaH4gvsk2BBP8dDlfk=;
+	b=yXDuTKTnMdQ+ZvyoTYT4r76Bt7plTmgENkUz4YWTzasLrwxsb5VEA+VmH2nKNXD2BQdB
+	 edJ9/M+K0PBllTiwkUGT3PX6gBfnG2JIFe0DNHswmJAxtbVc5xKR9j77czWZuVflLt55r
+	 lxjyMWOD9w/BeKQqJtLXkuU6tmlqB8M0qmfhqCEEmkMx5dSPNaXfkcFpXwbjtlgJRA0uU
+	 bxrKYcRoNintB10UlckNodlK9lBMmROQHag4mSRH35pGcBswyqhBsHNYJjfeCvxqzGTNA
+	 z2g03U+2NczsucNC3G7pPREyWbQj9qfKg0iwEkFABJGafftd3UskIZcTCYMjIKnZiNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NA66jB4L;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D574E606A326;
-	Fri, 20 Nov 2026 10:30:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D574E606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=pTABLHA3;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C87FB606A325;
+	Fri, 20 Nov 2026 10:31:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C87FB606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NA66jB4L
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7ufeG2500613;
-	Fri, 20 Nov 2026 10:30:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=hgal94A/jGJk/1J2gpAEmD8pKo91/D
-	hLHIikk+sDg3Y=; b=NA66jB4LCvOox9madDfTKyaW3NAQlqXxlYheeuKX3phi8m
-	KfVTGF2QH5fkDbpyOiFCXJ1uoDzwv8B900IgvWRl7dGDZfMt4mb83FuiyitR3fA5
-	A8SjmcZEXGPEB/JyCB3TXWvF5qv2U+YbftNZOUGLnbDtcJffm43ZcOeuaxYG5o6T
-	Qk7IIbSQObAdMLYDK/AAFeXmus9kq2FVdQDmLdNLlV2x4Zq/LKghtYt/NFzK2Moz
-	pdpWbPisYldVnQu+XJplNt/D53Anu5sPdIoXU5ONK0WAFELnU248Eu1kPTrpZ91g
-	diQ0p+irsPKsNdNLWrj/OYdJDh5ubyVzjU6DTU+Q==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j105tftrs-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 10:30:26 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AK7o1tl3920710;
-	Fri, 20 Nov 2026 10:30:26 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j1v9xfgef-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 20 Nov 2026 10:30:26 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AKAULRj45154706
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 20 Nov 2026 10:30:22 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E25312004D;
-	Fri, 20 Nov 2026 10:30:21 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C3F172004B;
-	Fri, 20 Nov 2026 10:30:21 +0000 (GMT)
-Received: from localhost (unknown [9.111.50.45])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 20 Nov 2026 10:30:21 +0000 (GMT)
-Date: Fri, 20 Nov 2026 11:30:21 +0100
-From: Andreas Grapentin <gra@linux.ibm.com>
-To: Gautam Gala <ggala@linux.ibm.com>
-Cc: kvm@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Steffen Eiden <seiden@linux.ibm.com>, Marc Zyngier <maz@kernel.org>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH v1 2/2] KVM: s390: make kvm_s390_vm_stop_migration() void
-Message-ID: <awAd4tS_GQs-6-3m@li-d8547bcc-2d90-11b2-a85c-a70f2a37009a.ibm.com>
-References: <20261120075345.116521-1-ggala@linux.ibm.com>
- <20261120075345.116521-3-ggala@linux.ibm.com>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=pTABLHA3
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=pTABLHA3DMizer+6TGFcFFOQEYD5yCYbfcxUXLtwzuCNVcdNUFTEYQGts+wpGdzTho5wslE0KZbYB
+	 rQNaRoULrAB+fBC0cm6hRfRy2up3jS2B+cmuLGAwIovc4axtbwgx2G1dlEl3Uk+7j12xPWCcT2BGY5
+	 CdSW2LbAGvqa8wm0=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app03-12003 (RichMail) with SMTP id 2ee36b002162a49-f4a51;
+	Fri, 20 Nov 2026 18:31:00 +0800 (CST)
+X-RM-TRANSID:2ee36b002162a49-f4a51
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.localdomain (unknown[10.55.1.72])
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66b00216348e-223d5;
+	Fri, 20 Nov 2026 18:31:00 +0800 (CST)
+X-RM-TRANSID:2ee66b00216348e-223d5
+From: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: tongzhiwei@cmss.chinamobile.com,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dm-devel@lists.linux.dev,
+	syzkaller-bugs@googlegroups.com,
+	syzbot+1288484b13bf6af3620d@syzkaller.appspotmail.com
+Subject: [PATCH] block: fix divide by zero in queue_limit_discard_alignment()
+Date: Fri, 20 Nov 2026 18:30:13 +0800
+Message-ID: <20261120103040.610-1-tongzhiwei@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.45.0.windows.1
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -99,80 +71,58 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261120075345.116521-3-ggala@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=IouL47/g c=1 sm=1 tr=0 ts=6b002142 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8
- a=dtAwjpDLL64rN-4WsoEA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-ORIG-GUID: LOeXe_EHAJ1bvzLbArk9lF2K0fqbEpJm
-X-Proofpoint-GUID: LOeXe_EHAJ1bvzLbArk9lF2K0fqbEpJm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfX5FZejVlXBZ/7
- lR/jCZ7j0zxG1+MT9YY+qxVtCz0WdcNyh7BMSHVFI7CK09nRLpnGn6GK65QyW28Iq5UXMiP4PFA
- 52ihMVfix+bWc61JTdTWgleZ7Kv8hTo/+sZosiG8UukY7FrGfXJSjGB4ybG9T0LFHH2Z9b30ODr
- llkTiWX7r0fJFHnu15S1jxXpvqpbqzmJdZ+i+YCFr6ztGqg9e5xDR37OuCCH4ziPFO5pebJFmXr
- et1EGZmJzHQyj7hQRMHUf221NKdIKLCr9Qr7QYP388KDTZmW1J8h5bF1gY1NtdBQQmvZ8BISOJr
- oPP0IIPOLRgSKIhFa1FBtDbUahDZFT7t2nR8XgGT0IJap925c2T0Zek8ZWXOPir6as0XVLY/PfE
- bfUfK8BWXDmzwohqQzU6UR3kCxpqJSDJEAOhZGvGkMPmepX7hdBXgOQxNYJDHJUfNjB7YB0EDo2
- v4LF6BhX+OpFQlGiTMA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIwMDA0MSBTYWx0ZWRfXz8OXCfeL8H57
- bjVill9ldgKM+NQjD94l4ElNITB2FTnsAxM27u3r6bi3pRAmjDQjXV9VzbGIgH0JndmGTfkII/k
- kgY2hj/pWWeB6ShpazFRzyoxwb6iOiE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-20_03,2026-11-19_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 adultscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 phishscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611200041
+Content-Transfer-Encoding: 8bit
 
-On Nov 20 26, Gautam Gala wrote:
-> kvm_s390_vm_stop_migration() returns 0 on all paths; it cannot fail.
-> Its caller in s390_kvm_mmu_prepare_memory_region() wraps it in
-> WARN(), producing a condition that is always false. The arm64 stub
-> returns -EINVAL but is unreachable because
-> kvm_s390_is_migration_mode() returns false there.
-> 
-> Change the return type to void and drop the dead WARN(). The
-> KVM_S390_VM_MIGRATION_STOP attribute handler sets its result to 0
-> explicitly; userspace behavior is unchanged since stopping
-> migration never failed.
-> 
-> Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
-> Reviewed-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
-> ---
->  arch/s390/kvm/arm64/arm.h    |  3 +--
->  arch/s390/kvm/gmap/kvm_mmu.c |  3 +--
->  arch/s390/kvm/s390/s390.c    | 10 +++++-----
->  arch/s390/kvm/s390/s390.h    |  2 +-
->  4 files changed, 8 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
-> index 760230685ca1..e60801e4a467 100644
-> --- a/arch/s390/kvm/arm64/arm.h
-> +++ b/arch/s390/kvm/arm64/arm.h
-> @@ -50,9 +50,8 @@ static __always_inline void kvm_s390_update_cmma_dirty(struct kvm *kvm, const st
->  }
->  
->  /* should never be called */
-> -static __always_inline int kvm_s390_vm_stop_migration(struct kvm *kvm)
-> +static __always_inline void kvm_s390_vm_stop_migration(struct kvm *kvm)
->  {
-> -	return -EINVAL;
 
-should we maybe add something like BUILD_BUG_ON(1) here, so it doesn't
-fail silently when the underlying assumption (will never be called
-because kvm_s390_is_migration_mode() always return false) stops holding
-for some reason?
+NOTE: this commit is worked completely by LLM
 
-BUILD_BUG_ON(1) won't fire if the compiler can prove the path is
-never taken.
+Commit e924da7d6622 ("block: Drop granularity check in
+queue_limit_discard_alignment()") removed the check for a sub-sector
+discard granularity on the assumption that lim->discard_granularity
+is always at least SECTOR_SIZE.
 
-Beyond that, this change makes sense to me on the arm64 side.
+That assumption does not hold for every queue: a backing device can
+report a non-zero discard granularity smaller than 512 bytes.  When
+blk_stack_limits() stacks such limits, only the non-zero granularity
+is checked, and queue_limit_discard_alignment() shifts the value down
+to zero and divides by it:
 
-Reviewed-by: Andreas Grapentin <gra@linux.ibm.com>
+  Oops: divide error: 0000 [#1] SMP KASAN NOPTI
+  RIP: 0010:queue_limit_discard_alignment block/blk-settings.c:645 [inline]
+  RIP: 0010:blk_stack_limits+0x1105/0x2d00 block/blk-settings.c:916
+  dm_calculate_queue_limits+0x70c/0x1510 drivers/md/dm-table.c:1823
+  dm_setup_md_queue+0x199/0x4f0 drivers/md/dm.c:2618
+  table_load+0x4fd/0x8a0 drivers/md/dm-ioctl.c:1661
+
+Restore the check, which was originally added in commit 59771079c18c
+("blk: avoid divide-by-zero with zero discard granularity") and had
+survived the move of the helper into block/blk-settings.c: with a
+sub-sector granularity there is no meaningful discard alignment to
+compute.
+
+Fixes: e924da7d6622 ("block: Drop granularity check in queue_limit_discard_alignment()")
+Reported-by: syzbot+1288484b13bf6af3620d@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=1288484b13bf6af3620d
+Signed-off-by: tongzhiwei <tongzhiwei@cmss.chinamobile.com>
+---
+ block/blk-settings.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/block/blk-settings.c b/block/blk-settings.c
+--- a/block/blk-settings.c
++++ b/block/blk-settings.c
+@@ -643,6 +643,10 @@
+ 	alignment = lim->discard_alignment >> SECTOR_SHIFT;
+ 	granularity = lim->discard_granularity >> SECTOR_SHIFT;
+ 
++	/* sub-sector granularity: no meaningful alignment, avoid div by 0 */
++	if (!granularity)
++		return 0;
++
+ 	/* Offset of the partition start in 'granularity' sectors */
+ 	offset = sector_div(sector, granularity);
+
+-- 
+2.43.0
+
+
