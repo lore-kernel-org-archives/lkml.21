@@ -1,95 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.230.111
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795143380;
-	b=QOuQrwmvMwrMoZeIprOFg4Nd/xCiMfruHSpCd+TkK9JQ1HeMKFhHY3g41iMsL5f6Sru5
-	 kHOmxhsLMPe1iwB+Z73NPue0qZH5RqZslwwEY2qR0FPEeqQpIYlkc5T1qXzS8nsdOEo1J
-	 8FeDBf8vrbwLlbRBsuur4ZjuEhGo8HUN7fWiPCq+al7Xlb4xkO2P2PKcMHAN5/PabD6Op
-	 2kYbn5lyxb/JVX9LLh5B/JV03LYYMDXI1hyXdRh/s/WwblVcYkklD/sgfQm3ObxxIgalW
-	 GWwFsl39HGFZLe3fct5T2OqIPbfRVWsRmiCFMh0exvrTYOgigwVu6ieLxEW9aZCjN7g==
+	b=GGIpRECv1LgODkSQgWUx13J2mA4sUL7Ka1XaW511+HozVxuwSre6DG33hXUqDdcvNSmR
+	 FDvkBS9qi1OByzs0bDgN924Rth4ESStBvfV22qs1f8TboRt141CZyjeZVLsZF9IJ/79Ay
+	 Osv6CvJHwEPeuP1+xbEzxWNCsY4CeI/NlnK/MRNl2QVLUB39s7/2duX8ESWu4RDsZoZCY
+	 am8ona8KszKwDmimy3O6VczFj+CQ3CzQxjp5jnHlwh0Uqh00Ww0c4RuPiOlJbQx1LrhoC
+	 CHvEugrCMTgNekWvIbEp+GVu0CebFo6ep6ik3AZ3lytPcqkEv846MiG7RBEqeTrCFrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795143380;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
-	b=SHRFaPGDw2bDZUD+IJtnfL+G8WwwdhpPIMGInRfMl8nlXezuUfalEhJzzCVNQA8qUE6v
-	 uskQYC+7jQpSDESyAPEKMOpD0Hti5TkW0LhpdmJ7e4p7/ZEm/f4xU0HIevVtiQyJJwimf
-	 IcY2NVtgGnfEl9M9lKnIbsqzMC71ew3AvPe9I98c/gCV8UwsUOJmGqJA15kyCgZNMaWZJ
-	 YWsT/XHBdPKQp3lSYwjXin7fSAB3BfL5U+Ak5f3Ad9HSA2968QZBNF0s/8RHRERB+8EuQ
-	 WfS40H3W6rQWfNZM9ZsyZFQkEHr+4vp+OpvpsPgVS02xxDQWekpP7dGdox9dCzMQFMA==
+	h=DMARC-Filter:DKIM-Signature:Mime-Version:X-Mailer:To:From:Subject:
+	 Date:Message-Id:Content-Transfer-Encoding:Cc:Content-Type:
+	 X-Lms-Return-Path:X-Original-From;
+	bh=oRipsHrfwr14KBOkxJIZRK8ijHEgxPbrsZCpLbVpJNM=;
+	b=UsFZBGxwqHWjCUUh3xudmNmKpwzEgafOSevsXe2qy3HSRYUb5wnb0/ztdCSruRy9Tt1t
+	 GewY6KlT4Oi26WyPrZqEeSPHe7AvpQfDDgBRHSSwMQinQu4FpsLaudd5WVOecqno1jcYF
+	 wbxO76WkEh3VP5/NdJZ80cNT6YwXWTSkA4JAdM2OOyEtA0om776hLVlKFAav7Jl2ZVikj
+	 oWppqmskSftYvXLTGKPMW7OwBFLcvq3vG7dzj8/+dIed5Ja/6SE1DGEDXOzj4BiEXOcMC
+	 7svxQIpsjsODZj8FmDVP0pVrRbG45rJ7V21M8H2JOPLkOeWTqXY1X8goIp3S2CGv3dQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=smartx.com;
-	spf=pass smtp.mailfrom=smartx.com;
-	dkim=pass header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mXsc1Ips;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
+	dmarc=pass header.from=bytedance.com;
+	spf=pass smtp.mailfrom=bytedance.com;
+	dkim=pass header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=VFp7o+qy;
+	arc=none smtp.remote-ip=209.127.230.111
+Received: from va-1-111.ptr.blmpb.com (va-1-111.ptr.blmpb.com [209.127.230.111])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFFBB60A2611
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4A3660A2605
 	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 02:56:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFFBB60A2611
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=smartx.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=smartx.com
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4A3660A2605
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=bytedance.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bytedance.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=smartx-com.20260707.gappssmtp.com header.i=@smartx-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mXsc1Ips
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso852482a12.1
-        for <linux-kernel@vger.kernel.org>; Thu, 19 Nov 2026 18:56:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=smartx-com.20260707.gappssmtp.com; s=20260707; t=1795143379; x=1795748179; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
-        b=mXsc1Ipsc271cFgv+5H5jLsxt+xovQR8Orl9yL7q4tGbpMf8yDTxNrwFz8NTy8TSw5
-         31mrr+nMNhpJoO5vCm+/duya12pFsX7rfk7F2uT+hiR1XfagyBEZkT6GlUXco7iplWtz
-         CXFazb/8AbwJwWj/zmwQUPpWswMkxH1R9b3hwNvsnTd6aGwePoSYEZvkOCyA7Jaa1+3u
-         ygDf7kzpv0iFxwnTHGaO37/Ha6HdZ0UDgVkiQAzsDhRl+1dTL4O1wwVh/0DdZHW686DN
-         /s718p8Zxv2WCT3ojqVSk/gOjsTEVlNs79CeQn4oCqj+c9J6EMz/r7SnWmnuDszEFsc/
-         TOPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795143379; x=1795748179;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m0665dM5wdxWb5+F+h/RK/x+cnUT7B3ca11RjcWX5hs=;
-        b=Gbg2oW69agfcKpn8Wk/JgiJ0NO/KDe2JNrSYog0CsI0UEKdbOWENdq1y4zY2f/MLS+
-         hcUdR+gl7D9o5mqnQUGWdF7sCBk5BOFGYRUQ8c5LwH58RYUGehSPIZuJ3EMeZdarse7h
-         q5gFkRYPjD1ZKT5WxITpmcKJ0dyPWXWLg5TwibwqE606SluZrtl03qRolUB0nb6nx/pn
-         c5TUj5ixdOn7lvly+MY4ocEMOKwe1Nj/xntCS2rbUbrf08AynP4RVTXoRCkVS/rc0cFn
-         AoYF0W9JWKF/UgBJ7rk25RimkWGZxFFqD0ods/5a0Hx92/iuZV7cP5j5Pw2NqLDvW1pO
-         w4aw==
-X-Forwarded-Encrypted: i=1; AL+hErE7lMwjRmA00GfFWMP2Jdx3mPE4gLfpNsvooRX3Uw4gCaV9YM2Fb6DDkHr5KtLLy29f3Ro5u2Cnse7BxpM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Sua7m42aFq5mtmi2PZ9M2vs9FnJ0oMwPVYkmN1i0lIPRWd6Mu
-	/SbmexqVoEQSSfYHebfHGRqQ0AzkJlQ+ujEfOfzWUvBcZx7+CYVaPF0c/jsDhwxFXrlcx7tdeJD
-	LWkWBw7Z8tADwuI0oU0Yr605x0Jcz2bdo6NZKp71FiSUL53UJUjgITcn2OJ0=
-X-Gm-Gg: AZFdTZcDSb/oO5Okqw9L04ixU0zCgszs7+K+meOZSr8EIWe8ZO+ZHATyvjScthNSLUg
-	+JKig5nzn4XwuJe/psV6mWzlkBWd/1sIG6ej53/42NLLUXi2X7/zFPN/st/5yKlU4HpGj8Ug79q
-	p48xzB/m9VmULnAlYxMK1o0qojqbij+BL/7GTS9ndV9/BNW8715hGJ7pYZWdKMtmWKGZgna4Fxg
-	++9oMeSmSoB09I9uA+6wNICkey6EZAD65xNmRq4le4/rRB5HOO8LaIOS3CM11hkr2irOoNFf+Ds
-	72XBiGR08OyJNlMnodlqnQyfTeojpB6OT14J1vYOMecL3bz8dCqBK5jqVQ98FxCozUmmnnHuyDw
-	ZVbGhCEIXN/yz9UwnsHjy8AKBCpyHhxpW4eiMGuwDeJ1T87YqryFrn/i6/i905cc1fzRfhBK+PA
-	hFvEu8cDA7dosfKCoIIJqdj0UreJxERdNpHVqHGWNlOH72Yr5O5fAoAiowyAp6u5ZybPPgAYdoJ
-	ZlHS+geN6vqGbkREQzBZ7vvlXLwQTWcKEUgLbx682fLxnCzmvmJF+OHpW+mtGnMnvy9HsxZTE/w
-	71OnLw2xgdrLYZPx/qeUoeJkI4Ea+EBthTgw+UuTh6NmH/JlfMyPC9Q692w=
-X-Received: by 2002:a17:90b:4490:b0:3b0:a7b5:c044 with SMTP id 98e67ed59e1d1-3b41c7bbef0mr876896a91.1.1795143379124;
-        Thu, 19 Nov 2026 18:56:19 -0800 (PST)
-Received: from localhost.localdomain ([103.26.8.217])
-        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-3b405d63728sm5546461a91.8.2026.11.19.18.56.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 18:56:18 -0800 (PST)
-From: Lei Chen <lei.chen@smartx.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Lei Chen <lei.chen@smartx.com>
-Subject: [PATCH v2 3/5] block: add helpers to link tag set debugfs to controllers
-Date: Fri, 20 Nov 2026 10:56:02 +0800
-Message-ID: <d943e20493c4fd50fee90575645a1f18a81450f4.1795143228.git.lei.chen@smartx.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1795143228.git.lei.chen@smartx.com>
-References: <20261009030111.57784-1-lei.chen@smartx.com> <cover.1795143228.git.lei.chen@smartx.com>
+	dkim=pass (2048-bit key) header.d=bytedance.com header.i=@bytedance.com header.a=rsa-sha256 header.s=2212171451 header.b=VFp7o+qy
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=2212171451; d=bytedance.com; t=1795143372; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=oRipsHrfwr14KBOkxJIZRK8ijHEgxPbrsZCpLbVpJNM=;
+ b=VFp7o+qydCuZpg9huZ7pkDKmciPwm5ooh+rVlMoJeDDZs++CWRjLapq7K8CC+vw4Ezg98j
+ y+AND064zjt0p1a5DRi9iefT07rLHnwmFvZjBD/CHkBAHf+EDqTVEfbjLIyXUkrhqCzAEX
+ YnvKXV4TWJ5UCHwpvVnkj8UZQmDb/Cies4VFYf2F4Q9hNwsT9nKjED2CYwvzOpVMvRfT7J
+ dH8S6TvVVdJ4XUJUgObR6XEz1ol/yvxeK8RuAMjErdqVDcFLYKcDa/13ERbFVy4VmfX4NG
+ TThcvXVc4J+FO+2aU0ahMbZtgedAbKZGQ1DpkRvmfZub0u/O2Ke4u2z45UZPgg==
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -98,130 +51,681 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+To: <linux-ext4@vger.kernel.org>
+From: "Zhao Gongyi" <zhaogongyi@bytedance.com>
+Subject: [PATCH v3 2/2] ext4: reject impossible group free cluster counts
+Date: Fri, 20 Nov 2026 10:54:59 +0800
+Message-Id: <20261120025459.70290-3-zhaogongyi@bytedance.com>
+Content-Transfer-Encoding: 7bit
+Cc: <linux-kernel@vger.kernel.org>, <tytso@mit.edu>, 
+	<adilger.kernel@dilger.ca>, <libaokun@linux.alibaba.com>, <jack@suse.cz>, 
+	<ojaswin@linux.ibm.com>, <ritesh.list@gmail.com>, <yi.zhang@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+X-Lms-Return-Path: <lba+26affb6ca+d25edf+vger.kernel.org+zhaogongyi@bytedance.com>
+X-Original-From: Zhao Gongyi <zhaogongyi@bytedance.com>
 
-A tag set's debugfs directory identifies its attached request queues,
-but does not identify the controller that owns it. Drivers with an
-existing controller debugfs directory can expose this relationship
-without duplicating the controller's debug information.
+ext4_count_free_clusters() sums the free-cluster counts from the group
+descriptors when initializing the mount's free-space counters. A corrupt
+bigalloc filesystem can report 201327130 free clusters in a group that
+holds only 32. Reject counts above the group's capacity, using the same
+calculation as the block bitmap, including for short final groups and
+read-only mounts. Read both halves of the count under the group lock so
+updates from deferred EA inode eviction cannot yield a mixed value.
 
-Add blk_mq_tagset_debugfs_link_controller() and
-blk_mq_tagset_debugfs_unlink_controller() for drivers to manage a
-controller symlink in the tag set directory. Build a relative target
-from the controller dentry so the link stays within debugfs and does
-not depend on the mount point.
+Journal replay can replace both the group descriptors and the
+superblock used to interpret them. For mounts that need recovery,
+validate the descriptor for the internal journal inode before loading
+it. Validate the recovered superblock geometry and all descriptors
+after replaying journal blocks. Reload the descriptor table if replay
+of an online resize changed the group count or descriptor layout.
 
-Serialize link updates with tag set debugfs registration and removal,
-and use the existing NOIO scope for allocations. Callers must keep both
-objects alive and remove the link before deleting the controller
-directory. Provide stubs when CONFIG_BLK_DEBUG_FS is disabled.
+Use the JBD2 recovery callback to validate recovered metadata before
+fast commit replay consumes it. Check the descriptors again after
+fast commit replay modifies them. Both checks run before JBD2 resets
+the journal and before ext4 initializes its free-space counters.
 
-Signed-off-by: Lei Chen <lei.chen@smartx.com>
+Drain deferred EA inode evictions before checking the descriptors after
+fast commit replay. If replay fails before that check, drain the work
+before restoring the read-only flag and leave FC state cleanup to the
+mount failure path. The worker can update group free counts and needs
+the writable replay context until it finishes.
+
+Restore and write out saved superblock error information only after
+journal load succeeds. This avoids recomputing a checksum or writing
+out a replayed superblock that the recovery callback rejected. Reject
+changes to casefold settings during recovery because the VFS encoding
+is set up before replay.
+
+Link: https://lore.kernel.org/linux-ext4/20261102042428.65204-1-zhaogongyi@bytedance.com/
+Link: https://lore.kernel.org/linux-ext4/sashiko-outbox-223131@kernel.org/
+Signed-off-by: Zhao Gongyi <zhaogongyi@bytedance.com>
 ---
- block/blk-mq-debugfs.c | 54 ++++++++++++++++++++++++++++++++++++++++++
- include/linux/blk-mq.h | 16 +++++++++++++
- 2 files changed, 70 insertions(+)
+ fs/ext4/balloc.c |  10 +-
+ fs/ext4/ext4.h   |   2 +
+ fs/ext4/super.c  | 332 +++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 267 insertions(+), 77 deletions(-)
 
-diff --git a/block/blk-mq-debugfs.c b/block/blk-mq-debugfs.c
-index 72634277e088..1a1364a34c0a 100644
---- a/block/blk-mq-debugfs.c
-+++ b/block/blk-mq-debugfs.c
-@@ -7,6 +7,7 @@
- #include <linux/blkdev.h>
- #include <linux/build_bug.h>
- #include <linux/debugfs.h>
-+#include <linux/dcache.h>
- #include <linux/idr.h>
- 
- #include "blk.h"
-@@ -860,6 +861,59 @@ static void blk_mq_tagset_debugfs_unlock(unsigned int memflags)
- 	memalloc_noio_restore(memflags);
+diff --git a/fs/ext4/balloc.c b/fs/ext4/balloc.c
+index 778fe87..0f36630 100644
+--- a/fs/ext4/balloc.c
++++ b/fs/ext4/balloc.c
+@@ -159,8 +159,8 @@ static unsigned ext4_num_overhead_clusters(struct super_block *sb,
+ 	return num_clusters;
  }
  
-+/**
-+ * blk_mq_tagset_debugfs_link_controller - link a tag set to its controller
-+ * @set: allocated tag set
-+ * @controller: controller debugfs directory
-+ *
-+ * The caller must keep both objects alive during this call and remove the
-+ * link before deleting the controller directory. No dentry reference is kept.
-+ */
-+void blk_mq_tagset_debugfs_link_controller(struct blk_mq_tag_set *set,
-+						struct dentry *controller)
-+{
-+	unsigned int memflags;
-+	char *buf, *path, *target;
-+
-+	if (IS_ERR(controller))
-+		return;
-+
-+	memflags = blk_mq_tagset_debugfs_lock();
-+	if (IS_ERR_OR_NULL(set->debugfs_dir))
-+		goto out_unlock;
-+
-+	buf = kmalloc(PATH_MAX, GFP_KERNEL);
-+	if (!buf)
-+		goto out_unlock;
-+	path = dentry_path_raw(controller, buf, PATH_MAX);
-+	if (IS_ERR(path))
-+		goto out_free;
-+
-+	/* The tag set lives two levels below the debugfs root. */
-+	target = kasprintf(GFP_KERNEL, "../..%s", path);
-+	if (!target)
-+		goto out_free;
-+	debugfs_lookup_and_remove("controller", set->debugfs_dir);
-+	debugfs_create_symlink("controller", set->debugfs_dir, target);
-+	kfree(target);
-+out_free:
-+	kfree(buf);
-+out_unlock:
-+	blk_mq_tagset_debugfs_unlock(memflags);
-+}
-+EXPORT_SYMBOL_GPL(blk_mq_tagset_debugfs_link_controller);
-+
-+void blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set)
-+{
-+	unsigned int memflags;
-+
-+	memflags = blk_mq_tagset_debugfs_lock();
-+	if (!IS_ERR_OR_NULL(set->debugfs_dir))
-+		debugfs_lookup_and_remove("controller", set->debugfs_dir);
-+	blk_mq_tagset_debugfs_unlock(memflags);
-+}
-+EXPORT_SYMBOL_GPL(blk_mq_tagset_debugfs_unlink_controller);
-+
- #define BLK_MQ_F_NAME(name) [ilog2(BLK_MQ_F_##name)] = #name
- static const char *const tagset_flag_name[] = {
- 	BLK_MQ_F_NAME(TAG_QUEUE_SHARED),
-diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-index 882ed11e7c2b..d98ec1dc1130 100644
---- a/include/linux/blk-mq.h
-+++ b/include/linux/blk-mq.h
-@@ -564,6 +564,22 @@ struct blk_mq_tag_set {
- #endif
- };
+-static unsigned int num_clusters_in_group(struct super_block *sb,
+-					  ext4_group_t block_group)
++unsigned int ext4_num_clusters_in_group(struct super_block *sb,
++					ext4_group_t block_group)
+ {
+ 	unsigned int blocks;
  
-+#ifdef CONFIG_BLK_DEBUG_FS
-+void blk_mq_tagset_debugfs_link_controller(struct blk_mq_tag_set *set,
-+						struct dentry *controller);
-+void blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set);
-+#else
-+static inline void blk_mq_tagset_debugfs_link_controller(
-+		struct blk_mq_tag_set *set, struct dentry *controller)
-+{
+@@ -228,7 +228,7 @@ static int ext4_init_block_bitmap(struct super_block *sb,
+ 	 * the blocksize * 8 ( which is the size of bitmap ), set rest
+ 	 * of the block bitmap to 1
+ 	 */
+-	ext4_mark_bitmap_end(num_clusters_in_group(sb, block_group),
++	ext4_mark_bitmap_end(ext4_num_clusters_in_group(sb, block_group),
+ 			     sb->s_blocksize * 8, bh->b_data);
+ 	return 0;
+ }
+@@ -240,7 +240,7 @@ unsigned ext4_free_clusters_after_init(struct super_block *sb,
+ 				       ext4_group_t block_group,
+ 				       struct ext4_group_desc *gdp)
+ {
+-	return num_clusters_in_group(sb, block_group) -
++	return ext4_num_clusters_in_group(sb, block_group) -
+ 		ext4_num_overhead_clusters(sb, block_group, gdp);
+ }
+ 
+@@ -313,7 +313,7 @@ static ext4_fsblk_t ext4_valid_block_bitmap_padding(struct super_block *sb,
+ {
+ 	ext4_grpblk_t next_zero_bit;
+ 	unsigned long bitmap_size = sb->s_blocksize * 8;
+-	unsigned int offset = num_clusters_in_group(sb, block_group);
++	unsigned int offset = ext4_num_clusters_in_group(sb, block_group);
+ 
+ 	if (bitmap_size <= offset)
+ 		return 0;
+diff --git a/fs/ext4/ext4.h b/fs/ext4/ext4.h
+index aa0f230..598528f 100644
+--- a/fs/ext4/ext4.h
++++ b/fs/ext4/ext4.h
+@@ -3480,6 +3480,8 @@ extern ext4_fsblk_t ext4_inode_bitmap(struct super_block *sb,
+ 				      struct ext4_group_desc *bg);
+ extern ext4_fsblk_t ext4_inode_table(struct super_block *sb,
+ 				     struct ext4_group_desc *bg);
++unsigned int ext4_num_clusters_in_group(struct super_block *sb,
++					ext4_group_t block_group);
+ extern __u32 ext4_free_group_clusters(struct super_block *sb,
+ 				      struct ext4_group_desc *bg);
+ extern __u32 ext4_free_inodes_count(struct super_block *sb,
+diff --git a/fs/ext4/super.c b/fs/ext4/super.c
+index 359f9d4..45d6f39 100644
+--- a/fs/ext4/super.c
++++ b/fs/ext4/super.c
+@@ -66,7 +66,8 @@ static DEFINE_MUTEX(ext4_li_mtx);
+ static struct ratelimit_state ext4_mount_msg_ratelimit;
+ 
+ static int ext4_load_journal(struct super_block *, struct ext4_super_block *,
+-			     unsigned long journal_devnum);
++			     unsigned long journal_devnum,
++			     ext4_group_t *first_not_zeroed);
+ static int ext4_show_options(struct seq_file *seq, struct dentry *root);
+ static void ext4_update_super(struct super_block *sb);
+ static int ext4_commit_super(struct super_block *sb);
+@@ -3366,7 +3367,9 @@ void ext4_group_desc_csum_set(struct super_block *sb, __u32 block_group,
+ /* Called at mount-time, super-block is locked */
+ static int ext4_check_descriptors(struct super_block *sb,
+ 				  ext4_fsblk_t sb_block,
+-				  ext4_group_t *first_not_zeroed)
++				  unsigned int journal_inum,
++				  ext4_group_t *first_not_zeroed,
++				  bool readonly)
+ {
+ 	struct ext4_sb_info *sbi = EXT4_SB(sb);
+ 	ext4_fsblk_t first_block = le32_to_cpu(sbi->s_es->s_first_data_block);
+@@ -3376,15 +3379,27 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 	ext4_fsblk_t inode_bitmap;
+ 	ext4_fsblk_t inode_table;
+ 	int flexbg_flag = 0;
+-	ext4_group_t i, grp = sbi->s_groups_count;
++	ext4_group_t i = 0, end = sbi->s_groups_count, grp = end;
+ 
+ 	if (ext4_has_feature_flex_bg(sb))
+ 		flexbg_flag = 1;
+ 
++	/* Before recovery, check the group needed to load the journal inode. */
++	if (journal_inum) {
++		if (journal_inum < EXT4_ROOT_INO ||
++		    journal_inum > le32_to_cpu(sbi->s_es->s_inodes_count))
++			return 0;
++		i = (journal_inum - 1) / EXT4_INODES_PER_GROUP(sb);
++		end = i + 1;
++		if (!flexbg_flag)
++			first_block = ext4_group_first_block_no(sb, i);
++	}
++
+ 	ext4_debug("Checking group descriptors");
+ 
+-	for (i = 0; i < sbi->s_groups_count; i++) {
++	for (; i < end; i++) {
+ 		struct ext4_group_desc *gdp = ext4_get_group_desc(sb, i, NULL);
++		unsigned int free_clusters = 0;
+ 
+ 		if (i == sbi->s_groups_count - 1 || flexbg_flag)
+ 			last_block = ext4_blocks_count(sbi->s_es) - 1;
+@@ -3401,7 +3416,7 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Block bitmap for group %u overlaps "
+ 				 "superblock", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (block_bitmap >= sb_block + 1 &&
+@@ -3409,7 +3424,7 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Block bitmap for group %u overlaps "
+ 				 "block group descriptors", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (block_bitmap < first_block || block_bitmap > last_block) {
+@@ -3423,7 +3438,7 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Inode bitmap for group %u overlaps "
+ 				 "superblock", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (inode_bitmap >= sb_block + 1 &&
+@@ -3431,7 +3446,7 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Inode bitmap for group %u overlaps "
+ 				 "block group descriptors", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (inode_bitmap < first_block || inode_bitmap > last_block) {
+@@ -3445,7 +3460,7 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Inode table for group %u overlaps "
+ 				 "superblock", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (inode_table >= sb_block + 1 &&
+@@ -3453,11 +3468,12 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 				 "Inode table for group %u overlaps "
+ 				 "block group descriptors", i);
+-			if (!sb_rdonly(sb))
++			if (!readonly)
+ 				return 0;
+ 		}
+ 		if (inode_table < first_block ||
+-		    inode_table + sbi->s_itb_per_group - 1 > last_block) {
++		    inode_table > last_block ||
++		    sbi->s_itb_per_group - 1 > last_block - inode_table) {
+ 			ext4_msg(sb, KERN_ERR, "ext4_check_descriptors: "
+ 			       "Inode table for group %u not in group "
+ 			       "(block %llu)!", i, inode_table);
+@@ -3469,16 +3485,30 @@ static int ext4_check_descriptors(struct super_block *sb,
+ 				 "Checksum for group %u failed (%u!=%u)",
+ 				 i, le16_to_cpu(ext4_group_desc_csum(sb, i,
+ 				     gdp)), le16_to_cpu(gdp->bg_checksum));
+-			if (!sb_rdonly(sb)) {
++			if (!readonly) {
+ 				ext4_unlock_group(sb, i);
+ 				return 0;
+ 			}
+ 		}
++		/* Sample both halves of the count under the group lock. */
++		if (!journal_inum)
++			free_clusters = ext4_free_group_clusters(sb, gdp);
+ 		ext4_unlock_group(sb, i);
++
++		if (!journal_inum) {
++			unsigned int capacity = ext4_num_clusters_in_group(sb, i);
++
++			if (free_clusters > capacity) {
++				ext4_msg(sb, KERN_ERR,
++					 "group %u has invalid free clusters count %u > %u",
++					 i, free_clusters, capacity);
++				return 0;
++			}
++		}
+ 		if (!flexbg_flag)
+ 			first_block += EXT4_BLOCKS_PER_GROUP(sb);
+ 	}
+-	if (NULL != first_not_zeroed)
++	if (first_not_zeroed)
+ 		*first_not_zeroed = grp;
+ 	return 1;
+ }
+@@ -4875,7 +4905,8 @@ static int ext4_check_feature_compatibility(struct super_block *sb,
+ }
+ 
+ static int ext4_check_geometry(struct super_block *sb,
+-			       struct ext4_super_block *es)
++			       struct ext4_super_block *es,
++			       ext4_group_t *groups_count)
+ {
+ 	struct ext4_sb_info *sbi = EXT4_SB(sb);
+ 	__u64 blocks_count;
+@@ -4939,88 +4970,204 @@ static int ext4_check_geometry(struct super_block *sb,
+ 		       EXT4_BLOCKS_PER_GROUP(sb));
+ 		return -EINVAL;
+ 	}
+-	sbi->s_groups_count = blocks_count;
+-	sbi->s_blockfile_groups = min(sbi->s_groups_count,
+-			(EXT4_MAX_BLOCK_FILE_PHYS / EXT4_BLOCKS_PER_GROUP(sb)));
+-	if (((u64)sbi->s_groups_count * sbi->s_inodes_per_group) !=
++	if (blocks_count * sbi->s_inodes_per_group !=
+ 	    le32_to_cpu(es->s_inodes_count)) {
+ 		ext4_msg(sb, KERN_ERR, "inodes count not valid: %u vs %llu",
+ 			 le32_to_cpu(es->s_inodes_count),
+-			 ((u64)sbi->s_groups_count * sbi->s_inodes_per_group));
++			 blocks_count * sbi->s_inodes_per_group);
+ 		return -EINVAL;
+ 	}
+ 
++	*groups_count = blocks_count;
+ 	return 0;
+ }
+ 
+-static int ext4_group_desc_init(struct super_block *sb,
+-				struct ext4_super_block *es,
++/* Mount and recovery load the table before publishing the superblock. */
++static int ext4_load_group_desc(struct super_block *sb,
+ 				ext4_fsblk_t logical_sb_block,
+-				ext4_group_t *first_not_zeroed)
++				ext4_group_t groups_count)
+ {
+ 	struct ext4_sb_info *sbi = EXT4_SB(sb);
++	struct ext4_super_block *es = sbi->s_es;
++	struct buffer_head **group_desc;
+ 	unsigned int db_count;
+ 	ext4_fsblk_t block;
+-	int i;
++	int err, i;
+ 
+-	db_count = (sbi->s_groups_count + EXT4_DESC_PER_BLOCK(sb) - 1) /
+-		   EXT4_DESC_PER_BLOCK(sb);
+-	if (ext4_has_feature_meta_bg(sb)) {
+-		if (le32_to_cpu(es->s_first_meta_bg) > db_count) {
+-			ext4_msg(sb, KERN_WARNING,
+-				 "first meta block group too large: %u "
+-				 "(group descriptor block count %u)",
+-				 le32_to_cpu(es->s_first_meta_bg), db_count);
+-			return -EINVAL;
+-		}
+-	}
+-	rcu_assign_pointer(sbi->s_group_desc,
+-			   kvmalloc_objs(struct buffer_head *, db_count));
+-	if (sbi->s_group_desc == NULL) {
+-		ext4_msg(sb, KERN_ERR, "not enough memory");
+-		return -ENOMEM;
++	db_count = DIV_ROUND_UP(groups_count, EXT4_DESC_PER_BLOCK(sb));
++	if (ext4_has_feature_meta_bg(sb) &&
++	    le32_to_cpu(es->s_first_meta_bg) > db_count) {
++		ext4_msg(sb, KERN_ERR,
++			 "first meta block group too large: %u (group descriptor block count %u)",
++			 le32_to_cpu(es->s_first_meta_bg), db_count);
++		return -EINVAL;
+ 	}
+ 
+-	bgl_lock_init(sbi->s_blockgroup_lock);
++	group_desc = kvmalloc_objs(struct buffer_head *, db_count);
++	if (!group_desc)
++		return -ENOMEM;
+ 
+-	/* Pre-read the descriptors into the buffer cache */
++	/* Pre-read the descriptors into the buffer cache. */
+ 	for (i = 0; i < db_count; i++) {
+ 		block = descriptor_loc(sb, logical_sb_block, i);
++		if (block >= ext4_blocks_count(es)) {
++			ext4_msg(sb, KERN_ERR,
++				 "group descriptor block %d outside filesystem", i);
++			kvfree(group_desc);
++			return -EFSCORRUPTED;
++		}
+ 		ext4_sb_breadahead_unmovable(sb, block);
+ 	}
+ 
+ 	for (i = 0; i < db_count; i++) {
+-		struct buffer_head *bh;
+-
+ 		block = descriptor_loc(sb, logical_sb_block, i);
+-		bh = ext4_sb_bread_unmovable(sb, block);
+-		if (IS_ERR(bh)) {
++		group_desc[i] = ext4_sb_bread_unmovable(sb, block);
++		if (IS_ERR(group_desc[i])) {
+ 			ext4_msg(sb, KERN_ERR,
+-			       "can't read group descriptor %d", i);
+-			sbi->s_gdb_count = i;
+-			return PTR_ERR(bh);
++				 "can't read group descriptor %d", i);
++			err = PTR_ERR(group_desc[i]);
++			goto out_free;
+ 		}
+-		rcu_read_lock();
+-		rcu_dereference(sbi->s_group_desc)[i] = bh;
+-		rcu_read_unlock();
+ 	}
++
++	ext4_group_desc_free(sbi);
++	rcu_assign_pointer(sbi->s_group_desc, group_desc);
+ 	sbi->s_gdb_count = db_count;
+-	if (!ext4_check_descriptors(sb, logical_sb_block, first_not_zeroed)) {
+-		ext4_msg(sb, KERN_ERR, "group descriptors corrupted!");
++	sbi->s_groups_count = groups_count;
++	sbi->s_blockfile_groups = min(groups_count,
++				      EXT4_MAX_BLOCK_FILE_PHYS / EXT4_BLOCKS_PER_GROUP(sb));
++	return 0;
++
++out_free:
++	while (i--)
++		brelse(group_desc[i]);
++	kvfree(group_desc);
++	return err;
 +}
 +
-+static inline void
-+blk_mq_tagset_debugfs_unlink_controller(struct blk_mq_tag_set *set)
-+{
-+}
-+#endif
++struct ext4_replay_callback_data {
++	struct ext4_super_block super;
++	ext4_group_t *first_not_zeroed;
++	bool readonly;
++};
 +
- /**
-  * struct blk_mq_queue_data - Data about a request inserted in a queue
-  *
--- 
-2.43.0
-
++static int ext4_validate_replayed_metadata(journal_t *journal, void *data,
++					   bool after_fast_commit)
++{
++	struct ext4_replay_callback_data *replay = data;
++	struct super_block *sb = journal->j_private;
++	struct ext4_sb_info *sbi = EXT4_SB(sb);
++	struct ext4_super_block *es = sbi->s_es;
++	struct ext4_super_block *old = &replay->super;
++	ext4_fsblk_t sb_block = sbi->s_sbh->b_blocknr;
++	ext4_group_t groups_count;
++	unsigned int inode_size, first_ino;
++	u32 incompat, ro_compat;
++	int err;
++
++	/* Fast commits only change descriptor contents, such as counts. */
++	if (after_fast_commit) {
++		if (!(sbi->s_mount_state & EXT4_FC_REPLAY))
++			return 0;
++		/* Deferred EA inode eviction can change group free counts. */
++		flush_delayed_work(&sbi->s_ea_inode_work);
++		goto check_descriptors;
++	}
++
++	incompat = le32_to_cpu(es->s_feature_incompat ^ old->s_feature_incompat);
++	ro_compat = le32_to_cpu(es->s_feature_ro_compat ^ old->s_feature_ro_compat);
++	if (es->s_rev_level == cpu_to_le32(EXT4_GOOD_OLD_REV)) {
++		inode_size = EXT4_GOOD_OLD_INODE_SIZE;
++		first_ino = EXT4_GOOD_OLD_FIRST_INO;
++	} else {
++		inode_size = le16_to_cpu(es->s_inode_size);
++		first_ino = le32_to_cpu(es->s_first_ino);
++	}
++
++	/* Online resize can grow the filesystem without changing group units. */
++	if (es->s_magic != old->s_magic ||
++	    es->s_log_block_size != old->s_log_block_size ||
++	    es->s_log_cluster_size != old->s_log_cluster_size ||
++	    es->s_blocks_per_group != old->s_blocks_per_group ||
++	    es->s_clusters_per_group != old->s_clusters_per_group ||
++	    es->s_inodes_per_group != old->s_inodes_per_group ||
++	    es->s_first_data_block != old->s_first_data_block ||
++	    inode_size != sbi->s_inode_size || first_ino != sbi->s_first_ino ||
++	    es->s_desc_size != old->s_desc_size ||
++	    es->s_log_groups_per_flex != old->s_log_groups_per_flex ||
++	    ext4_blocks_count(es) < ext4_blocks_count(old) ||
++	    (incompat & (EXT4_FEATURE_INCOMPAT_64BIT |
++			 EXT4_FEATURE_INCOMPAT_FLEX_BG)) ||
++	    (ro_compat & (EXT4_FEATURE_RO_COMPAT_BIGALLOC |
++			  EXT4_FEATURE_RO_COMPAT_METADATA_CSUM |
++			  EXT4_FEATURE_RO_COMPAT_GDT_CSUM |
++			  EXT4_FEATURE_RO_COMPAT_READONLY))) {
++		ext4_msg(sb, KERN_ERR, "invalid filesystem geometry after journal replay");
++		return -EFSCORRUPTED;
++	}
++
++	/* An unreplayed superblock can contain mount-time hash flags. */
++	if (memcmp(es, old, sizeof(*es)) &&
++	    (!ext4_verify_csum_type(sb, es) ||
++	     !ext4_superblock_csum_verify(sb, es))) {
++		ext4_msg(sb, KERN_ERR, "invalid superblock checksum after journal replay");
++		return -EFSBADCRC;
++	}
++
++	if (ext4_has_feature_metadata_csum(sb) &&
++	    sbi->s_csum_seed != (ext4_has_feature_csum_seed(sb) ?
++		le32_to_cpu(es->s_checksum_seed) :
++		ext4_chksum(~0, es->s_uuid, sizeof(es->s_uuid)))) {
++		ext4_msg(sb, KERN_ERR, "metadata checksum seed changed during journal replay");
+ 		return -EFSCORRUPTED;
+ 	}
+ 
++	/* The VFS encoding was initialized before replay. */
++	if ((incompat & EXT4_FEATURE_INCOMPAT_CASEFOLD) ||
++	    (ext4_has_feature_casefold(sb) &&
++	     (es->s_encoding != old->s_encoding ||
++	      es->s_encoding_flags != old->s_encoding_flags))) {
++		ext4_msg(sb, KERN_ERR, "casefold settings changed during journal replay");
++		return -EFSCORRUPTED;
++	}
++
++	if (!ext4_feature_set_ok(sb, replay->readonly))
++		return -EINVAL;
++
++	err = ext4_check_geometry(sb, es, &groups_count);
++	if (err)
++		return err;
++
++	if (groups_count != sbi->s_groups_count ||
++	    es->s_first_meta_bg != old->s_first_meta_bg ||
++	    (incompat & EXT4_FEATURE_INCOMPAT_META_BG) ||
++	    (ro_compat & EXT4_FEATURE_RO_COMPAT_SPARSE_SUPER) ||
++	    ((es->s_feature_compat ^ old->s_feature_compat) &
++	     cpu_to_le32(EXT4_FEATURE_COMPAT_SPARSE_SUPER2)) ||
++	    memcmp(es->s_backup_bgs, old->s_backup_bgs, sizeof(es->s_backup_bgs))) {
++		err = ext4_load_group_desc(sb, sb_block, groups_count);
++		if (err)
++			return err;
++	}
++
++	super_set_uuid(sb, es->s_uuid, sizeof(es->s_uuid));
++
++check_descriptors:
++	if (!ext4_check_descriptors(sb, sb_block, 0, replay->first_not_zeroed,
++				    replay->readonly))
++		return -EFSCORRUPTED;
+ 	return 0;
+ }
+ 
+ static int ext4_load_and_init_journal(struct super_block *sb,
+ 				      struct ext4_super_block *es,
+-				      struct ext4_fs_context *ctx)
++				      struct ext4_fs_context *ctx,
++				      ext4_group_t *first_not_zeroed)
+ {
+ 	struct ext4_sb_info *sbi = EXT4_SB(sb);
+ 	int err;
+ 
+-	err = ext4_load_journal(sb, es, ctx->journal_devnum);
++	err = ext4_load_journal(sb, es, ctx->journal_devnum, first_not_zeroed);
+ 	if (err)
+ 		return err;
+ 
+@@ -5406,7 +5553,7 @@ static int __ext4_fill_super(struct fs_context *fc, struct super_block *sb)
+ 	struct inode *root;
+ 	int needs_recovery;
+ 	int err;
+-	ext4_group_t first_not_zeroed;
++	ext4_group_t first_not_zeroed, groups_count;
+ 	struct ext4_fs_context *ctx = fc->fs_private;
+ 	int silent = fc->sb_flags & SB_SILENT;
+ 
+@@ -5496,7 +5643,7 @@ static int __ext4_fill_super(struct fs_context *fc, struct super_block *sb)
+ 	if (err)
+ 		goto failed_mount;
+ 
+-	err = ext4_check_geometry(sb, es);
++	err = ext4_check_geometry(sb, es, &groups_count);
+ 	if (err)
+ 		goto failed_mount;
+ 
+@@ -5505,10 +5652,19 @@ static int __ext4_fill_super(struct fs_context *fc, struct super_block *sb)
+ 	mutex_init(&sbi->s_error_notify_mutex);
+ 	INIT_WORK(&sbi->s_sb_upd_work, update_super_work);
+ 
+-	err = ext4_group_desc_init(sb, es, logical_sb_block, &first_not_zeroed);
++	bgl_lock_init(sbi->s_blockgroup_lock);
++	err = ext4_load_group_desc(sb, logical_sb_block, groups_count);
+ 	if (err)
+ 		goto failed_mount3;
+ 
++	if ((test_opt(sb, NOLOAD) || !ext4_has_feature_journal(sb) ||
++	     !ext4_has_feature_journal_needs_recovery(sb)) &&
++	    !ext4_check_descriptors(sb, logical_sb_block, 0, &first_not_zeroed,
++				    sb_rdonly(sb))) {
++		err = -EFSCORRUPTED;
++		goto failed_mount3;
++	}
++
+ 	err = ext4_es_register_shrinker(sbi);
+ 	if (err)
+ 		goto failed_mount3;
+@@ -5574,7 +5730,7 @@ static int __ext4_fill_super(struct fs_context *fc, struct super_block *sb)
+ 	 * root first: it may be modified in the journal!
+ 	 */
+ 	if (!test_opt(sb, NOLOAD) && ext4_has_feature_journal(sb)) {
+-		err = ext4_load_and_init_journal(sb, es, ctx);
++		err = ext4_load_and_init_journal(sb, es, ctx, &first_not_zeroed);
+ 		if (err)
+ 			goto failed_mount3a;
+ 		if (bdev_read_only(sb->s_bdev))
+@@ -6169,10 +6325,15 @@ out_bdev:
+ 
+ static int ext4_load_journal(struct super_block *sb,
+ 			     struct ext4_super_block *es,
+-			     unsigned long journal_devnum)
++			     unsigned long journal_devnum,
++			     ext4_group_t *first_not_zeroed)
+ {
++	struct ext4_sb_info *sbi = EXT4_SB(sb);
++	struct ext4_replay_callback_data *replay = NULL;
++	jbd2_replay_callback_t callback = NULL;
+ 	journal_t *journal;
+ 	unsigned int journal_inum = le32_to_cpu(es->s_journal_inum);
++	bool recover = ext4_has_feature_journal_needs_recovery(sb);
+ 	dev_t journal_dev;
+ 	int err = 0;
+ 	int really_read_only;
+@@ -6197,6 +6358,10 @@ static int ext4_load_journal(struct super_block *sb,
+ 	}
+ 
+ 	if (journal_inum) {
++		if (recover &&
++		    !ext4_check_descriptors(sb, sbi->s_sbh->b_blocknr,
++					    journal_inum, NULL, sb_rdonly(sb)))
++			return -EFSCORRUPTED;
+ 		journal = ext4_open_inode_journal(sb, journal_inum);
+ 		if (IS_ERR(journal))
+ 			return PTR_ERR(journal);
+@@ -6221,7 +6386,7 @@ static int ext4_load_journal(struct super_block *sb,
+ 	 * crash?  For recovery, we need to check in advance whether we
+ 	 * can get read-write access to the device.
+ 	 */
+-	if (ext4_has_feature_journal_needs_recovery(sb)) {
++	if (recover) {
+ 		if (sb_rdonly(sb)) {
+ 			ext4_msg(sb, KERN_INFO, "INFO: recovery "
+ 					"required on readonly filesystem");
+@@ -6241,8 +6406,19 @@ static int ext4_load_journal(struct super_block *sb,
+ 	if (!(journal->j_flags & JBD2_BARRIER))
+ 		ext4_msg(sb, KERN_INFO, "barriers disabled");
+ 
+-	if (!ext4_has_feature_journal_needs_recovery(sb))
++	if (recover) {
++		replay = kmalloc_obj(*replay);
++		if (!replay) {
++			err = -ENOMEM;
++			goto err_out;
++		}
++		replay->super = *es;
++		replay->first_not_zeroed = first_not_zeroed;
++		replay->readonly = sb_rdonly(sb);
++		callback = ext4_validate_replayed_metadata;
++	} else {
+ 		err = jbd2_journal_wipe(journal, !really_read_only);
++	}
+ 	if (!err) {
+ 		char *save = kmalloc(EXT4_S_ERR_LEN, GFP_KERNEL);
+ 		__le16 orig_state;
+@@ -6261,9 +6437,24 @@ static int ext4_load_journal(struct super_block *sb,
+ 		 */
+ 		if (enable_write)
+ 			sb->s_flags &= ~SB_RDONLY;
+-		err = jbd2_journal_load(journal);
++		err = jbd2_journal_load_with_callback(journal, callback, replay);
++		/*
++		 * A replay error can bypass post-FC validation. Drain any
++		 * deferred EA inode evictions while still writable and in
++		 * replay mode.
++		 */
++		if (err && (sbi->s_mount_state & EXT4_FC_REPLAY))
++			flush_delayed_work(&sbi->s_ea_inode_work);
+ 		if (enable_write)
+ 			sb->s_flags |= SB_RDONLY;
++		kfree(replay);
++
++		/* Preserve the replay error without updating the superblock. */
++		if (err) {
++			kfree(save);
++			goto err_load;
++		}
++
+ 		if (save && memcmp(((char *) es) + EXT4_S_ERR_START,
+ 				   save, EXT4_S_ERR_LEN)) {
+ 			memcpy(((char *) es) + EXT4_S_ERR_START,
+@@ -6277,17 +6468,12 @@ static int ext4_load_journal(struct super_block *sb,
+ 		if (orig_state != es->s_state)
+ 			changed = true;
+ 		/* Write out restored error information to the superblock */
+-		if (changed && !really_read_only) {
+-			int err2;
+-			err2 = ext4_commit_super(sb);
+-			err = err ? : err2;
+-		}
++		if (changed && !really_read_only)
++			err = ext4_commit_super(sb);
+ 	}
+ 
+-	if (err) {
+-		ext4_msg(sb, KERN_ERR, "error loading journal");
+-		goto err_out;
+-	}
++	if (err)
++		goto err_load;
+ 
+ 	EXT4_SB(sb)->s_journal = journal;
+ 	err = ext4_clear_journal_err(sb, es);
+@@ -6309,6 +6495,8 @@ static int ext4_load_journal(struct super_block *sb,
+ 
+ 	return 0;
+ 
++err_load:
++	ext4_msg(sb, KERN_ERR, "error loading journal");
+ err_out:
+ 	ext4_journal_destroy(EXT4_SB(sb), journal);
+ 	return err;
