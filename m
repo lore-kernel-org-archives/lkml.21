@@ -1,85 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=158.69.130.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795207391;
-	b=Cu7ZyTzmZnZINg/aXhupFqzlCWWR+164ONZs7zF4YY0aMEv65tvAIsu5E7e37K5EDKhS
-	 MRsnzLcS+MQ3soDYBYiaxBsOH9KI+Rnl4dBCy/7ngCsGKFIROKb6rNZMoRnzBA6N7vvNt
-	 FOsMrpXqC1+2h2dW+Lm+yZFCWK6WnxkIs/Go+lI7rxZS1W0aA5yyn5HwHkUdMoQR3oMc+
-	 x2rolpOHt/Zzb4TqqezDdA1MA7l+4C27vM30zn3j7BSaYJEKUsPLqO/0plkFIUwL/FFt5
-	 h14cNhTTph4D8uMMsTv+/FkpL4wJnNzweDRXVRhoF7uaMNFgGqH8E2BH2NzVqqeN94g==
+	t=1795207380;
+	b=wCu+UUM1Fp8whbKnC+xn2tYZwrZAU5Fw9lU1PYPKHmM8hzWdJbfjXCt8ombPqv+Xm22m
+	 tYcknBiCjA76ff+oMoJ9oYs9tdKUhFr8neQS6h6A7UsxZDhArHBQ8DMQGefb8oXJnS7lx
+	 wrkNYbKVGnZ7bpFdxn21F3jrTCVrqW3G0xGBooCfwnEAjyJZfAeubmNAVCDroaZp+CndC
+	 ZMGE66uFFtR6Qgu0W0fIkAewRKg2KkjoGKi/HaHbWQDD4d7tzvYknVZ0TEXn9O7T2dL41
+	 sy1RHscYToT/m2XenHRqM4lhOrv3FdIxcRQAdJ0P10sGt/WL04ZHfpXIT7HgNpUz8mQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795207391;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=vUnzDee9sJwUTkOsyIotnbDeN6IQg0zu8SoD8/lkv3c=;
-	b=zx52Wuk8mxuZTD6FeAC/tvJzZFhN3k8l3FBbwjBQxi+ETe3NUHvAUaUL7Ek7SjWyZfqe
-	 KYJHDJa/9d5ekBVuFnrwQEv1+JY6bYZbBpNwGs/QLsFeU7fOe1N2N6HmIYwedlscIzVFh
-	 gkTGjtH70cWbr1qw0Jpud4YCgrwFJA/47h5CNVHb3Yl2OwawmEAXik4rkT/fUA2SRXT97
-	 imb9YV+5zPVNlpJp+uOzNeBjtJ34K8SMx3k+a/7pPugJ3LRoFl6CpBeagQkp/mUU78TOv
-	 ZglLal8z0JUbBaBUryRm3CP/akZBXjNuPNKCl8b1h0KU4ILG483jPNAuBjrV3M/jPBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795207380;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=N9AFqlIsubfpiJU+ECUmSG600WpCP3iDHPL5wV10F9I=;
+	b=1Ngxfj0QwGZMmbG7hjnE8g8NRYMsoSbuMLtfuH64SRfcICZSCtxUy3P9pF4BMeVYQb0y
+	 WIyK1Qmwmws+/4ntH3J66Z/taA0ADQg1Y8o6HeySr7WkBz5360tjIz/S10a7MKamPGCFp
+	 cVxRjEdtCV5LEPo1uQ9M+JsoVKKJSobV9fvyYivai8BMrYEHsLGCbFOVL0b0lcgU3cITf
+	 axtKDl/6KCA318erkv9uitTcQ+qffCDWVfmeWKcP1Dn+Nz0WDABzBGluFGd9AuplWUxFm
+	 2lHHkAZlXMgLjdCZaUnt/lxn08EZFw/DopIHSzDBLUNlnYyhtpNNJtm/t8iBUXkdIfw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmx.de;
-	spf=pass smtp.mailfrom=gmx.de;
-	dkim=pass header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=b84ipFa0;
-	arc=none smtp.remote-ip=212.227.15.19
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+	dmarc=pass header.from=efficios.com;
+	spf=pass smtp.mailfrom=efficios.com;
+	dkim=pass header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=X3K+W153;
+	arc=none smtp.remote-ip=158.69.130.18
+Received: from smtpout.efficios.com (smtpout.efficios.com [158.69.130.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78743606A8F2
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 20:43:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78743606A8F2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74F36606A8F5;
+	Fri, 20 Nov 2026 20:42:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74F36606A8F5
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=efficios.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=efficios.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmx.de header.i=w_armin@gmx.de header.a=rsa-sha256 header.s=s31663417 header.b=b84ipFa0
-DKIM2-Signature:  i=1; m=1; t=1795207387;
- mf=PFdfQXJtaW5AZ214LmRlPg==;
- rt=PGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc+;
- d=gmx.de;
- s=s31663417:rsa-sha256:qDCRXeYAOKridkw9EmXV0MiBkKr5
-   Q3wb0KDk9FKoJodXzLP8e8lGXh8yKDeMyKn72bfBnu28AoKWIQGMOeT0XLjcISGBkUc117LH+rn
-   mmz6BRfx/IWcCGRDtI9C8oW8re+QoBmj7vmRAtIPL1mibhVNdJo2K9C9nB3plRBdDyepHzMBScA
-   rMWwLPTWtsqdqIa5dBaic3QlYgHWowx86tWF5twPgPR4Hnj1VFoUQp760X4ov+hbdoC8bFIFTsD
-   8qolAFDa0+xZOrK2E9IyRcyn6lrNpo8/Bltw15QNOG7w10iFjCKNCktcQLMgb6E/nkif02ktQ8+
-   Xv1j8bbJgbTx0A==;
-Message-Instance:  m=1;
- h=sha256:
-   40b1krXO1ouZc5mHJm9UsV7JCKqV1B1K/cXLG2v387Y=:
-   yAoy/0tQ9kbXRY1vnazjGstaI2PMDJlNR8r956Zkwr8=,
-  sha512:
-   T0/euWrttGzfrh5dU8DAduifOeZSfCRl8bGCxfsLn4s1bDPpEE4A82lSFdYqKH7XDXPc+bp26sh0b5ppJklFrw==:
-   B3beKPHEydch0f4Jdi4bd6Hq+cGZwKHG/WabaXTbho93JwFVlxQzjVkRBQsP35yKp/83iztQ/tqkJEtTatj5kw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1795207385; x=1795812185; i=w_armin@gmx.de;
-	bh=vUnzDee9sJwUTkOsyIotnbDeN6IQg0zu8SoD8/lkv3c=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=b84ipFa0UlUugPTv4Q1mXSU3z8JDwiMINM6IZv/NI5OnbRJif5vtjFoIFO3I2HZj
-	 oLe+E+loYx8MKI3ylZkCGc8MzK+7BiWl6C3FNLY3IlZmKkspmiZQ2GxmSHvslgZ90
-	 ydEhZwrc1iY3Yb5h10PJAq3PIW3w/e4D7K2IIYETvaA1ITh+6yWLuU4zqmgZO8Z/s
-	 CHl2HEo3127uZOfNbZq3toB7Be29saJl4w7aAxNfOV2+NZ+l05jtnl/FU6YESqlzw
-	 ECznAu1fyHu/jtE71qTUEeajV4HpnKni7hk83hIf+Pd6PVN3rQ7qYUaxK1uW0qKRR
-	 Z7vM0sCiYlIzAHNSMQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MWRVh-1y2MFO0g7X-00QRiF; Fri, 20
- Nov 2026 21:43:05 +0100
-From: Armin Wolf <W_Armin@gmx.de>
-To: lee@kernel.org,
-	pavel@kernel.org
-Cc: linux-leds@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=efficios.com header.i=@efficios.com header.a=rsa-sha256 header.s=smtpout1 header.b=X3K+W153
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=smtpout1; t=1795207354;
+	bh=N9AFqlIsubfpiJU+ECUmSG600WpCP3iDHPL5wV10F9I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=X3K+W153AcgwGFNAJTAtHwF/TDpJVXl6HlMOGquUY3Quk56OZTtURK7QOJqSh3UDh
+	 0Yvofa1RDWfCpXj9R0r9JX1UKHKzEOfhEgafPF8CAaaNFHyeKpEJtix0KlsaE2zvNd
+	 w2fDVvSeDs+kxJLEfqHDWOABbaqdscvmOozUa7CVf9Vd/8mceRtqUCrtZiAy0C52wc
+	 xoq+JgRUhEl8Cp6TKzkI6mGRyh+nZ/bjjDSt1z7NKyTkfWRa5xObHRB4LEOhpMMPeq
+	 1BBT4QvfOD8GadJ/xO7qZZKgkBKKQB3JS92vkTEg0BCUmq7h0oNIk6gaUBkmdUHyH7
+	 9ZiZZk+cJRcrw==
+Received: from thinkos.internal.efficios.com (mtl.efficios.com [216.120.195.104])
+	by smtpout.efficios.com (Postfix) with ESMTPSA id 4jWS2L5s5wzVCn;
+	Fri, 20 Nov 2026 15:42:34 -0500 (EST)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: juri.lelli@redhat.com,
+	peterz@infradead.org,
+	mingo@redhat.com,
+	vincent.guittot@linaro.org
+Cc: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	tglx@kernel.org,
+	will@kernel.org,
+	boqun@kernel.org,
+	dietmar.eggemann@arm.com,
+	rostedt@goodmis.org,
+	bsegall@google.com,
+	mgorman@suse.de,
+	vschneid@redhat.com,
+	kprateek.nayak@amd.com,
+	luca.abeni@santannapisa.it,
+	mathieu.poirier@linaro.org,
+	longman@redhat.com,
+	ridong.chen@linux.dev,
+	tj@kernel.org,
+	hannes@cmpxchg.org,
+	mkoutny@suse.com,
+	shuah@kernel.org,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	parri.andrea@gmail.com,
+	m.szyprowski@samsung.com,
+	kayracizmeci@gmail.com,
+	weihengqiuu@gmail.com,
 	linux-kernel@vger.kernel.org,
-	i@rong.moe
-Subject: [PATCH v2 06/10] leds: class: Access brightness_hw_changed exactly once
-Date: Fri, 20 Nov 2026 21:35:18 +0100
-Message-ID: <20261120204246.6645-7-W_Armin@gmx.de>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120204246.6645-1-W_Armin@gmx.de>
-References: <20261120204246.6645-1-W_Armin@gmx.de>
+	cgroups@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH v10 16/40] sched/deadline: Keep the last CPU a task has in its root domain
+Date: Fri, 20 Nov 2026 15:41:53 -0500
+Message-Id: <efba6f58f1e0ef5cea319448374083b8149f26da.1795207232.git.mathieu.desnoyers@efficios.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
+References: <cover.1795207232.git.mathieu.desnoyers@efficios.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -89,159 +95,526 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:cZpb/i/Yi7LMZCmtuYMHGb6ue6AEqAm3PPQS2TgPwWssYvIwOzZ
- DKYhrl48l/Gd0TG++CikqFe/HQQl249rJlINgTwjjC/AE/SI6g2FvVIgNSzbZlNrNHvbpF5
- BuOrLyj+/jStXMnhVNVIs+qjBAtzZ/kWyPZCTkLgbeKRT3qsCQ3oLASbwwQ4GusThFgecOb
- AJBueAf57LWXTp2mbzd+A==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:Wihk66ts14o=;RCrm19pBmGyDH4BHmJmxW3FkUZH
- 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
+Content-Transfer-Encoding: 8bit
 
-Reading the brightness_hw_changed field needs to take care against
-concurrent writes by led_classdev_notify_brightness_hw_changed().
-Use WRITE_ONCE()/READ_ONCE() to ensure that the value does not get
-corrupted by concurrent writes.
+dl_bw_deactivate() refuses to take a CPU offline when the rest of its
+root domain cannot hold the deadline bandwidth counted there. It also
+keeps the last CPU of a root domain that counts a deadline task. That
+test comes from commit d4742f6ed7ea ("sched/deadline: Correctly account
+for allocated bandwidth during hotplug").
 
-Signed-off-by: Armin Wolf <W_Armin@gmx.de>
-=2D--
- drivers/leds/led-class.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+That test looks at the root domain, not at the mask of each task. With
+isolcpus="domain", a cpuset that is not a partition root can hold one
+housekeeping CPU and some isolated CPUs. A deadline task in it can be
+counted in the housekeeping root domain. When that housekeeping CPU
+goes offline, the root domain keeps its other CPUs, so the offline is
+accepted. But the task has only isolated CPUs left. It runs in the
+default root domain, which did not admit it. Its bandwidth follows with
+no admission test, and the default root domain can exceed its limit.
 
-diff --git a/drivers/leds/led-class.c b/drivers/leds/led-class.c
-index fa9803e2ae6d..8494a1ca0353 100644
-=2D-- a/drivers/leds/led-class.c
-+++ b/drivers/leds/led-class.c
-@@ -102,11 +102,13 @@ static ssize_t brightness_hw_changed_show(struct dev=
-ice *dev, const struct devic
- 					  char *buf)
+Refuse the offline with EBUSY in that case. Walk the deadline tasks
+counted in the root domain of the CPU. Refuse if one of them has CPUs
+left to run on, but none in that root domain. Skip the walk if no task
+holds a bandwidth. A task whose mask holds no other CPU gets the CPUs
+its cpuset has after the offline. With no CPU left in a cpuset, cgroup
+v2 gives it the CPUs of its parent, worked out from the top down. A
+partition root that holds a task and has no CPU of its own left takes
+the CPUs of a child partition instead. cgroup v1 moves its tasks to the
+nearest ancestor with CPUs. Add cpuset_cpus_allowed_without(), which
+works out the CPUs the same way. Like __set_cpus_allowed_ptr(), it keeps
+them within the affinity set by the user, if they intersect. If the
+cpuset gives no CPU the task can run on, select_fallback_rq() picks one.
+The previous patch makes it keep a deadline task in its root domain when
+it can. Skip a dead task: it runs no more.
+
+When a partition root takes the CPUs of a child partition, cpuset makes
+that child invalid, with its own child partitions. Their CPUs then join
+the root domain of the parent, with their tasks. So a deadline task can
+change root domain even when it is counted in a root domain other than
+that of the CPU going offline. The walk above does not see it. In
+testing without this check, an offline put three deadline tasks of 40%
+in a root domain of one CPU. That is over its limit. Refuse the offline
+if one of these cpusets holds a deadline task. Add
+cpuset_offline_moves_dl() for this.
+
+cpuset also makes invalid a partition left with tasks and no CPU of its
+own. Its tasks then count in its parent. The parent can then take the
+CPUs of a child partition that cpuset visits after it.
+cpuset_cpus_allowed_without() and cpuset_offline_moves_dl() follow
+this.
+
+The offline is accepted when the CPUs keep their root domain:
+- the parent and the child partition are both isolated: the CPUs stay
+  in the default root domain.
+- neither is isolated, and the parent takes all the CPUs of the child:
+  its root domain then spans the same CPUs.
+
+When the last
+CPU left to the top cpuset goes offline, cpuset makes every partition
+invalid. Refuse that offline if a partition holds a deadline task.
+
+Do not refuse during a suspend. It takes the CPUs offline with the
+tasks frozen, and the resume puts them back. Do not refuse without
+admission control either: there is no limit to exceed.
+
+An administrator who needs the CPU offline can first give the cpuset of
+the task another CPU of that root domain. The offline is then accepted,
+and the task wakes up on that CPU: the hotplug_keeps_root_domain case
+tests this. The administrator can also turn admission control off, by
+writing -1 to /proc/sys/kernel/sched_rt_runtime_us.
+
+The walk cannot miss a task. sched_setattr() refuses the deadline policy
+to a task whose mask does not hold its whole root domain.
+sched_setaffinity() only gives a deadline task such a mask. A mask also
+gets smaller by a cpuset change or a cpuset move, and both exclude CPU
+hotplug.
+
+For user-space, the refused offline is a write of 0 to
+/sys/devices/system/cpu/cpuN/online that fails with EBUSY. An offline
+that leaves each deadline task a CPU in its root domain is accepted as
+before.
+
+The case hotplug_last_refused, added to deadline_bw_test later in this
+series, tests this. Without this patch the offline is accepted. These
+cases test the other paths:
+- hotplug_user_mask_refused: the affinity set by the user.
+- hotplug_nested_refused: nested cpusets.
+- hotplug_dead_accepted: a dead task.
+- hotplug_child_partition_kept and hotplug_partition_invalid_refused: a
+  child partition made invalid.
+- hotplug_sibling_partition_refused: a sibling partition that the
+  offline makes invalid.
+- hotplug_top_last_refused: the last CPU of the top cpuset.
+
+Fixes: d4742f6ed7ea ("sched/deadline: Correctly account for allocated bandwidth during hotplug")
+Signed-off-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: stable@vger.kernel.org
+---
+ include/linux/cpuset.h  |  17 +++
+ kernel/cgroup/cpuset.c  | 275 ++++++++++++++++++++++++++++++++++++++++
+ kernel/sched/deadline.c |  72 ++++++++++-
+ 3 files changed, 363 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+index 5d0c01a25354..d3fceb919c46 100644
+--- a/include/linux/cpuset.h
++++ b/include/linux/cpuset.h
+@@ -16,6 +16,7 @@
+ #include <linux/nodemask.h>
+ #include <linux/mm.h>
+ #include <linux/mmu_context.h>
++#include <linux/sched/isolation.h>
+ #include <linux/jump_label.h>
+ 
+ extern bool lockdep_is_cpuset_held(void);
+@@ -79,6 +80,9 @@ extern void lockdep_assert_cpuset_lock_held(void);
+ extern void cpuset_cpus_allowed_locked(struct task_struct *p, struct cpumask *mask);
+ extern void cpuset_cpus_allowed(struct task_struct *p, struct cpumask *mask);
+ extern bool cpuset_cpus_allowed_fallback(struct task_struct *p);
++extern bool cpuset_cpus_allowed_without(struct task_struct *p, int cpu,
++					struct cpumask *mask);
++extern bool cpuset_offline_moves_dl(int cpu);
+ extern int cpuset_num_cpus(struct cgroup *cgroup);
+ extern nodemask_t cpuset_mems_allowed(struct task_struct *p);
+ #define cpuset_current_mems_allowed (current->mems_allowed)
+@@ -214,6 +218,19 @@ static inline bool cpuset_cpus_allowed_fallback(struct task_struct *p)
+ 	return false;
+ }
+ 
++static inline bool cpuset_cpus_allowed_without(struct task_struct *p, int cpu,
++					       struct cpumask *mask)
++{
++	cpumask_and(mask, task_cpu_fallback_mask(p), cpu_active_mask);
++	cpumask_clear_cpu(cpu, mask);
++	return false;
++}
++
++static inline bool cpuset_offline_moves_dl(int cpu)
++{
++	return false;
++}
++
+ static inline int cpuset_num_cpus(struct cgroup *cgroup)
  {
- 	struct led_classdev *led_cdev =3D dev_get_drvdata(dev);
-+	unsigned int brightness_hw_changed;
-=20
--	if (led_cdev->brightness_hw_changed =3D=3D -1)
-+	brightness_hw_changed =3D READ_ONCE(led_cdev->brightness_hw_changed);
-+	if (brightness_hw_changed =3D=3D -1)
- 		return -ENODATA;
-=20
--	return sysfs_emit(buf, "%u\n", led_cdev->brightness_hw_changed);
-+	return sysfs_emit(buf, "%u\n", brightness_hw_changed);
+ 	return num_online_cpus();
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 7bdb9e21a7ed..e3c42c63844b 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1126,6 +1126,28 @@ static void update_partition_sd_lb(struct cpuset *cs, int old_prs)
+ 		cpuset_force_rebuild();
  }
-=20
- static const DEVICE_ATTR_RO(brightness_hw_changed);
-@@ -169,7 +171,7 @@ void led_classdev_notify_brightness_hw_changed(struct =
-led_classdev *led_cdev, un
- 	if (WARN_ON(!led_cdev->brightness_hw_changed_kn))
- 		return;
-=20
--	led_cdev->brightness_hw_changed =3D brightness;
-+	WRITE_ONCE(led_cdev->brightness_hw_changed, brightness);
- 	sysfs_notify_dirent(led_cdev->brightness_hw_changed_kn);
+ 
++/*
++ * Set @new_cpus to the effective CPUs that @cp gets. On entry, @new_cpus
++ * holds those that @from gets. @from is @cp or one of its ancestors. Work
++ * down from the child of @from to @cp, as compute_effective_cpumask() does
++ * for a cpuset that is not a valid partition root.
++ */
++static void effective_cpus_below(struct cpuset *cp, struct cpuset *from,
++				 struct cpumask *new_cpus)
++{
++	struct cpuset *a;
++	int depth = 0, i;
++
++	for (a = cp; a != from; a = parent_cs(a))
++		depth++;
++	while (depth--) {
++		for (a = cp, i = 0; i < depth; i++)
++			a = parent_cs(a);
++		if (cpumask_intersects(new_cpus, a->cpus_allowed) || !is_in_v2_mode())
++			cpumask_and(new_cpus, new_cpus, a->cpus_allowed);
++	}
++}
++
+ /*
+  * tasks_nocpu_error - Return true if tasks will have no effective_cpus
+  */
+@@ -4312,6 +4334,259 @@ void cpuset_cpus_allowed(struct task_struct *tsk, struct cpumask *pmask)
+ 	spin_unlock_irqrestore(&callback_lock, flags);
  }
- EXPORT_SYMBOL_GPL(led_classdev_notify_brightness_hw_changed);
-=2D-=20
-2.56.1
+ 
++/*
++ * Return true if @cs holds a task, or one of its cpusets that is not a
++ * valid partition root does. This is partition_is_populated() for the
++ * offline path, which holds the CPU hotplug lock for writing instead of
++ * cpuset_mutex. That lock keeps tasks from moving to another cgroup:
++ * cgroup_attach_lock() takes it. The caller holds rcu_read_lock().
++ */
++static bool partition_populated_offline(struct cpuset *cs)
++{
++	struct cgroup_subsys_state *pos_css;
++	struct cpuset *cp;
++
++	if (cgroup_has_tasks(cs->css.cgroup))
++		return true;
++	cpuset_for_each_descendant_pre(cp, pos_css, cs) {
++		if (cp == cs)
++			continue;
++		if (is_partition_valid(cp)) {
++			pos_css = css_rightmost_descendant(pos_css);
++			continue;
++		}
++		if (cgroup_is_populated(cp->css.cgroup))
++			return true;
++	}
++	return false;
++}
++
++/*
++ * Return the child partition of the valid partition root @p that the
++ * offline of @cpu makes invalid, or NULL. Set @new_cpus to the active CPUs
++ * that @p then has. This follows compute_partition_effective_cpumask().
++ * The offline can leave a populated @p no CPU of its own. The child
++ * partition that holds the last CPUs left then becomes invalid, and @p
++ * takes its CPUs. The caller holds rcu_read_lock().
++ *
++ * @gone is NULL, or a child partition of @p that the offline leaves with
++ * tasks and no CPU. It becomes invalid, and its tasks count in @p. The
++ * hotplug walk visits the children in order, so @p counts as populated
++ * for the children after @gone.
++ */
++static struct cpuset *partition_child_lost(struct cpuset *p, int cpu,
++					   struct cpumask *new_cpus,
++					   struct cpuset *gone)
++{
++	bool populated = partition_populated_offline(p);
++	struct cgroup_subsys_state *css;
++	struct cpuset *child, *lost = NULL;
++
++	cpumask_and(new_cpus, p->effective_xcpus, cpu_active_mask);
++	cpumask_clear_cpu(cpu, new_cpus);
++	if (cpumask_empty(new_cpus))
++		return NULL;
++	cpuset_for_each_child(child, css, p) {
++		if (child == gone) {
++			populated = true;
++			continue;
++		}
++		if (!is_partition_valid(child))
++			continue;
++		if (populated && cpumask_subset(new_cpus, child->effective_xcpus)) {
++			lost = child;
++			continue;
++		}
++		cpumask_andnot(new_cpus, new_cpus, child->effective_xcpus);
++	}
++	return lost;
++}
++
++/*
++ * Set @pmask to the active CPUs that the cpuset of @tsk gives it once @cpu
++ * is offline. Keep the CPUs possible for @tsk, as
++ * cpuset_update_tasks_cpumask() does. As __set_cpus_allowed_ptr() does,
++ * keep those of the affinity the user set, if one is left. Return true.
++ *
++ * If no CPU possible for @tsk is left, the cpuset cannot set the mask of
++ * @tsk. select_fallback_rq() then picks the CPU. It widens the mask to
++ * cpuset.cpus first, on cgroup v2, then to task_cpu_fallback_mask(): the
++ * housekeeping CPUs. It drops the affinity the user set. Give the active
++ * CPUs of that wider mask, and return false. For a deadline task,
++ * select_fallback_rq() may then pick a CPU of its root domain instead.
++ * The caller checks for that.
++ *
++ * The caller holds the CPU hotplug lock for writing, which keeps the
++ * cpusets and their tasks as they are. It does not keep the housekeeping
++ * CPUs: housekeeping_update() does not take that lock. The caller holds
++ * the pi_lock of @tsk, which keeps its user affinity.
++ */
++bool cpuset_cpus_allowed_without(struct task_struct *tsk, int cpu,
++				 struct cpumask *pmask)
++{
++	const struct cpumask *possible = task_cpu_possible_mask(tsk);
++	struct cpuset *cs = task_cs(tsk), *from, *gone = NULL;
++
++	guard(rcu)();
++	if (!is_in_v2_mode()) {
++		/*
++		 * cgroup v1 moves the tasks of a cpuset left with no CPU to
++		 * the nearest ancestor that keeps one.
++		 */
++		for (from = cs; from; from = parent_cs(from)) {
++			cpumask_and(pmask, from->effective_cpus, cpu_active_mask);
++			cpumask_clear_cpu(cpu, pmask);
++			if (cpumask_intersects(pmask, possible))
++				break;
++		}
++	} else {
++		/*
++		 * cgroup v2 works out the CPUs of each cpuset from the top
++		 * down. A cpuset keeps those of its parent that cpuset.cpus
++		 * holds, or takes all of them if there are none. Start from
++		 * the nearest partition root that keeps an active CPU, or from
++		 * the top cpuset. A partition root left with no CPU of its own
++		 * can take those of a child partition. One left with tasks and
++		 * no CPU becomes invalid, and its tasks count in its parent.
++		 */
++		for (from = cs; ; from = parent_cs(from)) {
++			if (from != &top_cpuset && !is_partition_valid(from))
++				continue;
++			cpumask_and(pmask, from->effective_cpus, cpu_active_mask);
++			cpumask_clear_cpu(cpu, pmask);
++			if (cpumask_empty(pmask) && from != &top_cpuset &&
++			    !partition_child_lost(from, cpu, pmask, gone))
++				cpumask_clear(pmask);
++			if (!cpumask_empty(pmask) || from == &top_cpuset)
++				break;
++			gone = gone || partition_populated_offline(from) ? from : NULL;
++		}
++		effective_cpus_below(cs, from, pmask);
++	}
++	if (!cpumask_and(pmask, pmask, possible)) {
++		if (is_in_v2_mode() && cpumask_subset(cs->cpus_allowed, possible)) {
++			cpumask_and(pmask, cs->cpus_allowed, cpu_active_mask);
++			cpumask_clear_cpu(cpu, pmask);
++			if (!cpumask_empty(pmask))
++				return false;
++		}
++		cpumask_and(pmask, task_cpu_fallback_mask(tsk), cpu_active_mask);
++		cpumask_clear_cpu(cpu, pmask);
++		return false;
++	}
++	if (tsk->user_cpus_ptr && cpumask_intersects(pmask, tsk->user_cpus_ptr))
++		cpumask_and(pmask, pmask, tsk->user_cpus_ptr);
++	return true;
++}
++
++/*
++ * Scratch mask of cpuset_offline_moves_dl(). The CPU hotplug lock
++ * protects it.
++ */
++static cpumask_t dl_offline_cpus;
++
++/*
++ * Return true if a task of @cs has the deadline policy. A dead task does
++ * not count: it runs no more.
++ */
++static bool dl_task_in_cpuset(struct cpuset *cs)
++{
++	struct css_task_iter it;
++	struct task_struct *task;
++	bool found = false;
++
++	css_task_iter_start(&cs->css, 0, &it);
++	while (!found && (task = css_task_iter_next(&it)))
++		found = task->policy == SCHED_DEADLINE &&
++			READ_ONCE(task->__state) != TASK_DEAD;
++	css_task_iter_end(&it);
++	return found;
++}
++
++/*
++ * Return true if the offline of @cpu makes a partition invalid, and a
++ * deadline task of its cpusets then runs in another root domain. That root
++ * domain did not admit the task.
++ *
++ * The partition root @p that holds @cpu can be left with no CPU of its
++ * own. It then takes the CPUs of a child partition, which becomes invalid
++ * with its own child partitions. A task of these cpusets keeps its root
++ * domain in two cases only. Its partition is isolated, and so is @p: the
++ * CPUs stay in the default root domain. Or its partition is the child
++ * whose CPUs @p takes, and neither is isolated. The root domain of @p
++ * then spans the same CPUs. If @cpu is the last CPU left to the top
++ * cpuset, every partition becomes invalid. The top cpuset takes their
++ * CPUs, and every deadline task changes root domain, those of the top
++ * cpuset too.
++ *
++ * The caller holds the CPU hotplug lock for writing, which keeps the
++ * cpusets and their tasks as they are.
++ */
++bool cpuset_offline_moves_dl(int cpu)
++{
++	struct cgroup_subsys_state *pos_css;
++	struct cpuset *cp, *a, *p = &top_cpuset, *lost = NULL;
++	bool found = false;
++
++	if (!is_in_v2_mode())
++		return false;
++	rcu_read_lock();
++	cpuset_for_each_descendant_pre(cp, pos_css, &top_cpuset) {
++		if (cp != &top_cpuset && is_partition_valid(cp) &&
++		    cpumask_test_cpu(cpu, cp->effective_cpus)) {
++			p = cp;
++			break;
++		}
++	}
++	if (p != &top_cpuset) {
++		struct cpuset *gone = NULL;
++
++		/*
++		 * A partition left with tasks and no CPU becomes invalid. Its
++		 * tasks then count in its parent, which can take the CPUs of a
++		 * later child partition. The parent is then the one that takes
++		 * CPUs.
++		 */
++		while (!(lost = partition_child_lost(p, cpu, &dl_offline_cpus, gone)) &&
++		       cpumask_empty(&dl_offline_cpus) &&
++		       (gone || partition_populated_offline(p)) &&
++		       parent_cs(p) != &top_cpuset && is_partition_valid(parent_cs(p))) {
++			gone = p;
++			p = parent_cs(p);
++		}
++	} else {
++		cpumask_and(&dl_offline_cpus, top_cpuset.effective_cpus, cpu_active_mask);
++		cpumask_clear_cpu(cpu, &dl_offline_cpus);
++		if (cpumask_empty(&dl_offline_cpus) && !cpumask_empty(subpartitions_cpus))
++			lost = &top_cpuset;
++	}
++	if (!lost) {
++		rcu_read_unlock();
++		return false;
++	}
++	cpuset_for_each_descendant_pre(cp, pos_css, lost) {
++		/* The partition that gives @cp its CPUs. */
++		for (a = cp; a != lost && !is_partition_valid(a); a = parent_cs(a))
++			;
++		if (lost != &top_cpuset &&
++		    ((a->partition_root_state == PRS_ISOLATED &&
++		      p->partition_root_state == PRS_ISOLATED) ||
++		     (a == lost && a->partition_root_state != PRS_ISOLATED &&
++		      p->partition_root_state != PRS_ISOLATED)))
++			continue;
++		if (!css_tryget_online(&cp->css))
++			continue;
++		rcu_read_unlock();
++		found = dl_task_in_cpuset(cp);
++		rcu_read_lock();
++		css_put(&cp->css);
++		if (found)
++			break;
++	}
++	rcu_read_unlock();
++	return found;
++}
++
+ /**
+  * cpuset_cpus_allowed_fallback - final fallback before complete catastrophe.
+  * @tsk: pointer to task_struct with which the scheduler is struggling
+diff --git a/kernel/sched/deadline.c b/kernel/sched/deadline.c
+index 86a437e8dc09..604b10567210 100644
+--- a/kernel/sched/deadline.c
++++ b/kernel/sched/deadline.c
+@@ -5212,9 +5212,79 @@ static int dl_bw_manage(enum dl_bw_request req, int cpu, u64 dl_bw)
+ 	return overflow ? -EBUSY : 0;
+ }
+ 
++/*
++ * Return true if @p has CPUs to run on once @cpu is offline, but none in
++ * the root domain of @cpu, which counts its bandwidth. A dead task runs no
++ * more. It can wait for its 0-lag time, or for its parent to reap it.
++ * Return false for it.
++ */
++static bool dl_task_leaves_span(struct task_struct *p, int cpu,
++				const struct cpumask *span)
++{
++	struct cpumask *msk;
++
++	guard(raw_spinlock_irqsave)(&p->pi_lock);
++	if (READ_ONCE(p->__state) == TASK_DEAD || dl_task_bw_span(p) != span)
++		return false;
++	msk = this_cpu_cpumask_var_ptr(local_cpu_mask_dl);
++	/* A task in a migrate_disable() section has a cpus_ptr of one CPU. */
++	cpumask_and(msk, &p->cpus_mask, cpu_active_mask);
++	cpumask_clear_cpu(cpu, msk);
++	/* With no CPU left, ask which CPUs the cpuset gives @p. */
++	if (cpumask_empty(msk) && !cpuset_cpus_allowed_without(p, cpu, msk)) {
++		/*
++		 * select_fallback_rq() picks the CPU. It gives @p the CPUs of
++		 * @span if one of them is active and @p can run on all of them.
++		 */
++		if (cpumask_any_and_but(span, cpu_active_mask, cpu) < nr_cpu_ids &&
++		    cpumask_subset(span, task_cpu_possible_mask(p)))
++			return false;
++	}
++	return !cpumask_empty(msk) && !cpumask_intersects(msk, span);
++}
++
++/*
++ * Return true if @cpu is the last CPU that a deadline task can run on in
++ * the root domain that counts its bandwidth. With @cpu offline, the task
++ * would run in another root domain, which did not admit it. The mask of
++ * a task can hold CPUs of two root domains: with isolcpus="domain", or on
++ * cgroup v1 with sched_load_balance off.
++ *
++ * Also return true if the offline makes a cpuset partition invalid, and a
++ * deadline task then runs in another root domain.
++ *
++ * A suspend takes the CPUs offline with the tasks frozen, and the resume
++ * puts them back. Without admission control, there is no limit to exceed.
++ * Return false in both cases.
++ */
++static bool dl_cpu_last_of_task(int cpu)
++{
++	const struct cpumask *span;
++	struct task_struct *g, *p;
++
++	if (cpuhp_tasks_frozen || !dl_bandwidth_enabled())
++		return false;
++	/* No task holds a bandwidth: do not walk the task list. */
++	if (!atomic_read(&dl_nr_bw_tasks))
++		return false;
++	if (cpuset_offline_moves_dl(cpu))
++		return true;
++	guard(rcu)();
++	span = cpu_rq(cpu)->rd->span;
++	for_each_process_thread(g, p) {
++		if (task_has_dl_policy(p) && dl_task_leaves_span(p, cpu, span))
++			return true;
++	}
++	return false;
++}
++
+ int dl_bw_deactivate(int cpu)
+ {
+-	return dl_bw_manage(dl_bw_req_deactivate, cpu, 0);
++	int ret = dl_bw_manage(dl_bw_req_deactivate, cpu, 0);
++
++	if (!ret && dl_cpu_last_of_task(cpu))
++		ret = -EBUSY;
++	return ret;
+ }
+ 
+ int dl_bw_alloc(int cpu, u64 dl_bw)
+-- 
+2.47.3
 
