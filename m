@@ -1,79 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795187421;
-	b=3FmVB/LoPcfBE0qHS2vCExDInz96LqeaVUiFX6LyVhMcY2r8d1b0UMMamALoPiHHFx0g
-	 x1yAk6ReCAGnXIOWJYMtAWfTqbvAJvoN6XpIDvfxktitvVLiUDRXOzy0CXayVNY9jzAwt
-	 gUBVdF7kXLfpTZgb3jz2SRwjQIGI/2U9h6KRhnJyFPhqvnAK12IviuPR2ITSWfpLE+qJ8
-	 C9WDc9z+mjsujl5ED9RUfxGvVkCIHKsm+jbque+bX/UiVZxc6+jOeaOVni7En5IwhuDYv
-	 RGUQwBOh3gLUjfvHF5rpjtwpSZ0dCqlzVMVlmLzN+H5eXSukh1hf1rY9Zi1hsFmaTZw==
+	t=1795187508;
+	b=5Um19/XkcTb+2npRDt51258seELZ6NKBnTBwZnjz02i6i7nnvkn/bowoXMptxIiQkeLJ
+	 IWbqnzDgs8dCDBIM4B8vzwKK6L+Z/N6gXnIwcPgDRWwoFxCsvINQ+8rtRMMpXX8Pd/8eo
+	 FovHwOFXhadIfAWqTwycvNck6BykMMIHueKmXg0EmceBqNtPnrh+hdhDpZxa2aFi8H3OI
+	 bwP9lq3Dd+BpR2JxyjpC7CZYdvm95wpvN6o5ZRTmi6KTidcpQDxmaCZCwXlaooPyk4aDW
+	 Zwc3acmWlLLGtbMmgaUHXRfH0u4UlM3IPbD5zWbZe5JADWGJZ4pSZZo3jyYOSHLwxRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795187421;
-	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
-	b=m6FPNs1rVQlih5rI87SmBHf04eNhqxrVjcNLhKlhX0jRdeYg+zRaBV+0T94Iliiap0ch
-	 InLLKGbMiX39JfUKzsdlQnxIUIcFjyY6tqgp26J6oN3kQrVh9rPr0MK5myX6kaBOQx1FZ
-	 KyEte8U8HPlo3JqvkomHtAO4AHVa7r9y+fTywbOZjGHTO1TPwexAwrrl6XdXhWZcpAeo1
-	 glppQ/rwiD2Jp3US/K8CLEQrOnM0j0yZ9OhGTCG/vFxnoSnJHJEADi1ieRJoUU4zLZCku
-	 aymJftGAi9yg97OeRz3aHHFTvocdMLaTwt6ISB7jM2hPjTd1+PekgxCa8QAe49ddu7A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795187508;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=9L5DYVZJmCTJDhX0/RtB0BzmznmCbVTr+mYGMw33Evs=;
+	b=gA31L+/kYXKztnMcXkpOom/h6alDN10ZH+k7Oi7n3pGcn8j3Z1ZPx0VaUoPMo8Yt+u09
+	 m4/LADp8zaT8wE9b+Kamuf00hPzGd/r7TmLKsq+2a3Dv0ZAVRpXrV6KTQzAsTSV6qsyfZ
+	 r0Q2I+Wwx/Kxqwu8sqjpjTxMkA58rHcz64hcV4eBCw9cs3yw0XdMnpATQWVOigLny1Ib8
+	 Ou4t4jrOd23DEXSBpaZB4+xMZQgZZugTeD+KSPCwYTVXJekogBPTdwNeszRNS/WShTENY
+	 u7r4cX3kaqcp4EzcNO2IGLgC27R2WtMCifQIl02Y8tTfYj85zY2zzOhn9kfTvHjs1mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="OUX/lrvJ";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IAoGx9P4;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--stefion.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZXa1F42C;
+	arc=none smtp.remote-ip=209.85.218.72
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15449606A338;
-	Fri, 20 Nov 2026 15:10:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15449606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 752F5606A331
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 15:11:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 752F5606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--stefion.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=OUX/lrvJ;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=IAoGx9P4
-Date: Fri, 20 Nov 2026 16:10:17 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795187419;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
-	b=OUX/lrvJURJO8B/bRcp1KZOhz1W0eXw6NIP2IBMY8qkuYXGlUs6iMbipujxmPkzsIOFQ3W
-	3VBh7otPD7vX1rf7drGmNjmvpndwa//iyUGtx46uMCgy3LVI/2BsUndZqchz+25I36nAcK
-	DKlnshuEHGOVFdnQxChEOlf+gKCLGz9RlFOHxcI0C+OwPTiVnjbGwmYTBeYC1PEbBEUjtq
-	J9M1bw3ECuKpYBN+NA7VgWHPuvAonecMFp26Mxf3sucAxDJSkTGzBAgd9mcozfau4MjJXU
-	FSODWpAWAtny0C/gsBZ8PrSOOVeLk0DxTOwOdiK8TV9/jNApOidq6NuSryhPZA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795187419;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1Uf2w3C6VLG0GW6+V2bXKgNIiaxX6Iz2cPxMgQETrHM=;
-	b=IAoGx9P4ncOm9hSQfXJorUUR2w+oqVmjqkKbhoJG+hMFDa45LVImFg3VwXkZh0xQYaL2jJ
-	pH4W6J/Uvnz8v3Dg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Tengda Wu <wutengda@huaweicloud.com>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/2] perf/core: Prevent duplicate sigtrap task work
- enqueue
-Message-ID: <20261120151017.mKJ_Y_u0@linutronix.de>
-References: <cover.1795053619.git.wutengda@huaweicloud.com>
- <45bd71c976aea1a0e8bf5762dd6b6552e6009439.1795053619.git.wutengda@huaweicloud.com>
- <20261120121436.GT2668564@noisy.programming.kicks-ass.net>
- <20261120141606.zcwyHZ3P@linutronix.de>
- <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZXa1F42C
+Received: by mail-ej1-f72.google.com with SMTP id a640c23a62f3a-c50547b4992so84284466b.3
+        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 07:11:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795187507; x=1795792307; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=9L5DYVZJmCTJDhX0/RtB0BzmznmCbVTr+mYGMw33Evs=;
+        b=ZXa1F42CV8EvlXMpcNdvdH3rAUyDMIKxyQuxbWmODfEAlrPkm5gY5G82sDTRUZ5uzv
+         35TZYhgHC2PIPneKtcXQ70b9m4NHXau+C9PXL9HT0GhzsQWBmluwa2STfULgVVDt+zgu
+         xbA230ph485ISpYl1i9zk4dD9splPYG3JNlj/vn7MZCAI0WQrV5j0altX7LIhsHxU+rR
+         sA+zhTjlxHUGn+pJVOWpRJuzzp8J6tYLDsClad0cYKONX5aVvLXMcUUA8owtm6p53VFu
+         vWxlOT6M5GKa7A5ivvGjsoOiABW+nwQrmTy+4TUB/FNV8RtRkcwbgGbzm883mZwN6N2R
+         OAEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795187507; x=1795792307;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9L5DYVZJmCTJDhX0/RtB0BzmznmCbVTr+mYGMw33Evs=;
+        b=pFU6d6HamEMpeEJeSHZUS2N6gkLUiTasJ9ObEFZ1APPNipL/6kL8MpCAwVyvyGy9W5
+         SBQyLdWVJ4ec5rdYnLYCoES6XbziRVLm16/dkWKYoBEblyQsPeJP++M/fHZihjPFbWGh
+         qO/je/m6pkjEJphNuBA9ZbIJgv/wTeRnutcvPT+3jrP/IuqrwNuyo7XHxwIPORdPAB66
+         ivp+q7+IrqHMrOh+SfC/+HANtRz5LZXofa4fG8ZDNQ8/fpvXlhTYyftz1P4bHXHnQfhq
+         yBIsSiuq+zAmsXHaXKz60kjrPQeAv3vrQnGsBI5z/uOpvb51BainKChpkHBxRfeshZ3e
+         GQCw==
+X-Forwarded-Encrypted: i=1; AL+hErHcmDNaW5iE6fBDwN8w9RK+L26tpdwqCFwlcZ4m+jayUFOvrex9q6nXj+0no1gf7yMo5KGtptUaYd6Eqls=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8a79x228Ql3Zdne6sa5SXwvEmuzXDBOux2+wQlcoMG0H+y+OXh
+	ESfL345PlG+If3CzgWoqfC3RGoBflCvMxwiFUuBE9K03BSspqvZtvEgQiXM/SqE8d1xmtj/y+DF
+	AgdlR9H/hGw==
+X-Received: from ejnw20.prod.google.com ([2002:a17:906:52d4:b0:c46:7c51:47a0])
+ (user=stefion job=prod-delivery.src-stubby-dispatcher) by 2002:a17:906:69ca:b0:c50:f024:5219
+ with SMTP id a640c23a62f3a-c513ab48468mr252861866b.40.1795187506339; Fri, 20
+ Nov 2026 07:11:46 -0800 (PST)
+Date: Fri, 20 Nov 2026 15:11:14 +0000
+In-Reply-To: <20261109084854.840576-1-fuad.tabba@linux.dev>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -82,46 +79,37 @@ List-Subscribe: <mailto:linux-kernel+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261120150452.GU2668564@noisy.programming.kicks-ass.net>
+Mime-Version: 1.0
+References: <20261109084854.840576-1-fuad.tabba@linux.dev>
+X-Mailer: git-send-email 2.56.1.809.ga0b61035b5-goog
+Message-ID: <20261120151114.3708208-1-stefion@google.com>
+Subject: Re: [PATCH v2 00/19] KVM: arm64: selftests: Tests for protected VMs
+From: "=?UTF-8?q?=C8=98tefania=20Ion?=" <stefion@google.com>
+To: fuad.tabba@linux.dev
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, pbonzini@redhat.com, 
+	qperret@google.com, seanjc@google.com, seiden@linux.ibm.com, shuah@kernel.org, 
+	suzuki.poulose@arm.com, tabba@google.com, vdonnefort@google.com, 
+	will@kernel.org, yuzenghui@huawei.com, 
+	"=?UTF-8?q?=C8=98tefania=20Ion?=" <stefion@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026-11-20 16:04:52 [+0100], Peter Zijlstra wrote:
-> On Fri, Nov 20, 2026 at 03:16:06PM +0100, Sebastian Andrzej Siewior wrote:
-> > On 2026-11-20 13:14:36 [+0100], Peter Zijlstra wrote:
-> > > > Also use smp_load_acquire() when checking pending_work in
-> > > > the exclude_kernel warning path to ensure the read is properly
-> > > > ordered.
-> > > 
-> > > I am confused by the use of smp_*() and cmpxchg() here. Where is the
-> > > multi-cpu scenario?
-> > 
-> > The same event is used in process context and NMI
-> > |        perf-tc1-7647    [001] d..6.   114.513688: __perf_event_overflow: ffff888100d68540
-> > |        perf-tc1-7647    [001] d.Z2.   114.513703: __perf_event_overflow: ffff888100d68540
-> > 
-> > I don't see how to deal with this without cmpxchg. And the same event is
-> > also used by other task
-> 
-> You can do CMPXCHG (without the LOCK) prefix; the helper is called
-> cmpxchg_local().
-> 
-> > |        perf-tc1-7657    [001] d.Z2.   114.598356: __perf_event_overflow: ffff888100d68540
-> > 
-> > which makes me thing that it could be pinned to another CPU (unless
-> > there is something that impossible and it is strictly per-CPU).
-> > 
-> > The smp load/store macros is my fault as it looked better to do this
-> > than plain stores (given that we have the cmpxchg already).
-> 
-> It is confusing as all heck. This is all task-local, and a task can only
-> ever run on one CPU at the time.
+Hi Fuad,
 
-Given the two pids I was assuming (!knowing) that two CPUs could be
-involved.
+Tested this series on top of v7.4-rc1 under QEMU TCG (-M virt,
+virtualization=3Don,gic-version=3D3 -cpu max -smp 4), booted with
+kvm-arm.mode=3Dprotected (protected hVHE mode).
 
-So you are saying cmpxchg_local() and a plain assign/WRITE_ONCE rather
-than the smp.* given that this is all task local.
+- All pkvm_* selftests pass. The only skips are the self-hosted debug
+  (breakpoint, watchpoint, single-step) and SVE cases, which pKVM
+  doesn't expose to protected guests.
+- pkvm_id_regs fails with patch 1 reverted and passes with it applied.
+- Each patch builds individually.
 
-Sebastian
+Tested-by: =C8=98tefania Ion <stefion@google.com>
+
+Thanks,
+=C8=98tefania
