@@ -1,57 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795186249;
-	b=dnZXfv9bzdbNPHNwwrETqBF6+LTcLQgLdHichr32aJvtRomOx4IPD4BcSZHVElWpb2Ub
-	 IcDc/Orla3LyMV94ahHUvbrxrbrjnpBhw902jlqqOEpjc2D1Cn/7resM+Qn5TnJR+ixV6
-	 Fb8/9VPKLRzsI8uHH+foxcGproaW5kOr6m0bq2NiFj6Wx/8D3rafZdbzk+qw5T9cNSrE2
-	 6+l8f0ESCjtqtq7m2QTwMhLdDix8ZnO2D8pO8HnzjM46zya6vD+QfzW0UwATRuG/a56t5
-	 NHtNy9Glwx5zvCwOMH1Kr2o1pYD0//pE8cF6c03wsWSOAFfli8oQd/rXs4zg0AbVIWw==
+	t=1795186253;
+	b=i8WimvEMZYJ74Sd1rT4Z9qXSUPjNzGOUmXu9PDdDatGxPkqVEz6jg5bC8A5nIN3pb7Om
+	 HqzntzHUq8zNoTT7dB2KgONaVkEUFMHx60078mZdus8fnZfGGCnzaXkl6UO1S1rEdLa4D
+	 mbL4pOdpl/1Yzh8/uGWPPJs24n9sq0peFhLhInRC6ZzsTQ7D2QITbsiiFRltxQQecrzIM
+	 yZp3HqVzjJMCy2hGmW8oV2WEuKE+4+B+aSRYPIh96bDVvvO/qB2kBtM1LVE+1Q7VoCAId
+	 gSjuNPDaU9aCBTJaO/ezjbw2H/qCx+pxEmrpoxrCeHexgP1UmG+aT96Mai9xd0f1J2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795186249;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=/B7HjCT8zRaaT9iQcwZVpGkgJCmKDQJosUGMwRG1i8U=;
-	b=fVoVfgMkuAEciW1woDe09N87Wrc0QI63ClLGFp234yI3ZbmrQUSsaLGXuHdZHg/4Jg2B
-	 43JUHU5kYjtQcO/KRJbZOEnUdHg2P7MA1DJHngdFu/AiqKxx346qSauXtQUp2Ef0hFHTQ
-	 0sx0/8HueWrh1lL77Udke3JbmOYJyxZwcUNZFSyTzyjRb2m/QYQHSWtZT8x0Lmjby2br2
-	 ac2JeGa1wxJKHMufrxlPgzCI0Q+tghl012JtD9RnpkJ+Ch/p5RmT2AJItA/n+QPpMgAIe
-	 onhbXhok8roSeIvWehXNzC1+SDCBbigbWkg7vLlqtsRgOI6kx8vEubq6kbg+z2UmCYw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795186253;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=2Erw3U4RA06uyoNmwIbpaGrgtzBIwetudzBPn9ezBig=;
+	b=GZS7erublGZBr4b+gqxUP8T6TFnj+pQcS07lNF/UPFwMGeWi//+ZI6+5+4EZ0+kcuee/
+	 FM2W0R7wkYli8ayArPVpsVEQeV45pEpr4ATKZYJ+9DY6z/dgQxuW2I/39LOX714ZS2ELN
+	 VVTYwVGnT4oEKUrryC2f5KZglgiZxxdvj39gxqY+pFL5NfBYx3+gNLgAtulN/vI4tcQOI
+	 oRWfFd9lit9BueIW159Lwv9YHTS7DKSF5XfNqW7Nvmo9yxMyNxlIyI4q3R3hEwgNmVMbn
+	 +uZwY5C3gIlP8p/RqW0QIXpJMwzgyOAyi5DVEzH7WgRzekPiahg7At+ZqI9gmRvAeeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="IcD4/b7o";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RcAGCBuN;
+	arc=none smtp.remote-ip=192.198.163.14
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E0DEF606A320;
-	Fri, 20 Nov 2026 14:50:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1266606A331;
+	Fri, 20 Nov 2026 14:50:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B1266606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IcD4/b7o
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 2319C1F000C4;
-	Fri, 20 Nov 2026 14:50:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795186248;
-	bh=/B7HjCT8zRaaT9iQcwZVpGkgJCmKDQJosUGMwRG1i8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IcD4/b7oZF2HqxggFNCmSMtsACUSK+J9mUi8D99Ls+ZGB51fN2s2nIiC4nHKbmVDb
-	 kHJEoiyWqLDitvdJse/hIXLaz3a3WGYuWJZ78MOBAuctHZm4slEzWI/sJw7smWqO3V
-	 vAS5A60tHujvSs3xv4Q2B9yMxxAviRaFW9Dje/2iGYykt/4vjFMoo5fimDxik5eJxv
-	 +APYb40W9VpbkJY+AgopSzNNxEpaKkx/pljj8lY2oH1034FOjK/QWJsrJfXiSAYPzj
-	 Ak1FuUznKyt4EIdUsBHt0jM2mytGAvY89ktbkCPfklWoOnGk45JBjsRU1arLdxf/Yl
-	 UUQyTOiozfaeQ==
-Date: Fri, 20 Nov 2026 16:50:44 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Rustam Mustafin <rmustafin@cloudlinux.com>
-Cc: Peter Huewe <peterhuewe@gmx.de>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Shuah Khan <shuah@kernel.org>, Jaewon Yang <yong010301@gmail.com>,
-	linux-integrity@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] tpm: Track the response read position internally
-Message-ID: <awBeRE2c7UQH8SfV@kernel.org>
-References: <20261120121614.978396-1-rmustafin@cloudlinux.com>
- <20261120121614.978396-2-rmustafin@cloudlinux.com>
- <awA8o4oIq81a7J1z@kernel.org>
- <CAG6=z5tzc8DG-7gU03mKs1JxqEzUULwBinfHKtYWyPycKkG6mA@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=RcAGCBuN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795186253; x=1826722253;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=JQvaCfeOk1s1RVNnhLHnBJlsZ1ic/pUXKyIFsagdv1M=;
+  b=RcAGCBuNFH9qq57lzpB5ulLYkqg4ZGLrJXglOZ1G2t4XAgUPIL1qpIIZ
+   FUbfd/CL4J8m2LYy7kmz0hD5p9luq6Hxn498T/28WQmZu3Id9d6RSQozR
+   5PBm0RsAJuGEZszJSGhIskf0z625CVkM+X6kMNVD/EhDAxnSZ5S1JE6wN
+   x1AfCAxQ76Vt7mPcD13RLBV/Tvoi4FZUmieFg9XP/f6N3Hq3a9kHXtOWF
+   7wvF8JJoG3UViQdrJmPN09i7gPbs1SA9MHBcygAeipUuSr1CeljreiP8s
+   EQWCVLo4CzZjcEAE1Ns1jD/65n9Q/j6i49CjcUakA2OzgLbkXV/ffZi8Z
+   g==;
+X-CSE-ConnectionGUID: f+dOXEoQSG+TjAjLxdc4Eg==
+X-CSE-MsgGUID: HtvVwrfuQASlPwjt5Z3lpw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11972"; a="3953295"
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="3953295"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Nov 2026 06:50:51 -0800
+X-CSE-ConnectionGUID: qmqjffb9RnCljrrPQJNwPw==
+X-CSE-MsgGUID: b2RA5lEFQEe7W1g9sxlwhQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,223,1787036400"; 
+   d="scan'208";a="11134673"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa001.fm.intel.com with ESMTP; 20 Nov 2026 06:50:48 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id E6B7699; Fri, 20 Nov 2026 15:50:46 +0100 (CET)
+Date: Fri, 20 Nov 2026 15:50:46 +0100
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Akash Kumar <akash.kumar@oss.qualcomm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Wayne Chang <waynec@nvidia.com>,
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: usb: cypress,cypd4226: Add
+ orientation-gpios property
+Message-ID: <awBeRhkkKwWGYxm1@black.igk.intel.com>
+References: <20261117-ucsi-ccg-cc-orientation-v2-0-2e3576a11eb7@qti.qualcomm.com>
+ <20261117-ucsi-ccg-cc-orientation-v2-1-2e3576a11eb7@qti.qualcomm.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -63,32 +88,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAG6=z5tzc8DG-7gU03mKs1JxqEzUULwBinfHKtYWyPycKkG6mA@mail.gmail.com>
+In-Reply-To: <20261117-ucsi-ccg-cc-orientation-v2-1-2e3576a11eb7@qti.qualcomm.com>
 
-On Fri, Nov 20, 2026 at 09:28:53PM +0700, Rustam Mustafin wrote:
-> On Fri, Nov 20, 2026 at 7:27 PM Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> > On Fri, Nov 20, 2026 at 07:16:13PM +0700, Rustam Mustafin wrote:
-> [...]
-> > So... why does not this block uring? You are implementing a feature
-> > as a bug fix, or so that it appears.
+On Tue, Nov 17, 2026 at 07:39:47PM +0530, Akash Kumar wrote:
+> Add the optional orientation-gpios property, used to sense the CC
+> orientation of each Type-C connector on boards where the CCGx chip
+> has no HPI register exposing CC polarity. Entries are ordered by
+> connector number; an entry may be left as <0> for connectors with no
+> sense line.
 > 
-> Patch 1 also fixes a plain read() racing a write() (the second trace),
-> which does not involve io_uring, so blocking io_uring alone would not
-> cover it. Patch 1 is small, so it might be easier to backport.
+> Signed-off-by: Akash Kumar <akash.kumar@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/usb/cypress,cypd4226.yaml | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+
+This one did not apply on top of Greg's latest usb-next. I tried also
+linux-next.
+
+Thanks,
+
+> diff --git a/Documentation/devicetree/bindings/usb/cypress,cypd4226.yaml b/Documentation/devicetree/bindings/usb/cypress,cypd4226.yaml
+> index d923ef82ecfa..5716c045d87e 100644
+> --- a/Documentation/devicetree/bindings/usb/cypress,cypd4226.yaml
+> +++ b/Documentation/devicetree/bindings/usb/cypress,cypd4226.yaml
+> @@ -59,6 +59,14 @@ properties:
+>      description: enable IRQ remote wakeup, see power/wakeup-source.txt
+>      type: boolean
+>  
+> +  orientation-gpios:
+> +    description:
+> +      GPIOs used to sense the CC orientation of each Type-C connector.
+> +      Entries are ordered by connector number, i.e. the first entry
+> +      corresponds to connector@0 and the second to connector@1.
+> +    minItems: 1
+> +    maxItems: 2
+> +
+>  patternProperties:
+>    '^connector@[01]$':
+>      $ref: /schemas/connector/usb-connector.yaml#
+> @@ -129,6 +137,7 @@ examples:
+>        };
+>      };
+>    - |
+> +    #include <dt-bindings/gpio/gpio.h>
+>      #include <dt-bindings/interrupt-controller/irq.h>
+>      i2c {
+>          #address-cells = <1>;
+> @@ -141,6 +150,7 @@ examples:
+>              pinctrl-0 = <&usb0_intr_state>;
+>              pinctrl-names = "default";
+>              wakeup-source;
+> +            orientation-gpios = <0>, <&tlmm XX GPIO_ACTIVE_HIGH>;
+>  
+>              #address-cells = <1>;
+>              #size-cells = <0>;
 > 
-> The io_uring block is posted on top of this series:
-> https://lore.kernel.org/all/20261120142116.1630010-1-rmustafin@cloudlinux.com/
-> 
-> It depends on this series, because the new ->read_iter() would let
-> vfs_iter_read() callers such as Coda reach tpm_common_read() with
-> their own offset.
+> -- 
+> 2.43.0
 
-My mishap.
-
-Sorry. I'll look into this soon.
-
-> 
-> Br,
-> Rustam
-
-Br, Jarkko
+-- 
+heikki
