@@ -1,55 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795185233;
-	b=VDYBpHwIrTp216hwcHEmRpFT5ySee2qvr0GhMwwqGsdXLgVhFDp92hUPM5/V6MOqtCFO
-	 IIyuAAowyMDQAJ6W1fI9K/hiT6bV5B9ErO/Vc5q0iKqqwSdW2HDVn3UTtnY75Om4+5D0v
-	 TCd5nd+t/3DD+A50xqgt5dHUDRNAVY6z6YkhX/yB/KWiarWnafLpjHOrX2hMYZYKoL4ND
-	 xjS8YHq7W+pkOWg6FulrD7XWWrsimMUkI7rLmnEhKyfrqGt3Ahdm55gJevDU9sh6fTi9L
-	 METT4H3iaAiO8udv89eGI/oY0Gqme3Hpo6W0POx+LLvlBwJO9feGE5VJbUDH/Cdz6HA==
+	t=1795185247;
+	b=1cOClJZNyyloe8KOIDekxqAC4RaRauxGBpxrff3yrBVUl46iQxXmo+G2VQ3HxFYgqFIM
+	 sT9V3fHJGY/NE0J2qAYKtt+ydJJUUWuzQ03XJyEg9pceJ5PHcDROu0JVVIR5dyEv0DT1l
+	 pSjBoZoND6FRistr91Ww1pDJNLtTZQusaAHy5dHUfQ1WsBpgelSvkaNYu/IE4dJu/sXyJ
+	 y0YMz+YXeiTn18WAsmgXVDp2ALk2wSDPpbMFFwnKom9cfesPk8ScxFZVd//ZaaYpqJtYL
+	 hcqn/tEFrBe9vEUVIz0VkXYsfkRcIul2FcTq3B4N6A9L7F+k30bLOZAixTw4Jew9VMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795185233;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Fy3WW09hB+rkP27DDiDOsr/F2JQ6kUcBqy1wnUqOGKY=;
-	b=mXhaquO4z3eDnguqkzL4IOq9hoZDwmn9o+pcvFzrZhF3Q5MEubjo4meWE8zkr3tjmusY
-	 Pq6AxjzKKxJmxSrJ4DA+8w06JjAlIUJksA90yVPdgkOpD+nm+0nE8Dohx8ynC3eWv24N/
-	 dd7o1mSUY4yn2/vtcB23gV2VJRJbFDhRVI3pBEVkXFqGgY9QRnTaZrVopGDE3wjKxoMVo
-	 3bxOzEjCCyb/MPqc236++mao7eSrlhvpMpOzoRa2/c7PncThYCYWeP6/QzNYUdczCGTgp
-	 mJNd8n1FH1poKH1cQ6LurCq9NYwPCFo0Qe0CpYCU41rIxhqhGwNkPU1OUAM5X5ihFOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795185247;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-Cookie;
+	bh=YuAKHbbXV3jCHWSzAuL0OsesH9HU+Le2AJuVjr7ZIbM=;
+	b=opI0O1Ox5m1SR4iTDHIXcxe/OKkuXNTWouK8A26klYE9cHiwQ+Q7O1nnPOLngJbm6qwo
+	 qNSUeoF5GbHTHmy1lofDRdOEpXPjlCqDUdJ6TxbIw3xnFxjeVwtsQ4TA26CrLpfHJhC0x
+	 sGe6jrmvsejx3s1d5jd+lGKM4OmoxCrXi6fzzt3gbWli0TsKhlf31oxgDRjg5GQM7nob0
+	 zBXJbudm3V5E5ES2LunqDmJVvUWHalEN98AdE7BvkdEJ9Vl/N7w8Mchtlfos4JlX7fKah
+	 8YTIfV1FAYskrU7ctyeOiUxJwUtKfjW1Chg1xjaxIRazJhubB3kI/K8VVyU7xkNeAnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kP6gHav2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BycBojCO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C78D8606A32C
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:33:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2900606A325
+	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:34:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kP6gHav2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8AC1F000E6
-	for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 14:33:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BycBojCO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 697941F000D3;
+	Fri, 20 Nov 2026 14:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795185233;
-	bh=Fy3WW09hB+rkP27DDiDOsr/F2JQ6kUcBqy1wnUqOGKY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kP6gHav2GQa1iDKRIlyXbUNoVUUQ6bzwiY7KGVt3Uongi7Bl7i9cci9WDEWJZvztc
-	 hLsgKPBSH4JeI815Pd5DnJhZPovR0y2xXsfHmHIgfIUgHYpKVk0N7Z8PU5XBhh6sAz
-	 9bgZE1ipS6hJRYKcOK6TPxiu3TZuZ0oIhTelgC6e9xioMq+hEtjju95EmN/Etqsn/B
-	 A/EdQ037JyB0JGZ7XFHpZq20+429ZWh6bLiO7NqovbhoG9gus7Lj2hUxR4gN9jLc3V
-	 Ij5Ju0kv+Stfhlda76toyjwXtXTe/lkynCTO2Rsz8gBtW5QFLRyxg0PeepL7yVdNPd
-	 0XiEPWR2s/7dg==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae0a5c1715so20283221fa.1
-        for <linux-kernel@vger.kernel.org>; Fri, 20 Nov 2026 06:33:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErE+W5HBlkd3rV9d+XwVC9SFoe26QdtuHbIUYqlWVcjIhCMbKsgfVLvT8LO4SlqzyItmOLY4aEUKMY7vFT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8AGMBCF6xX3X9dmz5ocr8P+G8C8WQKFFBUM4oYaB/ZxFPKpwWw
-	FBHx+YEwVljL5CJ5E06E46FeAkvUtm2nV8D3I/9tTANyWiAYmlvSWB8XQQnZt93uIsBUyfkMMeQ
-	92Pa4FI4wAX8IbvG6+/Cn0PrYPpxFv/s=
-X-Received: by 2002:a05:6512:3052:b0:5c1:4ede:6fcb with SMTP id
- 2adb3069b0e04-5c1bc822591mr845358e87.8.1795185231609; Fri, 20 Nov 2026
- 06:33:51 -0800 (PST)
+	s=k20260515; t=1795185246;
+	bh=YuAKHbbXV3jCHWSzAuL0OsesH9HU+Le2AJuVjr7ZIbM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BycBojCO2/GXenUyEVZFK/6ZS4ELIaMuZIbnwO5k4o8jKPF5HiU5GZHVtw+agS1Lj
+	 +zMR//igXD2bLvZGZbHgfzeJ5ZDSaoaJMQ+QP/F+H3382tdHOs2kplcxyh9SEk2Ufl
+	 cOBFuhAFZ6HQNldsJC8P/d39kZ0+mrx5TVBHEgQ6dq+TAF8MtBROjImoiCR/MRZaK+
+	 8u+SzCAEgS5/0easNb755oW8z2YYiDHNV63vvP6QLOBBBAbbPWAxbXucO6g0S8dR8k
+	 9k1z+/XCN5Gb80jCETJpTqqFRfcQVTA6jUduWeclHJW0srb92W71Zl/fny+3KGQ8ZR
+	 tLv2ZaZMhrAoQ==
+Date: Fri, 20 Nov 2026 14:34:02 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Victor Chernyakin <chernyakin.victor.j@outlook.com>
+Cc: linux-kernel@vger.kernel.org, Andy Shevchenko <andy@kernel.org>
+Subject: Re: [RFC PATCH v2 0/2] regmap: add APIs to bypass regmap_field and
+ work with reg_field directly
+Message-ID: <8f9f8fb2-9755-43f8-a24c-a5eef0ab8541@sirena.org.uk>
+References: <SN1PR12MB2528812E26B65457239E9EEDA57F2@SN1PR12MB2528.namprd12.prod.outlook.com>
 X-Mailing-List: linux-kernel@vger.kernel.org
 List-Id: <linux-kernel.vger.kernel.org>
 List-Post: <mailto:linux-kernel@vger.kernel.org>
@@ -59,79 +57,45 @@ List-Unsubscribe: <mailto:linux-kernel+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:linux-kernel+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120134716.3027-1-ilpo.jarvinen@linux.intel.com> <20261120134716.3027-6-ilpo.jarvinen@linux.intel.com>
-In-Reply-To: <20261120134716.3027-6-ilpo.jarvinen@linux.intel.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Fri, 20 Nov 2026 15:33:39 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hPOdbnWVrD8gVGS9L=WoXyO7REhWSgCJ26F8Fkzf94yw@mail.gmail.com>
-X-Gm-Features: Aa3M54os8iRJ1ey_0RncgK8uRQ3y9Pr0ZgaUI1JtUGreQJfTIibpDnX303gkn5g
-Message-ID: <CAJZ5v0hPOdbnWVrD8gVGS9L=WoXyO7REhWSgCJ26F8Fkzf94yw@mail.gmail.com>
-Subject: Re: [PATCH v2 05/16] PCI: acpiphp: Use pci_assign_unassigned_slot_resources()
-To: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: linux-pci@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Rob Herring <robh@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
-	"Rafael J. Wysocki (Intel)" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="KLTvVxng65nBkwQ+"
+Content-Disposition: inline
+In-Reply-To: <SN1PR12MB2528812E26B65457239E9EEDA57F2@SN1PR12MB2528.namprd12.prod.outlook.com>
+X-Cookie: Error in operator: add beer
 
-On Fri, Nov 20, 2026 at 2:48=E2=80=AFPM Ilpo J=C3=A4rvinen
-<ilpo.jarvinen@linux.intel.com> wrote:
->
-> enable_slot() calls the internal sizing and assignment functions
-> directly to size only the bridges in the slot. Use
-> pci_assign_unassigned_slot_resources() instead.
->
-> Sizing now happens after scanning all bridges in the slot instead of
-> right after scanning each bridge. Sizing a bridge window only walks the
-> hierarchy below that bridge, so the order does not matter. Sizing now
-> also holds pci_bus_sem.
->
-> Signed-off-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
-> Cc: stable@vger.kernel.org
 
-LGTM
+--KLTvVxng65nBkwQ+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Acked-by: Rafael J. Wysocki (Intel) <rafael@kernel.org>
+On Fri, Nov 13, 2026 at 12:55:44AM -0600, Victor Chernyakin wrote:
 
-> ---
->  drivers/pci/hotplug/acpiphp_glue.c | 5 +----
->  1 file changed, 1 insertion(+), 4 deletions(-)
->
-> diff --git a/drivers/pci/hotplug/acpiphp_glue.c b/drivers/pci/hotplug/acp=
-iphp_glue.c
-> index 632344f34cae..fc95d5814ecb 100644
-> --- a/drivers/pci/hotplug/acpiphp_glue.c
-> +++ b/drivers/pci/hotplug/acpiphp_glue.c
-> @@ -497,7 +497,6 @@ static void enable_slot(struct acpiphp_slot *slot, bo=
-ol bridge)
->                                 acpiphp_native_scan_bridge(dev);
->                 }
->         } else {
-> -               LIST_HEAD(add_list);
->                 int max, pass;
->
->                 acpiphp_rescan_slot(slot);
-> @@ -511,12 +510,10 @@ static void enable_slot(struct acpiphp_slot *slot, =
-bool bridge)
->                                 if (pass && dev->subordinate) {
->                                         check_hotplug_bridge(slot, dev);
->                                         pcibios_resource_survey_bus(dev->=
-subordinate);
-> -                                       __pci_bus_size_bridges(dev->subor=
-dinate,
-> -                                                              &add_list)=
-;
->                                 }
->                         }
->                 }
-> -               __pci_bus_assign_resources(bus, &add_list, NULL);
-> +               pci_assign_unassigned_slot_resources(bus, slot->device);
->         }
->
->         acpiphp_sanitize_bus(bus);
-> --
-> 2.47.3
->
->
+> This is not actually a new idea! Both it and the current *_alloc approach
+> were suggested as alternatives right when the regmap_field_* APIs were
+> being added [1]. The *_alloc approach was chosen without much
+> discussion, but I think (and Patch 2 demonstrates, I hope) that
+> this approach is the cleaner one.
+
+This approach doesn't address the main driver for the field API so well.
+That is where we have devices with similar programming models but
+differing register layouts, for example bitfields changing sizes or
+moving.  That ends up meaning you don't get most of the inlining
+benefits since nothing is known at compile time, the compiler wasn't
+being particularly helpful with it.
+
+--KLTvVxng65nBkwQ+
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmsAWlkACgkQJNaLcl1U
+h9A9rQf/Yaj2RbG4+o8VT61wK+hEBTh3kU8b5w9stHCeyxcp1Lx4rBp0DtTrbKhO
+w9ACOeNiWBTTplnElWQ/SfRYl/vKatcmnBuaOIUF9sOONAQcmdlYsTRRraTOoDYa
+viN55PbapyCPditMhUjEVuprtEKyO2m5EpNIiC0KGbvcLY5ng8SDLpa5nzBZ/fkd
+SQ8fFoJ1B75lVbwWHddkyFPn3WSTljDX3k4yufmhGGV2K7icbiI7X9tH4FwkU0Y8
+qsuuBE42ZMCvcqnMHKKctWe+4BiaRX/AuczLnV69XU5OJ/Elt3vlM6znp+QhU3ZO
+l9T7gPuAv49WuMoWeCwnSpm+nHQ9ng==
+=9D7h
+-----END PGP SIGNATURE-----
+
+--KLTvVxng65nBkwQ+--
